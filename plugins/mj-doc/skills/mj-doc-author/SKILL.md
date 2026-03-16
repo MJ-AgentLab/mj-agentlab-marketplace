@@ -1,6 +1,6 @@
 ---
 name: author
-description: Use when writing a specific MJ System document — GUIDE, RUNBOOK, ADR, SPEC, POSTMORTEM, or STANDARD. Use after the document type and scope are already decided. Triggers on "write a GUIDE for", "create a RUNBOOK for", "generate documentation for", "draft an ADR for".
+description: This skill creates a single Framework v4-compliant MJ System document (GUIDE, RUNBOOK, ADR, SPEC, POSTMORTEM, or STANDARD) from code analysis through validation. It should be invoked after the document type and scope are already decided, producing complete documents with correct frontmatter, section structure, and cross-references. Triggers on "write a GUIDE for", "create a RUNBOOK for", "generate documentation for", "draft an ADR for", "写文档", "编写指南", "创建RUNBOOK", "生成ADR", "写规范文档".
 ---
 
 # MJ Document Author

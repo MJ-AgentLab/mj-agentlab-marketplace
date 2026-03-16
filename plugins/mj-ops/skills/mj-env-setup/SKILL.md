@@ -1,13 +1,6 @@
 ---
 name: env-setup
-description: Use when setting up local development environment, first-time Docker stack startup,
-  cold start, or onboarding new developers. Also use when a developer mentions Docker
-  containers not starting, database not initialized, seed data missing, or asks "how
-  do I get this project running". Triggers on 本地环境搭建, 环境初始化, 项目跑不起来,
-  容器起不来, 数据库没数据, cold start, docker compose setup, 新人入职环境, local dev
-  setup, 搭建开发环境, 启动本地服务, get started, project setup. Guides complete Docker
-  full-stack setup including database initialization, n8n auto-configuration, and seed
-  data loading.
+description: This skill guides complete Docker full-stack local development environment setup, including database initialization, n8n auto-configuration, and seed data loading. It should be invoked for first-time Docker stack startup, cold start, onboarding new developers, or when Docker containers fail to start, database is not initialized, or seed data is missing. Triggers on "本地环境搭建", "环境初始化", "项目跑不起来", "容器起不来", "数据库没数据", "cold start", "docker compose setup", "新人入职环境", "local dev setup", "搭建开发环境", "启动本地服务", "get started", "project setup".
 ---
 
 # MJ Env Setup

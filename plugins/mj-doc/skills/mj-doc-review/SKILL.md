@@ -1,6 +1,6 @@
 ---
 name: review
-description: Use when reviewing a pull request that includes documentation changes, or before submitting a PR to verify documentation completeness. Checks all §9.3 quality gate items at PR scope — INDEX.md sync, CLAUDE.md sync, §12 pre-check compliance, cross-reference integrity. Triggers on "review PR docs", "check PR documentation", "documentation checklist for PR", "pre-PR doc check".
+description: This skill reviews a pull request for documentation completeness, checking all Framework v4 §9.3 quality gate items at PR scope — INDEX.md sync, CLAUDE.md sync, §12 pre-check compliance, and cross-reference integrity. It should be invoked when reviewing a PR that includes documentation changes, or before submitting a PR to verify documentation requirements are met. Triggers on "review PR docs", "check PR documentation", "documentation checklist for PR", "pre-PR doc check", "审查PR文档", "PR文档检查", "提交前文档验证", "文档质量门禁".
 ---
 
 # MJ Documentation Review

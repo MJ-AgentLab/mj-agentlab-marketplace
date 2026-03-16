@@ -1,6 +1,6 @@
 ---
 name: migrate
-description: Use when converting legacy documents from docs_old/ or non-Framework-v4 format into compliant Framework v4 documents. Also use when restructuring documentation that uses old tags like [MANUAL] or [API], or when consolidating multiple legacy docs into new structure. Triggers on "migrate docs", "convert old documentation", "restructure docs_old".
+description: This skill converts legacy documents from docs_old/ or non-Framework-v4 format into compliant Framework v4 documents, handling tag migration, content restructuring, and N:M doc splitting or merging. It should also be used when restructuring documentation that uses old tags like [MANUAL] or [API], or when consolidating multiple legacy docs into new structure. Triggers on "migrate docs", "convert old documentation", "restructure docs_old", "迁移文档", "转换旧文档", "文档格式升级", "重构文档结构".
 ---
 
 # MJ Documentation Migrator

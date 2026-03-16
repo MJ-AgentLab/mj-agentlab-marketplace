@@ -1,12 +1,6 @@
 ---
 name: etl-ods-to-dwd
-description: Use when manually triggering QVL ETL pipeline from biz_ods to biz_dwd,
-  bypassing pg_cron wait. Use this skill whenever the developer has inserted ODS data
-  and wants to see DWD results immediately without waiting for the 1-minute cron poll
-  and quiet window. Also use when DWD tables appear empty after cold start or data
-  loading. Triggers on 触发ETL, ODS到DWD, 手动ETL, QVL ETL, run etl,
-  trigger ods to dwd, 数据没出来, DWD没更新, 跑一下ETL, DWD表是空的,
-  插了数据但没反应, cold start 后没数据.
+description: This skill manually triggers the QVL ETL pipeline from biz_ods to biz_dwd, bypassing the pg_cron 1-minute polling wait and quiet window. It should be invoked whenever ODS data has been inserted and DWD results are needed immediately, when DWD tables appear empty after cold start or data loading, or when data does not propagate after insertion. The pipeline checks the biz_ods ready signal and executes the ETL function via direct SQL call. Triggers on "触发ETL", "ODS到DWD", "手动ETL", "QVL ETL", "run etl", "trigger ods to dwd", "数据没出来", "DWD没更新", "跑一下ETL", "DWD表是空的", "插了数据但没反应", "cold start 后没数据".
 ---
 
 # mj-etl-ods-to-dwd

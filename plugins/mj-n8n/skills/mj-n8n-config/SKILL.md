@@ -1,6 +1,6 @@
 ---
 name: config
-description: Use when adding trigger configuration to n8n environment YAML files, configuring cron expressions, setting interval minutes, or updating dev/test/production.yaml for a new workflow in MJ System. Triggers on 配置n8n触发器, n8n config, yaml配置, 添加cron, 环境配置, trigger configuration, n8n yaml, 配置调度, 定时任务配置, n8n环境参数. Adds trigger entries to _config/*.yaml files with format validation.
+description: This skill adds trigger configuration entries to n8n environment YAML files (_config/dev.yaml, test.yaml, production.yaml), handling cron expressions, interval minutes, and environment-specific parameters with format validation. It should be invoked when configuring triggers for a new workflow or updating existing trigger parameters in MJ System. Triggers on "配置n8n触发器", "n8n config", "yaml配置", "添加cron", "环境配置", "trigger configuration", "n8n yaml", "配置调度", "定时任务配置", "n8n环境参数".
 ---
 
 # mj-n8n-config Skill

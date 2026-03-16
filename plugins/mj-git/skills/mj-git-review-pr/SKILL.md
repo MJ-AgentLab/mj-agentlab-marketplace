@@ -1,14 +1,6 @@
 ---
 name: review-pr
-description: >
-  Use when reviewing a Pull Request for architecture compliance, design consistency,
-  and ops domain completeness in MJ System. Use this skill whenever you need to evaluate
-  whether a PR should be merged, check if code follows MJ project conventions, or assess
-  architectural quality of changes. Also use when the user pastes a PR URL, mentions a PR number,
-  or asks about code structure issues in a branch.
-  Triggers on "评审PR", "review PR", "审查PR", "PR评审", "review pull request",
-  "这个PR能合吗", "可以merge吗", "帮我看看这个PR", "检查PR架构", "architecture review",
-  "代码结构有没有问题", "检查一下这个分支", "PR review".
+description: This skill should be used when the user asks to review a Pull Request for architecture compliance, design consistency, or ops domain completeness in MJ System. It should also be invoked when the user pastes a PR URL, mentions a PR number, or asks about code structure issues in a branch. Triggers on "评审PR", "review PR", "审查PR", "PR评审", "review pull request", "这个PR能合吗", "可以merge吗", "帮我看看这个PR", "检查PR架构", "architecture review", "代码结构有没有问题", "检查一下这个分支", "PR review".
 ---
 
 # MJ Git Review PR

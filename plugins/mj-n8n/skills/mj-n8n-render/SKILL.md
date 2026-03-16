@@ -1,6 +1,6 @@
 ---
 name: render
-description: Use when rendering n8n workflow templates to environment-specific JSON, verifying rendered output, checking for unresolved placeholders, or validating workflow JSON syntax in MJ System. Triggers on 渲染n8n, n8n render, 验证workflow, 检查占位符, 渲染工作流, render workflow, verify n8n, n8n验证, 占位符检查, 生成环境JSON. Executes render script and validates output integrity.
+description: This skill executes the rendering pipeline — transforming _base/ templates plus _config/ YAML configurations into environment-specific JSON files under dev/, test/, and production/ directories, then validating output for placeholder residuals and JSON syntax. It should be invoked when rendering workflow templates or verifying rendered output in MJ System. Triggers on "渲染n8n", "n8n render", "验证workflow", "检查占位符", "渲染工作流", "render workflow", "verify n8n", "n8n验证", "占位符检查", "生成环境JSON".
 ---
 
 # mj-n8n-render Skill

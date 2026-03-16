@@ -1,6 +1,6 @@
 ---
 name: plan
-description: Use when evaluating what documentation is needed for a MJ System topic, service, or infrastructure area. Also use when planning multi-document work, assessing documentation gaps, or asked "what docs do we need for X?". Triggers on "evaluate documentation for", "plan docs for", "what documentation does X need", "documentation gap analysis".
+description: This skill evaluates what documentation is needed for a MJ System topic, service, or infrastructure area by analyzing code scope against Framework v4 requirements. It should also be invoked when planning multi-document work, assessing documentation gaps, or answering "what docs do we need for X?". Triggers on "evaluate documentation for", "plan docs for", "what documentation does X need", "documentation gap analysis", "文档规划", "评估文档需求", "文档缺口分析", "需要哪些文档".
 ---
 
 # MJ Documentation Planner

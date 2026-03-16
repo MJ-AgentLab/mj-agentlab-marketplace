@@ -1,6 +1,6 @@
 ---
 name: push
-description: Use when ready to push code, running pre-push checks, setting up dual-push to Gitee and GitHub, troubleshooting push errors, or handling CHANGELOG updates in MJ System.
+description: This skill should be used when the user asks to push code, run pre-push checks, set up dual-push to Gitee and GitHub, troubleshoot push errors, or handle CHANGELOG updates in MJ System. Triggers on "推送代码", "push code", "git push", "推到远端", "push to remote", "dual push", "Gitee push", "推送失败", "push error", "CHANGELOG", "推送前检查", "pre-push check". Runs an 8-item pre-push checklist and executes dual-push (Gitee first, GitHub second).
 ---
 
 # MJ Git Push

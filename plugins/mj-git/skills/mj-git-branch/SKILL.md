@@ -1,6 +1,6 @@
 ---
 name: branch
-description: Use when creating branches, naming branches, starting feature/bugfix/docs/maintain/hotfix work, setting up Git Worktree, or asking which branch type to use in MJ System.
+description: This skill should be used when the user asks to create a branch, name a branch, start feature/bugfix/documentation/maintain/hotfix work, set up a Git Worktree, or choose the correct branch type in MJ System. Triggers on "创建分支", "新建分支", "开新分支", "create branch", "new branch", "branch naming", "worktree add", "哪种分支类型", "which branch type", "开始开发", "start feature", "start bugfix", "start hotfix".
 ---
 
 # MJ Git Branch

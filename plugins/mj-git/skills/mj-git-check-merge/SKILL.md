@@ -1,6 +1,6 @@
 ---
 name: check-merge
-description: Use when checking if a PR is ready to merge, verifying CI status, review approvals, merge conflicts, or PR description completeness for MJ System. Always invoke this skill when the user asks about PR status, whether code is ready, whether they can merge, or whether PM can review — even if phrased indirectly. Triggers on: PR 能合并吗、check merge readiness、PR 审核状态、可以合并了吗、PR ready、代码准备好了吗、可以让人 review 了吗.
+description: This skill should be used when the user asks to check if a PR is ready to merge, verify CI status, review approvals, merge conflicts, or PR description completeness for MJ System. It should also be invoked when the user asks about PR status, whether code is ready, whether they can merge, or whether PM can review, even if phrased indirectly. Triggers on "PR 能合并吗", "check merge readiness", "PR 审核状态", "可以合并了吗", "PR ready", "代码准备好了吗", "可以让人 review 了吗".
 ---
 
 # MJ Git Check Merge

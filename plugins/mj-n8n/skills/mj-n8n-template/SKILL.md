@@ -1,6 +1,6 @@
 ---
 name: template
-description: Use when converting an exported n8n workflow JSON into a template, creating _base/ directory structure, replacing environment values with placeholders, or cleaning up credential IDs in MJ System. Triggers on 转换n8n模板, 创建workflow模板, n8n template, 占位符替换, workflow.json, 导出JSON转模板, 清理凭据ID, n8n placeholder, convert workflow json. Reads exported JSON, applies placeholder substitution, and writes validated template to _base/ directory.
+description: This skill converts n8n UI-exported workflow JSON into environment-agnostic _base/ templates (Path A), replacing environment-specific values with placeholders and cleaning up credential IDs. The output templates are not valid JSON by design — they contain double-brace placeholders that the render script substitutes per environment. It should be invoked when processing exported workflow JSON in MJ System. Triggers on "转换n8n模板", "创建workflow模板", "n8n template", "占位符替换", "导出JSON转模板", "清理凭据ID", "n8n placeholder", "convert workflow json".
 ---
 
 # MJ N8N Template — 导出 JSON 转环境无关模板

@@ -1,6 +1,6 @@
 ---
 name: author
-description: Use when generating an n8n workflow JSON from scratch without using the n8n UI, building workflow nodes programmatically, creating workflow templates from requirements, or when the user describes a workflow they want Claude Code to build directly. Triggers on 生成workflow, 编写n8n工作流, 从零创建workflow, build n8n workflow, generate workflow json, 自动生成n8n, write workflow from scratch, 不用UI创建workflow, 构建工作流JSON, create workflow programmatically. Generates complete workflow.json template with placeholders directly from design specifications.
+description: This skill generates an n8n workflow JSON from scratch without using the n8n UI, building workflow nodes programmatically and creating complete workflow.json templates with placeholders directly from design specifications. It should be invoked when building workflow templates from requirements or when a workflow needs to be created directly by Claude Code (Path B). Triggers on "生成workflow", "编写n8n工作流", "从零创建workflow", "build n8n workflow", "generate workflow json", "自动生成n8n", "write workflow from scratch", "不用UI创建workflow", "构建工作流JSON", "create workflow programmatically".
 ---
 
 # MJ N8N Workflow Author

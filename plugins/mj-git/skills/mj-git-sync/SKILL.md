@@ -1,16 +1,6 @@
 ---
 name: sync
-description: >-
-  Use when syncing latest develop (or main) changes into the current working branch
-  during active development, or syncing main back to develop after hotfix merge in MJ System.
-  Always use this skill when the user mentions their branch is behind, has conflicts with develop,
-  wants to update their branch, or mentions pulling/merging upstream changes — even if they don't
-  say "sync" explicitly. Triggers on 同步分支, 拉取最新, sync branch, pull develop, merge develop,
-  update branch, rebase（拦截并引导为 merge）, 分支落后, branch behind, 合并最新代码, 落后了,
-  分支过时了, develop 有新代码, 冲突太多了, branch outdated, catch up with develop, 同步一下,
-  同步 main 到 develop, hotfix 合并后同步, sync main to develop, hotfix 修复同步回 develop,
-  自更新, origin 有新提交, 协作者推了代码, self-update, pull remote,
-  另一台机器提交了, remote ahead.
+description: This skill should be used when the user asks to sync the latest develop or main changes into the current working branch, or sync main back to develop after a hotfix merge in MJ System. It should also be invoked when the user mentions their branch is behind, has conflicts with develop, wants to update their branch, or mentions pulling or merging upstream changes, even without saying "sync" explicitly. Triggers on "同步分支", "拉取最新", "sync branch", "pull develop", "merge develop", "update branch", "rebase", "分支落后", "branch behind", "合并最新代码", "落后了", "分支过时了", "develop 有新代码", "冲突太多了", "branch outdated", "catch up with develop", "同步一下", "同步 main 到 develop", "hotfix 合并后同步", "sync main to develop", "自更新", "origin 有新提交", "协作者推了代码", "self-update", "pull remote", "另一台机器提交了", "remote ahead".
 ---
 
 # MJ Git Sync

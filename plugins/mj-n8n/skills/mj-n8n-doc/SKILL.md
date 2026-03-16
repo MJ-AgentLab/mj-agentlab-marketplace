@@ -1,6 +1,6 @@
 ---
 name: doc
-description: Use when creating README.md or CHANGELOG.md for an n8n workflow, writing workflow documentation from template, or updating existing workflow docs in MJ System. Triggers on n8n文档, workflow文档, n8n readme, n8n changelog, 工作流文档, 写n8n文档, workflow documentation, n8n docs, 创建workflow文档. Generates documentation from project templates and workflow analysis.
+description: This skill generates README.md and CHANGELOG.md documentation for n8n workflows by reading project documentation templates and analyzing _base/ directory workflow.json files to auto-populate 9 README sections and initial CHANGELOG entries. It should be invoked when creating or updating workflow documentation in MJ System. Triggers on "n8n文档", "workflow文档", "n8n readme", "n8n changelog", "工作流文档", "写n8n文档", "workflow documentation", "n8n docs", "创建workflow文档".
 ---
 
 # MJ n8n Workflow Documentation Generator

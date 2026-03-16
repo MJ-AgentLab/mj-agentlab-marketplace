@@ -1,6 +1,6 @@
 ---
 name: delete
-description: Use when deleting branches, removing worktrees, or cleaning up after PR merge in MJ System. Triggers on 删除分支, 清理分支, branch cleanup, delete branch, worktree remove, PR 合并后清理, 分支已合并. Enforces correct deletion order (worktree → local branch → optional remote) with safety checks and human confirmation for all destructive steps.
+description: This skill should be used when the user asks to delete branches, remove worktrees, or clean up after a PR merge in MJ System. Triggers on "删除分支", "清理分支", "branch cleanup", "delete branch", "worktree remove", "PR 合并后清理", "分支已合并". Enforces correct deletion order (worktree then local branch then optional remote) with safety checks and human confirmation for all destructive steps.
 ---
 
 # MJ Git Delete
