@@ -9,6 +9,7 @@ jobs:
   sync-to-gitee:
     name: Sync to Gitee
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
         with:
@@ -64,7 +65,7 @@ jobs:
           git tag "$VERSION"
           git push origin "$VERSION"
           git remote add gitee "https://${GITEE_USERNAME}:${GITEE_TOKEN}@gitee.com/ranzuozhou/mj-agentlab-marketplace.git" 2>/dev/null || true
-          git push gitee "$VERSION"
+          git push gitee "$VERSION" || echo "WARNING: Failed to push tag to Gitee"
 
       - name: Extract release notes from CHANGELOG
         if: steps.check_tag.outputs.exists == 'false'
