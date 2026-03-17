@@ -5,6 +5,21 @@
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-03-18
+
+### Added
+- 导入 4 篇项目文档：项目概览、插件开发测试工作流、版本管理指南、发布操作手册
+- 新增 `docs/INDEX.md` 文档导航中心（含角色推荐阅读顺序）
+- 新增根 `CLAUDE.md`（marketplace 级 Claude Code agent 上下文）
+- `README.md` 新增文档索引链接
+
+### Removed
+- 删除 `docs/superpowers/` 临时规划文件
+
+### Changed
+- `.gitignore` 新增 `.serena/` 规则，优化 `.claude/` 忽略模式
+- 提交 `.claude/settings.json` 项目级插件启用配置
+
 ## [1.1.0] - 2026-03-17
 
 ### Changed
