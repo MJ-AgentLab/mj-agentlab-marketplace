@@ -1,5 +1,5 @@
 ---
-name: env-teardown
+name: mj-env-teardown
 description: This skill provides 3-level Docker environment cleanup (soft stop, volume removal, full purge) with safety confirmation for destructive operations. It should be invoked when stopping Docker stack, cleaning up containers, removing volumes, resetting local development environment, freeing Docker resources, or when a developer needs a fresh start after schema changes. Triggers on "停止Docker", "关闭服务", "清理环境", "重置环境", "docker down", "docker cleanup", "teardown", "清除容器", "reset environment", "释放资源", "环境清理", "docker compose down", "docker 占空间", "环境出问题想重来", "释放磁盘".
 ---
 

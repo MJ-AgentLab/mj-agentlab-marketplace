@@ -1,5 +1,5 @@
 ---
-name: plan
+name: mj-n8n-plan
 description: This skill handles the first step of the n8n workflow lifecycle — requirements analysis, naming convention compliance, and structure planning. It should be invoked when starting a new workflow design, determining workflow naming, choosing node category, planning node structure, or evaluating trigger types in MJ System. Triggers on "创建n8n工作流", "新增workflow", "设计n8n", "n8n plan", "新工作流", "workflow设计", "规划n8n节点", "n8n需求分析", "plan n8n workflow", "new n8n workflow".
 ---
 

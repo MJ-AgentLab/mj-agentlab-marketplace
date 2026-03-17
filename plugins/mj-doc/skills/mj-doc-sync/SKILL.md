@@ -1,5 +1,5 @@
 ---
-name: sync
+name: mj-doc-sync
 description: This skill detects documentation impact from code changes in MJ System and executes updates, repairing cross-references and syncing INDEX.md plus CLAUDE.md. It should be invoked when code changes require documentation updates, when documents are renamed or moved, or after merging PRs that touch src/, sql/, docker/, scripts/, .github/workflows/, or .env. Triggers on "update docs for code change", "fix stale references", "sync documentation", "docs are out of date", "同步文档", "文档过期了", "修复引用", "代码改了文档没更新".
 ---
 
