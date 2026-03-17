@@ -6,12 +6,12 @@ mj-doc 是 MJ System 的文档工作流技能家族 Plugin，提供 6 个 skill 
 
 | Skill | 命令 | 职责 |
 |-------|------|------|
-| **author** | `/mj-doc:author` | 按模板编写指定类型文档（GUIDE/RUNBOOK/ADR/SPEC/POSTMORTEM/STANDARD） |
-| **migrate** | `/mj-doc:migrate` | 将旧格式文档迁移为 Framework v4 格式 |
-| **plan** | `/mj-doc:plan` | 评估某主题/服务需要哪些文档，规划多文档工作 |
-| **review** | `/mj-doc:review` | PR 文档质量审查（§9.3 质量门检查） |
-| **sync** | `/mj-doc:sync` | 代码变更后同步更新关联文档 |
-| **validate** | `/mj-doc:validate` | 校验文档是否符合 Framework v4 和 Obsidian Markdown 标准 |
+| **author** | `/mj-doc:mj-doc-author` | 按模板编写指定类型文档（GUIDE/RUNBOOK/ADR/SPEC/POSTMORTEM/STANDARD） |
+| **migrate** | `/mj-doc:mj-doc-migrate` | 将旧格式文档迁移为 Framework v4 格式 |
+| **plan** | `/mj-doc:mj-doc-plan` | 评估某主题/服务需要哪些文档，规划多文档工作 |
+| **review** | `/mj-doc:mj-doc-review` | PR 文档质量审查（§9.3 质量门检查） |
+| **sync** | `/mj-doc:mj-doc-sync` | 代码变更后同步更新关联文档 |
+| **validate** | `/mj-doc:mj-doc-validate` | 校验文档是否符合 Framework v4 和 Obsidian Markdown 标准 |
 
 ## 共享资源
 

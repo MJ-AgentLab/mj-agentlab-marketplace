@@ -1,5 +1,5 @@
 ---
-name: issue
+name: mj-git-issue
 description: This skill should be used when the user asks to create a GitHub Issue, select an issue template, fill issue fields, or start a new task or bug report in MJ System. Triggers on "创建issue", "新建issue", "提issue", "报bug", "新任务", "create issue", "new issue", "report bug", "file issue", "open issue". Uses gh CLI with --body-file and reads .github/ISSUE_TEMPLATE at runtime for title prefix and labels.
 ---
 

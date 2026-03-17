@@ -1,5 +1,5 @@
 ---
-name: commit
+name: mj-git-commit
 description: This skill should be used when the user asks to stage files, create commits, write commit messages, check commit format, split changes into logical commits, or prepare code before push in MJ System. Triggers on "git add", "git commit", "提交代码", "暂存文件", "commit message", "提交格式", "拆分提交", "准备提交", "stage files", "怎么写 commit", "提交规范". Enforces type(scope) summary format and branch-type discipline at commit time, preventing rework at push stage.
 ---
 
