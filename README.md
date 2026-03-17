@@ -37,6 +37,7 @@ MJ System 团队插件市场 — 提供文档、Git、n8n、运维等 Claude Cod
 
 - Marketplace 和各 Plugin 独立版本管理
 - 变更日志详见 [CHANGELOG.md](CHANGELOG.md)
+- 项目文档和开发指南详见 [docs/INDEX.md](docs/INDEX.md)
 - 发布流程和贡献指引详见 [CONTRIBUTING.md](docs/CONTRIBUTING.md)
 
 ## 许可证
