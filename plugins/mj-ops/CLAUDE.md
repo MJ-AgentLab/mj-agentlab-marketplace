@@ -6,10 +6,10 @@ mj-ops 是 MJ System 的运维技能家族 Plugin，提供 4 个 skill：
 
 | Skill | 命令 | 职责 |
 |-------|------|------|
-| **env-setup** | `/mj-ops:env-setup` | 本地开发环境搭建（Docker full-stack + DB 初始化 + n8n 配置） |
-| **env-teardown** | `/mj-ops:env-teardown` | 环境停止/清理（3 级清理 + 安全确认） |
-| **etl-ods-to-dwd** | `/mj-ops:etl-ods-to-dwd` | 手动触发 QVL ETL（biz_ods → biz_dwd） |
-| **etl-dwd-to-dws** | `/mj-ops:etl-dwd-to-dws` | 手动触发 QCM ETL（biz_dwd → biz_dws） |
+| **env-setup** | `/mj-ops:mj-env-setup` | 本地开发环境搭建（Docker full-stack + DB 初始化 + n8n 配置） |
+| **env-teardown** | `/mj-ops:mj-env-teardown` | 环境停止/清理（3 级清理 + 安全确认） |
+| **etl-ods-to-dwd** | `/mj-ops:mj-etl-ods-to-dwd` | 手动触发 QVL ETL（biz_ods → biz_dwd） |
+| **etl-dwd-to-dws** | `/mj-ops:mj-etl-dwd-to-dws` | 手动触发 QCM ETL（biz_dwd → biz_dws） |
 
 ## MCP 依赖
 

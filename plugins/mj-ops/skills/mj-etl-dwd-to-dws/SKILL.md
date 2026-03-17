@@ -1,5 +1,5 @@
 ---
-name: etl-dwd-to-dws
+name: mj-etl-dwd-to-dws
 description: This skill manually triggers the QCM ETL 5-Phase parallel pipeline from biz_dwd to biz_dws, bypassing the pg_cron 5-minute polling wait. It should be invoked whenever DWS metrics need immediate update after DWD data is ready, when DWS tables appear empty, or when metrics have not refreshed after DWD data loading. The pipeline executes preprocess via dblink independent transaction, then 5 phases with up to 13 functions running in parallel (max 7 concurrent). Triggers on "触发QCM", "DWD到DWS", "手动指标计算", "QCM ETL", "trigger dws", "指标没更新", "DWS没数据", "跑指标", "run qcm", "计算指标", "等了好久还没算完", "DWS是空的".
 ---
 
