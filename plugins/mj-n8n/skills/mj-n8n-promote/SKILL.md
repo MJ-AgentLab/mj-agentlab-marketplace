@@ -1,5 +1,5 @@
 ---
-name: promote
+name: mj-n8n-promote
 description: This skill guides the final stage of the n8n workflow lifecycle — environment promotion through three phases (DEV testing, TEST promotion, PRODUCTION deployment), each with prerequisite checks, execution steps, and post-deployment verification. It should be invoked when promoting workflows between environments or executing rollback in MJ System. Triggers on "n8n晋升", "workflow部署", "环境迁移", "promote workflow", "n8n测试验证", "DEV测试", "TEST晋升", "PROD部署", "工作流上线", "n8n rollback", "回滚工作流", "n8n环境晋级", "部署验证".
 ---
 
