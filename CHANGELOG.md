@@ -1,0 +1,13 @@
+# Changelog
+
+格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/)，
+版本号遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
+
+## [Unreleased]
+
+## [1.0.0] - 2026-03-16
+
+### Added
+- 初始发布：4 个 Plugin（mj-doc, mj-git, mj-n8n, mj-ops），26 个 Skill
+- Plugin Marketplace 元数据结构（marketplace.json）
+- 各 Plugin 含 CLAUDE.md、README.md、plugin.json、SKILL.md
