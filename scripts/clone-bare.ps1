@@ -1,32 +1,29 @@
 # mj-agentlab-marketplace-clone-bare.ps1
-# 克隆 MJ AgentLab Marketplace 为 Bare Repo + Worktree 结构，并自动配置 Gitee 镜像 remote
+# 克隆 MJ AgentLab Marketplace 为 Bare Repo + Worktree 结构
 # 支持增量模式：项目目录已存在时，跳过初始化，仅添加新 worktree
 #
 # Usage:
-#   .\mj-agentlab-marketplace-clone-bare.ps1 -RepoUrl <url> [-Branches "develop"] [-GiteeUrl <url>]
+#   .\clone-bare.ps1 -RepoUrl <url> [-Branches "develop"]
 #
 # Examples:
 #   # 新成员入职（克隆 develop worktree）
-#   powershell -ExecutionPolicy Bypass -File .\mj-agentlab-marketplace-clone-bare.ps1 -RepoUrl https://github.com/MJ-AgentLab/mj-agentlab-marketplace
+#   powershell -ExecutionPolicy Bypass -File .\clone-bare.ps1 -RepoUrl https://github.com/MJ-AgentLab/mj-agentlab-marketplace
 #
 #   # 获取特定分支
-#   powershell -ExecutionPolicy Bypass -File .\mj-agentlab-marketplace-clone-bare.ps1 -RepoUrl https://github.com/MJ-AgentLab/mj-agentlab-marketplace -Branches "maintain/add-version-management"
+#   powershell -ExecutionPolicy Bypass -File .\clone-bare.ps1 -RepoUrl https://github.com/MJ-AgentLab/mj-agentlab-marketplace -Branches "maintain/add-version-management"
 #
 #   # 同时创建多个 worktree
-#   powershell -ExecutionPolicy Bypass -File .\mj-agentlab-marketplace-clone-bare.ps1 -RepoUrl https://github.com/MJ-AgentLab/mj-agentlab-marketplace -Branches "develop,main"
+#   powershell -ExecutionPolicy Bypass -File .\clone-bare.ps1 -RepoUrl https://github.com/MJ-AgentLab/mj-agentlab-marketplace -Branches "develop,main"
 #
 #   # 增量添加新分支（项目已存在时自动跳过初始化）
-#   powershell -ExecutionPolicy Bypass -File .\mj-agentlab-marketplace-clone-bare.ps1 -RepoUrl https://github.com/MJ-AgentLab/mj-agentlab-marketplace -Branches "feature/12-add-release-skill"
+#   powershell -ExecutionPolicy Bypass -File .\clone-bare.ps1 -RepoUrl https://github.com/MJ-AgentLab/mj-agentlab-marketplace -Branches "feature/12-add-release-skill"
 
 param(
     [Parameter(Mandatory=$true)]
     [string]$RepoUrl,
 
     [Parameter(Mandatory=$false)]
-    [string]$Branches = "develop",
-
-    [Parameter(Mandatory=$false)]
-    [string]$GiteeUrl = "https://gitee.com/ranzuozhou/mj-agentlab-marketplace.git"
+    [string]$Branches = "develop"
 )
 
 $BranchList = @($Branches -split "," | ForEach-Object { $_.Trim() })
@@ -89,25 +86,12 @@ foreach ($Branch in $BranchList) {
 $FirstBranch = $BranchList[0]
 if (-not (Test-Path $FirstBranch)) {
     Write-Host ""
-    Write-Host "WARNING: Worktree directory '$FirstBranch' does not exist, skipping Gitee remote configuration" -ForegroundColor Red
-    Write-Host "You can configure Gitee remote manually later:" -ForegroundColor Yellow
-    Write-Host "  cd $ProjectName/$FirstBranch" -ForegroundColor White
-    Write-Host "  git remote add gitee $GiteeUrl" -ForegroundColor White
-    Write-Host ""
+    Write-Host "WARNING: No worktree was created successfully" -ForegroundColor Red
     exit 0
 }
+
+# Return to project root (handle nested paths like feature/12-add-skill)
 Set-Location $FirstBranch
-
-$ExistingRemotes = @(git remote)
-if ($ExistingRemotes -contains "gitee") {
-    Write-Host ">>> Gitee remote already configured, skipping" -ForegroundColor Yellow
-} else {
-    Write-Host ">>> Configuring Gitee remote in worktree: $FirstBranch" -ForegroundColor Cyan
-    git remote add gitee $GiteeUrl
-}
-
-git config alias.pushall '!git push gitee HEAD && git push origin HEAD'
-
 Write-Host ">>> Verifying remotes..." -ForegroundColor Cyan
 git remote -v
 
@@ -120,4 +104,4 @@ Get-ChildItem -Force | Select-Object Name
 Write-Host ""
 Write-Host "Next steps:" -ForegroundColor Yellow
 Write-Host "  cd $ProjectName/$FirstBranch" -ForegroundColor White
-Write-Host "  git pushall   # dual-push to GitHub + Gitee" -ForegroundColor White
+Write-Host "  git push origin HEAD" -ForegroundColor White

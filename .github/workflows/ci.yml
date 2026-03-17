@@ -12,24 +12,6 @@ on:
     branches: [develop, main]
 
 jobs:
-  sync-to-gitee:
-    name: Sync to Gitee
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push'
-    continue-on-error: true
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Push to Gitee mirror
-        env:
-          GITEE_USERNAME: ${{ secrets.GITEE_USERNAME }}
-          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
-        run: |
-          git remote add gitee "https://${GITEE_USERNAME}:${GITEE_TOKEN}@gitee.com/ranzuozhou/mj-agentlab-marketplace.git"
-          git push gitee HEAD --force
-
   validate:
     name: Validate Structure
     runs-on: ubuntu-latest

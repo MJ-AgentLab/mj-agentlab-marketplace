@@ -158,8 +158,8 @@ mj-agentlab-marketplace/
 └── main/        # main worktree
 ```
 
-## 双远程推送
+## 推送
 
 ```bash
-git pushall   # 同时推送到 GitHub + Gitee
+git push origin HEAD
 ```
