@@ -6,15 +6,15 @@ MJ System Git 工作流技能家族 — 提供分支、提交、推送、PR、Re
 
 | Skill | 命令 | 触发场景 |
 |-------|------|---------|
-| branch | `/mj-git:branch` | 创建分支、Worktree 设置 |
-| check-merge | `/mj-git:check-merge` | 检查合并就绪 |
-| commit | `/mj-git:commit` | 规范化提交 |
-| delete | `/mj-git:delete` | 删除分支、清理 Worktree |
-| issue | `/mj-git:issue` | 创建 GitHub Issue |
-| pr | `/mj-git:pr` | 创建 Pull Request |
-| push | `/mj-git:push` | 推送代码 |
-| review-pr | `/mj-git:review-pr` | PR 架构评审 |
-| sync | `/mj-git:sync` | 同步分支 |
+| branch | `/mj-git:mj-git-branch` | 创建分支、Worktree 设置 |
+| check-merge | `/mj-git:mj-git-check-merge` | 检查合并就绪 |
+| commit | `/mj-git:mj-git-commit` | 规范化提交 |
+| delete | `/mj-git:mj-git-delete` | 删除分支、清理 Worktree |
+| issue | `/mj-git:mj-git-issue` | 创建 GitHub Issue |
+| pr | `/mj-git:mj-git-pr` | 创建 Pull Request |
+| push | `/mj-git:mj-git-push` | 推送代码 |
+| review-pr | `/mj-git:mj-git-review-pr` | PR 架构评审 |
+| sync | `/mj-git:mj-git-sync` | 同步分支 |
 
 ## 安装
 

@@ -1,5 +1,5 @@
 ---
-name: pr
+name: mj-git-pr
 description: This skill should be used when the user asks to create a Pull Request, select a PR template, fill PR fields, choose a deploy strategy for test environment, bump version numbers, or perform a release for MJ System. Triggers on "创建PR", "新建PR", "提PR", "create PR", "pull request", "PR模板", "deploy strategy", "版本号", "发版", "release", "合并到main", "merge to main". Uses gh CLI with --body-file and the correct template per branch type.
 ---
 
