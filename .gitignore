@@ -7,8 +7,12 @@ Thumbs.db
 .vscode/
 *.swp
 
-# Claude Code local settings
-.claude/*.local.md
+# Claude Code - only track settings.json
+.claude/*
+!.claude/settings.json
+
+# Serena
+.serena/
 
 # Node
 node_modules/
