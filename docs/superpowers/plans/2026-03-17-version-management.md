@@ -526,6 +526,7 @@ jobs:
     name: Sync to Gitee
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
         with:
@@ -1217,7 +1218,7 @@ assignees: ""
 blank_issues_enabled: false
 contact_links:
   - name: 贡献指南
-    url: docs/CONTRIBUTING.md
+    url: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/develop/docs/CONTRIBUTING.md
     about: 不确定选哪个模板？查看分支类型和贡献指引。
 ```
 
@@ -1371,6 +1372,16 @@ Claude Code agent 行为规范请参考各 Plugin 的 SKILL.md（如 mj-git 的 
 3. Commit: `infra(marketplace): release v1.1.0`
 4. 创建 PR：develop → main（使用 release PR 模板）
 5. 合并后自动触发：创建 git tag → GitHub Release → Gitee 同步
+
+## 回滚流程
+
+如发布版本存在问题，按以下步骤回滚：
+
+1. 从 main 创建 hotfix 分支修复问题
+2. 修复后 bump 为 patch 版本（如 1.1.0 → 1.1.1）
+3. 走正常的 hotfix PR 流程
+4. 如需删除错误的 GitHub Release：`gh release delete vX.Y.Z --yes`
+5. 如需删除错误的 tag：`git tag -d vX.Y.Z && git push origin --delete vX.Y.Z`
 
 ## Bare Repo + Worktree
 
