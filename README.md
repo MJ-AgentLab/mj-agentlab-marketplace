@@ -1,6 +1,6 @@
-# MJ AgentLab Marketplace
+﻿# MJ AgentLab Marketplace
 
-![Version](https://img.shields.io/badge/version-1.1.1-blue)
+![Version](https://img.shields.io/badge/version-1.1.3-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![CI](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml/badge.svg)](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml)
 
