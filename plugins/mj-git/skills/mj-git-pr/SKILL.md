@@ -28,13 +28,26 @@ Templates are in `.github/PULL_REQUEST_TEMPLATE/`.
 
 ### Step 1: 分析变更，生成推荐
 
-检查本分支相对 develop 的变更，判断是否涉及数据库结构变化：
+检查本分支相对 develop 的变更，判断是否涉及数据库结构变化。只检测以下两类路径：
+- **基线 SQL**：`sql/00-global/`、`sql/10-ops/`、`sql/20-biz/`（数据库 schema 定义）
+- **Flyway 迁移**：`sql/migrations/`（增量迁移脚本）
+
+其他 `sql/` 路径（如 `sql/README.md`、`sql/scripts/`）不影响部署策略，与 CI `detect-strategy` 行为一致。
 
 ```bash
 CHANGED=$(git diff --name-only develop..HEAD)
-if echo "$CHANGED" | grep -q '^sql/'; then
+HAS_BASELINE=$(echo "$CHANGED" | grep -qE '^sql/(00-global|10-ops|20-biz)/' && echo "true" || echo "false")
+HAS_MIGRATION=$(echo "$CHANGED" | grep -q '^sql/migrations/' && echo "true" || echo "false")
+
+if [[ "$HAS_BASELINE" == "true" && "$HAS_MIGRATION" == "false" ]]; then
   RECOMMEND="partial-reset"
-  REASON="检测到 sql/ 目录有变更，建议局部冷启动"
+  REASON="检测到基线 SQL 变更（sql/00-global|10-ops|20-biz），需要完整重建"
+elif [[ "$HAS_MIGRATION" == "true" && "$HAS_BASELINE" == "false" ]]; then
+  RECOMMEND="hot-restart"
+  REASON="仅 Flyway 迁移文件变更（sql/migrations/），Flyway 将增量执行，零数据丢失"
+elif [[ "$HAS_BASELINE" == "true" && "$HAS_MIGRATION" == "true" ]]; then
+  RECOMMEND="hot-restart"
+  REASON="基线 + 迁移双轨同步变更；已有环境由 Flyway 增量迁移处理，基线变更在全新初始化时生效"
 else
   RECOMMEND="hot-restart"
   REASON="仅代码/文档变更"
@@ -53,13 +66,31 @@ fi
 | partial-reset | 销毁卷 + 局部 ODS 冷启动（~5-10 min） |
 | full-reset | 销毁卷 + 全量 ODS 冷启动（~35 min） |
 
-**场景 B：有 SQL 变更（推荐 partial-reset）**
+**场景 B：仅基线 SQL 变更（推荐 partial-reset）**
 
 | 选项 | 说明 |
 |------|------|
 | partial-reset (Recommended) | 销毁卷 + 局部 ODS 冷启动（~5-10 min） |
 | full-reset | 销毁卷 + 全量 ODS 冷启动（~35 min，仅大规模 schema 重构时需要） |
 | hot-restart | 仅重启 mj-app，不重建数据库（⚠️ SQL 变更可能不生效） |
+
+**场景 C：仅 Flyway 迁移变更（推荐 hot-restart）**
+
+| 选项 | 说明 |
+|------|------|
+| hot-restart (Recommended) | 重启容器 + Flyway 增量迁移，零数据丢失（~2 min） |
+| partial-reset | 销毁卷 + 局部 ODS 冷启动（~5-10 min，测试数据会丢失） |
+| full-reset | 销毁卷 + 全量 ODS 冷启动（~35 min） |
+
+**场景 D：基线 + 迁移双轨变更（推荐 hot-restart）**
+
+> ⚠️ **注意**：检测到基线 SQL 和 Flyway 迁移同时变更。请确认基线变更已有对应 migration 文件覆盖，否则已有环境可能与基线不一致。
+
+| 选项 | 说明 |
+|------|------|
+| hot-restart (Recommended) | 重启容器 + Flyway 增量迁移；基线变更仅影响全新初始化，已有环境零数据丢失（~2 min） |
+| partial-reset | 销毁卷 + 局部 ODS 冷启动（~5-10 min，测试数据会丢失；仅在需要验证全新初始化流程时选择） |
+| full-reset | 销毁卷 + 全量 ODS 冷启动（~35 min） |
 
 ### Step 3: 注入 PR Title
 
