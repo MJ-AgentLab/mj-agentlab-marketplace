@@ -5,6 +5,11 @@
 
 ## [Unreleased]
 
+## [1.1.3] - 2026-03-19
+
+### Fixed
+- mj-git-pr 部署策略检测从 2-case 升级为 4-case，区分基线 SQL、Flyway 迁移、双轨同步和纯代码变更，与 CI `detect-strategy` 对齐，避免误推荐 `partial-reset` 导致测试环境数据丢失
+
 ## [1.1.1] - 2026-03-18
 
 ### Added
