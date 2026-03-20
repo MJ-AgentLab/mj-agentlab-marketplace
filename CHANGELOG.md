@@ -5,6 +5,11 @@
 
 ## [Unreleased]
 
+## [1.1.5] - 2026-03-20
+
+### Changed
+- mj-ops: PostgreSQL WAN MCP 条目移除 fallback 硬编码凭据，未配置环境变量时连接失败而非静默使用默认凭据
+
 ## [1.1.4] - 2026-03-20
 
 ### Fixed
