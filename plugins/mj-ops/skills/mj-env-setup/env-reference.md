@@ -95,9 +95,9 @@
 | `SSH_SERVER_PROD_PASSWORD` | 可选 | 向团队获取 | SSH MCP 生产服务器密码（LAN + WAN 共用） |
 | `MJ_POSTGRES_DEV_URL` | 可选 | 默认 localhost:5432 | 覆盖本地开发 PostgreSQL MCP 连接串 |
 | `MJ_POSTGRES_TEST_LAN_URL` | 可选 | 默认 192.168.0.179:5432 | 覆盖测试环境 LAN PostgreSQL MCP 连接串 |
-| `MJ_POSTGRES_TEST_WAN_URL` | 可选 | 默认 8.135.38.175:543202 | 覆盖测试环境 WAN PostgreSQL MCP 连接串 |
+| `MJ_POSTGRES_TEST_WAN_URL` | 可选 | 默认 8.135.38.175:25432 | 覆盖测试环境 WAN PostgreSQL MCP 连接串 |
 | `MJ_POSTGRES_PROD_LAN_URL` | 可选 | 默认 192.168.0.106:5432 | 覆盖生产环境 LAN PostgreSQL MCP 连接串 |
-| `MJ_POSTGRES_PROD_WAN_URL` | 可选 | 默认 8.135.38.175:543203 | 覆盖生产环境 WAN PostgreSQL MCP 连接串 |
+| `MJ_POSTGRES_PROD_WAN_URL` | 可选 | 默认 8.135.38.175:35432 | 覆盖生产环境 WAN PostgreSQL MCP 连接串 |
 
 ---
 
