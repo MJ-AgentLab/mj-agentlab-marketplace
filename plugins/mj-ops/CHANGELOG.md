@@ -5,6 +5,10 @@
 
 ## [Unreleased]
 
+### Changed
+- PostgreSQL WAN MCP 条目（postgres-test-wan、postgres-prod-wan）移除 fallback 硬编码凭据，未配置环境变量时连接失败而非静默使用默认凭据
+- env-reference.md 中 WAN URL 变量从「可选」调整为「WAN 必填」
+
 ## [1.2.0] - 2026-03-20
 
 ### Fixed

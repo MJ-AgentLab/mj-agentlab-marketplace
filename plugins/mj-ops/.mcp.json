@@ -29,7 +29,7 @@
         "/c", "npx",
         "-y",
         "@modelcontextprotocol/server-postgres",
-        "${MJ_POSTGRES_TEST_WAN_URL:-postgresql://admin:admin123@8.135.38.175:25432/mj_system_db}"
+        "${MJ_POSTGRES_TEST_WAN_URL}"
       ],
       "env": {}
     },
@@ -51,7 +51,7 @@
         "/c", "npx",
         "-y",
         "@modelcontextprotocol/server-postgres",
-        "${MJ_POSTGRES_PROD_WAN_URL:-postgresql://admin:admin123@8.135.38.175:35432/mj_system_db}"
+        "${MJ_POSTGRES_PROD_WAN_URL}"
       ],
       "env": {}
     },
