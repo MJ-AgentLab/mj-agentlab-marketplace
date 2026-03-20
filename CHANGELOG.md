@@ -5,6 +5,11 @@
 
 ## [Unreleased]
 
+## [1.1.4] - 2026-03-20
+
+### Fixed
+- mj-ops: PostgreSQL WAN 默认端口适配 FRP 实际范式（543202→25432、543203→35432）
+
 ## [1.1.3] - 2026-03-20
 
 ### Added
@@ -12,9 +17,6 @@
 - mj-ops: 3 组 WAN 穿透 SSH 条目（RUNNER_WAN :2201、TEST_WAN :2202、PROD_WAN :2203）
 - mj-ops: PostgreSQL MCP 服务器 postgres-test-wan、postgres-prod-lan、postgres-prod-wan
 - mj-ops: env-reference.md 新增 5 个 PostgreSQL MCP URL 覆盖变量文档
-
-### Fixed
-- mj-ops: PostgreSQL WAN 默认端口适配 FRP 实际范式（543202→25432、543203→35432）
 
 ### Changed
 - **BREAKING** mj-ops: SSH 环境变量 `SSH_SERVER_DEV_*` 重命名为 `SSH_SERVER_RUNNER_LAN_*`
