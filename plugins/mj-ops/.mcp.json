@@ -11,14 +11,47 @@
       ],
       "env": {}
     },
-    "postgres-test": {
+    "postgres-test-lan": {
       "type": "stdio",
       "command": "cmd",
       "args": [
         "/c", "npx",
         "-y",
         "@modelcontextprotocol/server-postgres",
-        "${MJ_POSTGRES_TEST_URL:-postgresql://admin:admin123@192.168.0.179:5432/mj_system_db}"
+        "${MJ_POSTGRES_TEST_LAN_URL:-postgresql://admin:admin123@192.168.0.179:5432/mj_system_db}"
+      ],
+      "env": {}
+    },
+    "postgres-test-wan": {
+      "type": "stdio",
+      "command": "cmd",
+      "args": [
+        "/c", "npx",
+        "-y",
+        "@modelcontextprotocol/server-postgres",
+        "${MJ_POSTGRES_TEST_WAN_URL:-postgresql://admin:admin123@8.135.38.175:543202/mj_system_db}"
+      ],
+      "env": {}
+    },
+    "postgres-prod-lan": {
+      "type": "stdio",
+      "command": "cmd",
+      "args": [
+        "/c", "npx",
+        "-y",
+        "@modelcontextprotocol/server-postgres",
+        "${MJ_POSTGRES_PROD_LAN_URL:-postgresql://admin:admin123@192.168.0.106:5432/mj_system_db}"
+      ],
+      "env": {}
+    },
+    "postgres-prod-wan": {
+      "type": "stdio",
+      "command": "cmd",
+      "args": [
+        "/c", "npx",
+        "-y",
+        "@modelcontextprotocol/server-postgres",
+        "${MJ_POSTGRES_PROD_WAN_URL:-postgresql://admin:admin123@8.135.38.175:543203/mj_system_db}"
       ],
       "env": {}
     },
@@ -27,23 +60,47 @@
       "command": "cmd",
       "args": ["/c", "npx", "-y", "@iflow-mcp/mcp-ssh-manager"],
       "env": {
-        "SSH_SERVER_DEV_HOST": "192.168.0.126",
-        "SSH_SERVER_DEV_USER": "mingjian",
-        "SSH_SERVER_DEV_PASSWORD": "${SSH_SERVER_DEV_PASSWORD}",
-        "SSH_SERVER_DEV_PORT": "22",
-        "SSH_SERVER_DEV_DESCRIPTION": "10-Dev-Server",
+        "SSH_SERVER_CLOUD_HOST": "8.135.38.175",
+        "SSH_SERVER_CLOUD_USER": "root",
+        "SSH_SERVER_CLOUD_PASSWORD": "${SSH_SERVER_CLOUD_PASSWORD}",
+        "SSH_SERVER_CLOUD_PORT": "22",
+        "SSH_SERVER_CLOUD_DESCRIPTION": "00-Cloud-Server",
 
-        "SSH_SERVER_TEST_HOST": "192.168.0.179",
-        "SSH_SERVER_TEST_USER": "mingjian02",
-        "SSH_SERVER_TEST_PASSWORD": "${SSH_SERVER_TEST_PASSWORD}",
-        "SSH_SERVER_TEST_PORT": "22",
-        "SSH_SERVER_TEST_DESCRIPTION": "20-Test-Server",
+        "SSH_SERVER_RUNNER_LAN_HOST": "192.168.0.126",
+        "SSH_SERVER_RUNNER_LAN_USER": "mingjian",
+        "SSH_SERVER_RUNNER_LAN_PASSWORD": "${SSH_SERVER_RUNNER_PASSWORD}",
+        "SSH_SERVER_RUNNER_LAN_PORT": "22",
+        "SSH_SERVER_RUNNER_LAN_DESCRIPTION": "10-Runner-Server-LAN",
 
-        "SSH_SERVER_PROD_HOST": "192.168.0.106",
-        "SSH_SERVER_PROD_USER": "mingjian03",
-        "SSH_SERVER_PROD_PASSWORD": "${SSH_SERVER_PROD_PASSWORD}",
-        "SSH_SERVER_PROD_PORT": "22",
-        "SSH_SERVER_PROD_DESCRIPTION": "30-Prod-Server"
+        "SSH_SERVER_RUNNER_WAN_HOST": "8.135.38.175",
+        "SSH_SERVER_RUNNER_WAN_USER": "mingjian",
+        "SSH_SERVER_RUNNER_WAN_PASSWORD": "${SSH_SERVER_RUNNER_PASSWORD}",
+        "SSH_SERVER_RUNNER_WAN_PORT": "2201",
+        "SSH_SERVER_RUNNER_WAN_DESCRIPTION": "11-Runner-Server-WAN",
+
+        "SSH_SERVER_TEST_LAN_HOST": "192.168.0.179",
+        "SSH_SERVER_TEST_LAN_USER": "mingjian02",
+        "SSH_SERVER_TEST_LAN_PASSWORD": "${SSH_SERVER_TEST_PASSWORD}",
+        "SSH_SERVER_TEST_LAN_PORT": "22",
+        "SSH_SERVER_TEST_LAN_DESCRIPTION": "20-Test-Server-LAN",
+
+        "SSH_SERVER_TEST_WAN_HOST": "8.135.38.175",
+        "SSH_SERVER_TEST_WAN_USER": "mingjian02",
+        "SSH_SERVER_TEST_WAN_PASSWORD": "${SSH_SERVER_TEST_PASSWORD}",
+        "SSH_SERVER_TEST_WAN_PORT": "2202",
+        "SSH_SERVER_TEST_WAN_DESCRIPTION": "21-Test-Server-WAN",
+
+        "SSH_SERVER_PROD_LAN_HOST": "192.168.0.106",
+        "SSH_SERVER_PROD_LAN_USER": "mingjian03",
+        "SSH_SERVER_PROD_LAN_PASSWORD": "${SSH_SERVER_PROD_PASSWORD}",
+        "SSH_SERVER_PROD_LAN_PORT": "22",
+        "SSH_SERVER_PROD_LAN_DESCRIPTION": "30-Prod-Server-LAN",
+
+        "SSH_SERVER_PROD_WAN_HOST": "8.135.38.175",
+        "SSH_SERVER_PROD_WAN_USER": "mingjian03",
+        "SSH_SERVER_PROD_WAN_PASSWORD": "${SSH_SERVER_PROD_PASSWORD}",
+        "SSH_SERVER_PROD_WAN_PORT": "2203",
+        "SSH_SERVER_PROD_WAN_DESCRIPTION": "31-Prod-Server-WAN"
       }
     }
   }
