@@ -5,6 +5,11 @@
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-03-20
+
+### Fixed
+- PostgreSQL WAN 默认端口适配 FRP 实际范式：543202→25432（test-wan）、543203→35432（prod-wan）
+
 ### Changed
 - **BREAKING**: SSH 环境变量 `SSH_SERVER_DEV_*` 重命名为 `SSH_SERVER_RUNNER_LAN_*`，消除与 `POSTGRES_DEV_*`（localhost）的语义冲突
 - **BREAKING**: PostgreSQL MCP 服务器 `postgres-test` 重命名为 `postgres-test-lan`，环境变量 `MJ_POSTGRES_TEST_URL` → `MJ_POSTGRES_TEST_LAN_URL`
