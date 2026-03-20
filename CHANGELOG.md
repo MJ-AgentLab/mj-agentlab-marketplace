@@ -5,7 +5,19 @@
 
 ## [Unreleased]
 
-## [1.1.3] - 2026-03-19
+## [1.1.3] - 2026-03-20
+
+### Added
+- mj-ops: 云服务器 SSH 条目 `SSH_SERVER_CLOUD_*`（8.135.38.175:22）
+- mj-ops: 3 组 WAN 穿透 SSH 条目（RUNNER_WAN :2201、TEST_WAN :2202、PROD_WAN :2203）
+- mj-ops: PostgreSQL MCP 服务器 postgres-test-wan、postgres-prod-lan、postgres-prod-wan
+- mj-ops: env-reference.md 新增 5 个 PostgreSQL MCP URL 覆盖变量文档
+
+### Changed
+- **BREAKING** mj-ops: SSH 环境变量 `SSH_SERVER_DEV_*` 重命名为 `SSH_SERVER_RUNNER_LAN_*`
+- **BREAKING** mj-ops: PostgreSQL MCP `postgres-test` 重命名为 `postgres-test-lan`
+- mj-ops: SSH/PostgreSQL 条目统一 LAN/WAN 对称命名
+- mj-ops: 版本 1.1.0 → 1.2.0
 
 ### Fixed
 - mj-git-pr 部署策略检测从 2-case 升级为 4-case，区分基线 SQL、Flyway 迁移、双轨同步和纯代码变更，与 CI `detect-strategy` 对齐，避免误推荐 `partial-reset` 导致测试环境数据丢失
