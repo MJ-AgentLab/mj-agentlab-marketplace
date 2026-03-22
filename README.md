@@ -1,4 +1,4 @@
-﻿# MJ AgentLab Marketplace
+# MJ AgentLab Marketplace
 
 ![Version](https://img.shields.io/badge/version-1.2.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
