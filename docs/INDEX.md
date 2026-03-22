@@ -22,6 +22,15 @@ Navigation hub for all marketplace documentation.
 |----------|-------------|
 | [CONTRIBUTING.md](./CONTRIBUTING.md) | 分支策略、提交规范、版本管理、发布流程 |
 
+## Plugin References
+
+| Resource | Location |
+|----------|----------|
+| **Plugin Secrets Setup** (mj-ops) | `plugins/mj-ops/config/secrets-ops.example` + `plugins/mj-ops/scripts/setup-ops-env.ps1` |
+| **Plugin Secrets Setup** (mj-git) | `plugins/mj-git/config/secrets-git.example` + `plugins/mj-git/scripts/setup-git-env.ps1` |
+
+> 各插件的 README.md 和 CLAUDE.md 包含完整的 Secrets 配置说明。
+
 ## Suggested Reading Order
 
 ### New Team Members
