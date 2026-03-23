@@ -5,6 +5,11 @@
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-03-23
+
+### Fixed
+- `setup-ops-env.ps1` / `encrypt-ops-secrets.ps1` 添加 `-md sha256` 参数，修复 OpenSSL 1.x/3.x 跨版本解密失败
+
 ### Changed
 - PostgreSQL WAN MCP 条目（postgres-test-wan、postgres-prod-wan）移除 fallback 硬编码凭据，未配置环境变量时连接失败而非静默使用默认凭据
 - env-reference.md 中 WAN URL 变量从「可选」调整为「WAN 必填」
