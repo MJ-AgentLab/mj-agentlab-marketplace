@@ -126,7 +126,7 @@ foreach ($RelPath in $TargetFiles) {
 
         if (-not $DryRun) {
             $NewContent = [regex]::Replace($Content, $Pattern, $Replacement, [System.Text.RegularExpressions.RegexOptions]::Singleline)
-            Set-Content -Path $FilePath -Value $NewContent -Encoding UTF8 -NoNewline
+            [System.IO.File]::WriteAllText($FilePath, $NewContent)
             $ModifiedFiles++
         }
     } else {
@@ -157,7 +157,7 @@ foreach ($RelPath in $TargetFiles) {
 
         if (-not $DryRun) {
             $NewContent = $Content -replace $EscapedFrom, $To
-            Set-Content -Path $FilePath -Value $NewContent -Encoding UTF8 -NoNewline
+            [System.IO.File]::WriteAllText($FilePath, $NewContent)
             $ModifiedFiles++
         }
     }
