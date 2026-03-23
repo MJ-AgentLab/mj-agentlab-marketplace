@@ -1,4 +1,22 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash",
+      "Edit",
+      "Read",
+      "Write",
+      "WebFetch",
+      "mcp__*"
+    ],
+    "deny": [
+      "Bash(rm -rf*)",
+      "Bash(Remove-Item*)",
+      "Bash(del *)",
+      "Read(./.env)",
+      "Edit(./.env)",
+      "Write(./.env)"
+    ]
+  },
   "enabledPlugins": {
     "mp-dev@my-marketplace": true,
     "mp-git@my-marketplace": true
