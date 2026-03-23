@@ -5,6 +5,17 @@
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-03-23
+
+### Fixed
+- `setup-git-env.ps1` / `encrypt-git-secrets.ps1` 添加 `-md sha256` 参数，修复 OpenSSL 1.x/3.x 跨版本解密失败
+
+## [1.1.0] - 2026-03-17
+
+### Changed
+- Skill 调用快捷方式统一使用 fully-qualified 名称（`mj-git:skill-name`）
+- 标准化所有 SKILL.md 描述格式
+
 ## [1.0.0] - 2026-03-16
 
 ### Added

@@ -5,6 +5,15 @@
 
 ## [Unreleased]
 
+## [1.2.2] - 2026-03-23
+
+### Fixed
+- mj-ops + mj-git: 加解密脚本添加 `-md sha256` 参数，修复 OpenSSL 1.x/3.x 跨版本 PBKDF2 摘要算法不一致导致 `bad decrypt`
+- mj-doc/mj-git/mj-n8n: 补充遗漏的 [1.1.0] CHANGELOG 条目（版本号与变更记录对齐）
+
+### Changed
+- mj-ops: PostgreSQL WAN MCP 条目移除 fallback 硬编码凭据，未配置环境变量时连接失败而非静默使用默认凭据
+
 ## [1.2.1] - 2026-03-23
 
 ### Fixed
