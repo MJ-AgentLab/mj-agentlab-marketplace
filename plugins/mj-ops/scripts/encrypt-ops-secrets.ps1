@@ -67,7 +67,7 @@ if ($Password1 -ne $Password2) {
 $Password = $Password1
 
 # ── Encrypt ───────────────────────────────────────────────────────────
-$Password | & $OpenSSL enc -aes-256-cbc -pbkdf2 -salt -in $ConfFile -out $EncFile -pass stdin 2>&1
+$Password | & $OpenSSL enc -aes-256-cbc -pbkdf2 -md sha256 -salt -in $ConfFile -out $EncFile -pass stdin 2>&1
 if ($LASTEXITCODE -ne 0) {
     Write-Host "[ERROR] Encryption failed." -ForegroundColor Red
     exit 1

@@ -143,7 +143,7 @@ $Password = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto(
 
 # ── Decrypt ───────────────────────────────────────────────────────────
 try {
-    $Password | & $OpenSSL enc -aes-256-cbc -pbkdf2 -d -in $EncFile -out $ConfFile -pass stdin 2>&1
+    $Password | & $OpenSSL enc -aes-256-cbc -pbkdf2 -md sha256 -d -in $EncFile -out $ConfFile -pass stdin 2>&1
     if ($LASTEXITCODE -ne 0) { throw "Decryption failed" }
 
     # ── Parse secrets ─────────────────────────────────────────────────
