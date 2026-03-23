@@ -5,6 +5,14 @@
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-03-23
+
+### Fixed
+- bump-version.ps1 输出文件移除 UTF-8 BOM，修复 CI marketplace.json 验证失败
+
+### Changed
+- 项目级 `.claude/settings.json` 新增 permissions 配置（allow/deny 规则）并重新启用 mp-dev、mp-git 插件
+
 ## [1.2.0] - 2026-03-23
 
 ### Added
