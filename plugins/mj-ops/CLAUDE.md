@@ -13,11 +13,42 @@ mj-ops 是 MJ System 的运维技能家族 Plugin，提供 4 个 skill：
 
 ## MCP 依赖
 
-本 plugin 通过 `.mcp.json` 自动注册 3 个 MCP server：
+本 plugin 通过 `.mcp.json` 自动注册以下 MCP server：
 
-- **postgres-dev**: 开发环境 PostgreSQL（`${MJ_POSTGRES_DEV_URL}` 或默认 localhost:5432）
-- **postgres-test**: 测试环境 PostgreSQL（`${MJ_POSTGRES_TEST_URL}` 或默认 192.168.0.179:5432）
-- **ssh-manager**: 三环境 SSH 管理（需 `SSH_SERVER_*_PASSWORD` 系统环境变量）
+**PostgreSQL（5 个）：**
+- **postgres-dev**: 本地开发环境（`${MJ_POSTGRES_DEV_URL}` 或默认 localhost:5432）
+- **postgres-test-lan**: 测试环境 LAN（`${MJ_POSTGRES_TEST_LAN_URL}` 或默认 192.168.0.179:5432）
+- **postgres-test-wan**: 测试环境 WAN（需配置 `MJ_POSTGRES_TEST_WAN_URL`，无 fallback 默认值）
+- **postgres-prod-lan**: 生产环境 LAN（`${MJ_POSTGRES_PROD_LAN_URL}` 或默认 192.168.0.106:5432）
+- **postgres-prod-wan**: 生产环境 WAN（需配置 `MJ_POSTGRES_PROD_WAN_URL`，无 fallback 默认值）
+
+**SSH（ssh-manager，7 台服务器）：**
+- **CLOUD**: 云服务器 8.135.38.175（需 `SSH_SERVER_CLOUD_PASSWORD`）
+- **RUNNER_LAN / RUNNER_WAN**: Runner 服务器 LAN/WAN（需 `SSH_SERVER_RUNNER_PASSWORD`）
+- **TEST_LAN / TEST_WAN**: 测试服务器 LAN/WAN（需 `SSH_SERVER_TEST_PASSWORD`）
+- **PROD_LAN / PROD_WAN**: 生产服务器 LAN/WAN（需 `SSH_SERVER_PROD_PASSWORD`）
+
+## Secrets Setup
+
+MCP 服务器需要的密码和连接 URL 通过加密文件管理：
+
+- `config/secrets-ops.enc` — AES-256-CBC 加密文件（提交到 Git）
+- `config/secrets-ops.example` — 变量模板（提交到 Git）
+- `.env` — 解密后生成（.gitignore，供调试查看 + 重载）
+
+**配置命令**：
+
+```powershell
+.\scripts\setup-ops-env.ps1           # 首次：解密 → .env → OS 环境变量
+.\scripts\setup-ops-env.ps1 -Reload   # 重载：从 .env 加载（不需要密码）
+.\scripts\setup-ops-env.ps1 -Force    # 强制覆盖（跳过确认）
+```
+
+**管理员更新秘密值**：
+
+```powershell
+.\scripts\encrypt-ops-secrets.ps1     # 加密 secrets-ops.conf → secrets-ops.enc
+```
 
 ## Skill 调用约定
 

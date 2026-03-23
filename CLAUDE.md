@@ -31,6 +31,29 @@ Claude Code 插件市场 — 集中管理和分发 MJ System 团队的 Claude Co
 └── skills/                      # 技能目录
 ```
 
+## Plugin Secrets Management
+
+mj-ops 和 mj-git 插件使用加密文件管理 MCP 服务器所需的秘密值：
+
+| 插件 | 加密文件 | Setup 脚本 | 变量数 |
+|------|---------|-----------|--------|
+| mj-ops | `plugins/mj-ops/config/secrets-ops.enc` | `plugins/mj-ops/scripts/setup-ops-env.ps1` | 9（SSH 密码 + PG URLs） |
+| mj-git | `plugins/mj-git/config/secrets-git.enc` | `plugins/mj-git/scripts/setup-git-env.ps1` | 1（GitHub PAT） |
+
+**首次配置**（需团队密码）：
+```powershell
+cd plugins/mj-ops && .\scripts\setup-ops-env.ps1
+cd plugins/mj-git && .\scripts\setup-git-env.ps1
+```
+
+**终端重启后重载**（无需密码）：
+```powershell
+.\scripts\setup-ops-env.ps1 -Reload
+.\scripts\setup-git-env.ps1 -Reload
+```
+
+详见各插件的 `config/secrets-*.example` 查看变量清单。
+
 ## Documentation
 
 完整文档索引：[docs/INDEX.md](docs/INDEX.md)

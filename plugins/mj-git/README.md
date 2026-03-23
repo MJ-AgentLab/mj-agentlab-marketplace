@@ -25,7 +25,26 @@ MJ System Git 工作流技能家族 — 提供分支、提交、推送、PR、Re
 
 ## 前置条件
 
-- `GITHUB_PERSONAL_ACCESS_TOKEN` 系统环境变量（GitHub API 访问）
+以下环境变量需通过 setup 脚本配置（见 Post-Install Setup）：
+
+- `GITHUB_PERSONAL_ACCESS_TOKEN`（GitHub API 访问）
+
+## Post-Install Setup
+
+秘密值配置（首次使用 + 密码更新时运行）：
+
+```powershell
+cd <marketplace>/plugins/mj-git
+.\scripts\setup-git-env.ps1        # 解密 → .env → 1 个 OS 环境变量
+```
+
+终端重启后重载（无需密码）：
+
+```powershell
+.\scripts\setup-git-env.ps1 -Reload
+```
+
+详见 `config/secrets-git.example` 查看变量清单。
 
 ## 许可证
 
