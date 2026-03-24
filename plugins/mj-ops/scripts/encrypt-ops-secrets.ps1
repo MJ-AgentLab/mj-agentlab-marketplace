@@ -38,14 +38,27 @@ if (-not (Test-Path $ConfFile)) {
 
 # ── OpenSSL lookup ────────────────────────────────────────────────────
 function Find-OpenSSL {
+    # Prefer Git for Windows' OpenSSL — standard build, consistent behavior.
+    # Anaconda/conda OpenSSL in PATH can cause "bad decrypt" due to build differences.
+    # 1. Derive from git.exe location (works for any Git install path)
+    #    git.exe may be at <root>/cmd/, <root>/bin/, or <root>/mingw64/bin/
+    $gitCmd = Get-Command git -ErrorAction SilentlyContinue
+    if ($gitCmd) {
+        $dir = Split-Path $gitCmd.Source
+        for ($i = 0; $i -lt 4; $i++) {
+            $candidate = Join-Path $dir "usr\bin\openssl.exe"
+            if (Test-Path $candidate) { return $candidate }
+            $dir = Split-Path $dir
+        }
+    }
+    # 2. Last resort: PATH (may find Anaconda — known to cause issues)
     $cmd = Get-Command openssl -ErrorAction SilentlyContinue
     if ($cmd) { return $cmd.Source }
-    $gitOpenSSL = "C:\Program Files\Git\usr\bin\openssl.exe"
-    if (Test-Path $gitOpenSSL) { return $gitOpenSSL }
     Write-Host "[ERROR] openssl not found. Install Git for Windows or add openssl to PATH." -ForegroundColor Red
     exit 1
 }
 $OpenSSL = Find-OpenSSL
+Write-Host "  Using OpenSSL: $OpenSSL" -ForegroundColor DarkGray
 
 # ── Password prompt (double input) ───────────────────────────────────
 Write-Host ""

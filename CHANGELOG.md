@@ -5,6 +5,16 @@
 
 ## [Unreleased]
 
+## [1.2.4] - 2026-03-24
+
+### Fixed
+- mj-ops + mj-git: `Find-OpenSSL` 改为从 `git.exe` 位置动态推导 OpenSSL 路径，支持非标准 Git 安装路径
+
+## [1.2.3] - 2026-03-24
+
+### Fixed
+- mj-ops + mj-git: `Find-OpenSSL` 优先使用 Git for Windows 标准 OpenSSL，避免 Anaconda PATH 中的非标准构建导致 `bad decrypt`
+
 ## [1.2.2] - 2026-03-23
 
 ### Fixed
