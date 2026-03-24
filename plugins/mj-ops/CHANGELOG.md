@@ -5,6 +5,11 @@
 
 ## [Unreleased]
 
+## [1.2.2] - 2026-03-24
+
+### Fixed
+- `Find-OpenSSL` 优先使用 Git for Windows 标准 OpenSSL，避免 Anaconda PATH 中的非标准构建导致 `bad decrypt`
+
 ## [1.2.1] - 2026-03-23
 
 ### Fixed
