@@ -50,14 +50,17 @@ $EnvFile  = Join-Path $PluginRoot ".env"
 
 # ── OpenSSL lookup ────────────────────────────────────────────────────
 function Find-OpenSSL {
-    $cmd = Get-Command openssl -ErrorAction SilentlyContinue
-    if ($cmd) { return $cmd.Source }
+    # Prefer Git for Windows' OpenSSL — standard build, consistent behavior.
+    # Anaconda/conda OpenSSL in PATH can cause "bad decrypt" due to build differences.
     $gitOpenSSL = "C:\Program Files\Git\usr\bin\openssl.exe"
     if (Test-Path $gitOpenSSL) { return $gitOpenSSL }
+    $cmd = Get-Command openssl -ErrorAction SilentlyContinue
+    if ($cmd) { return $cmd.Source }
     Write-Host "[ERROR] openssl not found. Install Git for Windows or add openssl to PATH." -ForegroundColor Red
     exit 1
 }
 $OpenSSL = Find-OpenSSL
+Write-Host "  Using OpenSSL: $OpenSSL" -ForegroundColor DarkGray
 
 # ── Helper: mask value for display ────────────────────────────────────
 function Format-MaskedValue([string]$Value) {
