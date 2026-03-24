@@ -58,7 +58,8 @@ if ($Scope -eq "marketplace") {
 } else {
     $TargetFiles = @(
         "plugins/$Scope/.claude-plugin/plugin.json",
-        ".claude-plugin/marketplace.json"
+        ".claude-plugin/marketplace.json",
+        "README.md"
     )
     $MarketplaceJsonMode = "plugin:$Scope"
 }
