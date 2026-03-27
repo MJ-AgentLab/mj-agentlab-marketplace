@@ -1,13 +1,13 @@
 ---
 name: mj-doc-plan
-description: This skill evaluates what documentation is needed for a MJ System topic, service, or infrastructure area by analyzing code scope against Framework v4 requirements. It should also be invoked when planning multi-document work, assessing documentation gaps, or answering "what docs do we need for X?". Triggers on "evaluate documentation for", "plan docs for", "what documentation does X need", "documentation gap analysis", "文档规划", "评估文档需求", "文档缺口分析", "需要哪些文档".
+description: This skill evaluates what documentation is needed for a MJ System topic, service, or infrastructure area by analyzing code scope against Framework v4.5 requirements (including ISSUE and ASSESSMENT types). It should also be invoked when planning multi-document work, assessing documentation gaps, or answering "what docs do we need for X?". Triggers on "evaluate documentation for", "plan docs for", "what documentation does X need", "documentation gap analysis", "文档规划", "评估文档需求", "文档缺口分析", "需要哪些文档".
 ---
 
 # MJ Documentation Planner
 
 ## Overview
 
-Analyzes a topic scope, evaluates existing docs against Framework v4 requirements, determines which document types are needed, and produces an implementation plan. This is the "what docs do we need?" skill.
+Analyzes a topic scope, evaluates existing docs against Framework v4.5 requirements, determines which document types are needed, and produces an implementation plan. This is the "what docs do we need?" skill.
 
 ## When to Use
 
@@ -97,6 +97,8 @@ Why these docs are needed.
 - Check `docs_old/` for migration candidates
 - Each service should have ≥1 SPEC + relevant RUNBOOKs
 - Each infrastructure area should have ≥1 GUIDE + relevant RUNBOOKs
+- Each significant optimization round should have ≥1 ASSESSMENT
+- Cross-module deferred problems should have an ISSUE if >10 lines of analysis needed
 
 ## 人工交互节点
 
@@ -108,6 +110,8 @@ Why these docs are needed.
 |------|------------|------------|---------|
 | Phase 2 结束、present 前 | 文档内容兼含架构说明与操作指导（各>30%） | 用户明确说"写 GUIDE"或"写 SPEC" | Q-05 |
 | Phase 2 结束、present 前 | docs_old/ 下存在主题匹配的遗留文件 | 用户明确说"忽略旧文档" | Q-06 |
+| Phase 2 中（问题文档） | 问题分析文档但发现方式不明确（主动 vs 被动） | 用户已指定"写 ISSUE"或"写 POSTMORTEM" | Q-10 |
+| Phase 2 中（问题深度） | 发现需延后处理的问题但分析深度不确定 | 问题分析明显 >10 行 | Q-11 |
 
 详细模板: `../mj-doc-shared/question-patterns.md`
 
