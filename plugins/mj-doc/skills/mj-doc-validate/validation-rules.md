@@ -5,14 +5,16 @@
 **Universal (7 fields)**: `tags`, `aliases`, `date`, `updated`, `version`, `status`, `owner`
 
 **RUNBOOK additional**: `last-verified` (required per §5.2)
+**ISSUE additional (required)**: `domain`, `discovered-during`, `priority`
+**ASSESSMENT additional (required)**: `scope`, `optimization-period`, `dimensions` (YAML list, ≥2 elements)
 
-Pass: All required fields present and non-empty.
+Pass: All required fields present and non-empty. For list fields (e.g. ASSESSMENT dimensions), verify YAML list with ≥ minimum element count.
 
 ## A2: Filename Regex Patterns
 
 ```python
 # docs/ files
-DOCS_PATTERN = r'^\[(?:GUIDE|ADR|SPEC|RUNBOOK|POSTMORTEM|STANDARD|DEPRECATED)\](?:_\[[A-Z]+\])?(?:_[A-Za-z0-9]+)+(?:_v\d+\.\d+)?\.md$'
+DOCS_PATTERN = r'^\[(?:GUIDE|ADR|SPEC|RUNBOOK|POSTMORTEM|STANDARD|ISSUE|ASSESSMENT|DEPRECATED)\](?:_\[[A-Z]+\])?(?:_[A-Za-z0-9]+)+(?:_v\d+\.\d+)?\.md$'
 
 # Root special files
 ROOT_PATTERN = r'^(README|CONTRIBUTING|CHANGELOG|GLOSSARY|CLAUDE)\.md$'
@@ -33,6 +35,8 @@ TEMPLATE_PATTERN = r'^(TEMPLATE_[A-Z]+|INDEX)\.md$'
 | `[RUNBOOK]` | 50 | 500 |
 | `[POSTMORTEM]` | 100 | 500 |
 | `[STANDARD]` | 100 | 1000 |
+| `[ISSUE]` | 50 | 200 |
+| `[ASSESSMENT]` | 100 | 1000 |
 | GLOSSARY | 50 | 500 |
 | CHANGELOG | — | — (skip) |
 | INDEX | — | — (skip) |
@@ -49,7 +53,8 @@ TEMPLATE_PATTERN = r'^(TEMPLATE_[A-Z]+|INDEX)\.md$'
 **Type → tense mapping**:
 | Type | Expected Tense | Check |
 |------|---------------|-------|
-| `[ADR]`, `[POSTMORTEM]` | Past | Flag future-tense words |
+| `[ADR]`, `[POSTMORTEM]`, `[ASSESSMENT]` | Past | Flag future-tense words |
+| `[ISSUE]` | Present + past | Flag future-tense words |
 | `[RUNBOOK]` | Imperative | Verify step lines use imperative verbs |
 | `[SPEC]` | Future/ongoing | No check |
 | README, `[GUIDE]`, GLOSSARY | Present | No check |
@@ -66,6 +71,8 @@ TEMPLATE_PATTERN = r'^(TEMPLATE_[A-Z]+|INDEX)\.md$'
 | `[RUNBOOK]` | 事故根因分析, 系统设计理由, 解释性描述 |
 | `[POSTMORTEM]` | 个人指责, 操作教程, 完整架构描述 |
 | `[STANDARD]` | 逐步操作教程, 架构决策详细讨论 |
+| `[ISSUE]` | 完整修复设计, 修复决策讨论, 操作流程, 事后分析 |
+| `[ASSESSMENT]` | 修复实现细节, 决策讨论, 事故响应, 操作流程 |
 | CONTRIBUTING | 开发环境搭建, 项目功能描述, 架构决策 |
 
 Edge cases → output WARN with §7.3 citation, not FAIL.
@@ -82,6 +89,8 @@ Edge cases → output WARN with §7.3 citation, not FAIL.
 | 术语定义 | GLOSSARY |
 | 事故根因 | `[POSTMORTEM]` |
 | 操作步骤 | `[RUNBOOK]` |
+| 问题分析 | `[ISSUE]` |
+| 优化评估 | `[ASSESSMENT]` |
 | 版本变更 | CHANGELOG |
 
 If doc contains detailed info matching another type's authority, flag as duplicate.
@@ -95,4 +104,4 @@ ssh, kubectl, psql -h production, psql -h prod,
 docker exec.*prod, systemctl.*prod, pg_dump.*prod
 ```
 
-For full Framework v4 rules: `docs/rule/[STANDARD]_Documentation_Management_Framework_v4.md`
+For full Framework v4.5 rules: `docs/rule/[STANDARD]_Documentation_Management_Framework_v4.5.md`

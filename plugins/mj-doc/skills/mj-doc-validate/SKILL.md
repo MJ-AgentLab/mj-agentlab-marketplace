@@ -1,13 +1,13 @@
 ---
 name: mj-doc-validate
-description: This skill validates MJ System documentation against Framework v4 (A1-A4, SA1-SA3) and Obsidian Markdown (OB1-OB6) rules, using the bundled validate_doc.py script for deterministic checks and instruction analysis for judgment-based checks. It should be invoked after creating or updating documents, before PR submission, or when auditing documentation quality across the project. Triggers on "check docs", "validate documentation", "audit docs compliance", "lint markdown", "验证文档", "检查文档格式", "文档合规审计", "文档质量检查".
+description: This skill validates MJ System documentation against Framework v4.5 (A1-A4, SA1-SA3) and Obsidian Markdown (OB1-OB6) rules, using the bundled validate_doc.py script for deterministic checks and instruction analysis for judgment-based checks. It should be invoked after creating or updating documents, before PR submission, or when auditing documentation quality across the project. Triggers on "check docs", "validate documentation", "audit docs compliance", "lint markdown", "验证文档", "检查文档格式", "文档合规审计", "文档质量检查".
 ---
 
 # MJ Documentation Validator
 
 ## Overview
 
-Validates MJ System documentation against Framework v4 (A1-A4, SA1-SA3) and Obsidian Markdown (OB1-OB6) rules. Deterministic checks use the bundled `validate_doc.py` script; judgment-based checks use instruction analysis.
+Validates MJ System documentation against Framework v4.5 (A1-A4, SA1-SA3) and Obsidian Markdown (OB1-OB6) rules. Deterministic checks use the bundled `validate_doc.py` script; judgment-based checks use instruction analysis.
 
 ## When to Use
 

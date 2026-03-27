@@ -1,13 +1,13 @@
 ---
 name: mj-doc-migrate
-description: This skill converts legacy documents from docs_old/ or non-Framework-v4 format into compliant Framework v4 documents, handling tag migration, content restructuring, and N:M doc splitting or merging. It should also be used when restructuring documentation that uses old tags like [MANUAL] or [API], or when consolidating multiple legacy docs into new structure. Triggers on "migrate docs", "convert old documentation", "restructure docs_old", "迁移文档", "转换旧文档", "文档格式升级", "重构文档结构".
+description: This skill converts legacy documents from docs_old/ or non-Framework-v4.5 format into compliant Framework v4.5 documents, handling tag migration, content restructuring, and N:M doc splitting or merging. It should also be used when restructuring documentation that uses old tags like [MANUAL] or [API], or when consolidating multiple legacy docs into new structure. Triggers on "migrate docs", "convert old documentation", "restructure docs_old", "迁移文档", "转换旧文档", "文档格式升级", "重构文档结构".
 ---
 
 # MJ Documentation Migrator
 
 ## Overview
 
-Converts legacy documents into Framework v4-compliant format, handling tag migration, content restructuring, and N:M doc splitting/merging. Always cross-verifies content against actual code — legacy docs may be outdated.
+Converts legacy documents into Framework v4.5-compliant format, handling tag migration, content restructuring, and N:M doc splitting/merging. Always cross-verifies content against actual code — legacy docs may be outdated.
 
 ## Workflow
 
@@ -49,9 +49,9 @@ digraph migrate {
 ## Phase 1: Analysis
 
 1. Read legacy document(s) — extract structure, content sections, metadata
-2. Identify legacy tags and map to Framework v4 types (see migration-rules.md)
+2. Identify legacy tags and map to Framework v4.5 types (see migration-rules.md)
 3. Assess: 1:1 conversion or N:M split/merge needed?
-   - **Split**: If >800 lines or covers >2 Framework v4 types
+   - **Split**: If >800 lines or covers >2 Framework v4.5 types
    - **Merge**: If multiple legacy docs cover same topic with <100 lines each
 
 ## Phase 2: Migration Design
@@ -60,8 +60,8 @@ For each output doc:
 1. Determine type (§2.3 decision tree)
 2. Determine directory (§3.2 placement rules)
 3. Determine filename (§4 naming rules)
-4. Map legacy sections to Framework v4 template sections
-5. **Q-09 触发检查**: 若文档 600–900 行且覆盖 2 种 Framework v4 类型（模糊区间），在制定方案前触发 Q-09 向用户确认迁移方式
+4. Map legacy sections to Framework v4.5 template sections
+5. **Q-09 触发检查**: 若文档 600–900 行且覆盖 2 种 Framework v4.5 类型（模糊区间），在制定方案前触发 Q-09 向用户确认迁移方式
 6. **Present migration plan to user for approval before proceeding**
 
 ## Phase 3: Conversion

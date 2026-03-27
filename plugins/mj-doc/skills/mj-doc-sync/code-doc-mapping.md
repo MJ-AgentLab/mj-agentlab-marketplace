@@ -16,13 +16,15 @@
 | `.env` (new vars) | CLAUDE.md Env Vars + related `[RUNBOOK]` | New variable names and purposes |
 | `n8n/workflows/**` | `docs/infrastructure/n8n/` | Workflow logic, triggers, connections |
 | `pyproject.toml` | README tech stack | Dependencies added/removed |
-| `docs/_templates/*` | Framework v4 §3.4 template table | Template availability |
+| `docs/_templates/*` | Framework v4.5 §3.4 template table | Template availability |
 | `[mj-agentlab-marketplace] plugins/mj-doc/skills/mj-doc-*/SKILL.md` | `docs/infrastructure/claude-code/mj-doc/[GUIDE]_MJ_Doc_Skills_Architecture.md` + `[RUNBOOK]_MJ_Doc_Workflow_Procedures.md` | 技能工作流步骤、人工交互节点列表、文件结构章节 |
 <!-- skill 文件现由 mj-agentlab-marketplace 仓库管理 -->
 | `[mj-agentlab-marketplace] plugins/mj-doc/skills/mj-doc-shared/**` | `docs/infrastructure/claude-code/mj-doc/[GUIDE]_MJ_Doc_Skills_Architecture.md` + `[RUNBOOK]_MJ_Doc_Workflow_Procedures.md` | Q/D 问题 ID 新增或删除时须同步 GUIDE 设计原则和 RUNBOOK 步骤 |
 <!-- skill 文件现由 mj-agentlab-marketplace 仓库管理 -->
 | `[mj-agentlab-marketplace] plugins/mj-git/skills/mj-git-*/SKILL.md` | `docs/infrastructure/claude-code/mj-git/[GUIDE]_MJ_Git_Skills_Architecture.md` + `[RUNBOOK]_MJ_Git_Workflow_Procedures.md` | 技能工作流步骤、人工介入场景列表、命令序列 |
 <!-- skill 文件现由 mj-agentlab-marketplace 仓库管理 -->
+
+> `[ISSUE]` documents in `docs/issues/` and `[ASSESSMENT]` documents in `docs/assessments/` are triggered by §11 conditions, not by direct code-change mapping. They are created manually when optimization or cross-module development discovers deferred problems or completes optimization rounds.
 
 ## Cross-Reference Scan Patterns
 
@@ -56,6 +58,7 @@ grep -r '[[OldName|' docs/ CONTRIBUTING.md README.md
 | Docker Deployment | `docs/infrastructure/docker/` | Deploy config change |
 | Multi-Env DB Config | `docs/infrastructure/database/` | Env config change |
 | DQV/AEC/QVL details | `docs/design/{Service}/` | Interface/flow change |
+| Documentation Maintenance | 本文档 (Framework v4.5) | Framework version change |
 
 **Sync granularity rule**: Only sync when the change would affect Claude Code's behavior decisions. Skip typo fixes and pure formatting adjustments.
 

@@ -2,19 +2,21 @@
 
 ## Tag Migration Table
 
-| Legacy Tag | Framework v4 Tag | Notes |
+| Legacy Tag | Framework v4.5 Tag | Notes |
 |-----------|-----------------|-------|
 | `[MANUAL]` | `[RUNBOOK]` | Direct mapping — manuals are operation procedures |
 | `[API]` | `[GUIDE]` | API docs → Guide with API architecture content |
 | No tag (in docs/) | Evaluate per §2.3 | Use decision tree; most become `[GUIDE]` or `[SPEC]` |
 | `_v{X}.{Y}` suffix | Frontmatter `version` only | Remove from filename unless multi-version coexist |
 | `[DEPRECATED]` prefix | Keep if still deprecated | Otherwise remove during migration |
+| Troubleshooting/FAQ content with structured analysis | Evaluate: `[ISSUE]` if problem analysis >10 lines; else keep in `[GUIDE]` TS section |
+| Performance comparison / optimization reports | `[ASSESSMENT]` if contains before/after comparison across ≥2 dimensions |
 
 ## Split Heuristic
 
-**When to split** (legacy doc → multiple Framework v4 docs):
+**When to split** (legacy doc → multiple Framework v4.5 docs):
 - Legacy doc >800 lines
-- Content covers >2 Framework v4 document types
+- Content covers >2 Framework v4.5 document types
 - Mixed audiences (dev + ops content in same doc)
 
 **How to split**:
@@ -24,7 +26,7 @@
 
 ## Merge Heuristic
 
-**When to merge** (multiple legacy docs → single Framework v4 doc):
+**When to merge** (multiple legacy docs → single Framework v4.5 doc):
 - Multiple legacy docs cover same topic
 - Each is <100 lines
 - Combined content fits within target type's line range
@@ -48,7 +50,7 @@
 
 ## Legacy Path Mapping
 
-Common legacy locations → Framework v4 targets:
+Common legacy locations → Framework v4.5 targets:
 
 | Legacy Path | Target Path |
 |------------|-------------|
@@ -60,6 +62,8 @@ Common legacy locations → Framework v4 targets:
 | `docs_old/api/` | `docs/api/` (as `[GUIDE]`) |
 | `docs_old/rule/` | `docs/rule/` |
 | `docs_old/` (root-level files) | Evaluate per §2.3 |
+| `docs_old/issues/` (if exists) | `docs/issues/` |
+| `docs_old/assessments/` (if exists) | `docs/assessments/` |
 
 ## Post-Migration Checklist
 
