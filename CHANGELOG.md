@@ -5,6 +5,14 @@
 
 ## [Unreleased]
 
+## [1.2.5] - 2026-03-27
+
+### Changed
+- mj-doc: 全部 6 个技能同步至 Documentation Management Framework v4.5，新增 `[ISSUE]` 和 `[ASSESSMENT]` 文档类型支持（v1.1.0 → v1.2.0）
+
+### Fixed
+- scripts: bump-version.ps1 同步 README 插件版本表
+
 ## [1.2.4] - 2026-03-24
 
 ### Fixed
