@@ -12,6 +12,8 @@ For each identified gap, ask:
 | Is this a how-to or tutorial for developers? | `[GUIDE]` |
 | Is this a naming/format/data standard? | `[STANDARD]` |
 | Is this an incident analysis? | `[POSTMORTEM]` |
+| Is this a deferred problem found during development? | `[ISSUE]` |
+| Is this a post-optimization before/after evaluation? | `[ASSESSMENT]` |
 
 ## §12 前置检查 Protocol
 
@@ -44,6 +46,15 @@ Any ONE of these → must create ADR:
 | Each architecture decision | 1 `[ADR]` |
 | Each DB schema domain | Referenced in `[STANDARD]` or `[SPEC]` |
 | Cross-service standards | `[STANDARD]` in `rule/` or `infrastructure/` |
+| Each significant optimization round | ≥1 `[ASSESSMENT]` documenting before/after comparison |
+| Cross-module deferred problems | `[ISSUE]` when problem needs >10 lines of structured analysis |
+
+## §11 Expansion Triggers (ISSUE / ASSESSMENT)
+
+| Type | Trigger Condition |
+|------|------------------|
+| `[ISSUE]` | During optimization or cross-module dev, discover another service's potential problem AND the problem needs >10 lines of context/analysis AND fix is deferred to a future iteration |
+| `[ASSESSMENT]` | Complete an optimization round (involving architecture change, performance improvement, or major refactoring) AND merge to main branch AND team needs to record before/after comparison for future reference |
 
 ## Plan Document Format
 
@@ -78,7 +89,7 @@ Per-document list of code paths to verify:
 
 Before finalizing plan, scan `docs_old/` for:
 - Files matching the topic
-- Files with legacy tags (`[MANUAL]`, `[API]`, no tag)
+- Files with legacy tags (`[MANUAL]`, `[API]`, no tag, or content that may map to `[ISSUE]`/`[ASSESSMENT]`)
 - Content that overlaps with proposed new docs
 
 If found → include migration tasks using `mj-doc-migrate` skill.

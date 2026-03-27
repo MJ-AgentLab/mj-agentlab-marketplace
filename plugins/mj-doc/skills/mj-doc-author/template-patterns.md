@@ -12,6 +12,8 @@ All templates at: `docs/_templates/TEMPLATE_{TYPE}.md`
 | `[RUNBOOK]` | TEMPLATE_RUNBOOK.md | Available |
 | `[POSTMORTEM]` | TEMPLATE_POSTMORTEM.md | Available |
 | `[STANDARD]` | TEMPLATE_STANDARD.md | Available |
+| `[ISSUE]` | TEMPLATE_ISSUE.md | Available |
+| `[ASSESSMENT]` | TEMPLATE_ASSESSMENT.md | Available |
 
 ## RUNBOOK Sub-Patterns
 
@@ -88,5 +90,13 @@ When adapting templates for specific documents:
 | QueryCommonMetrics | QCM | design/QueryCommonMetrics/ |
 | StageAreaCleaner | SAC | — |
 | FileCleaner | FC | — |
+| Docker | DOCKER | — |
+| Database | DB | — |
+| Flyway | FLYWAY | — |
+| N8N | N8N | — |
+| CI/CD | CICD | — |
+| Git | GIT | — |
+| Network | NET | — |
+| System (cross-domain) | SYS | — |
 
 Cross-service or general: use `SYS` as abbreviation.

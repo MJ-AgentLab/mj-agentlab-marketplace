@@ -12,6 +12,8 @@ What is the content about?
 ├── Code submission / PR / branch rules ──────── CONTRIBUTING.md (no tag)
 ├── Production operation steps ───────────────── [RUNBOOK]
 ├── Incident root cause analysis ─────────────── [POSTMORTEM]
+├── Deferred problem found during dev (needs >10 lines) ── [ISSUE]
+├── Post-optimization before/after comparison ──────────── [ASSESSMENT]
 ├── Version change log ───────────────────────── CHANGELOG.md (no tag)
 ├── Term definitions ─────────────────────────── GLOSSARY.md (no tag)
 └── Naming / data / coding standards ─────────── [STANDARD]
@@ -27,8 +29,11 @@ What is the content about?
 | Reader state | Learning calmly? | `[GUIDE]` (explanatory) |
 | Permission | Needs production access? | `[RUNBOOK]` |
 | Permission | No special access needed? | `[GUIDE]` |
-| Mutability | Should not change after publish? | `[ADR]` or `[POSTMORTEM]` |
+| Tense | Analyzing a discovered problem? | `[ISSUE]` (present+past) |
+| Tense | Reviewing a completed optimization? | `[ASSESSMENT]` (past) |
+| Mutability | Should not change after publish? | [ADR] or [POSTMORTEM] or [ASSESSMENT] |
 | Mutability | Must stay current? | `[RUNBOOK]` or `[GUIDE]` |
+| Mutability | Append-only after publish? | `[ISSUE]` |
 
 ## §7.2 Confusion Pairs
 
@@ -38,6 +43,11 @@ What is the content about?
 | `[RUNBOOK]` ↔ `[GUIDE]` TS | RUNBOOK = production env, needs prod access, imperative. GUIDE = dev env, no special access, explanatory |
 | `[RUNBOOK]` ↔ `[POSTMORTEM]` | RUNBOOK = imperative (fix now). POSTMORTEM = past tense (analyze after). During incident → RUNBOOK; after resolution → POSTMORTEM |
 | `[GUIDE]` ↔ CONTRIBUTING | GUIDE = environment not ready (new person). CONTRIBUTING = environment ready (submitting code) |
+| `[ISSUE]` ↔ `[POSTMORTEM]` | ISSUE = proactive discovery during dev, present+past tense. POSTMORTEM = reactive after runtime incident, past tense. Proactive → ISSUE; reactive → POSTMORTEM |
+| `[ISSUE]` ↔ GitHub Issue | ISSUE = structured analysis >10 lines with WHY/HOW context. GitHub Issue = task tracking WHAT/WHEN. Needs analysis → [ISSUE]; simple tracking → GitHub Issue |
+| `[ISSUE]` ↔ `[SPEC]` | ISSUE = describe problem + suggest fix direction (≤5 points). SPEC = complete design with interfaces. Problem description → ISSUE; solution design → SPEC |
+| `[ASSESSMENT]` ↔ `[SPEC]` | ASSESSMENT = past tense (evaluate completed work). SPEC = future tense (design planned work). Work done → ASSESSMENT; work planned → SPEC |
+| `[ASSESSMENT]` ↔ `[POSTMORTEM]` | ASSESSMENT = planned optimization completed, neutral evaluation. POSTMORTEM = unplanned incident, root cause analysis. Planned → ASSESSMENT; unplanned → POSTMORTEM |
 
 ## Content Boundaries (MUST / MAY / MUST NOT Summary)
 
@@ -50,10 +60,13 @@ What is the content about?
 | `[RUNBOOK]` | Alert→steps mapping, diagnosis, fix, rollback, `last-verified` | Root cause analysis, design rationale |
 | `[POSTMORTEM]` | Summary, impact, timeline, 5-Whys, action items | Personal blame, operation tutorials |
 | `[STANDARD]` | Scope, rules with correct/incorrect examples | Step-by-step tutorials, architecture discussions |
+| `[ISSUE]` | Problem summary, discovery context, impact, fix direction (≤5 points) | Complete fix design, decision discussion, operation flow, post-incident analysis |
+| `[ASSESSMENT]` | Optimization overview, ≥2 dimension before/after comparison, summary table | Fix implementation details, decision discussion, incident response |
 
 ## Line Count Constraints
 
 README: 200-500 | GUIDE: 100-800 | ADR: 50-200 | SPEC: 200-1500
 CONTRIBUTING: 100-500 | RUNBOOK: 50-500 | POSTMORTEM: 100-500 | STANDARD: 100-1000
+ISSUE: 50-200 | ASSESSMENT: 100-1000
 
-For full rules: `docs/rule/[STANDARD]_Documentation_Management_Framework_v4.md` §7.1
+For full rules: `docs/rule/[STANDARD]_Documentation_Management_Framework_v4.5.md` §7.1

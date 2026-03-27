@@ -20,9 +20,11 @@ from pathlib import Path
 
 REQUIRED_FRONTMATTER = {"tags", "aliases", "date", "updated", "version", "status", "owner"}
 RUNBOOK_EXTRA_FIELDS = {"last-verified"}
+ISSUE_EXTRA_FIELDS = {"domain", "discovered-during", "priority"}
+ASSESSMENT_EXTRA_FIELDS = {"scope", "optimization-period", "dimensions"}
 
 DOCS_FILENAME_RE = re.compile(
-    r"^\[(?:GUIDE|ADR|SPEC|RUNBOOK|POSTMORTEM|STANDARD|DEPRECATED)\]"
+    r"^\[(?:GUIDE|ADR|SPEC|RUNBOOK|POSTMORTEM|STANDARD|ISSUE|ASSESSMENT|DEPRECATED)\]"
     r"(?:_\[[A-Z]+\])?"
     r"(?:_[A-Za-z0-9]+)+"
     r"(?:_v\d+\.\d+)?\.md$"
@@ -39,6 +41,8 @@ LINE_RANGES: dict[str, tuple[int | None, int | None]] = {
     "[RUNBOOK]": (50, 500),
     "[POSTMORTEM]": (100, 500),
     "[STANDARD]": (100, 1000),
+    "[ISSUE]": (50, 200),
+    "[ASSESSMENT]": (100, 1000),
     "GLOSSARY": (50, 500),
 }
 
@@ -93,7 +97,7 @@ def parse_frontmatter(lines: list[str]) -> tuple[dict[str, str], int]:
 def detect_doc_type(filepath: Path, frontmatter: dict[str, str]) -> str:
     """Detect document type from filename or frontmatter tags."""
     name = filepath.name
-    for tag in ("[GUIDE]", "[ADR]", "[SPEC]", "[RUNBOOK]", "[POSTMORTEM]", "[STANDARD]", "[DEPRECATED]"):
+    for tag in ("[GUIDE]", "[ADR]", "[SPEC]", "[RUNBOOK]", "[POSTMORTEM]", "[STANDARD]", "[ISSUE]", "[ASSESSMENT]", "[DEPRECATED]"):
         if name.startswith(tag):
             return tag
     for root_name in ("README", "CONTRIBUTING", "CHANGELOG", "GLOSSARY", "CLAUDE"):
@@ -118,6 +122,10 @@ def check_a1(frontmatter: dict[str, str], doc_type: str) -> dict:
     required = set(REQUIRED_FRONTMATTER)
     if doc_type == "[RUNBOOK]":
         required = required | RUNBOOK_EXTRA_FIELDS
+    elif doc_type == "[ISSUE]":
+        required = required | ISSUE_EXTRA_FIELDS
+    elif doc_type == "[ASSESSMENT]":
+        required = required | ASSESSMENT_EXTRA_FIELDS
 
     missing = []
     empty = []
@@ -127,7 +135,14 @@ def check_a1(frontmatter: dict[str, str], doc_type: str) -> dict:
         elif not frontmatter[field].strip():
             empty.append(field)
 
-    if missing or empty:
+    # ASSESSMENT dimensions must have ≥2 list items
+    list_warn = ""
+    if doc_type == "[ASSESSMENT]" and "dimensions" in frontmatter:
+        dim_count = frontmatter["dimensions"].count("- ")
+        if dim_count < 2:
+            list_warn = f"; dimensions has {dim_count} items (need ≥2)"
+
+    if missing or empty or list_warn:
         parts = []
         if missing:
             parts.append(f"missing: {', '.join(missing)}")
@@ -138,7 +153,7 @@ def check_a1(frontmatter: dict[str, str], doc_type: str) -> dict:
         return {
             "id": "A1",
             "status": "FAIL",
-            "message": f"{found}/{total} frontmatter fields OK; {'; '.join(parts)}",
+            "message": f"{found}/{total} frontmatter fields OK; {'; '.join(parts)}{list_warn}",
         }
     return {
         "id": "A1",

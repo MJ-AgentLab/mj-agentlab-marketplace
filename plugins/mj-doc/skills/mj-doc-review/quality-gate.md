@@ -4,7 +4,7 @@
 
 | # | Check | Scope | How |
 |---|-------|-------|-----|
-| 1 | YAML frontmatter complete | All `docs/**/*.md` | A1 check via mj-doc-validate |
+| 1 | YAML frontmatter complete | All `docs/**/*.md` | A1 check via mj-doc-validate (includes ISSUE/ASSESSMENT specialized required fields) |
 | 2 | Filename compliant | All docs | A2 check via mj-doc-validate |
 | 3 | INDEX.md synced | PR adds/removes docs | Diff check: new files in INDEX? |
 | 4 | CLAUDE.md synced | PR changes §8.2 mapped docs | Compare changed content vs CLAUDE.md |
@@ -55,7 +55,11 @@ Create ADR when ANY is true:
 ```
 草案 → 评审中 → 已批准 → 已废弃
                   ├→ 已实施 → 已废弃  (SPEC only)
+                  ├→ 已修复           (ISSUE only)
                   ├→ 已取代           (ADR only)
                   └→ 草案             (major version bump)
 评审中 → 已拒绝                      (ADR only)
 ```
+
+**Immutable after 已批准**: `[ADR]`, `[POSTMORTEM]`, `[ASSESSMENT]` — create new document instead of modifying.
+**Append-only after 已批准**: `[ISSUE]` — preserve original analysis, append updates with minor version bump.

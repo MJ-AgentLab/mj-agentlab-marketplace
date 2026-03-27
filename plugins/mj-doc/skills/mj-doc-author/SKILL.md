@@ -1,13 +1,13 @@
 ---
 name: mj-doc-author
-description: This skill creates a single Framework v4-compliant MJ System document (GUIDE, RUNBOOK, ADR, SPEC, POSTMORTEM, or STANDARD) from code analysis through validation. It should be invoked after the document type and scope are already decided, producing complete documents with correct frontmatter, section structure, and cross-references. Triggers on "write a GUIDE for", "create a RUNBOOK for", "generate documentation for", "draft an ADR for", "写文档", "编写指南", "创建RUNBOOK", "生成ADR", "写规范文档".
+description: This skill creates a single Framework v4.5-compliant MJ System document (GUIDE, RUNBOOK, ADR, SPEC, POSTMORTEM, STANDARD, ISSUE, or ASSESSMENT) from code analysis through validation. It should be invoked after the document type and scope are already decided, producing complete documents with correct frontmatter, section structure, and cross-references. Triggers on "write a GUIDE for", "create a RUNBOOK for", "generate documentation for", "draft an ADR for", "create an ISSUE doc", "write an ASSESSMENT", "写文档", "编写指南", "创建RUNBOOK", "生成ADR", "写规范文档", "写ISSUE", "写评估文档".
 ---
 
 # MJ Document Author
 
 ## Overview
 
-Creates a single Framework v4-compliant document from code analysis through to validation. Code is the source of truth — always verify against actual files, never trust legacy docs alone.
+Creates a single Framework v4.5-compliant document from code analysis through to validation. Code is the source of truth — always verify against actual files, never trust legacy docs alone.
 
 ## Prerequisite
 
@@ -68,6 +68,8 @@ digraph author {
 | `[SPEC]` | `design/{Service}/` | TEMPLATE_SPEC.md | `[SPEC]_Abbr_Description.md` |
 | `[POSTMORTEM]` | `postmortem/` | TEMPLATE_POSTMORTEM.md | `[POSTMORTEM]_Abbr_Incident.md` |
 | `[STANDARD]` | `rule/` or `infrastructure/{domain}/` | TEMPLATE_STANDARD.md | `[STANDARD]_Description.md` |
+| `[ISSUE]` | `issues/` | TEMPLATE_ISSUE.md | `[ISSUE]_NNN_DomainAbbr_Description.md` |
+| `[ASSESSMENT]` | `assessments/` | TEMPLATE_ASSESSMENT.md | `[ASSESSMENT]_DomainAbbr_Optimization_Topic.md` |
 
 ## Key Principles
 
@@ -86,10 +88,16 @@ Priority: **belongs to specific domain → domain directory** > **cross-domain g
 - Cross-domain standards → `rule/`
 - Decisions → `adr/`
 - Postmortems → `postmortem/`
+- Deferred problems → `issues/`
+- Optimization evaluations → `assessments/`
 
 ## ADR Numbering
 
 Scan `docs/adr/` for max existing `[ADR]_NNN_*` number, new = max + 1 (zero-padded to 3 digits). Start at 001 if empty.
+
+## ISSUE Numbering
+
+Same convention: scan `docs/issues/` for max `[ISSUE]_NNN_*` number, new = max + 1. Independent sequence from ADR numbering.
 
 ## Filename Construction — 文件冲突检查（必须）
 
@@ -113,6 +121,7 @@ Scan `docs/adr/` for max existing `[ADR]_NNN_*` number, new = max + 1 (zero-padd
 | 目录确定前 | §3.2 规则映射出 ≥2 个有效目录 | 用户已在请求中指定路径 | Q-01 |
 | 写文件前（文件已存在） | glob 检测到目标路径同名文件 | 用户说"覆盖/替换" | D-01/Q-02 |
 | 同名文件处理方式 | 同上（Q-02 是 D-01 的提问界面） | 同上 | Q-02 |
+| §12 前置检查后（问题文档） | 问题分析文档但发现方式不明确（主动 vs 被动） | 用户已指定"写 ISSUE"或"写 POSTMORTEM" | Q-10 |
 
 详细模板: `../mj-doc-shared/question-patterns.md`
 
