@@ -477,12 +477,18 @@ IF 节点命名规范：
 // Note: markdown_v2 does not support font color tags
 // ============================================================
 
+const formatDateTime = (date) => {
+  return DateTime.fromJSDate(new Date(date))
+    .setZone('Asia/Shanghai')
+    .toFormat('yyyy-MM-dd HH:mm');
+};
+
 const data = $input.first().json;
 
 const content = `${statusIcon} **${title}**
 
 > 环境: {{ENV_NAME}}
-> 时间: ${new Date().toISOString()}
+> 时间: ${formatDateTime(new Date())}
 > 执行ID: ${$execution.id}
 
 **状态**: ${status}
@@ -621,3 +627,58 @@ return [{
   }
 }];
 ```
+
+---
+
+## 10. DateTime Formatting Conventions
+
+n8n Code 节点中 `DateTime`（Luxon）为全局对象，无需 import。这是 n8n 官方推荐的日期处理方式。
+
+### 用户可见时间（通知、报告、消息）
+
+所有面向用户的时间显示必须使用北京时间。推荐使用显式 `.setZone()` 确保代码自包含、不依赖容器配置：
+
+**单次使用（inline）**：
+```javascript
+DateTime.fromJSDate(new Date()).setZone('Asia/Shanghai').toFormat('yyyy-MM-dd HH:mm')
+// 输出示例：2026-04-01 10:00
+```
+
+**多次使用（辅助函数）**：
+```javascript
+const formatDateTime = (date) => {
+  return DateTime.fromJSDate(new Date(date))
+    .setZone('Asia/Shanghai')
+    .toFormat('yyyy-MM-dd HH:mm');
+};
+```
+
+**替代方案**：`$now.toFormat('yyyy-MM-dd HH:mm')` 也可用于当前时间（`$now` 是 Luxon 对象，遵循 `GENERIC_TIMEZONE` 配置），但显式 `.setZone()` 更安全——不依赖环境配置。
+
+### 避免在用户可见内容中使用的方法
+
+| 方法 | 问题 |
+|------|------|
+| `new Date().getHours()` / `.getMinutes()` | 返回容器操作系统时区时间；若 Docker 未设 `TZ`，返回 UTC，比北京时间早 8 小时 |
+| `new Date().toLocaleString()` | 输出依赖 Node.js 打包的 ICU 数据，不同版本格式可能不一致（如有无逗号分隔符），Docker 容器中不可预测 |
+| `new Date().toISOString()` | 输出 `2026-04-01T02:00:00.000Z` 格式，语义正确但用户无法直观识读为北京时间 |
+
+### 内部日志时间戳
+
+Log 节点的 `timestamp` 字段保持 ISO 8601 UTC 格式（与 Section 9 一致）：
+
+```javascript
+// 正确：内部日志使用 UTC ISO 格式，带 Z 后缀语义明确
+timestamp: new Date().toISOString()
+// 输出示例：2026-04-01T02:00:00.000Z
+```
+
+### n8n 时区控制面
+
+| 层级 | 配置 | 影响范围 |
+|------|------|---------|
+| 操作系统层 | `TZ: Asia/Shanghai`（Docker 环境变量） | vanilla JS `Date` 对象的本地时间方法 |
+| n8n 应用层 | `GENERIC_TIMEZONE: Asia/Shanghai` | Luxon `$now` / `$today` / `DateTime.now()` + cron 调度 |
+| 代码层 | `.setZone('Asia/Shanghai')` | 显式指定，不依赖上述任何配置 |
+
+三层独立。代码层 `.setZone()` 是最安全的选择——即使容器或 n8n 配置变更，通知时间仍正确。

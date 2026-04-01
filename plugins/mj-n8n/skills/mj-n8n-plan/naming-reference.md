@@ -216,3 +216,9 @@ triggers:
 - 三个环境文件（`dev.yaml`, `test.yaml`, `production.yaml`）均需更新
 - production 可使用不同的 cron 表达式或间隔
 - `timezone` 固定使用 `"Asia/Shanghai"`
+
+---
+
+## DateTime 处理约定
+
+用户可见时间使用 Luxon `DateTime`，内部日志使用 `toISOString()`。详见 `node-patterns.md` Section 10。
