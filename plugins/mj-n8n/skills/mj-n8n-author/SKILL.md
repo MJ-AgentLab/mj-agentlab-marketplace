@@ -139,6 +139,12 @@ digraph author {
 
 详细模板见 `→ node-patterns.md` Section 3f-3j。
 
+**DateTime 处理规则**：
+- 用户可见时间（通知消息、报告内容）：使用 Luxon `DateTime.fromJSDate(new Date(date)).setZone('Asia/Shanghai').toFormat('yyyy-MM-dd HH:mm')`
+- 内部日志 `timestamp` 字段：使用 `new Date().toISOString()`（UTC ISO 格式）
+- `DateTime`（Luxon）在 n8n Code 节点中为全局对象，无需 import
+- 详见 `→ node-patterns.md` Section 10
+
 ---
 
 ### Step 4 — Error Handling（错误处理节点）
@@ -165,7 +171,7 @@ return [{
     logType: 'WORKFLOW_EXECUTION',           // 或 VALIDATION_SKIPPED, STEP_ERROR, DATA_TYPE_SKIPPED, NO_DATA_FOUND
     workflowName: '{{ENV_PREFIX}}-{Category}-{Name}-{TriggerType}',
     executionId: $execution.id,
-    timestamp: new Date().toISOString(),
+    timestamp: new Date().toISOString(),      // 内部日志用 UTC；用户可见时间用 Luxon（见 node-patterns.md Section 10）
     status: 'SUCCESS',                       // SUCCESS, SKIPPED, ERROR, NO_ACTION, COMPLETED_WITH_WARNINGS, FAILED
     environment: '{{ENV_NAME}}',
     // ... context-specific fields
