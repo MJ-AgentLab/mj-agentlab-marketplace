@@ -5,6 +5,18 @@
 
 ## [Unreleased]
 
+## [1.2.4] - 2026-04-02
+
+### Fixed
+- MCP postgres 查询结果中 `timestamp`/`timestamptz` 字段被 node-postgres 转换为 UTC `Z` 格式（如 `2026-04-01T08:51:14.755Z`），现返回 PostgreSQL 原始格式（如 `2026-04-01 16:51:19+08`）(#38)
+
+### Added
+- `scripts/pg-server-start.cmd` — PostgreSQL MCP server 启动脚本，自动发现 npx 缓存并设置 `NODE_PATH`
+- `scripts/pg-server-wrapper.mjs` — ESM wrapper，通过 `pg.types.setTypeParser` 覆盖 OID 1114/1184 的默认解析器
+
+### Changed
+- `.mcp.json` 中 5 个 postgres server 的启动命令从 `npx -y @modelcontextprotocol/server-postgres` 改为 `${CLAUDE_PLUGIN_ROOT}/scripts/pg-server-start.cmd`
+
 ## [1.2.3] - 2026-03-24
 
 ### Fixed
