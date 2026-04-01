@@ -12,6 +12,7 @@
 □ API 端点连通（HTTP 200）
 □ 手动完整执行成功
 □ 输出格式正确（通知/日志）
+□ 通知时间戳显示北京时间（非 UTC）
 □ 错误分支处理正常
 □ 环境变量值正确（environment: "dev"）
 □ 标签正确（env:dev, trigger:*, domain:*）
