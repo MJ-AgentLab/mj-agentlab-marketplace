@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-04-02
+
 ### Fixed
 - 修正 WeChat 通知模板时间字段：从 `toISOString()`（UTC）改为 Luxon `DateTime` 显示北京时间
 - 新增 node-patterns.md Section 10「DateTime Formatting Conventions」，明确用户可见时间 vs 内部日志的处理约定
