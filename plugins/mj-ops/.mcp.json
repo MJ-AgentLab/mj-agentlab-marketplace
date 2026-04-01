@@ -4,9 +4,7 @@
       "type": "stdio",
       "command": "cmd",
       "args": [
-        "/c", "npx",
-        "-y",
-        "@modelcontextprotocol/server-postgres",
+        "/c", "${CLAUDE_PLUGIN_ROOT}/scripts/pg-server-start.cmd",
         "${MJ_POSTGRES_DEV_URL:-postgresql://admin:admin123@localhost:5432/mj_system_db}"
       ],
       "env": {}
@@ -15,9 +13,7 @@
       "type": "stdio",
       "command": "cmd",
       "args": [
-        "/c", "npx",
-        "-y",
-        "@modelcontextprotocol/server-postgres",
+        "/c", "${CLAUDE_PLUGIN_ROOT}/scripts/pg-server-start.cmd",
         "${MJ_POSTGRES_TEST_LAN_URL:-postgresql://admin:admin123@192.168.0.179:5432/mj_system_db}"
       ],
       "env": {}
@@ -26,9 +22,7 @@
       "type": "stdio",
       "command": "cmd",
       "args": [
-        "/c", "npx",
-        "-y",
-        "@modelcontextprotocol/server-postgres",
+        "/c", "${CLAUDE_PLUGIN_ROOT}/scripts/pg-server-start.cmd",
         "${MJ_POSTGRES_TEST_WAN_URL}"
       ],
       "env": {}
@@ -37,9 +31,7 @@
       "type": "stdio",
       "command": "cmd",
       "args": [
-        "/c", "npx",
-        "-y",
-        "@modelcontextprotocol/server-postgres",
+        "/c", "${CLAUDE_PLUGIN_ROOT}/scripts/pg-server-start.cmd",
         "${MJ_POSTGRES_PROD_LAN_URL:-postgresql://admin:admin123@192.168.0.106:5432/mj_system_db}"
       ],
       "env": {}
@@ -48,9 +40,7 @@
       "type": "stdio",
       "command": "cmd",
       "args": [
-        "/c", "npx",
-        "-y",
-        "@modelcontextprotocol/server-postgres",
+        "/c", "${CLAUDE_PLUGIN_ROOT}/scripts/pg-server-start.cmd",
         "${MJ_POSTGRES_PROD_WAN_URL}"
       ],
       "env": {}

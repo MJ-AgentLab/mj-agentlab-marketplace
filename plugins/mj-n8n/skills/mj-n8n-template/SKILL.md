@@ -200,6 +200,8 @@ n8n/workflows/_base/CollectionNodes/RawDataCollection-Scheduled/
 
 7. **n8n 表达式 `{{ }}` 与模板占位符 `{{ }}` 的区分** —— n8n 表达式如 `={{ $json.xxx }}` 中的 `{{ }}` 不是模板占位符。模板占位符命名格式为 `{{UPPER_CASE_NAME}}`（全大写+下划线），渲染脚本通过正则 `\{\{[A-Z][A-Z0-9_]+\}\}` 匹配。
 
+8. **不要模板化 Luxon 时区字符串** —— Code 节点中 `DateTime.fromJSDate(...).setZone('Asia/Shanghai')` 的 `'Asia/Shanghai'` 是固定时区标识符，所有环境相同，不属于环境相关值。不要将其替换为占位符。
+
 ## Human Intervention Points
 
 | # | 触发条件 | 行为 |

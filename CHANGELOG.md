@@ -5,6 +5,12 @@
 
 ## [Unreleased]
 
+## [1.2.6] - 2026-04-02
+
+### Fixed
+- mj-ops: MCP postgres 查询结果中 timestamp/timestamptz 字段保留 PostgreSQL 原始时区格式，不再转为 UTC (#38)
+- mj-n8n: WeChat 通知模板时间字段从 UTC ISO 格式改为北京时间显示，新增 DateTime 时区处理约定 (#39)
+
 ## [1.2.5] - 2026-03-27
 
 ### Changed
