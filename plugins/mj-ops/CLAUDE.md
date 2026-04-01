@@ -22,6 +22,8 @@ mj-ops 是 MJ System 的运维技能家族 Plugin，提供 4 个 skill：
 - **postgres-prod-lan**: 生产环境 LAN（`${MJ_POSTGRES_PROD_LAN_URL}` 或默认 192.168.0.106:5432）
 - **postgres-prod-wan**: 生产环境 WAN（需配置 `MJ_POSTGRES_PROD_WAN_URL`，无 fallback 默认值）
 
+> **时间戳格式修复 (#38)**：所有 PostgreSQL MCP server 通过 `scripts/pg-server-start.cmd` → `pg-server-wrapper.mjs` 启动，覆盖了 `pg.types` 的 timestamp/timestamptz 解析器（OID 1114/1184），确保查询结果中的时间戳返回 PostgreSQL 原始格式（如 `2026-04-01 16:51:19+08`）而非 node-postgres 默认的 UTC ISO 格式（`2026-04-01T08:51:14.755Z`）。
+
 **SSH（ssh-manager，7 台服务器）：**
 - **CLOUD**: 云服务器 8.135.38.175（需 `SSH_SERVER_CLOUD_PASSWORD`）
 - **RUNNER_LAN / RUNNER_WAN**: Runner 服务器 LAN/WAN（需 `SSH_SERVER_RUNNER_PASSWORD`）
@@ -59,6 +61,11 @@ MCP 服务器需要的密码和连接 URL 通过加密文件管理：
 ## 文件结构
 
 ```
+scripts/
+├── setup-ops-env.ps1         # 秘密值解密 + 环境变量加载
+├── encrypt-ops-secrets.ps1   # 秘密值加密
+├── pg-server-start.cmd       # PG MCP server 启动器（发现 npx 缓存 + 设置 NODE_PATH）
+└── pg-server-wrapper.mjs     # PG timestamp 修复（覆盖 pg.types 解析器）
 skills/
 ├── mj-env-setup/         # 环境搭建技能 + env-reference.md + troubleshooting.md
 ├── mj-env-teardown/      # 环境清理技能
