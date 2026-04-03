@@ -93,8 +93,14 @@ If any doc was renamed or deleted:
 
 **执行前检查 D-03**：若 CLAUDE.md 需修改超过 10 行 → 触发 **D-03** 确认
 
-1. **INDEX.md**: Add/remove/update entries per §6.2 format: `- [[doc|Title]] — ≤60 char description`
+1. **INDEX.md**: Regenerate managed blocks using validator-owned logic:
+   ```bash
+   python validate_doc.py docs --repo-root <repo> --write-managed-indexes
+   ```
+   This ensures INDEX content stays in sync with canonical docs' `summary` fields.
 2. **CLAUDE.md**: Check §8.2 mapping table. If changed content maps to a CLAUDE.md section, sync it.
+
+Sync scope is restricted to canonical docs in `docs/**`. Working docs in `plans/**` are not synced.
 
 ## Phase 5: Validate
 

@@ -63,10 +63,16 @@ What is the content about?
 | `[ISSUE]` | Problem summary, discovery context, impact, fix direction (≤5 points) | Complete fix design, decision discussion, operation flow, post-incident analysis |
 | `[ASSESSMENT]` | Optimization overview, ≥2 dimension before/after comparison, summary table | Fix implementation details, decision discussion, incident response |
 
-## Line Count Constraints
+## Line Count Constraints (Advisory)
+
+These are advisory limits only — they produce `WARN`, not `FAIL`:
 
 README: 200-500 | GUIDE: 100-800 | ADR: 50-200 | SPEC: 200-1500
 CONTRIBUTING: 100-500 | RUNBOOK: 50-500 | POSTMORTEM: 100-500 | STANDARD: 100-1000
 ISSUE: 50-200 | ASSESSMENT: 100-1000
 
-For full rules: `docs/rule/[STANDARD]_Documentation_Management_Framework_v4.5.md` §7.1
+## Mixed Content Note
+
+When content serves both long-term reference and short-term execution, prefer split output: canonical doc in `docs/` + working plan in `plans/`. See Q-12 in `question-patterns.md`.
+
+For full rules: `docs/rule/[STANDARD]_Documentation_Management_Framework_v5.0.md` §7.1
