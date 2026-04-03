@@ -5,6 +5,23 @@
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-04-03
+
+### Added
+- mj-doc: 升级至 v2.0.0，全面支持 Documentation Management Framework v5.0
+- mj-doc: 新增 A4（链接存在性）、A5（INDEX 管理块同步）、A6（CLAUDE.md 允许列表）阻断性检查
+- mj-doc: 新增 `--repo-root`、`--pr-mode`、`--write-managed-indexes` CLI 参数
+- mj-doc: 新增 Q-12 交互节点（文档层级归属歧义）
+- mj-doc: 新增 v4.5→v5.0 前置元数据映射和状态映射表
+- mj-doc: 新增 unittest 回归测试套件
+
+### Changed
+- mj-doc: **BREAKING** — v2.0 仅支持已完成 v5.0 迁移的仓库（v1.2.0 → v2.0.0）
+- mj-doc: 前置元数据模式从 v4.5 切换为 v5.0（type/domain/summary/owner/created/updated/state）
+- mj-doc: 状态生命周期从 6+ 中文状态简化为 draft/active/deprecated
+- mj-doc: 校验检查重编号为 A1-A6（阻断性）+ OB1-OB5（非阻断性）
+- mj-doc: 计划输出路径从 `docs/plans/` 变更为顶级 `plans/`
+
 ## [1.2.6] - 2026-04-02
 
 ### Fixed

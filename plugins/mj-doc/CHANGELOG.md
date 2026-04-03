@@ -5,6 +5,44 @@
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-04-03
+
+### Breaking Changes
+- **v5.0-only compatibility**: mj-doc v2.0 仅支持已完成 Framework v5.0 迁移的仓库
+- Frontmatter 模式从 v4.5（tags/aliases/date/updated/version/status/owner）变更为 v5.0（type/domain/summary/owner/created/updated/state + 类型特定字段）
+- 状态生命周期从 6+ 中文状态简化为 3 个英文状态：`draft` / `active` / `deprecated`
+- `[DEPRECATED]` 文件名前缀移除，改用 `state: deprecated`
+- 校验检查从 A1-A4 + SA1-SA3 重编号为 A1-A6（阻断性）+ OB1-OB5（非阻断性）
+- `docs/plans/` 路径变更为顶级 `plans/`
+
+### Added
+- A4: 内部链接目标存在性校验（支持 Wikilink、相对路径、标题锚点）
+- A5: INDEX.md 管理块同步校验（`<!-- mj-doc:index:start/end -->` 标记）
+- A6: CLAUDE.md 允许列表触发（PR 模式，`--pr-mode --base-ref`）
+- `SKIP` 状态：根特殊文件和不适用检查返回 SKIP 而非虚假 PASS
+- `--repo-root` CLI 参数（A4、A5、A6 和 INDEX 生成必需）
+- `--write-managed-indexes` 使用与 A5 相同的渲染函数生成 INDEX 管理块
+- `--pr-mode --base-ref [--head-ref]` 启用 A6 检查
+- Q-12: 文档层级归属歧义（canonical vs working）交互节点
+- v4.5 → v5.0 frontmatter 映射和状态映射表（migration-rules.md）
+- `[DEPRECATED]` 文件迁移重命名规则
+- 三层治理模型文档（canonical / working / legacy）
+- Domain Registry（14 个有效域缩写）
+- unittest 回归测试套件（tests/ + fixtures/）
+
+### Changed
+- 全部 SKILL.md: Framework v4.5 引用更新为 Framework v5.0
+- validate_doc.py: 完全重写，支持 A1-A6 + OB1-OB5 + 管理块生成
+- validation-rules.md: 完全重写为 v5.0 规则参考
+- quality-gate.md: 完全重写，中文状态矩阵替换为 3 状态模型
+- migration-rules.md: 完全重写，新增 v4.5→v5.0 映射表
+- obsidian-rules.md: 新增 v5.0 链接格式场景和 A4 范围说明
+- template-patterns.md: Service Abbreviation Registry 重命名为 Domain Registry，INDEX.md 改为管理块文档
+- code-doc-mapping.md: 字段名更新（status→state, date→created），新增 INDEX 管理块再生触发
+- mj-doc-sync: INDEX 更新改为通过 validator 管理块生成
+- mj-doc-plan: 计划输出路径从 `docs/plans/` 变更为 `plans/`，使用 v5.0 轻量 frontmatter
+- mj-doc-migrate: 新增 v4.5→v5.0 迁移为主要用例
+
 ## [1.2.0] - 2026-03-27
 
 ### Added

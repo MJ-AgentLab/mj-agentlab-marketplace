@@ -1,18 +1,50 @@
-# Quality Gate Reference
+# Quality Gate Reference — Framework v5.0
 
 ## §9.3 PR Checklist Items
 
 | # | Check | Scope | How |
 |---|-------|-------|-----|
-| 1 | YAML frontmatter complete | All `docs/**/*.md` | A1 check via mj-doc-validate (includes ISSUE/ASSESSMENT specialized required fields) |
-| 2 | Filename compliant | All docs | A2 check via mj-doc-validate |
-| 3 | INDEX.md synced | PR adds/removes docs | Diff check: new files in INDEX? |
-| 4 | CLAUDE.md synced | PR changes §8.2 mapped docs | Compare changed content vs CLAUDE.md |
-| 5 | `updated` date current | Modified existing docs | Frontmatter check (substantive changes only) |
-| 6 | Status transition legal | Docs with status change | Verify against §5.3 transition matrix |
-| 7 | ADR exists if triggered | §12.2 conditions met | Check `docs/adr/` |
-| 8 | SPEC exists if triggered | §12.3 new conditions met | Check `docs/design/{Service}/` |
-| 9 | SPEC updated if triggered | §12.3 update conditions met | Diff check on SPEC `updated` field |
+| 1 | Path + filename legal (A1) | All governed docs | validate_doc.py |
+| 2 | Frontmatter complete (A2) | All governed docs | validate_doc.py |
+| 3 | Enums valid (A3) | All governed docs | validate_doc.py |
+| 4 | Internal links resolved (A4) | All governed docs | validate_doc.py --repo-root |
+| 5 | INDEX managed block synced (A5) | INDEX.md files | validate_doc.py --repo-root |
+| 6 | CLAUDE.md synced (A6) | PR changes allowlist docs | validate_doc.py --pr-mode --base-ref |
+| 7 | OB format checks (OB1-OB5) | All docs including root special | validate_doc.py |
+| 8 | `updated` date current | Modified existing docs | Frontmatter check (substantive changes only) |
+| 9 | ADR exists if triggered | §12.2 conditions met | Check `docs/adr/` |
+| 10 | SPEC exists if triggered | §12.3 new conditions met | Check `docs/design/{Service}/` |
+| 11 | SPEC updated if triggered | §12.3 update conditions met | Diff check on SPEC `updated` field |
+
+## Review Semantics
+
+| Status | Meaning | Merge Impact |
+|--------|---------|-------------|
+| `PASS` | Check passed | No action needed |
+| `FAIL` | Check failed | **Blocks merge** |
+| `WARN` | Non-blocking issue | Requires reviewer comment but does not block |
+| `SKIP` | Check not applicable | Acceptable — no action needed |
+
+## State Lifecycle (v5.0)
+
+```
+draft → active → deprecated
+```
+
+Three states only:
+
+| State | Meaning | Allowed Transitions |
+|-------|---------|-------------------|
+| `draft` | New or under revision | → `active` |
+| `active` | Authoritative, current | → `deprecated`, → `draft` (major rewrite) |
+| `deprecated` | No longer authoritative | Terminal (create new doc instead) |
+
+Type-specific result fields (not states):
+- **ADR**: `decision` = `accepted` / `superseded` / `rejected`
+- **ISSUE**: `resolution` = `open` / `fixed` / `wontfix` / `obsolete`
+
+Immutable after `active`: `[ADR]`, `[POSTMORTEM]`, `[ASSESSMENT]` — create new document instead of modifying.
+Append-only after `active`: `[ISSUE]` — preserve original analysis, append updates.
 
 ## §12.2 ADR Trigger Conditions
 
@@ -50,16 +82,16 @@ Create ADR when ANY is true:
 | `.env` new vars | CLAUDE.md env + RUNBOOK |
 | `pyproject.toml` | README tech stack |
 
-## Status Transition Matrix (§5.3)
+## A5 Managed-Block Expectations
 
-```
-草案 → 评审中 → 已批准 → 已废弃
-                  ├→ 已实施 → 已废弃  (SPEC only)
-                  ├→ 已修复           (ISSUE only)
-                  ├→ 已取代           (ADR only)
-                  └→ 草案             (major version bump)
-评审中 → 已拒绝                      (ADR only)
-```
+- `docs/INDEX.md` must contain `<!-- mj-doc:index:start -->` / `<!-- mj-doc:index:end -->` markers
+- Any existing `docs/**/INDEX.md` must also contain managed block markers
+- Content between markers is generated from canonical docs' `summary` fields
+- Regenerate with: `validate_doc.py --repo-root <repo> --write-managed-indexes`
 
-**Immutable after 已批准**: `[ADR]`, `[POSTMORTEM]`, `[ASSESSMENT]` — create new document instead of modifying.
-**Append-only after 已批准**: `[ISSUE]` — preserve original analysis, append updates with minor version bump.
+## A6 PR-Mode Contract
+
+- Only runs when `--pr-mode` is supplied with `--base-ref`
+- Compares changed files in `git diff <base-ref>...<head-ref>`
+- If allowlist doc changed but root `CLAUDE.md` did not → `FAIL`
+- Returns `SKIP` outside PR mode

@@ -1,17 +1,19 @@
 ---
 name: mj-doc-author
-description: This skill creates a single Framework v4.5-compliant MJ System document (GUIDE, RUNBOOK, ADR, SPEC, POSTMORTEM, STANDARD, ISSUE, or ASSESSMENT) from code analysis through validation. It should be invoked after the document type and scope are already decided, producing complete documents with correct frontmatter, section structure, and cross-references. Triggers on "write a GUIDE for", "create a RUNBOOK for", "generate documentation for", "draft an ADR for", "create an ISSUE doc", "write an ASSESSMENT", "写文档", "编写指南", "创建RUNBOOK", "生成ADR", "写规范文档", "写ISSUE", "写评估文档".
+description: This skill creates a single Framework v5.0-compliant MJ System document (GUIDE, RUNBOOK, ADR, SPEC, POSTMORTEM, STANDARD, ISSUE, or ASSESSMENT) from code analysis through validation. It should be invoked after the document type and scope are already decided, producing complete documents with correct frontmatter, section structure, and cross-references. Triggers on "write a GUIDE for", "create a RUNBOOK for", "generate documentation for", "draft an ADR for", "create an ISSUE doc", "write an ASSESSMENT", "写文档", "编写指南", "创建RUNBOOK", "生成ADR", "写规范文档", "写ISSUE", "写评估文档".
 ---
 
 # MJ Document Author
 
 ## Overview
 
-Creates a single Framework v4.5-compliant document from code analysis through to validation. Code is the source of truth — always verify against actual files, never trust legacy docs alone.
+Creates a single Framework v5.0-compliant document from code analysis through to validation. Code is the source of truth — always verify against actual files, never trust legacy docs alone.
 
 ## Prerequisite
 
 Document type and scope should be clear. If not, use `mj-doc-plan` first.
+
+> **Breaking change (v2.0)**: Target repository must already be migrated to Framework v5.0. If the repo contains v4.5 canonical docs, run `mj-doc-migrate` first.
 
 ## Workflow
 
@@ -28,6 +30,7 @@ digraph author {
 
   q01 [label="Q-01: 目录位置歧义?\n(≥2 valid dirs 时询问)" shape=diamond];
 
+  q12 [label="Q-12: canonical vs working?\n(mixed content 时询问)" shape=diamond];
   template [label="Template selection\n(§3.4 + template-patterns.md)" shape=box];
   filename [label="Filename construction\n(§4 naming rules)\n★ glob 检查同名文件" shape=box];
 
@@ -45,8 +48,10 @@ digraph author {
   q03 -> dir [label="否/已确认"];
   q03 -> dir [label="是→先建 ADR"];
   q04 -> dir [label="已确认"];
+  dir -> q12 [label="mixed content"];
   dir -> q01 [label="≥2 valid dirs"];
   dir -> template [label="明确唯一"];
+  q12 -> template [label="已决定层级"];
   q01 -> template [label="用户选择/默认"];
   template -> filename;
   filename -> d01q02 [label="glob 发现同名"];
@@ -75,7 +80,7 @@ digraph author {
 
 1. **Code is source of truth** — Legacy docs may be outdated. Always verify paths, params, secrets against actual files.
 2. **RUNBOOK uses imperative mood** — Readers execute under pressure; clear commands save time.
-3. **Start as `status: 草案`** — All new docs enter review before becoming authoritative.
+3. **Start as `state: draft`** — All new docs enter review before becoming authoritative. Explicitly generate `type`, `domain`, `summary`, and `state` in frontmatter.
 4. **Template adaptation allowed** — Sections can rename/reorder, but MUST preserve: frontmatter, blockquote header, related docs section.
 
 ## Directory Placement Rules (§3.2)
@@ -122,6 +127,7 @@ Same convention: scan `docs/issues/` for max `[ISSUE]_NNN_*` number, new = max +
 | 写文件前（文件已存在） | glob 检测到目标路径同名文件 | 用户说"覆盖/替换" | D-01/Q-02 |
 | 同名文件处理方式 | 同上（Q-02 是 D-01 的提问界面） | 同上 | Q-02 |
 | §12 前置检查后（问题文档） | 问题分析文档但发现方式不明确（主动 vs 被动） | 用户已指定"写 ISSUE"或"写 POSTMORTEM" | Q-10 |
+| 目录确定前（层级歧义） | 内容同时含长期参考和短期执行材料 | 用户明确说"写 plan"或明确指定 canonical 类型 | Q-12 |
 
 详细模板: `../mj-doc-shared/question-patterns.md`
 

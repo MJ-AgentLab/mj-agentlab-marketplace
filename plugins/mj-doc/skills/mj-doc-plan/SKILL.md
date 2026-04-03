@@ -1,13 +1,13 @@
 ---
 name: mj-doc-plan
-description: This skill evaluates what documentation is needed for a MJ System topic, service, or infrastructure area by analyzing code scope against Framework v4.5 requirements (including ISSUE and ASSESSMENT types). It should also be invoked when planning multi-document work, assessing documentation gaps, or answering "what docs do we need for X?". Triggers on "evaluate documentation for", "plan docs for", "what documentation does X need", "documentation gap analysis", "文档规划", "评估文档需求", "文档缺口分析", "需要哪些文档".
+description: This skill evaluates what documentation is needed for a MJ System topic, service, or infrastructure area by analyzing code scope against Framework v5.0 requirements (including ISSUE and ASSESSMENT types). It should also be invoked when planning multi-document work, assessing documentation gaps, or answering "what docs do we need for X?". Triggers on "evaluate documentation for", "plan docs for", "what documentation does X need", "documentation gap analysis", "文档规划", "评估文档需求", "文档缺口分析", "需要哪些文档".
 ---
 
 # MJ Documentation Planner
 
 ## Overview
 
-Analyzes a topic scope, evaluates existing docs against Framework v4.5 requirements, determines which document types are needed, and produces an implementation plan. This is the "what docs do we need?" skill.
+Analyzes a topic scope, evaluates existing docs against Framework v5.0 requirements, determines which document types are needed, and produces an implementation plan. This is the "what docs do we need?" skill.
 
 ## When to Use
 
@@ -33,12 +33,15 @@ digraph plan {
 
   present [label="Present proposed docs\nto user for approval" shape=diamond];
 
-  p3 [label="Phase 3: Write Plan\n→ docs/plans/YYYY-MM-DD-topic-*.md\n• Tasks with dependencies\n• Code verification checklist" shape=box];
+  q12 [label="Q-12: canonical vs working?\n(mixed content 时询问)" shape=diamond];
+
+  p3 [label="Phase 3: Write Plan\n→ plans/YYYY-MM-DD-topic-*.md\n• Working frontmatter\n• Tasks with dependencies" shape=box];
 
   handoff [label="Hand off to\nmj-doc-author" shape=doublecircle];
 
   input -> p1 -> p2 -> q05q06;
-  q05q06 -> present [label="已解决歧义/无歧义"];
+  q05q06 -> q12 [label="已解决歧义/无歧义"];
+  q12 -> present [label="已决定层级"];
   present -> p3 [label="approved"];
   present -> p2 [label="revise"];
   p3 -> handoff;
@@ -67,7 +70,17 @@ For each identified gap, apply the decision tree (see plan-checklist.md):
 
 ## Phase 3: Implementation Plan
 
-Write plan to `docs/plans/YYYY-MM-DD-<topic>-documentation-plan.md`:
+Write plan to `plans/YYYY-MM-DD-<topic>-documentation-plan.md` with v5.0 working frontmatter:
+
+```yaml
+---
+summary: Documentation plan for {topic}
+owner: {author}
+created: {date}
+updated: {date}
+state: draft
+---
+```
 
 ```markdown
 # [Topic] Documentation Plan
@@ -112,6 +125,7 @@ Why these docs are needed.
 | Phase 2 结束、present 前 | docs_old/ 下存在主题匹配的遗留文件 | 用户明确说"忽略旧文档" | Q-06 |
 | Phase 2 中（问题文档） | 问题分析文档但发现方式不明确（主动 vs 被动） | 用户已指定"写 ISSUE"或"写 POSTMORTEM" | Q-10 |
 | Phase 2 中（问题深度） | 发现需延后处理的问题但分析深度不确定 | 问题分析明显 >10 行 | Q-11 |
+| Phase 2 结束、present 前（层级歧义） | 内容同时含长期参考和短期执行材料 | 用户明确说"写 plan"或明确指定 canonical 类型 | Q-12 |
 
 详细模板: `../mj-doc-shared/question-patterns.md`
 
