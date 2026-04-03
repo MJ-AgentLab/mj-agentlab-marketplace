@@ -1,13 +1,13 @@
 ---
 name: mj-doc-review
-description: This skill reviews a pull request for documentation completeness, checking all Framework v4.5 §9.3 quality gate items at PR scope — INDEX.md sync, CLAUDE.md sync, §12 pre-check compliance, and cross-reference integrity. It should be invoked when reviewing a PR that includes documentation changes, or before submitting a PR to verify documentation requirements are met. Triggers on "review PR docs", "check PR documentation", "documentation checklist for PR", "pre-PR doc check", "审查PR文档", "PR文档检查", "提交前文档验证", "文档质量门禁".
+description: This skill reviews a pull request for documentation completeness, checking all Framework v5.0 §9.3 quality gate items at PR scope — INDEX.md sync, CLAUDE.md sync, §12 pre-check compliance, and cross-reference integrity. It should be invoked when reviewing a PR that includes documentation changes, or before submitting a PR to verify documentation requirements are met. Triggers on "review PR docs", "check PR documentation", "documentation checklist for PR", "pre-PR doc check", "审查PR文档", "PR文档检查", "提交前文档验证", "文档质量门禁".
 ---
 
 # MJ Documentation Review
 
 ## Overview
 
-PR-scope quality gate — verifies that a PR satisfies all Framework v4.5 documentation requirements (§9.3). Distinct from `mj-doc-validate` which checks individual files; this skill checks the PR holistically.
+PR-scope quality gate — verifies that a PR satisfies all Framework v5.0 documentation requirements (§9.3). Distinct from `mj-doc-validate` which checks individual files; this skill checks the PR holistically.
 
 ## Workflow
 
@@ -89,9 +89,14 @@ For each documentation change in the PR:
 - [x] No broken Wikilinks detected
 
 ### Per-File Validation
-| File | A1 | A2 | A3 | OB1-5 | Notes |
-|------|----|----|----|----- -|-------|
-| doc1.md | PASS | PASS | PASS | PASS | — |
+| File | A1 | A2 | A3 | A4 | A5 | A6 | OB1-5 | Notes |
+|------|----|----|----|----|----|----|----- -|-------|
+| doc1.md | PASS | PASS | PASS | PASS | SKIP | SKIP | PASS | — |
+
+### Review Semantics
+- `FAIL` — blocks merge
+- `WARN` — requires reviewer comment but does not block
+- `SKIP` — acceptable when check is not applicable (e.g., A6 outside PR mode)
 ```
 
 ## REQUIRED SUB-SKILL

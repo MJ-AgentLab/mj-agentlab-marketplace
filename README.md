@@ -12,7 +12,7 @@ MJ System 团队的 [Claude Code](https://docs.anthropic.com/en/docs/claude-code
 
 | Plugin | 描述 | Skills | Version | 前置条件 |
 |--------|------|--------|---------|----------|
-| [**mj-doc**](plugins/mj-doc/README.md) | 文档工作流：规划、编写、校验、迁移、同步、审查 | 6 | 1.2.0 | — |
+| [**mj-doc**](plugins/mj-doc/README.md) | 文档工作流：规划、编写、校验、迁移、同步、审查 | 6 | 2.0.0 | — |
 | [**mj-git**](plugins/mj-git/README.md) | Git 工作流：分支、提交、推送、PR、Review、同步、清理 | 9 | 1.1.3 | `GITHUB_PERSONAL_ACCESS_TOKEN` |
 | [**mj-n8n**](plugins/mj-n8n/README.md) | n8n 工作流：设计、编写、模板、配置、文档、渲染、晋升 | 7 | 1.1.1 | — |
 | [**mj-ops**](plugins/mj-ops/README.md) | 运维操作：环境搭建/清理、ETL 触发 | 4 | 1.2.4 | `SSH_SERVER_*_PASSWORD` |

@@ -43,6 +43,21 @@ Wikilinks inside table cells must escape `|` as `\|`:
 | data   | [[doc\|display text]] |
 ```
 
+## v5.0 Link Formatting Scenarios
+
+| Scenario | Format | Example |
+|----------|--------|---------|
+| Text cross-reference | Wikilink | `[[STANDARD_SQL_Style\|SQL Style]]` |
+| Cross-file heading | Wikilink with heading | `[[STANDARD_Documentation_Management_Framework_v5.0#6.4 CLAUDE.md 同步策略\|CLAUDE Sync]]` |
+| Intra-doc TOC | Header Wikilink | `[[#4 Naming and Frontmatter]]` |
+| GitHub-facing index | Relative Markdown link | `[SQL Style](./[STANDARD]_SQL_Style.md)` |
+
+### A4 Link Validation Scope
+
+- External URLs (`http://`, `https://`, `mailto:`) are **ignored** by A4
+- Links inside fenced code blocks are **ignored** by A4
+- A4 checks link *target existence*; OB1 checks link *format* — they are complementary
+
 ## Additional Rules
 
 - `---` separator must have blank line above (prevents turning text into h1)

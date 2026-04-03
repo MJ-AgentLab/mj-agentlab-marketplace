@@ -16,7 +16,7 @@
 | `.env` (new vars) | CLAUDE.md Env Vars + related `[RUNBOOK]` | New variable names and purposes |
 | `n8n/workflows/**` | `docs/infrastructure/n8n/` | Workflow logic, triggers, connections |
 | `pyproject.toml` | README tech stack | Dependencies added/removed |
-| `docs/_templates/*` | Framework v4.5 §3.4 template table | Template availability |
+| `docs/_templates/*` | Framework v5.0 §3.4 template table | Template availability |
 | `[mj-agentlab-marketplace] plugins/mj-doc/skills/mj-doc-*/SKILL.md` | `docs/infrastructure/claude-code/mj-doc/[GUIDE]_MJ_Doc_Skills_Architecture.md` + `[RUNBOOK]_MJ_Doc_Workflow_Procedures.md` | 技能工作流步骤、人工交互节点列表、文件结构章节 |
 <!-- skill 文件现由 mj-agentlab-marketplace 仓库管理 -->
 | `[mj-agentlab-marketplace] plugins/mj-doc/skills/mj-doc-shared/**` | `docs/infrastructure/claude-code/mj-doc/[GUIDE]_MJ_Doc_Skills_Architecture.md` + `[RUNBOOK]_MJ_Doc_Workflow_Procedures.md` | Q/D 问题 ID 新增或删除时须同步 GUIDE 设计原则和 RUNBOOK 步骤 |
@@ -58,9 +58,18 @@ grep -r '[[OldName|' docs/ CONTRIBUTING.md README.md
 | Docker Deployment | `docs/infrastructure/docker/` | Deploy config change |
 | Multi-Env DB Config | `docs/infrastructure/database/` | Env config change |
 | DQV/AEC/QVL details | `docs/design/{Service}/` | Interface/flow change |
-| Documentation Maintenance | 本文档 (Framework v4.5) | Framework version change |
+| Documentation Maintenance | 本文档 (Framework v5.0) | Framework version change |
 
 **Sync granularity rule**: Only sync when the change would affect Claude Code's behavior decisions. Skip typo fixes and pure formatting adjustments.
+
+## INDEX Managed-Block Regeneration Trigger
+
+When any of the following occur, regenerate managed INDEX blocks:
+- A new canonical doc is added to `docs/**`
+- A canonical doc is renamed, moved, or deleted
+- A canonical doc's `summary` field changes
+
+Use: `python validate_doc.py docs --repo-root <repo> --write-managed-indexes`
 
 ## Frontmatter Update Rules
 
@@ -68,4 +77,4 @@ grep -r '[[OldName|' docs/ CONTRIBUTING.md README.md
 |-------------|-------------------|-------------------|
 | Substantive (new section, rule change, code example update) | Yes | Minor bump (Y) |
 | Non-substantive (typo, formatting, field fill) | No | No |
-| Structural rewrite (major reorganization) | Yes | Major bump (X), status → 草案 |
+| Structural rewrite (major reorganization) | Yes | Major bump (X), state → draft |

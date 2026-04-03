@@ -58,7 +58,17 @@ Any ONE of these → must create ADR:
 
 ## Plan Document Format
 
+Plans are written to `plans/` with v5.0 working frontmatter:
+
 ```markdown
+---
+summary: Documentation plan for {topic}
+owner: {author}
+created: {date}
+updated: {date}
+state: draft
+---
+
 # {Topic} Documentation Plan
 
 ## Context
@@ -66,13 +76,14 @@ Brief explanation of why these docs are needed.
 What triggered this assessment.
 
 ## Existing Documentation
-- List of existing docs found and their status
+- List of existing docs found and their state
 
 ## Proposed Documents
 
-| # | Type | Filename | Directory | Content Sources | Priority |
-|---|------|----------|-----------|-----------------|----------|
-| 1 | ... | ... | ... | code/legacy/config paths | High/Med/Low |
+| # | Type | Layer | Filename | Directory | Content Sources | Priority |
+|---|------|-------|----------|-----------|-----------------|----------|
+| 1 | ... | docs/ | ... | ... | code/legacy/config paths | High/Med/Low |
+| 2 | [PLAN] | plans/ | ... | ... | ... | ... |
 
 ## Task List
 Ordered by dependencies:
@@ -84,6 +95,8 @@ Per-document list of code paths to verify:
 - [ ] Doc1: verify X against `src/path/file.py`
 - [ ] Doc2: verify Y against `sql/path/script.sql`
 ```
+
+Note: When content serves both long-term reference and execution, recommend split output (Q-12): canonical doc in `docs/` + working plan in `plans/`.
 
 ## Migration Check
 
