@@ -42,6 +42,12 @@ try {
   // 3. Dynamic import of the original server (ESM, file:// URL)
   await import(pathToFileURL(serverEntry).href);
 } catch (err) {
+  if (err.code === 'MODULE_NOT_FOUND') {
+    console.error('[pg-wrapper] ERROR: npx cache appears corrupted — missing dependency.');
+    console.error('[pg-wrapper] FIX: Delete the npx cache directory and restart Claude Code:');
+    console.error('  Windows:  rd /s /q "%LOCALAPPDATA%\\npm-cache\\_npx"');
+    console.error('  Unix:     rm -rf "$HOME/.npm/_npx"');
+  }
   console.error("[pg-wrapper] ERROR:", err.message);
   process.exit(1);
 }

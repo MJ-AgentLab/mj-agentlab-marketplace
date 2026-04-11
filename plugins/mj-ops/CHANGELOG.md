@@ -5,6 +5,10 @@
 
 ## [Unreleased]
 
+### Fixed
+- `pg-server-start.cmd` npx 缓存下载中断后留下空目录占位，导致 postgres-* MCP server 永久 `failed` 且无法自愈。新增 6 项关键依赖完整性校验（`pg-types`, `postgres-date` 等），检测损坏时自动清理缓存并重新下载 (#46)
+- `pg-server-wrapper.mjs` 捕获 `MODULE_NOT_FOUND` 错误时输出明确的缓存损坏诊断信息和修复命令 (#46)
+
 ## [1.2.4] - 2026-04-02
 
 ### Fixed
