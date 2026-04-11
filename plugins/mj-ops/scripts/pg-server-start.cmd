@@ -18,6 +18,7 @@ REM   Node.js built-in modules (fs, path) which are always available.
 REM
 REM Usage: pg-server-start.cmd <postgresql-connection-url>
 
+:DISCOVER
 REM Step 1: Install package (if needed) and discover node_modules path
 REM   - npx -y auto-confirms installation
 REM   - 2^>nul suppresses npx stderr (install progress, warnings)
@@ -36,7 +37,30 @@ if not exist "%NODE_PATH%\pg" (
   exit /b 1
 )
 
-REM Step 2: Launch the ESM wrapper with resolved NODE_PATH
+REM Step 2: Dependency integrity check
+REM   Verify critical transitive dependencies have package.json (not just empty dirs).
+REM   npx download interruption can leave empty directories that pass existsSync
+REM   but fail at require() time — a "sticky" failure that never self-heals.
+REM   See: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/46
+set "CACHE_BROKEN="
+for %%D in (pg-types postgres-date postgres-array postgres-bytea postgres-interval pg-connection-string) do (
+    if not exist "%NODE_PATH%\%%D\package.json" set "CACHE_BROKEN=%%D"
+)
+
+if defined CACHE_BROKEN (
+    if defined RETRY_DONE (
+        echo [pg-server] ERROR: npx cache still broken after cleanup — missing !CACHE_BROKEN! 1>&2
+        exit /b 1
+    )
+    echo [pg-server] WARN: Broken npx cache ^(missing !CACHE_BROKEN!\package.json^). Cleaning for re-download... 1>&2
+    set "RETRY_DONE=1"
+    REM Delete the corrupted npx hash directory (parent of node_modules)
+    for /f "delims=" %%P in ("%NODE_PATH%\..") do rd /s /q "%%~fP" 2>nul
+    set "NODE_PATH="
+    goto :DISCOVER
+)
+
+REM Step 3: Launch the ESM wrapper with resolved NODE_PATH
 REM   %~dp0 resolves to this script's directory (mj-ops/scripts/)
 REM   %* forwards all arguments (connection URL) to the wrapper
 node "%~dp0pg-server-wrapper.mjs" %*
