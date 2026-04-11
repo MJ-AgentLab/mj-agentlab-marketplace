@@ -5,6 +5,11 @@
 
 ## [Unreleased]
 
+## [1.3.1] - 2026-04-11
+
+### Fixed
+- mj-ops: `pg-server-start.cmd` 新增 npx 缓存依赖完整性校验，防止缓存损坏导致 postgres-* MCP server 永久 `failed` (#46)
+
 ## [1.3.0] - 2026-04-03
 
 ### Added
