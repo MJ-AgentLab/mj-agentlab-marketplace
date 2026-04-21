@@ -5,6 +5,11 @@
 
 ## [Unreleased]
 
+## [1.2.6] - 2026-04-22
+
+### Changed
+- 轮换加密运维密钥 `secrets-ops.enc`（SSH 密码 / PG URL）；解密流程 `setup-ops-env.ps1` 未变，拉取后重新运行以刷新本地缓存 (#49)
+
 ## [1.2.5] - 2026-04-11
 
 ### Fixed
