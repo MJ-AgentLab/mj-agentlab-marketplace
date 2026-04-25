@@ -5,6 +5,19 @@
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-04-25
+
+### Breaking Changes
+为 mj-agent 家族插件预留命名空间，所有现有 mj-system 专属插件重命名为 `mj-sys-*` 前缀：
+- `mj-doc` → `mj-sys-doc` v3.0.0
+- `mj-git` → `mj-sys-git` v2.0.0
+- `mj-n8n` → `mj-sys-n8n` v2.0.0
+- `mj-ops` → `mj-sys-ops` v2.0.0
+
+用户迁移步骤见 `[GUIDE]_Updated_Plugin_Installation_Steps.md`。
+
+未来 mj-agent 家族插件将采用 `mj-agent-*` 前缀，与 mj-sys-* 形成镜像结构。
+
 ## [1.3.2] - 2026-04-22
 
 ### Changed

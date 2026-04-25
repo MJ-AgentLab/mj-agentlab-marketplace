@@ -1,4 +1,4 @@
-> **[RUNBOOK] 发布操作手册 — MJ AgentLab Marketplace**
+﻿> **[RUNBOOK] 发布操作手册 — MJ AgentLab Marketplace**
 > 从功能开发到版本发布的完整操作流程，面向执行者。
 
 ## 1. 流程总览
@@ -66,13 +66,13 @@ cd ../feature/12-add-release-skill
 git commit -m "<type>(<scope>): <summary>"
 
 # 示例
-git commit -m "feat(mj-git): add release skill"
-git commit -m "fix(mj-doc): fix validate frontmatter check"
+git commit -m "feat(mj-sys-git): add release skill"
+git commit -m "fix(mj-sys-doc): fix validate frontmatter check"
 git commit -m "infra(ci): add version consistency check"
 ```
 
 **Commit 类型**：feat, fix, perf, refactor, test, docs, infra
-**Scope 值**：mj-git, mj-doc, mj-n8n, mj-ops, marketplace, ci, scripts, deps
+**Scope 值**：mj-sys-git, mj-sys-doc, mj-sys-n8n, mj-sys-ops, marketplace, ci, scripts, deps
 
 ### 2.4 更新 CHANGELOG
 
@@ -80,7 +80,7 @@ git commit -m "infra(ci): add version consistency check"
 
 ```bash
 # 插件级变更 → 更新插件 CHANGELOG
-vim plugins/mj-git/CHANGELOG.md
+vim plugins/mj-sys-git/CHANGELOG.md
 
 # 市场级变更 → 更新根 CHANGELOG
 vim CHANGELOG.md
@@ -96,7 +96,7 @@ git push -u origin feature/12-add-release-skill
 
 # 创建 PR（使用对应模板）
 gh pr create --base develop --head feature/12-add-release-skill \
-  --title "feat(mj-git): add release skill" \
+  --title "feat(mj-sys-git): add release skill" \
   --body-file <filled-template>
 ```
 
@@ -121,8 +121,8 @@ git push origin --delete feature/12-add-release-skill
 
 | 变更类型 | 版本变化示例 |
 |----------|-------------|
-| 新增 Skill | mj-git 1.0.0 → 1.1.0 |
-| 修复 Skill Bug | mj-doc 1.0.0 → 1.0.1 |
+| 新增 Skill | mj-sys-git 1.0.0 → 1.1.0 |
+| 修复 Skill Bug | mj-sys-doc 1.0.0 → 1.0.1 |
 | 新增 Plugin | marketplace 1.0.0 → 1.1.0 |
 | 删除 Plugin / 破坏性变更 | marketplace 1.0.0 → 2.0.0 |
 
@@ -139,10 +139,10 @@ git pull origin develop
 
 ```powershell
 # 预览
-.\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "mj-git" -DryRun
+.\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "mj-sys-git" -DryRun
 
 # 执行
-.\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "mj-git"
+.\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "mj-sys-git"
 ```
 
 **市场级变更**：
@@ -190,7 +190,7 @@ git pull origin develop
 ```bash
 git add VERSION .claude-plugin/marketplace.json CHANGELOG.md
 # 如有插件变更，也加上：
-git add plugins/mj-git/.claude-plugin/plugin.json plugins/mj-git/CHANGELOG.md
+git add plugins/mj-sys-git/.claude-plugin/plugin.json plugins/mj-sys-git/CHANGELOG.md
 
 git commit -m "infra(marketplace): release v1.1.0"
 git push origin develop
@@ -251,12 +251,12 @@ cd ../hotfix/<issue-id>-<description>
 
 ```bash
 # 修复问题
-git commit -m "fix(mj-git): fix push skill crash on empty repo"
+git commit -m "fix(mj-sys-git): fix push skill crash on empty repo"
 
 # Bump patch 版本
 .\scripts\bump-version.ps1 -From "1.1.0" -To "1.1.1"
 # 或 bump 插件版本
-.\scripts\bump-version.ps1 -From "1.1.0" -To "1.1.1" -Scope "mj-git"
+.\scripts\bump-version.ps1 -From "1.1.0" -To "1.1.1" -Scope "mj-sys-git"
 
 # 更新 CHANGELOG
 # 直接写入正式版本节（hotfix 不走 [Unreleased]）
@@ -268,7 +268,7 @@ git commit -m "fix(mj-git): fix push skill crash on empty repo"
 gh pr create \
   --base main \
   --head hotfix/<issue-id>-<description> \
-  --title "fix(mj-git): fix push skill crash on empty repo" \
+  --title "fix(mj-sys-git): fix push skill crash on empty repo" \
   --body-file <filled-hotfix-template>
 ```
 

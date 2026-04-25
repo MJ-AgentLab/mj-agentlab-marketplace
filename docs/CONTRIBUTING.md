@@ -1,7 +1,7 @@
-# 贡献指南 — MJ AgentLab Marketplace
+﻿# 贡献指南 — MJ AgentLab Marketplace
 
 本文档面向人类贡献者，说明分支策略、提交规范、版本管理和发布流程。
-Claude Code agent 行为规范请参考各 Plugin 的 SKILL.md（如 mj-git 的 commit-rules.md、branch-rules.md）。
+Claude Code agent 行为规范请参考各 Plugin 的 SKILL.md（如 mj-sys-git 的 commit-rules.md、branch-rules.md）。
 
 ## 分支策略
 
@@ -60,10 +60,10 @@ Claude Code agent 行为规范请参考各 Plugin 的 SKILL.md（如 mj-git 的 
 
 | Scope | 范围 |
 |-------|------|
-| `mj-git` | mj-git Plugin |
-| `mj-doc` | mj-doc Plugin |
-| `mj-n8n` | mj-n8n Plugin |
-| `mj-ops` | mj-ops Plugin |
+| `mj-sys-git` | mj-sys-git Plugin |
+| `mj-sys-doc` | mj-sys-doc Plugin |
+| `mj-sys-n8n` | mj-sys-n8n Plugin |
+| `mj-sys-ops` | mj-sys-ops Plugin |
 | `marketplace` | Marketplace 整体（README、marketplace.json、release） |
 | `ci` | CI/CD workflows |
 | `scripts` | 脚本（bump-version 等） |
@@ -72,7 +72,7 @@ Claude Code agent 行为规范请参考各 Plugin 的 SKILL.md（如 mj-git 的 
 ### 规则
 
 - summary 小写开头，不加句号，≤72 字符
-- 示例：`feat(mj-git): add worktree cleanup to delete skill`
+- 示例：`feat(mj-sys-git): add worktree cleanup to delete skill`
 - 示例：`infra(ci): add SKILL.md frontmatter validation`
 
 ## 版本管理
@@ -98,7 +98,7 @@ Claude Code agent 行为规范请参考各 Plugin 的 SKILL.md（如 mj-git 的 
 .\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0"
 
 # 升级某个 plugin 版本
-.\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "mj-git"
+.\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "mj-sys-git"
 ```
 
 ### 规则
