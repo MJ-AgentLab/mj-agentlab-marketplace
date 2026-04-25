@@ -1,9 +1,9 @@
 ---
-name: mj-etl-ods-to-dwd
+name: mj-sys-ops-etl-ods-to-dwd
 description: This skill manually triggers the QVL ETL pipeline from biz_ods to biz_dwd, bypassing the pg_cron 1-minute polling wait and quiet window. It should be invoked whenever ODS data has been inserted and DWD results are needed immediately, when DWD tables appear empty after cold start or data loading, or when data does not propagate after insertion. The pipeline checks the biz_ods ready signal and executes the ETL function via direct SQL call. Triggers on "触发ETL", "ODS到DWD", "手动ETL", "QVL ETL", "run etl", "trigger ods to dwd", "数据没出来", "DWD没更新", "跑一下ETL", "DWD表是空的", "插了数据但没反应", "cold start 后没数据".
 ---
 
-# mj-etl-ods-to-dwd
+# mj-sys-ops-etl-ods-to-dwd
 
 ## Overview
 
@@ -132,7 +132,7 @@ ETL 执行完成 ✓
   rows_inserted: {rows_inserted}
   duration_ms: {duration_ms}
 
-DWD 数据已就绪。如需继续触发 DWS 指标计算，使用 mj-etl-dwd-to-dws skill。
+DWD 数据已就绪。如需继续触发 DWS 指标计算，使用 mj-sys-ops-etl-dwd-to-dws skill。
 ```
 
 ---
@@ -156,7 +156,7 @@ SELECT * FROM biz_dwd.run_qvl_etl_if_ready(0);
 SELECT COUNT(*) FROM biz_dwd.dwd_qvl_downstream_query;
 # → 1247
 
-# Handoff: 显示结果 + 提示 mj-etl-dwd-to-dws
+# Handoff: 显示结果 + 提示 mj-sys-ops-etl-dwd-to-dws
 ```
 
 ### 示例 2：Cold start 后 DWD 表为空（无 signal 场景）
@@ -177,5 +177,5 @@ docker exec mj-system-postgres psql -U admin -d mj_system_db -c \
 # → rows_inserted=183370, duration_ms=1432
 
 # Step 3: 验证 → DWD 行数 183370，DWD ready signal 已发出
-# Handoff: 显示结果 + 提示 mj-etl-dwd-to-dws
+# Handoff: 显示结果 + 提示 mj-sys-ops-etl-dwd-to-dws
 ```

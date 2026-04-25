@@ -1,4 +1,4 @@
-> **[GUIDE] MJ AgentLab Marketplace 项目概览**
+﻿> **[GUIDE] MJ AgentLab Marketplace 项目概览**
 > 面向新成员和贡献者，介绍插件市场的架构、组成和开发环境。
 
 ## 1. 项目定位
@@ -20,10 +20,10 @@ mj-agentlab-marketplace/
 ├── VERSION                       # 市场整体版本号（单一权威源）
 ├── CHANGELOG.md                  # 市场级变更日志
 ├── plugins/                      # 4 个插件
-│   ├── mj-doc/                   # 文档工作流
-│   ├── mj-git/                   # Git 工作流
-│   ├── mj-n8n/                   # n8n 自动化工作流
-│   └── mj-ops/                   # 运维操作
+│   ├── mj-sys-doc/                   # 文档工作流
+│   ├── mj-sys-git/                   # Git 工作流
+│   ├── mj-sys-n8n/                   # n8n 自动化工作流
+│   └── mj-sys-ops/                   # 运维操作
 ├── scripts/                      # 基础设施脚本
 │   ├── bump-version.ps1          # 版本升级
 │   ├── install-hooks.ps1         # Git hooks 安装
@@ -42,10 +42,10 @@ mj-agentlab-marketplace/
 
 | Plugin | 描述 | Skills | Version | MCP 依赖 |
 |--------|------|--------|---------|----------|
-| **mj-doc** | 文档工作流：规划、编写、校验、迁移、同步、审查 | 7（含 1 共享资源） | 1.0.0 | 无 |
-| **mj-git** | Git 工作流：分支、提交、推送、PR、Review、同步、清理 | 9 | 1.0.0 | github, serena |
-| **mj-n8n** | n8n 工作流：设计、编写、模板、配置、文档、渲染、晋升 | 7 | 1.0.0 | n8n-docs |
-| **mj-ops** | 运维操作：环境搭建/清理、ETL 触发 | 4 | 1.0.0 | postgres-dev, postgres-test, ssh-manager |
+| **mj-sys-doc** | 文档工作流：规划、编写、校验、迁移、同步、审查 | 7（含 1 共享资源） | 1.0.0 | 无 |
+| **mj-sys-git** | Git 工作流：分支、提交、推送、PR、Review、同步、清理 | 9 | 1.0.0 | github, serena |
+| **mj-sys-n8n** | n8n 工作流：设计、编写、模板、配置、文档、渲染、晋升 | 7 | 1.0.0 | n8n-docs |
+| **mj-sys-ops** | 运维操作：环境搭建/清理、ETL 触发 | 4 | 1.0.0 | postgres-dev, postgres-test, ssh-manager |
 
 ### 3.1 插件标准结构
 
@@ -67,10 +67,10 @@ mj-agentlab-marketplace/
 
 ### 3.2 技能工作流链
 
-- **mj-git**：`issue` → `branch` → `commit` → `push` → `pr` → `review-pr` → `check-merge` → `delete`
-- **mj-doc**：`plan` → `author` → `validate`；`sync`/`review` 均调用 `validate`
-- **mj-n8n**：Path A `plan` → `author` → `config` → `doc` → `render` → `promote`；Path B `plan` → `template` → ...
-- **mj-ops**：`env-setup` → `etl-ods-to-dwd` → `etl-dwd-to-dws` → `env-teardown`
+- **mj-sys-git**：`issue` → `branch` → `commit` → `push` → `pr` → `review-pr` → `check-merge` → `delete`
+- **mj-sys-doc**：`plan` → `author` → `validate`；`sync`/`review` 均调用 `validate`
+- **mj-sys-n8n**：Path A `plan` → `author` → `config` → `doc` → `render` → `promote`；Path B `plan` → `template` → ...
+- **mj-sys-ops**：`env-setup` → `etl-ods-to-dwd` → `etl-dwd-to-dws` → `env-teardown`
 
 ## 4. 版本管理体系
 
@@ -113,7 +113,7 @@ mj-agentlab-marketplace/
 /plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace
 
 # 安装所需 plugin
-/plugin install mj-git@mj-agentlab-marketplace
+/plugin install mj-sys-git@mj-agentlab-marketplace
 ```
 
 ### 6.2 克隆仓库（开发者）

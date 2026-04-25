@@ -4,7 +4,7 @@ Claude Code 插件市场 — 集中管理和分发 MJ System 团队的 Claude Co
 
 ## Project Structure
 
-- `plugins/` — 4 个插件：mj-doc, mj-git, mj-n8n, mj-ops
+- `plugins/` — 4 个插件：mj-sys-doc, mj-sys-git, mj-sys-n8n, mj-sys-ops
 - `scripts/` — 基础设施脚本（bump-version, install-hooks, clone-bare）
 - `.claude-plugin/marketplace.json` — 市场元数据（版本 + 插件注册表）
 - `VERSION` — 市场整体版本号（权威源）
@@ -33,23 +33,23 @@ Claude Code 插件市场 — 集中管理和分发 MJ System 团队的 Claude Co
 
 ## Plugin Secrets Management
 
-mj-ops 和 mj-git 插件使用加密文件管理 MCP 服务器所需的秘密值：
+mj-sys-ops 和 mj-sys-git 插件使用加密文件管理 MCP 服务器所需的秘密值：
 
 | 插件 | 加密文件 | Setup 脚本 | 变量数 |
 |------|---------|-----------|--------|
-| mj-ops | `plugins/mj-ops/config/secrets-ops.enc` | `plugins/mj-ops/scripts/setup-ops-env.ps1` | 9（SSH 密码 + PG URLs） |
-| mj-git | `plugins/mj-git/config/secrets-git.enc` | `plugins/mj-git/scripts/setup-git-env.ps1` | 1（GitHub PAT） |
+| mj-sys-ops | `plugins/mj-sys-ops/config/secrets-sys-ops.enc` | `plugins/mj-sys-ops/scripts/setup-sys-ops-env.ps1` | 9（SSH 密码 + PG URLs） |
+| mj-sys-git | `plugins/mj-sys-git/config/secrets-sys-git.enc` | `plugins/mj-sys-git/scripts/setup-sys-git-env.ps1` | 1（GitHub PAT） |
 
 **首次配置**（需团队密码）：
 ```powershell
-cd plugins/mj-ops && .\scripts\setup-ops-env.ps1
-cd plugins/mj-git && .\scripts\setup-git-env.ps1
+cd plugins/mj-sys-ops && .\scripts\setup-sys-ops-env.ps1
+cd plugins/mj-sys-git && .\scripts\setup-sys-git-env.ps1
 ```
 
 **终端重启后重载**（无需密码）：
 ```powershell
-.\scripts\setup-ops-env.ps1 -Reload
-.\scripts\setup-git-env.ps1 -Reload
+.\scripts\setup-sys-ops-env.ps1 -Reload
+.\scripts\setup-sys-git-env.ps1 -Reload
 ```
 
 详见各插件的 `config/secrets-*.example` 查看变量清单。

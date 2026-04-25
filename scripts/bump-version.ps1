@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     MJ AgentLab Marketplace version bump script
 
@@ -15,7 +15,7 @@
     Target version (e.g. "1.1.0")
 
 .PARAMETER Scope
-    Target scope: "marketplace" (default), or plugin name ("mj-doc", "mj-git", "mj-n8n", "mj-ops")
+    Target scope: "marketplace" (default), or plugin name ("mj-sys-doc", "mj-sys-git", "mj-sys-n8n", "mj-sys-ops")
 
 .PARAMETER DryRun
     Preview mode: show what would change without modifying files
@@ -23,8 +23,8 @@
 .EXAMPLE
     .\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -DryRun
     .\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0"
-    .\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "mj-git" -DryRun
-    .\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "mj-git"
+    .\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "mj-sys-git" -DryRun
+    .\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "mj-sys-git"
 #>
 
 param(
@@ -35,7 +35,7 @@ param(
     [string]$To,
 
     [Parameter(Mandatory = $false)]
-    [ValidateSet("marketplace", "mj-doc", "mj-git", "mj-n8n", "mj-ops")]
+    [ValidateSet("marketplace", "mj-sys-doc", "mj-sys-git", "mj-sys-n8n", "mj-sys-ops")]
     [string]$Scope = "marketplace",
 
     [switch]$DryRun

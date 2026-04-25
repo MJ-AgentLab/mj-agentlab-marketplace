@@ -1,5 +1,5 @@
 ---
-name: mj-n8n-plan
+name: mj-sys-n8n-plan
 description: This skill handles the first step of the n8n workflow lifecycle — requirements analysis, naming convention compliance, and structure planning. It should be invoked when starting a new workflow design, determining workflow naming, choosing node category, planning node structure, or evaluating trigger types in MJ System. Triggers on "创建n8n工作流", "新增workflow", "设计n8n", "n8n plan", "新工作流", "workflow设计", "规划n8n节点", "n8n需求分析", "plan n8n workflow", "new n8n workflow".
 ---
 
@@ -9,8 +9,8 @@ description: This skill handles the first step of the n8n workflow lifecycle —
 
 本技能处理 n8n 工作流生命周期的**第一步** —— 需求分析、命名规范校验和结构规划。产出设计规格，供后续技能使用：
 
-- **Path A**（UI 导出转换）：使用 `/mj-n8n-template` 将 n8n UI 导出的 JSON 转为标准模板
-- **Path B**（从零生成）：使用 `/mj-n8n-author` 自动构建 workflow JSON
+- **Path A**（UI 导出转换）：使用 `/mj-sys-n8n-template` 将 n8n UI 导出的 JSON 转为标准模板
+- **Path B**（从零生成）：使用 `/mj-sys-n8n-author` 自动构建 workflow JSON
 
 ## Prerequisites
 
@@ -337,8 +337,8 @@ mcp__n8n-docs__search_n8n_knowledge_sources
   标签：{env:*, trigger:*, domain:*, ...}
 
 下一步（选择一条路径）：
-  Path A — 已在 n8n UI 中完成设计？使用 /mj-n8n-template 将导出 JSON 转为模板。
-  Path B — 需要从零生成？使用 /mj-n8n-author 自动构建 workflow JSON。
+  Path A — 已在 n8n UI 中完成设计？使用 /mj-sys-n8n-template 将导出 JSON 转为模板。
+  Path B — 需要从零生成？使用 /mj-sys-n8n-author 自动构建 workflow JSON。
 ```
 
 ---

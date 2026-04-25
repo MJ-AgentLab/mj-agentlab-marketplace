@@ -1,5 +1,5 @@
 ---
-name: mj-doc-review
+name: mj-sys-doc-review
 description: This skill reviews a pull request for documentation completeness, checking all Framework v5.0 §9.3 quality gate items at PR scope — INDEX.md sync, CLAUDE.md sync, §12 pre-check compliance, and cross-reference integrity. It should be invoked when reviewing a PR that includes documentation changes, or before submitting a PR to verify documentation requirements are met. Triggers on "review PR docs", "check PR documentation", "documentation checklist for PR", "pre-PR doc check", "审查PR文档", "PR文档检查", "提交前文档验证", "文档质量门禁".
 ---
 
@@ -7,7 +7,7 @@ description: This skill reviews a pull request for documentation completeness, c
 
 ## Overview
 
-PR-scope quality gate — verifies that a PR satisfies all Framework v5.0 documentation requirements (§9.3). Distinct from `mj-doc-validate` which checks individual files; this skill checks the PR holistically.
+PR-scope quality gate — verifies that a PR satisfies all Framework v5.0 documentation requirements (§9.3). Distinct from `mj-sys-doc-validate` which checks individual files; this skill checks the PR holistically.
 
 ## Workflow
 
@@ -22,7 +22,7 @@ digraph review {
 
   p3 [label="Phase 3: §12 前置检查\n• ADR trigger? (§12.2)\n• SPEC create/update? (§12.3)" shape=box];
 
-  p4 [label="Phase 4: Doc Quality\nPer doc change:\n• mj-doc-validate\n• INDEX.md synced?\n• updated field current?\n• CLAUDE.md synced?" shape=box];
+  p4 [label="Phase 4: Doc Quality\nPer doc change:\n• mj-sys-doc-validate\n• INDEX.md synced?\n• updated field current?\n• CLAUDE.md synced?" shape=box];
 
   p5 [label="Phase 5: Cross-Ref Integrity\n• Renamed/deleted docs?\n• Broken Wikilinks?" shape=box];
 
@@ -46,7 +46,7 @@ Categorize each changed file:
 
 ## Phase 2: §9.4 Cross-Check
 
-For each code/config change, check if a corresponding doc update exists in the PR. Use the code-doc-mapping from `mj-doc-sync` skill as reference. Flag missing doc updates.
+For each code/config change, check if a corresponding doc update exists in the PR. Use the code-doc-mapping from `mj-sys-doc-sync` skill as reference. Flag missing doc updates.
 
 ## Phase 3: §12 前置検査
 
@@ -59,7 +59,7 @@ Check if PR triggers ADR/SPEC requirements (see quality-gate.md for full conditi
 ## Phase 4: Doc Quality
 
 For each documentation change in the PR:
-1. Run `mj-doc-validate` on the file
+1. Run `mj-sys-doc-validate` on the file
 2. Check: new docs indexed in INDEX.md?
 3. Check: modified docs have updated `updated` field (if substantive)?
 4. Check: CLAUDE.md synced per §8.2 mapping?
@@ -101,7 +101,7 @@ For each documentation change in the PR:
 
 ## REQUIRED SUB-SKILL
 
-`mj-doc-validate` — For per-file checks within Phase 4.
+`mj-sys-doc-validate` — For per-file checks within Phase 4.
 
 ## Reference Files
 

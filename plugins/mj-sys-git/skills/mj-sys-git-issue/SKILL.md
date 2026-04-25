@@ -1,5 +1,5 @@
 ---
-name: mj-git-issue
+name: mj-sys-git-issue
 description: This skill should be used when the user asks to create a GitHub Issue, select an issue template, fill issue fields, or start a new task or bug report in MJ System. Triggers on "创建issue", "新建issue", "提issue", "报bug", "新任务", "create issue", "new issue", "report bug", "file issue", "open issue". Uses gh CLI with --body-file and reads .github/ISSUE_TEMPLATE at runtime for title prefix and labels.
 ---
 
@@ -7,12 +7,12 @@ description: This skill should be used when the user asks to create a GitHub Iss
 
 ## Overview
 
-Creates GitHub Issues for MJ System using the project's 5 issue templates. Template-driven: reads `.github/ISSUE_TEMPLATE/<type>.md` at runtime for title prefix and labels, uses `issue-templates-reference.md` for field guidance. Uses `gh` CLI with `--body-file` (same pattern as mj-git-pr).
+Creates GitHub Issues for MJ System using the project's 5 issue templates. Template-driven: reads `.github/ISSUE_TEMPLATE/<type>.md` at runtime for title prefix and labels, uses `issue-templates-reference.md` for field guidance. Uses `gh` CLI with `--body-file` (same pattern as mj-sys-git-pr).
 
-**Workflow position**: optional pre-step before mj-git-branch.
+**Workflow position**: optional pre-step before mj-sys-git-branch.
 
 ```text
-[mj-git-issue] -(optional)-> mj-git-branch -> mj-git-commit -> mj-git-push -> mj-git-pr
+[mj-sys-git-issue] -(optional)-> mj-sys-git-branch -> mj-sys-git-commit -> mj-sys-git-push -> mj-sys-git-pr
 ```
 
 ## Prerequisite Check
@@ -144,11 +144,11 @@ Display creation result:
 - **Labels**: <label>
 
 ### Next Step (optional)
-To start development, use mj-git-branch to create the corresponding branch:
+To start development, use mj-sys-git-branch to create the corresponding branch:
 `<type>/<issue-number>-<description>`
 ```
 
-The handoff is **suggestive, not mandatory** — mj-git-branch's issue-id is optional.
+The handoff is **suggestive, not mandatory** — mj-sys-git-branch's issue-id is optional.
 
 ## Human Intervention Points
 

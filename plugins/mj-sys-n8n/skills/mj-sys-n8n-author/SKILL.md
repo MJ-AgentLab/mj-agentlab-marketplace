@@ -1,5 +1,5 @@
 ---
-name: mj-n8n-author
+name: mj-sys-n8n-author
 description: This skill generates an n8n workflow JSON from scratch without using the n8n UI, building workflow nodes programmatically and creating complete workflow.json templates with placeholders directly from design specifications. It should be invoked when building workflow templates from requirements or when a workflow needs to be created directly by Claude Code (Path B). Triggers on "生成workflow", "编写n8n工作流", "从零创建workflow", "build n8n workflow", "generate workflow json", "自动生成n8n", "write workflow from scratch", "不用UI创建workflow", "构建工作流JSON", "create workflow programmatically".
 ---
 
@@ -13,7 +13,7 @@ description: This skill generates an n8n workflow JSON from scratch without usin
 
 ## Prerequisites
 
-开始前确认以下信息已就绪（若缺失，提示用户先使用 `/mj-n8n-plan`）：
+开始前确认以下信息已就绪（若缺失，提示用户先使用 `/mj-sys-n8n-plan`）：
 
 - **Category**: 节点类型（CollectionNodes / ProcessingNodes / ServiceNodes / TaskNodes）
 - **Name**: 工作流名称（PascalCase，如 `RawDataCollection`）
@@ -35,7 +35,7 @@ digraph author {
   placeholder [label="Step 6: 占位符应用\n(ENV/TRIGGER/WECHAT)" shape=box];
   preview [label="展示 JSON 预览\n(让用户确认)" shape=diamond];
   write [label="Step 7: 写入文件\n(_base/ directory)" shape=box];
-  done [label="Handoff → mj-n8n-config" shape=doublecircle];
+  done [label="Handoff → mj-sys-n8n-config" shape=doublecircle];
   start -> mcp -> scaffold -> trigger -> core -> error -> conn -> placeholder -> preview;
   preview -> write [label="确认"];
   preview -> core [label="修改"];
@@ -367,10 +367,10 @@ Trigger (-400, 96) → Validate (-176, 96)
   - {{TRIGGER_*}} — 触发器参数（若有）
 
 下一步：
-  1. 使用 /mj-n8n-config 配置环境触发器参数（Cron/Interval → 必须配置；DBTrigger/Webhook/Manual → 跳过此步）
-  2. 使用 /mj-n8n-doc 生成工作流 README.md 和 CHANGELOG.md
-  3. 使用 /mj-n8n-render 渲染并验证各环境文件
-  4. 使用 /mj-n8n-promote 执行 DEV 测试 → TEST → PROD 晋升
+  1. 使用 /mj-sys-n8n-config 配置环境触发器参数（Cron/Interval → 必须配置；DBTrigger/Webhook/Manual → 跳过此步）
+  2. 使用 /mj-sys-n8n-doc 生成工作流 README.md 和 CHANGELOG.md
+  3. 使用 /mj-sys-n8n-render 渲染并验证各环境文件
+  4. 使用 /mj-sys-n8n-promote 执行 DEV 测试 → TEST → PROD 晋升
 ```
 
 ---

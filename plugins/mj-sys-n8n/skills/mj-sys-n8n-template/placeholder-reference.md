@@ -1,6 +1,6 @@
 # Placeholder Reference — N8N Workflow Template
 
-本文档为 `mj-n8n-template` Skill 的占位符完整参考。
+本文档为 `mj-sys-n8n-template` Skill 的占位符完整参考。
 
 ## 1. Full Placeholder List
 

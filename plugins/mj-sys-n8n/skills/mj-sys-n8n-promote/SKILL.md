@@ -1,5 +1,5 @@
 ---
-name: mj-n8n-promote
+name: mj-sys-n8n-promote
 description: This skill guides the final stage of the n8n workflow lifecycle — environment promotion through three phases (DEV testing, TEST promotion, PRODUCTION deployment), each with prerequisite checks, execution steps, and post-deployment verification. It should be invoked when promoting workflows between environments or executing rollback in MJ System. Triggers on "n8n晋升", "workflow部署", "环境迁移", "promote workflow", "n8n测试验证", "DEV测试", "TEST晋升", "PROD部署", "工作流上线", "n8n rollback", "回滚工作流", "n8n环境晋级", "部署验证".
 ---
 
@@ -9,17 +9,17 @@ description: This skill guides the final stage of the n8n workflow lifecycle —
 
 本技能是 n8n 工作流生命周期的最后一环。它引导环境晋升流程的三个阶段：DEV 测试 → TEST 晋升 → PRODUCTION 部署。每个阶段包含前置检查、执行步骤和部署后验证。
 
-工作流生命周期：`/mj-n8n-plan` → `/mj-n8n-author` (或 `/mj-n8n-template`) → `/mj-n8n-config` → `/mj-n8n-doc` → `/mj-n8n-render` → **`/mj-n8n-promote`**
+工作流生命周期：`/mj-sys-n8n-plan` → `/mj-sys-n8n-author` (或 `/mj-sys-n8n-template`) → `/mj-sys-n8n-config` → `/mj-sys-n8n-doc` → `/mj-sys-n8n-render` → **`/mj-sys-n8n-promote`**
 
 ## Prerequisites
 
 在开始晋升流程前，请确认：
 
 1. **渲染文件已就绪**：目标环境目录下存在已渲染的 JSON 文件（`n8n/workflows/{dev,test,production}/`）
-2. **渲染验证已通过**：使用 `/mj-n8n-render` 完成渲染和验证（占位符无残留、JSON 合法）
+2. **渲染验证已通过**：使用 `/mj-sys-n8n-render` 完成渲染和验证（占位符无残留、JSON 合法）
 3. **配置文件正确**：`_config/{env}.yaml` 中的 trigger 配置已确认
 
-若渲染未完成，请先使用 `/mj-n8n-render` 完成渲染流程。
+若渲染未完成，请先使用 `/mj-sys-n8n-render` 完成渲染流程。
 
 ## Stage Detection（阶段识别）
 
@@ -237,7 +237,7 @@ docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 ```
 DEV 环境测试验证完成
   通过项: 8 / 总项: 8
-  建议：所有验证通过，可以准备 TEST 环境晋升。使用 /mj-n8n-promote 选择 "TEST 环境晋升" 阶段。
+  建议：所有验证通过，可以准备 TEST 环境晋升。使用 /mj-sys-n8n-promote 选择 "TEST 环境晋升" 阶段。
 ```
 
 ```

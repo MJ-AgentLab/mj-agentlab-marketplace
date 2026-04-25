@@ -1,5 +1,5 @@
 ---
-name: mj-git-sync
+name: mj-sys-git-sync
 description: This skill should be used when the user asks to sync the latest develop or main changes into the current working branch, or sync main back to develop after a hotfix merge in MJ System. It should also be invoked when the user mentions their branch is behind, has conflicts with develop, wants to update their branch, or mentions pulling or merging upstream changes, even without saying "sync" explicitly. Triggers on "同步分支", "拉取最新", "sync branch", "pull develop", "merge develop", "update branch", "rebase", "分支落后", "branch behind", "合并最新代码", "落后了", "分支过时了", "develop 有新代码", "冲突太多了", "branch outdated", "catch up with develop", "同步一下", "同步 main 到 develop", "hotfix 合并后同步", "sync main to develop", "自更新", "origin 有新提交", "协作者推了代码", "self-update", "pull remote", "另一台机器提交了", "remote ahead".
 ---
 
@@ -173,7 +173,7 @@ git log --oneline -3
 - 输出 handoff：
 
 ```
-同步完成 ✓ 可继续开发，完成后使用 mj-git-commit → mj-git-push。
+同步完成 ✓ 可继续开发，完成后使用 mj-sys-git-commit → mj-sys-git-push。
 ```
 
 **Hotfix 回同步模式（额外步骤）**：
@@ -208,7 +208,7 @@ hotfix 修复已同步到 develop 并推送完成 ✓
 
 | # | 触发条件 | 技能行为 | 级别 |
 |---|---------|---------|------|
-| **H1** | `git status` 显示有未提交修改 | ⚠️ 三选一：(1) 使用 mj-git-commit 提交 (2) `git stash` 暂存 (3) 取消同步 | Soft |
+| **H1** | `git status` 显示有未提交修改 | ⚠️ 三选一：(1) 使用 mj-sys-git-commit 提交 (2) `git stash` 暂存 (3) 取消同步 | Soft |
 | **H2** | `git merge` 产生冲突 | ⚠️ Claude 提案→用户选择→执行（详见下方 H2 冲突解决流程） | Soft |
 | **H3** | `git stash pop` 产生冲突 | ⚠️ 告知 stash 内容与合并结果冲突，需手动解决后执行 `git stash drop` | Soft |
 | **H4** | 当前在 `main` 分支 + 跨分支合并意图 | 🚫 硬阻断：main 不允许跨分支 merge，告知需切换到工作分支或 develop | Hard |
@@ -250,8 +250,8 @@ hotfix 修复已同步到 develop 并推送完成 ✓
 ### 示例 1：常规同步（无冲突）
 
 ```bash
-# feature/mj-git-sync-skill worktree，基线 = develop
-git branch --show-current    # → feature/mj-git-sync-skill
+# feature/mj-sys-git-sync-skill worktree，基线 = develop
+git branch --show-current    # → feature/mj-sys-git-sync-skill
 git status --short           # （干净）
 git fetch origin
 git rev-list --count HEAD..origin/develop    # → 3

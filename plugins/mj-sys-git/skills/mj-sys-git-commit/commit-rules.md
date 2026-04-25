@@ -26,7 +26,7 @@
 | `maintain/*` | — | — | — | — | — | ✓ | ✓ |
 | `hotfix/*` | — | ✓ | — | — | — | — | — |
 
-> 与 mj-git-push Step 2 和 branch-rules.md 完全一致。
+> 与 mj-sys-git-push Step 2 和 branch-rules.md 完全一致。
 
 ## Branch Type vs Commit Type 命名区分
 

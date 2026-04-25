@@ -1,5 +1,5 @@
 ---
-name: mj-env-setup
+name: mj-sys-ops-env-setup
 description: This skill guides complete Docker full-stack local development environment setup, including database initialization, n8n auto-configuration, and seed data loading. It should be invoked for first-time Docker stack startup, cold start, onboarding new developers, or when Docker containers fail to start, database is not initialized, or seed data is missing. Triggers on "本地环境搭建", "环境初始化", "项目跑不起来", "容器起不来", "数据库没数据", "cold start", "docker compose setup", "新人入职环境", "local dev setup", "搭建开发环境", "启动本地服务", "get started", "project setup".
 ---
 
@@ -11,7 +11,7 @@ description: This skill guides complete Docker full-stack local development envi
 
 **范围**：Docker 全栈（mj-app + mj-postgres + mj-n8n + 两个 init 容器），含 Seed Data 完整冷启动。
 
-**互补 skill**：环境清除使用 `mj-env-teardown`。
+**互补 skill**：环境清除使用 `mj-sys-ops-env-teardown`。
 
 ## 前置条件
 
@@ -206,7 +206,7 @@ uv run python scripts/biz_dim_cold_start.py
 SELECT COUNT(*) FROM biz_dwd.dwd_qvl_downstream_query;
 ```
 
-> 如 DWD 表为空，ODS 数据需经过 ETL 处理后才会出现在 DWD。可使用 `mj-etl-ods-to-dwd` skill 手动触发 ETL。
+> 如 DWD 表为空，ODS 数据需经过 ETL 处理后才会出现在 DWD。可使用 `mj-sys-ops-etl-ods-to-dwd` skill 手动触发 ETL。
 
 ---
 
@@ -235,9 +235,9 @@ SELECT COUNT(*) FROM biz_dwd.dwd_qvl_downstream_query;
   Postgres: localhost:5432 (mj_system_db)
 
 下一步：
-  - 如 DWD 表为空，使用 mj-etl-ods-to-dwd 手动触发 ODS→DWD ETL
-  - 如需 DWS 指标，再使用 mj-etl-dwd-to-dws 触发 DWD→DWS
-  - 关闭/清理环境使用 mj-env-teardown
+  - 如 DWD 表为空，使用 mj-sys-ops-etl-ods-to-dwd 手动触发 ODS→DWD ETL
+  - 如需 DWS 指标，再使用 mj-sys-ops-etl-dwd-to-dws 触发 DWD→DWS
+  - 关闭/清理环境使用 mj-sys-ops-env-teardown
 ```
 
 ---

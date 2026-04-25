@@ -1,5 +1,5 @@
 ---
-name: mj-git-commit
+name: mj-sys-git-commit
 description: This skill should be used when the user asks to stage files, create commits, write commit messages, check commit format, split changes into logical commits, or prepare code before push in MJ System. Triggers on "git add", "git commit", "提交代码", "暂存文件", "commit message", "提交格式", "拆分提交", "准备提交", "stage files", "怎么写 commit", "提交规范". Enforces type(scope) summary format and branch-type discipline at commit time, preventing rework at push stage.
 ---
 
@@ -7,7 +7,7 @@ description: This skill should be used when the user asks to stage files, create
 
 ## Overview
 
-暂存文件并创建符合项目规范的 Git 提交。6 步 Pre-Commit 工作流覆盖文件筛选、暂存策略、commit message 格式校验、type/branch 纪律、拆分指导。衔接 `mj-git-branch`（创建分支）与 `mj-git-push`（推送）之间的缺口。
+暂存文件并创建符合项目规范的 Git 提交。6 步 Pre-Commit 工作流覆盖文件筛选、暂存策略、commit message 格式校验、type/branch 纪律、拆分指导。衔接 `mj-sys-git-branch`（创建分支）与 `mj-sys-git-push`（推送）之间的缺口。
 
 ## 前置条件
 
@@ -133,7 +133,7 @@ git branch --show-current
 | `maintain/*` | `infra`, `docs` | `feat`, `fix`, `perf`, `refactor` |
 | `hotfix/*` | `fix` | 其他所有 |
 
-> 此矩阵与 `mj-git-push` Step 2 完全相同，提前到 commit 阶段执行，减少推送返工。
+> 此矩阵与 `mj-sys-git-push` Step 2 完全相同，提前到 commit 阶段执行，减少推送返工。
 
 **若不匹配** → 触发 H3。
 
@@ -186,13 +186,13 @@ git status --short         # 确认工作目录状态
 
 ---
 
-## Handoff to mj-git-push
+## Handoff to mj-sys-git-push
 
 提交完成后输出提示：
 
 ```
 提交完成
-下一步：使用 mj-git-push 执行 pre-push 检查。
+下一步：使用 mj-sys-git-push 执行 pre-push 检查。
   已验证项：commit message 格式、type/branch 纪律
   待检查项：CHANGELOG 更新、工作目录清洁、base branch 同步、双端推送
 ```

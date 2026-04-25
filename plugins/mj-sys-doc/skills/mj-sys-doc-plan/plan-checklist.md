@@ -105,6 +105,6 @@ Before finalizing plan, scan `docs_old/` for:
 - Files with legacy tags (`[MANUAL]`, `[API]`, no tag, or content that may map to `[ISSUE]`/`[ASSESSMENT]`)
 - Content that overlaps with proposed new docs
 
-If found → include migration tasks using `mj-doc-migrate` skill.
+If found → include migration tasks using `mj-sys-doc-migrate` skill.
 
-For type decision details: see type-decision-reference.md via `mj-doc-author`.
+For type decision details: see type-decision-reference.md via `mj-sys-doc-author`.

@@ -1,5 +1,5 @@
 ---
-name: mj-doc-migrate
+name: mj-sys-doc-migrate
 description: This skill converts legacy documents from docs_old/ or non-Framework-v4.5 format into compliant Framework v5.0 documents, handling tag migration, content restructuring, and N:M doc splitting or merging. It should also be used when restructuring documentation that uses old tags like [MANUAL] or [API], or when consolidating multiple legacy docs into new structure. Triggers on "migrate docs", "convert old documentation", "restructure docs_old", "迁移文档", "转换旧文档", "文档格式升级", "重构文档结构".
 ---
 
@@ -35,13 +35,13 @@ digraph migrate {
 
   approve [label="User approves?" shape=diamond];
 
-  p3 [label="Phase 3: Conversion\nPer output doc:\n• Use mj-doc-author workflow\n• Preserve valuable content\n• Cross-verify against code" shape=box];
+  p3 [label="Phase 3: Conversion\nPer output doc:\n• Use mj-sys-doc-author workflow\n• Preserve valuable content\n• Cross-verify against code" shape=box];
 
   d04 [label="D-04: Wikilink 引用\n修改 >3 处？" shape=diamond];
 
   p4 [label="Phase 4: Cleanup\n• Update cross-references\n• Update INDEX.md\n• Do NOT delete legacy\n  without approval" shape=box];
 
-  validate [label="mj-doc-validate\non all output docs" shape=box style=bold];
+  validate [label="mj-sys-doc-validate\non all output docs" shape=box style=bold];
 
   done [label="Done" shape=doublecircle];
 
@@ -77,7 +77,7 @@ For each output doc:
 
 ## Phase 3: Conversion
 
-For each output doc, use `mj-doc-author` workflow:
+For each output doc, use `mj-sys-doc-author` workflow:
 1. Create from template
 2. Fill with content restructured from legacy doc
 3. **Cross-verify every claim against actual code** — legacy docs may have drifted
@@ -103,12 +103,12 @@ For each output doc, use `mj-doc-author` workflow:
 | Phase 2 制定方案时 | 文档 600–900 行且覆盖 2 种 v4 类型（模糊区间） | 用户已指定"拆分"或"整体迁移" | Q-09 |
 | Phase 4 前（Cleanup 开始前） | 迁移后需修改的 Wikilink >3 处 | 用户说"先不改引用"或"我来处理" | D-04 |
 
-详细模板: `../mj-doc-shared/question-patterns.md`
+详细模板: `../mj-sys-doc-shared/question-patterns.md`
 
 ## REQUIRED SUB-SKILLS
 
-- `mj-doc-author` — For creating each output document
-- `mj-doc-validate` — Final compliance gate on all output docs
+- `mj-sys-doc-author` — For creating each output document
+- `mj-sys-doc-validate` — Final compliance gate on all output docs
 
 ## Reference Files
 

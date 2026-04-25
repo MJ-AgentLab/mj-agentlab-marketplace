@@ -1,6 +1,6 @@
 # Validation Rules Reference — Framework v5.0
 
-> **Compatibility**: `mj-doc` v2.0 validates only repositories that have completed the Framework v5.0 migration. If a governed doc still uses v4.5 frontmatter (e.g., `status`, `tags` as required, `date` instead of `created`), the validator returns `FAIL` with a migration-required message directing the user to `mj-doc-migrate`.
+> **Compatibility**: `mj-sys-doc` v2.0 validates only repositories that have completed the Framework v5.0 migration. If a governed doc still uses v4.5 frontmatter (e.g., `status`, `tags` as required, `date` instead of `created`), the validator returns `FAIL` with a migration-required message directing the user to `mj-sys-doc-migrate`.
 
 ## Applicability
 
@@ -113,7 +113,7 @@ All 5 working doc fields are mandatory. A working doc missing any field gets `FA
 
 If a governed canonical doc uses v4.5-style frontmatter (`status` instead of `state`, `date` instead of `created`, `tags`/`aliases`/`version` as required fields), return `FAIL` with message:
 
-> `mj-doc v2.0 only supports Framework v5.0 repositories. This document appears to use v4.5 frontmatter. Run mj-doc-migrate first.`
+> `mj-sys-doc v2.0 only supports Framework v5.0 repositories. This document appears to use v4.5 frontmatter. Run mj-sys-doc-migrate first.`
 
 ## A3: State and Enum Validation
 

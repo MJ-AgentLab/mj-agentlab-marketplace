@@ -1,5 +1,5 @@
 ---
-name: mj-git-check-merge
+name: mj-sys-git-check-merge
 description: This skill should be used when the user asks to check if a PR is ready to merge, verify CI status, review approvals, merge conflicts, or PR description completeness for MJ System. It should also be invoked when the user asks about PR status, whether code is ready, whether they can merge, or whether PM can review, even if phrased indirectly. Triggers on "PR 能合并吗", "check merge readiness", "PR 审核状态", "可以合并了吗", "PR ready", "代码准备好了吗", "可以让人 review 了吗".
 ---
 
@@ -156,14 +156,14 @@ gh api repos/$REPO/commits/<sha> --jq '[.files[].filename]'
 
 ```
 检查完成 ✓ PR 已满足所有合并条件。
-下一步：通知 PM 审核并合并。合并后使用 mj-git-delete 清理分支。
+下一步：通知 PM 审核并合并。合并后使用 mj-sys-git-delete 清理分支。
 ```
 
 ### Not Ready to Merge ❌
 
 ```
 检查完成 — 存在待修复项。
-下一步：按「待处理」列表修复 → push → 再次运行 mj-git-check-merge。
+下一步：按「待处理」列表修复 → push → 再次运行 mj-sys-git-check-merge。
 ```
 
 ### Waiting for Review ⏳
@@ -288,7 +288,7 @@ git branch --show-current
 # → feature/mj-skill-add-delete-branch
 
 gh pr list --head feature/mj-skill-add-delete-branch --state open --json number,title
-# → [{"number":31,"title":"feat(skill): add mj-git-delete skill"}]
+# → [{"number":31,"title":"feat(skill): add mj-sys-git-delete skill"}]
 
 # Round 2 — 获取全部数据（单次合并调用）
 gh pr view 31 --json number,title,headRefName,mergeable,body,reviews,statusCheckRollup
@@ -313,7 +313,7 @@ gh api repos/$REPO/pulls/31/commits --jq '[.[] | select(.parents | length >= 2) 
 输出结果：
 
 ```
-## PR #31「feat(skill): add mj-git-delete skill」Merge Readiness
+## PR #31「feat(skill): add mj-sys-git-delete skill」Merge Readiness
 
 | 检查项         | 状态       | 说明                                |
 |----------------|------------|-------------------------------------|
@@ -330,7 +330,7 @@ gh api repos/$REPO/pulls/31/commits --jq '[.[] | select(.parents | length >= 2) 
 2. **Review**: 联系 PM 进行审核
 
 检查完成 — 存在待修复项。
-下一步：按「待处理」列表修复 → push → 再次运行 mj-git-check-merge。
+下一步：按「待处理」列表修复 → push → 再次运行 mj-sys-git-check-merge。
 ```
 
 ### 示例 2：有 Merge Commit（ℹ️ Info）
@@ -393,5 +393,5 @@ gh api repos/$REPO/commits/a1b2c3d --jq '[.files[].filename]'
 | `a1b2c3d` | Merge branch 'develop' into feature/42-aec-email-parser | `src/.../service.py`, `sql/.../04_dwd_tables.sql`, `docs/.../README.md` |
 
 检查完成 ✓ PR 已满足所有合并条件。
-下一步：通知 PM 审核并合并。合并后使用 mj-git-delete 清理分支。
+下一步：通知 PM 审核并合并。合并后使用 mj-sys-git-delete 清理分支。
 ```

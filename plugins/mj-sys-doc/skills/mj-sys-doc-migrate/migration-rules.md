@@ -119,7 +119,7 @@ Common legacy locations → v5.0 targets:
 
 ## Post-Migration Checklist
 
-- [ ] All output docs pass mj-doc-validate (A1-A6 + OB1-OB5)
+- [ ] All output docs pass mj-sys-doc-validate (A1-A6 + OB1-OB5)
 - [ ] INDEX.md managed blocks regenerated
 - [ ] Cross-references from other docs updated
 - [ ] Legacy docs NOT deleted (await user approval)

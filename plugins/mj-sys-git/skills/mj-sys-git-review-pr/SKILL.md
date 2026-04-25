@@ -1,5 +1,5 @@
 ---
-name: mj-git-review-pr
+name: mj-sys-git-review-pr
 description: This skill should be used when the user asks to review a Pull Request for architecture compliance, design consistency, or ops domain completeness in MJ System. It should also be invoked when the user pastes a PR URL, mentions a PR number, or asks about code structure issues in a branch. Triggers on "评审PR", "review PR", "审查PR", "PR评审", "review pull request", "这个PR能合吗", "可以merge吗", "帮我看看这个PR", "检查PR架构", "architecture review", "代码结构有没有问题", "检查一下这个分支", "PR review".
 ---
 
@@ -11,15 +11,15 @@ PR 架构评审与条件合并 skill。
 
 **核心价值**：回答"这个 PR **应不应该**合"——检查架构合规、设计一致性、ops 域完整性。
 
-与 `mj-git-check-merge`（回答"**能不能**合"——冲突、CI、审批）互补。
+与 `mj-sys-git-check-merge`（回答"**能不能**合"——冲突、CI、审批）互补。
 
 ## 与现有 Skill 关系
 
 | Skill | 关系 | 边界 |
 |-------|------|------|
-| mj-git-check-merge | 互补 | check-merge 做技术检查（冲突/CI/审批），review-pr 做架构评审 |
-| mj-doc-review | 不重复 | review-pr 检测 docs/ 变更时提示运行 mj-doc-review，不自行做文档检查 |
-| mj-git-sync | 不调用 | review-pr 只展示分支落后状态，不执行同步操作 |
+| mj-sys-git-check-merge | 互补 | check-merge 做技术检查（冲突/CI/审批），review-pr 做架构评审 |
+| mj-sys-doc-review | 不重复 | review-pr 检测 docs/ 变更时提示运行 mj-sys-doc-review，不自行做文档检查 |
+| mj-sys-git-sync | 不调用 | review-pr 只展示分支落后状态，不执行同步操作 |
 | superpowers:code-reviewer | 不替代 | superpowers 做通用代码质量，review-pr 做 MJ 特有架构合规 |
 
 ## 前置条件
@@ -101,7 +101,7 @@ PR 架构评审与条件合并 skill。
 | `main.py` 有变更 | D3（服务注册与中间件） |
 | `sql/` 有变更 | D4（数据库变更合规） |
 | `configuration/` 或 `.env*` 有变更 | D7（配置管理） |
-| `docs/` 有变更 | 不触发动态检查，输出提示："建议运行 `/mj-doc-review` 检查文档质量" |
+| `docs/` 有变更 | 不触发动态检查，输出提示："建议运行 `/mj-sys-doc-review` 检查文档质量" |
 
 **范围限定模式**: 如果用户指定了评审范围（如"只看SQL"），只执行对应的动态检查 + F1-F2 信息展示。
 
@@ -175,7 +175,7 @@ options:
 gh pr merge {number} --merge --delete-branch
 ```
 
-合并成功后提示运行 `/mj-git-delete` 清理本地 worktree。
+合并成功后提示运行 `/mj-sys-git-delete` 清理本地 worktree。
 
 ---
 
@@ -194,7 +194,7 @@ gh pr merge {number} --merge --delete-branch
 评审完成 ✓
   已完成项：架构评审 ✓ | 评审 comment {已发布到 PR #N / 未发布}
   建议下一步：
-  - 文档变更 → /mj-doc-review
-  - 技术合并检查 → /mj-git-check-merge
+  - 文档变更 → /mj-sys-doc-review
+  - 技术合并检查 → /mj-sys-git-check-merge
   - 直接合并 → 回复"合并"触发 Stage 5
 ```

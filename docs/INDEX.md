@@ -1,4 +1,4 @@
-# Documentation Index — MJ AgentLab Marketplace
+﻿# Documentation Index — MJ AgentLab Marketplace
 
 Navigation hub for all marketplace documentation.
 
@@ -26,8 +26,8 @@ Navigation hub for all marketplace documentation.
 
 | Resource | Location |
 |----------|----------|
-| **Plugin Secrets Setup** (mj-ops) | `plugins/mj-ops/config/secrets-ops.example` + `plugins/mj-ops/scripts/setup-ops-env.ps1` |
-| **Plugin Secrets Setup** (mj-git) | `plugins/mj-git/config/secrets-git.example` + `plugins/mj-git/scripts/setup-git-env.ps1` |
+| **Plugin Secrets Setup** (mj-sys-ops) | `plugins/mj-sys-ops/config/secrets-ops.example` + `plugins/mj-sys-ops/scripts/setup-ops-env.ps1` |
+| **Plugin Secrets Setup** (mj-sys-git) | `plugins/mj-sys-git/config/secrets-git.example` + `plugins/mj-sys-git/scripts/setup-git-env.ps1` |
 
 > 各插件的 README.md 和 CLAUDE.md 包含完整的 Secrets 配置说明。
 

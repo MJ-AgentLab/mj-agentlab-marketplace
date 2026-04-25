@@ -1,13 +1,13 @@
 ---
-name: mj-env-teardown
+name: mj-sys-ops-env-teardown
 description: This skill provides 3-level Docker environment cleanup (soft stop, volume removal, full purge) with safety confirmation for destructive operations. It should be invoked when stopping Docker stack, cleaning up containers, removing volumes, resetting local development environment, freeing Docker resources, or when a developer needs a fresh start after schema changes. Triggers on "停止Docker", "关闭服务", "清理环境", "重置环境", "docker down", "docker cleanup", "teardown", "清除容器", "reset environment", "释放资源", "环境清理", "docker compose down", "docker 占空间", "环境出问题想重来", "释放磁盘".
 ---
 
-# mj-env-teardown
+# mj-sys-ops-env-teardown
 
 ## Overview
 
-与 `mj-env-setup` 互补对称的环境清除 skill。新人容易搞混 `docker compose down` vs `down -v` vs `down -v --rmi local`，本 skill 提供分级引导和安全确认，避免误删数据。3 级清理选项，从轻量到彻底。
+与 `mj-sys-ops-env-setup` 互补对称的环境清除 skill。新人容易搞混 `docker compose down` vs `down -v` vs `down -v --rmi local`，本 skill 提供分级引导和安全确认，避免误删数据。3 级清理选项，从轻量到彻底。
 
 ## 前置条件
 
@@ -66,7 +66,7 @@ docker volume ls --filter name=mj-system
 
 ### Step 3 — Execute & Verify（执行并验证）
 
-**Why**: 执行后立即验证，确保清理彻底，避免残留资源导致后续 `mj-env-setup` 冲突。
+**Why**: 执行后立即验证，确保清理彻底，避免残留资源导致后续 `mj-sys-ops-env-setup` 冲突。
 
 Execute the chosen command from Step 2, then verify:
 
@@ -100,8 +100,8 @@ docker images | grep mj-system
 根据执行的 Level 输出对应提示：
 
 - **Level 1**: "服务已停止。数据保留在 volumes 中，`docker compose up -d` 可快速恢复。"
-- **Level 2**: "服务已停止，数据已清除。重新搭建使用 `mj-env-setup` skill。"
-- **Level 3**: "环境已彻底重置。重新搭建使用 `mj-env-setup` skill（需重新构建镜像，预计 ~15 分钟）。"
+- **Level 2**: "服务已停止，数据已清除。重新搭建使用 `mj-sys-ops-env-setup` skill。"
+- **Level 3**: "环境已彻底重置。重新搭建使用 `mj-sys-ops-env-setup` skill（需重新构建镜像，预计 ~15 分钟）。"
 
 ---
 
@@ -165,7 +165,7 @@ docker compose down -v
 docker compose ps                           # 无容器 ✓
 docker volume ls --filter name=mj-system    # 无 volume ✓
 
-# Handoff: 服务已停止，数据已清除。重新搭建使用 mj-env-setup skill。
+# Handoff: 服务已停止，数据已清除。重新搭建使用 mj-sys-ops-env-setup skill。
 ```
 
 ### 示例 3：Dockerfile 改了需要彻底重来（Level 3）
@@ -198,5 +198,5 @@ docker compose ps                           # 无容器 ✓
 docker volume ls --filter name=mj-system    # 无 volume ✓
 docker images | grep mj-system              # 无镜像 ✓
 
-# Handoff: 环境已彻底重置。重新搭建使用 mj-env-setup skill（~15 分钟）。
+# Handoff: 环境已彻底重置。重新搭建使用 mj-sys-ops-env-setup skill（~15 分钟）。
 ```

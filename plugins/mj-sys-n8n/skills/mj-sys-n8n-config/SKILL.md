@@ -1,9 +1,9 @@
 ---
-name: mj-n8n-config
+name: mj-sys-n8n-config
 description: This skill adds trigger configuration entries to n8n environment YAML files (_config/dev.yaml, test.yaml, production.yaml), handling cron expressions, interval minutes, and environment-specific parameters with format validation. It should be invoked when configuring triggers for a new workflow or updating existing trigger parameters in MJ System. Triggers on "配置n8n触发器", "n8n config", "yaml配置", "添加cron", "环境配置", "trigger configuration", "n8n yaml", "配置调度", "定时任务配置", "n8n环境参数".
 ---
 
-# mj-n8n-config Skill
+# mj-sys-n8n-config Skill
 
 ## Overview
 
@@ -18,7 +18,7 @@ description: This skill adds trigger configuration entries to n8n environment YA
 
 在使用本技能前，请确认以下条件：
 
-1. **工作流模板已存在于 `_base/` 目录**：`workflow.json` 模板文件必须已经创建。如果尚未创建，请先使用 `/mj-n8n-template` 或 `/mj-n8n-author` 完成模板编写。
+1. **工作流模板已存在于 `_base/` 目录**：`workflow.json` 模板文件必须已经创建。如果尚未创建，请先使用 `/mj-sys-n8n-template` 或 `/mj-sys-n8n-author` 完成模板编写。
 2. **已知工作流的 TriggerType 和目录名称**：需要明确工作流的触发类型（Cron、Interval、DBTrigger、Webhook、Manual）和 `_base/` 下的目录路径。
 
 ## Main Workflow
@@ -173,7 +173,7 @@ grep -P '\t' n8n/workflows/_config/*.yaml
   已更新：dev.yaml、test.yaml、production.yaml
   触发类型：{Cron/Interval/无需配置}
   配置 key：{WorkflowName-TriggerType}
-下一步：使用 /mj-n8n-doc 编写工作流文档。
+下一步：使用 /mj-sys-n8n-doc 编写工作流文档。
 ```
 
 如果是 DBTrigger/Webhook/Manual 类型（无需配置），输出：
@@ -183,7 +183,7 @@ grep -P '\t' n8n/workflows/_config/*.yaml
   触发类型：DBTrigger（事件驱动）
   无需添加 trigger 配置条目
   环境参数（ENV_PREFIX、ENV_TAG、ENV_NAME、WECHAT_WEBHOOK_URL）已由基础 YAML 覆盖
-下一步：使用 /mj-n8n-doc 编写工作流文档。
+下一步：使用 /mj-sys-n8n-doc 编写工作流文档。
 ```
 
 ## Reference

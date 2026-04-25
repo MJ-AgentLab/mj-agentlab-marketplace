@@ -1,5 +1,5 @@
 ---
-name: mj-doc-author
+name: mj-sys-doc-author
 description: This skill creates a single Framework v5.0-compliant MJ System document (GUIDE, RUNBOOK, ADR, SPEC, POSTMORTEM, STANDARD, ISSUE, or ASSESSMENT) from code analysis through validation. It should be invoked after the document type and scope are already decided, producing complete documents with correct frontmatter, section structure, and cross-references. Triggers on "write a GUIDE for", "create a RUNBOOK for", "generate documentation for", "draft an ADR for", "create an ISSUE doc", "write an ASSESSMENT", "写文档", "编写指南", "创建RUNBOOK", "生成ADR", "写规范文档", "写ISSUE", "写评估文档".
 ---
 
@@ -11,9 +11,9 @@ Creates a single Framework v5.0-compliant document from code analysis through to
 
 ## Prerequisite
 
-Document type and scope should be clear. If not, use `mj-doc-plan` first.
+Document type and scope should be clear. If not, use `mj-sys-doc-plan` first.
 
-> **Breaking change (v2.0)**: Target repository must already be migrated to Framework v5.0. If the repo contains v4.5 canonical docs, run `mj-doc-migrate` first.
+> **Breaking change (v2.0)**: Target repository must already be migrated to Framework v5.0. If the repo contains v4.5 canonical docs, run `mj-sys-doc-migrate` first.
 
 ## Workflow
 
@@ -37,7 +37,7 @@ digraph author {
   d01q02 [label="D-01/Q-02: 文件已存在?\n(glob 确认后询问)" shape=diamond];
 
   content [label="Content generation\n• Read actual code/scripts/configs\n• Fill template per §7.1 MUST\n• Cross-verify references" shape=box];
-  validate [label="Call mj-doc-validate" shape=box style=bold];
+  validate [label="Call mj-sys-doc-validate" shape=box style=bold];
   post [label="Post-creation\n• INDEX.md update (≥3 docs)\n• CLAUDE.md sync (§8.2)" shape=box];
   done [label="Done" shape=doublecircle];
 
@@ -129,11 +129,11 @@ Same convention: scan `docs/issues/` for max `[ISSUE]_NNN_*` number, new = max +
 | §12 前置检查后（问题文档） | 问题分析文档但发现方式不明确（主动 vs 被动） | 用户已指定"写 ISSUE"或"写 POSTMORTEM" | Q-10 |
 | 目录确定前（层级歧义） | 内容同时含长期参考和短期执行材料 | 用户明确说"写 plan"或明确指定 canonical 类型 | Q-12 |
 
-详细模板: `../mj-doc-shared/question-patterns.md`
+详细模板: `../mj-sys-doc-shared/question-patterns.md`
 
 ## REQUIRED SUB-SKILL
 
-`mj-doc-validate` — Run on completed document before declaring done.
+`mj-sys-doc-validate` — Run on completed document before declaring done.
 
 ## Reference Files
 

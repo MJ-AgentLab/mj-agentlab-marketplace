@@ -1,5 +1,5 @@
 ---
-name: mj-doc-sync
+name: mj-sys-doc-sync
 description: This skill detects documentation impact from code changes in MJ System and executes updates, repairing cross-references and syncing INDEX.md plus CLAUDE.md. It should be invoked when code changes require documentation updates, when documents are renamed or moved, or after merging PRs that touch src/, sql/, docker/, scripts/, .github/workflows/, or .env. Triggers on "update docs for code change", "fix stale references", "sync documentation", "docs are out of date", "同步文档", "文档过期了", "修复引用", "代码改了文档没更新".
 ---
 
@@ -39,7 +39,7 @@ digraph sync {
 
   p4 [label="Phase 4: Sync\n• INDEX.md entries\n• CLAUDE.md (§8.2)" shape=box];
 
-  p5 [label="Phase 5: Validate\nmj-doc-validate\non all modified docs" shape=box style=bold];
+  p5 [label="Phase 5: Validate\nmj-sys-doc-validate\non all modified docs" shape=box style=bold];
 
   done [label="Done" shape=doublecircle];
 
@@ -104,7 +104,7 @@ Sync scope is restricted to canonical docs in `docs/**`. Working docs in `plans/
 
 ## Phase 5: Validate
 
-**REQUIRED SUB-SKILL**: `mj-doc-validate` — Run on every modified document.
+**REQUIRED SUB-SKILL**: `mj-sys-doc-validate` — Run on every modified document.
 
 ## 人工交互节点
 
@@ -119,7 +119,7 @@ Sync scope is restricted to canonical docs in `docs/**`. Working docs in `plans/
 | Phase 2 中（大幅删除） | 单文档删除超过 MAX(30行, 25%原文) | 用户说"大幅修改/重写" | D-02 |
 | Phase 4 前 | CLAUDE.md 需修改超过 10 行 | 用户说"不用更新 CLAUDE.md" | D-03 |
 
-详细模板: `../mj-doc-shared/question-patterns.md`
+详细模板: `../mj-sys-doc-shared/question-patterns.md`
 
 ## Reference Files
 

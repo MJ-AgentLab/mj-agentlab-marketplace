@@ -1,5 +1,5 @@
 ---
-name: mj-n8n-template
+name: mj-sys-n8n-template
 description: This skill converts n8n UI-exported workflow JSON into environment-agnostic _base/ templates (Path A), replacing environment-specific values with placeholders and cleaning up credential IDs. The output templates are not valid JSON by design — they contain double-brace placeholders that the render script substitutes per environment. It should be invoked when processing exported workflow JSON in MJ System. Triggers on "转换n8n模板", "创建workflow模板", "n8n template", "占位符替换", "导出JSON转模板", "清理凭据ID", "n8n placeholder", "convert workflow json".
 ---
 
@@ -14,7 +14,7 @@ description: This skill converts n8n UI-exported workflow JSON into environment-
 ## Prerequisites
 
 - 用户已有导出的 JSON 文件（n8n UI "Download" 或粘贴内容）
-- Category / Name / TriggerType 已确定（如未确定，提示用户先使用 `/mj-n8n-plan`，或直接询问）
+- Category / Name / TriggerType 已确定（如未确定，提示用户先使用 `/mj-sys-n8n-plan`，或直接询问）
 
 ## 参考文件布局
 
@@ -209,7 +209,7 @@ n8n/workflows/_base/CollectionNodes/RawDataCollection-Scheduled/
 | H1 | JSON 中未检测到任何环境相关值 | 展示 JSON 结构概览，询问哪些值需要模板化 |
 | H2 | 检测到 Execute Sub-workflow 节点 | 警告 sub-workflow ID 跨环境会变化，询问处理方式 |
 | H3 | 目标目录已有 `workflow.json` | 询问是否覆盖 |
-| H4 | Category / Name / TriggerType 未确定 | 提示使用 `/mj-n8n-plan`，或直接询问 |
+| H4 | Category / Name / TriggerType 未确定 | 提示使用 `/mj-sys-n8n-plan`，或直接询问 |
 | H5 | 检测到硬编码 IP 地址（非 `mj-app:8000`） | 警告并建议替换为 Docker 服务名或占位符 |
 
 ## 特殊情况处理
@@ -239,10 +239,10 @@ n8n/workflows/_base/CollectionNodes/RawDataCollection-Scheduled/
   已删除字段：id（顶层）/ 无（保留语义 ID）
   凭据清理：M 个 credential ID → PLACEHOLDER
 下一步：
-  1. 使用 /mj-n8n-config 配置环境触发器参数（Cron/Interval → 必须配置；DBTrigger/Webhook/Manual → 跳过此步）
-  2. 使用 /mj-n8n-doc 生成工作流 README.md 和 CHANGELOG.md
-  3. 使用 /mj-n8n-render 渲染并验证各环境文件
-  4. 使用 /mj-n8n-promote 执行 DEV 测试 → TEST → PROD 晋升
+  1. 使用 /mj-sys-n8n-config 配置环境触发器参数（Cron/Interval → 必须配置；DBTrigger/Webhook/Manual → 跳过此步）
+  2. 使用 /mj-sys-n8n-doc 生成工作流 README.md 和 CHANGELOG.md
+  3. 使用 /mj-sys-n8n-render 渲染并验证各环境文件
+  4. 使用 /mj-sys-n8n-promote 执行 DEV 测试 → TEST → PROD 晋升
 ```
 
 ## 现有模板示例

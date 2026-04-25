@@ -1,5 +1,5 @@
 ---
-name: mj-doc-plan
+name: mj-sys-doc-plan
 description: This skill evaluates what documentation is needed for a MJ System topic, service, or infrastructure area by analyzing code scope against Framework v5.0 requirements (including ISSUE and ASSESSMENT types). It should also be invoked when planning multi-document work, assessing documentation gaps, or answering "what docs do we need for X?". Triggers on "evaluate documentation for", "plan docs for", "what documentation does X need", "documentation gap analysis", "文档规划", "评估文档需求", "文档缺口分析", "需要哪些文档".
 ---
 
@@ -16,7 +16,7 @@ Analyzes a topic scope, evaluates existing docs against Framework v5.0 requireme
 - Assessing documentation gaps in a specific area
 - Asked "what docs do we need for X?"
 
-Do NOT use for writing a single known document — use `mj-doc-author` instead.
+Do NOT use for writing a single known document — use `mj-sys-doc-author` instead.
 
 ## Workflow
 
@@ -37,7 +37,7 @@ digraph plan {
 
   p3 [label="Phase 3: Write Plan\n→ plans/YYYY-MM-DD-topic-*.md\n• Working frontmatter\n• Tasks with dependencies" shape=box];
 
-  handoff [label="Hand off to\nmj-doc-author" shape=doublecircle];
+  handoff [label="Hand off to\nmj-sys-doc-author" shape=doublecircle];
 
   input -> p1 -> p2 -> q05q06;
   q05q06 -> q12 [label="已解决歧义/无歧义"];
@@ -61,7 +61,7 @@ For each identified gap, apply the decision tree (see plan-checklist.md):
 
 1. What type should this doc be? (§2.3 decision tree)
 2. Does this trigger §12 前置检查? (ADR/SPEC requirements)
-3. Is there legacy content in `docs_old/` to migrate? (→ `mj-doc-migrate`)
+3. Is there legacy content in `docs_old/` to migrate? (→ `mj-sys-doc-migrate`)
 4. Can an existing doc be updated instead of creating new?
 
 **在 present 前触发 Q-05/Q-06**（若满足触发条件）：
@@ -127,11 +127,11 @@ Why these docs are needed.
 | Phase 2 中（问题深度） | 发现需延后处理的问题但分析深度不确定 | 问题分析明显 >10 行 | Q-11 |
 | Phase 2 结束、present 前（层级歧义） | 内容同时含长期参考和短期执行材料 | 用户明确说"写 plan"或明确指定 canonical 类型 | Q-12 |
 
-详细模板: `../mj-doc-shared/question-patterns.md`
+详细模板: `../mj-sys-doc-shared/question-patterns.md`
 
 ## RECOMMENDED SUB-SKILL
 
-`mj-doc-author` — For executing the plan (creating each document).
+`mj-sys-doc-author` — For executing the plan (creating each document).
 
 ## Reference Files
 

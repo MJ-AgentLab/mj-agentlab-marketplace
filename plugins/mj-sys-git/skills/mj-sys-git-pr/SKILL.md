@@ -1,5 +1,5 @@
 ---
-name: mj-git-pr
+name: mj-sys-git-pr
 description: This skill should be used when the user asks to create a Pull Request, select a PR template, fill PR fields, choose a deploy strategy for test environment, bump version numbers, or perform a release for MJ System. Triggers on "创建PR", "新建PR", "提PR", "create PR", "pull request", "PR模板", "deploy strategy", "版本号", "发版", "release", "合并到main", "merge to main". Uses gh CLI with --body-file and the correct template per branch type.
 ---
 
@@ -215,13 +215,13 @@ Extract from `CHANGELOG.md [Unreleased]` section — list the core changes under
 | Branch type discipline | 仅含允许的 Commit 类型 |
 | CHANGELOG updated | CHANGELOG [Unreleased] 已更新 |
 
-## Handoff to mj-git-check-merge
+## Handoff to mj-sys-git-check-merge
 
 PR 创建完成后输出提示：
 
 ```
 PR 创建完成 ✓
-下一步：等待 CI 运行完成后，使用 mj-git-check-merge 检查合并就绪状态。
+下一步：等待 CI 运行完成后，使用 mj-sys-git-check-merge 检查合并就绪状态。
   已完成项：模板选择 ✓、描述填写 ✓、部署策略注入 ✓
   待检查项：合并冲突、CI 状态、Review 审批、描述完整性、Merge Commit
 ```

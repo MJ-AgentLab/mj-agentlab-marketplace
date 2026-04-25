@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Install git hooks for mj-agentlab-marketplace
 
@@ -49,7 +49,7 @@ if echo "$MSG" | grep -qE "^Merge "; then
   exit 0
 fi
 
-PATTERN='^(feat|fix|perf|refactor|test|docs|infra)\((mj-git|mj-doc|mj-n8n|mj-ops|ci|deps|scripts|marketplace)\): .{1,72}$'
+PATTERN='^(feat|fix|perf|refactor|test|docs|infra)\((mj-sys-git|mj-sys-doc|mj-sys-n8n|mj-sys-ops|ci|deps|scripts|marketplace)\): .{1,72}$'
 
 if ! echo "$MSG" | grep -qE "$PATTERN"; then
   echo ""
@@ -58,7 +58,7 @@ if ! echo "$MSG" | grep -qE "$PATTERN"; then
   echo "  Expected: <type>(<scope>): <summary>"
   echo ""
   echo "  Types:  feat | fix | perf | refactor | test | docs | infra"
-  echo "  Scopes: mj-git | mj-doc | mj-n8n | mj-ops | ci | deps | scripts | marketplace"
+  echo "  Scopes: mj-sys-git | mj-sys-doc | mj-sys-n8n | mj-sys-ops | ci | deps | scripts | marketplace"
   echo ""
   echo "  Your message: $MSG"
   echo ""
@@ -72,4 +72,4 @@ Write-Host "Installed commit-msg hook to: $HookFile" -ForegroundColor Green
 Write-Host ""
 Write-Host "Validation format: <type>(<scope>): <summary>" -ForegroundColor White
 Write-Host "  Types:  feat | fix | perf | refactor | test | docs | infra" -ForegroundColor White
-Write-Host "  Scopes: mj-git | mj-doc | mj-n8n | mj-ops | ci | deps | scripts | marketplace" -ForegroundColor White
+Write-Host "  Scopes: mj-sys-git | mj-sys-doc | mj-sys-n8n | mj-sys-ops | ci | deps | scripts | marketplace" -ForegroundColor White

@@ -1,5 +1,5 @@
 ---
-name: mj-git-push
+name: mj-sys-git-push
 description: This skill should be used when the user asks to push code, run pre-push checks, set up dual-push to Gitee and GitHub, troubleshoot push errors, or handle CHANGELOG updates in MJ System. Triggers on "推送代码", "push code", "git push", "推到远端", "push to remote", "dual push", "Gitee push", "推送失败", "push error", "CHANGELOG", "推送前检查", "pre-push check". Runs an 8-item pre-push checklist and executes dual-push (Gitee first, GitHub second).
 ---
 
@@ -9,7 +9,7 @@ description: This skill should be used when the user asks to push code, run pre-
 
 8-item pre-push checklist + dual-push execution (Gitee first, GitHub second) for MJ System. CI Runner cannot access GitHub directly — it pulls from Gitee mirror, so both remotes must receive every push.
 
-> **前置技能**：`mj-git-commit` 已在提交阶段验证 commit message 格式和 type/branch 纪律。本技能的 Step 1-2 作为二次确认。
+> **前置技能**：`mj-sys-git-commit` 已在提交阶段验证 commit message 格式和 type/branch 纪律。本技能的 Step 1-2 作为二次确认。
 
 ## Pre-Push Checklist (run in order)
 
@@ -33,17 +33,17 @@ git diff develop -- CHANGELOG.md
 
 # 4. Clean working directory
 git status --short
-# Must be empty. If not: use mj-git-commit to stage and commit, or add to .gitignore
+# Must be empty. If not: use mj-sys-git-commit to stage and commit, or add to .gitignore
 
 # 5. Validate branch name
 git branch --show-current
 # Must match: feature/<desc> | bugfix/<desc> | documentation/<desc> | maintain/<desc> | hotfix/<desc>
 
-# 6. Sync base branch (详细流程见 mj-git-sync skill)
+# 6. Sync base branch (详细流程见 mj-sys-git-sync skill)
 git fetch origin && git merge origin/develop   # regular branches
 git fetch origin && git merge origin/main      # hotfix/* branches only
 # Conflict? → git status → resolve → git add . → git commit -m "merge: 合并 develop 最新内容，解决冲突"
-# Note: 自更新场景（origin/同名分支 → 本地）由 mj-git-sync 自更新模式覆盖，不在此步骤处理
+# Note: 自更新场景（origin/同名分支 → 本地）由 mj-sys-git-sync 自更新模式覆盖，不在此步骤处理
 
 # 7. Execute dual-push
 # First push of this branch (set upstream):

@@ -1,9 +1,9 @@
 ---
-name: mj-n8n-render
+name: mj-sys-n8n-render
 description: This skill executes the rendering pipeline — transforming _base/ templates plus _config/ YAML configurations into environment-specific JSON files under dev/, test/, and production/ directories, then validating output for placeholder residuals and JSON syntax. It should be invoked when rendering workflow templates or verifying rendered output in MJ System. Triggers on "渲染n8n", "n8n render", "验证workflow", "检查占位符", "渲染工作流", "render workflow", "verify n8n", "n8n验证", "占位符检查", "生成环境JSON".
 ---
 
-# mj-n8n-render Skill
+# mj-sys-n8n-render Skill
 
 ## Overview
 
@@ -93,7 +93,7 @@ uv run python scripts/render_n8n_workflows.py --verify production
 
 | 问题 | 原因 | 解决方案 |
 |------|------|----------|
-| `{{TRIGGER_CRON_X}}` 未替换 | YAML 中缺少 trigger 条目 | 在 `_config/*.yaml` 中添加对应条目（使用 `/mj-n8n-config`） |
+| `{{TRIGGER_CRON_X}}` 未替换 | YAML 中缺少 trigger 条目 | 在 `_config/*.yaml` 中添加对应条目（使用 `/mj-sys-n8n-config`） |
 | `{{WECHAT_WEBHOOK_URL}}` 未替换 | YAML 缺少 notifications 部分 | 检查 `_config/*.yaml` 是否包含 `notifications.wechat_webhook_url` |
 | JSON parse error | 模板语法错误 | 检查 `_base/` 模板中的括号匹配、尾部逗号等问题 |
 | Verify 显示 DIFF | 已渲染文件过时 | 重新执行 `uv run python scripts/render_n8n_workflows.py all` |
@@ -119,7 +119,7 @@ uv run python scripts/render_n8n_workflows.py --verify production
   production/: N 个工作流 ✓
   占位符残留:   无 ✓
   JSON 合法性:  全部通过 ✓
-下一步：使用 /mj-n8n-promote 进行 DEV 环境测试验证。
+下一步：使用 /mj-sys-n8n-promote 进行 DEV 环境测试验证。
 ```
 
 ## Render Script Reference

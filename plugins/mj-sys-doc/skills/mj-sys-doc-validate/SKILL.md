@@ -1,5 +1,5 @@
 ---
-name: mj-doc-validate
+name: mj-sys-doc-validate
 description: This skill validates MJ System documentation against Framework v5.0 (A1-A6 schema/existence checks + OB1-OB5 format checks) using the bundled validate_doc.py script for deterministic checks and instruction analysis for judgment-based checks. Returns PASS/FAIL/WARN/SKIP per check. It should be invoked after creating or updating documents, before PR submission, or when auditing documentation quality across the project. Triggers on "check docs", "validate documentation", "audit docs compliance", "lint markdown", "验证文档", "检查文档格式", "文档合规审计", "文档质量检查".
 ---
 
@@ -12,7 +12,7 @@ Validates MJ System documentation against Framework v5.0:
 - **OB1-OB5**: Obsidian Markdown format checks (non-blocking WARN)
 - **Advisory**: Line count, tense, content boundary (non-blocking WARN)
 
-Returns `PASS` / `FAIL` / `WARN` / `SKIP` per check. v4.5 documents are unsupported and must be migrated first using `mj-doc-migrate`.
+Returns `PASS` / `FAIL` / `WARN` / `SKIP` per check. v4.5 documents are unsupported and must be migrated first using `mj-sys-doc-migrate`.
 
 > **v2.0 compatibility boundary**: Only supports repositories that have completed the Framework v5.0 migration.
 
@@ -51,16 +51,16 @@ digraph validate {
 
 ```bash
 # Basic validation
-python "${CLAUDE_PLUGIN_ROOT}/skills/mj-doc-validate/scripts/validate_doc.py" <file_path>
+python "${CLAUDE_PLUGIN_ROOT}/skills/mj-sys-doc-validate/scripts/validate_doc.py" <file_path>
 
 # With repo root (required for A4, A5, A6)
-python "${CLAUDE_PLUGIN_ROOT}/skills/mj-doc-validate/scripts/validate_doc.py" <file_path> --repo-root <repo>
+python "${CLAUDE_PLUGIN_ROOT}/skills/mj-sys-doc-validate/scripts/validate_doc.py" <file_path> --repo-root <repo>
 
 # Generate/update managed INDEX blocks
-python "${CLAUDE_PLUGIN_ROOT}/skills/mj-doc-validate/scripts/validate_doc.py" <file_path> --repo-root <repo> --write-managed-indexes
+python "${CLAUDE_PLUGIN_ROOT}/skills/mj-sys-doc-validate/scripts/validate_doc.py" <file_path> --repo-root <repo> --write-managed-indexes
 
 # PR-mode validation (A6 enabled)
-python "${CLAUDE_PLUGIN_ROOT}/skills/mj-doc-validate/scripts/validate_doc.py" <file_path> --repo-root <repo> --pr-mode --base-ref <ref> [--head-ref <ref>]
+python "${CLAUDE_PLUGIN_ROOT}/skills/mj-sys-doc-validate/scripts/validate_doc.py" <file_path> --repo-root <repo> --pr-mode --base-ref <ref> [--head-ref <ref>]
 ```
 
 Output: per-check `{id, status, message}`. Add `--json` for JSON. Merge with semi-auto results below.

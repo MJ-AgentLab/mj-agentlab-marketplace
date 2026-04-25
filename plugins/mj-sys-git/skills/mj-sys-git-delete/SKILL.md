@@ -1,5 +1,5 @@
 ---
-name: mj-git-delete
+name: mj-sys-git-delete
 description: This skill should be used when the user asks to delete branches, remove worktrees, or clean up after a PR merge in MJ System. Triggers on "删除分支", "清理分支", "branch cleanup", "delete branch", "worktree remove", "PR 合并后清理", "分支已合并". Enforces correct deletion order (worktree then local branch then optional remote) with safety checks and human confirmation for all destructive steps.
 ---
 
@@ -127,9 +127,9 @@ git push origin --delete <type>/<desc>
 # Step 0: 技能输出确认命令
 git worktree list
 # 输出示例：
-# D:/workspace/mj-system/.bare        (bare)
-# D:/workspace/mj-system/develop      [develop]
-# D:/workspace/mj-system/bugfix/verify-qcm-calculation-accuracy  [bugfix/verify-qcm-calculation-accuracy]
+# <workspace>/mj-system/.bare        (bare)
+# <workspace>/mj-system/develop      [develop]
+# <workspace>/mj-system/bugfix/verify-qcm-calculation-accuracy  [bugfix/verify-qcm-calculation-accuracy]
 
 # Step 1: 询问删除范围 → 用户选择「本地及远程」
 

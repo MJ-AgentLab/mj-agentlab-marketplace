@@ -1,9 +1,9 @@
 ---
-name: mj-etl-dwd-to-dws
+name: mj-sys-ops-etl-dwd-to-dws
 description: This skill manually triggers the QCM ETL 5-Phase parallel pipeline from biz_dwd to biz_dws, bypassing the pg_cron 5-minute polling wait. It should be invoked whenever DWS metrics need immediate update after DWD data is ready, when DWS tables appear empty, or when metrics have not refreshed after DWD data loading. The pipeline executes preprocess via dblink independent transaction, then 5 phases with up to 13 functions running in parallel (max 7 concurrent). Triggers on "触发QCM", "DWD到DWS", "手动指标计算", "QCM ETL", "trigger dws", "指标没更新", "DWS没数据", "跑指标", "run qcm", "计算指标", "等了好久还没算完", "DWS是空的".
 ---
 
-# mj-etl-dwd-to-dws
+# mj-sys-ops-etl-dwd-to-dws
 
 ## Overview
 
@@ -29,7 +29,7 @@ Architecture: 5 Phases (monthly → daily → weekly → quarterly → yearly), 
 |---------|------|
 | 用户说"跑指标" | 直接 Step 1 检查 → Step 2 执行 |
 | 用户说"DWS 没数据" | Step 1 检查 signal，可能需先触发 ODS→DWD |
-| 完整链路 | 先使用 `mj-etl-ods-to-dwd`，再回到本 skill |
+| 完整链路 | 先使用 `mj-sys-ops-etl-ods-to-dwd`，再回到本 skill |
 
 ## 执行方式说明
 
@@ -56,7 +56,7 @@ SELECT * FROM biz_dws.check_qcm_ready();
 
 Returns: `ready`, `pending_count`, `last_signal_at`, `last_rows`
 
-- **[H1] Conditional**: `ready = FALSE` → 无 DWD ready signal，提示先触发 ODS→DWD（引导到 `mj-etl-ods-to-dwd`）
+- **[H1] Conditional**: `ready = FALSE` → 无 DWD ready signal，提示先触发 ODS→DWD（引导到 `mj-sys-ops-etl-ods-to-dwd`）
 - `ready = TRUE` → 继续 Step 2
 
 ### Step 2 — Execute QCM ETL（执行 QCM ETL）
@@ -108,7 +108,7 @@ SELECT status, COUNT(*) FROM biz_dwd.dwd_qvl_ready_signal GROUP BY status;
 
 | ID | 类型 | 触发条件 | 行为 |
 |----|------|---------|------|
-| **H1** | Conditional | `check_qcm_ready()` 返回 `ready = FALSE` | 告知无 DWD ready signal，引导到 `mj-etl-ods-to-dwd` 先触发上游 |
+| **H1** | Conditional | `check_qcm_ready()` 返回 `ready = FALSE` | 告知无 DWD ready signal，引导到 `mj-sys-ops-etl-ods-to-dwd` 先触发上游 |
 | **H2** | Warning | `tables_processed < 65` | 展示失败表详情（从 `dws_qcm_etl_metrics` 查 `status != 'success'`），提示检查 error_message |
 
 > **H1** 不阻断但改变流程方向。**H2** 展示诊断信息后由用户决定是否重试。
@@ -144,7 +144,7 @@ DWS ready signal 已发出，DWD signal 已消费。
 ```
 用户：跑一下完整链路，从 ODS 到 DWS
 
-# 1. 先调用 mj-etl-ods-to-dwd 完成 ODS→DWD
+# 1. 先调用 mj-sys-ops-etl-ods-to-dwd 完成 ODS→DWD
 #    （该 skill 结束后 DWD ready signal 已写入）
 
 # 2. 回到本 skill

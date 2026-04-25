@@ -1,5 +1,5 @@
 ---
-name: mj-git-branch
+name: mj-sys-git-branch
 description: This skill should be used when the user asks to create a branch, name a branch, start feature/bugfix/documentation/maintain/hotfix work, set up a Git Worktree, or choose the correct branch type in MJ System. Triggers on "创建分支", "新建分支", "开新分支", "create branch", "new branch", "branch naming", "worktree add", "哪种分支类型", "which branch type", "开始开发", "start feature", "start bugfix", "start hotfix".
 ---
 
@@ -19,7 +19,7 @@ Creates and manages Git branches for MJ System following the project's branch st
 |---------|------|
 | 任务性质不明确（「要开始开发」「要改代码」） | 问：「这次任务是新功能、bug 修复、纯文档、基础设施维护，还是生产紧急修复？」 |
 | 类型明确，但无英文描述词 | 问：「请用 2-5 个英文单词描述此任务（e.g. `user-auth`、`fix-date-parse`）」 |
-| 类型 + 描述词均有，缺 issue-id | 直接生成（issue-id 可选，不追问）。若需先创建 Issue，可使用 mj-git-issue |
+| 类型 + 描述词均有，缺 issue-id | 直接生成（issue-id 可选，不追问）。若需先创建 Issue，可使用 mj-sys-git-issue |
 | 信息完整 | 直接生成命令 |
 
 ### 追问用语模板
@@ -89,7 +89,7 @@ git worktree add ../feature/12-user-auth -b feature/12-user-auth develop
 # Step 2: Work in the new worktree
 cd ../feature/12-user-auth
 # ... develop → commit ...
-# 开发中如需同步 develop 最新代码 → 使用 mj-git-sync
+# 开发中如需同步 develop 最新代码 → 使用 mj-sys-git-sync
 
 # Step 3: Push (first push needs -u; subsequent pushes use pushall)
 git push -u gitee feature/12-user-auth && git push -u origin feature/12-user-auth
@@ -122,9 +122,9 @@ cd ../main && git pull origin main
 git tag -a v2.7.1 -m "Hotfix: 修复 IMAP 连接超时"
 git push origin v2.7.1 && git push gitee v2.7.1
 
-# Step 6: Sync fix back to develop (使用 mj-git-sync)
+# Step 6: Sync fix back to develop (使用 mj-sys-git-sync)
 cd ../develop
-# 运行 mj-git-sync → 自动检测 hotfix 回同步模式 → merge main + pushall
+# 运行 mj-sys-git-sync → 自动检测 hotfix 回同步模式 → merge main + pushall
 
 # Step 7: Cleanup
 cd ../mj-system

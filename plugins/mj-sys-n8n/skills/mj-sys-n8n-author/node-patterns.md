@@ -1,6 +1,6 @@
 # Node Patterns Reference
 
-n8n workflow JSON 节点模板完整参考，供 `mj-n8n-author` 技能生成工作流时使用。
+n8n workflow JSON 节点模板完整参考，供 `mj-sys-n8n-author` 技能生成工作流时使用。
 
 ---
 

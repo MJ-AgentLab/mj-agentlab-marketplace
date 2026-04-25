@@ -17,11 +17,11 @@
 | `n8n/workflows/**` | `docs/infrastructure/n8n/` | Workflow logic, triggers, connections |
 | `pyproject.toml` | README tech stack | Dependencies added/removed |
 | `docs/_templates/*` | Framework v5.0 §3.4 template table | Template availability |
-| `[mj-agentlab-marketplace] plugins/mj-doc/skills/mj-doc-*/SKILL.md` | `docs/infrastructure/claude-code/mj-doc/[GUIDE]_MJ_Doc_Skills_Architecture.md` + `[RUNBOOK]_MJ_Doc_Workflow_Procedures.md` | 技能工作流步骤、人工交互节点列表、文件结构章节 |
+| `[mj-agentlab-marketplace] plugins/mj-sys-doc/skills/mj-sys-doc-*/SKILL.md` | `docs/infrastructure/claude-code/mj-sys-doc/[GUIDE]_MJ_Doc_Skills_Architecture.md` + `[RUNBOOK]_MJ_Doc_Workflow_Procedures.md` | 技能工作流步骤、人工交互节点列表、文件结构章节 |
 <!-- skill 文件现由 mj-agentlab-marketplace 仓库管理 -->
-| `[mj-agentlab-marketplace] plugins/mj-doc/skills/mj-doc-shared/**` | `docs/infrastructure/claude-code/mj-doc/[GUIDE]_MJ_Doc_Skills_Architecture.md` + `[RUNBOOK]_MJ_Doc_Workflow_Procedures.md` | Q/D 问题 ID 新增或删除时须同步 GUIDE 设计原则和 RUNBOOK 步骤 |
+| `[mj-agentlab-marketplace] plugins/mj-sys-doc/skills/mj-sys-doc-shared/**` | `docs/infrastructure/claude-code/mj-sys-doc/[GUIDE]_MJ_Doc_Skills_Architecture.md` + `[RUNBOOK]_MJ_Doc_Workflow_Procedures.md` | Q/D 问题 ID 新增或删除时须同步 GUIDE 设计原则和 RUNBOOK 步骤 |
 <!-- skill 文件现由 mj-agentlab-marketplace 仓库管理 -->
-| `[mj-agentlab-marketplace] plugins/mj-git/skills/mj-git-*/SKILL.md` | `docs/infrastructure/claude-code/mj-git/[GUIDE]_MJ_Git_Skills_Architecture.md` + `[RUNBOOK]_MJ_Git_Workflow_Procedures.md` | 技能工作流步骤、人工介入场景列表、命令序列 |
+| `[mj-agentlab-marketplace] plugins/mj-sys-git/skills/mj-sys-git-*/SKILL.md` | `docs/infrastructure/claude-code/mj-sys-git/[GUIDE]_MJ_Git_Skills_Architecture.md` + `[RUNBOOK]_MJ_Git_Workflow_Procedures.md` | 技能工作流步骤、人工介入场景列表、命令序列 |
 <!-- skill 文件现由 mj-agentlab-marketplace 仓库管理 -->
 
 > `[ISSUE]` documents in `docs/issues/` and `[ASSESSMENT]` documents in `docs/assessments/` are triggered by §11 conditions, not by direct code-change mapping. They are created manually when optimization or cross-module development discovers deferred problems or completes optimization rounds.

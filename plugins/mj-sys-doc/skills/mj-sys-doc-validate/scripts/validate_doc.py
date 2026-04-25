@@ -257,7 +257,7 @@ def check_a2(frontmatter: dict[str, str], doc_type: str, layer: str) -> dict:
             "id": "A2",
             "status": "FAIL",
             "message": "v4.5 frontmatter detected (has 'status'/'date', missing 'state'/'created'). "
-                       "Run mj-doc-migrate to upgrade to v5.0.",
+                       "Run mj-sys-doc-migrate to upgrade to v5.0.",
         }
 
     # Determine required fields
