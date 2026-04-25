@@ -1,17 +1,17 @@
 <#
 .SYNOPSIS
-    Encrypt secrets-ops.conf into secrets-ops.enc for mj-ops plugin
+    Encrypt secrets-sys-ops.conf into secrets-sys-ops.enc for mj-sys-ops plugin
 
 .DESCRIPTION
-    Encrypts config/secrets-ops.conf into config/secrets-ops.enc using
+    Encrypts config/secrets-sys-ops.conf into config/secrets-sys-ops.enc using
     AES-256-CBC with PBKDF2. The encrypted file is safe to commit
     to the repository.
 
-    After encrypting, delete secrets-ops.conf and share the password
+    After encrypting, delete secrets-sys-ops.conf and share the password
     with the team through a secure channel.
 
 .EXAMPLE
-    .\scripts\encrypt-ops-secrets.ps1
+    .\scripts\encrypt-sys-ops-secrets.ps1
 #>
 
 Set-StrictMode -Version Latest
@@ -22,15 +22,15 @@ $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $PluginRoot = Split-Path -Parent $ScriptDir
 
 # ── Paths ─────────────────────────────────────────────────────────────
-$ConfFile = Join-Path $PluginRoot "config\secrets-ops.conf"
-$EncFile  = Join-Path $PluginRoot "config\secrets-ops.enc"
+$ConfFile = Join-Path $PluginRoot "config\secrets-sys-ops.conf"
+$EncFile  = Join-Path $PluginRoot "config\secrets-sys-ops.enc"
 
 # ── Pre-flight checks ────────────────────────────────────────────────
 if (-not (Test-Path $ConfFile)) {
     Write-Host "[ERROR] $ConfFile not found." -ForegroundColor Red
     Write-Host ""
     Write-Host "To create it:" -ForegroundColor White
-    Write-Host "  1. Copy config\secrets-ops.example -> config\secrets-ops.conf" -ForegroundColor White
+    Write-Host "  1. Copy config\secrets-ops.example -> config\secrets-sys-ops.conf" -ForegroundColor White
     Write-Host "  2. Fill in all values" -ForegroundColor White
     Write-Host "  3. Run this script again" -ForegroundColor White
     exit 1
@@ -89,10 +89,10 @@ if ($LASTEXITCODE -ne 0) {
 # ── Summary ───────────────────────────────────────────────────────────
 Write-Host ""
 Write-Host ("=" * 60)
-Write-Host "[Done] Encrypted successfully: config\secrets-ops.enc" -ForegroundColor Cyan
+Write-Host "[Done] Encrypted successfully: config\secrets-sys-ops.enc" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "Next steps:" -ForegroundColor White
-Write-Host "  1. git add config\secrets-ops.enc" -ForegroundColor White
-Write-Host "  2. Delete config\secrets-ops.conf (NEVER commit plaintext)" -ForegroundColor White
+Write-Host "  1. git add config\secrets-sys-ops.enc" -ForegroundColor White
+Write-Host "  2. Delete config\secrets-sys-ops.conf (NEVER commit plaintext)" -ForegroundColor White
 Write-Host "  3. Share the password with the team via a secure channel" -ForegroundColor White
 Write-Host ("=" * 60)

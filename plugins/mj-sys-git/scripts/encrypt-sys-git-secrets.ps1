@@ -1,17 +1,17 @@
 <#
 .SYNOPSIS
-    Encrypt secrets-git.conf into secrets-git.enc for mj-git plugin
+    Encrypt secrets-sys-git.conf into secrets-sys-git.enc for mj-sys-git plugin
 
 .DESCRIPTION
-    Encrypts config/secrets-git.conf into config/secrets-git.enc using
+    Encrypts config/secrets-sys-git.conf into config/secrets-sys-git.enc using
     AES-256-CBC with PBKDF2. The encrypted file is safe to commit
     to the repository.
 
-    After encrypting, delete secrets-git.conf and share the password
+    After encrypting, delete secrets-sys-git.conf and share the password
     with the team through a secure channel.
 
 .EXAMPLE
-    .\scripts\encrypt-git-secrets.ps1
+    .\scripts\encrypt-sys-git-secrets.ps1
 #>
 
 Set-StrictMode -Version Latest
@@ -22,15 +22,15 @@ $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $PluginRoot = Split-Path -Parent $ScriptDir
 
 # ── Paths ─────────────────────────────────────────────────────────────
-$ConfFile = Join-Path $PluginRoot "config\secrets-git.conf"
-$EncFile  = Join-Path $PluginRoot "config\secrets-git.enc"
+$ConfFile = Join-Path $PluginRoot "config\secrets-sys-git.conf"
+$EncFile  = Join-Path $PluginRoot "config\secrets-sys-git.enc"
 
 # ── Pre-flight checks ────────────────────────────────────────────────
 if (-not (Test-Path $ConfFile)) {
     Write-Host "[ERROR] $ConfFile not found." -ForegroundColor Red
     Write-Host ""
     Write-Host "To create it:" -ForegroundColor White
-    Write-Host "  1. Copy config\secrets-git.example -> config\secrets-git.conf" -ForegroundColor White
+    Write-Host "  1. Copy config\secrets-git.example -> config\secrets-sys-git.conf" -ForegroundColor White
     Write-Host "  2. Fill in all values" -ForegroundColor White
     Write-Host "  3. Run this script again" -ForegroundColor White
     exit 1
@@ -89,10 +89,10 @@ if ($LASTEXITCODE -ne 0) {
 # ── Summary ───────────────────────────────────────────────────────────
 Write-Host ""
 Write-Host ("=" * 60)
-Write-Host "[Done] Encrypted successfully: config\secrets-git.enc" -ForegroundColor Cyan
+Write-Host "[Done] Encrypted successfully: config\secrets-sys-git.enc" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "Next steps:" -ForegroundColor White
-Write-Host "  1. git add config\secrets-git.enc" -ForegroundColor White
-Write-Host "  2. Delete config\secrets-git.conf (NEVER commit plaintext)" -ForegroundColor White
+Write-Host "  1. git add config\secrets-sys-git.enc" -ForegroundColor White
+Write-Host "  2. Delete config\secrets-sys-git.conf (NEVER commit plaintext)" -ForegroundColor White
 Write-Host "  3. Share the password with the team via a secure channel" -ForegroundColor White
 Write-Host ("=" * 60)
