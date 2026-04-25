@@ -1,4 +1,4 @@
-# MJ AgentLab Marketplace
+﻿# MJ AgentLab Marketplace
 
 ![Version](https://img.shields.io/badge/version-1.3.2-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -12,10 +12,10 @@ MJ System 团队的 [Claude Code](https://docs.anthropic.com/en/docs/claude-code
 
 | Plugin | 描述 | Skills | Version | 前置条件 |
 |--------|------|--------|---------|----------|
-| [**mj-doc**](plugins/mj-doc/README.md) | 文档工作流：规划、编写、校验、迁移、同步、审查 | 6 | 2.0.0 | — |
-| [**mj-git**](plugins/mj-git/README.md) | Git 工作流：分支、提交、推送、PR、Review、同步、清理 | 9 | 1.1.3 | `GITHUB_PERSONAL_ACCESS_TOKEN` |
-| [**mj-n8n**](plugins/mj-n8n/README.md) | n8n 工作流：设计、编写、模板、配置、文档、渲染、晋升 | 7 | 1.1.1 | — |
-| [**mj-ops**](plugins/mj-ops/README.md) | 运维操作：环境搭建/清理、ETL 触发 | 4 | 1.2.6 | `SSH_SERVER_*_PASSWORD` |
+| [**mj-sys-doc**](plugins/mj-sys-doc/README.md) | 文档工作流：规划、编写、校验、迁移、同步、审查 | 6 | 2.0.0 | — |
+| [**mj-sys-git**](plugins/mj-sys-git/README.md) | Git 工作流：分支、提交、推送、PR、Review、同步、清理 | 9 | 1.1.3 | `GITHUB_PERSONAL_ACCESS_TOKEN` |
+| [**mj-sys-n8n**](plugins/mj-sys-n8n/README.md) | n8n 工作流：设计、编写、模板、配置、文档、渲染、晋升 | 7 | 1.1.1 | — |
+| [**mj-sys-ops**](plugins/mj-sys-ops/README.md) | 运维操作：环境搭建/清理、ETL 触发 | 4 | 1.2.6 | `SSH_SERVER_*_PASSWORD` |
 
 ## 安装
 
@@ -40,28 +40,28 @@ Claude Code 插件支持三种安装级别：
 #### 用户级安装（默认，所有项目可用）
 
 ```
-/plugin install mj-doc@mj-agentlab-marketplace
-/plugin install mj-git@mj-agentlab-marketplace
-/plugin install mj-n8n@mj-agentlab-marketplace
-/plugin install mj-ops@mj-agentlab-marketplace
+/plugin install mj-sys-doc@mj-agentlab-marketplace
+/plugin install mj-sys-git@mj-agentlab-marketplace
+/plugin install mj-sys-n8n@mj-agentlab-marketplace
+/plugin install mj-sys-ops@mj-agentlab-marketplace
 ```
 
 #### 项目级安装（提交到 git，团队共享）
 
 ```
-/plugin install mj-doc@mj-agentlab-marketplace --scope project
-/plugin install mj-git@mj-agentlab-marketplace --scope project
-/plugin install mj-n8n@mj-agentlab-marketplace --scope project
-/plugin install mj-ops@mj-agentlab-marketplace --scope project
+/plugin install mj-sys-doc@mj-agentlab-marketplace --scope project
+/plugin install mj-sys-git@mj-agentlab-marketplace --scope project
+/plugin install mj-sys-n8n@mj-agentlab-marketplace --scope project
+/plugin install mj-sys-ops@mj-agentlab-marketplace --scope project
 ```
 
 #### 本地级安装（gitignore，仅本人本项目）
 
 ```
-/plugin install mj-doc@mj-agentlab-marketplace --scope local
-/plugin install mj-git@mj-agentlab-marketplace --scope local
-/plugin install mj-n8n@mj-agentlab-marketplace --scope local
-/plugin install mj-ops@mj-agentlab-marketplace --scope local
+/plugin install mj-sys-doc@mj-agentlab-marketplace --scope local
+/plugin install mj-sys-git@mj-agentlab-marketplace --scope local
+/plugin install mj-sys-n8n@mj-agentlab-marketplace --scope local
+/plugin install mj-sys-ops@mj-agentlab-marketplace --scope local
 ```
 
 ### 3. 使用示例
@@ -69,16 +69,16 @@ Claude Code 插件支持三种安装级别：
 安装后在 Claude Code 中直接调用技能：
 
 ```
-/mj-doc:mj-doc-plan          # 规划某模块需要哪些文档
-/mj-git:mj-git-branch        # 按规范创建新分支
-/mj-n8n:mj-n8n-author        # 从零生成 n8n workflow JSON
-/mj-ops:mj-env-setup         # 搭建本地开发环境
+/mj-sys-doc:mj-sys-doc-plan          # 规划某模块需要哪些文档
+/mj-sys-git:mj-sys-git-branch        # 按规范创建新分支
+/mj-sys-n8n:mj-sys-n8n-author        # 从零生成 n8n workflow JSON
+/mj-sys-ops:mj-sys-ops-env-setup     # 搭建本地开发环境
 ```
 
 ## 更新
 
 ```
-/plugin update mj-doc@mj-agentlab-marketplace
+/plugin update mj-sys-doc@mj-agentlab-marketplace
 ```
 
 ## 文档
