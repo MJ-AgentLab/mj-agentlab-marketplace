@@ -5,6 +5,13 @@
 
 ## [Unreleased]
 
+## [3.0.0] - 2026-04-25
+
+### Breaking Changes
+- **Plugin renamed**: `mj-doc` → `mj-sys-doc`（为 mj-agent 家族预留命名空间）
+- **All skills renamed**: `mj-doc-*` → `mj-sys-doc-*`（6 个 skill + shared 目录）
+- 用户需执行 `/plugin uninstall mj-doc@mj-agentlab-marketplace` 后 `/plugin install mj-sys-doc@mj-agentlab-marketplace`
+
 ## [2.0.0] - 2026-04-03
 
 ### Breaking Changes

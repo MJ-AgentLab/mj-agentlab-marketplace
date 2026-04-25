@@ -5,6 +5,19 @@
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-04-25
+
+### Breaking Changes
+- **Plugin renamed**: `mj-ops` → `mj-sys-ops`
+- **All skills renamed with unified prefix**:
+  - `mj-env-setup` → `mj-sys-ops-env-setup`
+  - `mj-env-teardown` → `mj-sys-ops-env-teardown`
+  - `mj-etl-ods-to-dwd` → `mj-sys-ops-etl-ods-to-dwd`
+  - `mj-etl-dwd-to-dws` → `mj-sys-ops-etl-dwd-to-dws`
+- **Env vars renamed**: `MJ_POSTGRES_*_URL` → `MJ_SYS_POSTGRES_*_URL`；`SSH_SERVER_*_PASSWORD` → `MJ_SYS_SSH_SERVER_*_PASSWORD`（9 个变量）
+- **Scripts renamed**: `setup-ops-env.ps1` → `setup-sys-ops-env.ps1`；`encrypt-ops-secrets.ps1` → `encrypt-sys-ops-secrets.ps1`
+- **Encrypted file renamed**: `secrets-ops.enc` → `secrets-sys-ops.enc`（待重加密）
+
 ## [1.2.6] - 2026-04-22
 
 ### Changed

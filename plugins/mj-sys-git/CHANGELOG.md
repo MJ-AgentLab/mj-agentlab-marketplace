@@ -5,6 +5,18 @@
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-04-25
+
+### Breaking Changes
+- **Plugin renamed**: `mj-git` → `mj-sys-git`
+- **All skills renamed**: `mj-git-*` → `mj-sys-git-*`（9 个 skill）
+- **Secrets setup script renamed**: `setup-git-env.ps1` → `setup-sys-git-env.ps1`
+- **Encrypted file renamed**: `secrets-git.enc` → `secrets-sys-git.enc`（已重加密）
+- `GITHUB_PERSONAL_ACCESS_TOKEN` 变量名**保持原样**（GitHub MCP 标准）
+
+### Fixed
+- SKILL.md 中 Windows 绝对路径示例改为 `<workspace>` 占位符，提升跨平台可读性
+
 ## [1.1.3] - 2026-03-24
 
 ### Fixed

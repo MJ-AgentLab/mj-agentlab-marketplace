@@ -5,6 +5,12 @@
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-04-25
+
+### Breaking Changes
+- **Plugin renamed**: `mj-n8n` → `mj-sys-n8n`
+- **All skills renamed**: `mj-n8n-*` → `mj-sys-n8n-*`（7 个 skill）
+
 ## [1.1.1] - 2026-04-02
 
 ### Fixed
