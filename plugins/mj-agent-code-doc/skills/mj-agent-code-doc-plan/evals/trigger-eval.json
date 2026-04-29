@@ -1,0 +1,52 @@
+[
+  {
+    "query": "在 mj-agent 仓我准备做一个跨多个 STANDARD 的大改动（涉及 ADR-006 修订 + 新建 SPEC-tracing + 改 3 篇 GUIDE），帮我起草 PLAN 落到 plans/ 目录下",
+    "should_trigger": true,
+    "rationale": "明显跨多文档协调 + 新 ADR 涉及现有 STANDARD 修订，标准 plan skill 触发场景"
+  },
+  {
+    "query": "起草一份 PLAN_F_Memory_Rollout.md，要在 plans/ 下记录一个跨 phase 的 memory compaction 推广方案",
+    "should_trigger": true,
+    "rationale": "直接说 plans/ 落点 + 跨 phase 大型工作流，正中 plan skill 范围"
+  },
+  {
+    "query": "我要新增一个 STANDARD 草案讲 OTel tracing，但还在和团队讨论范围，能不能先帮我列影响文档清单 + 决策点表格",
+    "should_trigger": true,
+    "rationale": "STANDARD 草案 + 影响清单 + 决策表格 → 典型 PLAN 起草需求"
+  },
+  {
+    "query": "帮我规划一下 Phase 0 → Phase 0.5 的 docs governance 推广，包括 v1.1 → archive、v2.0 → active 这一系列文件状态变更",
+    "should_trigger": true,
+    "rationale": "跨 phase + 跨多文档 + 状态批量变更 → plan skill 经典用例"
+  },
+  {
+    "query": "我们要协调 5 个相关 GUIDE 一起改，确保术语统一，先做个 plan",
+    "should_trigger": true,
+    "rationale": "跨 ≥ 3 文档协调（5 个 GUIDE），符合 plan skill 触发条件"
+  },
+  {
+    "query": "把 ADR-007 里的 \"timeout\" 改成 \"deadline\"，全文 4 处",
+    "should_trigger": false,
+    "rationale": "单文件局部替换，不需要 PLAN；直接编辑即可"
+  },
+  {
+    "query": "新建一份 ADR 决定 LangGraph 的 supervisor pattern 选型",
+    "should_trigger": false,
+    "rationale": "单 ADR 创建，作用域明确，应用 mj-agent-code-doc-author 直接起草，不需要先 PLAN"
+  },
+  {
+    "query": "帮我写一个 SKILL.md，让 LLM 在用户提到 dashboard 时调用",
+    "should_trigger": false,
+    "rationale": "agent-side SKILL.md 起草，是 mj-agent-agent-doc plugin 的范围（且本 plugin 不治 SKILL）"
+  },
+  {
+    "query": "把 mj-agent docs/INDEX.md 里 v1.1 的 active 状态改成 archived",
+    "should_trigger": false,
+    "rationale": "INDEX 更新是 sync skill（v0.2 / Phase 1）的范围；不是 PLAN 起草"
+  },
+  {
+    "query": "起草 mj-system 仓的一个 deployment 改造 PLAN",
+    "should_trigger": false,
+    "rationale": "mj-system 仓不在本 plugin 范围；mj-system 用 mj-sys-doc plugin"
+  }
+]

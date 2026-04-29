@@ -1,0 +1,23 @@
+{
+  "skill_name": "mj-agent-code-doc-author",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我新建一个 ADR，记录决定使用 LangGraph 的 supervisor pattern 而非 plan-and-execute pattern 来编排 agent。Context 是我们需要灵活动态切换子 agent。",
+      "expected_output": "新文件 docs/adr/[ADR]_NNN_LangGraph_Supervisor_Pattern_Selection.md（NNN 为下一个可用编号），含 frontmatter（type=adr / decision=accepted / state=draft / track=agent 或 shared）+ body（Context / Decision / Consequences / Alternatives / References 五段）。Decision 段明确选 supervisor、Alternatives 段提及 plan-and-execute 和 hierarchical 等其他模式",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "起草一份 STANDARD：mj-agent code-side commit message 规范，要求 type(scope): summary 格式，限 type 为 feat/fix/refactor/test/docs/infra/perf/release 八个值。",
+      "expected_output": "新文件 docs/rule/[STANDARD]_MJ_Agent_Code_Commit_Message_Convention_v1.0.md（如已有则版本递增），含 frontmatter（type=standard / version=v1.0 / state=draft / track=code）+ body 段含规则定义、合法 type 列表、范例正反例、PR 校验项",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "我需要一份 RUNBOOK 描述 production PostgreSQL primary failover 的操作步骤，包含触发条件、检查点、回滚方案。",
+      "expected_output": "新文件 docs/runbook/[RUNBOOK]_PG_Primary_Failover.md，含 frontmatter（type=runbook / severity_levels=[high]）+ body 含触发条件 / 前置检查 / 主步骤（≥ 5 步）/ 验证 / 回滚 / 联系人",
+      "files": []
+    }
+  ]
+}
