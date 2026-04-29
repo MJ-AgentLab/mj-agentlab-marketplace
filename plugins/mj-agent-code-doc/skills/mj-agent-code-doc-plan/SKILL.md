@@ -45,7 +45,7 @@ description: 当用户提到 起草PLAN、新ADR plan、code-side文档变更计
 
 **PLAN 命名规则**（`plans/[PLAN]_<letter>_<topic>.md`）：
 
-- letter：单大写字母，按现有 PLAN 字母序连续（当前 mj-agent 用到 F；下一个用 G）
+- letter：单大写字母，按现有 PLAN 字母序连续（**起草前在 mj-agent 仓跑** `ls plans/\[PLAN\]_*.md` **确认下一个可用字母**——本文件中给的字母会随时间过期）
 - topic：snake_case 或 PascalCase，简洁概括（≤ 5 词），譬如 `Track_Split_And_Plugin_Skeleton`
 - 完整范例：`plans/[PLAN]_G_Some_Topic.md`
 
