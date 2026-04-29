@@ -5,6 +5,21 @@
 
 ## [Unreleased]
 
+## [2.1.0] - 2026-04-29
+
+### Added
+- 新增插件 `mj-agent-code-doc` v0.1.0 — MJ-Agent code-side 文档工作流 plugin
+  （v0.1 部分骨架，含 plan + author 2 个 skill；validate + sync 推迟至 Phase 1）(#54)
+  - `mj-agent-code-doc-plan` — 跨多文档大型变更的 PLAN 起草引导
+  - `mj-agent-code-doc-author` — 8 类 canonical 起草引导
+    （GUIDE / ADR / SPEC / RUNBOOK / POSTMORTEM / STANDARD / ISSUE / ASSESSMENT）
+  - SKILL.md 采用 Claude Code 原生 schema（per mj-agent ADR-013）
+
+### Changed
+- mj-sys-git: 重新加密 `secrets-sys-git.enc`（恢复的 GitHub PAT），无代码变更 (#53)
+- 各插件 CHANGELOG 对齐 Keep a Changelog 格式 (#54)
+- README.md 同步至 marketplace.json 实际版本：插件目录表格修正 + 新增 mj-agent-code-doc 行 + 顶部 version 徽章更新（修正自 v1.3.2 / v2.0.0 起的版本漂移）
+
 ## [2.0.0] - 2026-04-25
 
 ### Breaking Changes
