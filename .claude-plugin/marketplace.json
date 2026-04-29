@@ -7,7 +7,7 @@
   },
   "metadata": {
     "description": "MJ System 团队插件市场 — 提供文档、Git、n8n、运维等 Claude Code 插件",
-    "version": "2.0.0"
+    "version": "2.1.0"
   },
   "plugins": [
     {
@@ -48,6 +48,16 @@
       "author": { "name": "MJ-AgentLab" },
       "category": "infrastructure",
       "keywords": ["docker", "environment", "etl", "postgresql", "deployment"],
+      "license": "MIT"
+    },
+    {
+      "name": "mj-agent-code-doc",
+      "source": "./plugins/mj-agent-code-doc",
+      "description": "MJ-Agent code-side 文档工作流：起草 8 类 canonical（GUIDE/ADR/SPEC/RUNBOOK/POSTMORTEM/STANDARD/ISSUE/ASSESSMENT）+ 大型文档变更 PLAN（v0.1 部分骨架；validate + sync 推迟 Phase 1）",
+      "version": "0.1.0",
+      "author": { "name": "MJ-AgentLab" },
+      "category": "documentation",
+      "keywords": ["mj-agent", "code-doc", "ADR", "STANDARD", "GUIDE", "RUNBOOK", "POSTMORTEM", "track-code"],
       "license": "MIT"
     }
   ]

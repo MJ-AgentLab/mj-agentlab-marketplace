@@ -1,0 +1,23 @@
+{
+  "skill_name": "mj-agent-code-doc-plan",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "我准备在 mj-agent 仓引入一个新的 STANDARD（关于 OpenTelemetry tracing 在 LangGraph runtime 的接入），这个改动会涉及修改现有 ADR-006（Fail Safe Reads）+ 新增 SPEC-code + 至少更新 2 篇 GUIDE。帮我起草这个 PLAN，落到 plans/ 下。",
+      "expected_output": "PLAN 文件 plans/[PLAN]_G_OpenTelemetry_LangGraph_Tracing.md（letter G 假设是下一个可用字母），含 5 字段 frontmatter（summary / owner / created / updated / state=draft）+ body 五件套（Context 提及 OTel + LangGraph + ADR-006 / Decisions 至少 1 项 / Steps 含 STANDARD 起草 + ADR-006 修订 + SPEC 新建 + GUIDE 更新 4 步 / Open Items 显式列待定 / References 引用 ADR-006 + 现有 GUIDE）",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "我们要做一次 Phase 0.5 → Phase 1 的过渡决议：v1.1 framework 走 archive、v2.0 三 STANDARD 走 active、ADR-012 走 active。涉及 4 个 canonical 状态变更 + 2 个 INDEX 更新 + CLAUDE.md 同步。请起草 PLAN。",
+      "expected_output": "PLAN 文件 plans/[PLAN]_<letter>_Phase05_To_Phase1_Promote.md（letter 按字母序），Decisions 表清晰列 4 个状态变更（v1.1→archive, v2.0→active, ADR-012→active）+ INDEX 更新点；Verification 含 grep 校验 state 字段是否到位",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "帮我看看新的 Memory Compaction 方案（多文档影响：会动 ADR-001 / SPEC-runtime / 2 篇 GUIDE / 1 篇 RUNBOOK），写成 PLAN。",
+      "expected_output": "PLAN 文件 plans/[PLAN]_<letter>_Memory_Compaction_Rollout.md，影响清单 5 文档（ADR-001 修订、SPEC-runtime 新建或更新、2 GUIDE 更新、1 RUNBOOK 新建），每条都有 Step + Verification",
+      "files": []
+    }
+  ]
+}
