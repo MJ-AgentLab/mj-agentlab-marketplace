@@ -1,0 +1,52 @@
+[
+  {
+    "query": "在 mj-agent 仓帮我新建一个 ADR，记录我们决定从 SQLAlchemy 1.4 升到 2.0 的决策依据 + alternatives + consequences",
+    "should_trigger": true,
+    "rationale": "新建 ADR 是 author skill 经典场景，明确含 decision/alternatives/consequences 关键词"
+  },
+  {
+    "query": "起草一份新的 STANDARD 文档，规定 mj-agent 仓所有 Python 代码必须用 ruff + black 格式化",
+    "should_trigger": true,
+    "rationale": "STANDARD 起草，含 mj-agent 仓 + 强制规则关键词"
+  },
+  {
+    "query": "我要写个 RUNBOOK 关于怎么处理 LangGraph runtime 的内存泄漏，要包含 oncall 操作步骤",
+    "should_trigger": true,
+    "rationale": "RUNBOOK 撰写 + 操作步骤 + oncall，正中 author skill 中 RUNBOOK 类用例"
+  },
+  {
+    "query": "上周生产环境出了个 OOM 事故，需要做事故复盘文档落到 mj-agent docs 目录",
+    "should_trigger": true,
+    "rationale": "事故复盘 = POSTMORTEM；docs 目录 = canonical layer，是 author skill 范围"
+  },
+  {
+    "query": "我刚做完了 vector DB 选型评估（pgvector / Pinecone / Weaviate），帮我写成 ASSESSMENT 文档",
+    "should_trigger": true,
+    "rationale": "选型评估 + 命名 ASSESSMENT，author skill 经典场景"
+  },
+  {
+    "query": "把 ADR-005 frontmatter 里的 owner 字段改一下，从 \"unassigned\" 改成 \"项目负责人\"",
+    "should_trigger": false,
+    "rationale": "frontmatter 字段微调，应直接编辑文件而不是用 author skill 重新起草整个文档"
+  },
+  {
+    "query": "帮我写一个 SKILL.md，让 LLM 在用户提到 OAuth 时调用",
+    "should_trigger": false,
+    "rationale": "SKILL.md 是 agent-side 文档，应该用 mj-agent-agent-doc plugin（后续 phase 落地）；本 plugin 不治 SKILL"
+  },
+  {
+    "query": "起草一份跨多个 ADR + 多个 STANDARD 协调的 PLAN 落到 plans/ 下",
+    "should_trigger": false,
+    "rationale": "跨多文档协调是 plan skill 的范围，不是 author skill。author 只起草单个 canonical"
+  },
+  {
+    "query": "校验一下 docs/adr/[ADR]_009 是否符合 A1-A6",
+    "should_trigger": false,
+    "rationale": "校验是 validate skill（v0.2 / Phase 1）的范围，不是 author"
+  },
+  {
+    "query": "在 my-marketplace 仓写个 README 简介本仓库结构",
+    "should_trigger": false,
+    "rationale": "my-marketplace 仓不在 mj-agent code-side 范围；README 也不属于 8 类 canonical 之一"
+  }
+]
