@@ -27,7 +27,7 @@ OPTIONAL_FIELDS = {"tags", "aliases", "supersedes"}
 
 VALID_STATES = {"draft", "active", "deprecated"}
 VALID_TYPES = {"guide", "spec", "standard", "adr", "runbook", "postmortem", "issue", "assessment"}
-VALID_DOMAINS = {"AEC", "DQV", "QVL", "QCM", "SAC", "FC", "DOCKER", "DB", "FLYWAY", "N8N", "CICD", "GIT", "NET", "SYS"}
+VALID_DOMAINS = {"AEC", "DQV", "QVL", "SVL", "QCM", "SAC", "FC", "DOCKER", "DB", "FLYWAY", "N8N", "CICD", "GIT", "NET", "SYS"}
 
 ADR_DECISIONS = {"accepted", "superseded", "rejected"}
 ISSUE_RESOLUTIONS = {"open", "fixed", "wontfix", "obsolete"}

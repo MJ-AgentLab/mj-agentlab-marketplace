@@ -5,6 +5,12 @@
 
 ## [Unreleased]
 
+## [3.0.2] - 2026-04-30
+
+### Added
+
+- **`SVL` 服务域注册到 `validate_doc.py:VALID_DOMAINS` (#58)** — 与已登记的 `QVL`（QueryVolumeLoader）平行，支持 mj-system #173 引入的新 SubmitVolumeLoader 服务（biz/ops 双域）。修复后 `[SPEC]_SVL_*.md` / `[ADR]_003_*.md`（重命名后）等文档 frontmatter `domain: "SVL"` 不再误报 A3 FAIL。
+
 ## [3.0.1] - 2026-04-30
 
 ### Fixed
