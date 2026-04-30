@@ -102,6 +102,21 @@ A6_ALLOWLIST_PATTERNS = [
 # Helpers
 # ---------------------------------------------------------------------------
 
+def _strip_yaml_quotes(value: str) -> str:
+    """Strip one matching pair of surrounding double or single quotes from a YAML scalar.
+
+    YAML quoted scalars (`"active"`, `'active'`) and plain scalars (`active`) all denote
+    the same string `active` after parsing. This helper normalizes the two quoted forms
+    so downstream enum/equality checks (A2/A3) compare against the unquoted value.
+
+    Mismatched / unbalanced quotes are left untouched (defensive — prefer over-quoting
+    surfacing as FAIL than silently rewriting unexpected input).
+    """
+    if len(value) >= 2 and value[0] == value[-1] and value[0] in ('"', "'"):
+        return value[1:-1]
+    return value
+
+
 def parse_frontmatter(lines: list[str]) -> tuple[dict[str, str], int]:
     """Extract YAML frontmatter fields (shallow key: value) and return end line index."""
     if not lines or lines[0].strip() != "---":
@@ -117,7 +132,7 @@ def parse_frontmatter(lines: list[str]) -> tuple[dict[str, str], int]:
             current_key = m.group(1)
             value = line[m.end():].strip()
             if value:
-                fields[current_key] = value
+                fields[current_key] = _strip_yaml_quotes(value)
             else:
                 fields[current_key] = ""
         elif current_key and stripped.startswith("- "):

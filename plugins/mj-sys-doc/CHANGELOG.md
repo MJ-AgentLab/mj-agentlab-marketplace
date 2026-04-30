@@ -5,6 +5,12 @@
 
 ## [Unreleased]
 
+## [3.0.1] - 2026-04-30
+
+### Fixed
+
+- **`mj-sys-doc-validate` A3 enum check 误报 (#56)** — `parse_frontmatter` 未剥离 YAML quoted scalar 引号，导致 `state: "active"` / `type: "adr"` / `domain: "N8N"` 等合法 frontmatter 都被检查为字面值（含引号）→ 与 `VALID_STATES` / `VALID_TYPES` / `VALID_DOMAINS` 比较后报 FAIL。修复后引号自动剥离，所有 v5.0 合法文档恢复 A3 PASS（验证：mj-system 仓 ADR-001 ~ ADR-006 + STANDARD/SPEC/GUIDE 文档全部通过）
+
 ## [3.0.0] - 2026-04-25
 
 ### Breaking Changes
