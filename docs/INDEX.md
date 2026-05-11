@@ -10,6 +10,12 @@ Navigation hub for all marketplace documentation.
 | [Plugin Development Testing Workflow](<./[GUIDE]_Plugin_Development_Testing_Workflow.md>) | 跨仓库插件开发测试的三阶段工作流 |
 | [Version Management](<./[GUIDE]_Version_Management.md>) | 双层版本架构、bump 工具、CHANGELOG 规范 |
 
+## Standards
+
+| Document | Description |
+|----------|-------------|
+| [AI Engineering Execution HITL Prompt](<./[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md>) | marketplace 自有 HITL 规范——11 阶段闭环 + Prompt 通用结构 + HITL 触发规则 + Hybrid Skill 矩阵 |
+
 ## Runbooks
 
 | Document | Description |
@@ -30,12 +36,7 @@ Navigation hub for all marketplace documentation.
 
 ## Plugin References
 
-| Resource | Location |
-|----------|----------|
-| **Plugin Secrets Setup** (mj-sys-ops) | `plugins/mj-sys-ops/config/secrets-ops.example` + `plugins/mj-sys-ops/scripts/setup-ops-env.ps1` |
-| **Plugin Secrets Setup** (mj-sys-git) | `plugins/mj-sys-git/config/secrets-git.example` + `plugins/mj-sys-git/scripts/setup-git-env.ps1` |
-
-> 各插件的 README.md 和 CLAUDE.md 包含完整的 Secrets 配置说明。
+> v3.0.0 起当前 2 个 plugin（notebooklm-kit / learn-kit）均无 secrets 配置需求。各插件的 README.md 和 CLAUDE.md 含完整说明。
 
 ## Suggested Reading Order
 
@@ -48,8 +49,9 @@ Navigation hub for all marketplace documentation.
 ### Plugin Developers
 
 1. [Marketplace Project Overview](<./[GUIDE]_Marketplace_Project_Overview.md>) — 插件结构和技能链
-2. [Plugin Development Testing Workflow](<./[GUIDE]_Plugin_Development_Testing_Workflow.md>) — 开发测试流程
-3. [CONTRIBUTING.md](./CONTRIBUTING.md) — 提交和 PR 规范
+2. [AI Engineering Execution HITL Prompt](<./[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md>) — AI agent 工作流规范（v3.2.0 起）
+3. [Plugin Development Testing Workflow](<./[GUIDE]_Plugin_Development_Testing_Workflow.md>) — 开发测试流程
+4. [CONTRIBUTING.md](./CONTRIBUTING.md) — 提交和 PR 规范
 
 ### Release Managers
 

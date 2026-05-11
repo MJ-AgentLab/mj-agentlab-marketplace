@@ -71,6 +71,15 @@
 - 纯启发式项目识别，零配置；扫 CLAUDE.md tag 声明 + INDEX 文件 + 文件 tag prefix 自动推断
 - mj-system / mj-agent / 用户全局 settings 一律零改动
 
+## AI Engineering
+
+marketplace AI agent 工作流规范：**[docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md](docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)** （v3.2.0 起）
+
+- 11 阶段闭环：Intake → Repo Scan → Plan → ADR → Plugin/Skill Authoring → Plugin Compliance → Local Dogfood → AI Self-review → Commit/Push/PR → Review→Merge→Release → Post-merge Cleanup
+- Hybrid Skill 矩阵：marketplace 自有 (learn-kit / notebooklm-kit) + plugin-dev 工具链（create-plugin / skill-creator / skill-reviewer / plugin-validator）+ superpowers 兜底
+- HITL 触发：plugin 删除 / 重命名 / 主版本 bump / marketplace.json schema / CI workflow / 发布动作必须暂停确认
+- 关系：与 mj-system 同名 STANDARD 是「同款骨架，不同细节」；两者独立维护，不强同步
+
 ## Documentation
 
 完整文档索引：[docs/INDEX.md](docs/INDEX.md)
