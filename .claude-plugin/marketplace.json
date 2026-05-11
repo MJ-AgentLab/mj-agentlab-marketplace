@@ -6,58 +6,28 @@
     "url": "https://github.com/MJ-AgentLab"
   },
   "metadata": {
-    "description": "MJ System 团队插件市场 — 提供文档、Git、n8n、运维等 Claude Code 插件",
-    "version": "2.1.1"
+    "description": "Generic Claude Code plugins for AI engineering workflows. NotebookLM integration (notebooklm-kit) and pedagogical methodology (learn-kit). Tested with mj-system and mj-agent.",
+    "version": "3.0.0"
   },
   "plugins": [
     {
-      "name": "mj-sys-doc",
-      "source": "./plugins/mj-sys-doc",
-      "description": "MJ System 文档工作流技能：规划、编写、校验、迁移、同步、审查",
-      "version": "3.0.2",
-      "author": { "name": "MJ-AgentLab" },
+      "name": "notebooklm-kit",
+      "source": "./plugins/notebooklm-kit",
+      "description": "NotebookLM integration: notebook lifecycle, artifact generation (audio/video/slides/mind-map/quiz/...), learn-make and learn-test wrappers. Renamed from mj-nlm at marketplace v3.0.0.",
+      "version": "2.4.1",
+      "author": { "name": "ranzuozhou" },
       "category": "productivity",
-      "keywords": ["documentation", "markdown", "obsidian", "review", "validation"],
+      "keywords": ["notebooklm", "learning", "ai-knowledge", "audio-overview", "mind-map", "quiz"],
       "license": "MIT"
     },
     {
-      "name": "mj-sys-git",
-      "source": "./plugins/mj-sys-git",
-      "description": "MJ System Git 工作流技能：分支、提交、推送、PR、Review、同步、清理",
-      "version": "2.0.0",
-      "author": { "name": "MJ-AgentLab" },
-      "category": "developer-tools",
-      "keywords": ["git", "github", "branch", "commit", "pull-request", "code-review"],
-      "license": "MIT"
-    },
-    {
-      "name": "mj-sys-n8n",
-      "source": "./plugins/mj-sys-n8n",
-      "description": "MJ System n8n 工作流技能：设计、编写、模板、配置、文档、渲染、晋升",
-      "version": "2.0.0",
-      "author": { "name": "MJ-AgentLab" },
-      "category": "automation",
-      "keywords": ["n8n", "workflow", "automation", "template", "deployment"],
-      "license": "MIT"
-    },
-    {
-      "name": "mj-sys-ops",
-      "source": "./plugins/mj-sys-ops",
-      "description": "MJ System 运维技能：环境搭建、环境清理、ETL 触发（ODS→DWD, DWD→DWS）",
-      "version": "2.0.0",
-      "author": { "name": "MJ-AgentLab" },
-      "category": "infrastructure",
-      "keywords": ["docker", "environment", "etl", "postgresql", "deployment"],
-      "license": "MIT"
-    },
-    {
-      "name": "mj-agent-code-doc",
-      "source": "./plugins/mj-agent-code-doc",
-      "description": "MJ-Agent code-side 文档工作流：起草 8 类 canonical（GUIDE/ADR/SPEC/RUNBOOK/POSTMORTEM/STANDARD/ISSUE/ASSESSMENT）+ 大型文档变更 PLAN（v0.1 部分骨架；validate + sync 推迟 Phase 1）",
+      "name": "learn-kit",
+      "source": "./plugins/learn-kit",
+      "description": "Pedagogical kit for converting enumerated rule lists into learnable knowledge artifacts. Includes 8-stage authoring methodology, NLM artifact metadata schema, and folder convention. Pairs well with notebooklm-kit.",
       "version": "0.1.0",
       "author": { "name": "MJ-AgentLab" },
       "category": "documentation",
-      "keywords": ["mj-agent", "code-doc", "ADR", "STANDARD", "GUIDE", "RUNBOOK", "POSTMORTEM", "track-code"],
+      "keywords": ["learning", "pedagogy", "methodology", "rule-list", "interpretation"],
       "license": "MIT"
     }
   ]
