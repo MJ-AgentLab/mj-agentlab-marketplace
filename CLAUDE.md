@@ -1,14 +1,16 @@
 # MJ AgentLab Marketplace
 
-Claude Code 插件市场 — 集中管理和分发 MJ System 团队的 Claude Code 插件。
+通用 Claude Code 插件市场 — NotebookLM 集成 + 教学方法论工具集，对外通用，已在 mj-system / mj-agent 两项目实战。
 
 ## Project Structure
 
-- `plugins/` — 4 个插件：mj-sys-doc, mj-sys-git, mj-sys-n8n, mj-sys-ops
+- `plugins/` — 2 个通用插件：
+  - `notebooklm-kit` v2.4.1（NotebookLM 集成；2026-05 从 `mj-nlm` 重命名而来）
+  - `learn-kit` v0.1.0（教学方法论 kit；从 mj-system v2.0 STANDARD-tier 剥离通用化）
 - `scripts/` — 基础设施脚本（bump-version, install-hooks, clone-bare）
 - `.claude-plugin/marketplace.json` — 市场元数据（版本 + 插件注册表）
 - `VERSION` — 市场整体版本号（权威源）
-- `docs/` — 项目文档（见 [INDEX.md](docs/INDEX.md)）
+- `docs/` — 项目文档（见 [INDEX.md](docs/INDEX.md)），含 [MIGRATION_GUIDE.md](docs/MIGRATION_GUIDE.md)
 
 ## Key Conventions
 
@@ -19,40 +21,42 @@ Claude Code 插件市场 — 集中管理和分发 MJ System 团队的 Claude Co
 
 ## Plugin Structure
 
-每个插件遵循统一结构：
+每个插件遵循官方 Claude Code plugin spec：
 
 ```
 <plugin>/
-├── .claude-plugin/plugin.json   # 插件元数据
+├── .claude-plugin/plugin.json   # 插件元数据（必须位于此子目录）
 ├── .mcp.json                    # MCP 服务器定义（可选）
-├── CLAUDE.md                    # 插件概述
+├── CLAUDE.md                    # 插件概述（可选）
 ├── README.md                    # 用户指南
 ├── CHANGELOG.md                 # 变更日志
-└── skills/                      # 技能目录
+├── LICENSE                      # 许可证文件
+└── skills/                      # 技能目录（自动发现）
+    └── <skill-name>/
+        ├── SKILL.md
+        ├── templates/           # 可选
+        ├── references/          # 可选
+        └── scripts/             # 可选
 ```
 
-## Plugin Secrets Management
+**v3.0.0 起遵守的官方约束**：
 
-mj-sys-ops 和 mj-sys-git 插件使用加密文件管理 MCP 服务器所需的秘密值：
+- `plugin.json` 必须位于 `.claude-plugin/` 子目录（不在 plugin 根目录）
+- 优先用 SKILL（不用 COMMAND，commands 是 legacy）
+- 模板 / references / scripts 放在 skill 目录内部
+- 不使用 `components` 字段（auto-discovery 标准）
 
-| 插件 | 加密文件 | Setup 脚本 | 变量数 |
-|------|---------|-----------|--------|
-| mj-sys-ops | `plugins/mj-sys-ops/config/secrets-sys-ops.enc` | `plugins/mj-sys-ops/scripts/setup-sys-ops-env.ps1` | 9（SSH 密码 + PG URLs） |
-| mj-sys-git | `plugins/mj-sys-git/config/secrets-sys-git.enc` | `plugins/mj-sys-git/scripts/setup-sys-git-env.ps1` | 1（GitHub PAT） |
+## v3.0.0 Restructure Note
 
-**首次配置**（需团队密码）：
-```powershell
-cd plugins/mj-sys-ops && .\scripts\setup-sys-ops-env.ps1
-cd plugins/mj-sys-git && .\scripts\setup-sys-git-env.ps1
-```
+2026-05-11 marketplace 从 v2.1.1 → v3.0.0 重构：
 
-**终端重启后重载**（无需密码）：
-```powershell
-.\scripts\setup-sys-ops-env.ps1 -Reload
-.\scripts\setup-sys-git-env.ps1 -Reload
-```
+- **删除** 5 个 MJ-system / mj-agent 专属插件（mj-sys-doc / mj-sys-git / mj-sys-n8n / mj-sys-ops / mj-agent-code-doc）—— 这些能力已迁回各自项目 in-tree skills
+- **迁入 + 重命名** `mj-nlm`（ranzuozhou/my-marketplace）→ `notebooklm-kit`，功能 1:1 保留
+- **新增** `learn-kit` 通用方法论插件
 
-详见各插件的 `config/secrets-*.example` 查看变量清单。
+完整迁移指引见 [docs/MIGRATION_GUIDE.md](docs/MIGRATION_GUIDE.md)。
+
+**Plugin Secrets Management**：v2.x 的 mj-sys-ops / mj-sys-git 加密 secrets 机制随着这两个插件删除而移除。当前 v3.0.0 的 2 个插件均不需要 secrets 配置——`notebooklm-kit` 使用 NotebookLM OAuth（首次运行触发）；`learn-kit` 纯静态模板。
 
 ## Documentation
 
