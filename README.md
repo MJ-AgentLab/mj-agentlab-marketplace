@@ -1,6 +1,6 @@
 # MJ AgentLab Marketplace
 
-![Version](https://img.shields.io/badge/version-3.0.0-blue)
+![Version](https://img.shields.io/badge/version-3.1.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![CI](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml)
 
@@ -13,7 +13,7 @@
 | Plugin | 描述 | Skills | Version | 适用项目 |
 |--------|------|--------|---------|---------|
 | [**notebooklm-kit**](plugins/notebooklm-kit/README.md) | NotebookLM 集成：notebook lifecycle + artifact 生成（audio/video/slides/mind-map/quiz）+ learn-make / learn-test 高级 wrapper | 7 | 2.4.1 | 任意 |
-| [**learn-kit**](plugins/learn-kit/README.md) | 教学方法论 kit：把枚举型规则清单（RFC keyword / 安全策略 / API style guide）转化为人类可学习的决策框架解读文档（8 阶段方法 + 模板 + scaffold 命令） | 1 | 0.1.0 | 任意 |
+| [**learn-kit**](plugins/learn-kit/README.md) | 教学方法论 kit：把枚举型规则清单转化为人类可学习的决策框架解读文档（8 阶段方法 + 模板 + scaffold 命令 + locate / scan 项目内文档发现） | 3 | 0.2.0 | 任意 |
 
 两插件可独立使用，也常配套：learn-kit 写文档，notebooklm-kit 生成 NotebookLM 配套学习资料（audio / video / slides / quiz 等）。
 
@@ -59,6 +59,8 @@ Claude Code 插件支持三种安装级别：
 /notebooklm-kit:learn-make my-topic   # 生成 NotebookLM 学习资料（audio / video / slide / mind-map / report ...）
 /notebooklm-kit:learn-test <id>       # 生成考察资料（quiz / flashcards）
 /learn-kit:init                       # 在项目根初始化 learning/ 子系统骨架
+/learn-kit:locate "DLSRS"             # 反向定位概念到已解读 [LEARNING] 文档或源 STANDARD（v3.1.0 起）
+/learn-kit:scan                       # 枚举项目可学候选文档，标记已解读 vs 未解读（v3.1.0 起）
 ```
 
 各插件的完整使用文档：

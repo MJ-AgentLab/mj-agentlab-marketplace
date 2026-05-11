@@ -6,7 +6,7 @@
 
 - `plugins/` — 2 个通用插件：
   - `notebooklm-kit` v2.4.1（NotebookLM 集成；2026-05 从 `mj-nlm` 重命名而来）
-  - `learn-kit` v0.1.0（教学方法论 kit；从 mj-system v2.0 STANDARD-tier 剥离通用化）
+  - `learn-kit` v0.2.0（教学方法论 kit；从 mj-system v2.0 STANDARD-tier 剥离通用化；v3.1.0 起含 discovery skills: `/learn-kit:locate` + `/learn-kit:scan`）
 - `scripts/` — 基础设施脚本（bump-version, install-hooks, clone-bare）
 - `.claude-plugin/marketplace.json` — 市场元数据（版本 + 插件注册表）
 - `VERSION` — 市场整体版本号（权威源）
@@ -57,6 +57,19 @@
 完整迁移指引见 [docs/MIGRATION_GUIDE.md](docs/MIGRATION_GUIDE.md)。
 
 **Plugin Secrets Management**：v2.x 的 mj-sys-ops / mj-sys-git 加密 secrets 机制随着这两个插件删除而移除。当前 v3.0.0 的 2 个插件均不需要 secrets 配置——`notebooklm-kit` 使用 NotebookLM OAuth（首次运行触发）；`learn-kit` 纯静态模板。
+
+## v3.1.0 Update Note
+
+2026-05-11 marketplace 从 v3.0.0 → v3.1.0 minor 升级：
+
+- **learn-kit v0.1.0 → v0.2.0** — 新增 2 个 discovery skills：
+  - `/learn-kit:locate <query>` — 反向定位概念名 / 口诀 / 部分文档名到已解读 [LEARNING] 文档（首选）或源 canonical 文档（次选），含置信度分级
+  - `/learn-kit:scan` — 枚举项目可学候选文档（按 tag prefix 分类，标记已解读 vs 未解读，PageRank-lite 排序）
+  - METHODOLOGY §1.5 "Project Discovery" 文档化 scan → locate → 8-stage 推荐工作流
+  - 设计决策：`docs/[ADR]_LearnKit_Discovery_Skills.md`
+- **notebooklm-kit** 不变（v2.4.1）
+- 纯启发式项目识别，零配置；扫 CLAUDE.md tag 声明 + INDEX 文件 + 文件 tag prefix 自动推断
+- mj-system / mj-agent / 用户全局 settings 一律零改动
 
 ## Documentation
 
