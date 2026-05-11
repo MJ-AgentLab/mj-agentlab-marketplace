@@ -118,7 +118,7 @@ digraph nlm_build {
 
 ### Phase 0: Preflight Check (v2.4)
 
-按 [`../_shared/preflight-checklist.md`](../_shared/preflight-checklist.md) 执行 L1 + L2（build skill 不需要 L3 — `notebook_id` 在 Phase 1 才创建）。**任何 preflight 失败都必须前移阻断**——避免用户走完一半才命中认证 / 服务问题。
+按 [`../nlm-shared/preflight-checklist.md`](../nlm-shared/preflight-checklist.md) 执行 L1 + L2（build skill 不需要 L3 — `notebook_id` 在 Phase 1 才创建）。**任何 preflight 失败都必须前移阻断**——避免用户走完一半才命中认证 / 服务问题。
 
 #### L1: Auth Token
 
@@ -135,7 +135,7 @@ digraph nlm_build {
 
 #### 缓存（v2.4.1 诚实化）
 
-依赖 Claude conversation 自然 memory：同 turn 内 Claude 不会重复跑刚跑过的 preflight。跨 turn 调用 skill 会重新执行——开销可忽略：`server_info` / `refresh_auth` 是 LOCAL check（毫秒级），仅 `notebook_list` 是网络调用（1-3 秒）。详见 [`../_shared/preflight-checklist.md#缓存策略`](../_shared/preflight-checklist.md#缓存策略)。
+依赖 Claude conversation 自然 memory：同 turn 内 Claude 不会重复跑刚跑过的 preflight。跨 turn 调用 skill 会重新执行——开销可忽略：`server_info` / `refresh_auth` 是 LOCAL check（毫秒级），仅 `notebook_list` 是网络调用（1-3 秒）。详见 [`../nlm-shared/preflight-checklist.md#缓存策略`](../nlm-shared/preflight-checklist.md#缓存策略)。
 
 通过条件：L1 + L2 全 OK → 进 Phase 1 Scope & Naming。
 
@@ -150,7 +150,7 @@ digraph nlm_build {
 | 参数 | 说明 | 可选值 |
 |---|---|---|
 | `project` | 项目域 | `system` / `agent` / `multi` / `intel` |
-| `scope` | 范围类型 | 按 project 取对应集合（详见 `→ ../_shared/naming-reference.md`） |
+| `scope` | 范围类型 | 按 project 取对应集合（详见 `→ ../nlm-shared/naming-reference.md`） |
 | `topic` | 主题名 | kebab-case，如 `DQV`、`collection-pipeline`、`mj_agent`、`sql-introspect`、`system-prompt`、`adr-suite` |
 | `purpose` | 用途（可选） | 如 `培训`、`架构评审`、`知识沉淀`、`学习`（v2） |
 
@@ -170,7 +170,7 @@ digraph nlm_build {
 
 **创建**：`notebook_create(title="{命名}")` → 获取 `notebook_id`
 
-**Scope → 默认扫描范围映射**（按 project 区分，详见 `→ ../_shared/naming-reference.md`）：
+**Scope → 默认扫描范围映射**（按 project 区分，详见 `→ ../nlm-shared/naming-reference.md`）：
 
 | project | scope | 概要 |
 |---|---|---|
@@ -186,7 +186,7 @@ digraph nlm_build {
 | `agent` | `cross` | `CLAUDE.md` + `pyproject.toml` + `langgraph.json` + `plans/` + `.env.example` |
 | `multi` | `cross` | mj-system + mj-agent 双 docs/ + `docs/cross/` |
 
-> mj-agent 是单 agent 单包项目（LangChain 1.x + LangGraph 1.1.8），扫描映射依据 mj-agent develop 实际目录定稿；详见 `→ ../_shared/naming-reference.md#project=agent`。
+> mj-agent 是单 agent 单包项目（LangChain 1.x + LangGraph 1.1.8），扫描映射依据 mj-agent develop 实际目录定稿；详见 `→ ../nlm-shared/naming-reference.md#project=agent`。
 
 > scope 边界模糊时（如"DQV 的数据库部分"），优先按主要目的选择，并在 Phase 2 材料清单确认时让用户调整。
 
@@ -194,14 +194,14 @@ digraph nlm_build {
 
 ### Phase 2: Material Scan
 
-**扫描目录并分类材料。** 三分法 + 多源类型扩展（详见 `→ ../_shared/material-classification.md`），敏感预检防止凭据泄漏。
+**扫描目录并分类材料。** 三分法 + 多源类型扩展（详见 `→ ../nlm-shared/material-classification.md`），敏感预检防止凭据泄漏。
 
 1. 根据 Phase 1 确定的 project + scope，使用 glob 扫描目标目录
 2. 按三分法分类：
    - 直传：`.md`, `.txt`, `.pdf` → `source_add(source_type="file", ...)`
    - 需转换：`.py`, `.sql`, `.yaml`, `.json`, `.toml`, `.sh` → Read → 敏感过滤 → `source_add(source_type="text", ...)`
    - 不导入：`.pyc`, `.log`, `.env`, `.git/*`, `__pycache__/*`
-3. **v2 多源支持**：用户可在交互中追加 url / youtube / drive 源（详见 `→ ../_shared/material-classification.md#多源类型分类`）
+3. **v2 多源支持**：用户可在交互中追加 url / youtube / drive 源（详见 `→ ../nlm-shared/material-classification.md#多源类型分类`）
 4. 敏感预检：扫描结果中的 `.env`、`credentials*`、`*secret*` 文件 → 自动排除并告知
 5. 大文件检查：text 类文件 > 500KB → 触发 **H6**
 6. 展示材料清单：按类别分组，显示文件名、大小、处理方式
@@ -223,13 +223,13 @@ digraph nlm_build {
 2. **需转换文件**：
    - Read 文件内容
    - 敏感过滤：行级正则 `password|secret|token|api_key` → `[REDACTED]`
-   - 添加文件头元数据（详见 `→ ../_shared/material-classification.md`）
+   - 添加文件头元数据（详见 `→ ../nlm-shared/material-classification.md`）
    - `source_add(notebook_id, source_type="text", text=..., title=..., wait=True)`
 3. **多源类型（v2）**：
    - url：`source_add(source_type="url", url="...")`（批量用 `urls="<u1>, <u2>"`）
    - youtube：`source_add(source_type="url", url="https://www.youtube.com/...")`（仅取字幕）
    - drive：`source_add(source_type="drive", document_id="...")`
-4. **Source 命名规范**：`[序号]-[类别标签]-[描述]`（v2 扩展：新增 `Agent` / `工具` / `工作流` 类别，详见 `→ ../_shared/naming-reference.md`）
+4. **Source 命名规范**：`[序号]-[类别标签]-[描述]`（v2 扩展：新增 `Agent` / `工具` / `工作流` 类别，详见 `→ ../nlm-shared/naming-reference.md`）
 5. 导入后调用 `source_rename(notebook_id, source_id, new_title="{规范名称}")` 规范化命名
 
 **三级降级错误处理**：
@@ -293,7 +293,7 @@ digraph nlm_build {
 
 1. **添加标签**：`tag(notebook_id, action="add", tags="{标签列表}")`
 
-   v2 标签体系（详见 `→ ../_shared/naming-reference.md`）：
+   v2 标签体系（详见 `→ ../nlm-shared/naming-reference.md`）：
    - 必选：`mj-system`、`{project}`、`{scope}`
    - 推荐：`{topic}`、`{service或agent全名}`
    - 可选：`{purpose}`、`{技术栈}`
@@ -311,7 +311,7 @@ digraph nlm_build {
 **预检来源充足性，输出充足性报告。** 评估"已有 source 量"与"用户可能请求的制品长度"的匹配度，预防方法论 §10.1 风险（来源不足却生成长内容）。
 
 1. 读取 source 总字数（不含元 source）
-2. 应用配比矩阵（详见 `→ ../_shared/risk-control-templates.md#1`）：
+2. 应用配比矩阵（详见 `→ ../nlm-shared/risk-control-templates.md#1`）：
 
    | 来源总字数 | 推荐 | 警告 | 禁止 |
    |---|---|---|---|
@@ -322,7 +322,7 @@ digraph nlm_build {
 
 3. 高风险关键词扫描（医疗 / 法律 / 财务 / 合同 / 考试 / 安全），匹配则在 notebook tag 中加 `risk-class:high`
 
-4. 生成 `00d-预检-来源充足性报告` Source（模板详见 `→ ../_shared/risk-control-templates.md#5`）
+4. 生成 `00d-预检-来源充足性报告` Source（模板详见 `→ ../nlm-shared/risk-control-templates.md#5`）
 
 5. 若结果为 underloaded（来源 < 5K 字符或 < 5 个 source）→ **H7**
 
@@ -333,7 +333,7 @@ digraph nlm_build {
 **生成「领域定向报告」，作为后续制品的学习地图锚。** 这是 v2 最重要的产物，方法论 §7 主提示词的工程化落地。
 
 1. 调用 `notebook_query(notebook_id, query=DOMAIN_ORIENTATION_PROMPT)`
-   - prompt 详见 `→ ../_shared/learning-loop-templates.md#§1`
+   - prompt 详见 `→ ../nlm-shared/learning-loop-templates.md#§1`
    - 报告含 7 节：领域归属 / 原始困惑翻译 / 核心概念地图 / 术语翻译表 / 成功失败案例 / 学习路线 / 推荐 NLM 制品组合
 
 2. 双形态保存：
@@ -467,9 +467,9 @@ Notebook:
 
 ## Reference Files
 
-- **`→ ../_shared/preflight-checklist.md`** — Phase 0 三级 preflight（auth + MCP health + notebook scope，v2.3 起）
-- **`→ ../_shared/quota-estimation.md`** — Phase 0 通过 preflight 后的耗时与配额预告（v2.3 起）
-- **`→ ../_shared/naming-reference.md`** — Notebook/Source/Tag 命名规范 + 双项目 scope→扫描映射详表（Phase 1, 3, 5 参考）
-- **`→ ../_shared/material-classification.md`** — 三分法 + 多源类型分类 + 敏感过滤正则 + 文件大小限制（Phase 2-3 参考）
-- **`→ ../_shared/risk-control-templates.md`** — 来源/制品配比矩阵 + 风险类别白名单 + 充足性报告模板（Phase 6 参考）
-- **`→ ../_shared/learning-loop-templates.md`** — 领域定向报告主提示词（Phase 7 参考）
+- **`→ ../nlm-shared/preflight-checklist.md`** — Phase 0 三级 preflight（auth + MCP health + notebook scope，v2.3 起）
+- **`→ ../nlm-shared/quota-estimation.md`** — Phase 0 通过 preflight 后的耗时与配额预告（v2.3 起）
+- **`→ ../nlm-shared/naming-reference.md`** — Notebook/Source/Tag 命名规范 + 双项目 scope→扫描映射详表（Phase 1, 3, 5 参考）
+- **`→ ../nlm-shared/material-classification.md`** — 三分法 + 多源类型分类 + 敏感过滤正则 + 文件大小限制（Phase 2-3 参考）
+- **`→ ../nlm-shared/risk-control-templates.md`** — 来源/制品配比矩阵 + 风险类别白名单 + 充足性报告模板（Phase 6 参考）
+- **`→ ../nlm-shared/learning-loop-templates.md`** — 领域定向报告主提示词（Phase 7 参考）

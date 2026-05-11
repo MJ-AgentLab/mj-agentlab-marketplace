@@ -114,12 +114,12 @@ digraph nlm_query {
 
 ### Phase 0: Preflight Check (v2.4)
 
-按 [`../_shared/preflight-checklist.md`](../_shared/preflight-checklist.md) 执行 L1 + L2（L3 在 Phase 1 选定 notebook 后由 `notebook_query` 自身首次调用隐式覆盖）：
+按 [`../nlm-shared/preflight-checklist.md`](../nlm-shared/preflight-checklist.md) 执行 L1 + L2（L3 在 Phase 1 选定 notebook 后由 `notebook_query` 自身首次调用隐式覆盖）：
 
 1. **L1 Auth Token** — `server_info()` → 失败走 **H0a** `/notebooklm-kit:auth`
 2. **L2 NLM Service Health** — `notebook_list()` → `PERMISSION_DENIED` 走 **H0b** `/notebooklm-kit:auth`；其他错误走 **H0c** soft warn
 
-**缓存（v2.4.1 诚实化）**：依赖 Claude conversation 自然 memory（同 turn 不重复跑）；跨 turn 重新执行（毫秒级 + 1-3 秒可接受）。详见 `../_shared/preflight-checklist.md#缓存策略`。
+**缓存（v2.4.1 诚实化）**：依赖 Claude conversation 自然 memory（同 turn 不重复跑）；跨 turn 重新执行（毫秒级 + 1-3 秒可接受）。详见 `../nlm-shared/preflight-checklist.md#缓存策略`。
 
 通过条件：L1 + L2 全 OK → 进 Phase 1 Notebook & Mode Selection。
 
@@ -238,7 +238,7 @@ notebook_query(
 )
 ```
 
-prompt 详见 `→ ../_shared/learning-loop-templates.md#§3`。
+prompt 详见 `→ ../nlm-shared/learning-loop-templates.md#§3`。
 
 #### 输出
 
@@ -280,7 +280,7 @@ B. **用户提供清单**：用户粘贴一段总结 / 解释，让 NLM 提取�
 
 #### 调用 NLM
 
-prompt 详见 `→ ../_shared/risk-control-templates.md#4` + `learning-loop-templates.md#§5`。
+prompt 详见 `→ ../nlm-shared/risk-control-templates.md#4` + `learning-loop-templates.md#§5`。
 
 #### 输出
 
@@ -307,7 +307,7 @@ prompt 详见 `→ ../_shared/risk-control-templates.md#4` + `learning-loop-temp
 
 1. 读取 notebook 历史的 quiz 命中率（Mode D 的输出，如有）→ 自动填写指标 5
 2. 读取 Mode E 历史的 Source Check 通过率 → 自动填写指标 6
-3. 启动 7 题对话（详见 `→ ../_shared/learning-loop-templates.md#§7`）：
+3. 启动 7 题对话（详见 `→ ../nlm-shared/learning-loop-templates.md#§7`）：
 
 ```
 1) 你能在 10 分钟内说出本主题的大图吗？
@@ -323,7 +323,7 @@ prompt 详见 `→ ../_shared/risk-control-templates.md#4` + `learning-loop-temp
 - NLM 对比 source 给「一致性评分」（1-5）+ 简要反馈
 - 评分 ≤ 3 时给"需要回看 source 的具体章节"
 
-4. 综合输出仪表盘（详见 `→ ../_shared/understanding-metrics.md`）
+4. 综合输出仪表盘（详见 `→ ../nlm-shared/understanding-metrics.md`）
 
 5. 写 Note：`note(notebook_id, action="create", title="99-自检-理解度仪表盘-{YYYYMMDD}-{HHMM}", content=...)`
 
@@ -349,7 +349,7 @@ skill 检测到 `--mode=recall` 时跳过指标 1-6，仅评估指标 7（不查
 - 熟悉（4-6 通过）
 - 掌握（7 项全通过，需 24h 回访确认）
 
-详见 `→ ../_shared/understanding-metrics.md`。
+详见 `→ ../nlm-shared/understanding-metrics.md`。
 
 ---
 
@@ -450,6 +450,6 @@ skill 检测到 `--mode=recall` 时跳过指标 1-6，仅评估指标 7（不查
 
 ## Reference Files
 
-- **`→ ../_shared/learning-loop-templates.md`** — Mode D/E/F 的 prompt 模板（§3 错题 root cause / §5 来源核查 / §7 理解度自检）
-- **`→ ../_shared/risk-control-templates.md`** — Source Check 等级体系（DIRECT / INFERRED / BACKGROUND / UNCERTAIN / CONTRADICTED） + 高风险类别白名单
-- **`→ ../_shared/understanding-metrics.md`** — 7 项指标定义、自评量表、仪表盘 Note 模板
+- **`→ ../nlm-shared/learning-loop-templates.md`** — Mode D/E/F 的 prompt 模板（§3 错题 root cause / §5 来源核查 / §7 理解度自检）
+- **`→ ../nlm-shared/risk-control-templates.md`** — Source Check 等级体系（DIRECT / INFERRED / BACKGROUND / UNCERTAIN / CONTRADICTED） + 高风险类别白名单
+- **`→ ../nlm-shared/understanding-metrics.md`** — 7 项指标定义、自评量表、仪表盘 Note 模板

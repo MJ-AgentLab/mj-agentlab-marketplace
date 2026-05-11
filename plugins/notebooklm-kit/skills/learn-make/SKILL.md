@@ -107,7 +107,7 @@ digraph nlm_learn_make {
 
 ### Phase 0: Notebook Locate
 
-> **v2.4 隐式 Preflight**：本 wrapper 第一个 MCP 调用 `notebook_list()` 同时触发 [`../_shared/preflight-checklist.md`](../_shared/preflight-checklist.md) L2 NLM Service Health；token 检查 (L1) 在 wrapper 调度的 build skill Phase 0 内重新覆盖。任何 L1/L2 失败按 build / studio 各自的 H0a/b/c 处理。`--resume <notebook_id>` 时由 `notebook_describe(notebook_id)` 自动覆盖 L3。
+> **v2.4 隐式 Preflight**：本 wrapper 第一个 MCP 调用 `notebook_list()` 同时触发 [`../nlm-shared/preflight-checklist.md`](../nlm-shared/preflight-checklist.md) L2 NLM Service Health；token 检查 (L1) 在 wrapper 调度的 build skill Phase 0 内重新覆盖。任何 L1/L2 失败按 build / studio 各自的 H0a/b/c 处理。`--resume <notebook_id>` 时由 `notebook_describe(notebook_id)` 自动覆盖 L3。
 
 **目标**：定位 topic 对应的 notebook，决定是否进入 Phase 1 (build)。
 
@@ -318,11 +318,11 @@ Tag 自动添加: `learn-make-loop`
 
 ## Reference Files
 
-- **`→ ../_shared/preflight-checklist.md`** — Phase 0 三级 preflight（auth + MCP health + notebook scope，v2.3 起）
-- **`→ ../_shared/quota-estimation.md`** — wrapper 配额预告（v2.3 起；含 learn-make 默认 7 类制品 + `--triple-view` 加成）
-- **`→ ../_shared/artifact-type-reference.md`** — 7 类学习制品的子参数详情 + v2.1 三输出模式
-- **`→ ../_shared/artifact-metadata-template.md`** — record markdown frontmatter schema（Phase 3 输出范式）
-- **`→ ../_shared/focus-prompt-templates.md`** — Intent Layer 模板（studio 子调度依赖）
+- **`→ ../nlm-shared/preflight-checklist.md`** — Phase 0 三级 preflight（auth + MCP health + notebook scope，v2.3 起）
+- **`→ ../nlm-shared/quota-estimation.md`** — wrapper 配额预告（v2.3 起；含 learn-make 默认 7 类制品 + `--triple-view` 加成）
+- **`→ ../nlm-shared/artifact-type-reference.md`** — 7 类学习制品的子参数详情 + v2.1 三输出模式
+- **`→ ../nlm-shared/artifact-metadata-template.md`** — record markdown frontmatter schema（Phase 3 输出范式）
+- **`→ ../nlm-shared/focus-prompt-templates.md`** — Intent Layer 模板（studio 子调度依赖）
 - **`→ ../build/SKILL.md`** — Phase 1 完整调度的子 skill
 - **`→ ../studio/SKILL.md`** — Phase 3 循环调度的子 skill
 - **`→ ../learn-test/SKILL.md`** — 配对的 wrapper 2（考察侧入口）

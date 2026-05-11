@@ -73,7 +73,7 @@ studio Phase 4 默认不再调用 `download_artifact` 把二进制写到本地�
 - frontmatter：notebook_id / artifact_type / view / focus_prompt_summary / 在线访问 URL / 与项目侧学习文档的双向 wikilink
 - body（≤ 50 行）：主题、在线访问入口、focus prompt 关键参数、与项目的关系、变更历史
 
-完整范式见 `skills/_shared/artifact-metadata-template.md`。
+完整范式见 `skills/nlm-shared/artifact-metadata-template.md`。
 
 ### 三输出模式（`--mode`）
 
@@ -130,8 +130,8 @@ v2.1 默认行为正好对齐该约束，learn skill 编排默认走 record 路�
 
 v2.3 把 v2.0/v2.1 学习闭环卡 Phase 7 的根因（认证 / scope 故障晚发现）前移到 Phase 0：
 
-- **`_shared/preflight-checklist.md`** — 三级 preflight：L1 Auth Token / L2 NLM Service Health（server_info + notebook_list） / L3 Notebook scope（条件触发）；含 5min 缓存策略 + H-point 模板
-- **`_shared/quota-estimation.md`** — 单调用耗时基线（per-source / per-artifact） + 双 wrapper 配额预告 + build/studio/query 单步耗时 + NotebookLM 公开+经验配额上限
+- **`nlm-shared/preflight-checklist.md`** — 三级 preflight：L1 Auth Token / L2 NLM Service Health（server_info + notebook_list） / L3 Notebook scope（条件触发）；含 5min 缓存策略 + H-point 模板
+- **`nlm-shared/quota-estimation.md`** — 单调用耗时基线（per-source / per-artifact） + 双 wrapper 配额预告 + build/studio/query 单步耗时 + NotebookLM 公开+经验配额上限
 
 各 skill 在 Phase 0 通过 preflight 后，按 quota-estimation 的总耗时报告模板告知用户预计耗时与调用次数，让用户决定是否启动、是否后台等。
 

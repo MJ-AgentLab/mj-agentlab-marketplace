@@ -116,7 +116,7 @@ digraph nlm_learn_test {
 
 ### Phase 0: Notebook Locate
 
-> **v2.4 隐式 Preflight**：本 wrapper 第一个 MCP 调用 `notebook_list()` 触发 [`../_shared/preflight-checklist.md`](../_shared/preflight-checklist.md) L2 NLM Service Health；命中 notebook 后 `notebook_describe(notebook_id)` 自动覆盖 L3；L1（token）由 wrapper 调度的 studio / query Phase 0 重新覆盖。任何 preflight 失败走对应 H0a/b/c/e/f 阻断。
+> **v2.4 隐式 Preflight**：本 wrapper 第一个 MCP 调用 `notebook_list()` 触发 [`../nlm-shared/preflight-checklist.md`](../nlm-shared/preflight-checklist.md) L2 NLM Service Health；命中 notebook 后 `notebook_describe(notebook_id)` 自动覆盖 L3；L1（token）由 wrapper 调度的 studio / query Phase 0 重新覆盖。任何 preflight 失败走对应 H0a/b/c/e/f 阻断。
 
 **目标**：定位已有 notebook，本 wrapper **不**触发 build。
 
@@ -388,15 +388,15 @@ Tag 自动添加: `learn-test-loop`
 
 ## Reference Files
 
-- **`→ ../_shared/preflight-checklist.md`** — Phase 0 三级 preflight（含 L3 notebook scope，v2.3 起；learn-test 总有 notebook_id 入参，强制 L3）
-- **`→ ../_shared/quota-estimation.md`** — wrapper 配额预告（v2.3 起；含 learn-test 默认 quiz+flashcards 锁定 + `--full` 全 5 类加成）
-- **`→ ../_shared/artifact-type-reference.md`** — quiz / flashcards 子参数详情
-- **`→ ../_shared/artifact-metadata-template.md`** — record markdown frontmatter schema（Phase 2a 输出范式）
-- **`→ ../_shared/learning-loop-templates.md#§3`** — 错题 root cause 提示词（Phase 2b 用）
-- **`→ ../_shared/learning-loop-templates.md#§7`** — 7 项理解度自检对话提示词（Phase 2c 用）
-- **`→ ../_shared/risk-control-templates.md#4`** — Source Check 5 级标注体系（Phase 2d 用）
-- **`→ ../_shared/risk-control-templates.md#3`** — 高风险类别白名单（H2d 触发）
-- **`→ ../_shared/understanding-metrics.md`** — 7 项指标定义 + 仪表盘 Note 模板
+- **`→ ../nlm-shared/preflight-checklist.md`** — Phase 0 三级 preflight（含 L3 notebook scope，v2.3 起；learn-test 总有 notebook_id 入参，强制 L3）
+- **`→ ../nlm-shared/quota-estimation.md`** — wrapper 配额预告（v2.3 起；含 learn-test 默认 quiz+flashcards 锁定 + `--full` 全 5 类加成）
+- **`→ ../nlm-shared/artifact-type-reference.md`** — quiz / flashcards 子参数详情
+- **`→ ../nlm-shared/artifact-metadata-template.md`** — record markdown frontmatter schema（Phase 2a 输出范式）
+- **`→ ../nlm-shared/learning-loop-templates.md#§3`** — 错题 root cause 提示词（Phase 2b 用）
+- **`→ ../nlm-shared/learning-loop-templates.md#§7`** — 7 项理解度自检对话提示词（Phase 2c 用）
+- **`→ ../nlm-shared/risk-control-templates.md#4`** — Source Check 5 级标注体系（Phase 2d 用）
+- **`→ ../nlm-shared/risk-control-templates.md#3`** — 高风险类别白名单（H2d 触发）
+- **`→ ../nlm-shared/understanding-metrics.md`** — 7 项指标定义 + 仪表盘 Note 模板
 - **`→ ../studio/SKILL.md`** — Phase 2a 调度的子 skill
 - **`→ ../query/SKILL.md`** — Phase 2b/2c/2d 调度的子 skill
 - **`→ ../learn-make/SKILL.md`** — 配对的 wrapper 1（学习侧入口）

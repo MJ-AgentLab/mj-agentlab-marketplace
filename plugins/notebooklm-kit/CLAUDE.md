@@ -11,7 +11,7 @@ notebooklm-kit 是一个 NotebookLM 学习闭环技能家族 Plugin（2026-05 �
 - ~~v2.5 候选~~ preflight 5min 缓存升级为真实现：**abandoned**（ROI 低）
 
 **v2.4 升级要点**（preflight 实施落地，**非破坏性**）：
-- v2.3 的 `_shared/preflight-checklist.md` 由文档级模板正式编入 6 个 skill 的 Phase 0 实施段：
+- v2.3 的 `nlm-shared/preflight-checklist.md` 由文档级模板正式编入 6 个 skill 的 Phase 0 实施段：
   - `build` / `manage` / `query` / `studio` 4 底层 skill 显式 Phase 0 + H0a/b/c 段
   - `learn-make` / `learn-test` 2 wrapper Phase 0 加隐式 preflight 注解，委托子 skill 完整 preflight
 - `auth` skill 不动（自身就是 troubleshooter）
@@ -20,8 +20,8 @@ notebooklm-kit 是一个 NotebookLM 学习闭环技能家族 Plugin（2026-05 �
 **v2.3 升级要点**（deprecation removal + 启动规范，**轻量 BREAKING 已经过 v2.2 公告期**）：
 - 删除 `/notebooklm-kit:learn` skill（v2.0 引入，v2.2 deprecated）；改用 `/notebooklm-kit:learn-make` + `/notebooklm-kit:learn-test` 串联
 - 新增 2 份共享规范：
-  - `_shared/preflight-checklist.md` — 三级启动冒烟（L1 Auth / L2 MCP health / L3 Notebook scope）
-  - `_shared/quota-estimation.md` — 单调用基线 + 双 wrapper 配额预告（v2.0/v2.1 卡 Phase 7 的根因前移到 Phase 0）
+  - `nlm-shared/preflight-checklist.md` — 三级启动冒烟（L1 Auth / L2 MCP health / L3 Notebook scope）
+  - `nlm-shared/quota-estimation.md` — 单调用基线 + 双 wrapper 配额预告（v2.0/v2.1 卡 Phase 7 的根因前移到 Phase 0）
 - 共享文档总数 8 → 10；skill 总数 8 → 7
 
 **v2.2 升级要点**（高层入口整合，**非破坏性**）：
@@ -33,7 +33,7 @@ notebooklm-kit 是一个 NotebookLM 学习闭环技能家族 Plugin（2026-05 �
 
 **v2.1 升级要点**（默认行为变更，**非破坏性**）：
 - studio Phase 4 默认输出**元信息 markdown**（record mode），而非 download 二进制；download 降级为 `--mode download` 显式 opt-in
-- 新增共享模板 `_shared/artifact-metadata-template.md`（≤ 50 行 record 范式）
+- 新增共享模板 `nlm-shared/artifact-metadata-template.md`（≤ 50 行 record 范式）
 - learn skill Phase 8 / 编排默认走 record；显式 `--with-download` 才同时 download
 - 对齐 mj-system / mj-agent learning 子系统约束：markdown 进 git，binary 永不入 git
 
@@ -67,7 +67,7 @@ notebooklm-kit 是一个 NotebookLM 学习闭环技能家族 Plugin（2026-05 �
 | `multi` | 跨项目对齐 | `MJ-multi-cross-architecture-20260506` |
 | `intel` | 情报系统（v1 沿用） | `MJ-intel-pipe-analysis-20260506` |
 
-scope 按 project 区分（详见 `skills/_shared/naming-reference.md`）。
+scope 按 project 区分（详见 `skills/nlm-shared/naming-reference.md`）。
 
 ## MCP 依赖
 
@@ -82,14 +82,14 @@ nlm login
 ## Skill 调用约定
 
 - 所有 skill 遵循 Phase 式工作流（Phase 0 preflight → 业务 Phase）
-- **v2.3 起 Phase 0 标准化为三级 preflight**（详见 `_shared/preflight-checklist.md`）：L1 Auth Token / L2 NLM Service Health / L3 Notebook scope（条件触发）
+- **v2.3 起 Phase 0 标准化为三级 preflight**（详见 `nlm-shared/preflight-checklist.md`）：L1 Auth Token / L2 NLM Service Health / L3 Notebook scope（条件触发）
 - 认证失败统一引导到 `/notebooklm-kit:auth`
 - 破坏性操作（delete）需用户二次确认（`confirm=True`）
 - v2 起所有 studio_create 默认追加幻觉防护约束句（可 `disable_guardrails=True` 关闭，但 `risk-class:high` tag 强制开）
 - **v2.1 起 studio Phase 4 默认输出 record markdown**（`--mode record`），而非 download 二进制；download 与 both 为显式 opt-in
 - **v2.2 起对外推荐入口为 `/notebooklm-kit:learn-make` + `/notebooklm-kit:learn-test` 两个 wrapper**；底层 5 skill 仍可独立调用（advanced 路径）
-- **v2.3 起 preflight 通过后必须按 `_shared/quota-estimation.md` 模板告知用户预计耗时与配额消耗**
-- 共享参考资源位于 `skills/_shared/` 目录
+- **v2.3 起 preflight 通过后必须按 `nlm-shared/quota-estimation.md` 模板告知用户预计耗时与配额消耗**
+- 共享参考资源位于 `skills/nlm-shared/` 目录
 
 ## 文件结构
 
@@ -102,7 +102,7 @@ skills/
 ├── studio/      # Studio 制品（v2，含 view + guardrails；v2.1 三输出模式）
 ├── learn-make/  # 学习侧编排器 wrapper 1（v2.2 新增）
 ├── learn-test/  # 考察侧编排器 wrapper 2（v2.2 新增）
-└── _shared/      # 共享参考资源（10 份）
+└── nlm-shared/      # 共享参考资源（10 份）
     ├── preflight-checklist.md       # NLM 启动冒烟三级 checklist（v2.3 新增）
     ├── quota-estimation.md          # 配额与耗时预告（v2.3 新增，从 risk-control §6 抽出）
     ├── naming-reference.md          # 双项目 scope→路径映射 + 元 source 编号

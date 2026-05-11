@@ -2,7 +2,7 @@
 
 All notable changes to the notebooklm-kit plugin (formerly mj-nlm) will be documented in this file.
 
-> **2026-05-11 Rename Note**: This plugin was renamed from `mj-nlm` (hosted on `ranzuozhou/my-marketplace`) to `notebooklm-kit` (hosted on `MJ-AgentLab/mj-agentlab-marketplace`) at marketplace v3.0.0. Plugin version remained at 2.4.1 (no functional changes). Skill folders had `mj-nlm-` prefix removed (e.g., `mj-nlm-auth/` -> `auth/`); shared content folder `mj-nlm-shared/` -> `_shared/`. Slash command namespace: `/mj-nlm:X` -> `/notebooklm-kit:X`. Historical entries below remain accurate to their version under the previous name.
+> **2026-05-11 Rename Note**: This plugin was renamed from `mj-nlm` (hosted on `ranzuozhou/my-marketplace`) to `notebooklm-kit` (hosted on `MJ-AgentLab/mj-agentlab-marketplace`) at marketplace v3.0.0. Plugin version remained at 2.4.1 (no functional changes). Skill folders had `mj-nlm-` prefix removed (e.g., `mj-nlm-auth/` -> `auth/`); shared content folder `mj-nlm-shared/` -> `nlm-shared/`. Slash command namespace: `/mj-nlm:X` -> `/notebooklm-kit:X`. Historical entries below remain accurate to their version under the previous name.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
-- **_shared/preflight-checklist.md** §缓存策略：从"5min TTL + 内存级 dict"重写为"v2.4.1 诚实化"段，含实际机制（同 turn LLM 自然 memory / 跨 turn 重跑）+ 单调用真实开销表（server_info / refresh_auth 毫秒级 LOCAL；notebook_list 1-3 秒网络）+ v2.5 候选 abandoned 4 条决策依据
+- **nlm-shared/preflight-checklist.md** §缓存策略：从"5min TTL + 内存级 dict"重写为"v2.4.1 诚实化"段，含实际机制（同 turn LLM 自然 memory / 跨 turn 重跑）+ 单调用真实开销表（server_info / refresh_auth 毫秒级 LOCAL；notebook_list 1-3 秒网络）+ v2.5 候选 abandoned 4 条决策依据
 - **build / manage / studio / query** 4 个 skill 的 Phase 0 缓存段：删除"5 分钟内"+ "--force-recheck" 措辞，改为统一引述 preflight-checklist §缓存策略
 - 删除 `--force-recheck` flag 引用（从未实现，仅文档化指令）
 
@@ -42,7 +42,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### 升级主旨
 
-把 v2.3 的 `_shared/preflight-checklist.md` 模板从文档级"应该这么做"正式编入 6 个 skill 的 Phase 0 实施段——故障检测从 v2.0/v2.1 的 Phase 7 晚发现前移到 Phase 0 早发现。**仅文档结构改动，无 MCP 调用语义变更**，非破坏性。
+把 v2.3 的 `nlm-shared/preflight-checklist.md` 模板从文档级"应该这么做"正式编入 6 个 skill 的 Phase 0 实施段——故障检测从 v2.0/v2.1 的 Phase 7 晚发现前移到 Phase 0 早发现。**仅文档结构改动，无 MCP 调用语义变更**，非破坏性。
 
 ### Changed
 
@@ -52,7 +52,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - **query skill**：在 `### Phase 1: Notebook & Mode Selection` 之前插入新 `### Phase 0: Preflight Check` 段（L1 + L2，L3 由 Phase 1 首次 `notebook_query` 隐式覆盖）
 - **learn-make wrapper**：`### Phase 0: Notebook Locate` 头部加 v2.4 隐式 Preflight 引述块（说明本 wrapper 第一个 MCP 调用 notebook_list 触发 L2，wrapper 调度的 build skill Phase 0 覆盖 L1，`--resume` 时 notebook_describe 自动覆盖 L3）
 - **learn-test wrapper**：同上格式，引述说明委托 studio / query 子 skill 完整 preflight，notebook_describe 自动覆盖 L3
-- **_shared/preflight-checklist.md** "## 集成点" 段 v2.3 起 → v2.3 文档化 / v2.4 实施落地；新增"v2.4 实施状态"列标记 ✅
+- **nlm-shared/preflight-checklist.md** "## 集成点" 段 v2.3 起 → v2.3 文档化 / v2.4 实施落地；新增"v2.4 实施状态"列标记 ✅
 - **plugin.json**：2.3.0 → 2.4.0
 - **CLAUDE.md / README.md**：v2.4 顶引；其余 v2.3 / v2.2 / v2.1 / v2.0 升级要点保留为历史
 
@@ -82,7 +82,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### 升级主旨
 
-完成 v2.2 forward-announce 的 deprecation removal：移除 `/notebooklm-kit:learn` skill（v2.0 引入 / v2.2 deprecated）；新增 `_shared/preflight-checklist.md` + `_shared/quota-estimation.md` 两份共享规范，把 v2.0/v2.1 学习闭环卡 Phase 7 的根因（认证 / scope 故障晚发现）+ 用户对耗时无预期 两个 UX 痛点前移到 Phase 0。**轻量 BREAKING（已经过 v2.2 ~2 周公告期）**。
+完成 v2.2 forward-announce 的 deprecation removal：移除 `/notebooklm-kit:learn` skill（v2.0 引入 / v2.2 deprecated）；新增 `nlm-shared/preflight-checklist.md` + `nlm-shared/quota-estimation.md` 两份共享规范，把 v2.0/v2.1 学习闭环卡 Phase 7 的根因（认证 / scope 故障晚发现）+ 用户对耗时无预期 两个 UX 痛点前移到 Phase 0。**轻量 BREAKING（已经过 v2.2 ~2 周公告期）**。
 
 ### Removed
 
@@ -90,13 +90,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Added
 
-- **共享文档 `_shared/preflight-checklist.md`**：NLM 启动冒烟三级 checklist —— L1 Auth Token（refresh_auth status） / L2 NLM Service Health（server_info + notebook_list） / L3 Notebook scope（notebook_describe + 可选 notebook_query），含 5min 缓存策略 + 集成点 + H-point 模板供各 skill Phase 0 嵌入
-- **共享文档 `_shared/quota-estimation.md`**：单调用耗时基线（一次性 / per-source / per-artifact 三类） + 双 wrapper（learn-make / learn-test）配额预告 + build / studio / query 单步耗时 + NotebookLM 公开+经验配额上限（含 source 上限 / studio rate / query rate / 文件大小限）+ 总耗时报告模板（用于 Phase 0 输出）
+- **共享文档 `nlm-shared/preflight-checklist.md`**：NLM 启动冒烟三级 checklist —— L1 Auth Token（refresh_auth status） / L2 NLM Service Health（server_info + notebook_list） / L3 Notebook scope（notebook_describe + 可选 notebook_query），含 5min 缓存策略 + 集成点 + H-point 模板供各 skill Phase 0 嵌入
+- **共享文档 `nlm-shared/quota-estimation.md`**：单调用耗时基线（一次性 / per-source / per-artifact 三类） + 双 wrapper（learn-make / learn-test）配额预告 + build / studio / query 单步耗时 + NotebookLM 公开+经验配额上限（含 source 上限 / studio rate / query rate / 文件大小限）+ 总耗时报告模板（用于 Phase 0 输出）
 - **build / learn-make / learn-test SKILL.md Reference 段** 加新两 shared 文档引用
 
 ### Changed
 
-- **_shared/risk-control-templates.md §6** 抽出 → quota-estimation.md（risk-control 保留单行 stub 指向新文件，扩展为双 wrapper 口径）
+- **nlm-shared/risk-control-templates.md §6** 抽出 → quota-estimation.md（risk-control 保留单行 stub 指向新文件，扩展为双 wrapper 口径）
 - **build skill description 反向触发约束** 由「`/notebooklm-kit:learn`」改为「`/notebooklm-kit:learn-make`」+「`/notebooklm-kit:learn-test`」拆两条
 - **studio / query SKILL.md** 内所有 `/notebooklm-kit:learn` 引用改为 wrapper 双命令（含 query Mode F 的 LEARN_ORCHESTRATED 边界说明改为 learn-test wrapper Phase 2c）
 - **shared/artifact-metadata-template.md** "何时由谁写"表 + **shared/naming-reference.md** `learn-loop` tag 表 同步改为 wrapper 命令
@@ -184,7 +184,7 @@ studio Phase 4 默认输出形态从「download 二进制到本地」改为「re
 
 ### Added
 
-- **新增共享模板 `_shared/artifact-metadata-template.md`**：record markdown 范式（frontmatter schema + ≤ 50 行 body + 命名与存放约定 + 与 learning 子系统对齐说明 + record vs download 对比）
+- **新增共享模板 `nlm-shared/artifact-metadata-template.md`**：record markdown 范式（frontmatter schema + ≤ 50 行 body + 命名与存放约定 + 与 learning 子系统对齐说明 + record vs download 对比）
 - **studio skill Phase 4 三模式**：`--mode record`（默认）/ `--mode download`（opt-in）/ `--mode both`（学习+归档）
 - **studio skill 新增 H5 / H6**：H5（mode 不明确时根据语境关键词询问）/ H6（record 模式但未指定输出路径时提议默认路径）
 - **learn skill 新增标志**：`--with-download`（默认 record 之外同时下载，等同子调度 `mode=both`）/ `--download-only`（跳过 record 仅下载，等同 `mode=download`，v2.0 兼容）
@@ -200,7 +200,7 @@ studio Phase 4 默认输出形态从「download 二进制到本地」改为「re
 - **learn skill Phase 6 quiz/flashcards 输出说明**：默认 record markdown 含 NotebookLM URL 用于在线答题；`--with-download` 时本地存 JSON 便于做题工具加载
 - **learn skill Handoff 输出**：按 mode 分形态展示 record / both / download 输出物
 - **learn skill 示例**：示例 1 改为 v2.1 默认 record；新增示例 1b（--with-download）
-- **`_shared/artifact-type-reference.md`**：顶部加 v2.1 默认行为变更说明；新增「v2.1 输出模式（record / download / both）」段（含 record mode 与 9 类 artifact_type 关系矩阵）
+- **`nlm-shared/artifact-type-reference.md`**：顶部加 v2.1 默认行为变更说明；新增「v2.1 输出模式（record / download / both）」段（含 record mode 与 9 类 artifact_type 关系矩阵）
 - **CLAUDE.md**：v2.1 升级要点段；6 skill 表标 v2.1 升级；shared 文件计数 7 → 8；skill 调用约定新增 record mode 默认条目
 - **README.md**：v2.1 顶引；6 命令表更新；新增「v2.1 核心新概念」段（默认 record / 三模式 / 与 learning 子系统对齐）；自然语言触发段加 metadata only / both 触发词；roadmap 标 v2.1 完成
 - **plugin.json**：version 2.0.1 → 2.1.0；description 加 v2.1 默认行为说明；keywords 新增 `metadata-only` / `online-reference` / `record-mode`

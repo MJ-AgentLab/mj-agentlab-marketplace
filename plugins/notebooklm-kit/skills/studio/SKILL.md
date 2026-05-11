@@ -28,7 +28,7 @@ description: >
 v2.1 升级要点（相比 v2.0）：
 - **Phase 4 三模式**：`--mode record`（默认，输出元信息 markdown）/ `--mode download`（仅下载二进制）/ `--mode both`（两者并存）
 - **默认行为变更**：不再强制 `download_artifact` 到本地，对齐 mj-system / mj-agent learning 子系统「markdown 进 git，binary 永不入 git」约束
-- **新增 record 模板引用**：`→ ../_shared/artifact-metadata-template.md` 定义 frontmatter schema + ≤ 50 行 body 范式
+- **新增 record 模板引用**：`→ ../nlm-shared/artifact-metadata-template.md` 定义 frontmatter schema + ≤ 50 行 body 范式
 - **向后兼容**：现有 v2.0 用户的 download 路径仍可用（`--mode download`），仅默认值变化
 
 v2 升级要点（相比 v1）：
@@ -114,12 +114,12 @@ digraph nlm_studio {
 
 ### Phase 0: Preflight Check (v2.4)
 
-按 [`../_shared/preflight-checklist.md`](../_shared/preflight-checklist.md) 执行 L1 + L2（L3 在 Phase 1 锁定 notebook_id 后由 `notebook_describe()` 隐式覆盖）：
+按 [`../nlm-shared/preflight-checklist.md`](../nlm-shared/preflight-checklist.md) 执行 L1 + L2（L3 在 Phase 1 锁定 notebook_id 后由 `notebook_describe()` 隐式覆盖）：
 
 1. **L1 Auth Token** — `server_info()` → 失败走 **H0a** 引导 `/notebooklm-kit:auth`
 2. **L2 NLM Service Health** — `notebook_list()` → `PERMISSION_DENIED` 走 **H0b** `/notebooklm-kit:auth`；其他错误走 **H0c** soft warn
 
-**缓存（v2.4.1 诚实化）**：依赖 Claude conversation 自然 memory（同 turn 不重复跑）；跨 turn 重新执行（毫秒级 + 1-3 秒可接受）。详见 `../_shared/preflight-checklist.md#缓存策略`。
+**缓存（v2.4.1 诚实化）**：依赖 Claude conversation 自然 memory（同 turn 不重复跑）；跨 turn 重新执行（毫秒级 + 1-3 秒可接受）。详见 `../nlm-shared/preflight-checklist.md#缓存策略`。
 
 通过条件：L1 + L2 全 OK → 进 Phase 1 Notebook Locate。
 
@@ -146,7 +146,7 @@ digraph nlm_studio {
 
 #### Step 2.1：选择 artifact_type
 
-9 种类型详见 `→ ../_shared/artifact-type-reference.md`。
+9 种类型详见 `→ ../nlm-shared/artifact-type-reference.md`。
 
 #### Step 2.2：选择子参数
 
@@ -173,7 +173,7 @@ digraph nlm_studio {
 Focus Prompt = Intent Layer + Content Layer + Guardrails Layer
 ```
 
-**Intent Layer**（按 artifact_type × view 选模板，详见 `→ ../_shared/focus-prompt-templates.md`）
+**Intent Layer**（按 artifact_type × view 选模板，详见 `→ ../nlm-shared/focus-prompt-templates.md`）
 
 例（audio + view=foundation）：
 > 面向{audience}的{topic}零基础版音频。主持人 A 与 B 用对话方式：A 假设听众没有任何背景，用日常生活类比开场...
@@ -189,7 +189,7 @@ Focus Prompt = Intent Layer + Content Layer + Guardrails Layer
 
 **Guardrails Layer**（v2 新增，默认追加）：
 
-详见 `→ ../_shared/risk-control-templates.md#2`。约束句包括：
+详见 `→ ../nlm-shared/risk-control-templates.md#2`。约束句包括：
 - 关键判断引用具体来源
 - 不编造案例 / 数据 / 人名
 - 来源不足时明说，不凑长度
@@ -306,7 +306,7 @@ studio_status(notebook_id, action="rename", new_title="{中文标题}")
    - mj-agent 项目：`<vault>/learning/<topic>/_nlm/`
    - 临时探索：`<vault>/_scratch/_nlm/`
 
-3. 按 `→ ../_shared/artifact-metadata-template.md` 的 schema 渲染 markdown：
+3. 按 `→ ../nlm-shared/artifact-metadata-template.md` 的 schema 渲染 markdown：
    - frontmatter 字段全填（`type: nlm-artifact-record` / `notebook_id` / `artifact_type` / `view` / `notebook_url` / `artifact_url` / `focus_prompt_summary` / `guardrails_enabled` / `created` / `state: active` / `version: v1.0`）
    - body ≤ 50 行：主题（2-3 行）/ 在线访问 / Focus Prompt 关键参数 / 与项目的关系 / 变更历史
 
@@ -529,8 +529,8 @@ record markdown: {record_path}（进 git）
 
 ## Reference Files
 
-- **`→ ../_shared/artifact-type-reference.md`** — 9 种 artifact_type 子参数详情 + v2 横切子参数（view / disable_guardrails / focus_prompt_template）+ v2.1 三输出模式
-- **`→ ../_shared/artifact-metadata-template.md`** — **v2.1 新增**：record markdown frontmatter schema + ≤ 50 行 body 范式 + 命名与存放规范
-- **`→ ../_shared/focus-prompt-templates.md`** — Intent Layer 模板（v2 学习导向，按 artifact_type × view 组合）
-- **`→ ../_shared/risk-control-templates.md`** — Guardrails Layer 约束句 + 预检矩阵 + 高风险类别
-- **`→ ../_shared/learning-loop-templates.md`** — 三版提示词、Glossary 模板、机制分析模板
+- **`→ ../nlm-shared/artifact-type-reference.md`** — 9 种 artifact_type 子参数详情 + v2 横切子参数（view / disable_guardrails / focus_prompt_template）+ v2.1 三输出模式
+- **`→ ../nlm-shared/artifact-metadata-template.md`** — **v2.1 新增**：record markdown frontmatter schema + ≤ 50 行 body 范式 + 命名与存放规范
+- **`→ ../nlm-shared/focus-prompt-templates.md`** — Intent Layer 模板（v2 学习导向，按 artifact_type × view 组合）
+- **`→ ../nlm-shared/risk-control-templates.md`** — Guardrails Layer 约束句 + 预检矩阵 + 高风险类别
+- **`→ ../nlm-shared/learning-loop-templates.md`** — 三版提示词、Glossary 模板、机制分析模板
