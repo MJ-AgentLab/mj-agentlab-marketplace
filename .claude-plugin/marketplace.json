@@ -7,7 +7,7 @@
   },
   "metadata": {
     "description": "Generic Claude Code plugins for AI engineering workflows. NotebookLM integration (notebooklm-kit) and pedagogical methodology (learn-kit). Tested with mj-system and mj-agent.",
-    "version": "3.0.0"
+    "version": "3.1.0"
   },
   "plugins": [
     {
@@ -23,11 +23,11 @@
     {
       "name": "learn-kit",
       "source": "./plugins/learn-kit",
-      "description": "Pedagogical kit for converting enumerated rule lists into learnable knowledge artifacts. Includes 8-stage authoring methodology, NLM artifact metadata schema, and folder convention. Pairs well with notebooklm-kit.",
-      "version": "0.1.0",
+      "description": "Pedagogical kit for converting enumerated rule lists into learnable knowledge artifacts. Includes 8-stage authoring methodology, NLM artifact metadata schema, folder convention, plus locate (concept reverse-lookup) and scan (project-wide learnable-doc enumeration) discovery skills. Pairs well with notebooklm-kit.",
+      "version": "0.2.0",
       "author": { "name": "MJ-AgentLab" },
       "category": "documentation",
-      "keywords": ["learning", "pedagogy", "methodology", "rule-list", "interpretation"],
+      "keywords": ["learning", "pedagogy", "methodology", "rule-list", "interpretation", "discovery", "locate", "scan"],
       "license": "MIT"
     }
   ]

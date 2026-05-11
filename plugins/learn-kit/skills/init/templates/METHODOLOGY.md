@@ -18,7 +18,7 @@ aliases:
 created: "2026-05-11"
 updated: "2026-05-11"
 state: "active"
-version: "v0.1"
+version: "v0.2"
 ---
 
 # Rule List Pedagogy — 8-Stage Methodology
@@ -98,6 +98,68 @@ version: "v0.1"
 - [ ] 知道源的总条款数
 - [ ] 列出源已有的所有原始分组
 - [ ] 标记可疑的"伪框架"（容易被错认成最终骨架的原始分组）
+
+---
+
+## 1.5 Project Discovery（已有项目里如何找源）
+
+**目标**：§1 假设你已经选定了源 STANDARD。在已有项目里，"如何选 / 如何确认哪个文档是源"本身就是一个问题——本节给出零配置启发式。
+
+**适用场景**：
+
+- 装上 learn-kit 但项目已有 `docs/` 大量文档，不确定从哪开始
+- 用户脑中只有一个概念名（"DLSRS" / "ISFSV"），不知道在哪个文档里
+- 想在动笔编写新 [LEARNING] 前，先检查是否已经被人解读过
+
+**原则**：
+
+1. **先 scan，再 locate**：装上 learn-kit 后，先用 `/learn-kit:scan` 列出项目所有可学的源 canonical docs（按 tag 分类，标记已解读 vs 未解读）；再用 `/learn-kit:locate <concept>` 反向定位用户脑中具体概念的源
+2. **已解读优先**：locate 优先返回 `learning/<topic>/[LEARNING]_*.md`（已有解读），其次返回 `docs/**/[STANDARD|SPEC|ADR|...]_*.md`（原始源）。如果已解读文档存在，直接 read 它而不是从源重做 8 阶段
+3. **段号定位**：如果用户已知文档但只想学其中一段（如"§3.3 of HITL prompt"），locate 会自动提取段号 hint，引导用户 read 后跳到对应段
+4. **启发式假设**：learn-kit 假设项目使用 tag prefix 命名约定（`[STANDARD]_*.md` / `[SPEC]_*.md` / `[ADR]_*.md`）；不使用此约定的项目需在 CLAUDE.md 显式声明 tag，或在 locate / scan 调用时传 `path:` 限定搜索范围
+
+**推荐流程**：
+
+```text
+0. 装 learn-kit（已在做）+ 可选装 notebooklm-kit
+1. 跑 /learn-kit:scan
+   → 看到项目有多少可学 source、哪些已解读、哪些未解读
+2. 选定目标概念 / 主题：
+   a. 已知概念名（"DLSRS" / "ISFSV"）→ /learn-kit:locate <concept>
+   b. 想浏览未解读源        → /learn-kit:scan（提示"unread-only"则只看未解读）
+3. 命中已解读 [LEARNING] → read，学习结束
+4. 命中未解读源 STANDARD → 进入 §1 Source Intake，按 8 阶段编写新 [LEARNING]_*.md
+```
+
+**示例片段**：
+
+场景 1（项目已有 learning/ 子系统）：
+> 用户："学 DLSRS"
+> - `/learn-kit:locate "DLSRS"` → top1: `learning/hitl/[LEARNING]_HITL_Common_Rules_Interpretation.md`（confidence 0.95，INDEX 命中）
+> - 用户 read 此文档，5 分钟内掌握 DLSRS 5 维（无需自己重做 8 阶段）
+
+场景 2（项目有 docs/ 但无 learning/）：
+> 用户："学 SPEC 编写规范"
+> - `/learn-kit:locate "SPEC 编写"` → top1: `docs/guide/[GUIDE]_SPEC_Authoring.md`（未解读，confidence 0.85，文件名命中）
+> - 用户先 `/learn-kit:init` scaffold learning/ → 再 read 源 → 按 8 阶段编写 `learning/spec-authoring/[LEARNING]_SPEC_Authoring_Interpretation.md`
+
+场景 3（完全白板项目）：
+> 用户："这个项目里有什么可学的"
+> - `/learn-kit:scan` → confidence < 0.7 warning："项目结构无法确定" + 列出顶层 `*.md` 候选
+> - 用户在 CLAUDE.md 补充 tag 约定声明 → 重跑 scan 命中改善
+
+**反例 / 失败模式**：
+
+- 跳过 scan 直接 locate 模糊 query（"学一下这个项目"）→ 应改用 scan 列举可学项
+- 在没有 tag prefix 约定的项目里盲用 locate / scan → confidence < 0.7 warning，建议先在 CLAUDE.md 声明 tag 约定，或传 `path:` 限定范围
+- 命中源 canonical 后忽视已解读 [LEARNING]（如有）→ 重做 8 阶段是浪费；先看是否已解读
+
+**检查清单**：
+
+- [ ] 在动笔写 [LEARNING] 之前，先跑 scan 看项目可学全貌
+- [ ] 用 locate 确认目标概念对应的源文档路径
+- [ ] 检查 locate 输出中"Interpreted [LEARNING] docs"段——已解读则 read 即可，未解读才进 §1
+- [ ] 项目无 tag prefix 约定时，先在 CLAUDE.md 补充声明，或在 query 中显式传 path
 
 ---
 

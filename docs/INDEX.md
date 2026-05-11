@@ -16,6 +16,12 @@ Navigation hub for all marketplace documentation.
 |----------|-------------|
 | [Release Operations](<./[RUNBOOK]_Release_Operations.md>) | 从开发到发布的完整操作流程 |
 
+## Architecture Decision Records
+
+| Document | Description |
+|----------|-------------|
+| [ADR: learn-kit Discovery & Locate Skills](<./[ADR]_LearnKit_Discovery_Skills.md>) | v3.1.0 增加 locate + scan 两个 skill 的决策；为什么不引入 manifest / 持久化缓存 |
+
 ## Contributing
 
 | Document | Description |
