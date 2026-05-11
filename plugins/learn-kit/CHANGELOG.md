@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-05-11
+
+### Added
+
+- **`skills/locate/SKILL.md`** — `/learn-kit:locate <query>` reverse-lookup skill. Given a concept name, mnemonic, partial doc title, or section reference (e.g., "DLSRS", "5 维 HITL 规则", "§3.3 of the HITL prompt"), returns ranked candidates split into interpreted [LEARNING] docs (preferred tier) and source canonical docs (secondary tier), with confidence scores and a project-recognition profile. Tools: `Read`, `Glob`, `Grep` (read-only).
+- **`skills/scan/SKILL.md`** — `/learn-kit:scan` enumeration skill. Lists all learnable canonical doc candidates in the project by tag prefix ([STANDARD] / [SPEC] / [ADR] / [GUIDE] / [RUNBOOK]), cross-references with interpreted [LEARNING] docs to mark interpreted vs uninterpreted, and ranks by citation frequency (PageRank-lite). Tools: `Read`, `Glob`, `Grep` (read-only).
+- **`skills/init/templates/METHODOLOGY.md` §1.5 "Project Discovery"** — new section between §1 Source Intake and §2 Framework Induction. Documents the recommended scan → locate → 8-stage workflow for using learn-kit in existing projects with prior docs, with concrete scenarios (mj-system-like, mj-agent-like, blank-project). METHODOLOGY version: v0.1 → v0.2.
+
+### Changed
+
+- **`.claude-plugin/plugin.json`** — version 0.1.0 → 0.2.0; description amended to mention locate + scan skills.
+
+### Design notes
+
+- Both new skills use a **pure heuristic** project recognition strategy — no manifest, no persistent doc-map, no configuration. Recognition signals: CLAUDE.md tag declarations, learning/INDEX.md presence, docs/ tag-prefix file count. Confidence bands: ≥0.95 / 0.85–0.95 / 0.7–0.85 / <0.7-with-warning.
+- Stateless by design: every invocation re-scans. Cost is acceptable for typical project sizes (<500 docs, 1–5s). Statelessness eliminates cache-invalidation complexity.
+- Decision record: `docs/[ADR]_LearnKit_Discovery_Skills.md` in the marketplace repo.
+
+### Released as part of
+
+mj-agentlab-marketplace v3.1.0 (learn-kit discovery skills minor release).
+
 ## [0.1.0] - 2026-05-11
 
 ### Added
