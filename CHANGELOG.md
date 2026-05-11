@@ -5,6 +5,16 @@
 
 ## [Unreleased]
 
+### Added
+
+- **`docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`** — marketplace 第一个 `[STANDARD]_*` 文档，定义 AI agent 在 marketplace 仓库内的 11 阶段闭环工作流 + Prompt 通用结构 + HITL 触发规则 + Hybrid Skill 矩阵（plugin-dev + skill-creator + superpowers + marketplace self-hosted）。从 v3.0.0 + v3.1.0 两轮实战经验提炼；剥离 mj-system 同名 STANDARD 中 DB / n8n / ETL / FastAPI / Flyway 等不适用内容；保留 HITL 哲学骨架。
+- **`docs/INDEX.md`** 新增 `## Standards` 段登记本文档；Plugin Developers 推荐阅读顺序加入本 STANDARD（步骤 2）
+- **顶层 `CLAUDE.md`** 新增 `## AI Engineering` 段引用本 STANDARD
+
+### Changed
+
+- **`docs/INDEX.md` Plugin References** — 清理 v3.0.0 已删除的 mj-sys-ops / mj-sys-git secrets setup 引用（stale reference fix-while-here）
+
 ## [3.1.0] - 2026-05-11
 
 ### Added
