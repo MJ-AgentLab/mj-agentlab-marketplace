@@ -73,12 +73,44 @@
 
 ## AI Engineering
 
-marketplace AI agent 工作流规范：**[docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md](docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)** （v3.2.0 起）
+marketplace AI agent 工作流规范（v3.2.0 起）：
 
-- 11 阶段闭环：Intake → Repo Scan → Plan → ADR → Plugin/Skill Authoring → Plugin Compliance → Local Dogfood → AI Self-review → Commit/Push/PR → Review→Merge→Release → Post-merge Cleanup
-- Hybrid Skill 矩阵：marketplace 自有 (learn-kit / notebooklm-kit) + plugin-dev 工具链（create-plugin / skill-creator / skill-reviewer / plugin-validator）+ superpowers 兜底
-- HITL 触发：plugin 删除 / 重命名 / 主版本 bump / marketplace.json schema / CI workflow / 发布动作必须暂停确认
-- 关系：与 mj-system 同名 STANDARD 是「同款骨架，不同细节」；两者独立维护，不强同步
+- **STANDARD（完整规范）**：[docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md](docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)
+- **GUIDE（运行时勾选清单）**：[docs/[GUIDE]_Marketplace_Agent_Execution_Checklist.md](docs/[GUIDE]_Marketplace_Agent_Execution_Checklist.md)
+
+### 11 阶段速查表
+
+| # | Stage | Brief | Preferred Skill |
+|---|-------|-------|----------------|
+| 0 | Intake | 任务准入 + risk/scope/文档需求 | — (可选 `superpowers:brainstorming`) |
+| 1 | Repo Scan | 事实核查 8 维 | — |
+| 2 | Plan | 执行计划（落用户本地 `~/.claude/plans/`） | — (可选 `superpowers:writing-plans`) |
+| 3 | Design Decision (ADR) | 架构 / 命名 / 拆分决策 | — |
+| 4 | Plugin / Skill Authoring | 新建 / 改造 plugin / skill | `/plugin-dev:create-plugin` + `/skill-creator:skill-creator` |
+| 5 | Plugin Compliance | 合规审 + 版本一致性 | `/plugin-dev:skill-reviewer` + `/plugin-dev:plugin-validator` (agents) |
+| 6 | Local Dogfood | 真实场景验证 | — |
+| 7 | AI Self-review | 双段 + 11-item checklist | — |
+| 8 | Commit / Push / PR | gh + git + 6 PR template | — |
+| 9 | Review → Merge → Release | CI / merge / release.yml | — |
+| 10 | Post-merge Cleanup | worktree + branch + tag | — |
+
+### HITL 触发摘要
+
+| 类别 | 例子 |
+|------|------|
+| plugin 高风险 | 删除 / 重命名 / 主版本 bump |
+| marketplace schema | marketplace.json metadata / plugins 数组结构 |
+| CI/CD | ci.yml / release.yml 修改 |
+| 发布 | merge 到 main / VERSION bump major |
+| 安全 | secret / 凭据 / token 处理 |
+| Review 改变需求 | review 改 plugin 行为 / SKILL description / allowed-tools |
+| 测试失败原因不明 | 关键测试失败但 root cause 不清 |
+
+完整 HITL 规则详见 STANDARD §3.1；勾选清单详见 GUIDE §2 各 stage Verification 段。
+
+### 关系
+
+与 mj-system 同名 STANDARD 是「同款骨架，不同细节」；两者独立维护，不强同步。
 
 ## Documentation
 

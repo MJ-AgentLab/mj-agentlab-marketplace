@@ -9,6 +9,7 @@ Navigation hub for all marketplace documentation.
 | [Marketplace Project Overview](<./[GUIDE]_Marketplace_Project_Overview.md>) | 项目架构、插件目录、CI/CD 体系、开发环境搭建 |
 | [Plugin Development Testing Workflow](<./[GUIDE]_Plugin_Development_Testing_Workflow.md>) | 跨仓库插件开发测试的三阶段工作流 |
 | [Version Management](<./[GUIDE]_Version_Management.md>) | 双层版本架构、bump 工具、CHANGELOG 规范 |
+| [Marketplace Agent Execution Checklist](<./[GUIDE]_Marketplace_Agent_Execution_Checklist.md>) | STANDARD 的运行时勾选清单——11 stage × 4 段（Entry / Actions / Verification / Exit） |
 
 ## Standards
 
@@ -50,8 +51,9 @@ Navigation hub for all marketplace documentation.
 
 1. [Marketplace Project Overview](<./[GUIDE]_Marketplace_Project_Overview.md>) — 插件结构和技能链
 2. [AI Engineering Execution HITL Prompt](<./[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md>) — AI agent 工作流规范（v3.2.0 起）
-3. [Plugin Development Testing Workflow](<./[GUIDE]_Plugin_Development_Testing_Workflow.md>) — 开发测试流程
-4. [CONTRIBUTING.md](./CONTRIBUTING.md) — 提交和 PR 规范
+3. [Marketplace Agent Execution Checklist](<./[GUIDE]_Marketplace_Agent_Execution_Checklist.md>) — STANDARD 的勾选清单（执行时对照用）
+4. [Plugin Development Testing Workflow](<./[GUIDE]_Plugin_Development_Testing_Workflow.md>) — 开发测试流程
+5. [CONTRIBUTING.md](./CONTRIBUTING.md) — 提交和 PR 规范
 
 ### Release Managers
 
