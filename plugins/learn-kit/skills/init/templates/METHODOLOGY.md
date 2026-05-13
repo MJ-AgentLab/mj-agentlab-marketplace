@@ -121,7 +121,7 @@ version: "v0.2"
 **推荐流程**：
 
 ```text
-0. 装 learn-kit（已在做）+ 可选装 notebooklm-kit
+0. 装 learn-kit（已在做）
 1. 跑 /learn-kit:scan
    → 看到项目有多少可学 source、哪些已解读、哪些未解读
 2. 选定目标概念 / 主题：
@@ -421,12 +421,9 @@ version: "v0.2"
 learning/
 ├── INDEX.md                     # 子系统总入口
 ├── _meta/                       # 子系统基础设施（方法论、模板）
-│   ├── METHODOLOGY.md
-│   └── NLM_RECORD_TEMPLATE.md
+│   └── METHODOLOGY.md
 ├── <topic>/                     # 每个 topic 一个子目录
 │   └── [LEARNING]_*.md
-├── <topic>/_nlm/                # NotebookLM 元信息 markdown（与 notebooklm-kit 配套）
-│   └── *.md
 └── _archive/                    # 软归档区
     └── <topic>/[LEARNING]_*.md
 ```
@@ -460,7 +457,7 @@ version: "vX.Y"                                        # 必需——学习材�
 **独立** `learning/INDEX.md`：
 - 与项目主索引（如 `docs/INDEX.md`、`README.md`）解耦（避免污染面向 AI / 检索的 canonical 索引）
 - 主索引可加一行外链 `[Learning Subsystem](./learning/INDEX.md)`，**不展开内部条目**
-- `learning/INDEX.md` 自管：总览 / 方法论 / 按 topic 索引 / 归档 / NLM 制品
+- `learning/INDEX.md` 自管：总览 / 方法论 / 按 topic 索引 / Tier Documents（AI 生成）/ 归档
 
 新建 / 重命名 / 归档 learning 文档时**必须同步** `learning/INDEX.md`。
 
@@ -498,18 +495,7 @@ version: "vX.Y"                                        # 必需——学习材�
 
 ## 10 Optional Integrations（可选集成）
 
-### 10.1 With notebooklm-kit（推荐配套）
-
-`notebooklm-kit` 是 `learn-kit` 的姊妹插件（同 marketplace，由 `mj-agentlab-marketplace` 提供），用于把 NotebookLM 在线产物（audio / video / slides / mind map / quiz 等）登记到 `learning/<topic>/_nlm/<artifact>.md`。
-
-工作流：
-
-1. 用 `learn-kit` 的 8 阶段方法论写出 `learning/<topic>/[LEARNING]_*.md`
-2. 调用 `/notebooklm-kit:learn-make <topic>`，生成 4–7 类配套制品（mind_map / video / slide / audio / report / infographic / data_table）
-3. 制品元信息自动落 `learning/<topic>/_nlm/<artifact>.md`（schema 见 `NLM_RECORD_TEMPLATE.md`）
-4. 二进制（mp3 / mp4 / pdf）**永不入 git**——所有 NotebookLM 产物在线托管
-
-### 10.2 With markdownlint / Other Validators
+### 10.1 With markdownlint / Other Validators
 
 本插件不带验证 skill。建议你项目自带 markdown 校验工具（`markdownlint-cli` / `prettier` / 项目自定 validator）扫 `learning/**/*.md` 检查 OB1-OB6 类基础语法：
 
@@ -557,9 +543,9 @@ version: "vX.Y"                                        # 必需——学习材�
 | **STANDARD-tier 内部 minor** | 新加 ≥ 1 case 暴露的边界 |
 | **STANDARD-tier 重构** | 几何不变量被否（如某个 case 不能成 N 维 AND-gate）→ 重新验证基础假设 |
 
-### 12.3 当前 v0.1 状态
+### 12.3 当前 v0.3 状态
 
-本文是从上游 mj-system v2.0 STANDARD-tier 剥离后的 generic v0.1 版本。原 N=5 跨域验证证据（HITL 协作 / 服务架构 / SQL 语法 / DB 设计 / DB 命名；rules 8–63；dimensions 3–5；5 个独立比喻世界；全部 N 维 AND-gate 几何不变量）在通用化过程中**仍然适用**，但具体案例引用已替换为 RFC 2119 单 worked example。
+本文是从上游 mj-system v2.0 STANDARD-tier 剥离后的 generic v0.3 版本（v0.1 初版剥离；v0.2 加 §1.5 Project Discovery；v0.3 移除 §10.1 NLM integration，learn-kit 与 notebooklm-kit 解绑）。原 N=5 跨域验证证据（HITL 协作 / 服务架构 / SQL 语法 / DB 设计 / DB 命名；rules 8–63；dimensions 3–5；5 个独立比喻世界；全部 N 维 AND-gate 几何不变量）在通用化过程中**仍然适用**，但具体案例引用已替换为 RFC 2119 单 worked example。
 
 ---
 
@@ -599,4 +585,6 @@ version: "vX.Y"                                        # 必需——学习材�
 
 ## 版本历史
 
+- **v0.3**（2026-05-13）：随 learn-kit v0.3.0 发布。移除 §10.1 With notebooklm-kit 子节（learn-kit 与 notebooklm-kit 解绑，learn-kit 不再推荐配套 NotebookLM 集成）；保留的 §10.1 With markdownlint / Other Validators 段从原 §10.2 上移。其余 8 阶段方法论 / 子系统元规则 / 6 类失真自检 / RFC 2119 worked example 不变。
+- **v0.2**（2026-05-11）：随 learn-kit v0.2.0 发布。新增 §1.5 Project Discovery 段（在已有项目里如何用 scan → locate 工作流找源材料 / 检查既有 [LEARNING] / 三种项目场景）。其余各章不变。
 - **v0.1**（2026-05-11）：从上游 mj-system `learning/_meta/[LEARNING]_Rule_List_Interpretation_Authoring.md` v2.0 剥离 MJ 引用后的通用版本。移除 MJ-specific 案例（HITL / svc-arch / sql-format / db-design / db-naming）；保留 8 阶段方法论核心 + 子系统元规则 + 6 类失真自检；新增 §10 Optional Integrations（与 notebooklm-kit 配套 + markdownlint 协作）；用 RFC 2119 单 worked example 替代原 5 case 矩阵。上游证据 N=5 几何不变量结论保留为参考。

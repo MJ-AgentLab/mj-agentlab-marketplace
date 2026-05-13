@@ -218,7 +218,7 @@ Like `locate`, this skill is stateless — every invocation re-scans. No cache, 
 
 - **`/learn-kit:locate <query>`** — concept-driven reverse lookup. Use when the user names a specific concept (mnemonic, doc title fragment) rather than asking for an overview.
 - **`/learn-kit:init`** — scaffold the `learning/` subsystem in a fresh project. Required before scan can mark anything as "interpreted".
-- **`/notebooklm-kit:learn-make <topic>`** (sibling plugin) — after the user picks a candidate to learn, optionally generate audio / mind-map / quiz artifacts via NotebookLM.
+- **`/learn-kit:generate-tier`** — after `scan` surfaces a top-priority uninterpreted doc, optionally feed it into generate-tier to produce three-tier learning documents (foundation / structural / challenge) with AI, plus optional interactive HTML.
 
 ## Non-goals
 
