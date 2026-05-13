@@ -7,6 +7,49 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-05-13
+
+### Added
+
+- **`skills/generate-tier/SKILL.md`** — `/learn-kit:generate-tier` AI-driven 3-tier learning doc generator. 8-step workflow: intake → pre-flight → source acquisition (4 mechanisms multi-select: project file paths / scan-locate discovery / pasted text / dir scan) → tier selection (multi-select foundation / structural / challenge, default all) → topic confirmation + conflict policy → per-tier markdown generation → INDEX update → optional HTML rendering offer → per-tier HTML render via Explore subagent (concept→code grounding) + INDEX HTML column update. Writes `learning/<topic>/[LEARNING]_<topic>_<view>.md` and optional matching `.html`. Tools: `Read, Write, Glob, Grep, AskUserQuestion, Agent`.
+- **`skills/generate-tier/templates/`** — 4 independent prompt templates:
+  - `foundation.md` (≈295L) — 零基础版 prompt (13 sections: 用户问题拆解 → 一句话/类比/专业 → 价值 → 新手困惑 → 能/不能解决 → 术语翻译表 → 完整故事 → 成功/失败案例 → 10 误解 → 三层目标 → 10 自测题 → 下一步)
+  - `structural.md` (≈417L) — 结构版 prompt (14 sections: 子问题拆解 → 主题定位 → 解决路径 → 概念地图 → 关系表 → 前置知识路线 → 适用边界 → 成功/失败案例 → 判断清单 → 学习路径图 → 复习卡 → 12 自测题 → 总结)
+  - `challenge.md` (≈367L) — 挑战版 prompt (14 sections: 真懂标准 → 易误解点 → 假懂点 → 反例训练 → 相邻概念混淆 → 失败案例诊断 → 成功反向审查 → 误用清单 → 边界判断题 → 迁移应用题 → 解释能力挑战 → 概念诊断测试 → 盲区定位表 → 总结)
+  - `html-renderer.md` (≈114L) — 30-min interactive HTML learning page prompt (Phase 1 摄入 → Phase 2 设计 → Phase 3 生成；SVG 图 / 手写语法高亮 / `<details>` 折叠 / Tab 切换 / 复制为 Prompt 按钮 / 亮暗主题；离线单文件无 CDN)
+- **`skills/init/templates/INDEX.md` §Tier Documents** — new catalog table for AI-generated tier docs (with HTML column).
+
+### Changed
+
+- **`.claude-plugin/plugin.json`** — version 0.2.0 → 0.3.0; description rewritten to reflect 3-tier generator capability and explicitly state independence (no external service dependencies); keywords expanded with `three-tier, foundation, structural, challenge, ai-generation, html-render`.
+- **`README.md`** — restructured §使用 to present manual flow (METHODOLOGY 8 stages) and AI flow (generate-tier) as parallel paths; added §3b generate-tier usage; added §4 HTML output example.
+- **`CLAUDE.md`** — removed NLM 协同 line; added generate-tier section with 4-source-mechanism + multi-select + HTML render summary.
+- **`skills/init/SKILL.md`** — Step 6 rewritten: NLM integration option replaced with generate-tier pointer.
+- **`skills/init/templates/METHODOLOGY.md`** — §10.1 With notebooklm-kit removed; §10.2 With markdownlint promoted to §10.1. METHODOLOGY internal version v0.2 → v0.3.
+- **`skills/locate/SKILL.md`** + **`skills/scan/SKILL.md`** — Sibling skills sections: `/notebooklm-kit:learn-make` references replaced with `/learn-kit:generate-tier`.
+
+### Removed
+
+- **`skills/init/templates/NLM_RECORD_TEMPLATE.md`** — entire file deleted. NLM artifact metadata schema is no longer maintained by learn-kit. Users who installed v0.2.x and seeded `learning/_meta/NLM_RECORD_TEMPLATE.md` should manually delete that file if they wish to remove NLM coupling; learn-kit init will no longer regenerate it.
+- **`templates/INDEX.md` §NotebookLM Notebooks** + 维护规则 NLM bullet — sections removed.
+- All `/notebooklm-kit:*` cross-references in init / locate / scan SKILL.md and templates.
+
+### Decoupled from
+
+- **`notebooklm-kit`** is no longer a sibling/companion plugin from learn-kit's perspective. learn-kit is now fully independent and has no external service or plugin dependencies. The two plugins can still coexist in the marketplace, but learn-kit no longer promotes or requires any NotebookLM workflow.
+
+### Migration note (v0.2.x → v0.3.0)
+
+For projects that ran `/learn-kit:init` against v0.2.x and now have `learning/_meta/NLM_RECORD_TEMPLATE.md` plus a §NotebookLM Notebooks section in `learning/INDEX.md`:
+
+1. The template file can be safely deleted (`rm learning/_meta/NLM_RECORD_TEMPLATE.md`); nothing in v0.3.0 references it.
+2. The §NotebookLM Notebooks section in `learning/INDEX.md` can be deleted or repurposed as the user sees fit; v0.3.0 INDEX template offers a §Tier Documents section instead.
+3. METHODOLOGY.md (if previously copied via init) may be re-synced from `${CLAUDE_PLUGIN_ROOT}/skills/init/templates/METHODOLOGY.md` v0.3 to drop §10.1 NLM section.
+
+### Released as part of
+
+mj-agentlab-marketplace v3.2.0 (learn-kit AI 3-tier generator + NLM decoupling minor release).
+
 ## [0.2.0] - 2026-05-11
 
 ### Added
