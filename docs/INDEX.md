@@ -9,6 +9,13 @@ Navigation hub for all marketplace documentation.
 | [Marketplace Project Overview](<./[GUIDE]_Marketplace_Project_Overview.md>) | 项目架构、插件目录、CI/CD 体系、开发环境搭建 |
 | [Plugin Development Testing Workflow](<./[GUIDE]_Plugin_Development_Testing_Workflow.md>) | 跨仓库插件开发测试的三阶段工作流 |
 | [Version Management](<./[GUIDE]_Version_Management.md>) | 双层版本架构、bump 工具、CHANGELOG 规范 |
+| [Marketplace Agent Execution Checklist](<./[GUIDE]_Marketplace_Agent_Execution_Checklist.md>) | STANDARD 的运行时勾选清单——11 stage × 4 段（Entry / Actions / Verification / Exit） |
+
+## Standards
+
+| Document | Description |
+|----------|-------------|
+| [AI Engineering Execution HITL Prompt](<./[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md>) | marketplace 自有 HITL 规范——11 阶段闭环 + Prompt 通用结构 + HITL 触发规则 + Hybrid Skill 矩阵 |
 
 ## Runbooks
 
@@ -30,12 +37,7 @@ Navigation hub for all marketplace documentation.
 
 ## Plugin References
 
-| Resource | Location |
-|----------|----------|
-| **Plugin Secrets Setup** (mj-sys-ops) | `plugins/mj-sys-ops/config/secrets-ops.example` + `plugins/mj-sys-ops/scripts/setup-ops-env.ps1` |
-| **Plugin Secrets Setup** (mj-sys-git) | `plugins/mj-sys-git/config/secrets-git.example` + `plugins/mj-sys-git/scripts/setup-git-env.ps1` |
-
-> 各插件的 README.md 和 CLAUDE.md 包含完整的 Secrets 配置说明。
+> v3.0.0 起当前 2 个 plugin（notebooklm-kit / learn-kit）均无 secrets 配置需求。各插件的 README.md 和 CLAUDE.md 含完整说明。
 
 ## Suggested Reading Order
 
@@ -48,8 +50,10 @@ Navigation hub for all marketplace documentation.
 ### Plugin Developers
 
 1. [Marketplace Project Overview](<./[GUIDE]_Marketplace_Project_Overview.md>) — 插件结构和技能链
-2. [Plugin Development Testing Workflow](<./[GUIDE]_Plugin_Development_Testing_Workflow.md>) — 开发测试流程
-3. [CONTRIBUTING.md](./CONTRIBUTING.md) — 提交和 PR 规范
+2. [AI Engineering Execution HITL Prompt](<./[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md>) — AI agent 工作流规范（v3.2.0 起）
+3. [Marketplace Agent Execution Checklist](<./[GUIDE]_Marketplace_Agent_Execution_Checklist.md>) — STANDARD 的勾选清单（执行时对照用）
+4. [Plugin Development Testing Workflow](<./[GUIDE]_Plugin_Development_Testing_Workflow.md>) — 开发测试流程
+5. [CONTRIBUTING.md](./CONTRIBUTING.md) — 提交和 PR 规范
 
 ### Release Managers
 

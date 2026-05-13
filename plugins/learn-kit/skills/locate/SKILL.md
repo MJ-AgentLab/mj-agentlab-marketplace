@@ -188,10 +188,10 @@ The skill is stateless by design — every invocation re-scans the filesystem. N
 
 - **`/learn-kit:init`** — scaffold the `learning/` subsystem in a fresh project. Must run once before `locate` can find any interpreted docs.
 - **`/learn-kit:scan`** — enumerate *all* learnable candidates in the project. Use when the user has not named a specific concept yet ("what can I learn here?"). This is the open-ended counterpart to `locate`'s named-concept lookup.
-- **`/notebooklm-kit:learn-make <topic>`** (sibling plugin) — after the user opens an interpreted doc, optionally generate audio / mind-map / quiz artifacts via NotebookLM.
+- **`/learn-kit:generate-tier`** — after `locate` returns a source canonical doc, optionally feed it into generate-tier to produce three-tier learning documents (foundation / structural / challenge) with AI, plus optional interactive HTML.
 
 ## Non-goals
 
-- This skill does not generate, edit, or validate [LEARNING] documents. Authoring is the user's job, guided by `learning/_meta/METHODOLOGY.md`.
-- This skill does not invoke external services or LLMs beyond Claude's own tools. NotebookLM integration is delegated to the `notebooklm-kit` plugin.
+- This skill does not generate, edit, or validate [LEARNING] documents. For AI-driven generation, use `/learn-kit:generate-tier`. For manual authoring, follow `learning/_meta/METHODOLOGY.md`.
+- This skill does not invoke external services or LLMs beyond Claude's own tools.
 - This skill does not modify any files — `allowed-tools` is restricted to `Read`, `Glob`, `Grep`.
