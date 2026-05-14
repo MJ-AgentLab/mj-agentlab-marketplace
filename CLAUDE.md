@@ -45,6 +45,30 @@
 - 模板 / references / scripts 放在 skill 目录内部
 - 不使用 `components` 字段（auto-discovery 标准）
 
+## Documentation Framework (v4.2.0 起)
+
+marketplace 文档体系遵循以下三层 STANDARD（位于 `docs/rule/`）:
+
+- **[Documentation Framework](docs/rule/[STANDARD]_Documentation_Framework.md)** — 6 tag prefixes（STANDARD/ADR/GUIDE/RUNBOOK/SPEC/POSTMORTEM）+ 8-field frontmatter + 3-state machine + path stability + INDEX sync
+- **[Commit Message Convention](docs/rule/[STANDARD]_Commit_Message_Convention.md)** — `<type>(<scope>): <summary>` + 7 types + marketplace scope whitelist + branch-type matrix
+- **[GitHub Markdown](docs/rule/[STANDARD]_GitHub_Markdown.md)** — ATX headings + GFM tables + native alerts + frontmatter syntax
+
+文档目录子结构（PR 3 retrofit 后所有现有 tag-prefixed 文档全部归位）:
+
+```
+docs/
+├── INDEX.md / CONTRIBUTING.md / MIGRATION_GUIDE.md   # 豁免 frontmatter
+├── rule/        — STANDARDs (3 in v4.2.0)
+├── guide/       — GUIDEs (4 will move here in PR 3)
+├── runbook/     — RUNBOOKs (1 will move here in PR 3)
+├── adr/         — ADRs (2 will move; ADR-LearnKit moves to plugin in PR 4)
+├── spec/        — SPECs (2 seeds in v4.2.0)
+├── postmortem/  — empty placeholder
+└── _templates/  — 6 templates (TEMPLATE_{STANDARD,ADR,GUIDE,RUNBOOK,SPEC,POSTMORTEM}.md)
+```
+
+Templates 与 mp-doc-author skill 协作起草新文档；mp-doc-validate skill 审计合规。详见 [docs/INDEX.md](docs/INDEX.md)。
+
 ## v4.0.0 Restructure Note
 
 2026-05-14 marketplace 从 v3.2.1 → v4.0.0 重构：
