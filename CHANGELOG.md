@@ -5,7 +5,55 @@
 
 ## [Unreleased]
 
-## [4.1.0] - 2026-05-15
+## [4.2.0] - 2026-05-15
+
+### Added
+
+- **Marketplace Documentation Framework v1.0** — 3 个新 STANDARD 落地 `docs/rule/`：
+  - **`docs/rule/[STANDARD]_Documentation_Framework.md`** v1.0 — 6 tag prefixes (`[STANDARD]` / `[ADR]` / `[GUIDE]` / `[RUNBOOK]` / `[SPEC]` / `[POSTMORTEM]`) + 8-field frontmatter (type/scope/summary/owner/created/updated/state/version) + 3-state machine (active/deprecated/archived) + 路径稳定性（active 文件无 `_vX.Y` 后缀，version 居 frontmatter） + INDEX sync 强制 + SKILL.md 显式豁免（用 Claude Code spec native frontmatter）。Adapted from mj-agent Meta v2.2，剔除 track multiplexing / 12 文档类型 / CI gates 等过量内容。
+  - **`docs/rule/[STANDARD]_Commit_Message_Convention.md`** v1.0 — `<type>(<scope>): <summary>` + 7 types (feat/fix/perf/refactor/test/docs/infra) + marketplace scope whitelist (v4.x: `learn-kit`, `marketplace`, `ci`, `scripts`, `deps`, `infra`, `docs-rule`, `docs-adr`, `docs-guide`, `docs-runbook`, `docs-spec`, `release`) + branch-type × commit-type 矩阵 + commit 拆分指导 + Co-Authored-By 模式。提取自 `docs/CONTRIBUTING.md` § 提交规范（旧版引用过期 mj-sys-* scopes），扩展为完整 STANDARD。
+  - **`docs/rule/[STANDARD]_GitHub_Markdown.md`** v1.0 — Canonical 渲染环境 GitHub web；ATX headings (only) + GFM tables + GitHub native 5 alerts (`[!NOTE]` 等) + frontmatter syntax 严格约束 (ISO-8601 dates, block-style lists, lowercase enums) + 代码块语言 hint + 锚点 ID 自动生成规则 + Mermaid / DOT 用法。Adopted from mj-agent v1.0 ~95% 内容；调整路径示例。
+
+- **`docs/_templates/` — 6 个起草骨架模板**：
+  - `TEMPLATE_STANDARD.md` (5 段: Scope / Rules / Examples / Verification / History)
+  - `TEMPLATE_ADR.md` (Michael Nygard 7 段: Context / Decision / Consequences / Alternatives / Implementation Plan / AC / References / Decision Log)
+  - `TEMPLATE_GUIDE.md` (3 段宽松: Audience / Walkthrough / Further Reading)
+  - `TEMPLATE_RUNBOOK.md` (4 段 + `last-verified`: Preconditions / Steps / Verification / Rollback)
+  - `TEMPLATE_SPEC.md` (5 段: Purpose / Schema / Examples / Validation / Versioning)
+  - `TEMPLATE_POSTMORTEM.md` (6 段: Summary / Timeline / Root Cause / Impact / Remediation / Action Items)
+
+- **`docs/spec/` — 2 个 SPEC seed**：
+  - **`docs/spec/[SPEC]_Marketplace_Json_Schema.md`** v1.0 — marketplace.json 本地约定：plugins[] 字段、metadata、版本三角不变量（VERSION ↔ metadata.version ↔ plugins[].version ↔ plugin.json.version）、添加/删除 plugin 的版本影响。
+  - **`docs/spec/[SPEC]_Plugin_Json_Schema.md`** v1.0 — plugin.json 6 必需字段 + `repository` MUST be string（per v3.2.1 bugfix） + 不用 `components` 字段 + 必需目录布局 + keywords 组成建议（15-25 个，混 domain / skill / tool）。
+
+- **`docs/{rule,guide,runbook,adr,spec,postmortem,_templates}/`** 子目录全部创建（`.gitkeep` 占位空目录）。本 PR 仅创建新 docs；现有 `docs/` 根目录下的 4 GUIDEs + 1 RUNBOOK + 2 ADRs + 1 STANDARD（HITL Prompt）+ 1 lowercase generic doc 暂保留原位，在 PR 3 (v4.2.1) 通过单独的 mechanical move PR 迁移并加 frontmatter。
+
+### Changed
+
+- **`docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`** v1.1 → **v1.2** —— §4.8 Self-review checklist 从 11 项升到 **12 项**，新增 item 12: 「新建/修改 `docs/**/*.md` 必须遵循 `[STANDARD]_Documentation_Framework` 的 frontmatter 8 字段约束 + 路径规则；用 `/mp-doc-validate` 跑审计；豁免列表明确（INDEX/CONTRIBUTING/MIGRATION_GUIDE/README/CHANGELOG/plugin CLAUDE.md/SKILL.md）」。§8 版本历史新增 v1.2 条目。
+- **`docs/INDEX.md`** —— Schema 升级反映新子目录结构（rule/ guide/ runbook/ adr/ spec/ postmortem/ _templates/）；明确标注「现有文档仍在 flat `docs/` 路径，PR 3 retrofit 时迁入子目录」；新增 「Templates」 段 + 「Specifications」 段 + 「Doc Authors」 reading order；reading order 表更新引用新 STANDARDs。
+- **`docs/CONTRIBUTING.md`** —— § 提交规范 段从详细表改为 5-line summary + 链 [`[STANDARD]_Commit_Message_Convention.md`](rule/[STANDARD]_Commit_Message_Convention.md)。Marketplace scope whitelist 修正为 v4.x（剔除过期的 mj-sys-* scopes）。
+- **`CLAUDE.md`**（marketplace 根）—— 新增 § Documentation Framework 段（v4.2.0 起），列出 3 个新 STANDARDs + docs/ 子目录结构图 + templates / mp-doc-* skill 协作模型；段位插入在 § v4.0.0 Restructure Note 之前。
+- **`.github/PULL_REQUEST_TEMPLATE/feature.md`** —— § 自检结果 段增加 「文档合规」「commit STANDARD 引用」 checkbox；新增 § Related STANDARDs 段（4 项链接）。
+- **`.github/PULL_REQUEST_TEMPLATE/documentation.md`** —— § 自检结果 完全重写以引用 Documentation Framework 的 8 字段 frontmatter / 子目录路径 / markdown 风格规则；新增 § Related STANDARDs 段。
+
+### Changed (versioning)
+
+- **`VERSION`** — 4.1.0 → 4.2.0
+- **`.claude-plugin/marketplace.json`** — `metadata.version` 4.1.0 → 4.2.0；`metadata.description` 增加 v4.2.0 段描述新 framework；`plugins[].version` 不变（learn-kit 1.0.0）
+
+### Migration notes for users (v4.1.0 → v4.2.0)
+
+- **现有文档无需立即迁移**：本 PR 仅引入 framework + 创建子目录。`docs/` 根目录下的 12 个现有文档（GUIDEs / RUNBOOK / ADRs / HITL Standard）保留原位，引用路径不变。
+- **新文档强制走 framework**：从 v4.2.0 起，任何新建的 tag-prefixed `docs/**/*.md` 必须用 `docs/_templates/TEMPLATE_*.md` 起草，含完整 8 字段 frontmatter，落正确子目录。
+- **commit format 不变** but scope whitelist 升级：从本 PR 起，scope `mj-sys-*` （v3.x 遗留）不再合法；用 `marketplace` / `learn-kit` / `docs-*` / `ci` / `scripts` / `deps` / `infra` / `release` 替代。`/mp-git-commit` skill 自动验证。
+- **PR 3 (v4.2.1) 即将到来**：mechanical move 把现有 12 个文档迁入 subdirs + 加 frontmatter；该 PR 仅 rename + frontmatter retrofit，无内容编辑。
+
+### Rationale
+
+PR 1 (v4.1.0) 给 marketplace 配齐了 11-stage 工作流 skill 与 HITL Standard v1.1 集成；但缺失文档规范本身——AI agent 写新 ADR / GUIDE 时无统一可引用的 frontmatter schema、命名规则、状态机。本 PR 引入轻量 Hybrid 深度的 marketplace 文档框架（参考 mj-agent Meta v2.2 但剔除 track multiplexing / runtime types / CI gates），落地 3 个 STANDARDs + 6 templates + 2 SPEC seeds。Phased rollout：本 PR 仅创建 framework 本身（不动现有文档；保证内部一致性，避免 v1.0 STANDARD 引用 frontmatter 规则但现有文档不合规的窗口）；PR 3 才 mechanical migrate；PR 4 延伸至 learn-kit 内部。
+
+
 
 ### Added
 
