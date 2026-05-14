@@ -1,6 +1,6 @@
 # MJ AgentLab Marketplace
 
-![Version](https://img.shields.io/badge/version-3.1.0-blue)
+![Version](https://img.shields.io/badge/version-3.2.1-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![CI](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml)
 
@@ -12,8 +12,8 @@
 
 | Plugin | 描述 | Skills | Version | 适用项目 |
 |--------|------|--------|---------|---------|
-| [**notebooklm-kit**](plugins/notebooklm-kit/README.md) | NotebookLM 集成：notebook lifecycle + artifact 生成（audio/video/slides/mind-map/quiz）+ learn-make / learn-test 高级 wrapper | 7 | 2.4.1 | 任意 |
-| [**learn-kit**](plugins/learn-kit/README.md) | 教学方法论 kit：把枚举型规则清单转化为人类可学习的决策框架解读文档（8 阶段方法 + 模板 + scaffold 命令 + locate / scan 项目内文档发现） | 3 | 0.2.0 | 任意 |
+| [**notebooklm-kit**](plugins/notebooklm-kit/README.md) | NotebookLM 集成：notebook lifecycle + artifact 生成（audio/video/slides/mind-map/quiz）+ learn-make / learn-test 高级 wrapper | 7 | 2.4.2 | 任意 |
+| [**learn-kit**](plugins/learn-kit/README.md) | 教学方法论 kit：把枚举型规则清单转化为人类可学习的决策框架解读文档（8 阶段方法 + 模板 + scaffold 命令 + locate / scan 项目内文档发现 + generate-tier AI 三档生成） | 4 | 0.3.1 | 任意 |
 
 两插件可独立使用，也常配套：learn-kit 写文档，notebooklm-kit 生成 NotebookLM 配套学习资料（audio / video / slides / quiz 等）。
 

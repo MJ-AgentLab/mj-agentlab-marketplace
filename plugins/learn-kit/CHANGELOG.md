@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.3.1] - 2026-05-14
+
+### Fixed
+
+- **`.claude-plugin/plugin.json`** — `repository` field rewritten from `{ "type": "git", "url": "..." }` object to string `"https://github.com/MJ-AgentLab/mj-agentlab-marketplace"`. The Claude Code plugin manifest schema only accepts string form; the object form caused `/plugin` install to fail with `Validation errors: repository: Invalid input: expected string, received object`. (PR #70 / marketplace v3.2.1)
+
+### Changed
+
+- **`.claude-plugin/plugin.json`** — version 0.3.0 → 0.3.1 (cache-bust patch so `/plugin update` picks up the manifest fix; no other behavior change)
+
 ## [0.3.0] - 2026-05-13
 
 ### Added

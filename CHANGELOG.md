@@ -5,6 +5,24 @@
 
 ## [Unreleased]
 
+## [3.2.1] - 2026-05-14
+
+### Fixed
+
+- **`plugins/learn-kit/.claude-plugin/plugin.json`** + **`plugins/notebooklm-kit/.claude-plugin/plugin.json`** — `repository` field rewritten from `{ type, url }` object form to string form, per [Claude Code plugin manifest schema](https://code.claude.com/docs/en/plugins-reference). Prior shape caused `/plugin` install to fail with `Validation errors: repository: Invalid input: expected string, received object`. (PR #70)
+
+### Changed
+
+- **`VERSION`** — 3.2.0 → 3.2.1
+- **`.claude-plugin/marketplace.json`** — `metadata.version` 3.2.0 → 3.2.1; `notebooklm-kit` entry version 2.4.1 → 2.4.2; `learn-kit` entry version 0.3.0 → 0.3.1
+- **`plugins/notebooklm-kit/.claude-plugin/plugin.json`** — version 2.4.1 → 2.4.2 (cache-bust patch so `/plugin update` picks up the manifest fix)
+- **`plugins/learn-kit/.claude-plugin/plugin.json`** — version 0.3.0 → 0.3.1 (same rationale)
+- **`README.md`** — badge 3.1.0 → 3.2.1 (also corrects stale badge that was not bumped during v3.2.0); plugin table `notebooklm-kit` version 2.4.1 → 2.4.2; `learn-kit` row updated (version 0.2.0 → 0.3.1, skills 3 → 4 to reflect `generate-tier` added in v3.2.0, description appends generate-tier mention)
+
+### Released
+
+通过 release.yml 自动 tag `v3.2.1` + 创建 GitHub Release (trigger: push to main + paths: VERSION)
+
 ## [3.2.0] - 2026-05-13
 
 ### Added

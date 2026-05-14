@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [2.4.2] - 2026-05-14
+
+### Fixed
+
+- **`.claude-plugin/plugin.json`** — `repository` field rewritten from `{ "type": "git", "url": "..." }` object to string `"https://github.com/MJ-AgentLab/mj-agentlab-marketplace"`. The Claude Code plugin manifest schema only accepts string form; same root cause as learn-kit 0.3.1 / marketplace 3.2.1. (PR #70)
+
+### Changed
+
+- **`.claude-plugin/plugin.json`** — version 2.4.1 → 2.4.2 (cache-bust patch so `/plugin update` picks up the manifest fix; no other behavior change)
+
 ## [2.4.1] - 2026-05-08
 
 ### 升级主旨
