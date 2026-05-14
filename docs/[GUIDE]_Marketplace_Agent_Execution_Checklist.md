@@ -3,10 +3,10 @@
 | Field | Value |
 |-------|-------|
 | **Status** | Active |
-| **Version** | v1.0 |
+| **Version** | v1.1 |
 | **Created** | 2026-05-11 |
-| **Updated** | 2026-05-11 |
-| **Pairs with** | [`docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`](<./[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md>) |
+| **Updated** | 2026-05-15 |
+| **Pairs with** | [`docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`](<./[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md>) v1.1 |
 
 ---
 
@@ -38,16 +38,19 @@
 
 ### Stage 0 — Intake
 
+**Preferred Skill**: `/mp-flow-intake`
+
 **Entry**：用户提需求 / 现有 GitHub Issue / 维护请求 / 第三方反馈
 
 **Actions**：
-- 评估任务类型（feature / bugfix / documentation / maintain / hotfix / release）
-- 评估 base branch（develop / main）
-- 评估 risk-level（Low / Medium / High，按 STANDARD §3.1）
-- 评估 scope 与 out-of-scope
-- 出推荐分支名（按 `<type>/<description>` 或 `<type>/<issue-id>-<description>` 命名）
-- 列 Documentation Needed（ADR / GUIDE / RUNBOOK / SPEC / CHANGELOG / INDEX / CLAUDE.md 影响）
-- 出 HITL Questions（如需）
+- 调 `/mp-flow-intake` (自动触发) 或手工:
+  - 评估任务类型（feature / bugfix / documentation / maintain / hotfix / release）
+  - 评估 base branch（develop / main）
+  - 评估 risk-level（Low / Medium / High，按 STANDARD §3.1）
+  - 评估 scope 与 out-of-scope
+  - 出推荐分支名（按 `<type>/<description>` 或 `<type>/<issue-id>-<description>` 命名）
+  - 列 Documentation Needed（ADR / GUIDE / RUNBOOK / SPEC / CHANGELOG / INDEX / CLAUDE.md 影响）
+  - 出 HITL Questions（如需）
 
 **Verification**：
 - [ ] 任务类型已确定（≥1 type label）
@@ -63,6 +66,8 @@
 ---
 
 ### Stage 1 — Repo Scan
+
+**Preferred Skill**: `/mp-flow-repo-scan`
 
 **Entry**：Intake Result 已完成 + 用户授权进入实施
 
@@ -88,6 +93,8 @@
 
 ### Stage 2 — Plan
 
+**Preferred Skill**: `/mp-flow-plan`
+
 **Entry**：Repo Scan Result 已确认 Plan 成立
 
 **Actions**：
@@ -108,6 +115,8 @@
 
 ### Stage 3 — Design Decision (ADR)
 
+**Preferred Skill**: `/mp-flow-design-adr` (ADR) / `/mp-doc-author` (post-PR 2 GUIDE/SPEC/RUNBOOK)
+
 **Entry**：Plan 含架构 / 命名 / 重命名 / 拆分等决策
 
 **Actions**：
@@ -127,6 +136,8 @@
 ---
 
 ### Stage 4 — Plugin / Skill Authoring
+
+**Preferred Skill**: `/mp-flow-author` (orchestrator; 内调 `/plugin-dev:create-plugin` + `/skill-creator:skill-creator`)
 
 **Entry**：Plan + ADR 就绪；分支 / worktree 已创建
 
@@ -152,6 +163,8 @@
 
 ### Stage 5 — Plugin Compliance
 
+**Preferred Skill**: `/mp-flow-compliance` (orchestrator; 内调 `/plugin-dev:skill-reviewer` + `/plugin-dev:plugin-validator` agents)
+
 **Entry**：Stage 4 所有 plugin / skill 改动完成
 
 **Actions**：
@@ -173,6 +186,8 @@
 
 ### Stage 6 — Local Dogfood / Verification
 
+**Preferred Skill**: `/mp-flow-dogfood`
+
 **Entry**：Stage 5 合规通过；功能可在真实环境跑
 
 **Actions**：
@@ -192,6 +207,8 @@
 ---
 
 ### Stage 7 — AI Self-review
+
+**Preferred Skill**: `/mp-flow-self-review` (+ `/mp-doc-validate` 检 docs frontmatter when applicable)
 
 **Entry**：Stage 6 验证通过；准备 commit
 
@@ -224,6 +241,8 @@
 
 ### Stage 8 — Commit / Push / PR
 
+**Preferred Skill Chain**: `/mp-git-commit` → `/mp-git-push` → `/mp-git-pr`
+
 **Entry**：Stage 7 self-review 通过
 
 **Actions**：
@@ -249,6 +268,8 @@
 ---
 
 ### Stage 9 — Review → Merge → Release
+
+**Preferred Skill**: `/mp-git-merge-gate`
 
 **Entry**：PR 创建；等 CI 完成 + review
 
@@ -278,6 +299,8 @@
 ---
 
 ### Stage 10 — Post-merge Cleanup
+
+**Preferred Skill Chain**: `/mp-flow-post-merge` + `/mp-git-cleanup`
 
 **Entry**：PR merged；本地 worktree 仍存在
 
@@ -332,6 +355,7 @@
 
 ## §5 版本历史
 
+- **v1.1**（2026-05-15）：配套 STANDARD v1.1；每 stage 增加 **Preferred Skill** 标记（指向新建的 18 件 `.claude/skills/mp-*` 项目本地 Track C skill）；Stage 8 改为 3-skill chain，Stage 10 改为 2-skill chain。skill 描述详见 STANDARD §5.1 矩阵。
 - **v1.0**（2026-05-11）：初版。配套 STANDARD v1.0；11 stage × 4 段（Entry / Actions / Verification / Exit）；浓缩版 HITL 触发表 + 通用约定。
 
 ---

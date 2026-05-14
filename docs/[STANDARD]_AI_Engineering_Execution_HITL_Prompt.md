@@ -3,9 +3,9 @@
 | Field | Value |
 |-------|-------|
 | **Status** | Active |
-| **Version** | v1.0 |
+| **Version** | v1.1 |
 | **Created** | 2026-05-11 |
-| **Updated** | 2026-05-11 |
+| **Updated** | 2026-05-15 |
 | **Scope** | mj-agentlab-marketplace 仓库（不含 mj-system / mj-agent / 任何下游消费者）|
 | **Audience** | Marketplace 维护者 / 插件贡献者 / Claude Code agent |
 
@@ -211,7 +211,15 @@ Fallback:
 
 ## Skill Hint
 
-无固定 skill。可选 `superpowers:brainstorming` 辅助澄清模糊需求。
+Preferred Skill:
+- `/mp-flow-intake` — marketplace 项目本地 Track C skill；完整 Stage 0 工作流（task type / risk-level / scope / version implication / 9 项必停 trigger 评估 + Issue Draft 输出）
+
+Use When:
+- 用户提需求 / 任务 / 想法转工程任务（trigger 通过 description 自动匹配；亦可显式 `/mp-flow-intake`）
+
+Fallback:
+- 若 `/mp-flow-intake` 不可用：手工按本 §4.1 Rules 段 7 项判断
+- 辅助：`superpowers:brainstorming` 澄清模糊需求
 
 ## Rules
 
@@ -247,7 +255,15 @@ Fallback:
 
 ## Skill Hint
 
-无固定 skill。手工 Glob / Grep / Read 完成。
+Preferred Skill:
+- `/mp-flow-repo-scan` — marketplace 项目本地 Track C skill；read-only 8 维事实核查（git state / 受影响 plugin / marketplace.json / plugin.json / SKILL.md frontmatter / version triangle / docs INDEX-CLAUDE-CHANGELOG / CI 6-step coverage）
+
+Use When:
+- Intake 后进 Plan 前做事实核查（典型自动触发）
+- 用户请求"repo scan" / "事实核查" / "marketplace 核查"
+
+Fallback:
+- 若 `/mp-flow-repo-scan` 不可用：手工按本 §4.2 Rules 段 8 维逐项跑 Glob / Grep / Read
 
 ## Rules
 
@@ -285,7 +301,15 @@ Fallback:
 
 ## Skill Hint
 
-可选 `superpowers:writing-plans`。无 marketplace 自有 plans/ skill。
+Preferred Skill:
+- `/mp-flow-plan` — marketplace 项目本地 Track C skill；起草 6 段 Plan body（Context / Linked Artifacts / Task Breakdown / Doc Decision / Risk Control / Verification & AC）；强制 marketplace 不维护 `plans/` 目录 → 落 `~/.claude/plans/`
+
+Use When:
+- Repo Scan 完成后写 Plan body（典型自动触发）
+- 用户："写 plan" / "draft plan" / "任务拆解"
+
+Fallback:
+- 若 `/mp-flow-plan` 不可用：手工按本 §4.3 Rules 编写 + 用 `superpowers:writing-plans` 辅助
 
 ## Rules
 
@@ -319,7 +343,16 @@ Plan 不写：详细 plugin 接口契约 / 完整实现代码。
 
 ## Skill Hint
 
-无固定 skill。按既有 ADR 风格手工编写。
+Preferred Skill:
+- `/mp-flow-design-adr` — marketplace 项目本地 Track C skill；按 Michael Nygard 5 段 + Implementation Plan + AC + References 7 段 ADR 模板起草，参考 `[ADR]_LearnKit_Discovery_Skills.md` / `[ADR]_NotebookLM_Kit_Retirement.md` 现有样板风格
+
+Use When:
+- Plan §3 任务拆解识别架构 / 命名 / 拆分 / 重命名 / 删除决策（典型自动触发）
+- 用户："写 ADR" / "create ADR" / "架构决策"
+
+Fallback:
+- 若 `/mp-flow-design-adr` 不可用：手工参 `[ADR]_LearnKit_Discovery_Skills.md` 风格写
+- 如属 SPEC/RUNBOOK 范畴：用 `/mp-doc-author` (post-PR 2)
 
 ## Rules
 
@@ -354,27 +387,27 @@ ADR 写作要求：
 ### Must Follow
 - 已确认的 Plan / ADR
 - `docs/[GUIDE]_Marketplace_Project_Overview.md`（plugin 目录结构 + 官方约束）
-- 现有 plugin 作为风格样板：`plugins/learn-kit/`（v4.0.0 起本 marketplace 唯一 plugin；含 5 个不同复杂度的 skill 可参照）
+- 现有 plugin 作为风格样板：`plugins/learn-kit/`（本 marketplace 唯一 plugin；v1.0.0 含 5 个 skill：init / locate / scan / generate-tier / nlm-studio）
 
 ### Consult If Affected
 - `docs/[GUIDE]_Plugin_Development_Testing_Workflow.md`（跨仓库测试三阶段）
 
 ## Skill Hint
 
-Preferred Skill（新 plugin 整体设计）：
-- `/plugin-dev:create-plugin` — 8 阶段 workflow framework（Discovery / Component Planning / Detailed Design / Structure / Implementation / Validation / Testing / Documentation）
+Preferred Skill:
+- `/mp-flow-author` — marketplace 项目本地 Track C orchestrator skill；按 scope 决定调 `/plugin-dev:create-plugin` (大规模 plugin 起草) 或 `/skill-creator:skill-creator` (单 SKILL.md 起草) 或 Direct Write (简单 mods)；强制 marketplace 约束（plugin.json 在 .claude-plugin/ subdir, 不用 components, SKILL.md native frontmatter）+ scope drift 检查
 
-Preferred Skill（每个 SKILL.md 单独创建）：
+Augment Skill（被 `/mp-flow-author` 内部调用，也可手工显式调）:
+- `/plugin-dev:create-plugin` — 8 阶段 workflow framework（Discovery / Component Planning / Detailed Design / Structure / Implementation / Validation / Testing / Documentation）
 - `/skill-creator:skill-creator` — SKILL.md 起草 + frontmatter 校对 + description 触发性优化
 
-Use When：
-- 新建 plugin 或在既有 plugin 内加 skill
-- description 需要 trigger words / pushy 调优
-- 验证 SKILL.md frontmatter / progressive disclosure
+Use When:
+- Stage 4 实施阶段（典型自动触发）
+- 用户："add skill" / "create plugin" / "改 SKILL.md" / "新建 learn-kit 第 6 个 skill"
 
-Fallback：
-- 若 `/plugin-dev:create-plugin` 不可用：手工按 plugin spec 创建 `.claude-plugin/plugin.json` + 必备 5 文件（CLAUDE.md / README.md / CHANGELOG.md / LICENSE / skills/）
-- 若 `/skill-creator:skill-creator` 不可用：手工参照 `plugins/learn-kit/skills/init/SKILL.md` 等同款 SKILL.md 写
+Fallback:
+- 若 `/mp-flow-author` 不可用：直接 `/plugin-dev:create-plugin` 或 `/skill-creator:skill-creator`
+- 若全部 skill 不可用：手工按 plugin spec 创建 `.claude-plugin/plugin.json` + 必备 5 文件；SKILL.md 参 `plugins/learn-kit/skills/init/SKILL.md`
 - 通用兜底：`superpowers:test-driven-development` / `superpowers:verification-before-completion`
 
 ## Rules
@@ -414,18 +447,21 @@ Fallback：
 
 ## Skill Hint
 
-Preferred Skill：
-- `/plugin-dev:skill-reviewer`（agent）— 单 SKILL.md 质量审：description 触发性 / progressive disclosure / 第三人称 / 写作风格 / 与 sibling skill 边界
-- `/plugin-dev:plugin-validator`（agent）— 整插件合规审：plugin.json schema (6 必需字段) / SKILL.md frontmatter 全集 / 目录结构（`.claude-plugin/` subdir / CLAUDE.md / README.md / LICENSE / CHANGELOG / skills/ 齐备）/ 版本一致性（plugin.json ↔ marketplace.json）/ CHANGELOG 存在
+Preferred Skill:
+- `/mp-flow-compliance` — marketplace 项目本地 Track C orchestrator skill；按改动 scope 决策调用 `/plugin-dev:plugin-validator` (whole plugin) + `/plugin-dev:skill-reviewer` (per SKILL.md)；triage 输出为 Critical / Warning / Verified 三级；决定 blocking vs follow-up
 
-Use When：
-- 新建 / 修改 skill 后立刻跑 skill-reviewer
-- 合并 PR 前必跑 plugin-validator（替代手工 CI 6 步检查）
-- bump version 后再跑一次 plugin-validator 确认版本一致
+Augment Skill（被 `/mp-flow-compliance` 内部调用，也可手工显式调）:
+- `/plugin-dev:skill-reviewer` (agent) — 单 SKILL.md 质量审：description 触发性 / progressive disclosure / 第三人称 / 写作风格 / 与 sibling skill 边界
+- `/plugin-dev:plugin-validator` (agent) — 整插件合规审：plugin.json schema (6 必需字段) / SKILL.md frontmatter 全集 / 目录结构（`.claude-plugin/` subdir / CLAUDE.md / README.md / LICENSE / CHANGELOG / skills/ 齐备）/ 版本一致性（plugin.json ↔ marketplace.json）/ CHANGELOG 存在
 
-Fallback：
-- skill-reviewer 不可用：人工对照 marketplace 既有 SKILL.md（如 learn-kit 的 init / locate / scan / generate-tier / nlm-studio 5 件）的 description 风格 + 写作规范
-- plugin-validator 不可用：人工跑 CI 6 步等价检查
+Use When:
+- 新建 / 修改 skill 后立刻跑（典型自动触发）
+- 合并 PR 前必跑 plugin-validator
+- bump version 后再跑一次确认版本一致
+
+Fallback:
+- 若 `/mp-flow-compliance` 不可用：直接调 `/plugin-dev:skill-reviewer` + `/plugin-dev:plugin-validator`
+- 若全部 agent 不可用：人工对照 marketplace 既有 SKILL.md（如 learn-kit 的 init / locate / scan / generate-tier / nlm-studio 5 件）的 description 风格 + 手工跑 CI 6 步等价检查
 
 ## Rules
 
@@ -462,8 +498,16 @@ Fallback：
 
 ## Skill Hint
 
-无固定 skill（手工 Glob + Grep + Read 模拟 skill 算法跑通）。
-推荐 `superpowers:verification-before-completion` 兜底。
+Preferred Skill:
+- `/mp-flow-dogfood` — marketplace 项目本地 Track C skill；负责验证矩阵设计 + sample project 选择（mj-system / mj-agent / blank / self） + read-only 算法模拟 + 真实 plugin install (side-effect skill) + Pass Rate / Performance Baseline 输出
+
+Use When:
+- Stage 5 compliance PASS 后（典型自动触发）
+- 用户："dogfood" / "本地验证" / "verify skill behavior"
+
+Fallback:
+- 若 `/mp-flow-dogfood` 不可用：手工按本 §4.7 Rules 段 5 项跑
+- 通用兜底：`superpowers:verification-before-completion`
 
 ## Rules
 
@@ -495,7 +539,15 @@ commit 前做 AI self-review。
 
 ## Skill Hint
 
-可选 `superpowers:verification-before-completion`。无 marketplace 自有 review skill。
+Preferred Skill:
+- `/mp-flow-self-review` — marketplace 项目本地 Track C skill；执行 11-item checklist + 5a/5b/5c/5d 反向扫描 + §4.7 双段强制纪律（本地验证 / AI 自检 严格不混用） + 把 commit message draft delegate 给 `/mp-git-commit`
+
+Use When:
+- Stage 6 dogfood PASS 后；commit 前（典型自动触发）
+- 用户："AI 自检" / "self review" / "commit 前检查"
+
+Fallback:
+- 若 `/mp-flow-self-review` 不可用：手工按本 §4.8 11 项 checklist 跑 + 通用兜底 `superpowers:verification-before-completion`
 
 ## Rules
 
@@ -544,7 +596,17 @@ commit 前做 AI self-review。
 
 ## Skill Hint
 
-无固定 skill。直接用 `git` + `gh` CLI。
+Preferred Skill Chain (按 Stage 8 流程):
+1. `/mp-git-commit` — 7-step pre-commit workflow（文件选择 + 排除 secret / *.key / PR_BODY.md + commit message format + type/branch 矩阵 + scope 推导 + 拆分指导）
+2. `/mp-git-push` — 7-item pre-push checklist（无 secret / 无大文件 / 无 PR_BODY.md / 非 main/develop / force-push 限制）
+3. `/mp-git-pr` — 用 `gh pr create --body-file` 模式 + 6 PR template 选型 + Stage 7 双段 self-review 嵌入 PR body
+
+Use When:
+- Stage 7 self-review GO 后（典型自动触发链）
+- 用户："commit" / "push" / "create PR" / "提 PR"
+
+Fallback:
+- 若 mp-git 系列不可用：直接用 `git` + `gh` CLI；commit format 参 `docs/CONTRIBUTING.md` § Commit Convention
 
 ## Rules
 
@@ -593,7 +655,15 @@ CI 通过后协调 review / merge / release。
 
 ## Skill Hint
 
-无固定 skill。`gh pr checks` + `gh pr merge` + `gh release view`。
+Preferred Skill:
+- `/mp-git-merge-gate` — marketplace 项目本地 Track C skill；验证 CI 6-step 全过 + PR template self-check 6 项 + review state + scope drift + target 分支 HITL (main → 必停)；输出 merge 命令但不自动执行
+
+Use When:
+- CI 通过后 review 阶段（典型自动触发）
+- 用户："can merge?" / "ready to merge" / "PR 合并准备"
+
+Fallback:
+- 若 `/mp-git-merge-gate` 不可用：手工跑 `gh pr checks` + `gh pr view --json reviewDecision` + `gh pr merge`
 
 ## Rules
 
@@ -638,7 +708,16 @@ PR merge + release 完成后，本地 cleanup。
 
 ## Skill Hint
 
-无固定 skill。`git worktree remove` + `git branch -D`。
+Preferred Skill Chain:
+1. `/mp-flow-post-merge` — orchestrator；含 develop sync / branch identification / release.yml verification (release PR) / follow-up tracking
+2. `/mp-git-cleanup` — 执行 `git worktree remove` + `git branch -D` + `git fetch --tags`；拒绝删 develop / main / 未合并 branch
+
+Use When:
+- PR merged 后清理本地状态（典型自动触发）
+- 用户："cleanup" / "remove worktree" / "PR merged 后"
+
+Fallback:
+- 若 mp-flow-post-merge / mp-git-cleanup 不可用：手工 `git worktree remove <path>` + `git branch -D <name>` + `git fetch --tags`
 
 ## Rules
 
@@ -662,47 +741,56 @@ PR merge + release 完成后，本地 cleanup。
 
 ### §5.1 总览
 
-> **调用语义注**：表中标 `(agent)` 的工具通过 Task 工具的 `subagent_type` 参数调用，不是 `/plugin:skill` slash command 调用；其余是 `/plugin:skill` 形式的 skill。
+> **调用语义注**：表中标 `(agent)` 的工具通过 Task 工具的 `subagent_type` 参数调用，不是 `/plugin:skill` slash command 调用；其余是 `/plugin:skill` 形式的 skill。前缀 `/mp-*` 是 marketplace 项目本地 Track C skill（位于 `.claude/skills/`，随 repo commit 演进；v1.1 起首批 18 件落地）。
 
-| 阶段 | Preferred Skill | Use When | Fallback |
-|------|----------------|----------|----------|
-| 0 Intake | — | 用户提需求 | `superpowers:brainstorming` |
-| 1 Repo Scan | — | Plan 前事实核查 | 手工 Glob/Grep/Read 8 维清单 |
-| 2 Plan | — | 任务拆解 | `superpowers:writing-plans` |
-| 3 Design Decision (ADR) | — | 架构 / 命名 / 拆分决策 | 按既有 `[ADR]_LearnKit_Discovery_Skills.md` 格式手工写 |
-| 4 Plugin / Skill Authoring | `/plugin-dev:create-plugin` + `/skill-creator:skill-creator` | 新建 plugin / 加 skill | 手工按 plugin spec + 现有 SKILL.md 模板写 |
-| 5 Plugin Compliance | `/plugin-dev:skill-reviewer` (agent) + `/plugin-dev:plugin-validator` (agent) | skill 创建后 + PR 前 | 手工 CI 6 步等价检查 |
-| 6 Local Dogfood | — | 实施完成后 + commit 前 | `superpowers:verification-before-completion` |
-| 7 AI Self-review | — | commit 前 | 手工 11-item checklist |
-| 8 Commit / Push / PR | — | gh + git | — |
-| 9 Review → Merge → Release | — | CI ✓ 后 | — |
-| 10 Post-merge | — | merge 后 | — |
+| 阶段 | Preferred Skill | Use When | Augment / Fallback |
+|------|----------------|----------|--------------------|
+| 0 Intake | `/mp-flow-intake` | 用户提需求 / 任务转工程 | Fallback: 手工 §4.1 Rules 7 项；辅助 `superpowers:brainstorming` |
+| 1 Repo Scan | `/mp-flow-repo-scan` | Plan 前事实核查 | Fallback: 手工 Glob/Grep/Read 8 维清单 |
+| 2 Plan | `/mp-flow-plan` | 任务拆解 + 6 段 Plan body | Fallback: 手工写 + `superpowers:writing-plans` |
+| 3 Design Decision (ADR) | `/mp-flow-design-adr` | 架构 / 命名 / 拆分决策 | Fallback: 参 `[ADR]_LearnKit_Discovery_Skills.md` 风格手工 |
+| 4 Plugin / Skill Authoring | `/mp-flow-author` | 新建 plugin / 加 skill / 改 skill | Augment: `/plugin-dev:create-plugin` + `/skill-creator:skill-creator` (内部调) |
+| 5 Plugin Compliance | `/mp-flow-compliance` | skill 创建后 + PR 前 | Augment: `/plugin-dev:skill-reviewer` (agent) + `/plugin-dev:plugin-validator` (agent) (内部调) |
+| 6 Local Dogfood | `/mp-flow-dogfood` | 实施完成后 + commit 前 | Fallback: 手工算法模拟；通用 `superpowers:verification-before-completion` |
+| 7 AI Self-review | `/mp-flow-self-review` | commit 前 | Fallback: 手工 11-item checklist + `superpowers:verification-before-completion` |
+| 8 Commit / Push / PR | `/mp-git-commit` → `/mp-git-push` → `/mp-git-pr` (链式) | gh + git Stage 8 流程 | Fallback: 直接 `git` + `gh` CLI |
+| 9 Review → Merge → Release | `/mp-git-merge-gate` | CI ✓ 后 merge readiness 检查 | Fallback: 手工 `gh pr checks` + `gh pr merge` |
+| 10 Post-merge | `/mp-flow-post-merge` + `/mp-git-cleanup` (链式) | merge 后清理 + release verify | Fallback: 手工 `git worktree remove` + `git branch -D` + `git fetch --tags` |
 
-### §5.2 外部插件来源声明
+### §5.2 Skill 来源 4 大类
 
-**重要**：本 STANDARD 引用的 skill **大部分来自外部 marketplace plugin**，不是 mj-agentlab-marketplace 自有 skill。这些工具的可用性 / 名称 / 行为可能随上游版本演进而变。调用前先：
+本 STANDARD 引用的 skill 分 4 个来源层次（按稳定性排序），可达性 / 名称 / 行为可能随上游版本演进而变。调用前先 `/plugin list` 或 Skill tool 内置 list 确认可达性；若名称变化按 fallback 路径手工执行等价工作。
 
-1. `/plugin list` 或 Skill tool 内置 list 确认可达性
-2. 若名称变化，按 fallback 路径手工执行等价工作
-3. 本节内容是 **2026-05-11 快照**，未来上游变更后需要修订本节
+| 类 | 来源 | 稳定性 | 示例 |
+|---|---|---|---|
+| **1. 项目本地** (`.claude/skills/`) | 本 marketplace 仓内 | **最稳定**（同 commit 演进） | `/mp-flow-*`, `/mp-git-*`, `/mp-doc-*` |
+| **2. 本 marketplace 插件** (`plugins/<name>/`) | 本 marketplace 仓内 plugin | 稳定（同 commit；用户需 install） | `/learn-kit:*` |
+| **3. 外部 plugin-dev 工具链** | claude-plugins-official marketplace | 较稳定（marketplace 维护工作流事实标准） | `/plugin-dev:create-plugin`, `/plugin-dev:skill-reviewer` (agent), `/plugin-dev:plugin-validator` (agent), `/plugin-dev:agent-creator` (agent), `/skill-creator:skill-creator` |
+| **4. 通用方法学** | superpowers 等 | 视版本而变 | `superpowers:*` |
 
-**Skill 来源清单**（截至 2026-05-11）：
+**完整 skill 来源清单**（截至 2026-05-15 v1.1 快照）：
 
-| Skill | 来源 plugin | 来源 marketplace |
-|-------|-----------|-----------------|
-| `/plugin-dev:create-plugin` | plugin-dev | claude-plugins-official |
-| `/plugin-dev:skill-reviewer` (agent) | plugin-dev | 同上 |
-| `/plugin-dev:plugin-validator` (agent) | plugin-dev | 同上 |
-| `/plugin-dev:agent-creator` (agent) | plugin-dev | 同上 |
-| `/skill-creator:skill-creator` | skill-creator | 同上 |
-| `superpowers:*` | superpowers | 同上 |
-| `/learn-kit:*` | learn-kit | **本 marketplace（self-hosted）** |
+| Skill | 来源类 | 来源 plugin / repo | 来源 marketplace |
+|-------|-------|------|-----------------|
+| `/mp-flow-*` (9) | 1 | (project-local `.claude/skills/`) | mj-agentlab-marketplace 本仓 |
+| `/mp-git-*` (6) | 1 | (project-local `.claude/skills/`) | mj-agentlab-marketplace 本仓 |
+| `/mp-doc-*` (3) | 1 | (project-local `.claude/skills/`) | mj-agentlab-marketplace 本仓 |
+| `/learn-kit:*` (5) | 2 | learn-kit | **本 marketplace（self-hosted）** |
+| `/plugin-dev:create-plugin` | 3 | plugin-dev | claude-plugins-official |
+| `/plugin-dev:skill-reviewer` (agent) | 3 | plugin-dev | 同上 |
+| `/plugin-dev:plugin-validator` (agent) | 3 | plugin-dev | 同上 |
+| `/plugin-dev:agent-creator` (agent) | 3 | plugin-dev | 同上 |
+| `/skill-creator:skill-creator` | 3 | skill-creator | 同上 |
+| `superpowers:*` | 4 | superpowers | 同上 |
 
 ### §5.3 选用原则
 
-- **优先 marketplace 自有 skill**（`/learn-kit:*`）：随本 repo 同 commit 演进，最稳定。v4.0.0 起 marketplace 唯一 plugin，含 5 个 skill（init / locate / scan / generate-tier / nlm-studio）
-- **其次 plugin-dev 工具链**：marketplace 维护工作流的事实标准（v3.0.0 + v3.1.0 实战验证）
-- **最后 superpowers 兜底**：通用方法学增强，跨任意 Claude Code 使用场景可用
+按稳定性 + 域适配优先级:
+
+1. **最高优先 — 项目本地 `mp-*`**（类 1）：随本 repo 同 commit 演进，最稳定；专为 marketplace 11-stage 工作流设计；v1.1 首批 18 件覆盖 flow + git + doc 三 family
+2. **次高优先 — 本 marketplace 插件 `/learn-kit:*`**（类 2）：marketplace 唯一 plugin = learn-kit v1.0.0，含 5 个 skill（init / locate / scan / generate-tier / nlm-studio）；处理 plugin 内部教学方法论场景
+3. **第三优先 — `plugin-dev` 工具链 + `skill-creator`**（类 3）：marketplace 维护工作流的事实标准（v3.0.0 + v3.1.0 实战验证）；被 `/mp-flow-author` / `/mp-flow-compliance` 内部 augment
+4. **最后兜底 — `superpowers:*`**（类 4）：通用方法学增强，跨任意 Claude Code 使用场景可用
 
 ---
 
@@ -759,6 +847,7 @@ HITL           是风险与决策边界。
 
 ## §8 版本历史
 
+- **v1.1**（2026-05-15）：**HITL Skill Integration**。新建 `.claude/skills/` 18 件 marketplace 项目本地 Track C skill 覆盖 flow + git + doc 三 family（9 flow / 6 git / 3 doc）；refactor §4.1-§4.11 每阶段 Skill Hint 段指向新 `mp-*` skill，外部 plugin-dev / skill-creator skill 转为 Augment / Fallback；§5.1 矩阵填全 11 阶段 Preferred Skill；§5.2 重整为 4 大类 skill 来源（项目本地 / marketplace 插件 / 外部 plugin-dev / 通用方法学）；§5.3 选用原则按稳定性 + 域适配优先级重排；line 357 / 703 修正 `v4.0.0 起` 前瞻表述为当前状态。依据：v4.0.0 (PR #72/#73) NotebookLM_Kit 退役 + learn-kit v1.0.0 落地后 marketplace 工作流稳态化。
 - **v1.0**（2026-05-11）：初版。剥离 mj-system HITL STANDARD 中 DB / n8n / ETL / FastAPI / Flyway / pg_cron / 双域架构等 marketplace 不适用内容；保留 HITL 哲学骨架；嵌入 marketplace 实际 11 阶段；引入 Hybrid Skill 矩阵（plugin-dev + skill-creator + superpowers + marketplace self-hosted）；与现有 docs/CONTRIBUTING + GUIDE_* + RUNBOOK_* + ADR_* 引用关系明确化。依据：v3.0.0 generic restructure（PR #61 + #62）+ v3.1.0 learn-kit discovery skills（PR #63 + #64）两轮实战经验。
 
 ---
