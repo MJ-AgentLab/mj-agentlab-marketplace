@@ -69,26 +69,38 @@
 
 ## AI Engineering
 
-marketplace AI agent 工作流规范（v3.2.0 起）：
+marketplace AI agent 工作流规范（v4.1.0 起含 18 件项目本地 mp-* skill）：
 
-- **STANDARD（完整规范）**：[docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md](docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)
+- **STANDARD（完整规范）**：[docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md](docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md) (v1.1)
 - **GUIDE（运行时勾选清单）**：[docs/[GUIDE]_Marketplace_Agent_Execution_Checklist.md](docs/[GUIDE]_Marketplace_Agent_Execution_Checklist.md)
 
 ### 11 阶段速查表
 
 | # | Stage | Brief | Preferred Skill |
 |---|-------|-------|----------------|
-| 0 | Intake | 任务准入 + risk/scope/文档需求 | — (可选 `superpowers:brainstorming`) |
-| 1 | Repo Scan | 事实核查 8 维 | — |
-| 2 | Plan | 执行计划（落用户本地 `~/.claude/plans/`） | — (可选 `superpowers:writing-plans`) |
-| 3 | Design Decision (ADR) | 架构 / 命名 / 拆分决策 | — |
-| 4 | Plugin / Skill Authoring | 新建 / 改造 plugin / skill | `/plugin-dev:create-plugin` + `/skill-creator:skill-creator` |
-| 5 | Plugin Compliance | 合规审 + 版本一致性 | `/plugin-dev:skill-reviewer` + `/plugin-dev:plugin-validator` (agents) |
-| 6 | Local Dogfood | 真实场景验证 | — |
-| 7 | AI Self-review | 双段 + 11-item checklist | — |
-| 8 | Commit / Push / PR | gh + git + 6 PR template | — |
-| 9 | Review → Merge → Release | CI / merge / release.yml | — |
-| 10 | Post-merge Cleanup | worktree + branch + tag | — |
+| 0 | Intake | 任务准入 + risk/scope/文档需求 | `/mp-flow-intake` |
+| 1 | Repo Scan | 事实核查 8 维 | `/mp-flow-repo-scan` |
+| 2 | Plan | 执行计划（落用户本地 `~/.claude/plans/`） | `/mp-flow-plan` |
+| 3 | Design Decision (ADR) | 架构 / 命名 / 拆分决策 | `/mp-flow-design-adr` |
+| 4 | Plugin / Skill Authoring | 新建 / 改造 plugin / skill | `/mp-flow-author`（内调 `/plugin-dev:create-plugin` + `/skill-creator:skill-creator`） |
+| 5 | Plugin Compliance | 合规审 + 版本一致性 | `/mp-flow-compliance`（内调 `/plugin-dev:skill-reviewer` + `/plugin-dev:plugin-validator` agents） |
+| 6 | Local Dogfood | 真实场景验证 | `/mp-flow-dogfood` |
+| 7 | AI Self-review | 双段 + 11-item checklist | `/mp-flow-self-review` |
+| 8 | Commit / Push / PR | gh + git + 6 PR template | `/mp-git-commit` → `/mp-git-push` → `/mp-git-pr` |
+| 9 | Review → Merge → Release | CI / merge / release.yml | `/mp-git-merge-gate` |
+| 10 | Post-merge Cleanup | worktree + branch + tag | `/mp-flow-post-merge` + `/mp-git-cleanup` |
+
+### Project-Local Skills (`.claude/skills/`)
+
+v4.1.0 起 18 件 `mp-*` 工作流 skill 随 repo commit 演进，划分 3 family：
+
+| Family | 数量 | Skills |
+|--------|------|--------|
+| `mp-flow-*` | 9 | intake / repo-scan / plan / design-adr / author / compliance / dogfood / self-review / post-merge |
+| `mp-git-*` | 6 | branch / commit / push / pr / merge-gate / cleanup |
+| `mp-doc-*` | 3 | author / validate / bump-version |
+
+详见 STANDARD §5.1-§5.3。Skill 来源优先级：**项目本地 mp-* > learn-kit > plugin-dev > superpowers**。
 
 ### HITL 触发摘要
 

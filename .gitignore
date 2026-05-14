@@ -7,9 +7,11 @@ Thumbs.db
 .vscode/
 *.swp
 
-# Claude Code - only track settings.json
+# Claude Code - track settings.json and project-local skills (Track C)
 .claude/*
 !.claude/settings.json
+!.claude/skills/
+!.claude/skills/**
 
 # Serena
 .serena/

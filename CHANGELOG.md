@@ -5,7 +5,37 @@
 
 ## [Unreleased]
 
-## [4.0.0] - 2026-05-14
+## [4.1.0] - 2026-05-15
+
+### Added
+
+- **`.claude/skills/` — 18 个项目本地 Track C 工作流 skill** 覆盖 flow + git + doc 三 family。所有 skill 用 `mp-*` 命名 prefix，匹配 mj-agent `mj-agent-*` 同源对称风格。每个 SKILL.md 含 frontmatter (name + description with 双语 trigger phrases) + 10 段 body（Overview / Workflow DOT diagram / When to Run / Step-by-step / Output Format / DOES NOT DO / Sub-skill / Reference Files / Anti-patterns / Handoff）。
+  - **mp-flow-* (9)**: `intake` (Stage 0 任务准入) / `repo-scan` (Stage 1 marketplace 8 维事实核查) / `plan` (Stage 2 6 段 Plan body) / `design-adr` (Stage 3 Michael Nygard 7 段 ADR) / `author` (Stage 4 orchestrator → /plugin-dev:create-plugin + /skill-creator:skill-creator) / `compliance` (Stage 5 orchestrator → /plugin-dev:plugin-validator + skill-reviewer agents) / `dogfood` (Stage 6 真实环境验证) / `self-review` (Stage 7 11-item checklist + §4.7 双段) / `post-merge` (Stage 10 post-merge orchestrator)
+  - **mp-git-* (6)**: `branch` (worktree-based bare repo 分支创建；G1 hard requirement) / `commit` (7-step pre-commit + type/branch 矩阵 + scope 推导) / `push` (7-item pre-push checklist) / `pr` (gh pr create --body-file 模式 + 6 PR template) / `merge-gate` (Stage 9 readiness + main HITL) / `cleanup` (`git worktree remove` + `git branch -D` + `git fetch --tags`)
+  - **mp-doc-* (3)**: `author` (tag-prefixed doc 起草 + 8-field frontmatter；post-PR 2 framework prerequisite) / `validate` (frontmatter / path / INDEX / wikilink 合规审计) / `bump-version` (4 站点 atomic 版本同步 + CHANGELOG 段头 promote)
+
+### Changed
+
+- **`docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`** v1.0 → **v1.1**：
+  - §4.1-§4.11 Skill Hint 段全部 refactor，Preferred Skill 指向新建 `mp-*` skill；外部 plugin-dev / skill-creator skill 转为 Augment（被 orchestrator 内部调用）或 Fallback（skill 不可用时手工）
+  - §5.1 Skill 矩阵填全：11 阶段无「—」（每阶段 Preferred Skill + Augment/Fallback 完整）
+  - §5.2 重整为 4 大类 skill 来源表（项目本地 / 本 marketplace 插件 / 外部 plugin-dev / 通用方法学），含 2026-05-15 完整快照清单
+  - §5.3 选用原则按稳定性 + 域适配优先级重排：**最优先项目本地 `mp-*` > learn-kit > plugin-dev > superpowers**
+  - line 357 / 703 修正：`v4.0.0 起本 marketplace 唯一 plugin` → `本 marketplace 唯一 plugin`（去 forward-looking 表述，v4.0.0 已落地）
+  - §8 版本历史加 v1.1 条目
+- **`docs/[GUIDE]_Marketplace_Agent_Execution_Checklist.md`** v1.0 → **v1.1**：每 stage 新增 **Preferred Skill** 标记行；Stage 8 改为 3-skill chain；Stage 10 改为 2-skill chain；§5 版本历史更新
+- **`CLAUDE.md`**（marketplace 根）—— 「11 阶段速查表」Preferred Skill 列全部填上 `/mp-*` 引用；新增 **Project-Local Skills (`.claude/skills/`)** 段说明 18 件 skill 划分 3 family；AI Engineering 段头 "v3.2.0 起" → "v4.1.0 起含 18 件项目本地 mp-* skill"
+
+### Changed (versioning)
+
+- **`VERSION`** — 4.0.0 → 4.1.0
+- **`.claude-plugin/marketplace.json`** — `metadata.version` 4.0.0 → 4.1.0；`metadata.description` 增加 v4.1.0 段（18 项目本地 skill）；`plugins[].version` 不变（learn-kit 1.0.0 仍然，本 PR 不动 plugin）
+
+### Rationale
+
+v4.0.0 NotebookLM_Kit 退役 + learn-kit v1.0.0 落地后，marketplace 工作流稳态化。mj-agent 同期已发展出 34 件 `.claude/skills/mj-agent-*` Track C skill；本 PR 移植其中 18 件适用于 marketplace 静态注册表场景的（剔除 runtime / infra 两 family，剔除 n8n / SQL guardrail / Docker / LLM endpoint 等 mj-agent 专属内容）。匹配 mj-agent 同源对称风格（`<project>-<family>-<action>`）以保持跨项目 AI agent 识别一致性。
+
+
 
 ### Removed
 
