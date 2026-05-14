@@ -354,7 +354,7 @@ ADR 写作要求：
 ### Must Follow
 - 已确认的 Plan / ADR
 - `docs/[GUIDE]_Marketplace_Project_Overview.md`（plugin 目录结构 + 官方约束）
-- 现有 plugin 作为风格样板：`plugins/learn-kit/` / `plugins/notebooklm-kit/`
+- 现有 plugin 作为风格样板：`plugins/learn-kit/`（v4.0.0 起本 marketplace 唯一 plugin；含 5 个不同复杂度的 skill 可参照）
 
 ### Consult If Affected
 - `docs/[GUIDE]_Plugin_Development_Testing_Workflow.md`（跨仓库测试三阶段）
@@ -424,7 +424,7 @@ Use When：
 - bump version 后再跑一次 plugin-validator 确认版本一致
 
 Fallback：
-- skill-reviewer 不可用：人工对照 marketplace 既有 SKILL.md（如 init / locate / scan / notebooklm-kit/auth）的 description 风格 + 写作规范
+- skill-reviewer 不可用：人工对照 marketplace 既有 SKILL.md（如 learn-kit 的 init / locate / scan / generate-tier / nlm-studio 5 件）的 description 风格 + 写作规范
 - plugin-validator 不可用：人工跑 CI 6 步等价检查
 
 ## Rules
@@ -696,12 +696,11 @@ PR merge + release 完成后，本地 cleanup。
 | `/plugin-dev:agent-creator` (agent) | plugin-dev | 同上 |
 | `/skill-creator:skill-creator` | skill-creator | 同上 |
 | `superpowers:*` | superpowers | 同上 |
-| `/notebooklm-kit:*` | notebooklm-kit | **本 marketplace（self-hosted）** |
 | `/learn-kit:*` | learn-kit | **本 marketplace（self-hosted）** |
 
 ### §5.3 选用原则
 
-- **优先 marketplace 自有 skill**（`/learn-kit:*` / `/notebooklm-kit:*`）：随本 repo 同 commit 演进，最稳定
+- **优先 marketplace 自有 skill**（`/learn-kit:*`）：随本 repo 同 commit 演进，最稳定。v4.0.0 起 marketplace 唯一 plugin，含 5 个 skill（init / locate / scan / generate-tier / nlm-studio）
 - **其次 plugin-dev 工具链**：marketplace 维护工作流的事实标准（v3.0.0 + v3.1.0 实战验证）
 - **最后 superpowers 兜底**：通用方法学增强，跨任意 Claude Code 使用场景可用
 
