@@ -51,7 +51,7 @@
 
 - **删除** `notebooklm-kit` 整个插件（含 7 个 skill: auth / build / studio / learn-make / learn-test / manage / query 以及 nlm-shared/ 10 份共享参考）—— quiz / flashcards / cross-notebook query / source 管理等场景永久放弃
 - **迁** `plugins/notebooklm-kit/.mcp.json` → `plugins/learn-kit/.mcp.json`（server name `notebooklm-mcp` 不变；工具前缀自然变为 `mcp__plugin_learn-kit_notebooklm-mcp__*`）
-- **新增** `plugins/learn-kit/skills/nlm-studio/` — `/learn-kit:nlm-studio <topic>` skill：把 `learning/<topic>/` 的 3 md + 3 html 上传 NotebookLM 出 5 类 × 3 view = 至多 15 个多媒体 artifact（audio + video + slide_deck + mind_map + infographic × foundation/structural/challenge）。9 个 prompt 模板组合实现 View-Purpose Preservation 原则（view-prefix 5 段必备 / artifact-suffix 格式约束 / interaction-overrides YAML 处理 5 个 view × artifact 高耦合 cell）
+- **新增** `plugins/learn-kit/skills/nlm-studio/` — `/learn-kit:nlm-studio <topic>` skill：把 `learning/<topic>/` 的 3 markdown 上传 NotebookLM 出 13 个多媒体 artifact（4 view-cycled 类型 audio + video + slide_deck + infographic × foundation/structural/challenge = 12 + 1 shared view-agnostic mind_map）。HTML 不上传（dogfood 验证 NLM 拒收）。9 个 prompt 模板组合实现 View-Purpose Preservation 原则（view-prefix 5 段必备 / artifact-suffix 格式约束 / interaction-overrides YAML 处理 4 个 view × artifact 高耦合 cell；mind_map 因 NLM 媒介限制 view-agnostic 不在 cartesian 中）
 - **改** `/learn-kit:generate-tier` 工作流 8-step → 10-step：HTML 渲染（step 8）后加 optional step 9 询问是否调 nlm-studio（默认 skip，opt-in）；原 step 9 (Summary) 改名 step 10
 - **bump** learn-kit `0.3.1 → 1.0.0`（major：新增 MCP 依赖 + 首个 stable 版本）；marketplace `3.2.1 → 4.0.0`（major：删插件 + 跟随 v3.0.0 删 5 个插件先例）
 - 决策记录：[docs/[ADR]_NotebookLM_Kit_Retirement.md](docs/[ADR]_NotebookLM_Kit_Retirement.md)

@@ -6,7 +6,7 @@
 
 1. **手工流（METHODOLOGY 8 阶段）**：用户读方法论后自行抽框架、找比喻、写决策图，产出 `[LEARNING]_<topic>_Common.md` 类 framework 文档
 2. **AI 流（generate-tier）**：给 user_question + 源文档，多选三档（零基础/结构/挑战）→ AI 直出 markdown，可选再渲染交互式 HTML
-3. **多媒体流（nlm-studio，v1.0.0 新增）**：把三档学习文档推到 NotebookLM 生成多媒体 artifact（audio / video / slide / mind_map / infographic × 3 view = 至多 15 个），在线浏览不下载
+3. **多媒体流（nlm-studio，v1.0.0 新增）**：把三档学习 markdown 推到 NotebookLM 生成多媒体 artifact（4 view-cycled 类型: audio + video + slide_deck + infographic × 3 view + 1 shared mind_map = 至多 13 个），在线浏览不下载
 
 加上两个发现层 skills（locate 反查 + scan 枚举），learn-kit 形成「init → 发现 → 撰写（手工/AI 双路径）→ 渲染 HTML → 推 NLM 多媒体」完整闭环。
 
@@ -124,24 +124,25 @@ Windows 下 `start <file>` 直接打开预览。
 /learn-kit:nlm-studio <topic>
 ```
 
-把 `learning/<topic>/` 下的 3 md + 3 html（HTML 缺则 degrade 到 3 md）上传到 `learn-kit:<topic>` notebook，生成 5 类 × 3 view = 至多 15 个 artifact：
+把 `learning/<topic>/` 下的 3 个 markdown 文件上传到 `learn-kit:<topic>` notebook（HTML 不上传 — v1.0.0 dogfood 发现 NLM 对 HTML 源拒绝率高），生成 4 view-cycled 类型 × 3 view + 1 shared mind_map = 至多 13 个 artifact：
 
 | Artifact | Foundation | Structural | Challenge |
 |----------|------------|------------|-----------|
 | audio | 双人深聊，故事化 + TL;DR 收尾 | 系统化概念地图 + 自检清单收尾 | 每段以挑战性提问收尾 |
 | video | 5-pack TL;DR on-screen 双模收尾 | 结构图框架 + 自检清单 | 反例对比 + 未答问题收尾 |
 | slide_deck | 类比 + 5-pack TL;DR 收 | 层级图 + 比较表 + 自检 | 70% 反例 + 对比 + 开放问题收 |
-| mind_map | 5 类比为枝 | 严格 3 层径向，5 类 ≤7 叶 | 5 类边界 / 反例 / 迁移 |
 | infographic | 每板 ≤7 数字 + 生活化图标 | 维度对照 + 层级图 | 看似 X / 实际 Y 对比 |
+| mind_map | （单一 shared，view-agnostic：dogfood 发现 NLM 对 mind_map 媒介无视 view 差异化指令；3 层径向 ≤ 50 节点） |
 
-调用流程：
-1. **Pre-flight**：检 6 文件 + auth + NLM 健康
+调用流程（5 步 + 中间 refresh_auth）：
+1. **Pre-flight**：检 3 必需 .md + refresh_auth + server_info（本地）+ notebook_list（真 auth gate）
 2. **Re-run guard**：若同名 notebook 存在 → 4 选 1（regenerate / replace sources / new-timestamped / abort）
-3. **Quota confirm gate**：明示「15 artifact ≈ 75% 日上限，本 skill 看不见账户当日已用量」让用户 confirm / reduce / abort
-4. **Generate**：sequential 调 15 次 studio_create + studio_status 轮询；idempotency 通过 studio_status 跳过已存在的 (type, view) 对
-5. **Recap**：终端 markdown 表格 + notebook URL；零本地落盘
+3. **Notebook setup**：3 个 source_add（parallel）+ notebook_get 强制核验真实 source 列表
+4. **Quota confirm gate**：明示「13 artifact ≈ 65% 日上限，本 skill 看不见账户当日已用量」让用户 confirm / reduce / abort
+5. **Generate**：3 parallel batches of 5/4/4（foundation 含 mind_map，structural/challenge 跳过 mind_map）；每 batch 间 refresh_auth；mid-run auth 失败 retry-once 后 abort
+6. **Recap**：终端 markdown 表格 + notebook URL；零本地落盘
 
-15 个 artifact 全在 notebooklm.google.com 在线访问。需保存请自行 bookmark。
+13 个 artifact 全在 notebooklm.google.com 在线访问。需保存请自行 bookmark。
 
 ## 方法论概览（8 阶段）
 

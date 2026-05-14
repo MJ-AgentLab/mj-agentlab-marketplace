@@ -13,7 +13,7 @@
 
 ### Added
 
-- **`plugins/learn-kit/skills/nlm-studio/SKILL.md`** + **9 个 templates** — 新 skill `/learn-kit:nlm-studio <topic>` 吸收 notebooklm-kit 的核心多媒体场景（build + studio 5 类制品生成），但加入 **View-Purpose Preservation** 原则使生成的 artifact 显著保留 foundation/structural/challenge 三档的教学目的差异。5-step workflow（pre-flight → re-run guard → notebook setup → quota confirm gate → sequential artifact generation with studio_status idempotency → terminal recap）。零本地落盘（artifact 全在 notebooklm.google.com 在线访问）。9 个 prompt 模板：3 view-prefix（pedagogical purpose 五段必备）+ 5 artifact-suffix（媒介格式约束）+ 1 interaction-overrides.yaml（5 个 view × artifact 高耦合 cell 联合调优）。
+- **`plugins/learn-kit/skills/nlm-studio/SKILL.md`** + **9 个 templates** — 新 skill `/learn-kit:nlm-studio <topic>` 吸收 notebooklm-kit 的核心多媒体场景（build + studio 多媒体制品生成），但加入 **View-Purpose Preservation** 原则使生成的 artifact 显著保留 foundation/structural/challenge 三档的教学目的差异。**生成 4 view-cycled 类型 × 3 view + 1 shared view-agnostic mind_map = 13 个 artifact**（mind_map 经 dogfood 发现 NLM 对其 view 差异化无视，故收敛为 1 shared / topic）。5-step workflow with per-Step auth refresh（pre-flight: real auth gate via notebook_list, not just local refresh_auth+server_info → re-run guard → notebook setup: 3 markdown source_add + mandatory notebook_get verification → quota confirm gate → artifact generation in 3 parallel batches of 5/4/4 with mid-run auth retry-once → terminal recap）。**markdown-only 源**（HTML 在 dogfood 中被 NLM 在 file 和 text 两模式下都拒，故 v1.0.0 不上传 HTML）。零本地落盘（artifact 全在 notebooklm.google.com 在线访问）。9 个 prompt 模板：3 view-prefix（pedagogical purpose 五段必备）+ 5 artifact-suffix（4 view-cycled + 1 view-agnostic mind_map）+ 1 interaction-overrides.yaml（4 个 view × artifact 高耦合 cell 联合调优；mind_map 不在 cartesian 中）。
 - **`docs/[ADR]_NotebookLM_Kit_Retirement.md`** — 新 ADR：记录 v4.0.0 退场决策（context / decision / consequences / 4 个 alternative considered + 否决理由 / compliance verification 路径）。
 
 ### Moved
@@ -40,6 +40,18 @@
 - **Marketplace surface 减少**：v3.x 的 2 plugin 减到 v4.0.0 的 1 plugin。用户 `~/.claude/settings.json` 中如显式 enable 过 `notebooklm-kit@mj-agentlab-marketplace` 的条目会成为 orphan reference（无害）。
 - **退役 7 个 skill** 无替代（详见 §Removed）；用户场景中真依赖 quiz / cross-notebook / source 管理者需要切换到外部工具或 web UI。
 - **MCP server 重复加载风险**：如用户曾手动注册 legacy `mj-nlm@my-marketplace` plugin，升级 v4.0.0 后会出现两个 `notebooklm-mcp` server 同名加载；MIGRATION_GUIDE 明示需 `/plugin uninstall mj-nlm@my-marketplace`。
+
+### Dogfood-validated design adjustments (in v4.0.0 PR pre-merge)
+
+End-to-end dogfooding of `/learn-kit:nlm-studio documentation-framework` against mj-agent's `learning/documentation-framework/` produced 5 findings that reshaped the v1.0.0 release before merge:
+
+1. **HTML upload dropped** — NLM rejects `.html` source uploads in both `source_type="file"` and `source_type="text"` modes for non-trivial content. The L2 file→text fallback in earlier drafts is removed entirely. Only 3 `.md` files are uploaded per topic. HTML output of `/learn-kit:generate-tier` is now explicitly for human browser viewing only, not NLM ingestion. Source count per notebook: 6 → 3.
+2. **Pre-flight strengthened** — `refresh_auth` + `server_info` are local-only checks (token presence + freshness timestamp); they do NOT verify Google still accepts the token. Step 1.4 now calls `notebook_list` as a real network-level auth gate.
+3. **Per-Step auth refresh** — NLM tokens observed to expire within 15–30 min, often inside a single 7–15 min `nlm-studio` run. Every Step now refreshes auth at its start; mid-run auth failure in Step 4 retries once before aborting.
+4. **Post-upload verification mandatory** — `source_add` error responses are unreliable (server may async-succeed despite client error). Step 3 now mandates `notebook_get` to cross-check the actual source list; trust notebook_get over the source_add response.
+5. **Mind_map collapsed to view-agnostic** — NLM's mind_map artifact type produces near-identical structural-hierarchy output across foundation/structural/challenge prompting variants. Producing 3 view-cycled mind_maps wasted quota for redundant content. v1.0.0 ships with one shared mind_map per topic; previous structural+mind_map interaction-override removed; artifact total: 15 → 13.
+
+Additional optimization: parallel batches of 5 `studio_create` calls per round work without rate-limiting, replacing the original strict-sequential design for ~3× speedup.
 
 ### Released
 

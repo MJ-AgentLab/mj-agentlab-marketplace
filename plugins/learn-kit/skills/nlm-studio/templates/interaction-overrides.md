@@ -5,6 +5,14 @@ artifact-suffix` alone. This file lists the minority of cells
 where the joint effect needs an explicit tweak — because the
 medium and the pedagogical stance interact non-obviously.
 
+**Scope**: This file applies only to the 4 view-cycled artifact
+types (audio / video / slide_deck / infographic) × 3 views =
+12 possible cells. Mind_map is excluded entirely because v1.0.0
+dogfood showed NLM's mind_map type produces structural-hierarchy
+output regardless of view-tier prompting; mind_map is therefore
+generated once per topic (view-agnostic) and uses only its own
+artifact-mind_map.md template, no view-prefix and no override.
+
 The `nlm-studio` skill reads this file during focus_prompt
 composition. If a row matches the current `(view, artifact)` pair,
 its `inject:` value is appended as the `===== INTERACTION OVERRIDE
@@ -47,21 +55,6 @@ overrides:
       that look like dashboards have failed their tier; they
       should look like illustrated children's posters.
 
-  - view: structural
-    artifact: mind_map
-    inject: |
-      Enforce a strict 3-tier radial structure:
-        center (1 node) → categories (exactly 5 nodes) →
-        leaves (no more than 7 per category).
-      Cross-links between leaves of different categories are
-      forbidden — they imply structural overlap that should have
-      been resolved by elevating the shared concept to a
-      category-level node instead. The 5 categories should match
-      the topic's natural dimensions / layers / phases; if you
-      can't find 5 categories, the topic may not yet be
-      structurally articulated enough for a mind_map at this
-      tier.
-
   - view: challenge
     artifact: slide_deck
     inject: |
@@ -89,19 +82,26 @@ overrides:
       video memorable.
 ```
 
-## What about the other 10 cells?
+## What about the other 8 cells?
 
-The remaining 10 (view, artifact) cells — foundation/audio,
-foundation/slide_deck, foundation/mind_map, structural/audio,
-structural/video, structural/slide_deck, structural/infographic,
-challenge/video, challenge/mind_map, challenge/infographic — work
-correctly with view-prefix + artifact-suffix alone. Adding more
-overrides here without evidence (dogfood QA) of an actual joint
-effect would be over-engineering.
+The remaining 8 (view, artifact) cells — foundation/audio,
+foundation/slide_deck, structural/audio, structural/video,
+structural/slide_deck, structural/infographic, challenge/video,
+challenge/infographic — work correctly with view-prefix +
+artifact-suffix alone. Adding more overrides here without evidence
+(dogfood QA) of an actual joint effect would be over-engineering.
 
-Should dogfood (per plan §10 Test 1.7: blind view-classification
-test) reveal a cell whose output drifts away from its tier, add a
-new override row here with a targeted injection. Do not adjust
-view-prefix or artifact-suffix files for single-cell fixes — they
-serve all five / three combinations and changes there have wider
+Should dogfood reveal a cell whose output drifts away from its
+tier, add a new override row here with a targeted injection. Do not
+adjust view-prefix or artifact-suffix files for single-cell fixes —
+they serve multiple combinations and changes there have wider
 blast radius.
+
+## v1.0.0 dogfood-driven changes
+
+- **Removed**: `(structural, mind_map)` override row. Mind_map is
+  no longer view-cycled (one mind_map per topic, view-agnostic). See
+  `artifact-mind_map.md` for the rationale.
+- **Cartesian shrinks**: 12 cells (4 view-cycled types × 3 views)
+  instead of 15. Overrides cover 4 of 12 cells (33%); the other 8
+  use base composition.

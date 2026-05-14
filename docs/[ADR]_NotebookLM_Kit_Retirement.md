@@ -35,11 +35,11 @@ mj-agentlab-marketplace v3.x 包含两个 plugin：
 
 ### Tier-1（必做）
 
-1. **新增** `plugins/learn-kit/skills/nlm-studio/` —— `/learn-kit:nlm-studio <topic>` skill：
-   - 输入：`learning/<topic>/` 下 3 个 `[LEARNING]_<topic>_<view>.md` + 3 个同名 `.html`（HTML 缺失时 graceful degrade 到仅 3 md）
-   - 处理：上传到名为 `learn-kit:<topic>` 的 NotebookLM notebook；运行 sequential studio_create 循环 5 类 × 3 view = 至多 15 artifact
-   - 输出：终端 markdown 表格列 15 个 NLM artifact URL + notebook URL；**零本地落盘**
-   - 触发 5-step workflow：pre-flight → re-run guard (notebook_list 查同名 + 4 选 1 prompt) → notebook setup (source_add ×6 with L2 file→text fallback) → **Step 3.5 Quota confirm gate**（明示 ~75% 日上限 + 「本 skill 看不见账户已用量」+ confirm/reduce/abort 三选） → artifact generation (studio_status 幂等查 + sequential 生成；单步失败 skip 继续) → terminal recap
+1. **新增** `plugins/learn-kit/skills/nlm-studio/` —— `/learn-kit:nlm-studio <topic>` skill（v1.0.0 dogfood 后定稿）：
+   - 输入：`learning/<topic>/` 下 3 个 `[LEARNING]_<topic>_<view>.md`（**markdown only**；HTML 经 dogfood 验证 NLM 在 file / text 双模式下都拒收，不上传）
+   - 处理：上传到名为 `learn-kit:<topic>` 的 NotebookLM notebook；运行 3 parallel batches of 5/4/4 = 13 artifact（4 view-cycled 类型 × 3 view + 1 shared view-agnostic mind_map）
+   - 输出：终端 markdown 表格列 13 个 NLM artifact URL + notebook URL；**零本地落盘**
+   - 触发 5-step workflow（每 Step 起始 refresh_auth + Step 1.4 用 notebook_list 作真 auth gate）：pre-flight → re-run guard (notebook_list 查同名 + 4 选 1 prompt) → notebook setup (3 parallel source_add + **强制 notebook_get 核验**) → **Step 3.5 Quota confirm gate**（明示 ~65% 日上限 + 「本 skill 看不见账户已用量」+ confirm/reduce/abort 三选） → artifact generation (3 parallel batches with mid-run auth retry-once + studio_status 幂等查) → terminal recap
 2. **核心质量原则 View-Purpose Preservation**：通过 3 view-prefix（pedagogical purpose / audience / style / anti-patterns / success criteria 5 段必备）+ 5 artifact-suffix（媒介格式约束）+ 1 interaction-overrides YAML（5 个 view × artifact 高耦合 cell 联合调优）三段式 focus_prompt 拼装，让 foundation/structural/challenge 的同类 artifact 在风格、节奏、收尾方式上**显著差异化**。SKILL.md 内置 failsafe：view-prefix 5 段任一缺失即 abort，避免 view-purpose 被退化为 tag
 3. **迁** `plugins/notebooklm-kit/.mcp.json` → `plugins/learn-kit/.mcp.json`（原文复制；MCP server name `notebooklm-mcp` 不变；工具前缀自然从 `mcp__plugin_notebooklm-kit_notebooklm-mcp__*` 变为 `mcp__plugin_learn-kit_notebooklm-mcp__*`）
 4. **删除** `plugins/notebooklm-kit/` 整个目录（22 个文件，含 7 个 skill + 10 份 nlm-shared/ + CLAUDE / README / CHANGELOG / plugin.json）

@@ -112,7 +112,7 @@ learn-kit v0.1.0 是全新插件，提供 8 阶段方法论 + 模板 + scaffold 
 |---|---|
 | `/notebooklm-kit:auth` | 直接在终端跑 `! nlm login`；`/learn-kit:nlm-studio` 内部 pre-flight 自动检查 auth，失败时给出 instruction |
 | `/notebooklm-kit:build` | `/learn-kit:nlm-studio <topic>` 内部 Step 3 完成 source 上传（输入限定为 `learning/<topic>/` 3 tier 文件） |
-| `/notebooklm-kit:studio` | `/learn-kit:nlm-studio <topic>` 内部 Step 4 完成 artifact 生成（5 类 × 3 view = ≤15 artifact；不再支持 quiz / flashcards / data_table / report） |
+| `/notebooklm-kit:studio` | `/learn-kit:nlm-studio <topic>` 内部 Step 4 完成 artifact 生成（4 view-cycled 类型 × 3 view + 1 shared mind_map = ≤13 artifact；不再支持 quiz / flashcards / data_table / report） |
 | `/notebooklm-kit:learn-make` | `/learn-kit:nlm-studio <topic>` 等价场景（甚至更精细：View-Purpose Preservation） |
 | **`/notebooklm-kit:learn-test`（quiz + flashcards）** | **无替代** —— 永久退役。如需评估学习效果，用外部工具或自建 |
 | **`/notebooklm-kit:manage`（notebook 增删改 / 分享）** | **无替代** —— 直接用 notebooklm.google.com web UI 操作 |
@@ -176,7 +176,7 @@ Claude Code 会按 marketplace.json 自动卸载 notebooklm-kit。
 如果你之前用 v3.x 的 `/learn-kit:generate-tier` 产出过 `learning/<topic>/` 目录（mj-system / mj-agent 等项目）：
 
 - **完全兼容** v4.0.0 nlm-studio：直接调 `/learn-kit:nlm-studio <topic>` 即可
-- Schema 无变化（仍是 3 md + 3 html / `[LEARNING]_<topic>_{F,S,C}.{md,html}` 命名约定）
+- Schema 无变化（generate-tier 仍产 3 md + 3 html；命名约定 `[LEARNING]_<topic>_{F,S,C}.{md,html}` 保持）。nlm-studio 自身只读 3 个 .md —— v1.0.0 dogfood 发现 NLM 对 HTML 源拒收，故 v4.0.0 起 nlm-studio 不上传 HTML。HTML 仍可用于人类浏览器本地查看
 
 如果你曾用 v3.x 的 `/notebooklm-kit:learn-make` 在 NotebookLM 上创建过 notebook：
 

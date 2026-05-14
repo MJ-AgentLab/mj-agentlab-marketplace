@@ -1,6 +1,6 @@
 # CLAUDE.md — learn-kit Plugin
 
-learn-kit 是一个通用 Claude Code 插件，提供把枚举型规则清单（RFC keyword lists、安全策略、API style guides、STANDARD/POLICY 文档）转化为人类可学习决策框架文档的 8 阶段方法论 + 模板 + scaffold 命令；支持基于「用户问题 + 上传文档」AI 生成三档（零基础 / 结构 / 挑战）reading-tier 学习文档与配套交互式 HTML；并支持把三档学习文档作为 source 推到 NotebookLM 生成多媒体 artifact（audio / video / slide / mind_map / infographic × 3 view = 至多 15 个在线可看的制品）。
+learn-kit 是一个通用 Claude Code 插件，提供把枚举型规则清单（RFC keyword lists、安全策略、API style guides、STANDARD/POLICY 文档）转化为人类可学习决策框架文档的 8 阶段方法论 + 模板 + scaffold 命令；支持基于「用户问题 + 上传文档」AI 生成三档（零基础 / 结构 / 挑战）reading-tier 学习文档与配套交互式 HTML；并支持把三档学习文档（**仅 markdown**）作为 source 推到 NotebookLM 生成多媒体 artifact（4 类 view-cycled: audio + video + slide_deck + infographic × 3 view + 1 shared mind_map = 至多 13 个在线可看的制品；HTML 不上传，仅用于人类浏览器查看）。
 
 ## 上下文
 
@@ -20,8 +20,8 @@ learn-kit 是一个通用 Claude Code 插件，提供把枚举型规则清单（
 - `skills/scan/SKILL.md` — `/learn-kit:scan` 项目枚举
 - `skills/generate-tier/SKILL.md` — `/learn-kit:generate-tier` AI 生成三档学习文档（10-step workflow，含可选 HTML 渲染 + step 9 可选 NLM artifact 询问）
 - `skills/generate-tier/templates/{foundation,structural,challenge,html-renderer}.md` — 4 个 prompt 模板
-- **`skills/nlm-studio/SKILL.md`** — **v1.0.0 新增** — `/learn-kit:nlm-studio <topic>` 把 `learning/<topic>/` 的 3 tier .md + 3 tier .html 推到 NotebookLM 出 15 个多媒体 artifact
-- `skills/nlm-studio/templates/{view-foundation,view-structural,view-challenge,artifact-audio,artifact-video,artifact-slide_deck,artifact-mind_map,artifact-infographic,interaction-overrides}.md` — 9 个 prompt 模板组合（3 view × 5 artifact，加上 5 个 view × artifact 联合 override）
+- **`skills/nlm-studio/SKILL.md`** — **v1.0.0 新增** — `/learn-kit:nlm-studio <topic>` 把 `learning/<topic>/` 的 3 tier .md 推到 NotebookLM 出 13 个多媒体 artifact（4 view-cycled × 3 + 1 shared mind_map）
+- `skills/nlm-studio/templates/{view-foundation,view-structural,view-challenge,artifact-audio,artifact-video,artifact-slide_deck,artifact-mind_map,artifact-infographic,interaction-overrides}.md` — 9 个 prompt 模板组合（3 view × 4 view-cycled artifact = 12 cells + 1 view-agnostic mind_map；interaction-overrides 覆盖 4 个 view × artifact 联合 cell）
 
 加 `.mcp.json` 一份（注册 `notebooklm-mcp` server）。
 
@@ -53,13 +53,19 @@ learning/
 /learn-kit:nlm-studio <topic-slug>
 ```
 
-把 `learning/<topic>/` 下的 3 个 .md + 3 个 .html（HTML 缺失时 graceful degrade 到仅 3 md）作为 NotebookLM source 上传到一个名为 `learn-kit:<topic>` 的 notebook，再生成 5 类 × 3 view = 至多 15 个 multimedia artifact，每个 artifact 通过组合「view-prefix（pedagogical purpose）+ artifact-suffix（medium constraints）+ interaction-override（joint tuning）」三段式 focus_prompt 严格继承源 view 的教学目的。
+把 `learning/<topic>/` 下的 3 个 .md 文件作为 NotebookLM source 上传到一个名为 `learn-kit:<topic>` 的 notebook，再生成 4 view-cycled 类型 × 3 view + 1 shared mind_map = 至多 13 个 multimedia artifact。view-cycled 的 4 类（audio / video / slide_deck / infographic）通过组合「view-prefix + artifact-suffix + interaction-override」三段式 focus_prompt 严格继承源 view 的教学目的；mind_map 单独 1 个（view-agnostic，因 dogfood 发现 NLM 对 mind_map 的 view 差异化无视）。
 
-**关键质量原则 View-Purpose Preservation**：foundation/structural/challenge 的 audio 不能听起来一样。foundation audio 以日常类比开场 + 5 条 TL;DR 结尾；challenge audio 每段以挑战性提问结尾；structural audio 以系统化概念地图为主轴。其他 4 类 artifact 同理。SKILL.md 内置 failsafe 校验三段 view-prefix 模板完整性（§1-§5 必备），缺则 abort。
+**HTML 不上传**：v1.0.0 dogfood 发现 NLM 对 HTML 源（file 模式与 text 模式均）拒绝率高且 error 响应不可靠。HTML 仅用于人类浏览器查看；`/learn-kit:generate-tier` 仍可生成 HTML。
 
-**零本地落盘**：15 个 artifact 全在 notebooklm.google.com 在线访问；skill 只把 URL 表格打到终端，不动 INDEX.md，不下载二进制。
+**关键质量原则 View-Purpose Preservation**：foundation/structural/challenge 的 audio 不能听起来一样。foundation audio 以日常类比开场 + 5 条 TL;DR 结尾；challenge audio 每段以挑战性提问结尾；structural audio 以系统化概念地图为主轴。视频/幻灯/信息图同理。Mind_map 因 NLM 媒介本身的限制，不强求 view 差异化。SKILL.md 内置 failsafe 校验 view-prefix 模板的 5 段结构（§1-§5）完整性，缺则 abort。
 
-**Step 3.5 Quota confirm gate**：15 artifact ≈ 75% NLM Studio empirical 日上限（~20/天）。本 skill 没有 API 能查账户当日已用量；调用前显式 AskUserQuestion 让用户在「Confirm all 15 / Reduce subset / Abort」三选，避免半路 quota 失败。
+**零本地落盘**：13 个 artifact 全在 notebooklm.google.com 在线访问；skill 只把 URL 表格打到终端，不动 INDEX.md，不下载二进制。
+
+**Step 3.5 Quota confirm gate**：13 artifact ≈ 65% NLM Studio empirical 日上限（~20/天）。本 skill 没有 API 能查账户当日已用量；调用前显式 AskUserQuestion 让用户在「Confirm all 13 / Reduce subset / Abort」三选，避免半路 quota 失败。
+
+**Per-step auth refresh**：dogfood 发现 NLM token 寿命短（15-30 min 内可能耗尽），SKILL.md 在每个 Step 起始 refresh_auth；Step 1 用 notebook_list 作真 auth gate（refresh_auth + server_info 是本地检查不充分）；mid-run auth 失败 retry-once 后再 abort。
+
+**Source 上传后强制验证**：dogfood 发现 source_add 错误响应不可靠（服务端可能 async 成功）。SKILL.md 在 3 个 source_add 后强制 notebook_get 核验真实状态。
 
 **Re-run guard**：同名 notebook 存在则 4 选 1（regenerate / replace sources / new-timestamped / abort）；regenerate 路径用 `studio_status` 查已存在的 (type, view) 对跳过 —— CTRL+C 半途中断后重跑能续上。
 
