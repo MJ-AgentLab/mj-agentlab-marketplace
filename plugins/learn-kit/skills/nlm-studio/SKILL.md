@@ -426,6 +426,10 @@ focus_prompt = """
 {the `inject:` value from interaction-overrides.md if a row exists
  for this (view, type) pair; otherwise omit this section entirely}
 
+===== LANGUAGE & TERMINOLOGY =====
+{contents of templates/language-directive.md — see §"Language &
+ terminology directive" below; appended verbatim to every artifact}
+
 ===== SOURCE TOPIC =====
 Topic: {topic}
 View: {view}
@@ -442,6 +446,10 @@ focus_prompt = """
 ===== MEDIUM CONSTRAINTS =====
 {contents of templates/artifact-mind_map.md, ~30 lines}
 
+===== LANGUAGE & TERMINOLOGY =====
+{contents of templates/language-directive.md — same single block
+ also used by view-cycled composition}
+
 ===== SOURCE TOPIC =====
 Topic: {topic}
 This mind_map is the structural skeleton of the topic across all
@@ -453,6 +461,31 @@ Sources: 3 .md learning documents covering foundation/structural/
 challenge tier content.
 """
 ```
+
+### Language & terminology directive (single shared block)
+
+The directive at `templates/language-directive.md` is loaded
+unmodified into every artifact's focus_prompt (both view-cycled
+and shared mind_map). It enforces a consistent output-language
+policy across all 13 artifacts:
+
+- **Narrative content in 中文 (Simplified Chinese)** — section
+  titles, explanations, descriptions, host dialogue (audio),
+  on-screen text (video / infographic), slide bodies, mind_map
+  node labels.
+- **Industry-standard technical terms remain in English** where
+  English is the universal convention in the topic's professional
+  domain (e.g., `frontmatter`, `schema`, `ADR`, `SKILL.md`, `PR`,
+  `track`, `canonical`, `deprecated`, `YAML`, `Markdown`, `MCP
+  server`, `loader`, `governance`).
+- **Code, file paths, identifiers, command names stay verbatim**
+  in their original form (e.g., `mcp__plugin_learn-kit_*`,
+  `notebook_id`, `/learn-kit:nlm-studio`).
+
+This single-block approach was chosen over per-template duplication
+to (a) guarantee consistency across all 13 cells and (b) make
+future policy changes a one-file edit. Edit
+`templates/language-directive.md` to adjust the policy globally.
 
 **Why this design over 15 standalone templates:** view and artifact
 have largely independent dimensions for 4 of 5 artifact types. The
@@ -510,6 +543,9 @@ loaded).
 - `templates/interaction-overrides.md` — YAML table of joint
   (view × artifact) tuning overrides (for the 4 view-cycled types
   only; no mind_map entries)
+- `templates/language-directive.md` — single shared output-language
+  policy appended to every artifact's focus_prompt (Chinese narrative
+  + English technical terms)
 - `/learn-kit:generate-tier` — upstream skill that produces the
   learning markdown this skill consumes (HTML output is for human
   browser viewing only and is not uploaded to NLM)

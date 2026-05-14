@@ -31,6 +31,15 @@ Five findings from end-to-end dogfooding against mj-agent's `learning/documentat
 
 Additional optimization validated by dogfood: parallel batches of 5 `studio_create` calls per round incur no rate-limiting; the original sequential design was changed to parallel-per-round for speed.
 
+### Language & terminology directive (added in v1.0.0 PR pre-merge)
+
+- **`templates/language-directive.md`** — new single-source-of-truth file appended verbatim to every artifact's `focus_prompt` as the `===== LANGUAGE & TERMINOLOGY =====` section (both view-cycled compositions and the shared mind_map composition). Enforces output-language policy across all 13 artifacts in a single place:
+  - **主体内容用中文（简体）** — section titles, narrative, host dialogue (audio), on-screen text (video), slide bodies, mind_map node labels, infographic panel text.
+  - **Industry-standard technical terms preserved in English** — explicit non-translation lists for documentation governance (`frontmatter` / `schema` / `ADR` / `SKILL.md` / `track` / `canonical` / `deprecated` / etc.), formats & protocols (`YAML` / `Markdown` / `MCP server` / `loader`), engineering practice (`hygiene` / `governance` / `lint` / `CI` / `worktree`), generic CS (`hash` / `cache` / `enum` / `glob` / `regex`).
+  - **Code / file paths / identifiers / command names verbatim** — no translation, no added quoting.
+  - Concrete good/bad sample lines included in the directive so NLM has anchored exemplars rather than abstract rules.
+- **SKILL.md composition contract** updated to include the new `===== LANGUAGE & TERMINOLOGY =====` section in both view-cycled and mind_map composition formats. The directive is a single file rather than 9 copies (one per template) to guarantee consistency and make future policy changes a one-file edit.
+
 ### Changed
 
 - **`.claude-plugin/plugin.json`** — version 0.3.1 → 1.0.0 (major bump: addition of MCP-dependent skill + first stable release). description rewritten to describe all three flows (manual / AI / multimedia) and explicitly state nlm-studio's external dependencies (notebooklm-mcp + `nlm login`); keywords expanded with `nlm-studio`, `notebooklm`, `audio`, `video`, `multimedia`, `slide-deck`, `mind-map`, `infographic` (8 new entries).
