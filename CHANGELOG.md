@@ -5,6 +5,46 @@
 
 ## [Unreleased]
 
+## [4.0.0] - 2026-05-14
+
+### Removed
+
+- **`plugins/notebooklm-kit/`** — 整个插件递归删除（22 个文件：plugin.json + CLAUDE.md + CHANGELOG.md + README.md + 7 个 skill + 10 份 `nlm-shared/` 共享参考）。退役 skill：`auth` / `build` / `studio` / `learn-make` / `learn-test` / `manage` / `query`。**永久退役场景**（无替代）：quiz / flashcards / data_table / report / cross-notebook query / source 增删改 / notebook 分享 / Deep Research。用户场景中需要 quiz/flashcards 的请用外部评估工具；需要 notebook 管理的请用 notebooklm.google.com web UI；需要跨 notebook 查询的同上。
+
+### Added
+
+- **`plugins/learn-kit/skills/nlm-studio/SKILL.md`** + **9 个 templates** — 新 skill `/learn-kit:nlm-studio <topic>` 吸收 notebooklm-kit 的核心多媒体场景（build + studio 5 类制品生成），但加入 **View-Purpose Preservation** 原则使生成的 artifact 显著保留 foundation/structural/challenge 三档的教学目的差异。5-step workflow（pre-flight → re-run guard → notebook setup → quota confirm gate → sequential artifact generation with studio_status idempotency → terminal recap）。零本地落盘（artifact 全在 notebooklm.google.com 在线访问）。9 个 prompt 模板：3 view-prefix（pedagogical purpose 五段必备）+ 5 artifact-suffix（媒介格式约束）+ 1 interaction-overrides.yaml（5 个 view × artifact 高耦合 cell 联合调优）。
+- **`docs/[ADR]_NotebookLM_Kit_Retirement.md`** — 新 ADR：记录 v4.0.0 退场决策（context / decision / consequences / 4 个 alternative considered + 否决理由 / compliance verification 路径）。
+
+### Moved
+
+- **`plugins/notebooklm-kit/.mcp.json` → `plugins/learn-kit/.mcp.json`** — `notebooklm-mcp` MCP server 注册位置迁移；server name 不变；MCP 工具前缀**自然变化**从 `mcp__plugin_notebooklm-kit_notebooklm-mcp__*` 变为 `mcp__plugin_learn-kit_notebooklm-mcp__*`（规则：`mcp__plugin_<plugin.json-name>_<server-key>__<tool>`）。
+
+### Changed
+
+- **`VERSION`** — 3.2.1 → 4.0.0
+- **`.claude-plugin/marketplace.json`** — `metadata.version` 3.2.1 → 4.0.0；`metadata.description` 重写（从 "two plugins" 变为 "sole plugin: learn-kit"）；删 `plugins[]` 中 `notebooklm-kit` 条目；`learn-kit` 条目 version 0.3.1 → 1.0.0 + description 重写覆盖 5 个 skill + `keywords` 新增 8 词（`nlm-studio` / `notebooklm` / `audio` / `video` / `multimedia` / `slide-deck` / `mind-map` / `infographic`）—— 改善 marketplace 搜索 discoverability
+- **`plugins/learn-kit/.claude-plugin/plugin.json`** — version 0.3.1 → 1.0.0；description 改写删 "Independent plugin — no external service dependencies" 加 nlm-studio 描述 + 分级依赖说明；keywords 同步加 8 个新词
+- **`plugins/learn-kit/CLAUDE.md`** — 删独立性宣言；新增「v1.0.0 起的依赖」段；新增「触发 `/learn-kit:nlm-studio`」段；新增「NLM 集成 · 工具前缀」段说明 MCP prefix 规则
+- **`plugins/learn-kit/CHANGELOG.md`** — 加 `[1.0.0] - 2026-05-14` 完整条目（Added / Changed / Breaking / Released as part of）
+- **`plugins/learn-kit/README.md`** — opener 加多媒体流；加 §前置依赖 段；§使用 step 5 详述 nlm-studio；evolution table 加 v1.0.0 行
+- **`plugins/learn-kit/skills/generate-tier/SKILL.md`** — workflow 8-step → **10-step**（HTML 渲染 step 8 后插入 optional step 9 询问是否调 nlm-studio；原 step 9 Summary 改名 step 10）；`generator` frontmatter tag bumped 到 `learn-kit/generate-tier v1.0.0`；§Non-goals 中 "no NotebookLM" 改写为「step 9 only **offers** to invoke external services; user must opt in」
+- **`CLAUDE.md`**（marketplace 根）— "2 个通用插件" 改为 "1 个通用插件"；新增 §v4.0.0 Restructure Note；其他 v3.x notes 折叠到「历史版本记录」段
+- **`README.md`**（marketplace 根）— version badge 3.2.1 → 4.0.0；插件表只剩 learn-kit；加 5 skill 子表；§3 使用示例 / §更新 / §v3.x → v4.0.0 迁移指引 / §历史版本 全部按 1-plugin 重写
+- **`docs/INDEX.md`** — Architecture Decision Records 表加新 ADR 行；Plugin References 段更新为 1-plugin 状态
+- **`docs/MIGRATION_GUIDE.md`** — 重排：原内容归 §1 v2.x→v3.0.0；新增 §2 v3.2.x→v4.0.0（退役 skill 替代矩阵 + 工具前缀变化 + 用户迁移 5 步 + legacy mj-nlm 卸载提醒 + 历史 NLM 数据兼容性 + 回滚路径）
+- **`docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`** — 4 处 `notebooklm-kit` 引用更新（line 357 reference docs / 427 skill-reviewer fallback / 699 hybrid skill matrix / 704 marketplace 自有 skill 选用原则）
+
+### Breaking
+
+- **Marketplace surface 减少**：v3.x 的 2 plugin 减到 v4.0.0 的 1 plugin。用户 `~/.claude/settings.json` 中如显式 enable 过 `notebooklm-kit@mj-agentlab-marketplace` 的条目会成为 orphan reference（无害）。
+- **退役 7 个 skill** 无替代（详见 §Removed）；用户场景中真依赖 quiz / cross-notebook / source 管理者需要切换到外部工具或 web UI。
+- **MCP server 重复加载风险**：如用户曾手动注册 legacy `mj-nlm@my-marketplace` plugin，升级 v4.0.0 后会出现两个 `notebooklm-mcp` server 同名加载；MIGRATION_GUIDE 明示需 `/plugin uninstall mj-nlm@my-marketplace`。
+
+### Released
+
+通过 release.yml 自动 tag `v4.0.0` + 创建 GitHub Release (trigger: push to main + paths: VERSION)。本次包含 marketplace v4.0.0 + learn-kit v1.0.0 双 tag（marketplace 主标签；learn-kit 跟随 marketplace tag policy）。
+
 ## [3.2.1] - 2026-05-14
 
 ### Fixed
