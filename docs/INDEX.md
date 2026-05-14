@@ -16,6 +16,7 @@ Navigation hub for all marketplace documentation.
 | Document | Description |
 |----------|-------------|
 | [AI Engineering Execution HITL Prompt](<./[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md>) | marketplace 自有 HITL 规范——11 阶段闭环 + Prompt 通用结构 + HITL 触发规则 + Hybrid Skill 矩阵 |
+| [AI Engineering HITL Workflow (Generic)](./ai_engineering_execution_hitl_workflow.md) | plugin-agnostic / domain-agnostic 哲学锚点；18 步通用版工作流 + 14 个可复用 HITL prompt。本 marketplace 的 specialized STANDARD（上一行）即基于此 fork 而来 |
 
 ## Runbooks
 
@@ -39,6 +40,10 @@ Navigation hub for all marketplace documentation.
 ## Plugin References
 
 > v4.0.0 起 marketplace 仅含 1 个 plugin（learn-kit）。learn-kit `nlm-studio` skill 需要 `notebooklm-mcp` MCP server（plugin 内自带 `.mcp.json`）+ 一次性 `nlm login`；其余 4 个 skill 零外部依赖。详见 [plugins/learn-kit/README.md](../plugins/learn-kit/README.md) 与 [plugins/learn-kit/CLAUDE.md](../plugins/learn-kit/CLAUDE.md)。
+
+### learn-kit 用户文档（`plugins/learn-kit/docs/`）
+
+6 份学习材料覆盖「5 分钟上手 → 定位 → 方法论 → RFC 范例 → 5 skills 分工 → 治理边界」完整路径，详见 [plugins/learn-kit/docs/](../plugins/learn-kit/docs/) 或 plugin README 的 §学习材料 段。
 
 ## Suggested Reading Order
 
