@@ -177,6 +177,25 @@ Windows 下 `start <file>` 直接打开预览。
 
 详见 `METHODOLOGY.md §9` + `§11`。
 
+## 学习材料 / 用户文档
+
+`docs/` 子目录含 6 份学习材料，覆盖「5 分钟上手 → 项目定位 → 8 阶段方法论 → RFC 范例 → 5 skills 分工 → 治理边界」完整学习路径：
+
+| 文档 | 用途 |
+|------|------|
+| [learn-kit-使用手册.md](./docs/learn-kit-使用手册.md) | **5 分钟上手**：5 skills 速查表 + 安装 + 5 步快速流程 + 案例 + 踩坑 + 边界（v1.0.0 起）|
+| [learn-kit-01-positioning.md](./docs/learn-kit-01-positioning.md) | 项目定位与问题域——3 模式 + 适用 / 不适用 + 与同类工具差异 |
+| [learn-kit-02-eight-stage-methodology.md](./docs/learn-kit-02-eight-stage-methodology.md) | 8 阶段方法论详解（手工流的认知框架，跨版本稳定）|
+| [learn-kit-03-rfc-2119-worked-example.md](./docs/learn-kit-03-rfc-2119-worked-example.md) | RFC 2119 worked example——把抽象方法论"贴着实例走一遍" |
+| [learn-kit-04-three-skills.md](./docs/learn-kit-04-three-skills.md) | 5 个 skill 的分工（init / scan / locate / generate-tier / nlm-studio）+ 完整闭环图 |
+| [learn-kit-05-governance-boundary.md](./docs/learn-kit-05-governance-boundary.md) | 治理边界——并行子系统模型 / 命名 / frontmatter / 归档 / v1.0.0 起的依赖变化 |
+
+推荐阅读顺序：
+
+- **新用户**：使用手册 → 01 定位 → 02 方法论 → 04 skills 分工
+- **想要 RFC 范例**：03（先读 02 再读 03）
+- **理解治理决策**：05 治理边界 + 上游 ADR (`docs/[ADR]_NotebookLM_Kit_Retirement.md`)
+
 ## License
 
 MIT — see `LICENSE`.
