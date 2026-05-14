@@ -62,7 +62,7 @@ The skill is invoked via natural-language prompt. Extract these variables before
 
 ## Execution flow
 
-The skill runs an 8-step workflow. Steps 2-4 and step 7 use `AskUserQuestion`; the rest are deterministic. Each step is gated on the prior step's output — do not skip ahead.
+The skill runs a 10-step workflow. Steps 2-4, step 7, and step 9 use `AskUserQuestion`; the rest are deterministic. Each step is gated on the prior step's output — do not skip ahead.
 
 ### Step 0 — Intake
 
@@ -131,7 +131,7 @@ For each selected `view` in (foundation, structural, challenge):
    source_question: <user_question>
    source_docs: [<paths or "(pasted text)">]
    generated_at: <ISO8601 UTC>
-   generator: learn-kit/generate-tier v0.3.0
+   generator: learn-kit/generate-tier v1.0.0
    ---
    ```
 5. `Write` to `learning/<topic>/[LEARNING]_<topic>_<view>.md` (auto-create the topic folder if missing).
@@ -214,13 +214,36 @@ Execute the html-renderer prompt body. The renderer must produce a single self-c
 
 `Write` to `learning/<topic>/[LEARNING]_<topic>_<view>.html`. Update the corresponding row in `learning/INDEX.md` `## Tier Documents` table — replace the `—` in the HTML column with the new HTML filename.
 
-### Step 9 — Summary
+### Step 9 — (Optional) NLM multimedia generation
+
+After step 8 completes, ask the user via `AskUserQuestion` (single-select) whether to push the just-generated three-tier corpus to NotebookLM as multimedia artifacts via the sibling skill `/learn-kit:nlm-studio`.
+
+Question text:
+
+> 三档 markdown + HTML 已生成。是否进一步推到 NotebookLM 出多媒体
+> artifact (5 类 × 3 view = ≤15 个：audio + video + slide_deck +
+> mind_map + infographic，全程在线浏览不下载)？需 NotebookLM 账号
+> + `nlm login` 配置。
+
+Options:
+
+- **Yes, generate now** — invoke `/learn-kit:nlm-studio <topic>` in the same turn. Pass the confirmed `topic` slug. nlm-studio handles its own pre-flight, quota confirm gate, and recap.
+- **Skip** — print a one-line reminder: "日后可手动 `/learn-kit:nlm-studio <topic>`." then continue to Step 10.
+- **I'll think about it** — same as Skip.
+
+**Hard rule:** Never auto-trigger nlm-studio without explicit user yes. The 15-artifact batch costs NLM Studio quota and ETA 7-15 min — it is opt-in, never opt-out. The default selection in the AskUserQuestion should be "Skip" (or unmarked) to prevent accidental confirmation.
+
+If the user does not have `nlm login` configured, this Step 9 still asks the question — nlm-studio's own pre-flight (Step 1) handles the auth check and provides the `! nlm login` instruction. Do not preflight nlm auth from generate-tier itself; keep the responsibility boundary clean.
+
+### Step 10 — Summary
 
 Print a concise summary:
 
 - All generated paths (markdown + html), grouped by tier
 - Recommended reading order: foundation → structural → challenge
 - For each HTML on Windows: `start <absolute-path>` to preview
+- If Step 9 was Yes: also list the NLM notebook URL + 15-artifact recap printed by `/learn-kit:nlm-studio` (it returns to the terminal naturally; do not re-render).
+- If Step 9 was Skip: a one-line reminder of how to invoke nlm-studio later.
 - Pointers: "Re-run with different tier selection if you want a refreshed version" + "Use `/learn-kit:locate <topic>` next time you forget where this lives"
 
 ## Multi-select UX rules
@@ -228,7 +251,7 @@ Print a concise summary:
 `AskUserQuestion` calls in this skill follow these conventions:
 
 - Always set `header` to ≤ 12 chars: "Source", "Tiers", "Topic", "Conflict", "HTML"
-- Step 2 (Source) and Step 3 (Tiers) use `multiSelect: true`; Steps 1, 4, 7 use single-select
+- Step 2 (Source) and Step 3 (Tiers) use `multiSelect: true`; Steps 1, 4, 7, 9 use single-select
 - Step 8 does NOT ask which tier to render — it defaults to all tiers from step 5. Pair markdown and HTML as joint delivery artifacts of the same generation event so the user's mental model treats them as a single output unit.
 - When a hint variable is extracted in step 0, skip the corresponding AskUserQuestion to avoid double-asking.
 
@@ -282,6 +305,6 @@ Pair the markdown and HTML by basename — same directory, same stem, only the e
 
 - This skill does not edit existing tier documents — only writes (with conflict policy from step 4). For incremental edits, the user should edit the file directly.
 - This skill does not validate generated content — leave that to user review or markdownlint. The frontmatter `generator:` field is the sole audit trail.
-- This skill does not invoke external services or LLMs beyond Claude's own tools and subagents. No NotebookLM, no third-party APIs.
+- This skill does not invoke external services or LLMs beyond Claude's own tools and subagents at generation time (Steps 0-8). Step 9 only **offers** to invoke `/learn-kit:nlm-studio` (which does talk to NotebookLM); the user must opt in explicitly. If they decline, no external API is touched.
 - This skill does not generate cross-tier internal links (e.g., foundation HTML linking to structural HTML). Each artifact is self-contained, by design.
 - This skill does not maintain a regeneration history. Each run overwrites (or `.v2`-suffixes per step 4 conflict policy).

@@ -28,6 +28,7 @@ Navigation hub for all marketplace documentation.
 | Document | Description |
 |----------|-------------|
 | [ADR: learn-kit Discovery & Locate Skills](<./[ADR]_LearnKit_Discovery_Skills.md>) | v3.1.0 增加 locate + scan 两个 skill 的决策；为什么不引入 manifest / 持久化缓存 |
+| [ADR: NotebookLM Kit Retirement](<./[ADR]_NotebookLM_Kit_Retirement.md>) | v4.0.0 删除 notebooklm-kit 整个插件 + 把核心 build / studio 多媒体场景吸收到 learn-kit `/learn-kit:nlm-studio` 的决策；备选方案与代价 |
 
 ## Contributing
 
@@ -37,7 +38,7 @@ Navigation hub for all marketplace documentation.
 
 ## Plugin References
 
-> v3.0.0 起当前 2 个 plugin（notebooklm-kit / learn-kit）均无 secrets 配置需求。各插件的 README.md 和 CLAUDE.md 含完整说明。
+> v4.0.0 起 marketplace 仅含 1 个 plugin（learn-kit）。learn-kit `nlm-studio` skill 需要 `notebooklm-mcp` MCP server（plugin 内自带 `.mcp.json`）+ 一次性 `nlm login`；其余 4 个 skill 零外部依赖。详见 [plugins/learn-kit/README.md](../plugins/learn-kit/README.md) 与 [plugins/learn-kit/CLAUDE.md](../plugins/learn-kit/CLAUDE.md)。
 
 ## Suggested Reading Order
 
