@@ -5,6 +5,38 @@
 
 ## [Unreleased]
 
+## [4.3.0] - 2026-05-15
+
+### Added
+
+- **Plugin-internal docs framework extension** — Documentation Framework v1.0 now applies to `plugins/learn-kit/docs/` (post-PR 4 framework reach):
+  - **`plugins/learn-kit/docs/INDEX.md`** — Plugin-internal documentation index with `scope: learn-kit`. Catalogues plugin-internal ADRs / GUIDEs / SPECs + the 6 lowercase numbered teaching docs (which are intentionally exempt from tag-prefix requirement as plugin-internal pedagogical content).
+  - **`plugins/learn-kit/docs/adr/`** — Plugin-internal ADR subdir (newly populated by the migrated ADR below).
+  - **`plugins/learn-kit/docs/guide/`** and **`docs/spec/`** — Placeholder subdirs with `.gitkeep` for future plugin-internal GUIDEs / SPECs.
+
+### Moved (plugin-scope boundary realignment)
+
+- **`docs/adr/[ADR]_LearnKit_Discovery_Skills.md`** → **`plugins/learn-kit/docs/adr/[ADR]_LearnKit_Discovery_Skills.md`** — Migrated from marketplace level to plugin-internal level. Rationale: the decision is plugin-internal (skill design within learn-kit), not marketplace governance. The companion ADR `[ADR]_NotebookLM_Kit_Retirement.md` stays at marketplace `docs/adr/` because it's a cross-plugin governance decision.
+
+### Changed
+
+- **`plugins/learn-kit/CLAUDE.md`** — New `## Documentation` section linking to `docs/INDEX.md`.
+- **`plugins/learn-kit/.claude-plugin/plugin.json`** — version 1.0.0 → 1.1.0; description extended to mention v1.1.0 plugin-internal docs framework.
+- **`docs/INDEX.md`** (marketplace level) — ADR table now lists only `[ADR]_NotebookLM_Kit_Retirement.md` (marketplace scope); LearnKit Discovery removed (migrated); Plugin Documentation section gets a new table linking to `plugins/learn-kit/docs/INDEX.md`; learn-kit docs section rewritten to describe the new plugin-internal framework layout.
+
+### Changed (versioning)
+
+- **`VERSION`** — 4.2.1 → 4.3.0 (minor)
+- **`.claude-plugin/marketplace.json`** — `metadata.version` 4.2.1 → 4.3.0; `metadata.description` extended with v4.3.0 segment describing plugin extension; `plugins[learn-kit].version` 1.0.0 → 1.1.0; `plugins[learn-kit].description` extended to mention v1.1.0 plugin-internal docs framework
+
+### Rationale
+
+PR 4 of 4 in the doc framework rollout. PRs 1-3 established framework + retrofitted marketplace-level docs. PR 4 extends the framework reach into the plugin (`plugins/learn-kit/docs/`) with appropriate scope adjustment: plugin-internal architectural decisions (e.g., skill design choices) live under the plugin; cross-plugin / marketplace governance decisions stay at marketplace level. This boundary surfaces clearly via the `scope:` frontmatter field (`learn-kit` vs `marketplace`).
+
+The 6 lowercase numbered teaching docs in `plugins/learn-kit/docs/` (`learn-kit-01-positioning.md` etc.) are **intentionally retained at their existing flat paths** without tag prefixes. They are plugin-internal pedagogical content (a sequential tutorial series), not architectural / decision artifacts. The numbered prefix is the pedagogical ordering signal; tag-prefixing them would obscure that. They are documented in `plugins/learn-kit/docs/INDEX.md` under a "Plugin-Internal Teaching Series" section that acknowledges them as informally exempt.
+
+A future Documentation Framework v1.1 may codify "plugin-internal teaching series" as an explicit §1 exemption category. For now the policy is implicit (no framework enforcement attempted on them).
+
 ## [4.2.1] - 2026-05-15
 
 ### Changed (patch — mechanical doc framework retrofit)

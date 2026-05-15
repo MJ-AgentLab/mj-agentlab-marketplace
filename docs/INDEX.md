@@ -33,8 +33,9 @@ Navigation hub for all marketplace documentation.
 
 | Document | Description |
 |----------|-------------|
-| [ADR: learn-kit Discovery & Locate Skills](<./adr/[ADR]_LearnKit_Discovery_Skills.md>) | v3.1.0 增加 locate + scan 两个 skill 的决策（v4.3.0 将迁至 `plugins/learn-kit/docs/adr/`） |
-| [ADR: NotebookLM Kit Retirement](<./adr/[ADR]_NotebookLM_Kit_Retirement.md>) | v4.0.0 删除 notebooklm-kit + 把核心 build / studio 多媒体场景吸收到 learn-kit 的决策 |
+| [ADR: NotebookLM Kit Retirement](<./adr/[ADR]_NotebookLM_Kit_Retirement.md>) | v4.0.0 删除 notebooklm-kit + 把核心 build / studio 多媒体场景吸收到 learn-kit 的决策（跨 plugin 决策；marketplace scope） |
+
+> Plugin-internal ADRs（如 `[ADR]_LearnKit_Discovery_Skills`，v4.3.0 起迁入 `plugins/learn-kit/docs/adr/`）见各 plugin 的 docs/INDEX.md。
 
 ## Specifications (`docs/spec/`)
 
@@ -69,13 +70,21 @@ Navigation hub for all marketplace documentation.
 
 ## Plugin Documentation
 
-> v4.0.0 起 marketplace 仅含 **1 个 plugin**（learn-kit v1.0.0+）。learn-kit `nlm-studio` skill 需要 `notebooklm-mcp` MCP server（plugin 内自带 `.mcp.json`）+ 一次性 `nlm login`；其余 4 个 skill 零外部依赖。详见 [plugins/learn-kit/README.md](../plugins/learn-kit/README.md) 与 [plugins/learn-kit/CLAUDE.md](../plugins/learn-kit/CLAUDE.md)。
+> v4.0.0 起 marketplace 仅含 **1 个 plugin**（learn-kit v1.1.0+）。learn-kit `nlm-studio` skill 需要 `notebooklm-mcp` MCP server（plugin 内自带 `.mcp.json`）+ 一次性 `nlm login`；其余 4 个 skill 零外部依赖。详见 [plugins/learn-kit/README.md](../plugins/learn-kit/README.md) 与 [plugins/learn-kit/CLAUDE.md](../plugins/learn-kit/CLAUDE.md)。
+
+| Plugin | Documentation Index | Version |
+|--------|---------------------|---------|
+| learn-kit | [plugins/learn-kit/docs/INDEX.md](../plugins/learn-kit/docs/INDEX.md) | v1.1.0 |
 
 ### learn-kit 用户文档（`plugins/learn-kit/docs/`）
 
-6 份学习材料覆盖「5 分钟上手 → 定位 → 方法论 → RFC 范例 → 5 skills 分工 → 治理边界」完整路径，详见 [plugins/learn-kit/docs/](../plugins/learn-kit/docs/) 或 plugin README 的 §学习材料 段。
+v4.3.0 起 plugin-internal docs framework extension 落地：
 
-Plugin-internal docs framework extension (tag prefixes + frontmatter) lands in **PR 4 (v4.3.0)** — the current 6 lowercase numbered docs are retained at their existing paths.
+- **`docs/adr/`** — plugin-internal ADRs（v4.3.0 起含 `[ADR]_LearnKit_Discovery_Skills` 从 marketplace 迁入）
+- **`docs/guide/`** / **`docs/spec/`** — 占位子目录（暂无 plugin-internal GUIDEs / SPECs）
+- **6 份 lowercase 数字教学系列**（`learn-kit-01..05` + `使用手册`）— plugin-internal pedagogical content；保留原 lowercase 命名（numbered ordering 是 pedagogical signal）；exempt from tag prefix requirement per Framework §1 扩展条款（plugin-internal teaching series）
+
+详见 [plugins/learn-kit/docs/INDEX.md](../plugins/learn-kit/docs/INDEX.md) 或 plugin README 的 §学习材料 段。
 
 ## Suggested Reading Order
 

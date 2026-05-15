@@ -13,8 +13,9 @@ tags:
   - discovery
   - skill-design
 related:
-  - ../../plugins/learn-kit/CLAUDE.md
-  - ../rule/[STANDARD]_Documentation_Framework.md
+  - ../../CLAUDE.md
+  - ../../README.md
+  - ../../../../docs/rule/[STANDARD]_Documentation_Framework.md
 ---
 
 # [ADR] learn-kit Discovery & Locate Skills
@@ -27,7 +28,7 @@ related:
 | **Scope** | `plugins/learn-kit/` v0.1.0 → v0.2.0; marketplace v3.0.0 → v3.1.0 |
 | **Supersedes** | — |
 
-> **Note (v4.3.0 planned)**: This ADR will move to `plugins/learn-kit/docs/adr/` per the framework's plugin-internal-decision boundary; the marketplace-level placement is transitional during v4.2.x.
+> **Migration note (v4.3.0)**: This ADR was migrated from marketplace `docs/adr/` to `plugins/learn-kit/docs/adr/` per the Documentation Framework's plugin-internal-decision boundary. The decision content concerns learn-kit-internal skill design only; cross-plugin marketplace governance ADRs (e.g., `[ADR]_NotebookLM_Kit_Retirement`) remain at marketplace level.
 
 ## 1. Context
 

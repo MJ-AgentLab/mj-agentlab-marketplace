@@ -79,6 +79,18 @@ learning/
 
 详见 `skills/init/templates/METHODOLOGY.md` §9（Subsystem Meta-Rules）+ §10（Optional Integrations）。
 
+## Documentation
+
+v1.1.0 起 plugin-internal documentation 遵循 marketplace 文档框架 v1.0（适配为 `scope: learn-kit`）。完整索引 + 6 份教学系列文档导航见 [docs/INDEX.md](docs/INDEX.md)。
+
+子目录:
+
+- [`docs/adr/`](docs/adr/) — plugin-internal ADRs（如 `[ADR]_LearnKit_Discovery_Skills.md` v1.1.0 起从 marketplace 迁入）
+- [`docs/guide/`](docs/guide/) — plugin-internal GUIDEs（暂无）
+- [`docs/spec/`](docs/spec/) — plugin-internal SPECs（暂无；schema 工作目前在 `skills/init/templates/METHODOLOGY.md`）
+
+6 份 `docs/learn-kit-*.md` lowercase 数字教学系列保留原命名（numbered ordering = pedagogical signal），由 [docs/INDEX.md](docs/INDEX.md) §Plugin-Internal Teaching Series 列出。
+
 ## NLM 集成 · 工具前缀
 
 `.mcp.json` 注册 `notebooklm-mcp` MCP server。Claude Code 加载后，MCP 工具命名规则为：

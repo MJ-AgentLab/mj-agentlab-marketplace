@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-05-15
+
+### Added
+
+- **`plugins/learn-kit/docs/INDEX.md`** — Plugin-internal documentation index per marketplace Documentation Framework v1.0 (with `scope: learn-kit`). Catalogues plugin-internal ADRs / GUIDEs / SPECs (currently only the migrated ADR) + the 6 lowercase numbered teaching docs (`learn-kit-01..05` + `使用手册`) which are intentionally exempt from tag-prefix requirement as plugin-internal pedagogical content.
+- **`plugins/learn-kit/docs/adr/`** — Plugin-internal ADR subdir. Houses learn-kit-scope architectural decisions (cross-plugin / marketplace governance ADRs stay at marketplace `docs/adr/`).
+- **`plugins/learn-kit/docs/guide/`** and **`docs/spec/`** — Placeholder subdirs with `.gitkeep` for future plugin-internal GUIDEs / SPECs. Currently no plugin-internal docs of these types (schema work lives in `skills/init/templates/METHODOLOGY.md`).
+
+### Moved (from marketplace level)
+
+- **`[ADR]_LearnKit_Discovery_Skills.md`** — Migrated from `mj-agentlab-marketplace/docs/adr/` → `plugins/learn-kit/docs/adr/`. Rationale: the decision is plugin-internal (skill design within learn-kit), not marketplace governance. Frontmatter updated: `scope: learn-kit` (was already set in v4.2.1 retrofit), `related:` paths recalculated for new depth (4 levels up to marketplace `docs/rule/`).
+
+### Changed
+
+- **`plugins/learn-kit/CLAUDE.md`** — New `## Documentation` section linking to `docs/INDEX.md` + listing the 3 framework subdirs (`adr/` / `guide/` / `spec/`) + noting the 6 lowercase teaching series.
+- **`plugins/learn-kit/.claude-plugin/plugin.json`** — version `1.0.0 → 1.1.0` (minor).
+
+### Released as part of
+
+- marketplace v4.3.0 (PR #77)
+
 ## [1.0.0] - 2026-05-14
 
 ### Added
