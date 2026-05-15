@@ -5,6 +5,40 @@
 
 ## [Unreleased]
 
+## [4.3.5] - 2026-05-15
+
+### Added
+
+- **`docs/MIGRATION_GUIDE.md` §3 · v4.0.0 → v4.3.x** — Consolidates 8 PRs of doc framework rollout into a single migration section. Frames v4.x rollout as **contributor-facing** (consumers using `/plugin install learn-kit` see no behavior change). 9 sub-sections:
+  - §3.1 Release-by-Release 速查表 — 8-row table mapping each v4.x release to required contributor + consumer actions
+  - §3.2 路径搬迁速查表 — 9-row old-path → new-path table for v4.2.1 docs subdir migration (covers 7 STANDARDs/GUIDEs/RUNBOOK/ADRs + v4.3.0 plugin-internal ADR migration + exempt files list)
+  - §3.3 Commit-msg Hook 升级 — most-important contributor action; explicit re-install command + "how to detect stale hook" PowerShell snippet
+  - §3.4 Scripts API 变化 — `scripts/bump-version.ps1` ValidateSet table (v3.x vs v4.x)
+  - §3.5 Plugin-Internal Docs Framework 引入 — guidance for adding new learn-kit-internal docs (which subdir; teaching series exemption pattern)
+  - §3.6 Commit Convention v1.0 — points fork/mirror maintainers to new STANDARD location
+  - §3.7 时间线 — 9-row table of all v4.x releases including this one
+  - §3.8 回滚指引 — note that v4.x rollout is fully additive; any commit revertable individually
+  - §3.9 询问 — pointers to CHANGELOG / Framework STANDARD / HITL Standard for deeper detail
+
+- File header reframed from "two major migrations" to "three migrations" with a §3 audience-clarification line emphasizing the consumer-vs-contributor distinction.
+
+### Changed
+
+- **`docs/MIGRATION_GUIDE.md` §2 询问 link** — fixed `docs/[ADR]_NotebookLM_Kit_Retirement.md` → `docs/adr/[ADR]_NotebookLM_Kit_Retirement.md` (path was stale from v4.2.1 retrofit; MIGRATION_GUIDE is exempt from auto-rewrite so was missed earlier)
+
+### Changed (versioning)
+
+- **`VERSION`** — 4.3.4 → 4.3.5 (patch — migration documentation completion)
+- **`.claude-plugin/marketplace.json`** — `metadata.version` 4.3.4 → 4.3.5; `plugins[].version` unchanged (learn-kit 1.1.0)
+
+### Rationale
+
+The 8 PRs of v4.x doc framework rollout each had CHANGELOG entries but no consolidated migration guidance. Anyone upgrading from v4.0.0 to v4.3.4 in one shot (or external consumers checking what changed) had to read 8 CHANGELOG sections. §3 consolidates the contributor-impactful changes into one navigable section with explicit user actions.
+
+The most important user action (v4.3.2 hook re-install) was already documented in CONTRIBUTING.md § Git Hooks (v4.3.4 / PR #81), but MIGRATION_GUIDE is a more natural discovery path for someone explicitly looking at version migrations. §3.3 references the CONTRIBUTING.md section as the canonical hook maintenance source while giving the migration-context summary.
+
+§3.2 path migration table is useful for external consumers / forks / external docs that bookmarked old marketplace doc URLs. Without this table they'd need to grep their own content + cross-reference CHANGELOG entries to figure out new paths.
+
 ## [4.3.4] - 2026-05-15
 
 ### Added

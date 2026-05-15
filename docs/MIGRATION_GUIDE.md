@@ -1,9 +1,10 @@
 # Migration Guide
 
-This file covers two major migrations:
+This file covers three migrations:
 
-- §1 — **v2.x → v3.0.0** (Original migration: MJ-system专属重构为通用)
-- §2 — **v3.2.x → v4.0.0** (notebooklm-kit 退场 + nlm-studio 吸收到 learn-kit)
+- §1 — **v2.x → v3.0.0** (Original migration: MJ-system专属重构为通用) — consumer-impactful
+- §2 — **v3.2.x → v4.0.0** (notebooklm-kit 退场 + nlm-studio 吸收到 learn-kit) — consumer-impactful
+- §3 — **v4.0.0 → v4.3.x** (doc framework rollout: 8 PRs introducing project-local skills + documentation framework) — mostly **contributor-facing**; plugin behavior unchanged for end users
 
 ---
 
@@ -201,4 +202,134 @@ Claude Code 会按 marketplace.json 自动卸载 notebooklm-kit。
 
 - Marketplace 相关 issue：[MJ-AgentLab/mj-agentlab-marketplace](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues)
 - learn-kit 相关：见 plugin README
-- ADR 决策原因：见 [docs/[ADR]_NotebookLM_Kit_Retirement.md](<./[ADR]_NotebookLM_Kit_Retirement.md>)
+- ADR 决策原因：见 [docs/adr/[ADR]_NotebookLM_Kit_Retirement.md](<./adr/[ADR]_NotebookLM_Kit_Retirement.md>)
+
+---
+
+# §3 · v4.0.0 → v4.3.x
+
+## Overview & Audience
+
+v4.0.0 → v4.3.4 是一系列 8 个 PR 的 doc framework rollout，**不改变任何 plugin 行为或 marketplace 公开 surface**。learn-kit 的 5 skills 行为完全不变；end-user 通过 `/plugin install learn-kit@mj-agentlab-marketplace` 拿到的体验在 v4.0.0 与 v4.3.4 之间无任何差异（除了 plugin.json `description` 字段提到的新增 plugin-internal docs framework metadata）。
+
+**本节适用于**：
+
+- **Marketplace 仓贡献者**：本地有 worktree、git hook、scripts/、docs/ 引用、CHANGELOG 习惯被 v4.x rollout 影响的开发者
+- **下游消费者**：基本无影响。如果你只是 `/plugin install learn-kit`，可跳过本节
+- **Plugin 引用 marketplace docs 的项目**：如果你在外部项目的文档里有 `https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/main/docs/...` 链接，需校对路径（见 §3.2 子节）
+
+## §3.1 Release-by-Release 速查表
+
+| Version | PR | 用户行动 (contributor) | 用户行动 (consumer) |
+|---------|-----|------------------------|---------------------|
+| **v4.1.0** | #74 | 拉最新 develop 后 `.claude/skills/mp-*/` 18 件项目本地 Track C skill 自动可用；可选 `/plugin list` 验证发现 | 无（plugin 行为不变） |
+| **v4.2.0** | #75 | 阅读新 3 个 STANDARD（Documentation Framework / Commit Message / GitHub Markdown）作为之后 doc 工作的依据；新 docs 用 6 个 templates 起草 | 无 |
+| **v4.2.1** | #76 | **docs 路径已搬迁**：`docs/[STANDARD]_*.md` / `docs/[GUIDE]_*.md` / `docs/[RUNBOOK]_*.md` / `docs/[ADR]_*.md` 全部移到 `docs/{rule,guide,runbook,adr}/` 子目录。如有外部链接 / 内部 grep 脚本依赖旧 path 需更新 | 极小影响：仅 GitHub 上的 docs URL bookmark 失效 |
+| **v4.3.0** | #77 | **plugin-internal ADR 已迁移**：`docs/adr/[ADR]_LearnKit_Discovery_Skills.md` → `plugins/learn-kit/docs/adr/[ADR]_LearnKit_Discovery_Skills.md`。`plugins/learn-kit/docs/INDEX.md` 是 plugin-internal docs 新入口 | 极小影响：仅 ADR URL bookmark 失效 |
+| **v4.3.1** | #78 | `/learning/` 进 .gitignore：在 marketplace worktree 内跑 `/learn-kit:init` 后产出物不再误入 git index。如本地 develop worktree 已有 `learning/` tracked 内容，需手动 `git rm -r --cached learning/` 一次后再 commit | 无 |
+| **v4.3.2** | #79 | **真 bug 修复，需用户行动**：scripts/bump-version.ps1 + scripts/install-hooks.ps1 PATTERN regex 与 v3.x scope 白名单脱钩。如曾跑过 `pwsh -File scripts/install-hooks.ps1` 装过 commit-msg hook，**必须重跑**否则当前 v4.x scope commit 会被 hook reject。详见 v4.3.4 加的 CONTRIBUTING § Git Hooks 段。`scripts/bump-version.ps1 -Scope "learn-kit"` 现在合法（v3.x 时会 ValidateSet error） | 无 |
+| **v4.3.3** | #80 | Documentation Framework v1.0 → v1.1：codify 「plugin-internal teaching series」§1 豁免条款；不动现有 doc 行为；plugin-internal teaching docs (`plugins/learn-kit/docs/learn-kit-*.md` 6 件) **正式**豁免 frontmatter 要求 | 无 |
+| **v4.3.4** | #81 | CONTRIBUTING.md § Git Hooks 段已加入。新 contributor 直接读该段；老 contributor 如 v4.3.2 重跑过 hook 可忽略 | 无 |
+
+## §3.2 路径搬迁速查表 (v4.2.1)
+
+如果你的外部链接 / 文档 / 脚本引用 marketplace 文档，按下表更新：
+
+| 旧路径 (pre-v4.2.1) | 新路径 (v4.2.1+) |
+|---------------------|-------------------|
+| `docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md` | `docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md` |
+| `docs/[GUIDE]_Marketplace_Project_Overview.md` | `docs/guide/[GUIDE]_Marketplace_Project_Overview.md` |
+| `docs/[GUIDE]_Plugin_Development_Testing_Workflow.md` | `docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md` |
+| `docs/[GUIDE]_Version_Management.md` | `docs/guide/[GUIDE]_Version_Management.md` |
+| `docs/[GUIDE]_Marketplace_Agent_Execution_Checklist.md` | `docs/guide/[GUIDE]_Marketplace_Agent_Execution_Checklist.md` |
+| `docs/[RUNBOOK]_Release_Operations.md` | `docs/runbook/[RUNBOOK]_Release_Operations.md` |
+| `docs/[ADR]_NotebookLM_Kit_Retirement.md` | `docs/adr/[ADR]_NotebookLM_Kit_Retirement.md` |
+| `docs/[ADR]_LearnKit_Discovery_Skills.md` (v4.2.1) | `plugins/learn-kit/docs/adr/[ADR]_LearnKit_Discovery_Skills.md` (v4.3.0+ — moved to plugin-internal) |
+| `docs/INDEX.md` / `docs/CONTRIBUTING.md` / `docs/MIGRATION_GUIDE.md` / `docs/ai_engineering_execution_hitl_workflow.md` | **不变**（这些是 framework §1 豁免文件） |
+
+## §3.3 Commit-msg Hook 升级 (v4.3.2) — 最重要的用户操作
+
+如果你曾装过本仓库的 commit-msg hook，**必须重跑安装命令**：
+
+```powershell
+pwsh -File scripts/install-hooks.ps1
+```
+
+**为什么**：v4.0.0 之前 hook PATTERN regex 是 v3.x 的 `mj-sys-*` scope 白名单；v4.3.2 (PR #79) 修复为 v4.x canonical 白名单（`learn-kit | marketplace | ci | scripts | deps | infra | docs-rule | docs-adr | docs-guide | docs-runbook | docs-spec | release`）。如果不重跑，本地装的旧 hook 会拒绝所有合法 v4.x commit。
+
+**如何判断 hook 是否过期**：
+
+```powershell
+# PowerShell: 解析 worktree pointer 找 hooks dir
+$hooksDir = Join-Path ((Get-Content .git) -replace '^gitdir:\s*','').Trim() 'hooks'
+Select-String -Pattern '^PATTERN=' (Join-Path $hooksDir 'commit-msg')
+# v4.x 正确版本应含: learn-kit|marketplace|ci|scripts|deps|infra|docs-rule|...
+# 旧版含: mj-sys-git|mj-sys-doc|mj-sys-n8n|mj-sys-ops|... → 需重跑安装
+```
+
+完整 hook 维护指南：[CONTRIBUTING.md § Git Hooks](<./CONTRIBUTING.md#git-hooks>) (v4.3.4 加入)。
+
+## §3.4 Scripts API 变化 (v4.3.2)
+
+`scripts/bump-version.ps1` 的 `-Scope` ValidateSet 变化:
+
+| Scope | v3.x ValidateSet | v4.x ValidateSet |
+|-------|------------------|------------------|
+| `marketplace` | ✅ | ✅ |
+| `mj-sys-doc` / `mj-sys-git` / `mj-sys-n8n` / `mj-sys-ops` | ✅ | ❌ (retired) |
+| `learn-kit` | ❌ (didn't exist) | ✅ |
+
+任何 scripted 调用 `bump-version.ps1 -Scope "mj-sys-git"` 现在会失败 (PowerShell parameter validation error)。改用 `-Scope "learn-kit"`。
+
+> Note: 实际上自 v4.0.0 起 v3.x 4 个 mj-sys-* plugin 已不存在，所以 v3.x ValidateSet 即使保留也是死代码 —— 之前调用就找不到目标 file 也会失败，只是失败方式不同。
+
+## §3.5 Plugin-Internal Docs Framework 引入 (v4.3.0, v4.3.3)
+
+如果你**给 learn-kit 加新 plugin-internal 文档**：
+
+- **架构决策** → `plugins/learn-kit/docs/adr/[ADR]_<Title>.md`（含 frontmatter）
+- **使用指南** → `plugins/learn-kit/docs/guide/[GUIDE]_<Title>.md`（含 frontmatter）
+- **技术规格** → `plugins/learn-kit/docs/spec/[SPEC]_<Title>.md`（含 frontmatter）
+- **教学系列**（顺序教程，文件名以 `learn-kit-` 开头） → `plugins/learn-kit/docs/learn-kit-NN-<Title>.md`（**不需要** frontmatter；v1.1 framework §1 豁免，per 3-point criteria）
+
+如果你**给 marketplace 顶层加新文档**：
+
+- 走 `docs/{rule,guide,runbook,adr,spec,postmortem}/` 子目录 + 完整 frontmatter（参考 `docs/_templates/`）
+- 跨 plugin / 治理性质 ADR 留在 marketplace `docs/adr/`；plugin-internal 决策放在 plugin 自己的 `docs/adr/`
+
+完整 framework: [`docs/rule/[STANDARD]_Documentation_Framework.md`](<./rule/[STANDARD]_Documentation_Framework.md>) v1.1.
+
+## §3.6 Commit Convention v1.0 (v4.2.0+)
+
+旧的 `docs/CONTRIBUTING.md` § 提交规范 表格已抽到独立 STANDARD：
+
+- **新位置**：[`docs/rule/[STANDARD]_Commit_Message_Convention.md`](<./rule/[STANDARD]_Commit_Message_Convention.md>)
+- **CONTRIBUTING.md § 提交规范**：简化为 5 行 summary + 指向 STANDARD 的链接
+
+如果你的 fork / mirror 还在引用 CONTRIBUTING.md 的旧表格行号，需要重新定位到 STANDARD。
+
+## §3.7 时间线
+
+| 日期 | Version | PR | 主题 |
+|------|---------|-----|------|
+| 2026-05-15 | v4.1.0 | #74 | 18 件项目本地 mp-* skill + HITL Standard v1.1 |
+| 2026-05-15 | v4.2.0 | #75 | Doc Framework Foundation (3 STANDARDs + 6 templates + 2 SPECs) |
+| 2026-05-15 | v4.2.1 | #76 | Doc Framework Retrofit (8 docs into subdirs) |
+| 2026-05-15 | v4.3.0 | #77 | Plugin Extension (learn-kit docs framework) |
+| 2026-05-15 | v4.3.1 | #78 | `.gitignore /learning/` |
+| 2026-05-15 | v4.3.2 | #79 | Content drift + 2 script bugs |
+| 2026-05-15 | v4.3.3 | #80 | Framework v1.0 → v1.1 |
+| 2026-05-15 | v4.3.4 | #81 | CONTRIBUTING § Git Hooks |
+| 2026-05-15 | v4.3.5 | #82 | 本 PR (MIGRATION_GUIDE §3 添加) |
+
+## §3.8 回滚指引（如果需要）
+
+整个 v4.0.0 → v4.3.x 系列没有不可逆改动；任一 commit 都可 `git revert` 单独撤回。**Plugin 行为完全不变**：learn-kit 1.1.0 与 1.0.0 在外部用户视角下等价（仅 plugin.json description metadata 变长，加了 plugin-internal docs framework 段描述）。
+
+如要从 v4.3.4 完整回滚到 v4.0.0（极端情况），按 commit 倒序 revert 8 个 PR 即可。但实际上这没有 use case —— rollout 是 additive 的。
+
+## §3.9 询问
+
+- 8 PR 详细 CHANGELOG: 见 [CHANGELOG.md](../CHANGELOG.md) `[4.1.0]` 到 `[4.3.5]` 段
+- Doc Framework 规范: [`docs/rule/[STANDARD]_Documentation_Framework.md`](<./rule/[STANDARD]_Documentation_Framework.md>)
+- 18 件 mp-* skill 工作流编排: [`docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`](<./rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md>)
