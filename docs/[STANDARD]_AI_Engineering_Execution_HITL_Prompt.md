@@ -3,7 +3,7 @@
 | Field | Value |
 |-------|-------|
 | **Status** | Active |
-| **Version** | v1.1 |
+| **Version** | v1.2 |
 | **Created** | 2026-05-11 |
 | **Updated** | 2026-05-15 |
 | **Scope** | mj-agentlab-marketplace 仓库（不含 mj-system / mj-agent / 任何下游消费者）|
@@ -551,7 +551,7 @@ Fallback:
 
 ## Rules
 
-检查 11 项：
+检查 12 项 (v1.2 起新增 item 12):
 1. 改动是否完全对应 Plan / ADR
 2. 是否超出 scope
 3. 是否改变 plugin API / SKILL description / allowed-tools / marketplace.json schema
@@ -563,16 +563,17 @@ Fallback:
    - **5d Plugin Delta Check**：plugin.json version / description / keywords 与 marketplace.json plugins[] 一致？SKILL.md 数量与 plugin 实际 `skills/` 目录一致？METHODOLOGY 等模板文件 version 字段同步？
 6. AC 是否都有验证证据（指向 §4.7 Dogfood Matrix）
 7. 是否有不应提交文件（PR_BODY.md 临时 / 个人配置 / IDE 缓存）
-8. commit message 是否符合 `<type>(<scope>): <summary>`
+8. commit message 是否符合 `<type>(<scope>): <summary>` —— 参 `docs/rule/[STANDARD]_Commit_Message_Convention.md` (post-PR 2)
 9. PR template 自检 6 项是否全部满足
 10. 是否触发 release.yml（VERSION 文件变更）→ 是则需要 HITL 确认发布意图
 11. 涉及 secret / 凭据时必须暂停
+12. **(v1.2 新增)** 新建 / 修改 `docs/**/*.md` 必须遵循 `docs/rule/[STANDARD]_Documentation_Framework.md` 的 frontmatter 8 字段约束 + 路径规则（tag-prefixed 文档放正确子目录；状态 enum 合规；无 `_vX.Y` 后缀除非 archived）—— 用 `/mp-doc-validate` 跑一次审计；豁免 `INDEX.md` / `CONTRIBUTING.md` / `MIGRATION_GUIDE.md` / `README.md` / `CHANGELOG.md` / plugin `CLAUDE.md` / SKILL.md（Claude Code spec native frontmatter，不受此约束）
 
 发现 secret / 无关改动 / 关键测试失败 / 中高风险残留时必须 HITL。
 
 **Output 必须按 marketplace 双段拆分**（与 mj-system v5.2 §4.7 同名设计，但本 STANDARD 独立维护，不强同步上游版本号）：
 - 「**本地验证**」（人类客观可重复检查）— git status / git diff / 文件版本号 / ls / 命令输出等
-- 「**AI 自检**」（AI 生成内容可信度自查）— 上述 11 项逐条勾选 + 理由
+- 「**AI 自检**」（AI 生成内容可信度自查）— 上述 12 项逐条勾选 + 理由
 
 ## Output
 
@@ -847,6 +848,7 @@ HITL           是风险与决策边界。
 
 ## §8 版本历史
 
+- **v1.2**（2026-05-15）：**Doc Framework Integration**。配合 marketplace 文档框架 v1.0 落地（PR #75 v4.2.0），新增 §4.8 Self-review **item 12**: 新建 / 修改 `docs/**/*.md` 必须遵循 `[STANDARD]_Documentation_Framework` frontmatter 约束 + 路径规则；豁免列表明确（INDEX / CONTRIBUTING / MIGRATION_GUIDE / README / CHANGELOG / plugin CLAUDE.md / SKILL.md）；checklist 总数从 11 项升到 12 项。
 - **v1.1**（2026-05-15）：**HITL Skill Integration**。新建 `.claude/skills/` 18 件 marketplace 项目本地 Track C skill 覆盖 flow + git + doc 三 family（9 flow / 6 git / 3 doc）；refactor §4.1-§4.11 每阶段 Skill Hint 段指向新 `mp-*` skill，外部 plugin-dev / skill-creator skill 转为 Augment / Fallback；§5.1 矩阵填全 11 阶段 Preferred Skill；§5.2 重整为 4 大类 skill 来源（项目本地 / marketplace 插件 / 外部 plugin-dev / 通用方法学）；§5.3 选用原则按稳定性 + 域适配优先级重排；line 357 / 703 修正 `v4.0.0 起` 前瞻表述为当前状态。依据：v4.0.0 (PR #72/#73) NotebookLM_Kit 退役 + learn-kit v1.0.0 落地后 marketplace 工作流稳态化。
 - **v1.0**（2026-05-11）：初版。剥离 mj-system HITL STANDARD 中 DB / n8n / ETL / FastAPI / Flyway / pg_cron / 双域架构等 marketplace 不适用内容；保留 HITL 哲学骨架；嵌入 marketplace 实际 11 阶段；引入 Hybrid Skill 矩阵（plugin-dev + skill-creator + superpowers + marketplace self-hosted）；与现有 docs/CONTRIBUTING + GUIDE_* + RUNBOOK_* + ADR_* 引用关系明确化。依据：v3.0.0 generic restructure（PR #61 + #62）+ v3.1.0 learn-kit discovery skills（PR #63 + #64）两轮实战经验。
 

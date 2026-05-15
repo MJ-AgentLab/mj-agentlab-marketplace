@@ -13,9 +13,16 @@ about: 新功能、新 Skill、重构等功能开发 (feature/*) 的 Pull Reques
 <!-- 提示审核者重点关注的内容 -->
 
 ## 自检结果
-- [ ] plugin.json 字段完整（如涉及新增/变更 Plugin）
-- [ ] SKILL.md frontmatter 有效（如涉及新增/变更 Skill）
+- [ ] plugin.json 字段完整（如涉及新增/变更 Plugin）—— 参 [`[SPEC]_Plugin_Json_Schema.md`](../../docs/spec/[SPEC]_Plugin_Json_Schema.md)
+- [ ] SKILL.md frontmatter 有效（如涉及新增/变更 Skill；Claude Code spec native 2 字段，不应用 marketplace 8 字段）
+- [ ] 文档合规（如涉及 `docs/**/*.md`）—— 参 [`[STANDARD]_Documentation_Framework.md`](../../docs/rule/[STANDARD]_Documentation_Framework.md)
 - [ ] 无硬编码（IP、密码、路径、Token）
 - [ ] 无残留调试代码
-- [ ] Commit message 符合 `<type>(<scope>): <summary>` 规范（允许类型：`feat` / `refactor` / `test` / `docs`）
+- [ ] Commit message 符合 [`[STANDARD]_Commit_Message_Convention.md`](../../docs/rule/[STANDARD]_Commit_Message_Convention.md)（feature/* 分支允许类型：`feat` / `perf` / `refactor` / `test` / `docs` / `infra`）
 - [ ] CHANGELOG.md `[Unreleased]` 区块已更新
+
+## Related STANDARDs
+- [Documentation Framework](../../docs/rule/[STANDARD]_Documentation_Framework.md) — 文档规范元框架
+- [Commit Message Convention](../../docs/rule/[STANDARD]_Commit_Message_Convention.md) — commit 格式
+- [GitHub Markdown](../../docs/rule/[STANDARD]_GitHub_Markdown.md) — markdown 风格
+- [AI Engineering HITL Prompt](../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md) — 工作流 + skill 矩阵

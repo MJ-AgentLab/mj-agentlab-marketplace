@@ -38,42 +38,16 @@ Claude Code agent 行为规范请参考各 Plugin 的 SKILL.md（如 mj-sys-git 
 
 ## 提交规范
 
-### 格式
+简要约定:
 
-```
-<type>(<scope>): <summary>
-```
+- **格式**: `<type>(<scope>): <summary>` — 单行 header ≤72 字符，imperative mood，无句号
+- **7 types**: `feat` / `fix` / `perf` / `refactor` / `test` / `docs` / `infra`
+- **Marketplace scope whitelist (v4.x)**: `marketplace` / `learn-kit` / `ci` / `scripts` / `deps` / `infra` / `docs-rule` / `docs-adr` / `docs-guide` / `docs-runbook` / `docs-spec` / `release`
+- **示例**: `feat(marketplace): add 18 mp-* workflow skills` / `infra(release): bump marketplace 4.1.0 → 4.2.0`
 
-### 类型
+**完整规范**（含 branch × type 矩阵、commit 拆分指导、Co-Authored-By 模式、违规示例）见 [`docs/rule/[STANDARD]_Commit_Message_Convention.md`](rule/[STANDARD]_Commit_Message_Convention.md)。
 
-| Type | 用途 |
-|------|------|
-| `feat` | 新功能、新 Skill |
-| `fix` | Bug 修复 |
-| `perf` | 性能优化 |
-| `refactor` | 重构 |
-| `test` | 测试 |
-| `docs` | 文档 |
-| `infra` | CI/CD、脚本、基础设施 |
-
-### Scope
-
-| Scope | 范围 |
-|-------|------|
-| `mj-sys-git` | mj-sys-git Plugin |
-| `mj-sys-doc` | mj-sys-doc Plugin |
-| `mj-sys-n8n` | mj-sys-n8n Plugin |
-| `mj-sys-ops` | mj-sys-ops Plugin |
-| `marketplace` | Marketplace 整体（README、marketplace.json、release） |
-| `ci` | CI/CD workflows |
-| `scripts` | 脚本（bump-version 等） |
-| `deps` | 依赖管理 |
-
-### 规则
-
-- summary 小写开头，不加句号，≤72 字符
-- 示例：`feat(mj-sys-git): add worktree cleanup to delete skill`
-- 示例：`infra(ci): add SKILL.md frontmatter validation`
+CI / `/mp-git-commit` skill 按该 STANDARD 强制 enforcement。
 
 ## 版本管理
 
