@@ -2,7 +2,7 @@
 
 > 学习目标：理解 learn-kit 是"并行子系统"而不是"独立王国"——它如何寄生在项目主治理框架上、自管什么、不管什么、为什么这样划分。
 >
-> **版本说明**：本文反映 learn-kit v1.0.0 / marketplace v4.0.0（2026-05-14）状态。v0.3.0 起 learn-kit 与 notebooklm-kit 解绑，v1.0.0 起把 NLM 多媒体能力**内化为 `/learn-kit:nlm-studio`**——治理边界从「learn-kit + notebooklm-kit 双插件协作」变为「learn-kit 单插件 5 skill 自洽」。
+> **版本说明**：本文反映 learn-kit v1.1.0 / marketplace v4.4.8（2026-05-15）状态。v0.3.0 起 learn-kit 与 notebooklm-kit 解绑，v1.0.0 起把 NLM 多媒体能力**内化为 `/learn-kit:nlm-studio`**——治理边界从「learn-kit + notebooklm-kit 双插件协作」变为「learn-kit 单插件 5 skill 自洽」。v1.1.0 起补 plugin-internal 文档框架（不改治理立场）。
 
 ---
 

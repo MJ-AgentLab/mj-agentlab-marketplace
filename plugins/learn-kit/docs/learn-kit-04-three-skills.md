@@ -2,7 +2,7 @@
 
 > 学习目标：理解 learn-kit 的 5 个 skill（init / scan / locate / generate-tier / nlm-studio）各自做什么、什么时候用哪个、它们如何拼成"scaffold → 发现 → 锁定 → 撰写 → 多媒体"的完整闭环。
 >
-> **版本说明**：本文反映 learn-kit v1.0.0 / marketplace v4.0.0（2026-05-14）状态。早期版本只有 3 个 skill（init / locate / scan），v0.3.0 加 generate-tier，v1.0.0 加 nlm-studio 并退役 notebooklm-kit。
+> **版本说明**：本文反映 learn-kit v1.1.0 / marketplace v4.4.8（2026-05-15）状态。早期版本只有 3 个 skill（init / locate / scan），v0.3.0 加 generate-tier，v1.0.0 加 nlm-studio 并退役 notebooklm-kit。v1.1.0 起补 plugin-internal 文档框架（不改 skill surface）。
 
 ---
 
