@@ -5,6 +5,29 @@
 
 ## [Unreleased]
 
+## [4.4.10] - 2026-05-15
+
+### Fixed
+
+- **`.github/workflows/ci.yml`** — Replace YAML literal block scalar `if: |` with folded scalar `if: >-` on the `Validate commit message format` step's condition. The literal block style preserves newlines as `\n` characters in the expression value, which causes GitHub Actions' expression evaluator to return Internal Server Error on `pull_request` events (push events appeared to evade the issue due to short-circuit evaluation on the empty `github.head_ref` field).
+
+  Symptom (post-PR #91 v4.4.8 merge to develop on 2026-05-15):
+  - Run #161 (push trigger on `documentation/refresh-stale-versions`): success in 6s
+  - Run #162 (pull_request trigger on same branch): **failure after 17m** — job never started, run-level Internal Server Error (Correlation ID `49749753-a162-43d4-bd76-aac9f7088e5e`)
+  - Run #163 (pull_request trigger on `release/v4.4.9`, blocking THIS very release): **failure after 17m 38s** — same symptom
+
+  Fix: `if: |` → `if: >-`. The `>` folds newlines into spaces (producing a clean single-line expression value); `-` strips the trailing newline. Multi-line readability preserved in source while emitting a syntactically unambiguous value to GitHub Actions' expression engine.
+
+  Validated by precedent: GitHub Actions docs recommend `>-` for multi-line `if:` conditions. Single-line alternative rejected because the full expression exceeds ~200 chars and harms reviewability.
+
+### Rationale
+
+This release was originally going to be **v4.4.9** (CHANGELOG section preserved below). During release PR #94 CI runs, the YAML defect surfaced and blocked the release. The fix is committed directly on `release/v4.4.9` per release-branch convention (same pattern as v4.4.8 where the release-branch CI exemption was added inline), and the release is re-versioned to **v4.4.10** to reflect the additional change.
+
+### Follow-up
+
+After this release merges to main, a separate maintain PR must sync the `if: >-` fix back to develop (analogous to PR #92 post-v4.4.8). Without that, every future `pull_request` CI run on develop would hit the same wall.
+
 ## [4.4.9] - 2026-05-15
 
 ### Fixed
