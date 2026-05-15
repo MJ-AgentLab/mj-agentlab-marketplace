@@ -132,6 +132,43 @@ mj-agentlab-marketplace/
 └── main/        # main worktree
 ```
 
+## Git Hooks
+
+本项目提供 `commit-msg` git hook 在 commit 时校验消息格式（`<type>(<scope>): <summary>` + scope ∈ canonical 白名单）。Hook 是可选的——CI 也会跑同样的校验，hook 主要用于本地早发现违规。
+
+### 首次安装
+
+```powershell
+pwsh -File scripts/install-hooks.ps1
+```
+
+Hook 安装到 bare repo 共享 hooks 目录（`.bare/hooks/commit-msg`），所有 worktree 共享。
+
+### 升级（当 hook 规则变更时）
+
+`scripts/install-hooks.ps1` 内置的 PATTERN regex 会随 [`docs/rule/[STANDARD]_Commit_Message_Convention.md`](rule/[STANDARD]_Commit_Message_Convention.md) §4 scope 白名单演进而变化（每次新增 / 移除合法 scope 都会同步更新）。**如果 CHANGELOG 提到 `install-hooks.ps1` 更新**，需要**重跑安装脚本**以同步本地 hook:
+
+```powershell
+pwsh -File scripts/install-hooks.ps1
+```
+
+> **已知历史**：v4.0.0 之前 hook 用 v3.x 的 `mj-sys-*` scope 白名单；v4.3.2 (PR #79) 更新为 v4.x canonical 白名单。如果你的本地 hook 是 v4.3.2 之前装的，会拒绝当前所有合法 v4.x scope commit；按上述命令重跑即可同步。
+
+### 移除
+
+```powershell
+# 从 .bare/hooks/ 删除即可
+Remove-Item (Join-Path ((Get-Content .git) -replace '^gitdir:\s*','').Trim() 'hooks/commit-msg')
+```
+
+### Canonical 来源
+
+| 内容 | 来源 |
+|------|------|
+| Scope 白名单（hook PATTERN regex 应反映此清单） | [`docs/rule/[STANDARD]_Commit_Message_Convention.md`](rule/[STANDARD]_Commit_Message_Convention.md) §4 |
+| Hook 安装脚本 | `scripts/install-hooks.ps1` |
+| 测试 hook 行为 | `pwsh -c 'echo "feat(learn-kit): test" \| git hook run commit-msg /dev/stdin'`（hook 标准 git interface） |
+
 ## 推送
 
 ```bash
