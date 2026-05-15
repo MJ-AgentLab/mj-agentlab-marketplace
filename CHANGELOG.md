@@ -5,6 +5,37 @@
 
 ## [Unreleased]
 
+## [4.4.5] - 2026-05-15
+
+### Changed
+
+- **`.claude/skills/mp-doc-validate/SKILL.md`** — Harden Step 3 (INDEX cross-check) and Step 5 (`related:` resolution) from placeholder reference code to executable implementations. Step 6 (wikilinks) also upgraded from `...` placeholder to a real basename-search resolution. Surfaced by the dogfood loop PR #84 → #86 → #87: each iteration revealed the validator was missing real issues because reference code wasn't actually being run; PR #87 fixed 5 broken `related:` paths that the placeholder Check 5 couldn't catch.
+
+  **Step 3 — INDEX regex tightened from `[^)]+\.md` to `[A-Za-z0-9_-]+\.md`**:
+  - Old loose pattern matched greedy across same-line backtick code + link URL, producing false positives like `[STANDARD]_X.md\`](../../docs/rule/[STANDARD]_X.md` as one entry
+  - New strict basename pattern with `-A-Za-z0-9_-` charset is precise; cross-references in prose no longer pollute the listed set
+  - Switched from `diff` to `comm -23 / comm -13` for clearer "listed-but-not-actual" + "actual-but-not-listed" reporting
+  - Added note clarifying that empty Archived Documents placeholder (`*暂无 archived 文档*`) is NOT a mismatch
+
+  **Step 5 — Real `realpath -m` resolution**:
+  - Old reference code: `for rel in $(echo "$fm" | awk '/^  - \./')` — broken (only matched lines starting `./`, missed `../` and absolute paths; relied on shell word-splitting which doesn't work with multi-line YAML)
+  - New impl: proper `awk` stop-anchor on next top-level key, then per-entry `cd $(dirname <file>) && realpath -m "$rel"` for normalized resolution; `-m` flag tolerates missing intermediate components and returns the resolved path even if the target doesn't exist, so the subsequent `-f` test is the actual existence check
+  - **Promoted broken `related:` from Warning to Critical** per anti-pattern review: broken navigation defeats the framework's explicit "related: paths must resolve" rule. Updated Step 4 categorization table accordingly.
+
+  **Step 6 — Wikilink resolution**:
+  - Old reference code: ended in `...` literal placeholder
+  - New impl: `grep -oE` extracts `[[target]]` content (with optional `|alias` stripped), then `find docs plugins -name "*target*.md"` for basename match; Warning if no match. Marketplace corpus uses zero wikilinks (verified 2026-05-15) but the check now executes correctly for future-proofing.
+
+  **Description field** updated to reflect promoted severity ("broken `related:` path" added to Critical bullet list) + v4.4.5 hardening note.
+
+### Verified
+
+- Hardened skill dogfooded against current corpus 2026-05-15 post-fix: Step 3 reports 13 listed = 13 actual (zero discrepancy), Step 5 reports zero broken `related:` paths (PR #87 fixes confirmed). Skill is now production-grade.
+
+### Rationale
+
+The skill enhancement PR #84 added 6 new archive checks but inherited 4 placeholder check implementations from v4.4.0. Dogfood loop (PR #86 INDEX orphan → PR #87 5 broken paths) repeatedly surfaced issues that should have been caught automatically by Step 3 / Step 5 but weren't, because the reference code was schematic only. This PR closes the gap by making the reference code real.
+
 ## [4.4.4] - 2026-05-15
 
 ### Fixed
