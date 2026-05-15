@@ -7,6 +7,28 @@
 
 ## [4.4.8] - 2026-05-15
 
+> **Release v4.4.8 ships everything from v4.0.0 → v4.4.8** (the v3.2.1 → v4.x integration finally reaches main). Cumulative theme: **Documentation Framework v1.2 + archive mechanism + skill hardening + CI enforcement**.
+
+### Release Summary — what this release brings (cumulative since last main release v3.2.1)
+
+| Sub-version | Highlights |
+|---|---|
+| [4.0.0] | Retire notebooklm-kit plugin; absorb core multimedia scenarios into learn-kit (`/learn-kit:nlm-studio`); marketplace converges to 1 plugin |
+| [4.1.0] | Add 18 project-local `mp-*` workflow skills under `.claude/skills/` (9 mp-flow-* + 6 mp-git-* + 3 mp-doc-*) |
+| [4.2.0]-[4.2.1] | Documentation Framework v1.0 — 6 tag prefixes / 8-field frontmatter / 3-state machine / 3 STANDARDs / 2 SPECs / 6 templates; v4.2.1 retrofits 8 existing docs into framework subdirs |
+| [4.3.0]-[4.3.5] | Framework extension to plugin-internal docs (`plugins/learn-kit/docs/`); content drift cleanup; framework v1.0 → v1.1 (codify plugin-internal teaching series exemption); CONTRIBUTING Git Hooks section; MIGRATION_GUIDE §3 |
+| [4.4.0] | **Archive mechanism**: `docs/archive/` subdirs + `[RUNBOOK]_Doc_Archive_Procedure.md` v1.0 + Documentation Framework v1.1 → v1.2 (§2.3.1-§2.3.4 archive triggers / frontmatter / banner / living-vs-frozen refs) |
+| [4.4.1] | `mp-doc-validate` extended with 6 archive-specific checks + 1 active-doc cross-check |
+| [4.4.2] | UTF-8 BOM stripped from 5 docs |
+| [4.4.3] | INDEX orphan fix — Doc_Archive_Procedure RUNBOOK registered in active table (dogfood-surfaced) |
+| [4.4.4] | Repair 5 broken `related:` paths in 4 frontmatters |
+| [4.4.5] | `mp-doc-validate` Step 3/5/6 hardened from placeholder code to executable; broken `related:` promoted Warning → Critical |
+| [4.4.6] | CI `Validate commit message format` step added — central enforcement of v4.x scope whitelist |
+| [4.4.7] | `mp-doc-author` Step 7 hardened (mirrors validator semantics; author + validator drift-resistant) |
+| [4.4.8] | **This release** — CI release-branch exemption fix (unblocks this very release PR) |
+
+For full per-version details, see [4.4.7] through [4.0.0] sections below.
+
 ### Fixed
 
 - **`.github/workflows/ci.yml`** — Skip the `Validate commit message format` step for `release/*` PRs and pushes. Surfaced when the v4.4.7 release PR (#91) failed CI on 9 historical commits in the `main..develop` range that predate the v4.x PATTERN finalization:
