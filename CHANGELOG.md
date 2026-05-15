@@ -5,6 +5,35 @@
 
 ## [Unreleased]
 
+## [4.3.3] - 2026-05-15
+
+### Changed
+
+- **`docs/rule/[STANDARD]_Documentation_Framework.md`** v1.0 → **v1.1** — Codify the "plugin-internal teaching series" exemption that was *informally* recognized during the v4.3.0 plugin extension (PR #77). The 6 lowercase numbered learn-kit teaching docs (`plugins/learn-kit/docs/learn-kit-01-positioning.md` ... `learn-kit-05-governance-boundary.md` + `learn-kit-使用手册.md`) were marked "informally exempt" in `plugins/learn-kit/docs/INDEX.md`; v1.1 promotes this to a canonical §1 exemption row with explicit **3-point pattern criteria**:
+  1. File lives at `plugins/<name>/docs/` root (NOT in `adr/` / `guide/` / `spec/` / `runbook/` subdirs)
+  2. Filename starts with the plugin's own name as prefix (`<plugin>-`)
+  3. Content is human-pedagogical (tutorial / 5-min onboarding / worked example) rather than normative rule / decision record / runbook procedure
+  
+  Also adds a "v1.1 note on exemption design" callout clarifying that exempt files MUST still appear in their plugin's INDEX «Plugin-Internal Teaching Series» section (for discovery) while `/mp-doc-validate` skips frontmatter checks against them. The exemption is intentional design, not lax — plugins SHOULD use it sparingly only when numbered sequencing carries pedagogical meaning.
+
+- **`plugins/learn-kit/docs/INDEX.md`** — §Plugin-Internal Teaching Series header note updated from «*intentionally exempt*» (informal) to «**formally exempt** per [STANDARD]_Documentation_Framework §1 (v1.1 codification)» (canonical). Added pointer to `/mp-doc-validate` skip behavior.
+
+### Backward compatibility
+
+- No existing doc paths or frontmatter changes required.
+- `/mp-doc-validate` skill's behavior unchanged in practice (it already skipped non-tag-prefixed files at `plugins/<name>/docs/` root via implicit rule); v1.1 makes the skip-rule canonical so future maintainers / new plugins can rely on it.
+
+### Changed (versioning)
+
+- **`VERSION`** — 4.3.2 → 4.3.3 (patch — Framework specification refinement, no doc content / behavior change)
+- **`.claude-plugin/marketplace.json`** — `metadata.version` 4.3.2 → 4.3.3; `plugins[].version` unchanged (learn-kit 1.1.0)
+
+### Rationale
+
+PR #77 (v4.3.0) introduced the plugin-internal docs framework extension and explicitly *deferred* the question of how to treat plugin-internal numbered teaching series (the 6 learn-kit lowercase docs). The pragmatic call then was to mark them "informally exempt" in the plugin INDEX with a §Plugin-Internal Teaching Series section. This worked but left a small inconsistency: the framework STANDARD itself didn't acknowledge the exemption, so `/mp-doc-validate` had to be implicitly tolerant.
+
+v1.1 closes that gap with a minimal-impact framework refinement: one new row in §1 exemption table + a clarifying callout + §10 history entry. The 3-point pattern criteria prevent the exemption from being overused: it only applies to files that are clearly pedagogical sequences, not to general "I don't feel like adding frontmatter" cases. New plugins inheriting this pattern get a clean path forward.
+
 ## [4.3.2] - 2026-05-15
 
 ### Fixed (real bugs surfaced during content drift audit)
