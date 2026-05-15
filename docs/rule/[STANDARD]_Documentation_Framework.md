@@ -1,21 +1,23 @@
 ---
 type: standard
 scope: marketplace
-summary: Documentation framework v1.1 — tag prefixes, frontmatter, state machine, paths, INDEX sync, plugin-internal teaching series exemption
+summary: Documentation framework v1.2 — tag prefixes, frontmatter, state machine, paths, INDEX sync, plugin-internal teaching series exemption, archive mechanism
 owner: marketplace-maintainers
 created: 2026-05-15
 updated: 2026-05-15
 state: active
-version: v1.1
+version: v1.2
 domain: governance
 tags:
   - documentation
   - framework
   - meta
+  - archive
 related:
   - ./[STANDARD]_GitHub_Markdown.md
   - ./[STANDARD]_Commit_Message_Convention.md
   - ./[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
+  - ../runbook/[RUNBOOK]_Doc_Archive_Procedure.md
 ---
 
 # [STANDARD] Documentation Framework
@@ -118,13 +120,110 @@ Transitions:
 |-----------|---------|
 | (new doc) → `active` | merged via PR (docs enter as authoritative; `draft` state is omitted because PR review filters incomplete drafts) |
 | `active` → `deprecated` | a replacement doc lands; this doc still readable but no longer authoritative |
-| `deprecated` → `archived` | doc moved to `docs/archive/<subtype>/[DEPRECATED]_<name>_v<X.Y>.md`; state immutable afterward |
+| `deprecated` → `archived` | doc moved to `docs/archive/<subtype>/[DEPRECATED]_<TAG>_<Topic>_v<X.Y>.md`; state immutable afterward |
 
 **Rules**:
 
-- A `deprecated` doc **MUST** include a `> [!WARNING] Deprecated by [...]` banner at the body top pointing to the successor
+- A `deprecated` doc **MUST** include a `> [!WARNING] Deprecated by [...]` banner at the body top pointing to the successor (see §2.3.3 for canonical template)
 - An `archived` doc **MUST NOT** be modified except for typo corrections — content is frozen at archive time
 - `frontmatter.updated:` is bumped on each state transition
+- The full archive ceremony procedure is operationalized in [`../runbook/[RUNBOOK]_Doc_Archive_Procedure.md`](../runbook/[RUNBOOK]_Doc_Archive_Procedure.md) v1.0 — follow that 4-phase workflow for every actual archive transition. §2.3.1-§2.3.4 below define the rules; the RUNBOOK defines the procedure.
+
+### §2.3.1 Archive Triggers (v1.2 NEW)
+
+Move a `deprecated` doc to `archived` (physical relocation under `docs/archive/`) when **one or more** of these triggers fire:
+
+| # | Trigger | Example |
+|---|---------|---------|
+| 1 | **Framework major version bump** (vN.x → v(N+1).x) | `Documentation_Framework` v1.x → v2.0 → archive all v1.x predecessors |
+| 2 | **STANDARD structural rewrite** (≥50% chapter restructure / template change / scope redefinition) | `Commit_Message_Convention` chapters reorganized from 10 → 5 → archive old |
+| 3 | **≥70% content replacement** (substantial rewrite that diverges from original by more than two-thirds) | Same doc, but the content is functionally a new artifact |
+| 4 | **Split / merge / rename** (1 doc → N docs; N → 1; or scope-redefining rename) | `[GUIDE]_X` split into `[GUIDE]_X_A` + `[GUIDE]_X_B` → archive `[GUIDE]_X` |
+
+**Non-trigger**:
+
+- **Drop-suffix rename** (legacy `_v1.0.md` filename → stable filename + `version: v1.0` in frontmatter) is path-stability cleanup per §2.4, NOT an archive event. The doc stays `active`.
+- **Minor / patch version bumps** of the same doc (v1.0 → v1.1 → v1.2) keep the file at its stable path; frontmatter `version:` advances; no archive transition.
+
+**Adapted from**: mj-agent ADR-017 (Archive Trigger Quantification). Marketplace's 4-trigger set matches mj-agent's verbatim — these criteria are domain-agnostic.
+
+### §2.3.2 Frontmatter on Archive Transition (v1.2 NEW)
+
+When a doc moves to `state: archived` (physical relocation to `docs/archive/<subtype>/`), the following frontmatter changes happen **in the same commit as the `git mv`**:
+
+```yaml
+# Before (active doc, on its way to archive)
+state: active
+version: v1.0
+# ...
+
+# After (archived version of the same doc, now at docs/archive/<subtype>/[DEPRECATED]_<name>_v1.0.md)
+state: archived
+version: v1.0
+archived: 2026-05-15                        # NEW: ISO date archive move executed
+replaced-by: ../../rule/[STANDARD]_New.md   # NEW: relative path to active successor
+```
+
+**New `archived:` field**:
+- **Type**: ISO-8601 date (YYYY-MM-DD)
+- **Mandatory** on all `state: archived` files
+- **Frozen**: never bumped after archive; reflects the move date
+
+**New `replaced-by:` field**:
+- **Type**: relative path string (from archived file's location)
+- **Mandatory** when an active successor exists (almost always)
+- **Bidirectional pair**: the active successor's `supersedes:` list (see §2.2 optional fields) MUST point back to this archived file. The two fields together encode the chain `archived ←→ active`.
+
+**`supersedes:` semantics** (already in §2.2 optional fields; clarified here):
+- **Type**: list of relative path strings (supports N-to-1 merges where one new doc replaces multiple archived predecessors)
+- **Lives in**: the **active successor's** frontmatter
+- **Example for a v2.0 that replaces v1.0 + a separate split-off doc**:
+  ```yaml
+  supersedes:
+    - ../archive/rule/[DEPRECATED]_[STANDARD]_X_v1.0.md
+    - ../archive/rule/[DEPRECATED]_[STANDARD]_Y_v1.0.md
+  ```
+
+### §2.3.3 Archive Banner Template (v1.2 NEW)
+
+Every archived doc **MUST** carry an Archive Banner immediately after the H1 heading (and before the rest of the body). The canonical template:
+
+```markdown
+# [<TAG>] <Original Title>
+
+> **Archived**: This doc is `state: archived` (frozen at v<X.Y>). Superseded by [<new doc title>](<relative path to successor>) (v<new version>).
+> **Archive reason**: <one-line reason; e.g., "Framework major version bump v1.x → v2.0">.
+> **Archived on**: <YYYY-MM-DD>. Content frozen — do not modify except for typo corrections.
+
+<rest of original body unchanged>
+```
+
+**Rules**:
+- Banner uses GitHub-native blockquote (NOT `> [!CAUTION]` etc.) — keep banner format consistent across all archived docs for AI agent pattern matching
+- Banner is the **first** body element after H1; nothing precedes it
+- Relative path in `Superseded by [...](path)` is computed from the archive location (typically 2 levels up to `docs/` root, then descend into successor subdir)
+- The active successor's `state: deprecated` precursor banner (if any) is replaced by this Archive Banner at the time of the move
+
+### §2.3.4 Living vs Frozen Reference Judgment (v1.2 NEW)
+
+When archiving a doc, references to it from OTHER docs need judgment per reference. Each reference falls into one of two categories:
+
+**Living reference** — cites the **current state** of a concept:
+- Example: "Per `[STANDARD]_Documentation_Framework` §2.3, archive transitions are…"
+- **Action on archive**: auto-upgrade the reference to point to the **active successor** (or omit the version qualifier so the link tracks `active`)
+
+**Frozen reference** — cites a **historical fact** or **past rule**:
+- Example: "In v1.0 the framework had no archive concept (see `[DEPRECATED]_[STANDARD]_Documentation_Framework_v1.0`)"
+- **Action on archive**: preserve the reference but update the path to the archive location (`../archive/rule/[DEPRECATED]_*_v1.0.md`)
+
+**Decision procedure** (per reference):
+
+1. Read the sentence containing the reference
+2. Does it cite a state-of-affairs that may evolve? → **Living** (upgrade to successor)
+3. Does it cite a specific event / version / past decision? → **Frozen** (preserve archive path)
+4. Ambiguous? → Default to **Living** + add a parenthetical pointer to the archive for full historical context
+
+The procedural execution of this judgment is in [`../runbook/[RUNBOOK]_Doc_Archive_Procedure.md`](../runbook/[RUNBOOK]_Doc_Archive_Procedure.md) Phase 3. The RUNBOOK escalates to HITL (Gate D-02) when >3 references need judgment in a single archive ceremony.
 
 ### §2.4 Filename & Path Stability
 
@@ -134,7 +233,10 @@ Filename format: `[TAG]_<TitleCase_Topic>.md`
 - `_` separates prefix from topic
 - `<Topic>` uses `TitleCase` with underscores
 - **No `_vX.Y` suffix** on `active` or `deprecated` files — version lives in `frontmatter.version`
-- **Only `archived` files** carry `_vX.Y` in filename and live under `docs/archive/<subtype>/[DEPRECATED]_<name>_vX.Y.md`
+- **Only `archived` files** carry `_vX.Y` in filename: `docs/archive/<subtype>/[DEPRECATED]_<TAG>_<Topic>_vX.Y.md`
+  - Full pattern: `[DEPRECATED]_` prefix (uppercase, literal) + original `[TAG]_<Topic>` + `_v<major>.<minor>` suffix + `.md`
+  - Example: `docs/archive/rule/[DEPRECATED]_[STANDARD]_Documentation_Framework_v1.2.md` (hypothetical archive of current v1.2 once v2.0 lands)
+  - Patch version is dropped (only major.minor recorded in archive filename to avoid filename churn for trivial bumps)
 
 **Why path stability matters**: cross-document references (wikilinks, INDEX entries, code comments) point to filenames. A `v1` → `v2` rewrite that renames the file would break every reference; instead, the file path stays stable across minor/patch versions and the version number lives in frontmatter.
 
@@ -247,5 +349,6 @@ These gates are deferred until doc count + reviewer burden justify the CI cost.
 
 | Version | Date | Summary |
 |---------|------|---------|
+| v1.2 | 2026-05-15 | **Archive mechanism codification**: expand §2.3 State Machine with 4 new subsections — §2.3.1 Archive Triggers (4 conditions: major bump / structural rewrite / ≥70% content replacement / split-merge-rename; adapted from mj-agent ADR-017); §2.3.2 Frontmatter on Archive Transition (new `archived:` date + `replaced-by:` pointer fields, bidirectional with `supersedes:` on active successor); §2.3.3 Archive Banner Template (canonical blockquote format at top of archived body); §2.3.4 Living vs Frozen Reference Judgment (procedural rule for cross-doc refs during archive ceremony). Also clarify §2.4 archived filename pattern (`[DEPRECATED]_<TAG>_<Topic>_v<major>.<minor>.md`; patch dropped). Backward compatible: no existing doc paths or frontmatter changes required — these are rules for **future** archive events. Operationalized in `docs/runbook/[RUNBOOK]_Doc_Archive_Procedure.md` v1.0 (new). Adopted in PR #83 (v4.4.0). |
 | v1.1 | 2026-05-15 | **§1 exemption codification**: formalize «plugin-internal teaching series» (e.g., `plugins/learn-kit/docs/learn-kit-NN-*.md` numbered series) as an explicit §1 exemption category. Pre-v1.1 the 6 lowercase learn-kit teaching docs were "informally exempt" per `plugins/learn-kit/docs/INDEX.md` §Plugin-Internal Teaching Series; v1.1 promotes this to canonical framework rule with 3-point pattern criteria (root-level under `plugins/<name>/docs/`, filename prefixed with plugin name, content is human-pedagogical). Backward compatible: no existing doc paths or frontmatter required to change. Adopted in PR #80 (v4.3.3). |
 | v1.0 | 2026-05-15 | Initial framework: 6 tag prefixes + 8-field frontmatter + 3-state machine + path stability + INDEX sync. Adopted in PR #75 (v4.2.0). Adapted from mj-agent `[STANDARD]_MJ_Agent_Documentation_Meta_Framework.md` v2.2; simplified by removing track multiplexing, agent-runtime types, and CI gate enforcement. |
