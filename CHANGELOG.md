@@ -5,6 +5,30 @@
 
 ## [Unreleased]
 
+## [4.4.7] - 2026-05-15
+
+> Sits above [4.4.6] which landed via PR #89 just before this PR's rebase.
+
+### Changed
+
+- **`.claude/skills/mp-doc-author/SKILL.md`** — Harden Step 7 (Verify Cross-references) with the same patterns PR #88 applied to `mp-doc-validate` Step 5+6. Surfaced by scanning all `mp-*` skills for placeholder `...` patterns post-PR #88; `mp-doc-author` was the only other skill with real (not template-ellipsis) placeholder bugs:
+
+  **`related:` resolution** — old code used `grep -E '^  - \./?\S+\.md'` (only matched `./`-prefixed paths, missed `../` and other relatives; relied on `awk '{print $2}'` which fails for paths with spaces). New impl uses proper YAML stop-anchor (`awk '/^related:/{flag=1; next} /^[a-z][a-zA-Z_-]*:/{flag=0} flag && /^  - /'`) + `realpath -m` for normalized resolution.
+
+  **Wikilink check** — old code was a literal `...` placeholder inside the `while read link; do ... done` loop. New impl extracts target from `[[name|alias]]` syntax then runs `find docs plugins -name "*target*.md"` for basename match.
+
+  Both checks now mirror `mp-doc-validate` exactly so the author + validator share identical resolution semantics (what passes author also passes validator post-write).
+
+  **Severity**: broken `related:` → Critical (consistent with `mp-doc-validate` v4.4.5 promotion); broken wikilink → Warning.
+
+### Verified
+
+- Diff with `mp-doc-validate/SKILL.md` Step 5+6 confirms identical reference code (modulo the `<dir-of-new-doc>` placeholder vs. file path).
+
+### Rationale
+
+The "schematic placeholder code" pattern was inherited from the same authoring era as `mp-doc-validate` pre-PR #88. Scanning all 18 mp-* skills found 8 occurrences of `...` patterns total but only 1 was a real placeholder (in `mp-doc-author/SKILL.md` line 157-159); the other 7 are intentional template ellipsis inside markdown skeletons (e.g., ADR template `## Decision\n...\n## Consequences`). Confirmed by reading each occurrence with ±5 line context.
+
 ## [4.4.6] - 2026-05-15
 
 ### Added
