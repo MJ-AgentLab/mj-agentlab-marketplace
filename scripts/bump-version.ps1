@@ -15,16 +15,19 @@
     Target version (e.g. "1.1.0")
 
 .PARAMETER Scope
-    Target scope: "marketplace" (default), or plugin name ("mj-sys-doc", "mj-sys-git", "mj-sys-n8n", "mj-sys-ops")
+    Target scope: "marketplace" (default) or plugin name. As of v4.0.0+ the
+    marketplace contains a single plugin ("learn-kit"); the ValidateSet is
+    extensible — when adding a new plugin, append its name here and to the
+    install-hooks.ps1 commit-msg regex.
 
 .PARAMETER DryRun
     Preview mode: show what would change without modifying files
 
 .EXAMPLE
-    .\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -DryRun
-    .\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0"
-    .\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "mj-sys-git" -DryRun
-    .\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "mj-sys-git"
+    .\scripts\bump-version.ps1 -From "4.3.0" -To "4.3.1" -DryRun
+    .\scripts\bump-version.ps1 -From "4.3.0" -To "4.3.1"
+    .\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "learn-kit" -DryRun
+    .\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "learn-kit"
 #>
 
 param(
@@ -35,7 +38,7 @@ param(
     [string]$To,
 
     [Parameter(Mandatory = $false)]
-    [ValidateSet("marketplace", "mj-sys-doc", "mj-sys-git", "mj-sys-n8n", "mj-sys-ops")]
+    [ValidateSet("marketplace", "learn-kit")]
     [string]$Scope = "marketplace",
 
     [switch]$DryRun

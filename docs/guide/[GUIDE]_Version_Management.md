@@ -29,17 +29,15 @@ related:
 Marketplace 采用**双层独立版本管理**，marketplace 整体和各插件各自维护版本号，互不影响。
 
 ```
-版本层级
-├── Marketplace 整体 v1.0.0      ← VERSION 文件（权威源）
+版本层级（v4.x reality — marketplace 已收敛至 1 个 plugin）
+├── Marketplace 整体 v4.x.x      ← VERSION 文件（权威源）
 │   同步 → marketplace.json metadata.version
 │
-├── mj-sys-doc v1.0.0                ← plugins/mj-sys-doc/.claude-plugin/plugin.json（权威源）
-│   同步 → marketplace.json plugins[name=mj-sys-doc].version
-│
-├── mj-sys-git v1.0.0                ← plugins/mj-sys-git/.claude-plugin/plugin.json
-├── mj-sys-n8n v1.0.0                ← plugins/mj-sys-n8n/.claude-plugin/plugin.json
-└── mj-sys-ops v1.0.0                ← plugins/mj-sys-ops/.claude-plugin/plugin.json
+└── learn-kit v1.x.x             ← plugins/learn-kit/.claude-plugin/plugin.json（权威源）
+    同步 → marketplace.json plugins[name=learn-kit].version
 ```
+
+> 历史上 v3.x 时代 marketplace 含 4 个 mj-sys-* 插件 + 1 个 notebooklm-kit。v3.0.0 删 mj-sys-* / v4.0.0 删 notebooklm-kit 之后定型为单 plugin。详见 [MIGRATION_GUIDE.md](../MIGRATION_GUIDE.md)。如未来再扩充 plugin，把新名加进 bump-version.ps1 ValidateSet 与 install-hooks.ps1 commit-msg regex 即可。
 
 ### 1.2 语义化版本
 
@@ -56,10 +54,7 @@ Marketplace 采用**双层独立版本管理**，marketplace 整体和各插件�
 | 版本 | 权威文件 | 同步目标 |
 |------|----------|----------|
 | Marketplace 整体 | `VERSION`（纯文本） | `.claude-plugin/marketplace.json` → `metadata.version` |
-| mj-sys-doc | `plugins/mj-sys-doc/.claude-plugin/plugin.json` → `version` | `.claude-plugin/marketplace.json` → `plugins[name=mj-sys-doc].version` |
-| mj-sys-git | `plugins/mj-sys-git/.claude-plugin/plugin.json` → `version` | 同上模式 |
-| mj-sys-n8n | `plugins/mj-sys-n8n/.claude-plugin/plugin.json` → `version` | 同上模式 |
-| mj-sys-ops | `plugins/mj-sys-ops/.claude-plugin/plugin.json` → `version` | 同上模式 |
+| learn-kit | `plugins/learn-kit/.claude-plugin/plugin.json` → `version` | `.claude-plugin/marketplace.json` → `plugins[name=learn-kit].version` |
 
 ## 2. bump-version.ps1 脚本
 
@@ -69,8 +64,8 @@ Marketplace 采用**双层独立版本管理**，marketplace 整体和各插件�
 param(
     [Parameter(Mandatory=$true)]  [string]$From,      # 当前版本
     [Parameter(Mandatory=$true)]  [string]$To,        # 目标版本
-    [ValidateSet("marketplace","mj-sys-doc","mj-sys-git","mj-sys-n8n","mj-sys-ops")]
-    [string]$Scope = "marketplace",                    # 升级范围
+    [ValidateSet("marketplace","learn-kit")]
+    [string]$Scope = "marketplace",                    # 升级范围（v4.x: 当前唯一插件 = learn-kit；扩充插件时同步加 ValidateSet）
     [switch]$DryRun                                    # 预览模式
 )
 ```
@@ -80,23 +75,22 @@ param(
 | Scope | 更新文件 |
 |-------|----------|
 | `marketplace` | `VERSION`, `.claude-plugin/marketplace.json`(metadata.version), `README.md` |
-| `mj-sys-git` | `plugins/mj-sys-git/.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`(plugins[name=mj-sys-git].version) |
-| 其他插件 | 同 mj-sys-git 模式 |
+| `learn-kit` | `plugins/learn-kit/.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`(plugins[name=learn-kit].version), `README.md` |
 
 ### 2.3 使用示例
 
 ```powershell
 # 预览 marketplace 版本升级
-.\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -DryRun
+.\scripts\bump-version.ps1 -From "4.3.0" -To "4.3.1" -DryRun
 
 # 执行 marketplace 版本升级
-.\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0"
+.\scripts\bump-version.ps1 -From "4.3.0" -To "4.3.1"
 
-# 预览某个插件版本升级
-.\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "mj-sys-git" -DryRun
+# 预览 learn-kit 插件版本升级
+.\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "learn-kit" -DryRun
 
-# 执行某个插件版本升级
-.\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "mj-sys-git"
+# 执行 learn-kit 插件版本升级
+.\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "learn-kit"
 ```
 
 ### 2.4 输出格式
@@ -133,8 +127,8 @@ Version: 1.0.0 -> 1.1.0
 
 | CHANGELOG | 记录范围 | 示例条目 |
 |-----------|----------|----------|
-| 根 `CHANGELOG.md` | Marketplace 级事件 | "新增 mj-release 插件"、"CI 新增版本一致性校验" |
-| `plugins/<name>/CHANGELOG.md` | 插件内部变更 | "新增 check-merge skill"、"修复 commit scope 推断" |
+| 根 `CHANGELOG.md` | Marketplace 级事件 | "v4.2.0 引入文档框架 v1.0"、"v4.3.0 plugin-internal docs framework 延伸" |
+| `plugins/<name>/CHANGELOG.md` | 插件内部变更 | "v1.1.0 plugins/learn-kit/docs/ 子目录落地"、"修复 nlm-studio quota gate" |
 
 ### 3.3 工作流
 
@@ -166,12 +160,12 @@ Version: 1.0.0 -> 1.1.0
 
 | # | 检查项 | 失败示例 |
 |---|--------|----------|
-| 1 | plugin.json 字段完整 | `ERROR: plugins/mj-sys-git/.claude-plugin/plugin.json missing field: license` |
+| 1 | plugin.json 字段完整 | `ERROR: plugins/learn-kit/.claude-plugin/plugin.json missing field: license` |
 | 2 | marketplace.json 插件目录匹配 | `ERROR: marketplace.json references 'mj-foo' but directory not found` |
 | 3 | SKILL.md frontmatter | `ERROR: SKILL.md missing frontmatter field: description` |
-| 4 | 目录结构 | `ERROR: plugins/mj-sys-git missing required file: CLAUDE.md` |
-| 5 | 版本一致性 | `ERROR: VERSION (1.1.0) != marketplace.json (1.0.0)` |
-| 6 | CHANGELOG 存在性 | `ERROR: plugins/mj-sys-git/CHANGELOG.md not found` |
+| 4 | 目录结构 | `ERROR: plugins/learn-kit missing required file: CLAUDE.md` |
+| 5 | 版本一致性 | `ERROR: VERSION (4.3.1) != marketplace.json (4.3.0)` |
+| 6 | CHANGELOG 存在性 | `ERROR: plugins/learn-kit/CHANGELOG.md not found` |
 
 ### 4.2 Release — 自动发布（release.yml）
 
@@ -191,26 +185,28 @@ Version: 1.0.0 -> 1.1.0
 
 ### 场景 A：仅插件变更
 
-例：给 mj-sys-git 新增一个 skill
+例：给 learn-kit 新增一个 skill
 
 1. 在 `feature/xx-new-skill` 分支开发
-2. 更新 `plugins/mj-sys-git/CHANGELOG.md` 的 `[Unreleased]`
-3. 发布时 bump mj-sys-git: `-Scope "mj-sys-git" -From "1.0.0" -To "1.1.0"`
+2. 更新 `plugins/learn-kit/CHANGELOG.md` 的 `[Unreleased]`
+3. 发布时 bump learn-kit: `-Scope "learn-kit" -From "1.0.0" -To "1.1.0"`
 4. **Marketplace 版本不变**
 
 ### 场景 B：市场级变更
 
-例：新增一个插件
+例：仅文档框架更新、仅 `.claude/skills/` 工作流 skill 调整、仅 CI workflow 改动
 
 1. 更新根 `CHANGELOG.md` 的 `[Unreleased]`
-2. 发布时 bump marketplace: `-From "1.0.0" -To "1.1.0"`
-3. **各插件版本不变**（除非它们也有变更）
+2. 发布时 bump marketplace: `-From "4.3.0" -To "4.4.0"`
+3. **plugin 版本不变**（除非也有变更）
 
 ### 场景 C：混合变更
 
-1. 先分别 bump 变更的插件
+1. 先 bump 变更的 plugin（learn-kit）
 2. 再 bump marketplace 版本
 3. 两层 CHANGELOG 各自更新
+
+> v4.0.0 / v4.3.0 即典型混合变更示例：marketplace bump 至 4.0.0 / 4.3.0 + learn-kit bump 至 1.0.0 / 1.1.0。
 
 ## 6. 版本规则
 

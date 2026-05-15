@@ -5,6 +5,38 @@
 
 ## [Unreleased]
 
+## [4.3.2] - 2026-05-15
+
+### Fixed (real bugs surfaced during content drift audit)
+
+- **`scripts/bump-version.ps1`** — `ValidateSet` had only retired `mj-sys-doc` / `mj-sys-git` / `mj-sys-n8n` / `mj-sys-ops` scopes; running `.\scripts\bump-version.ps1 -Scope "learn-kit"` would have FAILED with parameter validation error. Replaced with `("marketplace", "learn-kit")` (v4.x reality). Comments and `.EXAMPLE` block updated.
+- **`scripts/install-hooks.ps1`** — The installed `commit-msg` git hook used a hardcoded `mj-sys-git|mj-sys-doc|mj-sys-n8n|mj-sys-ops|ci|deps|scripts|marketplace` scope whitelist regex. Any commit using current v4.x scopes (`learn-kit`, `docs-rule`, `docs-adr`, `docs-guide`, `docs-runbook`, `docs-spec`, `release`) would have been REJECTED. Updated PATTERN regex + error message + console output to the canonical v4.x scope set from `docs/rule/[STANDARD]_Commit_Message_Convention.md` §4.
+
+### Changed (content drift cleanup — docs aligned with v4.0.0+ single-plugin reality)
+
+- **`docs/CONTRIBUTING.md`** — Line 4 `Claude Code agent 行为规范请参考各 Plugin 的 SKILL.md（如 mj-sys-git ...）` replaced with current AI Engineering reference (HITL Prompt STANDARD + `.claude/skills/mp-*`). Line 75 `bump-version.ps1 -Scope "mj-sys-git"` example updated to `-Scope "learn-kit"`.
+- **`docs/guide/[GUIDE]_Marketplace_Project_Overview.md`** — §2 architecture tree rewritten for v4.x layout (1 plugin: learn-kit; `.claude/skills/` 18 mp-* skills section added; `docs/` subdirs reflected). §3 plugin table now lists only `learn-kit` row. §3.2 skill workflow chain replaced 4 mj-sys-* enumerations with learn-kit's 5 skills.
+- **`docs/guide/[GUIDE]_Version_Management.md`** — §1.1 version tree rewrote 4-plugin hierarchy as 1-plugin (learn-kit). §1.3 version-file table simplified to 2 rows. §2.1 ValidateSet, §2.2 Scope table, §2.3 examples, §3.2 CHANGELOG examples, §4.1 CI failure examples, §5 release scenarios all updated to learn-kit + current v4.3.x version numbers.
+- **`docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md`** — Plugin tree at §2.1 collapsed from 4 plugins to 1 (learn-kit). §4.2 `--plugin-dir mj-sys-git` examples → `learn-kit`. §Step 4 plugin install commands reduced from 4 lines to 1.
+- **`docs/runbook/[RUNBOOK]_Release_Operations.md`** — Commit examples updated to `learn-kit` scope. §2.3 scope list rewritten with v4.x canonical whitelist + canonical-source link. §3.1 version table updated with v4.3.x example numbers. §3.2 / §4.2 bump-version examples migrated to learn-kit.
+
+### Preserved unchanged (historical fidelity)
+
+- `CHANGELOG.md` (root and `plugins/learn-kit/CHANGELOG.md`): historical entries reference plugin state at time of each release.
+- `docs/MIGRATION_GUIDE.md`: explicitly describes v2.x → v3.0.0 retirement of mj-sys-* plugins; updating would falsify migration documentation.
+- `docs/rule/[STANDARD]_Commit_Message_Convention.md` §10 Change History: explicit retrospective note "Replaces stale mj-sys-* scope whitelist with marketplace v4.x scopes" — intentional historical commentary.
+
+### Changed (versioning)
+
+- **`VERSION`** — 4.3.1 → 4.3.2 (patch — bugfix + content drift cleanup)
+- **`.claude-plugin/marketplace.json`** — `metadata.version` 4.3.1 → 4.3.2; `plugins[].version` unchanged (learn-kit 1.1.0)
+
+### Rationale
+
+The 4-PR doc framework rollout (v4.1.0 - v4.3.0) brought structural compliance to marketplace docs (subdir layout, frontmatter, INDEX schema) but did NOT address content drift in pre-existing GUIDE / RUNBOOK body text. Those docs were authored during v3.x era when marketplace had 4 mj-sys-* plugins; after v3.0.0 retirement and v4.0.0 notebooklm-kit consolidation, the body references became stale.
+
+Worse, **two scripts had hardcoded v3.x plugin names** that would actively break v4.x workflows: `bump-version.ps1 -Scope "learn-kit"` would have failed `ValidateSet` parameter validation, and the commit-msg hook installed by `install-hooks.ps1` would have rejected any commit using current v4.x scopes (which is most of them — every commit since v4.0.0 has used scopes the hook would reject). Going forward both scripts are aligned with current reality.
+
 ## [4.3.1] - 2026-05-15
 
 ### Changed

@@ -23,7 +23,7 @@ related:
 
 ## 1. 项目定位
 
-MJ AgentLab Marketplace 是 MJ System 团队的 **Claude Code 插件市场**，集中管理和分发团队内部的 Claude Code 插件。
+MJ AgentLab Marketplace 是 **通用 Claude Code 插件市场**（v3.0.0 起从 MJ-system 团队专属重构为对外通用），集中管理和分发教学方法论 + NotebookLM 多媒体集成的整合工具集。已在 mj-system / mj-agent 两项目实战。
 
 - **仓库**：[MJ-AgentLab/mj-agentlab-marketplace](https://github.com/MJ-AgentLab/mj-agentlab-marketplace)
 - **许可证**：MIT
@@ -31,19 +31,22 @@ MJ AgentLab Marketplace 是 MJ System 团队的 **Claude Code 插件市场**，�
 
 ## 2. 架构概览
 
-> **物理目录**：本项目使用 **bare repo worktree 模式**（参考 §6.2 克隆仓库）。下图为逻辑结构，物理上每个分支对应一个 worktree 目录（如 `mj-agentlab-marketplace/develop/`、`mj-agentlab-marketplace/feature/xxx/`）。
+> **物理目录**：本项目使用 **bare repo worktree 模式**（参考 §6.2 克隆仓库）。下图为逻辑结构，物理上每个分支对应一个 worktree 目录（如 `mj-agentlab-marketplace/develop/`、`mj-agentlab-marketplace/feature-xxx/`）。
 
 ```
 mj-agentlab-marketplace/
 ├── .claude-plugin/
 │   └── marketplace.json          # 市场元数据（整体版本 + 插件注册表）
+├── .claude/
+│   ├── settings.json             # 项目级 Claude Code 配置
+│   └── skills/                   # v4.1.0 起 18 件项目本地 mp-* 工作流 skill
+│       ├── mp-flow-*/            # 9 个：intake / repo-scan / plan / design-adr / author / compliance / dogfood / self-review / post-merge
+│       ├── mp-git-*/             # 6 个：branch / commit / push / pr / merge-gate / cleanup
+│       └── mp-doc-*/             # 3 个：author / validate / bump-version
 ├── VERSION                       # 市场整体版本号（单一权威源）
 ├── CHANGELOG.md                  # 市场级变更日志
-├── plugins/                      # 4 个插件
-│   ├── mj-sys-doc/                   # 文档工作流
-│   ├── mj-sys-git/                   # Git 工作流
-│   ├── mj-sys-n8n/                   # n8n 自动化工作流
-│   └── mj-sys-ops/                   # 运维操作
+├── plugins/                      # v4.0.0 起仅 1 个插件
+│   └── learn-kit/                # 教学方法论 + AI 三档生成 + NotebookLM 多媒体集成
 ├── scripts/                      # 基础设施脚本
 │   ├── bump-version.ps1          # 版本升级
 │   ├── install-hooks.ps1         # Git hooks 安装
@@ -54,18 +57,25 @@ mj-agentlab-marketplace/
 │   │   └── release.yml           # 自动发布
 │   ├── PULL_REQUEST_TEMPLATE/    # 6 种 PR 模板
 │   └── ISSUE_TEMPLATE/           # 5 种 Issue 模板
-└── docs/
-    └── CONTRIBUTING.md           # 贡献指南
+└── docs/                         # v4.2.0 起按 framework 分子目录
+    ├── INDEX.md                  # 文档索引
+    ├── CONTRIBUTING.md           # 贡献指南
+    ├── MIGRATION_GUIDE.md        # 版本迁移
+    ├── rule/                     # STANDARDs（含本 framework 元规则 + commit + markdown + HITL）
+    ├── guide/                    # GUIDEs（本文档 + version mgmt + plugin dev testing + agent checklist）
+    ├── runbook/                  # RUNBOOKs（release operations）
+    ├── adr/                      # ADRs（marketplace-scope；plugin-internal ADRs 在 plugins/learn-kit/docs/adr/）
+    ├── spec/                     # SPECs（marketplace.json + plugin.json schemas）
+    └── _templates/               # 6 个起草骨架模板
 ```
 
 ## 3. 插件目录
 
+> v3.0.0 重构（从 mj-system 团队专属改为通用工具集）+ v4.0.0 整合（notebooklm-kit 退役，核心多媒体场景吸收到 learn-kit）后，marketplace 收敛至 **1 个通用插件**。完整退役历史见 [MIGRATION_GUIDE.md](../MIGRATION_GUIDE.md) 与 [[ADR]_NotebookLM_Kit_Retirement](../adr/[ADR]_NotebookLM_Kit_Retirement.md)。
+
 | Plugin | 描述 | Skills | Version | MCP 依赖 |
 |--------|------|--------|---------|----------|
-| **mj-sys-doc** | 文档工作流：规划、编写、校验、迁移、同步、审查 | 7（含 1 共享资源） | 1.0.0 | 无 |
-| **mj-sys-git** | Git 工作流：分支、提交、推送、PR、Review、同步、清理 | 9 | 1.0.0 | github, serena |
-| **mj-sys-n8n** | n8n 工作流：设计、编写、模板、配置、文档、渲染、晋升 | 7 | 1.0.0 | n8n-docs |
-| **mj-sys-ops** | 运维操作：环境搭建/清理、ETL 触发 | 4 | 1.0.0 | postgres-dev, postgres-test, ssh-manager |
+| **learn-kit** | 教学方法论 + AI 三档（foundation/structural/challenge）reading-tier 学习文档生成 + 交互式 HTML 渲染 + NotebookLM 多媒体 artifact 生成（audio/video/slide_deck/infographic × 3 view + 1 mind_map = 至多 13 个在线制品） | 5（init / locate / scan / generate-tier / nlm-studio） | 1.1.0 | notebooklm-mcp（nlm-studio skill 需要；其他 4 skill 零依赖） |
 
 ### 3.1 插件标准结构
 
@@ -87,10 +97,14 @@ mj-agentlab-marketplace/
 
 ### 3.2 技能工作流链
 
-- **mj-sys-git**：`issue` → `branch` → `commit` → `push` → `pr` → `review-pr` → `check-merge` → `delete`
-- **mj-sys-doc**：`plan` → `author` → `validate`；`sync`/`review` 均调用 `validate`
-- **mj-sys-n8n**：Path A `plan` → `author` → `config` → `doc` → `render` → `promote`；Path B `plan` → `template` → ...
-- **mj-sys-ops**：`env-setup` → `etl-ods-to-dwd` → `etl-dwd-to-dws` → `env-teardown`
+- **learn-kit**（5 skills，v4.0.0+ 唯一插件）:
+  - `/learn-kit:init` — 在项目根 scaffold `learning/<topic>/` 子系统 + 8 阶段方法论模板
+  - `/learn-kit:locate <query>` — 反查概念名 / 口诀 / 部分文档名 → 候选 [LEARNING] 文档 / canonical 源
+  - `/learn-kit:scan` — 项目可学候选枚举 (PageRank-lite ranking)
+  - `/learn-kit:generate-tier` — AI 生成三档（foundation / structural / challenge）reading-tier 学习 markdown + 可选交互式 HTML
+  - `/learn-kit:nlm-studio <topic>` — 把三档 markdown push 到 NotebookLM 生成至多 13 个多媒体 artifact（audio/video/slide_deck/infographic × 3 view + 1 shared mind_map）
+
+> 历史上 v3.x marketplace 含 4 个 mj-sys-* 插件（doc / git / n8n / ops），v3.0.0 把它们退役改为通用工具集。详见 [MIGRATION_GUIDE.md](../MIGRATION_GUIDE.md)。
 
 ## 4. 版本管理体系
 
@@ -133,7 +147,7 @@ mj-agentlab-marketplace/
 /plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace
 
 # 安装所需 plugin
-/plugin install mj-sys-git@mj-agentlab-marketplace
+/plugin install learn-kit@mj-agentlab-marketplace
 ```
 
 ### 6.2 克隆仓库（开发者）

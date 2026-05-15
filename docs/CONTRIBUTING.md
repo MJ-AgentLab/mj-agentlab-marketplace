@@ -1,7 +1,7 @@
 ﻿# 贡献指南 — MJ AgentLab Marketplace
 
 本文档面向人类贡献者，说明分支策略、提交规范、版本管理和发布流程。
-Claude Code agent 行为规范请参考各 Plugin 的 SKILL.md（如 mj-sys-git 的 commit-rules.md、branch-rules.md）。
+Claude Code agent 行为规范请参考 [docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md](rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)（marketplace 11 阶段闭环 + Skill 矩阵）以及 `.claude/skills/mp-*/SKILL.md` 项目本地工作流 skill。
 
 ## 分支策略
 
@@ -72,7 +72,7 @@ CI / `/mp-git-commit` skill 按该 STANDARD 强制 enforcement。
 .\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0"
 
 # 升级某个 plugin 版本
-.\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "mj-sys-git"
+.\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "learn-kit"
 ```
 
 ### 规则
