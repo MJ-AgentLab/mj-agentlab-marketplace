@@ -5,6 +5,28 @@
 
 ## [Unreleased]
 
+## [4.4.4] - 2026-05-15
+
+### Fixed
+
+- **5 broken `related:` paths across 4 frontmatters** — Repair stale + typo'd cross-references in docs/. Surfaced by continued dogfooding of `mp-doc-validate` against the corpus post-PR #86; Step 5 `related:` resolution check executed per-doc against `realpath -m` exposed bugs that the skill's placeholder Check 5 code didn't actually run (the skill's reference impl was schematic; real-shell resolution exposes more).
+
+  | File | Stale | Fixed | Cause |
+  |------|-------|-------|-------|
+  | `docs/adr/[ADR]_NotebookLM_Kit_Retirement.md` | `./[ADR]_LearnKit_Discovery_Skills.md` | `../../plugins/learn-kit/docs/adr/[ADR]_LearnKit_Discovery_Skills.md` | v4.3.0 migrated this ADR into plugin-internal location; cross-reference never updated |
+  | `docs/adr/[ADR]_NotebookLM_Kit_Retirement.md` | `.../MIGRATION_GUIDE.md` | `../MIGRATION_GUIDE.md` | 3-dot path typo |
+  | `docs/rule/[STANDARD]_Commit_Message_Convention.md` | `.../CONTRIBUTING.md` | `../CONTRIBUTING.md` | 3-dot path typo |
+  | `docs/spec/[SPEC]_Marketplace_Json_Schema.md` | `../[GUIDE]_Version_Management.md` | `../guide/[GUIDE]_Version_Management.md` | Missing `/guide/` subdir segment after PR 2 (v4.2.1) retrofit moved GUIDEs into `docs/guide/` |
+  | `docs/spec/[SPEC]_Plugin_Json_Schema.md` | `../[GUIDE]_Plugin_Development_Testing_Workflow.md` | `../guide/[GUIDE]_Plugin_Development_Testing_Workflow.md` | Same `/guide/` retrofit miss |
+
+  All 5 targets verified to exist post-fix via `realpath -m` resolution. No semantic content change to bodies.
+
+### Rationale
+
+These bugs accumulated across multiple framework migrations: PR 2 (v4.2.1) retrofitted top-level docs into framework subdirs (`docs/guide/`, `docs/spec/` etc.), which made bare `../[GUIDE]_*` references stale. PR 4 (v4.3.0) migrated `[ADR]_LearnKit_Discovery_Skills.md` from marketplace `docs/adr/` into plugin-internal `plugins/learn-kit/docs/adr/`, which made the local `./` reference stale. The 3-dot typos predate this session.
+
+The fix loop is continuing to demonstrate value: PR #84 (skill enhancement) → PR #86 (orphan from PR #83) → this PR (related: paths). Each dogfood iteration finds new latent bugs.
+
 ## [4.4.3] - 2026-05-15
 
 ### Fixed
