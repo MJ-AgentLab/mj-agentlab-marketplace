@@ -35,6 +35,7 @@ Navigation hub for all marketplace documentation.
 | Document | Description |
 |----------|-------------|
 | [ADR: NotebookLM Kit Retirement](<./adr/[ADR]_NotebookLM_Kit_Retirement.md>) | v4.0.0 删除 notebooklm-kit + 把核心 build / studio 多媒体场景吸收到 learn-kit 的决策（跨 plugin 决策；marketplace scope） |
+| [ADR: Documentation Framework Exemption Review](<./adr/[ADR]_Documentation_Framework_Exemption_Review.md>) | v1.2 §1 两条豁免（generic HITL doc + plugin-internal teaching series）的复审决策——保留豁免、收紧规则；触发框架 v1.2 → v1.3 minor bump |
 
 > Plugin-internal ADRs（如 `[ADR]_LearnKit_Discovery_Skills`，v4.3.0 起迁入 `plugins/learn-kit/docs/adr/`）见各 plugin 的 docs/INDEX.md。
 
