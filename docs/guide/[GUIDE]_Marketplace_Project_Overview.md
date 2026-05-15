@@ -1,4 +1,4 @@
-﻿---
+---
 type: guide
 scope: marketplace
 summary: MJ AgentLab Marketplace 项目概览 — 架构、插件目录、开发环境
