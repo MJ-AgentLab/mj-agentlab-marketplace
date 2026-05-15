@@ -8,7 +8,7 @@ Navigation hub for all marketplace documentation.
 
 | Document | State | Version | Purpose |
 |----------|-------|---------|---------|
-| [Documentation Framework](<./rule/[STANDARD]_Documentation_Framework.md>) | active | v1.0 | 6 tag prefixes + 8-field frontmatter + 3-state machine + 路径稳定性 + INDEX sync |
+| [Documentation Framework](<./rule/[STANDARD]_Documentation_Framework.md>) | active | v1.3 | 6 tag prefixes + 8-field frontmatter + 3-state machine + 路径稳定性 + INDEX sync + 豁免-文件 frontmatter 纪律（v1.3） |
 | [Commit Message Convention](<./rule/[STANDARD]_Commit_Message_Convention.md>) | active | v1.0 | `<type>(<scope>): <summary>` + 7 types + marketplace scope whitelist + branch-type matrix |
 | [GitHub Markdown](<./rule/[STANDARD]_GitHub_Markdown.md>) | active | v1.0 | ATX headings + GFM tables + native alerts + frontmatter syntax for GitHub web |
 | [AI Engineering Execution HITL Prompt](<./rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md>) | active | v1.2 | 11 阶段闭环 + skill 矩阵 + HITL 触发规则 |
@@ -35,6 +35,7 @@ Navigation hub for all marketplace documentation.
 | Document | Description |
 |----------|-------------|
 | [ADR: NotebookLM Kit Retirement](<./adr/[ADR]_NotebookLM_Kit_Retirement.md>) | v4.0.0 删除 notebooklm-kit + 把核心 build / studio 多媒体场景吸收到 learn-kit 的决策（跨 plugin 决策；marketplace scope） |
+| [ADR: Documentation Framework Exemption Review](<./adr/[ADR]_Documentation_Framework_Exemption_Review.md>) | v1.2 §1 两条豁免（generic HITL doc + plugin-internal teaching series）的复审决策——保留豁免、收紧规则；触发框架 v1.2 → v1.3 minor bump |
 
 > Plugin-internal ADRs（如 `[ADR]_LearnKit_Discovery_Skills`，v4.3.0 起迁入 `plugins/learn-kit/docs/adr/`）见各 plugin 的 docs/INDEX.md。
 

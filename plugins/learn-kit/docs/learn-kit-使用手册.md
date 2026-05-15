@@ -1,12 +1,3 @@
----
-title: learn-kit 使用手册
-purpose: 新手 5 分钟上手 learn-kit 5 个 skills 的操作指引
-version: v1.1.0 / marketplace v4.4.8
-updated: 2026-05-15
-audience: 第一次用 learn-kit 的项目维护者 / 学习者
-related: learn-kit-01-positioning.md / learn-kit-05-governance-boundary.md / docs/adr/[ADR]_NotebookLM_Kit_Retirement.md
----
-
 # learn-kit 使用手册
 
 把项目里枯燥的规则清单（STANDARD / SPEC / ADR / RFC）变成可学习材料的工具集。5 个 skills 覆盖「发现 → 撰写 → 渲染 → 多媒体」全链路。

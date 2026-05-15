@@ -5,6 +5,38 @@
 
 ## [Unreleased]
 
+## [4.4.11] - 2026-05-15
+
+### Added
+
+- **`docs/rule/[STANDARD]_Documentation_Framework.md` v1.2 → v1.3** — new §1 normative blockquote (inserted after the v1.1 exemption-design note) clarifying frontmatter discipline for §1-exempt files. Files matching either §1 exemption (single-file `docs/ai_engineering_execution_hitl_workflow.md` + plugin-internal teaching series pattern `plugins/<name>/docs/<plugin>-*.md`) MAY (a) omit frontmatter entirely OR (b) carry the canonical 8-field schema, but MUST NOT use legacy non-canonical keys (`title / purpose / audience`) or YAML literal-block-scalar list fields (`related: |` followed by bullet text). Both §1 exemptions remain in v1.3 (single file + teaching series); no path or content change for any other doc.
+
+- **`docs/adr/[ADR]_Documentation_Framework_Exemption_Review.md`** (new ADR, marketplace scope) — records the decision (and full reasoning) for keeping both §1 exemptions in v1.3 rather than revoking and retrofitting the seven currently-exempt files. Two independent design agents (one briefed for revoke + retrofit, one for keep + tighten) converged: keep both. Decisive reasons: (1) `ai_engineering_execution_hitl_workflow.md` is intentionally fork-source for downstream projects (per its own §0) and marketplace-style frontmatter would harm that role; (2) `learn-kit-NN-*` numbered teaching series is structurally fragile under tag-prefix retrofit because future non-numbered LearnKit GUIDEs would sort lexically before `_01_`. §4 Alternatives Considered seriously engages "revoke + retrofit" and "status-quo + INDEX-only fix" as rejected options.
+
+- **`.claude/skills/mp-doc-validate/SKILL.md` Step 2.7** — exempt-file frontmatter discipline check (v1.3+, 2 sub-checks). Enumerates files matching the §1 exemption patterns; for each that DOES carry frontmatter (no-frontmatter files are silently OK), warns on legacy keys (`title / purpose / audience` literal match — Check 14) and on `related: |` literal-block scalar (Check 15). Both emit Warning (not Critical): exempt files remain outside the required-field critical path. Workflow DOT diagram updated (`s2c` node inserted between Step 2.5 and Step 3); Step 4 Categorize table extended; Anti-pattern bullet at line ~344 clarified to call out the new v1.3 scope.
+
+### Changed
+
+- **`docs/INDEX.md` line 11** — Documentation Framework version cell `v1.0` → `v1.3` (drift fix; v1.0 → v1.1 in PR #80, v1.1 → v1.2 in PR #83 — neither propagated to INDEX). Description column also extended to mention the new exemption-frontmatter-discipline clause.
+
+- **`docs/INDEX.md` §"Architecture Decision Records"** — new row added for `[ADR]_Documentation_Framework_Exemption_Review.md`, sitting next to the existing `[ADR]_NotebookLM_Kit_Retirement.md` row.
+
+### Removed
+
+- **Legacy non-canonical frontmatter dropped from 2 §1-exempt files** (per the v1.3 §1 normative clause):
+  - `docs/ai_engineering_execution_hitl_workflow.md` — frontmatter (`title / purpose / version / updated / audience / related: |`) deleted; file now starts directly with H1, matching the sibling no-frontmatter teaching docs. Body unchanged. Reason: this doc is intentionally fork-source per its own §0; marketplace-style frontmatter would force every downstream fork (mj-system, future projects) to either strip or inherit irrelevant marketplace bookkeeping.
+  - `plugins/learn-kit/docs/learn-kit-使用手册.md` — frontmatter (`title / purpose / version / updated / audience / related`) deleted. Reason: consistency with the other 5 sibling no-frontmatter teaching docs (`learn-kit-01..05`); the previous `version: v1.1.0 / marketplace v4.4.8` field was incorrect-by-design (a teaching doc should not co-version with marketplace releases).
+
+  Information loss: zero. File 1's title / purpose / audience / version / cross-doc-relationships are already explicit in the body §0 three-layer table. File 7's title is already its H1; audience and purpose are explicit in §1 (30 秒认知); sister-doc relationships are documented in `plugins/learn-kit/docs/INDEX.md` §"Plugin-Internal Teaching Series".
+
+### Rationale
+
+User-initiated re-examination of Documentation Framework v1.2 §1 exemptions on 2026-05-15. The original question presupposed the seven currently-exempt files might be non-compliant; the investigation found they are all already compliant via explicit §1 exemptions (single-file + plugin-internal teaching series). However, two genuine soft drifts surfaced: (1) two of seven exempt files mixed legacy non-canonical frontmatter keys with the no-frontmatter pattern, creating a 3-shape state; (2) `docs/INDEX.md` line 11 still listed Documentation Framework as v1.0 although actual frontmatter had been bumped to v1.2.
+
+The keep-and-tighten decision (full reasoning in the new ADR) collapses the 3-shape state into 2 (no-frontmatter or canonical), preserves the two load-bearing exemptions, and pairs the rule tightening with `/mp-doc-validate` Step 2.7 enforcement. Backward compatible — no path or schema change for any other doc.
+
+PR: #96 (merged into develop on 2026-05-15 after rebase to fix `Validate commit message format` CI gate; the original commits used scopes `framework` / `adr` and a type `infra` outside the §4 whitelist + §5 documentation/* matrix; identical diff was rebased with corrected `<type>(<scope>)` headers).
+
 ## [4.4.10] - 2026-05-15
 
 ### Fixed
