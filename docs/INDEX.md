@@ -8,7 +8,7 @@ Navigation hub for all marketplace documentation.
 
 | Document | State | Version | Purpose |
 |----------|-------|---------|---------|
-| [Documentation Framework](<./rule/[STANDARD]_Documentation_Framework.md>) | active | v1.0 | 6 tag prefixes + 8-field frontmatter + 3-state machine + 路径稳定性 + INDEX sync |
+| [Documentation Framework](<./rule/[STANDARD]_Documentation_Framework.md>) | active | v1.3 | 6 tag prefixes + 8-field frontmatter + 3-state machine + 路径稳定性 + INDEX sync + 豁免-文件 frontmatter 纪律（v1.3） |
 | [Commit Message Convention](<./rule/[STANDARD]_Commit_Message_Convention.md>) | active | v1.0 | `<type>(<scope>): <summary>` + 7 types + marketplace scope whitelist + branch-type matrix |
 | [GitHub Markdown](<./rule/[STANDARD]_GitHub_Markdown.md>) | active | v1.0 | ATX headings + GFM tables + native alerts + frontmatter syntax for GitHub web |
 | [AI Engineering Execution HITL Prompt](<./rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md>) | active | v1.2 | 11 阶段闭环 + skill 矩阵 + HITL 触发规则 |
