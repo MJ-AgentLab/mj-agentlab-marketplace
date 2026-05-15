@@ -146,20 +146,28 @@ Body 用 imperative mood (for RUNBOOK) / descriptive mood (for ADR/SPEC/GUIDE/ST
 
 ## Step 7: Verify Cross-references
 
+Mirrors `mp-doc-validate` Step 5+6 (hardened v4.4.5) so author + validator share identical resolution semantics — what passes author also passes validator post-write.
+
 ```bash
-# 检查 related: 指向的文件存在
-grep -E '^  - \./?\S+\.md' frontmatter | while read line; do
-  path=$(echo "$line" | awk '{print $2}')
-  [ ! -f "<dir-of-new-doc>/$path" ] && echo "BROKEN: $path"
+# 检查 related: 指向的文件存在（YAML 列表 stop-anchor 见下一 top-level key）
+related=$(awk '/^related:/{flag=1; next} /^[a-z][a-zA-Z_-]*:/{flag=0} flag && /^  - /' frontmatter)
+echo "$related" | while IFS= read -r line; do
+  rel=$(echo "$line" | sed 's/^  - //' | tr -d '\r')
+  [ -z "$rel" ] && continue
+  # realpath -m 即使目标不存在也能正常返回归一化路径；后续 -f 才是真实存在性检查
+  norm=$(cd "<dir-of-new-doc>" && realpath -m "$rel" 2>/dev/null)
+  [ -f "$norm" ] || echo "CRITICAL: broken related: '$rel'"
 done
 
-# 检查 body 内 wikilinks
-grep -oE '\[\[[^\]]+\]\]' body | while read link; do
-  ...
+# 检查 body 内 wikilinks（按 basename 模糊匹配在 docs/ + plugins/ 全语料库）
+grep -oE '\[\[[^]|]+(\|[^]]+)?\]\]' body | while IFS= read -r link; do
+  target=$(echo "$link" | sed 's/^\[\[\([^|]*\).*$/\1/' | tr -d '\r')
+  match=$(find docs plugins -type f -name "*${target}*.md" 2>/dev/null | head -1)
+  [ -z "$match" ] && echo "WARNING: broken wikilink [[${target}]]"
 done
 ```
 
-任何 broken reference → 在 propose Write 前修。
+任何 CRITICAL → 在 propose Write 前必须修；任何 WARNING → 在 PR follow-up 中记录。
 
 ## Step 8: Propose Write + INDEX Update
 
