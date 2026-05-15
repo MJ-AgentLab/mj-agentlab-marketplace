@@ -5,6 +5,30 @@
 
 ## [Unreleased]
 
+## [4.3.4] - 2026-05-15
+
+### Added
+
+- **`docs/CONTRIBUTING.md`** — New `## Git Hooks` section between `## Bare Repo + Worktree` and `## 推送`. Covers:
+  - **First-time install**: `pwsh -File scripts/install-hooks.ps1` (installs `commit-msg` to bare repo shared `.bare/hooks/` so all worktrees share it)
+  - **Upgrade path**: re-run the installer when CHANGELOG notes `install-hooks.ps1` updates (because the PATTERN regex inside is hardcoded; v4.3.2 was the first such update)
+  - **Known history note**: explicit pointer that pre-v4.3.2 hooks reject current v4.x scope commits — affected contributors should re-run installer
+  - **Removal command**: PowerShell one-liner to delete the installed hook
+  - **Canonical source table**: links to `[STANDARD]_Commit_Message_Convention.md` §4 (scope whitelist) + `scripts/install-hooks.ps1` (the script itself) + git hook test command
+
+### Changed (versioning)
+
+- **`VERSION`** — 4.3.3 → 4.3.4 (patch — pure contributor-docs improvement, no script or marketplace behavior change)
+- **`.claude-plugin/marketplace.json`** — `metadata.version` 4.3.3 → 4.3.4; `plugins[].version` unchanged (learn-kit 1.1.0)
+
+### Rationale
+
+PR #79 (v4.3.2) updated `scripts/install-hooks.ps1` PATTERN regex from the retired v3.x `mj-sys-*` scopes to the v4.x canonical whitelist. The PR was correct but left an implicit assumption that contributors would discover the change on next failed commit. v4.3.4 makes the upgrade path explicit and discoverable:
+
+1. **For new contributors**: `## Git Hooks` section is now the canonical onboarding for setting up commit-msg validation.
+2. **For existing contributors with stale hooks**: the "Known history" note tells them exactly what happened and how to recover (`pwsh -File scripts/install-hooks.ps1`).
+3. **For future maintainers**: when `[STANDARD]_Commit_Message_Convention.md` §4 scope whitelist changes again (adding a new scope, retiring one), the documented procedure is: bump that STANDARD's version → update `install-hooks.ps1` PATTERN regex in same commit → add CHANGELOG note → contributors re-run installer.
+
 ## [4.3.3] - 2026-05-15
 
 ### Changed
