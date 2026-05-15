@@ -5,6 +5,40 @@
 
 ## [Unreleased]
 
+## [4.4.6] - 2026-05-15
+
+### Added
+
+- **`.github/workflows/ci.yml`** — New step "Validate commit message format" added to Validate Structure CI job. Validates each non-merge commit in the PR range (or push range against develop) against the canonical PATTERN regex from [STANDARD]_Commit_Message_Convention §3+§4.
+
+  **Trigger conditions**:
+  - `pull_request` events: validates `${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}` range
+  - `push` events on branches other than `develop` / `main`: validates `origin/develop..HEAD`
+  - Skips on push to develop / main (those branches receive only merge commits, which are exempt)
+
+  **PATTERN** (must stay in sync with `scripts/install-hooks.ps1` + STANDARD §3/§4):
+  ```
+  ^(feat|fix|perf|refactor|test|docs|infra)\((learn-kit|marketplace|ci|scripts|deps|infra|docs-rule|docs-adr|docs-guide|docs-runbook|docs-spec|release)\): .{1,72}$
+  ```
+
+  Uses `git log --no-merges --format='%H%x09%s' <range>` to enumerate commits, then per-line `grep -qE` against PATTERN. Merge commits exempt by convention.
+
+  `actions/checkout@v4` upgraded to `fetch-depth: 0` so full commit history is available for `git log` range queries.
+
+### Rationale
+
+PR #86 surfaced this gap: `fix(docs): ...` scope (not in v4.x whitelist) merged successfully because:
+1. **`scripts/install-hooks.ps1` is local-only** — the pre-commit hook validates commit messages but only when installed on the developer's machine. Verified `.git/hooks/commit-msg` was NOT installed (only `.sample` files present).
+2. **CI had no commit-msg check** — `.github/workflows/ci.yml` validates plugin/marketplace/SKILL/dir/version/CHANGELOG but not commit message format.
+
+With this PR, the whitelist is **centrally enforced** at PR-merge gate — no longer dependent on each developer installing the local hook. The pre-commit hook remains valuable for fast local feedback but is now backstopped by CI.
+
+Verified PATTERN matches expected results on test cases:
+- `fix(docs): register Doc_Archive_Procedure RUNBOOK in INDEX active table` → **FAIL** (correctly — `docs` not in scope whitelist)
+- `fix(marketplace): harden mp-doc-validate Step 3/5/6 to executable` → PASS
+- `docs(marketplace): something` → PASS
+- `fix(docs-runbook): hypothetical fix` → PASS
+
 ## [4.4.5] - 2026-05-15
 
 ### Changed
