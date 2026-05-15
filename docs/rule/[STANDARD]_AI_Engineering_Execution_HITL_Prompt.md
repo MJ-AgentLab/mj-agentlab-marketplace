@@ -1,13 +1,29 @@
+---
+type: standard
+scope: marketplace
+summary: AI 工程执行 HITL Prompt — 11 阶段闭环 + skill 矩阵 + HITL 触发规则
+owner: marketplace-maintainers
+created: 2026-05-11
+updated: 2026-05-15
+state: active
+version: v1.2
+domain: governance
+tags:
+  - hitl
+  - ai-engineering
+  - workflow
+  - skill-matrix
+related:
+  - ./[STANDARD]_Documentation_Framework.md
+  - ./[STANDARD]_Commit_Message_Convention.md
+  - ../guide/[GUIDE]_Marketplace_Agent_Execution_Checklist.md
+  - ../ai_engineering_execution_hitl_workflow.md
+---
+
 # [STANDARD] AI Engineering Execution HITL Prompt — MJ AgentLab Marketplace
 
-| Field | Value |
-|-------|-------|
-| **Status** | Active |
-| **Version** | v1.2 |
-| **Created** | 2026-05-11 |
-| **Updated** | 2026-05-15 |
-| **Scope** | mj-agentlab-marketplace 仓库（不含 mj-system / mj-agent / 任何下游消费者）|
-| **Audience** | Marketplace 维护者 / 插件贡献者 / Claude Code agent |
+> **Scope**: mj-agentlab-marketplace 仓库（不含 mj-system / mj-agent / 任何下游消费者）。
+> **Audience**: Marketplace 维护者 / 插件贡献者 / Claude Code agent。
 
 ---
 

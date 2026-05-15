@@ -1,4 +1,24 @@
-# ADR · NotebookLM Kit Retirement (marketplace v4.0.0)
+---
+type: adr
+scope: marketplace
+summary: marketplace v4.0.0 退役 notebooklm-kit + 吸收核心 build/studio 多媒体场景到 learn-kit
+owner: marketplace-maintainers
+created: 2026-05-14
+updated: 2026-05-15
+state: active
+version: v1.0
+domain: governance
+tags:
+  - retirement
+  - learn-kit
+  - notebooklm-kit
+  - v4.0.0
+related:
+  - ./[ADR]_LearnKit_Discovery_Skills.md
+  - ../MIGRATION_GUIDE.md
+---
+
+# [ADR] NotebookLM Kit Retirement (marketplace v4.0.0)
 
 **Status**: Accepted
 **Date**: 2026-05-14

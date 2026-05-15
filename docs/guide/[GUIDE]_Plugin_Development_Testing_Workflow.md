@@ -1,4 +1,25 @@
-﻿> **[GUIDE] Plugin 开发测试工作流指南**
+﻿---
+type: guide
+scope: marketplace
+summary: Plugin 开发测试工作流 — 跨仓库 3 阶段（快速开发 / 集成验证 / 发布前验证）
+owner: marketplace-maintainers
+created: 2026-03-17
+updated: 2026-05-15
+state: active
+version: v1.0
+domain: plugin-dev
+tags:
+  - plugin-dev
+  - testing
+  - workflow
+related:
+  - ./[GUIDE]_Marketplace_Project_Overview.md
+  - ../spec/[SPEC]_Plugin_Json_Schema.md
+  - ../runbook/[RUNBOOK]_Release_Operations.md
+---
+
+# [GUIDE] Plugin 开发测试工作流指南
+
 > 覆盖从 marketplace feature 分支开发到发布的完整插件测试流程，解决跨仓库缓存冲突问题。
 
 ## TL;DR

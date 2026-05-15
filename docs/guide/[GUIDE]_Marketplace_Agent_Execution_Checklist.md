@@ -1,12 +1,24 @@
+---
+type: guide
+scope: marketplace
+summary: STANDARD HITL Prompt 的运行时勾选清单 — 11 stage × 4 段 (Entry / Actions / Verification / Exit)
+owner: marketplace-maintainers
+created: 2026-05-11
+updated: 2026-05-15
+state: active
+version: v1.1
+domain: governance
+tags:
+  - hitl
+  - checklist
+  - workflow
+related:
+  - ../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
+---
+
 # [GUIDE] Marketplace Agent Execution Checklist
 
-| Field | Value |
-|-------|-------|
-| **Status** | Active |
-| **Version** | v1.1 |
-| **Created** | 2026-05-11 |
-| **Updated** | 2026-05-15 |
-| **Pairs with** | [`docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`](<./[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md>) v1.1 |
+> Pairs with [`../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`](<../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md>) v1.2.
 
 ---
 

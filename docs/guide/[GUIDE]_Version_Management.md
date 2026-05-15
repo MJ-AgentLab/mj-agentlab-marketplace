@@ -1,4 +1,25 @@
-﻿> **[GUIDE] 版本管理指南 — MJ AgentLab Marketplace**
+﻿---
+type: guide
+scope: marketplace
+summary: 双层版本架构、bump 工具、CHANGELOG 规范、CI/CD 自动化
+owner: marketplace-maintainers
+created: 2026-03-17
+updated: 2026-05-15
+state: active
+version: v1.0
+domain: release
+tags:
+  - versioning
+  - changelog
+  - release
+related:
+  - ../spec/[SPEC]_Marketplace_Json_Schema.md
+  - ../spec/[SPEC]_Plugin_Json_Schema.md
+  - ../runbook/[RUNBOOK]_Release_Operations.md
+---
+
+# [GUIDE] 版本管理指南 — MJ AgentLab Marketplace
+
 > 说明双层版本架构、版本升级工具、CHANGELOG 规范和 CI/CD 自动化机制。
 
 ## 1. 版本架构

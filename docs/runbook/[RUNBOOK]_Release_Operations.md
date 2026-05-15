@@ -1,4 +1,26 @@
-﻿> **[RUNBOOK] 发布操作手册 — MJ AgentLab Marketplace**
+﻿---
+type: runbook
+scope: marketplace
+summary: 从功能开发到版本发布的完整操作流程 — Issue → PR → Release
+owner: marketplace-maintainers
+created: 2026-03-17
+updated: 2026-05-15
+state: active
+version: v1.0
+last-verified: 2026-05-14
+domain: release
+tags:
+  - release
+  - operations
+  - publish
+related:
+  - ../guide/[GUIDE]_Version_Management.md
+  - ../spec/[SPEC]_Marketplace_Json_Schema.md
+  - ../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
+---
+
+# [RUNBOOK] 发布操作手册 — MJ AgentLab Marketplace
+
 > 从功能开发到版本发布的完整操作流程，面向执行者。
 
 ## 1. 流程总览
