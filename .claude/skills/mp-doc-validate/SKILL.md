@@ -1,17 +1,18 @@
 ---
 name: mp-doc-validate
-description: Validates marketplace documentation compliance (post-PR 2 framework) — checks that every `docs/**/*.md` and `plugins/<name>/docs/**/*.md` with a `[TAG]` prefix has the required 8-field frontmatter (type / scope / summary / owner / created / updated / state / version), the `type` enum matches `[TAG]`, the file lives in the right subdirectory per `[STANDARD]_Documentation_Framework`, paths in `related:` resolve, wikilinks resolve, INDEX.md lists the doc, and `[RUNBOOK]_*.md` has `last-verified` field. Make sure to use this skill whenever the user says "validate docs", "doc compliance", "frontmatter check", "docs audit", "docs/ check", "marketplace doc validate", "doc validate", "Stage 7 docs audit", or before committing changes that touched any `docs/**` or `plugins/<name>/docs/**` file. Heuristic-only; does not modify files. Outputs report: Critical (frontmatter missing / wrong type / orphan in INDEX) / Warning (last-verified stale / cross-reference broken) / Verified. Skill itself is not in scope (those use Claude Code plugin spec native frontmatter, validated by `/plugin-dev:skill-reviewer`). Do not use for: SKILL.md validation (use /plugin-dev:skill-reviewer agent), plugin compliance (use mp-flow-compliance, Stage 5), or test of doc content quality (subjective; outside scope).
+description: Validates marketplace documentation compliance against Documentation Framework v1.2+ — checks (1) every `docs/**/*.md` and `plugins/<name>/docs/**/*.md` with a `[TAG]` prefix has the required 8-field frontmatter (type / scope / summary / owner / created / updated / state / version), the `type` enum matches `[TAG]`, the file lives in the right subdirectory, paths in `related:` resolve, wikilinks resolve, INDEX.md lists the doc, and `[RUNBOOK]_*.md` has `last-verified` field; AND (2) v1.2+ **archive compliance**: every `state: archived` file lives under `docs/archive/<subtype>/[DEPRECATED]_<TAG>_<Topic>_v<major>.<minor>.md`, has mandatory `archived:` ISO date + `replaced-by:` path, body starts with the canonical Archive Banner, and the `replaced-by:` ↔ `supersedes:` bidirectional pair is intact. Make sure to use this skill whenever the user says "validate docs", "doc compliance", "frontmatter check", "docs audit", "docs/ check", "marketplace doc validate", "doc validate", "Stage 7 docs audit", "archive validation", "archive compliance", or before committing changes that touched any `docs/**` or `plugins/<name>/docs/**` file (including any change under `docs/archive/`). Heuristic-only; does not modify files. Outputs report: Critical (frontmatter missing / wrong type / orphan in INDEX / archive banner missing / broken supersedes-replaced-by) / Warning (last-verified stale / cross-reference broken) / Verified. Skill itself is not in scope (those use Claude Code plugin spec native frontmatter, validated by `/plugin-dev:skill-reviewer`). Do not use for: SKILL.md validation (use /plugin-dev:skill-reviewer agent), plugin compliance (use mp-flow-compliance, Stage 5), or test of doc content quality (subjective; outside scope).
 ---
 
 # Marketplace Doc Validate
 
 ## Overview
 
-Audits `docs/**/*.md` and `plugins/<name>/docs/**/*.md` against the marketplace documentation framework (post-PR 2). Strictly structural / schema check; does NOT judge content quality.
+Audits `docs/**/*.md` and `plugins/<name>/docs/**/*.md` against the marketplace documentation framework. Includes v1.2 archive compliance checks for `state: archived` files under `docs/archive/`. Strictly structural / schema check; does NOT judge content quality.
 
-**Reference** (post-PR 2):
-- `docs/rule/[STANDARD]_Documentation_Framework.md` (frontmatter schema, paths, states)
+**Reference**:
+- `docs/rule/[STANDARD]_Documentation_Framework.md` v1.2+ (frontmatter schema, paths, state machine, archive triggers + frontmatter + banner + ref rules)
 - `docs/rule/[STANDARD]_GitHub_Markdown.md` (markdown style)
+- `docs/runbook/[RUNBOOK]_Doc_Archive_Procedure.md` v1.0 (operational archive ceremony)
 - `docs/INDEX.md` (canonical doc list)
 
 **Workflow position**: Stage 7 self-review substep + PR-pre-merge double-check.
@@ -23,25 +24,27 @@ digraph validate {
   rankdir=TB;
   start [label="Want to validate docs/" shape=doublecircle];
 
-  s1 [label="Step 1: Enumerate docs/**/*.md\n+ plugins/<name>/docs/**" shape=box];
-  s2 [label="Step 2: Per-doc 6 checks\nfrontmatter / type-tag / path / related / wikilink / runbook last-verified" shape=box];
-  s3 [label="Step 3: INDEX cross-check" shape=box];
+  s1 [label="Step 1: Enumerate docs/**/*.md\n+ plugins/<name>/docs/**\n+ docs/archive/**" shape=box];
+  s2 [label="Step 2: Active doc 7 checks\nfrontmatter / type-tag / path / related / wikilink / runbook last-verified / archived state check" shape=box];
+  s2b [label="Step 2.5: Archived doc 6 checks (v1.2)\npath / archived: date / replaced-by: / banner / bidirectional supersedes / patch-stripped filename" shape=box];
+  s3 [label="Step 3: INDEX cross-check\n(active + archived sections)" shape=box];
   s4 [label="Step 4: Categorize: Critical / Warning / Verified" shape=box];
 
   done [label="Validate report" shape=doublecircle];
 
-  start -> s1 -> s2 -> s3 -> s4 -> done;
+  start -> s1 -> s2 -> s2b -> s3 -> s4 -> done;
 }
 ```
 
 ## Step 1: Enumerate Files
 
 ```bash
-# Marketplace 顶层
-find docs -type f -name '*.md' | grep -E '\[(STANDARD|ADR|GUIDE|RUNBOOK|SPEC|POSTMORTEM)\]_'
-
-# Plugin internal
+# Active docs (top-level + plugin-internal)
+find docs -type f -name '*.md' -not -path 'docs/archive/*' | grep -E '\[(STANDARD|ADR|GUIDE|RUNBOOK|SPEC|POSTMORTEM)\]_'
 find plugins/learn-kit/docs -type f -name '*.md' 2>/dev/null | grep -E '\[(STANDARD|ADR|GUIDE|RUNBOOK|SPEC|POSTMORTEM)\]_'
+
+# Archived docs (v1.2+)
+find docs/archive -type f -name '*.md' 2>/dev/null | grep -E '\[DEPRECATED\]_\[(STANDARD|ADR|GUIDE|RUNBOOK|SPEC|POSTMORTEM)\]_'
 
 # 豁免（不应有 frontmatter）
 # - docs/INDEX.md
@@ -49,11 +52,13 @@ find plugins/learn-kit/docs -type f -name '*.md' 2>/dev/null | grep -E '\[(STAND
 # - docs/MIGRATION_GUIDE.md
 # - docs/ai_engineering_execution_hitl_workflow.md (lowercase, generic doc)
 # - README.md / CHANGELOG.md
+# - plugins/<name>/CLAUDE.md
+# - plugins/<name>/docs/<plugin>-NN-*.md (framework v1.1+ exempt: plugin-internal teaching series)
 ```
 
-## Step 2: Per-doc 6 Checks
+## Step 2: Per-doc Active Checks (7 checks)
 
-For each tag-prefixed doc:
+For each tag-prefixed **active** doc (state: active or deprecated; not in `docs/archive/`):
 
 ### Check 1: Frontmatter Exists
 
@@ -127,19 +132,113 @@ done
 }
 ```
 
+### Check 7b (any active doc with `supersedes:` list)
+
+Per Framework v1.2 §2.3.2, an active doc with `supersedes: [archive paths]` MUST have each listed archive file exist and be in `state: archived`:
+
+```bash
+echo "$fm" | awk '/^supersedes:/{flag=1; next} /^[a-z_-]+:/{flag=0} flag && /^  - /' | while read line; do
+  arch_rel=$(echo "$line" | sed 's/^  - //')
+  arch_path="$(dirname <file>)/$arch_rel"
+  [ ! -f "$arch_path" ] && echo "CRITICAL: supersedes points to missing file: $arch_rel" && continue
+  arch_state=$(sed -n '/^---$/,/^---$/p' "$arch_path" | awk '/^state:/{print $2}')
+  [ "$arch_state" != "archived" ] && echo "CRITICAL: supersedes target $arch_rel has state=$arch_state (expected archived)"
+done
+```
+
+## Step 2.5: Per-doc Archived Checks (6 checks, v1.2+)
+
+For each file under `docs/archive/<subtype>/` (state: archived):
+
+### Check 8: Archived Filename Pattern
+
+Per Framework v1.2 §2.4:
+
+```bash
+basename=$(basename <file>)
+# Expected pattern: [DEPRECATED]_[TAG]_<Topic>_v<major>.<minor>.md
+echo "$basename" | grep -qE '^\[DEPRECATED\]_\[(STANDARD|ADR|GUIDE|RUNBOOK|SPEC|POSTMORTEM)\]_.+_v[0-9]+\.[0-9]+\.md$' \
+  || echo "CRITICAL: filename does not match [DEPRECATED]_[TAG]_<Topic>_v<major>.<minor>.md: $basename"
+```
+
+### Check 9: `state: archived`
+
+```bash
+state=$(echo "$fm" | awk '/^state:/{print $2}')
+[ "$state" = "archived" ] || echo "CRITICAL: file in docs/archive/ has state=$state (expected archived)"
+```
+
+### Check 10: `archived:` date field
+
+```bash
+archived=$(echo "$fm" | awk '/^archived:/{print $2}')
+[ -z "$archived" ] && echo "CRITICAL: missing archived: field (mandatory per v1.2 §2.3.2)"
+echo "$archived" | grep -qE '^[0-9]{4}-[0-9]{2}-[0-9]{2}$' || echo "CRITICAL: archived: not ISO-8601 date: $archived"
+```
+
+### Check 11: `replaced-by:` path resolves (or explicit empty for pure retirement)
+
+```bash
+rb=$(echo "$fm" | awk '/^replaced-by:/{print $2}')
+if [ -z "$rb" ]; then
+  echo "WARNING: replaced-by: empty — pure retirement (no successor)? Confirm in CHANGELOG"
+else
+  rb_path="$(dirname <file>)/$rb"
+  [ ! -f "$rb_path" ] && echo "CRITICAL: replaced-by path does not resolve: $rb"
+fi
+```
+
+### Check 12: Archive Banner Present
+
+Per Framework v1.2 §2.3.3, archived docs MUST have the canonical Archive Banner immediately after H1:
+
+```bash
+# Read first 10 lines after frontmatter; look for banner pattern
+body=$(sed '/^---$/,/^---$/d' <file> | head -10)
+echo "$body" | grep -qE '^> \*\*Archived\*\*' || echo "CRITICAL: missing Archive Banner (per Framework §2.3.3)"
+echo "$body" | grep -qE '^> \*\*Archive reason\*\*' || echo "CRITICAL: Archive Banner missing 'Archive reason' line"
+echo "$body" | grep -qE '^> \*\*Archived on\*\*' || echo "CRITICAL: Archive Banner missing 'Archived on' line"
+```
+
+### Check 13: Bidirectional `supersedes:` ↔ `replaced-by:` Integrity
+
+The successor referenced in `replaced-by:` MUST list this archive file in its `supersedes:`:
+
+```bash
+rb=$(echo "$fm" | awk '/^replaced-by:/{print $2}')
+[ -z "$rb" ] && continue   # pure retirement; skip
+
+successor="$(dirname <file>)/$rb"
+my_path_relative_to_successor=$(realpath --relative-to="$(dirname $successor)" <file>)
+
+successor_fm=$(sed -n '/^---$/,/^---$/p' "$successor")
+echo "$successor_fm" | awk '/^supersedes:/{flag=1; next} /^[a-z_-]+:/{flag=0} flag && /^  - /' | grep -qF "$my_path_relative_to_successor" \
+  || echo "CRITICAL: bidirectional break — successor $rb does not list this archive in its supersedes: array"
+```
+
 ## Step 3: INDEX Cross-check
 
 ```bash
-# 列出 INDEX.md 中所有 [TAG] 链接
-listed=$(grep -oE '\[(STANDARD|ADR|GUIDE|RUNBOOK|SPEC|POSTMORTEM)\][^)]+' docs/INDEX.md)
+# 列出 INDEX.md 中所有 active [TAG] 链接（exclude Archived Documents 段以下）
+listed_active=$(awk '/^## Archived Documents/{exit} 1' docs/INDEX.md | grep -oE '\[(STANDARD|ADR|GUIDE|RUNBOOK|SPEC|POSTMORTEM)\][^)]+\.md')
 
-# 列出 docs/ 下所有 [TAG] 文件
-actual=$(find docs -name '\[*\]_*.md' -printf '%f\n')
+# 列出 active docs（exclude archive）
+actual_active=$(find docs -name '\[*\]_*.md' -not -path 'docs/archive/*' -printf '%f\n')
 
-# 对比
-# 在 actual 但不在 listed → orphan in INDEX
-# 在 listed 但 actual 不存在 → broken INDEX entry
-diff <(echo "$listed" | sort) <(echo "$actual" | sort)
+# 对比 active
+# 在 actual 但不在 listed → orphan in INDEX (CRITICAL after PR 3 retrofit)
+# 在 listed 但 actual 不存在 → broken INDEX entry (CRITICAL)
+diff <(echo "$listed_active" | sort) <(echo "$actual_active" | sort)
+
+# v1.2+: 列出 Archived Documents 段所有 [DEPRECATED] 链接
+listed_archived=$(awk '/^## Archived Documents/,/^## /{if (!/^## Templates/) print}' docs/INDEX.md | grep -oE '\[DEPRECATED\]_\[[^]]+\][^)]+\.md')
+
+# 列出 docs/archive/ 下所有 [DEPRECATED] 文件
+actual_archived=$(find docs/archive -name '\[DEPRECATED\]_*.md' -printf '%f\n')
+
+# 对比 archived
+# 任何 mismatch 同样 CRITICAL — Archive INDEX 段应与 docs/archive/ 实际文件一致
+diff <(echo "$listed_archived" | sort) <(echo "$actual_archived" | sort)
 ```
 
 Marketplace 顶层 INDEX 不需镜像 plugin-internal docs（plugin 自己的 docs/INDEX.md 是 source of truth；marketplace INDEX 仅列 "Plugin Documentation" 一段含跳转）。
@@ -148,8 +247,8 @@ Marketplace 顶层 INDEX 不需镜像 plugin-internal docs（plugin 自己的 do
 
 | Severity | Examples |
 |---|---|
-| **Critical** | missing frontmatter / wrong tag-type match / orphan in INDEX (after PR 3 retrofit) |
-| **Warning** | path-subdir mismatch (pre-PR 3 ok) / broken related: / stale RUNBOOK last-verified / broken wikilink |
+| **Critical** | missing frontmatter / wrong tag-type match / orphan in INDEX / archived doc missing banner / archived filename pattern mismatch / broken bidirectional supersedes↔replaced-by / supersedes points to missing or non-archived file |
+| **Warning** | broken related: / stale RUNBOOK last-verified / broken wikilink / empty replaced-by (pure retirement, requires CHANGELOG confirmation) |
 | **Verified** | all checks pass |
 
 ## Output Format
@@ -158,29 +257,39 @@ Marketplace 顶层 INDEX 不需镜像 plugin-internal docs（plugin 自己的 do
 ## Doc Validation Report
 
 ### Files Audited
-- N marketplace docs
-- M plugin-internal docs
+- N marketplace active docs
+- M plugin-internal active docs
+- K marketplace archived docs (under docs/archive/)
 
-### Results
+### Results — Active Docs
 | File | Severity | Issue |
 |---|---|---|
-| docs/[STANDARD]_X.md | Critical | missing frontmatter |
+| docs/rule/[STANDARD]_X.md | Critical | missing frontmatter |
 | docs/runbook/[RUNBOOK]_Y.md | Warning | last-verified 120 days old |
 | docs/adr/[ADR]_Z.md | Verified | — |
 | ... |
 
+### Results — Archived Docs (v1.2+)
+| File | Severity | Issue |
+|---|---|---|
+| docs/archive/rule/[DEPRECATED]_[STANDARD]_X_v1.0.md | Critical | missing Archive Banner |
+| docs/archive/adr/[DEPRECATED]_[ADR]_Y_v1.0.md | Critical | bidirectional break — successor does not list this in supersedes |
+| docs/archive/spec/[DEPRECATED]_[SPEC]_Z_v1.0.md | Verified | — |
+| ... |
+
 ### Summary
-- Critical: K (must fix before commit)
-- Warning: L (advisory)
-- Verified: P
+- Active: Critical K1 / Warning L1 / Verified P1
+- Archived: Critical K2 / Warning L2 / Verified P2
+- INDEX sync: <pass / N orphans / M broken entries>
 
 ### Recommended Fixes
-1. `docs/[STANDARD]_X.md`: add frontmatter (see template `docs/_templates/TEMPLATE_STANDARD.md`)
-2. `docs/runbook/[RUNBOOK]_Y.md`: update `last-verified: 2026-05-15`
+1. `docs/rule/[STANDARD]_X.md`: add frontmatter (see template `docs/_templates/TEMPLATE_STANDARD.md`)
+2. `docs/archive/rule/[DEPRECATED]_*_v1.0.md`: add Archive Banner per [RUNBOOK]_Doc_Archive_Procedure §3
+3. ...
 
 ### Next Step
 - Critical=0 → 进 Stage 7 self-review / commit
-- Critical>0 → 回 /mp-doc-author 修
+- Critical>0 → 修 critical（active 走 /mp-doc-author；archived 走 [RUNBOOK]_Doc_Archive_Procedure 修正）
 - Warning → record follow-up
 ```
 
@@ -202,22 +311,26 @@ Marketplace 顶层 INDEX 不需镜像 plugin-internal docs（plugin 自己的 do
 
 ## Reference Files
 
-- (post-PR 2) `docs/rule/[STANDARD]_Documentation_Framework.md`
-- (post-PR 2) `docs/_templates/TEMPLATE_*.md`
-- `docs/INDEX.md`
+- `docs/rule/[STANDARD]_Documentation_Framework.md` v1.2+ (8-field frontmatter / state machine / archive triggers + frontmatter + banner + ref rules)
+- `docs/_templates/TEMPLATE_*.md` (skeleton drafts)
+- `docs/runbook/[RUNBOOK]_Doc_Archive_Procedure.md` v1.0+ (archive ceremony procedure; validator backs §5 verification checklist)
+- `docs/INDEX.md` (canonical doc list including § Archived Documents)
 
 ## Anti-patterns
 
 - **不要** 用此 skill 验证 SKILL.md（错误的 schema；用 `/plugin-dev:skill-reviewer`）
-- **不要** 把 Warning 当 Critical（path-subdir 不一致在 PR 3 retrofit 前是 OK）
 - **不要** 自动 fix（report-only；用户决定）
-- **不要** 验证 README.md / CHANGELOG.md / CONTRIBUTING.md / INDEX.md frontmatter（这些豁免）
+- **不要** 验证 README.md / CHANGELOG.md / CONTRIBUTING.md / INDEX.md / MIGRATION_GUIDE.md / `ai_engineering_execution_hitl_workflow.md` / plugin CLAUDE.md / plugin-internal teaching series (`plugins/<name>/docs/<plugin>-NN-*.md`) frontmatter（这些豁免，per Framework §1）
+- **不要** 把 archived 文件当成 active 文件查（Step 2 跳过 `docs/archive/*`）
+- **不要** 在 archive 检查（Step 2.5）报告 active-only 字段缺失警告（archived 是 state-frozen，其历史 frontmatter 字段保留即可）
+- **不要** 因 Archived Documents 段空表格（placeholder）而报错（marketplace 当前 0 archived 是合法状态）
 
 ## Handoff to Next Stage
 
 ```text
 Validation report
 - Critical=0 → /mp-flow-self-review (Stage 7) 继续
-- Critical>0 → /mp-doc-author 修，re-run /mp-doc-validate
+- Critical>0 (active) → /mp-doc-author 修，re-run /mp-doc-validate
+- Critical>0 (archived) → 参 [RUNBOOK]_Doc_Archive_Procedure §5 verification checklist 修；re-run /mp-doc-validate
 - Warning → record to PR follow-up
 ```

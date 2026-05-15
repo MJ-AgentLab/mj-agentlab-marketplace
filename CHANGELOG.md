@@ -5,6 +5,51 @@
 
 ## [Unreleased]
 
+## [4.4.1] - 2026-05-15
+
+### Changed
+
+- **`.claude/skills/mp-doc-validate/SKILL.md`** — Extended skill to verify Framework v1.2 archive compliance. Without this update, the new archive rules (banner / frontmatter fields / bidirectional supersedes-replaced-by / filename pattern) sat documented but unenforced at the skill level.
+
+  **Description field** expanded: now mentions archive-specific checks + new trigger keywords ("archive validation", "archive compliance").
+
+  **Workflow DOT diagram** updated: Step 2 split into Step 2 (active docs, 7 checks including new Check 7b for supersedes integrity on active docs) + Step 2.5 (archived docs, 6 new checks). INDEX cross-check (Step 3) extended to also verify Archived Documents table.
+
+  **Step 1 enumerate** now globs both `docs/**/*.md -not -path 'docs/archive/*'` (active) and `docs/archive/**/*.md` (archived) separately. Also documents framework §1 exemption list explicitly (plugin-internal teaching series newly added per v1.1).
+
+  **6 new archive checks (Step 2.5)**:
+  - **Check 8 Archived Filename Pattern** — `[DEPRECATED]_<TAG>_<Topic>_v<major>.<minor>.md` regex per Framework v1.2 §2.4
+  - **Check 9 `state: archived`** — files under `docs/archive/` MUST have state=archived
+  - **Check 10 `archived:` field** — mandatory ISO-8601 date per Framework v1.2 §2.3.2
+  - **Check 11 `replaced-by:` resolution** — path resolves to existing file (or empty for pure retirement = WARNING with CHANGELOG confirmation prompt)
+  - **Check 12 Archive Banner** — body MUST have 3-line canonical banner per Framework v1.2 §2.3.3 (`> **Archived**:` / `> **Archive reason**:` / `> **Archived on**:`)
+  - **Check 13 Bidirectional Integrity** — successor's `supersedes:` list MUST include this archive path (paired with archived doc's `replaced-by:`)
+
+  **1 new active check (Check 7b)** — active doc with `supersedes:` list: each listed archive path MUST exist AND have `state: archived` (catches dangling supersedes references)
+
+  **Step 4 Categorize** updated: archived-specific Critical examples added (banner missing / filename pattern mismatch / broken bidirectional / supersedes points to missing or non-archived file). Pure-retirement (`replaced-by:` empty) downgraded to Warning since it's a valid edge case.
+
+  **Output Format** restructured into separate Active and Archived results tables; summary now reports both severity categories separately.
+
+  **Reference Files** updated: Framework v1.2 (was v1.0); added RUNBOOK reference; added archive ceremony pointer.
+
+  **Anti-patterns** updated: 6 items (was 4); new items cover archive-specific edge cases (don't treat archived as active and vice versa; don't flag empty Archived Documents placeholder).
+
+  **Handoff** updated: critical-on-archived path routes to `[RUNBOOK]_Doc_Archive_Procedure §5 verification checklist` (was previously only `mp-doc-author`).
+
+### Changed (versioning)
+
+- **`VERSION`** — 4.4.0 → 4.4.1 (patch — skill enhancement to enforce existing framework rules; no new framework or marketplace surface)
+- **`.claude-plugin/marketplace.json`** — `metadata.version` 4.4.0 → 4.4.1; `plugins[].version` unchanged (learn-kit 1.1.0)
+
+### Rationale
+
+v4.4.0 (PR #83) introduced the archive mechanism: 4 new framework subsections + new RUNBOOK + 6 archive subdirs. But the validation skill (`mp-doc-validate`) wasn't updated. The new v1.2 rules — Archive Banner format, archived/replaced-by frontmatter fields, archived filename pattern, bidirectional supersedes↔replaced-by linkage — sat documented but not auto-enforceable.
+
+This made the archive mechanism partially incomplete: when first real archive happens and someone runs `/mp-doc-validate`, the skill would only check the legacy 7 active-doc checks and silently pass archive-related issues. v4.4.1 closes this loop. After this PR, `/mp-doc-validate` enforces the full v1.2 framework — both active-doc compliance AND archive-doc compliance.
+
+This is a skill-only change. No framework / runbook / docs content changes. Lowest possible risk surface for an enforcement-extension PR.
+
 ## [4.4.0] - 2026-05-15
 
 ### Added
