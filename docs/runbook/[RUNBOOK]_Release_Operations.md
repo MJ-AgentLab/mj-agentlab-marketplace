@@ -88,13 +88,15 @@ cd ../feature/12-add-release-skill
 git commit -m "<type>(<scope>): <summary>"
 
 # 示例
-git commit -m "feat(mj-sys-git): add release skill"
-git commit -m "fix(mj-sys-doc): fix validate frontmatter check"
+git commit -m "feat(learn-kit): add release skill"
+git commit -m "fix(learn-kit): fix validate frontmatter check"
 git commit -m "infra(ci): add version consistency check"
 ```
 
 **Commit 类型**：feat, fix, perf, refactor, test, docs, infra
-**Scope 值**：mj-sys-git, mj-sys-doc, mj-sys-n8n, mj-sys-ops, marketplace, ci, scripts, deps
+**Scope 值**（v4.x 闭合 allowlist）：`learn-kit`, `marketplace`, `ci`, `scripts`, `deps`, `infra`, `docs-rule`, `docs-adr`, `docs-guide`, `docs-runbook`, `docs-spec`, `release`
+
+> Canonical 来源：[../rule/[STANDARD]_Commit_Message_Convention.md](../rule/[STANDARD]_Commit_Message_Convention.md) §4。引入新 scope 需 minor bump 该 STANDARD + 同步更新 `scripts/install-hooks.ps1` PATTERN regex。
 
 ### 2.4 更新 CHANGELOG
 
@@ -102,7 +104,7 @@ git commit -m "infra(ci): add version consistency check"
 
 ```bash
 # 插件级变更 → 更新插件 CHANGELOG
-vim plugins/mj-sys-git/CHANGELOG.md
+vim plugins/learn-kit/CHANGELOG.md
 
 # 市场级变更 → 更新根 CHANGELOG
 vim CHANGELOG.md
@@ -118,7 +120,7 @@ git push -u origin feature/12-add-release-skill
 
 # 创建 PR（使用对应模板）
 gh pr create --base develop --head feature/12-add-release-skill \
-  --title "feat(mj-sys-git): add release skill" \
+  --title "feat(learn-kit): add release skill" \
   --body-file <filled-template>
 ```
 
@@ -143,10 +145,10 @@ git push origin --delete feature/12-add-release-skill
 
 | 变更类型 | 版本变化示例 |
 |----------|-------------|
-| 新增 Skill | mj-sys-git 1.0.0 → 1.1.0 |
-| 修复 Skill Bug | mj-sys-doc 1.0.0 → 1.0.1 |
-| 新增 Plugin | marketplace 1.0.0 → 1.1.0 |
-| 删除 Plugin / 破坏性变更 | marketplace 1.0.0 → 2.0.0 |
+| 新增 Skill | learn-kit 1.0.0 → 1.1.0 |
+| 修复 Skill Bug | learn-kit 1.0.0 → 1.0.1 |
+| 新增 Plugin | marketplace 4.3.0 → 4.4.0 |
+| 删除 Plugin / 破坏性变更 | marketplace 4.x → 5.0.0 |
 
 ### 3.2 Bump 版本号
 
@@ -161,23 +163,23 @@ git pull origin develop
 
 ```powershell
 # 预览
-.\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "mj-sys-git" -DryRun
+.\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "learn-kit" -DryRun
 
 # 执行
-.\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "mj-sys-git"
+.\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "learn-kit"
 ```
 
 **市场级变更**：
 
 ```powershell
 # 预览
-.\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -DryRun
+.\scripts\bump-version.ps1 -From "4.3.0" -To "4.3.1" -DryRun
 
 # 执行
-.\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0"
+.\scripts\bump-version.ps1 -From "4.3.0" -To "4.3.1"
 ```
 
-**混合变更**：先 bump 各插件，再 bump marketplace。
+**混合变更**：先 bump 各插件，再 bump marketplace。v4.0.0 / v4.3.0 即典型示例。
 
 ### 3.3 更新 CHANGELOG 正式版本节
 
@@ -212,7 +214,7 @@ git pull origin develop
 ```bash
 git add VERSION .claude-plugin/marketplace.json CHANGELOG.md
 # 如有插件变更，也加上：
-git add plugins/mj-sys-git/.claude-plugin/plugin.json plugins/mj-sys-git/CHANGELOG.md
+git add plugins/learn-kit/.claude-plugin/plugin.json plugins/learn-kit/CHANGELOG.md
 
 git commit -m "infra(marketplace): release v1.1.0"
 git push origin develop
@@ -273,12 +275,12 @@ cd ../hotfix/<issue-id>-<description>
 
 ```bash
 # 修复问题
-git commit -m "fix(mj-sys-git): fix push skill crash on empty repo"
+git commit -m "fix(learn-kit): fix push skill crash on empty repo"
 
 # Bump patch 版本
 .\scripts\bump-version.ps1 -From "1.1.0" -To "1.1.1"
 # 或 bump 插件版本
-.\scripts\bump-version.ps1 -From "1.1.0" -To "1.1.1" -Scope "mj-sys-git"
+.\scripts\bump-version.ps1 -From "1.1.0" -To "1.1.1" -Scope "learn-kit"
 
 # 更新 CHANGELOG
 # 直接写入正式版本节（hotfix 不走 [Unreleased]）
@@ -290,7 +292,7 @@ git commit -m "fix(mj-sys-git): fix push skill crash on empty repo"
 gh pr create \
   --base main \
   --head hotfix/<issue-id>-<description> \
-  --title "fix(mj-sys-git): fix push skill crash on empty repo" \
+  --title "fix(learn-kit): fix push skill crash on empty repo" \
   --body-file <filled-hotfix-template>
 ```
 

@@ -59,13 +59,13 @@ related:
 
 ```
 正常加载（缓存）：
-  settings.json (enabledPlugins: "mj-sys-git@mj-agentlab-marketplace")
-    → installed_plugins.json (installPath: cache/.../mj-sys-git/1.0.0/)
+  settings.json (enabledPlugins: "learn-kit@mj-agentlab-marketplace")
+    → installed_plugins.json (installPath: cache/.../learn-kit/1.0.0/)
       → 缓存目录（静态拷贝）
         → Claude Code 加载技能 ← 始终是安装时的旧版本
 
 --plugin-dir 覆盖：
-  claude --plugin-dir ../../mj-agentlab-marketplace/feature/xxx/plugins/mj-sys-git
+  claude --plugin-dir ../../mj-agentlab-marketplace/feature/xxx/plugins/learn-kit
     → 直接读取本地目录（实时、无缓存）（路径需包含 worktree 段）
       → 同名插件时覆盖缓存版本
         → Claude Code 加载技能 ← 最新代码
@@ -100,10 +100,7 @@ D:\workspace\10-software-project\projects\
     ├── main/                           ← main worktree（发布用）
     └── feature/add-skill-xxx/          ← feature worktree（开发用）
         └── plugins/
-            ├── mj-sys-doc/
-            ├── mj-sys-git/
-            ├── mj-sys-n8n/
-            └── mj-sys-ops/
+            └── learn-kit/              ← v4.0.0+ 唯一 plugin
 ```
 
 > **关键理解**：bare repo worktree 模式下，每个分支对应一个**独立的目录**。切换分支 = `cd` 到对应 worktree 目录，**不使用 `git checkout`**。
@@ -175,7 +172,7 @@ cd D:/workspace/10-software-project/projects/mj-agentlab-marketplace/feature/add
 
 # Step 2: 从 mj-system worktree 启动 Claude Code，指定待测插件（路径含 worktree 段）
 cd D:/workspace/10-software-project/projects/mj-system/develop
-claude --plugin-dir ../../mj-agentlab-marketplace/feature/add-skill-xxx/plugins/mj-sys-git
+claude --plugin-dir ../../mj-agentlab-marketplace/feature/add-skill-xxx/plugins/learn-kit
 ```
 
 > **可选：创建 mj-system 测试 worktree 隔离测试**
@@ -184,31 +181,31 @@ claude --plugin-dir ../../mj-agentlab-marketplace/feature/add-skill-xxx/plugins/
 > cd D:/workspace/10-software-project/projects/mj-system/develop
 > git worktree add ../maintain/test-plugin-xxx -b maintain/test-plugin-xxx develop
 > cd ../maintain/test-plugin-xxx
-> claude --plugin-dir ../../mj-agentlab-marketplace/feature/add-skill-xxx/plugins/mj-sys-git
+> claude --plugin-dir ../../mj-agentlab-marketplace/feature/add-skill-xxx/plugins/learn-kit
 > ```
 
 > **PowerShell 用户**：`--plugin-dir` 必须使用**绝对路径**并用双引号包裹：
 > ```powershell
-> claude --plugin-dir "D:\workspace\10-software-project\projects\mj-agentlab-marketplace\feature\add-skill-xxx\plugins\mj-sys-git"
+> claude --plugin-dir "D:\workspace\10-software-project\projects\mj-agentlab-marketplace\feature\add-skill-xxx\plugins\learn-kit"
 > ```
 
-启动后，`mj-sys-git` 插件加载的是本地 feature 分支的代码，而不是缓存中的旧版本。其他未指定的插件（如 mj-sys-doc、mj-sys-n8n、mj-sys-ops）仍从缓存加载。
+启动后，`learn-kit` 插件加载的是本地 feature 分支的代码，而不是缓存中的旧版本。v4.0.0+ marketplace 仅 1 个 plugin (learn-kit)，所以无其他 plugin 同时加载；如未来扩充多 plugin，未指定 `--plugin-dir` 的 plugin 会从缓存加载。
 
 ### 4.3 多插件同时测试
 
 **Bash / Git Bash**：
 ```bash
-# 同时测试 mj-sys-git 和 mj-sys-doc（路径含 worktree 段）
+# 同时测试 learn-kit 和 learn-kit（路径含 worktree 段）
 claude \
-  --plugin-dir ../../mj-agentlab-marketplace/feature/add-skill-xxx/plugins/mj-sys-git \
-  --plugin-dir ../../mj-agentlab-marketplace/feature/add-skill-xxx/plugins/mj-sys-doc
+  --plugin-dir ../../mj-agentlab-marketplace/feature/add-skill-xxx/plugins/learn-kit \
+  --plugin-dir ../../mj-agentlab-marketplace/feature/add-skill-xxx/plugins/learn-kit
 ```
 
 **PowerShell**（反引号 `` ` `` 续行，绝对路径）：
 ```powershell
 claude `
-  --plugin-dir "D:\workspace\10-software-project\projects\mj-agentlab-marketplace\feature\add-skill-xxx\plugins\mj-sys-git" `
-  --plugin-dir "D:\workspace\10-software-project\projects\mj-agentlab-marketplace\feature\add-skill-xxx\plugins\mj-sys-doc"
+  --plugin-dir "D:\workspace\10-software-project\projects\mj-agentlab-marketplace\feature\add-skill-xxx\plugins\learn-kit" `
+  --plugin-dir "D:\workspace\10-software-project\projects\mj-agentlab-marketplace\feature\add-skill-xxx\plugins\learn-kit"
 ```
 
 ### 4.4 测试 → 修改 → 热重载循环
@@ -218,7 +215,7 @@ claude `
   │                                     │
   ▼                                     │
 手动触发技能         修改 SKILL.md      │
-  │  (如 /mj-sys-git:mj-sys-git-commit)  │     │
+  │  (如 /learn-kit:learn-kit-commit)  │     │
   │                               │     │
   ▼                               ▼     │
 验证行为 ──── 不符合预期 ──→ 在 marketplace │
@@ -246,7 +243,7 @@ claude `
 2. **Session 范围**：覆盖仅在当前 Claude Code session 生效。退出后恢复使用缓存版本。
 3. **MCP server**：`--plugin-dir` 加载的插件中的 `.mcp.json` 也会被加载。确保 `.env` 中的环境变量（如 `GITHUB_PERSONAL_ACCESS_TOKEN`）在 mj-system 项目中可用。
 4. **相对路径**：`--plugin-dir` 的路径相对于**启动目录**（即 `cd` 到的目录），不是项目根目录。
-5. **Windows PowerShell 路径**：`--plugin-dir` 在 PowerShell 中不能使用相对路径（`../../`），必须使用**绝对路径**并用双引号包裹（如 `"D:\...\plugins\mj-sys-git"`）。Bash/Git Bash 中相对路径正常工作。
+5. **Windows PowerShell 路径**：`--plugin-dir` 在 PowerShell 中不能使用相对路径（`../../`），必须使用**绝对路径**并用双引号包裹（如 `"D:\...\plugins\learn-kit"`）。Bash/Git Bash 中相对路径正常工作。
 
 ---
 
@@ -258,7 +255,7 @@ claude `
 
 - 验证 `plugin.json` 的 metadata 是否正确（name、version、skills 路径）
 - 验证技能的自然语言触发（不显式调用，看 `description` 的触发准确率）
-- 验证多插件协作场景（如 mj-sys-git 技能链）
+- 验证多插件协作场景（如 learn-kit 技能链）
 - 验证 marketplace.json 中的插件注册是否正确
 
 ### 5.2 完整源切换流程
@@ -290,9 +287,9 @@ cat ~/.claude/plugins/known_marketplaces.json
 #### Step 2: 卸载已安装的目标插件
 
 ```bash
-/plugin uninstall mj-sys-git@mj-agentlab-marketplace
+/plugin uninstall learn-kit@mj-agentlab-marketplace
 # 如需测试多个插件，逐个卸载
-/plugin uninstall mj-sys-doc@mj-agentlab-marketplace
+/plugin uninstall learn-kit@mj-agentlab-marketplace
 ```
 
 #### Step 3: 移除 GitHub marketplace 源
@@ -312,8 +309,8 @@ cat ~/.claude/plugins/known_marketplaces.json
 #### Step 5: 从本地源安装插件
 
 ```bash
-/plugin install mj-sys-git@mj-agentlab-marketplace
-/plugin install mj-sys-doc@mj-agentlab-marketplace
+/plugin install learn-kit@mj-agentlab-marketplace
+/plugin install learn-kit@mj-agentlab-marketplace
 ```
 
 #### Step 6: 测试
@@ -329,8 +326,8 @@ cat ~/.claude/plugins/known_marketplaces.json
 #### Step 1: 卸载本地安装的插件
 
 ```bash
-/plugin uninstall mj-sys-git@mj-agentlab-marketplace
-/plugin uninstall mj-sys-doc@mj-agentlab-marketplace
+/plugin uninstall learn-kit@mj-agentlab-marketplace
+/plugin uninstall learn-kit@mj-agentlab-marketplace
 # ... 其他已安装的插件
 ```
 
@@ -349,10 +346,7 @@ cat ~/.claude/plugins/known_marketplaces.json
 #### Step 4: 重新安装插件
 
 ```bash
-/plugin install mj-sys-git@mj-agentlab-marketplace
-/plugin install mj-sys-doc@mj-agentlab-marketplace
-/plugin install mj-sys-n8n@mj-agentlab-marketplace
-/plugin install mj-sys-ops@mj-agentlab-marketplace
+/plugin install learn-kit@mj-agentlab-marketplace
 ```
 
 #### Step 5: 验证恢复状态
@@ -367,8 +361,8 @@ cat ~/.claude/plugins/known_marketplaces.json
 
 ### 5.4 验证要点清单
 
-- [ ] 技能显式调用正常（`/mj-sys-git:mj-sys-git-commit`）
-- [ ] 技能自然语言触发正常（「提交代码」自动匹配 mj-sys-git-commit）
+- [ ] 技能显式调用正常（`/learn-kit:learn-kit-commit`）
+- [ ] 技能自然语言触发正常（「提交代码」自动匹配 learn-kit-commit）
 - [ ] MCP server 正常启动（无连接错误）
 - [ ] 新增技能在 `/plugin list` 中可见
 - [ ] plugin.json 中的 metadata 正确
@@ -391,7 +385,7 @@ cat ~/.claude/plugins/known_marketplaces.json
 /plugin marketplace update mj-agentlab-marketplace
 
 # Step 2: 更新已安装插件
-/plugin update mj-sys-git@mj-agentlab-marketplace
+/plugin update learn-kit@mj-agentlab-marketplace
 # 或更新全部
 /plugin update --all
 
@@ -415,7 +409,7 @@ cat ~/.claude/plugins/known_marketplaces.json
 .\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -DryRun  # 预览
 .\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0"           # 执行
 #    更新文件：VERSION、marketplace.json (metadata.version)
-#    如有插件变更，也 bump 插件：-Scope "mj-sys-git" -From "1.0.0" -To "1.1.0"
+#    如有插件变更，也 bump 插件：-Scope "learn-kit" -From "1.0.0" -To "1.1.0"
 #    更新文件：plugin.json (version)、marketplace.json (plugins[].version)
 
 # 3. 更新 CHANGELOG.md（根级 + 插件级）
@@ -423,7 +417,7 @@ cat ~/.claude/plugins/known_marketplaces.json
 
 # 4. 提交发布变更
 git add VERSION .claude-plugin/marketplace.json CHANGELOG.md
-git add plugins/mj-sys-git/.claude-plugin/plugin.json plugins/mj-sys-git/CHANGELOG.md  # 如有插件变更
+git add plugins/learn-kit/.claude-plugin/plugin.json plugins/learn-kit/CHANGELOG.md  # 如有插件变更
 git commit -m "infra(marketplace): release v1.1.0"
 git push origin develop
 
@@ -509,7 +503,7 @@ git branch -d maintain/test-plugin-xxx
 cd mj-system/feature/xxx
 # 重新启动 Claude Code，插件应自动可用（因为 settings.json 中声明了 enabledPlugins）
 # 如不可用，手动安装：
-/plugin install mj-sys-git@mj-agentlab-marketplace
+/plugin install learn-kit@mj-agentlab-marketplace
 ```
 
 ### Q6: 如何知道当前加载的是缓存版本还是本地版本？
@@ -544,7 +538,7 @@ cd mj-system/feature/xxx
 **切换到本地源**（5 步）：
 ```bash
 # 1. 卸载目标插件
-/plugin uninstall mj-sys-git@mj-agentlab-marketplace
+/plugin uninstall learn-kit@mj-agentlab-marketplace
 
 # 2. 移除 GitHub 源
 /plugin marketplace remove mj-agentlab-marketplace
@@ -553,16 +547,16 @@ cd mj-system/feature/xxx
 /plugin marketplace add ../../mj-agentlab-marketplace/feature/add-skill-xxx
 
 # 4. 安装
-/plugin install mj-sys-git@mj-agentlab-marketplace
+/plugin install learn-kit@mj-agentlab-marketplace
 
 # 5. 测试
-/mj-sys-git:mj-sys-git-commit
+/learn-kit:learn-kit-commit
 ```
 
 **恢复 GitHub 源**（5 步）：
 ```bash
 # 1. 卸载本地插件
-/plugin uninstall mj-sys-git@mj-agentlab-marketplace
+/plugin uninstall learn-kit@mj-agentlab-marketplace
 
 # 2. 移除本地源
 /plugin marketplace remove mj-agentlab-marketplace
@@ -571,7 +565,7 @@ cd mj-system/feature/xxx
 /plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace
 
 # 4. 重新安装
-/plugin install mj-sys-git@mj-agentlab-marketplace
+/plugin install learn-kit@mj-agentlab-marketplace
 
 # 5. 验证
 /plugin marketplace list
