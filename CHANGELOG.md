@@ -5,6 +5,59 @@
 
 ## [Unreleased]
 
+## [4.4.10] - 2026-05-15
+
+### Fixed
+
+- **`.github/workflows/ci.yml`** — Replace YAML literal block scalar `if: |` with folded scalar `if: >-` on the `Validate commit message format` step's condition. The literal block style preserves newlines as `\n` characters in the expression value, which causes GitHub Actions' expression evaluator to return Internal Server Error on `pull_request` events (push events appeared to evade the issue due to short-circuit evaluation on the empty `github.head_ref` field).
+
+  Symptom (post-PR #91 v4.4.8 merge to develop on 2026-05-15):
+  - Run #161 (push trigger on `documentation/refresh-stale-versions`): success in 6s
+  - Run #162 (pull_request trigger on same branch): **failure after 17m** — job never started, run-level Internal Server Error (Correlation ID `49749753-a162-43d4-bd76-aac9f7088e5e`)
+  - Run #163 (pull_request trigger on `release/v4.4.9`, blocking THIS very release): **failure after 17m 38s** — same symptom
+
+  Fix: `if: |` → `if: >-`. The `>` folds newlines into spaces (producing a clean single-line expression value); `-` strips the trailing newline. Multi-line readability preserved in source while emitting a syntactically unambiguous value to GitHub Actions' expression engine.
+
+  Validated by precedent: GitHub Actions docs recommend `>-` for multi-line `if:` conditions. Single-line alternative rejected because the full expression exceeds ~200 chars and harms reviewability.
+
+### Rationale
+
+This release was originally going to be **v4.4.9** (CHANGELOG section preserved below). During release PR #94 CI runs, the YAML defect surfaced and blocked the release. The fix is committed directly on `release/v4.4.9` per release-branch convention (same pattern as v4.4.8 where the release-branch CI exemption was added inline), and the release is re-versioned to **v4.4.10** to reflect the additional change.
+
+### Follow-up
+
+After this release merges to main, a separate maintain PR must sync the `if: >-` fix back to develop (analogous to PR #92 post-v4.4.8). Without that, every future `pull_request` CI run on develop would hit the same wall.
+
+## [4.4.9] - 2026-05-15
+
+### Fixed
+
+- **`README.md`** — Refresh 3 stale version strings discovered during user repo-page review:
+  - Line 3: version badge `version-4.0.0-blue` → `version-4.4.8-blue` (matches `VERSION` truth — note this PR's own bump-target `4.4.9` will be reflected by the NEXT badge refresh after this PR merges; intentional one-cycle lag)
+  - Line 15: plugin table learn-kit version `**1.0.0**` → `**1.1.0**` (matches `plugin.json` truth)
+  - Line 25: nlm-studio description `5 类 × 3 view = 至多 15 个多媒体 artifact` → `4 view-cycled × 3 view + 1 shared mind_map = 至多 13 个多媒体 artifact（HTML 不上传）` (matches the canonical phrasing in marketplace.json plugins[0].description)
+
+- **4 plugin-internal teaching docs** — Refresh "current state" version stamps from `v1.0.0 / v4.0.0 (2026-05-14)` to `v1.1.0 / v4.4.8 (2026-05-15)`. These are the §1-exempt "plugin-internal teaching series" docs; their banners explicitly claim "本文反映 ... 状态" which is a verifiable current-state claim and should track reality:
+  - `plugins/learn-kit/docs/learn-kit-01-positioning.md` — banner (line 5) + "现行版本" line (line 106)
+  - `plugins/learn-kit/docs/learn-kit-04-three-skills.md` — banner (line 5)
+  - `plugins/learn-kit/docs/learn-kit-05-governance-boundary.md` — banner (line 5)
+  - `plugins/learn-kit/docs/learn-kit-使用手册.md` — frontmatter `version` + `updated` + "验证应看到" line
+
+  Historical version markers (e.g., "v0.3.0 起", "v1.0（2026-05-14）：加 nlm-studio") preserved unchanged — those describe specific version events.
+
+- **`docs/ai_engineering_execution_hitl_workflow.md`** — `updated: 2026-05-14` → `updated: 2026-05-15` (1-day refresh on the §1-exempt generic HITL philosophy parent doc; content unchanged).
+
+### Rationale
+
+User flagged the README badge "4.0.0" during repo landing page review. Investigation found 3 README items + 5 doc-stamp items + 1 HITL date all stale relative to the v4.4.8 release that just shipped. None of these are functional bugs — purely "version-truth drift" from the v4.0.0 baseline that accumulated across the v4.4.x patch cycle.
+
+The exemption-vs-migration assessment performed during planning concluded: **no docs need migration into the framework or archival**. The §1 exemption rules correctly classify all named docs. The 8 fixes here are pure version-stamp polish on already-exempt docs (filename / classification unchanged).
+
+### Skipped (intentional)
+
+- **`learn-kit-04-three-skills.md` filename** — covers 5 skills but filename says "three" (historical: v0.2.0 had 3 skills). Filename rename `-three-` → `-five-` would change the pedagogical-numbering reference path and is invasive; the doc body already explains the history inline. Keep as-is per assessment.
+- **`learn-kit-02-eight-stage-methodology.md` + `-03-rfc-2119-worked-example.md`** — neither carries a "current state" version stamp; content is methodology / worked-example reference, version-independent. Nothing to refresh.
+
 ## [4.4.8] - 2026-05-15
 
 > **Release v4.4.8 ships everything from v4.0.0 → v4.4.8** (the v3.2.1 → v4.x integration finally reaches main). Cumulative theme: **Documentation Framework v1.2 + archive mechanism + skill hardening + CI enforcement**.

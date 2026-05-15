@@ -1,6 +1,6 @@
 # MJ AgentLab Marketplace
 
-![Version](https://img.shields.io/badge/version-4.0.0-blue)
+![Version](https://img.shields.io/badge/version-4.4.8-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![CI](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml)
 
@@ -12,7 +12,7 @@
 
 | Plugin | 描述 | Skills | Version | 适用项目 |
 |--------|------|--------|---------|---------|
-| [**learn-kit**](plugins/learn-kit/README.md) | 教学方法论 kit：把枚举型规则清单转化为人类可学习的决策框架解读文档（8 阶段方法 + 模板 + scaffold + locate / scan 项目内文档发现 + generate-tier AI 三档生成 + nlm-studio NotebookLM 多媒体生成） | **5** | **1.0.0** | 任意 |
+| [**learn-kit**](plugins/learn-kit/README.md) | 教学方法论 kit：把枚举型规则清单转化为人类可学习的决策框架解读文档（8 阶段方法 + 模板 + scaffold + locate / scan 项目内文档发现 + generate-tier AI 三档生成 + nlm-studio NotebookLM 多媒体生成） | **5** | **1.1.0** | 任意 |
 
 learn-kit 5 个 skill 用法：
 
@@ -22,7 +22,7 @@ learn-kit 5 个 skill 用法：
 | locate | `/learn-kit:locate <query>` | 反查概念名 → 已解读 [LEARNING] 文档或源 canonical 文档 |
 | scan | `/learn-kit:scan` | 枚举项目可学候选文档，标 interpreted vs uninterpreted |
 | generate-tier | `/learn-kit:generate-tier` | AI 生成三档（foundation/structural/challenge）学习 markdown + 可选 HTML（10-step workflow，含 step 9 可选 NLM 询问） |
-| **nlm-studio** | `/learn-kit:nlm-studio <topic>` | **v4.0.0 新增** — 把 3 tier .md + 3 tier .html 推到 NotebookLM 出 5 类 × 3 view = 至多 15 个多媒体 artifact（在线浏览，不下载）|
+| **nlm-studio** | `/learn-kit:nlm-studio <topic>` | **v4.0.0 新增** — 把 3 tier .md 推到 NotebookLM 出 4 view-cycled × 3 view + 1 shared mind_map = 至多 13 个多媒体 artifact（在线浏览，不下载；HTML 不上传）|
 
 ## 安装
 

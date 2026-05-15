@@ -24,7 +24,7 @@ jobs:
         # Skipped on release/* PRs + pushes: release branches re-publish already-vetted develop content, and historical
         # commits in the main..develop range may predate the current PATTERN (e.g., scope whitelist tightening in v4.x).
         # Hotfix branches still validate — they introduce new commits that should conform.
-        if: |
+        if: >-
           (github.event_name == 'pull_request' && !startsWith(github.head_ref, 'release/'))
           || (github.event_name == 'push' && github.ref != 'refs/heads/develop' && github.ref != 'refs/heads/main' && !startsWith(github.ref, 'refs/heads/release/'))
         run: |

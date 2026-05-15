@@ -2,7 +2,7 @@
 title: AI 辅助工程执行闭环与 HITL 提问规范（通用版）
 purpose: 提供 plugin-agnostic / domain-agnostic 的 AI 工程执行 + HITL 哲学锚点；可供新项目直接采用，也可供 specialized 变体 fork
 version: v2.0
-updated: 2026-05-14
+updated: 2026-05-15
 audience: 项目负责人 / AI Agent / 想引入 HITL 工作流的团队
 related: |
   - mj-system specialized 变体：docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md（17 阶段；DB / n8n / ETL / FastAPI / Flyway 域）
