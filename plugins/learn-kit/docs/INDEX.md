@@ -20,7 +20,7 @@ Navigation hub for `plugins/learn-kit/docs/` — plugin-internal documentation o
 
 ## Plugin-Internal Teaching Series (`plugins/learn-kit/docs/`)
 
-> These 6 lowercase numbered docs are **plugin-internal pedagogical content** (a sequential learn-the-plugin tutorial), not architectural / decision artifacts. They are intentionally exempt from the Documentation Framework's tag-prefix requirement: the numbered ordering (`-01-`, `-02-`, ...) is the pedagogical signal and tag-prefixing would obscure it. They function similarly to README.md / CHANGELOG.md as plugin-public-facing content.
+> These 6 lowercase numbered docs are **plugin-internal pedagogical content** (a sequential learn-the-plugin tutorial), not architectural / decision artifacts. They are **formally exempt** from the Documentation Framework's tag-prefix requirement per [`[STANDARD]_Documentation_Framework.md`](../../../docs/rule/[STANDARD]_Documentation_Framework.md) §1 (v1.1 codification): the numbered ordering (`-01-`, `-02-`, ...) is the pedagogical signal and tag-prefixing would obscure it. They function similarly to README.md / CHANGELOG.md as plugin-public-facing content. `/mp-doc-validate` skips frontmatter and path-prefix checks against this series.
 
 | # | Document | Purpose |
 |---|----------|---------|

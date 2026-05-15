@@ -1,12 +1,12 @@
 ---
 type: standard
 scope: marketplace
-summary: Documentation framework v1.0 — tag prefixes, frontmatter, state machine, paths, INDEX sync
+summary: Documentation framework v1.1 — tag prefixes, frontmatter, state machine, paths, INDEX sync, plugin-internal teaching series exemption
 owner: marketplace-maintainers
 created: 2026-05-15
 updated: 2026-05-15
 state: active
-version: v1.0
+version: v1.1
 domain: governance
 tags:
   - documentation
@@ -42,8 +42,11 @@ This STANDARD governs every markdown document under:
 | `plugins/<name>/skills/<name>/templates/*.md` | LLM-facing runtime assets |
 | `plugins/<name>/skills/<name>/references/*.md` | LLM-facing runtime assets |
 | `plugins/notebooklm-kit/skills/nlm-shared/*.md` (retired) / similar shared bags | LLM-facing runtime assets, addressed by skill relative paths |
+| `plugins/<name>/docs/<plugin>-NN-*.md` and `plugins/<name>/docs/<plugin>-*.md` plugin-internal teaching series | **v1.1 new**: plugin-internal pedagogical content where a numbered prefix (`-01-` / `-02-` / …) or named series serves as the **pedagogical ordering signal**. Tag-prefixing would obscure that ordering. Files function similarly to README / CHANGELOG (plugin-public-facing content), not as architectural / decision artifacts. Examples: `plugins/learn-kit/docs/learn-kit-01-positioning.md` ... `learn-kit-05-governance-boundary.md` + `learn-kit-使用手册.md`. **Pattern criteria** (must satisfy ALL): (1) lives at `plugins/<name>/docs/` root (not in `adr/` / `guide/` / `spec/` / `runbook/` subdirs); (2) filename starts with the plugin's own name as prefix (`<plugin>-`); (3) content is human-pedagogical (tutorial / 5-min onboarding / worked example) rather than normative rule / decision record / runbook procedure |
 
 The framework's audience is: **AI agents** writing/editing docs (so they have machine-readable schema), **human reviewers** (consistent structure speeds review), and **future maintainers** (state machine + version history clarify what's authoritative).
+
+> **v1.1 note on exemption design**: An exempt file is *informally tracked* — it appears in its plugin's `docs/INDEX.md` under a dedicated «Plugin-Internal Teaching Series» section (or equivalent) so AI agents and humans can discover it, but `/mp-doc-validate` skips frontmatter and path-prefix checks against it. The exemption is intentional, not lax: plugins SHOULD use it sparingly and only when numbered sequencing carries pedagogical meaning. When a plugin needs decision records, runbooks, or normative rules, those MUST use the tag-prefixed framework in `adr/` / `guide/` / `runbook/` / `rule/` subdirs.
 
 ## §2 Normative Rules
 
@@ -244,4 +247,5 @@ These gates are deferred until doc count + reviewer burden justify the CI cost.
 
 | Version | Date | Summary |
 |---------|------|---------|
+| v1.1 | 2026-05-15 | **§1 exemption codification**: formalize «plugin-internal teaching series» (e.g., `plugins/learn-kit/docs/learn-kit-NN-*.md` numbered series) as an explicit §1 exemption category. Pre-v1.1 the 6 lowercase learn-kit teaching docs were "informally exempt" per `plugins/learn-kit/docs/INDEX.md` §Plugin-Internal Teaching Series; v1.1 promotes this to canonical framework rule with 3-point pattern criteria (root-level under `plugins/<name>/docs/`, filename prefixed with plugin name, content is human-pedagogical). Backward compatible: no existing doc paths or frontmatter required to change. Adopted in PR #80 (v4.3.3). |
 | v1.0 | 2026-05-15 | Initial framework: 6 tag prefixes + 8-field frontmatter + 3-state machine + path stability + INDEX sync. Adopted in PR #75 (v4.2.0). Adapted from mj-agent `[STANDARD]_MJ_Agent_Documentation_Meta_Framework.md` v2.2; simplified by removing track multiplexing, agent-runtime types, and CI gate enforcement. |
