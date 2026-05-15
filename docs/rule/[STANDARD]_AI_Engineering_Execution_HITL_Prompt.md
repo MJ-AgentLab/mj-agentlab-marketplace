@@ -1,13 +1,29 @@
+---
+type: standard
+scope: marketplace
+summary: AI 工程执行 HITL Prompt — 11 阶段闭环 + skill 矩阵 + HITL 触发规则
+owner: marketplace-maintainers
+created: 2026-05-11
+updated: 2026-05-15
+state: active
+version: v1.2
+domain: governance
+tags:
+  - hitl
+  - ai-engineering
+  - workflow
+  - skill-matrix
+related:
+  - ./[STANDARD]_Documentation_Framework.md
+  - ./[STANDARD]_Commit_Message_Convention.md
+  - ../guide/[GUIDE]_Marketplace_Agent_Execution_Checklist.md
+  - ../ai_engineering_execution_hitl_workflow.md
+---
+
 # [STANDARD] AI Engineering Execution HITL Prompt — MJ AgentLab Marketplace
 
-| Field | Value |
-|-------|-------|
-| **Status** | Active |
-| **Version** | v1.2 |
-| **Created** | 2026-05-11 |
-| **Updated** | 2026-05-15 |
-| **Scope** | mj-agentlab-marketplace 仓库（不含 mj-system / mj-agent / 任何下游消费者）|
-| **Audience** | Marketplace 维护者 / 插件贡献者 / Claude Code agent |
+> **Scope**: mj-agentlab-marketplace 仓库（不含 mj-system / mj-agent / 任何下游消费者）。
+> **Audience**: Marketplace 维护者 / 插件贡献者 / Claude Code agent。
 
 ---
 
@@ -206,8 +222,8 @@ Fallback:
 - `docs/CONTRIBUTING.md`
 
 ### Consult If Affected
-- `docs/[GUIDE]_Marketplace_Project_Overview.md`
-- `docs/[GUIDE]_Version_Management.md`
+- `docs/guide/[GUIDE]_Marketplace_Project_Overview.md`
+- `docs/guide/[GUIDE]_Version_Management.md`
 
 ## Skill Hint
 
@@ -249,8 +265,8 @@ Fallback:
 ## Reference Docs
 
 ### Must Follow
-- `docs/[GUIDE]_Marketplace_Project_Overview.md`
-- `docs/[GUIDE]_Version_Management.md`
+- `docs/guide/[GUIDE]_Marketplace_Project_Overview.md`
+- `docs/guide/[GUIDE]_Version_Management.md`
 - `.github/workflows/ci.yml`（6 步验证清单）
 
 ## Skill Hint
@@ -339,7 +355,7 @@ Plan 不写：详细 plugin 接口契约 / 完整实现代码。
 ## Reference Docs
 
 ### Must Follow
-- `docs/[ADR]_LearnKit_Discovery_Skills.md`（写作风格样板）
+- `docs/adr/[ADR]_LearnKit_Discovery_Skills.md`（写作风格样板）
 
 ## Skill Hint
 
@@ -386,11 +402,11 @@ ADR 写作要求：
 
 ### Must Follow
 - 已确认的 Plan / ADR
-- `docs/[GUIDE]_Marketplace_Project_Overview.md`（plugin 目录结构 + 官方约束）
+- `docs/guide/[GUIDE]_Marketplace_Project_Overview.md`（plugin 目录结构 + 官方约束）
 - 现有 plugin 作为风格样板：`plugins/learn-kit/`（本 marketplace 唯一 plugin；v1.0.0 含 5 个 skill：init / locate / scan / generate-tier / nlm-studio）
 
 ### Consult If Affected
-- `docs/[GUIDE]_Plugin_Development_Testing_Workflow.md`（跨仓库测试三阶段）
+- `docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md`（跨仓库测试三阶段）
 
 ## Skill Hint
 
@@ -494,7 +510,7 @@ Fallback:
 - 受影响 plugin 的 README.md + SKILL.md
 
 ### Consult If Affected
-- `docs/[GUIDE]_Plugin_Development_Testing_Workflow.md`（跨仓库测试三阶段）
+- `docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md`（跨仓库测试三阶段）
 
 ## Skill Hint
 
@@ -650,8 +666,8 @@ CI 通过后协调 review / merge / release。
 ## Reference Docs
 
 ### Must Follow
-- `docs/[RUNBOOK]_Release_Operations.md`
-- `docs/[GUIDE]_Version_Management.md`
+- `docs/runbook/[RUNBOOK]_Release_Operations.md`
+- `docs/guide/[GUIDE]_Version_Management.md`
 - `.github/workflows/release.yml`
 
 ## Skill Hint
@@ -802,11 +818,11 @@ Fallback:
 | 既有文档 | 本 STANDARD 引用方式 |
 |---------|--------------------|
 | `docs/CONTRIBUTING.md` | branch strategy / commit format / PR 流程 → §4.1 / §4.9 / §4.10 / §4.11 引用 |
-| `docs/[GUIDE]_Marketplace_Project_Overview.md` | plugin 目录结构 + CI/CD 体系 → §0 + §4.2 引用 |
-| `docs/[GUIDE]_Version_Management.md` | dual-layer 版本规则 + bump 工具 → §4.2 / §4.10 引用 |
-| `docs/[GUIDE]_Plugin_Development_Testing_Workflow.md` | 跨仓库 plugin 开发测试 → §4.5 / §4.7 引用 |
-| `docs/[RUNBOOK]_Release_Operations.md` | release.yml 触发 + 失败处理 → §4.10 引用 |
-| `docs/[ADR]_LearnKit_Discovery_Skills.md` | ADR 写作风格样板 → §4.4 引用 |
+| `docs/guide/[GUIDE]_Marketplace_Project_Overview.md` | plugin 目录结构 + CI/CD 体系 → §0 + §4.2 引用 |
+| `docs/guide/[GUIDE]_Version_Management.md` | dual-layer 版本规则 + bump 工具 → §4.2 / §4.10 引用 |
+| `docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md` | 跨仓库 plugin 开发测试 → §4.5 / §4.7 引用 |
+| `docs/runbook/[RUNBOOK]_Release_Operations.md` | release.yml 触发 + 失败处理 → §4.10 引用 |
+| `docs/adr/[ADR]_LearnKit_Discovery_Skills.md` | ADR 写作风格样板 → §4.4 引用 |
 | `.github/PULL_REQUEST_TEMPLATE/*.md` | 6 PR template 自检清单 → §4.9 引用 |
 | `.github/workflows/ci.yml` | 6 步验证清单 → §4.2 / §4.6 / §4.10 引用 |
 | `.github/workflows/release.yml` | VERSION-trigger 自动 tag → §4.10 引用 |

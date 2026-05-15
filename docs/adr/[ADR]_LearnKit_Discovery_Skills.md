@@ -1,3 +1,22 @@
+---
+type: adr
+scope: learn-kit
+summary: learn-kit v0.2.0 引入 locate + scan 两个 discovery skill 的决策
+owner: marketplace-maintainers
+created: 2026-05-11
+updated: 2026-05-15
+state: active
+version: v1.0
+domain: plugin-internal
+tags:
+  - learn-kit
+  - discovery
+  - skill-design
+related:
+  - ../../plugins/learn-kit/CLAUDE.md
+  - ../rule/[STANDARD]_Documentation_Framework.md
+---
+
 # [ADR] learn-kit Discovery & Locate Skills
 
 | Field | Value |
@@ -7,6 +26,8 @@
 | **Decision drivers** | learn-kit v0.1.0 only ships `init` (scaffolding); cannot help users find what to learn in existing projects |
 | **Scope** | `plugins/learn-kit/` v0.1.0 → v0.2.0; marketplace v3.0.0 → v3.1.0 |
 | **Supersedes** | — |
+
+> **Note (v4.3.0 planned)**: This ADR will move to `plugins/learn-kit/docs/adr/` per the framework's plugin-internal-decision boundary; the marketplace-level placement is transitional during v4.2.x.
 
 ## 1. Context
 
@@ -106,9 +127,9 @@ Detailed dogfood matrix in plan §8.1.
 - Existing skill: `plugins/learn-kit/skills/init/SKILL.md`
 - Existing methodology: `plugins/learn-kit/skills/init/templates/METHODOLOGY.md`
 - Worked example: `plugins/learn-kit/skills/init/references/rfc-2119-keywords-pedagogy.md`
-- Marketplace structure: `docs/[GUIDE]_Marketplace_Project_Overview.md`
-- Version policy: `docs/[GUIDE]_Version_Management.md`
-- Release flow: `docs/[RUNBOOK]_Release_Operations.md`
+- Marketplace structure: `docs/guide/[GUIDE]_Marketplace_Project_Overview.md`
+- Version policy: `docs/guide/[GUIDE]_Version_Management.md`
+- Release flow: `docs/runbook/[RUNBOOK]_Release_Operations.md`
 
 ## 8. Decision Log
 

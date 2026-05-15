@@ -1,53 +1,53 @@
 # Documentation Index — MJ AgentLab Marketplace
 
-> Last updated: 2026-05-15 (v4.2.0). Doc framework foundation introduced — see [`docs/rule/[STANDARD]_Documentation_Framework.md`](<./rule/[STANDARD]_Documentation_Framework.md>) for the canonical schema. Existing docs (GUIDEs / RUNBOOK / ADRs / HITL Standard) remain at flat `docs/` paths until PR 3 retrofit; new docs use subdirs (`rule/`, `spec/`, etc.) immediately.
+> Last updated: 2026-05-15 (v4.2.1). Doc framework retrofit complete — all tag-prefixed docs now live in their canonical subdirectory per [`docs/rule/[STANDARD]_Documentation_Framework.md`](<./rule/[STANDARD]_Documentation_Framework.md>) §2.1.
 
 Navigation hub for all marketplace documentation.
 
-## Rules & Standards (`docs/rule/` — new in v4.2.0; existing STANDARDs stay flat until PR 3 retrofit)
+## Rules & Standards (`docs/rule/`)
 
-| Document | Path | State | Version |
-|----------|------|-------|---------|
-| [Documentation Framework](<./rule/[STANDARD]_Documentation_Framework.md>) | `docs/rule/` | active | v1.0 |
-| [Commit Message Convention](<./rule/[STANDARD]_Commit_Message_Convention.md>) | `docs/rule/` | active | v1.0 |
-| [GitHub Markdown](<./rule/[STANDARD]_GitHub_Markdown.md>) | `docs/rule/` | active | v1.0 |
-| [AI Engineering Execution HITL Prompt](<./[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md>) | `docs/` (flat; moves to `docs/rule/` in PR 3) | active | v1.2 |
-| [AI Engineering HITL Workflow (Generic)](./ai_engineering_execution_hitl_workflow.md) | `docs/` (flat; parent generic version) | active | v2.0 |
+| Document | State | Version | Purpose |
+|----------|-------|---------|---------|
+| [Documentation Framework](<./rule/[STANDARD]_Documentation_Framework.md>) | active | v1.0 | 6 tag prefixes + 8-field frontmatter + 3-state machine + 路径稳定性 + INDEX sync |
+| [Commit Message Convention](<./rule/[STANDARD]_Commit_Message_Convention.md>) | active | v1.0 | `<type>(<scope>): <summary>` + 7 types + marketplace scope whitelist + branch-type matrix |
+| [GitHub Markdown](<./rule/[STANDARD]_GitHub_Markdown.md>) | active | v1.0 | ATX headings + GFM tables + native alerts + frontmatter syntax for GitHub web |
+| [AI Engineering Execution HITL Prompt](<./rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md>) | active | v1.2 | 11 阶段闭环 + skill 矩阵 + HITL 触发规则 |
+| [AI Engineering HITL Workflow (Generic)](./ai_engineering_execution_hitl_workflow.md) | active | v2.0 | plugin-agnostic 哲学锚点（parent generic doc，本 marketplace specialized 变体的 fork 源；exempt from framework per §1 boundary） |
 
-## Guides (`docs/guide/` — populated in PR 3 retrofit; currently flat)
+## Guides (`docs/guide/`)
 
-| Document | Path | Description |
-|----------|------|-------------|
-| [Marketplace Project Overview](<./[GUIDE]_Marketplace_Project_Overview.md>) | `docs/` (flat) | 项目架构、插件目录、CI/CD 体系、开发环境搭建 |
-| [Plugin Development Testing Workflow](<./[GUIDE]_Plugin_Development_Testing_Workflow.md>) | `docs/` (flat) | 跨仓库插件开发测试的三阶段工作流 |
-| [Version Management](<./[GUIDE]_Version_Management.md>) | `docs/` (flat) | 双层版本架构、bump 工具、CHANGELOG 规范 |
-| [Marketplace Agent Execution Checklist](<./[GUIDE]_Marketplace_Agent_Execution_Checklist.md>) | `docs/` (flat) | STANDARD 的运行时勾选清单——11 stage × 4 段 |
+| Document | Description |
+|----------|-------------|
+| [Marketplace Project Overview](<./guide/[GUIDE]_Marketplace_Project_Overview.md>) | 项目架构、插件目录、CI/CD 体系、开发环境搭建 |
+| [Plugin Development Testing Workflow](<./guide/[GUIDE]_Plugin_Development_Testing_Workflow.md>) | 跨仓库插件开发测试的三阶段工作流 |
+| [Version Management](<./guide/[GUIDE]_Version_Management.md>) | 双层版本架构、bump 工具、CHANGELOG 规范 |
+| [Marketplace Agent Execution Checklist](<./guide/[GUIDE]_Marketplace_Agent_Execution_Checklist.md>) | STANDARD 的运行时勾选清单——11 stage × 4 段（pairs with HITL Prompt v1.2） |
 
-## Runbooks (`docs/runbook/` — populated in PR 3 retrofit; currently flat)
+## Runbooks (`docs/runbook/`)
 
-| Document | Path | Description |
-|----------|------|-------------|
-| [Release Operations](<./[RUNBOOK]_Release_Operations.md>) | `docs/` (flat) | 从开发到发布的完整操作流程 |
+| Document | Description | Last verified |
+|----------|-------------|---------------|
+| [Release Operations](<./runbook/[RUNBOOK]_Release_Operations.md>) | 从开发到发布的完整操作流程（Issue → PR → Release） | 2026-05-14 |
 
-## Architecture Decision Records (`docs/adr/` — populated in PR 3 retrofit; currently flat)
+## Architecture Decision Records (`docs/adr/`)
 
-| Document | Path | Description |
-|----------|------|-------------|
-| [ADR: learn-kit Discovery & Locate Skills](<./[ADR]_LearnKit_Discovery_Skills.md>) | `docs/` (flat; moves to plugin-internal in PR 4) | v3.1.0 增加 locate + scan 两个 skill 的决策 |
-| [ADR: NotebookLM Kit Retirement](<./[ADR]_NotebookLM_Kit_Retirement.md>) | `docs/` (flat) | v4.0.0 删除 notebooklm-kit 整个插件 + 把核心 build / studio 多媒体场景吸收到 learn-kit 的决策 |
+| Document | Description |
+|----------|-------------|
+| [ADR: learn-kit Discovery & Locate Skills](<./adr/[ADR]_LearnKit_Discovery_Skills.md>) | v3.1.0 增加 locate + scan 两个 skill 的决策（v4.3.0 将迁至 `plugins/learn-kit/docs/adr/`） |
+| [ADR: NotebookLM Kit Retirement](<./adr/[ADR]_NotebookLM_Kit_Retirement.md>) | v4.0.0 删除 notebooklm-kit + 把核心 build / studio 多媒体场景吸收到 learn-kit 的决策 |
 
-## Specifications (`docs/spec/` — new in v4.2.0)
+## Specifications (`docs/spec/`)
 
-| Document | Path | State | Version |
-|----------|------|-------|---------|
-| [Marketplace JSON Schema](<./spec/[SPEC]_Marketplace_Json_Schema.md>) | `docs/spec/` | active | v1.0 |
-| [Plugin JSON Schema](<./spec/[SPEC]_Plugin_Json_Schema.md>) | `docs/spec/` | active | v1.0 |
+| Document | State | Version | Purpose |
+|----------|-------|---------|---------|
+| [Marketplace JSON Schema](<./spec/[SPEC]_Marketplace_Json_Schema.md>) | active | v1.0 | marketplace.json 本地约定：plugins[] / metadata / 版本三角不变量 |
+| [Plugin JSON Schema](<./spec/[SPEC]_Plugin_Json_Schema.md>) | active | v1.0 | plugin.json 6 必需字段 + `repository` 必须 string + 不用 `components` + 必需目录布局 |
 
 ## Postmortems (`docs/postmortem/`)
 
 *暂无 postmortem 记录*
 
-## Templates (`docs/_templates/` — new in v4.2.0)
+## Templates (`docs/_templates/`)
 
 | Template | Used For |
 |----------|----------|
@@ -62,10 +62,10 @@ Navigation hub for all marketplace documentation.
 
 ## Contributing & Migration
 
-| Document | Path | Description |
-|----------|------|-------------|
-| [CONTRIBUTING.md](./CONTRIBUTING.md) | `docs/` | 贡献入口；commit 段引用 `[STANDARD]_Commit_Message_Convention.md` |
-| [MIGRATION_GUIDE.md](./MIGRATION_GUIDE.md) | `docs/` | 版本升级迁移指引（v2.x → v3.0.0；v3.2.x → v4.0.0） |
+| Document | Description |
+|----------|-------------|
+| [CONTRIBUTING.md](./CONTRIBUTING.md) | 贡献入口；commit 段引用 [`rule/[STANDARD]_Commit_Message_Convention.md`](<./rule/[STANDARD]_Commit_Message_Convention.md>) |
+| [MIGRATION_GUIDE.md](./MIGRATION_GUIDE.md) | 版本升级迁移指引（v2.x → v3.0.0；v3.2.x → v4.0.0；historical refs 保留原 flat 路径） |
 
 ## Plugin Documentation
 
@@ -81,18 +81,18 @@ Plugin-internal docs framework extension (tag prefixes + frontmatter) lands in *
 
 ### New Team Members
 
-1. [Marketplace Project Overview](<./[GUIDE]_Marketplace_Project_Overview.md>) — 整体架构
+1. [Marketplace Project Overview](<./guide/[GUIDE]_Marketplace_Project_Overview.md>) — 整体架构
 2. [Documentation Framework](<./rule/[STANDARD]_Documentation_Framework.md>) — 文档规范元框架
 3. [CONTRIBUTING.md](./CONTRIBUTING.md) + [Commit Message Convention](<./rule/[STANDARD]_Commit_Message_Convention.md>) — 贡献规范
-4. [Version Management](<./[GUIDE]_Version_Management.md>) — 版本体系
+4. [Version Management](<./guide/[GUIDE]_Version_Management.md>) — 版本体系
 
 ### Plugin Developers
 
-1. [Marketplace Project Overview](<./[GUIDE]_Marketplace_Project_Overview.md>) — 插件结构和技能链
+1. [Marketplace Project Overview](<./guide/[GUIDE]_Marketplace_Project_Overview.md>) — 插件结构和技能链
 2. [Plugin JSON Schema](<./spec/[SPEC]_Plugin_Json_Schema.md>) — 6 必需字段 + 本地约定
-3. [AI Engineering Execution HITL Prompt](<./[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md>) — AI agent 工作流规范（v4.1.0 起含 18 件 `mp-*` skill）
-4. [Marketplace Agent Execution Checklist](<./[GUIDE]_Marketplace_Agent_Execution_Checklist.md>) — STANDARD 的勾选清单
-5. [Plugin Development Testing Workflow](<./[GUIDE]_Plugin_Development_Testing_Workflow.md>) — 测试三阶段
+3. [AI Engineering Execution HITL Prompt](<./rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md>) — AI agent 工作流规范（v4.1.0 起含 18 件 `mp-*` skill）
+4. [Marketplace Agent Execution Checklist](<./guide/[GUIDE]_Marketplace_Agent_Execution_Checklist.md>) — STANDARD 的勾选清单
+5. [Plugin Development Testing Workflow](<./guide/[GUIDE]_Plugin_Development_Testing_Workflow.md>) — 测试三阶段
 6. [Commit Message Convention](<./rule/[STANDARD]_Commit_Message_Convention.md>) + [GitHub Markdown](<./rule/[STANDARD]_GitHub_Markdown.md>) — 提交 + markdown 规范
 
 ### Doc Authors
@@ -103,7 +103,7 @@ Plugin-internal docs framework extension (tag prefixes + frontmatter) lands in *
 
 ### Release Managers
 
-1. [Version Management](<./[GUIDE]_Version_Management.md>) — bump 工具 + dual-layer 版本
+1. [Version Management](<./guide/[GUIDE]_Version_Management.md>) — bump 工具 + dual-layer 版本
 2. [Marketplace JSON Schema](<./spec/[SPEC]_Marketplace_Json_Schema.md>) — version triangle invariants
-3. [Release Operations](<./[RUNBOOK]_Release_Operations.md>) — 发布操作手册
+3. [Release Operations](<./runbook/[RUNBOOK]_Release_Operations.md>) — 发布操作手册
 4. [Commit Message Convention](<./rule/[STANDARD]_Commit_Message_Convention.md>) §4.1 — `release` scope 用法

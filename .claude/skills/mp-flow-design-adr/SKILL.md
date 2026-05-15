@@ -9,9 +9,9 @@ description: Drafts an Architecture Decision Record (HITL Stage 3) for a marketp
 
 Drafts an ADR markdown file from a confirmed Plan. Records the why / what / consequences of an architectural decision so future maintainers (human or AI) can understand the reasoning without spelunking PR history. Marketplace ADR style follows Michael Nygard's classic 5-section pattern, extended with Implementation Plan + Acceptance Criteria + References for completeness.
 
-**Reference**: [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.4 (Stage 3 ADR prompt) + sample ADRs:
-- [[../../../docs/[ADR]_LearnKit_Discovery_Skills.md|ADR LearnKit Discovery]]
-- [[../../../docs/[ADR]_NotebookLM_Kit_Retirement.md|ADR NotebookLM Kit Retirement]]
+**Reference**: [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.4 (Stage 3 ADR prompt) + sample ADRs:
+- [[../../../docs/adr/[ADR]_LearnKit_Discovery_Skills.md|ADR LearnKit Discovery]]
+- [[../../../docs/adr/[ADR]_NotebookLM_Kit_Retirement.md|ADR NotebookLM Kit Retirement]]
 
 ## Workflow
 
@@ -216,9 +216,9 @@ ADR 草案完成。建议路径:
 
 ## Reference Files
 
-- [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.4
-- [[../../../docs/[ADR]_LearnKit_Discovery_Skills.md|ADR LearnKit Discovery]] (style sample)
-- [[../../../docs/[ADR]_NotebookLM_Kit_Retirement.md|ADR NotebookLM Kit Retirement]] (style sample)
+- [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.4
+- [[../../../docs/adr/[ADR]_LearnKit_Discovery_Skills.md|ADR LearnKit Discovery]] (style sample)
+- [[../../../docs/adr/[ADR]_NotebookLM_Kit_Retirement.md|ADR NotebookLM Kit Retirement]] (style sample)
 
 ## Anti-patterns
 

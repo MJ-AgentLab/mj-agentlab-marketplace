@@ -14,7 +14,7 @@ Stage 6 verifies that newly authored skills behave as their description claims, 
 
 Mode 1 is faster and sufficient for read-only / discovery skills; Mode 2 is required for `disable-model-invocation` skills and any skill with side effects (write / commit / install).
 
-**Reference**: [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.7 + [[../../../docs/[GUIDE]_Plugin_Development_Testing_Workflow|Plugin Dev Testing]] (cross-repo 3-stage workflow).
+**Reference**: [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.7 + [[../../../docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow|Plugin Dev Testing]] (cross-repo 3-stage workflow).
 
 ## Workflow
 
@@ -195,8 +195,8 @@ cd <target-project>
 
 ## Reference Files
 
-- [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.7
-- [[../../../docs/[GUIDE]_Plugin_Development_Testing_Workflow|Plugin Dev Testing]]
+- [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.7
+- [[../../../docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow|Plugin Dev Testing]]
 
 ## Anti-patterns
 

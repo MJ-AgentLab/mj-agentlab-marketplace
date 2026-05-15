@@ -1,4 +1,25 @@
-﻿> **[GUIDE] Plugin 开发测试工作流指南**
+﻿---
+type: guide
+scope: marketplace
+summary: Plugin 开发测试工作流 — 跨仓库 3 阶段（快速开发 / 集成验证 / 发布前验证）
+owner: marketplace-maintainers
+created: 2026-03-17
+updated: 2026-05-15
+state: active
+version: v1.0
+domain: plugin-dev
+tags:
+  - plugin-dev
+  - testing
+  - workflow
+related:
+  - ./[GUIDE]_Marketplace_Project_Overview.md
+  - ../spec/[SPEC]_Plugin_Json_Schema.md
+  - ../runbook/[RUNBOOK]_Release_Operations.md
+---
+
+# [GUIDE] Plugin 开发测试工作流指南
+
 > 覆盖从 marketplace feature 分支开发到发布的完整插件测试流程，解决跨仓库缓存冲突问题。
 
 ## TL;DR
@@ -428,7 +449,7 @@ gh release view v1.1.0
 /plugin update --all
 ```
 
-> **详细操作**：完整的 bump 工具使用和 CHANGELOG 格式参考 [版本管理指南](<./[GUIDE]_Version_Management.md>)；Release PR 模板和检查清单参考 [发布操作手册](<./[RUNBOOK]_Release_Operations.md>)。
+> **详细操作**：完整的 bump 工具使用和 CHANGELOG 格式参考 [版本管理指南](<./[GUIDE]_Version_Management.md>)；Release PR 模板和检查清单参考 [发布操作手册](<../runbook/[RUNBOOK]_Release_Operations.md>)。
 
 ### 6.4 发布后清理
 
@@ -558,4 +579,4 @@ cd mj-system/feature/xxx
 
 ---
 
-> **关联文档**：[项目概览](<./[GUIDE]_Marketplace_Project_Overview.md>)、[版本管理](<./[GUIDE]_Version_Management.md>)、[发布操作](<./[RUNBOOK]_Release_Operations.md>)
+> **关联文档**：[项目概览](<./[GUIDE]_Marketplace_Project_Overview.md>)、[版本管理](<./[GUIDE]_Version_Management.md>)、[发布操作](<../runbook/[RUNBOOK]_Release_Operations.md>)

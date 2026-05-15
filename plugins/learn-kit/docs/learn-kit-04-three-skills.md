@@ -592,8 +592,8 @@ nlm-studio v1.0.0 release 前完整 dogfood 一次，5 findings 全部反应到�
 | generate-tier 4 prompt templates | `plugins/learn-kit/skills/generate-tier/templates/{foundation,structural,challenge,html-renderer}.md` |
 | nlm-studio skill 定义 | `plugins/learn-kit/skills/nlm-studio/SKILL.md`（5 step workflow + composition contract） |
 | nlm-studio 9 模板 | `plugins/learn-kit/skills/nlm-studio/templates/{view-foundation,view-structural,view-challenge,artifact-audio,artifact-video,artifact-slide_deck,artifact-mind_map,artifact-infographic,interaction-overrides,language-directive}.md`（共 10 文件）|
-| Discovery 设计决策 | `docs/[ADR]_LearnKit_Discovery_Skills.md` |
-| v4.0.0 NLM 收编决策 | `docs/[ADR]_NotebookLM_Kit_Retirement.md`（v1.0.0 起新增）|
+| Discovery 设计决策 | `docs/adr/[ADR]_LearnKit_Discovery_Skills.md` |
+| v4.0.0 NLM 收编决策 | `docs/adr/[ADR]_NotebookLM_Kit_Retirement.md`（v1.0.0 起新增）|
 | v3.x → v4.0.0 迁移 | `docs/MIGRATION_GUIDE.md` §2 |
 | 方法论 §1.5 推荐工作流 | `METHODOLOGY.md` §1.5 Project Discovery |
 

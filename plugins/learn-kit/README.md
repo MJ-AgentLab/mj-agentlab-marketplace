@@ -194,7 +194,7 @@ Windows 下 `start <file>` 直接打开预览。
 
 - **新用户**：使用手册 → 01 定位 → 02 方法论 → 04 skills 分工
 - **想要 RFC 范例**：03（先读 02 再读 03）
-- **理解治理决策**：05 治理边界 + 上游 ADR (`docs/[ADR]_NotebookLM_Kit_Retirement.md`)
+- **理解治理决策**：05 治理边界 + 上游 ADR (`docs/adr/[ADR]_NotebookLM_Kit_Retirement.md`)
 
 ## License
 

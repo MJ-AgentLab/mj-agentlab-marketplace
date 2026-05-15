@@ -253,7 +253,7 @@ version: v1.0
 - (post-PR 2) `docs/rule/[STANDARD]_Documentation_Framework.md`
 - (post-PR 2) `docs/rule/[STANDARD]_GitHub_Markdown.md`
 - (post-PR 2) `docs/_templates/TEMPLATE_*.md` (6 templates)
-- [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.4 + §4.6
+- [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.4 + §4.6
 
 ## Anti-patterns
 

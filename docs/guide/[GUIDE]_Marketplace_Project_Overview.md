@@ -1,4 +1,24 @@
-﻿> **[GUIDE] MJ AgentLab Marketplace 项目概览**
+﻿---
+type: guide
+scope: marketplace
+summary: MJ AgentLab Marketplace 项目概览 — 架构、插件目录、开发环境
+owner: marketplace-maintainers
+created: 2026-03-17
+updated: 2026-05-15
+state: active
+version: v1.0
+domain: governance
+tags:
+  - overview
+  - onboarding
+related:
+  - ./[GUIDE]_Version_Management.md
+  - ./[GUIDE]_Plugin_Development_Testing_Workflow.md
+  - ../rule/[STANDARD]_Documentation_Framework.md
+---
+
+# [GUIDE] MJ AgentLab Marketplace 项目概览
+
 > 面向新成员和贡献者，介绍插件市场的架构、组成和开发环境。
 
 ## 1. 项目定位
@@ -166,5 +186,5 @@ powershell -File ..\scripts\install-hooks.ps1
 ## 7. 相关文档
 
 - [版本管理指南](<./[GUIDE]_Version_Management.md>) — 版本管理详细指南
-- [发布操作手册](<./[RUNBOOK]_Release_Operations.md>) — 发布操作手册
-- [CONTRIBUTING.md](./CONTRIBUTING.md) — 贡献指南
+- [发布操作手册](<../runbook/[RUNBOOK]_Release_Operations.md>) — 发布操作手册
+- [CONTRIBUTING.md](../CONTRIBUTING.md) — 贡献指南

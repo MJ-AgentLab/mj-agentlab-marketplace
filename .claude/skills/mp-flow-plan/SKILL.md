@@ -9,7 +9,7 @@ description: Authors the working Plan body for a marketplace task (HITL Stage 2)
 
 Drafts the working Plan body for a marketplace task. The Plan answers "how do we proceed?" — it does NOT contain detailed plugin contract / SKILL.md content (that belongs in Stage 4 implementation outputs). Output is markdown text that the user (or AI with user consent) writes to `~/.claude/plans/<topic>.md` — marketplace repo deliberately does NOT keep a `plans/` folder.
 
-**Reference**: [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.3 (Stage 2 Plan prompt) + §0 (working-doc boundary).
+**Reference**: [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.3 (Stage 2 Plan prompt) + §0 (working-doc boundary).
 
 ## Workflow
 
@@ -207,10 +207,10 @@ marketplace repo **不**维护 plans/ 目录。
 
 ## Reference Files
 
-- [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.3
-- [[../../../docs/[GUIDE]_Marketplace_Project_Overview|Marketplace Overview]]
-- [[../../../docs/[GUIDE]_Version_Management|Version Management]]
-- [[../../../docs/[GUIDE]_Plugin_Development_Testing_Workflow|Plugin Dev Testing]]
+- [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.3
+- [[../../../docs/guide/[GUIDE]_Marketplace_Project_Overview|Marketplace Overview]]
+- [[../../../docs/guide/[GUIDE]_Version_Management|Version Management]]
+- [[../../../docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow|Plugin Dev Testing]]
 
 ## Anti-patterns
 

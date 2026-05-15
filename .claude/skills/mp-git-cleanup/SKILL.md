@@ -9,7 +9,7 @@ description: Cleans up local Git state after a marketplace PR merges — removes
 
 Post-merge local cleanup. Removes worktree + deletes branch + fetches tags. Refuses to touch `develop` / `main` worktrees.
 
-**Reference**: [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.11 + [[../../../docs/CONTRIBUTING.md|CONTRIBUTING]].
+**Reference**: [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.11 + [[../../../docs/CONTRIBUTING.md|CONTRIBUTING]].
 
 **Workflow position**: Stage 10 substep of HITL Prompt 11-stage flow.
 
@@ -190,7 +190,7 @@ git tag -l          # 期望: 含新 tag (if release PR)
 
 ## Reference Files
 
-- [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.11
+- [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.11
 - [[../../../docs/CONTRIBUTING.md|CONTRIBUTING]] (worktree 模式)
 
 ## Anti-patterns

@@ -9,7 +9,7 @@ description: Performs marketplace AI self-review before commit (HITL Stage 7) �
 
 Pre-commit gate. Verifies that the staged diff matches Plan/ADR, scope hasn't drifted, no secret / debug-code / hardcoded paths slipped in, and all 11 marketplace-specific check-items pass. The output's hallmark is **strict dual-section discipline**: 「本地验证」段 lists human-objective repeatable checks (git status / git diff / version files / command output); 「AI 自检」段 lists AI-generated content trustworthiness checks (scope drift / hardcoding scan / doc-code consistency / reference paths).
 
-**Reference**: [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.8 (含 5a/5b/5c/5d 子段 + item 10 release.yml + item 11 secrets).
+**Reference**: [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.8 (含 5a/5b/5c/5d 子段 + item 10 release.yml + item 11 secrets).
 
 ## Workflow
 
@@ -224,7 +224,7 @@ Delegate to `/mp-git-commit` Step 3 推导 type / scope / summary; 本 skill 仅
 
 ## Reference Files
 
-- [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.8
+- [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.8
 - [[../../../docs/CONTRIBUTING.md|CONTRIBUTING]] (commit format)
 - `.github/PULL_REQUEST_TEMPLATE/<type>.md`
 

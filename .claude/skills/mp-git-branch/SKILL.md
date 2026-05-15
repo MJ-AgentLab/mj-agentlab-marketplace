@@ -191,7 +191,7 @@ git status
 ## Reference Files
 
 - [[../../../docs/CONTRIBUTING.md|CONTRIBUTING]] (branch strategy + worktree)
-- [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §3 + §4.9 (branch type 矩阵)
+- [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §3 + §4.9 (branch type 矩阵)
 
 ## Anti-patterns
 

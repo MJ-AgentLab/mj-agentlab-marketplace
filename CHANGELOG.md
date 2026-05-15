@@ -5,6 +5,54 @@
 
 ## [Unreleased]
 
+## [4.2.1] - 2026-05-15
+
+### Changed (patch — mechanical doc framework retrofit)
+
+- **Moved 8 tag-prefixed docs into framework subdirs** (per `docs/rule/[STANDARD]_Documentation_Framework.md` §2.1 path conventions). All moves use `git mv` for clean rename history (100% similarity):
+  - `docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md` → `docs/rule/`
+  - `docs/[GUIDE]_Marketplace_Project_Overview.md` → `docs/guide/`
+  - `docs/[GUIDE]_Plugin_Development_Testing_Workflow.md` → `docs/guide/`
+  - `docs/[GUIDE]_Version_Management.md` → `docs/guide/`
+  - `docs/[GUIDE]_Marketplace_Agent_Execution_Checklist.md` → `docs/guide/`
+  - `docs/[RUNBOOK]_Release_Operations.md` → `docs/runbook/`
+  - `docs/[ADR]_LearnKit_Discovery_Skills.md` → `docs/adr/` (will further move to `plugins/learn-kit/docs/adr/` in PR 4 v4.3.0)
+  - `docs/[ADR]_NotebookLM_Kit_Retirement.md` → `docs/adr/`
+
+- **Retrofit 8 docs with 8-field YAML frontmatter** per `[STANDARD]_Documentation_Framework` §2.2. Existing markdown table headers (HITL Standard / Checklist / ADRs) replaced with YAML frontmatter; blockquote headers (4 GUIDEs + RUNBOOK) preserved as body intro and prepended with YAML frontmatter. RUNBOOK_Release_Operations adds `last-verified: 2026-05-14`. All retrofitted docs `state: active` and `version: v1.0` (or current minor as applicable).
+
+- **Bulk update of 37 files' cross-references** to new subdir paths (via sed -i pattern replacement):
+  - 17 `.claude/skills/mp-*/SKILL.md` wikilinks to HITL Standard
+  - `.github/PULL_REQUEST_TEMPLATE/feature.md` Related STANDARDs links
+  - Root `CLAUDE.md` (11-stage table + Doc Framework section + v4.0.0 note + HITL version reference 1.1 → 1.2)
+  - Root `README.md` (ADR_NotebookLM references)
+  - `docs/INDEX.md` (full rewrite of post-retrofit state; removed "stays flat" transitional markers)
+  - 8 moved docs' internal cross-references updated to subdir-relative paths (`./` siblings stay; `../guide/`, `../rule/`, etc. for cross-subdir)
+  - `docs/ai_engineering_execution_hitl_workflow.md` (generic doc, exempt from framework but updated path to specialized variant)
+  - `plugins/learn-kit/README.md` + 4 internal learn-kit docs
+
+- **Removed `.gitkeep` placeholders** from `docs/{guide,runbook,adr}/` (now populated by moved docs); `docs/postmortem/` retains `.gitkeep` (still empty).
+
+### Preserved unchanged (historical fidelity)
+
+- `CHANGELOG.md` (root and `plugins/learn-kit/CHANGELOG.md`): historical references reflect path state at time of each release entry. Updating these would falsify the historical record.
+- `docs/MIGRATION_GUIDE.md`: same rationale (release-cycle artifact frozen at original migration time).
+
+### Out of scope (preserved for later)
+
+- Content drift in `[GUIDE]_Version_Management.md` and `[RUNBOOK]_Release_Operations.md` (references to retired `mj-sys-*` plugins from v3.x era). This is content cleanup independent of the framework retrofit; addressed when those docs are next substantively edited.
+- `[ADR]_LearnKit_Discovery_Skills.md` migration to plugin-internal `plugins/learn-kit/docs/adr/` is deferred to PR 4 (v4.3.0).
+- Plugin-internal docs framework extension (tag prefixes + frontmatter for `plugins/learn-kit/docs/learn-kit-*.md`) is PR 4 scope.
+
+### Changed (versioning)
+
+- **`VERSION`** — 4.2.0 → 4.2.1 (patch)
+- **`.claude-plugin/marketplace.json`** — `metadata.version` 4.2.0 → 4.2.1; `metadata.description` mentions v4.2.1 retrofit; `plugins[].version` unchanged (learn-kit 1.0.0)
+
+### Rationale
+
+PR 2 (v4.2.0) established the doc framework + subdirectory scaffolding; this PR mechanically migrates the 8 pre-existing tag-prefixed docs into their canonical subdirectories and brings them into frontmatter compliance. Phased separation keeps PR 2 reviewable as "introduce framework" without retrofit churn, and keeps PR 3 reviewable as pure mechanical rename + frontmatter add. After v4.2.1, all `docs/**/*.md` (except explicitly exempt files per Framework §1) conform to the v1.0 schema; `/mp-doc-validate` should report zero Critical issues across the corpus.
+
 ## [4.2.0] - 2026-05-15
 
 ### Added

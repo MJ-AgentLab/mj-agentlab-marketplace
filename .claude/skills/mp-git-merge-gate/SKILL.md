@@ -9,7 +9,7 @@ description: Performs the marketplace PR merge-readiness gate (HITL Stage 9) —
 
 Stage 9 readiness gate before merging a PR. Verifies CI / template self-check / review state / scope alignment / publish intent (for main-target PRs). Output is a decision: READY / NOT READY / HITL BLOCK, plus the recommended merge command.
 
-**Reference**: [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.10 + [[../../../docs/[RUNBOOK]_Release_Operations.md|Release Operations RUNBOOK]].
+**Reference**: [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.10 + [[../../../docs/runbook/[RUNBOOK]_Release_Operations.md|Release Operations RUNBOOK]].
 
 **Workflow position**: Stage 9 of HITL Prompt 11-stage flow.
 
@@ -206,8 +206,8 @@ gh pr merge <NN> --merge -R MJ-AgentLab/mj-agentlab-marketplace
 
 ## Reference Files
 
-- [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.10
-- [[../../../docs/[RUNBOOK]_Release_Operations.md|Release Operations]]
+- [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.10
+- [[../../../docs/runbook/[RUNBOOK]_Release_Operations.md|Release Operations]]
 - `.github/workflows/{ci,release}.yml`
 
 ## Anti-patterns
