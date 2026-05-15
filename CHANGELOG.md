@@ -5,6 +5,18 @@
 
 ## [Unreleased]
 
+## [4.4.3] - 2026-05-15
+
+### Fixed
+
+- **`docs/INDEX.md`** — Register `[RUNBOOK]_Doc_Archive_Procedure.md` in the active `## Runbooks` table. PR #83 (v4.4.0) introduced this RUNBOOK file as an active doc but only forward-referenced it from the `## Archived Documents` section preamble; the active Runbooks table was never updated, leaving the doc as an INDEX orphan per Documentation Framework §3 (INDEX sync requirement).
+
+  Surfaced by dogfooding `mp-doc-validate` against the corpus on 2026-05-15 (post-PR #84 skill enhancement). Step 3 INDEX cross-check correctly identifies orphan because the skill's awk filter excludes the Archived Documents section (`awk '/^## Archived Documents/{exit} 1'`) — forward-references from inside the archive preamble do not count as active-section listings.
+
+### Rationale
+
+Minor regression introduced by PR #83's INDEX edits: the new RUNBOOK was scaffolded but its registration in the active Runbooks table was missed. Discovered via the very dogfood that the v1.2 archive mechanism + v4.4.1 skill enhancement enabled — proves the end-to-end framework + skill loop is working.
+
 ## [4.4.2] - 2026-05-15
 
 ### Changed
