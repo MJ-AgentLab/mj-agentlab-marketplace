@@ -1,12 +1,12 @@
 ---
 type: standard
 scope: marketplace
-summary: Documentation framework v1.2 — tag prefixes, frontmatter, state machine, paths, INDEX sync, plugin-internal teaching series exemption, archive mechanism
+summary: Documentation framework v1.3 — tag prefixes, frontmatter, state machine, paths, INDEX sync, exemption frontmatter discipline, archive mechanism
 owner: marketplace-maintainers
 created: 2026-05-15
 updated: 2026-05-15
 state: active
-version: v1.2
+version: v1.3
 domain: governance
 tags:
   - documentation
@@ -49,6 +49,8 @@ This STANDARD governs every markdown document under:
 The framework's audience is: **AI agents** writing/editing docs (so they have machine-readable schema), **human reviewers** (consistent structure speeds review), and **future maintainers** (state machine + version history clarify what's authoritative).
 
 > **v1.1 note on exemption design**: An exempt file is *informally tracked* — it appears in its plugin's `docs/INDEX.md` under a dedicated «Plugin-Internal Teaching Series» section (or equivalent) so AI agents and humans can discover it, but `/mp-doc-validate` skips frontmatter and path-prefix checks against it. The exemption is intentional, not lax: plugins SHOULD use it sparingly and only when numbered sequencing carries pedagogical meaning. When a plugin needs decision records, runbooks, or normative rules, those MUST use the tag-prefixed framework in `adr/` / `guide/` / `runbook/` / `rule/` subdirs.
+
+> **v1.3 normative clarification on exempt-file frontmatter**: Files matching a §1 exemption MAY (a) omit frontmatter entirely OR (b) carry the canonical 8-field frontmatter (per §2.2) as if non-exempt. They MUST NOT use legacy non-canonical keys such as `title`, `purpose`, `audience`, or YAML literal-block-scalar list fields (`related: |` followed by bullet text). `/mp-doc-validate` continues to skip required-field and path-prefix checks against exempt files, but SHOULD emit a **Warning** (not Critical) when it detects forbidden legacy keys on an exempt file. README.md / CHANGELOG.md / CLAUDE.md / SKILL.md retain their domain-specific formats and are out of scope for this clarification (each has a separate external contract: README is a public-facing entry point with no formal frontmatter convention, CHANGELOG follows Keep-a-Changelog with no frontmatter, CLAUDE.md is the Claude Code spec contract, and SKILL.md uses the plugin loader's native frontmatter — `name` / `description` / optional `allowed-tools` / `disable-model-invocation`). See [`../adr/[ADR]_Documentation_Framework_Exemption_Review.md`](../adr/[ADR]_Documentation_Framework_Exemption_Review.md) for the rationale on why both §1 exemptions remain in v1.3 rather than being revoked.
 
 ## §2 Normative Rules
 
@@ -349,6 +351,7 @@ These gates are deferred until doc count + reviewer burden justify the CI cost.
 
 | Version | Date | Summary |
 |---------|------|---------|
+| v1.3 | 2026-05-15 | **§1 exempt-file frontmatter discipline**: add normative clause (insert after §1 v1.1 note) requiring exempt files to either omit frontmatter entirely OR use the canonical 8-field schema. Legacy non-canonical keys (`title / purpose / audience`) and YAML literal-block-scalar list fields (`related: \|` followed by bullet text) are forbidden. `/mp-doc-validate` SHOULD emit Warning (not Critical) on detection of forbidden keys on exempt files (new Step 2.7 — §1 exempt-file discipline). Both §1 exemptions remain (single file `ai_engineering_execution_hitl_workflow.md` + plugin-internal teaching series pattern); decision rationale recorded in [`../adr/[ADR]_Documentation_Framework_Exemption_Review.md`](../adr/[ADR]_Documentation_Framework_Exemption_Review.md). Backward compatible: no existing path or schema change required for any file other than the 2 outliers `ai_engineering_execution_hitl_workflow.md` + `learn-kit-使用手册.md` (legacy frontmatter dropped; paired with this PR). README.md / CHANGELOG.md / CLAUDE.md / SKILL.md remain out of scope (separate external contracts). Adopted in PR #XX (v4.X.Y). |
 | v1.2 | 2026-05-15 | **Archive mechanism codification**: expand §2.3 State Machine with 4 new subsections — §2.3.1 Archive Triggers (4 conditions: major bump / structural rewrite / ≥70% content replacement / split-merge-rename; adapted from mj-agent ADR-017); §2.3.2 Frontmatter on Archive Transition (new `archived:` date + `replaced-by:` pointer fields, bidirectional with `supersedes:` on active successor); §2.3.3 Archive Banner Template (canonical blockquote format at top of archived body); §2.3.4 Living vs Frozen Reference Judgment (procedural rule for cross-doc refs during archive ceremony). Also clarify §2.4 archived filename pattern (`[DEPRECATED]_<TAG>_<Topic>_v<major>.<minor>.md`; patch dropped). Backward compatible: no existing doc paths or frontmatter changes required — these are rules for **future** archive events. Operationalized in `docs/runbook/[RUNBOOK]_Doc_Archive_Procedure.md` v1.0 (new). Adopted in PR #83 (v4.4.0). |
 | v1.1 | 2026-05-15 | **§1 exemption codification**: formalize «plugin-internal teaching series» (e.g., `plugins/learn-kit/docs/learn-kit-NN-*.md` numbered series) as an explicit §1 exemption category. Pre-v1.1 the 6 lowercase learn-kit teaching docs were "informally exempt" per `plugins/learn-kit/docs/INDEX.md` §Plugin-Internal Teaching Series; v1.1 promotes this to canonical framework rule with 3-point pattern criteria (root-level under `plugins/<name>/docs/`, filename prefixed with plugin name, content is human-pedagogical). Backward compatible: no existing doc paths or frontmatter required to change. Adopted in PR #80 (v4.3.3). |
 | v1.0 | 2026-05-15 | Initial framework: 6 tag prefixes + 8-field frontmatter + 3-state machine + path stability + INDEX sync. Adopted in PR #75 (v4.2.0). Adapted from mj-agent `[STANDARD]_MJ_Agent_Documentation_Meta_Framework.md` v2.2; simplified by removing track multiplexing, agent-runtime types, and CI gate enforcement. |
