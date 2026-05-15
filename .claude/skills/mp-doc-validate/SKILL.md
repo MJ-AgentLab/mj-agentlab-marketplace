@@ -1,6 +1,6 @@
 ---
 name: mp-doc-validate
-description: Validates marketplace documentation compliance against Documentation Framework v1.2+ — checks (1) every `docs/**/*.md` and `plugins/<name>/docs/**/*.md` with a `[TAG]` prefix has the required 8-field frontmatter (type / scope / summary / owner / created / updated / state / version), the `type` enum matches `[TAG]`, the file lives in the right subdirectory, paths in `related:` resolve, wikilinks resolve, INDEX.md lists the doc, and `[RUNBOOK]_*.md` has `last-verified` field; AND (2) v1.2+ **archive compliance**: every `state: archived` file lives under `docs/archive/<subtype>/[DEPRECATED]_<TAG>_<Topic>_v<major>.<minor>.md`, has mandatory `archived:` ISO date + `replaced-by:` path, body starts with the canonical Archive Banner, and the `replaced-by:` ↔ `supersedes:` bidirectional pair is intact. Make sure to use this skill whenever the user says "validate docs", "doc compliance", "frontmatter check", "docs audit", "docs/ check", "marketplace doc validate", "doc validate", "Stage 7 docs audit", "archive validation", "archive compliance", or before committing changes that touched any `docs/**` or `plugins/<name>/docs/**` file (including any change under `docs/archive/`). Heuristic-only; does not modify files. Outputs report: Critical (frontmatter missing / wrong type / orphan in INDEX / archive banner missing / broken supersedes-replaced-by) / Warning (last-verified stale / cross-reference broken) / Verified. Skill itself is not in scope (those use Claude Code plugin spec native frontmatter, validated by `/plugin-dev:skill-reviewer`). Do not use for: SKILL.md validation (use /plugin-dev:skill-reviewer agent), plugin compliance (use mp-flow-compliance, Stage 5), or test of doc content quality (subjective; outside scope).
+description: Validates marketplace documentation compliance against Documentation Framework v1.2+ — checks (1) every `docs/**/*.md` and `plugins/<name>/docs/**/*.md` with a `[TAG]` prefix has the required 8-field frontmatter (type / scope / summary / owner / created / updated / state / version), the `type` enum matches `[TAG]`, the file lives in the right subdirectory, paths in `related:` resolve, wikilinks resolve, INDEX.md lists the doc, and `[RUNBOOK]_*.md` has `last-verified` field; AND (2) v1.2+ **archive compliance**: every `state: archived` file lives under `docs/archive/<subtype>/[DEPRECATED]_<TAG>_<Topic>_v<major>.<minor>.md`, has mandatory `archived:` ISO date + `replaced-by:` path, body starts with the canonical Archive Banner, and the `replaced-by:` ↔ `supersedes:` bidirectional pair is intact. Make sure to use this skill whenever the user says "validate docs", "doc compliance", "frontmatter check", "docs audit", "docs/ check", "marketplace doc validate", "doc validate", "Stage 7 docs audit", "archive validation", "archive compliance", or before committing changes that touched any `docs/**` or `plugins/<name>/docs/**` file (including any change under `docs/archive/`). Heuristic-only; does not modify files. Outputs report: Critical (frontmatter missing / wrong type / orphan in INDEX / archive banner missing / broken supersedes-replaced-by / broken `related:` path) / Warning (RUNBOOK last-verified stale / broken wikilink / empty `replaced-by` for pure retirement) / Verified. v4.4.5 hardens Step 3 (INDEX regex tightened to strict basename pattern; eliminates cross-reference false positives) and Step 5 (real `realpath -m` resolution replaces placeholder code; promotes broken `related:` from Warning to Critical). Skill itself is not in scope (those use Claude Code plugin spec native frontmatter, validated by `/plugin-dev:skill-reviewer`). Do not use for: SKILL.md validation (use /plugin-dev:skill-reviewer agent), plugin compliance (use mp-flow-compliance, Stage 5), or test of doc content quality (subjective; outside scope).
 ---
 
 # Marketplace Doc Validate
@@ -103,20 +103,32 @@ dirname <file> | grep -qE "<expected-pattern>" || echo "WARNING: type=$type but 
 
 ### Check 5: related: Paths Resolve
 
+Each `related:` entry MUST resolve via `realpath -m` to a real file. v4.4.4 surfaced 5 broken entries (PR #87): stale paths from cross-PR migrations + `...` typos. Reference impl uses `awk` for stop-anchor (next top-level key) so multi-line `related:` lists are correctly bounded:
+
 ```bash
-for rel in $(echo "$fm" | awk '/^  - \./'); do
-  rel_path=$(dirname <file>)/$rel
-  [ -f "$rel_path" ] || echo "WARNING: broken related: $rel"
+related=$(echo "$fm" | awk '/^related:/{flag=1; next} /^[a-z][a-zA-Z_-]*:/{flag=0} flag && /^  - /')
+echo "$related" | while IFS= read -r line; do
+  rel=$(echo "$line" | sed 's/^  - //' | tr -d '\r')
+  [ -z "$rel" ] && continue
+  # realpath -m resolves even if the target doesn't exist (returns the normalized path);
+  # the -f test on the resolved path is the actual existence check
+  norm=$(cd "$(dirname <file>)" && realpath -m "$rel" 2>/dev/null)
+  [ -f "$norm" ] || echo "CRITICAL: broken related: '$rel' in <file>"
 done
 ```
 
+Bumped to Critical (was Warning) because broken `related:` defeats navigation and contradicts the framework's explicit "related: paths must resolve" rule.
+
 ### Check 6: Wikilinks Resolve
 
+Resolve `[[name]]` wikilinks against canonical doc set. Marketplace corpus currently uses zero wikilinks (verified 2026-05-15 dogfood); kept for future-proofing.
+
 ```bash
-grep -oE '\[\[([^\]|]+)(\|[^\]]+)?\]\]' <file> | while read link; do
-  target=$(echo "$link" | sed 's/\[\[\([^|]*\).*/\1/')
-  # heuristic: prefix relative path
-  ...
+grep -oE '\[\[[^]|]+(\|[^]]+)?\]\]' <file> | while IFS= read -r link; do
+  target=$(echo "$link" | sed 's/^\[\[\([^|]*\).*$/\1/' | tr -d '\r')
+  # Resolve wikilink target: search by basename match against all tag-prefixed docs
+  match=$(find docs plugins -type f -name "*${target}*.md" 2>/dev/null | head -1)
+  [ -z "$match" ] && echo "WARNING: broken wikilink [[${target}]] in <file>"
 done
 ```
 
@@ -218,28 +230,37 @@ echo "$successor_fm" | awk '/^supersedes:/{flag=1; next} /^[a-z_-]+:/{flag=0} fl
 
 ## Step 3: INDEX Cross-check
 
-```bash
-# 列出 INDEX.md 中所有 active [TAG] 链接（exclude Archived Documents 段以下）
-listed_active=$(awk '/^## Archived Documents/{exit} 1' docs/INDEX.md | grep -oE '\[(STANDARD|ADR|GUIDE|RUNBOOK|SPEC|POSTMORTEM)\][^)]+\.md')
+The regex extracts file **basenames** only (`[TAG]_<word-chars>.md`), not arbitrary `[^)]+\.md` strings. Loose `[^)]+` matches greedy across backtick-wrapped cross-references and link URLs in a single line, producing false positives (e.g., `[STANDARD]_X.md\`](../../docs/rule/[STANDARD]_X.md` matched as one entry). Strict basename pattern with `[A-Za-z0-9_-]+` is precise and well-bounded:
 
-# 列出 active docs（exclude archive）
-actual_active=$(find docs -name '\[*\]_*.md' -not -path 'docs/archive/*' -printf '%f\n')
+```bash
+# 列出 INDEX.md 中所有 active [TAG] 链接 basename（exclude Archived Documents 段以下）
+listed_active=$(awk '/^## Archived Documents/{exit} 1' docs/INDEX.md \
+  | grep -oE '\[(STANDARD|ADR|GUIDE|RUNBOOK|SPEC|POSTMORTEM)\]_[A-Za-z0-9_-]+\.md' \
+  | sort -u)
+
+# 列出 active docs basename（exclude archive）
+actual_active=$(find docs -name '\[*\]_*.md' -not -path 'docs/archive/*' -printf '%f\n' | sort -u)
 
 # 对比 active
 # 在 actual 但不在 listed → orphan in INDEX (CRITICAL after PR 3 retrofit)
 # 在 listed 但 actual 不存在 → broken INDEX entry (CRITICAL)
-diff <(echo "$listed_active" | sort) <(echo "$actual_active" | sort)
+comm -23 <(echo "$listed_active") <(echo "$actual_active")  # listed but not actual
+comm -13 <(echo "$listed_active") <(echo "$actual_active")  # actual but not listed (orphan)
 
-# v1.2+: 列出 Archived Documents 段所有 [DEPRECATED] 链接
-listed_archived=$(awk '/^## Archived Documents/,/^## /{if (!/^## Templates/) print}' docs/INDEX.md | grep -oE '\[DEPRECATED\]_\[[^]]+\][^)]+\.md')
+# v1.2+: 列出 Archived Documents 段所有 [DEPRECATED] 链接 basename
+listed_archived=$(awk '/^## Archived Documents/,/^## /' docs/INDEX.md \
+  | grep -oE '\[DEPRECATED\]_\[(STANDARD|ADR|GUIDE|RUNBOOK|SPEC|POSTMORTEM)\]_[A-Za-z0-9_-]+_v[0-9]+\.[0-9]+\.md' \
+  | sort -u)
 
 # 列出 docs/archive/ 下所有 [DEPRECATED] 文件
-actual_archived=$(find docs/archive -name '\[DEPRECATED\]_*.md' -printf '%f\n')
+actual_archived=$(find docs/archive -name '\[DEPRECATED\]_*.md' -printf '%f\n' | sort -u)
 
 # 对比 archived
-# 任何 mismatch 同样 CRITICAL — Archive INDEX 段应与 docs/archive/ 实际文件一致
-diff <(echo "$listed_archived" | sort) <(echo "$actual_archived" | sort)
+comm -23 <(echo "$listed_archived") <(echo "$actual_archived")
+comm -13 <(echo "$listed_archived") <(echo "$actual_archived")
 ```
+
+**Note on Archived placeholder**: when the corpus has zero archived docs, `actual_archived` is empty AND `listed_archived` should be empty (the placeholder bullet text `*暂无 archived 文档*` doesn't match the strict pattern). Do NOT flag the empty-state as a mismatch — anti-pattern §6 explicitly exempts the empty placeholder.
 
 Marketplace 顶层 INDEX 不需镜像 plugin-internal docs（plugin 自己的 docs/INDEX.md 是 source of truth；marketplace INDEX 仅列 "Plugin Documentation" 一段含跳转）。
 
@@ -247,8 +268,8 @@ Marketplace 顶层 INDEX 不需镜像 plugin-internal docs（plugin 自己的 do
 
 | Severity | Examples |
 |---|---|
-| **Critical** | missing frontmatter / wrong tag-type match / orphan in INDEX / archived doc missing banner / archived filename pattern mismatch / broken bidirectional supersedes↔replaced-by / supersedes points to missing or non-archived file |
-| **Warning** | broken related: / stale RUNBOOK last-verified / broken wikilink / empty replaced-by (pure retirement, requires CHANGELOG confirmation) |
+| **Critical** | missing frontmatter / wrong tag-type match / orphan in INDEX / archived doc missing banner / archived filename pattern mismatch / broken bidirectional supersedes↔replaced-by / supersedes points to missing or non-archived file / broken `related:` (v4.4.5 promoted from Warning — defeats navigation) |
+| **Warning** | stale RUNBOOK last-verified / broken wikilink / empty replaced-by (pure retirement, requires CHANGELOG confirmation) |
 | **Verified** | all checks pass |
 
 ## Output Format
