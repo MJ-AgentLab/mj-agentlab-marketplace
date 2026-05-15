@@ -2,7 +2,7 @@
 
 > 学习目标：用 5 分钟建立 learn-kit 的 mental model——它是干什么的、不是干什么的、什么时候用、什么时候别用。
 >
-> **版本说明**：本文反映 learn-kit v1.0.0 / marketplace v4.0.0（2026-05-14）状态。v0.x 时代曾把 learn-kit 定位为「只做一件事」（手工方法论 + scaffold）；v1.0.0 已扩展为「3 个模式 + 2 个 discovery skill」，定位重写。
+> **版本说明**：本文反映 learn-kit v1.1.0 / marketplace v4.4.8（2026-05-15）状态。v0.x 时代曾把 learn-kit 定位为「只做一件事」（手工方法论 + scaffold）；v1.0.0 起扩展为「3 个模式 + 2 个 discovery skill」；v1.1.0 起补 plugin-internal 文档框架（不改用户面 surface）。
 
 ---
 
@@ -103,7 +103,7 @@ learn-kit 是一个**把枚举型规则清单转化为多形态学习材料**的
   - 5 个独立比喻世界
   - 全部 N 维 AND-gate 几何不变量
 - **通用化**：剥离 MJ 引用，保留方法论核心 + 子系统元规则 + 6 类失真自检
-- **现行版本**：marketplace `v4.0.0` 中的 learn-kit `v1.0.0`，含 **5 个 skill**（init / scan / locate / generate-tier / nlm-studio）
+- **现行版本**：marketplace `v4.4.8` 中的 learn-kit `v1.1.0`，含 **5 个 skill**（init / scan / locate / generate-tier / nlm-studio）
 - **演化里程碑**：
   - v0.1（2026-05-11）：init + METHODOLOGY scaffold
   - v0.2（2026-05-11）：加 scan + locate 两个 discovery skill

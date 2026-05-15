@@ -1,8 +1,8 @@
 ---
 title: learn-kit 使用手册
 purpose: 新手 5 分钟上手 learn-kit 5 个 skills 的操作指引
-version: v1.0.0 / marketplace v4.0.0
-updated: 2026-05-14
+version: v1.1.0 / marketplace v4.4.8
+updated: 2026-05-15
 audience: 第一次用 learn-kit 的项目维护者 / 学习者
 related: learn-kit-01-positioning.md / learn-kit-05-governance-boundary.md / docs/adr/[ADR]_NotebookLM_Kit_Retirement.md
 ---
@@ -33,7 +33,7 @@ related: learn-kit-01-positioning.md / learn-kit-05-governance-boundary.md / doc
 /plugin install learn-kit@mj-agentlab-marketplace
 
 # 3. 验证
-/plugin list | grep learn-kit  # 应看到 v1.0.0
+/plugin list | grep learn-kit  # 应看到 v1.1.0
 ```
 
 ### 2.1 nlm-studio 前置依赖（仅当要用多媒体流时）
