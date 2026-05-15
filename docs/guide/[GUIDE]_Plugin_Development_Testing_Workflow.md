@@ -1,4 +1,4 @@
-﻿---
+---
 type: guide
 scope: marketplace
 summary: Plugin 开发测试工作流 — 跨仓库 3 阶段（快速开发 / 集成验证 / 发布前验证）

@@ -1,4 +1,4 @@
-﻿---
+---
 type: guide
 scope: marketplace
 summary: 双层版本架构、bump 工具、CHANGELOG 规范、CI/CD 自动化

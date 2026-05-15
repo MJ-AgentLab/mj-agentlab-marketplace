@@ -5,6 +5,28 @@
 
 ## [Unreleased]
 
+## [4.4.2] - 2026-05-15
+
+### Changed
+
+- **5 docs** — Stripped UTF-8 BOM (byte sequence `EF BB BF`) from file start. Affected files:
+  - `docs/CONTRIBUTING.md`
+  - `docs/guide/[GUIDE]_Marketplace_Project_Overview.md`
+  - `docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md`
+  - `docs/guide/[GUIDE]_Version_Management.md`
+  - `docs/runbook/[RUNBOOK]_Release_Operations.md`
+
+  BOM bytes were introduced during early authoring (likely by a Windows editor with default UTF-8-with-BOM setting). Although most modern markdown renderers (GitHub, VS Code preview) silently accept BOM, the project's Documentation Framework v1.2 §6 specifies LF-only UTF-8 with no BOM, and BOM presence can:
+  - Break frontmatter parsing in stricter YAML loaders (BOM appears as part of the first key)
+  - Cause `grep`-style regex line-anchor `^---` to miss the frontmatter delimiter
+  - Show as a stray `﻿` character in raw views of older editors
+
+  Fix is a 3-byte file-head strip; no content change. All other corpus markdown files were re-audited and confirmed BOM-free.
+
+### Rationale
+
+Deferred from PR #79 (v4.3.2) content-drift audit when the focus was script bugs + content drift. Now landed as a focused single-purpose maintain PR since the archive mechanism (PR #83) made framework spec authoritative on encoding.
+
 ## [4.4.1] - 2026-05-15
 
 ### Changed
