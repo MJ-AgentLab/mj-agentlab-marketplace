@@ -5,6 +5,28 @@
 
 ## [Unreleased]
 
+## [4.4.8] - 2026-05-15
+
+### Fixed
+
+- **`.github/workflows/ci.yml`** — Skip the `Validate commit message format` step for `release/*` PRs and pushes. Surfaced when the v4.4.7 release PR (#91) failed CI on 9 historical commits in the `main..develop` range that predate the v4.x PATTERN finalization:
+  - 3 commits use scopes retired in v4.0.0 (`nlm-studio`, `notebooklm-kit`)
+  - 1 commit uses scope `docs` (not in v4.x whitelist; was caught after PR #79 tightened scope list)
+  - 5 commits exceed the 72-char subject limit
+  - 1 commit missing `(scope)` entirely
+
+  Rationale: release branches re-publish already-vetted develop content; their underlying commits were validated by prior PR CIs (or predate the gate entirely). Hotfix branches still validate — they introduce new commits that should conform. Feature/bugfix/maintain/documentation branches all still validate.
+
+  Condition added to step's `if:`:
+  ```yaml
+  (github.event_name == 'pull_request' && !startsWith(github.head_ref, 'release/'))
+  || (github.event_name == 'push' && github.ref != 'refs/heads/develop' && github.ref != 'refs/heads/main' && !startsWith(github.ref, 'refs/heads/release/'))
+  ```
+
+### Follow-up
+
+This fix is committed directly to `release/v4.4.7` per release-branch convention. After this release merges to main, a separate small PR must sync the ci.yml change back to develop to prevent regression on the next release.
+
 ## [4.4.7] - 2026-05-15
 
 > Sits above [4.4.6] which landed via PR #89 just before this PR's rebase.

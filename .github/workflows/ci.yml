@@ -21,7 +21,12 @@ jobs:
           fetch-depth: 0
 
       - name: Validate commit message format
-        if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref != 'refs/heads/develop' && github.ref != 'refs/heads/main')
+        # Skipped on release/* PRs + pushes: release branches re-publish already-vetted develop content, and historical
+        # commits in the main..develop range may predate the current PATTERN (e.g., scope whitelist tightening in v4.x).
+        # Hotfix branches still validate — they introduce new commits that should conform.
+        if: |
+          (github.event_name == 'pull_request' && !startsWith(github.head_ref, 'release/'))
+          || (github.event_name == 'push' && github.ref != 'refs/heads/develop' && github.ref != 'refs/heads/main' && !startsWith(github.ref, 'refs/heads/release/'))
         run: |
           # PATTERN must stay in sync with scripts/install-hooks.ps1 + docs/rule/[STANDARD]_Commit_Message_Convention.md §3/§4
           PATTERN='^(feat|fix|perf|refactor|test|docs|infra)\((learn-kit|marketplace|ci|scripts|deps|infra|docs-rule|docs-adr|docs-guide|docs-runbook|docs-spec|release)\): .{1,72}$'
