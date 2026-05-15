@@ -5,6 +5,36 @@
 
 ## [Unreleased]
 
+## [4.4.9] - 2026-05-15
+
+### Fixed
+
+- **`README.md`** — Refresh 3 stale version strings discovered during user repo-page review:
+  - Line 3: version badge `version-4.0.0-blue` → `version-4.4.8-blue` (matches `VERSION` truth — note this PR's own bump-target `4.4.9` will be reflected by the NEXT badge refresh after this PR merges; intentional one-cycle lag)
+  - Line 15: plugin table learn-kit version `**1.0.0**` → `**1.1.0**` (matches `plugin.json` truth)
+  - Line 25: nlm-studio description `5 类 × 3 view = 至多 15 个多媒体 artifact` → `4 view-cycled × 3 view + 1 shared mind_map = 至多 13 个多媒体 artifact（HTML 不上传）` (matches the canonical phrasing in marketplace.json plugins[0].description)
+
+- **4 plugin-internal teaching docs** — Refresh "current state" version stamps from `v1.0.0 / v4.0.0 (2026-05-14)` to `v1.1.0 / v4.4.8 (2026-05-15)`. These are the §1-exempt "plugin-internal teaching series" docs; their banners explicitly claim "本文反映 ... 状态" which is a verifiable current-state claim and should track reality:
+  - `plugins/learn-kit/docs/learn-kit-01-positioning.md` — banner (line 5) + "现行版本" line (line 106)
+  - `plugins/learn-kit/docs/learn-kit-04-three-skills.md` — banner (line 5)
+  - `plugins/learn-kit/docs/learn-kit-05-governance-boundary.md` — banner (line 5)
+  - `plugins/learn-kit/docs/learn-kit-使用手册.md` — frontmatter `version` + `updated` + "验证应看到" line
+
+  Historical version markers (e.g., "v0.3.0 起", "v1.0（2026-05-14）：加 nlm-studio") preserved unchanged — those describe specific version events.
+
+- **`docs/ai_engineering_execution_hitl_workflow.md`** — `updated: 2026-05-14` → `updated: 2026-05-15` (1-day refresh on the §1-exempt generic HITL philosophy parent doc; content unchanged).
+
+### Rationale
+
+User flagged the README badge "4.0.0" during repo landing page review. Investigation found 3 README items + 5 doc-stamp items + 1 HITL date all stale relative to the v4.4.8 release that just shipped. None of these are functional bugs — purely "version-truth drift" from the v4.0.0 baseline that accumulated across the v4.4.x patch cycle.
+
+The exemption-vs-migration assessment performed during planning concluded: **no docs need migration into the framework or archival**. The §1 exemption rules correctly classify all named docs. The 8 fixes here are pure version-stamp polish on already-exempt docs (filename / classification unchanged).
+
+### Skipped (intentional)
+
+- **`learn-kit-04-three-skills.md` filename** — covers 5 skills but filename says "three" (historical: v0.2.0 had 3 skills). Filename rename `-three-` → `-five-` would change the pedagogical-numbering reference path and is invasive; the doc body already explains the history inline. Keep as-is per assessment.
+- **`learn-kit-02-eight-stage-methodology.md` + `-03-rfc-2119-worked-example.md`** — neither carries a "current state" version stamp; content is methodology / worked-example reference, version-independent. Nothing to refresh.
+
 ## [4.4.8] - 2026-05-15
 
 > **Release v4.4.8 ships everything from v4.0.0 → v4.4.8** (the v3.2.1 → v4.x integration finally reaches main). Cumulative theme: **Documentation Framework v1.2 + archive mechanism + skill hardening + CI enforcement**.
