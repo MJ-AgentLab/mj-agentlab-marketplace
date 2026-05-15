@@ -9,7 +9,7 @@ description: Performs mj-agentlab-marketplace 8-dimension fact-check (HITL Stage
 
 Read-only 8-dimension fact-check against the marketplace repo. Establishes ground truth for the upcoming Plan (Stage 2) so the AI's assumptions are calibrated against real file contents — not inferred from naming or stale memory. Skill is **strictly read-only**; it never modifies files.
 
-**Reference**: [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.2 (Stage 1 Repo Scan prompt) + `.github/workflows/ci.yml` (6-step validation that defines what counts as "compliant").
+**Reference**: [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.2 (Stage 1 Repo Scan prompt) + `.github/workflows/ci.yml` (6-step validation that defines what counts as "compliant").
 
 ## Workflow
 
@@ -213,9 +213,9 @@ cat .github/workflows/ci.yml
 
 ## Reference Files
 
-- [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.2
-- [[../../../docs/[GUIDE]_Marketplace_Project_Overview|Marketplace Overview]]
-- [[../../../docs/[GUIDE]_Version_Management|Version Management]]
+- [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.2
+- [[../../../docs/guide/[GUIDE]_Marketplace_Project_Overview|Marketplace Overview]]
+- [[../../../docs/guide/[GUIDE]_Version_Management|Version Management]]
 - `.github/workflows/ci.yml`
 
 ## Anti-patterns

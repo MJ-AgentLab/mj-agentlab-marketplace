@@ -343,6 +343,6 @@ git push origin --delete v1.1.0
 
 ## 7. 相关文档
 
-- [项目概览](<./[GUIDE]_Marketplace_Project_Overview.md>) — 项目整体概览
-- [版本管理指南](<./[GUIDE]_Version_Management.md>) — 版本管理详细指南
-- [CONTRIBUTING.md](./CONTRIBUTING.md) — 贡献指南
+- [项目概览](<../guide/[GUIDE]_Marketplace_Project_Overview.md>) — 项目整体概览
+- [版本管理指南](<../guide/[GUIDE]_Version_Management.md>) — 版本管理详细指南
+- [CONTRIBUTING.md](../CONTRIBUTING.md) — 贡献指南

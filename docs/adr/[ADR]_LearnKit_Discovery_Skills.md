@@ -127,9 +127,9 @@ Detailed dogfood matrix in plan §8.1.
 - Existing skill: `plugins/learn-kit/skills/init/SKILL.md`
 - Existing methodology: `plugins/learn-kit/skills/init/templates/METHODOLOGY.md`
 - Worked example: `plugins/learn-kit/skills/init/references/rfc-2119-keywords-pedagogy.md`
-- Marketplace structure: `docs/[GUIDE]_Marketplace_Project_Overview.md`
-- Version policy: `docs/[GUIDE]_Version_Management.md`
-- Release flow: `docs/[RUNBOOK]_Release_Operations.md`
+- Marketplace structure: `docs/guide/[GUIDE]_Marketplace_Project_Overview.md`
+- Version policy: `docs/guide/[GUIDE]_Version_Management.md`
+- Release flow: `docs/runbook/[RUNBOOK]_Release_Operations.md`
 
 ## 8. Decision Log
 

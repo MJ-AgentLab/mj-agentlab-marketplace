@@ -9,7 +9,7 @@ description: Pushes a marketplace branch to GitHub origin with a pre-push safety
 
 Pushes a marketplace branch to GitHub origin after running a 7-item pre-push safety checklist. Refuses dangerous operations (direct push to main/develop, force-push on protected branches, push with secrets in HEAD).
 
-**Reference**: [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.9 + [[../../../docs/CONTRIBUTING.md|CONTRIBUTING]].
+**Reference**: [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.9 + [[../../../docs/CONTRIBUTING.md|CONTRIBUTING]].
 
 **Workflow position**: Stage 8 step 2 of HITL Prompt 11-stage flow.
 
@@ -179,7 +179,7 @@ git push -u origin feature/X
 
 ## Reference Files
 
-- [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.9
+- [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.9
 - [[../../../docs/CONTRIBUTING.md|CONTRIBUTING]]
 - `.github/workflows/ci.yml`
 

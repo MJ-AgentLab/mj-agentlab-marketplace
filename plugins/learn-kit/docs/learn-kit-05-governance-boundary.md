@@ -277,7 +277,7 @@ v0.x 时代 learn-kit 的「治理边界」段强调与 `notebooklm-kit` 的协�
 | Independent plugin 宣称 | ✓ 显式声明 | ✓ 显式声明 | ❌ **撤销**——nlm-studio 引入 notebooklm-mcp MCP 依赖 |
 | Marketplace 插件数 | learn-kit + notebooklm-kit | 同上 | **仅 learn-kit**（notebooklm-kit 整退役）|
 
-完整决策记录见 `docs/[ADR]_NotebookLM_Kit_Retirement.md`（v4.0.0 ADR）。
+完整决策记录见 `docs/adr/[ADR]_NotebookLM_Kit_Retirement.md`（v4.0.0 ADR）。
 
 ### 4.2 当前依赖矩阵（v1.0.0）
 
@@ -410,7 +410,7 @@ learn-kit 自身的版本约定：
 | 版本演化策略 | METHODOLOGY.md §12 |
 | 插件治理边界声明 | `plugins/learn-kit/CLAUDE.md` |
 | README 的"治理边界"段 | `plugins/learn-kit/README.md` §"治理边界" |
-| v4.0.0 退役决策（决定不再 Independent 的 ADR） | `docs/[ADR]_NotebookLM_Kit_Retirement.md` |
+| v4.0.0 退役决策（决定不再 Independent 的 ADR） | `docs/adr/[ADR]_NotebookLM_Kit_Retirement.md` |
 | v3.x → v4.0.0 迁移（含 `_nlm/` 残留清理）| `docs/MIGRATION_GUIDE.md` §2 |
 | nlm-studio 零本地落盘的设计 | `plugins/learn-kit/skills/nlm-studio/SKILL.md` §5 + §"focus_prompt composition contract" |
 

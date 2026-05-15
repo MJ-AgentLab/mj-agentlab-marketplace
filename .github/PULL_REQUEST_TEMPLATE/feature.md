@@ -25,4 +25,4 @@ about: 新功能、新 Skill、重构等功能开发 (feature/*) 的 Pull Reques
 - [Documentation Framework](../../docs/rule/[STANDARD]_Documentation_Framework.md) — 文档规范元框架
 - [Commit Message Convention](../../docs/rule/[STANDARD]_Commit_Message_Convention.md) — commit 格式
 - [GitHub Markdown](../../docs/rule/[STANDARD]_GitHub_Markdown.md) — markdown 风格
-- [AI Engineering HITL Prompt](../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md) — 工作流 + skill 矩阵
+- [AI Engineering HITL Prompt](../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md) — 工作流 + skill 矩阵

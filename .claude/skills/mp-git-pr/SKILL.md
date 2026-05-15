@@ -9,7 +9,7 @@ description: Creates a marketplace Pull Request via `gh pr create --body-file` (
 
 Creates a marketplace PR using `gh pr create --body-file` pattern (non-interactive; avoids editor opens that fail in scripted environments). Picks the right PR template based on branch type, fills the 6-section structure including dual-section self-review (本地验证 / AI 自检) per HITL Standard §4.7.
 
-**Reference**: [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.9 + `.github/PULL_REQUEST_TEMPLATE/<type>.md`.
+**Reference**: [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.9 + `.github/PULL_REQUEST_TEMPLATE/<type>.md`.
 
 **Workflow position**: Stage 8 step 3 of HITL Prompt 11-stage flow.
 
@@ -92,8 +92,8 @@ Add 18 mp-* workflow skills to `.claude/skills/` covering flow / git / doc famil
 - `.claude/skills/mp-flow-*/SKILL.md` (9 new)
 - `.claude/skills/mp-git-*/SKILL.md` (6 new)
 - `.claude/skills/mp-doc-*/SKILL.md` (3 new)
-- `docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md` (v1.0 → v1.1)
-- `docs/[GUIDE]_Marketplace_Agent_Execution_Checklist.md` (Skill column filled)
+- `docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md` (v1.0 → v1.1)
+- `docs/guide/[GUIDE]_Marketplace_Agent_Execution_Checklist.md` (Skill column filled)
 - `CLAUDE.md` (root: new section)
 - `CHANGELOG.md`, `VERSION` (4.0.0 → 4.1.0), `marketplace.json`
 
@@ -211,7 +211,7 @@ rm PR_BODY.md
 
 ## Reference Files
 
-- [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.9
+- [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.9
 - `.github/PULL_REQUEST_TEMPLATE/<type>.md` (6 templates)
 - [[../../../docs/CONTRIBUTING.md|CONTRIBUTING]]
 

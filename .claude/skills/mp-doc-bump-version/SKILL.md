@@ -19,7 +19,7 @@ VERSION (root file)
 plugins/<name>/.claude-plugin/plugin.json version  ↔  .claude-plugin/marketplace.json plugins[<name>].version
 ```
 
-**Reference**: [[../../../docs/[GUIDE]_Version_Management|Version Management]] + [[../../../scripts/bump-version.ps1|bump-version.ps1]] (if exists).
+**Reference**: [[../../../docs/guide/[GUIDE]_Version_Management|Version Management]] + [[../../../scripts/bump-version.ps1|bump-version.ps1]] (if exists).
 
 **Workflow position**: Stage 8 pre-step (typical part of release/* PR or any minor+ bump).
 
@@ -232,9 +232,9 @@ jq '.plugins[] | select(.name=="learn-kit") | .version' .claude-plugin/marketpla
 
 ## Reference Files
 
-- [[../../../docs/[GUIDE]_Version_Management|Version Management]]
+- [[../../../docs/guide/[GUIDE]_Version_Management|Version Management]]
 - `scripts/bump-version.ps1` (if exists)
-- [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §3.1 #7 (VERSION 主版本 bump 必 HITL)
+- [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §3.1 #7 (VERSION 主版本 bump 必 HITL)
 
 ## Anti-patterns
 

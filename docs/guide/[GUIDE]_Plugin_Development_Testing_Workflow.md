@@ -449,7 +449,7 @@ gh release view v1.1.0
 /plugin update --all
 ```
 
-> **详细操作**：完整的 bump 工具使用和 CHANGELOG 格式参考 [版本管理指南](<./[GUIDE]_Version_Management.md>)；Release PR 模板和检查清单参考 [发布操作手册](<./[RUNBOOK]_Release_Operations.md>)。
+> **详细操作**：完整的 bump 工具使用和 CHANGELOG 格式参考 [版本管理指南](<./[GUIDE]_Version_Management.md>)；Release PR 模板和检查清单参考 [发布操作手册](<../runbook/[RUNBOOK]_Release_Operations.md>)。
 
 ### 6.4 发布后清理
 
@@ -579,4 +579,4 @@ cd mj-system/feature/xxx
 
 ---
 
-> **关联文档**：[项目概览](<./[GUIDE]_Marketplace_Project_Overview.md>)、[版本管理](<./[GUIDE]_Version_Management.md>)、[发布操作](<./[RUNBOOK]_Release_Operations.md>)
+> **关联文档**：[项目概览](<./[GUIDE]_Marketplace_Project_Overview.md>)、[版本管理](<./[GUIDE]_Version_Management.md>)、[发布操作](<../runbook/[RUNBOOK]_Release_Operations.md>)

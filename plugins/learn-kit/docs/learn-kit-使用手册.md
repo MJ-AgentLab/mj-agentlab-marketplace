@@ -4,14 +4,14 @@ purpose: 新手 5 分钟上手 learn-kit 5 个 skills 的操作指引
 version: v1.0.0 / marketplace v4.0.0
 updated: 2026-05-14
 audience: 第一次用 learn-kit 的项目维护者 / 学习者
-related: learn-kit-01-positioning.md / learn-kit-05-governance-boundary.md / docs/[ADR]_NotebookLM_Kit_Retirement.md
+related: learn-kit-01-positioning.md / learn-kit-05-governance-boundary.md / docs/adr/[ADR]_NotebookLM_Kit_Retirement.md
 ---
 
 # learn-kit 使用手册
 
 把项目里枯燥的规则清单（STANDARD / SPEC / ADR / RFC）变成可学习材料的工具集。5 个 skills 覆盖「发现 → 撰写 → 渲染 → 多媒体」全链路。
 
-> **v4.0.0 关键变更**：marketplace 从 2 plugins（learn-kit + notebooklm-kit）收敛为 **1 plugin（learn-kit）**。原 notebooklm-kit 整个退役；其核心多媒体场景被 `/learn-kit:nlm-studio` 吸收并加入 **View-Purpose Preservation** 原则。退役场景（quiz / flashcards / cross-notebook query / source 管理）永久放弃，详见 §8 与 [docs/[ADR]_NotebookLM_Kit_Retirement.md](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/main/docs/%5BADR%5D_NotebookLM_Kit_Retirement.md)。
+> **v4.0.0 关键变更**：marketplace 从 2 plugins（learn-kit + notebooklm-kit）收敛为 **1 plugin（learn-kit）**。原 notebooklm-kit 整个退役；其核心多媒体场景被 `/learn-kit:nlm-studio` 吸收并加入 **View-Purpose Preservation** 原则。退役场景（quiz / flashcards / cross-notebook query / source 管理）永久放弃，详见 §8 与 [docs/adr/[ADR]_NotebookLM_Kit_Retirement.md](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/main/docs/%5BADR%5D_NotebookLM_Kit_Retirement.md)。
 
 ## 1. 30 秒认知
 
@@ -379,7 +379,7 @@ mind_map 是 NLM 媒介本身的限制例外（dogfood finding #5），不强求
 | 跨 notebook 查询 / Deep Research | v4.0.0 **永久放弃**（v3.x notebooklm-kit:query 已退役）—— 直接用 notebooklm.google.com web UI |
 | Notebook 增删改 / 分享 | v4.0.0 **不再提供**（v3.x notebooklm-kit:manage 已退役）—— 用 notebooklm.google.com web UI |
 
-> 与 v0.3.0 时代「notebooklm-kit 作为独立 sibling plugin」的关系完全改变。v4.0.0 起 marketplace **仅含 learn-kit 一个 plugin**，NLM 集成（仅多媒体场景）已吸收到 `/learn-kit:nlm-studio`；其余 6 个 v3.x notebooklm-kit skill 永久退役。完整决策记录见 [docs/[ADR]_NotebookLM_Kit_Retirement.md](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/main/docs/%5BADR%5D_NotebookLM_Kit_Retirement.md)。
+> 与 v0.3.0 时代「notebooklm-kit 作为独立 sibling plugin」的关系完全改变。v4.0.0 起 marketplace **仅含 learn-kit 一个 plugin**，NLM 集成（仅多媒体场景）已吸收到 `/learn-kit:nlm-studio`；其余 6 个 v3.x notebooklm-kit skill 永久退役。完整决策记录见 [docs/adr/[ADR]_NotebookLM_Kit_Retirement.md](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/main/docs/%5BADR%5D_NotebookLM_Kit_Retirement.md)。
 
 ## 9. 进阶提示
 

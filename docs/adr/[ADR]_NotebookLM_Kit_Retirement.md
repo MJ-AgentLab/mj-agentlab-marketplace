@@ -15,7 +15,7 @@ tags:
   - v4.0.0
 related:
   - ./[ADR]_LearnKit_Discovery_Skills.md
-  - ../MIGRATION_GUIDE.md
+  - .../MIGRATION_GUIDE.md
 ---
 
 # [ADR] NotebookLM Kit Retirement (marketplace v4.0.0)
@@ -70,7 +70,7 @@ mj-agentlab-marketplace v3.x 包含两个 plugin：
 6. **bump version**：learn-kit `0.3.1 → 1.0.0`（major：新增 MCP 依赖 + 首个 stable）；marketplace `3.2.1 → 4.0.0`（major：删插件，跟随 v3.0.0 删 5 plugin 先例）
 7. **删除独立性宣言**：learn-kit plugin.json description / CLAUDE.md / README.md 中 "Independent plugin — no external service dependencies" 文字删除；改为 "nlm-studio 需 notebooklm-mcp + nlm login；其余 4 skill 仍零外部依赖" 的分级说明
 8. **marketplace.json learn-kit metadata.keywords** 扩展 8 个新词：`nlm-studio` / `notebooklm` / `audio` / `video` / `multimedia` / `slide-deck` / `mind-map` / `infographic`（让 marketplace 搜索能发现）
-9. **更新引用**：`docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md` 4 处 `notebooklm-kit` 引用清理（line 357/427/699/704）；`docs/INDEX.md` plugin references 段更新；`docs/MIGRATION_GUIDE.md` 追加 §v3.2.x → v4.0.0 段
+9. **更新引用**：`docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md` 4 处 `notebooklm-kit` 引用清理（line 357/427/699/704）；`docs/INDEX.md` plugin references 段更新；`docs/MIGRATION_GUIDE.md` 追加 §v3.2.x → v4.0.0 段
 10. **永久放弃** 退役场景：quiz / flashcards / data_table / report / cross-notebook query / source 增删 / notebook 分享 / Deep Research 等 7 个 notebooklm-kit 独有 skill 的能力。本 ADR 之后**不再有计划重新提供**这些功能（如有需求请用外部工具或自建 in-tree skill）
 
 ---
@@ -137,5 +137,5 @@ mj-agentlab-marketplace v3.x 包含两个 plugin：
 
 - Plan v3：`C:\Users\Admin\.claude\plans\learn-kit-init-i-ll-streamed-meadow.md`
 - 既有 ADR：[ADR: learn-kit Discovery & Locate Skills](<./[ADR]_LearnKit_Discovery_Skills.md>)
-- 迁移指引：[MIGRATION_GUIDE.md](./MIGRATION_GUIDE.md) §2 v3.2.x → v4.0.0
-- v3.0.0 删 5 plugin 先例：[MIGRATION_GUIDE.md](./MIGRATION_GUIDE.md) §1 v2.x → v3.0.0
+- 迁移指引：[MIGRATION_GUIDE.md](../MIGRATION_GUIDE.md) §2 v3.2.x → v4.0.0
+- v3.0.0 删 5 plugin 先例：[MIGRATION_GUIDE.md](../MIGRATION_GUIDE.md) §1 v2.x → v3.0.0

@@ -66,7 +66,7 @@ git diff --cached    # 已暂存差异
 
 ```bash
 # 推荐：按文件名逐个暂存（最安全）
-git add docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
+git add docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
 
 # 可接受：按目录暂存
 git add .claude/skills/mp-flow-intake/
@@ -240,7 +240,7 @@ EOF
 
 - [[../../../docs/CONTRIBUTING.md|CONTRIBUTING]] § Commit Convention
 - (post-PR 2) `docs/rule/[STANDARD]_Commit_Message_Convention.md`
-- [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.9
+- [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.9
 
 ## Anti-patterns
 

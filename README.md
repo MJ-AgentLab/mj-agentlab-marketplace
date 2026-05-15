@@ -6,7 +6,7 @@
 
 通用 [Claude Code](https://docs.anthropic.com/en/docs/claude-code) 插件市场——教学方法论 + NotebookLM 多媒体集成整合在单一 plugin。不绑定特定项目，可服务任意 Claude Code 使用者；在 [mj-system](https://github.com/MJ-AgentLab/mj-system) 与 mj-agent 两个项目上长期实战验证。
 
-> **v4.0.0 重大变更**：marketplace 从 "2 plugin（notebooklm-kit + learn-kit）" 收敛为 "1 plugin（learn-kit）"。原 `notebooklm-kit` 整个退场（7 个 skill 退役），其核心 build + studio 多媒体场景被 `learn-kit` 新增的 `nlm-studio` skill 吸收，并加入 **View-Purpose Preservation** 原则使生成的 artifact 严格匹配源 view（foundation/structural/challenge）的教学目的。详见 [docs/[ADR]_NotebookLM_Kit_Retirement.md](docs/[ADR]_NotebookLM_Kit_Retirement.md) + [docs/MIGRATION_GUIDE.md](docs/MIGRATION_GUIDE.md)。
+> **v4.0.0 重大变更**：marketplace 从 "2 plugin（notebooklm-kit + learn-kit）" 收敛为 "1 plugin（learn-kit）"。原 `notebooklm-kit` 整个退场（7 个 skill 退役），其核心 build + studio 多媒体场景被 `learn-kit` 新增的 `nlm-studio` skill 吸收，并加入 **View-Purpose Preservation** 原则使生成的 artifact 严格匹配源 view（foundation/structural/challenge）的教学目的。详见 [docs/adr/[ADR]_NotebookLM_Kit_Retirement.md](docs/adr/[ADR]_NotebookLM_Kit_Retirement.md) + [docs/MIGRATION_GUIDE.md](docs/MIGRATION_GUIDE.md)。
 
 ## 插件目录
 
@@ -115,7 +115,7 @@ nlm login
 - 贡献指引与发布流程：[docs/CONTRIBUTING.md](docs/CONTRIBUTING.md)
 - 变更日志：[CHANGELOG.md](CHANGELOG.md)
 - 迁移指引：[docs/MIGRATION_GUIDE.md](docs/MIGRATION_GUIDE.md)
-- ADR：[v4.0.0 notebooklm-kit 退场决策](docs/[ADR]_NotebookLM_Kit_Retirement.md)
+- ADR：[v4.0.0 notebooklm-kit 退场决策](docs/adr/[ADR]_NotebookLM_Kit_Retirement.md)
 
 ## 贡献
 

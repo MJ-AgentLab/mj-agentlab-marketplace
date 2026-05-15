@@ -9,7 +9,7 @@ description: Performs mj-agentlab-marketplace task Intake (HITL Stage 0) — con
 
 Entry point for the 11-stage marketplace AI engineering loop. Converts user intent (natural language / chat / paste) into a structured Intake Result **before** any branch, worktree, or file is created. The skill's only side effect is optionally writing `plans/[INTAKE]_<id>_<brief>.md` when §Step 8 落盘判定 fires — even that is a propose-then-write pattern, not auto-write.
 
-**Reference**: [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Prompt]] §3.1 (HITL 必停规则) + §4.1 (Stage 0 Intake prompt) + `docs/CONTRIBUTING.md` (branch types).
+**Reference**: [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Prompt]] §3.1 (HITL 必停规则) + §4.1 (Stage 0 Intake prompt) + `docs/CONTRIBUTING.md` (branch types).
 
 **Workflow position**:
 
@@ -260,9 +260,9 @@ bugfix / hotfix 加 Reproduction / Expected vs Actual / Environment 段。
 
 ## Reference Files
 
-- [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §3.1 + §4.1
+- [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §3.1 + §4.1
 - [[../../../docs/CONTRIBUTING.md|CONTRIBUTING]]（branch / commit）
-- [[../../../docs/[GUIDE]_Marketplace_Project_Overview|Marketplace Overview]]（plugin 结构）
+- [[../../../docs/guide/[GUIDE]_Marketplace_Project_Overview|Marketplace Overview]]（plugin 结构）
 - [[../../../docs/ai_engineering_execution_hitl_workflow.md|Generic HITL Workflow v2.0]]（哲学锚点）
 
 ## Anti-patterns

@@ -204,7 +204,7 @@ N=5 跨域验证是手工流方法论核心说服力的来源——方法论不�
 | AI 流 4 prompt templates | `plugins/learn-kit/skills/generate-tier/templates/{foundation,structural,challenge,html-renderer}.md` |
 | 多媒体流 skill 定义 | `plugins/learn-kit/skills/nlm-studio/SKILL.md`（5 步 workflow + composition contract）|
 | 多媒体流 10 templates | `plugins/learn-kit/skills/nlm-studio/templates/*.md`（3 view + 5 artifact + interaction-overrides + language-directive）|
-| v4.0.0 退役 notebooklm-kit 决策 | `docs/[ADR]_NotebookLM_Kit_Retirement.md` |
+| v4.0.0 退役 notebooklm-kit 决策 | `docs/adr/[ADR]_NotebookLM_Kit_Retirement.md` |
 | v3.x → v4.0.0 迁移指引 | `docs/MIGRATION_GUIDE.md` §2 |
 
 ---

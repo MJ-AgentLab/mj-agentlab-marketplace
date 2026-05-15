@@ -9,7 +9,7 @@ description: Performs marketplace post-merge cleanup (HITL Stage 10) — coordin
 
 Stage 10 orchestrator: after PR merges to develop or main, coordinates local cleanup (worktree remove, branch delete) and release verification (tag, GitHub Release). Delegates the actual git operations to `/mp-git-cleanup`; this skill's role is sequencing + verification.
 
-**Reference**: [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.11 + [[../../../docs/[RUNBOOK]_Release_Operations.md|Release Operations RUNBOOK]].
+**Reference**: [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.11 + [[../../../docs/runbook/[RUNBOOK]_Release_Operations.md|Release Operations RUNBOOK]].
 
 ## Workflow
 
@@ -165,8 +165,8 @@ gh issue list --state open --label follow-up
 
 ## Reference Files
 
-- [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.11
-- [[../../../docs/[RUNBOOK]_Release_Operations.md|Release Operations]]
+- [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.11
+- [[../../../docs/runbook/[RUNBOOK]_Release_Operations.md|Release Operations]]
 - `.github/workflows/release.yml`
 
 ## Anti-patterns

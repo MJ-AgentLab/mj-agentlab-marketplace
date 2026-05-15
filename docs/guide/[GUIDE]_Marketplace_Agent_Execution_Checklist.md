@@ -357,11 +357,11 @@ related:
 
 本 GUIDE 直接继承 STANDARD 的 Reference Docs 集合——下列文档是 STANDARD § Reference Docs 系列被各 Stage 引用的真实出处。GUIDE 自身不重复引用，按 Stage 需要时回查 STANDARD §4.N 对应 Reference Docs 段：
 
-- **`docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`**：本 GUIDE 的母规范（提供完整 Prompt 结构 + Rules + Skill 矩阵）
+- **`docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`**：本 GUIDE 的母规范（提供完整 Prompt 结构 + Rules + Skill 矩阵）
 - **`docs/CONTRIBUTING.md`**：STANDARD §4.1 / §4.9 / §4.10 / §4.11 引用——分支 / commit / PR 既有约定
-- **`docs/[GUIDE]_Version_Management.md`**：STANDARD §4.2 / §4.10 引用——dual-layer 版本规则
-- **`docs/[RUNBOOK]_Release_Operations.md`**：STANDARD §4.10 引用——发布操作手册（Stage 9 release 详情）
-- **`docs/[GUIDE]_Plugin_Development_Testing_Workflow.md`**：STANDARD §4.5 / §4.7 引用——跨仓库测试三阶段（Stage 6 dogfood 详情）
+- **`docs/guide/[GUIDE]_Version_Management.md`**：STANDARD §4.2 / §4.10 引用——dual-layer 版本规则
+- **`docs/runbook/[RUNBOOK]_Release_Operations.md`**：STANDARD §4.10 引用——发布操作手册（Stage 9 release 详情）
+- **`docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md`**：STANDARD §4.5 / §4.7 引用——跨仓库测试三阶段（Stage 6 dogfood 详情）
 
 ---
 

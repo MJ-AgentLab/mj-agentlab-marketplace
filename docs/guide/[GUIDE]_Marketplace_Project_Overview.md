@@ -186,5 +186,5 @@ powershell -File ..\scripts\install-hooks.ps1
 ## 7. 相关文档
 
 - [版本管理指南](<./[GUIDE]_Version_Management.md>) — 版本管理详细指南
-- [发布操作手册](<./[RUNBOOK]_Release_Operations.md>) — 发布操作手册
-- [CONTRIBUTING.md](./CONTRIBUTING.md) — 贡献指南
+- [发布操作手册](<../runbook/[RUNBOOK]_Release_Operations.md>) — 发布操作手册
+- [CONTRIBUTING.md](../CONTRIBUTING.md) — 贡献指南

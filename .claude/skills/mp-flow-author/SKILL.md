@@ -14,7 +14,7 @@ Stage 4 orchestrator: turns a confirmed Plan + ADR into concrete file changes (`
 
 The orchestrator's job: pick the right delegate, enforce marketplace constraints, and watch for scope drift relative to Plan / ADR.
 
-**Reference**: [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.5 + [[../../../docs/[GUIDE]_Plugin_Development_Testing_Workflow|Plugin Dev Testing]].
+**Reference**: [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.5 + [[../../../docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow|Plugin Dev Testing]].
 
 ## Workflow
 
@@ -171,9 +171,9 @@ digraph author {
 
 ## Reference Files
 
-- [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.5
-- [[../../../docs/[GUIDE]_Marketplace_Project_Overview|Marketplace Overview]] (plugin 目录结构)
-- [[../../../docs/[GUIDE]_Plugin_Development_Testing_Workflow|Plugin Dev Testing]] (跨仓库测试三阶段)
+- [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.5
+- [[../../../docs/guide/[GUIDE]_Marketplace_Project_Overview|Marketplace Overview]] (plugin 目录结构)
+- [[../../../docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow|Plugin Dev Testing]] (跨仓库测试三阶段)
 - [[../../../plugins/learn-kit/skills/init/SKILL.md|learn-kit init SKILL]] (style sample)
 
 ## Anti-patterns

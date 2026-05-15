@@ -9,7 +9,7 @@ description: Runs marketplace plugin compliance audit (HITL Stage 5) by orchestr
 
 Stage 5 orchestrator that runs the two marketplace-native compliance agents (`/plugin-dev:plugin-validator` and `/plugin-dev:skill-reviewer`), interprets their outputs against marketplace conventions, and produces a triaged report (Critical / Warning / Verified). The skill does not fix issues directly — those go back to Stage 4 author or Stage 7 self-review.
 
-**Reference**: [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.6 + `.github/workflows/ci.yml` (6-step CI equivalence).
+**Reference**: [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.6 + `.github/workflows/ci.yml` (6-step CI equivalence).
 
 ## Workflow
 
@@ -172,7 +172,7 @@ Build a list:
 
 ## Reference Files
 
-- [[../../../docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.6
+- [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.6
 - `.github/workflows/ci.yml` (6-step CI equivalence)
 
 ## Anti-patterns

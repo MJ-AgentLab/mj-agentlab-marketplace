@@ -365,7 +365,7 @@ related:
 ## §1 Audience
 
 This guide is for **plugin authors** working with `mj-agentlab-marketplace`.
-See [Marketplace Overview](./[GUIDE]_Marketplace_Project_Overview.md) for repo structure.
+See [Marketplace Overview](../guide/[GUIDE]_Marketplace_Project_Overview.md) for repo structure.
 
 ## §2 Walkthrough
 

@@ -224,5 +224,5 @@ Version: 1.0.0 -> 1.1.0
 ## 7. 相关文档
 
 - [项目概览](<./[GUIDE]_Marketplace_Project_Overview.md>) — 项目整体概览
-- [发布操作手册](<./[RUNBOOK]_Release_Operations.md>) — 发布操作手册
-- [CONTRIBUTING.md](./CONTRIBUTING.md) — 贡献指南
+- [发布操作手册](<../runbook/[RUNBOOK]_Release_Operations.md>) — 发布操作手册
+- [CONTRIBUTING.md](../CONTRIBUTING.md) — 贡献指南
