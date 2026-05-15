@@ -5,6 +5,68 @@
 
 ## [Unreleased]
 
+## [4.4.0] - 2026-05-15
+
+### Added
+
+- **Archive infrastructure**: `docs/archive/{rule,adr,guide,runbook,spec,postmortem}/` 6 subdirectories scaffolded with `.gitkeep` placeholders (mirrors active `docs/<subtype>/` layout)
+- **`docs/INDEX.md` § Archived Documents** new section (between Postmortems and Templates) with placeholder table — populates as first archive event lands
+- **`docs/runbook/[RUNBOOK]_Doc_Archive_Procedure.md`** v1.0 (~370 lines) — operational handbook with full archive ceremony:
+  - §1 Preconditions (4 trigger checks + worktree precondition)
+  - §2 Workflow (4 phases + 2 HITL gates):
+    - **Phase 1 Analysis** + HITL Gate Q-01 (standard vs unusual case)
+    - **Phase 2 Migration Plan** (destination path computation + reference audit scope + user approval)
+    - **Phase 3 Execute** (`git mv` + frontmatter update + body banner + reference audit) + HITL Gate D-02 (>3 refs need Living/Frozen judgment)
+    - **Phase 4 INDEX & Validate** (`/mp-doc-validate` skill + 7-item checklist)
+  - §3 Archive Banner Template (canonical reference)
+  - §4 Living vs Frozen Quick Reference (7-row decision table)
+  - §5 Verification Checklist (8 items)
+  - §6 Rollback (reset --hard / revert paths)
+  - §7 Change History
+
+### Changed
+
+- **`docs/rule/[STANDARD]_Documentation_Framework.md`** v1.1 → **v1.2** — expanded §2.3 State Machine with 4 new subsections codifying archive mechanism:
+  - **§2.3.1 Archive Triggers** (4 conditions adapted from mj-agent ADR-017): major version bump / structural rewrite (≥50% restructure) / ≥70% content replacement / split-merge-rename. Explicit non-triggers: drop-suffix rename + minor/patch bumps.
+  - **§2.3.2 Frontmatter on Archive Transition**: new mandatory `archived: <date>` field + `replaced-by: <path>` pointer (bidirectional with `supersedes:` list on active successor); list-form supersedes for N-to-1 merges
+  - **§2.3.3 Archive Banner Template**: canonical GitHub-native blockquote format inserted immediately after H1 of every archived doc
+  - **§2.3.4 Living vs Frozen Reference Judgment**: procedural rule for cross-doc refs during archive ceremony (Living → upgrade to successor; Frozen → preserve with archive path; ambiguous → Living + parenthetical pointer)
+- **§2.4 Filename & Path Stability** clarified: archived filename pattern is `[DEPRECATED]_<TAG>_<Topic>_v<major>.<minor>.md` (patch dropped to avoid filename churn for trivial bumps); concrete example added
+- frontmatter: version v1.1 → v1.2; summary extended; tags + `archive`; related + RUNBOOK
+- §5 Change History: v1.2 entry detailing the 4 new subsections + linking to operational RUNBOOK
+
+### Changed (versioning)
+
+- **`VERSION`** — 4.3.5 → 4.4.0 (**minor** — new feature: archive mechanism; first non-patch since v4.3.0)
+- **`.claude-plugin/marketplace.json`** — `metadata.version` 4.3.5 → 4.4.0; `metadata.description` extended with v4.4.0 archive note; `plugins[].version` unchanged (learn-kit 1.1.0)
+
+### Out of scope
+
+- **No actual archive of any current doc** — all 12 active docs stay active. v4.4.0 builds infrastructure + spec + procedure; no archive trigger has fired against any existing doc. The mechanism is ready for first use when needed (e.g., when Documentation Framework eventually bumps v1.x → v2.0).
+- **No `mp-doc-migrate` skill** — archive is rare (~per major version); RUNBOOK is canonical procedure. If recurrence proves high enough to warrant a skill, that's a future PR.
+- **No plugin-level archive** (`plugins/<name>/docs/archive/`) — defer until a plugin has its first deprecated doc; learn-kit teaching series is framework §1 exempt so doesn't enter the state machine.
+- **No skeleton-first archive mode** (mj-agent Meta v2.1 §5.8 for multi-doc cascade archives) — defer until marketplace has a cascade case. RUNBOOK §7 notes "will add as v1.1 if marketplace ever has a cascade case."
+- **No auto-discovery script** for archive cross-refs — defer until archive grows. mj-agent ADR-020 pattern available if needed.
+
+### Rationale
+
+The v4.2.0-rollout (PR #75) introduced Documentation Framework v1.0 which **specified** the state machine `active → deprecated → archived` (§2.3) and archive filename pattern (§2.4), but the **physical infrastructure and procedural details were never built**:
+
+- `docs/archive/` directory didn't exist
+- The 4 archive triggers from mj-agent ADR-017 weren't documented
+- New frontmatter fields (`archived:`, `replaced-by:`) weren't formally specified
+- The Archive Banner template format was unspecified
+- The Living vs Frozen reference judgment procedure was unspecified
+- No operational RUNBOOK explained how to execute an archive ceremony step-by-step
+
+v4.4.0 closes all 6 gaps in one minor release. Now when a real archive trigger fires (most likely first: Documentation Framework v1.x → v2.0 when some major restructure happens), the team has a complete handbook to follow rather than improvising.
+
+Design inputs:
+- mj-agent `docs/rule/[STANDARD]_MJ_Agent_Documentation_Meta_Framework.md` v2.2 §5.6 / §5.9 (archive triggers + ceremony)
+- mj-agent `docs/archive/{rule,adr}/` actual archive directory (22 archived docs as live reference)
+- mj-agent `.claude/skills/mj-agent-doc-migrate/SKILL.md` (6-phase workflow + 2 HITL gates; compressed to 4 phases for marketplace's smaller scope)
+- mj-agent ADR-017 (Archive Trigger Quantification), ADR-018 (Active Path Stability), ADR-019 (Archive Naming Convention)
+
 ## [4.3.5] - 2026-05-15
 
 ### Added

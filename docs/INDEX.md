@@ -48,6 +48,16 @@ Navigation hub for all marketplace documentation.
 
 *暂无 postmortem 记录*
 
+## Archived Documents (`docs/archive/`)
+
+> v4.4.0 起 marketplace 引入归档机制。任何被 supersede 的旧版 doc 进入 `docs/archive/<subtype>/[DEPRECATED]_<TAG>_<Topic>_vX.Y.md`，frontmatter `state: archived` + body 顶部含 archive banner。完整规则见 [`rule/[STANDARD]_Documentation_Framework.md`](<./rule/[STANDARD]_Documentation_Framework.md>) §2.3.1-§2.3.4 (v1.2+)；归档流程见 [`runbook/[RUNBOOK]_Doc_Archive_Procedure.md`](<./runbook/[RUNBOOK]_Doc_Archive_Procedure.md>) v1.0。
+
+*暂无 archived 文档 — 当首个 doc 进入 archived state 时此表填入条目。*
+
+| Archived Doc | Original Path | Active Replacement | Archive Date | Trigger |
+|--------------|---------------|---------------------|--------------|---------|
+| *(placeholder — populated as archives accrue)* | | | | |
+
 ## Templates (`docs/_templates/`)
 
 | Template | Used For |
