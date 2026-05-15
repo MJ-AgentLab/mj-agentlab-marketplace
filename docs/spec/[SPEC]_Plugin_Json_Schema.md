@@ -11,7 +11,7 @@ domain: plugin-dev
 related:
   - ./[SPEC]_Marketplace_Json_Schema.md
   - ../rule/[STANDARD]_Documentation_Framework.md
-  - ../[GUIDE]_Plugin_Development_Testing_Workflow.md
+  - ../guide/[GUIDE]_Plugin_Development_Testing_Workflow.md
 ---
 
 # [SPEC] Plugin JSON Schema

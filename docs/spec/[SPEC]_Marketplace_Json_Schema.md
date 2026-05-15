@@ -11,7 +11,7 @@ domain: governance
 related:
   - ./[SPEC]_Plugin_Json_Schema.md
   - ../rule/[STANDARD]_Documentation_Framework.md
-  - ../[GUIDE]_Version_Management.md
+  - ../guide/[GUIDE]_Version_Management.md
 ---
 
 # [SPEC] Marketplace JSON Schema

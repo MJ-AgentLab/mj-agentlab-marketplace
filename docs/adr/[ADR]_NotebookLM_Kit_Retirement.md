@@ -14,8 +14,8 @@ tags:
   - notebooklm-kit
   - v4.0.0
 related:
-  - ./[ADR]_LearnKit_Discovery_Skills.md
-  - .../MIGRATION_GUIDE.md
+  - ../../plugins/learn-kit/docs/adr/[ADR]_LearnKit_Discovery_Skills.md
+  - ../MIGRATION_GUIDE.md
 ---
 
 # [ADR] NotebookLM Kit Retirement (marketplace v4.0.0)

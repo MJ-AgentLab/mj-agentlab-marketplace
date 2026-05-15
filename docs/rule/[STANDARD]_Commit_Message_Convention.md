@@ -16,7 +16,7 @@ related:
   - ./[STANDARD]_Documentation_Framework.md
   - ./[STANDARD]_GitHub_Markdown.md
   - ./[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
-  - .../CONTRIBUTING.md
+  - ../CONTRIBUTING.md
 ---
 
 # [STANDARD] Commit Message Convention
