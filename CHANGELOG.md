@@ -5,6 +5,21 @@
 
 ## [Unreleased]
 
+## [4.3.1] - 2026-05-15
+
+### Changed
+
+- **`.gitignore`** — Add root-anchored `/learning/` ignore entry. `/learn-kit:init` scaffolds a `learning/<topic>/` subsystem at the project root for user-generated learning materials (tier `.md` files, optional interactive HTML, NLM artifact metadata records). Without this entry, developers running learn-kit skills in the marketplace's own develop / feature worktrees would accidentally commit personal learning materials into the marketplace repo. The anchor `/` ensures only root-level `learning/` is ignored — any nested `learning/` (e.g., inside a plugin's test fixtures) remains tracked.
+
+### Changed (versioning)
+
+- **`VERSION`** — 4.3.0 → 4.3.1 (patch — developer-experience improvement, no marketplace / plugin behavior change)
+- **`.claude-plugin/marketplace.json`** — `metadata.version` 4.3.0 → 4.3.1; `plugins[].version` unchanged (learn-kit 1.1.0)
+
+### Rationale
+
+Operational fix surfaced during PR 4 dogfood: a developer running `/learn-kit:init` inside a marketplace worktree to test learn-kit behavior would create `learning/` at marketplace root, then `git add -A` would sweep it into the next commit unless explicitly noticed. This is a minor pitfall worth eliminating up front. The pattern matches existing `.gitignore` entries like `plugins/mj-ops/.env` and `**/config/secrets-*.conf` — preventing accidental commits of generated / user-private content.
+
 ## [4.3.0] - 2026-05-15
 
 ### Added
