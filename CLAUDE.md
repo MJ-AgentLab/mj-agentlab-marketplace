@@ -1,16 +1,15 @@
 # MJ AgentLab Marketplace
 
-通用 Claude Code 插件市场 — NotebookLM 集成 + 教学方法论工具集，对外通用，已在 mj-system / mj-agent 两项目实战。
+通用 Claude Code 插件市场 — 教学方法论 + NotebookLM 多媒体集成的整合工具集，对外通用，已在 mj-system / mj-agent 两项目实战。
 
 ## Project Structure
 
-- `plugins/` — 2 个通用插件：
-  - `notebooklm-kit` v2.4.1（NotebookLM 集成；2026-05 从 `mj-nlm` 重命名而来）
-  - `learn-kit` v0.3.0（教学方法论 kit；从 mj-system v2.0 STANDARD-tier 剥离通用化；v3.1.0 起含 discovery skills: `/learn-kit:locate` + `/learn-kit:scan`；v3.2.0 起含 AI 三档生成 skill: `/learn-kit:generate-tier` + 4 prompt templates，可选渲染交互式 HTML，与 notebooklm-kit 解绑）
+- `plugins/` — **1 个通用插件**（v4.0.0 起整合）：
+  - `learn-kit` v1.0.0（教学方法论 + AI 三档生成 + 交互式 HTML + nlm-studio NLM 多媒体生成；v4.0.0 起吸收 notebooklm-kit 的核心多媒体场景）
 - `scripts/` — 基础设施脚本（bump-version, install-hooks, clone-bare）
 - `.claude-plugin/marketplace.json` — 市场元数据（版本 + 插件注册表）
 - `VERSION` — 市场整体版本号（权威源）
-- `docs/` — 项目文档（见 [INDEX.md](docs/INDEX.md)），含 [MIGRATION_GUIDE.md](docs/MIGRATION_GUIDE.md)
+- `docs/` — 项目文档（见 [INDEX.md](docs/INDEX.md)），含 [MIGRATION_GUIDE.md](docs/MIGRATION_GUIDE.md) + ADR
 
 ## Key Conventions
 
@@ -46,64 +45,86 @@
 - 模板 / references / scripts 放在 skill 目录内部
 - 不使用 `components` 字段（auto-discovery 标准）
 
-## v3.0.0 Restructure Note
+## Documentation Framework (v4.2.0 起)
 
-2026-05-11 marketplace 从 v2.1.1 → v3.0.0 重构：
+marketplace 文档体系遵循以下三层 STANDARD（位于 `docs/rule/`）:
 
-- **删除** 5 个 MJ-system / mj-agent 专属插件（mj-sys-doc / mj-sys-git / mj-sys-n8n / mj-sys-ops / mj-agent-code-doc）—— 这些能力已迁回各自项目 in-tree skills
-- **迁入 + 重命名** `mj-nlm`（ranzuozhou/my-marketplace）→ `notebooklm-kit`，功能 1:1 保留
-- **新增** `learn-kit` 通用方法论插件
+- **[Documentation Framework](docs/rule/[STANDARD]_Documentation_Framework.md)** — 6 tag prefixes（STANDARD/ADR/GUIDE/RUNBOOK/SPEC/POSTMORTEM）+ 8-field frontmatter + 3-state machine + path stability + INDEX sync
+- **[Commit Message Convention](docs/rule/[STANDARD]_Commit_Message_Convention.md)** — `<type>(<scope>): <summary>` + 7 types + marketplace scope whitelist + branch-type matrix
+- **[GitHub Markdown](docs/rule/[STANDARD]_GitHub_Markdown.md)** — ATX headings + GFM tables + native alerts + frontmatter syntax
 
-完整迁移指引见 [docs/MIGRATION_GUIDE.md](docs/MIGRATION_GUIDE.md)。
+文档目录子结构（PR 3 retrofit 后所有现有 tag-prefixed 文档全部归位）:
 
-**Plugin Secrets Management**：v2.x 的 mj-sys-ops / mj-sys-git 加密 secrets 机制随着这两个插件删除而移除。当前 v3.0.0 的 2 个插件均不需要 secrets 配置——`notebooklm-kit` 使用 NotebookLM OAuth（首次运行触发）；`learn-kit` 纯静态模板。
+```
+docs/
+├── INDEX.md / CONTRIBUTING.md / MIGRATION_GUIDE.md   # 豁免 frontmatter
+├── rule/        — STANDARDs (3 in v4.2.0)
+├── guide/       — GUIDEs (4 will move here in PR 3)
+├── runbook/     — RUNBOOKs (1 will move here in PR 3)
+├── adr/         — ADRs (2 will move; ADR-LearnKit moves to plugin in PR 4)
+├── spec/        — SPECs (2 seeds in v4.2.0)
+├── postmortem/  — empty placeholder
+└── _templates/  — 6 templates (TEMPLATE_{STANDARD,ADR,GUIDE,RUNBOOK,SPEC,POSTMORTEM}.md)
+```
 
-## v3.1.0 Update Note
+Templates 与 mp-doc-author skill 协作起草新文档；mp-doc-validate skill 审计合规。详见 [docs/INDEX.md](docs/INDEX.md)。
 
-2026-05-11 marketplace 从 v3.0.0 → v3.1.0 minor 升级：
+## v4.0.0 Restructure Note
 
-- **learn-kit v0.1.0 → v0.2.0** — 新增 2 个 discovery skills：
-  - `/learn-kit:locate <query>` — 反向定位概念名 / 口诀 / 部分文档名到已解读 [LEARNING] 文档（首选）或源 canonical 文档（次选），含置信度分级
-  - `/learn-kit:scan` — 枚举项目可学候选文档（按 tag prefix 分类，标记已解读 vs 未解读，PageRank-lite 排序）
-  - METHODOLOGY §1.5 "Project Discovery" 文档化 scan → locate → 8-stage 推荐工作流
-  - 设计决策：`docs/[ADR]_LearnKit_Discovery_Skills.md`
-- **notebooklm-kit** 不变（v2.4.1）
-- 纯启发式项目识别，零配置；扫 CLAUDE.md tag 声明 + INDEX 文件 + 文件 tag prefix 自动推断
-- mj-system / mj-agent / 用户全局 settings 一律零改动
+2026-05-14 marketplace 从 v3.2.1 → v4.0.0 重构：
 
-## v3.2.0 Update Note
+- **删除** `notebooklm-kit` 整个插件（含 7 个 skill: auth / build / studio / learn-make / learn-test / manage / query 以及 nlm-shared/ 10 份共享参考）—— quiz / flashcards / cross-notebook query / source 管理等场景永久放弃
+- **迁** `plugins/notebooklm-kit/.mcp.json` → `plugins/learn-kit/.mcp.json`（server name `notebooklm-mcp` 不变；工具前缀自然变为 `mcp__plugin_learn-kit_notebooklm-mcp__*`）
+- **新增** `plugins/learn-kit/skills/nlm-studio/` — `/learn-kit:nlm-studio <topic>` skill：把 `learning/<topic>/` 的 3 markdown 上传 NotebookLM 出 13 个多媒体 artifact（4 view-cycled 类型 audio + video + slide_deck + infographic × foundation/structural/challenge = 12 + 1 shared view-agnostic mind_map）。HTML 不上传（dogfood 验证 NLM 拒收）。9 个 prompt 模板组合实现 View-Purpose Preservation 原则（view-prefix 5 段必备 / artifact-suffix 格式约束 / interaction-overrides YAML 处理 4 个 view × artifact 高耦合 cell；mind_map 因 NLM 媒介限制 view-agnostic 不在 cartesian 中）
+- **改** `/learn-kit:generate-tier` 工作流 8-step → 10-step：HTML 渲染（step 8）后加 optional step 9 询问是否调 nlm-studio（默认 skip，opt-in）；原 step 9 (Summary) 改名 step 10
+- **bump** learn-kit `0.3.1 → 1.0.0`（major：新增 MCP 依赖 + 首个 stable 版本）；marketplace `3.2.1 → 4.0.0`（major：删插件 + 跟随 v3.0.0 删 5 个插件先例）
+- 决策记录：[docs/adr/[ADR]_NotebookLM_Kit_Retirement.md](docs/adr/[ADR]_NotebookLM_Kit_Retirement.md)
+- 用户迁移：[docs/MIGRATION_GUIDE.md](docs/MIGRATION_GUIDE.md) §v3.2.x → v4.0.0
 
-2026-05-13 marketplace 从 v3.1.0 → v3.2.0 minor 升级：
+**Plugin Secrets Management**：v4.0.0 无 secrets 配置需求。learn-kit 的 nlm-studio 通过 `notebooklm-mcp` MCP server 直接调用，认证使用 NotebookLM OAuth（用户在终端 `nlm login` 一次完成）；其余 4 个 skill 纯静态模板 / 本地文件操作，无凭据。
 
-- **learn-kit v0.2.0 → v0.3.0** — 两条主线：
-  - **新增 `/learn-kit:generate-tier`** — AI 一键生成三档（零基础 / 结构 / 挑战）reading-tier 学习文档，8 步工作流：intake → pre-flight → source acquisition (4 机制多选: project paths / scan-locate / pasted text / dir scan) → tier selection (multi-select) → topic confirmation → per-tier markdown gen → INDEX update → optional HTML render (per-tier, spawn Explore subagent 做概念→代码 grounding)。配 4 个 prompt templates: `templates/{foundation,structural,challenge,html-renderer}.md`
-  - **与 notebooklm-kit 解绑** — 删除 `templates/NLM_RECORD_TEMPLATE.md`；移除 METHODOLOGY §10.1 NLM integration 段；清理 init/locate/scan SKILL 中所有 `/notebooklm-kit:*` 互引；plugin.json + marketplace.json learn-kit description 重写为「Independent plugin — no external service dependencies」。两插件可继续在同一 marketplace 共存，但 learn-kit 不再 promote 任何 NotebookLM 工作流
-- **notebooklm-kit** 不变（v2.4.1）
-- HTML 渲染默认全离线（无 CDN，inline CSS/JS，手写语法高亮 + SVG 流程图 + Tab/折叠/复制为 prompt 按钮 + 暗亮主题）
-- v0.2.x 用户迁移：见 learn-kit `CHANGELOG.md` [0.3.0] §Migration note 段（手动删除已 init 的 `learning/_meta/NLM_RECORD_TEMPLATE.md` + INDEX §NotebookLM Notebooks 段即可）
+## 历史版本记录（保留供参考）
+
+- **v3.0.0**（2026-05-11）：从 "MJ System 团队专属" 改为 "通用工具集"；删 5 个 MJ-system 专属插件；mj-nlm → notebooklm-kit 重命名；新增 learn-kit
+- **v3.1.0**（2026-05-11）：learn-kit v0.1.0 → v0.2.0；新增 locate + scan 两个 discovery skill
+- **v3.2.0**（2026-05-13）：learn-kit v0.2.0 → v0.3.0；新增 generate-tier AI 三档生成 + 交互式 HTML；learn-kit 主动与 notebooklm-kit 解绑
+- **v3.2.1**（2026-05-14）：plugin.json `repository` schema 修正
+- **v4.0.0**（2026-05-14）：notebooklm-kit 退场 + nlm-studio 吸收到 learn-kit；marketplace 收敛到 1 个 plugin
 
 ## AI Engineering
 
-marketplace AI agent 工作流规范（v3.2.0 起）：
+marketplace AI agent 工作流规范（v4.1.0 起含 18 件项目本地 mp-* skill）：
 
-- **STANDARD（完整规范）**：[docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md](docs/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)
-- **GUIDE（运行时勾选清单）**：[docs/[GUIDE]_Marketplace_Agent_Execution_Checklist.md](docs/[GUIDE]_Marketplace_Agent_Execution_Checklist.md)
+- **STANDARD（完整规范）**：[docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md](docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md) (v1.2)
+- **GUIDE（运行时勾选清单）**：[docs/guide/[GUIDE]_Marketplace_Agent_Execution_Checklist.md](docs/guide/[GUIDE]_Marketplace_Agent_Execution_Checklist.md)
 
 ### 11 阶段速查表
 
 | # | Stage | Brief | Preferred Skill |
 |---|-------|-------|----------------|
-| 0 | Intake | 任务准入 + risk/scope/文档需求 | — (可选 `superpowers:brainstorming`) |
-| 1 | Repo Scan | 事实核查 8 维 | — |
-| 2 | Plan | 执行计划（落用户本地 `~/.claude/plans/`） | — (可选 `superpowers:writing-plans`) |
-| 3 | Design Decision (ADR) | 架构 / 命名 / 拆分决策 | — |
-| 4 | Plugin / Skill Authoring | 新建 / 改造 plugin / skill | `/plugin-dev:create-plugin` + `/skill-creator:skill-creator` |
-| 5 | Plugin Compliance | 合规审 + 版本一致性 | `/plugin-dev:skill-reviewer` + `/plugin-dev:plugin-validator` (agents) |
-| 6 | Local Dogfood | 真实场景验证 | — |
-| 7 | AI Self-review | 双段 + 11-item checklist | — |
-| 8 | Commit / Push / PR | gh + git + 6 PR template | — |
-| 9 | Review → Merge → Release | CI / merge / release.yml | — |
-| 10 | Post-merge Cleanup | worktree + branch + tag | — |
+| 0 | Intake | 任务准入 + risk/scope/文档需求 | `/mp-flow-intake` |
+| 1 | Repo Scan | 事实核查 8 维 | `/mp-flow-repo-scan` |
+| 2 | Plan | 执行计划（落用户本地 `~/.claude/plans/`） | `/mp-flow-plan` |
+| 3 | Design Decision (ADR) | 架构 / 命名 / 拆分决策 | `/mp-flow-design-adr` |
+| 4 | Plugin / Skill Authoring | 新建 / 改造 plugin / skill | `/mp-flow-author`（内调 `/plugin-dev:create-plugin` + `/skill-creator:skill-creator`） |
+| 5 | Plugin Compliance | 合规审 + 版本一致性 | `/mp-flow-compliance`（内调 `/plugin-dev:skill-reviewer` + `/plugin-dev:plugin-validator` agents） |
+| 6 | Local Dogfood | 真实场景验证 | `/mp-flow-dogfood` |
+| 7 | AI Self-review | 双段 + 11-item checklist | `/mp-flow-self-review` |
+| 8 | Commit / Push / PR | gh + git + 6 PR template | `/mp-git-commit` → `/mp-git-push` → `/mp-git-pr` |
+| 9 | Review → Merge → Release | CI / merge / release.yml | `/mp-git-merge-gate` |
+| 10 | Post-merge Cleanup | worktree + branch + tag | `/mp-flow-post-merge` + `/mp-git-cleanup` |
+
+### Project-Local Skills (`.claude/skills/`)
+
+v4.1.0 起 18 件 `mp-*` 工作流 skill 随 repo commit 演进，划分 3 family：
+
+| Family | 数量 | Skills |
+|--------|------|--------|
+| `mp-flow-*` | 9 | intake / repo-scan / plan / design-adr / author / compliance / dogfood / self-review / post-merge |
+| `mp-git-*` | 6 | branch / commit / push / pr / merge-gate / cleanup |
+| `mp-doc-*` | 3 | author / validate / bump-version |
+
+详见 STANDARD §5.1-§5.3。Skill 来源优先级：**项目本地 mp-* > learn-kit > plugin-dev > superpowers**。
 
 ### HITL 触发摘要
 

@@ -1,13 +1,14 @@
 # learn-kit
 
-> Pedagogical kit: 8-stage manual authoring methodology + AI 3-tier learning doc generator + discovery skills. Independent plugin.
+> Pedagogical kit: 8-stage manual authoring methodology + AI 3-tier learning doc generator + discovery skills + NotebookLM multimedia generator (since v1.0.0).
 
-`learn-kit` 提供两条互补路径把枯燥的规则清单（RFC keyword lists、安全策略、API style guides、STANDARD/POLICY 文档）转化为可学习材料：
+`learn-kit` 提供三条互补路径把枯燥的规则清单（RFC keyword lists、安全策略、API style guides、STANDARD/POLICY 文档）转化为可学习材料：
 
 1. **手工流（METHODOLOGY 8 阶段）**：用户读方法论后自行抽框架、找比喻、写决策图，产出 `[LEARNING]_<topic>_Common.md` 类 framework 文档
 2. **AI 流（generate-tier）**：给 user_question + 源文档，多选三档（零基础/结构/挑战）→ AI 直出 markdown，可选再渲染交互式 HTML
+3. **多媒体流（nlm-studio，v1.0.0 新增）**：把三档学习 markdown 推到 NotebookLM 生成多媒体 artifact（4 view-cycled 类型: audio + video + slide_deck + infographic × 3 view + 1 shared mind_map = 至多 13 个），在线浏览不下载
 
-加上两个发现层 skills（locate 反查 + scan 枚举），learn-kit 形成「init → 发现 → 撰写（手工/AI 双路径）→ 渲染 HTML」完整闭环。
+加上两个发现层 skills（locate 反查 + scan 枚举），learn-kit 形成「init → 发现 → 撰写（手工/AI 双路径）→ 渲染 HTML → 推 NLM 多媒体」完整闭环。
 
 ## 适用场景
 
@@ -17,7 +18,7 @@
 - 同类型条款扎堆（"必须 / 不应"、"高 / 低"等二分结构）
 - 条款之间有共性可归纳
 
-→ 用本插件方法论产出 5 件套（**抽象框架 + 类别归类 + 比喻系统 + 决策图 + 记忆口诀**）的解读文档；或直接用 generate-tier AI 流产出三档学习材料 + HTML。
+→ 用本插件方法论产出 5 件套（**抽象框架 + 类别归类 + 比喻系统 + 决策图 + 记忆口诀**）的解读文档；用 generate-tier AI 流产出三档学习材料 + HTML；用 nlm-studio 把三档推到 NotebookLM 出多媒体。
 
 **不适用**：顺序教程、查阅参考、故障复盘、架构图、数据流。
 
@@ -39,6 +40,15 @@
   }
 }
 ```
+
+## 前置依赖
+
+- **init / locate / scan / generate-tier**: 零外部依赖
+- **nlm-studio**（v1.0.0 新增）需要：
+  - `notebooklm-mcp` MCP server（本插件 `.mcp.json` 自动加载；首次需在终端 `uv tool install notebooklm-mcp-cli` 一次）
+  - NotebookLM 账户 + 一次性 `nlm login`（在终端运行；token 自动 refresh）
+
+如只用前 4 个 skill，可以忽略 nlm-studio 的依赖。
 
 ## 使用
 
@@ -81,13 +91,14 @@ learning/
 /learn-kit:generate-tier
 ```
 
-skill 会按以下顺序与你交互：
+skill 会按以下顺序与你交互（10-step workflow，自 v1.0.0 起含 step 9 NLM 询问）：
 
 1. **Source**（多选）：项目内文件路径 / 复用 scan-locate 发现 / 用户粘贴长文本 / 整目录扫描
 2. **Tiers**（多选，默认全选）：零基础 foundation / 结构 structural / 挑战 challenge
 3. **Topic**（单选 / 输入）：确认 topic 文件夹名 + 冲突策略
 4. **Generate**：生成 `learning/<topic>/[LEARNING]_<topic>_<view>.md`
 5. **HTML?**（单选 yes/no，默认 yes）：是否再为每档渲染交互式 HTML
+6. **NLM?**（v1.0.0 新增 / 单选 yes/no，默认 skip）：是否进一步推到 NotebookLM 出多媒体 artifact
 
 ### 4. 可选 HTML 学习页
 
@@ -107,6 +118,32 @@ HTML 单文件离线可看，含 SVG 流程图、语法高亮代码块、Tab 切
 
 Windows 下 `start <file>` 直接打开预览。
 
+### 5. NLM 多媒体（v1.0.0 新增）
+
+```
+/learn-kit:nlm-studio <topic>
+```
+
+把 `learning/<topic>/` 下的 3 个 markdown 文件上传到 `learn-kit:<topic>` notebook（HTML 不上传 — v1.0.0 dogfood 发现 NLM 对 HTML 源拒绝率高），生成 4 view-cycled 类型 × 3 view + 1 shared mind_map = 至多 13 个 artifact：
+
+| Artifact | Foundation | Structural | Challenge |
+|----------|------------|------------|-----------|
+| audio | 双人深聊，故事化 + TL;DR 收尾 | 系统化概念地图 + 自检清单收尾 | 每段以挑战性提问收尾 |
+| video | 5-pack TL;DR on-screen 双模收尾 | 结构图框架 + 自检清单 | 反例对比 + 未答问题收尾 |
+| slide_deck | 类比 + 5-pack TL;DR 收 | 层级图 + 比较表 + 自检 | 70% 反例 + 对比 + 开放问题收 |
+| infographic | 每板 ≤7 数字 + 生活化图标 | 维度对照 + 层级图 | 看似 X / 实际 Y 对比 |
+| mind_map | （单一 shared，view-agnostic：dogfood 发现 NLM 对 mind_map 媒介无视 view 差异化指令；3 层径向 ≤ 50 节点） |
+
+调用流程（5 步 + 中间 refresh_auth）：
+1. **Pre-flight**：检 3 必需 .md + refresh_auth + server_info（本地）+ notebook_list（真 auth gate）
+2. **Re-run guard**：若同名 notebook 存在 → 4 选 1（regenerate / replace sources / new-timestamped / abort）
+3. **Notebook setup**：3 个 source_add（parallel）+ notebook_get 强制核验真实 source 列表
+4. **Quota confirm gate**：明示「13 artifact ≈ 65% 日上限，本 skill 看不见账户当日已用量」让用户 confirm / reduce / abort
+5. **Generate**：3 parallel batches of 5/4/4（foundation 含 mind_map，structural/challenge 跳过 mind_map）；每 batch 间 refresh_auth；mid-run auth 失败 retry-once 后 abort
+6. **Recap**：终端 markdown 表格 + notebook URL；零本地落盘
+
+13 个 artifact 全在 notebooklm.google.com 在线访问。需保存请自行 bookmark。
+
 ## 方法论概览（8 阶段）
 
 | 阶段 | 目标 |
@@ -124,12 +161,12 @@ Windows 下 `start <file>` 直接打开预览。
 
 ## 治理边界
 
-`learn-kit` 完全独立运行：
+`learn-kit` v1.0.0：
 
 - 8 阶段方法论由用户读 `METHODOLOGY.md` 后**手动**应用（手工流）
 - generate-tier 提供 AI 生成三档学习文档 + HTML（AI 流）
+- nlm-studio 提供 NotebookLM 多媒体生成（外部依赖：`notebooklm-mcp` MCP server + nlm login）
 - 验证用 `markdownlint` 等通用 markdown 工具
-- 不依赖任何外部插件 / 服务 / API
 
 ## 与项目主治理框架的关系
 
@@ -140,10 +177,37 @@ Windows 下 `start <file>` 直接打开预览。
 
 详见 `METHODOLOGY.md §9` + `§11`。
 
+## 学习材料 / 用户文档
+
+`docs/` 子目录含 6 份学习材料，覆盖「5 分钟上手 → 项目定位 → 8 阶段方法论 → RFC 范例 → 5 skills 分工 → 治理边界」完整学习路径：
+
+| 文档 | 用途 |
+|------|------|
+| [learn-kit-使用手册.md](./docs/learn-kit-使用手册.md) | **5 分钟上手**：5 skills 速查表 + 安装 + 5 步快速流程 + 案例 + 踩坑 + 边界（v1.0.0 起）|
+| [learn-kit-01-positioning.md](./docs/learn-kit-01-positioning.md) | 项目定位与问题域——3 模式 + 适用 / 不适用 + 与同类工具差异 |
+| [learn-kit-02-eight-stage-methodology.md](./docs/learn-kit-02-eight-stage-methodology.md) | 8 阶段方法论详解（手工流的认知框架，跨版本稳定）|
+| [learn-kit-03-rfc-2119-worked-example.md](./docs/learn-kit-03-rfc-2119-worked-example.md) | RFC 2119 worked example——把抽象方法论"贴着实例走一遍" |
+| [learn-kit-04-three-skills.md](./docs/learn-kit-04-three-skills.md) | 5 个 skill 的分工（init / scan / locate / generate-tier / nlm-studio）+ 完整闭环图 |
+| [learn-kit-05-governance-boundary.md](./docs/learn-kit-05-governance-boundary.md) | 治理边界——并行子系统模型 / 命名 / frontmatter / 归档 / v1.0.0 起的依赖变化 |
+
+推荐阅读顺序：
+
+- **新用户**：使用手册 → 01 定位 → 02 方法论 → 04 skills 分工
+- **想要 RFC 范例**：03（先读 02 再读 03）
+- **理解治理决策**：05 治理边界 + 上游 ADR (`docs/adr/[ADR]_NotebookLM_Kit_Retirement.md`)
+
 ## License
 
 MIT — see `LICENSE`.
 
-## 上游
+## 上游 & 演进
 
-本方法论原生于 [`mj-system`](https://github.com/MJ-AgentLab) 项目 v2.0 STANDARD-tier 学习子系统，经 N=5 跨域验证（rules 8–63 / dimensions 3–5 / 5 个独立比喻世界 / 全部 N 维 AND-gate 几何不变量）后稳定，剥离 MJ 引用通用化为 `learn-kit` v0.1.0。v0.3.0 起新增 generate-tier AI 生成 + HTML 渲染能力。
+本方法论原生于 [`mj-system`](https://github.com/MJ-AgentLab) 项目 v2.0 STANDARD-tier 学习子系统，经 N=5 跨域验证（rules 8–63 / dimensions 3–5 / 5 个独立比喻世界 / 全部 N 维 AND-gate 几何不变量）后稳定，剥离 MJ 引用通用化为 `learn-kit` v0.1.0。
+
+| Version | Highlight |
+|---------|-----------|
+| v0.1.0 | Initial release: 8 阶段方法论 + init scaffold |
+| v0.2.0 | Discovery skills: locate + scan |
+| v0.3.0 | AI 流: generate-tier + 4 prompt templates + HTML render |
+| v0.3.1 | plugin.json repository field schema fix |
+| **v1.0.0** | **nlm-studio + 9 templates；notebooklm-kit 退场配套（marketplace v4.0.0）；first stable release** |

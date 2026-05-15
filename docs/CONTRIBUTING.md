@@ -1,7 +1,7 @@
-﻿# 贡献指南 — MJ AgentLab Marketplace
+# 贡献指南 — MJ AgentLab Marketplace
 
 本文档面向人类贡献者，说明分支策略、提交规范、版本管理和发布流程。
-Claude Code agent 行为规范请参考各 Plugin 的 SKILL.md（如 mj-sys-git 的 commit-rules.md、branch-rules.md）。
+Claude Code agent 行为规范请参考 [docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md](rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)（marketplace 11 阶段闭环 + Skill 矩阵）以及 `.claude/skills/mp-*/SKILL.md` 项目本地工作流 skill。
 
 ## 分支策略
 
@@ -38,42 +38,16 @@ Claude Code agent 行为规范请参考各 Plugin 的 SKILL.md（如 mj-sys-git 
 
 ## 提交规范
 
-### 格式
+简要约定:
 
-```
-<type>(<scope>): <summary>
-```
+- **格式**: `<type>(<scope>): <summary>` — 单行 header ≤72 字符，imperative mood，无句号
+- **7 types**: `feat` / `fix` / `perf` / `refactor` / `test` / `docs` / `infra`
+- **Marketplace scope whitelist (v4.x)**: `marketplace` / `learn-kit` / `ci` / `scripts` / `deps` / `infra` / `docs-rule` / `docs-adr` / `docs-guide` / `docs-runbook` / `docs-spec` / `release`
+- **示例**: `feat(marketplace): add 18 mp-* workflow skills` / `infra(release): bump marketplace 4.1.0 → 4.2.0`
 
-### 类型
+**完整规范**（含 branch × type 矩阵、commit 拆分指导、Co-Authored-By 模式、违规示例）见 [`docs/rule/[STANDARD]_Commit_Message_Convention.md`](rule/[STANDARD]_Commit_Message_Convention.md)。
 
-| Type | 用途 |
-|------|------|
-| `feat` | 新功能、新 Skill |
-| `fix` | Bug 修复 |
-| `perf` | 性能优化 |
-| `refactor` | 重构 |
-| `test` | 测试 |
-| `docs` | 文档 |
-| `infra` | CI/CD、脚本、基础设施 |
-
-### Scope
-
-| Scope | 范围 |
-|-------|------|
-| `mj-sys-git` | mj-sys-git Plugin |
-| `mj-sys-doc` | mj-sys-doc Plugin |
-| `mj-sys-n8n` | mj-sys-n8n Plugin |
-| `mj-sys-ops` | mj-sys-ops Plugin |
-| `marketplace` | Marketplace 整体（README、marketplace.json、release） |
-| `ci` | CI/CD workflows |
-| `scripts` | 脚本（bump-version 等） |
-| `deps` | 依赖管理 |
-
-### 规则
-
-- summary 小写开头，不加句号，≤72 字符
-- 示例：`feat(mj-sys-git): add worktree cleanup to delete skill`
-- 示例：`infra(ci): add SKILL.md frontmatter validation`
+CI / `/mp-git-commit` skill 按该 STANDARD 强制 enforcement。
 
 ## 版本管理
 
@@ -98,7 +72,7 @@ Claude Code agent 行为规范请参考各 Plugin 的 SKILL.md（如 mj-sys-git 
 .\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0"
 
 # 升级某个 plugin 版本
-.\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "mj-sys-git"
+.\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "learn-kit"
 ```
 
 ### 规则
@@ -157,6 +131,43 @@ mj-agentlab-marketplace/
 ├── feature/     # feature 分支 worktree
 └── main/        # main worktree
 ```
+
+## Git Hooks
+
+本项目提供 `commit-msg` git hook 在 commit 时校验消息格式（`<type>(<scope>): <summary>` + scope ∈ canonical 白名单）。Hook 是可选的——CI 也会跑同样的校验，hook 主要用于本地早发现违规。
+
+### 首次安装
+
+```powershell
+pwsh -File scripts/install-hooks.ps1
+```
+
+Hook 安装到 bare repo 共享 hooks 目录（`.bare/hooks/commit-msg`），所有 worktree 共享。
+
+### 升级（当 hook 规则变更时）
+
+`scripts/install-hooks.ps1` 内置的 PATTERN regex 会随 [`docs/rule/[STANDARD]_Commit_Message_Convention.md`](rule/[STANDARD]_Commit_Message_Convention.md) §4 scope 白名单演进而变化（每次新增 / 移除合法 scope 都会同步更新）。**如果 CHANGELOG 提到 `install-hooks.ps1` 更新**，需要**重跑安装脚本**以同步本地 hook:
+
+```powershell
+pwsh -File scripts/install-hooks.ps1
+```
+
+> **已知历史**：v4.0.0 之前 hook 用 v3.x 的 `mj-sys-*` scope 白名单；v4.3.2 (PR #79) 更新为 v4.x canonical 白名单。如果你的本地 hook 是 v4.3.2 之前装的，会拒绝当前所有合法 v4.x scope commit；按上述命令重跑即可同步。
+
+### 移除
+
+```powershell
+# 从 .bare/hooks/ 删除即可
+Remove-Item (Join-Path ((Get-Content .git) -replace '^gitdir:\s*','').Trim() 'hooks/commit-msg')
+```
+
+### Canonical 来源
+
+| 内容 | 来源 |
+|------|------|
+| Scope 白名单（hook PATTERN regex 应反映此清单） | [`docs/rule/[STANDARD]_Commit_Message_Convention.md`](rule/[STANDARD]_Commit_Message_Convention.md) §4 |
+| Hook 安装脚本 | `scripts/install-hooks.ps1` |
+| 测试 hook 行为 | `pwsh -c 'echo "feat(learn-kit): test" \| git hook run commit-msg /dev/stdin'`（hook 标准 git interface） |
 
 ## 推送
 
