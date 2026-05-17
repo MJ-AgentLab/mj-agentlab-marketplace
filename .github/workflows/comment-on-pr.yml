@@ -1,0 +1,144 @@
+name: PR Comment Bot — Commit Validation Feedback
+
+# Posts (or updates) a sticky PR comment with the output from the
+# `CI — Validate Plugin Structure` workflow's "Validate commit message
+# format" step. Triggered AFTER that workflow completes so we have the
+# pass/fail signal + artifact ready.
+#
+# Why a separate workflow (not inline in ci.yml):
+# - ci.yml runs as 'pull_request' which has restricted GITHUB_TOKEN
+#   permissions on forks (no write access). workflow_run runs with
+#   the BASE repo's token, allowing PR comment writes safely.
+# - Keeps validation logic (ci.yml) decoupled from cosmetic feedback
+#   (this file) — easier to disable / iterate the bot without
+#   touching the validator.
+#
+# Sticky comment semantics: one comment per PR, edited in place. Find
+# via marker `<!-- validate-commits-bot -->`; create if absent, edit
+# if present. Avoids comment-spam on every push.
+
+on:
+  workflow_run:
+    workflows: ["CI — Validate Plugin Structure"]
+    types: [completed]
+
+permissions:
+  pull-requests: write
+  actions: read
+  contents: read
+
+jobs:
+  comment:
+    name: Post commit-validation feedback to PR
+    runs-on: ubuntu-latest
+    # Only run on PR events (not push), and only when the upstream CI ran for a PR
+    if: >-
+      github.event.workflow_run.event == 'pull_request'
+      && github.event.workflow_run.pull_requests[0] != null
+    steps:
+      - name: Download validation artifact
+        id: artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: validate-commits-output
+          path: ./artifact
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+
+      - name: Resolve PR number + assemble comment body
+        id: assemble
+        env:
+          CI_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          CI_URL: ${{ github.event.workflow_run.html_url }}
+          HEAD_BRANCH: ${{ github.event.workflow_run.head_branch }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          PR_NUMBER='${{ github.event.workflow_run.pull_requests[0].number }}'
+          echo "pr_number=$PR_NUMBER" >> "$GITHUB_OUTPUT"
+
+          MARKER='<!-- validate-commits-bot -->'
+          ARTIFACT_FILE="./artifact/validate-commits-output.txt"
+
+          if [ ! -f "$ARTIFACT_FILE" ]; then
+            # Artifact missing (validation step was skipped — e.g. release/* branch)
+            echo "skip_comment=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Build comment body — different shape for PASS vs FAIL
+          BODY_FILE="$RUNNER_TEMP/comment-body.md"
+          if [ "$CI_CONCLUSION" = "success" ]; then
+            cat > "$BODY_FILE" <<EOF
+          $MARKER
+          ## ✅ Commit Validation: All Pass
+
+          All commit subjects in this PR match the marketplace PATTERN.
+
+          <details>
+          <summary>Validator output (head $HEAD_SHA)</summary>
+
+          \`\`\`
+          $(cat "$ARTIFACT_FILE")
+          \`\`\`
+
+          </details>
+
+          _Posted by \`comment-on-pr.yml\` after [CI run]($CI_URL). Auto-updates on each push to \`$HEAD_BRANCH\`._
+          EOF
+          else
+            cat > "$BODY_FILE" <<EOF
+          $MARKER
+          ## ❌ Commit Validation Failed
+
+          One or more commit subjects in this PR violate the marketplace PATTERN ([\`[STANDARD]_Commit_Message_Convention.md\`](../blob/$HEAD_SHA/docs/rule/%5BSTANDARD%5D_Commit_Message_Convention.md) §3 / §4 / §11). Each failure below includes a specific remediation suggestion.
+
+          <details open>
+          <summary>Validator output (head $HEAD_SHA)</summary>
+
+          \`\`\`
+          $(cat "$ARTIFACT_FILE")
+          \`\`\`
+
+          </details>
+
+          ### How to fix
+
+          1. Locally: \`bash scripts/validate-commits.sh origin/develop..HEAD\` to reproduce + iterate
+          2. Pick the offending commit; \`git rebase -i <base> --reword <sha>\` (single) or \`git rebase -i HEAD~N\` (batch)
+          3. Apply the **Suggest:** line from each failure
+          4. Force-push: \`git push --force-with-lease\` (safe on feature branch)
+          5. CI will re-run; this comment auto-updates
+
+          See also: §11.5 "Local validation before push" for the recommended workflow.
+
+          _Posted by \`comment-on-pr.yml\` after [CI run]($CI_URL). Auto-updates on each push to \`$HEAD_BRANCH\`._
+          EOF
+          fi
+
+          echo "body_file=$BODY_FILE" >> "$GITHUB_OUTPUT"
+          echo "marker=$MARKER" >> "$GITHUB_OUTPUT"
+
+      - name: Post or update sticky PR comment
+        if: steps.assemble.outputs.skip_comment != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ steps.assemble.outputs.pr_number }}
+          MARKER: ${{ steps.assemble.outputs.marker }}
+          BODY_FILE: ${{ steps.assemble.outputs.body_file }}
+        run: |
+          # Find existing bot comment by marker (one per PR)
+          EXISTING_ID=$(gh api -X GET "repos/$GH_REPO/issues/$PR_NUMBER/comments" --paginate \
+            --jq ".[] | select(.body | contains(\"$MARKER\")) | .id" \
+            | head -n 1)
+
+          if [ -n "$EXISTING_ID" ]; then
+            echo "Updating existing comment id=$EXISTING_ID"
+            gh api -X PATCH "repos/$GH_REPO/issues/comments/$EXISTING_ID" \
+              -f body="$(cat "$BODY_FILE")" \
+              >/dev/null
+          else
+            echo "Creating new comment on PR #$PR_NUMBER"
+            gh pr comment "$PR_NUMBER" --body-file "$BODY_FILE" --repo "$GH_REPO"
+          fi
