@@ -28,7 +28,7 @@ Navigation hub for all marketplace documentation.
 | Document | State | Version | Purpose |
 |----------|-------|---------|---------|
 | [Documentation Framework](./rule/[STANDARD]_Documentation_Framework.md) | active | v1.5 | 6 tag prefixes + 8-field frontmatter + 3-state machine + 路径稳定性 + INDEX sync + flat archive layout（v1.4）+ §1 exemption cancellation（v1.5）|
-| [Commit Message Convention](./rule/[STANDARD]_Commit_Message_Convention.md) | active | v1.0 | `<type>(<scope>): <summary>` + 7 types + marketplace scope whitelist + branch-type matrix |
+| [Commit Message Convention](./rule/[STANDARD]_Commit_Message_Convention.md) | active | v1.1 | `<type>(<scope>): <summary>` + 7 types + marketplace scope whitelist + branch-type matrix + §11 Common Mistakes (post-v4.5.0 lessons + scripts/validate-commits.{sh,ps1} workflow) |
 | [GitHub Markdown](./rule/[STANDARD]_GitHub_Markdown.md) | active | v1.0 | ATX headings + GFM tables + native alerts + frontmatter syntax for GitHub web |
 | [AI Engineering Execution HITL Prompt](./rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md) | active | v1.4 | 11 阶段闭环 + skill 矩阵 + HITL 触发规则 + universal skeleton §0（v1.4 marketplace 独立性原则）|
 

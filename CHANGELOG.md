@@ -5,6 +5,30 @@
 
 ## [Unreleased]
 
+### Added
+
+- **`scripts/validate-commits.{sh,ps1}`** — bulk validator for marketplace commit subjects. Dual-language (bash + PowerShell) parity; same interface, exit codes, output formatting. Reads PATTERN verbatim from existing canonical source. Per-commit failure output diagnoses specific reason (type / scope / length) + targeted suggestion (e.g., «'chore' is NOT in marketplace's 7-type enum; use 'docs', 'refactor', or 'infra'»; «'docs' is a TYPE not a SCOPE; pick 'docs-rule' / 'docs-adr' / etc»). Closes the gap that caused PR #102 closure + rebuild (4 commit subjects violated PATTERN: 3 used scope `docs` + 1 used `chore` type + 1 exceeded 72-char summary).
+
+- **`scripts/install-hooks.ps1`** extended with **pre-push hook installer** (alongside existing commit-msg). The pre-push hook delegates to `scripts/validate-commits.sh` (single source of validation logic) — catches violations introduced via `git commit --amend` / `git cherry-pick` / `git rebase` that bypass commit-msg. Opt-in (re-run installer to activate); zero impact on contributors who don't.
+
+### Changed
+
+- **`docs/rule/[STANDARD]_Commit_Message_Convention.md` v1.0 → v1.1** — add §11 «Common Mistakes (post-v4.5.0 lessons)» documenting 4 failure patterns: (§11.1) `chore` type rejected with substitution table; (§11.2) `docs` is a TYPE not a SCOPE; (§11.3) summary > 72 chars with CJK / symbols; (§11.4) documentation/* template recommendation vs CI hook reality; (§11.5) local validation workflow. §9.3 Future CI Gates updated to reference new validator. Frontmatter revision block added. Backward compatible — PATTERN regex unchanged.
+
+- **`docs/guide/[GUIDE]_Marketplace_Agent_Execution_Checklist.md`** — Stage 8 (Commit/Push/PR) Actions段 + Verification checklist 加入 push 前必跑 `scripts/validate-commits.{sh,ps1}` 的强制项。Runtime entry point now naturally flows through the validator.
+
+- **`.claude/skills/mp-git-commit/SKILL.md`** — NEW Step 8 «Post-commit PATTERN Self-check» after Step 7 Execute. Runs `sh scripts/validate-commits.sh HEAD~N..HEAD` immediately to catch violations before handoff to mp-git-push.
+
+- **`.claude/skills/mp-git-push/SKILL.md`** — Pre-Push Checklist 7 → 8 items. NEW item 8 «Commit message PATTERN 合规» (BLOCK on fail). Mandatory regardless of pre-push git-hook install state.
+
+- **`.claude/skills/mp-flow-self-review/SKILL.md`** — Item 8 strengthened from vague «commit message 符合 …» to mandate running `validate-commits.sh` + pasting output to «本地验证» segment; 0 failures gate the stage exit.
+
+### Notes
+
+- No `VERSION` bump — pure tooling + docs; zero plugin behavior change for end-users.
+- 4-layer defense net now in place: (1) commit-msg hook per-commit at commit time; (2) mp-git-commit Step 8 per-batch right after commit; (3) mp-flow-self-review item 8 at pre-PR-review; (4) mp-git-push checklist item 8 + optional pre-push hook at push time. CI «Validate Structure» is the final safety net (unchanged).
+- 4 sites of PATTERN regex now (install-hooks.ps1 + ci.yml + STANDARD §3+§4 + validate-commits.{sh,ps1}); single-source consolidation tracked as future P2 refactor.
+
 ## [4.5.0] - 2026-05-18
 
 ### Changed
