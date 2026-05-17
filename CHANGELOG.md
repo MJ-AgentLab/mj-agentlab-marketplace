@@ -5,6 +5,15 @@
 
 ## [Unreleased]
 
+### Changed
+
+- **文档归档区从 subtype subdir 镜像改为 flat layout**（PR-A）—— `docs/archive/<subtype>/` → `docs/archive/`；marketplace 顶层与 plugin 内部（`plugins/<plugin>/docs/archive/`）同规则；文件类型由 `[TAG]_` prefix 编码（per Framework v1.4 §2.3.5 NEW）。具体改动：
+  - `docs/rule/[STANDARD]_Documentation_Framework.md` v1.3 → v1.4：§2.3 state table / §2.3.2 archive-path 描述 + YAML / §2.3.3 banner / §2.3.4 frozen-ref 示例 / §2.4 archive filename 规则 全部从 subtype 路径改 flat；新增 §2.3.5 Flat Archive Layout 定义规则 + marketplace 与 plugin-internal 对称 + rationale + historical note。Non-trigger 自身归档（不达 §2.3.1 trigger #2/#3 阈值）；v1.3 文件原路径推进 v1.4
+  - `docs/runbook/[RUNBOOK]_Doc_Archive_Procedure.md` v1.0 → v1.1：§1 intro 描述 / §2.1 Step 2.1 表（「Subtype directory」改「Archive root」+ Full archive path 示例）/ §3.1 git mv 路径 / §3.2 `replaced-by:` 示例 / §3.3 banner Superseded by 示例 / §3.4 `supersedes:` 示例 / Step 4.1 INDEX 行模板 / §5 Verification 两条 path 全部同步 flat
+  - `.claude/skills/mp-doc-validate/SKILL.md` description + Step 2.5 opener 同步 flat archive 路径
+  - 删除 6 个空 placeholder subdir `docs/archive/{adr,guide,postmortem,rule,runbook,spec}/.gitkeep`（归档机制自 v4.4.0 引入以来 0 件实际归档，无 migration 成本）；保留 `docs/archive/.gitkeep` 占位
+  - `docs/INDEX.md` line 11 Framework v1.3 → v1.4；line 31 RUNBOOK last-verified + 描述同步；line 55 archive 概述描述同步 flat
+
 ## [4.4.11] - 2026-05-15
 
 ### Added
