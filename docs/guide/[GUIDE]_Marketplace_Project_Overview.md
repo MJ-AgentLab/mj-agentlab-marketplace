@@ -23,7 +23,7 @@ related:
 
 ## 1. 项目定位
 
-MJ AgentLab Marketplace 是 **通用 Claude Code 插件市场**（v3.0.0 起从 MJ-system 团队专属重构为对外通用），集中管理和分发教学方法论 + NotebookLM 多媒体集成的整合工具集。已在 mj-system / mj-agent 两项目实战。
+MJ AgentLab Marketplace 是 **通用 Claude Code 插件市场**（v3.0.0 起从内部团队专属重构为对外通用），集中管理和分发教学方法论 + NotebookLM 多媒体集成的整合工具集。已在多个下游 Claude Code 项目实战。
 
 - **仓库**：[MJ-AgentLab/mj-agentlab-marketplace](https://github.com/MJ-AgentLab/mj-agentlab-marketplace)
 - **许可证**：MIT
@@ -71,7 +71,7 @@ mj-agentlab-marketplace/
 
 ## 3. 插件目录
 
-> v3.0.0 重构（从 mj-system 团队专属改为通用工具集）+ v4.0.0 整合（notebooklm-kit 退役，核心多媒体场景吸收到 learn-kit）后，marketplace 收敛至 **1 个通用插件**。完整退役历史见 [MIGRATION_GUIDE.md](../MIGRATION_GUIDE.md) 与 [[ADR]_NotebookLM_Kit_Retirement](../adr/[ADR]_NotebookLM_Kit_Retirement.md)。
+> v3.0.0 重构（从内部团队专属改为通用工具集）+ v4.0.0 整合（notebooklm-kit 退役，核心多媒体场景吸收到 learn-kit）后，marketplace 收敛至 **1 个通用插件**。完整退役历史见 [Migration Guide](./[GUIDE]_Migration_From_v3_to_v4.md) 与 [[ADR]_NotebookLM_Kit_Retirement](../adr/[ADR]_NotebookLM_Kit_Retirement.md)。
 
 | Plugin | 描述 | Skills | Version | MCP 依赖 |
 |--------|------|--------|---------|----------|

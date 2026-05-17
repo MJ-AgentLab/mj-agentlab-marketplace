@@ -101,8 +101,8 @@ to view online); nothing is downloaded.
 ## Dogfood-validated design (v1.0.0)
 
 The 5-step workflow below was validated end-to-end against
-mj-agent's `learning/documentation-framework/` topic. Five findings
-shaped the final design:
+an external Claude Code project's `learning/documentation-framework/`
+topic. Five findings shaped the final design:
 
 1. NLM's `refresh_auth` + `server_info` are local-only checks — they
    confirm tokens exist on disk and are recent, but say nothing about

@@ -150,7 +150,7 @@ This lets bisect identify breaking changes in the dependency direction.
 feat(marketplace): add 18 mp-* workflow skills under .claude/skills/
 
 Adds 18 project-local Track C workflow skills covering the 11-stage AI
-engineering loop. Naming follows mj-agent same-source symmetric pattern.
+engineering loop. Naming follows the same-source symmetric pattern.
 
 Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
 ```
@@ -219,4 +219,4 @@ v1.1+ may add `.github/workflows/commit-lint.yml` that runs commitlint or equiva
 
 | Version | Date | Summary |
 |---------|------|---------|
-| v1.0 | 2026-05-15 | Initial canonical commit convention. Extracted + expanded from `docs/CONTRIBUTING.md` § 提交规范. Replaces stale mj-sys-* scope whitelist with marketplace v4.x scopes (`learn-kit`, `marketplace`, `docs-*`, `release` etc.). Adopted in PR #75 (v4.2.0). Adapted from mj-agent `[STANDARD]_MJ_Agent_Commit_Message_Convention.md` v1.0; preserves Conventional Commits 1.0 base + 7-type enum; replaces mj-agent's 12-item scope whitelist with marketplace's whitelist. |
+| v1.0 | 2026-05-15 | Initial canonical commit convention. Extracted + expanded from `docs/CONTRIBUTING.md` § 提交规范. Replaces stale legacy `*-sys-*` scope whitelist with marketplace v4.x scopes (`learn-kit`, `marketplace`, `docs-*`, `release` etc.). Adopted in PR #75 (v4.2.0). Preserves Conventional Commits 1.0 base + 7-type enum; marketplace-specific 12-item scope whitelist. |

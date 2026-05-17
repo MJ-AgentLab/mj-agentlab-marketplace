@@ -1,6 +1,6 @@
 ---
 name: mp-flow-dogfood
-description: Verifies that newly authored marketplace plugin / skill actually works in realistic conditions (HITL Stage 6) — runs read-only algorithm simulation (Glob + Grep + Read replaying the skill's internal steps) against real external projects (mj-system, mj-agent, blank sample), plus optional real plugin install (`/plugin install <plugin>@mj-agentlab-marketplace --scope local`) for skills that have side-effects or low trust. Make sure to use this skill whenever the user says "dogfood", "本地验证", "verify plugin", "test skill behavior", "Stage 6 dogfood", "skill 真实跑通", "试跑 skill", "verification before commit", or once Stage 5 compliance audit has PASSED and the changes need behavior verification before commit. Marketplace dogfood policy: read-only skills should be verified by algorithm simulation in ≥ 2 external projects; side-effect or `disable-model-invocation` skills must be installed and triggered explicitly. Produces verification matrix `| Test | Project | Query | Expected | Actual | Pass |` + pass rate + performance baseline (if applicable); critical failures pause for HITL. Do not use for: plugin schema compliance (use mp-flow-compliance, Stage 5), pre-commit diff review (use mp-flow-self-review, Stage 7), or post-merge cleanup (use mp-flow-post-merge, Stage 10).
+description: Verifies that newly authored marketplace plugin / skill actually works in realistic conditions (HITL Stage 6) — runs read-only algorithm simulation (Glob + Grep + Read replaying the skill's internal steps) against external Claude Code sample projects (user-selected; blank sample also supported), plus optional real plugin install (`/plugin install <plugin>@mj-agentlab-marketplace --scope local`) for skills that have side-effects or low trust. Make sure to use this skill whenever the user says "dogfood", "本地验证", "verify plugin", "test skill behavior", "Stage 6 dogfood", "skill 真实跑通", "试跑 skill", "verification before commit", or once Stage 5 compliance audit has PASSED and the changes need behavior verification before commit. Marketplace dogfood policy: read-only skills should be verified by algorithm simulation in ≥ 2 external projects; side-effect or `disable-model-invocation` skills must be installed and triggered explicitly. Produces verification matrix `| Test | Project | Query | Expected | Actual | Pass |` + pass rate + performance baseline (if applicable); critical failures pause for HITL. Do not use for: plugin schema compliance (use mp-flow-compliance, Stage 5), pre-commit diff review (use mp-flow-self-review, Stage 7), or post-merge cleanup (use mp-flow-post-merge, Stage 10).
 ---
 
 # Marketplace Flow — Local Dogfood / Verification (HITL Stage 6)
@@ -24,7 +24,7 @@ digraph dogfood {
   start [label="Stage 5 compliance PASS" shape=doublecircle];
 
   s1 [label="Step 1: Build verification matrix" shape=box];
-  s2 [label="Step 2: Pick sample projects\n(mj-system / mj-agent / blank / 其他)" shape=box];
+  s2 [label="Step 2: Pick sample projects\n(external Claude Code project / blank / 其他)" shape=box];
   s3 [label="Step 3: Read-only algorithm simulation\nGlob+Grep+Read replay" shape=box];
   s4 [label="Step 4 (optional): Real plugin install\nfor side-effect / disable-model-invocation skills" shape=box];
   s5 [label="Step 5: Pass rate + 性能基线" shape=diamond];
@@ -58,8 +58,8 @@ digraph dogfood {
 ```markdown
 | Test | Skill | Project | Query | Expected |
 |---|---|---|---|---|
-| T1 | mp-flow-intake | mj-system | "评估任务: add new ETL pipeline" | Intake Result with risk=Medium, mj-system 不适用提示 |
-| T2 | mp-flow-intake | mj-agent | "intake: refactor skill X" | Intake Result, mj-agent 不适用提示 |
+| T1 | mp-flow-intake | external-data-project | "评估任务: add new ETL pipeline" | Intake Result with risk=Medium, 不适用提示 |
+| T2 | mp-flow-intake | external-agent-project | "intake: refactor skill X" | Intake Result, 不适用提示 |
 | T3 | mp-flow-intake | (本 marketplace) | "评估: 加 6th learn-kit skill" | Intake Result with type=feature, scope=learn-kit, version=minor |
 | T4 | mp-doc-validate | (本 marketplace) | "validate docs/" | report listing frontmatter / path issues |
 ```
@@ -68,14 +68,14 @@ digraph dogfood {
 
 ## Step 2: Pick Sample Projects
 
-| Project | 用途 | 路径 |
+| Project | 用途 | 路径示例 |
 |---|---|---|
-| `mj-system` | 数据架构域 sample | `D:\workspace\10-software-project\projects\mj-system\develop\` |
-| `mj-agent` | runtime agent sample | `D:\workspace\10-software-project\projects\mj-agent\develop\` |
+| 外部数据/服务架构项目 | data-domain sample（用户自选）| `<user-workspace>/<external-data-project>/develop/` |
+| 外部 runtime agent 项目 | agent-domain sample（用户自选）| `<user-workspace>/<external-agent-project>/develop/` |
 | blank | 零信任 / cold-start sample | 临时 `tmp/blank-project/` |
 | 本 marketplace | self-dogfood | 当前 worktree |
 
-**Boundary**: marketplace skill 设计上对 mj-system / mj-agent **不适用**（按 description Do-not-use-for 规则）；这些项目用于 confidence-< 0.7 path 测试 —— 期望 skill 自己 detect 不适用并跳过/警示。
+**Boundary**: marketplace skill 设计上对外部域 (data / agent runtime / 等) **不适用**（按 description Do-not-use-for 规则）；这些项目用于 confidence-< 0.7 path 测试 —— 期望 skill 自己 detect 不适用并跳过/警示。
 
 ## Step 3: Read-only Algorithm Simulation
 
@@ -123,8 +123,8 @@ cd <target-project>
 ### Verification Matrix
 | Test | Project | Pass? | Notes |
 |---|---|---|---|
-| T1 | mj-system | ✅ | algorithm trace 正确 |
-| T2 | mj-agent | ⚠️ | trace 正确但 mp-flow-intake 应更强调 mj-system 不适用提示 |
+| T1 | external-data-project | ✅ | algorithm trace 正确 |
+| T2 | external-agent-project | ⚠️ | trace 正确但 mp-flow-intake 应更强调不适用提示 |
 | T3 | self | ✅ | |
 | T4 | self (install) | ✅ | /mp-doc-validate 触发并跑通 |
 

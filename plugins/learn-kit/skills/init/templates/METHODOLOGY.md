@@ -24,7 +24,7 @@ version: "v0.2"
 # Rule List Pedagogy — 8-Stage Methodology
 
 > **角色**：本文是 `learning/` 子系统的 sub-framework STANDARD——既定义"如何写解读"（§1-8 + 附录），又定义子系统元规则（§9-§13）
-> **成熟度**：从上游 mj-system v2.0 STANDARD-tier（N=5 跨域 case 验证：rules 8–63 / dimensions 3–5 / 5 个独立比喻世界 / 全部 N 维 AND-gate）剥离 MJ 引用后的通用版本
+> **成熟度**：N=5 跨域 case 验证后的稳定通用版本（rules 8–63 / dimensions 3–5 / 5 个独立比喻世界 / 全部 N 维 AND-gate 几何不变量）
 > **适用**：当你有一份枚举型规则清单（典型如 RFC keyword list、安全策略、API style guide、STANDARD/POLICY 文档的"必须 / 不应"小节），需要转化为人类可学习的"决策框架解读文档"
 > **目标读者**：项目维护者（按本指南推进）+ 团队学习者（审阅 / 学习方法论）
 
@@ -545,7 +545,7 @@ version: "vX.Y"                                        # 必需——学习材�
 
 ### 12.3 当前 v0.3 状态
 
-本文是从上游 mj-system v2.0 STANDARD-tier 剥离后的 generic v0.3 版本（v0.1 初版剥离；v0.2 加 §1.5 Project Discovery；v0.3 移除 §10.1 NLM integration，learn-kit 与 notebooklm-kit 解绑）。原 N=5 跨域验证证据（HITL 协作 / 服务架构 / SQL 语法 / DB 设计 / DB 命名；rules 8–63；dimensions 3–5；5 个独立比喻世界；全部 N 维 AND-gate 几何不变量）在通用化过程中**仍然适用**，但具体案例引用已替换为 RFC 2119 单 worked example。
+本文是 generic v0.3 版本（v0.1 初版；v0.2 加 §1.5 Project Discovery；v0.3 移除 §10.1 NLM integration，learn-kit 与 notebooklm-kit 解绑）。原 N=5 跨域验证证据（5 个独立行业 case；rules 8–63；dimensions 3–5；5 个独立比喻世界；全部 N 维 AND-gate 几何不变量）在通用化过程中**仍然适用**，但具体案例引用已替换为 RFC 2119 单 worked example。
 
 ---
 
@@ -587,4 +587,4 @@ version: "vX.Y"                                        # 必需——学习材�
 
 - **v0.3**（2026-05-13）：随 learn-kit v0.3.0 发布。移除 §10.1 With notebooklm-kit 子节（learn-kit 与 notebooklm-kit 解绑，learn-kit 不再推荐配套 NotebookLM 集成）；保留的 §10.1 With markdownlint / Other Validators 段从原 §10.2 上移。其余 8 阶段方法论 / 子系统元规则 / 6 类失真自检 / RFC 2119 worked example 不变。
 - **v0.2**（2026-05-11）：随 learn-kit v0.2.0 发布。新增 §1.5 Project Discovery 段（在已有项目里如何用 scan → locate 工作流找源材料 / 检查既有 [LEARNING] / 三种项目场景）。其余各章不变。
-- **v0.1**（2026-05-11）：从上游 mj-system `learning/_meta/[LEARNING]_Rule_List_Interpretation_Authoring.md` v2.0 剥离 MJ 引用后的通用版本。移除 MJ-specific 案例（HITL / svc-arch / sql-format / db-design / db-naming）；保留 8 阶段方法论核心 + 子系统元规则 + 6 类失真自检；新增 §10 Optional Integrations（与 notebooklm-kit 配套 + markdownlint 协作）；用 RFC 2119 单 worked example 替代原 5 case 矩阵。上游证据 N=5 几何不变量结论保留为参考。
+- **v0.1**（2026-05-11）：通用版本初版。N=5 跨域 case 验证后稳定（5 个独立行业 case；rules 8–63；dimensions 3–5；5 个独立比喻世界；全部 N 维 AND-gate 几何不变量）；保留 8 阶段方法论核心 + 子系统元规则 + 6 类失真自检；新增 §10 Optional Integrations（与 notebooklm-kit 配套 + markdownlint 协作）；用 RFC 2119 单 worked example 作为唯一示范。
