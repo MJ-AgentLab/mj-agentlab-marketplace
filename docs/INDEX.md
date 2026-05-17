@@ -8,7 +8,7 @@ Navigation hub for all marketplace documentation.
 
 | Document | State | Version | Purpose |
 |----------|-------|---------|---------|
-| [Documentation Framework](<./rule/[STANDARD]_Documentation_Framework.md>) | active | v1.3 | 6 tag prefixes + 8-field frontmatter + 3-state machine + 路径稳定性 + INDEX sync + 豁免-文件 frontmatter 纪律（v1.3） |
+| [Documentation Framework](<./rule/[STANDARD]_Documentation_Framework.md>) | active | v1.4 | 6 tag prefixes + 8-field frontmatter + 3-state machine + 路径稳定性 + INDEX sync + 豁免-文件 frontmatter 纪律（v1.3）+ flat archive layout（v1.4） |
 | [Commit Message Convention](<./rule/[STANDARD]_Commit_Message_Convention.md>) | active | v1.0 | `<type>(<scope>): <summary>` + 7 types + marketplace scope whitelist + branch-type matrix |
 | [GitHub Markdown](<./rule/[STANDARD]_GitHub_Markdown.md>) | active | v1.0 | ATX headings + GFM tables + native alerts + frontmatter syntax for GitHub web |
 | [AI Engineering Execution HITL Prompt](<./rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md>) | active | v1.2 | 11 阶段闭环 + skill 矩阵 + HITL 触发规则 |
@@ -28,7 +28,7 @@ Navigation hub for all marketplace documentation.
 | Document | Description | Last verified |
 |----------|-------------|---------------|
 | [Release Operations](<./runbook/[RUNBOOK]_Release_Operations.md>) | 从开发到发布的完整操作流程（Issue → PR → Release） | 2026-05-14 |
-| [Doc Archive Procedure](<./runbook/[RUNBOOK]_Doc_Archive_Procedure.md>) | 4-phase 文档归档工作流 + 2 HITL gate（per Documentation Framework v1.2 §2.3）；v4.4.0 引入 | 2026-05-15 |
+| [Doc Archive Procedure](<./runbook/[RUNBOOK]_Doc_Archive_Procedure.md>) | 4-phase 文档归档工作流 + 2 HITL gate（per Documentation Framework v1.4 §2.3，flat layout）；v4.4.0 引入，v1.1 起 flat | 2026-05-17 |
 
 ## Architecture Decision Records (`docs/adr/`)
 
@@ -52,7 +52,7 @@ Navigation hub for all marketplace documentation.
 
 ## Archived Documents (`docs/archive/`)
 
-> v4.4.0 起 marketplace 引入归档机制。任何被 supersede 的旧版 doc 进入 `docs/archive/<subtype>/[DEPRECATED]_<TAG>_<Topic>_vX.Y.md`，frontmatter `state: archived` + body 顶部含 archive banner。完整规则见 [`rule/[STANDARD]_Documentation_Framework.md`](<./rule/[STANDARD]_Documentation_Framework.md>) §2.3.1-§2.3.4 (v1.2+)；归档流程见 [`runbook/[RUNBOOK]_Doc_Archive_Procedure.md`](<./runbook/[RUNBOOK]_Doc_Archive_Procedure.md>) v1.0。
+> v4.4.0 起 marketplace 引入归档机制；v1.4 起改 flat 布局。任何被 supersede 的旧版 doc 进入 `docs/archive/[DEPRECATED]_<TAG>_<Topic>_vX.Y.md`（flat — 不分 subtype 子目录；文件类型由 `[TAG]_` prefix 编码），frontmatter `state: archived` + body 顶部含 archive banner。完整规则见 [`rule/[STANDARD]_Documentation_Framework.md`](<./rule/[STANDARD]_Documentation_Framework.md>) §2.3.1-§2.3.5 (v1.4+)；归档流程见 [`runbook/[RUNBOOK]_Doc_Archive_Procedure.md`](<./runbook/[RUNBOOK]_Doc_Archive_Procedure.md>) v1.1。
 
 *暂无 archived 文档 — 当首个 doc 进入 archived state 时此表填入条目。*
 
