@@ -11,7 +11,7 @@ Navigation hub for all marketplace documentation.
 | [Documentation Framework](<./rule/[STANDARD]_Documentation_Framework.md>) | active | v1.4 | 6 tag prefixes + 8-field frontmatter + 3-state machine + 路径稳定性 + INDEX sync + 豁免-文件 frontmatter 纪律（v1.3）+ flat archive layout（v1.4） |
 | [Commit Message Convention](<./rule/[STANDARD]_Commit_Message_Convention.md>) | active | v1.0 | `<type>(<scope>): <summary>` + 7 types + marketplace scope whitelist + branch-type matrix |
 | [GitHub Markdown](<./rule/[STANDARD]_GitHub_Markdown.md>) | active | v1.0 | ATX headings + GFM tables + native alerts + frontmatter syntax for GitHub web |
-| [AI Engineering Execution HITL Prompt](<./rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md>) | active | v1.2 | 11 阶段闭环 + skill 矩阵 + HITL 触发规则 |
+| [AI Engineering Execution HITL Prompt](<./rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md>) | active | v1.3 | 11 阶段闭环 + skill 矩阵 + HITL 触发规则 + archive HITL 整合（v1.3） |
 | [AI Engineering HITL Workflow (Generic)](./ai_engineering_execution_hitl_workflow.md) | active | v2.0 | plugin-agnostic 哲学锚点（parent generic doc，本 marketplace specialized 变体的 fork 源；exempt from framework per §1 boundary） |
 
 ## Guides (`docs/guide/`)

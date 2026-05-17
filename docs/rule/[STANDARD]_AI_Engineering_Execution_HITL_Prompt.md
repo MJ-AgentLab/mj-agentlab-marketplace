@@ -4,9 +4,9 @@ scope: marketplace
 summary: AI 工程执行 HITL Prompt — 11 阶段闭环 + skill 矩阵 + HITL 触发规则
 owner: marketplace-maintainers
 created: 2026-05-11
-updated: 2026-05-15
+updated: 2026-05-17
 state: active
-version: v1.2
+version: v1.3
 domain: governance
 tags:
   - hitl
@@ -172,6 +172,7 @@ Fallback:
 - Review comment 改变 plugin 行为 / SKILL description / allowed-tools 边界
 - 测试失败且原因不明确
 - 实现中 scope 明显扩大（如本来只加 skill，演变成改 marketplace.json schema）
+- 涉及 doc archive 触发（按 `[STANDARD]_Documentation_Framework` §2.3.1 四触发器之一：framework / STANDARD 主版本 bump、≥50% 结构重写、≥70% 内容替换、split / merge / rename）—— **必须暂停**，按 `docs/runbook/[RUNBOOK]_Doc_Archive_Procedure.md` 4-phase + 2 HITL gate（Q-01 standard/unusual 判定 / D-02 引用 >3 升级）执行；不得在 PR 中混入隐式归档（per Framework v1.4 §2.3.5 flat archive layout）
 
 ### §3.2 可以默认处理
 
@@ -283,7 +284,7 @@ Fallback:
 
 ## Rules
 
-请检查（marketplace 事实核查 8 维）：
+请检查（marketplace 事实核查 9 维）：
 1. 当前 branch / worktree / diff / 未跟踪文件
 2. 受影响 plugin（`plugins/*/`）
 3. `marketplace.json` plugins 数组当前状态（版本 / description / keywords）
@@ -292,6 +293,10 @@ Fallback:
 6. `VERSION` 与 `marketplace.json metadata.version` 一致性
 7. 顶层 `CLAUDE.md` + `CHANGELOG.md` + `docs/INDEX.md` 是否需更新
 8. `.github/workflows/ci.yml` 6 步验证是否覆盖本次改动
+9. `docs/archive/` 与 active 区一致性盘点（涉及 `docs/**/*.md` 改动时）：
+   - active 区是否有应归档但未归档的旧版（命名 / 内容明显被 supersede 但仍 `state: active`）
+   - `docs/archive/` 现有 archived 文件（flat layout per Framework v1.4 §2.3.5）是否仍有 active `supersedes:` 双向链指向
+   - `docs/INDEX.md`「Archived Documents」表行数与 `find docs/archive -name '[DEPRECATED]_*.md' | wc -l` 一致
 
 涉及版本变更时，必须读取真实 `plugin.json.version` 与 `marketplace.json plugins[].version`，不得仅凭命名推断。
 
@@ -381,6 +386,8 @@ ADR 写作要求：
 - 标题：`[ADR]_<topic>.md`
 - 必备段：Context / Decision / Consequences (positive / negative / risks) / Alternatives Considered / Implementation Plan / Acceptance Criteria / References / Decision Log
 - 落 `docs/[ADR]_*.md`（marketplace 使用扁平 docs/ 结构，不建 docs/adr/ 子目录）
+
+- Supersede check：本 ADR 决策是否取代既有 active doc？若是，识别被取代 doc + 触发的 §2.3.1 触发器编号 + 列入 ADR References 段（frontmatter `supersedes:` 字段；flat archive layout 下路径形如 `../archive/[DEPRECATED]_[TAG]_..._vX.Y.md` per Framework v1.4 §2.3.5）；archive 物理移动按 `docs/runbook/[RUNBOOK]_Doc_Archive_Procedure.md` 单独 ceremony 执行（不混入 ADR 落地 commit；保 atomic）
 
 涉及 marketplace.json schema / CI workflow / 主版本 bump 时，必须 HITL。
 
@@ -583,7 +590,7 @@ Fallback:
 9. PR template 自检 6 项是否全部满足
 10. 是否触发 release.yml（VERSION 文件变更）→ 是则需要 HITL 确认发布意图
 11. 涉及 secret / 凭据时必须暂停
-12. **(v1.2 新增)** 新建 / 修改 `docs/**/*.md` 必须遵循 `docs/rule/[STANDARD]_Documentation_Framework.md` 的 frontmatter 8 字段约束 + 路径规则（tag-prefixed 文档放正确子目录；状态 enum 合规；无 `_vX.Y` 后缀除非 archived）—— 用 `/mp-doc-validate` 跑一次审计；豁免 `INDEX.md` / `CONTRIBUTING.md` / `MIGRATION_GUIDE.md` / `README.md` / `CHANGELOG.md` / plugin `CLAUDE.md` / SKILL.md（Claude Code spec native frontmatter，不受此约束）
+12. **(v1.2 新增 / v1.3 扩展)** 新建 / 修改 `docs/**/*.md` 必须遵循 `docs/rule/[STANDARD]_Documentation_Framework.md` 的 frontmatter 8 字段约束 + 路径规则（tag-prefixed 文档放正确子目录；状态 enum 合规；无 `_vX.Y` 后缀除非 archived）；**若本次改动触发 §2.3.1 任一归档条件（major bump / 结构重写 ≥50% / 内容替换 ≥70% / split-merge-rename），必须确认已按 `docs/runbook/[RUNBOOK]_Doc_Archive_Procedure.md` 走 4-phase ceremony 而非隐式覆盖**——用 `/mp-doc-validate` 跑一次审计（含 archive POST-condition 6 检：archived 文件 frontmatter `state: archived` / `archived:` ISO date / `replaced-by:` 路径 / Archive Banner / bidirectional `supersedes:` ↔ `replaced-by:` 双向链 / `INDEX.md` Archived Documents 表行；archive 区为 flat layout per Framework v1.4 §2.3.5）；豁免 `INDEX.md` / `CONTRIBUTING.md` / `MIGRATION_GUIDE.md` / `README.md` / `CHANGELOG.md` / plugin `CLAUDE.md` / SKILL.md（Claude Code spec native frontmatter，不受此约束）
 
 发现 secret / 无关改动 / 关键测试失败 / 中高风险残留时必须 HITL。
 
@@ -800,6 +807,8 @@ Fallback:
 | `/skill-creator:skill-creator` | 3 | skill-creator | 同上 |
 | `superpowers:*` | 4 | superpowers | 同上 |
 
+**Archive-specific note** (v1.3 NEW): `/mp-doc-validate` (post-v4.4.0 archive 机制 + v4.4.x flat layout) 含 archive POST-condition 6 检 + active doc 7b 检（active `supersedes:` 列表所指向的 archived 文件存在性 + 双向链完整性；archive 区为 `docs/archive/` flat layout per Framework v1.4 §2.3.5）。任何涉及 `docs/**/*.md` 的 PR 在 Stage 7 self-review 必跑一次（详见 §4.8 item 12）；archive ceremony 操作步骤见 `docs/runbook/[RUNBOOK]_Doc_Archive_Procedure.md` v1.1（4 phase + Q-01 / D-02 双 HITL gate）。
+
 ### §5.3 选用原则
 
 按稳定性 + 域适配优先级:
@@ -864,6 +873,7 @@ HITL           是风险与决策边界。
 
 ## §8 版本历史
 
+- **v1.3**（2026-05-17）：**Archive HITL Integration**. 配合 Documentation Framework v1.4 §2.3.5 flat archive layout + `[RUNBOOK]_Doc_Archive_Procedure` v1.1（PR #99 v4.4.x）—— archive 接入 HITL 哲学层 5 处：§3.1 新增 doc archive 触发器作为必停项；§4.2 Repo Scan 9 维（新增 archive inventory 盘点）；§4.4 ADR Rules 新增 supersede check 判断（路径形态遵循 flat layout）；§4.8 Self-review item 12 扩展为含 archive POST-condition 审计（`/mp-doc-validate` 6 检覆盖）；§5.2 增 Archive-specific note 把 `/mp-doc-validate` 标注为 archive 审计入口。不改 11 阶段骨架 / Prompt 5 段结构 / Skill 矩阵；STANDARD 物理路径稳定。依据：v4.4.x archive 机制 4 层（Framework / RUNBOOK / `docs/archive/` 物理 flat / `mp-doc-validate` 6 检）落地后需要 HITL 哲学层对应钩子。
 - **v1.2**（2026-05-15）：**Doc Framework Integration**。配合 marketplace 文档框架 v1.0 落地（PR #75 v4.2.0），新增 §4.8 Self-review **item 12**: 新建 / 修改 `docs/**/*.md` 必须遵循 `[STANDARD]_Documentation_Framework` frontmatter 约束 + 路径规则；豁免列表明确（INDEX / CONTRIBUTING / MIGRATION_GUIDE / README / CHANGELOG / plugin CLAUDE.md / SKILL.md）；checklist 总数从 11 项升到 12 项。
 - **v1.1**（2026-05-15）：**HITL Skill Integration**。新建 `.claude/skills/` 18 件 marketplace 项目本地 Track C skill 覆盖 flow + git + doc 三 family（9 flow / 6 git / 3 doc）；refactor §4.1-§4.11 每阶段 Skill Hint 段指向新 `mp-*` skill，外部 plugin-dev / skill-creator skill 转为 Augment / Fallback；§5.1 矩阵填全 11 阶段 Preferred Skill；§5.2 重整为 4 大类 skill 来源（项目本地 / marketplace 插件 / 外部 plugin-dev / 通用方法学）；§5.3 选用原则按稳定性 + 域适配优先级重排；line 357 / 703 修正 `v4.0.0 起` 前瞻表述为当前状态。依据：v4.0.0 (PR #72/#73) NotebookLM_Kit 退役 + learn-kit v1.0.0 落地后 marketplace 工作流稳态化。
 - **v1.0**（2026-05-11）：初版。剥离 mj-system HITL STANDARD 中 DB / n8n / ETL / FastAPI / Flyway / pg_cron / 双域架构等 marketplace 不适用内容；保留 HITL 哲学骨架；嵌入 marketplace 实际 11 阶段；引入 Hybrid Skill 矩阵（plugin-dev + skill-creator + superpowers + marketplace self-hosted）；与现有 docs/CONTRIBUTING + GUIDE_* + RUNBOOK_* + ADR_* 引用关系明确化。依据：v3.0.0 generic restructure（PR #61 + #62）+ v3.1.0 learn-kit discovery skills（PR #63 + #64）两轮实战经验。

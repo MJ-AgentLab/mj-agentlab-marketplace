@@ -14,6 +14,16 @@
   - 删除 6 个空 placeholder subdir `docs/archive/{adr,guide,postmortem,rule,runbook,spec}/.gitkeep`（归档机制自 v4.4.0 引入以来 0 件实际归档，无 migration 成本）；保留 `docs/archive/.gitkeep` 占位
   - `docs/INDEX.md` line 11 Framework v1.3 → v1.4；line 31 RUNBOOK last-verified + 描述同步；line 55 archive 概述描述同步 flat
 
+- **HITL Prompt STANDARD 接入 archive 机制为 HITL 维度**（PR-B）—— `[STANDARD]_AI_Engineering_Execution_HITL_Prompt` v1.2 → v1.3 + `[GUIDE]_Marketplace_Agent_Execution_Checklist` v1.1 → v1.3 bundle 同步。配套 PR-A flat archive layout。具体改动：
+  - **STANDARD §3.1** 新增 HITL trigger bullet：涉及 doc archive 触发（§2.3.1 四触发器之一）必须暂停按 RUNBOOK 4-phase 走，不得 PR 中混入隐式归档
+  - **STANDARD §4.2** Repo Scan Rules 从 8 维扩到 9 维，新增 item 9 `docs/archive/` 一致性盘点（active 应归档未归档检查 + INDEX archive 表行 vs 实际文件数）
+  - **STANDARD §4.4** ADR Prompt Rules 新增 supersede check 判断：本 ADR 是否取代既有 active doc → 识别被取代 doc + 触发器编号 + ADR References 填 `supersedes:` + archive 单独 ceremony
+  - **STANDARD §4.8** Self-review item 12 (v1.2 新增 / v1.3 扩展)：扩展为含 archive POST-condition 审计（`/mp-doc-validate` 6 检覆盖）
+  - **STANDARD §5.2** 增 Archive-specific note：把 `/mp-doc-validate` 标注为 archive 审计入口
+  - **STANDARD frontmatter** v1.2 → v1.3 + updated；§8 history 加 v1.3 entry
+  - **GUIDE bundle** v1.1 → v1.3：line 21 pairs with v1.3；Stage 1 Verification 从 8 维 → 9 维 + 加 archive inventory 勾；Stage 7 Verification 从 11 项 → 12 项（v1.2 漏同步的 item 12 补齐 + v1.3 扩展为含 archive POST-condition）；§5 history 加 v1.2 (补同步) + v1.3 双条目
+  - **`docs/INDEX.md`** line 14 STANDARD version v1.2 → v1.3 + description 同步
+
 ## [4.4.11] - 2026-05-15
 
 ### Added
