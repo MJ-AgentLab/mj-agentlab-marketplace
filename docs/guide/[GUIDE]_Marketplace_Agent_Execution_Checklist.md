@@ -265,6 +265,7 @@ related:
 - 不 stage PR_BODY.md / 临时文件 / 个人配置
 - commit message: `<type>(<scope>): <summary>` + multi-line body 解释 why
 - Co-Authored-By 行加在 commit message 尾（如 AI 协作）
+- **Push 前必跑 `scripts/validate-commits.sh`**（或 `.ps1`）— 验证全 batch commit subjects 通过 PATTERN；FAIL 必须 amend / rebase 修复后才 push
 - Push: `git push -u origin <branch>`
 - PR：`gh pr create --base develop --head <branch> --title "..." --body-file PR_BODY.md`
 - PR_BODY.md 临时文件 push 后 `rm`（不 commit）
@@ -273,6 +274,7 @@ related:
 **Verification**：
 - [ ] commit 拆分合理（按 logical group）
 - [ ] commit message 符合规范
+- [ ] **`scripts/validate-commits.sh origin/<base>..HEAD` 返回 0 failures**（详见 `[STANDARD]_Commit_Message_Convention` §11.5）
 - [ ] 无 secret / 大文件 / 临时调试文件被 stage
 - [ ] PR 创建成功（拿到 PR URL）
 - [ ] PR_BODY.md 临时文件已删除
