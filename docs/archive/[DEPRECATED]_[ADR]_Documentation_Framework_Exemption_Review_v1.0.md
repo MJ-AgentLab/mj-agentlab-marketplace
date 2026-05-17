@@ -4,18 +4,22 @@ scope: marketplace
 summary: Re-examine §1 exemptions of Documentation Framework v1.2; decide to keep both
 owner: marketplace-maintainers
 created: 2026-05-15
-updated: 2026-05-15
-state: active
+updated: 2026-05-18
+state: archived
 version: v1.0
+archived: 2026-05-18
+replaced-by: ../adr/[ADR]_Documentation_Framework_Exemption_Reversal.md
 domain: governance
 related:
   - ../rule/[STANDARD]_Documentation_Framework.md
-  - ./[ADR]_NotebookLM_Kit_Retirement.md
-  - ../ai_engineering_execution_hitl_workflow.md
-  - ../../plugins/learn-kit/docs/INDEX.md
+  - ../adr/[ADR]_NotebookLM_Kit_Retirement.md
 ---
 
 # [ADR] Documentation Framework §1 Exemption Review
+
+> **Archived**: This doc is `state: archived` (frozen at v1.0). Superseded by [Documentation Framework Exemption Reversal](../adr/[ADR]_Documentation_Framework_Exemption_Reversal.md) (v1.0).
+> **Archive reason**: Decision reversed by user-directed cancellation of v1.1 §1 exemption mechanism; framework bumped v1.4 → v1.5 (scope-redefining rename per Archive Trigger #4).
+> **Archived on**: 2026-05-18. Content frozen — do not modify except for typo corrections.
 
 | Field | Value |
 |-------|-------|
