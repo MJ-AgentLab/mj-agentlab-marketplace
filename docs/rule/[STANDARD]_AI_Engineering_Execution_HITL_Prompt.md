@@ -1,12 +1,12 @@
 ---
 type: standard
 scope: marketplace
-summary: AI 工程执行 HITL Prompt — 11 阶段闭环 + skill 矩阵 + HITL 触发规则
+summary: AI 工程执行 HITL Prompt — 11 阶段闭环 + skill 矩阵 + HITL 触发规则 + §0 universal skeleton 内化
 owner: marketplace-maintainers
 created: 2026-05-11
-updated: 2026-05-17
+updated: 2026-05-18
 state: active
-version: v1.3
+version: v1.4
 domain: governance
 tags:
   - hitl
@@ -17,42 +17,105 @@ related:
   - ./[STANDARD]_Documentation_Framework.md
   - ./[STANDARD]_Commit_Message_Convention.md
   - ../guide/[GUIDE]_Marketplace_Agent_Execution_Checklist.md
-  - ../ai_engineering_execution_hitl_workflow.md
+revision: |
+  2026-05-18 — v1.4: §0 重写为 Universal Skeleton & Compression Heritage（浓缩自被删除的 generic HITL 工作流单文件）；移除所有 cross-project 引用以满足 marketplace 文档体系独立性原则（Framework v1.5）；§1 opening 改述 + 删除原 17 阶段对照表（mapping 已迁 §0.2）；§4.8 删除外部 STANDARD 对照说明
+  2026-05-17 — v1.3: Archive HITL Integration（配合 Framework v1.4 flat archive layout + RUNBOOK v1.1）
+  2026-05-15 — v1.2: Doc Framework Integration（§4.8 self-review item 12）
+  2026-05-15 — v1.1: HITL Skill Integration（marketplace 项目本地 18 件 mp-* skill）
+  2026-05-11 — v1.0: 初版
 ---
 
 # [STANDARD] AI Engineering Execution HITL Prompt — MJ AgentLab Marketplace
 
-> **Scope**: mj-agentlab-marketplace 仓库（不含 mj-system / mj-agent / 任何下游消费者）。
+> **Scope**: mj-agentlab-marketplace 仓库（不含任何外部项目或下游消费者）。
 > **Audience**: Marketplace 维护者 / 插件贡献者 / Claude Code agent。
 
 ---
 
-## §0 适用范围 与 mj-system 同名 STANDARD 的关系
+## §0 Universal Skeleton & Compression Heritage
+
+> 本 §0 浓缩自 marketplace 历史上的 `docs/ai_engineering_execution_hitl_workflow.md`（marketplace v4.4.x 之前作为 Framework §1 豁免单文件存在；v4.5.0 起删除，关键内容内化到本 §0 + §0.1-§0.4）。Marketplace HITL standard 完全独立维护，不再担任任何外部项目的 fork-source；marketplace 文档体系不引用 / 不依赖任何外部仓库。
+
+### §0.1 Universal Stage Skeleton (heritage)
+
+工程闭环的通用阶段集合（19 步骤；保留作为历史 / 认知锚点。Marketplace 实际执行用 §1 的 11 阶段压缩版）:
+
+```text
+0.  Intake：明确任务目标、范围、验收标准、风险等级
+1.  Create Issue：把问题、目标、范围、验收标准、风险、关联 plan 写清楚
+2.  Create Branch：从最新目标分支创建，并和 issue 关联
+3.  Repo Scan：检查当前代码、文档、测试、依赖、配置、CI、历史实现
+4.  Plan Review：基于实际项目情况修订 plan
+5.  HITL Gate 1：plan 进入 spec 阶段的人工确认
+6.  Spec Drafting：根据 plan 编写 spec
+7.  Spec Review：基于代码现状 / 边界 / 测试策略 review spec
+8.  HITL Gate 2：spec 进入实现阶段的人工确认
+9.  Implementation：根据 spec 编码（小步提交）
+10. Local Verification：测试 / lint / typecheck / build / 安全检查
+11. Self-review：AI 自查 diff / 需求覆盖 / 潜在风险 / spec 偏离
+12. HITL Gate 3：高风险变更提交前的人工确认
+13. Commit：commit message 关联 issue / 任务
+14. Push：推送分支
+15. PR：链接 issue / 说明改动 / 测试结果 / 风险 / 回滚
+16. Review & CI：处理 review comments + CI failures
+17. Merge Gate：confirm review + CI + risk + release strategy 都满足后 merge
+18. Post-merge：验证 / 监控 / 清理 branch / 关闭 issue / 复盘
+```
+
+### §0.2 Marketplace Compression Mapping
+
+Marketplace 把 universal 19 阶段压缩为本仓实际使用的 11 阶段（§1 详述）。压缩对应关系:
+
+| Marketplace Stage | Universal Stages | 压缩原因 |
+|-------------------|------------------|---------|
+| 0 Intake | 0 Intake + 1 Create Issue | marketplace Issue 较少（小仓），合并 |
+| 1 Repo Scan | 3 Repo Scan | 直接对应；fact-check 矩阵 marketplace-specific |
+| 2 Plan | 4 Plan Review + 5 HITL Gate 1 | 合并；HITL gate 隐含于 plan 完成判定 |
+| 3 Design Decision (ADR) | 6 Spec Drafting + 7 Spec Review + 8 HITL Gate 2 | marketplace 用 ADR 替代 Spec；HITL gate 隐含 |
+| 4 Plugin/Skill Authoring | 9 Implementation | marketplace-specific naming |
+| 5 Plugin Compliance | 10 Local Verification (部分) | 合规审 + 工具特化 |
+| 6 Local Dogfood | 10 Local Verification (部分) | 真实场景跑通 |
+| 7 AI Self-review | 11 Self-review + 12 HITL Gate 3 | 双段 self-review；HITL 隐含 |
+| 8 Commit / Push / PR | 13 + 14 + 15 | 合并；marketplace git skill 链 |
+| 9 Review → Merge → Release | 16 Review & CI + 17 Merge Gate | 合并；含 release.yml 自动化 |
+| 10 Post-merge Cleanup | 18 Post-merge | 直接对应；简化 |
+| (隐含于各阶段) | 2 Create Branch | branch 在 worktree workflow 中自动；不单列 |
+
+**压缩策略**: 不删核心步骤，只合并 marketplace 实际不需要单列的阶段（如 HITL gates 隐含于各阶段尾段，branch 创建隐含于 worktree workflow）。
+
+### §0.3 何时启动新的 specialized HITL 子流程（marketplace 内部参考）
+
+Marketplace 当前 11 阶段流程稳定。若未来出现以下情况，考虑在本 STANDARD 内新增 stage-specific 章节（不 fork 出独立 STANDARD）:
+
+- 新增 plugin 类别需要独特的 dogfood 路径（如 MCP server plugin、agent-only plugin）
+- marketplace governance 范围扩展（如纳入跨 organization plugin store 同步）
+- 出现 stage 序列需要重排的场景（如某类工作必须先 ADR 再 Plan）
+
+任何新章节必须保留 marketplace 独立性原则（不引用外部项目）+ HITL 哲学（low/med/high risk + 必停 trigger 集）。
+
+### §0.4 Scope
 
 本 STANDARD 规范 mj-agentlab-marketplace 仓库内 AI Agent 从任务准入到合并发布的完整闭环，并明确何时需要 HITL（Human-in-the-Loop）确认。
 
-**核心原则**：AI 自主推进低风险、可逆、符合既有 plugin spec 与 marketplace 治理资产的事项；凡涉及 plugin 删除 / 重命名 / 主版本 bump / CI workflow / 公共 plugin API / 发布动作的事项，必须暂停并请求人工确认。
+**核心原则**: AI 自主推进低风险、可逆、符合既有 plugin spec 与 marketplace 治理资产的事项；凡涉及 plugin 删除 / 重命名 / 主版本 bump / CI workflow / 公共 plugin API / 发布动作的事项，必须暂停并请求人工确认。
 
-**与 mj-system `[STANDARD]_AI_Engineering_Execution_HITL_Prompt` 的关系**：本 STANDARD 与 mj-system 同名文档是「同款骨架，不同细节」。mj-system 服务的是数据处理与服务架构系统（DB / n8n / ETL / FastAPI / Flyway），marketplace 服务的是 Claude Code 插件市场，业务实体完全不同。**两者共享 HITL 哲学（low/med/high risk 分级）+ Plan→Design→Implement→Verify→Self-review→PR→Merge→Post-merge 流程框架，但具体阶段集 / Reference Docs / Skill 矩阵 / Rules 各自独立维护**。两者不强同步。
-
-**适用边界**：本 STANDARD 不约束：
-- mj-system / mj-agent 等下游消费者的项目内部流程
+**适用边界**: 本 STANDARD 不约束：
 - 用户全局 `~/.claude/settings.json` 启用配置
 - 外部 plugin 上游仓库（如 `ranzuozhou/my-marketplace`）
 
-**Working-doc 边界**：marketplace **不维护** `plans/` 目录（与 mj-system 不同）。任务过程中的 working plan 写在用户本地（`~/.claude/plans/`）或嵌入 PR description，不进 marketplace repo。
+**Working-doc 边界**: marketplace **不维护** `plans/` 目录。任务过程中的 working plan 写在用户本地（`~/.claude/plans/`）或嵌入 PR description，不进 marketplace repo。
 
 ---
 
 ## §1 总体流程
 
-mj-agentlab-marketplace 把 mj-system 的 17 阶段压缩为 marketplace 实际使用的 11 阶段：
+marketplace 把 universal 19 阶段（§0.1）压缩为本仓实际使用的 11 阶段（压缩对应表见 §0.2）:
 
 ```text
 0.  Intake：任务准入评估（risk-level / scope / 文档需求）
 1.  Repo Scan：marketplace 事实核查（marketplace.json / plugin.json / SKILL.md / CI rules / VERSION）
 2.  Plan：执行计划（落 ~/.claude/plans/ 或工作环境临时位置；marketplace 不维护 plans/ 目录）
-3.  Design Decision (ADR)：架构 / 命名 / 重命名 / 拆分等决策（合并 mj-system Stage 6 SPEC/ADR/RUNBOOK 为单一 ADR）
+3.  Design Decision (ADR)：架构 / 命名 / 重命名 / 拆分等决策（marketplace 主用 ADR 承载，必要时新增 SPEC / RUNBOOK）
 4.  Plugin / Skill Authoring：用 /plugin-dev:create-plugin + /skill-creator:skill-creator 创建 / 改造
 5.  Plugin Compliance：/plugin-dev:plugin-validator + /plugin-dev:skill-reviewer 双重审
 6.  Local Dogfood / Verification：plugin install 验证 + read-only 算法模拟真实场景跑通
@@ -62,24 +125,7 @@ mj-agentlab-marketplace 把 mj-system 的 17 阶段压缩为 marketplace 实际�
 10. Post-merge Cleanup：worktree remove + branch delete + tag verify
 ```
 
-**与 mj-system 17 阶段对应表**：
-
-| Marketplace 阶段 | mj-system 阶段 | 备注 |
-|-----------------|---------------|------|
-| 0 Intake | 0 Intake + 1 Issue Draft | 合并；marketplace Issue 较少（小仓） |
-| 1 Repo Scan | 3 Repo Scan | fact-check 矩阵不同 |
-| 2 Plan | 4 Plan | 同 |
-| 3 Design Decision (ADR) | 6 SPEC/ADR/RUNBOOK | 合并；marketplace 主用 ADR |
-| 4 Plugin/Skill Authoring | 8 Implementation | 改写：skill 工具链不同 |
-| 5 Plugin Compliance | 10 Local Verification（部分） | 工具特化 |
-| 6 Local Dogfood | 10 Local Verification（部分） | 真实跑通 |
-| 7 AI Self-review | 11 Self-review | 同框架，5a-5d 重定义 |
-| 8 Commit/Push/PR | 12+13+14 | 合并 |
-| 9 Review→Merge→Release | 15+16+17（部分） | 合并；含 release.yml 自动化 |
-| 10 Post-merge Cleanup | 17 Post-merge（部分） | 简化 |
-| — | 2 Branch/Worktree | 隐含于 plan workflow，不单列 |
-| — | 5/7 HITL Gates | 隐含于各阶段尾段 |
-| — | 9 Scope Drift | 合并入 Implementation Rules |
+> Universal → marketplace 11 阶段压缩对应详见 §0.2。
 
 ---
 
@@ -203,7 +249,7 @@ Fallback:
 - 是否必须等待人工确认：是 / 否
 ```
 
-每次最多提出 3-5 个关键问题（参考 mj-system §3.3 提问格式；上述 7 字段对应 Goal / Problem / Solutions / Context / Self-suggestion / Default / Stop-or-not）。
+每次最多提出 3-5 个关键问题。上述 7 字段对应 Goal / Problem / Solutions / Context / Self-suggestion / Default / Stop-or-not。
 
 ---
 
@@ -338,7 +384,7 @@ Plan 写入位置（按使用环境）：
 - 用户本地工作环境：`~/.claude/plans/<topic>.md`
 - 协作环境：在 PR description 中嵌入压缩版 plan
 
-marketplace **不维护** `plans/` 目录（与 mj-system 不同）；working plan 在用户本地。
+marketplace **不维护** `plans/` 目录；working plan 在用户本地。
 
 Plan 只写：怎么推进 / 步骤顺序 / 风险控制 / 文档决策 / 验证计划 / 完成标准。
 Plan 不写：详细 plugin 接口契约 / 完整实现代码。
@@ -522,7 +568,7 @@ Fallback:
 ## Skill Hint
 
 Preferred Skill:
-- `/mp-flow-dogfood` — marketplace 项目本地 Track C skill；负责验证矩阵设计 + sample project 选择（mj-system / mj-agent / blank / self） + read-only 算法模拟 + 真实 plugin install (side-effect skill) + Pass Rate / Performance Baseline 输出
+- `/mp-flow-dogfood` — marketplace 项目本地 Track C skill；负责验证矩阵设计 + sample project 选择（外部样本项目 / blank / self） + read-only 算法模拟 + 真实 plugin install (side-effect skill) + Pass Rate / Performance Baseline 输出
 
 Use When:
 - Stage 5 compliance PASS 后（典型自动触发）
@@ -534,10 +580,10 @@ Fallback:
 
 ## Rules
 
-1. **read-only 算法模拟**（首选）：对纯查询 / 枚举类 skill，用 Glob + Grep + Read 在真实项目（如 mj-system / mj-agent / 外部样本项目）跑通 skill 的内部步骤
+1. **read-only 算法模拟**（首选）：对纯查询 / 枚举类 skill，用 Glob + Grep + Read 在外部样本项目跑通 skill 的内部步骤
 2. **真实 plugin install 验证**：对涉及副作用或 0% 信任的 skill 必须做（`/plugin install <plugin>@mj-agentlab-marketplace --scope local`）
 3. **disable-model-invocation skill** 必须手工 `/<plugin>:<skill>` 调用一次
-4. **跨项目 dogfood**：marketplace 通用 skill 应在 ≥ 2 个外部项目跑通至少 1 个测试 case（v3.1.0 dogfood 用 mj-system + mj-agent；blank-project 场景作为 confidence-< 0.7 warning 路径模拟验证）
+4. **跨项目 dogfood**：marketplace 通用 skill 应在 ≥ 2 个外部样本项目跑通至少 1 个测试 case；blank-project 场景作为 confidence < 0.7 warning 路径模拟验证
 5. 关键测试失败且原因不明时必须 HITL
 
 ## Output
@@ -594,7 +640,7 @@ Fallback:
 
 发现 secret / 无关改动 / 关键测试失败 / 中高风险残留时必须 HITL。
 
-**Output 必须按 marketplace 双段拆分**（与 mj-system v5.2 §4.7 同名设计，但本 STANDARD 独立维护，不强同步上游版本号）：
+**Output 必须按 marketplace 双段拆分**:
 - 「**本地验证**」（人类客观可重复检查）— git status / git diff / 文件版本号 / ls / 命令输出等
 - 「**AI 自检**」（AI 生成内容可信度自查）— 上述 12 项逐条勾选 + 理由
 
@@ -873,10 +919,11 @@ HITL           是风险与决策边界。
 
 ## §8 版本历史
 
+- **v1.4**（2026-05-18）：**Independence + Universal Skeleton §0**. (1) §0 重写：移除原 cross-project relationship 段落（marketplace 完全独立原则）；新增 §0.1 Universal Stage Skeleton（19 步骤 0-18）+ §0.2 Marketplace Compression Mapping（universal → 11 阶段）+ §0.3 何时启动 specialized HITL 子流程 + §0.4 Scope（原 §0 实质内容迁移，去除 cross-project 段）。(2) §0 内容浓缩自被删除的 `docs/ai_engineering_execution_hitl_workflow.md`（Framework v1.4 §1 last-cycle exempt single-file；v4.5.0 删除以保证 marketplace 文档体系完全独立）。(3) §1 opening 改为引用 §0.2，删除原 17 阶段对照表（mapping 已迁 §0.2 + 用 universal 19 阶段口径替代）。(4) §4.8 删除外部 STANDARD 对照说明（双段设计现描述为 marketplace-native）。(5) Scope 行去除具体外部项目名。前置依赖：Framework v1.4 → v1.5 取消 §1 单文件 + 教学系列豁免（同 PR batch）。
 - **v1.3**（2026-05-17）：**Archive HITL Integration**. 配合 Documentation Framework v1.4 §2.3.5 flat archive layout + `[RUNBOOK]_Doc_Archive_Procedure` v1.1（PR #99 v4.4.x）—— archive 接入 HITL 哲学层 5 处：§3.1 新增 doc archive 触发器作为必停项；§4.2 Repo Scan 9 维（新增 archive inventory 盘点）；§4.4 ADR Rules 新增 supersede check 判断（路径形态遵循 flat layout）；§4.8 Self-review item 12 扩展为含 archive POST-condition 审计（`/mp-doc-validate` 6 检覆盖）；§5.2 增 Archive-specific note 把 `/mp-doc-validate` 标注为 archive 审计入口。不改 11 阶段骨架 / Prompt 5 段结构 / Skill 矩阵；STANDARD 物理路径稳定。依据：v4.4.x archive 机制 4 层（Framework / RUNBOOK / `docs/archive/` 物理 flat / `mp-doc-validate` 6 检）落地后需要 HITL 哲学层对应钩子。
 - **v1.2**（2026-05-15）：**Doc Framework Integration**。配合 marketplace 文档框架 v1.0 落地（PR #75 v4.2.0），新增 §4.8 Self-review **item 12**: 新建 / 修改 `docs/**/*.md` 必须遵循 `[STANDARD]_Documentation_Framework` frontmatter 约束 + 路径规则；豁免列表明确（INDEX / CONTRIBUTING / MIGRATION_GUIDE / README / CHANGELOG / plugin CLAUDE.md / SKILL.md）；checklist 总数从 11 项升到 12 项。
 - **v1.1**（2026-05-15）：**HITL Skill Integration**。新建 `.claude/skills/` 18 件 marketplace 项目本地 Track C skill 覆盖 flow + git + doc 三 family（9 flow / 6 git / 3 doc）；refactor §4.1-§4.11 每阶段 Skill Hint 段指向新 `mp-*` skill，外部 plugin-dev / skill-creator skill 转为 Augment / Fallback；§5.1 矩阵填全 11 阶段 Preferred Skill；§5.2 重整为 4 大类 skill 来源（项目本地 / marketplace 插件 / 外部 plugin-dev / 通用方法学）；§5.3 选用原则按稳定性 + 域适配优先级重排；line 357 / 703 修正 `v4.0.0 起` 前瞻表述为当前状态。依据：v4.0.0 (PR #72/#73) NotebookLM_Kit 退役 + learn-kit v1.0.0 落地后 marketplace 工作流稳态化。
-- **v1.0**（2026-05-11）：初版。剥离 mj-system HITL STANDARD 中 DB / n8n / ETL / FastAPI / Flyway / pg_cron / 双域架构等 marketplace 不适用内容；保留 HITL 哲学骨架；嵌入 marketplace 实际 11 阶段；引入 Hybrid Skill 矩阵（plugin-dev + skill-creator + superpowers + marketplace self-hosted）；与现有 docs/CONTRIBUTING + GUIDE_* + RUNBOOK_* + ADR_* 引用关系明确化。依据：v3.0.0 generic restructure（PR #61 + #62）+ v3.1.0 learn-kit discovery skills（PR #63 + #64）两轮实战经验。
+- **v1.0**（2026-05-11）：初版。剥离原 generic HITL workflow 文档中 DB / n8n / ETL / FastAPI / Flyway / pg_cron / 双域架构等 marketplace 不适用内容；保留 HITL 哲学骨架；嵌入 marketplace 实际 11 阶段；引入 Hybrid Skill 矩阵（plugin-dev + skill-creator + superpowers + marketplace self-hosted）；与现有 docs/CONTRIBUTING + GUIDE_* + RUNBOOK_* + ADR_* 引用关系明确化。依据：v3.0.0 generic restructure（PR #61 + #62）+ v3.1.0 learn-kit discovery skills（PR #63 + #64）两轮实战经验。
 
 ---
 
