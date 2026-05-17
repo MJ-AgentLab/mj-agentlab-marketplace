@@ -1,6 +1,6 @@
 ---
 name: mp-doc-validate
-description: Validates marketplace documentation compliance against Documentation Framework v1.2+ — checks (1) every `docs/**/*.md` and `plugins/<name>/docs/**/*.md` with a `[TAG]` prefix has the required 8-field frontmatter (type / scope / summary / owner / created / updated / state / version), the `type` enum matches `[TAG]`, the file lives in the right subdirectory, paths in `related:` resolve, wikilinks resolve, INDEX.md lists the doc, and `[RUNBOOK]_*.md` has `last-verified` field; AND (2) v1.2+ **archive compliance**: every `state: archived` file lives under `docs/archive/<subtype>/[DEPRECATED]_<TAG>_<Topic>_v<major>.<minor>.md`, has mandatory `archived:` ISO date + `replaced-by:` path, body starts with the canonical Archive Banner, and the `replaced-by:` ↔ `supersedes:` bidirectional pair is intact. Make sure to use this skill whenever the user says "validate docs", "doc compliance", "frontmatter check", "docs audit", "docs/ check", "marketplace doc validate", "doc validate", "Stage 7 docs audit", "archive validation", "archive compliance", or before committing changes that touched any `docs/**` or `plugins/<name>/docs/**` file (including any change under `docs/archive/`). Heuristic-only; does not modify files. Outputs report: Critical (frontmatter missing / wrong type / orphan in INDEX / archive banner missing / broken supersedes-replaced-by / broken `related:` path) / Warning (RUNBOOK last-verified stale / broken wikilink / empty `replaced-by` for pure retirement) / Verified. v4.4.5 hardens Step 3 (INDEX regex tightened to strict basename pattern; eliminates cross-reference false positives) and Step 5 (real `realpath -m` resolution replaces placeholder code; promotes broken `related:` from Warning to Critical). v1.3 framework adds Step 2.7 (exempt-file frontmatter discipline): warns on legacy non-canonical keys (`title / purpose / audience` / `related: |` literal-block-scalar) on §1-exempt files (`docs/ai_engineering_execution_hitl_workflow.md` + plugin-internal teaching series `plugins/<name>/docs/<plugin>-*.md`); does NOT promote to Critical because exempt files remain outside the required-field critical path. Skill itself is not in scope (those use Claude Code plugin spec native frontmatter, validated by `/plugin-dev:skill-reviewer`). Do not use for: SKILL.md validation (use /plugin-dev:skill-reviewer agent), plugin compliance (use mp-flow-compliance, Stage 5), or test of doc content quality (subjective; outside scope).
+description: Validates marketplace documentation compliance against Documentation Framework v1.2+ — checks (1) every `docs/**/*.md` and `plugins/<name>/docs/**/*.md` with a `[TAG]` prefix has the required 8-field frontmatter (type / scope / summary / owner / created / updated / state / version), the `type` enum matches `[TAG]`, the file lives in the right subdirectory, paths in `related:` resolve, wikilinks resolve, INDEX.md lists the doc, and `[RUNBOOK]_*.md` has `last-verified` field; AND (2) v1.2+ **archive compliance**: every `state: archived` file lives under `docs/archive/[DEPRECATED]_<TAG>_<Topic>_v<major>.<minor>.md` (flat — no subtype subdir per Framework v1.4 §2.3.5), has mandatory `archived:` ISO date + `replaced-by:` path, body starts with the canonical Archive Banner, and the `replaced-by:` ↔ `supersedes:` bidirectional pair is intact. Make sure to use this skill whenever the user says "validate docs", "doc compliance", "frontmatter check", "docs audit", "docs/ check", "marketplace doc validate", "doc validate", "Stage 7 docs audit", "archive validation", "archive compliance", or before committing changes that touched any `docs/**` or `plugins/<name>/docs/**` file (including any change under `docs/archive/`). Heuristic-only; does not modify files. Outputs report: Critical (frontmatter missing / wrong type / orphan in INDEX / archive banner missing / broken supersedes-replaced-by / broken `related:` path) / Warning (RUNBOOK last-verified stale / broken wikilink / empty `replaced-by` for pure retirement) / Verified. v4.4.5 hardens Step 3 (INDEX regex tightened to strict basename pattern; eliminates cross-reference false positives) and Step 5 (real `realpath -m` resolution replaces placeholder code; promotes broken `related:` from Warning to Critical). v1.3 framework adds Step 2.7 (exempt-file frontmatter discipline): warns on legacy non-canonical keys (`title / purpose / audience` / `related: |` literal-block-scalar) on §1-exempt files (`docs/ai_engineering_execution_hitl_workflow.md` + plugin-internal teaching series `plugins/<name>/docs/<plugin>-*.md`); does NOT promote to Critical because exempt files remain outside the required-field critical path. Skill itself is not in scope (those use Claude Code plugin spec native frontmatter, validated by `/plugin-dev:skill-reviewer`). Do not use for: SKILL.md validation (use /plugin-dev:skill-reviewer agent), plugin compliance (use mp-flow-compliance, Stage 5), or test of doc content quality (subjective; outside scope).
 ---
 
 # Marketplace Doc Validate
@@ -161,7 +161,7 @@ done
 
 ## Step 2.5: Per-doc Archived Checks (6 checks, v1.2+)
 
-For each file under `docs/archive/<subtype>/` (state: archived):
+For each file under `docs/archive/` (state: archived; flat layout per Framework v1.4 §2.3.5):
 
 ### Check 8: Archived Filename Pattern
 
@@ -336,9 +336,9 @@ Marketplace 顶层 INDEX 不需镜像 plugin-internal docs（plugin 自己的 do
 ### Results — Archived Docs (v1.2+)
 | File | Severity | Issue |
 |---|---|---|
-| docs/archive/rule/[DEPRECATED]_[STANDARD]_X_v1.0.md | Critical | missing Archive Banner |
-| docs/archive/adr/[DEPRECATED]_[ADR]_Y_v1.0.md | Critical | bidirectional break — successor does not list this in supersedes |
-| docs/archive/spec/[DEPRECATED]_[SPEC]_Z_v1.0.md | Verified | — |
+| docs/archive/[DEPRECATED]_[STANDARD]_X_v1.0.md | Critical | missing Archive Banner |
+| docs/archive/[DEPRECATED]_[ADR]_Y_v1.0.md | Critical | bidirectional break — successor does not list this in supersedes |
+| docs/archive/[DEPRECATED]_[SPEC]_Z_v1.0.md | Verified | — |
 | ... |
 
 ### Summary
@@ -348,7 +348,7 @@ Marketplace 顶层 INDEX 不需镜像 plugin-internal docs（plugin 自己的 do
 
 ### Recommended Fixes
 1. `docs/rule/[STANDARD]_X.md`: add frontmatter (see template `docs/_templates/TEMPLATE_STANDARD.md`)
-2. `docs/archive/rule/[DEPRECATED]_*_v1.0.md`: add Archive Banner per [RUNBOOK]_Doc_Archive_Procedure §3
+2. `docs/archive/[DEPRECATED]_*_v1.0.md`: add Archive Banner per [RUNBOOK]_Doc_Archive_Procedure §3
 3. ...
 
 ### Next Step
