@@ -214,9 +214,22 @@ Before pushing, run `git log --oneline -5` and inspect:
 
 `/mp-git-commit` (Stage 8) enforces format at commit time. If a commit slips through, `/mp-flow-self-review` (Stage 7) catches it pre-push.
 
-### §9.3 Future CI Gates
+### §9.3 CI Gates (current)
 
-v1.1 added standalone batch validator: `scripts/validate-commits.{sh,ps1}` (callable from CLI, mp-* skills, and pre-push hook). v1.2+ may add a `.github/workflows/comment-on-pr.yml` bot that posts per-commit failure details as PR comments (deferred — see P2 in v1.1 post-mortem). Current CI (`.github/workflows/ci.yml` `Validate Structure` job) already enforces PATTERN on every PR.
+The complete commit-validation stack as of v1.1+ (commit-validation tooling hardening + P2 CI feedback):
+
+| Layer | Trigger | What it does |
+|-------|---------|--------------|
+| Local `commit-msg` git hook | Each `git commit` | Inline PATTERN check; blocks bad commit at commit-time |
+| Local `pre-push` git hook | Each `git push` | Delegates to `scripts/validate-commits.sh`; catches amend / cherry-pick / rebase slips |
+| `scripts/validate-commits.{sh,ps1}` | CLI / skills / hooks | Single source of validation logic + suggest-fix output |
+| `/mp-git-commit` Step 8 | After each skill commit | Auto-runs validator on `HEAD~N..HEAD` |
+| `/mp-git-push` checklist item 8 | Before each skill push | BLOCK on FAIL regardless of hook install state |
+| `/mp-flow-self-review` item 8 | Pre-PR self-review | Mandates running validator + pasting output to «本地验证» |
+| `.github/workflows/ci.yml` Validate Structure job | On PR + push | Delegates to `scripts/validate-commits.sh` (same suggest-fix output) |
+| `.github/workflows/comment-on-pr.yml` | After CI completes on PR | Posts/updates sticky PR comment with per-commit FAIL details + how-to-fix |
+
+All 8 layers use the same PATTERN definition (3 sites: validate-commits.sh + install-hooks.ps1 commit-msg hook + STANDARD §3+§4). Future v1.2+ candidate: collapse to single-source (e.g., commit-msg hook reads PATTERN from a config file or generates from the script).
 
 ## §11 Common Mistakes (post-v4.5.0 lessons)
 
