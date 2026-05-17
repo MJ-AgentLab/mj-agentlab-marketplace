@@ -70,7 +70,7 @@ Locate linked artifacts:
 | 5 | 文档同步检查 (4 子项 5a/5b/5c/5d) | 见下 |
 | 6 | AC 都有验证证据 (指向 Stage 6 dogfood) | AC 验证 |
 | 7 | 无应排除文件 (PR_BODY.md 临时 / IDE 缓存 / .env / *.key) | git diff filter |
-| 8 | commit message 符合 `<type>(<scope>): <summary>` | `[STANDARD]_Commit_Message_Convention` (post-PR 2) |
+| 8 | **(强制)** 跑 `sh scripts/validate-commits.sh origin/<base>..HEAD`；输出粘到「本地验证」段；0 failures 才放行 | `[STANDARD]_Commit_Message_Convention` §3 / §4 / §11 |
 | 9 | PR template 自检 6 项满足 | `.github/PULL_REQUEST_TEMPLATE/<type>.md` |
 | 10 | 是否触发 release.yml (`VERSION` 文件变更) → 是则必 HITL 确认发布意图 | §3.1 #10 |
 | 11 | 涉及 secret / 凭据 → 必停 | §3.1 #9 |
