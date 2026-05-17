@@ -5,6 +5,42 @@
 
 ## [Unreleased]
 
+## [4.5.0] - 2026-05-18
+
+### Changed
+
+- **Framework v1.4 → v1.5：取消 §1 豁免机制**（marketplace 独立性 + 文档体系名实相符）。§1 完全重写：删除 12 行 v1.1 单文件 + 教学系列模式豁免表 + 2 个 normative blockquote（v1.1 note + v1.3 normative clarification）；保留 5 类 community/external-spec exclusion（README / CHANGELOG / CLAUDE.md / SKILL.md / templates+references）由外部规范刚性约束不可绕过；新增 INDEX.md「保留名 + 强制 frontmatter」special clause；删除已退役 `plugins/notebooklm-kit/skills/nlm-shared/*.md` 残行；frontmatter 加 revision block；§5 加 v1.5 entry；清理 §2.1 / §2.3.1 / §4.3 / §5 v1.0/v1.2 中所有 cross-project 引用为中性术语
+- **HITL STANDARD v1.3 → v1.4：§0 重写 Universal Skeleton + 内化 generic HITL workflow**（marketplace 独立性配套）。§0 大改：替换原「适用范围 与 mj-system 同名 STANDARD 的关系」整段 → 新 §0「Universal Skeleton & Compression Heritage」含 §0.1 Universal 19-step Skeleton + §0.2 Marketplace Compression Mapping + §0.3 specialized 子流程指引 + §0.4 Scope（原 §0 实质内容迁移，去 cross-project 段）；§1 opening 改述 + 删除原 17 阶段对照表（mapping 迁 §0.2）；§4.8 line 597 删除外部 STANDARD 对照；§8 添加 v1.4 entry + 清理 v1.0 中 cross-project 引用；frontmatter v1.3 → v1.4 + 删 `related: ../ai_engineering_execution_hitl_workflow.md` + 加 revision block；§1 / §3.3 / §4.3 / §4.7 共 6 处 cross-project 引用清理
+- **`docs/CONTRIBUTING.md` rename → `docs/guide/[GUIDE]_Contributing.md`** + 加 8 字段 frontmatter + revision block；fix 4 处 `rule/` 相对路径为 `../rule/`；移除 cross-project 引用
+- **`docs/MIGRATION_GUIDE.md` rename → `docs/guide/[GUIDE]_Migration_From_v3_to_v4.md`** + 加 8 字段 frontmatter + revision block；§3.2 path mapping 更新 v4.5.0 各被改/删文件新去向；新增 §4「v4.4.x → v4.5.0」段记录本批次变更；fix §3.9 相对路径
+- **`docs/INDEX.md`** — 加 8 字段 frontmatter（Framework v1.5 §1 INDEX special clause）；Rules & Standards 表删除 ai_engineering_execution_hitl_workflow.md 行 + Framework/HITL 版本号同步；Guides 表加 [GUIDE]_Contributing + [GUIDE]_Migration_From_v3_to_v4；ADR 表 Exemption Review → Exemption Reversal + 旧 ADR 移到 Archived Documents 表；Plugin Documentation 段更新 learn-kit 1.1.0 → 1.2.0 + 教学系列 6 → 2 GUIDE；Suggested Reading Order 各段路径同步
+- **`plugins/learn-kit/docs/INDEX.md` v1.1 → v1.2** — 加 8 字段 frontmatter；§Guides 段填入 2 份合规 `[GUIDE]_*` 路径；删除原 §Plugin-Internal Teaching Series 段
+- **`plugins/learn-kit/README.md`** — 教学系列表 6 行 → 2 行；新增 4 个章节吸收原用户手册内容（中文 TL;DR / 5 分钟上手 / 真实使用案例 / 常见踩坑）；前置依赖段加 legacy plugin 卸载提示；演进历史段移除 cross-project 引用
+- **`plugins/learn-kit/CLAUDE.md`** — Documentation 段重写指向 2 份合卷；新增 §Advanced Tips
+- **`.claude/skills/mp-flow-intake/SKILL.md`** — Reference Files 段 + Rules 段更新 CONTRIBUTING 引用路径为新的 docs/guide/[GUIDE]_Contributing.md；删除对已删除 ai_engineering_execution_hitl_workflow.md 的 reference
+- **`.claude/skills/mp-doc-validate/SKILL.md`** — Step 1 豁免清单重写为 5 类 community/spec exclusion；Step 2.7 标记为 REMOVED（含 v1.5 cancellation 历史说明）；不再扫描 v1.1 教学系列 + v1.0 single-file 豁免
+- **`.claude-plugin/marketplace.json`** — `metadata.version` 4.4.11 → 4.5.0；metadata.description 同步 v4.5.0 changelog + 清理 cross-project 引用；`plugins[0].version` 1.1.0 → 1.2.0 + description 更新
+- **`VERSION`** — 4.4.11 → 4.5.0
+- **`plugins/learn-kit/.claude-plugin/plugin.json`** — version 1.1.0 → 1.2.0 + description 加 v1.2.0 changelog 摘要
+- **`plugins/learn-kit/CHANGELOG.md`** — 追加 1.2.0 entry
+
+### Added
+
+- **`docs/adr/[ADR]_Documentation_Framework_Exemption_Reversal.md`** v1.0 — 新建 marketplace-scope ADR 记录 v1.5 推翻 v1.1 豁免决策。结构：Status / Context（含 marketplace 独立性原则 + 实际依赖审计 + Framework v1.4 flat archive 基础设施已就绪）/ Decision（5 类 exclusion + INDEX special clause + 7 项 disposition）/ Alternatives Considered（4 declined options 含三层治理 v2.0 候选）/ Consequences（positive/negative/risks）/ Future Work（v2.0 / 三层治理 / POSTMORTEM tag / INDEX 自动化）/ References；`supersedes: ../archive/[DEPRECATED]_[ADR]_Documentation_Framework_Exemption_Review_v1.0.md`；含 revision block
+- **`plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_Pedagogy.md`** v1.0 — 教学合卷（~600 行）合并自 `learn-kit-01-positioning.md` (222) + `learn-kit-02-eight-stage-methodology.md` (269) + `learn-kit-03-rfc-2119-worked-example.md` (274)。涵盖 §1 Positioning（含 vs 6 种竞品对比 + N=5 跨域验证 + 8 项「何时不该用」）+ §2 8 阶段方法论（每阶段 5 元素）+ §3 RFC 2119 worked example（traffic light metaphor + 5 类 + 8 阶段映射 + 6 质量门 pass 验证）+ §4 Quality Gates + 8 跨阶段反模式速查
+- **`plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_Design.md`** v1.0 — 设计合卷（~600 行）合并自 `learn-kit-04-three-skills.md` (615) + `learn-kit-05-governance-boundary.md` (432)。涵盖 §1 5 skills 分工 + 闭环图 + 8 设计取舍亮点 + §2 共享 project_profile recognition + §3 5 dogfood findings + §4 Parallel subsystem 治理模型 + §5 命名/路径/Frontmatter/INDEX/归档 5 类规则 + §6 v1.0.0 依赖矩阵 + 版本演化策略 + 通用化取舍 + 治理判断速查表
+
+### Removed
+
+- **`docs/ai_engineering_execution_hitl_workflow.md`** — 删除 generic HITL philosophy fork-source 单文件。关键内容（universal 19-step skeleton + compression mapping + fork guidance）浓缩内化到 `[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md` §0.1-§0.4。Marketplace 不再担任任何外部项目的 fork-source（marketplace 独立性原则）
+- **`plugins/learn-kit/docs/learn-kit-{01..05}-*.md` + `learn-kit-使用手册.md`** — 6 lowercase teaching series 已合并/拆入 2 份 [GUIDE] + README + CLAUDE.md
+
+### Archived
+
+- **`docs/adr/[ADR]_Documentation_Framework_Exemption_Review.md` v1.0** → **`docs/archive/[DEPRECATED]_[ADR]_Documentation_Framework_Exemption_Review_v1.0.md`** — Trigger: §2.3.1 #4 (scope-redefining rename) — decision reversed by v1.5。Per RUNBOOK v1.1 4-phase + 2-HITL-gate ceremony：加 Archive Banner + `state: archived` + `archived: 2026-05-18` + `replaced-by: ../adr/[ADR]_Documentation_Framework_Exemption_Reversal.md`；INDEX `## Archived Documents` 表加新行
+
+## [Unreleased – prior]
+
 ### Changed
 
 - **文档归档区从 subtype subdir 镜像改为 flat layout**（PR-A）—— `docs/archive/<subtype>/` → `docs/archive/`；marketplace 顶层与 plugin 内部（`plugins/<plugin>/docs/archive/`）同规则；文件类型由 `[TAG]_` prefix 编码（per Framework v1.4 §2.3.5 NEW）。具体改动：

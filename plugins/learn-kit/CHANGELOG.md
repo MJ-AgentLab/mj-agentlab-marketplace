@@ -7,6 +7,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-05-18
+
+### Changed
+
+- **`plugins/learn-kit/docs/` 6 份 lowercase 教学系列合并为 2 份合规 `[GUIDE]_*.md`**（Framework v1.5 §1 取消 v1.1 教学系列模式豁免配套）:
+  - `learn-kit-01-positioning.md` + `learn-kit-02-eight-stage-methodology.md` + `learn-kit-03-rfc-2119-worked-example.md` → `plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_Pedagogy.md`（教学合卷：定位 + 8 阶段方法论 + RFC 2119 worked example + 6 类质量门 + 8 跨阶段反模式）
+  - `learn-kit-04-three-skills.md` + `learn-kit-05-governance-boundary.md` → `plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_Design.md`（设计合卷：5 skill 分工 + 闭环 + dogfood findings + parallel subsystem 治理模型 + frontmatter / INDEX / 归档规则 + v1.0.0 依赖矩阵 + 版本演化策略）
+  - `learn-kit-使用手册.md` → 拆入 `plugins/learn-kit/README.md`（§中文 TL;DR + §5 分钟上手 + §Worked Cases + §Troubleshooting）+ `plugins/learn-kit/CLAUDE.md`（§Advanced Tips）
+
+- **`plugins/learn-kit/docs/INDEX.md` v1.1 → v1.2** — 加 8 字段 frontmatter（Framework v1.5 §1 INDEX special clause）；删除 §Plugin-Internal Teaching Series 段；§Guides 段填入 2 份合卷。
+
+- **`plugins/learn-kit/README.md`** — 教学系列表（lines 181-192）从 6 行更新为 2 行（新 [GUIDE]_* 路径）；新增 4 个章节吸收原用户手册内容（中文 TL;DR / 5 分钟上手 / 真实使用案例 / 常见踩坑）；前置依赖段加 legacy plugin 卸载提示；演进历史段移除 cross-project 引用。
+
+- **`plugins/learn-kit/CLAUDE.md`** — Documentation 段重写指向 2 份合卷；新增 §Advanced Tips 段吸收原用户手册的进阶提示。
+
+- **`plugins/learn-kit/.claude-plugin/plugin.json`** — version `1.1.0 → 1.2.0`（minor）；description 加 v1.2.0 changelog 摘要。
+
+### Removed
+
+- 删除 6 份 lowercase 教学系列原文件（内容已合并至 2 份 [GUIDE]_* 或 README/CLAUDE.md）:
+  - `plugins/learn-kit/docs/learn-kit-01-positioning.md`
+  - `plugins/learn-kit/docs/learn-kit-02-eight-stage-methodology.md`
+  - `plugins/learn-kit/docs/learn-kit-03-rfc-2119-worked-example.md`
+  - `plugins/learn-kit/docs/learn-kit-04-three-skills.md`
+  - `plugins/learn-kit/docs/learn-kit-05-governance-boundary.md`
+  - `plugins/learn-kit/docs/learn-kit-使用手册.md`
+
+### Released as part of
+
+- marketplace v4.5.0（Framework v1.5 §1 exemption cancellation batch）
+
 ## [1.1.0] - 2026-05-15
 
 ### Added
