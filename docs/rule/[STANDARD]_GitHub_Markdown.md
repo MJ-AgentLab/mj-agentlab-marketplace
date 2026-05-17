@@ -424,4 +424,4 @@ v1.1+ may add `.github/workflows/markdown-lint.yml` running [markdownlint-cli](h
 
 | Version | Date | Summary |
 |---------|------|---------|
-| v1.0 | 2026-05-15 | Initial GitHub-Flavored Markdown STANDARD. Adopted in PR #75 (v4.2.0). Adapted from mj-agent `[STANDARD]_GitHub_Markdown.md` v1.0 (~95% verbatim); path examples adjusted for marketplace (e.g., `plugins/learn-kit/skills/init/SKILL.md` instead of `src/mj_agent/skills/`); removed mj-agent-specific mermaid extension exposition. |
+| v1.0 | 2026-05-15 | Initial GitHub-Flavored Markdown STANDARD. Adopted in PR #75 (v4.2.0). Path examples tailored for marketplace (e.g., `plugins/learn-kit/skills/init/SKILL.md`); marketplace-specific mermaid extension scope. |

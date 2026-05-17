@@ -156,7 +156,7 @@ PR 2+ 之后可调用 `mp-doc-author` 起草。
 - HITL 点 ≥ 3
 - 跨多 PR / 多迭代周期
 
-> 注：marketplace **不**维护 `plans/` 目录（与 mj-system 不同）；working plan 落用户本地 `~/.claude/plans/<topic>.md`，不入 marketplace repo（per HITL Standard §0 working-doc 边界）。
+> 注：marketplace **不**维护 `plans/` 目录；working plan 落用户本地 `~/.claude/plans/<topic>.md`，不入 marketplace repo（per HITL Standard §0 working-doc 边界）。
 
 ## Step 9: Issue Draft
 

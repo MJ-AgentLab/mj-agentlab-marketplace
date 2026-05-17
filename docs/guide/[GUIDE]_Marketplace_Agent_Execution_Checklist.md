@@ -205,7 +205,7 @@ related:
 **Entry**：Stage 5 合规通过；功能可在真实环境跑
 
 **Actions**：
-- 纯查询 / 枚举类 skill：用 Glob + Grep + Read 在真实项目（mj-system / mj-agent / 外部样本）跑算法模拟
+- 纯查询 / 枚举类 skill：用 Glob + Grep + Read 在外部样本项目跑算法模拟
 - 涉及副作用或 0% 信任 skill：`/plugin install <plugin>@mj-agentlab-marketplace --scope local`
 - `disable-model-invocation: true` skill：手工 `/<plugin>:<skill>` 调用至少 1 次
 - 跨项目 dogfood：≥ 2 个外部项目 + 1 个 blank-project warning 路径

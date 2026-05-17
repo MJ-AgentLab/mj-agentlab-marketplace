@@ -24,7 +24,7 @@ related:
 
 ## TL;DR
 
-- **核心问题**：mj-system 项目级安装了 marketplace 插件（有缓存），在 marketplace 仓库修改代码后 mj-system 中**不会自动生效**
+- **核心问题**：your-project 项目级安装了 marketplace 插件（有缓存），在 marketplace 仓库修改代码后 your-project 中**不会自动生效**
 - **解决方案**：`claude --plugin-dir` 覆盖缓存 + `/reload-plugins` 热重载
 - **三阶段**：快速开发（`--plugin-dir`）→ 集成验证（本地 marketplace install）→ 发布前验证（GitHub develop install）
 
@@ -75,9 +75,9 @@ related:
 
 | 操作 | 结果 |
 |------|------|
-| 在 marketplace 仓库修改 SKILL.md | mj-system 中**不生效**（缓存未变） |
-| 在 marketplace 仓库新增技能 | mj-system 中**看不到**（缓存未变） |
-| 修改 .mcp.json | mj-system 中 MCP server **不变**（缓存未变） |
+| 在 marketplace 仓库修改 SKILL.md | your-project 中**不生效**（缓存未变） |
+| 在 marketplace 仓库新增技能 | your-project 中**看不到**（缓存未变） |
+| 修改 .mcp.json | your-project 中 MCP server **不变**（缓存未变） |
 | 执行 `/plugin update` | 从 GitHub **已发布版本**更新，不含未发布的 feature 分支代码 |
 
 ---
@@ -90,7 +90,7 @@ related:
 
 ```
 D:\workspace\10-software-project\projects\
-├── mj-system/
+├── your-project/
 │   ├── .bare/                          ← bare repo（隐藏）
 │   ├── develop/                        ← 主工作 worktree
 │   └── maintain/test-xxx/              ← 测试用 worktree（可选，用于隔离测试）
@@ -108,14 +108,14 @@ D:\workspace\10-software-project\projects\
 ### 2.2 分支状态
 
 - **marketplace 仓库**：已创建 feature worktree 并 `cd` 到该目录（如 `mj-agentlab-marketplace/feature/add-skill-xxx/`）
-- **mj-system**：在 develop worktree（`mj-system/develop/`）或任意需要测试的 worktree
+- **your-project**：在 develop worktree（`your-project/develop/`）或任意需要测试的 worktree
 
 > bare repo worktree 模式下不使用 `git checkout` 切换分支。导航到不同分支 = `cd` 到对应 worktree 目录。
 
 ### 2.3 验证目录可达
 
 ```bash
-# 从 mj-system/develop 验证相对路径（注意需包含 worktree 名称）
+# 从 your-project/develop 验证相对路径（注意需包含 worktree 名称）
 ls ../../mj-agentlab-marketplace/feature/add-skill-xxx/plugins/
 
 # 通用格式：../../mj-agentlab-marketplace/<worktree>/plugins/
@@ -170,15 +170,15 @@ cd D:/workspace/10-software-project/projects/mj-agentlab-marketplace/feature/add
 # 如尚未创建 worktree，从 main worktree 中执行：
 # cd ../main && git worktree add ../feature/add-skill-xxx -b feature/add-skill-xxx main
 
-# Step 2: 从 mj-system worktree 启动 Claude Code，指定待测插件（路径含 worktree 段）
-cd D:/workspace/10-software-project/projects/mj-system/develop
+# Step 2: 从 your-project worktree 启动 Claude Code，指定待测插件（路径含 worktree 段）
+cd D:/workspace/10-software-project/projects/your-project/develop
 claude --plugin-dir ../../mj-agentlab-marketplace/feature/add-skill-xxx/plugins/learn-kit
 ```
 
-> **可选：创建 mj-system 测试 worktree 隔离测试**
+> **可选：创建 your-project 测试 worktree 隔离测试**
 > ```bash
-> # 从 mj-system/develop 创建测试 worktree
-> cd D:/workspace/10-software-project/projects/mj-system/develop
+> # 从 your-project/develop 创建测试 worktree
+> cd D:/workspace/10-software-project/projects/your-project/develop
 > git worktree add ../maintain/test-plugin-xxx -b maintain/test-plugin-xxx develop
 > cd ../maintain/test-plugin-xxx
 > claude --plugin-dir ../../mj-agentlab-marketplace/feature/add-skill-xxx/plugins/learn-kit
@@ -241,7 +241,7 @@ claude `
 
 1. **优先级规则**：`--plugin-dir` 加载的插件 > 已安装的同名插件。不影响全局安装状态。
 2. **Session 范围**：覆盖仅在当前 Claude Code session 生效。退出后恢复使用缓存版本。
-3. **MCP server**：`--plugin-dir` 加载的插件中的 `.mcp.json` 也会被加载。确保 `.env` 中的环境变量（如 `GITHUB_PERSONAL_ACCESS_TOKEN`）在 mj-system 项目中可用。
+3. **MCP server**：`--plugin-dir` 加载的插件中的 `.mcp.json` 也会被加载。确保 `.env` 中的环境变量（如 `GITHUB_PERSONAL_ACCESS_TOKEN`）在 your-project 项目中可用。
 4. **相对路径**：`--plugin-dir` 的路径相对于**启动目录**（即 `cd` 到的目录），不是项目根目录。
 5. **Windows PowerShell 路径**：`--plugin-dir` 在 PowerShell 中不能使用相对路径（`../../`），必须使用**绝对路径**并用双引号包裹（如 `"D:\...\plugins\learn-kit"`）。Bash/Git Bash 中相对路径正常工作。
 
@@ -376,7 +376,7 @@ cat ~/.claude/plugins/known_marketplaces.json
 ### 6.1 前置条件
 
 - marketplace feature 分支已合并到 develop 并推送到 GitHub
-- mj-system 中 marketplace 源指向 GitHub（阶段 2 后已恢复，或未执行阶段 2）
+- your-project 中 marketplace 源指向 GitHub（阶段 2 后已恢复，或未执行阶段 2）
 
 ### 6.2 操作步骤
 
@@ -438,7 +438,7 @@ gh release view v1.1.0
 
 # ── 下游更新 ──
 
-# 8. 在 mj-system 中更新插件到发布版本
+# 8. 在 your-project 中更新插件到发布版本
 /plugin marketplace update mj-agentlab-marketplace
 /plugin update --all
 ```
@@ -457,8 +457,8 @@ git branch -d feature/add-skill-xxx
 # 可选：删除远程分支（PR 合并后 GitHub 通常已自动删除）
 git push origin --delete feature/add-skill-xxx
 
-# ── mj-system 仓库：清理测试 worktree（如有）──
-cd D:/workspace/10-software-project/projects/mj-system/develop
+# ── your-project 仓库：清理测试 worktree（如有）──
+cd D:/workspace/10-software-project/projects/your-project/develop
 git worktree remove ../maintain/test-plugin-xxx
 git branch -d maintain/test-plugin-xxx
 ```
@@ -492,7 +492,7 @@ git branch -d maintain/test-plugin-xxx
 
 检查：
 1. 插件目录中的 `.mcp.json` 是否存在且格式正确
-2. `.env` 中的环境变量（如 `GITHUB_PERSONAL_ACCESS_TOKEN`）是否在 mj-system 项目中可用
+2. `.env` 中的环境变量（如 `GITHUB_PERSONAL_ACCESS_TOKEN`）是否在 your-project 项目中可用
 3. MCP server 的可执行文件路径是否正确（注意 `${CLAUDE_PLUGIN_ROOT}` 占位符）
 
 ### Q5: project scope 插件在新 worktree 中不可用？
@@ -500,7 +500,7 @@ git branch -d maintain/test-plugin-xxx
 `installed_plugins.json` 中 project scope 插件绑定了具体的 `projectPath`。新建 worktree 后需要在该 worktree 中重新安装：
 
 ```bash
-cd mj-system/feature/xxx
+cd your-project/feature/xxx
 # 重新启动 Claude Code，插件应自动可用（因为 settings.json 中声明了 enabledPlugins）
 # 如不可用，手动安装：
 /plugin install learn-kit@mj-agentlab-marketplace

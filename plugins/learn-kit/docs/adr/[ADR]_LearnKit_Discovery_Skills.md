@@ -73,8 +73,8 @@ A new `METHODOLOGY.md §1.5 "Project Discovery"` section documents the locate/sc
 ## 3. Consequences
 
 ### Positive
-- mj-system scenario A: `/learn-kit:locate "DLSRS"` jumps directly to existing [LEARNING] doc
-- mj-agent scenario B: `/learn-kit:scan` enumerates 13 [STANDARD] + 27 [ADR] candidates with "uninterpreted" markers
+- External docs-heavy project scenario A: `/learn-kit:locate "DLSRS"` jumps directly to existing [LEARNING] doc
+- External codebase-heavy project scenario B: `/learn-kit:scan` enumerates 13 [STANDARD] + 27 [ADR] candidates with "uninterpreted" markers
 - Fresh projects: METHODOLOGY §1.5 + worked example chain provides end-to-end guidance
 - Zero state introduced — each invocation re-scans (cost ≪ 3s for ~200-doc projects)
 
@@ -92,7 +92,7 @@ A new `METHODOLOGY.md §1.5 "Project Discovery"` section documents the locate/sc
 
 | Option | Rejected because |
 |--------|------------------|
-| **P1 single skill** (locate only) | Scenario B (mj-agent blank) still has no "what can I learn" entry; weak |
+| **P1 single skill** (locate only) | Scenario B (codebase-heavy project blank) still has no "what can I learn" entry; weak |
 | **P3 full lifecycle** (locate + scan + scaffold-topic) | scaffold-topic value marginal — METHODOLOGY template already guides manual creation; surface area triples |
 | **P4 manifest-driven** (LEARN_KIT_CONFIG.md required) | Violates zero-configuration goal for generic plugin; external adopters won't write manifests |
 | **Persistent doc-map cache** (`.learn-kit/doc-map.json`) | State maintenance overhead > runtime cost; change-detection complexity |
@@ -107,7 +107,7 @@ A new `METHODOLOGY.md §1.5 "Project Discovery"` section documents the locate/sc
 | 3 | `skills/scan/SKILL.md` | `/skill-creator:skill-creator` + `/plugin-dev:skill-reviewer` |
 | 4 | `METHODOLOGY.md §1.5` | manual Edit |
 | 5 | Plugin compliance | `/plugin-dev:plugin-validator` + version bump 0.1.0 → 0.2.0 |
-| 6 | Dogfood matrix | manual (mj-system + mj-agent + fresh-project) |
+| 6 | Dogfood matrix | manual (external docs-heavy + codebase-heavy + fresh-project samples) |
 | 7 | Marketplace release | manual (`marketplace.json` 3.0.0 → 3.1.0 + PR + tag) |
 
 Detailed dogfood matrix in plan §8.1.
@@ -116,8 +116,8 @@ Detailed dogfood matrix in plan §8.1.
 
 - [ ] Both `locate` and `scan` skills validated by `/plugin-dev:skill-reviewer`
 - [ ] `/plugin-dev:plugin-validator` passes on learn-kit v0.2.0
-- [ ] Dogfood: mj-system `/locate "DLSRS"` returns top-1 = `learning/hitl/[LEARNING]_HITL_Common_Rules_Interpretation.md` with confidence ≥ 0.9
-- [ ] Dogfood: mj-agent `/scan` returns ≥ 13 [STANDARD] + ≥ 27 [ADR] candidates
+- [ ] Dogfood: external docs-heavy project `/locate "DLSRS"` returns top-1 = `learning/hitl/[LEARNING]_HITL_Common_Rules_Interpretation.md` with confidence ≥ 0.9
+- [ ] Dogfood: external codebase-heavy project `/scan` returns ≥ 13 [STANDARD] + ≥ 27 [ADR] candidates
 - [ ] Dogfood: blank project `/locate "anything"` returns "low confidence" warning, not crash
 - [ ] METHODOLOGY.md v2.0 → v2.1 (new §1.5)
 - [ ] marketplace.json v3.0.0 → v3.1.0; learn-kit v0.1.0 → v0.2.0
@@ -134,4 +134,4 @@ Detailed dogfood matrix in plan §8.1.
 
 ## 8. Decision Log
 
-- **2026-05-11**: Initial intake from user request "评估 learn-kit 插件初次使用场景" → 3-agent parallel explore → AskUserQuestion (3 decisions: P2 + heuristic + evaluation-then-implement) → plan written → user authorized implementation referencing mj-system HITL STANDARD
+- **2026-05-11**: Initial intake from user request "评估 learn-kit 插件初次使用场景" → 3-agent parallel explore → AskUserQuestion (3 decisions: P2 + heuristic + evaluation-then-implement) → plan written → user authorized implementation referencing the marketplace HITL STANDARD
