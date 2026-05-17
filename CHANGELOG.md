@@ -5,9 +5,17 @@
 
 ## [Unreleased]
 
-### Added
+### Added (P2 — CI feedback layer, 2026-05-18 batch B)
 
-- **`scripts/validate-commits.{sh,ps1}`** — bulk validator for marketplace commit subjects. Dual-language (bash + PowerShell) parity; same interface, exit codes, output formatting. Reads PATTERN verbatim from existing canonical source. Per-commit failure output diagnoses specific reason (type / scope / length) + targeted suggestion (e.g., «'chore' is NOT in marketplace's 7-type enum; use 'docs', 'refactor', or 'infra'»; «'docs' is a TYPE not a SCOPE; pick 'docs-rule' / 'docs-adr' / etc»). Closes the gap that caused PR #102 closure + rebuild (4 commit subjects violated PATTERN: 3 used scope `docs` + 1 used `chore` type + 1 exceeded 72-char summary).
+- **`.github/workflows/comment-on-pr.yml`** — NEW PR comment bot workflow. Triggers on `workflow_run` after `CI — Validate Plugin Structure` completes; posts (or edits) a sticky comment on the PR with the validator's full output. Different shape for PASS («✅ All Pass» collapsed) vs FAIL («❌ Failed» expanded + 5-step how-to-fix inline). Sticky semantics: one comment per PR, edited in place via marker `<!-- validate-commits-bot -->`. Uses gh CLI (no third-party actions). Permissions scoped to `pull-requests: write` + `actions: read` + `contents: read`. Skips silently if no artifact (release/* branches).
+
+### Changed (P2 — CI feedback layer, 2026-05-18 batch B)
+
+- **`.github/workflows/ci.yml`** — «Validate commit message format» step refactored to **delegate to `scripts/validate-commits.sh`**. Single-source consolidation: 4 PATTERN sites collapse to 3 (script now drives CI too). CI error output now identical to local validator — each FAIL includes targeted «Suggest:» remediation (e.g., 'chore' → docs/refactor/infra). NEW step «Upload commit validation output (for PR comment bot)» tees script output to artifact for downstream consumption by comment-on-pr.yml.
+
+- **`docs/rule/[STANDARD]_Commit_Message_Convention.md` §9.3** rewritten — was «Future CI Gates» (forward-looking), now «CI Gates (current)» — 8-layer validation stack table covering all hooks + skills + workflows in deployment.
+
+### Added (P0+P1 — local validation layer, 2026-05-18 batch A)
 
 - **`scripts/install-hooks.ps1`** extended with **pre-push hook installer** (alongside existing commit-msg). The pre-push hook delegates to `scripts/validate-commits.sh` (single source of validation logic) — catches violations introduced via `git commit --amend` / `git cherry-pick` / `git rebase` that bypass commit-msg. Opt-in (re-run installer to activate); zero impact on contributors who don't.
 
