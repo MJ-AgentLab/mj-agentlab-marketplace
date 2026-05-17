@@ -1,10 +1,33 @@
+---
+type: guide
+scope: marketplace
+summary: Marketplace migration guide — v2.x→v3.0.0 (general restructure) + v3.2.x→v4.0.0 (notebooklm-kit retirement) + v4.0.0→v4.3.x (doc framework rollout) + v4.4.x→v4.5.0 (§1 exemption cancellation)
+owner: marketplace-maintainers
+created: 2026-03-16
+updated: 2026-05-18
+state: active
+version: v4.0
+domain: release
+tags:
+  - migration
+  - release
+  - upgrade
+related:
+  - ../rule/[STANDARD]_Documentation_Framework.md
+  - ../adr/[ADR]_NotebookLM_Kit_Retirement.md
+  - ../adr/[ADR]_Documentation_Framework_Exemption_Reversal.md
+revision: |
+  2026-05-18 — v4.0: rename docs/MIGRATION_GUIDE.md → docs/guide/[GUIDE]_Migration_From_v3_to_v4.md + 加 frontmatter（Framework v1.5 §1 cancel single-file exemption）；§3 末尾加 v4.5.0 §1 exemption cancellation 说明；§3.2 path mapping 更新对应原 §1 豁免文件的新去向
+---
+
 # Migration Guide
 
-This file covers three migrations:
+This file covers four migrations:
 
-- §1 — **v2.x → v3.0.0** (Original migration: MJ-system专属重构为通用) — consumer-impactful
+- §1 — **v2.x → v3.0.0** (Original general restructure) — consumer-impactful
 - §2 — **v3.2.x → v4.0.0** (notebooklm-kit 退场 + nlm-studio 吸收到 learn-kit) — consumer-impactful
-- §3 — **v4.0.0 → v4.3.x** (doc framework rollout: 8 PRs introducing project-local skills + documentation framework) — mostly **contributor-facing**; plugin behavior unchanged for end users
+- §3 — **v4.0.0 → v4.3.x** (doc framework rollout) — mostly **contributor-facing**
+- §4 — **v4.4.x → v4.5.0** (Framework §1 exemption mechanism cancellation + learn-kit 1.1.0 → 1.2.0 docs 重组) — contributor-facing
 
 ---
 
@@ -245,7 +268,11 @@ v4.0.0 → v4.3.4 是一系列 8 个 PR 的 doc framework rollout，**不改变�
 | `docs/[RUNBOOK]_Release_Operations.md` | `docs/runbook/[RUNBOOK]_Release_Operations.md` |
 | `docs/[ADR]_NotebookLM_Kit_Retirement.md` | `docs/adr/[ADR]_NotebookLM_Kit_Retirement.md` |
 | `docs/[ADR]_LearnKit_Discovery_Skills.md` (v4.2.1) | `plugins/learn-kit/docs/adr/[ADR]_LearnKit_Discovery_Skills.md` (v4.3.0+ — moved to plugin-internal) |
-| `docs/INDEX.md` / `docs/CONTRIBUTING.md` / `docs/MIGRATION_GUIDE.md` / `docs/ai_engineering_execution_hitl_workflow.md` | **不变**（这些是 framework §1 豁免文件） |
+| `docs/INDEX.md` | **不变**（保留名 + v4.5.0 起加 8 字段 frontmatter）|
+| `docs/CONTRIBUTING.md` | **v4.5.0 rename** → `docs/guide/[GUIDE]_Contributing.md` |
+| `docs/MIGRATION_GUIDE.md` | **v4.5.0 rename** → `docs/guide/[GUIDE]_Migration_From_v3_to_v4.md`（即本文档）|
+| `docs/ai_engineering_execution_hitl_workflow.md` | **v4.5.0 删除** — 关键内容内化到 `[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md` §0 |
+| `plugins/learn-kit/docs/learn-kit-{01..05}-*.md` + `learn-kit-使用手册.md`（v4.4.x exempt teaching series）| **v4.5.0 合并 + 拆分** — 合并为 `plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_{Pedagogy,Design}.md`；用户手册内容拆入 README + CLAUDE.md |
 
 ## §3.3 Commit-msg Hook 升级 (v4.3.2) — 最重要的用户操作
 
@@ -330,6 +357,65 @@ Select-String -Pattern '^PATTERN=' (Join-Path $hooksDir 'commit-msg')
 
 ## §3.9 询问
 
-- 8 PR 详细 CHANGELOG: 见 [CHANGELOG.md](../CHANGELOG.md) `[4.1.0]` 到 `[4.3.5]` 段
-- Doc Framework 规范: [`docs/rule/[STANDARD]_Documentation_Framework.md`](<./rule/[STANDARD]_Documentation_Framework.md>)
-- 18 件 mp-* skill 工作流编排: [`docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`](<./rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md>)
+- 8 PR 详细 CHANGELOG: 见 [CHANGELOG.md](../../CHANGELOG.md) `[4.1.0]` 到 `[4.3.5]` 段
+- Doc Framework 规范: [`../rule/[STANDARD]_Documentation_Framework.md`](../rule/[STANDARD]_Documentation_Framework.md)
+- 18 件 mp-* skill 工作流编排: [`../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`](../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)
+
+---
+
+# §4 · v4.4.x → v4.5.0
+
+## Overview
+
+v4.5.0 是一次 governance refactor —— **取消 Documentation Framework v1.1 §1 豁免机制 + 顺势重组 learn-kit/docs**。Plugin 行为对终端用户**无变化**；主要是 doc 体系收紧 + plugin-internal docs 重组。
+
+## 用户面影响（终端用户 / plugin install user）
+
+| 维度 | 影响 |
+|------|------|
+| `/learn-kit:*` skill 触发 / 行为 | **无变化** |
+| `/plugin install learn-kit@mj-agentlab-marketplace` | 装到 v1.2.0；功能等价 v1.1.0 |
+| README / 安装步骤 | README 中文 TL;DR / 5-min flow / Worked Cases / Troubleshooting **新增内容** |
+| 多媒体生成 | 无变化（同 v1.0.0+ 设计）|
+
+## Contributor 面影响
+
+### Doc Framework v1.4 → v1.5
+
+§1 完全重写: 取消 v1.1 「plugin-internal teaching series」pattern exemption + 4 项 v1.1 single-file exemption（INDEX 保留名加 frontmatter；CONTRIBUTING + MIGRATION_GUIDE rename 到 docs/guide/[GUIDE]_*.md；ai_engineering_execution_hitl_workflow.md 删除 + 内容内化）。保留 5 类 community/external-spec exclusion（README / CHANGELOG / CLAUDE.md / SKILL.md / templates+references）由外部规范刚性约束不可绕过。
+
+完整决策见 [`../adr/[ADR]_Documentation_Framework_Exemption_Reversal.md`](../adr/[ADR]_Documentation_Framework_Exemption_Reversal.md)。旧决策 ADR 已归档至 [`../archive/[DEPRECATED]_[ADR]_Documentation_Framework_Exemption_Review_v1.0.md`](../archive/[DEPRECATED]_[ADR]_Documentation_Framework_Exemption_Review_v1.0.md)。
+
+### HITL STANDARD v1.3 → v1.4
+
+§0 重写为 Universal Skeleton + Compression Heritage（浓缩 19 步骤 universal skeleton + universal → marketplace 11 阶段 compression mapping + fork guidance）；原 §0「适用范围 / Working-doc 边界」迁移到 §0.4 Scope；移除所有 cross-project 引用（marketplace 独立性原则）。
+
+### learn-kit 1.1.0 → 1.2.0
+
+`plugins/learn-kit/docs/` 6 份 lowercase 教学系列合并为 2 份合规 `[GUIDE]_*`:
+
+| 旧 | 新 |
+|------|------|
+| `learn-kit-01-positioning.md` + `learn-kit-02-eight-stage-methodology.md` + `learn-kit-03-rfc-2119-worked-example.md` | `docs/guide/[GUIDE]_LearnKit_Pedagogy.md` |
+| `learn-kit-04-three-skills.md` + `learn-kit-05-governance-boundary.md` | `docs/guide/[GUIDE]_LearnKit_Design.md` |
+| `learn-kit-使用手册.md` | 拆入 `plugins/learn-kit/README.md`（§中文 TL;DR + §Worked Cases + §Troubleshooting）+ `plugins/learn-kit/CLAUDE.md`（§Advanced Tips）|
+
+### Contributor 操作
+
+- 如果你 fork / 自动化引用了任何被删 / 改名文件路径，需要更新到新路径
+- commit hook PATTERN regex 无变化（仍是 v4.3.2 制定的 v4.x canonical 白名单）；不需要重跑 install-hooks.ps1
+- 如果你引用过 `docs/CONTRIBUTING.md` / `docs/MIGRATION_GUIDE.md` 原路径，重定向到 `docs/guide/[GUIDE]_*.md`
+
+## §4.1 时间线
+
+| 日期 | Version | PR | 主题 |
+|------|---------|-----|------|
+| 2026-05-17 | v4.4.10 | #95 | maintain: develop sync |
+| 2026-05-17 | v4.4.11 | #97 / #98 | maintain: release sync |
+| 2026-05-17 | （内部）| #99 | docs: flat archive layout（Framework v1.3 → v1.4 + RUNBOOK v1.0 → v1.1）|
+| 2026-05-17 | （内部）| #100 | docs: HITL v1.2 → v1.3 archive integration |
+| 2026-05-18 | **v4.5.0** | （本 PR）| **docs governance refactor**: Framework v1.4 → v1.5 cancel §1 exemptions + HITL v1.3 → v1.4 universal skeleton §0 + learn-kit 1.1.0 → 1.2.0 + 7 superseded doc deletions |
+
+## §4.2 回滚指引
+
+v4.5.0 涉及 7 个文件删除 + 3 个 git mv rename + 14 个 edit。回滚需 revert 整个 PR。**Plugin 行为零变化**，外部用户无回滚 use case；仅 contributor 工作流如需 fork 旧版本 docs 体系才考虑回滚。

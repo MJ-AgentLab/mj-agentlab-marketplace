@@ -1,11 +1,33 @@
+---
+type: guide
+scope: marketplace
+summary: Marketplace 贡献指南 — 分支策略 + commit 规范 + 版本管理 + PR 流程
+owner: marketplace-maintainers
+created: 2026-03-16
+updated: 2026-05-18
+state: active
+version: v1.0
+domain: governance
+tags:
+  - contributing
+  - workflow
+  - onboarding
+related:
+  - ../rule/[STANDARD]_Commit_Message_Convention.md
+  - ../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
+  - ./[GUIDE]_Migration_From_v3_to_v4.md
+revision: |
+  2026-05-18 — v1.0: rename docs/CONTRIBUTING.md → docs/guide/[GUIDE]_Contributing.md + 加 frontmatter（Framework v1.5 §1 cancel single-file exemption）；fix 4 处 rule/ 相对路径；移除 cross-project 引用
+---
+
 # 贡献指南 — MJ AgentLab Marketplace
 
 本文档面向人类贡献者，说明分支策略、提交规范、版本管理和发布流程。
-Claude Code agent 行为规范请参考 [docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md](rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)（marketplace 11 阶段闭环 + Skill 矩阵）以及 `.claude/skills/mp-*/SKILL.md` 项目本地工作流 skill。
+Claude Code agent 行为规范请参考 [`../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`](../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)（marketplace 11 阶段闭环 + Skill 矩阵）以及 `.claude/skills/mp-*/SKILL.md` 项目本地工作流 skill。
 
 ## 分支策略
 
-采用 Git Flow 模型，与 [mj-system](https://github.com/MJ-AgentLab/mj-system) 保持一致。
+采用 Git Flow 模型。
 
 ### 永久分支
 
@@ -45,7 +67,7 @@ Claude Code agent 行为规范请参考 [docs/rule/[STANDARD]_AI_Engineering_Exe
 - **Marketplace scope whitelist (v4.x)**: `marketplace` / `learn-kit` / `ci` / `scripts` / `deps` / `infra` / `docs-rule` / `docs-adr` / `docs-guide` / `docs-runbook` / `docs-spec` / `release`
 - **示例**: `feat(marketplace): add 18 mp-* workflow skills` / `infra(release): bump marketplace 4.1.0 → 4.2.0`
 
-**完整规范**（含 branch × type 矩阵、commit 拆分指导、Co-Authored-By 模式、违规示例）见 [`docs/rule/[STANDARD]_Commit_Message_Convention.md`](rule/[STANDARD]_Commit_Message_Convention.md)。
+**完整规范**（含 branch × type 矩阵、commit 拆分指导、Co-Authored-By 模式、违规示例）见 [`../rule/[STANDARD]_Commit_Message_Convention.md`](../rule/[STANDARD]_Commit_Message_Convention.md)。
 
 CI / `/mp-git-commit` skill 按该 STANDARD 强制 enforcement。
 
@@ -146,7 +168,7 @@ Hook 安装到 bare repo 共享 hooks 目录（`.bare/hooks/commit-msg`），所
 
 ### 升级（当 hook 规则变更时）
 
-`scripts/install-hooks.ps1` 内置的 PATTERN regex 会随 [`docs/rule/[STANDARD]_Commit_Message_Convention.md`](rule/[STANDARD]_Commit_Message_Convention.md) §4 scope 白名单演进而变化（每次新增 / 移除合法 scope 都会同步更新）。**如果 CHANGELOG 提到 `install-hooks.ps1` 更新**，需要**重跑安装脚本**以同步本地 hook:
+`scripts/install-hooks.ps1` 内置的 PATTERN regex 会随 [`../rule/[STANDARD]_Commit_Message_Convention.md`](../rule/[STANDARD]_Commit_Message_Convention.md) §4 scope 白名单演进而变化（每次新增 / 移除合法 scope 都会同步更新）。**如果 CHANGELOG 提到 `install-hooks.ps1` 更新**，需要**重跑安装脚本**以同步本地 hook:
 
 ```powershell
 pwsh -File scripts/install-hooks.ps1
@@ -165,7 +187,7 @@ Remove-Item (Join-Path ((Get-Content .git) -replace '^gitdir:\s*','').Trim() 'ho
 
 | 内容 | 来源 |
 |------|------|
-| Scope 白名单（hook PATTERN regex 应反映此清单） | [`docs/rule/[STANDARD]_Commit_Message_Convention.md`](rule/[STANDARD]_Commit_Message_Convention.md) §4 |
+| Scope 白名单（hook PATTERN regex 应反映此清单） | [`../rule/[STANDARD]_Commit_Message_Convention.md`](../rule/[STANDARD]_Commit_Message_Convention.md) §4 |
 | Hook 安装脚本 | `scripts/install-hooks.ps1` |
 | 测试 hook 行为 | `pwsh -c 'echo "feat(learn-kit): test" \| git hook run commit-msg /dev/stdin'`（hook 标准 git interface） |
 
