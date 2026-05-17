@@ -81,15 +81,27 @@ learning/
 
 ## Documentation
 
-v1.1.0 起 plugin-internal documentation 遵循 marketplace 文档框架 v1.0（适配为 `scope: learn-kit`）。完整索引 + 6 份教学系列文档导航见 [docs/INDEX.md](docs/INDEX.md)。
+v1.1.0 起 plugin-internal documentation 遵循 marketplace 文档框架（v1.2.0 起对应 Framework v1.5；适配为 `scope: learn-kit`）。完整索引见 [docs/INDEX.md](docs/INDEX.md)。
 
 子目录:
 
-- [`docs/adr/`](docs/adr/) — plugin-internal ADRs（如 `[ADR]_LearnKit_Discovery_Skills.md` v1.1.0 起从 marketplace 迁入）
-- [`docs/guide/`](docs/guide/) — plugin-internal GUIDEs（暂无）
+- [`docs/adr/`](docs/adr/) — plugin-internal ADRs（如 `[ADR]_LearnKit_Discovery_Skills.md`）
+- [`docs/guide/`](docs/guide/) — plugin-internal GUIDEs：
+  - [`[GUIDE]_LearnKit_Pedagogy.md`](docs/guide/[GUIDE]_LearnKit_Pedagogy.md) — 教学合卷（定位 + 8 阶段方法论 + RFC 2119 worked example + 6 类质量门）
+  - [`[GUIDE]_LearnKit_Design.md`](docs/guide/[GUIDE]_LearnKit_Design.md) — 设计合卷（5 skill 分工 + dogfood findings + 治理模型 + frontmatter 规则 + 版本演化）
 - [`docs/spec/`](docs/spec/) — plugin-internal SPECs（暂无；schema 工作目前在 `skills/init/templates/METHODOLOGY.md`）
 
-6 份 `docs/learn-kit-*.md` lowercase 数字教学系列保留原命名（numbered ordering = pedagogical signal），由 [docs/INDEX.md](docs/INDEX.md) §Plugin-Internal Teaching Series 列出。
+v1.2.0 起原 6 份 `docs/learn-kit-*.md` lowercase 数字教学系列已合并为以上 2 份合规 `[GUIDE]_*.md`（Framework v1.5 §1 取消 v1.1 教学系列模式豁免配套）。
+
+## Advanced Tips（power-user 提示，源自 v1.0.0 dogfood）
+
+- **多选混搭 source**：`generate-tier` step 2 可同时勾「项目内文件路径 + 用户粘贴」，用 paste 补充上下文
+- **tier 跳跃**：可以先只生成 foundation 看效果，再追加 structural / challenge（重跑 skill 时选「Append `.v2`」或 Overwrite）
+- **跨项目 dogfood**：learn-kit 通用，可在任意外部项目装；记得在外部项目的 CLAUDE.md 声明 `[STANDARD]_/[SPEC]_/...` tag prefix 提高 scan/locate 识别 confidence
+- **HTML 阅读体验优化**：30 分钟深读为目标设计；浮动 ToC + 复制为 Prompt 按钮可加速延伸学习
+- **NLM 多媒体节奏建议**：13 artifact 占当日 NLM Studio quota 65%——一天最多深做 1 个 topic；多 topic 分日跑更稳。Step 4 的 mid-run auth retry-once 只兜底单次过期，长跑前先 `nlm login` 一遍刷新 token 更稳
+- **NLM artifact 持久化**：skill **不**本地落盘 URL；想长期追溯请自己在浏览器加 bookmark 或在外部笔记里记 notebook URL + artifact ID
+- **View-Purpose 盲测**：跑完 13 artifact 后挑同一 type 的三档（如 audio_foundation / audio_structural / audio_challenge），让一个没看过 view 标签的旁人听后猜哪是哪——3/3 正确是健康；如果分不清，回去看 generate-tier 三档 markdown 是否本身差异化不足
 
 ## NLM 集成 · 工具前缀
 

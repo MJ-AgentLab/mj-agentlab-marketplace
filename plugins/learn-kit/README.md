@@ -50,6 +50,136 @@
 
 如只用前 4 个 skill，可以忽略 nlm-studio 的依赖。
 
+> **Legacy plugin 提示**：如果之前装过 `mj-nlm@my-marketplace`（来自外部 marketplace 的 legacy NLM plugin），**建议卸载**避免 MCP server 重复加载：`/plugin uninstall mj-nlm@my-marketplace`。判断方法：工具列表同时出现 `mcp__plugin_mj-nlm_*` 和 `mcp__plugin_learn-kit_*` 前缀即为重复。
+
+## 中文 TL;DR · 30 秒认知
+
+把项目里**枯燥的规则清单**（STANDARD / SPEC / ADR / RFC）变成**可学习材料**的工具集。5 个 skill 覆盖「发现 → 撰写 → 渲染 → 多媒体」全链路:
+
+| Skill | 一句话 | 触发关键词 |
+|-------|--------|-----------|
+| `/learn-kit:init` | 在项目根 scaffold `learning/` 子系统骨架（一次性）| "初始化学习子系统" |
+| `/learn-kit:scan` | 枚举项目所有可学候选文档 + 标注已解读 / 未解读 | "项目里有什么可学的" |
+| `/learn-kit:locate <query>` | 反查具体概念 / 口诀 / 部分文档名到对应文档 | "学 X / 解释 X / X 在哪" |
+| `/learn-kit:generate-tier` | AI 生成三档（零基础 / 结构 / 挑战）学习文档 + 可选 HTML | "为 X 生成学习文档 / 三档学习材料" |
+| `/learn-kit:nlm-studio` | 把三档 markdown 推 NotebookLM 出至多 13 个多媒体 artifact | "为 X 出 NLM 多媒体 / 想要个音频版" |
+
+## 5 分钟上手 · 端到端流程
+
+**场景**：你想把项目里的某个 STANDARD 文档变成可学习材料 + 多媒体。
+
+```text
+Step 1 (一次性)         /learn-kit:init
+                       → 在 <project-root>/learning/ 下创建骨架
+
+Step 2 (开放式发现)      "项目里有什么可学的？"
+                       → 触发 /learn-kit:scan
+                       → 看到候选 docs 表格，按引用频率排序
+
+Step 3 (锁定主题)        "为 HITL 主题生成三档学习文档"
+                       → 触发 /learn-kit:generate-tier
+                       → 多选 source 来源 → 多选三档 → 确认 topic
+                       → 生成 [LEARNING]_HITL_{foundation,structural,challenge}.md
+
+Step 4 (可选 HTML)       (skill 自动问) "是否生成 HTML 学习页？"
+                       → 选「是」 → 自动渲染 3 个 .html (同目录同 basename)
+
+Step 5 (可选 NLM 多媒体) (skill 自动问 step 9) "是否进一步推到 NotebookLM 出多媒体？"
+                       → 选「是」 → 自动调 /learn-kit:nlm-studio <topic>
+                       → 经过 Quota confirm gate → 跑 7-15 min → 至多 13 个在线 artifact
+                       → 终端打印 notebook URL + artifact 表
+
+Step 6 (后续追问)        "DLSRS 在哪个文档？"
+                       → 触发 /learn-kit:locate
+                       → 返回带置信度的候选清单
+```
+
+打开 HTML：Windows 下 `start <绝对路径>` 即可在浏览器预览。打开 NLM artifact：浏览器访问终端打印的 `notebook URL`。
+
+## 三档怎么选
+
+| 场景 | 推荐 |
+|------|------|
+| 第一次接触陌生主题 | foundation 零基础版（少术语 + 多类比 + 完整故事）|
+| 已有印象想建结构 | structural 结构版（概念地图 + 关系表 + 适用边界）|
+| 想检验自己是否真懂 | challenge 挑战版（反例 + 失败案例诊断 + 迁移题）|
+| 学习新主题完整覆盖 | **全选三档**（推荐顺序：foundation → structural → challenge）|
+| 想要随时听 / 看 / 看图 | 三档全选 → generate-tier step 9 同意调 nlm-studio 出多媒体 |
+
+## 真实使用案例
+
+### 案例 A：完全新人 onboard 一个项目
+
+```text
+1. /learn-kit:init                                # 第一天
+2. "项目里有什么可学的"                            # 第一周
+   → scan 返回 top 5 uninterpreted STANDARD
+3. "为 STANDARD_HITL 主题生成三档学习文档"          # 锁定第一个主题
+   → 多选: source = 项目文件路径 + 整目录扫描
+   → tiers = 三档全选
+   → HTML = 是
+   → step 9 NLM = 是
+   → 13 artifact 在 notebooklm.google.com 等着
+4. 通勤时听 audio_foundation；办公时看 slide_structural；周末刷 challenge 反例
+5. "学 DLSRS"                                     # 后续追问
+   → locate 反查到 challenge 版的 §10 迁移题
+```
+
+### 案例 B：团队成员想为某个 spec 出培训材料
+
+```text
+1. /learn-kit:init  (如果没初始化)
+2. "为 service-architecture 主题，基于 docs/rule/[STANDARD]_SvcArch.md
+    + docs/[ADR]_Service_Decomposition.md 出三档学习材料 + HTML"
+   → skill 直接走 step 2-8（已知 source paths + tiers + html_hint = 是）
+3. step 9 NLM 提示 → 选「Skip」（不出多媒体），把 markdown + HTML 发团队
+4. 一周后团队反馈想要个音频版 → 单独跑 /learn-kit:nlm-studio service-architecture
+```
+
+### 案例 C：自我检测某主题理解程度
+
+```text
+1. "为 X 主题只生成挑战版"
+   → tiers = challenge (单选)
+   → HTML = 否（直接看 markdown）
+   → step 9 NLM = 否（自检不需要多媒体）
+2. 做 §9 边界判断题 + §10 迁移应用题
+3. 看 §13 盲区定位表，对应回去补 foundation / structural
+```
+
+### 案例 D：已生成的 learning/<topic>/ 出多媒体
+
+```text
+1. 项目里已有 learning/documentation-framework/ (3 md + 可选 3 html，
+   之前用 /learn-kit:generate-tier 生成的)
+2. "为 documentation-framework 出 NLM 多媒体"
+   → 触发 /learn-kit:nlm-studio documentation-framework  (独立调用)
+   → Step 1 pre-flight 检 3 .md ✓
+   → Step 2 re-run: 若已存 → 4 选 1（regenerate / replace sources / new / abort）
+   → Step 3 创建 notebook + 3 并发 source_add + notebook_get 核验
+   → Step 3.5 Quota gate：确认 13 artifact ≈ 65% 日上限
+   → Step 4 跑 3 parallel batches (5+4+4) 共 13 个 artifact，7-15 min
+   → Step 5 终端打印 notebook URL + 13 行 artifact 表
+3. 打开 notebook URL，在 NLM web UI 浏览/分享/下载
+```
+
+## 常见踩坑 + 排错
+
+| 症状 | 原因 | 处理 |
+|------|------|------|
+| skill 不触发 | 关键词不在 description trigger 列表 | 改用更直接的触发词："为 X 生成三档学习文档" / "为 X 出 NLM 多媒体" |
+| 生成内容空洞 | source 太少或不相关 | step 2 多加几个 source 来源；用户粘贴更多文本 |
+| HTML 概念未挂代码 | 仓库里确实没有对应代码 | HTML 会自动列入「文档 vs 实现」段，无需手动修 |
+| HTML 体积过大 (> 200KB) | source 太多 / tier 内容太长 | 减少 source；或只生成单档 |
+| init 报「learning 已存在」 | 之前跑过 | 选 Skip / Merge / Abort 之一 |
+| nlm-studio 跑 7-15 min 中途报「Authentication expired」 | NLM token 寿命 15-30 min，长跑用尽 | 终端 `! nlm login` 再调；skill 已含 mid-run retry-once 兜底；仍失败重跑会走 re-run guard 的 "regenerate" 路径自动跳过已成 artifact |
+| 想上传 HTML 但 nlm-studio 提示「仅 .md」 | v1.0.0 起 HTML 不上传到 NLM（dogfood 发现 NLM 拒收 HTML）| 设计如此，非 bug。HTML 仅供浏览器查看；NLM artifact 由 `.md` 内容驱动 |
+| nlm-studio 跑到一半「quota exceeded」 | 当日已用过 NLM Studio quota（empirical 上限 ~20/天）| 用 Step 3.5 quota gate 的「Reduce subset」选项缩小批量；或换日重跑 |
+| 同一 topic 跑两次 NLM 端看到重复 source | source_add 错误响应不可靠（dogfood finding #4）| skill 已加 notebook_get 强制核验；如真重复，用 NLM web UI 手动删；或 Step 2 选 "replace sources" |
+| 同 topic 三档 mind_map 看起来差不多 | NLM 媒介对 mind_map 的 view 差异化指令无视（dogfood finding #5）| 设计决定：v1.0.0 起 mind_map 收敛为 1 shared / topic |
+| `nlm login` 报错或浏览器登录失败 | OAuth flow 故障 / proxy 干扰 / token 已损 | 重跑 `nlm login`；或检查 `~/.nlm/` 目录权限；问题持续看 [notebooklm-mcp-cli upstream](https://pypi.org/project/notebooklm-mcp-cli/) |
+| 工具列表同时出现 `mcp__plugin_mj-nlm_*` 和 `mcp__plugin_learn-kit_*` | 同时装了 legacy plugin 和新 learn-kit —— 两套 MCP server 重复加载 | 见 §前置依赖末尾 legacy plugin 提示 |
+
 ## 使用
 
 ### 1. 初始化项目的 learning 子系统骨架
@@ -179,30 +309,27 @@ Windows 下 `start <file>` 直接打开预览。
 
 ## 学习材料 / 用户文档
 
-`docs/` 子目录含 6 份学习材料，覆盖「5 分钟上手 → 项目定位 → 8 阶段方法论 → RFC 范例 → 5 skills 分工 → 治理边界」完整学习路径：
+`docs/guide/` 子目录含 2 份合规教学文档（v1.2.0 起从原 6 份 lowercase 教学系列合并而来）:
 
 | 文档 | 用途 |
 |------|------|
-| [learn-kit-使用手册.md](./docs/learn-kit-使用手册.md) | **5 分钟上手**：5 skills 速查表 + 安装 + 5 步快速流程 + 案例 + 踩坑 + 边界（v1.0.0 起）|
-| [learn-kit-01-positioning.md](./docs/learn-kit-01-positioning.md) | 项目定位与问题域——3 模式 + 适用 / 不适用 + 与同类工具差异 |
-| [learn-kit-02-eight-stage-methodology.md](./docs/learn-kit-02-eight-stage-methodology.md) | 8 阶段方法论详解（手工流的认知框架，跨版本稳定）|
-| [learn-kit-03-rfc-2119-worked-example.md](./docs/learn-kit-03-rfc-2119-worked-example.md) | RFC 2119 worked example——把抽象方法论"贴着实例走一遍" |
-| [learn-kit-04-three-skills.md](./docs/learn-kit-04-three-skills.md) | 5 个 skill 的分工（init / scan / locate / generate-tier / nlm-studio）+ 完整闭环图 |
-| [learn-kit-05-governance-boundary.md](./docs/learn-kit-05-governance-boundary.md) | 治理边界——并行子系统模型 / 命名 / frontmatter / 归档 / v1.0.0 起的依赖变化 |
+| [docs/guide/[GUIDE]_LearnKit_Pedagogy.md](./docs/guide/[GUIDE]_LearnKit_Pedagogy.md) | **教学合卷** — 定位 + 8 阶段方法论 + RFC 2119 worked example + 6 类质量门 / 8 反模式；新读者 30 分钟掌握 learn-kit 全部教学层面 |
+| [docs/guide/[GUIDE]_LearnKit_Design.md](./docs/guide/[GUIDE]_LearnKit_Design.md) | **设计合卷** — 5 skill 分工 + 闭环 + dogfood findings + parallel subsystem 治理模型 + frontmatter / INDEX / 归档规则 + v1.0.0 依赖矩阵 + 版本演化策略 |
 
-推荐阅读顺序：
+推荐阅读顺序:
 
-- **新用户**：使用手册 → 01 定位 → 02 方法论 → 04 skills 分工
-- **想要 RFC 范例**：03（先读 02 再读 03）
-- **理解治理决策**：05 治理边界 + 上游 ADR (`docs/adr/[ADR]_NotebookLM_Kit_Retirement.md`)
+- **新用户**：本 README 「中文 TL;DR」+「5 分钟上手」+「使用案例」+「常见踩坑」即可上手
+- **想深入方法论**：[GUIDE]_LearnKit_Pedagogy.md
+- **想理解 skill 设计与治理决策**：[GUIDE]_LearnKit_Design.md
+- **理解 v4.0.0 NLM 收编决策**：`docs/adr/[ADR]_NotebookLM_Kit_Retirement.md`（marketplace 顶级 ADR）
 
 ## License
 
 MIT — see `LICENSE`.
 
-## 上游 & 演进
+## 演进历史
 
-本方法论原生于 [`mj-system`](https://github.com/MJ-AgentLab) 项目 v2.0 STANDARD-tier 学习子系统，经 N=5 跨域验证（rules 8–63 / dimensions 3–5 / 5 个独立比喻世界 / 全部 N 维 AND-gate 几何不变量）后稳定，剥离 MJ 引用通用化为 `learn-kit` v0.1.0。
+本方法论经 N=5 跨域验证（rules 8–63 / dimensions 3–5 / 5 个独立比喻世界 / 全部 N 维 AND-gate 几何不变量）后稳定，通用化为 `learn-kit` v0.1.0 起作为 marketplace 独立插件维护。
 
 | Version | Highlight |
 |---------|-----------|
@@ -211,3 +338,5 @@ MIT — see `LICENSE`.
 | v0.3.0 | AI 流: generate-tier + 4 prompt templates + HTML render |
 | v0.3.1 | plugin.json repository field schema fix |
 | **v1.0.0** | **nlm-studio + 9 templates；notebooklm-kit 退场配套（marketplace v4.0.0）；first stable release** |
+| v1.1.0 | plugin-internal docs 框架（6 教学系列）|
+| **v1.2.0** | plugin-internal docs 重组（6 教学系列 → 2 份 [GUIDE]）；marketplace v4.5.0 Framework v1.5 §1 取消豁免配套 |
