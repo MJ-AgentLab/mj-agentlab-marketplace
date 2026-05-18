@@ -1,12 +1,12 @@
 ---
 type: guide
 scope: marketplace
-summary: Marketplace migration guide — v2.x→v3.0.0 (general restructure) + v3.2.x→v4.0.0 (notebooklm-kit retirement) + v4.0.0→v4.3.x (doc framework rollout) + v4.4.x→v4.5.0 (§1 exemption cancellation)
+summary: Marketplace migration guide — v2.x→v3.0.0 (general restructure) + v3.2.x→v4.0.0 (notebooklm-kit retirement) + v4.0.0→v4.3.x (doc framework rollout) + v4.4.x→v4.5.0 (§1 exemption cancellation) + v4.5.x→v5.0.0 (learn-kit init→scaffold-learning rename)
 owner: marketplace-maintainers
 created: 2026-03-16
 updated: 2026-05-18
 state: active
-version: v4.0
+version: v5.0
 domain: release
 tags:
   - migration
@@ -16,18 +16,21 @@ related:
   - ../rule/[STANDARD]_Documentation_Framework.md
   - ../adr/[ADR]_NotebookLM_Kit_Retirement.md
   - ../adr/[ADR]_Documentation_Framework_Exemption_Reversal.md
+  - ../adr/[ADR]_LearnKit_Init_Skill_Rename.md
 revision: |
+  2026-05-18 — v5.0: 新增 §5 v4.5.x → v5.0.0 (learn-kit init → scaffold-learning 重命名 + learn-kit 1.2.1 → 2.0.0 + marketplace 4.6.3 → 5.0.0)；frontmatter related[] 加新 ADR
   2026-05-18 — v4.0: rename docs/MIGRATION_GUIDE.md → docs/guide/[GUIDE]_Migration_From_v3_to_v4.md + 加 frontmatter（Framework v1.5 §1 cancel single-file exemption）；§3 末尾加 v4.5.0 §1 exemption cancellation 说明；§3.2 path mapping 更新对应原 §1 豁免文件的新去向
 ---
 
 # Migration Guide
 
-This file covers four migrations:
+This file covers five migrations:
 
 - §1 — **v2.x → v3.0.0** (Original general restructure) — consumer-impactful
 - §2 — **v3.2.x → v4.0.0** (notebooklm-kit 退场 + nlm-studio 吸收到 learn-kit) — consumer-impactful
 - §3 — **v4.0.0 → v4.3.x** (doc framework rollout) — mostly **contributor-facing**
 - §4 — **v4.4.x → v4.5.0** (Framework §1 exemption mechanism cancellation + learn-kit 1.1.0 → 1.2.0 docs 重组) — contributor-facing
+- §5 — **v4.5.x → v5.0.0** (learn-kit `init` skill renamed to `scaffold-learning`) — **consumer-impactful breaking**
 
 ---
 
@@ -419,3 +422,126 @@ v4.5.0 是一次 governance refactor —— **取消 Documentation Framework v1.
 ## §4.2 回滚指引
 
 v4.5.0 涉及 7 个文件删除 + 3 个 git mv rename + 14 个 edit。回滚需 revert 整个 PR。**Plugin 行为零变化**，外部用户无回滚 use case；仅 contributor 工作流如需 fork 旧版本 docs 体系才考虑回滚。
+
+---
+
+# §5 · v4.5.x → v5.0.0
+
+## Overview
+
+v5.0.0 是 **learn-kit 1.2.1 → 2.0.0** 重命名带来的 marketplace major bump：把 `/learn-kit:init` 改为 `/learn-kit:scaffold-learning`，物理消除与 Claude Code 内置 `/init`（生成 CLAUDE.md）在 slash-command 拾取器中的并列冲突。
+
+**核心变化**：
+
+| 变更类型 | 详情 |
+|---------|------|
+| Skill 重命名（**BREAKING**）| `plugins/learn-kit/skills/init/` → `plugins/learn-kit/skills/scaffold-learning/`；slash 调用 `/learn-kit:init` → `/learn-kit:scaffold-learning` |
+| 跨 skill 路由更新 | locate / scan / generate-tier 3 个 sibling skill 的 SKILL.md 中 8 处 `/learn-kit:init` 引用 → `/learn-kit:scaffold-learning` |
+| plugin 文档 | learn-kit README + CLAUDE.md + 2 [GUIDE] + 1 plugin-internal ADR References 段全部更新 |
+| marketplace 文档 | 本 Guide 新增 §5；新增 `docs/adr/[ADR]_LearnKit_Init_Skill_Rename.md`；3 STANDARD + 1 GUIDE + 1 SPEC 中的引用更新 |
+| 版本 | learn-kit `1.2.1 → 2.0.0`；marketplace `4.6.3 → 5.0.0`；VERSION 同步 |
+
+完整决策见 [`../adr/[ADR]_LearnKit_Init_Skill_Rename.md`](../adr/[ADR]_LearnKit_Init_Skill_Rename.md)。
+
+## §5.1 为什么 v1.2.1 的 documentation-only 约束不够
+
+v4.6.2 / learn-kit v1.2.1 已经做过两件 documentation-level 工作：
+
+1. 在 plugin README + CLAUDE.md + `[GUIDE]_LearnKit_Design.md` 写明 "**所有 slash 调用统一使用 `/learn-kit:<skill>` 全限定形式，禁止裸写 `/<skill>`**"
+2. 在 `skills/init/SKILL.md` frontmatter 设置 `disable-model-invocation: true`，阻止 LLM 自然语言路由
+
+**但这两条都不能解决用户拾取器的并列候选问题**：
+
+- `disable-model-invocation: true` 仅作用于模型自主调用，**不影响 user 主动键入 slash 命令时拾取器的列表显示**。
+- documentation-only 约定无 enforcement 机制；只要 `skills/init/` 目录存在，Claude Code 自动发现就会把 `/init` 列入候选。
+
+v1.2.1 落地后的真实截图证明：用户输入 `/init` 仍然同时出现 2 条候选（一条是 Claude Code 内置，一条是 learn-kit 的 init skill）。**唯一根治方式是物理重命名 skill 目录**。
+
+## §5.2 影响 · Consumer（终端用户 / plugin install user）
+
+| 维度 | 影响 |
+|------|------|
+| `/learn-kit:init` slash 调用 | **报错 "skill not found"**（v2.0.0 起目录已不存在）|
+| `/learn-kit:scaffold-learning` slash 调用 | 新入口，行为与原 `/learn-kit:init` 完全一致 |
+| 拾取器键入 `/init` | 仅命中 Claude Code 内置（learn-kit 候选不再出现）|
+| 拾取器键入 `/learn-kit:s` 或 `/scaffold` | 命中 `/learn-kit:scaffold-learning` |
+| Scaffold 行为 / 输出文件 | **零变化** — 仍创建 `learning/INDEX.md` + `learning/_meta/METHODOLOGY.md` + `learning/_archive/.gitkeep` |
+| Pre-flight 行为 | **零变化** — 已有 `learning/` 时仍 Skip / Merge / Abort 三选 |
+| 其他 4 个 skill（locate / scan / generate-tier / nlm-studio）| **零行为变化**；其内部 pre-flight 提示文案已更新为新名 |
+| `disable-model-invocation: true` | 仍生效（在新 skill 上）|
+
+## §5.3 Consumer 迁移步骤
+
+### Step 1: 升级 plugin
+
+```bash
+# 在任意已安装 learn-kit 的项目里
+/plugin update learn-kit@mj-agentlab-marketplace
+# 或显式拉 v2.0.0
+/plugin install learn-kit@mj-agentlab-marketplace
+```
+
+### Step 2: 在你自己的项目里全文替换旧 slash 引用
+
+如果你在项目 CLAUDE.md / docs / scripts / aliases 里硬编码过 `/learn-kit:init`，必须更新：
+
+```bash
+# 在你项目根
+grep -rn "/learn-kit:init" .   # 找出所有引用
+
+# 推荐手工替换（grep 命中后逐个审）：
+#   /learn-kit:init  →  /learn-kit:scaffold-learning
+```
+
+如果只是脑子里记得 `/learn-kit:init`，那直接改习惯输入新名即可，无文件改动。
+
+### Step 3: 验证
+
+```text
+/reload-plugins                    # 让 Claude Code 拾取新版本
+
+/init                              # 应仅显示 Claude Code 内置候选（无 learn-kit）
+/learn-kit:scaffold-learning       # 应正确触发 scaffold 行为
+```
+
+## §5.4 影响 · Contributor（marketplace 仓维护者 / 下游 fork）
+
+| 维度 | 影响 |
+|------|------|
+| 文件路径 `plugins/learn-kit/skills/init/` | **不存在**（已 git mv 到 `skills/scaffold-learning/`）|
+| 文件路径 `plugins/learn-kit/skills/scaffold-learning/` | 新路径，含 SKILL.md / templates / references |
+| 历史 CHANGELOG 引用 `skills/init/...` | **保留**（事实记录，不改写）|
+| 顶层 STANDARD / GUIDE / SPEC 中的引用 | 已更新到新路径（v5.0.0 PR 内完成）|
+| 引用 `[ADR]_LearnKit_Discovery_Skills.md` References 段中路径 | 已在 ADR 内加 inline note + 更新路径 |
+
+### Contributor 操作
+
+- 如果你 fork / 自动化引用了 `plugins/learn-kit/skills/init/*` 路径，需要更新到 `plugins/learn-kit/skills/scaffold-learning/*`
+- commit hook PATTERN regex 无变化（仍是 v4.3.2 制定的 v4.x canonical 白名单）；不需要重跑 install-hooks.ps1
+- 如果你的下游 marketplace fork 选择保留 `init` 命名，请理解这会让你的下游用户继续遇到 `/init` 拾取器双候选问题；不建议保留
+
+## §5.5 时间线
+
+| 日期 | Version | PR | 主题 |
+|------|---------|-----|------|
+| 2026-05-18 | v4.6.2 | #127 / #128 | learn-kit 1.2.1：nlm-studio frontmatter trim + namespace convention codified（documentation-only）|
+| 2026-05-18 | v4.6.3 | #131 | maintain: develop post-release pre-bump 4.6.2 → 4.6.3 |
+| 2026-05-18 | **v5.0.0** | （本 PR）| **BREAKING**: learn-kit `init` → `scaffold-learning` 物理重命名 + 双层 major bump |
+
+## §5.6 回滚指引
+
+v5.0.0 涉及 1 个 `git mv` + ~25 个 edit（含跨 17 文件的 `/learn-kit:init` 引用替换 + 双层 version bump + ADR 新建 + Migration §5 新增）。
+
+回滚方式：
+
+- **完全回滚**：revert 整个 v5.0.0 PR。learn-kit 退回 1.2.1，marketplace 退回 4.6.3。仅 documentation-level 约束生效，`/init` 双候选问题重现。
+- **部分回滚**：不建议。如果只 revert version bump 但保留 rename，version triangle 会失配；CI plugin-validator 会失败。
+
+**Plugin 行为是否变化**：除 slash 名外，**零变化**（scaffold 行为、pre-flight、next-steps 输出、cross-skill 路由的最终目的地完全一致）。
+
+## §5.7 References
+
+- 决策记录：[`../adr/[ADR]_LearnKit_Init_Skill_Rename.md`](../adr/[ADR]_LearnKit_Init_Skill_Rename.md)
+- learn-kit CHANGELOG v2.0.0 段：[`../../plugins/learn-kit/CHANGELOG.md`](../../plugins/learn-kit/CHANGELOG.md)
+- 顶层 CHANGELOG v5.0.0 段：[`../../CHANGELOG.md`](../../CHANGELOG.md)
+- HITL STANDARD §3.1 (plugin rename = 必停 HITL trigger)：[`../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`](../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)

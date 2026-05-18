@@ -74,7 +74,7 @@ mj-agentlab-marketplace/
 
 | Plugin | 描述 | Skills | Version | MCP 依赖 |
 |--------|------|--------|---------|----------|
-| **learn-kit** | 教学方法论 + AI 三档（foundation/structural/challenge）reading-tier 学习文档生成 + 交互式 HTML 渲染 + NotebookLM 多媒体 artifact 生成（audio/video/slide_deck/infographic × 3 view + 1 mind_map = 至多 13 个在线制品） | 5（init / locate / scan / generate-tier / nlm-studio） | 1.1.0 | notebooklm-mcp（nlm-studio skill 需要；其他 4 skill 零依赖） |
+| **learn-kit** | 教学方法论 + AI 三档（foundation/structural/challenge）reading-tier 学习文档生成 + 交互式 HTML 渲染 + NotebookLM 多媒体 artifact 生成（audio/video/slide_deck/infographic × 3 view + 1 mind_map = 至多 13 个在线制品） | 5（scaffold-learning / locate / scan / generate-tier / nlm-studio） | 2.0.0 | notebooklm-mcp（nlm-studio skill 需要；其他 4 skill 零依赖） |
 
 ### 3.1 插件标准结构
 
@@ -97,7 +97,7 @@ mj-agentlab-marketplace/
 ### 3.2 技能工作流链
 
 - **learn-kit**（5 skills，v4.0.0+ 唯一插件）:
-  - `/learn-kit:init` — 在项目根 scaffold `learning/<topic>/` 子系统 + 8 阶段方法论模板
+  - `/learn-kit:scaffold-learning` — 在项目根 scaffold `learning/<topic>/` 子系统 + 8 阶段方法论模板
   - `/learn-kit:locate <query>` — 反查概念名 / 口诀 / 部分文档名 → 候选 [LEARNING] 文档 / canonical 源
   - `/learn-kit:scan` — 项目可学候选枚举 (PageRank-lite ranking)
   - `/learn-kit:generate-tier` — AI 生成三档（foundation / structural / challenge）reading-tier 学习 markdown + 可选交互式 HTML

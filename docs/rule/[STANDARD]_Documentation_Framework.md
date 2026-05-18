@@ -81,7 +81,7 @@ The framework's audience is: **AI agents** writing/editing docs (so they have ma
 
 - `[CONTRACT]` / `[EVAL]` / `[PROMPT]` / `[SKILL]` are agent-runtime-flavored, not applicable to a static plugin registry
 - `[ISSUE]` / `[ASSESSMENT]` are reserved for v1.1 if doc count crosses ~25
-- `[LEARNING]` is owned by learn-kit's `learning/<topic>/` subsystem (managed by `/learn-kit:init` + `/learn-kit:generate-tier`); not a marketplace docs framework concern
+- `[LEARNING]` is owned by learn-kit's `learning/<topic>/` subsystem (managed by `/learn-kit:scaffold-learning` + `/learn-kit:generate-tier`); not a marketplace docs framework concern
 
 If a future need arises for an additional prefix, propose it via ADR (in `docs/adr/`) bumping this STANDARD to v1.x.
 

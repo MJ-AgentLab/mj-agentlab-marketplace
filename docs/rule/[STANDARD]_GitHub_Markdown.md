@@ -188,7 +188,7 @@ For code blocks > 30 lines or code that lives in actual source files, reference 
 
 ```markdown
 See `scripts/bump-version.ps1:42-60` for the version-triangle sync logic.
-See `plugins/learn-kit/skills/init/SKILL.md` for the discovery skill pattern.
+See `plugins/learn-kit/skills/scaffold-learning/SKILL.md` for the discovery skill pattern.
 ```
 
 Avoids staleness when code evolves.
