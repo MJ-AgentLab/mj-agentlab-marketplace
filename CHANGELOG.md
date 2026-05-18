@@ -14,6 +14,7 @@
 ### Added
 
 - **`.github/workflows/ci.yml`** — NEW step «Validate README badge matches VERSION» appended after «Validate version consistency». Guards against the silent badge drift that produced the v4.4.8-stuck-while-on-v4.5.0 postmortem. Fails CI if `README.md` line 3 badge encodes a different `X.Y.Z` than the `VERSION` file. Error output suggests both manual-edit fix + `bump-version.ps1` command. Runs on all PRs + branch pushes (no `release/*` skip).
+- **`.github/workflows/readme-badge-suggest.yml`** (PR #117 closes #112) — NEW PR Suggested Change bot. Triggers on `workflow_run` after `CI — Validate Plugin Structure` completes; checks README badge vs VERSION; if drift exists, posts a GitHub review comment on README.md badge line with a ` ```suggestion ` block. User clicks "Commit suggestion" to apply the fix in 1 click (no local edit needed). Sticky semantics via marker `<!-- readme-badge-suggest-bot -->` — DELETE+POST on each push so the suggestion always anchors to the current commit_id. Auto-resolves the marker comment when drift is fixed (avoids ghost suggestions). Uses `pulls/{n}/comments` API (review comments anchored to file+line — required for Suggested Change syntax) vs `comment-on-pr.yml` which uses `issues/{n}/comments` (general PR comment) — distinct concerns, separate workflows for SRP. Defense-in-depth UX layer over PR #109's blocking CI guard.
 
 ### Changed
 
