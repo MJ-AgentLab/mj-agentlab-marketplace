@@ -24,7 +24,9 @@ README.md badge (L3) + plugin-table version cell    ←→    CLAUDE.md `plugins
 # v4.4.9 / v4.4.10 / v4.4.11 / v4.5.0 manual bumps skipped scripts/bump-version.ps1,
 # leaving README badge stuck at 4.4.8 + plugin table cell at 1.1.0 + CLAUDE.md learn-kit
 # line at v1.0.0 across 4 successive releases. CI now guards README badge (ci.yml step
-# "Validate README badge matches VERSION"); CLAUDE.md remains manual-discipline.
+# "Validate README badge matches VERSION"). All 5 sites are now bump-version.ps1 covered
+# (Issue #110 closed by PR #115 — added CLAUDE.md plugin-line scoped regex branch +
+# fixed pre-existing marketplace.json `[^}]*` regex bug that broke on description's `}`).
 ```
 
 **Reference**: [[../../../docs/guide/[GUIDE]_Version_Management|Version Management]] + [[../../../scripts/bump-version.ps1|bump-version.ps1]] (if exists).
@@ -264,7 +266,7 @@ jq '.plugins[] | select(.name=="learn-kit") | .version' .claude-plugin/marketpla
 - **不要** 跳 CHANGELOG promote（release.yml 抽 release notes 时会出错）
 - **不要** 手工 git tag（release.yml 自动）
 - **不要** 改 plugin.json 字段以外的 plugin metadata（用 `/mp-flow-author`）
-- **不要** 漏掉 README badge / plugin-table cell / CLAUDE.md plugin line bump — `bump-version.ps1` 已 cover README badge + table cell (line 65 marketplace scope; string-replace based); CLAUDE.md plugin line 是 manual (script 不 pattern-match prose plugin line)。**postmortem**: v4.4.9 → v4.5.0 4 个 release 连续漏掉 README + CLAUDE.md, silent drift 直到用户截图发现; CI guard 已加，但 skill 用户仍应自检 5 sites
+- **不要** 漏掉 README badge / plugin-table cell / CLAUDE.md plugin line bump — `bump-version.ps1` v2 起（Issue #110 / PR #115 close）已 cover 全 5 sites: marketplace scope 跑 VERSION + marketplace.json metadata + README badge；plugin scope 跑 plugin.json + marketplace.json plugins[] + README cell + CLAUDE.md plugin line（scoped regex 锁定 `` `<plugin>` v<X.Y.Z> ``，不会误伤 `历史版本记录` 中的 prose version 提及）。**postmortem**: v4.4.9 → v4.5.0 4 个 release 连续手工 edit + 漏掉 README + CLAUDE.md, silent drift 直到用户截图发现; CI guard + RUNBOOK MANDATORY + script 5-site 覆盖 三层防御已就位
 
 ## Handoff to Next Stage
 

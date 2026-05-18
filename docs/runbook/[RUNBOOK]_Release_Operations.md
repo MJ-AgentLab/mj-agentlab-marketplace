@@ -1,12 +1,12 @@
 ---
 type: runbook
 scope: marketplace
-summary: 从功能开发到版本发布的完整操作流程 — Issue → PR → Release (v1.1 起：bump-version.ps1 MANDATORY + post-bump diff check)
+summary: 从功能开发到版本发布的完整操作流程 — Issue → PR → Release (v1.2 起：bump-version.ps1 全 5 Quintangle sites 覆盖 + RUNBOOK §3.2.1 简化)
 owner: marketplace-maintainers
 created: 2026-03-17
 updated: 2026-05-18
 state: active
-version: v1.1
+version: v1.2
 last-verified: 2026-05-18
 domain: release
 tags:
@@ -18,6 +18,7 @@ related:
   - ../spec/[SPEC]_Marketplace_Json_Schema.md
   - ../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
 revision: |
+  2026-05-18 — v1.2: **CLAUDE.md 自动化 sync**（closes #110）。§3.2.1 post-bump verification 第 2 步 wording 从 "CLAUDE.md plugin line manual：script 不 cover" 改为 "script 已 cover (v2 起)；保留 grep verify 作为 last-line defense"；§6 发布前检查清单第 3 项 wording 同步更新；cross-reference 加 PR #115 (Issue #110 closure) + 内含 marketplace.json `[^}]*` regex bug 顺手修复（描述含 `}` 时 silent SKIP，已修为 `[\s\S]*?` 非贪婪）。bump-version.ps1 现 cover 全 5 Quintangle sites，三层防御 (script 覆盖 + CI guard + RUNBOOK MANDATORY) 完工。Non-trigger archive（minor bump，无 Framework §2.3.1 触发条件）。
   2026-05-18 — v1.1: **bump-version.ps1 MANDATORY enforcement**（closes #111）。§3.2 重写为 MANDATORY callout（不再是 advisory）+ 新增 §3.2.1 post-bump verification step（`git diff --name-only` 必须含 `README.md` + Quintangle 5-site sed-based check）；§3.4 git add 列表新增 `README.md` + `CLAUDE.md` + commit message 改 release scope 范例；§6 发布前检查清单新增 3 项 NEW（script 已运行 / diff 含 README / CLAUDE.md plugin line 同步）+ 发布后新增 1 项（visual badge verify）；§7 新增 版本历史段（§8 即原 §7 相关文档）；fix line 350 `../CONTRIBUTING.md` → `../guide/[GUIDE]_Contributing.md` (PR #103 rename)；cross-reference v4.6.0 CI guard «Validate README badge matches VERSION»（PR #109）作为 safety net + Issue #110 / #113 future-work 锚点
   2026-03-17 — v1.0: 初版
 ---
@@ -201,8 +202,9 @@ git pull origin develop
 git diff --name-only | grep -E "^README\.md$" || \
   echo "ERROR: README.md not in diff — bump-version.ps1 was either skipped or failed silently"
 
-# 2. CLAUDE.md plugin line 验证（manual：script 不 cover；追踪 Issue #110）
-#    手工确认 CLAUDE.md `plugins/` 段 learn-kit 版本号已同步 plugin.json 的新版本
+# 2. CLAUDE.md plugin line 验证（v2 起 script 已 cover plugin scope；保留 grep verify 作为 last-line defense）
+#    Script 现在用 scoped regex 锁定 `plugins/` 段 `<plugin>` v<X.Y.Z> 一行（不会误伤 历史版本记录）
+#    手工 grep 仍可作为 sanity check (Issue #110 closed by PR #115)
 grep -nE 'learn-kit. v[0-9.]+' CLAUDE.md
 
 # 3. Version Quintangle 5-site 一致性（详见 .claude/skills/mp-doc-bump-version/SKILL.md Step 7）
@@ -370,7 +372,7 @@ git push origin --delete v1.1.0
 - [ ] CI 全部通过（Validate Structure: SUCCESS）
 - [ ] **(v1.1 NEW) `scripts/bump-version.ps1` 已运行**（先 DryRun + 看 diff preview，再执行；§3.2 MANDATORY）
 - [ ] **(v1.1 NEW) `git diff --name-only` 包含 `README.md`**（§3.2.1 verification — 若不在意味着 script 漏执行 / 失败）
-- [ ] **(v1.1 NEW) `CLAUDE.md` plugin line 已同步到新 plugin 版本**（script 当前不 cover，手工 grep verify；Issue #110 跟踪自动化）
+- [ ] **(v1.2 UPDATED) `CLAUDE.md` plugin line 已同步到新 plugin 版本**（v2 起 script 已 cover plugin scope 自动 patch；保留 `grep -nE 'learn-kit. v[0-9.]+' CLAUDE.md` 作 last-line verify）
 - [ ] CHANGELOG 已从 `[Unreleased]` 转为正式版本节
 - [ ] VERSION 文件已更新
 - [ ] marketplace.json 版本与 VERSION 一致
@@ -388,6 +390,7 @@ git push origin --delete v1.1.0
 
 ## 7. 版本历史
 
+- **v1.2**（2026-05-18）：**CLAUDE.md 自动化 sync**（closes #110）。§3.2.1 第 2 步 + §6 第 3 项 wording 从「manual / script 不 cover」更新为「script 已 cover (v2 起 plugin scope 含 CLAUDE.md scoped-regex 分支)；grep 保留作 last-line defense」。配套 PR #115 同时修了 `scripts/bump-version.ps1` 中 marketplace.json `[^}]*` regex bug（描述含 `}` 时 silent SKIP）。bump-version.ps1 现真正 cover 全 5 Quintangle sites，三层防御 (script 覆盖 + CI guard + RUNBOOK MANDATORY) 完工。Frontmatter v1.1 → v1.2 + revision block。Non-trigger archive。
 - **v1.1**（2026-05-18）：**bump-version.ps1 MANDATORY enforcement**（closes #111）。§3.2 改 advisory → MANDATORY callout box + 加 §3.2.1 post-bump verification（git diff README.md 必含 + Quintangle 5-site 一致性 sed-based check）；§3.4 git add 列表加 `README.md` + `CLAUDE.md` + 强调 release scope + 跨引用本地 `validate-commits.sh`；§6 发布前检查清单加 3 项 NEW + 发布后加 1 项 visual badge verify；§8 即原 §7 相关文档；fix line 350 `../CONTRIBUTING.md` → `../guide/[GUIDE]_Contributing.md` (PR #103 rename)；cross-reference v4.6.0 CI guard «Validate README badge matches VERSION»（PR #109）作为 safety net + Issue #110 / #113 future-work 锚点。Frontmatter v1.0 → v1.1 + revision block。Non-trigger archive（minor bump，无 Framework §2.3.1 触发条件）。
 - **v1.0**（2026-03-17）：初版。Issue → Branch → Develop → Commit → PR → CI → Merge → Release 完整 6 阶段操作流程 + hotfix + rollback 子流程。
 

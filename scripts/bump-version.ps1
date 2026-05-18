@@ -3,10 +3,15 @@
     MJ AgentLab Marketplace version bump script
 
 .DESCRIPTION
-    Batch-replace version numbers across project files.
+    Batch-replace version numbers across project files (Version Quintangle).
     Supports two scopes:
       - marketplace: updates VERSION, marketplace.json (metadata.version), README.md
-      - plugin:      updates plugin.json (version), marketplace.json (plugins[name].version)
+      - plugin:      updates plugin.json (version), marketplace.json (plugins[name].version),
+                     README.md (badge area string-match), CLAUDE.md (`<name>` v<X.Y.Z> prose line — scoped regex)
+
+    Closes Issue #110 (CLAUDE.md plugin line coverage) so plugin bumps no longer
+    need a separate manual step to keep CLAUDE.md in sync (postmortem: README +
+    CLAUDE.md drifted 4 releases v4.4.9 → v4.5.0 when bumps were done manually).
 
 .PARAMETER From
     Current version (e.g. "1.0.0")
@@ -51,6 +56,9 @@ $ErrorActionPreference = "Stop"
 $ProjectRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 
 # Build target file list based on scope
+# Note: CLAUDE.md is plugin-scope only — its `plugins/` section names plugin versions
+# (e.g. `learn-kit` v1.2.0), which only change on plugin bumps. Marketplace-scope bumps
+# don't touch the plugin version, so CLAUDE.md isn't a target there.
 if ($Scope -eq "marketplace") {
     $TargetFiles = @(
         "VERSION",
@@ -62,7 +70,8 @@ if ($Scope -eq "marketplace") {
     $TargetFiles = @(
         "plugins/$Scope/.claude-plugin/plugin.json",
         ".claude-plugin/marketplace.json",
-        "README.md"
+        "README.md",
+        "CLAUDE.md"
     )
     $MarketplaceJsonMode = "plugin:$Scope"
 }
@@ -98,9 +107,25 @@ foreach ($RelPath in $TargetFiles) {
             $Pattern = '("metadata"\s*:\s*\{[^}]*"version"\s*:\s*")' + [regex]::Escape($From) + '"'
             $Replacement = '${1}' + $To + '"'
         } else {
-            # Only replace version for the specific plugin entry
+            # Only replace version for the specific plugin entry.
+            #
+            # Bug fix (discovered while implementing #110): the previous `[^}]*`
+            # negated-class stops at the FIRST `}` anywhere between "name" and
+            # "version" — including `}` inside the description string (e.g.,
+            # marketplace v4.5.0's description mentions
+            # `[GUIDE]_LearnKit_{Pedagogy,Design}.md` which contains `}`),
+            # so the plugin entry regex silently failed to match and the
+            # script SKIPped marketplace.json for every plugin bump where the
+            # description contained literal braces.
+            #
+            # Fix: use `[\s\S]*?` (non-greedy match-any-incl-newlines) which
+            # walks past description content but lazily stops at the FIRST
+            # `"version"` after this plugin's name — correct for multi-plugin
+            # arrays since lazy matching anchors to the immediately-following
+            # `"version"`, not any later plugin's `"version"`. The pattern
+            # tolerates `}` inside string values (the previous one didn't).
             $PluginName = $MarketplaceJsonMode -replace "^plugin:", ""
-            $Pattern = '("name"\s*:\s*"' + [regex]::Escape($PluginName) + '"[^}]*"version"\s*:\s*")' + [regex]::Escape($From) + '"'
+            $Pattern = '("name"\s*:\s*"' + [regex]::Escape($PluginName) + '"[\s\S]*?"version"\s*:\s*")' + [regex]::Escape($From) + '"'
             $Replacement = '${1}' + $To + '"'
         }
 
@@ -130,6 +155,45 @@ foreach ($RelPath in $TargetFiles) {
 
         if (-not $DryRun) {
             $NewContent = [regex]::Replace($Content, $Pattern, $Replacement, [System.Text.RegularExpressions.RegexOptions]::Singleline)
+            [System.IO.File]::WriteAllText($FilePath, $NewContent)
+            $ModifiedFiles++
+        }
+    } elseif ($RelPath -eq "CLAUDE.md") {
+        # CLAUDE.md `plugins/` section plugin line — uniquely identified by
+        # backtick-wrapped plugin name + ' v' + version. Scoped regex (not naive
+        # string replace) to avoid clobbering version mentions in «历史版本记录»
+        # or doc-tree narrative that incidentally match the bare $From string.
+        # Pattern example: `learn-kit` v1.0.0  →  `learn-kit` v1.1.0
+        $PluginName = $Scope
+        $Pattern = '(`' + [regex]::Escape($PluginName) + '` v)' + [regex]::Escape($From)
+        $Replacement = '${1}' + $To
+
+        $MatchCount = ([regex]::Matches($Content, $Pattern)).Count
+
+        if ($MatchCount -eq 0) {
+            Write-Host "  [SKIP] $RelPath - no match for plugin line '`${PluginName}` v$From'" -ForegroundColor DarkGray
+            continue
+        }
+
+        Write-Host ""
+        Write-Host "  [MATCH] $RelPath ($MatchCount occurrences, scoped: plugin line for $PluginName)" -ForegroundColor Green
+
+        $Lines = @(Get-Content -Path $FilePath -Encoding UTF8)
+        $LinePattern = '`' + [regex]::Escape($PluginName) + '` v' + [regex]::Escape($From)
+        for ($i = 0; $i -lt $Lines.Count; $i++) {
+            if ($Lines[$i] -match $LinePattern) {
+                $LineNum = $i + 1
+                $Before = $Lines[$i].Trim()
+                $After = $Before -replace $LinePattern, ('`' + $PluginName + '` v' + $To)
+                Write-Host "    L${LineNum}: $Before" -ForegroundColor Red
+                Write-Host "      -> $After" -ForegroundColor Green
+            }
+        }
+
+        $TotalMatches += $MatchCount
+
+        if (-not $DryRun) {
+            $NewContent = [regex]::Replace($Content, $Pattern, $Replacement)
             [System.IO.File]::WriteAllText($FilePath, $NewContent)
             $ModifiedFiles++
         }
