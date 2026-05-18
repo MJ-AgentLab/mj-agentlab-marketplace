@@ -5,6 +5,84 @@
 
 ## [Unreleased]
 
+## [5.0.0] - 2026-05-18
+
+**BREAKING — learn-kit `init` skill renamed to `scaffold-learning`.**
+marketplace `4.6.3` → `5.0.0` follows learn-kit `1.2.1` → `2.0.0` (major
+on both layers per HITL STANDARD §3.1: "plugin rename = high-risk +
+major bump"). The v4.6.2 namespace-convention codification (documenting
+"always write `/learn-kit:init` fully-qualified, never bare `/init`")
+was a documentation-only constraint and did NOT prevent Claude Code's
+slash-command picker from listing both Claude Code's builtin `/init`
+(CLAUDE.md generator) and learn-kit's `/init` as parallel candidates.
+v5.0.0 physically resolves the collision by renaming the skill.
+
+Single-file `/init` migration:
+
+```text
+# v4.x (still functional in 4.6.x — collision visible in picker)
+/learn-kit:init                  → scaffold learning/ folder
+
+# v5.0.0
+/learn-kit:scaffold-learning     → scaffold learning/ folder
+                                   (typing `/init` no longer matches learn-kit)
+```
+
+### Added
+
+- **`docs/adr/[ADR]_LearnKit_Init_Skill_Rename.md`** — Full decision
+  record (Status: Accepted, 2026-05-18). Captures the v1.2.1 dogfood
+  evidence proving the documentation-only namespace convention is
+  insufficient, enumerates 6 alternatives considered (rejected:
+  bootstrap-learning / `scaffold` solo / `init-learning` substring /
+  alias stub / minor-bump-only), and locks in the chosen path. Cited
+  by HITL STANDARD §3.1 as the canonical example for "plugin rename =
+  major + HITL gated" precedent.
+- **`docs/guide/[GUIDE]_Migration_From_v3_to_v4.md` §5** — New section
+  `v4.5.x → v5.0.0 (learn-kit 2.0.0 init→scaffold-learning rename)`.
+  Provides before/after grep-and-replace recipe for downstream
+  consumers (mj-system, mj-agent, external forks).
+
+### Changed (BREAKING)
+
+- **learn-kit `1.2.1` → `2.0.0`** — see
+  [`plugins/learn-kit/CHANGELOG.md`](plugins/learn-kit/CHANGELOG.md)
+  `[2.0.0]` for the full inventory:
+  - `git mv plugins/learn-kit/skills/init` →
+    `plugins/learn-kit/skills/scaffold-learning`
+  - SKILL.md frontmatter `name: init` → `name: scaffold-learning`;
+    H1 + body references updated; `disable-model-invocation: true`
+    retained
+  - Cross-skill routing in locate / scan / generate-tier (8 refs)
+  - plugin README + CLAUDE.md + plugin-internal docs/INDEX +
+    [GUIDE]_LearnKit_{Pedagogy,Design} + Discovery_Skills ADR §References
+
+### Changed
+
+- **`.claude-plugin/marketplace.json`** — metadata.version
+  `4.6.3 → 5.0.0`; plugins[learn-kit].version `1.2.1 → 2.0.0`;
+  marketplace `metadata.description` and plugins[learn-kit].description
+  both updated to reflect new skill name and v5.0.0 breaking-change
+  callout.
+- **`VERSION`** — `4.6.3 → 5.0.0` (release.yml trigger on next merge to main).
+- **`.gitignore`** — comment block at line 37-41 updated:
+  `/learn-kit:init scaffolds learning/<topic>/` →
+  `/learn-kit:scaffold-learning scaffolds learning/<topic>/`. Comment
+  text only; the ignore rule itself (`/learning/`) is unchanged.
+
+### Notes
+
+- Historical CHANGELOG entries (this file and `plugins/learn-kit/CHANGELOG.md`)
+  retain original `/learn-kit:init` wording for entries v0.1.0 through
+  v1.2.1 / v3.0.0 through v4.6.x — factual record, not rewritten.
+- No code behavior change in any of the other 4 skills
+  (locate / scan / generate-tier / nlm-studio); only their cross-skill
+  routing pointers updated.
+- `disable-model-invocation: true` on the renamed skill continues to
+  block LLM auto-routing; the slash-picker collision was a separate
+  UX issue not addressable by that flag (validated by v1.2.1 dogfood
+  screenshot).
+
 ## [4.6.2] - 2026-05-18
 
 This release packages **cleanup-hardening** (project's first POSTMORTEM + `safe-bulk-cleanup.ps1` + `/mp-git-cleanup` §Bulk Cleanup Mode + 3 procedural cross-references) plus **learn-kit plugin docs polish** (nlm-studio SKILL.md frontmatter description trimmed below the 1,536-char cap to eliminate `/doctor` warning, plus a 5-skill slash invocation namespace convention codified across 3 plugin docs).
