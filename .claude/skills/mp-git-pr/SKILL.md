@@ -213,7 +213,7 @@ rm PR_BODY.md
 
 - [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.9
 - `.github/PULL_REQUEST_TEMPLATE/<type>.md` (6 templates)
-- [[../../../docs/CONTRIBUTING.md|CONTRIBUTING]]
+- [[../../../docs/guide/[GUIDE]_Contributing.md|GUIDE_Contributing]]
 
 ## Anti-patterns
 

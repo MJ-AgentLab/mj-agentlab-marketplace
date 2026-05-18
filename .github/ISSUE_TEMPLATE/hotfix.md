@@ -22,4 +22,4 @@ assignees: ""
 
 > **注意**：Hotfix 从 `main` 创建分支，PR 目标也是 `main`（合并后需同步到 `develop`）。
 > **分支命名**：`hotfix/<本 Issue 编号>-<简述>`（例：`hotfix/20-push-skill-crash`）
-> 详见 [CONTRIBUTING.md](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/develop/docs/CONTRIBUTING.md)
+> 详见 [GUIDE Contributing](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/develop/docs/guide/%5BGUIDE%5D_Contributing.md)

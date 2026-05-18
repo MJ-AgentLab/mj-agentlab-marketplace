@@ -57,15 +57,14 @@ mj-agentlab-marketplace/
 │   │   └── release.yml           # 自动发布
 │   ├── PULL_REQUEST_TEMPLATE/    # 6 种 PR 模板
 │   └── ISSUE_TEMPLATE/           # 5 种 Issue 模板
-└── docs/                         # v4.2.0 起按 framework 分子目录
-    ├── INDEX.md                  # 文档索引
-    ├── CONTRIBUTING.md           # 贡献指南
-    ├── MIGRATION_GUIDE.md        # 版本迁移
-    ├── rule/                     # STANDARDs（含本 framework 元规则 + commit + markdown + HITL）
-    ├── guide/                    # GUIDEs（本文档 + version mgmt + plugin dev testing + agent checklist）
-    ├── runbook/                  # RUNBOOKs（release operations）
+└── docs/                         # v4.2.0 起按 framework 分子目录；v4.5.0 起 CONTRIBUTING + MIGRATION 移入 guide/
+    ├── INDEX.md                  # 文档索引（v1.5 §1 唯一豁免 frontmatter）
+    ├── rule/                     # STANDARDs（Framework v1.5 / Commit Convention / GitHub Markdown / HITL Prompt）
+    ├── guide/                    # GUIDEs（本文档 + version mgmt + agent checklist + [GUIDE]_Contributing + [GUIDE]_Migration_From_v3_to_v4）
+    ├── runbook/                  # RUNBOOKs（release operations v1.2 / doc archive procedure）
     ├── adr/                      # ADRs（marketplace-scope；plugin-internal ADRs 在 plugins/learn-kit/docs/adr/）
     ├── spec/                     # SPECs（marketplace.json + plugin.json schemas）
+    ├── archive/                  # flat layout (Framework v1.4 §2.3.5)
     └── _templates/               # 6 个起草骨架模板
 ```
 
@@ -104,7 +103,7 @@ mj-agentlab-marketplace/
   - `/learn-kit:generate-tier` — AI 生成三档（foundation / structural / challenge）reading-tier 学习 markdown + 可选交互式 HTML
   - `/learn-kit:nlm-studio <topic>` — 把三档 markdown push 到 NotebookLM 生成至多 13 个多媒体 artifact（audio/video/slide_deck/infographic × 3 view + 1 shared mind_map）
 
-> 历史上 v3.x marketplace 含 4 个 mj-sys-* 插件（doc / git / n8n / ops），v3.0.0 把它们退役改为通用工具集。详见 [MIGRATION_GUIDE.md](../MIGRATION_GUIDE.md)。
+> 历史上 v3.x marketplace 含 4 个 mj-sys-* 插件（doc / git / n8n / ops），v3.0.0 把它们退役改为通用工具集。详见 [GUIDE Migration From v3 to v4](<./[GUIDE]_Migration_From_v3_to_v4.md>)。
 
 ## 4. 版本管理体系
 
@@ -201,4 +200,4 @@ powershell -File ..\scripts\install-hooks.ps1
 
 - [版本管理指南](<./[GUIDE]_Version_Management.md>) — 版本管理详细指南
 - [发布操作手册](<../runbook/[RUNBOOK]_Release_Operations.md>) — 发布操作手册
-- [CONTRIBUTING.md](../CONTRIBUTING.md) — 贡献指南
+- [GUIDE Contributing](<./[GUIDE]_Contributing.md>) — 贡献指南

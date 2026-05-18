@@ -294,7 +294,7 @@ Select-String -Pattern '^PATTERN=' (Join-Path $hooksDir 'commit-msg')
 # 旧版含: mj-sys-git|mj-sys-doc|mj-sys-n8n|mj-sys-ops|... → 需重跑安装
 ```
 
-完整 hook 维护指南：[CONTRIBUTING.md § Git Hooks](<./CONTRIBUTING.md#git-hooks>) (v4.3.4 加入)。
+完整 hook 维护指南：[GUIDE Contributing § Git Hooks](<./[GUIDE]_Contributing.md#git-hooks>) (v4.3.4 加入)。
 
 ## §3.4 Scripts API 变化 (v4.3.2)
 

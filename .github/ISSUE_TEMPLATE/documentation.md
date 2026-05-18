@@ -17,4 +17,4 @@ assignees: ""
 - [ ] 标准 2
 
 > **分支命名**：`documentation/<本 Issue 编号>-<简述>`（例：`documentation/15-update-readme`）
-> 详见 [CONTRIBUTING.md](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/develop/docs/CONTRIBUTING.md)
+> 详见 [GUIDE Contributing](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/develop/docs/guide/%5BGUIDE%5D_Contributing.md)

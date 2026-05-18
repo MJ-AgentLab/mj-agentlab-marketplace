@@ -37,7 +37,7 @@ Marketplace 采用**双层独立版本管理**，marketplace 整体和各插件�
     同步 → marketplace.json plugins[name=learn-kit].version
 ```
 
-> 历史上 v3.x 时代 marketplace 含 4 个 mj-sys-* 插件 + 1 个 notebooklm-kit。v3.0.0 删 mj-sys-* / v4.0.0 删 notebooklm-kit 之后定型为单 plugin。详见 [MIGRATION_GUIDE.md](../MIGRATION_GUIDE.md)。如未来再扩充 plugin，把新名加进 bump-version.ps1 ValidateSet 与 install-hooks.ps1 commit-msg regex 即可。
+> 历史上 v3.x 时代 marketplace 含 4 个 mj-sys-* 插件 + 1 个 notebooklm-kit。v3.0.0 删 mj-sys-* / v4.0.0 删 notebooklm-kit 之后定型为单 plugin。详见 [GUIDE Migration From v3 to v4](<./[GUIDE]_Migration_From_v3_to_v4.md>)。如未来再扩充 plugin，把新名加进 bump-version.ps1 ValidateSet 与 install-hooks.ps1 commit-msg regex 即可。
 
 ### 1.2 语义化版本
 

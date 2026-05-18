@@ -20,4 +20,4 @@ assignees: ""
 **环境**：Plugin 名称 · vX.Y.Z
 
 > **分支命名**：`bugfix/<本 Issue 编号>-<简述>`（例：`bugfix/25-commit-scope-error`）
-> 详见 [CONTRIBUTING.md](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/develop/docs/CONTRIBUTING.md)
+> 详见 [GUIDE Contributing](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/develop/docs/guide/%5BGUIDE%5D_Contributing.md)
