@@ -5,7 +5,18 @@
 
 ## [Unreleased]
 
-_(no in-flight changes at release-cut time)_
+### Fixed
+
+- **`README.md`** — refresh stale content post-v4.5.0: badge `4.4.8` → `4.5.0`; learn-kit plugin-table cell `1.1.0` → `1.2.0`; fix **5 broken links** (3× `docs/MIGRATION_GUIDE.md` → `docs/guide/[GUIDE]_Migration_From_v3_to_v4.md` + 2× `docs/CONTRIBUTING.md` → `docs/guide/[GUIDE]_Contributing.md`; both moved by PR #103). **Root cause**: last 4 release-bump commits (v4.4.9 / v4.4.10 / v4.4.11 / v4.5.0) skipped `scripts/bump-version.ps1` so README never got version sync.
+- **`CLAUDE.md`** — refresh stale content post-v4.5.0: learn-kit `v1.0.0` → `v1.2.0` mention; `docs/` Project Structure line rewritten to reflect 5-subdir structure + renamed migration guide path; Documentation Framework heading adds `当前 v1.5 / marketplace v4.5.0` suffix + STANDARD list shows v1.5 / v1.1 versions; docs/ tree drops `CONTRIBUTING.md` + `MIGRATION_GUIDE.md` from exempt line (only `INDEX.md` exempt per Framework v1.5 §1 special clause), converts «PR 3 / PR 4 (will move)» future-tense to completion-state, adds `archive/` flat layout line; `MIGRATION_GUIDE.md` link in v4.0.0 Restructure Note → renamed path; HITL STANDARD reference `(v1.2)` → `(v1.4)`; «历史版本记录» fills 4.0.0 → 4.5.0 gap with v4.1.0 + v4.2.0 + v4.3.x-4.4.11 + v4.5.0 entries.
+
+### Added
+
+- **`.github/workflows/ci.yml`** — NEW step «Validate README badge matches VERSION» appended after «Validate version consistency». Guards against the silent badge drift that produced the v4.4.8-stuck-while-on-v4.5.0 postmortem. Fails CI if `README.md` line 3 badge encodes a different `X.Y.Z` than the `VERSION` file. Error output suggests both manual-edit fix + `bump-version.ps1` command. Runs on all PRs + branch pushes (no `release/*` skip).
+
+### Changed
+
+- **`.claude/skills/mp-doc-bump-version/SKILL.md`** — promote «Version Triangle (4-site)» → «Version Quintangle (5-site invariant)»: add README.md badge + plugin-table cell + CLAUDE.md plugin line. Frontmatter description extends version-bearing-files list. Step 7 Verify adds 3 new sed-based checks (cross-platform: `grep -P` is locale-sensitive on Windows git-bash) + cross-references ci.yml's new CI guard. Anti-patterns expand "4 sites" → "5 sites" + add explicit 4-release silent-drift postmortem note.
 
 ## [4.5.0] - 2026-05-18
 
