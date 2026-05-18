@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-03-17
 updated: 2026-05-18
 state: active
-version: v1.3.1
+version: v1.3.2
 last-verified: 2026-05-18
 domain: release
 tags:
@@ -19,7 +19,9 @@ related:
   - ../spec/[SPEC]_Marketplace_Json_Schema.md
   - ../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
   - ../adr/[ADR]_Develop_PreBump_Adoption.md
+  - ../postmortem/[POSTMORTEM]_2026-05-18_Bulk_Cleanup_Trap_Analysis.md
 revision: |
+  2026-05-18 — v1.3.2: §2.6 + §3.7 加 cleanup callout box — single-PR cleanup 现可依赖 GitHub `delete_branch_on_merge=true` (v4.6.2+ 启用)，bulk 场景指向 `.claude/skills/mp-git-cleanup/SKILL.md` §Bulk Cleanup Mode + `scripts/safe-bulk-cleanup.ps1`；frontmatter related[] 加 POSTMORTEM_2026-05-18 引用。procedural commands 不变。Non-trigger archive（patch revision，无 Framework §2.3.1 触发条件）。
   2026-05-18 — v1.3.1: scrub external project references per `[STANDARD]_AI_Engineering_Execution_HITL_Prompt` §0.3 independence principle (frontmatter summary + this revision line + §3.7 "Why" callout reworded)；technical procedure 不变。
   2026-05-18 — v1.3: 引入 develop post-release 预 bump 机制 (per `[ADR]_Develop_PreBump_Adoption`)。新增 §3.7 "Post-release develop 预 bump"（sync-main-to-develop 完成后即在 develop 上执行 `bump-version.ps1 -From X.Y.Z -To X.Y.(Z+1)` 一个 commit；pure patch 风格无 `-dev` 后缀；只 bump 顶层 VERSION，不连带 plugin.json）；§4.5 加 hotfix 与预 bump 冲突 TODO 标记（暂不预设处理，待首次 hotfix 事件再补 §4.6）；§6 发布前检查清单加 1 项后置 "release 完成后 72h 内 develop 已预 bump"。Configures `verify-develop-prebumped.yml` warn-only CI 作为遗忘提醒兜底（72h 宽限）。Non-trigger archive（minor bump，无 Framework §2.3.1 触发条件）。
   2026-05-18 — v1.2: **CLAUDE.md 自动化 sync**（closes #110）。§3.2.1 post-bump verification 第 2 步 wording 从 "CLAUDE.md plugin line manual：script 不 cover" 改为 "script 已 cover (v2 起)；保留 grep verify 作为 last-line defense"；§6 发布前检查清单第 3 项 wording 同步更新；cross-reference 加 PR #115 (Issue #110 closure) + 内含 marketplace.json `[^}]*` regex bug 顺手修复（描述含 `}` 时 silent SKIP，已修为 `[\s\S]*?` 非贪婪）。bump-version.ps1 现 cover 全 5 Quintangle sites，三层防御 (script 覆盖 + CI guard + RUNBOOK MANDATORY) 完工。Non-trigger archive（minor bump，无 Framework §2.3.1 触发条件）。
@@ -146,6 +148,16 @@ git branch -d feature/12-add-release-skill
 # 可选：远程分支通常在 PR 合并后由 GitHub 自动删除
 git push origin --delete feature/12-add-release-skill
 ```
+
+> [!note]
+> **v4.6.2+ 起 GitHub repo 已启用 `delete_branch_on_merge=true`**：single-PR merge 后 head 分支自动删，**通常无需**手动 `git push origin --delete`。仅以下场景需手动 bulk 处理：
+>
+> 1. 清历史遗留孤儿（GitHub 设置启用前累积的）
+> 2. 一次清多个分支（>5）
+>
+> Bulk 场景用 [`.claude/skills/mp-git-cleanup/SKILL.md`](../../.claude/skills/mp-git-cleanup/SKILL.md) §Bulk Cleanup Mode（含 3 traps 警告）或 [`scripts/safe-bulk-cleanup.ps1`](../../scripts/safe-bulk-cleanup.ps1)（pre-flight + dry-run-default）。
+>
+> 2026-05-18 incident 实证 (P3) 见 [`../postmortem/[POSTMORTEM]_2026-05-18_Bulk_Cleanup_Trap_Analysis.md`](../postmortem/[POSTMORTEM]_2026-05-18_Bulk_Cleanup_Trap_Analysis.md)。
 
 ## 3. 发布阶段
 
@@ -337,6 +349,9 @@ git push origin develop
 
 预 bump 完成后 `verify-develop-prebumped.yml` workflow 在 next push 时验证 `develop VERSION > main VERSION` 成立，输出 OK 注释。
 
+> [!note]
+> Post-release sync-PR + pre-bump-PR 合并完成后，对应 maintain/* head 分支由 GitHub `delete_branch_on_merge=true` 自动删（v4.6.2+）；本地 worktree 用 `/mp-git-cleanup` skill single-PR 流程清理。若历史累积多个 PR 未清理，走 §Bulk Cleanup Mode（见 [`.claude/skills/mp-git-cleanup/SKILL.md`](../../.claude/skills/mp-git-cleanup/SKILL.md) + [`scripts/safe-bulk-cleanup.ps1`](../../scripts/safe-bulk-cleanup.ps1)）。
+
 ## 4. Hotfix 流程
 
 用于修复已发布版本的紧急问题。
@@ -438,6 +453,7 @@ git push origin --delete v1.1.0
 
 ## 7. 版本历史
 
+- **v1.3.2**（2026-05-18）：§2.6 + §3.7 加 cleanup callout box —— single-PR cleanup 现可依赖 GitHub `delete_branch_on_merge=true`（v4.6.2+ 启用），bulk 场景指向 `.claude/skills/mp-git-cleanup/SKILL.md` §Bulk Cleanup Mode + `scripts/safe-bulk-cleanup.ps1`。Frontmatter related[] 加 POSTMORTEM_2026-05-18 引用。Procedural commands 完全不变。Non-trigger archive（patch revision）。
 - **v1.3.1**（2026-05-18）：scrub 外部项目引用 per `[STANDARD]_AI_Engineering_Execution_HITL_Prompt` §0.3 独立性原则；frontmatter summary + revision + §3.7 "为什么需要" callout reworded；技术流程 (§3.7 / §4.5 / §6 / `verify-develop-prebumped.yml`) 完全不变。Non-trigger archive。
 - **v1.3**（2026-05-18）：引入 develop post-release 预 bump 机制（per `[ADR]_Develop_PreBump_Adoption`）。新增 §3.7 "Post-release develop 预 bump" — sync-main-to-develop 完成后在 develop 上执行 `bump-version.ps1 -From X.Y.Z -To X.Y.(Z+1)` 一个 commit；pure patch 风格无 `-dev` 后缀；只 bump 顶层 VERSION，不连带 plugin.json。§4.5 加 hotfix 与预 bump 冲突 TODO 标记（暂不预设处理，待首次 hotfix 事件再补 §4.6）。§6 发布后检查清单加 1 项 "72h 内完成预 bump"。配套 `.github/workflows/verify-develop-prebumped.yml` warn-only CI 在 72h 宽限外提醒。Frontmatter v1.2 → v1.3 + revision block + 加 `[ADR]_Develop_PreBump_Adoption` 到 related。Non-trigger archive（minor bump，无 Framework §2.3.1 触发条件）。
 - **v1.2**（2026-05-18）：**CLAUDE.md 自动化 sync**（closes #110）。§3.2.1 第 2 步 + §6 第 3 项 wording 从「manual / script 不 cover」更新为「script 已 cover (v2 起 plugin scope 含 CLAUDE.md scoped-regex 分支)；grep 保留作 last-line defense」。配套 PR #115 同时修了 `scripts/bump-version.ps1` 中 marketplace.json `[^}]*` regex bug（描述含 `}` 时 silent SKIP）。bump-version.ps1 现真正 cover 全 5 Quintangle sites，三层防御 (script 覆盖 + CI guard + RUNBOOK MANDATORY) 完工。Frontmatter v1.1 → v1.2 + revision block。Non-trigger archive。

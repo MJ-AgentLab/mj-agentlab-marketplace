@@ -5,7 +5,17 @@
 
 ## [Unreleased]
 
-_(no in-flight changes at release-cut time)_
+### Added
+
+- **`docs/postmortem/[POSTMORTEM]_2026-05-18_Bulk_Cleanup_Trap_Analysis.md`** — 项目首份 POSTMORTEM 文档（填补 Framework v1.5 §2.4 `docs/postmortem/` placeholder）。记录 2026-05-18 bulk branch cleanup 触发的 3 个 trap：(1) `git branch` `+` 前缀漏过滤导致 local `main` 误删；(2) local `git branch -d` 不动 remote，audit 用语 "sync with" 歧义误导；(3) Windows Git Bash 把 `gh api /repos/...` 改写成 Windows 路径。Severity P3（恢复，0 数据丢失）。
+- **`scripts/safe-bulk-cleanup.ps1`** — 安全 bulk cleanup 脚本。封装 pre-flight 4-check + 3-trap-aware 删除：使用 `git for-each-ref`（避开 Trap #1 前缀问题）+ 多层 protected-branch refusal + dry-run-default（必须显式 `-Apply`）+ opt-in `-IncludeRemote`。镜像 `bump-version.ps1` 风格（StrictMode + 彩色输出 + `.SYNOPSIS`/`.DESCRIPTION` 注释块）。
+- **`.claude/skills/mp-git-cleanup/SKILL.md`** §Bulk Cleanup Mode — 新章节（在 Step 7 之后）。3 traps inline 含错误/正确写法对照 + Pre-flight 4-check + 指向 `safe-bulk-cleanup.ps1`；revised "DOES NOT DO" 反映 GitHub `delete_branch_on_merge=true` v4.6.2+ 启用现实；扩 Anti-patterns 加 3 条 (Bulk mode) / (Windows) 项目。
+
+### Changed
+
+- **`docs/runbook/[RUNBOOK]_Release_Operations.md`** v1.3.1 → v1.3.2 — §2.6 + §3.7 加 cleanup callout box，指向 mp-git-cleanup §Bulk Cleanup Mode + `safe-bulk-cleanup.ps1`；frontmatter `related[]` 加 POSTMORTEM_2026-05-18 引用。Procedural commands 完全不变。
+- **`.claude/skills/mp-git-merge-gate/SKILL.md`** Step 4 — 加 Windows Git Bash 警告 callout (`gh api` 端点 leading slash 改写)。
+- **`docs/guide/[GUIDE]_Contributing.md`** v1.0 → v1.1 — §Bare Repo + Worktree 加 "`git branch` 输出前缀（worktree 模式特有）" 子段，列 3 prefix (`  ` / `* ` / `+ `) 含义 + 过滤脚本必须用 `[ *+]` 警告 + 交叉引用 mp-git-cleanup §Bulk Mode + POSTMORTEM。
 
 ## [4.6.1] - 2026-05-18
 
