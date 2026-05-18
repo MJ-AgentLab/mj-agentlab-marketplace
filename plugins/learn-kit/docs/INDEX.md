@@ -41,7 +41,7 @@ v1.2.0 起 plugin-internal pedagogical content 整合为 2 份合规 `[GUIDE]_*.
 
 ## Specifications (`docs/spec/`)
 
-*暂无 plugin-internal specs — schema work for learn-kit's `learning/` subsystem lives in skill templates (`skills/init/templates/METHODOLOGY.md`) rather than as formal SPEC docs.*
+*暂无 plugin-internal specs — schema work for learn-kit's `learning/` subsystem lives in skill templates (`skills/scaffold-learning/templates/METHODOLOGY.md`) rather than as formal SPEC docs.*
 
 ## Cross-References
 

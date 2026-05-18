@@ -80,4 +80,4 @@
 
 ## 版本历史
 
-- **v0.1**（YYYY-MM-DD）：通过 `/learn-kit:init` 初始化生成。
+- **v0.1**（YYYY-MM-DD）：通过 `/learn-kit:scaffold-learning` 初始化生成。

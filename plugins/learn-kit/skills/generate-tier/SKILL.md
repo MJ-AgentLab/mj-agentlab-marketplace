@@ -1,6 +1,6 @@
 ---
 name: generate-tier
-description: Use this skill whenever the user wants AI to GENERATE one or more reading-tier learning documents (foundation 零基础版 / structural 结构版 / challenge 挑战版) for a topic, driven by a user question + uploaded source documents. Trigger examples include "为 HITL 主题生成零基础版学习文档"、"基于 [STANDARD]_X 出三版学习材料"、"generate foundation+challenge tier docs for service-architecture"、"学习材料生成"、"出零基础/结构/挑战版"、"我想做一份 X 主题的学习文档"、"generate learning document for topic Y"、"生成学习 HTML"、"render the learning HTML"、"make me an interactive learning page". The skill multi-selects which tiers to generate (1-3 of foundation/structural/challenge), reads source material via 4 input mechanisms (project file paths / scan-locate discovery / pasted text / directory scan, all combinable), then writes `learning/<topic>/[LEARNING]_<topic>_<view>.md`, then optionally renders matching `.html` files in the same directory using an Explore subagent for concept→code grounding (file:line+snippet). For finding existing docs by name, route to `/learn-kit:locate`. For browsing all learnable docs in a project, route to `/learn-kit:scan`. For initial folder scaffolding, route to `/learn-kit:init`. Invoke proactively when the user expresses any intent to AI-generate a learning artifact, even if they don't say "generate-tier" or "三档" explicitly.
+description: Use this skill whenever the user wants AI to GENERATE one or more reading-tier learning documents (foundation 零基础版 / structural 结构版 / challenge 挑战版) for a topic, driven by a user question + uploaded source documents. Trigger examples include "为 HITL 主题生成零基础版学习文档"、"基于 [STANDARD]_X 出三版学习材料"、"generate foundation+challenge tier docs for service-architecture"、"学习材料生成"、"出零基础/结构/挑战版"、"我想做一份 X 主题的学习文档"、"generate learning document for topic Y"、"生成学习 HTML"、"render the learning HTML"、"make me an interactive learning page". The skill multi-selects which tiers to generate (1-3 of foundation/structural/challenge), reads source material via 4 input mechanisms (project file paths / scan-locate discovery / pasted text / directory scan, all combinable), then writes `learning/<topic>/[LEARNING]_<topic>_<view>.md`, then optionally renders matching `.html` files in the same directory using an Explore subagent for concept→code grounding (file:line+snippet). For finding existing docs by name, route to `/learn-kit:locate`. For browsing all learnable docs in a project, route to `/learn-kit:scan`. For initial folder scaffolding, route to `/learn-kit:scaffold-learning`. Invoke proactively when the user expresses any intent to AI-generate a learning artifact, even if they don't say "generate-tier" or "三档" explicitly.
 allowed-tools: [Read, Write, Glob, Grep, AskUserQuestion, Agent]
 ---
 
@@ -21,7 +21,7 @@ Two layers of pedagogical material are commonly needed when a learner first meet
 
 2. **Interactive HTML companion** — markdown is good for reading and grepping, but a static interactive HTML page (SVG diagrams, syntax-highlighted code, tabbed comparison, "copy as prompt" buttons, dark/light theme) compresses 30 minutes of deep digestion into a single self-contained file. Critical demand: **every concept must hang on a real repository code reference** (file path + line numbers + snippet); no hand-waving. The skill achieves this by spawning an Explore subagent to ground concepts to code, then feeding the grounding map into the HTML renderer.
 
-The skill is the **authoring counterpart** to the discovery skills (`/learn-kit:locate`, `/learn-kit:scan`) and the scaffolding skill (`/learn-kit:init`) — those find and prepare; this one creates.
+The skill is the **authoring counterpart** to the discovery skills (`/learn-kit:locate`, `/learn-kit:scan`) and the scaffolding skill (`/learn-kit:scaffold-learning`) — those find and prepare; this one creates.
 
 ## When to invoke
 
@@ -39,7 +39,7 @@ The skill is the **authoring counterpart** to the discovery skills (`/learn-kit:
 
 - "Where is `<concept>` documented?" → use `/learn-kit:locate` (reverse-lookup, not authoring)
 - "What can I learn in this project?" → use `/learn-kit:scan` (open-ended discovery)
-- "Scaffold a learning subsystem here" → use `/learn-kit:init` (one-time folder creation)
+- "Scaffold a learning subsystem here" → use `/learn-kit:scaffold-learning` (one-time folder creation)
 - "Edit the existing foundation doc to fix typo X" → direct file edit, not regeneration
 - "Help me understand `<X>`" → general explanation, not document authoring
 
@@ -74,7 +74,7 @@ Check that `<project-root>/learning/INDEX.md` exists.
 
 - **Exists**: proceed.
 - **Missing**: tell the user `learning/` subsystem is not initialized yet. Offer two options via `AskUserQuestion` (single-select):
-  - "Run `/learn-kit:init` first, then re-invoke generate-tier" (recommended; full scaffold including METHODOLOGY)
+  - "Run `/learn-kit:scaffold-learning` first, then re-invoke generate-tier" (recommended; full scaffold including METHODOLOGY)
   - "Minimal-init now (create only `learning/INDEX.md` root entry), skip METHODOLOGY scaffold; topic folder will be auto-created in step 5" (faster but loses methodology pointer)
 
 ### Step 2 — Source acquisition
@@ -297,7 +297,7 @@ Pair the markdown and HTML by basename — same directory, same stem, only the e
 
 ## Sibling skills
 
-- `/learn-kit:init` — one-time scaffold of `learning/` folder. Required before generate-tier can write anything (or accept the skill's offer to minimal-init in step 1).
+- `/learn-kit:scaffold-learning` — one-time scaffold of `learning/` folder. Required before generate-tier can write anything (or accept the skill's offer to minimal-scaffold in step 1).
 - `/learn-kit:locate <query>` — concept reverse-lookup across `learning/` (preferred) and `docs/` (fallback). Use after generate-tier when you forget which tier covers what.
 - `/learn-kit:scan` — open-ended enumeration of learnable canonical docs. Use *before* generate-tier to identify candidate sources for a new topic.
 

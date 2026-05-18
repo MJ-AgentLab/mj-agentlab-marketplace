@@ -7,19 +7,88 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
-### Added
+## [2.0.0] - 2026-05-18
 
-- **Slash invocation namespace convention** documented in 3 plugin docs
-  (README.md / CLAUDE.md / `docs/guide/[GUIDE]_LearnKit_Design.md`):
-  all 5 skills (init / scan / locate / generate-tier / nlm-studio)
-  MUST be invoked as `/learn-kit:<skill>` (fully qualified); bare
-  `/<skill>` is disallowed when referring to learn-kit behavior.
-  Driven by name collision between learn-kit's `init` and Claude
-  Code's builtin `init` (which generates CLAUDE.md); the convention
-  also future-proofs the other 4 skills against potential same-name
-  builtins. No skill code / frontmatter / behavior change. Grep
-  verified that existing 163 occurrences across 23 files are already
-  uniformly fully-qualified.
+### BREAKING
+
+- **Skill `init` renamed to `scaffold-learning`** —
+  `/learn-kit:init` → `/learn-kit:scaffold-learning`. The v1.2.1
+  namespace convention ("always write `/learn-kit:init`, never bare
+  `/init`") was a documentation-only constraint and did NOT prevent
+  Claude Code's slash-command picker from listing both Claude Code's
+  builtin `/init` (CLAUDE.md generator) and learn-kit's `/init` as
+  parallel candidates. Renaming the skill physically removes the
+  collision: typing `/init` now matches only the host builtin; the
+  scaffold action is reached via `/learn-kit:scaffold-learning`
+  (fully qualified) or natural-language routing (still gated by
+  `disable-model-invocation: true`).
+
+  **Migration**: in any project that referenced the old skill, run:
+  ```bash
+  grep -rn "/learn-kit:init" .   # find references
+  # replace each with: /learn-kit:scaffold-learning
+  ```
+  See [`../../docs/adr/[ADR]_LearnKit_Init_Skill_Rename.md`](../../docs/adr/[ADR]_LearnKit_Init_Skill_Rename.md)
+  for the full decision (alternatives considered, why no alias is
+  retained) and
+  [`../../docs/guide/[GUIDE]_Migration_From_v3_to_v4.md`](../../docs/guide/[GUIDE]_Migration_From_v3_to_v4.md)
+  §5 for a step-by-step migration walkthrough.
+
+  Before / after:
+  ```text
+  # v1.x
+  /learn-kit:init                                      # scaffold
+  ${CLAUDE_PLUGIN_ROOT}/skills/init/templates/...      # template ref
+  plugins/learn-kit/skills/init/SKILL.md               # file path
+
+  # v2.0.0
+  /learn-kit:scaffold-learning                                  # scaffold
+  ${CLAUDE_PLUGIN_ROOT}/skills/scaffold-learning/templates/...  # template ref
+  plugins/learn-kit/skills/scaffold-learning/SKILL.md           # file path
+  ```
+
+### Changed
+
+- **`plugins/learn-kit/skills/scaffold-learning/SKILL.md`** —
+  Renamed from `skills/init/SKILL.md` via `git mv`. Frontmatter
+  `name: init` → `name: scaffold-learning`; H1 "Initialize Learning
+  Subsystem" → "Scaffold Learning Subsystem"; in-body
+  `${CLAUDE_PLUGIN_ROOT}/skills/init/templates/` →
+  `${CLAUDE_PLUGIN_ROOT}/skills/scaffold-learning/templates/`;
+  worked-example path reference updated. `disable-model-invocation:
+  true` retained (semantic intent unchanged — scaffold is still an
+  explicit, file-system-writing user action).
+- **`plugins/learn-kit/skills/scaffold-learning/templates/{INDEX,METHODOLOGY}.md`**
+  + **`references/rfc-2119-keywords-pedagogy.md`** — Carried
+  unchanged via `git mv` (history preserved); in-body cross-references
+  to `/learn-kit:init` updated to `/learn-kit:scaffold-learning`.
+- **`plugins/learn-kit/skills/{locate,scan,generate-tier}/SKILL.md`** —
+  Cross-skill routing references updated (8 total occurrences:
+  locate 2, scan 3, generate-tier 3) from `/learn-kit:init` to
+  `/learn-kit:scaffold-learning`.
+- **`plugins/learn-kit/README.md`** + **`CLAUDE.md`** — All
+  user-facing references to the scaffold skill updated to new name.
+  §"命名约定" (slash invocation namespace convention) rewritten:
+  the "直接动机" (direct motivation = `init` collides with builtin
+  `/init`) is recast as historical context, since the collision is
+  now physically resolved by the rename; the convention itself is
+  preserved for future-proofing against other potential same-name
+  builtins.
+- **`plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_{Pedagogy,Design}.md`** —
+  In-text references and source-file pointer tables updated to new
+  skill folder name.
+- **`plugins/learn-kit/docs/INDEX.md`** + **`docs/adr/[ADR]_LearnKit_Discovery_Skills.md`
+  §References** — Path pointers updated to `skills/scaffold-learning/`;
+  Discovery_Skills ADR adds an inline note referencing the rename ADR.
+
+### Notes
+
+- Historical CHANGELOG entries (v0.1.0 through v1.2.1) retain the
+  original `/learn-kit:init` wording — they are factual records of
+  what was true at each version and must not be rewritten.
+- `disable-model-invocation: true` on `scaffold-learning/SKILL.md`
+  continues to block LLM auto-routing. The user-facing slash-picker
+  collision was a separate UX issue not addressable by that flag.
 
 ## [1.2.1] - 2026-05-18
 
