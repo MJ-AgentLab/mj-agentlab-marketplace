@@ -184,9 +184,12 @@ if ($IncludeRemote) {
     & git fetch --prune origin 2>&1 | Out-Null
 
     $allRemote = @(& git for-each-ref refs/remotes/origin/ --format='%(refname:short)')
+    # Note: `git for-each-ref refs/remotes/origin/` returns the HEAD symbolic ref
+    # as bare `origin` (not `origin/HEAD`) — must filter with `^origin/.+` to drop it,
+    # else `origin` leaks through and the script would suggest `git push origin --delete origin`.
     $remoteCandidates = @(
         $allRemote |
-        Where-Object { $_ -ne 'origin/HEAD' } |
+        Where-Object { $_ -match '^origin/.+' } |
         ForEach-Object { $_ -replace '^origin/', '' } |
         Where-Object { $_ -notmatch $ProtectedPattern }
     )
