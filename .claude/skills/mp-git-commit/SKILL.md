@@ -9,7 +9,7 @@ description: Stages files and creates marketplace commits in the `<type>(<scope>
 
 Stages files and creates commits compliant with marketplace commit message convention. 7-step Pre-Commit workflow covering file filtering / staging strategy / commit message format / 6-branch × 7-type discipline / scope deduction / split guidance. Bridges `/mp-git-branch` (creates the worktree) and `/mp-git-push` (pushes).
 
-**Reference**: [[../../../docs/guide/[GUIDE]_Contributing.md|GUIDE_Contributing]] § Commit Convention + (post-PR 2) `[STANDARD]_Commit_Message_Convention`.
+**Reference**: [[../../../CONTRIBUTING.md|CONTRIBUTING]] § Commit Convention + (post-PR 2) `[STANDARD]_Commit_Message_Convention`.
 
 **Workflow position**: Stage 8 step 1 of HITL Prompt 11-stage flow.
 
@@ -258,7 +258,7 @@ EOF
 
 ## Reference Files
 
-- [[../../../docs/guide/[GUIDE]_Contributing.md|GUIDE_Contributing]] § Commit Convention
+- [[../../../CONTRIBUTING.md|CONTRIBUTING]] § Commit Convention
 - (post-PR 2) `docs/rule/[STANDARD]_Commit_Message_Convention.md`
 - [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.9
 

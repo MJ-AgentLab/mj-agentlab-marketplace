@@ -464,7 +464,7 @@ git push origin --delete v1.1.0
 
 - [项目概览](<../guide/[GUIDE]_Marketplace_Project_Overview.md>) — 项目整体概览
 - [版本管理指南](<../guide/[GUIDE]_Version_Management.md>) — 版本管理详细指南
-- [贡献指南](<../guide/[GUIDE]_Contributing.md>) — branch strategy + commit format + PR 流程
+- [贡献指南](<../../CONTRIBUTING.md>) — branch strategy + commit format + PR 流程（repo root，v4.6.3+ per Framework v1.6 §1.1）
 - [Commit Message Convention](<../rule/[STANDARD]_Commit_Message_Convention.md>) — `<type>(<scope>): <summary>` PATTERN canonical
 - [mp-doc-bump-version SKILL.md](../../.claude/skills/mp-doc-bump-version/SKILL.md) — Version Quintangle 5-site invariant + Step 7 Verify
 - `.github/workflows/ci.yml` — 含「Validate README badge matches VERSION」step（PR #109 引入；safety net）

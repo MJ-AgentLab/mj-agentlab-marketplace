@@ -60,7 +60,7 @@ This STANDARD governs every markdown document under:
 
 - v1.1 「plugin-internal teaching series」pattern exemption（`plugins/<name>/docs/<plugin>-NN-*.md` / `<plugin>-*.md` lowercase 数字系列）— **canceled**；所有此类文档必须迁移到 `plugins/<name>/docs/guide/[GUIDE]_*.md` 合规命名 + 加 8 字段 frontmatter，或拆入 README / CLAUDE.md
 - v1.1 single-file exemption for `docs/ai_engineering_execution_hitl_workflow.md` — **canceled**；该文件被删除，关键内容内化到 `[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md` §0
-- v1.1 single-file exemptions for `docs/CONTRIBUTING.md` + `docs/MIGRATION_GUIDE.md` — **canceled**；改名 + 移到 `docs/guide/[GUIDE]_Contributing.md` + `docs/guide/[GUIDE]_Migration_From_v3_to_v4.md` + 加 frontmatter
+- v1.1 single-file exemptions for `docs/CONTRIBUTING.md` + `docs/MIGRATION_GUIDE.md` — **canceled**；改名 + 移到 `docs/guide/[GUIDE]_Contributing.md` + `docs/guide/[GUIDE]_Migration_From_v3_to_v4.md` + 加 frontmatter（**CONTRIBUTING 部分在 v1.6 反向回 repo-root** per §1.1 + [`[ADR]_Root_Level_Named_Files_Codification`](../adr/[ADR]_Root_Level_Named_Files_Codification.md)；guide 版本走 archive ceremony 至 `../archive/[DEPRECATED]_[GUIDE]_Contributing_v1.1.md`）
 - v1.3 normative clarification on exempt-file frontmatter — **canceled** as a separate clause；本节"External Contract"表已直接表明哪些文件被排除及理由
 - `plugins/notebooklm-kit/skills/nlm-shared/*.md` exemption — **removed**（plugin 已在 v4.0.0 退役，行项为残留）
 - 决策完整 rationale 见 [`../adr/[ADR]_Documentation_Framework_Exemption_Reversal.md`](../adr/[ADR]_Documentation_Framework_Exemption_Reversal.md)（supersedes [`../archive/[DEPRECATED]_[ADR]_Documentation_Framework_Exemption_Review_v1.0.md`](../archive/[DEPRECATED]_[ADR]_Documentation_Framework_Exemption_Review_v1.0.md)）

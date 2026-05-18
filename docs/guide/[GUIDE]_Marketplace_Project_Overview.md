@@ -200,4 +200,4 @@ powershell -File ..\scripts\install-hooks.ps1
 
 - [版本管理指南](<./[GUIDE]_Version_Management.md>) — 版本管理详细指南
 - [发布操作手册](<../runbook/[RUNBOOK]_Release_Operations.md>) — 发布操作手册
-- [GUIDE Contributing](<./[GUIDE]_Contributing.md>) — 贡献指南
+- [Contributing](<../../CONTRIBUTING.md>) — 贡献指南（repo root，v4.6.3+ per Framework v1.6 §1.1）

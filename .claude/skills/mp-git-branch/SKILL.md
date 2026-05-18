@@ -190,7 +190,7 @@ git status
 
 ## Reference Files
 
-- [[../../../docs/guide/[GUIDE]_Contributing.md|GUIDE_Contributing]] (branch strategy + worktree)
+- [[../../../CONTRIBUTING.md|CONTRIBUTING]] (branch strategy + worktree)
 - [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §3 + §4.9 (branch type 矩阵)
 
 ## Anti-patterns
