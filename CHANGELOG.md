@@ -17,6 +17,8 @@
 ### Changed
 
 - **`.claude/skills/mp-doc-bump-version/SKILL.md`** — promote «Version Triangle (4-site)» → «Version Quintangle (5-site invariant)»: add README.md badge + plugin-table cell + CLAUDE.md plugin line. Frontmatter description extends version-bearing-files list. Step 7 Verify adds 3 new sed-based checks (cross-platform: `grep -P` is locale-sensitive on Windows git-bash) + cross-references ci.yml's new CI guard. Anti-patterns expand "4 sites" → "5 sites" + add explicit 4-release silent-drift postmortem note.
+- **`docs/runbook/[RUNBOOK]_Release_Operations.md` v1.0 → v1.1** (closes #111) — make `scripts/bump-version.ps1` invocation **MANDATORY** in the release workflow (not advisory). §3.2 rewritten as `[!IMPORTANT]` callout with PR #109 postmortem context + CI safety-net cross-ref. NEW §3.2.1 «Post-bump verification (MANDATORY)» with 3 checks: README in diff / CLAUDE.md grep / Quintangle 5-site sed alignment. §3.4 git add list explicitly includes `README.md` + `CLAUDE.md`; commit message example switched to canonical `infra(release): bump marketplace X.Y.Z -> Y.Z.W`; cross-ref `validate-commits.sh`. §6 发布前检查清单 加 3 NEW checkboxes + 发布后 加 1 visual badge verify. NEW §7 版本历史 + §8 (renumbered from §7) 相关文档. Fix line 350 `../CONTRIBUTING.md` → `../guide/[GUIDE]_Contributing.md` (was broken since PR #103 v4.5.0 rename). Frontmatter v1.0 → v1.1 + revision block. Non-trigger archive per Framework §2.3.1 (minor bump, no structural rewrite ≥50% / content replacement ≥70%).
+- **`docs/INDEX.md`** — Runbooks 表 `Release Operations` 行 last-verified `2026-05-14` → `2026-05-18` + description 加 v1.1 changelog 摘要.
 
 ## [4.5.0] - 2026-05-18
 
