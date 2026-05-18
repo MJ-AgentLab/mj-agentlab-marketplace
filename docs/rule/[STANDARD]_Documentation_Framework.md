@@ -1,24 +1,27 @@
 ---
 type: standard
 scope: marketplace
-summary: Documentation framework v1.5 — tag prefixes, frontmatter, state machine, paths, INDEX sync, archive (flat); §1 exemption mechanism canceled, retain only community/external-spec exclusion
+summary: Documentation framework v1.6 — §1 hard exclusions + §1.1 root-level named files (5 responsibilities + Source of exclusion) + §2.7 CLAUDE.md sync allowlist + §4.3.1 A6 active CI gate
 owner: marketplace-maintainers
 created: 2026-05-15
 updated: 2026-05-18
 state: active
-version: v1.5
+version: v1.6
 domain: governance
 tags:
   - documentation
   - framework
   - meta
   - archive
+  - sync-allowlist
 related:
   - ./[STANDARD]_GitHub_Markdown.md
   - ./[STANDARD]_Commit_Message_Convention.md
   - ./[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
   - ../runbook/[RUNBOOK]_Doc_Archive_Procedure.md
+  - ../adr/[ADR]_Root_Level_Named_Files_Codification.md
 revision: |
+  2026-05-18 — v1.6: 新增 §1.1 Root-Level Named Special Files & Individual Responsibilities（5 行表 + Source of exclusion 列区分 §1 hard 与 §1.1 editorial convention）+ §1.1 自身的 editorial-convention 排除规则 for CONTRIBUTING.md + GLOSSARY.md；新增 §2.7 CLAUDE.md Sync Allowlist（3 类 trigger + 非触发 clause）；§4.3 表 A6 行 "deferred → active (v1.6+)" + 新增 §4.3.1 A6 active gate 实现规范；§1 本身保持 v1.5 原样不动。配套：bump `[ADR]_Documentation_Framework_Exemption_Reversal` v1.0 → v1.1；新建 `[ADR]_Root_Level_Named_Files_Codification.md` v1.0；archive `[GUIDE]_Contributing.md` v1.1（trigger #4）；新建 root CONTRIBUTING.md + GLOSSARY.md。Non-trigger 自身归档：仅新增章节 + 改 §5。
   2026-05-18 — v1.5: §1 取消 v1.1 单文件 + 教学系列模式豁免；改写为「Scope + Community/External-Spec Exclusion」简化版（仅保留 README/CHANGELOG/CLAUDE.md/SKILL.md/templates/references 5 类外部规范限制不可绕过的命名约束）+ INDEX.md「保留名 + 强制 frontmatter」特别条款；删除已退役 notebooklm-kit/nlm-shared 残行；删除 v1.1 + v1.3 normative blockquotes；§5 添加 v1.5 entry；清理 §2.1 / §2.3.1 / §4.3 / §5 v1.0 中所有 cross-project 引用（marketplace 独立性原则）
   2026-05-17 — v1.4: Flat archive layout amendment（§2.3 子规则系列同步 flat + §2.3.5 new）
   2026-05-15 — v1.3: §1 exempt-file frontmatter discipline
@@ -63,6 +66,22 @@ This STANDARD governs every markdown document under:
 - 决策完整 rationale 见 [`../adr/[ADR]_Documentation_Framework_Exemption_Reversal.md`](../adr/[ADR]_Documentation_Framework_Exemption_Reversal.md)（supersedes [`../archive/[DEPRECATED]_[ADR]_Documentation_Framework_Exemption_Review_v1.0.md`](../archive/[DEPRECATED]_[ADR]_Documentation_Framework_Exemption_Review_v1.0.md)）
 
 The framework's audience is: **AI agents** writing/editing docs (so they have machine-readable schema), **human reviewers** (consistent structure speeds review), and **future maintainers** (state machine + version history clarify what's authoritative).
+
+### §1.1 Root-Level Named Special Files & Individual Responsibilities (v1.6 NEW)
+
+仓库根目录的 5 个 named special files 各承担**固定独立责任**，免 `[TAG]_` prefix 约束。本 §1.1 表与 §1 exclusion 表互为正反两面：§1 表登记**外部规范刚性约束**的 hard exclusions（无 marketplace 8 字段 frontmatter 是技术不可行）；§1.1 表登记**编辑分工 + 责任**，对其中 3 个文件 inherit §1 的 hard 排除（README.md / CHANGELOG.md / CLAUDE.md），另 2 个文件（CONTRIBUTING.md / GLOSSARY.md）由本 §1.1 自身的 **editorial convention** 排除（技术上 CAN 但不 DO，为保持 GitHub UI 集成与阅读纯净度）。
+
+| File | 固定责任 | Source of exclusion | GitHub UI integration |
+|------|---------|---------------------|----------------------|
+| `README.md` | 项目对外门面：badges、TL;DR、插件目录、quick-start、链路索引 | §1 hard（GitHub render contract） | GitHub repo home page |
+| `CONTRIBUTING.md` | 贡献流程：分支策略 / commit 规范 / 版本管理 / PR 流程 / 本地 hook | **§1.1 editorial convention** | GitHub "New Issue / PR" auto-prompt |
+| `CHANGELOG.md` | Keep-a-Changelog 发布日志：`[Unreleased]` + 版本号 + Added/Changed/Fixed/Removed | §1 hard（Keep-a-Changelog tooling） | changelog tooling |
+| `GLOSSARY.md` | marketplace 术语词典：按字母顺序术语 → 1 句定义 → 可选锚链 | **§1.1 editorial convention** | GitHub Markdown standard render |
+| `CLAUDE.md` | AI agent + 维护者上下文摘要：project structure / key conventions / 11-stage table / HITL 触发摘要 | §1 hard（Claude Code runtime — root variant exempt by spec analogy） | Claude Code runtime loads |
+
+**Editorial convention rule (§1.1-derived)**: `CONTRIBUTING.md` 与 `GLOSSARY.md` 不携带 marketplace 8 字段 frontmatter，原因是 GitHub UI 集成（CONTRIBUTING.md auto-prompt 探测）与阅读纯净度（GLOSSARY.md 是辞典型快速参考）与 marketplace 内部 schema 治理脱钩；这两个文件的版本 / 状态信息通过 git history + CHANGELOG entries 追踪，而非 frontmatter 字段。**Plugin-level variants 不在 §1.1 范围内**：`plugins/<name>/CONTRIBUTING.md` 不存在；`plugins/<name>/README.md` / `CHANGELOG.md` / `CLAUDE.md` 继承 §1 hard exclusion。
+
+**Cross-reference**: `CLAUDE.md` 内容更新受 §2.7 Sync Allowlist 约束 + §4.3.1 A6 CI gate 强制；其他 4 个 root files 不受 sync allowlist 约束（各自独立编辑触发条件）。
 
 ## §2 Normative Rules
 
@@ -292,6 +311,33 @@ See [HITL Standard §4.1](./[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md#�
 
 In SKILL.md (which is exempt from this framework), wikilinks `[[../../../docs/...]]` are acceptable. In docs/, prefer relative paths because GitHub renders them as live links (wikilinks render as literal `[[text]]` on GitHub).
 
+### §2.7 CLAUDE.md Sync Allowlist (v1.6 NEW)
+
+`CLAUDE.md`（repo root）承载 AI agent + 人类维护者「快速上下文」职责（per §1.1）。为防止其内容与权威源漂移，定义 3 类**强同步触发**：PR 触及以下任一文件 / 目录条目时，`CLAUDE.md` **必须**在同一 PR 同步更新（如无实质变化面，PR description 标注 `[skip a6]` 跳过 token + reviewer 在 review 显式 sign-off "A6 N/A confirmed"）。
+
+**Category 1 — Global Standards** (`docs/rule/[STANDARD]_*.md`)：
+
+- `[STANDARD]_Documentation_Framework.md` — 版本变更或 §1.1 / §2.7 / §4.3 内容变更必同步 CLAUDE.md「Documentation Framework」段
+- `[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md` — 11-stage 表 / HITL 触发规则变更必同步「11 阶段速查表」+「HITL 触发摘要」两段
+- `[STANDARD]_Commit_Message_Convention.md` — scope 白名单 / type 集变更必同步「Commit format」+「Branch types」两行
+- `[STANDARD]_GitHub_Markdown.md` — markdown 规范变更必同步（极罕见；本 STANDARD 稳定）
+
+**Category 2 — Runtime Info**：
+
+- `VERSION` 文件变更（marketplace 版本号）必同步 CLAUDE.md「历史版本记录」段尾追加新行
+- `.claude-plugin/marketplace.json` `plugins[]` 数组结构变更（add/remove plugin）必同步「Project Structure」+「v4.0.0 Restructure Note」类历史段
+- `plugins/<name>/.claude-plugin/plugin.json` major/minor version bump 必同步 plugin 描述行
+
+**Category 3 — Directory Entries**：
+
+- `.claude/skills/mp-*/` 新增 / 删除 / 重命名 skill 必同步「Project-Local Skills」表
+- `plugins/<name>/skills/<name>/` 新增 / 删除 / 重命名 必同步 plugin 描述段
+- `docs/` 子目录结构变更（add/remove subtype subdir）必同步「文档目录子结构」code block
+
+**非触发 clause**: 上述文件的 **typo 修复 / 注释级 / 内容澄清 / 排版调整 / 单 line 文本微调** 不视作 sync 触发；只有**结构 / 规则 / 版本 / 条目**变更触发。Skill 内部实现细节变更（不动 SKILL.md frontmatter）也不触发。CHANGELOG 累加 / `[Unreleased]` 维护属高频日常操作，从不触发 sync。
+
+**A6 gate enforcement**: 见 §4.3.1。
+
 ## §3 Examples
 
 ### §3.1 Compliant ADR
@@ -373,14 +419,33 @@ v1.0 relies on manual + skill-based verification. Future versions may introduce 
 | A3 | `state` & enum fields legal |
 | A4 | Internal wikilinks resolve |
 | A5 | `INDEX.md` sync |
-| A6 | `CLAUDE.md` allowlist sync |
+| A6 | `CLAUDE.md` allowlist sync **(active v1.6+; see §4.3.1)** |
 
-These gates are deferred until doc count + reviewer burden justify the CI cost.
+A6 启用于 v1.6（详见 §4.3.1）；A1-A5 仍 deferred until doc count + reviewer burden justify the CI cost.
+
+### §4.3.1 A6 — `CLAUDE.md` Allowlist Sync (active gate, v1.6+)
+
+实现于 `.github/workflows/ci.yml` `validate` job 新增 step "Validate CLAUDE.md sync allowlist (A6)"。三层 defense-in-depth：PR template 自检 (soft) → `/mp-doc-validate` Step 3.5 Warning (pre-commit reminder) → CI A6 step (authoritative blocker)。
+
+**算法**:
+
+1. 计算 PR diff 文件清单（`git diff --name-only $BASE..$HEAD`，PR context；push 事件 fallback `origin/develop..HEAD`）
+2. 与 §2.7 三类 trigger 路径模式逐一匹配 → 输出命中清单 `TRIGGERED[]`
+3. 若 `TRIGGERED[] 非空` 且 `CLAUDE.md ∉ diff` → exit 1，输出 reviewer-friendly 错误消息（含命中文件清单 + §2.7 / §4.3.1 引用 + 修复建议两选）
+4. 若 `TRIGGERED[] 非空` 且 `CLAUDE.md ∈ diff` → 通过（CLAUDE.md 变更内容是否真实反映 trigger 由 reviewer + `/mp-doc-validate` Step 3.5 双重审视）
+5. 若 `TRIGGERED[]` 空 → 通过（无 trigger 即无需 sync）
+
+**Bypass mechanism**: PR title 含 `[skip a6]` 字符串字面量 + reviewer 在 PR review 显式 sign-off `A6 N/A confirmed` → CI 跳过本 step（保留其他 step 不变）。极罕见正当情境（如 trigger 命中但 CLAUDE.md 真无实质变化面）使用。Reviewer sign-off 要求结构化 comment（非自由文本），便于 audit。
+
+**`/mp-doc-validate` advisory pair**: skill 在本地工作区做相同检测（`git status --porcelain` + 同 regex），但输出 **Warning** 而非 Critical；起 pre-commit reminder 作用。CI 是 authoritative blocker；两层职责分明。
+
+**Future Work** (v1.7+ candidate): A6 与 `/mp-doc-validate` Step 3.5 算法对齐（skill 改用 diff-based 检测匹配 CI）；A1 / A5 启用 (path 合法性 + INDEX sync auto-detect)。
 
 ## §5 Change History
 
 | Version | Date | Summary |
 |---------|------|---------|
+| v1.6 | 2026-05-18 | **Root-level named files codification + CLAUDE.md sync allowlist + A6 CI gate activation**. (1) §1.1 NEW — 5-row table 编码 README/CONTRIBUTING/CHANGELOG/GLOSSARY/CLAUDE.md 各自固定责任 + Source of exclusion 列区分 §1 hard 与 §1.1 editorial convention；(2) §1.1 自身的 editorial-convention 排除规则 for `CONTRIBUTING.md` + `GLOSSARY.md`（技术可携带 frontmatter 但不携带，为保 GitHub UI 集成 + 阅读纯净度）；(3) §2.7 NEW — CLAUDE.md sync allowlist 3 类 trigger（global standards `docs/rule/[STANDARD]_*.md` / runtime info `VERSION` + `marketplace.json` + plugin.json major/minor / directory entries `.claude/skills/mp-*/` + plugin skill 目录 + docs/ 子目录结构）+ 非触发 clause（typo / 排版 / CHANGELOG 累加不触发）；(4) §4.3.1 NEW — A6 CI gate 从 v1.5 placeholder 提升为 active 阻断检查（`.github/workflows/ci.yml` validate job 新增 step + `[skip a6]` bypass token + `/mp-doc-validate` Step 3.5 Warning pair）；(5) §4.3 表 A6 行 "deferred → active (v1.6+)" 标注，A1-A5 保持 deferred；§1 本身**保持 v1.5 原样不动**。**配套**: bump `[ADR]_Documentation_Framework_Exemption_Reversal` v1.0 → v1.1（Decision 2 CONTRIBUTING.md row 标注 partially reversed in v4.6.3）；新建 `[ADR]_Root_Level_Named_Files_Codification.md` v1.0；archive `[GUIDE]_Contributing.md` v1.1 → `docs/archive/[DEPRECATED]_[GUIDE]_Contributing_v1.1.md`（§2.3.1 trigger #4 split-merge-rename；走 RUNBOOK Phase 1-4 ceremony + Gate D-02 fires ~13 living refs）；新建 root `CONTRIBUTING.md` + root `GLOSSARY.md`；cross-reference 升级 ~13 文件 living refs；CLAUDE.md / INDEX.md / 1 PR template / 1 ISSUE_TEMPLATE config / mp-doc-validate SKILL.md / RUNBOOK last-verified 同步。**Non-trigger 自身归档**: framework 文件仅新增 §1.1 / §2.7 / §4.3.1 + 改 §5；其他章节不动；不达 §2.3.1 trigger 阈值；v1.5 文件留原路径推进 v1.6。marketplace VERSION 4.6.3（develop pre-bumped per [`[ADR]_Develop_PreBump_Adoption`](../adr/[ADR]_Develop_PreBump_Adoption.md)）。learn-kit 1.2.1 不动。Adopted in PR (v4.6.3). |
 | v1.5 | 2026-05-18 | **§1 Exemption Mechanism Cancellation**. §1 完全重写：(1) 取消 v1.1 「plugin-internal teaching series」pattern exemption（learn-kit 6 份教学系列必须迁 `plugins/learn-kit/docs/guide/[GUIDE]_*.md`）；(2) 取消 4 项 v1.1 single-file exemption（`ai_engineering_execution_hitl_workflow.md` 删除 + 内容内化 HITL §0；`CONTRIBUTING.md` + `MIGRATION_GUIDE.md` rename 到 `docs/guide/[GUIDE]_*.md`；`INDEX.md` 保留名但强制 frontmatter）；(3) 取消 v1.3 「exempt-file frontmatter discipline」normative blockquote（unified into exclusion table）；(4) 删除已退役 `notebooklm-kit/nlm-shared` 残余行；(5) §1 新结构：保留只读 5 类 community/external-spec exclusion（README/CHANGELOG/CLAUDE.md/SKILL.md/templates+references）由外部规范刚性约束不可绕过 + INDEX.md special clause。(6) 其余 §2-§4 结构稳定；§2.1 / §2.3.1 / §4.3 / §5 v1.0 历史条目清理所有 cross-project 引用，统一改为中性术语（marketplace 独立性原则）。**Trigger 自身归档**：本次符合 §2.3.1 trigger #4 (split-merge-rename) — §1 规则集语义重定义。配套新建 `[ADR]_Documentation_Framework_Exemption_Reversal.md` + archive 旧 `[ADR]_Documentation_Framework_Exemption_Review.md` v1.0 走 RUNBOOK ceremony；HITL STANDARD v1.3 → v1.4 同 PR；learn-kit 1.1.0 → 1.2.0；marketplace VERSION 4.4.11 → 4.5.0。Adopted in PR-B (v4.5.0). |
 | v1.4 | 2026-05-17 | **Flat archive layout amendment**. §2.3 子规则系列更新：state table（§2.3）/ §2.3.2 archive-path 描述 + YAML example / §2.3.3 banner relative-path 注释 / §2.3.4 frozen-ref 示例 / §2.4 archive filename 规则示例——全部从 `docs/archive/<subtype>/` 改为 `docs/archive/`（flat）；新增 §2.3.5 Flat Archive Layout 段定义新规则 + marketplace 与 plugin-internal 双层对称 + rationale。**Non-trigger 自身归档**：本次只改 §2.3 子规则文本，§2.3 / §2.4 章节结构不动；不达 §2.3.1 trigger #2（≥50% 结构重写）/ #3（≥70% 内容替换）阈值；v1.3 文件留原路径推进 v1.4。配套 RUNBOOK v1.0 → v1.1 同步 + mp-doc-validate SKILL.md 描述同步 + 删 6 个空 placeholder subdir。Adopted in PR-A (v4.X.Y). |
 | v1.3 | 2026-05-15 | **§1 exempt-file frontmatter discipline**: add normative clause (insert after §1 v1.1 note) requiring exempt files to either omit frontmatter entirely OR use the canonical 8-field schema. Legacy non-canonical keys (`title / purpose / audience`) and YAML literal-block-scalar list fields (`related: \|` followed by bullet text) are forbidden. `/mp-doc-validate` SHOULD emit Warning (not Critical) on detection of forbidden keys on exempt files (new Step 2.7 — §1 exempt-file discipline). Both §1 exemptions remain (single file `ai_engineering_execution_hitl_workflow.md` + plugin-internal teaching series pattern); decision rationale recorded in [`../adr/[ADR]_Documentation_Framework_Exemption_Review.md`](../adr/[ADR]_Documentation_Framework_Exemption_Review.md). Backward compatible: no existing path or schema change required for any file other than the 2 outliers `ai_engineering_execution_hitl_workflow.md` + `learn-kit-使用手册.md` (legacy frontmatter dropped; paired with this PR). README.md / CHANGELOG.md / CLAUDE.md / SKILL.md remain out of scope (separate external contracts). Adopted in PR #XX (v4.X.Y). |
