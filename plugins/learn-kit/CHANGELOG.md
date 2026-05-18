@@ -7,6 +7,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-05-18
+
+### Changed
+
+- **`plugins/learn-kit/skills/nlm-studio/SKILL.md`** — Frontmatter
+  `description:` 由 ~3,179 字符压缩至 ~1,490 字符（< 1,536 cap），消除
+  Claude Code `/doctor` "Some skill descriptions will be shortened"
+  warning。原 description 内的 runtime detail 段（13-artifact 组成 /
+  HTML upload DROPPED 论证 / Notebook 命名冲突政策 / terminal-only
+  output / View-Purpose Preservation 哲学段 / MCP + nlm login auth）
+  迁移到 SKILL.md body 新增 `## Outputs at a glance` + `## Auth &
+  prerequisites` 两段；description 仅保留 routing 必需的载荷：1 句用途
+  + 上游 skill 指向 + 全部 10 条 trigger phrase（中英双语逐字保留）
+  + 4 条 `Do NOT use for:` 反向触发块（逐字保留）。
+- **`plugins/learn-kit/.claude-plugin/plugin.json`** — version
+  `1.2.0 → 1.2.1`（patch）。
+
+### Why
+
+description 在 v1.0.0 起累积承担过多 runtime detail 职责，超过 Anthropic
+skill description 设计原则（description 唯一职责是帮模型决定"要不要调用
+本 skill"）；移迁出后 routing 信号更聚焦、body 也更利读者按章节查找。
+No behavior change — trigger 路由 / allowed-tools / disable-model-invocation
+flag 全部不动；现有 13 artifact 工作流不变。
+
 ## [1.2.0] - 2026-05-18
 
 ### Changed
