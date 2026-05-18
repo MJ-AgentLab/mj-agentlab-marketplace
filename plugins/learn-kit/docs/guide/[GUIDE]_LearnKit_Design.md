@@ -34,6 +34,8 @@ revision: |
 
 ## §1 5 Skill 的分工与闭环
 
+> **slash 调用约定**：本节及全文所有 5 个 skill 的 slash 调用一律写 `/learn-kit:<skill>` 全限定形式，不裸写 `/<skill>`。理由：(1) `init` 撞 Claude Code 内置 `init`（生成 CLAUDE.md），统一前缀消除二义；(2) 未来防御任意 Claude Code 内置新增同名 skill；(3) `init` 的 `disable-model-invocation: true` 是额外护栏，与本约定独立 —— 用户显式入口的全限定规则适用于全部 5 个 skill。完整规则见 plugin README §"命名约定 · slash 调用必须全限定"。
+
 ### §1.1 一张表对照
 
 | Skill | 触发方式 | 干什么 | 何时用 | 写文件吗 | 网络 |

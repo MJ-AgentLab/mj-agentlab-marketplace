@@ -25,6 +25,16 @@ learn-kit 是一个通用 Claude Code 插件，提供把枚举型规则清单（
 
 加 `.mcp.json` 一份（注册 `notebooklm-mcp` server）。
 
+## 命名约定 · skill slash 调用全限定
+
+本插件 5 个 skill（`init` / `scan` / `locate` / `generate-tier` / `nlm-studio`）的 slash 调用**统一使用 `/learn-kit:<skill>` 全限定形式**，禁止裸写 `/<skill>`。
+
+- **直接动机**：`init` 与 Claude Code 内置 `init`（生成 CLAUDE.md）同名；统一前缀消除二义
+- **全局动机**：未来 Claude Code 可能新增其他同名内置；统一约定是未来防御
+- **额外护栏**：learn-kit 的 `init` SKILL.md 设置了 `disable-model-invocation: true` 防止 LLM 自然语言对话误路由到 init；其余 4 个 skill 允许自然语言路由（这是设计意图），但**用户显式入口**仍走 namespace
+
+详见 plugin README §"命名约定 · slash 调用必须全限定"。
+
 ## 触发 `/learn-kit:init`
 
 在项目根运行 `/learn-kit:init`，会创建：
