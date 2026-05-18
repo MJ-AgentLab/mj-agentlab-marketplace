@@ -69,6 +69,15 @@ digraph bump {
 | **plugin-only** | plugin 内部改动（不影响 marketplace registry） | `plugins/<name>/plugin.json` + `plugins/<name>/CHANGELOG.md` |
 | **marketplace-only** | docs / CI / scripts 改动（不影响任何 plugin） | `VERSION` + `marketplace.json metadata.version` + `CHANGELOG.md` (顶层) |
 | **both** | plugin 改动 + marketplace 注册条目同步 | 全部 4 个版本字段 + 2 个 CHANGELOG |
+| **post-release pre-bump** (v4.6.1+) | release + sync-main-to-develop 完成后，在 develop 上推 patch | `VERSION` + `marketplace.json metadata.version` + `README.md` badge（**不**动 plugin.json / 不动 CHANGELOG / 不转节）|
+
+**Post-release pre-bump 场景特别说明**（per [`[ADR]_Develop_PreBump_Adoption`](../../../docs/adr/[ADR]_Develop_PreBump_Adoption.md) + [`[RUNBOOK]_Release_Operations`](../../../docs/runbook/[RUNBOOK]_Release_Operations.md) §3.7）：
+
+- **何时触发**：每次 release PR 合并 main + sync-main-to-develop PR 合并 develop 之后，72h 宽限期内执行（warn-only CI `verify-develop-prebumped.yml` 兜底提醒）
+- **执行方式**：直接 `pwsh ./scripts/bump-version.ps1 -From X.Y.Z -To X.Y.(Z+1)`（pure patch，无 `-dev` 后缀）
+- **Commit message 格式**：`infra(release): pre-bump develop X.Y.Z -> X.Y.(Z+1) (post-vX.Y.Z)`
+- **不动的**：plugin.json（plugin 应按自身节奏 bump），CHANGELOG（不转节；新机制本身可在 [Unreleased] 段提及）
+- **README badge 副效应**：badge 跟随 VERSION 自动更新到下一个 release 号；README 底部脚注 + CLAUDE.md 已澄清 "develop badge = 预计下一个 release 号" 语义
 
 ## Step 2: Determine Bump Type
 

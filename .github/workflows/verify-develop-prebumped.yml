@@ -1,0 +1,132 @@
+name: Verify Develop Pre-bumped
+
+# Warn-only check that develop has been pre-bumped past main after each release.
+# Per [ADR]_Develop_PreBump_Adoption + [RUNBOOK]_Release_Operations §3.7.
+#
+# Semantics:
+#   - develop VERSION > main VERSION  → OK (pre-bump already applied)
+#   - develop VERSION = main VERSION  AND main last commit  < 72h ago  → OK (just-released grace window)
+#   - develop VERSION = main VERSION  AND main last commit ≥ 72h ago  → WARN (pre-bump forgotten)
+#   - develop VERSION < main VERSION  → WARN (rollback / inverted state, very unusual)
+#
+# Never exits with failure. Outputs to workflow summary so reviewers see the signal
+# without blocking merges. This is a hygiene reminder, not a hard correctness invariant.
+
+on:
+  push:
+    branches: [develop]
+    paths:
+      - 'VERSION'
+      - '.github/workflows/verify-develop-prebumped.yml'
+  workflow_dispatch:
+
+jobs:
+  verify:
+    name: Verify develop pre-bumped past main
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Read develop VERSION
+        id: develop_ver
+        run: |
+          DEV=$(cat VERSION | tr -d '[:space:]')
+          echo "version=$DEV" >> "$GITHUB_OUTPUT"
+          echo "develop VERSION = $DEV"
+
+      - name: Read main VERSION
+        id: main_ver
+        run: |
+          MAIN=$(git show origin/main:VERSION | tr -d '[:space:]')
+          echo "version=$MAIN" >> "$GITHUB_OUTPUT"
+          echo "main VERSION = $MAIN"
+
+      - name: Read main last commit age (hours)
+        id: main_age
+        run: |
+          MAIN_TS=$(git log -1 --format=%ct origin/main)
+          NOW_TS=$(date +%s)
+          AGE_SEC=$((NOW_TS - MAIN_TS))
+          AGE_HOURS=$((AGE_SEC / 3600))
+          echo "hours=$AGE_HOURS" >> "$GITHUB_OUTPUT"
+          echo "main last commit age = ${AGE_HOURS}h"
+
+      - name: Compare and report
+        env:
+          DEV_VER: ${{ steps.develop_ver.outputs.version }}
+          MAIN_VER: ${{ steps.main_ver.outputs.version }}
+          MAIN_AGE_HOURS: ${{ steps.main_age.outputs.hours }}
+        run: |
+          GRACE_HOURS=72
+
+          # Compare versions using sort -V; if dev > main, sort -V will put main first
+          GREATER=$(printf "%s\n%s\n" "$MAIN_VER" "$DEV_VER" | sort -V | tail -1)
+          EQUAL=$([ "$MAIN_VER" = "$DEV_VER" ] && echo "true" || echo "false")
+
+          {
+            echo "# Develop Pre-bump Status"
+            echo ""
+            echo "| Branch | VERSION |"
+            echo "|--------|---------|"
+            echo "| develop | \`$DEV_VER\` |"
+            echo "| main | \`$MAIN_VER\` |"
+            echo ""
+            echo "main last commit age: **${MAIN_AGE_HOURS}h** (grace window: ${GRACE_HOURS}h)"
+            echo ""
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "$EQUAL" = "true" ]; then
+            if [ "$MAIN_AGE_HOURS" -lt "$GRACE_HOURS" ]; then
+              echo "OK: develop = main = $DEV_VER (within ${GRACE_HOURS}h post-release grace window — pre-bump expected but not yet overdue)"
+              {
+                echo "## ✓ OK — within grace window"
+                echo ""
+                echo "develop VERSION equals main VERSION (\`$DEV_VER\`), but main's last commit was only ${MAIN_AGE_HOURS}h ago."
+                echo "Pre-bump is expected within ${GRACE_HOURS}h. See [RUNBOOK §3.7](../blob/develop/docs/runbook/%5BRUNBOOK%5D_Release_Operations.md)."
+              } >> "$GITHUB_STEP_SUMMARY"
+            else
+              echo "WARN: develop = main = $DEV_VER and ${MAIN_AGE_HOURS}h >= ${GRACE_HOURS}h — pre-bump overdue"
+              {
+                echo "## ⚠ WARN — pre-bump overdue"
+                echo ""
+                echo "develop VERSION equals main VERSION (\`$DEV_VER\`), and main's last commit was **${MAIN_AGE_HOURS}h ago** (≥ ${GRACE_HOURS}h grace window)."
+                echo ""
+                echo "**Action**: on develop, run:"
+                echo ""
+                echo '```powershell'
+                echo "pwsh ./scripts/bump-version.ps1 -From $DEV_VER -To <next-patch>"
+                echo "git commit -m 'infra(release): pre-bump develop $DEV_VER -> <next-patch> (post-v$MAIN_VER)'"
+                echo "git push origin develop"
+                echo '```'
+                echo ""
+                echo "See [RUNBOOK §3.7](../blob/develop/docs/runbook/%5BRUNBOOK%5D_Release_Operations.md) + [ADR](../blob/develop/docs/adr/%5BADR%5D_Develop_PreBump_Adoption.md)."
+              } >> "$GITHUB_STEP_SUMMARY"
+            fi
+          elif [ "$GREATER" = "$DEV_VER" ]; then
+            echo "OK: develop ($DEV_VER) > main ($MAIN_VER) — pre-bumped correctly"
+            {
+              echo "## ✓ OK — develop pre-bumped"
+              echo ""
+              echo "develop is ahead of main, as expected per [ADR](../blob/develop/docs/adr/%5BADR%5D_Develop_PreBump_Adoption.md)."
+            } >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "WARN: develop ($DEV_VER) < main ($MAIN_VER) — inverted state (rollback?)"
+            {
+              echo "## ⚠ WARN — inverted state"
+              echo ""
+              echo "develop VERSION (\`$DEV_VER\`) is **less than** main VERSION (\`$MAIN_VER\`). This is highly unusual — possible causes:"
+              echo ""
+              echo "- main received a hotfix that hasn't been synced back to develop"
+              echo "- develop was reset / rolled back below the last release"
+              echo "- VERSION file was hand-edited incorrectly"
+              echo ""
+              echo "Investigate before next release."
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+          # Never fail the workflow; this is warn-only.
+          exit 0

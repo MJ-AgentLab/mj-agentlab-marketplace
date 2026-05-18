@@ -18,6 +18,7 @@ about: 纯文档变更 (documentation/*) 的 Pull Request
 - [ ] `docs/INDEX.md` 已同步更新
 - [ ] CLAUDE.md 已同步更新（如涉及 Plugin 文档结构变更）
 - [ ] Commit message 符合 [`[STANDARD]_Commit_Message_Convention.md`](../../docs/rule/[STANDARD]_Commit_Message_Convention.md)（documentation/* 分支仅允许 `docs` 类型；scope 推荐 `docs-rule` / `docs-adr` / `docs-guide` / `docs-runbook` / `docs-spec` 中之一）
+- [ ] CHANGELOG.md `[Unreleased]` 区块已更新（如属内容性文档变更；纯排版 / typo / 链接修复可豁免）
 
 ## Related STANDARDs
 - [Documentation Framework](../../docs/rule/[STANDARD]_Documentation_Framework.md) — 文档规范元框架

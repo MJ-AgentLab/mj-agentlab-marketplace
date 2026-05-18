@@ -1,23 +1,26 @@
 ---
 type: runbook
 scope: marketplace
-summary: 从功能开发到版本发布的完整操作流程 — Issue → PR → Release (v1.2 起：bump-version.ps1 全 5 Quintangle sites 覆盖 + RUNBOOK §3.2.1 简化)
+summary: 从功能开发到版本发布的完整操作流程 — Issue → PR → Release → Post-release develop pre-bump (v1.3 起借鉴 mj-system pre-bump 机制)
 owner: marketplace-maintainers
 created: 2026-03-17
 updated: 2026-05-18
 state: active
-version: v1.2
+version: v1.3
 last-verified: 2026-05-18
 domain: release
 tags:
   - release
   - operations
   - publish
+  - pre-bump
 related:
   - ../guide/[GUIDE]_Version_Management.md
   - ../spec/[SPEC]_Marketplace_Json_Schema.md
   - ../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
+  - ../adr/[ADR]_Develop_PreBump_Adoption.md
 revision: |
+  2026-05-18 — v1.3: **借鉴 mj-system develop post-release 预 bump 机制** (per `[ADR]_Develop_PreBump_Adoption`)。新增 §3.7 "Post-release develop 预 bump"（sync-main-to-develop 完成后即在 develop 上执行 `bump-version.ps1 -From X.Y.Z -To X.Y.(Z+1)` 一个 commit；pure patch 风格无 `-dev` 后缀；只 bump 顶层 VERSION，不连带 plugin.json）；§4.5 加 hotfix 与预 bump 冲突 TODO 标记（暂不预设处理，待首次 hotfix 事件再补 §4.6）；§6 发布前检查清单加 1 项后置 "release 完成后 72h 内 develop 已预 bump"。Configures `verify-develop-prebumped.yml` warn-only CI 作为遗忘提醒兜底（72h 宽限）。Non-trigger archive（minor bump，无 Framework §2.3.1 触发条件）。
   2026-05-18 — v1.2: **CLAUDE.md 自动化 sync**（closes #110）。§3.2.1 post-bump verification 第 2 步 wording 从 "CLAUDE.md plugin line manual：script 不 cover" 改为 "script 已 cover (v2 起)；保留 grep verify 作为 last-line defense"；§6 发布前检查清单第 3 项 wording 同步更新；cross-reference 加 PR #115 (Issue #110 closure) + 内含 marketplace.json `[^}]*` regex bug 顺手修复（描述含 `}` 时 silent SKIP，已修为 `[\s\S]*?` 非贪婪）。bump-version.ps1 现 cover 全 5 Quintangle sites，三层防御 (script 覆盖 + CI guard + RUNBOOK MANDATORY) 完工。Non-trigger archive（minor bump，无 Framework §2.3.1 触发条件）。
   2026-05-18 — v1.1: **bump-version.ps1 MANDATORY enforcement**（closes #111）。§3.2 重写为 MANDATORY callout（不再是 advisory）+ 新增 §3.2.1 post-bump verification step（`git diff --name-only` 必须含 `README.md` + Quintangle 5-site sed-based check）；§3.4 git add 列表新增 `README.md` + `CLAUDE.md` + commit message 改 release scope 范例；§6 发布前检查清单新增 3 项 NEW（script 已运行 / diff 含 README / CLAUDE.md plugin line 同步）+ 发布后新增 1 项（visual badge verify）；§7 新增 版本历史段（§8 即原 §7 相关文档）；fix line 350 `../CONTRIBUTING.md` → `../guide/[GUIDE]_Contributing.md` (PR #103 rename)；cross-reference v4.6.0 CI guard «Validate README badge matches VERSION»（PR #109）作为 safety net + Issue #110 / #113 future-work 锚点
   2026-03-17 — v1.0: 初版
@@ -297,6 +300,42 @@ git tag -l "v1.1.0"
 gh release view v1.1.0
 ```
 
+### 3.7 Post-release develop 预 bump (v1.3 NEW)
+
+> [!IMPORTANT]
+> **MANDATORY 但宽限 72h**：每次 release 完成 + sync-main-to-develop PR 合并后，需在 develop 上执行一次预 bump，把 `VERSION` 推到下一个 patch（e.g., 4.6.0 → 4.6.1）。
+>
+> **为什么需要**：让 `develop VERSION > main VERSION` 始终成立，肉眼可见 "develop 是否领先 main"；与 [mj-system](https://github.com/MJ-AgentLab/mj-system) 工作流对齐。详见 [`[ADR]_Develop_PreBump_Adoption`](../adr/[ADR]_Develop_PreBump_Adoption.md)。
+>
+> **Safety net**：`.github/workflows/verify-develop-prebumped.yml` 在 release 后 72h 仍未预 bump 时输出 workflow summary 警告（warn-only，永不阻塞）。
+
+执行步骤（在已 sync 的 develop worktree 内）：
+
+```bash
+cd D:/workspace/10-software-project/projects/mj-agentlab-marketplace/develop
+git pull origin develop  # 拿到 sync-main-to-develop 的合并
+
+# 预览（必跑：看清将改哪些文件 — 应为 VERSION + marketplace.json + README.md 3 文件）
+.\scripts\bump-version.ps1 -From "4.6.0" -To "4.6.1" -DryRun
+
+# 执行
+.\scripts\bump-version.ps1 -From "4.6.0" -To "4.6.1"
+
+# 提交 + 推送
+git add VERSION .claude-plugin/marketplace.json README.md
+git commit -m "infra(release): pre-bump develop 4.6.0 -> 4.6.1 (post-v4.6.0)"
+git push origin develop
+```
+
+**关键约束**：
+
+- **只 bump 顶层 `VERSION`**（marketplace 范围）；**不连带** `plugin.json` 预 bump。learn-kit 等 plugin 应按自身节奏 bump（plugin 真有变更时再 bump），预 bump plugin 会产生 "plugin 有未发变更" 假信号。
+- **Pure patch 风格**（4.6.0 → 4.6.1），不用 `-dev` / `-SNAPSHOT` 后缀。下次 release 若实际为 minor/major，发布时再调整版本号即可。
+- **Commit message 必须用 `infra(release)` scope** 并含 `(post-vX.Y.Z)` 后缀，便于 git history 一眼识别预 bump commit。
+- **README.md badge** 会被脚本同步更新到 4.6.1。develop 浏览者看到的 badge = "预计下一个 release 号"（README 底部脚注 + CLAUDE.md 均已澄清）。
+
+预 bump 完成后 `verify-develop-prebumped.yml` workflow 在 next push 时验证 `develop VERSION > main VERSION` 成立，输出 OK 注释。
+
 ## 4. Hotfix 流程
 
 用于修复已发布版本的紧急问题。
@@ -349,6 +388,13 @@ git worktree remove ../hotfix/<issue-id>-<description>
 git branch -d hotfix/<issue-id>-<description>
 ```
 
+### 4.5 Hotfix 与预 bump 冲突 — TODO (v1.3 NEW)
+
+> [!warning]
+> **未完成**：v1.3 起 develop 启用 post-release 预 bump（§3.7）后，如果 develop 已预 bump 到 4.6.1 而 hotfix 在 main 上发布 4.6.0 → 4.6.0.1（或 4.6.1 抢占），会与 develop 的 4.6.1 产生 VERSION 文件冲突。
+>
+> 当前未预设处理方案。**首次 hotfix 事件发生时**，需要在本 RUNBOOK 加 §4.6 详述冲突解决路径（候选方案：hotfix 后 develop 手动 re-bump / hotfix 后跳过本次预 bump 等下次正常 release / 暂停预 bump 机制等）。届时需配合更新 [`[ADR]_Develop_PreBump_Adoption`](../adr/[ADR]_Develop_PreBump_Adoption.md) §3.3 Risks 段。
+
 ## 5. 回滚流程
 
 如发布版本存在严重问题且无法快速 hotfix：
@@ -387,9 +433,11 @@ git push origin --delete v1.1.0
 - [ ] Release notes 内容正确
 - [ ] `gh release view vX.Y.Z` 输出无异常
 - [ ] **(v1.1 NEW) 在 main 浏览 `README.md` 渲染 — badge 显示新版本号**（screenshot-level visual verify；post-PR #109 安全网）
+- [ ] **(v1.3 NEW) 72h 内完成 develop 预 bump**（§3.7 流程；sync-main-to-develop PR 合并后即在 develop 执行 `bump-version.ps1 -From X.Y.Z -To X.Y.(Z+1)` 一个 commit；`verify-develop-prebumped.yml` 在超时未做时会发 warn）
 
 ## 7. 版本历史
 
+- **v1.3**（2026-05-18）：**借鉴 mj-system develop post-release 预 bump 机制**（per `[ADR]_Develop_PreBump_Adoption`）。新增 §3.7 "Post-release develop 预 bump" — sync-main-to-develop 完成后在 develop 上执行 `bump-version.ps1 -From X.Y.Z -To X.Y.(Z+1)` 一个 commit；pure patch 风格无 `-dev` 后缀；只 bump 顶层 VERSION，不连带 plugin.json。§4.5 加 hotfix 与预 bump 冲突 TODO 标记（暂不预设处理，待首次 hotfix 事件再补 §4.6）。§6 发布后检查清单加 1 项 "72h 内完成预 bump"。配套 `.github/workflows/verify-develop-prebumped.yml` warn-only CI 在 72h 宽限外提醒。Frontmatter v1.2 → v1.3 + revision block + 加 `[ADR]_Develop_PreBump_Adoption` 到 related。Non-trigger archive（minor bump，无 Framework §2.3.1 触发条件）。
 - **v1.2**（2026-05-18）：**CLAUDE.md 自动化 sync**（closes #110）。§3.2.1 第 2 步 + §6 第 3 项 wording 从「manual / script 不 cover」更新为「script 已 cover (v2 起 plugin scope 含 CLAUDE.md scoped-regex 分支)；grep 保留作 last-line defense」。配套 PR #115 同时修了 `scripts/bump-version.ps1` 中 marketplace.json `[^}]*` regex bug（描述含 `}` 时 silent SKIP）。bump-version.ps1 现真正 cover 全 5 Quintangle sites，三层防御 (script 覆盖 + CI guard + RUNBOOK MANDATORY) 完工。Frontmatter v1.1 → v1.2 + revision block。Non-trigger archive。
 - **v1.1**（2026-05-18）：**bump-version.ps1 MANDATORY enforcement**（closes #111）。§3.2 改 advisory → MANDATORY callout box + 加 §3.2.1 post-bump verification（git diff README.md 必含 + Quintangle 5-site 一致性 sed-based check）；§3.4 git add 列表加 `README.md` + `CLAUDE.md` + 强调 release scope + 跨引用本地 `validate-commits.sh`；§6 发布前检查清单加 3 项 NEW + 发布后加 1 项 visual badge verify；§8 即原 §7 相关文档；fix line 350 `../CONTRIBUTING.md` → `../guide/[GUIDE]_Contributing.md` (PR #103 rename)；cross-reference v4.6.0 CI guard «Validate README badge matches VERSION»（PR #109）作为 safety net + Issue #110 / #113 future-work 锚点。Frontmatter v1.0 → v1.1 + revision block。Non-trigger archive（minor bump，无 Framework §2.3.1 触发条件）。
 - **v1.0**（2026-03-17）：初版。Issue → Branch → Develop → Commit → PR → CI → Merge → Release 完整 6 阶段操作流程 + hotfix + rollback 子流程。

@@ -12,6 +12,7 @@ Closes #
 - [ ] SKILL.md frontmatter 有效（name, description）
 - [ ] 无残留调试代码
 - [ ] Commit message 符合 `<type>(<scope>): <summary>` 规范
+- [ ] CHANGELOG.md `[Unreleased]` 区块已更新（如属用户可见变更）
 
 ## 审核要点
 <!-- 提示 Reviewer 重点关注的内容 -->

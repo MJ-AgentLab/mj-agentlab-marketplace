@@ -1,8 +1,10 @@
 # MJ AgentLab Marketplace
 
-![Version](https://img.shields.io/badge/version-4.6.0-blue)
+![Version](https://img.shields.io/badge/version-4.6.1-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![CI](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml)
+
+> 浏览本仓库 `develop` 分支时看到的 Version badge 是**预计下一个 release 号**（per [`[ADR]_Develop_PreBump_Adoption`](docs/adr/[ADR]_Develop_PreBump_Adoption.md)）；当前实际已发布版本以顶部 [GitHub Releases](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases) 或 `main` 分支 badge 为准。
 
 通用 [Claude Code](https://docs.anthropic.com/en/docs/claude-code) 插件市场——教学方法论 + NotebookLM 多媒体集成整合在单一 plugin。不绑定特定项目，可服务任意 Claude Code 使用者；在 [mj-system](https://github.com/MJ-AgentLab/mj-system) 与 mj-agent 两个项目上长期实战验证。
 
