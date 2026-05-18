@@ -5,20 +5,47 @@
 
 ## [Unreleased]
 
+_(no in-flight changes at release-cut time)_
+
+## [4.6.1] - 2026-05-18
+
+This release introduces the **develop post-release pre-bump mechanism** (per [`[ADR]_Develop_PreBump_Adoption`](docs/adr/[ADR]_Develop_PreBump_Adoption.md)). The release itself is **the first cycle through the new mechanism end-to-end** — VERSION was already pre-bumped on develop during PR #120 (4.6.0 → 4.6.1), so this release branch only promotes `[Unreleased]` → `[4.6.1]` without a separate bump step. After merge, `release.yml` auto-tags `v4.6.1`, then the standard sync-main-to-develop + next pre-bump (4.6.1 → 4.6.2) closes the loop.
+
+No plugin behavior change for end users. learn-kit stays at v1.2.0 (no plugin bump). Marketplace patch bump v4.6.0 → v4.6.1.
+
 ### Added
 
 - **Develop post-release pre-bump 机制** — 每次 release + sync-main-to-develop 完成后，在 develop 上额外 `bump-version.ps1 -From X.Y.Z -To X.Y.(Z+1)` 一个 commit，让 `develop VERSION > main VERSION` 成为 marketplace 内部硬不变式 —— 肉眼可见 develop 是否领先 main，回答 release readiness 不再需要 git log / CHANGELOG 二次确认。Pure patch 风格无 `-dev` 后缀；只 bump 顶层 VERSION，不连带 plugin.json。详见 [docs/adr/[ADR]_Develop_PreBump_Adoption.md](docs/adr/[ADR]_Develop_PreBump_Adoption.md)。
-- **`docs/adr/[ADR]_Develop_PreBump_Adoption.md`** — 决策文档：3 项机制（pre-bump + CHANGELOG PR-time 纪律 + warn-only CI 检查）；不采用 `plans/[PLAN]_Release_*.md` audit doc 模式（违反 `[STANDARD]_AI_Engineering_Execution_HITL_Prompt` §4.3；marketplace `CHANGELOG.md` 已承担同等审计职能）。后续 v1.1 scrub 外部项目引用 per STANDARD §0.3。
-- **`.github/workflows/verify-develop-prebumped.yml`** — warn-only CI 工作流：develop push 时检查 `develop VERSION > main VERSION` 是否成立；若等于且距 main 最后 commit 已 ≥ 72h，输出 workflow summary 警告（永不 `exit 1`）。
+- **`docs/adr/[ADR]_Develop_PreBump_Adoption.md`** v1.0 → v1.1 — 决策文档：3 项机制（pre-bump + CHANGELOG PR-time 纪律 + warn-only CI 检查）；不采用 `plans/[PLAN]_Release_*.md` audit doc 模式（违反 `[STANDARD]_AI_Engineering_Execution_HITL_Prompt` §4.3；marketplace `CHANGELOG.md` 已承担同等审计职能）。v1.1 scrub 外部项目引用 per STANDARD §0.3（regression fix from initial v1.0）。
+- **`.github/workflows/verify-develop-prebumped.yml`** — warn-only CI 工作流：develop push 时检查 `develop VERSION > main VERSION` 是否成立；若等于且距 main 最后 commit 已 ≥ 72h，输出 workflow summary 警告（永不 `exit 1`）。路径触发：`VERSION` 或 workflow yml 自身改动。
 - **PR 模板 CHANGELOG checkbox 全覆盖** — `documentation.md` / `maintain.md` / `hotfix.md` / `PULL_REQUEST_TEMPLATE.md` (fallback) 4 个模板补齐 `[Unreleased]` checkbox，与 `feature.md` / `bugfix.md` 现有项目对齐，5 类 PR 全覆盖。
-- **首次预 bump 执行**：PR #120 含 `infra(release): pre-bump develop 4.6.0 -> 4.6.1 (post-v4.6.0)` commit 作为新机制启动点；下次 release 即从 4.6.1 切版本（除非有 minor/major 升级需求）。
+- **首次预 bump 执行**：PR #120 含 `infra(release): pre-bump develop 4.6.0 -> 4.6.1 (post-v4.6.0)` commit 作为新机制启动点。
 
 ### Changed
 
 - **`docs/runbook/[RUNBOOK]_Release_Operations.md`** v1.2 → v1.3 → v1.3.1：v1.3 新增 §3.7 "Post-release develop 预 bump" + §4.5 hotfix 与预 bump 冲突 TODO 标记 + §6 发布后检查清单加 1 项 "72h 内完成预 bump"；v1.3.1 scrub frontmatter summary + revision + §3.7 callout 中的外部项目引用 per STANDARD §0.3。
 - **`README.md`** — 加 develop badge 语义脚注（"develop branch badge = 预计下一个 release 号"）。
 - **`CLAUDE.md`** — Key Conventions 段加 2 项：post-release pre-bump 机制 + develop README badge 语义说明；引用新 ADR + RUNBOOK §3.7。
-- **`docs/adr/[ADR]_Develop_PreBump_Adoption.md`** v1.0 → v1.1（follow-up scrub PR）：reframe §1 Context / §2 Decision / §3 Consequences / §4 Alternatives / §7 References，去除外部项目引用 per STANDARD §0.3；技术决策不变。
+- **`.claude/skills/mp-doc-bump-version/SKILL.md`** — Step 1 scope 表加 "post-release pre-bump" 第 4 行 + 5-bullet 子段详述触发 / 执行 / commit 格式 / 不动 plugin.json / README badge 副效应。
+- **`docs/INDEX.md`** v4.5 → v4.6 → v4.6.1：v4.6 加 [ADR]_Develop_PreBump_Adoption 行 + RUNBOOK 行 update；v4.6.1 scrub ADR row description 中的外部项目引用 per STANDARD §0.3。
+
+### Fixed
+
+- **PR #121 (follow-up to PR #120)** — scrub cross-project references introduced by PR #120 across 4 governance surfaces (ADR / RUNBOOK / CHANGELOG `[Unreleased]` / INDEX ADR row), 17 → 0 refs. Technical decisions unchanged; reframed with marketplace-internal rationale per `[STANDARD]_AI_Engineering_Execution_HITL_Prompt` §0.3 independence principle. Historical CHANGELOG entries (v3.0.0+ release narratives) intentionally preserved (revisionist removal would falsify history).
+
+### Release-Engineering Note
+
+This is the **first release executed under the pre-bump model**. Differences from pre-v4.6.1 release flow:
+
+| Step | Pre-v4.6.1 (legacy) | v4.6.1+ (pre-bump model) |
+|------|---------------------|--------------------------|
+| Release branch creation | from develop | from develop (unchanged) |
+| VERSION bump | `bump-version.ps1 -From X.Y.Z -To Y.Z.W` on release branch | **already done on develop** as pre-bump commit; no bump on release branch |
+| CHANGELOG transition | on release branch | on release branch (unchanged) |
+| Release commit | `infra(release): bump marketplace X.Y.Z -> Y.Z.W` | `infra(release): release v4.6.1 (VERSION pre-bumped on develop)` |
+| Post-merge | sync-main-to-develop | sync-main-to-develop **+ pre-bump 4.6.1 → 4.6.2** |
+
+RUNBOOK §3.2 / §3.4 wording was authored under legacy model; will be polished in a future minor revision to reflect the pre-bump variant inline. For now the v1.3 §3.7 callout + this CHANGELOG note are the canonical guidance for the new flow.
 
 ## [4.6.0] - 2026-05-18
 
