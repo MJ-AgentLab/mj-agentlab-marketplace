@@ -141,7 +141,7 @@ version: "v0.2"
 场景 2（项目有 docs/ 但无 learning/）：
 > 用户："学 SPEC 编写规范"
 > - `/learn-kit:locate "SPEC 编写"` → top1: `docs/guide/[GUIDE]_SPEC_Authoring.md`（未解读，confidence 0.85，文件名命中）
-> - 用户先 `/learn-kit:init` scaffold learning/ → 再 read 源 → 按 8 阶段编写 `learning/spec-authoring/[LEARNING]_SPEC_Authoring_Interpretation.md`
+> - 用户先 `/learn-kit:scaffold-learning` scaffold learning/ → 再 read 源 → 按 8 阶段编写 `learning/spec-authoring/[LEARNING]_SPEC_Authoring_Interpretation.md`
 
 场景 3（完全白板项目）：
 > 用户："这个项目里有什么可学的"

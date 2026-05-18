@@ -6,16 +6,16 @@ learn-kit 是一个通用 Claude Code 插件，提供把枚举型规则清单（
 
 - **起源**：从 mj-system 项目的 `learning/_meta/[LEARNING]_Rule_List_Interpretation_Authoring.md` v2.0 STANDARD-tier 方法论（N=5 跨域验证）剥离 MJ 引用通用化而来
 - **定位**：通用、外部项目可独立采纳、无 MJ 上下文假设
-- **v1.0.0 起的依赖**：nlm-studio skill 需要 notebooklm-mcp MCP server（由本插件 `.mcp.json` 自动注册）+ 一次性 `nlm login`（用户在终端运行）。其他 4 个 skill（init / locate / scan / generate-tier）零外部依赖
+- **v1.0.0 起的依赖**：nlm-studio skill 需要 notebooklm-mcp MCP server（由本插件 `.mcp.json` 自动注册）+ 一次性 `nlm login`（用户在终端运行）。其他 4 个 skill（scaffold-learning / locate / scan / generate-tier）零外部依赖
 
 ## 插件内容
 
 5 个 skill：
 
-- `skills/init/SKILL.md` — `/learn-kit:init` 命令（scaffold，`disable-model-invocation: true`）
-- `skills/init/templates/METHODOLOGY.md` — 完整 8 阶段方法论（de-MJ-ified）
-- `skills/init/templates/INDEX.md` — `learning/INDEX.md` 模板
-- `skills/init/references/rfc-2119-keywords-pedagogy.md` — worked example：RFC 2119 五关键词
+- `skills/scaffold-learning/SKILL.md` — `/learn-kit:scaffold-learning` 命令（scaffold，`disable-model-invocation: true`）
+- `skills/scaffold-learning/templates/METHODOLOGY.md` — 完整 8 阶段方法论（de-MJ-ified）
+- `skills/scaffold-learning/templates/INDEX.md` — `learning/INDEX.md` 模板
+- `skills/scaffold-learning/references/rfc-2119-keywords-pedagogy.md` — worked example：RFC 2119 五关键词
 - `skills/locate/SKILL.md` — `/learn-kit:locate <query>` 概念反查
 - `skills/scan/SKILL.md` — `/learn-kit:scan` 项目枚举
 - `skills/generate-tier/SKILL.md` — `/learn-kit:generate-tier` AI 生成三档学习文档（10-step workflow，含可选 HTML 渲染 + step 9 可选 NLM artifact 询问）
@@ -27,17 +27,17 @@ learn-kit 是一个通用 Claude Code 插件，提供把枚举型规则清单（
 
 ## 命名约定 · skill slash 调用全限定
 
-本插件 5 个 skill（`init` / `scan` / `locate` / `generate-tier` / `nlm-studio`）的 slash 调用**统一使用 `/learn-kit:<skill>` 全限定形式**，禁止裸写 `/<skill>`。
+本插件 5 个 skill（`scaffold-learning` / `scan` / `locate` / `generate-tier` / `nlm-studio`）的 slash 调用**统一使用 `/learn-kit:<skill>` 全限定形式**，禁止裸写 `/<skill>`。
 
-- **直接动机**：`init` 与 Claude Code 内置 `init`（生成 CLAUDE.md）同名；统一前缀消除二义
-- **全局动机**：未来 Claude Code 可能新增其他同名内置；统一约定是未来防御
-- **额外护栏**：learn-kit 的 `init` SKILL.md 设置了 `disable-model-invocation: true` 防止 LLM 自然语言对话误路由到 init；其余 4 个 skill 允许自然语言路由（这是设计意图），但**用户显式入口**仍走 namespace
+- **历史动机**：v1.x 时本插件 scaffold skill 叫 `init`，与 Claude Code 内置 `/init`（生成 CLAUDE.md）撞名 —— slash 拾取器并列两条 `/init` 候选造成 UX 二义。v2.0.0 起 init → `scaffold-learning` 重命名物理消除冲突（详见 [`docs/adr/[ADR]_LearnKit_Init_Skill_Rename.md`](../../docs/adr/[ADR]_LearnKit_Init_Skill_Rename.md)）
+- **全局动机**：未来 Claude Code 可能新增其他同名内置；统一全限定调用约定是未来防御
+- **额外护栏**：learn-kit 的 `scaffold-learning` SKILL.md 设置了 `disable-model-invocation: true` 防止 LLM 自然语言对话误路由到 scaffold；其余 4 个 skill 允许自然语言路由（这是设计意图），但**用户显式入口**仍走 namespace
 
 详见 plugin README §"命名约定 · slash 调用必须全限定"。
 
-## 触发 `/learn-kit:init`
+## 触发 `/learn-kit:scaffold-learning`
 
-在项目根运行 `/learn-kit:init`，会创建：
+在项目根运行 `/learn-kit:scaffold-learning`，会创建：
 
 ```
 learning/
@@ -85,9 +85,9 @@ learning/
 
 - 共享底层（markdown 语法 OB1-OB6）
 - 自管上层（命名 `[LEARNING]_*` / 路径 `learning/<topic>/` / frontmatter schema）
-- v1.0.0 起 nlm-studio 引入外部 MCP server 依赖；其他 4 个 skill（init / locate / scan / generate-tier）仍然零外部依赖
+- v1.0.0 起 nlm-studio 引入外部 MCP server 依赖；其他 4 个 skill（scaffold-learning / locate / scan / generate-tier）仍然零外部依赖
 
-详见 `skills/init/templates/METHODOLOGY.md` §9（Subsystem Meta-Rules）+ §10（Optional Integrations）。
+详见 `skills/scaffold-learning/templates/METHODOLOGY.md` §9（Subsystem Meta-Rules）+ §10（Optional Integrations）。
 
 ## Documentation
 
@@ -99,7 +99,7 @@ v1.1.0 起 plugin-internal documentation 遵循 marketplace 文档框架（v1.2.
 - [`docs/guide/`](docs/guide/) — plugin-internal GUIDEs：
   - [`[GUIDE]_LearnKit_Pedagogy.md`](docs/guide/[GUIDE]_LearnKit_Pedagogy.md) — 教学合卷（定位 + 8 阶段方法论 + RFC 2119 worked example + 6 类质量门）
   - [`[GUIDE]_LearnKit_Design.md`](docs/guide/[GUIDE]_LearnKit_Design.md) — 设计合卷（5 skill 分工 + dogfood findings + 治理模型 + frontmatter 规则 + 版本演化）
-- [`docs/spec/`](docs/spec/) — plugin-internal SPECs（暂无；schema 工作目前在 `skills/init/templates/METHODOLOGY.md`）
+- [`docs/spec/`](docs/spec/) — plugin-internal SPECs（暂无；schema 工作目前在 `skills/scaffold-learning/templates/METHODOLOGY.md`）
 
 v1.2.0 起原 6 份 `docs/learn-kit-*.md` lowercase 数字教学系列已合并为以上 2 份合规 `[GUIDE]_*.md`（Framework v1.5 §1 取消 v1.1 教学系列模式豁免配套）。
 

@@ -40,17 +40,17 @@ revision: |
 
 | Skill | 触发方式 | 干什么 | 何时用 | 写文件吗 | 网络 |
 |-------|---------|--------|-------|---------|------|
-| **init** | `/learn-kit:init`（user-triggered，`disable-model-invocation: true`）| scaffold `learning/` 骨架 | 项目首次启用 learn-kit | ✅ 一次性 | ❌ |
+| **scaffold-learning** | `/learn-kit:scaffold-learning`（user-triggered，`disable-model-invocation: true`）| scaffold `learning/` 骨架 | 项目首次启用 learn-kit | ✅ 一次性 | ❌ |
 | **scan** | 自然语言提示（model-invocable）| 枚举项目可学候选 + 标已解读 vs 未解读 | 用户**开放式探索**（没有具体概念）| ❌ 只读 | ❌ |
 | **locate** | 自然语言提示（model-invocable）| 反向定位概念 → 文档 | 用户脑中**已有具体概念名** | ❌ 只读 | ❌ |
 | **generate-tier** | 自然语言提示（model-invocable）| AI 生成三档（foundation/structural/challenge）学习 markdown + 可选 HTML | 用户**有源材料 + user_question**，想一键产出 | ✅ 多次（每次 3-6 文件）| ❌ 本地 LLM |
 | **nlm-studio** | 自然语言提示（model-invocable）| 把三档 markdown 推 NotebookLM 出至多 13 个多媒体 artifact | 用户已有 `learning/<topic>/*.md`，**想要多媒体** | ❌ 零本地落盘 | ✅ NotebookLM API |
 
-5 个 skill 中 4 个 read-only / 不联网（init / scan / locate / generate-tier 的 LLM 调用走 Claude Code 内部），**仅 nlm-studio 联网到 NotebookLM**（依赖 `nlm login` OAuth）。
+5 个 skill 中 4 个 read-only / 不联网（scaffold-learning / scan / locate / generate-tier 的 LLM 调用走 Claude Code 内部），**仅 nlm-studio 联网到 NotebookLM**（依赖 `nlm login` OAuth）。
 
-### §1.2 init — 一次性 scaffold
+### §1.2 scaffold-learning — 一次性 scaffold
 
-**触发**：显式 `/learn-kit:init`；`disable-model-invocation: true` 防自动触发。
+**触发**：显式 `/learn-kit:scaffold-learning`；`disable-model-invocation: true` 防自动触发。
 
 **Pre-flight**: 检 `learning/` 已存 → skip / merge / abort；检 git repo → warn 若不在。
 
@@ -214,7 +214,8 @@ Step 5  Terminal recap   markdown 表格 + notebook URL；**零本地落盘**
                             └────────────┬─────────────┘
                                          ▼
                             ┌──────────────────────────┐
-                            │  /learn-kit:init         │ ← Skill 1（scaffold）
+                            │  /learn-kit:scaffold-    │ ← Skill 1（scaffold）
+                            │  learning                │
                             └────────────┬─────────────┘
                                          ▼
                        ┌────────────────────────────────┐
@@ -588,7 +589,7 @@ learn-kit 是**通用插件**，可在任意项目安装。下游消费项目只
 
 1. `/plugin install learn-kit@mj-agentlab-marketplace`
 2. 在项目根 CLAUDE.md 声明 `[STANDARD]_/[SPEC]_/...` tag prefix（提高 scan / locate 识别 confidence）
-3. 跑 `/learn-kit:init` scaffold `learning/` 子系统骨架
+3. 跑 `/learn-kit:scaffold-learning` scaffold `learning/` 子系统骨架
 
 不强制下游做任何 marketplace-side 治理同步——learn-kit 的产物 `learning/` 完全由下游项目自管。Marketplace 本身不引用任何下游项目（marketplace 独立性原则）。
 
@@ -654,7 +655,7 @@ learn-kit 是 marketplace 通用插件，与上游设计相比的取舍：
 | AI 流的 generate-tier 写错了，怎么回滚？ | 当前不支持自动归档；用户走 §5.6 软归档流程手动操作；或重跑 generate-tier 选 `.v2` 后缀 |
 | nlm-studio 产生的 NLM 上 13 个 artifact 算 `learning/` 的一部分吗？ | **不算**。它们在 `notebooklm.google.com`，不在本地仓库；nlm-studio 零本地落盘 |
 | v1.0.0 起 learn-kit 不再是 Independent plugin，治理影响是？ | (a) plugin.json description 改写；(b) 用户必须 `nlm login` 才能用 nlm-studio；(c) 前 4 个 skill 仍零外部依赖。`learning/` 子系统的并行子系统立场**不变** |
-| 项目无 CLAUDE.md tag 约定时，locate / scan 还能用吗？ | 能用，走低置信度 fallback；改善方式：(a) 在 CLAUDE.md 声明 ≥ 2 个 tag prefix；(b) 跑 `/learn-kit:init` 建 learning/INDEX.md |
+| 项目无 CLAUDE.md tag 约定时，locate / scan 还能用吗？ | 能用，走低置信度 fallback；改善方式：(a) 在 CLAUDE.md 声明 ≥ 2 个 tag prefix；(b) 跑 `/learn-kit:scaffold-learning` 建 learning/INDEX.md |
 
 ---
 
@@ -662,7 +663,7 @@ learn-kit 是 marketplace 通用插件，与上游设计相比的取舍：
 
 | 想知道什么 | 读哪里 |
 |----------|--------|
-| init skill 定义 | `plugins/learn-kit/skills/init/SKILL.md` |
+| scaffold-learning skill 定义 | `plugins/learn-kit/skills/scaffold-learning/SKILL.md` |
 | scan skill 定义 | `plugins/learn-kit/skills/scan/SKILL.md` |
 | locate skill 定义 | `plugins/learn-kit/skills/locate/SKILL.md` |
 | generate-tier skill 定义 | `plugins/learn-kit/skills/generate-tier/SKILL.md`（10 step workflow）|
@@ -671,5 +672,5 @@ learn-kit 是 marketplace 通用插件，与上游设计相比的取舍：
 | nlm-studio 10 模板 | `plugins/learn-kit/skills/nlm-studio/templates/{view-foundation,view-structural,view-challenge,artifact-audio,artifact-video,artifact-slide_deck,artifact-mind_map,artifact-infographic,interaction-overrides,language-directive}.md` |
 | Discovery 设计决策 | `docs/adr/[ADR]_LearnKit_Discovery_Skills.md` |
 | v4.0.0 NLM 收编决策 | `docs/adr/[ADR]_NotebookLM_Kit_Retirement.md` |
-| 方法论全文 | `plugins/learn-kit/skills/init/templates/METHODOLOGY.md` §9 子系统元规则 |
+| 方法论全文 | `plugins/learn-kit/skills/scaffold-learning/templates/METHODOLOGY.md` §9 子系统元规则 |
 | 教学合卷（定位 + 方法论 + worked example + 质量门） | `./[GUIDE]_LearnKit_Pedagogy.md` |

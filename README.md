@@ -1,6 +1,6 @@
 # MJ AgentLab Marketplace
 
-![Version](https://img.shields.io/badge/version-4.6.3-blue)
+![Version](https://img.shields.io/badge/version-5.0.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![CI](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml)
 
@@ -14,13 +14,13 @@
 
 | Plugin | 描述 | Skills | Version | 适用项目 |
 |--------|------|--------|---------|---------|
-| [**learn-kit**](plugins/learn-kit/README.md) | 教学方法论 kit：把枚举型规则清单转化为人类可学习的决策框架解读文档（8 阶段方法 + 模板 + scaffold + locate / scan 项目内文档发现 + generate-tier AI 三档生成 + nlm-studio NotebookLM 多媒体生成） | **5** | **1.2.0** | 任意 |
+| [**learn-kit**](plugins/learn-kit/README.md) | 教学方法论 kit：把枚举型规则清单转化为人类可学习的决策框架解读文档（8 阶段方法 + 模板 + scaffold + locate / scan 项目内文档发现 + generate-tier AI 三档生成 + nlm-studio NotebookLM 多媒体生成） | **5** | **2.0.0** | 任意 |
 
 learn-kit 5 个 skill 用法：
 
 | Skill | 命令 | 用途 |
 |-------|------|------|
-| init | `/learn-kit:init` | 在项目根 scaffold learning/ 子系统 |
+| scaffold-learning | `/learn-kit:scaffold-learning` | 在项目根 scaffold learning/ 子系统（v2.0.0 从 init 改名）|
 | locate | `/learn-kit:locate <query>` | 反查概念名 → 已解读 [LEARNING] 文档或源 canonical 文档 |
 | scan | `/learn-kit:scan` | 枚举项目可学候选文档，标 interpreted vs uninterpreted |
 | generate-tier | `/learn-kit:generate-tier` | AI 生成三档（foundation/structural/challenge）学习 markdown + 可选 HTML（10-step workflow，含 step 9 可选 NLM 询问） |
@@ -70,16 +70,16 @@ uv tool install notebooklm-mcp-cli --with socksio --force
 nlm login
 ```
 
-其余 4 个 skill（init / locate / scan / generate-tier）**零外部依赖**，可独立使用。
+其余 4 个 skill（scaffold-learning / locate / scan / generate-tier）**零外部依赖**，可独立使用。
 
 ### 4. 使用示例
 
 ```
-/learn-kit:init                              # 在项目根初始化 learning/ 子系统骨架
+/learn-kit:scaffold-learning                 # 在项目根初始化 learning/ 子系统骨架
 /learn-kit:scan                              # 枚举项目可学候选文档
 /learn-kit:locate "DLSRS"                    # 反向定位概念
 /learn-kit:generate-tier                     # AI 生成三档学习文档（可选 HTML + NLM 多媒体）
-/learn-kit:nlm-studio documentation-framework # 把已生成的三档推到 NotebookLM 出 15 个多媒体 artifact
+/learn-kit:nlm-studio documentation-framework # 把已生成的三档推到 NotebookLM 出 13 个多媒体 artifact
 ```
 
 完整使用文档：[learn-kit/README.md](plugins/learn-kit/README.md)

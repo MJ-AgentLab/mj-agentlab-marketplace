@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-05-15
 updated: 2026-05-18
 state: active
-version: v4.6.3
+version: v5.0
 domain: governance
 tags:
   - index
@@ -14,7 +14,9 @@ tags:
 related:
   - ./rule/[STANDARD]_Documentation_Framework.md
   - ./adr/[ADR]_Root_Level_Named_Files_Codification.md
+  - ./adr/[ADR]_LearnKit_Init_Skill_Rename.md
 revision: |
+  2026-05-18 — v5.0: add [ADR]_LearnKit_Init_Skill_Rename row (v5.0.0 learn-kit init → scaffold-learning rename)
   2026-05-18 — v4.6.3: add 「Root-Level Meta Files」section listing 5 named special files per Framework v1.6 §1.1; bump [Documentation Framework] row v1.5 → v1.6; remove [Contributing Guide] active row (archived in v4.6.3 archive ceremony — content restored to repo root); add [DEPRECATED]_[GUIDE]_Contributing_v1.1 row to Archived Documents; add [ADR]_Root_Level_Named_Files_Codification row to ADRs; update Suggested Reading Order links to root CONTRIBUTING.md
   2026-05-18 — v4.6.2: add first [POSTMORTEM] row (2026-05-18 Bulk Cleanup Trap Analysis, P3); update [RUNBOOK]_Release_Operations row to mention v1.3.2 cleanup callouts; update [GUIDE]_Contributing row to mention v1.1 worktree prefix note
   2026-05-18 — v4.6.1: scrub external project reference from [ADR]_Develop_PreBump_Adoption row description per `[STANDARD]_AI_Engineering_Execution_HITL_Prompt` §0.3
@@ -24,7 +26,7 @@ revision: |
 
 # Documentation Index — MJ AgentLab Marketplace
 
-> Last updated: 2026-05-18 (v4.6.3). Framework §1 hard exclusions + §1.1 root-level named files codification (5 files) + §2.7 CLAUDE.md sync allowlist + §4.3.1 A6 active CI gate per [`./rule/[STANDARD]_Documentation_Framework.md`](./rule/[STANDARD]_Documentation_Framework.md) v1.6.
+> Last updated: 2026-05-18 (v5.0). Framework §1 hard exclusions + §1.1 root-level named files codification (5 files) + §2.7 CLAUDE.md sync allowlist + §4.3.1 A6 active CI gate per [`./rule/[STANDARD]_Documentation_Framework.md`](./rule/[STANDARD]_Documentation_Framework.md) v1.6.
 
 Navigation hub for all marketplace documentation.
 
@@ -74,6 +76,7 @@ Navigation hub for all marketplace documentation.
 | [ADR: Documentation Framework Exemption Reversal](./adr/[ADR]_Documentation_Framework_Exemption_Reversal.md) | v4.5.0 取消 Framework v1.1 §1 单文件 + 教学系列模式豁免；supersedes 旧 Exemption Review ADR（archived）|
 | [ADR: Develop Pre-Bump Adoption](./adr/[ADR]_Develop_PreBump_Adoption.md) | v4.6.1 起每次 release + sync-main-to-develop 完成后，在 develop 上预 bump 到下一个 patch；保证 `develop VERSION > main VERSION` 恒成立，让 release readiness 信号肉眼可见 |
 | [ADR: Root-Level Named Files Codification](./adr/[ADR]_Root_Level_Named_Files_Codification.md) | v4.6.3 起正向 codification 5 个 root-level named special files 责任 + CLAUDE.md sync allowlist 3 类 trigger + A6 三层 defense-in-depth enforcement；complements v1.1 Reversal ADR negative cancellation with positive codification |
+| [ADR: LearnKit Init Skill Rename](./adr/[ADR]_LearnKit_Init_Skill_Rename.md) | v5.0.0 把 learn-kit `init` skill 物理重命名为 `scaffold-learning`，消除 Claude Code 内置 `/init` slash 拾取器并列冲突；触发 learn-kit `1.2.1 → 2.0.0` + marketplace `4.6.3 → 5.0.0` 双层 major bump |
 
 > Plugin-internal ADRs（如 `[ADR]_LearnKit_Discovery_Skills`，v4.3.0 起迁入 `plugins/learn-kit/docs/adr/`）见各 plugin 的 docs/INDEX.md。
 
