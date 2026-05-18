@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-05-18
 updated: 2026-05-18
 state: active
-version: v1.0
+version: v1.1
 domain: governance
 tags:
   - documentation
@@ -17,9 +17,11 @@ related:
   - ../rule/[STANDARD]_Documentation_Framework.md
   - ../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
   - ../runbook/[RUNBOOK]_Doc_Archive_Procedure.md
+  - ./[ADR]_Root_Level_Named_Files_Codification.md
 supersedes:
   - ../archive/[DEPRECATED]_[ADR]_Documentation_Framework_Exemption_Review_v1.0.md
 revision: |
+  2026-05-18 — v1.1: Decision 2 `docs/CONTRIBUTING.md` row 标注 partially reversed in v4.6.3 — content restored to repo-root `CONTRIBUTING.md` per [`[ADR]_Root_Level_Named_Files_Codification`](./[ADR]_Root_Level_Named_Files_Codification.md) v1.0 Decision 2 (Framework v1.6 §1.1 codifies CONTRIBUTING.md as root-level named special file)。Other v1.0 decisions (HITL workflow internalization / MIGRATION_GUIDE rename / INDEX special clause / teaching-series cancellation / nlm-shared cleanup) remain fully active. 非 archive trigger（单行表格修订 + revision block 追加，远小于 §2.3.1 阈值）；in-place 修订。
   2026-05-18 — v1.0: initial decision recording v1.5 framework exemption reversal; supersedes v1.0 of original Exemption Review ADR
 ---
 
@@ -69,7 +71,7 @@ v1.3（2026-05-15）追加 normative blockquote 收紧豁免文件 frontmatter �
 | 原豁免文件 | 处理 |
 |-----------|------|
 | `docs/ai_engineering_execution_hitl_workflow.md` | 删除；关键内容（universal stage skeleton + compression mapping + fork guidance）浓缩内化到 `[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md` §0.1-§0.4 |
-| `docs/CONTRIBUTING.md` | rename → `docs/guide/[GUIDE]_Contributing.md` + 加 8 字段 frontmatter |
+| `docs/CONTRIBUTING.md` | rename → `docs/guide/[GUIDE]_Contributing.md` + 加 8 字段 frontmatter **（partially reversed in v4.6.3 — 内容回归 repo-root `CONTRIBUTING.md` per [`[ADR]_Root_Level_Named_Files_Codification`](./[ADR]_Root_Level_Named_Files_Codification.md) Decision 2；guide 版本走 archive ceremony 至 `../archive/[DEPRECATED]_[GUIDE]_Contributing_v1.1.md`）** |
 | `docs/MIGRATION_GUIDE.md` | rename → `docs/guide/[GUIDE]_Migration_From_v3_to_v4.md` + 加 frontmatter |
 | `docs/INDEX.md` | 保留路径 + 加 8 字段 frontmatter（type: guide）|
 | `plugins/learn-kit/docs/learn-kit-0{1..5}-*.md` (5 files) | 合并 + rename → `plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_Pedagogy.md` + `[GUIDE]_LearnKit_Design.md` + 各加 frontmatter |

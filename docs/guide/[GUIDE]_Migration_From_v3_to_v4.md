@@ -269,7 +269,7 @@ v4.0.0 → v4.3.4 是一系列 8 个 PR 的 doc framework rollout，**不改变�
 | `docs/[ADR]_NotebookLM_Kit_Retirement.md` | `docs/adr/[ADR]_NotebookLM_Kit_Retirement.md` |
 | `docs/[ADR]_LearnKit_Discovery_Skills.md` (v4.2.1) | `plugins/learn-kit/docs/adr/[ADR]_LearnKit_Discovery_Skills.md` (v4.3.0+ — moved to plugin-internal) |
 | `docs/INDEX.md` | **不变**（保留名 + v4.5.0 起加 8 字段 frontmatter）|
-| `docs/CONTRIBUTING.md` | **v4.5.0 rename** → `docs/guide/[GUIDE]_Contributing.md` |
+| `docs/CONTRIBUTING.md` | **v4.5.0 rename** → `docs/guide/[GUIDE]_Contributing.md`；**v4.6.3 restore** → repo-root `CONTRIBUTING.md`（per Framework v1.6 §1.1）；v4.5.0 guide 版本 archive 至 `docs/archive/[DEPRECATED]_[GUIDE]_Contributing_v1.1.md` |
 | `docs/MIGRATION_GUIDE.md` | **v4.5.0 rename** → `docs/guide/[GUIDE]_Migration_From_v3_to_v4.md`（即本文档）|
 | `docs/ai_engineering_execution_hitl_workflow.md` | **v4.5.0 删除** — 关键内容内化到 `[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md` §0 |
 | `plugins/learn-kit/docs/learn-kit-{01..05}-*.md` + `learn-kit-使用手册.md`（v4.4.x exempt teaching series）| **v4.5.0 合并 + 拆分** — 合并为 `plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_{Pedagogy,Design}.md`；用户手册内容拆入 README + CLAUDE.md |
@@ -294,7 +294,7 @@ Select-String -Pattern '^PATTERN=' (Join-Path $hooksDir 'commit-msg')
 # 旧版含: mj-sys-git|mj-sys-doc|mj-sys-n8n|mj-sys-ops|... → 需重跑安装
 ```
 
-完整 hook 维护指南：[GUIDE Contributing § Git Hooks](<./[GUIDE]_Contributing.md#git-hooks>) (v4.3.4 加入)。
+完整 hook 维护指南：[Contributing § Git Hooks](<../../CONTRIBUTING.md#git-hooks>) (v4.3.4 加入；v4.6.3+ 路径回归 repo root)。
 
 ## §3.4 Scripts API 变化 (v4.3.2)
 

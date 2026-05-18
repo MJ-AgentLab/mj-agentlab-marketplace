@@ -4,10 +4,10 @@ scope: marketplace
 summary: Doc archive procedure — 4-phase workflow + 2 HITL gates per Documentation Framework v1.4 §2.3 (flat layout)
 owner: marketplace-maintainers
 created: 2026-05-15
-updated: 2026-05-17
+updated: 2026-05-18
 state: active
 version: v1.1
-last-verified: 2026-05-17
+last-verified: 2026-05-18
 domain: governance
 tags:
   - archive

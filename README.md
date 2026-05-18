@@ -114,14 +114,14 @@ nlm login
 ## 文档
 
 - 完整文档索引：[docs/INDEX.md](docs/INDEX.md)
-- 贡献指引与发布流程：[docs/guide/[GUIDE]_Contributing.md](docs/guide/[GUIDE]_Contributing.md)
+- 贡献指引与发布流程：[CONTRIBUTING.md](CONTRIBUTING.md)（repo root，v4.6.3+ per Framework v1.6 §1.1）
 - 变更日志：[CHANGELOG.md](CHANGELOG.md)
 - 迁移指引：[docs/guide/[GUIDE]_Migration_From_v3_to_v4.md](docs/guide/[GUIDE]_Migration_From_v3_to_v4.md)
 - ADR：[v4.0.0 notebooklm-kit 退场决策](docs/adr/[ADR]_NotebookLM_Kit_Retirement.md)
 
 ## 贡献
 
-欢迎贡献！本项目采用 **bare repo + worktree** 开发模型，详见 [docs/guide/[GUIDE]_Contributing.md](docs/guide/[GUIDE]_Contributing.md)。
+欢迎贡献！本项目采用 **bare repo + worktree** 开发模型，详见 [CONTRIBUTING.md](CONTRIBUTING.md)（v4.6.3 起回 repo root per Framework v1.6 §1.1）。
 
 ## 许可证
 
