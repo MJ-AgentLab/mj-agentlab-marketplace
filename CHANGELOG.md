@@ -7,6 +7,50 @@
 
 _(no in-flight changes at release-cut time)_
 
+## [4.6.0] - 2026-05-18
+
+This release ships the **post-v4.5.0 drift-defense quartet** — 5 PRs that fix the root-cause + build 4 redundant layers of protection against README/CLAUDE.md badge drift recurring:
+
+- **#109** — root `README.md` + `CLAUDE.md` content refresh (badge `4.4.8` → `4.5.0`; learn-kit `1.1.0` → `1.2.0`; 5 broken doc links fixed) + NEW `ci.yml` step «Validate README badge matches VERSION» as **blocking guard** (drift fails CI)
+- **#114** — `[RUNBOOK]_Release_Operations` v1.0 → v1.1: §3.2 rewrites `scripts/bump-version.ps1` invocation from advisory to **MANDATORY** (`[!IMPORTANT]` callout) + NEW §3.2.1 «Post-bump verification (MANDATORY)» with 3 checks (README in diff / CLAUDE.md grep / Quintangle 5-site sed alignment) + §6 release checklist adds 3 NEW pre-checks + 1 post-check (visual badge verify)
+- **#115** — `scripts/bump-version.ps1` extended: plugin-scope now auto-patches `CLAUDE.md` plugin-line via scoped regex `` (`<PluginName>` v)<EscapedFrom>`` ; pre-existing marketplace.json `[^}]*` regex bug fixed (had silently SKIPped marketplace.json for every plugin bump where description contained `}` — e.g., post-v4.5.0 `[GUIDE]_LearnKit_{Pedagogy,Design}.md` mention). Script now genuinely covers all 5 Quintangle sites. RUNBOOK bumped v1.1 → v1.2 to reflect CLAUDE.md auto-coverage.
+- **#116** — Corpus-wide post-v4.5.0 stale-content audit (3 parallel Explore agents + post-edit grep). Fixed **25 broken renamed-doc references** across 18 files (`docs/CONTRIBUTING.md` + `docs/MIGRATION_GUIDE.md` references that pointed to pre-PR-103 paths). Also `v1.2 → v1.5` Framework version drift in `mp-doc-validate` SKILL + `v4.0.0 → v4.5.0` in `mp-flow-intake` + 3 historical-context notes in `mp-git-pr` (preserving v4.1.0-era examples as real-world demos).
+- **#117** — NEW `.github/workflows/readme-badge-suggest.yml` — **GitHub Suggested Change bot**. When README badge drifts from VERSION, posts a review comment on `README.md` line 3 with a ` ```suggestion ` block; contributor clicks "Commit suggestion" to apply the fix in 1 click. Sticky via marker `<!-- readme-badge-suggest-bot -->`; auto-resolves when drift fixed (no ghost suggestions). Defense-in-depth UX layer over #109's blocking guard.
+
+**End state — 4-layer drift defense in place**:
+
+| Layer | PR | Mechanism |
+|-------|-----|-----------|
+| **Blocking** | #109 | `ci.yml` fails CI on drift |
+| **Process** | #114 | RUNBOOK §3.2 MANDATORY use of script |
+| **Automation** | #115 | Script covers all 5 Quintangle sites |
+| **UX** | #117 | Suggested Change bot for 1-click fix |
+
+Plus #116 ensures the rest of the doc corpus is current with v4.5.0 path renames.
+
+No plugin behavior change for end users. learn-kit stays at v1.2.0 (no plugin bump). Marketplace minor bump v4.5.0 → v4.6.0.
+
+### Fixed
+
+- **Audit-wide renamed-doc references** (PR #116 closes #113) — fix **25 broken references** across **18 files** that still pointed to the pre-v4.5.0 paths `docs/CONTRIBUTING.md` + `docs/MIGRATION_GUIDE.md` (both renamed by PR #103). Affected: 7 docs/** files (1 ADR frontmatter + 2 STANDARD body + 4 GUIDE prose+links), 6 `.claude/skills/**/SKILL.md` (wikilink form), 5 `.github/ISSUE_TEMPLATE/*.md` (GitHub absolute URLs that 404'd post-rename). Discovery: 3 parallel Explore agents found 19 items; post-edit grep caught 6 more in ISSUE_TEMPLATE (outside original audit scope). Historical references KEPT in CHANGELOG entries + ADR Decision tables + revision blocks + migration-guide §3.2 path mapping (those describe the rename event itself).
+- **`README.md`** — refresh stale content post-v4.5.0: badge `4.4.8` → `4.5.0`; learn-kit plugin-table cell `1.1.0` → `1.2.0`; fix **5 broken links** (3× `docs/MIGRATION_GUIDE.md` → `docs/guide/[GUIDE]_Migration_From_v3_to_v4.md` + 2× `docs/CONTRIBUTING.md` → `docs/guide/[GUIDE]_Contributing.md`; both moved by PR #103). **Root cause**: last 4 release-bump commits (v4.4.9 / v4.4.10 / v4.4.11 / v4.5.0) skipped `scripts/bump-version.ps1` so README never got version sync.
+- **`CLAUDE.md`** — refresh stale content post-v4.5.0: learn-kit `v1.0.0` → `v1.2.0` mention; `docs/` Project Structure line rewritten to reflect 5-subdir structure + renamed migration guide path; Documentation Framework heading adds `当前 v1.5 / marketplace v4.5.0` suffix + STANDARD list shows v1.5 / v1.1 versions; docs/ tree drops `CONTRIBUTING.md` + `MIGRATION_GUIDE.md` from exempt line (only `INDEX.md` exempt per Framework v1.5 §1 special clause), converts «PR 3 / PR 4 (will move)» future-tense to completion-state, adds `archive/` flat layout line; `MIGRATION_GUIDE.md` link in v4.0.0 Restructure Note → renamed path; HITL STANDARD reference `(v1.2)` → `(v1.4)`; «历史版本记录» fills 4.0.0 → 4.5.0 gap with v4.1.0 + v4.2.0 + v4.3.x-4.4.11 + v4.5.0 entries.
+
+### Added
+
+- **`.github/workflows/ci.yml`** — NEW step «Validate README badge matches VERSION» appended after «Validate version consistency». Guards against the silent badge drift that produced the v4.4.8-stuck-while-on-v4.5.0 postmortem. Fails CI if `README.md` line 3 badge encodes a different `X.Y.Z` than the `VERSION` file. Error output suggests both manual-edit fix + `bump-version.ps1` command. Runs on all PRs + branch pushes (no `release/*` skip).
+- **`.github/workflows/readme-badge-suggest.yml`** (PR #117 closes #112) — NEW PR Suggested Change bot. Triggers on `workflow_run` after `CI — Validate Plugin Structure` completes; checks README badge vs VERSION; if drift exists, posts a GitHub review comment on README.md badge line with a ` ```suggestion ` block. User clicks "Commit suggestion" to apply the fix in 1 click (no local edit needed). Sticky semantics via marker `<!-- readme-badge-suggest-bot -->` — DELETE+POST on each push so the suggestion always anchors to the current commit_id. Auto-resolves the marker comment when drift is fixed (avoids ghost suggestions). Uses `pulls/{n}/comments` API (review comments anchored to file+line — required for Suggested Change syntax) vs `comment-on-pr.yml` which uses `issues/{n}/comments` (general PR comment) — distinct concerns, separate workflows for SRP. Defense-in-depth UX layer over PR #109's blocking CI guard.
+
+### Changed
+
+- **`.claude/skills/mp-doc-bump-version/SKILL.md`** — promote «Version Triangle (4-site)» → «Version Quintangle (5-site invariant)»: add README.md badge + plugin-table cell + CLAUDE.md plugin line. Frontmatter description extends version-bearing-files list. Step 7 Verify adds 3 new sed-based checks (cross-platform: `grep -P` is locale-sensitive on Windows git-bash) + cross-references ci.yml's new CI guard. Anti-patterns expand "4 sites" → "5 sites" + add explicit 4-release silent-drift postmortem note. **(PR #115 update)** Overview comment + anti-pattern wording updated to reflect CLAUDE.md is now automatically covered by the script (Issue #110 closed).
+- **`docs/runbook/[RUNBOOK]_Release_Operations.md` v1.0 → v1.1 → v1.2** (closes #111 + #110) — **v1.1** makes `scripts/bump-version.ps1` invocation **MANDATORY** in the release workflow (not advisory). §3.2 rewritten as `[!IMPORTANT]` callout with PR #109 postmortem context + CI safety-net cross-ref. NEW §3.2.1 «Post-bump verification (MANDATORY)» with 3 checks: README in diff / CLAUDE.md grep / Quintangle 5-site sed alignment. §3.4 git add list explicitly includes `README.md` + `CLAUDE.md`; commit message example switched to canonical `infra(release): bump marketplace X.Y.Z -> Y.Z.W`; cross-ref `validate-commits.sh`. §6 发布前检查清单 加 3 NEW checkboxes + 发布后 加 1 visual badge verify. NEW §7 版本历史 + §8 (renumbered from §7) 相关文档. Fix line 350 `../CONTRIBUTING.md` → `../guide/[GUIDE]_Contributing.md` (was broken since PR #103 v4.5.0 rename). **v1.2** (same PR batch via #115) updates §3.2.1 step 2 + §6 item 3 wording to reflect CLAUDE.md is now auto-covered by the script (Issue #110 closed); grep retained as last-line defense.
+- **`docs/INDEX.md`** — Runbooks 表 `Release Operations` 行 last-verified `2026-05-14` → `2026-05-18` + description 加 v1.2 changelog 摘要.
+- **`scripts/bump-version.ps1`** (PR #115 / closes #110) — Add CLAUDE.md plugin-line auto-patch for plugin-scope bumps (3rd file-type branch in foreach loop with backtick-anchored scoped regex `` (`<PluginName>` v)<EscapedFrom>`` so it only touches the `plugins/` section, not narrative version mentions in `历史版本记录` etc.). Plugin-scope TargetFiles now includes `CLAUDE.md`. **Bug fix** (discovered while testing #110): marketplace.json plugin-entry regex `[^}]*` stopped at first `}` (including `}` inside description strings like `[GUIDE]_LearnKit_{Pedagogy,Design}.md`), silently SKIPping marketplace.json for every plugin bump where description contained literal braces — fixed with `[\s\S]*?` non-greedy match. bump-version.ps1 now genuinely covers all 5 Quintangle sites; "use the script" promise in RUNBOOK v1.1 is now executable.
+- **`.claude/skills/mp-doc-validate/SKILL.md`** (PR #116 closes #113 — version-drift batch) — replace_all `v1.2` → `v1.5` (7 occurrences): description / Overview / Check 7b header / Check 8 header / Check 12 header / Reference Files line. Documentation Framework authority is now v1.5; references claiming v1.2 misled readers about which §section numbering applied. Unrelated version mentions (v1.0 RUNBOOK / v1.3 Step 2.7 historical / v1.4 §2.3.5 flat layout) correctly preserved by substring scope.
+- **`.claude/skills/mp-flow-intake/SKILL.md`** (PR #116) — line 123 HITL trigger #9 secrets example: `v4.0.0` → `v4.5.0` + annotation `— 架构性 trigger 非时间性` clarifying the trigger is architectural (not version-anchored).
+- **`.claude/skills/mp-git-pr/SKILL.md`** (PR #116) — add 3 inline historical-context notes around the v4.1.0 PR examples (sections: 示例 list / 示例 PR_BODY.md / Output Format). Preserves historical PR-body text as real-world demonstration material; clarifies that current HITL STANDARD is v1.4, not v1.1 from the original example era. Approach chosen over "replace with v1.4 example" to retain learning value.
+
 ## [4.5.0] - 2026-05-18
 
 This release rolls up 5 PR batches since v4.4.11 — `v4.5.0` umbrella version covers all 5:

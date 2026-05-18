@@ -57,8 +57,8 @@ type=$(echo "$branch" | cut -d/ -f1)
 - 与 commit message header 一致（或浓缩；不必逐字）
 - 不以句号结尾
 
-**示例**:
-- `feat(marketplace): add 18 mp-* workflow skills + HITL v1.1`
+**示例**（部分是历史 PR 的 title 原文 — `HITL v1.1` 是 v4.1.0 当时的 STANDARD 版本；current 是 v1.4。historical examples 保留以演示真实 commit subject 写法）:
+- `feat(marketplace): add 18 mp-* workflow skills + HITL v1.1` *(历史例: from v4.1.0 PR; current HITL STANDARD v1.4)*
 - `fix(learn-kit): plugin.json repository must be string`
 - `docs(docs-rule): introduce Documentation Framework STANDARD`
 - `infra(release): bump marketplace 4.0.0 → 4.1.0`
@@ -82,7 +82,7 @@ cp .github/PULL_REQUEST_TEMPLATE/<type>.md PR_BODY.md
 5. **Risk / Rollback** — risk level + 缓解 + rollback 步骤
 6. **Related** — Issue / ADR / Plan / 上游 PR 链接
 
-**示例 PR_BODY.md** (feature template填法):
+**示例 PR_BODY.md** (feature template填法) — 以下是 v4.1.0 历史 PR 的 body 原文（含 HITL v1.1 引用）；保留作为真实 PR 写法演示。current HITL STANDARD 是 v1.4:
 
 ```markdown
 ## Summary
@@ -158,6 +158,8 @@ git restore --staged PR_BODY.md && rm PR_BODY.md
 
 ## Output Format
 
+> 以下是 v4.1.0 历史 PR 的 Output Format 原文 — `HITL v1.1` 是当时的 STANDARD 版本，保留以演示真实 mp-git-pr skill 的 output shape。**Current HITL STANDARD 是 v1.4**；新 PR 应引用 v1.4 而非 v1.1。
+
 ```markdown
 ## PR Plan
 
@@ -213,7 +215,7 @@ rm PR_BODY.md
 
 - [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.9
 - `.github/PULL_REQUEST_TEMPLATE/<type>.md` (6 templates)
-- [[../../../docs/CONTRIBUTING.md|CONTRIBUTING]]
+- [[../../../docs/guide/[GUIDE]_Contributing.md|GUIDE_Contributing]]
 
 ## Anti-patterns
 

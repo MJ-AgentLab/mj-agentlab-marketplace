@@ -120,7 +120,7 @@ Marketplace 6 branch types (per `docs/guide/[GUIDE]_Contributing.md`):
 6. **plugin 删除 / 重命名 / 主版本 bump**
 7. **marketplace `VERSION` 主版本 bump**
 8. **CI workflow 修改**（`ci.yml` / `release.yml`）
-9. **plugin secrets / 凭据** 处理（即使当前 v4.0.0 无 plugin 持有 secrets）
+9. **plugin secrets / 凭据** 处理（即使当前 v4.5.0 无 plugin 持有 secrets — 架构性 trigger 非时间性）
 10. **merge → main**（含 release PR）
 11. Review comment 改变 plugin 行为 / SKILL description / allowed-tools 边界
 12. 测试失败原因不明

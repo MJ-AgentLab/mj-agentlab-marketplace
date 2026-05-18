@@ -199,6 +199,30 @@ jobs:
           [ $ERRORS -gt 0 ] && exit 1
           echo "All versions consistent"
 
+      - name: Validate README badge matches VERSION
+        # Guards against the silent badge drift that produced the v4.4.8-stuck-while-on-v4.5.0
+        # postmortem (last 4 release bumps skipped scripts/bump-version.ps1; README never synced).
+        # Single-line check: README.md line 3 must encode the same X.Y.Z as VERSION.
+        run: |
+          FILE_VERSION=$(cat VERSION | tr -d '[:space:]')
+          README_VERSION=$(grep -oP 'badge/version-\K[0-9]+\.[0-9]+\.[0-9]+' README.md | head -1)
+
+          if [ -z "$README_VERSION" ]; then
+            echo "ERROR: README.md doesn't contain a version badge matching pattern 'badge/version-X.Y.Z'"
+            echo "Expected line 3 form: ![Version](https://img.shields.io/badge/version-X.Y.Z-blue)"
+            exit 1
+          fi
+
+          if [ "$FILE_VERSION" != "$README_VERSION" ]; then
+            echo "ERROR: README.md badge ($README_VERSION) != VERSION ($FILE_VERSION)"
+            echo ""
+            echo "Fix options:"
+            echo "  1. Edit README.md line 3 — replace 'version-${README_VERSION}-blue' with 'version-${FILE_VERSION}-blue'"
+            echo "  2. Or run: pwsh ./scripts/bump-version.ps1 -From ${README_VERSION} -To ${FILE_VERSION}"
+            exit 1
+          fi
+          echo "OK: README badge matches VERSION ($FILE_VERSION)"
+
       - name: Validate CHANGELOG presence
         run: |
           ERRORS=0

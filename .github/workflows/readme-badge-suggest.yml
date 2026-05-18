@@ -1,0 +1,169 @@
+name: PR Suggest — README Badge Auto-Fix
+
+# Posts (or updates) a GitHub Suggested Change review comment on
+# README.md line 3 when the badge X.Y.Z drifts from VERSION. The user
+# can 1-click "Commit suggestion" to apply the fix.
+#
+# Closes Issue #112 (UX layer over the CI guard introduced in PR #109).
+# Defense-in-depth: ci.yml's "Validate README badge matches VERSION"
+# step BLOCKS merge on drift; this bot suggests the fix interactively.
+#
+# Why a separate workflow (not inline in ci.yml or in comment-on-pr.yml):
+# - ci.yml runs as 'pull_request' which has restricted GITHUB_TOKEN
+#   permissions on forks (no write access). workflow_run runs with
+#   the BASE repo's token, allowing PR review-comment writes safely.
+# - comment-on-pr.yml is scoped to commit-message validation; mixing
+#   README badge logic would muddle single-responsibility.
+# - Distinct comment APIs: this uses `pulls/{n}/comments` (review
+#   comments anchored to file+line, required for Suggested Change
+#   syntax to render the "Commit suggestion" button) vs comment-on-pr.yml
+#   uses `issues/{n}/comments` (general PR comment).
+#
+# Sticky semantics: one review comment per PR, edited in place via
+# marker `<!-- readme-badge-suggest-bot -->`. When drift is resolved
+# (e.g., user clicked "Commit suggestion" or pushed a fix manually),
+# the bot DELETES the marker comment so the PR doesn't show a "ghost"
+# Suggested Change.
+#
+# Test note: workflow_run-triggered workflows run from the DEFAULT
+# branch's workflow definition, so this file's first opportunity to
+# fire is AFTER it merges to develop. Initial validation will be done
+# by intentionally introducing drift in a follow-up test PR.
+
+on:
+  workflow_run:
+    workflows: ["CI — Validate Plugin Structure"]
+    types: [completed]
+
+permissions:
+  pull-requests: write   # POST/PATCH/DELETE review comments
+  actions: read          # download nothing here; reserved for future artifact use
+  contents: read         # checkout PR's commit to read VERSION + README.md
+
+jobs:
+  suggest:
+    name: Post README badge Suggested Change
+    runs-on: ubuntu-latest
+    # Only run on PR events; skip push runs (release branches, main, develop)
+    if: >-
+      github.event.workflow_run.event == 'pull_request'
+      && github.event.workflow_run.pull_requests[0] != null
+    steps:
+      - name: Checkout PR head commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          fetch-depth: 1
+
+      - name: Detect README badge drift
+        id: drift
+        run: |
+          FILE_VERSION=$(cat VERSION | tr -d '[:space:]')
+          README_VERSION=$(grep -oP 'badge/version-\K[0-9]+\.[0-9]+\.[0-9]+' README.md | head -1)
+
+          if [ -z "$README_VERSION" ]; then
+            # No badge line at all — let the ci.yml step handle this (it'll fail there too)
+            echo "drift=missing-badge" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [ "$FILE_VERSION" = "$README_VERSION" ]; then
+            echo "drift=none" >> "$GITHUB_OUTPUT"
+            echo "OK: README badge matches VERSION ($FILE_VERSION) — no suggestion needed"
+          else
+            echo "drift=yes" >> "$GITHUB_OUTPUT"
+            echo "file_version=$FILE_VERSION" >> "$GITHUB_OUTPUT"
+            echo "readme_version=$README_VERSION" >> "$GITHUB_OUTPUT"
+            # Find badge line number for review comment placement
+            BADGE_LINE=$(grep -n 'badge/version-' README.md | head -1 | cut -d: -f1)
+            echo "badge_line=$BADGE_LINE" >> "$GITHUB_OUTPUT"
+            echo "DRIFT: README badge ($README_VERSION) != VERSION ($FILE_VERSION) at line $BADGE_LINE"
+          fi
+
+      - name: Find existing marker comment (if any)
+        id: existing
+        if: steps.drift.outputs.drift != 'missing-badge'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.workflow_run.pull_requests[0].number }}
+        run: |
+          MARKER='<!-- readme-badge-suggest-bot -->'
+
+          EXISTING_ID=$(gh api "repos/$GH_REPO/pulls/$PR_NUMBER/comments" --paginate \
+            --jq ".[] | select(.body | contains(\"$MARKER\")) | .id" \
+            | head -n 1)
+
+          if [ -n "$EXISTING_ID" ]; then
+            echo "existing_id=$EXISTING_ID" >> "$GITHUB_OUTPUT"
+            echo "Found existing review comment id=$EXISTING_ID"
+          else
+            echo "existing_id=" >> "$GITHUB_OUTPUT"
+            echo "No existing review comment found"
+          fi
+
+      - name: Resolve drift — delete stale suggestion (drift now fixed)
+        if: steps.drift.outputs.drift == 'none' && steps.existing.outputs.existing_id != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          EXISTING_ID: ${{ steps.existing.outputs.existing_id }}
+        run: |
+          echo "Drift resolved — deleting stale Suggested Change comment id=$EXISTING_ID"
+          gh api -X DELETE "repos/$GH_REPO/pulls/comments/$EXISTING_ID"
+
+      - name: Post or update Suggested Change review comment
+        if: steps.drift.outputs.drift == 'yes'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.workflow_run.pull_requests[0].number }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          CI_URL: ${{ github.event.workflow_run.html_url }}
+          FILE_VER: ${{ steps.drift.outputs.file_version }}
+          README_VER: ${{ steps.drift.outputs.readme_version }}
+          BADGE_LINE: ${{ steps.drift.outputs.badge_line }}
+          EXISTING_ID: ${{ steps.existing.outputs.existing_id }}
+        run: |
+          MARKER='<!-- readme-badge-suggest-bot -->'
+
+          BODY_FILE="$RUNNER_TEMP/suggestion-body.md"
+          cat > "$BODY_FILE" <<EOF
+          $MARKER
+          ## ⚠️ README Badge Drift Detected
+
+          \`VERSION\` says **$FILE_VER** but \`README.md\` line $BADGE_LINE badge says **$README_VER**.
+
+          **Apply the fix in 1 click** (GitHub renders a "Commit suggestion" button below):
+
+          \`\`\`suggestion
+          ![Version](https://img.shields.io/badge/version-${FILE_VER}-blue)
+          \`\`\`
+
+          Or locally, to bump all 5 Quintangle sites at once:
+          \`\`\`powershell
+          pwsh ./scripts/bump-version.ps1 -From ${README_VER} -To ${FILE_VER}
+          \`\`\`
+
+          See [\`[RUNBOOK]_Release_Operations\`](../blob/$HEAD_SHA/docs/runbook/%5BRUNBOOK%5D_Release_Operations.md) §3.2 (MANDATORY) for the canonical release-bump procedure.
+
+          _Posted by \`readme-badge-suggest.yml\` after [CI run]($CI_URL). Auto-updates / auto-resolves on each push._
+          EOF
+
+          # Strategy: DELETE old + POST new (preferred over PATCH because PATCH
+          # can't change commit_id, leaving suggestion anchored to a stale commit).
+          if [ -n "$EXISTING_ID" ]; then
+            echo "Deleting stale review comment id=$EXISTING_ID before posting fresh"
+            gh api -X DELETE "repos/$GH_REPO/pulls/comments/$EXISTING_ID" || true
+          fi
+
+          echo "Posting review comment on README.md line $BADGE_LINE at commit $HEAD_SHA"
+          gh api -X POST "repos/$GH_REPO/pulls/$PR_NUMBER/comments" \
+            -f body="$(cat "$BODY_FILE")" \
+            -f commit_id="$HEAD_SHA" \
+            -f path="README.md" \
+            -F line="$BADGE_LINE" \
+            -f side="RIGHT" \
+            >/dev/null
+
+          echo "Suggested Change posted. User can click 'Commit suggestion' to apply."

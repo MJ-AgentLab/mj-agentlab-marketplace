@@ -28,7 +28,7 @@ revision: |
 
 This STANDARD applies to every commit on the `mj-agentlab-marketplace` repository, regardless of branch type or contributor (human or AI agent).
 
-`docs/CONTRIBUTING.md` carries a 5-line summary plus a link here; this STANDARD is the canonical source. CI hooks and `/mp-git-commit` skill enforce this format.
+`docs/guide/[GUIDE]_Contributing.md` carries a 5-line summary plus a link here; this STANDARD is the canonical source. CI hooks and `/mp-git-commit` skill enforce this format.
 
 ## §2 Format
 
@@ -102,7 +102,7 @@ This STANDARD applies to every commit on the `mj-agentlab-marketplace` repositor
 
 ## §5 Branch-Type × Commit-Type Matrix
 
-Marketplace uses 6 branch types (per `docs/CONTRIBUTING.md`). Each branch type allows a specific set of commit types:
+Marketplace uses 6 branch types (per `docs/guide/[GUIDE]_Contributing.md`). Each branch type allows a specific set of commit types:
 
 | Branch Type | Allowed Commit Types | Common Misuse |
 |-------------|---------------------|---------------|

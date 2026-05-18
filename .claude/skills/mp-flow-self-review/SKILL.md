@@ -225,7 +225,7 @@ Delegate to `/mp-git-commit` Step 3 推导 type / scope / summary; 本 skill 仅
 ## Reference Files
 
 - [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.8
-- [[../../../docs/CONTRIBUTING.md|CONTRIBUTING]] (commit format)
+- [[../../../docs/guide/[GUIDE]_Contributing.md|GUIDE_Contributing]] (commit format)
 - `.github/PULL_REQUEST_TEMPLATE/<type>.md`
 
 ## Anti-patterns

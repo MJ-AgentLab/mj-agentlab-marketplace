@@ -20,4 +20,4 @@ assignees: ""
 涉及 Plugin、已知风险、依赖 Issue #xx
 
 > **分支命名**：`feature/<本 Issue 编号>-<简述>`（例：`feature/12-add-release-skill`）
-> 详见 [CONTRIBUTING.md](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/develop/docs/CONTRIBUTING.md)
+> 详见 [GUIDE Contributing](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/develop/docs/guide/%5BGUIDE%5D_Contributing.md)

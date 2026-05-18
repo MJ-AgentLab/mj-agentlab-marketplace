@@ -1,18 +1,18 @@
 # MJ AgentLab Marketplace
 
-![Version](https://img.shields.io/badge/version-4.4.8-blue)
+![Version](https://img.shields.io/badge/version-4.6.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![CI](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml)
 
 通用 [Claude Code](https://docs.anthropic.com/en/docs/claude-code) 插件市场——教学方法论 + NotebookLM 多媒体集成整合在单一 plugin。不绑定特定项目，可服务任意 Claude Code 使用者；在 [mj-system](https://github.com/MJ-AgentLab/mj-system) 与 mj-agent 两个项目上长期实战验证。
 
-> **v4.0.0 重大变更**：marketplace 从 "2 plugin（notebooklm-kit + learn-kit）" 收敛为 "1 plugin（learn-kit）"。原 `notebooklm-kit` 整个退场（7 个 skill 退役），其核心 build + studio 多媒体场景被 `learn-kit` 新增的 `nlm-studio` skill 吸收，并加入 **View-Purpose Preservation** 原则使生成的 artifact 严格匹配源 view（foundation/structural/challenge）的教学目的。详见 [docs/adr/[ADR]_NotebookLM_Kit_Retirement.md](docs/adr/[ADR]_NotebookLM_Kit_Retirement.md) + [docs/MIGRATION_GUIDE.md](docs/MIGRATION_GUIDE.md)。
+> **v4.0.0 重大变更**：marketplace 从 "2 plugin（notebooklm-kit + learn-kit）" 收敛为 "1 plugin（learn-kit）"。原 `notebooklm-kit` 整个退场（7 个 skill 退役），其核心 build + studio 多媒体场景被 `learn-kit` 新增的 `nlm-studio` skill 吸收，并加入 **View-Purpose Preservation** 原则使生成的 artifact 严格匹配源 view（foundation/structural/challenge）的教学目的。详见 [docs/adr/[ADR]_NotebookLM_Kit_Retirement.md](docs/adr/[ADR]_NotebookLM_Kit_Retirement.md) + [docs/guide/[GUIDE]_Migration_From_v3_to_v4.md](docs/guide/[GUIDE]_Migration_From_v3_to_v4.md)。
 
 ## 插件目录
 
 | Plugin | 描述 | Skills | Version | 适用项目 |
 |--------|------|--------|---------|---------|
-| [**learn-kit**](plugins/learn-kit/README.md) | 教学方法论 kit：把枚举型规则清单转化为人类可学习的决策框架解读文档（8 阶段方法 + 模板 + scaffold + locate / scan 项目内文档发现 + generate-tier AI 三档生成 + nlm-studio NotebookLM 多媒体生成） | **5** | **1.1.0** | 任意 |
+| [**learn-kit**](plugins/learn-kit/README.md) | 教学方法论 kit：把枚举型规则清单转化为人类可学习的决策框架解读文档（8 阶段方法 + 模板 + scaffold + locate / scan 项目内文档发现 + generate-tier AI 三档生成 + nlm-studio NotebookLM 多媒体生成） | **5** | **1.2.0** | 任意 |
 
 learn-kit 5 个 skill 用法：
 
@@ -98,7 +98,7 @@ nlm login
 - **`/notebooklm-kit:manage`（notebook 增删改 / 分享）** → 永久退役。直接用 notebooklm.google.com web UI
 - **`/notebooklm-kit:query`（跨 notebook 查询）** → 永久退役。同上
 
-完整迁移指引：[docs/MIGRATION_GUIDE.md](docs/MIGRATION_GUIDE.md)。
+完整迁移指引：[docs/guide/[GUIDE]_Migration_From_v3_to_v4.md](docs/guide/[GUIDE]_Migration_From_v3_to_v4.md)。
 
 ## 历史版本
 
@@ -112,14 +112,14 @@ nlm login
 ## 文档
 
 - 完整文档索引：[docs/INDEX.md](docs/INDEX.md)
-- 贡献指引与发布流程：[docs/CONTRIBUTING.md](docs/CONTRIBUTING.md)
+- 贡献指引与发布流程：[docs/guide/[GUIDE]_Contributing.md](docs/guide/[GUIDE]_Contributing.md)
 - 变更日志：[CHANGELOG.md](CHANGELOG.md)
-- 迁移指引：[docs/MIGRATION_GUIDE.md](docs/MIGRATION_GUIDE.md)
+- 迁移指引：[docs/guide/[GUIDE]_Migration_From_v3_to_v4.md](docs/guide/[GUIDE]_Migration_From_v3_to_v4.md)
 - ADR：[v4.0.0 notebooklm-kit 退场决策](docs/adr/[ADR]_NotebookLM_Kit_Retirement.md)
 
 ## 贡献
 
-欢迎贡献！本项目采用 **bare repo + worktree** 开发模型，详见 [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md)。
+欢迎贡献！本项目采用 **bare repo + worktree** 开发模型，详见 [docs/guide/[GUIDE]_Contributing.md](docs/guide/[GUIDE]_Contributing.md)。
 
 ## 许可证
 

@@ -15,7 +15,7 @@ tags:
   - v4.0.0
 related:
   - ../../plugins/learn-kit/docs/adr/[ADR]_LearnKit_Discovery_Skills.md
-  - ../MIGRATION_GUIDE.md
+  - ../guide/[GUIDE]_Migration_From_v3_to_v4.md
 ---
 
 # [ADR] NotebookLM Kit Retirement (marketplace v4.0.0)

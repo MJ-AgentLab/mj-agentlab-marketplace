@@ -1,13 +1,13 @@
 ---
 type: runbook
 scope: marketplace
-summary: 从功能开发到版本发布的完整操作流程 — Issue → PR → Release
+summary: 从功能开发到版本发布的完整操作流程 — Issue → PR → Release (v1.2 起：bump-version.ps1 全 5 Quintangle sites 覆盖 + RUNBOOK §3.2.1 简化)
 owner: marketplace-maintainers
 created: 2026-03-17
-updated: 2026-05-15
+updated: 2026-05-18
 state: active
-version: v1.0
-last-verified: 2026-05-14
+version: v1.2
+last-verified: 2026-05-18
 domain: release
 tags:
   - release
@@ -17,6 +17,10 @@ related:
   - ../guide/[GUIDE]_Version_Management.md
   - ../spec/[SPEC]_Marketplace_Json_Schema.md
   - ../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
+revision: |
+  2026-05-18 — v1.2: **CLAUDE.md 自动化 sync**（closes #110）。§3.2.1 post-bump verification 第 2 步 wording 从 "CLAUDE.md plugin line manual：script 不 cover" 改为 "script 已 cover (v2 起)；保留 grep verify 作为 last-line defense"；§6 发布前检查清单第 3 项 wording 同步更新；cross-reference 加 PR #115 (Issue #110 closure) + 内含 marketplace.json `[^}]*` regex bug 顺手修复（描述含 `}` 时 silent SKIP，已修为 `[\s\S]*?` 非贪婪）。bump-version.ps1 现 cover 全 5 Quintangle sites，三层防御 (script 覆盖 + CI guard + RUNBOOK MANDATORY) 完工。Non-trigger archive（minor bump，无 Framework §2.3.1 触发条件）。
+  2026-05-18 — v1.1: **bump-version.ps1 MANDATORY enforcement**（closes #111）。§3.2 重写为 MANDATORY callout（不再是 advisory）+ 新增 §3.2.1 post-bump verification step（`git diff --name-only` 必须含 `README.md` + Quintangle 5-site sed-based check）；§3.4 git add 列表新增 `README.md` + `CLAUDE.md` + commit message 改 release scope 范例；§6 发布前检查清单新增 3 项 NEW（script 已运行 / diff 含 README / CLAUDE.md plugin line 同步）+ 发布后新增 1 项（visual badge verify）；§7 新增 版本历史段（§8 即原 §7 相关文档）；fix line 350 `../CONTRIBUTING.md` → `../guide/[GUIDE]_Contributing.md` (PR #103 rename)；cross-reference v4.6.0 CI guard «Validate README badge matches VERSION»（PR #109）作为 safety net + Issue #110 / #113 future-work 锚点
+  2026-03-17 — v1.0: 初版
 ---
 
 # [RUNBOOK] 发布操作手册 — MJ AgentLab Marketplace
@@ -152,6 +156,14 @@ git push origin --delete feature/12-add-release-skill
 
 ### 3.2 Bump 版本号
 
+> [!IMPORTANT]
+> **MANDATORY**：必须运行 `scripts/bump-version.ps1`，禁止手工逐文件 edit。
+>
+> **为什么强制**：v4.4.9 → v4.5.0 期间 4 次 release-bump commit 连续手工 edit + 漏 `README.md`（badge 停在 4.4.8 横跨 4 个 release），直到用户截图发现。详见 [PR #109](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/109) postmortem。
+>
+> **Safety net**：CI 第「Validate README badge matches VERSION」步骤（PR #109 引入）会在 `README.md` badge 与 `VERSION` drift 时直接 fail。手工跳过 script 时 CI 会拒 PR。
+> CLAUDE.md plugin 行 + Quintangle 5-site 其余字段无 CI guard（追踪：[Issue #110](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/110) + [Issue #113](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/113)），故 script 是当前唯一可靠路径。
+
 在 develop worktree 中执行：
 
 ```bash
@@ -162,7 +174,7 @@ git pull origin develop
 **仅插件变更**：
 
 ```powershell
-# 预览
+# 预览（必跑：看清将改哪些文件）
 .\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "learn-kit" -DryRun
 
 # 执行
@@ -180,6 +192,28 @@ git pull origin develop
 ```
 
 **混合变更**：先 bump 各插件，再 bump marketplace。v4.0.0 / v4.3.0 即典型示例。
+
+#### 3.2.1 Post-bump verification (MANDATORY)
+
+执行 script 后立即跑（任一 ERROR 必须修正后才能进入 §3.3 CHANGELOG 转节）：
+
+```bash
+# 1. README.md 必须在 diff 中（marketplace scope 覆盖 badge + plugin table cell）
+git diff --name-only | grep -E "^README\.md$" || \
+  echo "ERROR: README.md not in diff — bump-version.ps1 was either skipped or failed silently"
+
+# 2. CLAUDE.md plugin line 验证（v2 起 script 已 cover plugin scope；保留 grep verify 作为 last-line defense）
+#    Script 现在用 scoped regex 锁定 `plugins/` 段 `<plugin>` v<X.Y.Z> 一行（不会误伤 历史版本记录）
+#    手工 grep 仍可作为 sanity check (Issue #110 closed by PR #115)
+grep -nE 'learn-kit. v[0-9.]+' CLAUDE.md
+
+# 3. Version Quintangle 5-site 一致性（详见 .claude/skills/mp-doc-bump-version/SKILL.md Step 7）
+v_root=$(cat VERSION)
+v_mp_meta=$(jq -r '.metadata.version' .claude-plugin/marketplace.json)
+v_readme_badge=$(sed -n 's/.*badge\/version-\([0-9.]\+\)-.*/\1/p' README.md | head -1)
+[ "$v_root" = "$v_mp_meta" ] && [ "$v_root" = "$v_readme_badge" ] && echo "OK: 5-site quintangle aligned" \
+  || echo "ERROR: site drift — re-run bump-version.ps1 with correct -From / -To"
+```
 
 ### 3.3 更新 CHANGELOG 正式版本节
 
@@ -212,13 +246,19 @@ git pull origin develop
 ### 3.4 提交发布变更
 
 ```bash
-git add VERSION .claude-plugin/marketplace.json CHANGELOG.md
+# Version Quintangle 5 sites + CHANGELOG（README 必须在列表中 — 由 §3.2.1 verification 保证已改）
+git add VERSION .claude-plugin/marketplace.json README.md CLAUDE.md CHANGELOG.md
+
 # 如有插件变更，也加上：
 git add plugins/learn-kit/.claude-plugin/plugin.json plugins/learn-kit/CHANGELOG.md
 
-git commit -m "infra(marketplace): release v1.1.0"
+# Commit 主语用 release scope（per `[STANDARD]_Commit_Message_Convention` §4）
+git commit -m "infra(release): bump marketplace 4.3.0 -> 4.3.1"
 git push origin develop
 ```
+
+> [!NOTE]
+> Commit message 必须符合 `[STANDARD]_Commit_Message_Convention` PATTERN — `infra(release): bump marketplace X.Y.Z -> Y.Z.W` 是合规范例。CI 第「Validate commit message format」步骤会拒非合规 commit；本地可先跑 `bash scripts/validate-commits.sh HEAD~1..HEAD` 自验证。
 
 ### 3.5 创建 Release PR
 
@@ -330,11 +370,15 @@ git push origin --delete v1.1.0
 
 - [ ] 所有目标变更已合并到 develop
 - [ ] CI 全部通过（Validate Structure: SUCCESS）
+- [ ] **(v1.1 NEW) `scripts/bump-version.ps1` 已运行**（先 DryRun + 看 diff preview，再执行；§3.2 MANDATORY）
+- [ ] **(v1.1 NEW) `git diff --name-only` 包含 `README.md`**（§3.2.1 verification — 若不在意味着 script 漏执行 / 失败）
+- [ ] **(v1.2 UPDATED) `CLAUDE.md` plugin line 已同步到新 plugin 版本**（v2 起 script 已 cover plugin scope 自动 patch；保留 `grep -nE 'learn-kit. v[0-9.]+' CLAUDE.md` 作 last-line verify）
 - [ ] CHANGELOG 已从 `[Unreleased]` 转为正式版本节
 - [ ] VERSION 文件已更新
 - [ ] marketplace.json 版本与 VERSION 一致
 - [ ] 各 plugin.json 版本与 marketplace.json 一致
 - [ ] 无未关闭的阻塞性 Issue
+- [ ] (本地预验证) `bash scripts/validate-commits.sh HEAD~N..HEAD` 全 PASS
 
 ### 发布后验证
 
@@ -342,9 +386,19 @@ git push origin --delete v1.1.0
 - [ ] Git tag 已生成（`git tag -l "vX.Y.Z"`）
 - [ ] Release notes 内容正确
 - [ ] `gh release view vX.Y.Z` 输出无异常
+- [ ] **(v1.1 NEW) 在 main 浏览 `README.md` 渲染 — badge 显示新版本号**（screenshot-level visual verify；post-PR #109 安全网）
 
-## 7. 相关文档
+## 7. 版本历史
+
+- **v1.2**（2026-05-18）：**CLAUDE.md 自动化 sync**（closes #110）。§3.2.1 第 2 步 + §6 第 3 项 wording 从「manual / script 不 cover」更新为「script 已 cover (v2 起 plugin scope 含 CLAUDE.md scoped-regex 分支)；grep 保留作 last-line defense」。配套 PR #115 同时修了 `scripts/bump-version.ps1` 中 marketplace.json `[^}]*` regex bug（描述含 `}` 时 silent SKIP）。bump-version.ps1 现真正 cover 全 5 Quintangle sites，三层防御 (script 覆盖 + CI guard + RUNBOOK MANDATORY) 完工。Frontmatter v1.1 → v1.2 + revision block。Non-trigger archive。
+- **v1.1**（2026-05-18）：**bump-version.ps1 MANDATORY enforcement**（closes #111）。§3.2 改 advisory → MANDATORY callout box + 加 §3.2.1 post-bump verification（git diff README.md 必含 + Quintangle 5-site 一致性 sed-based check）；§3.4 git add 列表加 `README.md` + `CLAUDE.md` + 强调 release scope + 跨引用本地 `validate-commits.sh`；§6 发布前检查清单加 3 项 NEW + 发布后加 1 项 visual badge verify；§8 即原 §7 相关文档；fix line 350 `../CONTRIBUTING.md` → `../guide/[GUIDE]_Contributing.md` (PR #103 rename)；cross-reference v4.6.0 CI guard «Validate README badge matches VERSION»（PR #109）作为 safety net + Issue #110 / #113 future-work 锚点。Frontmatter v1.0 → v1.1 + revision block。Non-trigger archive（minor bump，无 Framework §2.3.1 触发条件）。
+- **v1.0**（2026-03-17）：初版。Issue → Branch → Develop → Commit → PR → CI → Merge → Release 完整 6 阶段操作流程 + hotfix + rollback 子流程。
+
+## 8. 相关文档
 
 - [项目概览](<../guide/[GUIDE]_Marketplace_Project_Overview.md>) — 项目整体概览
 - [版本管理指南](<../guide/[GUIDE]_Version_Management.md>) — 版本管理详细指南
-- [CONTRIBUTING.md](../CONTRIBUTING.md) — 贡献指南
+- [贡献指南](<../guide/[GUIDE]_Contributing.md>) — branch strategy + commit format + PR 流程
+- [Commit Message Convention](<../rule/[STANDARD]_Commit_Message_Convention.md>) — `<type>(<scope>): <summary>` PATTERN canonical
+- [mp-doc-bump-version SKILL.md](../../.claude/skills/mp-doc-bump-version/SKILL.md) — Version Quintangle 5-site invariant + Step 7 Verify
+- `.github/workflows/ci.yml` — 含「Validate README badge matches VERSION」step（PR #109 引入；safety net）
