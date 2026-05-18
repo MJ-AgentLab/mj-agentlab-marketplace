@@ -5,6 +5,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- **`scripts/safe-bulk-cleanup.ps1`** `-IncludeRemote` 路径 P3 解析 bug — `git for-each-ref refs/remotes/origin/` 把 HEAD symbolic ref 返回为裸 `origin`（不是 `origin/HEAD`），原 filter `Where-Object { $_ -ne 'origin/HEAD' }` 漏过，导致 dry-run 错误显示 `git push origin --delete origin` 为候选命令。修复：改用 `Where-Object { $_ -match '^origin/.+' }` 强制 `origin/` 前缀 + 至少 1 字符后缀。Bug 被脚本本身的 dry-run-default + candidate 列表打印 + 多层 protected-branch refusal 拦截，无实际删除风险。Smoke test in clean develop env: OLD filter → 1 bogus `origin` candidate; NEW filter → 0 candidates。
+
 ### Added
 
 - **`docs/postmortem/[POSTMORTEM]_2026-05-18_Bulk_Cleanup_Trap_Analysis.md`** — 项目首份 POSTMORTEM 文档（填补 Framework v1.5 §2.4 `docs/postmortem/` placeholder）。记录 2026-05-18 bulk branch cleanup 触发的 3 个 trap：(1) `git branch` `+` 前缀漏过滤导致 local `main` 误删；(2) local `git branch -d` 不动 remote，audit 用语 "sync with" 歧义误导；(3) Windows Git Bash 把 `gh api /repos/...` 改写成 Windows 路径。Severity P3（恢复，0 数据丢失）。
