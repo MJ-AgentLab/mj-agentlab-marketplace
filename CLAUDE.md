@@ -5,11 +5,11 @@
 ## Project Structure
 
 - `plugins/` — **1 个通用插件**（v4.0.0 起整合）：
-  - `learn-kit` v1.0.0（教学方法论 + AI 三档生成 + 交互式 HTML + nlm-studio NLM 多媒体生成；v4.0.0 起吸收 notebooklm-kit 的核心多媒体场景）
-- `scripts/` — 基础设施脚本（bump-version, install-hooks, clone-bare）
+  - `learn-kit` v1.2.0（教学方法论 + AI 三档生成 + 交互式 HTML + nlm-studio NLM 多媒体生成；v4.0.0 起吸收 notebooklm-kit 的核心多媒体场景；v1.2.0 起 plugin 内教学文档合并为 2 份 [GUIDE]）
+- `scripts/` — 基础设施脚本（bump-version, install-hooks, validate-commits, clone-bare）
 - `.claude-plugin/marketplace.json` — 市场元数据（版本 + 插件注册表）
 - `VERSION` — 市场整体版本号（权威源）
-- `docs/` — 项目文档（见 [INDEX.md](docs/INDEX.md)），含 [MIGRATION_GUIDE.md](docs/MIGRATION_GUIDE.md) + ADR
+- `docs/` — 项目文档（见 [INDEX.md](docs/INDEX.md)），含 rule / guide / runbook / adr / spec 5 子目录 + 迁移指引 [docs/guide/[GUIDE]_Migration_From_v3_to_v4.md](docs/guide/[GUIDE]_Migration_From_v3_to_v4.md)
 
 ## Key Conventions
 
@@ -45,25 +45,26 @@
 - 模板 / references / scripts 放在 skill 目录内部
 - 不使用 `components` 字段（auto-discovery 标准）
 
-## Documentation Framework (v4.2.0 起)
+## Documentation Framework (v4.2.0 起；当前 v1.5 / marketplace v4.5.0)
 
 marketplace 文档体系遵循以下三层 STANDARD（位于 `docs/rule/`）:
 
-- **[Documentation Framework](docs/rule/[STANDARD]_Documentation_Framework.md)** — 6 tag prefixes（STANDARD/ADR/GUIDE/RUNBOOK/SPEC/POSTMORTEM）+ 8-field frontmatter + 3-state machine + path stability + INDEX sync
-- **[Commit Message Convention](docs/rule/[STANDARD]_Commit_Message_Convention.md)** — `<type>(<scope>): <summary>` + 7 types + marketplace scope whitelist + branch-type matrix
+- **[Documentation Framework](docs/rule/[STANDARD]_Documentation_Framework.md)** v1.5 — 6 tag prefixes（STANDARD/ADR/GUIDE/RUNBOOK/SPEC/POSTMORTEM）+ 8-field frontmatter + 3-state machine + path stability + INDEX sync；v1.5 起取消 §1 豁免机制，保留 5 类 community/external-spec exclusion
+- **[Commit Message Convention](docs/rule/[STANDARD]_Commit_Message_Convention.md)** v1.1 — `<type>(<scope>): <summary>` + 7 types + marketplace scope whitelist + branch-type matrix + §11 Common Mistakes
 - **[GitHub Markdown](docs/rule/[STANDARD]_GitHub_Markdown.md)** — ATX headings + GFM tables + native alerts + frontmatter syntax
 
-文档目录子结构（PR 3 retrofit 后所有现有 tag-prefixed 文档全部归位）:
+文档目录子结构（v4.5.0 起所有 tag-prefixed 文档已归位 + flat archive layout）:
 
 ```
 docs/
-├── INDEX.md / CONTRIBUTING.md / MIGRATION_GUIDE.md   # 豁免 frontmatter
-├── rule/        — STANDARDs (3 in v4.2.0)
-├── guide/       — GUIDEs (4 will move here in PR 3)
-├── runbook/     — RUNBOOKs (1 will move here in PR 3)
-├── adr/         — ADRs (2 will move; ADR-LearnKit moves to plugin in PR 4)
+├── INDEX.md            # 唯一豁免 frontmatter (Framework v1.5 §1 INDEX special clause)
+├── rule/        — STANDARDs (Framework / Commit / GitHub Markdown / HITL Prompt 4 active)
+├── guide/       — GUIDEs (含 [GUIDE]_Contributing + [GUIDE]_Migration_From_v3_to_v4 自 v4.5.0 起)
+├── runbook/     — RUNBOOKs
+├── adr/         — ADRs (v4.5.0 加 Exemption Reversal；ADR-LearnKit 在 plugin 内)
 ├── spec/        — SPECs (2 seeds in v4.2.0)
 ├── postmortem/  — empty placeholder
+├── archive/     — flat layout (Framework v1.4 §2.3.5；`[DEPRECATED]_[TAG]_*_vX.Y.md` 命名)
 └── _templates/  — 6 templates (TEMPLATE_{STANDARD,ADR,GUIDE,RUNBOOK,SPEC,POSTMORTEM}.md)
 ```
 
@@ -79,7 +80,7 @@ Templates 与 mp-doc-author skill 协作起草新文档；mp-doc-validate skill 
 - **改** `/learn-kit:generate-tier` 工作流 8-step → 10-step：HTML 渲染（step 8）后加 optional step 9 询问是否调 nlm-studio（默认 skip，opt-in）；原 step 9 (Summary) 改名 step 10
 - **bump** learn-kit `0.3.1 → 1.0.0`（major：新增 MCP 依赖 + 首个 stable 版本）；marketplace `3.2.1 → 4.0.0`（major：删插件 + 跟随 v3.0.0 删 5 个插件先例）
 - 决策记录：[docs/adr/[ADR]_NotebookLM_Kit_Retirement.md](docs/adr/[ADR]_NotebookLM_Kit_Retirement.md)
-- 用户迁移：[docs/MIGRATION_GUIDE.md](docs/MIGRATION_GUIDE.md) §v3.2.x → v4.0.0
+- 用户迁移：[docs/guide/[GUIDE]_Migration_From_v3_to_v4.md](docs/guide/[GUIDE]_Migration_From_v3_to_v4.md) §v3.2.x → v4.0.0
 
 **Plugin Secrets Management**：v4.0.0 无 secrets 配置需求。learn-kit 的 nlm-studio 通过 `notebooklm-mcp` MCP server 直接调用，认证使用 NotebookLM OAuth（用户在终端 `nlm login` 一次完成）；其余 4 个 skill 纯静态模板 / 本地文件操作，无凭据。
 
@@ -90,12 +91,16 @@ Templates 与 mp-doc-author skill 协作起草新文档；mp-doc-validate skill 
 - **v3.2.0**（2026-05-13）：learn-kit v0.2.0 → v0.3.0；新增 generate-tier AI 三档生成 + 交互式 HTML；learn-kit 主动与 notebooklm-kit 解绑
 - **v3.2.1**（2026-05-14）：plugin.json `repository` schema 修正
 - **v4.0.0**（2026-05-14）：notebooklm-kit 退场 + nlm-studio 吸收到 learn-kit；marketplace 收敛到 1 个 plugin
+- **v4.1.0**（2026-05-15）：项目本地 18 件 mp-* skill 入库（mp-flow-* × 9 + mp-git-* × 6 + mp-doc-* × 3）；11 阶段速查表稳定
+- **v4.2.0**（2026-05-15）：Documentation Framework v1.0 入库；3 STANDARDs（Framework / Commit / GitHub Markdown）+ INDEX + 6 templates 落地
+- **v4.3.x – v4.4.11**（2026-05-15）：framework refinement / docs reorg / hook + CI consolidation / archive 机制 v4.4.0 引入 + v4.4.x flat layout
+- **v4.5.0**（2026-05-18）：Framework v1.4 → v1.5 取消 §1 豁免机制；HITL v1.3 → v1.4 §0 universal skeleton 内化；learn-kit v1.1.0 → v1.2.0 教学文档 6 → 2 [GUIDE] 合并；marketplace 独立性原则确立；8-layer commit-validation stack 完工
 
 ## AI Engineering
 
 marketplace AI agent 工作流规范（v4.1.0 起含 18 件项目本地 mp-* skill）：
 
-- **STANDARD（完整规范）**：[docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md](docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md) (v1.2)
+- **STANDARD（完整规范）**：[docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md](docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md) (v1.4)
 - **GUIDE（运行时勾选清单）**：[docs/guide/[GUIDE]_Marketplace_Agent_Execution_Checklist.md](docs/guide/[GUIDE]_Marketplace_Agent_Execution_Checklist.md)
 
 ### 11 阶段速查表
