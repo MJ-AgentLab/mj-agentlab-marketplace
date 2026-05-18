@@ -1,18 +1,18 @@
 ---
 name: mp-doc-validate
-description: Validates marketplace documentation compliance against Documentation Framework v1.5+ — checks (1) every `docs/**/*.md` and `plugins/<name>/docs/**/*.md` with a `[TAG]` prefix has the required 8-field frontmatter (type / scope / summary / owner / created / updated / state / version), the `type` enum matches `[TAG]`, the file lives in the right subdirectory, paths in `related:` resolve, wikilinks resolve, INDEX.md lists the doc, and `[RUNBOOK]_*.md` has `last-verified` field; AND (2) v1.5+ **archive compliance**: every `state: archived` file lives under `docs/archive/[DEPRECATED]_<TAG>_<Topic>_v<major>.<minor>.md` (flat — no subtype subdir per Framework v1.4 §2.3.5), has mandatory `archived:` ISO date + `replaced-by:` path, body starts with the canonical Archive Banner, and the `replaced-by:` ↔ `supersedes:` bidirectional pair is intact. Make sure to use this skill whenever the user says "validate docs", "doc compliance", "frontmatter check", "docs audit", "docs/ check", "marketplace doc validate", "doc validate", "Stage 7 docs audit", "archive validation", "archive compliance", or before committing changes that touched any `docs/**` or `plugins/<name>/docs/**` file (including any change under `docs/archive/`). Heuristic-only; does not modify files. Outputs report: Critical (frontmatter missing / wrong type / orphan in INDEX / archive banner missing / broken supersedes-replaced-by / broken `related:` path) / Warning (RUNBOOK last-verified stale / broken wikilink / empty `replaced-by` for pure retirement) / Verified. v4.4.5 hardens Step 3 (INDEX regex tightened to strict basename pattern; eliminates cross-reference false positives) and Step 5 (real `realpath -m` resolution replaces placeholder code; promotes broken `related:` from Warning to Critical). v1.3 framework adds Step 2.7 (exempt-file frontmatter discipline): warns on legacy non-canonical keys (`title / purpose / audience` / `related: |` literal-block-scalar) on §1-exempt files (`docs/ai_engineering_execution_hitl_workflow.md` + plugin-internal teaching series `plugins/<name>/docs/<plugin>-*.md`); does NOT promote to Critical because exempt files remain outside the required-field critical path. Skill itself is not in scope (those use Claude Code plugin spec native frontmatter, validated by `/plugin-dev:skill-reviewer`). Do not use for: SKILL.md validation (use /plugin-dev:skill-reviewer agent), plugin compliance (use mp-flow-compliance, Stage 5), or test of doc content quality (subjective; outside scope).
+description: Validates marketplace documentation compliance against Documentation Framework v1.6+ — checks (1) every `docs/**/*.md` and `plugins/<name>/docs/**/*.md` with a `[TAG]` prefix has the required 8-field frontmatter (type / scope / summary / owner / created / updated / state / version), the `type` enum matches `[TAG]`, the file lives in the right subdirectory, paths in `related:` resolve, wikilinks resolve, INDEX.md lists the doc, and `[RUNBOOK]_*.md` has `last-verified` field; (2) v1.5+ **archive compliance**: every `state: archived` file lives under `docs/archive/[DEPRECATED]_<TAG>_<Topic>_v<major>.<minor>.md` (flat — no subtype subdir per Framework v1.4 §2.3.5), has mandatory `archived:` ISO date + `replaced-by:` path, body starts with the canonical Archive Banner, and the `replaced-by:` ↔ `supersedes:` bidirectional pair is intact; AND (3) v1.6+ **§2.7 CLAUDE.md sync allowlist Warning check** (Step 3.5): detects working-tree drift between §2.7 trigger files (global standards / runtime info / directory entries) and root `CLAUDE.md`; outputs Warning (pre-commit advisory; CI A6 step is authoritative Layer 3 blocker). Make sure to use this skill whenever the user says "validate docs", "doc compliance", "frontmatter check", "docs audit", "docs/ check", "marketplace doc validate", "doc validate", "Stage 7 docs audit", "archive validation", "archive compliance", or before committing changes that touched any `docs/**` or `plugins/<name>/docs/**` file (including any change under `docs/archive/`). Heuristic-only; does not modify files. Outputs report: Critical (frontmatter missing / wrong type / orphan in INDEX / archive banner missing / broken supersedes-replaced-by / broken `related:` path) / Warning (RUNBOOK last-verified stale / broken wikilink / empty `replaced-by` for pure retirement) / Verified. v4.4.5 hardens Step 3 (INDEX regex tightened to strict basename pattern; eliminates cross-reference false positives) and Step 5 (real `realpath -m` resolution replaces placeholder code; promotes broken `related:` from Warning to Critical). v1.3 framework adds Step 2.7 (exempt-file frontmatter discipline): warns on legacy non-canonical keys (`title / purpose / audience` / `related: |` literal-block-scalar) on §1-exempt files (`docs/ai_engineering_execution_hitl_workflow.md` + plugin-internal teaching series `plugins/<name>/docs/<plugin>-*.md`); does NOT promote to Critical because exempt files remain outside the required-field critical path. Skill itself is not in scope (those use Claude Code plugin spec native frontmatter, validated by `/plugin-dev:skill-reviewer`). Do not use for: SKILL.md validation (use /plugin-dev:skill-reviewer agent), plugin compliance (use mp-flow-compliance, Stage 5), or test of doc content quality (subjective; outside scope).
 ---
 
 # Marketplace Doc Validate
 
 ## Overview
 
-Audits `docs/**/*.md` and `plugins/<name>/docs/**/*.md` against the marketplace documentation framework. Includes v1.5 archive compliance checks for `state: archived` files under `docs/archive/`. Strictly structural / schema check; does NOT judge content quality.
+Audits `docs/**/*.md` and `plugins/<name>/docs/**/*.md` against the marketplace documentation framework. Includes v1.5 archive compliance checks for `state: archived` files under `docs/archive/` AND v1.6 §2.7 CLAUDE.md sync allowlist Warning check (Step 3.5). Strictly structural / schema check; does NOT judge content quality.
 
 **Reference**:
-- `docs/rule/[STANDARD]_Documentation_Framework.md` v1.5+ (frontmatter schema, paths, state machine, archive triggers + frontmatter + banner + ref rules)
+- `docs/rule/[STANDARD]_Documentation_Framework.md` v1.6+ (frontmatter schema, paths, state machine, archive triggers + frontmatter + banner + ref rules; §1.1 root-level named files codification; §2.7 CLAUDE.md sync allowlist; §4.3.1 A6 active CI gate)
 - `docs/rule/[STANDARD]_GitHub_Markdown.md` (markdown style)
-- `docs/runbook/[RUNBOOK]_Doc_Archive_Procedure.md` v1.0 (operational archive ceremony)
+- `docs/runbook/[RUNBOOK]_Doc_Archive_Procedure.md` v1.1 (operational archive ceremony)
 - `docs/INDEX.md` (canonical doc list)
 
 **Workflow position**: Stage 7 self-review substep + PR-pre-merge double-check.
@@ -235,7 +235,7 @@ echo "$successor_fm" | awk '/^supersedes:/{flag=1; next} /^[a-z_-]+:/{flag=0} fl
 Per Framework v1.5 §1, the v1.1 «plugin-internal teaching series» pattern exemption and the v1.0 single-file exemptions（`ai_engineering_execution_hitl_workflow.md` / `CONTRIBUTING.md` / `MIGRATION_GUIDE.md`）are **canceled**. Those documents now either:
 
 - have been **deleted** (e.g., `ai_engineering_execution_hitl_workflow.md` — content internalized to HITL STANDARD §0)
-- have been **renamed** with compliant `[GUIDE]_*.md` naming + 8-field frontmatter (e.g., `CONTRIBUTING.md` → `docs/guide/[GUIDE]_Contributing.md`)
+- have been **renamed** with compliant `[GUIDE]_*.md` naming + 8-field frontmatter (e.g., `MIGRATION_GUIDE.md` → `docs/guide/[GUIDE]_Migration_From_v3_to_v4.md`; note `CONTRIBUTING.md` was renamed to `docs/guide/[GUIDE]_Contributing.md` in v4.5.0 but **restored back to repo root in v4.6.3** per Framework v1.6 §1.1 editorial convention — see archived [`docs/archive/[DEPRECATED]_[GUIDE]_Contributing_v1.1.md`](../../../docs/archive/[DEPRECATED]_[GUIDE]_Contributing_v1.1.md))
 - have been **merged** into compliant `[GUIDE]_*.md` (e.g., 6 lowercase teaching series → 2 plugin-internal [GUIDE]s)
 - are **strong-frontmatter required** (`docs/INDEX.md` / `plugins/<name>/docs/INDEX.md` — see Step 2 Check 1-2)
 
@@ -287,12 +287,39 @@ comm -13 <(echo "$listed_archived") <(echo "$actual_archived")
 
 Marketplace 顶层 INDEX 不需镜像 plugin-internal docs（plugin 自己的 docs/INDEX.md 是 source of truth；marketplace INDEX 仅列 "Plugin Documentation" 一段含跳转）。
 
+## Step 3.5: CLAUDE.md Allowlist Sync Check (v1.6+, Warning posture)
+
+Per Framework v1.6 §2.7 + §4.3.1 A6 active gate Layer 2 (pre-commit advisory). Detects working-tree drift between §2.7 allowlist trigger files and root `CLAUDE.md`. Skill outputs **Warning** (not Critical); CI is the authoritative Layer 3 blocker (`exit 1` on PR).
+
+**Algorithm**:
+
+1. Capture working-tree modifications: `git status --porcelain` → list of `M/A/R/D` files (any line where the index or worktree column is non-space, parsed via `^[ MARD?!]{2} (.+)$`)
+2. Match against §2.7 trigger pattern (same regex shape as ci.yml A6 step):
+   ```
+   ^(docs/rule/\[STANDARD\]_.+\.md|VERSION|\.claude-plugin/marketplace\.json|plugins/[^/]+/\.claude-plugin/plugin\.json|\.claude/skills/mp-[^/]+/SKILL\.md|plugins/[^/]+/skills/[^/]+/SKILL\.md)$
+   ```
+3. If `TRIGGERED[] 非空` AND root `CLAUDE.md` NOT in working-tree changes → emit **Warning**:
+   ```
+   WARNING: Potential A6 drift — file(s) X touched but CLAUDE.md unchanged.
+   CI A6 step will block at PR time. Either update root CLAUDE.md per §2.7,
+   or add [skip a6] to PR title + reviewer sign-off.
+   Triggered files:
+     - <file1>
+     - <file2>
+   Ref: docs/rule/[STANDARD]_Documentation_Framework.md §2.7 + §4.3.1
+   ```
+4. Otherwise (no triggers OR CLAUDE.md is in working-tree changes) → Verified (no output for this step)
+
+**Severity rationale**: Warning (not Critical) — skill is pre-commit advisory; CI authoritative gate. Two-tier escalation mirrors v4.4.5 `related:` Check 5 (Warning in skill, Critical promoted in v4.4.5 only when broken-link 影响 navigation).
+
+**Limitations** (v1.7 candidate to address): skill检测 working-tree state, CI detects PR diff. Edge case: author edits trigger file + CLAUDE.md in commit A, then in next commit edits another trigger file but NOT CLAUDE.md — skill sees only commit B's working-tree (CLAUDE.md not touched in working tree) and warns; CI sees PR-wide diff (CLAUDE.md WAS touched in commit A across the PR range) and passes. Skill is over-eager in this case (Warning) — acceptable since it nudges author to verify; CI is authoritative.
+
 ## Step 4: Categorize
 
 | Severity | Examples |
 |---|---|
 | **Critical** | missing frontmatter / wrong tag-type match / orphan in INDEX / archived doc missing banner / archived filename pattern mismatch / broken bidirectional supersedes↔replaced-by / supersedes points to missing or non-archived file / broken `related:` (v4.4.5 promoted from Warning — defeats navigation) |
-| **Warning** | stale RUNBOOK last-verified / broken wikilink / empty replaced-by (pure retirement, requires CHANGELOG confirmation) / exempt file with forbidden legacy frontmatter keys (v1.3 §1 discipline — `title / purpose / audience / related: \|`) |
+| **Warning** | stale RUNBOOK last-verified / broken wikilink / empty replaced-by (pure retirement, requires CHANGELOG confirmation) / exempt file with forbidden legacy frontmatter keys (v1.3 §1 discipline — `title / purpose / audience / related: \|`) / **§2.7 sync allowlist trigger file touched but CLAUDE.md unchanged (v1.6+ Step 3.5 advisory; CI Layer 3 is authoritative blocker)** |
 | **Verified** | all checks pass |
 
 ## Output Format
