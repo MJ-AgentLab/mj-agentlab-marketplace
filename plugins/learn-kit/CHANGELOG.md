@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- **Slash invocation namespace convention** documented in 3 plugin docs
+  (README.md / CLAUDE.md / `docs/guide/[GUIDE]_LearnKit_Design.md`):
+  all 5 skills (init / scan / locate / generate-tier / nlm-studio)
+  MUST be invoked as `/learn-kit:<skill>` (fully qualified); bare
+  `/<skill>` is disallowed when referring to learn-kit behavior.
+  Driven by name collision between learn-kit's `init` and Claude
+  Code's builtin `init` (which generates CLAUDE.md); the convention
+  also future-proofs the other 4 skills against potential same-name
+  builtins. No skill code / frontmatter / behavior change. Grep
+  verified that existing 163 occurrences across 23 files are already
+  uniformly fully-qualified.
+
 ## [1.2.1] - 2026-05-18
 
 ### Changed
