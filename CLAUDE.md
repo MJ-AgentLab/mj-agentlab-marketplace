@@ -5,7 +5,7 @@
 ## Project Structure
 
 - `plugins/` — **1 个通用插件**（v4.0.0 起整合）：
-  - `learn-kit` v1.2.0（教学方法论 + AI 三档生成 + 交互式 HTML + nlm-studio NLM 多媒体生成；v4.0.0 起吸收 notebooklm-kit 的核心多媒体场景；v1.2.0 起 plugin 内教学文档合并为 2 份 [GUIDE]）
+  - `learn-kit` v1.2.1（教学方法论 + AI 三档生成 + 交互式 HTML + nlm-studio NLM 多媒体生成；v4.0.0 起吸收 notebooklm-kit 的核心多媒体场景；v1.2.0 起 plugin 内教学文档合并为 2 份 [GUIDE]；v1.2.1 起 nlm-studio SKILL.md frontmatter description 压缩至 < 1,536-char cap）
 - `scripts/` — 基础设施脚本（bump-version, install-hooks, validate-commits, clone-bare）
 - `.claude-plugin/marketplace.json` — 市场元数据（版本 + 插件注册表）
 - `VERSION` — 市场整体版本号（权威源）
