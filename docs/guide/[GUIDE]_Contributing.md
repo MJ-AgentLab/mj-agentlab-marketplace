@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-03-16
 updated: 2026-05-18
 state: active
-version: v1.0
+version: v1.1
 domain: governance
 tags:
   - contributing
@@ -17,6 +17,7 @@ related:
   - ../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
   - ./[GUIDE]_Migration_From_v3_to_v4.md
 revision: |
+  2026-05-18 — v1.1: §Bare Repo + Worktree 加 "`git branch` 输出前缀（worktree 模式特有）" 子段，列出 3 种前缀 (`  ` / `* ` / `+ `) 含义 + 过滤脚本必须用 `[ *+]` 字符类的警告；交叉引用 mp-git-cleanup §Bulk Cleanup Mode + POSTMORTEM_2026-05-18。源于 2026-05-18 bulk cleanup 误删 main local ref 的 P3 incident。Non-trigger archive。
   2026-05-18 — v1.0: rename docs/CONTRIBUTING.md → docs/guide/[GUIDE]_Contributing.md + 加 frontmatter（Framework v1.5 §1 cancel single-file exemption）；fix 4 处 rule/ 相对路径；移除 cross-project 引用
 ---
 
@@ -153,6 +154,20 @@ mj-agentlab-marketplace/
 ├── feature/     # feature 分支 worktree
 └── main/        # main worktree
 ```
+
+### `git branch` 输出前缀（worktree 模式特有）
+
+`git branch` 在 bare repo + worktree 模式下输出 3 种前缀：
+
+| Prefix | 含义 |
+|--------|------|
+| `  ` (2 空格) | 普通本地分支，未 checked out |
+| `* ` | 当前 worktree 当前分支 |
+| `+ ` | **被另一个 worktree 占用**（含 `.bare/` 持有 `main`） |
+
+任何过滤 `git branch` 输出的脚本必须用 `[ *+]` 字符类，否则 `+ <branch>` 行会泄漏到下游命令（`xargs git branch -d` 等），可能误删 protected 分支。更稳的写法是 `git for-each-ref refs/heads/ --format='%(refname:short)'`（无 prefix）。
+
+bulk cleanup 时的完整 3-trap 列表见 [`.claude/skills/mp-git-cleanup/SKILL.md`](../../.claude/skills/mp-git-cleanup/SKILL.md) §Bulk Cleanup Mode 与 [`./docs/postmortem/[POSTMORTEM]_2026-05-18_Bulk_Cleanup_Trap_Analysis.md`](../postmortem/[POSTMORTEM]_2026-05-18_Bulk_Cleanup_Trap_Analysis.md)。
 
 ## Git Hooks
 

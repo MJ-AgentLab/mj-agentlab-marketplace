@@ -52,6 +52,25 @@
 
 > **Legacy plugin 提示**：如果之前装过 `mj-nlm@my-marketplace`（来自外部 marketplace 的 legacy NLM plugin），**建议卸载**避免 MCP server 重复加载：`/plugin uninstall mj-nlm@my-marketplace`。判断方法：工具列表同时出现 `mcp__plugin_mj-nlm_*` 和 `mcp__plugin_learn-kit_*` 前缀即为重复。
 
+## 命名约定 · slash 调用必须全限定
+
+本插件提供 5 个 skill：`init` / `scan` / `locate` / `generate-tier` / `nlm-studio`。所有 slash 调用**统一使用全限定形式 `/learn-kit:<skill>`**，不允许裸写 `/<skill>`。
+
+具体规则：
+
+- ✅ 写 `/learn-kit:init`、`/learn-kit:scan`、`/learn-kit:locate`、`/learn-kit:generate-tier`、`/learn-kit:nlm-studio`
+- ❌ 不写裸 `/init`、`/scan`、`/locate`、`/generate-tier`、`/nlm-studio` 指代 learn-kit 行为
+
+理由：
+
+1. **避免与 Claude Code 内置冲突** —— 内置已存在 `init`（生成 CLAUDE.md），与本插件 `init` 同名但目的完全不同；其余 4 个 skill 当前不撞，但 Claude Code 未来可能新增同名内置，统一约定可未来防御。
+2. **可发现性** —— 读者看到 `/learn-kit:<X>` 立刻知道来源是本插件；裸 `/<X>` 在长 PR / tutorial 上下文里语义二义。
+3. **AI agent 自检友好** —— skill-registry 路由 token 永远带 namespace，避免大模型在自然语言指代时把不同来源的同名 skill 搞混。
+
+**特别说明**：learn-kit 的 `init` SKILL.md 设置了 `disable-model-invocation: true` 作为额外护栏（防止 LLM 自然语言路由），其余 4 个 skill 没设此 flag（它们设计上允许自然语言路由）—— 但**用户显式调用入口**统一走 namespace 的规则适用于全部 5 个。
+
+如果你看到本仓任何文档裸写 `/init` / `/scan` / `/locate` / `/generate-tier` / `/nlm-studio` 指代 learn-kit 行为，请提 issue 或 PR 修正。
+
 ## 中文 TL;DR · 30 秒认知
 
 把项目里**枯燥的规则清单**（STANDARD / SPEC / ADR / RFC）变成**可学习材料**的工具集。5 个 skill 覆盖「发现 → 撰写 → 渲染 → 多媒体」全链路:

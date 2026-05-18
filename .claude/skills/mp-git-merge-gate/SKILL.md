@@ -93,6 +93,9 @@ gh pr view $PR --json comments
 gh api repos/MJ-AgentLab/mj-agentlab-marketplace/pulls/$PR/comments
 ```
 
+> [!note]
+> **Windows / Git Bash users**: omit leading slash in `gh api` endpoints (`gh api repos/...` not `gh api /repos/...`). MSYS path translation rewrites the leading slash into a Windows path (`C:/Program Files/Git/repos/...`), breaking the endpoint. Detailed reproducer + fix: [`mp-git-cleanup` SKILL §Bulk Cleanup Mode → Trap #3](../mp-git-cleanup/SKILL.md#trap-3windows-git-bash-的-gh-api-leading-slash-改写).
+
 **判断**:
 - `APPROVED` 且无 unresolved comment → 可继续
 - `CHANGES_REQUESTED` → NOT READY

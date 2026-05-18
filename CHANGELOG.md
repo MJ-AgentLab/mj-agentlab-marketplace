@@ -5,7 +5,33 @@
 
 ## [Unreleased]
 
-_(no in-flight changes at release-cut time)_
+## [4.6.2] - 2026-05-18
+
+This release packages **cleanup-hardening** (project's first POSTMORTEM + `safe-bulk-cleanup.ps1` + `/mp-git-cleanup` §Bulk Cleanup Mode + 3 procedural cross-references) plus **learn-kit plugin docs polish** (nlm-studio SKILL.md frontmatter description trimmed below the 1,536-char cap to eliminate `/doctor` warning, plus a 5-skill slash invocation namespace convention codified across 3 plugin docs).
+
+VERSION 4.6.2 was pre-bumped on develop in PR #124 (`maintain/post-release-prebump-v4-6-2`) per the v4.6.1-introduced pre-bump model; this release branch only promotes `[Unreleased]` → `[4.6.2]` without an additional bump step. After merge, `release.yml` auto-tags `v4.6.2`, then sync-main-to-develop + next pre-bump (4.6.2 → 4.6.3) closes the loop.
+
+learn-kit plugin: v1.2.0 → v1.2.1 (nlm-studio frontmatter description trim — no behavior change, all 10 trigger phrases + 4 negative triggers preserved verbatim). Additional namespace-convention docs change is tracked in learn-kit plugin `[Unreleased]` (no plugin bump per scope decision; will roll into a later plugin patch). Marketplace patch bump v4.6.1 → v4.6.2.
+
+### Fixed
+
+- **`scripts/safe-bulk-cleanup.ps1`** `-IncludeRemote` 路径 P3 解析 bug — `git for-each-ref refs/remotes/origin/` 把 HEAD symbolic ref 返回为裸 `origin`（不是 `origin/HEAD`），原 filter `Where-Object { $_ -ne 'origin/HEAD' }` 漏过，导致 dry-run 错误显示 `git push origin --delete origin` 为候选命令。修复：改用 `Where-Object { $_ -match '^origin/.+' }` 强制 `origin/` 前缀 + 至少 1 字符后缀。Bug 被脚本本身的 dry-run-default + candidate 列表打印 + 多层 protected-branch refusal 拦截，无实际删除风险。Smoke test in clean develop env: OLD filter → 1 bogus `origin` candidate; NEW filter → 0 candidates。
+
+### Added
+
+- **`docs/postmortem/[POSTMORTEM]_2026-05-18_Bulk_Cleanup_Trap_Analysis.md`** — 项目首份 POSTMORTEM 文档（填补 Framework v1.5 §2.4 `docs/postmortem/` placeholder）。记录 2026-05-18 bulk branch cleanup 触发的 3 个 trap：(1) `git branch` `+` 前缀漏过滤导致 local `main` 误删；(2) local `git branch -d` 不动 remote，audit 用语 "sync with" 歧义误导；(3) Windows Git Bash 把 `gh api /repos/...` 改写成 Windows 路径。Severity P3（恢复，0 数据丢失）。
+- **`scripts/safe-bulk-cleanup.ps1`** — 安全 bulk cleanup 脚本。封装 pre-flight 4-check + 3-trap-aware 删除：使用 `git for-each-ref`（避开 Trap #1 前缀问题）+ 多层 protected-branch refusal + dry-run-default（必须显式 `-Apply`）+ opt-in `-IncludeRemote`。镜像 `bump-version.ps1` 风格（StrictMode + 彩色输出 + `.SYNOPSIS`/`.DESCRIPTION` 注释块）。
+- **`.claude/skills/mp-git-cleanup/SKILL.md`** §Bulk Cleanup Mode — 新章节（在 Step 7 之后）。3 traps inline 含错误/正确写法对照 + Pre-flight 4-check + 指向 `safe-bulk-cleanup.ps1`；revised "DOES NOT DO" 反映 GitHub `delete_branch_on_merge=true` v4.6.2+ 启用现实；扩 Anti-patterns 加 3 条 (Bulk mode) / (Windows) 项目。
+- **`plugins/learn-kit/skills/nlm-studio/SKILL.md`** `## Outputs at a glance` + `## Auth & prerequisites` 两段 body 新增 — 接收从 frontmatter `description:` 迁出的 runtime detail（13-artifact 组成 / HTML upload DROPPED 论证 / Notebook 命名冲突政策 / terminal-only output / View-Purpose Preservation 哲学段 / MCP + nlm login auth）。 (PR #127)
+- **learn-kit 全 5 skill slash 调用全限定命名约定** 写入 3 plugin docs（`plugins/learn-kit/README.md` §"命名约定" + `plugins/learn-kit/CLAUDE.md` §"命名约定" + `plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_Design.md` §1 blockquote）。 规则：`init` / `scan` / `locate` / `generate-tier` / `nlm-studio` 调用一律写 `/learn-kit:<skill>` 全限定形式，禁止裸 `/<skill>`。 直接动机：`init` 撞 Claude Code 内置 init；全局动机：未来防御任意同名内置撞名风险；额外护栏：learn-kit init 的 `disable-model-invocation: true` 与约定独立。 (PR #128) plugin [Unreleased] 暂留，下次 plugin patch bump 时一并落版本。
+
+### Changed
+
+- **`docs/runbook/[RUNBOOK]_Release_Operations.md`** v1.3.1 → v1.3.2 — §2.6 + §3.7 加 cleanup callout box，指向 mp-git-cleanup §Bulk Cleanup Mode + `safe-bulk-cleanup.ps1`；frontmatter `related[]` 加 POSTMORTEM_2026-05-18 引用。Procedural commands 完全不变。
+- **`.claude/skills/mp-git-merge-gate/SKILL.md`** Step 4 — 加 Windows Git Bash 警告 callout (`gh api` 端点 leading slash 改写)。
+- **`docs/guide/[GUIDE]_Contributing.md`** v1.0 → v1.1 — §Bare Repo + Worktree 加 "`git branch` 输出前缀（worktree 模式特有）" 子段，列 3 prefix (`  ` / `* ` / `+ `) 含义 + 过滤脚本必须用 `[ *+]` 警告 + 交叉引用 mp-git-cleanup §Bulk Mode + POSTMORTEM。
+- **`plugins/learn-kit/skills/nlm-studio/SKILL.md`** frontmatter `description:` — 由 ~3,179 字符压缩至 ~1,490 字符（< 1,536 cap），消除 Claude Code `/doctor` "Some skill descriptions will be shortened" warning。所有 10 条 trigger phrase + 4 条 `Do NOT use for:` 反向触发块逐字保留；routing 准确度不变；allowed-tools / behavior 不动。 (PR #127)
+- **`plugins/learn-kit/.claude-plugin/plugin.json`** + **`.claude-plugin/marketplace.json`** plugins[learn-kit] entry — learn-kit version `1.2.0 → 1.2.1`（patch；伴随 nlm-studio description trim）。 (PR #127)
 
 ## [4.6.1] - 2026-05-18
 

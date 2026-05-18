@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-05-15
 updated: 2026-05-18
 state: active
-version: v4.6.1
+version: v4.6.2
 domain: governance
 tags:
   - index
@@ -14,6 +14,7 @@ tags:
 related:
   - ./rule/[STANDARD]_Documentation_Framework.md
 revision: |
+  2026-05-18 — v4.6.2: add first [POSTMORTEM] row (2026-05-18 Bulk Cleanup Trap Analysis, P3); update [RUNBOOK]_Release_Operations row to mention v1.3.2 cleanup callouts; update [GUIDE]_Contributing row to mention v1.1 worktree prefix note
   2026-05-18 — v4.6.1: scrub external project reference from [ADR]_Develop_PreBump_Adoption row description per `[STANDARD]_AI_Engineering_Execution_HITL_Prompt` §0.3
   2026-05-18 — v4.6: add [ADR]_Develop_PreBump_Adoption row + update RUNBOOK_Release_Operations row to mention v1.3 §3.7 pre-bump
   2026-05-18 — v4.5: add 8-field frontmatter (Framework v1.5 §1 INDEX special clause); update Framework v1.4→v1.5 + HITL v1.3→v1.4 + learn-kit 1.1.0→1.2.0 entries; remove deleted ai_engineering_execution_hitl_workflow.md row; move Exemption Review ADR to Archived section; add Exemption Reversal ADR; update CONTRIBUTING + MIGRATION_GUIDE paths to docs/guide/; update plugin-internal teaching series description to reflect 6→2 consolidation
@@ -38,7 +39,7 @@ Navigation hub for all marketplace documentation.
 
 | Document | Description |
 |----------|-------------|
-| [Contributing Guide](./guide/[GUIDE]_Contributing.md) | 贡献入口；commit 段引用 Commit Message Convention（v4.5.0 起从 docs/CONTRIBUTING.md rename）|
+| [Contributing Guide](./guide/[GUIDE]_Contributing.md) | 贡献入口；commit 段引用 Commit Message Convention（v4.5.0 起从 docs/CONTRIBUTING.md rename；v1.1 起 §Bare Repo + Worktree 加 `git branch` 前缀说明）|
 | [Migration From v3 to v4](./guide/[GUIDE]_Migration_From_v3_to_v4.md) | 版本升级迁移指引（v2.x → v3.0.0；v3.2.x → v4.0.0；v4.0.0 → v4.3.x；v4.4.x → v4.5.0；v4.5.0 起从 docs/MIGRATION_GUIDE.md rename）|
 | [Marketplace Project Overview](./guide/[GUIDE]_Marketplace_Project_Overview.md) | 项目架构、插件目录、CI/CD 体系、开发环境搭建 |
 | [Plugin Development Testing Workflow](./guide/[GUIDE]_Plugin_Development_Testing_Workflow.md) | 跨仓库插件开发测试的三阶段工作流 |
@@ -49,7 +50,7 @@ Navigation hub for all marketplace documentation.
 
 | Document | Description | Last verified |
 |----------|-------------|---------------|
-| [Release Operations](./runbook/[RUNBOOK]_Release_Operations.md) | 从开发到发布的完整操作流程（Issue → PR → Release）；v1.1 起 §3.2 bump-version.ps1 MANDATORY；v1.2 起 §3.2.1 反映 CLAUDE.md script 已 cover (closes #110)；v1.3 起 §3.7 add Post-release develop pre-bump (per [`[ADR]_Develop_PreBump_Adoption`](./adr/[ADR]_Develop_PreBump_Adoption.md)) | 2026-05-18 |
+| [Release Operations](./runbook/[RUNBOOK]_Release_Operations.md) | 从开发到发布的完整操作流程（Issue → PR → Release）；v1.1 起 §3.2 bump-version.ps1 MANDATORY；v1.2 起 §3.2.1 反映 CLAUDE.md script 已 cover (closes #110)；v1.3 起 §3.7 add Post-release develop pre-bump (per [`[ADR]_Develop_PreBump_Adoption`](./adr/[ADR]_Develop_PreBump_Adoption.md))；v1.3.2 起 §2.6 + §3.7 加 cleanup callout 指向 mp-git-cleanup §Bulk Mode + safe-bulk-cleanup.ps1 | 2026-05-18 |
 | [Doc Archive Procedure](./runbook/[RUNBOOK]_Doc_Archive_Procedure.md) | 4-phase 文档归档工作流 + 2 HITL gate（per Documentation Framework v1.4 §2.3，flat layout）| 2026-05-17 |
 
 ## Architecture Decision Records (`docs/adr/`)
@@ -71,7 +72,9 @@ Navigation hub for all marketplace documentation.
 
 ## Postmortems (`docs/postmortem/`)
 
-*暂无 postmortem 记录*
+| Document | Severity | Date | Description |
+|----------|----------|------|-------------|
+| [POSTMORTEM: 2026-05-18 Bulk Cleanup Trap Analysis](./postmortem/[POSTMORTEM]_2026-05-18_Bulk_Cleanup_Trap_Analysis.md) | P3 | 2026-05-18 | Bulk branch cleanup 触发 3 个 trap (regex prefix / local-remote 对称性 / Windows gh api leading slash)；恢复无数据丢失；6 fix-sites 已落地 |
 
 ## Archived Documents (`docs/archive/`)
 
