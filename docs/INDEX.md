@@ -6,14 +6,16 @@ owner: marketplace-maintainers
 created: 2026-05-15
 updated: 2026-05-18
 state: active
-version: v4.6.2
+version: v4.6.3
 domain: governance
 tags:
   - index
   - navigation
 related:
   - ./rule/[STANDARD]_Documentation_Framework.md
+  - ./adr/[ADR]_Root_Level_Named_Files_Codification.md
 revision: |
+  2026-05-18 — v4.6.3: add 「Root-Level Meta Files」section listing 5 named special files per Framework v1.6 §1.1; bump [Documentation Framework] row v1.5 → v1.6; remove [Contributing Guide] active row (archived in v4.6.3 archive ceremony — content restored to repo root); add [DEPRECATED]_[GUIDE]_Contributing_v1.1 row to Archived Documents; add [ADR]_Root_Level_Named_Files_Codification row to ADRs; update Suggested Reading Order links to root CONTRIBUTING.md
   2026-05-18 — v4.6.2: add first [POSTMORTEM] row (2026-05-18 Bulk Cleanup Trap Analysis, P3); update [RUNBOOK]_Release_Operations row to mention v1.3.2 cleanup callouts; update [GUIDE]_Contributing row to mention v1.1 worktree prefix note
   2026-05-18 — v4.6.1: scrub external project reference from [ADR]_Develop_PreBump_Adoption row description per `[STANDARD]_AI_Engineering_Execution_HITL_Prompt` §0.3
   2026-05-18 — v4.6: add [ADR]_Develop_PreBump_Adoption row + update RUNBOOK_Release_Operations row to mention v1.3 §3.7 pre-bump
@@ -22,15 +24,27 @@ revision: |
 
 # Documentation Index — MJ AgentLab Marketplace
 
-> Last updated: 2026-05-18 (v4.5.0). Framework §1 exemption mechanism canceled — all marketplace docs (except 5 community/spec exclusion categories) now require tag-prefix + 8-field frontmatter per [`./rule/[STANDARD]_Documentation_Framework.md`](./rule/[STANDARD]_Documentation_Framework.md) v1.5.
+> Last updated: 2026-05-18 (v4.6.3). Framework §1 hard exclusions + §1.1 root-level named files codification (5 files) + §2.7 CLAUDE.md sync allowlist + §4.3.1 A6 active CI gate per [`./rule/[STANDARD]_Documentation_Framework.md`](./rule/[STANDARD]_Documentation_Framework.md) v1.6.
 
 Navigation hub for all marketplace documentation.
+
+## Root-Level Meta Files
+
+> Per [Documentation Framework §1.1](./rule/[STANDARD]_Documentation_Framework.md#§11-root-level-named-special-files--individual-responsibilities-v16-new) (v1.6+), 5 named files at repo root carry individual fixed responsibilities exempt from `[TAG]_` prefix.
+
+| File | Responsibility | Source of exclusion |
+|------|----------------|---------------------|
+| [README.md](../README.md) | GitHub-facing project entry; badges / TL;DR / 插件目录 / quick-start | §1 hard |
+| [CONTRIBUTING.md](../CONTRIBUTING.md) | Contributor onboarding：branch / commit / version / PR / hooks | §1.1 editorial convention |
+| [CHANGELOG.md](../CHANGELOG.md) | Keep-a-Changelog 发布日志：`[Unreleased]` + 版本号 + Added/Changed/Fixed/Removed | §1 hard |
+| [GLOSSARY.md](../GLOSSARY.md) | marketplace 术语词典：alphabetical terms + 1-line definitions | §1.1 editorial convention |
+| [CLAUDE.md](../CLAUDE.md) | AI agent + 维护者上下文摘要；受 §2.7 sync allowlist + §4.3.1 A6 gate 约束 | §1 hard |
 
 ## Rules & Standards (`docs/rule/`)
 
 | Document | State | Version | Purpose |
 |----------|-------|---------|---------|
-| [Documentation Framework](./rule/[STANDARD]_Documentation_Framework.md) | active | v1.5 | 6 tag prefixes + 8-field frontmatter + 3-state machine + 路径稳定性 + INDEX sync + flat archive layout（v1.4）+ §1 exemption cancellation（v1.5）|
+| [Documentation Framework](./rule/[STANDARD]_Documentation_Framework.md) | active | v1.6 | 6 tag prefixes + 8-field frontmatter + 3-state machine + 路径稳定性 + INDEX sync + flat archive layout（v1.4）+ §1 exemption cancellation（v1.5）+ §1.1 root-level named files codification + §2.7 CLAUDE.md sync allowlist + §4.3.1 A6 active CI gate（v1.6）|
 | [Commit Message Convention](./rule/[STANDARD]_Commit_Message_Convention.md) | active | v1.1 | `<type>(<scope>): <summary>` + 7 types + marketplace scope whitelist + branch-type matrix + §11 Common Mistakes (post-v4.5.0 lessons + scripts/validate-commits.{sh,ps1} workflow) |
 | [GitHub Markdown](./rule/[STANDARD]_GitHub_Markdown.md) | active | v1.0 | ATX headings + GFM tables + native alerts + frontmatter syntax for GitHub web |
 | [AI Engineering Execution HITL Prompt](./rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md) | active | v1.4 | 11 阶段闭环 + skill 矩阵 + HITL 触发规则 + universal skeleton §0（v1.4 marketplace 独立性原则）|
@@ -39,7 +53,6 @@ Navigation hub for all marketplace documentation.
 
 | Document | Description |
 |----------|-------------|
-| [Contributing Guide](./guide/[GUIDE]_Contributing.md) | 贡献入口；commit 段引用 Commit Message Convention（v4.5.0 起从 docs/CONTRIBUTING.md rename；v1.1 起 §Bare Repo + Worktree 加 `git branch` 前缀说明）|
 | [Migration From v3 to v4](./guide/[GUIDE]_Migration_From_v3_to_v4.md) | 版本升级迁移指引（v2.x → v3.0.0；v3.2.x → v4.0.0；v4.0.0 → v4.3.x；v4.4.x → v4.5.0；v4.5.0 起从 docs/MIGRATION_GUIDE.md rename）|
 | [Marketplace Project Overview](./guide/[GUIDE]_Marketplace_Project_Overview.md) | 项目架构、插件目录、CI/CD 体系、开发环境搭建 |
 | [Plugin Development Testing Workflow](./guide/[GUIDE]_Plugin_Development_Testing_Workflow.md) | 跨仓库插件开发测试的三阶段工作流 |
@@ -60,6 +73,7 @@ Navigation hub for all marketplace documentation.
 | [ADR: NotebookLM Kit Retirement](./adr/[ADR]_NotebookLM_Kit_Retirement.md) | v4.0.0 删除 notebooklm-kit + 把核心 build / studio 多媒体场景吸收到 learn-kit 的决策 |
 | [ADR: Documentation Framework Exemption Reversal](./adr/[ADR]_Documentation_Framework_Exemption_Reversal.md) | v4.5.0 取消 Framework v1.1 §1 单文件 + 教学系列模式豁免；supersedes 旧 Exemption Review ADR（archived）|
 | [ADR: Develop Pre-Bump Adoption](./adr/[ADR]_Develop_PreBump_Adoption.md) | v4.6.1 起每次 release + sync-main-to-develop 完成后，在 develop 上预 bump 到下一个 patch；保证 `develop VERSION > main VERSION` 恒成立，让 release readiness 信号肉眼可见 |
+| [ADR: Root-Level Named Files Codification](./adr/[ADR]_Root_Level_Named_Files_Codification.md) | v4.6.3 起正向 codification 5 个 root-level named special files 责任 + CLAUDE.md sync allowlist 3 类 trigger + A6 三层 defense-in-depth enforcement；complements v1.1 Reversal ADR negative cancellation with positive codification |
 
 > Plugin-internal ADRs（如 `[ADR]_LearnKit_Discovery_Skills`，v4.3.0 起迁入 `plugins/learn-kit/docs/adr/`）见各 plugin 的 docs/INDEX.md。
 
@@ -83,6 +97,7 @@ Navigation hub for all marketplace documentation.
 | Archived Doc | Original Path | Active Replacement | Archive Date | Trigger |
 |--------------|---------------|---------------------|--------------|---------|
 | [[DEPRECATED]_[ADR]_Documentation_Framework_Exemption_Review_v1.0.md](./archive/[DEPRECATED]_[ADR]_Documentation_Framework_Exemption_Review_v1.0.md) | docs/adr/[ADR]_Documentation_Framework_Exemption_Review.md | [`./adr/[ADR]_Documentation_Framework_Exemption_Reversal.md`](./adr/[ADR]_Documentation_Framework_Exemption_Reversal.md) | 2026-05-18 | #4 scope-redefining rename（decision reversed v1.4 → v1.5）|
+| [[DEPRECATED]_[GUIDE]_Contributing_v1.1.md](./archive/[DEPRECATED]_[GUIDE]_Contributing_v1.1.md) | docs/guide/[GUIDE]_Contributing.md | [`../CONTRIBUTING.md`](../CONTRIBUTING.md) (repo root) | 2026-05-18 | #4 scope-redefining rename（content restored to root per Framework v1.6 §1.1）|
 
 ## Templates (`docs/_templates/`)
 
@@ -123,7 +138,7 @@ v4.3.0 起 plugin-internal docs framework extension 落地；v4.5.0 起 v1.1 教
 
 1. [Marketplace Project Overview](./guide/[GUIDE]_Marketplace_Project_Overview.md) — 整体架构
 2. [Documentation Framework](./rule/[STANDARD]_Documentation_Framework.md) — 文档规范元框架
-3. [Contributing Guide](./guide/[GUIDE]_Contributing.md) + [Commit Message Convention](./rule/[STANDARD]_Commit_Message_Convention.md) — 贡献规范
+3. [Contributing](../CONTRIBUTING.md) + [Commit Message Convention](./rule/[STANDARD]_Commit_Message_Convention.md) — 贡献规范
 4. [Version Management](./guide/[GUIDE]_Version_Management.md) — 版本体系
 
 ### Plugin Developers
