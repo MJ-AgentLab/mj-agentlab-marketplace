@@ -266,7 +266,7 @@ Fallback:
 
 ### Must Follow
 - 本 STANDARD §3 HITL 通用规则
-- `docs/guide/[GUIDE]_Contributing.md`
+- `../../CONTRIBUTING.md`
 
 ### Consult If Affected
 - `docs/guide/[GUIDE]_Marketplace_Project_Overview.md`
@@ -364,7 +364,7 @@ Fallback:
 
 ### Must Follow
 - 本 STANDARD §3
-- `docs/guide/[GUIDE]_Contributing.md`
+- `../../CONTRIBUTING.md`
 
 ## Skill Hint
 
@@ -456,7 +456,7 @@ ADR 写作要求：
 ### Must Follow
 - 已确认的 Plan / ADR
 - `docs/guide/[GUIDE]_Marketplace_Project_Overview.md`（plugin 目录结构 + 官方约束）
-- 现有 plugin 作为风格样板：`plugins/learn-kit/`（本 marketplace 唯一 plugin；v1.0.0 含 5 个 skill：init / locate / scan / generate-tier / nlm-studio）
+- 现有 plugin 作为风格样板：`plugins/learn-kit/`（本 marketplace 唯一 plugin；v2.0.0 含 5 个 skill：scaffold-learning / locate / scan / generate-tier / nlm-studio）
 
 ### Consult If Affected
 - `docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md`（跨仓库测试三阶段）
@@ -476,7 +476,7 @@ Use When:
 
 Fallback:
 - 若 `/mp-flow-author` 不可用：直接 `/plugin-dev:create-plugin` 或 `/skill-creator:skill-creator`
-- 若全部 skill 不可用：手工按 plugin spec 创建 `.claude-plugin/plugin.json` + 必备 5 文件；SKILL.md 参 `plugins/learn-kit/skills/init/SKILL.md`
+- 若全部 skill 不可用：手工按 plugin spec 创建 `.claude-plugin/plugin.json` + 必备 5 文件；SKILL.md 参 `plugins/learn-kit/skills/scaffold-learning/SKILL.md`
 - 通用兜底：`superpowers:test-driven-development` / `superpowers:verification-before-completion`
 
 ## Rules
@@ -530,7 +530,7 @@ Use When:
 
 Fallback:
 - 若 `/mp-flow-compliance` 不可用：直接调 `/plugin-dev:skill-reviewer` + `/plugin-dev:plugin-validator`
-- 若全部 agent 不可用：人工对照 marketplace 既有 SKILL.md（如 learn-kit 的 init / locate / scan / generate-tier / nlm-studio 5 件）的 description 风格 + 手工跑 CI 6 步等价检查
+- 若全部 agent 不可用：人工对照 marketplace 既有 SKILL.md（如 learn-kit 的 scaffold-learning / locate / scan / generate-tier / nlm-studio 5 件）的 description 风格 + 手工跑 CI 6 步等价检查
 
 ## Rules
 
@@ -661,7 +661,7 @@ Fallback:
 ## Reference Docs
 
 ### Must Follow
-- `docs/guide/[GUIDE]_Contributing.md`（commit format / branch strategy）
+- `../../CONTRIBUTING.md`（commit format / branch strategy）
 - `.github/PULL_REQUEST_TEMPLATE/<type>.md`（按分支类型选）
 
 ## Skill Hint
@@ -676,7 +676,7 @@ Use When:
 - 用户："commit" / "push" / "create PR" / "提 PR"
 
 Fallback:
-- 若 mp-git 系列不可用：直接用 `git` + `gh` CLI；commit format 参 `docs/guide/[GUIDE]_Contributing.md` § Commit Convention
+- 若 mp-git 系列不可用：直接用 `git` + `gh` CLI；commit format 参 `../../CONTRIBUTING.md` § Commit Convention
 
 ## Rules
 
@@ -774,7 +774,7 @@ PR merge + release 完成后，本地 cleanup。
 ## Reference Docs
 
 ### Must Follow
-- `docs/guide/[GUIDE]_Contributing.md`（worktree 模式）
+- `../../CONTRIBUTING.md`（worktree 模式）
 
 ## Skill Hint
 
@@ -860,7 +860,7 @@ Fallback:
 按稳定性 + 域适配优先级:
 
 1. **最高优先 — 项目本地 `mp-*`**（类 1）：随本 repo 同 commit 演进，最稳定；专为 marketplace 11-stage 工作流设计；v1.1 首批 18 件覆盖 flow + git + doc 三 family
-2. **次高优先 — 本 marketplace 插件 `/learn-kit:*`**（类 2）：marketplace 唯一 plugin = learn-kit v1.0.0，含 5 个 skill（init / locate / scan / generate-tier / nlm-studio）；处理 plugin 内部教学方法论场景
+2. **次高优先 — 本 marketplace 插件 `/learn-kit:*`**（类 2）：marketplace 唯一 plugin = learn-kit v2.0.0，含 5 个 skill（scaffold-learning / locate / scan / generate-tier / nlm-studio）；处理 plugin 内部教学方法论场景
 3. **第三优先 — `plugin-dev` 工具链 + `skill-creator`**（类 3）：marketplace 维护工作流的事实标准（v3.0.0 + v3.1.0 实战验证）；被 `/mp-flow-author` / `/mp-flow-compliance` 内部 augment
 4. **最后兜底 — `superpowers:*`**（类 4）：通用方法学增强，跨任意 Claude Code 使用场景可用
 
@@ -872,7 +872,7 @@ Fallback:
 
 | 既有文档 | 本 STANDARD 引用方式 |
 |---------|--------------------|
-| `docs/guide/[GUIDE]_Contributing.md` | branch strategy / commit format / PR 流程 → §4.1 / §4.9 / §4.10 / §4.11 引用 |
+| `../../CONTRIBUTING.md` | branch strategy / commit format / PR 流程 → §4.1 / §4.9 / §4.10 / §4.11 引用 |
 | `docs/guide/[GUIDE]_Marketplace_Project_Overview.md` | plugin 目录结构 + CI/CD 体系 → §0 + §4.2 引用 |
 | `docs/guide/[GUIDE]_Version_Management.md` | dual-layer 版本规则 + bump 工具 → §4.2 / §4.10 引用 |
 | `docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md` | 跨仓库 plugin 开发测试 → §4.5 / §4.7 引用 |

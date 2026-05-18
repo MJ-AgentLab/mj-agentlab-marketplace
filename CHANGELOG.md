@@ -5,6 +5,79 @@
 
 ## [Unreleased]
 
+## [5.0.0] - 2026-05-18
+
+This release packages **two independent feature streams** that happened to land in the same merge window:
+
+1. **BREAKING — learn-kit `init` skill renamed to `scaffold-learning`** (drives the major bump). marketplace `4.6.3` → `5.0.0` follows learn-kit `1.2.1` → `2.0.0` (major on both layers per HITL STANDARD §3.1: "plugin rename = high-risk + major bump"). The v4.6.2 namespace-convention codification (documenting "always write `/learn-kit:init` fully-qualified, never bare `/init`") was a documentation-only constraint and did NOT prevent Claude Code's slash-command picker from listing both Claude Code's builtin `/init` (CLAUDE.md generator) and learn-kit's `/init` as parallel candidates. v5.0.0 physically resolves the collision by renaming the skill.
+2. **Documentation Framework v1.5 → v1.6** — root-level named files codification + CLAUDE.md sync allowlist + A6 active CI gate (the first concrete gate from §4.3 future-list). Originally targeted as v4.6.3 patch in `[Unreleased]` (12 logical commits across 15 files); absorbed into v5.0.0 since the major bump from Stream 1 supersedes the patch. Three binding decisions taken in plan-mode review: CONTRIBUTING.md restored to repo root (reverses v4.5.0 partial — guide版 archived per RUNBOOK ceremony); GLOSSARY.md created at root (~20 alphabetical terms); A6 enforced as 3-layer defense (PR template + skill Step 3.5 Warning + CI blocking step with `[skip a6]` bypass token). Reversal ADR bumped v1.0 → v1.1 with Decision 2 partial-reversal annotation. New companion ADR `[ADR]_Root_Level_Named_Files_Codification.md` v1.0 carries positive codification (5 decisions + 5 alternatives + consequences).
+
+Single-file `/init` migration (Stream 1):
+
+```text
+# v4.x (still functional in 4.6.x — collision visible in picker)
+/learn-kit:init                  → scaffold learning/ folder
+
+# v5.0.0
+/learn-kit:scaffold-learning     → scaffold learning/ folder
+                                   (typing `/init` no longer matches learn-kit)
+```
+
+### Added
+
+**Stream 1 — learn-kit init rename:**
+
+- **`docs/adr/[ADR]_LearnKit_Init_Skill_Rename.md`** v1.0 NEW — Full decision record (Status: Accepted, 2026-05-18). Captures the v1.2.1 dogfood evidence proving the documentation-only namespace convention is insufficient, enumerates 6 alternatives considered (rejected: bootstrap-learning / `scaffold` solo / `init-learning` substring / alias stub / minor-bump-only), and locks in the chosen path. Cited by HITL STANDARD §3.1 as the canonical example for "plugin rename = major + HITL gated" precedent.
+- **`docs/guide/[GUIDE]_Migration_From_v3_to_v4.md` §5** NEW — Section `v4.5.x → v5.0.0 (learn-kit 2.0.0 init→scaffold-learning rename)` providing before/after grep-and-replace recipe for downstream consumers (mj-system, mj-agent, external forks).
+
+**Stream 2 — Documentation Framework v1.6:**
+
+- **`docs/rule/[STANDARD]_Documentation_Framework.md`** v1.5 → v1.6 — §1.1 NEW Root-Level Named Special Files & Individual Responsibilities (5-row table with `Source of exclusion` column distinguishing §1 hard external-contract vs §1.1 editorial convention); §2.7 NEW CLAUDE.md Sync Allowlist (3 trigger categories: global standards `docs/rule/[STANDARD]_*.md` / runtime info `VERSION` + `marketplace.json` + plugin.json major-minor / directory entries `.claude/skills/mp-*/` + plugin skill dirs + `docs/` subdir structure changes) + 非触发 clause; §4.3.1 NEW A6 active CI gate spec replacing v1.5 placeholder. §1 itself unchanged (5-row hard-exclusion table preserved verbatim); §5 v1.6 row added. Non-trigger archive per §2.3.1 — file stays at stable path.
+- **`docs/adr/[ADR]_Root_Level_Named_Files_Codification.md`** v1.0 NEW — positive-codification ADR complementing Reversal ADR v1.1 negative cancellation. 5 decisions (§1.1 codify / CONTRIBUTING restore / GLOSSARY create / §2.7 allowlist / A6 三层 defense-in-depth) + 5 alternatives evaluated + bidirectional links to Reversal ADR.
+- **`CONTRIBUTING.md`** (repo root) NEW — full body restored from archived `[GUIDE]_Contributing.md` v1.1 with relative paths rewritten up 1 level (3 STANDARD links + 1 skill link). No frontmatter per §1.1 editorial convention. Restores GitHub-native "New Issue/PR" contributor prompt UI (auto-prompt only fires on root-level CONTRIBUTING.md). GLOSSARY cross-link inserted after H1.
+- **`GLOSSARY.md`** (repo root) NEW — ~25-term marketplace terminology dictionary (A6 Gate / ADR / Allowlist / Archive / Bare Repo / CLAUDE.md / Develop Pre-Bump / Editorial Convention / Frontmatter / HITL / Hook / INDEX / Living-vs-Frozen / marketplace.json / MCP / Named Special File / Plugin / README / RUNBOOK / Skill / 11-stage / TAG / VERSION / Worktree). Alphabetical H2 sections; no frontmatter; anchor links to authoritative STANDARDs.
+- **`.github/workflows/ci.yml`** A6 step "Validate CLAUDE.md sync allowlist" (~32 lines) — Layer 3 authoritative blocker in `validate` job. Algorithm: `git diff $BASE..$HEAD` + §2.7 regex + exit 1 if TRIGGERED non-empty AND root CLAUDE.md not in diff. Bypass: `[skip a6]` in PR title + reviewer sign-off "A6 N/A confirmed".
+- **`.claude/skills/mp-doc-validate/SKILL.md`** Step 3.5 NEW — Layer 2 pre-commit advisory. `git status --porcelain` + same regex; outputs Warning (not Critical; CI Layer 3 is authoritative). Frontmatter description updated to v1.6+ + Step 3.5 mention. Step 4 Categorize table updated.
+- **`.github/PULL_REQUEST_TEMPLATE.md`** A6 self-check item — Layer 1 soft reminder under "自检结果" section.
+
+### Changed (BREAKING)
+
+- **learn-kit `1.2.1` → `2.0.0`** — see [`plugins/learn-kit/CHANGELOG.md`](plugins/learn-kit/CHANGELOG.md) `[2.0.0]` for the full inventory:
+  - `git mv plugins/learn-kit/skills/init` → `plugins/learn-kit/skills/scaffold-learning`
+  - SKILL.md frontmatter `name: init` → `name: scaffold-learning`; H1 + body references updated; `disable-model-invocation: true` retained
+  - Cross-skill routing in locate / scan / generate-tier (8 refs)
+  - plugin README + CLAUDE.md + plugin-internal docs/INDEX + [GUIDE]_LearnKit_{Pedagogy,Design} + Discovery_Skills ADR §References
+
+### Changed
+
+**Stream 1 — marketplace-side rename housekeeping:**
+
+- **`.claude-plugin/marketplace.json`** — metadata.version `4.6.3 → 5.0.0`; plugins[learn-kit].version `1.2.1 → 2.0.0`; marketplace `metadata.description` and plugins[learn-kit].description both updated to reflect new skill name and v5.0.0 breaking-change callout.
+- **`VERSION`** — `4.6.3 → 5.0.0` (release.yml trigger on next merge to main).
+- **`README.md`** badge — `version-4.6.3-blue` → `version-5.0.0-blue` (CI gate Validate README badge matches VERSION); plugin description table version 1.2.0 → 2.0.0; skill row "init" renamed to "scaffold-learning"; usage example block updated to new slash name.
+- **`.gitignore`** — comment block at line 37-41 updated: `/learn-kit:init scaffolds learning/<topic>/` → `/learn-kit:scaffold-learning scaffolds learning/<topic>/`. Comment text only; the ignore rule itself (`/learning/`) is unchanged.
+- **`.claude/skills/mp-flow-author/SKILL.md`** §Reference Files wikilink to learn-kit style sample updated from `skills/init/SKILL.md` to `skills/scaffold-learning/SKILL.md`.
+
+**Stream 2 — v1.6 framework propagation:**
+
+- **`docs/adr/[ADR]_Documentation_Framework_Exemption_Reversal.md`** v1.0 → v1.1 — in-place amendment: Decision 2 `docs/CONTRIBUTING.md` row marked "(partially reversed in v4.6.3 — 内容回归 repo-root per Root_Level_Named_Files_Codification Decision 2; guide版 archive 至 [DEPRECATED]_[GUIDE]_Contributing_v1.1.md)". Revision block appended; `state` stays active; `related[]` adds new ADR. Other 4 decisions (HITL workflow internalization / MIGRATION rename / INDEX special clause / teaching-series cancellation / nlm-shared cleanup) remain fully active.
+- **`docs/INDEX.md`** v4.6.2 → v5.0 — new "Root-Level Meta Files" H2 section with 5-row table (Responsibility + Source of exclusion columns); `[Documentation Framework]` row v1.5 → v1.6; remove `[Contributing Guide]` active row (archived); add `[DEPRECATED]_[GUIDE]_Contributing_v1.1` row to Archived Documents table; add `[ADR]_Root_Level_Named_Files_Codification` row + `[ADR]_LearnKit_Init_Skill_Rename` row to ADRs; Suggested Reading Order link upgraded to root `CONTRIBUTING.md`.
+- **`CLAUDE.md`** (repo root) — Documentation Framework section v1.5/v4.5.0 → v1.6/v4.6.3; new "v4.6.3 起 Root-Level Named Files" paragraph (5 files bullet list + §2.7 sync allowlist explanation); 历史版本记录 appended v4.6.x entry; learn-kit version reference 1.2.1 → 2.0.0 with v2.0.0 BREAKING callout pointing to rename ADR.
+- **`docs/runbook/[RUNBOOK]_Doc_Archive_Procedure.md`** `last-verified:` bumped 2026-05-17 → 2026-05-18 (Phase 1-4 re-exercised by CONTRIBUTING archive ceremony). No body change.
+- **`.github/ISSUE_TEMPLATE/config.yml`** URL `blob/develop/docs/CONTRIBUTING.md` → `blob/develop/CONTRIBUTING.md` — fixes already-broken pre-v1.5 path now correct per v4.6.3 root restoration.
+- **Cross-reference fanout (13 living refs)** — `docs/guide/[GUIDE]_Contributing.md` → root `CONTRIBUTING.md` upgrades in: `[STANDARD]_Commit_Message_Convention` (frontmatter related: + §1 prose + §5 prose) / `[STANDARD]_AI_Engineering_Execution_HITL_Prompt` (6 body refs across §4.1 / §4.3 / §4.9 / §4.11 / §6 既有文档表) / 3 GUIDEs (Project_Overview / Agent_Execution_Checklist / Migration_From_v3_to_v4 with v4.6.3 annotation) / `[RUNBOOK]_Release_Operations` §8 / 6 mp-* SKILLs (git-branch / git-cleanup / git-commit / git-push / git-pr / flow-self-review wikilinks). Framework §1 v1.5 cancellation note annotated with v1.6 partial reversal pointer. Frozen refs in CHANGELOG / Reversal ADR body / POSTMORTEM preserved per §2.3.4 frozen-reference rule.
+
+### Removed (via archive)
+
+- **`docs/guide/[GUIDE]_Contributing.md`** v1.1 → `docs/archive/[DEPRECATED]_[GUIDE]_Contributing_v1.1.md` — §2.3.1 trigger #4 (split-merge-rename) scope-redefining rename; content moved back to repo-root `CONTRIBUTING.md`. Archive ceremony per RUNBOOK Phase 1-4 + Gate D-02 fires (~13 living refs upgraded to root path; ~3 frozen refs preserved). Frontmatter rewrite: state active → archived; archived: 2026-05-18; replaced-by: ../../CONTRIBUTING.md; revision block appended. Archive Banner inserted per §2.3.3.
+
+### Notes
+
+- Historical CHANGELOG entries (this file and `plugins/learn-kit/CHANGELOG.md`) retain original `/learn-kit:init` wording for entries v0.1.0 through v1.2.1 / v3.0.0 through v4.6.x — factual record, not rewritten.
+- No code behavior change in any of the other 4 learn-kit skills (locate / scan / generate-tier / nlm-studio); only their cross-skill routing pointers updated.
+- `disable-model-invocation: true` on the renamed `scaffold-learning` skill continues to block LLM auto-routing; the slash-picker collision was a separate UX issue not addressable by that flag (validated by v1.2.1 dogfood screenshot).
+- Stream 1 + Stream 2 are independent — they share the v5.0.0 release boat only because the major bump triggered by Stream 1 absorbs Stream 2's unreleased `[Unreleased]` content. Either could ship without the other; bundling them avoids fragmenting downstream upgrade work.
+
 ## [4.6.2] - 2026-05-18
 
 This release packages **cleanup-hardening** (project's first POSTMORTEM + `safe-bulk-cleanup.ps1` + `/mp-git-cleanup` §Bulk Cleanup Mode + 3 procedural cross-references) plus **learn-kit plugin docs polish** (nlm-studio SKILL.md frontmatter description trimmed below the 1,536-char cap to eliminate `/doctor` warning, plus a 5-skill slash invocation namespace convention codified across 3 plugin docs).

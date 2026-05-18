@@ -125,9 +125,11 @@ Detailed dogfood matrix in plan §8.1.
 
 ## 7. References
 
-- Existing skill: `plugins/learn-kit/skills/init/SKILL.md`
-- Existing methodology: `plugins/learn-kit/skills/init/templates/METHODOLOGY.md`
-- Worked example: `plugins/learn-kit/skills/init/references/rfc-2119-keywords-pedagogy.md`
+> **Note (v2.0.0)**: skill 名 `init` 已在 marketplace v5.0.0 / learn-kit v2.0.0 改名为 `scaffold-learning`（详见 [`../../../../docs/adr/[ADR]_LearnKit_Init_Skill_Rename.md`](../../../../docs/adr/[ADR]_LearnKit_Init_Skill_Rename.md)）。本 ADR 撰写于 v0.2.0 当时使用 `init` 命名；下面路径已更新为当前真实位置。
+
+- Existing skill: `plugins/learn-kit/skills/scaffold-learning/SKILL.md`
+- Existing methodology: `plugins/learn-kit/skills/scaffold-learning/templates/METHODOLOGY.md`
+- Worked example: `plugins/learn-kit/skills/scaffold-learning/references/rfc-2119-keywords-pedagogy.md`
 - Marketplace structure: `docs/guide/[GUIDE]_Marketplace_Project_Overview.md`
 - Version policy: `docs/guide/[GUIDE]_Version_Management.md`
 - Release flow: `docs/runbook/[RUNBOOK]_Release_Operations.md`

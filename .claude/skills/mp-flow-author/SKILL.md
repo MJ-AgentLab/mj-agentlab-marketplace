@@ -174,7 +174,7 @@ digraph author {
 - [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §4.5
 - [[../../../docs/guide/[GUIDE]_Marketplace_Project_Overview|Marketplace Overview]] (plugin 目录结构)
 - [[../../../docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow|Plugin Dev Testing]] (跨仓库测试三阶段)
-- [[../../../plugins/learn-kit/skills/init/SKILL.md|learn-kit init SKILL]] (style sample)
+- [[../../../plugins/learn-kit/skills/scaffold-learning/SKILL.md|learn-kit scaffold-learning SKILL]] (style sample)
 
 ## Anti-patterns
 

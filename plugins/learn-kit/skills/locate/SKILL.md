@@ -130,7 +130,7 @@ Take the top 3–5 candidates. For each, generate a recommended next action phra
 
 - **Interpreted [LEARNING] hit**: "Open with `Read` tool: `<path>`. This is prebuilt pedagogical material covering the concept."
 - **Source-only hit, project has `learning/`**: "Open with `Read` tool: `<path>` (raw source). After reading, consider authoring an interpretation at `learning/<new-topic>/[LEARNING]_*.md` following `learning/_meta/METHODOLOGY.md`."
-- **Source-only hit, project has no `learning/`**: "Open with `Read` tool: `<path>` (raw source). Then run `/learn-kit:init` to scaffold the learning subsystem, then apply METHODOLOGY to the source."
+- **Source-only hit, project has no `learning/`**: "Open with `Read` tool: `<path>` (raw source). Then run `/learn-kit:scaffold-learning` to scaffold the learning subsystem, then apply METHODOLOGY to the source."
 
 ### Step 4: Fallback (when Steps 1–3 produce no hits)
 
@@ -186,7 +186,7 @@ The skill is stateless by design — every invocation re-scans the filesystem. N
 
 ## Sibling skills
 
-- **`/learn-kit:init`** — scaffold the `learning/` subsystem in a fresh project. Must run once before `locate` can find any interpreted docs.
+- **`/learn-kit:scaffold-learning`** — scaffold the `learning/` subsystem in a fresh project. Must run once before `locate` can find any interpreted docs.
 - **`/learn-kit:scan`** — enumerate *all* learnable candidates in the project. Use when the user has not named a specific concept yet ("what can I learn here?"). This is the open-ended counterpart to `locate`'s named-concept lookup.
 - **`/learn-kit:generate-tier`** — after `locate` returns a source canonical doc, optionally feed it into generate-tier to produce three-tier learning documents (foundation / structural / challenge) with AI, plus optional interactive HTML.
 

@@ -113,8 +113,8 @@ Total: 15-25 keywords. Used by marketplace search and Claude Code's plugin disco
 ```json
 {
   "name": "learn-kit",
-  "version": "1.0.0",
-  "description": "Pedagogical kit for learnable knowledge artifacts. Five skills: (1) /learn-kit:init scaffolds the learning subsystem; (2) /learn-kit:locate reverse-looks up concepts; (3) /learn-kit:scan enumerates learnable docs; (4) /learn-kit:generate-tier AI-generates three-tier (foundation/structural/challenge) learning markdown plus optional interactive HTML; (5) /learn-kit:nlm-studio pushes a topic's three-tier markdown corpus to NotebookLM and generates up to 13 online-viewable multimedia artifacts. nlm-studio requires notebooklm-mcp MCP server (bundled) + nlm login; the other four skills run with no external dependencies.",
+  "version": "2.0.0",
+  "description": "Pedagogical kit for learnable knowledge artifacts. Five skills: (1) /learn-kit:scaffold-learning scaffolds the learning subsystem; (2) /learn-kit:locate reverse-looks up concepts; (3) /learn-kit:scan enumerates learnable docs; (4) /learn-kit:generate-tier AI-generates three-tier (foundation/structural/challenge) learning markdown plus optional interactive HTML; (5) /learn-kit:nlm-studio pushes a topic's three-tier markdown corpus to NotebookLM and generates up to 13 online-viewable multimedia artifacts. nlm-studio requires notebooklm-mcp MCP server (bundled) + nlm login; the other four skills run with no external dependencies.",
   "author": { "name": "MJ-AgentLab" },
   "repository": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace",
   "keywords": [

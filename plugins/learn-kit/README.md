@@ -54,22 +54,22 @@
 
 ## 命名约定 · slash 调用必须全限定
 
-本插件提供 5 个 skill：`init` / `scan` / `locate` / `generate-tier` / `nlm-studio`。所有 slash 调用**统一使用全限定形式 `/learn-kit:<skill>`**，不允许裸写 `/<skill>`。
+本插件提供 5 个 skill：`scaffold-learning` / `scan` / `locate` / `generate-tier` / `nlm-studio`。所有 slash 调用**统一使用全限定形式 `/learn-kit:<skill>`**，不允许裸写 `/<skill>`。
 
 具体规则：
 
-- ✅ 写 `/learn-kit:init`、`/learn-kit:scan`、`/learn-kit:locate`、`/learn-kit:generate-tier`、`/learn-kit:nlm-studio`
-- ❌ 不写裸 `/init`、`/scan`、`/locate`、`/generate-tier`、`/nlm-studio` 指代 learn-kit 行为
+- ✅ 写 `/learn-kit:scaffold-learning`、`/learn-kit:scan`、`/learn-kit:locate`、`/learn-kit:generate-tier`、`/learn-kit:nlm-studio`
+- ❌ 不写裸 `/scaffold-learning`、`/scan`、`/locate`、`/generate-tier`、`/nlm-studio` 指代 learn-kit 行为
 
 理由：
 
-1. **避免与 Claude Code 内置冲突** —— 内置已存在 `init`（生成 CLAUDE.md），与本插件 `init` 同名但目的完全不同；其余 4 个 skill 当前不撞，但 Claude Code 未来可能新增同名内置，统一约定可未来防御。
+1. **避免与 Claude Code 内置冲突** —— 历史上本插件曾用 skill 名 `init` 与内置 `/init`（生成 CLAUDE.md）同名，slash 拾取器并列两条 `/init`；v2.0.0 起 init → `scaffold-learning` 重命名物理消除冲突（详见 [`docs/adr/[ADR]_LearnKit_Init_Skill_Rename.md`](../../docs/adr/[ADR]_LearnKit_Init_Skill_Rename.md)）。Claude Code 未来可能新增其他同名内置，统一全限定约定是未来防御。
 2. **可发现性** —— 读者看到 `/learn-kit:<X>` 立刻知道来源是本插件；裸 `/<X>` 在长 PR / tutorial 上下文里语义二义。
 3. **AI agent 自检友好** —— skill-registry 路由 token 永远带 namespace，避免大模型在自然语言指代时把不同来源的同名 skill 搞混。
 
-**特别说明**：learn-kit 的 `init` SKILL.md 设置了 `disable-model-invocation: true` 作为额外护栏（防止 LLM 自然语言路由），其余 4 个 skill 没设此 flag（它们设计上允许自然语言路由）—— 但**用户显式调用入口**统一走 namespace 的规则适用于全部 5 个。
+**特别说明**：learn-kit 的 `scaffold-learning` SKILL.md 设置了 `disable-model-invocation: true` 作为额外护栏（防止 LLM 自然语言路由），其余 4 个 skill 没设此 flag（它们设计上允许自然语言路由）—— 但**用户显式调用入口**统一走 namespace 的规则适用于全部 5 个。
 
-如果你看到本仓任何文档裸写 `/init` / `/scan` / `/locate` / `/generate-tier` / `/nlm-studio` 指代 learn-kit 行为，请提 issue 或 PR 修正。
+如果你看到本仓任何文档裸写 `/scaffold-learning` / `/scan` / `/locate` / `/generate-tier` / `/nlm-studio` 指代 learn-kit 行为，请提 issue 或 PR 修正。
 
 ## 中文 TL;DR · 30 秒认知
 
@@ -77,7 +77,7 @@
 
 | Skill | 一句话 | 触发关键词 |
 |-------|--------|-----------|
-| `/learn-kit:init` | 在项目根 scaffold `learning/` 子系统骨架（一次性）| "初始化学习子系统" |
+| `/learn-kit:scaffold-learning` | 在项目根 scaffold `learning/` 子系统骨架（一次性）| "初始化学习子系统" |
 | `/learn-kit:scan` | 枚举项目所有可学候选文档 + 标注已解读 / 未解读 | "项目里有什么可学的" |
 | `/learn-kit:locate <query>` | 反查具体概念 / 口诀 / 部分文档名到对应文档 | "学 X / 解释 X / X 在哪" |
 | `/learn-kit:generate-tier` | AI 生成三档（零基础 / 结构 / 挑战）学习文档 + 可选 HTML | "为 X 生成学习文档 / 三档学习材料" |
@@ -88,7 +88,7 @@
 **场景**：你想把项目里的某个 STANDARD 文档变成可学习材料 + 多媒体。
 
 ```text
-Step 1 (一次性)         /learn-kit:init
+Step 1 (一次性)         /learn-kit:scaffold-learning
                        → 在 <project-root>/learning/ 下创建骨架
 
 Step 2 (开放式发现)      "项目里有什么可学的？"
@@ -130,7 +130,7 @@ Step 6 (后续追问)        "DLSRS 在哪个文档？"
 ### 案例 A：完全新人 onboard 一个项目
 
 ```text
-1. /learn-kit:init                                # 第一天
+1. /learn-kit:scaffold-learning                   # 第一天
 2. "项目里有什么可学的"                            # 第一周
    → scan 返回 top 5 uninterpreted STANDARD
 3. "为 STANDARD_HITL 主题生成三档学习文档"          # 锁定第一个主题
@@ -147,7 +147,7 @@ Step 6 (后续追问)        "DLSRS 在哪个文档？"
 ### 案例 B：团队成员想为某个 spec 出培训材料
 
 ```text
-1. /learn-kit:init  (如果没初始化)
+1. /learn-kit:scaffold-learning  (如果没初始化)
 2. "为 service-architecture 主题，基于 docs/rule/[STANDARD]_SvcArch.md
     + docs/[ADR]_Service_Decomposition.md 出三档学习材料 + HTML"
    → skill 直接走 step 2-8（已知 source paths + tiers + html_hint = 是）
@@ -206,7 +206,7 @@ Step 6 (后续追问)        "DLSRS 在哪个文档？"
 在你的项目根目录运行：
 
 ```
-/learn-kit:init
+/learn-kit:scaffold-learning
 ```
 
 执行后会在 `<project-root>/learning/` 下创建：
@@ -228,7 +228,7 @@ learning/
 ### 3a. 手工流：按 METHODOLOGY 8 阶段写
 
 - 通读 `learning/_meta/METHODOLOGY.md`（8 阶段方法）
-- 参考 worked example：`<plugin-root>/skills/init/references/rfc-2119-keywords-pedagogy.md`（应用 8 阶段到 RFC 2119 的完整示范）
+- 参考 worked example：`<plugin-root>/skills/scaffold-learning/references/rfc-2119-keywords-pedagogy.md`（应用 8 阶段到 RFC 2119 的完整示范）
 - `mkdir learning/<topic-slug>/`
 - 按 8 阶段方法论编写 `learning/<topic-slug>/[LEARNING]_<Source>_<Aspect>.md`
 

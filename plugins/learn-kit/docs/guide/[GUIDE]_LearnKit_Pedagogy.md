@@ -560,8 +560,8 @@ MAY 是 **极性中立**——这是非对称:
 
 | 想知道什么 | 读哪里 |
 |----------|--------|
-| 完整 8 阶段方法论（602 行）| `plugins/learn-kit/skills/init/templates/METHODOLOGY.md` §1-§8 |
-| RFC 2119 worked example 原文（249 行）| `plugins/learn-kit/skills/init/references/rfc-2119-keywords-pedagogy.md` |
+| 完整 8 阶段方法论（602 行）| `plugins/learn-kit/skills/scaffold-learning/templates/METHODOLOGY.md` §1-§8 |
+| RFC 2119 worked example 原文（249 行）| `plugins/learn-kit/skills/scaffold-learning/references/rfc-2119-keywords-pedagogy.md` |
 | 子系统元规则 | METHODOLOGY.md §9 |
 | 治理边界详情 | `./[GUIDE]_LearnKit_Design.md` §4-§6 |
 | 5 skills 工作流 | `./[GUIDE]_LearnKit_Design.md` §1 |

@@ -19,7 +19,7 @@ This skill replaces that guesswork with a single enumeration pass that:
 - Ranks by citation frequency — docs referenced often by other docs are usually load-bearing
 - Surfaces a "suggested reading order" so the user doesn't have to invent priorities themselves
 
-Combined with `/learn-kit:locate` (concept-driven) and `/learn-kit:init` (one-time scaffold), this completes the discovery surface of `learn-kit` without introducing any persistent state.
+Combined with `/learn-kit:locate` (concept-driven) and `/learn-kit:scaffold-learning` (one-time scaffold), this completes the discovery surface of `learn-kit` without introducing any persistent state.
 
 ## When to invoke
 
@@ -205,7 +205,7 @@ If `has_learning=false`, replace the "Interpreted canonical docs" section with:
 ```
 ### Interpreted canonical docs
 
-No `learning/` subsystem detected. Run `/learn-kit:init` to scaffold it before authoring any [LEARNING] interpretations.
+No `learning/` subsystem detected. Run `/learn-kit:scaffold-learning` to scaffold it before authoring any [LEARNING] interpretations.
 ```
 
 ## Performance notes
@@ -217,7 +217,7 @@ Like `locate`, this skill is stateless — every invocation re-scans. No cache, 
 ## Sibling skills
 
 - **`/learn-kit:locate <query>`** — concept-driven reverse lookup. Use when the user names a specific concept (mnemonic, doc title fragment) rather than asking for an overview.
-- **`/learn-kit:init`** — scaffold the `learning/` subsystem in a fresh project. Required before scan can mark anything as "interpreted".
+- **`/learn-kit:scaffold-learning`** — scaffold the `learning/` subsystem in a fresh project. Required before scan can mark anything as "interpreted".
 - **`/learn-kit:generate-tier`** — after `scan` surfaces a top-priority uninterpreted doc, optionally feed it into generate-tier to produce three-tier learning documents (foundation / structural / challenge) with AI, plus optional interactive HTML.
 
 ## Non-goals

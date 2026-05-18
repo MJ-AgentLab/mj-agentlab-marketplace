@@ -1,27 +1,35 @@
 ---
 type: guide
 scope: marketplace
-summary: Marketplace 贡献指南 — 分支策略 + commit 规范 + 版本管理 + PR 流程
+summary: Marketplace 贡献指南（archived; content restored to repo-root CONTRIBUTING.md per Framework v1.6 §1.1 root-level named files codification）
 owner: marketplace-maintainers
 created: 2026-03-16
 updated: 2026-05-18
-state: active
+state: archived
 version: v1.1
+archived: 2026-05-18
+replaced-by: ../../CONTRIBUTING.md
 domain: governance
 tags:
   - contributing
   - workflow
   - onboarding
+  - archived
 related:
-  - ../rule/[STANDARD]_Commit_Message_Convention.md
-  - ../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
-  - ./[GUIDE]_Migration_From_v3_to_v4.md
+  - ../rule/[STANDARD]_Documentation_Framework.md
+  - ../adr/[ADR]_Root_Level_Named_Files_Codification.md
+  - ../adr/[ADR]_Documentation_Framework_Exemption_Reversal.md
 revision: |
+  2026-05-18 — archived: §2.3.1 trigger #4 (split-merge-rename); content moved back to repo-root `CONTRIBUTING.md` per Framework v1.6 §1.1 codification + [`[ADR]_Root_Level_Named_Files_Codification`](../adr/[ADR]_Root_Level_Named_Files_Codification.md) Decision 2; partially reverses Reversal ADR v1.0 (which is bumped to v1.1 with amendment note in same PR). state: active → archived in this commit; ceremony per RUNBOOK Phase 1-4 + Gate D-02 fires (~13 living refs across 13 files upgraded).
   2026-05-18 — v1.1: §Bare Repo + Worktree 加 "`git branch` 输出前缀（worktree 模式特有）" 子段，列出 3 种前缀 (`  ` / `* ` / `+ `) 含义 + 过滤脚本必须用 `[ *+]` 字符类的警告；交叉引用 mp-git-cleanup §Bulk Cleanup Mode + POSTMORTEM_2026-05-18。源于 2026-05-18 bulk cleanup 误删 main local ref 的 P3 incident。Non-trigger archive。
   2026-05-18 — v1.0: rename docs/CONTRIBUTING.md → docs/guide/[GUIDE]_Contributing.md + 加 frontmatter（Framework v1.5 §1 cancel single-file exemption）；fix 4 处 rule/ 相对路径；移除 cross-project 引用
 ---
 
 # 贡献指南 — MJ AgentLab Marketplace
+
+> **Archived**: This doc is `state: archived` (frozen at v1.1). Superseded by [CONTRIBUTING.md (repo root)](../../CONTRIBUTING.md).
+> **Archive reason**: Framework v1.6 §1.1 codifies CONTRIBUTING.md as a root-level named special file; content moved back to repo root to restore GitHub-native "New Issue/PR" contributor prompt UI. Trigger #4 (scope-redefining rename).
+> **Archived on**: 2026-05-18. Content frozen — do not modify except for typo corrections.
 
 本文档面向人类贡献者，说明分支策略、提交规范、版本管理和发布流程。
 Claude Code agent 行为规范请参考 [`../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`](../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)（marketplace 11 阶段闭环 + Skill 矩阵）以及 `.claude/skills/mp-*/SKILL.md` 项目本地工作流 skill。
