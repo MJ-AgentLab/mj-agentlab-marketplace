@@ -47,30 +47,40 @@
 - 模板 / references / scripts 放在 skill 目录内部
 - 不使用 `components` 字段（auto-discovery 标准）
 
-## Documentation Framework (v4.2.0 起；当前 v1.5 / marketplace v4.5.0)
+## Documentation Framework (v4.2.0 起；当前 v1.6 / marketplace v4.6.3)
 
 marketplace 文档体系遵循以下三层 STANDARD（位于 `docs/rule/`）:
 
-- **[Documentation Framework](docs/rule/[STANDARD]_Documentation_Framework.md)** v1.5 — 6 tag prefixes（STANDARD/ADR/GUIDE/RUNBOOK/SPEC/POSTMORTEM）+ 8-field frontmatter + 3-state machine + path stability + INDEX sync；v1.5 起取消 §1 豁免机制，保留 5 类 community/external-spec exclusion
+- **[Documentation Framework](docs/rule/[STANDARD]_Documentation_Framework.md)** v1.6 — 6 tag prefixes（STANDARD/ADR/GUIDE/RUNBOOK/SPEC/POSTMORTEM）+ 8-field frontmatter + 3-state machine + path stability + INDEX sync；v1.5 起取消 §1 豁免机制保留 5 类 community/external-spec hard exclusion；v1.6 新增 §1.1 root-level named files 正向 codification（5 files 各自固定责任 + Source of exclusion 列）+ §2.7 CLAUDE.md sync allowlist（3 类 trigger）+ §4.3.1 A6 active CI gate
 - **[Commit Message Convention](docs/rule/[STANDARD]_Commit_Message_Convention.md)** v1.1 — `<type>(<scope>): <summary>` + 7 types + marketplace scope whitelist + branch-type matrix + §11 Common Mistakes
 - **[GitHub Markdown](docs/rule/[STANDARD]_GitHub_Markdown.md)** — ATX headings + GFM tables + native alerts + frontmatter syntax
 
-文档目录子结构（v4.5.0 起所有 tag-prefixed 文档已归位 + flat archive layout）:
+文档目录子结构（v4.6.3 起 v1.6 §1.1 root-level named files 编码完整）:
 
 ```
 docs/
 ├── INDEX.md            # 唯一豁免 frontmatter (Framework v1.5 §1 INDEX special clause)
 ├── rule/        — STANDARDs (Framework / Commit / GitHub Markdown / HITL Prompt 4 active)
-├── guide/       — GUIDEs (含 [GUIDE]_Contributing + [GUIDE]_Migration_From_v3_to_v4 自 v4.5.0 起)
-├── runbook/     — RUNBOOKs
-├── adr/         — ADRs (v4.5.0 加 Exemption Reversal；ADR-LearnKit 在 plugin 内)
+├── guide/       — GUIDEs (Migration_From_v3_to_v4 / Marketplace_Project_Overview / Plugin_Development_Testing_Workflow / Version_Management / Marketplace_Agent_Execution_Checklist 5 active；Contributing 自 v4.6.3 回 repo root)
+├── runbook/     — RUNBOOKs (Release_Operations / Doc_Archive_Procedure 2 active)
+├── adr/         — ADRs (v4.5.0 加 Exemption Reversal v1.1；v4.6.1 加 Develop_PreBump_Adoption；v4.6.3 加 Root_Level_Named_Files_Codification)
 ├── spec/        — SPECs (2 seeds in v4.2.0)
-├── postmortem/  — empty placeholder
+├── postmortem/  — POSTMORTEM (v4.6.2 add Bulk_Cleanup_Trap_Analysis P3)
 ├── archive/     — flat layout (Framework v1.4 §2.3.5；`[DEPRECATED]_[TAG]_*_vX.Y.md` 命名)
 └── _templates/  — 6 templates (TEMPLATE_{STANDARD,ADR,GUIDE,RUNBOOK,SPEC,POSTMORTEM}.md)
 ```
 
-Templates 与 mp-doc-author skill 协作起草新文档；mp-doc-validate skill 审计合规。详见 [docs/INDEX.md](docs/INDEX.md)。
+**v4.6.3 起 Root-Level Named Files**（per Framework v1.6 §1.1）：仓库根目录 5 个 named special files 各承担固定独立责任，免 `[TAG]_` prefix 约束：
+
+- [`README.md`](README.md) — GitHub 公开入口（badges + TL;DR + 插件目录 + quick-start + 链路）
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) — 贡献入口（branch / commit / version / PR / hooks；v4.6.3 起回 root 触发 GitHub New Issue/PR auto-prompt）
+- [`CHANGELOG.md`](CHANGELOG.md) — Keep-a-Changelog 发布日志
+- [`GLOSSARY.md`](GLOSSARY.md) — marketplace 术语词典（v4.6.3 新建；按字母顺序术语 → 1 句定义）
+- `CLAUDE.md`（本文件）— AI agent + 维护者上下文摘要
+
+`CLAUDE.md` 内容受 [§2.7 Sync Allowlist](docs/rule/[STANDARD]_Documentation_Framework.md#§27-claudemd-sync-allowlist-v16-new) 约束：触及 global standards（`docs/rule/[STANDARD]_*.md`）/ runtime info（`VERSION` + `marketplace.json` + plugin.json major/minor）/ directory entries（`.claude/skills/mp-*/` + plugin skill dirs + `docs/` 子目录结构变更）的 PR 必须同步本文件（§4.3.1 A6 CI gate 阻断，`[skip a6]` PR title token 可绕过 + reviewer sign-off）。
+
+Templates 与 mp-doc-author skill 协作起草新文档；mp-doc-validate skill 审计合规（v4.6.3 起含 Step 3.5 CLAUDE.md sync Warning 检测）。详见 [docs/INDEX.md](docs/INDEX.md)。
 
 ## v4.0.0 Restructure Note
 
@@ -97,6 +107,7 @@ Templates 与 mp-doc-author skill 协作起草新文档；mp-doc-validate skill 
 - **v4.2.0**（2026-05-15）：Documentation Framework v1.0 入库；3 STANDARDs（Framework / Commit / GitHub Markdown）+ INDEX + 6 templates 落地
 - **v4.3.x – v4.4.11**（2026-05-15）：framework refinement / docs reorg / hook + CI consolidation / archive 机制 v4.4.0 引入 + v4.4.x flat layout
 - **v4.5.0**（2026-05-18）：Framework v1.4 → v1.5 取消 §1 豁免机制；HITL v1.3 → v1.4 §0 universal skeleton 内化；learn-kit v1.1.0 → v1.2.0 教学文档 6 → 2 [GUIDE] 合并；marketplace 独立性原则确立；8-layer commit-validation stack 完工
+- **v4.6.x**（2026-05-18）：v4.6.1 develop post-release pre-bump 机制 (per [ADR]_Develop_PreBump_Adoption)；v4.6.2 POSTMORTEM Bulk_Cleanup_Trap_Analysis P3 + bump-version script regex fix；v4.6.3 Framework v1.5 → v1.6 root-level named files codification + §2.7 CLAUDE.md sync allowlist + §4.3.1 A6 active CI gate + Reversal ADR v1.0 → v1.1 amendment + CONTRIBUTING.md restore to root + GLOSSARY.md create + [GUIDE]_Contributing archive ceremony
 
 ## AI Engineering
 

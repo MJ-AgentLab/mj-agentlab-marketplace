@@ -16,7 +16,7 @@ related:
   - ./[STANDARD]_Documentation_Framework.md
   - ./[STANDARD]_GitHub_Markdown.md
   - ./[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
-  - ../guide/[GUIDE]_Contributing.md
+  - ../../CONTRIBUTING.md
 revision: |
   2026-05-18 — v1.1: §11 Common Mistakes 新章（4 个 v4.5.0 后失败模式 + remediation）；companion scripts/validate-commits.{sh,ps1} + install-hooks.ps1 pre-push hook + 3 skill integrations（mp-git-commit / mp-git-push / mp-flow-self-review）；§9.3 Future CI Gates 更新指向新脚本；PATTERN regex 无变化（向后兼容）
   2026-05-15 — v1.0: Initial canonical commit convention
@@ -28,7 +28,7 @@ revision: |
 
 This STANDARD applies to every commit on the `mj-agentlab-marketplace` repository, regardless of branch type or contributor (human or AI agent).
 
-`docs/guide/[GUIDE]_Contributing.md` carries a 5-line summary plus a link here; this STANDARD is the canonical source. CI hooks and `/mp-git-commit` skill enforce this format.
+Root `CONTRIBUTING.md` (per Documentation Framework v1.6 §1.1 root-level named files codification) carries a 5-line summary plus a link here; this STANDARD is the canonical source. CI hooks and `/mp-git-commit` skill enforce this format.
 
 ## §2 Format
 
@@ -102,7 +102,7 @@ This STANDARD applies to every commit on the `mj-agentlab-marketplace` repositor
 
 ## §5 Branch-Type × Commit-Type Matrix
 
-Marketplace uses 6 branch types (per `docs/guide/[GUIDE]_Contributing.md`). Each branch type allows a specific set of commit types:
+Marketplace uses 6 branch types (per root `CONTRIBUTING.md`). Each branch type allows a specific set of commit types:
 
 | Branch Type | Allowed Commit Types | Common Misuse |
 |-------------|---------------------|---------------|
