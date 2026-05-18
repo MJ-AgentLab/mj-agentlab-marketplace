@@ -15,6 +15,8 @@
 
 - **Bare repo worktree model**: 每个分支对应独立 worktree 目录，不使用 `git checkout`
 - **Dual-layer versioning**: marketplace 整体版本（`VERSION`）和各插件版本（`plugin.json`）独立管理
+- **Develop post-release pre-bump (v4.6.1 起)**: 每次 release + sync-main-to-develop 完成后，在 `develop` 上额外 `bump-version.ps1 -From X.Y.Z -To X.Y.(Z+1)` 一个 commit；保证 `develop VERSION > main VERSION` 恒成立。Pure patch 风格无 `-dev` 后缀；只 bump 顶层 VERSION，不连带 plugin.json。详见 [docs/adr/[ADR]_Develop_PreBump_Adoption.md](docs/adr/[ADR]_Develop_PreBump_Adoption.md) + [docs/runbook/[RUNBOOK]_Release_Operations.md](docs/runbook/[RUNBOOK]_Release_Operations.md) §3.7。
+- **Develop README badge 语义**：`develop` 分支的 Version badge = 预计下一个 release 号（因 post-release pre-bump 机制）；实际已发布版本以 GitHub Releases / `main` 分支 badge 为准。
 - **Commit format**: `<type>(<scope>): <summary>` — types: feat, fix, perf, refactor, test, docs, infra
 - **Branch types**: feature/, bugfix/, documentation/, maintain/, hotfix/
 

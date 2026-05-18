@@ -25,3 +25,4 @@ about: 紧急修复 (hotfix/*) 的 Pull Request，目标分支为 main
 - [ ] 无引入新的回归问题
 - [ ] 仅包含 `fix` 类型 commit
 - [ ] 合并后已计划同步到 develop
+- [ ] CHANGELOG.md 已直接写入正式版本节（hotfix 不走 `[Unreleased]`；参 [`[RUNBOOK]_Release_Operations.md`](../../docs/runbook/[RUNBOOK]_Release_Operations.md) §4.2）
