@@ -47,7 +47,7 @@ Navigation hub for all marketplace documentation.
 
 | Document | Description | Last verified |
 |----------|-------------|---------------|
-| [Release Operations](./runbook/[RUNBOOK]_Release_Operations.md) | 从开发到发布的完整操作流程（Issue → PR → Release）| 2026-05-14 |
+| [Release Operations](./runbook/[RUNBOOK]_Release_Operations.md) | 从开发到发布的完整操作流程（Issue → PR → Release）；v1.1 起 §3.2 bump-version.ps1 MANDATORY + §3.2.1 post-bump diff check | 2026-05-18 |
 | [Doc Archive Procedure](./runbook/[RUNBOOK]_Doc_Archive_Procedure.md) | 4-phase 文档归档工作流 + 2 HITL gate（per Documentation Framework v1.4 §2.3，flat layout）| 2026-05-17 |
 
 ## Architecture Decision Records (`docs/adr/`)
