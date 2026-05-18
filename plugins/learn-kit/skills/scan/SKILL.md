@@ -42,7 +42,7 @@ Combined with `/learn-kit:locate` (concept-driven) and `/learn-kit:init` (one-ti
 
 Concrete contrast pairs:
 
-- "what should I learn in mj-system" → **invoke** (open-ended)
+- "what should I learn in this project" → **invoke** (open-ended)
 - "学 DLSRS" → **do not invoke** (named concept → use locate)
 - "list ADRs" → **invoke** (catalog request)
 - "open the ADR about auth" → **do not invoke** (named concept → use locate)

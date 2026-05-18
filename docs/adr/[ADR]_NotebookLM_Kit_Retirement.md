@@ -37,11 +37,11 @@ mj-agentlab-marketplace v3.x 包含两个 plugin：
 
 ### 触发本 ADR 的观察
 
-用户在 mj-agent 项目使用 `/learn-kit:generate-tier` 产出 `learning/<topic>/` 三档学习文档后，希望把这些素材推到 NotebookLM 生成多媒体 artifact（audio/video/slide/mind_map/infographic）以适配通勤 / 评审 / poster 等学习场景，但**不希望下载二进制**（在线 NLM 看即可）。
+用户在下游 Claude Code 项目使用 `/learn-kit:generate-tier` 产出 `learning/<topic>/` 三档学习文档后，希望把这些素材推到 NotebookLM 生成多媒体 artifact（audio/video/slide/mind_map/infographic）以适配通勤 / 评审 / poster 等学习场景，但**不希望下载二进制**（在线 NLM 看即可）。
 
 调研发现：
 
-1. notebooklm-kit 的 7 个 skill 中，**仅 build + studio + learn-make 三者**覆盖此「上传文档 → 出多媒体」场景；其余 4 个（auth / learn-test / manage / query）覆盖的 quiz / flashcards / cross-notebook query / notebook 管理场景**几乎未在本 marketplace 的两个 dogfood 项目（mj-system / mj-agent）实际使用**
+1. notebooklm-kit 的 7 个 skill 中，**仅 build + studio + learn-make 三者**覆盖此「上传文档 → 出多媒体」场景；其余 4 个（auth / learn-test / manage / query）覆盖的 quiz / flashcards / cross-notebook query / notebook 管理场景**几乎未在 marketplace 的下游 dogfood 项目实际使用**
 2. notebooklm-kit 是从 `ranzuozhou/my-marketplace` 在 v3.0.0 迁入并重命名而来；它继承了一个更广覆盖面的 NLM-side 工具集设计，但与 learn-kit 的核心使用场景（学习材料 → 多媒体）之间**只有 30% 左右的重叠**
 3. learn-kit v0.3.0 在 changelog 中**主动声明**与 notebooklm-kit 解绑（删 NLM_RECORD_TEMPLATE.md / 移除 METHODOLOGY §10.1 NLM 集成段 / 清理所有 `/notebooklm-kit:*` 互引），明示 marketplace 内两个 plugin 并存但**互不调用**。但这反而使生成多媒体 artifact 这种 learn-kit 后续学习闭环的明显使用场景**无法被 learn-kit 主动覆盖** —— 用户需要自己跑 `/notebooklm-kit:build` + `/notebooklm-kit:studio`，且需要熟悉两套 skill 的约定（命名、scope、record/download 模式）
 
@@ -128,7 +128,7 @@ mj-agentlab-marketplace v3.x 包含两个 plugin：
 实施完成后必须通过：
 
 - **静态校验** (Stage 5)：`/plugin-dev:plugin-validator` + `/plugin-dev:skill-reviewer` 对 learn-kit v1.0.0 全 5 skill；Grep 确认 `notebooklm-kit` 引用在 docs/ 内剩余 0 个（除本 ADR + MIGRATION_GUIDE 的历史段）；marketplace.json 8 个新 keyword 验证
-- **端到端 dogfood** (Stage 6)：在 mj-agent develop worktree 跑 `/learn-kit:nlm-studio documentation-framework` 完整 5 测试（Test 1 完整 6-source / 1.5 source visibility QA / 1.6 HTML 必要性 QA / 1.7 view-purpose 盲测 / 2 MD-only degrade / 3 re-run replace / 4 auth failure / 5 CTRL+C resume）
+- **端到端 dogfood** (Stage 6)：在下游 Claude Code 项目的 develop worktree 跑 `/learn-kit:nlm-studio documentation-framework` 完整 5 测试（Test 1 完整 6-source / 1.5 source visibility QA / 1.6 HTML 必要性 QA / 1.7 view-purpose 盲测 / 2 MD-only degrade / 3 re-run replace / 4 auth failure / 5 CTRL+C resume）
 - **CI 通过** (Stage 9)：marketplace ci.yml + release.yml 全过
 
 ---

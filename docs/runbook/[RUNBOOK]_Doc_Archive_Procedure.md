@@ -1,13 +1,13 @@
 ---
 type: runbook
 scope: marketplace
-summary: Doc archive procedure — 4-phase workflow + 2 HITL gates per Documentation Framework v1.2 §2.3
+summary: Doc archive procedure — 4-phase workflow + 2 HITL gates per Documentation Framework v1.4 §2.3 (flat layout)
 owner: marketplace-maintainers
 created: 2026-05-15
-updated: 2026-05-15
+updated: 2026-05-17
 state: active
-version: v1.0
-last-verified: 2026-05-15
+version: v1.1
+last-verified: 2026-05-17
 domain: governance
 tags:
   - archive
@@ -20,7 +20,7 @@ related:
 
 # [RUNBOOK] Doc Archive Procedure
 
-> 操作步骤：把一个 `state: active` 的文档迁移到 `state: archived` 状态，物理放进 `docs/archive/<subtype>/`。本 RUNBOOK 是 Documentation Framework v1.2 §2.3.1-§2.3.4 的运行时执行手册。
+> 操作步骤：把一个 `state: active` 的文档迁移到 `state: archived` 状态，物理放进 `docs/archive/`（flat layout per Framework v1.4 §2.3.5——不分 subtype 子目录）。本 RUNBOOK 是 Documentation Framework v1.4 §2.3.1-§2.3.5 的运行时执行手册。
 
 ## §1 Preconditions
 
@@ -115,12 +115,12 @@ Q-01: Standard archive case?
 
 | Component | Rule | Example |
 |-----------|------|---------|
-| Subtype directory | mirror active subdir (`rule/` / `adr/` / etc.) | `docs/rule/` → `docs/archive/rule/` |
+| Archive root | always `docs/archive/` (flat — no subtype subdir per Framework v1.4 §2.3.5) | `docs/rule/` / `docs/adr/` → `docs/archive/` |
 | Filename prefix | `[DEPRECATED]_` (uppercase, literal) | `[DEPRECATED]_` |
 | Original tag + topic | preserve verbatim | `[STANDARD]_Example_To_Archive` |
 | Version suffix | `_v<major>.<minor>` (patch dropped) | `_v1.2` |
 | Final filename | concatenation | `[DEPRECATED]_[STANDARD]_Example_To_Archive_v1.2.md` |
-| Full archive path | `docs/archive/<subtype>/` + above | `docs/archive/rule/[DEPRECATED]_[STANDARD]_Example_To_Archive_v1.2.md` |
+| Full archive path | `docs/archive/` + filename | `docs/archive/[DEPRECATED]_[STANDARD]_Example_To_Archive_v1.2.md` |
 
 **Step 2.2 — Reference audit scope**:
 
@@ -144,7 +144,7 @@ Report:
 **Step 3.1 — `git mv` to archive**:
 
 ```bash
-git mv "docs/<subtype>/<original>.md" "docs/archive/<subtype>/[DEPRECATED]_<original>_v<X.Y>.md"
+git mv "docs/<subtype>/<original>.md" "docs/archive/[DEPRECATED]_<original>_v<X.Y>.md"
 ```
 
 (Per CLAUDE.md worktree convention: `git mv` is allowed; `git checkout` is forbidden.)
@@ -161,7 +161,7 @@ version: v1.2
 state: archived
 version: v1.2
 archived: 2026-05-15                                # ISO date of move
-replaced-by: ../../rule/[STANDARD]_New_Successor.md  # relative from archive location to active successor
+replaced-by: ../rule/[STANDARD]_New_Successor.md     # relative from archive location to active successor (1 level shallower under flat layout per Framework v1.4 §2.3.5)
 ```
 
 **Step 3.3 — Add Archive Banner to archived file body**:
@@ -171,7 +171,7 @@ Per Framework §2.3.3 canonical template; insert immediately after H1, before an
 ```markdown
 # [<TAG>] <Original Title>
 
-> **Archived**: This doc is `state: archived` (frozen at v<X.Y>). Superseded by [<new doc title>](<../../rule/[TAG]_NewSuccessor.md>) (v<new version>).
+> **Archived**: This doc is `state: archived` (frozen at v<X.Y>). Superseded by [<new doc title>](<../rule/[TAG]_NewSuccessor.md>) (v<new version>).
 > **Archive reason**: <one-line per §2.3.1 trigger; e.g., "Framework major version bump v1.x → v2.0">.
 > **Archived on**: <YYYY-MM-DD>. Content frozen — do not modify except for typo corrections.
 
@@ -183,7 +183,7 @@ Per Framework §2.3.3 canonical template; insert immediately after H1, before an
 ```yaml
 # successor doc (docs/rule/[STANDARD]_New_Successor.md) gains
 supersedes:
-  - ../archive/rule/[DEPRECATED]_[STANDARD]_Example_To_Archive_v1.2.md
+  - ../archive/[DEPRECATED]_[STANDARD]_Example_To_Archive_v1.2.md
 ```
 
 (If multiple archived predecessors, list-form: one entry per predecessor.)
@@ -224,7 +224,7 @@ D-02: Reference judgment escalation
 在「## Archived Documents」段表格添加新行:
 
 ```markdown
-| [<TAG> Original Title](<../archive/<subtype>/[DEPRECATED]_<name>_vX.Y.md>) | `docs/<subtype>/<original>.md` | [<successor>](<./<subtype>/<successor>.md>) | 2026-05-15 | §2.3.1 trigger #N |
+| [<TAG> Original Title](<../archive/[DEPRECATED]_<name>_vX.Y.md>) | `docs/<subtype>/<original>.md` | [<successor>](<./<subtype>/<successor>.md>) | 2026-05-15 | §2.3.1 trigger #N |
 ```
 
 **Step 4.2 — Verify successor INDEX entry** (if successor is new):
@@ -284,8 +284,8 @@ Canonical reference (also at `[STANDARD]_Documentation_Framework.md` §2.3.3):
 After all 4 phases:
 
 - [ ] `find docs/archive -type f -name '*.md' | wc -l` shows +1 (new archived doc present)
-- [ ] `head -5 docs/archive/<subtype>/[DEPRECATED]_<name>_v<X.Y>.md` shows YAML frontmatter with `state: archived` + `archived: <date>` + `replaced-by: <path>`
-- [ ] `grep '^> \*\*Archived\*\*' docs/archive/<subtype>/[DEPRECATED]_<name>_v<X.Y>.md` matches the Archive Banner line
+- [ ] `head -5 docs/archive/[DEPRECATED]_<name>_v<X.Y>.md` shows YAML frontmatter with `state: archived` + `archived: <date>` + `replaced-by: <path>`
+- [ ] `grep '^> \*\*Archived\*\*' docs/archive/[DEPRECATED]_<name>_v<X.Y>.md` matches the Archive Banner line
 - [ ] Successor file's `supersedes:` field includes archive path (`grep -A5 '^supersedes:' docs/<subtype>/<successor>.md`)
 - [ ] `git status` shows the `git mv` rename (`R` status) cleanly; not duplicated `D` + `??`
 - [ ] `docs/INDEX.md` Archived Documents table has new row
@@ -310,4 +310,5 @@ git revert <commit-hash>
 
 | Version | Date | last-verified | Summary |
 |---------|------|---------------|---------|
-| v1.0 | 2026-05-15 | 2026-05-15 | Initial RUNBOOK. Adopted in PR #83 (v4.4.0). Adapted from mj-agent `.claude/skills/mj-agent-doc-migrate/SKILL.md` (6-phase workflow) — compressed to 4 phases + 2 HITL gates for marketplace's smaller scope. Skeleton-first archive mode (mj-agent Meta v2.1 §5.8 for multi-doc cascade) intentionally **not** included in v1.0; will add as v1.1 if marketplace ever has a cascade case. |
+| v1.1 | 2026-05-17 | 2026-05-17 | **Flat archive layout adoption**. Framework v1.4 §2.3.5 引入 flat archive layout：§1 intro 描述同步 `docs/archive/`（no subtype）；§2.1 Step 2.1 表「Subtype directory」行改「Archive root」/「Full archive path」示例去 subtype；§3 Step 3.1 git mv 路径去 `<subtype>/`；§3 Step 3.2 `replaced-by:` 示例少一层 `..`；§3 Step 3.3 banner Superseded by 路径示例同步；§3 Step 3.4 `supersedes:` 示例同步；Step 4.1 INDEX 表行模板同步；§5 Verification Checklist 两条 path 同步。无归档 ceremony 实施过，无 migration。配套 Framework v1.3 → v1.4 + mp-doc-validate description 同步。Adopted in PR-A (v4.X.Y). |
+| v1.0 | 2026-05-15 | 2026-05-15 | Initial RUNBOOK. Adopted in PR #83 (v4.4.0). 4 phases + 2 HITL gates tailored to marketplace's smaller scope (vs the heavier 6-phase variant common in larger doc-migrate workflows). Skeleton-first archive mode (for multi-doc cascade) intentionally **not** included in v1.0; will add as v1.1 if marketplace ever has a cascade case. |

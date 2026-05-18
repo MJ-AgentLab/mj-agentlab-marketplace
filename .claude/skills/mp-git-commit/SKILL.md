@@ -170,6 +170,26 @@ EOF
 
 不用 `--no-verify` / 不绕过 pre-commit hook。
 
+### Step 8 — Post-commit PATTERN Self-check (v1.1+ NEW)
+
+立即跑 `scripts/validate-commits.sh HEAD~1..HEAD`（或多 commit 时 `HEAD~N..HEAD`）验证刚写的 commit subject 通过 PATTERN。
+
+```bash
+# 单 commit 自检
+sh scripts/validate-commits.sh HEAD~1..HEAD
+
+# 多 commit 自检（N = 本次 batch 数量）
+sh scripts/validate-commits.sh HEAD~N..HEAD
+```
+
+**期望**：`[OK] N commit(s) validated; 0 failures`
+
+**如失败**：脚本输出会明确指出违规 commit + 具体原因 + 修正建议（type 不在 enum / scope 不在 whitelist / summary > 72 chars 等）。立即用 `git commit --amend` (单 commit) 或 `git rebase -i HEAD~N --reword` (多 commit) 修正——**不要等 push / CI 才发现**。
+
+参考：[`docs/rule/[STANDARD]_Commit_Message_Convention.md`](../../../docs/rule/[STANDARD]_Commit_Message_Convention.md) §11 Common Mistakes（4 个典型失败模式 + remediation）。
+
+只在 Step 8 通过后才进入 Stage 8 push 阶段（移交给 `/mp-git-push`）。
+
 ## Output Format
 
 ```markdown

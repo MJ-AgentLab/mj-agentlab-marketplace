@@ -215,7 +215,7 @@ marketplace repo **不**维护 plans/ 目录。
 ## Anti-patterns
 
 - **不要** 在 Plan 内写完整 SKILL.md / `plugin.json` 内容（实施细节属 Stage 4）
-- **不要** 把 Plan 写进 marketplace `plans/` 目录（该目录不存在；与 mj-system 不同）
+- **不要** 把 Plan 写进 marketplace `plans/` 目录（该目录不存在）
 - **不要** 跳过 §3.1 必停 trigger 升档评估
 - **不要** 一次 Plan 跨多个无关 plugin（应拆 PR）
 

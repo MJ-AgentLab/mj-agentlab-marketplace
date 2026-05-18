@@ -4,9 +4,9 @@ scope: marketplace
 summary: STANDARD HITL Prompt 的运行时勾选清单 — 11 stage × 4 段 (Entry / Actions / Verification / Exit)
 owner: marketplace-maintainers
 created: 2026-05-11
-updated: 2026-05-15
+updated: 2026-05-17
 state: active
-version: v1.1
+version: v1.3
 domain: governance
 tags:
   - hitl
@@ -18,7 +18,7 @@ related:
 
 # [GUIDE] Marketplace Agent Execution Checklist
 
-> Pairs with [`../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`](<../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md>) v1.2.
+> Pairs with [`../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`](<../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md>) v1.3.
 
 ---
 
@@ -83,7 +83,7 @@ related:
 
 **Entry**：Intake Result 已完成 + 用户授权进入实施
 
-**Actions**（marketplace 事实核查 8 维）：
+**Actions**（marketplace 事实核查 9 维）：
 1. 当前 branch / worktree / diff / 未跟踪文件
 2. 受影响 plugin（`plugins/*/`）
 3. `marketplace.json` plugins 数组当前状态
@@ -92,12 +92,14 @@ related:
 6. `VERSION` 与 `marketplace.json metadata.version` 一致性
 7. 顶层 `CLAUDE.md` + `CHANGELOG.md` + `docs/INDEX.md` 是否需更新
 8. `.github/workflows/ci.yml` 6 步验证是否覆盖
+9. `docs/archive/` 一致性盘点（flat layout per Framework v1.4 §2.3.5；active 区无应归档未归档 / INDEX 表与实际 archive 文件数一致）
 
 **Verification**：
-- [ ] 8 维事实清单全部检查
+- [ ] 9 维事实清单全部检查
 - [ ] Current State 快照已出（受影响文件 + 版本号）
 - [ ] Documentation Decision 已出（哪些文档需 Create / Update / 不动）
 - [ ] Plan Verdict 已出（已有 plan 是否仍成立）
+- [ ] (新增 v1.3) `docs/archive/` 盘点完成（无 active 应归档未归档 / INDEX「Archived Documents」表与 `find docs/archive -name '[DEPRECATED]_*.md' | wc -l` 一致）
 
 **Exit**：Repo Scan Result 输出 + Plan 不冲突 → Stage 2；Plan 冲突 → 回到 Stage 0
 
@@ -203,7 +205,7 @@ related:
 **Entry**：Stage 5 合规通过；功能可在真实环境跑
 
 **Actions**：
-- 纯查询 / 枚举类 skill：用 Glob + Grep + Read 在真实项目（mj-system / mj-agent / 外部样本）跑算法模拟
+- 纯查询 / 枚举类 skill：用 Glob + Grep + Read 在外部样本项目跑算法模拟
 - 涉及副作用或 0% 信任 skill：`/plugin install <plugin>@mj-agentlab-marketplace --scope local`
 - `disable-model-invocation: true` skill：手工 `/<plugin>:<skill>` 调用至少 1 次
 - 跨项目 dogfood：≥ 2 个外部项目 + 1 个 blank-project warning 路径
@@ -224,9 +226,9 @@ related:
 
 **Entry**：Stage 6 验证通过；准备 commit
 
-**Actions**：检查 11 项（详见 STANDARD §4.8 Rules 1-11；其中 Rule 5「文档同步检查」内含 5a/5b/5c/5d 四个子项，下方扁平展开为 14 个 checkbox 便于逐项勾选）
+**Actions**：检查 12 项（详见 STANDARD §4.8 Rules 1-12；其中 Rule 5「文档同步检查」内含 5a/5b/5c/5d 四个子项，下方扁平展开为 15 个 checkbox 便于逐项勾选）
 
-**Verification**（STANDARD 11 items，含 Rule 5 的 4 子项扁平化共 14 个 checkbox + 双段输出）：
+**Verification**（STANDARD 12 items，含 Rule 5 的 4 子项扁平化共 15 个 checkbox + 双段输出）：
 - [ ] 1. 改动完全对应 Plan / ADR
 - [ ] 2. 未超 scope
 - [ ] 3. 未改 plugin API / SKILL description / allowed-tools / marketplace.json schema（或已 HITL）
@@ -242,10 +244,11 @@ related:
 - [ ] 9. PR template 自检项已勾
 - [ ] 10. 是否触发 release.yml（VERSION 变 → HITL 确认发布意图）
 - [ ] 11. 涉及 secret / 凭据已暂停
+- [ ] 12. (v1.2 新增 / v1.3 扩展) `docs/**/*.md` 改动遵循 Framework 8-字段 frontmatter + 路径规则；若触发 §2.3.1 archive 条件已按 `[RUNBOOK]_Doc_Archive_Procedure` 走 4-phase ceremony；`/mp-doc-validate` Critical=0（含 archive POST-condition 6 检 + active doc 7b 检；archive 区为 flat layout per Framework v1.4 §2.3.5）
 
 **Output 双段**：
 - 「**本地验证**」（人类客观可重复检查）— git status / git diff / 文件版本 / ls / 命令输出
-- 「**AI 自检**」（AI 生成内容可信度自查）— 上述 11 项逐条勾选 + 理由
+- 「**AI 自检**」（AI 生成内容可信度自查）— 上述 12 项逐条勾选 + 理由
 
 **Exit**：双段输出完成 + 全 Verification 勾选 → Stage 8
 
@@ -262,6 +265,7 @@ related:
 - 不 stage PR_BODY.md / 临时文件 / 个人配置
 - commit message: `<type>(<scope>): <summary>` + multi-line body 解释 why
 - Co-Authored-By 行加在 commit message 尾（如 AI 协作）
+- **Push 前必跑 `scripts/validate-commits.sh`**（或 `.ps1`）— 验证全 batch commit subjects 通过 PATTERN；FAIL 必须 amend / rebase 修复后才 push
 - Push: `git push -u origin <branch>`
 - PR：`gh pr create --base develop --head <branch> --title "..." --body-file PR_BODY.md`
 - PR_BODY.md 临时文件 push 后 `rm`（不 commit）
@@ -270,6 +274,7 @@ related:
 **Verification**：
 - [ ] commit 拆分合理（按 logical group）
 - [ ] commit message 符合规范
+- [ ] **`scripts/validate-commits.sh origin/<base>..HEAD` 返回 0 failures**（详见 `[STANDARD]_Commit_Message_Convention` §11.5）
 - [ ] 无 secret / 大文件 / 临时调试文件被 stage
 - [ ] PR 创建成功（拿到 PR URL）
 - [ ] PR_BODY.md 临时文件已删除
@@ -367,6 +372,8 @@ related:
 
 ## §5 版本历史
 
+- **v1.3**（2026-05-17）：配套 STANDARD v1.3 **Archive HITL Integration**；Stage 1 Verification 加 archive inventory 勾（item 9 + verification 新增条目）；Stage 7 Verification item 12 同步扩展为含 archive POST-condition 审计；line 21 配套版本同步 v1.2 → v1.3；Actions 文案 11 项 → 12 项 / 14 checkbox → 15 checkbox。
+- **v1.2**（2026-05-17，与 v1.3 同 commit 补同步）：配套 STANDARD v1.2 item 12 漏同步（前版本 v1.1 配套 STANDARD v1.1 时未跟进 v1.2 新增 item 12）；Stage 7 Verification 从 11 项升到 12 项（新增 docs framework 合规审）。GUIDE v1.1 → v1.3 bundle 一并落地（v1.2 与 v1.3 同 PR 同 commit；非两步）。
 - **v1.1**（2026-05-15）：配套 STANDARD v1.1；每 stage 增加 **Preferred Skill** 标记（指向新建的 18 件 `.claude/skills/mp-*` 项目本地 Track C skill）；Stage 8 改为 3-skill chain，Stage 10 改为 2-skill chain。skill 描述详见 STANDARD §5.1 矩阵。
 - **v1.0**（2026-05-11）：初版。配套 STANDARD v1.0；11 stage × 4 段（Entry / Actions / Verification / Exit）；浓缩版 HITL 触发表 + 通用约定。
 

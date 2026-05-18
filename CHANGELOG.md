@@ -5,6 +5,72 @@
 
 ## [Unreleased]
 
+_(no in-flight changes at release-cut time)_
+
+## [4.5.0] - 2026-05-18
+
+This release rolls up 5 PR batches since v4.4.11 — `v4.5.0` umbrella version covers all 5:
+
+- **#99** — flat archive layout (`docs/archive/<subtype>/` → `docs/archive/`; `[TAG]_` prefix-encoded; Framework v1.3 → v1.4)
+- **#100** — HITL Prompt STANDARD v1.2 → v1.3 integrates archive mechanism as HITL dimension (companion to #99)
+- **#103** — Documentation Framework v1.5 §1 exemption cancellation + HITL v1.4 §0 universal skeleton + learn-kit 1.2.0 docs consolidation (6 lowercase teaching files → 2 `[GUIDE]` files)
+- **#104** — Marketplace independence audit cleanup (14 files neutralized — `mj-system` / `mj-agent` cross-project references purged in scope; closes #101)
+- **#105** — Commit-validation P0+P1 local layer (scripts + 3 skills + STANDARD §11 «Common Mistakes»; pre-push hook)
+- **#106** — Commit-validation P2 CI feedback layer (ci.yml delegation to `validate-commits.sh` + `comment-on-pr.yml` sticky PR bot)
+
+**End state**: 8-layer commit-validation stack deployed (commit-msg → pre-push → script → mp-git-commit Step 8 → mp-flow-self-review item 8 → mp-git-push checklist item 8 → ci.yml → comment-on-pr.yml bot); marketplace docs fully independent (no cross-project references in scope); learn-kit teaching docs consolidated 6 → 2 `[GUIDE]`; Framework §1 exemption mechanism replaced with 5-class community/external-spec exclusion.
+
+### Added
+
+- **`.github/workflows/comment-on-pr.yml`** (#106 — NEW) — PR comment bot. Triggers on `workflow_run` after `CI — Validate Plugin Structure` completes; posts (or edits in-place via marker `<!-- validate-commits-bot -->`) a sticky PR comment with the validator's full output. Different shape for PASS («✅ All Pass» collapsed) vs FAIL («❌ Failed» expanded + 5-step how-to-fix inline). `workflow_run` trigger pattern keeps fork PRs safe — gets BASE-repo token + `pull-requests: write`; ci.yml itself stays restricted. Uses `gh` CLI; minimal permissions (`pull-requests: write` + `actions: read` + `contents: read`). Skips silently if no artifact (e.g., release/* branches).
+- **`scripts/validate-commits.sh` + `scripts/validate-commits.ps1`** (#105 — NEW) — bulk validator for marketplace commit subjects. Dual-language (bash + PowerShell) parity; same interface, exit codes, output formatting. Per-commit failure output diagnoses specific reason (type / scope / length) + targeted suggestion (e.g., «'chore' is NOT in marketplace's 7-type enum; use 'docs', 'refactor', or 'infra'»). Closes the diagnostic gap that caused PR #102's late-binding CI failure + reconstruction cycle.
+- **`docs/adr/[ADR]_Documentation_Framework_Exemption_Reversal.md` v1.0** (#103 — NEW) — marketplace-scope ADR recording v1.5's reversal of v1.1 exemption decision. Structure: Status / Context (marketplace independence principle + actual-dependency audit + Framework v1.4 flat archive infrastructure prerequisite) / Decision (5-class exclusion + INDEX special clause + 7-item disposition) / Alternatives Considered (4 declined options including a 3-layer governance v2.0 candidate) / Consequences (positive / negative / risks) / Future Work (v2.0 / 3-layer governance / POSTMORTEM tag / INDEX automation) / References. `supersedes: ../archive/[DEPRECATED]_[ADR]_Documentation_Framework_Exemption_Review_v1.0.md`; includes revision block.
+- **`plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_Pedagogy.md` v1.0** (#103 — NEW) — pedagogy compendium (~600 lines) merging `learn-kit-01-positioning.md` (222) + `learn-kit-02-eight-stage-methodology.md` (269) + `learn-kit-03-rfc-2119-worked-example.md` (274). Covers §1 Positioning (vs 6 competitors + N=5 cross-domain validation + 8 «when NOT to use» criteria) + §2 8-stage methodology (5 elements per stage) + §3 RFC 2119 worked example (traffic-light metaphor + 5 categories + 8-stage mapping + 6-quality-gate pass verification) + §4 Quality Gates + 8 cross-stage anti-pattern quick reference.
+- **`plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_Design.md` v1.0** (#103 — NEW) — design compendium (~600 lines) merging `learn-kit-04-three-skills.md` (615) + `learn-kit-05-governance-boundary.md` (432). Covers §1 5-skill responsibility split + closed-loop diagram + 8 design-tradeoff highlights + §2 shared project_profile recognition + §3 5 dogfood findings + §4 Parallel subsystem governance model + §5 5-class rules (naming / paths / frontmatter / INDEX / archive) + §6 v1.0.0 dependency matrix + version evolution strategy + generalization tradeoffs + governance decision quick reference.
+
+### Changed
+
+- **`scripts/install-hooks.ps1`** (#105) extended with **pre-push hook installer** (alongside existing commit-msg). The pre-push hook delegates to `scripts/validate-commits.sh` (single source of validation logic) — catches violations introduced via `git commit --amend` / `git cherry-pick` / `git rebase` that bypass commit-msg. Opt-in (re-run installer to activate); zero impact on contributors who don't.
+- **`.github/workflows/ci.yml`** (#106) — «Validate commit message format» step refactored to **delegate to `scripts/validate-commits.sh`**. PATTERN site count: 4 → 3 (script now drives CI too). CI error output now identical to local validator — each FAIL includes targeted «Suggest:» remediation (e.g., 'chore' → docs/refactor/infra). NEW step «Upload commit validation output (for PR comment bot)» tees script output to artifact for downstream consumption by `comment-on-pr.yml`. Release/* PRs skipped (per existing rationale).
+- **`docs/rule/[STANDARD]_Commit_Message_Convention.md` v1.0 → v1.1** (#105 + #106) — add §11 «Common Mistakes (post-v4.5.0 lessons)» documenting 4 failure patterns from the PR #102 close-and-rebuild: (§11.1) `chore` type rejected with substitution table; (§11.2) `docs` is a TYPE not a SCOPE; (§11.3) summary > 72 chars with CJK / symbols; (§11.4) `documentation/*` template recommendation vs CI hook reality; (§11.5) local validation workflow. §9.3 rewritten from «Future CI Gates» (forward-looking) to «CI Gates (current)» — 8-layer validation stack table covering all hooks + skills + workflows in deployment. Frontmatter revision block added. Backward compatible — PATTERN regex unchanged.
+- **`docs/guide/[GUIDE]_Marketplace_Agent_Execution_Checklist.md`** (#105) — Stage 8 (Commit/Push/PR) Actions段 + Verification checklist 加入 push 前必跑 `scripts/validate-commits.{sh,ps1}` 的强制项。Runtime entry point now naturally flows through the validator.
+- **`.claude/skills/mp-git-commit/SKILL.md`** (#105) — NEW Step 8 «Post-commit PATTERN Self-check» after Step 7 Execute. Runs `sh scripts/validate-commits.sh HEAD~N..HEAD` immediately to catch violations before handoff to mp-git-push.
+- **`.claude/skills/mp-git-push/SKILL.md`** (#105) — Pre-Push Checklist 7 → 8 items. NEW item 8 «Commit message PATTERN 合规» (BLOCK on fail). Mandatory regardless of pre-push git-hook install state.
+- **`.claude/skills/mp-flow-self-review/SKILL.md`** (#105) — Item 8 strengthened from vague «commit message 符合 …» to mandate running `validate-commits.sh` + pasting output to «本地验证» segment; 0 failures gate the stage exit.
+- **`docs/rule/[STANDARD]_Documentation_Framework.md` v1.4 → v1.5** (#103) — **取消 §1 豁免机制**（marketplace 独立性 + 文档体系名实相符）。§1 完全重写：删除 12 行 v1.1 单文件 + 教学系列模式豁免表 + 2 个 normative blockquote（v1.1 note + v1.3 normative clarification）；保留 5 类 community/external-spec exclusion（README / CHANGELOG / CLAUDE.md / SKILL.md / templates+references）由外部规范刚性约束不可绕过；新增 INDEX.md「保留名 + 强制 frontmatter」special clause；删除已退役 `plugins/notebooklm-kit/skills/nlm-shared/*.md` 残行；frontmatter 加 revision block；§5 加 v1.5 entry；清理 §2.1 / §2.3.1 / §4.3 / §5 v1.0/v1.2 中所有 cross-project 引用为中性术语。
+- **`docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md` v1.3 → v1.4** (#103) — §0 重写 Universal Skeleton + 内化 generic HITL workflow（marketplace 独立性配套）。§0 大改：替换原「适用范围 与外部同名 STANDARD 的关系」整段 → 新 §0「Universal Skeleton & Compression Heritage」含 §0.1 Universal 19-step Skeleton + §0.2 Marketplace Compression Mapping + §0.3 specialized 子流程指引 + §0.4 Scope；§1 opening 改述 + 删除原 17 阶段对照表（mapping 迁 §0.2）；§4.8 line 597 删除外部 STANDARD 对照；§8 添加 v1.4 entry + 清理 v1.0 中 cross-project 引用；frontmatter v1.3 → v1.4 + 删 `related: ../ai_engineering_execution_hitl_workflow.md` + 加 revision block；§1 / §3.3 / §4.3 / §4.7 共 6 处 cross-project 引用清理。
+- **`docs/rule/[STANDARD]_Documentation_Framework.md` v1.3 → v1.4** (#99) — §2.3 state table / §2.3.2 archive-path 描述 + YAML / §2.3.3 banner / §2.3.4 frozen-ref 示例 / §2.4 archive filename 规则 全部从 subtype 路径改 flat；新增 §2.3.5 Flat Archive Layout 定义规则 + marketplace 与 plugin-internal 对称 + rationale + historical note。
+- **`docs/runbook/[RUNBOOK]_Doc_Archive_Procedure.md` v1.0 → v1.1** (#99) — §1 intro 描述 / §2.1 Step 2.1 表（「Subtype directory」改「Archive root」+ Full archive path 示例）/ §3.1 git mv 路径 / §3.2 `replaced-by:` 示例 / §3.3 banner Superseded by 示例 / §3.4 `supersedes:` 示例 / Step 4.1 INDEX 行模板 / §5 Verification 两条 path 全部同步 flat。
+- **`docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md` v1.2 → v1.3** (#100) — **§3.1** 新增 HITL trigger bullet：涉及 doc archive 触发（§2.3.1 四触发器之一）必须暂停按 RUNBOOK 4-phase 走，不得 PR 中混入隐式归档；**§4.2** Repo Scan Rules 从 8 维扩到 9 维，新增 item 9 `docs/archive/` 一致性盘点（active 应归档未归档检查 + INDEX archive 表行 vs 实际文件数）；**§4.4** ADR Prompt Rules 新增 supersede check 判断；**§4.8** Self-review item 12 扩展为含 archive POST-condition 审计；**§5.2** 增 Archive-specific note 把 `/mp-doc-validate` 标注为 archive 审计入口。
+- **`docs/guide/[GUIDE]_Marketplace_Agent_Execution_Checklist.md` v1.1 → v1.3** (#100) — Stage 1 Verification 从 8 维 → 9 维 + 加 archive inventory 勾；Stage 7 Verification 从 11 项 → 12 项 + 扩展为含 archive POST-condition；§5 history 加 v1.2 (补同步) + v1.3 双条目。
+- **`docs/CONTRIBUTING.md` → `docs/guide/[GUIDE]_Contributing.md`** (#103 — rename) + 加 8 字段 frontmatter + revision block；fix 4 处 `rule/` 相对路径为 `../rule/`；移除 cross-project 引用。
+- **`docs/MIGRATION_GUIDE.md` → `docs/guide/[GUIDE]_Migration_From_v3_to_v4.md`** (#103 — rename) + 加 8 字段 frontmatter + revision block；§3.2 path mapping 更新 v4.5.0 各被改/删文件新去向；新增 §4「v4.4.x → v4.5.0」段记录本批次变更；fix §3.9 相对路径。
+- **`docs/INDEX.md`** (#99 + #100 + #103 + #104) — 加 8 字段 frontmatter（Framework v1.5 §1 INDEX special clause）；Rules & Standards 表删除 `ai_engineering_execution_hitl_workflow.md` 行 + Framework/HITL 版本号同步（含 v1.4 + v1.5）；Guides 表加 `[GUIDE]_Contributing` + `[GUIDE]_Migration_From_v3_to_v4`；ADR 表 Exemption Review → Exemption Reversal + 旧 ADR 移到 Archived Documents 表；Plugin Documentation 段更新 learn-kit 1.1.0 → 1.2.0 + 教学系列 6 → 2 `[GUIDE]`；archive 概述描述同步 flat layout (v1.4)；Suggested Reading Order 各段路径同步。
+- **`plugins/learn-kit/docs/INDEX.md` v1.1 → v1.2** (#103) — 加 8 字段 frontmatter；§Guides 段填入 2 份合规 `[GUIDE]_*` 路径；删除原 §Plugin-Internal Teaching Series 段。
+- **`plugins/learn-kit/README.md`** (#103) — 教学系列表 6 行 → 2 行；新增 4 个章节吸收原用户手册内容（中文 TL;DR / 5 分钟上手 / 真实使用案例 / 常见踩坑）；前置依赖段加 legacy plugin 卸载提示；演进历史段移除 cross-project 引用。
+- **`plugins/learn-kit/CLAUDE.md`** (#103) — Documentation 段重写指向 2 份合卷；新增 §Advanced Tips。
+- **`.claude/skills/mp-flow-intake/SKILL.md`** (#103) — Reference Files 段 + Rules 段更新 CONTRIBUTING 引用路径为新的 `docs/guide/[GUIDE]_Contributing.md`；删除对已删除 `ai_engineering_execution_hitl_workflow.md` 的 reference。
+- **`.claude/skills/mp-doc-validate/SKILL.md`** (#99 + #103) — description + Step 2.5 opener 同步 flat archive 路径；Step 1 豁免清单重写为 5 类 community/spec exclusion；Step 2.7 标记为 REMOVED（含 v1.5 cancellation 历史说明）；不再扫描 v1.1 教学系列 + v1.0 single-file 豁免。
+- **Marketplace independence audit — 14 files** (#104) — `mj-system` / `mj-agent` cross-project references purged from in-scope marketplace docs + skills + plugin files. Historical references retained ONLY in CHANGELOG (chronicle) + README (evolution narrative) + ADR References (decision provenance). Includes neutralization in: `docs/rule/[STANDARD]_*` (×3) + `docs/guide/[GUIDE]_*` (×2) + `docs/adr/*` (×1) + `.claude/skills/mp-flow-*/SKILL.md` (×4) + `plugins/learn-kit/docs/*` (×2) + `plugins/learn-kit/README.md` (×1) + `plugins/learn-kit/CLAUDE.md` (×1). Closes #101.
+- **`.claude-plugin/marketplace.json`** — `metadata.version` 4.4.11 → 4.5.0；`metadata.description` 同步 v4.5.0 changelog + 清理 cross-project 引用；`plugins[0].version` 1.1.0 → 1.2.0 + description 更新。
+- **`VERSION`** — 4.4.11 → 4.5.0.
+- **`plugins/learn-kit/.claude-plugin/plugin.json`** — version 1.1.0 → 1.2.0 + description 加 v1.2.0 changelog 摘要。
+- **`plugins/learn-kit/CHANGELOG.md`** — 追加 1.2.0 entry.
+
+### Removed
+
+- **`docs/ai_engineering_execution_hitl_workflow.md`** (#103) — 删除 generic HITL philosophy fork-source 单文件。关键内容（universal 19-step skeleton + compression mapping + fork guidance）浓缩内化到 `docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md` §0.1-§0.4。Marketplace 不再担任任何外部项目的 fork-source（marketplace 独立性原则）。
+- **`plugins/learn-kit/docs/learn-kit-{01..05}-*.md` + `learn-kit-使用手册.md`** (#103) — 6 lowercase teaching series 已合并/拆入 2 份 `[GUIDE]` + README + CLAUDE.md。
+- **`docs/archive/{adr,guide,postmortem,rule,runbook,spec}/.gitkeep`** (#99) — 6 个空 placeholder subdir 已被 flat layout 替代（v4.4.0 引入归档机制以来 0 件实际归档，无 migration 成本）；保留 `docs/archive/.gitkeep` 占位。
+
+### Archived
+
+- **`docs/adr/[ADR]_Documentation_Framework_Exemption_Review.md` v1.0** → **`docs/archive/[DEPRECATED]_[ADR]_Documentation_Framework_Exemption_Review_v1.0.md`** (#103) — Trigger: §2.3.1 #4 (scope-redefining rename) — decision reversed by v1.5。Per RUNBOOK v1.1 4-phase + 2-HITL-gate ceremony：加 Archive Banner + `state: archived` + `archived: 2026-05-18` + `replaced-by: ../adr/[ADR]_Documentation_Framework_Exemption_Reversal.md`；INDEX `## Archived Documents` 表加新行。
+
+### Closed Issues
+
+- **#101** — Marketplace independence audit (closed by #104).
+
 ## [4.4.11] - 2026-05-15
 
 ### Added

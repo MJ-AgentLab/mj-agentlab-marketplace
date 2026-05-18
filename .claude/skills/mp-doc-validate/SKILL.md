@@ -1,6 +1,6 @@
 ---
 name: mp-doc-validate
-description: Validates marketplace documentation compliance against Documentation Framework v1.2+ — checks (1) every `docs/**/*.md` and `plugins/<name>/docs/**/*.md` with a `[TAG]` prefix has the required 8-field frontmatter (type / scope / summary / owner / created / updated / state / version), the `type` enum matches `[TAG]`, the file lives in the right subdirectory, paths in `related:` resolve, wikilinks resolve, INDEX.md lists the doc, and `[RUNBOOK]_*.md` has `last-verified` field; AND (2) v1.2+ **archive compliance**: every `state: archived` file lives under `docs/archive/<subtype>/[DEPRECATED]_<TAG>_<Topic>_v<major>.<minor>.md`, has mandatory `archived:` ISO date + `replaced-by:` path, body starts with the canonical Archive Banner, and the `replaced-by:` ↔ `supersedes:` bidirectional pair is intact. Make sure to use this skill whenever the user says "validate docs", "doc compliance", "frontmatter check", "docs audit", "docs/ check", "marketplace doc validate", "doc validate", "Stage 7 docs audit", "archive validation", "archive compliance", or before committing changes that touched any `docs/**` or `plugins/<name>/docs/**` file (including any change under `docs/archive/`). Heuristic-only; does not modify files. Outputs report: Critical (frontmatter missing / wrong type / orphan in INDEX / archive banner missing / broken supersedes-replaced-by / broken `related:` path) / Warning (RUNBOOK last-verified stale / broken wikilink / empty `replaced-by` for pure retirement) / Verified. v4.4.5 hardens Step 3 (INDEX regex tightened to strict basename pattern; eliminates cross-reference false positives) and Step 5 (real `realpath -m` resolution replaces placeholder code; promotes broken `related:` from Warning to Critical). v1.3 framework adds Step 2.7 (exempt-file frontmatter discipline): warns on legacy non-canonical keys (`title / purpose / audience` / `related: |` literal-block-scalar) on §1-exempt files (`docs/ai_engineering_execution_hitl_workflow.md` + plugin-internal teaching series `plugins/<name>/docs/<plugin>-*.md`); does NOT promote to Critical because exempt files remain outside the required-field critical path. Skill itself is not in scope (those use Claude Code plugin spec native frontmatter, validated by `/plugin-dev:skill-reviewer`). Do not use for: SKILL.md validation (use /plugin-dev:skill-reviewer agent), plugin compliance (use mp-flow-compliance, Stage 5), or test of doc content quality (subjective; outside scope).
+description: Validates marketplace documentation compliance against Documentation Framework v1.2+ — checks (1) every `docs/**/*.md` and `plugins/<name>/docs/**/*.md` with a `[TAG]` prefix has the required 8-field frontmatter (type / scope / summary / owner / created / updated / state / version), the `type` enum matches `[TAG]`, the file lives in the right subdirectory, paths in `related:` resolve, wikilinks resolve, INDEX.md lists the doc, and `[RUNBOOK]_*.md` has `last-verified` field; AND (2) v1.2+ **archive compliance**: every `state: archived` file lives under `docs/archive/[DEPRECATED]_<TAG>_<Topic>_v<major>.<minor>.md` (flat — no subtype subdir per Framework v1.4 §2.3.5), has mandatory `archived:` ISO date + `replaced-by:` path, body starts with the canonical Archive Banner, and the `replaced-by:` ↔ `supersedes:` bidirectional pair is intact. Make sure to use this skill whenever the user says "validate docs", "doc compliance", "frontmatter check", "docs audit", "docs/ check", "marketplace doc validate", "doc validate", "Stage 7 docs audit", "archive validation", "archive compliance", or before committing changes that touched any `docs/**` or `plugins/<name>/docs/**` file (including any change under `docs/archive/`). Heuristic-only; does not modify files. Outputs report: Critical (frontmatter missing / wrong type / orphan in INDEX / archive banner missing / broken supersedes-replaced-by / broken `related:` path) / Warning (RUNBOOK last-verified stale / broken wikilink / empty `replaced-by` for pure retirement) / Verified. v4.4.5 hardens Step 3 (INDEX regex tightened to strict basename pattern; eliminates cross-reference false positives) and Step 5 (real `realpath -m` resolution replaces placeholder code; promotes broken `related:` from Warning to Critical). v1.3 framework adds Step 2.7 (exempt-file frontmatter discipline): warns on legacy non-canonical keys (`title / purpose / audience` / `related: |` literal-block-scalar) on §1-exempt files (`docs/ai_engineering_execution_hitl_workflow.md` + plugin-internal teaching series `plugins/<name>/docs/<plugin>-*.md`); does NOT promote to Critical because exempt files remain outside the required-field critical path. Skill itself is not in scope (those use Claude Code plugin spec native frontmatter, validated by `/plugin-dev:skill-reviewer`). Do not use for: SKILL.md validation (use /plugin-dev:skill-reviewer agent), plugin compliance (use mp-flow-compliance, Stage 5), or test of doc content quality (subjective; outside scope).
 ---
 
 # Marketplace Doc Validate
@@ -47,14 +47,15 @@ find plugins/learn-kit/docs -type f -name '*.md' 2>/dev/null | grep -E '\[(STAND
 # Archived docs (v1.2+)
 find docs/archive -type f -name '*.md' 2>/dev/null | grep -E '\[DEPRECATED\]_\[(STANDARD|ADR|GUIDE|RUNBOOK|SPEC|POSTMORTEM)\]_'
 
-# 豁免（不应有 frontmatter）
-# - docs/INDEX.md
-# - docs/CONTRIBUTING.md
-# - docs/MIGRATION_GUIDE.md
-# - docs/ai_engineering_execution_hitl_workflow.md (lowercase, generic doc)
-# - README.md / CHANGELOG.md
-# - plugins/<name>/CLAUDE.md
-# - plugins/<name>/docs/<plugin>-NN-*.md (framework v1.1+ exempt: plugin-internal teaching series)
+# 排除（Framework v1.5 §1: external-spec / community-standard 豁免，5 类）
+# - README.md / CHANGELOG.md（任意深度；GitHub UX + Keep-a-Changelog）
+# - plugins/<name>/CLAUDE.md（Claude Code plugin spec contract）
+# - plugins/<name>/skills/<name>/SKILL.md（plugin loader native frontmatter）
+# - plugins/<name>/skills/<name>/{templates,references}/*.md（LLM runtime assets）
+# 
+# 注: docs/INDEX.md 与 plugins/<name>/docs/INDEX.md 不再 exempt — v1.5 起强制 8 字段 frontmatter
+# 注: v1.1 「plugin-internal teaching series」pattern exemption 已取消（Framework v1.5）
+# 注: v1.0 single-file exemptions（CONTRIBUTING / MIGRATION_GUIDE / ai_engineering_execution_hitl_workflow.md）已取消（Framework v1.5）
 ```
 
 ## Step 2: Per-doc Active Checks (7 checks)
@@ -161,7 +162,7 @@ done
 
 ## Step 2.5: Per-doc Archived Checks (6 checks, v1.2+)
 
-For each file under `docs/archive/<subtype>/` (state: archived):
+For each file under `docs/archive/` (state: archived; flat layout per Framework v1.4 §2.3.5):
 
 ### Check 8: Archived Filename Pattern
 
@@ -229,47 +230,26 @@ echo "$successor_fm" | awk '/^supersedes:/{flag=1; next} /^[a-z_-]+:/{flag=0} fl
   || echo "CRITICAL: bidirectional break — successor $rb does not list this archive in its supersedes: array"
 ```
 
-## Step 2.7: Exempt-File Frontmatter Discipline (v1.3+, 2 checks)
+## Step 2.7: Exempt-File Frontmatter Discipline — REMOVED (v1.5)
 
-For each file matching a §1 exemption pattern, verify it doesn't carry forbidden legacy frontmatter keys. Per Framework v1.3 §1 normative clause: exempt files MAY (a) omit frontmatter entirely OR (b) carry the canonical 8-field schema (per §2.2), but MUST NOT use legacy non-canonical keys. This step does NOT promote anything to Critical because exempt files remain outside the required-field critical path (Step 2 required-field checks are still skipped for them).
+Per Framework v1.5 §1, the v1.1 «plugin-internal teaching series» pattern exemption and the v1.0 single-file exemptions（`ai_engineering_execution_hitl_workflow.md` / `CONTRIBUTING.md` / `MIGRATION_GUIDE.md`）are **canceled**. Those documents now either:
 
-Enumerate exempt files matching the §1 patterns (v1.3 audit scope is limited to two patterns; other exemption categories like README.md / CHANGELOG.md / CLAUDE.md / SKILL.md have separate format contracts and are NOT scanned by this step):
+- have been **deleted** (e.g., `ai_engineering_execution_hitl_workflow.md` — content internalized to HITL STANDARD §0)
+- have been **renamed** with compliant `[GUIDE]_*.md` naming + 8-field frontmatter (e.g., `CONTRIBUTING.md` → `docs/guide/[GUIDE]_Contributing.md`)
+- have been **merged** into compliant `[GUIDE]_*.md` (e.g., 6 lowercase teaching series → 2 plugin-internal [GUIDE]s)
+- are **strong-frontmatter required** (`docs/INDEX.md` / `plugins/<name>/docs/INDEX.md` — see Step 2 Check 1-2)
 
-```bash
-# Single-file exemption (Framework v1.0+)
-echo docs/ai_engineering_execution_hitl_workflow.md
+The only remaining «exemptions» are 5 external-spec / community-standard categories whose external contracts forbid marketplace 8-field frontmatter:
 
-# Plugin-internal teaching series pattern (Framework v1.1+)
-# Match: plugins/<name>/docs/<plugin>-*.md (filename starts with plugin name)
-find plugins/*/docs -maxdepth 1 -type f -name '*.md' 2>/dev/null | while IFS= read -r f; do
-  plugin=$(echo "$f" | awk -F/ '{print $2}')
-  basename "$f" | grep -qE "^${plugin}-" && echo "$f"
-done
-```
+- `README.md` (any depth)
+- `CHANGELOG.md` (any depth)
+- `plugins/<name>/CLAUDE.md`
+- `plugins/<name>/skills/<name>/SKILL.md`
+- `plugins/<name>/skills/<name>/{templates,references}/*.md`
 
-For each enumerated exempt file, run two checks. Skip the file entirely if it has no frontmatter (omitting frontmatter is allowed per §1).
+These are **not scanned** by this skill (no required-field checks, no legacy-key checks — they live under different contracts). Step 1 enumeration excludes them entirely.
 
-### Check 14: Forbidden Legacy Keys (v1.3)
-
-```bash
-head -1 <file> | grep -q '^---$' || continue   # no frontmatter -> silent OK
-
-fm=$(sed -n '/^---$/,/^---$/p' <file>)
-
-for forbidden in title purpose audience; do
-  echo "$fm" | grep -qE "^${forbidden}:" \
-    && echo "WARNING: exempt file <file> uses legacy non-canonical frontmatter key '${forbidden}' — per Framework v1.3 §1 use the canonical 8-field schema or omit frontmatter entirely"
-done
-```
-
-### Check 15: Forbidden Literal-Block-Scalar `related: |` (v1.3)
-
-```bash
-echo "$fm" | grep -qE "^related: \|" \
-  && echo "WARNING: exempt file <file> uses literal-block-scalar 'related: |' — per Framework v1.3 §1 use a regular block-style list (- item) or omit frontmatter entirely"
-```
-
-Both checks emit Warning (not Critical) per the Step 4 categorization. Exempt files with these warnings remain merge-eligible but should be cleaned up in a follow-up commit.
+Historical context: v1.3-v1.4 had Step 2.7 «exempt-file legacy key discipline» (2 checks emitting Warning on `title / purpose / audience / related: |` in exempt files). v1.5 removed both the exemption mechanism and this step; old exempt files were either retrofitted or deleted in the v4.5.0 batch PR.
 
 ## Step 3: INDEX Cross-check
 
@@ -336,9 +316,9 @@ Marketplace 顶层 INDEX 不需镜像 plugin-internal docs（plugin 自己的 do
 ### Results — Archived Docs (v1.2+)
 | File | Severity | Issue |
 |---|---|---|
-| docs/archive/rule/[DEPRECATED]_[STANDARD]_X_v1.0.md | Critical | missing Archive Banner |
-| docs/archive/adr/[DEPRECATED]_[ADR]_Y_v1.0.md | Critical | bidirectional break — successor does not list this in supersedes |
-| docs/archive/spec/[DEPRECATED]_[SPEC]_Z_v1.0.md | Verified | — |
+| docs/archive/[DEPRECATED]_[STANDARD]_X_v1.0.md | Critical | missing Archive Banner |
+| docs/archive/[DEPRECATED]_[ADR]_Y_v1.0.md | Critical | bidirectional break — successor does not list this in supersedes |
+| docs/archive/[DEPRECATED]_[SPEC]_Z_v1.0.md | Verified | — |
 | ... |
 
 ### Summary
@@ -348,7 +328,7 @@ Marketplace 顶层 INDEX 不需镜像 plugin-internal docs（plugin 自己的 do
 
 ### Recommended Fixes
 1. `docs/rule/[STANDARD]_X.md`: add frontmatter (see template `docs/_templates/TEMPLATE_STANDARD.md`)
-2. `docs/archive/rule/[DEPRECATED]_*_v1.0.md`: add Archive Banner per [RUNBOOK]_Doc_Archive_Procedure §3
+2. `docs/archive/[DEPRECATED]_*_v1.0.md`: add Archive Banner per [RUNBOOK]_Doc_Archive_Procedure §3
 3. ...
 
 ### Next Step

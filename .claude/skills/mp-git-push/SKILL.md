@@ -13,7 +13,7 @@ Pushes a marketplace branch to GitHub origin after running a 7-item pre-push saf
 
 **Workflow position**: Stage 8 step 2 of HITL Prompt 11-stage flow.
 
-## Pre-Push Checklist (7 items)
+## Pre-Push Checklist (8 items)
 
 | # | Check | How | Block? |
 |---|---|---|---|
@@ -24,8 +24,11 @@ Pushes a marketplace branch to GitHub origin after running a 7-item pre-push saf
 | 5 | 无 > 10 MB 大文件 | `git ls-tree -r HEAD --long | awk '$4>10485760'` | YES |
 | 6 | 与 origin 同分支无 conflict（首次 push 跳） | `git log @{u}..HEAD` 看 ahead；`git log HEAD..@{u}` 看 behind | WARN |
 | 7 | 与 base 分支没有意外 diverge | `git log origin/develop..HEAD --oneline` 行数合理 | WARN |
+| 8 | **Commit message PATTERN 合规** (v1.1+ NEW) | `sh scripts/validate-commits.sh origin/<base>..HEAD` 返回 0 failures | **YES** |
 
 任一 BLOCK → STOP；WARN → 提示用户确认。
+
+**Item 8 详解**：跑标准化的 `scripts/validate-commits.sh`（CI 同源 PATTERN regex；catches `chore` type / `docs` as scope / summary > 72 chars / 其他格式错误）。FAIL 时脚本输出会精确指出违规 commit + 修正建议（`git rebase -i --reword` / cherry-pick 重建）。FAIL 必须修复后才允许 push——pre-push hook（如已装）也会拦截，但本 checklist 项确保 skill 主动检查不依赖 hook。参考 [`docs/rule/[STANDARD]_Commit_Message_Convention.md`](../../../docs/rule/[STANDARD]_Commit_Message_Convention.md) §11 Common Mistakes。
 
 ## Workflow
 
