@@ -7,17 +7,18 @@
 
 ### Added
 
-- **Develop post-release pre-bump 机制**（借鉴 [mj-system](https://github.com/MJ-AgentLab/mj-system)）— 每次 release + sync-main-to-develop 完成后，在 develop 上额外 `bump-version.ps1 -From X.Y.Z -To X.Y.(Z+1)` 一个 commit，保证 `develop VERSION > main VERSION` 恒成立。Pure patch 风格无 `-dev` 后缀；只 bump 顶层 VERSION，不连带 plugin.json。详见 [docs/adr/[ADR]_Develop_PreBump_Adoption.md](docs/adr/[ADR]_Develop_PreBump_Adoption.md)。
-- **`docs/adr/[ADR]_Develop_PreBump_Adoption.md`** — 决策文档：从 mj-system 借鉴 3 项机制（pre-bump + CHANGELOG PR-time 纪律 + warn-only CI 检查）；不借鉴 `plans/[PLAN]_Release_*.md` 第 4 项（违反 `[STANDARD]_AI_Engineering_Execution_HITL_Prompt` §4.3；marketplace `CHANGELOG.md` 已承担同等审计职能）。
+- **Develop post-release pre-bump 机制** — 每次 release + sync-main-to-develop 完成后，在 develop 上额外 `bump-version.ps1 -From X.Y.Z -To X.Y.(Z+1)` 一个 commit，让 `develop VERSION > main VERSION` 成为 marketplace 内部硬不变式 —— 肉眼可见 develop 是否领先 main，回答 release readiness 不再需要 git log / CHANGELOG 二次确认。Pure patch 风格无 `-dev` 后缀；只 bump 顶层 VERSION，不连带 plugin.json。详见 [docs/adr/[ADR]_Develop_PreBump_Adoption.md](docs/adr/[ADR]_Develop_PreBump_Adoption.md)。
+- **`docs/adr/[ADR]_Develop_PreBump_Adoption.md`** — 决策文档：3 项机制（pre-bump + CHANGELOG PR-time 纪律 + warn-only CI 检查）；不采用 `plans/[PLAN]_Release_*.md` audit doc 模式（违反 `[STANDARD]_AI_Engineering_Execution_HITL_Prompt` §4.3；marketplace `CHANGELOG.md` 已承担同等审计职能）。后续 v1.1 scrub 外部项目引用 per STANDARD §0.3。
 - **`.github/workflows/verify-develop-prebumped.yml`** — warn-only CI 工作流：develop push 时检查 `develop VERSION > main VERSION` 是否成立；若等于且距 main 最后 commit 已 ≥ 72h，输出 workflow summary 警告（永不 `exit 1`）。
 - **PR 模板 CHANGELOG checkbox 全覆盖** — `documentation.md` / `maintain.md` / `hotfix.md` / `PULL_REQUEST_TEMPLATE.md` (fallback) 4 个模板补齐 `[Unreleased]` checkbox，与 `feature.md` / `bugfix.md` 现有项目对齐，5 类 PR 全覆盖。
-- **首次预 bump执行**：本次 PR 含 `infra(release): pre-bump develop 4.6.0 -> 4.6.1 (post-v4.6.0)` commit 作为新机制启动点；下次 release 即从 4.6.1 切版本（除非有 minor/major 升级需求）。
+- **首次预 bump 执行**：PR #120 含 `infra(release): pre-bump develop 4.6.0 -> 4.6.1 (post-v4.6.0)` commit 作为新机制启动点；下次 release 即从 4.6.1 切版本（除非有 minor/major 升级需求）。
 
 ### Changed
 
-- **`docs/runbook/[RUNBOOK]_Release_Operations.md`** v1.2 → v1.3：新增 §3.7 "Post-release develop 预 bump"；§4.5 加 hotfix 与预 bump 冲突 TODO 标记（待首次 hotfix 事件发生时补 §4.6）；§6 发布后检查清单加 1 项 "72h 内完成预 bump"。
+- **`docs/runbook/[RUNBOOK]_Release_Operations.md`** v1.2 → v1.3 → v1.3.1：v1.3 新增 §3.7 "Post-release develop 预 bump" + §4.5 hotfix 与预 bump 冲突 TODO 标记 + §6 发布后检查清单加 1 项 "72h 内完成预 bump"；v1.3.1 scrub frontmatter summary + revision + §3.7 callout 中的外部项目引用 per STANDARD §0.3。
 - **`README.md`** — 加 develop badge 语义脚注（"develop branch badge = 预计下一个 release 号"）。
 - **`CLAUDE.md`** — Key Conventions 段加 2 项：post-release pre-bump 机制 + develop README badge 语义说明；引用新 ADR + RUNBOOK §3.7。
+- **`docs/adr/[ADR]_Develop_PreBump_Adoption.md`** v1.0 → v1.1（follow-up scrub PR）：reframe §1 Context / §2 Decision / §3 Consequences / §4 Alternatives / §7 References，去除外部项目引用 per STANDARD §0.3；技术决策不变。
 
 ## [4.6.0] - 2026-05-18
 
