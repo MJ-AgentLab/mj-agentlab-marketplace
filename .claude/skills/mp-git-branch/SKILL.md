@@ -7,7 +7,7 @@ description: Creates and manages Git branches for mj-agentlab-marketplace using 
 
 ## Overview
 
-Creates and manages Git branches for **mj-agentlab-marketplace** following the project's bare-repo + worktree-per-branch convention. **6 temporary branch types** (per `docs/CONTRIBUTING.md`):
+Creates and manages Git branches for **mj-agentlab-marketplace** following the project's bare-repo + worktree-per-branch convention. **6 temporary branch types** (per `docs/guide/[GUIDE]_Contributing.md`):
 
 | Type | Base | Target | Purpose |
 |---|---|---|---|
@@ -190,7 +190,7 @@ git status
 
 ## Reference Files
 
-- [[../../../docs/CONTRIBUTING.md|CONTRIBUTING]] (branch strategy + worktree)
+- [[../../../docs/guide/[GUIDE]_Contributing.md|GUIDE_Contributing]] (branch strategy + worktree)
 - [[../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt|HITL Standard]] §3 + §4.9 (branch type 矩阵)
 
 ## Anti-patterns

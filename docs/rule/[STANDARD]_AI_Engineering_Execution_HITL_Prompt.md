@@ -266,7 +266,7 @@ Fallback:
 
 ### Must Follow
 - 本 STANDARD §3 HITL 通用规则
-- `docs/CONTRIBUTING.md`
+- `docs/guide/[GUIDE]_Contributing.md`
 
 ### Consult If Affected
 - `docs/guide/[GUIDE]_Marketplace_Project_Overview.md`
@@ -364,7 +364,7 @@ Fallback:
 
 ### Must Follow
 - 本 STANDARD §3
-- `docs/CONTRIBUTING.md`
+- `docs/guide/[GUIDE]_Contributing.md`
 
 ## Skill Hint
 
@@ -661,7 +661,7 @@ Fallback:
 ## Reference Docs
 
 ### Must Follow
-- `docs/CONTRIBUTING.md`（commit format / branch strategy）
+- `docs/guide/[GUIDE]_Contributing.md`（commit format / branch strategy）
 - `.github/PULL_REQUEST_TEMPLATE/<type>.md`（按分支类型选）
 
 ## Skill Hint
@@ -676,7 +676,7 @@ Use When:
 - 用户："commit" / "push" / "create PR" / "提 PR"
 
 Fallback:
-- 若 mp-git 系列不可用：直接用 `git` + `gh` CLI；commit format 参 `docs/CONTRIBUTING.md` § Commit Convention
+- 若 mp-git 系列不可用：直接用 `git` + `gh` CLI；commit format 参 `docs/guide/[GUIDE]_Contributing.md` § Commit Convention
 
 ## Rules
 
@@ -774,7 +774,7 @@ PR merge + release 完成后，本地 cleanup。
 ## Reference Docs
 
 ### Must Follow
-- `docs/CONTRIBUTING.md`（worktree 模式）
+- `docs/guide/[GUIDE]_Contributing.md`（worktree 模式）
 
 ## Skill Hint
 
@@ -872,7 +872,7 @@ Fallback:
 
 | 既有文档 | 本 STANDARD 引用方式 |
 |---------|--------------------|
-| `docs/CONTRIBUTING.md` | branch strategy / commit format / PR 流程 → §4.1 / §4.9 / §4.10 / §4.11 引用 |
+| `docs/guide/[GUIDE]_Contributing.md` | branch strategy / commit format / PR 流程 → §4.1 / §4.9 / §4.10 / §4.11 引用 |
 | `docs/guide/[GUIDE]_Marketplace_Project_Overview.md` | plugin 目录结构 + CI/CD 体系 → §0 + §4.2 引用 |
 | `docs/guide/[GUIDE]_Version_Management.md` | dual-layer 版本规则 + bump 工具 → §4.2 / §4.10 引用 |
 | `docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md` | 跨仓库 plugin 开发测试 → §4.5 / §4.7 引用 |
