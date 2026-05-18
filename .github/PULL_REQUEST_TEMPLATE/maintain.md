@@ -17,3 +17,4 @@ about: CI/CD、脚本、依赖等基础设施维护 (maintain/*) 的 Pull Reques
 - [ ] CI/CD 流水线不受影响（或已同步更新）
 - [ ] 无硬编码敏感信息（密钥、IP、密码）
 - [ ] Commit message 符合规范（仅含 `infra` / `docs` 类型）
+- [ ] CHANGELOG.md `[Unreleased]` 区块已更新（如本次维护引入了用户可见的变更；纯内部 CI/脚本调整可豁免）

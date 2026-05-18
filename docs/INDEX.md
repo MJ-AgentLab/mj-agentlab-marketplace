@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-05-15
 updated: 2026-05-18
 state: active
-version: v4.5
+version: v4.6.1
 domain: governance
 tags:
   - index
@@ -14,6 +14,8 @@ tags:
 related:
   - ./rule/[STANDARD]_Documentation_Framework.md
 revision: |
+  2026-05-18 — v4.6.1: scrub external project reference from [ADR]_Develop_PreBump_Adoption row description per `[STANDARD]_AI_Engineering_Execution_HITL_Prompt` §0.3
+  2026-05-18 — v4.6: add [ADR]_Develop_PreBump_Adoption row + update RUNBOOK_Release_Operations row to mention v1.3 §3.7 pre-bump
   2026-05-18 — v4.5: add 8-field frontmatter (Framework v1.5 §1 INDEX special clause); update Framework v1.4→v1.5 + HITL v1.3→v1.4 + learn-kit 1.1.0→1.2.0 entries; remove deleted ai_engineering_execution_hitl_workflow.md row; move Exemption Review ADR to Archived section; add Exemption Reversal ADR; update CONTRIBUTING + MIGRATION_GUIDE paths to docs/guide/; update plugin-internal teaching series description to reflect 6→2 consolidation
 ---
 
@@ -47,7 +49,7 @@ Navigation hub for all marketplace documentation.
 
 | Document | Description | Last verified |
 |----------|-------------|---------------|
-| [Release Operations](./runbook/[RUNBOOK]_Release_Operations.md) | 从开发到发布的完整操作流程（Issue → PR → Release）；v1.1 起 §3.2 bump-version.ps1 MANDATORY；v1.2 起 §3.2.1 反映 CLAUDE.md script 已 cover (closes #110) | 2026-05-18 |
+| [Release Operations](./runbook/[RUNBOOK]_Release_Operations.md) | 从开发到发布的完整操作流程（Issue → PR → Release）；v1.1 起 §3.2 bump-version.ps1 MANDATORY；v1.2 起 §3.2.1 反映 CLAUDE.md script 已 cover (closes #110)；v1.3 起 §3.7 add Post-release develop pre-bump (per [`[ADR]_Develop_PreBump_Adoption`](./adr/[ADR]_Develop_PreBump_Adoption.md)) | 2026-05-18 |
 | [Doc Archive Procedure](./runbook/[RUNBOOK]_Doc_Archive_Procedure.md) | 4-phase 文档归档工作流 + 2 HITL gate（per Documentation Framework v1.4 §2.3，flat layout）| 2026-05-17 |
 
 ## Architecture Decision Records (`docs/adr/`)
@@ -56,6 +58,7 @@ Navigation hub for all marketplace documentation.
 |----------|-------------|
 | [ADR: NotebookLM Kit Retirement](./adr/[ADR]_NotebookLM_Kit_Retirement.md) | v4.0.0 删除 notebooklm-kit + 把核心 build / studio 多媒体场景吸收到 learn-kit 的决策 |
 | [ADR: Documentation Framework Exemption Reversal](./adr/[ADR]_Documentation_Framework_Exemption_Reversal.md) | v4.5.0 取消 Framework v1.1 §1 单文件 + 教学系列模式豁免；supersedes 旧 Exemption Review ADR（archived）|
+| [ADR: Develop Pre-Bump Adoption](./adr/[ADR]_Develop_PreBump_Adoption.md) | v4.6.1 起每次 release + sync-main-to-develop 完成后，在 develop 上预 bump 到下一个 patch；保证 `develop VERSION > main VERSION` 恒成立，让 release readiness 信号肉眼可见 |
 
 > Plugin-internal ADRs（如 `[ADR]_LearnKit_Discovery_Skills`，v4.3.0 起迁入 `plugins/learn-kit/docs/adr/`）见各 plugin 的 docs/INDEX.md。
 
