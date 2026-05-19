@@ -47,7 +47,7 @@
 - 模板 / references / scripts 放在 skill 目录内部
 - 不使用 `components` 字段（auto-discovery 标准）
 
-## Documentation Framework (v4.2.0 起；当前 v1.6 / marketplace v4.6.3)
+## Documentation Framework (v4.2.0 起；当前 v1.6 / marketplace v5.0.1)
 
 marketplace 文档体系遵循以下三层 STANDARD（位于 `docs/rule/`）:
 
@@ -108,6 +108,8 @@ Templates 与 mp-doc-author skill 协作起草新文档；mp-doc-validate skill 
 - **v4.3.x – v4.4.11**（2026-05-15）：framework refinement / docs reorg / hook + CI consolidation / archive 机制 v4.4.0 引入 + v4.4.x flat layout
 - **v4.5.0**（2026-05-18）：Framework v1.4 → v1.5 取消 §1 豁免机制；HITL v1.3 → v1.4 §0 universal skeleton 内化；learn-kit v1.1.0 → v1.2.0 教学文档 6 → 2 [GUIDE] 合并；marketplace 独立性原则确立；8-layer commit-validation stack 完工
 - **v4.6.x**（2026-05-18）：v4.6.1 develop post-release pre-bump 机制 (per [ADR]_Develop_PreBump_Adoption)；v4.6.2 POSTMORTEM Bulk_Cleanup_Trap_Analysis P3 + bump-version script regex fix；v4.6.3 Framework v1.5 → v1.6 root-level named files codification + §2.7 CLAUDE.md sync allowlist + §4.3.1 A6 active CI gate + Reversal ADR v1.0 → v1.1 amendment + CONTRIBUTING.md restore to root + GLOSSARY.md create + [GUIDE]_Contributing archive ceremony
+- **v5.0.0**（2026-05-18）：**BREAKING** — learn-kit `1.2.1 → 2.0.0` scaffold skill `init` → `scaffold-learning` 物理重命名（消除与 Claude Code 内置 `/init` 的 slash-picker 冲突；详见 [`[ADR]_LearnKit_Init_Skill_Rename`](docs/adr/[ADR]_LearnKit_Init_Skill_Rename.md) + Migration §5）；同 release 吸收 v4.6.3 [Unreleased] 的 Framework v1.6 工作（Stream 2，由 BREAKING 触发的 major bump 吞掉原计划 v4.6.3 patch）
+- **v5.0.1**（2026-05-18）：post-release develop pre-bump (post-v5.0.0)；只 bump marketplace VERSION + marketplace.json metadata.version + README badge；plugin.json `learn-kit 2.0.0` 不动；per [`[ADR]_Develop_PreBump_Adoption`](docs/adr/[ADR]_Develop_PreBump_Adoption.md)
 
 ## AI Engineering
 
@@ -134,12 +136,12 @@ marketplace AI agent 工作流规范（v4.1.0 起含 18 件项目本地 mp-* ski
 
 ### Project-Local Skills (`.claude/skills/`)
 
-v4.1.0 起 18 件 `mp-*` 工作流 skill 随 repo commit 演进，划分 3 family：
+v4.1.0 起 19 件 `mp-*` 工作流 skill 随 repo commit 演进，划分 3 family：
 
 | Family | 数量 | Skills |
 |--------|------|--------|
 | `mp-flow-*` | 9 | intake / repo-scan / plan / design-adr / author / compliance / dogfood / self-review / post-merge |
-| `mp-git-*` | 6 | branch / commit / push / pr / merge-gate / cleanup |
+| `mp-git-*` | 7 | branch / commit / push / pr / merge-gate / cleanup / sync |
 | `mp-doc-*` | 3 | author / validate / bump-version |
 
 详见 STANDARD §5.1-§5.3。Skill 来源优先级：**项目本地 mp-* > learn-kit > plugin-dev > superpowers**。

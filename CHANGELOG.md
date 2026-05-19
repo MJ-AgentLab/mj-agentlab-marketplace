@@ -5,6 +5,23 @@
 
 ## [Unreleased]
 
+## [5.0.1] - 2026-05-19
+
+This release packages **`mp-git-sync` side-loop sync skill** (mp-git-* family 6 → 7) as the sole user-facing feature, plus minor post-v5.0.0 housekeeping (CLAUDE.md A6 gate sync to align with Documentation Framework v1.6 §2.7 trigger introduced in v5.0.0).
+
+VERSION 5.0.1 was pre-bumped on develop in PR #137 (`maintain/post-release-prebump-v5-0-1`) per the v4.6.1-introduced pre-bump model; this release branch only promotes `[Unreleased]` → `[5.0.1]` without an additional `bump-version.ps1` step. After merge, `release.yml` auto-tags `v5.0.1`, then sync-main-to-develop + next pre-bump (5.0.1 → 5.0.2) closes the loop.
+
+No plugin version changes this release (learn-kit stays at 2.0.0; dual-layer marketplace + plugin versioning per `[GUIDE]_Version_Management.md`). Marketplace patch bump v5.0.0 → v5.0.1.
+
+### Added
+
+- **`.claude/skills/mp-git-sync/SKILL.md`** NEW — mp-git-* family 第 7 个 skill（侧循环 git sync 助手，非编号 HITL stage）。覆盖 3 个 mode：(A) **Dev-sync** 工作分支 ← `origin/develop`（hotfix/* ← `origin/main`，含 release/* base = develop 的 marketplace 6 分支前缀分发）；(B) **Hotfix-backmerge** `develop` ← `origin/main`（自动化 `[RUNBOOK]_Release_Operations.md` §4.4 现有手工流程）；(C) **Self-update** `<current>` ← `origin/<current>`（多机器 / 协作者 / squash-merge 后）。6 step workflow + 10 条 H-code HITL 网格（含 H8 bare-worktree config 漂移自动修复 PowerShell 一键脚本）+ Mode B VERSION 冲突附 `develop >= main` 不变式说明（per `[ADR]_Develop_PreBump_Adoption.md` + `[RUNBOOK]_Release_Operations.md` §4.5 TODO 场景）+ 强制 merge 策略（拒绝 git rebase）。 (PR #140)
+
+### Changed
+
+- **`CLAUDE.md`** — `mp-git-*` family 计数 6 → 7 + skill 列表追加 `/ sync`（per Documentation Framework v1.6 §2.7 A6 Allowlist `.claude/skills/mp-*/` trigger）。 (PR #140)
+- **`CLAUDE.md`** — post-v5.0.0 housekeeping sync per A6 gate（marketplace 5.0.1 + v5.0.x history 段更新）。与 v5.0.0 Documentation Framework v1.6 §2.7 触发条件对齐。 (commit `e284311` from PR #137)
+
 ## [5.0.0] - 2026-05-18
 
 This release packages **two independent feature streams** that happened to land in the same merge window:
