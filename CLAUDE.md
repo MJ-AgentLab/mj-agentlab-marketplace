@@ -47,7 +47,7 @@
 - 模板 / references / scripts 放在 skill 目录内部
 - 不使用 `components` 字段（auto-discovery 标准）
 
-## Documentation Framework (v4.2.0 起；当前 v1.6 / marketplace v5.0.1)
+## Documentation Framework (v4.2.0 起；当前 v1.6 / marketplace v5.0.2)
 
 marketplace 文档体系遵循以下三层 STANDARD（位于 `docs/rule/`）:
 
@@ -110,6 +110,8 @@ Templates 与 mp-doc-author skill 协作起草新文档；mp-doc-validate skill 
 - **v4.6.x**（2026-05-18）：v4.6.1 develop post-release pre-bump 机制 (per [ADR]_Develop_PreBump_Adoption)；v4.6.2 POSTMORTEM Bulk_Cleanup_Trap_Analysis P3 + bump-version script regex fix；v4.6.3 Framework v1.5 → v1.6 root-level named files codification + §2.7 CLAUDE.md sync allowlist + §4.3.1 A6 active CI gate + Reversal ADR v1.0 → v1.1 amendment + CONTRIBUTING.md restore to root + GLOSSARY.md create + [GUIDE]_Contributing archive ceremony
 - **v5.0.0**（2026-05-18）：**BREAKING** — learn-kit `1.2.1 → 2.0.0` scaffold skill `init` → `scaffold-learning` 物理重命名（消除与 Claude Code 内置 `/init` 的 slash-picker 冲突；详见 [`[ADR]_LearnKit_Init_Skill_Rename`](docs/adr/[ADR]_LearnKit_Init_Skill_Rename.md) + Migration §5）；同 release 吸收 v4.6.3 [Unreleased] 的 Framework v1.6 工作（Stream 2，由 BREAKING 触发的 major bump 吞掉原计划 v4.6.3 patch）
 - **v5.0.1**（2026-05-18）：post-release develop pre-bump (post-v5.0.0)；只 bump marketplace VERSION + marketplace.json metadata.version + README badge；plugin.json `learn-kit 2.0.0` 不动；per [`[ADR]_Develop_PreBump_Adoption`](docs/adr/[ADR]_Develop_PreBump_Adoption.md)
+- **v5.0.1 release**（2026-05-19）：`mp-git-sync` side-loop sync skill 落地（mp-git-* family 6 → 7；3 mode：dev-sync / hotfix-backmerge / self-update；10 条 H-code HITL 网格 + H8 bare-worktree config 漂移自动修复 PowerShell 脚本）；post-v5.0.0 housekeeping CLAUDE.md A6 gate sync 一并入版本节。无 plugin 版本变化（learn-kit `2.0.0` dual-layer 独立）
+- **v5.0.2**（2026-05-19）：post-release develop pre-bump (post-v5.0.1)；只 bump marketplace VERSION + marketplace.json metadata.version + README badge；plugin.json `learn-kit 2.0.0` 不动；per [`[ADR]_Develop_PreBump_Adoption`](docs/adr/[ADR]_Develop_PreBump_Adoption.md)
 
 ## AI Engineering
 
