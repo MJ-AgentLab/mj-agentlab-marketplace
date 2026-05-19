@@ -136,12 +136,12 @@ marketplace AI agent 工作流规范（v4.1.0 起含 18 件项目本地 mp-* ski
 
 ### Project-Local Skills (`.claude/skills/`)
 
-v4.1.0 起 18 件 `mp-*` 工作流 skill 随 repo commit 演进，划分 3 family：
+v4.1.0 起 19 件 `mp-*` 工作流 skill 随 repo commit 演进，划分 3 family：
 
 | Family | 数量 | Skills |
 |--------|------|--------|
 | `mp-flow-*` | 9 | intake / repo-scan / plan / design-adr / author / compliance / dogfood / self-review / post-merge |
-| `mp-git-*` | 6 | branch / commit / push / pr / merge-gate / cleanup |
+| `mp-git-*` | 7 | branch / commit / push / pr / merge-gate / cleanup / sync |
 | `mp-doc-*` | 3 | author / validate / bump-version |
 
 详见 STANDARD §5.1-§5.3。Skill 来源优先级：**项目本地 mp-* > learn-kit > plugin-dev > superpowers**。

@@ -5,6 +5,11 @@
 
 ## [Unreleased]
 
+### Added
+
+- **`.claude/skills/mp-git-sync/SKILL.md`** NEW — mp-git-* family 第 7 个 skill（侧循环 git sync 助手，非编号 HITL stage）。覆盖 3 个 mode：(A) **Dev-sync** 工作分支 ← `origin/develop`（hotfix/* ← `origin/main`，含 release/* base = develop 的 marketplace 6 分支前缀分发）；(B) **Hotfix-backmerge** `develop` ← `origin/main`（自动化 `[RUNBOOK]_Release_Operations.md` §4.4 现有手工流程）；(C) **Self-update** `<current>` ← `origin/<current>`（多机器 / 协作者 / squash-merge 后）。6 step workflow + 10 条 H-code HITL 网格（含 H8 bare-worktree config 漂移自动修复 PowerShell 一键脚本）+ Mode B VERSION 冲突附 `develop >= main` 不变式说明（per `[ADR]_Develop_PreBump_Adoption.md` + `[RUNBOOK]_Release_Operations.md` §4.5 TODO 场景）+ 强制 merge 策略（拒绝 git rebase）。
+- **`CLAUDE.md`** sync — `mp-git-*` family 计数 6 → 7 + skill 列表追加 `/ sync`（per Documentation Framework v1.6 §2.7 A6 Allowlist `.claude/skills/mp-*/` trigger）。
+
 ## [5.0.0] - 2026-05-18
 
 This release packages **two independent feature streams** that happened to land in the same merge window:
