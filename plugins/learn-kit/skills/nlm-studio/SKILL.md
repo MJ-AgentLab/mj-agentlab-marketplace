@@ -503,6 +503,29 @@ to (a) guarantee consistency across all 13 cells and (b) make
 future policy changes a one-file edit. Edit
 `templates/language-directive.md` to adjust the policy globally.
 
+**Dual-lock reinforcement (v2.0.1+)**: dogfood revealed that some
+audio / video artifacts still defaulted to all-English output despite
+the language directive. To reinforce the constraint, two changes
+were applied:
+
+1. `templates/language-directive.md` now opens with a hard mandate
+   `**OUTPUT LANGUAGE: 简体中文**` + an explicit failure-mode
+   ban ("no full-English narration / dialogue allowed"), positioned
+   at the top of the directive block for maximum model attention.
+2. `templates/artifact-audio.md` and `templates/artifact-video.md`
+   each carry a `## Spoken language` / `## Narration language`
+   section inside their `===== MEDIUM CONSTRAINTS =====` segment,
+   restating the Chinese-narration rule with medium-specific
+   guidance (host dialogue / single narrator / on-screen text).
+   These sections defer to LANGUAGE & TERMINOLOGY for the term
+   list and mixed-language rules, forming a double lock.
+
+`slide_deck`, `infographic`, and `mind_map` rely only on the single
+LANGUAGE & TERMINOLOGY lock — dogfood did not observe English-
+defaulting failures in these media. Add a medium-specific
+reinforcement section to their templates if future dogfood reveals
+similar drift.
+
 **Why this design over 15 standalone templates:** view and artifact
 have largely independent dimensions for 4 of 5 artifact types. The
 view carries the pedagogical *purpose* (who's listening, what they

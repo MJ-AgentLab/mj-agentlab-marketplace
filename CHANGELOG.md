@@ -5,6 +5,21 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- **learn-kit 2.0.0 → 2.0.1** — `nlm-studio` 输出语言约束加强：解决
+  dogfood 反馈的「NotebookLM 生成 artifact 出现全英文表达 / 讲解」
+  问题。`templates/language-directive.md` 顶部新增 lead-with-mandate
+  段（`OUTPUT LANGUAGE: 简体中文` + 显式禁止整段英文失败模式）；
+  `templates/artifact-audio.md` 与 `templates/artifact-video.md` 各
+  新增一节（`## Spoken language` / `## Narration language`）作为
+  medium 级双锁加固。`SKILL.md` §"Language & terminology directive"
+  同步追加 dual-lock 机制说明。`marketplace.json` plugins[] 学 plugin
+  version 同步 2.0.0 → 2.0.1；marketplace metadata.version 仍 5.0.2
+  pre-bumped（per `[ADR]_Develop_PreBump_Adoption`，plugin 版本独立
+  bump）。A6 CLAUDE.md sync 未触发（plugin.json patch 不在 Framework
+  v1.6 §2.7 allowlist 内）。
+
 ## [5.0.1] - 2026-05-19
 
 This release packages **`mp-git-sync` side-loop sync skill** (mp-git-* family 6 → 7) as the sole user-facing feature, plus minor post-v5.0.0 housekeeping (CLAUDE.md A6 gate sync to align with Documentation Framework v1.6 §2.7 trigger introduced in v5.0.0).

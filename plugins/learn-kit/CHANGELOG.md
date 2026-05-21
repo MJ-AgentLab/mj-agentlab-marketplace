@@ -7,6 +7,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [2.0.1] - 2026-05-21
+
+### Fixed
+
+- **`nlm-studio` 输出语言约束加强**（解决 dogfood 反馈的「NotebookLM 生成
+  artifact 出现全英文表达 / 全英文讲解」问题）。原 `templates/language-
+  directive.md` 已包含「中文主体 + 英文术语保留」规则但在 NLM 模型侧
+  权重不足，本次以双锁加固：
+  - `templates/language-directive.md` 顶部新增 lead-with-mandate
+    段：`**OUTPUT LANGUAGE: 简体中文 (Simplified Chinese, zh-CN)**` +
+    显式禁止失败模式（整段英文讲解 / 整段英文对白 / on-screen 英文主
+    体）+ 重申唯一例外是行业标准技术术语。原 75 行 hard-constraint
+    bullet + 正反例样例一字未改。
+  - `templates/artifact-audio.md` 在 `## Voice & pacing` 与
+    `## Segment endings` 之间新增 `## Spoken language` 小节：两位
+    host 普通话对白、不允许整段英文、术语保留英文原词（不音译 / 不
+    强译），并 reference LANGUAGE & TERMINOLOGY 段为权威源。
+  - `templates/artifact-video.md` 在 `## Per-scene structure` 与
+    `## Opening 30 seconds` 之间新增 `## Narration language` 小节：
+    旁白普通话、on-screen 简体中文、visual cue 文字 verbatim、并
+    reference LANGUAGE & TERMINOLOGY 段。
+  - `skills/nlm-studio/SKILL.md` §"Language & terminology directive
+    (single shared block)" 追加 "Dual-lock reinforcement (v2.0.1+)"
+    一段，说明本次新增的双锁机制 + slide_deck / infographic /
+    mind_map 仍走单锁（dogfood 未观测到这三个 medium 英文化失败）。
+- `plugin.json` version 2.0.0 → 2.0.1。`marketplace.json` plugins[]
+  数组对应条目同步。
+
 ## [2.0.0] - 2026-05-18
 
 ### BREAKING

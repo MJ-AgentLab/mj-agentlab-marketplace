@@ -26,6 +26,19 @@ The visual is not decorative — it's load-bearing. A scene where
 the visual could be replaced with a still title slide is a wasted
 scene.
 
+## Narration language
+
+- 单一旁白（narrator）使用普通话发音；on-screen 文字使用简体中文。
+- 不允许整段英文旁白；不允许 on-screen 文字主体为英文。如果源材料英文
+  段落较多，旁白应当用中文复述（保留英文术语原词），on-screen 字幕用
+  中文呈现要点。
+- 行业标准技术术语保留英文原词：旁白按英文音节自然嵌入中文句子；
+  on-screen 直接显示英文原词，无需中译注解。
+- 视觉提示（visual cue）里的图示文字 / 代码片段 / 文件路径 / 命令行
+  verbatim 显示，不翻译。
+- 详细规则见 `===== LANGUAGE & TERMINOLOGY =====` 段；本节为视频媒介
+  特化重申，最终规则以 LANGUAGE & TERMINOLOGY 为准。
+
 ## Opening 30 seconds
 
 The opening's *content* is governed by the view template's §3 Style
