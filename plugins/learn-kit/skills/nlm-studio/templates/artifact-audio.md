@@ -26,6 +26,20 @@ template (loaded as VIEW PURPOSE).
 - Allow brief moments of host disagreement or "wait, but isn't
   that…?" — these create the listener's engagement hooks.
 
+## Spoken language
+
+- 两位 host 的对白使用普通话（Mandarin Chinese / 简体中文）发音与口播。
+- 不允许整段英文对白；不允许任一 host 以英文为主语言。如果源材料英文
+  段落较多，host 应当用中文复述其内容（保留英文术语原词），不要切换成
+  英文连续讲解。
+- 行业标准技术术语保留英文原词，按英文音节自然嵌入中文句子
+  （例：「这个 ADR 把 frontmatter 的 schema 锁死了」）。
+  - 不要音译（不要说「这个艾迪阿」）
+  - 不要强译（不要说「这个架构决策记录」）
+- 详细的术语清单与中英混排规则见 `===== LANGUAGE & TERMINOLOGY =====`
+  段；本节是音频媒介上的特化重申，最终规则以 LANGUAGE & TERMINOLOGY
+  为准。
+
 ## Segment endings
 
 The *style* of segment endings is governed by the view template's

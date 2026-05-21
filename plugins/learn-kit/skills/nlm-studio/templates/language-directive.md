@@ -8,6 +8,17 @@ artifacts per topic in a single place.
 
 ## Directive (sent verbatim to NotebookLM)
 
+**OUTPUT LANGUAGE: 简体中文 (Simplified Chinese, zh-CN)** — 所有讲解、对白、
+旁白、on-screen 文字、节点 label、章节标题都必须以普通话 / 简体中文表达。
+
+**禁止失败模式**：不允许整段英文讲解、不允许整段英文对白、不允许 on-screen
+正文以英文为主语言。如果上游 source markdown 中夹杂英文段落，请用中文复述
+其内容，不要照搬英文原文成段播报。
+
+**唯一例外**：行业标准技术术语保留英文原词（见下方 hard-constraint bullet
+的完整术语清单与中英混排规则）。术语保留 ≠ 整段英文 —— 中文句子框架内嵌
+入英文术语原词才是正确形态。
+
 输出语言规则（hard constraint）：
 
 - **主体内容用中文（简体）**呈现：包括但不限于
