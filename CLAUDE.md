@@ -5,7 +5,7 @@
 ## Project Structure
 
 - `plugins/` — **1 个通用插件**（v4.0.0 起整合）：
-  - `learn-kit` v2.0.1（教学方法论 + AI 三档生成 + 交互式 HTML + nlm-studio NLM 多媒体生成；v4.0.0 起吸收 notebooklm-kit 的核心多媒体场景；v1.2.0 起 plugin 内教学文档合并为 2 份 [GUIDE]；v1.2.1 起 nlm-studio SKILL.md frontmatter description 压缩至 < 1,536-char cap；**v2.0.0 BREAKING**：scaffold skill 由 `init` 改名为 `scaffold-learning`，消除与 Claude Code 内置 `/init` 的 slash-picker 冲突；详见 [docs/adr/[ADR]_LearnKit_Init_Skill_Rename.md](docs/adr/[ADR]_LearnKit_Init_Skill_Rename.md)；v2.0.1 起 nlm-studio 输出语言双锁加固——`language-directive.md` 顶部新增 lead-with-mandate 段 `OUTPUT LANGUAGE: 简体中文` + audio/video 模板各加 medium 级语言重申小节，解决 dogfood 反馈的 artifact 全英文化问题）
+  - `learn-kit` v3.0.0（**v6.0.0 BREAKING**：5 skill 收敛为单 skill `three-views`——删 scaffold-learning/locate/scan/nlm-studio + 重命名 generate-tier → three-views；NLM artifact 范围 13 → max 10（删 infographic，mind_map 转 opt-in）；新增 URL 输入 + source_manifest 结构化追踪 + HTML dual-mode grounding；保留 nlm-studio 全套 dogfood防护；详见 [docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md](docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md) + [docs/guide/[GUIDE]_Migration_From_v3_to_v4.md](docs/guide/[GUIDE]_Migration_From_v3_to_v4.md) §6。历史 v2.x 5-skill 设计：scaffold-learning（一次性 bootstrap）+ locate/scan（discovery，算法保留为 plugin-internal [GUIDE]_LearnKit_Discovery_Recipes manual recipes）+ generate-tier（AI 三档）+ nlm-studio（NLM 多媒体）；v2.0.0 BREAKING init → scaffold-learning rename；v2.0.1 nlm-studio Chinese narration dual-lock）
 - `scripts/` — 基础设施脚本（bump-version, install-hooks, validate-commits, clone-bare）
 - `.claude-plugin/marketplace.json` — 市场元数据（版本 + 插件注册表）
 - `VERSION` — 市场整体版本号（权威源）
@@ -47,7 +47,7 @@
 - 模板 / references / scripts 放在 skill 目录内部
 - 不使用 `components` 字段（auto-discovery 标准）
 
-## Documentation Framework (v4.2.0 起；当前 v1.6 / marketplace v5.0.2)
+## Documentation Framework (v4.2.0 起；当前 v1.6 / marketplace v6.0.0)
 
 marketplace 文档体系遵循以下三层 STANDARD（位于 `docs/rule/`）:
 
@@ -112,6 +112,7 @@ Templates 与 mp-doc-author skill 协作起草新文档；mp-doc-validate skill 
 - **v5.0.1**（2026-05-18）：post-release develop pre-bump (post-v5.0.0)；只 bump marketplace VERSION + marketplace.json metadata.version + README badge；plugin.json `learn-kit 2.0.0` 不动；per [`[ADR]_Develop_PreBump_Adoption`](docs/adr/[ADR]_Develop_PreBump_Adoption.md)
 - **v5.0.1 release**（2026-05-19）：`mp-git-sync` side-loop sync skill 落地（mp-git-* family 6 → 7；3 mode：dev-sync / hotfix-backmerge / self-update；10 条 H-code HITL 网格 + H8 bare-worktree config 漂移自动修复 PowerShell 脚本）；post-v5.0.0 housekeeping CLAUDE.md A6 gate sync 一并入版本节。无 plugin 版本变化（learn-kit `2.0.0` dual-layer 独立）
 - **v5.0.2**（2026-05-19）：post-release develop pre-bump (post-v5.0.1)；只 bump marketplace VERSION + marketplace.json metadata.version + README badge；plugin.json `learn-kit 2.0.0` 不动；per [`[ADR]_Develop_PreBump_Adoption`](docs/adr/[ADR]_Develop_PreBump_Adoption.md)
+- **v6.0.0**（2026-05-28）：**BREAKING** — learn-kit `2.0.1 → 3.0.0` 5 skill 收敛为单一 `three-views` skill（删 scaffold-learning / locate / scan / nlm-studio + 重命名 generate-tier → three-views；NLM artifact 默认 max 10（9 view-cycled + 1 optional mind_map），infographic 永久退场；新增 URL 输入 + source_manifest 结构化追踪 + HTML dual-mode grounding；保 nlm-studio 全 dogfood防护）；marketplace `5.0.2 → 6.0.0` 跟随 plugin major + 5 个 user-facing slash command 消失/重命名 = consumer-facing API breaking；详见 [`[ADR]_LearnKit_Consolidation_To_Single_Skill`](docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md) + Migration §6；新增 plugin-internal [`[GUIDE]_LearnKit_Discovery_Recipes`](plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_Discovery_Recipes.md) 保留 v2.x locate/scan 算法为 manual recipes
 
 ## AI Engineering
 
