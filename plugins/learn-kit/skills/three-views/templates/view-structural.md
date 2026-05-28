@@ -1,16 +1,29 @@
+# View: Structural （结构版）· Dual-Purpose Template
+
+This file is loaded by `three-views` SKILL.md in two distinct phases:
+
+- **Step 3 (markdown generation)** reads the `MARKDOWN_GENERATION_PROMPT` block to drive AI generation of `[LEARNING]_<topic>_structural.md`.
+- **Step 5B (NLM artifact generation)** reads the `NLM_VIEW_PREFIX` block as the `===== VIEW PURPOSE =====` section of each `view=structural` NLM artifact's `focus_prompt`.
+
+The two blocks are strongly delimited by HTML comments so the SKILL.md parser cannot accidentally feed one as the other. Both blocks must exist; SKILL.md aborts if either is missing (per failsafe lint in SKILL.md §"Template integrity checks"). The `NLM_VIEW_PREFIX` block must contain §1-§5 in order.
+
+---
+
+<!-- BEGIN:MARKDOWN_GENERATION_PROMPT -->
+
 # Structural Tier (结构版) Prompt Template
 
 ## INSTRUCTIONS TO CLAUDE (skill-internal preamble — do NOT include in rendered output)
 
 Substitute these placeholders before executing the PROMPT BODY:
 
-- `{user_question}` — verbatim user question from generate-tier step 0
-- `{uploaded_docs_summary}` — 3-5 line summary of source files
-- `{topic_name}` — confirmed topic slug from step 4
+- `{user_question}` — verbatim user question from three-views Step 1
+- `{uploaded_docs_summary}` — 3-5 line summary of source_manifest entries, keyed by `S<n>` ids
+- `{topic_name}` — confirmed topic slug
 
-Read the source corpus into context before executing. The body's "上传文档" instructions operate on the loaded source.
+Read the source corpus (tracked in `source_manifest`) into context before executing. The prompt body's "上传文档" instructions operate on the loaded source.
 
-After execution, prepend the YAML frontmatter from generate-tier step 5.4. Write to `learning/<topic>/[LEARNING]_<topic>_structural.md`.
+After execution, prepend the YAML frontmatter from three-views Step 3. Write to `<output_dir>/[LEARNING]_<topic>_structural.md`.
 
 Keep all 14 top-level sections in the order below. Tables must use the column headers exactly as specified — they are part of the contract.
 
@@ -35,7 +48,7 @@ Keep all 14 top-level sections in the order below. Tables must use the column he
 生成要求：
 1. 请优先围绕"用户问题"展开，而不是泛泛介绍整个领域。
 2. 请充分利用上传文档中的内容。
-3. 如果文档中有明确依据，请引用或指出依据来自哪个文档、章节或段落。
+3. 如果文档中有明确依据，请引用或指出依据来自哪个 source id（如 `[S1]` / `[S2]`），并写明章节或段落。
 4. 如果文档没有覆盖某些内容，但为了帮助理解需要补充背景知识，请明确标注为"背景补充"。
 5. 如果某些判断只是根据文档推断出来的，请标注为"推断"。
 6. 不要编造文档中不存在的案例、数据、人名、结论或社区经验。
@@ -54,7 +67,7 @@ Keep all 14 top-level sections in the order below. Tables must use the column he
 - 用户问题中的核心对象是什么？
 - 用户想理解的是概念、方法、案例、判断标准，还是应用边界？
 - 这个问题涉及哪些关键词？
-- 上传文档中哪些内容最相关？
+- 上传文档中哪些内容最相关？（按 source id 指明）
 - 这个问题可以拆成哪些子问题？
 - 哪些子问题是基础问题？
 - 哪些子问题是进阶问题？
@@ -415,3 +428,93 @@ Keep all 14 top-level sections in the order below. Tables must use the column he
 - 一句话结构总结 — 这个主题的核心结构是什么？
 - 一张表格总结 — 概念、作用、关系、边界。
 - 一个学习建议 — 我下一步应该进入挑战版，还是先回到零基础版补直觉？请说明原因。
+
+<!-- END:MARKDOWN_GENERATION_PROMPT -->
+
+<!-- BEGIN:NLM_VIEW_PREFIX -->
+
+# View: Structural NLM Focus-Prompt Prefix
+
+This block is loaded by `three-views` Step 5B as the `===== VIEW PURPOSE =====` section of each `view=structural` NLM artifact's `focus_prompt`. Five sections required (per failsafe lint).
+
+## §1 Pedagogical purpose
+
+让已经接触过 `<topic>` 但只有「散点知识」的人完成「从 1 到 N」的
+结构化扩展。具体讲：
+
+- 能在脑中画出 `<topic>` 的概念地图：核心是什么、外延是什么、
+  边界在哪里。
+- 能区分 must-know（必须掌握）vs nice-to-know（了解即可）。
+- 能讲出 `<topic>` 的 prerequisites（前置知识）和 follow-ups（后
+  续延伸）。
+- 能在被问到「`<topic>` 由哪几部分组成」时给出一个可信、可教别人
+  的回答。
+
+Structural is for the learner who can recognize the concept but
+can't yet organize it. They have the pieces; they need the map.
+
+## §2 Audience profile
+
+- **Background**: 该领域已有一些接触，可能用过几次 / 听过同事讨论 /
+  看过文档但没系统读完。术语听得懂但不一定能解释。
+- **Motivation**: 建立全局观、查漏补缺、为教别人做准备、为深入
+  学习做铺垫、面试 / 评审前的系统复习。
+- **Common confusions**: 散点知识无法整合；记不住层级关系；分不
+  清「这是 `<topic>` 的一部分」vs「这是相邻概念」。
+- **Reading speed**: Comfortable with terminology. Wants
+  structure, not motivation.
+
+## §3 Style mandate
+
+- **Lead with the map**. 在前 10% 的篇幅里给出 `<topic>` 的整体
+  结构（N 维 / N 个层级 / N 个阶段），让听者知道「我接下来要去
+  哪里」。Open with the destination, not the journey.
+- **Concept maps over narratives**. 用层级关系 / 决策树 / 比较
+  表 / 维度对照 表达结构。Foundation 用故事，structural 用图。
+- **Mark prerequisites and scope boundaries explicitly**. 直说
+  「要懂这个，先要懂 X」「这个 topic 不覆盖 Y，那是另一个领域」。
+- **Use structural language**: 「the 3 dimensions」「2 axes」「4
+  phases」「5-step lifecycle」「N+1 layered architecture」。
+  Numbered groupings help the listener build a mental skeleton.
+- **End with a self-check list** — "if you understood this artifact,
+  you should now be able to: …" (3-5 items). This anchors the
+  scope.
+- **Citation tag**: `[LEARNING:structural]`.
+
+## §4 Anti-patterns（绝对不能做的）
+
+- **不要退回 foundation 档的故事化讲解**. 用类比 illustrate 单点
+  概念可以，但 structural 的主轴是结构而非故事。If you're spending
+  more than 20% of the artifact telling stories, you've drifted.
+- **不要罗列细节而无层级**. 一份 "X 包含 a, b, c, d, e, f, g..."
+  的清单是 structural 的失败。把它分组、给每组一个名字。
+- **不要假装结构存在**. 不要因为「应该有 3 个维度」就硬凑 3 个。
+  If the topic naturally has 2 axes, say 2.
+- **不要用术语而不指明它在结构中的位置**. Every term used must
+  link back to "this belongs to bucket X of the N-dimension map
+  you saw in the opening".
+- **不要忘记 boundary**. 一个不说「`<topic>` 不包含什么」的结构
+  化讲解是不完整的。Boundary clarification 跟 inclusion 同等重要。
+
+## §5 Success criteria（dogfood 可观察特征）
+
+一个不知道 view 标签的旁人在体验完本 artifact 后，应该能：
+
+1. 用「`<topic>` 由 N 个部分组成，分别是 X / Y / Z」的句式回答
+   构成问题。
+2. 指出至少一个 explicit 结构图（slide 中是 layout、video 中是
+   on-screen 框架）。
+3. 回答「什么不属于 `<topic>`」并说出 prerequisites。
+4. **关键反向测试**: 旁人是否说「这是讲系统结构的」「这帮我建
+   立了全局观」？如果他说「我学了点新东西」但说不出结构 ——
+   未达标。如果他说「这有点难懂 / 太多反例」—— 那是 challenge
+   的特征，本档不达标。
+5. **结构密度**: 30 分钟 audio / 15 张 slides 中至少 3 处明确的
+   "N 维 / 层级 / 分组" 语言。0-1 = 不合格；2-3 = 临界；≥ 4 = 通过。
+
+These criteria distinguish structural from its neighbors. A
+structural artifact that gets confused for foundation has too much
+story; one that gets confused for challenge has too much
+counter-example. Aim for the middle: a clean, organized map.
+
+<!-- END:NLM_VIEW_PREFIX -->
