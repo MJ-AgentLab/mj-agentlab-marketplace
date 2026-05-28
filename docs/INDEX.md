@@ -4,9 +4,9 @@ scope: marketplace
 summary: Marketplace documentation navigation hub — STANDARD / GUIDE / ADR / SPEC / RUNBOOK / archive / templates 索引
 owner: marketplace-maintainers
 created: 2026-05-15
-updated: 2026-05-18
+updated: 2026-05-28
 state: active
-version: v5.0
+version: v6.0
 domain: governance
 tags:
   - index
@@ -15,7 +15,9 @@ related:
   - ./rule/[STANDARD]_Documentation_Framework.md
   - ./adr/[ADR]_Root_Level_Named_Files_Codification.md
   - ./adr/[ADR]_LearnKit_Init_Skill_Rename.md
+  - ./adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md
 revision: |
+  2026-05-28 — v6.0: add [ADR]_LearnKit_Consolidation_To_Single_Skill row (v6.0.0 learn-kit 5 skill → 1 three-views consolidation); update [GUIDE]_Migration_From_v3_to_v4 row to v6.0 with §6 v5.0.x→v6.0.0 chapter; learn-kit plugin-internal GUIDE [GUIDE]_LearnKit_Discovery_Recipes registered via plugin-internal INDEX cross-reference (scope: learn-kit, not in this marketplace-scope INDEX)
   2026-05-18 — v5.0: add [ADR]_LearnKit_Init_Skill_Rename row (v5.0.0 learn-kit init → scaffold-learning rename)
   2026-05-18 — v4.6.3: add 「Root-Level Meta Files」section listing 5 named special files per Framework v1.6 §1.1; bump [Documentation Framework] row v1.5 → v1.6; remove [Contributing Guide] active row (archived in v4.6.3 archive ceremony — content restored to repo root); add [DEPRECATED]_[GUIDE]_Contributing_v1.1 row to Archived Documents; add [ADR]_Root_Level_Named_Files_Codification row to ADRs; update Suggested Reading Order links to root CONTRIBUTING.md
   2026-05-18 — v4.6.2: add first [POSTMORTEM] row (2026-05-18 Bulk Cleanup Trap Analysis, P3); update [RUNBOOK]_Release_Operations row to mention v1.3.2 cleanup callouts; update [GUIDE]_Contributing row to mention v1.1 worktree prefix note
@@ -55,7 +57,7 @@ Navigation hub for all marketplace documentation.
 
 | Document | Description |
 |----------|-------------|
-| [Migration From v3 to v4](./guide/[GUIDE]_Migration_From_v3_to_v4.md) | 版本升级迁移指引（v2.x → v3.0.0；v3.2.x → v4.0.0；v4.0.0 → v4.3.x；v4.4.x → v4.5.0；v4.5.0 起从 docs/MIGRATION_GUIDE.md rename）|
+| [Migration From v3 to v4](./guide/[GUIDE]_Migration_From_v3_to_v4.md) | 版本升级迁移指引（v2.x → v3.0.0；v3.2.x → v4.0.0；v4.0.0 → v4.3.x；v4.4.x → v4.5.0；v4.5.x → v5.0.0；**v6.0 add §6 v5.0.x → v6.0.0** learn-kit 5 skill → 1 three-views consolidation；v4.5.0 起从 docs/MIGRATION_GUIDE.md rename）|
 | [Marketplace Project Overview](./guide/[GUIDE]_Marketplace_Project_Overview.md) | 项目架构、插件目录、CI/CD 体系、开发环境搭建 |
 | [Plugin Development Testing Workflow](./guide/[GUIDE]_Plugin_Development_Testing_Workflow.md) | 跨仓库插件开发测试的三阶段工作流 |
 | [Version Management](./guide/[GUIDE]_Version_Management.md) | 双层版本架构、bump 工具、CHANGELOG 规范 |
@@ -77,6 +79,7 @@ Navigation hub for all marketplace documentation.
 | [ADR: Develop Pre-Bump Adoption](./adr/[ADR]_Develop_PreBump_Adoption.md) | v4.6.1 起每次 release + sync-main-to-develop 完成后，在 develop 上预 bump 到下一个 patch；保证 `develop VERSION > main VERSION` 恒成立，让 release readiness 信号肉眼可见 |
 | [ADR: Root-Level Named Files Codification](./adr/[ADR]_Root_Level_Named_Files_Codification.md) | v4.6.3 起正向 codification 5 个 root-level named special files 责任 + CLAUDE.md sync allowlist 3 类 trigger + A6 三层 defense-in-depth enforcement；complements v1.1 Reversal ADR negative cancellation with positive codification |
 | [ADR: LearnKit Init Skill Rename](./adr/[ADR]_LearnKit_Init_Skill_Rename.md) | v5.0.0 把 learn-kit `init` skill 物理重命名为 `scaffold-learning`，消除 Claude Code 内置 `/init` slash 拾取器并列冲突；触发 learn-kit `1.2.1 → 2.0.0` + marketplace `4.6.3 → 5.0.0` 双层 major bump |
+| [ADR: LearnKit Consolidation To Single Skill](./adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md) | **v6.0.0 BREAKING** — learn-kit 5 skill 收敛为单一 `three-views` skill（删 scaffold-learning / locate / scan / nlm-studio + 重命名 generate-tier → three-views）；NLM artifact 默认 max 10 (9 view-cycled + 1 optional mind_map)，infographic 永久退场；保留 nlm-studio 全 dogfood防护；触发 learn-kit `2.0.1 → 3.0.0` + marketplace `5.0.2 → 6.0.0` 双层 major bump；plugin-internal `[GUIDE]_LearnKit_Discovery_Recipes` 保留 v2.x locate/scan 算法 |
 
 > Plugin-internal ADRs（如 `[ADR]_LearnKit_Discovery_Skills`，v4.3.0 起迁入 `plugins/learn-kit/docs/adr/`）见各 plugin 的 docs/INDEX.md。
 

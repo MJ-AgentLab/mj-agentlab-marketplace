@@ -5,20 +5,63 @@
 
 ## [Unreleased]
 
-### Fixed
+## [6.0.0] - 2026-05-28
 
-- **learn-kit 2.0.0 → 2.0.1** — `nlm-studio` 输出语言约束加强：解决
-  dogfood 反馈的「NotebookLM 生成 artifact 出现全英文表达 / 讲解」
-  问题。`templates/language-directive.md` 顶部新增 lead-with-mandate
-  段（`OUTPUT LANGUAGE: 简体中文` + 显式禁止整段英文失败模式）；
-  `templates/artifact-audio.md` 与 `templates/artifact-video.md` 各
-  新增一节（`## Spoken language` / `## Narration language`）作为
-  medium 级双锁加固。`SKILL.md` §"Language & terminology directive"
-  同步追加 dual-lock 机制说明。`marketplace.json` plugins[] 学 plugin
-  version 同步 2.0.0 → 2.0.1；marketplace metadata.version 仍 5.0.2
-  pre-bumped（per `[ADR]_Develop_PreBump_Adoption`，plugin 版本独立
-  bump）。A6 CLAUDE.md sync 未触发（plugin.json patch 不在 Framework
-  v1.6 §2.7 allowlist 内）。
+### BREAKING — learn-kit 5 skills → 1 `three-views` consolidation
+
+This release is the **largest marketplace BREAKING since v4.0.0 (notebooklm-kit retirement)**. learn-kit `2.0.1 → 3.0.0` (major), marketplace `5.0.2 → 6.0.0` (major). 5 user-facing slash commands collapse to 1:
+
+| v2.x removed | v3.0.0 replacement |
+|--------------|---------------------|
+| `/learn-kit:scaffold-learning` | Auto-handled by `/learn-kit:three-views` Step 1 (creates `./learning/<topic>/` + minimal INDEX skeleton; no longer creates `_meta/METHODOLOGY.md` or `_archive/`) |
+| `/learn-kit:locate <query>` | Algorithm preserved as manual recipe in `plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_Discovery_Recipes.md` §"Locate Recipe" |
+| `/learn-kit:scan` | Algorithm preserved as manual recipe in same GUIDE §"Scan Recipe" |
+| `/learn-kit:generate-tier <topic>` | `/learn-kit:three-views <topic>` (same 3-view markdown, expanded with URL input + source_manifest + dual-mode HTML grounding) |
+| `/learn-kit:nlm-studio <topic>` | `/learn-kit:three-views <topic>` then Step 4 multiSelect → check "NLM 9 view-cycled" and/or "NLM shared mind_map" |
+
+**NLM artifact range scaled from 13 → max 10**:
+- Infographic permanently retired (4 artifacts removed). Users needing infographic must use NotebookLM web UI manually.
+- mind_map moved from default batch to opt-in (Step 4 third option). Default new max: 9 view-cycled (audio + video + slide_deck × 3 views) + 1 optional mind_map = 10.
+- All dogfood防护 preserved: per-step `refresh_auth`, real auth gate via `notebook_list`, source validation via `notebook_get`, 4-way re-run guard, quota right-sizing 4-way gate, bounded polling 12×10s.
+
+See [`docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md`](docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md) for full decision (alternatives, NLM range trade-offs, scaffold methodology fate) and [`docs/guide/[GUIDE]_Migration_From_v3_to_v4.md`](docs/guide/[GUIDE]_Migration_From_v3_to_v4.md) §6 for step-by-step migration walkthrough.
+
+### Added
+
+- **`plugins/learn-kit/skills/three-views/SKILL.md`** — single skill (~600 LOC). 5-step workflow (Intake / Source acquisition / 3-view markdown / Multi-select opt-in / Execute selected). `allowed-tools` extended with `WebFetch` (URL input source) + 9 `mcp__plugin_learn-kit_notebooklm-mcp__*` (preserved from nlm-studio).
+- **`plugins/learn-kit/skills/three-views/templates/`** — 10 templates: 3 dual-purpose view templates with `<!-- BEGIN:MARKDOWN_GENERATION_PROMPT -->` + `<!-- BEGIN:NLM_VIEW_PREFIX -->` strong delimiters (failsafe lint enforces §1-§5 NLM section presence); rewritten `html-renderer.md` with dual-mode grounding decision + `<missing-evidence/>` tag for grounding failures (no file path fabrication); 4 artifact templates moved from nlm-studio unchanged; interaction-overrides.md trimmed (foundation×infographic row removed); language-directive.md preserved v2.0.1 dual-lock Chinese narration policy.
+- **`docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md`** NEW — marketplace-layer ADR documenting the 5-skill consolidation decision (alternatives, NLM range scaling, scaffold methodology fate Option B, view template merge with BEGIN/END markers).
+- **`plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_Discovery_Recipes.md`** NEW — plugin-internal GUIDE preserving v2.x `locate` + `scan` skill algorithms (Grep + Glob templates + confidence scoring + canonical doc enumeration + citation-frequency ranking) as manual recipes.
+- **`docs/guide/[GUIDE]_Migration_From_v3_to_v4.md` §6** — new chapter `v5.0.x → v6.0.0` with 5 old→new command mappings, NLM range change explanation, dual-layer version bump reasoning, marketplace.json field update walkthrough, rollback guidance.
+
+### Removed
+
+- **`plugins/learn-kit/skills/scaffold-learning/`** — entire directory (SKILL.md + templates/METHODOLOGY.md + templates/INDEX.md + references/rfc-2119-keywords-pedagogy.md). Manual 8-stage methodology workflow retired (low independent invocation; AI 3-tier covers core value).
+- **`plugins/learn-kit/skills/locate/`** — entire directory deleted. Algorithm preserved in Discovery_Recipes GUIDE.
+- **`plugins/learn-kit/skills/scan/`** — entire directory deleted. Algorithm preserved in Discovery_Recipes GUIDE.
+- **`plugins/learn-kit/skills/nlm-studio/`** — entire directory deleted (SKILL.md + 4 remaining templates including artifact-infographic which is permanently retired). All useful templates moved to `three-views/templates/`; capabilities absorbed into `three-views` SKILL.md Step 5B.
+- **NLM `infographic` artifact type** — permanently retired per ADR §3.2 (dogfood showed low user acceptance + visual density inferior for learning curve).
+
+### Changed
+
+- **`plugins/learn-kit/skills/generate-tier/`** — renamed via `git mv` to `skills/three-views/` (history preserved). 4 sub-templates carried in rename: foundation/structural/challenge/html-renderer. The first 3 then renamed view-foundation/structural/challenge and rewritten with dual BEGIN/END markers absorbing the matching NLM view-prefix content. html-renderer rewritten for dual-mode grounding.
+- **`plugins/learn-kit/.claude-plugin/plugin.json`** — version `2.0.1 → 3.0.0`; description rewritten to single-skill structure; keywords overhauled (removed `locate`, `scan`, `infographic`, `rule-list`, `interpretation`, `discovery`; added `three-views`, `source-manifest`).
+- **`plugins/learn-kit/CLAUDE.md`** — completely rewritten to describe single-skill structure.
+- **`plugins/learn-kit/README.md`** — completely rewritten: 5-skill table → 1-skill summary + v3.0.0 BREAKING migration table at top + 3 worked-case scenarios (project STANDARD / external URL / only mind_map) + 演进历史 table extended with v3.0.0 row.
+- **`plugins/learn-kit/CHANGELOG.md`** — `[3.0.0]` BREAKING entry added.
+- **`plugins/learn-kit/docs/INDEX.md`** — `[GUIDE]_LearnKit_Discovery_Recipes` row added in Guides section; ADR row gets v3.0.0 status note.
+- **`.claude-plugin/marketplace.json`** — `metadata.version: 5.0.2 → 6.0.0`; `metadata.description` rewritten; `plugins[learn-kit].version: 2.0.1 → 3.0.0`; `plugins[learn-kit].description` rewritten; `plugins[learn-kit].keywords` overhauled (same delta as plugin.json).
+- **`VERSION`** — `5.0.2 → 6.0.0`.
+- **`README.md`** (marketplace root) — version badge 5.0.2 → 6.0.0; plugin table updated (Skills 5 → 1, Version 2.0.0 → 3.0.0) + skill table rewritten with single `three-views` row.
+- **`CLAUDE.md`** (marketplace root) — learn-kit description block rewritten reflecting single-skill structure; v6.0.0 history entry added (per Framework v1.6 §2.7 sync allowlist trigger: plugin major bump + skills/ directory restructure + marketplace.json metadata change).
+- **`docs/INDEX.md`** — Migration guide row v5.0 → v6.0; new ADR row added; learn-kit plugin-internal GUIDE row added via cross-reference.
+
+### Notes
+
+- Historical CHANGELOG entries (v0.1.0 through v5.0.1) retain original wording — they are factual records of what was true at each version and must not be rewritten.
+- This is the largest marketplace consolidation since v4.0.0 (notebooklm-kit retirement); ~2-3× the change volume of v5.0.0 (init rename).
+- `.mcp.json` unchanged — `notebooklm-mcp` server name + tool prefixes (`mcp__plugin_learn-kit_notebooklm-mcp__*`) preserved across this BREAKING. Users who already ran `nlm login` need not re-auth.
+- Develop pre-bump policy (per `[ADR]_Develop_PreBump_Adoption`) will resume post-release: post-v6.0.0 develop pre-bumped to v6.0.1.
 
 ## [5.0.1] - 2026-05-19
 

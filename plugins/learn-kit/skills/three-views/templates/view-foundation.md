@@ -1,16 +1,31 @@
+# View: Foundation （零基础版）· Dual-Purpose Template
+
+This file is loaded by `three-views` SKILL.md in two distinct phases:
+
+- **Step 3 (markdown generation)** reads the `MARKDOWN_GENERATION_PROMPT` block to drive AI generation of `[LEARNING]_<topic>_foundation.md`.
+- **Step 5B (NLM artifact generation)** reads the `NLM_VIEW_PREFIX` block as the `===== VIEW PURPOSE =====` section of each `view=foundation` artifact's `focus_prompt`.
+
+The two blocks are **strongly delimited by HTML comments** so the SKILL.md parser cannot accidentally feed one as the other. Both blocks must exist; SKILL.md aborts if either is missing (per failsafe lint described in SKILL.md §"Template integrity checks").
+
+The `NLM_VIEW_PREFIX` block must contain the five `## §<N>` headers (§1-§5) in order. Failsafe lint also enforces this.
+
+---
+
+<!-- BEGIN:MARKDOWN_GENERATION_PROMPT -->
+
 # Foundation Tier (零基础版) Prompt Template
 
 ## INSTRUCTIONS TO CLAUDE (skill-internal preamble — do NOT include in rendered output)
 
 Substitute these placeholders before executing the PROMPT BODY:
 
-- `{user_question}` — verbatim user question from generate-tier step 0
-- `{uploaded_docs_summary}` — 3-5 line summary of source files (paths + sizes) or "用户粘贴文本 N 字"
-- `{topic_name}` — confirmed topic slug from step 4
+- `{user_question}` — verbatim user question from three-views Step 1
+- `{uploaded_docs_summary}` — 3-5 line summary of source_manifest entries (paths / URLs / "用户粘贴文本 N 字"), keyed by `S<n>` ids
+- `{topic_name}` — confirmed topic slug
 
-Read the actual source corpus contents (referenced by `{uploaded_docs_summary}`) into context before executing the prompt body. The body's "上传文档" instructions then operate on the loaded source.
+Read the actual source corpus contents (tracked in `source_manifest` from Step 2) into context before executing the prompt body. The prompt body's "上传文档" instructions then operate on the loaded source.
 
-After execution, prepend the YAML frontmatter that generate-tier step 5.4 specifies. Then write to `learning/<topic>/[LEARNING]_<topic>_foundation.md`.
+After execution, prepend the YAML frontmatter that three-views Step 3 specifies (含 generator / topic / view / source_manifest / generated_at fields). Then write to `<output_dir>/[LEARNING]_<topic>_foundation.md`.
 
 Keep all 13 sections of the rendered output in the order below — do not reorder, do not skip. Section depth and table shapes are part of the contract.
 
@@ -35,7 +50,7 @@ Keep all 13 sections of the rendered output in the order below — do not reorde
 生成要求：
 1. 请优先围绕"用户问题"展开，不要泛泛介绍整个领域。
 2. 请充分利用上传文档中的内容。
-3. 如果文档中有明确依据，请引用或指出依据来自哪个文档、章节或段落。
+3. 如果文档中有明确依据，请引用或指出依据来自哪个 source id（如 `[S1]` / `[S2]`），并写明章节或段落。
 4. 如果文档没有覆盖某些内容，但为了帮助理解需要补充背景知识，请明确标注为"背景补充"。
 5. 如果某些判断只是根据文档推断出来的，请标注为"推断"。
 6. 不要编造文档中不存在的案例、数据、人名、结论或社区经验。
@@ -54,7 +69,7 @@ Keep all 13 sections of the rendered output in the order below — do not reorde
 - 用户表面上问的是什么？
 - 用户真正想解决的理解困难可能是什么？
 - 这个问题属于哪个领域或主题？
-- 上传文档中哪些内容和这个问题最相关？
+- 上传文档中哪些内容和这个问题最相关？（按 source id 指明）
 - 如果用户是零基础，最可能卡在哪里？
 
 请用简单语言说明。
@@ -87,7 +102,7 @@ Keep all 13 sections of the rendered output in the order below — do not reorde
 - 这个问题为什么会出现？
 - 它通常和哪些现实场景有关？
 - 不理解它，可能会造成什么误解？
-- 上传文档中是否提到了类似问题、案例或背景？
+- 上传文档中是否提到了类似问题、案例或背景？（标 source id）
 - 这个问题和普通学习者、实践者、决策者有什么关系？
 
 请避免抽象宣传，要用具体例子说明。
@@ -121,7 +136,7 @@ Keep all 13 sections of the rendered output in the order below — do not reorde
 - 一个简单例子
 - 这个主题如何帮助解决
 - 解决这个问题需要什么条件
-- 上传文档中是否有相关依据
+- 上传文档中是否有相关依据（标 source id）
 
 ### 5.2 它不能解决或容易被误用的问题
 
@@ -160,7 +175,7 @@ Keep all 13 sections of the rendered output in the order below — do not reorde
 - 逐步引出核心概念。
 - 不要一次性堆砌术语。
 - 每出现一个新概念，都解释它为什么此时需要被引入。
-- 最后说明这个故事对应到上传文档中的哪些内容。
+- 最后说明这个故事对应到上传文档中的哪些内容（标 source id）。
 - 如果故事是为了教学目的构造的，请标注为"教学示例"。
 
 目标是让我感觉：
@@ -293,3 +308,87 @@ Keep all 13 sections of the rendered output in the order below — do not reorde
 - 请告诉我什么时候可以进入"结构版学习"。
 
 最后，请用 5 句话总结这份文档最重要的内容。
+
+<!-- END:MARKDOWN_GENERATION_PROMPT -->
+
+<!-- BEGIN:NLM_VIEW_PREFIX -->
+
+# View: Foundation NLM Focus-Prompt Prefix
+
+This block is loaded by `three-views` Step 5B as the `===== VIEW PURPOSE =====` section of each `view=foundation` NLM artifact's `focus_prompt`. The five `## §<N>` sections below are not optional — SKILL.md failsafe lint checks their presence + slugs (§1 Pedagogical purpose / §2 Audience profile / §3 Style mandate / §4 Anti-patterns / §5 Success criteria) before allowing generation to proceed.
+
+## §1 Pedagogical purpose
+
+让从未接触过 `<topic>` 的人在听 / 看 / 读完本 artifact 后完成「从 0
+到 1」的心智模型搭建。具体讲：
+
+- 能用一两句话准确复述 `<topic>` 的核心命题。
+- 能说出 `<topic>` 为什么重要（场景化的「如果掌握了，我能做什么」）。
+- 不必能展开技术细节，但听完之后再遇到这个词不再陌生。
+
+This is the first rung on the learning ladder. Everything else
+depends on the listener crossing it.
+
+## §2 Audience profile
+
+- **Background**: 完全的领域新人。可能在某处听过名词，但从未真正
+  用过。可能完全没听过。
+- **Motivation**: 好奇 / 入门 / 工作上即将接触这个概念 / 想知道是
+  否值得深入学。
+- **Common confusions**: 术语堆叠让人放弃；跳跃式推导造成「我不会」
+  的挫败；隐含的 prerequisites 没说清楚就开始用。
+- **Reading speed**: Slow. Each new term needs a beat to register.
+
+## §3 Style mandate
+
+- **Open with a relatable scenario**, not an abstract definition.
+  例：「想象你第一次走进一家从未来过的餐厅……」
+- **Use analogies aggressively**. 类比可以失精确，但要先建立直觉。
+  然后再回头精修。
+- **5-pack TL;DR is mandatory**. Toward the end (audio: closing
+  segment; slides: final slide; video: closing 30s on-screen text),
+  the 5 most important takeaways must appear as short sentences
+  (≤ 20 中文字符 / ≤ 12 English words each). These 5 lines must be
+  self-standing — a reader who scans only the TL;DR pack should
+  still walk away with the foundation tier's core message.
+- **Introduce each concept by stating what real problem it solves**
+  before defining it. 「先讲为什么有这个东西，再讲它是什么。」
+- **Citation tag**: When referencing source material, use
+  `[LEARNING:foundation]` so downstream review can verify lineage.
+
+## §4 Anti-patterns（绝对不能做的）
+
+- **不要罗列定义**. A bullet list of definitions without motivation
+  is foundation's #1 failure mode. Every term needs a "why" before
+  the "what".
+- **不要假设用户『应该知道』前置知识**. If a concept relies on
+  prerequisites, either explain them inline (preferred) or say
+  explicitly "if you don't know X yet, that's fine for now —
+  here's the one-sentence version".
+- **不要用术语解释术语**. "REST is the architectural style for
+  RESTful APIs" — circular and useless. Foundation never does this.
+- **不要跳步推导**. If steps A→B→C lead to a conclusion, walk
+  through B. Don't say "obviously" or "as you can see".
+- **不要堆砌例子**. One excellent grounded example beats five
+  abstract ones. Pick the one that maps best to everyday
+  experience.
+
+## §5 Success criteria（dogfood 可观察特征）
+
+一个不知道 view 标签的旁人在体验完本 artifact 后，应该能：
+
+1. 用 1 句话复述 `<topic>` 的核心命题 — 准确即可，不必技术性。
+2. 列出 ≥ 2 个具体应用场景。
+3. 默写出 TL;DR 5-pack 中至少 3 条的大意。
+4. **关键反向测试**: 旁人是否说「这听起来像是给初学者讲的」？
+   如果他形容为「专业 / 进阶 / 系统化」—— 那是 structural 或
+   challenge 的特征，本档不达标。
+5. **类比密度**: 30 分钟 audio / 10 张 slides 中至少出现 3 个明确
+   的「类比 / 比喻 / 生活化场景」。0 个 = 不合格；1-2 个 = 临界；
+   ≥ 3 = 通过。
+
+These criteria are what makes a foundation artifact recognizable
+from across the room. Strip them away and the artifact drifts
+toward structural, which means a newcomer can no longer use it.
+
+<!-- END:NLM_VIEW_PREFIX -->

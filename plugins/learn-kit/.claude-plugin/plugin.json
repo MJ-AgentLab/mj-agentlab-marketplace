@@ -1,13 +1,13 @@
 {
   "name": "learn-kit",
-  "version": "2.0.1",
-  "description": "Pedagogical kit for learnable knowledge artifacts. Includes (1) 8-stage manual authoring methodology + scaffold + discovery skills (scaffold-learning / locate / scan); (2) AI-driven three-tier (foundation/structural/challenge) learning doc generator with optional interactive HTML rendering; (3) nlm-studio skill that pushes a topic's three-tier markdown corpus to NotebookLM and generates up to 13 online-viewable multimedia artifacts: 4 view-cycled types (audio + video + slide_deck + infographic) × 3 view variants + 1 shared view-agnostic mind_map. HTML files are not uploaded — only markdown (dogfood-validated). View-Purpose Preservation principle ensures view-cycled artifacts preserve each tier's pedagogical stance. Requires notebooklm-mcp MCP server (bundled via this plugin's .mcp.json) plus a one-time `nlm login` for the nlm-studio skill; the other four skills run with no external dependencies. v2.0.0 BREAKING: scaffold skill renamed from `init` to `scaffold-learning` to eliminate slash-picker collision with Claude Code's builtin `/init` (CLAUDE.md generator) — migrate `/learn-kit:init` calls to `/learn-kit:scaffold-learning`.",
+  "version": "3.0.0",
+  "description": "Pedagogical kit for learnable knowledge artifacts. Single skill `three-views` (v3.0.0 consolidates the prior 5 skills): given a topic and source material (project files / external URL / pasted text), generates 3-tier learning markdown (foundation 零基础版 / structural 结构版 / challenge 挑战版); then optionally renders interactive HTML (dual-mode grounding: repo-code via Explore subagent for concept→file:line; or source-evidence for URL/text sources) and/or pushes to NotebookLM for multimedia artifacts (audio + video + slide_deck × 3 views = 9 view-cycled + 1 shared mind_map = max 10 artifacts; quota right-sizing gate + bounded polling + 4-way re-run guard + per-step auth refresh preserved from nlm-studio dogfood). NLM portion requires notebooklm-mcp MCP server (bundled via this plugin's .mcp.json) + one-time `nlm login`. v3.0.0 BREAKING: removed 4 skills (scaffold-learning / locate / scan / nlm-studio) and renamed generate-tier → three-views; infographic artifact type retired. Migrate `/learn-kit:generate-tier` → `/learn-kit:three-views`; `/learn-kit:nlm-studio` → `/learn-kit:three-views` Step 4 select NLM. See `[ADR]_LearnKit_Consolidation_To_Single_Skill` + Migration guide §6 for full v5.0.x → v6.0.0 walkthrough.",
   "author": {
     "name": "MJ-AgentLab",
     "url": "https://github.com/MJ-AgentLab"
   },
   "repository": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace",
   "license": "MIT",
-  "keywords": ["learning", "pedagogy", "methodology", "rule-list", "interpretation", "discovery", "locate", "scan", "three-tier", "foundation", "structural", "challenge", "ai-generation", "html-render", "nlm-studio", "notebooklm", "audio", "video", "multimedia", "slide-deck", "mind-map", "infographic"],
+  "keywords": ["learning", "pedagogy", "three-views", "foundation", "structural", "challenge", "ai-generation", "html-render", "source-manifest", "notebooklm", "nlm", "audio", "video", "slide-deck", "mind-map", "multimedia"],
   "skills": "./skills/"
 }

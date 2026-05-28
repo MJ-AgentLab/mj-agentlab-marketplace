@@ -45,7 +45,7 @@ artifacts per topic in a single place.
 - **代码 / 文件路径 / 标识符 / 命令名 verbatim**，不翻译也不加引号。例：
   - `mcp__plugin_learn-kit_notebooklm-mcp__refresh_auth`
   - `notebook_id`, `artifact_id`, `source_id`
-  - `/learn-kit:nlm-studio`, `/learn-kit:generate-tier`
+  - `/learn-kit:three-views`
   - `learning/<topic>/[LEARNING]_<topic>_<view>.md`
   - `docs/rule/[STANDARD]_*.md`
   - 函数 / 类 / 字段名（如 `studio_create`, `state`, `track`）

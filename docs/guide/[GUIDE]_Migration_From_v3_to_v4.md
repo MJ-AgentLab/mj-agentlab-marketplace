@@ -1,12 +1,12 @@
 ---
 type: guide
 scope: marketplace
-summary: Marketplace migration guide — v2.x→v3.0.0 (general restructure) + v3.2.x→v4.0.0 (notebooklm-kit retirement) + v4.0.0→v4.3.x (doc framework rollout) + v4.4.x→v4.5.0 (§1 exemption cancellation) + v4.5.x→v5.0.0 (learn-kit init→scaffold-learning rename)
+summary: Marketplace migration guide — v2.x→v3.0.0 (general restructure) + v3.2.x→v4.0.0 (notebooklm-kit retirement) + v4.0.0→v4.3.x (doc framework rollout) + v4.4.x→v4.5.0 (§1 exemption cancellation) + v4.5.x→v5.0.0 (learn-kit init→scaffold-learning rename) + v5.0.x→v6.0.0 (learn-kit 5 skills → 1 three-views consolidation)
 owner: marketplace-maintainers
 created: 2026-03-16
-updated: 2026-05-18
+updated: 2026-05-28
 state: active
-version: v5.0
+version: v6.0
 domain: release
 tags:
   - migration
@@ -17,20 +17,23 @@ related:
   - ../adr/[ADR]_NotebookLM_Kit_Retirement.md
   - ../adr/[ADR]_Documentation_Framework_Exemption_Reversal.md
   - ../adr/[ADR]_LearnKit_Init_Skill_Rename.md
+  - ../adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md
 revision: |
+  2026-05-28 — v6.0: 新增 §6 v5.0.x → v6.0.0 (learn-kit 5 skills → 1 three-views 收敛 + learn-kit 2.0.1 → 3.0.0 + marketplace 5.0.2 → 6.0.0 + NLM 范围 13 → max 10 + infographic 退场)；frontmatter related[] 加新 ADR
   2026-05-18 — v5.0: 新增 §5 v4.5.x → v5.0.0 (learn-kit init → scaffold-learning 重命名 + learn-kit 1.2.1 → 2.0.0 + marketplace 4.6.3 → 5.0.0)；frontmatter related[] 加新 ADR
   2026-05-18 — v4.0: rename docs/MIGRATION_GUIDE.md → docs/guide/[GUIDE]_Migration_From_v3_to_v4.md + 加 frontmatter（Framework v1.5 §1 cancel single-file exemption）；§3 末尾加 v4.5.0 §1 exemption cancellation 说明；§3.2 path mapping 更新对应原 §1 豁免文件的新去向
 ---
 
 # Migration Guide
 
-This file covers five migrations:
+This file covers six migrations:
 
 - §1 — **v2.x → v3.0.0** (Original general restructure) — consumer-impactful
 - §2 — **v3.2.x → v4.0.0** (notebooklm-kit 退场 + nlm-studio 吸收到 learn-kit) — consumer-impactful
 - §3 — **v4.0.0 → v4.3.x** (doc framework rollout) — mostly **contributor-facing**
 - §4 — **v4.4.x → v4.5.0** (Framework §1 exemption mechanism cancellation + learn-kit 1.1.0 → 1.2.0 docs 重组) — contributor-facing
 - §5 — **v4.5.x → v5.0.0** (learn-kit `init` skill renamed to `scaffold-learning`) — **consumer-impactful breaking**
+- §6 — **v5.0.x → v6.0.0** (learn-kit 5 skills → 1 `three-views` consolidation + NLM 13→max 10 + infographic retired) — **consumer-impactful BREAKING (largest in 6 migrations)**
 
 ---
 
@@ -545,3 +548,124 @@ v5.0.0 涉及 1 个 `git mv` + ~25 个 edit（含跨 17 文件的 `/learn-kit:in
 - learn-kit CHANGELOG v2.0.0 段：[`../../plugins/learn-kit/CHANGELOG.md`](../../plugins/learn-kit/CHANGELOG.md)
 - 顶层 CHANGELOG v5.0.0 段：[`../../CHANGELOG.md`](../../CHANGELOG.md)
 - HITL STANDARD §3.1 (plugin rename = 必停 HITL trigger)：[`../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`](../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)
+
+---
+
+# §6 · v5.0.x → v6.0.0
+
+## Overview
+
+`mj-agentlab-marketplace` v6.0.0 是一次 **major restructure** —— **learn-kit 把 5 个 skill 收敛为 1 个 `three-views`**，并裁剪 NLM artifact 范围（13 → max 10）。
+
+**核心变化**：
+
+| 变更类型 | 详情 |
+|---------|------|
+| **删除 4 个 skill** | `scaffold-learning` / `locate` / `scan` / `nlm-studio` 整目录物理删除（不留 alias / stub） |
+| **重命名 1 个 skill** | `generate-tier` → `three-views`（git mv 保 history） |
+| **吸收 nlm-studio 能力** | 全部 dogfood防护（auth gate / source validation / re-run guard 4-way / quota right-sizing 4-way / bounded polling 12×10s）迁移到 three-views Step 5B |
+| **新增能力** | URL 输入（WebFetch）+ source_manifest 结构化追踪 + HTML dual-mode grounding (repo-code / source-evidence) |
+| **NLM 范围裁剪** | 13 → max 10：删 infographic 4 个；mind_map 从默认转 opt-in；audio/video/slide_deck × 3 视角 = 9 默认 + mind_map 1 = 10 max |
+| **dual-layer version bump** | learn-kit 2.0.1 → **3.0.0** (major)；marketplace 5.0.2 → **6.0.0** (major) |
+
+## §6.1 用户可见 slash command 映射
+
+旧 5 个 user-facing slash command 全部消失或重命名：
+
+| v2.x 老命令 | v3.0.0 新做法 | 备注 |
+|-------------|---------------|------|
+| `/learn-kit:scaffold-learning` | **不再单独 skill**。`/learn-kit:three-views` Step 1 在默认路径（`./learning/<topic>/`）下自动建 `learning/<topic>/` 目录 + `learning/INDEX.md` 骨架 | **不再生成** `_meta/METHODOLOGY.md` 或 `_archive/`；manual 8-stage methodology 退场（dogfood 中实际独立调用极少；AI 三档已覆盖核心价值）。详见 [`[ADR]_LearnKit_Consolidation_To_Single_Skill`](../adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md) §2.3.11 Option B |
+| `/learn-kit:locate <query>` | **算法保留为 manual recipe**：[`plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_Discovery_Recipes.md`](../../plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_Discovery_Recipes.md) §"Locate Recipe" | 含原 v2.x 的项目识别启发式 + frontmatter 解析 + 置信度评分 + interpreted/uninterpreted 交叉引用 |
+| `/learn-kit:scan` | **算法保留为 manual recipe**：同 GUIDE §"Scan Recipe" | 含原 canonical doc 枚举 (`[STANDARD]_/[SPEC]_/[ADR]_/[GUIDE]_/[RUNBOOK]_`) + 引用频率排序 + recommended next actions |
+| `/learn-kit:generate-tier <topic>` | **`/learn-kit:three-views <topic>`** | 同样的 3 阶段 markdown 生成，新增 URL 输入 + source_manifest + dual-mode HTML grounding |
+| `/learn-kit:nlm-studio <topic>` | **`/learn-kit:three-views <topic>`** → Step 4 multiSelect 勾选 NLM 选项 | Step 4 提供 3 个独立 multiSelect: HTML / NLM 9 view-cycled / NLM shared mind_map；按需勾选 |
+
+## §6.2 NLM artifact 范围变化
+
+| 变化 | 详情 |
+|------|------|
+| **infographic 永久退场** | 4 个 artifact 永久丢失（3 view-cycled）。用户依赖请用 NotebookLM web UI 手动建。**Rationale**: ADR §3.2 dogfood 显示低用户接受度 + 视觉密集型对学习曲线增益不显著 |
+| **mind_map 转 opt-in** | 不再默认包含；Step 4 第 3 个 multiSelect 选项；与 9 view-cycled 独立勾选 |
+| **默认 max 从 13 降到 10** | 9 view-cycled (audio/video/slide_deck × 3 views) + 1 mind_map = max 10 |
+| **dogfood防护全保** | per-step refresh_auth / `notebook_list` 真 auth gate / `notebook_get` source validation / 4-way re-run guard / 4-way quota right-sizing gate / bounded polling 12×10s |
+| **MCP server 不变** | `notebooklm-mcp` 依赖未变；工具前缀仍是 `mcp__plugin_learn-kit_notebooklm-mcp__*`；nlm login 流程未变 |
+
+## §6.3 用户迁移步骤
+
+在 marketplace v6.0.0 升级前：
+
+```bash
+# 1. 检查项目里有没有引用老 slash commands
+grep -rn "/learn-kit:(scaffold-learning|locate|scan|generate-tier|nlm-studio)" . \
+  --exclude-dir=.git --exclude="CHANGELOG.md"
+# 任何命中都需要替换或删除
+```
+
+替换规则：
+
+```bash
+# generate-tier 是 1:1 重命名，最简单
+sed -i 's|/learn-kit:generate-tier|/learn-kit:three-views|g' <file>
+
+# nlm-studio 是 Step 4 入口，需要手动改文档中 instructions
+# 例："运行 /learn-kit:nlm-studio <topic>"
+#   → "运行 /learn-kit:three-views <topic>，在 Step 4 勾选 NLM 选项"
+
+# scaffold-learning 不再存在；若文档让用户先调它，改为
+#   "运行 /learn-kit:three-views <topic>；首次运行 Step 1 会自动建 learning/<topic>/ 目录"
+
+# locate / scan 不再存在；若文档让用户用它们做发现，改为
+#   "见 plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_Discovery_Recipes.md 的 Locate Recipe / Scan Recipe"
+```
+
+如果有保存的 `learning/_meta/METHODOLOGY.md`：
+
+- 保留即可（v3.0.0 不会主动删；只是不再自动生成）
+- 若需要查阅，原模板内容仍在 git history 中可访问
+
+如果 NLM workflow 严重依赖 infographic：
+
+- **永久解决方案**：用 NotebookLM web UI 手动生成
+- **退路**：留在 marketplace v5.0.x，不升 v6.0.0（接受不再获得新 feature）
+
+## §6.4 dual-layer version bump 推理
+
+learn-kit `2.0.1 → 3.0.0`：major bump per HITL STANDARD §3.1（plugin 删除 / 重命名 / 主版本 bump = 必停 HITL trigger）。4 个 user-facing skill 永久消失 + 1 个重命名 + NLM 范围裁剪三件事任一都足以触发 major；三件事叠加更明确 major。
+
+marketplace `5.0.2 → 6.0.0`：major bump 跟随 plugin major + marketplace.json description 字段已把 5 skill 名暴露在 consumer 契约里（删 4 个 + 改 1 个 = consumer-facing API breaking）。前例：v4.0.0 notebooklm-kit 退役 + v5.0.0 init rename 双前例已建立"plugin user-facing breaking → marketplace major" precedent。
+
+## §6.5 marketplace.json plugins[learn-kit] 字段更新
+
+`marketplace.json` 同步：
+
+- `metadata.version: "5.0.2" → "6.0.0"`
+- `metadata.description`: 字段重写为 v3.0.0 single-skill 描述
+- `plugins[learn-kit].version: "2.0.1" → "3.0.0"`
+- `plugins[learn-kit].description`: 重写
+- `plugins[learn-kit].keywords`: 移除 `locate`, `scan`, `infographic`, `rule-list`, `interpretation`, `discovery`；新增 `three-views`, `source-manifest`
+
+`VERSION` 文件：`5.0.2 → 6.0.0`。
+
+## §6.6 回滚指引
+
+v6.0.0 涉及 4 个 `git rm -r` + 1 个 `git mv` 目录 + 6 个 `git mv` 文件 + 多个 Write/Edit。规模显著大于历次 BREAKING（约 2-3 倍 v5.0.0 量）。
+
+回滚方式：
+
+- **完全回滚**：revert 整个 v6.0.0 PR。learn-kit 退回 2.0.1，marketplace 退回 5.0.2。所有 5 个 skill 恢复，所有 NLM 13 artifact 类型恢复。
+- **部分回滚**：**强烈不建议**。删 + 重命名 + 范围裁剪三件事强耦合；只 revert 一部分会让 plugin 不能 install（plugin-validator 必失败）。
+
+**Plugin 行为变化**：
+
+- 3 阶段 markdown 生成：行为基本等价（generate-tier → three-views Step 3）；新增 URL 输入 + source_manifest，向后兼容（旧 file path / paste 仍工作）
+- HTML 渲染：行为升级（原单 mode → 双 mode）；旧 repo-code 用法不变
+- NLM：行为等价但范围裁剪；infographic 永久丢失；mind_map 转 opt-in
+
+## §6.7 References
+
+- 决策记录：[`../adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md`](../adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md)
+- 算法保留：[`../../plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_Discovery_Recipes.md`](../../plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_Discovery_Recipes.md)
+- learn-kit CHANGELOG v3.0.0 段：[`../../plugins/learn-kit/CHANGELOG.md`](../../plugins/learn-kit/CHANGELOG.md)
+- 顶层 CHANGELOG v6.0.0 段：[`../../CHANGELOG.md`](../../CHANGELOG.md)
+- HITL STANDARD §3.1 (plugin 删除 / 重命名 / 主版本 bump = 必停 HITL trigger)：[`../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`](../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)
+- 前例 ADR: [`../adr/[ADR]_LearnKit_Init_Skill_Rename.md`](../adr/[ADR]_LearnKit_Init_Skill_Rename.md) (v5.0.0 plugin rename precedent) + [`../adr/[ADR]_NotebookLM_Kit_Retirement.md`](../adr/[ADR]_NotebookLM_Kit_Retirement.md) (v4.0.0 plugin retirement + capability absorption precedent)
