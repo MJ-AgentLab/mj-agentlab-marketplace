@@ -47,7 +47,7 @@
 - 模板 / references / scripts 放在 skill 目录内部
 - 不使用 `components` 字段（auto-discovery 标准）
 
-## Documentation Framework (v4.2.0 起；当前 v1.6 / marketplace v6.0.1)
+## Documentation Framework (v4.2.0 起；当前 v1.6 / marketplace v6.1.1)
 
 marketplace 文档体系遵循以下三层 STANDARD（位于 `docs/rule/`）:
 
@@ -116,6 +116,8 @@ Templates 与 mp-doc-author skill 协作起草新文档；mp-doc-validate skill 
 - **v6.0.0 release**（2026-05-29）：marketplace 6.0.0 release.yml 自动 tag v6.0.0 + GitHub Release published；release/v6.0.0 branch 加 1 marker commit（CHANGELOG 加 inherited 2.0.1 fix subsection + Notes 加 dual-version-chain 说明：learn-kit `2.0.0 → 2.0.1 → 3.0.0` 双链合并 + marketplace `5.0.1 → 6.0.0` 跳过 5.0.2 pre-bump-only 中间态）。无 plugin 版本变化（learn-kit `3.0.0` dual-layer 独立）
 - **v6.0.1**（2026-05-29）：post-release develop pre-bump (post-v6.0.0)；只 bump marketplace VERSION + marketplace.json metadata.version + README badge；plugin.json `learn-kit 3.0.0` 不动；per [`[ADR]_Develop_PreBump_Adoption`](docs/adr/[ADR]_Develop_PreBump_Adoption.md)
 - **v6.1.0**（2026-05-29）：learn-kit `3.0.0 → 3.1.0`（minor，additive HITL gate 扩展）：Step 1 新增 tier multi-select（Step 1.3，default 3 全选，min 1）；Step 4 重设计为 5-cell granular multi-select（HTML / NLM audio / NLM video / NLM slide_deck / NLM mind_map，默认全不选；per-type NLM 控制前移）；Step 3/5A/5B 循环泛化为 `generated_tiers` 子集；Step 5B re-run guard 加 `source_corpus_key` 等价性检查（partial-rerun 防 source-corpus contamination）；Quota gate adaptive `N = len(generated_tiers) × len(view-cycled types) + (1 if mind_map)`；"Pick single view" → "Pick single tier" 重命名 + 退化条件隐藏；`templates/artifact-mind_map.md` 改 "across all three tiers" → "selected source corpus"；frontmatter `generator @3.0.0 → @3.1.0`；3-level hint granularity（explicit-type / generic-NLM / no-hint）。默认产物等同 v3.0.0；交互流程多 1 个 tier confirmation gate。marketplace VERSION + metadata.version 跟随 plugin minor 升 `6.0.1 → 6.1.0`（消耗 pre-bump slot 并跟进 plugin minor，historical pattern v3.1.0/v3.2.0/v4.5.0）。详见 [`[ADR]_LearnKit_ThreeViews_HITL_Expansion`](docs/adr/[ADR]_LearnKit_ThreeViews_HITL_Expansion.md)
+- **v6.1.0 release**（2026-05-29）：marketplace 6.1.0 release.yml 自动 tag v6.1.0 + GitHub Release published；release/v6.1.0 branch 加 1 marker commit（root CHANGELOG `[Unreleased]` → `[6.1.0] - 2026-05-29` transform，包含 v3.1.0 Added/Changed/Notes 完整 release notes 由 release.yml 抽取上 GitHub Release）。无 plugin 版本变化（learn-kit `3.1.0` dual-layer 独立）
+- **v6.1.1**（2026-05-29）：post-release develop pre-bump (post-v6.1.0)；只 bump marketplace VERSION + marketplace.json metadata.version + README badge；plugin.json `learn-kit 3.1.0` 不动；per [`[ADR]_Develop_PreBump_Adoption`](docs/adr/[ADR]_Develop_PreBump_Adoption.md)。同 PR 第 2 个 logical commit 完成 A6 CLAUDE.md sync（v5.0.2 / v6.0.1 pre-bump 同款 2-commit-in-1-PR pattern）
 
 ## AI Engineering
 
