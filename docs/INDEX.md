@@ -4,9 +4,9 @@ scope: marketplace
 summary: Marketplace documentation navigation hub — STANDARD / GUIDE / ADR / SPEC / RUNBOOK / archive / templates 索引
 owner: marketplace-maintainers
 created: 2026-05-15
-updated: 2026-05-28
+updated: 2026-05-29
 state: active
-version: v6.0
+version: v6.1
 domain: governance
 tags:
   - index
@@ -16,7 +16,9 @@ related:
   - ./adr/[ADR]_Root_Level_Named_Files_Codification.md
   - ./adr/[ADR]_LearnKit_Init_Skill_Rename.md
   - ./adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md
+  - ./adr/[ADR]_LearnKit_ThreeViews_HITL_Expansion.md
 revision: |
+  2026-05-29 — v6.1: add [ADR]_LearnKit_ThreeViews_HITL_Expansion row (v6.1.0 learn-kit 3.1.0 additive HITL expansion — Step 1.3 视角 multi-select + Step 4 5-cell granular + source_corpus_key re-run guard); plugin row version bumped 3.0.0 → 3.1.0
   2026-05-28 — v6.0: add [ADR]_LearnKit_Consolidation_To_Single_Skill row (v6.0.0 learn-kit 5 skill → 1 three-views consolidation); update [GUIDE]_Migration_From_v3_to_v4 row to v6.0 with §6 v5.0.x→v6.0.0 chapter; learn-kit plugin-internal GUIDE [GUIDE]_LearnKit_Discovery_Recipes registered via plugin-internal INDEX cross-reference (scope: learn-kit, not in this marketplace-scope INDEX)
   2026-05-18 — v5.0: add [ADR]_LearnKit_Init_Skill_Rename row (v5.0.0 learn-kit init → scaffold-learning rename)
   2026-05-18 — v4.6.3: add 「Root-Level Meta Files」section listing 5 named special files per Framework v1.6 §1.1; bump [Documentation Framework] row v1.5 → v1.6; remove [Contributing Guide] active row (archived in v4.6.3 archive ceremony — content restored to repo root); add [DEPRECATED]_[GUIDE]_Contributing_v1.1 row to Archived Documents; add [ADR]_Root_Level_Named_Files_Codification row to ADRs; update Suggested Reading Order links to root CONTRIBUTING.md
@@ -80,6 +82,7 @@ Navigation hub for all marketplace documentation.
 | [ADR: Root-Level Named Files Codification](./adr/[ADR]_Root_Level_Named_Files_Codification.md) | v4.6.3 起正向 codification 5 个 root-level named special files 责任 + CLAUDE.md sync allowlist 3 类 trigger + A6 三层 defense-in-depth enforcement；complements v1.1 Reversal ADR negative cancellation with positive codification |
 | [ADR: LearnKit Init Skill Rename](./adr/[ADR]_LearnKit_Init_Skill_Rename.md) | v5.0.0 把 learn-kit `init` skill 物理重命名为 `scaffold-learning`，消除 Claude Code 内置 `/init` slash 拾取器并列冲突；触发 learn-kit `1.2.1 → 2.0.0` + marketplace `4.6.3 → 5.0.0` 双层 major bump |
 | [ADR: LearnKit Consolidation To Single Skill](./adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md) | **v6.0.0 BREAKING** — learn-kit 5 skill 收敛为单一 `three-views` skill（删 scaffold-learning / locate / scan / nlm-studio + 重命名 generate-tier → three-views）；NLM artifact 默认 max 10 (9 view-cycled + 1 optional mind_map)，infographic 永久退场；保留 nlm-studio 全 dogfood防护；触发 learn-kit `2.0.1 → 3.0.0` + marketplace `5.0.2 → 6.0.0` 双层 major bump；plugin-internal `[GUIDE]_LearnKit_Discovery_Recipes` 保留 v2.x locate/scan 算法 |
+| [ADR: LearnKit ThreeViews HITL Expansion](./adr/[ADR]_LearnKit_ThreeViews_HITL_Expansion.md) | **v6.1.0 Additive** — learn-kit `3.0.0 → 3.1.0` 加 Step 1.3 视角 multi-select (default 3 全选 / min 1) + Step 4 升级 5-cell granular multi-select (HTML / NLM audio / NLM video / NLM slide_deck / NLM mind_map) + Step 5B re-run guard `source_corpus_key` 等价性 + 3-level hint granularity；引入 `requested_tiers` ≠ `generated_tiers` state separation 处理 conflict-skip / generation-fail 路径；`templates/artifact-mind_map.md` 改 "across all three tiers" → "selected source corpus"；触发 plugin minor + marketplace minor `6.0.1 → 6.1.0`（consumes pre-bump slot per historical pattern）；默认产物等同 v3.0.0 |
 
 > Plugin-internal ADRs（如 `[ADR]_LearnKit_Discovery_Skills`，v4.3.0 起迁入 `plugins/learn-kit/docs/adr/`）见各 plugin 的 docs/INDEX.md。
 
@@ -124,7 +127,7 @@ Navigation hub for all marketplace documentation.
 
 | Plugin | Documentation Index | Version |
 |--------|---------------------|---------|
-| learn-kit | [plugins/learn-kit/docs/INDEX.md](../plugins/learn-kit/docs/INDEX.md) | v1.2.0 |
+| learn-kit | [plugins/learn-kit/docs/INDEX.md](../plugins/learn-kit/docs/INDEX.md) | v3.1.0 |
 
 ### learn-kit 用户文档（`plugins/learn-kit/docs/`）
 
