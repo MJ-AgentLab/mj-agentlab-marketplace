@@ -56,12 +56,17 @@ See [`docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md`](docs/adr/[ADR]_
 - **`CLAUDE.md`** (marketplace root) — learn-kit description block rewritten reflecting single-skill structure; v6.0.0 history entry added (per Framework v1.6 §2.7 sync allowlist trigger: plugin major bump + skills/ directory restructure + marketplace.json metadata change).
 - **`docs/INDEX.md`** — Migration guide row v5.0 → v6.0; new ADR row added; learn-kit plugin-internal GUIDE row added via cross-reference.
 
+### Fixed (inherited from develop's learn-kit 2.0.1 patch)
+
+- **learn-kit `2.0.0 → 2.0.1`** (PR #144, merged 2026-05-21) — `nlm-studio` 输出语言约束加强：双锁加固 (`templates/language-directive.md` 顶部 `OUTPUT LANGUAGE: 简体中文` lead-with-mandate + `artifact-audio.md` / `artifact-video.md` 各加 medium 级 `## Spoken language` / `## Narration language` 小节)。解决 dogfood 反馈的 "NotebookLM 生成 artifact 出现全英文表达 / 讲解" 问题。本 release v6.0.0 BREAKING 重构后，`templates/language-directive.md` + `templates/artifact-audio.md` + `templates/artifact-video.md` 已平移到 `three-views/templates/` 下，双锁保留。
+
 ### Notes
 
 - Historical CHANGELOG entries (v0.1.0 through v5.0.1) retain original wording — they are factual records of what was true at each version and must not be rewritten.
 - This is the largest marketplace consolidation since v4.0.0 (notebooklm-kit retirement); ~2-3× the change volume of v5.0.0 (init rename).
 - `.mcp.json` unchanged — `notebooklm-mcp` server name + tool prefixes (`mcp__plugin_learn-kit_notebooklm-mcp__*`) preserved across this BREAKING. Users who already ran `nlm login` need not re-auth.
 - Develop pre-bump policy (per `[ADR]_Develop_PreBump_Adoption`) will resume post-release: post-v6.0.0 develop pre-bumped to v6.0.1.
+- This release bundles two version chains: learn-kit `2.0.0 → 2.0.1 → 3.0.0` (2.0.1 was a develop-only patch since marketplace stayed at 5.0.2 pre-bumped); marketplace `5.0.1 → 6.0.0` (5.0.2 was develop-only pre-bump per `[ADR]_Develop_PreBump_Adoption`).
 
 ## [5.0.1] - 2026-05-19
 
