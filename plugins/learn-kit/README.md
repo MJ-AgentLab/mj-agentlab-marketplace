@@ -1,12 +1,12 @@
 # learn-kit
 
-> **v3.0.0+**: Single-skill pedagogical kit — `/learn-kit:three-views` generates 3-tier learning markdown (foundation 零基础版 / structural 结构版 / challenge 挑战版) for any topic, with opt-in interactive HTML and NotebookLM multimedia outputs.
+> **v3.1.0+**: Single-skill pedagogical kit — `/learn-kit:three-views` generates 1-3 tier learning markdown (foundation 零基础版 / structural 结构版 / challenge 挑战版) for any topic, with opt-in interactive HTML and NotebookLM multimedia outputs. v3.1.0 adds tier multi-select (Step 1.3, default all 3) + 5-cell granular Step 4 artifact-type multi-select.
 
-`learn-kit` 提供把"你想学习的主题"快速变成可读 / 可看 / 可听材料的统一工作流。一个 skill，三段产出，按需扩展：
+`learn-kit` 提供把"你想学习的主题"快速变成可读 / 可看 / 可听材料的统一工作流。一个 skill，按需选档 + 按需扩展：
 
-1. **3 阶段 markdown 学习文档**（必出）— 围绕主题 + 源材料，AI 直接生成 foundation / structural / challenge 三个视角的 markdown
-2. **交互式 HTML 学习页**（可选）— 同名同目录的 `.html`；双模式 grounding：项目源 → concept→code via Explore subagent；外部 URL/文本 → concept→source-section
-3. **NotebookLM 多媒体 artifact**（可选）— 推 3 markdown 到 NLM，最多 10 个 artifact（audio + video + slide_deck × 3 视角 = 9 + 1 共享 mind_map）
+1. **N 阶段 markdown 学习文档**（必出 ≥1）— Step 1.3 视角 multi-select（foundation / structural / challenge；默认 3 项全选 / min 1），AI 围绕主题 + 源材料直接生成所选视角的 markdown
+2. **交互式 HTML 学习页**（可选；per generated tier）— 同名同目录的 `.html`；双模式 grounding：项目源 → concept→code via Explore subagent；外部 URL/文本 → concept→source-section
+3. **NotebookLM 多媒体 artifact**（可选；5-cell granular）— Step 4 独立勾选 audio / video / slide_deck / mind_map / HTML；NLM 笛卡尔 = `len(generated_tiers) × len(selected view-cycled types) + (1 if mind_map)`；默认全勾时 max 10 个
 
 ## v3.0.0 BREAKING（注意！）
 
@@ -64,6 +64,18 @@ v3.0.0 整合 v2.x 的 5 个 skill 为 1 个 `three-views`。**4 个公开 slash
 
 > **Legacy plugin 提示**：如果之前装过 `mj-nlm@my-marketplace`（来自外部 marketplace 的 legacy NLM plugin），**建议卸载**避免 MCP server 重复加载：`/plugin uninstall mj-nlm@my-marketplace`。判断方法：工具列表同时出现 `mcp__plugin_mj-nlm_*` 和 `mcp__plugin_learn-kit_*` 前缀即为重复。
 
+## Quick Start
+
+```text
+/learn-kit:three-views "我想学习 React useEffect 内部原理"
+```
+
+即可触发完整 5-step flow：
+
+- **Step 1.3** 弹出视角 multiSelect（3 项默认全选）；想只生成 foundation 就取消勾另两个
+- **Step 4** 弹出 5-cell multiSelect（默认全不选）；想要 audio podcast 就只勾 NLM audio
+- 想完全保持 v3.0.0 行为？两步都按默认（全选 + 全不选）= 3 份 markdown，无 HTML / 无 NLM
+
 ## 命名约定 · slash 调用必须全限定
 
 本插件唯一 skill `three-views`，slash 调用**统一使用 `/learn-kit:three-views`**。理由：
@@ -73,73 +85,85 @@ v3.0.0 整合 v2.x 的 5 个 skill 为 1 个 `three-views`。**4 个公开 slash
 
 ## 中文 TL;DR · 30 秒认知
 
-1 个 skill，5 步流程：
+1 个 skill，5 步流程（v3.1.0 起 Step 1 加视角 multiSelect / Step 4 升级 5-cell）：
 
 ```
-Step 1 Intake          → 主题 + 输入源 (URL / 文件 / 粘贴) + 输出目录
+Step 1 Intake          → 主题 + 输入源 (URL / 文件 / 粘贴) + 视角 multiSelect (default 3 全选) + 输出目录 + 冲突
 Step 2 Source acquire  → source_manifest 结构化追踪每个 source
-Step 3 3-view 生成     → 3 个 [LEARNING]_<topic>_<view>.md
-Step 4 Multi-select 问 → HTML? NLM 9? NLM mind_map?（默认全不选）
-Step 5 执行选中项      → HTML × view (双模式 grounding) + NLM artifact (URL 表格)
+Step 3 N-view 生成     → len(generated_tiers) 个 [LEARNING]_<topic>_<view>.md (≥1)
+Step 4 Multi-select 问 → 5 cell: HTML / NLM audio / NLM video / NLM slide_deck / NLM mind_map (默认全不选)
+Step 5 执行选中项      → HTML × generated_tiers (双模式 grounding) + NLM artifact (URL 表格)
 ```
 
-输出永远从 3 个 markdown 开始；HTML 和 NLM 都需用户显式 opt-in。
+输出永远 ≥ 1 个 markdown（必出 invariant）；HTML 和 NLM 各 cell 均显式 opt-in，按勾几格生几格。
 
 ## 5 分钟上手 · 端到端流程
 
-**场景 A**：项目内 STANDARD 转学习材料
+**场景 A**：项目内 STANDARD 转学习材料（kitchen sink）
 
 ```text
 /learn-kit:three-views "为 STANDARD_HITL 出三档学习材料"
-→ Step 1: 选项目内文件路径 + 输出 ./learning/hitl/
+→ Step 1.3: 视角 3 项全选默认
+→ Step 1.4: 选项目内文件路径 + 输出 ./learning/hitl/
 → Step 2: 自动 Read 文件，构 source_manifest [S1]
-→ Step 3: 生成 [LEARNING]_hitl_{foundation,structural,challenge}.md
-→ Step 4: 勾 HTML + NLM 9 (不勾 mind_map)
+→ Step 3: 生成 [LEARNING]_hitl_{foundation,structural,challenge}.md (3 份)
+→ Step 4: 勾 HTML + NLM audio + NLM video + NLM slide_deck (不勾 mind_map)
 → Step 5A HTML: repo-code mode (cwd 是 git repo)，spawn Explore × 3
 → Step 5B NLM: refresh_auth → re-run guard → notebook_create →
-            source_add × 3 + verify → quota gate (Confirm all 9) →
+            source_add × 3 + verify → quota gate (N=9, Confirm all) →
             studio_create × 9 (bounded poll 12×10s/artifact) →
             终端 URL 表
 → 总耗时 ~10-15 min
 ```
 
-**场景 B**：学外部 URL 内容
+**场景 B**：学外部 URL 内容 + HTML only
 
 ```text
 /learn-kit:three-views "我想学习 React useEffect 内部原理"
-→ Step 1: 选外部 URL，粘贴 react.dev/reference/react/useEffect
+→ Step 1.3: 视角 3 项全选默认
+→ Step 1.4: 选外部 URL，粘贴 react.dev/reference/react/useEffect
 → Step 2: WebFetch 拉取，构 source_manifest [S1 kind=url]
 → Step 3: 生成 3 md
-→ Step 4: 勾 HTML（不勾 NLM）
+→ Step 4: 勾 HTML（4 个 NLM cell 不勾）
 → Step 5A HTML: source-evidence mode（无 repo file），引 source_manifest 段落
 → 完成
 ```
 
-**场景 C**：只要 mind_map
+**场景 C**：只要 mind_map（minimal NLM）
 
 ```text
 /learn-kit:three-views "RFC 2119 五关键词"
-→ Step 1-3: 3 md
-→ Step 4: 只勾 NLM mind_map（不勾 HTML，不勾 9 view-cycled）
+→ Step 1.3: 视角 3 项全选默认
+→ Step 1.4-3: 3 md
+→ Step 4: 只勾 NLM mind_map（HTML / audio / video / slide_deck 不勾）
 → Step 5B: 跳过 view-cycled，只 studio_create mind_map（synchronous）
 → 1 个 mind_map URL
 ```
 
+**场景 D**：局部产出（v3.1.0 新）— 单 tier + 单 NLM 类型
+
+```text
+/learn-kit:three-views "git rebase，只要 foundation 和 audio podcast"
+→ Step 1.3: 自然语言 hint 检测到 "foundation" → 仅 foundation 预勾；structural/challenge 不勾
+→ Step 1.4-3: 1 md (foundation only)
+→ Step 4: 自然语言 hint 检测到 "audio podcast" → 仅 NLM audio cell 预勾
+→ Step 5B: 1 个 NLM audio artifact
+→ 总耗时 ~1-2 min
+```
+
 ## 三视角怎么选 / 输出文件结构
 
-输出目录默认 `./learning/<topic>/`，结构：
+输出目录默认 `./learning/<topic>/`，结构（v3.1.0 起 generated tier 子集决定文件数）：
 
 ```
 ./learning/<topic>/
-├── [LEARNING]_<topic>_foundation.md          # 零基础（少术语 + 多类比 + 故事 + TL;DR）
-├── [LEARNING]_<topic>_structural.md          # 结构版（概念地图 + 适用边界 + 自检清单）
-├── [LEARNING]_<topic>_challenge.md           # 挑战版（反例 + 失败案例诊断 + 迁移题）
-├── [LEARNING]_<topic>_foundation.html        # 仅当 Step 4 勾 HTML
-├── [LEARNING]_<topic>_structural.html
-└── [LEARNING]_<topic>_challenge.html
+├── [LEARNING]_<topic>_<view>.md       # 每 view ∈ generated_tiers 一份 (≥1 份)
+│                                      # 全选时: foundation + structural + challenge 共 3 份
+├── [LEARNING]_<topic>_<view>.html     # 仅当 Step 4 勾 HTML；每 view ∈ generated_tiers 一份
+└── ...
 ```
 
-NLM artifact 不本地落盘 — 终端打 URL 表格。
+NLM artifact 不本地落盘 — 终端打 URL 表格（每 cell 选中数 × generated tier 个数；mind_map 单独 1 个）。
 
 ## 常见踩坑 + 排错
 
@@ -149,7 +173,8 @@ NLM artifact 不本地落盘 — 终端打 URL 表格。
 | 生成内容空洞 | source 太少或不相关 | Step 1 多选几个 source 来源；或粘贴更多文本 |
 | HTML 概念未挂代码 | repo-code mode 但仓库里没有对应代码 | HTML 自动 `<missing-evidence concept="X"/>` 占位，不虚构；或换 source-evidence mode |
 | NLM 中途「Authentication expired」| NLM token 寿命 15-30 min | 终端 `! nlm login` 再调；mid-run retry-once 已兜底；重跑选 "Regenerate missing" 续 |
-| NLM 中途「quota exceeded」| 当日已用过 NLM Studio quota | Step 5B Quota gate 选 "Reduce subset" 或 "Pick single view" 缩小批量 |
+| NLM 中途「quota exceeded」| 当日已用过 NLM Studio quota | Step 5B Quota gate 选 "Reduce subset" 或 "Pick single tier"（v3.1.0 重命名）缩小批量；或重跑时 Step 1.3 只选 1 视角 + Step 4 只勾少数 NLM cell |
+| **(v3.1.0)** Step 5B re-run 报 source corpus mismatch warning | 同 topic 之前跑过完整 3-tier，本次只跑 1 tier，但 notebook 还在 | 默认推荐 "Replace sources + new notebook" 或 "New timestamped notebook"；不要强行 "Regenerate missing"（会用 3-source 给 1-tier 产物，contamination） |
 | 同 topic 三档 mind_map 看起来差不多 | NLM 媒介对 mind_map 无视 view 差异化（dogfood finding #5）| 设计决定：1 shared mind_map / topic（v3.0.0 起 mind_map 仅作为 Step 4 可选项） |
 | 想生成 infographic | v6.0.0 永久删除 | 用 NotebookLM web UI 手动建；ADR §3.2 解释 |
 | `nlm login` 报错 | OAuth flow 故障 / proxy 干扰 / token 已损 | 重跑 `nlm login`；检查 `~/.nlm/` 权限；看 [notebooklm-mcp-cli upstream](https://pypi.org/project/notebooklm-mcp-cli/) |
@@ -193,3 +218,4 @@ MIT — see `LICENSE`.
 | **v2.0.0** | **BREAKING: init → scaffold-learning 重命名（消除与 Claude Code `/init` 冲突）** |
 | v2.0.1 | nlm-studio zh-CN narration constraint 双锁加固 |
 | **v3.0.0** | **BREAKING: 5 skill → 1 `three-views` 收敛；删 scaffold-learning/locate/scan/nlm-studio；NLM artifact 13→max 10（删 infographic，mind_map 转可选）；marketplace v6.0.0 配套** |
+| **v3.1.0** | **Additive: Step 1.3 视角 multi-select（default 3 全选 / min 1）+ Step 4 升级 5-cell granular NLM 类型 multi-select（HTML / audio / video / slide_deck / mind_map 独立勾选）；Step 5B re-run guard 加 source-corpus equivalence；3-level hint granularity；marketplace v6.1.0 配套；默认产物等同 v3.0.0** |
