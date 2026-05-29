@@ -8,7 +8,7 @@ description: |
     - "generate learning docs for <topic>" / "make a learning artifact for <topic> covering all three tiers"
     - "render learning HTML for <topic>" / "把 <topic> 推到 NotebookLM 出多媒体"
 
-  Workflow: 5-step (Intake / Source acquisition / 3-view markdown / Multi-select opt-in / Execute). Always outputs 3 markdown; opt-in 3 HTML (dual-mode grounding: repo-code via Explore or source-evidence) and/or NLM 9 view-cycled (audio/video/slide_deck × 3 views) + 1 shared mind_map. NLM requires notebooklm-mcp + one-time `nlm login`; preserves nlm-studio dogfood防护 (per-step auth refresh / source validation / 4-way re-run guard / quota gate / bounded polling).
+  Workflow: 5-step (Intake / Source acquisition / N-view markdown / Multi-select opt-in / Execute). Step 1 tier multi-select (foundation/structural/challenge; default all 3, min 1) picks which tiers generate as markdown (always ≥1). Step 4 5-cell multi-select (HTML / NLM audio / NLM video / NLM slide_deck / NLM mind_map; default all unchecked) picks additional outputs; NLM cartesian = len(generated_tiers) × len(selected NLM view-cycled types) + (1 if mind_map). NLM requires notebooklm-mcp + one-time `nlm login`; preserves nlm-studio dogfood防护 (per-step auth refresh / source validation / 4-way re-run guard / quota gate / source-corpus equivalence / bounded polling). Slash: `/learn-kit:three-views <topic>`.
 
   Do NOT use for: editing existing learning markdown; pure explanation / Q&A; NLM notebook lifecycle ops beyond create/source_add/studio_create/studio_status; infographic / slide-revise / artifact-download (out of scope per v6.0.0 ADR).
 allowed-tools:
@@ -29,9 +29,19 @@ allowed-tools:
   - mcp__plugin_learn-kit_notebooklm-mcp__studio_status
 ---
 
-# three-views · Topic → 3-Tier Learning Markdown (+ Optional HTML + Optional NLM)
+# three-views · Topic → 1-3 Tier Learning Markdown (+ Optional HTML + Optional NLM)
 
-The single learn-kit skill (v3.0.0+). Generates foundation / structural / challenge markdown for any topic the user wants to learn, with opt-in HTML rendering and opt-in NotebookLM multimedia artifacts.
+The single learn-kit skill (v3.0.0+; v3.1.0 added tier multi-select + 5-cell artifact-type granularity). Generates a user-chosen subset of foundation / structural / challenge markdown for any topic, with opt-in HTML rendering and opt-in NotebookLM multimedia artifacts.
+
+## Slash invocation
+
+This skill is auto-discovered by Claude Code's plugin loader; no separate `commands/` file is required. Invoke explicitly via:
+
+```
+/learn-kit:three-views <topic>
+```
+
+Natural-language triggers (listed in frontmatter `description`) activate the same skill — e.g. "我想学习 X" / "为 X 出三档学习材料" / "把 X 推到 NotebookLM 出多媒体".
 
 ## Why this skill exists
 
@@ -44,9 +54,9 @@ Three layers of pedagogical artifact are commonly needed when a learner first me
 
    Together they form a learning curve. Manual authoring is slow; this skill drives an AI-templated generation flow with quality constraints baked in.
 
-2. **Interactive HTML companion** (opt-in) — markdown is good for reading and grepping; a static interactive HTML page (SVG diagrams, syntax-highlighted code, tabbed comparison, "copy as prompt" buttons, dark/light theme) compresses 30 minutes of deep digestion into a single self-contained file. **Dual-mode grounding**: if source includes project files AND cwd is a git repo, spawn Explore subagent for concept→code grounding (file:line+snippet); otherwise use source_manifest entries for concept→source-section grounding (no fabrication).
+2. **Interactive HTML companion** (opt-in, per-tier) — markdown is good for reading and grepping; a static interactive HTML page (SVG diagrams, syntax-highlighted code, tabbed comparison, "copy as prompt" buttons, dark/light theme) compresses 30 minutes of deep digestion into a single self-contained file. **Dual-mode grounding**: if source includes project files AND cwd is a git repo, spawn Explore subagent for concept→code grounding (file:line+snippet); otherwise use source_manifest entries for concept→source-section grounding (no fabrication). Generated for whichever tiers the user produced markdown for.
 
-3. **NotebookLM multimedia artifacts** (opt-in) — NotebookLM transforms the 3 markdown files into multimedia formats suited to different study contexts (commute / meeting prep / poster review). Up to **9 view-cycled artifacts** (audio + video + slide_deck × 3 views) + **1 shared mind_map** (view-agnostic). Output is terminal-only (URLs); nothing is downloaded.
+3. **NotebookLM multimedia artifacts** (opt-in, per-type) — NotebookLM transforms the generated markdown files into multimedia formats suited to different study contexts (commute / meeting prep / poster review). Up to **9 view-cycled artifacts** when all 3 tiers + all 3 view-cycled types selected (audio + video + slide_deck × 3 views) + **1 shared mind_map** (view-agnostic). Output is terminal-only (URLs); nothing is downloaded.
 
 v3.0.0 absorbs the complete generate-tier + nlm-studio capabilities (with NLM 13 → max 10 artifact range scaled per [`[ADR]_LearnKit_Consolidation_To_Single_Skill`](../../../docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md)). All nlm-studio dogfood防护 are preserved.
 
@@ -72,13 +82,31 @@ v3.0.0 absorbs the complete generate-tier + nlm-studio capabilities (with NLM 13
 Extract these from the user's prompt before asking anything:
 
 - **`topic`** (preferred) — subject slug; from user's most specific noun phrase. Heuristic: kebab-case the topic (e.g., "React useEffect 内部原理" → `react-useeffect-internals`). Defer to Step 1 if not inferable.
-- **`user_question`** (required) — verbatim user question / learning intent. Becomes a template variable driving all 3 tier outputs.
+- **`user_question`** (required) — verbatim user question / learning intent. Becomes a template variable driving generation of each tier in `requested_tiers` (Step 1.3).
 - **`source_hints`** (optional) — `@file.md` paths / "用 docs/X.md" → pre-select Step 1 input mechanism.
 - **`html_hint` / `nlm_hint`** (optional) — if user explicitly says "also generate HTML" / "and NLM", pre-check Step 4 options but **still require Step 4 confirmation** (HITL gate per [`[ADR]_LearnKit_Consolidation_To_Single_Skill`](../../../docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md) §3.2 risk mitigation).
 
 ## Execution flow
 
-The skill runs a 5-step workflow. Step 1, 4 use `AskUserQuestion`; Step 5 may use more for re-run guard / quota gate. Each step gates on the prior's output — do not skip ahead.
+The skill runs a 5-step workflow. Step 1 (4 sub-prompts: source mechanism / output dir / **tier selection** / conflict policy) and Step 4 use `AskUserQuestion`; Step 5 may use more for re-run guard / quota gate. Each step gates on the prior's output — do not skip ahead.
+
+**State variables** the skill threads through the workflow (single source of truth):
+
+| Var | Set at | Consumed by | Meaning |
+|-----|--------|-------------|---------|
+| `requested_tiers` | Step 1.3 HITL | Step 3 loop | User-intent subset of `{foundation, structural, challenge}` (≥1) |
+| `generated_tiers` | end of Step 3 | Steps 5A, 5B | `requested_tiers − conflict_skipped − generation_failed` (tiers actually written) |
+| `html_selected: bool` | Step 4 HITL | Step 5A | Whether HTML cell was checked |
+| `selected_view_cycled_types` | Step 4 HITL | Step 5B | `⊆ {audio, video, slide_deck}` from Step 4 cells |
+| `mind_map_selected: bool` | Step 4 HITL | Step 5B | Whether mind_map cell was checked |
+| `selected_nlm_artifacts` | Step 5B build | Step 5B loop | `cartesian(generated_tiers, selected_view_cycled_types) + (mind_map if selected)` |
+| `source_corpus_key` | Step 5B notebook setup | Step 5B re-run guard | Stable hash of `(topic, sorted(generated_tiers), sorted([s.content_sha256 for s in source_manifest]))`; computed live from `notebook_get` source list on re-run |
+
+**Invariants**:
+
+- Steps 5A/5B consume `generated_tiers`, **not** `requested_tiers` (handles conflict-skip + generation-fail).
+- Step 5B.3 `source_add` count = `len(generated_tiers)`, not hardcoded 3.
+- mind_map prompt and template refer to "selected source corpus" / "selected tiers"; never "all three tiers".
 
 ### Step 1 — Intake
 
@@ -92,14 +120,39 @@ The skill runs a 5-step workflow. Step 1, 4 use `AskUserQuestion`; Step 5 may us
    - 项目内文件路径（Read 1+ files）
    - 粘贴文本（inline）
 
-3. **Output directory**:
+3. **Tier selection** (new in v3.1.0) — AskUserQuestion(`multiSelect: true`, ≥1 must be checked):
+
+   ```
+   AskUserQuestion(
+     header: "Tiers",
+     question: "要生成哪些视角？（默认 3 项全选；至少选 1 项）",
+     multiSelect: true,
+     options: [
+       { label: "Foundation 零基础版",
+         description: "少术语 + 多类比 + 故事；first-pass 理解",
+         default: true },
+       { label: "Structural 结构版",
+         description: "概念地图 + 适用边界 + 自检清单；system-building",
+         default: true },
+       { label: "Challenge 挑战版",
+         description: "反例 + 失败案例诊断 + 迁移题；active mastery",
+         default: true }
+     ]
+   )
+   ```
+
+   **Validation**: if user submits 0 selections → re-prompt **once** with explicit "至少选 1 项；默认 3 项全选 = 维持 v3.0.0 行为". Second 0-selection → abort with `"至少选 1 项——三档全部跳过 = 整个 skill 无产出，等同直接取消"`. Do NOT silently fall back to default.
+
+   Persist as `requested_tiers` (ordered subset of `[foundation, structural, challenge]` in canonical order). Consumed by Step 1.4 conflict check, Step 3 markdown loop, and (via `generated_tiers`) Steps 5A/5B.
+
+4. **Output directory**:
    - Default `./learning/<topic>/`.
    - User may override via free-text prompt (default shown).
    - **Path safety check**: if output dir is absolute path OR escapes cwd (compare against `pwd` heuristic by Glob-checking `./<rel-path>` resolution), AskUserQuestion 二次确认 (Proceed / Abort).
    - **Repo detection** (best-effort, no Bash): Glob `.git/HEAD` succeeds → assume git repo (worktree-mode .git file works too if Glob resolves through it; otherwise treat as non-repo).
-   - **Conflict check**: if `<output_dir>/[LEARNING]_<topic>_<view>.md` exists for any planned view → AskUserQuestion(Overwrite / Append `.v2` suffix / Skip conflicting view / Abort).
+   - **Conflict check**: if `<output_dir>/[LEARNING]_<topic>_<view>.md` exists for any `view ∈ requested_tiers` → AskUserQuestion(Overwrite / Append `.v2` suffix / Skip conflicting view / Abort). Record any "Skip conflicting view" choices in `_skipped_tiers` for later subtraction (consumed at end of Step 3 to compute `generated_tiers`).
 
-4. **Pre-flight scaffold** (only when output dir = default `./learning/<topic>/`):
+5. **Pre-flight scaffold** (only when output dir = default `./learning/<topic>/`):
    - Create `./learning/<topic>/` if missing (Write tool auto-creates parent dirs).
    - Create `./learning/INDEX.md` skeleton if missing (one H1 title + a table-header row for topics). Multiple-topic later: append a row. **Do NOT create `_meta/METHODOLOGY.md` or `_archive/`** (per `[ADR]_LearnKit_Consolidation_To_Single_Skill` §2.3.11 Option B — manual methodology scaffold retired).
 
@@ -153,9 +206,9 @@ source_manifest:
 
 Compute `uploaded_docs_summary`: 3-5 line summary listing source ids + sizes, keyed by `S<n>` for cross-reference in markdown frontmatter and prompt body.
 
-### Step 3 — Three-view markdown generation
+### Step 3 — N-view markdown generation
 
-For each view in (foundation, structural, challenge):
+For each view in `requested_tiers` (1-3 iterations):
 
 1. `Read` the corresponding template at `${CLAUDE_PLUGIN_ROOT}/skills/three-views/templates/view-<view>.md`.
 2. **Extract `MARKDOWN_GENERATION_PROMPT` block** between `<!-- BEGIN:MARKDOWN_GENERATION_PROMPT -->` and `<!-- END:MARKDOWN_GENERATION_PROMPT -->` markers. **Template integrity check** (see "Template integrity checks" section below) — if the markers are missing or mal-paired, abort.
@@ -180,46 +233,83 @@ For each view in (foundation, structural, challenge):
        kind: file
        path: docs/...
    generated_at: <ISO8601 UTC>
-   generator: learn-kit/three-views@3.0.0
+   generator: learn-kit/three-views@3.1.0
    grounding_mode_for_html: (pending, decided at Step 5A if HTML opted in)
    ---
    ```
 
 6. `Write` to `<output_dir>/[LEARNING]_<topic>_<view>.md`.
 
-7. **INDEX update** (only when output_dir = default `./learning/<topic>/` AND `learning/INDEX.md` exists from Step 1.4):
-   - Append (or update existing rows) under `## Tier Documents`:
+7. **INDEX update** (only when output_dir = default `./learning/<topic>/` AND `learning/INDEX.md` exists from Step 1.5):
+   - Append (or update existing rows) under `## Tier Documents` (only for tiers in `requested_tiers`):
      ```
      | <topic> | <view> | [LEARNING]_<topic>_<view>.md | — | <ISO8601 date> |
      ```
    - Deterministic ordering: `(topic ASC, view canonical-order ASC)` where canonical view order is foundation < structural < challenge.
 
-### Step 4 — Multi-select 询问额外产出
+**After the loop completes**, compute and log:
+
+```
+generated_tiers = requested_tiers − _skipped_tiers − _failed_tiers
+```
+
+Emit one log line stating the final `generated_tiers` (which Steps 5A/5B will consume). Examples:
+- `requested_tiers = {foundation, structural, challenge}`, no conflicts → `generated_tiers = {foundation, structural, challenge}`
+- `requested_tiers = {foundation, structural}`, structural Step 1.4 conflict-skipped → `generated_tiers = {foundation}`
+- `requested_tiers = {challenge}`, challenge generation failed → `generated_tiers = {}` → **abort with explicit error** ("markdown 必出 invariant violated: no tier successfully generated").
+
+### Step 4 — Multi-select 询问额外产出 (5-cell, v3.1.0)
+
+Let `N = len(generated_tiers)` (computed at end of Step 3). Interpolate `N` and the actual `generated_tiers` list into the question text.
 
 ```
 AskUserQuestion(
-  question="三阶段 md 已就绪。要哪些额外产出？（默认不选）",
-  multiSelect=true,
-  options=[
+  header: "Extras",
+  question: "已生成 <N> 份 md（views: <generated_tiers list>）。要哪些额外产出？（默认全不选；勾几格生几格）",
+  multiSelect: true,
+  options: [
     {
       label: "HTML 渲染",
-      description: "交互式单页 HTML × 3 view；自动选 grounding 模式（有仓库代码 → concept→code 经 Explore subagent；外部 URL/文本 → concept→source-section）"
+      description: "交互式单页 HTML × <N> 份（每生成 tier 一份）；自动选 grounding 模式（有仓库代码 → concept→code 经 Explore subagent；外部 URL/文本 → concept→source-section）"
     },
     {
-      label: "NLM 9 view-cycled artifacts",
-      description: "audio/video/slide_deck × foundation/structural/challenge = 9 artifact；需 nlm login；进入 quota right-sizing gate"
+      label: "NLM audio",
+      description: "NotebookLM audio (deep_dive) × <N> 份（每生成 tier 一份）；需 nlm login；进入 quota right-sizing gate"
     },
     {
-      label: "NLM shared mind_map (1 个)",
-      description: "view-agnostic 全局概念地图；可独立要、也可与上一项一起；同样进 quota gate"
+      label: "NLM video",
+      description: "NotebookLM video (explainer) × <N> 份；同上"
+    },
+    {
+      label: "NLM slide_deck",
+      description: "NotebookLM slide_deck (detailed_deck) × <N> 份；同上"
+    },
+    {
+      label: "NLM mind_map",
+      description: "1 个 shared mind_map（view-agnostic；dogfood finding #5：NLM 媒介对 mind_map 无视 view 差异化指令；与 generated_tiers 数量解耦——总是 1 个）"
     }
   ]
 )
 ```
 
-**Hint behavior**: if `html_hint` / `nlm_hint` was extracted in pre-flight, pre-check the corresponding option(s) **but still ask the question for confirmation** (HITL gate; never auto-trigger HTML / NLM without explicit user yes per [`[ADR]_LearnKit_Consolidation_To_Single_Skill`](../../../docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md) §3.2 risk mitigation).
+**Hint behavior** (3-level granularity; preserves explicit user intent):
 
-**If user un-selects all (empty multiSelect)**: skip Step 5 entirely; jump to terminal recap with just the 3 md paths.
+| Hint kind | Detection | Pre-check action |
+|-----------|-----------|------------------|
+| HTML | `html_hint=true` (e.g. "also output HTML" / "出 HTML") | Pre-check `HTML 渲染` cell |
+| Explicit-type NLM | User names specific types (e.g. "just an audio podcast" / "只要 audio" / "video + slide_deck") | Pre-check only the named NLM type cell(s) |
+| Generic-NLM | User says "NLM" / "多媒体" / "推到 NotebookLM" without type | Pre-check all 4 NLM cells (audio + video + slide_deck + mind_map) |
+| No hint | Default | All cells unchecked |
+
+All hint-driven pre-checks **still require explicit confirmation** (HITL gate; never auto-trigger HTML / NLM without explicit user yes per [`[ADR]_LearnKit_Consolidation_To_Single_Skill`](../../../docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md) §3.2 risk mitigation). User can uncheck pre-checked cells before submitting.
+
+**Persist Step 4 outputs**:
+
+- `html_selected: bool` ← whether "HTML 渲染" was checked
+- `selected_view_cycled_types: set ⊆ {audio, video, slide_deck}` ← which NLM view-cycled cells were checked
+- `mind_map_selected: bool` ← whether "NLM mind_map" was checked
+
+**If user un-selects all 5 cells (empty multiSelect)**: skip Step 5 entirely; jump to terminal recap with just the `len(generated_tiers)` md paths. Emit explicit log line `"No extras selected. Terminal output: markdown only."`.
 
 ### Step 5 — Execute selected
 
@@ -230,7 +320,7 @@ AskUserQuestion(
    - `source-evidence`: source_manifest is URL- or pasted-text-only OR cwd not git repo
    - `mixed`: both file + (URL/pasted) AND cwd is git repo
 
-2. **Concept extraction** (for all views, from each just-written tier markdown):
+2. **Concept extraction** (for each `view ∈ generated_tiers`, from the just-written tier markdown):
    - All H2 / H3 headings
    - Frontmatter `aliases` if present
    - Tag rows marked "术语" / "Term"
@@ -257,7 +347,7 @@ AskUserQuestion(
    Use breadth: medium. If no code embodiment, file=null + explain in why. Do NOT invent file paths.
    ```
 
-   One subagent per tier; parallel via single-message multi-tool-call when multiple tiers.
+   One subagent per `view ∈ generated_tiers`; parallel via single-message multi-tool-call when `len(generated_tiers) > 1`.
 
 4. **For `source-evidence` mode**: do NOT spawn Explore. Pass `source_manifest_json` directly to html-renderer template; it will resolve concept→source-section grounding inline.
 
@@ -273,12 +363,23 @@ AskUserQuestion(
 
 6. `Write` to `<output_dir>/[LEARNING]_<topic>_<view>.html`. Update corresponding INDEX row (if default path).
 
-#### Step 5B — NLM artifact generation (if "NLM 9 view-cycled" and/or "NLM mind_map" selected)
+#### Step 5B — NLM artifact generation (if any NLM cell selected in Step 4)
 
-Build the working set based on Step 4 selection:
-- Both selected → 9 view-cycled + 1 mind_map = max 10 artifacts
-- Only 9 view-cycled → 9 artifacts (skip mind_map)
-- Only mind_map → 1 artifact (skip 9 view-cycled)
+**Build the adaptive working set** from Step 4 outputs + Step 3 `generated_tiers`:
+
+```text
+selected_nlm_artifacts = []
+for view in generated_tiers:
+  for artifact_type in selected_view_cycled_types:   # ⊆ {audio, video, slide_deck}
+    selected_nlm_artifacts.append((artifact_type, view))
+if mind_map_selected:
+  selected_nlm_artifacts.append(("mind_map", None))  # view=None, view-agnostic
+
+N = len(selected_nlm_artifacts)
+# = len(generated_tiers) × len(selected_view_cycled_types) + (1 if mind_map_selected else 0)
+```
+
+If `N == 0` (Step 4 only checked HTML, no NLM cells) → skip Step 5B entirely.
 
 **Workflow:**
 
@@ -286,38 +387,42 @@ Build the working set based on Step 4 selection:
    - `refresh_auth` → `server_info` (local-only checks; `success` expected)
    - `notebook_list` (no args) — **真 auth gate**. Failure → abort + instruct `! nlm login`.
 
-2. **Re-run guard** (per nlm-studio dogfood):
+2. **Re-run guard** (per nlm-studio dogfood + v3.1.0 source-corpus equivalence):
    - Compute canonical notebook name: `learn-kit:<topic>`
    - `notebook_get` to check existence
-   - If exists → AskUserQuestion 4 选 1:
-     - **Regenerate missing**: reuse notebook + sources; skip `(artifact_type, view)` pairs already present (via `studio_status` lookup). Best for resuming partial run.
-     - **Replace sources + new notebook**: `notebook_create` with timestamp suffix (`learn-kit:<topic>-<ISO8601-compact>`); old notebook untouched for history. Best when source_manifest 已变.
+   - **Compute `source_corpus_key`** for the current run: stable hash (SHA-256 hex) of canonical-JSON `{topic, sorted(generated_tiers), sorted([s.content_sha256 for s in source_manifest])}`.
+   - **If existing notebook found**: derive `existing_source_corpus_key` from `notebook_get` source list (re-hash using the same algorithm against the uploaded sources' metadata; if NLM server doesn't expose per-source content_sha256, fall back to `(topic, len(sources))` tuple comparison).
+   - **Mismatch warning gate**: if `existing_source_corpus_key != source_corpus_key` (e.g. existing notebook has 3 sources but current run has 1 tier), emit a **warning banner**:
+     > ⚠️ Existing notebook `learn-kit:<topic>` has source corpus `{tiers: [foundation, structural, challenge], count: 3}` but current run has `{tiers: [foundation], count: 1}`. Reusing the existing notebook would produce artifacts grounded in a SUPERSET of what you selected — likely contaminating partial-output intent. Recommended: **New timestamped notebook**.
+   - AskUserQuestion 4 选 1 (the default-recommended option depends on the mismatch banner):
+     - **Regenerate missing**: reuse notebook + sources; skip `(artifact_type, view)` pairs already present (via `studio_status` lookup). **Definition of "missing"**: relative to CURRENT `selected_nlm_artifacts`. If a previously-generated `(audio, structural)` pair exists but `structural ∉ generated_tiers`, it is NOT regenerated (out of scope) but surfaces in recap as `previously-generated-out-of-current-subset`. Best for resuming partial run when corpus matches.
+     - **Replace sources + new notebook**: `notebook_create` with timestamp suffix (`learn-kit:<topic>-<ISO8601-compact>`); old notebook untouched for history. **Default-recommended when source_corpus_key mismatches.**
      - **New timestamped notebook**: same as above but reason 为 "保留 A/B 对比"
      - **Abort**
 
 3. **Notebook setup** (if no existing or "new" chosen):
    - `notebook_create(title="learn-kit:<topic>" [+ optional timestamp])`
-   - `source_add` × 3 (foundation / structural / challenge .md files, parallel allowed); `wait=True`
-   - **Source validation** (per nlm-studio dogfood finding #4): `notebook_get` to verify all 3 sources actually uploaded (source_add error responses are unreliable). Retry-once per missing; if still missing, surface in recap and degrade gracefully.
+   - `source_add` × `len(generated_tiers)` (only the tiers actually generated in Step 3; parallel allowed); `wait=True`
+   - **Source validation** (per nlm-studio dogfood finding #4): `notebook_get` to verify all `len(generated_tiers)` sources actually uploaded (source_add error responses are unreliable). Retry-once per missing; if still missing, surface in recap and degrade gracefully.
 
-4. **Quota right-sizing gate** (per nlm-studio dogfood; MANDATORY even at 10 ≤ 13 because no API for prior day usage):
-   - Compose summary text:
+4. **Quota right-sizing gate** (per nlm-studio dogfood; MANDATORY because no API for prior day usage):
+   - Compose summary text (adaptive `N`):
      > About to generate **N artifacts** on notebook `learn-kit:<topic>`:
-     > - 9 view-cycled = audio/video/slide_deck × foundation/structural/challenge (if selected)
-     > - 1 mind_map shared (if selected)
+     > - `len(selected_view_cycled_types)` × `len(generated_tiers)` = V view-cycled (types: `<selected_view_cycled_types>`; views: `<generated_tiers>`)
+     > - 1 shared mind_map (if `mind_map_selected`)
      >
-     > Estimated ETA: 5-12 min. Estimated NLM Studio quota usage: ~50% of empirical ~20/day ceiling.
+     > Estimated ETA: ~30-60s per studio_create × N (mostly NLM-side async). Full default batch (3 tiers × 3 types + mind_map = 10) ≈ 5-12 min. Minimal selection (1 tier × 1 type) ≈ 1-2 min.
      >
      > ⚠️ This skill cannot detect prior same-day Studio usage. Reduce subset below if you've generated other artifacts today.
-   - AskUserQuestion 4 选 1:
+   - AskUserQuestion (4 选 1 OR 3 选 1 — see degeneracy rules below):
      - **Confirm all N** — proceed full batch
-     - **Reduce subset** — multiSelect cells to drop (e.g., uncheck `video_foundation`, `slide_deck_challenge`); persist working set
-     - **Pick single view** — generate only the 3 artifacts (audio + video + slide_deck) for one selected view; useful for "I only want structural audio/video/slides"
+     - **Reduce subset** — multiSelect cells from `selected_nlm_artifacts` to drop (e.g., uncheck `video_foundation`, `slide_deck_challenge`); persist refined `selected_nlm_artifacts`
+     - **Pick single tier** — limit `generated_tiers` to ONE tier (chosen from current `generated_tiers`); rebuild `selected_nlm_artifacts` with that single tier × `selected_view_cycled_types`; mind_map stays if selected. **Hidden** when `len(generated_tiers) == 1` (degenerate — no choice) OR `selected_view_cycled_types == {}` (mind_map-only run; tier picking is moot)
      - **Abort**
 
 5. **Artifact generation loop**:
-   - **Pre-loop idempotency lookup**: `studio_status(notebook_id)` → set of existing `(artifact_type, view)` pairs (mind_map keyed by `artifact_type` only). Skip these in loop; record as `previously-generated` in recap.
-   - For each artifact in working set (sequential to respect per-step auth refresh):
+   - **Pre-loop idempotency lookup**: `studio_status(notebook_id)` → set of existing `(artifact_type, view)` pairs (mind_map keyed by `artifact_type` only). For pairs in this set ∩ `selected_nlm_artifacts` → skip in loop, record as `previously-generated`. For pairs in this set ∖ `selected_nlm_artifacts` (e.g. previously-generated `(audio, structural)` but `structural ∉ generated_tiers` this run) → record as `previously-generated-out-of-current-subset` for transparency.
+   - For each artifact in `selected_nlm_artifacts` (sequential to respect per-step auth refresh):
      - **`refresh_auth`** before each studio_create (token short-lived per dogfood finding #3)
      - **Build focus_prompt** via composition contract (see "focus_prompt composition" section below)
      - **Call `studio_create(notebook_id, artifact_type, focus_prompt, confirm=True, ...)`**:
@@ -340,7 +445,7 @@ Build the working set based on Step 4 selection:
    | 1 | audio | foundation | done | <url> |
    | ... | | | | |
    ```
-   Status enum: `done` / `pending` / `previously-generated` / `skipped-by-subset` / `skipped-error: <reason>` / `aborted`
+   Status enum: `done` / `pending` / `previously-generated` / `previously-generated-out-of-current-subset` / `skipped-by-subset` / `skipped-error: <reason>` / `aborted`. The `View` column shows `—` for mind_map rows (view-agnostic).
 
 ### Terminal summary (always)
 
@@ -373,7 +478,7 @@ focus_prompt = """
 ===== SOURCE TOPIC =====
 Topic: {topic}
 View: {view}
-Source files: 3 .md learning documents (foundation/structural/challenge tier)
+Source files: {len(generated_tiers)} .md learning documents (views: {generated_tiers list})
 This is the {view}-tier {type}. It must be distinguishable from other view variants by the View-Purpose criteria above.
 """
 ```
@@ -390,8 +495,8 @@ focus_prompt = """
 
 ===== SOURCE TOPIC =====
 Topic: {topic}
-This mind_map is the structural skeleton across all three tiers. View-agnostic (nlm-studio v1.0.0 dogfood finding #5: NLM mind_map output is structural-hierarchy regardless of prompting). One mind_map per topic.
-Sources: 3 .md learning documents covering foundation/structural/challenge content.
+This mind_map is the structural skeleton across the selected source corpus. View-agnostic (nlm-studio v1.0.0 dogfood finding #5: NLM mind_map output is structural-hierarchy regardless of prompting). One mind_map per topic.
+Sources: {len(generated_tiers)} .md learning documents covering {generated_tiers list}.
 """
 ```
 
@@ -416,10 +521,10 @@ The mind_map composition does NOT need the failsafe (no view-prefix loaded).
 
 ## Multi-select UX rules
 
-- AskUserQuestion `header` ≤ 12 chars: "Source", "Output dir", "Conflict", "Extras", "Re-run", "Quota"
-- Step 1.2 (Source mechanism) and Step 4 (Extras) use `multiSelect: true`
-- Step 1.1, 1.3, 1.4, 5B.2 (re-run guard), 5B.4 (quota) use single-select
-- Step 4: if all 3 options un-selected, skip Step 5 entirely (graceful exit with just 3 md)
+- AskUserQuestion `header` ≤ 12 chars: "Source", "Tiers", "Output dir", "Conflict", "Extras", "Re-run", "Quota"
+- Step 1.2 (Source mechanism), Step 1.3 (Tier selection), and Step 4 (Extras) use `multiSelect: true`
+- Step 1.1, 1.4, 1.5, 5B.2 (re-run guard), 5B.4 (quota) use single-select
+- Step 4: if all 5 options un-selected, skip Step 5 entirely (graceful exit with just `len(generated_tiers)` md)
 
 ## Templates layout
 
@@ -440,7 +545,7 @@ ${CLAUDE_PLUGIN_ROOT}/skills/three-views/
 ```
 
 Templates are read on-demand:
-- Step 3 reads 3 view-{}.md (MARKDOWN_GENERATION_PROMPT blocks only)
+- Step 3 reads view-{}.md for each `view ∈ requested_tiers` (1-3 files; MARKDOWN_GENERATION_PROMPT blocks only)
 - Step 5A reads html-renderer.md (once if HTML opted in)
 - Step 5B reads view-{}.md (NLM_VIEW_PREFIX blocks) + artifact-*.md + interaction-overrides.md + language-directive.md per artifact
 
@@ -449,19 +554,31 @@ Templates are read on-demand:
 Default files land at:
 
 ```
-<output_dir>/[LEARNING]_<topic>_<view>.md       # always, 3 files
-<output_dir>/[LEARNING]_<topic>_<view>.html     # if HTML opted in, 3 files
+<output_dir>/[LEARNING]_<topic>_<view>.md       # one per view in generated_tiers (always ≥1)
+<output_dir>/[LEARNING]_<topic>_<view>.html     # one per view in generated_tiers (only if html_selected)
 ```
 
 Pair the markdown and HTML by basename — same directory, same stem, only extension differs.
 
 NLM artifacts produce **NO local files** — terminal-only URL recap. Notebook URL + per-artifact URLs are emitted; nothing is downloaded.
 
+### Artifact count formulas (v3.1.0 adaptive)
+
+| Artifact | Count |
+|----------|-------|
+| Markdown (.md) | `len(generated_tiers)` — always ≥1 by skill invariant |
+| HTML (.html) | `len(generated_tiers)` if `html_selected`, else 0 |
+| NLM view-cycled (audio/video/slide_deck) | `len(generated_tiers) × len(selected_view_cycled_types)` |
+| NLM mind_map | `1` if `mind_map_selected`, else 0 (view-agnostic regardless of `len(generated_tiers)`) |
+| **Total NLM** | `len(generated_tiers) × len(selected_view_cycled_types) + (1 if mind_map_selected)` |
+
+Maximum NLM count when user accepts all defaults + checks all 5 Step 4 cells: `3 × 3 + 1 = 10`. Minimum non-zero: `1` (e.g. 1 tier + 1 NLM type, or just mind_map).
+
 ## Performance notes
 
-- Step 3 generation cost scales with `source_corpus` size. For sources > 50 KB (combined), warn user that generation may take 30-60s per tier; offer split-summarize per Step 2 fallback.
-- Step 5A spawns one Explore subagent per tier (repo-code / mixed modes). Parallelize via single-message multi-tool-call when multiple tiers selected.
-- Step 5B sequential per artifact (refresh_auth + studio_create pairs); total wall-clock ~5-12 min for full 10-artifact batch (mostly NLM-side async generation time).
+- Step 3 generation cost scales with `source_corpus` size × `len(requested_tiers)`. For sources > 50 KB (combined), warn user that generation may take 30-60s per tier; offer split-summarize per Step 2 fallback.
+- Step 5A spawns one Explore subagent per `view ∈ generated_tiers` (repo-code / mixed modes). Parallelize via single-message multi-tool-call when `len(generated_tiers) > 1`.
+- Step 5B sequential per artifact (refresh_auth + studio_create pairs); wall-clock scales as ~30-60s × N (mostly NLM-side async). Default full batch (3 tiers + all 5 Step 4 cells = 10 artifacts) ≈ 5-12 min. Minimal selection (1 tier × 1 NLM type) ≈ 1-2 min.
 - The skill is stateless: every invocation re-reads source, re-extracts concepts, re-grounds. No cache, no manifest persisted between runs. Cost is acceptable for typical "one topic per learning session" pattern.
 
 ## Migration from removed skills (v3.0.0 BREAKING)
@@ -470,21 +587,21 @@ learn-kit v3.0.0 consolidates 5 skills into this one. Old → new mapping:
 
 | Removed skill | Migration |
 |---------------|-----------|
-| `/learn-kit:scaffold-learning` | Step 1.4 auto-creates `./learning/<topic>/` + INDEX skeleton (no METHODOLOGY/_archive; per ADR Option B) |
+| `/learn-kit:scaffold-learning` | Step 1.5 auto-creates `./learning/<topic>/` + INDEX skeleton (no METHODOLOGY/_archive; per ADR Option B) |
 | `/learn-kit:locate <query>` | See `plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_Discovery_Recipes.md` §"Locate Recipe" (Grep + Glob patterns + confidence scoring) |
 | `/learn-kit:scan` | See same GUIDE §"Scan Recipe" (canonical doc enumeration + cross-reference + ranking) |
-| `/learn-kit:generate-tier <topic>` | `/learn-kit:three-views <topic>` — same 3-view markdown generation, expanded with URL input + source_manifest + dual-mode HTML |
-| `/learn-kit:nlm-studio <topic>` | `/learn-kit:three-views <topic>` Step 4 → select "NLM 9 view-cycled" and/or "NLM shared mind_map". Infographic permanently retired (4 artifact loss). |
+| `/learn-kit:generate-tier <topic>` | `/learn-kit:three-views <topic>` — same 3-view markdown generation, expanded with URL input + source_manifest + dual-mode HTML + (v3.1.0) tier multi-select for 1-3 subset |
+| `/learn-kit:nlm-studio <topic>` | `/learn-kit:three-views <topic>` Step 4 → check any of `NLM audio` / `NLM video` / `NLM slide_deck` / `NLM mind_map`. Infographic permanently retired (4 artifact loss); per-type granularity added in v3.1.0. |
 
 See [`docs/guide/[GUIDE]_Migration_From_v3_to_v4.md`](../../../docs/guide/[GUIDE]_Migration_From_v3_to_v4.md) §6 for full v5.0.x → v6.0.0 migration walkthrough.
 
 ## Non-goals
 
-- This skill does not edit existing tier documents — only writes (with conflict policy in Step 1.3). For incremental edits, direct file edit.
+- This skill does not edit existing tier documents — only writes (with conflict policy in Step 1.4). For incremental edits, direct file edit.
 - This skill does not validate generated markdown content — leave to user review or markdownlint. The frontmatter `generator:` field is the audit trail.
 - This skill does not invoke external services beyond Claude tools + Explore subagent (Step 5A) + WebFetch (Step 2) + NotebookLM MCP (Step 5B if opted in). All opt-in steps gated by Step 4 AskUserQuestion.
 - This skill does not generate cross-tier internal links (e.g., foundation HTML linking to structural HTML). Each artifact is self-contained.
-- This skill does not maintain regeneration history. Each run overwrites or `.v2`-suffixes per Step 1.3 conflict policy.
+- This skill does not maintain regeneration history. Each run overwrites or `.v2`-suffixes per Step 1.4 conflict policy.
 - This skill does not provide NLM notebook lifecycle ops beyond create + source_add + studio_create + studio_status. For rename / delete / share / individual source manipulation, use notebooklm.google.com web UI. `source_delete` MCP tool intentionally omitted from `allowed-tools` — Step 5B re-run guard's "Replace sources" branch creates a new timestamped notebook rather than deleting (cleaner audit trail).
 - This skill does not produce infographic NLM artifacts (permanently retired in marketplace v6.0.0 per [`[ADR]_LearnKit_Consolidation_To_Single_Skill`](../../../docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md) §3.2).
 - This skill does not revise individual NLM slide_deck slides via `studio_revise` MCP tool, nor download artifacts locally via `download_artifact` — both intentionally omitted from `allowed-tools`. Terminal-only URL output is the contract; for granular slide editing or offline copies, use NotebookLM web UI.

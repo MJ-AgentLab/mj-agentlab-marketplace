@@ -7,6 +7,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [3.1.0] - 2026-05-29
+
+### Added
+
+- **Step 1.3 Tier multi-select HITL gate** — `AskUserQuestion(multiSelect=true, header="Tiers")` with 3 cells (Foundation 零基础版 / Structural 结构版 / Challenge 挑战版), all `default: true`, minimum 1 enforced (0-selection → re-prompt once → abort). Preserves v3.0.0 default behavior (3-tier output when user accepts defaults) while enabling subset generation for single-tier use cases ("just foundation" / "skip challenge").
+- **Slash invocation doc section** in `skills/three-views/SKILL.md` (above "Why this skill exists") explicitly documenting `/learn-kit:three-views <topic>` as the auto-discovered slash form — no `commands/` directory needed (relies on Claude Code's `<plugin-name>:<skill-name>` derivation).
+- **State variables doc table** in SKILL.md "Execution flow" intro: `requested_tiers`, `generated_tiers`, `html_selected`, `selected_view_cycled_types`, `mind_map_selected`, `selected_nlm_artifacts`, `source_corpus_key` — single source of truth threaded through Steps 3 / 5A / 5B with explicit invariants.
+- **Artifact count formulas table** in Output convention section — adaptive formulas for md / html / NLM view-cycled / NLM mind_map / total NLM under v3.1.0 semantics.
+
+### Changed
+
+- **Step 4 multi-select redesign — 3 coarse cells → 5 granular cells**:
+  - Old (v3.0.0): ☐ HTML 渲染 / ☐ NLM 9 view-cycled (bundle) / ☐ NLM shared mind_map
+  - New (v3.1.0): ☐ HTML 渲染 / ☐ NLM audio / ☐ NLM video / ☐ NLM slide_deck / ☐ NLM mind_map
+  - All cells independent multiSelect, default unchecked (opt-in posture preserved per [`../../docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md`](../../docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md) §3.2). Per-type NLM control surfaces upfront instead of buried in Step 5B.4 quota gate "Reduce subset". `mind_map` cell semantics unchanged (still 1 shared view-agnostic artifact regardless of tier count).
+  - **3-level hint granularity** (new): explicit-type hints (e.g. "just an audio podcast") pre-check only that cell; generic-NLM hints ("and NLM") pre-check all 4 NLM cells; no hint → all unchecked. Confirmation still required regardless (HITL gate).
+- **Step 3 / Step 5A / Step 5B loops generalized** from hardcoded `(foundation, structural, challenge)` 3-iteration to iterate over `requested_tiers` (Step 3) and `generated_tiers` (Steps 5A / 5B). `generated_tiers = requested_tiers − conflict_skipped − generation_failed` computed at end of Step 3 (with `"markdown 必出 invariant"` abort when empty). `source_add` count in Step 5B.3 = `len(generated_tiers)` instead of hardcoded 3.
+- **Step 5B.4 Quota gate adaptive** — `N = len(generated_tiers) × len(selected_view_cycled_types) + (1 if mind_map_selected else 0)`. 4-way prompt collapses to 3-way (no "Pick single tier") when `len(generated_tiers) == 1` OR `selected_view_cycled_types == {}` (mind_map-only run). Renamed "Pick single view" → "Pick single tier" for accuracy.
+- **Step 1 sub-step reordering** — Tier selection inserted as new Step 1.3 (BEFORE Output directory) so the Step 1.4 conflict check has access to `requested_tiers`. New ordering: 1.1 Resolve topic / 1.2 Source mechanism / 1.3 Tier selection / 1.4 Output dir + conflict / 1.5 Pre-flight scaffold.
+- **Frontmatter generator string** in Step 3 markdown frontmatter template: `learn-kit/three-views@3.0.0` → `learn-kit/three-views@3.1.0`.
+- **`.claude-plugin/plugin.json`** — version `3.0.0 → 3.1.0` (minor; additive HITL features, defaults preserve v3.0.0 product output).
+- **`README.md`** + **`CLAUDE.md`** — synced to describe Step 1.3 tier-select + 5-cell Step 4 + Quick Start slash example.
+- **`templates/artifact-mind_map.md`** — opening "across all three tiers" reframed to "across the selected source corpus" (1-3 tiers). "4 other artifact types" stale wording corrected to "3 view-cycled artifact types" (infographic was retired in marketplace v6.0.0).
+
+### Fixed
+
+- **Re-run guard source-corpus equivalence** (Step 5B.2) — added explicit `source_corpus_key` computation (stable SHA-256 hash of `(topic, sorted(generated_tiers), sorted(source content_sha256))`) and mismatch warning gate. Previously, re-running `/learn-kit:three-views` for a topic with a different tier subset could silently reuse an existing 3-tier notebook, contaminating partial-output intent (e.g. mind_map grounded in 3 sources when user requested only 1 tier). Now, on mismatch, the re-run guard surfaces a warning banner and recommends "Replace sources + new notebook" or "New timestamped notebook" instead of "Regenerate missing".
+- **Recap state for cross-subset artifacts** — new `previously-generated-out-of-current-subset` status enum value distinguishes artifacts that exist in the notebook but are NOT in current `selected_nlm_artifacts` (e.g. previously-generated `(audio, structural)` when this run has `generated_tiers = {foundation}`). Prevents confusion about why "missing" artifacts weren't regenerated.
+
+### Notes
+
+- **No template file edits beyond `artifact-mind_map.md`** — per-view (`view-foundation/structural/challenge.md`) and per-type (`artifact-audio/video/slide_deck.md`) templates are already independent files loaded on-demand; iterating over subsets is naturally supported.
+- **Backward-compatible product output**: a user who accepts Step 1.3 defaults (all 3 tiers checked) and leaves Step 4 default-unchecked produces identical output to v3.0.0. The **interaction flow** gains one additional confirmation gate (Step 1.3 tier-select); not strictly zero-friction-delta but skippable with one keystroke.
+- See marketplace-layer [`../../docs/adr/[ADR]_LearnKit_ThreeViews_HITL_Expansion.md`](../../docs/adr/[ADR]_LearnKit_ThreeViews_HITL_Expansion.md) for the design decision (3 alternatives weighed; default asymmetry rationale; mind_map view-agnostic invariant).
+
 ## [3.0.0] - 2026-05-28
 
 ### BREAKING

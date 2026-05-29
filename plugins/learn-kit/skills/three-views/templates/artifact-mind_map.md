@@ -2,8 +2,10 @@
 
 This file is loaded as the `===== MEDIUM CONSTRAINTS =====` section of
 `focus_prompt` when `artifact_type=mind_map`. **Important**: unlike
-the other 4 artifact types, mind_map is **view-agnostic** in this
-skill — one mind_map per topic, not one per view.
+the 3 view-cycled artifact types (audio / video / slide_deck),
+mind_map is **view-agnostic** in this skill — one mind_map per topic,
+not one per view. (Infographic was permanently retired in marketplace
+v6.0.0, leaving 3 view-cycled types + mind_map.)
 
 ## Why view-agnostic
 
@@ -17,8 +19,12 @@ structures with only minor depth differences — a poor cost/value
 trade given each costs NLM Studio quota.
 
 Therefore: **the mind_map represents the structural skeleton of the
-topic across all three tiers** (foundation + structural + challenge
-content combined), not any specific view's pedagogical stance.
+topic across the selected source corpus** — i.e. across whichever
+tiers the user generated markdown for in this run (1 to 3 of
+foundation / structural / challenge per Step 1.3 tier multi-select),
+not any specific view's pedagogical stance. With a single-tier source
+corpus, the skeleton still renders correctly; the mind_map's value
+does not depend on having all 3 tiers as input.
 
 ## Format
 
@@ -78,5 +84,6 @@ category) rather than by drawing crossing edges.
 - No view-tier styling (e.g., "everyday metaphors", "counter-example
   examples") — those got dropped in v1.0.0 because they don't survive
   NLM's mind_map generation pipeline regardless of how strongly you
-  prompt them. The 4 other artifact types carry view-tier stance;
-  mind_map handles the cross-tier structural overview.
+  prompt them. The 3 other artifact types (audio / video / slide_deck)
+  carry view-tier stance; mind_map handles the cross-tier structural
+  overview.

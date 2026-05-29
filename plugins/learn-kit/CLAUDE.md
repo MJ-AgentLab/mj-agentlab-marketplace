@@ -1,11 +1,12 @@
-# CLAUDE.md — learn-kit Plugin (v3.0.0+)
+# CLAUDE.md — learn-kit Plugin (v3.1.0+)
 
-learn-kit 是一个通用 Claude Code 插件，提供把"用户想学的主题"转化为可学习材料的统一工作流。**v3.0.0 起仅含 1 个 skill** `three-views`：
+learn-kit 是一个通用 Claude Code 插件，提供把"用户想学的主题"转化为可学习材料的统一工作流。**v3.0.0 起仅含 1 个 skill** `three-views`；**v3.1.0** 在该 skill 内新增 Step 1.3 视角 multi-select + Step 4 5-cell 细粒度 NLM 类型 multi-select（additive；默认产物等同 v3.0.0）：
 
 1. 接收主题 + 源材料（项目文件 / 外部 URL / 粘贴文本，三种 mixin）
-2. 生成 3 阶段 markdown 学习文档（foundation 零基础版 / structural 结构版 / challenge 挑战版）
-3. 可选生成交互式 HTML（dual-mode grounding：项目文件源走 concept→code，URL/文本源走 concept→source-section）
-4. 可选推送到 NotebookLM 生成多媒体 artifact（audio / video / slide_deck × 3 视角 = 9 个 + 1 个 shared mind_map = 最多 10 个；max 10 < v2.x 的 13）
+2. **(v3.1.0 新)** Step 1.3 视角 multi-select：foundation / structural / challenge 默认 3 项全选、min 1；用户可单选/双选实现局部产出
+3. 生成 `len(requested_tiers)` 份 markdown 学习文档（1-3 份；invariant: ≥1，否则 abort）
+4. 可选生成交互式 HTML（dual-mode grounding：项目文件源走 concept→code，URL/文本源走 concept→source-section）；每 generated tier 一份 HTML
+5. 可选推送到 NotebookLM 生成多媒体 artifact：**(v3.1.0)** Step 4 升级为 5-cell 独立 multi-select（HTML / NLM audio / NLM video / NLM slide_deck / NLM mind_map；默认全不选）；NLM 笛卡尔 = `len(generated_tiers) × len(selected view-cycled types) + (1 if mind_map)`；默认全勾时 max = 3 × 3 + 1 = 10 个（max 10 < v2.x 的 13；infographic v6.0.0 永久退场）
 
 ## 上下文
 
@@ -17,7 +18,7 @@ learn-kit 是一个通用 Claude Code 插件，提供把"用户想学的主题"�
 
 ```
 plugins/learn-kit/
-├── .claude-plugin/plugin.json    # version 3.0.0
+├── .claude-plugin/plugin.json    # version 3.1.0
 ├── .mcp.json                     # 注册 notebooklm-mcp server (NLM 部分需要)
 ├── CLAUDE.md                     # 本文件
 ├── README.md                     # 用户指南
@@ -64,15 +65,15 @@ plugins/learn-kit/
 - 「generate learning docs for service-architecture」
 - 「把 X 推到 NotebookLM 出多媒体」
 
-5-step 流程（详见 SKILL.md "Execution flow" 段）：
+5-step 流程（详见 SKILL.md "Execution flow" 段；v3.1.0 起 Step 1 5 个 sub-step + Step 4 5-cell 升级）：
 
-1. **Intake** — 主题 + 输入源 multiSelect (URL / 文件路径 / 粘贴) + 输出目录 + 冲突策略
+1. **Intake** — 主题 + 输入源 multiSelect (URL / 文件路径 / 粘贴) + **视角 multiSelect (Step 1.3 新, default 3 全选 / min 1)** + 输出目录 + 冲突策略 + Pre-flight 脚手架
 2. **Source acquisition** — 用 source_manifest 结构化追踪；fallback table 处理 URL 404 / 登录墙 / 超大页面
-3. **3-view 生成** — `view-{foundation,structural,challenge}.md` MARKDOWN_GENERATION_PROMPT 段驱动；带 source_manifest 引用 frontmatter
-4. **Multi-select 询问** — HTML 渲染 / NLM 9 view-cycled / NLM mind_map (3 项独立 multiSelect，默认全不选)
+3. **N-view 生成** — `view-<view>.md` MARKDOWN_GENERATION_PROMPT 段驱动 for each `view ∈ requested_tiers` (1-3 次)；带 source_manifest 引用 frontmatter；结束时计算 `generated_tiers = requested_tiers − skipped − failed`（必须 ≥1，否则 abort）
+4. **Multi-select 询问 (v3.1.0 5-cell)** — 1 个 AskUserQuestion，5 项独立 multiSelect，默认全不选：HTML 渲染 / NLM audio / NLM video / NLM slide_deck / NLM mind_map；3-level hint granularity（explicit-type / generic-NLM / no-hint 决定预勾粒度）
 5. **执行选中项**:
-   - HTML：自动选 grounding 模式（有 file 源 + git repo → repo-code via Explore；URL/文本 → source-evidence）
-   - NLM：refresh_auth → notebook_list (真 auth gate) → re-run guard 4 选 → notebook_create → source_add × 3 + notebook_get 校验 → quota right-sizing 4 选 → studio_create 循环（含 per-step refresh_auth + bounded polling 12×10s）→ 终端 URL 表格
+   - HTML：自动选 grounding 模式（有 file 源 + git repo → repo-code via Explore；URL/文本 → source-evidence）；loop over `generated_tiers`
+   - NLM：refresh_auth → notebook_list (真 auth gate) → re-run guard 4 选（**v3.1.0 加 source_corpus_key 等价性 mismatch warning**）→ notebook_create → source_add × `len(generated_tiers)` + notebook_get 校验 → quota right-sizing 4 选（**v3.1.0 adaptive N + "Pick single tier" 重命名**）→ studio_create 循环（per-step refresh_auth + bounded polling 12×10s）→ 终端 URL 表格
 
 ## 治理边界
 
@@ -97,16 +98,20 @@ plugin-internal documentation 遵循 marketplace 文档框架（Framework v1.6 �
   - [`[GUIDE]_LearnKit_Discovery_Recipes.md`](docs/guide/[GUIDE]_LearnKit_Discovery_Recipes.md) — **v3.0.0 新增**：保留 v2.x locate/scan 算法核心（Grep + Glob 模板 + 置信度评分 + 引用排名）作为 manual recipes
 - [`docs/spec/`](docs/spec/) — plugin-internal SPECs（暂无；schema 工作目前在 SKILL.md 内联）
 
-## Advanced Tips（power-user 提示，源自 v1.0.0 dogfood + v3.0.0 升级经验）
+## Advanced Tips（power-user 提示，源自 v1.0.0 dogfood + v3.0.0 升级经验 + v3.1.0 HITL 扩展）
 
 - **多源混搭 source**：Step 1.2 multiSelect 可同时勾「URL + 项目文件 + 粘贴」，source_manifest 自动结构化追踪每个 source 的 id / kind / locator / line range / char count
+- **(v3.1.0) 局部产出最便宜路径**：Step 1.3 仅勾 1 视角 + Step 4 仅勾 1 NLM 类型 = 1 个 NLM artifact ≈ 1-2 min 跑完；例如 `structural + slide_deck` 适合做主题快速 deck，或 `challenge + mind_map` 适合做思路梳理（mind_map 1-tier corpus 仍正常工作 per dogfood finding #5）
+- **(v3.1.0) 视角默认行为**：Step 1.3 默认 3 项全选 = 等同 v3.0.0；用户不动默认 = 产物完全不变（只多一个 confirmation gate）
+- **(v3.1.0) Step 4 hint 粒度**：自然语言说 "just audio" / "只要 audio" → 只预勾 audio cell；说 "出 NLM" / "推到 NotebookLM" → 预勾全 4 NLM cells；不提 NLM → 全不勾
 - **HTML grounding 自动判**：源含 file 且 cwd 是 git repo → repo-code mode (spawn Explore subagent)；纯 URL/文本 → source-evidence mode (用 source_manifest 引用)；不会虚构 file path
 - **跨项目 dogfood**：learn-kit 通用，可在任意外部项目装；输出目录默认 `./learning/<topic>/`，可改任意路径（仓库外触发二次确认）
-- **NLM 节奏建议**：默认 9 + 1 = 10 artifact ≈ 50% 日 quota；用 Step 5B Quota gate 的「Reduce subset」或「Pick single view」缩小批量；中途 auth 失败 retry-once 兜底，长跑前先 `! nlm login` 一遍刷新 token 更稳
+- **NLM 节奏建议**：默认全勾 (3 + 3 + 3 + 1 = 10 artifact) ≈ 50% 日 quota；Step 4 各 cell 独立可控制粒度；Step 5B Quota gate 的「Reduce subset」/「Pick single tier」（v3.1.0 重命名）再次缩小批量；中途 auth 失败 retry-once 兜底，长跑前先 `! nlm login` 一遍刷新 token 更稳
 - **NLM artifact 持久化**：skill **不**本地落盘 URL；想长期追溯请自己在浏览器加 bookmark 或在外部笔记里记 notebook URL
 - **View-Purpose 盲测**：跑完 9 view-cycled artifact 后挑同 type 的三档（如 audio_foundation / audio_structural / audio_challenge），让一个没看过 view 标签的旁人听后猜哪是哪——3/3 正确 = 健康；如果分不清，回去看 Step 3 三档 markdown 是否本身差异化不足
-- **Re-run guard 续跑**：CTRL+C 半途中断后，重跑选 "Regenerate missing" 路径 + Step 5B 5 中 `studio_status` 自动跳过已生成的 (type, view) 对
-- **mind_map view-agnostic**：dogfood 验证 NLM 媒介对 mind_map 无视 view 差异化指令；单一 shared，可独立要也可与 9 view-cycled 一起要
+- **(v3.1.0) Partial-rerun source-corpus mismatch 警告**：对同一 topic 之前跑过完整 3-tier，本次只勾 1 tier，Step 5B re-run guard 会检测 `source_corpus_key` 不一致，警告并默认推荐 "Replace sources + new notebook" 或 "New timestamped notebook"，不会静默复用 3-source notebook 给 1-tier 产物
+- **Re-run guard 续跑**：CTRL+C 半途中断后，重跑选 "Regenerate missing" 路径 + Step 5B 5 中 `studio_status` 自动跳过已生成的 (type, view) 对（前提：source_corpus_key 匹配）
+- **mind_map view-agnostic**：dogfood 验证 NLM 媒介对 mind_map 无视 view 差异化指令；单一 shared，可独立要也可与 view-cycled 一起要；与 generated_tiers 数量解耦（1-3 tier 都是 1 个 mind_map）
 - **infographic 永久丢失提醒**：v6.0.0 删；用户依赖请用 NLM web UI 手动建（per `[ADR]_LearnKit_Consolidation_To_Single_Skill` §3.2）
 
 ## NLM 集成 · 工具前缀
