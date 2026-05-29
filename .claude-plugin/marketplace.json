@@ -7,7 +7,7 @@
   },
   "metadata": {
     "description": "Generic Claude Code plugins for AI engineering workflows. Sole plugin since v4.0.0: learn-kit — pedagogical kit. v6.0.0 BREAKING: learn-kit consolidates from 5 skills (scaffold-learning / locate / scan / generate-tier / nlm-studio) into single `three-views` skill that generates 3-tier learning markdown (foundation / structural / challenge) from sources (project files / external URL via WebFetch / pasted text via source_manifest tracking), then optionally renders interactive HTML (dual-mode grounding: repo-code via Explore subagent or source-evidence) and/or pushes to NotebookLM for max 10 multimedia artifacts (audio/video/slide_deck × 3 views = 9 + 1 shared mind_map; infographic permanently retired). Preserves all nlm-studio dogfood防护 (per-step auth refresh / source validation / 4-way re-run guard / quota right-sizing gate / bounded polling). Migrate `/learn-kit:generate-tier` → `/learn-kit:three-views`; `/learn-kit:nlm-studio` → `/learn-kit:three-views` Step 4 select NLM. See [ADR]_LearnKit_Consolidation_To_Single_Skill.md + Migration_From_v3_to_v4 §6 for full walkthrough. v4.1.0 adds 19 project-local mp-* workflow skills under .claude/skills/. v4.2.0+ introduces marketplace documentation framework (currently v1.6: 6 tag prefixes + 8-field frontmatter + 3-state machine + 5 root-level named files codification + §2.7 CLAUDE.md sync allowlist + §4.3.1 A6 active CI gate).",
-    "version": "6.0.0"
+    "version": "6.0.1"
   },
   "plugins": [
     {
