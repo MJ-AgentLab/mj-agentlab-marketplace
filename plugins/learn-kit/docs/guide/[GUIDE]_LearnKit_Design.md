@@ -1,18 +1,24 @@
 ---
 type: guide
 scope: learn-kit
-summary: learn-kit 设计合卷 — 5 skill 分工 + 闭环 + 共享 project_profile + dogfood findings + parallel subsystem 治理模型 + 命名/路径/frontmatter/INDEX/归档规则 + v1.0.0 依赖矩阵与版本演化策略
+summary: learn-kit 设计合卷 — 历史 5 skill 分工与设计决策（v3.0.0 起 5 skill 收敛为 1 three-views skill；本 GUIDE 保留 v2.x 设计语境作为历史参考；当前 v3.0.0 设计参 SKILL.md + [ADR]_LearnKit_Consolidation_To_Single_Skill）
 owner: marketplace-maintainers
 created: 2026-05-18
-updated: 2026-05-18
+updated: 2026-05-28
 state: active
-version: v1.0
+version: v1.1
 domain: plugin-internal
 tags:
   - design
   - skills
   - governance
   - dogfood
+  - historical-v2.x
+related:
+  - ../../../../docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md
+revision: |
+  2026-05-28 — v1.1: 加 frontmatter banner 说明 v3.0.0 后本 GUIDE 内容属于历史参考（v2.x 5-skill 设计语境）；当前单 skill 设计参 three-views/SKILL.md 与 marketplace 层 [ADR]_LearnKit_Consolidation_To_Single_Skill。文件 body 内容未改写 — 保留 v2.x dogfood findings / 治理模型 / parallel subsystem 设计原则等价值不褪色的内容
+  2026-05-18 — v1.0: 初版（v2.x 5-skill 设计合卷）
   - subsystem
 related:
   - ./[GUIDE]_LearnKit_Pedagogy.md

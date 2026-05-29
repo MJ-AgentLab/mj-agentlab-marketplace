@@ -1,6 +1,6 @@
 # MJ AgentLab Marketplace
 
-![Version](https://img.shields.io/badge/version-5.0.1-blue)
+![Version](https://img.shields.io/badge/version-6.0.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![CI](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml)
 
@@ -14,17 +14,15 @@
 
 | Plugin | 描述 | Skills | Version | 适用项目 |
 |--------|------|--------|---------|---------|
-| [**learn-kit**](plugins/learn-kit/README.md) | 教学方法论 kit：把枚举型规则清单转化为人类可学习的决策框架解读文档（8 阶段方法 + 模板 + scaffold + locate / scan 项目内文档发现 + generate-tier AI 三档生成 + nlm-studio NotebookLM 多媒体生成） | **5** | **2.0.0** | 任意 |
+| [**learn-kit**](plugins/learn-kit/README.md) | 教学方法论 kit：给定主题 + 源材料（项目文件 / 外部 URL / 粘贴文本），生成 3 阶段学习 markdown（foundation/structural/challenge），按需扩展 HTML（dual-mode grounding）与 NotebookLM 多媒体（max 10 artifact）| **1** | **3.0.0** | 任意 |
 
-learn-kit 5 个 skill 用法：
+> **v6.0.0 BREAKING**：learn-kit 5 skill → 1 `three-views` 收敛；4 个公开 slash command 永久消失 + 1 个重命名；NLM artifact 范围 13 → max 10（infographic 永久退场）。详见 [`[ADR]_LearnKit_Consolidation_To_Single_Skill`](docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md) + [Migration §6](docs/guide/[GUIDE]_Migration_From_v3_to_v4.md#§6--v50x--v600)。
+
+learn-kit 1 个 skill 用法：
 
 | Skill | 命令 | 用途 |
 |-------|------|------|
-| scaffold-learning | `/learn-kit:scaffold-learning` | 在项目根 scaffold learning/ 子系统（v2.0.0 从 init 改名）|
-| locate | `/learn-kit:locate <query>` | 反查概念名 → 已解读 [LEARNING] 文档或源 canonical 文档 |
-| scan | `/learn-kit:scan` | 枚举项目可学候选文档，标 interpreted vs uninterpreted |
-| generate-tier | `/learn-kit:generate-tier` | AI 生成三档（foundation/structural/challenge）学习 markdown + 可选 HTML（10-step workflow，含 step 9 可选 NLM 询问） |
-| **nlm-studio** | `/learn-kit:nlm-studio <topic>` | **v4.0.0 新增** — 把 3 tier .md 推到 NotebookLM 出 4 view-cycled × 3 view + 1 shared mind_map = 至多 13 个多媒体 artifact（在线浏览，不下载；HTML 不上传）|
+| **three-views** | `/learn-kit:three-views <topic>` | **v3.0.0 起唯一 skill**。5-step workflow: Intake（主题 + 输入源 multiSelect: URL/文件/粘贴 + 输出目录）→ Source acquisition（source_manifest）→ 3-view 生成（foundation/structural/challenge md）→ Multi-select opt-in（HTML / NLM 9 view-cycled / NLM mind_map）→ 执行选中项（HTML dual-mode grounding + NLM with 全 dogfood防护）|
 
 ## 安装
 

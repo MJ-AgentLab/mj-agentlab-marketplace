@@ -7,6 +7,91 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [3.0.0] - 2026-05-28
+
+### BREAKING
+
+- **5 skills consolidated into single `three-views` skill**. The prior 5 user-facing slash commands are reduced to 1 (with `/learn-kit:generate-tier` renamed; the other 3 helpers removed):
+
+  | v2.x command | v3.0.0 migration |
+  |--------------|------------------|
+  | `/learn-kit:scaffold-learning` | Auto-handled by `/learn-kit:three-views` Step 1 (creates `./learning/<topic>/` + minimal `INDEX.md`; **no longer creates `_meta/METHODOLOGY.md` or `_archive/`**) |
+  | `/learn-kit:locate <query>` | See [`docs/guide/[GUIDE]_LearnKit_Discovery_Recipes.md`](docs/guide/[GUIDE]_LearnKit_Discovery_Recipes.md) §"Locate Recipe" — manual Grep + Glob + confidence scoring |
+  | `/learn-kit:scan` | See same GUIDE §"Scan Recipe" — canonical doc enumeration + cross-reference + ranking |
+  | `/learn-kit:generate-tier <topic>` | `/learn-kit:three-views <topic>` (same 3-view markdown generation, expanded with URL input + source_manifest + dual-mode HTML grounding) |
+  | `/learn-kit:nlm-studio <topic>` | `/learn-kit:three-views <topic>` then Step 4 multiSelect prompt → check "NLM 9 view-cycled" and/or "NLM shared mind_map" |
+
+  See [`../../docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md`](../../docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md) (marketplace-layer ADR) for full decision (alternatives, NLM range trade-offs, scaffold methodology fate) and [`../../docs/guide/[GUIDE]_Migration_From_v3_to_v4.md`](../../docs/guide/[GUIDE]_Migration_From_v3_to_v4.md) §6 for step-by-step migration walkthrough.
+
+- **NLM artifact range reduced from 13 → max 10**:
+  - Infographic permanently retired (4 artifacts removed: 3 view-cycled + 0 since v1.0.0 had no infographic-only mode). Rationale in ADR §3.2: dogfood showed low user acceptance + visual density inferior for learning curve.
+  - mind_map moved from default 13-batch to **opt-in** (Step 4 third multiSelect option). Default new max: 9 view-cycled (audio + video + slide_deck × 3 views); + 1 mind_map if checked = 10.
+  - All NLM dogfood防护 preserved: per-step `refresh_auth`, real auth gate via `notebook_list`, source validation via `notebook_get`, 4-way re-run guard, quota right-sizing gate (with subset / single-view options), bounded polling (12 × 10s max).
+
+- **Skill name `three-views`** chosen over `generate-tier` to better reflect the three-perspective core methodology (foundation / structural / challenge); `tier` was overly literal ("layer" connotation).
+
+### Added
+
+- **`skills/three-views/SKILL.md`** — single skill (~600 LOC). 5-step workflow (Intake / Source acquisition / 3-view markdown / Multi-select opt-in / Execute selected). `allowed-tools` extended with `WebFetch` (URL input source) + 9 `mcp__plugin_learn-kit_notebooklm-mcp__*` (preserved from nlm-studio).
+
+- **`skills/three-views/templates/`** — 10 templates:
+  - **`view-foundation.md` / `view-structural.md` / `view-challenge.md`** — dual-purpose with `<!-- BEGIN:MARKDOWN_GENERATION_PROMPT -->` and `<!-- BEGIN:NLM_VIEW_PREFIX -->` strong delimiters. SKILL.md Step 3 extracts the markdown-generation block; Step 5B extracts the NLM view-prefix block (§1-§5 failsafe lint enforced).
+  - **`html-renderer.md`** — rewritten with **dual-mode grounding** decision: `repo-code` (Explore subagent for concept→file:line) / `source-evidence` (use source_manifest for concept→source-section) / `mixed`. `<missing-evidence/>` tag for grounding failures; **no file path fabrication**.
+  - **`artifact-{audio,video,slide_deck,mind_map}.md`** — moved from `nlm-studio/templates/` unchanged via git mv (history preserved).
+  - **`interaction-overrides.md`** — moved + trimmed: removed `(foundation, infographic)` override row; updated scope from "12 cells" to "9 cells" (3 view-cycled × 3 views; infographic gone).
+  - **`language-directive.md`** — moved unchanged (v2.0.1 dual-lock Chinese narration policy retained).
+
+- **`docs/guide/[GUIDE]_LearnKit_Discovery_Recipes.md`** (plugin-internal) — **NEW** preserves the v2.x `locate` + `scan` skill algorithms (Grep + Glob templates + confidence scoring + canonical doc enumeration + citation-frequency ranking) as manual recipes so the knowledge isn't lost.
+
+### Removed
+
+- **`skills/scaffold-learning/`** — entire directory deleted (SKILL.md + templates/METHODOLOGY.md + templates/INDEX.md + references/rfc-2119-keywords-pedagogy.md). Manual 8-stage methodology workflow retired (low independent invocation; AI 3-tier covers core value).
+- **`skills/locate/`** — entire directory deleted. Algorithm preserved in Discovery_Recipes GUIDE.
+- **`skills/scan/`** — entire directory deleted. Algorithm preserved in Discovery_Recipes GUIDE.
+- **`skills/nlm-studio/`** — entire directory deleted (SKILL.md + 4 remaining templates: view-foundation, view-structural, view-challenge, artifact-infographic). All useful templates moved to `three-views/templates/`; capabilities preserved in `three-views` SKILL.md Step 5B.
+- **`skills/nlm-studio/templates/artifact-infographic.md`** — file deleted (NLM infographic artifact type permanently retired per ADR §3.2).
+- **`skills/generate-tier/`** — directory renamed via git mv to `skills/three-views/` (4 sub-templates carried in rename: foundation/structural/challenge/html-renderer; the first 3 then renamed view-foundation/structural/challenge and rewritten with dual BEGIN/END markers; html-renderer rewritten for dual-mode).
+
+### Changed
+
+- **`.claude-plugin/plugin.json`** — version `2.0.1 → 3.0.0` (major). description rewritten to describe single-skill structure + dual-mode HTML + NLM 10-artifact max. keywords: removed `locate`, `scan`, `infographic`, `rule-list`, `interpretation`, `discovery`; added `three-views`, `source-manifest`.
+- **`CLAUDE.md`** — completely rewritten to describe single-skill structure.
+- **`README.md`** — completely rewritten: 5-skill table → 1-skill summary; new v3.0.0 BREAKING migration table at top; 3 worked-case scenarios (A: project STANDARD, B: external URL, C: only mind_map); preserved 演进历史 table extended with v3.0.0 row.
+
+### Notes
+
+- Plugin-internal `docs/guide/[GUIDE]_LearnKit_{Pedagogy,Design}.md` retain their v2.x structure with light edits noting historical 5-skill context now consolidated.
+- Historical CHANGELOG entries (v0.1.0 through v2.0.1) retain their original wording — they are factual records of what was true at each version and must not be rewritten.
+- This release is the marketplace v6.0.0 BREAKING — see top-level `CHANGELOG.md` for the marketplace-layer entry.
+
+## [2.0.1] - 2026-05-21
+
+### Fixed
+
+- **`nlm-studio` 输出语言约束加强**（解决 dogfood 反馈的「NotebookLM 生成
+  artifact 出现全英文表达 / 全英文讲解」问题）。原 `templates/language-
+  directive.md` 已包含「中文主体 + 英文术语保留」规则但在 NLM 模型侧
+  权重不足，本次以双锁加固：
+  - `templates/language-directive.md` 顶部新增 lead-with-mandate
+    段：`**OUTPUT LANGUAGE: 简体中文 (Simplified Chinese, zh-CN)**` +
+    显式禁止失败模式（整段英文讲解 / 整段英文对白 / on-screen 英文主
+    体）+ 重申唯一例外是行业标准技术术语。原 75 行 hard-constraint
+    bullet + 正反例样例一字未改。
+  - `templates/artifact-audio.md` 在 `## Voice & pacing` 与
+    `## Segment endings` 之间新增 `## Spoken language` 小节：两位
+    host 普通话对白、不允许整段英文、术语保留英文原词（不音译 / 不
+    强译），并 reference LANGUAGE & TERMINOLOGY 段为权威源。
+  - `templates/artifact-video.md` 在 `## Per-scene structure` 与
+    `## Opening 30 seconds` 之间新增 `## Narration language` 小节：
+    旁白普通话、on-screen 简体中文、visual cue 文字 verbatim、并
+    reference LANGUAGE & TERMINOLOGY 段。
+  - `skills/nlm-studio/SKILL.md` §"Language & terminology directive
+    (single shared block)" 追加 "Dual-lock reinforcement (v2.0.1+)"
+    一段，说明本次新增的双锁机制 + slide_deck / infographic /
+    mind_map 仍走单锁（dogfood 未观测到这三个 medium 英文化失败）。
+- `plugin.json` version 2.0.0 → 2.0.1。`marketplace.json` plugins[]
+  数组对应条目同步。
+
 ## [2.0.0] - 2026-05-18
 
 ### BREAKING
