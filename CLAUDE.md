@@ -47,7 +47,7 @@
 - 模板 / references / scripts 放在 skill 目录内部
 - 不使用 `components` 字段（auto-discovery 标准）
 
-## Documentation Framework (v4.2.0 起；当前 v1.6 / marketplace v6.0.0)
+## Documentation Framework (v4.2.0 起；当前 v1.6 / marketplace v6.0.1)
 
 marketplace 文档体系遵循以下三层 STANDARD（位于 `docs/rule/`）:
 
@@ -113,6 +113,8 @@ Templates 与 mp-doc-author skill 协作起草新文档；mp-doc-validate skill 
 - **v5.0.1 release**（2026-05-19）：`mp-git-sync` side-loop sync skill 落地（mp-git-* family 6 → 7；3 mode：dev-sync / hotfix-backmerge / self-update；10 条 H-code HITL 网格 + H8 bare-worktree config 漂移自动修复 PowerShell 脚本）；post-v5.0.0 housekeeping CLAUDE.md A6 gate sync 一并入版本节。无 plugin 版本变化（learn-kit `2.0.0` dual-layer 独立）
 - **v5.0.2**（2026-05-19）：post-release develop pre-bump (post-v5.0.1)；只 bump marketplace VERSION + marketplace.json metadata.version + README badge；plugin.json `learn-kit 2.0.0` 不动；per [`[ADR]_Develop_PreBump_Adoption`](docs/adr/[ADR]_Develop_PreBump_Adoption.md)
 - **v6.0.0**（2026-05-28）：**BREAKING** — learn-kit `2.0.1 → 3.0.0` 5 skill 收敛为单一 `three-views` skill（删 scaffold-learning / locate / scan / nlm-studio + 重命名 generate-tier → three-views；NLM artifact 默认 max 10（9 view-cycled + 1 optional mind_map），infographic 永久退场；新增 URL 输入 + source_manifest 结构化追踪 + HTML dual-mode grounding；保 nlm-studio 全 dogfood防护）；marketplace `5.0.2 → 6.0.0` 跟随 plugin major + 5 个 user-facing slash command 消失/重命名 = consumer-facing API breaking；详见 [`[ADR]_LearnKit_Consolidation_To_Single_Skill`](docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md) + Migration §6；新增 plugin-internal [`[GUIDE]_LearnKit_Discovery_Recipes`](plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_Discovery_Recipes.md) 保留 v2.x locate/scan 算法为 manual recipes
+- **v6.0.0 release**（2026-05-29）：marketplace 6.0.0 release.yml 自动 tag v6.0.0 + GitHub Release published；release/v6.0.0 branch 加 1 marker commit（CHANGELOG 加 inherited 2.0.1 fix subsection + Notes 加 dual-version-chain 说明：learn-kit `2.0.0 → 2.0.1 → 3.0.0` 双链合并 + marketplace `5.0.1 → 6.0.0` 跳过 5.0.2 pre-bump-only 中间态）。无 plugin 版本变化（learn-kit `3.0.0` dual-layer 独立）
+- **v6.0.1**（2026-05-29）：post-release develop pre-bump (post-v6.0.0)；只 bump marketplace VERSION + marketplace.json metadata.version + README badge；plugin.json `learn-kit 3.0.0` 不动；per [`[ADR]_Develop_PreBump_Adoption`](docs/adr/[ADR]_Develop_PreBump_Adoption.md)
 
 ## AI Engineering
 
