@@ -5,6 +5,36 @@
 
 ## [Unreleased]
 
+## [6.1.0] - 2026-05-29
+
+### Added
+
+- **`learn-kit 3.1.0` — `three-views` HITL expansion (additive)**:
+  - **Step 1.3 (NEW)**: tier multi-select `AskUserQuestion(multiSelect=true, header="Tiers")` with 3 cells (Foundation / Structural / Challenge), all `default: true`, minimum 1 enforced. Users can now generate any subset of 1-3 tiers per topic instead of always 3.
+  - **Step 4 redesign**: 3 coarse cells (HTML / NLM 9-bundle / NLM mind_map) → 5 granular cells (HTML / NLM audio / NLM video / NLM slide_deck / NLM mind_map), all independent multiSelect, default unchecked. Per-type NLM control surfaces upfront instead of buried in Step 5B.4 quota gate.
+  - **State separation**: `requested_tiers` (Step 1.3) ≠ `generated_tiers` (end of Step 3 = `requested − skipped − failed`) propagated to Steps 5A/5B. "markdown 必出" invariant aborts when generated_tiers empty.
+  - **Step 5B re-run guard `source_corpus_key` equivalence check**: stable SHA-256 hash of `(topic, sorted(generated_tiers), sorted(source content_sha256))`. On mismatch with existing notebook, default-recommends "Replace sources + new notebook" or "New timestamped notebook" instead of silently reusing — prevents partial-rerun corpus contamination.
+  - **Step 5B.4 Quota gate adaptive**: `N = len(generated_tiers) × len(selected_view_cycled_types) + (1 if mind_map_selected)`. "Pick single view" renamed to "Pick single tier"; option hidden when degenerate (`len(generated_tiers) == 1` or `selected_view_cycled_types == {}`).
+  - **3-level hint granularity** for Step 4 pre-checks: explicit-type hints ("just audio") → only that cell; generic-NLM hints ("and NLM") → all 4 NLM cells; no hint → unchecked.
+- **`docs/adr/[ADR]_LearnKit_ThreeViews_HITL_Expansion.md`** NEW — marketplace-layer ADR documenting the v3.1.0 HITL expansion (3 alternatives weighed; default asymmetry rationale; mind_map view-agnostic invariant preserved; source_corpus_key design + fallback).
+- **`docs/INDEX.md`** v6.0 → v6.1 — registered new ADR row + frontmatter `related[]` entry.
+- **Slash invocation doc section** in `plugins/learn-kit/skills/three-views/SKILL.md` (above "Why this skill exists") explicitly documenting `/learn-kit:three-views <topic>` as the auto-discovered slash form (no `commands/` directory needed).
+
+### Changed
+
+- **`VERSION` 6.0.1 → 6.1.0** (minor; follows plugin minor per historical pattern v3.1.0/v3.2.0/v4.5.0; consumes the post-v6.0.0 pre-bump slot AND adds a minor on top per [`docs/adr/[ADR]_Develop_PreBump_Adoption.md`](docs/adr/[ADR]_Develop_PreBump_Adoption.md) §3).
+- **`.claude-plugin/marketplace.json`** — `metadata.version` + `plugins[0].version` (3.0.0 → 3.1.0) + descriptions refreshed to mention v3.1.0 HITL expansion.
+- **`README.md`** — Version badge 6.0.1 → 6.1.0; learn-kit plugin row 3.0.0 → 3.1.0; opportunistic cleanup of v6.0.0 stale slash-command examples (`/learn-kit:scaffold-learning` / `:scan` / `:locate` / `:generate-tier` / `:nlm-studio` — all 5 retired in v6.0.0 but stale examples lingered in install / usage sections); replaced with single `/learn-kit:three-views <topic>` example + natural-language triggers + Migration §6 pointer.
+- **`CLAUDE.md`** (root) — synced per Framework v1.6 §2.7 (plugin minor + VERSION change both fire A6 trigger); plugin description block mentions v3.1.0; appended new entry to 历史版本记录.
+- **`plugins/learn-kit/skills/three-views/templates/artifact-mind_map.md`** — "across all three tiers" reframed to "across the selected source corpus" (1-3 tiers); "4 other artifact types" → "3 other artifact types" (post-infographic-retirement parity).
+
+### Notes
+
+- **Backward-compatible product output**: a user who accepts Step 1.3 defaults (all 3 tiers checked) and leaves Step 4 default-unchecked produces identical output to v6.0.0 / v3.0.0. The **interaction flow** gains one additional confirmation gate (Step 1.3 tier-select); not strictly zero-friction-delta but skippable with one keystroke.
+- **Reviewer-flagged correctness fixes shipped alongside the additive HITL**: `source_corpus_key` equivalence (prevents partial-rerun contamination); `generated_tiers` vs `requested_tiers` state separation (prevents conflict-skip silently breaking downstream loops); `templates/artifact-mind_map.md` 3-tier hardcode reframed; SKILL.md `Sources: 3 .md ...` (line 394) generalized to `len(generated_tiers)`; frontmatter `generator @3.0.0 → @3.1.0`.
+- Post-release follow-ups: sync main → develop via `maintain/sync-main-to-develop-v6-1-0` PR; pre-bump develop `6.1.0 → 6.1.1` via `maintain/post-release-prebump-v6-1-1` PR (per [`docs/adr/[ADR]_Develop_PreBump_Adoption.md`](docs/adr/[ADR]_Develop_PreBump_Adoption.md)).
+- See [PR #149](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/149) for the develop integration of all v3.1.0 changes.
+
 ## [6.0.0] - 2026-05-28
 
 ### BREAKING — learn-kit 5 skills → 1 `three-views` consolidation
