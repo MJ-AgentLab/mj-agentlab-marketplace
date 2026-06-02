@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [3.2.0] - 2026-06-02
+
+### Added
+
+- **`glossary` skill** (NEW) — `/learn-kit:glossary <term>`. Explains an unfamiliar term in a single tight paragraph (~150–250 字) using a fixed six-slot structure (类比 → 大类归位 → 痛点 + 大白话定义 → 对比锚定 → 具体例子). A 30-second speed-card. Pure prompt skill: no tools, no MCP, no file I/O, no templates. Frontmatter is `name` + `description` only (no `allowed-tools` needed — matches the tool-light `mp-*` skill convention). Default Chinese output, term preserved verbatim; tuning switches `@<受众>` / `更短` / `更详细` / `双语`.
+- **`concept` skill** (NEW) — `/learn-kit:concept <concept>`. Explains an abstract concept in six sections (~500–800 字): 起源痛点 / 核心直觉 / 机制与定义 / 2 跨域正例 + 1 反例 / 邻居概念 / 失效边界. Goal: the reader can *apply* the concept, not just recite it (cross-domain positive examples are a hard requirement). Same pure-prompt, zero-tool shape as `glossary`. Adds the `换正例` switch.
+- Both skills carry the repo-signature **`Do not use for: … (use X)` routing clause** in their `description`, mutually cross-routing (`glossary` ↔ `concept`) and deferring to `three-views` for generated learning documents / HTML / NotebookLM multimedia — the niche `three-views` explicitly disclaims ("Do NOT use for: pure explanation / Q&A").
+
+### Changed
+
+- **`.claude-plugin/plugin.json`** — version `3.1.0 → 3.2.0` (minor; additive — two new skills, `three-views` untouched). Description reflects **3 skills**; keywords add `glossary` / `concept` / `explanation` / `term-card`.
+- **`README.md`** + **`CLAUDE.md`** — document the two new explanation skills alongside `three-views`; note their in-chat (no-file) nature.
+
+### Notes
+
+- **Plugin picker now lists 3 candidates** (`three-views` / `glossary` / `concept`). This partially relaxes v6.0.0's "1 candidate" consolidation benefit, accepted because all three are high-value, distinct, high-frequency entry points (unlike the low-value pipeline helpers v6.0.0 removed). Rationale + reconciliation in [`../../docs/adr/[ADR]_LearnKit_Explanation_Skills_Addition.md`](../../docs/adr/[ADR]_LearnKit_Explanation_Skills_Addition.md).
+- Source: integrated near-verbatim from a standalone two-skill bundle; only the integration layer changed (slash namespacing, routing clause, frontmatter normalization). The pedagogy bodies + few-shot examples are unchanged.
+
 ## [3.1.0] - 2026-05-29
 
 ### Added
