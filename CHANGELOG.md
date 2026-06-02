@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+## [6.2.0] - 2026-06-02
+
 ### Added
 
 - **`learn-kit 3.2.0` — `glossary` + `concept` explanation skills (additive)**:
