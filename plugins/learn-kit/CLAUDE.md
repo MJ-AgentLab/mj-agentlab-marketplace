@@ -1,6 +1,6 @@
-# CLAUDE.md — learn-kit Plugin (v3.1.0+)
+# CLAUDE.md — learn-kit Plugin (v3.2.0+)
 
-learn-kit 是一个通用 Claude Code 插件，提供把"用户想学的主题"转化为可学习材料的统一工作流。**v3.0.0 起仅含 1 个 skill** `three-views`；**v3.1.0** 在该 skill 内新增 Step 1.3 视角 multi-select + Step 4 5-cell 细粒度 NLM 类型 multi-select（additive；默认产物等同 v3.0.0）：
+learn-kit 是一个通用 Claude Code 插件，提供把"用户想学的主题"转化为可学习材料的统一工作流。**v3.0.0–v3.1.0 仅含 1 个 skill** `three-views`；**v3.2.0 起含 3 个 skill**——主 skill `three-views` + 两个轻量一问一答式解释 skill `glossary` / `concept`（纯 prompt，不写文件、不调工具，填补 three-views 明确 disclaim 的 "pure explanation / Q&A" 场景；详见 [`docs/adr/[ADR]_LearnKit_Explanation_Skills_Addition.md`](../../docs/adr/[ADR]_LearnKit_Explanation_Skills_Addition.md)）。`three-views` 工作流（v3.1.0 起 Step 1.3 视角 multi-select + Step 4 5-cell 细粒度 NLM 类型 multi-select；additive，默认产物等同 v3.0.0）：
 
 1. 接收主题 + 源材料（项目文件 / 外部 URL / 粘贴文本，三种 mixin）
 2. **(v3.1.0 新)** Step 1.3 视角 multi-select：foundation / structural / challenge 默认 3 项全选、min 1；用户可单选/双选实现局部产出
@@ -18,7 +18,7 @@ learn-kit 是一个通用 Claude Code 插件，提供把"用户想学的主题"�
 
 ```
 plugins/learn-kit/
-├── .claude-plugin/plugin.json    # version 3.1.0
+├── .claude-plugin/plugin.json    # version 3.2.0
 ├── .mcp.json                     # 注册 notebooklm-mcp server (NLM 部分需要)
 ├── CLAUDE.md                     # 本文件
 ├── README.md                     # 用户指南
@@ -28,27 +28,31 @@ plugins/learn-kit/
 │   ├── INDEX.md
 │   ├── adr/                      # 历史 ADR（含 [ADR]_LearnKit_Discovery_Skills）
 │   └── guide/                    # 含 [GUIDE]_LearnKit_Pedagogy / Design / Discovery_Recipes (v3.0.0 新)
-└── skills/
-    └── three-views/              # 唯一 skill
-        ├── SKILL.md              # 5-step workflow (Intake / Source / 3-view md / Multi-select / Execute)
-        └── templates/            # 10 templates
-            ├── view-foundation.md       # 双段 BEGIN/END marker: markdown gen prompt + NLM view-prefix §1-§5
-            ├── view-structural.md       # 同
-            ├── view-challenge.md        # 同
-            ├── html-renderer.md         # 双模式 grounding (repo-code / source-evidence / mixed)
-            ├── artifact-audio.md        # NLM audio 媒介约束 (Chinese narration dual-lock v2.0.1 保留)
-            ├── artifact-video.md        # NLM video 媒介约束 (同)
-            ├── artifact-slide_deck.md   # NLM slide_deck 媒介约束
-            ├── artifact-mind_map.md     # NLM mind_map 媒介约束 (view-agnostic 单例)
-            ├── interaction-overrides.md # 3 of 9 view × artifact 联合调优 (v6.0.0 删 foundation×infographic 行)
-            └── language-directive.md    # Chinese 主体 + 英文术语 single-source-of-truth
+└── skills/                       # v3.2.0 起 3 个 skill
+    ├── three-views/              # 主 skill
+    │   ├── SKILL.md              # 5-step workflow (Intake / Source / 3-view md / Multi-select / Execute)
+    │   └── templates/            # 10 templates
+    │       ├── view-foundation.md       # 双段 BEGIN/END marker: markdown gen prompt + NLM view-prefix §1-§5
+    │       ├── view-structural.md       # 同
+    │       ├── view-challenge.md        # 同
+    │       ├── html-renderer.md         # 双模式 grounding (repo-code / source-evidence / mixed)
+    │       ├── artifact-audio.md        # NLM audio 媒介约束 (Chinese narration dual-lock v2.0.1 保留)
+    │       ├── artifact-video.md        # NLM video 媒介约束 (同)
+    │       ├── artifact-slide_deck.md   # NLM slide_deck 媒介约束
+    │       ├── artifact-mind_map.md     # NLM mind_map 媒介约束 (view-agnostic 单例)
+    │       ├── interaction-overrides.md # 3 of 9 view × artifact 联合调优 (v6.0.0 删 foundation×infographic 行)
+    │       └── language-directive.md    # Chinese 主体 + 英文术语 single-source-of-truth
+    ├── glossary/                 # v3.2.0 新增 · 术语速记卡 (纯 prompt; 单 SKILL.md; 无 templates / 无 tools)
+    │   └── SKILL.md              # 六槽结构, ~150-250 字一段成文
+    └── concept/                  # v3.2.0 新增 · 概念深讲 (纯 prompt; 单 SKILL.md; 无 templates / 无 tools)
+        └── SKILL.md              # 六节结构, ~500-800 字, 2 跨域正例 + 1 反例 + 失效边界
 ```
 
 加 `.mcp.json` 一份（注册 `notebooklm-mcp` server，依赖未变）。
 
 ## 命名约定 · skill slash 调用全限定
 
-本插件唯一 skill `three-views` 的 slash 调用**统一使用 `/learn-kit:three-views` 全限定形式**。
+本插件 3 个 skill（`three-views` / `glossary` / `concept`）的 slash 调用**统一使用全限定形式**（`/learn-kit:three-views` / `/learn-kit:glossary` / `/learn-kit:concept`）。
 
 - **历史动机**：marketplace v5.0.0 起本插件 scaffold skill 重命名为 `scaffold-learning`（原 `init` 与宿主 `/init` 撞名）；v6.0.0 起 scaffold 整体退场。统一全限定调用约定继承自 v2.0.0 + v3.0.0 ADR 的未来防御思路（避免与未来 Claude Code 内置同名冲突）
 
