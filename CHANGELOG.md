@@ -5,6 +5,28 @@
 
 ## [Unreleased]
 
+### Added
+
+- **`learn-kit 3.2.0` — `glossary` + `concept` explanation skills (additive)**:
+  - **`glossary`** (`/learn-kit:glossary <term>`) — one-paragraph 150–250字 six-slot term card (类比 → 归类 → 痛点 + 定义 → 对比 → 例子). A 30-second speed-card.
+  - **`concept`** (`/learn-kit:concept <concept>`) — six-section 500–800字 deep dive (起源痛点 / 核心直觉 / 机制与定义 / 2 跨域正例 + 1 反例 / 邻居概念 / 失效边界). Goal: the reader can *apply* the concept, not just recite it.
+  - Both are **pure-prompt skills**: single `SKILL.md`, no MCP / scripts / templates / file I/O / tool calls. Frontmatter is `name` + `description` only (matches tool-light `mp-*` convention). They fill the in-chat explanation/Q&A niche `three-views` explicitly disclaims, and carry the repo-signature `Do not use for: … (use X)` routing clause for clean triggering among the now-3 learn-kit skills.
+- **`docs/adr/[ADR]_LearnKit_Explanation_Skills_Addition.md`** NEW — records the placement decision (into learn-kit vs new plugin vs merge) and reconciles the `three-views` picker (1 → 3 candidates) against v6.0.0's consolidation ADR.
+- **`docs/INDEX.md`** v6.1 → v6.2 — registered new ADR row + frontmatter `related[]` entry.
+
+### Changed
+
+- **`VERSION` 6.1.1 → 6.2.0** (minor; follows the learn-kit plugin minor; consumes the post-v6.1.0 develop pre-bump slot per [`docs/adr/[ADR]_Develop_PreBump_Adoption.md`](docs/adr/[ADR]_Develop_PreBump_Adoption.md) §3 + historical pattern v3.1.0/v3.2.0).
+- **`.claude-plugin/marketplace.json`** — `metadata.version` 6.1.1 → 6.2.0 + `plugins[0].version` 3.1.0 → 3.2.0 + descriptions (now mention 3 skills + glossary/concept) + keywords (`glossary` / `concept` / `explanation` / `term-card`).
+- **`plugins/learn-kit/.claude-plugin/plugin.json`** — version 3.1.0 → 3.2.0; description reflects 3 skills; keywords extended.
+- **`README.md`** (root) + **`plugins/learn-kit/README.md`** + **`plugins/learn-kit/CLAUDE.md`** — document the two new explanation skills (picker 1→3; in-chat no-file nature); badge 6.1.1 → 6.2.0; catalog Skills 1 → 3.
+- **`CLAUDE.md`** (root) — synced per Framework v1.6 §2.7 (A6 gate: plugin.json + marketplace.json + plugin SKILL.md all change); plugin description now 3 skills; appended v6.2.0 entry to 历史版本记录.
+
+### Notes
+
+- **Plugin picker now lists 3 candidates** (`three-views` / `glossary` / `concept`), partially relaxing v6.0.0's "1 candidate" benefit. Accepted because all three are high-value, distinct, high-frequency entry points (unlike the low-value pipeline helpers v6.0.0 removed); see [`[ADR]_LearnKit_Explanation_Skills_Addition`](docs/adr/[ADR]_LearnKit_Explanation_Skills_Addition.md) §2.2.
+- **Backward-compatible**: `three-views` is untouched; existing workflows and defaults are unaffected. The two new skills are integrated near-verbatim from a standalone bundle (only slash namespacing + routing clause + frontmatter normalization changed).
+
 ## [6.1.0] - 2026-05-29
 
 ### Added

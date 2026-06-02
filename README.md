@@ -1,6 +1,6 @@
 # MJ AgentLab Marketplace
 
-![Version](https://img.shields.io/badge/version-6.1.1-blue)
+![Version](https://img.shields.io/badge/version-6.2.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![CI](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml)
 
@@ -14,8 +14,10 @@
 
 | Plugin | 描述 | Skills | Version | 适用项目 |
 |--------|------|--------|---------|---------|
-| [**learn-kit**](plugins/learn-kit/README.md) | 教学方法论 kit：给定主题 + 源材料（项目文件 / 外部 URL / 粘贴文本），生成 1-3 阶段学习 markdown（foundation/structural/challenge；v3.1.0 起 Step 1.3 视角 multi-select default 全选 / min 1），按需扩展 HTML（dual-mode grounding，per generated tier）与 NotebookLM 多媒体（v3.1.0 起 Step 4 5-cell granular multi-select；max 10 artifact）| **1** | **3.1.0** | 任意 |
+| [**learn-kit**](plugins/learn-kit/README.md) | 教学方法论 kit：给定主题 + 源材料（项目文件 / 外部 URL / 粘贴文本），生成 1-3 阶段学习 markdown（foundation/structural/challenge；v3.1.0 起 Step 1.3 视角 multi-select default 全选 / min 1），按需扩展 HTML（dual-mode grounding，per generated tier）与 NotebookLM 多媒体（v3.1.0 起 Step 4 5-cell granular multi-select；max 10 artifact）；v3.2.0 起另含 glossary / concept 两个轻量 in-chat 解释 skill | **3** | **3.2.0** | 任意 |
 
+> **v6.2.0 Additive**：learn-kit `3.1.0 → 3.2.0` 加 `glossary`（术语速记卡）+ `concept`（概念深讲）两个纯 prompt in-chat 解释 skill（无 tool / 无 file / 无 MCP）；填补 `three-views` 明确 disclaim 的 pure-explanation / Q&A niche；learn-kit picker 1→3（论证见 ADR）。详见 [`[ADR]_LearnKit_Explanation_Skills_Addition`](docs/adr/[ADR]_LearnKit_Explanation_Skills_Addition.md)。
+>
 > **v6.1.0 Additive**：learn-kit `3.0.0 → 3.1.0` 加 Step 1.3 视角 multi-select（default 3 全选 / min 1）+ Step 4 重设计为 5-cell granular NLM 类型 multi-select（HTML / audio / video / slide_deck / mind_map 独立勾选）；Step 5B re-run guard 加 source-corpus equivalence；默认产物等同 v3.0.0。详见 [`[ADR]_LearnKit_ThreeViews_HITL_Expansion`](docs/adr/[ADR]_LearnKit_ThreeViews_HITL_Expansion.md)。
 >
 > **v6.0.0 BREAKING**（baseline）：learn-kit 5 skill → 1 `three-views` 收敛；4 个公开 slash command 永久消失 + 1 个重命名；NLM artifact 范围 13 → max 10（infographic 永久退场）。详见 [`[ADR]_LearnKit_Consolidation_To_Single_Skill`](docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md) + [Migration §6](docs/guide/[GUIDE]_Migration_From_v3_to_v4.md#§6--v50x--v600)。
@@ -24,7 +26,9 @@ learn-kit 1 个 skill 用法：
 
 | Skill | 命令 | 用途 |
 |-------|------|------|
-| **three-views** | `/learn-kit:three-views <topic>` | **v3.0.0 起唯一 skill；v3.1.0 加 HITL 扩展**。5-step workflow: Intake（主题 + 输入源 multiSelect + **视角 multiSelect default 3 全选** + 输出目录 + 冲突）→ Source acquisition（source_manifest）→ N-view 生成（1-3 份 md）→ Multi-select opt-in（**5-cell**: HTML / NLM audio / NLM video / NLM slide_deck / NLM mind_map）→ 执行选中项（HTML dual-mode grounding + NLM with 全 dogfood防护 + source_corpus_key 等价性）|
+| **three-views** | `/learn-kit:three-views <topic>` | **v3.0.0 起主 skill；v3.1.0 加 HITL 扩展**。5-step workflow: Intake（主题 + 输入源 multiSelect + **视角 multiSelect default 3 全选** + 输出目录 + 冲突）→ Source acquisition（source_manifest）→ N-view 生成（1-3 份 md）→ Multi-select opt-in（**5-cell**: HTML / NLM audio / NLM video / NLM slide_deck / NLM mind_map）→ 执行选中项（HTML dual-mode grounding + NLM with 全 dogfood防护 + source_corpus_key 等价性）|
+| **glossary** | `/learn-kit:glossary <术语>` | **v3.2.0 新增**。一段 150–250 字、六槽结构（类比→归类→痛点→定义→对比→例子）的术语速记卡；纯 in-chat 输出、不落盘。30 秒听懂一个术语。|
+| **concept** | `/learn-kit:concept <概念>` | **v3.2.0 新增**。六节 500–800 字（起源痛点 / 核心直觉 / 机制与定义 / 2 跨域正例 + 1 反例 / 邻居概念 / 失效边界）的概念深讲；目标"能用"而非"听过"。纯 in-chat 输出。|
 
 ## 安装
 

@@ -1,8 +1,8 @@
 # learn-kit
 
-> **v3.1.0+**: Single-skill pedagogical kit — `/learn-kit:three-views` generates 1-3 tier learning markdown (foundation 零基础版 / structural 结构版 / challenge 挑战版) for any topic, with opt-in interactive HTML and NotebookLM multimedia outputs. v3.1.0 adds tier multi-select (Step 1.3, default all 3) + 5-cell granular Step 4 artifact-type multi-select.
+> **v3.2.0+**: Pedagogical kit — primary skill `/learn-kit:three-views` generates 1-3 tier learning markdown (foundation 零基础版 / structural 结构版 / challenge 挑战版) for any topic, with opt-in interactive HTML and NotebookLM multimedia outputs (v3.1.0 tier multi-select + 5-cell granular Step 4). **v3.2.0** adds two lightweight in-chat explanation skills: `/learn-kit:glossary`（术语速记卡）/ `/learn-kit:concept`（概念深讲）。
 
-`learn-kit` 提供把"你想学习的主题"快速变成可读 / 可看 / 可听材料的统一工作流。一个 skill，按需选档 + 按需扩展：
+`learn-kit` 提供把"你想学习的主题"快速变成可读 / 可看 / 可听材料的统一工作流。主 skill `three-views` 按需选档 + 按需扩展；v3.2.0 起另配两个一问一答式轻量解释 skill（`glossary` / `concept`，详见 [glossary + concept 段](#glossary--conceptv320-新增-一问一答式解释-skill)）：
 
 1. **N 阶段 markdown 学习文档**（必出 ≥1）— Step 1.3 视角 multi-select（foundation / structural / challenge；默认 3 项全选 / min 1），AI 围绕主题 + 源材料直接生成所选视角的 markdown
 2. **交互式 HTML 学习页**（可选；per generated tier）— 同名同目录的 `.html`；双模式 grounding：项目源 → concept→code via Explore subagent；外部 URL/文本 → concept→source-section
@@ -76,9 +76,29 @@ v3.0.0 整合 v2.x 的 5 个 skill 为 1 个 `three-views`。**4 个公开 slash
 - **Step 4** 弹出 5-cell multiSelect（默认全不选）；想要 audio podcast 就只勾 NLM audio
 - 想完全保持 v3.0.0 行为？两步都按默认（全选 + 全不选）= 3 份 markdown，无 HTML / 无 NLM
 
+## glossary + concept（v3.2.0 新增）· 一问一答式解释 skill
+
+`three-views` 出的是**成体系的学习文档**（落盘 markdown / HTML / 多媒体）。当你只想**当场听懂一个术语或概念**、不需要落盘时，用这两个轻量 skill（纯 prompt，不写文件、不调工具、不依赖 NLM）：
+
+| Skill | 触发 | 自然语言 | 输出 |
+|-------|------|---------|------|
+| `glossary` | `/learn-kit:glossary <术语>` | "什么是 X" / "解释 X" / "X 是什么" | 一段 150–250 字，六槽速记卡（30 秒读完）|
+| `concept` | `/learn-kit:concept <概念>` | "讲透 X" / "深入理解 X" / "帮我吃透 X" | 六节 500–800 字，带 2 跨域正例 + 1 反例 + 失效边界 |
+
+**选哪个**：只想"听过就行" → `glossary`；想"能识别 / 能应用 / 能选型" → `concept`；想要落盘的多档学习材料 → 回到 `three-views`。三者的 description 内置 `Do not use for: …（use X）` 互相路由，自然语言触发会自动选对。
+
+**调整开关**（两者通用）：`@<受众>`（换类比口味）/ `更短` / `更详细` / `双语`；`concept` 另有 `换正例`（跨域重写正例）。
+
+```text
+/learn-kit:glossary Advisory Lock
+/learn-kit:concept 幂等性
+/learn-kit:concept Backpressure @产品经理
+/learn-kit:glossary useEffect @React初学者 更短
+```
+
 ## 命名约定 · slash 调用必须全限定
 
-本插件唯一 skill `three-views`，slash 调用**统一使用 `/learn-kit:three-views`**。理由：
+本插件 3 个 skill（`three-views` / `glossary` / `concept`）的 slash 调用**统一使用全限定形式**（`/learn-kit:three-views` / `/learn-kit:glossary` / `/learn-kit:concept`）。理由：
 
 1. **避免与 Claude Code 内置冲突** — 历史上本插件 `init` skill 曾与内置 `/init` 冲突（v2.0.0 起 init → `scaffold-learning` 重命名物理消除；v3.0.0 起 scaffold-learning 整体退场）。统一全限定是未来防御。
 2. **可发现性** — 读者看到 `/learn-kit:three-views` 立刻知道来源；裸 `/three-views` 在长 PR 上下文里语义二义。
