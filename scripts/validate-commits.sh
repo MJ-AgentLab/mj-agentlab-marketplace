@@ -17,9 +17,9 @@ set -u
 RANGE="${1:-origin/develop..HEAD}"
 
 # Canonical PATTERN — verbatim from install-hooks.ps1 line 52 + ci.yml line 32
-PATTERN='^(feat|fix|perf|refactor|test|docs|infra)\((learn-kit|marketplace|ci|scripts|deps|infra|docs-rule|docs-adr|docs-guide|docs-runbook|docs-spec|release)\): .{1,72}$'
+PATTERN='^(feat|fix|perf|refactor|test|docs|infra)\((learn-kit|diagram-kit|marketplace|ci|scripts|deps|infra|docs-rule|docs-adr|docs-guide|docs-runbook|docs-spec|release)\): .{1,72}$'
 ALLOWED_TYPES='feat | fix | perf | refactor | test | docs | infra'
-ALLOWED_SCOPES='learn-kit | marketplace | ci | scripts | deps | infra | docs-rule | docs-adr | docs-guide | docs-runbook | docs-spec | release'
+ALLOWED_SCOPES='learn-kit | diagram-kit | marketplace | ci | scripts | deps | infra | docs-rule | docs-adr | docs-guide | docs-runbook | docs-spec | release'
 
 # Fetch commits in range (skip merges per CI convention)
 COMMITS=$(git log --no-merges --format='%H%x09%s' "$RANGE" 2>/dev/null || true)
@@ -58,7 +58,7 @@ while IFS=$(printf '\t') read -r SHA SUBJECT; do
   # Reason 2: scope not in whitelist (parse between parens)
   SCOPE=$(echo "$SUBJECT" | sed -E 's/^[a-z]+\(([^)]+)\):.*$/\1/')
   if [ -n "$SCOPE" ] && [ "$SCOPE" != "$SUBJECT" ]; then
-    if ! echo "$SCOPE" | grep -qE '^(learn-kit|marketplace|ci|scripts|deps|infra|docs-rule|docs-adr|docs-guide|docs-runbook|docs-spec|release)$'; then
+    if ! echo "$SCOPE" | grep -qE '^(learn-kit|diagram-kit|marketplace|ci|scripts|deps|infra|docs-rule|docs-adr|docs-guide|docs-runbook|docs-spec|release)$'; then
       REASONS="$REASONS\n        Reason: scope '$SCOPE' not in allowed whitelist"
       REASONS="$REASONS\n                Allowed: $ALLOWED_SCOPES"
       if [ "$SCOPE" = "docs" ]; then
