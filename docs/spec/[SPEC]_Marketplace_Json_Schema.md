@@ -65,13 +65,14 @@ Each plugin entry has these required fields:
 
 ### §2.4 Plugins Currently Listed
 
-As of v4.0.0+, the marketplace has **one** plugin:
+As of v6.3.0, the marketplace has **two** plugins:
 
 | Plugin | Version | Category |
 |--------|---------|----------|
-| `learn-kit` | 1.0.0+ | `documentation` |
+| `learn-kit` | 3.2.0 | `documentation` |
+| `diagram-kit` | 0.1.0 | `documentation` |
 
-The historical v3.x marketplace held 2 plugins (`learn-kit` + `notebooklm-kit`); see [`[ADR]_NotebookLM_Kit_Retirement.md`](../[ADR]_NotebookLM_Kit_Retirement.md) for the retirement decision.
+The v4.0.0–v6.2.x marketplace was a **single** plugin (learn-kit). v6.3.0 added `diagram-kit` (architecture / UML diagramming, orthogonal to learn-kit) — the first 1 → 2 plugin count since the 8→3→1 convergence; see [`[ADR]_Diagram_Kit_Addition.md`](../adr/[ADR]_Diagram_Kit_Addition.md). The historical v3.x marketplace held 2 plugins (`learn-kit` + `notebooklm-kit`); see [`[ADR]_NotebookLM_Kit_Retirement.md`](../[ADR]_NotebookLM_Kit_Retirement.md) for the retirement decision.
 
 ## §3 Version Triangle Invariant
 
