@@ -5,6 +5,33 @@
 
 ## [Unreleased]
 
+### Added
+
+- **NEW plugin `diagram-kit 0.1.0`** — architecture / UML diagramming kit, the marketplace's **second plugin** (first 1 → 2 plugin count since the 8→3→1 convergence). Functionally orthogonal to `learn-kit`:
+  - **`arch-diagram` skill** (`/diagram-kit:arch-diagram <target>`) — turns a codebase / system's source facts into evidence-bound Mermaid diagrams across **7 types**: context / container / component / code (C4 structural L1–L4) + sequence / state-machine (behavior) + deployment (physical), for any domain (docker / python / postgreSQL / claude-code-plugin / ...). 5-step fact-first flow (scope + domain auto-detect → L0–L3 acquisition ladder → pick high-value types via the §5.1 applicability matrix → draft Mermaid per §5 edge semantics + §6 naming → validate-fix-repeat). **铁律**: every node/edge traces to `file:行号` evidence, never fabricated. Frontmatter `name` + `description` + `allowed-tools` (Read/Glob/Grep/Bash/Write/AskUserQuestion); no MCP / no network.
+  - **9-file `references/` bundle** (progressive disclosure) — `architecture-methodology.md` + `domain-acquisition.md` (naming/applicability SSOT) + 7 per-type drawing prompts, domain-agnostic, introduced verbatim from a self-contained vault corpus.
+  - **`scripts/validate_diagram.py`** — pure-stdlib Mermaid linter, generalized from a PostgreSQL-specific version (removed PG-only role↔shape ROLE-03; widened slug regex to the general baseline `struct-l[1234] | dyn | phys` per `domain-acquisition §6`; added the `classDiagram` naming gate). Interpreter detection + graceful degradation when no Python.
+  - Generated diagrams use ` ```text ` fences (show source + `%% Name`/`%% Slug` metadata, not auto-render).
+- **`docs/adr/[ADR]_Diagram_Kit_Addition.md`** NEW — records the design and reconciles the marketplace's first 1 → 2 plugin count against the 8→3→1 convergence (judged by **domain orthogonality**, not plugin count: arch-diagram does not belong in a pedagogy kit — the same logic that placed glossary/concept *inside* learn-kit places arch-diagram *outside* it). Also records the validator-generalization + dual-source-fork decisions.
+- **`docs/INDEX.md`** v6.2 → v6.3 — registered the new ADR row + frontmatter; plugin count 1 → 2; Commit Message Convention row v1.1 → v1.2.
+
+### Changed
+
+- **`VERSION` 6.2.1 → 6.3.0** (minor; adding a plugin is additive per [`[SPEC]_Marketplace_Json_Schema`](docs/spec/[SPEC]_Marketplace_Json_Schema.md) §4.2; consumes the post-v6.2.0 develop pre-bump slot and is realized as a real minor, same pattern as v6.1.0 / v6.2.0).
+- **`.claude-plugin/marketplace.json`** — `metadata.version` 6.2.1 → 6.3.0; `metadata.description` rewritten (no longer "sole plugin"; now 2 plugins + diagram-kit summary); `plugins[]` **append** the diagram-kit entry (version 0.1.0 / category documentation / keywords / source).
+- **`docs/rule/[STANDARD]_Commit_Message_Convention.md` v1.1 → v1.2** — add `diagram-kit` to the §4 scope whitelist (new scope MUST minor-bump this STANDARD per §4 rule) + §10 Change History row.
+- **Commit scope whitelist synced across 4 code sites + 1 drift copy** — `scripts/install-hooks.ps1` (commit-msg PATTERN + 2 help strings), `scripts/validate-commits.sh` (PATTERN + ALLOWED_SCOPES + diagnostic regex), `scripts/validate-commits.ps1` (Pattern + AllowedScopes + AllowedScopesRegex), the STANDARD §4, and `docs/runbook/[RUNBOOK]_Release_Operations.md`. `scripts/bump-version.ps1` ValidateSet adds `diagram-kit`.
+- **`README.md`** — badge 6.2.1 → 6.3.0; 插件目录表 add diagram-kit row + v6.3.0 callout; install section add diagram-kit; Skills section add arch-diagram usage; intro now "2 个 plugin".
+- **`CLAUDE.md`** (root) — synced per Framework v1.6 §2.7 (A6 gate: new plugin.json + marketplace.json + new SKILL.md + commit STANDARD edit + VERSION all fire triggers); Project Structure 1 → 2 plugins; Documentation Framework header marketplace v6.3.0 + Commit Convention v1.2; appended v6.3.0 entry to 历史版本记录.
+- **`docs/spec/[SPEC]_Marketplace_Json_Schema.md`** — §2.4 "Plugins Currently Listed" snapshot 1 → 2 plugins (direct consistency fix).
+
+### Notes
+
+- **Marketplace now has 2 plugins** (`learn-kit` + `diagram-kit`) — the first plugin-count increase since the 8 → 3 → 1 convergence. Accepted because diagram-kit is **functionally orthogonal** (architecture diagramming vs. learning material), cannot be naturally internalized into learn-kit's pedagogy domain, and is a substantial tool-using skill (not a micro prompt skill) warranting its own version lifecycle. Reconciliation in [`[ADR]_Diagram_Kit_Addition`](docs/adr/[ADR]_Diagram_Kit_Addition.md) §2.2.
+- **`learn-kit` is untouched** (still 3.2.0). The two plugins version independently (dual-layer).
+- **Plugin initial version `0.1.0`** (not 1.0.0): honest "functionality not yet settled" signal (classDiagram structural lint gap + marketplace-domain dogfood + awaiting field eval); mirrors learn-kit's own 0.1.0 origin.
+- **Validator dual-source fork**: the generalized `validate_diagram.py` now evolves independently from the PostgreSQL handbook's version; PG-specific tightenings will not flow back.
+
 ## [6.2.0] - 2026-06-02
 
 ### Added

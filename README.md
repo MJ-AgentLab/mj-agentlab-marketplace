@@ -1,12 +1,12 @@
 # MJ AgentLab Marketplace
 
-![Version](https://img.shields.io/badge/version-6.2.1-blue)
+![Version](https://img.shields.io/badge/version-6.3.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![CI](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml)
 
 > 浏览本仓库 `develop` 分支时看到的 Version badge 是**预计下一个 release 号**（per [`[ADR]_Develop_PreBump_Adoption`](docs/adr/[ADR]_Develop_PreBump_Adoption.md)）；当前实际已发布版本以顶部 [GitHub Releases](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases) 或 `main` 分支 badge 为准。
 
-通用 [Claude Code](https://docs.anthropic.com/en/docs/claude-code) 插件市场——教学方法论 + NotebookLM 多媒体集成整合在单一 plugin。不绑定特定项目，可服务任意 Claude Code 使用者；在 [mj-system](https://github.com/MJ-AgentLab/mj-system) 与 mj-agent 两个项目上长期实战验证。
+通用 [Claude Code](https://docs.anthropic.com/en/docs/claude-code) 插件市场——教学方法论 + NotebookLM 多媒体集成 + 架构图生成，分布在 **2 个 plugin**（learn-kit + diagram-kit）。不绑定特定项目，可服务任意 Claude Code 使用者；在 [mj-system](https://github.com/MJ-AgentLab/mj-system) 与 mj-agent 两个项目上长期实战验证。
 
 > **v4.0.0 重大变更**：marketplace 从 "2 plugin（notebooklm-kit + learn-kit）" 收敛为 "1 plugin（learn-kit）"。原 `notebooklm-kit` 整个退场（7 个 skill 退役），其核心 build + studio 多媒体场景被 `learn-kit` 新增的 `nlm-studio` skill 吸收，并加入 **View-Purpose Preservation** 原则使生成的 artifact 严格匹配源 view（foundation/structural/challenge）的教学目的。详见 [docs/adr/[ADR]_NotebookLM_Kit_Retirement.md](docs/adr/[ADR]_NotebookLM_Kit_Retirement.md) + [docs/guide/[GUIDE]_Migration_From_v3_to_v4.md](docs/guide/[GUIDE]_Migration_From_v3_to_v4.md)。
 
@@ -15,7 +15,10 @@
 | Plugin | 描述 | Skills | Version | 适用项目 |
 |--------|------|--------|---------|---------|
 | [**learn-kit**](plugins/learn-kit/README.md) | 教学方法论 kit：给定主题 + 源材料（项目文件 / 外部 URL / 粘贴文本），生成 1-3 阶段学习 markdown（foundation/structural/challenge；v3.1.0 起 Step 1.3 视角 multi-select default 全选 / min 1），按需扩展 HTML（dual-mode grounding，per generated tier）与 NotebookLM 多媒体（v3.1.0 起 Step 4 5-cell granular multi-select；max 10 artifact）；v3.2.0 起另含 glossary / concept 两个轻量 in-chat 解释 skill | **3** | **3.2.0** | 任意 |
+| [**diagram-kit**](plugins/diagram-kit/README.md) | 架构 / UML 绘图 kit：把代码库 / 系统的源事实转成证据绑定的 Mermaid 架构图，7 类（context / container / component / code〔C4 结构〕+ sequence / state-machine〔行为〕+ deployment〔物理〕），任意域；事实先行（L0–L3 阶梯，每节点/边可追 `file:行号`）；bundle 9 份领域无关 references + 泛化 stdlib Mermaid validator | **1** | **0.1.0** | 任意 |
 
+> **v6.3.0 Additive（NEW plugin）**：新建 `diagram-kit 0.1.0`——marketplace 史上首次 plugin 计数 **1 → 2**。单 skill `arch-diagram`（`/diagram-kit:arch-diagram`）把代码库事实转成证据绑定 Mermaid 图（7 类）；与 learn-kit 功能正交（一个出架构图、一个出学习材料），8→3→1 收敛方向经 domain-orthogonality reconcile。详见 [`[ADR]_Diagram_Kit_Addition`](docs/adr/[ADR]_Diagram_Kit_Addition.md)。
+>
 > **v6.2.0 Additive**：learn-kit `3.1.0 → 3.2.0` 加 `glossary`（术语速记卡）+ `concept`（概念深讲）两个纯 prompt in-chat 解释 skill（无 tool / 无 file / 无 MCP）；填补 `three-views` 明确 disclaim 的 pure-explanation / Q&A niche；learn-kit picker 1→3（论证见 ADR）。详见 [`[ADR]_LearnKit_Explanation_Skills_Addition`](docs/adr/[ADR]_LearnKit_Explanation_Skills_Addition.md)。
 >
 > **v6.1.0 Additive**：learn-kit `3.0.0 → 3.1.0` 加 Step 1.3 视角 multi-select（default 3 全选 / min 1）+ Step 4 重设计为 5-cell granular NLM 类型 multi-select（HTML / audio / video / slide_deck / mind_map 独立勾选）；Step 5B re-run guard 加 source-corpus equivalence；默认产物等同 v3.0.0。详见 [`[ADR]_LearnKit_ThreeViews_HITL_Expansion`](docs/adr/[ADR]_LearnKit_ThreeViews_HITL_Expansion.md)。
@@ -29,6 +32,12 @@ learn-kit 1 个 skill 用法：
 | **three-views** | `/learn-kit:three-views <topic>` | **v3.0.0 起主 skill；v3.1.0 加 HITL 扩展**。5-step workflow: Intake（主题 + 输入源 multiSelect + **视角 multiSelect default 3 全选** + 输出目录 + 冲突）→ Source acquisition（source_manifest）→ N-view 生成（1-3 份 md）→ Multi-select opt-in（**5-cell**: HTML / NLM audio / NLM video / NLM slide_deck / NLM mind_map）→ 执行选中项（HTML dual-mode grounding + NLM with 全 dogfood防护 + source_corpus_key 等价性）|
 | **glossary** | `/learn-kit:glossary <术语>` | **v3.2.0 新增**。一段 150–250 字、六槽结构（类比→归类→痛点→定义→对比→例子）的术语速记卡；纯 in-chat 输出、不落盘。30 秒听懂一个术语。|
 | **concept** | `/learn-kit:concept <概念>` | **v3.2.0 新增**。六节 500–800 字（起源痛点 / 核心直觉 / 机制与定义 / 2 跨域正例 + 1 反例 / 邻居概念 / 失效边界）的概念深讲；目标"能用"而非"听过"。纯 in-chat 输出。|
+
+diagram-kit 1 个 skill 用法：
+
+| Skill | 命令 | 用途 |
+|-------|------|------|
+| **arch-diagram** | `/diagram-kit:arch-diagram <target>` | **v0.1.0 主 skill**。把代码库 / 系统的源事实画成证据绑定的 Mermaid 架构图。5-step: Scope（target + 领域自动探测）→ Acquire facts L0–L3（声明扫描 → 结构推断 → 命名归类 → HITL 补缺）→ Pick diagrams（按全局适用性矩阵选 7 类子集）→ Draft（套 §5 边语义 + §6 命名出 Mermaid，`text` 围栏不自动渲染）→ Validate（bundled stdlib linter，无 Python 时优雅降级）。铁律：每节点/边可追 `file:行号`，禁臆造。7 类：context / container / component / code（C4 结构 L1–L4）+ sequence / state-machine（行为）+ deployment（物理）。|
 
 ## 安装
 
@@ -54,6 +63,7 @@ Claude Code 插件支持三种安装级别：
 
 ```
 /plugin install learn-kit@mj-agentlab-marketplace
+/plugin install diagram-kit@mj-agentlab-marketplace
 ```
 
 #### 项目级安装（提交到 git，团队共享）
