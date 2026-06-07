@@ -104,7 +104,7 @@ git commit -m "infra(ci): add version consistency check"
 ```
 
 **Commit 类型**：feat, fix, perf, refactor, test, docs, infra
-**Scope 值**（v4.x 闭合 allowlist）：`learn-kit`, `marketplace`, `ci`, `scripts`, `deps`, `infra`, `docs-rule`, `docs-adr`, `docs-guide`, `docs-runbook`, `docs-spec`, `release`
+**Scope 值**（v4.x 闭合 allowlist）：`learn-kit`, `diagram-kit`, `marketplace`, `ci`, `scripts`, `deps`, `infra`, `docs-rule`, `docs-adr`, `docs-guide`, `docs-runbook`, `docs-spec`, `release`
 
 > Canonical 来源：[../rule/[STANDARD]_Commit_Message_Convention.md](../rule/[STANDARD]_Commit_Message_Convention.md) §4。引入新 scope 需 minor bump 该 STANDARD + 同步更新 `scripts/install-hooks.ps1` PATTERN regex。
 

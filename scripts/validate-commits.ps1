@@ -38,11 +38,11 @@ try {
 }
 
 # Canonical PATTERN — verbatim from install-hooks.ps1 line 52 + ci.yml line 32
-$Pattern = '^(feat|fix|perf|refactor|test|docs|infra)\((learn-kit|marketplace|ci|scripts|deps|infra|docs-rule|docs-adr|docs-guide|docs-runbook|docs-spec|release)\): .{1,72}$'
+$Pattern = '^(feat|fix|perf|refactor|test|docs|infra)\((learn-kit|diagram-kit|marketplace|ci|scripts|deps|infra|docs-rule|docs-adr|docs-guide|docs-runbook|docs-spec|release)\): .{1,72}$'
 $AllowedTypes = 'feat | fix | perf | refactor | test | docs | infra'
-$AllowedScopes = 'learn-kit | marketplace | ci | scripts | deps | infra | docs-rule | docs-adr | docs-guide | docs-runbook | docs-spec | release'
+$AllowedScopes = 'learn-kit | diagram-kit | marketplace | ci | scripts | deps | infra | docs-rule | docs-adr | docs-guide | docs-runbook | docs-spec | release'
 $AllowedTypesRegex = '^(feat|fix|perf|refactor|test|docs|infra)$'
-$AllowedScopesRegex = '^(learn-kit|marketplace|ci|scripts|deps|infra|docs-rule|docs-adr|docs-guide|docs-runbook|docs-spec|release)$'
+$AllowedScopesRegex = '^(learn-kit|diagram-kit|marketplace|ci|scripts|deps|infra|docs-rule|docs-adr|docs-guide|docs-runbook|docs-spec|release)$'
 
 # Fetch commits in range (skip merges per CI convention)
 # Wrap in @(...) to force array (PowerShell deflates single-line output to scalar string)
