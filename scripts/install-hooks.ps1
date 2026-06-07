@@ -54,7 +54,7 @@ if echo "$MSG" | grep -qE "^Merge "; then
   exit 0
 fi
 
-PATTERN='^(feat|fix|perf|refactor|test|docs|infra)\((learn-kit|marketplace|ci|scripts|deps|infra|docs-rule|docs-adr|docs-guide|docs-runbook|docs-spec|release)\): .{1,72}$'
+PATTERN='^(feat|fix|perf|refactor|test|docs|infra)\((learn-kit|diagram-kit|marketplace|ci|scripts|deps|infra|docs-rule|docs-adr|docs-guide|docs-runbook|docs-spec|release)\): .{1,72}$'
 
 if ! echo "$MSG" | grep -qE "$PATTERN"; then
   echo ""
@@ -63,7 +63,7 @@ if ! echo "$MSG" | grep -qE "$PATTERN"; then
   echo "  Expected: <type>(<scope>): <summary>"
   echo ""
   echo "  Types:  feat | fix | perf | refactor | test | docs | infra"
-  echo "  Scopes (v4.x): learn-kit | marketplace | ci | scripts | deps | infra | docs-rule | docs-adr | docs-guide | docs-runbook | docs-spec | release"
+  echo "  Scopes (v4.x): learn-kit | diagram-kit | marketplace | ci | scripts | deps | infra | docs-rule | docs-adr | docs-guide | docs-runbook | docs-spec | release"
   echo ""
   echo "  See docs/rule/[STANDARD]_Commit_Message_Convention.md for the canonical whitelist."
   echo ""
@@ -141,7 +141,7 @@ Write-Host "Installed pre-push  hook to: $PrePushFile" -ForegroundColor Green
 Write-Host ""
 Write-Host "Validation format: <type>(<scope>): <summary>" -ForegroundColor White
 Write-Host "  Types:  feat | fix | perf | refactor | test | docs | infra" -ForegroundColor White
-Write-Host "  Scopes (v4.x): learn-kit | marketplace | ci | scripts | deps | infra | docs-rule | docs-adr | docs-guide | docs-runbook | docs-spec | release" -ForegroundColor White
+Write-Host "  Scopes (v4.x): learn-kit | diagram-kit | marketplace | ci | scripts | deps | infra | docs-rule | docs-adr | docs-guide | docs-runbook | docs-spec | release" -ForegroundColor White
 Write-Host "  Canonical: docs/rule/[STANDARD]_Commit_Message_Convention.md" -ForegroundColor White
 Write-Host ""
 Write-Host "Hook semantics:" -ForegroundColor White

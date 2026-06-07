@@ -1,12 +1,12 @@
 ---
 type: standard
 scope: marketplace
-summary: Commit message format v1.1 — type(scope) header, 7 types, marketplace scope whitelist, branch-type matrix, §11 common mistakes from v4.5.0 post-mortem
+summary: Commit message format v1.2 — type(scope) header, 7 types, marketplace scope whitelist (+ diagram-kit v6.3.0), branch-type matrix, §11 common mistakes
 owner: marketplace-maintainers
 created: 2026-05-15
-updated: 2026-05-18
+updated: 2026-06-05
 state: active
-version: v1.1
+version: v1.2
 domain: governance
 tags:
   - commit
@@ -18,6 +18,7 @@ related:
   - ./[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
   - ../../CONTRIBUTING.md
 revision: |
+  2026-06-05 — v1.2: §4 scope 白名单加 `diagram-kit` plugin scope（marketplace 首次 plugin 1→2；per [ADR]_Diagram_Kit_Addition）；4 code 站点（install-hooks.ps1 + validate-commits.{sh,ps1}）+ RUNBOOK drift copy + bump-version.ps1 ValidateSet 同步；PATTERN 其余不变（仅扩白名单）
   2026-05-18 — v1.1: §11 Common Mistakes 新章（4 个 v4.5.0 后失败模式 + remediation）；companion scripts/validate-commits.{sh,ps1} + install-hooks.ps1 pre-push hook + 3 skill integrations（mp-git-commit / mp-git-push / mp-flow-self-review）；§9.3 Future CI Gates 更新指向新脚本；PATTERN regex 无变化（向后兼容）
   2026-05-15 — v1.0: Initial canonical commit convention
 ---
@@ -78,7 +79,8 @@ Root `CONTRIBUTING.md` (per Documentation Framework v1.6 §1.1 root-level named 
 | Scope | Range | Notes |
 |-------|-------|-------|
 | `marketplace` | top-level files (`VERSION`, `marketplace.json`, root `CLAUDE.md`, root `CHANGELOG.md`, `.gitignore`, `LICENSE`, `README.md`) | catch-all for marketplace-level metadata |
-| `learn-kit` | `plugins/learn-kit/**` | the sole plugin since v4.0.0 |
+| `learn-kit` | `plugins/learn-kit/**` | pedagogy plugin (sole plugin v4.0.0–v6.2.x) |
+| `diagram-kit` | `plugins/diagram-kit/**` | architecture-diagramming plugin (added v6.3.0; marketplace's first 1→2 plugin count) |
 | `ci` | `.github/workflows/`, `.github/PULL_REQUEST_TEMPLATE/`, `.github/ISSUE_TEMPLATE/` | CI / templates |
 | `scripts` | `scripts/**` | infrastructure scripts (`bump-version.ps1` etc.) |
 | `deps` | `package.json`, `package-lock.json`, `pyproject.toml`, `uv.lock`, lockfiles | dependency manifests |
@@ -303,5 +305,6 @@ This installs both `commit-msg` (per-commit validation at commit time) and `pre-
 
 | Version | Date | Summary |
 |---------|------|---------|
+| v1.2 | 2026-06-05 | Add `diagram-kit` plugin scope to the §4 whitelist (marketplace's first 1→2 plugin count; new plugin per [ADR]_Diagram_Kit_Addition). Per the §4 rule, a new scope requires a minor bump of this STANDARD. Synced across 4 code sites (install-hooks.ps1 commit-msg PATTERN + 2 help strings; validate-commits.sh PATTERN + ALLOWED_SCOPES + diagnostic regex; validate-commits.ps1 Pattern + AllowedScopes + AllowedScopesRegex) + the [RUNBOOK]_Release_Operations drift copy + bump-version.ps1 ValidateSet. PATTERN otherwise unchanged (whitelist-extension only). |
 | v1.1 | 2026-05-18 | Add §11 Common Mistakes — 4 v4.5.0 failure patterns documented + remediation (chore type rejected / docs as type-not-scope / 72-char summary with CJK / branch-template vs CI reality / local validation workflow). Companion: scripts/validate-commits.{sh,ps1} + install-hooks.ps1 pre-push hook + 3 skill integrations (mp-git-commit Step 8 / mp-git-push 8th checklist item / mp-flow-self-review item 8). §9.3 updated to point to new validator. Backward compatible — PATTERN regex unchanged. |
 | v1.0 | 2026-05-15 | Initial canonical commit convention. Extracted + expanded from `docs/CONTRIBUTING.md` § 提交规范. Replaces stale legacy `*-sys-*` scope whitelist with marketplace v4.x scopes (`learn-kit`, `marketplace`, `docs-*`, `release` etc.). Adopted in PR #75 (v4.2.0). Preserves Conventional Commits 1.0 base + 7-type enum; marketplace-specific 12-item scope whitelist. |
