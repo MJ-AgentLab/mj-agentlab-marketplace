@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+## [6.3.0] - 2026-06-07
+
 ### Added
 
 - **NEW plugin `diagram-kit 0.1.0`** — architecture / UML diagramming kit, the marketplace's **second plugin** (first 1 → 2 plugin count since the 8→3→1 convergence). Functionally orthogonal to `learn-kit`:
