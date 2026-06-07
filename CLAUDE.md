@@ -48,7 +48,7 @@
 - 模板 / references / scripts 放在 skill 目录内部
 - 不使用 `components` 字段（auto-discovery 标准）
 
-## Documentation Framework (v4.2.0 起；当前 v1.6 / marketplace v6.3.0)
+## Documentation Framework (v4.2.0 起；当前 v1.6 / marketplace v6.3.1)
 
 marketplace 文档体系遵循以下三层 STANDARD（位于 `docs/rule/`）:
 
@@ -122,6 +122,7 @@ Templates 与 mp-doc-author skill 协作起草新文档；mp-doc-validate skill 
 - **v6.2.0**（2026-06-02）：learn-kit `3.1.0 → 3.2.0`（minor，additive）：加 `glossary`（`/learn-kit:glossary`；六槽 150–250字 术语速记卡）+ `concept`（`/learn-kit:concept`；六节 500–800字 概念深讲，2 跨域正例 + 1 反例 + 失效边界）两个纯 prompt in-chat 解释 skill（单 SKILL.md，无 tool / 无 templates / 无 MCP / 无 file I/O；frontmatter `name`+`description` only，与 tool-light mp-* 同款约定）。填补 `three-views` 明确 disclaim 的 "pure explanation / Q&A" niche；三 skill description 加仓库签名式 `Do not use for: …（use X）` routing clause。learn-kit slash picker 1→3——显式 reconcile v6.0.0 consolidation 的 "1 候选" 收益（删的是低价值 pipeline helper，加的是高价值正交工具）。marketplace VERSION + metadata.version 跟随 plugin minor 升 `6.1.1 → 6.2.0`（消耗 pre-bump slot + 跟进 plugin minor，historical pattern v3.1.0/v3.2.0/v6.1.0）。`three-views` 不动；默认行为不变。源自一个独立两-skill bundle 近-verbatim 集成（仅改集成层：slash 命名空间 + routing clause + frontmatter 规范化）。详见 [`[ADR]_LearnKit_Explanation_Skills_Addition`](docs/adr/[ADR]_LearnKit_Explanation_Skills_Addition.md)
 - **v6.2.1**（2026-06-02）：post-release develop pre-bump (post-v6.2.0)；只 bump marketplace VERSION + marketplace.json metadata.version + README badge；plugin.json `learn-kit 3.2.0` 不动；per [`[ADR]_Develop_PreBump_Adoption`](docs/adr/[ADR]_Develop_PreBump_Adoption.md)。同 PR 第 2 个 logical commit 完成 A6 CLAUDE.md sync（v5.0.2 / v6.0.1 / v6.1.1 pre-bump 同款 2-commit-in-1-PR pattern）
 - **v6.3.0**（2026-06-05）：**NEW plugin `diagram-kit 0.1.0`**——marketplace 史上首次 plugin 计数 **1 → 2**（逆转 8→3→1 收敛方向，经 domain-orthogonality reconcile：arch-diagram 与 learn-kit 教学域正交、无法内化进 pedagogy kit，开新 plugin 是正确切分；判据是域归属非 plugin 计数，详见 [`[ADR]_Diagram_Kit_Addition`](docs/adr/[ADR]_Diagram_Kit_Addition.md) §2.2）。单 skill `arch-diagram`（`/diagram-kit:arch-diagram`）：5-step 事实先行（L0–L3 阶梯，铁律每节点/边可追 `file:行号`）把代码库事实转成证据绑定 Mermaid 图，7 类（context/container/component/code〔C4 结构〕+ sequence/state-machine〔行为〕+ deployment〔物理〕），任意域；bundle 9 份领域无关 references + 泛化 stdlib validator（去 PG ROLE-03 + SLUG regex 通用化 `struct-l[1234]|dyn|phys`，与 PG 版双源分叉）；generated 图 `text` 围栏；无 MCP / network。marketplace `6.2.1 → 6.3.0`（minor，additive plugin per [SPEC]_Marketplace_Json_Schema §4.2，消耗 post-v6.2.0 pre-bump slot 落实为真 minor）；commit STANDARD `v1.1 → v1.2`（scope 白名单加 diagram-kit，4 code 站点 + RUNBOOK drift 同步）；learn-kit `3.2.0` 不动（dual-layer 独立）
+- **v6.3.1**（2026-06-07）：post-release develop pre-bump (post-v6.3.0)；只 bump marketplace VERSION + marketplace.json metadata.version + README badge；plugin.json `diagram-kit 0.1.0` / `learn-kit 3.2.0` 不动；per [`[ADR]_Develop_PreBump_Adoption`](docs/adr/[ADR]_Develop_PreBump_Adoption.md)。同 PR 第 2 个 logical commit 完成 A6 CLAUDE.md sync（v6.1.1 / v6.2.1 pre-bump 同款 2-commit-in-1-PR pattern）
 
 ## AI Engineering
 
