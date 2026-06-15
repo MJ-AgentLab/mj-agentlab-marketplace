@@ -5,6 +5,15 @@
 
 ## [Unreleased]
 
+### Added
+
+- **CI step `Validate SKILL.md description length`** (`.github/workflows/ci.yml`) — fails the build when any `plugins/*/skills/*/SKILL.md` or `.claude/skills/*/SKILL.md` frontmatter `description` exceeds **1536** Unicode 字符（WARN ≥ 1490），堵住 glossary 截断这类回归。纯 python3 stdlib 提取器，按 YAML plain/folded/literal scalar 语义计数（**不用 PyYAML**——23 个 skill 中 19 个 description 是含 `": "` 的单行 plain scalar，严格 YAML 解析器会拒；**不用 awk**——runner 默认 mawk 按字节计）；同时把空/缺失 description 也判 fail。门禁 commit 置于末位，使历史任意点都满足门禁（bisect 友好）。
+
+### Fixed
+
+- **`learn-kit` `3.2.0 → 3.2.1`** — skill `description` 长度修复。Claude Code 将 skill description 注入 system prompt 并在 **1536 Unicode 字符**处截断（本仓实证 2026-06-12；官方文档无记载）：`glossary` 1544 字符**实际已被截断**——丢的恰是尾部 `(use /learn-kit:three-views)` routing clause（3-skill 同居路由主 mitigation per `[ADR]_LearnKit_Explanation_Skills_Addition`），精简至 **1450**；`three-views` 预防性精简 **1504 → 1289**（原余量仅 32）。两者零语义变化——全部 trigger phrases + `Do not use for` routing clause 逐字保留。版本五站点 sync（plugin.json / marketplace.json plugins[] / 根 README 表 / plugin CLAUDE.md / 根 CLAUDE.md）；详见 `plugins/learn-kit/CHANGELOG.md` `[3.2.1]`。
+- **`mp-doc-validate` skill description 精简 2789 → 1440** — 同一 1536 字符截断限制下治理关键 skill 超限 81%。版本史句子 + 三大检查组逐项枚举移入 body 新增 `Change Notes` 小节（零信息丢失）；全部显式 trigger 短语（"validate docs" … "archive compliance"）、`Heuristic-only; does not modify files`、`Do not use for:` routing clause 逐字保留。
+
 ## [6.3.0] - 2026-06-07
 
 ### Added

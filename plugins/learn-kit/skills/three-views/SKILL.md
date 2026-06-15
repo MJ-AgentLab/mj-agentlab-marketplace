@@ -8,7 +8,7 @@ description: |
     - "generate learning docs for <topic>" / "make a learning artifact for <topic> covering all three tiers"
     - "render learning HTML for <topic>" / "把 <topic> 推到 NotebookLM 出多媒体"
 
-  Workflow: 5-step (Intake / Source acquisition / N-view markdown / Multi-select opt-in / Execute). Step 1 tier multi-select (foundation/structural/challenge; default all 3, min 1) picks which tiers generate as markdown (always ≥1). Step 4 5-cell multi-select (HTML / NLM audio / NLM video / NLM slide_deck / NLM mind_map; default all unchecked) picks additional outputs; NLM cartesian = len(generated_tiers) × len(selected NLM view-cycled types) + (1 if mind_map). NLM requires notebooklm-mcp + one-time `nlm login`; preserves nlm-studio dogfood防护 (per-step auth refresh / source validation / 4-way re-run guard / quota gate / source-corpus equivalence / bounded polling). Slash: `/learn-kit:three-views <topic>`.
+  Workflow: 5-step (Intake / Source acquisition / N-view markdown / Multi-select opt-in / Execute). Step 1 tier multi-select picks which tiers generate as markdown (always ≥1). Step 4 5-cell multi-select (HTML / audio / video / slide_deck / mind_map) picks additional outputs; NLM cartesian = len(generated_tiers) × len(selected NLM view-cycled types) + (1 if mind_map). NLM requires notebooklm-mcp + one-time `nlm login`; preserves all nlm-studio dogfood防护. Slash: `/learn-kit:three-views <topic>`.
 
   Do NOT use for: editing existing learning markdown; pure explanation / Q&A; NLM notebook lifecycle ops beyond create/source_add/studio_create/studio_status; infographic / slide-revise / artifact-download (out of scope per v6.0.0 ADR).
 allowed-tools:
