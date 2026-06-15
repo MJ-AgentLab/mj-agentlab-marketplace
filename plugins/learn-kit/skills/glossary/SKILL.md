@@ -7,12 +7,12 @@ description: >
   "get it" in about 30 seconds — a speed-card, not an article.
   ALWAYS use this skill whenever the user types `/learn-kit:glossary` or `/glossary`
   (optionally followed by a term), or says any of: "解释术语", "讲讲这个概念", "什么是 X",
-  "X 是什么", "帮我理解 X", "explain X", "what is X", "give me a quick explanation of X",
+  "X 是什么", "帮我理解 X", "explain X", "what is X",
   or pastes a single term and asks for a digestible explanation. Also use whenever the user
   wants a short, vivid, one-paragraph explanation of a specific term rather than a long
-  article, encyclopedia entry, documentation page, or tutorial — even if they don't
-  explicitly say "glossary" or "速记卡". Default output language is Chinese, with the original
-  term preserved verbatim (English/code identifiers stay in original form, no forced translation).
+  article or tutorial — even if they don't
+  explicitly say "glossary" or "速记卡". Default output language Chinese; the term preserved
+  verbatim (English/code identifiers stay in original form, no forced translation).
   Prefer this over `/learn-kit:concept` when the user signals brevity or speed (一句话 / 一段话 /
   快速 / quick / TL;DR) or is asking about a specific named tool, API, product, or code identifier
   (e.g. Advisory Lock, OAuth, useEffect) rather than an abstract concept.

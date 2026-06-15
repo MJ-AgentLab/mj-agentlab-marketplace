@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [3.2.1] - 2026-06-12
+
+### Fixed
+
+- **`glossary` description truncation** — the frontmatter `description` was **1544** Unicode chars, 8 over Claude Code's empirically verified **1536-char** system-prompt injection limit. The truncated tail was exactly the `(use /learn-kit:three-views)` routing clause (cut mid-token to `three…` + an unclosed backtick) — the primary 3-skill cohabitation routing mitigation recorded in [`[ADR]_LearnKit_Explanation_Skills_Addition`](../../docs/adr/[ADR]_LearnKit_Explanation_Skills_Addition.md). Trimmed to **1450** chars via 3 pure-redundancy cuts (language-declaration compressed; `"give me a quick explanation of X"` trigger example removed as covered by `"explain X"` + the brevity signals; `article, encyclopedia entry, documentation page, or tutorial` → `article or tutorial`). Six-slot summary, speed-card positioning, both slash forms, all Chinese/English trigger phrases, broad matcher, prefer-over-concept clause, and the full `Do not use for` routing clause preserved verbatim. Zero semantic change.
+
+### Changed
+
+- **`three-views` description preventively trimmed** **1504 → 1289** chars (headroom was only 32 — one more edit would cross the limit). Removed Workflow-paragraph implementation details the SKILL.md body already carries: tier-default parenthetical, the 5-cell default-state detail (a compact type list `(HTML / audio / video / slide_deck / mind_map)` is retained as lexical trigger anchors, per skill-reviewer regression finding), and the dogfood-protection six-item enumeration (collapsed to "preserves all nlm-studio dogfood防护"). `Use when` opening sentence, all trigger phrases (中英), slash form, NLM precondition (notebooklm-mcp + `nlm login`), and the full `Do NOT use for` list unchanged verbatim. Zero semantic change.
+- **`.claude-plugin/plugin.json`** — version `3.2.0 → 3.2.1` (patch: user-visible plugin metadata fix; precedent learn-kit v2.0.1 / marketplace v3.2.1).
+
 ## [3.2.0] - 2026-06-02
 
 ### Added
