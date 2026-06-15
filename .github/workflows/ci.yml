@@ -131,6 +131,96 @@ jobs:
           [ $ERRORS -gt 0 ] && exit 1
           echo "All SKILL.md files valid"
 
+      - name: Validate SKILL.md description length
+        # Claude Code injects each skill's frontmatter description into the system prompt and
+        # truncates it at 1536 Unicode characters (empirical threshold, undocumented upstream;
+        # glossary at 1544 chars lost its tail routing clause — see learn-kit 3.2.1).
+        # FAIL > 1536; WARN >= 1490 (~97% of the ceiling). Counting is pure python3 stdlib:
+        # - not awk: the runner's default mawk length() counts bytes, not characters;
+        # - not PyYAML/strict YAML: 19 of 23 descriptions are single-line plain scalars
+        #   containing ": " (e.g. "Do not use for: ..."), which strict YAML parsers reject
+        #   ("mapping values are not allowed here") while Claude Code's lenient loader accepts
+        #   and injects them — the gate must measure what actually gets injected, and must not
+        #   fail-open by skipping unparseable files (that would exempt 19 of 23 skills).
+        # The extractor mirrors YAML scalar semantics: plain (single line + continuations),
+        # folded > (line breaks fold to spaces, blank line = newline), literal | (line breaks
+        # kept), block indent stripped, clip chomping keeps one trailing newline.
+        run: |
+          ERRORS=0
+          for skill_file in plugins/*/skills/*/SKILL.md .claude/skills/*/SKILL.md; do
+            [ -f "$skill_file" ] || continue
+            DIR_NAME=$(basename "$(dirname "$skill_file")")
+            if echo "$DIR_NAME" | grep -q "\-shared$"; then
+              echo "SKIP: $skill_file (shared resource, not a skill)"
+              continue
+            fi
+
+            LEN=$(python3 - "$skill_file" <<'PYEOF'
+          import sys
+          lines = [l.rstrip('\r') for l in open(sys.argv[1], encoding='utf-8-sig').read().split('\n')]
+          fm = []
+          if lines and lines[0].strip() == '---':
+              for l in lines[1:]:
+                  if l.strip() == '---':
+                      break
+                  fm.append(l)
+          idx = next((i for i, l in enumerate(fm) if l.startswith('description:')), None)
+          if idx is None:
+              print(0)
+              sys.exit(0)
+          head = fm[idx][len('description:'):].strip()
+          body = []
+          for l in fm[idx + 1:]:
+              if l.strip() and not l.startswith(' '):
+                  break
+              body.append(l)
+          while body and not body[-1].strip():
+              body.pop()
+          if head in ('|', '|-', '|+', '>', '>-', '>+'):
+              ind = min((len(l) - len(l.lstrip(' ')) for l in body if l.strip()), default=0)
+              rows = [l[ind:] for l in body]
+              if head[0] == '|':
+                  val = '\n'.join(rows)
+              else:
+                  val = ''
+                  for r in rows:
+                      if not r.strip():
+                          val += '\n'
+                      elif val and not val.endswith('\n'):
+                          val += ' ' + r
+                      else:
+                          val += r
+              if head in ('|', '>'):
+                  val += '\n'
+          else:
+              val = head
+              for l in body:
+                  if l.strip():
+                      val += ' ' + l.strip()
+              if len(val) > 1 and val[0] == val[-1] and val[0] in ('"', "'"):
+                  val = val[1:-1]
+          print(len(val))
+          PYEOF
+          )
+            if [ "$LEN" -eq 0 ]; then
+              # No legitimate description is 0 chars (empty / missing key). The sibling
+              # "Validate SKILL.md frontmatter" step only globs plugins/*/skills/*, so this
+              # is the only guard covering .claude/skills/* for a missing description.
+              # (Extractor failure aborts earlier: LEN=$(...) fails under set -e, fail-closed.)
+              echo "ERROR: $skill_file — empty or missing frontmatter description"
+              ERRORS=$((ERRORS + 1))
+            elif [ "$LEN" -gt 1536 ]; then
+              echo "ERROR: $skill_file description = $LEN chars (> 1536 — Claude Code truncates injected descriptions at 1536)"
+              ERRORS=$((ERRORS + 1))
+            elif [ "$LEN" -ge 1490 ]; then
+              echo "::warning::$skill_file description = $LEN chars (>= 1490 WARN threshold; hard limit 1536)"
+            else
+              echo "OK: $skill_file ($LEN chars)"
+            fi
+          done
+          [ $ERRORS -gt 0 ] && exit 1
+          echo "All SKILL.md descriptions within the 1536-char limit"
+
       - name: Validate directory structure
         run: |
           ERRORS=0
