@@ -5,6 +5,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- **`learn-kit` `3.2.0 → 3.2.1`** — skill `description` 长度修复。Claude Code 将 skill description 注入 system prompt 并在 **1536 Unicode 字符**处截断（本仓实证 2026-06-12；官方文档无记载）：`glossary` 1544 字符**实际已被截断**——丢的恰是尾部 `(use /learn-kit:three-views)` routing clause（3-skill 同居路由主 mitigation per `[ADR]_LearnKit_Explanation_Skills_Addition`），精简至 **1450**；`three-views` 预防性精简 **1504 → 1289**（原余量仅 32）。两者零语义变化——全部 trigger phrases + `Do not use for` routing clause 逐字保留。版本五站点 sync（plugin.json / marketplace.json plugins[] / 根 README 表 / plugin CLAUDE.md / 根 CLAUDE.md）；详见 `plugins/learn-kit/CHANGELOG.md` `[3.2.1]`。
+
 ## [6.3.0] - 2026-06-07
 
 ### Added

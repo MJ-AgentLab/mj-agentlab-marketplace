@@ -18,7 +18,7 @@ learn-kit 是一个通用 Claude Code 插件，提供把"用户想学的主题"�
 
 ```
 plugins/learn-kit/
-├── .claude-plugin/plugin.json    # version 3.2.0
+├── .claude-plugin/plugin.json    # version 3.2.1
 ├── .mcp.json                     # 注册 notebooklm-mcp server (NLM 部分需要)
 ├── CLAUDE.md                     # 本文件
 ├── README.md                     # 用户指南
