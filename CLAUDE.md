@@ -71,6 +71,18 @@
 - **`agents/openai.yaml` 一律省略 `dependencies.tools`**：该 schema 无 optional 语义，而 NotebookLM 是 opt-in；MCP server 改由 native manifest 的 `mcpServers` 聚合。
 - **baseline 版本语义**：Codex / uv / bridge / connector 精确 pin（供应链输入）；**Claude Code CLI 为最小版本 `>=`**（外部滚动发布的宿主二进制，不进 wheel/lock，精确 pin 会因上游自动更新而无谓红 CI）。
 
+### NLM bridge 锁（`plugins/learn-kit/nlm-bridge/`，NLM 可选分支专用）
+
+learn-kit 的 NLM 分支经本仓 `learn-kit-nlm-bridge` 4.0.0 连接固定版本上游 `notebooklm-mcp-cli==0.8.7`。两份 lock 由**唯一生成入口** [`scripts/generate-nlm-contract.mjs`](scripts/generate-nlm-contract.mjs) 产出，禁止手改（手改会使 hash 集不再对应任何 resolver 真实产物，`--require-hashes` 的保证随之落空）：
+
+- `requirements/notebooklm-mcp-cli-0.8.7-py312.lock.txt` — connector 完整 runtime closure（77 包 / 850 hash），**不含 bridge wheel 自身**
+- `constraints/build-hatchling-1.27.0-py312.txt` — 构建期 hatchling closure（5 包），与 runtime closure 严格分离，绝不装进 runtime env
+- `npm run generate:nlm-locks` 重新生成；`npm run check:nlm-locks-generated` 在 CI 做 byte-compare（漂移即 exit 1）
+
+**cutoff = `2026-07-16T00:00:00Z`**（固定过去时刻，冻结传递闭包）。计划原文写 `2026-07-15T00:00:00Z`，该值**不可用** —— PyPI 于 `2026-07-15T01:31:19.945Z` 发布 0.8.7，比 cutoff 晚 91 分钟，会把本仓 pin 的这一版本本身过滤掉导致解析失败。
+
+`pyproject.toml` **不声明任何 `[project.scripts]`**：上游已占用 `nlm` / `notebooklm-mcp` 两个 console script 名，若本包再声明同名 entry point，同一 venv 内两个 distribution 争抢、由安装顺序决定胜者。公开的 `learn-kit-nlm-bridge` 与受限 `nlm` 只能由 installer 创建为直指 module 的受控 shim，不参与 wheel entry-point 解析。
+
 ## Documentation Framework (v4.2.0 起；当前 v1.7 / marketplace v6.3.2)
 
 marketplace 文档体系遵循以下三层 STANDARD（位于 `docs/rule/`）:
