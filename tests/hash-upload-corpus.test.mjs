@@ -163,16 +163,43 @@ test("manifest and sentinel reference each other", () => {
   assert.equal(sentinel.manifest_sha256, r.manifest_sha256, "sentinel -> manifest");
 });
 
-test("stage rejects a duplicate tier", () => {
+test("stage rejects a duplicate tier by the guard, not by an incidental filesystem error", () => {
+  // Two entries for one tier would collide on the same <tier>.md target, so an exclusive-create
+  // EPERM/EEXIST would ALSO throw — and the test would pass without the guard existing. Assert
+  // the guard's own message so it cannot pass for the wrong reason.
   const out = track(makeOutput());
-  assert.throws(() =>
-    stageCorpus({ root: out, entries: [{ tier: "foundation", file: "foundation.md" }, { tier: "foundation", file: "foundation.md" }] }),
+  assert.throws(
+    () =>
+      stageCorpus({
+        root: out,
+        entries: [{ tier: "foundation", file: "foundation.md" }, { tier: "foundation", file: "foundation.md" }],
+      }),
+    /duplicate tier: foundation/,
+  );
+  // Same tier via two DIFFERENT source files: no filesystem collision is possible here, so only
+  // the duplicate guard can reject it.
+  fs.writeFileSync(path.join(out, "other.md"), "# other\n");
+  assert.throws(
+    () =>
+      stageCorpus({
+        root: out,
+        entries: [{ tier: "foundation", file: "foundation.md" }, { tier: "foundation", file: "other.md" }],
+      }),
+    /duplicate tier: foundation/,
   );
 });
 
 test("stage rejects an unknown tier", () => {
   const out = track(makeOutput());
+  assert.throws(() => stageCorpus({ root: out, entries: [{ tier: "advanced", file: "foundation.md" }] }), /unknown tier "advanced"/);
+});
+
+test("stage validates tiers before creating any staging root", () => {
+  const out = track(makeOutput());
+  const before = fs.readdirSync(fs.realpathSync(os.tmpdir())).filter((n) => n.startsWith("learn-kit-upload-"));
   assert.throws(() => stageCorpus({ root: out, entries: [{ tier: "advanced", file: "foundation.md" }] }));
+  const after = fs.readdirSync(fs.realpathSync(os.tmpdir())).filter((n) => n.startsWith("learn-kit-upload-"));
+  assert.deepEqual(after, before, "argument validation must not leave a staging root behind");
 });
 
 test("stage rejects a non-.md file", () => {
@@ -208,14 +235,50 @@ test("stage rejects a symlink pointing outside --root", (t) => {
   assert.throws(() => stageCorpus({ root: out, entries: [{ tier: "foundation", file: "linked.md" }] }), /outside --root/);
 });
 
-test("stage leaves no staging root behind when it fails midway", () => {
+test("stage leaves no staging root behind when it fails AFTER the root is created", () => {
+  // A missing file is rejected during pre-resolution, before mkdtemp — so that case never
+  // exercises the try/catch cleanup handler at all. To reach it, the failure must happen while
+  // copying: make the second source vanish between resolution and read.
+  const out = track(makeOutput({ foundation: "# f\n", structural: "# s\n" }));
+  const before = fs.readdirSync(fs.realpathSync(os.tmpdir())).filter((n) => n.startsWith("learn-kit-upload-"));
+
+  const realRead = fs.readFileSync;
+  let calls = 0;
+  fs.readFileSync = function (p, ...rest) {
+    // Fail on the SECOND staged copy, i.e. after mkdtemp has already created the root.
+    if (typeof p === "string" && p.endsWith("structural.md") && ++calls >= 1) {
+      const e = new Error("ENOENT: simulated disappearance");
+      e.code = "ENOENT";
+      throw e;
+    }
+    return realRead.call(this, p, ...rest);
+  };
+  try {
+    assert.throws(
+      () =>
+        stageCorpus({
+          root: out,
+          entries: [{ tier: "foundation", file: "foundation.md" }, { tier: "structural", file: "structural.md" }],
+        }),
+      /cannot read/,
+      "must fail during the copy phase, i.e. after mkdtemp",
+    );
+  } finally {
+    fs.readFileSync = realRead;
+  }
+
+  const after = fs.readdirSync(fs.realpathSync(os.tmpdir())).filter((n) => n.startsWith("learn-kit-upload-"));
+  assert.deepEqual(after, before, "the cleanup handler must remove the half-built staging root");
+});
+
+test("stage rejects a missing file before creating a staging root", () => {
   const out = track(makeOutput({ foundation: "# f\n" }));
   const before = fs.readdirSync(fs.realpathSync(os.tmpdir())).filter((n) => n.startsWith("learn-kit-upload-"));
   assert.throws(() =>
     stageCorpus({ root: out, entries: [{ tier: "foundation", file: "foundation.md" }, { tier: "structural", file: "missing.md" }] }),
   );
   const after = fs.readdirSync(fs.realpathSync(os.tmpdir())).filter((n) => n.startsWith("learn-kit-upload-"));
-  assert.deepEqual(after, before, "no orphaned staging root");
+  assert.deepEqual(after, before, "no staging root should ever have been created");
 });
 
 // -------------------------------------------------------------------- verify
@@ -247,6 +310,75 @@ test("verify fails when a staged byte changes after staging", () => {
       }),
     /content drift|byte-length drift/,
   );
+});
+
+test("verify detects a SAME-LENGTH content change (not just a length change)", () => {
+  // A length-only check would pass this. Only the per-file sha256 comparison catches it, so
+  // without this case that comparison is unproven.
+  const out = track(makeOutput({ foundation: "# aaaa\n" }));
+  const r = stage(out, ["foundation"]);
+  const staged = r.files[0].staged_path;
+  fs.chmodSync(staged, 0o644);
+  fs.writeFileSync(staged, "# bbbb\n"); // identical byte length
+  assert.equal(fs.statSync(staged).size, r.files[0].bytes, "precondition: length is unchanged");
+  assert.throws(
+    () =>
+      verifyManifest({
+        manifestPath: r.manifest_path,
+        expectedManifestSha256: r.manifest_sha256,
+        expectedCorpusSha256: r.corpus_sha256,
+      }),
+    /content drift/,
+  );
+});
+
+test("verify enforces the sentinel nonce cross-check on READ, not just on write", () => {
+  const out = track(makeOutput());
+  const r = stage(out, ["foundation"]);
+  const root = path.dirname(r.manifest_path);
+  const sentinelPath = path.join(root, "ownership-sentinel.json");
+  const s = JSON.parse(fs.readFileSync(sentinelPath, "utf8"));
+  s.nonce = "f".repeat(32); // manifest still names the original nonce
+  fs.writeFileSync(sentinelPath, canonicalJson(s));
+  assert.throws(
+    () =>
+      verifyManifest({
+        manifestPath: r.manifest_path,
+        expectedManifestSha256: r.manifest_sha256,
+        expectedCorpusSha256: r.corpus_sha256,
+      }),
+    /sentinel nonce does not match/,
+  );
+});
+
+test("loadStaging rejects a wrong format version and an empty file list", () => {
+  const out = track(makeOutput());
+  const r = stage(out, ["foundation"]);
+  const root = path.dirname(r.manifest_path);
+
+  const rewrite = (mutate) => {
+    const m = JSON.parse(fs.readFileSync(path.join(root, "manifest.json"), "utf8"));
+    mutate(m);
+    const sha = crypto.createHash("sha256").update(canonicalJson(m)).digest("hex");
+    fs.writeFileSync(path.join(root, "manifest.json"), canonicalJson(m));
+    // Keep the sentinel consistent so the format/empty rule is what fires, not the hash rule.
+    fs.writeFileSync(
+      path.join(root, "ownership-sentinel.json"),
+      canonicalJson({ format: 1, nonce: m.sentinel_nonce, manifest_sha256: sha }),
+    );
+    return sha;
+  };
+
+  let sha = rewrite((m) => {
+    m.format = 99;
+  });
+  assert.throws(() => verifyManifest({ manifestPath: r.manifest_path, expectedManifestSha256: sha, expectedCorpusSha256: r.corpus_sha256 }), /unsupported manifest format/);
+
+  sha = rewrite((m) => {
+    m.format = 1;
+    m.files = [];
+  });
+  assert.throws(() => verifyManifest({ manifestPath: r.manifest_path, expectedManifestSha256: sha, expectedCorpusSha256: r.corpus_sha256 }), /manifest has no files/);
 });
 
 test("verify fails on an expected-hash mismatch", () => {
@@ -307,6 +439,74 @@ test("cleanup refuses an arbitrary directory", () => {
   assert.ok(fs.existsSync(elsewhere), "must not delete a non-staging directory");
 });
 
+// assertStagingRoot has three independent rules; each is the sole guard on the only destructive
+// code path in the helper, so each needs its own case.
+test("cleanup refuses a learn-kit-upload-* directory OUTSIDE the OS temp dir", () => {
+  // Correct name, wrong location: only the "inside os.tmpdir()" rule can reject this.
+  const outsideParent = track(fs.mkdtempSync(path.join(fs.realpathSync(process.cwd()), "outside-tmp-")));
+  const forged = path.join(outsideParent, "learn-kit-upload-forged");
+  fs.mkdirSync(forged);
+  fs.writeFileSync(path.join(forged, "manifest.json"), canonicalJson({ format: 1, files: [] }));
+  assert.throws(
+    () => cleanupManifest({ manifestPath: path.join(forged, "manifest.json"), expectedManifestSha256: "0".repeat(64) }),
+    /not inside the OS temp dir/,
+  );
+  assert.ok(fs.existsSync(forged), "must not delete a directory outside OS temp");
+});
+
+test("cleanup refuses a nested learn-kit-upload-* directory", () => {
+  // Correct name, inside temp, but not a DIRECT child: only the depth rule rejects this.
+  const parent = track(fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()), "nest-")));
+  const nested = path.join(parent, "learn-kit-upload-nested");
+  fs.mkdirSync(nested);
+  fs.writeFileSync(path.join(nested, "manifest.json"), canonicalJson({ format: 1, files: [] }));
+  assert.throws(
+    () => cleanupManifest({ manifestPath: path.join(nested, "manifest.json"), expectedManifestSha256: "0".repeat(64) }),
+    /directly under the OS temp dir/,
+  );
+  assert.ok(fs.existsSync(nested), "must not delete a nested directory");
+});
+
+test("verify binds the manifest to the directory it is read from (a copied root is rejected)", () => {
+  // Copying a staging root leaves manifest bytes — and thus manifest_sha256 and the sentinel —
+  // perfectly valid, so hash checks alone cannot notice the recorded paths now describe a
+  // DIFFERENT directory. Without the staging_root binding, verify reads one set of files while
+  // reporting another.
+  const out = track(makeOutput({ foundation: "# REAL\n" }));
+  const r = stage(out, ["foundation"]);
+  const clone = track(fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()), "learn-kit-upload-")));
+  for (const f of fs.readdirSync(path.dirname(r.manifest_path))) {
+    fs.copyFileSync(path.join(path.dirname(r.manifest_path), f), path.join(clone, f));
+  }
+  assert.throws(
+    () =>
+      verifyManifest({
+        manifestPath: path.join(clone, "manifest.json"),
+        expectedManifestSha256: r.manifest_sha256,
+        expectedCorpusSha256: r.corpus_sha256,
+      }),
+    /was staged in .* but loaded from/,
+  );
+});
+
+test("verify reports only paths it actually read", () => {
+  const out = track(makeOutput());
+  const r = stage(out, ["foundation", "structural"]);
+  const v = verifyManifest({
+    manifestPath: r.manifest_path,
+    expectedManifestSha256: r.manifest_sha256,
+    expectedCorpusSha256: r.corpus_sha256,
+  });
+  for (const f of v.files) {
+    const real = fs.realpathSync(f.staged_path);
+    assert.equal(
+      crypto.createHash("sha256").update(fs.readFileSync(real)).digest("hex"),
+      f.sha256,
+      `${f.tier}: the reported staged_path must hold the reported hash`,
+    );
+  }
+});
+
 // ----------------------------------------------------------------- preflight
 test("preflight fails closed when no bridge is installed", () => {
   const r = nlmPreflight({ env: { LOCALAPPDATA: path.join(os.tmpdir(), "nonexistent-" + Date.now()), HOME: "/nonexistent" } });
@@ -320,9 +520,28 @@ test("preflight fails closed on an old Node even before touching the filesystem"
   assert.equal(r.reason, "NODE_TOO_OLD");
 });
 
-test("preflight never returns ok while contract verification is unimplemented", () => {
-  // Guards the increment boundary: it must not report a pass it cannot substantiate.
+test("preflight fails closed even when a bridge shim IS present", () => {
+  // This is the ONLY branch that can fail open, and it is unreachable on a host with no bridge
+  // installed — i.e. every host today. Calling nlmPreflight() bare exits early at
+  // NLM_BRIDGE_NOT_INSTALLED and never executes the shim-present return, so injecting a fake
+  // shim is the only way to put test pressure on the increment boundary.
+  const bin = track(fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()), "fake-bin-")));
+  const shimDir = process.platform === "win32" ? path.join(bin, "MJ-AgentLab", "bin") : bin;
+  fs.mkdirSync(shimDir, { recursive: true });
+  fs.writeFileSync(
+    path.join(shimDir, process.platform === "win32" ? "learn-kit-nlm-bridge.cmd" : "learn-kit-nlm-bridge"),
+    "#!/bin/sh\nexit 0\n",
+  );
+  const env = process.platform === "win32" ? { LOCALAPPDATA: bin } : { XDG_BIN_HOME: bin };
+  const r = nlmPreflight({ env });
+  assert.equal(r.reason, "CONTRACT_VERIFICATION_UNAVAILABLE", "must reach the shim-present branch");
+  assert.equal(r.ok, false, "must not report a pass it cannot substantiate");
+});
+
+test("preflight never returns ok on any reachable branch", () => {
   assert.equal(nlmPreflight().ok, false);
+  assert.equal(nlmPreflight({ nodeVersion: "v21.0.0" }).ok, false);
+  assert.equal(nlmPreflight({ env: { LOCALAPPDATA: "/nonexistent", HOME: "/nonexistent" } }).ok, false);
 });
 
 // ---------------------------------------------------------------------- CLI
@@ -332,18 +551,42 @@ test("CLI exit codes: modes are mutually exclusive", () => {
 });
 
 test("CLI exit codes: missing / unknown arguments are exit 2", () => {
-  assert.equal(main([]), 2);
-  assert.equal(main(["--bogus"]), 2);
+  assert.equal(main([]), 2, "no mode");
+  assert.equal(main(["--bogus"]), 2, "unknown arg with no mode");
+  assert.equal(main(["--self-check", "--bogus"]), 2, "unknown arg WITH a valid mode present");
   assert.equal(main(["--stage"]), 2, "--stage without --root");
   assert.equal(main(["--stage", "--root"]), 2, "--root without a value");
-  assert.equal(main(["--stage", "--root", ".", "--entry", "foundation"]), 2, "--entry without =");
+  // A real root, so the ONLY defect is the malformed --entry.
+  const out = track(makeOutput());
+  assert.equal(main(["--stage", "--root", out, "--entry", "foundation"]), 2, "--entry without =");
+  assert.equal(main(["--stage", "--root", out, "--entry", "=x.md"]), 2, "--entry with an empty tier");
+  assert.equal(main(["--stage", "--root", out]), 2, "--stage with no --entry at all");
+  // Sanity: the same shape WITH a well-formed entry succeeds, proving the above fail on the
+  // entry parsing rather than on something earlier.
+  assert.equal(main(["--stage", "--root", out, "--entry", "foundation=foundation.md"]), 0);
+  for (const n of fs.readdirSync(fs.realpathSync(os.tmpdir()))) {
+    if (n.startsWith("learn-kit-upload-")) track(path.join(fs.realpathSync(os.tmpdir()), n));
+  }
 });
 
-test("CLI exit codes: a non-hex expected hash is exit 2", () => {
-  assert.equal(main(["--verify-manifest", "x", "--expected-manifest-sha256", "nope", "--expected-corpus-sha256", "0".repeat(64)]), 2);
-  assert.equal(main(["--verify-manifest", "x", "--expected-manifest-sha256", "0".repeat(64), "--expected-corpus-sha256", "NOPE"]), 2);
+test("CLI exit codes: a non-hex expected hash is exit 2 — proven against a REAL manifest", () => {
+  // Passing a bogus manifest path ("x") makes these pass whether or not isHex64 exists, because
+  // the unsafe-path guard also returns 2. Use a real staged manifest so the ONLY thing that can
+  // produce exit 2 is the hex validation itself.
+  const out = track(makeOutput());
+  const r = stage(out, ["foundation"]);
+  const good = r.manifest_sha256;
+
+  assert.equal(main(["--verify-manifest", r.manifest_path, "--expected-manifest-sha256", "nope", "--expected-corpus-sha256", r.corpus_sha256]), 2);
+  assert.equal(main(["--verify-manifest", r.manifest_path, "--expected-manifest-sha256", good, "--expected-corpus-sha256", "NOPE"]), 2);
   // Uppercase hex is not canonical.
-  assert.equal(main(["--cleanup-manifest", "x", "--expected-manifest-sha256", "A".repeat(64)]), 2);
+  assert.equal(main(["--cleanup-manifest", r.manifest_path, "--expected-manifest-sha256", good.toUpperCase()]), 2);
+  // 63 and 65 chars must both fail.
+  assert.equal(main(["--cleanup-manifest", r.manifest_path, "--expected-manifest-sha256", "a".repeat(63)]), 2);
+  assert.equal(main(["--cleanup-manifest", r.manifest_path, "--expected-manifest-sha256", "a".repeat(65)]), 2);
+  // Sanity: the same call with a well-formed hash gets PAST validation (and fails on mismatch).
+  assert.equal(main(["--cleanup-manifest", r.manifest_path, "--expected-manifest-sha256", "a".repeat(64)]), 1);
+  assert.ok(fs.existsSync(path.dirname(r.manifest_path)), "the mismatching cleanup must not have deleted anything");
 });
 
 test("CLI exit codes: an unsafe path is exit 2, a verification failure is exit 1", () => {

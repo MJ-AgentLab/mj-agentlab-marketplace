@@ -247,6 +247,16 @@ function loadStaging(manifestPath) {
   if (sentinel.manifest_sha256 !== actualManifestSha) {
     throw new SafetyError("sentinel does not match the manifest content");
   }
+
+  // Bind the manifest to the directory it is actually being read from. Copying a staging root
+  // leaves the manifest bytes — and therefore manifest_sha256 and the sentinel — perfectly
+  // valid, so hash checks alone cannot notice that every recorded path now describes a DIFFERENT
+  // directory. Without this, verify could read one set of files while reporting another.
+  if (typeof manifest.staging_root !== "string") throw new SafetyError("manifest has no staging_root");
+  const recordedRootReal = realpathOrThrow(manifest.staging_root, "manifest.staging_root");
+  if (recordedRootReal !== stagingRoot) {
+    throw new SafetyError(`manifest was staged in ${recordedRootReal} but loaded from ${stagingRoot}`);
+  }
   return { stagingRoot, manifestReal, manifest, sentinel, actualManifestSha };
 }
 
@@ -260,9 +270,13 @@ export function verifyManifest({ manifestPath, expectedManifestSha256, expectedC
   // Re-read every staged file: the point is to detect a change since staging.
   const files = [];
   for (const f of manifest.files) {
-    const staged = path.resolve(stagingRoot, path.basename(f.staged_path));
-    const real = realpathOrThrow(staged, `staged file ${f.tier}`);
+    if (typeof f.staged_path !== "string") throw new SafetyError(`file entry ${f.tier} has no staged_path`);
+    // Resolve the RECORDED path, not a basename re-derived from it. The caller uploads from the
+    // staged_path this function returns, so the path read+hashed here and the path reported back
+    // must be the same file — otherwise verify blesses bytes it never looked at.
+    const real = realpathOrThrow(f.staged_path, `staged file ${f.tier}`);
     if (!isContained(stagingRoot, real)) throw new SafetyError(`staged file escapes the staging root: ${real}`);
+    if (path.dirname(real) !== stagingRoot) throw new SafetyError(`staged file is not directly in the staging root: ${real}`);
     let buf;
     try {
       buf = fs.readFileSync(real);
@@ -272,7 +286,8 @@ export function verifyManifest({ manifestPath, expectedManifestSha256, expectedC
     if (buf.length !== f.bytes) throw new RuntimeError(`byte-length drift for ${f.tier}: ${buf.length} != ${f.bytes}`);
     const h = sha256(buf);
     if (h !== f.sha256) throw new RuntimeError(`content drift for ${f.tier}: ${h} != ${f.sha256}`);
-    files.push({ tier: f.tier, original_path: f.original_path, staged_path: f.staged_path, bytes: f.bytes, sha256: h });
+    // Report the path that was actually read, resolved — never echo back an unverified string.
+    files.push({ tier: f.tier, original_path: f.original_path, staged_path: toPosix(real), bytes: f.bytes, sha256: h });
   }
 
   const actualCorpus = corpusHash(files);

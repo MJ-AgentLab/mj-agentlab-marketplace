@@ -69,7 +69,9 @@ marketplace 目前只声明 Claude Code 的 plugin 契约（`.claude-plugin/mark
 
 ### §2.2 能力收窄：正负两半必须用不同方式判定
 
-`three-views` 的 NotebookLM 预授权由 9 个 MCP tool 收窄为 6；`refresh_auth`（会校验默认 profile、可能触发 headless auth）、`server_info`（远端探测）、`source_delete`（不需要的破坏性能力）有意排除。
+`three-views` 的 NotebookLM 预授权由 **8** 个 MCP tool 收窄为 **6**：删除 `refresh_auth`（会校验默认 profile、可能触发 headless auth）与 `server_info`（远端探测）。
+
+`source_delete` **本来就不在** develop 的预授权里，因此本次**不涉及**删除它；它的意义在 **bridge 层**——bridge 的 public tool surface 只暴露这 6 个，`source_delete`（不需要的破坏性能力）与 `server_info` 都不进入该 surface（计划 §2.3.1）。validator 仍把三者一并列入 denylist，作为**回归防护**而非既成事实的记述。
 
 实现上把契约拆成两半，**因为两者的可知方式不同**：
 
@@ -84,9 +86,9 @@ marketplace 目前只声明 Claude Code 的 plugin 契约（`.claude-plugin/mark
 
 - Codex 支持不再依赖上游保留 legacy 兼容路径。
 - description 的两处真实缺陷被修掉（§5）。
-- 能力面收窄：`refresh_auth` / `server_info` / `source_delete` 不再预授权。
+- 能力面收窄：`refresh_auth` / `server_info` 不再预授权（`source_delete` 本就不在，见 §2.2）。
 - 宿主不再能直接启动第三方 connector——`.mcp.json` 只指向本仓 bridge。
-- 一致性有 104 个测试 + CI 强制，不是文档承诺。
+- 一致性由测试 + CI 强制，不是文档承诺。（具体数字随增量变化，故此处不写死；以 `npm test` 为准。）
 
 **Negative**
 
@@ -109,10 +111,18 @@ marketplace 目前只声明 Claude Code 的 plugin 契约（`.claude-plugin/mark
 
 ## §5 Implementation Notes
 
-四份 description 按计划 Appendix A 替换，**逐字节**核对。这不是润色：
+四份 description 按计划 Appendix A 替换，**逐字节**核对。这不是润色——但**缺陷在 Codex 侧，不在 Claude 侧**。实测 `origin/develop` baseline：
 
-- `glossary` 原文 **1544** 字符，而 Claude Code 在 **1536** 处截断注入的 description——其尾部 routing clause 事实上**已经**丢失（learn-kit 3.2.1 曾修过同类问题，此处是复发）。
-- 四份原文均含 `<topic>` / `<X>` 等角括号，Codex 自带的 `skill-creator/scripts/quick_validate.py` **拒绝**解析后 description 含 `<` / `>`。
+| skill | 字符数 | > 1536（Claude 截断） | > 1024（Codex 截断） | 角括号 |
+|---|---:|---|---|---:|
+| three-views | 1290 | 否 | **是** | 14 |
+| glossary | 1451 | 否 | **是** | 0 |
+| concept | 1461 | 否 | **是** | 0 |
+| arch-diagram | 1197 | 否 | **是** | 4 |
+
+- **四份全部 > 1024**，因此在 Codex 给模型的初始技能列表中被截断——这是**触发正确性**缺陷，不只是清 warning（计划 §1 fact 4 即此结论）。
+- **两份**（three-views / arch-diagram）含 `<topic>` / `<X>` 等角括号，Codex 自带的 `skill-creator/scripts/quick_validate.py` **拒绝**解析后 description 含 `<` / `>`。glossary 与 concept 不含。
+- **Claude 1536 门当前未被触碰**：四份都在 1536 以下。`glossary` 曾达 1544 并确实丢过尾部 routing clause，但那是 **v6.3.1（2026-06-15）已修复的历史**（learn-kit `3.2.0 → 3.2.1`，见根 CLAUDE.md 该版本条目），**不是**本次要修的现状。起草本 ADR 时曾把该历史误述为现状，此处更正。
 
 现四份为 664–882 字符、无角括号，同时满足 Claude 1536 与 Codex 1024 两门（本仓按更严的交集撰写）。
 
@@ -122,7 +132,7 @@ marketplace 目前只声明 Claude Code 的 plugin 契约（`.claude-plugin/mark
 - [x] `npm test` 全绿，每条规则均有 negative case
 - [x] 四份 description 与 Appendix A 逐字节一致，且同时通过两门
 - [x] `claude plugin validate --strict .` → exit 0 无 warning（新增 native 文件不影响 Claude 侧）
-- [x] `three-views` 预授权恰好 6 个 MCP tool，无 `refresh_auth` / `server_info` / `source_delete`、无裸/通配 `Bash`、无 installer
+- [x] `three-views` 预授权恰好 6 个 MCP tool（由 8 收窄），无 `refresh_auth` / `server_info` / `source_delete`、无裸/通配 `Bash`、无 installer
 - [ ] 三模式隔离 Codex smoke（dual / native-only / legacy-only）—— 待 `smoke-codex-plugin.mjs`
 - [ ] `--host-neutral error` → 0 error —— PR2 目标，当前 7 warning 即其输入
 

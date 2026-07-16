@@ -66,8 +66,8 @@
 
 - **双 manifest 一致性**：`name` / `version` / `author` / `repository` / `license` / `skills` 必须精确一致；native `keywords` 是 legacy 的非空子集；native `description` **有意**更短且宿主中性，不要求逐字一致。
 - **Codex 限定值域**：`.codex-plugin` 的 `interface.defaultPrompt` 最多 3 条 × 128 字符 string array；`openai.yaml` 的 `interface.default_prompt` 是 **scalar**。两层都必须使用 **qualified 名** `$learn-kit:three-views` / `$diagram-kit:arch-diagram` —— Codex 把 plugin skill 注册为 `plugin:skill` 且 `$` 注入按完整名精确匹配，裸 `$three-views` **永不解析**。
-- **description 双门**：Claude Code 在 **1536** 字符处截断注入的 description；Codex 自带 skill validator 拒绝 `<` / `>` 且上限 **1024**。本仓按更严的交集撰写（当前四份 664–882 字符，无角括号）。
-- **能力收窄**（仅约束声明了 MCP 工具的 skill，即 `three-views`）：只预授权 6 个 NotebookLM 业务工具；`refresh_auth`（会校验默认 profile / 可能触发 headless auth）、`server_info`（远端探测）、`source_delete`（不需要的破坏性能力）**有意排除**；不得预授权通用 `Bash`（含 `Bash(*)` 等通配授权）或 installer，只允许 scoped hash-helper 权限。`arch-diagram` 不声明 MCP 工具，其裸 `Bash`（用于跑 bundled Python validator）**不受此约束**。
+- **description 双门**：Claude Code 在 **1536** 字符处截断注入的 description；Codex 自带 skill validator 拒绝 `<` / `>` 且上限 **1024**。本仓按更严的交集撰写（当前四份 664–882 字符，无角括号）。dual-host 前四份为 1197–1461 字符——全部低于 Claude 1536 但**全部超过 Codex 1024**，故收紧的动因是 Codex 侧截断（触发正确性），不是 Claude 侧；`glossary` 曾达 1544 触发 Claude 截断，那是 **v6.3.1 已修复的历史**（见下方版本记录），非 dual-host 的动因。
+- **能力收窄**（仅约束声明了 MCP 工具的 skill，即 `three-views`）：只预授权 6 个 NotebookLM 业务工具（由 8 收窄，删 `refresh_auth`〔会校验默认 profile / 可能触发 headless auth〕与 `server_info`〔远端探测〕）；`source_delete`（不需要的破坏性能力）本就不在预授权内，其排除意义在 **bridge public surface** 而非本次删除。三者同列 validator denylist 作回归防护。不得预授权通用 `Bash`（含 `Bash(*)` 等通配授权——它比裸 `Bash` **更宽**却不含字面 token，故检查必须是 allowlist）或 installer，只允许 scoped hash-helper 权限。`arch-diagram` 不声明 MCP 工具，其裸 `Bash`（用于跑 bundled Python validator）**不受此约束**。
 - **`agents/openai.yaml` 一律省略 `dependencies.tools`**：该 schema 无 optional 语义，而 NotebookLM 是 opt-in；MCP server 改由 native manifest 的 `mcpServers` 聚合。
 - **baseline 版本语义**：Codex / uv / bridge / connector 精确 pin（供应链输入）；**Claude Code CLI 为最小版本 `>=`**（外部滚动发布的宿主二进制，不进 wheel/lock，精确 pin 会因上游自动更新而无谓红 CI）。
 
