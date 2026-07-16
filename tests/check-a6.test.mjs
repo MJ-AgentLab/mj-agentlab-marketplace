@@ -107,8 +107,10 @@ test("a trigger path containing a newline is still a trigger", () => {
 });
 
 test("trigger patterns anchor to end of input, not to a trailing newline", () => {
-  // "VERSION\n" is a different file from "VERSION". JS `$` without /m is strict about this;
-  // this test fails the moment someone adds the /m flag.
+  // "VERSION\n" is a different file from "VERSION"; matching it would over-classify. This
+  // exercises the /^VERSION$/ pattern specifically and fails if /m is added to it. Adding /m
+  // is fail-CLOSED (it only widens what matches), so it can never open the gate — but it would
+  // still wrongly flag a non-trigger path, which this pins for at least one pattern.
   assert.equal(isA6Trigger("VERSION\n"), false);
   assert.equal(isA6Trigger("\nVERSION"), false);
 });
@@ -339,17 +341,23 @@ test("a re-approval after CHANGES_REQUESTED restores the sign-off", () => {
   assert.equal(r.ok, true);
 });
 
-test("review recency follows submitted_at, not array position", () => {
-  // The GitHub API happens to return reviews chronologically, so every other recency test
-  // here would also pass under a naive "last element wins". evaluateA6 is an exported pure
-  // function: pin the ordering to what the timestamps say, not to where they sit.
+test("review recency follows submitted_at, not array position or id", () => {
+  // evaluateA6 is an exported pure function; its ordering must rest on submitted_at, not on an
+  // undocumented GitHub API habit of returning reviews chronologically. The APPROVED review is
+  // given a HIGHER id but an EARLIER timestamp than the CHANGES_REQUESTED that revoked it, and
+  // is listed LAST. So the correct verdict (block) is reached only by comparing timestamps:
+  //   - "last element wins"  -> APPROVED (last)      -> would pass   (wrong)
+  //   - "highest id wins"    -> APPROVED (id 5)      -> would pass   (wrong)
+  //   - "latest submitted_at"-> CHANGES_REQUESTED    -> blocks       (correct)
+  // GitHub review ids are monotonic per-repo, not per-PR, so id and submitted_at genuinely
+  // diverge across a force-push + re-review; this is not a contrived ordering.
   const r = evalWith({
     reviews: [
-      review({ id: 2, submitted_at: "2026-07-16T11:00:00Z", state: "CHANGES_REQUESTED", body: "wait" }),
-      review({ id: 1, submitted_at: "2026-07-16T10:00:00Z" }),
+      review({ id: 1, submitted_at: "2026-07-16T11:00:00Z", state: "CHANGES_REQUESTED", body: "wait" }),
+      review({ id: 5, submitted_at: "2026-07-16T10:00:00Z" }),
     ],
   });
-  assert.equal(r.ok, false, "the CHANGES_REQUESTED is later by timestamp despite being listed first");
+  assert.equal(r.ok, false, "the CHANGES_REQUESTED is latest by timestamp, so the sign-off is revoked");
 });
 
 test("review recency falls back to id when submitted_at ties", () => {

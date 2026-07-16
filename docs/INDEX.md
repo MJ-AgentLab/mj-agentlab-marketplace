@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-05-15
 updated: 2026-07-16
 state: active
-version: v6.3
+version: v6.4
 domain: governance
 tags:
   - index
