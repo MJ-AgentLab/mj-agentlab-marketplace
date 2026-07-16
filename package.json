@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "test": "node --test tests/validate-dual-host.test.mjs tests/run-cli.test.mjs",
+    "test": "node --test tests/validate-dual-host.test.mjs tests/run-cli.test.mjs tests/hash-upload-corpus.test.mjs",
     "check:baseline-tools": "node scripts/check-tool-versions.mjs --codex 0.144.3 --claude 2.1.210 --uv 0.11.21 --bridge 4.0.0 --nlm 0.8.7",
     "report:tool-versions": "node scripts/check-tool-versions.mjs --report-only",
     "validate:dual-host": "node scripts/validate-dual-host.mjs --root . --host-neutral warn"
