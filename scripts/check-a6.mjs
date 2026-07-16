@@ -52,7 +52,10 @@ const TRIGGERS = [
   /^plugins\/[^/]+\/\.codex-plugin\/plugin\.json$/,
   /^plugins\/[^/]+\/skills\/[^/]+\/agents\/openai\.yaml$/,
   /^plugins\/learn-kit\/\.mcp\.json$/,
-  /^plugins\/learn-kit\/nlm-bridge\/.+$/,
+  // [\s\S]+ rather than .+ — JS `.` never matches a newline, and a path may legally contain
+  // one. The -z plumbing above exists to carry such paths through intact; classifying with `.`
+  // would drop them right after parsing preserved them.
+  /^plugins\/learn-kit\/nlm-bridge\/[\s\S]+$/,
   /^plugins\/learn-kit\/scripts\/install-nlm-bridge\.mjs$/,
   /^scripts\/(generate-nlm-contract|probe-learn-kit-nlm-bridge|resolve-release-state)\.mjs$/,
 ];

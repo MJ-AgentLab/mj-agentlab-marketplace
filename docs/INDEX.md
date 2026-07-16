@@ -4,7 +4,7 @@ scope: marketplace
 summary: Marketplace documentation navigation hub — STANDARD / GUIDE / ADR / SPEC / RUNBOOK / archive / templates 索引
 owner: marketplace-maintainers
 created: 2026-05-15
-updated: 2026-06-02
+updated: 2026-07-16
 state: active
 version: v6.3
 domain: governance

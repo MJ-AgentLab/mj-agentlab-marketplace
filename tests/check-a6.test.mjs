@@ -98,6 +98,21 @@ test("isA6Trigger ignores non-allowlist paths", () => {
   }
 });
 
+test("a trigger path containing a newline is still a trigger", () => {
+  // -z parsing exists so that newline-bearing paths survive intact; classification must not
+  // undo that. A pattern built on `.` would silently drop these, since JS `.` never matches \n.
+  assert.equal(isA6Trigger("plugins/learn-kit/nlm-bridge/foo\nbar.py"), true);
+  assert.equal(isA6Trigger("plugins/we\nird/skills/three-views/SKILL.md"), true);
+  assert.equal(isA6Trigger("docs/rule/[STANDARD]_x\ny.md"), true);
+});
+
+test("trigger patterns anchor to end of input, not to a trailing newline", () => {
+  // "VERSION\n" is a different file from "VERSION". JS `$` without /m is strict about this;
+  // this test fails the moment someone adds the /m flag.
+  assert.equal(isA6Trigger("VERSION\n"), false);
+  assert.equal(isA6Trigger("\nVERSION"), false);
+});
+
 test("isA6Trigger is anchored — near-miss paths do not match", () => {
   for (const p of [
     "vendor/VERSION",
@@ -322,6 +337,19 @@ test("a re-approval after CHANGES_REQUESTED restores the sign-off", () => {
     ],
   });
   assert.equal(r.ok, true);
+});
+
+test("review recency follows submitted_at, not array position", () => {
+  // The GitHub API happens to return reviews chronologically, so every other recency test
+  // here would also pass under a naive "last element wins". evaluateA6 is an exported pure
+  // function: pin the ordering to what the timestamps say, not to where they sit.
+  const r = evalWith({
+    reviews: [
+      review({ id: 2, submitted_at: "2026-07-16T11:00:00Z", state: "CHANGES_REQUESTED", body: "wait" }),
+      review({ id: 1, submitted_at: "2026-07-16T10:00:00Z" }),
+    ],
+  });
+  assert.equal(r.ok, false, "the CHANGES_REQUESTED is later by timestamp despite being listed first");
 });
 
 test("review recency falls back to id when submitted_at ties", () => {
