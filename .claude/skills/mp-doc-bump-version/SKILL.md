@@ -1,15 +1,15 @@
 ---
 name: mp-doc-bump-version
-description: Bumps marketplace versions atomically across all version-bearing files — `VERSION`, `.claude-plugin/marketplace.json` (metadata.version + plugins[].version per plugin), `plugins/<name>/.claude-plugin/plugin.json` (version), `README.md` badge (line 3) + plugin table version cell, `CLAUDE.md` plugin line, and aligns CHANGELOG entries (top-level + per-plugin) by promoting `[Unreleased]` to `[X.Y.Z]` with date. Make sure to use this skill whenever the user says "bump version", "升版本", "版本号 bump", "marketplace patch / minor / major", "plugin bump", "version sync", "Stage 8 / release-prep version", "VERSION update", "bump marketplace", "bump learn-kit", "release prep", or when preparing a release PR (release/v<X.Y.Z>) or any change that warrants version increment per `[GUIDE]_Version_Management`. Calls `scripts/bump-version.ps1` if it exists (uses its semantics); otherwise performs the equivalent edits directly. Enforces version triangle invariants: `VERSION` ↔ `marketplace.json metadata.version` ↔ each `plugin.json version` ↔ `marketplace.json plugins[entry].version`. Outputs the proposed version transitions + ready commands; does NOT auto-execute — user reviews. Do not use for: tag creation (release.yml automates after PR merge to main), CHANGELOG content authoring (use the existing CHANGELOG semantics; this skill only structurally promotes [Unreleased] → [X.Y.Z]), or non-version metadata updates.
+description: Bumps marketplace versions atomically across all version-bearing files — `VERSION`, `.claude-plugin/marketplace.json` (metadata.version + plugins[].version per plugin), BOTH `plugins/<name>/.claude-plugin/plugin.json` and `.codex-plugin/plugin.json` (dual-host manifests must match), `README.md` badge (line 3) + plugin table version cell, `CLAUDE.md` plugin line, and aligns CHANGELOG entries (top-level + per-plugin) by promoting `[Unreleased]` to `[X.Y.Z]` with date. Make sure to use this skill whenever the user says "bump version", "升版本", "版本号 bump", "marketplace patch / minor / major", "plugin bump", "version sync", "Stage 8 / release-prep version", "VERSION update", "bump marketplace", "bump learn-kit", "release prep", or when preparing a release PR (release/v<X.Y.Z>) or any change that warrants version increment per `[GUIDE]_Version_Management`. Calls `scripts/bump-version.ps1` if it exists (uses its semantics); otherwise performs the equivalent edits directly. Enforces version triangle invariants: `VERSION` ↔ `marketplace.json metadata.version` ↔ each `plugin.json version` ↔ `marketplace.json plugins[entry].version`. Outputs the proposed version transitions + ready commands; does NOT auto-execute — user reviews. Do not use for: tag creation (release.yml automates after PR merge to main), CHANGELOG content authoring (use the existing CHANGELOG semantics; this skill only structurally promotes [Unreleased] → [X.Y.Z]), or non-version metadata updates.
 ---
 
 # Marketplace Doc Bump Version
 
 ## Overview
 
-Atomically bumps versions across the marketplace's 5 version sites and aligns CHANGELOG headers. Enforces the version quintangle invariant.
+Atomically bumps versions across the marketplace's 6 version sites and aligns CHANGELOG headers. Enforces the version-site invariant.
 
-**Version Quintangle (5-site invariant)**:
+**Version sites (6-site invariant; was 5 before the Codex dual-host wrapper)**:
 
 ```text
 VERSION (root file)
@@ -17,17 +17,35 @@ VERSION (root file)
 .claude-plugin/marketplace.json metadata.version
    ↕                              ↘
 plugins/<name>/.claude-plugin/plugin.json version  ←→  .claude-plugin/marketplace.json plugins[<name>].version
+   ↕  (must be character-identical — validate-dual-host.mjs asserts this)
+plugins/<name>/.codex-plugin/plugin.json version
    ↕                                                                    ↕
-README.md badge (L3) + plugin-table version cell    ←→    CLAUDE.md `plugins/` learn-kit line
+README.md badge (L3) + plugin-table version cell    ←→    CLAUDE.md `plugins/` plugin line
 
-# Why 5 sites (post-v4.5.0 lesson):
+# .agents/plugins/marketplace.json (the Codex native catalog) is deliberately NOT a site:
+# it carries no version at all, so a bump must never add one there.
+
+# Why the 5 → 6 site change:
+# The Codex native manifest also carries the root `version`, and validate-dual-host.mjs
+# requires the two manifests to match exactly. Bumping only the legacy one yields
+# MANIFEST_FIELD_DRIFT and fails CI. Covered by tests/bump-version.test.mjs.
+
+# Why 5 sites in the first place (post-v4.5.0 lesson):
 # v4.4.9 / v4.4.10 / v4.4.11 / v4.5.0 manual bumps skipped scripts/bump-version.ps1,
 # leaving README badge stuck at 4.4.8 + plugin table cell at 1.1.0 + CLAUDE.md learn-kit
 # line at v1.0.0 across 4 successive releases. CI now guards README badge (ci.yml step
-# "Validate README badge matches VERSION"). All 5 sites are now bump-version.ps1 covered
+# "Validate README badge matches VERSION"). All sites are bump-version.ps1 covered
 # (Issue #110 closed by PR #115 — added CLAUDE.md plugin-line scoped regex branch +
 # fixed pre-existing marketplace.json `[^}]*` regex bug that broke on description's `}`).
 ```
+
+> [!IMPORTANT]
+> Plugin manifests and README use **anchored** field updates, never a whole-file string
+> replace. Both carry other version numbers in prose — the legacy manifest narrates v3.0.0 /
+> v3.1.0 / v3.2.0 history, the native one names the NLM bridge 4.0.0 and connector 0.8.7, and
+> README's «历史版本记录» lists every past release. A naive replace of `-From 3.2.1` rewrote
+> README's own `- v3.2.1 — plugin.json schema 修复` history line into a fabricated `v4.0.0`
+> entry. A wrong `-From` now exits 1 without writing, rather than SKIPping silently.
 
 **Reference**: [[../../../docs/guide/[GUIDE]_Version_Management|Version Management]] + [[../../../scripts/bump-version.ps1|bump-version.ps1]] (if exists).
 
