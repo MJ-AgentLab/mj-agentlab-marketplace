@@ -4,15 +4,16 @@ scope: marketplace
 summary: 在 develop 分支引入 post-release 预 bump 机制，使 develop VERSION 始终领先 main
 owner: ranzuozhou
 created: 2026-05-18
-updated: 2026-05-18
+updated: 2026-07-16
 state: active
-version: v1.1
+version: v1.2
 domain: release
 related:
   - ../runbook/[RUNBOOK]_Release_Operations.md
   - ../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
   - ../rule/[STANDARD]_Documentation_Framework.md
 revision: |
+  2026-07-16 — v1.2: §2 Decision 的「warn-only / 永不 exit 1」加适用范围澄清 —— 该约束的对象是 **merge 阻断**，不是「任何 job 都不得非零退出」。`push` 触发仍恒 exit 0；每夜 `schedule` 与 `workflow_dispatch` 走 `enforce` 并允许 exit 1（定时 run 失败不参与任何 PR 的 merge 判定，该 workflow 也不在 required status checks 内）。原文写于「唯一触发方式是 develop push」的年代。技术决策（72h 宽限 + pure patch 预 bump + 不连带 plugin.json）完全不变；配套 `verify-develop-prebumped.yml` 加 daily `cron "17 2 * * *"`，判定逻辑移入受测的 `scripts/check-prebump.mjs`。
   2026-05-18 — v1.1: scrub external project references per `[STANDARD]_AI_Engineering_Execution_HITL_Prompt` §0.3 independence principle; reframe §1 Context / §2 Decision / §3 Consequences / §4 Alternatives with marketplace-internal rationale; remove §7 external reference repo line; technical decision unchanged.
   2026-05-18 — v1.0: 初版（含外部项目引用，v1.1 已 scrub）
 ---
@@ -48,6 +49,7 @@ We decide to **在 develop 分支引入 post-release 预 bump 机制**，并配�
 - **核心机制：develop pre-bump**（pure patch 风格，4.6.0 → 4.6.1）。每次 release PR 合并 main + sync-main-to-develop PR 合并 develop 之后，在 develop 上加 1 个 `infra(release): pre-bump develop X.Y.Z -> X.Y.(Z+1) (post-vX.Y.Z)` commit。**只 bump 顶层 `VERSION` + `marketplace.json metadata.version` + `README.md` badge** 三处；plugin.json 不动（plugin 按自身节奏 bump，预 bump plugin 会产生 "plugin 有未发变更" 假信号）。
 - **CHANGELOG `[Unreleased]` PR-time 纪律**：5 类 PR 模板均含 CHANGELOG checkbox（feature/bugfix 已有；本 ADR 补齐 documentation/maintain/hotfix/fallback），让 [Unreleased] 段在每次 PR 时即累积变更。
 - **Warn-only CI 状态检查**（`verify-develop-prebumped.yml`）：post-release 72h 宽限窗口之外报 workflow summary 警告，永不 `exit 1`。
+  - **v1.2 澄清（2026-07-16）**：「永不 `exit 1` / 永不阻塞」约束的对象是 **merge 阻断**，而非「任何 job 都不得非零退出」。`push` 触发的 develop 检查仍恒 exit 0；该 workflow 也从不进 required status checks，因此无论如何都不参与 merge 判定。**每夜 `schedule` 与 `workflow_dispatch` 走 `enforce`，允许 exit 1** —— 定时 run 失败只是一条红色 hygiene 通知。本条写于「唯一触发方式是 develop push」的年代，未预见定时巡检；此为适用范围澄清，非推翻决策。
 
 Boundary:
 

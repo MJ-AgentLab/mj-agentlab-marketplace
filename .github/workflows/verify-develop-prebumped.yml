@@ -7,10 +7,13 @@ name: Verify Develop Pre-bumped
 # (tests/check-prebump.test.mjs). This file only gathers facts and renders the summary —
 # the previous inline `sort -V` comparison was untested and duplicated policy in shell.
 #
-# Automatic runs are warn-only and NEVER exit 1: the ADR fixes that ("永不 exit 1" /
-# "永不阻塞"), because a forgotten pre-bump is a hygiene lapse, not a correctness fault.
-# workflow_dispatch can request enforce mode for a deliberate hard check; a dispatch failure
-# blocks no merge, so the ratified policy is unaffected.
+# MODE BY TRIGGER, and why that honours the ADR (see its v1.2 clarification):
+#   push     -> mode=push, always exit 0. A developer pushing to develop must never be
+#               nagged into a red X for a pre-bump that is not yet due.
+#   schedule -> mode=enforce, may exit 1. The ADR's "永不 exit 1 / 永不阻塞" scopes to MERGE
+#   dispatch    blocking; a nightly hygiene sweep failing blocks nothing, and this workflow is
+#               not in any ruleset's required status checks. A warning nobody is looking at
+#               is not a check, which is what the nightly run fixes.
 
 on:
   push:
@@ -19,14 +22,11 @@ on:
       - 'VERSION'
       - 'scripts/check-prebump.mjs'
       - '.github/workflows/verify-develop-prebumped.yml'
+  schedule:
+    # Nightly sweep: a forgotten pre-bump surfaces on its own rather than waiting for the
+    # next VERSION push, which by definition never comes while it is forgotten.
+    - cron: '17 2 * * *'
   workflow_dispatch:
-    inputs:
-      mode:
-        description: 'push = warn only (policy default); enforce = fail on overdue/inverted'
-        required: false
-        default: 'push'
-        type: choice
-        options: [push, enforce]
 
 jobs:
   verify:
@@ -37,11 +37,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          # Explicit: on a schedule run GITHUB_REF is the default branch, which is not
+          # necessarily develop. This check is about develop by definition.
+          ref: develop
           fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+
+      - name: Fetch main
+        # fetch-depth:0 already brings the branches down, but name the one this check
+        # compares against rather than depending on that side effect.
+        run: git fetch --no-tags --quiet origin main:refs/remotes/origin/main || git fetch --no-tags --quiet origin main
 
       - name: Gather facts
         id: facts
@@ -76,7 +84,7 @@ jobs:
             --main-version "${{ steps.facts.outputs.main }}" \
             --main-version-epoch "${{ steps.facts.outputs.main_epoch }}" \
             --now-epoch "${{ steps.facts.outputs.now_epoch }}" \
-            --mode "${{ inputs.mode || 'push' }}" \
+            --mode "${{ github.event_name == 'push' && 'push' || 'enforce' }}" \
             --grace-hours 72)
           STATUS=$?
           echo "$RESULT"
