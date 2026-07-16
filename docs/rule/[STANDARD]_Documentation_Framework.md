@@ -470,7 +470,7 @@ A6 启用于 v1.6，v1.7 起 bypass 真正被校验（详见 §4.3.1）；A1-A5 
 
 **`/mp-doc-validate` advisory pair**: skill 在本地工作区做相同检测（`git status --porcelain` + 同 regex），但输出 **Warning** 而非 Critical；起 pre-commit reminder 作用。CI 是 authoritative blocker；两层职责分明。
 
-**Future Work** (v1.7+ candidate): A6 与 `/mp-doc-validate` Step 3.5 算法对齐（skill 改用 diff-based 检测匹配 CI）；A1 / A5 启用 (path 合法性 + INDEX sync auto-detect)。
+**Future Work** (v1.8+ candidate): A6 与 `/mp-doc-validate` Step 3.5 **检测方法**对齐（skill 改用 diff-based 检测匹配 CI）—— v1.7 已对齐二者的 *trigger 集*（skill 的 regex 现镜像 `check-a6.mjs` `TRIGGERS`），但 skill 仍读 working-tree 而 CI 读 PR diff，该 over-eager 边界仍在；A1 / A5 启用 (path 合法性 + INDEX sync auto-detect)。
 
 ## §5 Change History
 
