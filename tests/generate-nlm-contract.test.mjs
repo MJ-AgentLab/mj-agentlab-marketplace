@@ -15,13 +15,23 @@ import {
   validateLockGrammar,
   requirementsWithoutHashes,
   sha256,
+  parseLock,
+  canonicalJson,
+  readPyprojectFacts,
+  validatePublicPolicy,
   MODES,
   BRIDGE_DIR,
   RUNTIME_LOCK,
   BUILD_LOCK,
+  PUBLIC_TOOLS,
+  ENV_LOCK,
+  DATA_DIR,
+  SNAPSHOT_TOOL,
   InputError,
   DriftError,
 } from "../scripts/generate-nlm-contract.mjs";
+
+const REPO_ROOT = path.resolve(import.meta.dirname, "..");
 
 const H1 = "a".repeat(64);
 const H2 = "b".repeat(64);
@@ -155,13 +165,13 @@ test("all four modes are accepted names", () => {
   assert.deepEqual(MODES, ["runtime-lock", "build-lock", "snapshots", "all"]);
 });
 
-test("snapshots and all fail honestly while the bridge package is absent", () => {
+test("snapshots and all fail honestly when the fingerprinting tool is absent", () => {
   withRoot((root) => {
     const { deps } = fakeUv();
     for (const mode of ["snapshots", "all"]) {
       assert.throws(
         () => generateNlmContract({ ...BASE_OPTS, root, mode }, deps),
-        (e) => e instanceof InputError && /do not exist yet/.test(e.message),
+        (e) => e instanceof InputError && /does not exist yet/.test(e.message),
         mode,
       );
     }
@@ -292,4 +302,506 @@ test("a missing pyproject is an input error, not a crash", () => {
   } finally {
     fs.rmSync(root, { recursive: true, force: true });
   }
+});
+
+// ------------------------------------------------------------------ lock parsing
+
+test("parseLock recovers the closure, its markers and every hash", () => {
+  const closure = parseLock(GOOD_LOCK);
+  assert.deepEqual(closure, [
+    { name: "anyio", version: "4.11.0", marker: null, hashes: [`sha256:${H1}`, `sha256:${H2}`] },
+    { name: "colorama", version: "0.4.6", marker: "sys_platform == 'win32'", hashes: [`sha256:${H1}`] },
+  ]);
+});
+
+test("parseLock ignores comments and the `# via` provenance trailers", () => {
+  // Those trailers sit between a requirement and the next one; treating one as a requirement
+  // would put a bogus entry in the environment lock.
+  assert.equal(parseLock("# header\n\n    # via something\n").length, 0);
+});
+
+// ------------------------------------------------------------------ canonical JSON
+
+test("canonicalJson sorts keys, escapes non-ASCII and ends with exactly one newline", () => {
+  const out = canonicalJson({ b: 1, a: { d: "é中", c: 2 } });
+  // The expected escape text is built from code points, so this expectation cannot be
+  // silently weakened by a tool that rewrites backslash escapes.
+  const esc = (s) => [...s].map((c) => "\\u" + c.charCodeAt(0).toString(16).padStart(4, "0")).join("");
+  const expected = `{\n  "a": {\n    "c": 2,\n    "d": "${esc("é中")}"\n  },\n  "b": 1\n}\n`;
+  assert.equal(out, expected);
+  assert.ok(!/[^\x00-\x7f]/.test(out), "output must be pure ASCII");
+  assert.ok(out.endsWith("}\n") && !out.endsWith("\n\n"));
+});
+
+test("canonicalJson is stable regardless of key insertion order", () => {
+  // This is what makes --check meaningful: the same content must serialize to the same bytes.
+  assert.equal(canonicalJson({ a: 1, b: 2 }), canonicalJson({ b: 2, a: 1 }));
+});
+
+// ------------------------------------------------------------------ pyproject facts
+
+const GOOD_PYPROJECT = `[project]
+name = "learn-kit-nlm-bridge"
+version = "4.0.0"
+requires-python = "==3.12.*"
+dependencies = ["notebooklm-mcp-cli==0.8.7"]
+`;
+
+test("readPyprojectFacts reads the pinned facts rather than restating them", () => {
+  assert.deepEqual(readPyprojectFacts(GOOD_PYPROJECT), {
+    bridgeVersion: "4.0.0",
+    connectorVersion: "0.8.7",
+    requiresPython: "==3.12.*",
+  });
+});
+
+test("a prose mention of [project.scripts] is not a declaration of one", () => {
+  // Regression: the real pyproject.toml explains in a comment WHY it declares no
+  // [project.scripts]. An unanchored match treated that comment as the section itself and
+  // refused a perfectly good file.
+  const withComment = `# NO [project.scripts] - deliberately, see the rationale above.\n${GOOD_PYPROJECT}`;
+  assert.deepEqual(readPyprojectFacts(withComment).bridgeVersion, "4.0.0");
+});
+
+test("an actual [project.scripts] table is refused", () => {
+  // Two distributions claiming `nlm` would let install order decide which one wins.
+  assert.throws(
+    () => readPyprojectFacts(`${GOOD_PYPROJECT}\n[project.scripts]\nnlm = "x:main"\n`),
+    (e) => e instanceof InputError && /no \[project\.scripts\]/.test(e.message),
+  );
+});
+
+test("a non-3.12 requires-python or a missing connector pin is refused", () => {
+  assert.throws(() => readPyprojectFacts(GOOD_PYPROJECT.replace("==3.12.*", ">=3.12")), InputError);
+  assert.throws(() => readPyprojectFacts(GOOD_PYPROJECT.replace('"notebooklm-mcp-cli==0.8.7"', '"notebooklm-mcp-cli"')), InputError);
+});
+
+// ------------------------------------------------------------------ public policy
+//
+// These use the REAL checked-in policy and the REAL upstream snapshot as fixtures, then
+// mutate a clone. A hand-written fixture could drift from what ships; mutating the real one
+// proves both that the shipped policy is valid and that the validator would actually catch a
+// widening of it.
+
+const readData = (name) =>
+  JSON.parse(fs.readFileSync(path.join(REPO_ROOT, BRIDGE_DIR, DATA_DIR, name), "utf8"));
+const realPolicy = () => JSON.parse(fs.readFileSync(path.join(REPO_ROOT, BRIDGE_DIR, PUBLIC_TOOLS), "utf8"));
+const realUpstream = () => readData("upstream-tools-v0.8.7.json");
+
+const toolOf = (p, name) => p.tools.find((t) => t.name === name);
+const branchOf = (p, kind) =>
+  toolOf(p, "studio_create").inputSchema.oneOf.find((b) => b.properties.artifact_type.const === kind);
+
+test("the checked-in policy is a valid narrowing of the real upstream surface", () => {
+  assert.deepEqual(validatePublicPolicy(realPolicy(), realUpstream()), []);
+});
+
+test("the checked-in policy exposes exactly the six agreed tools", () => {
+  assert.deepEqual(
+    realPolicy().tools.map((t) => t.name).sort(),
+    ["notebook_create", "notebook_get", "notebook_list", "source_add", "studio_create", "studio_status"],
+  );
+});
+
+test("every way of widening the policy is rejected", () => {
+  const mutations = {
+    "source_ids becomes optional": (p) => {
+      const b = branchOf(p, "audio");
+      b.required = b.required.filter((r) => r !== "source_ids");
+    },
+    "source_ids accepts an empty array": (p) => {
+      // Python truthiness: an empty list is falsy, so upstream resolves it to every source.
+      branchOf(p, "audio").properties.source_ids.minItems = 0;
+    },
+    "source_ids accepts more than three": (p) => {
+      branchOf(p, "audio").properties.source_ids.maxItems = 99;
+    },
+    "source_ids allows duplicates": (p) => {
+      branchOf(p, "video").properties.source_ids.uniqueItems = false;
+    },
+    "confirm is no longer literal true": (p) => {
+      branchOf(p, "audio").properties.confirm = { type: "boolean" };
+    },
+    "mind_map accepts focus_prompt": (p) => {
+      branchOf(p, "mind_map").properties.focus_prompt = { type: "string" };
+    },
+    "mind_map accepts language": (p) => {
+      branchOf(p, "mind_map").properties.language = { type: "string" };
+    },
+    "video_style_prompt is exposed": (p) => {
+      branchOf(p, "video").properties.video_style_prompt = { type: "string" };
+    },
+    "a studio_create branch is dropped": (p) => {
+      toolOf(p, "studio_create").inputSchema.oneOf.pop();
+    },
+    "additionalProperties is reopened": (p) => {
+      toolOf(p, "notebook_get").inputSchema.additionalProperties = true;
+    },
+    "a branch reopens additionalProperties": (p) => {
+      branchOf(p, "slide_deck").additionalProperties = true;
+    },
+    "source_add regains a url source": (p) => {
+      toolOf(p, "source_add").inputSchema.properties.url = { type: "string" };
+    },
+    "source_add regains pasted text": (p) => {
+      toolOf(p, "source_add").inputSchema.properties.text = { type: "string" };
+    },
+    "source_type stops being const file": (p) => {
+      toolOf(p, "source_add").inputSchema.properties.source_type = { type: "string" };
+    },
+    "wait stops being const true": (p) => {
+      toolOf(p, "source_add").inputSchema.properties.wait = { type: "boolean" };
+    },
+    "studio_status exposes the rename surface": (p) => {
+      toolOf(p, "studio_status").inputSchema.properties.action = { type: "string" };
+    },
+    "studio_status stops injecting status": (p) => {
+      delete toolOf(p, "studio_status").upstream.inject.action;
+    },
+    "notebook_list takes an argument again": (p) => {
+      toolOf(p, "notebook_list").inputSchema.properties.max_results = { type: "integer" };
+    },
+    "notebook_list injects a different cap": (p) => {
+      toolOf(p, "notebook_list").upstream.inject.max_results = 999;
+    },
+    "notebook_create title becomes optional": (p) => {
+      toolOf(p, "notebook_create").inputSchema.required = [];
+    },
+    "an extra tool is smuggled in": (p) => {
+      p.tools.push({
+        name: "source_delete",
+        inputSchema: { type: "object", additionalProperties: false, properties: {} },
+        upstream: { tool: "source_delete", inject: {} },
+      });
+    },
+    "a property upstream does not have": (p) => {
+      toolOf(p, "notebook_get").inputSchema.properties.evil = { type: "string" };
+    },
+    "an injected key upstream does not have": (p) => {
+      toolOf(p, "notebook_get").upstream.inject = { evil: 1 };
+    },
+    "the policy version stops matching the filename": (p) => {
+      p.policy_version = "v2";
+    },
+  };
+
+  const upstream = realUpstream();
+  for (const [label, mutate] of Object.entries(mutations)) {
+    const p = realPolicy();
+    const before = JSON.stringify(p);
+    mutate(p);
+    // Guard against a mutation that silently does nothing: the test would then be asserting
+    // about an unmodified fixture and would pass for the wrong reason.
+    assert.notEqual(JSON.stringify(p), before, `mutation "${label}" did not change the policy`);
+    const problems = validatePublicPolicy(p, upstream);
+    assert.ok(problems.length > 0, `widening must be rejected: ${label}`);
+  }
+});
+
+test("a policy naming a tool upstream does not advertise is rejected", () => {
+  const p = realPolicy();
+  toolOf(p, "notebook_get").upstream.tool = "notebook_delete";
+  assert.ok(validatePublicPolicy(p, realUpstream()).some((m) => /not a tool upstream advertises/.test(m)));
+});
+
+test("the auth guard snapshot pins every symbol the runner relies on", () => {
+  const guard = readData("upstream-auth-guard-v0.8.7.json");
+  const byName = Object.fromEntries(guard.symbols.map((s) => [`${s.module}.${s.qualname}`, s]));
+  // The method that is swapped out, the disk-only helper the replacement calls, and both
+  // headless-auth entry points that must never run.
+  assert.ok(byName["notebooklm_tools.core.base.BaseClient._try_reload_or_headless_auth"]);
+  assert.ok(byName["notebooklm_tools.core.auth.load_cached_tokens"]);
+  assert.ok(byName["notebooklm_tools.utils.auth_browser.run_headless_auth"]);
+  assert.ok(byName["notebooklm_tools.utils.cdp.run_headless_auth"]);
+  for (const s of guard.symbols) {
+    assert.match(s.source_sha256, /^[0-9a-f]{64}$/, `${s.qualname} needs a real source hash`);
+    assert.ok(["replaced", "sentinel", "depended_on"].includes(s.role));
+  }
+});
+
+test("the environment lock records a hashed closure and no exact Python patch", () => {
+  const env = readData("environment-lock.json");
+  assert.equal(env.python_requires, "==3.12.*");
+  // An exact patch here would make this checked-in file fail --check on any machine whose
+  // 3.12.x differs - which is exactly what the Windows/Ubuntu matrix guarantees.
+  assert.ok(!/"3\.12\.\d+"/.test(JSON.stringify(env)), "must not pin an exact 3.12.x patch");
+  assert.equal(env.closure.length, env.closure_count);
+  assert.ok(env.closure.length > 50);
+  for (const r of env.closure) {
+    assert.ok(r.hashes.length > 0, `${r.name} must carry hashes`);
+    for (const h of r.hashes) assert.match(h, /^sha256:[0-9a-f]{64}$/);
+  }
+  assert.ok(env.closure.some((r) => r.name === "notebooklm-mcp-cli" && r.version === "0.8.7"));
+  // hatchling builds the wheel; it has no business in the runtime environment.
+  assert.ok(!env.closure.some((r) => r.name === "hatchling"), "build-only closure must stay out");
+  for (const cmd of Object.values(env.replay)) {
+    for (const a of cmd) assert.ok(!path.isAbsolute(a), `replay argv must stay portable: ${a}`);
+  }
+});
+
+test("the checked-in _data files are byte-clean: LF, no BOM, one trailing newline", () => {
+  // These bytes are hashed into the Gate fingerprint and shipped in the wheel. A CRLF
+  // checkout would change every hash, so .gitattributes pins LF and this asserts it held.
+  for (const name of [
+    "public-tools-v1.json",
+    "upstream-tools-v0.8.7.json",
+    "upstream-auth-guard-v0.8.7.json",
+    "environment-lock.json",
+  ]) {
+    const raw = fs.readFileSync(path.join(REPO_ROOT, BRIDGE_DIR, DATA_DIR, name));
+    assert.ok(!raw.includes(0x0d), `${name} must contain no CR bytes`);
+    assert.notEqual(raw[0], 0xef, `${name} must not start with a BOM`);
+    const text = raw.toString("utf8");
+    assert.ok(text.endsWith("\n") && !text.endsWith("\n\n"), `${name} needs exactly one trailing newline`);
+  }
+});
+
+// ------------------------------------------------------------------ snapshots mode
+//
+// uv and the Python fingerprinter are injected: the real ones need a network install and a
+// couple of minutes, and CI exercises them through check:nlm-contract-generated. What is
+// worth testing here is everything around them — that the locks are read rather than assumed,
+// that the policy is validated against upstream, and that --check never writes.
+
+const SNAP_PYPROJECT = `[project]
+name = "learn-kit-nlm-bridge"
+version = "4.0.0"
+requires-python = "==3.12.*"
+dependencies = ["notebooklm-mcp-cli==0.8.7"]
+`;
+
+const SNAP_RUNTIME_LOCK = `# autogenerated
+notebooklm-mcp-cli==0.8.7 \\
+    --hash=sha256:${H1}
+colorama==0.4.6 ; sys_platform == 'win32' \\
+    --hash=sha256:${H2}
+`;
+
+const SNAP_BUILD_LOCK = `# autogenerated
+hatchling==1.27.0 \\
+    --hash=sha256:${H1}
+`;
+
+/** A bridge fixture complete enough for snapshots: locks, policy, and the tool file. */
+function withSnapshotBridge(fn, { policyText, pyproject = SNAP_PYPROJECT } = {}) {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "gnc-snap-"));
+  try {
+    const bridge = path.join(root, BRIDGE_DIR);
+    for (const d of ["requirements", "constraints", "tools", DATA_DIR]) {
+      fs.mkdirSync(path.join(bridge, d), { recursive: true });
+    }
+    fs.writeFileSync(path.join(bridge, "pyproject.toml"), pyproject);
+    fs.writeFileSync(path.join(bridge, "constraints/build-requirements.in"), "hatchling==1.27.0\n");
+    fs.writeFileSync(path.join(bridge, RUNTIME_LOCK), SNAP_RUNTIME_LOCK);
+    fs.writeFileSync(path.join(bridge, BUILD_LOCK), SNAP_BUILD_LOCK);
+    fs.writeFileSync(path.join(bridge, SNAPSHOT_TOOL), "# fingerprinter (injected in tests)\n");
+    fs.writeFileSync(
+      path.join(bridge, PUBLIC_TOOLS),
+      policyText ?? fs.readFileSync(path.join(REPO_ROOT, BRIDGE_DIR, PUBLIC_TOOLS), "utf8"),
+    );
+    return fn(root, bridge);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+}
+
+/** uv + the Python fingerprinter, faked. The fingerprinter emits the real checked-in bytes. */
+function snapshotDeps({ pythonVersion = "3.12.13", upstreamText, guardText } = {}) {
+  const calls = [];
+  const dataDir = path.join(REPO_ROOT, BRIDGE_DIR, DATA_DIR);
+  const upstream = upstreamText ?? fs.readFileSync(path.join(dataDir, "upstream-tools-v0.8.7.json"), "utf8");
+  const guard = guardText ?? fs.readFileSync(path.join(dataDir, "upstream-auth-guard-v0.8.7.json"), "utf8");
+  return {
+    calls,
+    deps: {
+      uvVersion: () => "0.11.21",
+      runUv: (args, cwd) => {
+        calls.push({ cmd: "uv", args, cwd });
+        if (args[0] === "pip" && args[1] === "compile") {
+          const out = args[args.indexOf("-o") + 1];
+          const dest = path.join(cwd, out);
+          fs.mkdirSync(path.dirname(dest), { recursive: true });
+          fs.writeFileSync(dest, out === RUNTIME_LOCK ? SNAP_RUNTIME_LOCK : SNAP_BUILD_LOCK);
+        }
+        return "";
+      },
+      runPython: (exe, args, cwd) => {
+        calls.push({ cmd: "python", exe, args, cwd });
+        const out = args[args.indexOf("--out") + 1];
+        fs.mkdirSync(out, { recursive: true });
+        fs.writeFileSync(path.join(out, "upstream-tools-v0.8.7.json"), upstream);
+        fs.writeFileSync(path.join(out, "upstream-auth-guard-v0.8.7.json"), guard);
+        return `${JSON.stringify({ connector_version: "0.8.7", python_version: pythonVersion, outputs: [] })}\n`;
+      },
+    },
+  };
+}
+
+test("snapshots writes the two fingerprints and the environment lock", () => {
+  withSnapshotBridge((root, bridge) => {
+    const { deps } = snapshotDeps();
+    const r = generateNlmContract({ ...BASE_OPTS, root, mode: "snapshots" }, deps);
+    assert.deepEqual(
+      r.outputs.map((o) => o.path.split("/").pop()),
+      ["upstream-tools-v0.8.7.json", "upstream-auth-guard-v0.8.7.json", "environment-lock.json"],
+    );
+    assert.equal(r.changed, true);
+    const env = JSON.parse(fs.readFileSync(path.join(bridge, ENV_LOCK), "utf8"));
+    assert.equal(env.bridge_version, "4.0.0");
+    assert.equal(env.connector_version, "0.8.7");
+    assert.equal(env.locks.runtime.sha256, sha256(SNAP_RUNTIME_LOCK));
+    assert.equal(env.locks.build.sha256, sha256(SNAP_BUILD_LOCK));
+    assert.deepEqual(env.closure.map((c) => c.name), ["notebooklm-mcp-cli", "colorama"]);
+  });
+});
+
+test("snapshots never rewrites the hand-written policy", () => {
+  withSnapshotBridge((root, bridge) => {
+    const before = fs.readFileSync(path.join(bridge, PUBLIC_TOOLS), "utf8");
+    generateNlmContract({ ...BASE_OPTS, root, mode: "snapshots" }, snapshotDeps().deps);
+    // The policy is the one file a human owns: the generator may validate and hash it, but
+    // widening must always be a reviewed edit, never a generated one.
+    assert.equal(fs.readFileSync(path.join(bridge, PUBLIC_TOOLS), "utf8"), before);
+  });
+});
+
+test("the throwaway venv is installed from the lock with hashes enforced", () => {
+  withSnapshotBridge((root) => {
+    const { deps, calls } = snapshotDeps();
+    generateNlmContract({ ...BASE_OPTS, root, mode: "snapshots" }, deps);
+    const venv = calls.find((c) => c.cmd === "uv" && c.args[0] === "venv");
+    assert.ok(venv, "a throwaway venv must be created");
+    assert.ok(venv.args.includes("--no-python-downloads"), "must not silently download a Python");
+    assert.ok(venv.args.includes("--no-config"));
+    const install = calls.find((c) => c.cmd === "uv" && c.args[0] === "pip" && c.args[1] === "install");
+    assert.ok(install.args.includes("--require-hashes"), "the whole point of the lock");
+    assert.ok(install.args.includes("--no-build"), "wheels only: no sdist may execute code");
+    assert.ok(install.args.includes("--no-config"));
+    assert.ok(install.args.some((a) => a.endsWith("notebooklm-mcp-cli-0.8.7-py312.lock.txt")));
+  });
+});
+
+test("the fingerprinter is told which connector version to expect", () => {
+  withSnapshotBridge((root) => {
+    const { deps, calls } = snapshotDeps();
+    generateNlmContract({ ...BASE_OPTS, root, mode: "snapshots" }, deps);
+    const py = calls.find((c) => c.cmd === "python");
+    // Taken from pyproject, not hardcoded here, so the pin has one source.
+    assert.deepEqual(py.args.slice(-2), ["--connector-version", "0.8.7"]);
+    assert.ok(py.args[0].endsWith("generate_contract_snapshots.py"));
+  });
+});
+
+test("a venv that is not Python 3.12 is refused", () => {
+  withSnapshotBridge((root) => {
+    const { deps } = snapshotDeps({ pythonVersion: "3.13.1" });
+    assert.throws(
+      () => generateNlmContract({ ...BASE_OPTS, root, mode: "snapshots" }, deps),
+      (e) => e instanceof InputError && /Python 3\.12/.test(e.message),
+    );
+  });
+});
+
+test("a pyproject whose pin disagrees with the lock is refused", () => {
+  // If these two ever diverge, the fingerprint would describe a different release from the
+  // one the installer actually installs.
+  const mismatched = SNAP_PYPROJECT.replace("0.8.7", "0.8.8");
+  withSnapshotBridge(
+    (root) => {
+      assert.throws(
+        () => generateNlmContract({ ...BASE_OPTS, root, mode: "snapshots" }, snapshotDeps().deps),
+        (e) => e instanceof InputError && /but the runtime lock resolves/.test(e.message),
+      );
+    },
+    { pyproject: mismatched },
+  );
+});
+
+test("snapshots refuses a policy that widens the surface, and writes nothing", () => {
+  const widened = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, BRIDGE_DIR, PUBLIC_TOOLS), "utf8"));
+  widened.tools.find((t) => t.name === "source_add").inputSchema.properties.url = { type: "string" };
+  withSnapshotBridge(
+    (root, bridge) => {
+      assert.throws(
+        () => generateNlmContract({ ...BASE_OPTS, root, mode: "snapshots" }, snapshotDeps().deps),
+        (e) => e instanceof InputError && /minimal-permission policy/.test(e.message),
+      );
+      assert.ok(!fs.existsSync(path.join(bridge, ENV_LOCK)), "a refused run must leave no environment lock");
+    },
+    { policyText: `${JSON.stringify(widened, null, 2)}\n` },
+  );
+});
+
+test("a policy with CRLF is refused rather than silently rehashed", () => {
+  // The bytes are the contract. A CRLF checkout would change the hash the Gate binds.
+  const crlf = fs.readFileSync(path.join(REPO_ROOT, BRIDGE_DIR, PUBLIC_TOOLS), "utf8").replace(/\n/g, "\r\n");
+  withSnapshotBridge(
+    (root) => {
+      assert.throws(
+        () => generateNlmContract({ ...BASE_OPTS, root, mode: "snapshots" }, snapshotDeps().deps),
+        (e) => e instanceof InputError && /LF only/.test(e.message),
+      );
+    },
+    { policyText: crlf },
+  );
+});
+
+test("snapshots --check passes when the checked-in files match", () => {
+  withSnapshotBridge((root) => {
+    const { deps } = snapshotDeps();
+    generateNlmContract({ ...BASE_OPTS, root, mode: "snapshots" }, deps);
+    const r = generateNlmContract({ ...BASE_OPTS, root, mode: "snapshots", check: true }, deps);
+    assert.equal(r.changed, false);
+  });
+});
+
+test("snapshots --check fails on drift and never repairs it", () => {
+  withSnapshotBridge((root, bridge) => {
+    const { deps } = snapshotDeps();
+    generateNlmContract({ ...BASE_OPTS, root, mode: "snapshots" }, deps);
+    const tampered = `${fs.readFileSync(path.join(bridge, ENV_LOCK), "utf8")}\n`;
+    fs.writeFileSync(path.join(bridge, ENV_LOCK), tampered);
+    assert.throws(
+      () => generateNlmContract({ ...BASE_OPTS, root, mode: "snapshots", check: true }, deps),
+      DriftError,
+    );
+    assert.equal(fs.readFileSync(path.join(bridge, ENV_LOCK), "utf8"), tampered, "--check must not write");
+  });
+});
+
+test("snapshots --check fails when a snapshot is missing entirely", () => {
+  withSnapshotBridge((root) => {
+    assert.throws(
+      () => generateNlmContract({ ...BASE_OPTS, root, mode: "snapshots", check: true }, snapshotDeps().deps),
+      (e) => e instanceof DriftError && /does not exist/.test(e.message),
+    );
+  });
+});
+
+test("snapshots leaves no temp directories behind", () => {
+  withSnapshotBridge((root) => {
+    const before = fs.readdirSync(os.tmpdir()).filter((d) => d.startsWith("nlm-snapshots-")).length;
+    generateNlmContract({ ...BASE_OPTS, root, mode: "snapshots" }, snapshotDeps().deps);
+    const after = fs.readdirSync(os.tmpdir()).filter((d) => d.startsWith("nlm-snapshots-")).length;
+    assert.equal(after, before);
+  });
+});
+
+test("all runs the locks before the snapshots that read them", () => {
+  withSnapshotBridge((root) => {
+    const { deps, calls } = snapshotDeps();
+    const r = generateNlmContract({ ...BASE_OPTS, root, mode: "all" }, deps);
+    assert.deepEqual(r.outputs.map((o) => o.path.split("/").pop()), [
+      "notebooklm-mcp-cli-0.8.7-py312.lock.txt",
+      "build-hatchling-1.27.0-py312.txt",
+      "upstream-tools-v0.8.7.json",
+      "upstream-auth-guard-v0.8.7.json",
+      "environment-lock.json",
+    ]);
+    // Ordering is load-bearing: snapshots installs from the runtime lock and records both lock
+    // hashes, so it must observe the freshly written files, not the previous generation.
+    const compileIdx = calls.findIndex((c) => c.args[0] === "pip" && c.args[1] === "compile");
+    const installIdx = calls.findIndex((c) => c.args[0] === "pip" && c.args[1] === "install");
+    assert.ok(compileIdx < installIdx, "locks must be compiled before the snapshot venv installs");
+  });
 });

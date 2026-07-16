@@ -71,13 +71,21 @@
 - **`agents/openai.yaml` 一律省略 `dependencies.tools`**：该 schema 无 optional 语义，而 NotebookLM 是 opt-in；MCP server 改由 native manifest 的 `mcpServers` 聚合。
 - **baseline 版本语义**：Codex / uv / bridge / connector 精确 pin（供应链输入）；**Claude Code CLI 为最小版本 `>=`**（外部滚动发布的宿主二进制，不进 wheel/lock，精确 pin 会因上游自动更新而无谓红 CI）。
 
-### NLM bridge 锁（`plugins/learn-kit/nlm-bridge/`，NLM 可选分支专用）
+### NLM bridge 锁与契约快照（`plugins/learn-kit/nlm-bridge/`，NLM 可选分支专用）
 
-learn-kit 的 NLM 分支经本仓 `learn-kit-nlm-bridge` 4.0.0 连接固定版本上游 `notebooklm-mcp-cli==0.8.7`。两份 lock 由**唯一生成入口** [`scripts/generate-nlm-contract.mjs`](scripts/generate-nlm-contract.mjs) 产出，禁止手改（手改会使 hash 集不再对应任何 resolver 真实产物，`--require-hashes` 的保证随之落空）：
+learn-kit 的 NLM 分支经本仓 `learn-kit-nlm-bridge` 4.0.0 连接固定版本上游 `notebooklm-mcp-cli==0.8.7`。两份 lock 与四份 `_data` 契约由**唯一生成入口** [`scripts/generate-nlm-contract.mjs`](scripts/generate-nlm-contract.mjs)（4 mode：`runtime-lock` / `build-lock` / `snapshots` / `all`）产出，禁止手改（手改会使 hash 集不再对应任何 resolver 真实产物，`--require-hashes` 的保证随之落空）：
 
 - `requirements/notebooklm-mcp-cli-0.8.7-py312.lock.txt` — connector 完整 runtime closure（77 包 / 850 hash），**不含 bridge wheel 自身**
 - `constraints/build-hatchling-1.27.0-py312.txt` — 构建期 hatchling closure（5 包），与 runtime closure 严格分离，绝不装进 runtime env
-- `npm run generate:nlm-locks` 重新生成；`npm run check:nlm-locks-generated` 在 CI 做 byte-compare（漂移即 exit 1）
+- `src/learn_kit_nlm_bridge/_data/` 四份契约（随 wheel 发布，运行时经 `importlib.resources` 读取校验）：
+  - `public-tools-v1.json` — **唯一手写**的最小权限策略（6 工具收窄 schema）。generator 只 canonicalize / validate / hash，**绝不从上游自动扩大**；扩权只能是一次被 review 的人工 diff。实测narrowing 的必要性：上游 `studio_create.source_ids` 可缺省且 `_resolve_source_ids` 对 falsy 值（`None` **与空数组**）一律回退为 notebook 全部 source
+  - `upstream-tools-v0.8.7.json` — 上游在固定 env 下 `tools/list` 的真实产出（实测：14 组全禁 + 6 工具单独 re-enable → 恰好 6 工具、单页无 cursor、零凭据零网络）
+  - `upstream-auth-guard-v0.8.7.json` — auth 恢复路径 4 个符号的源码指纹（`replaced` / `sentinel` / `depended_on`），漂移即在联网前 fail closed
+  - `environment-lock.json` — 规范化 runtime closure + markers + 两份 lock 与三份契约的 SHA-256 + 可重放 argv。**刻意不记录 exact Python patch**（patch 在 `3.12.*` 内自由浮动且 Windows/Ubuntu matrix 必然不同，写死会让 checked-in 文件在别的机器上 `--check` 必挂；exact 值只在运行时由 receipt / Gate fingerprint 绑定）
+- `tools/generate_contract_snapshots.py` — 在临时 venv（locked closure + `--require-hashes`）内跑的指纹器：驱动**真实 stdio MCP 握手**取 `tools/list`（而非 introspect registry —— 运行时比对的对象就是 MCP 响应），并抽取 auth 符号源码 SHA（canonical LF）
+- `npm run generate:nlm-contract`（= `all`）重新生成；`npm run check:nlm-contract-generated` 在 CI 做 byte-compare（漂移即 exit 1）。`all` 顺序固定 **locks → snapshots**：snapshots 要从 runtime lock 装环境并记录两份 lock 的 hash，必须看到刚写入的内容
+
+[`.gitattributes`](plugins/learn-kit/nlm-bridge/.gitattributes)（本子树限定）把两份 lock 与四份 `_data` 钉为 **`eol=lf`**：仓库无根 `.gitattributes` 且本机 / GitHub Actions `windows-latest` 均 `core.autocrlf=true`，否则 Windows checkout 会把它们重写成 CRLF —— 既让 `--check`（uv 恒输出 LF）必挂，更会使同一份契约在 Windows 与 Ubuntu 上产生**两个不同 SHA**，五-SHA 绑定跨 baseline matrix 无法成立。作用域刻意限于本子树：根级 `* text=auto eol=lf` 会 renormalize 全仓。
 
 **cutoff = `2026-07-16T00:00:00Z`**（固定过去时刻，冻结传递闭包）。计划原文写 `2026-07-15T00:00:00Z`，该值**不可用** —— PyPI 于 `2026-07-15T01:31:19.945Z` 发布 0.8.7，比 cutoff 晚 91 分钟，会把本仓 pin 的这一版本本身过滤掉导致解析失败。
 
