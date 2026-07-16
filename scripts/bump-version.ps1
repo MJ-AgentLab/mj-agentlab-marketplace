@@ -3,27 +3,40 @@
     MJ AgentLab Marketplace version bump script
 
 .DESCRIPTION
-    Batch-replace version numbers across project files (Version Quintangle).
-    Supports two scopes:
-      - marketplace: updates VERSION, marketplace.json (metadata.version), README.md
-      - plugin:      updates plugin.json (version), marketplace.json (plugins[name].version),
-                     README.md (badge area string-match), CLAUDE.md (`<name>` v<X.Y.Z> prose line — scoped regex)
+    Update version numbers at every version-bearing site, using ANCHORED field updates.
+    Never a whole-file string replace: descriptions and README's «历史版本记录» legitimately
+    contain other version numbers, and rewriting those fabricates release history.
 
-    Closes Issue #110 (CLAUDE.md plugin line coverage) so plugin bumps no longer
-    need a separate manual step to keep CLAUDE.md in sync (postmortem: README +
-    CLAUDE.md drifted 4 releases v4.4.9 → v4.5.0 when bumps were done manually).
+    Sites by scope (6-site invariant since the Codex dual-host wrapper):
+      - marketplace: VERSION
+                     .claude-plugin/marketplace.json  (metadata.version)
+                     README.md                        (version badge, line 3)
+      - plugin:      plugins/<name>/.claude-plugin/plugin.json   (root version)
+                     plugins/<name>/.codex-plugin/plugin.json    (root version — MUST match the
+                                                                  legacy one; validate-dual-host.mjs
+                                                                  asserts they are identical)
+                     .claude-plugin/marketplace.json  (plugins[name].version)
+                     README.md                        (that plugin's table row Version cell)
+                     CLAUDE.md                        (`<name>` v<X.Y.Z> prose line)
+
+    .agents/plugins/marketplace.json (the Codex native catalog) is deliberately NOT a site:
+    it carries no version, so a bump must never add one there.
+
+    Every site asserts EXACTLY ONE anchor match and exits 1 otherwise. A wrong -From, a drifted
+    file shape, or a missing required file fails loudly rather than silently SKIPping — the
+    failure mode behind the v4.4.9 → v4.5.0 postmortem (README + CLAUDE.md drifted across 4
+    releases) and Issue #110.
 
 .PARAMETER From
-    Current version (e.g. "1.0.0")
+    Current version, bare X.Y.Z (e.g. "1.0.0")
 
 .PARAMETER To
-    Target version (e.g. "1.1.0")
+    Target version, bare X.Y.Z (e.g. "1.1.0")
 
 .PARAMETER Scope
-    Target scope: "marketplace" (default) or plugin name. As of v4.0.0+ the
-    marketplace contains a single plugin ("learn-kit"); the ValidateSet is
-    extensible — when adding a new plugin, append its name here and to the
-    install-hooks.ps1 commit-msg regex.
+    Target scope: "marketplace" (default) or a plugin name. The marketplace has shipped 2
+    plugins since v6.3.0 (learn-kit + diagram-kit). When adding a plugin, append its name to
+    the ValidateSet here and to the install-hooks.ps1 commit-msg regex.
 
 .PARAMETER DryRun
     Preview mode: show what would change without modifying files
@@ -36,10 +49,17 @@
 #>
 
 param(
+    # Both must be a bare X.Y.Z. -To is interpolated into .NET regex REPLACEMENT strings, where
+    # `$0` / `$1` / `$&` are substitution tokens rather than literals — a -To of '$0-x' wrote
+    # invalid JSON across five files and still exited 0. Validating the shape removes that class
+    # entirely, and also rejects ordinary typos ('v4.0.0', '4.0', a trailing space) before any
+    # file is opened.
     [Parameter(Mandatory = $true)]
+    [ValidatePattern('^\d+\.\d+\.\d+$')]
     [string]$From,
 
     [Parameter(Mandatory = $true)]
+    [ValidatePattern('^\d+\.\d+\.\d+$')]
     [string]$To,
 
     [Parameter(Mandatory = $false)]
@@ -100,244 +120,176 @@ Write-Host "Version: $From -> $To" -ForegroundColor White
 Write-Host "Project root: $ProjectRoot" -ForegroundColor White
 Write-Host ("-" * 60)
 
-$TotalMatches = 0
-$ModifiedFiles = 0
+# ---------------------------------------------------------------------------
+# PHASE 1 — PREFLIGHT (read-only)
+#
+# Derive and validate the anchor for EVERY target before writing ANY of them. The previous
+# shape validated and wrote each target in turn, so a failure on a later target (CLAUDE.md is
+# last) left the earlier ones already bumped — a half-bumped repo, which is strictly worse than
+# the silent SKIP it replaced. Nothing below opens a file for writing until every target has
+# been proven to have exactly one anchor match.
+# ---------------------------------------------------------------------------
+
+$EscFrom = [regex]::Escape($From)
+$Plan = @()
+$Failures = @()
 
 foreach ($RelPath in $TargetFiles) {
     $FilePath = Join-Path $ProjectRoot $RelPath
 
+    # Every entry in $TargetFiles is required. A missing one previously SKIPped and exited 0 —
+    # which is how the "mandatory" native manifest could silently not be bumped.
     if (-not (Test-Path $FilePath)) {
-        Write-Host "  [SKIP] $RelPath - file not found" -ForegroundColor DarkGray
+        $Failures += "  [FAIL] $RelPath - required file not found (every target in scope '$Scope' must exist)"
         continue
     }
 
     $Content = Get-Content -Path $FilePath -Raw -Encoding UTF8
+    $Pattern = $null
+    $Replacement = $null
+    $What = $null
 
-    # Special handling for marketplace.json to avoid replacing wrong version fields
     if ($RelPath -eq ".claude-plugin/marketplace.json") {
         if ($MarketplaceJsonMode -eq "metadata") {
-            # Only replace version in the metadata block
-            $Pattern = '("metadata"\s*:\s*\{[^}]*"version"\s*:\s*")' + [regex]::Escape($From) + '"'
+            $Pattern = '("metadata"\s*:\s*\{[^}]*"version"\s*:\s*")' + $EscFrom + '"'
             $Replacement = '${1}' + $To + '"'
+            $What = "metadata.version"
         } else {
-            # Only replace version for the specific plugin entry.
+            # Only this plugin's entry.
             #
-            # Bug fix (discovered while implementing #110): the previous `[^}]*`
-            # negated-class stops at the FIRST `}` anywhere between "name" and
-            # "version" — including `}` inside the description string (e.g.,
-            # marketplace v4.5.0's description mentions
-            # `[GUIDE]_LearnKit_{Pedagogy,Design}.md` which contains `}`),
-            # so the plugin entry regex silently failed to match and the
-            # script SKIPped marketplace.json for every plugin bump where the
-            # description contained literal braces.
+            # History: the original `[^}]*` negated-class stopped at the FIRST `}` between
+            # "name" and "version" — including a `}` inside a description string — so the entry
+            # regex silently failed and marketplace.json was SKIPped for every plugin bump whose
+            # description contained literal braces (Issue #110 era).
             #
-            # Fix: use `[\s\S]*?` (non-greedy match-any-incl-newlines) which
-            # walks past description content but lazily stops at the FIRST
-            # `"version"` after this plugin's name — correct for multi-plugin
-            # arrays since lazy matching anchors to the immediately-following
-            # `"version"`, not any later plugin's `"version"`. The pattern
-            # tolerates `}` inside string values (the previous one didn't).
+            # Then `[\s\S]*?` fixed that but introduced a worse one: a lazy quantifier
+            # BACKTRACKS. If the scoped plugin's catalog version is not $From, the gap expands
+            # past its own entry and matches a LATER plugin's version. Reproduced: with
+            # learn-kit drifted to 3.2.0 and diagram-kit sitting at 3.2.1,
+            # `-Scope learn-kit -From 3.2.1` matched 3697 chars spanning into diagram-kit and
+            # rewrote DIAGRAM-KIT's version — with MatchCount 1, so a count check missed it.
+            #
+            # Now: temper the gap so it can never cross a following `"name":` key (the entry
+            # boundary). A drifted entry matches 0 times and fails preflight.
             $PluginName = $MarketplaceJsonMode -replace "^plugin:", ""
-            $Pattern = '("name"\s*:\s*"' + [regex]::Escape($PluginName) + '"[\s\S]*?"version"\s*:\s*")' + [regex]::Escape($From) + '"'
+            $Pattern = '("name"\s*:\s*"' + [regex]::Escape($PluginName) + '"(?:(?!"name"\s*:)[\s\S])*?"version"\s*:\s*")' + $EscFrom + '"'
             $Replacement = '${1}' + $To + '"'
-        }
-
-        $MatchCount = ([regex]::Matches($Content, $Pattern, [System.Text.RegularExpressions.RegexOptions]::Singleline)).Count
-
-        if ($MatchCount -eq 0) {
-            Write-Host "  [SKIP] $RelPath - no match for '$From' in scope '$Scope'" -ForegroundColor DarkGray
-            continue
-        }
-
-        Write-Host ""
-        Write-Host "  [MATCH] $RelPath ($MatchCount occurrences, scoped: $Scope)" -ForegroundColor Green
-
-        $Lines = @(Get-Content -Path $FilePath -Encoding UTF8)
-        $EscapedFrom = [regex]::Escape($From)
-        for ($i = 0; $i -lt $Lines.Count; $i++) {
-            if ($Lines[$i] -match $EscapedFrom) {
-                $LineNum = $i + 1
-                $Before = $Lines[$i].Trim()
-                $After = $Before -replace $EscapedFrom, $To
-                Write-Host "    L${LineNum}: $Before" -ForegroundColor Red
-                Write-Host "      -> $After" -ForegroundColor Green
-            }
-        }
-
-        $TotalMatches += $MatchCount
-
-        if (-not $DryRun) {
-            $NewContent = [regex]::Replace($Content, $Pattern, $Replacement, [System.Text.RegularExpressions.RegexOptions]::Singleline)
-            [System.IO.File]::WriteAllText($FilePath, $NewContent)
-            $ModifiedFiles++
+            $What = "plugins[$PluginName].version"
         }
     } elseif ($PluginManifestPaths -contains $RelPath) {
-        # Anchor on the ROOT version key, which in both manifests immediately follows "name".
-        # Assert exactly one match: 0 means the manifest drifted from the expected shape and
-        # 2+ means the anchor is no longer unique — either way, fail loudly rather than write
-        # a half-correct file.
-        $Pattern = '("name"\s*:\s*"' + [regex]::Escape($Scope) + '"\s*,\s*"version"\s*:\s*")' + [regex]::Escape($From) + '"'
+        # The ROOT version key, which in both manifests immediately follows "name".
+        $Pattern = '("name"\s*:\s*"' + [regex]::Escape($Scope) + '"\s*,\s*"version"\s*:\s*")' + $EscFrom + '"'
         $Replacement = '${1}' + $To + '"'
-        $MatchCount = ([regex]::Matches($Content, $Pattern, [System.Text.RegularExpressions.RegexOptions]::Singleline)).Count
-
-        if ($MatchCount -ne 1) {
-            Write-Host "  [FAIL] $RelPath - expected exactly 1 root version anchor for '$Scope' at '$From', found $MatchCount" -ForegroundColor Red
-            Write-Host "         Refusing to bump: the manifest shape drifted, or the version is not $From." -ForegroundColor Red
-            exit 1
-        }
-
-        Write-Host ""
-        Write-Host "  [MATCH] $RelPath (root version anchor, scoped: $Scope)" -ForegroundColor Green
-
-        $Lines = @(Get-Content -Path $FilePath -Encoding UTF8)
-        $EscapedFrom = [regex]::Escape($From)
-        for ($i = 0; $i -lt $Lines.Count; $i++) {
-            if ($Lines[$i] -match ('"version"\s*:\s*"' + $EscapedFrom + '"')) {
-                $LineNum = $i + 1
-                $Before = $Lines[$i].Trim()
-                $After = $Before -replace $EscapedFrom, $To
-                Write-Host "    L${LineNum}: $Before" -ForegroundColor Red
-                Write-Host "      -> $After" -ForegroundColor Green
-            }
-        }
-
-        $TotalMatches += $MatchCount
-
-        if (-not $DryRun) {
-            $NewContent = [regex]::Replace($Content, $Pattern, $Replacement, [System.Text.RegularExpressions.RegexOptions]::Singleline)
-            [System.IO.File]::WriteAllText($FilePath, $NewContent)
-            $ModifiedFiles++
-        }
+        $What = "root version"
     } elseif ($RelPath -eq "README.md") {
-        # README gets an anchored update, never a whole-file string replace. The «历史版本记录»
-        # section lists past releases by number, and those lines must never move: bumping
-        # learn-kit 3.2.1 -> 4.0.0 with a naive replace rewrote the marketplace's own
-        # "- v3.2.1 — plugin.json schema 修复" history entry into a fabricated "v4.0.0" one,
-        # directly above the real v4.0.0 line. Same class of bug as the CLAUDE.md branch below.
+        # README's «历史版本记录» lists every past release; those lines must never move. A naive
+        # replace rewrote the marketplace's own "- v3.2.1 — plugin.json schema 修复" history
+        # entry into a fabricated "v4.0.0" one, directly above the real v4.0.0 line.
         if ($Scope -eq "marketplace") {
-            # Only the version badge on line 3.
-            $Pattern = '(badge/version-)' + [regex]::Escape($From) + '(-blue)'
+            $Pattern = '(badge/version-)' + $EscFrom + '(-blue)'
             $Replacement = '${1}' + $To + '${2}'
             $What = "version badge"
         } else {
-            # Only this plugin's table row Version cell: anchor from the row's bold plugin link
-            # to the bold version cell, without crossing a line boundary.
-            $Pattern = '(\| \[\*\*' + [regex]::Escape($Scope) + '\*\*\][^\r\n]*?\| \*\*)' + [regex]::Escape($From) + '(\*\* \|)'
+            $Pattern = '(\| \[\*\*' + [regex]::Escape($Scope) + '\*\*\][^\r\n]*?\| \*\*)' + $EscFrom + '(\*\* \|)'
             $Replacement = '${1}' + $To + '${2}'
             $What = "plugin table row Version cell for $Scope"
         }
-
-        $MatchCount = ([regex]::Matches($Content, $Pattern)).Count
-
-        if ($MatchCount -ne 1) {
-            Write-Host "  [FAIL] $RelPath - expected exactly 1 $What at '$From', found $MatchCount" -ForegroundColor Red
-            Write-Host "         Refusing to bump: README shape drifted, or the version is not $From." -ForegroundColor Red
-            exit 1
-        }
-
-        Write-Host ""
-        Write-Host "  [MATCH] $RelPath (1 occurrence, scoped: $What)" -ForegroundColor Green
-
-        $Lines = @(Get-Content -Path $FilePath -Encoding UTF8)
-        for ($i = 0; $i -lt $Lines.Count; $i++) {
-            if ($Lines[$i] -match $Pattern) {
-                $LineNum = $i + 1
-                Write-Host "    L${LineNum}: (matched $What)" -ForegroundColor Green
-                Write-Host "      -> $From becomes $To in that cell only" -ForegroundColor Green
-            }
-        }
-
-        $TotalMatches += $MatchCount
-
-        if (-not $DryRun) {
-            $NewContent = [regex]::Replace($Content, $Pattern, $Replacement)
-            [System.IO.File]::WriteAllText($FilePath, $NewContent)
-            $ModifiedFiles++
-        }
     } elseif ($RelPath -eq "CLAUDE.md") {
-        # CLAUDE.md `plugins/` section plugin line — uniquely identified by
-        # backtick-wrapped plugin name + ' v' + version. Scoped regex (not naive
-        # string replace) to avoid clobbering version mentions in «历史版本记录»
-        # or doc-tree narrative that incidentally match the bare $From string.
-        # Pattern example: `learn-kit` v1.0.0  →  `learn-kit` v1.1.0
-        $PluginName = $Scope
-        $Pattern = '(`' + [regex]::Escape($PluginName) + '` v)' + [regex]::Escape($From)
+        # The `plugins/` section line, identified by backtick-wrapped name + ' v' + version.
+        # Scoped so «历史版本记录» and doc-tree narrative that incidentally contain $From stay put.
+        $Pattern = '(`' + [regex]::Escape($Scope) + '` v)' + $EscFrom
         $Replacement = '${1}' + $To
-
-        $MatchCount = ([regex]::Matches($Content, $Pattern)).Count
-
-        if ($MatchCount -eq 0) {
-            Write-Host "  [SKIP] $RelPath - no match for plugin line '`${PluginName}` v$From'" -ForegroundColor DarkGray
-            continue
-        }
-
-        Write-Host ""
-        Write-Host "  [MATCH] $RelPath ($MatchCount occurrences, scoped: plugin line for $PluginName)" -ForegroundColor Green
-
-        $Lines = @(Get-Content -Path $FilePath -Encoding UTF8)
-        $LinePattern = '`' + [regex]::Escape($PluginName) + '` v' + [regex]::Escape($From)
-        for ($i = 0; $i -lt $Lines.Count; $i++) {
-            if ($Lines[$i] -match $LinePattern) {
-                $LineNum = $i + 1
-                $Before = $Lines[$i].Trim()
-                $After = $Before -replace $LinePattern, ('`' + $PluginName + '` v' + $To)
-                Write-Host "    L${LineNum}: $Before" -ForegroundColor Red
-                Write-Host "      -> $After" -ForegroundColor Green
-            }
-        }
-
-        $TotalMatches += $MatchCount
-
-        if (-not $DryRun) {
-            $NewContent = [regex]::Replace($Content, $Pattern, $Replacement)
-            [System.IO.File]::WriteAllText($FilePath, $NewContent)
-            $ModifiedFiles++
-        }
+        $What = "``$Scope`` plugin line"
+    } elseif ($RelPath -eq "VERSION") {
+        # The file holds nothing but the version.
+        $Pattern = '\b' + $EscFrom + '\b'
+        $Replacement = $To
+        $What = "the version"
     } else {
-        # Simple string replacement for VERSION, plugin.json, README.md
-        $EscapedFrom = [regex]::Escape($From)
-        $MatchCount = ([regex]::Matches($Content, $EscapedFrom)).Count
+        $Failures += "  [FAIL] $RelPath - no anchor rule defined for this target"
+        continue
+    }
 
-        if ($MatchCount -eq 0) {
-            Write-Host "  [SKIP] $RelPath - no match for '$From'" -ForegroundColor DarkGray
-            continue
+    $MatchCount = ([regex]::Matches($Content, $Pattern, [System.Text.RegularExpressions.RegexOptions]::Singleline)).Count
+    if ($MatchCount -ne 1) {
+        $Failures += "  [FAIL] $RelPath - expected exactly 1 anchor ($What) at '$From', found $MatchCount"
+        continue
+    }
+
+    # Produce the new content NOW, during preflight, so a replacement that silently no-ops is
+    # caught before anything is written rather than after.
+    $NewContent = [regex]::Replace($Content, $Pattern, $Replacement, [System.Text.RegularExpressions.RegexOptions]::Singleline)
+    if ($NewContent -eq $Content) {
+        $Failures += "  [FAIL] $RelPath - anchor ($What) matched but the replacement changed nothing"
+        continue
+    }
+
+    $Plan += [PSCustomObject]@{
+        RelPath    = $RelPath
+        FilePath   = $FilePath
+        Content    = $Content
+        NewContent = $NewContent
+        What       = $What
+    }
+}
+
+if ($Failures.Count -gt 0) {
+    Write-Host ""
+    foreach ($f in $Failures) { Write-Host $f -ForegroundColor Red }
+    Write-Host ""
+    Write-Host "Refusing to bump: $($Failures.Count) target(s) failed preflight. NOTHING was written." -ForegroundColor Red
+    Write-Host "Either the version is not $From, or a file's shape drifted from what the anchors expect." -ForegroundColor Red
+    exit 1
+}
+
+# ---------------------------------------------------------------------------
+# PHASE 2 — REPORT
+# ---------------------------------------------------------------------------
+
+# Report by DIFFING old against new content. Re-deriving a display regex from the anchor was
+# how an invalid pattern crept in; the authoritative answer to "what changes" is simply which
+# lines differ.
+foreach ($Item in $Plan) {
+    Write-Host ""
+    Write-Host "  [MATCH] $($Item.RelPath) (scoped: $($Item.What))" -ForegroundColor Green
+    $Old = $Item.Content -split "`r?`n"
+    $New = $Item.NewContent -split "`r?`n"
+    for ($i = 0; $i -lt [Math]::Min($Old.Count, $New.Count); $i++) {
+        if ($Old[$i] -ne $New[$i]) {
+            $LineNum = $i + 1
+            $Show = { param($s) if ($s.Length -gt 140) { $s.Substring(0, 140) + " …" } else { $s } }
+            Write-Host "    L${LineNum}: $(& $Show $Old[$i].Trim())" -ForegroundColor Red
+            Write-Host "      -> $(& $Show $New[$i].Trim())" -ForegroundColor Green
         }
+    }
+}
 
-        Write-Host ""
-        Write-Host "  [MATCH] $RelPath ($MatchCount occurrences)" -ForegroundColor Green
+$TotalMatches = $Plan.Count
 
-        $Lines = @(Get-Content -Path $FilePath -Encoding UTF8)
-        for ($i = 0; $i -lt $Lines.Count; $i++) {
-            if ($Lines[$i] -match $EscapedFrom) {
-                $LineNum = $i + 1
-                $Before = $Lines[$i].Trim()
-                $After = $Before -replace $EscapedFrom, $To
-                Write-Host "    L${LineNum}: $Before" -ForegroundColor Red
-                Write-Host "      -> $After" -ForegroundColor Green
-            }
-        }
+# ---------------------------------------------------------------------------
+# PHASE 3 — COMMIT
+#
+# Preflight passed for every target, so the writes below are the only ones that happen and they
+# all happen together. This is not a transaction: a mid-write I/O failure can still leave a
+# partial state. It removes the predictable half-bump (a later target failing validation), not
+# the physical one — the plan's full two-phase temp/backup rewrite is still outstanding.
+# ---------------------------------------------------------------------------
 
-        $TotalMatches += $MatchCount
-
-        if (-not $DryRun) {
-            $NewContent = $Content -replace $EscapedFrom, $To
-            [System.IO.File]::WriteAllText($FilePath, $NewContent)
-            $ModifiedFiles++
-        }
+$ModifiedFiles = 0
+if (-not $DryRun) {
+    foreach ($Item in $Plan) {
+        [System.IO.File]::WriteAllText($Item.FilePath, $Item.NewContent)
+        $ModifiedFiles++
     }
 }
 
 Write-Host ""
 Write-Host ("-" * 60)
 if ($DryRun) {
-    Write-Host "[DryRun] Found $TotalMatches matches in scope '$Scope'" -ForegroundColor Yellow
-    Write-Host "[DryRun] Remove -DryRun to apply changes" -ForegroundColor Yellow
+    Write-Host "[DryRun] Found $TotalMatches anchored target(s) in scope '$Scope'" -ForegroundColor Yellow
+    Write-Host "[DryRun] No files were modified. Re-run without -DryRun to apply." -ForegroundColor Yellow
 } else {
-    Write-Host "[Done] Modified $ModifiedFiles files, replaced $TotalMatches occurrences" -ForegroundColor Cyan
-    Write-Host ""
-    Write-Host "Next steps:" -ForegroundColor White
-    Write-Host '  1. git diff  (review changes)' -ForegroundColor White
-    Write-Host '  2. Update CHANGELOG.md (move [Unreleased] to [X.Y.Z])' -ForegroundColor White
-    Write-Host '  3. git add ... then git commit' -ForegroundColor White
+    Write-Host "[Done] Modified $ModifiedFiles file(s) at $TotalMatches anchor(s)" -ForegroundColor Cyan
+    Write-Host "Next: verify with 'npm run validate:dual-host' and update CHANGELOG entries." -ForegroundColor Cyan
 }
 Write-Host ""

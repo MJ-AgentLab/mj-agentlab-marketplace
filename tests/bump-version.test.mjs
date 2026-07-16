@@ -127,8 +127,108 @@ test("a wrong -From refuses and writes nothing", { skip: !HAVE_PWSH && "pwsh una
   const before = read(w, "plugins/learn-kit/.claude-plugin/plugin.json");
   const r = await bump(w, "9.9.9", "9.9.10", "learn-kit");
   assert.notEqual(r.status, 0, "must exit non-zero");
-  assert.match(r.stdout + r.stderr, /expected exactly 1 root version anchor/);
+  assert.match(r.stdout + r.stderr, /expected exactly 1 anchor \(root version\)/);
+  assert.match(r.stdout + r.stderr, /NOTHING was written/);
   assert.equal(read(w, "plugins/learn-kit/.claude-plugin/plugin.json"), before, "no partial write");
+});
+
+test("CLAUDE.md's plugin line is actually bumped", { skip: !HAVE_PWSH && "pwsh unavailable" }, async () => {
+  // CLAUDE.md is the only version site with no CI net, and was the only one with no test.
+  const w = makeTree();
+  const r = await bump(w, "3.2.1", "4.0.0", "learn-kit");
+  assert.equal(r.status, 0, r.stdout + r.stderr);
+  assert.match(read(w, "CLAUDE.md"), /`learn-kit` v4\.0\.0/, "the plugin line must move");
+  assert.ok(!/`learn-kit` v3\.2\.1/.test(read(w, "CLAUDE.md")), "no stale plugin line left");
+});
+
+test("CLAUDE.md's history section is not rewritten by a bump", { skip: !HAVE_PWSH && "pwsh unavailable" }, async () => {
+  // Same class as the README history bug: CLAUDE.md's 历史版本记录 names past releases.
+  const w = makeTree();
+  const histBefore = read(w, "CLAUDE.md").split(/\r?\n/).filter((l) => /^- \*\*v\d+\.\d+\.\d+\*\*/.test(l)).join("\n");
+  await bump(w, "3.2.1", "4.0.0", "learn-kit");
+  const histAfter = read(w, "CLAUDE.md").split(/\r?\n/).filter((l) => /^- \*\*v\d+\.\d+\.\d+\*\*/.test(l)).join("\n");
+  assert.equal(histAfter, histBefore);
+});
+
+test("a drifted CLAUDE.md plugin line fails loudly instead of SKIPping", { skip: !HAVE_PWSH && "pwsh unavailable" }, async () => {
+  // Regression: every other site was converted to fail-loud while CLAUDE.md kept `continue`,
+  // so a drifted line left four sites bumped, CLAUDE.md stale, and exit 0 with "[Done]".
+  const w = makeTree();
+  const claude = path.join(w, "CLAUDE.md");
+  fs.writeFileSync(claude, fs.readFileSync(claude, "utf8").replace("`learn-kit` v3.2.1", "`learn-kit` v3.2.0"));
+  const manifestBefore = read(w, "plugins/learn-kit/.claude-plugin/plugin.json");
+
+  const r = await bump(w, "3.2.1", "4.0.0", "learn-kit");
+  assert.notEqual(r.status, 0, "must exit non-zero on CLAUDE.md drift");
+  assert.match(r.stdout + r.stderr, /expected exactly 1 anchor \(`learn-kit` plugin line\)/);
+  assert.ok(!/\$\{PluginName\}/.test(r.stdout), "the message must name the plugin, not print a literal ${PluginName}");
+  assert.equal(read(w, "plugins/learn-kit/.claude-plugin/plugin.json"), manifestBefore, "earlier targets must not be written");
+});
+
+test("a drifted catalog entry never rewrites a DIFFERENT plugin's version", { skip: !HAVE_PWSH && "pwsh unavailable" }, async () => {
+  // The lazy [\s\S]*? in the catalog plugin-entry regex backtracks: with learn-kit drifted and
+  // diagram-kit sitting at the -From value, `-Scope learn-kit` matched 3697 chars spanning into
+  // diagram-kit and rewrote ITS version, with MatchCount == 1 so a count check missed it.
+  const w = makeTree();
+  const catPath = path.join(w, ".claude-plugin/marketplace.json");
+  let cat = fs.readFileSync(catPath, "utf8");
+  cat = cat.replace(/("name": "learn-kit",[\s\S]*?"version": ")3\.2\.1"/, '$13.2.0"');
+  cat = cat.replace(/("name": "diagram-kit",[\s\S]*?"version": ")0\.1\.0"/, '$13.2.1"');
+  fs.writeFileSync(catPath, cat);
+
+  const r = await bump(w, "3.2.1", "4.0.0", "learn-kit");
+  const after = JSON.parse(read(w, ".claude-plugin/marketplace.json"));
+  const diagram = after.plugins.find((p) => p.name === "diagram-kit").version;
+  assert.equal(diagram, "3.2.1", "diagram-kit was never named on the command line and must not move");
+  assert.notEqual(r.status, 0, "a drifted learn-kit entry must fail loudly, not cross into a sibling");
+});
+
+test("a missing required target fails loudly", { skip: !HAVE_PWSH && "pwsh unavailable" }, async () => {
+  const w = makeTree();
+  fs.rmSync(path.join(w, "plugins/learn-kit/.codex-plugin/plugin.json"));
+  const before = read(w, "plugins/learn-kit/.claude-plugin/plugin.json");
+  const r = await bump(w, "3.2.1", "4.0.0", "learn-kit");
+  assert.notEqual(r.status, 0, "the 'mandatory' native manifest must not be silently skipped");
+  assert.match(r.stdout + r.stderr, /required file not found/);
+  assert.equal(read(w, "plugins/learn-kit/.claude-plugin/plugin.json"), before);
+});
+
+test("a non-semver -From / -To is rejected before any file is opened", { skip: !HAVE_PWSH && "pwsh unavailable" }, async () => {
+  // -To lands in a .NET replacement string where $0/$1/$& are substitution tokens: a -To of
+  // '$0-x' previously wrote invalid JSON across five files and exited 0.
+  const w = makeTree();
+  const before = read(w, "plugins/learn-kit/.claude-plugin/plugin.json");
+  for (const [from, to] of [
+    ["3.2.1", "$0-x"],
+    ["3.2.1", "v4.0.0"],
+    ["3.2.1", "4.0"],
+    ["v3.2.1", "4.0.0"],
+  ]) {
+    const r = await bump(w, from, to, "learn-kit");
+    assert.notEqual(r.status, 0, `-From ${from} -To ${to} must be rejected`);
+    assert.equal(read(w, "plugins/learn-kit/.claude-plugin/plugin.json"), before, "nothing written");
+  }
+  assert.ok(JSON.parse(read(w, "plugins/learn-kit/.claude-plugin/plugin.json")), "manifest is still valid JSON");
+});
+
+test("the README badge anchor is scoped, not a whole-file replace", { skip: !HAVE_PWSH && "pwsh unavailable" }, async () => {
+  // Inject the marketplace version into README prose; only the badge may move.
+  const w = makeTree();
+  const readme = path.join(w, "README.md");
+  fs.appendFileSync(readme, "\n\nNote: version 6.3.2 was a routine pre-bump.\n");
+  const r = await bump(w, "6.3.2", "7.0.0", null);
+  assert.equal(r.status, 0, r.stdout + r.stderr);
+  assert.ok(read(w, "README.md").includes("badge/version-7.0.0-blue"), "badge moves");
+  assert.ok(read(w, "README.md").includes("Note: version 6.3.2 was a routine pre-bump."), "prose must not move");
+});
+
+test("a drifted README fails loudly rather than silently skipping", { skip: !HAVE_PWSH && "pwsh unavailable" }, async () => {
+  const w = makeTree();
+  const readme = path.join(w, "README.md");
+  fs.writeFileSync(readme, fs.readFileSync(readme, "utf8").replace("badge/version-6.3.2-blue", "badge/version-9.9.9-blue"));
+  const r = await bump(w, "6.3.2", "7.0.0", null);
+  assert.notEqual(r.status, 0);
+  assert.match(r.stdout + r.stderr, /expected exactly 1 anchor \(version badge\)/);
 });
 
 test("all three planned bumps leave validate-dual-host clean", { skip: !HAVE_PWSH && "pwsh unavailable" }, async () => {
