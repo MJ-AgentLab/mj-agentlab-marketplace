@@ -107,7 +107,7 @@ docs/
 A6 gate 由 [`.github/workflows/a6.yml`](.github/workflows/a6.yml) 阻断。绕过需**同时**满足：PR title 含 `[skip a6]` 字面量 **且** 非作者的 OWNER/MEMBER/COLLABORATOR reviewer 对**当前 head SHA** 提交 `APPROVED` review、body 精确等于 `A6 N/A confirmed`。v1.7 前 sign-off 从未被校验（仅 title 即放行）；force-push 后旧 approval 不顺延，须重新 approve。
 
 > [!NOTE]
-> A6 的 check context 为 `A6 CLAUDE.md sync`，须列入 branch ruleset 的 required status checks 才真正阻断 merge。当前 `protect-develop` / `protect-main` 分别要求 `build` / `release` 两个**不存在**的 context — 详见 Framework §4.3.1 IMPORTANT。
+> **Branch ruleset required checks（2026-07-16 修复）**：`protect-develop` → `Validate Structure` + `A6 CLAUDE.md sync`；`protect-main` → `Validate Structure`。此前二者分别要求 `build` / `release` 两个不由任何 workflow 产出的 context，导致所有 CI gate 都不阻断 merge。**改 workflow job 的 `name:` 就是改 check context —— 必须同步 ruleset，否则 gate 静默降级为红叉提示**（GitHub 对引用不存在的 context 不报错）。详见 Framework §4.3.1 IMPORTANT。
 
 Templates 与 mp-doc-author skill 协作起草新文档；mp-doc-validate skill 审计合规（v4.6.3 起含 Step 3.5 CLAUDE.md sync Warning 检测）。详见 [docs/INDEX.md](docs/INDEX.md)。
 
