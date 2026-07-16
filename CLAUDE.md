@@ -7,8 +7,10 @@
 - `plugins/` — **2 个通用插件**（v6.3.0 起；v4.0.0–v6.2.x 曾收敛为单 learn-kit）：
   - `learn-kit` v3.2.1（**v6.2.0 additive：3 skill 化** —— 在 v3.0.0–v3.1.0 单 skill `three-views` 之外加 `glossary`（六槽术语速记卡 ~150-250字）+ `concept`（六节概念深讲 ~500-800字，2 跨域正例 + 1 反例 + 失效边界）两个纯 prompt in-chat 解释 skill（单 SKILL.md，无 tool / 无 file / 无 MCP；frontmatter `name`+`description` only），填补 `three-views` 明确 disclaim 的 pure-explanation / Q&A niche；三 skill description 加 `Do not use for: …（use X）` routing clause；learn-kit picker 1→3 在 [docs/adr/[ADR]_LearnKit_Explanation_Skills_Addition.md](docs/adr/[ADR]_LearnKit_Explanation_Skills_Addition.md) 显式 reconcile。**v6.1.0 additive HITL expansion**：在 v3.0.0 单一 `three-views` skill 内加 Step 1.3 视角 multi-select（default 3 全选 / min 1）+ Step 4 升级 5-cell granular multi-select（HTML / NLM audio / NLM video / NLM slide_deck / NLM mind_map 独立勾选）+ Step 5B re-run guard `source_corpus_key` 等价性 + 3-level hint granularity；默认产物等同 v3.0.0；详见 [docs/adr/[ADR]_LearnKit_ThreeViews_HITL_Expansion.md](docs/adr/[ADR]_LearnKit_ThreeViews_HITL_Expansion.md)）。**v6.0.0 BREAKING baseline**：5 skill 收敛为单 skill `three-views`——删 scaffold-learning/locate/scan/nlm-studio + 重命名 generate-tier → three-views；NLM artifact 范围 13 → max 10（删 infographic，mind_map 转 opt-in）；新增 URL 输入 + source_manifest 结构化追踪 + HTML dual-mode grounding；保留 nlm-studio 全套 dogfood防护；详见 [docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md](docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md) + [docs/guide/[GUIDE]_Migration_From_v3_to_v4.md](docs/guide/[GUIDE]_Migration_From_v3_to_v4.md) §6。历史 v2.x 5-skill 设计：scaffold-learning（一次性 bootstrap）+ locate/scan（discovery，算法保留为 plugin-internal [GUIDE]_LearnKit_Discovery_Recipes manual recipes）+ generate-tier（AI 三档）+ nlm-studio（NLM 多媒体）；v2.0.0 BREAKING init → scaffold-learning rename；v2.0.1 nlm-studio Chinese narration dual-lock）
   - `diagram-kit` v0.1.0（**v6.3.0 NEW plugin**——marketplace 史上首次 plugin 计数 1 → 2）：单 skill `arch-diagram`（`/diagram-kit:arch-diagram`）把代码库 / 系统的源事实转成证据绑定的 Mermaid 架构图，7 类（context / container / component / code〔C4 结构 L1–L4〕+ sequence / state-machine〔行为〕+ deployment〔物理〕），任意域；5-step 事实先行（L0–L3 阶梯，铁律每节点/边可追 `file:行号`）；bundle 9 份领域无关 references（progressive disclosure）+ 泛化 stdlib Mermaid validator（`validate_diagram.py`，去 PG 专属 ROLE-03 + SLUG regex 通用化 `struct-l[1234]|dyn|phys`，与 PG 版双源分叉）；无 MCP / 无 network；generated 图用 `text` 围栏不自动渲染。与 learn-kit 功能正交（一个出架构图、一个出学习材料），8→3→1 收敛方向经 domain-orthogonality reconcile，详见 [docs/adr/[ADR]_Diagram_Kit_Addition.md](docs/adr/[ADR]_Diagram_Kit_Addition.md)
-- `scripts/` — 基础设施脚本（bump-version, install-hooks, validate-commits, clone-bare）
-- `.claude-plugin/marketplace.json` — 市场元数据（版本 + 插件注册表）
+- `scripts/` — 基础设施脚本（bump-version, install-hooks, validate-commits, clone-bare；**dual-host 起**新增 Node 工具链：`validate-dual-host.mjs` / `run-cli.mjs` / `check-tool-versions.mjs`）
+- `.claude-plugin/marketplace.json` — 市场元数据（版本 + 插件注册表）；**Claude Code SSOT，权威源**
+- `.agents/plugins/marketplace.json` — **Codex 原生 catalog（dual-host wrapper 起新增）**：镜像 legacy catalog 的插件集合 / 顺序 / 名称 / local source，但**不保存版本**（版本只由 manifest 持有）；`learn-kit` 固定 `ON_USE`（认证只服务用户显式 opt-in 的 NLM 分支，不得在安装或纯 Markdown/HTML 使用时暗示必须登录），`diagram-kit` 为 `ON_INSTALL`
+- `tests/` — **Node stdlib 测试（dual-host 起新增）**，`npm test` 入口
 - `VERSION` — 市场整体版本号（权威源）
 - `docs/` — 项目文档（见 [INDEX.md](docs/INDEX.md)），含 rule / guide / runbook / adr / spec 5 子目录 + 迁移指引 [docs/guide/[GUIDE]_Migration_From_v3_to_v4.md](docs/guide/[GUIDE]_Migration_From_v3_to_v4.md)
 
@@ -47,6 +49,27 @@
 - 优先用 SKILL（不用 COMMAND，commands 是 legacy）
 - 模板 / references / scripts 放在 skill 目录内部
 - 不使用 `components` 字段（auto-discovery 标准）
+
+### Dual-host（Claude Code + Codex）包装
+
+每插件在 legacy `.claude-plugin/` 之外**并存**一份 Codex 原生包装；两者必须持续一致，由 `npm run validate:dual-host` 强制：
+
+```
+<plugin>/
+├── .claude-plugin/plugin.json   # Claude Code SSOT（权威源）
+├── .codex-plugin/plugin.json    # Codex 原生 manifest
+├── .mcp.json                    # 仅 learn-kit；命令指向本仓 bridge
+└── skills/<skill>/
+    ├── SKILL.md                 # 双宿主共享
+    └── agents/openai.yaml       # Codex skill UI metadata
+```
+
+- **双 manifest 一致性**：`name` / `version` / `author` / `repository` / `license` / `skills` 必须精确一致；native `keywords` 是 legacy 的非空子集；native `description` **有意**更短且宿主中性，不要求逐字一致。
+- **Codex 限定值域**：`.codex-plugin` 的 `interface.defaultPrompt` 最多 3 条 × 128 字符 string array；`openai.yaml` 的 `interface.default_prompt` 是 **scalar**。两层都必须使用 **qualified 名** `$learn-kit:three-views` / `$diagram-kit:arch-diagram` —— Codex 把 plugin skill 注册为 `plugin:skill` 且 `$` 注入按完整名精确匹配，裸 `$three-views` **永不解析**。
+- **description 双门**：Claude Code 在 **1536** 字符处截断注入的 description；Codex 自带 skill validator 拒绝 `<` / `>` 且上限 **1024**。本仓按更严的交集撰写（当前四份 664–882 字符，无角括号）。
+- **能力收窄**（仅约束声明了 MCP 工具的 skill，即 `three-views`）：只预授权 6 个 NotebookLM 业务工具；`refresh_auth`（会校验默认 profile / 可能触发 headless auth）、`server_info`（远端探测）、`source_delete`（不需要的破坏性能力）**有意排除**；不得预授权通用 `Bash`（含 `Bash(*)` 等通配授权）或 installer，只允许 scoped hash-helper 权限。`arch-diagram` 不声明 MCP 工具，其裸 `Bash`（用于跑 bundled Python validator）**不受此约束**。
+- **`agents/openai.yaml` 一律省略 `dependencies.tools`**：该 schema 无 optional 语义，而 NotebookLM 是 opt-in；MCP server 改由 native manifest 的 `mcpServers` 聚合。
+- **baseline 版本语义**：Codex / uv / bridge / connector 精确 pin（供应链输入）；**Claude Code CLI 为最小版本 `>=`**（外部滚动发布的宿主二进制，不进 wheel/lock，精确 pin 会因上游自动更新而无谓红 CI）。
 
 ## Documentation Framework (v4.2.0 起；当前 v1.6 / marketplace v6.3.2)
 
