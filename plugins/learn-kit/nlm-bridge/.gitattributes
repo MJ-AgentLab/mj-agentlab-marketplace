@@ -1,0 +1,21 @@
+# Line endings for the bridge's generated contract are load-bearing, not cosmetic.
+#
+# Two separate mechanisms read these files back byte-for-byte:
+#
+#   1. `generate-nlm-contract.mjs --check` regenerates them and byte-compares. uv and the
+#      snapshot generator always emit LF.
+#   2. The _data snapshots ship inside the wheel and are hashed at runtime; those SHAs go
+#      into the environment lock, the install receipt, and the Gate A/B fingerprint.
+#
+# The repo has no root .gitattributes and this machine (like GitHub Actions windows-latest)
+# has core.autocrlf=true, so without this file a fresh Windows checkout rewrites them to
+# CRLF. That breaks --check on Windows, and — worse — makes the hashes differ between a
+# Windows and an Ubuntu checkout, so the "same" contract would have two different SHAs and
+# the five-SHA binding could never hold across the baseline matrix.
+#
+# Scoped to this subtree on purpose: a repo-wide `* text=auto eol=lf` would renormalize
+# every file in the marketplace, which is a much larger change than this problem warrants.
+requirements/*.txt                     text eol=lf
+constraints/*.txt                      text eol=lf
+constraints/*.in                       text eol=lf
+src/learn_kit_nlm_bridge/_data/*.json  text eol=lf
