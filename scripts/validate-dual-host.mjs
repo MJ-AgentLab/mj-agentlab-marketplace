@@ -44,6 +44,17 @@ const SCOPED_HELPER_PERMISSION =
 const MCP_COMMAND = "learn-kit-nlm-bridge";
 const CATALOG_CATEGORIES = new Set(["Education & Research", "Developer Tools"]);
 
+// §2.1 / §2.2 fix one category per plugin. Pin them: a mere membership test would let the two
+// plugins swap categories and still validate clean.
+const EXPECTED_CATEGORY = {
+  "learn-kit": "Education & Research",
+  "diagram-kit": "Developer Tools",
+};
+
+// The skill that owns the NotebookLM branch. Used ONLY for the positive half of the capability
+// contract (see checkSkillCapabilities); the negative half is keyed on content, not on this.
+const NLM_SKILL = { plugin: "learn-kit", skill: "three-views" };
+
 // Claude Code truncates injected descriptions at 1536; Codex's bundled skill validator rejects
 // angle brackets and caps at 1024. The repo authors to the stricter intersection.
 const CLAUDE_DESC_MAX = 1536;
@@ -196,6 +207,10 @@ export function validateTree(root, { hostNeutral = "warn" } = {}) {
           rel,
           `category "${p.category}" is not one of ${[...CATALOG_CATEGORIES].join(" | ")}`,
         ),
+      );
+    } else if (EXPECTED_CATEGORY[p.name] && p.category !== EXPECTED_CATEGORY[p.name]) {
+      errors.push(
+        finding("CATALOG_CATEGORY_UNEXPECTED", rel, `category "${p.category}" != the fixed category for ${p.name} ("${EXPECTED_CATEGORY[p.name]}")`),
       );
     }
     if (p?.source?.source !== "local" || typeof p?.source?.path !== "string") {
@@ -359,14 +374,38 @@ export function validateTree(root, { hostNeutral = "warn" } = {}) {
               errors.push(
                 finding("PROMPT_FOREIGN_PLUGIN", nativeRel, `"$${r[1]}:${r[3]}" does not belong to plugin "${name}"`),
               );
-            } else if (!exists(path.join("plugins", name, "skills", r[3]))) {
+            } else if (!exists(path.join("plugins", name, "skills", r[3], "SKILL.md"))) {
+              // A directory alone is not a skill — both hosts register a skill only when it has
+              // a SKILL.md, so check for that rather than for the folder.
               errors.push(
-                finding("PROMPT_UNKNOWN_SKILL", nativeRel, `"$${r[1]}:${r[3]}" has no matching skills/ directory`),
+                finding("PROMPT_UNKNOWN_SKILL", nativeRel, `"$${r[1]}:${r[3]}" has no matching skills/<name>/SKILL.md`),
               );
             }
           }
         }
       }
+    }
+
+    // Both manifests may only POINT at ./.mcp.json — never inline a server object. Claude Code
+    // accepts an inline `mcpServers` object in plugin.json, which would route straight around
+    // the .mcp.json exact-shape / no-runner / bridge-command gates below (e.g. an inline
+    // `npx -y notebooklm-mcp-cli@latest` would start the third-party connector directly).
+    for (const [mrel, m] of [
+      [legacyRel, lm],
+      [nativeRel, nm],
+    ]) {
+      if (m.mcpServers !== undefined && typeof m.mcpServers !== "string") {
+        errors.push(
+          finding(
+            "MANIFEST_INLINE_MCP",
+            mrel,
+            "mcpServers must be a pointer to ./.mcp.json, never an inline server object",
+          ),
+        );
+      }
+    }
+    if (typeof lm.mcpServers === "string" && lm.mcpServers !== "./.mcp.json") {
+      errors.push(finding("MANIFEST_MCP_POINTER", legacyRel, `mcpServers must be "./.mcp.json" (got ${JSON.stringify(lm.mcpServers)})`));
     }
 
     // mcpServers is declared iff the plugin ships a .mcp.json (§2.2 / §2.3.1).
@@ -441,53 +480,56 @@ export function validateTree(root, { hostNeutral = "warn" } = {}) {
       if (!entry.isDirectory()) continue;
       const skill = entry.name;
       const skillRel = `plugins/${name}/skills/${skill}/SKILL.md`;
-      // A directory with no SKILL.md is a shared-resource folder (the repo's `*-shared`
-      // convention), not a skill. Key off the absence of SKILL.md rather than the name suffix:
-      // both hosts auto-discover ANY directory that does contain one, so a `-shared` suffix
-      // must not become a way to skip the description and capability gates.
-      if (!exists(skillRel)) continue;
-      const text = fs.readFileSync(abs(skillRel), "utf8");
-      const { raw } = splitFrontmatter(text);
-      if (raw === null) {
-        errors.push(finding("SKILL_FRONTMATTER_MISSING", skillRel, "no --- frontmatter block"));
-        continue;
-      }
-      const fm = parseFm(raw, skillRel, errors);
-      if (!fm) continue;
-
-      if (fm.name !== skill) {
-        errors.push(finding("SKILL_NAME_DRIFT", skillRel, `frontmatter name "${fm.name}" != directory "${skill}"`));
-      }
-
-      const desc = fm.description;
-      if (isBlank(desc)) {
-        errors.push(finding("SKILL_DESC_MISSING", skillRel, "description must be a non-empty string"));
-      } else {
-        const len = [...desc].length;
-        if (len > CLAUDE_DESC_MAX) {
-          errors.push(finding("SKILL_DESC_TOO_LONG_CLAUDE", skillRel, `description ${len} chars > ${CLAUDE_DESC_MAX} (Claude truncates)`));
-        }
-        if (len < CODEX_DESC_MIN || len > CODEX_DESC_MAX) {
-          errors.push(finding("SKILL_DESC_TOO_LONG_CODEX", skillRel, `description ${len} chars outside Codex ${CODEX_DESC_MIN}-${CODEX_DESC_MAX}`));
-        }
-        if (/[<>]/.test(desc)) {
-          errors.push(finding("SKILL_DESC_ANGLE_BRACKET", skillRel, "description contains < or >, rejected by Codex skill validator"));
-        }
-      }
-
-      // Capability contract — enforced for EVERY skill, keyed on whether the plugin actually
-      // ships an MCP server rather than on a hard-coded skill path.
-      const at = fm["allowed-tools"];
-      if (at !== undefined) {
-        if (typeof at !== "string") {
-          errors.push(finding("ALLOWED_TOOLS_NOT_SCALAR", skillRel, "allowed-tools must be a quoted space-separated scalar"));
-        } else {
-          checkAllowedTools(at, skillRel, exists(`plugins/${name}/.mcp.json`), errors);
-        }
-      }
-
-      // openai.yaml
       const yRel = `plugins/${name}/skills/${skill}/agents/openai.yaml`;
+      const hasSkillMd = exists(skillRel);
+      const hasAgents = fs.existsSync(abs(path.join("plugins", name, "skills", skill, "agents")));
+
+      // A directory with neither SKILL.md nor agents/ is a shared-resource folder (the repo's
+      // `*-shared` convention). Key off content rather than a name suffix: both hosts
+      // auto-discover ANY directory containing a SKILL.md, so the suffix must not become a way
+      // to skip the gates. But absence of SKILL.md must not silently disable the OTHER gates
+      // either — a directory that ships agents/ is a skill whose SKILL.md has gone missing.
+      if (!hasSkillMd && !hasAgents) continue;
+      if (!hasSkillMd) {
+        errors.push(finding("SKILL_MISSING", skillRel, "skill directory ships agents/ but has no SKILL.md"));
+      }
+
+      let fm = null;
+      if (hasSkillMd) {
+        const { raw } = splitFrontmatter(fs.readFileSync(abs(skillRel), "utf8"));
+        if (raw === null) {
+          errors.push(finding("SKILL_FRONTMATTER_MISSING", skillRel, "no --- frontmatter block"));
+        } else {
+          fm = parseFm(raw, skillRel, errors);
+        }
+      }
+
+      if (fm) {
+        if (fm.name !== skill) {
+          errors.push(finding("SKILL_NAME_DRIFT", skillRel, `frontmatter name "${fm.name}" != directory "${skill}"`));
+        }
+
+        const desc = fm.description;
+        if (isBlank(desc)) {
+          errors.push(finding("SKILL_DESC_MISSING", skillRel, "description must be a non-empty string"));
+        } else {
+          const len = [...desc].length;
+          if (len > CLAUDE_DESC_MAX) {
+            errors.push(finding("SKILL_DESC_TOO_LONG_CLAUDE", skillRel, `description ${len} chars > ${CLAUDE_DESC_MAX} (Claude truncates)`));
+          }
+          if (len < CODEX_DESC_MIN || len > CODEX_DESC_MAX) {
+            errors.push(finding("SKILL_DESC_TOO_LONG_CODEX", skillRel, `description ${len} chars outside Codex ${CODEX_DESC_MIN}-${CODEX_DESC_MAX}`));
+          }
+          if (/[<>]/.test(desc)) {
+            errors.push(finding("SKILL_DESC_ANGLE_BRACKET", skillRel, "description contains < or >, rejected by Codex skill validator"));
+          }
+        }
+
+        checkSkillCapabilities(fm, name, skill, skillRel, exists(`plugins/${name}/.mcp.json`), errors);
+      }
+
+      // openai.yaml — validated independently of SKILL.md. It is a DIFFERENT file, and gating it
+      // on SKILL.md would let a missing SKILL.md take the whole UI-metadata contract offline.
       if (!exists(yRel)) {
         errors.push(finding("OPENAI_YAML_MISSING", yRel, "Codex skill UI metadata not found"));
       } else {
@@ -525,8 +567,11 @@ export function validateTree(root, { hostNeutral = "warn" } = {}) {
           }
           // dependencies.tools has no `optional` semantics; NotebookLM is opt-in, so all four
           // skills must omit it and let the native plugin manifest aggregate the server (§2.3).
-          if (y.dependencies?.tools !== undefined) {
-            errors.push(finding("OPENAI_YAML_DEPENDENCY_TOOLS", yRel, "dependencies.tools must be omitted: it cannot express an opt-in dependency"));
+          // Reject the whole `dependencies` block, not just `.tools`: the plan's assertion is
+          // that these files declare no dependency at all, and keying on one subkey would let
+          // any sibling key through.
+          if (y.dependencies !== undefined) {
+            errors.push(finding("OPENAI_YAML_DEPENDENCY_TOOLS", yRel, "dependencies must be omitted entirely: it cannot express an opt-in dependency"));
           }
         }
       }
@@ -620,53 +665,106 @@ export function tokenizeAllowedTools(value) {
   return tokens;
 }
 
+/** True when every parenthesis in an allowed-tools scalar is balanced. */
+export function hasBalancedParens(value) {
+  let depth = 0;
+  for (const ch of value) {
+    if (ch === "(") depth++;
+    else if (ch === ")") {
+      depth--;
+      if (depth < 0) return false;
+    }
+  }
+  return depth === 0;
+}
+
 /**
- * Validate one skill's allowed-tools scalar against the capability contract.
+ * Validate one skill's capability contract.
  *
- * Applies to EVERY skill, but the strict regime is keyed on whether the skill actually DECLARES
- * MCP tools — not on a hard-coded skill name. That is the security-relevant property and it is
- * rename-proof: any skill (renamed, or newly added) that grants NotebookLM access gets the full
- * narrowing, while a skill that grants none cannot reach the remote surface at all.
+ * The contract has TWO halves, and they must be keyed differently — conflating them is what
+ * makes a validator pass vacuously:
+ *
+ *   POSITIVE ("three-views must declare exactly these 6 tools + the scoped helper") is keyed by
+ *   NAME. What a skill MUST have cannot be inferred from what it happens to declare: deriving it
+ *   from the declaration means deleting the declaration deletes the rule requiring it.
+ *
+ *   NEGATIVE ("nothing may grant refresh_auth / an unscoped shell / an unknown MCP tool") is
+ *   keyed by PROPERTY, so it is rename-proof and also covers skills that do not exist yet.
  *
  * Deliberately NOT global: the plan constrains "no general Bash" to the MCP-bearing skill only.
- * arch-diagram legitimately holds bare `Bash` — it shells out to the bundled Python validator —
- * and flagging that would contradict the spec.
- *
- * @param {boolean} pluginShipsMcp whether the owning plugin has a .mcp.json
+ * arch-diagram legitimately holds bare `Bash` to run the bundled Python validator.
  */
-function checkAllowedTools(value, rel, pluginShipsMcp, errors) {
-  const tokens = tokenizeAllowedTools(value);
-  const mcpTokens = tokens.filter((t) => t.startsWith("mcp__"));
-  const declaresMcp = mcpTokens.length > 0;
+function checkSkillCapabilities(fm, plugin, skill, rel, pluginShipsMcp, errors) {
+  const at = fm["allowed-tools"];
+  const isNlmSkill = pluginShipsMcp && plugin === NLM_SKILL.plugin && skill === NLM_SKILL.skill;
 
-  // --- rules that hold for every skill -------------------------------------
+  // Omitting allowed-tools is the WIDEST grant, not the narrowest: the skill then inherits the
+  // session's full tool set. It must never be the one case the contract skips.
+  if (at === undefined) {
+    if (isNlmSkill) {
+      errors.push(
+        finding(
+          "ALLOWED_TOOLS_ABSENT",
+          rel,
+          "the MCP-bearing skill must declare allowed-tools; omitting it grants the full session tool set",
+        ),
+      );
+    }
+    return;
+  }
+  if (typeof at !== "string") {
+    errors.push(finding("ALLOWED_TOOLS_NOT_SCALAR", rel, "allowed-tools must be a quoted space-separated scalar"));
+    return;
+  }
+  // An unbalanced "(" would leave the tokenizer at depth > 0 forever, fusing every later entry
+  // into one opaque token — which silently drops the mcp__ tokens and disables the whole regime.
+  // Fail closed rather than tokenize something we cannot faithfully split.
+  if (!hasBalancedParens(at)) {
+    errors.push(finding("ALLOWED_TOOLS_UNBALANCED_PAREN", rel, "allowed-tools has unbalanced parentheses; refusing to tokenize"));
+    return;
+  }
+
+  const tokens = tokenizeAllowedTools(at);
+  const mcpTokens = tokens.filter((t) => t.startsWith("mcp__"));
+
+  // --- NEGATIVE half: applies to every skill, keyed on raw content ----------
+  // Substring tests on the RAW value, so they cannot be evaded by anything that perturbs
+  // tokenization.
   for (const bad of FORBIDDEN_MCP_TOOLS) {
-    if (tokens.includes(bad)) {
+    if (at.includes(bad)) {
       errors.push(finding("ALLOWED_TOOLS_FORBIDDEN_MCP", rel, `${bad} must not be pre-authorized`));
     }
   }
-  // The installer is never pre-authorized: users run it manually (§2.3 / §2.5).
-  for (const t of tokens) {
-    if (/install-nlm-bridge/.test(t)) {
-      errors.push(finding("ALLOWED_TOOLS_INSTALLER", rel, `the installer must never be pre-authorized: ${t}`));
+  if (/install-nlm-bridge/.test(at)) {
+    errors.push(finding("ALLOWED_TOOLS_INSTALLER", rel, "the installer must never be pre-authorized; users run it manually"));
+  }
+  const declaresMcp = /mcp__/.test(at);
+  if (declaresMcp && !pluginShipsMcp) {
+    errors.push(finding("ALLOWED_TOOLS_MCP_WITHOUT_SERVER", rel, "declares MCP tools but the plugin ships no .mcp.json"));
+  }
+  if (declaresMcp) {
+    for (const t of mcpTokens) {
+      if (!ALLOWED_MCP_TOOLS.includes(t)) {
+        errors.push(finding("ALLOWED_TOOLS_UNKNOWN_MCP", rel, `MCP tool not on the 6-tool allowlist: ${t}`));
+      }
+    }
+    for (const t of tokens) {
+      if (t === "Bash") {
+        errors.push(finding("ALLOWED_TOOLS_BARE_BASH", rel, "bare Bash must not be pre-authorized on an MCP-bearing skill"));
+      } else if (t.startsWith("Bash(") && t !== SCOPED_HELPER_PERMISSION) {
+        // Bash is an ALLOWLIST: `Bash(*)` is an unrestricted-shell grant strictly broader than
+        // bare `Bash`, and invisible to a check keyed on the literal token.
+        errors.push(finding("ALLOWED_TOOLS_UNSCOPED_BASH", rel, `Bash permission must be exactly the scoped helper; got: ${t}`));
+      }
     }
   }
-  if (declaresMcp && !pluginShipsMcp) {
-    errors.push(finding("ALLOWED_TOOLS_MCP_WITHOUT_SERVER", rel, `declares MCP tools but the plugin ships no .mcp.json`));
-  }
 
-  if (!declaresMcp) return; // e.g. arch-diagram: bare Bash is allowed by spec.
+  if (!isNlmSkill) return;
 
-  // --- strict regime: this skill can reach NotebookLM -----------------------
+  // --- POSITIVE half: pinned to the known NLM skill by name ----------------
   for (const want of ALLOWED_MCP_TOOLS) {
     if (!tokens.includes(want)) {
       errors.push(finding("ALLOWED_TOOLS_MISSING_MCP", rel, `missing required MCP tool: ${want}`));
-    }
-  }
-  // Reject by NAME as well as by count, so an unknown or future tool cannot ride along.
-  for (const t of mcpTokens) {
-    if (!ALLOWED_MCP_TOOLS.includes(t)) {
-      errors.push(finding("ALLOWED_TOOLS_UNKNOWN_MCP", rel, `MCP tool not on the 6-tool allowlist: ${t}`));
     }
   }
   if (mcpTokens.length !== ALLOWED_MCP_TOOLS.length) {
@@ -675,16 +773,12 @@ function checkAllowedTools(value, rel, pluginShipsMcp, errors) {
   if (!tokens.includes(SCOPED_HELPER_PERMISSION)) {
     errors.push(finding("ALLOWED_TOOLS_SCOPED_HELPER", rel, `missing scoped helper permission: ${SCOPED_HELPER_PERMISSION}`));
   }
-  // Bash here is an ALLOWLIST, not a denylist. `Bash(*)` / `Bash(:*)` are Claude's
-  // unrestricted-shell grants — strictly broader than bare `Bash` — so a denylist keyed on the
-  // literal token "Bash" never sees them. Every Bash grant must equal the scoped helper.
+  if (tokens.includes("Bash")) {
+    errors.push(finding("ALLOWED_TOOLS_BARE_BASH", rel, "bare Bash must not be pre-authorized on the MCP-bearing skill"));
+  }
   for (const t of tokens) {
-    if (t === "Bash") {
-      errors.push(finding("ALLOWED_TOOLS_BARE_BASH", rel, "bare Bash must not be pre-authorized on the MCP-bearing skill"));
-    } else if (t.startsWith("Bash(") && t !== SCOPED_HELPER_PERMISSION) {
-      errors.push(
-        finding("ALLOWED_TOOLS_UNSCOPED_BASH", rel, `Bash permission must be exactly the scoped helper; got: ${t}`),
-      );
+    if (t.startsWith("Bash(") && t !== SCOPED_HELPER_PERMISSION) {
+      errors.push(finding("ALLOWED_TOOLS_UNSCOPED_BASH", rel, `Bash permission must be exactly the scoped helper; got: ${t}`));
     }
   }
 }

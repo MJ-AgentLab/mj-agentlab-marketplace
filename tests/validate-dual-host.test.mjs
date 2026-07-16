@@ -10,7 +10,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { validateTree, tokenizeAllowedTools } from "../scripts/validate-dual-host.mjs";
+import { validateTree, tokenizeAllowedTools, hasBalancedParens } from "../scripts/validate-dual-host.mjs";
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -842,5 +842,137 @@ test(".mcp.json is validated against an exact shape, not a denylist", () => {
     m.mcpServers["notebooklm-mcp"].envPassthrough = ["NLM_PROFILE"];
     writeJson(d, "plugins/learn-kit/.mcp.json", m);
     assert.ok(codes(validateTree(d)).includes("MCP_FORBIDDEN_FIELD"));
+  });
+});
+
+// ---------------------------------------------------- omission & tokenizer bypasses
+// Omitting allowed-tools is the WIDEST grant (the skill inherits the session's full tool set),
+// so it must never be the one case the contract skips.
+test("omitting allowed-tools on the MCP-bearing skill is an error", () => {
+  withFixture((d) => {
+    const p = path.join(d, "plugins/learn-kit/skills/three-views/SKILL.md");
+    fs.writeFileSync(p, fs.readFileSync(p, "utf8").replace(/allowed-tools: '[^']*'\r?\n/, ""));
+    assert.ok(codes(validateTree(d)).includes("ALLOWED_TOOLS_ABSENT"));
+  });
+});
+
+test("pure-prompt skills may omit allowed-tools", () => {
+  // glossary/concept ship name+description only, per spec.
+  const r = validateTree(REPO, { hostNeutral: "warn" });
+  assert.deepEqual(r.errors.filter((f) => f.code === "ALLOWED_TOOLS_ABSENT"), []);
+});
+
+test("an unbalanced parenthesis fails closed instead of silently fusing tokens", () => {
+  // depth never returns to 0 -> every later entry fuses into one opaque token -> the mcp__
+  // tokens vanish -> the whole strict regime would be skipped.
+  for (const evil of ["Bash(foo", "Read(x Bash(*)"]) {
+    withFixture((d) => {
+      patchAllowedTools(d, (v) => `${v} ${evil}`);
+      assert.ok(codes(validateTree(d)).includes("ALLOWED_TOOLS_UNBALANCED_PAREN"), `${evil} must fail closed`);
+    });
+  }
+});
+
+test("forbidden tools cannot hide behind a token-fusing paren", () => {
+  withFixture((d) => {
+    patchAllowedTools(
+      d,
+      (v) => `${v} Bash(x mcp__plugin_learn-kit_notebooklm-mcp__refresh_auth mcp__plugin_learn-kit_notebooklm-mcp__source_delete`,
+    );
+    assert.ok(codes(validateTree(d)).includes("ALLOWED_TOOLS_UNBALANCED_PAREN"));
+  });
+});
+
+test("hasBalancedParens", () => {
+  assert.equal(hasBalancedParens('Bash(node "a b" *) Read'), true);
+  assert.equal(hasBalancedParens("Bash(foo"), false);
+  assert.equal(hasBalancedParens("Read) x"), false);
+  assert.equal(hasBalancedParens("Read Write"), true);
+});
+
+// The positive contract must be pinned by NAME: what a skill MUST declare cannot be derived from
+// what it happens to declare, or deleting the declaration deletes the rule requiring it.
+test("stripping every MCP ID still fires the positive contract", () => {
+  withFixture((d) => {
+    patchAllowedTools(d, (v) => v.split(/\s+/).filter((t) => !t.startsWith("mcp__")).join(" "));
+    const c = codes(validateTree(d));
+    assert.ok(c.includes("ALLOWED_TOOLS_MISSING_MCP"), "the 6 required tools must still be required");
+    assert.ok(c.includes("ALLOWED_TOOLS_MCP_COUNT"));
+  });
+});
+
+test("reducing three-views to an unrestricted grant is caught", () => {
+  withFixture((d) => {
+    patchAllowedTools(d, () => "Read Write Glob Grep AskUserQuestion Agent WebFetch Bash");
+    const c = codes(validateTree(d));
+    assert.ok(c.includes("ALLOWED_TOOLS_BARE_BASH"));
+    assert.ok(c.includes("ALLOWED_TOOLS_SCOPED_HELPER"));
+    assert.ok(c.includes("ALLOWED_TOOLS_MISSING_MCP"));
+  });
+});
+
+// ------------------------------------------------------- inline mcpServers bypass
+test("an inline mcpServers object in either manifest is rejected", () => {
+  // Claude Code accepts an inline object here; it would route around the .mcp.json gates.
+  for (const rel of [
+    "plugins/learn-kit/.claude-plugin/plugin.json",
+    "plugins/learn-kit/.codex-plugin/plugin.json",
+  ]) {
+    withFixture((d) => {
+      const m = readJson(d, rel);
+      m.mcpServers = { "notebooklm-mcp": { command: "npx", args: ["-y", "notebooklm-mcp-cli@latest"] } };
+      writeJson(d, rel, m);
+      assert.ok(codes(validateTree(d)).includes("MANIFEST_INLINE_MCP"), `${rel} inline object must be rejected`);
+    });
+  }
+});
+
+// --------------------------------------------------- per-skill gate independence
+test("a skill dir shipping agents/ but no SKILL.md is an error, not a silent skip", () => {
+  withFixture((d) => {
+    fs.rmSync(path.join(d, "plugins/learn-kit/skills/three-views/SKILL.md"));
+    assert.ok(codes(validateTree(d)).includes("SKILL_MISSING"));
+  });
+});
+
+test("openai.yaml is still validated when SKILL.md is missing", () => {
+  // The two are different files; gating one on the other takes the UI contract offline silently.
+  withFixture((d) => {
+    fs.rmSync(path.join(d, "plugins/learn-kit/skills/concept/SKILL.md"));
+    const p = path.join(d, "plugins/learn-kit/skills/concept/agents/openai.yaml");
+    fs.writeFileSync(p, 'interface:\n  display_name: ""\n  short_description: "x"\n  default_prompt: "Use $learn-kit:concept."\npolicy:\n  allow_implicit_invocation: false\ndependencies:\n  tools:\n    - nlm\n');
+    const c = codes(validateTree(d));
+    assert.ok(c.includes("SKILL_MISSING"));
+    assert.ok(c.includes("OPENAI_YAML_FIELD"), "blank display_name must still be caught");
+    assert.ok(c.includes("OPENAI_YAML_POLICY"), "allow_implicit_invocation must still be caught");
+    assert.ok(c.includes("OPENAI_YAML_DEPENDENCY_TOOLS"), "dependencies must still be caught");
+  });
+});
+
+test("openai.yaml rejects any dependencies subkey, not just .tools", () => {
+  withFixture((d) => {
+    const p = path.join(d, "plugins/learn-kit/skills/glossary/agents/openai.yaml");
+    fs.appendFileSync(p, "dependencies:\n  mcp_servers:\n    - notebooklm-mcp\n");
+    assert.ok(codes(validateTree(d)).includes("OPENAI_YAML_DEPENDENCY_TOOLS"));
+  });
+});
+
+test("defaultPrompt must reference a skill that has a SKILL.md, not just a directory", () => {
+  withFixture((d) => {
+    fs.mkdirSync(path.join(d, "plugins/diagram-kit/skills/ghost"), { recursive: true });
+    const m = readJson(d, "plugins/diagram-kit/.codex-plugin/plugin.json");
+    m.interface.defaultPrompt = ["Use $diagram-kit:ghost to draw."];
+    writeJson(d, "plugins/diagram-kit/.codex-plugin/plugin.json", m);
+    assert.ok(codes(validateTree(d)).includes("PROMPT_UNKNOWN_SKILL"));
+  });
+});
+
+test("plugin categories cannot be swapped", () => {
+  withFixture((d) => {
+    const c = readJson(d, ".agents/plugins/marketplace.json");
+    c.plugins.find((p) => p.name === "learn-kit").category = "Developer Tools";
+    c.plugins.find((p) => p.name === "diagram-kit").category = "Education & Research";
+    writeJson(d, ".agents/plugins/marketplace.json", c);
+    assert.ok(codes(validateTree(d)).includes("CATALOG_CATEGORY_UNEXPECTED"));
   });
 });
