@@ -338,3 +338,51 @@ jobs:
       # event that can establish the reviewer-sign-off half of the "[skip a6]" bypass, which
       # the previous inline implementation advertised but never verified.
       # See docs/rule/[STANDARD]_Documentation_Framework.md §4.3.1.
+
+  codex-compat:
+    # The Node toolchain runs on both hosts' supported platforms, so it is verified on both.
+    # The bridge's release-verified support surface is exactly these two: macOS must NOT be
+    # described as verified until it has an equivalent job here.
+    name: Baseline compat (${{ matrix.os }})
+    strategy:
+      fail-fast: false # a Windows-only break must not hide an Ubuntu-only one
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - run: npm ci
+
+      - name: Unit tests
+        # REQUIRE_PWSH turns a missing pwsh into a failure rather than a silent skip: both
+        # runners ship PowerShell, so a skip here would mean the bump-version suite quietly
+        # stopped running. The symlink case skips on Windows only (unprivileged EPERM) and
+        # is genuinely exercised on Ubuntu — which is half the point of the matrix.
+        env:
+          REQUIRE_PWSH: '1'
+        run: npm test
+
+      - name: Dual-host structure
+        # warn for PR1; plan §4 flips this to --host-neutral error in PR2.
+        run: npm run validate:dual-host
+
+      - name: Toolchain report
+        # Informational. NOT check:baseline-tools — that pins bridge 4.0.0 / connector 0.8.7,
+        # which are not installed here and would fail by design. It becomes a real gate once
+        # plugins/learn-kit/nlm-bridge/ exists.
+        if: always()
+        run: npm run report:tool-versions
+
+      # PENDING plugins/learn-kit/nlm-bridge/ (plan §2.3.1, §3 line 501-502). Deliberately
+      # absent rather than stubbed, because a stub would report green for work not done:
+      #   - Python 3.12 + uv 0.11.21, REQUIRE_PYTHON=1
+      #   - exact Codex / Claude CLI install, then check:baseline-tools
+      #   - uv build --wheel with the checked-in hashed build constraints
+      #   - installNlmBridge via module import against a runner-temp HTTP fixture
+      #   - smoke:optional-nlm-absent / smoke:codex / smoke:nlm-contract / validate:claude
+      #   - diagram validator execution (arrives with PR2's contract test)
