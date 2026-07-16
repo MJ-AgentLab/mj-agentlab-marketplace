@@ -1,0 +1,21 @@
+{
+  "name": "diagram-kit",
+  "version": "0.1.0",
+  "description": "Create evidence-grounded Mermaid architecture and UML diagrams from codebase facts.",
+  "author": { "name": "MJ-AgentLab", "url": "https://github.com/MJ-AgentLab" },
+  "repository": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace",
+  "license": "MIT",
+  "keywords": ["architecture", "diagram", "mermaid", "c4", "uml"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Diagram Kit",
+    "shortDescription": "Evidence-grounded Mermaid architecture diagrams",
+    "longDescription": "Inspect source facts and create traceable context, container, component, code, sequence, state-machine, and deployment diagrams.",
+    "developerName": "MJ-AgentLab",
+    "category": "Developer Tools",
+    "capabilities": ["Read", "Write"],
+    "defaultPrompt": [
+      "Use $diagram-kit:arch-diagram to draw evidence-backed Mermaid architecture diagrams for this repository."
+    ]
+  }
+}

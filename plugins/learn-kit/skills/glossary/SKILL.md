@@ -1,25 +1,7 @@
 ---
 name: glossary
-description: >
-  Explain an unfamiliar technical, business, or domain term in a single tight paragraph
-  (~150–250 Chinese characters) using a fixed six-slot structure: analogy → category →
-  pain point → plain-language definition → contrast → concrete example. The reader should
-  "get it" in about 30 seconds — a speed-card, not an article.
-  ALWAYS use this skill whenever the user types `/learn-kit:glossary` or `/glossary`
-  (optionally followed by a term), or says any of: "解释术语", "讲讲这个概念", "什么是 X",
-  "X 是什么", "帮我理解 X", "explain X", "what is X",
-  or pastes a single term and asks for a digestible explanation. Also use whenever the user
-  wants a short, vivid, one-paragraph explanation of a specific term rather than a long
-  article or tutorial — even if they don't
-  explicitly say "glossary" or "速记卡". Default output language Chinese; the term preserved
-  verbatim (English/code identifiers stay in original form, no forced translation).
-  Prefer this over `/learn-kit:concept` when the user signals brevity or speed (一句话 / 一段话 /
-  快速 / quick / TL;DR) or is asking about a specific named tool, API, product, or code identifier
-  (e.g. Advisory Lock, OAuth, useEffect) rather than an abstract concept.
-  Do not use for: deep or applied understanding — recognizing a concept in new contexts,
-  comparing alternatives, or understanding tradeoffs (use `/learn-kit:concept`); generating
-  multi-tier learning documents, interactive HTML, or NotebookLM multimedia
-  (use `/learn-kit:three-views`).
+description: |-
+  Use when the user wants a brief, vivid explanation of an unfamiliar technical, business, or domain term in one Chinese paragraph of about 150–250 characters. Trigger on “解释术语”, “什么是 X”, “X 是什么”, “帮我快速理解 X”, “explain X”, “what is X”, or a pasted term that needs a digestible speed card. Structure the answer as analogy, category, pain point, plain-language definition, contrast, and one concrete example. Preserve English terms and code identifiers verbatim. Do not use when the user wants deep application, tradeoffs, multiple examples, or failure boundaries; use concept instead. Do not use for multi-tier learning materials from sources; use three-views instead.
 ---
 
 # Glossary — 一段话讲透一个术语
