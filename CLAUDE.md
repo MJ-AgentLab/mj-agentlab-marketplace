@@ -71,11 +71,11 @@
 - **`agents/openai.yaml` 一律省略 `dependencies.tools`**：该 schema 无 optional 语义，而 NotebookLM 是 opt-in；MCP server 改由 native manifest 的 `mcpServers` 聚合。
 - **baseline 版本语义**：Codex / uv / bridge / connector 精确 pin（供应链输入）；**Claude Code CLI 为最小版本 `>=`**（外部滚动发布的宿主二进制，不进 wheel/lock，精确 pin 会因上游自动更新而无谓红 CI）。
 
-## Documentation Framework (v4.2.0 起；当前 v1.6 / marketplace v6.3.2)
+## Documentation Framework (v4.2.0 起；当前 v1.7 / marketplace v6.3.2)
 
 marketplace 文档体系遵循以下三层 STANDARD（位于 `docs/rule/`）:
 
-- **[Documentation Framework](docs/rule/[STANDARD]_Documentation_Framework.md)** v1.6 — 6 tag prefixes（STANDARD/ADR/GUIDE/RUNBOOK/SPEC/POSTMORTEM）+ 8-field frontmatter + 3-state machine + path stability + INDEX sync；v1.5 起取消 §1 豁免机制保留 5 类 community/external-spec hard exclusion；v1.6 新增 §1.1 root-level named files 正向 codification（5 files 各自固定责任 + Source of exclusion 列）+ §2.7 CLAUDE.md sync allowlist（3 类 trigger）+ §4.3.1 A6 active CI gate
+- **[Documentation Framework](docs/rule/[STANDARD]_Documentation_Framework.md)** v1.7 — 6 tag prefixes（STANDARD/ADR/GUIDE/RUNBOOK/SPEC/POSTMORTEM）+ 8-field frontmatter + 3-state machine + path stability + INDEX sync；v1.5 起取消 §1 豁免机制保留 5 类 community/external-spec hard exclusion；v1.6 新增 §1.1 root-level named files 正向 codification（5 files 各自固定责任 + Source of exclusion 列）+ §2.7 CLAUDE.md sync allowlist + §4.3.1 A6 active CI gate；**v1.7 A6 gate 真正阻断**——实现迁至独立 [`.github/workflows/a6.yml`](.github/workflows/a6.yml) + Node stdlib-only [`scripts/check-a6.mjs`](scripts/check-a6.mjs)（单测钉死），修复 v1.6 实现「`[skip a6]` 仅凭 PR title 即放行、从不校验 sign-off」等 4 处缺陷，§2.7 trigger 3 → 4 类（加 Codex dual-native surfaces）
 - **[Commit Message Convention](docs/rule/[STANDARD]_Commit_Message_Convention.md)** v1.2 — `<type>(<scope>): <summary>` + 7 types + marketplace scope whitelist（v1.2 起加 `diagram-kit` plugin scope）+ branch-type matrix + §11 Common Mistakes
 - **[GitHub Markdown](docs/rule/[STANDARD]_GitHub_Markdown.md)** — ATX headings + GFM tables + native alerts + frontmatter syntax
 
@@ -102,7 +102,12 @@ docs/
 - [`GLOSSARY.md`](GLOSSARY.md) — marketplace 术语词典（v4.6.3 新建；按字母顺序术语 → 1 句定义）
 - `CLAUDE.md`（本文件）— AI agent + 维护者上下文摘要
 
-`CLAUDE.md` 内容受 [§2.7 Sync Allowlist](docs/rule/[STANDARD]_Documentation_Framework.md#§27-claudemd-sync-allowlist-v16-new) 约束：触及 global standards（`docs/rule/[STANDARD]_*.md`）/ runtime info（`VERSION` + `marketplace.json` + plugin.json major/minor）/ directory entries（`.claude/skills/mp-*/` + plugin skill dirs + `docs/` 子目录结构变更）的 PR 必须同步本文件（§4.3.1 A6 CI gate 阻断，`[skip a6]` PR title token 可绕过 + reviewer sign-off）。
+`CLAUDE.md` 内容受 [§2.7 Sync Allowlist](docs/rule/[STANDARD]_Documentation_Framework.md#§27-claudemd-sync-allowlist-v16-new) 约束：触及 global standards（`docs/rule/[STANDARD]_*.md`）/ runtime info（`VERSION` + `marketplace.json` + plugin.json major/minor）/ directory entries（`.claude/skills/mp-*/` + plugin skill dirs + `docs/` 子目录结构变更）/ **Codex dual-native surfaces**（`.agents/plugins/marketplace.json` + `plugins/*/.codex-plugin/plugin.json` + `plugins/*/skills/*/agents/openai.yaml` + learn-kit `.mcp.json` + `nlm-bridge/**` + installer + 3 个 contract 脚本；v1.7 新增 Category 4）的 PR 必须同步本文件。
+
+A6 gate 由 [`.github/workflows/a6.yml`](.github/workflows/a6.yml) 阻断。绕过需**同时**满足：PR title 含 `[skip a6]` 字面量 **且** 非作者的 OWNER/MEMBER/COLLABORATOR reviewer 对**当前 head SHA** 提交 `APPROVED` review、body 精确等于 `A6 N/A confirmed`。v1.7 前 sign-off 从未被校验（仅 title 即放行）；force-push 后旧 approval 不顺延，须重新 approve。
+
+> [!NOTE]
+> A6 的 check context 为 `A6 CLAUDE.md sync`，须列入 branch ruleset 的 required status checks 才真正阻断 merge。当前 `protect-develop` / `protect-main` 分别要求 `build` / `release` 两个**不存在**的 context — 详见 Framework §4.3.1 IMPORTANT。
 
 Templates 与 mp-doc-author skill 协作起草新文档；mp-doc-validate skill 审计合规（v4.6.3 起含 Step 3.5 CLAUDE.md sync Warning 检测）。详见 [docs/INDEX.md](docs/INDEX.md)。
 

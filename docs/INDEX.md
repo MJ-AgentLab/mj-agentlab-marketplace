@@ -36,7 +36,7 @@ revision: |
 
 # Documentation Index — MJ AgentLab Marketplace
 
-> Last updated: 2026-06-05 (v6.3). Framework §1 hard exclusions + §1.1 root-level named files codification (5 files) + §2.7 CLAUDE.md sync allowlist + §4.3.1 A6 active CI gate per [`./rule/[STANDARD]_Documentation_Framework.md`](./rule/[STANDARD]_Documentation_Framework.md) v1.6.
+> Last updated: 2026-07-16 (v6.3.2). Framework §1 hard exclusions + §1.1 root-level named files codification (5 files) + §2.7 CLAUDE.md sync allowlist (4 categories) + §4.3.1 A6 enforced CI gate per [`./rule/[STANDARD]_Documentation_Framework.md`](./rule/[STANDARD]_Documentation_Framework.md) v1.7.
 
 Navigation hub for all marketplace documentation.
 
@@ -56,7 +56,7 @@ Navigation hub for all marketplace documentation.
 
 | Document | State | Version | Purpose |
 |----------|-------|---------|---------|
-| [Documentation Framework](./rule/[STANDARD]_Documentation_Framework.md) | active | v1.6 | 6 tag prefixes + 8-field frontmatter + 3-state machine + 路径稳定性 + INDEX sync + flat archive layout（v1.4）+ §1 exemption cancellation（v1.5）+ §1.1 root-level named files codification + §2.7 CLAUDE.md sync allowlist + §4.3.1 A6 active CI gate（v1.6）|
+| [Documentation Framework](./rule/[STANDARD]_Documentation_Framework.md) | active | v1.7 | 6 tag prefixes + 8-field frontmatter + 3-state machine + 路径稳定性 + INDEX sync + flat archive layout（v1.4）+ §1 exemption cancellation（v1.5）+ §1.1 root-level named files codification + §2.7 CLAUDE.md sync allowlist + §4.3.1 A6 active CI gate（v1.6）+ A6 enforced：独立 `a6.yml` + `check-a6.mjs`、校验 reviewer sign-off、§2.7 Category 4 Codex dual-native surfaces（v1.7）|
 | [Commit Message Convention](./rule/[STANDARD]_Commit_Message_Convention.md) | active | v1.2 | `<type>(<scope>): <summary>` + 7 types + marketplace scope whitelist (v1.2 adds `diagram-kit` plugin scope) + branch-type matrix + §11 Common Mistakes (post-v4.5.0 lessons + scripts/validate-commits.{sh,ps1} workflow) |
 | [GitHub Markdown](./rule/[STANDARD]_GitHub_Markdown.md) | active | v1.0 | ATX headings + GFM tables + native alerts + frontmatter syntax for GitHub web |
 | [AI Engineering Execution HITL Prompt](./rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md) | active | v1.4 | 11 阶段闭环 + skill 矩阵 + HITL 触发规则 + universal skeleton §0（v1.4 marketplace 独立性原则）|

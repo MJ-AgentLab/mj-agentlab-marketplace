@@ -1,0 +1,66 @@
+name: A6 — CLAUDE.md Sync Allowlist
+
+# Framework §2.7 + §4.3.1. Blocks a PR that touches a sync-allowlist trigger file without
+# updating root CLAUDE.md, unless the PR title carries "[skip a6]" AND a reviewer has
+# approved THIS commit with the exact body "A6 N/A confirmed".
+#
+# This lives outside ci.yml for one reason: the sign-off half of the bypass only becomes
+# true when a review arrives, which is a `pull_request_review` event. Adding that trigger to
+# ci.yml would re-run the entire structural suite on every review comment. Both events
+# resolve GITHUB_REF to the same PR merge branch, so the job sees identical PR context
+# either way.
+#
+# All decision logic lives in scripts/check-a6.mjs and is unit-tested. Keep this file a thin
+# caller: the previous inline-shell version grew a `[skip a6]` bypass that never checked the
+# sign-off it advertised, and interpolated the PR title into the shell while doing it.
+
+on:
+  pull_request:
+    # `edited` matters: adding "[skip a6]" to the title must re-evaluate the gate.
+    types: [opened, synchronize, reopened, edited]
+  pull_request_review:
+    types: [submitted, edited, dismissed]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: a6-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  a6:
+    name: A6 CLAUDE.md sync
+    runs-on: ubuntu-latest
+    # `pull_request_review` does not honour an `on.<event>.branches` filter, so the base
+    # branch is scoped here instead — one condition covering both triggers.
+    if: contains(fromJSON('["develop", "main"]'), github.event.pull_request.base.ref)
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Full history: the gate diffs base...head, so both endpoints must be present.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Fetch PR reviews
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        # --slurp yields one array per page; check-a6.mjs flattens either shape.
+        run: gh api --paginate --slurp "repos/$REPO/pulls/$PR_NUMBER/reviews" > "$RUNNER_TEMP/a6-reviews.json"
+
+      - name: Evaluate A6
+        env:
+          # Every value crosses into the script as an environment variable and is never
+          # interpolated into the shell. A PR title is attacker-controlled text.
+          A6_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          A6_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          A6_PR_TITLE: ${{ github.event.pull_request.title }}
+          A6_PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          A6_REVIEWS_FILE: ${{ runner.temp }}/a6-reviews.json
+        run: node scripts/check-a6.mjs

@@ -333,33 +333,8 @@ jobs:
           [ $ERRORS -gt 0 ] && exit 1
           echo "All CHANGELOGs present"
 
-      - name: Validate CLAUDE.md sync allowlist (A6)
-        # Framework §4.3.1 A6 gate (v1.6+):
-        # Blocks PR if §2.7 allowlist trigger file is touched but root CLAUDE.md is not.
-        # Bypass: "[skip a6]" in PR title + reviewer sign-off "A6 N/A confirmed".
-        if: github.event_name == 'pull_request'
-        run: |
-          if echo "${{ github.event.pull_request.title }}" | grep -qF '[skip a6]'; then
-            echo "A6 SKIPPED via [skip a6] token in PR title — reviewer sign-off required."
-            exit 0
-          fi
-          BASE_SHA="${{ github.event.pull_request.base.sha }}"
-          HEAD_SHA="${{ github.event.pull_request.head.sha }}"
-          DIFF=$(git diff --name-only "$BASE_SHA..$HEAD_SHA")
-          TRIGGERED=$(echo "$DIFF" | grep -E '^(docs/rule/\[STANDARD\]_.+\.md|VERSION|\.claude-plugin/marketplace\.json|plugins/[^/]+/\.claude-plugin/plugin\.json|\.claude/skills/mp-[^/]+/SKILL\.md|plugins/[^/]+/skills/[^/]+/SKILL\.md)$' || true)
-          if [ -z "$TRIGGERED" ]; then
-            echo "A6 OK — no §2.7 allowlist trigger files in PR diff."
-            exit 0
-          fi
-          if echo "$DIFF" | grep -qE '^CLAUDE\.md$'; then
-            echo "A6 OK — allowlist trigger files present and CLAUDE.md is in the diff."
-            echo "Triggered files:"
-            echo "$TRIGGERED" | sed 's/^/  - /'
-            exit 0
-          fi
-          echo "::error::A6 FAIL — PR touches Framework §2.7 sync-allowlist trigger files but CLAUDE.md is unchanged."
-          echo "Triggered files:"
-          echo "$TRIGGERED" | sed 's/^/  - /'
-          echo "Fix: (1) update root CLAUDE.md per §2.7; OR (2) add '[skip a6]' to PR title + reviewer sign-off."
-          echo "Ref: docs/rule/[STANDARD]_Documentation_Framework.md §2.7 + §4.3.1"
-          exit 1
+      # The A6 CLAUDE.md sync-allowlist gate now lives in .github/workflows/a6.yml.
+      # It moved out of this job so it can also run on `pull_request_review` — the only
+      # event that can establish the reviewer-sign-off half of the "[skip a6]" bypass, which
+      # the previous inline implementation advertised but never verified.
+      # See docs/rule/[STANDARD]_Documentation_Framework.md §4.3.1.
