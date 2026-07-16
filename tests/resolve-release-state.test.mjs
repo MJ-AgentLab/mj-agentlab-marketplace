@@ -300,6 +300,26 @@ test("an unknown asset fails", () => {
   assert.throws(() => evaluateReleaseIntegrity(integrityFacts({ release: draftRelease({ assets }), priorPhase: "draft" })), PolicyError);
 });
 
+test("an unknown asset standing in for a missing expected one fails cleanly", () => {
+  // Two assets, so the count matches and the partial-assets branch never fires. Without the
+  // unknown-name check this reaches the expected-asset loop and dereferences undefined —
+  // a TypeError crash instead of a policy failure. Assert the TYPE, not merely that it threw.
+  const assets = [uploadedAssets()[0], { id: 9, name: "surprise.tar.gz", state: "uploaded", size: 99, digest: `sha256:${CHECKSUM_HASH}` }];
+  assert.throws(
+    () => evaluateReleaseIntegrity(integrityFacts({ release: draftRelease({ assets }), priorPhase: "draft" })),
+    PolicyError,
+  );
+});
+
+test("a published release with no assets at all fails", () => {
+  // Reaches the published-assets guard specifically: an empty list classifies as "absent"
+  // rather than throwing earlier, so this is the only case that exercises it.
+  assert.throws(
+    () => evaluateReleaseIntegrity(integrityFacts({ tag: { present: true, sha: SHA }, release: draftRelease({ isDraft: false, assets: [] }), priorPhase: "published" })),
+    PolicyError,
+  );
+});
+
 test("a mismatched digest, size or state fails", () => {
   const mutate = (i, patch) => {
     const a = uploadedAssets();
