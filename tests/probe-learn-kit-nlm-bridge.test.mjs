@@ -230,13 +230,15 @@ test("judgeVerifyResult: any egress or spawn audit family fails closed", () => {
 test("judgeVerifyResult fails closed when the audit evidence is missing, not vacuously passes", () => {
   // The honest bridge emits audit:null when it cannot read the guarded runner's audit.json (a
   // truncated read — exactly when tail egress events would be lost). Missing evidence must FAIL, not
-  // pass on the best-effort OS scan alone. An empty events object, however, is legitimate.
+  // pass on the best-effort OS scan alone — and as a harness error (exit 2, evidence not collected),
+  // matching the unsupported-process-scan case, not a bridge conformance failure. An empty events
+  // object, however, is legitimate.
   const noAudit = JSON.stringify({ mode: "upstream-contract", tools_verified: true });
   const nullAudit = JSON.stringify({ mode: "upstream-contract", tools_verified: true, audit: null });
   const arrayAudit = JSON.stringify({ mode: "upstream-contract", tools_verified: true, audit: { events: [] } });
   for (const stdout of [noAudit, nullAudit, arrayAudit]) {
     assert.throws(() => judgeVerifyResult("upstream-contract", mkRaw({ stdout }), 1000), (e) =>
-      isContract(e) && /audit evidence/.test(e.message),
+      isHarness(e) && /audit evidence/.test(e.message),
     );
   }
   // A present, empty events object passes (nothing was recorded, which is allowed).
@@ -332,7 +334,13 @@ test("a bridge command that cannot be spawned is a clean harness error, not a cr
 
 // ---------------------------------------------------------------- fake-bridge: bootstrap
 
-test("fake bootstrap: a well-behaved bridge passes and reports the six tools", async () => {
+test("fake bootstrap: a well-behaved bridge passes and reports the six tools", async (t) => {
+  // Bootstrap fails closed if the OS process scan is unavailable, so this always-run test can only
+  // assert a clean pass where enumeration works (CI has ps/powershell; matches the threat tests).
+  if (!(await enumerateDescendants(process.pid)).supported) {
+    t.skip("process enumeration unavailable on this platform");
+    return;
+  }
   const r = await probeLearnKitNlmBridge({ command: NODE, args: [FAKE], mode: "bootstrap", env: fakeEnv({}) });
   assert.equal(r.mode, "bootstrap");
   assert.equal(r.protocolVersion, "2025-06-18");
@@ -401,9 +409,14 @@ test("fake verify: a clean report passes, a failing exit code is a contract fail
   );
 });
 
-test("fake bootstrap: a credential marker or the sentinel echoed to stderr is caught", async () => {
+test("fake bootstrap: a credential marker or the sentinel echoed to stderr is caught", async (t) => {
   // Regression: the sentinel sub-run only mattered if leaks are scanned on stderr (a stdio server's
-  // natural log channel), not just the static instructions string.
+  // natural log channel), not just the static instructions string. The leak scan runs after the
+  // process scan, which fails closed when unavailable, so skip where enumeration is unsupported.
+  if (!(await enumerateDescendants(process.pid)).supported) {
+    t.skip("process enumeration unavailable on this platform");
+    return;
+  }
   await assert.rejects(
     () =>
       probeLearnKitNlmBridge({

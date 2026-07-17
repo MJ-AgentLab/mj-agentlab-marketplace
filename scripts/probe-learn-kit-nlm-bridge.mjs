@@ -5,14 +5,16 @@
 //
 //   bootstrap          Drive the bridge as an MCP client (initialize/initialized/ping/tools/list).
 //                      Prove it answers LOCALLY with its own safe instructions and exactly the six
-//                      narrowed tools, spawns no browser/login launcher IN ITS PROCESS SUBTREE, opens
-//                      no external connection from that subtree, and never surfaces a credential
-//                      marker on instructions/tools/stderr. Run twice: once with a completely empty
-//                      home, once with a synthetic credential sentinel (directory shape, no real
-//                      secret) so a stray read echoed anywhere shows up as a leak. Bootstrap drives
-//                      only the inert handshake (no tool call) with no --audit hook, so its browser
-//                      check is subtree-scoped — a browser reparented to the OS shell is out of reach
-//                      here; the audited verify modes catch that vector via classifyAudit.
+//                      narrowed tools, spawns no browser/login launcher IN ITS PROCESS SUBTREE (this
+//                      check fails closed if the OS process scan is unavailable), makes no external
+//                      connection from that subtree (best-effort — the connection scan degrades
+//                      gracefully), and never surfaces a credential marker on instructions/tools/
+//                      stderr. Run twice: once with a completely empty home, once with a synthetic
+//                      credential sentinel (directory shape, no real secret) so a stray read echoed
+//                      anywhere shows up as a leak. Bootstrap drives only the inert handshake (no tool
+//                      call) with no --audit hook, so its browser check is subtree-scoped — a browser
+//                      reparented to the OS shell is out of reach here; the audited verify modes catch
+//                      that vector via classifyAudit.
 //   upstream-contract  CI / manual only. Run `learn-kit-nlm-bridge --verify-upstream-contract` in a
 //                      credential-free, isolated home. The bridge's own run_verify drives the single
 //                      allowed child (the receipt-bound guarded runner) and proves the exact v0.8.7
@@ -647,7 +649,10 @@ async function runVerifyChild(command, args, flag, env, timeoutMs) {
   });
   alive = false;
   clearInterval(poller);
-  await scanOnce(); // a real final scan (the interval callback is fire-and-forget and may be mid-flight)
+  // No post-close final scan: the child pid is dead, so its descendants have exited (or, on POSIX,
+  // reparented off it), and enumerating a dead-then-possibly-reused pid risks a false attribution.
+  // The 400ms poller already observed the tree while it was alive, and the audit families are the
+  // authoritative egress/spawn check for anything in the last sub-poll gap.
   await killTree(pid);
 
   const threats = [...observedChildren.values()].filter(isThreatChild);
@@ -695,11 +700,13 @@ export function judgeVerifyResult(mode, raw, timeoutMs) {
   // The child's in-process audit is the evidence; classify its egress families. A missing/null audit
   // (which the honest bridge emits when it cannot read the guarded runner's audit.json — precisely
   // when tail egress events would be lost) is MISSING EVIDENCE, not proof of safety: fail closed
-  // rather than pass vacuously. An empty events object is fine (nothing recorded).
+  // rather than pass vacuously. It is a harness fault (exit 2 — the evidence could not be collected,
+  // a retryable hiccup), NOT a conformance failure of the bridge, matching how an unsupported process
+  // scan is treated. An empty events object is fine (nothing recorded).
   const auditObj = report.audit;
   const events = auditObj && typeof auditObj === "object" && !Array.isArray(auditObj) ? auditObj.events : undefined;
   if (!events || typeof events !== "object" || Array.isArray(events)) {
-    throw new ProbeContractError(`${mode}: verify report is missing its audit evidence (audit.events); cannot attest no-egress`);
+    throw new ProbeHarnessError(`${mode}: verify report is missing its audit evidence (audit.events); cannot attest no-egress`);
   }
   const audit = classifyAudit(events);
   if (audit.network.length) throw new ProbeContractError(`${mode}: upstream child touched the network: ${audit.network.join(", ")}`);
