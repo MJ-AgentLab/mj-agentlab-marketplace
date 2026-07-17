@@ -71,7 +71,7 @@
 - **`agents/openai.yaml` 一律省略 `dependencies.tools`**：该 schema 无 optional 语义，而 NotebookLM 是 opt-in；MCP server 改由 native manifest 的 `mcpServers` 聚合。
 - **baseline 版本语义**：Codex / uv / bridge / connector 精确 pin（供应链输入）；**Claude Code CLI 为最小版本 `>=`**（外部滚动发布的宿主二进制，不进 wheel/lock，精确 pin 会因上游自动更新而无谓红 CI）。
 
-### NLM bridge 锁与契约快照（`plugins/learn-kit/nlm-bridge/`，NLM 可选分支专用）
+### NLM bridge 锁 / 契约快照 / 运行时包（`plugins/learn-kit/nlm-bridge/`，NLM 可选分支专用）
 
 learn-kit 的 NLM 分支经本仓 `learn-kit-nlm-bridge` 4.0.0 连接固定版本上游 `notebooklm-mcp-cli==0.8.7`。两份 lock 与四份 `_data` 契约由**唯一生成入口** [`scripts/generate-nlm-contract.mjs`](scripts/generate-nlm-contract.mjs)（4 mode：`runtime-lock` / `build-lock` / `snapshots` / `all`）产出，禁止手改（手改会使 hash 集不再对应任何 resolver 真实产物，`--require-hashes` 的保证随之落空）：
 
@@ -90,6 +90,16 @@ learn-kit 的 NLM 分支经本仓 `learn-kit-nlm-bridge` 4.0.0 连接固定版�
 **cutoff = `2026-07-16T00:00:00Z`**（固定过去时刻，冻结传递闭包）。计划原文写 `2026-07-15T00:00:00Z`，该值**不可用** —— PyPI 于 `2026-07-15T01:31:19.945Z` 发布 0.8.7，比 cutoff 晚 91 分钟，会把本仓 pin 的这一版本本身过滤掉导致解析失败。
 
 `pyproject.toml` **不声明任何 `[project.scripts]`**：上游已占用 `nlm` / `notebooklm-mcp` 两个 console script 名，若本包再声明同名 entry point，同一 venv 内两个 distribution 争抢、由安装顺序决定胜者。公开的 `learn-kit-nlm-bridge` 与受限 `nlm` 只能由 installer 创建为直指 module 的受控 shim，不参与 wheel entry-point 解析。
+
+**运行时 Python 包 `src/learn_kit_nlm_bridge/`（6 module，消费上面的契约；随 wheel 发布，`_data` 经 `importlib.resources` 读取）**：
+
+- `contract.py` — **纯 stdlib** 本地契约（`--contract-json` preflight 从此产出，Gate A 前唯一 bridge 探针）：canonical JSON / SHA 与 generator 逐字节一致；五-SHA 链交叉校验（`environment-lock.json` 为锚 → 三份 `_data` 契约 + 两份 lock + install receipt）；`importlib.metadata` 校验 installed closure；按 `sys.executable` 上溯定位并校验 `install-receipt.json`。不 import 上游 / FastMCP
+- `bridge.py` — host 端 MCP host（stdio，状态机 `NEW → INITIALIZE_RESPONDED → READY → CLOSED`）：initialize / ping / **单页** tools/list 纯本地回答 + 自有 safe instructions（丢弃上游"跑 `nlm login`"指令）；**首次合法 tools/call 才 lazy-spawn** guarded child；fixed-subset schema adapter（**非通用 JSON-Schema 引擎**，遇未列白名单关键字即 fail closed）+ per-tool inject allowlist；child env 从零构建（仅 OS/home/temp/locale + snapshot 的 pinned `NOTEBOOKLM_*`）；child `tools/list` 比对 `tools_sha256`、反向 request、cursor loop 一律 fail closed；上游认证失败规范化为**无凭据** `AUTH_REQUIRED` 后终止 child；stderr 有界 ring + 脱敏
+- `upstream_runner.py` — guarded child（`sys.executable -I -X utf8 -m …upstream_runner`）：联网前校验 distribution==`0.8.7` + 4 符号 canonical-LF 源码 SHA → **仅在精确匹配后**把 `BaseClient._try_reload_or_headless_auth` 换成"只磁盘 reload、绝不 headless"、把 `auth_browser` / `cdp` 的 `run_headless_auth` 换成 fail-closed sentinel → `runpy` 起 `notebooklm_tools.mcp.server`；`--audit` 模式（仅 CI/人工 conformance）import 上游前装 record-only 审计钩子
+- `login.py` — 受限 login shim target：仅接受 `login`（**唯一** import 上游、**唯一**许可开浏览器的 user-run 路径）或 `--contract-json`（receipt/interpreter/shim 子集，stdlib-only）；`login switch` / profile / account / `--version` / 多余参数一律在 import 上游前拒绝
+- `__main__.py` — dispatch：无参→server / `--contract-json` / `--verify-upstream-contract` / `--verify-auth-required`（后两者仅 CI/人工隔离验收，永不授予 skill）
+- **Gate A/B 非可信授权边界**：bridge 无用户签名 unlock token，不能证明真人同意、也不能阻止直接 tool call；只降低意外提前启动与能力扩张风险，发现漂移即 fail closed
+- 测试：`tests/learn-kit-nlm-bridge.test.mjs`（Node 端到端 stdio，`REQUIRE_PYTHON=1` gate，venv 形如生产私有环境=hashed closure + editable bridge）+ 不随 wheel 发布的 `nlm-bridge/tests/test_internals.py`（Python white-box：auth guard patch / 6 adapter 正反 fixture / ChildClient drift·loop·reverse-request / AUTH 识别器）
 
 ## Documentation Framework (v4.2.0 起；当前 v1.7 / marketplace v6.3.2)
 

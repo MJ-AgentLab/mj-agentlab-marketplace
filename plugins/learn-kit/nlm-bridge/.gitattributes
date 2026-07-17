@@ -19,3 +19,11 @@ requirements/*.txt                     text eol=lf
 constraints/*.txt                      text eol=lf
 constraints/*.in                       text eol=lf
 src/learn_kit_nlm_bridge/_data/*.json  text eol=lf
+
+# The Python sources, the wheel's readme, and the build config are pinned LF too, so a wheel
+# built on windows-latest is byte-identical to one built on Ubuntu — its SHA-256 is bound into
+# the install receipt and cross-checked by preflight. Not required by any --check gate today,
+# but it removes the whole class of CRLF surprises from the build.
+*.py                                   text eol=lf
+README.md                              text eol=lf
+pyproject.toml                         text eol=lf
