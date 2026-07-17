@@ -24,6 +24,9 @@ import {
   isThreatChild,
   isLoginLauncherName,
   enumerateDescendants,
+  descendantsOf,
+  parseNetstat,
+  parseSs,
   readServerConfig,
   parseArgs,
   ProbeHarnessError,
@@ -110,6 +113,38 @@ test("isThreatChild flags browsers and login launchers but never the sanctioned 
   }
 });
 
+test("descendantsOf walks the ppid tree and stops at pid-reuse cycles", () => {
+  const rows = [
+    { pid: 10, ppid: 1, name: "python.exe", cmdline: "" },
+    { pid: 20, ppid: 10, name: "python.exe", cmdline: "base" },
+    { pid: 30, ppid: 20, name: "chrome.exe", cmdline: "" },
+    { pid: 40, ppid: 999, name: "unrelated.exe", cmdline: "" },
+  ];
+  assert.deepEqual(descendantsOf(rows, 10).map((d) => d.pid).sort(), [20, 30]);
+  assert.deepEqual(descendantsOf(rows, 999).map((d) => d.pid), [40]);
+  // A cycle (a claims b's parent is a) must not loop forever.
+  const cyclic = [{ pid: 2, ppid: 3, name: "a", cmdline: "" }, { pid: 3, ppid: 2, name: "b", cmdline: "" }];
+  assert.deepEqual(descendantsOf(cyclic, 2).map((d) => d.pid), [3]);
+});
+
+test("parseNetstat / parseSs read the right column and honour loopback", () => {
+  // Windows netstat -ano -p TCP: Proto  Local  Foreign  State  PID
+  const netstat = [
+    "  TCP    127.0.0.1:5000     142.250.72.14:443   ESTABLISHED     4242",
+    "  TCP    127.0.0.1:5001     127.0.0.1:54321     ESTABLISHED     4242", // loopback foreign
+    "  TCP    0.0.0.0:135        0.0.0.0:0           LISTENING       900",  // other pid
+  ].join("\r\n");
+  assert.deepEqual(parseNetstat(netstat, new Set([4242])), ["142.250.72.14:443"]);
+
+  // POSIX ss -tanp: State Recv-Q Send-Q Local Peer Process — the peer is column index 4, NOT the
+  // process field at 5 (the bug this test pins).
+  const ext = 'ESTAB 0 0 10.0.0.2:50210 142.250.72.14:443 users:(("python3",pid=4242,fd=9))';
+  const loop = 'ESTAB 0 0 127.0.0.1:38001 127.0.0.1:54321 users:(("python3",pid=4242,fd=9))';
+  assert.deepEqual(parseSs(ext, new Set([4242])), ["142.250.72.14:443"]);
+  assert.deepEqual(parseSs(loop, new Set([4242])), [], "a loopback peer must NOT be flagged external");
+  assert.deepEqual(parseSs(ext, new Set([9999])), [], "a non-matching pid is ignored");
+});
+
 // ---------------------------------------------------------------- judgeVerifyResult
 
 const goodUpstreamReport = () =>
@@ -190,6 +225,23 @@ test("judgeVerifyResult: any egress or spawn audit family fails closed", () => {
     isContract(e) && /subprocess|browser/.test(e.message),
   );
   assert.throws(() => judgeVerifyResult("upstream-contract", mkRaw({ stdout: withAudit({ "webbrowser.open": 1 }) }), 1000), isContract);
+});
+
+test("judgeVerifyResult fails closed when the audit evidence is missing, not vacuously passes", () => {
+  // The honest bridge emits audit:null when it cannot read the guarded runner's audit.json (a
+  // truncated read — exactly when tail egress events would be lost). Missing evidence must FAIL, not
+  // pass on the best-effort OS scan alone. An empty events object, however, is legitimate.
+  const noAudit = JSON.stringify({ mode: "upstream-contract", tools_verified: true });
+  const nullAudit = JSON.stringify({ mode: "upstream-contract", tools_verified: true, audit: null });
+  const arrayAudit = JSON.stringify({ mode: "upstream-contract", tools_verified: true, audit: { events: [] } });
+  for (const stdout of [noAudit, nullAudit, arrayAudit]) {
+    assert.throws(() => judgeVerifyResult("upstream-contract", mkRaw({ stdout }), 1000), (e) =>
+      isContract(e) && /audit evidence/.test(e.message),
+    );
+  }
+  // A present, empty events object passes (nothing was recorded, which is allowed).
+  const emptyEvents = JSON.stringify({ mode: "upstream-contract", tools_verified: true, audit: { events: {} } });
+  assert.doesNotThrow(() => judgeVerifyResult("upstream-contract", mkRaw({ stdout: emptyEvents }), 1000));
 });
 
 test("judgeVerifyResult: a forbidden child or external connection or leak fails closed", () => {
@@ -346,6 +398,63 @@ test("fake verify: a clean report passes, a failing exit code is a contract fail
         timeoutMs: 30000,
       }),
     isContract,
+  );
+});
+
+test("fake bootstrap: a credential marker or the sentinel echoed to stderr is caught", async () => {
+  // Regression: the sentinel sub-run only mattered if leaks are scanned on stderr (a stdio server's
+  // natural log channel), not just the static instructions string.
+  await assert.rejects(
+    () =>
+      probeLearnKitNlmBridge({
+        command: NODE,
+        args: [FAKE],
+        mode: "bootstrap",
+        env: fakeEnv({ stderrEmit: "Set NOTEBOOKLM_COOKIES to authenticate" }),
+      }),
+    (e) => isContract(e) && /credential marker/.test(e.message),
+  );
+  // A bridge that reads the planted synthetic credential store and logs it — the exact "stray read"
+  // the sentinel sub-run exists to catch (the sentinel is present only in the second sub-run).
+  await assert.rejects(
+    () => probeLearnKitNlmBridge({ command: NODE, args: [FAKE], mode: "bootstrap", env: fakeEnv({ echoHomeSentinel: true }) }),
+    (e) => isContract(e) && /credential marker/.test(e.message),
+  );
+});
+
+test("fake bootstrap: a non-empty or errored ping is a contract failure", async () => {
+  await assert.rejects(
+    () => probeLearnKitNlmBridge({ command: NODE, args: [FAKE], mode: "bootstrap", env: fakeEnv({ pingResult: { pong: 1 } }) }),
+    (e) => isContract(e) && /ping/.test(e.message),
+  );
+  await assert.rejects(
+    () => probeLearnKitNlmBridge({ command: NODE, args: [FAKE], mode: "bootstrap", env: fakeEnv({ pingError: true }) }),
+    (e) => isContract(e) && /ping/.test(e.message),
+  );
+});
+
+test("fake verify: a threat child spawned during a lingering verify run is caught by the poller", async (t) => {
+  if (!(await enumerateDescendants(process.pid)).supported) {
+    t.skip("process enumeration unavailable on this platform");
+    return;
+  }
+  // The verify child lingers ~3s (spanning ~7 of the 400ms polls, with margin for pwsh/ps latency)
+  // with a browser-marked descendant, so the poller -> isThreatChild -> raw.children -> judge path
+  // fires on a real observed threat.
+  await assert.rejects(
+    () =>
+      probeLearnKitNlmBridge({
+        command: NODE,
+        args: [FAKE],
+        mode: "upstream-contract",
+        env: fakeEnv({
+          spawnChild: true,
+          lingerMs: 3000,
+          report: { mode: "upstream-contract", tools_verified: true, audit: { events: {} } },
+        }),
+        timeoutMs: 30000,
+      }),
+    (e) => isContract(e) && /forbidden child/.test(e.message),
   );
 });
 

@@ -5,10 +5,14 @@
 //
 //   bootstrap          Drive the bridge as an MCP client (initialize/initialized/ping/tools/list).
 //                      Prove it answers LOCALLY with its own safe instructions and exactly the six
-//                      narrowed tools, spawns no upstream/browser/login child, touches no network,
-//                      and never surfaces a credential sentinel. Run twice: once with a completely
-//                      empty home, once with a synthetic credential sentinel (directory shape, no
-//                      real secret) so a stray read would show up as a leak.
+//                      narrowed tools, spawns no browser/login launcher IN ITS PROCESS SUBTREE, opens
+//                      no external connection from that subtree, and never surfaces a credential
+//                      marker on instructions/tools/stderr. Run twice: once with a completely empty
+//                      home, once with a synthetic credential sentinel (directory shape, no real
+//                      secret) so a stray read echoed anywhere shows up as a leak. Bootstrap drives
+//                      only the inert handshake (no tool call) with no --audit hook, so its browser
+//                      check is subtree-scoped — a browser reparented to the OS shell is out of reach
+//                      here; the audited verify modes catch that vector via classifyAudit.
 //   upstream-contract  CI / manual only. Run `learn-kit-nlm-bridge --verify-upstream-contract` in a
 //                      credential-free, isolated home. The bridge's own run_verify drives the single
 //                      allowed child (the receipt-bound guarded runner) and proves the exact v0.8.7
@@ -21,9 +25,13 @@
 //                      Google request, zero browser/login child, zero mutation.
 //
 // The bridge's in-process sys.audit hook (installed by upstream_runner in --audit mode) is the
-// evidence for what the guarded child did; this probe's OS-level process-tree + connection scan is
-// the authoritative outer check. Nothing here is a trusted authorization boundary — it fails closed
-// on drift and proves the bridge never opens a browser or reaches the network off the tool path.
+// evidence for what the guarded child did on the verify (tool) path; this probe's OS-level
+// process-tree + connection scan is the authoritative outer check. Nothing here is a trusted
+// authorization boundary — it fails closed on drift/missing-evidence and detects a browser or
+// network reached from the bridge's process subtree (verify modes additionally catch a reparented
+// browser via the audit). It cannot prove the absence of a browser opened via the OS shell during
+// the inert bootstrap handshake; that residual is out of the subtree scan's reach and is only ever
+// a concern for the audited tool path, which is fully covered.
 //
 // Exit codes: config / server / JSON / unsafe-harness errors -> 2; a contract or runtime
 // conformance failure -> 1; success -> 0.
@@ -196,13 +204,9 @@ async function listProcesses() {
   return rows;
 }
 
-/**
- * Transitive descendants of `rootPid`.
- * @returns {Promise<{ supported: boolean, descendants: Array<{ pid, name, cmdline }> }>}
- */
-export async function enumerateDescendants(rootPid) {
-  const rows = await listProcesses();
-  if (!rows) return { supported: false, descendants: [] };
+/** Transitive descendants of `rootPid` from an already-fetched process list. Pure, so it can be
+ *  unit-tested and reused across two scans without re-querying the OS. */
+export function descendantsOf(rows, rootPid) {
   const byParent = new Map();
   for (const r of rows) {
     if (!byParent.has(r.ppid)) byParent.set(r.ppid, []);
@@ -220,36 +224,57 @@ export async function enumerateDescendants(rootPid) {
       queue.push(child.pid);
     }
   }
-  return { supported: true, descendants: out };
+  return out;
+}
+
+/**
+ * Transitive descendants of `rootPid`.
+ * @returns {Promise<{ supported: boolean, descendants: Array<{ pid, name, cmdline }> }>}
+ */
+export async function enumerateDescendants(rootPid) {
+  const rows = await listProcesses();
+  if (!rows) return { supported: false, descendants: [] };
+  return { supported: true, descendants: descendantsOf(rows, rootPid) };
+}
+
+/** Parse Windows `netstat -ano -p TCP` for external endpoints owned by a pid in `pidSet`. Pure. */
+export function parseNetstat(stdout, pidSet) {
+  const found = [];
+  for (const line of stdout.split("\n")) {
+    const cols = line.trim().split(/\s+/);
+    if (cols.length < 5 || cols[0] !== "TCP") continue;
+    const foreign = cols[2];
+    const pid = Number(cols[cols.length - 1]);
+    if (!pidSet.has(pid)) continue;
+    if (isExternalEndpoint(foreign)) found.push(foreign);
+  }
+  return found;
+}
+
+/** Parse POSIX `ss -tanp` for external peers owned by a pid in `pidSet`. Pure. Columns are
+ *  State(0) Recv-Q(1) Send-Q(2) Local(3) Peer(4) Process(5) — the peer is index 4, NOT the process
+ *  field at 5 (getting that wrong classified every pid-tagged loopback socket as external). */
+export function parseSs(stdout, pidSet) {
+  const found = [];
+  for (const line of stdout.split("\n")) {
+    const m = line.match(/pid=(\d+)/);
+    if (!m || !pidSet.has(Number(m[1]))) continue;
+    const peer = line.trim().split(/\s+/)[4] ?? "";
+    if (isExternalEndpoint(peer)) found.push(peer);
+  }
+  return found;
 }
 
 /** External (non-loopback) TCP endpoints owned by any pid in `pids`. Best-effort. */
 async function scanConnections(pids) {
   const set = new Set(pids.map(Number));
-  const found = [];
   if (process.platform === "win32") {
     const r = await runCli("netstat", ["-ano", "-p", "TCP"], { timeoutMs: 15000 });
-    if (r.status !== 0) return found;
-    for (const line of r.stdout.split("\n")) {
-      const cols = line.trim().split(/\s+/);
-      if (cols.length < 5 || cols[0] !== "TCP") continue;
-      const foreign = cols[2];
-      const pid = Number(cols[cols.length - 1]);
-      if (!set.has(pid)) continue;
-      if (isExternalEndpoint(foreign)) found.push(foreign);
-    }
-    return found;
+    return r.status !== 0 ? [] : parseNetstat(r.stdout, set);
   }
   // POSIX best-effort: ss may not tag pids without privilege; treat absence as "unsupported".
   const r = await runCli("ss", ["-tanp"], { timeoutMs: 15000 });
-  if (r.status !== 0) return found;
-  for (const line of r.stdout.split("\n")) {
-    const m = line.match(/pid=(\d+)/);
-    if (!m || !set.has(Number(m[1]))) continue;
-    const peer = (line.trim().split(/\s+/)[5] ?? "");
-    if (isExternalEndpoint(peer)) found.push(peer);
-  }
-  return found;
+  return r.status !== 0 ? [] : parseSs(r.stdout, set);
 }
 
 export function isExternalEndpoint(endpoint) {
@@ -321,6 +346,7 @@ function isolatedEnv(baseEnv, dirs) {
     XDG_CONFIG_HOME: path.join(dirs.home, "config"),
     TEMP: dirs.tmp,
     TMP: dirs.tmp,
+    TMPDIR: dirs.tmp, // the bridge's build_child_env keeps TMPDIR, so isolate it too (POSIX temp)
   };
 }
 
@@ -442,7 +468,7 @@ class McpSession {
 
 // --------------------------------------------------------------------------- bootstrap
 
-async function bootstrapSession({ command, args, env, dirs, sentinel }) {
+async function bootstrapSession({ command, args, env, dirs, sentinel, timeoutMs }) {
   if (sentinel) {
     // A synthetic credential store: directory shape a connector might look for, a unique token but
     // no real secret. bootstrap must never read or surface it (it spawns no child at all).
@@ -456,11 +482,11 @@ async function bootstrapSession({ command, args, env, dirs, sentinel }) {
 
   const session = new McpSession(command, args, isolatedEnv(env, dirs));
   try {
-    const init = await session.request("initialize", {
-      protocolVersion: NEGOTIATED_PROTOCOL,
-      capabilities: {},
-      clientInfo: { name: "probe", version: "1" },
-    });
+    const init = await session.request(
+      "initialize",
+      { protocolVersion: NEGOTIATED_PROTOCOL, capabilities: {}, clientInfo: { name: "probe", version: "1" } },
+      { timeoutMs },
+    );
     if (init.error) throw new ProbeContractError(`initialize errored: ${JSON.stringify(init.error)}`);
     const result = init.result ?? {};
     if (result.protocolVersion !== NEGOTIATED_PROTOCOL) {
@@ -479,12 +505,12 @@ async function bootstrapSession({ command, args, env, dirs, sentinel }) {
 
     session.notify("notifications/initialized");
 
-    const ping = await session.request("ping");
+    const ping = await session.request("ping", {}, { timeoutMs });
     if (ping.error || JSON.stringify(ping.result) !== "{}") {
       throw new ProbeContractError(`ping did not return an empty result: ${JSON.stringify(ping)}`);
     }
 
-    const list = await session.request("tools/list");
+    const list = await session.request("tools/list", {}, { timeoutMs });
     if (list.error) throw new ProbeContractError(`tools/list errored: ${JSON.stringify(list.error)}`);
     const tools = list.result?.tools ?? [];
     const names = tools.map((t) => t.name).sort();
@@ -498,11 +524,16 @@ async function bootstrapSession({ command, args, env, dirs, sentinel }) {
     }
 
     // While the bridge is still alive and answering locally, prove it started no browser and no raw
-    // login launcher. (A bare python child is expected: the uv venv python.exe is itself a launcher
-    // for the base interpreter — so a headless-Chrome or nlm launcher is the real signal, not a count.)
+    // login launcher IN ITS PROCESS SUBTREE (the uv venv python.exe launcher itself is expected, so
+    // a bare python child is not a threat). Enumeration must not silently no-op — a skipped scan
+    // must never look clean — so an unsupported scan fails closed. NOTE: this is subtree-scoped; a
+    // browser the bridge opens via the OS shell (reparented, so not a descendant) is out of reach
+    // here — the audited verify modes catch that vector regardless of reparenting (classifyAudit),
+    // and bootstrap drives only the inert initialize/ping/tools-list handshake, never a tool call.
     const { supported, descendants } = await enumerateDescendants(session.pid);
+    if (!supported) throw new ProbeHarnessError("cannot enumerate processes to attest bootstrap safety");
     const threats = descendants.filter(isThreatChild);
-    if (supported && threats.length > 0) {
+    if (threats.length > 0) {
       throw new ProbeContractError(`bootstrap spawned a forbidden child: ${threats.map((d) => d.name).join(", ")}`);
     }
     const external = await scanConnections([session.pid, ...descendants.map((d) => d.pid)]);
@@ -513,8 +544,9 @@ async function bootstrapSession({ command, args, env, dirs, sentinel }) {
     return {
       protocolVersion: result.protocolVersion,
       instructions,
+      stderr: session.stderr(),
       tools: tools.map((t) => ({ name: t.name, inputSchema: t.inputSchema })),
-      children: supported ? threats.map((d) => d.name) : [],
+      children: threats.map((d) => d.name),
       networkAttempts: external,
     };
   } finally {
@@ -522,7 +554,7 @@ async function bootstrapSession({ command, args, env, dirs, sentinel }) {
   }
 }
 
-async function probeBootstrap({ command, args, env, dirs }) {
+async function probeBootstrap({ command, args, env, dirs, timeoutMs }) {
   const sentinel = `LK-PROBE-CRED-${crypto.randomBytes(9).toString("hex")}`;
   let report = null;
   // Two sub-states: a completely empty home, then a synthetic credential sentinel.
@@ -535,12 +567,24 @@ async function probeBootstrap({ command, args, env, dirs }) {
         env,
         dirs: subDirs,
         sentinel: useSentinel ? sentinel : null,
+        timeoutMs,
       });
-      const leaks = scanLeaks(r.instructions, sentinel);
+      // Scan every channel the bridge could surface a credential on — instructions, the tool
+      // payloads, AND stderr (a stdio server's natural log channel) — for a marker or the sentinel.
+      const haystacks = [r.instructions, r.stderr, JSON.stringify(r.tools)];
+      const leaks = [...new Set(haystacks.flatMap((h) => scanLeaks(h, sentinel)))];
       if (leaks.length) {
         throw new ProbeContractError(`bootstrap leaked a credential marker in output: ${leaks.join(", ")}`);
       }
-      report = { mode: "bootstrap", ...r, redactions: [] };
+      report = {
+        mode: "bootstrap",
+        protocolVersion: r.protocolVersion,
+        instructions: r.instructions,
+        tools: r.tools,
+        children: r.children,
+        networkAttempts: r.networkAttempts,
+        redactions: [],
+      };
     } finally {
       teardownDirs(subDirs.root);
     }
@@ -569,8 +613,7 @@ async function runVerifyChild(command, args, flag, env, timeoutMs) {
   const observedChildren = new Map();
   const observedExternal = new Set();
   let alive = true;
-  const poll = async () => {
-    if (!alive) return;
+  const scanOnce = async () => {
     try {
       const { descendants } = await enumerateDescendants(pid);
       for (const d of descendants) observedChildren.set(d.pid, d);
@@ -579,7 +622,9 @@ async function runVerifyChild(command, args, flag, env, timeoutMs) {
       /* best-effort */
     }
   };
-  const poller = setInterval(poll, 400);
+  const poller = setInterval(() => {
+    if (alive) scanOnce();
+  }, 400);
 
   const status = await new Promise((resolve) => {
     let settled = false;
@@ -602,7 +647,7 @@ async function runVerifyChild(command, args, flag, env, timeoutMs) {
   });
   alive = false;
   clearInterval(poller);
-  await poll(); // one last scan in case the child was still around at exit
+  await scanOnce(); // a real final scan (the interval callback is fire-and-forget and may be mid-flight)
   await killTree(pid);
 
   const threats = [...observedChildren.values()].filter(isThreatChild);
@@ -647,8 +692,16 @@ export function judgeVerifyResult(mode, raw, timeoutMs) {
     );
   }
 
-  // The child's in-process audit is the evidence; classify its egress families.
-  const audit = classifyAudit(report.audit?.events);
+  // The child's in-process audit is the evidence; classify its egress families. A missing/null audit
+  // (which the honest bridge emits when it cannot read the guarded runner's audit.json — precisely
+  // when tail egress events would be lost) is MISSING EVIDENCE, not proof of safety: fail closed
+  // rather than pass vacuously. An empty events object is fine (nothing recorded).
+  const auditObj = report.audit;
+  const events = auditObj && typeof auditObj === "object" && !Array.isArray(auditObj) ? auditObj.events : undefined;
+  if (!events || typeof events !== "object" || Array.isArray(events)) {
+    throw new ProbeContractError(`${mode}: verify report is missing its audit evidence (audit.events); cannot attest no-egress`);
+  }
+  const audit = classifyAudit(events);
   if (audit.network.length) throw new ProbeContractError(`${mode}: upstream child touched the network: ${audit.network.join(", ")}`);
   if (audit.process.length) throw new ProbeContractError(`${mode}: upstream child spawned a subprocess/browser: ${audit.process.join(", ")}`);
 
@@ -702,7 +755,7 @@ export async function probeLearnKitNlmBridge({ command, args = [], env, mode, ti
   const baseEnv = env ?? process.env;
   const dirs = makeIsolatedDirs(mode);
   try {
-    if (mode === "bootstrap") return await probeBootstrap({ command, args, env: baseEnv, dirs });
+    if (mode === "bootstrap") return await probeBootstrap({ command, args, env: baseEnv, dirs, timeoutMs });
     return await probeVerify(mode, { command, args, env: baseEnv, dirs, timeoutMs });
   } finally {
     teardownDirs(dirs.root);
