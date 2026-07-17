@@ -103,6 +103,8 @@ learn-kit 的 NLM 分支经本仓 `learn-kit-nlm-bridge` 4.0.0 连接固定版�
 - **Gate A/B 非可信授权边界**：bridge 无用户签名 unlock token，不能证明真人同意、也不能阻止直接 tool call；只降低意外提前启动与能力扩张风险，发现漂移即 fail closed
 - 测试：`tests/learn-kit-nlm-bridge.test.mjs`（Node 端到端 stdio，`REQUIRE_PYTHON=1` gate，venv 形如生产私有环境=hashed closure + editable bridge）+ 不随 wheel 发布的 `nlm-bridge/tests/test_internals.py`（Python white-box：auth guard patch / 6 adapter 正反 fixture / ChildClient drift·loop·reverse-request / AUTH 识别器）
 
+**外层 conformance 探针 [`scripts/probe-learn-kit-nlm-bridge.mjs`](scripts/probe-learn-kit-nlm-bridge.mjs)（`npm run smoke:nlm-contract`，`--config .mcp.json --server notebooklm-mcp --mode bootstrap|upstream-contract|auth-required|all`）**：每 mode 都在 OS-temp 隔离 home（重定向 HOME/USERPROFILE/XDG_CONFIG_HOME/APPDATA/LOCALAPPDATA/TEMP/TMP，`finally` containment-check 后杀进程树 + 清 temp）里驱动 bridge，OS 层监控进程树（`isThreatChild`=browser image/cmdline 或 nlm/notebooklm login launcher image；uv venv python launcher 与 guarded runner **不**算威胁）+ 外部连接 + 凭据 sentinel 泄漏。`bootstrap` 做 initialize/ping/tools-list 断言自有 safe instructions + 精确 6 工具 + 零威胁 child/网络（无凭据 + synthetic sentinel 两态）；`upstream-contract` / `auth-required` 跑 bridge 的 `--verify-*` 并判 exit + report（`tools_verified` / 双 `AUTH_REQUIRED` / audit egress family——loopback asyncio self-pipe 的 `socket.connect`/`bind`/`__new__` 属良性，`ssl.`/`http.client.`/`urllib.`/`socket.getaddrinfo`/`subprocess.`/`webbrowser` 才算 egress/spawn）。exit：config/server/JSON/harness→2，contract/runtime→1。纯判定 `judgeVerifyResult` 与 fake-bridge（`tests/helpers/fake-nlm-bridge.mjs`）+ 真 venv 三 mode 覆盖于 `tests/probe-learn-kit-nlm-bridge.test.mjs`
+
 ## Documentation Framework (v4.2.0 起；当前 v1.7 / marketplace v6.3.2)
 
 marketplace 文档体系遵循以下三层 STANDARD（位于 `docs/rule/`）:
