@@ -472,6 +472,32 @@ export function detectShimCollisions(deps, { publicBin }) {
   return problems;
 }
 
+/**
+ * Write the two public shims, or accept a byte-identical one already present (idempotent).
+ *
+ * A file already sitting at the exact managed shim path is deliberately let through by
+ * detectShimCollisions (it is the idempotent slot), so THIS is the only guard that tells a
+ * byte-identical re-install (keep) from a foreign file occupying that path (refuse). Each newly
+ * created shim is recorded in `created.shims` BEFORE it is written, so rollback removes it even if
+ * the write is partial or a later chmod throws — the header's "no shim on failure" guarantee.
+ */
+export function writeShims(shimSpecs, publicBin, deps, created) {
+  fs.mkdirSync(publicBin, { recursive: true });
+  for (const logical of Object.keys(shimSpecs)) {
+    const spec = shimSpecs[logical];
+    if (fs.existsSync(spec.path)) {
+      const existing = fs.readFileSync(spec.path);
+      if (!existing.equals(spec.bytes)) {
+        throw new InstallError(`a different '${logical}' shim already exists at ${spec.path}; refusing to overwrite`);
+      }
+      continue; // byte-identical: keep it, and do NOT record it — we did not create it this run
+    }
+    created.shims.push(spec.path); // track before writing: a partial write or a chmod throw still rolls back
+    fs.writeFileSync(spec.path, spec.bytes);
+    if (deps.platform !== "win32") fs.chmodSync(spec.path, 0o755);
+  }
+}
+
 // ------------------------------------------------------------------ runners (production deps)
 
 function realHttpRequest(urlObj, { timeoutMs, maxBytes }) {
@@ -775,20 +801,7 @@ export async function installNlmBridge(opts, deps) {
     const receiptSha256 = sha256Hex(receiptBytes);
 
     // 6. Create the two public shims (idempotent only when byte-identical to what we would write).
-    fs.mkdirSync(publicBin, { recursive: true });
-    for (const logical of Object.keys(names)) {
-      const spec = shimSpecs[logical];
-      if (fs.existsSync(spec.path)) {
-        const existing = fs.readFileSync(spec.path);
-        if (!existing.equals(spec.bytes)) {
-          throw new InstallError(`a different '${logical}' shim already exists at ${spec.path}; refusing to overwrite`);
-        }
-      } else {
-        fs.writeFileSync(spec.path, spec.bytes);
-        if (deps.platform !== "win32") fs.chmodSync(spec.path, 0o755);
-        created.shims.push(spec.path);
-      }
-    }
+    writeShims(shimSpecs, publicBin, deps, created);
 
     // 7. Final gate: the bridge's own local contract, which re-checks the receipt, closure, and all
     //    five SHAs from the inside. If this fails, the environment is not trustworthy — roll back.

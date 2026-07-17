@@ -29,6 +29,7 @@ import {
   download,
   buildUvEnv,
   shimBytes,
+  writeShims,
   detectShimCollisions,
   resolveRoots,
   readCheckedInContract,
@@ -244,6 +245,21 @@ test("buildUvEnv keeps a minimal Windows PATH under System32", () => {
   assert.ok(!env.PATH.toLowerCase().includes("la\\bin"));
 });
 
+test("buildUvEnv preserves the vars uv needs to discover its managed Python / caches", () => {
+  // The e2e can't feed the scrubbed env to real uv (its LOCALAPPDATA points at a temp install root,
+  // which breaks uv's managed-3.12 discovery), so a dropped keep var would otherwise have zero test
+  // signal. Assert the keep-list here: dropping any of these from keepExact fails this test.
+  const src = {
+    SystemRoot: "C:\\Windows", windir: "C:\\Windows", APPDATA: "C:\\Users\\u\\AppData\\Roaming",
+    LOCALAPPDATA: "C:\\Users\\u\\AppData\\Local", PATHEXT: ".COM;.EXE;.CMD", TEMP: "C:\\Temp",
+    LANG: "en_US.UTF-8", COMSPEC: "C:\\Windows\\System32\\cmd.exe",
+  };
+  const env = buildUvEnv({ platform: "win32", env: src }, "C:\\cache");
+  for (const k of ["SystemRoot", "APPDATA", "LOCALAPPDATA", "PATHEXT", "TEMP", "LANG", "COMSPEC"]) {
+    assert.equal(env[k], src[k], `${k} must be preserved for uv/OS`);
+  }
+});
+
 // ================================================================= shimBytes
 
 test("shimBytes builds a relative CRLF .cmd on Windows", () => {
@@ -276,6 +292,52 @@ test("shimBytes refuses a shell-unsafe interpreter path on POSIX", () => {
     () => shimBytes("nlm", { publicBin: "/home/u/bin", privateRoot: '/home/"; rm -rf ~/x', platform: "linux" }),
     InstallError,
   );
+});
+
+// ================================================================= writeShims
+
+const specFor = (publicBin, name, bytes) => ({ path: path.join(publicBin, name), bytes, sha256: sha256Hex(bytes) });
+
+test("writeShims writes both shims and records them for rollback (tracked before write)", () => {
+  withTmp("shim-", (root) => {
+    const publicBin = path.join(root, "bin");
+    const specs = {
+      "learn-kit-nlm-bridge": specFor(publicBin, "learn-kit-nlm-bridge", Buffer.from("A")),
+      nlm: specFor(publicBin, "nlm", Buffer.from("B")),
+    };
+    const created = { privateRoot: true, shims: [] };
+    writeShims(specs, publicBin, { platform: process.platform }, created);
+    assert.equal(created.shims.length, 2, "both shims recorded for rollback");
+    for (const logical of Object.keys(specs)) {
+      assert.ok(fs.existsSync(specs[logical].path));
+      assert.ok(fs.readFileSync(specs[logical].path).equals(specs[logical].bytes));
+      assert.ok(created.shims.includes(specs[logical].path));
+    }
+  });
+});
+
+test("writeShims keeps a byte-identical existing shim (idempotent) without recording it", () => {
+  withTmp("shim-", (root) => {
+    const publicBin = path.join(root, "bin");
+    fs.mkdirSync(publicBin);
+    const bytes = Buffer.from("same");
+    fs.writeFileSync(path.join(publicBin, "nlm"), bytes);
+    const created = { privateRoot: true, shims: [] };
+    writeShims({ nlm: specFor(publicBin, "nlm", bytes) }, publicBin, { platform: process.platform }, created);
+    assert.deepEqual(created.shims, [], "a pre-existing identical shim is not ours to roll back");
+  });
+});
+
+test("writeShims refuses a byte-different existing shim at the managed path", () => {
+  withTmp("shim-", (root) => {
+    const publicBin = path.join(root, "bin");
+    fs.mkdirSync(publicBin);
+    fs.writeFileSync(path.join(publicBin, "nlm"), Buffer.from("foreign"));
+    assert.throws(
+      () => writeShims({ nlm: specFor(publicBin, "nlm", Buffer.from("ours")) }, publicBin, { platform: process.platform }, { privateRoot: true, shims: [] }),
+      /refusing to overwrite/,
+    );
+  });
 });
 
 // ================================================================= detectShimCollisions
@@ -317,14 +379,17 @@ test("detectShimCollisions flags a launcher earlier on PATH", () => {
   });
 });
 
-test("detectShimCollisions flags a .ps1 shadow", () => {
+test("detectShimCollisions flags a .ps1 shadow even when .PS1 is NOT in PATHEXT", () => {
   withTmp("coll-", (root) => {
     const publicBin = path.join(root, "bin");
     const earlier = path.join(root, "earlier");
     fs.mkdirSync(publicBin);
     fs.mkdirSync(earlier);
     fs.writeFileSync(path.join(earlier, "nlm.ps1"), "x");
-    const deps = winDeps({ PATH: [earlier, publicBin].join(path.delimiter) });
+    // PATHEXT deliberately omits .PS1 (the default on many Windows boxes) so the ONLY thing that can
+    // match nlm.ps1 is the explicit ".ps1" the collision set appends — this is what makes the test
+    // fail if that append is ever removed. .CMD stays present so the PATHEXT-has-.CMD guard is happy.
+    const deps = winDeps({ PATHEXT: ".COM;.EXE;.CMD", PATH: [earlier, publicBin].join(path.delimiter) });
     const problems = detectShimCollisions(deps, { publicBin });
     assert.ok(problems.some((p) => /nlm/.test(p) && /ps1/.test(p)), problems.join("\n"));
   });
@@ -532,6 +597,46 @@ test("install passes a scrubbed env with a private cache to uv (no test-mode env
   });
 });
 
+test("install passes the hardened uv pip-install flag vector to uv", async () => {
+  await withTmpAsync("inst-", async (root) => {
+    let pipArgs = null;
+    const runUv = (uvPath, args) => {
+      if (args[0] === "pip" && args[1] === "install") {
+        pipArgs = args;
+        return { status: 1, stdout: "", stderr: "stop after capture" };
+      }
+      return { status: 0, stdout: "", stderr: "" }; // let the venv step succeed so pip install is reached
+    };
+    const deps = fakeInstallDeps(root, { runUv });
+    await assert.rejects(() =>
+      installNlmBridge({ action: "install", wheelUrl: CANONICAL_WHEEL_URL, checksumUrl: CANONICAL_CHECKSUM_URL }, deps),
+    );
+    assert.ok(pipArgs, "uv pip install must be invoked");
+    for (const f of ["--require-hashes", "--no-build", "--no-config", "--index-strategy"]) {
+      assert.ok(pipArgs.includes(f), `${f} missing from the uv pip install invocation`);
+    }
+    const di = pipArgs.indexOf("--default-index");
+    assert.ok(di !== -1 && pipArgs[di + 1] === "https://pypi.org/simple", "--default-index must be pypi.org/simple");
+    assert.equal(pipArgs[pipArgs.indexOf("--index-strategy") + 1], "first-index");
+  });
+});
+
+test("install refuses a uv other than the pinned 0.11.21, before any download", async () => {
+  await withTmpAsync("inst-", async (root) => {
+    let requested = false;
+    const http = async () => {
+      requested = true;
+      return { statusCode: 200, headers: {}, body: Buffer.alloc(0) };
+    };
+    const deps = fakeInstallDeps(root, { uvVersion: "0.11.20", httpRequest: http });
+    await assert.rejects(
+      () => installNlmBridge({ action: "install", wheelUrl: CANONICAL_WHEEL_URL, checksumUrl: CANONICAL_CHECKSUM_URL }, deps),
+      /pins uv 0\.11\.21, found 0\.11\.20/,
+    );
+    assert.equal(requested, false, "the uv pin must fire before any download");
+  });
+});
+
 async function withTmpAsync(prefix, fn) {
   const dir = tmp(prefix);
   try {
@@ -556,52 +661,9 @@ const e2eSkip = uvAvailable() ? false : REQUIRE_PYTHON ? false : "uv not availab
 
 test("end-to-end: build the wheel, install it offline, and verify receipt + shims + --contract-json", { skip: e2eSkip }, async () => {
   await withTmpAsync("inst-e2e-", async (root) => {
-    // 1. Build the real wheel from the checked-in bridge, offline against uv's warm cache.
-    const dist = path.join(root, "dist");
-    fs.mkdirSync(dist, { recursive: true });
-    execFileSync("uv", ["build", "--wheel", "--no-config", "--out-dir", dist, BRIDGE_DIR], {
-      env: process.env, // inherits UV_OFFLINE if the developer set it; CI leaves it unset
-      stdio: ["ignore", "ignore", "pipe"],
-    });
-    const wheelBuf = fs.readFileSync(path.join(dist, WHEEL_NAME));
-    const wheelSha = sha256Hex(wheelBuf);
-    const checksumBuf = Buffer.from(`${wheelSha}  ${WHEEL_NAME}\n`, "utf8");
-
-    // 2. Roots point into a runner-temp tree; real uv/python; uv runs against the warm cache
-    //    (UV_CACHE_DIR removed) so --require-hashes resolves offline where the network is down.
-    // PATH is empty so the collision scan cannot trip over a real foreign `nlm` on the dev's PATH
-    // (resolveUv is stubbed, so it does not need PATH). Install roots point into the temp tree.
-    const isWin = process.platform === "win32";
-    const homeEnv = isWin
-      ? { LOCALAPPDATA: path.join(root, "LocalAppData"), SystemRoot: process.env.SystemRoot, PATHEXT: process.env.PATHEXT || ".COM;.EXE;.BAT;.CMD", PATH: "" }
-      : { HOME: path.join(root, "home"), PATH: "" };
-    fs.mkdirSync(isWin ? homeEnv.LOCALAPPDATA : homeEnv.HOME, { recursive: true });
-
-    // uv runs under the real environment so it can discover its managed Python and reuse the warm
-    // cache; the venv still lands in the temp private root, which is an explicit path argument.
-    const realRunUv = (uvPath, args) =>
-      spawnSync(uvPath, args, { env: process.env, encoding: "utf8", timeout: 10 * 60_000, maxBuffer: 64 * 1024 * 1024 });
-    const realRunPython = (py, args, { env }) =>
-      spawnSync(py, args, { env, encoding: "utf8", timeout: 5 * 60_000, maxBuffer: 64 * 1024 * 1024 });
-
-    const uvVersionOut = execFileSync("uv", ["--version"], { encoding: "utf8" });
-    const uvVersion = /(\d+\.\d+\.\d+)/.exec(uvVersionOut)[1];
-
-    const deps = {
-      platform: process.platform,
-      env: homeEnv,
-      installerSource: INSTALLER,
-      tmpdir: () => os.tmpdir(),
-      resolveUv: () => ({ path: fs.realpathSync(whichUv()), version: uvVersion }),
-      httpRequest: fakeHttp({
-        [CANONICAL_WHEEL_URL]: { status: 200, body: wheelBuf },
-        [CANONICAL_CHECKSUM_URL]: { status: 200, body: checksumBuf },
-      }),
-      runUv: realRunUv,
-      runPython: realRunPython,
-    };
-
+    const { deps, wheelSha, uvVersion } = makeE2eDeps(root);
     if (uvVersion !== "0.11.21") return; // the installer pins 0.11.21; skip the assertions on a different uv
+    const isWin = process.platform === "win32";
 
     const result = await installNlmBridge(
       { action: "install", wheelUrl: CANONICAL_WHEEL_URL, checksumUrl: CANONICAL_CHECKSUM_URL },
@@ -648,6 +710,86 @@ test("end-to-end: build the wheel, install it offline, and verify receipt + shim
     assert.equal(st.status, "not-installed");
   });
 });
+
+test("end-to-end: rollback removes shims + private root when the --contract-json gate fails", { skip: e2eSkip }, async () => {
+  await withTmpAsync("inst-e2e-rb-", async (root) => {
+    const real = (py, args, opt) => spawnSync(py, args, { env: opt.env, encoding: "utf8", timeout: 5 * 60_000, maxBuffer: 64 * 1024 * 1024 });
+    // Let every real python call through EXCEPT the final --contract-json gate, forced to fail AFTER
+    // the shims are written — this is the only way to exercise the created.shims rollback branch.
+    const runPython = (py, args, opt) =>
+      args.includes("--contract-json") ? { status: 1, stdout: "", stderr: "forced contract failure" } : real(py, args, opt);
+    const { deps, uvVersion } = makeE2eDeps(root, { runPython });
+    if (uvVersion !== "0.11.21") return;
+
+    await assert.rejects(
+      () => installNlmBridge({ action: "install", wheelUrl: CANONICAL_WHEEL_URL, checksumUrl: CANONICAL_CHECKSUM_URL }, deps),
+      /--contract-json/,
+    );
+    const { privateRoot, publicBin } = resolveRoots(deps);
+    assert.ok(!fs.existsSync(privateRoot), "private root must be rolled back");
+    const isWin = process.platform === "win32";
+    for (const n of isWin ? ["learn-kit-nlm-bridge.cmd", "nlm.cmd"] : ["learn-kit-nlm-bridge", "nlm"]) {
+      assert.ok(!fs.existsSync(path.join(publicBin, n)), `${n} shim must be rolled back after a post-shim failure`);
+    }
+  });
+});
+
+// Build the real wheel from the checked-in bridge once (offline against uv's warm cache), memoized
+// so both e2e tests share it.
+let WHEEL_CACHE;
+function buildWheelOnce() {
+  if (WHEEL_CACHE) return WHEEL_CACHE;
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "inst-wheel-"));
+  try {
+    execFileSync("uv", ["build", "--wheel", "--no-config", "--out-dir", dir, BRIDGE_DIR], {
+      env: process.env, // inherits UV_OFFLINE if the developer set it; CI leaves it unset
+      stdio: ["ignore", "ignore", "pipe"],
+    });
+    const wheelBuf = fs.readFileSync(path.join(dir, WHEEL_NAME));
+    const wheelSha = sha256Hex(wheelBuf);
+    WHEEL_CACHE = { wheelBuf, wheelSha, checksumBuf: Buffer.from(`${wheelSha}  ${WHEEL_NAME}\n`, "utf8") };
+    return WHEEL_CACHE;
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+}
+
+/**
+ * Real-install deps into a runner-temp tree. PATH is empty so the collision scan cannot trip over a
+ * real foreign `nlm` on the dev's PATH (resolveUv is stubbed). uv runs under the real environment so
+ * it can discover its managed Python and reuse the warm cache; the venv still lands in the temp
+ * private root, an explicit path argument. runPython may be overridden to inject a failure.
+ */
+function makeE2eDeps(root, { runPython } = {}) {
+  const { wheelBuf, wheelSha, checksumBuf } = buildWheelOnce();
+  const isWin = process.platform === "win32";
+  const homeEnv = isWin
+    ? { LOCALAPPDATA: path.join(root, "LocalAppData"), SystemRoot: process.env.SystemRoot, PATHEXT: process.env.PATHEXT || ".COM;.EXE;.BAT;.CMD", PATH: "" }
+    : { HOME: path.join(root, "home"), PATH: "" };
+  fs.mkdirSync(isWin ? homeEnv.LOCALAPPDATA : homeEnv.HOME, { recursive: true });
+  const uvVersion = /(\d+\.\d+\.\d+)/.exec(execFileSync("uv", ["--version"], { encoding: "utf8" }))[1];
+  const realRunUv = (uvPath, args) =>
+    spawnSync(uvPath, args, { env: process.env, encoding: "utf8", timeout: 10 * 60_000, maxBuffer: 64 * 1024 * 1024 });
+  const realRunPython = (py, args, { env }) =>
+    spawnSync(py, args, { env, encoding: "utf8", timeout: 5 * 60_000, maxBuffer: 64 * 1024 * 1024 });
+  return {
+    wheelSha,
+    uvVersion,
+    deps: {
+      platform: process.platform,
+      env: homeEnv,
+      installerSource: INSTALLER,
+      tmpdir: () => os.tmpdir(),
+      resolveUv: () => ({ path: fs.realpathSync(whichUv()), version: uvVersion }),
+      httpRequest: fakeHttp({
+        [CANONICAL_WHEEL_URL]: { status: 200, body: wheelBuf },
+        [CANONICAL_CHECKSUM_URL]: { status: 200, body: checksumBuf },
+      }),
+      runUv: realRunUv,
+      runPython: runPython ?? realRunPython,
+    },
+  };
+}
 
 function whichUv() {
   const isWin = process.platform === "win32";
