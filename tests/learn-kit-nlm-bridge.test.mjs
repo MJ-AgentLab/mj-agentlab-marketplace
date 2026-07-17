@@ -219,6 +219,23 @@ test("the state machine rejects a second initialize and a call before ready", { 
   }
 });
 
+test("a non-object params is refused cleanly and the bridge keeps serving", { skip }, async () => {
+  // Regression: `params` as a JSON array/string used to reach `.get()` and raise AttributeError
+  // that escaped serve() and killed the process. It must be a clean INVALID_PARAMS, and the bridge
+  // must survive to answer the next request.
+  const b = openBridge(PY, { env: emptyHomeEnv() });
+  try {
+    await handshake(b);
+    const bad = await b.request("tools/list", [1]);
+    assert.ok(bad.error, "array params must be an error");
+    assert.equal(bad.error.code, -32602);
+    const ok = await b.request("tools/list");
+    assert.equal(ok.result.tools.length, 6, "the bridge must still be serving after malformed params");
+  } finally {
+    b.close();
+  }
+});
+
 test("tools/list is single-page and refuses a cursor", { skip }, async () => {
   const b = openBridge(PY, { env: emptyHomeEnv() });
   try {
@@ -248,6 +265,10 @@ test("an unknown tool is a JSON-RPC error; a schema violation is an error result
     });
     assert.ok(bad.result?.isError, "schema violation must be an error result");
     assert.notEqual(bad.result?.structuredContent?.code, "AUTH_REQUIRED", "must not have spawned the child");
+    // Prove the rejection came from the adapter, not the contract/spawn path: the message is about
+    // the missing fields, never an environment-verification error (which would mean it got past
+    // adapt() to build_bridge_contract()).
+    assert.doesNotMatch(bad.result?.content?.[0]?.text ?? "", /environment verification/i);
   } finally {
     b.close();
   }

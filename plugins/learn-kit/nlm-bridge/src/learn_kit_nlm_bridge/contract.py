@@ -263,9 +263,15 @@ def load_public_tools(env_lock: dict) -> list[dict]:
     return advertised
 
 
-def load_policy_raw() -> dict:
-    """The full policy including the internal `upstream` routing, for the adapter layer."""
-    return json.loads(read_data_text(PUBLIC_TOOLS_NAME))
+def load_policy_raw(env_lock: dict) -> dict:
+    """The full policy including the internal `upstream` routing, for the adapter layer — SHA-
+    verified against the env-lock so a tampered policy cannot reshape the routing or inject map
+    without being caught, just as the advertised surface is."""
+    text = read_data_text(PUBLIC_TOOLS_NAME)
+    recorded = (env_lock.get("contracts", {}).get("public_tools") or {}).get("sha256")
+    if sha256_text(text) != recorded:
+        raise ContractError(f"{PUBLIC_TOOLS_NAME} has drifted from the environment lock")
+    return json.loads(text)
 
 
 def load_upstream_snapshot(env_lock: dict) -> dict:
@@ -292,9 +298,13 @@ def receipt_path() -> Path:
     The production layout is <private-root>/venv/{Scripts,bin}/python(.exe), so the receipt is
     <private-root>/install-receipt.json — three parents up from the interpreter, regardless of
     Scripts vs bin. Deterministic because the installer fixes the layout.
+
+    Lexical parents, NOT .resolve() on the interpreter: on Linux/macOS a venv's bin/python is a
+    symlink to the base interpreter, so resolving the executable would climb OUT of the venv and
+    look for the receipt beside the base Python. Walking up the path lexically stays inside the
+    venv. (On Windows the interpreter is a real copied file, so this changes nothing.)
     """
-    exe = Path(sys.executable).resolve()
-    return exe.parents[2] / RECEIPT_NAME
+    return Path(sys.executable).parents[2] / RECEIPT_NAME
 
 
 def _require(cond: bool, message: str) -> None:
@@ -329,8 +339,9 @@ def load_and_verify_receipt(env_lock: dict, contract_shas: dict, python_version:
     _require(receipt.get("format") == RECEIPT_FORMAT, "install receipt: wrong format tag")
     _require(receipt.get("format_version") == RECEIPT_FORMAT_VERSION, "install receipt: wrong format version")
 
-    # This receipt must describe THIS venv and interpreter, not a copied one.
-    venv_dir = Path(sys.executable).resolve().parents[1]
+    # This receipt must describe THIS venv and interpreter, not a copied one. Lexical parent for
+    # the same symlink reason as receipt_path(); the directory itself is resolved in _same_path.
+    venv_dir = Path(sys.executable).parents[1]
     _require(
         _same_path(receipt.get("private_env"), venv_dir),
         f"install receipt describes a different venv ({receipt.get('private_env')} != {venv_dir})",
@@ -369,7 +380,9 @@ def _same_path(a: object, b: Path) -> bool:
     if not isinstance(a, str) or not a:
         return False
     try:
-        return Path(a).resolve() == b
+        # Resolve BOTH: b is the venv directory (safe to resolve — a directory, not the python
+        # symlink), and a is the installer-recorded path; comparing resolved dirs is symlink-robust.
+        return Path(a).resolve() == Path(b).resolve()
     except OSError:
         return False
 

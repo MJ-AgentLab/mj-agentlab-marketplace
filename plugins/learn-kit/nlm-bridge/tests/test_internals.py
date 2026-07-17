@@ -12,6 +12,8 @@ AUTH_REQUIRED recognizer against the connector's real error messages.
 """
 
 import json
+import os
+import tempfile
 import threading
 import types
 import unittest
@@ -193,14 +195,41 @@ class TestAdapters(unittest.TestCase):
                 self.adapters.adapt("studio_create", payload)
 
     def test_source_add_path_guard(self):
-        # A non-staged path is refused; a control character NUL is refused by the schema pattern.
-        with self.assertRaises(bridge.SchemaViolation):
-            self.adapters.adapt("source_add", {"notebook_id": "n", "source_type": "file", "file_path": "/etc/passwd", "wait": True})
-        with self.assertRaises(bridge.SchemaViolation):
-            self.adapters.adapt("source_add", {"notebook_id": "n", "source_type": "file", "file_path": "relative.md", "wait": True})
-        # source_type/wait must be the literal constants.
-        with self.assertRaises(bridge.SchemaViolation):
-            self.adapters.adapt("source_add", {"notebook_id": "n", "source_type": "url", "file_path": "/x.md", "wait": True})
+        # Wrong constant, relative path, and non-.md are all refused BEFORE the containment check.
+        for bad in [
+            {"notebook_id": "n", "source_type": "url", "file_path": "/x.md", "wait": True},
+            {"notebook_id": "n", "source_type": "file", "file_path": "relative.md", "wait": True},
+            {"notebook_id": "n", "source_type": "file", "file_path": os.path.join(tempfile.gettempdir(), "notmd.txt"), "wait": True},
+        ]:
+            with self.assertRaises(bridge.SchemaViolation):
+                self.adapters.adapt("source_add", bad)
+
+        # An absolute, existing .md that is NOT inside a learn-kit-upload-* staging root must be
+        # refused by the containment guard specifically — the case the earlier checks never reach.
+        # (Regression: mutation testing found this branch had zero coverage.)
+        outside = tempfile.mkdtemp(prefix="not-staging-")
+        out_md = os.path.join(outside, "foundation.md")
+        with open(out_md, "w", encoding="utf-8") as f:
+            f.write("# x")
+        try:
+            with self.assertRaises(bridge.SchemaViolation):
+                self.adapters.adapt("source_add", {"notebook_id": "n", "source_type": "file", "file_path": out_md, "wait": True})
+        finally:
+            os.remove(out_md)
+            os.rmdir(outside)
+
+        # A .md inside a helper-owned learn-kit-upload-* staging root is accepted, forwarded verbatim.
+        staging = tempfile.mkdtemp(prefix="learn-kit-upload-")
+        good_md = os.path.join(staging, "foundation.md")
+        with open(good_md, "w", encoding="utf-8") as f:
+            f.write("# x")
+        try:
+            name, args = self.adapters.adapt("source_add", {"notebook_id": "n", "source_type": "file", "file_path": good_md, "wait": True})
+            self.assertEqual(name, "source_add")
+            self.assertEqual(args["file_path"], good_md)
+        finally:
+            os.remove(good_md)
+            os.rmdir(staging)
 
     def test_unknown_tool_is_a_protocol_error(self):
         with self.assertRaises(bridge.ProtocolError):
@@ -211,6 +240,28 @@ class TestAdapters(unittest.TestCase):
     def test_control_chars_in_ids_are_rejected(self):
         with self.assertRaises(bridge.SchemaViolation):
             self.adapters.adapt("notebook_get", {"notebook_id": "bad\x00id"})
+
+    def test_trailing_newline_in_id_is_rejected(self):
+        # Regression: re.search let a trailing "\n" slip past ^[^ctrl]*$ (unanchored $); fullmatch
+        # rejects it, so a control char can never ride along on the end of an id.
+        with self.assertRaises(bridge.SchemaViolation):
+            self.adapters.adapt("notebook_get", {"notebook_id": "abc\n"})
+
+    def test_relpath_valueerror_is_a_clean_rejection_not_a_crash(self):
+        # Regression (Windows cross-drive): os.path.relpath raises ValueError when file_path and TEMP
+        # are on different drives. The guard must turn that into a SchemaViolation, never let it
+        # escape to crash the serve loop.
+        staging = tempfile.mkdtemp(prefix="learn-kit-upload-")
+        good_md = os.path.join(staging, "foundation.md")
+        with open(good_md, "w", encoding="utf-8") as f:
+            f.write("# x")
+        try:
+            with mock.patch("os.path.relpath", side_effect=ValueError("path is on mount 'D:', start on mount 'C:'")):
+                with self.assertRaises(bridge.SchemaViolation):
+                    self.adapters.adapt("source_add", {"notebook_id": "n", "source_type": "file", "file_path": good_md, "wait": True})
+        finally:
+            os.remove(good_md)
+            os.rmdir(staging)
 
 
 # --------------------------------------------------------------------- auth recognizer
@@ -236,6 +287,14 @@ class TestAuthRecognizer(unittest.TestCase):
     def test_a_successful_result_is_not_auth(self):
         self.assertFalse(bridge.is_auth_failure({"content": [{"type": "text", "text": "ok"}], "isError": False}))
 
+    def test_a_success_result_whose_data_contains_an_auth_phrase_is_not_auth(self):
+        # Regression: a successful notebook_list whose data merely mentions "session expired" or
+        # "nlm login" (a notebook so titled, a how-to source) must NOT be misread as an auth failure
+        # and have the real data silently replaced with AUTH_REQUIRED.
+        for phrase in ["notebook: session expired", "how to run nlm login", "guide to re-authenticate"]:
+            result = {"isError": False, "content": [{"type": "text", "text": json.dumps({"status": "success", "items": [phrase]})}]}
+            self.assertFalse(bridge.is_auth_failure(result), phrase)
+
     def test_auth_required_result_leaks_no_credentials_or_upstream_text(self):
         r = bridge.auth_required_result()
         blob = json.dumps(r)
@@ -243,6 +302,59 @@ class TestAuthRecognizer(unittest.TestCase):
         self.assertEqual(r["structuredContent"]["code"], "AUTH_REQUIRED")
         for leak in ["NOTEBOOKLM_COOKIES", "cookie", "csrf", "profile", "@"]:
             self.assertNotIn(leak, blob)
+
+
+# --------------------------------------------------------------------- child env isolation
+
+class TestChildEnv(unittest.TestCase):
+    def test_build_child_env_strips_secrets_and_injects_pinned(self):
+        # build_child_env is the sole barrier against env leakage into the guarded child. Seed the
+        # parent with exactly the classes it must exclude and prove none survive.
+        secrets = {
+            "NOTEBOOKLM_COOKIES": "SECRET-COOKIE", "NLM_PROFILE": "work", "NLM_BROWSER": "chrome",
+            "PYTHONPATH": "/evil", "PYTHONHOME": "/x", "HTTPS_PROXY": "http://proxy", "BROWSER": "chrome",
+        }
+        with mock.patch.dict(os.environ, secrets):
+            env = bridge.build_child_env(SNAPSHOT)
+        for k in ("NLM_PROFILE", "NLM_BROWSER", "PYTHONPATH", "PYTHONHOME", "HTTPS_PROXY", "BROWSER"):
+            self.assertNotIn(k, env, f"{k} must not reach the child")
+        # A seeded NOTEBOOKLM_COOKIES is overridden by the pinned empty value, never carried through.
+        self.assertEqual(env.get("NOTEBOOKLM_COOKIES"), "")
+        for key, val in SNAPSHOT["pinned_env"].items():
+            self.assertEqual(env[key], val)
+        self.assertEqual(env["PYTHONUTF8"], "1")
+        self.assertTrue(env["PATH"])  # a trusted OS dir, present
+
+
+# --------------------------------------------------------------------- installed-closure gate
+
+class TestClosure(unittest.TestCase):
+    class _Dist:
+        def __init__(self, name, version):
+            self.metadata = {"Name": name}
+            self.version = version
+
+    def _fakes(self, closure):
+        return [self._Dist(e["name"], e["version"]) for e in closure]
+
+    def test_closure_check_fails_closed_on_missing_or_wrong_version(self):
+        env_lock = _env_lock()
+        closure = env_lock["closure"]
+        # All present at the locked version -> passes.
+        with mock.patch("importlib.metadata.distributions", return_value=self._fakes(closure)):
+            contract.verify_installed_closure(env_lock)
+        # A universal (marker=null) pin gone missing -> the "not installed" branch specifically.
+        universal = next(e for e in closure if e.get("marker") is None)
+        without = [e for e in closure if e is not universal]
+        with mock.patch("importlib.metadata.distributions", return_value=self._fakes(without)):
+            with self.assertRaisesRegex(contract.ContractError, "not installed"):
+                contract.verify_installed_closure(env_lock)
+        # A present package at the wrong version -> the "locked at" branch specifically.
+        perturbed = [dict(e) for e in closure]
+        perturbed[0]["version"] = "0.0.0-wrong"
+        with mock.patch("importlib.metadata.distributions", return_value=self._fakes(perturbed)):
+            with self.assertRaisesRegex(contract.ContractError, "locked at"):
+                contract.verify_installed_closure(env_lock)
 
 
 if __name__ == "__main__":

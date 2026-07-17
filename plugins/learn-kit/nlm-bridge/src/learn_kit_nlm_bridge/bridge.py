@@ -138,7 +138,10 @@ def _validate_leaf(schema: dict, value, where: str) -> None:
             raise SchemaViolation(f"{where}: too short")
         if "maxLength" in schema and len(value) > schema["maxLength"]:
             raise SchemaViolation(f"{where}: too long")
-        if "pattern" in schema and re.search(schema["pattern"], value) is None:
+        # fullmatch, not search: with search, an unanchored `$` matches just before a trailing
+        # newline, so a control char like "\n" at the end would slip past ^[^ctrl]*$. fullmatch
+        # requires the whole string to match, rejecting a trailing newline as intended.
+        if "pattern" in schema and re.fullmatch(schema["pattern"], value) is None:
             raise SchemaViolation(f"{where}: does not match pattern")
     elif t == "array":
         if not isinstance(value, list):
@@ -211,7 +214,7 @@ class Adapters:
 
     def __init__(self, env_lock: dict):
         self.by_name: dict[str, dict] = {}
-        for tool in contract.load_policy_raw()["tools"]:
+        for tool in contract.load_policy_raw(env_lock)["tools"]:
             if tool["name"] not in contract.PUBLIC_TOOL_NAMES:
                 raise ForwardError(f"policy advertises unexpected tool {tool['name']!r}")
             self.by_name[tool["name"]] = tool
@@ -260,14 +263,21 @@ def _guard_source_add(arguments: dict) -> None:
         raise SchemaViolation("source_add: only .md files may be uploaded")
     try:
         real = os.path.realpath(file_path)
-    except OSError as e:
+    except (OSError, ValueError) as e:
         raise SchemaViolation(f"source_add: cannot resolve file_path: {e}") from e
     if not os.path.isfile(real):
         raise SchemaViolation("source_add: file_path does not point at a regular file")
     temp_root = os.path.realpath(tempfile.gettempdir())
-    # The staged file must live under some `learn-kit-upload-*` dir directly inside OS temp.
-    parts = os.path.relpath(real, temp_root).split(os.sep)
-    if parts[0] == ".." or not parts[0].startswith(_STAGING_PREFIX):
+    # The staged file must live INSIDE some `learn-kit-upload-*` dir directly under OS temp — so at
+    # least two segments (dir + file), never a file merely named with the prefix. relpath raises
+    # ValueError on Windows when real and temp_root are on different drives; that just means the
+    # file is not inside the staging root, so it must be a clean rejection, not a crash that would
+    # otherwise escape all the way out of the serve loop.
+    try:
+        parts = os.path.relpath(real, temp_root).split(os.sep)
+    except ValueError as e:
+        raise SchemaViolation("source_add: file is not inside a helper-owned staging root") from e
+    if parts[0] == ".." or len(parts) < 2 or not parts[0].startswith(_STAGING_PREFIX):
         raise SchemaViolation("source_add: file is not inside a helper-owned staging root")
 
 
@@ -504,29 +514,37 @@ class ChildClient:
 # --------------------------------------------------------------- auth normalization
 
 def _collect_error_text(result: dict) -> str | None:
-    """Pull any error text out of an upstream CallToolResult: isError content, a
-    structuredContent.status=='error' payload, or an error string inside a TextContent JSON blob."""
-    texts: list[str] = []
-    structured = result.get("structuredContent")
-    if isinstance(structured, dict):
-        if structured.get("status") == "error":
-            texts.append(str(structured.get("error", "")))
-    for item in result.get("content", []) or []:
-        if isinstance(item, dict) and item.get("type") == "text":
-            text = str(item.get("text", ""))
-            texts.append(text)
-            # Upstream often embeds {"status":"error","error":...} as the text body.
-            try:
-                inner = json.loads(text)
-                if isinstance(inner, dict) and inner.get("status") == "error":
-                    texts.append(str(inner.get("error", "")))
-            except (json.JSONDecodeError, ValueError):
-                pass
+    """Pull error text out of an upstream CallToolResult, but ONLY from an error context: an
+    isError result, a structuredContent.status=='error' payload, or a TextContent whose JSON body
+    is itself status=='error'. Plain success content is never scanned — otherwise a successful
+    result whose data merely contains an auth-like phrase (a notebook titled "session expired", a
+    source named how-to-reauthenticate.md) would be misread as an auth failure and the real data
+    silently replaced with AUTH_REQUIRED."""
     is_error = result.get("isError") is True
+    structured = result.get("structuredContent")
+    structured_error = isinstance(structured, dict) and structured.get("status") == "error"
+
+    texts: list[str] = []
+    if structured_error:
+        texts.append(str(structured.get("error", "")))
+    for item in result.get("content", []) or []:
+        if not (isinstance(item, dict) and item.get("type") == "text"):
+            continue
+        text = str(item.get("text", ""))
+        inner_error = False
+        # Upstream often embeds {"status":"error","error":...} as the text body.
+        try:
+            inner = json.loads(text)
+            if isinstance(inner, dict) and inner.get("status") == "error":
+                inner_error = True
+                texts.append(str(inner.get("error", "")))
+        except (json.JSONDecodeError, ValueError):
+            pass
+        if is_error or structured_error or inner_error:
+            texts.append(text)
+
     joined = "\n".join(t for t in texts if t)
-    if joined or is_error:
-        return joined
-    return None
+    return joined or None
 
 
 def is_auth_failure(result: dict) -> bool:
@@ -585,7 +603,13 @@ class Host:
     # --- dispatch --------------------------------------------------------
     def serve(self) -> int:
         while True:
-            line = self.stdin.read(None)
+            try:
+                line = self.stdin.read(None)
+            except ForwardError:
+                # An over-long inbound line: the reader hit its bound. Refuse it and stop rather
+                # than let the exception escape and terminate the process.
+                self._error(None, INVALID_REQUEST, "message exceeded the maximum length")
+                break
             if line is None:
                 break  # EOF
             if not line.strip():
@@ -602,7 +626,23 @@ class Host:
                 self._dispatch(msg)
             except ProtocolError as e:
                 self._error(msg.get("id"), e.code, str(e))
+            except Exception:
+                # Defense in depth: a bug or a hostile message must never terminate the whole
+                # server. Reply with a generic, credential-free internal error and keep serving.
+                self._error(msg.get("id"), INTERNAL_ERROR, "internal error")
         return 0
+
+    @staticmethod
+    def _params(msg: dict) -> dict:
+        """params, guaranteed a dict. JSON-RPC allows array/omitted params, but every method here
+        wants an object; a non-object is a clean INVALID_PARAMS rather than an AttributeError that
+        would otherwise unwind out of the serve loop."""
+        p = msg.get("params")
+        if p is None:
+            return {}
+        if not isinstance(p, dict):
+            raise ProtocolError(INVALID_PARAMS, "params must be an object")
+        return p
 
     def _dispatch(self, msg: dict):
         method = msg.get("method")
@@ -634,15 +674,14 @@ class Host:
 
         if method == "tools/list":
             self._require_ready(is_request)
-            params = msg.get("params") or {}
-            if params.get("cursor"):
+            if self._params(msg).get("cursor"):
                 raise ProtocolError(INVALID_PARAMS, "tools/list is single-page; no cursor is issued")
             self._reply(mid, {"tools": self.tools})
             return
 
         if method == "tools/call":
             self._require_ready(is_request)
-            self._handle_call(mid, msg.get("params") or {})
+            self._handle_call(mid, self._params(msg))
             return
 
         if is_request:
@@ -681,24 +720,23 @@ class Host:
 
         child = ChildClient(self.snapshot)
         try:
-            child.spawn()
-            child.handshake()
-            child.verified_tools()
-            result = child.call(upstream_name, upstream_args)
-        except ForwardError as e:
-            self._reply(mid, _error_result(f"upstream unavailable: {_redact(str(e))}"))
-            child.close()
-            return
+            try:
+                child.spawn()
+                child.handshake()
+                child.verified_tools()
+                result = child.call(upstream_name, upstream_args)
+            except Exception as e:
+                # ForwardError, or a child that died mid-spawn/handshake — BrokenPipeError/OSError
+                # when its stdin is already closed (e.g. auth-guard drift exits it fast). Reply with
+                # a redacted, credential-free error; the finally below always reaps the child.
+                self._reply(mid, _error_result(f"upstream unavailable: {_redact(str(e))}"))
+                return
+            if is_auth_failure(result):
+                self._reply(mid, auth_required_result())
+                return
+            self._reply(mid, result)
         finally:
-            pass
-
-        if is_auth_failure(result):
-            self._reply(mid, auth_required_result())
             child.close()
-            return
-
-        self._reply(mid, result)
-        child.close()
 
 
 def _error_result(message: str) -> dict:
