@@ -54,6 +54,25 @@ export const PUBLIC_TOOL_NAMES = [
   "studio_status",
 ];
 
+/**
+ * The ONLY keys each tool may force onto the upstream call, and it must be exactly these.
+ *
+ * An allowlist rather than a denylist on purpose. The inject map is forwarded to the connector
+ * verbatim, so it is a second way — beside the advertised schema — for a policy edit to reach a
+ * parameter the bridge is supposed to have closed off (a url source, a rename action, a video
+ * style prompt). A denylist can always miss the next dangerous key; this cannot. `status` and
+ * `100` are the two constants the narrowed surface deliberately pins, so those are the only
+ * injections allowed; every other tool injects nothing.
+ */
+export const INJECT_ALLOWLIST = {
+  notebook_list: ["max_results"],
+  notebook_get: [],
+  notebook_create: [],
+  source_add: [],
+  studio_status: ["action"],
+  studio_create: [],
+};
+
 export const MODES = ["runtime-lock", "build-lock", "snapshots", "all"];
 
 export class InputError extends Error {}
@@ -235,8 +254,12 @@ export function validatePublicPolicy(policy, upstream) {
       }
     }
 
+    const allowedInject = INJECT_ALLOWLIST[tool.name] ?? [];
     for (const key of Object.keys(tool?.upstream?.inject ?? {})) {
       if (!upProps.has(key)) p(`${at}: injected ${JSON.stringify(key)} does not exist upstream`);
+      // The inject map reaches the connector verbatim, so a forbidden key smuggled in here
+      // bypasses the advertised-schema checks entirely. Only the pinned constants may appear.
+      if (!allowedInject.includes(key)) p(`${at}: ${JSON.stringify(key)} must not be injected`);
       for (const b of branches) {
         if (Object.keys(b?.properties ?? {}).includes(key)) {
           p(`${at}: ${JSON.stringify(key)} is both injected and caller-supplied — pick one`);

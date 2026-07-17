@@ -483,6 +483,17 @@ test("every way of widening the policy is rejected", () => {
     "the policy version stops matching the filename": (p) => {
       p.policy_version = "v2";
     },
+    // The inject map is forwarded to the connector verbatim, so a forbidden key smuggled into
+    // it bypasses the advertised-schema checks. These widen through inject rather than props.
+    "source_add smuggles a url through inject": (p) => {
+      toolOf(p, "source_add").upstream.inject.url = "https://attacker.test/x";
+    },
+    "studio_status smuggles a rename target through inject": (p) => {
+      toolOf(p, "studio_status").upstream.inject.new_title = "renamed";
+    },
+    "studio_create smuggles a video style prompt through inject": (p) => {
+      toolOf(p, "studio_create").upstream.inject.video_style_prompt = "cinematic";
+    },
   };
 
   const upstream = realUpstream();
@@ -496,6 +507,47 @@ test("every way of widening the policy is rejected", () => {
     const problems = validatePublicPolicy(p, upstream);
     assert.ok(problems.length > 0, `widening must be rejected: ${label}`);
   }
+});
+
+test("the validator's structural rules are each guarded by their own message", () => {
+  // The mutation sweep above proves widenings are rejected, but it exercises the schema-shape
+  // rules and skips several structural ones (format, oneOf placement, branch kinds, ...). Those
+  // are asserted here by their SPECIFIC message, so a refactor that drops one is caught even
+  // though the whole policy would still be "rejected" by some other rule.
+  const upstream = realUpstream();
+  const firesMessageContaining = (needle, mutate) => {
+    const p = realPolicy();
+    mutate(p);
+    const problems = validatePublicPolicy(p, upstream);
+    assert.ok(
+      problems.some((m) => m.includes(needle)),
+      `expected a problem containing ${JSON.stringify(needle)}, got: ${problems.join(" | ") || "<none>"}`,
+    );
+  };
+
+  firesMessageContaining("format must be", (p) => {
+    p.format = "something-else";
+  });
+  firesMessageContaining("format_version must be 1", (p) => {
+    p.format_version = 2;
+  });
+  firesMessageContaining("tools must be an array", (p) => {
+    p.tools = "not-an-array";
+  });
+  firesMessageContaining("inputSchema must be an object schema", (p) => {
+    toolOf(p, "notebook_get").inputSchema = { type: "string" };
+  });
+  firesMessageContaining("only studio_create may use oneOf", (p) => {
+    const g = toolOf(p, "notebook_get").inputSchema;
+    g.oneOf = [{ type: "object", additionalProperties: false, properties: {} }];
+  });
+  firesMessageContaining("branches must be const", (p) => {
+    // Keep all four branches so the length check passes and the kind check is what fires.
+    branchOf(p, "audio").properties.artifact_type.const = "infographic";
+  });
+  firesMessageContaining("focus_prompt must be a string", (p) => {
+    branchOf(p, "video").properties.focus_prompt = { type: "integer" };
+  });
 });
 
 test("a policy naming a tool upstream does not advertise is rejected", () => {
@@ -802,6 +854,11 @@ test("all runs the locks before the snapshots that read them", () => {
     // hashes, so it must observe the freshly written files, not the previous generation.
     const compileIdx = calls.findIndex((c) => c.args[0] === "pip" && c.args[1] === "compile");
     const installIdx = calls.findIndex((c) => c.args[0] === "pip" && c.args[1] === "install");
+    // >= 0 first: findIndex returns -1 when a call is absent, and `-1 < installIdx` is true, so
+    // a bare `compileIdx < installIdx` would also pass if the locks were never compiled — the
+    // exact stale-lock failure this test exists to catch.
+    assert.ok(compileIdx >= 0, "the locks must actually be compiled");
+    assert.ok(installIdx >= 0, "the snapshot venv must actually install");
     assert.ok(compileIdx < installIdx, "locks must be compiled before the snapshot venv installs");
   });
 });
