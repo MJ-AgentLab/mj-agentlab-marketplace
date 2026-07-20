@@ -65,6 +65,16 @@ function findPython() {
       /* keep probing */
     }
   }
+  // Last resort: a uv-managed interpreter. CI installs python3 on PATH (the SKILL's own probe), but
+  // a dev machine may only have a uv-managed Python not on PATH; uv is used purely to LOCATE an
+  // interpreter so the execution contract still runs where Python exists but isn't on PATH.
+  try {
+    const r = spawnSync("uv", ["python", "find", "3.12"], { encoding: "utf8", shell: false });
+    const p = (r.stdout || "").trim();
+    if (!r.error && r.status === 0 && p && fs.existsSync(p)) return { cmd: p, args: [] };
+  } catch {
+    /* uv absent */
+  }
   return null;
 }
 
