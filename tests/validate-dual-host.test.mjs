@@ -107,11 +107,15 @@ test("valid fixture tree produces zero errors", () => {
   });
 });
 
-test("real repo tree: structural rules pass, host coupling is warn-only in warn mode", () => {
-  const r = validateTree(REPO, { hostNeutral: "warn" });
-  assert.deepEqual(r.errors, [], `unexpected errors: ${JSON.stringify(r.errors, null, 2)}`);
-  // PR1 migration window: shared runtime still references ${CLAUDE_PLUGIN_ROOT} / mcp__plugin_.
-  assert.ok(r.warnings.length > 0, "expected host-coupling warnings in PR1");
+test("real repo tree: structurally valid and host-neutral clean (PR2)", () => {
+  // PR2 removed every ${CLAUDE_PLUGIN_ROOT} / mcp__plugin_ hit from shared runtime, so the real repo
+  // is clean in BOTH modes. Detection of the needles is still proven by the synthetic-fixture tests
+  // below, so this positive assertion is not vacuous.
+  const warn = validateTree(REPO, { hostNeutral: "warn" });
+  assert.deepEqual(warn.errors, [], `unexpected errors: ${JSON.stringify(warn.errors, null, 2)}`);
+  assert.deepEqual(warn.warnings, [], `PR2 expects zero host-coupling warnings, got: ${JSON.stringify(warn.warnings, null, 2)}`);
+  const err = validateTree(REPO, { hostNeutral: "error" });
+  assert.deepEqual(err.errors, [], "error mode must also be clean after PR2");
 });
 
 test("real repo tree: host-neutral=error promotes the same hits to errors", () => {
@@ -648,16 +652,16 @@ test("tokenizeAllowedTools splits on all whitespace, not just U+0020", () => {
   assert.deepEqual(tokenizeAllowedTools('Bash(node "a\tb" *) Read'), ['Bash(node "a\tb" *)', "Read"]);
 });
 
-// ------------------------------------------------- host-coupling pin (PR2 gate input)
-// These warnings are the declared PR1 exit state and the input to PR2, which flips them to
-// errors. If a needle is silently dropped, PR2's gate would pass vacuously — reporting
-// host-neutrality achieved while ${CLAUDE_PLUGIN_ROOT} is still present.
-test("both host-coupling needles are detected independently", () => {
+// ------------------------------------------------- host-coupling: PR2 cleared the real repo
+// PR1's exit state was exactly 7 hits (6 ${CLAUDE_PLUGIN_ROOT} + 1 mcp__plugin_); PR2 flipped the
+// scan to error and removed all of them. The needles' DETECTION is proven independently by the
+// synthetic-fixture tests below, so asserting zero here is not vacuous.
+test("real repo has zero host-coupling after PR2 (both needles cleared)", () => {
   const r = validateTree(REPO, { hostNeutral: "warn" });
   const byCode = (c) => r.warnings.filter((f) => f.code === c);
-  assert.equal(byCode("HOST_COUPLED_PLUGIN_ROOT").length, 6, "expected 6 ${CLAUDE_PLUGIN_ROOT} hits");
-  assert.equal(byCode("HOST_COUPLED_MCP_PREFIX").length, 1, "expected 1 mcp__plugin_ hit in shared runtime");
-  assert.equal(r.warnings.length, 7, "PR1 baseline is exactly 7 host-coupling warnings");
+  assert.equal(byCode("HOST_COUPLED_PLUGIN_ROOT").length, 0, "PR2 removed every ${CLAUDE_PLUGIN_ROOT} hit");
+  assert.equal(byCode("HOST_COUPLED_MCP_PREFIX").length, 0, "PR2 removed the mcp__plugin_ shared-runtime hit");
+  assert.equal(r.warnings.length, 0, "PR2 exit state is zero host-coupling warnings");
 });
 
 test("a newly introduced host coupling in a template is detected", () => {

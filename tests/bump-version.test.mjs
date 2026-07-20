@@ -13,7 +13,7 @@ import os from "node:os";
 import path from "node:path";
 import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
-import { execSync } from "node:child_process";
+import { execSync, spawnSync } from "node:child_process";
 import { runCli } from "../scripts/run-cli.mjs";
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -33,7 +33,39 @@ if (REQUIRE_PWSH) assert.ok(HAVE_PWSH, "REQUIRE_PWSH=1 but pwsh is not available
 const dirs = [];
 test.after(() => dirs.forEach((d) => fs.rmSync(d, { recursive: true, force: true })));
 
-/** A throwaway copy of the committed tree, with the WORKING-TREE scripts overlaid. */
+const read = (w, p) => fs.readFileSync(path.join(w, p), "utf8");
+const version = (w, p) => JSON.parse(read(w, p)).version;
+
+// The tests are written against this pre-bump baseline (learn-kit 3.2.1 -> 4.0.0 etc). The repo's
+// own version moves forward over releases, so `git archive HEAD` no longer holds these numbers.
+// seedBaseline() normalizes the fixture back down to them using the (separately unit-tested) bump
+// script — the exact operation under test, run in reverse over only the anchored version sites — so
+// every test body below can keep its literal versions and the suite survives future bumps.
+const BASELINE = { marketplace: "6.3.2", "learn-kit": "3.2.1", "diagram-kit": "0.1.0" };
+
+function bumpSync(work, from, to, scope) {
+  const args = ["-NoProfile", "-File", "./scripts/bump-version.ps1", "-From", from, "-To", to];
+  if (scope) args.push("-Scope", scope);
+  return spawnSync("pwsh", args, { cwd: work, encoding: "utf8" });
+}
+
+function seedBaseline(work) {
+  const cur = {
+    marketplace: read(work, "VERSION").trim(),
+    "learn-kit": version(work, "plugins/learn-kit/.claude-plugin/plugin.json"),
+    "diagram-kit": version(work, "plugins/diagram-kit/.claude-plugin/plugin.json"),
+  };
+  // Order: plugins first, then marketplace (matches the release sequence; independent anyway).
+  for (const scope of ["learn-kit", "diagram-kit", "marketplace"]) {
+    if (cur[scope] === BASELINE[scope]) continue;
+    const r = bumpSync(work, cur[scope], BASELINE[scope], scope === "marketplace" ? null : scope);
+    if (r.status !== 0) {
+      throw new Error(`seedBaseline: could not normalize ${scope} ${cur[scope]} -> ${BASELINE[scope]}:\n${r.stdout}${r.stderr}`);
+    }
+  }
+}
+
+/** A throwaway copy of the committed tree, normalized to the pre-bump baseline, scripts overlaid. */
 function makeTree() {
   const work = fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()), "bump-fixture-"));
   dirs.push(work);
@@ -41,11 +73,9 @@ function makeTree() {
   execSync(`git archive HEAD | tar -x -C "${posix}"`, { cwd: REPO, stdio: "pipe", shell: "bash" });
   // Test the script as it stands now, not the committed one.
   fs.cpSync(path.join(REPO, "scripts"), path.join(work, "scripts"), { recursive: true });
+  if (HAVE_PWSH) seedBaseline(work); // tests that use the tree all require pwsh anyway
   return work;
 }
-
-const read = (w, p) => fs.readFileSync(path.join(w, p), "utf8");
-const version = (w, p) => JSON.parse(read(w, p)).version;
 
 /** The README's historical-release lines. A bump must never rewrite these. */
 const historyLines = (text) =>
