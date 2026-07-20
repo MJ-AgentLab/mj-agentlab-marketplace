@@ -1,6 +1,6 @@
 {
   "name": "diagram-kit",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Architecture / UML diagramming kit. Single skill `arch-diagram`: turns a codebase or system's source facts into evidence-bound Mermaid diagrams across 7 types — context / container / component / code (C4 structural L1–L4) + sequence / state-machine (behavior) + deployment (physical) — for ANY domain (docker / python / postgreSQL / claude-code-plugin / ...). 5-step fact-first flow: scope + domain auto-detect → acquire facts via L0–L3 ladder (L0 声明扫描 → L1 结构推断 → L2 命名归类 → L3 HITL 补缺) → pick high-value types via the global applicability matrix → draft Mermaid grounded in §5 edge semantics + §6 naming SSOT → validate-fix-repeat. 铁律: every node/edge traces to `file:行号` evidence, never fabricated. Bundles 9 domain-agnostic references (architecture-methodology + domain-acquisition + 7 per-type prompts, progressive disclosure) + a pure-stdlib Mermaid linter (validate_diagram.py; generalized from a PostgreSQL-specific version). Generated diagrams use ```text``` fences (show source + %% Name/%% Slug metadata, not auto-render). No MCP / no network — local Read/Glob/Grep/Bash/Write only; validator degrades gracefully when no Python. Slash: `/diagram-kit:arch-diagram <target>`. See marketplace [ADR]_Diagram_Kit_Addition for design + the 1→2 plugin reconciliation.",
   "author": {
     "name": "MJ-AgentLab",
