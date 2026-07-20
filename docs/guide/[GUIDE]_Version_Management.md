@@ -4,9 +4,9 @@ scope: marketplace
 summary: 双层版本架构、bump 工具、CHANGELOG 规范、CI/CD 自动化
 owner: marketplace-maintainers
 created: 2026-03-17
-updated: 2026-05-15
+updated: 2026-07-20
 state: active
-version: v1.0
+version: v1.1
 domain: release
 tags:
   - versioning
@@ -29,15 +29,20 @@ related:
 Marketplace 采用**双层独立版本管理**，marketplace 整体和各插件各自维护版本号，互不影响。
 
 ```
-版本层级（v4.x reality — marketplace 已收敛至 1 个 plugin）
-├── Marketplace 整体 v4.x.x      ← VERSION 文件（权威源）
+版本层级（v7.0.0 reality — marketplace 含 2 个 plugin）
+├── Marketplace 整体 v7.x.x      ← VERSION 文件（权威源）
 │   同步 → marketplace.json metadata.version
 │
-└── learn-kit v1.x.x             ← plugins/learn-kit/.claude-plugin/plugin.json（权威源）
-    同步 → marketplace.json plugins[name=learn-kit].version
+├── learn-kit v4.x.x             ← plugins/learn-kit/.claude-plugin/plugin.json（权威源）
+│   同步 → marketplace.json plugins[name=learn-kit].version
+│         + plugins/learn-kit/.codex-plugin/plugin.json（Codex 原生 manifest，version 须一致）
+│
+└── diagram-kit v0.2.x           ← plugins/diagram-kit/.claude-plugin/plugin.json（权威源）
+    同步 → marketplace.json plugins[name=diagram-kit].version
+          + plugins/diagram-kit/.codex-plugin/plugin.json（Codex 原生 manifest，version 须一致）
 ```
 
-> 历史上 v3.x 时代 marketplace 含 4 个 mj-sys-* 插件 + 1 个 notebooklm-kit。v3.0.0 删 mj-sys-* / v4.0.0 删 notebooklm-kit 之后定型为单 plugin。详见 [GUIDE Migration From v3 to v4](<./[GUIDE]_Migration_From_v3_to_v4.md>)。如未来再扩充 plugin，把新名加进 bump-version.ps1 ValidateSet 与 install-hooks.ps1 commit-msg regex 即可。
+> 历史上 v3.x 时代 marketplace 含 4 个 mj-sys-* 插件 + 1 个 notebooklm-kit。v3.0.0 删 mj-sys-* / v4.0.0 删 notebooklm-kit 之后收敛为单 plugin (learn-kit)；v6.3.0 新增 diagram-kit 回到 **2 个 plugin**。详见 [GUIDE Migration From v3 to v4](<./[GUIDE]_Migration_From_v3_to_v4.md>)。新增 plugin 时须把新名加进 bump-version.ps1 ValidateSet 与 install-hooks.ps1 commit-msg regex（diagram-kit 已加）。v7.0.0 起每插件另有 Codex 原生 manifest `.codex-plugin/plugin.json`，其 `version` 须与 `.claude-plugin/plugin.json` 一致（`scripts/validate-dual-host.mjs` 强制）；仓库级 `.agents/plugins/marketplace.json` 不保存版本。
 
 ### 1.2 语义化版本
 
@@ -53,8 +58,9 @@ Marketplace 采用**双层独立版本管理**，marketplace 整体和各插件�
 
 | 版本 | 权威文件 | 同步目标 |
 |------|----------|----------|
-| Marketplace 整体 | `VERSION`（纯文本） | `.claude-plugin/marketplace.json` → `metadata.version` |
-| learn-kit | `plugins/learn-kit/.claude-plugin/plugin.json` → `version` | `.claude-plugin/marketplace.json` → `plugins[name=learn-kit].version` |
+| Marketplace 整体 | `VERSION`（纯文本） | `.claude-plugin/marketplace.json` → `metadata.version` + `README.md` badge + `CLAUDE.md` 版本行 |
+| learn-kit | `plugins/learn-kit/.claude-plugin/plugin.json` → `version` | `.claude-plugin/marketplace.json` → `plugins[name=learn-kit].version` + `plugins/learn-kit/.codex-plugin/plugin.json` → `version` |
+| diagram-kit | `plugins/diagram-kit/.claude-plugin/plugin.json` → `version` | `.claude-plugin/marketplace.json` → `plugins[name=diagram-kit].version` + `plugins/diagram-kit/.codex-plugin/plugin.json` → `version` |
 
 ## 2. bump-version.ps1 脚本
 
@@ -64,18 +70,23 @@ Marketplace 采用**双层独立版本管理**，marketplace 整体和各插件�
 param(
     [Parameter(Mandatory=$true)]  [string]$From,      # 当前版本
     [Parameter(Mandatory=$true)]  [string]$To,        # 目标版本
-    [ValidateSet("marketplace","learn-kit")]
-    [string]$Scope = "marketplace",                    # 升级范围（v4.x: 当前唯一插件 = learn-kit；扩充插件时同步加 ValidateSet）
+    [ValidateSet("marketplace","learn-kit","diagram-kit")]
+    [string]$Scope = "marketplace",                    # 升级范围（v7.0.0: 2 个插件 = learn-kit / diagram-kit；扩充插件时同步加 ValidateSet）
     [switch]$DryRun                                    # 预览模式
 )
 ```
+
+> **v7.0.0 起脚本是事务性（transactional）的**：value-level anchored edit + two-phase write，任一站点写失败即**全量回滚（full rollback）**，不留半改状态。plugin scope 会同步 `.claude-plugin/plugin.json` 与 Codex 原生 `.codex-plugin/plugin.json` 两处 `version`（保持 parity）。
 
 ### 2.2 Scope 行为
 
 | Scope | 更新文件 |
 |-------|----------|
-| `marketplace` | `VERSION`, `.claude-plugin/marketplace.json`(metadata.version), `README.md` |
-| `learn-kit` | `plugins/learn-kit/.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`(plugins[name=learn-kit].version), `README.md` |
+| `marketplace` | `VERSION`, `.claude-plugin/marketplace.json`(metadata.version), `README.md`(badge), `CLAUDE.md`(版本行) |
+| `learn-kit` | `plugins/learn-kit/.claude-plugin/plugin.json`, `plugins/learn-kit/.codex-plugin/plugin.json`, `.claude-plugin/marketplace.json`(plugins[name=learn-kit].version), `README.md` |
+| `diagram-kit` | `plugins/diagram-kit/.claude-plugin/plugin.json`, `plugins/diagram-kit/.codex-plugin/plugin.json`, `.claude-plugin/marketplace.json`(plugins[name=diagram-kit].version), `README.md` |
+
+> **事务性写入（v7.0.0）**：脚本对上述所有站点做 anchored value-level edit + two-phase write；任一站点失败即整体回滚，不会留下部分更新的文件集。plugin scope 会同时更新 `.claude-plugin/plugin.json` 与 Codex 原生 `.codex-plugin/plugin.json`，二者 `version` 须一致（`scripts/validate-dual-host.mjs` 强制），仓库级 `.agents/plugins/marketplace.json` 无版本字段、不被脚本改动。
 
 ### 2.3 使用示例
 
@@ -128,7 +139,7 @@ Version: 1.0.0 -> 1.1.0
 | CHANGELOG | 记录范围 | 示例条目 |
 |-----------|----------|----------|
 | 根 `CHANGELOG.md` | Marketplace 级事件 | "v4.2.0 引入文档框架 v1.0"、"v4.3.0 plugin-internal docs framework 延伸" |
-| `plugins/<name>/CHANGELOG.md` | 插件内部变更 | "v1.1.0 plugins/learn-kit/docs/ 子目录落地"、"修复 nlm-studio quota gate" |
+| `plugins/<name>/CHANGELOG.md` | 插件内部变更 | "v1.1.0 plugins/learn-kit/docs/ 子目录落地"、"修复 three-views NLM quota gate" |
 
 ### 3.3 工作流
 
