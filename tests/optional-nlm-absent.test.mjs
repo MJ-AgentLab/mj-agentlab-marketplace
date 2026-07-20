@@ -165,6 +165,18 @@ test("assertPromptInputSkills fails when a skill path is outside this mode's cac
   assert.throws(() => assertPromptInputSkills({ stdout, codexHome }), /not under this mode's cache/);
 });
 
+test("assertPromptInputSkills fails when a skill leaks from a FOREIGN home's same-marketplace cache", () => {
+  // The isolation-leak case the codexHome anchor exists to catch: correct marketplace/plugin/skill
+  // segments, but resolved under a DIFFERENT home (e.g. the real user's ~/.codex) than the one we
+  // pass. This makes the codexHome component of cachePrefix load-bearing.
+  const codexHome = path.join(os.tmpdir(), "this-mode-home", ".codex");
+  const foreignHome = path.join(os.tmpdir(), "foreign-real-user-home", ".codex");
+  const stdout = makePromptInput(codexHome, EXPECTED_SKILLS, {
+    overrideFile: (s) => `${normSep(foreignHome)}/plugins/cache/${MARKETPLACE_NAME}/${s.plugin}/1.0.0/skills/${s.skill}/SKILL.md`,
+  });
+  assert.throws(() => assertPromptInputSkills({ stdout, codexHome }), /not under this mode's cache/);
+});
+
 test("assertPromptInputSkills fails on a double-registered skill", () => {
   const codexHome = path.join(os.tmpdir(), "fake-home", ".codex");
   const stdout = makePromptInput(codexHome, EXPECTED_SKILLS, { duplicate: "diagram-kit:arch-diagram" });
@@ -202,6 +214,14 @@ test("plugin list: both installed+enabled passes; disabled/missing fail", () => 
     ],
   });
   assert.throws(() => assertPluginList(disabled), /learn-kit reports enabled=false/);
+
+  const notInstalled = JSON.stringify({
+    installed: [
+      { name: "learn-kit", installed: false, enabled: true },
+      { name: "diagram-kit", installed: true, enabled: true },
+    ],
+  });
+  assert.throws(() => assertPluginList(notInstalled), /learn-kit reports installed=false/);
 
   const missing = JSON.stringify({ installed: [{ name: "learn-kit", installed: true, enabled: true }] });
   assert.throws(() => assertPluginList(missing), /diagram-kit is not installed/);
