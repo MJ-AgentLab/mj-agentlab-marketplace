@@ -66,11 +66,27 @@ param(
     [ValidateSet("marketplace", "learn-kit", "diagram-kit")]
     [string]$Scope = "marketplace",
 
-    [switch]$DryRun
+    [switch]$DryRun,
+
+    # TEST-ONLY fault injector: after the Nth (1-based) file write in the commit phase, throw, so a
+    # test can prove the transactional rollback restores every target byte-for-byte. Honoured ONLY
+    # when MP_BUMP_TESTING=1; in a real bump its presence is a hard error. 0 (the default) never fires.
+    [int]$TestFailAfterReplace = 0
 )
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
+
+# The fault injector must be unreachable in a real bump: presence without the test env var is a hard
+# stop, and the default (0) never injects.
+if ($TestFailAfterReplace -ne 0 -and $env:MP_BUMP_TESTING -ne "1") {
+    Write-Host "ERROR: -TestFailAfterReplace is a test-only fault injector and requires MP_BUMP_TESTING=1." -ForegroundColor Red
+    exit 1
+}
+if ($TestFailAfterReplace -lt 0) {
+    Write-Host "ERROR: -TestFailAfterReplace must be >= 0." -ForegroundColor Red
+    exit 1
+}
 
 # Locate project root (script lives in scripts/)
 $ProjectRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
@@ -151,7 +167,10 @@ foreach ($RelPath in $TargetFiles) {
 
     if ($RelPath -eq ".claude-plugin/marketplace.json") {
         if ($MarketplaceJsonMode -eq "metadata") {
-            $Pattern = '("metadata"\s*:\s*\{[^}]*"version"\s*:\s*")' + $EscFrom + '"'
+            # Tempered gap (not `[^}]*`): the description legitimately contains `}`, which the
+            # negated class stopped at; and it must not cross into the plugins array, so the gap
+            # refuses to pass a `"name":` key (metadata has none before its own version).
+            $Pattern = '("metadata"\s*:\s*\{(?:(?!"name"\s*:)[\s\S])*?"version"\s*:\s*")' + $EscFrom + '"'
             $Replacement = '${1}' + $To + '"'
             $What = "metadata.version"
         } else {
@@ -267,19 +286,53 @@ foreach ($Item in $Plan) {
 $TotalMatches = $Plan.Count
 
 # ---------------------------------------------------------------------------
-# PHASE 3 — COMMIT
+# PHASE 3 — COMMIT (two-phase, transactional)
 #
-# Preflight passed for every target, so the writes below are the only ones that happen and they
-# all happen together. This is not a transaction: a mid-write I/O failure can still leave a
-# partial state. It removes the predictable half-bump (a later target failing validation), not
-# the physical one — the plan's full two-phase temp/backup rewrite is still outstanding.
+# Preflight proved every target has exactly one anchor and a non-noop replacement. Now write them
+# as a unit: back up every target in place first, then write all new content. If ANY write, the
+# injected test fault, or the post-write re-read fails, restore EVERY original from its backup and
+# exit 1 — the tree is left byte-identical to how it started, with no backup files behind. Only a
+# fully successful pass deletes the backups. This closes the physical half-bump the previous shape
+# admitted (a mid-write I/O failure) it could not.
 # ---------------------------------------------------------------------------
 
-$ModifiedFiles = 0
 if (-not $DryRun) {
-    foreach ($Item in $Plan) {
-        [System.IO.File]::WriteAllText($Item.FilePath, $Item.NewContent)
-        $ModifiedFiles++
+    $Backups = @()
+    try {
+        # 1. Same-directory backup of every target, before touching any of them.
+        foreach ($Item in $Plan) {
+            $BackupPath = "$($Item.FilePath).bump-backup"
+            [System.IO.File]::Copy($Item.FilePath, $BackupPath, $true)
+            $Backups += [PSCustomObject]@{ FilePath = $Item.FilePath; BackupPath = $BackupPath }
+        }
+        # 2. Write every target; optionally inject a fault after the Nth write (test-only).
+        for ($i = 0; $i -lt $Plan.Count; $i++) {
+            [System.IO.File]::WriteAllText($Plan[$i].FilePath, $Plan[$i].NewContent)
+            if ($TestFailAfterReplace -gt 0 -and ($i + 1) -eq $TestFailAfterReplace) {
+                throw "MP_BUMP_TESTING: injected fault after write #$TestFailAfterReplace"
+            }
+        }
+        # 3. Post-write validation: every target on disk must equal what we intended to write.
+        foreach ($Item in $Plan) {
+            if ([System.IO.File]::ReadAllText($Item.FilePath) -ne $Item.NewContent) {
+                throw "post-write validation failed for $($Item.RelPath)"
+            }
+        }
+        # 4. Success: drop the backups.
+        foreach ($b in $Backups) { Remove-Item -LiteralPath $b.BackupPath -Force }
+    }
+    catch {
+        # Roll back every target from its backup, then remove the backups; leave nothing behind.
+        foreach ($b in $Backups) {
+            if (Test-Path -LiteralPath $b.BackupPath) {
+                [System.IO.File]::Copy($b.BackupPath, $b.FilePath, $true)
+                Remove-Item -LiteralPath $b.BackupPath -Force
+            }
+        }
+        Write-Host ""
+        Write-Host "Commit failed: $($_.Exception.Message)" -ForegroundColor Red
+        Write-Host "All $($Plan.Count) target(s) were restored to their original bytes. NOTHING changed." -ForegroundColor Red
+        exit 1
     }
 }
 
@@ -289,7 +342,7 @@ if ($DryRun) {
     Write-Host "[DryRun] Found $TotalMatches anchored target(s) in scope '$Scope'" -ForegroundColor Yellow
     Write-Host "[DryRun] No files were modified. Re-run without -DryRun to apply." -ForegroundColor Yellow
 } else {
-    Write-Host "[Done] Modified $ModifiedFiles file(s) at $TotalMatches anchor(s)" -ForegroundColor Cyan
+    Write-Host "[Done] Modified $TotalMatches file(s) at $TotalMatches anchor(s)" -ForegroundColor Cyan
     Write-Host "Next: verify with 'npm run validate:dual-host' and update CHANGELOG entries." -ForegroundColor Cyan
 }
 Write-Host ""

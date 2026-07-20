@@ -133,11 +133,37 @@ target_plugin=1.1.0
 [ -f scripts/bump-version.ps1 ] && echo "exists" || echo "absent"
 ```
 
-如 exists: prefer 用 script（保证 atomic + sync 逻辑）
+如 exists: prefer 用 script（保证 atomic + sync 逻辑）。**Interface is `-From X.Y.Z -To X.Y.Z [-Scope <name>] [-DryRun]`** — one invocation per scope (marketplace and each plugin are independent dual-layer versions), always `-DryRun` first, then apply:
 
 ```powershell
-.\scripts\bump-version.ps1 -Marketplace 4.1.0 -Plugin learn-kit -PluginVersion 1.1.0
+# plugin scope — bumps BOTH manifests + catalog entry + README cell + CLAUDE line
+.\scripts\bump-version.ps1 -From 3.2.1 -To 4.0.0 -Scope learn-kit -DryRun
+.\scripts\bump-version.ps1 -From 3.2.1 -To 4.0.0 -Scope learn-kit
+
+# marketplace scope (default) — bumps VERSION + catalog metadata + README badge
+.\scripts\bump-version.ps1 -From 6.3.2 -To 7.0.0 -DryRun
+.\scripts\bump-version.ps1 -From 6.3.2 -To 7.0.0
 ```
+
+> [!IMPORTANT]
+> **Transactional commit (all-or-nothing).** A read-only PREFLIGHT validates every target's anchor
+> first (exactly one match at `-From`); a missing file, 0/multiple matches, a no-op replacement, or a
+> value drift fails the whole run with exit 1 **before anything is written**. The COMMIT then backs
+> up every target in place, writes them as a unit, and re-reads to verify; if any write or validation
+> fails it restores **every** original from backup and exits 1 — the tree is left byte-identical, with
+> no `.bump-backup` residue. There is no partial / half-bump state (the old failure mode). `-DryRun`
+> runs the same preflight with zero writes and prints the exact target set + anchor diff.
+> `-TestFailAfterReplace N` is a test-only fault injector, refused unless `MP_BUMP_TESTING=1`.
+
+**`-DryRun` must list the complete and only the expected target set per scope** (tests/bump-version.test.mjs asserts this):
+
+| Scope | `-DryRun` command | Exact targets (each shown as `[MATCH] <path>`) |
+|---|---|---|
+| marketplace | `-From 6.3.2 -To 7.0.0` | `VERSION`, `.claude-plugin/marketplace.json` (metadata.version), `README.md` (badge) |
+| learn-kit | `-From 3.2.1 -To 4.0.0 -Scope learn-kit` | `plugins/learn-kit/.claude-plugin/plugin.json`, `plugins/learn-kit/.codex-plugin/plugin.json`, `.claude-plugin/marketplace.json` (plugins[learn-kit]), `README.md` (table cell), `CLAUDE.md` (plugin line) |
+| diagram-kit | `-From 0.1.0 -To 0.2.0 -Scope diagram-kit` | `plugins/diagram-kit/.claude-plugin/plugin.json`, `plugins/diagram-kit/.codex-plugin/plugin.json`, `.claude-plugin/marketplace.json` (plugins[diagram-kit]), `README.md` (table cell), `CLAUDE.md` (plugin line) |
+
+The Codex native catalog `.agents/plugins/marketplace.json` carries **no** version and is never a target. History sections (README + CLAUDE `历史版本记录`) and version numbers inside prose/descriptions (the metadata description's `}` no longer breaks the anchor) are protected by the anchored, tempered regexes and must stay byte-identical.
 
 如 absent: manual edits
 
@@ -188,14 +214,15 @@ Per-plugin `plugins/<name>/CHANGELOG.md`: same pattern。
 
 Date: 用 `Get-Date -Format yyyy-MM-dd` 取本地日期，目前是 `2026-05-15`。
 
-## Step 7: Verify Version Quintangle
+## Step 7: Verify Version Sites (6-site)
 
 ```bash
-# 5-site 一致性 (post-v4.5.0 expanded from triangle)
+# 6-site 一致性 (dual-host adds the .codex-plugin manifest; post-v4.5.0 expanded from triangle)
 v_root=$(cat VERSION)
 v_mp_meta=$(jq -r '.metadata.version' .claude-plugin/marketplace.json)
 v_plugin_in_mp=$(jq -r '.plugins[] | select(.name=="learn-kit") | .version' .claude-plugin/marketplace.json)
 v_plugin_self=$(jq -r '.version' plugins/learn-kit/.claude-plugin/plugin.json)
+v_plugin_codex=$(jq -r '.version' plugins/learn-kit/.codex-plugin/plugin.json)  # dual-host: must equal .claude-plugin
 
 # NEW: README + CLAUDE.md sites (use sed for portability; grep -P locale-sensitive on Windows git-bash)
 v_readme_badge=$(sed -n 's/.*badge\/version-\([0-9.]\+\)-.*/\1/p' README.md | head -1)
@@ -212,6 +239,7 @@ echo "CLAUDE.md learn-kit = $v_claude_plugin_line"
 
 [ "$v_root" = "$v_mp_meta" ] && echo "marketplace OK" || echo "MISMATCH: VERSION ≠ metadata"
 [ "$v_plugin_in_mp" = "$v_plugin_self" ] && echo "learn-kit OK" || echo "MISMATCH: plugins[].version ≠ plugin.json.version"
+[ "$v_plugin_self" = "$v_plugin_codex" ] && echo "dual-host OK" || echo "MISMATCH: .claude-plugin ≠ .codex-plugin (validate-dual-host would fail)"
 [ "$v_readme_badge" = "$v_root" ] && echo "README badge OK" || echo "MISMATCH: README badge ≠ VERSION"
 [ "$v_readme_plugin_cell" = "$v_plugin_self" ] && echo "README plugin OK" || echo "MISMATCH: README plugin cell ≠ plugin.json"
 [ "$v_claude_plugin_line" = "$v_plugin_self" ] && echo "CLAUDE OK" || echo "MISMATCH: CLAUDE.md learn-kit ≠ plugin.json"
@@ -243,17 +271,18 @@ echo "CLAUDE.md learn-kit = $v_claude_plugin_line"
 | plugins/learn-kit/CHANGELOG.md | (no entry needed) | (no change) |
 
 ### Strategy
-- `scripts/bump-version.ps1` exists ✅ — use it
-  - Command: `.\scripts\bump-version.ps1 -Marketplace 4.1.0`
-- Or manual edits (4 atomic file changes + 1 CHANGELOG promote)
+- `scripts/bump-version.ps1` exists ✅ — use it (`-DryRun` first, then apply; one call per scope)
+  - Command: `.\scripts\bump-version.ps1 -From 6.3.2 -To 7.0.0` (marketplace) / `... -Scope learn-kit` (plugin)
+- Or manual edits (fallback only if the script is absent)
 
 ### Verification
 ```bash
-.\scripts\bump-version.ps1 -Marketplace 4.1.0
+.\scripts\bump-version.ps1 -From 6.3.2 -To 7.0.0 -DryRun   # preview the target set, writes nothing
+.\scripts\bump-version.ps1 -From 6.3.2 -To 7.0.0           # transactional apply
 # After:
-cat VERSION  # 4.1.0
-jq '.metadata.version' .claude-plugin/marketplace.json  # "4.1.0"
-jq '.plugins[] | select(.name=="learn-kit") | .version' .claude-plugin/marketplace.json  # "1.0.0"
+cat VERSION  # 7.0.0
+jq '.metadata.version' .claude-plugin/marketplace.json  # "7.0.0"
+jq '.plugins[] | select(.name=="learn-kit") | .version' .claude-plugin/marketplace.json  # unchanged (dual-layer independent)
 ```
 
 ### Next Step
@@ -288,12 +317,12 @@ jq '.plugins[] | select(.name=="learn-kit") | .version' .claude-plugin/marketpla
 
 ## Anti-patterns
 
-- **不要** 仅改一个版本字段（必同步全 5 sites: VERSION + marketplace.json metadata + marketplace.json plugins[] + plugin.json + README.md badge / plugin cell + CLAUDE.md plugin line）
+- **不要** 仅改一个版本字段（必同步全 6 sites: VERSION + marketplace.json metadata + marketplace.json plugins[] + BOTH `.claude-plugin` **和** `.codex-plugin` plugin.json + README.md badge / plugin cell + CLAUDE.md plugin line）
 - **不要** Major bump 自主推进（§3.1 #7 必 HITL）
 - **不要** 跳 CHANGELOG promote（release.yml 抽 release notes 时会出错）
 - **不要** 手工 git tag（release.yml 自动）
 - **不要** 改 plugin.json 字段以外的 plugin metadata（用 `/mp-flow-author`）
-- **不要** 漏掉 README badge / plugin-table cell / CLAUDE.md plugin line bump — `bump-version.ps1` v2 起（Issue #110 / PR #115 close）已 cover 全 5 sites: marketplace scope 跑 VERSION + marketplace.json metadata + README badge；plugin scope 跑 plugin.json + marketplace.json plugins[] + README cell + CLAUDE.md plugin line（scoped regex 锁定 `` `<plugin>` v<X.Y.Z> ``，不会误伤 `历史版本记录` 中的 prose version 提及）。**postmortem**: v4.4.9 → v4.5.0 4 个 release 连续手工 edit + 漏掉 README + CLAUDE.md, silent drift 直到用户截图发现; CI guard + RUNBOOK MANDATORY + script 5-site 覆盖 三层防御已就位
+- **不要** 漏掉 README badge / plugin-table cell / CLAUDE.md plugin line bump — `bump-version.ps1` 已 cover 全 6 sites: marketplace scope 跑 VERSION + marketplace.json metadata + README badge；plugin scope 跑 BOTH `.claude-plugin` + `.codex-plugin` plugin.json + marketplace.json plugins[] + README cell + CLAUDE.md plugin line（scoped/tempered regexes 锁定 `` `<plugin>` v<X.Y.Z> `` 与 catalog 条目，不会误伤 `历史版本记录` 或 description 里的 prose version，也不会被 description 的 `}` 卡住）。commit 阶段两阶段事务化：任一写入失败回滚全部、无 `.bump-backup` 残留、无半改状态（tests/bump-version.test.mjs fault-injection 覆盖）。**postmortem**: v4.4.9 → v4.5.0 4 个 release 连续手工 edit + 漏掉 README + CLAUDE.md, silent drift 直到用户截图发现; CI guard + RUNBOOK MANDATORY + script 6-site 覆盖 + 事务化 四层防御已就位
 
 ## Handoff to Next Stage
 
