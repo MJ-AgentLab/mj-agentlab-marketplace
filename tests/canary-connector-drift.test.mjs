@@ -83,11 +83,17 @@ test("drift explains a changed tool schema", () => {
 
 // ---------------------------------------------------------------- validation
 
-test("malformed snapshots are rejected", () => {
-  assert.throws(() => compareConnectorTools(snap([tool("a")], "not-a-hash"), snap([tool("a")], hex("1"))), CanaryInputError);
-  assert.throws(() => compareConnectorTools({ tools: [tool("a")] }, snap([tool("a")], hex("1"))), CanaryInputError);
-  assert.throws(() => compareConnectorTools({ tools_sha256: hex("1") }, snap([tool("a")], hex("1"))), CanaryInputError);
-  assert.throws(() => compareConnectorTools(null, snap([tool("a")], hex("1"))), CanaryInputError);
+test("malformed snapshots are rejected (both the latest and the baseline argument)", () => {
+  const good = snap([tool("a")], hex("1"));
+  // Latest (first arg) malformed.
+  assert.throws(() => compareConnectorTools(snap([tool("a")], "not-a-hash"), good), CanaryInputError);
+  assert.throws(() => compareConnectorTools({ tools: [tool("a")] }, good), CanaryInputError);
+  assert.throws(() => compareConnectorTools({ tools_sha256: hex("1") }, good), CanaryInputError);
+  assert.throws(() => compareConnectorTools(null, good), CanaryInputError);
+  // Baseline (second arg) malformed — validation must be symmetric; a valid latest must not mask it.
+  assert.throws(() => compareConnectorTools(good, snap([tool("a")], "not-a-hash")), CanaryInputError);
+  assert.throws(() => compareConnectorTools(good, { tools_sha256: hex("1") }), CanaryInputError);
+  assert.throws(() => compareConnectorTools(good, null), CanaryInputError);
 });
 
 // ---------------------------------------------------------------- Node/Python parity note
