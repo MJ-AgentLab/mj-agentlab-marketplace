@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- **`3.2.1 → 4.0.0` — BREAKING, NotebookLM branch only.** Local Markdown / HTML / `glossary` / `concept` flows are unchanged; the break is entirely the optional NLM branch, which now requires:
+  - **Node.js 22+**, **uv 0.11.21+**, and a **user-provided Python 3.12** uv can resolve — the installer downloads **none** of them.
+  - the pinned **`learn-kit-nlm-bridge` 4.0.0** + **connector 0.8.7** in a receipt-bound, hashed private environment; a fixed **personal** endpoint `https://notebooklm.google.com` (Enterprise/custom unsupported).
+  - a **narrowed 6-tool** MCP surface — `refresh_auth`, `server_info`, `source_delete` are intentionally excluded; the bridge (not a host-mergeable config) owns environment + tool policy.
+  - user-run **`nlm login`**; the skill/bridge never log in or enumerate/verify/bind a Google account or profile, and only prompt the user on `AUTH_REQUIRED`.
+  - **Gate A/B** behavioral consent (remote-network + mutation) — explicitly **not** an unbypassable security boundary.
+- **`.mcp.json`** local `command` moves from upstream `notebooklm-mcp` to `learn-kit-nlm-bridge` (server key / wrapper / empty `args` unchanged).
+- **Host-neutral runtime** — `three-views` resolves templates + `scripts/hash-upload-corpus.mjs` from the SKILL.md locator, not `${CLAUDE_PLUGIN_ROOT}`. **Dual-host invocation** across all three skills (Claude `/learn-kit:*`, Codex `$learn-kit:*`).
+- **`three-views` Step 5B rewritten** as local → Gate A → discovery → Gate B → mutation, with per-mutation contract + manifest re-verify and a corpus-hash re-run guard (the unsafe `(topic, len(sources))` fallback is removed). The skill never computes a SHA — `hash-upload-corpus.mjs` does.
+- **`html-renderer.md` hardened** — a fixed safe-subset renderer + strict CSP; the model fills only an escaped JSON data island (no `innerHTML`, no CDN, links restricted to validated `http(s)`).
+- SKILL `description`s kept within the stricter Claude 1536 / Codex 1024-no-angle-bracket intersection.
+
+### Added
+
+- **Codex native wrapper** — `.codex-plugin/plugin.json` + `skills/{three-views,glossary,concept}/agents/openai.yaml`.
+- **`nlm-bridge/`** Python package + **`scripts/install-nlm-bridge.mjs`** (hashed-wheel installer, receipt + two shims) + **`skills/three-views/scripts/hash-upload-corpus.mjs`** (staging + hashing helper).
+- **Gate A/B** consent + trust-boundary handling for untrusted source data.
+
+### Removed
+
+- **`skills/three-views/templates/artifact-mind_map.md`** — the mind_map type takes no `focus_prompt`/`language` (connector 0.8.7 ignores both), so it needs no medium-constraints template; its `studio_create` sends only `source_ids` + `title` + `confirm`.
+
 ## [3.2.1] - 2026-06-12
 
 ### Fixed
