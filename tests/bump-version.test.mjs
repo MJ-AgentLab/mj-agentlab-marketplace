@@ -302,15 +302,17 @@ for (const injectAfter of [1, 4]) {
   });
 }
 
-test("the fault injector is refused without MP_BUMP_TESTING=1 and writes nothing", { skip: !HAVE_PWSH && "pwsh unavailable" }, async () => {
+test("both test-only injectors are refused without MP_BUMP_TESTING=1 and write nothing", { skip: !HAVE_PWSH && "pwsh unavailable" }, async () => {
   const w = makeTree();
   const targets = TARGETS["learn-kit"];
   const before = Object.fromEntries(targets.map((p) => [p, sha(w, p)]));
-  const r = await bump(w, "3.2.1", "4.0.0", "learn-kit", { extraArgs: ["-TestFailAfterReplace", "1"] }); // no env
-  assert.notEqual(r.status, 0);
-  assert.match(r.stdout + r.stderr, /requires MP_BUMP_TESTING=1/);
-  for (const p of targets) assert.equal(sha(w, p), before[p], `${p} must be untouched`);
-  assertNoBackups(w, targets);
+  for (const inj of [["-TestFailAfterReplace", "1"], ["-TestCorruptAfterWrite", "1"], ["-TestFailCleanup"]]) {
+    const r = await bump(w, "3.2.1", "4.0.0", "learn-kit", { extraArgs: inj }); // no MP_BUMP_TESTING env
+    assert.notEqual(r.status, 0, `${inj[0]} must be refused`);
+    assert.match(r.stdout + r.stderr, /require MP_BUMP_TESTING=1/);
+    for (const p of targets) assert.equal(sha(w, p), before[p], `${p} must be untouched (${inj[0]})`);
+    assertNoBackups(w, targets);
+  }
 });
 
 test("a successful bump leaves no backup files behind", { skip: !HAVE_PWSH && "pwsh unavailable" }, async () => {
@@ -357,4 +359,66 @@ test("a } inside the catalog metadata description does not break the version anc
   assert.equal(r.status, 0, r.stdout + r.stderr);
   assert.equal(JSON.parse(read(w, ".claude-plugin/marketplace.json")).metadata.version, "7.0.0");
   assert.ok(read(w, ".claude-plugin/marketplace.json").includes("stray } brace"), "the description brace must survive");
+});
+
+test("a drifted metadata.version fails and never crosses into a plugin's catalog version", { skip: !HAVE_PWSH && "pwsh unavailable" }, async () => {
+  // Symmetric to the plugin-scope backtracking test, for the METADATA anchor: the `(?!"name":)`
+  // temper must stop the lazy gap before the plugins array. Put VERSION + README at -From (so those
+  // preflight-pass), drift metadata.version away, and leave learn-kit's catalog entry AT -From.
+  // Without the temper the metadata gap would skip its own drifted version and rewrite learn-kit's.
+  const w = makeTree();
+  fs.writeFileSync(path.join(w, "VERSION"), "3.2.1\n");
+  const readme = path.join(w, "README.md");
+  fs.writeFileSync(readme, fs.readFileSync(readme, "utf8").replace("badge/version-6.3.2-blue", "badge/version-3.2.1-blue"));
+  const catPath = path.join(w, ".claude-plugin/marketplace.json");
+  const cat = JSON.parse(fs.readFileSync(catPath, "utf8"));
+  cat.metadata.version = "9.9.9"; // drift away from -From
+  fs.writeFileSync(catPath, JSON.stringify(cat, null, 2));
+  assert.equal(
+    JSON.parse(read(w, ".claude-plugin/marketplace.json")).plugins.find((p) => p.name === "learn-kit").version,
+    "3.2.1",
+    "precondition: learn-kit catalog sits at the -From value",
+  );
+
+  const r = await bump(w, "3.2.1", "7.0.0", null); // marketplace scope
+  assert.notEqual(r.status, 0, "a drifted metadata.version must fail loudly, not cross into plugins");
+  assert.match(r.stdout + r.stderr, /expected exactly 1 anchor \(metadata\.version\)/);
+  assert.equal(
+    JSON.parse(read(w, ".claude-plugin/marketplace.json")).plugins.find((p) => p.name === "learn-kit").version,
+    "3.2.1",
+    "the metadata anchor must never cross into and rewrite a plugin's version",
+  );
+});
+
+// ---------------------------------------------------------------- post-write validation
+
+test("post-write validation catches a corrupted write and rolls back every target", { skip: !HAVE_PWSH && "pwsh unavailable" }, async () => {
+  // Prove step 3 (re-read each target == intended) is load-bearing: corrupt one target's bytes after
+  // the writes, and the commit must fail validation and roll back rather than ship a bad file.
+  const w = makeTree();
+  const targets = TARGETS["learn-kit"];
+  const before = Object.fromEntries(targets.map((p) => [p, sha(w, p)]));
+  const r = await bump(w, "3.2.1", "4.0.0", "learn-kit", {
+    extraArgs: ["-TestCorruptAfterWrite", "2"],
+    env: { MP_BUMP_TESTING: "1" },
+  });
+  assert.notEqual(r.status, 0, "a corrupted on-disk write must fail the commit");
+  assert.match(r.stdout + r.stderr, /post-write validation failed/);
+  assert.match(r.stdout + r.stderr, /restored to their original bytes/);
+  for (const p of targets) assert.equal(sha(w, p), before[p], `${p} must be byte-restored after a corrupted write`);
+  assertNoBackups(w, targets);
+});
+
+test("a backup-cleanup failure never rolls back an already-committed bump", { skip: !HAVE_PWSH && "pwsh unavailable" }, async () => {
+  // finding-1 guard: the success-path cleanup runs in its own try/catch OUTSIDE the commit try, so a
+  // cleanup failure (forced by -TestFailCleanup) leaves the bump COMMITTED — targets at the NEW
+  // version — never diverting into the rollback catch. The bug it guards: cleanup inside the commit
+  // try, where a delete exception would spuriously (half-)roll back an already-successful bump.
+  const w = makeTree();
+  const r = await bump(w, "3.2.1", "4.0.0", "learn-kit", { extraArgs: ["-TestFailCleanup"], env: { MP_BUMP_TESTING: "1" } });
+  assert.equal(r.status, 0, `a committed bump must survive a cleanup failure: ${r.stdout}${r.stderr}`);
+  assert.equal(version(w, "plugins/learn-kit/.claude-plugin/plugin.json"), "4.0.0", "the committed bump must NOT be rolled back");
+  assert.equal(version(w, "plugins/learn-kit/.codex-plugin/plugin.json"), "4.0.0");
+  assert.doesNotMatch(r.stdout + r.stderr, /restored to their original bytes/, "must not have taken the rollback path");
+  assert.match(r.stdout + r.stderr, /bump committed/, "should warn the bump committed but cleanup failed");
 });
