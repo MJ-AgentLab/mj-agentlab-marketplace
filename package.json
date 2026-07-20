@@ -6,7 +6,7 @@
     "check:nlm-contract-generated": "node scripts/generate-nlm-contract.mjs all --root . --uv 0.11.21 --python 3.12 --exclude-newer 2026-07-16T00:00:00Z --check",
     "check:baseline-tools": "node scripts/check-tool-versions.mjs --codex 0.144.3 --claude 2.1.210 --uv 0.11.21 --bridge 4.0.0 --nlm 0.8.7",
     "report:tool-versions": "node scripts/check-tool-versions.mjs --report-only",
-    "validate:dual-host": "node scripts/validate-dual-host.mjs --root . --host-neutral warn",
+    "validate:dual-host": "node scripts/validate-dual-host.mjs --root . --host-neutral error",
     "validate:claude": "node scripts/validate-claude-plugins.mjs",
     "smoke:codex": "node scripts/smoke-codex-plugin.mjs --mode all",
     "smoke:optional-nlm-absent": "node --test tests/optional-nlm-absent.test.mjs",
