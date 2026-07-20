@@ -81,7 +81,7 @@ The skill runs a 5-step workflow. Step 1 (4 sub-prompts: source mechanism / outp
 **Invariants**:
 
 - Steps 5A/5B consume `generated_tiers`, **not** `requested_tiers` (handles conflict-skip + generation-fail).
-- Step 5B.3 `source_add` count = `len(generated_tiers)`, not hardcoded 3.
+- Step 5B.5 `source_add` count = `len(nlm_upload_tiers)` (⊆ `generated_tiers` after the 5B.1 quota right-sizing / single-tier pick), not hardcoded 3.
 - mind_map is generated from source IDs + a display title only; it takes no prompt (see Step 5B).
 
 ## Host capability fallbacks (dual-host)
@@ -662,7 +662,7 @@ focus_prompt = """
 ===== SOURCE TOPIC =====
 Topic: {topic}
 View: {view}
-Source files: {len(generated_tiers)} .md learning documents (views: {generated_tiers list})
+Source files: {len(nlm_upload_tiers)} .md learning documents (views: {nlm_upload_tiers list})
 This is the {view}-tier {type}. It must be distinguishable from other view variants by the View-Purpose criteria above.
 """
 ```
@@ -756,12 +756,12 @@ NLM artifacts produce **NO local files** — terminal-only URL recap. Notebook U
 | Artifact | Count |
 |----------|-------|
 | Markdown (.md) | `len(generated_tiers)` — always ≥1 by skill invariant |
-| HTML (.html) | `len(generated_tiers)` if `html_selected`, else 0 |
-| NLM view-cycled (audio/video/slide_deck) | `len(generated_tiers) × len(selected_view_cycled_types)` |
-| NLM mind_map | `1` if `mind_map_selected`, else 0 (view-agnostic regardless of `len(generated_tiers)`) |
-| **Total NLM** | `len(generated_tiers) × len(selected_view_cycled_types) + (1 if mind_map_selected)` |
+| HTML (.html) | `len(generated_tiers)` if `html_selected`, else 0 (one per generated tier) |
+| NLM view-cycled (audio/video/slide_deck) | `len(nlm_upload_tiers) × len(selected_view_cycled_types)` — `nlm_upload_tiers ⊆ generated_tiers` after the 5B.1 quota right-sizing |
+| NLM mind_map | `1` if `mind_map_selected`, else 0 (view-agnostic regardless of tier count) |
+| **Total NLM** | `len(nlm_upload_tiers) × len(selected_view_cycled_types) + (1 if mind_map_selected)` |
 
-Maximum NLM count when user accepts all defaults + checks all 5 Step 4 cells: `3 × 3 + 1 = 10`. Minimum non-zero: `1` (e.g. 1 tier + 1 NLM type, or just mind_map).
+Markdown/HTML count over `generated_tiers` (all tiers written); NLM counts over `nlm_upload_tiers` (the possibly-reduced upload set frozen at 5B.1). Maximum NLM when the user accepts all defaults, uploads all 3 tiers, and checks all 5 Step 4 cells: `3 × 3 + 1 = 10`. Minimum non-zero: `1` (e.g. 1 tier + 1 NLM type, or just mind_map).
 
 ## Performance notes
 
@@ -794,4 +794,4 @@ The **Claude Code legacy migration** table above is the in-package migration con
 - This skill does not provide NLM notebook lifecycle ops beyond create + source_add + studio_create + studio_status. For rename / delete / share / individual source manipulation, use notebooklm.google.com web UI. `source_delete` is intentionally absent from both `allowed-tools` and the bridge's 6-tool surface — the Step 5B.4 re-run guard defaults to a new timestamped notebook rather than deleting sources (cleaner audit trail).
 - This skill does not produce infographic NLM artifacts (permanently retired in marketplace v6.0.0).
 - This skill does not revise individual NLM slide_deck slides via `studio_revise` MCP tool, nor download artifacts locally via `download_artifact` — both intentionally omitted from `allowed-tools`. Terminal-only URL output is the contract; for granular slide editing or offline copies, use NotebookLM web UI.
-- This skill does not handle mind_map `studio_status` response in a special branch — mind_map's pre-loop idempotency lookup uses `studio_status` keyed by `artifact_type` only (no view dim), trusting the MCP server to return mind_map records in the same shape as other artifacts. If a future MCP server schema change causes mind_map response shape to diverge, add a branch in Step 5B 5 to handle it.
+- This skill does not handle mind_map `studio_status` response in a special branch — mind_map records surface in the Step 5B.4 discovery snapshot and the Step 5B.6 final status checkpoint via `studio_status` keyed by `artifact_type` only (no view dim), trusting the MCP server to return mind_map records in the same shape as other artifacts. If a future MCP server schema change causes mind_map response shape to diverge, add a branch in Step 5B.6 to handle it.
