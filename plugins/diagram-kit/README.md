@@ -13,17 +13,28 @@ It is functionally orthogonal to the marketplace's other plugin, `learn-kit` (wh
 
 ## Install
 
+Both hosts are supported; full steps (marketplace registration + install levels) are in the
+[root README install section](../../README.md#安装). The plugin's own add command:
+
 ```
+# Claude Code
 /plugin install diagram-kit@mj-agentlab-marketplace
+# Codex
+codex plugin add diagram-kit --marketplace mj-agentlab-marketplace
 ```
 
-(or `--scope local` for project-local install while developing).
+(Claude Code also accepts `--scope local` for a project-local install while developing.)
 
 ## Use
 
 ```
+# Claude Code
 /diagram-kit:arch-diagram <target>
+# Codex
+$diagram-kit:arch-diagram <target>
 ```
+
+Codex registers plugin skills as `plugin:skill`, so the bare `$arch-diagram` never resolves.
 
 Or just ask in natural language — the skill triggers on phrases like:
 

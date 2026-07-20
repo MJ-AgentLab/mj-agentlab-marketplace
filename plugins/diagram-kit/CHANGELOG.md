@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- **Codex native wrapper** — `.codex-plugin/plugin.json` + `skills/arch-diagram/agents/openai.yaml`, so the plugin installs and the skill discovers on Codex as well as Claude Code.
+
+### Changed
+
+- **`0.1.0 → 0.2.0`** (backward-compatible minor) — **host-neutral runtime**: `arch-diagram` resolves the bundled `scripts/validate_diagram.py` from the current SKILL.md locator (realpath-contained), not `${CLAUDE_PLUGIN_ROOT}`, passing the absolute script path + each `.md` as separate quoted arguments.
+- **Dual-host invocation** — Claude `/diagram-kit:arch-diagram`, Codex `$diagram-kit:arch-diagram`; internal routing uses bare qualified skill names, not host-specific slashes.
+- Interpreter probe order aligned to `python3 → python → py -3`.
+
 ## [0.1.0] - 2026-06-05
 
 ### Added
