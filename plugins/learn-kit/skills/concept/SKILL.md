@@ -1,24 +1,7 @@
 ---
 name: concept
-description: >
-  Explain an abstract concept in a structured ~500–800-character Chinese response with six
-  sections: origin pain point, core intuition, mechanism & definition, 2 cross-domain
-  positive examples + 1 counter-example, neighboring concepts, failure boundaries.
-  Goal: the reader can APPLY the concept (recognize it in new contexts, compare
-  alternatives, judge tradeoffs), not just recite it.
-  ALWAYS use this skill when the user types `/learn-kit:concept` or `/concept`
-  (optionally with a concept name), or says: "讲透这个概念", "深入理解 X", "帮我吃透 X",
-  "X 到底是什么", "理解概念 X", "explain the concept of X", "deep dive into X",
-  "help me really understand X". Prefer this over `/learn-kit:glossary` whenever the user
-  wants to USE a concept (apply it, compare alternatives, recognize it in new contexts,
-  understand tradeoffs) — not just recognize it. Also prefer this when the topic is a
-  *concept* (idempotency, eventual consistency, backpressure, ownership, monad, CAP,
-  referential transparency) rather than a specific named tool, API, or product.
-  Default language Chinese; technical terms preserved verbatim.
-  Do not use for: a quick one-paragraph term card when the user only needs to recognize a
-  term in 30 seconds (use `/learn-kit:glossary`); generating multi-tier learning documents /
-  files — saved markdown / interactive HTML / NotebookLM audio·video·slides, i.e. when the user
-  wants saved learning artifacts rather than a single in-chat explanation (use `/learn-kit:three-views`).
+description: |-
+  Use when the user wants to understand and apply an abstract concept through a structured Chinese explanation of about 500–800 characters. Trigger on “讲透这个概念”, “深入理解 X”, “帮我吃透 X”, “X 到底是什么”, “explain the concept of X”, or “deep dive into X”. Cover the originating pain point, core intuition, mechanism and definition, two cross-domain positive examples plus one counterexample, neighboring concepts, and failure boundaries. Prefer this for concepts such as idempotency, eventual consistency, backpressure, ownership, monad, CAP, or referential transparency. Do not use for a short term card; use glossary instead. Do not use for source-grounded multi-tier learning artifacts; use three-views instead.
 ---
 
 # Concept — 把一个概念讲到"能用"

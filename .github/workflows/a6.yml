@@ -1,0 +1,183 @@
+name: A6 — CLAUDE.md Sync Allowlist
+
+# Framework §2.7 + §4.3.1. Blocks a PR that touches a sync-allowlist trigger file without
+# updating root CLAUDE.md, unless the PR title carries "[skip a6]" AND a reviewer has
+# approved THIS commit with the exact body "A6 N/A confirmed".
+#
+# Lives outside ci.yml because the sign-off half of the bypass only becomes true when a
+# review arrives — a `pull_request_review` event. Adding that trigger to ci.yml would re-run
+# the whole structural suite on every review. Both events resolve GITHUB_REF to the same PR
+# merge branch, so the job sees identical PR context either way.
+#
+# IMPLEMENTATION INTEGRITY (plan §3 Task 3): the judged PR must not supply its own judge.
+# This job checks out the BASE commit and executes the checker extracted from the BASE tree,
+# never the PR's copy. Otherwise a PR could neuter the gate by editing scripts/check-a6.mjs
+# — which is not itself an allowlist trigger, so nothing else would flag it either.
+#
+# LIMIT — read before trusting this: for `pull_request` / `pull_request_review`, the workflow
+# YAML itself comes from the PR's merge ref. A PR that edits THIS FILE can still bypass the
+# gate. Running the base checker raises the bar (the bypass must be visible in the workflow
+# diff rather than buried in a script) and stops a careless edit to check-a6.mjs from silently
+# grading itself, but it is defence in depth, not a trusted security boundary. Do not describe
+# this check as unbypassable.
+
+on:
+  pull_request:
+    # `edited` matters: adding "[skip a6]" to the title must re-evaluate the gate.
+    types: [opened, synchronize, reopened, edited]
+  pull_request_review:
+    types: [submitted, edited, dismissed]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: a6-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  a6:
+    name: A6 / Check
+    runs-on: ubuntu-latest
+    # `pull_request_review` does not honour an `on.<event>.branches` filter, so the base
+    # branch is scoped here instead — one condition covering both triggers.
+    if: contains(fromJSON('["develop", "main"]'), github.event.pull_request.base.ref)
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # The BASE commit, not the merge ref. persist-credentials:false so that PR content
+          # fetched below can never reach the job's token.
+          ref: ${{ github.event.pull_request.base.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Fetch the PR head object (read-only)
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        # Objects only — no checkout, no merge. The head is needed solely as a diff endpoint.
+        run: git fetch --no-tags --quiet origin "refs/pull/${PR_NUMBER}/head"
+
+      - name: Resolve the checker
+        id: checker
+        env:
+          A6_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          A6_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+        run: |
+          set -euo pipefail
+          DEST="${RUNNER_TEMP}/check-a6.mjs"
+
+          # Normal path: the base tree already carries the checker. Judge with that.
+          if git cat-file -e "${A6_BASE_SHA}:scripts/check-a6.mjs" 2>/dev/null; then
+            git show "${A6_BASE_SHA}:scripts/check-a6.mjs" > "$DEST"
+            echo "mode=base" >> "$GITHUB_OUTPUT"
+            echo "Judging with the checker from base ${A6_BASE_SHA}."
+            exit 0
+          fi
+
+          # First release/* -> main: main has no checker yet, but develop does. Use develop's
+          # blob only if it is genuinely the same code this PR carries and already in its
+          # history — otherwise the PR would still be choosing its own judge.
+          if [ "$BASE_REF" = "main" ] && git fetch --no-tags --quiet origin main develop \
+             && git cat-file -e "origin/develop:scripts/check-a6.mjs" 2>/dev/null; then
+            CHECKER_COMMIT=$(git log -1 --format=%H origin/develop -- scripts/check-a6.mjs)
+            git show "origin/develop:scripts/check-a6.mjs" > "$DEST"
+
+            if ! git merge-base --is-ancestor "$CHECKER_COMMIT" "$A6_HEAD_SHA"; then
+              echo "::error::develop's checker commit ${CHECKER_COMMIT} is not an ancestor of ${A6_HEAD_SHA}"
+              exit 1
+            fi
+            if ! git show "${A6_HEAD_SHA}:scripts/check-a6.mjs" | cmp -s - "$DEST"; then
+              echo "::error::the checker on this release head differs from develop's — refusing to judge with either"
+              exit 1
+            fi
+            echo "mode=base" >> "$GITHUB_OUTPUT"
+            echo "Judging with develop's checker ${CHECKER_COMMIT} (byte-identical to this head, and an ancestor of it)."
+            exit 0
+          fi
+
+          # Bootstrap: the commit that introduces the checker. Nothing on base can judge it,
+          # so fall back to a fixed check pinned in THIS file.
+          echo "mode=bootstrap" >> "$GITHUB_OUTPUT"
+          echo "No checker on base ${BASE_REF} — bootstrap mode."
+
+      - name: Fetch PR reviews
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        # --slurp yields one array per page; check-a6.mjs flattens either shape.
+        run: gh api --paginate --slurp "repos/$REPO/pulls/$PR_NUMBER/reviews" > "$RUNNER_TEMP/a6-reviews.json"
+
+      - name: Evaluate A6
+        if: steps.checker.outputs.mode == 'base'
+        env:
+          # Every value crosses into the script as an environment variable and is never
+          # interpolated into the shell. A PR title is attacker-controlled text.
+          A6_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          A6_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          A6_PR_TITLE: ${{ github.event.pull_request.title }}
+          A6_PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          A6_REVIEWS_FILE: ${{ runner.temp }}/a6-reviews.json
+        run: node "${RUNNER_TEMP}/check-a6.mjs"
+
+      - name: Evaluate A6 (bootstrap)
+        if: steps.checker.outputs.mode == 'bootstrap'
+        env:
+          A6_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          A6_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        # Pinned in the workflow, using the pre-Category-4 trigger set, and deliberately
+        # WITHOUT the [skip a6] bypass: the bootstrap PR is the one introducing the checker,
+        # so it must sync CLAUDE.md outright rather than talk its way past a gate that cannot
+        # yet verify a sign-off. This branch disappears once the checker is on the base.
+        run: |
+          set -euo pipefail
+          cat > "${RUNNER_TEMP}/bootstrap-a6.mjs" <<'NODE'
+          import { execFileSync } from "node:child_process";
+
+          const TRIGGERS = [
+            /^docs\/rule\/\[STANDARD\]_[^/]+\.md$/,
+            /^VERSION$/,
+            /^\.claude-plugin\/marketplace\.json$/,
+            /^plugins\/[^/]+\/\.claude-plugin\/plugin\.json$/,
+            /^\.claude\/skills\/mp-[^/]+\/SKILL\.md$/,
+            /^plugins\/[^/]+\/skills\/[^/]+\/SKILL\.md$/,
+          ];
+
+          const out = execFileSync(
+            "git",
+            ["diff", "--name-status", "--no-renames", "-z", `${process.env.A6_BASE_SHA}...${process.env.A6_HEAD_SHA}`],
+            { encoding: "buffer", maxBuffer: 64 * 1024 * 1024 },
+          ).toString("utf8");
+
+          const parts = out.split("\0").filter((s) => s !== "");
+          const changes = [];
+          for (let i = 0; i < parts.length; ) {
+            const status = parts[i++][0];
+            const path = parts[i++];
+            if (path === undefined) throw new Error("diff status with no path");
+            changes.push({ status, path });
+          }
+
+          const triggers = changes.filter((c) => TRIGGERS.some((re) => re.test(c.path))).map((c) => c.path);
+          if (triggers.length === 0) {
+            console.log("A6 OK (bootstrap) — no allowlist trigger files in this PR.");
+            process.exit(0);
+          }
+          const synced = changes.some((c) => c.path === "CLAUDE.md" && (c.status === "A" || c.status === "M"));
+          if (synced) {
+            console.log("A6 OK (bootstrap) — trigger files present and root CLAUDE.md is updated.");
+            console.log(triggers.map((t) => `  - ${t}`).join("\n"));
+            process.exit(0);
+          }
+          console.log("::error::A6 FAIL (bootstrap) — trigger files touched but root CLAUDE.md is unchanged.");
+          console.log(triggers.map((t) => `  - ${t}`).join("\n"));
+          console.log("This PR introduces scripts/check-a6.mjs, so the [skip a6] bypass is not available here.");
+          process.exit(1);
+          NODE
+          node "${RUNNER_TEMP}/bootstrap-a6.mjs"

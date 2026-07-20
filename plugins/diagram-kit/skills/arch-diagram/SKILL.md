@@ -1,27 +1,8 @@
 ---
 name: arch-diagram
-description: |
-  Use when the user wants architecture / UML diagrams (Mermaid) for a codebase or
-  system — context / container / component / sequence / state-machine / deployment /
-  code — grounded in source facts, for ANY domain (docker / python / postgreSQL /
-  claude-code-plugin / ...). 5-step flow: scope → acquire facts (L0 声明扫描 → L1 结构
-  → L2 命名归类 → L3 HITL 补缺) → pick high-value types → draft Mermaid → validate-fix-repeat.
-
-  Trigger phrases (invoke even without "arch-diagram" mention):
-    - "画架构图" / "给这个项目画 C4 图" / "把系统架构画出来"
-    - "生成时序图 / 状态机图 / 部署图 / 组件依赖图 / 上下文图"
-    - "diagram this codebase" / "draw a sequence/deployment/component diagram for <X>"
-    - "为 <project> 画 container 图 / 画类图"
-
-  Output: evidence-bound Mermaid `.md` files (每节点/边可追 `file:行号`). Mermaid code
-  fences use ` ```text ` (NOT ` ```mermaid `) so diagrams show as source (with %% Name /
-  %% Slug metadata) rather than auto-rendering. Bundled stdlib validator lints generated
-  diagrams; degrades gracefully when no Python. Slash: `/diagram-kit:arch-diagram`.
-
-  Do not use for: 生成分层学习文档 / 学习 HTML / NotebookLM 多媒体（use /learn-kit:three-views）；
-  一段式术语速记卡（use /learn-kit:glossary）；概念深讲（use /learn-kit:concept）；
-  非架构图表（Gantt / pie / ER 数据建模 / git graph）。
-allowed-tools: [Read, Glob, Grep, Bash, Write, AskUserQuestion]
+description: |-
+  Use when the user wants evidence-grounded Mermaid architecture or UML diagrams for a codebase or system, including context, container, component, code, sequence, state-machine, or deployment diagrams. Trigger on “画架构图”, “画 C4 图”, “生成时序图”, “状态机图”, “部署图”, “组件依赖图”, “diagram this codebase”, or “draw a sequence or deployment diagram”. Follow the fact-first flow: define scope, acquire L0–L3 source evidence, select high-value diagram types, draft Mermaid, then validate and repair. Every node and edge must trace to file and line evidence; never fabricate architecture. Output Mermaid source in text fences with Name and Slug metadata. Do not use for learning materials or generic prose explanations.
+allowed-tools: "Read Glob Grep Bash Write AskUserQuestion"
 ---
 
 # arch-diagram · Codebase facts → evidence-bound architecture diagrams (Mermaid)

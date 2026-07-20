@@ -1,12 +1,12 @@
 ---
 type: standard
 scope: marketplace
-summary: Documentation framework v1.6 — §1 hard exclusions + §1.1 root-level named files (5 responsibilities + Source of exclusion) + §2.7 CLAUDE.md sync allowlist + §4.3.1 A6 active CI gate
+summary: Documentation framework v1.7 — §1 hard exclusions + §1.1 root-level named files (5 responsibilities + Source of exclusion) + §2.7 CLAUDE.md sync allowlist (4 categories) + §4.3.1 A6 enforced CI gate (own workflow + verified reviewer sign-off)
 owner: marketplace-maintainers
 created: 2026-05-15
-updated: 2026-05-18
+updated: 2026-07-16
 state: active
-version: v1.6
+version: v1.7
 domain: governance
 tags:
   - documentation
@@ -20,7 +20,9 @@ related:
   - ./[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
   - ../runbook/[RUNBOOK]_Doc_Archive_Procedure.md
   - ../adr/[ADR]_Root_Level_Named_Files_Codification.md
+  - ../adr/[ADR]_Codex_Dual_Native_Plugin_Support.md
 revision: |
+  2026-07-16 — v1.7: A6 gate 从「宣称阻断」变为「实际阻断」。(1) §4.3.1 重写——实现从 `ci.yml` inline shell step 迁至独立 `.github/workflows/a6.yml` + Node stdlib-only `scripts/check-a6.mjs`（单测钉死），新增 `pull_request_review` trigger 使 sign-off 到达时能重新求值；(2) **修复 v1.6 实现的 4 处真实缺陷**：`[skip a6]` 仅凭 PR title 即 `exit 0`、从不校验其宣称要求的 reviewer sign-off（任何作者可自行开门）；PR title 经 `${{ }}` 插值进 shell（命令注入面）；两点 diff 使 base 分支自身的 CLAUDE.md 改动为本 PR 开门；`--name-only` 无法区分删除，删除根 CLAUDE.md 被当作同步。(3) §4.3.1 新增有效 sign-off 的完整判据（非作者 / OWNER·MEMBER·COLLABORATOR / 绑定当前 head SHA / 该 SHA 上最新 review 为 APPROVED / body 精确等于 `A6 N/A confirmed`）+ fail-closed 约束；(4) §2.7 新增 Category 4 Codex dual-native surfaces（7 类路径，per `[ADR]_Codex_Dual_Native_Plugin_Support`），trigger 分类 3 → 4；(5) §2.7 漂移修正 "PR description" → **"PR title"**（v1.6 §2.7 与 §4.3.1 互相矛盾，实现以 title 为准）。**Non-trigger 自身归档**：仅改 §2.7 / §4.3.1 / §4.3 表 + §5；v1.6 文件留原路径推进 v1.7。
   2026-05-18 — v1.6: 新增 §1.1 Root-Level Named Special Files & Individual Responsibilities（5 行表 + Source of exclusion 列区分 §1 hard 与 §1.1 editorial convention）+ §1.1 自身的 editorial-convention 排除规则 for CONTRIBUTING.md + GLOSSARY.md；新增 §2.7 CLAUDE.md Sync Allowlist（3 类 trigger + 非触发 clause）；§4.3 表 A6 行 "deferred → active (v1.6+)" + 新增 §4.3.1 A6 active gate 实现规范；§1 本身保持 v1.5 原样不动。配套：bump `[ADR]_Documentation_Framework_Exemption_Reversal` v1.0 → v1.1；新建 `[ADR]_Root_Level_Named_Files_Codification.md` v1.0；archive `[GUIDE]_Contributing.md` v1.1（trigger #4）；新建 root CONTRIBUTING.md + GLOSSARY.md。Non-trigger 自身归档：仅新增章节 + 改 §5。
   2026-05-18 — v1.5: §1 取消 v1.1 单文件 + 教学系列模式豁免；改写为「Scope + Community/External-Spec Exclusion」简化版（仅保留 README/CHANGELOG/CLAUDE.md/SKILL.md/templates/references 5 类外部规范限制不可绕过的命名约束）+ INDEX.md「保留名 + 强制 frontmatter」特别条款；删除已退役 notebooklm-kit/nlm-shared 残行；删除 v1.1 + v1.3 normative blockquotes；§5 添加 v1.5 entry；清理 §2.1 / §2.3.1 / §4.3 / §5 v1.0 中所有 cross-project 引用（marketplace 独立性原则）
   2026-05-17 — v1.4: Flat archive layout amendment（§2.3 子规则系列同步 flat + §2.3.5 new）
@@ -313,7 +315,7 @@ In SKILL.md (which is exempt from this framework), wikilinks `[[../../../docs/..
 
 ### §2.7 CLAUDE.md Sync Allowlist (v1.6 NEW)
 
-`CLAUDE.md`（repo root）承载 AI agent + 人类维护者「快速上下文」职责（per §1.1）。为防止其内容与权威源漂移，定义 3 类**强同步触发**：PR 触及以下任一文件 / 目录条目时，`CLAUDE.md` **必须**在同一 PR 同步更新（如无实质变化面，PR description 标注 `[skip a6]` 跳过 token + reviewer 在 review 显式 sign-off "A6 N/A confirmed"）。
+`CLAUDE.md`（repo root）承载 AI agent + 人类维护者「快速上下文」职责（per §1.1）。为防止其内容与权威源漂移，定义 4 类**强同步触发**：PR 触及以下任一文件 / 目录条目时，`CLAUDE.md` **必须**在同一 PR 同步更新（如无实质变化面，**PR title** 标注 `[skip a6]` 跳过 token + reviewer 在 review 显式 sign-off `A6 N/A confirmed`；两者缺一不可，详见 §4.3.1）。
 
 **Category 1 — Global Standards** (`docs/rule/[STANDARD]_*.md`)：
 
@@ -333,6 +335,18 @@ In SKILL.md (which is exempt from this framework), wikilinks `[[../../../docs/..
 - `.claude/skills/mp-*/` 新增 / 删除 / 重命名 skill 必同步「Project-Local Skills」表
 - `plugins/<name>/skills/<name>/` 新增 / 删除 / 重命名 必同步 plugin 描述段
 - `docs/` 子目录结构变更（add/remove subtype subdir）必同步「文档目录子结构」code block
+
+**Category 4 — Codex Dual-Native Surfaces** (v1.7 NEW；per [`[ADR]_Codex_Dual_Native_Plugin_Support`](../adr/[ADR]_Codex_Dual_Native_Plugin_Support.md))：
+
+Codex 原生包装与 learn-kit NLM bridge 是与 Claude 侧 manifest 平行的**第二套发布契约**；两套 manifest 必须持续版本一致，CLAUDE.md 的 plugin / runtime 描述段同时覆盖二者，故与 Category 2/3 同级触发：
+
+- `.agents/plugins/marketplace.json`（Codex native catalog；插件集合 / 顺序 / category 变更）
+- `plugins/<name>/.codex-plugin/plugin.json`（Codex native manifest；与 legacy manifest 共享字段必须一致）
+- `plugins/<name>/skills/<name>/agents/openai.yaml`（skill UI metadata；default_prompt 的 qualified 名）
+- `plugins/learn-kit/.mcp.json`（MCP server contract；command / args / server key）
+- `plugins/learn-kit/nlm-bridge/**`（bridge package、hashed locks、contract snapshots）
+- `plugins/learn-kit/scripts/install-nlm-bridge.mjs`（用户手工 installer 的 URL / 目录 / receipt 契约）
+- `scripts/{generate-nlm-contract,probe-learn-kit-nlm-bridge,resolve-release-state}.mjs`（contract 生成、bridge 探测、release 判定的唯一入口）
 
 **非触发 clause**: 上述文件的 **typo 修复 / 注释级 / 内容澄清 / 排版调整 / 单 line 文本微调** 不视作 sync 触发；只有**结构 / 规则 / 版本 / 条目**变更触发。Skill 内部实现细节变更（不动 SKILL.md frontmatter）也不触发。CHANGELOG 累加 / `[Unreleased]` 维护属高频日常操作，从不触发 sync。
 
@@ -419,32 +433,54 @@ v1.0 relies on manual + skill-based verification. Future versions may introduce 
 | A3 | `state` & enum fields legal |
 | A4 | Internal wikilinks resolve |
 | A5 | `INDEX.md` sync |
-| A6 | `CLAUDE.md` allowlist sync **(active v1.6+; see §4.3.1)** |
+| A6 | `CLAUDE.md` allowlist sync **(active v1.6+; enforced v1.7+; see §4.3.1)** |
 
-A6 启用于 v1.6（详见 §4.3.1）；A1-A5 仍 deferred until doc count + reviewer burden justify the CI cost.
+A6 启用于 v1.6，v1.7 起 bypass 真正被校验（详见 §4.3.1）；A1-A5 仍 deferred until doc count + reviewer burden justify the CI cost.
 
 ### §4.3.1 A6 — `CLAUDE.md` Allowlist Sync (active gate, v1.6+)
 
-实现于 `.github/workflows/ci.yml` `validate` job 新增 step "Validate CLAUDE.md sync allowlist (A6)"。三层 defense-in-depth：PR template 自检 (soft) → `/mp-doc-validate` Step 3.5 Warning (pre-commit reminder) → CI A6 step (authoritative blocker)。
+实现于 `.github/workflows/a6.yml`（job `A6 / Check`）；判定逻辑全部位于 Node stdlib-only 的 `scripts/check-a6.mjs`，由 `tests/check-a6.test.mjs` 单测钉死。workflow 只做 thin caller：取 diff、取 reviews、把 PR 字段以**环境变量**传入脚本。三层 defense-in-depth：PR template 自检 (soft) → `/mp-doc-validate` Step 3.5 Warning (pre-commit reminder) → CI A6 workflow (authoritative blocker)。
 
-**算法**:
+**为何独立 workflow（v1.7 起）**：bypass 的 sign-off 半边只在 review 到达时才成立，而 review 是 `pull_request_review` 事件。把该 trigger 加进 `ci.yml` 会让每条 review 重跑整套结构检查，故 A6 独立成 workflow，同时监听 `pull_request`（含 `edited`，使「改 PR title 加 token」能重新求值）与 `pull_request_review`。两事件的 `GITHUB_REF` 同为 PR merge branch，PR context 一致。
 
-1. 计算 PR diff 文件清单（`git diff --name-only $BASE..$HEAD`，PR context；push 事件 fallback `origin/develop..HEAD`）
-2. 与 §2.7 三类 trigger 路径模式逐一匹配 → 输出命中清单 `TRIGGERED[]`
-3. 若 `TRIGGERED[] 非空` 且 `CLAUDE.md ∉ diff` → exit 1，输出 reviewer-friendly 错误消息（含命中文件清单 + §2.7 / §4.3.1 引用 + 修复建议两选）
-4. 若 `TRIGGERED[] 非空` 且 `CLAUDE.md ∈ diff` → 通过（CLAUDE.md 变更内容是否真实反映 trigger 由 reviewer + `/mp-doc-validate` Step 3.5 双重审视）
-5. 若 `TRIGGERED[]` 空 → 通过（无 trigger 即无需 sync）
+**算法**（`evaluateA6({ changes, title, reviews, authorLogin, headSha })`）:
 
-**Bypass mechanism**: PR title 含 `[skip a6]` 字符串字面量 + reviewer 在 PR review 显式 sign-off `A6 N/A confirmed` → CI 跳过本 step（保留其他 step 不变）。极罕见正当情境（如 trigger 命中但 CLAUDE.md 真无实质变化面）使用。Reviewer sign-off 要求结构化 comment（非自由文本），便于 audit。
+1. 计算 PR diff：`git diff --name-status --no-renames -z "$BASE...$HEAD"`
+   - **三点** range（对 merge base 比较）。两点 range 会把 base 分支在本 PR fork 之后自己的 `CLAUDE.md` 改动算进本 PR，从而为一个根本没碰 CLAUDE.md 的 PR 开门。
+   - `--name-status` 保留状态位；`-z` NUL 分隔，路径含换行时不被误切；`--no-renames` 使 trigger 文件的重命名呈现为 delete + add 而非单条 R 记录。
+2. 与 §2.7 四类 trigger 路径模式逐一匹配（两端 anchored 精确路径）→ 命中清单 `TRIGGERED[]`
+3. `TRIGGERED[]` 空 → 通过（无 trigger 即无需 sync）
+4. `TRIGGERED[]` 非空 且 根 `CLAUDE.md` 状态为 `A`/`M` → 通过（变更内容是否真实反映 trigger 由 reviewer + `/mp-doc-validate` Step 3.5 双重审视）
+   - **仅 `A`/`M` 计数**。`D`（删除）移除的正是本 gate 要维持的文件，`T`（typechange，如换成 symlink）不是「更新了 CLAUDE.md」；两者均不算同步。`plugins/<name>/CLAUDE.md` 不是根文件，不算。
+5. `TRIGGERED[]` 非空 且 无有效 sync → 进入 bypass 判定；不满足则 exit 1，输出含命中清单 + §2.7 / §4.3.1 引用 + 两选修复建议的 reviewer-friendly 消息
+
+**Bypass mechanism**：需**同时**满足两个条件，缺一不可：
+
+1. PR **title** 含字符串字面量 `[skip a6]`（大小写敏感）；且
+2. 存在**有效 reviewer sign-off**。
+
+有效 sign-off 的全部条件：reviewer **非 PR 作者**（login 大小写不敏感比较）、`author_association ∈ {OWNER, MEMBER, COLLABORATOR}`、review 的 `commit_id` **精确等于当前 head SHA**、该 reviewer 在此 SHA 上的**最新** review 状态为 `APPROVED`、且 review body 去除首尾空白后**精确等于** `A6 N/A confirmed`。
+
+因此：旧 SHA 上的 approval 不随 force-push 顺延；同一 reviewer 后续的 `CHANGES_REQUESTED` 撤销其 sign-off；`DISMISSED` / 普通 `COMMENTED` / 仅在 body 中包含该 token 的自由文本均不通过。极罕见正当情境（trigger 命中但 CLAUDE.md 真无实质变化面）使用；结构化 body 便于 audit。
+
+**Fail-closed 约束**：git 调用失败、reviews 文件缺失 / 不可解析、SHA 非 40 位 hex 一律 exit 2，**不得**退化为「未发现 trigger」。PR title 等外部可控文本只经环境变量进入脚本，禁止插值进 shell（`${{ }}` 直插会使 PR title 成为 runner 上的命令注入面）。
+
+> [!IMPORTANT]
+> **Gate 正确 ≠ Gate 生效。** A6 workflow 的 check context 为 `A6 / Check`；它要真正阻断 merge，必须被列入对应 branch ruleset 的 required status checks，否则只是红叉提示。
+>
+> 2026-07-16 已修复并实测：此前 `protect-develop` 要求 `build`、`protect-main` 要求 `release` —— **两个 context 都不由任何 workflow 产出**（实际 job 名为 `Validate Structure` / `Create Release` / `Verify develop pre-bumped past main`），故当时**没有任何 CI check 能阻断 merge**（实证：PR #166 仅报告 `Validate Structure` 即合并）。现为 `protect-develop` → `Validate Structure` + `A6 / Check`，`protect-main` → `Validate Structure`。
+>
+> **Maintainer 须知**：新增 / 重命名 workflow job 的 `name:` 会改变其 check context。任何此类改动必须同步对应 ruleset 的 required status checks，否则该 gate 会静默降级为「不阻断」——ruleset 引用一个不存在的 context 时 GitHub 不报错。
 
 **`/mp-doc-validate` advisory pair**: skill 在本地工作区做相同检测（`git status --porcelain` + 同 regex），但输出 **Warning** 而非 Critical；起 pre-commit reminder 作用。CI 是 authoritative blocker；两层职责分明。
 
-**Future Work** (v1.7+ candidate): A6 与 `/mp-doc-validate` Step 3.5 算法对齐（skill 改用 diff-based 检测匹配 CI）；A1 / A5 启用 (path 合法性 + INDEX sync auto-detect)。
+**Future Work** (v1.8+ candidate): A6 与 `/mp-doc-validate` Step 3.5 **检测方法**对齐（skill 改用 diff-based 检测匹配 CI）—— v1.7 已对齐二者的 *trigger 集*（skill 的 regex 现镜像 `check-a6.mjs` `TRIGGERS`），但 skill 仍读 working-tree 而 CI 读 PR diff，该 over-eager 边界仍在；A1 / A5 启用 (path 合法性 + INDEX sync auto-detect)。
 
 ## §5 Change History
 
 | Version | Date | Summary |
 |---------|------|---------|
+| v1.7 | 2026-07-16 | **A6 gate enforcement + §2.7 Category 4**. v1.6 的 A6 step 宣称「`[skip a6]` + reviewer sign-off」双条件，实现却只看 PR title 就 `exit 0`——sign-off 从未被校验，任何作者可自行开门。(1) §4.3.1 重写：实现迁至独立 `.github/workflows/a6.yml` + Node stdlib-only `scripts/check-a6.mjs`（`tests/check-a6.test.mjs` 单测钉死），新增 `pull_request_review` trigger 使 sign-off 抵达时重新求值（独立 workflow 的理由：加进 ci.yml 会让每条 review 重跑整套结构检查；两事件 `GITHUB_REF` 同为 PR merge branch，PR context 一致）；(2) 修复 v1.6 实现 4 处真实缺陷——未校验 sign-off、PR title 经 `${{ }}` 插值进 shell（命令注入面）、两点 diff 让 base 分支自身的 CLAUDE.md 改动为本 PR 开门、`--name-only` 使删除根 CLAUDE.md 被当作同步；(3) 新增有效 sign-off 完整判据（非作者 / OWNER·MEMBER·COLLABORATOR / 绑定当前 head SHA / 该 SHA 上最新 review 为 APPROVED / body 精确等于 `A6 N/A confirmed`）+ fail-closed 约束（git / reviews / SHA 异常一律 exit 2，不得退化为「无 trigger」）；(4) §2.7 NEW Category 4 — Codex dual-native surfaces 7 类路径（native catalog / `.codex-plugin/plugin.json` / `agents/openai.yaml` / learn-kit `.mcp.json` / `nlm-bridge/**` / installer / 3 个 contract 脚本），per [`[ADR]_Codex_Dual_Native_Plugin_Support`](../adr/[ADR]_Codex_Dual_Native_Plugin_Support.md)，trigger 分类 3 → 4；(5) §2.7 漂移修正 "PR description" → "PR title"（v1.6 §2.7 与 §4.3.1 互相矛盾）；(6) §4.3 表 A6 行加 "enforced v1.7+"。(7) **ruleset 修复（同 PR 由 owner 授权执行）**：此前 `protect-develop` 要求 `build`、`protect-main` 要求 `release`，两个 context 均不由任何 workflow 产出，故所有 CI gate（含 A6）实际都不阻断 merge（实证：PR #166 仅报 `Validate Structure` 即合并）。现改为 `protect-develop` → `Validate Structure` + `A6 / Check`，`protect-main` → `Validate Structure`；其余 rule / bypass_actors / conditions / strict policy 逐字节不变（改前已备份 + 改后 API 复读比对）。§4.3.1 IMPORTANT 补 maintainer 须知：改 job `name:` 即改 check context，必须同步 ruleset，否则 gate 静默降级。**Non-trigger 自身归档**: 仅改 §2.7 / §4.3.1 / §4.3 表 + §5；v1.6 文件留原路径推进 v1.7。marketplace VERSION 6.3.2 不动（PR1 为 non-release migration window）。Adopted in PR (Codex dual-native PR1). |
 | v1.6 | 2026-05-18 | **Root-level named files codification + CLAUDE.md sync allowlist + A6 CI gate activation**. (1) §1.1 NEW — 5-row table 编码 README/CONTRIBUTING/CHANGELOG/GLOSSARY/CLAUDE.md 各自固定责任 + Source of exclusion 列区分 §1 hard 与 §1.1 editorial convention；(2) §1.1 自身的 editorial-convention 排除规则 for `CONTRIBUTING.md` + `GLOSSARY.md`（技术可携带 frontmatter 但不携带，为保 GitHub UI 集成 + 阅读纯净度）；(3) §2.7 NEW — CLAUDE.md sync allowlist 3 类 trigger（global standards `docs/rule/[STANDARD]_*.md` / runtime info `VERSION` + `marketplace.json` + plugin.json major/minor / directory entries `.claude/skills/mp-*/` + plugin skill 目录 + docs/ 子目录结构）+ 非触发 clause（typo / 排版 / CHANGELOG 累加不触发）；(4) §4.3.1 NEW — A6 CI gate 从 v1.5 placeholder 提升为 active 阻断检查（`.github/workflows/ci.yml` validate job 新增 step + `[skip a6]` bypass token + `/mp-doc-validate` Step 3.5 Warning pair）；(5) §4.3 表 A6 行 "deferred → active (v1.6+)" 标注，A1-A5 保持 deferred；§1 本身**保持 v1.5 原样不动**。**配套**: bump `[ADR]_Documentation_Framework_Exemption_Reversal` v1.0 → v1.1（Decision 2 CONTRIBUTING.md row 标注 partially reversed in v4.6.3）；新建 `[ADR]_Root_Level_Named_Files_Codification.md` v1.0；archive `[GUIDE]_Contributing.md` v1.1 → `docs/archive/[DEPRECATED]_[GUIDE]_Contributing_v1.1.md`（§2.3.1 trigger #4 split-merge-rename；走 RUNBOOK Phase 1-4 ceremony + Gate D-02 fires ~13 living refs）；新建 root `CONTRIBUTING.md` + root `GLOSSARY.md`；cross-reference 升级 ~13 文件 living refs；CLAUDE.md / INDEX.md / 1 PR template / 1 ISSUE_TEMPLATE config / mp-doc-validate SKILL.md / RUNBOOK last-verified 同步。**Non-trigger 自身归档**: framework 文件仅新增 §1.1 / §2.7 / §4.3.1 + 改 §5；其他章节不动；不达 §2.3.1 trigger 阈值；v1.5 文件留原路径推进 v1.6。marketplace VERSION 4.6.3（develop pre-bumped per [`[ADR]_Develop_PreBump_Adoption`](../adr/[ADR]_Develop_PreBump_Adoption.md)）。learn-kit 1.2.1 不动。Adopted in PR (v4.6.3). |
 | v1.5 | 2026-05-18 | **§1 Exemption Mechanism Cancellation**. §1 完全重写：(1) 取消 v1.1 「plugin-internal teaching series」pattern exemption（learn-kit 6 份教学系列必须迁 `plugins/learn-kit/docs/guide/[GUIDE]_*.md`）；(2) 取消 4 项 v1.1 single-file exemption（`ai_engineering_execution_hitl_workflow.md` 删除 + 内容内化 HITL §0；`CONTRIBUTING.md` + `MIGRATION_GUIDE.md` rename 到 `docs/guide/[GUIDE]_*.md`；`INDEX.md` 保留名但强制 frontmatter）；(3) 取消 v1.3 「exempt-file frontmatter discipline」normative blockquote（unified into exclusion table）；(4) 删除已退役 `notebooklm-kit/nlm-shared` 残余行；(5) §1 新结构：保留只读 5 类 community/external-spec exclusion（README/CHANGELOG/CLAUDE.md/SKILL.md/templates+references）由外部规范刚性约束不可绕过 + INDEX.md special clause。(6) 其余 §2-§4 结构稳定；§2.1 / §2.3.1 / §4.3 / §5 v1.0 历史条目清理所有 cross-project 引用，统一改为中性术语（marketplace 独立性原则）。**Trigger 自身归档**：本次符合 §2.3.1 trigger #4 (split-merge-rename) — §1 规则集语义重定义。配套新建 `[ADR]_Documentation_Framework_Exemption_Reversal.md` + archive 旧 `[ADR]_Documentation_Framework_Exemption_Review.md` v1.0 走 RUNBOOK ceremony；HITL STANDARD v1.3 → v1.4 同 PR；learn-kit 1.1.0 → 1.2.0；marketplace VERSION 4.4.11 → 4.5.0。Adopted in PR-B (v4.5.0). |
 | v1.4 | 2026-05-17 | **Flat archive layout amendment**. §2.3 子规则系列更新：state table（§2.3）/ §2.3.2 archive-path 描述 + YAML example / §2.3.3 banner relative-path 注释 / §2.3.4 frozen-ref 示例 / §2.4 archive filename 规则示例——全部从 `docs/archive/<subtype>/` 改为 `docs/archive/`（flat）；新增 §2.3.5 Flat Archive Layout 段定义新规则 + marketplace 与 plugin-internal 双层对称 + rationale。**Non-trigger 自身归档**：本次只改 §2.3 子规则文本，§2.3 / §2.4 章节结构不动；不达 §2.3.1 trigger #2（≥50% 结构重写）/ #3（≥70% 内容替换）阈值；v1.3 文件留原路径推进 v1.4。配套 RUNBOOK v1.0 → v1.1 同步 + mp-doc-validate SKILL.md 描述同步 + 删 6 个空 placeholder subdir。Adopted in PR-A (v4.X.Y). |

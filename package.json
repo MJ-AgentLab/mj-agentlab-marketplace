@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/validate-dual-host.test.mjs tests/run-cli.test.mjs tests/check-a6.test.mjs tests/check-prebump.test.mjs tests/resolve-release-state.test.mjs tests/generate-nlm-contract.test.mjs tests/hash-upload-corpus.test.mjs tests/bump-version.test.mjs tests/learn-kit-nlm-bridge.test.mjs tests/install-nlm-bridge.test.mjs tests/probe-learn-kit-nlm-bridge.test.mjs tests/validate-claude-plugins.test.mjs tests/optional-nlm-absent.test.mjs tests/canary-connector-drift.test.mjs",
+    "generate:nlm-contract": "node scripts/generate-nlm-contract.mjs all --root . --uv 0.11.21 --python 3.12 --exclude-newer 2026-07-16T00:00:00Z",
+    "check:nlm-contract-generated": "node scripts/generate-nlm-contract.mjs all --root . --uv 0.11.21 --python 3.12 --exclude-newer 2026-07-16T00:00:00Z --check",
+    "check:baseline-tools": "node scripts/check-tool-versions.mjs --codex 0.144.3 --claude 2.1.210 --uv 0.11.21 --bridge 4.0.0 --nlm 0.8.7",
+    "report:tool-versions": "node scripts/check-tool-versions.mjs --report-only",
+    "validate:dual-host": "node scripts/validate-dual-host.mjs --root . --host-neutral warn",
+    "validate:claude": "node scripts/validate-claude-plugins.mjs",
+    "smoke:codex": "node scripts/smoke-codex-plugin.mjs --mode all",
+    "smoke:optional-nlm-absent": "node --test tests/optional-nlm-absent.test.mjs",
+    "smoke:nlm-contract": "node scripts/probe-learn-kit-nlm-bridge.mjs --config plugins/learn-kit/.mcp.json --server notebooklm-mcp --mode all"
+  },
+  "devDependencies": {
+    "cross-spawn": "7.0.6",
+    "yaml": "2.9.0"
+  }
+}

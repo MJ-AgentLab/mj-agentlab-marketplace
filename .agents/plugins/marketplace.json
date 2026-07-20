@@ -1,0 +1,20 @@
+{
+  "name": "mj-agentlab-marketplace",
+  "interface": {
+    "displayName": "MJ AgentLab Marketplace"
+  },
+  "plugins": [
+    {
+      "name": "learn-kit",
+      "source": { "source": "local", "path": "./plugins/learn-kit" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_USE" },
+      "category": "Education & Research"
+    },
+    {
+      "name": "diagram-kit",
+      "source": { "source": "local", "path": "./plugins/diagram-kit" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Developer Tools"
+    }
+  ]
+}

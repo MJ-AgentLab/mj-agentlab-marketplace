@@ -1,0 +1,44 @@
+{
+  "_comment": [
+    "Source fingerprints of the connector's auth-recovery path.",
+    "role=replaced: the runner substitutes a disk-reload-only implementation.",
+    "role=sentinel: the runner substitutes a fail-closed stub that must never run.",
+    "role=depended_on: the runner's replacement calls it and needs it to stay disk-only.",
+    "Both call sites of run_headless_auth import it lazily inside the function, so",
+    "replacing the module attribute before any call is what makes the guard effective.",
+    "Any drift here fails closed before a single network call is made."
+  ],
+  "connector_version": "0.8.7",
+  "format": "learn-kit-nlm-bridge/upstream-auth-guard",
+  "format_version": 1,
+  "symbols": [
+    {
+      "module": "notebooklm_tools.core.auth",
+      "qualname": "load_cached_tokens",
+      "role": "depended_on",
+      "source_lines": 50,
+      "source_sha256": "66c0d1f6f13ff860e7e6b84fa0f0fc396064ac9342408bf8a61de7e093c892ed"
+    },
+    {
+      "module": "notebooklm_tools.core.base",
+      "qualname": "BaseClient._try_reload_or_headless_auth",
+      "role": "replaced",
+      "source_lines": 40,
+      "source_sha256": "fa0ea0d31c5719a1e0408dabe2c8f8b0f9a6d4403d5af5d75094a1c2ecee3039"
+    },
+    {
+      "module": "notebooklm_tools.utils.auth_browser",
+      "qualname": "run_headless_auth",
+      "role": "sentinel",
+      "source_lines": 25,
+      "source_sha256": "305086236a3d0b7e448b10810a9c95f65792edd39b0caf57fb423eec6e9a8c00"
+    },
+    {
+      "module": "notebooklm_tools.utils.cdp",
+      "qualname": "run_headless_auth",
+      "role": "sentinel",
+      "source_lines": 117,
+      "source_sha256": "cc76fd8d96c39d5d5df4873b18a9be959ff8bef02b3521380f6f3e6b919b3b43"
+    }
+  ]
+}

@@ -1,0 +1,410 @@
+{
+  "_comment": [
+    "Exactly what notebooklm-mcp-cli advertises over MCP under the pinned env below.",
+    "Recorded from a real initialize + tools/list against the locked connector, with",
+    "no credentials and no network. The bridge compares its child's tools/list to",
+    "this and refuses to forward anything on drift.",
+    "tools_sha256 covers the canonical form of the tools array alone, so the runner",
+    "can check the surface with one comparison; the metadata around it can evolve",
+    "without being mistaken for a schema change."
+  ],
+  "connector_version": "0.8.7",
+  "format": "learn-kit-nlm-bridge/upstream-tools",
+  "format_version": 1,
+  "pinned_env": {
+    "NOTEBOOKLM_BASE_URL": "https://notebooklm.google.com",
+    "NOTEBOOKLM_COOKIES": "",
+    "NOTEBOOKLM_CSRF_TOKEN": "",
+    "NOTEBOOKLM_DISABLED_GROUPS": "notebooks_read,notebooks_manage,sources_read,sources_manage,chat,query_multi,organization,automation,notes,auth,server,sharing,research,studio",
+    "NOTEBOOKLM_ENABLED_TOOLS": "notebook_list,notebook_get,notebook_create,source_add,studio_create,studio_status",
+    "NOTEBOOKLM_MCP_DEBUG": "",
+    "NOTEBOOKLM_MCP_TRANSPORT": "stdio",
+    "NOTEBOOKLM_RPC_OVERRIDES": "",
+    "NOTEBOOKLM_RPC_TRANSPORT": "",
+    "NOTEBOOKLM_SESSION_ID": ""
+  },
+  "protocol": {
+    "negotiated": "2025-06-18",
+    "requested": "2025-06-18"
+  },
+  "server_info": {
+    "name": "notebooklm",
+    "version": "3.4.4"
+  },
+  "tools": [
+    {
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      },
+      "description": "Create a new notebook.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "default": "",
+            "description": "Optional title for the notebook",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "notebook_create",
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    {
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      },
+      "description": "Get notebook details with sources.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "notebook_id": {
+            "description": "Notebook UUID",
+            "type": "string"
+          }
+        },
+        "required": [
+          "notebook_id"
+        ],
+        "type": "object"
+      },
+      "name": "notebook_get",
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    {
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      },
+      "description": "List all notebooks.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "max_results": {
+            "default": 100,
+            "description": "Maximum number of notebooks to return (default: 100)",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "name": "notebook_list",
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    {
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      },
+      "description": "Add a source to a notebook. Unified tool for all source types.\n\nSupports: url, text, drive, file",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "doc_type": {
+            "default": "doc",
+            "description": "Drive doc type: doc|slides|sheets|pdf (for source_type=drive)",
+            "type": "string"
+          },
+          "document_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Google Drive document ID (for source_type=drive)"
+          },
+          "file_path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Local file path on the machine running the MCP server\n(for source_type=file). A path on a different client/agent host\nis not accessible to the server."
+          },
+          "notebook_id": {
+            "description": "Notebook UUID",
+            "type": "string"
+          },
+          "source_type": {
+            "description": "Type of source to add:\n- url: Web page or YouTube URL\n- text: Pasted text content\n- drive: Google Drive document\n- file: Local file upload. Supported extensions:\n    PDF, TXT, MD, DOCX, CSV, EPUB, MP3, M4A, WAV, AAC, OGG,\n    OPUS, MP4, JPG, JPEG, PNG, GIF, WEBP. Image-bearing\n    sources (PDF / JPG / PNG / etc.) feed Studio video\n    generation's visual-crop pipeline \u2014 charts, photos, and\n    diagrams may be extracted as on-screen aids in Video\n    Overviews.",
+            "type": "string"
+          },
+          "text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Text content to add (for source_type=text)"
+          },
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Display title (for text sources)"
+          },
+          "url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "URL to add (for source_type=url)"
+          },
+          "urls": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "List of URLs to add in bulk (for source_type=url, alternative to url)"
+          },
+          "wait": {
+            "default": false,
+            "description": "If True, wait for source processing to complete before returning",
+            "type": "boolean"
+          },
+          "wait_timeout": {
+            "default": 120.0,
+            "description": "Max seconds to wait if wait=True (default 120)",
+            "type": "number"
+          }
+        },
+        "required": [
+          "notebook_id",
+          "source_type"
+        ],
+        "type": "object"
+      },
+      "name": "source_add",
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    {
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      },
+      "description": "Create any NotebookLM studio artifact. Unified creation tool.\n\nSupports: audio, video, infographic, slide_deck, report, flashcards, quiz, data_table, mind_map",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_type": {
+            "description": "Type of artifact to create:\n- audio: Audio Overview (podcast)\n- video: Video Overview\n- infographic: Visual infographic\n- slide_deck: Presentation slides (PDF)\n- report: Text report (Briefing Doc, Study Guide, etc.)\n- flashcards: Study flashcards\n- quiz: Multiple choice quiz\n- data_table: Structured data table\n- mind_map: Visual mind map",
+            "type": "string"
+          },
+          "audio_format": {
+            "default": "deep_dive",
+            "type": "string"
+          },
+          "audio_length": {
+            "default": "default",
+            "type": "string"
+          },
+          "confirm": {
+            "default": false,
+            "description": "Must be True after user approval",
+            "type": "boolean"
+          },
+          "custom_prompt": {
+            "default": "",
+            "type": "string"
+          },
+          "description": {
+            "default": "",
+            "type": "string"
+          },
+          "detail_level": {
+            "default": "standard",
+            "type": "string"
+          },
+          "difficulty": {
+            "default": "medium",
+            "type": "string"
+          },
+          "focus_prompt": {
+            "default": "",
+            "type": "string"
+          },
+          "infographic_style": {
+            "default": "auto_select",
+            "type": "string"
+          },
+          "language": {
+            "default": "",
+            "type": "string"
+          },
+          "notebook_id": {
+            "description": "Notebook UUID",
+            "type": "string"
+          },
+          "orientation": {
+            "default": "landscape",
+            "type": "string"
+          },
+          "question_count": {
+            "default": 2,
+            "type": "integer"
+          },
+          "report_format": {
+            "default": "Briefing Doc",
+            "type": "string"
+          },
+          "slide_format": {
+            "default": "detailed_deck",
+            "type": "string"
+          },
+          "slide_length": {
+            "default": "default",
+            "type": "string"
+          },
+          "source_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Source IDs to use (default: all sources)"
+          },
+          "title": {
+            "default": "Mind Map",
+            "type": "string"
+          },
+          "video_format": {
+            "default": "explainer",
+            "type": "string"
+          },
+          "video_style_prompt": {
+            "default": "",
+            "type": "string"
+          },
+          "visual_style": {
+            "default": "auto_select",
+            "type": "string"
+          }
+        },
+        "required": [
+          "notebook_id",
+          "artifact_type"
+        ],
+        "type": "object"
+      },
+      "name": "studio_create",
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    {
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      },
+      "description": "Check studio content generation status and get URLs, or rename an artifact.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "default": "status",
+            "description": "Action to perform:\n- status (default): List all artifacts with their status and URLs\n- rename: Rename an artifact (requires artifact_id and new_title)\n- list_types: List all supported artifact types with their options",
+            "type": "string"
+          },
+          "artifact_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Required for action=\"rename\" - the artifact UUID to rename"
+          },
+          "new_title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Required for action=\"rename\" - the new title for the artifact"
+          },
+          "notebook_id": {
+            "description": "Notebook UUID",
+            "type": "string"
+          }
+        },
+        "required": [
+          "notebook_id"
+        ],
+        "type": "object"
+      },
+      "name": "studio_status",
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    }
+  ],
+  "tools_sha256": "18d15510f41c9b186293d018ac964ad7a5b619e5d0e1a85cc1f64e4ca04b69ab"
+}

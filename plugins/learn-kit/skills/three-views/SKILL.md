@@ -1,32 +1,8 @@
 ---
 name: three-views
-description: |
-  Use when the user wants to learn a topic by generating 3-tier learning markdown (foundation 零基础版 / structural 结构版 / challenge 挑战版) from sources (project files / external URL / pasted text), with opt-in HTML rendering and opt-in NotebookLM multimedia.
-
-  Trigger phrases (invoke even without "three-views" mention):
-    - "我想学习 <topic>" / "为 <topic> 出三档学习材料" / "三视角学习" / "AI 三档生成"
-    - "generate learning docs for <topic>" / "make a learning artifact for <topic> covering all three tiers"
-    - "render learning HTML for <topic>" / "把 <topic> 推到 NotebookLM 出多媒体"
-
-  Workflow: 5-step (Intake / Source acquisition / N-view markdown / Multi-select opt-in / Execute). Step 1 tier multi-select picks which tiers generate as markdown (always ≥1). Step 4 5-cell multi-select (HTML / audio / video / slide_deck / mind_map) picks additional outputs; NLM cartesian = len(generated_tiers) × len(selected NLM view-cycled types) + (1 if mind_map). NLM requires notebooklm-mcp + one-time `nlm login`; preserves all nlm-studio dogfood防护. Slash: `/learn-kit:three-views <topic>`.
-
-  Do NOT use for: editing existing learning markdown; pure explanation / Q&A; NLM notebook lifecycle ops beyond create/source_add/studio_create/studio_status; infographic / slide-revise / artifact-download (out of scope per v6.0.0 ADR).
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-  - AskUserQuestion
-  - Agent
-  - WebFetch
-  - mcp__plugin_learn-kit_notebooklm-mcp__refresh_auth
-  - mcp__plugin_learn-kit_notebooklm-mcp__server_info
-  - mcp__plugin_learn-kit_notebooklm-mcp__notebook_list
-  - mcp__plugin_learn-kit_notebooklm-mcp__notebook_get
-  - mcp__plugin_learn-kit_notebooklm-mcp__notebook_create
-  - mcp__plugin_learn-kit_notebooklm-mcp__source_add
-  - mcp__plugin_learn-kit_notebooklm-mcp__studio_create
-  - mcp__plugin_learn-kit_notebooklm-mcp__studio_status
+description: |-
+  Use when the user wants to learn a topic by generating one or more tiered learning documents from project files, URLs, or pasted text: foundation for beginners, structural for systems thinking, and challenge for deeper reasoning. Also use when the user asks to render learning HTML or optionally generate NotebookLM audio, video, slides, or a mind map. Trigger on requests such as “我想学习某主题”, “为某主题出三档学习材料”, “三视角学习”, “generate learning docs”, “render learning HTML”, or “推到 NotebookLM 出多媒体”. The workflow collects sources, lets the user choose tiers, writes Markdown, then offers optional outputs. The personal-NotebookLM branch requires Node.js 22+, uv 0.11.21+, Python 3.12 available to uv, and the pinned learn-kit NLM bridge 4.0.0 with connector 0.8.7; run nlm login if prompted. Do not use for a short definition or a single-concept explanation; use glossary or concept instead.
+allowed-tools: 'Read Write Glob Grep AskUserQuestion Agent WebFetch Bash(node "${CLAUDE_SKILL_DIR}/scripts/hash-upload-corpus.mjs" *) mcp__plugin_learn-kit_notebooklm-mcp__notebook_list mcp__plugin_learn-kit_notebooklm-mcp__notebook_get mcp__plugin_learn-kit_notebooklm-mcp__notebook_create mcp__plugin_learn-kit_notebooklm-mcp__source_add mcp__plugin_learn-kit_notebooklm-mcp__studio_create mcp__plugin_learn-kit_notebooklm-mcp__studio_status'
 ---
 
 # three-views · Topic → 1-3 Tier Learning Markdown (+ Optional HTML + Optional NLM)

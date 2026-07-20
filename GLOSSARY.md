@@ -23,7 +23,7 @@
 ## D
 
 - **Develop Pre-Bump** — Marketplace convention since v4.6.1: after each release + sync-main-to-develop, `develop` VERSION is bumped one patch ahead so `develop VERSION > main VERSION` always holds. See [`docs/adr/[ADR]_Develop_PreBump_Adoption.md`](docs/adr/[ADR]_Develop_PreBump_Adoption.md).
-- **Documentation Framework** — `[STANDARD]_Documentation_Framework.md` governing tag prefixes / 8-field frontmatter / state machine / path stability / INDEX sync / flat archive layout. Currently v1.6.
+- **Documentation Framework** — `[STANDARD]_Documentation_Framework.md` governing tag prefixes / 8-field frontmatter / state machine / path stability / INDEX sync / flat archive layout. Currently v1.7.
 
 ## E
 

@@ -1,0 +1,170 @@
+name: Codex Canary — weekly latest drift
+
+# A weekly, rolling-LATEST canary. It installs the latest codex / claude / uv and the latest
+# notebooklm-mcp connector in a throwaway runner-temp environment (completely separate from the
+# pinned baseline the rest of CI uses) and REPORTS drift:
+#   - connector schema drift: does the latest connector still advertise the exact 6-tool schema the
+#     bridge is pinned against (checked-in upstream-tools-v0.8.7.json)?
+#   - uv compat drift: does the hashed-venv installer/bootstrap still build+install under uv-latest?
+#
+# It NEVER updates a lock, a pin, or an allowlist, executes no NotebookLM tool, and touches no
+# credentials. A drift turns this job RED, but the job is deliberately NOT in any ruleset's required
+# status checks — a rolling-latest signal must never block a merge (plan §3, §6). Version numbers
+# moving (codex/claude/uv are latest by definition) is reported, not treated as drift; only the two
+# behavioural checks above go red.
+#
+# Provenance note: the connector-latest tools/list is captured by the SAME code the bridge
+# fingerprints with (plugins/learn-kit/nlm-bridge/tools/generate_contract_snapshots.py), and the
+# comparison is scripts/canary-connector-drift.mjs — no MCP/contract logic is re-implemented here.
+
+on:
+  schedule:
+    - cron: '17 2 * * 1' # Mondays 02:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  # A manual dispatch and the weekly run must not cancel each other; let both finish.
+  group: codex-canary
+  cancel-in-progress: false
+
+jobs:
+  canary:
+    name: Canary — latest drift
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install repo devDependencies
+        run: npm ci
+
+      - name: Initialise drift log
+        # The final step fails the job iff this file ends up non-empty. Drift is a LOGICAL condition,
+        # not a step failure, so we record it here and aggregate at the end.
+        run: printf '' > "$RUNNER_TEMP/drift.log"
+
+      - name: Install uv (latest — separate from the pinned 0.11.21 baseline)
+        if: always()
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Install latest Codex + Claude CLIs (informational only)
+        if: always()
+        # Their versions are REPORTED, not drift-checked (they roll independently of the supply
+        # chain). A wrong/renamed package name surfaces as a missing version in the report below, not
+        # as a silent pass, and must not fail the job — hence the tolerant `|| true`.
+        run: |
+          npm install -g @openai/codex@latest @anthropic-ai/claude-code@latest \
+            || echo "note: could not install latest codex/claude globally; versions will report as null"
+
+      - name: Report latest tool versions
+        if: always()
+        run: |
+          {
+            echo '### Latest tool versions'
+            echo '```json'
+            npm run --silent report:tool-versions || echo '{}'
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Connector-latest 6-tool schema drift
+        if: always()
+        env:
+          BASELINE: plugins/learn-kit/nlm-bridge/src/learn_kit_nlm_bridge/_data/upstream-tools-v0.8.7.json
+        run: |
+          # NOT set -e: every failure path is routed to drift.log so the single "Drift conclusion"
+          # step is the only place the job turns red (a consistent summary). -o pipefail is for the
+          # tee below; -u catches typos.
+          set -uo pipefail
+          fail() { echo "connector: $1" >> "$RUNNER_TEMP/drift.log"; exit 0; }
+
+          TMP="$RUNNER_TEMP/connector"
+          mkdir -p "$TMP/out"
+
+          # Install the LATEST connector into a throwaway venv. Latest/unpinned, so no hashes; it is
+          # isolated in runner-temp and never touches the checked-in lock.
+          uv venv --python 3.12 --no-python-downloads --no-config "$TMP/venv" \
+            || fail "could not create the uv venv (uv-latest incompatibility?)"
+          PY="$TMP/venv/bin/python"
+          uv pip install --python "$PY" --no-config notebooklm-mcp-cli \
+            || fail "could not install the latest connector from PyPI"
+          LATEST="$("$PY" -c 'import importlib.metadata as m; print(m.version("notebooklm-mcp-cli"))')" \
+            || fail "installed the latest connector but could not read its version"
+          echo "Latest connector: $LATEST" >> "$GITHUB_STEP_SUMMARY"
+
+          # Capture its tools/list with the bridge's own fingerprinting tool, in a denied-network
+          # namespace when available (pinned 0.8.7 needs no network for initialize+tools/list; if
+          # latest reaches out, the capture fails and that IS drift). Best-effort: if unshare is not
+          # permitted, run without the namespace rather than skip the capture.
+          NET=""
+          if unshare -rn true 2>/dev/null; then NET="unshare -rn"; fi
+
+          $NET "$PY" plugins/learn-kit/nlm-bridge/tools/generate_contract_snapshots.py \
+            --out "$TMP/out" --connector-version "$LATEST" \
+            || fail "$LATEST: tools/list capture failed (surface / auth-path / behaviour drift from pinned 0.8.7)"
+
+          node scripts/canary-connector-drift.mjs \
+            --latest "$TMP/out/upstream-tools-v$LATEST.json" --baseline "$BASELINE" \
+            | tee -a "$GITHUB_STEP_SUMMARY"
+          drift_rc=${PIPESTATUS[0]}
+          if [ "$drift_rc" -eq 2 ]; then fail "$LATEST: drift comparison could not run (bad snapshot input)"; fi
+          if [ "$drift_rc" -ne 0 ]; then fail "$LATEST: 6-tool schema drift vs pinned 0.8.7"; fi
+          echo "connector $LATEST: no tool-schema drift vs pinned 0.8.7" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: uv-latest compat — hashed-venv installer/bootstrap replay
+        if: always()
+        env:
+          REQUIRE_PYTHON: '1'
+        # Re-runs the hashed-venv-building tests (bridge venv, real end-to-end installer via its
+        # module-import DI, and the probe) with uv LATEST on PATH. The installer's production path
+        # resolves uv from PATH and takes no fixture override, so this exercises the real hashed-venv
+        # build/install under uv-latest. It never falls back to `uv tool install` and never mutates
+        # the checked-in lock. A break here is uv compat drift vs the pinned 0.11.21.
+        run: |
+          set +e
+          node --test tests/learn-kit-nlm-bridge.test.mjs tests/install-nlm-bridge.test.mjs tests/probe-learn-kit-nlm-bridge.test.mjs
+          rc=$?
+          set -e
+          if [ "$rc" -ne 0 ]; then
+            echo "uv latest: hashed-venv installer/bootstrap replay failed (compat drift vs 0.11.21)" \
+              >> "$RUNNER_TEMP/drift.log"
+          fi
+
+      - name: Upload canary artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: codex-canary
+          path: |
+            ${{ runner.temp }}/drift.log
+            ${{ runner.temp }}/connector/out
+          retention-days: 7
+          if-no-files-found: ignore
+
+      - name: Drift conclusion
+        if: always()
+        # The single place the job turns red on a logical drift. Any hard step failure above already
+        # reddens the job on its own; this also catches the "everything ran, but drifted" case.
+        run: |
+          if [ -s "$RUNNER_TEMP/drift.log" ]; then
+            {
+              echo '### ❌ Canary drift detected'
+              sed 's/^/- /' "$RUNNER_TEMP/drift.log"
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo 'DRIFT DETECTED:'
+            cat "$RUNNER_TEMP/drift.log"
+            exit 1
+          fi
+          echo '### ✅ No drift' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Latest codex/claude/uv/connector are consistent with the pinned baseline.'
