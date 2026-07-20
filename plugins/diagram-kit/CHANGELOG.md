@@ -17,6 +17,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - **Dual-host invocation** — Claude `/diagram-kit:arch-diagram`, Codex `$diagram-kit:arch-diagram`; internal routing uses bare qualified skill names, not host-specific slashes.
 - Interpreter probe order aligned to `python3 → python → py -3`.
 
+### Fixed
+
+- **`validate_diagram.py` UTF-8 output on non-UTF-8 locales** — the linter prints CJK (diagram names, rule messages, the `共扫描 N 张图` tally) and the scanned file path; on a Windows pipe/console whose active code page is not UTF-8 (e.g. `cp1252`), that raised `UnicodeEncodeError` and aborted the lint. The CLI entry point now reconfigures `stdout`/`stderr` to UTF-8, so linting a diagram whose path or content contains non-ASCII characters works on any platform locale.
+
 ## [0.1.0] - 2026-06-05
 
 ### Added
