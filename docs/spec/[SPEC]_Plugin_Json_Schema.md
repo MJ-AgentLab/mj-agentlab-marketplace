@@ -4,9 +4,9 @@ scope: marketplace
 summary: plugin.json local conventions — 6 required fields, repository as string, SKILL.md auto-discovery
 owner: marketplace-maintainers
 created: 2026-05-15
-updated: 2026-05-15
+updated: 2026-07-20
 state: active
-version: v1.0
+version: v1.1
 domain: plugin-dev
 related:
   - ./[SPEC]_Marketplace_Json_Schema.md
@@ -81,49 +81,69 @@ Each plugin MUST have this structure:
 ```
 plugins/<name>/
 ├── .claude-plugin/
-│   └── plugin.json          # ← this SPEC governs this file
+│   └── plugin.json          # ← this SPEC governs this file (Claude Code SSOT)
+├── .codex-plugin/
+│   └── plugin.json          # Codex 原生 manifest；version 必须与 .claude-plugin/plugin.json 一致
 ├── CLAUDE.md                # plugin overview (Claude Code spec contract)
 ├── README.md                # user guide
 ├── CHANGELOG.md             # Keep-a-Changelog format
 ├── LICENSE                  # MIT (or whatever license declared)
+├── .mcp.json                # optional; MCP server 注册（见下）
 └── skills/
     └── <skill-name>/
         ├── SKILL.md         # required; Claude Code spec native frontmatter
+        ├── agents/
+        │   └── openai.yaml  # Codex 技能 UI 元数据（display_name / short_description / default_prompt）
         ├── templates/       # optional
         ├── references/      # optional
         └── scripts/         # optional
 ```
 
-`.mcp.json` at plugin root is optional; required only when the plugin registers an MCP server (e.g., `plugins/learn-kit/.mcp.json` registers `notebooklm-mcp`).
+**Codex dual-native wrappers（v7.0.0 起）**：`.claude-plugin/plugin.json` 仍是 Claude Code 的**唯一权威源（SSOT）**。在其**并行**新增 3 类 Codex 原生工件（不改动 `.claude-plugin/**`）：
+
+| 工件 | 位置 | 作用 | 版本 |
+|------|------|------|------|
+| Codex 原生 manifest | `plugins/<name>/.codex-plugin/plugin.json` | Codex 侧插件元数据 + `interface` UI 段 | 与 `.claude-plugin/plugin.json` 的 `version` 精确一致（由 `scripts/validate-dual-host.mjs` 强制） |
+| 技能 UI 元数据 | `plugins/<name>/skills/<skill>/agents/openai.yaml` | Codex 侧 skill display_name / short_description / default_prompt + `allow_implicit_invocation` | 无版本字段 |
+| Codex 原生 catalog | 仓库级 `.agents/plugins/marketplace.json` | Codex 原生插件目录（等价 `.claude-plugin/marketplace.json`） | **不保存版本**（native catalog carries no version） |
+
+`.mcp.json` at plugin root is optional; required only when the plugin registers an MCP server. `plugins/learn-kit/.mcp.json` registers server `notebooklm-mcp`，其 `command` 自 v7.0.0 起指向本仓 bridge 可执行文件 `learn-kit-nlm-bridge`（不再是上游 `notebooklm-mcp` 包）：
+
+```json
+{
+  "mcpServers": {
+    "notebooklm-mcp": { "command": "learn-kit-nlm-bridge", "args": [] }
+  }
+}
+```
 
 ### §3.4 `keywords` Composition
 
-Recommended keyword mix (per learn-kit v1.0.0 pattern):
+Recommended keyword mix (per learn-kit v4.0.0 pattern):
 
-- 4-6 domain concepts (`learning`, `pedagogy`, `methodology`, ...)
-- 4-6 specific skill / feature names (`locate`, `scan`, `three-tier`, ...)
-- 4-6 tool / format names (`nlm-studio`, `notebooklm`, `audio`, ...)
+- 4-6 domain concepts (`learning`, `pedagogy`, `explanation`, ...)
+- 4-6 specific skill / feature names (`three-views`, `glossary`, `concept`, ...)
+- 4-6 tool / format names (`notebooklm`, `audio`, `html-render`, ...)
 
 Total: 15-25 keywords. Used by marketplace search and Claude Code's plugin discovery UI.
 
 ## §4 Examples
 
-### §4.1 Compliant (current learn-kit v1.0.0)
+### §4.1 Compliant (current learn-kit v4.0.0)
 
 ```json
 {
   "name": "learn-kit",
-  "version": "2.0.0",
-  "description": "Pedagogical kit for learnable knowledge artifacts. Five skills: (1) /learn-kit:scaffold-learning scaffolds the learning subsystem; (2) /learn-kit:locate reverse-looks up concepts; (3) /learn-kit:scan enumerates learnable docs; (4) /learn-kit:generate-tier AI-generates three-tier (foundation/structural/challenge) learning markdown plus optional interactive HTML; (5) /learn-kit:nlm-studio pushes a topic's three-tier markdown corpus to NotebookLM and generates up to 13 online-viewable multimedia artifacts. nlm-studio requires notebooklm-mcp MCP server (bundled) + nlm login; the other four skills run with no external dependencies.",
+  "version": "4.0.0",
+  "description": "Pedagogical kit for learnable knowledge artifacts. Three skills: (1) three-views AI-generates a user-chosen subset of 1-3 tier (foundation/structural/challenge) learning markdown plus optional interactive HTML and optional NotebookLM multimedia; (2) glossary produces a one-paragraph six-slot term card; (3) concept gives a six-section concept deep-dive. Invoke via Claude Code `/learn-kit:<skill>` or Codex `$learn-kit:<skill>` (bare `$skill` does not resolve). The optional NotebookLM branch of three-views runs through the bundled learn-kit-nlm-bridge (requires Node.js 22+, uv 0.11.21+, a user-provided Python 3.12, and Gate A/B consent); glossary and concept run with no external dependencies.",
   "author": { "name": "MJ-AgentLab" },
   "repository": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace",
   "keywords": [
-    "learning", "pedagogy", "methodology", "rule-list",
-    "interpretation", "discovery", "locate", "scan",
-    "three-tier", "foundation", "structural", "challenge",
-    "ai-generation", "html-render", "nlm-studio",
-    "notebooklm", "audio", "video", "multimedia",
-    "slide-deck", "mind-map", "infographic"
+    "learning", "pedagogy", "three-views", "foundation",
+    "structural", "challenge", "ai-generation", "html-render",
+    "source-manifest", "notebooklm", "nlm", "audio", "video",
+    "slide-deck", "mind-map", "multimedia", "glossary",
+    "concept", "explanation", "term-card"
   ],
   "license": "MIT"
 }
@@ -193,4 +213,5 @@ This SPEC versions independently from `plugin.json` content:
 
 | Version | Date | Summary |
 |---------|------|---------|
-| v1.0 | 2026-05-15 | Initial SPEC. Captures marketplace v4.0.0+ plugin convention (1 plugin: learn-kit v1.0.0). Documents the historical repository-as-string fix (PR #70, v3.2.1 → v3.2.2). |
+| v1.1 | 2026-07-20 | v7.0.0 Codex dual-native sync. §3.3 adds the 3 Codex native wrappers (`.codex-plugin/plugin.json` + `skills/<skill>/agents/openai.yaml` + repo-level `.agents/plugins/marketplace.json`) while `.claude-plugin/**` stays SSOT; `.mcp.json` example updated to the `learn-kit-nlm-bridge` command. §4.1 modernized to learn-kit v4.0.0 (3 skills three-views/glossary/concept, dual-host `/` + `$` invocation; removed-skill list dropped). §3.4 keyword-mix examples de-referenced from removed skills. |
+| v1.0 | 2026-05-15 | Initial SPEC. Captures the marketplace v4.0.0 single-plugin era (then-current: learn-kit v1.0.0). Documents the historical repository-as-string fix (PR #70, v3.2.1 → v3.2.2). |

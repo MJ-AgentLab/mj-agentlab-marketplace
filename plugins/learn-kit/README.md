@@ -35,34 +35,50 @@ v3.0.0 整合 v2.x 的 5 个 skill 为 1 个 `three-views`。**4 个公开 slash
 
 ## 安装
 
-通过 `mj-agentlab-marketplace` 安装：
+两个宿主都支持；完整步骤（marketplace 注册 + 安装级别）见[根 README 安装段](../../README.md#安装)。各自的 add 命令：
 
 ```bash
-/plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace
+# Claude Code
 /plugin install learn-kit@mj-agentlab-marketplace
+# Codex
+codex plugin add learn-kit --marketplace mj-agentlab-marketplace
 ```
 
-或在 `~/.claude/settings.json` 中显式启用：
+调用（全限定）：Claude `/learn-kit:three-views`、Codex `$learn-kit:three-views`（裸 `$three-views` 不解析）。
 
-```json
-{
-  "enabledPlugins": {
-    "learn-kit@mj-agentlab-marketplace": true
-  }
-}
+## NLM（可选，仅个人版）
+
+**核心 markdown 生成 + HTML 渲染 + glossary + concept 都零外部依赖。** NotebookLM 多媒体分支是可选的，缺席时上述本地流程完全不受影响（只是 NLM 报告缺少可选组件）。
+
+启用 NLM 分支需要用户预先提供（installer **不**自动下载任何一项）：
+
+- **Node.js 22+** 与 **uv 0.11.21+** 在 PATH。
+- 一个 uv 能解析的 **Python 3.12** interpreter（可手工 `uv python install 3.12`，但 installer / skill 不执行它）。
+
+然后**手工**在终端运行 learn-kit 的 bridge installer（skill 从不运行它，只打印可复制命令）。`three-views` 会按当前 plugin locator 把 `<abs-plugin-root>` 渲染成绝对路径；下面是**同形模板，占位符不可原样执行**（两个固定 URL、无单引号、无 `--force`、无 raw executable）：
+
+```
+node "<abs-plugin-root>/scripts/install-nlm-bridge.mjs" install --wheel-url https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/download/v7.0.0/learn_kit_nlm_bridge-4.0.0-py3-none-any.whl --checksum-url https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/download/v7.0.0/learn_kit_nlm_bridge-4.0.0-py3-none-any.whl.sha256
 ```
 
-## 前置依赖
+installer 下载固定 wheel + checksum、严格校验后建一个 **hashed 私有 venv**（`uv pip install --require-hashes`），原子写 `install-receipt.json`，只创建**两个** receipt-owned public shim（`learn-kit-nlm-bridge` + 受限 `nlm`）；不暴露上游 raw `notebooklm-mcp` / raw `nlm`，不改 PATH，冲突时安全失败（无 `--force`）。安装后把固定 public bin 加入启动宿主的 PATH 并**重启宿主**：
 
-- **核心 markdown 生成**: 零外部依赖
-- **HTML 渲染**（可选）: 零外部依赖（spawn Explore subagent 内部完成 concept→code grounding，不需要额外配置）
-- **NLM 多媒体**（可选）需要：
-  - `notebooklm-mcp` MCP server（本插件 `.mcp.json` 自动加载；首次需在终端 `uv tool install notebooklm-mcp-cli` 一次）
-  - NotebookLM 账户 + 一次性 `nlm login`（在终端运行；token 自动 refresh）
+- Windows: `%LOCALAPPDATA%\MJ-AgentLab\bin`
+- Ubuntu: `${XDG_BIN_HOME:-$HOME/.local/bin}`
 
-如不需要 NLM，可以忽略 nlm-* 依赖。
+**风险与边界披露**（Gate A 会再次展示）：
 
-> **Legacy plugin 提示**：如果之前装过 `mj-nlm@my-marketplace`（来自外部 marketplace 的 legacy NLM plugin），**建议卸载**避免 MCP server 重复加载：`/plugin uninstall mj-nlm@my-marketplace`。判断方法：工具列表同时出现 `mcp__plugin_mj-nlm_*` 和 `mcp__plugin_learn-kit_*` 前缀即为重复。
+- 桥接器封装第三方、实验性 connector（`notebooklm-mcp-cli` 0.8.7）走**未公开**的 NotebookLM internal API；上传内容会离开你的机器（敏感资料自行斟酌）。
+- 桥接器允许 session token 刷新 + 从磁盘重载已保存凭据，但 runner 用源码指纹**禁用**上游 headless auth——只有你**手工** `nlm login` 才会打开浏览器。
+- 只支持**个人版**、固定 direct-TLS endpoint `https://notebooklm.google.com`；**Enterprise / custom endpoint 不支持**。
+- 上游使用当前 default 登录，但 skill / bridge **从不枚举、显示、选择、要求或绑定**某个 Google 账号 / profile；无登录时只提示 `nlm login`。
+- **mind_map**：connector 0.8.7 忽略 mind-map 的 focus / language，`studio_create` 只传 source_ids + title，模板不影响远端图内容。
+- **Gate A/B 是行为工作流约束，不是可信授权边界**：桥接器没有用户签名 token，无法证明真人刚确认。
+- 已验证 OS：**Windows + Ubuntu**（macOS 未纳入等价 CI，暂不宣称）。
+
+装好后 `three-views` Step 5B 会先 `--self-check` → `--nlm-preflight`；任一失败即撤销 NLM、保留本地产物并打印上面的 installer 指引。
+
+> **Legacy plugin 提示（Claude Code only）**：如果之前装过 `mj-nlm@my-marketplace`（来自外部 marketplace 的 legacy NLM plugin），**建议卸载**避免 MCP server 重复加载：`/plugin uninstall mj-nlm@my-marketplace`。判断方法：工具列表同时出现 `mcp__plugin_mj-nlm_*` 和 `mcp__plugin_learn-kit_*` 前缀即为重复。
 
 ## Quick Start
 
@@ -96,12 +112,12 @@ v3.0.0 整合 v2.x 的 5 个 skill 为 1 个 `three-views`。**4 个公开 slash
 /learn-kit:glossary useEffect @React初学者 更短
 ```
 
-## 命名约定 · slash 调用必须全限定
+## 命名约定 · dual-host 全限定调用
 
-本插件 3 个 skill（`three-views` / `glossary` / `concept`）的 slash 调用**统一使用全限定形式**（`/learn-kit:three-views` / `/learn-kit:glossary` / `/learn-kit:concept`）。理由：
+本插件 3 个 skill（`three-views` / `glossary` / `concept`）**统一使用全限定形式**——Claude Code `/learn-kit:three-views` / `/learn-kit:glossary` / `/learn-kit:concept`，Codex `$learn-kit:three-views` / `$learn-kit:glossary` / `$learn-kit:concept`。理由：
 
-1. **避免与 Claude Code 内置冲突** — 历史上本插件 `init` skill 曾与内置 `/init` 冲突（v2.0.0 起 init → `scaffold-learning` 重命名物理消除；v3.0.0 起 scaffold-learning 整体退场）。统一全限定是未来防御。
-2. **可发现性** — 读者看到 `/learn-kit:three-views` 立刻知道来源；裸 `/three-views` 在长 PR 上下文里语义二义。
+1. **两宿主一致 + 未来防御** — Codex 按 `plugin:skill` 注册，裸 `$three-views` 根本不解析；Claude 侧历史上 `init` skill 曾与内置 `/init` 冲突（v2.0.0 起 init → `scaffold-learning`，v3.0.0 起整体退场）。
+2. **可发现性** — 读者看到 `learn-kit:three-views` 立刻知道来源；裸名在长 PR 上下文里语义二义。
 
 ## 中文 TL;DR · 30 秒认知
 
@@ -192,9 +208,9 @@ NLM artifact 不本地落盘 — 终端打 URL 表格（每 cell 选中数 × ge
 | skill 不触发 | 关键词不在 description trigger 列表 | 改用直接触发词："我想学习 X" / "为 X 出三档学习材料" |
 | 生成内容空洞 | source 太少或不相关 | Step 1 多选几个 source 来源；或粘贴更多文本 |
 | HTML 概念未挂代码 | repo-code mode 但仓库里没有对应代码 | HTML 自动 `<missing-evidence concept="X"/>` 占位，不虚构；或换 source-evidence mode |
-| NLM 中途「Authentication expired」| NLM token 寿命 15-30 min | 终端 `! nlm login` 再调；mid-run retry-once 已兜底；重跑选 "Regenerate missing" 续 |
+| NLM 返回 `AUTH_REQUIRED` | 无可用登录 / token 失效（v4.0.0 桥接器管 auth，不自动登录、不刷 token） | 停下并在终端自行 `nlm login`（skill/bridge 从不代登录），完成后从 Gate A 前的本地 preflight 重来 |
 | NLM 中途「quota exceeded」| 当日已用过 NLM Studio quota | Step 5B Quota gate 选 "Reduce subset" 或 "Pick single tier"（v3.1.0 重命名）缩小批量；或重跑时 Step 1.3 只选 1 视角 + Step 4 只勾少数 NLM cell |
-| **(v3.1.0)** Step 5B re-run 报 source corpus mismatch warning | 同 topic 之前跑过完整 3-tier，本次只跑 1 tier，但 notebook 还在 | 默认推荐 "Replace sources + new notebook" 或 "New timestamped notebook"；不要强行 "Regenerate missing"（会用 3-source 给 1-tier 产物，contamination） |
+| **(v4.0.0)** Step 5B re-run guard 不给 reuse 选项 | 远端语料无法与本地 `corpus_sha256` 精确匹配（不同 tier 子集 / 旧 notebook 无 hash） | 这是有意的——默认新建 timestamped notebook 或 abort，避免用 3-source notebook 给 1-tier 产物（contamination）；已删掉不安全的 `(topic, len(sources))` 等价 fallback |
 | 同 topic 三档 mind_map 看起来差不多 | NLM 媒介对 mind_map 无视 view 差异化（dogfood finding #5）| 设计决定：1 shared mind_map / topic（v3.0.0 起 mind_map 仅作为 Step 4 可选项） |
 | 想生成 infographic | v6.0.0 永久删除 | 用 NotebookLM web UI 手动建；ADR §3.2 解释 |
 | `nlm login` 报错 | OAuth flow 故障 / proxy 干扰 / token 已损 | 重跑 `nlm login`；检查 `~/.nlm/` 权限；看 [notebooklm-mcp-cli upstream](https://pypi.org/project/notebooklm-mcp-cli/) |

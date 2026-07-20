@@ -1,6 +1,6 @@
 # MJ AgentLab Marketplace
 
-![Version](https://img.shields.io/badge/version-6.3.2-blue)
+![Version](https://img.shields.io/badge/version-7.0.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![CI](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml)
 
@@ -8,14 +8,16 @@
 
 通用 [Claude Code](https://docs.anthropic.com/en/docs/claude-code) 插件市场——教学方法论 + NotebookLM 多媒体集成 + 架构图生成，分布在 **2 个 plugin**（learn-kit + diagram-kit）。不绑定特定项目，可服务任意 Claude Code 使用者；在 [mj-system](https://github.com/MJ-AgentLab/mj-system) 与 mj-agent 两个项目上长期实战验证。
 
-> **v4.0.0 重大变更**：marketplace 从 "2 plugin（notebooklm-kit + learn-kit）" 收敛为 "1 plugin（learn-kit）"。原 `notebooklm-kit` 整个退场（7 个 skill 退役），其核心 build + studio 多媒体场景被 `learn-kit` 新增的 `nlm-studio` skill 吸收，并加入 **View-Purpose Preservation** 原则使生成的 artifact 严格匹配源 view（foundation/structural/challenge）的教学目的。详见 [docs/adr/[ADR]_NotebookLM_Kit_Retirement.md](docs/adr/[ADR]_NotebookLM_Kit_Retirement.md) + [docs/guide/[GUIDE]_Migration_From_v3_to_v4.md](docs/guide/[GUIDE]_Migration_From_v3_to_v4.md)。
+> **v7.0.0 重大变更（NLM-only BREAKING）**：新增 **Codex 原生双宿主支持**（`.agents/plugins/marketplace.json` + 每插件 `.codex-plugin/plugin.json` + 每技能 `agents/openai.yaml`），技能在 Claude Code 与 Codex 均可发现（Claude `/plugin:skill`、Codex `$plugin:skill`）；learn-kit `3.2.1 → 4.0.0`——可选 NotebookLM 分支改用本仓发布的 `learn-kit-nlm-bridge`（固定 connector 0.8.7），需 Node 22+ / uv 0.11.21+ / 用户自备 Python 3.12，收窄到 6-tool + Gate A/B 行为同意门。**本地 markdown / HTML / glossary / concept / diagram 流程完全不变。** 详见 [CHANGELOG](CHANGELOG.md)。
+
+> **v4.0.0 重大变更**（历史）：marketplace 从 "2 plugin（notebooklm-kit + learn-kit）" 收敛为 "1 plugin（learn-kit）"。原 `notebooklm-kit` 整个退场（7 个 skill 退役），其核心 build + studio 多媒体场景被 `learn-kit` 新增的 `nlm-studio` skill 吸收，并加入 **View-Purpose Preservation** 原则使生成的 artifact 严格匹配源 view（foundation/structural/challenge）的教学目的。详见 [docs/adr/[ADR]_NotebookLM_Kit_Retirement.md](docs/adr/[ADR]_NotebookLM_Kit_Retirement.md) + [docs/guide/[GUIDE]_Migration_From_v3_to_v4.md](docs/guide/[GUIDE]_Migration_From_v3_to_v4.md)。
 
 ## 插件目录
 
 | Plugin | 描述 | Skills | Version | 适用项目 |
 |--------|------|--------|---------|---------|
-| [**learn-kit**](plugins/learn-kit/README.md) | 教学方法论 kit：给定主题 + 源材料（项目文件 / 外部 URL / 粘贴文本），生成 1-3 阶段学习 markdown（foundation/structural/challenge；v3.1.0 起 Step 1.3 视角 multi-select default 全选 / min 1），按需扩展 HTML（dual-mode grounding，per generated tier）与 NotebookLM 多媒体（v3.1.0 起 Step 4 5-cell granular multi-select；max 10 artifact）；v3.2.0 起另含 glossary / concept 两个轻量 in-chat 解释 skill | **3** | **3.2.1** | 任意 |
-| [**diagram-kit**](plugins/diagram-kit/README.md) | 架构 / UML 绘图 kit：把代码库 / 系统的源事实转成证据绑定的 Mermaid 架构图，7 类（context / container / component / code〔C4 结构〕+ sequence / state-machine〔行为〕+ deployment〔物理〕），任意域；事实先行（L0–L3 阶梯，每节点/边可追 `file:行号`）；bundle 9 份领域无关 references + 泛化 stdlib Mermaid validator | **1** | **0.1.0** | 任意 |
+| [**learn-kit**](plugins/learn-kit/README.md) | 教学方法论 kit：给定主题 + 源材料（项目文件 / 外部 URL / 粘贴文本），生成 1-3 阶段学习 markdown（foundation/structural/challenge；v3.1.0 起 Step 1.3 视角 multi-select default 全选 / min 1），按需扩展 HTML（dual-mode grounding，per generated tier）与 NotebookLM 多媒体（v3.1.0 起 Step 4 5-cell granular multi-select；max 10 artifact）；v3.2.0 起另含 glossary / concept 两个轻量 in-chat 解释 skill | **3** | **4.0.0** | 任意 |
+| [**diagram-kit**](plugins/diagram-kit/README.md) | 架构 / UML 绘图 kit：把代码库 / 系统的源事实转成证据绑定的 Mermaid 架构图，7 类（context / container / component / code〔C4 结构〕+ sequence / state-machine〔行为〕+ deployment〔物理〕），任意域；事实先行（L0–L3 阶梯，每节点/边可追 `file:行号`）；bundle 9 份领域无关 references + 泛化 stdlib Mermaid validator | **1** | **0.2.0** | 任意 |
 
 > **v6.3.0 Additive（NEW plugin）**：新建 `diagram-kit 0.1.0`——marketplace 史上首次 plugin 计数 **1 → 2**。单 skill `arch-diagram`（`/diagram-kit:arch-diagram`）把代码库事实转成证据绑定 Mermaid 图（7 类）；与 learn-kit 功能正交（一个出架构图、一个出学习材料），8→3→1 收敛方向经 domain-orthogonality reconcile。详见 [`[ADR]_Diagram_Kit_Addition`](docs/adr/[ADR]_Diagram_Kit_Addition.md)。
 >
@@ -41,17 +43,19 @@ diagram-kit 1 个 skill 用法：
 
 ## 安装
 
-> 前提：已安装 [Claude Code](https://docs.anthropic.com/en/docs/claude-code)。
+两个宿主都支持——选你在用的那个。
 
-### 1. 注册 Marketplace
+### Claude Code
+
+前提：已安装 [Claude Code](https://docs.anthropic.com/en/docs/claude-code)。注册 marketplace 并安装两个插件：
 
 ```
 /plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace
+/plugin install learn-kit@mj-agentlab-marketplace
+/plugin install diagram-kit@mj-agentlab-marketplace
 ```
 
-### 2. 安装插件
-
-Claude Code 插件支持三种安装级别：
+三种安装级别：
 
 | 级别 | 命令 flag | 配置文件 | 共享 | 适用场景 |
 |------|-----------|----------|------|----------|
@@ -59,41 +63,38 @@ Claude Code 插件支持三种安装级别：
 | 项目级 | `--scope project` | `.claude/settings.json` | 是（提交到 git） | 团队共享，新成员自动获取 |
 | 本地级 | `--scope local` | `.claude/settings.local.json` | 否（gitignore） | 仅本项目、仅本人，不影响团队 |
 
-#### 用户级安装（默认，所有项目可用）
+例如团队共享：`/plugin install learn-kit@mj-agentlab-marketplace --scope project`。技能以全限定 slash 触发：`/learn-kit:three-views` / `/learn-kit:glossary` / `/learn-kit:concept` / `/diagram-kit:arch-diagram`。
+
+### Codex
+
+前提：已安装 Codex CLI（0.144.3+）。五条 onboarding 命令：
 
 ```
-/plugin install learn-kit@mj-agentlab-marketplace
-/plugin install diagram-kit@mj-agentlab-marketplace
+codex plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace
+codex plugin add learn-kit --marketplace mj-agentlab-marketplace
+codex plugin add diagram-kit --marketplace mj-agentlab-marketplace
+codex plugin list
+codex debug prompt-input "check skills"
 ```
 
-#### 项目级安装（提交到 git，团队共享）
+技能以全限定 `$plugin:skill` 触发：`$learn-kit:three-views` / `$learn-kit:glossary` / `$learn-kit:concept` / `$diagram-kit:arch-diagram`（Codex 按 `plugin:skill` 注册，裸 `$three-views` 不解析）。
 
-```
-/plugin install learn-kit@mj-agentlab-marketplace --scope project
-```
+### NLM 多媒体（可选，仅个人版）
 
-### 3. 前置依赖（仅 NLM 多媒体需要）
-
-如要在 `/learn-kit:three-views` Step 4 勾选任一 NLM cell（audio / video / slide_deck / mind_map）出 NotebookLM 多媒体，需在终端先做一次配置：
-
-```bash
-# 安装 notebooklm-mcp CLI（一次性）
-uv tool install notebooklm-mcp-cli --with socksio --force
-
-# Google OAuth 登录（一次性；token 自动 refresh）
-nlm login
-```
+`/learn-kit:three-views` 的 NotebookLM 分支是**可选**的——markdown / HTML / glossary / concept / diagram 都不需要它。启用需要 **Node.js 22+**、**uv 0.11.21+**、一个用户预先提供且 uv 能解析的 **Python 3.12**（installer **不**自动下载），并手工运行 learn-kit 的 bridge installer。**不使用** `uv tool install` / `--force` / 直连第三方 connector / auto-latest。完整前置、可复制 installer 命令模板、hashed 私有 venv / receipt / 风险披露见 [learn-kit/README.md](plugins/learn-kit/README.md)。首次调用若返回 `AUTH_REQUIRED`，在终端自行 `nlm login`（插件从不代登录、不枚举 / 绑定 Google 账号）。仅支持**个人版** NotebookLM，Enterprise / custom endpoint 不支持。
 
 如只用 markdown + HTML，无需任何外部依赖。
 
-### 4. 使用示例
+### 使用示例
 
 ```
-/learn-kit:three-views                       # 弹出 Step 1.3 视角 multiSelect (default 3 全选)
-                                             # → Step 4 5-cell multiSelect (default 全不选)
-/learn-kit:three-views documentation-framework  # 带 topic arg；同上 flow
+# Claude Code
+/learn-kit:three-views                          # 弹出 Step 1.3 视角 multiSelect (default 3 全选)
+/learn-kit:three-views documentation-framework  # 带 topic arg → Step 4 5-cell multiSelect (default 全不选)
+# Codex
+$learn-kit:three-views documentation-framework
 
-# 自然语言触发同样进入 three-views skill：
+# 自然语言触发同样进入 three-views skill（两宿主通用）：
 "我想学习 React useEffect 内部原理"
 "为 [STANDARD]_HITL 出三档学习材料"
 "把 git rebase 内部原理推到 NotebookLM 出 audio"
@@ -112,7 +113,7 @@ nlm login
 如果你在 v3.x 使用过 `notebooklm-kit`：
 
 - **`/notebooklm-kit:build` + `/notebooklm-kit:studio` + `/notebooklm-kit:learn-make`** 的核心场景（上传文档 + 出多媒体 artifact）→ 用 `/learn-kit:three-views <topic>` 替代，Step 4 勾选所需 NLM cell（audio / video / slide_deck / mind_map）；新版会严格保持 foundation/structural/challenge 三档的教学目的差异
-- **`/notebooklm-kit:auth`** → 直接在终端跑 `! nlm login`（three-views 的 Step 5B pre-flight 自动检查 auth）
+- **`/notebooklm-kit:auth`** → v7.0.0 起 NLM auth 由 `learn-kit-nlm-bridge` 管理；`AUTH_REQUIRED` 时 three-views 只提示你在终端自行 `nlm login`（skill/bridge 从不代登录，也不枚举 / 绑定账号）
 - **`/notebooklm-kit:learn-test`（quiz / flashcards）** → 永久退役，无替代。如需评估学习效果，用外部工具
 - **`/notebooklm-kit:manage`（notebook 增删改 / 分享）** → 永久退役。直接用 notebooklm.google.com web UI
 - **`/notebooklm-kit:query`（跨 notebook 查询）** → 永久退役。同上

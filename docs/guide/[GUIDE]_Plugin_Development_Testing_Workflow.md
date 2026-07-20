@@ -4,9 +4,9 @@ scope: marketplace
 summary: Plugin 开发测试工作流 — 跨仓库 3 阶段（快速开发 / 集成验证 / 发布前验证）
 owner: marketplace-maintainers
 created: 2026-03-17
-updated: 2026-05-15
+updated: 2026-07-20
 state: active
-version: v1.0
+version: v1.1
 domain: plugin-dev
 tags:
   - plugin-dev
@@ -100,7 +100,8 @@ D:\workspace\10-software-project\projects\
     ├── main/                           ← main worktree（发布用）
     └── feature/add-skill-xxx/          ← feature worktree（开发用）
         └── plugins/
-            └── learn-kit/              ← v4.0.0+ 唯一 plugin
+            ├── learn-kit/              ← plugin 1（教学）
+            └── diagram-kit/            ← plugin 2（架构图；v6.3.0 起）
 ```
 
 > **关键理解**：bare repo worktree 模式下，每个分支对应一个**独立的目录**。切换分支 = `cd` 到对应 worktree 目录，**不使用 `git checkout`**。
@@ -189,23 +190,23 @@ claude --plugin-dir ../../mj-agentlab-marketplace/feature/add-skill-xxx/plugins/
 > claude --plugin-dir "D:\workspace\10-software-project\projects\mj-agentlab-marketplace\feature\add-skill-xxx\plugins\learn-kit"
 > ```
 
-启动后，`learn-kit` 插件加载的是本地 feature 分支的代码，而不是缓存中的旧版本。v4.0.0+ marketplace 仅 1 个 plugin (learn-kit)，所以无其他 plugin 同时加载；如未来扩充多 plugin，未指定 `--plugin-dir` 的 plugin 会从缓存加载。
+启动后，`learn-kit` 插件加载的是本地 feature 分支的代码，而不是缓存中的旧版本。v7.0.0 marketplace 有 2 个 plugin (learn-kit + diagram-kit)；只有 `--plugin-dir` 指定的 plugin 会用本地版本，未指定的另一个 plugin 仍从缓存加载（多插件同测见 §4.3）。
 
 ### 4.3 多插件同时测试
 
 **Bash / Git Bash**：
 ```bash
-# 同时测试 learn-kit 和 learn-kit（路径含 worktree 段）
+# 同时测试 learn-kit 和 diagram-kit（路径含 worktree 段）
 claude \
   --plugin-dir ../../mj-agentlab-marketplace/feature/add-skill-xxx/plugins/learn-kit \
-  --plugin-dir ../../mj-agentlab-marketplace/feature/add-skill-xxx/plugins/learn-kit
+  --plugin-dir ../../mj-agentlab-marketplace/feature/add-skill-xxx/plugins/diagram-kit
 ```
 
 **PowerShell**（反引号 `` ` `` 续行，绝对路径）：
 ```powershell
 claude `
   --plugin-dir "D:\workspace\10-software-project\projects\mj-agentlab-marketplace\feature\add-skill-xxx\plugins\learn-kit" `
-  --plugin-dir "D:\workspace\10-software-project\projects\mj-agentlab-marketplace\feature\add-skill-xxx\plugins\learn-kit"
+  --plugin-dir "D:\workspace\10-software-project\projects\mj-agentlab-marketplace\feature\add-skill-xxx\plugins\diagram-kit"
 ```
 
 ### 4.4 测试 → 修改 → 热重载循环
@@ -215,7 +216,7 @@ claude `
   │                                     │
   ▼                                     │
 手动触发技能         修改 SKILL.md      │
-  │  (如 /learn-kit:learn-kit-commit)  │     │
+  │  (如 /learn-kit:three-views)      │     │
   │                               │     │
   ▼                               ▼     │
 验证行为 ──── 不符合预期 ──→ 在 marketplace │
@@ -241,9 +242,10 @@ claude `
 
 1. **优先级规则**：`--plugin-dir` 加载的插件 > 已安装的同名插件。不影响全局安装状态。
 2. **Session 范围**：覆盖仅在当前 Claude Code session 生效。退出后恢复使用缓存版本。
-3. **MCP server**：`--plugin-dir` 加载的插件中的 `.mcp.json` 也会被加载。确保 `.env` 中的环境变量（如 `GITHUB_PERSONAL_ACCESS_TOKEN`）在 your-project 项目中可用。
+3. **MCP server**：`--plugin-dir` 加载的 learn-kit `.mcp.json` 也会被加载。learn-kit 注册的 `notebooklm-mcp` server 自 v7.0.0 起 `command` 指向本仓 bridge 可执行文件 `learn-kit-nlm-bridge`（**非** GitHub-token 类 server，不读 `GITHUB_PERSONAL_ACCESS_TOKEN`）。该 NLM 分支是**可选**的，需 Node.js 22+ / uv 0.11.21+ / 用户自备 Python 3.12（installer 不下载）+ Gate A/B 行为同意方可启用；diagram-kit 无 MCP。
 4. **相对路径**：`--plugin-dir` 的路径相对于**启动目录**（即 `cd` 到的目录），不是项目根目录。
 5. **Windows PowerShell 路径**：`--plugin-dir` 在 PowerShell 中不能使用相对路径（`../../`），必须使用**绝对路径**并用双引号包裹（如 `"D:\...\plugins\learn-kit"`）。Bash/Git Bash 中相对路径正常工作。
+6. **Codex 宿主**：Codex 不用 `claude --plugin-dir`；它从仓库级 Codex 原生 catalog `.agents/plugins/marketplace.json` 安装同一批 plugin（技能调用为 `$learn-kit:three-views` 等，bare `$skill` 不解析）。
 
 ---
 
@@ -289,7 +291,7 @@ cat ~/.claude/plugins/known_marketplaces.json
 ```bash
 /plugin uninstall learn-kit@mj-agentlab-marketplace
 # 如需测试多个插件，逐个卸载
-/plugin uninstall learn-kit@mj-agentlab-marketplace
+/plugin uninstall diagram-kit@mj-agentlab-marketplace
 ```
 
 #### Step 3: 移除 GitHub marketplace 源
@@ -310,7 +312,7 @@ cat ~/.claude/plugins/known_marketplaces.json
 
 ```bash
 /plugin install learn-kit@mj-agentlab-marketplace
-/plugin install learn-kit@mj-agentlab-marketplace
+/plugin install diagram-kit@mj-agentlab-marketplace
 ```
 
 #### Step 6: 测试
@@ -327,7 +329,7 @@ cat ~/.claude/plugins/known_marketplaces.json
 
 ```bash
 /plugin uninstall learn-kit@mj-agentlab-marketplace
-/plugin uninstall learn-kit@mj-agentlab-marketplace
+/plugin uninstall diagram-kit@mj-agentlab-marketplace
 # ... 其他已安装的插件
 ```
 
@@ -361,9 +363,9 @@ cat ~/.claude/plugins/known_marketplaces.json
 
 ### 5.4 验证要点清单
 
-- [ ] 技能显式调用正常（`/learn-kit:learn-kit-commit`）
-- [ ] 技能自然语言触发正常（「提交代码」自动匹配 learn-kit-commit）
-- [ ] MCP server 正常启动（无连接错误）
+- [ ] 技能显式调用正常（Claude Code `/learn-kit:three-views`；Codex `$learn-kit:three-views`）
+- [ ] 技能自然语言触发正常（「我想学习 X」自动匹配 three-views）
+- [ ] MCP server 正常启动（learn-kit NLM bridge，若启用了可选 NLM 分支）
 - [ ] 新增技能在 `/plugin list` 中可见
 - [ ] plugin.json 中的 metadata 正确
 
@@ -490,10 +492,10 @@ git branch -d maintain/test-plugin-xxx
 
 ### Q4: MCP server 在 `--plugin-dir` 模式下不启动？
 
-检查：
-1. 插件目录中的 `.mcp.json` 是否存在且格式正确
-2. `.env` 中的环境变量（如 `GITHUB_PERSONAL_ACCESS_TOKEN`）是否在 your-project 项目中可用
-3. MCP server 的可执行文件路径是否正确（注意 `${CLAUDE_PLUGIN_ROOT}` 占位符）
+检查（仅 learn-kit；diagram-kit 无 MCP）：
+1. `plugins/learn-kit/.mcp.json` 是否存在且格式正确（`notebooklm-mcp` server 的 `command` 应为 `learn-kit-nlm-bridge`）
+2. learn-kit NLM bridge 是 **可选** 分支，需先满足其运行时前置：Node.js 22+ / uv 0.11.21+ / 用户自备 Python 3.12（installer 不下载）+ Gate A/B 行为同意；未安装 bridge 时该 server 不启动属正常。它**不**读 `GITHUB_PERSONAL_ACCESS_TOKEN` 等凭据（非 token 类 server）
+3. `learn-kit-nlm-bridge` 是否已在 PATH 上（本地安装的 bridge 可执行文件，pinned connector 0.8.7）
 
 ### Q5: project scope 插件在新 worktree 中不可用？
 
@@ -549,8 +551,8 @@ cd your-project/feature/xxx
 # 4. 安装
 /plugin install learn-kit@mj-agentlab-marketplace
 
-# 5. 测试
-/learn-kit:learn-kit-commit
+# 5. 测试（Claude Code 用 /，Codex 用 $）
+/learn-kit:three-views
 ```
 
 **恢复 GitHub 源**（5 步）：

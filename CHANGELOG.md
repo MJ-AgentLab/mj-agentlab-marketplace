@@ -5,6 +5,37 @@
 
 ## [Unreleased]
 
+**Marketplace `6.3.2 → 7.0.0` · learn-kit `3.2.1 → 4.0.0` (NLM-only BREAKING) · diagram-kit `0.1.0 → 0.2.0`.** Codex dual-native plugin support + a pinned NotebookLM bridge + host-neutral runtime + NLM consent gates. **Local Markdown / HTML / glossary / concept / diagram flows are unchanged on both hosts** — the breaking surface is entirely the optional NotebookLM branch.
+
+### Added
+
+- **Codex dual-native plugin wrappers** — alongside the Claude Code SSOT (`.claude-plugin/**`), the repo now ships Codex-native authoring contracts: `.agents/plugins/marketplace.json` (native catalog, carries **no** version), `plugins/*/.codex-plugin/plugin.json` (native manifests), and `plugins/*/skills/*/agents/openai.yaml` (skill UI metadata). Both manifests stay version-consistent. Codex uses the qualified `$plugin:skill` form; Claude Code uses `/plugin:skill`.
+- **`learn-kit-nlm-bridge` NLM bridge** (`plugins/learn-kit/nlm-bridge/`, Python 3.12 package) — a local MCP host that answers `initialize`/`tools/list` from a checked-in contract, sanitizes the upstream connector's instructions + environment, lazy-starts the pinned **connector 0.8.7** only on the first real tool call, and disables the upstream headless-auth path after a source-fingerprint check. Ships hashed requirements/build locks + four `_data` contract snapshots (public / upstream-tools / auth-guard / environment-lock).
+- **User-run installer** `plugins/learn-kit/scripts/install-nlm-bridge.mjs` (Node stdlib) — fixed wheel/checksum URL → HTTPS redirect/size/timeout guards → strict checksum → `uv pip install --require-hashes` into a receipt-bound private venv → two receipt-owned shims (`learn-kit-nlm-bridge` + a restricted `nlm`). No `--force`, no PATH mutation, no auto-download of Node/uv/Python.
+- **Node validators / probes / helpers** (`scripts/`): `validate-dual-host`, `validate-claude-plugins`, `check-a6`, `smoke-codex-plugin`, `probe-learn-kit-nlm-bridge`, `generate-nlm-contract`, `resolve-release-state`, `check-prebump`, `check-tool-versions`, `run-cli`; plus `plugins/learn-kit/skills/three-views/scripts/hash-upload-corpus.mjs` (upload-corpus staging + hashing).
+- **CI**: `.github/workflows/a6.yml` (A6 CLAUDE.md-sync gate as `A6 / Check`), `codex-canary.yml` (weekly latest-connector schema drift + uv-compat, never a required check), and a `codex-compat` baseline matrix (ubuntu + windows).
+- **Gate A/B NotebookLM consent** in `three-views` Step 5B + a **hardened `html-renderer.md`** (fixed safe-subset renderer + strict CSP; the model fills only an escaped JSON data island).
+
+### Changed
+
+- **`learn-kit` `3.2.1 → 4.0.0` — NLM-only BREAKING.** The optional NotebookLM branch now requires, and the release marks as breaking:
+  - **Node.js 22+**, **uv 0.11.21+**, and a **user-provided Python 3.12** interpreter uv can resolve (the installer downloads **none** of these).
+  - the pinned **bridge 4.0.0** + **connector 0.8.7** in a receipt-bound, hashed private environment; a fixed **personal** endpoint `https://notebooklm.google.com` (personal NotebookLM only — Enterprise/custom unsupported).
+  - a **narrowed 6-tool** MCP surface (`notebook_list`/`notebook_get`/`notebook_create`/`source_add`/`studio_create`/`studio_status`); `refresh_auth`, `server_info`, and `source_delete` are intentionally excluded.
+  - user-run **`nlm login`** — the skill/bridge never log in, never enumerate/verify/bind a Google account or profile; on `AUTH_REQUIRED` they only prompt the user.
+  - **Gate A/B** behavioral consent (remote-network + mutation), explicitly **not** an unbypassable security boundary — the bridge holds no user-signed token.
+- **`.mcp.json`** — the local `command` moves from the upstream `notebooklm-mcp` to `learn-kit-nlm-bridge`; the server key, camelCase wrapper, and empty `args` are unchanged. The bridge — not a host-mergeable config — owns the environment/6-tool policy.
+- **`VERSION` / marketplace `6.3.2 → 7.0.0`** — follows learn-kit's consumer-facing breaking contract (5 user-facing skill-invocation surfaces gain a second host).
+- **`diagram-kit` `0.1.0 → 0.2.0`** — backward-compatible: host-neutral `validate_diagram.py` resolution (from the SKILL.md locator, not `${CLAUDE_PLUGIN_ROOT}`) + dual-host invocation.
+- **Host-neutral shared runtime** — SKILL bodies / templates / references no longer hard-code a host; `validate:dual-host` default flips **warn → error**.
+- **SKILL descriptions** rewritten to the stricter Claude 1536 / Codex 1024-and-no-angle-brackets intersection.
+- **`bump-version.ps1`** is now transactional (anchored value-level edits, two-phase write, full rollback on any failure).
+
+### Notes
+
+- **Gate A/B are behavioral workflow gates, not trusted authorization.** The bridge cannot prove a human confirmed; a residual TOCTOU race on `source_add` cannot be eliminated at the protocol level. Both are stated in the README, ADR, and skill.
+- **Automated CI never calls a paid model or performs a real NotebookLM write** — real NLM runs only in manual smoke.
+
 ## [6.3.1] - 2026-06-15
 
 ### Added

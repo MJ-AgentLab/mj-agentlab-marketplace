@@ -44,7 +44,7 @@ Claude Code agent 行为规范请参考 [`docs/rule/[STANDARD]_AI_Engineering_Ex
 
 - **格式**: `<type>(<scope>): <summary>` — 单行 header ≤72 字符，imperative mood，无句号
 - **7 types**: `feat` / `fix` / `perf` / `refactor` / `test` / `docs` / `infra`
-- **Marketplace scope whitelist (v4.x)**: `marketplace` / `learn-kit` / `ci` / `scripts` / `deps` / `infra` / `docs-rule` / `docs-adr` / `docs-guide` / `docs-runbook` / `docs-spec` / `release`
+- **Marketplace scope whitelist (current)**: `marketplace` / `learn-kit` / `diagram-kit` / `ci` / `scripts` / `deps` / `infra` / `docs-rule` / `docs-adr` / `docs-guide` / `docs-runbook` / `docs-spec` / `release`
 - **示例**: `feat(marketplace): add 18 mp-* workflow skills` / `infra(release): bump marketplace 4.1.0 → 4.2.0`
 
 **完整规范**（含 branch × type 矩阵、commit 拆分指导、Co-Authored-By 模式、违规示例）见 [`docs/rule/[STANDARD]_Commit_Message_Convention.md`](docs/rule/[STANDARD]_Commit_Message_Convention.md)。
@@ -76,6 +76,8 @@ CI / `/mp-git-commit` skill 按该 STANDARD 强制 enforcement。
 # 升级某个 plugin 版本
 .\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "learn-kit"
 ```
+
+> `-Scope` 接受 `marketplace`（默认）/ `learn-kit` / `diagram-kit`。脚本为事务性写入（任一站点失败即全量回滚）；plugin scope 会同步 `.claude-plugin/plugin.json` 与 Codex 原生 `.codex-plugin/plugin.json` 两处版本。
 
 ### 规则
 
