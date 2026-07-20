@@ -11,16 +11,17 @@ The single diagram-kit skill (v0.1.0). Turns a codebase / system's **source fact
 architecture diagrams across 7 types (C4 structural L1–L4 + behavior sequence/state +
 physical deployment), grounded so every node and edge traces to `file:行号` evidence.
 
-## Slash invocation
+## Invocation (dual-host)
 
-Auto-discovered by Claude Code's plugin loader; no `commands/` file needed. Invoke via:
+Auto-discovered by both hosts' plugin loaders; no `commands/` file needed. Invoke it by its
+qualified name:
 
-```
-/diagram-kit:arch-diagram <target>
-```
+- **Claude Code**: `/diagram-kit:arch-diagram <target>`
+- **Codex**: `$diagram-kit:arch-diagram <target>` — Codex registers plugin skills as
+  `plugin:skill`, so the bare `$arch-diagram` never resolves.
 
-Natural-language triggers (frontmatter `description`) activate the same skill — e.g.
-"画架构图" / "给这个项目画 C4 图" / "生成时序图" / "diagram this codebase".
+Natural-language triggers (frontmatter `description`) activate the same skill on either host —
+e.g. "画架构图" / "给这个项目画 C4 图" / "生成时序图" / "diagram this codebase".
 
 ## Why this skill exists
 
@@ -40,9 +41,9 @@ the ladder" action, and a bundled linter machine-checks the output. The result i
 
 **Do not invoke** — route elsewhere:
 
-- 生成分层学习文档 / 学习 HTML / NotebookLM 多媒体 → `/learn-kit:three-views`
-- 一段式术语速记卡（30 秒读懂一个词）→ `/learn-kit:glossary`
-- 概念深讲（六节深入理解一个概念）→ `/learn-kit:concept`
+- 生成分层学习文档 / 学习 HTML / NotebookLM 多媒体 → `learn-kit:three-views`
+- 一段式术语速记卡（30 秒读懂一个词）→ `learn-kit:glossary`
+- 概念深讲（六节深入理解一个概念）→ `learn-kit:concept`
 - 非架构图表（Gantt / pie / ER 数据建模 / git graph）→ direct Mermaid, no skill
 
 ## Variables this skill listens for
@@ -160,16 +161,24 @@ themselves — but `text` is the default this skill writes.
 
 ## Validator usage (Step 5)
 
-Bundled stdlib linter (pure Python 3.7+, no pip):
-`skills/arch-diagram/scripts/validate_diagram.py` (resolve via `${CLAUDE_PLUGIN_ROOT}`).
+Bundled stdlib linter (pure Python 3.7+, no pip): `scripts/validate_diagram.py`.
 
-**Invocation** (exit 0 = no FAIL / 1 = FAIL / 2 = usage):
+**Resolve it host-neutrally** — never from the user's cwd. Take the directory the
+currently-loaded `SKILL.md` sits in (its loader locator), join `scripts/validate_diagram.py`,
+realpath the result, and confirm it stays inside that skill directory before running it. Claude
+Code exposes the skill directory as `${CLAUDE_SKILL_DIR}`; Codex resolves the same relative path
+from the active SKILL.md locator. Both land on the same bundled script inside the installed
+plugin cache.
+
+**Invocation** (exit 0 = no FAIL / 1 = FAIL / 2 = usage) — pass the resolved **absolute** script
+path and each `.md` output path as separate, correctly double-quoted arguments; never concatenate
+an unescaped path or resolve a bare `scripts/...` against cwd:
 
 ```
-<python> "${CLAUDE_PLUGIN_ROOT}/skills/arch-diagram/scripts/validate_diagram.py" <file.md>
+<python> "<resolved-abs-skill-dir>/scripts/validate_diagram.py" "<file.md>"
 ```
 
-**Interpreter detection** (Windows-aware): try in order `python` → `python3` → `py -3`;
+**Interpreter detection** (Windows-aware): try in order `python3` → `python` → `py -3`;
 use the first that responds to `--version`. Paths with spaces / backslashes **must** be
 double-quoted.
 
@@ -185,7 +194,7 @@ valid kebab slugs (they become valid only after the skill instantiates them).
 ## References layout (progressive disclosure)
 
 ```
-${CLAUDE_PLUGIN_ROOT}/skills/arch-diagram/
+<skill-dir>/                          # resolved from the SKILL.md locator (Claude: ${CLAUDE_SKILL_DIR})
 ├── SKILL.md                          # this file
 ├── references/                       # 9 files, one level deep, load on demand
 │   ├── architecture-methodology.md   # 绘图前必读: 4+1 / C4 / §4.1 Mermaid 语法 / §5 边语义
@@ -230,7 +239,7 @@ they ever diverge, §6 is authoritative). Generated diagrams carry `%% Name:` / 
   writes diagram **source** `.md` (default `text` fence; flip a fence to `mermaid` to render
   in-place). arch-diagram **owns architecture diagrams in all forms**; only *topic-corpus
   learning artifacts* (tiered docs / HTML study guide / NotebookLM audio·video built from a
-  topic, not a diagram) defer to `/learn-kit:three-views`.
+  topic, not a diagram) defer to `learn-kit:three-views`.
 - Does **not** fabricate any node/edge — the 铁律 forbids it; unknowns go to L3 HITL.
 - Does **not** lint classDiagram structure (only the naming gate); see Step 5 caveat.
 - Does **not** require an MCP server or network — purely local Read/Glob/Grep/Bash/Write.
