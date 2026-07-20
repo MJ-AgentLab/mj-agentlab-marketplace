@@ -116,6 +116,10 @@ test("execution: validator accepts a .md path with spaces / Chinese / single-quo
     assert.ok(r.status === 0 || r.status === 1, `validator must read the tricky path (exit 0/1), got ${r.status}: ${r.stderr}`);
     const out = `${r.stdout}${r.stderr}`;
     assert.ok(!/No such file|not found|cannot open|Errno 2/i.test(out), `validator must find the file, output: ${out}`);
+    // Prove the tricky path was actually OPENED and PARSED, not merely that the process exited: the
+    // validator prints its scan tally, and this fixture holds exactly one diagram block. A validator
+    // that read nothing (mangled path) would report "共扫描 0 张图" or error out.
+    assert.match(out, /共扫描\s*1\s*张图/, `validator must have parsed exactly the 1-diagram tricky file; output: ${out}`);
   } finally {
     fs.rmSync(trickyRoot, { recursive: true, force: true });
   }

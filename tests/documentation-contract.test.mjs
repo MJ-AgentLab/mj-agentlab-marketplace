@@ -169,13 +169,27 @@ test("learn-kit README carries every required NLM disclosure clause", () => {
 test("html-renderer is a fixed safe-subset renderer with a strict CSP", () => {
   const hr = read("plugins/learn-kit/skills/three-views/templates/html-renderer.md");
   assert.ok(hr.includes("Content-Security-Policy"), "renderer must ship a CSP");
-  assert.ok(hr.includes("default-src 'none'"), "CSP must default-src 'none'");
+  // Lock the specific hardened directives, not just the default-src fallback, so widening
+  // connect-src / object-src / etc. would be caught.
+  for (const directive of [
+    "default-src 'none'",
+    "connect-src 'none'",
+    "object-src 'none'",
+    "frame-src 'none'",
+    "base-uri 'none'",
+    "form-action 'none'",
+  ]) {
+    assert.ok(hr.includes(directive), `CSP must keep ${directive}`);
+  }
   for (const bad of ["innerHTML", "outerHTML", "insertAdjacentHTML", "document.write"]) {
     assert.ok(!hr.includes(bad), `renderer must not use ${bad}`);
   }
   assert.ok(hr.includes("textContent"), "renderer must build DOM via textContent");
   assert.ok(hr.includes("u003c"), "renderer must escape < as its JSON unicode escape in the data island");
-  assert.match(hr, /protocol\s*===\s*"https?:"|http\(s\)|noopener/, "links must be restricted to validated http(s)");
+  // safeUrl must gate on the http/https protocol allowlist itself — not merely mention "noopener".
+  assert.match(hr, /protocol\s*===\s*"http:"/, "safeUrl must gate on the http: protocol");
+  assert.match(hr, /protocol\s*===\s*"https:"/, "safeUrl must gate on the https: protocol");
+  assert.ok(hr.includes("noopener"), "external links must set rel=noopener");
 });
 
 test("malicious-runtime-source fixture exists and carries the injection vectors", () => {

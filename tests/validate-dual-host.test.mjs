@@ -682,6 +682,36 @@ test("a host coupling in references/ is detected", () => {
   });
 });
 
+// The real repo is now clean (PR2), so the warn->error bucket semantics and line accuracy can no
+// longer be pinned against it. These fixture tests inject a needle so the promotion and line-number
+// logic stay covered non-vacuously.
+test("a needle buckets as a warning under warn and an error under error (same finding)", () => {
+  withFixture((d) => {
+    const p = path.join(d, "plugins/learn-kit/skills/three-views/templates");
+    fs.mkdirSync(p, { recursive: true });
+    fs.writeFileSync(path.join(p, "t.md"), "Read ${CLAUDE_PLUGIN_ROOT}/skills/x.md\n");
+    const isPR = (f) => f.code === "HOST_COUPLED_PLUGIN_ROOT";
+    const warn = validateTree(d, { hostNeutral: "warn" });
+    assert.ok(warn.warnings.some(isPR), "warn mode: needle must be a WARNING");
+    assert.ok(!warn.errors.some(isPR), "warn mode: needle must not be an error");
+    const err = validateTree(d, { hostNeutral: "error" });
+    assert.ok(err.errors.some(isPR), "error mode: the SAME needle must be promoted to an ERROR");
+    assert.ok(!err.warnings.some(isPR), "error mode: needle must not stay a warning");
+  });
+});
+
+test("a host-coupling finding reports the exact injection line", () => {
+  withFixture((d) => {
+    const p = path.join(d, "plugins/diagram-kit/skills/arch-diagram/references");
+    fs.mkdirSync(p, { recursive: true });
+    // references/*.md is scanned without frontmatter stripping; the needle sits on line 3.
+    fs.writeFileSync(path.join(p, "r.md"), "line one\nline two\nuse ${CLAUDE_PLUGIN_ROOT}/x\n");
+    const hit = validateTree(d, { hostNeutral: "warn" }).warnings.find((f) => f.code === "HOST_COUPLED_PLUGIN_ROOT");
+    assert.ok(hit, "the needle must be detected");
+    assert.ok(hit.path.endsWith(":3"), `expected the finding on line 3, got ${hit.path}`);
+  });
+});
+
 // ------------------------------------------------------------ version triangle
 test("catalog version drifting from plugin.json is an error", () => {
   withFixture((d) => {
