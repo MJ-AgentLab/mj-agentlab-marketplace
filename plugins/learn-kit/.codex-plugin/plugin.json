@@ -1,0 +1,24 @@
+{
+  "name": "learn-kit",
+  "version": "4.0.0",
+  "description": "Create tiered learning materials, concise term cards, and concept deep dives, with optional NotebookLM multimedia.",
+  "author": { "name": "MJ-AgentLab", "url": "https://github.com/MJ-AgentLab" },
+  "repository": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace",
+  "license": "MIT",
+  "keywords": ["learning", "pedagogy", "three-views", "glossary", "concept", "notebooklm"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Learn Kit",
+    "shortDescription": "Tiered learning, term cards, and concept explanations",
+    "longDescription": "Generate source-grounded learning materials at foundation, structural, and challenge levels; explain terms and concepts; optionally create personal NotebookLM multimedia (requires Node.js 22+, uv 0.11.21+, Python 3.12 available to uv, and learn-kit NLM bridge 4.0.0 with connector 0.8.7; run nlm login when prompted).",
+    "developerName": "MJ-AgentLab",
+    "category": "Education & Research",
+    "capabilities": ["Read", "Write"],
+    "defaultPrompt": [
+      "Use $learn-kit:three-views to create three levels of learning material for a topic.",
+      "Use $learn-kit:glossary to explain an unfamiliar term briefly.",
+      "Use $learn-kit:concept to explain a concept with examples and boundaries."
+    ]
+  }
+}

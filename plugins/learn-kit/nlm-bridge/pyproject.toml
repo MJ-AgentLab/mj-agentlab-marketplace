@@ -1,0 +1,45 @@
+# learn-kit NLM bridge — the local MCP server that stands between a host (Claude Code /
+# Codex) and the third-party NotebookLM connector.
+#
+# Everything here is pinned exactly, never a range: this file is the root of a reproducible
+# environment. `uv pip compile` turns it into a fully hashed lock, and the installer builds
+# the private venv from that lock with --require-hashes. A range would let the resolved
+# closure drift between the wheel we verify and the wheel a user installs.
+#
+# NO [project.scripts] — deliberately, and this is load-bearing rather than an omission.
+# notebooklm-mcp-cli already declares console scripts named `nlm` and `notebooklm-mcp`.
+# If this package declared its own entry points, two distributions in one venv would compete
+# for the same logical names and install order would decide the winner. The public
+# `learn-kit-nlm-bridge` and restricted `nlm` commands are therefore created by the installer
+# as controlled shims pointing straight at the modules below, so they never take part in
+# wheel entry-point resolution at all.
+
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "learn-kit-nlm-bridge"
+version = "4.0.0"
+description = "Local MCP bridge that fronts the pinned NotebookLM connector with a narrowed, audited tool surface."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = "==3.12.*"
+authors = [{ name = "MJ-AgentLab" }]
+keywords = ["mcp", "notebooklm", "bridge"]
+classifiers = [
+  "Private :: Do Not Upload",
+  "Programming Language :: Python :: 3.12",
+]
+
+# Exactly one direct dependency, pinned to the audited connector release. The bridge's whole
+# purpose is to be the only thing that ever launches it.
+dependencies = ["notebooklm-mcp-cli==0.8.7"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/learn_kit_nlm_bridge"]
+
+[tool.hatch.build.targets.wheel.force-include]
+# The contract snapshots are data the bridge verifies itself against at runtime, so they must
+# ship inside the wheel and be individually checkable in RECORD — not regenerated on the fly.
+"src/learn_kit_nlm_bridge/_data" = "learn_kit_nlm_bridge/_data"

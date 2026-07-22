@@ -1,10 +1,12 @@
 # Output language & terminology directive
 
-This file is appended verbatim to every artifact's `focus_prompt`
-as the `===== LANGUAGE & TERMINOLOGY =====` section (both
-view-cycled compositions and the shared mind_map composition).
-Editing this file changes the output-language policy for all 13
-artifacts per topic in a single place.
+This file is appended verbatim to the `focus_prompt` of the three
+**view-cycled** artifact types (audio / video / slide_deck) as the
+`===== LANGUAGE & TERMINOLOGY =====` section. The mind_map type takes
+**no** `focus_prompt`/`language` (connector v0.8.7 ignores both for
+mind maps — see SKILL.md Step 5B), so it does NOT receive this
+directive. Editing this file changes the output-language policy for
+every prompt-driven artifact in a single place.
 
 ## Directive (sent verbatim to NotebookLM)
 
@@ -25,8 +27,6 @@ artifacts per topic in a single place.
   - 章节标题 / heading / 段落标题
   - 解说 / 叙述 / 旁白文本（audio 对话、video 旁白）
   - slide 正文 / bullet / on-screen 文字
-  - mind_map 节点 label
-  - infographic panel 文字
   - 自检题 / TL;DR / 总结
 - **行业标准技术术语保留英文原词**，不强行翻译为中文。例：
   - 文档治理：`frontmatter`, `schema`, `ADR`, `SPEC`, `STANDARD`,
@@ -43,8 +43,8 @@ artifacts per topic in a single place.
     操作手册 / 技能文件 / 拉取请求 / 轨道 / 权威 / 工作 / 遗留 /
     弃用 / ……」之类强译——读者反而会被迫做反向翻译再去查源文档
 - **代码 / 文件路径 / 标识符 / 命令名 verbatim**，不翻译也不加引号。例：
-  - `mcp__plugin_learn-kit_notebooklm-mcp__refresh_auth`
   - `notebook_id`, `artifact_id`, `source_id`
+  - MCP 工具名保留裸名、不加宿主前缀（如 `notebook_create`, `studio_create`）
   - `/learn-kit:three-views`
   - `learning/<topic>/[LEARNING]_<topic>_<view>.md`
   - `docs/rule/[STANDARD]_*.md`
@@ -71,10 +71,11 @@ artifacts per topic in a single place.
 
 ## Why a separate file (single-source-of-truth)
 
-This directive applies to all 13 artifacts per topic. Embedding it
-in each of the 9 templates (3 view-prefix + 5 artifact-suffix + 1
-interaction-overrides) would duplicate the same block 9 times and
-risk drift. Keeping it as a single appended block guarantees:
+This directive applies to every prompt-driven artifact per topic
+(audio / video / slide_deck, cycled across the generated tiers; the
+mind_map type receives no prompt). Embedding it in each view-prefix
+and artifact-suffix template would duplicate the same block and risk
+drift. Keeping it as a single appended block guarantees:
 
 1. **Consistency** — every artifact's focus_prompt gets the same
    language policy.

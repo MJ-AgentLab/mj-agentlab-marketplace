@@ -1,25 +1,7 @@
 ---
 name: glossary
-description: >
-  Explain an unfamiliar technical, business, or domain term in a single tight paragraph
-  (~150–250 Chinese characters) using a fixed six-slot structure: analogy → category →
-  pain point → plain-language definition → contrast → concrete example. The reader should
-  "get it" in about 30 seconds — a speed-card, not an article.
-  ALWAYS use this skill whenever the user types `/learn-kit:glossary` or `/glossary`
-  (optionally followed by a term), or says any of: "解释术语", "讲讲这个概念", "什么是 X",
-  "X 是什么", "帮我理解 X", "explain X", "what is X",
-  or pastes a single term and asks for a digestible explanation. Also use whenever the user
-  wants a short, vivid, one-paragraph explanation of a specific term rather than a long
-  article or tutorial — even if they don't
-  explicitly say "glossary" or "速记卡". Default output language Chinese; the term preserved
-  verbatim (English/code identifiers stay in original form, no forced translation).
-  Prefer this over `/learn-kit:concept` when the user signals brevity or speed (一句话 / 一段话 /
-  快速 / quick / TL;DR) or is asking about a specific named tool, API, product, or code identifier
-  (e.g. Advisory Lock, OAuth, useEffect) rather than an abstract concept.
-  Do not use for: deep or applied understanding — recognizing a concept in new contexts,
-  comparing alternatives, or understanding tradeoffs (use `/learn-kit:concept`); generating
-  multi-tier learning documents, interactive HTML, or NotebookLM multimedia
-  (use `/learn-kit:three-views`).
+description: |-
+  Use when the user wants a brief, vivid explanation of an unfamiliar technical, business, or domain term in one Chinese paragraph of about 150–250 characters. Trigger on “解释术语”, “什么是 X”, “X 是什么”, “帮我快速理解 X”, “explain X”, “what is X”, or a pasted term that needs a digestible speed card. Structure the answer as analogy, category, pain point, plain-language definition, contrast, and one concrete example. Preserve English terms and code identifiers verbatim. Do not use when the user wants deep application, tradeoffs, multiple examples, or failure boundaries; use concept instead. Do not use for multi-tier learning materials from sources; use three-views instead.
 ---
 
 # Glossary — 一段话讲透一个术语
@@ -28,7 +10,7 @@ description: >
 
 ## 触发与输入解析
 
-- `/learn-kit:glossary <术语>`（亦可直接 `/glossary <术语>`）→ 直接对 `<术语>` 执行下面的六要素流程。
+- **Claude Code**：`/learn-kit:glossary <术语>`（亦可直接 `/glossary <术语>`）；**Codex**：`$learn-kit:glossary <术语>`（qualified 名，裸 `$glossary` 不解析）→ 直接对 `<术语>` 执行下面的六要素流程。
 - `/learn-kit:glossary <术语> @<受众>` → 受众影响**类比物**(第 1 槽)和**例子场景**(第 6 槽)的选取。例:`/learn-kit:glossary Advisory Lock @数据分析师` 与 `@后端工程师` 应给出不同类比。
 - 用户用自然语言提问("什么是 X"、"解释 X"、"X 是什么"、"explain X")时,同样走此流程。
 - 若术语本身是英文或代码标识符,**原文保留**,不要硬翻成中文(例:`Advisory Lock`、`OAuth`、`useEffect` 都保持原样)。
@@ -67,8 +49,8 @@ description: >
 - **术语高度专业且需要前置概念**:用一句话铺垫前置概念,再进入六要素;不要在定义里堆叠多个未解释术语。
 - **用户希望更详细/更简短**:在保留六要素结构的前提下调整长度;**不要因为缩短而丢掉类比或例子**——它们是这个提示词的核心价值。
 - **用户连续问多个术语**:每个术语独立成段,各自走完整的六要素,不要因为相关就合并。
-- **用户想"能识别 / 能应用 / 能选型"而不只是"听过就行"**:这是 `/learn-kit:concept` 的领域(分层 600 字 + 跨域正反例 + 失效边界)。可在结尾一句话提示用户切换;不要把本 skill 硬撑成深讲。
-- **用户想要的是成套学习材料**(多档 markdown / HTML / 音视频)而非一段速记:那是 `/learn-kit:three-views` 的领域;一句话提示切换,不要把本 skill 撑成文档生成器。
+- **用户想"能识别 / 能应用 / 能选型"而不只是"听过就行"**:这是 `learn-kit:concept` 的领域(分层 600 字 + 跨域正反例 + 失效边界)。可在结尾一句话提示用户切换(Claude `/learn-kit:concept`、Codex `$learn-kit:concept`);不要把本 skill 硬撑成深讲。
+- **用户想要的是成套学习材料**(多档 markdown / HTML / 音视频)而非一段速记:那是 `learn-kit:three-views` 的领域;一句话提示切换,不要把本 skill 撑成文档生成器。
 
 ## 调整开关(用户可在调用时指定)
 

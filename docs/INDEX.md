@@ -4,9 +4,9 @@ scope: marketplace
 summary: Marketplace documentation navigation hub — STANDARD / GUIDE / ADR / SPEC / RUNBOOK / archive / templates 索引
 owner: marketplace-maintainers
 created: 2026-05-15
-updated: 2026-06-02
+updated: 2026-07-20
 state: active
-version: v6.3
+version: v7.0.0
 domain: governance
 tags:
   - index
@@ -19,7 +19,10 @@ related:
   - ./adr/[ADR]_LearnKit_ThreeViews_HITL_Expansion.md
   - ./adr/[ADR]_LearnKit_Explanation_Skills_Addition.md
   - ./adr/[ADR]_Diagram_Kit_Addition.md
+  - ./adr/[ADR]_Codex_Dual_Native_Plugin_Support.md
 revision: |
+  2026-07-20 — v7.0.0: Codex dual-native ship。mark [ADR]_Codex_Dual_Native_Plugin_Support 状态 进行中 → accepted / shipped v7.0.0（Codex 原生包装 `.agents/plugins/marketplace.json` + 每插件 `.codex-plugin/plugin.json` + 每技能 `agents/openai.yaml` 与 `.claude-plugin/**` SSOT 并行落地）；Plugin Documentation learn-kit 3.2.0 → 4.0.0 + diagram-kit 0.1.0 → 0.2.0；learn-kit NLM 依赖措辞从 `notebooklm-mcp` + `nlm login` 改为 bridge-backed（`learn-kit-nlm-bridge`，Node 22 / uv 0.11.21+ / 用户自备 Python 3.12 + Gate A/B 同意）；Last updated → 2026-07-20 (v7.0.0)
+  2026-07-16 — v6.4: add [ADR]_Codex_Dual_Native_Plugin_Support row (Codex 原生包装与 Claude Code SSOT 并行；双 manifest 由 validate-dual-host.mjs 强制一致；baseline 二分 —— 供应链输入 exact / 滚动宿主 CLI minimum；three-views MCP 预授权 8 → 6，删 refresh_auth / server_info)
   2026-06-05 — v6.3: add [ADR]_Diagram_Kit_Addition row (v6.3.0 NEW plugin diagram-kit 0.1.0 — marketplace's first 1→2 plugin count; arch-diagram skill + 9 references + generalized Mermaid validator forked from the PG version); Commit Message Convention row v1.1 → v1.2 (diagram-kit scope added); Plugin Documentation 1 → 2 plugins (learn-kit 3.2.0 + diagram-kit 0.1.0); Last updated → 2026-06-05
   2026-06-02 — v6.2: add [ADR]_LearnKit_Explanation_Skills_Addition row (v6.2.0 learn-kit 3.1.0 → 3.2.0 — add glossary + concept pure-prompt explanation skills filling three-views' disclaimed Q&A niche; picker 1→3 reconciled vs v6.0.0 consolidation); plugin row version bumped 3.1.0 → 3.2.0
   2026-05-29 — v6.1: add [ADR]_LearnKit_ThreeViews_HITL_Expansion row (v6.1.0 learn-kit 3.1.0 additive HITL expansion — Step 1.3 视角 multi-select + Step 4 5-cell granular + source_corpus_key re-run guard); plugin row version bumped 3.0.0 → 3.1.0
@@ -34,7 +37,7 @@ revision: |
 
 # Documentation Index — MJ AgentLab Marketplace
 
-> Last updated: 2026-06-05 (v6.3). Framework §1 hard exclusions + §1.1 root-level named files codification (5 files) + §2.7 CLAUDE.md sync allowlist + §4.3.1 A6 active CI gate per [`./rule/[STANDARD]_Documentation_Framework.md`](./rule/[STANDARD]_Documentation_Framework.md) v1.6.
+> Last updated: 2026-07-20 (v7.0.0). Framework §1 hard exclusions + §1.1 root-level named files codification (5 files) + §2.7 CLAUDE.md sync allowlist (含 Codex dual-native surfaces) + §4.3.1 A6 enforced CI gate per [`./rule/[STANDARD]_Documentation_Framework.md`](./rule/[STANDARD]_Documentation_Framework.md) v1.7.
 
 Navigation hub for all marketplace documentation.
 
@@ -54,7 +57,7 @@ Navigation hub for all marketplace documentation.
 
 | Document | State | Version | Purpose |
 |----------|-------|---------|---------|
-| [Documentation Framework](./rule/[STANDARD]_Documentation_Framework.md) | active | v1.6 | 6 tag prefixes + 8-field frontmatter + 3-state machine + 路径稳定性 + INDEX sync + flat archive layout（v1.4）+ §1 exemption cancellation（v1.5）+ §1.1 root-level named files codification + §2.7 CLAUDE.md sync allowlist + §4.3.1 A6 active CI gate（v1.6）|
+| [Documentation Framework](./rule/[STANDARD]_Documentation_Framework.md) | active | v1.7 | 6 tag prefixes + 8-field frontmatter + 3-state machine + 路径稳定性 + INDEX sync + flat archive layout（v1.4）+ §1 exemption cancellation（v1.5）+ §1.1 root-level named files codification + §2.7 CLAUDE.md sync allowlist + §4.3.1 A6 active CI gate（v1.6）+ A6 enforced：独立 `a6.yml` + `check-a6.mjs`、校验 reviewer sign-off、§2.7 Category 4 Codex dual-native surfaces（v1.7）|
 | [Commit Message Convention](./rule/[STANDARD]_Commit_Message_Convention.md) | active | v1.2 | `<type>(<scope>): <summary>` + 7 types + marketplace scope whitelist (v1.2 adds `diagram-kit` plugin scope) + branch-type matrix + §11 Common Mistakes (post-v4.5.0 lessons + scripts/validate-commits.{sh,ps1} workflow) |
 | [GitHub Markdown](./rule/[STANDARD]_GitHub_Markdown.md) | active | v1.0 | ATX headings + GFM tables + native alerts + frontmatter syntax for GitHub web |
 | [AI Engineering Execution HITL Prompt](./rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md) | active | v1.4 | 11 阶段闭环 + skill 矩阵 + HITL 触发规则 + universal skeleton §0（v1.4 marketplace 独立性原则）|
@@ -89,6 +92,7 @@ Navigation hub for all marketplace documentation.
 | [ADR: LearnKit ThreeViews HITL Expansion](./adr/[ADR]_LearnKit_ThreeViews_HITL_Expansion.md) | **v6.1.0 Additive** — learn-kit `3.0.0 → 3.1.0` 加 Step 1.3 视角 multi-select (default 3 全选 / min 1) + Step 4 升级 5-cell granular multi-select (HTML / NLM audio / NLM video / NLM slide_deck / NLM mind_map) + Step 5B re-run guard `source_corpus_key` 等价性 + 3-level hint granularity；引入 `requested_tiers` ≠ `generated_tiers` state separation 处理 conflict-skip / generation-fail 路径；`templates/artifact-mind_map.md` 改 "across all three tiers" → "selected source corpus"；触发 plugin minor + marketplace minor `6.0.1 → 6.1.0`（consumes pre-bump slot per historical pattern）；默认产物等同 v3.0.0 |
 | [ADR: LearnKit Explanation Skills Addition](./adr/[ADR]_LearnKit_Explanation_Skills_Addition.md) | **v6.2.0 Additive** — learn-kit `3.1.0 → 3.2.0` 加 `glossary`（六槽术语速记卡 ~150-250 字）+ `concept`（六节概念深讲 ~500-800 字，2 跨域正例 + 1 反例 + 失效边界）两个纯 prompt 解释 skill（无 tool / 无 file / 无 MCP）；填补 `three-views` 明确 disclaim 的 pure-explanation / Q&A niche；frontmatter `name`+`description` only + 仓库签名式 routing clause；picker 1→3 显式 reconcile v6.0.0 consolidation 的 picker-noise 论点；触发 plugin minor + marketplace minor `6.1.1 → 6.2.0`（consumes pre-bump slot）；不改 three-views 行为 |
 | [ADR: Diagram Kit Addition](./adr/[ADR]_Diagram_Kit_Addition.md) | **v6.3.0 Additive (NEW plugin)** — 新建 `diagram-kit 0.1.0`，marketplace 史上首次 plugin 计数 **1 → 2**。单 skill `arch-diagram`（5-step 事实先行 L0–L3 阶梯，证据绑定 Mermaid 7 类：context / container / component / code〔C4 结构〕+ sequence / state-machine〔行为〕+ deployment〔物理〕）+ 9 份领域无关 references（progressive disclosure）+ 泛化 stdlib Mermaid validator（去 PG ROLE-03 + SLUG regex 通用化 `struct-l[1234]\|dyn\|phys`，与 PG 版双源分叉）。Reconcile 8→3→1 收敛方向：判据是**域归属**（arch-diagram 与 learn-kit 教学域正交、无法内化进 pedagogy kit）非 plugin 计数。触发 marketplace minor `6.2.1 → 6.3.0`（additive plugin per [SPEC] §4.2，消耗 post-v6.2.0 pre-bump slot）+ commit STANDARD `v1.1 → v1.2`（diagram-kit scope）；learn-kit `3.2.0` 不动 |
+| [ADR: Codex Dual Native Plugin Support](./adr/[ADR]_Codex_Dual_Native_Plugin_Support.md) | **Dual-host（accepted，shipped v7.0.0）** — 在保留 `.claude-plugin/**` 为 Claude Code SSOT 的前提下**并行**新增 Codex 原生包装：`.agents/plugins/marketplace.json`（不保存版本）+ 每插件 `.codex-plugin/plugin.json` + 每技能 `agents/openai.yaml`；一致性由 `scripts/validate-dual-host.mjs` 强制（6 个共享字段精确一致 / native keywords 为 legacy 子集 / native description 有意不同）。Codex 0.144.3 本已能从 legacy 路径安装，故本 ADR 是**发布契约 + UI 元数据 + 触发正确性**，非修复安装。三项实质变化：(1) **baseline 二分** —— 供应链输入（Codex / uv / bridge / connector）exact pin，滚动宿主 CLI（Claude Code）取 minimum `>=`，判据是「是否进入可重复构建的输入」，有意偏离计划原文并在 ADR §2.1 记录；(2) **能力收窄** —— three-views MCP 预授权 **8 → 6**（删 `refresh_auth` / `server_info`；`source_delete` 本就不在预授权内，其排除意义在 bridge public surface），`.mcp.json` 改指本仓 bridge，正向契约按名字判定、反向契约按内容判定（正向若挂在「声明了什么」之后，删掉声明即删掉规则）；(3) **description 修复（缺陷在 Codex 侧）** —— develop 四份为 1197–1461 字符，**全部 > Codex 1024** 故在模型初始技能列表被截断（触发正确性，非清 warning）；其中**两份**（three-views / arch-diagram）含角括号会被 Codex validator 拒收。四份均 < Claude 1536，**未触碰** Claude 门；`glossary` 1544 是 **v6.3.1 已修复的历史**，非现状 |
 
 > Plugin-internal ADRs（如 `[ADR]_LearnKit_Discovery_Skills`，v4.3.0 起迁入 `plugins/learn-kit/docs/adr/`）见各 plugin 的 docs/INDEX.md。
 
@@ -129,12 +133,12 @@ Navigation hub for all marketplace documentation.
 
 ## Plugin Documentation
 
-> v6.3.0 起 marketplace 含 **2 个 plugin**：**learn-kit**（教学方法论；3 skill：three-views / glossary / concept；`three-views` 的 NLM 多媒体需 `notebooklm-mcp` MCP server + 一次性 `nlm login`，其余零依赖）+ **diagram-kit**（架构图生成；1 skill：arch-diagram；无 MCP / 无依赖）。两 plugin 功能正交、版本独立。详见 [plugins/learn-kit/README.md](../plugins/learn-kit/README.md) 与 [plugins/diagram-kit/README.md](../plugins/diagram-kit/README.md)。
+> v6.3.0 起 marketplace 含 **2 个 plugin**：**learn-kit**（教学方法论；3 skill：three-views / glossary / concept；`three-views` 的 NLM 多媒体分支为**可选**，经本仓 bridge `learn-kit-nlm-bridge`〔pinned connector 0.8.7〕运行，需 Node.js 22+ / uv 0.11.21+ / 用户自备 Python 3.12〔installer 不下载〕+ Gate A/B 行为同意；glossary / concept 及 three-views 非 NLM 部分零依赖）+ **diagram-kit**（架构图生成；1 skill：arch-diagram；无 MCP / 无依赖）。两 plugin 功能正交、版本独立；v7.0.0 起各带 Codex 原生包装（`.codex-plugin/plugin.json` + 每技能 `agents/openai.yaml`，仓库级 catalog `.agents/plugins/marketplace.json`），Claude Code `/plugin:skill` 与 Codex `$plugin:skill` 双宿主调用。详见 [plugins/learn-kit/README.md](../plugins/learn-kit/README.md) 与 [plugins/diagram-kit/README.md](../plugins/diagram-kit/README.md)。
 
 | Plugin | Documentation Index | Version |
 |--------|---------------------|---------|
-| learn-kit | [plugins/learn-kit/docs/INDEX.md](../plugins/learn-kit/docs/INDEX.md) | 3.2.0 |
-| diagram-kit | (none — 精简路径；设计 rationale 在 marketplace [`[ADR]_Diagram_Kit_Addition`](./adr/[ADR]_Diagram_Kit_Addition.md)) | 0.1.0 |
+| learn-kit | [plugins/learn-kit/docs/INDEX.md](../plugins/learn-kit/docs/INDEX.md) | 4.0.0 |
+| diagram-kit | (none — 精简路径；设计 rationale 在 marketplace [`[ADR]_Diagram_Kit_Addition`](./adr/[ADR]_Diagram_Kit_Addition.md)) | 0.2.0 |
 
 ### learn-kit 用户文档（`plugins/learn-kit/docs/`）
 

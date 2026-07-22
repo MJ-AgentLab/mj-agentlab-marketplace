@@ -286,4 +286,11 @@ def main(argv):
     return 1 if total_fail else 0
 
 if __name__ == '__main__':
+    # CLI 输出含 CJK（图名 / 规则消息 / 扫描汇总）。强制 UTF-8，避免非 UTF-8
+    # 平台 locale（如 Windows 管道 stdout = cp1252 / cp936）触发 UnicodeEncodeError。
+    for _stream in (sys.stdout, sys.stderr):
+        try:
+            _stream.reconfigure(encoding='utf-8')
+        except (AttributeError, ValueError):
+            pass
     sys.exit(main(sys.argv[1:]))

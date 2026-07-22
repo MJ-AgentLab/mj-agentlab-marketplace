@@ -1,4 +1,11 @@
-# CLAUDE.md — diagram-kit Plugin (v0.1.0)
+# CLAUDE.md — diagram-kit Plugin (v0.2.0)
+
+> [!NOTE]
+> This is a **human-maintained** plugin doc. Claude Code does **not** auto-load a plugin-root
+> `CLAUDE.md` as plugin context (it emits a warning saying so); ship runtime context in
+> `skills/<name>/SKILL.md`. **Dual-host invocation**: Claude Code `/diagram-kit:arch-diagram`,
+> Codex `$diagram-kit:arch-diagram` (the bare `$arch-diagram` never resolves). v0.2.0 is a
+> backward-compatible minor (host-neutral runtime + Codex native wrapper).
 
 diagram-kit 是一个通用 Claude Code 插件，把「一个代码库 / 系统的事实」转成「证据绑定的架构图（Mermaid）」。**v0.1.0 含 1 个 skill** `arch-diagram`。
 
@@ -22,7 +29,8 @@ diagram-kit 是一个通用 Claude Code 插件，把「一个代码库 / 系统�
 
 ```
 plugins/diagram-kit/
-├── .claude-plugin/plugin.json    # version 0.1.0；8-field union；无 components
+├── .claude-plugin/plugin.json    # version 0.2.0；8-field union；无 components
+├── .codex-plugin/plugin.json     # Codex native manifest (version-consistent)
 ├── CLAUDE.md                     # 本文件
 ├── README.md                     # 用户指南
 ├── CHANGELOG.md                  # [Unreleased] + [0.1.0]
@@ -65,11 +73,10 @@ plugins/diagram-kit/
 - **优雅降级**：无 Python 时不硬失败——产图 + 提示 "validator skipped" + 退回各模板自检清单。
 - **已知 gap**（0.x → 1.0.0）：classDiagram 只过命名门，结构 lint（关系符号配对 / 类数 / 接口实现方向）未实现 → 退回 `code-diagram.md` 自检清单人工把关。
 
-## 触发 `/diagram-kit:arch-diagram`
+## 触发 arch-diagram
 
-```
-/diagram-kit:arch-diagram <target>
-```
+- Claude Code：`/diagram-kit:arch-diagram <target>`
+- Codex：`$diagram-kit:arch-diagram <target>`（Codex 按 `plugin:skill` 注册，裸 `$arch-diagram` 不解析）
 
 或自然语言：「画架构图」/「给这个项目画 C4 图」/「生成时序图 / 状态机图 / 部署图」/「diagram this codebase」。
 

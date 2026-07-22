@@ -2,7 +2,7 @@
 
 Most (view, artifact) cells work fine with `view-prefix + artifact-suffix` alone. This file lists the minority of cells where the joint effect needs an explicit tweak — because the medium and the pedagogical stance interact non-obviously.
 
-**Scope**: This file applies only to the 3 view-cycled artifact types (audio / video / slide_deck) × 3 views = 9 possible cells. Mind_map is excluded entirely because v1.0.0 dogfood showed NLM's mind_map type produces structural-hierarchy output regardless of view-tier prompting; mind_map is therefore generated once per topic (view-agnostic) and uses only its own `artifact-mind_map.md` template, no view-prefix and no override. Infographic was removed in marketplace v6.0.0 (per [`[ADR]_LearnKit_Consolidation_To_Single_Skill`](../../../docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md) §2.2: dogfood showed low user acceptance + visual density inferior for learning curve).
+**Scope**: This file applies only to the 3 view-cycled artifact types (audio / video / slide_deck) × 3 views = 9 possible cells. Mind_map is excluded entirely: connector v0.8.7 ignores `focus_prompt`/`language` for the mind_map type (see SKILL.md Step 5B), so it takes no prompt composition at all — it is generated once per topic (view-agnostic) from the selected source IDs plus a display title, with no view-prefix, no override, and no medium-constraints template. Infographic was removed in marketplace v6.0.0 (dogfood showed low user acceptance + visual density inferior for learning curve).
 
 The `three-views` skill reads this file during Step 5B focus_prompt composition. If a row matches the current `(view, artifact)` pair, its `inject:` value is appended as the `===== INTERACTION OVERRIDE =====` section. If no row matches, that section is omitted entirely.
 
@@ -72,4 +72,4 @@ Should dogfood reveal a cell whose output drifts away from its tier, add a new o
 
 ## v1.0.0 historical note
 
-- **Earlier removed**: `(structural, mind_map)` override row. Mind_map is no longer view-cycled (one mind_map per topic, view-agnostic). See `artifact-mind_map.md` for the rationale (dogfood finding #5 in legacy nlm-studio SKILL.md, now codified into `three-views` Step 5B).
+- **Earlier removed**: `(structural, mind_map)` override row. Mind_map is no longer view-cycled (one mind_map per topic, view-agnostic) and connector v0.8.7 ignores mind-map prompting entirely, so it carries no medium-constraints template or override; see SKILL.md Step 5B for the rationale.

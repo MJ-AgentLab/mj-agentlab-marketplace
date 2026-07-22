@@ -4,9 +4,9 @@ scope: marketplace
 summary: 正向编码 5 个 root-level named special files 责任 + CLAUDE.md sync allowlist 3 类 trigger + A6 CI gate triad（complements v1.0 Reversal ADR negative cancellation）
 owner: marketplace-maintainers
 created: 2026-05-18
-updated: 2026-05-18
+updated: 2026-07-16
 state: active
-version: v1.0
+version: v1.1
 domain: governance
 tags:
   - documentation
@@ -21,7 +21,9 @@ related:
   - ../../CONTRIBUTING.md
   - ../../GLOSSARY.md
   - ../../CLAUDE.md
+  - ./[ADR]_Codex_Dual_Native_Plugin_Support.md
 revision: |
+  2026-07-16 — v1.1: amendment only（决策不变）。标注本 ADR 的 Implementation Plan 第 9 项与 Acceptance Criteria 中的「ci.yml A6 step」为 **historical** —— Framework v1.7 将 A6 实现迁至独立 `.github/workflows/a6.yml` + `scripts/check-a6.mjs`，并首次真正校验 `[skip a6]` 所宣称的 reviewer sign-off（v1.6 实现仅凭 PR title 即放行）。§2.7 trigger 亦由 3 类扩为 4 类（加 Codex dual-native surfaces）。本 ADR 的**决策**（编码 5 个 root-level named files 责任 + 建立 CLAUDE.md sync allowlist + 启用 A6 gate）完全不变；仅实现载体与 trigger 集演进，权威描述见 Framework §4.3.1 + [`[ADR]_Codex_Dual_Native_Plugin_Support`](./[ADR]_Codex_Dual_Native_Plugin_Support.md)
   2026-05-18 — v1.0: initial decision recording v4.6.3 framework v1.6 root-level named files codification + CLAUDE.md sync allowlist + A6 CI gate activation; complements v1.0 Reversal ADR negative cancellation with positive codification
 ---
 
@@ -30,6 +32,11 @@ revision: |
 ## Status
 
 **Accepted** (2026-05-18). **Complements** (does NOT supersede) [`[ADR]_Documentation_Framework_Exemption_Reversal`](./[ADR]_Documentation_Framework_Exemption_Reversal.md) v1.1（同 PR bump v1.0 → v1.1 with Decision 2 partial-reversal annotation）。
+
+> [!NOTE]
+> **v1.1 amendment (2026-07-16) — 决策不变，实现载体已迁移。** 本 ADR 的 Implementation Plan 第 9 项与 Acceptance Criteria 里的 **「ci.yml A6 step」是 v4.6.3 当时的史实**，现已不存在：Framework v1.7 把 A6 实现迁至独立 [`.github/workflows/a6.yml`](../../.github/workflows/a6.yml) + Node stdlib-only [`scripts/check-a6.mjs`](../../scripts/check-a6.mjs)（单测钉死），并**首次真正校验** `[skip a6]` 所宣称的 reviewer sign-off —— v1.6 实现仅凭 PR title 就 `exit 0`，AC 第 7 项的「`[skip a6]` bypass」smoke test 因此测的是一个未被校验的旁路。§2.7 trigger 同时由 3 类扩为 4 类（新增 Codex dual-native surfaces）。
+>
+> 本 ADR 的**决策本身**（5 个 root-level named files 责任编码 + CLAUDE.md sync allowlist + 启用 A6 gate）完全成立且未变。A6 的权威描述以 Framework §4.3.1 为准，实现变更理由见 [`[ADR]_Codex_Dual_Native_Plugin_Support`](./[ADR]_Codex_Dual_Native_Plugin_Support.md)。
 
 ## Context
 

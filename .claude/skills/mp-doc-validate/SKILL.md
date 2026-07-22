@@ -1,6 +1,6 @@
 ---
 name: mp-doc-validate
-description: Validates marketplace documentation compliance against Documentation Framework v1.6+ — three check groups: (1) active docs: every `[TAG]`-prefixed file under `docs/**` or `plugins/<name>/docs/**` has the required 8-field frontmatter, `type` matching its tag, the right subdirectory, resolvable `related:` paths / wikilinks / INDEX.md listing, and RUNBOOK `last-verified`; (2) v1.5+ archive compliance: `docs/archive/` flat-layout `[DEPRECATED]_` filename pattern, mandatory `archived:` date + `replaced-by:` path, canonical Archive Banner, intact bidirectional `supersedes:` ↔ `replaced-by:` pairs; (3) v1.6+ §2.7 CLAUDE.md sync allowlist Warning check (Step 3.5): working-tree drift between §2.7 trigger files and root `CLAUDE.md` (advisory; CI A6 step is the authoritative blocker). Make sure to use this skill whenever the user says "validate docs", "doc compliance", "frontmatter check", "docs audit", "docs/ check", "marketplace doc validate", "doc validate", "Stage 7 docs audit", "archive validation", "archive compliance", or before committing changes that touched any `docs/**` or `plugins/<name>/docs/**` file (including any change under `docs/archive/`). Heuristic-only; does not modify files. Outputs report: Critical / Warning / Verified. Do not use for: SKILL.md validation (use /plugin-dev:skill-reviewer agent), plugin compliance (use mp-flow-compliance, Stage 5), or test of doc content quality (subjective; outside scope).
+description: Validates marketplace documentation compliance against Documentation Framework v1.6+ — three check groups: (1) active docs: every `[TAG]`-prefixed file under `docs/**` or `plugins/<name>/docs/**` has the required 8-field frontmatter, `type` matching its tag, the right subdirectory, resolvable `related:` paths / wikilinks / INDEX.md listing, and RUNBOOK `last-verified`; (2) v1.5+ archive compliance: `docs/archive/` flat-layout `[DEPRECATED]_` filename pattern, mandatory `archived:` date + `replaced-by:` path, canonical Archive Banner, intact bidirectional `supersedes:` ↔ `replaced-by:` pairs; (3) v1.6+ §2.7 CLAUDE.md sync allowlist Warning check (Step 3.5): working-tree drift between §2.7 trigger files and root `CLAUDE.md` (advisory; the CI A6 workflow is the authoritative blocker). Make sure to use this skill whenever the user says "validate docs", "doc compliance", "frontmatter check", "docs audit", "docs/ check", "marketplace doc validate", "doc validate", "Stage 7 docs audit", "archive validation", "archive compliance", or before committing changes that touched any `docs/**` or `plugins/<name>/docs/**` file (including any change under `docs/archive/`). Heuristic-only; does not modify files. Outputs report: Critical / Warning / Verified. Do not use for: SKILL.md validation (use /plugin-dev:skill-reviewer agent), plugin compliance (use mp-flow-compliance, Stage 5), or test of doc content quality (subjective; outside scope).
 ---
 
 # Marketplace Doc Validate
@@ -297,20 +297,21 @@ Marketplace 顶层 INDEX 不需镜像 plugin-internal docs（plugin 自己的 do
 
 ## Step 3.5: CLAUDE.md Allowlist Sync Check (v1.6+, Warning posture)
 
-Per Framework v1.6 §2.7 + §4.3.1 A6 active gate Layer 2 (pre-commit advisory). Detects working-tree drift between §2.7 allowlist trigger files and root `CLAUDE.md`. Skill outputs **Warning** (not Critical); CI is the authoritative Layer 3 blocker (`exit 1` on PR).
+Per Framework v1.7 §2.7 + §4.3.1 A6 gate Layer 2 (pre-commit advisory). Detects working-tree drift between §2.7 allowlist trigger files and root `CLAUDE.md`. Skill outputs **Warning** (not Critical); the authoritative Layer 3 blocker is `.github/workflows/a6.yml` (→ `scripts/check-a6.mjs`, `exit 1` on PR). `check-a6.mjs`'s `TRIGGERS` array is the single source of truth for the pattern set — keep the regex below aligned with it.
 
 **Algorithm**:
 
 1. Capture working-tree modifications: `git status --porcelain` → list of `M/A/R/D` files (any line where the index or worktree column is non-space, parsed via `^[ MARD?!]{2} (.+)$`)
-2. Match against §2.7 trigger pattern (same regex shape as ci.yml A6 step):
+2. Match against the §2.7 trigger set (mirrors `check-a6.mjs` `TRIGGERS`, incl. v1.7 Category 4 Codex dual-native surfaces):
    ```
-   ^(docs/rule/\[STANDARD\]_.+\.md|VERSION|\.claude-plugin/marketplace\.json|plugins/[^/]+/\.claude-plugin/plugin\.json|\.claude/skills/mp-[^/]+/SKILL\.md|plugins/[^/]+/skills/[^/]+/SKILL\.md)$
+   ^(docs/rule/\[STANDARD\]_[^/]+\.md|VERSION|\.claude-plugin/marketplace\.json|plugins/[^/]+/\.claude-plugin/plugin\.json|\.claude/skills/mp-[^/]+/SKILL\.md|plugins/[^/]+/skills/[^/]+/SKILL\.md|\.agents/plugins/marketplace\.json|plugins/[^/]+/\.codex-plugin/plugin\.json|plugins/[^/]+/skills/[^/]+/agents/openai\.yaml|plugins/learn-kit/\.mcp\.json|plugins/learn-kit/nlm-bridge/.+|plugins/learn-kit/scripts/install-nlm-bridge\.mjs|scripts/(generate-nlm-contract|probe-learn-kit-nlm-bridge|resolve-release-state)\.mjs)$
    ```
 3. If `TRIGGERED[] 非空` AND root `CLAUDE.md` NOT in working-tree changes → emit **Warning**:
    ```
    WARNING: Potential A6 drift — file(s) X touched but CLAUDE.md unchanged.
-   CI A6 step will block at PR time. Either update root CLAUDE.md per §2.7,
-   or add [skip a6] to PR title + reviewer sign-off.
+   The A6 workflow will block at PR time. Either update root CLAUDE.md per §2.7,
+   or add [skip a6] to the PR title AND get a reviewer APPROVED sign-off
+   (body exactly "A6 N/A confirmed") — the token alone will not pass.
    Triggered files:
      - <file1>
      - <file2>
@@ -320,7 +321,7 @@ Per Framework v1.6 §2.7 + §4.3.1 A6 active gate Layer 2 (pre-commit advisory).
 
 **Severity rationale**: Warning (not Critical) — skill is pre-commit advisory; CI authoritative gate. Two-tier escalation mirrors v4.4.5 `related:` Check 5 (Warning in skill, Critical promoted in v4.4.5 only when broken-link 影响 navigation).
 
-**Limitations** (v1.7 candidate to address): skill检测 working-tree state, CI detects PR diff. Edge case: author edits trigger file + CLAUDE.md in commit A, then in next commit edits another trigger file but NOT CLAUDE.md — skill sees only commit B's working-tree (CLAUDE.md not touched in working tree) and warns; CI sees PR-wide diff (CLAUDE.md WAS touched in commit A across the PR range) and passes. Skill is over-eager in this case (Warning) — acceptable since it nudges author to verify; CI is authoritative.
+**Limitations** (still open as of v1.7 — v1.7 aligned the *trigger set* with `check-a6.mjs`, not the *detection method*): skill检测 working-tree state, CI detects PR diff. Edge case: author edits trigger file + CLAUDE.md in commit A, then in next commit edits another trigger file but NOT CLAUDE.md — skill sees only commit B's working-tree (CLAUDE.md not touched in working tree) and warns; CI sees PR-wide diff (CLAUDE.md WAS touched in commit A across the PR range) and passes. Skill is over-eager in this case (Warning) — acceptable since it nudges author to verify; CI is authoritative.
 
 ## Step 4: Categorize
 

@@ -1,24 +1,7 @@
 ---
 name: concept
-description: >
-  Explain an abstract concept in a structured ~500–800-character Chinese response with six
-  sections: origin pain point, core intuition, mechanism & definition, 2 cross-domain
-  positive examples + 1 counter-example, neighboring concepts, failure boundaries.
-  Goal: the reader can APPLY the concept (recognize it in new contexts, compare
-  alternatives, judge tradeoffs), not just recite it.
-  ALWAYS use this skill when the user types `/learn-kit:concept` or `/concept`
-  (optionally with a concept name), or says: "讲透这个概念", "深入理解 X", "帮我吃透 X",
-  "X 到底是什么", "理解概念 X", "explain the concept of X", "deep dive into X",
-  "help me really understand X". Prefer this over `/learn-kit:glossary` whenever the user
-  wants to USE a concept (apply it, compare alternatives, recognize it in new contexts,
-  understand tradeoffs) — not just recognize it. Also prefer this when the topic is a
-  *concept* (idempotency, eventual consistency, backpressure, ownership, monad, CAP,
-  referential transparency) rather than a specific named tool, API, or product.
-  Default language Chinese; technical terms preserved verbatim.
-  Do not use for: a quick one-paragraph term card when the user only needs to recognize a
-  term in 30 seconds (use `/learn-kit:glossary`); generating multi-tier learning documents /
-  files — saved markdown / interactive HTML / NotebookLM audio·video·slides, i.e. when the user
-  wants saved learning artifacts rather than a single in-chat explanation (use `/learn-kit:three-views`).
+description: |-
+  Use when the user wants to understand and apply an abstract concept through a structured Chinese explanation of about 500–800 characters. Trigger on “讲透这个概念”, “深入理解 X”, “帮我吃透 X”, “X 到底是什么”, “explain the concept of X”, or “deep dive into X”. Cover the originating pain point, core intuition, mechanism and definition, two cross-domain positive examples plus one counterexample, neighboring concepts, and failure boundaries. Prefer this for concepts such as idempotency, eventual consistency, backpressure, ownership, monad, CAP, or referential transparency. Do not use for a short term card; use glossary instead. Do not use for source-grounded multi-tier learning artifacts; use three-views instead.
 ---
 
 # Concept — 把一个概念讲到"能用"
@@ -27,17 +10,17 @@ description: >
 
 ## 触发与输入解析
 
-- `/learn-kit:concept <概念>`（亦可直接 `/concept <概念>`）→ 直接对 `<概念>` 执行下面的六要素流程。
+- **Claude Code**：`/learn-kit:concept <概念>`（亦可直接 `/concept <概念>`）；**Codex**：`$learn-kit:concept <概念>`（qualified 名，裸 `$concept` 不解析）→ 直接对 `<概念>` 执行下面的六要素流程。
 - `/learn-kit:concept <概念> @<受众>` → 受众影响**类比物**(第 2 节)和**正例场景**(第 4 节)的选取。例:`/learn-kit:concept 幂等性 @产品经理` 与 `@后端工程师` 应给出不同正例。
 - 用户用自然语言提问("讲透 X"、"深入理解 X"、"X 到底是什么"、"explain the concept of X")时,同样走此流程。
 - 若概念本身是英文或代码标识符,**原文保留**,不要硬翻成中文(例:`Idempotency`、`Backpressure`、`Eventual Consistency` 都保持原样,中文译名作为辅助)。
 
 ## 何时用 concept 而不是 glossary
 
-- 用户只想"听过就行" → 用 `/learn-kit:glossary`(术语速记卡,一段 200 字)
+- 用户只想"听过就行" → 用 `learn-kit:glossary`(术语速记卡,一段 200 字;Claude `/learn-kit:glossary`、Codex `$learn-kit:glossary`)
 - 用户想"能识别 / 能应用 / 能选型" → 用本 skill(分层 600 字,带正反例和边界)
 - 不确定时,默认用本 skill;输出一遍后由用户决定要不要切回 glossary
-- 用户想要的是**成体系的学习材料**(多档 markdown 文档 / HTML / 音视频) → 那是 `/learn-kit:three-views` 的领域,不是单次问答
+- 用户想要的是**成体系的学习材料**(多档 markdown 文档 / HTML / 音视频) → 那是 `learn-kit:three-views` 的领域,不是单次问答
 
 ## 六要素结构(必须按顺序,每节一个小标题)
 

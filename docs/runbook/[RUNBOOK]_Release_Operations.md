@@ -4,10 +4,10 @@ scope: marketplace
 summary: 从功能开发到版本发布的完整操作流程 — Issue → PR → Release → Post-release develop pre-bump (v1.3 起 §3.7 落地)
 owner: marketplace-maintainers
 created: 2026-03-17
-updated: 2026-05-18
+updated: 2026-07-20
 state: active
-version: v1.3.2
-last-verified: 2026-05-18
+version: v1.5
+last-verified: 2026-07-20
 domain: release
 tags:
   - release
@@ -21,6 +21,8 @@ related:
   - ../adr/[ADR]_Develop_PreBump_Adoption.md
   - ../postmortem/[POSTMORTEM]_2026-05-18_Bulk_Cleanup_Trap_Analysis.md
 revision: |
+  2026-07-20 — v1.5: §3.6「合并 → 自动发布」从旧 tag-first 简单流程重写为 v7.0.0 起的 **draft-first 加固流程**（tri-state 探测 → identity/integrity evaluator → uv 构建 wheel + `.sha256` → create-draft/upload/verify/publish 状态机 → 只读 immutability + warn-only public-URL 校验；已发布资产绝不就地修补）。对应 `.github/workflows/release.yml` 重写 + 新增 `scripts/run-release.mjs` / `scripts/release-verify-install.mjs`。Procedural 发布顺序（§3.1–§3.5 / §3.7）不变。Non-trigger archive（minor bump，无 Framework §2.3.1 触发条件）。
+  2026-07-20 — v1.4: v7.0.0 Codex dual-native sync。§3.2 MANDATORY callout 补 `bump-version.ps1` 事务性说明（anchored value-level edit + two-phase write + 任一站点失败全量回滚）；§3.2.1 post-bump verification 的 CLAUDE.md grep 加 `diagram-kit`，quintangle 站点检查扩展加 Codex `.codex-plugin/plugin.json` parity + `node scripts/validate-dual-host.mjs`；§6 发布前检查清单加 dual-host consistency 项（`.codex-plugin` 共享字段与 `.claude-plugin` parity）。Non-trigger archive（minor bump，无 Framework §2.3.1 触发条件）。
   2026-05-18 — v1.3.2: §2.6 + §3.7 加 cleanup callout box — single-PR cleanup 现可依赖 GitHub `delete_branch_on_merge=true` (v4.6.2+ 启用)，bulk 场景指向 `.claude/skills/mp-git-cleanup/SKILL.md` §Bulk Cleanup Mode + `scripts/safe-bulk-cleanup.ps1`；frontmatter related[] 加 POSTMORTEM_2026-05-18 引用。procedural commands 不变。Non-trigger archive（patch revision，无 Framework §2.3.1 触发条件）。
   2026-05-18 — v1.3.1: scrub external project references per `[STANDARD]_AI_Engineering_Execution_HITL_Prompt` §0.3 independence principle (frontmatter summary + this revision line + §3.7 "Why" callout reworded)；technical procedure 不变。
   2026-05-18 — v1.3: 引入 develop post-release 预 bump 机制 (per `[ADR]_Develop_PreBump_Adoption`)。新增 §3.7 "Post-release develop 预 bump"（sync-main-to-develop 完成后即在 develop 上执行 `bump-version.ps1 -From X.Y.Z -To X.Y.(Z+1)` 一个 commit；pure patch 风格无 `-dev` 后缀；只 bump 顶层 VERSION，不连带 plugin.json）；§4.5 加 hotfix 与预 bump 冲突 TODO 标记（暂不预设处理，待首次 hotfix 事件再补 §4.6）；§6 发布前检查清单加 1 项后置 "release 完成后 72h 内 develop 已预 bump"。Configures `verify-develop-prebumped.yml` warn-only CI 作为遗忘提醒兜底（72h 宽限）。Non-trigger archive（minor bump，无 Framework §2.3.1 触发条件）。
@@ -175,6 +177,8 @@ git push origin --delete feature/12-add-release-skill
 > [!IMPORTANT]
 > **MANDATORY**：必须运行 `scripts/bump-version.ps1`，禁止手工逐文件 edit。
 >
+> **v7.0.0 起脚本是事务性（transactional）的**：对每个站点做 anchored value-level edit（锚定值级替换，不做全文正则漫扫）+ two-phase write（先全部算好再统一落盘）；**任一站点写失败即全量回滚（full rollback）**，绝不留下半改状态。plugin scope 会同时更新 `.claude-plugin/plugin.json` 与 Codex 原生 `.codex-plugin/plugin.json` 两处 `version`（保持 parity）。
+>
 > **为什么强制**：v4.4.9 → v4.5.0 期间 4 次 release-bump commit 连续手工 edit + 漏 `README.md`（badge 停在 4.4.8 横跨 4 个 release），直到用户截图发现。详见 [PR #109](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/109) postmortem。
 >
 > **Safety net**：CI 第「Validate README badge matches VERSION」步骤（PR #109 引入）会在 `README.md` badge 与 `VERSION` drift 时直接 fail。手工跳过 script 时 CI 会拒 PR。
@@ -221,7 +225,8 @@ git diff --name-only | grep -E "^README\.md$" || \
 # 2. CLAUDE.md plugin line 验证（v2 起 script 已 cover plugin scope；保留 grep verify 作为 last-line defense）
 #    Script 现在用 scoped regex 锁定 `plugins/` 段 `<plugin>` v<X.Y.Z> 一行（不会误伤 历史版本记录）
 #    手工 grep 仍可作为 sanity check (Issue #110 closed by PR #115)
-grep -nE 'learn-kit. v[0-9.]+' CLAUDE.md
+#    v7.0.0 起 marketplace 有 2 个 plugin — 两个都要 verify
+grep -nE '(learn-kit|diagram-kit). v[0-9.]+' CLAUDE.md
 
 # 3. Version Quintangle 5-site 一致性（详见 .claude/skills/mp-doc-bump-version/SKILL.md Step 7）
 v_root=$(cat VERSION)
@@ -229,6 +234,12 @@ v_mp_meta=$(jq -r '.metadata.version' .claude-plugin/marketplace.json)
 v_readme_badge=$(sed -n 's/.*badge\/version-\([0-9.]\+\)-.*/\1/p' README.md | head -1)
 [ "$v_root" = "$v_mp_meta" ] && [ "$v_root" = "$v_readme_badge" ] && echo "OK: 5-site quintangle aligned" \
   || echo "ERROR: site drift — re-run bump-version.ps1 with correct -From / -To"
+
+# 4. Codex dual-host parity（v7.0.0 起）：每插件 .codex-plugin/plugin.json 的 version + 共享字段
+#    必须与 .claude-plugin/plugin.json 一致；.agents/plugins/marketplace.json 无版本字段
+node scripts/validate-dual-host.mjs \
+  && echo "OK: dual-host parity aligned" \
+  || echo "ERROR: dual-host drift — .codex-plugin ≠ .claude-plugin；re-run bump-version.ps1（transactional，会同步两处）"
 ```
 
 ### 3.3 更新 CHANGELOG 正式版本节
@@ -293,24 +304,28 @@ Release PR 模板审核要点：
 - [ ] 无残留调试代码
 - [ ] 无未关闭的阻塞性 Issue
 
-### 3.6 合并 → 自动发布
+### 3.6 合并 → 自动发布（v7.0.0 起：draft-first 加固流程）
 
-合并 Release PR 后，release.yml 自动执行：
+合并 Release PR（`VERSION` 变更落到 `main`）后，`release.yml` 自动触发（亦可 `workflow_dispatch` 手动指定 40 位 hex `release_sha`）。**v7.0.0 起该 workflow 是 draft-first、evaluator-gated、fail-closed 的**：所有业务判定（phase 迁移 / digest 规范化 / canonical 选择 / 状态机）集中在 `scripts/resolve-release-state.mjs` + `scripts/run-release.mjs`（均有单测），workflow YAML 只装工具链（Node 22 / Python 3.12 / uv 0.11.21）并把 token 交给编排器；第三方 Actions 全部 pin 完整 commit SHA。
 
-1. 读取 `VERSION` 文件
-2. 创建 git tag `vX.Y.Z`
-3. 从 `CHANGELOG.md` 提取发布说明
-4. 创建 GitHub Release
+流程：
+
+1. 解析 `RELEASE_SHA`（push = 该 commit；dispatch = 输入或 `main` tip），校验为 `origin/main` 祖先；从该 commit 读 `VERSION` + CHANGELOG 版本节（空则失败）。
+2. tri-state 探测：tag（`git ls-remote`，rc=2 = absent）+ release（`gh api` releases 列表，**含 draft**——published-only 的 `/releases/tags/{tag}` 探不到 draft）。
+3. **identity evaluator** → 唯一稳定 canonical identity `{sha, version, notes}` + 当前 phase。
+4. 从 canonical commit 用 uv 0.11.21 + Python 3.12 + hashed build constraints + `--require-hashes --no-config` + 固定 `SOURCE_DATE_EPOCH`（canonical commit epoch）构建 wheel + 生成精确 `.sha256` 字节。
+5. **integrity evaluator → action 状态机**：`create empty draft → re-query → upload 两资产 → re-query → 认证下载 + REST digest + 字节 + injected-core 安装校验 → 紧邻 publish 再 re-query → publish`。任一步 action 不符预期即 fail-closed。
+6. publish 后：只读 immutability 校验（仅当仓库已启用时才验，**绝不切换该 setting**）+ 最终 public-URL production installer 校验（**warn-only**）。
+
+**关键不变量**：已发布资产**绝不就地修补 / 覆盖 / 删除**——错了发新 patch 版本；失败 fail-closed 于 draft 阶段，留下未发布 draft 供人工检查/删除（`gh release delete vX.Y.Z --yes` 清理）。
 
 验证发布成功：
 
 ```bash
-# 检查 tag
-git fetch --tags
-git tag -l "v1.1.0"
-
-# 检查 GitHub Release
-gh release view v1.1.0
+git fetch --tags && git tag -l "vX.Y.Z"
+gh release view vX.Y.Z
+# 资产应恰为 wheel + .sha256 两个：
+gh release view vX.Y.Z --json assets --jq '.assets[].name'
 ```
 
 ### 3.7 Post-release develop 预 bump (v1.3 NEW)
@@ -434,11 +449,12 @@ git push origin --delete v1.1.0
 - [ ] CI 全部通过（Validate Structure: SUCCESS）
 - [ ] **(v1.1 NEW) `scripts/bump-version.ps1` 已运行**（先 DryRun + 看 diff preview，再执行；§3.2 MANDATORY）
 - [ ] **(v1.1 NEW) `git diff --name-only` 包含 `README.md`**（§3.2.1 verification — 若不在意味着 script 漏执行 / 失败）
-- [ ] **(v1.2 UPDATED) `CLAUDE.md` plugin line 已同步到新 plugin 版本**（v2 起 script 已 cover plugin scope 自动 patch；保留 `grep -nE 'learn-kit. v[0-9.]+' CLAUDE.md` 作 last-line verify）
+- [ ] **(v1.2 UPDATED) `CLAUDE.md` plugin line 已同步到新 plugin 版本**（v2 起 script 已 cover plugin scope 自动 patch；保留 `grep -nE '(learn-kit|diagram-kit). v[0-9.]+' CLAUDE.md` 作 last-line verify — v7.0.0 起 2 个 plugin 都要查）
 - [ ] CHANGELOG 已从 `[Unreleased]` 转为正式版本节
 - [ ] VERSION 文件已更新
 - [ ] marketplace.json 版本与 VERSION 一致
 - [ ] 各 plugin.json 版本与 marketplace.json 一致
+- [ ] **(v1.4 NEW) dual-host 一致性**：`node scripts/validate-dual-host.mjs` 全 PASS（每插件 `.codex-plugin/plugin.json` 的 version + 共享字段与 `.claude-plugin/plugin.json` parity；`.agents/plugins/marketplace.json` 无版本字段不参与）
 - [ ] 无未关闭的阻塞性 Issue
 - [ ] (本地预验证) `bash scripts/validate-commits.sh HEAD~N..HEAD` 全 PASS
 
@@ -453,6 +469,8 @@ git push origin --delete v1.1.0
 
 ## 7. 版本历史
 
+- **v1.5**（2026-07-20）：**§3.6 draft-first 加固流程**。「合并 → 自动发布」从旧 tag-first 4 步简单流程重写为 v7.0.0 起的 draft-first、evaluator-gated、fail-closed 流程（tri-state 探测 → identity/integrity evaluator → uv 从 canonical commit 构建 wheel + `.sha256` → create-draft → upload → 认证下载 + digest/字节/安装校验 → 紧邻 publish 复验 → publish → 只读 immutability + warn-only public-URL 校验）；关键不变量「已发布资产绝不就地修补，错了发新 patch」。对应 `.github/workflows/release.yml` 重写为薄壳 + 新增 `scripts/run-release.mjs`（编排器，import evaluator）/ `scripts/release-verify-install.mjs`（注入式安装校验）+ 两测试。第三方 Actions pin 完整 commit SHA。Procedural 发布顺序（§3.1–§3.5 / §3.7）不变。Non-trigger archive（minor bump，无 Framework §2.3.1 触发条件）。
+- **v1.4**（2026-07-20）：**v7.0.0 Codex dual-native sync**。§3.2 MANDATORY callout 补 `bump-version.ps1` 事务性说明（anchored value-level edit + two-phase write + 任一站点失败全量回滚，plugin scope 同步 `.claude-plugin` + `.codex-plugin` 两处 version）；§3.2.1 post-bump verification 的 CLAUDE.md grep 从只查 learn-kit 扩为 `(learn-kit|diagram-kit)`（2 plugin），quintangle 站点检查加第 4 步 `node scripts/validate-dual-host.mjs` 校 Codex `.codex-plugin/plugin.json` parity；§6 发布前检查清单加 dual-host consistency 项。Procedural release 顺序不变。Non-trigger archive（minor bump，无 Framework §2.3.1 触发条件）。
 - **v1.3.2**（2026-05-18）：§2.6 + §3.7 加 cleanup callout box —— single-PR cleanup 现可依赖 GitHub `delete_branch_on_merge=true`（v4.6.2+ 启用），bulk 场景指向 `.claude/skills/mp-git-cleanup/SKILL.md` §Bulk Cleanup Mode + `scripts/safe-bulk-cleanup.ps1`。Frontmatter related[] 加 POSTMORTEM_2026-05-18 引用。Procedural commands 完全不变。Non-trigger archive（patch revision）。
 - **v1.3.1**（2026-05-18）：scrub 外部项目引用 per `[STANDARD]_AI_Engineering_Execution_HITL_Prompt` §0.3 独立性原则；frontmatter summary + revision + §3.7 "为什么需要" callout reworded；技术流程 (§3.7 / §4.5 / §6 / `verify-develop-prebumped.yml`) 完全不变。Non-trigger archive。
 - **v1.3**（2026-05-18）：引入 develop post-release 预 bump 机制（per `[ADR]_Develop_PreBump_Adoption`）。新增 §3.7 "Post-release develop 预 bump" — sync-main-to-develop 完成后在 develop 上执行 `bump-version.ps1 -From X.Y.Z -To X.Y.(Z+1)` 一个 commit；pure patch 风格无 `-dev` 后缀；只 bump 顶层 VERSION，不连带 plugin.json。§4.5 加 hotfix 与预 bump 冲突 TODO 标记（暂不预设处理，待首次 hotfix 事件再补 §4.6）。§6 发布后检查清单加 1 项 "72h 内完成预 bump"。配套 `.github/workflows/verify-develop-prebumped.yml` warn-only CI 在 72h 宽限外提醒。Frontmatter v1.2 → v1.3 + revision block + 加 `[ADR]_Develop_PreBump_Adoption` 到 related。Non-trigger archive（minor bump，无 Framework §2.3.1 触发条件）。
