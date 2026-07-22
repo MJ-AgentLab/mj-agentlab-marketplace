@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "test": "node --test tests/validate-dual-host.test.mjs tests/run-cli.test.mjs tests/check-a6.test.mjs tests/check-prebump.test.mjs tests/resolve-release-state.test.mjs tests/generate-nlm-contract.test.mjs tests/hash-upload-corpus.test.mjs tests/bump-version.test.mjs tests/learn-kit-nlm-bridge.test.mjs tests/install-nlm-bridge.test.mjs tests/probe-learn-kit-nlm-bridge.test.mjs tests/validate-claude-plugins.test.mjs tests/optional-nlm-absent.test.mjs tests/canary-connector-drift.test.mjs tests/diagram-validator-contract.test.mjs tests/documentation-contract.test.mjs",
+    "test": "node --test tests/validate-dual-host.test.mjs tests/run-cli.test.mjs tests/check-a6.test.mjs tests/check-prebump.test.mjs tests/resolve-release-state.test.mjs tests/generate-nlm-contract.test.mjs tests/hash-upload-corpus.test.mjs tests/bump-version.test.mjs tests/learn-kit-nlm-bridge.test.mjs tests/install-nlm-bridge.test.mjs tests/probe-learn-kit-nlm-bridge.test.mjs tests/validate-claude-plugins.test.mjs tests/optional-nlm-absent.test.mjs tests/canary-connector-drift.test.mjs tests/diagram-validator-contract.test.mjs tests/documentation-contract.test.mjs tests/run-release.test.mjs tests/release-verify-install.test.mjs",
     "generate:nlm-contract": "node scripts/generate-nlm-contract.mjs all --root . --uv 0.11.21 --python 3.12 --exclude-newer 2026-07-16T00:00:00Z",
     "check:nlm-contract-generated": "node scripts/generate-nlm-contract.mjs all --root . --uv 0.11.21 --python 3.12 --exclude-newer 2026-07-16T00:00:00Z --check",
     "check:baseline-tools": "node scripts/check-tool-versions.mjs --codex 0.144.3 --claude 2.1.210 --uv 0.11.21 --bridge 4.0.0 --nlm 0.8.7",

@@ -1,63 +1,88 @@
 name: Release
 
+# Draft-first, evaluator-gated release (plan §3 Task 3, §2.4). Fires on a VERSION change landing on
+# main, or by manual dispatch. ALL business logic — phase transitions, digest normalisation,
+# canonical selection, the draft-first state machine — lives in scripts/resolve-release-state.mjs
+# and scripts/run-release.mjs (both unit-tested); this file only sets up the toolchain and hands
+# the orchestrator a token. It creates an empty draft, uploads + digest/bytes/install-verifies the
+# two assets, re-queries adjacent to publish, and only then publishes: a failure fails closed at the
+# draft stage, leaving an unpublished draft to inspect. A published asset is never patched in place.
+#
+# Supply-chain: third-party Actions are pinned to a full commit SHA (tag in the trailing comment),
+# an elevation over the rest of the repo that this publish-to-production workflow warrants. uv is the
+# exact pinned 0.11.21 via the versioned installer (house style; see codex-canary.yml).
+
 on:
   push:
     branches: [main]
     paths: ['VERSION']
+  workflow_dispatch:
+    inputs:
+      release_sha:
+        description: 'Full 40-char commit SHA to release (must be an ancestor of main). Defaults to the checked-out main tip.'
+        required: false
+        type: string
+
+# One release at a time; never cancel a release in flight (a cancelled publish is far worse than a
+# queued one).
+concurrency:
+  group: release-main
+  cancel-in-progress: false
+
+permissions:
+  contents: write
 
 jobs:
   release:
     name: Create Release
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0 # full history: the orchestrator reads VERSION/CHANGELOG at the canonical SHA and checks ancestry
 
-      - name: Extract version
-        id: version
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+
+      - name: Install uv 0.11.21 (pinned)
         run: |
-          VERSION=$(cat VERSION | tr -d '[:space:]')
-          if ! echo "$VERSION" | grep -qP '^[0-9]+\.[0-9]+\.[0-9]+$'; then
-            echo "ERROR: Invalid version format '$VERSION'"
-            exit 1
+          set -euo pipefail
+          curl -LsSf https://astral.sh/uv/0.11.21/install.sh | sh
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Verify uv version
+        run: |
+          set -euo pipefail
+          UV_VERSION="$(uv --version | awk '{print $2}')"
+          if [ "$UV_VERSION" != "0.11.21" ]; then
+            echo "::error::expected uv 0.11.21, found $UV_VERSION"; exit 1
           fi
-          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
 
-      - name: Check if tag exists
-        id: check_tag
-        run: |
-          if git tag -l "v${{ steps.version.outputs.version }}" | grep -q .; then
-            echo "exists=true" >> "$GITHUB_OUTPUT"
-            echo "Tag v${{ steps.version.outputs.version }} already exists, skipping release"
-          else
-            echo "exists=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Create and push tag
-        if: steps.check_tag.outputs.exists == 'false'
-        run: |
-          VERSION="v${{ steps.version.outputs.version }}"
-          git tag "$VERSION"
-          git push origin "$VERSION"
-
-      - name: Extract release notes from CHANGELOG
-        if: steps.check_tag.outputs.exists == 'false'
-        id: notes
-        run: |
-          VERSION="${{ steps.version.outputs.version }}"
-          NOTES=$(awk "/^## \\[$VERSION\\]/{found=1; next} /^## \\[/{if(found) exit} found{print}" CHANGELOG.md)
-          echo "$NOTES" > /tmp/release-notes.md
-          echo "--- Release Notes ---"
-          cat /tmp/release-notes.md
-
-      - name: Create GitHub Release
-        if: steps.check_tag.outputs.exists == 'false'
+      - name: Resolve release SHA
+        id: rel
+        # A dispatch input is attacker-adjacent text: validate it here and carry it only via env.
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_SHA: ${{ inputs.release_sha }}
+          DEFAULT_SHA: ${{ github.sha }}
         run: |
-          gh release create "v${{ steps.version.outputs.version }}" \
-            --title "v${{ steps.version.outputs.version }}" \
-            --notes-file /tmp/release-notes.md
+          set -euo pipefail
+          SHA="${INPUT_SHA:-$DEFAULT_SHA}"
+          # Whole-string bash regex, not a per-line grep: a multiline value with one 40-hex line
+          # would pass `grep -qE '^...$'` and then inject extra key=value pairs into GITHUB_OUTPUT.
+          if [[ ! "$SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::release_sha must be a single 40-char lowercase hex SHA (got '${SHA}')"; exit 1
+          fi
+          echo "sha=$SHA" >> "$GITHUB_OUTPUT"
+
+      - name: Run draft-first release
+        env:
+          RELEASE_SHA: ${{ steps.rel.outputs.sha }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GH_TOKEN: ${{ github.token }}
+          RUNNER_TEMP: ${{ runner.temp }}
+        run: node scripts/run-release.mjs
