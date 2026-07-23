@@ -120,7 +120,7 @@ docs/
 ├── INDEX.md            # 唯一豁免 frontmatter (Framework v1.5 §1 INDEX special clause)
 ├── rule/        — STANDARDs (Framework / Commit / GitHub Markdown / HITL Prompt 4 active)
 ├── guide/       — GUIDEs (Migration_From_v3_to_v4 / Marketplace_Project_Overview / Plugin_Development_Testing_Workflow / Version_Management / Marketplace_Agent_Execution_Checklist 5 active；Contributing 自 v4.6.3 回 repo root)
-├── runbook/     — RUNBOOKs (Release_Operations / Doc_Archive_Procedure 2 active)
+├── runbook/     — RUNBOOKs (Release_Operations / Doc_Archive_Procedure / Codex_Dual_Native_Manual_Acceptance 3 active)
 ├── adr/         — ADRs (v4.5.0 加 Exemption Reversal v1.1；v4.6.1 加 Develop_PreBump_Adoption；v4.6.3 加 Root_Level_Named_Files_Codification)
 ├── spec/        — SPECs (2 seeds in v4.2.0)
 ├── postmortem/  — POSTMORTEM (v4.6.2 add Bulk_Cleanup_Trap_Analysis P3)
