@@ -79,6 +79,7 @@ Navigation hub for all marketplace documentation.
 |----------|-------------|---------------|
 | [Release Operations](./runbook/[RUNBOOK]_Release_Operations.md) | 从开发到发布的完整操作流程（Issue → PR → Release）；v1.1 起 §3.2 bump-version.ps1 MANDATORY；v1.2 起 §3.2.1 反映 CLAUDE.md script 已 cover (closes #110)；v1.3 起 §3.7 add Post-release develop pre-bump (per [`[ADR]_Develop_PreBump_Adoption`](./adr/[ADR]_Develop_PreBump_Adoption.md))；v1.3.2 起 §2.6 + §3.7 加 cleanup callout 指向 mp-git-cleanup §Bulk Mode + safe-bulk-cleanup.ps1 | 2026-05-18 |
 | [Doc Archive Procedure](./runbook/[RUNBOOK]_Doc_Archive_Procedure.md) | 4-phase 文档归档工作流 + 2 HITL gate（per Documentation Framework v1.4 §2.3，flat layout）| 2026-05-17 |
+| [Codex Dual-Native Manual Acceptance](./runbook/[RUNBOOK]_Codex_Dual_Native_Manual_Acceptance.md) | 手动验收 plan §6 "Manual surfaces"：Codex App/CLI/IDE 发现 + Claude Code + prompt/HTML injection + NLM prerequisite/consent；每 check 带 `file:line` grounding + false-pass/fail traps。v1.0 `last-verified` 为 repo-grounding 日期，非 end-to-end 跑（见 banner）| 2026-07-23 |
 
 ## Architecture Decision Records (`docs/adr/`)
 
