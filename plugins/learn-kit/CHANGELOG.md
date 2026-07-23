@@ -31,6 +31,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 - **`skills/three-views/templates/artifact-mind_map.md`** — the mind_map type takes no `focus_prompt`/`language` (connector 0.8.7 ignores both), so it needs no medium-constraints template; its `studio_create` sends only `source_ids` + `title` + `confirm`.
 
+### Fixed
+
+- **`4.0.1` — the NLM preflight now actually runs.** `three-views` Step 5B.2 gates the entire NotebookLM branch on `scripts/hash-upload-corpus.mjs --nlm-preflight`, but in 4.0.0 that helper was a fail-closed stub with **no success path** — even with the bridge installed it returned `CONTRACT_VERIFICATION_UNAVAILABLE`, so Gate A / discovery / mutation were unreachable end-to-end (the NLM feature was effectively dead code; installing the bridge did not unblock it). `--nlm-preflight` now runs the receipt-owned `learn-kit-nlm-bridge --contract-json` (the bridge's own local, network-free verifier), surfaces the validated 12-key fingerprint the consent record binds, and fails **closed** on any spawn / non-zero exit / unparseable output / missing-or-malformed key / identity-invariant drift. Cross-platform: the Windows `.cmd` shim is invoked via a verbatim-quoted `cmd.exe /d /s /c ""<shim>" --contract-json"` behind a shim-path metacharacter guard; the POSIX shim is spawned directly. Local Markdown / HTML / `glossary` / `concept` are unaffected.
+
 ## [3.2.1] - 2026-06-12
 
 ### Fixed
