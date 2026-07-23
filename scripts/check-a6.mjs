@@ -57,7 +57,11 @@ const TRIGGERS = [
   // would drop them right after parsing preserved them.
   /^plugins\/learn-kit\/nlm-bridge\/[\s\S]+$/,
   /^plugins\/learn-kit\/scripts\/install-nlm-bridge\.mjs$/,
-  /^scripts\/(generate-nlm-contract|probe-learn-kit-nlm-bridge|resolve-release-state)\.mjs$/,
+  // Release-critical business logic: the contract generator/probe + the release evaluator, plus its
+  // orchestrator (run-release) and pre-publish install-verifier (release-verify-install). The latter
+  // two were added in the same #169 release-hardening work as resolve-release-state.mjs and are
+  // equally release-critical, so they belong on the A6 gate alongside it (Framework §2.7, v1.8+).
+  /^scripts\/(generate-nlm-contract|probe-learn-kit-nlm-bridge|resolve-release-state|run-release|release-verify-install)\.mjs$/,
 ];
 
 export function isA6Trigger(p) {

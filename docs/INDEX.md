@@ -21,6 +21,7 @@ related:
   - ./adr/[ADR]_Diagram_Kit_Addition.md
   - ./adr/[ADR]_Codex_Dual_Native_Plugin_Support.md
 revision: |
+  2026-07-23 — Framework v1.8: §2.7 Category 4 A6 trigger set 补 `run-release.mjs` + `release-verify-install.mjs`（release 编排器 + pre-publish install 校验器与既有 `resolve-release-state.mjs` 同级并入 A6 gate；触发面 3 → 5 release 脚本，category 结构 4 类不变）；bump [Documentation Framework] row v1.7 → v1.8；同步 `check-a6.mjs` regex + 单测 + 根 CLAUDE.md。marketplace VERSION 不动（develop 7.0.1；纯 governance/doc PR，非 release）
   2026-07-20 — v7.0.0: Codex dual-native ship。mark [ADR]_Codex_Dual_Native_Plugin_Support 状态 进行中 → accepted / shipped v7.0.0（Codex 原生包装 `.agents/plugins/marketplace.json` + 每插件 `.codex-plugin/plugin.json` + 每技能 `agents/openai.yaml` 与 `.claude-plugin/**` SSOT 并行落地）；Plugin Documentation learn-kit 3.2.0 → 4.0.0 + diagram-kit 0.1.0 → 0.2.0；learn-kit NLM 依赖措辞从 `notebooklm-mcp` + `nlm login` 改为 bridge-backed（`learn-kit-nlm-bridge`，Node 22 / uv 0.11.21+ / 用户自备 Python 3.12 + Gate A/B 同意）；Last updated → 2026-07-20 (v7.0.0)
   2026-07-16 — v6.4: add [ADR]_Codex_Dual_Native_Plugin_Support row (Codex 原生包装与 Claude Code SSOT 并行；双 manifest 由 validate-dual-host.mjs 强制一致；baseline 二分 —— 供应链输入 exact / 滚动宿主 CLI minimum；three-views MCP 预授权 8 → 6，删 refresh_auth / server_info)
   2026-06-05 — v6.3: add [ADR]_Diagram_Kit_Addition row (v6.3.0 NEW plugin diagram-kit 0.1.0 — marketplace's first 1→2 plugin count; arch-diagram skill + 9 references + generalized Mermaid validator forked from the PG version); Commit Message Convention row v1.1 → v1.2 (diagram-kit scope added); Plugin Documentation 1 → 2 plugins (learn-kit 3.2.0 + diagram-kit 0.1.0); Last updated → 2026-06-05
@@ -37,7 +38,7 @@ revision: |
 
 # Documentation Index — MJ AgentLab Marketplace
 
-> Last updated: 2026-07-20 (v7.0.0). Framework §1 hard exclusions + §1.1 root-level named files codification (5 files) + §2.7 CLAUDE.md sync allowlist (含 Codex dual-native surfaces) + §4.3.1 A6 enforced CI gate per [`./rule/[STANDARD]_Documentation_Framework.md`](./rule/[STANDARD]_Documentation_Framework.md) v1.7.
+> Last updated: 2026-07-23. Framework §1 hard exclusions + §1.1 root-level named files codification (5 files) + §2.7 CLAUDE.md sync allowlist (含 Codex dual-native surfaces；Category 4 A6 trigger set 覆盖完整 release orchestrator/verifier) + §4.3.1 A6 enforced CI gate per [`./rule/[STANDARD]_Documentation_Framework.md`](./rule/[STANDARD]_Documentation_Framework.md) v1.8.
 
 Navigation hub for all marketplace documentation.
 
@@ -57,7 +58,7 @@ Navigation hub for all marketplace documentation.
 
 | Document | State | Version | Purpose |
 |----------|-------|---------|---------|
-| [Documentation Framework](./rule/[STANDARD]_Documentation_Framework.md) | active | v1.7 | 6 tag prefixes + 8-field frontmatter + 3-state machine + 路径稳定性 + INDEX sync + flat archive layout（v1.4）+ §1 exemption cancellation（v1.5）+ §1.1 root-level named files codification + §2.7 CLAUDE.md sync allowlist + §4.3.1 A6 active CI gate（v1.6）+ A6 enforced：独立 `a6.yml` + `check-a6.mjs`、校验 reviewer sign-off、§2.7 Category 4 Codex dual-native surfaces（v1.7）|
+| [Documentation Framework](./rule/[STANDARD]_Documentation_Framework.md) | active | v1.8 | 6 tag prefixes + 8-field frontmatter + 3-state machine + 路径稳定性 + INDEX sync + flat archive layout（v1.4）+ §1 exemption cancellation（v1.5）+ §1.1 root-level named files codification + §2.7 CLAUDE.md sync allowlist + §4.3.1 A6 active CI gate（v1.6）+ A6 enforced：独立 `a6.yml` + `check-a6.mjs`、校验 reviewer sign-off、§2.7 Category 4 Codex dual-native surfaces（v1.7）+ §2.7 Category 4 A6 trigger set 补 `run-release` + `release-verify-install`（v1.8）|
 | [Commit Message Convention](./rule/[STANDARD]_Commit_Message_Convention.md) | active | v1.2 | `<type>(<scope>): <summary>` + 7 types + marketplace scope whitelist (v1.2 adds `diagram-kit` plugin scope) + branch-type matrix + §11 Common Mistakes (post-v4.5.0 lessons + scripts/validate-commits.{sh,ps1} workflow) |
 | [GitHub Markdown](./rule/[STANDARD]_GitHub_Markdown.md) | active | v1.0 | ATX headings + GFM tables + native alerts + frontmatter syntax for GitHub web |
 | [AI Engineering Execution HITL Prompt](./rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md) | active | v1.4 | 11 阶段闭环 + skill 矩阵 + HITL 触发规则 + universal skeleton §0（v1.4 marketplace 独立性原则）|

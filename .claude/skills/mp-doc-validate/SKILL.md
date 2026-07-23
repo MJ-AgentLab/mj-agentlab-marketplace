@@ -297,14 +297,14 @@ Marketplace 顶层 INDEX 不需镜像 plugin-internal docs（plugin 自己的 do
 
 ## Step 3.5: CLAUDE.md Allowlist Sync Check (v1.6+, Warning posture)
 
-Per Framework v1.7 §2.7 + §4.3.1 A6 gate Layer 2 (pre-commit advisory). Detects working-tree drift between §2.7 allowlist trigger files and root `CLAUDE.md`. Skill outputs **Warning** (not Critical); the authoritative Layer 3 blocker is `.github/workflows/a6.yml` (→ `scripts/check-a6.mjs`, `exit 1` on PR). `check-a6.mjs`'s `TRIGGERS` array is the single source of truth for the pattern set — keep the regex below aligned with it.
+Per Framework v1.8 §2.7 + §4.3.1 A6 gate Layer 2 (pre-commit advisory). Detects working-tree drift between §2.7 allowlist trigger files and root `CLAUDE.md`. Skill outputs **Warning** (not Critical); the authoritative Layer 3 blocker is `.github/workflows/a6.yml` (→ `scripts/check-a6.mjs`, `exit 1` on PR). `check-a6.mjs`'s `TRIGGERS` array is the single source of truth for the pattern set — keep the regex below aligned with it.
 
 **Algorithm**:
 
 1. Capture working-tree modifications: `git status --porcelain` → list of `M/A/R/D` files (any line where the index or worktree column is non-space, parsed via `^[ MARD?!]{2} (.+)$`)
-2. Match against the §2.7 trigger set (mirrors `check-a6.mjs` `TRIGGERS`, incl. v1.7 Category 4 Codex dual-native surfaces):
+2. Match against the §2.7 trigger set (mirrors `check-a6.mjs` `TRIGGERS`, incl. v1.7 Category 4 Codex dual-native surfaces + v1.8 release-script additions `run-release` / `release-verify-install`):
    ```
-   ^(docs/rule/\[STANDARD\]_[^/]+\.md|VERSION|\.claude-plugin/marketplace\.json|plugins/[^/]+/\.claude-plugin/plugin\.json|\.claude/skills/mp-[^/]+/SKILL\.md|plugins/[^/]+/skills/[^/]+/SKILL\.md|\.agents/plugins/marketplace\.json|plugins/[^/]+/\.codex-plugin/plugin\.json|plugins/[^/]+/skills/[^/]+/agents/openai\.yaml|plugins/learn-kit/\.mcp\.json|plugins/learn-kit/nlm-bridge/.+|plugins/learn-kit/scripts/install-nlm-bridge\.mjs|scripts/(generate-nlm-contract|probe-learn-kit-nlm-bridge|resolve-release-state)\.mjs)$
+   ^(docs/rule/\[STANDARD\]_[^/]+\.md|VERSION|\.claude-plugin/marketplace\.json|plugins/[^/]+/\.claude-plugin/plugin\.json|\.claude/skills/mp-[^/]+/SKILL\.md|plugins/[^/]+/skills/[^/]+/SKILL\.md|\.agents/plugins/marketplace\.json|plugins/[^/]+/\.codex-plugin/plugin\.json|plugins/[^/]+/skills/[^/]+/agents/openai\.yaml|plugins/learn-kit/\.mcp\.json|plugins/learn-kit/nlm-bridge/.+|plugins/learn-kit/scripts/install-nlm-bridge\.mjs|scripts/(generate-nlm-contract|probe-learn-kit-nlm-bridge|resolve-release-state|run-release|release-verify-install)\.mjs)$
    ```
 3. If `TRIGGERED[] 非空` AND root `CLAUDE.md` NOT in working-tree changes → emit **Warning**:
    ```
@@ -321,7 +321,7 @@ Per Framework v1.7 §2.7 + §4.3.1 A6 gate Layer 2 (pre-commit advisory). Detect
 
 **Severity rationale**: Warning (not Critical) — skill is pre-commit advisory; CI authoritative gate. Two-tier escalation mirrors v4.4.5 `related:` Check 5 (Warning in skill, Critical promoted in v4.4.5 only when broken-link 影响 navigation).
 
-**Limitations** (still open as of v1.7 — v1.7 aligned the *trigger set* with `check-a6.mjs`, not the *detection method*): skill检测 working-tree state, CI detects PR diff. Edge case: author edits trigger file + CLAUDE.md in commit A, then in next commit edits another trigger file but NOT CLAUDE.md — skill sees only commit B's working-tree (CLAUDE.md not touched in working tree) and warns; CI sees PR-wide diff (CLAUDE.md WAS touched in commit A across the PR range) and passes. Skill is over-eager in this case (Warning) — acceptable since it nudges author to verify; CI is authoritative.
+**Limitations** (still open as of v1.8 — v1.7 aligned the *trigger set* with `check-a6.mjs`, not the *detection method*): skill检测 working-tree state, CI detects PR diff. Edge case: author edits trigger file + CLAUDE.md in commit A, then in next commit edits another trigger file but NOT CLAUDE.md — skill sees only commit B's working-tree (CLAUDE.md not touched in working tree) and warns; CI sees PR-wide diff (CLAUDE.md WAS touched in commit A across the PR range) and passes. Skill is over-eager in this case (Warning) — acceptable since it nudges author to verify; CI is authoritative.
 
 ## Step 4: Categorize
 

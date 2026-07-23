@@ -72,6 +72,8 @@ test("isA6Trigger matches the Codex dual-native additions", () => {
     "scripts/generate-nlm-contract.mjs",
     "scripts/probe-learn-kit-nlm-bridge.mjs",
     "scripts/resolve-release-state.mjs",
+    "scripts/run-release.mjs",
+    "scripts/release-verify-install.mjs",
   ]) {
     assert.equal(isA6Trigger(p), true, `expected trigger: ${p}`);
   }
