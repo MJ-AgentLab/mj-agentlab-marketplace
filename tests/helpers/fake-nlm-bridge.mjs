@@ -46,9 +46,18 @@ if (scn.spawnChild) {
   // A descendant that outlives the handshake, so the probe's process-tree scan can catch it. The
   // trailing "chrome-renderer" arg puts a browser marker on its command line — the probe's threat
   // detector looks for exactly that (a bare node/python child is not a threat by itself).
-  // 8s: long enough to span the bootstrap scan and the verify poller window, short enough that if it
-  // is orphaned (the verify fake exits after lingerMs) it self-terminates quickly.
-  const c = spawn(process.execPath, ["-e", "setTimeout(() => {}, 8000)", "chrome-renderer-simulated"], {
+  //
+  // The child is unref'd and neither detached nor job-bound, so on parent exit it is orphaned
+  // (reparented — definitively so on POSIX), not force-killed; its own timer is what reaps it. The
+  // probe can only OBSERVE it while its poller runs, and the poller stops the instant the parent
+  // (this fake bridge) exits: runVerifyChild sets alive=false + clearInterval on the child's `close`
+  // event, and its later killTree targets the already-dead parent pid, so it never reaps this orphan.
+  // So the observation window equals the parent's lifetime — the handshake (bootstrap) or the verify
+  // `lingerMs`. The pwsh/CIM enumeration the probe runs can take several seconds under a loaded
+  // full-suite run, so the verify test uses a generous `lingerMs`; this 12s self-timer is the actual
+  // reaper and sits just above that linger, so the child is present for the whole window yet lingers
+  // only briefly afterward.
+  const c = spawn(process.execPath, ["-e", "setTimeout(() => {}, 12000)", "chrome-renderer-simulated"], {
     stdio: "ignore",
     windowsHide: true,
   });
