@@ -584,8 +584,9 @@ test("preflight returns ok with exactly the fingerprint when the bridge contract
   assert.equal(r.ok, true);
   // Non-vacuous: surfaces the REAL SHA off the contract, not a stub.
   assert.equal(r.install_receipt_sha256, "1".repeat(64));
-  // The projection is a whitelist: exactly ok + the 12 keys, nothing more, nothing less.
-  assert.deepEqual(Object.keys(r).sort(), ["ok", ...FP_KEYS].sort());
+  // The projection is a whitelist: exactly ok + the 12 keys, nothing more, nothing less, and in a
+  // FIXED order — the consent record binds the emitted fingerprint, so a reorder changes its bytes.
+  assert.deepEqual(Object.keys(r), ["ok", ...FP_KEYS]);
 });
 
 test("preflight drops any extra key the bridge prints (no leak into the consent record)", () => {
@@ -607,6 +608,11 @@ test("preflight (posix) spawns the shim directly with --contract-json", () => {
   assert.deepEqual(calls[0].args, ["--contract-json"]);
   assert.equal(calls[0].options.shell, false);
   assert.notEqual(calls[0].options.windowsVerbatimArguments, true);
+  // A network gate must be bounded in wait + output.
+  assert.equal(calls[0].options.timeout, 60000);
+  assert.equal(calls[0].options.maxBuffer, 8 * 1024 * 1024);
+  assert.equal(calls[0].options.windowsHide, true);
+  assert.equal(calls[0].options.encoding, "utf8");
 });
 
 test("preflight (win32) invokes ComSpec with the verbatim quoted /d /s /c tail", () => {
@@ -618,6 +624,28 @@ test("preflight (win32) invokes ComSpec with the verbatim quoted /d /s /c tail",
   assert.deepEqual(calls[0].args, ["/d", "/s", "/c", `""${shimPath}" --contract-json"`]);
   assert.equal(calls[0].options.windowsVerbatimArguments, true);
   assert.equal(calls[0].options.shell, false);
+  assert.equal(calls[0].options.timeout, 60000);
+  assert.equal(calls[0].options.maxBuffer, 8 * 1024 * 1024);
+  assert.equal(calls[0].options.windowsHide, true);
+  assert.equal(calls[0].options.encoding, "utf8");
+});
+
+// The verbatim `""<shim>" --contract-json"` form exists BECAUSE the non-verbatim form was measured
+// to break when the shim path contains a space (cmd /s strips the quotes Node adds). Prove the REAL
+// cmd.exe accepts the argv with a SPACED shim path end-to-end (no injected spawn) — a mis-quoting
+// that /s would strip fails here but would pass every faked-spawn test above. win32-only.
+test("preflight (win32 real cmd.exe) runs a shim under a SPACED path end-to-end", { skip: process.platform === "win32" ? false : "win32-only" }, () => {
+  const parent = track(fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()), "fake-bin-")));
+  const localAppData = path.join(parent, "with space");
+  const bin = path.join(localAppData, "MJ-AgentLab", "bin");
+  fs.mkdirSync(bin, { recursive: true });
+  // Echoing raw JSON from a .cmd is brittle; print a sibling file instead.
+  fs.writeFileSync(path.join(bin, "contract.json"), JSON.stringify(validContract()));
+  fs.writeFileSync(path.join(bin, "learn-kit-nlm-bridge.cmd"), '@echo off\r\ntype "%~dp0contract.json"\r\n');
+  const r = nlmPreflight({ platform: "win32", env: { LOCALAPPDATA: localAppData } }); // REAL default spawn
+  assert.equal(r.ok, true, `real cmd.exe spaced-path invocation must succeed: ${JSON.stringify(r)}`);
+  assert.equal(r.instructions_policy, "prompt-user-only");
+  assert.equal(r.bridge_version, "4.0.0");
 });
 
 test("preflight fails closed when the bridge contract exits non-zero", () => {
@@ -657,6 +685,20 @@ test("preflight fails closed when a SHA field is not 64 lowercase hex", () => {
   assert.equal(up.reason, "CONTRACT_INCOMPLETE");
 });
 
+test("preflight fails closed on an EMPTY string key or an empty tools array", () => {
+  // The missing-key loop deletes keys (undefined -> typeof/isArray guard); these pin the OTHER
+  // half of the `||` guard: a present-but-empty value must also fail closed, never be surfaced.
+  const { env } = fakeBridgeBin("linux");
+  for (const key of ["bridge_version", "connector_version", "python_version", "base_url", "transport", "instructions_policy"]) {
+    const r = nlmPreflight({ platform: "linux", env, spawn: () => okStdout(validContract({ [key]: "" })) });
+    assert.equal(r.reason, "CONTRACT_INCOMPLETE", `empty ${key} -> CONTRACT_INCOMPLETE`);
+    assert.ok(r.detail.includes(key), `detail must name ${key}`);
+  }
+  const emptyTools = nlmPreflight({ platform: "linux", env, spawn: () => okStdout(validContract({ tools: [] })) });
+  assert.equal(emptyTools.reason, "CONTRACT_INCOMPLETE");
+  assert.ok(emptyTools.detail.includes("tools"));
+});
+
 test("preflight fails closed on instructions_policy drift", () => {
   const { env } = fakeBridgeBin("linux");
   const r = nlmPreflight({ platform: "linux", env, spawn: () => okStdout(validContract({ instructions_policy: "allow-auto" })) });
@@ -675,6 +717,11 @@ test("preflight fails closed when the spawn errors or throws", () => {
   assert.equal(enoent.reason, "BRIDGE_SPAWN_FAILED");
   const timeout = nlmPreflight({ platform: "linux", env, spawn: () => ({ error: Object.assign(new Error("ETIMEDOUT"), { code: "ETIMEDOUT" }), signal: "SIGTERM", status: null }) });
   assert.equal(timeout.reason, "BRIDGE_SPAWN_FAILED");
+  // A signal kill with NO error must hit the dedicated signal branch (the timeout case above hits
+  // the error branch first, so this is the only input that exercises it).
+  const signaled = nlmPreflight({ platform: "linux", env, spawn: () => ({ signal: "SIGKILL", status: null }) });
+  assert.equal(signaled.reason, "BRIDGE_SPAWN_FAILED");
+  assert.ok(String(signaled.detail).includes("SIGKILL"), "signal branch names the signal");
   const noStatus = nlmPreflight({ platform: "linux", env, spawn: () => ({ status: null }) });
   assert.equal(noStatus.reason, "BRIDGE_SPAWN_FAILED");
   const threw = nlmPreflight({ platform: "linux", env, spawn: () => { throw new Error("boom"); } });

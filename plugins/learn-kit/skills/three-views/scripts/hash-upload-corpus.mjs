@@ -491,6 +491,11 @@ export function nlmPreflight({
   for (const k of FINGERPRINT_SHA_KEYS) {
     if (!isHex64(contract[k])) return incomplete(k);
   }
+  // `tools` is surfaced verbatim, not element-validated here BY DESIGN: the bridge's own
+  // build_bridge_contract() already cross-checked it against the canonical 6-tool policy via
+  // public_schema_sha256 (verified above by the non-zero-exit gate), so the array is already
+  // trustworthy. This helper is a gate that runs the bridge's verifier, not a second schema engine;
+  // we only confirm it is a non-empty array before binding it into the consent record.
   if (!Array.isArray(contract.tools) || contract.tools.length === 0) return incomplete("tools");
 
   if (contract.instructions_policy !== EXPECTED_INSTRUCTIONS_POLICY) {
