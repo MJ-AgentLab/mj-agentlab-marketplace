@@ -12,6 +12,7 @@ import {
   parseReleaseFromList,
   mkExpectedAssets,
   verifyAssetDigests,
+  DRAFT_VISIBILITY_BACKOFF_MS,
 } from "../scripts/run-release.mjs";
 import { PolicyError, InputError, normalizeNotes } from "../scripts/resolve-release-state.mjs";
 
@@ -53,7 +54,11 @@ function makeIo(state = {}, hooks = {}) {
   };
   const io = {
     calls,
+    sleeps: [],
     log: () => {},
+    sleep: async (ms) => {
+      io.sleeps.push(ms);
+    },
     async resolveRelease() {
       return { ...rel, ...(hooks.rel || {}) };
     },
@@ -199,6 +204,95 @@ test("a draft asset whose digest disagrees with the build fails closed before pu
   });
   await assert.rejects(() => runRelease(io), PolicyError);
   assert.ok(!io.calls.includes("publish"), "must not publish when a draft asset digest is wrong");
+});
+
+// ------------------------------------------------------------------ post-create list-visibility poll
+
+// A probe that hides the freshly-created draft from the releases list for `lagPolls` reads after
+// createDraft (GitHub's eventual-consistency window), then reveals it. `Infinity` = it never appears.
+function laggyDraftProbe(lagPolls) {
+  let postCreate = 0;
+  return (state) => {
+    const lagging = state.draft && !state.published && postCreate < lagPolls;
+    if (lagging) postCreate++;
+    if ((!state.draft && !state.published) || lagging) {
+      return { tag: { present: false }, release: { present: false } };
+    }
+    return {
+      tag: state.published ? { present: true, sha: SHA } : { present: false },
+      release: {
+        present: true, id: 5, tag: `v${VERSION}`, name: `v${VERSION}`, targetCommitish: SHA,
+        isDraft: !state.published, isPrerelease: false, body: NOTES,
+        assets: state.uploaded ? uploadedAssets() : [],
+      },
+    };
+  };
+}
+
+test("post-create list lag: polls with backoff until the draft appears, then publishes", async () => {
+  const io = makeIo({}, { probe: laggyDraftProbe(3) });
+  const r = await runRelease(io);
+  assert.equal(r.result, "published");
+  assert.deepEqual(io.calls, ["build", "createDraft", "uploadAssets", "downloadAndVerify", "publish", "postPublish"]);
+  // Assert the exact recorded delays, not just the count: a sleep(0)/constant backoff would keep the
+  // count right yet complete all probes inside the replication window, reintroducing the first-run race.
+  assert.deepEqual(io.sleeps, DRAFT_VISIBILITY_BACKOFF_MS.slice(0, 3), "backs off on the exact exported schedule until the draft is visible");
+});
+
+test("post-create list lag that never resolves: fails closed after the backoff budget, no publish", async () => {
+  const io = makeIo({}, { probe: laggyDraftProbe(Infinity) });
+  await assert.rejects(
+    () => runRelease(io),
+    (e) => e instanceof PolicyError && /never appeared in the releases list/.test(e.message),
+  );
+  assert.equal(io.calls.filter((c) => c === "createDraft").length, 1, "createDraft is called once, never re-created during polling");
+  assert.ok(!io.calls.includes("publish"), "must not publish when the draft never becomes visible");
+  assert.deepEqual(io.sleeps, DRAFT_VISIBILITY_BACKOFF_MS, "exhausts exactly the exported backoff schedule (real delays, not sleep(0)) before failing closed");
+});
+
+test("no list lag: the draft is visible on the first re-query, so no backoff sleep happens", async () => {
+  const io = makeIo({});
+  const r = await runRelease(io);
+  assert.equal(r.result, "published");
+  assert.equal(io.sleeps.length, 0, "the happy path must not wait");
+});
+
+test("a mismatched draft observed right after createDraft fails closed immediately, not retried as lag", async () => {
+  // The draft appears in the list at once but with drifted notes — NOT the visibility transient. It
+  // must fail closed on the first re-query, never be retried as though the list were merely lagging.
+  const io = makeIo({}, {
+    probe: (state) => {
+      if (!state.draft) return { tag: { present: false }, release: { present: false } };
+      return {
+        tag: { present: false },
+        release: { present: true, id: 5, tag: `v${VERSION}`, name: `v${VERSION}`, targetCommitish: SHA, isDraft: true, isPrerelease: false, body: "### drifted notes", assets: [] },
+      };
+    },
+  });
+  await assert.rejects(() => runRelease(io), PolicyError);
+  assert.equal(io.sleeps.length, 0, "a genuine mismatch is not retried as a visibility lag");
+  assert.ok(!io.calls.includes("publish"));
+});
+
+test("an unexpected non-transient action right after createDraft fails closed at once (not treated as lag)", async () => {
+  // The draft appears immediately WITH correct assets — a state createDraft never produces. The
+  // evaluator returns publish-draft, which is neither resume-draft nor the create-draft transient, so
+  // the poll must reject it immediately rather than back off as though the list were catching up.
+  const io = makeIo({}, {
+    probe: (state) => {
+      if (!state.draft) return { tag: { present: false }, release: { present: false } };
+      return {
+        tag: { present: false },
+        release: { present: true, id: 5, tag: `v${VERSION}`, name: `v${VERSION}`, targetCommitish: SHA, isDraft: true, isPrerelease: false, body: NOTES, assets: uploadedAssets() },
+      };
+    },
+  });
+  await assert.rejects(
+    () => runRelease(io),
+    (e) => e instanceof PolicyError && /expected resume-draft \(or the transient create-draft/.test(e.message),
+  );
+  assert.equal(io.sleeps.length, 0, "an unexpected action is not retried as a visibility lag");
+  assert.ok(!io.calls.includes("uploadAssets") && !io.calls.includes("publish"));
 });
 
 // ------------------------------------------------------------------ verifyAssetDigests helper
