@@ -46,6 +46,12 @@ const SHA_RE = /^[0-9a-f]{40}$/;
 const sha256Hex = (buf) => crypto.createHash("sha256").update(buf).digest("hex");
 const isSha = (v) => typeof v === "string" && SHA_RE.test(v);
 
+// Backoff for the post-createDraft releases-list-visibility poll. GitHub's releases list is eventually
+// consistent, so the draft this run just created can be briefly absent from `gh api .../releases`.
+// 6 probes total (1 immediate re-query + these 5 backed-off retries), ~30s of tolerance for the list
+// to catch up before failing closed. Exported so the tests bound their assertions to it, not a literal.
+export const DRAFT_VISIBILITY_BACKOFF_MS = [1000, 2000, 4000, 8000, 15000];
+
 // ------------------------------------------------------------------ pure fact builders
 
 /** Combine the static release context with a fresh remote probe into identity facts. */
@@ -186,16 +192,49 @@ export async function runRelease(io) {
     return r;
   };
 
+  // After createDraft, GitHub's releases list is eventually consistent: the draft this run just created
+  // can be briefly absent from `gh api .../releases`, during which the evaluator still reads "no release"
+  // and returns create-draft (phase=initial). Poll with backoff until it flips to resume-draft. ONLY that
+  // one transient action is tolerated — an evaluator throw (a foreign or mismatched draft) or any other
+  // action propagates immediately, and exhausting the budget fails closed too. Without this, the FIRST run
+  // of every release loses the create->re-query race and fails closed, needing a manual re-dispatch. This
+  // never risks a wrong publish: it only waits for a draft this run itself created to become observable.
+  const settleAfterCreate = async () => {
+    for (let attempt = 0; ; attempt++) {
+      const r = evaluateReleaseIntegrity(mkIntegrityFacts(mkIdentityFacts(rel, await io.probe(rel.version)), canonical, lastPhase, expected));
+      if (r.action === "resume-draft") {
+        lastPhase = r.phase;
+        return r;
+      }
+      if (r.action !== "create-draft") {
+        throw new PolicyError(`after createDraft expected resume-draft (or the transient create-draft while the releases list catches up), got ${r.action}`);
+      }
+      if (attempt >= DRAFT_VISIBILITY_BACKOFF_MS.length) {
+        const waited = Math.round(DRAFT_VISIBILITY_BACKOFF_MS.reduce((a, b) => a + b, 0) / 1000);
+        throw new PolicyError(`the draft created for v${canonical.version} never appeared in the releases list after ${attempt + 1} probes (~${waited}s of backoff); failing closed — inspect and delete the draft, then re-run`);
+      }
+      // Do NOT advance lastPhase here: the phase legitimately has not moved (the draft is not yet
+      // observable), so the eventual initial->draft transition must stay valid on the next probe.
+      io.log(`draft for v${canonical.version} not visible in the releases list yet; waiting ${DRAFT_VISIBILITY_BACKOFF_MS[attempt]}ms (probe ${attempt + 1}/${DRAFT_VISIBILITY_BACKOFF_MS.length + 1})`);
+      await io.sleep(DRAFT_VISIBILITY_BACKOFF_MS[attempt]);
+    }
+  };
+
   if (integ.action === "create-draft") {
     await io.createDraft(canonical);
     io.log("created empty draft.");
-    integ = await reeval("resume-draft");
+    integ = await settleAfterCreate();
   }
 
   if (integ.action === "resume-draft") {
     if (integ.assetAction !== "upload") throw new PolicyError(`resume-draft with assetAction=${integ.assetAction}, expected upload`);
     await io.uploadAssets(canonical.version, built);
     io.log("uploaded both assets to the draft.");
+    // This re-query is deliberately NOT polled like settleAfterCreate. `gh release upload` returns only
+    // after both assets are uploaded, and the evaluator intentionally fails closed on a partial /
+    // still-"uploading" / not-yet-digested set — states indistinguishable from a truncated or foreign
+    // upload. Retrying through those would swallow a genuine bad upload. The rare digest-population lag is
+    // an accepted, recoverable fail-closed: a re-dispatch resumes the now-correct draft, never a bad publish.
     integ = await reeval("publish-draft");
   }
 
@@ -240,6 +279,7 @@ export function productionIo() {
 
   return {
     log: (m) => process.stdout.write(`release: ${m}\n`),
+    sleep: (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
 
     async resolveRelease() {
       const releaseSha = process.env.RELEASE_SHA;
