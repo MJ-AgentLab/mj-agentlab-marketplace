@@ -23,6 +23,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import crypto from "node:crypto";
+import { spawnSync } from "node:child_process";
 
 const MIN_NODE_MAJOR = 22;
 const TIERS = ["foundation", "structural", "challenge"]; // canonical order
@@ -64,6 +65,9 @@ export function checkNodePrerequisite(version = process.version) {
 }
 
 const toPosix = (p) => p.split(path.sep).join("/");
+
+/** Drop a leading UTF-8 BOM before JSON.parse (python -X utf8 emits none; defensive only). */
+const stripBom = (s) => (typeof s === "string" && s.charCodeAt(0) === 0xfeff ? s.slice(1) : s);
 
 /** realpath that reports a safety error instead of throwing ENOENT-shaped noise. */
 function realpathOrThrow(p, what) {
@@ -342,27 +346,89 @@ export function cleanupManifest({ manifestPath, expectedManifestSha256 }) {
 
 // ------------------------------------------------------------- preflight
 
+// The compile-time identity constants the bridge's contract reports (contract.py BASE_URL /
+// TRANSPORT / INSTRUCTIONS_POLICY). Asserting them fails closed on a wholesale wrong/fake bridge;
+// they are NOT drift protection (the bridge's own SHA re-derivation is).
+const EXPECTED_BASE_URL = "https://notebooklm.google.com";
+const EXPECTED_TRANSPORT = "stdio";
+const EXPECTED_INSTRUCTIONS_POLICY = "prompt-user-only";
+
+// The exact fingerprint the skill binds into the Gate A/B consent record (SKILL.md 5B.2), in a
+// fixed order. On success ONLY these keys are surfaced — nothing else the bridge printed leaks
+// into the consent record, and the output stays deterministic across the per-mutation re-runs.
+const FINGERPRINT_KEYS = [
+  "bridge_version",
+  "connector_version",
+  "python_version",
+  "install_receipt_sha256",
+  "environment_sha256",
+  "public_schema_sha256",
+  "upstream_schema_sha256",
+  "auth_guard_sha256",
+  "base_url",
+  "transport",
+  "tools",
+  "instructions_policy",
+];
+const FINGERPRINT_STRING_KEYS = ["bridge_version", "connector_version", "python_version", "base_url", "transport", "instructions_policy"];
+const FINGERPRINT_SHA_KEYS = ["install_receipt_sha256", "environment_sha256", "public_schema_sha256", "upstream_schema_sha256", "auth_guard_sha256"];
+
+const PREFLIGHT_SPAWN_TIMEOUT_MS = 60_000; // cold python start + importlib closure scan; capped — this gates the network
+const PREFLIGHT_MAX_BUFFER = 8 * 1024 * 1024; // the tools payload is tens of KB; bounded
+
+/** Default child-process runner for the bridge contract probe. Injected in tests. */
+const defaultSpawn = (command, args, options) => spawnSync(command, args, options);
+
 /**
- * Local-only NotebookLM prerequisite check.
- *
- * NOTE (increment boundary): the full contract — receipt-owned canonical shims in the fixed
- * public bin, PATHEXT/.ps1 shadowing checks, absolute-uv and receipt-bound-Python module
- * invocations, and the five SHA fingerprints (install-receipt / environment / public-schema /
- * upstream-schema / auth-guard) — lands together with the bridge package, which defines the
- * receipt format those checks read. Until then this FAILS CLOSED: with no bridge installed the
- * only correct answer is "optional component unavailable, revoke the NLM selection", which is
- * exactly what it returns. It can only ever become more permissive once the real checks exist.
+ * Reject a Windows shim path holding characters cmd.exe re-parses even inside the quoted
+ * `""<path>" --contract-json"` form built below: `"` breaks the quoting, `%` expands even inside
+ * quotes, and the operators can subvert parsing. Windows account names may legally contain `%`,
+ * `&`, `^`, so this can fire on a real host — failing closed is correct for a network gate. Spaces
+ * are fine (the inner quotes handle them). POSIX spawns the shim directly with shell:false (no
+ * shell parses the path), so no guard is needed there.
  */
-export function nlmPreflight({ env = process.env, nodeVersion = process.version } = {}) {
+export function winShimPathUnsafe(shimPath) {
+  return /["%&|<>^]/.test(shimPath);
+}
+
+/** First non-empty line of a diagnostic stream, trimmed and length-capped. */
+function firstLine(s) {
+  const line = String(s ?? "").split(/\r?\n/).find((l) => l.trim() !== "") ?? "";
+  return line.trim().slice(0, 200);
+}
+
+/**
+ * Local-only NotebookLM prerequisite check: run the receipt-owned bridge shim's `--contract-json`
+ * and surface its fingerprint, failing CLOSED on any anomaly.
+ *
+ * This is a GATE that runs the bridge's own verifier — NOT a second verifier. The bridge's
+ * `build_bridge_contract()` (contract.py) re-derives and cross-checks the five SHAs, the installed
+ * closure, and the receipt, exiting non-zero on any drift. Here we only: locate the shim, run it
+ * safely cross-platform, confirm it returned a well-formed fingerprint, assert the host-neutral
+ * identity invariants, and project exactly the consent keys. The surfaced five-SHA fingerprint is
+ * bound into the Gate A/B consent record, so a guessed/partial value must never pass.
+ *
+ * @param {object} [o]
+ * @param {NodeJS.ProcessEnv} [o.env] path derivation only (LOCALAPPDATA / XDG_BIN_HOME / HOME).
+ * @param {string} [o.nodeVersion] injected in tests.
+ * @param {NodeJS.Platform} [o.platform] injected in tests to exercise both host shapes.
+ * @param {(command: string, args: string[], options: object) => object} [o.spawn] injected in tests; spawnSync-shaped.
+ */
+export function nlmPreflight({
+  env = process.env,
+  nodeVersion = process.version,
+  platform = process.platform,
+  spawn = defaultSpawn,
+} = {}) {
   const node = checkNodePrerequisite(nodeVersion);
   if (!node.ok) return { ok: false, reason: "NODE_TOO_OLD", detail: node.reason };
 
   const publicBin =
-    process.platform === "win32"
+    platform === "win32"
       ? path.join(env.LOCALAPPDATA ?? "", "MJ-AgentLab", "bin")
       : path.join(env.XDG_BIN_HOME ?? path.join(env.HOME ?? "", ".local", "bin"));
+  const shim = path.join(publicBin, platform === "win32" ? "learn-kit-nlm-bridge.cmd" : "learn-kit-nlm-bridge");
 
-  const shim = path.join(publicBin, process.platform === "win32" ? "learn-kit-nlm-bridge.cmd" : "learn-kit-nlm-bridge");
   if (!fs.existsSync(shim)) {
     return {
       ok: false,
@@ -371,15 +437,76 @@ export function nlmPreflight({ env = process.env, nodeVersion = process.version 
       public_bin: toPosix(publicBin),
     };
   }
-  // A shim exists but the receipt/contract verification is not implemented yet: fail closed
-  // rather than imply the contract was checked.
-  return {
-    ok: false,
-    reason: "CONTRACT_VERIFICATION_UNAVAILABLE",
-    detail:
-      "bridge shim found, but receipt/contract verification lands with the bridge package; refusing to report a pass",
-    public_bin: toPosix(publicBin),
-  };
+
+  let command;
+  let args;
+  const options = { shell: false, windowsHide: true, encoding: "utf8", timeout: PREFLIGHT_SPAWN_TIMEOUT_MS, maxBuffer: PREFLIGHT_MAX_BUFFER };
+  if (platform === "win32") {
+    if (winShimPathUnsafe(shim)) {
+      return { ok: false, reason: "BRIDGE_SHIM_PATH_UNSAFE", detail: `shim path holds a cmd.exe metacharacter: ${toPosix(shim)}` };
+    }
+    // Node >=18.20 refuses to spawn a .cmd under shell:false, so invoke ComSpec explicitly. The
+    // canonical cmd.exe form is /d (no AutoRun) /s /c ""<path>" <args>", built verbatim so the
+    // path stays quoted for usernames with spaces (measured: the non-verbatim ["/s","/c",shim,arg]
+    // form breaks on spaced paths — /s strips the quotes Node adds around the path). ComSpec comes
+    // from the real process.env, never the injected path-derivation env.
+    command = process.env.ComSpec || "cmd.exe";
+    args = ["/d", "/s", "/c", `""${shim}" --contract-json"`];
+    options.windowsVerbatimArguments = true;
+  } else {
+    // Extensionless #!/bin/sh shim, executed directly — no shell parses the path.
+    command = shim;
+    args = ["--contract-json"];
+  }
+
+  let res;
+  try {
+    res = spawn(command, args, options);
+  } catch (e) {
+    return { ok: false, reason: "BRIDGE_SPAWN_FAILED", detail: firstLine(e?.message) || "spawn threw" };
+  }
+  if (!res || res.error) {
+    return { ok: false, reason: "BRIDGE_SPAWN_FAILED", detail: res && res.error ? String(res.error.code || res.error.message) : "no spawn result" };
+  }
+  if (res.signal) return { ok: false, reason: "BRIDGE_SPAWN_FAILED", detail: `killed by ${res.signal}` };
+  if (typeof res.status !== "number") return { ok: false, reason: "BRIDGE_SPAWN_FAILED", detail: "no exit status" };
+  if (res.status !== 0) {
+    return { ok: false, reason: "CONTRACT_CHECK_FAILED", exit_status: res.status, detail: firstLine(res.stderr) };
+  }
+
+  let contract;
+  try {
+    contract = JSON.parse(stripBom(res.stdout));
+  } catch (e) {
+    return { ok: false, reason: "CONTRACT_UNPARSEABLE", detail: firstLine(e?.message) };
+  }
+  if (contract === null || typeof contract !== "object" || Array.isArray(contract)) {
+    return { ok: false, reason: "CONTRACT_UNPARSEABLE", detail: "contract is not a JSON object" };
+  }
+
+  const incomplete = (key) => ({ ok: false, reason: "CONTRACT_INCOMPLETE", detail: `missing or invalid "${key}"` });
+  for (const k of FINGERPRINT_STRING_KEYS) {
+    if (typeof contract[k] !== "string" || contract[k] === "") return incomplete(k);
+  }
+  for (const k of FINGERPRINT_SHA_KEYS) {
+    if (!isHex64(contract[k])) return incomplete(k);
+  }
+  if (!Array.isArray(contract.tools) || contract.tools.length === 0) return incomplete("tools");
+
+  if (contract.instructions_policy !== EXPECTED_INSTRUCTIONS_POLICY) {
+    return { ok: false, reason: "CONTRACT_POLICY_DRIFT", detail: `instructions_policy=${JSON.stringify(contract.instructions_policy)}` };
+  }
+  if (contract.base_url !== EXPECTED_BASE_URL) {
+    return { ok: false, reason: "CONTRACT_INVARIANT_DRIFT", detail: `base_url=${JSON.stringify(contract.base_url)}` };
+  }
+  if (contract.transport !== EXPECTED_TRANSPORT) {
+    return { ok: false, reason: "CONTRACT_INVARIANT_DRIFT", detail: `transport=${JSON.stringify(contract.transport)}` };
+  }
+
+  // Project exactly the consent keys, in fixed order. Nothing else the bridge printed is surfaced.
+  const out = { ok: true };
+  for (const k of FINGERPRINT_KEYS) out[k] = contract[k];
+  return out;
 }
 
 // ------------------------------------------------------------------ CLI

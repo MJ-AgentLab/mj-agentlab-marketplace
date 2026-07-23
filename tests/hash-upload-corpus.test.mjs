@@ -17,6 +17,7 @@ import {
   verifyManifest,
   cleanupManifest,
   nlmPreflight,
+  winShimPathUnsafe,
   main,
 } from "../plugins/learn-kit/skills/three-views/scripts/hash-upload-corpus.mjs";
 
@@ -508,8 +509,64 @@ test("verify reports only paths it actually read", () => {
 });
 
 // ----------------------------------------------------------------- preflight
+
+// The exact 12-key fingerprint the skill binds into the Gate A/B consent record (SKILL.md 5B.2).
+// Hardcoded here as an independent SSOT: if the helper's projection list drifts, this catches it.
+const FP_KEYS = [
+  "bridge_version",
+  "connector_version",
+  "python_version",
+  "install_receipt_sha256",
+  "environment_sha256",
+  "public_schema_sha256",
+  "upstream_schema_sha256",
+  "auth_guard_sha256",
+  "base_url",
+  "transport",
+  "tools",
+  "instructions_policy",
+];
+
+/** A well-formed `--contract-json` payload; override any field to force a fail-closed path. */
+function validContract(overrides = {}) {
+  return {
+    bridge_version: "4.0.0",
+    connector_version: "0.8.7",
+    python_version: "3.12.13",
+    install_receipt_sha256: "a".repeat(64),
+    environment_sha256: "b".repeat(64),
+    public_schema_sha256: "c".repeat(64),
+    upstream_schema_sha256: "d".repeat(64),
+    auth_guard_sha256: "e".repeat(64),
+    base_url: "https://notebooklm.google.com",
+    transport: "stdio",
+    tools: [{ name: "notebook_list" }, { name: "notebook_get" }],
+    instructions_policy: "prompt-user-only",
+    ...overrides,
+  };
+}
+
+/** A public bin holding a real dummy shim at the platform-derived path (so existsSync passes). */
+function fakeBridgeBin(platform) {
+  const parent = track(fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()), "fake-bin-")));
+  const binDir = platform === "win32" ? path.join(parent, "MJ-AgentLab", "bin") : parent;
+  fs.mkdirSync(binDir, { recursive: true });
+  const shimPath = path.join(binDir, platform === "win32" ? "learn-kit-nlm-bridge.cmd" : "learn-kit-nlm-bridge");
+  fs.writeFileSync(shimPath, "dummy");
+  const env = platform === "win32" ? { LOCALAPPDATA: parent } : { XDG_BIN_HOME: parent };
+  return { env, shimPath };
+}
+
+/** A fake spawn returning `result`, recording every call so argv can be asserted. */
+function capturingSpawn(result) {
+  const calls = [];
+  return { spawn: (command, args, options) => (calls.push({ command, args, options }), result), calls };
+}
+
+const okStdout = (contract = validContract()) => ({ status: 0, stdout: JSON.stringify(contract), stderr: "" });
+
 test("preflight fails closed when no bridge is installed", () => {
-  const r = nlmPreflight({ env: { LOCALAPPDATA: path.join(os.tmpdir(), "nonexistent-" + Date.now()), HOME: "/nonexistent" } });
+  const r = nlmPreflight({ platform: "linux", env: { XDG_BIN_HOME: path.join(os.tmpdir(), "nonexistent-" + Date.now()) } });
   assert.equal(r.ok, false);
   assert.equal(r.reason, "NLM_BRIDGE_NOT_INSTALLED");
 });
@@ -520,28 +577,127 @@ test("preflight fails closed on an old Node even before touching the filesystem"
   assert.equal(r.reason, "NODE_TOO_OLD");
 });
 
-test("preflight fails closed even when a bridge shim IS present", () => {
-  // This is the ONLY branch that can fail open, and it is unreachable on a host with no bridge
-  // installed — i.e. every host today. Calling nlmPreflight() bare exits early at
-  // NLM_BRIDGE_NOT_INSTALLED and never executes the shim-present return, so injecting a fake
-  // shim is the only way to put test pressure on the increment boundary.
-  const bin = track(fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()), "fake-bin-")));
-  const shimDir = process.platform === "win32" ? path.join(bin, "MJ-AgentLab", "bin") : bin;
-  fs.mkdirSync(shimDir, { recursive: true });
-  fs.writeFileSync(
-    path.join(shimDir, process.platform === "win32" ? "learn-kit-nlm-bridge.cmd" : "learn-kit-nlm-bridge"),
-    "#!/bin/sh\nexit 0\n",
-  );
-  const env = process.platform === "win32" ? { LOCALAPPDATA: bin } : { XDG_BIN_HOME: bin };
-  const r = nlmPreflight({ env });
-  assert.equal(r.reason, "CONTRACT_VERIFICATION_UNAVAILABLE", "must reach the shim-present branch");
-  assert.equal(r.ok, false, "must not report a pass it cannot substantiate");
+test("preflight returns ok with exactly the fingerprint when the bridge contract passes", () => {
+  const { env } = fakeBridgeBin("linux");
+  const contract = validContract({ install_receipt_sha256: "1".repeat(64) });
+  const r = nlmPreflight({ platform: "linux", env, spawn: () => okStdout(contract) });
+  assert.equal(r.ok, true);
+  // Non-vacuous: surfaces the REAL SHA off the contract, not a stub.
+  assert.equal(r.install_receipt_sha256, "1".repeat(64));
+  // The projection is a whitelist: exactly ok + the 12 keys, nothing more, nothing less.
+  assert.deepEqual(Object.keys(r).sort(), ["ok", ...FP_KEYS].sort());
 });
 
-test("preflight never returns ok on any reachable branch", () => {
-  assert.equal(nlmPreflight().ok, false);
-  assert.equal(nlmPreflight({ nodeVersion: "v21.0.0" }).ok, false);
-  assert.equal(nlmPreflight({ env: { LOCALAPPDATA: "/nonexistent", HOME: "/nonexistent" } }).ok, false);
+test("preflight drops any extra key the bridge prints (no leak into the consent record)", () => {
+  const { env } = fakeBridgeBin("linux");
+  const contract = validContract({ secret_cookie: "leak", protocol: "2025-06-18" });
+  const r = nlmPreflight({ platform: "linux", env, spawn: () => okStdout(contract) });
+  assert.equal(r.ok, true);
+  assert.equal(r.secret_cookie, undefined, "must not surface an un-whitelisted key");
+  assert.equal(r.protocol, undefined);
+});
+
+test("preflight (posix) spawns the shim directly with --contract-json", () => {
+  const { env, shimPath } = fakeBridgeBin("linux");
+  const { spawn, calls } = capturingSpawn(okStdout());
+  const r = nlmPreflight({ platform: "linux", env, spawn });
+  assert.equal(r.ok, true);
+  assert.equal(calls.length, 1);
+  assert.equal(calls[0].command, shimPath);
+  assert.deepEqual(calls[0].args, ["--contract-json"]);
+  assert.equal(calls[0].options.shell, false);
+  assert.notEqual(calls[0].options.windowsVerbatimArguments, true);
+});
+
+test("preflight (win32) invokes ComSpec with the verbatim quoted /d /s /c tail", () => {
+  const { env, shimPath } = fakeBridgeBin("win32");
+  const { spawn, calls } = capturingSpawn(okStdout());
+  const r = nlmPreflight({ platform: "win32", env, spawn });
+  assert.equal(r.ok, true);
+  assert.equal(calls[0].command, process.env.ComSpec || "cmd.exe");
+  assert.deepEqual(calls[0].args, ["/d", "/s", "/c", `""${shimPath}" --contract-json"`]);
+  assert.equal(calls[0].options.windowsVerbatimArguments, true);
+  assert.equal(calls[0].options.shell, false);
+});
+
+test("preflight fails closed when the bridge contract exits non-zero", () => {
+  const { env } = fakeBridgeBin("linux");
+  const r = nlmPreflight({ platform: "linux", env, spawn: () => ({ status: 3, stdout: "", stderr: "install receipt: environment SHA drift\n" }) });
+  assert.equal(r.ok, false);
+  assert.equal(r.reason, "CONTRACT_CHECK_FAILED");
+  assert.equal(r.exit_status, 3, "must read and surface the real exit status");
+});
+
+test("preflight fails closed on unparseable / non-object contract output", () => {
+  const { env } = fakeBridgeBin("linux");
+  assert.equal(nlmPreflight({ platform: "linux", env, spawn: () => ({ status: 0, stdout: "not json{" }) }).reason, "CONTRACT_UNPARSEABLE");
+  assert.equal(nlmPreflight({ platform: "linux", env, spawn: () => ({ status: 0, stdout: "[1,2,3]" }) }).reason, "CONTRACT_UNPARSEABLE");
+  assert.equal(nlmPreflight({ platform: "linux", env, spawn: () => ({ status: 0, stdout: "null" }) }).reason, "CONTRACT_UNPARSEABLE");
+});
+
+test("preflight fails closed when ANY fingerprint key is missing (all 12 required)", () => {
+  const { env } = fakeBridgeBin("linux");
+  for (const key of FP_KEYS) {
+    const c = validContract();
+    delete c[key];
+    const r = nlmPreflight({ platform: "linux", env, spawn: () => okStdout(c) });
+    assert.equal(r.ok, false, `missing ${key} must fail closed`);
+    assert.equal(r.reason, "CONTRACT_INCOMPLETE", `missing ${key} -> CONTRACT_INCOMPLETE`);
+    assert.ok(r.detail.includes(key), `detail must name the missing key ${key}, got: ${r.detail}`);
+  }
+});
+
+test("preflight fails closed when a SHA field is not 64 lowercase hex", () => {
+  const { env } = fakeBridgeBin("linux");
+  const r = nlmPreflight({ platform: "linux", env, spawn: () => okStdout(validContract({ environment_sha256: "abc" })) });
+  assert.equal(r.reason, "CONTRACT_INCOMPLETE");
+  assert.ok(r.detail.includes("environment_sha256"));
+  // Uppercase hex is also non-canonical and must fail.
+  const up = nlmPreflight({ platform: "linux", env, spawn: () => okStdout(validContract({ auth_guard_sha256: "A".repeat(64) })) });
+  assert.equal(up.reason, "CONTRACT_INCOMPLETE");
+});
+
+test("preflight fails closed on instructions_policy drift", () => {
+  const { env } = fakeBridgeBin("linux");
+  const r = nlmPreflight({ platform: "linux", env, spawn: () => okStdout(validContract({ instructions_policy: "allow-auto" })) });
+  assert.equal(r.reason, "CONTRACT_POLICY_DRIFT");
+});
+
+test("preflight fails closed on base_url / transport drift", () => {
+  const { env } = fakeBridgeBin("linux");
+  assert.equal(nlmPreflight({ platform: "linux", env, spawn: () => okStdout(validContract({ base_url: "https://evil.example" })) }).reason, "CONTRACT_INVARIANT_DRIFT");
+  assert.equal(nlmPreflight({ platform: "linux", env, spawn: () => okStdout(validContract({ transport: "http" })) }).reason, "CONTRACT_INVARIANT_DRIFT");
+});
+
+test("preflight fails closed when the spawn errors or throws", () => {
+  const { env } = fakeBridgeBin("linux");
+  const enoent = nlmPreflight({ platform: "linux", env, spawn: () => ({ error: Object.assign(new Error("spawn ENOENT"), { code: "ENOENT" }), status: null }) });
+  assert.equal(enoent.reason, "BRIDGE_SPAWN_FAILED");
+  const timeout = nlmPreflight({ platform: "linux", env, spawn: () => ({ error: Object.assign(new Error("ETIMEDOUT"), { code: "ETIMEDOUT" }), signal: "SIGTERM", status: null }) });
+  assert.equal(timeout.reason, "BRIDGE_SPAWN_FAILED");
+  const noStatus = nlmPreflight({ platform: "linux", env, spawn: () => ({ status: null }) });
+  assert.equal(noStatus.reason, "BRIDGE_SPAWN_FAILED");
+  const threw = nlmPreflight({ platform: "linux", env, spawn: () => { throw new Error("boom"); } });
+  assert.equal(threw.reason, "BRIDGE_SPAWN_FAILED");
+});
+
+test("winShimPathUnsafe rejects cmd.exe metacharacters but allows spaces", () => {
+  assert.equal(winShimPathUnsafe("C:\\Users\\John Doe\\AppData\\Local\\MJ-AgentLab\\bin\\learn-kit-nlm-bridge.cmd"), false, "spaces are safe (inner quotes handle them)");
+  for (const bad of ["a&b", "a%b", "a|b", "a<b", "a>b", "a^b", 'a"b']) {
+    assert.equal(winShimPathUnsafe(`C:\\x\\${bad}\\s.cmd`), true, `${bad} must be rejected`);
+  }
+});
+
+test("preflight (win32) fails closed on an unsafe shim path BEFORE spawning", () => {
+  const parent = track(fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()), "fake-bin-")));
+  const bin = path.join(parent, "a&b"); // '&' is legal in a Windows account name -> in LOCALAPPDATA
+  const binDir = path.join(bin, "MJ-AgentLab", "bin");
+  fs.mkdirSync(binDir, { recursive: true });
+  fs.writeFileSync(path.join(binDir, "learn-kit-nlm-bridge.cmd"), "dummy");
+  let spawned = false;
+  const r = nlmPreflight({ platform: "win32", env: { LOCALAPPDATA: bin }, spawn: () => ((spawned = true), okStdout()) });
+  assert.equal(r.reason, "BRIDGE_SHIM_PATH_UNSAFE");
+  assert.equal(spawned, false, "must not spawn when the path is unsafe");
 });
 
 // ---------------------------------------------------------------------- CLI
