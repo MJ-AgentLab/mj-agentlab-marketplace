@@ -3,7 +3,7 @@
 格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/)，
 版本号遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
-## [Unreleased]
+## [7.0.0] - 2026-07-22
 
 **Marketplace `6.3.2 → 7.0.0` · learn-kit `3.2.1 → 4.0.0` (NLM-only BREAKING) · diagram-kit `0.1.0 → 0.2.0`.** Codex dual-native plugin support + a pinned NotebookLM bridge + host-neutral runtime + NLM consent gates. **Local Markdown / HTML / glossary / concept / diagram flows are unchanged on both hosts** — the breaking surface is entirely the optional NotebookLM branch.
 
