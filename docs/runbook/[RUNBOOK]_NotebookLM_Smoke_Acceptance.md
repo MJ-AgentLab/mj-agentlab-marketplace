@@ -4,10 +4,10 @@ scope: marketplace
 summary: Real end-to-end NotebookLM smoke acceptance for three-views (plan §6 "Real NotebookLM smoke")
 owner: marketplace-maintainers
 created: 2026-07-23
-updated: 2026-07-23
+updated: 2026-07-24
 state: active
-version: v1.0
-last-verified: 2026-07-23
+version: v1.1
+last-verified: 2026-07-24
 domain: release
 related:
   - ./[RUNBOOK]_Codex_Dual_Native_Manual_Acceptance.md
@@ -32,12 +32,13 @@ related:
 > this runbook establishes the accept path.
 
 > [!IMPORTANT]
-> **Scope of `last-verified: 2026-07-23`.** This records the date every step was **grounded against the
-> repo** (`develop @ 15d4749` — each command / path / tool / parameter confirmed present). It does
-> **not** claim a completed end-to-end run — no human had driven this smoke when v1.0 was authored, and
-> the NLM write path had **never** been exercised end-to-end (it was dead code until learn-kit 4.0.1
-> wired `--nlm-preflight`; see §1.1). On the first real run, set `last-verified` to that date and record
-> the outcome + the exact recorded fingerprint/URLs in §5.
+> **First real run completed 2026-07-24 (v1.1) — `last-verified: 2026-07-24` now records a genuine
+> end-to-end pass, not just repo-grounding.** The v1.0 authoring date (2026-07-23) was only *grounded
+> against the repo* (`develop @ 15d4749` — each command / path / tool / parameter confirmed present); no
+> human had driven the smoke then, and the NLM write path had **never** been exercised end-to-end (dead
+> code until learn-kit 4.0.1 wired `--nlm-preflight`; see §1.1). The 2026-07-24 run exercised it for the
+> first time — against develop's 4.0.1 via `claude --plugin-dir` (`learn-kit@inline`), since the installed
+> release was still 4.0.0 — with the full outcome + 12-key fingerprint recorded in §5.
 
 > [!WARNING]
 > **This runbook mutates a real Google/NotebookLM account.** It uploads a local Markdown file to
@@ -170,10 +171,11 @@ and reach **no** network (`--nlm-preflight` runs the bridge's local `--contract-
   node scripts/probe-learn-kit-nlm-bridge.mjs --config plugins/learn-kit/.mcp.json --server notebooklm-mcp --mode bootstrap
   ```
   > ⚠ **TRAP (never run the default smoke script).** `npm run smoke:nlm-contract` is `--mode all`
-  > (`package.json`), which includes `upstream-contract` + `auth-required` — those **drive the real
+  > (`package.json:13`), which includes `upstream-contract` + `auth-required` — those **drive the real
   > upstream** and are **forbidden** here (plan §6). Run the **raw** command with `--mode bootstrap`
-  > only. The probe script ships in the **repo**, not the installed plugin, so B3 is **N/A** if you only
-  > have the plugin installed. *`scripts/probe-learn-kit-nlm-bridge.mjs:602-603`.*
+  > only. The probe script lives at repo `scripts/probe-learn-kit-nlm-bridge.mjs`, **not** under
+  > `plugins/learn-kit/`, so it is absent from an installed plugin — B3 is **N/A** if you only have the
+  > plugin installed. *(ship-location grounded by that path; `--mode all` at `package.json:13`.)*
 
 **The 6 tools** (`mcp__plugin_learn-kit_notebooklm-mcp__<tool>`): `notebook_list`, `notebook_get`,
 `notebook_create`, `source_add`, `studio_create`, `studio_status`. `refresh_auth` / `server_info` /
@@ -333,6 +335,7 @@ node "<abs-plugin-root>/scripts/install-nlm-bridge.mjs" uninstall
 | Version | Date | last-verified | Summary |
 |---------|------|---------------|---------|
 | v1.0 | 2026-07-23 | 2026-07-23 | Initial version. Grounded against `develop @ 15d4749` (learn-kit 4.0.1, bridge wheel 4.0.0). End-to-end run **pending** — `last-verified` is the repo-grounding date, not a completed pass (see banner). First real run should append a row here with: Node version, the 12-key preflight fingerprint, the exact notebook title, the mind_map record ID, and PASS/FAIL per §3. |
+| v1.1 | 2026-07-24 | 2026-07-24 | **First real end-to-end run — PASS** (§2.1–§2.8; §2.9 W1 grounded + W2 deleted, owner-completed). Node `v22.18.0`. Preflight fingerprint (12-key, no account/profile): bridge `4.0.0` · connector `0.8.7` · Python `3.12.13`; five SHAs — receipt `ba3e8c0c…`, env `4593e190…`, public-schema `cad6561f…`, upstream-schema `bf1f384f…`, auth-guard `898311e2…`; `base_url https://notebooklm.google.com` / `stdio` / `prompt-user-only` / 6 tools. Notebook `learn-kit:[SMOKE]_learn-kit_20260724_033341` (id `084518eb-c814-4f76-ba6f-0caabbf5c18a`); 1 source `85c664f9-2882-407b-a76b-767973294aa0`; mind_map artifact `5a3a0d80-d1d6-4968-af20-6ec6bd76e24d` (status completed); manifest `a3566a80…` / corpus `6bbc1c28…`. All 5 mutations ran once, in order, with per-mutation contract+manifest re-verification; staging cleaned. Run against develop 4.0.1 via `claude --plugin-dir` (`learn-kit@inline`) — the installed release was still 4.0.0, so this validated the to-be-released code through a local override. Also fixed the §2.2-B3 `probe:602-603` misgrounded citation. |
 
 ## Appendix A — Exact strings (copy-paste)
 

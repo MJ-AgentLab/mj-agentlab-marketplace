@@ -4,7 +4,7 @@ scope: marketplace
 summary: Marketplace documentation navigation hub — STANDARD / GUIDE / ADR / SPEC / RUNBOOK / archive / templates 索引
 owner: marketplace-maintainers
 created: 2026-05-15
-updated: 2026-07-23
+updated: 2026-07-24
 state: active
 version: v7.0.0
 domain: governance
@@ -21,6 +21,7 @@ related:
   - ./adr/[ADR]_Diagram_Kit_Addition.md
   - ./adr/[ADR]_Codex_Dual_Native_Plugin_Support.md
 revision: |
+  2026-07-24 — [RUNBOOK]_NotebookLM_Smoke_Acceptance v1.0 → v1.1：first real end-to-end run PASS（single tier + 1 mind_map 经 Gate A/B；notebook 084518eb / mind_map 5a3a0d80 / corpus 6bbc1c28；跑 develop 4.0.1 via `claude --plugin-dir` @inline，installed release 仍 4.0.0）；banner + §5 record + last-verified → 2026-07-24；顺带修 §2.2-B3 `probe:602-603` misgrounded citation。docs-only 非 A6 trigger；marketplace VERSION 不动（develop 7.0.1）
   2026-07-23 — add [RUNBOOK]_NotebookLM_Smoke_Acceptance row（plan §6 "Real NotebookLM smoke" 的 human-run write-path 验收：单 tier + 1 mind_map 经 Gate A/B 端到端；是 Manual Acceptance §2.8 decline 路径的 accept-path sibling）。docs-only 非 A6 trigger；marketplace VERSION 不动（develop 7.0.1）
   2026-07-23 — Framework v1.8: §2.7 Category 4 A6 trigger set 补 `run-release.mjs` + `release-verify-install.mjs`（release 编排器 + pre-publish install 校验器与既有 `resolve-release-state.mjs` 同级并入 A6 gate；触发面 3 → 5 release 脚本，category 结构 4 类不变）；bump [Documentation Framework] row v1.7 → v1.8；同步 `check-a6.mjs` regex + 单测 + 根 CLAUDE.md。marketplace VERSION 不动（develop 7.0.1；纯 governance/doc PR，非 release）
   2026-07-20 — v7.0.0: Codex dual-native ship。mark [ADR]_Codex_Dual_Native_Plugin_Support 状态 进行中 → accepted / shipped v7.0.0（Codex 原生包装 `.agents/plugins/marketplace.json` + 每插件 `.codex-plugin/plugin.json` + 每技能 `agents/openai.yaml` 与 `.claude-plugin/**` SSOT 并行落地）；Plugin Documentation learn-kit 3.2.0 → 4.0.0 + diagram-kit 0.1.0 → 0.2.0；learn-kit NLM 依赖措辞从 `notebooklm-mcp` + `nlm login` 改为 bridge-backed（`learn-kit-nlm-bridge`，Node 22 / uv 0.11.21+ / 用户自备 Python 3.12 + Gate A/B 同意）；Last updated → 2026-07-20 (v7.0.0)
@@ -81,7 +82,7 @@ Navigation hub for all marketplace documentation.
 | [Release Operations](./runbook/[RUNBOOK]_Release_Operations.md) | 从开发到发布的完整操作流程（Issue → PR → Release）；v1.1 起 §3.2 bump-version.ps1 MANDATORY；v1.2 起 §3.2.1 反映 CLAUDE.md script 已 cover (closes #110)；v1.3 起 §3.7 add Post-release develop pre-bump (per [`[ADR]_Develop_PreBump_Adoption`](./adr/[ADR]_Develop_PreBump_Adoption.md))；v1.3.2 起 §2.6 + §3.7 加 cleanup callout 指向 mp-git-cleanup §Bulk Mode + safe-bulk-cleanup.ps1 | 2026-05-18 |
 | [Doc Archive Procedure](./runbook/[RUNBOOK]_Doc_Archive_Procedure.md) | 4-phase 文档归档工作流 + 2 HITL gate（per Documentation Framework v1.4 §2.3，flat layout）| 2026-05-17 |
 | [Codex Dual-Native Manual Acceptance](./runbook/[RUNBOOK]_Codex_Dual_Native_Manual_Acceptance.md) | 手动验收 plan §6 "Manual surfaces"：Codex App/CLI/IDE 发现 + Claude Code + prompt/HTML injection + NLM prerequisite/consent；每 check 带 `file:line` grounding + false-pass/fail traps。v1.0 `last-verified` 为 repo-grounding 日期，非 end-to-end 跑（见 banner）| 2026-07-23 |
-| [NotebookLM Smoke Acceptance](./runbook/[RUNBOOK]_NotebookLM_Smoke_Acceptance.md) | 手动验收 plan §6 "Real NotebookLM smoke"：真实 write-path 端到端（单 tier + 1 mind_map）经 Gate A/B 驱动；每 mutation 前重验 contract+manifest；Web UI 手工核对 mind_map + 手工删 notebook。是 Manual Acceptance §2.8 decline 路径的 sibling（本 runbook 为 accept 路径）。每 check 带 `file:line` grounding + traps。v1.0 `last-verified` 为 repo-grounding 日期，非 end-to-end 跑（见 banner）| 2026-07-23 |
+| [NotebookLM Smoke Acceptance](./runbook/[RUNBOOK]_NotebookLM_Smoke_Acceptance.md) | 手动验收 plan §6 "Real NotebookLM smoke"：真实 write-path 端到端（单 tier + 1 mind_map）经 Gate A/B 驱动；每 mutation 前重验 contract+manifest；Web UI 手工核对 mind_map + 手工删 notebook。是 Manual Acceptance §2.8 decline 路径的 sibling（本 runbook 为 accept 路径）。每 check 带 `file:line` grounding + traps。**v1.1 起 `last-verified` 为真实 end-to-end 跑（2026-07-24 首跑 PASS，见 §5）** | 2026-07-24 |
 
 ## Architecture Decision Records (`docs/adr/`)
 
