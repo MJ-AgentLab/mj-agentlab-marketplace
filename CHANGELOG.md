@@ -3,6 +3,30 @@
 格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/)，
 版本号遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [7.0.1] - 2026-08-05
+
+**Marketplace `7.0.0 → 7.0.1` · learn-kit `4.0.0 → 4.0.1` · diagram-kit `0.2.0` unchanged.** A patch release: the optional NotebookLM branch's preflight now actually runs, the release workflow survives GitHub's releases-list replication lag, and both manual acceptance surfaces have been executed for real for the first time.
+
+### Fixed
+
+- **learn-kit `4.0.0 → 4.0.1` — the NotebookLM preflight now actually runs.** `three-views` Step 5B.2 gates the entire NLM branch on `scripts/hash-upload-corpus.mjs --nlm-preflight`, but in 4.0.0 that helper was a fail-closed stub with **no success path** — even with the bridge installed it returned `CONTRACT_VERIFICATION_UNAVAILABLE`, so Gate A / discovery / mutation were unreachable end-to-end and the NLM feature was effectively dead code (installing the bridge did not unblock it). It now runs the receipt-owned `learn-kit-nlm-bridge --contract-json` — the bridge's own local, network-free verifier — surfaces the validated 12-key fingerprint that the Gate A/B consent record binds, and fails **closed** on any spawn failure, non-zero exit, unparseable output, missing or malformed key, or identity-invariant drift. Windows invokes the `.cmd` shim through a verbatim-quoted `cmd.exe /d /s /c ""<shim>" --contract-json"` behind a shim-path metacharacter guard; POSIX spawns the shim directly. **Local Markdown / HTML / `glossary` / `concept` / `arch-diagram` flows are unaffected.**
+- **`release.yml` no longer fail-closes on GitHub's releases-list replication lag.** `run-release.mjs` now polls the releases list after `createDraft` rather than querying once. v7.0.0's first push-triggered run aborted on an empty draft listing moments after creating the draft — no bad release was published, and a `workflow_dispatch` re-run resumed the same draft — but that race is now handled directly. Only that one transient state is tolerated; every other evaluator verdict still fails closed immediately.
+- **Two test-harness flakes.** The bridge test venv is built into a private staging directory and published by a single atomic rename, so parallel `node --test` workers no longer clobber a shared lock-keyed directory on a cold cache; and the probe's threat-poller observation window was widened against process-enumeration latency on Windows. The OS-level poller remains a best-effort cross-check — the in-bridge audit families are the authoritative egress/spawn signal.
+
+### Changed
+
+- **Documentation Framework `v1.7 → v1.8`** — §2.7 Category 4 A6 trigger set completed with `run-release.mjs` and `release-verify-install.mjs`, and the mirrored trigger regex in the `mp-doc-validate` skill brought back into sync. The trigger set is held in two places; both are now covered.
+- **The CHANGELOG documentation-contract test is version-agnostic.** Its disclosure anchors are pinned to whichever single section carries them all, instead of to whichever section happens to be newest — so the v7.0.0 NLM-only BREAKING disclosures keep being enforced after later releases land on top, rather than silently lapsing. The parser is now fence-aware and reports headings that only *look* like section headings.
+
+### Added
+
+- **`[RUNBOOK]_NotebookLM_Smoke_Acceptance` (v1.1) plus its first real end-to-end run** — a single-tier `structural` corpus and one mind_map driven through Gate A/B against a live personal NotebookLM account, every mutation re-verified against the contract and manifest beforehand, then cleaned up and confirmed in the web UI.
+- **`[RUNBOOK]_Codex_Dual_Native_Manual_Acceptance` (v1.1) plus its first owner-executed run** — 24 PASS / 7 N/A / 5 explicitly not exercised. The run hardened §2.6 itself, adding a G5 positive control (a blank page passes every negative check) and TRAP notes that proxy silence proves nothing when the CSP blocks before dispatch and that the clipboard check needs document focus; the authority for that section is a real browser on a served origin, not an offline harness.
+
+### Notes
+
+- The wheel asset is rebuilt from each release's canonical commit with `SOURCE_DATE_EPOCH` set to that commit's timestamp. `learn_kit_nlm_bridge-4.0.0-py3-none-any.whl` therefore ships **identical source** to the v7.0.0 asset but **different bytes**, and so a different SHA-256. Builds remain byte-reproducible for a fixed commit. The bridge installer's pinned canonical URL still points at the v7.0.0 asset and is unaffected.
+
 ## [7.0.0] - 2026-07-22
 
 **Marketplace `6.3.2 → 7.0.0` · learn-kit `3.2.1 → 4.0.0` (NLM-only BREAKING) · diagram-kit `0.1.0 → 0.2.0`.** Codex dual-native plugin support + a pinned NotebookLM bridge + host-neutral runtime + NLM consent gates. **Local Markdown / HTML / glossary / concept / diagram flows are unchanged on both hosts** — the breaking surface is entirely the optional NotebookLM branch.
