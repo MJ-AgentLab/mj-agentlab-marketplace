@@ -1,6 +1,6 @@
 # MJ AgentLab Marketplace
 
-![Version](https://img.shields.io/badge/version-7.0.0-blue)
+![Version](https://img.shields.io/badge/version-7.0.1-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![CI](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/ci.yml)
 
@@ -16,7 +16,7 @@
 
 | Plugin | 描述 | Skills | Version | 适用项目 |
 |--------|------|--------|---------|---------|
-| [**learn-kit**](plugins/learn-kit/README.md) | 教学方法论 kit：给定主题 + 源材料（项目文件 / 外部 URL / 粘贴文本），生成 1-3 阶段学习 markdown（foundation/structural/challenge；v3.1.0 起 Step 1.3 视角 multi-select default 全选 / min 1），按需扩展 HTML（dual-mode grounding，per generated tier）与 NotebookLM 多媒体（v3.1.0 起 Step 4 5-cell granular multi-select；max 10 artifact）；v3.2.0 起另含 glossary / concept 两个轻量 in-chat 解释 skill | **3** | **4.0.0** | 任意 |
+| [**learn-kit**](plugins/learn-kit/README.md) | 教学方法论 kit：给定主题 + 源材料（项目文件 / 外部 URL / 粘贴文本），生成 1-3 阶段学习 markdown（foundation/structural/challenge；v3.1.0 起 Step 1.3 视角 multi-select default 全选 / min 1），按需扩展 HTML（dual-mode grounding，per generated tier）与 NotebookLM 多媒体（v3.1.0 起 Step 4 5-cell granular multi-select；max 10 artifact）；v3.2.0 起另含 glossary / concept 两个轻量 in-chat 解释 skill | **3** | **4.0.1** | 任意 |
 | [**diagram-kit**](plugins/diagram-kit/README.md) | 架构 / UML 绘图 kit：把代码库 / 系统的源事实转成证据绑定的 Mermaid 架构图，7 类（context / container / component / code〔C4 结构〕+ sequence / state-machine〔行为〕+ deployment〔物理〕），任意域；事实先行（L0–L3 阶梯，每节点/边可追 `file:行号`）；bundle 9 份领域无关 references + 泛化 stdlib Mermaid validator | **1** | **0.2.0** | 任意 |
 
 > **v6.3.0 Additive（NEW plugin）**：新建 `diagram-kit 0.1.0`——marketplace 史上首次 plugin 计数 **1 → 2**。单 skill `arch-diagram`（`/diagram-kit:arch-diagram`）把代码库事实转成证据绑定 Mermaid 图（7 类）；与 learn-kit 功能正交（一个出架构图、一个出学习材料），8→3→1 收敛方向经 domain-orthogonality reconcile。详见 [`[ADR]_Diagram_Kit_Addition`](docs/adr/[ADR]_Diagram_Kit_Addition.md)。

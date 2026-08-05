@@ -451,9 +451,18 @@ test("fake verify: a threat child spawned during a lingering verify run is caugh
     t.skip("process enumeration unavailable on this platform");
     return;
   }
-  // The verify child lingers ~3s (spanning ~7 of the 400ms polls, with margin for pwsh/ps latency)
-  // with a browser-marked descendant, so the poller -> isThreatChild -> raw.children -> judge path
-  // fires on a real observed threat.
+  // The verify child lingers with a browser-marked descendant so the poller -> isThreatChild ->
+  // raw.children -> judge path fires on a real observed threat. The poller stops scanning the moment
+  // the verify child (parent) exits — runVerifyChild sets alive=false + clearInterval on its `close`
+  // event — so the window in which a scan can observe the descendant equals this linger (the
+  // descendant itself is a reparented orphan that outlives the parent until the fake bridge's ~12s
+  // self-timer; killTree can't reap it, as it targets the already-dead parent). The poller enumerates
+  // via pwsh/CIM (Windows), which under a loaded full-suite run can take several seconds per scan; a
+  // short linger left too little room for a scan to complete inside the window and made this test
+  // flaky. The linger is sized well above worst-case enumeration latency (and below that self-timer)
+  // so at least one scan reliably lands while the threat is observable. `ps` on POSIX is fast, so
+  // this only ever mattered on Windows CI. This is a best-effort OS cross-check; the audit families
+  // remain the authoritative egress/spawn signal in production.
   await assert.rejects(
     () =>
       probeLearnKitNlmBridge({
@@ -462,7 +471,7 @@ test("fake verify: a threat child spawned during a lingering verify run is caugh
         mode: "upstream-contract",
         env: fakeEnv({
           spawnChild: true,
-          lingerMs: 3000,
+          lingerMs: 10000,
           report: { mode: "upstream-contract", tools_verified: true, audit: { events: {} } },
         }),
         timeoutMs: 30000,

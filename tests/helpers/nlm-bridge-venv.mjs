@@ -34,10 +34,33 @@ function uvAvailable() {
   }
 }
 
-function venvPython(root) {
+export function venvPython(root) {
   return process.platform === "win32"
     ? path.join(root, "venv", "Scripts", "python.exe")
     : path.join(root, "venv", "bin", "python");
+}
+
+/**
+ * Publish a fully-built staging directory to `dest` with a single atomic rename (both live under
+ * os.tmpdir(), so one filesystem). `node --test` runs the two bridge-venv test files in parallel
+ * worker processes, so on a cold cache both call buildVenv() at once. Building in place would let
+ * them clobber a shared directory (the old rmSync + shared-path uv build); building into a private
+ * staging dir and renaming instead lets the first finisher win. A loser's rename fails because
+ * `dest` already exists — if it is a complete venv, discard the loser's staging and reuse the
+ * winner's; otherwise (a genuinely broken `dest`) surface the error. Exported for the concurrency
+ * test. uv venvs are relocatable for the `python -m/-c` invocation used here (sys.prefix is derived
+ * from the interpreter location, and the editable bridge install points at an absolute path).
+ */
+export function publishVenvAtomically(staging, dest) {
+  try {
+    fs.renameSync(staging, dest);
+  } catch (e) {
+    if (fs.existsSync(path.join(dest, ".ready")) && fs.existsSync(venvPython(dest))) {
+      fs.rmSync(staging, { recursive: true, force: true });
+      return;
+    }
+    throw e;
+  }
 }
 
 /** Build (or reuse a cached) venv shaped like the production private environment. */
@@ -55,21 +78,29 @@ function buildVenv() {
 
   if (fs.existsSync(marker) && fs.existsSync(py)) return { root, python: py };
 
-  fs.rmSync(root, { recursive: true, force: true });
-  fs.mkdirSync(root, { recursive: true });
-  const run = (args) =>
-    execFileSync("uv", args, { stdio: ["ignore", "ignore", "pipe"], encoding: "utf8" });
+  // Build into a private staging dir, then atomically publish it to `root`. See
+  // publishVenvAtomically for why an in-place build would race under parallel `node --test`.
+  const staging = fs.mkdtempSync(path.join(os.tmpdir(), "lk-bridge-build-"));
+  try {
+    const stagedPy = venvPython(staging);
+    const run = (args) =>
+      execFileSync("uv", args, { stdio: ["ignore", "ignore", "pipe"], encoding: "utf8" });
 
-  // uv honours UV_OFFLINE from the environment; local runs set it, CI does not.
-  run(["venv", "--python", "3.12", "--no-python-downloads", "--no-config", path.join(root, "venv")]);
-  run([
-    "pip", "install",
-    "--python", py,
-    "--require-hashes", "--no-build", "--no-config",
-    "-r", RUNTIME_LOCK,
-  ]);
-  run(["pip", "install", "--python", py, "--no-deps", "-e", BRIDGE_DIR]);
-  fs.writeFileSync(marker, key);
+    // uv honours UV_OFFLINE from the environment; local runs set it, CI does not.
+    run(["venv", "--python", "3.12", "--no-python-downloads", "--no-config", path.join(staging, "venv")]);
+    run([
+      "pip", "install",
+      "--python", stagedPy,
+      "--require-hashes", "--no-build", "--no-config",
+      "-r", RUNTIME_LOCK,
+    ]);
+    run(["pip", "install", "--python", stagedPy, "--no-deps", "-e", BRIDGE_DIR]);
+    fs.writeFileSync(path.join(staging, ".ready"), key);
+    publishVenvAtomically(staging, root);
+  } catch (e) {
+    fs.rmSync(staging, { recursive: true, force: true });
+    throw e;
+  }
   return { root, python: py };
 }
 
