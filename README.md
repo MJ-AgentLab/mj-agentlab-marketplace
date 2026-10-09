@@ -13,7 +13,7 @@ codex plugin list --json
 codex debug prompt-input '$diagram-kit:arch-diagram'
 ~~~
 
-上面的 main 指向正式分发分支；未发布的迁移请在隔离环境用当前 worktree 的绝对路径安装（npm run smoke:codex）。调用 $diagram-kit:arch-diagram 或请求“给这个仓库画架构图”。
+上面的 main 指向正式分发分支；固定版本可将 --ref main 换为 --ref v8.0.0。调用 $diagram-kit:arch-diagram 或请求“给这个仓库画架构图”。开发分支的版本 badge 表示预计下一版本，已发布版本以 [GitHub Releases](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases) 为准。
 
 ### ChatGPT desktop
 
@@ -21,7 +21,7 @@ codex debug prompt-input '$diagram-kit:arch-diagram'
 
 ### Upgrade and retirement
 
-停止 Claude 支持，learn-kit 及 NotebookLM 集成退役；已安装旧版不会因市场删除而自动卸载。请参阅 [升级与卸载步骤](docs/guide/[GUIDE]_ChatGPT_Codex_Upgrade.md)。旧版本、CHANGELOG、ADR 和已发布资产继续保留。Marketplace 8.0.0 / diagram-kit 0.3.0 的版本与发布说明已准备，尚未正式发布；桌面端验收及后续步骤见 [发布准备记录](docs/runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md)。
+停止 Claude 支持，learn-kit 及 NotebookLM 集成退役；已安装旧版不会因市场删除而自动卸载。请参阅 [升级与卸载步骤](docs/guide/[GUIDE]_ChatGPT_Codex_Upgrade.md)。旧版本、CHANGELOG、ADR 和已发布资产继续保留。[Marketplace v8.0.0](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.0.0) / diagram-kit 0.3.0 已正式发布；桌面端实际验收仍未执行，发布事实及后续步骤见 [发布记录](docs/runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md)。
 
 ### Development
 
