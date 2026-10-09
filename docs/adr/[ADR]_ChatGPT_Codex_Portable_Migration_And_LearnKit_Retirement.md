@@ -68,6 +68,8 @@ supersedes:
 
 按治理、归档退役、格式与技能、工具链、验收、版本与发布准备顺序执行。迁移只在隔离 worktree 中准备。验收证据见 [验收记录](../runbook/[RUNBOOK]_ChatGPT_Codex_Migration_Acceptance.md)；未执行项明确标记。
 
+治理 PR #186 / #187 尚未合并时，#188 临时保留根 CLAUDE.md 的固定同步说明，让目标分支的旧 A6 按原规则通过。该文件只指向 AGENTS.md 并记录当前迁移状态；CI 显式使用 --allow-governance-transition，且不接受额外旧宿主指令、目录或插件包装。默认 portable 校验与 canonical 发布安装复查仍拒绝该文件。两个治理 PR 合并后，代理必须在 #188 合并前删除过渡文件、CI 选项及校验器允许分支，并重跑新版 A6、结构校验、测试和安装冒烟。迁移 PR 保持 draft，当前绿灯不代表过渡清理已完成。
+
 ## Rollback
 
 发布前按依赖相反顺序回退对应 PR，指令与门禁同步回退。发布后通过新的修复版本处理问题，保留原标签、版本与旧 NLM 资产。

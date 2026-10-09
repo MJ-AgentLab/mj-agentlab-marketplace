@@ -26,6 +26,13 @@ test("invalid canonical source never calls the installer",async()=>{
  await assert.rejects(verifyReleaseInstall({repoRoot:d,canonicalSha:"main",install}),/40-character/);
  assert.equal(calls,0);assert.equal(git(d,"worktree","list","--porcelain").match(/^worktree /gm).length,1);
 });
+test("a governance transition notice blocks canonical release installation",async()=>{
+ const {d}=fixture();fs.writeFileSync(path.join(d,"CLAUDE.md"),"# 治理过渡同步说明\n");
+ git(d,"add","CLAUDE.md");git(d,"commit","--quiet","-m","transition");
+ let calls=0;
+ await assert.rejects(verifyReleaseInstall({repoRoot:d,canonicalSha:git(d,"rev-parse","HEAD"),install:async()=>{calls++;return {ok:true};}}),/retired instruction surface: CLAUDE.md/);
+ assert.equal(calls,0);assert.equal(git(d,"worktree","list","--porcelain").match(/^worktree /gm).length,1);
+});
 test("failed installation cleans up the canonical worktree and fails closed",async()=>{
  const {d,sha}=fixture();let temporary;
  await assert.rejects(verifyReleaseInstall({repoRoot:d,canonicalSha:sha,install:async({repoRoot})=>{temporary=repoRoot;return {ok:false};}}),/verification failed/);

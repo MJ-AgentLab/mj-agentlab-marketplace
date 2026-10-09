@@ -16,6 +16,8 @@
 
 A6 同步目标为根 AGENTS.md；过渡触发器继续识别旧路径，当前技能位于 .agents/skills，插件使用根 plugin.json。运行 npm test、npm run validate、npm run smoke:codex；Python 图表校验必须实际执行。正式发布需独立的发布授权与两个目标客户端的验收证据。
 
+#186 / #187 未合并期间，CI 仅以 --allow-governance-transition 接受根 CLAUDE.md 的固定过渡说明；默认与正式发布校验拒绝该文件。两项治理合并后，代理在 #188 合并前删除过渡文件、临时选项与允许分支，再重跑全部检查。
+
 ## Codex 会话维护
 
 用户明确请求会话归档、推荐标题或重命名当前任务时，读取并遵循 [会话维护规则](.agents/references/session-maintenance.md)。引用、示例、否定和机制讨论不触发；普通任务“收尾”按实际对象处理。
