@@ -1,7 +1,16 @@
 ---
 name: mp-doc-validate
-description: Validates marketplace documentation compliance against Documentation Framework v1.6+ — three check groups: (1) active docs: every `[TAG]`-prefixed file under `docs/**` or `plugins/<name>/docs/**` has the required 8-field frontmatter, `type` matching its tag, the right subdirectory, resolvable `related:` paths / wikilinks / INDEX.md listing, and RUNBOOK `last-verified`; (2) v1.5+ archive compliance: `docs/archive/` flat-layout `[DEPRECATED]_` filename pattern, mandatory `archived:` date + `replaced-by:` path, canonical Archive Banner, intact bidirectional `supersedes:` ↔ `replaced-by:` pairs; (3) v1.6+ §2.7 CLAUDE.md sync allowlist Warning check (Step 3.5): working-tree drift between §2.7 trigger files and root `CLAUDE.md` (advisory; the CI A6 workflow is the authoritative blocker). Make sure to use this skill whenever the user says "validate docs", "doc compliance", "frontmatter check", "docs audit", "docs/ check", "marketplace doc validate", "doc validate", "Stage 7 docs audit", "archive validation", "archive compliance", or before committing changes that touched any `docs/**` or `plugins/<name>/docs/**` file (including any change under `docs/archive/`). Heuristic-only; does not modify files. Outputs report: Critical / Warning / Verified. Do not use for: SKILL.md validation (use /plugin-dev:skill-reviewer agent), plugin compliance (use mp-flow-compliance, Stage 5), or test of doc content quality (subjective; outside scope).
+description: "Use to validate marketplace documentation / 文档校验: frontmatter, state, naming, archive links, INDEX and root AGENTS.md A6 synchronization."
 ---
+
+## 执行授权（治理过渡）
+
+代理负责在已有授权范围内执行文件修改、环境检查、测试、隔离安装验证、提交、推送及 PR 准备。owner 作出决定后，由代理执行，不要求 owner 复制命令，不重复确认已授权的操作。CI、分支保护、独立审查及外部身份验证按实际约束处理；无法完成时说明具体原因，只请求最小必要参与。
+
+需要 owner 决策时，提供 2–3 个明确选项，说明主要影响，标记推荐项及理由。常规实现细节由代理判断；必须由 owner 决定的事项等待答复。已有决定不重复询问，推荐项不视为默认批准。
+
+本节优先于下文旧流程中的逐次确认、仅输出命令和要求用户手工执行的表述。已授权步骤由代理执行；未决 owner 决策、独立审查和正式发布授权按 AI 工程规范 §3 处理。
+
 
 # Marketplace Doc Validate
 
@@ -295,33 +304,9 @@ comm -13 <(echo "$listed_archived") <(echo "$actual_archived")
 
 Marketplace 顶层 INDEX 不需镜像 plugin-internal docs（plugin 自己的 docs/INDEX.md 是 source of truth；marketplace INDEX 仅列 "Plugin Documentation" 一段含跳转）。
 
-## Step 3.5: CLAUDE.md Allowlist Sync Check (v1.6+, Warning posture)
+## Step 3.5: AGENTS.md A6 同步检查
 
-Per Framework v1.8 §2.7 + §4.3.1 A6 gate Layer 2 (pre-commit advisory). Detects working-tree drift between §2.7 allowlist trigger files and root `CLAUDE.md`. Skill outputs **Warning** (not Critical); the authoritative Layer 3 blocker is `.github/workflows/a6.yml` (→ `scripts/check-a6.mjs`, `exit 1` on PR). `check-a6.mjs`'s `TRIGGERS` array is the single source of truth for the pattern set — keep the regex below aligned with it.
-
-**Algorithm**:
-
-1. Capture working-tree modifications: `git status --porcelain` → list of `M/A/R/D` files (any line where the index or worktree column is non-space, parsed via `^[ MARD?!]{2} (.+)$`)
-2. Match against the §2.7 trigger set (mirrors `check-a6.mjs` `TRIGGERS`, incl. v1.7 Category 4 Codex dual-native surfaces + v1.8 release-script additions `run-release` / `release-verify-install`):
-   ```
-   ^(docs/rule/\[STANDARD\]_[^/]+\.md|VERSION|\.claude-plugin/marketplace\.json|plugins/[^/]+/\.claude-plugin/plugin\.json|\.claude/skills/mp-[^/]+/SKILL\.md|plugins/[^/]+/skills/[^/]+/SKILL\.md|\.agents/plugins/marketplace\.json|plugins/[^/]+/\.codex-plugin/plugin\.json|plugins/[^/]+/skills/[^/]+/agents/openai\.yaml|plugins/learn-kit/\.mcp\.json|plugins/learn-kit/nlm-bridge/.+|plugins/learn-kit/scripts/install-nlm-bridge\.mjs|scripts/(generate-nlm-contract|probe-learn-kit-nlm-bridge|resolve-release-state|run-release|release-verify-install)\.mjs)$
-   ```
-3. If `TRIGGERED[] 非空` AND root `CLAUDE.md` NOT in working-tree changes → emit **Warning**:
-   ```
-   WARNING: Potential A6 drift — file(s) X touched but CLAUDE.md unchanged.
-   The A6 workflow will block at PR time. Either update root CLAUDE.md per §2.7,
-   or add [skip a6] to the PR title AND get a reviewer APPROVED sign-off
-   (body exactly "A6 N/A confirmed") — the token alone will not pass.
-   Triggered files:
-     - <file1>
-     - <file2>
-   Ref: docs/rule/[STANDARD]_Documentation_Framework.md §2.7 + §4.3.1
-   ```
-4. Otherwise (no triggers OR CLAUDE.md is in working-tree changes) → Verified (no output for this step)
-
-**Severity rationale**: Warning (not Critical) — skill is pre-commit advisory; CI authoritative gate. Two-tier escalation mirrors v4.4.5 `related:` Check 5 (Warning in skill, Critical promoted in v4.4.5 only when broken-link 影响 navigation).
-
-**Limitations** (still open as of v1.8 — v1.7 aligned the *trigger set* with `check-a6.mjs`, not the *detection method*): skill检测 working-tree state, CI detects PR diff. Edge case: author edits trigger file + CLAUDE.md in commit A, then in next commit edits another trigger file but NOT CLAUDE.md — skill sees only commit B's working-tree (CLAUDE.md not touched in working tree) and warns; CI sees PR-wide diff (CLAUDE.md WAS touched in commit A across the PR range) and passes. Skill is over-eager in this case (Warning) — acceptable since it nudges author to verify; CI is authoritative.
+以 scripts/check-a6.mjs 的 isA6Trigger 为触发路径唯一来源，不复制正则。使用 git 的 NUL 分隔 diff 取得 PR 范围及工作区改动；仅根 AGENTS.md 的添加或修改满足同步，删除或类型变更不算同步。过渡期新旧清单与技能路径全部覆盖。发现触发文件但未同步时发出 Warning；CI A6 / Check 是权威门禁。无实质同步内容时，只能按框架 §4.3.1 的 [skip a6] + 当前 head SHA 独立审批双条件处理。
 
 ## Step 4: Categorize
 

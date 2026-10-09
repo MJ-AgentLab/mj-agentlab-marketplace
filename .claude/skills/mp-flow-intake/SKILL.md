@@ -1,7 +1,16 @@
 ---
 name: mp-flow-intake
-description: Performs mj-agentlab-marketplace task Intake (HITL Stage 0) — converts user requests into a structured Intake Result with task type / risk level / scope / version-bump implication / documentation needs / HITL decision points, decides whether to write a working `plans/[INTAKE]_*.md` (only when scope warrants), and produces an Issue Draft body keyed to the marketplace's 6 branch types (feature/bugfix/documentation/maintain/hotfix/release). Make sure to use this skill whenever the user says "评估任务", "intake", "任务准入", "需求收口", "新任务评估", "Issue 创建前", "task intake", "marketplace 改动准入", or asks to convert a vague description / chat / partial plan into an actionable engineering task on this marketplace repo. Marketplace-specific risk triggers add: marketplace.json schema change / plugin.json field change / SKILL.md frontmatter change / plugin delete or rename / VERSION major bump / CI workflow change / merge to main / plugin secrets / publish action. Outputs Intake Result + Issue Draft + HITL Questions; does NOT create the Issue, branch, worktree, or files. Do not use for: GitHub Issue creation (use mp-git-pr's sibling Issue creation flow), branch creation (use mp-git-branch), repo fact-check (use mp-flow-repo-scan, Stage 1), or full Plan body authoring (use mp-flow-plan, Stage 2).
+description: "Use for marketplace task intake / 任务准入: determine scope, acceptance, risk, and unresolved owner decisions; proceed with already authorized work."
 ---
+
+## 执行授权（治理过渡）
+
+代理负责在已有授权范围内执行文件修改、环境检查、测试、隔离安装验证、提交、推送及 PR 准备。owner 作出决定后，由代理执行，不要求 owner 复制命令，不重复确认已授权的操作。CI、分支保护、独立审查及外部身份验证按实际约束处理；无法完成时说明具体原因，只请求最小必要参与。
+
+需要 owner 决策时，提供 2–3 个明确选项，说明主要影响，标记推荐项及理由。常规实现细节由代理判断；必须由 owner 决定的事项等待答复。已有决定不重复询问，推荐项不视为默认批准。
+
+本节优先于下文旧流程中的逐次确认、仅输出命令和要求用户手工执行的表述。已授权步骤由代理执行；未决 owner 决策、独立审查和正式发布授权按 AI 工程规范 §3 处理。
+
 
 # Marketplace Flow — Task Intake (HITL Stage 0)
 
