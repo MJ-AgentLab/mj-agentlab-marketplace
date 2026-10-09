@@ -18,6 +18,8 @@ A6 同步目标为根 AGENTS.md；过渡触发器继续识别旧路径，当前�
 
 develop 与 main 已完成治理迁移；结构校验与发布安装复查使用相同的严格校验，项目指令只从根 AGENTS.md 加载。
 
+owner 已授权提前完成迁移版本准备，阶段调整见 [迁移 ADR](docs/adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)。该决定不替代桌面端验收或正式发布授权；实际状态见 [发布准备记录](docs/runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md)。
+
 ## Codex 会话维护
 
 用户明确请求会话归档、推荐标题或重命名当前任务时，读取并遵循 [会话维护规则](.agents/references/session-maintenance.md)。引用、示例、否定和机制讨论不触发；普通任务“收尾”按实际对象处理。

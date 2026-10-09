@@ -5,15 +5,27 @@
 
 ## [Unreleased]
 
+## [8.0.0] - 2026-10-09
+
+**Marketplace `7.0.2 → 8.0.0` · diagram-kit `0.2.0 → 0.3.0` · learn-kit retired.** Version and release-note preparation is complete. Publication status and client acceptance evidence are tracked in the [release-readiness record](docs/runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md); a CHANGELOG entry alone does not indicate a published GitHub Release.
+
 ### Changed
 
-- Planned ChatGPT/Codex portable migration: the marketplace now registers only diagram-kit and its sole public skill arch-diagram. Claude support stops; learn-kit and NotebookLM runtime infrastructure retire directly. Existing Git releases, tags and NLM assets remain historical.
+- ChatGPT/Codex portable migration: the marketplace now registers only diagram-kit and its sole public skill arch-diagram. Support is limited to ChatGPT desktop and local Codex, with the Codex CLI acceptance baseline fixed at 0.147.0. Claude support stops; learn-kit and NotebookLM runtime infrastructure retire directly. Existing Git releases, tags and NLM assets remain historical.
 - Move all 19 repository development skills to .agents/skills and consolidate instructions into AGENTS.md. Agents execute authorized work; owners decide unresolved choices with explicit options and recommendations.
 - Root plugin.json / skills replace host wrappers. Versions are authoritative only in VERSION and the diagram-kit root manifest. Release preparation verifies a canonical Git tree and publishes an empty-asset draft with identity/tag/notes/phase protection.
 - Preserve old documents, plugin changelog, ADRs and acceptance records in docs/archive with source hashes and repaired links. See the migration ADR and upgrade guide for removal and directory changes.
-- Planned marketplace 8.0.0 / diagram-kit 0.3.0 remain unapplied until both client acceptances finish. Governance PRs #186 / #187 and implementation PR #188 have merged; desktop acceptance and release preparation remain open.
+- Marketplace 8.0.0 marks the reduced support surface. Diagram Kit stays in its 0.x phase at 0.3.0, with the breaking-version exception and the owner's authorization to prepare versions before desktop acceptance recorded in the [migration ADR](docs/adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md). Formal publication requires complete client acceptance, current checks, independent approval and release authorization.
+
+### Upgrade
+
+1. Preserve personal learning outputs and data, then explicitly uninstall the installed Learn Kit. Removing its marketplace entry does not delete client caches. Remove any independently installed NLM bridge using its matching historical installer; NotebookLM notebooks are retained.
+2. After publication, refresh the marketplace and install Diagram Kit 0.3.0. Confirm that the only public skill is arch-diagram. Follow the [upgrade and uninstall guide](docs/guide/[GUIDE]_ChatGPT_Codex_Upgrade.md) for the supported clients and historical uninstall entry point.
+3. Repository development now uses .agents/skills and root AGENTS.md; Codex configuration belongs in .codex. Locate diagram resources from the installed SKILL.md, check each node/edge's file-line evidence, and actually run the bundled Python validator.
 
 ### Added
+
+The session-maintenance entry below retains its original description from before the portable migration; the current support and directory changes are described above.
 
 - **Codex 项目本地会话维护机制** — 新增根 `AGENTS.md` 入口，明确请求归档、推荐标题或重命名时，按需读取唯一规则文件 `.agents/references/session-maintenance.md`，规则在本仓库独立维护。归档固定输出标题、日期及成果／结论／待办；标题采用 `MMDD[-I编号][-P编号]-对象任务`，仅保留本任务已确认的主要 Issue 和 PR。默认只回复文字，保存文件、重命名和客户端归档分别按明确请求执行；指定完整标题保持原文，实际操作成功确认后才报告完成。摘要区分计划与实际成果，并保留继续工作必需的信息。引用、否定、机制讨论和普通收尾不触发；不新增技能、脚本、归档目录、自动化或运行时跨项目依赖，现有 Claude 入口、插件及版本不变。
 

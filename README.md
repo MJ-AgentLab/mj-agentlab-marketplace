@@ -1,6 +1,6 @@
 # MJ AgentLab Marketplace
 
-![Version](https://img.shields.io/badge/version-7.0.2-blue)
+![Version](https://img.shields.io/badge/version-8.0.0-blue)
 
 仅支持 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的架构图插件市场。市场只提供 **diagram-kit**，公开技能只有 **arch-diagram**：从源码事实生成七类 Mermaid 架构/UML 图，每个节点与边可追溯到文件行号，并使用 Python 校验器验证。无需 MCP 服务。
 
@@ -21,7 +21,7 @@ codex debug prompt-input '$diagram-kit:arch-diagram'
 
 ### Upgrade and retirement
 
-停止 Claude 支持，learn-kit 及 NotebookLM 集成退役；已安装旧版不会因市场删除而自动卸载。请参阅 [升级与卸载步骤](docs/guide/[GUIDE]_ChatGPT_Codex_Upgrade.md)。旧版本、CHANGELOG、ADR 和已发布资产继续保留。计划版本为 8.0.0 / 0.3.0，完整验收前保持当前版本并记录 Unreleased。
+停止 Claude 支持，learn-kit 及 NotebookLM 集成退役；已安装旧版不会因市场删除而自动卸载。请参阅 [升级与卸载步骤](docs/guide/[GUIDE]_ChatGPT_Codex_Upgrade.md)。旧版本、CHANGELOG、ADR 和已发布资产继续保留。Marketplace 8.0.0 / diagram-kit 0.3.0 的版本与发布说明已准备，尚未正式发布；桌面端验收及后续步骤见 [发布准备记录](docs/runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md)。
 
 ### Development
 

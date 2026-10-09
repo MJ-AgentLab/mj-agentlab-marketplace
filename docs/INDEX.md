@@ -11,7 +11,7 @@ version: v2.0
 
 # 文档索引
 
-当前市场提供 diagram-kit / arch-diagram；客户端为 ChatGPT 桌面端和 Codex 本地环境。市场版本与插件版本仍为 7.0.2 / 0.2.0，计划 8.0.0 / 0.3.0 待验收完成统一更新。
+当前市场提供 diagram-kit / arch-diagram；客户端为 ChatGPT 桌面端和 Codex 本地环境。Marketplace 8.0.0 / diagram-kit 0.3.0 版本准备已完成，尚未正式发布；桌面端验收仍待完成。
 
 ## 入口
 

@@ -13,7 +13,7 @@ version: v2.0
 
 ## Preparation
 
-两个治理 PR 先合并，迁移验收完成后才应用 8.0.0 / 0.3.0 与正式 CHANGELOG。代理执行版本 dry-run、更新、测试与 PR 准备。VERSION 变化合入 main 会触发发布，因此正式 release PR 的合并必须已有发布意图授权、CI 和独立批准。
+两个治理 PR 及迁移 PR 已合并。owner 已授权先完成 8.0.0 / 0.3.0 与正式 CHANGELOG 的版本准备，阶段调整见 [迁移 ADR](../adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)。代理执行版本 dry-run、更新、测试与 PR 准备，未完成的桌面端验收继续据实记录。VERSION 变化合入 main 会触发发布，因此正式 release PR 的合并必须已有完整客户端验收、发布意图授权、CI 和独立批准。
 
 ## Draft-first state machine
 
