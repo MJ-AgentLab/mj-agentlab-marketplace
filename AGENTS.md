@@ -6,7 +6,7 @@
 
 understanding-kit 是显式调用的只读理解测验，Codex 优先 Side Chat；其他会话使用明确的上下文快照，不假定持续同步。插件边界及对旧单插件约束的局部替代见 [新增决定](docs/adr/[ADR]_Understanding_Kit_Addition.md)，真实客户端证据见 [验收记录](docs/runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)。learn-kit、NotebookLM 与 Claude 退役规则继续有效。
 
-Marketplace v8.1.0 已通过 #198 合入 main 并自动发布，包含 diagram-kit 0.3.0 / understanding-kit 0.1.1 / explain-kit 0.1.0。已发布 merge 与已测 head 的 Git tree 相同，发布后四种 canonical 安装与实际 Python 校验通过。真实桌面交互仍未执行，GitHub reviews 未提供独立批准记录；历史失败、中性路径重测、回放与未覆盖项继续分开保存，详见 [8.1.0 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)。#199 已将 main 同步回 develop；本开发候选随后准备市场 8.1.1 pre-bump，版本工具只更新 VERSION / README badge，插件根版本保持。待预升 PR 合并后才更新远端 develop，不创建同号 Release。
+Marketplace v8.1.0 已通过 #198 合入 main 并自动发布，包含 diagram-kit 0.3.0 / understanding-kit 0.1.1 / explain-kit 0.1.0。已发布 merge 与已测 head 的 Git tree 相同，发布后四种 canonical 安装与实际 Python 校验通过。真实桌面交互仍未执行，GitHub reviews 未提供独立批准记录；历史失败、中性路径重测、回放与未覆盖项继续分开保存，详见 [8.1.0 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)。#199 已完成 main → develop 同步，#200 发布记录修正与 #201 开发预升均已合并。main 为已发布 8.1.0，develop 为未发布 pre-bump 8.1.1；版本工具只更新 VERSION / README badge，插件根版本保持，不创建同号 Release。
 
 explain-kit 0.1.0 提供速解和深讲，默认中文、保留术语原文，按深度路由并适应用户格式。新增解释能力的 [ADR](docs/adr/[ADR]_Explain_Kit_Addition.md) 与 [验收记录](docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md) 不改变测验策略。
 
