@@ -20,6 +20,8 @@ develop 与 main 已完成治理迁移；结构校验与发布安装复查使用
 
 owner 已授权提前完成迁移版本准备，阶段调整见 [迁移 ADR](docs/adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)。该决定不替代桌面端验收或正式发布授权；实际状态见 [发布准备记录](docs/runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md)。
 
+版本准备已合入 develop。发布候选先同步 main 的治理历史并解决目录冲突，通过草稿 PR 供审查；未完成的验收与独立批准仍须据实处理。
+
 ## Codex 会话维护
 
 用户明确请求会话归档、推荐标题或重命名当前任务时，读取并遵循 [会话维护规则](.agents/references/session-maintenance.md)。引用、示例、否定和机制讨论不触发；普通任务“收尾”按实际对象处理。

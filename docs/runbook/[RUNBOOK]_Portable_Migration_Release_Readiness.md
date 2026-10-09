@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
 state: draft
-version: v1.1
+version: v1.2
 related:
   - "./[RUNBOOK]_ChatGPT_Codex_Migration_Acceptance.md"
   - "./[RUNBOOK]_Release_Operations.md"
@@ -16,7 +16,7 @@ related:
 
 # 合并后发布准备
 
-治理 #186 / #187 与迁移 #188 均已合并。develop 的迁移 merge SHA 为 cea7744b90694ff71b0ed846a87bc292c6633279。owner 随后回复“更新即可”，授权在 #189 中先完成 Marketplace 8.0.0 / diagram-kit 0.3.0 的版本与发布说明准备。当前 worktree 权威版本已更新，正式 CHANGELOG 已编写；尚无 v8.0.0 标签或本次正式发布。桌面端验收仍未执行。
+治理 #186 / #187、迁移 #188 和版本准备 #189 均已合并。#189 的 develop merge SHA 为 304143239eb6e96b4f6a0be55a91bd70b08540ea；权威版本为 Marketplace 8.0.0 / diagram-kit 0.3.0。owner 授权先完成版本与发布说明准备，桌面端验收仍未执行。当前在 codex/release-8.0.0 工作树准备到 main 的草稿 PR；尚无 v8.0.0 标签或本次正式发布。
 
 ## 当前完成条件
 
@@ -27,23 +27,26 @@ related:
 | 合并提交的验证 | 完成：198 项强制 PowerShell/Python 测试、严格结构及精确 Git tree 的 Codex CLI 0.147.0 安装/发现复验通过 |
 | CLI 模型行为 | 已记录：arch-diagram 生成、证据与 Python 校验；19 技能只读触发回放。未声称完整外部副作用链均执行 |
 | ChatGPT 桌面端安装及调用 | 待完成：须有客户端版本、准确的市场/插件来源、安装与发现结果、生成图证据和实际校验摘要 |
-| 版本应用与正式 CHANGELOG | 已准备于 #189：两个版本 dry-run 后应用，VERSION / manifest / README badge、CHANGELOG 和发布说明已同步 |
+| 版本应用与正式 CHANGELOG | 已合入 develop（#189 / 3041432）：VERSION / manifest / README badge、CHANGELOG 和发布说明已同步；main 当前为 7.0.1，7.0.2 是未发布的 develop pre-bump |
 | 版本准备提交的本地复验 | 完成：严格结构、198 项强制 PowerShell/Python 测试、版本基线与目标 develop 检查器 A6 均通过；1608470 的 CLI 0.147.0 canonical 安装确认缓存版本为 0.3.0，仓库内外技能数量为 1/19 与 1/0 |
-| 正式发布 PR | 待完整验收及 #189 合入 develop；其最新提交 checks、独立批准及发布授权须满足 |
+| main 同步与冲突处理 | 完成：88b5e6f 合入 origin/main 473f606 的治理历史，23 处冲突按迁移决定解决；结果 Git tree 与 develop 3041432 完全相同，保留执行/决策、A6 和会话维护规则 |
+| 发布候选本地验证 | 完成：冲突解决后 198 项强制 PowerShell/Python 测试、严格校验、精确 88b5e6f 的 CLI 0.147.0 canonical 安装和 main 原检查器 A6 均通过 |
+| 正式发布 PR | 准备为 draft：#189 依赖已完成；桌面验收、最新检查、独立批准和正式发布授权仍须满足，未经满足不合并 main |
+| main 实际保护规则 | 已查询 active rules：只允许 merge 方法，要求 1 项独立批准、最后推送批准、过期批准撤销、对话解决及最新 Validate Structure。经典 branch-protection 接口 404 不代表没有保护 |
 | 历史版本和资产 | 保留：合并后复查 v7.0.0 / v7.0.1 原 wheel 与 checksum 均存在 |
 
 ## 桌面端验收记录要求
 
-验收须绑定当前 portable 实现。上述 develop 提交可复现迁移实现；若声称验收 8.0.0 / 0.3.0，则须绑定 #189 的具体提交或其后续 merge SHA。目前 main 仍为旧产品内容。通过 [升级指南](../guide/[GUIDE]_ChatGPT_Codex_Upgrade.md) 安装待测市场，并使用 [合成源码](../../tests/fixtures/arch-diagram/demo/server.js) 与 [进程内存储模块](../../tests/fixtures/arch-diagram/demo/store.js) 进行可复验调用。
+验收须绑定具体待发布提交；develop 3041432 可复现 #189 合并内容，发布候选 88b5e6f 在解决 main 冲突后的文件树与之相同，后续记录变更另绑定其提交。目前 main 仍为旧产品内容。通过 [升级指南](../guide/[GUIDE]_ChatGPT_Codex_Upgrade.md) 安装待测市场，并使用 [合成源码](../../tests/fixtures/arch-diagram/demo/server.js) 与 [进程内存储模块](../../tests/fixtures/arch-diagram/demo/store.js) 进行可复验调用。
 
 记录客户端版本、市场来源和提交 SHA、安装后的插件/技能列表、arch-diagram 的真实调用结果、节点与边的文件行号证据、从安装资源定位的 Python 校验结果，以及需要的权限和任何失败。预期只提供 diagram-kit / arch-diagram，不安装 MCP；store.js 是进程内模块。不能以网页端结果、CLI 发现成功或已经合并来替代桌面端实际验收。owner 提供的结果应注明由 owner 执行，保留与代理实际执行证据的区别。
 
 ## 代理后续执行顺序
 
 1. 按 owner 的后续授权在 worktree 先执行两个版本工具 dry-run，统一应用 VERSION 8.0.0 / 根 manifest 0.3.0、派生 README badge、正式 CHANGELOG 和发布说明；保留旧正文与版本记录。这一步已完成，不把版本更新视作桌面验收。
-2. 完成严格校验、相关测试、Codex CLI 0.147.0 精确提交安装复查和 CI，通过版本准备 #189 进入 develop。
-3. 收齐并核对桌面端结果，更新 [实际验收记录](./[RUNBOOK]_ChatGPT_Codex_Migration_Acceptance.md)，将正式版本验收绑定具体提交。
-4. 从完成版本准备的 develop 准备 release PR 到 main。满足完整客户端验收、独立批准、最新检查和发布授权后再合并；main 的 VERSION 变化会触发实际发布。
+2. 版本准备 #189 已进入 develop；从其精确 merge SHA 建立发布工作树，同步 main 并解决治理/迁移冲突，验证结果与已批准迁移内容一致。
+3. 先准备发布分支到 main 的草稿 PR，执行本地验证、精确提交安装、A6 及 CI，让后续决定基于可审查结果。
+4. 收齐并核对桌面端结果，更新 [实际验收记录](./[RUNBOOK]_ChatGPT_Codex_Migration_Acceptance.md)，将正式版本验收绑定具体提交。若 owner 改变验收要求，明确记录新决定而不把未执行项改成 PASS。满足验收要求、独立批准、最新检查和正式发布授权后再合并；main 的 VERSION 变化会触发实际发布。
 5. 按 [发布操作](./[RUNBOOK]_Release_Operations.md) 核对标签精确绑定、空资产 draft、安装复查、紧邻发布前查询与 published 状态。既有 v7.x 资产不覆盖、不删除。
 6. 正式发布后核对版本和 Release，再准备 develop 的下一补丁 pre-bump PR 与工作树清理。
 
