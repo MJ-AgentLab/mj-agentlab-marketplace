@@ -2,6 +2,8 @@
 
 These are synthetic engineering cases, not records of executed tests or demonstrated learning benefit. The cases support testing an installed `understanding-kit:pop-quiz` with Codex CLI 0.147.0 and a separate reviewer.
 
+The [post-merge matrix](results/2026-10-09-post-merge-matrix.md) records 0.1.1 neutral-path forward coverage, its unexercised branch and separate replay. Initial failures and labeled-path pilots remain in the linked chronological reports.
+
 ## Keep inputs separate from the reviewer
 
 - `fixtures/` contains the task sources that the subject may read.
@@ -9,6 +11,8 @@ These are synthetic engineering cases, not records of executed tests or demonstr
 - `rubric.md` contains independently established facts and pass/fail criteria. It is reviewer-only.
 
 Copy only the fixture files named in a case to an isolated consumer directory. Start with the case's `input` object and replace any fields present in the variant's `input_overrides`; an overridden array replaces the entire array. Extract only that merged input for the subject. Replace its relative `source_refs` with the copied paths. Supply the skill's qualified invocation and the input's `request`; do not supply case IDs, titles, conversation controls, rubric, expected branches, or this README.
+
+Use neutral random names for the temporary root and consumer directories. Absolute paths and cwd are visible to the subject, so case IDs or branch labels in those names also leak reviewer information. Keep the case-to-directory mapping only in the reviewer's harness and logs. Record earlier labeled-path runs as pilots with that limitation; use fresh neutral-path sessions for protocol-conforming acceptance.
 
 Install from an isolated marketplace copy whose `pop-quiz/evals/` directory is omitted. Confirm that the installed runtime SKILL and references match the candidate's bytes. This keeps the reviewer oracle out of the installed skill cache as well as the consumer fixture. Keep the original cases and rubric in the reviewer's workspace. Runtime references must not load evaluation resources as quiz sources.
 

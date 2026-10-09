@@ -2,6 +2,8 @@
 
 This record covers three actual model conversations, not all 19 evaluation variants. It is not a static-test result, supplied-transcript replay, desktop UI acceptance, or learning-efficacy result. The subject received the explicitly invoked installed skill and synthetic task sources; it did not receive cases.json, rubric.md, expected branches, or answer keys.
 
+Post-merge method audit: this initial sample used semantic consumer names such as `consumer-main` and `consumer-conflict`. Those paths were visible to the subject. Retain the observations as a limited pilot; they do not meet the subsequent neutral-path acceptance protocol. The final 0.1.1 sessions use fresh random consumer identities and are recorded separately.
+
 Codex CLI was **0.147.0**. Persisted turn_context records identify model **gpt-5.6-sol**, provider **openai**, sandbox **read-only**, and approval policy **never**. No model override was supplied. Each continuation used its recorded UUID rather than `--last`.
 
 Only understanding-kit 0.1.0 was installed in an isolated temporary environment. The runtime installation mirror and installed cache omitted evals. All four runtime files matched the candidate bytes:
