@@ -1,0 +1,26 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "understanding-kit",
+  "version": "0.1.1",
+  "description": "Check the minimum understanding needed for an owner's SDLC decisions through evidence-grounded adaptive micro-quizzes.",
+  "author": {
+    "name": "MJ-AgentLab",
+    "url": "https://github.com/MJ-AgentLab"
+  },
+  "repository": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace",
+  "license": "MIT",
+  "keywords": ["sdlc", "understanding", "quiz", "learning", "decision"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Understanding Kit",
+        "shortDescription": "Brief quizzes for the decisions you own",
+        "longDescription": "Explicitly start a role-aware understanding quiz from a task snapshot. Check necessary knowledge, distinguish diagnostic answers from immediate practice, and receive brief feedback without changing engineering artifacts.",
+        "developerName": "MJ-AgentLab",
+        "category": "Developer Tools",
+        "capabilities": ["Read"],
+        "defaultPrompt": ["Use $understanding-kit:pop-quiz to check the minimum understanding I need for my responsibilities in this task, using the available context snapshot."]
+      }
+    }
+  }
+}

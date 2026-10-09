@@ -5,13 +5,30 @@
 
 ## [Unreleased]
 
+## [8.1.0] - 2026-10-09
+
+**Marketplace `8.0.0 → 8.1.0` · Understanding Kit `0.1.1` · Explain Kit `0.1.0` · Diagram Kit `0.3.0` unchanged.** Marketplace 8.0.1 was an unpublished develop pre-bump. This section prepares the additive feature release; actual publication, client acceptance and approvals are tracked in the [8.1.0 release-readiness record](docs/runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md). A CHANGELOG entry does not establish publication or acceptance.
+
+### Added
+
+- Understanding Kit / `pop-quiz`: explicitly invoked, read-only understanding checks selected from confirmed responsibilities and critical decisions. Apply MNK and two base questions plus an adaptive diagnostic or post-teaching practice question. The default is one KU; a second requires explicit continuation, with a two-KU/five-question ceiling.
+- Use an explicit task snapshot in ordinary supported sessions; prefer Codex Side Chat when available, without automatic synchronization. Pending unanswered questions remain pending and can be restored; the skill cannot lock host-controlled windows.
+- Explain Kit / `glossary` and `concept`: compact term explanations and deeper mechanisms, applications, counter-examples and limits. Adapt to requested audience, language, length and format; default to Chinese with original technical names. Verify uncertain/version-sensitive facts and preserve debugging, research, review and drawing as the main requested tasks.
+
 ### Changed
 
-- Record the published v8.0.0 identity, tag binding and post-release installation results; refresh current installation guidance while preserving incomplete desktop acceptance and published release history.
+- Register three portable plugins and four public skills, without MCP services. Keep 19 development skills in repository scope. Extend strict validation, independent plugin versions, native metadata/resource checks and four isolated installation scenarios; `pop-quiz` stays hidden from implicit prompt discovery.
+- Preserve the published v8.0.0/tag identity, old assets, client acceptance gaps and learn-kit/NotebookLM/Claude retirement. New plugin evidence is tracked independently in the [Understanding Kit](docs/runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md) and [Explain Kit](docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md) ledgers.
 
 ### Fixed
 
+- Understanding Kit 0.1.1 corrects redundant checks of supported foundations, Q3 scenarios that only change names/values, and premature common-cause attribution of mixed wrong selections. Preserve initial failures and labeled-path pilots; the fresh neutral matrix records 18 scoped PASS / one UNEXERCISED, with a separate state replay rather than manufactured forward coverage.
 - Resolve prompt-local skill root aliases in the installation smoke check for newer Codex CLI catalogs. Keep the 0.147.0 acceptance baseline and real cache/repository scope checks; missing, conflicting or escaping root mappings still fail.
+
+### Upgrade
+
+- After publication, refresh the marketplace at main or pin `v8.1.0`. Existing Diagram Kit users can add Understanding Kit and/or Explain Kit; the plugins install independently. Invoke `$understanding-kit:pop-quiz`, `$explain-kit:glossary` or `$explain-kit:concept` with the relevant task sources.
+- Preserve personal outputs, previous tags and retired plugin data. New quiz/explanation results do not replace engineering review, work verification, stable mastery or the missing real-client acceptance evidence.
 
 ## [8.0.0] - 2026-10-09
 

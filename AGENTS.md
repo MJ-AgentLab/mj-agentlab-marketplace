@@ -2,7 +2,13 @@
 
 ## 项目上下文
 
-市场只注册 diagram-kit，公开技能只含 arch-diagram，目标客户端为 ChatGPT 桌面端和 Codex 本地环境，Codex CLI 验收基线 0.147.0。运行信息以市场索引、manifest 和 VERSION 为准。
+当前开发版本注册 diagram-kit / arch-diagram 、understanding-kit / pop-quiz 与 explain-kit / glossary、concept，目标客户端为 ChatGPT 桌面端和 Codex 本地环境，Codex CLI 验收基线 0.147.0。运行信息以市场索引、各插件 manifest 和 VERSION 为准；已发布 main 的范围与开发分支分别记录。
+
+understanding-kit 是显式调用的只读理解测验，Codex 优先 Side Chat；其他会话使用明确的上下文快照，不假定持续同步。插件边界及对旧单插件约束的局部替代见 [新增决定](docs/adr/[ADR]_Understanding_Kit_Addition.md)，真实客户端证据见 [验收记录](docs/runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)。learn-kit、NotebookLM 与 Claude 退役规则继续有效。
+
+Understanding Kit 0.1.1 已通过 #197 合入 develop，历史失败、中性路径重测、回放和未覆盖项分开记录。该合并树已有 230 项回归与四种隔离安装证据；实际模型行为不替代两个目标客户端交互验收。owner 已授权继续并发布，本分支准备 marketplace 8.1.0，插件版本为 diagram-kit 0.3.0 / understanding-kit 0.1.1 / explain-kit 0.1.0。当前候选检查、客户端缺口、独立批准和发布身份见 [8.1.0 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)；候选版本不表示已发布。
+
+explain-kit 0.1.0 提供速解和深讲，默认中文、保留术语原文，按深度路由并适应用户格式。新增解释能力的 [ADR](docs/adr/[ADR]_Explain_Kit_Addition.md) 与 [验收记录](docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md) 不改变测验策略。
 
 ## 执行与决策
 

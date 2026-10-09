@@ -48,3 +48,10 @@ test("failed installation cleans up the canonical worktree and fails closed",asy
  await assert.rejects(verifyReleaseInstall({repoRoot:d,canonicalSha:sha,install:async({repoRoot})=>{temporary=repoRoot;return {ok:false};}}),/verification failed/);
  assert.ok(!fs.existsSync(temporary));assert.equal(git(d,"worktree","list","--porcelain").match(/^worktree /gm).length,1);
 });
+
+test("canonical release validation includes explain-kit before invoking installation",async()=>{
+ const {d}=fixture();fs.unlinkSync(path.join(d,"plugins/explain-kit/skills/concept/SKILL.md"));
+ git(d,"add",".");git(d,"commit","--quiet","-m","missing-public-skill");let calls=0;
+ await assert.rejects(verifyReleaseInstall({repoRoot:d,canonicalSha:git(d,"rev-parse","HEAD"),install:async()=>{calls++;return {ok:true};}}),/explain-kit:concept/);
+ assert.equal(calls,0);assert.equal(git(d,"worktree","list","--porcelain").match(/^worktree /gm).length,1);
+});

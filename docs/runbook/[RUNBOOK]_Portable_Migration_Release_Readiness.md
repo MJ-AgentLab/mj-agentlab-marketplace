@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
 state: active
-version: v1.3
+version: v1.4
 related:
   - "./[RUNBOOK]_ChatGPT_Codex_Migration_Acceptance.md"
   - "./[RUNBOOK]_Release_Operations.md"
@@ -38,6 +38,12 @@ related:
 | main 实际保护规则 | 发布前已查询 active rules：只允许 merge 方法，要求 1 项独立批准、最后推送批准、过期批准撤销、对话解决及最新 Validate Structure。合并事实不证明存在批准记录 |
 | 平台 immutability | 未启用：Release API immutable=false，workflow 明确不声称平台不可变；保持已发布正文、标签与资产，通过新修复版本处理问题 |
 | 历史版本和资产 | 保留：合并后复查 v7.0.0 / v7.0.1 原 wheel 与 checksum 均存在 |
+
+## Develop 同步与下一补丁
+
+发布后候选分支 codex/post-v8.0.0-develop 已包含 main 733bd3d 及相同发布记录。按既有 pre-bump 决策，代理实际执行 marketplace 8.0.0→8.0.1 的 dry-run（只命中 VERSION 与 README badge），再应用这两个目标；diagram-kit 根 manifest 保持 0.3.0，市场索引不携带版本。8.0.1 为未发布的 develop 标记，等待同步/预升 PR 合入 develop；没有创建 v8.0.1 标签或 Release。发布记录修正 PR 先合入 main，再合入本同步 PR。
+
+候选的严格结构/技能/文档校验和 198 项强制 PowerShell/Python 测试均通过（0 失败、0 跳过）；CLI 基线实际为 0.147.0。pre-bump 检查在 enforce 模式判定 develop 8.0.1 领先 main 8.0.0，未连带变更插件 manifest 或市场索引。
 
 ## 桌面端验收记录要求
 

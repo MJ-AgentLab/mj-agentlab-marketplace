@@ -27,6 +27,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { RUNTIME_PLUGINS } from "../scripts/validate-portable.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = (rel) => fs.readFileSync(path.join(repoRoot, rel), "utf8");
@@ -42,7 +43,8 @@ function fences(text) {
   return out;
 }
 
-const CHANGELOGS = ["CHANGELOG.md", "docs/archive/[DEPRECATED]_LearnKit_CHANGELOG_v4.0.1.md", "plugins/diagram-kit/CHANGELOG.md"];
+const PLUGIN_CHANGELOGS = Object.keys(RUNTIME_PLUGINS).map(name => `plugins/${name}/CHANGELOG.md`);
+const CHANGELOGS = ["CHANGELOG.md", "docs/archive/[DEPRECATED]_LearnKit_CHANGELOG_v4.0.1.md", ...PLUGIN_CHANGELOGS];
 
 const FENCE_LINE = /^ {0,3}(?:```|~~~)/;
 /** A real section heading — the exact form `run-release.mjs` greps for. */
@@ -205,7 +207,7 @@ test("the newest shipping CHANGELOG section is substantive and names its own ver
   for (const [rel, minBody] of [
     ["CHANGELOG.md", 200],
     ["docs/archive/[DEPRECATED]_LearnKit_CHANGELOG_v4.0.1.md", 100],
-    ["plugins/diagram-kit/CHANGELOG.md", 100],
+    ...PLUGIN_CHANGELOGS.map(rel => [rel, 100]),
   ]) {
     const { sections } = parseChangelog(read(rel));
     assert.ok(sections.length, `${rel}: changelog has no version section`);
@@ -259,10 +261,12 @@ test("diagram-kit CHANGELOG permanently marks the 0.2.0 Codex bump in one sectio
 });
 
 // Current entry points and retirement instructions.
-test("README covers the two clients and one qualified public skill", () => {
+test("README covers both clients and every maintained qualified public skill", () => {
   const rd = read("README.md");
   assert.match(rd, /ChatGPT/); assert.match(rd, /CLI.*0\.147\.0/);
-  assert.ok(rd.includes("$diagram-kit:arch-diagram"));
+  for (const [plugin, skills] of Object.entries(RUNTIME_PLUGINS)) {
+    for (const skill of skills) assert.ok(rd.includes(`$${plugin}:${skill}`));
+  }
   const install=fences(rd).find(f=>f.code.includes("codex plugin marketplace add"));
   assert.ok(install); assert.ok(install.code.includes("codex plugin add diagram-kit"));
   assert.ok(install.code.includes("codex plugin list")); assert.ok(install.code.includes("codex debug prompt-input"));
