@@ -15,15 +15,18 @@ function fixture(){
  fs.writeFileSync(path.join(d,"VERSION"),"7.0.2\r\n");
  fs.writeFileSync(path.join(d,"README.md"),"badge/version-7.0.2-blue\n- v7.0.2 historical release\n");
  fs.writeFileSync(path.join(d,"plugins/diagram-kit/plugin.json"),JSON.stringify({name:"diagram-kit",version:"0.2.0",description:"history 0.2.0",extensions:{history:{version:"0.2.0"}}},null,2)+"\n");
+ fs.mkdirSync(path.join(d,"plugins/explain-kit"),{recursive:true});
+ fs.writeFileSync(path.join(d,"plugins/explain-kit/plugin.json"),JSON.stringify({name:"explain-kit",version:"0.1.0",description:"history 0.1.0",extensions:{history:{version:"0.1.0"}}},null,2)+"\n");
  fs.copyFileSync(path.join(REPO,".agents/plugins/marketplace.json"),path.join(d,".agents/plugins/marketplace.json"));return d;
 }
-const files=["VERSION","README.md","plugins/diagram-kit/plugin.json",".agents/plugins/marketplace.json"];
+const files=["VERSION","README.md","plugins/diagram-kit/plugin.json","plugins/explain-kit/plugin.json",".agents/plugins/marketplace.json"];
 const bytes=d=>Object.fromEntries(files.map(p=>[p,fs.readFileSync(path.join(d,p))]));
 const read=(d,p)=>fs.readFileSync(path.join(d,p),"utf8");
 function noBackups(d){for(const p of files) assert.ok(!fs.existsSync(path.join(d,p+".bump-backup")));}
 const opts={skip:!HAVE&&"PowerShell unavailable"};
 async function bump(d,scope="marketplace",extra=[],env={}){
- return runCli("pwsh",["-NoProfile","-File","./scripts/bump-version.ps1","-From",scope==="diagram-kit"?"0.2.0":"7.0.2","-To",scope==="diagram-kit"?"0.3.0":"8.0.0","-Scope",scope,...extra],{cwd:d,env:{...process.env,...env},timeoutMs:60000});
+ const versions={marketplace:["7.0.2","8.0.0"],"diagram-kit":["0.2.0","0.3.0"],"explain-kit":["0.1.0","0.2.0"]}[scope];
+ return runCli("pwsh",["-NoProfile","-File","./scripts/bump-version.ps1","-From",versions[0],"-To",versions[1],"-Scope",scope,...extra],{cwd:d,env:{...process.env,...env},timeoutMs:60000});
 }
 test("marketplace updates VERSION and derived badge only",opts,async()=>{
  const d=fixture(),before=bytes(d),r=await bump(d);assert.equal(r.status,0,r.stdout+r.stderr);
@@ -36,9 +39,27 @@ test("plugin bumps root identity without touching prose, nested versions or cata
  const m=JSON.parse(read(d,"plugins/diagram-kit/plugin.json"));assert.equal(m.version,"0.3.0");assert.equal(m.description,"history 0.2.0");assert.equal(m.extensions.history.version,"0.2.0");
  for(const p of files.filter(p=>p!=="plugins/diagram-kit/plugin.json")) assert.deepEqual(fs.readFileSync(path.join(d,p)),before[p]);noBackups(d);
 });
-for(const scope of ["marketplace","diagram-kit"])test("DryRun writes nothing: "+scope,opts,async()=>{
+test("explain-kit version changes preserve the other plugin and marketplace",opts,async()=>{
+ const d=fixture(),before=bytes(d),r=await bump(d,"explain-kit");assert.equal(r.status,0,r.stdout+r.stderr);
+ const m=JSON.parse(read(d,"plugins/explain-kit/plugin.json"));assert.equal(m.version,"0.2.0");assert.equal(m.description,"history 0.1.0");assert.equal(m.extensions.history.version,"0.1.0");
+ for(const p of files.filter(p=>p!=="plugins/explain-kit/plugin.json"))assert.deepEqual(fs.readFileSync(path.join(d,p)),before[p]);noBackups(d);
+});
+
+for(const scope of ["marketplace","diagram-kit","explain-kit"])test("DryRun writes nothing: "+scope,opts,async()=>{
  const d=fixture(),before=bytes(d),r=await bump(d,scope,["-DryRun"]);assert.equal(r.status,0,r.stdout+r.stderr);
  assert.match(r.stdout,/No files were modified/);assert.deepEqual(bytes(d),before);noBackups(d);
+});
+for(const scope of ["diagram-kit","explain-kit"])test("plugin write failure restores original bytes: "+scope,opts,async()=>{
+ const d=fixture(),before=bytes(d),r=await bump(d,scope,["-TestFailAfterReplace","1"],{MP_BUMP_TESTING:"1"});
+ assert.notEqual(r.status,0);assert.deepEqual(bytes(d),before);noBackups(d);
+});
+
+test("plugin scope cannot modify a manifest with another identity or version",opts,async()=>{
+ for(const change of [{name:"diagram-kit"},{version:"0.9.0"}]){
+ const d=fixture(),p=path.join(d,"plugins/explain-kit/plugin.json"),m=JSON.parse(read(d,"plugins/explain-kit/plugin.json"));
+ fs.writeFileSync(p,JSON.stringify({...m,...change},null,2)+"\n");const before=bytes(d),r=await bump(d,"explain-kit");
+ assert.notEqual(r.status,0);assert.deepEqual(bytes(d),before);noBackups(d);
+ }
 });
 for(const fault of [1,2])test("fault after write "+fault+" restores exact original bytes",opts,async()=>{
  const d=fixture(),before=bytes(d),r=await bump(d,"marketplace",["-TestFailAfterReplace",String(fault)],{MP_BUMP_TESTING:"1"});

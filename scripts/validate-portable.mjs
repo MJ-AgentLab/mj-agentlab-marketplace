@@ -12,6 +12,10 @@ export const REPOSITORY_SKILLS = [
   "mp-git-pr", "mp-git-push", "mp-git-sync",
 ];
 export const PORTABLE_SCHEMA = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json";
+export const PUBLIC_PLUGINS = Object.freeze({
+  "diagram-kit": Object.freeze(["arch-diagram"]),
+  "explain-kit": Object.freeze(["glossary", "concept"]),
+});
 const SEMVER = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/;
 const NAME = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const read = (root, rel) => fs.readFileSync(path.join(root, rel), "utf8");
@@ -43,10 +47,10 @@ function inside(root, candidate) {
 }
 
 /** Validates the portable fields and the maintained OpenAI extension subset. */
-export function validateManifest(manifest) {
+export function validateManifest(manifest, expectedName = manifest?.name) {
   if (!manifest || typeof manifest !== "object" || Array.isArray(manifest)) throw new Error("manifest must be an object");
   if (manifest.$schema !== PORTABLE_SCHEMA) throw new Error("portable schema is required");
-  if (manifest.name !== "diagram-kit" || (typeof manifest.version !== "string" || !SEMVER.test(manifest.version))) throw new Error("invalid portable identity/version");
+  if (!Object.hasOwn(PUBLIC_PLUGINS, expectedName) || manifest.name !== expectedName || (typeof manifest.version !== "string" || !SEMVER.test(manifest.version))) throw new Error("invalid portable identity/version");
   if (typeof manifest.description !== "string" || !manifest.description.trim() || manifest.description.length > 4000) throw new Error("invalid description");
   if (typeof manifest.author?.name !== "string" || !manifest.author.name.trim()) throw new Error("author.name is required");
   if (manifest.license !== "MIT") throw new Error("expected MIT license");
@@ -57,7 +61,28 @@ export function validateManifest(manifest) {
   for (const key of ["displayName", "shortDescription", "longDescription", "developerName", "category"]) {
     if (typeof ui?.[key] !== "string" || !ui[key].trim()) throw new Error(`interface.${key} is required`);
   }
-  if (ui.category !== "Developer Tools" || !Array.isArray(ui.defaultPrompt) || !ui.defaultPrompt.length || ui.defaultPrompt.some(p => typeof p !== "string" || !p.includes("$diagram-kit:arch-diagram"))) throw new Error("invalid OpenAI listing/routing metadata");
+  const expected = PUBLIC_PLUGINS[expectedName].map(skill => `${expectedName}:${skill}`);
+  const seen = new Set();
+  if (ui.category !== "Developer Tools" || !Array.isArray(ui.defaultPrompt) || !ui.defaultPrompt.length) throw new Error("invalid OpenAI listing/routing metadata");
+  for (const prompt of ui.defaultPrompt) {
+    if (typeof prompt !== "string") throw new Error("invalid OpenAI listing/routing metadata");
+    const calls = [...prompt.matchAll(/\$([a-z0-9-]+):([a-z0-9-]+)/g)].map(m => `${m[1]}:${m[2]}`);
+    if (!calls.length || calls.some(call => !expected.includes(call))) throw new Error("invalid OpenAI listing/routing metadata");
+    calls.forEach(call => seen.add(call));
+  }
+  if (expected.some(call => !seen.has(call))) throw new Error("listing must expose every public skill");
+}
+
+export function validateSkillInterface(text, qualifiedName) {
+  const doc = parseDocument(text, { uniqueKeys: true });
+  if (doc.errors.length) throw new Error(doc.errors.map(e => e.message).join("; "));
+  const ui = doc.toJS();
+  if (typeof ui?.interface?.display_name !== "string" || !ui.interface.display_name.trim()) throw new Error("skill display_name is required");
+  const short = ui.interface.short_description;
+  if (typeof short !== "string" || [...short].length < 25 || [...short].length > 64) throw new Error("skill short_description must contain 25–64 characters");
+  const prompt = ui.interface.default_prompt;
+  const calls = typeof prompt === "string" ? [...prompt.matchAll(/\$([a-z0-9-]+):([a-z0-9-]+)/g)].map(m => `${m[1]}:${m[2]}`) : [];
+  if (calls.length !== 1 || calls[0] !== qualifiedName || ui.policy?.allow_implicit_invocation !== true) throw new Error("invalid skill invocation metadata");
 }
 
 function files(dir) {
@@ -89,27 +114,43 @@ export function validateRepository(repoRoot) {
   check("marketplace", () => {
     const m = JSON.parse(read(root, ".agents/plugins/marketplace.json"));
     if (m.name !== "mj-agentlab-marketplace" || typeof m.interface?.displayName !== "string") throw new Error("invalid marketplace identity");
-    if (!Array.isArray(m.plugins) || m.plugins.length !== 1) throw new Error("marketplace must contain exactly one plugin");
-    const p = m.plugins[0];
-    if (p.name !== "diagram-kit" || p.source?.source !== "local" || p.source?.path !== "./plugins/diagram-kit") throw new Error("only the local diagram-kit source is supported");
-    if (p.policy?.installation !== "AVAILABLE" || p.policy?.authentication !== "ON_INSTALL" || p.category !== "Developer Tools") throw new Error("invalid installation policy/category");
-    if ("version" in m || "version" in p) throw new Error("catalog must not become a version authority");
-    if (!inside(root, path.join(root, p.source.path))) throw new Error("plugin source escapes repository");
+    const expected = Object.keys(PUBLIC_PLUGINS).sort();
+    if (!Array.isArray(m.plugins) || JSON.stringify(m.plugins.map(p => p?.name).sort()) !== JSON.stringify(expected)) throw new Error("marketplace must contain exactly diagram-kit and explain-kit");
+    if ("version" in m) throw new Error("catalog must not become a version authority");
+    for (const p of m.plugins) {
+      if (p.source?.source !== "local" || p.source?.path !== `./plugins/${p.name}`) throw new Error("only the declared local plugin source is supported");
+      if (p.policy?.installation !== "AVAILABLE" || p.policy?.authentication !== "ON_INSTALL" || p.category !== "Developer Tools") throw new Error("invalid installation policy/category");
+      if ("version" in p) throw new Error("catalog must not become a version authority");
+      if (!inside(root, path.join(root, p.source.path))) throw new Error("plugin source escapes repository");
+    }
   });
-  check("manifest", () => validateManifest(JSON.parse(read(root, "plugins/diagram-kit/plugin.json"))));
   check("plugin inventory", () => {
     const plugins = fs.readdirSync(path.join(root, "plugins")).sort();
-    if (JSON.stringify(plugins) !== JSON.stringify(["diagram-kit"])) throw new Error("unexpected runtime plugin directory");
-    const skills = fs.readdirSync(path.join(root, "plugins/diagram-kit/skills")).sort();
-    if (JSON.stringify(skills) !== JSON.stringify(["arch-diagram"])) throw new Error("public skill set must contain only arch-diagram");
-    for (const rel of ["mcp.json", ".mcp.json", ".claude-plugin", ".codex-plugin", "CLAUDE.md"]) if (fs.existsSync(path.join(root, "plugins/diagram-kit", rel))) throw new Error(`unneeded compatibility/config surface: ${rel}`);
+    if (JSON.stringify(plugins) !== JSON.stringify(Object.keys(PUBLIC_PLUGINS).sort())) throw new Error("unexpected runtime plugin directory");
   });
+  for (const [plugin, names] of Object.entries(PUBLIC_PLUGINS)) {
+    check(`${plugin} manifest`, () => validateManifest(JSON.parse(read(root, `plugins/${plugin}/plugin.json`)), plugin));
+    check(`${plugin} inventory`, () => {
+      const pluginRoot = path.join(root, "plugins", plugin);
+      if (!inside(root, pluginRoot)) throw new Error("plugin source escapes repository");
+      const skills = fs.readdirSync(path.join(pluginRoot, "skills")).sort();
+      if (JSON.stringify(skills) !== JSON.stringify([...names].sort())) throw new Error(`unexpected public skill set for ${plugin}`);
+      for (const rel of ["plugin.json", "README.md", "LICENSE", "CHANGELOG.md", ...names.flatMap(name => [`skills/${name}/SKILL.md`, `skills/${name}/agents/openai.yaml`])]) {
+        if (!inside(pluginRoot, path.join(pluginRoot, rel)) || !fs.statSync(path.join(pluginRoot, rel)).isFile()) throw new Error(`invalid package resource: ${rel}`);
+      }
+      for (const rel of ["mcp.json", ".mcp.json", ".claude-plugin", ".codex-plugin", "CLAUDE.md"]) if (fs.existsSync(path.join(pluginRoot, rel))) throw new Error(`unneeded compatibility/config surface: ${rel}`);
+      for (const name of names) if (!inside(pluginRoot, path.join(pluginRoot, "skills", name))) throw new Error(`skill escapes plugin: ${name}`);
+    });
+    for (const name of names) {
+      check(`${plugin}:${name}`, () => validateSkill(read(root, `plugins/${plugin}/skills/${name}/SKILL.md`), name));
+      check(`${plugin}:${name} interface`, () => validateSkillInterface(read(root, `plugins/${plugin}/skills/${name}/agents/openai.yaml`), `${plugin}:${name}`));
+    }
+  }
   check("repository skill inventory", () => {
     const actual = fs.readdirSync(path.join(root, ".agents/skills")).sort();
     if (JSON.stringify(actual) !== JSON.stringify([...REPOSITORY_SKILLS].sort())) throw new Error("repository must expose exactly the 19 mp-* skills");
   });
   for (const name of REPOSITORY_SKILLS) check(name, () => validateSkill(read(root, `.agents/skills/${name}/SKILL.md`), name));
-  check("arch-diagram", () => validateSkill(read(root, "plugins/diagram-kit/skills/arch-diagram/SKILL.md"), "arch-diagram"));
   check("project instruction budget", () => {
     if (Buffer.byteLength(read(root, "AGENTS.md")) > 16384) throw new Error("AGENTS.md exceeds configured instruction budget");
     for (const rel of ["CLAUDE.md", ".claude", ".claude-plugin"]) if (fs.existsSync(path.join(root, rel))) throw new Error(`retired instruction surface: ${rel}`);
@@ -134,10 +175,10 @@ export function validateRepository(repoRoot) {
       validateLinks(fs.readFileSync(file, "utf8"), file);
     });
   }
-  for (const rel of ["README.md", "CONTRIBUTING.md", "GLOSSARY.md", "AGENTS.md", "plugins/diagram-kit/README.md", ...REPOSITORY_SKILLS.map(n => `.agents/skills/${n}/SKILL.md`), "plugins/diagram-kit/skills/arch-diagram/SKILL.md"]) {
+  for (const rel of ["README.md", "CONTRIBUTING.md", "GLOSSARY.md", "AGENTS.md", ...REPOSITORY_SKILLS.map(n => `.agents/skills/${n}/SKILL.md`), ...Object.entries(PUBLIC_PLUGINS).flatMap(([plugin, names]) => [`plugins/${plugin}/README.md`, ...names.map(name => `plugins/${plugin}/skills/${name}/SKILL.md`)])]) {
     check(`${rel} links`, () => validateLinks(read(root, rel), path.join(root, rel)));
   }
-  return { ok: errors.length === 0, errors, repositorySkills: REPOSITORY_SKILLS.length, publicSkills: ["arch-diagram"] };
+  return { ok: errors.length === 0, errors, repositorySkills: REPOSITORY_SKILLS.length, publicSkills: Object.entries(PUBLIC_PLUGINS).flatMap(([plugin, names]) => names.map(name => `${plugin}:${name}`)) };
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {

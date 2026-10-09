@@ -42,7 +42,7 @@ function fences(text) {
   return out;
 }
 
-const CHANGELOGS = ["CHANGELOG.md", "docs/archive/[DEPRECATED]_LearnKit_CHANGELOG_v4.0.1.md", "plugins/diagram-kit/CHANGELOG.md"];
+const CHANGELOGS = ["CHANGELOG.md", "docs/archive/[DEPRECATED]_LearnKit_CHANGELOG_v4.0.1.md", "plugins/diagram-kit/CHANGELOG.md", "plugins/explain-kit/CHANGELOG.md"];
 
 const FENCE_LINE = /^ {0,3}(?:```|~~~)/;
 /** A real section heading — the exact form `run-release.mjs` greps for. */
@@ -206,6 +206,7 @@ test("the newest shipping CHANGELOG section is substantive and names its own ver
     ["CHANGELOG.md", 200],
     ["docs/archive/[DEPRECATED]_LearnKit_CHANGELOG_v4.0.1.md", 100],
     ["plugins/diagram-kit/CHANGELOG.md", 100],
+    ["plugins/explain-kit/CHANGELOG.md", 100],
   ]) {
     const { sections } = parseChangelog(read(rel));
     assert.ok(sections.length, `${rel}: changelog has no version section`);
@@ -259,10 +260,12 @@ test("diagram-kit CHANGELOG permanently marks the 0.2.0 Codex bump in one sectio
 });
 
 // Current entry points and retirement instructions.
-test("README covers the two clients and one qualified public skill", () => {
+test("README covers the two clients and three qualified public skills", () => {
   const rd = read("README.md");
   assert.match(rd, /ChatGPT/); assert.match(rd, /CLI.*0\.147\.0/);
   assert.ok(rd.includes("$diagram-kit:arch-diagram"));
+  assert.ok(rd.includes("$explain-kit:glossary")); assert.ok(rd.includes("$explain-kit:concept"));
+  assert.match(rd, /候选|未发布/);
   const install=fences(rd).find(f=>f.code.includes("codex plugin marketplace add"));
   assert.ok(install); assert.ok(install.code.includes("codex plugin add diagram-kit"));
   assert.ok(install.code.includes("codex plugin list")); assert.ok(install.code.includes("codex debug prompt-input"));

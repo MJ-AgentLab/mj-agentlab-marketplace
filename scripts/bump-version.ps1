@@ -13,7 +13,7 @@ param(
     [string]$To,
 
     [Parameter(Mandatory = $false)]
-    [ValidateSet("marketplace", "diagram-kit")]
+    [ValidateSet("marketplace", "diagram-kit", "explain-kit")]
     [string]$Scope = "marketplace",
 
     [switch]$DryRun,
@@ -48,7 +48,7 @@ if ($TestFailAfterReplace -lt 0 -or $TestCorruptAfterWrite -lt 0) {
 
 # Only VERSION and the portable root manifest are authoritative; README is derived.
 $ProjectRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
-$TargetFiles = if ($Scope -eq 'marketplace') { @('VERSION', 'README.md') } else { @('plugins/diagram-kit/plugin.json') }
+$TargetFiles = if ($Scope -eq 'marketplace') { @('VERSION', 'README.md') } else { @("plugins/$Scope/plugin.json") }
 $Plan = @()
 $Failures = @()
 foreach ($RelPath in $TargetFiles) {
@@ -69,7 +69,7 @@ foreach ($RelPath in $TargetFiles) {
         $What = 'derived version badge'
     } else {
         try { $Manifest = $Content | ConvertFrom-Json -ErrorAction Stop } catch { $Failures += "[FAIL] invalid manifest JSON"; continue }
-        if ($Manifest.version -ne $From) { $Failures += "[FAIL] manifest version does not match From"; continue }
+        if ($Manifest.name -ne $Scope -or $Manifest.version -ne $From) { $Failures += "[FAIL] manifest identity/version does not match Scope/From"; continue }
         $Pattern = '(?m)^  "version": "' + $EscapedFrom + '",'
         $Replacement = '  "version": "' + $To + '",'
         $What = 'authoritative plugin version'
@@ -77,7 +77,7 @@ foreach ($RelPath in $TargetFiles) {
     $MatchCount = ([regex]::Matches($Content, $Pattern)).Count
     if ($MatchCount -ne 1) { $Failures += "[FAIL] $RelPath - expected exactly 1 anchor, found $MatchCount"; continue }
     $NewContent = [regex]::Replace($Content, $Pattern, $Replacement)
-    if ($Scope -eq 'diagram-kit' -and ($NewContent | ConvertFrom-Json).version -ne $To) { $Failures += "[FAIL] replacement did not update root manifest version"; continue }
+    if ($Scope -ne 'marketplace' -and ($NewContent | ConvertFrom-Json).version -ne $To) { $Failures += "[FAIL] replacement did not update root manifest version"; continue }
     if ($NewContent -eq $Content) { $Failures += "[FAIL] replacement changed nothing"; continue }
     $Plan += [PSCustomObject]@{ RelPath=$RelPath; FilePath=$FilePath; Content=$Content; NewContent=$NewContent; What=$What }
 }
