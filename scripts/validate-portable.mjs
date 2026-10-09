@@ -15,8 +15,6 @@ export const PORTABLE_SCHEMA = "https://agent-plugins.org/schemas/1.0.0/plugin.s
 const SEMVER = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/;
 const NAME = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const read = (root, rel) => fs.readFileSync(path.join(root, rel), "utf8");
-// Temporary CI-only transition until #186 / #187 land; default/release validation rejects it.
-const GOVERNANCE_NOTICE = "# 治理过渡同步说明\n\n项目指令唯一权威入口为 [AGENTS.md](AGENTS.md)。\n\n本文件仅用于 #186 / #187 合并前的旧 A6 同步检查，不恢复 Claude 支持。当前市场仅 diagram-kit，公开技能仅 arch-diagram，19 个开发技能位于 .agents/skills；learn-kit 与 NotebookLM 已退役。\n\n两个治理 PR 合并后，代理须在 #188 合并前删除本文件及 CI 的临时校验选项，重跑新版 A6、结构校验与完整测试。正式发布校验始终拒绝本文件。\n";
 
 export function parseFrontmatter(text) {
   const match = text.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/);
@@ -84,7 +82,7 @@ export function validateLinks(text, file) {
   }
 }
 
-export function validateRepository(repoRoot, { allowGovernanceTransition = false } = {}) {
+export function validateRepository(repoRoot) {
   const root = path.resolve(repoRoot);
   const errors = [];
   const check = (label, operation) => { try { operation(); } catch (e) { errors.push(`${label}: ${e.message}`); } };
@@ -114,12 +112,7 @@ export function validateRepository(repoRoot, { allowGovernanceTransition = false
   check("arch-diagram", () => validateSkill(read(root, "plugins/diagram-kit/skills/arch-diagram/SKILL.md"), "arch-diagram"));
   check("project instruction budget", () => {
     if (Buffer.byteLength(read(root, "AGENTS.md")) > 16384) throw new Error("AGENTS.md exceeds configured instruction budget");
-    for (const rel of [".claude", ".claude-plugin"]) if (fs.existsSync(path.join(root, rel))) throw new Error(`retired instruction surface: ${rel}`);
-    const legacy = path.join(root, "CLAUDE.md");
-    if (fs.existsSync(legacy)) {
-      if (!allowGovernanceTransition) throw new Error("retired instruction surface: CLAUDE.md");
-      if (!fs.lstatSync(legacy).isFile() || read(root, "CLAUDE.md").replace(/\r\n/g, "\n") !== GOVERNANCE_NOTICE) throw new Error("only the fixed governance transition notice is allowed in CI");
-    }
+    for (const rel of ["CLAUDE.md", ".claude", ".claude-plugin"]) if (fs.existsSync(path.join(root, rel))) throw new Error(`retired instruction surface: ${rel}`);
     if (!read(root, "AGENTS.md").includes(".agents/references/session-maintenance.md")) throw new Error("session maintenance pointer is missing");
   });
   check("version display", () => {
@@ -149,10 +142,8 @@ export function validateRepository(repoRoot, { allowGovernanceTransition = false
 
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
   const args = process.argv.slice(2);
-  const allowGovernanceTransition = args.includes("--allow-governance-transition");
-  const roots = args.filter(arg => arg !== "--allow-governance-transition");
-  if (roots.length > 1 || roots.some(arg => arg.startsWith("--"))) throw new Error("expected an optional repository path and --allow-governance-transition");
-  const result = validateRepository(roots[0] ?? path.resolve(import.meta.dirname, ".."), { allowGovernanceTransition });
+  if (args.length > 1 || args.some(arg => arg.startsWith("--"))) throw new Error("expected an optional repository path");
+  const result = validateRepository(args[0] ?? path.resolve(import.meta.dirname, ".."));
   process.stdout.write(JSON.stringify(result, null, 2) + "\n");
   process.exitCode = result.ok ? 0 : 1;
 }

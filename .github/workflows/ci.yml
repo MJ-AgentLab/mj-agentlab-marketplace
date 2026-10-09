@@ -64,8 +64,7 @@ jobs:
           node-version: '22'
       - run: npm ci
       - name: Portable marketplace, manifests, skills and document contracts
-        # Remove this transition option before #188 merges, after #186 / #187 land.
-        run: npm run validate -- --allow-governance-transition
+        run: npm run validate
 
   codex-compat:
     name: Baseline compat (${{ matrix.os }})
@@ -91,6 +90,6 @@ jobs:
           REQUIRE_PWSH: '1'
           REQUIRE_PYTHON: '1'
         run: npm test
-      - run: npm run validate -- --allow-governance-transition
+      - run: npm run validate
       - run: npm run check:baseline-tools
       - run: npm run smoke:codex

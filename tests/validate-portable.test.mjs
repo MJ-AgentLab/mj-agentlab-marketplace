@@ -9,24 +9,23 @@ import {validateManifest,validateSkill,validateRepository,parseFrontmatter,valid
 const root=path.resolve(import.meta.dirname,".."), read=p=>fs.readFileSync(path.join(root,p),"utf8");
 const manifest=()=>JSON.parse(read("plugins/diagram-kit/plugin.json"));
 test("maintained portable package and all 19 skills satisfy contracts",()=>{
- const r=validateRepository(root,{allowGovernanceTransition:true});assert.equal(r.ok,true,r.errors.join("\n"));assert.equal(r.repositorySkills,19);assert.deepEqual(r.publicSkills,["arch-diagram"]);
+ const r=validateRepository(root);assert.equal(r.ok,true,r.errors.join("\n"));assert.equal(r.repositorySkills,19);assert.deepEqual(r.publicSkills,["arch-diagram"]);
 });
-test("CI may accept only the fixed governance notice; release validation remains strict",t=>{
- const dir=fs.mkdtempSync(path.join(os.tmpdir(),"governance-transition-"));
+test("strict repository validation rejects every retired instruction surface",t=>{
+ const dir=fs.mkdtempSync(path.join(os.tmpdir(),"retired-instructions-"));
  t.after(()=>fs.rmSync(dir,{recursive:true,force:true}));
  for(const p of [".agents",".codex",".github","scripts","tests","plugins","docs","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])
  fs.cpSync(path.join(root,p),path.join(dir,p),{recursive:true});
  assert.equal(validateRepository(dir).ok,true);
- const notice="# 治理过渡同步说明\n\n项目指令唯一权威入口为 [AGENTS.md](AGENTS.md)。\n\n本文件仅用于 #186 / #187 合并前的旧 A6 同步检查，不恢复 Claude 支持。当前市场仅 diagram-kit，公开技能仅 arch-diagram，19 个开发技能位于 .agents/skills；learn-kit 与 NotebookLM 已退役。\n\n两个治理 PR 合并后，代理须在 #188 合并前删除本文件及 CI 的临时校验选项，重跑新版 A6、结构校验与完整测试。正式发布校验始终拒绝本文件。\n";
- fs.writeFileSync(path.join(dir,"CLAUDE.md"),notice);
- assert.equal(validateRepository(dir).ok,false);
- const allowed=validateRepository(dir,{allowGovernanceTransition:true});
- assert.equal(allowed.ok,true,allowed.errors.join("\n"));
- fs.appendFileSync(path.join(dir,"CLAUDE.md"),"\n新增 Claude 指令\n");
- assert.equal(validateRepository(dir,{allowGovernanceTransition:true}).ok,false);
- fs.writeFileSync(path.join(dir,"CLAUDE.md"),notice);
- fs.mkdirSync(path.join(dir,".claude"));
- assert.equal(validateRepository(dir,{allowGovernanceTransition:true}).ok,false);
+ for(const rel of ["CLAUDE.md",".claude",".claude-plugin"]){
+  const target=path.join(dir,rel);
+  if(rel==="CLAUDE.md")fs.writeFileSync(target,"# Retired instruction notice\n");else fs.mkdirSync(target);
+  const result=validateRepository(dir);
+  assert.equal(result.ok,false);
+  assert.ok(result.errors.some(error=>error.includes("retired instruction surface: "+rel)));
+  if(rel==="CLAUDE.md")fs.unlinkSync(target);else fs.rmdirSync(target);
+ }
+ assert.equal(validateRepository(dir).ok,true);
 });
 test("manifest version is a root semver string",()=>{
  for(const version of [["0.2.0"],{},2,null,"00.2.0","v0.2.0"]){const m=manifest();m.version=version;assert.throws(()=>validateManifest(m));}
