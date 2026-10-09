@@ -28,6 +28,7 @@ related:
 | CLI 模型行为 | 已记录：arch-diagram 生成、证据与 Python 校验；19 技能只读触发回放。未声称完整外部副作用链均执行 |
 | ChatGPT 桌面端安装及调用 | 待完成：须有客户端版本、准确的市场/插件来源、安装与发现结果、生成图证据和实际校验摘要 |
 | 版本应用与正式 CHANGELOG | 已准备于 #189：两个版本 dry-run 后应用，VERSION / manifest / README badge、CHANGELOG 和发布说明已同步 |
+| 版本准备提交的本地复验 | 完成：严格结构、198 项强制 PowerShell/Python 测试、版本基线与目标 develop 检查器 A6 均通过；1608470 的 CLI 0.147.0 canonical 安装确认缓存版本为 0.3.0，仓库内外技能数量为 1/19 与 1/0 |
 | 正式发布 PR | 待完整验收及 #189 合入 develop；其最新提交 checks、独立批准及发布授权须满足 |
 | 历史版本和资产 | 保留：合并后复查 v7.0.0 / v7.0.1 原 wheel 与 checksum 均存在 |
 

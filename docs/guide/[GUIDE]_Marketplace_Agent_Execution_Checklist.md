@@ -13,4 +13,4 @@ version: v2.0
 
 按 [AI 工程规范](../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md) 执行已授权阶段。检查目标 worktree 和用户改动、具体 scope、当前 manifest/技能、A6 指令同步、历史链接、实际测试、隔离安装、调用证据、版本 dry-run、PR 的依赖与独立审查。
 
-代理记录结果并修复可独立处理的问题；owner 只决定未决范围或提供必要外部参与。完整验收前保持版本准备 pending，不把未执行项目打勾。
+代理记录结果并修复可独立处理的问题；owner 只决定未决范围或提供必要外部参与。版本准备按已有授权执行，本次先更新版本的决定见 [迁移 ADR](../adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)。未完成桌面端验收继续限制正式发布，不把未执行项目打勾。

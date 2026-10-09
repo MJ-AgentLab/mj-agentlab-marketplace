@@ -78,3 +78,5 @@ GitHub 只读查询确认 v7.0.0 / v7.0.1 的 NLM wheel 与 checksum 资产仍�
 ## #189 版本准备
 
 owner 在上述桌面端验收提问后回复“更新即可”。按该授权，代理在新的 worktree 中再次执行两项 dry-run，然后实际应用 Marketplace 8.0.0 / diagram-kit 0.3.0、README badge、正式 CHANGELOG 与发布说明，并在 ADR 记录版本准备顺序的调整。没有收到桌面客户端版本、安装来源及实际调用结果，因此桌面端仍标为未执行；没有创建新标签、草稿或正式发布。
+
+版本准备提交 1608470d2eb64d1d2457206462c2c6536592e7fe：严格结构校验及 198 项强制 PowerShell/Python 测试通过（0 失败、0 跳过），CLI 0.147.0 基线检测通过。精确 Git tree 的 release-verify-install 实际执行通过：隔离缓存路径为 diagram-kit/0.3.0/skills/arch-diagram，consumer cwd 1 个公开技能 / 0 个开发技能，repo cwd 1 个公开技能 / 19 个开发技能，验证结束后临时 Git 工作树清理。使用 origin/develop 的原始 A6 检查器复验通过，正常 AGENTS.md 同步，无签核例外。历史 CHANGELOG 正文保留，正式发布模板已改为两个版本权威及客户端/发布门禁检查。
