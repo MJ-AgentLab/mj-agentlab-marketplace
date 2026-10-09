@@ -3,8 +3,8 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-import { runCli } from "./run-cli.mjs";
-import { REPOSITORY_SKILLS } from "./validate-portable.mjs";
+import { runCli, spawnCli } from "./run-cli.mjs";
+import { REPOSITORY_SKILLS, RUNTIME_PLUGINS, PUBLIC_SKILLS, EXPLICIT_ONLY_SKILLS, validateOpenAIConfig } from "./validate-portable.mjs";
 
 export const MARKETPLACE_NAME = "mj-agentlab-marketplace";
 export const BASELINE_VERSION = "0.147.0";
@@ -52,13 +52,20 @@ export function parsePromptInputSkills(stdout) {
   });
 }
 
-export function assertDiscovery(entries, { cacheRoot, repositoryRoot, inRepository }) {
+export function assertDiscovery(entries, { cacheRoot, repositoryRoot, inRepository, expectedSkills = PUBLIC_SKILLS, pluginVersions = {} }) {
+  if (expectedSkills.some(name => !PUBLIC_SKILLS.includes(name)) || new Set(expectedSkills).size !== expectedSkills.length) throw new Error("unapproved expected skill inventory");
   const publicSkills = entries.filter(e => e.name.includes(":"));
-  if (publicSkills.length !== 1 || publicSkills[0].name !== "diagram-kit:arch-diagram") throw new Error("public discovery must contain only diagram-kit:arch-diagram exactly once");
-  const rel = path.relative(real(cacheRoot), real(publicSkills[0].file));
-  const suffix = process.platform === "win32" ? norm(rel).toLowerCase() : norm(rel);
-  const expectedSuffix = process.platform === "win32" ? "/skills/arch-diagram/skill.md" : "/skills/arch-diagram/SKILL.md";
-  if (rel.startsWith("..") || path.isAbsolute(rel) || !suffix.endsWith(expectedSuffix)) throw new Error(`public skill did not resolve from isolated installed cache: relative=${rel}, cache=${real(cacheRoot)}, file=${real(publicSkills[0].file)}`);
+  if (JSON.stringify(publicSkills.map(e => e.name).sort()) !== JSON.stringify([...expectedSkills].sort())) throw new Error("public discovery must contain exactly the expected approved skills");
+  for (const entry of publicSkills) {
+    const [plugin, skill] = entry.name.split(":"), pluginCache = path.join(cacheRoot, plugin);
+    const cacheRelative = norm(path.relative(real(cacheRoot), real(pluginCache)));
+    if ((process.platform === "win32" ? cacheRelative.toLowerCase() : cacheRelative) !== plugin) throw new Error(`plugin cache escapes its own marketplace directory: ${plugin}`);
+    const rel = path.relative(real(pluginCache), real(entry.file));
+    const normalized = process.platform === "win32" ? norm(rel).toLowerCase() : norm(rel);
+    const parts = normalized.split("/");
+    const skillFile = process.platform === "win32" ? "skill.md" : "SKILL.md";
+    if (rel.startsWith("..") || path.isAbsolute(rel) || parts.length !== 4 || parts[1] !== "skills" || parts[2] !== skill || parts[3] !== skillFile || !fs.statSync(entry.file).isFile() || (pluginVersions[plugin] && parts[0] !== pluginVersions[plugin])) throw new Error(`public skill did not resolve from its own isolated plugin/version cache: ${entry.name}, relative=${rel}`);
+  }
   const development = entries.filter(e => REPOSITORY_SKILLS.includes(e.name));
   if (!inRepository && development.length) throw new Error("repository skills leaked to consumer cwd");
   if (inRepository) {
@@ -68,6 +75,50 @@ export function assertDiscovery(entries, { cacheRoot, repositoryRoot, inReposito
   return { publicSkills: publicSkills.length, repositorySkills: development.length };
 }
 
+/** Read the native skill inventory, which includes explicitly invoked skills omitted from prompt metadata. */
+export function listNativeSkills({ codexCommand = "codex", cwd, cwds, env, timeoutMs = 60000, spawn = spawnCli }) {
+  return new Promise((resolve, reject) => {
+    const child = spawn(codexCommand, ["app-server", "--stdio"], { cwd, env, stdio: ["pipe", "pipe", "pipe"], windowsHide: true });
+    let buffer = "", stderr = "", settled = false;
+    const finish = (error, result, alreadyClosed = false) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      const deliver = () => { if (error) reject(error); else resolve(result); };
+      if (alreadyClosed) { deliver(); return; }
+      // Wait for stdio/working-directory handles to close before removing the isolated tree.
+      child.once("close", deliver);
+      child.stdin.end();
+      child.kill();
+    };
+    const timer = setTimeout(() => finish(new Error("native skills/list timed out")), timeoutMs);
+    const send = value => child.stdin.write(JSON.stringify(value) + "\n");
+    child.on("error", error => finish(error));
+    child.stdin.on("error", error => finish(error));
+    child.on("close", code => { if (!settled) finish(new Error(`native skills/list ended early (${code}): ${stderr}`), undefined, true); });
+    child.stderr.on("data", chunk => { stderr = (stderr + chunk).slice(-16384); });
+    child.stdout.on("data", chunk => {
+      buffer += chunk;
+      if (buffer.length > 5 * 1024 * 1024) { finish(new Error("native skills/list response exceeded the output budget")); return; }
+      let newline;
+      while (!settled && (newline = buffer.indexOf("\n")) >= 0) {
+        const line = buffer.slice(0, newline); buffer = buffer.slice(newline + 1);
+        if (!line.trim()) continue;
+        let response;
+        try { response = JSON.parse(line); } catch { finish(new Error("native skills/list returned invalid JSON")); return; }
+        if (response.id !== 1 && response.id !== 2) continue;
+        if (response.error) { finish(new Error(`native skills/list: ${JSON.stringify(response.error)}`)); return; }
+        if (response.id === 1) {
+          send({ method: "initialized" });
+          send({ id: 2, method: "skills/list", params: { cwds, forceReload: true } });
+        } else if (!Array.isArray(response.result?.data)) finish(new Error("native skills/list result has no inventory"));
+        else finish(null, response.result.data);
+      }
+    });
+    send({ id: 1, method: "initialize", params: { clientInfo: { name: "marketplace-smoke", version: "0.1.0" } } });
+  });
+}
+
 export function cleanupIsolatedRoot(root) {
   const rel = path.relative(real(os.tmpdir()), real(root));
   if (!rel || rel.startsWith("..") || path.isAbsolute(rel)) throw new Error("refusing cleanup outside the OS temporary directory");
@@ -75,7 +126,7 @@ export function cleanupIsolatedRoot(root) {
 }
 
 export async function runSmoke({ repoRoot = path.resolve(import.meta.dirname, ".."), codexCommand = "codex", baseEnv = process.env, keepRoot = false, allowVersionDrift = false } = {}) {
-  const root = fs.mkdtempSync(path.join(real(os.tmpdir()), "diagram-smoke-"));
+  const root = fs.mkdtempSync(path.join(real(os.tmpdir()), "marketplace-smoke-"));
   const home = path.join(root, "home"), tmp = path.join(root, "tmp"), src = path.join(root, "src"), cwd = path.join(root, "consumer"), codexHome = path.join(home, ".codex");
   for (const dir of [home, tmp, src, cwd, codexHome]) fs.mkdirSync(dir, { recursive: true });
   const env = { ...baseEnv, HOME: home, USERPROFILE: home, CODEX_HOME: codexHome, APPDATA: path.join(home, "Roaming"), LOCALAPPDATA: path.join(home, "Local"), XDG_CONFIG_HOME: path.join(home, "config"), TEMP: tmp, TMP: tmp, TMPDIR: tmp };
@@ -96,20 +147,44 @@ export async function runSmoke({ repoRoot = path.resolve(import.meta.dirname, ".
     const m = JSON.parse(await execute(codexCommand, ["plugin", "marketplace", "list", "--json"]));
     const names = m.marketplaces?.map(m => m.name) ?? [];
     if (names.length !== 1 || names[0] !== MARKETPLACE_NAME) throw new Error("isolated marketplace set is incorrect");
-    await execute(codexCommand, ["plugin", "add", "diagram-kit", "--marketplace", MARKETPLACE_NAME, "--json"]);
+    const plugins = Object.keys(RUNTIME_PLUGINS);
+    const pluginVersions = Object.fromEntries(plugins.map(name => [name, JSON.parse(fs.readFileSync(path.join(src, "plugins", name, "plugin.json"), "utf8")).version]));
+    for (const plugin of plugins) await execute(codexCommand, ["plugin", "add", plugin, "--marketplace", MARKETPLACE_NAME, "--json"]);
     const list = JSON.parse(await execute(codexCommand, ["plugin", "list", "--json"]));
-    if (list.installed?.length !== 1 || list.installed[0].name !== "diagram-kit" || !list.installed[0].installed || !list.installed[0].enabled) throw new Error("only diagram-kit should be installed and enabled");
-    const external = parsePromptInputSkills(await execute(codexCommand, ["debug", "prompt-input", "diagram discovery check"]));
+    if (!Array.isArray(list.installed) || JSON.stringify(list.installed.map(p => p.name).sort()) !== JSON.stringify([...plugins].sort()) || list.installed.some(p => !p.installed || !p.enabled)) throw new Error("both approved plugins must be installed and enabled");
+    const implicitSkills = PUBLIC_SKILLS.filter(name => !EXPLICIT_ONLY_SKILLS.includes(name));
+    const external = parsePromptInputSkills(await execute(codexCommand, ["debug", "prompt-input", "ordinary task discovery check"]));
     const cacheRoot = path.join(codexHome, "plugins/cache", MARKETPLACE_NAME);
-    const outside = assertDiscovery(external, { cacheRoot, repositoryRoot: src, inRepository: false });
+    const outside = assertDiscovery(external, { cacheRoot, repositoryRoot: src, inRepository: false, expectedSkills: implicitSkills, pluginVersions });
     const entries = parsePromptInputSkills(await execute(codexCommand, ["debug", "prompt-input", "repository skill discovery check"], src));
-    const repository = assertDiscovery(entries, { cacheRoot, repositoryRoot: src, inRepository: true });
+    const repository = assertDiscovery(entries, { cacheRoot, repositoryRoot: src, inRepository: true, expectedSkills: implicitSkills, pluginVersions });
+    const native = await listNativeSkills({ codexCommand, cwd, cwds: [cwd, src], env });
+    commands.push({ command: codexCommand, args: ["app-server", "--stdio"], method: "skills/list", status: 0 });
+    const nativeInventories = {};
+    const skillPaths = {};
+    for (const [key, at, inRepository] of [["outside", cwd, false], ["repository", src, true]]) {
+      const matching = native.filter(entry => same(entry.cwd, at));
+      if (matching.length !== 1 || !Array.isArray(matching[0].skills) || !Array.isArray(matching[0].errors) || matching[0].errors.length) throw new Error(`native ${key} inventory is missing or has skill errors`);
+      const skills = matching[0].skills;
+      for (const skill of skills.filter(s => PUBLIC_SKILLS.includes(s.name))) {
+        if (skill.enabled !== true) throw new Error(`native public skill is disabled: ${skill.name}`);
+        const [plugin, name] = skill.name.split(":"), installedRoot = path.dirname(skill.path), sourceRoot = path.join(src, "plugins", plugin, "skills", name);
+        const config = validateOpenAIConfig(fs.readFileSync(path.join(installedRoot, "agents/openai.yaml"), "utf8"), plugin, name);
+        if (skill.interface?.defaultPrompt !== config.interface.default_prompt || skill.interface?.displayName !== config.interface.display_name) throw new Error(`native presentation differs from installed metadata: ${skill.name}`);
+        for (const rel of ["SKILL.md", "agents/openai.yaml", ...(plugin === "understanding-kit" ? ["references/ku-selection.md", "references/quiz-policy.md"] : ["scripts/validate_diagram.py"])]) {
+          const file = path.join(installedRoot, rel), relative = path.relative(real(installedRoot), real(file));
+          if (relative.startsWith("..") || path.isAbsolute(relative) || !fs.readFileSync(file).equals(fs.readFileSync(path.join(sourceRoot, rel)))) throw new Error(`installed skill resource is not its package-owned source: ${skill.name}/${rel}`);
+        }
+        skillPaths[skill.name] = skill.path;
+      }
+      nativeInventories[key] = assertDiscovery(skills.map(s => ({ name: s.name, file: s.path })), { cacheRoot, repositoryRoot: src, inRepository, pluginVersions });
+    }
     const mcp = JSON.parse(await execute(codexCommand, ["mcp", "list", "--json"]));
-    if (!Array.isArray(mcp) || mcp.length) throw new Error("diagram-kit should not install an MCP server");
-    const skillPath = external.find(e => e.name === "diagram-kit:arch-diagram").file;
+    if (!Array.isArray(mcp) || mcp.length) throw new Error("the approved plugins should not install an MCP server");
+    const skillPath = skillPaths["diagram-kit:arch-diagram"];
     const validatorPath = path.join(path.dirname(skillPath), "scripts/validate_diagram.py");
     if (!fs.existsSync(validatorPath)) throw new Error("installed validator is absent");
-    return { ok: true, version, marketplaces: names, installed: ["diagram-kit"], outside, repository, skillPath, validatorPath, ...(keepRoot ? { root, codexHome, repositoryRoot: src, consumerRoot: cwd } : {}), commands };
+    return { ok: true, version, marketplaces: names, installed: plugins, outside, repository, nativeOutside: nativeInventories.outside, nativeRepository: nativeInventories.repository, explicitOnly: [...EXPLICIT_ONLY_SKILLS], skillPath, skillPaths, validatorPath, ...(keepRoot ? { root, codexHome, repositoryRoot: src, consumerRoot: cwd } : {}), commands };
   } finally {
     if (!keepRoot) cleanupIsolatedRoot(root);
   }

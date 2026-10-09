@@ -32,6 +32,8 @@ supersedes:
 
 # [ADR] ChatGPT / Codex portable migration and learn-kit retirement
 
+2026-10-09 局部后继：[Understanding Kit 新增 ADR](./[ADR]_Understanding_Kit_Addition.md) 取代本记录中“市场只注册 diagram-kit / 公开技能只含 arch-diagram”的集合约束，并将插件版本权威推广到各插件根 manifest。下文保留 v1.2 的历史正文；客户端、portable 格式、learn-kit / NotebookLM / Claude 退役、发布授权、独立验收与历史保护规则继续有效。
+
 ## Context
 
 旧方案同时维护 Claude / Codex 包装及 learn-kit 的 NotebookLM bridge、锁文件和发布资产。用户在 2026-10-09 批准市场收敛、直接退役 learn-kit 与本地技能迁移。旧版本的行为、验收记录和公开资产仍是历史事实。
