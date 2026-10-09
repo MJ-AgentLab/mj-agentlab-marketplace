@@ -6,13 +6,13 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
 state: active
-version: v1.0
+version: v1.1
 last-verified: 2026-10-09
 ---
 
 # 迁移验收记录
 
-验收日期：2026-10-09。环境：Windows、本地 Codex CLI 0.147.0、Node.js 22.18.0、PowerShell 7、Python。实现位于隔离工作树；正式发布尚未推进，权威版本保持 marketplace 7.0.2 / diagram-kit 0.2.0。
+验收日期：2026-10-09。环境：Windows、本地 Codex CLI 0.147.0、Node.js 22.18.0、PowerShell 7、Python。实现经 #188 合入 develop；后续 owner 授权先在 #189 中准备 Marketplace 8.0.0 / diagram-kit 0.3.0，权威版本已更新。正式发布尚未推进，桌面端验收仍未执行。下方保留各次执行所绑定的提交与范围。
 
 | 验收项 | 实际结果 | 证据 / 范围 |
 |---|---|---|
@@ -24,11 +24,12 @@ last-verified: 2026-10-09
 | 图表 Python 校验 | PASS | 保留实际执行合同测试：非仓库 cwd，含空格、中文及单引号路径，合法/非法图的真实退出码 |
 | arch-diagram CLI 实际调用 | PASS（指定权限） | Codex CLI 0.147.0 读取安装缓存中的 SKILL、methodology/domain/Container refs，分析两份源码，生成一张 Container 图；每个节点/边列文件行号。Python 3.12.14：扫描 1 张图，FAIL 0 / WARN 0 / exit 0 |
 | ChatGPT 桌面安装与调用 | 未执行 | 桌面进程存在，但 Computer Use 技能的操作指南禁止自动化 ChatGPT 桌面 UI；没有声称替代验收 |
-| 版本工具 dry-run | PASS | marketplace 7.0.2→8.0.0 只列 VERSION/README badge；diagram-kit 0.2.0→0.3.0 只列根 manifest。未应用 |
+| 版本工具 dry-run / 应用 | PASS | owner 后续授权后再次 dry-run，再实际应用 marketplace 7.0.2→8.0.0（VERSION / README badge）与 diagram-kit 0.2.0→0.3.0（根 manifest）；历史正文未全局替换 |
 | 退役运行依赖 | PASS | learn-kit 和 NotebookLM 专用目录、入口、CI 及新发布资产路径删除；旧 A6 触发器与历史提交 scope 作为工程保护保留 |
 | 历史资料 | PASS | 原 CHANGELOG / ADR / 指南 / 验收记录保留，来源 SHA 与 Git blob 哈希记录在 archive/history-sources.json，正文和 metadata 引用按新位置修复 |
-| GitHub required checks / 独立审查 | 本地 A6 PASS；远端见 PR，独立批准待完成 | #186 合入 develop（17252dc），#187 合入 main（473f606）；两者均使用 AGENTS.md 门禁。#188 已删除过渡入口和临时校验选项；远端以 [#188 最新 head](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/188/checks) 为准 |
-| 正式版本 / 发布 | 未执行 | 按已批准计划，两个客户端验收完成后统一 bump 8.0.0 / 0.3.0、更新 CHANGELOG / release notes，再发布 |
+| GitHub required checks / 合并记录 | PASS；已合并 | #186 合入 develop（17252dc），#187 合入 main（473f606），#188 合入 develop（cea7744）；#188 最终 head dc58f2e 的 7 项有效检查 SUCCESS，另一次 A6 因并发取消 |
+| GitHub 独立批准记录 | 未见记录 | 合并后查询 #188 reviews 为空；合并事实及 AI 复核不作为独立 APPROVED review 的证据。正式发布 PR 仍需独立批准 |
+| 版本准备 / 正式发布 | 版本已准备；未发布 | owner 回复“更新即可”后在 #189 应用 8.0.0 / 0.3.0 并更新 CHANGELOG / release notes。该决定不构成桌面验收通过；正式发布仍需完整验收、检查、独立批准和发布授权 |
 
 ## 可复验入口
 
@@ -58,10 +59,24 @@ last-verified: 2026-10-09
 
 修复提交 3264eaecb1db0f61d2b67a93e432382df1b3db5b：原目标 base 检查器与新版检查器本地均 exit 0；[GitHub A6](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/37880144933) 与 [PR 结构/双平台 CI](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/37880054174) 均 SUCCESS（push CI 同样通过）。198 项本地测试、0.147.0 隔离安装和两路修复复核通过；默认严格校验对过渡文件 exit 1，与正式发布阻断要求一致。
 
-2026-10-09：#186 于 03:41:10 UTC 合并（develop 17252dc42f248e0ff995e3f198869549944b06af），#187 于 03:41:24 UTC 合并（main 473f606427e8b77a04290ce072893fbf03063912）；两个分支的 AGENTS.md 检查器 Git blob 完全相同。#188 同步最新 develop 后，已删除 CLAUDE.md、CI 临时选项与校验器允许分支，恢复严格仓库测试。严格结构校验、198 项测试和 Codex CLI 0.147.0 隔离安装再次通过；远端 required checks 以 PR 最新 head 为准。桌面端验收与 #188 当前提交的独立批准仍待完成。
+2026-10-09：#186 于 03:41:10 UTC 合并（develop 17252dc42f248e0ff995e3f198869549944b06af），#187 于 03:41:24 UTC 合并（main 473f606427e8b77a04290ce072893fbf03063912）；两个分支的 AGENTS.md 检查器 Git blob 完全相同。#188 同步最新 develop 后，已删除 CLAUDE.md、CI 临时选项与校验器允许分支，恢复严格仓库测试。严格结构校验、198 项测试和 Codex CLI 0.147.0 隔离安装再次通过；其最终 head dc58f2e 的 7 项有效检查全部 SUCCESS。
 
 清理提交 b79156644491461cfbd8f399ea32ce86e145fdb7（补齐 Codex 协作署名前为 71d368d，Git tree 相同）的新版 A6 已用真实 develop base 17252dc 中提取的检查器复验（无签核例外，exit 0）。补署名后的精确提交也重新完成 release-verify-install 全链路复验：临时 detached Git 工作树、严格 portable 校验、Codex CLI 0.147.0 实际安装和 1/19 技能作用域均 PASS；结束后临时 Git 工作树清理完成。仅验证安装，不创建标签、草稿或发布。后续验收记录提交不改运行代码。
 
 GitHub 只读查询确认 v7.0.0 / v7.0.1 的 NLM wheel 与 checksum 资产仍存在；未执行发布修改。
 
 精确提交 eba75ff88d2d72e6e9120a234e2eab7fef74f8ce 已实际执行 release-verify-install 的完整组合验证：临时 detached Git 工作树、portable 校验、Codex CLI 0.147.0 隔离安装、仓库内外作用域均通过，安装结束后清理临时 Git 工作树。该测试只执行安装复查，不创建标签、草稿或发布。
+
+## #188 合并后复验
+
+#188 于 2026-10-09 04:08:34 UTC 合入 develop，merge SHA 为 cea7744b90694ff71b0ed846a87bc292c6633279。本地 develop 从干净工作区 fast-forward 至该提交，后续记录在新的隔离工作树中准备。
+
+该 merge SHA 的严格校验与 198 项测试再次通过，0 失败、0 跳过，强制执行 PowerShell/Python。release-verify-install 对其精确 Git tree 的实际安装/发现通过：Codex CLI 0.147.0、仅 diagram-kit、仓库外 1 个 arch-diagram / 0 个开发技能、仓库内 1 个公开技能 / 19 个开发技能，临时 Git 工作树正常清理。
+
+两个计划版本 dry-run 再次通过，未写入权威版本。合并后只读复查确认 v7.0.0 / v7.0.1 均仍保留原 wheel 和 checksum。桌面端结果尚缺；已向 owner 请求客户端版本、安装方式及实际调用/校验摘要，未把迁移合并当作验收通过。[后续发布准备与说明草稿](./[RUNBOOK]_Portable_Migration_Release_Readiness.md) 明确记录剩余条件。
+
+## #189 版本准备
+
+owner 在上述桌面端验收提问后回复“更新即可”。按该授权，代理在新的 worktree 中再次执行两项 dry-run，然后实际应用 Marketplace 8.0.0 / diagram-kit 0.3.0、README badge、正式 CHANGELOG 与发布说明，并在 ADR 记录版本准备顺序的调整。没有收到桌面客户端版本、安装来源及实际调用结果，因此桌面端仍标为未执行；没有创建新标签、草稿或正式发布。
+
+版本准备提交 1608470d2eb64d1d2457206462c2c6536592e7fe：严格结构校验及 198 项强制 PowerShell/Python 测试通过（0 失败、0 跳过），CLI 0.147.0 基线检测通过。精确 Git tree 的 release-verify-install 实际执行通过：隔离缓存路径为 diagram-kit/0.3.0/skills/arch-diagram，consumer cwd 1 个公开技能 / 0 个开发技能，repo cwd 1 个公开技能 / 19 个开发技能，验证结束后临时 Git 工作树清理。使用 origin/develop 的原始 A6 检查器复验通过，正常 AGENTS.md 同步，无签核例外。历史 CHANGELOG 正文保留，正式发布模板已改为两个版本权威及客户端/发布门禁检查。

@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
 state: active
-version: v1.0
+version: v1.1
 supersedes:
   - "../archive/[DEPRECATED]_LearnKit_CHANGELOG_v4.0.1.md"
   - "../archive/[DEPRECATED]_LearnKit_README_v4.0.1.md"
@@ -52,7 +52,9 @@ supersedes:
 
 ## Version exception
 
-计划 Marketplace 8.0.0 / diagram-kit 0.3.0。Marketplace 是支持面缩减的 breaking major；diagram-kit 仍在 0.x 试验阶段，本次目录与宿主变更通过 0.2.0 → 0.3.0 表达，明确豁免旧“所有 breaking 必升 1.0.0”约定。learn-kit 不 bump、不发布。**两个客户端实际验收完成前，不应用这两个计划版本**；当前权威版本保持 7.0.2 / 0.2.0，仅维护 Unreleased。
+Marketplace 8.0.0 / diagram-kit 0.3.0。Marketplace 是支持面缩减的 breaking major；diagram-kit 仍在 0.x 试验阶段，本次目录与宿主变更通过 0.2.0 → 0.3.0 表达，明确豁免旧“所有 breaking 必升 1.0.0”约定。learn-kit 不 bump、不发布。
+
+原计划要求两个客户端验收完成后才应用版本。2026-10-09，在明确说明桌面端验收结果仍缺失的提问后，owner 回复“更新即可”，授权先完成上述版本、CHANGELOG 和发布说明准备。该决定调整版本准备顺序，不构成桌面端验收通过，也不替代正式发布授权。代理在 develop 的独立 worktree 应用两个版本并提交 #189；正式发布仍待完整验收、发布 PR 的最新检查及独立批准。
 
 ## Consequences
 
@@ -68,7 +70,7 @@ supersedes:
 
 按治理、归档退役、格式与技能、工具链、验收、版本与发布准备顺序执行。迁移只在隔离 worktree 中准备。验收证据见 [验收记录](../runbook/[RUNBOOK]_ChatGPT_Codex_Migration_Acceptance.md)；未执行项明确标记。
 
-治理 PR #186 / #187 未合并期间，#188 曾临时保留根 CLAUDE.md 的固定同步说明，让目标分支的旧 A6 按原规则通过；CI 曾显式接受该说明，默认与正式发布校验始终拒绝。2026-10-09，#186 合入 develop（17252dc），#187 合入 main（473f606），两者均具备 AGENTS.md 门禁。#188 随后删除过渡文件、CI 临时选项及校验器允许分支，恢复统一严格校验，并复验新版 A6、结构、完整测试及隔离安装。桌面端验收与独立批准仍是迁移 PR 的 draft 解除条件。
+治理 PR #186 / #187 未合并期间，#188 曾临时保留根 CLAUDE.md 的固定同步说明，让目标分支的旧 A6 按原规则通过；CI 曾显式接受该说明，默认与正式发布校验始终拒绝。2026-10-09，#186 合入 develop（17252dc），#187 合入 main（473f606），两者均具备 AGENTS.md 门禁。#188 随后删除过渡文件、CI 临时选项及校验器允许分支，恢复统一严格校验，并复验新版 A6、结构、完整测试及隔离安装。owner 于同日将 #188 合入 develop（cea7744）。迁移代码合并不替代桌面端验收；按后续 owner 决定，先通过 #189 完成版本准备，实际发布仍需完整验收、release PR 的检查、独立批准与发布授权。
 
 ## Rollback
 
@@ -81,3 +83,5 @@ supersedes:
 - [历史来源清单](../archive/history-sources.json)
 - [旧双原生 ADR](./[ADR]_Codex_Dual_Native_Plugin_Support.md) 与 [diagram-kit 加入 ADR](./[ADR]_Diagram_Kit_Addition.md) 保留原路径与历史正文，由本决定替代其当前支持面和包装约定。
 - 2026-10-09：owner 提供并批准迁移实施计划；代理按 worktree 执行并提交 PR。
+- 2026-10-09：owner 合并 #186 / #187 / #188，代理同步 develop、复验精确 merge SHA 并整理工作树；[发布准备](../runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md) 继续记录未完成验收，版本保持 7.0.2 / 0.2.0。
+- 2026-10-09：owner 回复“更新即可”，授权先准备 Marketplace 8.0.0 / diagram-kit 0.3.0。代理执行 dry-run 后应用版本并同步发布说明；桌面端未执行状态继续保留，未创建新标签或正式 Release。

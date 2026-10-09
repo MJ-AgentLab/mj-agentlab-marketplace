@@ -11,7 +11,7 @@ version: v1.0
 
 # [GUIDE] ChatGPT / Codex upgrade
 
-仅 ChatGPT 桌面端和 Codex 本地继续支持；停止 Claude 支持。发布目标为市场 8.0.0、diagram-kit 0.3.0，当前迁移 PR 未达到完整验收前不提前发布。新市场仅 diagram-kit，公开技能仅 arch-diagram，开发技能迁到 .agents/skills；根项目入口改为 AGENTS.md。
+仅 ChatGPT 桌面端和 Codex 本地继续支持；停止 Claude 支持。Marketplace 8.0.0 / diagram-kit 0.3.0 已完成版本准备，尚未正式发布；桌面端验收待完成，状态见 [发布准备记录](../runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md)。新市场仅 diagram-kit，公开技能仅 arch-diagram，开发技能迁到 .agents/skills；根项目入口改为 AGENTS.md。
 
 ## Existing learn-kit users
 
