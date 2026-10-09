@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
 state: active
-version: v2.1
+version: v2.2
 ---
 
 # [RUNBOOK] Release operations
@@ -23,7 +23,9 @@ scripts/run-release.mjs 从指定 SHA 读取 VERSION 与 CHANGELOG，要求 SHA 
 
 ## Post-release
 
-记录标签、Release 身份和实际验收；按既有 [pre-bump 决策](../adr/[ADR]_Develop_PreBump_Adoption.md) 先将 main 同步回 develop，再准备 develop 的下一补丁 PR。Portable 格式仅预升 VERSION 与派生 README badge，市场索引不承载版本，diagram-kit 根 manifest 不连带更新；先执行版本工具 dry-run。develop badge 表示预计下一版本，不创建同号标签或 Release。回退与历史政策见 [迁移 ADR](../adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)。
+记录标签、Release 身份和实际验收；按既有 [pre-bump 决策](../adr/[ADR]_Develop_PreBump_Adoption.md) 先将 main 同步回 develop，再准备 develop 的下一补丁 PR。Portable 格式仅预升 VERSION 与派生 README badge，市场索引不承载版本，各插件根 manifest 不连带更新；先执行版本工具 dry-run。develop badge 表示预计下一版本，不创建同号标签或 Release。回退与历史政策见 [迁移 ADR](../adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)。
+
+Understanding Kit 0.1.0 的 [新增决定](../adr/[ADR]_Understanding_Kit_Addition.md) 仅授权构建与 develop PR 准备，marketplace 保持 8.0.1；其 [验收记录](./[RUNBOOK]_Understanding_Kit_Acceptance.md) 与独立发布授权完成前，不将本次新增作为正式发布操作。
 
 v8.0.0 的标签、自动发布及合并后安装复查已记录在 [发布记录](./[RUNBOOK]_Portable_Migration_Release_Readiness.md)。已经发布不替代缺失的客户端验收或独立批准证据；保留未执行/未见记录状态，不追认 PASS 或未经提供的豁免。
 
