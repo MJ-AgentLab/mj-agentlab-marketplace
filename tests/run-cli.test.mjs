@@ -70,42 +70,35 @@ test("parseSemver / compareSemver basics", () => {
 });
 
 test("extractVersion pulls the version out of real --version output shapes", () => {
-  assert.equal(extractVersion("codex-cli 0.144.3"), "0.144.3");
-  assert.equal(extractVersion("2.1.211 (Claude Code)"), "2.1.211");
-  assert.equal(extractVersion("uv 0.11.21 (5aa65dd7a 2026-06-11 x86_64-pc-windows-msvc)"), "0.11.21");
+  assert.equal(extractVersion("codex-cli 0.147.0"), "0.147.0");
   assert.equal(extractVersion("no version here"), null);
 });
 
-// Supply-chain inputs are pinned exactly; the rolling host CLI is a minimum.
+// The supported Codex CLI acceptance baseline is exact.
 test("exact-pinned tools reject any drift", () => {
-  for (const tool of ["codex", "uv", "bridge", "nlm"]) {
+  for (const tool of ["codex"]) {
     assert.equal(evaluateVersion(tool, "1.2.3", "1.2.3").ok, true);
     assert.equal(evaluateVersion(tool, "1.2.3", "1.2.4").ok, false, `${tool} must reject a newer patch`);
     assert.equal(evaluateVersion(tool, "1.2.3", "1.2.2").ok, false, `${tool} must reject an older patch`);
   }
 });
 
-test("claude is a minimum: newer passes, older fails", () => {
-  assert.equal(evaluateVersion("claude", "2.1.210", "2.1.210").ok, true);
-  // The actual local version at implementation time — must not redden the build.
-  assert.equal(evaluateVersion("claude", "2.1.210", "2.1.211").ok, true);
-  assert.equal(evaluateVersion("claude", "2.1.210", "2.2.0").ok, true);
-  assert.equal(evaluateVersion("claude", "2.1.210", "2.1.209").ok, false);
-  assert.equal(evaluateVersion("claude", "2.1.210", "2.0.999").ok, false);
-});
-
 test("evaluateVersion reports the comparison mode it used", () => {
-  assert.equal(evaluateVersion("claude", "2.1.210", "2.1.211").mode, "minimum");
-  assert.equal(evaluateVersion("codex", "0.144.3", "0.144.3").mode, "exact");
+  assert.equal(evaluateVersion("codex", "0.147.0", "0.147.0").mode, "exact");
 });
 
 test("undetected or unparseable versions fail closed", () => {
-  assert.equal(evaluateVersion("codex", "0.144.3", null).ok, false);
-  assert.equal(evaluateVersion("codex", "0.144.3", null).reason, "not-detected");
-  assert.equal(evaluateVersion("codex", "0.144.3", "garbage").ok, false);
-  assert.equal(evaluateVersion("codex", "0.144.3", "garbage").reason, "unparseable");
+  assert.equal(evaluateVersion("codex", "0.147.0", null).ok, false);
+  assert.equal(evaluateVersion("codex", "0.147.0", null).reason, "not-detected");
+  assert.equal(evaluateVersion("codex", "0.147.0", "garbage").ok, false);
+  assert.equal(evaluateVersion("codex", "0.147.0", "garbage").reason, "unparseable");
 });
 
 test("unknown tools fail closed", () => {
   assert.equal(evaluateVersion("mystery", "1.0.0", "1.0.0").ok, false);
+});
+
+test("runCli closes stdin when no payload is supplied",async()=>{
+ const r=await runCli(process.execPath,["-e","let n=0;process.stdin.on('data',d=>n+=d.length);process.stdin.on('end',()=>console.log(n));"],{timeoutMs:3000});
+ assert.equal(r.status,0,r.error?.message);assert.equal(r.stdout.trim(),"0");
 });

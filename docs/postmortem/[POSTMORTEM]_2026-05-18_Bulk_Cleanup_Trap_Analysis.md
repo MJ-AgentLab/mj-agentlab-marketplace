@@ -11,7 +11,7 @@ severity: P3
 incident-date: 2026-05-18
 resolved-at: 2026-05-18T05:10:00Z
 related:
-  - ../runbook/[RUNBOOK]_Release_Operations.md
+  - "../runbook/[RUNBOOK]_Release_Operations.md"
 ---
 
 # [POSTMORTEM] 2026-05-18 Bulk Cleanup Trap Analysis
@@ -118,7 +118,7 @@ related:
 
 - Issue: 无（内部 incident，未开 GitHub Issue）
 - PR (fix): 本 PR（待合后填）
-- Related RUNBOOK: [`../runbook/[RUNBOOK]_Release_Operations.md`](../runbook/[RUNBOOK]_Release_Operations.md) §2.6 / §3.7
-- Related SKILL: [`../../.claude/skills/mp-git-cleanup/SKILL.md`](../../.claude/skills/mp-git-cleanup/SKILL.md) §Bulk Cleanup Mode
+- Related RUNBOOK: [`../runbook/[RUNBOOK]_Release_Operations.md`](../archive/[DEPRECATED]_[RUNBOOK]_Release_Operations_v1.5.md) §2.6 / §3.7
+- Related SKILL: [`../../.claude/skills/mp-git-cleanup/SKILL.md`](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/e90d7359c48c92b04f46fd4160e859b906b58885/.claude/skills/mp-git-cleanup/SKILL.md) §Bulk Cleanup Mode
 - Related Script: [`../../scripts/safe-bulk-cleanup.ps1`](../../scripts/safe-bulk-cleanup.ps1)
 - Memory (session-local lesson): `~/.claude/projects/.../memory/feedback_branch_cleanup_traps.md`

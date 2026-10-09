@@ -14,8 +14,8 @@ tags:
   - notebooklm-kit
   - v4.0.0
 related:
-  - ../../plugins/learn-kit/docs/adr/[ADR]_LearnKit_Discovery_Skills.md
-  - ../guide/[GUIDE]_Migration_From_v3_to_v4.md
+  - "../archive/[DEPRECATED]_LearnKit_[ADR]_LearnKit_Discovery_Skills_v1.0.md"
+  - "../archive/[DEPRECATED]_[GUIDE]_Migration_From_v3_to_v4_v6.0.md"
 ---
 
 # [ADR] NotebookLM Kit Retirement (marketplace v4.0.0)
@@ -136,6 +136,6 @@ mj-agentlab-marketplace v3.x 包含两个 plugin：
 ## References
 
 - Plan v3：`C:\Users\Admin\.claude\plans\learn-kit-init-i-ll-streamed-meadow.md`
-- 既有 ADR：[ADR: learn-kit Discovery & Locate Skills](<./[ADR]_LearnKit_Discovery_Skills.md>)
-- 迁移指引：[MIGRATION_GUIDE.md](../MIGRATION_GUIDE.md) §2 v3.2.x → v4.0.0
-- v3.0.0 删 5 plugin 先例：[MIGRATION_GUIDE.md](../MIGRATION_GUIDE.md) §1 v2.x → v3.0.0
+- 既有 ADR：[ADR: learn-kit Discovery & Locate Skills](../archive/[DEPRECATED]_LearnKit_[ADR]_LearnKit_Discovery_Skills_v1.0.md)
+- 迁移指引：[MIGRATION_GUIDE.md](../archive/[DEPRECATED]_[GUIDE]_Migration_From_v3_to_v4_v6.0.md) §2 v3.2.x → v4.0.0
+- v3.0.0 删 5 plugin 先例：[MIGRATION_GUIDE.md](../archive/[DEPRECATED]_[GUIDE]_Migration_From_v3_to_v4_v6.0.md) §1 v2.x → v3.0.0

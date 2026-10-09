@@ -14,12 +14,12 @@ tags:
   - exemption
   - governance
 related:
-  - ../rule/[STANDARD]_Documentation_Framework.md
-  - ../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
-  - ../runbook/[RUNBOOK]_Doc_Archive_Procedure.md
-  - ./[ADR]_Root_Level_Named_Files_Codification.md
+  - "../rule/[STANDARD]_Documentation_Framework.md"
+  - "../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md"
+  - "../runbook/[RUNBOOK]_Doc_Archive_Procedure.md"
+  - "./[ADR]_Root_Level_Named_Files_Codification.md"
 supersedes:
-  - ../archive/[DEPRECATED]_[ADR]_Documentation_Framework_Exemption_Review_v1.0.md
+  - "../archive/[DEPRECATED]_[ADR]_Documentation_Framework_Exemption_Review_v1.0.md"
 revision: |
   2026-05-18 — v1.1: Decision 2 `docs/CONTRIBUTING.md` row 标注 partially reversed in v4.6.3 — content restored to repo-root `CONTRIBUTING.md` per [`[ADR]_Root_Level_Named_Files_Codification`](./[ADR]_Root_Level_Named_Files_Codification.md) v1.0 Decision 2 (Framework v1.6 §1.1 codifies CONTRIBUTING.md as root-level named special file)。Other v1.0 decisions (HITL workflow internalization / MIGRATION_GUIDE rename / INDEX special clause / teaching-series cancellation / nlm-shared cleanup) remain fully active. 非 archive trigger（单行表格修订 + revision block 追加，远小于 §2.3.1 阈值）；in-place 修订。
   2026-05-18 — v1.0: initial decision recording v1.5 framework exemption reversal; supersedes v1.0 of original Exemption Review ADR
@@ -123,8 +123,8 @@ v1.3（2026-05-15）追加 normative blockquote 收紧豁免文件 frontmatter �
 
 ## References
 
-- [`../rule/[STANDARD]_Documentation_Framework.md`](../rule/[STANDARD]_Documentation_Framework.md) v1.5（同 PR 产出 — §1 重写承载本决策）
-- [`../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`](../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md) v1.4（同 PR 产出 — §0 内化 universal skeleton）
+- [`../rule/[STANDARD]_Documentation_Framework.md`](../archive/[DEPRECATED]_[STANDARD]_Documentation_Framework_v1.9.md) v1.5（同 PR 产出 — §1 重写承载本决策）
+- [`../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`](../archive/[DEPRECATED]_[STANDARD]_AI_Engineering_Execution_HITL_Prompt_v1.5.md) v1.4（同 PR 产出 — §0 内化 universal skeleton）
 - [`../runbook/[RUNBOOK]_Doc_Archive_Procedure.md`](../runbook/[RUNBOOK]_Doc_Archive_Procedure.md) v1.1（旧 ADR archive ceremony 走此 RUNBOOK 的 4-phase + 2-HITL-gate 流程）
 - [`../archive/[DEPRECATED]_[ADR]_Documentation_Framework_Exemption_Review_v1.0.md`](../archive/[DEPRECATED]_[ADR]_Documentation_Framework_Exemption_Review_v1.0.md)（被本 ADR supersede 的前任决策）
 

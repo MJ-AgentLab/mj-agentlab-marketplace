@@ -16,11 +16,11 @@ tags:
   - baseline-pinning
   - v7.0.0
 related:
-  - ./[ADR]_Diagram_Kit_Addition.md
-  - ./[ADR]_LearnKit_Explanation_Skills_Addition.md
-  - ../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
-  - ../spec/[SPEC]_Plugin_Json_Schema.md
-  - ../spec/[SPEC]_Marketplace_Json_Schema.md
+  - "./[ADR]_Diagram_Kit_Addition.md"
+  - "./[ADR]_LearnKit_Explanation_Skills_Addition.md"
+  - "../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md"
+  - "../spec/[SPEC]_Plugin_Json_Schema.md"
+  - "../spec/[SPEC]_Marketplace_Json_Schema.md"
 ---
 
 # [ADR] Codex Dual-Native Plugin Support

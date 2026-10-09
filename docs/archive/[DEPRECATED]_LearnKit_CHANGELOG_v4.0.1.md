@@ -1,0 +1,495 @@
+> 历史归档（2026-10-09）：保留原正文及版本。原路径 `plugins/learn-kit/CHANGELOG.md`，来源提交 `e90d7359c48c92b04f46fd4160e859b906b58885`。当前方案见 [迁移与退役 ADR](../adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)。正文仅修复链接；归档 metadata 标明状态及后继并修复引用，原始 Git blob 哈希见 [来源账本](history-sources.json)。
+
+# Changelog
+
+All notable changes to the learn-kit plugin will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/),
+and this project adheres to [Semantic Versioning](https://semver.org/).
+
+## [Unreleased]
+
+### Changed
+
+- **`3.2.1 → 4.0.0` — BREAKING, NotebookLM branch only.** Local Markdown / HTML / `glossary` / `concept` flows are unchanged; the break is entirely the optional NLM branch, which now requires:
+  - **Node.js 22+**, **uv 0.11.21+**, and a **user-provided Python 3.12** uv can resolve — the installer downloads **none** of them.
+  - the pinned **`learn-kit-nlm-bridge` 4.0.0** + **connector 0.8.7** in a receipt-bound, hashed private environment; a fixed **personal** endpoint `https://notebooklm.google.com` (Enterprise/custom unsupported).
+  - a **narrowed 6-tool** MCP surface — `refresh_auth`, `server_info`, `source_delete` are intentionally excluded; the bridge (not a host-mergeable config) owns environment + tool policy.
+  - user-run **`nlm login`**; the skill/bridge never log in or enumerate/verify/bind a Google account or profile, and only prompt the user on `AUTH_REQUIRED`.
+  - **Gate A/B** behavioral consent (remote-network + mutation) — explicitly **not** an unbypassable security boundary.
+- **`.mcp.json`** local `command` moves from upstream `notebooklm-mcp` to `learn-kit-nlm-bridge` (server key / wrapper / empty `args` unchanged).
+- **Host-neutral runtime** — `three-views` resolves templates + `scripts/hash-upload-corpus.mjs` from the SKILL.md locator, not `${CLAUDE_PLUGIN_ROOT}`. **Dual-host invocation** across all three skills (Claude `/learn-kit:*`, Codex `$learn-kit:*`).
+- **`three-views` Step 5B rewritten** as local → Gate A → discovery → Gate B → mutation, with per-mutation contract + manifest re-verify and a corpus-hash re-run guard (the unsafe `(topic, len(sources))` fallback is removed). The skill never computes a SHA — `hash-upload-corpus.mjs` does.
+- **`html-renderer.md` hardened** — a fixed safe-subset renderer + strict CSP; the model fills only an escaped JSON data island (no `innerHTML`, no CDN, links restricted to validated `http(s)`).
+- SKILL `description`s kept within the stricter Claude 1536 / Codex 1024-no-angle-bracket intersection.
+
+### Added
+
+- **Codex native wrapper** — `.codex-plugin/plugin.json` + `skills/{three-views,glossary,concept}/agents/openai.yaml`.
+- **`nlm-bridge/`** Python package + **`scripts/install-nlm-bridge.mjs`** (hashed-wheel installer, receipt + two shims) + **`skills/three-views/scripts/hash-upload-corpus.mjs`** (staging + hashing helper).
+- **Gate A/B** consent + trust-boundary handling for untrusted source data.
+
+### Removed
+
+- **`skills/three-views/templates/artifact-mind_map.md`** — the mind_map type takes no `focus_prompt`/`language` (connector 0.8.7 ignores both), so it needs no medium-constraints template; its `studio_create` sends only `source_ids` + `title` + `confirm`.
+
+### Fixed
+
+- **`4.0.1` — the NLM preflight now actually runs.** `three-views` Step 5B.2 gates the entire NotebookLM branch on `scripts/hash-upload-corpus.mjs --nlm-preflight`, but in 4.0.0 that helper was a fail-closed stub with **no success path** — even with the bridge installed it returned `CONTRACT_VERIFICATION_UNAVAILABLE`, so Gate A / discovery / mutation were unreachable end-to-end (the NLM feature was effectively dead code; installing the bridge did not unblock it). `--nlm-preflight` now runs the receipt-owned `learn-kit-nlm-bridge --contract-json` (the bridge's own local, network-free verifier), surfaces the validated 12-key fingerprint the consent record binds, and fails **closed** on any spawn / non-zero exit / unparseable output / missing-or-malformed key / identity-invariant drift. Cross-platform: the Windows `.cmd` shim is invoked via a verbatim-quoted `cmd.exe /d /s /c ""<shim>" --contract-json"` behind a shim-path metacharacter guard; the POSIX shim is spawned directly. Local Markdown / HTML / `glossary` / `concept` are unaffected.
+
+## [3.2.1] - 2026-06-12
+
+### Fixed
+
+- **`glossary` description truncation** — the frontmatter `description` was **1544** Unicode chars, 8 over Claude Code's empirically verified **1536-char** system-prompt injection limit. The truncated tail was exactly the `(use /learn-kit:three-views)` routing clause (cut mid-token to `three…` + an unclosed backtick) — the primary 3-skill cohabitation routing mitigation recorded in [`[ADR]_LearnKit_Explanation_Skills_Addition`](../adr/[ADR]_LearnKit_Explanation_Skills_Addition.md). Trimmed to **1450** chars via 3 pure-redundancy cuts (language-declaration compressed; `"give me a quick explanation of X"` trigger example removed as covered by `"explain X"` + the brevity signals; `article, encyclopedia entry, documentation page, or tutorial` → `article or tutorial`). Six-slot summary, speed-card positioning, both slash forms, all Chinese/English trigger phrases, broad matcher, prefer-over-concept clause, and the full `Do not use for` routing clause preserved verbatim. Zero semantic change.
+
+### Changed
+
+- **`three-views` description preventively trimmed** **1504 → 1289** chars (headroom was only 32 — one more edit would cross the limit). Removed Workflow-paragraph implementation details the SKILL.md body already carries: tier-default parenthetical, the 5-cell default-state detail (a compact type list `(HTML / audio / video / slide_deck / mind_map)` is retained as lexical trigger anchors, per skill-reviewer regression finding), and the dogfood-protection six-item enumeration (collapsed to "preserves all nlm-studio dogfood防护"). `Use when` opening sentence, all trigger phrases (中英), slash form, NLM precondition (notebooklm-mcp + `nlm login`), and the full `Do NOT use for` list unchanged verbatim. Zero semantic change.
+- **`.claude-plugin/plugin.json`** — version `3.2.0 → 3.2.1` (patch: user-visible plugin metadata fix; precedent learn-kit v2.0.1 / marketplace v3.2.1).
+
+## [3.2.0] - 2026-06-02
+
+### Added
+
+- **`glossary` skill** (NEW) — `/learn-kit:glossary <term>`. Explains an unfamiliar term in a single tight paragraph (~150–250 字) using a fixed six-slot structure (类比 → 大类归位 → 痛点 + 大白话定义 → 对比锚定 → 具体例子). A 30-second speed-card. Pure prompt skill: no tools, no MCP, no file I/O, no templates. Frontmatter is `name` + `description` only (no `allowed-tools` needed — matches the tool-light `mp-*` skill convention). Default Chinese output, term preserved verbatim; tuning switches `@<受众>` / `更短` / `更详细` / `双语`.
+- **`concept` skill** (NEW) — `/learn-kit:concept <concept>`. Explains an abstract concept in six sections (~500–800 字): 起源痛点 / 核心直觉 / 机制与定义 / 2 跨域正例 + 1 反例 / 邻居概念 / 失效边界. Goal: the reader can *apply* the concept, not just recite it (cross-domain positive examples are a hard requirement). Same pure-prompt, zero-tool shape as `glossary`. Adds the `换正例` switch.
+- Both skills carry the repo-signature **`Do not use for: … (use X)` routing clause** in their `description`, mutually cross-routing (`glossary` ↔ `concept`) and deferring to `three-views` for generated learning documents / HTML / NotebookLM multimedia — the niche `three-views` explicitly disclaims ("Do NOT use for: pure explanation / Q&A").
+
+### Changed
+
+- **`.claude-plugin/plugin.json`** — version `3.1.0 → 3.2.0` (minor; additive — two new skills, `three-views` untouched). Description reflects **3 skills**; keywords add `glossary` / `concept` / `explanation` / `term-card`.
+- **`README.md`** + **`CLAUDE.md`** — document the two new explanation skills alongside `three-views`; note their in-chat (no-file) nature.
+
+### Notes
+
+- **Plugin picker now lists 3 candidates** (`three-views` / `glossary` / `concept`). This partially relaxes v6.0.0's "1 candidate" consolidation benefit, accepted because all three are high-value, distinct, high-frequency entry points (unlike the low-value pipeline helpers v6.0.0 removed). Rationale + reconciliation in [`../../docs/adr/[ADR]_LearnKit_Explanation_Skills_Addition.md`](../adr/[ADR]_LearnKit_Explanation_Skills_Addition.md).
+- Source: integrated near-verbatim from a standalone two-skill bundle; only the integration layer changed (slash namespacing, routing clause, frontmatter normalization). The pedagogy bodies + few-shot examples are unchanged.
+
+## [3.1.0] - 2026-05-29
+
+### Added
+
+- **Step 1.3 Tier multi-select HITL gate** — `AskUserQuestion(multiSelect=true, header="Tiers")` with 3 cells (Foundation 零基础版 / Structural 结构版 / Challenge 挑战版), all `default: true`, minimum 1 enforced (0-selection → re-prompt once → abort). Preserves v3.0.0 default behavior (3-tier output when user accepts defaults) while enabling subset generation for single-tier use cases ("just foundation" / "skip challenge").
+- **Slash invocation doc section** in `skills/three-views/SKILL.md` (above "Why this skill exists") explicitly documenting `/learn-kit:three-views <topic>` as the auto-discovered slash form — no `commands/` directory needed (relies on Claude Code's `<plugin-name>:<skill-name>` derivation).
+- **State variables doc table** in SKILL.md "Execution flow" intro: `requested_tiers`, `generated_tiers`, `html_selected`, `selected_view_cycled_types`, `mind_map_selected`, `selected_nlm_artifacts`, `source_corpus_key` — single source of truth threaded through Steps 3 / 5A / 5B with explicit invariants.
+- **Artifact count formulas table** in Output convention section — adaptive formulas for md / html / NLM view-cycled / NLM mind_map / total NLM under v3.1.0 semantics.
+
+### Changed
+
+- **Step 4 multi-select redesign — 3 coarse cells → 5 granular cells**:
+  - Old (v3.0.0): ☐ HTML 渲染 / ☐ NLM 9 view-cycled (bundle) / ☐ NLM shared mind_map
+  - New (v3.1.0): ☐ HTML 渲染 / ☐ NLM audio / ☐ NLM video / ☐ NLM slide_deck / ☐ NLM mind_map
+  - All cells independent multiSelect, default unchecked (opt-in posture preserved per [`../../docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md`](../adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md) §3.2). Per-type NLM control surfaces upfront instead of buried in Step 5B.4 quota gate "Reduce subset". `mind_map` cell semantics unchanged (still 1 shared view-agnostic artifact regardless of tier count).
+  - **3-level hint granularity** (new): explicit-type hints (e.g. "just an audio podcast") pre-check only that cell; generic-NLM hints ("and NLM") pre-check all 4 NLM cells; no hint → all unchecked. Confirmation still required regardless (HITL gate).
+- **Step 3 / Step 5A / Step 5B loops generalized** from hardcoded `(foundation, structural, challenge)` 3-iteration to iterate over `requested_tiers` (Step 3) and `generated_tiers` (Steps 5A / 5B). `generated_tiers = requested_tiers − conflict_skipped − generation_failed` computed at end of Step 3 (with `"markdown 必出 invariant"` abort when empty). `source_add` count in Step 5B.3 = `len(generated_tiers)` instead of hardcoded 3.
+- **Step 5B.4 Quota gate adaptive** — `N = len(generated_tiers) × len(selected_view_cycled_types) + (1 if mind_map_selected else 0)`. 4-way prompt collapses to 3-way (no "Pick single tier") when `len(generated_tiers) == 1` OR `selected_view_cycled_types == {}` (mind_map-only run). Renamed "Pick single view" → "Pick single tier" for accuracy.
+- **Step 1 sub-step reordering** — Tier selection inserted as new Step 1.3 (BEFORE Output directory) so the Step 1.4 conflict check has access to `requested_tiers`. New ordering: 1.1 Resolve topic / 1.2 Source mechanism / 1.3 Tier selection / 1.4 Output dir + conflict / 1.5 Pre-flight scaffold.
+- **Frontmatter generator string** in Step 3 markdown frontmatter template: `learn-kit/three-views@3.0.0` → `learn-kit/three-views@3.1.0`.
+- **`.claude-plugin/plugin.json`** — version `3.0.0 → 3.1.0` (minor; additive HITL features, defaults preserve v3.0.0 product output).
+- **`README.md`** + **`CLAUDE.md`** — synced to describe Step 1.3 tier-select + 5-cell Step 4 + Quick Start slash example.
+- **`templates/artifact-mind_map.md`** — opening "across all three tiers" reframed to "across the selected source corpus" (1-3 tiers). "4 other artifact types" stale wording corrected to "3 view-cycled artifact types" (infographic was retired in marketplace v6.0.0).
+
+### Fixed
+
+- **Re-run guard source-corpus equivalence** (Step 5B.2) — added explicit `source_corpus_key` computation (stable SHA-256 hash of `(topic, sorted(generated_tiers), sorted(source content_sha256))`) and mismatch warning gate. Previously, re-running `/learn-kit:three-views` for a topic with a different tier subset could silently reuse an existing 3-tier notebook, contaminating partial-output intent (e.g. mind_map grounded in 3 sources when user requested only 1 tier). Now, on mismatch, the re-run guard surfaces a warning banner and recommends "Replace sources + new notebook" or "New timestamped notebook" instead of "Regenerate missing".
+- **Recap state for cross-subset artifacts** — new `previously-generated-out-of-current-subset` status enum value distinguishes artifacts that exist in the notebook but are NOT in current `selected_nlm_artifacts` (e.g. previously-generated `(audio, structural)` when this run has `generated_tiers = {foundation}`). Prevents confusion about why "missing" artifacts weren't regenerated.
+
+### Notes
+
+- **No template file edits beyond `artifact-mind_map.md`** — per-view (`view-foundation/structural/challenge.md`) and per-type (`artifact-audio/video/slide_deck.md`) templates are already independent files loaded on-demand; iterating over subsets is naturally supported.
+- **Backward-compatible product output**: a user who accepts Step 1.3 defaults (all 3 tiers checked) and leaves Step 4 default-unchecked produces identical output to v3.0.0. The **interaction flow** gains one additional confirmation gate (Step 1.3 tier-select); not strictly zero-friction-delta but skippable with one keystroke.
+- See marketplace-layer [`../../docs/adr/[ADR]_LearnKit_ThreeViews_HITL_Expansion.md`](../adr/[ADR]_LearnKit_ThreeViews_HITL_Expansion.md) for the design decision (3 alternatives weighed; default asymmetry rationale; mind_map view-agnostic invariant).
+
+## [3.0.0] - 2026-05-28
+
+### BREAKING
+
+- **5 skills consolidated into single `three-views` skill**. The prior 5 user-facing slash commands are reduced to 1 (with `/learn-kit:generate-tier` renamed; the other 3 helpers removed):
+
+  | v2.x command | v3.0.0 migration |
+  |--------------|------------------|
+  | `/learn-kit:scaffold-learning` | Auto-handled by `/learn-kit:three-views` Step 1 (creates `./learning/<topic>/` + minimal `INDEX.md`; **no longer creates `_meta/METHODOLOGY.md` or `_archive/`**) |
+  | `/learn-kit:locate <query>` | See [`docs/guide/[GUIDE]_LearnKit_Discovery_Recipes.md`]([DEPRECATED]_LearnKit_[GUIDE]_LearnKit_Discovery_Recipes_v1.0.md) §"Locate Recipe" — manual Grep + Glob + confidence scoring |
+  | `/learn-kit:scan` | See same GUIDE §"Scan Recipe" — canonical doc enumeration + cross-reference + ranking |
+  | `/learn-kit:generate-tier <topic>` | `/learn-kit:three-views <topic>` (same 3-view markdown generation, expanded with URL input + source_manifest + dual-mode HTML grounding) |
+  | `/learn-kit:nlm-studio <topic>` | `/learn-kit:three-views <topic>` then Step 4 multiSelect prompt → check "NLM 9 view-cycled" and/or "NLM shared mind_map" |
+
+  See [`../../docs/adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md`](../adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md) (marketplace-layer ADR) for full decision (alternatives, NLM range trade-offs, scaffold methodology fate) and [`../../docs/guide/[GUIDE]_Migration_From_v3_to_v4.md`]([DEPRECATED]_[GUIDE]_Migration_From_v3_to_v4_v6.0.md) §6 for step-by-step migration walkthrough.
+
+- **NLM artifact range reduced from 13 → max 10**:
+  - Infographic permanently retired (4 artifacts removed: 3 view-cycled + 0 since v1.0.0 had no infographic-only mode). Rationale in ADR §3.2: dogfood showed low user acceptance + visual density inferior for learning curve.
+  - mind_map moved from default 13-batch to **opt-in** (Step 4 third multiSelect option). Default new max: 9 view-cycled (audio + video + slide_deck × 3 views); + 1 mind_map if checked = 10.
+  - All NLM dogfood防护 preserved: per-step `refresh_auth`, real auth gate via `notebook_list`, source validation via `notebook_get`, 4-way re-run guard, quota right-sizing gate (with subset / single-view options), bounded polling (12 × 10s max).
+
+- **Skill name `three-views`** chosen over `generate-tier` to better reflect the three-perspective core methodology (foundation / structural / challenge); `tier` was overly literal ("layer" connotation).
+
+### Added
+
+- **`skills/three-views/SKILL.md`** — single skill (~600 LOC). 5-step workflow (Intake / Source acquisition / 3-view markdown / Multi-select opt-in / Execute selected). `allowed-tools` extended with `WebFetch` (URL input source) + 9 `mcp__plugin_learn-kit_notebooklm-mcp__*` (preserved from nlm-studio).
+
+- **`skills/three-views/templates/`** — 10 templates:
+  - **`view-foundation.md` / `view-structural.md` / `view-challenge.md`** — dual-purpose with `<!-- BEGIN:MARKDOWN_GENERATION_PROMPT -->` and `<!-- BEGIN:NLM_VIEW_PREFIX -->` strong delimiters. SKILL.md Step 3 extracts the markdown-generation block; Step 5B extracts the NLM view-prefix block (§1-§5 failsafe lint enforced).
+  - **`html-renderer.md`** — rewritten with **dual-mode grounding** decision: `repo-code` (Explore subagent for concept→file:line) / `source-evidence` (use source_manifest for concept→source-section) / `mixed`. `<missing-evidence/>` tag for grounding failures; **no file path fabrication**.
+  - **`artifact-{audio,video,slide_deck,mind_map}.md`** — moved from `nlm-studio/templates/` unchanged via git mv (history preserved).
+  - **`interaction-overrides.md`** — moved + trimmed: removed `(foundation, infographic)` override row; updated scope from "12 cells" to "9 cells" (3 view-cycled × 3 views; infographic gone).
+  - **`language-directive.md`** — moved unchanged (v2.0.1 dual-lock Chinese narration policy retained).
+
+- **`docs/guide/[GUIDE]_LearnKit_Discovery_Recipes.md`** (plugin-internal) — **NEW** preserves the v2.x `locate` + `scan` skill algorithms (Grep + Glob templates + confidence scoring + canonical doc enumeration + citation-frequency ranking) as manual recipes so the knowledge isn't lost.
+
+### Removed
+
+- **`skills/scaffold-learning/`** — entire directory deleted (SKILL.md + templates/METHODOLOGY.md + templates/INDEX.md + references/rfc-2119-keywords-pedagogy.md). Manual 8-stage methodology workflow retired (low independent invocation; AI 3-tier covers core value).
+- **`skills/locate/`** — entire directory deleted. Algorithm preserved in Discovery_Recipes GUIDE.
+- **`skills/scan/`** — entire directory deleted. Algorithm preserved in Discovery_Recipes GUIDE.
+- **`skills/nlm-studio/`** — entire directory deleted (SKILL.md + 4 remaining templates: view-foundation, view-structural, view-challenge, artifact-infographic). All useful templates moved to `three-views/templates/`; capabilities preserved in `three-views` SKILL.md Step 5B.
+- **`skills/nlm-studio/templates/artifact-infographic.md`** — file deleted (NLM infographic artifact type permanently retired per ADR §3.2).
+- **`skills/generate-tier/`** — directory renamed via git mv to `skills/three-views/` (4 sub-templates carried in rename: foundation/structural/challenge/html-renderer; the first 3 then renamed view-foundation/structural/challenge and rewritten with dual BEGIN/END markers; html-renderer rewritten for dual-mode).
+
+### Changed
+
+- **`.claude-plugin/plugin.json`** — version `2.0.1 → 3.0.0` (major). description rewritten to describe single-skill structure + dual-mode HTML + NLM 10-artifact max. keywords: removed `locate`, `scan`, `infographic`, `rule-list`, `interpretation`, `discovery`; added `three-views`, `source-manifest`.
+- **`CLAUDE.md`** — completely rewritten to describe single-skill structure.
+- **`README.md`** — completely rewritten: 5-skill table → 1-skill summary; new v3.0.0 BREAKING migration table at top; 3 worked-case scenarios (A: project STANDARD, B: external URL, C: only mind_map); preserved 演进历史 table extended with v3.0.0 row.
+
+### Notes
+
+- Plugin-internal `docs/guide/[GUIDE]_LearnKit_{Pedagogy,Design}.md` retain their v2.x structure with light edits noting historical 5-skill context now consolidated.
+- Historical CHANGELOG entries (v0.1.0 through v2.0.1) retain their original wording — they are factual records of what was true at each version and must not be rewritten.
+- This release is the marketplace v6.0.0 BREAKING — see top-level `CHANGELOG.md` for the marketplace-layer entry.
+
+## [2.0.1] - 2026-05-21
+
+### Fixed
+
+- **`nlm-studio` 输出语言约束加强**（解决 dogfood 反馈的「NotebookLM 生成
+  artifact 出现全英文表达 / 全英文讲解」问题）。原 `templates/language-
+  directive.md` 已包含「中文主体 + 英文术语保留」规则但在 NLM 模型侧
+  权重不足，本次以双锁加固：
+  - `templates/language-directive.md` 顶部新增 lead-with-mandate
+    段：`**OUTPUT LANGUAGE: 简体中文 (Simplified Chinese, zh-CN)**` +
+    显式禁止失败模式（整段英文讲解 / 整段英文对白 / on-screen 英文主
+    体）+ 重申唯一例外是行业标准技术术语。原 75 行 hard-constraint
+    bullet + 正反例样例一字未改。
+  - `templates/artifact-audio.md` 在 `## Voice & pacing` 与
+    `## Segment endings` 之间新增 `## Spoken language` 小节：两位
+    host 普通话对白、不允许整段英文、术语保留英文原词（不音译 / 不
+    强译），并 reference LANGUAGE & TERMINOLOGY 段为权威源。
+  - `templates/artifact-video.md` 在 `## Per-scene structure` 与
+    `## Opening 30 seconds` 之间新增 `## Narration language` 小节：
+    旁白普通话、on-screen 简体中文、visual cue 文字 verbatim、并
+    reference LANGUAGE & TERMINOLOGY 段。
+  - `skills/nlm-studio/SKILL.md` §"Language & terminology directive
+    (single shared block)" 追加 "Dual-lock reinforcement (v2.0.1+)"
+    一段，说明本次新增的双锁机制 + slide_deck / infographic /
+    mind_map 仍走单锁（dogfood 未观测到这三个 medium 英文化失败）。
+- `plugin.json` version 2.0.0 → 2.0.1。`marketplace.json` plugins[]
+  数组对应条目同步。
+
+## [2.0.0] - 2026-05-18
+
+### BREAKING
+
+- **Skill `init` renamed to `scaffold-learning`** —
+  `/learn-kit:init` → `/learn-kit:scaffold-learning`. The v1.2.1
+  namespace convention ("always write `/learn-kit:init`, never bare
+  `/init`") was a documentation-only constraint and did NOT prevent
+  Claude Code's slash-command picker from listing both Claude Code's
+  builtin `/init` (CLAUDE.md generator) and learn-kit's `/init` as
+  parallel candidates. Renaming the skill physically removes the
+  collision: typing `/init` now matches only the host builtin; the
+  scaffold action is reached via `/learn-kit:scaffold-learning`
+  (fully qualified) or natural-language routing (still gated by
+  `disable-model-invocation: true`).
+
+  **Migration**: in any project that referenced the old skill, run:
+  ```bash
+  grep -rn "/learn-kit:init" .   # find references
+  # replace each with: /learn-kit:scaffold-learning
+  ```
+  See [`../../docs/adr/[ADR]_LearnKit_Init_Skill_Rename.md`](../adr/[ADR]_LearnKit_Init_Skill_Rename.md)
+  for the full decision (alternatives considered, why no alias is
+  retained) and
+  [`../../docs/guide/[GUIDE]_Migration_From_v3_to_v4.md`]([DEPRECATED]_[GUIDE]_Migration_From_v3_to_v4_v6.0.md)
+  §5 for a step-by-step migration walkthrough.
+
+  Before / after:
+  ```text
+  # v1.x
+  /learn-kit:init                                      # scaffold
+  ${CLAUDE_PLUGIN_ROOT}/skills/init/templates/...      # template ref
+  plugins/learn-kit/skills/init/SKILL.md               # file path
+
+  # v2.0.0
+  /learn-kit:scaffold-learning                                  # scaffold
+  ${CLAUDE_PLUGIN_ROOT}/skills/scaffold-learning/templates/...  # template ref
+  plugins/learn-kit/skills/scaffold-learning/SKILL.md           # file path
+  ```
+
+### Changed
+
+- **`plugins/learn-kit/skills/scaffold-learning/SKILL.md`** —
+  Renamed from `skills/init/SKILL.md` via `git mv`. Frontmatter
+  `name: init` → `name: scaffold-learning`; H1 "Initialize Learning
+  Subsystem" → "Scaffold Learning Subsystem"; in-body
+  `${CLAUDE_PLUGIN_ROOT}/skills/init/templates/` →
+  `${CLAUDE_PLUGIN_ROOT}/skills/scaffold-learning/templates/`;
+  worked-example path reference updated. `disable-model-invocation:
+  true` retained (semantic intent unchanged — scaffold is still an
+  explicit, file-system-writing user action).
+- **`plugins/learn-kit/skills/scaffold-learning/templates/{INDEX,METHODOLOGY}.md`**
+  + **`references/rfc-2119-keywords-pedagogy.md`** — Carried
+  unchanged via `git mv` (history preserved); in-body cross-references
+  to `/learn-kit:init` updated to `/learn-kit:scaffold-learning`.
+- **`plugins/learn-kit/skills/{locate,scan,generate-tier}/SKILL.md`** —
+  Cross-skill routing references updated (8 total occurrences:
+  locate 2, scan 3, generate-tier 3) from `/learn-kit:init` to
+  `/learn-kit:scaffold-learning`.
+- **`plugins/learn-kit/README.md`** + **`CLAUDE.md`** — All
+  user-facing references to the scaffold skill updated to new name.
+  §"命名约定" (slash invocation namespace convention) rewritten:
+  the "直接动机" (direct motivation = `init` collides with builtin
+  `/init`) is recast as historical context, since the collision is
+  now physically resolved by the rename; the convention itself is
+  preserved for future-proofing against other potential same-name
+  builtins.
+- **`plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_{Pedagogy,Design}.md`** —
+  In-text references and source-file pointer tables updated to new
+  skill folder name.
+- **`plugins/learn-kit/docs/INDEX.md`** + **`docs/adr/[ADR]_LearnKit_Discovery_Skills.md`
+  §References** — Path pointers updated to `skills/scaffold-learning/`;
+  Discovery_Skills ADR adds an inline note referencing the rename ADR.
+
+### Notes
+
+- Historical CHANGELOG entries (v0.1.0 through v1.2.1) retain the
+  original `/learn-kit:init` wording — they are factual records of
+  what was true at each version and must not be rewritten.
+- `disable-model-invocation: true` on `scaffold-learning/SKILL.md`
+  continues to block LLM auto-routing. The user-facing slash-picker
+  collision was a separate UX issue not addressable by that flag.
+
+## [1.2.1] - 2026-05-18
+
+### Changed
+
+- **`plugins/learn-kit/skills/nlm-studio/SKILL.md`** — Frontmatter
+  `description:` 由 ~3,179 字符压缩至 ~1,490 字符（< 1,536 cap），消除
+  Claude Code `/doctor` "Some skill descriptions will be shortened"
+  warning。原 description 内的 runtime detail 段（13-artifact 组成 /
+  HTML upload DROPPED 论证 / Notebook 命名冲突政策 / terminal-only
+  output / View-Purpose Preservation 哲学段 / MCP + nlm login auth）
+  迁移到 SKILL.md body 新增 `## Outputs at a glance` + `## Auth &
+  prerequisites` 两段；description 仅保留 routing 必需的载荷：1 句用途
+  + 上游 skill 指向 + 全部 10 条 trigger phrase（中英双语逐字保留）
+  + 4 条 `Do NOT use for:` 反向触发块（逐字保留）。
+- **`plugins/learn-kit/.claude-plugin/plugin.json`** — version
+  `1.2.0 → 1.2.1`（patch）。
+
+### Why
+
+description 在 v1.0.0 起累积承担过多 runtime detail 职责，超过 Anthropic
+skill description 设计原则（description 唯一职责是帮模型决定"要不要调用
+本 skill"）；移迁出后 routing 信号更聚焦、body 也更利读者按章节查找。
+No behavior change — trigger 路由 / allowed-tools / disable-model-invocation
+flag 全部不动；现有 13 artifact 工作流不变。
+
+## [1.2.0] - 2026-05-18
+
+### Changed
+
+- **`plugins/learn-kit/docs/` 6 份 lowercase 教学系列合并为 2 份合规 `[GUIDE]_*.md`**（Framework v1.5 §1 取消 v1.1 教学系列模式豁免配套）:
+  - `learn-kit-01-positioning.md` + `learn-kit-02-eight-stage-methodology.md` + `learn-kit-03-rfc-2119-worked-example.md` → `plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_Pedagogy.md`（教学合卷：定位 + 8 阶段方法论 + RFC 2119 worked example + 6 类质量门 + 8 跨阶段反模式）
+  - `learn-kit-04-three-skills.md` + `learn-kit-05-governance-boundary.md` → `plugins/learn-kit/docs/guide/[GUIDE]_LearnKit_Design.md`（设计合卷：5 skill 分工 + 闭环 + dogfood findings + parallel subsystem 治理模型 + frontmatter / INDEX / 归档规则 + v1.0.0 依赖矩阵 + 版本演化策略）
+  - `learn-kit-使用手册.md` → 拆入 `plugins/learn-kit/README.md`（§中文 TL;DR + §5 分钟上手 + §Worked Cases + §Troubleshooting）+ `plugins/learn-kit/CLAUDE.md`（§Advanced Tips）
+
+- **`plugins/learn-kit/docs/INDEX.md` v1.1 → v1.2** — 加 8 字段 frontmatter（Framework v1.5 §1 INDEX special clause）；删除 §Plugin-Internal Teaching Series 段；§Guides 段填入 2 份合卷。
+
+- **`plugins/learn-kit/README.md`** — 教学系列表（lines 181-192）从 6 行更新为 2 行（新 [GUIDE]_* 路径）；新增 4 个章节吸收原用户手册内容（中文 TL;DR / 5 分钟上手 / 真实使用案例 / 常见踩坑）；前置依赖段加 legacy plugin 卸载提示；演进历史段移除 cross-project 引用。
+
+- **`plugins/learn-kit/CLAUDE.md`** — Documentation 段重写指向 2 份合卷；新增 §Advanced Tips 段吸收原用户手册的进阶提示。
+
+- **`plugins/learn-kit/.claude-plugin/plugin.json`** — version `1.1.0 → 1.2.0`（minor）；description 加 v1.2.0 changelog 摘要。
+
+### Removed
+
+- 删除 6 份 lowercase 教学系列原文件（内容已合并至 2 份 [GUIDE]_* 或 README/CLAUDE.md）:
+  - `plugins/learn-kit/docs/learn-kit-01-positioning.md`
+  - `plugins/learn-kit/docs/learn-kit-02-eight-stage-methodology.md`
+  - `plugins/learn-kit/docs/learn-kit-03-rfc-2119-worked-example.md`
+  - `plugins/learn-kit/docs/learn-kit-04-three-skills.md`
+  - `plugins/learn-kit/docs/learn-kit-05-governance-boundary.md`
+  - `plugins/learn-kit/docs/learn-kit-使用手册.md`
+
+### Released as part of
+
+- marketplace v4.5.0（Framework v1.5 §1 exemption cancellation batch）
+
+## [1.1.0] - 2026-05-15
+
+### Added
+
+- **`plugins/learn-kit/docs/INDEX.md`** — Plugin-internal documentation index per marketplace Documentation Framework v1.0 (with `scope: learn-kit`). Catalogues plugin-internal ADRs / GUIDEs / SPECs (currently only the migrated ADR) + the 6 lowercase numbered teaching docs (`learn-kit-01..05` + `使用手册`) which are intentionally exempt from tag-prefix requirement as plugin-internal pedagogical content.
+- **`plugins/learn-kit/docs/adr/`** — Plugin-internal ADR subdir. Houses learn-kit-scope architectural decisions (cross-plugin / marketplace governance ADRs stay at marketplace `docs/adr/`).
+- **`plugins/learn-kit/docs/guide/`** and **`docs/spec/`** — Placeholder subdirs with `.gitkeep` for future plugin-internal GUIDEs / SPECs. Currently no plugin-internal docs of these types (schema work lives in `skills/init/templates/METHODOLOGY.md`).
+
+### Moved (from marketplace level)
+
+- **`[ADR]_LearnKit_Discovery_Skills.md`** — Migrated from `mj-agentlab-marketplace/docs/adr/` → `plugins/learn-kit/docs/adr/`. Rationale: the decision is plugin-internal (skill design within learn-kit), not marketplace governance. Frontmatter updated: `scope: learn-kit` (was already set in v4.2.1 retrofit), `related:` paths recalculated for new depth (4 levels up to marketplace `docs/rule/`).
+
+### Changed
+
+- **`plugins/learn-kit/CLAUDE.md`** — New `## Documentation` section linking to `docs/INDEX.md` + listing the 3 framework subdirs (`adr/` / `guide/` / `spec/`) + noting the 6 lowercase teaching series.
+- **`plugins/learn-kit/.claude-plugin/plugin.json`** — version `1.0.0 → 1.1.0` (minor).
+
+### Released as part of
+
+- marketplace v4.3.0 (PR #77)
+
+## [1.0.0] - 2026-05-14
+
+### Added
+
+- **`skills/nlm-studio/SKILL.md`** — `/learn-kit:nlm-studio <topic>` skill that pushes a topic's three-tier learning markdown corpus (3 `.md` files generated by `/learn-kit:generate-tier`) to NotebookLM as sources, then generates up to 13 online-viewable multimedia artifacts per topic: **4 view-cycled artifact types × 3 view variants = 12** (audio + video + slide_deck + infographic, each in foundation/structural/challenge view) **+ 1 shared view-agnostic mind_map = 13 total**. HTML files are intentionally NOT uploaded (see Dogfood findings below). Online-only (no download). 5-step workflow with per-Step auth refresh: pre-flight (real auth gate via `notebook_list`, not just local `refresh_auth`+`server_info`; file detection requires 3 `.md`) → re-run guard (`notebook_list` lookup with 4-option AskUserQuestion: regenerate / replace sources / new-timestamped / abort) → notebook setup (notebook_create + 3 source_add in parallel + **mandatory `notebook_get` verification** since source_add error responses are unreliable) → **Step 3.5 Quota confirm gate** (explicit warning that the skill cannot see prior same-day Studio usage; user confirms / reduces subset / aborts; "~65% of empirical ~20/day ceiling") → Step 4 artifact generation (3 parallel batches of 5/4/4 — foundation includes mind_map, structural and challenge skip mind_map; idempotent via studio_status pre-loop lookup; refresh_auth between batches; mid-run auth failure → retry-once before abort) → Step 5 terminal recap. Allowed tools: 9 MCP calls under `mcp__plugin_learn-kit_notebooklm-mcp__*` prefix.
+- **`skills/nlm-studio/templates/`** — 9 prompt-composition templates implementing the **View-Purpose Preservation** principle: pedagogical purpose (3 view templates) and medium constraints (5 artifact templates) compose orthogonally for the 4 view-cycled artifact types; an interaction-overrides YAML adds joint tuning for cells where view × artifact effects interact non-obviously.
+  - `view-foundation.md` / `view-structural.md` / `view-challenge.md` — each follows a strict 5-section schema (§1 Pedagogical purpose / §2 Audience profile / §3 Style mandate / §4 Anti-patterns / §5 Success criteria). SKILL.md failsafe checks all 5 sections present + non-empty before composition.
+  - `artifact-audio.md` / `artifact-video.md` / `artifact-slide_deck.md` / `artifact-infographic.md` — medium format constraints only for the 4 view-cycled types; pedagogical stance comes from view-prefix at composition time.
+  - `artifact-mind_map.md` — **view-agnostic** (composed without view-prefix; one mind_map per topic). Dogfood found NLM's mind_map artifact type produces structural-hierarchy output regardless of view directives.
+  - `interaction-overrides.md` — 4 explicit (view × artifact) joint overrides for view-cycled cells with strong interaction: challenge+audio (probing-question segment endings), foundation+infographic (≤7 digits per panel + everyday-object iconography), challenge+slide_deck (≥70% counter-example slides in 2-slide "looks-like-X / actually-Y" pairs), foundation+video (dual-modal voice+text TL;DR closing). The remaining 8 view-cycled cells use base composition. Mind_map has no overrides (view-agnostic).
+- **`.mcp.json`** — migrated from notebooklm-kit (server name `notebooklm-mcp` unchanged). After this migration MCP tools resolve to `mcp__plugin_learn-kit_notebooklm-mcp__*`.
+
+### Dogfood-validated design (in v1.0.0 PR pre-merge)
+
+Five findings from end-to-end dogfooding against mj-agent's `learning/documentation-framework/` topic shaped the final design (also documented inline in SKILL.md §"Dogfood-validated design"):
+
+1. **Step 1 pre-flight insufficient as auth check** — `refresh_auth` + `server_info` are local-only checks. Real auth verification requires a network call. SKILL.md Step 1.4 now calls `notebook_list` as the actual auth gate; only that call decides whether to proceed.
+2. **HTML upload dropped** — Both `source_type="file"` and `source_type="text"` (L2 fallback) reject non-trivial HTML content. The L2 fallback in earlier drafts is removed. Only 3 `.md` files are uploaded. HTML output of `/learn-kit:generate-tier` is for human browser viewing only.
+3. **Per-Step auth refresh** — NLM tokens are observed to expire within 15-30 min, often shorter than a 7-15 min `nlm-studio` run. Each Step (2, 3, 3.5, 4) refreshes auth at its start; mid-run auth failure in Step 4 → retry once with refresh_auth before aborting.
+4. **Post-upload verification mandatory** — `source_add` error responses are unreliable (server may succeed asynchronously despite client-side error). After the 3 `source_add` calls, SKILL.md mandates `notebook_get` to cross-check the actual source list; trust notebook_get over source_add response.
+5. **Mind_map collapsed to view-agnostic** — NLM's mind_map artifact type produces near-identical structural-hierarchy output across foundation/structural/challenge prompting variants. Producing 3 view-cycled mind_maps wastes quota for redundant content. v1.0.0 ships with one mind_map per topic; the previous structural+mind_map interaction-override is removed; artifact total drops from 15 to 13.
+
+Additional optimization validated by dogfood: parallel batches of 5 `studio_create` calls per round incur no rate-limiting; the original sequential design was changed to parallel-per-round for speed.
+
+### Language & terminology directive (added in v1.0.0 PR pre-merge)
+
+- **`templates/language-directive.md`** — new single-source-of-truth file appended verbatim to every artifact's `focus_prompt` as the `===== LANGUAGE & TERMINOLOGY =====` section (both view-cycled compositions and the shared mind_map composition). Enforces output-language policy across all 13 artifacts in a single place:
+  - **主体内容用中文（简体）** — section titles, narrative, host dialogue (audio), on-screen text (video), slide bodies, mind_map node labels, infographic panel text.
+  - **Industry-standard technical terms preserved in English** — explicit non-translation lists for documentation governance (`frontmatter` / `schema` / `ADR` / `SKILL.md` / `track` / `canonical` / `deprecated` / etc.), formats & protocols (`YAML` / `Markdown` / `MCP server` / `loader`), engineering practice (`hygiene` / `governance` / `lint` / `CI` / `worktree`), generic CS (`hash` / `cache` / `enum` / `glob` / `regex`).
+  - **Code / file paths / identifiers / command names verbatim** — no translation, no added quoting.
+  - Concrete good/bad sample lines included in the directive so NLM has anchored exemplars rather than abstract rules.
+- **SKILL.md composition contract** updated to include the new `===== LANGUAGE & TERMINOLOGY =====` section in both view-cycled and mind_map composition formats. The directive is a single file rather than 9 copies (one per template) to guarantee consistency and make future policy changes a one-file edit.
+
+### Changed
+
+- **`.claude-plugin/plugin.json`** — version 0.3.1 → 1.0.0 (major bump: addition of MCP-dependent skill + first stable release). description rewritten to describe all three flows (manual / AI / multimedia) and explicitly state nlm-studio's external dependencies (notebooklm-mcp + `nlm login`); keywords expanded with `nlm-studio`, `notebooklm`, `audio`, `video`, `multimedia`, `slide-deck`, `mind-map`, `infographic` (8 new entries).
+- **`CLAUDE.md`** — removed "完全独立、不依赖任何外部插件 / 服务 / API" claim. Added v1.0.0 dependency notice. New §NLM 集成 section documents the MCP tool prefix rule (`mcp__plugin_<plugin.json-name>_<server-key>__*`) and why migration from notebooklm-kit changed the prefix from `mcp__plugin_notebooklm-kit_*` to `mcp__plugin_learn-kit_*`.
+- **`README.md`** — added 多媒体流 (third use flow) to opener; added §前置依赖 section; restructured §5 to document nlm-studio's 5-step workflow + artifact table by view × type; v1.0.0 entry added to evolution table.
+- **`skills/generate-tier/SKILL.md`** — workflow expanded from 8-step to **10-step**. Inserted new optional **Step 9** between HTML rendering (Step 8) and summary (now Step 10): asks user via AskUserQuestion whether to invoke `/learn-kit:nlm-studio <topic>` on the just-generated three-tier corpus. Default = Skip; opt-in only on explicit "Yes". `generator` frontmatter tag bumped to `learn-kit/generate-tier v1.0.0`. §Non-goals updated to clarify Step 9 only **offers** to invoke external services; user must opt in.
+
+### Breaking
+
+- **Marketplace coupling change**: in v0.x, learn-kit was "Independent plugin — no external service dependencies". In v1.0.0, the nlm-studio skill has a hard dependency on the `notebooklm-mcp` MCP server. The MCP server is bundled in this plugin's `.mcp.json`, but the underlying CLI (`uv tool install notebooklm-mcp-cli`) and `nlm login` are user-side prerequisites. The other 4 skills (init / locate / scan / generate-tier) remain dependency-free.
+
+### Released as part of
+
+mj-agentlab-marketplace **v4.0.0** (major restructure: notebooklm-kit retired entirely; nlm-studio absorbs the multimedia-generation slice into learn-kit; learn-kit becomes the sole NLM-touching plugin). See `docs/[ADR]_NotebookLM_Kit_Retirement.md` for the decision rationale + alternatives considered, and `docs/MIGRATION_GUIDE.md` §v3.2.x → v4.0.0 for user-facing migration steps.
+
+## [0.3.1] - 2026-05-14
+
+### Fixed
+
+- **`.claude-plugin/plugin.json`** — `repository` field rewritten from `{ "type": "git", "url": "..." }` object to string `"https://github.com/MJ-AgentLab/mj-agentlab-marketplace"`. The Claude Code plugin manifest schema only accepts string form; the object form caused `/plugin` install to fail with `Validation errors: repository: Invalid input: expected string, received object`. (PR #70 / marketplace v3.2.1)
+
+### Changed
+
+- **`.claude-plugin/plugin.json`** — version 0.3.0 → 0.3.1 (cache-bust patch so `/plugin update` picks up the manifest fix; no other behavior change)
+
+## [0.3.0] - 2026-05-13
+
+### Added
+
+- **`skills/generate-tier/SKILL.md`** — `/learn-kit:generate-tier` AI-driven 3-tier learning doc generator. 8-step workflow: intake → pre-flight → source acquisition (4 mechanisms multi-select: project file paths / scan-locate discovery / pasted text / dir scan) → tier selection (multi-select foundation / structural / challenge, default all) → topic confirmation + conflict policy → per-tier markdown generation → INDEX update → optional HTML rendering offer → per-tier HTML render via Explore subagent (concept→code grounding) + INDEX HTML column update. Writes `learning/<topic>/[LEARNING]_<topic>_<view>.md` and optional matching `.html`. Tools: `Read, Write, Glob, Grep, AskUserQuestion, Agent`.
+- **`skills/generate-tier/templates/`** — 4 independent prompt templates:
+  - `foundation.md` (≈295L) — 零基础版 prompt (13 sections: 用户问题拆解 → 一句话/类比/专业 → 价值 → 新手困惑 → 能/不能解决 → 术语翻译表 → 完整故事 → 成功/失败案例 → 10 误解 → 三层目标 → 10 自测题 → 下一步)
+  - `structural.md` (≈417L) — 结构版 prompt (14 sections: 子问题拆解 → 主题定位 → 解决路径 → 概念地图 → 关系表 → 前置知识路线 → 适用边界 → 成功/失败案例 → 判断清单 → 学习路径图 → 复习卡 → 12 自测题 → 总结)
+  - `challenge.md` (≈367L) — 挑战版 prompt (14 sections: 真懂标准 → 易误解点 → 假懂点 → 反例训练 → 相邻概念混淆 → 失败案例诊断 → 成功反向审查 → 误用清单 → 边界判断题 → 迁移应用题 → 解释能力挑战 → 概念诊断测试 → 盲区定位表 → 总结)
+  - `html-renderer.md` (≈114L) — 30-min interactive HTML learning page prompt (Phase 1 摄入 → Phase 2 设计 → Phase 3 生成；SVG 图 / 手写语法高亮 / `<details>` 折叠 / Tab 切换 / 复制为 Prompt 按钮 / 亮暗主题；离线单文件无 CDN)
+- **`skills/init/templates/INDEX.md` §Tier Documents** — new catalog table for AI-generated tier docs (with HTML column).
+
+### Changed
+
+- **`.claude-plugin/plugin.json`** — version 0.2.0 → 0.3.0; description rewritten to reflect 3-tier generator capability and explicitly state independence (no external service dependencies); keywords expanded with `three-tier, foundation, structural, challenge, ai-generation, html-render`.
+- **`README.md`** — restructured §使用 to present manual flow (METHODOLOGY 8 stages) and AI flow (generate-tier) as parallel paths; added §3b generate-tier usage; added §4 HTML output example.
+- **`CLAUDE.md`** — removed NLM 协同 line; added generate-tier section with 4-source-mechanism + multi-select + HTML render summary.
+- **`skills/init/SKILL.md`** — Step 6 rewritten: NLM integration option replaced with generate-tier pointer.
+- **`skills/init/templates/METHODOLOGY.md`** — §10.1 With notebooklm-kit removed; §10.2 With markdownlint promoted to §10.1. METHODOLOGY internal version v0.2 → v0.3.
+- **`skills/locate/SKILL.md`** + **`skills/scan/SKILL.md`** — Sibling skills sections: `/notebooklm-kit:learn-make` references replaced with `/learn-kit:generate-tier`.
+
+### Removed
+
+- **`skills/init/templates/NLM_RECORD_TEMPLATE.md`** — entire file deleted. NLM artifact metadata schema is no longer maintained by learn-kit. Users who installed v0.2.x and seeded `learning/_meta/NLM_RECORD_TEMPLATE.md` should manually delete that file if they wish to remove NLM coupling; learn-kit init will no longer regenerate it.
+- **`templates/INDEX.md` §NotebookLM Notebooks** + 维护规则 NLM bullet — sections removed.
+- All `/notebooklm-kit:*` cross-references in init / locate / scan SKILL.md and templates.
+
+### Decoupled from
+
+- **`notebooklm-kit`** is no longer a sibling/companion plugin from learn-kit's perspective. learn-kit is now fully independent and has no external service or plugin dependencies. The two plugins can still coexist in the marketplace, but learn-kit no longer promotes or requires any NotebookLM workflow.
+
+### Migration note (v0.2.x → v0.3.0)
+
+For projects that ran `/learn-kit:init` against v0.2.x and now have `learning/_meta/NLM_RECORD_TEMPLATE.md` plus a §NotebookLM Notebooks section in `learning/INDEX.md`:
+
+1. The template file can be safely deleted (`rm learning/_meta/NLM_RECORD_TEMPLATE.md`); nothing in v0.3.0 references it.
+2. The §NotebookLM Notebooks section in `learning/INDEX.md` can be deleted or repurposed as the user sees fit; v0.3.0 INDEX template offers a §Tier Documents section instead.
+3. METHODOLOGY.md (if previously copied via init) may be re-synced from `${CLAUDE_PLUGIN_ROOT}/skills/init/templates/METHODOLOGY.md` v0.3 to drop §10.1 NLM section.
+
+### Released as part of
+
+mj-agentlab-marketplace v3.2.0 (learn-kit AI 3-tier generator + NLM decoupling minor release).
+
+## [0.2.0] - 2026-05-11
+
+### Added
+
+- **`skills/locate/SKILL.md`** — `/learn-kit:locate <query>` reverse-lookup skill. Given a concept name, mnemonic, partial doc title, or section reference (e.g., "DLSRS", "5 维 HITL 规则", "§3.3 of the HITL prompt"), returns ranked candidates split into interpreted [LEARNING] docs (preferred tier) and source canonical docs (secondary tier), with confidence scores and a project-recognition profile. Tools: `Read`, `Glob`, `Grep` (read-only).
+- **`skills/scan/SKILL.md`** — `/learn-kit:scan` enumeration skill. Lists all learnable canonical doc candidates in the project by tag prefix ([STANDARD] / [SPEC] / [ADR] / [GUIDE] / [RUNBOOK]), cross-references with interpreted [LEARNING] docs to mark interpreted vs uninterpreted, and ranks by citation frequency (PageRank-lite). Tools: `Read`, `Glob`, `Grep` (read-only).
+- **`skills/init/templates/METHODOLOGY.md` §1.5 "Project Discovery"** — new section between §1 Source Intake and §2 Framework Induction. Documents the recommended scan → locate → 8-stage workflow for using learn-kit in existing projects with prior docs, with concrete scenarios (mj-system-like, mj-agent-like, blank-project). METHODOLOGY version: v0.1 → v0.2.
+
+### Changed
+
+- **`.claude-plugin/plugin.json`** — version 0.1.0 → 0.2.0; description amended to mention locate + scan skills.
+
+### Design notes
+
+- Both new skills use a **pure heuristic** project recognition strategy — no manifest, no persistent doc-map, no configuration. Recognition signals: CLAUDE.md tag declarations, learning/INDEX.md presence, docs/ tag-prefix file count. Confidence bands: ≥0.95 / 0.85–0.95 / 0.7–0.85 / <0.7-with-warning.
+- Stateless by design: every invocation re-scans. Cost is acceptable for typical project sizes (<500 docs, 1–5s). Statelessness eliminates cache-invalidation complexity.
+- Decision record: `docs/[ADR]_LearnKit_Discovery_Skills.md` in the marketplace repo.
+
+### Released as part of
+
+mj-agentlab-marketplace v3.1.0 (learn-kit discovery skills minor release).
+
+## [0.1.0] - 2026-05-11
+
+### Added
+
+Initial release of learn-kit — a generic Claude Code plugin for converting enumerated rule lists into learnable knowledge artifacts.
+
+**Plugin structure**:
+
+- `.claude-plugin/plugin.json` (v0.1.0, MIT, MJ-AgentLab author)
+- `skills/init/SKILL.md` — `/learn-kit:init` scaffold command (`disable-model-invocation: true`)
+- `skills/init/templates/METHODOLOGY.md` — full 8-stage pedagogical methodology (de-MJ-ified)
+- `skills/init/templates/NLM_RECORD_TEMPLATE.md` — NLM artifact metadata schema
+- `skills/init/templates/INDEX.md` — `learning/INDEX.md` template
+- `skills/init/references/rfc-2119-keywords-pedagogy.md` — worked example: RFC 2119 five normative keywords (MUST / MUST NOT / SHOULD / SHOULD NOT / MAY)
+- `README.md` — install + usage guide
+- `LICENSE` — MIT
+
+**Provenance**:
+
+Derived from `mj-system` project's `learning/_meta/[LEARNING]_Rule_List_Interpretation_Authoring.md` v2.0 STANDARD-tier methodology. The upstream methodology underwent N=5 cross-domain validation (HITL collaboration / service architecture / SQL formatting / database design / database naming; rules ranging 8–63; dimensions 3–5; 5 independent metaphor worlds; all N-dim AND-gate geometry) before stabilizing. MJ-specific references and case studies have been stripped to enable generic adoption across any project; the original methodology core (§1–§8 eight stages, §9 subsystem meta-rules, §11 worked example pointer, §12 versioning) is preserved.
+
+**Pairs with**: `notebooklm-kit` v2.4.1 (NotebookLM artifact generation; sibling plugin in the same marketplace).
+
+**Released as part of**: mj-agentlab-marketplace v3.0.0 generic restructure.

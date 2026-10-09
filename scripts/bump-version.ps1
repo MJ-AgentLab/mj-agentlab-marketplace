@@ -1,53 +1,3 @@
-﻿<#
-.SYNOPSIS
-    MJ AgentLab Marketplace version bump script
-
-.DESCRIPTION
-    Update version numbers at every version-bearing site, using ANCHORED field updates.
-    Never a whole-file string replace: descriptions and README's «历史版本记录» legitimately
-    contain other version numbers, and rewriting those fabricates release history.
-
-    Sites by scope (6-site invariant since the Codex dual-host wrapper):
-      - marketplace: VERSION
-                     .claude-plugin/marketplace.json  (metadata.version)
-                     README.md                        (version badge, line 3)
-      - plugin:      plugins/<name>/.claude-plugin/plugin.json   (root version)
-                     plugins/<name>/.codex-plugin/plugin.json    (root version — MUST match the
-                                                                  legacy one; validate-dual-host.mjs
-                                                                  asserts they are identical)
-                     .claude-plugin/marketplace.json  (plugins[name].version)
-                     README.md                        (that plugin's table row Version cell)
-                     CLAUDE.md                        (`<name>` v<X.Y.Z> prose line)
-
-    .agents/plugins/marketplace.json (the Codex native catalog) is deliberately NOT a site:
-    it carries no version, so a bump must never add one there.
-
-    Every site asserts EXACTLY ONE anchor match and exits 1 otherwise. A wrong -From, a drifted
-    file shape, or a missing required file fails loudly rather than silently SKIPping — the
-    failure mode behind the v4.4.9 → v4.5.0 postmortem (README + CLAUDE.md drifted across 4
-    releases) and Issue #110.
-
-.PARAMETER From
-    Current version, bare X.Y.Z (e.g. "1.0.0")
-
-.PARAMETER To
-    Target version, bare X.Y.Z (e.g. "1.1.0")
-
-.PARAMETER Scope
-    Target scope: "marketplace" (default) or a plugin name. The marketplace has shipped 2
-    plugins since v6.3.0 (learn-kit + diagram-kit). When adding a plugin, append its name to
-    the ValidateSet here and to the install-hooks.ps1 commit-msg regex.
-
-.PARAMETER DryRun
-    Preview mode: show what would change without modifying files
-
-.EXAMPLE
-    .\scripts\bump-version.ps1 -From "4.3.0" -To "4.3.1" -DryRun
-    .\scripts\bump-version.ps1 -From "4.3.0" -To "4.3.1"
-    .\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "learn-kit" -DryRun
-    .\scripts\bump-version.ps1 -From "1.0.0" -To "1.1.0" -Scope "learn-kit"
-#>
-
 param(
     # Both must be a bare X.Y.Z. -To is interpolated into .NET regex REPLACEMENT strings, where
     # `$0` / `$1` / `$&` are substitution tokens rather than literals — a -To of '$0-x' wrote
@@ -55,15 +5,15 @@ param(
     # entirely, and also rejects ordinary typos ('v4.0.0', '4.0', a trailing space) before any
     # file is opened.
     [Parameter(Mandatory = $true)]
-    [ValidatePattern('^\d+\.\d+\.\d+$')]
+    [ValidatePattern('\A(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\z')]
     [string]$From,
 
     [Parameter(Mandatory = $true)]
-    [ValidatePattern('^\d+\.\d+\.\d+$')]
+    [ValidatePattern('\A(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\z')]
     [string]$To,
 
     [Parameter(Mandatory = $false)]
-    [ValidateSet("marketplace", "learn-kit", "diagram-kit")]
+    [ValidateSet("marketplace", "diagram-kit")]
     [string]$Scope = "marketplace",
 
     [switch]$DryRun,
@@ -96,176 +46,44 @@ if ($TestFailAfterReplace -lt 0 -or $TestCorruptAfterWrite -lt 0) {
     exit 1
 }
 
-# Locate project root (script lives in scripts/)
+# Only VERSION and the portable root manifest are authoritative; README is derived.
 $ProjectRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
-
-# Build target file list based on scope
-# Note: CLAUDE.md is plugin-scope only — its `plugins/` section names plugin versions
-# (e.g. `learn-kit` v1.2.0), which only change on plugin bumps. Marketplace-scope bumps
-# don't touch the plugin version, so CLAUDE.md isn't a target there.
-if ($Scope -eq "marketplace") {
-    $TargetFiles = @(
-        "VERSION",
-        ".claude-plugin/marketplace.json",
-        "README.md"
-    )
-    $MarketplaceJsonMode = "metadata"
-} else {
-    # Dual-host: BOTH plugin manifests carry the root `version` and validate-dual-host.mjs
-    # asserts they are character-identical. Bumping only the legacy one produces
-    # MANIFEST_FIELD_DRIFT and fails CI, so the native manifest is a mandatory target.
-    $TargetFiles = @(
-        "plugins/$Scope/.claude-plugin/plugin.json",
-        "plugins/$Scope/.codex-plugin/plugin.json",
-        ".claude-plugin/marketplace.json",
-        "README.md",
-        "CLAUDE.md"
-    )
-    $MarketplaceJsonMode = "plugin:$Scope"
-}
-
-# Plugin manifests get an anchored field update, never a whole-file string replace: their
-# descriptions legitimately contain other version numbers (the legacy one narrates v3.0.0 /
-# v3.1.0 / v3.2.0 history; the native one names the NLM bridge 4.0.0 and connector 0.8.7).
-# A naive replace of `-From 4.0.0` would rewrite the bridge version inside prose.
-$PluginManifestPaths = @(
-    "plugins/$Scope/.claude-plugin/plugin.json",
-    "plugins/$Scope/.codex-plugin/plugin.json"
-)
-
-Write-Host ""
-if ($DryRun) {
-    Write-Host "[DryRun] Preview mode - no files will be modified" -ForegroundColor Yellow
-} else {
-    Write-Host "[Execute] Will modify files" -ForegroundColor Cyan
-}
-Write-Host "Scope: $Scope" -ForegroundColor White
-Write-Host "Version: $From -> $To" -ForegroundColor White
-Write-Host "Project root: $ProjectRoot" -ForegroundColor White
-Write-Host ("-" * 60)
-
-# ---------------------------------------------------------------------------
-# PHASE 1 — PREFLIGHT (read-only)
-#
-# Derive and validate the anchor for EVERY target before writing ANY of them. The previous
-# shape validated and wrote each target in turn, so a failure on a later target (CLAUDE.md is
-# last) left the earlier ones already bumped — a half-bumped repo, which is strictly worse than
-# the silent SKIP it replaced. Nothing below opens a file for writing until every target has
-# been proven to have exactly one anchor match.
-# ---------------------------------------------------------------------------
-
-$EscFrom = [regex]::Escape($From)
+$TargetFiles = if ($Scope -eq 'marketplace') { @('VERSION', 'README.md') } else { @('plugins/diagram-kit/plugin.json') }
 $Plan = @()
 $Failures = @()
-
 foreach ($RelPath in $TargetFiles) {
     $FilePath = Join-Path $ProjectRoot $RelPath
-
-    # Every entry in $TargetFiles is required. A missing one previously SKIPped and exited 0 —
-    # which is how the "mandatory" native manifest could silently not be bumped.
-    if (-not (Test-Path $FilePath)) {
-        $Failures += "  [FAIL] $RelPath - required file not found (every target in scope '$Scope' must exist)"
+    if (-not (Test-Path -LiteralPath $FilePath -PathType Leaf)) {
+        $Failures += "  [FAIL] $RelPath - required file missing"
         continue
     }
-
-    $Content = Get-Content -Path $FilePath -Raw -Encoding UTF8
-    $Pattern = $null
-    $Replacement = $null
-    $What = $null
-
-    if ($RelPath -eq ".claude-plugin/marketplace.json") {
-        if ($MarketplaceJsonMode -eq "metadata") {
-            # Tempered gap (not `[^}]*`): the description legitimately contains `}`, which the
-            # negated class stopped at; and it must not cross into the plugins array, so the gap
-            # refuses to pass a `"name":` key (metadata has none before its own version).
-            $Pattern = '("metadata"\s*:\s*\{(?:(?!"name"\s*:)[\s\S])*?"version"\s*:\s*")' + $EscFrom + '"'
-            $Replacement = '${1}' + $To + '"'
-            $What = "metadata.version"
-        } else {
-            # Only this plugin's entry.
-            #
-            # History: the original `[^}]*` negated-class stopped at the FIRST `}` between
-            # "name" and "version" — including a `}` inside a description string — so the entry
-            # regex silently failed and marketplace.json was SKIPped for every plugin bump whose
-            # description contained literal braces (Issue #110 era).
-            #
-            # Then `[\s\S]*?` fixed that but introduced a worse one: a lazy quantifier
-            # BACKTRACKS. If the scoped plugin's catalog version is not $From, the gap expands
-            # past its own entry and matches a LATER plugin's version. Reproduced: with
-            # learn-kit drifted to 3.2.0 and diagram-kit sitting at 3.2.1,
-            # `-Scope learn-kit -From 3.2.1` matched 3697 chars spanning into diagram-kit and
-            # rewrote DIAGRAM-KIT's version — with MatchCount 1, so a count check missed it.
-            #
-            # Now: temper the gap so it can never cross a following `"name":` key (the entry
-            # boundary). A drifted entry matches 0 times and fails preflight.
-            $PluginName = $MarketplaceJsonMode -replace "^plugin:", ""
-            $Pattern = '("name"\s*:\s*"' + [regex]::Escape($PluginName) + '"(?:(?!"name"\s*:)[\s\S])*?"version"\s*:\s*")' + $EscFrom + '"'
-            $Replacement = '${1}' + $To + '"'
-            $What = "plugins[$PluginName].version"
-        }
-    } elseif ($PluginManifestPaths -contains $RelPath) {
-        # The ROOT version key, which in both manifests immediately follows "name".
-        $Pattern = '("name"\s*:\s*"' + [regex]::Escape($Scope) + '"\s*,\s*"version"\s*:\s*")' + $EscFrom + '"'
-        $Replacement = '${1}' + $To + '"'
-        $What = "root version"
-    } elseif ($RelPath -eq "README.md") {
-        # README's «历史版本记录» lists every past release; those lines must never move. A naive
-        # replace rewrote the marketplace's own "- v3.2.1 — plugin.json schema 修复" history
-        # entry into a fabricated "v4.0.0" one, directly above the real v4.0.0 line.
-        if ($Scope -eq "marketplace") {
-            $Pattern = '(badge/version-)' + $EscFrom + '(-blue)'
-            $Replacement = '${1}' + $To + '${2}'
-            $What = "version badge"
-        } else {
-            $Pattern = '(\| \[\*\*' + [regex]::Escape($Scope) + '\*\*\][^\r\n]*?\| \*\*)' + $EscFrom + '(\*\* \|)'
-            $Replacement = '${1}' + $To + '${2}'
-            $What = "plugin table row Version cell for $Scope"
-        }
-    } elseif ($RelPath -eq "CLAUDE.md") {
-        # The `plugins/` section line, identified by backtick-wrapped name + ' v' + version.
-        # Scoped so «历史版本记录» and doc-tree narrative that incidentally contain $From stay put.
-        $Pattern = '(`' + [regex]::Escape($Scope) + '` v)' + $EscFrom
-        $Replacement = '${1}' + $To
-        $What = "``$Scope`` plugin line"
-    } elseif ($RelPath -eq "VERSION") {
-        # The file holds nothing but the version.
-        $Pattern = '\b' + $EscFrom + '\b'
-        $Replacement = $To
-        $What = "the version"
+    $Content = [System.IO.File]::ReadAllText($FilePath)
+    $EscapedFrom = [regex]::Escape($From)
+    if ($RelPath -eq 'VERSION') {
+        $Pattern = "^$EscapedFrom\s*$"
+        $Replacement = "$To" + [Environment]::NewLine
+        $What = 'authoritative marketplace version'
+    } elseif ($RelPath -eq 'README.md') {
+        $Pattern = "badge/version-$EscapedFrom-blue"
+        $Replacement = "badge/version-$To-blue"
+        $What = 'derived version badge'
     } else {
-        $Failures += "  [FAIL] $RelPath - no anchor rule defined for this target"
-        continue
+        try { $Manifest = $Content | ConvertFrom-Json -ErrorAction Stop } catch { $Failures += "[FAIL] invalid manifest JSON"; continue }
+        if ($Manifest.version -ne $From) { $Failures += "[FAIL] manifest version does not match From"; continue }
+        $Pattern = '(?m)^  "version": "' + $EscapedFrom + '",'
+        $Replacement = '  "version": "' + $To + '",'
+        $What = 'authoritative plugin version'
     }
-
-    $MatchCount = ([regex]::Matches($Content, $Pattern, [System.Text.RegularExpressions.RegexOptions]::Singleline)).Count
-    if ($MatchCount -ne 1) {
-        $Failures += "  [FAIL] $RelPath - expected exactly 1 anchor ($What) at '$From', found $MatchCount"
-        continue
-    }
-
-    # Produce the new content NOW, during preflight, so a replacement that silently no-ops is
-    # caught before anything is written rather than after.
-    $NewContent = [regex]::Replace($Content, $Pattern, $Replacement, [System.Text.RegularExpressions.RegexOptions]::Singleline)
-    if ($NewContent -eq $Content) {
-        $Failures += "  [FAIL] $RelPath - anchor ($What) matched but the replacement changed nothing"
-        continue
-    }
-
-    $Plan += [PSCustomObject]@{
-        RelPath    = $RelPath
-        FilePath   = $FilePath
-        Content    = $Content
-        NewContent = $NewContent
-        What       = $What
-    }
+    $MatchCount = ([regex]::Matches($Content, $Pattern)).Count
+    if ($MatchCount -ne 1) { $Failures += "[FAIL] $RelPath - expected exactly 1 anchor, found $MatchCount"; continue }
+    $NewContent = [regex]::Replace($Content, $Pattern, $Replacement)
+    if ($Scope -eq 'diagram-kit' -and ($NewContent | ConvertFrom-Json).version -ne $To) { $Failures += "[FAIL] replacement did not update root manifest version"; continue }
+    if ($NewContent -eq $Content) { $Failures += "[FAIL] replacement changed nothing"; continue }
+    $Plan += [PSCustomObject]@{ RelPath=$RelPath; FilePath=$FilePath; Content=$Content; NewContent=$NewContent; What=$What }
 }
-
 if ($Failures.Count -gt 0) {
-    Write-Host ""
-    foreach ($f in $Failures) { Write-Host $f -ForegroundColor Red }
-    Write-Host ""
-    Write-Host "Refusing to bump: $($Failures.Count) target(s) failed preflight. NOTHING was written." -ForegroundColor Red
-    Write-Host "Either the version is not $From, or a file's shape drifted from what the anchors expect." -ForegroundColor Red
+    $Failures | ForEach-Object { Write-Host $_ }
+    Write-Host 'Refusing to bump. NOTHING was written.'
     exit 1
 }
 
@@ -382,6 +200,6 @@ if ($DryRun) {
     Write-Host "[DryRun] No files were modified. Re-run without -DryRun to apply." -ForegroundColor Yellow
 } else {
     Write-Host "[Done] Modified $TotalMatches file(s) at $TotalMatches anchor(s)" -ForegroundColor Cyan
-    Write-Host "Next: verify with 'npm run validate:dual-host' and update CHANGELOG entries." -ForegroundColor Cyan
+    Write-Host "Next: verify with 'npm run validate' and update CHANGELOG entries." -ForegroundColor Cyan
 }
 Write-Host ""

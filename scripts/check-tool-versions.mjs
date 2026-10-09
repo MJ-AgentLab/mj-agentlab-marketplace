@@ -1,26 +1,9 @@
 #!/usr/bin/env node
-// Baseline toolchain verification (plan §2.4).
-//
-//   node scripts/check-tool-versions.mjs --codex 0.144.3 --claude 2.1.210 --uv 0.11.21 \
-//                                        --bridge 4.0.0 --nlm 0.8.7
-//   node scripts/check-tool-versions.mjs --report-only
-//
-// PIN SEMANTICS (see [ADR]_Codex_Dual_Native_Plugin_Support):
-//   exact  — codex, uv, bridge, nlm. These are supply-chain inputs: uv resolves the hashed
-//            lock, and bridge/connector versions are bound into the Gate fingerprint. An
-//            unexpected version must fail closed.
-//   minimum — claude. The Claude Code CLI is an externally rolling host binary that feeds
-//            nothing into the wheel/lock and cannot be pinned by this repo. Requiring an
-//            exact patch would redden CI on every upstream auto-update. Verified >= instead.
-//
-// bridge/nlm versions come ONLY from `learn-kit-nlm-bridge --contract-json` (a purely local
-// call). This script must never run `nlm --version`, `server_info`, `refresh_auth`, or any
-// login/profile/account command.
-
+// Exact Codex acceptance baseline; no retired runtime probes.
 import { runCli } from "./run-cli.mjs";
 
-const EXACT = new Set(["codex", "uv", "bridge", "nlm"]);
-const MINIMUM = new Set(["claude"]);
+const EXACT = new Set(["codex"]);
+const MINIMUM = new Set();
 
 const SEMVER = /^(\d+)\.(\d+)\.(\d+)/;
 
@@ -63,33 +46,14 @@ async function detectCli(command, args = ["--version"]) {
   return extractVersion(r.stdout || r.stderr);
 }
 
-/** Local-only bridge contract probe. Returns { bridge, nlm, python } or null when absent. */
-async function detectBridgeContract() {
-  const r = await runCli("learn-kit-nlm-bridge", ["--contract-json"], { timeoutMs: 30000 });
-  if (r.error || r.status !== 0) return null;
-  try {
-    const j = JSON.parse(r.stdout);
-    return { bridge: j.bridge_version ?? null, nlm: j.connector_version ?? null, python: j.python_version ?? null };
-  } catch {
-    return null;
-  }
-}
-
 async function detectAll() {
-  const [codex, claude, uv, node] = await Promise.all([
-    detectCli("codex"),
-    detectCli("claude"),
-    detectCli("uv"),
-    Promise.resolve(process.version.replace(/^v/, "")),
-  ]);
-  const contract = await detectBridgeContract();
-  return { codex, claude, uv, node, bridge: contract?.bridge ?? null, nlm: contract?.nlm ?? null, python: contract?.python ?? null, bridgeInstalled: contract !== null };
+  return {codex: await detectCli('codex'), node: process.version.slice(1)};
 }
 
 function usage(msg) {
   process.stderr.write(
     `check-tool-versions: ${msg}\n` +
-      `usage: node scripts/check-tool-versions.mjs [--codex X] [--claude X] [--uv X] [--bridge X] [--nlm X]\n` +
+      `usage: node scripts/check-tool-versions.mjs [--codex X]\n` +
       `       node scripts/check-tool-versions.mjs --report-only\n`,
   );
   return 2;
@@ -104,7 +68,7 @@ async function main(argv) {
       reportOnly = true;
       continue;
     }
-    const m = /^--(codex|claude|uv|bridge|nlm)$/.exec(a);
+    const m = /^--(codex)$/.exec(a);
     if (!m) return usage(`unknown argument: ${a}`);
     const v = argv[++i];
     if (v === undefined) return usage(`${a} requires a value`);
@@ -128,12 +92,6 @@ async function main(argv) {
     const status = r.ok ? "OK  " : "FAIL";
     if (!r.ok) failed++;
     process.stdout.write(`${status} ${r.tool.padEnd(7)} ${mode} ${String(r.expected).padEnd(9)} actual=${r.actual ?? "<not detected>"}  (${r.reason})\n`);
-  }
-  if ((expected.bridge || expected.nlm) && !actual.bridgeInstalled) {
-    process.stdout.write(
-      `\nNote: learn-kit-nlm-bridge is not installed. It is an OPTIONAL, NLM-only component;\n` +
-        `the four skills and all local outputs work without it. Install it to verify bridge/nlm pins.\n`,
-    );
   }
   process.stdout.write(`\n${failed} of ${results.length} pin(s) failed\n`);
   return failed ? 1 : 0;

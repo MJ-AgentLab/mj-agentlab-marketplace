@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-10-09
+
+### Changed
+
+- Use portable root plugin.json and skills/ for ChatGPT desktop and local Codex, keeping arch-diagram as the only public skill. OpenAI display information moves to extensions.com.openai, and obsolete Claude/Codex host wrappers retire; Claude support stops.
+- Keep fact tracing, installed-resource location and the actual Python validator; repository development skills are separate in .agents/skills.
+- Apply 0.2.0 → 0.3.0 under the owner's authorization to prepare versions before desktop acceptance. The plugin remains in its 0.x phase; the version-rule exception is recorded in the [migration ADR](../../docs/adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md). Publication and acceptance status are tracked in the [readiness record](../../docs/runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md). Upgrade and resource-validation steps are in the [client guide](../../docs/guide/[GUIDE]_ChatGPT_Codex_Upgrade.md).
+
+## [0.2.0] - 2026-07-22
+
 ### Added
 
 - **Codex native wrapper** — `.codex-plugin/plugin.json` + `skills/arch-diagram/agents/openai.yaml`, so the plugin installs and the skill discovers on Codex as well as Claude Code.

@@ -1,19 +1,16 @@
-## 变更摘要
-<!-- 简述本次变更的内容和目的 -->
+## 变更与影响
 
-## 关联 Issue
-Closes #
+说明问题、结果及兼容性影响；退役/目录迁移需链接 ADR 和用户升级指南。
 
-## 影响范围
-<!-- 受影响的 Plugin / Skill / 基础设施 -->
+## 验证
 
-## 自检结果
-- [ ] plugin.json 字段完整（name, description, version, author, license, skills）
-- [ ] SKILL.md frontmatter 有效（name, description）
-- [ ] 无残留调试代码
-- [ ] Commit message 符合 `<type>(<scope>): <summary>` 规范
-- [ ] CHANGELOG.md `[Unreleased]` 区块已更新（如属用户可见变更）
-- [ ] **A6 / Check** — 本 PR 若触及 [Framework §2.7](../docs/rule/[STANDARD]_Documentation_Framework.md#§27-claudemd-sync-allowlist-v16-new) allowlist 任一类（① global standards `docs/rule/[STANDARD]_*.md` / ② runtime info `VERSION` + `marketplace.json` + plugin.json major/minor / ③ directory entries `.claude/skills/mp-*/` + plugin skill 目录 + `docs/` 子目录结构 / ④ Codex dual-native surfaces `.agents/plugins/marketplace.json` + `.codex-plugin/plugin.json` + `agents/openai.yaml` + learn-kit `.mcp.json` + `nlm-bridge/**` + installer + contract 脚本）则 root `CLAUDE.md` 已同步更新；不涉及则勾选「N/A — 未触发 allowlist」。授权集见 `scripts/check-a6.mjs` `TRIGGERS`（authoritative）。如触发但 CLAUDE.md 真无变化面：PR title 加 `[skip a6]` **且** reviewer 对当前 head commit 提交 `APPROVED` review、body 精确等于 `A6 N/A confirmed`（两者缺一不可 —— `.github/workflows/a6.yml` 会实际校验 sign-off，仅有 token 不放行）
+列出实际执行的检查、结果及未执行项目的具体原因。
 
-## 审核要点
-<!-- 提示 Reviewer 重点关注的内容 -->
+## 自检
+
+- [ ] 相关测试、结构校验、版本 dry-run 已通过。
+- [ ] 触发 A6 的变化已同步根 AGENTS.md；新旧触发路径按过渡门禁处理。
+- [ ] 文档与 19 个 .agents/skills 开发技能符合“代理执行、owner 决策”规范。
+- [ ] VERSION 和 diagram-kit 根 plugin.json 只按已经完成验收的发布决定更新。
+- [ ] 未覆盖历史版本、标签或发布资产。
+- [ ] 独立审查及 required checks 由 GitHub 门禁处理。
