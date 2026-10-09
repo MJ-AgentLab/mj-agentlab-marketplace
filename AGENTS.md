@@ -6,7 +6,7 @@
 
 understanding-kit 是显式调用的只读理解测验，Codex 优先 Side Chat；其他会话使用明确的上下文快照，不假定持续同步。插件边界及对旧单插件约束的局部替代见 [新增决定](docs/adr/[ADR]_Understanding_Kit_Addition.md)，真实客户端证据见 [验收记录](docs/runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)。learn-kit、NotebookLM 与 Claude 退役规则继续有效。
 
-Understanding Kit 初始 0.1.0 已通过 #195 合入 develop；0.1.1 为行为补测发现问题的修正候选，历史失败、中性路径重测、回放和未覆盖项分开记录。同步 #196 后，230 项回归与四种隔离安装场景通过；实际模型行为不替代两个目标客户端交互验收。市场 8.0.1 已是下一补丁预升标记，Diagram Kit 保持 0.3.0，未因此新增发布。
+Understanding Kit 0.1.1 已通过 #197 合入 develop，历史失败、中性路径重测、回放和未覆盖项分开记录。该合并树已有 230 项回归与四种隔离安装证据；实际模型行为不替代两个目标客户端交互验收。owner 已授权继续并发布，本分支准备 marketplace 8.1.0，插件版本为 diagram-kit 0.3.0 / understanding-kit 0.1.1 / explain-kit 0.1.0。当前候选检查、客户端缺口、独立批准和发布身份见 [8.1.0 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)；候选版本不表示已发布。
 
 explain-kit 0.1.0 提供速解和深讲，默认中文、保留术语原文，按深度路由并适应用户格式。新增解释能力的 [ADR](docs/adr/[ADR]_Explain_Kit_Addition.md) 与 [验收记录](docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md) 不改变测验策略。
 

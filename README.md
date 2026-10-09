@@ -1,6 +1,6 @@
 # MJ AgentLab Marketplace
 
-![Version](https://img.shields.io/badge/version-8.0.1-blue)
+![Version](https://img.shields.io/badge/version-8.1.0-blue)
 
 面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场。当前开发版本提供三个 portable 插件，无需 MCP 服务：
 
@@ -8,9 +8,9 @@
 | --- | --- | --- |
 | **diagram-kit / arch-diagram** | 从源码事实生成七类 Mermaid 架构/UML 图，节点与边追溯到文件行号，实际运行 Python 校验器 | 0.3.0，已随市场 v8.0.0 发布 |
 | **explain-kit / glossary、concept** | 陌生术语速解与机制、反例、边界深讲，遵从受众、语言和长度要求 | 0.1.0，已合入 develop，尚未正式发布 |
-| **understanding-kit / pop-quiz** | 从当前职责和关键判断选取必要知识，进行 2+1 自适应理解测验并给出简要反馈 | 初始 0.1.0 已合入 develop；0.1.1 为后续验收修正候选，尚未正式发布 |
+| **understanding-kit / pop-quiz** | 从当前职责和关键判断选取必要知识，进行 2+1 自适应理解测验并给出简要反馈 | 0.1.1 已通过 #197 合入 develop，尚未正式发布 |
 
-市场 VERSION 保持 8.0.1 的 develop pre-bump；当前新增插件不能从已发布 main / v8.0.0 获取。
+本分支准备 Marketplace 8.1.0 发布候选，取代未发布的 8.0.1 pre-bump 标记；发布意图已获授权，真实客户端验收与发布 PR 独立批准仍待完成，见 [8.1.0 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)。当前新增插件不能从已发布 main / v8.0.0 获取。
 
 ### Codex
 
@@ -45,4 +45,4 @@ Codex 优先在 Side Chat 提供任务片段、职责与可定位的源码、规
 
 ### Development
 
-19 个开发技能位于 .agents/skills，公开技能为 arch-diagram、pop-quiz、glossary 和 concept。项目指令见 [AGENTS.md](AGENTS.md)，规范和历史见 [文档索引](docs/INDEX.md)，贡献见 [CONTRIBUTING.md](CONTRIBUTING.md)。代理运行 npm ci、npm run validate、npm test、npm run check:baseline-tools 和 npm run smoke:codex。新增插件仅准备 develop PR；正式发布需要独立授权与两个目标客户端的验收证据。
+19 个开发技能位于 .agents/skills，公开技能为 arch-diagram、pop-quiz、glossary 和 concept。项目指令见 [AGENTS.md](AGENTS.md)，规范和历史见 [文档索引](docs/INDEX.md)，贡献见 [CONTRIBUTING.md](CONTRIBUTING.md)。代理运行 npm ci、npm run validate、npm test、npm run check:baseline-tools 和 npm run smoke:codex。正式发布需要发布授权、两个目标客户端的验收证据、当前发布提交独立批准与 required checks；本轮授权和证据分项记录。
