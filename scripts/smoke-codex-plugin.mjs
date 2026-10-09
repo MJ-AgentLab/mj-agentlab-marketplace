@@ -23,7 +23,33 @@ export function parsePromptInputSkills(stdout) {
     }
   }
   walk(JSON.parse(stdout));
-  return [...texts.join("\n").matchAll(/^\s*-\s+([a-z0-9-]+(?::[a-z0-9-]+)?):\s.*\(file:\s*(.+)\)\s*$/gm)].map(m => ({ name: m[1], file: m[2].trim() }));
+  return texts.flatMap(text => {
+    // Newer CLI catalogs use aliases; each text block owns its root table.
+    const roots = new Map();
+    let inRoots = false;
+    for (const line of text.split(/\r?\n/)) {
+      if (/^#{1,6}\s/.test(line)) inRoots = line === "### Skill roots";
+      if (!inRoots) continue;
+      const m = line.match(/^\s*-\s+`(r\d+)`\s*=\s*`([^`]+)`\s*$/);
+      if (!m) continue;
+      const [, alias, root] = m;
+      if (!path.isAbsolute(root)) throw new Error(`skill root must be absolute: ${alias}`);
+      if (roots.has(alias) && roots.get(alias) !== root) throw new Error(`conflicting skill root: ${alias}`);
+      roots.set(alias, root);
+    }
+    return [...text.matchAll(/^\s*-\s+([a-z0-9-]+(?::[a-z0-9-]+)?):\s.*\(file:\s*(.+)\)\s*$/gm)].map(m => {
+      let file = m[2].trim();
+      const alias = file.match(/^(r\d+)[/\\](.*)$/);
+      if (alias) {
+        const root = roots.get(alias[1]);
+        if (!root) throw new Error(`unknown skill root: ${alias[1]}`);
+        file = path.resolve(root, alias[2]);
+        const rel = path.relative(root, file);
+        if (rel.startsWith("..") || path.isAbsolute(rel)) throw new Error(`locator escapes skill root: ${alias[1]}`);
+      }
+      return { name: m[1], file };
+    });
+  });
 }
 
 export function assertDiscovery(entries, { cacheRoot, repositoryRoot, inRepository }) {

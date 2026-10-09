@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
 state: active
-version: v1.2
+version: v1.3
 last-verified: 2026-10-09
 ---
 
@@ -106,3 +106,15 @@ main 的 active rules 查询确认独立批准、最后推送批准、过期批�
 只读复验确认 Release 正文与发布提交的 CHANGELOG 8.0.0 节规范化后相同；v7.0.0 / v7.0.1 的原 wheel/checksum 资产 ID 和 SHA-256 digest 与前次查询相同。没有覆盖发布历史。
 
 合并后查询 #190 reviews 为空；没有提供桌面客户端版本、安装来源及实际调用/校验结果。发布成功、标签绑定、CI 和 CLI 结果各有证据，但不替代这两项缺失记录，不追认为桌面 PASS 或独立批准，也不推定 owner 已批准本次验收豁免。
+
+## 发布后 canary 路径兼容复验
+
+#191 / #192 已分别合入 main f2905e2 / develop 95f2e32；develop 准备版本为 8.0.1，diagram-kit 仍为 0.3.0。闲置停用的 develop pre-bump workflow 已恢复为 active，并在精确 95f2e32 上实际运行 [检查](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/37890328663)，结果 SUCCESS；没有创建 8.0.1 标签或 Release。
+
+main f2905e2 的 [latest canary](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/37890332543) 在 Codex CLI 0.162.0 的真实安装后失败：提示目录使用 Skill roots 表和 r1 / r2 文件别名，旧检测脚本把别名当作 cwd 相对路径，realpath 报 ENOENT。Windows 的隔离安装复现相同错误，实际缓存文件存在；未把该失败归因于插件缺失。
+
+修复先通过三个新增回归测试复现失败，再按同一提示文本的根映射展开路径，继续执行真实文件、缓存范围及 19 个仓库技能作用域检查。缺失、相对、冲突和越界映射均拒绝，多个提示文本间不共享根映射。既有绝对路径、空格和括号路径、Windows 大小写及重复/越界技能保护仍保留。
+
+修复后的本地真实隔离安装已分别通过 CLI 0.147.0 与临时安装的 0.162.0：只安装 diagram-kit 0.3.0，consumer 技能 1/0、repo 技能 1/19，资源来自各自的隔离缓存，无 MCP，安装资源包含 Python 校验器；测试完成后清理临时安装目录。该复验仅覆盖安装与发现，没有重新声称模型生成或桌面调用。固定验收基线与已发布 v8.0.0 正文、标签、旧资产保持原样。
+
+严格结构校验与 201 项本地测试通过，0 失败、0 跳过，强制执行 PowerShell/Python；其中七项技能发现回归覆盖旧绝对路径和新别名目录。
