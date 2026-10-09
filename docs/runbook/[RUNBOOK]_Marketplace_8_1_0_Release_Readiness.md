@@ -24,7 +24,7 @@ last-verified: null
 | 版本准备 | 从 develop 的未发布 pre-bump `8.0.1` 准备功能版本 `8.1.0`；marketplace dry-run 的目标仅为 VERSION 与派生 README badge |
 | 插件版本 | diagram-kit `0.3.0`、understanding-kit `0.1.1`、explain-kit `0.1.0`，不连带升版；各根 manifest 继续是插件版本权威 |
 | 公开范围 | 三插件、四公开技能：arch-diagram、pop-quiz、glossary、concept；19 个 mp-* 开发技能保持仓库作用域 |
-| 正式放行 | PENDING：本轮工作区工程检查已通过；精确提交安装、实际客户端证据、发布 PR 当前 head 独立批准及 required checks 按 §3 分别记录 |
+| 正式放行 | PENDING：本轮工程检查与 `425e5f6` 精确提交安装已通过；实际客户端证据、发布 PR 当前 head 独立批准及 required checks 按 §3 分别记录 |
 
 正式发布以 [发布操作](./[RUNBOOK]_Release_Operations.md) 为准。VERSION 变化合入 main 会触发自动发布，因此到 main 的 PR 合并属于正式发布步骤，不能把它当作普通 develop 合并。
 
@@ -58,7 +58,7 @@ npm run smoke:codex
 | diagram-kit + explain-kit | 3 | 3 |
 | 全部三插件 | 3 | 4 |
 
-以上是预期，分别核对仓库外 0 个、仓库内 19 个开发技能；普通 prompt 隐藏 pop-quiz 是预期策略，不是安装缺失。包含 diagram-kit 的场景实际执行安装缓存中的 Python 校验器。该阶段成功只证明安装、发现和资源合同，不证明真实桌面 UI。
+以上预期已在 `425e5f656f7b37ee2238c914f9b5548c1dd5c6c2` 的 canonical Git tree 四场景实际通过：仓库外 0 个、仓库内 19 个开发技能；普通 prompt 隐藏 pop-quiz 是预期策略，不是安装缺失。包含 diagram-kit 的三个场景实际执行安装缓存中的 Python 校验器，均 FAIL 0 / WARN 0。日志为 `%TEMP%/marketplace-8.1.0-canonical-425e5f6.log`。该提交的全量测试另为 230/230、失败 0、跳过 0（21,348 ms），日志为 `%TEMP%/marketplace-8.1.0-tests-425e5f6.log`。本记录随后只补检查证据；最终冻结 head 的 canonical 复验与 required checks 在发布 PR 补记。该阶段成功只证明安装、发现和资源合同，不证明真实桌面 UI。
 
 ### §2.3 Existing model behavior evidence
 
@@ -86,9 +86,9 @@ npm run smoke:codex
 | #197 精确合并树身份 | PASS | `42bbe05` 与 `49b0f31` 的 tree 均为 `83ec10b39b0e371bf8c4cdbc508305691ac99a42`；合并不追认独立批准 |
 | main ancestry 同步 | PASS | `e1b22a7` 普通 merge 纳入 main `2e7fa3f`；与 `42bbe05` 零文件内容差异 |
 | 版本 dry-run / 目标 | PASS（版本准备） | marketplace `8.0.1` → `8.1.0`，目标仅 VERSION / README badge；三个插件根 manifest 版本保持 |
-| 本轮候选 baseline / strict validation | PASS（工作区） | Codex CLI 0.147.0 精确匹配；严格校验 errors 0、19 开发技能、4 公开技能；最终 head 复验见发布 PR |
-| 本轮候选完整测试 / 真实 Python | PASS（工作区） | 230/230、失败 0、跳过 0，20,675 ms；强制 Python / PowerShell；升级指南文档合同另为 10/10。首次文案缺版本失败及修正留日志 |
-| 本轮候选 smoke / canonical install | PASS（工作区 smoke）；canonical PENDING | 四场景安装、作用域、版本及资源字节通过；包含 Diagram Kit 的三个场景实际运行缓存 Python，FAIL 0 / WARN 0；精确提交 canonical 安装在提交后执行 |
+| 本轮候选 baseline / strict validation | PASS | Codex CLI 0.147.0 精确匹配；严格校验 errors 0、19 开发技能、4 公开技能；canonical `425e5f6` 再运行相同严格校验，最终冻结 head 见发布 PR |
+| 本轮候选完整测试 / 真实 Python | PASS | 工作区 230/230（20,675 ms），提交 `425e5f6` 230/230（21,348 ms），均失败 0、跳过 0，强制 Python / PowerShell；升级指南文档合同另为 10/10。首次文案失败与修正留日志 |
+| 本轮候选 smoke / canonical install | PASS | 工作区与精确 Git SHA `425e5f6` 四场景安装、作用域、版本及资源字节通过；包含 Diagram Kit 的三个场景实际运行缓存 Python，FAIL 0 / WARN 0；最终冻结 head 在发布 PR 补记 |
 | 已有 CLI 模型行为 | LIMITED EVIDENCE | §2.3 分插件记录；Understanding Kit 为 18 scoped PASS / 1 UNEXERCISED，状态回放独立记录 |
 | Codex Side Chat 真实交互 | NOT RUN | 无可操作的原生 Side Chat 接口；CLI 不替代窗口及快照选段证据 |
 | ChatGPT 桌面真实交互 | NOT RUN | 原生 UI 能力不可用且 Computer Use 禁止自动化该客户端；三个插件均保留缺证据状态 |
@@ -111,4 +111,4 @@ npm run smoke:codex
 
 | Version | Date | last-verified | Summary |
 | --- | --- | --- | --- |
-| v1.0 | 2026-10-09 | PENDING | 记录 #197 合并树、main ancestry 同步、已授权 8.1.0 版本准备及本轮工作区检查；真实 UI、canonical 安装、当前发布 head 批准、CI 与正式发布身份待补，不追认 PASS 或豁免。 |
+| v1.0 | 2026-10-09 | PENDING | 记录 #197 合并树、main ancestry 同步、已授权 8.1.0 版本准备、本轮 230 测试与四场景 canonical 安装；真实 UI、当前发布 head 批准、CI 与正式发布身份待补，不追认 PASS 或豁免。 |
