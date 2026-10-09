@@ -6,12 +6,12 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
 state: active
-version: v2.3
+version: v2.4
 ---
 
 # 文档索引
 
-当前开发版本注册 diagram-kit / arch-diagram、understanding-kit / pop-quiz 与 explain-kit / glossary、concept；客户端为 ChatGPT 桌面端和 Codex 本地环境。新增 Understanding Kit 和 Explain Kit 均为 0.1.0、尚未发布，marketplace 保持 8.0.1 的开发 pre-bump。[Marketplace v8.0.0](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.0.0) / diagram-kit 0.3.0 已正式发布，仅包含 Diagram Kit；其桌面端实际验收仍未执行。
+当前开发版本注册 diagram-kit / arch-diagram、understanding-kit / pop-quiz 与 explain-kit / glossary、concept；客户端为 ChatGPT 桌面端和 Codex 本地环境。Understanding Kit 初始 0.1.0 已合入 develop，0.1.1 为后续验收修正候选；Explain Kit 为 0.1.0，两者尚未发布。marketplace 保持 8.0.1 的开发 pre-bump。[Marketplace v8.0.0](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.0.0) / diagram-kit 0.3.0 已正式发布，仅包含 Diagram Kit；其桌面端实际验收仍未执行。
 
 ## 入口
 
@@ -46,7 +46,7 @@ version: v2.3
 
 - [迁移实际验收记录](runbook/[RUNBOOK]_ChatGPT_Codex_Migration_Acceptance.md)
 - [发布准备、实际发布与后续记录](runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md)
-- [Understanding Kit 安装、行为及客户端验收](runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)
+- [Understanding Kit 合并后安装、行为及客户端验收](runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)
 
 ## 决策与故障历史
 

@@ -21,10 +21,12 @@ Either side can be **Undetermined**. Work evidence describes the supported appli
 2. **Critical decisions:** list concrete judgments the responsibility requires. Locate accepted requirements and constraints, including ones missing from the AI artifact. For a sales report, the judgment might be whether the metric follows the approved grain and avoids duplicate orders.
 3. **Necessary knowledge:** work backward from each judgment to concepts, rules, causal relationships and prerequisites. The presence of SQL JOINs or many technical terms is not itself a learning target.
 4. **Necessity filter:** first require responsibility relevance and decision criticality; then assess failure consequence and necessary dependencies. Transfer value breaks close priority ties but cannot turn optional knowledge into MNK.
-5. **Granularity:** keep one observable target and independent assessability. Split only for distinct error patterns or feedback needs. Adapt to explicitly available capability evidence and responsibility. Reliably mastered prerequisites can stay dependencies without another quiz.
+5. **Granularity:** keep one observable target and independent assessability. Split only for distinct error patterns or feedback needs. Adapt to explicitly available capability evidence and responsibility. Task-supported prerequisites can stay dependencies without another quiz.
 6. **Boundary check:** identify why this KU matters, the decision it supports, the independent judgment it enables, prerequisites, observable evidence and excluded content. If these are unclear, revise the target rather than force a question.
 
 For example, a report maintainer may need to judge whether joining order lines changes order-level totals. That is narrower than "understand SQL" and broader than recalling the name of an aggregate function. An architecture owner may instead need to judge a grain/relationship contract.
+
+Match supplied independent understanding evidence to its specific task claims before choosing the default KU. Keep already-supported foundations as prerequisites and prioritize a necessary pending judgment that lacks comparable evidence. Both base questions must elicit that uncovered judgment; a new KU title or question wording does not establish a distinct target. Revisit a supported claim only for a concrete new condition or changed decision that needs additional evidence, explaining that reason briefly. This prioritization stays local to the supplied task and never establishes permanent mastery.
 
 ## Rank and gate
 

@@ -6,12 +6,12 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
 state: active
-version: v1.2
+version: v1.3
 ---
 
 # [GUIDE] ChatGPT / Codex upgrade
 
-仅 ChatGPT 桌面端和 Codex 本地继续支持；停止 Claude 支持。[Marketplace v8.0.0](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.0.0) / diagram-kit 0.3.0 已正式发布；桌面端实际验收仍未执行，状态见 [发布记录](../runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md)。该发布仅包含 diagram-kit / arch-diagram；当前开发分支新增 understanding-kit / pop-quiz 0.1.0，尚不能从已发布 main 或 v8.0.0 获取。开发技能位于 .agents/skills，根项目入口为 AGENTS.md。
+仅 ChatGPT 桌面端和 Codex 本地继续支持；停止 Claude 支持。[Marketplace v8.0.0](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.0.0) / diagram-kit 0.3.0 已正式发布；桌面端实际验收仍未执行，状态见 [发布记录](../runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md)。该发布仅包含 diagram-kit / arch-diagram；understanding-kit / pop-quiz 初始 0.1.0 已合入 develop，0.1.1 为后续验收修正候选，尚不能从已发布 main 或 v8.0.0 获取。开发技能位于 .agents/skills，根项目入口为 AGENTS.md。
 
 ## Existing learn-kit users
 

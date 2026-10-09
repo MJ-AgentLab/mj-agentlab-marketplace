@@ -1,6 +1,6 @@
 # Understanding Kit
 
-An explicitly invoked, evidence-grounded understanding micro-quiz for the decisions you own in software development. Initial plugin version: **0.1.0**; design baseline: **v0.3**.
+An explicitly invoked, evidence-grounded understanding micro-quiz for the decisions you own in software development. Current development candidate: **0.1.1**; initial package: **0.1.0**; design baseline: **v0.3**.
 
 Invoke **`$understanding-kit:pop-quiz`** with the task, your responsibility and the relevant requirements, code, review or test records. Prefer a Side Chat when your client provides one. A regular ChatGPT desktop or local Codex chat can use the same flow with an accessible, clearly identified snapshot. The plugin does not create a Side Chat or continuously synchronize another chat.
 
