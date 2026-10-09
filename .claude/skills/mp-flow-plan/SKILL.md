@@ -1,7 +1,16 @@
 ---
 name: mp-flow-plan
-description: Authors the working Plan body for a marketplace task (HITL Stage 2) — writes a 6-section markdown plan (linked artifacts / scope / task breakdown / risk control / documentation decision / verification & AC) and recommends saving it to `~/.claude/plans/<topic>.md` (user-local) since marketplace does NOT maintain a `plans/` directory in-repo. Make sure to use this skill whenever the user says "写 plan", "draft plan", "执行计划", "怎么推进", "任务拆解", "Stage 2", "plan body", "实施计划", "marketplace plan", or has Repo Scan output in hand and is ready to lay out the working plan. Distinct from mp-doc-author which writes formal `[GUIDE]` / `[ADR]` / `[RUNBOOK]` docs into the repo — this skill writes a working plan that lives in user-local `~/.claude/plans/` or is embedded in the PR description (per HITL Standard §0 working-doc boundary). Outputs the Plan body draft in conversation; does NOT auto-write the file. Do not use for: Repo state fact-check (use mp-flow-repo-scan, Stage 1), formal doc authoring like ADR/GUIDE (use mp-doc-author or mp-flow-design-adr), or Plugin/Skill code authoring (use mp-flow-author, Stage 4).
+description: "Use for marketplace implementation planning / 执行计划 after intake and repo scan: define ordered tasks, risks, documentation and acceptance evidence."
 ---
+
+## 执行授权（治理过渡）
+
+代理负责在已有授权范围内执行文件修改、环境检查、测试、隔离安装验证、提交、推送及 PR 准备。owner 作出决定后，由代理执行，不要求 owner 复制命令，不重复确认已授权的操作。CI、分支保护、独立审查及外部身份验证按实际约束处理；无法完成时说明具体原因，只请求最小必要参与。
+
+需要 owner 决策时，提供 2–3 个明确选项，说明主要影响，标记推荐项及理由。常规实现细节由代理判断；必须由 owner 决定的事项等待答复。已有决定不重复询问，推荐项不视为默认批准。
+
+本节优先于下文旧流程中的逐次确认、仅输出命令和要求用户手工执行的表述。已授权步骤由代理执行；未决 owner 决策、独立审查和正式发布授权按 AI 工程规范 §3 处理。
+
 
 # Marketplace Flow — Plan Body Authoring (HITL Stage 2)
 
