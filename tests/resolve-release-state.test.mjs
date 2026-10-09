@@ -13,8 +13,6 @@ import {
   evaluateReleaseIdentity,
   evaluateReleaseIntegrity,
   normalizeNotes,
-  parseAssetDigest,
-  checksumAssetBytes,
   InputError,
   PolicyError,
 } from "../scripts/resolve-release-state.mjs";
@@ -23,18 +21,7 @@ const SCRIPT = fileURLToPath(new URL("../scripts/resolve-release-state.mjs", imp
 
 const SHA = "a".repeat(40);
 const OTHER_SHA = "b".repeat(40);
-const WHEEL = "learn_kit_nlm_bridge-4.0.0-py3-none-any.whl";
-const CHECKSUM = `${WHEEL}.sha256`;
-// Deliberately contain hex LETTERS. An all-digit fixture makes .toUpperCase() a no-op, so
-// the case-sensitivity assertions below would compare a string to itself and always pass.
-const WHEEL_HASH = "1a".repeat(32);
-const CHECKSUM_HASH = "2b".repeat(32);
-const NOTES = "### Added\n\n- a thing\n";
-
-const EXPECTED_ASSETS = {
-  wheel: { name: WHEEL, size: 1234, rawSha256: WHEEL_HASH },
-  checksum: { name: CHECKSUM, size: 99, rawSha256: CHECKSUM_HASH },
-};
+const NOTES = "### Added\n\n- portable Git release\n";
 
 function identityFacts(o = {}) {
   return {
@@ -51,11 +38,6 @@ function identityFacts(o = {}) {
   };
 }
 
-const uploadedAssets = () => [
-  { id: 1, name: WHEEL, state: "uploaded", size: 1234, digest: `sha256:${WHEEL_HASH}` },
-  { id: 2, name: CHECKSUM, state: "uploaded", size: 99, digest: `sha256:${CHECKSUM_HASH}` },
-];
-
 function draftRelease(o = {}) {
   return { present: true, id: 5, tag: "v7.0.0", name: "v7.0.0", targetCommitish: SHA, isDraft: true, isPrerelease: false, body: NOTES, assets: [], ...o };
 }
@@ -67,7 +49,6 @@ function integrityFacts(o = {}) {
     ...base,
     expectedCanonicalIdentity: { sha: SHA, version: "7.0.0", notes: normalizeNotes(NOTES) },
     priorPhase: "initial",
-    expectedAssets: EXPECTED_ASSETS,
     ...o,
   };
 }
@@ -96,34 +77,6 @@ test("resolveReleaseState demands real booleans", () => {
 test("normalizeNotes folds CRLF and trims the outside only", () => {
   assert.equal(normalizeNotes("\r\n### A\r\n\r\n- x\r\n\r\n"), "### A\n\n- x");
   assert.equal(normalizeNotes("  ### A\n\n- x  "), "### A\n\n- x");
-});
-
-test("parseAssetDigest accepts exactly one spelling", () => {
-  assert.equal(parseAssetDigest(`sha256:${WHEEL_HASH}`), WHEEL_HASH);
-  for (const bad of [
-    `SHA256:${WHEEL_HASH}`,
-    `sha256:${WHEEL_HASH.toUpperCase()}`,
-    `sha512:${WHEEL_HASH}`,
-    `md5:${"a".repeat(32)}`,
-    WHEEL_HASH,
-    `sha256:${"a".repeat(63)}`,
-    `sha256:sha256:${WHEEL_HASH}`,
-    "sha256:",
-    "",
-    null,
-    undefined,
-  ]) {
-    assert.equal(parseAssetDigest(bad), null, `must reject: ${JSON.stringify(bad)}`);
-  }
-});
-
-test("checksumAssetBytes produces the exact required bytes", () => {
-  const b = checksumAssetBytes(WHEEL_HASH);
-  assert.equal(b, `${WHEEL_HASH}  ${WHEEL}\n`);
-  assert.equal(b.split("  ").length, 2, "exactly two spaces as the separator");
-  assert.ok(b.endsWith("\n") && !b.endsWith("\n\n"), "exactly one trailing newline");
-  assert.ok(!b.includes("\r"), "no CR");
-  assert.throws(() => checksumAssetBytes("nope"), InputError);
 });
 
 // ------------------------------------------------------------------ identity
@@ -215,14 +168,14 @@ test("phase may stay put or advance one step", () => {
 test("phase must not go backwards", () => {
   assert.throws(() => evaluateReleaseIntegrity(integrityFacts({ priorPhase: "draft" })), PolicyError);
   assert.throws(
-    () => evaluateReleaseIntegrity(integrityFacts({ release: draftRelease({ assets: uploadedAssets() }), priorPhase: "published" })),
+    () => evaluateReleaseIntegrity(integrityFacts({ release: draftRelease({ assets: [] }), priorPhase: "published" })),
     PolicyError,
   );
 });
 
 test("phase must not skip initial -> published", () => {
   assert.throws(
-    () => evaluateReleaseIntegrity(integrityFacts({ tag: { present: true, sha: SHA }, release: draftRelease({ isDraft: false, assets: uploadedAssets() }), priorPhase: "initial" })),
+    () => evaluateReleaseIntegrity(integrityFacts({ tag: { present: true, sha: SHA }, release: draftRelease({ isDraft: false, assets: [] }), priorPhase: "initial" })),
     PolicyError,
   );
 });
@@ -248,123 +201,31 @@ test("a correct tag-only state recovers by creating the draft", () => {
   assert.equal(r.assetAction, "noop");
 });
 
-test("an empty draft resumes into an upload", () => {
+test("an empty canonical draft publishes without attachments", () => {
   const r = evaluateReleaseIntegrity(integrityFacts({ release: draftRelease(), priorPhase: "draft" }));
-  assert.equal(r.action, "resume-draft");
-  assert.equal(r.assetAction, "upload");
+  assert.equal(r.action, "publish-draft"); assert.equal(r.assetAction, "noop");
 });
-
-test("a fully-populated draft is ready to publish", () => {
-  const r = evaluateReleaseIntegrity(integrityFacts({ release: draftRelease({ assets: uploadedAssets() }), priorPhase: "draft" }));
-  assert.equal(r.action, "publish-draft");
-  assert.equal(r.assetAction, "noop");
-});
-
-test("a correct published release is a noop", () => {
-  const r = evaluateReleaseIntegrity(
-    integrityFacts({ tag: { present: true, sha: SHA }, release: draftRelease({ isDraft: false, assets: uploadedAssets() }), priorPhase: "published" }),
-  );
+test("a canonical published Git/tag release is a noop", () => {
+  const r = evaluateReleaseIntegrity(integrityFacts({ tag: {present:true, sha:SHA}, release: draftRelease({isDraft:false}), priorPhase:"published" }));
   assert.equal(r.action, "noop");
-  assert.equal(r.assetAction, "noop");
 });
-
-// ------------------------------------------------------------------ integrity: foreign drafts
-test("a draft with a foreign tag, name, body or prerelease flag is refused", () => {
-  for (const bad of [{ tag: "v6.9.9" }, { name: "Release 7" }, { body: "something else" }, { isPrerelease: true }]) {
-    assert.throws(
-      () => evaluateReleaseIntegrity(integrityFacts({ release: draftRelease(bad), priorPhase: "draft" })),
-      PolicyError,
-      `should refuse draft with ${JSON.stringify(bad)}`,
-    );
+test("foreign draft metadata and missing SHA bindings are refused", () => {
+  for (const change of [{tag:"v9.0.0"}, {name:"other"}, {body:"other"}, {isPrerelease:true}, {targetCommitish:undefined}]) {
+    assert.throws(() => evaluateReleaseIntegrity(integrityFacts({release:draftRelease(change),priorPhase:"draft"})), PolicyError);
+  }
+});
+test("published releases need a canonical tag and exact metadata", () => {
+  assert.throws(() => evaluateReleaseIntegrity(integrityFacts({release:draftRelease({isDraft:false}),priorPhase:"published"})), PolicyError);
+  for(const change of [{name:"other"}, {isPrerelease:true}, {body:"other"}]) {
+    assert.throws(() => evaluateReleaseIntegrity(integrityFacts({tag:{present:true,sha:SHA},release:draftRelease({isDraft:false,...change}),priorPhase:"published"})), PolicyError);
+  }
+});
+test("existing attachments fail closed and are never repaired", () => {
+  for(const isDraft of [true,false]) {
+    assert.throws(() => evaluateReleaseIntegrity(integrityFacts({tag:{present:true,sha:SHA},release:draftRelease({isDraft,assets:[{name:"historic-artifact"}]}),priorPhase:isDraft?"draft":"published"})), PolicyError);
   }
 });
 
-// ------------------------------------------------------------------ integrity: assets
-test("partial assets fail rather than resume", () => {
-  // A truncated upload and a foreign one look identical from here.
-  for (const assets of [[uploadedAssets()[0]], [uploadedAssets()[1]]]) {
-    assert.throws(() => evaluateReleaseIntegrity(integrityFacts({ release: draftRelease({ assets }), priorPhase: "draft" })), PolicyError);
-  }
-});
-
-test("duplicate assets fail", () => {
-  const a = uploadedAssets();
-  assert.throws(
-    () => evaluateReleaseIntegrity(integrityFacts({ release: draftRelease({ assets: [...a, a[0]] }), priorPhase: "draft" })),
-    PolicyError,
-  );
-});
-
-test("an unknown asset fails", () => {
-  const assets = [...uploadedAssets(), { id: 9, name: "surprise.tar.gz", state: "uploaded", size: 1, digest: `sha256:${WHEEL_HASH}` }];
-  assert.throws(() => evaluateReleaseIntegrity(integrityFacts({ release: draftRelease({ assets }), priorPhase: "draft" })), PolicyError);
-});
-
-test("an unknown asset standing in for a missing expected one fails cleanly", () => {
-  // Two assets, so the count matches and the partial-assets branch never fires. Without the
-  // unknown-name check this reaches the expected-asset loop and dereferences undefined —
-  // a TypeError crash instead of a policy failure. Assert the TYPE, not merely that it threw.
-  const assets = [uploadedAssets()[0], { id: 9, name: "surprise.tar.gz", state: "uploaded", size: 99, digest: `sha256:${CHECKSUM_HASH}` }];
-  assert.throws(
-    () => evaluateReleaseIntegrity(integrityFacts({ release: draftRelease({ assets }), priorPhase: "draft" })),
-    PolicyError,
-  );
-});
-
-test("a published release with no assets at all fails", () => {
-  // Reaches the published-assets guard specifically: an empty list classifies as "absent"
-  // rather than throwing earlier, so this is the only case that exercises it.
-  assert.throws(
-    () => evaluateReleaseIntegrity(integrityFacts({ tag: { present: true, sha: SHA }, release: draftRelease({ isDraft: false, assets: [] }), priorPhase: "published" })),
-    PolicyError,
-  );
-});
-
-test("a mismatched digest, size or state fails", () => {
-  const mutate = (i, patch) => {
-    const a = uploadedAssets();
-    a[i] = { ...a[i], ...patch };
-    return a;
-  };
-  for (const assets of [
-    mutate(0, { digest: `sha256:${"9".repeat(64)}` }),
-    mutate(0, { size: 4321 }),
-    mutate(0, { state: "starter" }),
-    mutate(1, { digest: `sha256:${WHEEL_HASH}` }), // checksum carrying the wheel's digest
-    mutate(0, { digest: WHEEL_HASH }), // missing the sha256: prefix
-    mutate(0, { digest: `sha256:${WHEEL_HASH.toUpperCase()}` }),
-  ]) {
-    assert.throws(() => evaluateReleaseIntegrity(integrityFacts({ release: draftRelease({ assets }), priorPhase: "draft" })), PolicyError);
-  }
-});
-
-test("a published release with wrong assets is never repaired in place", () => {
-  const facts = integrityFacts({
-    tag: { present: true, sha: SHA },
-    release: draftRelease({ isDraft: false, assets: [uploadedAssets()[0]] }),
-    priorPhase: "published",
-  });
-  assert.throws(() => evaluateReleaseIntegrity(facts), PolicyError);
-});
-
-test("a published release with no tag fails", () => {
-  assert.throws(
-    () => evaluateReleaseIntegrity(integrityFacts({ tag: { present: false }, release: draftRelease({ isDraft: false, assets: uploadedAssets() }), priorPhase: "published" })),
-    PolicyError,
-  );
-});
-
-test("expectedAssets must name exactly the two pinned artifacts", () => {
-  for (const bad of [
-    { wheel: { name: "other.whl", size: 1, rawSha256: WHEEL_HASH }, checksum: EXPECTED_ASSETS.checksum },
-    { wheel: { name: WHEEL, size: 0, rawSha256: WHEEL_HASH }, checksum: EXPECTED_ASSETS.checksum },
-    { wheel: { name: WHEEL, size: 1, rawSha256: "nope" }, checksum: EXPECTED_ASSETS.checksum },
-  ]) {
-    assert.throws(() => evaluateReleaseIntegrity(integrityFacts({ expectedAssets: bad })), InputError);
-  }
-});
-
-// ------------------------------------------------------------------ CLI
 function runCli(args) {
   return spawnSync(process.execPath, [SCRIPT, ...args], { encoding: "utf8" });
 }

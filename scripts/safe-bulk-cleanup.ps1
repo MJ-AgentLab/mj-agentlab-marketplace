@@ -4,7 +4,7 @@
 
 .DESCRIPTION
     Wraps the 4-check pre-flight + 3-trap-aware deletion logic per
-    `.claude/skills/mp-git-cleanup/SKILL.md` §Bulk Cleanup Mode.
+    `.agents/skills/mp-git-cleanup/SKILL.md` §Bulk Cleanup Mode.
 
     Pre-flight checks (all must pass; otherwise STOP):
       1. No unmerged branches vs integration branch (default: develop)

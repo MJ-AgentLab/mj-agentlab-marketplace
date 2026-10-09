@@ -1,0 +1,3 @@
+prefix_rule(pattern = ["git", "reset", "--hard"], decision = "prompt", justification = "Confirm the exact destructive scope unless already authorized.")
+prefix_rule(pattern = ["git", "push", "--force"], decision = "prompt", justification = "Confirm any history rewrite; protected branches require normal PR flow.")
+prefix_rule(pattern = ["git", "clean", "-fd"], decision = "prompt", justification = "Inspect untracked files before deletion.")

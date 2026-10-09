@@ -1,14 +1,4 @@
-// Shared command resolution for every executable this repo starts.
-//
-// Rationale (plan §2.4): repo-level Claude wrapper, Codex smoke, baseline version probing and
-// the MCP stdio probe must all launch executables through ONE entry point. Node's builtin
-// spawn(logicalName, { shell: false }) cannot start a Windows `.cmd` shim (ENOENT), so every
-// caller would otherwise grow its own divergent workaround. cross-spawn@7.0.6 is pinned and
-// performs the PATHEXT-aware resolution centrally.
-//
-// NOTE: the in-package NLM helper (plan §2.5) deliberately does NOT use this module — it must
-// stay dependency-free inside the installed plugin. It carries its own stdlib resolver.
-
+// Shared argv-array executable resolution, including Windows .cmd shims.
 import crossSpawn from "cross-spawn";
 
 /**
@@ -80,6 +70,8 @@ export function runCli(name, args = [], options = {}) {
       }, timeoutMs);
     }
 
-    if (input !== undefined) child.stdin?.end(input);
+    // A non-interactive runner must close stdin even without payload. Some CLIs wait
+    // for EOF before processing a prompt supplied through argv.
+    child.stdin?.end(input);
   });
 }

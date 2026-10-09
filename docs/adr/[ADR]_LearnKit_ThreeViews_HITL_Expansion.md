@@ -9,9 +9,9 @@ state: active
 version: v1.0
 domain: plugin-internal
 related:
-  - ./[ADR]_LearnKit_Consolidation_To_Single_Skill.md
-  - ../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
-  - ../rule/[STANDARD]_Documentation_Framework.md
+  - "./[ADR]_LearnKit_Consolidation_To_Single_Skill.md"
+  - "../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md"
+  - "../rule/[STANDARD]_Documentation_Framework.md"
 ---
 
 # [ADR] LearnKit `three-views` HITL Expansion (v3.1.0)
@@ -141,7 +141,7 @@ Related documentation updates:
 - Plan: `~/.claude/plans/1-foundation-sleepy-emerson.md`
 - Related ADR: [`[ADR]_LearnKit_Consolidation_To_Single_Skill`](./[ADR]_LearnKit_Consolidation_To_Single_Skill.md) (v3.0.0 baseline)
 - Related ADR: [`[ADR]_Develop_PreBump_Adoption`](./[ADR]_Develop_PreBump_Adoption.md) (marketplace 6.0.1 → 6.1.0 minor bump consumes pre-bump slot per its §3)
-- Related STANDARD: [`[STANDARD]_Documentation_Framework`](../rule/[STANDARD]_Documentation_Framework.md) §2.7 (CLAUDE.md sync allowlist trigger), §1 (docs/INDEX.md registration hard rule)
+- Related STANDARD: [`[STANDARD]_Documentation_Framework`](../archive/[DEPRECATED]_[STANDARD]_Documentation_Framework_v1.9.md) §2.7 (CLAUDE.md sync allowlist trigger), §1 (docs/INDEX.md registration hard rule)
 
 ## §8 Decision Log
 

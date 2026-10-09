@@ -13,7 +13,7 @@ tags:
   - gfm
   - style
 related:
-  - ./[STANDARD]_Documentation_Framework.md
+  - "./[STANDARD]_Documentation_Framework.md"
 ---
 
 # [STANDARD] GitHub Markdown
@@ -118,8 +118,8 @@ For cross-references within the repo, use relative paths:
 
 ```markdown
 See [Commit Convention](./[STANDARD]_Commit_Message_Convention.md)
-See [HITL Standard §4.1](./[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md#§41-intake-prompt)
-See [Plugin README](../plugins/learn-kit/README.md)
+See [HITL Standard §4.1](../archive/[DEPRECATED]_[STANDARD]_AI_Engineering_Execution_HITL_Prompt_v1.5.md#§41-intake-prompt)
+See [Plugin README](../../plugins/diagram-kit/README.md)
 ```
 
 ### §5.2 Absolute URLs for External
@@ -160,7 +160,7 @@ scope: marketplace
 ```
 
 ```json
-{"name": "learn-kit"}
+{"name": "diagram-kit"}
 ```
 
 ```text
@@ -188,7 +188,7 @@ For code blocks > 30 lines or code that lives in actual source files, reference 
 
 ```markdown
 See `scripts/bump-version.ps1:42-60` for the version-triangle sync logic.
-See `plugins/learn-kit/skills/scaffold-learning/SKILL.md` for the discovery skill pattern.
+See `plugins/diagram-kit/skills/arch-diagram/SKILL.md` for the discovery skill pattern.
 ```
 
 Avoids staleness when code evolves.
@@ -365,13 +365,13 @@ related:
 ## §1 Audience
 
 This guide is for **plugin authors** working with `mj-agentlab-marketplace`.
-See [Marketplace Overview](../guide/[GUIDE]_Marketplace_Project_Overview.md) for repo structure.
+See [Marketplace Overview](../archive/[DEPRECATED]_[GUIDE]_Marketplace_Project_Overview_v1.0.md) for repo structure.
 
 ## §2 Walkthrough
 
 1. Create a worktree (see `/mp-git-branch`)
-2. Run `/plugin-dev:create-plugin` to scaffold
-3. Validate with `/plugin-dev:plugin-validator`
+2. Use `mp-flow-author` to implement the approved portable plugin
+3. Validate with `npm run validate`
 
 > [!IMPORTANT]
 > Always commit `plugin.json` and `SKILL.md` together — they form the plugin contract.

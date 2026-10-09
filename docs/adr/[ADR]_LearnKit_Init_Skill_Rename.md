@@ -14,9 +14,9 @@ tags:
   - slash-conflict
   - v5.0.0
 related:
-  - ./[ADR]_NotebookLM_Kit_Retirement.md
-  - ../guide/[GUIDE]_Migration_From_v3_to_v4.md
-  - ../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
+  - "./[ADR]_NotebookLM_Kit_Retirement.md"
+  - "../archive/[DEPRECATED]_[GUIDE]_Migration_From_v3_to_v4_v6.0.md"
+  - "../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md"
 ---
 
 # [ADR] learn-kit `init` Skill Rename to `scaffold-learning` (marketplace v5.0.0)
@@ -176,8 +176,8 @@ learn-kit v1.2.1 持有 skill 名 `init`，其 slash 调用形式为 `/learn-kit
 
 - Plan: `~/.claude/plans/image-1-marketplace-learn-kit-init-lear-smooth-bear.md`
 - 既有 ADR: [`[ADR]_NotebookLM_Kit_Retirement.md`](./[ADR]_NotebookLM_Kit_Retirement.md)（v4.0.0 plugin retirement 先例 —— 同样是用户可见 breaking → marketplace major bump）
-- Migration: [`[GUIDE]_Migration_From_v3_to_v4.md`](../guide/[GUIDE]_Migration_From_v3_to_v4.md) §5 v4.5.x → v5.0.0
-- HITL STANDARD: [`[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`](../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md) §3.1（plugin 重命名 = 必停 HITL trigger）
+- Migration: [`[GUIDE]_Migration_From_v3_to_v4.md`](../archive/[DEPRECATED]_[GUIDE]_Migration_From_v3_to_v4_v6.0.md) §5 v4.5.x → v5.0.0
+- HITL STANDARD: [`[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`](../archive/[DEPRECATED]_[STANDARD]_AI_Engineering_Execution_HITL_Prompt_v1.5.md) §3.1（plugin 重命名 = 必停 HITL trigger）
 - v1.2.1 截图证据：用户提交，列示 `/init` 双候选并列（参 Plan §Context 段引用）
 
 ---

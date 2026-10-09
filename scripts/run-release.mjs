@@ -1,49 +1,22 @@
 #!/usr/bin/env node
-// Draft-first release orchestrator (plan §3 Task 3, lines 521–524; §2.4 evaluator contract).
-//
-//   RELEASE_SHA=<40hex> GITHUB_REPOSITORY=<owner/repo> GH_TOKEN=<token> node scripts/run-release.mjs
-//
-// Exit 0 = release created/resumed/published/verified, 1 = a policy/identity/integrity violation,
-// 2 = bad input / the run could not proceed.
-//
-// EVERY DECISION lives in resolve-release-state.mjs, which this file IMPORTS — none of the phase
-// transition, digest normalisation or canonical-selection rules are re-encoded here. This
-// orchestrator only gathers facts and performs writes; the evaluator alone says what to do next.
-// That is exactly the plan's "the workflow gathers facts and performs writes, and copies no ...
-// logic into shell" — realised as a tested Node module rather than untestable YAML shell, so the
-// draft-first state machine (which cannot be exercised end-to-end without a real GitHub release
-// API) is covered by unit tests against a simulated remote.
-//
-// ALL external I/O goes through the injected `io`, so tests drive the full progression
-// (none → draft → uploaded → published, plus every rejection) against a fake. productionIo() is the
-// only place git / gh / uv / the filesystem are touched for real.
-//
-// DRAFT-FIRST, FAIL-CLOSED. A run creates an EMPTY draft, re-queries, uploads the two assets,
-// re-queries, downloads + digest/bytes-verifies + install-verifies them, re-queries one last time
-// adjacent to publish, and only then publishes. A bug or a moving remote fails before publish,
-// leaving an unpublished draft a human can inspect and delete. A published asset is never
-// re-uploaded, overwritten or deleted — the fix for a bad publish is a new patch version.
+// Draft-first Git/tag release. Verify the canonical install and re-query immediately before publication.
+// No build, upload, overwrite or deletion of release assets.
 
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import crypto from "node:crypto";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 import {
   evaluateReleaseIdentity,
   evaluateReleaseIntegrity,
-  checksumAssetBytes,
-  parseAssetDigest,
   PolicyError,
   InputError,
 } from "./resolve-release-state.mjs";
-import { WHEEL_NAME, CHECKSUM_NAME } from "../plugins/learn-kit/scripts/install-nlm-bridge.mjs";
 import { verifyReleaseInstall } from "./release-verify-install.mjs";
 
 const SHA_RE = /^[0-9a-f]{40}$/;
-const sha256Hex = (buf) => crypto.createHash("sha256").update(buf).digest("hex");
 const isSha = (v) => typeof v === "string" && SHA_RE.test(v);
 
 // Backoff for the post-createDraft releases-list-visibility poll. GitHub's releases list is eventually
@@ -69,15 +42,8 @@ export function mkIdentityFacts(rel, probe) {
   };
 }
 
-export function mkIntegrityFacts(idFacts, canonical, priorPhase, expected) {
-  return { ...idFacts, expectedCanonicalIdentity: canonical, priorPhase, expectedAssets: expected };
-}
-
-export function mkExpectedAssets(built) {
-  return {
-    wheel: { name: built.wheel.name, size: built.wheel.size, rawSha256: built.wheel.rawSha256 },
-    checksum: { name: built.checksum.name, size: built.checksum.size, rawSha256: built.checksum.rawSha256 },
-  };
+export function mkIntegrityFacts(idFacts, canonical, priorPhase) {
+  return { ...idFacts, expectedCanonicalIdentity: canonical, priorPhase };
 }
 
 /**
@@ -107,6 +73,7 @@ export function parseReleaseFromList(releases, version) {
   if (matches.length === 0) return { present: false };
   if (matches.length > 1) throw new PolicyError(`more than one release carries tag ${tag} (${matches.length}); refusing to guess`);
   const r = matches[0];
+  if (!Array.isArray(r.assets)) throw new InputError("release assets response must be an array; unknown asset state cannot prove an empty release");
   return {
     present: true,
     id: r.id,
@@ -120,39 +87,10 @@ export function parseReleaseFromList(releases, version) {
     isPrerelease: r.prerelease === true,
     body: typeof r.body === "string" ? r.body : "",
     isImmutable: typeof r.immutable === "boolean" ? r.immutable : undefined,
-    assets: Array.isArray(r.assets)
-      ? r.assets.map((a) => ({ id: a.id, name: a.name, state: a.state, size: a.size, digest: a.digest ?? null }))
-      : [],
+    assets: r.assets.map((a) => ({ id: a.id, name: a.name, state: a.state, size: a.size, digest: a.digest ?? null })),
   };
 }
 
-/**
- * Verify the two draft assets against what we built: the release's REST digest must be the canonical
- * sha256, and the on-disk downloaded bytes must hash to the same. Pure over already-fetched facts +
- * an on-disk hash lookup, so it is unit-tested directly rather than only through the live gh path.
- * `onDiskShaOf(name)` returns the sha256 of the downloaded asset file.
- */
-export function verifyAssetDigests(release, expected, onDiskShaOf) {
-  if (!release || !release.present) throw new PolicyError("draft vanished before the pre-publish digest check");
-  for (const key of ["wheel", "checksum"]) {
-    const exp = expected[key];
-    const asset = (release.assets || []).find((a) => a.name === exp.name);
-    if (!asset) throw new PolicyError(`draft is missing asset ${exp.name} at the digest check`);
-    const hex = parseAssetDigest(asset.digest);
-    if (hex === null) throw new PolicyError(`asset ${exp.name} has no canonical sha256 digest (${JSON.stringify(asset.digest)})`);
-    if (hex !== exp.rawSha256) throw new PolicyError(`asset ${exp.name} REST digest ${hex} != built ${exp.rawSha256}`);
-    const onDisk = onDiskShaOf(exp.name);
-    if (onDisk !== exp.rawSha256) throw new PolicyError(`downloaded ${exp.name} bytes ${onDisk} != built ${exp.rawSha256}`);
-  }
-}
-
-// ------------------------------------------------------------------ orchestration
-
-/**
- * The draft-first progression. `io` supplies every side effect; this function only sequences them
- * and consults the imported evaluator. Any evaluator throw (identity/integrity/phase violation)
- * propagates unchanged, which is the fail-closed behaviour we want.
- */
 export async function runRelease(io) {
   const rel = await io.resolveRelease();
 
@@ -162,21 +100,14 @@ export async function runRelease(io) {
   const canonical = id.canonicalIdentity;
   io.log(`canonical: v${canonical.version}@${canonical.sha.slice(0, 12)}  phase=${id.phase}`);
 
-  // --- Stage 2: build the assets from the one canonical commit.
-  const built = await io.build(canonical.sha);
-  const expected = mkExpectedAssets(built);
-  io.log(`built: wheel ${built.wheel.size}B sha=${built.wheel.rawSha256.slice(0, 12)}  checksum ${built.checksum.size}B`);
-
-  // priorPhase threads the phase observed at the previous query. The first integrity call reuses
-  // the identity probe, so its priorPhase is the identity phase and the re-derived phase matches.
   let lastPhase = id.phase;
-  let integ = evaluateReleaseIntegrity(mkIntegrityFacts(idFacts, canonical, lastPhase, expected));
+  let integ = evaluateReleaseIntegrity(mkIntegrityFacts(idFacts, canonical, lastPhase));
   lastPhase = integ.phase;
-  io.log(`action=${integ.action} assetAction=${integ.assetAction}`);
+  io.log(`action=${integ.action}`);
 
   if (integ.action === "noop") {
     // The integrity evaluator only returns noop for a published release whose tag, body and both
-    // assets already verify. There is nothing left to do — and nothing to re-verify that reaching
+    // source identity already verifies. There is nothing left to do — and nothing to re-verify that reaching
     // this point did not already establish.
     io.log("release is already published and correct — nothing to do.");
     return { result: "noop", canonical };
@@ -185,7 +116,7 @@ export async function runRelease(io) {
   // Re-query the mutable remote (tag + release), rebuild facts with the last observed phase, and
   // re-evaluate. Asserts the action is the one the progression expects, or fails closed.
   const reeval = async (expect) => {
-    const facts = mkIntegrityFacts(mkIdentityFacts(rel, await io.probe(rel.version)), canonical, lastPhase, expected);
+    const facts = mkIntegrityFacts(mkIdentityFacts(rel, await io.probe(rel.version)), canonical, lastPhase);
     const r = evaluateReleaseIntegrity(facts);
     lastPhase = r.phase;
     if (expect && r.action !== expect) throw new PolicyError(`after re-query expected action=${expect}, got ${r.action}`);
@@ -194,20 +125,20 @@ export async function runRelease(io) {
 
   // After createDraft, GitHub's releases list is eventually consistent: the draft this run just created
   // can be briefly absent from `gh api .../releases`, during which the evaluator still reads "no release"
-  // and returns create-draft (phase=initial). Poll with backoff until it flips to resume-draft. ONLY that
+  // and returns create-draft (phase=initial). Poll with backoff until it flips to publish-draft. ONLY that
   // one transient action is tolerated — an evaluator throw (a foreign or mismatched draft) or any other
   // action propagates immediately, and exhausting the budget fails closed too. Without this, the FIRST run
   // of every release loses the create->re-query race and fails closed, needing a manual re-dispatch. This
   // never risks a wrong publish: it only waits for a draft this run itself created to become observable.
   const settleAfterCreate = async () => {
     for (let attempt = 0; ; attempt++) {
-      const r = evaluateReleaseIntegrity(mkIntegrityFacts(mkIdentityFacts(rel, await io.probe(rel.version)), canonical, lastPhase, expected));
-      if (r.action === "resume-draft") {
+      const r = evaluateReleaseIntegrity(mkIntegrityFacts(mkIdentityFacts(rel, await io.probe(rel.version)), canonical, lastPhase));
+      if (r.action === "publish-draft") {
         lastPhase = r.phase;
         return r;
       }
       if (r.action !== "create-draft") {
-        throw new PolicyError(`after createDraft expected resume-draft (or the transient create-draft while the releases list catches up), got ${r.action}`);
+        throw new PolicyError(`after createDraft expected publish-draft (or the transient create-draft while the releases list catches up), got ${r.action}`);
       }
       if (attempt >= DRAFT_VISIBILITY_BACKOFF_MS.length) {
         const waited = Math.round(DRAFT_VISIBILITY_BACKOFF_MS.reduce((a, b) => a + b, 0) / 1000);
@@ -226,24 +157,11 @@ export async function runRelease(io) {
     integ = await settleAfterCreate();
   }
 
-  if (integ.action === "resume-draft") {
-    if (integ.assetAction !== "upload") throw new PolicyError(`resume-draft with assetAction=${integ.assetAction}, expected upload`);
-    await io.uploadAssets(canonical.version, built);
-    io.log("uploaded both assets to the draft.");
-    // This re-query is deliberately NOT polled like settleAfterCreate. `gh release upload` returns only
-    // after both assets are uploaded, and the evaluator intentionally fails closed on a partial /
-    // still-"uploading" / not-yet-digested set — states indistinguishable from a truncated or foreign
-    // upload. Retrying through those would swallow a genuine bad upload. The rare digest-population lag is
-    // an accepted, recoverable fail-closed: a re-dispatch resumes the now-correct draft, never a bad publish.
-    integ = await reeval("publish-draft");
-  }
-
   if (integ.action !== "publish-draft") throw new PolicyError(`unexpected action before publish: ${integ.action}`);
 
-  // Download the draft's own assets through the authenticated API, verify their REST digest + exact
-  // bytes against what we built, then install-verify. All reads/local — no remote write.
-  await io.downloadAndVerify(canonical.version, expected);
-  io.log("draft assets downloaded, digest + bytes + install verified.");
+  const install = await io.verifyInstall(canonical);
+  if (install?.ok !== true) throw new PolicyError("canonical installation verification did not succeed");
+  io.log("canonical Git tree installation verified.");
 
   // Adjacent-to-publish re-query. Nothing below writes to the remote until publish, so this is the
   // last observation before the release goes public.
@@ -251,11 +169,11 @@ export async function runRelease(io) {
   await io.publish(canonical.version);
   io.log(`published v${canonical.version}.`);
 
-  await io.postPublish(rel, canonical, expected);
+  await io.postPublish(rel, canonical);
   return { result: "published", canonical };
 }
 
-// ------------------------------------------------------------------ production io (real git/gh/uv)
+// ------------------------------------------------------------------ production io (real git/gh)
 
 function run(cmd, args, opts = {}) {
   const r = spawnSync(cmd, args, { encoding: "utf8", maxBuffer: 64 * 1024 * 1024, ...opts });
@@ -268,9 +186,6 @@ function must(cmd, args, label, opts = {}) {
   if (r.status !== 0) throw new PolicyError(`${label} failed (exit ${r.status}): ${(r.stderr || r.stdout).trim()}`);
   return r.stdout;
 }
-
-const BRIDGE_DIR = "plugins/learn-kit/nlm-bridge";
-const BUILD_CONSTRAINTS = `${BRIDGE_DIR}/constraints/build-hatchling-1.27.0-py312.txt`;
 
 export function productionIo() {
   const repo = process.env.GITHUB_REPOSITORY;
@@ -342,32 +257,6 @@ export function productionIo() {
       return { tag, release: parseReleaseFromList(releases, version) };
     },
 
-    async build(sha) {
-      // Build from the canonical tree. The orchestrator + evaluator are already loaded from the
-      // triggering commit, so this detach only changes what uv reads, not the code deciding things.
-      must("git", ["checkout", "--detach", "--force", sha], "checkout canonical commit");
-      const epoch = must("git", ["log", "-1", "--format=%ct", sha], "read canonical commit epoch").trim();
-      const outDir = fs.mkdtempSync(path.join(tmp, "release-wheel-"));
-      must(
-        "uv",
-        ["build", "--wheel", "--build-constraints", BUILD_CONSTRAINTS, "--require-hashes", "--no-config", "--out-dir", outDir, BRIDGE_DIR],
-        "uv build wheel",
-        { env: { ...process.env, SOURCE_DATE_EPOCH: epoch } },
-      );
-      const wheelPath = path.join(outDir, WHEEL_NAME);
-      const wheelBuf = fs.readFileSync(wheelPath);
-      const wheelSha = sha256Hex(wheelBuf);
-      const checksumBytes = checksumAssetBytes(wheelSha); // single source of the exact bytes
-      const checksumPath = path.join(outDir, CHECKSUM_NAME);
-      fs.writeFileSync(checksumPath, checksumBytes, { encoding: "utf8" });
-      return {
-        wheelPath,
-        checksumPath,
-        wheel: { name: WHEEL_NAME, size: wheelBuf.length, rawSha256: wheelSha },
-        checksum: { name: CHECKSUM_NAME, size: Buffer.byteLength(checksumBytes, "utf8"), rawSha256: sha256Hex(Buffer.from(checksumBytes, "utf8")) },
-      };
-    },
-
     async createDraft(canonical) {
       const notesPath = path.join(tmp, `release-notes-v${canonical.version}.md`);
       fs.writeFileSync(notesPath, canonical.notes, { encoding: "utf8" });
@@ -378,33 +267,15 @@ export function productionIo() {
       );
     },
 
-    async uploadAssets(version, built) {
-      must("gh", ["release", "upload", `v${version}`, built.wheelPath, built.checksumPath], "upload release assets");
-    },
-
-    async downloadAndVerify(version, expected) {
-      const dir = fs.mkdtempSync(path.join(tmp, "release-download-"));
-      must("gh", ["release", "download", `v${version}`, "--dir", dir, "--pattern", expected.wheel.name, "--pattern", expected.checksum.name], "download draft assets");
-
-      // Re-derive the REST digest of each asset from the release facts and compare to the built
-      // digest, then the on-disk bytes, then install-verify. Belt and suspenders before publish.
-      const rel = must("gh", ["api", "--paginate", `repos/${repo}/releases`], "re-list releases for digest check");
-      const release = parseReleaseFromList(JSON.parse(rel), version);
-      verifyAssetDigests(release, expected, (name) => sha256Hex(fs.readFileSync(path.join(dir, name))));
-
-      const summary = await verifyReleaseInstall({
-        wheelPath: path.join(dir, expected.wheel.name),
-        checksumPath: path.join(dir, expected.checksum.name),
-      });
-      this.log(`install-verify ok: Python ${summary.python_version}, receipt ${summary.install_receipt_sha256.slice(0, 12)}`);
-      fs.rmSync(dir, { recursive: true, force: true });
+    async verifyInstall(canonical) {
+      return await verifyReleaseInstall({ canonicalSha: canonical.sha });
     },
 
     async publish(version) {
       must("gh", ["release", "edit", `v${version}`, "--draft=false"], "publish draft release");
     },
 
-    async postPublish(rel, canonical, expected) {
+    async postPublish(rel, canonical) {
       const { release } = await this.probe(canonical.version);
       if (!release.present || release.isDraft) throw new PolicyError("post-publish: the release is not published");
 
@@ -417,18 +288,7 @@ export function productionIo() {
         this.log("immutable releases not enabled on this repo — not claiming immutability.");
       }
 
-      // Final, WARN-ONLY: the production installer, un-injected, against the two public URLs. The
-      // release is already public and MUST NOT be repaired in place — a failure here is announced
-      // and fixed by a new patch, never by mutating the published assets.
-      const r = run("node", ["plugins/learn-kit/scripts/install-nlm-bridge.mjs", "install",
-        "--wheel-url", `https://github.com/${repo}/releases/download/v${canonical.version}/${expected.wheel.name}`,
-        "--checksum-url", `https://github.com/${repo}/releases/download/v${canonical.version}/${expected.checksum.name}`]);
-      if (r.status === 0) {
-        this.log("final public-URL production install succeeded.");
-        run("node", ["plugins/learn-kit/scripts/install-nlm-bridge.mjs", "uninstall"]);
-      } else {
-        this.log(`::warning::final public-URL production install did NOT succeed (exit ${r.status}). The release is published and must not be patched in place; fix via a new patch version.\n${(r.stderr || r.stdout).trim()}`);
-      }
+      evaluateReleaseIntegrity(mkIntegrityFacts(mkIdentityFacts(rel, await this.probe(canonical.version)), canonical, "published"));
     },
   };
 }
