@@ -5,6 +5,11 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Clarify the published Marketplace v8.1.0 installation sources and record actual release identity, post-publication checks and remaining desktop acceptance gaps.
+- Update the three-plugin installation guides and retain separate CLI, model-behavior and real-client evidence. Preserve published CHANGELOG sections, tags and assets; documentation updates do not change plugin versions or introduce a new Release.
+
 ## [8.1.0] - 2026-10-09
 
 **Marketplace `8.0.0 → 8.1.0` · Understanding Kit `0.1.1` · Explain Kit `0.1.0` · Diagram Kit `0.3.0` unchanged.** Marketplace 8.0.1 was an unpublished develop pre-bump. This section prepares the additive feature release; actual publication, client acceptance and approvals are tracked in the [8.1.0 release-readiness record](docs/runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md). A CHANGELOG entry does not establish publication or acceptance.
