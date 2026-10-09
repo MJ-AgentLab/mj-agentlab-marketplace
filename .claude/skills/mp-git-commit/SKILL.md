@@ -1,6 +1,6 @@
 ---
 name: mp-git-commit
-description: Stages files and creates marketplace commits in the `<type>(<scope>): <summary>` format, enforcing the 7-type allowed list (feat/fix/perf/refactor/test/docs/infra), the marketplace scope whitelist, and the 6-branch × 7-type matrix discipline at commit time. Make sure to use this skill whenever the user says "git add", "git commit", "提交代码", "暂存文件", "commit message", "提交格式", "拆分提交", "准备提交", "stage files", "怎么写 commit", "提交规范", "marketplace commit", or after Stage 7 self-review has produced a GO recommendation and the changes need to be committed. Marketplace scope whitelist: plugin names (e.g., `learn-kit`), `marketplace`, `ci`, `scripts`, `deps`, `infra`, and (post-PR 2) `docs-rule` / `docs-adr` / `docs-guide` / `docs-runbook` / `docs-spec`. Pre-commit guard: rejects `.env`, `*.key`, `*.pem`, `secrets.enc`, `PR_BODY.md`, IDE caches; refuses commit on `main` or `develop` directly. Outputs the prepared commit message + ready-to-run `git add` + `git commit` commands; does NOT auto-execute — user reviews. Do not use for: branch creation (use mp-git-branch), push (use mp-git-push), PR creation (use mp-git-pr), or amending pushed commits.
+description: "Use to stage and commit reviewed marketplace changes / 提交; validate the commit convention and execute within existing authorization."
 ---
 
 ## 执行授权（治理过渡）

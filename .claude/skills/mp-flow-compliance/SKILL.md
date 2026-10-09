@@ -1,6 +1,6 @@
 ---
 name: mp-flow-compliance
-description: Runs marketplace plugin compliance audit (HITL Stage 5) by orchestrating `/plugin-dev:plugin-validator` (agent — whole plugin: plugin.json 6 required fields / SKILL.md frontmatter / directory structure / version consistency) and `/plugin-dev:skill-reviewer` (agent — per SKILL.md quality: description triggerability / progressive disclosure / third-person voice / sibling-skill boundary), interprets the reports, sorts findings into Critical / Warning / Verified, and decides what blocks vs what defers to Stage 6 dogfood. Make sure to use this skill whenever the user says "plugin compliance", "validate plugin", "check plugin", "skill review", "plugin-validator", "skill-reviewer", "Stage 5", "PR 前合规", "compliance audit", or after Stage 4 authoring finishes and before Stage 6 dogfood / commit. Marketplace heuristics from v3.0.0 + v3.1.0 实战: skill-reviewer 通常给 5-8 high-priority 第一轮；plugin-validator 常抓 plugin.json version 漂移 → PR 前必跑一次。Outputs compliance report with Critical fixes required, Warning queue, and Verified items; does NOT auto-fix — user / next-stage author handles fixes. Do not use for: authoring (use mp-flow-author, Stage 4), local dogfood (use mp-flow-dogfood, Stage 6), or post-commit self-review (use mp-flow-self-review, Stage 7).
+description: "Use after marketplace plugin or skill changes / 合规检查 to validate manifests, skill metadata, directory structure and documented contracts."
 ---
 
 ## 执行授权（治理过渡）

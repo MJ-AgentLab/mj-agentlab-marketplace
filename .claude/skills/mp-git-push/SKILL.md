@@ -1,6 +1,6 @@
 ---
 name: mp-git-push
-description: Pushes a marketplace branch to GitHub origin with a pre-push safety check (no secrets / no PR_BODY.md / no large files / no main-or-develop target / no force-push without explicit consent). Make sure to use this skill whenever the user says "push", "git push", "推送", "推到 origin", "上 GitHub", "Stage 8 push", "marketplace push", or after `/mp-git-commit` finishes and the local commits are ready to share. First push uses `git push -u origin <branch>` to set upstream; subsequent pushes use plain `git push`. Refuses to push to `main` or `develop` directly (must go through PR). Force-push is only allowed on `feature/bugfix/documentation/maintain` branches with explicit user confirmation (never on `main`, `develop`, `hotfix/*`, or `release/*`). Outputs the prepared push command + pre-push checklist results; does NOT auto-execute — user reviews. Do not use for: branch creation (use mp-git-branch), commit (use mp-git-commit), PR creation (use mp-git-pr), or post-merge cleanup (use mp-git-cleanup).
+description: "Use to push a reviewed marketplace feature branch / 推送; check upstream, commit subjects and hooks, then execute the authorized push."
 ---
 
 ## 执行授权（治理过渡）

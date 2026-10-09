@@ -1,6 +1,6 @@
 ---
 name: mp-flow-self-review
-description: Performs marketplace AI self-review before commit (HITL Stage 7) — verifies the staged diff matches the linked Plan / ADR, runs scope-drift check, and produces the marketplace Meta §4.7 dual-section report (本地验证 / AI 自检) plus the 11-item marketplace-tuned checklist (item 5 split into 5a 反向扫描 / 5b 新文档创建确认 / 5c INDEX-CLAUDE-CHANGELOG 同步 / 5d Plugin Delta Check; item 10 release.yml VERSION-trigger detection; item 11 secrets pause). Make sure to use this skill whenever the user says "AI 自检", "self review", "commit 前检查", "diff 自审", "提交前自查", "pre-commit review", "Stage 7", "11-item checklist", "本地验证后", "双段检查", or after running Stage 5 compliance + Stage 6 dogfood and before `git commit`. Marketplace checklist 11 items derived from v3.0.0 + v3.1.0 实战；strict dual-section discipline: never mix「测试通过」into AI 自检段 or 「diff 检查」into 本地验证段. Outputs go/no-go recommendation + 11-item checklist + commit message draft (via mp-git-commit handoff); does NOT auto-commit. Do not use for: compliance audit (use mp-flow-compliance, Stage 5), dogfood (use mp-flow-dogfood, Stage 6), or actual commit creation (use mp-git-commit, Stage 8).
+description: "Use before marketplace commits or PRs / AI 自检 to compare the diff with scope, review evidence, documentation, release implications and risks."
 ---
 
 ## 执行授权（治理过渡）

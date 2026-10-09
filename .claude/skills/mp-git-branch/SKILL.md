@@ -1,6 +1,6 @@
 ---
 name: mp-git-branch
-description: Creates and manages Git branches for mj-agentlab-marketplace using the bare-repo + worktree-per-branch convention — 6 temporary branch types (feature/bugfix/documentation/maintain/hotfix/release) plus 2 protected permanent branches (main, develop), with worktree directories as siblings of `develop/`. Make sure to use this skill whenever the user says "创建分支", "新建分支", "开新分支", "create branch", "new branch", "branch naming", "worktree add", "哪种分支类型", "which branch type", "开始开发", "start feature", "start bugfix", "start hotfix", "start release", or asks to set up a Git worktree for marketplace work. HARD REQUIREMENT G1: new branches MUST use `git worktree add` from the bare repo / develop worktree — never `git checkout -b` or `git switch -c` in an existing worktree, which leaves the bare repo without a clean lineage. release/* branches base on develop and target main; hotfix/* branches base on main. Outputs the single-line worktree-add command and verifies the worktree path doesn't already exist. Do not use for: GitHub Issue creation, commit (use mp-git-commit), push (use mp-git-push), PR creation (use mp-git-pr), branch deletion (use mp-git-cleanup), or merge-gate check (use mp-git-merge-gate).
+description: "Use to create a marketplace branch with an isolated Git worktree / 创建分支; inspect base and workspace state and execute the authorized creation."
 ---
 
 ## 执行授权（治理过渡）
