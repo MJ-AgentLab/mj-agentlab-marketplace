@@ -27,7 +27,7 @@ last-verified: 2026-10-09
 | 版本工具 dry-run | PASS | marketplace 7.0.2→8.0.0 只列 VERSION/README badge；diagram-kit 0.2.0→0.3.0 只列根 manifest。未应用 |
 | 退役运行依赖 | PASS | learn-kit 和 NotebookLM 专用目录、入口、CI 及新发布资产路径删除；旧 A6 触发器与历史提交 scope 作为工程保护保留 |
 | 历史资料 | PASS | 原 CHANGELOG / ADR / 指南 / 验收记录保留，来源 SHA 与 Git blob 哈希记录在 archive/history-sources.json，正文和 metadata 引用按新位置修复 |
-| GitHub required checks / 独立审查 | 待完成 | 治理 PR #186/#187 检查已通过，分支保护仍要求独立批准；迁移 PR 依赖两者合并后使用新版 A6 |
+| GitHub required checks / 独立审查 | 部分完成 | #188 的 Validate Structure、Linux/Windows baseline 均通过（eba75ff）；A6 因目标 develop 尚用旧 CLAUDE.md 门禁而失败。#186/#187 检查均通过，独立批准与治理合并仍待完成 |
 | 正式版本 / 发布 | 未执行 | 按已批准计划，两个客户端验收完成后统一 bump 8.0.0 / 0.3.0、更新 CHANGELOG / release notes，再发布 |
 
 ## 可复验入口
@@ -54,6 +54,8 @@ last-verified: 2026-10-09
 
 [实际回放](../../tests/fixtures/repository-skills/replay.md) 包含全部 19 个技能的源位置及当前流程判断。实际调用成功读取所有 SKILL 内容，保留无提交/无远端的隔离 fixture 限制；只读沙箱拒绝的命令明确记录，未冒充已执行合并、发布或清理。
 
-新版 A6 以治理基线 e90d735 对迁移 head 检查通过。GitHub 当前 develop 的旧版 A6 仍要求 CLAUDE.md，因此迁移 PR #188 在 #186 合并前会失败；不绕过。#186/#187 均仍需要独立批准。Linux baseline 和 Validate Structure 已通过；Windows 冒烟发现短路径/大小写比较问题，已改 native realpath 并补作用域回归，CI 将复验。
+新版 A6 以治理基线 e90d735 对迁移 head 检查通过。GitHub 当前 develop 的旧版 A6 仍要求 CLAUDE.md，因此迁移 PR #188 在 #186 合并前会失败；不绕过。#186/#187 均仍需要独立批准。Linux/Windows baseline 和 Validate Structure 均已通过（[CI run](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/37878794897)）。Windows 初次冒烟的短路径/大小写问题通过 native realpath 和作用域回归修复。
 
 GitHub 只读查询确认 v7.0.0 / v7.0.1 的 NLM wheel 与 checksum 资产仍存在；未执行发布修改。
+
+精确提交 eba75ff88d2d72e6e9120a234e2eab7fef74f8ce 已实际执行 release-verify-install 的完整组合验证：临时 detached Git 工作树、portable 校验、Codex CLI 0.147.0 隔离安装、仓库内外作用域均通过，安装结束后清理临时 Git 工作树。该测试只执行安装复查，不创建标签、草稿或发布。
