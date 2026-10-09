@@ -1,18 +1,20 @@
 ---
 type: runbook
 scope: marketplace
-summary: "Marketplace 8.1.0 release candidate, evidence and pending gates"
+summary: "Marketplace 8.1.0 publication, post-release checks and unresolved evidence"
 owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
-state: draft
-version: v1.0
-last-verified: null
+state: active
+version: v1.2
+last-verified: 2026-10-09
 ---
 
 # [RUNBOOK] Marketplace 8.1.0 release readiness
 
-2026-10-09，owner 明确要求“#197 PR 已经合并，继续后续工作，并发布”。本记录据此准备 Marketplace 8.1.0，保留已经完成的工程证据与尚未满足的发布门禁。发布意图已有授权，不重复询问是否发布；本次授权没有明确豁免真实客户端验收、当前发布 head 的独立批准或 required checks。当前候选尚未发布，因此保持 draft / `last-verified: null`。
+2026-10-09，owner 明确要求“#197 PR 已经合并，继续后续工作，并发布”。代理据此准备 Marketplace 8.1.0，完成工程检查并创建 #198；客户端验收处理及 reviewer 选择未收到答复。owner 随后告知 PR 已合并，代理核实 #198 于 11:06:08 UTC 合入 main，v8.1.0 于 11:06:31 UTC 自动发布。发布事实与尚未提供的验收、批准及豁免证据分别记录，不根据合并反推它们已满足。
+
+本记录的 active / last-verified 仅表示发布身份、正文与已发布提交 canonical 安装已经复查，不能解释为完整客户端验收通过。真实桌面 UI 仍 NOT RUN，GitHub reviews=[]，没有提供独立批准记录或明确验收延期决定。
 
 ## §1 Preconditions and candidate
 
@@ -24,7 +26,7 @@ last-verified: null
 | 版本准备 | 从 develop 的未发布 pre-bump `8.0.1` 准备功能版本 `8.1.0`；marketplace dry-run 的目标仅为 VERSION 与派生 README badge |
 | 插件版本 | diagram-kit `0.3.0`、understanding-kit `0.1.1`、explain-kit `0.1.0`，不连带升版；各根 manifest 继续是插件版本权威 |
 | 公开范围 | 三插件、四公开技能：arch-diagram、pop-quiz、glossary、concept；19 个 mp-* 开发技能保持仓库作用域 |
-| 正式放行 | PENDING：本轮工程检查与 `425e5f6` 精确提交安装已通过；实际客户端证据、发布 PR 当前 head 独立批准及 required checks 按 §3 分别记录 |
+| 发布事实 | PUBLISHED：#198 merge `d8a12d612ee0907a919e302c76bca9f906353669`，与冻结 head `a57f25b6` 的 tree 均为 `2f35986cd147b0fa9ab74a9c754a358f9ebaaee7`；实际发布与证据缺口按 §3 分别记录 |
 
 正式发布以 [发布操作](./[RUNBOOK]_Release_Operations.md) 为准。VERSION 变化合入 main 会触发自动发布，因此到 main 的 PR 合并属于正式发布步骤，不能把它当作普通 develop 合并。
 
@@ -60,6 +62,8 @@ npm run smoke:codex
 
 以上预期已在 `425e5f656f7b37ee2238c914f9b5548c1dd5c6c2` 的 canonical Git tree 四场景实际通过：仓库外 0 个、仓库内 19 个开发技能；普通 prompt 隐藏 pop-quiz 是预期策略，不是安装缺失。包含 diagram-kit 的三个场景实际执行安装缓存中的 Python 校验器，均 FAIL 0 / WARN 0。日志为 `%TEMP%/marketplace-8.1.0-canonical-425e5f6.log`。该提交的全量测试另为 230/230、失败 0、跳过 0（21,348 ms），日志为 `%TEMP%/marketplace-8.1.0-tests-425e5f6.log`。本记录随后只补检查证据；最终冻结 head 的 canonical 复验与 required checks 在发布 PR 补记。该阶段成功只证明安装、发现和资源合同，不证明真实桌面 UI。
 
+最终 head `a57f25b6d367e3dff5e12aad8f24c21cd914bc0b` 再次通过全量 230/230（21,066 ms，失败 0 / 跳过 0）与四种 canonical 安装，见 `%TEMP%/marketplace-8.1.0-final-head-tests.log`、`marketplace-8.1.0-final-canonical-install.log`。#198 merge tree 完全相同；发布后另对实际 SHA `d8a12d612ee0907a919e302c76bca9f906353669` 重跑四种 canonical 安装及严格校验，全部 PASS，包含 Diagram 的三个场景真实 Python 均 FAIL 0 / WARN 0。记录为 `%TEMP%/marketplace-8.1.0-post-publish-canonical-install.log`，不将安装复查写成新的模型行为或桌面执行。
+
 ### §2.3 Existing model behavior evidence
 
 运行文件在合并前已取得下列有限模型行为证据，保留原样并明确来源和范围；本轮没有把旧日志改写为新的客户端执行。
@@ -78,6 +82,8 @@ npm run smoke:codex
 
 完成可由代理执行的候选准备后，按 [合并门禁技能](../../.agents/skills/mp-git-merge-gate/SKILL.md)核对 main 目标发布 PR 的最新 head、base、required checks、独立批准和未解决审查对话。AI 自检、独立 AI 复核和 #197 的合并事实分别记录，均不替代该发布 PR 的独立 GitHub 批准。门禁未齐时保留可审阅候选及具体缺口；owner 的明确例外决定若后续提供，单独记录其范围，不改写未执行结果。
 
+候选阶段 #198 保持 draft，全部 checks 通过，reviews=[]，reviewDecision=REVIEW_REQUIRED，审查 threads 0；代理没有请求外部 reviewer 或执行 merge。收到 owner 合并通知后，GitHub 确认为 MERGED，但 reviews 仍为空。未取得独立批准或豁免证据，不将主分支保护配置、合并结果或发布成功当成这些证据。当前后续工作是发布复查、文档修正、main → develop 同步与预升；不再次询问已经发生的发布是否获准。
+
 ## §3 Verification ledger
 
 | 层次 | 状态 | 实际证据 / 待办 |
@@ -92,12 +98,14 @@ npm run smoke:codex
 | 已有 CLI 模型行为 | LIMITED EVIDENCE | §2.3 分插件记录；Understanding Kit 为 18 scoped PASS / 1 UNEXERCISED，状态回放独立记录 |
 | Codex Side Chat 真实交互 | NOT RUN | 无可操作的原生 Side Chat 接口；CLI 不替代窗口及快照选段证据 |
 | ChatGPT 桌面真实交互 | NOT RUN | 原生 UI 能力不可用且 Computer Use 禁止自动化该客户端；三个插件均保留缺证据状态 |
-| 发布 PR / 当前 head 独立批准 | PENDING | 待创建到 main 的发布 PR，并核对当前 head 非作者批准与权限；AI 复核不替代 GitHub 批准 |
-| 发布 PR required checks / 审查对话 | PENDING | 待记录当前 head 与 base 的结构、Windows / Ubuntu、A6 等结果及未解决对话 |
-| main 发布 merge | PENDING | 门禁满足后才执行；当前没有发布合并 SHA |
-| v8.1.0 tag / Release | PENDING | 尚未创建或发布；按 draft-first 状态机核对 canonical SHA、正文、状态和无附加资产 |
+| 发布 PR / 当前 head 独立批准 | MERGED；APPROVAL NOT RECORDED | [#198](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/198) head `a57f25b6`，GitHub reviews=[]，未提供独立批准记录；AI 复核不替代 GitHub 批准 |
+| 发布 PR required checks / 审查对话 | PASS | 冻结 head 的结构、Ubuntu / Windows baseline compat 与 A6 全部 SUCCESS；PR CI run `37918316546`，A6 runs `37918316494` / `37918529563`；未解决审查 threads 0 |
+| main 发布 merge | MERGED | `d8a12d612ee0907a919e302c76bca9f906353669`，2026-10-09 11:06:08 UTC；与已测冻结 head tree 相同 |
+| v8.1.0 tag / Release | PUBLISHED / VERIFIED | [Release](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.0) ID `407832742`，tag peel / target 为 `d8a12d6`，title `v8.1.0`，draft=false、prerelease=false、assets=[]、immutable=false；正文与该 SHA CHANGELOG 精确匹配；11:06:31 UTC 发布，workflow `37921662685` SUCCESS |
+| 已发布提交 canonical 安装 | PASS | `d8a12d6` 四场景、资源字节、作用域及实际缓存 Python 全部通过；本轮独立执行，非旧候选日志换名 |
 | 历史保护 | PRESERVE | v8.0.0 继续绑定 `733bd3de7829bbf68d0849d93d731509d9447af8`；既有公开 Release 与历史 v7.x 资产不改写、覆盖或删除 |
-| 发布后同步与 pre-bump | PENDING | 发布完成并核验后，main 同步回 develop，再准备 marketplace `8.1.1` 及派生 badge；插件版本不连带变化 |
+| 发布后 main → develop 同步 | MERGED / VERIFIED | [#199](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/199) 于 11:14:47 UTC 合并，merge `a220688d0f46c32f775d4284feb6f9c935085089`；tree 与已发布 `d8a12d6` 相同，原 develop 工作区已干净快进；reviews=[] 不追认批准 |
+| 下一补丁 pre-bump | PREPARED；MERGE PENDING | 已满足 #199 同步前置条件；`codex/prebump-marketplace-8-1-1` 的 marketplace `8.1.0` → `8.1.1` dry-run / apply 均通过，版本提交 `2d6281db2019b0938492769fe04ef039d59fab44`；工具只更新 VERSION / badge 两目标，各插件保持版本；不创建同号 Release |
 
 ## §4 Failure, recovery and post-release
 
@@ -105,10 +113,12 @@ npm run smoke:codex
 
 正式流程在 main 当前 tip 上按“创建空 draft → 验证 canonical Git tree 安装/发现 → publish 前重新核对远端身份与状态 → publish → 复查已发布身份与实际 immutability 字段”执行。仓库当前没有启用 immutable releases，不宣称平台提供不可变保证；历史仍按规则保留。草稿身份不一致、意外资产或标签绑定不同 SHA 时停止，不覆盖已公开资产。正式发布后通过新修复版本处理故障，保留已经发布的标签与正文。
 
-发布完成后再记录实际 tag、Release 身份、main merge SHA 和验收状态，按 [发布后 pre-bump 决定](../adr/[ADR]_Develop_PreBump_Adoption.md)同步 main 到 develop，准备 `8.1.1` 的市场 VERSION 与 README badge，并复验、清理已经合并且无需保留的工作区。此段为预期后续步骤，目前尚未执行。
+发布身份与已发布提交安装已经完成复查，#199 同步也已合入 develop 并验证相同 Git tree。按 [发布后 pre-bump 决定](../adr/[ADR]_Develop_PreBump_Adoption.md)准备 `8.1.1` VERSION / README badge 预升 PR，后续 PR 的实际合并 SHA、CI 与批准仍逐项核对；保留承载未合并后续工作的 worktree。已经发布的标签、Release 正文及插件版本不受文档修正或开发预升影响。
 
 ## §5 Change History
 
 | Version | Date | last-verified | Summary |
 | --- | --- | --- | --- |
 | v1.0 | 2026-10-09 | PENDING | 记录 #197 合并树、main ancestry 同步、已授权 8.1.0 版本准备、本轮 230 测试与四场景 canonical 安装；真实 UI、当前发布 head 批准、CI 与正式发布身份待补，不追认 PASS 或豁免。 |
+| v1.1 | 2026-10-09 | 2026-10-09（发布身份 / 安装） | 核实 #198 merge、v8.1.0 自动发布、正文与标签身份及实际 merge SHA 四场景安装；保留 UI NOT RUN、reviews=[] 和无明确豁免记录；准备 develop 同步及预升。 |
+| v1.2 | 2026-10-09 | 2026-10-09（版本准备） | 在 #199 已同步基线上执行 marketplace 8.1.1 两目标 dry-run / apply；预升 PR 待合并，各插件与正式 Release 保持。 |

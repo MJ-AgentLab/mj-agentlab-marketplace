@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
 state: active
-version: v1.1
+version: v1.2
 ---
 
 # [GUIDE] Understanding Pop Quiz
@@ -15,23 +15,23 @@ version: v1.1
 
 参与 AI 辅助开发、需要判断规格、设计、实现或验收结果的 owner。Pop Quiz 检查当前职责需要的理解，默认一次一个知识单元；它提供理解反馈，不要求学习全部技术内容。
 
-Understanding Kit 初始 0.1.0 已通过 #195 合入 develop；0.1.1 是合并后补测发现问题的修正候选，未正式发布。已发布 main / v8.0.0 安装仍只包含 Diagram Kit；使用本地 worktree 验收源试用，不能把 main 安装示例理解为新插件已上线。
+Understanding Kit 0.1.1 已随 Marketplace v8.1.0 通过 #198 合入 main 并发布，可从 main 或固定标签 v8.1.0 安装。历史 v8.0.0 仅包含 Diagram Kit，0.1.0 是未发布的初始开发身份。发布后安装复查与尚未执行的真实桌面交互见 [发布记录](../runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)。
 
 ## §2 Walkthrough
 
-### §2.1 Install the development package
+### §2.1 Install the package
 
-在隔离验收环境将当前 worktree 的绝对根路径作为 marketplace source；下面的 `<worktree-root>` 需替换为待测 checkout。
+从已发布市场安装，固定当前发布标签；开发验收可另将 source 替换为待测 worktree 的绝对根路径。
 
 ~~~text
-codex plugin marketplace add "<worktree-root>"
+codex plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace --ref v8.1.0
 codex plugin add understanding-kit@mj-agentlab-marketplace
 codex plugin list --json
 ~~~
 
-确认安装版本与待测 manifest 一致（初始合并树 0.1.0、修正候选 0.1.1），pop-quiz 的安装元数据可解析。它设为显式调用，在普通 prompt 的隐式技能列表中隐藏；CLI 0.147.0 的 debug prompt-input 不替代其显式加载/实际调用验收。个人环境中已添加的同名来源可能指向 main，应先核对实际 source；代理的正式隔离验收流程见 [RUNBOOK](../runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)，它不修改个人插件配置。
+确认安装版本与根 manifest 一致（本次发布为 0.1.1），pop-quiz 的安装元数据可解析。它设为显式调用，在普通 prompt 的隐式技能列表中隐藏；CLI 0.147.0 的 debug prompt-input 不替代其显式加载/实际调用验收。个人环境中已添加的同名来源可能指向旧标签或本地候选，应先核对实际 source；代理的正式隔离验收流程见 [RUNBOOK](../runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)，它不修改个人插件配置。
 
-ChatGPT 桌面端选择待测 worktree 的 repo marketplace，刷新/重启后安装 Understanding Kit，在新会话显式选择或调用 SDLC Pop Quiz。安装与 composer 发现须在真实客户端检查，CLI 结果不能替代。
+ChatGPT 桌面端选择 main / v8.1.0 或待测 worktree 的 repo marketplace，刷新/重启后安装 Understanding Kit，在新会话显式选择或调用 SDLC Pop Quiz。安装与 composer 发现须在真实客户端检查，CLI 结果不能替代。
 
 ### §2.2 Choose the context
 

@@ -1,6 +1,6 @@
 # Explain Kit
 
-面向 ChatGPT 桌面端与 Codex 本地环境的解释插件，初始版本 0.1.0。
+面向 ChatGPT 桌面端与 Codex 本地环境的解释插件，版本 0.1.0，已随 Marketplace v8.1.0 发布，可从 main 或固定标签 v8.1.0 安装。
 
 | 技能 | 用途 | 默认输出 |
 |---|---|---|
