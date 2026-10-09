@@ -29,7 +29,11 @@ Collect both base answers before selecting a branch. Do not emit a KU Brief or s
 | Incorrect | Correct | Use a diagnostic Q3 before feedback when a valid new scenario can disambiguate the inconsistent signals. |
 | Incorrect | Incorrect | For a clear shared misconception, explain then optionally practice. For unclear causes, prefer diagnostic Q3 before feedback. |
 
+Before choosing the shared-misconception branch, compare the meanings of both selected distractors and any volunteered rationale. A clear common cause must account for both actual selections together. Two incorrect labels alone do not establish that cause. Contradictory mechanisms or several plausible prerequisites leave attribution uncertain: use a supported diagnostic Q3 before any score, answer or teaching, or finish with an explicitly bounded `UNCERTAIN` conclusion when none is available. Keep each observation distinct instead of assigning both to the most convenient misconception.
+
 No branch requires Q3 just to use the budget. If a valid new scenario cannot be supported, give bounded feedback without Q3. Do not make Q3 a numeric or wording reskin; vary a meaningful setting or constraint while measuring the same KU, recording dependencies and avoiding unexplained prerequisites.
+
+Before displaying Q3, identify internally the meaningful change relative to both base questions and why it adds evidence for this KU. Change a relevant relationship, grouping boundary, operational choice or business condition, with all determining premises stated. Keep the original KU target. Replacing names, values or wording while retaining the same tested structure supplies no new transfer evidence; omit Q3 if the novelty check cannot identify a meaningful change. A scenario need not change the query operation when a changed relational boundary itself tests the target in a new way.
 
 - **Diagnostic transfer:** base answers → new-scenario Q3 → unified feedback. This supplements pre-feedback evidence.
 - **Post-feedback practice:** base answers → brief correction → new-scenario Q3 → feedback. Record only immediate application; do not retroactively treat a correct Q3 as pre-existing understanding.
