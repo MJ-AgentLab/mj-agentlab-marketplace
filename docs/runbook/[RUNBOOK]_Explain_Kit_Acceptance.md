@@ -15,7 +15,7 @@ related:
 
 ## Candidate and execution
 
-基线 develop 95f2e32；候选分支 codex/add-explain-kit。市场 8.0.1、diagram-kit 0.3.0、explain-kit 0.1.0。本记录不构成正式发布授权。最终候选提交及实际结果在验证后更新。
+起始基线 develop 95f2e32；候选分支 codex/add-explain-kit。实施期间普通 merge 同步 develop b76def7，保留 #195 的 understanding-kit / pop-quiz 与 canary 路径兼容修复。市场 8.0.1、diagram-kit 0.3.0、understanding-kit 0.1.0 均不变，新增 explain-kit 0.1.0。本记录不构成正式发布授权。
 
 代理执行检查、隔离安装、模型行为及可用客户端操作；owner 只决定真正未决事项。无法自动执行的步骤明确列为未执行并说明能力或身份约束，不把手工操作作为例行要求。
 
@@ -23,13 +23,14 @@ related:
 
 依次运行 npm test、npm run validate、npm run check:baseline-tools、npm run smoke:codex。测试执行时要求 REQUIRE_PYTHON=1 和 REQUIRE_PWSH=1，避免环境缺失被当作成功。
 
-| 场景 | 仓库外公开 / 开发 | 仓库内公开 / 开发 | 其他要求 |
+| 场景 | 普通 prompt：仓库外 / 内公开 | 原生 skills/list：仓库外 / 内公开 | 其他要求 |
 |---|---|---|---|
-| diagram-kit | 1 / 0 | 1 / 19 | 实际执行安装缓存中的 Python 校验器 |
-| explain-kit | 2 / 0 | 2 / 19 | 两技能来自对应安装缓存 |
-| 两插件组合 | 3 / 0 | 3 / 19 | 身份/版本/资源正确，绘图回归 |
+| diagram-kit | 1 / 1 | 1 / 1 | 实际执行安装缓存中的 Python 校验器 |
+| explain-kit | 2 / 2 | 2 / 2 | 两技能来自对应安装缓存 |
+| diagram-kit + explain-kit | 3 / 3 | 3 / 3 | 身份/版本/资源正确，绘图回归 |
+| 三插件组合 | 3 / 3 | 4 / 4 | pop-quiz 仍显式启用，包内资源与原生展示一致 |
 
-每个场景使用独立用户目录、缓存和 consumer cwd，均没有 MCP；来源、数量和名称同时核对。发布安装复查在精确 canonical SHA 上调用相同的严格验证和完整安装场景。
+四个场景均为仓库外 0 个、仓库内 19 个开发技能，使用独立用户目录、缓存和 consumer cwd，均没有 MCP；来源、数量和名称同时核对。发布安装复查在精确 canonical SHA 上调用相同的严格验证和完整安装场景。
 
 ## Behavior cases
 
@@ -54,12 +55,20 @@ related:
 
 | 层次 | 状态 | 证据 / 原因 |
 |---|---|---|
-| 结构与自动测试 | 未执行 | 待实施验证 |
-| Codex CLI 0.147.0 隔离安装与发现 | 未执行 | 待运行三个安装场景 |
-| Codex 模型行为 | 未执行 | 待真实调用 |
-| 已安装 Python 图表校验 | 未执行 | 待真实执行 |
-| ChatGPT 桌面端安装、composer 发现和调用 | 未执行 | 待核实可用自动化能力 |
+| 结构与自动测试 | PASS | 同步 develop 后 230/230，0 fail、0 skipped；REQUIRE_PYTHON=1 / REQUIRE_PWSH=1 |
+| Codex CLI 0.147.0 隔离安装与发现 | PASS | 四场景普通提示 / 原生 skills/list 均符合上表，作用域、身份、版本、包内字节与显式策略通过 |
+| Codex 模型行为 | 已执行 | CLI 默认 gpt-5.6-sol / reasoning none；11 个解释案例及 1 个绘图案例，逐项观察见下文 |
+| 已安装 Python 图表校验 | PASS | 隔离安装 fixture 与模型 D1 输出均实际执行；D1 共扫描 1 张图，FAIL 0，WARN 0 |
+| ChatGPT 桌面端安装、composer 发现和调用 | 未执行 | 原生 UI API 不可用；Computer Use 指导明确禁止自动化 ChatGPT 桌面 UI，CLI 不能替代 |
 | canonical SHA 发布安装复查 | 未执行 | 待候选提交固定后验证 |
+
+2026-10-09 的真实 CLI 观察：G1 正确区分 OAuth 授权与 OIDC 登录，面向产品经理中文短答；C1 / R2 区分覆盖赋值与请求去重，不把幂等键或乐观锁写成普遍保证，保留并发、过期和外部副作用边界；R1 读取安装缓存中的 glossary，正确说明 PostgreSQL 协调冲突锁申请；A1 读取 concept 并检索 react.dev，说明依赖比较、setup/cleanup、Strict Mode 开发检查与不适用场景。
+
+F1 读取 glossary 并按 80 字、无类比交付；F2 按两个术语分别提供中英段落；U1 不编造 ABC-47，指出所需最小语境；U2 首次错误选择 concept，收紧两个 description 后重新安装，最终读取 glossary 并短答。N1 保留 JavaScript 调试任务并给可执行修复；N2 保留安全审查任务、指出哈希被当密码重放的风险，没有加载解释模板。
+
+D1 首次保存/Python 调用被 CLI 执行策略拒绝。代理随后让同一安装客户端在聊天生成 container 图及证据表，再保存真实输出并执行安装缓存的 Python 校验器；该分步结果通过，不宣称只读 CLI 完成了写文件或 Python 操作。图仅包含源码证明的 HTTP 客户端、Node.js 服务和本地 JSON 文件；节点/边证据定位到 demo/server.mjs 与 demo/data.json。
+
+模型调用最初沿用桌面应用 gpt-6.1-sol 名称时被 CLI 服务拒绝；移除隔离环境中的模型覆盖后使用 CLI 内置默认值，未改用户日常配置。模型采样不证明全部输入、所有模型或桌面 UI；原始输入、响应与路由事件保存为本任务验收证据，必要信息在此记录，不把发现结果或退出码直接当行为 PASS。
 
 ## Failure, recovery and release
 

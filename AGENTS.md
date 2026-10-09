@@ -2,7 +2,11 @@
 
 ## 项目上下文
 
-市场注册 diagram-kit（架构绘图）和 explain-kit（glossary 速解、concept 深讲），目标客户端为 ChatGPT 桌面端和 Codex 本地环境，Codex CLI 验收基线 0.147.0。运行信息以市场索引、manifest 和 VERSION 为准；解释能力边界见 [Explain Kit ADR](docs/adr/[ADR]_Explain_Kit_Addition.md)。
+当前开发版本注册 diagram-kit / arch-diagram 、understanding-kit / pop-quiz 与 explain-kit / glossary、concept，目标客户端为 ChatGPT 桌面端和 Codex 本地环境，Codex CLI 验收基线 0.147.0。运行信息以市场索引、各插件 manifest 和 VERSION 为准；已发布 main 的范围与开发分支分别记录。
+
+understanding-kit 是显式调用的只读理解测验，Codex 优先 Side Chat；其他会话使用明确的上下文快照，不假定持续同步。插件边界及对旧单插件约束的局部替代见 [新增决定](docs/adr/[ADR]_Understanding_Kit_Addition.md)，真实客户端证据见 [验收记录](docs/runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)。learn-kit、NotebookLM 与 Claude 退役规则继续有效。
+
+explain-kit 0.1.0 提供速解和深讲，默认中文、保留术语原文，按深度路由并适应用户格式。新增解释能力的 [ADR](docs/adr/[ADR]_Explain_Kit_Addition.md) 与 [验收记录](docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md) 不改变测验策略。
 
 ## 执行与决策
 
@@ -16,7 +20,9 @@
 
 A6 同步目标为根 AGENTS.md；过渡触发器继续识别旧路径，当前技能位于 .agents/skills，插件使用根 plugin.json。运行 npm test、npm run validate、npm run smoke:codex；Python 图表校验必须实际执行。正式发布需独立的发布授权与两个目标客户端的验收证据。
 
-develop 与 main 已完成治理迁移；结构校验与发布安装复查使用相同的严格校验，项目指令只从根 AGENTS.md 加载。新插件单独/组合安装、解释行为及客户端限制记录在 [Explain Kit 验收](docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md)，不将安装发现替代模型行为或桌面 UI 证据。
+Codex latest canary 的技能路径须按同一提示文本的 Skill roots 表展开别名，再核对实际缓存与仓库作用域；缺失映射或路径越界须失败。兼容 canary 不改变 0.147.0 验收基线，实际复验见 [迁移验收记录](docs/runbook/[RUNBOOK]_ChatGPT_Codex_Migration_Acceptance.md)。
+
+develop 与 main 已完成治理迁移；结构校验与发布安装复查使用相同的严格校验，项目指令只从根 AGENTS.md 加载。
 
 v8.0.0 已经 #190 合入 main 并自动发布，实际状态和未完成的桌面验收见 [发布记录](docs/runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md)。发布后按 [发布操作](docs/runbook/[RUNBOOK]_Release_Operations.md) 同步 main 到 develop 并准备下一补丁 pre-bump；只更新 marketplace VERSION 与派生 README badge，插件版本按自身变更推进。
 

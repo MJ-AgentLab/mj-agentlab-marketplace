@@ -64,3 +64,7 @@ owner 选择独立插件而不是扩展 diagram-kit；保留两个公开技能�
 - [Portable manifest](../spec/[SPEC]_Plugin_Json_Schema.md)、[Marketplace index](../spec/[SPEC]_Marketplace_Json_Schema.md)。
 - [工程执行](../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)、[文档框架](../rule/[STANDARD]_Documentation_Framework.md)。
 - 2026-10-09：owner 在本任务逐项确认插件名称、入口、骨架、路由、主题范围和 0.1.0，并要求执行计划、取消例行真人操作要求及保持范围。
+
+## Develop integration
+
+实施期间 develop 合入 b76def7（#195 的 Understanding Kit / pop-quiz）和此前 canary 路径兼容修复。普通 merge 保留这些已合入内容，只增加 Explain Kit 并做共享契约适配；不修改 pop-quiz 实现、策略或评估材料。当前精确集合为三插件、四公开技能；pop-quiz 不自然启用，所以普通提示仅列三个技能。所有插件版本保持原值。

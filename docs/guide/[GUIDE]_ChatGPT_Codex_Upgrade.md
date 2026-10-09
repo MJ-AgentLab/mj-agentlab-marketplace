@@ -6,12 +6,12 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
 state: active
-version: v1.1
+version: v1.2
 ---
 
 # [GUIDE] ChatGPT / Codex upgrade
 
-仅 ChatGPT 桌面端和 Codex 本地继续支持；停止 Claude 支持。[Marketplace v8.0.0](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.0.0) / diagram-kit 0.3.0 已正式发布；桌面端实际验收仍未执行，状态见 [发布记录](../runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md)。新市场仅 diagram-kit，公开技能仅 arch-diagram，开发技能迁到 .agents/skills；根项目入口改为 AGENTS.md。
+仅 ChatGPT 桌面端和 Codex 本地继续支持；停止 Claude 支持。[Marketplace v8.0.0](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.0.0) / diagram-kit 0.3.0 已正式发布；桌面端实际验收仍未执行，状态见 [发布记录](../runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md)。该发布仅包含 diagram-kit / arch-diagram；当前开发分支新增 understanding-kit / pop-quiz 0.1.0，尚不能从已发布 main 或 v8.0.0 获取。开发技能位于 .agents/skills，根项目入口为 AGENTS.md。
 
 ## Existing learn-kit users
 
@@ -19,7 +19,7 @@ version: v1.1
 
 ## Codex CLI 0.147.0
 
-通过 Git 添加/更新市场，再安装唯一插件；固定本次发布可将 --ref main 换为 --ref v8.0.0：
+通过 Git 添加/更新已发布市场，再安装 Diagram Kit；固定本次发布可将 --ref main 换为 --ref v8.0.0：
 
 ~~~text
 codex plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace --ref main
@@ -29,11 +29,11 @@ codex plugin list --json
 codex debug prompt-input '$diagram-kit:arch-diagram'
 ~~~
 
-本地验证可将第一步 source 替换为当前 worktree 的绝对根路径，实际隔离验收由代理运行 npm run smoke:codex。插件资源从已安装 SKILL.md locator 定位。
+本地验证可将第一步 source 替换为当前 worktree 的绝对根路径，实际隔离验收由代理运行 npm run smoke:codex。当前 worktree 的索引还包含 Understanding Kit，可按 [使用指南](./[GUIDE]_Understanding_Pop_Quiz.md) 单独安装与显式调用；本地试用不表示正式发布。插件资源从已安装 SKILL.md locator 定位。
 
 ## ChatGPT desktop
 
-将已发布/待测仓库的 .agents/plugins/marketplace.json 作为 repo marketplace，重启/刷新后选择 MJ AgentLab Marketplace，确认只显示 Diagram Kit 并安装。在新聊天选择 Architecture Diagram 或请求“给这个仓库画组件依赖图”，检查图源、文件行号证据和 Python 校验结果。旧 Learn Kit 须独立卸载。
+将已发布/待测仓库的 .agents/plugins/marketplace.json 作为 repo marketplace，重启/刷新后选择 MJ AgentLab Marketplace。main / v8.0.0 应只显示 Diagram Kit；当前 worktree 应显示 Diagram Kit 与 Understanding Kit。在新聊天选择 Architecture Diagram 或请求“给这个仓库画组件依赖图”，检查图源、文件行号证据和 Python 校验结果。Understanding Kit 的快照和答题交互独立验收；旧 Learn Kit 须独立卸载。
 
 历史版本和资产继续保留；旧工作流仅通过固定标签复现。[决策与回退](../adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)。
 

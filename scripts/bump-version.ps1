@@ -13,7 +13,7 @@ param(
     [string]$To,
 
     [Parameter(Mandatory = $false)]
-    [ValidateSet("marketplace", "diagram-kit", "explain-kit")]
+    [ValidateSet("marketplace", "diagram-kit", "understanding-kit", "explain-kit")]
     [string]$Scope = "marketplace",
 
     [switch]$DryRun,
@@ -69,7 +69,8 @@ foreach ($RelPath in $TargetFiles) {
         $What = 'derived version badge'
     } else {
         try { $Manifest = $Content | ConvertFrom-Json -ErrorAction Stop } catch { $Failures += "[FAIL] invalid manifest JSON"; continue }
-        if ($Manifest.name -ne $Scope -or $Manifest.version -ne $From) { $Failures += "[FAIL] manifest identity/version does not match Scope/From"; continue }
+        if ($Manifest.name -ne $Scope) { $Failures += "[FAIL] manifest identity does not match Scope"; continue }
+        if ($Manifest.version -ne $From) { $Failures += "[FAIL] manifest version does not match From"; continue }
         $Pattern = '(?m)^  "version": "' + $EscapedFrom + '",'
         $Replacement = '  "version": "' + $To + '",'
         $What = 'authoritative plugin version'

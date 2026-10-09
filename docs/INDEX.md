@@ -6,12 +6,12 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
 state: active
-version: v2.2
+version: v2.3
 ---
 
 # 文档索引
 
-当前候选市场提供 diagram-kit / arch-diagram 和 explain-kit / glossary、concept；客户端为 ChatGPT 桌面端和 Codex 本地环境。[Marketplace v8.0.0](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.0.0) / diagram-kit 0.3.0 已正式发布；该次桌面端实际验收仍未执行。Explain Kit 的新候选状态单独记录。
+当前开发版本注册 diagram-kit / arch-diagram、understanding-kit / pop-quiz 与 explain-kit / glossary、concept；客户端为 ChatGPT 桌面端和 Codex 本地环境。新增 Understanding Kit 0.1.0 尚未发布，marketplace 保持 8.0.1 的开发 pre-bump。[Marketplace v8.0.0](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.0.0) / diagram-kit 0.3.0 已正式发布，仅包含 Diagram Kit；其桌面端实际验收仍未执行。
 
 ## 入口
 
@@ -21,6 +21,8 @@ version: v2.2
 - [术语](../GLOSSARY.md)
 - [历史发布日志](../CHANGELOG.md)
 - [迁移与退役 ADR](adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)
+- [Understanding Kit 新增决定](adr/[ADR]_Understanding_Kit_Addition.md)
+
 - [Explain Kit 新增决策](adr/[ADR]_Explain_Kit_Addition.md)
 - [Explain Kit 实际验收](runbook/[RUNBOOK]_Explain_Kit_Acceptance.md)
 
@@ -35,19 +37,23 @@ version: v2.2
 - [[GUIDE]_Marketplace_Project_Overview.md](guide/[GUIDE]_Marketplace_Project_Overview.md)
 - [[GUIDE]_Plugin_Development_Testing_Workflow.md](guide/[GUIDE]_Plugin_Development_Testing_Workflow.md)
 - [[GUIDE]_Version_Management.md](guide/[GUIDE]_Version_Management.md)
+- [[GUIDE]_Understanding_Pop_Quiz.md](guide/[GUIDE]_Understanding_Pop_Quiz.md)
 - [[SPEC]_Marketplace_Json_Schema.md](spec/[SPEC]_Marketplace_Json_Schema.md)
 - [[SPEC]_Plugin_Json_Schema.md](spec/[SPEC]_Plugin_Json_Schema.md)
+- [[SPEC]_Understanding_Pop_Quiz.md](spec/[SPEC]_Understanding_Pop_Quiz.md)
 - [[RUNBOOK]_Doc_Archive_Procedure.md](runbook/[RUNBOOK]_Doc_Archive_Procedure.md)
 - [[RUNBOOK]_Release_Operations.md](runbook/[RUNBOOK]_Release_Operations.md)
 
 - [迁移实际验收记录](runbook/[RUNBOOK]_ChatGPT_Codex_Migration_Acceptance.md)
 - [发布准备、实际发布与后续记录](runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md)
+- [Understanding Kit 安装、行为及客户端验收](runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)
 
 ## 决策与故障历史
 
-以下旧 ADR 保留原有决策正文；涉及 Claude、learn-kit 或 NotebookLM 的方案由新迁移 ADR 替代，不作为当前安装说明。
+以下旧 ADR 保留原有决策正文；涉及 Claude、learn-kit 或 NotebookLM 的方案由迁移 ADR 替代，不作为当前安装说明。Understanding Kit 新增 ADR 仅替代迁移 ADR 的单插件集合及版本权威范围；退役、客户端、发布和历史保留规则继续有效。
 
 - [[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md](adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)
+- [[ADR]_Understanding_Kit_Addition.md](adr/[ADR]_Understanding_Kit_Addition.md)
 - [[ADR]_Codex_Dual_Native_Plugin_Support.md](adr/[ADR]_Codex_Dual_Native_Plugin_Support.md)
 - [[ADR]_Develop_PreBump_Adoption.md](adr/[ADR]_Develop_PreBump_Adoption.md)
 - [[ADR]_Diagram_Kit_Addition.md](adr/[ADR]_Diagram_Kit_Addition.md)
