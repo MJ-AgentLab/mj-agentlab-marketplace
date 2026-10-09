@@ -6,14 +6,16 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
 state: draft
-version: v1.0
+version: v1.1
 related:
   - "../adr/[ADR]_Explain_Kit_Addition.md"
 ---
 
 # [RUNBOOK] Explain Kit acceptance
 
-## Candidate and execution
+Explain Kit 0.1.0 已随 #198 / Marketplace v8.1.0 发布；发布后的 canonical 安装复查与具体身份见 [发布记录](./[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)。以下样本与开发候选身份保留历史来源；ChatGPT 桌面端真实验收仍未执行，保持 draft。
+
+## Development candidate and execution (historical)
 
 起始基线 develop 95f2e32；候选分支 codex/add-explain-kit。实施期间普通 merge 同步 develop b76def7，保留 #195 的 understanding-kit / pop-quiz 与 canary 路径兼容修复。市场 8.0.1、diagram-kit 0.3.0、understanding-kit 0.1.0 均不变，新增 explain-kit 0.1.0。本记录不构成正式发布授权。
 
