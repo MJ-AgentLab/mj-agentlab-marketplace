@@ -76,7 +76,7 @@ npm run smoke:codex
 | --- | --- | --- |
 | 版本和分支身份 | PASS | codex/understanding-kit-pop-quiz，从 develop 95f2e32bb8686df7d15c44624ff3c0ef970fd146 派生；测试针对该隔离工作区候选文件，版本为 8.0.1 / 0.3.0 / 0.1.0 |
 | baseline / strict validation | PASS | npm run check:baseline-tools 确认 codex-cli 0.147.0；npm run validate 返回 ok:true、19 个开发技能、两个公开技能 |
-| 完整工程测试与真实 Python 校验 | PASS | 最终 npm test：212/212，0 fail、0 skipped；REQUIRE_PYTHON=1 / REQUIRE_PWSH=1；Python 3.12.14，真实图表执行测试通过。skill-creator quick_validate 通过 |
+| 完整工程测试与真实 Python 校验 | PASS | 初始候选 npm test：212/212；同步 develop 路径修复后：215/215，均为 0 fail、0 skipped；REQUIRE_PYTHON=1 / REQUIRE_PWSH=1；Python 3.12.14，真实图表执行测试通过。初始 skill-creator quick_validate 通过 |
 | 两插件隔离安装、内外作用域和参考资源 | PASS | npm run smoke:codex：两插件已安装；普通 prompt 为 consumer 1/0、repo 1/19；原生 skills/list 为 2/0、2/19；pop-quiz false 策略和缓存 SKILL/YAML/两 refs 与来源一致，MCP=[]；临时安装根清理成功 |
 | 实际模型 forward 样本 | PARTIAL PASS | CLI 0.147.0 / 默认 gpt-5.6-sol / openai；三个会话、共 8 turn。完整主链 5 turn / 1 KU / 3 题；缺职责 1 turn / 0 题；冲突 2 turn / 1 道未答的独立依据题。样本覆盖与摘录见 [记录](../../plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-forward-sample.md)，不是全部 19 变体验收 |
 | Codex Side Chat 真实交互 | NOT RUN | 本会话无可操作的原生 Side Chat 控制；CLI 样本不证明 Side Chat 或窗口行为 |
@@ -85,7 +85,7 @@ npm run smoke:codex
 
 ### Candidate source identities
 
-以下 Git blob 标识定位已测运行内容；实际模型安装镜像只排除 reviewer-only evals，运行 SKILL / refs / native metadata 字节保持一致。
+以下 Git blob 标识定位初始候选的已测运行内容；实际模型安装镜像只排除 reviewer-only evals，运行 SKILL / refs / native metadata 字节保持一致。
 
 | Source | Git blob |
 | --- | --- |
@@ -96,6 +96,10 @@ npm run smoke:codex
 | scripts/smoke-codex-plugin.mjs | ece65332349f563d1e0fa3f221bdb7c545f19a66 |
 
 独立 AI 审查发现的两项 P2 已修复并复核：只读 listing 能力集合与逐题等待的 eval 判定。该审查不替代 GitHub 独立批准。
+
+### Develop conflict-sync verification
+
+2026-10-09 同步 develop `0e73794`（PR #194）中的 Codex 路径别名修复。保留本插件的双插件 / 原生显式调用发现检查与上游三项别名回归，单技能的普通 prompt 测试明确指定预期清单。完整 215 项测试、严格校验、CLI 0.147.0 基线与双插件隔离安装均通过；独立 AI 复核确认双方意图保留。同步后的 smoke 脚本 Git blob 为 `d861887237938fda4510b15cd9c72d0af012ccca`。测验运行 SKILL / refs / metadata 未改，本次未重新执行模型样本或桌面交互；§2.3 / §3 中原有未覆盖项继续保留。
 
 正式发布放行须另有两个目标客户端验收、required checks、独立批准与 owner 发布授权；本 RUNBOOK 的新增或自动化 PASS 不替代这些条件。
 

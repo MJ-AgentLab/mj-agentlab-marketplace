@@ -15,6 +15,10 @@
 - Record the published v8.0.0 identity, tag binding and post-release installation results; refresh current installation guidance while preserving incomplete desktop acceptance and published release history.
 - Pre-bump develop's marketplace to 8.0.1 after v8.0.0; diagram-kit remains 0.3.0. This is an unpublished development marker, with no new tag or Release.
 
+### Fixed
+
+- Resolve prompt-local skill root aliases in the installation smoke check for newer Codex CLI catalogs. Keep the 0.147.0 acceptance baseline and real cache/repository scope checks; missing, conflicting or escaping root mappings still fail.
+
 ## [8.0.0] - 2026-10-09
 
 **Marketplace `7.0.1 → 8.0.0` · diagram-kit `0.2.0 → 0.3.0` · learn-kit retired.** Marketplace 7.0.2 was an unpublished develop pre-bump. Version and release-note preparation is complete. Publication status and client acceptance evidence are tracked in the [release-readiness record](docs/runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md); a CHANGELOG entry alone does not indicate a published GitHub Release.

@@ -59,3 +59,41 @@ test("native inventory fails closed on protocol errors and a stalled server",asy
  await assert.rejects(listNativeSkills({cwds:[],spawn:fakeServer(source),timeoutMs:300}));
  }
 });
+
+function aliasedPrompt(roots, entries) {
+ return JSON.stringify([{text:["### Skill roots",...roots.map(([alias,root])=>`- \`${alias}\` = \`${root}\``),
+  "### Available skills",...entries.map(({name,file})=>`- ${name}: discover skill (file: ${file})`)].join("\n")}]);
+}
+
+test("root aliases resolve installed and all 19 repository skills before scope checks",()=>{
+ const f=fixture();try{
+  const roots=[["r1",f.cache],["r2",path.join(f.repo,".agents/skills")]];
+  const entry={name:"diagram-kit:arch-diagram",file:"r1/diagram-kit/0.2.0/skills/arch-diagram/SKILL.md"};
+  const opts={cacheRoot:f.cache,repositoryRoot:f.repo,expectedSkills:[entry.name]};
+  const consumer=parsePromptInputSkills(aliasedPrompt(roots,[entry]));
+  assert.deepEqual(assertDiscovery(consumer,{...opts,inRepository:false}),{publicSkills:1,repositorySkills:0});
+  const dev=f.dev.map(({name})=>({name,file:`r2/${name}/SKILL.md`}));
+  const repository=parsePromptInputSkills(aliasedPrompt(roots,[entry,...dev]));
+  assert.deepEqual(assertDiscovery(repository,{...opts,inRepository:true}),{publicSkills:1,repositorySkills:19});
+  assert.throws(()=>assertDiscovery(repository,{...opts,inRepository:false}));
+ }finally{cleanupIsolatedRoot(f.root);}
+});
+
+test("missing, relative, conflicting and escaped root mappings fail closed",()=>{
+ const f=fixture();try{
+  const entry={name:"diagram-kit:arch-diagram",file:"r1/diagram-kit/0.2.0/skills/arch-diagram/SKILL.md"};
+  assert.throws(()=>parsePromptInputSkills(aliasedPrompt([], [entry])),/unknown skill root/);
+  assert.throws(()=>parsePromptInputSkills(aliasedPrompt([["r1","relative/cache"]], [entry])),/absolute/);
+  assert.throws(()=>parsePromptInputSkills(aliasedPrompt([["r1",f.cache],["r1",f.repo]], [entry])),/conflicting skill root/);
+  assert.throws(()=>parsePromptInputSkills(aliasedPrompt([["r1",f.cache]], [{...entry,file:"r1/../repo/SKILL.md"}])),/escapes skill root/);
+ }finally{cleanupIsolatedRoot(f.root);}
+});
+
+test("root mappings are local to their prompt text block",()=>{
+ const f=fixture();try{
+  const blocks=[f.cache,f.repo].map(root=>JSON.parse(aliasedPrompt([["r1",root]], [{name:"fixture",file:"r1/SKILL.md"}]))[0]);
+  assert.deepEqual(parsePromptInputSkills(JSON.stringify(blocks)),[f.cache,f.repo].map(root=>({name:"fixture",file:path.join(root,"SKILL.md")})));
+  blocks.push({text:"- fixture: discover skill (file: r1/SKILL.md)"});
+  assert.throws(()=>parsePromptInputSkills(JSON.stringify(blocks)),/unknown skill root/);
+ }finally{cleanupIsolatedRoot(f.root);}
+});
