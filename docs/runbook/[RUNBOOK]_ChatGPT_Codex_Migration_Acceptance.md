@@ -27,7 +27,7 @@ last-verified: 2026-10-09
 | 版本工具 dry-run | PASS | marketplace 7.0.2→8.0.0 只列 VERSION/README badge；diagram-kit 0.2.0→0.3.0 只列根 manifest。未应用 |
 | 退役运行依赖 | PASS | learn-kit 和 NotebookLM 专用目录、入口、CI 及新发布资产路径删除；旧 A6 触发器与历史提交 scope 作为工程保护保留 |
 | 历史资料 | PASS | 原 CHANGELOG / ADR / 指南 / 验收记录保留，来源 SHA 与 Git blob 哈希记录在 archive/history-sources.json，正文和 metadata 引用按新位置修复 |
-| GitHub required checks / 独立审查 | 清理后复查中；独立批准待完成 | #186 合入 develop（17252dc），#187 合入 main（473f606）；两者均使用 AGENTS.md 门禁。#188 已删除过渡入口和临时校验选项，清理后远端检查待复查 |
+| GitHub required checks / 独立审查 | 本地 A6 PASS；远端见 PR，独立批准待完成 | #186 合入 develop（17252dc），#187 合入 main（473f606）；两者均使用 AGENTS.md 门禁。#188 已删除过渡入口和临时校验选项；远端以 [#188 最新 head](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/188/checks) 为准 |
 | 正式版本 / 发布 | 未执行 | 按已批准计划，两个客户端验收完成后统一 bump 8.0.0 / 0.3.0、更新 CHANGELOG / release notes，再发布 |
 
 ## 可复验入口
@@ -58,7 +58,9 @@ last-verified: 2026-10-09
 
 修复提交 3264eaecb1db0f61d2b67a93e432382df1b3db5b：原目标 base 检查器与新版检查器本地均 exit 0；[GitHub A6](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/37880144933) 与 [PR 结构/双平台 CI](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/37880054174) 均 SUCCESS（push CI 同样通过）。198 项本地测试、0.147.0 隔离安装和两路修复复核通过；默认严格校验对过渡文件 exit 1，与正式发布阻断要求一致。
 
-2026-10-09：#186 于 03:41:10 UTC 合并（develop 17252dc42f248e0ff995e3f198869549944b06af），#187 于 03:41:24 UTC 合并（main 473f606427e8b77a04290ce072893fbf03063912）；两个分支的 AGENTS.md 检查器 Git blob 完全相同。#188 同步最新 develop 后，已删除 CLAUDE.md、CI 临时选项与校验器允许分支，恢复严格仓库测试。严格结构校验、198 项测试和 Codex CLI 0.147.0 隔离安装再次通过；新版 A6、清理后 canonical 安装及远端检查继续复查。桌面端验收与 #188 当前提交的独立批准仍待完成。
+2026-10-09：#186 于 03:41:10 UTC 合并（develop 17252dc42f248e0ff995e3f198869549944b06af），#187 于 03:41:24 UTC 合并（main 473f606427e8b77a04290ce072893fbf03063912）；两个分支的 AGENTS.md 检查器 Git blob 完全相同。#188 同步最新 develop 后，已删除 CLAUDE.md、CI 临时选项与校验器允许分支，恢复严格仓库测试。严格结构校验、198 项测试和 Codex CLI 0.147.0 隔离安装再次通过；远端 required checks 以 PR 最新 head 为准。桌面端验收与 #188 当前提交的独立批准仍待完成。
+
+清理提交 71d368d4ceccb19d788814012341c8edd773abf7 的新版 A6 已用真实 develop base 17252dc 中提取的检查器复验（无签核例外，exit 0）。该精确提交也完成 release-verify-install 全链路复验：临时 detached Git 工作树、严格 portable 校验、Codex CLI 0.147.0 实际安装和 1/19 技能作用域均 PASS；结束后临时 Git 工作树清理完成。仅验证安装，不创建标签、草稿或发布。后续验收记录提交不改运行代码。
 
 GitHub 只读查询确认 v7.0.0 / v7.0.1 的 NLM wheel 与 checksum 资产仍存在；未执行发布修改。
 
