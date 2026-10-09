@@ -3,6 +3,12 @@
 格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/)，
 版本号遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [Unreleased]
+
+### Added
+
+- **Codex 项目本地会话维护机制** — 新增根 `AGENTS.md` 入口，明确请求归档、推荐标题或重命名时，按需读取唯一规则文件 `.agents/references/session-maintenance.md`，规则在本仓库独立维护。归档固定输出标题、日期及成果／结论／待办；标题采用 `MMDD[-I编号][-P编号]-对象任务`，仅保留本任务已确认的主要 Issue 和 PR。默认只回复文字，保存文件、重命名和客户端归档分别按明确请求执行；指定完整标题保持原文，实际操作成功确认后才报告完成。摘要区分计划与实际成果，并保留继续工作必需的信息。引用、否定、机制讨论和普通收尾不触发；不新增技能、脚本、归档目录、自动化或运行时跨项目依赖，现有 Claude 入口、插件及版本不变。
+
 ## [7.0.1] - 2026-08-05
 
 **Marketplace `7.0.0 → 7.0.1` · learn-kit `4.0.0 → 4.0.1` · diagram-kit `0.2.0` unchanged.** A patch release: the optional NotebookLM branch's preflight now actually runs, the release workflow survives GitHub's releases-list replication lag, and both manual acceptance surfaces have been executed for real for the first time.
