@@ -1,6 +1,6 @@
 ---
 name: mp-flow-design-adr
-description: Drafts an Architecture Decision Record (HITL Stage 3) for a marketplace task — produces `[ADR]_<Topic>.md` content covering Context / Decision / Consequences / Alternatives Considered / Implementation Plan / Acceptance Criteria / References, in the marketplace's existing ADR style (referencing `[ADR]_LearnKit_Discovery_Skills.md` and `[ADR]_NotebookLM_Kit_Retirement.md` as samples). Make sure to use this skill whenever the user says "写 ADR", "create ADR", "架构决策", "命名决策", "拆分决策", "Stage 3 ADR", "design decision", "draft ADR", or whenever the Plan from Stage 2 identifies architecture / naming / split / rename / retire / breaking-change decisions that need decision-log artifacts. ADRs land in `docs/[ADR]_*.md` (pre-PR 2) or `docs/adr/` (post-PR 2 doc framework). If decision is plugin-internal (e.g., learn-kit-only architecture), ADR may belong in `plugins/learn-kit/docs/adr/` (post-PR 4). Outputs ADR body draft in conversation; does NOT auto-write the file unless user confirms target path. Do not use for: Plan body authoring (use mp-flow-plan, Stage 2), GUIDE/RUNBOOK/SPEC authoring (use mp-doc-author, Stage 6 equivalent), or plugin code authoring (use mp-flow-author, Stage 4).
+description: "Use for marketplace architecture decisions / 写 ADR involving plugin boundaries, formats, retirement, naming or workflow changes."
 ---
 
 ## 执行授权（治理过渡）

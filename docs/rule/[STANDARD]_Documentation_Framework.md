@@ -48,6 +48,7 @@ This STANDARD governs every markdown document under:
 |------|--------|--------|
 | `README.md` (any depth) | GitHub public-facing entry point; no formal frontmatter convention | ❌ 禁止（破坏 GitHub 渲染） |
 | `CHANGELOG.md` (any depth) | Keep-a-Changelog format; no frontmatter | ❌ 禁止（破坏 changelog 工具链） |
+| `AGENTS.md`（repo root） | Codex project instruction entry; legacy CLAUDE.md retained only during governance transition | ❌ 禁止 |
 | `plugins/<name>/CLAUDE.md` | Claude Code plugin spec contract | ❌ 禁止（破坏 plugin loader） |
 | `plugins/<name>/skills/<name>/SKILL.md` | Claude Code plugin spec native frontmatter (`name`, `description`, optional `allowed-tools`, `disable-model-invocation`) | ❌ 禁止（plugin loader 拒收） |
 | `plugins/<name>/skills/<name>/templates/*.md` | LLM-facing runtime asset; loaded by skill as prompt template | ❌ 禁止（YAML 前缀干扰 LLM） |
@@ -61,7 +62,7 @@ This STANDARD governs every markdown document under:
 
 **v1.5 cancellation note**:
 
-- v1.1 「plugin-internal teaching series」pattern exemption（`plugins/<name>/docs/<plugin>-NN-*.md` / `<plugin>-*.md` lowercase 数字系列）— **canceled**；所有此类文档必须迁移到 `plugins/<name>/docs/guide/[GUIDE]_*.md` 合规命名 + 加 8 字段 frontmatter，或拆入 README / AGENTS.md
+- v1.1 「plugin-internal teaching series」pattern exemption（`plugins/<name>/docs/<plugin>-NN-*.md` / `<plugin>-*.md` lowercase 数字系列）— **canceled**；所有此类文档必须迁移到 `plugins/<name>/docs/guide/[GUIDE]_*.md` 合规命名 + 加 8 字段 frontmatter，或拆入 README / CLAUDE.md
 - v1.1 single-file exemption for `docs/ai_engineering_execution_hitl_workflow.md` — **canceled**；该文件被删除，关键内容内化到 `[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md` §0
 - v1.1 single-file exemptions for `docs/CONTRIBUTING.md` + `docs/MIGRATION_GUIDE.md` — **canceled**；改名 + 移到 `docs/guide/[GUIDE]_Contributing.md` + `docs/guide/[GUIDE]_Migration_From_v3_to_v4.md` + 加 frontmatter（**CONTRIBUTING 部分在 v1.6 反向回 repo-root** per §1.1 + [`[ADR]_Root_Level_Named_Files_Codification`](../adr/[ADR]_Root_Level_Named_Files_Codification.md)；guide 版本走 archive ceremony 至 `../archive/[DEPRECATED]_[GUIDE]_Contributing_v1.1.md`）
 - v1.3 normative clarification on exempt-file frontmatter — **canceled** as a separate clause；本节"External Contract"表已直接表明哪些文件被排除及理由
@@ -82,7 +83,7 @@ The framework's audience is: **AI agents** writing/editing docs (so they have ma
 | `GLOSSARY.md` | marketplace 术语词典：按字母顺序术语 → 1 句定义 → 可选锚链 | **§1.1 editorial convention** | GitHub Markdown standard render |
 | `AGENTS.md` | AI agent + 维护者上下文摘要：project structure / key conventions / 11-stage table / HITL 触发摘要 | §1 hard（Codex project instructions） | Codex project instructions load |
 
-**Editorial convention rule (§1.1-derived)**: `CONTRIBUTING.md` 与 `GLOSSARY.md` 不携带 marketplace 8 字段 frontmatter，原因是 GitHub UI 集成（CONTRIBUTING.md auto-prompt 探测）与阅读纯净度（GLOSSARY.md 是辞典型快速参考）与 marketplace 内部 schema 治理脱钩；这两个文件的版本 / 状态信息通过 git history + CHANGELOG entries 追踪，而非 frontmatter 字段。**Plugin-level variants 不在 §1.1 范围内**：`plugins/<name>/CONTRIBUTING.md` 不存在；`plugins/<name>/README.md` / `CHANGELOG.md` / `AGENTS.md` 继承 §1 hard exclusion。
+**Editorial convention rule (§1.1-derived)**: `CONTRIBUTING.md` 与 `GLOSSARY.md` 不携带 marketplace 8 字段 frontmatter，原因是 GitHub UI 集成（CONTRIBUTING.md auto-prompt 探测）与阅读纯净度（GLOSSARY.md 是辞典型快速参考）与 marketplace 内部 schema 治理脱钩；这两个文件的版本 / 状态信息通过 git history + CHANGELOG entries 追踪，而非 frontmatter 字段。**Plugin-level variants 不在 §1.1 范围内**：`plugins/<name>/CONTRIBUTING.md` 不存在；`plugins/<name>/README.md` / `CHANGELOG.md` / `CLAUDE.md` 继承过渡期 §1 hard exclusion。
 
 **Cross-reference**: `AGENTS.md` 内容更新受 §2.7 Sync Allowlist 约束 + §4.3.1 A6 CI gate 强制；其他 4 个 root files 不受 sync allowlist 约束（各自独立编辑触发条件）。
 
@@ -316,50 +317,18 @@ In SKILL.md (which is exempt from this framework), wikilinks `[[../../../docs/..
 
 ### §2.7 AGENTS.md Sync Allowlist
 
-过渡期继续匹配 `.claude/skills/mp-*/SKILL.md`、旧 Claude / Codex 清单与 NLM 路径，并增加 `.agents/skills/mp-*/SKILL.md` 和 `plugins/*/plugin.json`。仅根 AGENTS.md 的添加或修改满足新版同步条件；旧检查器落地期间治理 PR 同时更新根 CLAUDE.md。
+根 AGENTS.md 承载项目摘要、执行原则和按需读取规范的指针。触发文件发生变化时，同一 PR 同步相关摘要或指针；不要求恢复旧 CLAUDE.md 的历史版本表或技能清单。运行事实保留在 VERSION、市场索引、manifest 与目录中。
 
-`AGENTS.md`（repo root）承载 AI agent + 人类维护者「快速上下文」职责（per §1.1）。为防止其内容与权威源漂移，定义 4 类**强同步触发**：PR 触及以下任一文件 / 目录条目时，`AGENTS.md` **必须**在同一 PR 同步更新（如无实质变化面，**PR title** 标注 `[skip a6]` 跳过 token + reviewer 在 review 显式 sign-off `A6 N/A confirmed`；两者缺一不可，详见 §4.3.1）。
+触发集合唯一权威来源为 scripts/check-a6.mjs 的 isA6Trigger，覆盖以下类别：
 
-**Category 1 — Global Standards** (`docs/rule/[STANDARD]_*.md`)：
+1. 全局规范：docs/rule/[STANDARD]_*.md。
+2. 运行信息：VERSION、.agents/plugins/marketplace.json、plugins/*/plugin.json，以及过渡期旧 Claude / Codex manifests。
+3. 技能入口：.agents/skills/mp-*/SKILL.md、plugins/*/skills/*/SKILL.md、agents/openai.yaml，以及过渡期 .claude/skills/mp-*。
+4. 发布关键逻辑：resolve-release-state、run-release、release-verify-install，以及过渡期 NLM bridge、installer、contract generator 和 probe。
 
-- `[STANDARD]_Documentation_Framework.md` — 版本变更或 §1.1 / §2.7 / §4.3 内容变更必同步 AGENTS.md「Documentation Framework」段
-- `[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md` — 11-stage 表 / HITL 触发规则变更必同步「11 阶段速查表」+「HITL 触发摘要」两段
-- `[STANDARD]_Commit_Message_Convention.md` — scope 白名单 / type 集变更必同步「Commit format」+「Branch types」两行
-- `[STANDARD]_GitHub_Markdown.md` — markdown 规范变更必同步（极罕见；本 STANDARD 稳定）
+门禁按路径判定，不区分注释或语义改动。仅根 AGENTS.md 的添加或修改满足同步；删除和类型变更不算。无实质同步内容时，PR title 的 [skip a6] 与当前 head SHA 上非作者的有效 APPROVED review（body 精确等于 A6 N/A confirmed）必须同时成立。治理过渡 PR 同时更新根 CLAUDE.md，以通过旧目标分支的检查器。required-check 名称 A6 / Check 不变。
 
-**Category 2 — Runtime Info**：
 
-- `VERSION` 文件变更（marketplace 版本号）必同步 AGENTS.md「历史版本记录」段尾追加新行
-- `.claude-plugin/marketplace.json` `plugins[]` 数组结构变更（add/remove plugin）必同步「Project Structure」+「v4.0.0 Restructure Note」类历史段
-- `plugins/<name>/.claude-plugin/plugin.json` major/minor version bump 必同步 plugin 描述行
-
-**Category 3 — Directory Entries**：
-
-- `.claude/skills/mp-*/` 新增 / 删除 / 重命名 skill 必同步「Project-Local Skills」表
-- `plugins/<name>/skills/<name>/` 新增 / 删除 / 重命名 必同步 plugin 描述段
-- `docs/` 子目录结构变更（add/remove subtype subdir）必同步「文档目录子结构」code block
-
-**Category 4 — Codex Dual-Native Surfaces** (v1.7 NEW；per [`[ADR]_Codex_Dual_Native_Plugin_Support`](../adr/[ADR]_Codex_Dual_Native_Plugin_Support.md))：
-
-Codex 原生包装与 learn-kit NLM bridge 是与 Claude 侧 manifest 平行的**第二套发布契约**；两套 manifest 必须持续版本一致，AGENTS.md 的 plugin / runtime 描述段同时覆盖二者，故与 Category 2/3 同级触发：
-
-- `.agents/plugins/marketplace.json`（Codex native catalog；插件集合 / 顺序 / category 变更）
-- `plugins/<name>/.codex-plugin/plugin.json`（Codex native manifest；与 legacy manifest 共享字段必须一致）
-- `plugins/<name>/skills/<name>/agents/openai.yaml`（skill UI metadata；default_prompt 的 qualified 名）
-- `plugins/learn-kit/.mcp.json`（MCP server contract；command / args / server key）
-- `plugins/learn-kit/nlm-bridge/**`（bridge package、hashed locks、contract snapshots）
-- `plugins/learn-kit/scripts/install-nlm-bridge.mjs`（用户手工 installer 的 URL / 目录 / receipt 契约）
-- `scripts/{generate-nlm-contract,probe-learn-kit-nlm-bridge,resolve-release-state,run-release,release-verify-install}.mjs`（contract 生成、bridge 探测、release 判定入口、release 编排器、pre-publish install 校验器——release-critical 业务逻辑，v1.8 起 `run-release` + `release-verify-install` 与既有三者同级并入）
-
-**非触发 clause**: 上述文件的 **typo 修复 / 注释级 / 内容澄清 / 排版调整 / 单 line 文本微调** 不视作 sync 触发；只有**结构 / 规则 / 版本 / 条目**变更触发。Skill 内部实现细节变更（不动 SKILL.md frontmatter）也不触发。CHANGELOG 累加 / `[Unreleased]` 维护属高频日常操作，从不触发 sync。
-
-**A6 gate enforcement**: 见 §4.3.1。
-
-## §3 Examples
-
-### §3.1 Compliant ADR
-
-```markdown
 ---
 type: adr
 scope: marketplace

@@ -1,6 +1,6 @@
 ---
 name: mp-git-cleanup
-description: Cleans up local Git state after a marketplace PR merges — removes the feature worktree via `git worktree remove` (not `rm -rf` which leaves stale metadata in the bare repo), deletes the local branch via `git branch -D` (safe because already merged), runs `git fetch --tags` to retrieve any tag created by release.yml, and verifies the develop worktree is up-to-date. Make sure to use this skill whenever the user says "cleanup", "post merge cleanup", "remove worktree", "delete branch", "PR merged 清理", "Stage 10 cleanup", "merge 后清理", or after `/mp-git-merge-gate` decision is acted on and the PR has been merged. Refuses to remove the `develop` or `main` worktree (those are protected). Outputs the cleanup command sequence + verification commands; does NOT auto-execute — user reviews. Do not use for: branch creation (use mp-git-branch), commit (use mp-git-commit), PR creation (use mp-git-pr), or release verification (use mp-flow-post-merge which calls this skill).
+description: "Use for authorized marketplace branch or worktree cleanup / 分支清理 after verifying merge ancestry, clean state, target paths and protected branches."
 ---
 
 ## 执行授权（治理过渡）

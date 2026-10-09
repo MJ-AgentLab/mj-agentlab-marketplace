@@ -1,6 +1,6 @@
 ---
 name: mp-flow-dogfood
-description: Verifies that newly authored marketplace plugin / skill actually works in realistic conditions (HITL Stage 6) — runs read-only algorithm simulation (Glob + Grep + Read replaying the skill's internal steps) against external Claude Code sample projects (user-selected; blank sample also supported), plus optional real plugin install (`/plugin install <plugin>@mj-agentlab-marketplace --scope local`) for skills that have side-effects or low trust. Make sure to use this skill whenever the user says "dogfood", "本地验证", "verify plugin", "test skill behavior", "Stage 6 dogfood", "skill 真实跑通", "试跑 skill", "verification before commit", or once Stage 5 compliance audit has PASSED and the changes need behavior verification before commit. Marketplace dogfood policy: read-only skills should be verified by algorithm simulation in ≥ 2 external projects; side-effect or `disable-model-invocation` skills must be installed and triggered explicitly. Produces verification matrix `| Test | Project | Query | Expected | Actual | Pass |` + pass rate + performance baseline (if applicable); critical failures pause for HITL. Do not use for: plugin schema compliance (use mp-flow-compliance, Stage 5), pre-commit diff review (use mp-flow-self-review, Stage 7), or post-merge cleanup (use mp-flow-post-merge, Stage 10).
+description: "Use for marketplace installation and invocation acceptance / 本地验收: execute isolated tests and distinguish actual client results from static checks."
 ---
 
 ## 执行授权（治理过渡）

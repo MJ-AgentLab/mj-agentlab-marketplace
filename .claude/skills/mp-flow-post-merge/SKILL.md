@@ -1,6 +1,6 @@
 ---
 name: mp-flow-post-merge
-description: Performs marketplace post-merge cleanup (HITL Stage 10) — coordinates worktree removal / branch deletion / tag verification / release artifact check after a PR is merged to develop or main. Make sure to use this skill whenever the user says "post merge", "post-merge cleanup", "PR merged 后", "清理 worktree", "delete branch", "Stage 10", "merge 后清理", "tag verify", "release verify", "release.yml 触发后", or once a PR has been merged and the local feature worktree needs to be removed without orphaning state. Marketplace-specific concerns: bare repo + worktree model means worktree path must `git worktree remove` (not `rm -rf` which leaves stale metadata); release PR merge → main triggers release.yml which auto-creates tag `vX.Y.Z` + GitHub Release within ~10s, needs `git fetch --tags` to retrieve; CHANGELOG `[Unreleased]` to `[X.Y.Z]` is part of release PR not post-merge. Outputs cleanup checklist + verification commands + post-merge artifact (release tag / GitHub release) confirmation; coordinates with mp-git-cleanup which executes the actual git worktree remove + branch delete commands. Do not use for: PR creation (use mp-git-pr, Stage 8), PR merge gate (use mp-git-merge-gate, Stage 9), or worktree creation (use mp-git-branch, before Stage 8).
+description: "Use after marketplace PR merge / 合并后验证 to verify target branches, release state, version preparation and safe cleanup within authorization."
 ---
 
 ## 执行授权（治理过渡）

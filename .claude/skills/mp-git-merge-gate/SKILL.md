@@ -1,6 +1,6 @@
 ---
 name: mp-git-merge-gate
-description: Performs the marketplace PR merge-readiness gate (HITL Stage 9) — verifies CI 6-step has all passed, the PR template self-check 6 items are all ticked, no Review comments are pending or unaddressed, no scope drift surfaced during review, and (for release PRs targeting main) the user has explicitly confirmed the publish intent before the merge proceeds. Make sure to use this skill whenever the user says "can merge?", "merge ready", "PR ready", "Stage 9", "merge gate", "merge to develop", "merge to main", "release PR ready", "ready to merge", "marketplace PR merge", "合并准备", "可以 merge 吗", "PR 合并前确认", or once a PR has passed CI and the team is deciding whether to merge. Marketplace-specific rules: merge to develop is OK for feature/bugfix/documentation/maintain; merge to main requires HITL (hotfix or release PR); release PR merge auto-triggers release.yml VERSION-based tag creation within ~10s; if Claude is sandbox-blocked from `gh pr merge` to main, output the command for user to run in terminal. Outputs merge readiness verdict (READY / NOT READY / HITL BLOCK) + outstanding items + post-merge actions; does NOT auto-merge — user issues the final command. Do not use for: PR creation (use mp-git-pr), post-merge cleanup (use mp-git-cleanup / mp-flow-post-merge), or CI failure remediation.
+description: "Use for marketplace PR merge readiness / 合并门禁: verify CI, independent approvals, resolved threads, current base and any unresolved publish authorization."
 ---
 
 ## 执行授权（治理过渡）

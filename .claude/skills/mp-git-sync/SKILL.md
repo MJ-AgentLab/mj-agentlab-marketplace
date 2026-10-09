@@ -1,6 +1,6 @@
 ---
 name: mp-git-sync
-description: Syncs the latest baseline branch (develop / main) commits into the current mj-agentlab-marketplace working branch, or pulls origin/<same> into the local copy, using merge (never rebase) per project policy. Make sure to use this skill whenever the user says "同步分支", "拉取最新", "sync branch", "pull develop", "merge develop", "update branch", "rebase", "分支落后", "branch behind", "合并最新代码", "落后了", "分支过时了", "develop 有新代码", "冲突太多了", "branch outdated", "catch up with develop", "同步一下", "同步 main 到 develop", "hotfix 合并后同步", "sync main to develop", "post-hotfix sync", "自更新", "origin 有新提交", "协作者推了代码", "另一台机器提交了", "self-update", "pull remote", or "remote ahead". Three modes: dev-sync (work branch ← origin/develop or origin/main depending on prefix), hotfix-backmerge (develop ← origin/main after a hotfix release), self-update (any branch ← origin/<same> for multi-machine / collaborator pulls). Forces `git merge` over `git rebase`; refuses rebase requests. Side-loop helper (not a numbered HITL stage); may run multiple times between branch creation and PR. Do not use for: branch creation (use mp-git-branch), commit (use mp-git-commit), push (use mp-git-push), PR creation (use mp-git-pr), or worktree/branch deletion after merge (use mp-git-cleanup).
+description: "Use to synchronize marketplace branches / 分支同步 while preserving local changes and resolving actual merge or cherry-pick conflicts."
 ---
 
 ## 执行授权（治理过渡）

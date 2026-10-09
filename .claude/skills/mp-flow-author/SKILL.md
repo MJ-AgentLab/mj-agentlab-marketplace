@@ -1,6 +1,6 @@
 ---
 name: mp-flow-author
-description: Orchestrates marketplace plugin / skill authoring (HITL Stage 4) — decides when to delegate to external `/plugin-dev:create-plugin` (full 8-stage plugin workflow) vs `/skill-creator:skill-creator` (single SKILL.md drafting + description trigger optimization), enforces marketplace-specific constraints (plugin.json must live in `.claude-plugin/` subdir; no `components` field; auto-discovery from `skills/`), and tracks scope drift to keep changes within the Plan / ADR. Make sure to use this skill whenever the user says "create plugin", "add skill", "新建 plugin", "添加 skill", "改 skill", "Stage 4", "skill authoring", "plugin authoring", "marketplace 实施", or once Plan + ADR have been confirmed and code/skill changes need to be made. Marketplace currently has 1 plugin (learn-kit, v1.0.0) with 5 skills (init/locate/scan/generate-tier/nlm-studio); typical authoring is adding a 6th+ skill to learn-kit, refactoring an existing one, or (rare) introducing a 2nd plugin. Outputs proposed file list + per-file purpose + scope drift check; does NOT auto-write — user confirms each Write. Do not use for: plugin compliance audit (use mp-flow-compliance, Stage 5), local dogfood (use mp-flow-dogfood, Stage 6), or pre-commit self-review (use mp-flow-self-review, Stage 7).
+description: "Use for marketplace plugin or skill implementation / 插件技能开发 under an approved plan; execute edits and preserve scope and evidence."
 ---
 
 ## 执行授权（治理过渡）

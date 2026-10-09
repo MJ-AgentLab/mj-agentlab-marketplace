@@ -1,6 +1,6 @@
 ---
 name: mp-git-pr
-description: Creates a marketplace Pull Request via `gh pr create --body-file` (non-interactive mode that ensures the right template is used), automatically selecting one of the 6 PR templates (feature.md / bugfix.md / documentation.md / maintain.md / hotfix.md / release.md) based on branch type, filling in the 6-section self-check (Changes / Affected Areas / Verification / Local + AI Self-review / Risk / Rollback / Related), and writing PR_BODY.md to the worktree root then deleting it after the PR is created. Make sure to use this skill whenever the user says "create PR", "new PR", "提 PR", "新建 PR", "PR template", "version bump PR", "发版 PR", "Stage 8 PR", "merge to main", "marketplace PR", or after `/mp-git-push` succeeds and the branch is ready for review. release/* branches target main (gh pr create --base main); all other types target develop (--base develop). PR title ≤ 70 chars; body uses HEREDOC via PR_BODY.md (never paste large body to `--body` flag). Outputs the prepared `gh pr create` command + PR_BODY.md content; does NOT auto-execute — user reviews. Do not use for: branch creation (use mp-git-branch), commit (use mp-git-commit), push (use mp-git-push), merge gate (use mp-git-merge-gate), or post-merge cleanup (use mp-git-cleanup).
+description: "Use to create or update a marketplace pull request / 创建 PR with the correct base, scope, evidence and template; execute authorized PR preparation."
 ---
 
 ## 执行授权（治理过渡）

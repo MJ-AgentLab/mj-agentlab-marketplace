@@ -1,6 +1,6 @@
 ---
 name: mp-flow-intake
-description: Performs mj-agentlab-marketplace task Intake (HITL Stage 0) — converts user requests into a structured Intake Result with task type / risk level / scope / version-bump implication / documentation needs / HITL decision points, decides whether to write a working `plans/[INTAKE]_*.md` (only when scope warrants), and produces an Issue Draft body keyed to the marketplace's 6 branch types (feature/bugfix/documentation/maintain/hotfix/release). Make sure to use this skill whenever the user says "评估任务", "intake", "任务准入", "需求收口", "新任务评估", "Issue 创建前", "task intake", "marketplace 改动准入", or asks to convert a vague description / chat / partial plan into an actionable engineering task on this marketplace repo. Marketplace-specific risk triggers add: marketplace.json schema change / plugin.json field change / SKILL.md frontmatter change / plugin delete or rename / VERSION major bump / CI workflow change / merge to main / plugin secrets / publish action. Outputs Intake Result + Issue Draft + HITL Questions; does NOT create the Issue, branch, worktree, or files. Do not use for: GitHub Issue creation (use mp-git-pr's sibling Issue creation flow), branch creation (use mp-git-branch), repo fact-check (use mp-flow-repo-scan, Stage 1), or full Plan body authoring (use mp-flow-plan, Stage 2).
+description: "Use for marketplace task intake / 任务准入: determine scope, acceptance, risk, and unresolved owner decisions; proceed with already authorized work."
 ---
 
 ## 执行授权（治理过渡）

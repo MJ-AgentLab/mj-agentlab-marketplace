@@ -1,6 +1,6 @@
 ---
 name: mp-flow-plan
-description: Authors the working Plan body for a marketplace task (HITL Stage 2) — writes a 6-section markdown plan (linked artifacts / scope / task breakdown / risk control / documentation decision / verification & AC) and recommends saving it to `~/.claude/plans/<topic>.md` (user-local) since marketplace does NOT maintain a `plans/` directory in-repo. Make sure to use this skill whenever the user says "写 plan", "draft plan", "执行计划", "怎么推进", "任务拆解", "Stage 2", "plan body", "实施计划", "marketplace plan", or has Repo Scan output in hand and is ready to lay out the working plan. Distinct from mp-doc-author which writes formal `[GUIDE]` / `[ADR]` / `[RUNBOOK]` docs into the repo — this skill writes a working plan that lives in user-local `~/.claude/plans/` or is embedded in the PR description (per HITL Standard §0 working-doc boundary). Outputs the Plan body draft in conversation; does NOT auto-write the file. Do not use for: Repo state fact-check (use mp-flow-repo-scan, Stage 1), formal doc authoring like ADR/GUIDE (use mp-doc-author or mp-flow-design-adr), or Plugin/Skill code authoring (use mp-flow-author, Stage 4).
+description: "Use for marketplace implementation planning / 执行计划 after intake and repo scan: define ordered tasks, risks, documentation and acceptance evidence."
 ---
 
 ## 执行授权（治理过渡）
