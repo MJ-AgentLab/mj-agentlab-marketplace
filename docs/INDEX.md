@@ -39,6 +39,7 @@ version: v2.0
 - [[RUNBOOK]_Release_Operations.md](runbook/[RUNBOOK]_Release_Operations.md)
 
 - [迁移实际验收记录](runbook/[RUNBOOK]_ChatGPT_Codex_Migration_Acceptance.md)
+- [合并后发布准备与发布说明草稿](runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md)
 
 ## 决策与故障历史
 

@@ -68,7 +68,7 @@ supersedes:
 
 按治理、归档退役、格式与技能、工具链、验收、版本与发布准备顺序执行。迁移只在隔离 worktree 中准备。验收证据见 [验收记录](../runbook/[RUNBOOK]_ChatGPT_Codex_Migration_Acceptance.md)；未执行项明确标记。
 
-治理 PR #186 / #187 未合并期间，#188 曾临时保留根 CLAUDE.md 的固定同步说明，让目标分支的旧 A6 按原规则通过；CI 曾显式接受该说明，默认与正式发布校验始终拒绝。2026-10-09，#186 合入 develop（17252dc），#187 合入 main（473f606），两者均具备 AGENTS.md 门禁。#188 随后删除过渡文件、CI 临时选项及校验器允许分支，恢复统一严格校验，并复验新版 A6、结构、完整测试及隔离安装。桌面端验收与独立批准仍是迁移 PR 的 draft 解除条件。
+治理 PR #186 / #187 未合并期间，#188 曾临时保留根 CLAUDE.md 的固定同步说明，让目标分支的旧 A6 按原规则通过；CI 曾显式接受该说明，默认与正式发布校验始终拒绝。2026-10-09，#186 合入 develop（17252dc），#187 合入 main（473f606），两者均具备 AGENTS.md 门禁。#188 随后删除过渡文件、CI 临时选项及校验器允许分支，恢复统一严格校验，并复验新版 A6、结构、完整测试及隔离安装。owner 于同日将 #188 合入 develop（cea7744）。迁移代码合并不替代桌面端验收；两个客户端验收完成后才应用计划版本并准备 release PR。实际发布另需该 PR 的检查、独立批准与发布授权。
 
 ## Rollback
 
@@ -81,3 +81,4 @@ supersedes:
 - [历史来源清单](../archive/history-sources.json)
 - [旧双原生 ADR](./[ADR]_Codex_Dual_Native_Plugin_Support.md) 与 [diagram-kit 加入 ADR](./[ADR]_Diagram_Kit_Addition.md) 保留原路径与历史正文，由本决定替代其当前支持面和包装约定。
 - 2026-10-09：owner 提供并批准迁移实施计划；代理按 worktree 执行并提交 PR。
+- 2026-10-09：owner 合并 #186 / #187 / #188，代理同步 develop、复验精确 merge SHA 并整理工作树；[发布准备](../runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md) 继续记录未完成验收，版本保持 7.0.2 / 0.2.0。

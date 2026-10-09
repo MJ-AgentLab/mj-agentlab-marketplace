@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 - Prepare portable root plugin.json and skills/ for ChatGPT desktop and local Codex, keeping arch-diagram as the only public skill. OpenAI display information moves to extensions.com.openai, and obsolete host wrappers retire.
 - Keep fact tracing, installed-resource location and the actual Python validator; repository development skills are separate in .agents/skills.
-- Planned 0.3.0 remains unapplied until both client acceptances complete. The current portable implementation retains 0.2.0 during draft review, with the 0.x exception recorded in the migration ADR.
+- Planned 0.3.0 remains unapplied until both client acceptances complete. The merged portable implementation retains 0.2.0 while desktop acceptance is pending, with the 0.x exception recorded in the migration ADR.
 
 ### Added
 

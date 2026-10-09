@@ -11,7 +11,7 @@
 - Move all 19 repository development skills to .agents/skills and consolidate instructions into AGENTS.md. Agents execute authorized work; owners decide unresolved choices with explicit options and recommendations.
 - Root plugin.json / skills replace host wrappers. Versions are authoritative only in VERSION and the diagram-kit root manifest. Release preparation verifies a canonical Git tree and publishes an empty-asset draft with identity/tag/notes/phase protection.
 - Preserve old documents, plugin changelog, ADRs and acceptance records in docs/archive with source hashes and repaired links. See the migration ADR and upgrade guide for removal and directory changes.
-- Planned marketplace 8.0.0 / diagram-kit 0.3.0 remain unapplied until both client acceptances finish; implementation PR is draft and depends on governance PRs #186 / #187.
+- Planned marketplace 8.0.0 / diagram-kit 0.3.0 remain unapplied until both client acceptances finish. Governance PRs #186 / #187 and implementation PR #188 have merged; desktop acceptance and release preparation remain open.
 
 ### Added
 
