@@ -60,7 +60,7 @@ last-verified: 2026-10-09
 
 2026-10-09：#186 于 03:41:10 UTC 合并（develop 17252dc42f248e0ff995e3f198869549944b06af），#187 于 03:41:24 UTC 合并（main 473f606427e8b77a04290ce072893fbf03063912）；两个分支的 AGENTS.md 检查器 Git blob 完全相同。#188 同步最新 develop 后，已删除 CLAUDE.md、CI 临时选项与校验器允许分支，恢复严格仓库测试。严格结构校验、198 项测试和 Codex CLI 0.147.0 隔离安装再次通过；远端 required checks 以 PR 最新 head 为准。桌面端验收与 #188 当前提交的独立批准仍待完成。
 
-清理提交 71d368d4ceccb19d788814012341c8edd773abf7 的新版 A6 已用真实 develop base 17252dc 中提取的检查器复验（无签核例外，exit 0）。该精确提交也完成 release-verify-install 全链路复验：临时 detached Git 工作树、严格 portable 校验、Codex CLI 0.147.0 实际安装和 1/19 技能作用域均 PASS；结束后临时 Git 工作树清理完成。仅验证安装，不创建标签、草稿或发布。后续验收记录提交不改运行代码。
+清理提交 b79156644491461cfbd8f399ea32ce86e145fdb7（补齐 Codex 协作署名前为 71d368d，Git tree 相同）的新版 A6 已用真实 develop base 17252dc 中提取的检查器复验（无签核例外，exit 0）。补署名后的精确提交也重新完成 release-verify-install 全链路复验：临时 detached Git 工作树、严格 portable 校验、Codex CLI 0.147.0 实际安装和 1/19 技能作用域均 PASS；结束后临时 Git 工作树清理完成。仅验证安装，不创建标签、草稿或发布。后续验收记录提交不改运行代码。
 
 GitHub 只读查询确认 v7.0.0 / v7.0.1 的 NLM wheel 与 checksum 资产仍存在；未执行发布修改。
 
