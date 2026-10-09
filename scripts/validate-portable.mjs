@@ -15,12 +15,14 @@ export const PORTABLE_SCHEMA = "https://agent-plugins.org/schemas/1.0.0/plugin.s
 export const RUNTIME_PLUGINS = Object.freeze({
   "diagram-kit": Object.freeze(["arch-diagram"]),
   "understanding-kit": Object.freeze(["pop-quiz"]),
+  "explain-kit": Object.freeze(["glossary", "concept"]),
 });
 export const PUBLIC_SKILLS = Object.freeze(Object.entries(RUNTIME_PLUGINS).flatMap(([plugin, skills]) => skills.map(skill => `${plugin}:${skill}`)));
 export const EXPLICIT_ONLY_SKILLS = Object.freeze(["understanding-kit:pop-quiz"]);
 const PLUGIN_CAPABILITIES = Object.freeze({
   "diagram-kit": Object.freeze(["Read", "Write"]),
   "understanding-kit": Object.freeze(["Read"]),
+  "explain-kit": Object.freeze(["Read"]),
 });
 const SEMVER = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/;
 const NAME = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -70,6 +72,9 @@ export function validateManifest(manifest, expectedName) {
   const capabilities = PLUGIN_CAPABILITIES[manifest.name];
   if (!Array.isArray(ui.capabilities) || ui.capabilities.length !== capabilities.length || new Set(ui.capabilities).size !== ui.capabilities.length || ui.capabilities.some(value => !capabilities.includes(value))) throw new Error("interface.capabilities must match the plugin's approved capabilities");
   if (ui.category !== "Developer Tools" || !Array.isArray(ui.defaultPrompt) || !ui.defaultPrompt.length || ui.defaultPrompt.some(p => !routesToOwnedSkill(p, manifest.name))) throw new Error("invalid OpenAI listing/routing metadata");
+  for (const skill of RUNTIME_PLUGINS[manifest.name]) {
+    if (!ui.defaultPrompt.some(prompt => [...prompt.matchAll(/\$([a-z0-9-]+):([a-z0-9-]+)(?![A-Za-z0-9_-])/g)].some(([, plugin, name]) => plugin === manifest.name && name === skill))) throw new Error("listing must expose every public skill");
+  }
 }
 
 function routesToOwnedSkill(prompt, plugin, skill) {
@@ -90,7 +95,17 @@ export function validateOpenAIConfig(text, plugin, skill) {
   if (!routesToOwnedSkill(config.interface.default_prompt, plugin, skill)) throw new Error("native default_prompt must invoke its own skill");
   if (typeof config.policy?.allow_implicit_invocation !== "boolean") throw new Error("native invocation policy must be an explicit boolean");
   if (EXPLICIT_ONLY_SKILLS.includes(`${plugin}:${skill}`) && config.policy.allow_implicit_invocation !== false) throw new Error("pop-quiz must require explicit invocation");
+  if (plugin === "explain-kit") {
+    const length = [...config.interface.short_description].length;
+    const calls = [...config.interface.default_prompt.matchAll(/\$([a-z0-9-]+):([a-z0-9-]+)(?![A-Za-z0-9_-])/g)];
+    if (length < 25 || length > 64 || calls.length !== 1 || config.policy.allow_implicit_invocation !== true) throw new Error("invalid explanation skill presentation or implicit policy");
+  }
   return config;
+}
+
+export function validateSkillInterface(text, qualifiedName) {
+  const [plugin, skill] = qualifiedName.split(":");
+  return validateOpenAIConfig(text, plugin, skill);
 }
 
 function validateResourceTree(skillRoot) {
@@ -131,7 +146,7 @@ export function validateRepository(repoRoot) {
   check("marketplace", () => {
     const m = JSON.parse(read(root, ".agents/plugins/marketplace.json"));
     if (m.name !== "mj-agentlab-marketplace" || typeof m.interface?.displayName !== "string") throw new Error("invalid marketplace identity");
-    if (!Array.isArray(m.plugins) || JSON.stringify(m.plugins.map(p => p?.name).sort()) !== JSON.stringify(Object.keys(RUNTIME_PLUGINS).sort())) throw new Error("marketplace must contain exactly the two approved plugins");
+    if (!Array.isArray(m.plugins) || JSON.stringify(m.plugins.map(p => p?.name).sort()) !== JSON.stringify(Object.keys(RUNTIME_PLUGINS).sort())) throw new Error("marketplace must contain exactly the three approved plugins");
     if ("version" in m) throw new Error("catalog must not become a version authority");
     for (const p of m.plugins) {
       if (p.source?.source !== "local" || p.source?.path !== `./plugins/${p.name}`) throw new Error("only approved local plugin sources are supported");
@@ -149,6 +164,9 @@ export function validateRepository(repoRoot) {
       if (!inside(root, pluginRoot)) throw new Error(`plugin escapes repository: ${plugin}`);
       const skills = fs.readdirSync(path.join(pluginRoot, "skills")).sort();
       if (JSON.stringify(skills) !== JSON.stringify([...expectedSkills].sort())) throw new Error(`unexpected public skill set: ${plugin}`);
+      for (const rel of ["plugin.json", "README.md", "LICENSE", "CHANGELOG.md", ...expectedSkills.flatMap(skill => [`skills/${skill}/SKILL.md`, `skills/${skill}/agents/openai.yaml`])]) {
+        if (!inside(pluginRoot, path.join(pluginRoot, rel)) || !fs.statSync(path.join(pluginRoot, rel)).isFile()) throw new Error(`invalid package resource: ${rel}`);
+      }
       for (const rel of ["mcp.json", ".mcp.json", ".claude-plugin", ".codex-plugin", "CLAUDE.md"]) if (fs.existsSync(path.join(pluginRoot, rel))) throw new Error(`unneeded compatibility/config surface: ${plugin}/${rel}`);
     }
   });

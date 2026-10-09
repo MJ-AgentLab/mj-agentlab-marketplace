@@ -65,11 +65,15 @@ export function assertDiscovery(entries, { cacheRoot, repositoryRoot, inReposito
     const parts = normalized.split("/");
     const skillFile = process.platform === "win32" ? "skill.md" : "SKILL.md";
     if (rel.startsWith("..") || path.isAbsolute(rel) || parts.length !== 4 || parts[1] !== "skills" || parts[2] !== skill || parts[3] !== skillFile || !fs.statSync(entry.file).isFile() || (pluginVersions[plugin] && parts[0] !== pluginVersions[plugin])) throw new Error(`public skill did not resolve from its own isolated plugin/version cache: ${entry.name}, relative=${rel}`);
+    const pluginRoot = path.resolve(path.dirname(entry.file), "../..");
+    const manifest = JSON.parse(fs.readFileSync(path.join(pluginRoot, "plugin.json"), "utf8"));
+    const source = JSON.parse(fs.readFileSync(path.join(repositoryRoot, "plugins", plugin, "plugin.json"), "utf8"));
+    if (manifest.name !== plugin || manifest.version !== source.version) throw new Error(`incorrect installed plugin identity/version: ${entry.name}`);
   }
-  const development = entries.filter(e => REPOSITORY_SKILLS.includes(e.name));
+  const development = entries.filter(e => e.name.startsWith("mp-"));
   if (!inRepository && development.length) throw new Error("repository skills leaked to consumer cwd");
   if (inRepository) {
-    if (development.length !== REPOSITORY_SKILLS.length || new Set(development.map(e => e.name)).size !== REPOSITORY_SKILLS.length) throw new Error("repository discovery must contain the 19 distinct mp-* skills");
+    if (development.length !== REPOSITORY_SKILLS.length || new Set(development.map(e => e.name)).size !== REPOSITORY_SKILLS.length || development.some(e => !REPOSITORY_SKILLS.includes(e.name))) throw new Error("repository discovery must contain the 19 distinct mp-* skills");
     for (const e of development) if (!same(e.file, path.join(repositoryRoot, ".agents/skills", e.name, "SKILL.md"))) throw new Error(`incorrect repository skill scope: ${e.name}`);
   }
   return { publicSkills: publicSkills.length, repositorySkills: development.length };
@@ -125,16 +129,17 @@ export function cleanupIsolatedRoot(root) {
   fs.rmSync(root, { recursive: true, force: true });
 }
 
-export async function runSmoke({ repoRoot = path.resolve(import.meta.dirname, ".."), codexCommand = "codex", baseEnv = process.env, keepRoot = false, allowVersionDrift = false } = {}) {
+async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVersionDrift, installed }) {
   const root = fs.mkdtempSync(path.join(real(os.tmpdir()), "marketplace-smoke-"));
   const home = path.join(root, "home"), tmp = path.join(root, "tmp"), src = path.join(root, "src"), cwd = path.join(root, "consumer"), codexHome = path.join(home, ".codex");
   for (const dir of [home, tmp, src, cwd, codexHome]) fs.mkdirSync(dir, { recursive: true });
   const env = { ...baseEnv, HOME: home, USERPROFILE: home, CODEX_HOME: codexHome, APPDATA: path.join(home, "Roaming"), LOCALAPPDATA: path.join(home, "Local"), XDG_CONFIG_HOME: path.join(home, "config"), TEMP: tmp, TMP: tmp, TMPDIR: tmp };
   const commands = [];
+  let complete = false;
   const execute = async (name, args, at = cwd) => {
     const r = await runCli(name, args, { cwd: at, env, timeoutMs: 60000 });
     commands.push({ command: name, args, status: r.status });
-    if (r.error || r.status !== 0) throw new Error(`${name} ${args.join(" ")}: ${r.error?.message ?? r.stderr}`);
+    if (r.error || r.status !== 0) throw new Error(`${name} ${args.join(" ")}: ${r.error?.message ?? `${r.stderr}${r.stdout}`}`);
     return r.stdout;
   };
   try {
@@ -147,12 +152,13 @@ export async function runSmoke({ repoRoot = path.resolve(import.meta.dirname, ".
     const m = JSON.parse(await execute(codexCommand, ["plugin", "marketplace", "list", "--json"]));
     const names = m.marketplaces?.map(m => m.name) ?? [];
     if (names.length !== 1 || names[0] !== MARKETPLACE_NAME) throw new Error("isolated marketplace set is incorrect");
-    const plugins = Object.keys(RUNTIME_PLUGINS);
+    const plugins = installed;
+    const expectedSkills = plugins.flatMap(plugin => RUNTIME_PLUGINS[plugin].map(skill => `${plugin}:${skill}`));
     const pluginVersions = Object.fromEntries(plugins.map(name => [name, JSON.parse(fs.readFileSync(path.join(src, "plugins", name, "plugin.json"), "utf8")).version]));
     for (const plugin of plugins) await execute(codexCommand, ["plugin", "add", plugin, "--marketplace", MARKETPLACE_NAME, "--json"]);
     const list = JSON.parse(await execute(codexCommand, ["plugin", "list", "--json"]));
-    if (!Array.isArray(list.installed) || JSON.stringify(list.installed.map(p => p.name).sort()) !== JSON.stringify([...plugins].sort()) || list.installed.some(p => !p.installed || !p.enabled)) throw new Error("both approved plugins must be installed and enabled");
-    const implicitSkills = PUBLIC_SKILLS.filter(name => !EXPLICIT_ONLY_SKILLS.includes(name));
+    if (!Array.isArray(list.installed) || JSON.stringify(list.installed.map(p => p.name).sort()) !== JSON.stringify([...plugins].sort()) || list.installed.some(p => !p.installed || !p.enabled)) throw new Error("expected plugins must be installed and enabled");
+    const implicitSkills = expectedSkills.filter(name => !EXPLICIT_ONLY_SKILLS.includes(name));
     const external = parsePromptInputSkills(await execute(codexCommand, ["debug", "prompt-input", "ordinary task discovery check"]));
     const cacheRoot = path.join(codexHome, "plugins/cache", MARKETPLACE_NAME);
     const outside = assertDiscovery(external, { cacheRoot, repositoryRoot: src, inRepository: false, expectedSkills: implicitSkills, pluginVersions });
@@ -171,22 +177,56 @@ export async function runSmoke({ repoRoot = path.resolve(import.meta.dirname, ".
         const [plugin, name] = skill.name.split(":"), installedRoot = path.dirname(skill.path), sourceRoot = path.join(src, "plugins", plugin, "skills", name);
         const config = validateOpenAIConfig(fs.readFileSync(path.join(installedRoot, "agents/openai.yaml"), "utf8"), plugin, name);
         if (skill.interface?.defaultPrompt !== config.interface.default_prompt || skill.interface?.displayName !== config.interface.display_name) throw new Error(`native presentation differs from installed metadata: ${skill.name}`);
-        for (const rel of ["SKILL.md", "agents/openai.yaml", ...(plugin === "understanding-kit" ? ["references/ku-selection.md", "references/quiz-policy.md"] : ["scripts/validate_diagram.py"])]) {
+        for (const rel of ["SKILL.md", "agents/openai.yaml", ...(plugin === "understanding-kit" ? ["references/ku-selection.md", "references/quiz-policy.md"] : plugin === "diagram-kit" ? ["scripts/validate_diagram.py"] : [])]) {
           const file = path.join(installedRoot, rel), relative = path.relative(real(installedRoot), real(file));
           if (relative.startsWith("..") || path.isAbsolute(relative) || !fs.readFileSync(file).equals(fs.readFileSync(path.join(sourceRoot, rel)))) throw new Error(`installed skill resource is not its package-owned source: ${skill.name}/${rel}`);
         }
         skillPaths[skill.name] = skill.path;
       }
-      nativeInventories[key] = assertDiscovery(skills.map(s => ({ name: s.name, file: s.path })), { cacheRoot, repositoryRoot: src, inRepository, pluginVersions });
+      nativeInventories[key] = assertDiscovery(skills.map(s => ({ name: s.name, file: s.path })), { cacheRoot, repositoryRoot: src, inRepository, expectedSkills, pluginVersions });
     }
     const mcp = JSON.parse(await execute(codexCommand, ["mcp", "list", "--json"]));
     if (!Array.isArray(mcp) || mcp.length) throw new Error("the approved plugins should not install an MCP server");
-    const skillPath = skillPaths["diagram-kit:arch-diagram"];
-    const validatorPath = path.join(path.dirname(skillPath), "scripts/validate_diagram.py");
-    if (!fs.existsSync(validatorPath)) throw new Error("installed validator is absent");
-    return { ok: true, version, marketplaces: names, installed: plugins, outside, repository, nativeOutside: nativeInventories.outside, nativeRepository: nativeInventories.repository, explicitOnly: [...EXPLICIT_ONLY_SKILLS], skillPath, skillPaths, validatorPath, ...(keepRoot ? { root, codexHome, repositoryRoot: src, consumerRoot: cwd } : {}), commands };
+    const diagram = external.find(e => e.name === "diagram-kit:arch-diagram");
+    let diagramValidation;
+    if (diagram) {
+      const validatorPath = path.join(path.dirname(diagram.file), "scripts/validate_diagram.py");
+      if (!fs.existsSync(validatorPath)) throw new Error("installed validator is absent");
+      let python;
+      for (const [command, pre] of [["python3", []], ["python", []], ["py", ["-3"]]]) {
+        const r = await runCli(command, [...pre, "--version"], { cwd, env, timeoutMs: 10000 });
+        if (!r.error && r.status === 0) { python = { command, pre }; break; }
+      }
+      if (!python) {
+        const r = await runCli("uv", ["python", "find", "3.12"], { cwd, env: baseEnv, timeoutMs: 10000 });
+        const command = r.stdout.trim();
+        if (!r.error && r.status === 0 && command && fs.existsSync(command)) python = { command, pre: [] };
+      }
+      if (!python) throw new Error("installed diagram validation requires an existing Python interpreter");
+      const fixture = path.join(cwd, "installed context 中文 diagram.md");
+      fs.writeFileSync(fixture, '```text\nflowchart TD\n%% Name: 系统上下文图 (system context)\n%% Slug: struct-l1-context\n  U["用户 (User)"] --> S["系统 (System)"]\n```\n');
+      const output = await execute(python.command, [...python.pre, validatorPath, fixture]);
+      if (!/共扫描\s*1\s*张图/.test(output) || !/FAIL\s+0/.test(output)) throw new Error("installed Python validator did not validate the one-diagram fixture");
+      diagramValidation = { skillPath: diagram.file, validatorPath, output: output.trim() };
+    }
+    complete = true;
+    return { ok: true, version, marketplaces: names, installed: plugins, outside, repository, nativeOutside: nativeInventories.outside, nativeRepository: nativeInventories.repository, explicitOnly: expectedSkills.filter(name => EXPLICIT_ONLY_SKILLS.includes(name)), skillPaths, publicSkillPaths: skillPaths, ...(diagramValidation ? { skillPath: diagram.file, validatorPath: diagramValidation.validatorPath, diagramValidation } : {}), ...(keepRoot ? { root, codexHome, repositoryRoot: src, consumerRoot: cwd } : {}), commands };
   } finally {
-    if (!keepRoot) cleanupIsolatedRoot(root);
+    if (!keepRoot || !complete) cleanupIsolatedRoot(root);
+  }
+}
+
+/** Exercise each standalone package and the combined install with separate caches. */
+export async function runSmoke({ repoRoot = path.resolve(import.meta.dirname, ".."), codexCommand = "codex", baseEnv = process.env, keepRoot = false, allowVersionDrift = false } = {}) {
+  const scenarios = [];
+  try {
+    for (const installed of [["diagram-kit"], ["explain-kit"], ["diagram-kit", "explain-kit"], Object.keys(RUNTIME_PLUGINS)]) {
+      scenarios.push(await runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVersionDrift, installed }));
+    }
+    return { ...scenarios.at(-1), scenarios };
+  } catch (error) {
+    if (keepRoot) for (const result of scenarios) cleanupIsolatedRoot(result.root);
+    throw error;
   }
 }
 

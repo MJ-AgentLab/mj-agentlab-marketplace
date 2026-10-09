@@ -17,15 +17,17 @@ function fixture(){
  fs.writeFileSync(path.join(d,"plugins/diagram-kit/plugin.json"),JSON.stringify({name:"diagram-kit",version:"0.2.0",description:"history 0.2.0",extensions:{history:{version:"0.2.0"}}},null,2)+"\n");
  fs.mkdirSync(path.join(d,"plugins/understanding-kit"),{recursive:true});
  fs.writeFileSync(path.join(d,"plugins/understanding-kit/plugin.json"),JSON.stringify({name:"understanding-kit",version:"0.1.0",description:"design v0.3",extensions:{history:{version:"0.1.0"}}},null,2)+"\n");
+ fs.mkdirSync(path.join(d,"plugins/explain-kit"),{recursive:true});
+ fs.writeFileSync(path.join(d,"plugins/explain-kit/plugin.json"),JSON.stringify({name:"explain-kit",version:"0.1.0",description:"history 0.1.0",extensions:{history:{version:"0.1.0"}}},null,2)+"\n");
  fs.copyFileSync(path.join(REPO,".agents/plugins/marketplace.json"),path.join(d,".agents/plugins/marketplace.json"));return d;
 }
-const files=["VERSION","README.md","plugins/diagram-kit/plugin.json","plugins/understanding-kit/plugin.json",".agents/plugins/marketplace.json"];
+const files=["VERSION","README.md","plugins/diagram-kit/plugin.json","plugins/understanding-kit/plugin.json","plugins/explain-kit/plugin.json",".agents/plugins/marketplace.json"];
 const bytes=d=>Object.fromEntries(files.map(p=>[p,fs.readFileSync(path.join(d,p))]));
 const read=(d,p)=>fs.readFileSync(path.join(d,p),"utf8");
 function noBackups(d){for(const p of files) assert.ok(!fs.existsSync(path.join(d,p+".bump-backup")));}
 const opts={skip:!HAVE&&"PowerShell unavailable"};
 async function bump(d,scope="marketplace",extra=[],env={}){
- const versions={marketplace:["7.0.2","8.0.0"],"diagram-kit":["0.2.0","0.3.0"],"understanding-kit":["0.1.0","0.2.0"]};
+ const versions={marketplace:["7.0.2","8.0.0"],"diagram-kit":["0.2.0","0.3.0"],"understanding-kit":["0.1.0","0.2.0"],"explain-kit":["0.1.0","0.2.0"]};
  return runCli("pwsh",["-NoProfile","-File","./scripts/bump-version.ps1","-From",versions[scope][0],"-To",versions[scope][1],"-Scope",scope,...extra],{cwd:d,env:{...process.env,...env},timeoutMs:60000});
 }
 test("marketplace updates VERSION and derived badge only",opts,async()=>{
@@ -44,7 +46,7 @@ test("understanding-kit bumps independently from marketplace and diagram-kit",op
  const m=JSON.parse(read(d,"plugins/understanding-kit/plugin.json"));assert.equal(m.version,"0.2.0");assert.equal(m.description,"design v0.3");assert.equal(m.extensions.history.version,"0.1.0");
  for(const p of files.filter(p=>p!=="plugins/understanding-kit/plugin.json")) assert.deepEqual(fs.readFileSync(path.join(d,p)),before[p]);noBackups(d);
 });
-for(const scope of ["marketplace","diagram-kit","understanding-kit"])test("DryRun writes nothing: "+scope,opts,async()=>{
+for(const scope of ["marketplace","diagram-kit","understanding-kit","explain-kit"])test("DryRun writes nothing: "+scope,opts,async()=>{
  const d=fixture(),before=bytes(d),r=await bump(d,scope,["-DryRun"]);assert.equal(r.status,0,r.stdout+r.stderr);
  assert.match(r.stdout,/No files were modified/);assert.deepEqual(bytes(d),before);noBackups(d);
 });
@@ -92,4 +94,24 @@ test("plugin scope cannot bump a manifest with another plugin identity",opts,asy
 test("understanding-kit failure restores its version without touching the other plugin",opts,async()=>{
  const d=fixture(),before=bytes(d),r=await bump(d,"understanding-kit",["-TestCorruptAfterWrite","1"],{MP_BUMP_TESTING:"1"});
  assert.notEqual(r.status,0);assert.match(r.stdout+r.stderr,/post-write validation failed/);assert.deepEqual(bytes(d),before);noBackups(d);
+});
+
+test("explain-kit version changes preserve the other plugin and marketplace",opts,async()=>{
+ const d=fixture(),before=bytes(d),r=await bump(d,"explain-kit");assert.equal(r.status,0,r.stdout+r.stderr);
+ const m=JSON.parse(read(d,"plugins/explain-kit/plugin.json"));assert.equal(m.version,"0.2.0");assert.equal(m.description,"history 0.1.0");assert.equal(m.extensions.history.version,"0.1.0");
+ for(const p of files.filter(p=>p!=="plugins/explain-kit/plugin.json"))assert.deepEqual(fs.readFileSync(path.join(d,p)),before[p]);noBackups(d);
+});
+
+
+for(const scope of ["diagram-kit","explain-kit"])test("plugin write failure restores original bytes: "+scope,opts,async()=>{
+ const d=fixture(),before=bytes(d),r=await bump(d,scope,["-TestFailAfterReplace","1"],{MP_BUMP_TESTING:"1"});
+ assert.notEqual(r.status,0);assert.deepEqual(bytes(d),before);noBackups(d);
+});
+
+test("plugin scope cannot modify a manifest with another identity or version",opts,async()=>{
+ for(const change of [{name:"diagram-kit"},{version:"0.9.0"}]){
+ const d=fixture(),p=path.join(d,"plugins/explain-kit/plugin.json"),m=JSON.parse(read(d,"plugins/explain-kit/plugin.json"));
+ fs.writeFileSync(p,JSON.stringify({...m,...change},null,2)+"\n");const before=bytes(d),r=await bump(d,"explain-kit");
+ assert.notEqual(r.status,0);assert.deepEqual(bytes(d),before);noBackups(d);
+ }
 });

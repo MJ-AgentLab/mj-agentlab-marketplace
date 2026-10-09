@@ -17,3 +17,6 @@
 - **Portable manifest**：插件根 plugin.json；根 version 是插件版本权威来源，OpenAI 展示信息位于 extensions.com.openai。
 - **历史归档**：保留旧版 learn-kit、NotebookLM、Claude 方案及验收记录，见 [文档索引](docs/INDEX.md)。
 - **发布**：通过 Git 仓库与版本标签分发，采用草稿、验收、发布前复查及不可覆盖保护。
+
+- **explain-kit**：独立解释插件，初始 0.1.0；公开 glossary 与 concept。
+- **glossary / concept**：术语速解 / 深入机制、反例和边界解释；本文件是市场术语表，不是 glossary 的运行技能。

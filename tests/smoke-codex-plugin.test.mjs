@@ -4,19 +4,23 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import {assertDiscovery,parsePromptInputSkills,cleanupIsolatedRoot,listNativeSkills} from "../scripts/smoke-codex-plugin.mjs";
-import {REPOSITORY_SKILLS} from "../scripts/validate-portable.mjs";
+import {REPOSITORY_SKILLS,RUNTIME_PLUGINS} from "../scripts/validate-portable.mjs";
 import {spawnCli} from "../scripts/run-cli.mjs";
 function fixture(){const root=fs.mkdtempSync(path.join(fs.realpathSync.native(os.tmpdir()),"discovery-fixture-"));
- const cache=path.join(root,"cache"), repo=path.join(root,"repo"), file=path.join(cache,"diagram-kit/0.2.0/skills/arch-diagram/SKILL.md");
- fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,"skill");
- const quizFile=path.join(cache,"understanding-kit/0.1.0/skills/pop-quiz/SKILL.md");fs.mkdirSync(path.dirname(quizFile),{recursive:true});fs.writeFileSync(quizFile,"quiz");
- const entries=[{name:"diagram-kit:arch-diagram",file},{name:"understanding-kit:pop-quiz",file:quizFile}];
+ const cache=path.join(root,"cache"), repo=path.join(root,"repo");
+ const manifests=Object.fromEntries(Object.keys(RUNTIME_PLUGINS).map(plugin=>{const manifest=JSON.parse(fs.readFileSync(path.resolve(import.meta.dirname,"..","plugins",plugin,"plugin.json"),"utf8"));if(plugin==="diagram-kit")manifest.version="0.2.0";return [plugin,manifest];}));
+ const pluginVersions=Object.fromEntries(Object.entries(manifests).map(([plugin,manifest])=>[plugin,manifest.version]));
+ const skillFile=(plugin,skill)=>{const file=path.join(cache,plugin,pluginVersions[plugin],"skills",skill,"SKILL.md");fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,skill);return file;};
+ const file=skillFile("diagram-kit","arch-diagram"),quizFile=skillFile("understanding-kit","pop-quiz");
+ const explainEntries=["glossary","concept"].map(skill=>({name:"explain-kit:"+skill,file:skillFile("explain-kit",skill)}));
+ for(const [plugin,manifest] of Object.entries(manifests))for(const base of [path.join(repo,"plugins",plugin),path.join(cache,plugin,pluginVersions[plugin])]){fs.mkdirSync(base,{recursive:true});fs.writeFileSync(path.join(base,"plugin.json"),JSON.stringify(manifest));}
+ const entries=[{name:"diagram-kit:arch-diagram",file},{name:"understanding-kit:pop-quiz",file:quizFile},...explainEntries];
  const dev=REPOSITORY_SKILLS.map(name=>{const file=path.join(repo,".agents/skills",name,"SKILL.md");fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,name);return {name,file};});
- return {root,cache,repo,file,quizFile,entries,dev};}
+ return {root,cache,repo,file,quizFile,entries,dev,pluginVersions};}
 test("consumer and repository inventories are scoped to real installed files",()=>{
  const f=fixture();try{
- assert.deepEqual(assertDiscovery(f.entries,{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false}),{publicSkills:2,repositorySkills:0});
- assert.deepEqual(assertDiscovery([...f.entries,...f.dev],{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:true}),{publicSkills:2,repositorySkills:19});
+ assert.deepEqual(assertDiscovery(f.entries,{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false}),{publicSkills:4,repositorySkills:0});
+ assert.deepEqual(assertDiscovery([...f.entries,...f.dev],{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:true}),{publicSkills:4,repositorySkills:19});
  assert.throws(()=>assertDiscovery([...f.entries,...f.dev],{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false}));
  }finally{cleanupIsolatedRoot(f.root);}});
 test("duplicate, missing and escaped public locators fail closed",()=>{
@@ -25,7 +29,7 @@ test("duplicate, missing and escaped public locators fail closed",()=>{
  const foreign=path.join(f.root,"other/skills/arch-diagram/SKILL.md");fs.mkdirSync(path.dirname(foreign),{recursive:true});fs.writeFileSync(foreign,"other");
  assert.throws(()=>assertDiscovery([{...entry,file:foreign},f.entries[1]],opts));
  assert.throws(()=>assertDiscovery([entry,{...f.entries[1],file:f.file}],opts));
- assert.throws(()=>assertDiscovery(f.entries,{...opts,pluginVersions:{"diagram-kit":"0.3.0","understanding-kit":"0.1.0"}}));
+ assert.throws(()=>assertDiscovery(f.entries,{...opts,pluginVersions:{...f.pluginVersions,"diagram-kit":"0.3.0"}}));
  assert.throws(()=>assertDiscovery([...f.entries,{name:"unapproved-kit:quiz",file:f.quizFile}],opts));
  }finally{cleanupIsolatedRoot(f.root);}});
 test("Windows equivalent file casing still passes containment",{skip:process.platform!=="win32"},()=>{
@@ -37,7 +41,7 @@ test("ordinary prompt metadata excludes the explicit-only quiz",()=>{
 });
 test("a plugin cache junction cannot claim files outside its marketplace directory",t=>{
  const f=fixture();t.after(()=>cleanupIsolatedRoot(f.root));
- const cache=path.join(f.cache,'understanding-kit'),foreign=path.join(f.root,'foreign'),target=path.join(foreign,'0.1.0/skills/pop-quiz/SKILL.md');
+ const cache=path.join(f.cache,'understanding-kit'),foreign=path.join(f.root,'foreign'),target=path.join(foreign,f.pluginVersions['understanding-kit'],'skills/pop-quiz/SKILL.md');
  fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,'foreign');fs.rmSync(cache,{recursive:true});
  try{fs.symlinkSync(foreign,cache,process.platform==='win32'?'junction':'dir');}catch(e){if(['EPERM','EACCES','ENOSYS'].includes(e.code)){t.skip('symbolic links unavailable');return;}throw e;}
  assert.throws(()=>assertDiscovery(f.entries,{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false}),/plugin cache escapes/);
@@ -68,7 +72,7 @@ function aliasedPrompt(roots, entries) {
 test("root aliases resolve installed and all 19 repository skills before scope checks",()=>{
  const f=fixture();try{
   const roots=[["r1",f.cache],["r2",path.join(f.repo,".agents/skills")]];
-  const entry={name:"diagram-kit:arch-diagram",file:"r1/diagram-kit/0.2.0/skills/arch-diagram/SKILL.md"};
+  const entry={name:"diagram-kit:arch-diagram",file:"r1/"+path.relative(f.cache,f.file).split(path.sep).join("/")};
   const opts={cacheRoot:f.cache,repositoryRoot:f.repo,expectedSkills:[entry.name]};
   const consumer=parsePromptInputSkills(aliasedPrompt(roots,[entry]));
   assert.deepEqual(assertDiscovery(consumer,{...opts,inRepository:false}),{publicSkills:1,repositorySkills:0});
@@ -81,7 +85,7 @@ test("root aliases resolve installed and all 19 repository skills before scope c
 
 test("missing, relative, conflicting and escaped root mappings fail closed",()=>{
  const f=fixture();try{
-  const entry={name:"diagram-kit:arch-diagram",file:"r1/diagram-kit/0.2.0/skills/arch-diagram/SKILL.md"};
+  const entry={name:"diagram-kit:arch-diagram",file:"r1/"+path.relative(f.cache,f.file).split(path.sep).join("/")};
   assert.throws(()=>parsePromptInputSkills(aliasedPrompt([], [entry])),/unknown skill root/);
   assert.throws(()=>parsePromptInputSkills(aliasedPrompt([["r1","relative/cache"]], [entry])),/absolute/);
   assert.throws(()=>parsePromptInputSkills(aliasedPrompt([["r1",f.cache],["r1",f.repo]], [entry])),/conflicting skill root/);
@@ -95,5 +99,25 @@ test("root mappings are local to their prompt text block",()=>{
   assert.deepEqual(parsePromptInputSkills(JSON.stringify(blocks)),[f.cache,f.repo].map(root=>({name:"fixture",file:path.join(root,"SKILL.md")})));
   blocks.push({text:"- fixture: discover skill (file: r1/SKILL.md)"});
   assert.throws(()=>parsePromptInputSkills(JSON.stringify(blocks)),/unknown skill root/);
+ }finally{cleanupIsolatedRoot(f.root);}
+});
+
+for(const installed of [["diagram-kit"],["explain-kit"],["diagram-kit","explain-kit"],Object.keys(RUNTIME_PLUGINS)])test("standalone and combined discovery: "+installed.join(" + "),()=>{
+ const f=fixture();try{
+  const entries=f.entries.filter(e=>installed.includes(e.name.split(":")[0])),expectedSkills=entries.map(e=>e.name);
+  const opts={cacheRoot:f.cache,repositoryRoot:f.repo,expectedSkills};
+  assert.deepEqual(assertDiscovery(entries,{...opts,inRepository:false}),{publicSkills:entries.length,repositorySkills:0});
+  assert.deepEqual(assertDiscovery([...entries,...f.dev],{...opts,inRepository:true}),{publicSkills:entries.length,repositorySkills:19});
+  assert.throws(()=>assertDiscovery([...entries,{name:"mp-unknown",file:f.dev[0].file}],{...opts,inRepository:false}));
+ }finally{cleanupIsolatedRoot(f.root);}
+});
+
+test("complete installed inventory rejects swapped skills and package identity/version drift",()=>{
+ const f=fixture();try{
+  const opts={cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false};
+  const wrong=f.entries.map(e=>({...e}));wrong[2].file=wrong[3].file;assert.throws(()=>assertDiscovery(wrong,opts));
+  const file=path.resolve(path.dirname(f.entries[2].file),"../../plugin.json"),original=fs.readFileSync(file),manifest=JSON.parse(original);
+  for(const change of [{name:"diagram-kit"},{version:"9.9.9"}]){fs.writeFileSync(file,JSON.stringify({...manifest,...change}));assert.throws(()=>assertDiscovery(f.entries,opts),/identity\/version/);}
+  fs.writeFileSync(file,original);assert.equal(assertDiscovery(f.entries,opts).publicSkills,4);
  }finally{cleanupIsolatedRoot(f.root);}
 });
