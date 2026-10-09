@@ -16,9 +16,9 @@ tags:
   - onboarding
   - archived
 related:
-  - ../rule/[STANDARD]_Documentation_Framework.md
-  - ../adr/[ADR]_Root_Level_Named_Files_Codification.md
-  - ../adr/[ADR]_Documentation_Framework_Exemption_Reversal.md
+  - "../rule/[STANDARD]_Documentation_Framework.md"
+  - "../adr/[ADR]_Root_Level_Named_Files_Codification.md"
+  - "../adr/[ADR]_Documentation_Framework_Exemption_Reversal.md"
 revision: |
   2026-05-18 — archived: §2.3.1 trigger #4 (split-merge-rename); content moved back to repo-root `CONTRIBUTING.md` per Framework v1.6 §1.1 codification + [`[ADR]_Root_Level_Named_Files_Codification`](../adr/[ADR]_Root_Level_Named_Files_Codification.md) Decision 2; partially reverses Reversal ADR v1.0 (which is bumped to v1.1 with amendment note in same PR). state: active → archived in this commit; ceremony per RUNBOOK Phase 1-4 + Gate D-02 fires (~13 living refs across 13 files upgraded).
   2026-05-18 — v1.1: §Bare Repo + Worktree 加 "`git branch` 输出前缀（worktree 模式特有）" 子段，列出 3 种前缀 (`  ` / `* ` / `+ `) 含义 + 过滤脚本必须用 `[ *+]` 字符类的警告；交叉引用 mp-git-cleanup §Bulk Cleanup Mode + POSTMORTEM_2026-05-18。源于 2026-05-18 bulk cleanup 误删 main local ref 的 P3 incident。Non-trigger archive。
@@ -175,7 +175,7 @@ mj-agentlab-marketplace/
 
 任何过滤 `git branch` 输出的脚本必须用 `[ *+]` 字符类，否则 `+ <branch>` 行会泄漏到下游命令（`xargs git branch -d` 等），可能误删 protected 分支。更稳的写法是 `git for-each-ref refs/heads/ --format='%(refname:short)'`（无 prefix）。
 
-bulk cleanup 时的完整 3-trap 列表见 [`.claude/skills/mp-git-cleanup/SKILL.md`](../../.claude/skills/mp-git-cleanup/SKILL.md) §Bulk Cleanup Mode 与 [`./docs/postmortem/[POSTMORTEM]_2026-05-18_Bulk_Cleanup_Trap_Analysis.md`](../postmortem/[POSTMORTEM]_2026-05-18_Bulk_Cleanup_Trap_Analysis.md)。
+bulk cleanup 时的完整 3-trap 列表见 [`.claude/skills/mp-git-cleanup/SKILL.md`](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/e90d7359c48c92b04f46fd4160e859b906b58885/.claude/skills/mp-git-cleanup/SKILL.md) §Bulk Cleanup Mode 与 [`./docs/postmortem/[POSTMORTEM]_2026-05-18_Bulk_Cleanup_Trap_Analysis.md`](../postmortem/[POSTMORTEM]_2026-05-18_Bulk_Cleanup_Trap_Analysis.md)。
 
 ## Git Hooks
 

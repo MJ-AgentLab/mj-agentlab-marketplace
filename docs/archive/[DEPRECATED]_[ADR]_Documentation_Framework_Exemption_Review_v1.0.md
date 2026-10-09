@@ -11,8 +11,8 @@ archived: 2026-05-18
 replaced-by: ../adr/[ADR]_Documentation_Framework_Exemption_Reversal.md
 domain: governance
 related:
-  - ../rule/[STANDARD]_Documentation_Framework.md
-  - ../adr/[ADR]_NotebookLM_Kit_Retirement.md
+  - "../rule/[STANDARD]_Documentation_Framework.md"
+  - "../adr/[ADR]_NotebookLM_Kit_Retirement.md"
 ---
 
 # [ADR] Documentation Framework §1 Exemption Review
