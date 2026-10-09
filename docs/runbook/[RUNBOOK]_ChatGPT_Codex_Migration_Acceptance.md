@@ -6,13 +6,13 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
 state: active
-version: v1.1
+version: v1.2
 last-verified: 2026-10-09
 ---
 
 # 迁移验收记录
 
-验收日期：2026-10-09。环境：Windows、本地 Codex CLI 0.147.0、Node.js 22.18.0、PowerShell 7、Python。实现经 #188 合入 develop；后续 owner 授权先在 #189 中准备 Marketplace 8.0.0 / diagram-kit 0.3.0，权威版本已更新。正式发布尚未推进，桌面端验收仍未执行。下方保留各次执行所绑定的提交与范围。
+验收日期：2026-10-09。环境：Windows、本地 Codex CLI 0.147.0、Node.js 22.18.0、PowerShell 7、Python。实现经 #188 合入 develop；#189 准备 Marketplace 8.0.0 / diagram-kit 0.3.0；#190 已合入 main，自动流程已经发布 v8.0.0。桌面端验收仍未执行。下方保留各次执行所绑定的提交与范围，发布事实不替代缺失验收。
 
 | 验收项 | 实际结果 | 证据 / 范围 |
 |---|---|---|
@@ -28,8 +28,8 @@ last-verified: 2026-10-09
 | 退役运行依赖 | PASS | learn-kit 和 NotebookLM 专用目录、入口、CI 及新发布资产路径删除；旧 A6 触发器与历史提交 scope 作为工程保护保留 |
 | 历史资料 | PASS | 原 CHANGELOG / ADR / 指南 / 验收记录保留，来源 SHA 与 Git blob 哈希记录在 archive/history-sources.json，正文和 metadata 引用按新位置修复 |
 | GitHub required checks / 合并记录 | PASS；已合并 | #186 合入 develop（17252dc），#187 合入 main（473f606），#188 合入 develop（cea7744）；#188 最终 head dc58f2e 的 7 项有效检查 SUCCESS，另一次 A6 因并发取消 |
-| GitHub 独立批准记录 | 未见记录 | 合并后查询 #188 reviews 为空；合并事实及 AI 复核不作为独立 APPROVED review 的证据。正式发布 PR 仍需独立批准 |
-| 版本准备 / 正式发布 | 版本已准备；未发布 | owner 回复“更新即可”后在 #189 应用 8.0.0 / 0.3.0 并更新 CHANGELOG / release notes。该决定不构成桌面验收通过；正式发布仍需完整验收、检查、独立批准和发布授权 |
+| GitHub 独立批准记录 | 未见记录 | 合并后查询 #188 / #189 / #190 reviews 为空；合并事实及 AI 复核不作为独立 APPROVED review 的证据 |
+| 版本准备 / 正式发布 | 已发布 | #190 merge 733bd3d；v8.0.0 于 2026-10-09 05:20:06 UTC 自动发布。桌面端未执行状态保留，没有据此推定验收豁免 |
 
 ## 可复验入口
 
@@ -80,3 +80,29 @@ GitHub 只读查询确认 v7.0.0 / v7.0.1 的 NLM wheel 与 checksum 资产仍�
 owner 在上述桌面端验收提问后回复“更新即可”。按该授权，代理在新的 worktree 中再次执行两项 dry-run，然后实际应用 Marketplace 8.0.0 / diagram-kit 0.3.0、README badge、正式 CHANGELOG 与发布说明，并在 ADR 记录版本准备顺序的调整。没有收到桌面客户端版本、安装来源及实际调用结果，因此桌面端仍标为未执行；没有创建新标签、草稿或正式发布。
 
 版本准备提交 1608470d2eb64d1d2457206462c2c6536592e7fe：严格结构校验及 198 项强制 PowerShell/Python 测试通过（0 失败、0 跳过），CLI 0.147.0 基线检测通过。精确 Git tree 的 release-verify-install 实际执行通过：隔离缓存路径为 diagram-kit/0.3.0/skills/arch-diagram，consumer cwd 1 个公开技能 / 0 个开发技能，repo cwd 1 个公开技能 / 19 个开发技能，验证结束后临时 Git 工作树清理。使用 origin/develop 的原始 A6 检查器复验通过，正常 AGENTS.md 同步，无签核例外。历史 CHANGELOG 正文保留，正式发布模板已改为两个版本权威及客户端/发布门禁检查。
+
+## #189 合并后与 main 发布候选
+
+#189 于 2026-10-09 12:39:30（Asia/Taipei）合入 develop，merge SHA 为 304143239eb6e96b4f6a0be55a91bd70b08540ea；本地 develop 从干净状态 fast-forward 至该提交。GitHub 查询确认其最终 head 的 A6、严格结构和 Linux/Windows CI 全部通过；reviews 为空，合并不作为独立批准证据。
+
+发布分支 codex/release-8.0.0 从 3041432 派生并合入 main 473f606。19 个旧技能的 modify/delete、旧 CLAUDE.md 删除、AGENTS.md 和两项规范共 23 处冲突均按已批准迁移解决。合并提交 88b5e6f6fef4a4431ce4086033e78ff32358e2aa 的 Git tree 为 3d53450d6ba47e66847fc1e201d732e1714a1b3a，与 3041432 完全相同；没有因同步恢复退役入口或改动运行行为。后续提交仅更新发布准备记录和未发布的 8.0.0 说明。
+
+冲突解决后实际执行严格校验及 198 项强制 PowerShell/Python 测试，0 失败、0 跳过；CLI 基线 0.147.0 通过。精确 88b5e6f 的 canonical Git tree 安装复查通过：仅 diagram-kit 0.3.0，仓库外技能 1/0、仓库内 1/19，临时工作树清理成功。提取 origin/main 的原始检查器执行 A6，正常 AGENTS 同步通过，没有使用签核例外。
+
+main 的 active rules 查询确认独立批准、最后推送批准、过期批准撤销、对话解决、仅 merge 方法和严格 Validate Structure 要求；经典保护接口返回 404，但实际 rules 仍在生效。没有新建 v8.0.0 标签或 GitHub Release；发布 PR 按未完成桌面验收保持 draft。
+
+发布草稿 [#190](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/190) 初轮 CI 的 [Linux PR run](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/37885848441) 在四项 canonical 安装断言均通过后，after hook 删除临时仓库的 .git/objects 时遇到 ENOTEMPTY；同一 head 的 push CI 和 Windows PR CI 通过。本机单独测试及六轮强制自动维护压力运行未复现，不能据此断定是哪一后台写入导致。
+
+修复仅限测试夹具：禁止自动维护，校验清理路径位于临时目录，使用 [Node.js 支持的有界重试](https://nodejs.org/docs/latest-v22.x/api/fs.html#fsrmsyncpath-options) 处理短暂删除冲突，并断言目录确已清理；持续失败仍使测试失败。四项安装保护断言、生产发布验证器和 CI 要求保持原样。
+
+## #190 合并与发布后复验
+
+#190 于 2026-10-09 05:19:41 UTC（Asia/Taipei 13:19:41）合入 main，merge SHA 为 733bd3de7829bbf68d0849d93d731509d9447af8。最终 head 00abbc2932ed775252ed3a4ab75b6c651f744166 的 [PR CI](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/37886953166)、[push CI](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/37886832572) 和 [A6](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/37887073452) 均通过；临时目录清理失败在该提交的双平台执行中通过复验。
+
+[自动发布流程](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/37888047611) SUCCESS：创建空 draft、验证 canonical Git tree 安装、相邻发布前复查并发布；[v8.0.0](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.0.0) 的 Release ID 为 407540658，published_at 为 05:20:06 UTC，draft=false、prerelease=false、assets=[]。标签与 target_commitish 均绑定 733bd3d；immutable=false，仓库未启用 GitHub immutable releases，因此不声称平台不可变。代理未修改已发布正文、标签或资产。
+
+本地对精确 733bd3d 再次实际执行 release-verify-install：严格 portable 校验、CLI 0.147.0 安装、diagram-kit 0.3.0 缓存资源、consumer 技能 1/0、repo 技能 1/19 均 PASS；从安装缓存定位 Python 校验器，在 consumer cwd 实际校验已记录的 Container 图，扫描 1 张、FAIL 0 / WARN 0 / exit 0。临时安装和 detached Git 工作树正常清理。该提交的文件树与已验收最终 head 00abbc2 相同；未声称本次重新进行模型生成。
+
+只读复验确认 Release 正文与发布提交的 CHANGELOG 8.0.0 节规范化后相同；v7.0.0 / v7.0.1 的原 wheel/checksum 资产 ID 和 SHA-256 digest 与前次查询相同。没有覆盖发布历史。
+
+合并后查询 #190 reviews 为空；没有提供桌面客户端版本、安装来源及实际调用/校验结果。发布成功、标签绑定、CI 和 CLI 结果各有证据，但不替代这两项缺失记录，不追认为桌面 PASS 或独立批准，也不推定 owner 已批准本次验收豁免。

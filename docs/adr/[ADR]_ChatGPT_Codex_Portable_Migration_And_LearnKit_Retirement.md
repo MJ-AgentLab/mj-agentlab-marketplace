@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
 state: active
-version: v1.1
+version: v1.2
 supersedes:
   - "../archive/[DEPRECATED]_LearnKit_CHANGELOG_v4.0.1.md"
   - "../archive/[DEPRECATED]_LearnKit_README_v4.0.1.md"
@@ -85,3 +85,5 @@ Marketplace 8.0.0 / diagram-kit 0.3.0。Marketplace 是支持面缩减的 breaki
 - 2026-10-09：owner 提供并批准迁移实施计划；代理按 worktree 执行并提交 PR。
 - 2026-10-09：owner 合并 #186 / #187 / #188，代理同步 develop、复验精确 merge SHA 并整理工作树；[发布准备](../runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md) 继续记录未完成验收，版本保持 7.0.2 / 0.2.0。
 - 2026-10-09：owner 回复“更新即可”，授权先准备 Marketplace 8.0.0 / diagram-kit 0.3.0。代理执行 dry-run 后应用版本并同步发布说明；桌面端未执行状态继续保留，未创建新标签或正式 Release。
+- 2026-10-09：#189 合入 develop（3041432），owner 请求继续后续工作。代理从该提交建立发布工作树并同步 main（473f606）；冲突解决后的 88b5e6f 与 develop 文件树完全相同。准备到 main 的草稿 PR，桌面验收与正式发布授权继续据实等待，独立审查不以先前合并事实替代。
+- 2026-10-09：owner 告知 #190 已合并。GitHub 确认 main merge 为 733bd3de7829bbf68d0849d93d731509d9447af8，自动流程已发布 v8.0.0，标签绑定该提交且无附加资产。代理复验发布提交的安装/发现并更新记录；桌面端证据仍未提供，#190 reviews 查询为空，均不因已经发布而追认为 PASS 或已批准豁免。后续按既有 pre-bump 决策同步 develop，再只预升 marketplace 的下一补丁，diagram-kit 保持 0.3.0。
