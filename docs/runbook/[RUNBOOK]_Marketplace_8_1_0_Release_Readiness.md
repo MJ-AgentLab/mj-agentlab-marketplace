@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
 state: active
-version: v1.1
+version: v1.2
 last-verified: 2026-10-09
 ---
 
@@ -105,7 +105,7 @@ npm run smoke:codex
 | 已发布提交 canonical 安装 | PASS | `d8a12d6` 四场景、资源字节、作用域及实际缓存 Python 全部通过；本轮独立执行，非旧候选日志换名 |
 | 历史保护 | PRESERVE | v8.0.0 继续绑定 `733bd3de7829bbf68d0849d93d731509d9447af8`；既有公开 Release 与历史 v7.x 资产不改写、覆盖或删除 |
 | 发布后 main → develop 同步 | MERGED / VERIFIED | [#199](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/199) 于 11:14:47 UTC 合并，merge `a220688d0f46c32f775d4284feb6f9c935085089`；tree 与已发布 `d8a12d6` 相同，原 develop 工作区已干净快进；reviews=[] 不追认批准 |
-| 下一补丁 pre-bump | PREPARATION；MERGE PENDING | 已满足 #199 同步前置条件，准备 marketplace `8.1.1` 预升 PR；版本工具仅 VERSION / badge 两目标，各插件保持版本；不创建同号 Release |
+| 下一补丁 pre-bump | PREPARED；MERGE PENDING | 已满足 #199 同步前置条件；`codex/prebump-marketplace-8-1-1` 的 marketplace `8.1.0` → `8.1.1` dry-run / apply 均通过，版本提交 `2d6281db2019b0938492769fe04ef039d59fab44`；工具只更新 VERSION / badge 两目标，各插件保持版本；不创建同号 Release |
 
 ## §4 Failure, recovery and post-release
 
@@ -121,3 +121,4 @@ npm run smoke:codex
 | --- | --- | --- | --- |
 | v1.0 | 2026-10-09 | PENDING | 记录 #197 合并树、main ancestry 同步、已授权 8.1.0 版本准备、本轮 230 测试与四场景 canonical 安装；真实 UI、当前发布 head 批准、CI 与正式发布身份待补，不追认 PASS 或豁免。 |
 | v1.1 | 2026-10-09 | 2026-10-09（发布身份 / 安装） | 核实 #198 merge、v8.1.0 自动发布、正文与标签身份及实际 merge SHA 四场景安装；保留 UI NOT RUN、reviews=[] 和无明确豁免记录；准备 develop 同步及预升。 |
+| v1.2 | 2026-10-09 | 2026-10-09（版本准备） | 在 #199 已同步基线上执行 marketplace 8.1.1 两目标 dry-run / apply；预升 PR 待合并，各插件与正式 Release 保持。 |
