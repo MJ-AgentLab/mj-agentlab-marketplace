@@ -15,9 +15,9 @@ tags:
   - additive
   - v6.2.0
 related:
-  - ./[ADR]_LearnKit_Consolidation_To_Single_Skill.md
-  - ./[ADR]_LearnKit_ThreeViews_HITL_Expansion.md
-  - ../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
+  - "./[ADR]_LearnKit_Consolidation_To_Single_Skill.md"
+  - "./[ADR]_LearnKit_ThreeViews_HITL_Expansion.md"
+  - "../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md"
 ---
 
 # [ADR] learn-kit + `glossary` + `concept` 解释 skill（marketplace v6.2.0）
@@ -138,7 +138,7 @@ v6.0.0 的 [`[ADR]_LearnKit_Consolidation_To_Single_Skill`](./[ADR]_LearnKit_Con
 - [`[ADR]_LearnKit_Consolidation_To_Single_Skill`](./[ADR]_LearnKit_Consolidation_To_Single_Skill.md) — v6.0.0 收敛（本 ADR reconcile 其 picker-noise 论点）
 - [`[ADR]_LearnKit_ThreeViews_HITL_Expansion`](./[ADR]_LearnKit_ThreeViews_HITL_Expansion.md) — v6.1.0 additive 扩展（同款 additive-minor + 双 commit 模式先例）
 - [`[ADR]_Develop_PreBump_Adoption`](./[ADR]_Develop_PreBump_Adoption.md) — pre-bump slot 消耗机制
-- [`[STANDARD]_AI_Engineering_Execution_HITL_Prompt`](../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md) §3.2（既有 plugin 内 skill 增加 = 可默认处理）/ §4.10（feature → develop 人工 merge）
+- [`[STANDARD]_AI_Engineering_Execution_HITL_Prompt`](../archive/[DEPRECATED]_[STANDARD]_AI_Engineering_Execution_HITL_Prompt_v1.5.md) §3.2（既有 plugin 内 skill 增加 = 可默认处理）/ §4.10（feature → develop 人工 merge）
 
 ## §8 Decision Log
 

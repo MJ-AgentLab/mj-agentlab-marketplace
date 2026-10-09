@@ -15,10 +15,10 @@ tags:
   - breaking
   - v6.0.0
 related:
-  - ./[ADR]_LearnKit_Init_Skill_Rename.md
-  - ./[ADR]_NotebookLM_Kit_Retirement.md
-  - ../guide/[GUIDE]_Migration_From_v3_to_v4.md
-  - ../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
+  - "./[ADR]_LearnKit_Init_Skill_Rename.md"
+  - "./[ADR]_NotebookLM_Kit_Retirement.md"
+  - "../archive/[DEPRECATED]_[GUIDE]_Migration_From_v3_to_v4_v6.0.md"
+  - "../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md"
 ---
 
 # [ADR] learn-kit 5 Skills → 1 `three-views` Skill (marketplace v6.0.0)
@@ -215,9 +215,9 @@ Related documentation updates:
 - 前例 ADR:
   - [`[ADR]_LearnKit_Init_Skill_Rename.md`](./[ADR]_LearnKit_Init_Skill_Rename.md) — plugin user-facing rename → marketplace major bump precedent
   - [`[ADR]_NotebookLM_Kit_Retirement.md`](./[ADR]_NotebookLM_Kit_Retirement.md) — 大规模 skill / plugin 删除 + 能力吸收 precedent
-- Migration guide: [`[GUIDE]_Migration_From_v3_to_v4.md`](../guide/[GUIDE]_Migration_From_v3_to_v4.md) §6 v5.0.x → v6.0.0
-- HITL STANDARD: [`[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`](../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md) §3.1 plugin 删除 / 重命名 / 主版本 bump 必停
-- Framework: [`[STANDARD]_Documentation_Framework.md`](../rule/[STANDARD]_Documentation_Framework.md) §2.7 CLAUDE.md sync allowlist + §4.3.1 A6 CI gate
+- Migration guide: [`[GUIDE]_Migration_From_v3_to_v4.md`](../archive/[DEPRECATED]_[GUIDE]_Migration_From_v3_to_v4_v6.0.md) §6 v5.0.x → v6.0.0
+- HITL STANDARD: [`[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md`](../archive/[DEPRECATED]_[STANDARD]_AI_Engineering_Execution_HITL_Prompt_v1.5.md) §3.1 plugin 删除 / 重命名 / 主版本 bump 必停
+- Framework: [`[STANDARD]_Documentation_Framework.md`](../archive/[DEPRECATED]_[STANDARD]_Documentation_Framework_v1.9.md) §2.7 CLAUDE.md sync allowlist + §4.3.1 A6 CI gate
 
 ## §8 Decision Log
 

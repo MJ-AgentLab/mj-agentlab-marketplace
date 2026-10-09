@@ -4,19 +4,19 @@ scope: marketplace
 summary: Commit message format v1.2 — type(scope) header, 7 types, marketplace scope whitelist (+ diagram-kit v6.3.0), branch-type matrix, §11 common mistakes
 owner: marketplace-maintainers
 created: 2026-05-15
-updated: 2026-06-05
+updated: 2026-10-09
 state: active
-version: v1.2
+version: v1.3
 domain: governance
 tags:
   - commit
   - convention
   - git
 related:
-  - ./[STANDARD]_Documentation_Framework.md
-  - ./[STANDARD]_GitHub_Markdown.md
-  - ./[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
-  - ../../CONTRIBUTING.md
+  - "./[STANDARD]_Documentation_Framework.md"
+  - "./[STANDARD]_GitHub_Markdown.md"
+  - "./[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md"
+  - "../../CONTRIBUTING.md"
 revision: |
   2026-06-05 — v1.2: §4 scope 白名单加 `diagram-kit` plugin scope（marketplace 首次 plugin 1→2；per [ADR]_Diagram_Kit_Addition）；4 code 站点（install-hooks.ps1 + validate-commits.{sh,ps1}）+ RUNBOOK drift copy + bump-version.ps1 ValidateSet 同步；PATTERN 其余不变（仅扩白名单）
   2026-05-18 — v1.1: §11 Common Mistakes 新章（4 个 v4.5.0 后失败模式 + remediation）；companion scripts/validate-commits.{sh,ps1} + install-hooks.ps1 pre-push hook + 3 skill integrations（mp-git-commit / mp-git-push / mp-flow-self-review）；§9.3 Future CI Gates 更新指向新脚本；PATTERN regex 无变化（向后兼容）
@@ -78,8 +78,8 @@ Root `CONTRIBUTING.md` (per Documentation Framework v1.6 §1.1 root-level named 
 
 | Scope | Range | Notes |
 |-------|-------|-------|
-| `marketplace` | top-level files (`VERSION`, `marketplace.json`, root `CLAUDE.md`, root `CHANGELOG.md`, `.gitignore`, `LICENSE`, `README.md`) | catch-all for marketplace-level metadata |
-| `learn-kit` | `plugins/learn-kit/**` | pedagogy plugin (sole plugin v4.0.0–v6.2.x) |
+| `marketplace` | top-level files (`VERSION`, `marketplace.json`, root `AGENTS.md`, root `CHANGELOG.md`, `.gitignore`, `LICENSE`, `README.md`) | catch-all for marketplace-level metadata |
+| `learn-kit` | historical commits only | retired; new runtime work uses diagram-kit or marketplace |
 | `diagram-kit` | `plugins/diagram-kit/**` | architecture-diagramming plugin (added v6.3.0; marketplace's first 1→2 plugin count) |
 | `ci` | `.github/workflows/`, `.github/PULL_REQUEST_TEMPLATE/`, `.github/ISSUE_TEMPLATE/` | CI / templates |
 | `scripts` | `scripts/**` | infrastructure scripts (`bump-version.ps1` etc.) |
@@ -186,20 +186,13 @@ feat(marketplace): add 18 mp-* workflow skills under .claude/skills/ — see PR 
 
 ## §8 Co-Authored-By Pattern (AI collaboration)
 
-When a commit is produced via AI collaboration (Claude Code, etc.), include a `Co-Authored-By:` trailer:
+When a commit is produced via AI collaboration, include its actual collaborator trailer. Codex contributions use:
 
 ```
-Co-Authored-By: <Model Display Name> <noreply@anthropic.com>
+Co-Authored-By: OpenAI Codex <noreply@openai.com>
 ```
 
-Canonical model display names for marketplace work (as of 2026-05-15):
-
-- `Claude Opus 4.7 (1M context)` (current default)
-- `Claude Opus 4.6`
-- `Claude Sonnet 4.6`
-- `Claude Haiku 4.5`
-
-Replace as needed when the model rotates. The trailer goes **after** any `Refs:` / `Closes:` / `Fixes:` lines.
+Historical collaborator names remain in past commits; new work uses the actual collaborator.
 
 ## §9 Verification
 

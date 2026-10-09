@@ -16,12 +16,12 @@ tags:
   - validator-generalization
   - v6.3.0
 related:
-  - ./[ADR]_LearnKit_Explanation_Skills_Addition.md
-  - ./[ADR]_LearnKit_Consolidation_To_Single_Skill.md
-  - ./[ADR]_NotebookLM_Kit_Retirement.md
-  - ../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
-  - ../rule/[STANDARD]_Commit_Message_Convention.md
-  - ../spec/[SPEC]_Marketplace_Json_Schema.md
+  - "./[ADR]_LearnKit_Explanation_Skills_Addition.md"
+  - "./[ADR]_LearnKit_Consolidation_To_Single_Skill.md"
+  - "./[ADR]_NotebookLM_Kit_Retirement.md"
+  - "../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md"
+  - "../rule/[STANDARD]_Commit_Message_Convention.md"
+  - "../spec/[SPEC]_Marketplace_Json_Schema.md"
 ---
 
 # [ADR] diagram-kit Plugin Addition（marketplace v6.3.0）
@@ -70,7 +70,7 @@ marketplace 自 v3.0.0（8 plugin → 删 5 个 mj-system 专属）/ v4.0.0（no
 
 ### §2.1 Tier-1（核心动作）
 
-1. **新建 plugin `diagram-kit`**：mirror learn-kit 目录（`.claude-plugin/plugin.json` 8-field union / `CLAUDE.md` / `README.md` / `CHANGELOG.md` / `LICENSE` / `skills/`）。**无 `.mcp.json`**（arch-diagram 零 MCP 依赖；per [`[SPEC]_Plugin_Json_Schema`](../spec/[SPEC]_Plugin_Json_Schema.md) §3.3 optional——缺省最干净）。**无 plugin-internal `docs/`**（与 v6.2.0 加 glossary/concept 时一致；设计 rationale 全部承载在本 marketplace 层 ADR）。
+1. **新建 plugin `diagram-kit`**：mirror learn-kit 目录（`.claude-plugin/plugin.json` 8-field union / `CLAUDE.md` / `README.md` / `CHANGELOG.md` / `LICENSE` / `skills/`）。**无 `.mcp.json`**（arch-diagram 零 MCP 依赖；per [`[SPEC]_Plugin_Json_Schema`](../archive/[DEPRECATED]_[SPEC]_Plugin_Json_Schema_v1.1.md) §3.3 optional——缺省最干净）。**无 plugin-internal `docs/`**（与 v6.2.0 加 glossary/concept 时一致；设计 rationale 全部承载在本 marketplace 层 ADR）。
 2. **单 skill `arch-diagram`**：`/diagram-kit:arch-diagram`；5 步事实先行工作流（scope → L0–L3 事实获取 → 按 §5.1 适用性矩阵挑图 → 套 §5 边语义 + §6 命名出 Mermaid → validate-fix-repeat）。frontmatter = Claude-Code 原生 `name` + `description` + `allowed-tools`（**禁** marketplace 8-field doc frontmatter）。
 3. **9 份 references bundle**（`skills/arch-diagram/references/`，一层深，progressive disclosure 懒载）：2 hub（architecture-methodology + domain-acquisition）+ 7 类图提示词，**全部 verbatim cp**（vault 已彻底领域无关，无需改写）。
 4. **泛化 validator**（`skills/arch-diagram/scripts/validate_diagram.py`）：见 §2.3。
@@ -111,7 +111,7 @@ marketplace 自 v3.0.0（8 plugin → 删 5 个 mj-system 专属）/ v4.0.0（no
 
 ### §2.5 Tier-5（配套工程动作）
 
-1. **版本**：marketplace `6.2.1 → 6.3.0`（minor；新增 plugin 是 additive，per [`[SPEC]_Marketplace_Json_Schema`](../spec/[SPEC]_Marketplace_Json_Schema.md) §4.2「Adding a plugin is a minor bump」，且 §4.2 示例新 plugin 即用 `0.1.0`；**消耗当前 post-v6.2.0 develop pre-bump slot 并落实为真 minor**，与 v6.1.0 / v6.2.0 同款 pattern——非又一次 patch pre-bump）。plugin `diagram-kit = 0.1.0`（评审收紧点 B：code 图结构 lint 缺口 + marketplace 域未验 + 待 Stage 6 eval = "功能未定型"信号，`0.1.0` 比 "1.0.0 首个 stable" 诚实；与 learn-kit `0.1.0` 起源一致）。
+1. **版本**：marketplace `6.2.1 → 6.3.0`（minor；新增 plugin 是 additive，per [`[SPEC]_Marketplace_Json_Schema`](../archive/[DEPRECATED]_[SPEC]_Marketplace_Json_Schema_v1.1.md) §4.2「Adding a plugin is a minor bump」，且 §4.2 示例新 plugin 即用 `0.1.0`；**消耗当前 post-v6.2.0 develop pre-bump slot 并落实为真 minor**，与 v6.1.0 / v6.2.0 同款 pattern——非又一次 patch pre-bump）。plugin `diagram-kit = 0.1.0`（评审收紧点 B：code 图结构 lint 缺口 + marketplace 域未验 + 待 Stage 6 eval = "功能未定型"信号，`0.1.0` 比 "1.0.0 首个 stable" 诚实；与 learn-kit `0.1.0` 起源一致）。
 2. **A6 CI gate 必触发**（命中 5 类 trigger：commit STANDARD 编辑 / VERSION / marketplace.json / 新 plugin.json / 新 SKILL.md）→ marketplace 根 `CLAUDE.md` 必须同 PR 改 per Framework v1.6 §2.7。
 3. **commit scope `diagram-kit` 加入闭合白名单 4 处代码站点**（install-hooks.ps1 / validate-commits.sh / validate-commits.ps1 / 本 ADR 关联的 commit STANDARD §4）+ RUNBOOK drift 第 5 份拷贝；commit STANDARD `v1.1 → v1.2`（§4 规则：新增 scope MUST minor bump 本 STANDARD + §10 Change History）。`bump-version.ps1` ValidateSet 加 `diagram-kit`。
 4. **双层 CHANGELOG**：`plugins/diagram-kit/CHANGELOG.md` `[0.1.0]` + 顶层 `CHANGELOG.md` `[6.3.0]`。
@@ -154,7 +154,7 @@ marketplace 自 v3.0.0（8 plugin → 删 5 个 mj-system 专属）/ v4.0.0（no
 
 ## §5 Implementation Plan
 
-按 marketplace 11 阶段 flow（[`[STANDARD]_AI_Engineering_Execution_HITL_Prompt`](../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)）：
+按 marketplace 11 阶段 flow（[`[STANDARD]_AI_Engineering_Execution_HITL_Prompt`](../archive/[DEPRECATED]_[STANDARD]_AI_Engineering_Execution_HITL_Prompt_v1.5.md)）：
 
 1. worktree `feature/diagram-kit-addition`（off develop，`git worktree add`）。
 2. 本 ADR（Stage 3）。
@@ -182,10 +182,10 @@ marketplace 自 v3.0.0（8 plugin → 删 5 个 mj-system 专属）/ v4.0.0（no
 - [`[ADR]_LearnKit_Explanation_Skills_Addition`](./[ADR]_LearnKit_Explanation_Skills_Addition.md) — v6.2.0 把 glossary/concept 加进 learn-kit；§4 Alt B 否决第 2 个 plugin（本 ADR §2.2 reconcile 其论点：域归属判据，非 plugin 计数）
 - [`[ADR]_LearnKit_Consolidation_To_Single_Skill`](./[ADR]_LearnKit_Consolidation_To_Single_Skill.md) — v6.0.0 收敛到 1 plugin / 1 skill（收敛方向语境）
 - [`[ADR]_NotebookLM_Kit_Retirement`](./[ADR]_NotebookLM_Kit_Retirement.md) — v4.0.0 2 plugin → 1（收敛史的另一锚点）
-- [`[SPEC]_Marketplace_Json_Schema`](../spec/[SPEC]_Marketplace_Json_Schema.md) §4.2 — "Adding a plugin is a minor bump"，新 plugin 示例用 `0.1.0`
-- [`[SPEC]_Plugin_Json_Schema`](../spec/[SPEC]_Plugin_Json_Schema.md) — plugin.json 必需字段 + `.mcp.json` optional + 目录布局
+- [`[SPEC]_Marketplace_Json_Schema`](../archive/[DEPRECATED]_[SPEC]_Marketplace_Json_Schema_v1.1.md) §4.2 — "Adding a plugin is a minor bump"，新 plugin 示例用 `0.1.0`
+- [`[SPEC]_Plugin_Json_Schema`](../archive/[DEPRECATED]_[SPEC]_Plugin_Json_Schema_v1.1.md) — plugin.json 必需字段 + `.mcp.json` optional + 目录布局
 - [`[STANDARD]_Commit_Message_Convention`](../rule/[STANDARD]_Commit_Message_Convention.md) §4 — 新增 scope MUST minor bump 本 STANDARD
-- [`[STANDARD]_AI_Engineering_Execution_HITL_Prompt`](../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md) — 11 阶段 flow + HITL 触发
+- [`[STANDARD]_AI_Engineering_Execution_HITL_Prompt`](../archive/[DEPRECATED]_[STANDARD]_AI_Engineering_Execution_HITL_Prompt_v1.5.md) — 11 阶段 flow + HITL 触发
 
 ## §8 Decision Log
 

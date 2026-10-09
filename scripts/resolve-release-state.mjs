@@ -1,33 +1,8 @@
 #!/usr/bin/env node
-// Release state / identity / integrity evaluator (plan §2.4).
-//
-//   node scripts/resolve-release-state.mjs --tag-exists true --release-exists false
-//   node scripts/resolve-release-state.mjs --identity-facts-file <facts.json>
-//   node scripts/resolve-release-state.mjs --facts-file <facts.json>
-//
-// Exit 0 = ok, 1 = identity/integrity/state violation, 2 = bad input.
-//
-// Node stdlib only. This is the SINGLE place release business rules live: the workflow
-// gathers facts and performs writes, and copies no phase-transition, digest-normalisation or
-// canonical-selection logic into shell.
-//
-// THE CIRCULARITY THIS SPLIT EXISTS TO BREAK: you cannot know the expected asset digests
-// until you have built, and you cannot build until you know which commit is canonical. So
-// identity is settled FIRST, alone, from remote+commit facts (evaluateReleaseIdentity). The
-// workflow then builds from that commit, and only then submits the full picture
-// (evaluateReleaseIntegrity), which re-derives identity itself and demands the caller's
-// expectation still matches.
-//
-// PHASE IS NOT IDENTITY. `phase` is live remote state and legitimately moves
-// initial -> draft -> published across a single run. Only `canonicalIdentity` is stable, so
-// only it is bound across stages. Binding phase would make the run fail the instant it
-// succeeded at its own first step.
-
-const WHEEL_NAME = "learn_kit_nlm_bridge-4.0.0-py3-none-any.whl";
-const CHECKSUM_NAME = `${WHEEL_NAME}.sha256`;
+// Git/tag-only release identity and draft-first state evaluator. Existing public versions are immutable.
+// Exit 0: valid; 1: policy violation; 2: bad input. Node stdlib only.
 
 const SHA_RE = /^[0-9a-f]{40}$/;
-const HEX256_RE = /^[0-9a-f]{64}$/;
 const SEMVER_RE = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/;
 
 const PHASES = ["initial", "draft", "published"];
@@ -45,23 +20,6 @@ export class PolicyError extends Error {}
 export function normalizeNotes(s) {
   if (typeof s !== "string") throw new InputError("notes must be a string");
   return s.replace(/\r\n/g, "\n").replace(/\r/g, "\n").trim();
-}
-
-/**
- * GitHub REST asset `digest`. Exactly one accepted spelling: "sha256:<64 lowercase hex>".
- * Any other algorithm, casing, length, or absence is a failure — never a soft pass.
- */
-export function parseAssetDigest(digest) {
-  if (typeof digest !== "string") return null;
-  if (!digest.startsWith("sha256:")) return null;
-  const hex = digest.slice("sha256:".length); // strip once, deliberately not a global replace
-  return HEX256_RE.test(hex) ? hex : null;
-}
-
-/** The checksum asset's exact bytes: UTF-8, no BOM, LF only, exactly one trailing newline. */
-export function checksumAssetBytes(wheelSha256) {
-  if (!HEX256_RE.test(String(wheelSha256))) throw new InputError("wheel sha256 must be 64 lowercase hex");
-  return `${wheelSha256}  ${WHEEL_NAME}\n`;
 }
 
 function requireSha(name, v) {
@@ -145,62 +103,9 @@ export function evaluateReleaseIdentity(f) {
   return { phase, canonicalIdentity: { sha: f.releaseSha, version: f.version, notes } };
 }
 
-// ------------------------------------------------------------------ assets
-
-function classifyAssets(assets, expected) {
-  if (!Array.isArray(assets)) throw new InputError("release.assets must be an array");
-
-  const wanted = new Map([
-    [expected.wheel.name, expected.wheel],
-    [expected.checksum.name, expected.checksum],
-  ]);
-
-  const seen = new Map();
-  for (const a of assets) {
-    if (!a || typeof a !== "object" || typeof a.name !== "string") throw new InputError("each asset needs a string name");
-    // An asset the workflow never intended to publish means someone else wrote to this
-    // draft. Refuse rather than reconcile.
-    if (!wanted.has(a.name)) throw new PolicyError(`unexpected asset on the release: ${a.name}`);
-    if (seen.has(a.name)) throw new PolicyError(`duplicate asset: ${a.name}`);
-    seen.set(a.name, a);
-  }
-
-  if (seen.size === 0) return "absent";
-
-  // A half-uploaded draft is not resumable by re-uploading: we cannot tell a truncated
-  // upload from a foreign one. Fail and let a human look.
-  if (seen.size !== wanted.size) {
-    throw new PolicyError(`partial assets: found ${[...seen.keys()].join(", ")}, expected ${[...wanted.keys()].join(", ")}`);
-  }
-
-  for (const [name, exp] of wanted) {
-    const a = seen.get(name);
-    if (a.state !== "uploaded") throw new PolicyError(`asset ${name} is in state ${JSON.stringify(a.state)}, not "uploaded"`);
-    if (a.size !== exp.size) throw new PolicyError(`asset ${name} size ${a.size} != expected ${exp.size}`);
-    const hex = parseAssetDigest(a.digest);
-    if (hex === null) throw new PolicyError(`asset ${name} digest ${JSON.stringify(a.digest)} is not a canonical "sha256:<64 lowercase hex>"`);
-    if (hex !== exp.rawSha256) throw new PolicyError(`asset ${name} digest ${hex} != expected ${exp.rawSha256}`);
-  }
-
-  return "correct";
-}
-
-function requireExpectedAssets(e) {
-  if (!e || typeof e !== "object") throw new InputError("expectedAssets must be an object");
-  for (const [key, name] of [["wheel", WHEEL_NAME], ["checksum", CHECKSUM_NAME]]) {
-    const a = e[key];
-    if (!a || typeof a !== "object") throw new InputError(`expectedAssets.${key} must be an object`);
-    if (a.name !== name) throw new InputError(`expectedAssets.${key}.name must be ${name} (got ${JSON.stringify(a.name)})`);
-    if (!Number.isInteger(a.size) || a.size <= 0) throw new InputError(`expectedAssets.${key}.size must be a positive integer`);
-    if (!HEX256_RE.test(String(a.rawSha256))) throw new InputError(`expectedAssets.${key}.rawSha256 must be 64 lowercase hex`);
-  }
-}
-
-// ------------------------------------------------------------------ integrity
-
 /**
- * @returns {{ phase, action: "create-draft"|"resume-draft"|"publish-draft"|"noop",
- *             assetAction: "upload"|"noop", canonicalIdentity }}
+ * @returns {{ phase, action: "create-draft"|"publish-draft"|"noop",
+ *             assetAction: "noop", canonicalIdentity }}
  */
 export function evaluateReleaseIntegrity(f) {
   if (!f || typeof f !== "object") throw new InputError("facts must be an object");
@@ -224,7 +129,6 @@ export function evaluateReleaseIntegrity(f) {
     throw new PolicyError(`illegal phase transition ${f.priorPhase} -> ${fresh.phase}`);
   }
 
-  requireExpectedAssets(f.expectedAssets);
 
   const state = resolveReleaseState(f.tag.present, f.release.present);
 
@@ -245,7 +149,8 @@ export function evaluateReleaseIntegrity(f) {
     throw new PolicyError(`unreachable structural state ${state} while phase=initial`);
   }
 
-  const assets = classifyAssets(f.release.assets, f.expectedAssets);
+  if (!Array.isArray(f.release.assets)) throw new InputError("release.assets must be an array");
+  if (f.release.assets.length !== 0) throw new PolicyError("unexpected assets: new releases are distributed only through Git and tags; existing published assets must remain untouched");
 
   if (fresh.phase === "draft") {
     if (f.release.tag !== `v${c.version}`) throw new PolicyError(`draft tag ${JSON.stringify(f.release.tag)} != v${c.version}`);
@@ -253,7 +158,7 @@ export function evaluateReleaseIntegrity(f) {
     if (normalizeNotes(f.release.body) !== c.notes) throw new PolicyError("draft body does not match the canonical release notes");
     if (f.release.isPrerelease !== false) throw new PolicyError("draft is marked prerelease");
 
-    if (assets === "absent") return { phase: fresh.phase, action: "resume-draft", assetAction: "upload", canonicalIdentity: c };
+    if (!f.tag.present && f.release.targetCommitish !== c.sha) throw new PolicyError("draft without a tag needs an exact canonical target SHA");
     return { phase: fresh.phase, action: "publish-draft", assetAction: "noop", canonicalIdentity: c };
   }
 
@@ -262,7 +167,7 @@ export function evaluateReleaseIntegrity(f) {
   if (!f.tag.present) throw new PolicyError("published release has no tag");
   if (f.release.tag !== `v${c.version}`) throw new PolicyError(`published tag ${JSON.stringify(f.release.tag)} != v${c.version}`);
   if (normalizeNotes(f.release.body) !== c.notes) throw new PolicyError("published body does not match the canonical release notes");
-  if (assets !== "correct") throw new PolicyError(`published release has ${assets} assets; publishing cannot be repaired in place`);
+  if (f.release.name !== `v${c.version}` || f.release.isPrerelease !== false) throw new PolicyError("published release metadata differs from the canonical release");
   return { phase: fresh.phase, action: "noop", assetAction: "noop", canonicalIdentity: c };
 }
 

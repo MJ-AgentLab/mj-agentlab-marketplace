@@ -3,6 +3,7 @@ name: CI — Validate Plugin Structure
 on:
   push:
     branches:
+      - 'codex/*'
       - 'feature/*'
       - 'bugfix/*'
       - 'documentation/*'
@@ -58,331 +59,37 @@ jobs:
           retention-days: 1
           if-no-files-found: ignore
 
-      - name: Validate plugin.json schema
-        run: |
-          ERRORS=0
-          for pj in plugins/*/.claude-plugin/plugin.json; do
-            PLUGIN_DIR=$(dirname "$(dirname "$pj")")
-            PLUGIN_NAME=$(basename "$PLUGIN_DIR")
-            for field in name description version author license skills; do
-              if ! grep -q "\"$field\"" "$pj"; then
-                echo "ERROR: $pj missing required field: $field"
-                ERRORS=$((ERRORS + 1))
-              fi
-            done
-            echo "OK: $PLUGIN_NAME plugin.json"
-          done
-          [ $ERRORS -gt 0 ] && exit 1
-          echo "All plugin.json files valid"
-
-      - name: Validate marketplace.json
-        run: |
-          ERRORS=0
-          MJ="$(cat .claude-plugin/marketplace.json)"
-
-          for field in name owner metadata plugins; do
-            if ! echo "$MJ" | grep -q "\"$field\""; then
-              echo "ERROR: marketplace.json missing field: $field"
-              ERRORS=$((ERRORS + 1))
-            fi
-          done
-
-          PLUGIN_NAMES=$(python3 -c "
-          import json
-          with open('.claude-plugin/marketplace.json') as f:
-              data = json.load(f)
-          for p in data['plugins']:
-              print(p['name'])
-          ")
-          for name in $PLUGIN_NAMES; do
-            if [ ! -d "plugins/$name" ]; then
-              echo "ERROR: marketplace.json references plugin '$name' but directory plugins/$name not found"
-              ERRORS=$((ERRORS + 1))
-            fi
-          done
-
-          [ $ERRORS -gt 0 ] && exit 1
-          echo "marketplace.json valid"
-
-      - name: Validate SKILL.md frontmatter
-        run: |
-          ERRORS=0
-          for skill_dir in plugins/*/skills/*/; do
-            DIR_NAME=$(basename "$skill_dir")
-            if echo "$DIR_NAME" | grep -q "\-shared$"; then
-              echo "SKIP: $skill_dir (shared resource, not a skill)"
-              continue
-            fi
-
-            SKILL_FILE="${skill_dir}SKILL.md"
-            if [ ! -f "$SKILL_FILE" ]; then
-              echo "ERROR: $skill_dir missing SKILL.md"
-              ERRORS=$((ERRORS + 1))
-              continue
-            fi
-
-            for field in name description; do
-              if ! head -20 "$SKILL_FILE" | grep -q "^${field}:"; then
-                echo "ERROR: $SKILL_FILE missing frontmatter field: $field"
-                ERRORS=$((ERRORS + 1))
-              fi
-            done
-          done
-          [ $ERRORS -gt 0 ] && exit 1
-          echo "All SKILL.md files valid"
-
-      - name: Validate SKILL.md description length
-        # Claude Code injects each skill's frontmatter description into the system prompt and
-        # truncates it at 1536 Unicode characters (empirical threshold, undocumented upstream;
-        # glossary at 1544 chars lost its tail routing clause — see learn-kit 3.2.1).
-        # FAIL > 1536; WARN >= 1490 (~97% of the ceiling). Counting is pure python3 stdlib:
-        # - not awk: the runner's default mawk length() counts bytes, not characters;
-        # - not PyYAML/strict YAML: 19 of 23 descriptions are single-line plain scalars
-        #   containing ": " (e.g. "Do not use for: ..."), which strict YAML parsers reject
-        #   ("mapping values are not allowed here") while Claude Code's lenient loader accepts
-        #   and injects them — the gate must measure what actually gets injected, and must not
-        #   fail-open by skipping unparseable files (that would exempt 19 of 23 skills).
-        # The extractor mirrors YAML scalar semantics: plain (single line + continuations),
-        # folded > (line breaks fold to spaces, blank line = newline), literal | (line breaks
-        # kept), block indent stripped, clip chomping keeps one trailing newline.
-        run: |
-          ERRORS=0
-          for skill_file in plugins/*/skills/*/SKILL.md .claude/skills/*/SKILL.md; do
-            [ -f "$skill_file" ] || continue
-            DIR_NAME=$(basename "$(dirname "$skill_file")")
-            if echo "$DIR_NAME" | grep -q "\-shared$"; then
-              echo "SKIP: $skill_file (shared resource, not a skill)"
-              continue
-            fi
-
-            LEN=$(python3 - "$skill_file" <<'PYEOF'
-          import sys
-          lines = [l.rstrip('\r') for l in open(sys.argv[1], encoding='utf-8-sig').read().split('\n')]
-          fm = []
-          if lines and lines[0].strip() == '---':
-              for l in lines[1:]:
-                  if l.strip() == '---':
-                      break
-                  fm.append(l)
-          idx = next((i for i, l in enumerate(fm) if l.startswith('description:')), None)
-          if idx is None:
-              print(0)
-              sys.exit(0)
-          head = fm[idx][len('description:'):].strip()
-          body = []
-          for l in fm[idx + 1:]:
-              if l.strip() and not l.startswith(' '):
-                  break
-              body.append(l)
-          while body and not body[-1].strip():
-              body.pop()
-          if head in ('|', '|-', '|+', '>', '>-', '>+'):
-              ind = min((len(l) - len(l.lstrip(' ')) for l in body if l.strip()), default=0)
-              rows = [l[ind:] for l in body]
-              if head[0] == '|':
-                  val = '\n'.join(rows)
-              else:
-                  val = ''
-                  for r in rows:
-                      if not r.strip():
-                          val += '\n'
-                      elif val and not val.endswith('\n'):
-                          val += ' ' + r
-                      else:
-                          val += r
-              if head in ('|', '>'):
-                  val += '\n'
-          else:
-              val = head
-              for l in body:
-                  if l.strip():
-                      val += ' ' + l.strip()
-              if len(val) > 1 and val[0] == val[-1] and val[0] in ('"', "'"):
-                  val = val[1:-1]
-          print(len(val))
-          PYEOF
-          )
-            if [ "$LEN" -eq 0 ]; then
-              # No legitimate description is 0 chars (empty / missing key). The sibling
-              # "Validate SKILL.md frontmatter" step only globs plugins/*/skills/*, so this
-              # is the only guard covering .claude/skills/* for a missing description.
-              # (Extractor failure aborts earlier: LEN=$(...) fails under set -e, fail-closed.)
-              echo "ERROR: $skill_file — empty or missing frontmatter description"
-              ERRORS=$((ERRORS + 1))
-            elif [ "$LEN" -gt 1536 ]; then
-              echo "ERROR: $skill_file description = $LEN chars (> 1536 — Claude Code truncates injected descriptions at 1536)"
-              ERRORS=$((ERRORS + 1))
-            elif [ "$LEN" -ge 1490 ]; then
-              echo "::warning::$skill_file description = $LEN chars (>= 1490 WARN threshold; hard limit 1536)"
-            else
-              echo "OK: $skill_file ($LEN chars)"
-            fi
-          done
-          [ $ERRORS -gt 0 ] && exit 1
-          echo "All SKILL.md descriptions within the 1536-char limit"
-
-      - name: Validate directory structure
-        run: |
-          ERRORS=0
-          for plugin_dir in plugins/*/; do
-            PLUGIN_NAME=$(basename "$plugin_dir")
-            REQUIRED_FILES=(".claude-plugin/plugin.json" "CLAUDE.md" "README.md")
-            REQUIRED_DIRS=("skills")
-
-            for f in "${REQUIRED_FILES[@]}"; do
-              if [ ! -f "${plugin_dir}${f}" ]; then
-                echo "ERROR: plugins/$PLUGIN_NAME missing required file: $f"
-                ERRORS=$((ERRORS + 1))
-              fi
-            done
-
-            for d in "${REQUIRED_DIRS[@]}"; do
-              if [ ! -d "${plugin_dir}${d}" ]; then
-                echo "ERROR: plugins/$PLUGIN_NAME missing required directory: $d"
-                ERRORS=$((ERRORS + 1))
-              fi
-            done
-          done
-          [ $ERRORS -gt 0 ] && exit 1
-          echo "All plugin directory structures valid"
-
-      - name: Validate version consistency
-        run: |
-          ERRORS=0
-
-          FILE_VERSION=$(cat VERSION | tr -d '[:space:]')
-          MJ_VERSION=$(python3 -c "
-          import json
-          with open('.claude-plugin/marketplace.json') as f:
-              data = json.load(f)
-          print(data['metadata']['version'])
-          ")
-          if [ "$FILE_VERSION" != "$MJ_VERSION" ]; then
-            echo "ERROR: VERSION ($FILE_VERSION) != marketplace.json metadata.version ($MJ_VERSION)"
-            ERRORS=$((ERRORS + 1))
-          fi
-
-          for pj in plugins/*/.claude-plugin/plugin.json; do
-            PLUGIN_DIR=$(dirname "$(dirname "$pj")")
-            PLUGIN_NAME=$(basename "$PLUGIN_DIR")
-            PJ_VERSION=$(python3 -c "
-          import json
-          with open('$pj') as f:
-              data = json.load(f)
-          print(data['version'])
-          ")
-            MJ_PJ_VERSION=$(python3 -c "
-          import json
-          with open('.claude-plugin/marketplace.json') as f:
-              data = json.load(f)
-          for p in data['plugins']:
-              if p['name'] == '$PLUGIN_NAME':
-                  print(p['version'])
-                  break
-          ")
-            if [ "$PJ_VERSION" != "$MJ_PJ_VERSION" ]; then
-              echo "ERROR: $PLUGIN_NAME plugin.json ($PJ_VERSION) != marketplace.json ($MJ_PJ_VERSION)"
-              ERRORS=$((ERRORS + 1))
-            fi
-          done
-
-          [ $ERRORS -gt 0 ] && exit 1
-          echo "All versions consistent"
-
-      - name: Validate README badge matches VERSION
-        # Guards against the silent badge drift that produced the v4.4.8-stuck-while-on-v4.5.0
-        # postmortem (last 4 release bumps skipped scripts/bump-version.ps1; README never synced).
-        # Single-line check: README.md line 3 must encode the same X.Y.Z as VERSION.
-        run: |
-          FILE_VERSION=$(cat VERSION | tr -d '[:space:]')
-          README_VERSION=$(grep -oP 'badge/version-\K[0-9]+\.[0-9]+\.[0-9]+' README.md | head -1)
-
-          if [ -z "$README_VERSION" ]; then
-            echo "ERROR: README.md doesn't contain a version badge matching pattern 'badge/version-X.Y.Z'"
-            echo "Expected line 3 form: ![Version](https://img.shields.io/badge/version-X.Y.Z-blue)"
-            exit 1
-          fi
-
-          if [ "$FILE_VERSION" != "$README_VERSION" ]; then
-            echo "ERROR: README.md badge ($README_VERSION) != VERSION ($FILE_VERSION)"
-            echo ""
-            echo "Fix options:"
-            echo "  1. Edit README.md line 3 — replace 'version-${README_VERSION}-blue' with 'version-${FILE_VERSION}-blue'"
-            echo "  2. Or run: pwsh ./scripts/bump-version.ps1 -From ${README_VERSION} -To ${FILE_VERSION}"
-            exit 1
-          fi
-          echo "OK: README badge matches VERSION ($FILE_VERSION)"
-
-      - name: Validate CHANGELOG presence
-        run: |
-          ERRORS=0
-
-          if [ ! -f "CHANGELOG.md" ]; then
-            echo "ERROR: Root CHANGELOG.md not found"
-            ERRORS=$((ERRORS + 1))
-          fi
-
-          for plugin_dir in plugins/*/; do
-            PLUGIN_NAME=$(basename "$plugin_dir")
-            if [ ! -f "${plugin_dir}CHANGELOG.md" ]; then
-              echo "ERROR: plugins/$PLUGIN_NAME/CHANGELOG.md not found"
-              ERRORS=$((ERRORS + 1))
-            fi
-          done
-
-          [ $ERRORS -gt 0 ] && exit 1
-          echo "All CHANGELOGs present"
-
-      # The A6 CLAUDE.md sync-allowlist gate now lives in .github/workflows/a6.yml.
-      # It moved out of this job so it can also run on `pull_request_review` — the only
-      # event that can establish the reviewer-sign-off half of the "[skip a6]" bypass, which
-      # the previous inline implementation advertised but never verified.
-      # See docs/rule/[STANDARD]_Documentation_Framework.md §4.3.1.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - name: Portable marketplace, manifests, skills and document contracts
+        run: npm run validate
 
   codex-compat:
-    # The Node toolchain runs on both hosts' supported platforms, so it is verified on both.
-    # The bridge's release-verified support surface is exactly these two: macOS must NOT be
-    # described as verified until it has an equivalent job here.
     name: Baseline compat (${{ matrix.os }})
     strategy:
-      fail-fast: false # a Windows-only break must not hide an Ubuntu-only one
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - run: npm ci
-
-      - name: Unit tests
-        # REQUIRE_PWSH turns a missing pwsh into a failure rather than a silent skip: both
-        # runners ship PowerShell, so a skip here would mean the bump-version suite quietly
-        # stopped running. The symlink case skips on Windows only (unprivileged EPERM) and
-        # is genuinely exercised on Ubuntu — which is half the point of the matrix.
+      - run: npm install -g @openai/codex@0.147.0
+      - name: Unit and real Python execution tests
         env:
           REQUIRE_PWSH: '1'
+          REQUIRE_PYTHON: '1'
         run: npm test
-
-      - name: Dual-host structure
-        # warn for PR1; plan §4 flips this to --host-neutral error in PR2.
-        run: npm run validate:dual-host
-
-      - name: Toolchain report
-        # Informational. NOT check:baseline-tools — that pins bridge 4.0.0 / connector 0.8.7,
-        # which are not installed here and would fail by design. It becomes a real gate once
-        # plugins/learn-kit/nlm-bridge/ exists.
-        if: always()
-        run: npm run report:tool-versions
-
-      # PENDING plugins/learn-kit/nlm-bridge/ (plan §2.3.1, §3 line 501-502). Deliberately
-      # absent rather than stubbed, because a stub would report green for work not done:
-      #   - Python 3.12 + uv 0.11.21, REQUIRE_PYTHON=1
-      #   - exact Codex / Claude CLI install, then check:baseline-tools
-      #   - uv build --wheel with the checked-in hashed build constraints
-      #   - installNlmBridge via module import against a runner-temp HTTP fixture
-      #   - smoke:optional-nlm-absent / smoke:codex / smoke:nlm-contract / validate:claude
-      #   - diagram validator execution (arrives with PR2's contract test)
+      - run: npm run validate
+      - run: npm run check:baseline-tools
+      - run: npm run smoke:codex

@@ -15,13 +15,13 @@ tags:
   - claude-md-sync
   - a6-gate
 related:
-  - ../rule/[STANDARD]_Documentation_Framework.md
-  - ./[ADR]_Documentation_Framework_Exemption_Reversal.md
-  - ../runbook/[RUNBOOK]_Doc_Archive_Procedure.md
-  - ../../CONTRIBUTING.md
-  - ../../GLOSSARY.md
-  - ../../CLAUDE.md
-  - ./[ADR]_Codex_Dual_Native_Plugin_Support.md
+  - "../rule/[STANDARD]_Documentation_Framework.md"
+  - "./[ADR]_Documentation_Framework_Exemption_Reversal.md"
+  - "../runbook/[RUNBOOK]_Doc_Archive_Procedure.md"
+  - "../../CONTRIBUTING.md"
+  - "../../GLOSSARY.md"
+  - "../archive/[DEPRECATED]_LearnKit_CLAUDE_v4.0.1.md"
+  - "./[ADR]_Codex_Dual_Native_Plugin_Support.md"
 revision: |
   2026-07-16 — v1.1: amendment only（决策不变）。标注本 ADR 的 Implementation Plan 第 9 项与 Acceptance Criteria 中的「ci.yml A6 step」为 **historical** —— Framework v1.7 将 A6 实现迁至独立 `.github/workflows/a6.yml` + `scripts/check-a6.mjs`，并首次真正校验 `[skip a6]` 所宣称的 reviewer sign-off（v1.6 实现仅凭 PR title 即放行）。§2.7 trigger 亦由 3 类扩为 4 类（加 Codex dual-native surfaces）。本 ADR 的**决策**（编码 5 个 root-level named files 责任 + 建立 CLAUDE.md sync allowlist + 启用 A6 gate）完全不变；仅实现载体与 trigger 集演进，权威描述见 Framework §4.3.1 + [`[ADR]_Codex_Dual_Native_Plugin_Support`](./[ADR]_Codex_Dual_Native_Plugin_Support.md)
   2026-05-18 — v1.0: initial decision recording v4.6.3 framework v1.6 root-level named files codification + CLAUDE.md sync allowlist + A6 CI gate activation; complements v1.0 Reversal ADR negative cancellation with positive codification
@@ -165,12 +165,12 @@ Framework v1.6 §2.7 新增 normative 段落定义 3 类 trigger:
 
 ## References
 
-- [`../rule/[STANDARD]_Documentation_Framework.md`](../rule/[STANDARD]_Documentation_Framework.md) v1.6（同 PR 承载 §1.1 + §2.7 + §4.3.1）
+- [`../rule/[STANDARD]_Documentation_Framework.md`](../archive/[DEPRECATED]_[STANDARD]_Documentation_Framework_v1.9.md) v1.6（同 PR 承载 §1.1 + §2.7 + §4.3.1）
 - [`./[ADR]_Documentation_Framework_Exemption_Reversal.md`](./[ADR]_Documentation_Framework_Exemption_Reversal.md) v1.1（complementary precedent — negative cancellation；本 ADR 承担 positive codification）
 - [`../runbook/[RUNBOOK]_Doc_Archive_Procedure.md`](../runbook/[RUNBOOK]_Doc_Archive_Procedure.md) v1.1（CONTRIBUTING archive ceremony 走此 RUNBOOK 4-phase + Gate D-02）
 - [`../../CONTRIBUTING.md`](../../CONTRIBUTING.md)（restored at root per Decision 2）
 - [`../../GLOSSARY.md`](../../GLOSSARY.md)（new per Decision 3）
-- [`../../CLAUDE.md`](../../CLAUDE.md)（受 §2.7 sync allowlist + §4.3.1 A6 gate 约束的实体）
+- [`../../CLAUDE.md`](../archive/[DEPRECATED]_LearnKit_CLAUDE_v4.0.1.md)（受 §2.7 sync allowlist + §4.3.1 A6 gate 约束的实体）
 - [`../archive/[DEPRECATED]_[GUIDE]_Contributing_v1.1.md`](../archive/[DEPRECATED]_[GUIDE]_Contributing_v1.1.md)（archived; supersedes ↔ replaced-by 双向链）
 
 ## Decision Log

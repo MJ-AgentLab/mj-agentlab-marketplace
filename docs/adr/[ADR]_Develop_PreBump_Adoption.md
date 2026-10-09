@@ -9,9 +9,9 @@ state: active
 version: v1.2
 domain: release
 related:
-  - ../runbook/[RUNBOOK]_Release_Operations.md
-  - ../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md
-  - ../rule/[STANDARD]_Documentation_Framework.md
+  - "../runbook/[RUNBOOK]_Release_Operations.md"
+  - "../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md"
+  - "../rule/[STANDARD]_Documentation_Framework.md"
 revision: |
   2026-07-16 — v1.2: §2 Decision 的「warn-only / 永不 exit 1」加适用范围澄清 —— 该约束的对象是 **merge 阻断**，不是「任何 job 都不得非零退出」。`push` 触发仍恒 exit 0；每夜 `schedule` 与 `workflow_dispatch` 走 `enforce` 并允许 exit 1（定时 run 失败不参与任何 PR 的 merge 判定，该 workflow 也不在 required status checks 内）。原文写于「唯一触发方式是 develop push」的年代。技术决策（72h 宽限 + pure patch 预 bump + 不连带 plugin.json）完全不变；配套 `verify-develop-prebumped.yml` 加 daily `cron "17 2 * * *"`，判定逻辑移入受测的 `scripts/check-prebump.mjs`。
   2026-05-18 — v1.1: scrub external project references per `[STANDARD]_AI_Engineering_Execution_HITL_Prompt` §0.3 independence principle; reframe §1 Context / §2 Decision / §3 Consequences / §4 Alternatives with marketplace-internal rationale; remove §7 external reference repo line; technical decision unchanged.

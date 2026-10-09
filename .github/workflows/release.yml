@@ -1,17 +1,6 @@
 name: Release
 
-# Draft-first, evaluator-gated release (plan §3 Task 3, §2.4). Fires on a VERSION change landing on
-# main, or by manual dispatch. ALL business logic — phase transitions, digest normalisation,
-# canonical selection, the draft-first state machine — lives in scripts/resolve-release-state.mjs
-# and scripts/run-release.mjs (both unit-tested); this file only sets up the toolchain and hands
-# the orchestrator a token. It creates an empty draft, uploads + digest/bytes/install-verifies the
-# two assets, re-queries adjacent to publish, and only then publishes: a failure fails closed at the
-# draft stage, leaving an unpublished draft to inspect. A published asset is never patched in place.
-#
-# Supply-chain: third-party Actions are pinned to a full commit SHA (tag in the trailing comment),
-# an elevation over the rest of the repo that this publish-to-production workflow warrants. uv is the
-# exact pinned 0.11.21 via the versioned installer (house style; see codex-canary.yml).
-
+# Git/tag-only draft-first release. Existing public versions and assets remain untouched.
 on:
   push:
     branches: [main]
@@ -49,19 +38,10 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install uv 0.11.21 (pinned)
+      - name: Install portable verification dependencies and exact Codex baseline
         run: |
-          set -euo pipefail
-          curl -LsSf https://astral.sh/uv/0.11.21/install.sh | sh
-          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
-
-      - name: Verify uv version
-        run: |
-          set -euo pipefail
-          UV_VERSION="$(uv --version | awk '{print $2}')"
-          if [ "$UV_VERSION" != "0.11.21" ]; then
-            echo "::error::expected uv 0.11.21, found $UV_VERSION"; exit 1
-          fi
+          npm ci
+          npm install -g @openai/codex@0.147.0
 
       - name: Resolve release SHA
         id: rel

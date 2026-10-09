@@ -1,6 +1,6 @@
 # Domain Acquisition — 领域信息获取与特化机制
 
-> **定位**：本文是"逐类图怎么画"（同目录 7 个 `*-diagram.md` 绘制提示词）与"某个具体领域"之间的**桥**。提示词领域无关；本文回答 **"给一个新领域（docker / python / claude-code-plugin / postgreSQL…），怎么把它的事实搜出来、归类、映射成画图输入"**。
+> **定位**：本文是"逐类图怎么画"（同目录 7 个 `*-diagram.md` 绘制提示词）与"某个具体领域"之间的**桥**。提示词领域无关；本文回答 **"给一个新领域（docker / python / portable-plugin / postgreSQL…），怎么把它的事实搜出来、归类、映射成画图输入"**。
 > **自含**：本文 + 同目录 7 个 `*-diagram.md` 构成一个自洽集合；只引用同目录文件 + 外部公开来源（c4model.com / dbt 等），不依赖任何其它文档。
 > **产物语义**：填完「领域画像 §2」+ 跑完「获取阶梯 §3」= 你拥有了为该领域画全部图所需的全部输入。该领域若反复使用，可据「作者配方 §7」沉淀成一份"领域特化手册"（手册应包含的内容清单见 §5.2；全局适用性矩阵见 §5.1）。
 
@@ -47,7 +47,7 @@
 | **postgreSQL** | 表(按角色)/函数/触发器/信号表/schema | `sql/**/V*.sql`·`R*.sql` DDL；`cron.schedule(...)`；`dblink(...)` | `etl_*` 函数体的 INSERT…SELECT 血缘；schema 分层 | 表名前缀 `ods_/dwd_/dws_/dim_/*_ready_signal` |
 | **docker** | service/image/init(一次性)容器/network/volume/port/依赖 | `docker-compose*.yml`(services 块)；`docker/*.Dockerfile`；`docker/*.sh` | `depends_on`、`networks`、端口映射、`volumes` 挂载 | compose key(services/networks/volumes)；`*-import/*-setup` 命名→init 容器 |
 | **python** | service·node/DDD 层/middleware/router·endpoint/值对象·实体 | `main.py`(router 注册段)；`src/**/`(目录树)；`pyproject.toml` | import 关系；`include_router()`；DDD 目录 domain/application/infrastructure | 目录层名(domain/app/infra/presentation)；`*Middleware`、`*Repository` 命名 |
-| **claude-code-plugin** | skill/slash command/MCP server/hook/agent/script | `.claude/skills/**/SKILL.md`(frontmatter)；`.mcp.json`(mcpServers)；`.claude/settings*.json`；`.claude/scripts/` | SKILL.md 的 trigger/触发关系；skill 间 sub-call；MCP server 被哪些 skill 引用 | skill 命名族(如 `mj-sys-{doc,git,n8n,ops,flow}-*`)；`.mcp.json` server type |
+| **portable-plugin** | skill/MCP server/hook/agent/script | `.agents/skills/**/SKILL.md`(frontmatter)；`mcp.json`(servers)；`.codex/config.toml`；`scripts/` | SKILL.md 的 trigger/触发关系；skill 间 sub-call；MCP server 被哪些 skill 引用 | skill 命名族(如 `mj-sys-{doc,git,n8n,ops,flow}-*`)；`mcp.json` server type |
 
 > 新域照此加一行：先定**实体类型**，再定**L0 声明源**（最权威的清单文件），最后找**归类杠杆**（命名/目录规律）；L1/L2 挖完仍缺 → L3 HITL。这四行只是已核查的样例，**通用层不为任何一个领域背书具体画法**——领域专属的角色映射 / 范式固化在各自的特化手册里。
 

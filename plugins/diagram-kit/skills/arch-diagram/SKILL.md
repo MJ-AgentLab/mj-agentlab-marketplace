@@ -2,26 +2,17 @@
 name: arch-diagram
 description: |-
   Use when the user wants evidence-grounded Mermaid architecture or UML diagrams for a codebase or system, including context, container, component, code, sequence, state-machine, or deployment diagrams. Trigger on “画架构图”, “画 C4 图”, “生成时序图”, “状态机图”, “部署图”, “组件依赖图”, “diagram this codebase”, or “draw a sequence or deployment diagram”. Follow the fact-first flow: define scope, acquire L0–L3 source evidence, select high-value diagram types, draft Mermaid, then validate and repair. Every node and edge must trace to file and line evidence; never fabricate architecture. Output Mermaid source in text fences with Name and Slug metadata. Do not use for learning materials or generic prose explanations.
-allowed-tools: "Read Glob Grep Bash Write AskUserQuestion"
 ---
 
 # arch-diagram · Codebase facts → evidence-bound architecture diagrams (Mermaid)
 
-The single diagram-kit skill (v0.1.0). Turns a codebase / system's **source facts** into
+The single public diagram-kit skill. Turns a codebase / system's **source facts** into
 architecture diagrams across 7 types (C4 structural L1–L4 + behavior sequence/state +
 physical deployment), grounded so every node and edge traces to `file:行号` evidence.
 
-## Invocation (dual-host)
+## Invocation
 
-Auto-discovered by both hosts' plugin loaders; no `commands/` file needed. Invoke it by its
-qualified name:
-
-- **Claude Code**: `/diagram-kit:arch-diagram <target>`
-- **Codex**: `$diagram-kit:arch-diagram <target>` — Codex registers plugin skills as
-  `plugin:skill`, so the bare `$arch-diagram` never resolves.
-
-Natural-language triggers (frontmatter `description`) activate the same skill on either host —
-e.g. "画架构图" / "给这个项目画 C4 图" / "生成时序图" / "diagram this codebase".
+Use the installed skill as $diagram-kit:arch-diagram in Codex or select Architecture Diagram in the ChatGPT desktop composer. Natural-language architecture requests use the same discovery description. Supported acceptance baseline: Codex CLI 0.147.0 and ChatGPT desktop.
 
 ## Why this skill exists
 
@@ -41,9 +32,7 @@ the ladder" action, and a bundled linter machine-checks the output. The result i
 
 **Do not invoke** — route elsewhere:
 
-- 生成分层学习文档 / 学习 HTML / NotebookLM 多媒体 → `learn-kit:three-views`
-- 一段式术语速记卡（30 秒读懂一个词）→ `learn-kit:glossary`
-- 概念深讲（六节深入理解一个概念）→ `learn-kit:concept`
+- Generic learning materials or prose explanations → answer the requested task directly.
 - 非架构图表（Gantt / pie / ER 数据建模 / git graph）→ direct Mermaid, no skill
 
 ## Variables this skill listens for
@@ -52,15 +41,14 @@ Extract from the user's prompt before asking:
 
 - **`target`** — what to diagram: cwd / a subdirectory / a described system. Default cwd.
 - **`domain_hint`** (optional) — user names a domain ("这是个 docker 项目" / "python 包") →
-  pre-select the Step 1 domain (still confirm).
+  pre-select the Step 1 domain (use the supplied choice).
 - **`type_hints`** (optional) — user names specific diagram types ("只要时序图" / "画 container
-  + deployment") → pre-check those Step 3 cells (still confirm).
+  + deployment") → pre-check those Step 3 cells (use the supplied choice).
 - **`output_dir`** (optional) — where to write `.md` files. Default `./diagrams/`.
 
 ## Execution flow
 
-A 5-step workflow. Step 1 (scope) and Step 3 (pick diagrams) use `AskUserQuestion`; Step 2
-may use it for L3 HITL gap-filling. Each step gates on the prior's output — do not skip ahead.
+A 5-step workflow. Honor scope and diagram choices already supplied by the user. Ask only for missing scope, genuinely unresolved diagram choices, or L3 evidence gaps. For decisions, provide 2–3 options with impacts and a reasoned recommendation; wait when the missing decision is necessary. Each step gates on the prior's output — do not skip ahead.
 
 **The 铁律 (evidence-grounding invariant)**: every node and every edge that enters a diagram
 MUST trace to L0–L2 evidence (`file:行号` / config block / declaration). What can't be found
@@ -70,16 +58,15 @@ in source goes to L3 HITL — never fabricated. This is the skill's core discipl
 
 1. **Resolve `target`**: from args / prompt; default cwd. If a described (not-on-disk)
    system, note that L0–L2 will rely on user-provided facts (more L3).
-2. **Domain auto-detect**: `Glob` for signature files and suggest a domain from
+2. **Domain auto-detect**: file search for signature files and suggest a domain from
    `references/domain-acquisition.md §4` (four-domain source-map):
    - `docker-compose*.yml` / `*.Dockerfile` → **docker**
    - `pyproject.toml` / `main.py` / `src/**/__init__.py` → **python**
    - `sql/**/V*.sql` / `R*.sql` / `cron.schedule(` → **postgreSQL**
-   - `.claude/skills/**/SKILL.md` / `.mcp.json` → **claude-code-plugin**
+   - `plugin.json` / `.agents/skills/**/SKILL.md` / `mcp.json` → **portable-plugin**
    - none / mixed → ask the user to describe the domain (new domains add a §4 row mentally).
-   `AskUserQuestion` to confirm the detected domain (or pick "other / describe").
-3. **Output location**: default `./diagrams/`; user may override. If absolute or escapes
-   cwd, `AskUserQuestion` second-confirm (path-safety).
+   Use the detected domain when supported by evidence; ask only if ambiguity changes the diagram.
+3. **Output location**: default `./diagrams/`; honor a user-supplied output path. Resolve it before writing and verify the path belongs to the authorized scope. Ask only if the intended scope is unclear.
 
 ### Step 2 — Acquire facts (L0 → L3)
 
@@ -88,7 +75,7 @@ in source goes to L3 HITL — never fabricated. This is the skill's core discipl
      §4.1 Mermaid 顶层语法 / §五 边语义（§5.0 跨图符号警示 必读）.
    - `Read references/domain-acquisition.md` — bridge + §2 六类领域画像 + §3 L0–L3 阶梯定义
      + §6 命名唯一事实源.
-2. **L0 — 声明式清单扫描**: `Glob` + `Grep` the domain's source-of-truth declaration files
+2. **L0 — 声明式清单扫描**: file search and text search the domain's source-of-truth declaration files
    (per §4 source-map for the confirmed domain) → enumerate entities. **Record `file:行号`
    evidence for each.**
 3. **L1 — 结构/关系推断**: from directory layers, imports, `depends_on`, references → infer
@@ -96,7 +83,7 @@ in source goes to L3 HITL — never fabricated. This is the skill's core discipl
 4. **L2 — 命名约定自动归类**: use prefixes / keywords / directory families to mechanically
    assign roles → shapes (per the domain's classification lever, §2 类别③).
 5. **L3 — HITL 补缺**: ONLY for what L0–L2 cannot yield (sync vs async, reachability,
-   "why designed this way"). `AskUserQuestion` with concrete options. Do NOT ask what the
+   "why designed this way"). a concise user question with concrete options. Do NOT ask what the
    source already answers.
 
 Keep a running **entity → `file:行号`** evidence table; you will attach it to the recap and
@@ -106,7 +93,7 @@ must be able to defend every diagram element against it.
 
 `Read references/domain-acquisition.md §5.1` (全局适用性矩阵: 项目类型 × 7 图, ★ 密度 + ✗
 pre-check). Present high-value (★★★ / ★★) vs low-value (★) vs not-applicable (✗) types for
-the confirmed project type, then `AskUserQuestion(multiSelect: true)` for the user to pick a
+the confirmed project type, then `a concise diagram selection question` for the user to pick a
 subset. Honor `type_hints` as pre-checks. ✗ types map to each prompt's pre-check HITL (e.g.
 Container/Deployment for a library/CLI → suggest Component instead).
 
@@ -157,7 +144,7 @@ auto-rendering. Rationale:
   so `text` output has zero machine-check friction.
 
 If a user explicitly wants a rendered diagram, they can change a specific fence to `mermaid`
-themselves — but `text` is the default this skill writes.
+or ask the agent to render it; `text` is the default source artifact.
 
 ## Validator usage (Step 5)
 
@@ -165,10 +152,8 @@ Bundled stdlib linter (pure Python 3.7+, no pip): `scripts/validate_diagram.py`.
 
 **Resolve it host-neutrally** — never from the user's cwd. Take the directory the
 currently-loaded `SKILL.md` sits in (its loader locator), join `scripts/validate_diagram.py`,
-realpath the result, and confirm it stays inside that skill directory before running it. Claude
-Code exposes the skill directory as `${CLAUDE_SKILL_DIR}`; Codex resolves the same relative path
-from the active SKILL.md locator. Both land on the same bundled script inside the installed
-plugin cache.
+realpath the result, and confirm it stays inside that skill directory before running it.
+Codex and ChatGPT resolve resources from the active SKILL.md locator in the installed plugin cache.
 
 **Invocation** (exit 0 = no FAIL / 1 = FAIL / 2 = usage) — pass the resolved **absolute** script
 path and each `.md` output path as separate, correctly double-quoted arguments; never concatenate
@@ -194,7 +179,7 @@ valid kebab slugs (they become valid only after the skill instantiates them).
 ## References layout (progressive disclosure)
 
 ```
-<skill-dir>/                          # resolved from the SKILL.md locator (Claude: ${CLAUDE_SKILL_DIR})
+<skill-dir>/                          # resolved from the SKILL.md locator
 ├── SKILL.md                          # this file
 ├── references/                       # 9 files, one level deep, load on demand
 │   ├── architecture-methodology.md   # 绘图前必读: 4+1 / C4 / §4.1 Mermaid 语法 / §5 边语义
@@ -237,12 +222,10 @@ they ever diverge, §6 is authoritative). Generated diagrams carry `%% Name:` / 
 
 - Does **not** rasterize diagrams to PNG/SVG or build a multimedia learning artifact — it
   writes diagram **source** `.md` (default `text` fence; flip a fence to `mermaid` to render
-  in-place). arch-diagram **owns architecture diagrams in all forms**; only *topic-corpus
-  learning artifacts* (tiered docs / HTML study guide / NotebookLM audio·video built from a
-  topic, not a diagram) defer to `learn-kit:three-views`.
+  in-place). Generic prose or learning materials are handled directly according to the user request.
 - Does **not** fabricate any node/edge — the 铁律 forbids it; unknowns go to L3 HITL.
 - Does **not** lint classDiagram structure (only the naming gate); see Step 5 caveat.
-- Does **not** require an MCP server or network — purely local Read/Glob/Grep/Bash/Write.
+- Does **not** require an MCP server or network — purely local file inspection, terminal execution and file writing.
 - Does **not** edit existing diagram files in place — it writes new ones (overwrite is the
   user's call when re-running on the same `output_dir`).
 - Does **not** auto-generate code-level L4 class diagrams for a whole module — code-diagram
