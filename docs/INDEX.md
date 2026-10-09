@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
 state: active
-version: v2.2
+version: v2.3
 ---
 
 # 文档索引
@@ -43,7 +43,7 @@ version: v2.2
 
 - [迁移实际验收记录](runbook/[RUNBOOK]_ChatGPT_Codex_Migration_Acceptance.md)
 - [发布准备、实际发布与后续记录](runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md)
-- [Understanding Kit 安装、行为及客户端验收](runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)
+- [Understanding Kit 合并后安装、行为及客户端验收](runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)
 
 ## 决策与故障历史
 

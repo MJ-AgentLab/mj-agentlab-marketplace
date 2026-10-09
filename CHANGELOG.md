@@ -12,11 +12,13 @@
 
 ### Changed
 
+- Record Understanding Kit's PR #195 merge, exact canonical installation check and 215 passing post-merge tests. Keep marketplace 8.0.1 as the existing pre-bump, preserve separate model/client acceptance evidence, and retain the unpublished status.
 - Record the published v8.0.0 identity, tag binding and post-release installation results; refresh current installation guidance while preserving incomplete desktop acceptance and published release history.
 - Pre-bump develop's marketplace to 8.0.1 after v8.0.0; diagram-kit remains 0.3.0. This is an unpublished development marker, with no new tag or Release.
 
 ### Fixed
 
+- Prepare understanding-kit 0.1.1 after actual behavior cases exposed redundant foundation checks, a Q3 scenario reskin and premature common-cause attribution of mixed wrong selections. Keep the failed 0.1.0 evidence alongside targeted correction rechecks; marketplace and Diagram Kit versions remain unchanged.
 - Resolve prompt-local skill root aliases in the installation smoke check for newer Codex CLI catalogs. Keep the 0.147.0 acceptance baseline and real cache/repository scope checks; missing, conflicting or escaping root mappings still fail.
 
 ## [8.0.0] - 2026-10-09

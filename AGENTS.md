@@ -6,6 +6,8 @@
 
 understanding-kit 是显式调用的只读理解测验，Codex 优先 Side Chat；其他会话使用明确的上下文快照，不假定持续同步。插件边界及对旧单插件约束的局部替代见 [新增决定](docs/adr/[ADR]_Understanding_Kit_Addition.md)，真实客户端证据见 [验收记录](docs/runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)。learn-kit、NotebookLM 与 Claude 退役规则继续有效。
 
+Understanding Kit 初始 0.1.0 已通过 #195 合入 develop，合并后安装与 215 项回归通过；0.1.1 为行为补测发现问题的修正候选，历史失败与重测结果分开记录。完整行为矩阵及两个目标客户端交互分别验收。市场 8.0.1 已是下一补丁预升标记，Diagram Kit 保持 0.3.0，未因此新增发布。
+
 ## 执行与决策
 
 代理负责在已有授权范围内执行文件修改、环境检查、测试、隔离安装验证、提交、推送及 PR 准备。owner 作出决定后，由代理执行，不要求 owner 复制命令，不重复确认已授权的操作。CI、分支保护、独立审查及外部身份验证按实际约束处理；无法完成时说明具体原因，只请求最小必要参与。
