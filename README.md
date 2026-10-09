@@ -1,6 +1,6 @@
 # MJ AgentLab Marketplace
 
-![Version](https://img.shields.io/badge/version-8.0.0-blue)
+![Version](https://img.shields.io/badge/version-8.0.1-blue)
 
 仅支持 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的架构图插件市场。市场只提供 **diagram-kit**，公开技能只有 **arch-diagram**：从源码事实生成七类 Mermaid 架构/UML 图，每个节点与边可追溯到文件行号，并使用 Python 校验器验证。无需 MCP 服务。
 

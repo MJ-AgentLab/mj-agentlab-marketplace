@@ -8,6 +8,7 @@
 ### Changed
 
 - Record the published v8.0.0 identity, tag binding and post-release installation results; refresh current installation guidance while preserving incomplete desktop acceptance and published release history.
+- Pre-bump develop's marketplace to 8.0.1 after v8.0.0; diagram-kit remains 0.3.0. This is an unpublished development marker, with no new tag or Release.
 
 ## [8.0.0] - 2026-10-09
 
