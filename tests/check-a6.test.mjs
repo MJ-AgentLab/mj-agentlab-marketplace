@@ -1,7 +1,7 @@
-// Tests for scripts/check-a6.mjs — the A6 CLAUDE.md sync-allowlist gate.
+// Tests for scripts/check-a6.mjs — the A6 AGENTS.md sync-allowlist gate.
 //
 // The rule being enforced (Framework §2.7 + §4.3.1, plan §2.4): a PR that touches an
-// allowlist trigger file must also update root CLAUDE.md. The only bypass is a literal
+// allowlist trigger file must also update root AGENTS.md. The only bypass is a literal
 // "[skip a6]" in the PR title AND a reviewer sign-off — and the sign-off half is what
 // the previous shell implementation never checked.
 
@@ -81,7 +81,7 @@ test("isA6Trigger matches the Codex dual-native additions", () => {
 
 test("isA6Trigger ignores non-allowlist paths", () => {
   for (const p of [
-    "CLAUDE.md", // the sync target itself is not a trigger
+    "AGENTS.md", // the sync target itself is not a trigger
     "README.md",
     "CHANGELOG.md",
     "plugins/learn-kit/CHANGELOG.md",
@@ -146,31 +146,31 @@ test("passes when the diff touches no trigger file", () => {
   assert.deepEqual(r.triggers, []);
 });
 
-test("passes when a trigger file is accompanied by a modified CLAUDE.md", () => {
+test("passes when a trigger file is accompanied by a modified AGENTS.md", () => {
   const r = evalWith({
     changes: [
       { status: "M", path: "VERSION" },
-      { status: "M", path: "CLAUDE.md" },
+      { status: "M", path: "AGENTS.md" },
     ],
     title: "infra: bump",
     reviews: [],
   });
   assert.equal(r.ok, true);
-  assert.equal(r.reason, "claude-md-synced");
+  assert.equal(r.reason, "agents-md-synced");
   assert.deepEqual(r.triggers, ["VERSION"]);
 });
 
-test("passes when CLAUDE.md is newly added alongside a trigger", () => {
+test("passes when AGENTS.md is newly added alongside a trigger", () => {
   const r = evalWith({
     changes: [
       { status: "M", path: "VERSION" },
-      { status: "A", path: "CLAUDE.md" },
+      { status: "A", path: "AGENTS.md" },
     ],
     title: "infra: bump",
     reviews: [],
   });
   assert.equal(r.ok, true);
-  assert.equal(r.reason, "claude-md-synced");
+  assert.equal(r.reason, "agents-md-synced");
 });
 
 test("reports every triggered path, not just the first", () => {
@@ -179,7 +179,7 @@ test("reports every triggered path, not just the first", () => {
       { status: "M", path: "VERSION" },
       { status: "M", path: ".claude-plugin/marketplace.json" },
       { status: "M", path: "README.md" },
-      { status: "M", path: "CLAUDE.md" },
+      { status: "M", path: "AGENTS.md" },
     ],
     title: "infra: bump",
     reviews: [],
@@ -188,32 +188,32 @@ test("reports every triggered path, not just the first", () => {
 });
 
 // ------------------------------------------------------ evaluateA6: the blocking paths
-test("blocks when a trigger file is touched and CLAUDE.md is absent", () => {
+test("blocks when a trigger file is touched and AGENTS.md is absent", () => {
   const r = evalWith({ title: "infra: bump", reviews: [] });
   assert.equal(r.ok, false);
   assert.equal(r.reason, "trigger-without-sync");
   assert.deepEqual(r.triggers, ["VERSION"]);
 });
 
-test("deleting root CLAUDE.md does NOT count as syncing it", () => {
+test("deleting root AGENTS.md does NOT count as syncing it", () => {
   const r = evalWith({
     changes: [
       { status: "M", path: "VERSION" },
-      { status: "D", path: "CLAUDE.md" },
+      { status: "D", path: "AGENTS.md" },
     ],
     title: "infra: bump",
     reviews: [],
   });
-  assert.equal(r.ok, false, "a deleted CLAUDE.md must not satisfy the gate");
+  assert.equal(r.ok, false, "a deleted AGENTS.md must not satisfy the gate");
   assert.equal(r.reason, "trigger-without-sync");
 });
 
-test("a CLAUDE.md typechange does not count as syncing it", () => {
+test("a AGENTS.md typechange does not count as syncing it", () => {
   // T = file replaced by a symlink. It exists at HEAD, but it was not authored.
   const r = evalWith({
     changes: [
       { status: "M", path: "VERSION" },
-      { status: "T", path: "CLAUDE.md" },
+      { status: "T", path: "AGENTS.md" },
     ],
     title: "infra: bump",
     reviews: [],
@@ -221,11 +221,11 @@ test("a CLAUDE.md typechange does not count as syncing it", () => {
   assert.equal(r.ok, false);
 });
 
-test("only ROOT CLAUDE.md counts — a plugin CLAUDE.md does not", () => {
+test("only ROOT AGENTS.md counts — a plugin AGENTS.md does not", () => {
   const r = evalWith({
     changes: [
       { status: "M", path: "VERSION" },
-      { status: "M", path: "plugins/learn-kit/CLAUDE.md" },
+      { status: "M", path: "plugins/learn-kit/AGENTS.md" },
     ],
     title: "infra: bump",
     reviews: [],
@@ -408,9 +408,9 @@ test("flattenReviews accepts both a plain array and --paginate --slurp nesting",
 
 // ------------------------------------------------------------------ NUL-safe parsing
 test("parseNameStatusZ parses git's STATUS\\0PATH\\0 records", () => {
-  assert.deepEqual(parseNameStatusZ("M\0VERSION\0A\0CLAUDE.md\0"), [
+  assert.deepEqual(parseNameStatusZ("M\0VERSION\0A\0AGENTS.md\0"), [
     { status: "M", path: "VERSION" },
-    { status: "A", path: "CLAUDE.md" },
+    { status: "A", path: "AGENTS.md" },
   ]);
 });
 
@@ -459,7 +459,7 @@ function commitAll(dir, message) {
   return git(dir, ["rev-parse", "HEAD"]);
 }
 
-/** A repo with a base commit carrying VERSION + CLAUDE.md. Returns { dir, baseSha }. */
+/** A repo with a base commit carrying VERSION + AGENTS.md. Returns { dir, baseSha }. */
 function makeRepo() {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "a6-repo-"));
   git(dir, ["init", "-q", "-b", "develop"]);
@@ -467,7 +467,7 @@ function makeRepo() {
   git(dir, ["config", "user.name", "Test"]);
   git(dir, ["config", "commit.gpgsign", "false"]);
   fs.writeFileSync(path.join(dir, "VERSION"), "6.3.2\n");
-  fs.writeFileSync(path.join(dir, "CLAUDE.md"), "# context\n");
+  fs.writeFileSync(path.join(dir, "AGENTS.md"), "# context\n");
   fs.writeFileSync(path.join(dir, "README.md"), "# readme\n");
   const baseSha = commitAll(dir, "base");
   return { dir, baseSha };
@@ -572,12 +572,12 @@ test("CLI exits 1 and names the triggers when the gate blocks", () => {
   });
 });
 
-test("CLI exits 0 when CLAUDE.md is synced alongside the trigger", () => {
+test("CLI exits 0 when AGENTS.md is synced alongside the trigger", () => {
   withRepo((repo) => {
     const r = runGate(repo, {
       mutate: (d) => {
         fs.writeFileSync(path.join(d, "VERSION"), "6.3.3\n");
-        fs.writeFileSync(path.join(d, "CLAUDE.md"), "# context\nupdated\n");
+        fs.writeFileSync(path.join(d, "AGENTS.md"), "# context\nupdated\n");
       },
     });
     assert.equal(r.status, 0);
@@ -612,21 +612,21 @@ test("CLI exits 0 for [skip a6] with a valid sign-off", () => {
   });
 });
 
-test("CLI exits 1 when deleting root CLAUDE.md is the only 'sync'", () => {
+test("CLI exits 1 when deleting root AGENTS.md is the only 'sync'", () => {
   withRepo((repo) => {
     const r = runGate(repo, {
       mutate: (d) => {
         fs.writeFileSync(path.join(d, "VERSION"), "6.3.3\n");
-        fs.rmSync(path.join(d, "CLAUDE.md"));
+        fs.rmSync(path.join(d, "AGENTS.md"));
       },
     });
     assert.equal(r.status, 1);
   });
 });
 
-test("CLI uses a three-dot range: a base-branch CLAUDE.md edit cannot satisfy the PR", () => {
-  // The pre-fix step used BASE..HEAD. When develop moves ahead with its own CLAUDE.md
-  // edit, that two-dot diff reports CLAUDE.md as changed — the PR inherits a sync it
+test("CLI uses a three-dot range: a base-branch AGENTS.md edit cannot satisfy the PR", () => {
+  // The pre-fix step used BASE..HEAD. When develop moves ahead with its own AGENTS.md
+  // edit, that two-dot diff reports AGENTS.md as changed — the PR inherits a sync it
   // never made, and the gate opens. Three-dot compares against the merge base instead.
   withRepo((repo) => {
     git(repo.dir, ["checkout", "-q", "-b", "feature"]);
@@ -634,12 +634,12 @@ test("CLI uses a three-dot range: a base-branch CLAUDE.md edit cannot satisfy th
     const headSha = commitAll(repo.dir, "pr: bump VERSION only");
 
     git(repo.dir, ["checkout", "-q", "develop"]);
-    fs.writeFileSync(path.join(repo.dir, "CLAUDE.md"), "# context\nedited on develop\n");
-    const newBaseSha = commitAll(repo.dir, "develop: unrelated CLAUDE.md edit");
+    fs.writeFileSync(path.join(repo.dir, "AGENTS.md"), "# context\nedited on develop\n");
+    const newBaseSha = commitAll(repo.dir, "develop: unrelated AGENTS.md edit");
 
-    // Sanity-check the premise: two-dot really does report CLAUDE.md here.
+    // Sanity-check the premise: two-dot really does report AGENTS.md here.
     const twoDot = git(repo.dir, ["diff", "--name-only", `${newBaseSha}..${headSha}`]);
-    assert.match(twoDot, /CLAUDE\.md/, "premise: two-dot diff sees the base-branch edit");
+    assert.match(twoDot, /AGENTS\.md/, "premise: two-dot diff sees the base-branch edit");
 
     const r = runCli(repo.dir, {
       A6_BASE_SHA: newBaseSha,
@@ -648,7 +648,7 @@ test("CLI uses a three-dot range: a base-branch CLAUDE.md edit cannot satisfy th
       A6_PR_AUTHOR: "author",
       A6_REVIEWS_FILE: writeReviews(repo.dir, []),
     });
-    assert.equal(r.status, 1, "the PR did not touch CLAUDE.md; the gate must still block");
+    assert.equal(r.status, 1, "the PR did not touch AGENTS.md; the gate must still block");
   });
 });
 
@@ -687,4 +687,11 @@ test("CLI handles a PR title that is exactly the skip token with odd spacing", (
     });
     assert.equal(r.status, 0);
   });
+});
+
+test('portable manifest and migrated repository skills trigger A6', () => {
+  for (const p of ['plugins/diagram-kit/plugin.json', '.agents/skills/mp-git-pr/SKILL.md']) assert.equal(isA6Trigger(p), true);
+});
+test('legacy CLAUDE.md alone cannot satisfy the new sync target', () => {
+  assert.equal(evalWith({changes: [{status: 'M', path: 'VERSION'}, {status: 'M', path: 'CLAUDE.md'}], title: 'infra: bump', reviews: []}).ok, false);
 });

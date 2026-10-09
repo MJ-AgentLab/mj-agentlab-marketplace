@@ -4,9 +4,9 @@ scope: marketplace
 summary: AI 工程执行 HITL Prompt — 11 阶段闭环 + skill 矩阵 + HITL 触发规则 + §0 universal skeleton 内化
 owner: marketplace-maintainers
 created: 2026-05-11
-updated: 2026-05-18
+updated: 2026-10-09
 state: active
-version: v1.4
+version: v1.5
 domain: governance
 tags:
   - hitl
@@ -18,6 +18,7 @@ related:
   - ./[STANDARD]_Commit_Message_Convention.md
   - ../guide/[GUIDE]_Marketplace_Agent_Execution_Checklist.md
 revision: |
+  2026-10-09 — v1.5: 明确代理执行、owner 决策与授权持续性；环境限制请求最小参与，替代逐次确认与命令交接。
   2026-05-18 — v1.4: §0 重写为 Universal Skeleton & Compression Heritage（浓缩自被删除的 generic HITL 工作流单文件）；移除所有 cross-project 引用以满足 marketplace 文档体系独立性原则（Framework v1.5）；§1 opening 改述 + 删除原 17 阶段对照表（mapping 已迁 §0.2）；§4.8 删除外部 STANDARD 对照说明
   2026-05-17 — v1.3: Archive HITL Integration（配合 Framework v1.4 flat archive layout + RUNBOOK v1.1）
   2026-05-15 — v1.2: Doc Framework Integration（§4.8 self-review item 12）
@@ -97,7 +98,7 @@ Marketplace 当前 11 阶段流程稳定。若未来出现以下情况，考虑�
 
 本 STANDARD 规范 mj-agentlab-marketplace 仓库内 AI Agent 从任务准入到合并发布的完整闭环，并明确何时需要 HITL（Human-in-the-Loop）确认。
 
-**核心原则**: AI 自主推进低风险、可逆、符合既有 plugin spec 与 marketplace 治理资产的事项；凡涉及 plugin 删除 / 重命名 / 主版本 bump / CI workflow / 公共 plugin API / 发布动作的事项，必须暂停并请求人工确认。
+**核心原则**: 代理负责在已有授权范围内执行文件修改、环境检查、测试、隔离安装验证、提交、推送及 PR 准备。owner 作出决定后，由代理执行，不要求 owner 复制命令，不重复确认已授权的操作。CI、分支保护、独立审查及外部身份验证按实际约束处理；无法完成时说明具体原因，只请求最小必要参与。
 
 **适用边界**: 本 STANDARD 不约束：
 - 用户全局 `~/.claude/settings.json` 启用配置
@@ -201,55 +202,23 @@ Fallback:
 
 ## §3 HITL 通用规则
 
-### §3.1 必须暂停确认
+### §3.1 授权范围与必须等待的决定
 
-出现以下情况时，AI 必须暂停：
+代理负责在已有授权范围内执行文件修改、环境检查、测试、隔离安装验证、提交、推送及 PR 准备。owner 作出决定后，由代理执行，不要求 owner 复制命令，不重复确认已授权的操作。CI、分支保护、独立审查及外部身份验证按实际约束处理；无法完成时说明具体原因，只请求最小必要参与。
 
-- 任务目标 / 范围 / 验收标准不清楚
-- Issue / Plan / ADR 与代码现状冲突
-- 涉及 `marketplace.json` schema 变更（plugins 数组结构 / metadata 字段）
-- 涉及 `plugin.json` 字段约定（spec compliance 边界 / 6 必需字段 / 新增 / 删除 plugin 条目）
-- 涉及 `SKILL.md` frontmatter 字段（name / description / disable-model-invocation / allowed-tools）
-- 涉及 plugin 删除 / 重命名 / 主版本 bump（breaking change for downstream consumers）
-- 涉及 marketplace `VERSION` 主版本 bump
-- 涉及 CI workflow 修改（`ci.yml` / `release.yml`）
-- 涉及 plugin secrets / 凭据管理（即使当前 v3.x 无 plugin 持有 secrets，约束仍保留）
-- 涉及发布动作（PR develop → main，merge 会触发 release.yml 自动 tag）
-- Review comment 改变 plugin 行为 / SKILL description / allowed-tools 边界
-- 测试失败且原因不明确
-- 实现中 scope 明显扩大（如本来只加 skill，演变成改 marketplace.json schema）
-- 涉及 doc archive 触发（按 `[STANDARD]_Documentation_Framework` §2.3.1 四触发器之一：framework / STANDARD 主版本 bump、≥50% 结构重写、≥70% 内容替换、split / merge / rename）—— **必须暂停**，按 `docs/runbook/[RUNBOOK]_Doc_Archive_Procedure.md` 4-phase + 2 HITL gate（Q-01 standard/unusual 判定 / D-02 引用 >3 升级）执行；不得在 PR 中混入隐式归档（per Framework v1.4 §2.3.5 flat archive layout）
+需要 owner 决策时，提供 2–3 个明确选项，说明主要影响，标记推荐项及理由。常规实现细节由代理判断；必须由 owner 决定的事项等待答复。已有决定不重复询问，推荐项不视为默认批准。
 
-### §3.2 可以默认处理
+仅当目标、范围、验收标准或必要的外部身份不明确，或出现未授权的范围扩张、凭据操作、正式发布、不可逆动作时，等待 owner 决定。插件退役、manifest 迁移、技能格式修改、CI 更新和版本准备若已在已批准计划内，由代理直接执行。发现失败先诊断和修复，仍无法推进才请求必要参与。
 
-以下情况 AI 可以自主处理，但需记录假设：
+独立审查与分支保护是外部约束；代理不能以自我审查替代 GitHub 要求的非作者批准，也不绕过 required checks。已授权的治理 PR 合并与发布准备不自动授予正式发布权限。
 
-- 低风险格式修正
-- 拼写 / 链接 / frontmatter 小修
-- CHANGELOG `[Unreleased]` 段累加
-- README.md 例子更新（不改语义）
-- 新 plugin 配套文档骨架（CLAUDE.md / README / CHANGELOG / LICENSE 5 件套）
-- 既有 plugin 内 skill 增加（如 v3.1.0 加 locate / scan）
-- 修复 lint / 格式标准化
-- 与代码变更直接对应的文档更新
+### §3.2 代理执行
 
-### §3.3 提问格式
+代理完成所有可独立执行的准备工作，提供可审查的 diff、验证结果和 PR。已有授权覆盖后续常规步骤，阶段切换本身不构成再次确认的理由。后文的 HITL 提示仅在 §3.1 的未决条件成立时适用；“手工”步骤由代理使用当前环境的文件、终端或界面工具执行。
 
-```text
-问题 N：
-- 当前观察：
-- 不确定点：
-- 为什么重要：
-- 可选方案：
-  A.
-  B.
-  C.
-- 我的建议：
-- 默认假设：
-- 是否必须等待人工确认：是 / 否
-```
+### §3.3 owner 决策格式
 
-每次最多提出 3-5 个关键问题。上述 7 字段对应 Goal / Problem / Solutions / Context / Self-suggestion / Default / Stop-or-not。
+每次给出 2–3 个明确选项，分别说明影响；标记“推荐”并说明理由。说明必须等待的决定与最小必要参与。推荐项不是批准，时间经过也不构成批准；继续与该决定无关的工作。
 
 ---
 

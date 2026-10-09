@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// A6 gate — root CLAUDE.md sync-allowlist enforcement (plan §2.4; Framework §2.7 + §4.3.1).
+// A6 gate — root AGENTS.md sync-allowlist enforcement (plan §2.4; Framework §2.7 + §4.3.1).
 //
 //   A6_BASE_SHA=<sha> A6_HEAD_SHA=<sha> A6_PR_TITLE=<title> A6_PR_AUTHOR=<login> \
 //   A6_REVIEWS_FILE=<json> node scripts/check-a6.mjs
@@ -18,9 +18,9 @@
 //   2. The PR title was interpolated into the shell via `${{ ... }}`, making a PR title an
 //      arbitrary command-execution vector on the runner.
 //   3. The diff used a two-dot range. Once the base branch moved ahead with its own
-//      CLAUDE.md edit, that edit showed up in BASE..HEAD and satisfied the gate for a PR
-//      that never touched CLAUDE.md.
-//   4. `--name-only` cannot tell a deletion from an edit, so deleting root CLAUDE.md read
+//      AGENTS.md edit, that edit showed up in BASE..HEAD and satisfied the gate for a PR
+//      that never touched AGENTS.md.
+//   4. `--name-only` cannot tell a deletion from an edit, so deleting root AGENTS.md read
 //      as syncing it.
 //   5. Newline-split parsing of unquoted paths misreads paths containing newlines.
 //
@@ -44,9 +44,11 @@ const TRIGGERS = [
   /^VERSION$/,
   /^\.claude-plugin\/marketplace\.json$/,
   /^plugins\/[^/]+\/\.claude-plugin\/plugin\.json$/,
+  /^plugins\/[^/]+\/plugin\.json$/,
   // Category 3 — directory entries
   /^\.claude\/skills\/mp-[^/]+\/SKILL\.md$/,
   /^plugins\/[^/]+\/skills\/[^/]+\/SKILL\.md$/,
+  /^\.agents\/skills\/mp-[^/]+\/SKILL\.md$/,
   // Codex dual-native additions
   /^\.agents\/plugins\/marketplace\.json$/,
   /^plugins\/[^/]+\/\.codex-plugin\/plugin\.json$/,
@@ -170,9 +172,9 @@ export function evaluateA6({ changes, title, reviews, authorLogin, headSha }) {
   if (triggers.length === 0) return { ok: true, reason: "no-trigger", triggers };
 
   // Only an add or a modify counts. A delete (D) removes the file the gate exists to keep
-  // current; a typechange (T) swaps it for a symlink. Neither is "CLAUDE.md was updated".
-  const synced = changes.some((c) => c.path === "CLAUDE.md" && (c.status === "A" || c.status === "M"));
-  if (synced) return { ok: true, reason: "claude-md-synced", triggers };
+  // current; a typechange (T) swaps it for a symlink. Neither is "AGENTS.md was updated".
+  const synced = changes.some((c) => c.path === "AGENTS.md" && (c.status === "A" || c.status === "M"));
+  if (synced) return { ok: true, reason: "agents-md-synced", triggers };
 
   if (!title.includes(SKIP_TOKEN)) return { ok: false, reason: "trigger-without-sync", triggers };
 
@@ -237,8 +239,8 @@ function main() {
     case "no-trigger":
       process.stdout.write("A6 OK — no §2.7 allowlist trigger files in this PR.\n");
       return 0;
-    case "claude-md-synced":
-      process.stdout.write(`A6 OK — trigger files present and root CLAUDE.md is updated.\nTriggered files:\n${list}\n`);
+    case "agents-md-synced":
+      process.stdout.write(`A6 OK — trigger files present and root AGENTS.md is updated.\nTriggered files:\n${list}\n`);
       return 0;
     case "skip-token-with-signoff":
       process.stdout.write(
@@ -258,10 +260,10 @@ function main() {
       return 1;
     case "trigger-without-sync":
       process.stdout.write(
-        `::error::A6 FAIL — this PR touches Framework §2.7 sync-allowlist trigger files but root CLAUDE.md is unchanged.\n` +
+        `::error::A6 FAIL — this PR touches Framework §2.7 sync-allowlist trigger files but root AGENTS.md is unchanged.\n` +
           `Triggered files:\n${list}\n\n` +
           `Fix, either:\n` +
-          `  1. Update root CLAUDE.md to reflect the change (per §2.7); or\n` +
+          `  1. Update root AGENTS.md to reflect the change (per §2.7); or\n` +
           `  2. Add "${SKIP_TOKEN}" to the PR title AND get a reviewer to approve with the exact\n` +
           `     body: ${SIGNOFF_BODY}\n` +
           `Ref: docs/rule/[STANDARD]_Documentation_Framework.md §2.7 + §4.3.1\n`,

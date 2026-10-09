@@ -3,6 +3,15 @@ name: mp-flow-dogfood
 description: Verifies that newly authored marketplace plugin / skill actually works in realistic conditions (HITL Stage 6) — runs read-only algorithm simulation (Glob + Grep + Read replaying the skill's internal steps) against external Claude Code sample projects (user-selected; blank sample also supported), plus optional real plugin install (`/plugin install <plugin>@mj-agentlab-marketplace --scope local`) for skills that have side-effects or low trust. Make sure to use this skill whenever the user says "dogfood", "本地验证", "verify plugin", "test skill behavior", "Stage 6 dogfood", "skill 真实跑通", "试跑 skill", "verification before commit", or once Stage 5 compliance audit has PASSED and the changes need behavior verification before commit. Marketplace dogfood policy: read-only skills should be verified by algorithm simulation in ≥ 2 external projects; side-effect or `disable-model-invocation` skills must be installed and triggered explicitly. Produces verification matrix `| Test | Project | Query | Expected | Actual | Pass |` + pass rate + performance baseline (if applicable); critical failures pause for HITL. Do not use for: plugin schema compliance (use mp-flow-compliance, Stage 5), pre-commit diff review (use mp-flow-self-review, Stage 7), or post-merge cleanup (use mp-flow-post-merge, Stage 10).
 ---
 
+## 执行授权（治理过渡）
+
+代理负责在已有授权范围内执行文件修改、环境检查、测试、隔离安装验证、提交、推送及 PR 准备。owner 作出决定后，由代理执行，不要求 owner 复制命令，不重复确认已授权的操作。CI、分支保护、独立审查及外部身份验证按实际约束处理；无法完成时说明具体原因，只请求最小必要参与。
+
+需要 owner 决策时，提供 2–3 个明确选项，说明主要影响，标记推荐项及理由。常规实现细节由代理判断；必须由 owner 决定的事项等待答复。已有决定不重复询问，推荐项不视为默认批准。
+
+本节优先于下文旧流程中的逐次确认、仅输出命令和要求用户手工执行的表述。已授权步骤由代理执行；未决 owner 决策、独立审查和正式发布授权按 AI 工程规范 §3 处理。
+
+
 # Marketplace Flow — Local Dogfood / Verification (HITL Stage 6)
 
 ## Overview
