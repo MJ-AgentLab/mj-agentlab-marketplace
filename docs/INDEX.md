@@ -6,12 +6,12 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
 state: active
-version: v2.0
+version: v2.1
 ---
 
 # 文档索引
 
-当前市场提供 diagram-kit / arch-diagram；客户端为 ChatGPT 桌面端和 Codex 本地环境。Marketplace 8.0.0 / diagram-kit 0.3.0 版本准备已完成，尚未正式发布；桌面端验收仍待完成。
+当前市场提供 diagram-kit / arch-diagram；客户端为 ChatGPT 桌面端和 Codex 本地环境。[Marketplace v8.0.0](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.0.0) / diagram-kit 0.3.0 已正式发布；桌面端实际验收仍未执行。
 
 ## 入口
 
@@ -39,7 +39,7 @@ version: v2.0
 - [[RUNBOOK]_Release_Operations.md](runbook/[RUNBOOK]_Release_Operations.md)
 
 - [迁移实际验收记录](runbook/[RUNBOOK]_ChatGPT_Codex_Migration_Acceptance.md)
-- [合并后发布准备与发布说明草稿](runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md)
+- [发布准备、实际发布与后续记录](runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md)
 
 ## 决策与故障历史
 

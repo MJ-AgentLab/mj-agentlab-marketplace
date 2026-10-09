@@ -18,9 +18,7 @@ A6 同步目标为根 AGENTS.md；过渡触发器继续识别旧路径，当前�
 
 develop 与 main 已完成治理迁移；结构校验与发布安装复查使用相同的严格校验，项目指令只从根 AGENTS.md 加载。
 
-owner 已授权提前完成迁移版本准备，阶段调整见 [迁移 ADR](docs/adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)。该决定不替代桌面端验收或正式发布授权；实际状态见 [发布准备记录](docs/runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md)。
-
-版本准备已合入 develop。发布候选先同步 main 的治理历史并解决目录冲突，通过草稿 PR 供审查；未完成的验收与独立批准仍须据实处理。
+v8.0.0 已经 #190 合入 main 并自动发布，实际状态和未完成的桌面验收见 [发布记录](docs/runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md)。发布后按 [发布操作](docs/runbook/[RUNBOOK]_Release_Operations.md) 同步 main 到 develop 并准备下一补丁 pre-bump；只更新 marketplace VERSION 与派生 README badge，插件版本按自身变更推进。
 
 ## Codex 会话维护
 
