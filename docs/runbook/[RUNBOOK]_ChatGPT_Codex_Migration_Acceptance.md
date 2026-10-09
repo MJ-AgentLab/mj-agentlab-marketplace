@@ -20,7 +20,7 @@ last-verified: 2026-10-09
 | 隔离 CLI 安装 | PASS | Codex CLI 0.147.0 使用临时 HOME / USERPROFILE / CODEX_HOME，添加本地市场并真实安装 diagram-kit |
 | 插件公开技能作用域 | PASS | consumer cwd 发现一个 qualified arch-diagram；资源来自隔离安装缓存，不是工作区 |
 | 19 个仓库开发技能作用域 | PASS | 仓库 cwd 发现全部 19 个不同 mp-* 技能，路径为 .agents/skills；consumer cwd 数量为 0 |
-| 19 个技能的全部实际触发/执行 | 未完成 | 发现检查和静态工作流合同已经执行；涉及 PR、合并、发布的真实触发需要相应外部状态，不能以发现结果声称全部行为已验收 |
+| 19 个技能实际触发回放 | PASS（只读回放） | Codex CLI 0.147.0 显式加载全部 19 个 SKILL，读取当前包/版本/AGENTS，逐项生成入口、具体下一步和决策边界；未执行回放中明确禁止的 Git 外部写入 |
 | 图表 Python 校验 | PASS | 保留实际执行合同测试：非仓库 cwd，含空格、中文及单引号路径，合法/非法图的真实退出码 |
 | arch-diagram CLI 实际调用 | PASS（指定权限） | Codex CLI 0.147.0 读取安装缓存中的 SKILL、methodology/domain/Container refs，分析两份源码，生成一张 Container 图；每个节点/边列文件行号。Python 3.12.14：扫描 1 张图，FAIL 0 / WARN 0 / exit 0 |
 | ChatGPT 桌面安装与调用 | 未执行 | 桌面进程存在，但 Computer Use 技能的操作指南禁止自动化 ChatGPT 桌面 UI；没有声称替代验收 |
@@ -48,4 +48,12 @@ last-verified: 2026-10-09
 
 第一次调用使用 workspace-write，但本机 Windows 执行环境仍限制为只读，写入被拒绝。复验仅在已授权的合成临时目录中显式使用 danger-full-access，完成生成与校验；不据此声称默认 Windows sandbox 配置也已通过。临时 auth.json 只用于本机既有登录，调用后删除。
 
-192 项测试通过，0 失败、0 跳过（强制 PowerShell/Python）；包括原 A6 55 项、防错版本事务、精确 canonical Git 工作树安装、无资产草稿发布/安装失败/相邻复查和历史哈希链接。
+196 项测试通过，0 失败、0 跳过（强制 PowerShell/Python）；包括原 A6 55 项、防错版本事务、精确 canonical Git 工作树安装、无资产草稿发布/安装失败/相邻复查和历史哈希链接。
+
+## 19 技能回放与远端检查
+
+[实际回放](../../tests/fixtures/repository-skills/replay.md) 包含全部 19 个技能的源位置及当前流程判断。实际调用成功读取所有 SKILL 内容，保留无提交/无远端的隔离 fixture 限制；只读沙箱拒绝的命令明确记录，未冒充已执行合并、发布或清理。
+
+新版 A6 以治理基线 e90d735 对迁移 head 检查通过。GitHub 当前 develop 的旧版 A6 仍要求 CLAUDE.md，因此迁移 PR #188 在 #186 合并前会失败；不绕过。#186/#187 均仍需要独立批准。Linux baseline 和 Validate Structure 已通过；Windows 冒烟发现短路径/大小写比较问题，已改 native realpath 并补作用域回归，CI 将复验。
+
+GitHub 只读查询确认 v7.0.0 / v7.0.1 的 NLM wheel 与 checksum 资产仍存在；未执行发布修改。

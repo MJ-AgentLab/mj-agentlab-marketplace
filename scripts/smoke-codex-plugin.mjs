@@ -9,7 +9,9 @@ import { REPOSITORY_SKILLS } from "./validate-portable.mjs";
 export const MARKETPLACE_NAME = "mj-agentlab-marketplace";
 export const BASELINE_VERSION = "0.147.0";
 const norm = p => String(p).replaceAll("\\", "/");
-const same = (a, b) => process.platform === "win32" ? norm(a).toLowerCase() === norm(b).toLowerCase() : norm(a) === norm(b);
+// Native realpath expands Windows 8.3 aliases used by hosted runner temp paths.
+const real = p => fs.realpathSync.native(p);
+const same = (a, b) => process.platform === "win32" ? norm(real(a)).toLowerCase() === norm(real(b)).toLowerCase() : real(a) === real(b);
 
 export function parsePromptInputSkills(stdout) {
   const texts = [];
@@ -27,8 +29,10 @@ export function parsePromptInputSkills(stdout) {
 export function assertDiscovery(entries, { cacheRoot, repositoryRoot, inRepository }) {
   const publicSkills = entries.filter(e => e.name.includes(":"));
   if (publicSkills.length !== 1 || publicSkills[0].name !== "diagram-kit:arch-diagram") throw new Error("public discovery must contain only diagram-kit:arch-diagram exactly once");
-  const rel = path.relative(fs.realpathSync(cacheRoot), fs.realpathSync(publicSkills[0].file));
-  if (rel.startsWith("..") || path.isAbsolute(rel) || !norm(rel).endsWith("/skills/arch-diagram/SKILL.md")) throw new Error("public skill did not resolve from isolated installed cache");
+  const rel = path.relative(real(cacheRoot), real(publicSkills[0].file));
+  const suffix = process.platform === "win32" ? norm(rel).toLowerCase() : norm(rel);
+  const expectedSuffix = process.platform === "win32" ? "/skills/arch-diagram/skill.md" : "/skills/arch-diagram/SKILL.md";
+  if (rel.startsWith("..") || path.isAbsolute(rel) || !suffix.endsWith(expectedSuffix)) throw new Error(`public skill did not resolve from isolated installed cache: relative=${rel}, cache=${real(cacheRoot)}, file=${real(publicSkills[0].file)}`);
   const development = entries.filter(e => REPOSITORY_SKILLS.includes(e.name));
   if (!inRepository && development.length) throw new Error("repository skills leaked to consumer cwd");
   if (inRepository) {
@@ -39,13 +43,13 @@ export function assertDiscovery(entries, { cacheRoot, repositoryRoot, inReposito
 }
 
 export function cleanupIsolatedRoot(root) {
-  const rel = path.relative(fs.realpathSync(os.tmpdir()), fs.realpathSync(root));
+  const rel = path.relative(real(os.tmpdir()), real(root));
   if (!rel || rel.startsWith("..") || path.isAbsolute(rel)) throw new Error("refusing cleanup outside the OS temporary directory");
   fs.rmSync(root, { recursive: true, force: true });
 }
 
 export async function runSmoke({ repoRoot = path.resolve(import.meta.dirname, ".."), codexCommand = "codex", baseEnv = process.env, keepRoot = false, allowVersionDrift = false } = {}) {
-  const root = fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()), "diagram-smoke-"));
+  const root = fs.mkdtempSync(path.join(real(os.tmpdir()), "diagram-smoke-"));
   const home = path.join(root, "home"), tmp = path.join(root, "tmp"), src = path.join(root, "src"), cwd = path.join(root, "consumer"), codexHome = path.join(home, ".codex");
   for (const dir of [home, tmp, src, cwd, codexHome]) fs.mkdirSync(dir, { recursive: true });
   const env = { ...baseEnv, HOME: home, USERPROFILE: home, CODEX_HOME: codexHome, APPDATA: path.join(home, "Roaming"), LOCALAPPDATA: path.join(home, "Local"), XDG_CONFIG_HOME: path.join(home, "config"), TEMP: tmp, TMP: tmp, TMPDIR: tmp };
