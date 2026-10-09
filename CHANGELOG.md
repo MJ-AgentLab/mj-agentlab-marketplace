@@ -5,6 +5,11 @@
 
 ## [Unreleased]
 
+### Added
+
+- Stage independent explain-kit 0.1.0 with glossary for quick explanations and concept for deeper mechanisms, examples and boundaries. Both default to Chinese, preserve original terms and adapt the teaching structure to explicit user requirements. Learn Kit stays retired.
+- Extend strict validation, independent version preparation and isolated Codex installation checks to both plugins and all three public skills. Actual client acceptance is tracked in the [Explain Kit acceptance record](docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md); this candidate does not publish a new release.
+
 ### Changed
 
 - Record the published v8.0.0 identity, tag binding and post-release installation results; refresh current installation guidance while preserving incomplete desktop acceptance and published release history.

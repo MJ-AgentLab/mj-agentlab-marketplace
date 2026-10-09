@@ -6,12 +6,12 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
 state: active
-version: v2.1
+version: v2.2
 ---
 
 # 文档索引
 
-当前市场提供 diagram-kit / arch-diagram；客户端为 ChatGPT 桌面端和 Codex 本地环境。[Marketplace v8.0.0](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.0.0) / diagram-kit 0.3.0 已正式发布；桌面端实际验收仍未执行。
+当前候选市场提供 diagram-kit / arch-diagram 和 explain-kit / glossary、concept；客户端为 ChatGPT 桌面端和 Codex 本地环境。[Marketplace v8.0.0](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.0.0) / diagram-kit 0.3.0 已正式发布；该次桌面端实际验收仍未执行。Explain Kit 的新候选状态单独记录。
 
 ## 入口
 
@@ -21,6 +21,8 @@ version: v2.1
 - [术语](../GLOSSARY.md)
 - [历史发布日志](../CHANGELOG.md)
 - [迁移与退役 ADR](adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)
+- [Explain Kit 新增决策](adr/[ADR]_Explain_Kit_Addition.md)
+- [Explain Kit 实际验收](runbook/[RUNBOOK]_Explain_Kit_Acceptance.md)
 
 ## 当前规范和指南
 

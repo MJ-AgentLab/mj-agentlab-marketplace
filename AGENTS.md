@@ -2,7 +2,7 @@
 
 ## 项目上下文
 
-市场只注册 diagram-kit，公开技能只含 arch-diagram，目标客户端为 ChatGPT 桌面端和 Codex 本地环境，Codex CLI 验收基线 0.147.0。运行信息以市场索引、manifest 和 VERSION 为准。
+市场注册 diagram-kit（架构绘图）和 explain-kit（glossary 速解、concept 深讲），目标客户端为 ChatGPT 桌面端和 Codex 本地环境，Codex CLI 验收基线 0.147.0。运行信息以市场索引、manifest 和 VERSION 为准；解释能力边界见 [Explain Kit ADR](docs/adr/[ADR]_Explain_Kit_Addition.md)。
 
 ## 执行与决策
 
@@ -16,7 +16,7 @@
 
 A6 同步目标为根 AGENTS.md；过渡触发器继续识别旧路径，当前技能位于 .agents/skills，插件使用根 plugin.json。运行 npm test、npm run validate、npm run smoke:codex；Python 图表校验必须实际执行。正式发布需独立的发布授权与两个目标客户端的验收证据。
 
-develop 与 main 已完成治理迁移；结构校验与发布安装复查使用相同的严格校验，项目指令只从根 AGENTS.md 加载。
+develop 与 main 已完成治理迁移；结构校验与发布安装复查使用相同的严格校验，项目指令只从根 AGENTS.md 加载。新插件单独/组合安装、解释行为及客户端限制记录在 [Explain Kit 验收](docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md)，不将安装发现替代模型行为或桌面 UI 证据。
 
 v8.0.0 已经 #190 合入 main 并自动发布，实际状态和未完成的桌面验收见 [发布记录](docs/runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md)。发布后按 [发布操作](docs/runbook/[RUNBOOK]_Release_Operations.md) 同步 main 到 develop 并准备下一补丁 pre-bump；只更新 marketplace VERSION 与派生 README badge，插件版本按自身变更推进。
 

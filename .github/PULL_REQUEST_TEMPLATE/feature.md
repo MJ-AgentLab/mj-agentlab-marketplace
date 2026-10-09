@@ -14,7 +14,7 @@ about: 新功能、新 Skill、重构等功能开发 (feature/*) 的 Pull Reques
 
 ## 自检结果
 - [ ] plugin.json 字段完整（如涉及新增/变更 Plugin）—— 参 [`[SPEC]_Plugin_Json_Schema.md`](../../docs/spec/[SPEC]_Plugin_Json_Schema.md)
-- [ ] SKILL.md frontmatter 有效（如涉及新增/变更 Skill；Claude Code spec native 2 字段，不应用 marketplace 8 字段）
+- [ ] SKILL.md 严格 YAML 有效（name/description 按 portable 技能格式，不应用 marketplace 文档八字段）；展示入口和路由正确
 - [ ] 文档合规（如涉及 `docs/**/*.md`）—— 参 [`[STANDARD]_Documentation_Framework.md`](../../docs/rule/[STANDARD]_Documentation_Framework.md)
 - [ ] 无硬编码（IP、密码、路径、Token）
 - [ ] 无残留调试代码
