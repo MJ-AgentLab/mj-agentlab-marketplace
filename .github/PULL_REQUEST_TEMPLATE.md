@@ -11,6 +11,6 @@
 - [ ] 相关测试、结构校验、版本 dry-run 已通过。
 - [ ] 触发 A6 的变化已同步根 AGENTS.md；新旧触发路径按过渡门禁处理。
 - [ ] 文档与 19 个 .agents/skills 开发技能符合“代理执行、owner 决策”规范。
-- [ ] VERSION 和 diagram-kit 根 plugin.json 只按已经完成验收的发布决定更新。
+- [ ] VERSION 与两个插件的根 plugin.json 仅按已有版本授权更新；正式发布另需完整验收和独立授权。
 - [ ] 未覆盖历史版本、标签或发布资产。
 - [ ] 独立审查及 required checks 由 GitHub 门禁处理。

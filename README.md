@@ -2,11 +2,12 @@
 
 ![Version](https://img.shields.io/badge/version-8.0.1-blue)
 
-面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场。当前开发版本提供两个 portable 插件，无需 MCP 服务：
+面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场。当前开发版本提供三个 portable 插件，无需 MCP 服务：
 
 | 插件 / 公开技能 | 用途 | 版本与分发状态 |
 | --- | --- | --- |
 | **diagram-kit / arch-diagram** | 从源码事实生成七类 Mermaid 架构/UML 图，节点与边追溯到文件行号，实际运行 Python 校验器 | 0.3.0，已随市场 v8.0.0 发布 |
+| **explain-kit / glossary、concept** | 陌生术语速解与机制、反例、边界深讲，遵从受众、语言和长度要求 | 0.1.0，本任务候选，尚未正式发布 |
 | **understanding-kit / pop-quiz** | 从当前职责和关键判断选取必要知识，进行 2+1 自适应理解测验并给出简要反馈 | 0.1.0，当前开发分支新增，尚未正式发布 |
 
 市场 VERSION 保持 8.0.1 的 develop pre-bump；当前新增插件不能从已发布 main / v8.0.0 获取。
@@ -22,9 +23,13 @@ codex debug prompt-input '$diagram-kit:arch-diagram'
 
 上面的 main 指向正式分发分支；固定版本可将 --ref main 换为 --ref v8.0.0。调用 $diagram-kit:arch-diagram 或请求“给这个仓库画架构图”。开发分支的版本 badge 表示预计下一版本，已发布版本以 [GitHub Releases](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases) 为准。
 
+### Explain Kit 开发试用
+
+代理使用候选 worktree 的本地 marketplace 安装 Explain Kit，调用 `$explain-kit:glossary` 或 `$explain-kit:concept`。默认中文、保留术语原文；骨架允许适应，深度模糊先速解，不抢占调试或审查主任务。范围见 [ADR](docs/adr/[ADR]_Explain_Kit_Addition.md)，实际证据见 [验收记录](docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md)。
+
 ### ChatGPT desktop
 
-在 repo marketplace 中选择 MJ AgentLab Marketplace，安装 Diagram Kit，在新聊天选择 Architecture Diagram 并提供可访问的目标源码。实际桌面端安装与调用必须单独验收，不能以 CLI 发现替代。
+在 repo marketplace 中选择 MJ AgentLab Marketplace，安装 Diagram Kit，在新聊天选择 Architecture Diagram 并提供可访问的目标源码。实际桌面端安装与调用必须单独验收，不能以 CLI 发现替代。代理执行可用自动化；能力限制据实记录，不要求 owner 例行手工操作。
 
 ### Pop Quiz 开发试用
 
@@ -40,4 +45,4 @@ Codex 优先在 Side Chat 提供任务片段、职责与可定位的源码、规
 
 ### Development
 
-19 个开发技能位于 .agents/skills，公开技能为 arch-diagram 与 pop-quiz。项目指令见 [AGENTS.md](AGENTS.md)，规范和历史见 [文档索引](docs/INDEX.md)，贡献见 [CONTRIBUTING.md](CONTRIBUTING.md)。运行 npm ci、npm run validate、npm test、npm run check:baseline-tools 和 npm run smoke:codex。新增插件仅准备 develop PR；正式发布需要独立授权与两个目标客户端的验收证据。
+19 个开发技能位于 .agents/skills，公开技能为 arch-diagram、pop-quiz、glossary 和 concept。项目指令见 [AGENTS.md](AGENTS.md)，规范和历史见 [文档索引](docs/INDEX.md)，贡献见 [CONTRIBUTING.md](CONTRIBUTING.md)。代理运行 npm ci、npm run validate、npm test、npm run check:baseline-tools 和 npm run smoke:codex。新增插件仅准备 develop PR；正式发布需要独立授权与两个目标客户端的验收证据。

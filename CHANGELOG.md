@@ -7,6 +7,9 @@
 
 ### Added
 
+- Stage independent explain-kit 0.1.0 with glossary and concept, adaptable Chinese explanations and fact-aware examples. Learn Kit remains retired.
+- Extend strict contracts, per-plugin version preparation and isolated installs to the explanation plugin; actual evidence is tracked in the [Explain Kit acceptance record](docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md). No new release is published.
+
 - Add understanding-kit 0.1.0 with the sole public skill pop-quiz: explicit, read-only, responsibility/decision-driven KU selection, MNK, and 2+1 adaptive understanding checks. Codex prefers Side Chat; other supported sessions use an explicit context snapshot without automatic synchronization. The default is one KU; continuing to a second requires an explicit choice, with a two-KU/five-question ceiling. Host-controlled prompts cannot be locked; unanswered questions remain pending and are retained when the popup fails.
 - Record the addition's decision, operating contract and separate acceptance ledger. This is an unpublished development change preparing a develop PR: marketplace VERSION remains 8.0.1, diagram-kit remains 0.3.0, and learn-kit/NotebookLM/Claude retirement continues. Main/v8.0.0 installation does not yet include Understanding Kit; no formal release is authorized by this change.
 
