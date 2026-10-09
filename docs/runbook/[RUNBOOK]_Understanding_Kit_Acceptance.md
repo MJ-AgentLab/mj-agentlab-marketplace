@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
 state: draft
-version: v1.1
+version: v1.2
 last-verified: null
 ---
 
@@ -14,7 +14,9 @@ last-verified: null
 
 2026-10-09 PR #195 已合入 develop，并完成精确合并树的本地复验；后续同步 #196，保留 Explain Kit。0.1.1 的 19 个中性路径 forward 变体为 18 个 scoped PASS、1 个 UNEXERCISED，额外 forward 重试仍未覆盖该分支，独立历史状态回放另记 PASS。初始失败与带标签路径 pilot 保留，不作为最终协议验收。真实客户端人工验收尚未完成，因此保持 draft / `last-verified: null`。结构或发现 PASS 不表示全部模型行为或桌面 UI PASS。
 
-## §1 Preconditions
+Understanding Kit 0.1.1 现已随 #198 / Marketplace v8.1.0 发布。已发布提交 `d8a12d6` 的四种 canonical 隔离安装及真实缓存 Python 复查通过，具体发布身份见 [发布记录](./[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)。以下开发阶段前置条件与行为日志保留原有来源；发布事实不替代尚未执行的客户端验收或未覆盖分支。
+
+## §1 Development preconditions (historical)
 
 - [x] 当前独立 worktree / branch 为已授权 Understanding Kit 开发变更，main / develop 原工作区保持干净。
 - [x] marketplace VERSION 为 8.0.1，diagram-kit 为 0.3.0，explain-kit 为 0.1.0；understanding-kit 初始合并树为 0.1.0，行为修正候选为 0.1.1。

@@ -6,12 +6,12 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
 state: active
-version: v2.4
+version: v2.5
 ---
 
 # [GUIDE] Version management
 
-版本按职责独立管理：市场 VERSION 与各 plugins/*/plugin.json 的根 version 分别权威。#197 合并后的 develop marketplace 为未发布 pre-bump 8.0.1；本分支准备功能发布候选 8.1.0，diagram-kit 为 0.3.0，explain-kit 为 0.1.0，understanding-kit 为 0.1.1。市场索引不携带版本；README badge 是市场版本的派生展示。正式发布身份及未完成项见 [8.1.0 发布记录](../runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)。
+版本按职责独立管理：市场 VERSION 与各 plugins/*/plugin.json 的根 version 分别权威。Marketplace v8.1.0 已随 #198 合入 main 发布，diagram-kit 为 0.3.0，explain-kit 为 0.1.0，understanding-kit 为 0.1.1。#199 已将已发布 main 同步回 develop，merge 为 `a220688d0f46c32f775d4284feb6f9c935085089`，develop 从未发布 pre-bump 8.0.1 更新为 8.1.0；随后准备 8.1.1 pre-bump。市场索引不携带版本；README badge 是市场版本的派生展示。正式发布身份及未完成项见 [8.1.0 发布记录](../runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)。
 
 代理先执行 scripts/bump-version.ps1 的 -DryRun，使用 -Scope marketplace、diagram-kit、understanding-kit 或 explain-kit；这是版本工具的参数，与 Git 提交 scope 分开。From 必须匹配真实版本，To 必须合法 semver。脚本在所有目标预检成功后写入；任何写入或校验失败恢复原字节，清理失败只保留备份并报告。历史正文不做全局版本替换。
 
