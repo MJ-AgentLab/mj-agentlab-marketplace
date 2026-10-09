@@ -31,7 +31,7 @@ related:
 | 版本准备提交的本地复验 | 完成：严格结构、198 项强制 PowerShell/Python 测试、版本基线与目标 develop 检查器 A6 均通过；1608470 的 CLI 0.147.0 canonical 安装确认缓存版本为 0.3.0，仓库内外技能数量为 1/19 与 1/0 |
 | main 同步与冲突处理 | 完成：88b5e6f 合入 origin/main 473f606 的治理历史，23 处冲突按迁移决定解决；结果 Git tree 与 develop 3041432 完全相同，保留执行/决策、A6 和会话维护规则 |
 | 发布候选本地验证 | 完成：冲突解决后 198 项强制 PowerShell/Python 测试、严格校验、精确 88b5e6f 的 CLI 0.147.0 canonical 安装和 main 原检查器 A6 均通过 |
-| 正式发布 PR | 准备为 draft：#189 依赖已完成；桌面验收、最新检查、独立批准和正式发布授权仍须满足，未经满足不合并 main |
+| 正式发布 PR | [#190](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/190) 已创建为 draft，目标 main；#189 依赖已完成。桌面验收、最新检查、独立批准和正式发布授权仍须满足，未经满足不合并 main |
 | main 实际保护规则 | 已查询 active rules：只允许 merge 方法，要求 1 项独立批准、最后推送批准、过期批准撤销、对话解决及最新 Validate Structure。经典 branch-protection 接口 404 不代表没有保护 |
 | 历史版本和资产 | 保留：合并后复查 v7.0.0 / v7.0.1 原 wheel 与 checksum 均存在 |
 

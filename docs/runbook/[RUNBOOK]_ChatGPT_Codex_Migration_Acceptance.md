@@ -90,3 +90,7 @@ owner 在上述桌面端验收提问后回复“更新即可”。按该授权�
 冲突解决后实际执行严格校验及 198 项强制 PowerShell/Python 测试，0 失败、0 跳过；CLI 基线 0.147.0 通过。精确 88b5e6f 的 canonical Git tree 安装复查通过：仅 diagram-kit 0.3.0，仓库外技能 1/0、仓库内 1/19，临时工作树清理成功。提取 origin/main 的原始检查器执行 A6，正常 AGENTS 同步通过，没有使用签核例外。
 
 main 的 active rules 查询确认独立批准、最后推送批准、过期批准撤销、对话解决、仅 merge 方法和严格 Validate Structure 要求；经典保护接口返回 404，但实际 rules 仍在生效。没有新建 v8.0.0 标签或 GitHub Release；发布 PR 按未完成桌面验收保持 draft。
+
+发布草稿 [#190](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/190) 初轮 CI 的 [Linux PR run](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/37885848441) 在四项 canonical 安装断言均通过后，after hook 删除临时仓库的 .git/objects 时遇到 ENOTEMPTY；同一 head 的 push CI 和 Windows PR CI 通过。本机单独测试及六轮强制自动维护压力运行未复现，不能据此断定是哪一后台写入导致。
+
+修复仅限测试夹具：禁止自动维护，校验清理路径位于临时目录，使用 [Node.js 支持的有界重试](https://nodejs.org/docs/latest-v22.x/api/fs.html#fsrmsyncpath-options) 处理短暂删除冲突，并断言目录确已清理；持续失败仍使测试失败。四项安装保护断言、生产发布验证器和 CI 要求保持原样。
