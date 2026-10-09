@@ -11,7 +11,7 @@ version: v2.3
 
 # 文档索引
 
-当前开发版本注册 diagram-kit / arch-diagram、understanding-kit / pop-quiz 与 explain-kit / glossary、concept；客户端为 ChatGPT 桌面端和 Codex 本地环境。新增 Understanding Kit 0.1.0 尚未发布，marketplace 保持 8.0.1 的开发 pre-bump。[Marketplace v8.0.0](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.0.0) / diagram-kit 0.3.0 已正式发布，仅包含 Diagram Kit；其桌面端实际验收仍未执行。
+当前开发版本注册 diagram-kit / arch-diagram、understanding-kit / pop-quiz 与 explain-kit / glossary、concept；客户端为 ChatGPT 桌面端和 Codex 本地环境。新增 Understanding Kit 和 Explain Kit 均为 0.1.0、尚未发布，marketplace 保持 8.0.1 的开发 pre-bump。[Marketplace v8.0.0](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.0.0) / diagram-kit 0.3.0 已正式发布，仅包含 Diagram Kit；其桌面端实际验收仍未执行。
 
 ## 入口
 

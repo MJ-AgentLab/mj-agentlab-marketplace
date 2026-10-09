@@ -45,7 +45,7 @@ owner 选择独立插件而不是扩展 diagram-kit；保留两个公开技能�
 
 ## Implementation and acceptance
 
-实现位于独立 codex/ worktree。严格校验和发布安装复查使用同一集合：diagram-kit:arch-diagram、explain-kit:glossary、explain-kit:concept。检查插件身份、源路径、显示提示、技能资源和作用域；单独及组合安装分别验证 1/2/3 个公开技能，仓库外 0 个、仓库内 19 个开发技能。
+实现位于独立 codex/ worktree。同步 develop 后，严格校验和发布安装复查使用同一集合：diagram-kit:arch-diagram、understanding-kit:pop-quiz、explain-kit:glossary、explain-kit:concept。检查插件身份、源路径、显示提示、技能资源和作用域；Diagram Kit、Explain Kit 单独安装、两者组合及三插件组合分别验证 1/2/3/4 个原生公开技能，普通提示分别含 1/2/3/3 个技能。仓库外 0 个、仓库内 19 个开发技能。
 
 运行 npm test、npm run validate、npm run check:baseline-tools、npm run smoke:codex，实际执行已安装的 Python 图表校验。两客户端的安装、发现、模型行为和桌面 UI 结果分别记录在 [验收记录](../runbook/[RUNBOOK]_Explain_Kit_Acceptance.md)。不可执行的项写具体原因，不将静态/发现结果替代行为证据。
 

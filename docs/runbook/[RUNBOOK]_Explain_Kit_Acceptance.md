@@ -56,15 +56,18 @@ related:
 | 层次 | 状态 | 证据 / 原因 |
 |---|---|---|
 | 结构与自动测试 | PASS | 同步 develop 后 230/230，0 fail、0 skipped；REQUIRE_PYTHON=1 / REQUIRE_PWSH=1 |
+| 技能格式校验 | PASS | skill-creator quick_validate.py 分别验证 glossary 与 concept；在隔离 uv 环境提供 PyYAML，不新增仓库依赖 |
 | Codex CLI 0.147.0 隔离安装与发现 | PASS | 四场景普通提示 / 原生 skills/list 均符合上表，作用域、身份、版本、包内字节与显式策略通过 |
 | Codex 模型行为 | 已执行 | CLI 默认 gpt-5.6-sol / reasoning none；11 个解释案例及 1 个绘图案例，逐项观察见下文 |
 | 已安装 Python 图表校验 | PASS | 隔离安装 fixture 与模型 D1 输出均实际执行；D1 共扫描 1 张图，FAIL 0，WARN 0 |
 | ChatGPT 桌面端安装、composer 发现和调用 | 未执行 | 原生 UI API 不可用；Computer Use 指导明确禁止自动化 ChatGPT 桌面 UI，CLI 不能替代 |
-| canonical SHA 发布安装复查 | 未执行 | 待候选提交固定后验证 |
+| canonical SHA 发布安装复查 | PASS | 124bd6fb37c122d5c963a03b2bea6f72acccdc95；完整四场景通过，Explain Kit Git tree 为 9cc69e60051a2f10c0ddc82cee3e3335152a2556 |
 
 2026-10-09 的真实 CLI 观察：G1 正确区分 OAuth 授权与 OIDC 登录，面向产品经理中文短答；C1 / R2 区分覆盖赋值与请求去重，不把幂等键或乐观锁写成普遍保证，保留并发、过期和外部副作用边界；R1 读取安装缓存中的 glossary，正确说明 PostgreSQL 协调冲突锁申请；A1 读取 concept 并检索 react.dev，说明依赖比较、setup/cleanup、Strict Mode 开发检查与不适用场景。
 
 F1 读取 glossary 并按 80 字、无类比交付；F2 按两个术语分别提供中英段落；U1 不编造 ABC-47，指出所需最小语境；U2 首次错误选择 concept，收紧两个 description 后重新安装，最终读取 glossary 并短答。N1 保留 JavaScript 调试任务并给可执行修复；N2 保留安全审查任务、指出哈希被当密码重放的风险，没有加载解释模板。
+
+同步 develop 后，在三插件的新隔离安装中再次运行 U2 / R2 / N1：U2 读取已安装 glossary 并短答，R2 读取 concept 并解释天然幂等、去重、并发及副作用边界，N1 直接给出 optional chaining / 空值回退等 JavaScript 修复。没有加载 pop-quiz，现有显式策略保留。这三次补测与前述样本分开保存，仍属于有限的模型行为观察。
 
 D1 首次保存/Python 调用被 CLI 执行策略拒绝。代理随后让同一安装客户端在聊天生成 container 图及证据表，再保存真实输出并执行安装缓存的 Python 校验器；该分步结果通过，不宣称只读 CLI 完成了写文件或 Python 操作。图仅包含源码证明的 HTTP 客户端、Node.js 服务和本地 JSON 文件；节点/边证据定位到 demo/server.mjs 与 demo/data.json。
 
