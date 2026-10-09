@@ -9,6 +9,7 @@
 
 - Clarify the published Marketplace v8.1.0 installation sources and record actual release identity, post-publication checks and remaining desktop acceptance gaps.
 - Update the three-plugin installation guides and retain separate CLI, model-behavior and real-client evidence. Preserve published CHANGELOG sections, tags and assets; documentation updates do not change plugin versions or introduce a new Release.
+- Record completed post-release documentation and develop 8.1.1 pre-bump merges, their tested-tree identities and canonical installation checks. Synchronize the latest main merge ancestry while preserving the development version.
 
 ## [8.1.0] - 2026-10-09
 
