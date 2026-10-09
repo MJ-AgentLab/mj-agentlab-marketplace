@@ -3,6 +3,15 @@ name: mp-flow-repo-scan
 description: Performs mj-agentlab-marketplace 8-dimension fact-check (HITL Stage 1) — verifies the current state of branch / worktree / diff / plugins / marketplace.json / plugin.json fields / SKILL.md inventory / VERSION & marketplace metadata version consistency / docs INDEX state / CI workflow alignment, so the Plan in Stage 2 can be grounded in repo reality rather than assumption. Make sure to use this skill whenever the user says "repo scan", "事实核查", "marketplace 核查", "scan repo", "check marketplace state", "Stage 1", "plugin 现状", "marketplace.json 当前状态", "verify before plan", or whenever Intake (Stage 0) has produced a Task Classification and the next step is grounding the Plan against real files. Marketplace-specific 8 dimensions: (1) git state, (2) affected plugin(s), (3) marketplace.json plugins[] array, (4) each plugin.json's 6 required fields, (5) affected SKILL.md frontmatter, (6) VERSION ↔ marketplace.json metadata.version ↔ plugin.json version triangle consistency, (7) CLAUDE.md + CHANGELOG.md + docs/INDEX.md sync gaps, (8) .github/workflows/ci.yml 6-step coverage. Outputs Repo Scan Result + Current State table + Affected Areas + Plan Verdict (Proceed / Update Plan / HITL Block) + HITL Questions. Do not use for: Intake (use mp-flow-intake, Stage 0), Plan body authoring (use mp-flow-plan, Stage 2), ADR drafting (use mp-flow-design-adr, Stage 3), or compliance / dogfood checks (use mp-flow-compliance, mp-flow-dogfood, Stages 5/6).
 ---
 
+## 执行授权（治理过渡）
+
+代理负责在已有授权范围内执行文件修改、环境检查、测试、隔离安装验证、提交、推送及 PR 准备。owner 作出决定后，由代理执行，不要求 owner 复制命令，不重复确认已授权的操作。CI、分支保护、独立审查及外部身份验证按实际约束处理；无法完成时说明具体原因，只请求最小必要参与。
+
+需要 owner 决策时，提供 2–3 个明确选项，说明主要影响，标记推荐项及理由。常规实现细节由代理判断；必须由 owner 决定的事项等待答复。已有决定不重复询问，推荐项不视为默认批准。
+
+本节优先于下文旧流程中的逐次确认、仅输出命令和要求用户手工执行的表述。已授权步骤由代理执行；未决 owner 决策、独立审查和正式发布授权按 AI 工程规范 §3 处理。
+
+
 # Marketplace Flow — Repo Scan (HITL Stage 1)
 
 ## Overview

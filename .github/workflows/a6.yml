@@ -1,7 +1,7 @@
-name: A6 — CLAUDE.md Sync Allowlist
+name: A6 — AGENTS.md Sync Allowlist
 
 # Framework §2.7 + §4.3.1. Blocks a PR that touches a sync-allowlist trigger file without
-# updating root CLAUDE.md, unless the PR title carries "[skip a6]" AND a reviewer has
+# updating root AGENTS.md, unless the PR title carries "[skip a6]" AND a reviewer has
 # approved THIS commit with the exact body "A6 N/A confirmed".
 #
 # Lives outside ci.yml because the sign-off half of the bypass only becomes true when a
@@ -133,7 +133,7 @@ jobs:
           A6_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         # Pinned in the workflow, using the pre-Category-4 trigger set, and deliberately
         # WITHOUT the [skip a6] bypass: the bootstrap PR is the one introducing the checker,
-        # so it must sync CLAUDE.md outright rather than talk its way past a gate that cannot
+        # so it must sync AGENTS.md outright rather than talk its way past a gate that cannot
         # yet verify a sign-off. This branch disappears once the checker is on the base.
         run: |
           set -euo pipefail
@@ -143,6 +143,9 @@ jobs:
           const TRIGGERS = [
             /^docs\/rule\/\[STANDARD\]_[^/]+\.md$/,
             /^VERSION$/,
+            /^\.agents\/plugins\/marketplace\.json$/,
+            /^plugins\/[^/]+\/plugin\.json$/,
+            /^\.agents\/skills\/mp-[^/]+\/SKILL\.md$/,
             /^\.claude-plugin\/marketplace\.json$/,
             /^plugins\/[^/]+\/\.claude-plugin\/plugin\.json$/,
             /^\.claude\/skills\/mp-[^/]+\/SKILL\.md$/,
@@ -169,13 +172,13 @@ jobs:
             console.log("A6 OK (bootstrap) — no allowlist trigger files in this PR.");
             process.exit(0);
           }
-          const synced = changes.some((c) => c.path === "CLAUDE.md" && (c.status === "A" || c.status === "M"));
+          const synced = changes.some((c) => c.path === "AGENTS.md" && (c.status === "A" || c.status === "M"));
           if (synced) {
-            console.log("A6 OK (bootstrap) — trigger files present and root CLAUDE.md is updated.");
+            console.log("A6 OK (bootstrap) — trigger files present and root AGENTS.md is updated.");
             console.log(triggers.map((t) => `  - ${t}`).join("\n"));
             process.exit(0);
           }
-          console.log("::error::A6 FAIL (bootstrap) — trigger files touched but root CLAUDE.md is unchanged.");
+          console.log("::error::A6 FAIL (bootstrap) — trigger files touched but root AGENTS.md is unchanged.");
           console.log(triggers.map((t) => `  - ${t}`).join("\n"));
           console.log("This PR introduces scripts/check-a6.mjs, so the [skip a6] bypass is not available here.");
           process.exit(1);

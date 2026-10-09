@@ -3,6 +3,15 @@ name: mp-doc-author
 description: Authors a new marketplace documentation file (`[STANDARD]` / `[ADR]` / `[GUIDE]` / `[RUNBOOK]` / `[SPEC]` / `[POSTMORTEM]`) with the correct tag prefix, target subdirectory (post-PR 2: `docs/rule/`, `docs/adr/`, `docs/guide/`, `docs/runbook/`, `docs/spec/`, `docs/postmortem/`), 8-field frontmatter (type / scope / summary / owner / created / updated / state / version) per `[STANDARD]_Documentation_Framework`, and template-conforming body skeleton from `docs/_templates/TEMPLATE_*.md`. Make sure to use this skill whenever the user says "写文档", "create ADR", "draft GUIDE", "create RUNBOOK", "write SPEC", "create STANDARD", "create POSTMORTEM", "marketplace doc author", "doc author", "Stage 6 doc authoring", "起草文档", "新增 GUIDE / ADR / RUNBOOK / SPEC", or after Stage 3 ADR / Stage 2 Plan identifies the need to create a new tag-prefixed doc in the marketplace. PR 2 prereq: the doc framework STANDARDs + 6 templates must exist (until then, this skill falls back to flat `docs/[TYPE]_*.md` placement without subdirs). SKILL.md is NOT in scope — those use Claude Code plugin spec native frontmatter (handled via `/skill-creator:skill-creator`). Outputs the proposed file path + filled-in frontmatter + body skeleton; does NOT auto-write — user confirms target path. Do not use for: SKILL.md authoring (use /skill-creator:skill-creator), plugin code authoring (use mp-flow-author), Plan body authoring (use mp-flow-plan), or frontmatter validation (use mp-doc-validate).
 ---
 
+## 执行授权（治理过渡）
+
+代理负责在已有授权范围内执行文件修改、环境检查、测试、隔离安装验证、提交、推送及 PR 准备。owner 作出决定后，由代理执行，不要求 owner 复制命令，不重复确认已授权的操作。CI、分支保护、独立审查及外部身份验证按实际约束处理；无法完成时说明具体原因，只请求最小必要参与。
+
+需要 owner 决策时，提供 2–3 个明确选项，说明主要影响，标记推荐项及理由。常规实现细节由代理判断；必须由 owner 决定的事项等待答复。已有决定不重复询问，推荐项不视为默认批准。
+
+本节优先于下文旧流程中的逐次确认、仅输出命令和要求用户手工执行的表述。已授权步骤由代理执行；未决 owner 决策、独立审查和正式发布授权按 AI 工程规范 §3 处理。
+
+
 # Marketplace Doc Author
 
 ## Overview

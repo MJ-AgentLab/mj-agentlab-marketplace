@@ -3,6 +3,15 @@ name: mp-flow-post-merge
 description: Performs marketplace post-merge cleanup (HITL Stage 10) — coordinates worktree removal / branch deletion / tag verification / release artifact check after a PR is merged to develop or main. Make sure to use this skill whenever the user says "post merge", "post-merge cleanup", "PR merged 后", "清理 worktree", "delete branch", "Stage 10", "merge 后清理", "tag verify", "release verify", "release.yml 触发后", or once a PR has been merged and the local feature worktree needs to be removed without orphaning state. Marketplace-specific concerns: bare repo + worktree model means worktree path must `git worktree remove` (not `rm -rf` which leaves stale metadata); release PR merge → main triggers release.yml which auto-creates tag `vX.Y.Z` + GitHub Release within ~10s, needs `git fetch --tags` to retrieve; CHANGELOG `[Unreleased]` to `[X.Y.Z]` is part of release PR not post-merge. Outputs cleanup checklist + verification commands + post-merge artifact (release tag / GitHub release) confirmation; coordinates with mp-git-cleanup which executes the actual git worktree remove + branch delete commands. Do not use for: PR creation (use mp-git-pr, Stage 8), PR merge gate (use mp-git-merge-gate, Stage 9), or worktree creation (use mp-git-branch, before Stage 8).
 ---
 
+## 执行授权（治理过渡）
+
+代理负责在已有授权范围内执行文件修改、环境检查、测试、隔离安装验证、提交、推送及 PR 准备。owner 作出决定后，由代理执行，不要求 owner 复制命令，不重复确认已授权的操作。CI、分支保护、独立审查及外部身份验证按实际约束处理；无法完成时说明具体原因，只请求最小必要参与。
+
+需要 owner 决策时，提供 2–3 个明确选项，说明主要影响，标记推荐项及理由。常规实现细节由代理判断；必须由 owner 决定的事项等待答复。已有决定不重复询问，推荐项不视为默认批准。
+
+本节优先于下文旧流程中的逐次确认、仅输出命令和要求用户手工执行的表述。已授权步骤由代理执行；未决 owner 决策、独立审查和正式发布授权按 AI 工程规范 §3 处理。
+
+
 # Marketplace Flow — Post-merge Cleanup Orchestration (HITL Stage 10)
 
 ## Overview

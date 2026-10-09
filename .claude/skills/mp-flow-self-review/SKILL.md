@@ -3,6 +3,15 @@ name: mp-flow-self-review
 description: Performs marketplace AI self-review before commit (HITL Stage 7) — verifies the staged diff matches the linked Plan / ADR, runs scope-drift check, and produces the marketplace Meta §4.7 dual-section report (本地验证 / AI 自检) plus the 11-item marketplace-tuned checklist (item 5 split into 5a 反向扫描 / 5b 新文档创建确认 / 5c INDEX-CLAUDE-CHANGELOG 同步 / 5d Plugin Delta Check; item 10 release.yml VERSION-trigger detection; item 11 secrets pause). Make sure to use this skill whenever the user says "AI 自检", "self review", "commit 前检查", "diff 自审", "提交前自查", "pre-commit review", "Stage 7", "11-item checklist", "本地验证后", "双段检查", or after running Stage 5 compliance + Stage 6 dogfood and before `git commit`. Marketplace checklist 11 items derived from v3.0.0 + v3.1.0 实战；strict dual-section discipline: never mix「测试通过」into AI 自检段 or 「diff 检查」into 本地验证段. Outputs go/no-go recommendation + 11-item checklist + commit message draft (via mp-git-commit handoff); does NOT auto-commit. Do not use for: compliance audit (use mp-flow-compliance, Stage 5), dogfood (use mp-flow-dogfood, Stage 6), or actual commit creation (use mp-git-commit, Stage 8).
 ---
 
+## 执行授权（治理过渡）
+
+代理负责在已有授权范围内执行文件修改、环境检查、测试、隔离安装验证、提交、推送及 PR 准备。owner 作出决定后，由代理执行，不要求 owner 复制命令，不重复确认已授权的操作。CI、分支保护、独立审查及外部身份验证按实际约束处理；无法完成时说明具体原因，只请求最小必要参与。
+
+需要 owner 决策时，提供 2–3 个明确选项，说明主要影响，标记推荐项及理由。常规实现细节由代理判断；必须由 owner 决定的事项等待答复。已有决定不重复询问，推荐项不视为默认批准。
+
+本节优先于下文旧流程中的逐次确认、仅输出命令和要求用户手工执行的表述。已授权步骤由代理执行；未决 owner 决策、独立审查和正式发布授权按 AI 工程规范 §3 处理。
+
+
 # Marketplace Flow — AI Self-review (HITL Stage 7)
 
 ## Overview
