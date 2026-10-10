@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Prepare the next patch with the approved D brand icon: package editable SVG and 1024×1024 PNG, and point listing logo and composerIcon to the same ./assets/icon.png. Public skills and behavior remain unchanged; local acceptance and publication are tracked separately in the [brand RUNBOOK](../../docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md).
+
 ## [0.1.1] - 2026-10-09
 
 ### Added

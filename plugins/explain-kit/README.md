@@ -16,3 +16,5 @@ Codex 使用 `$explain-kit:glossary` 或 `$explain-kit:concept`；ChatGPT 桌面
 它独立提供解释能力，旧 learn-kit 及 NotebookLM 集成的退役保持有效。
 
 安装、验收状态和发布限制见市场 [说明](../../README.md) 与 [验收记录](../../docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md)。
+
+D 品牌图标包含可编辑 [SVG](assets/icon.svg) 和分发 [PNG](assets/icon.png)，列表与输入框共用；当前为未发布补丁候选，真实客户端显示见仓库 [品牌验收](../../docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。
