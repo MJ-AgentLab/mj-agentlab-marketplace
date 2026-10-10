@@ -12,6 +12,8 @@
 
 ### Changed
 
+- Record #203's merged-tree identity, successful remote CI and four post-merge canonical installation checks, preserving unverified desktop display and missing independent approval evidence. Marketplace remains unpublished 8.1.1; published v8.1.0 is unchanged.
+
 - Prepare D family icons as editable SVG and 1024 PNG for Diagram 0.3.1, Understanding 0.1.2 and Explain 0.1.1. Add manifest icon fields, complete PNG/resource validation and source-to-installed icon comparison; marketplace stays at unpublished 8.1.1.
 
 - Clarify the published Marketplace v8.1.0 installation sources and record actual release identity, post-publication checks and remaining desktop acceptance gaps.

@@ -6,12 +6,14 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-10
 state: active
-version: v2.8
+version: v2.9
 ---
 
 # 文档索引
 
 [Marketplace v8.1.0](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.0) 已通过 #198 合入 main 并自动发布，注册 diagram-kit 0.3.0 / arch-diagram、understanding-kit 0.1.1 / pop-quiz 与 explain-kit 0.1.0 / glossary、concept。客户端为 ChatGPT 桌面端和 Codex 本地环境。#200 已修正发布记录，#201 已将 develop 预升至未发布的 8.1.1。发布后及预升合并后的四种 canonical 安装复查通过；真实桌面交互和未提供的 GitHub 独立批准记录分别保留。历史 v8.0.0 仅包含 Diagram Kit。
+
+#203 品牌更新已合入 develop：A 仓库主标、D 插件图标及 20 号开发技能已接入，插件为 Diagram 0.3.1 / Understanding 0.1.2 / Explain 0.1.1。合并提交的四种 canonical 安装与实际 Python 校验通过，市场保持未发布 8.1.1；桌面图标显示和独立批准缺项见 [合并后品牌验收](runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。
 
 ## 入口
 
