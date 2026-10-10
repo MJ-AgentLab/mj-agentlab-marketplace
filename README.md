@@ -2,17 +2,17 @@
 
 <img src="assets/brand/marketplace/logo.svg" width="128" height="128" alt="MJ AgentLab Marketplace — MJ letters with connected modules">
 
-![Version](https://img.shields.io/badge/version-8.1.1-blue)
+![Version](https://img.shields.io/badge/version-8.1.2-blue)
 
-面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场。Marketplace v8.1.0 已发布，提供三个 portable 插件，无需 MCP 服务：
+面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场。Marketplace v8.1.1 已发布，提供三个 portable 插件，无需 MCP 服务：
 
 | 插件 / 公开技能 | 用途 | 版本与分发状态 |
 | --- | --- | --- |
-| **diagram-kit / arch-diagram** | 从源码事实生成七类 Mermaid 架构/UML 图，节点与边追溯到文件行号，实际运行 Python 校验器 | 0.3.0，已随市场 v8.0.0 发布 |
-| **explain-kit / glossary、concept** | 陌生术语速解与机制、反例、边界深讲，遵从受众、语言和长度要求 | 0.1.0，已随市场 v8.1.0 发布 |
-| **understanding-kit / pop-quiz** | 从当前职责和关键判断选取必要知识，进行 2+1 自适应理解测验并给出简要反馈 | 0.1.1，已随市场 v8.1.0 发布 |
+| **diagram-kit / arch-diagram** | 从源码事实生成七类 Mermaid 架构/UML 图，节点与边追溯到文件行号，实际运行 Python 校验器 | 0.3.1，已随市场 v8.1.1 发布 |
+| **explain-kit / glossary、concept** | 陌生术语速解与机制、反例、边界深讲，遵从受众、语言和长度要求 | 0.1.1，已随市场 v8.1.1 发布 |
+| **understanding-kit / pop-quiz** | 从当前职责和关键判断选取必要知识，进行 2+1 自适应理解测验并给出简要反馈 | 0.1.2，已随市场 v8.1.1 发布 |
 
-[Marketplace v8.1.0](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.0) 于 2026-10-09 随 #198 合入 main 自动发布，发布后四种隔离安装复查通过。真实桌面交互仍未执行，GitHub 未提供独立批准记录；发布事实与这些缺口分开保留，见 [8.1.0 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)。main / v8.1.0 提供三个插件，历史 v8.0.0 仅包含 Diagram Kit。
+[Marketplace v8.1.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.1) 于 2026-10-10 随 #205 合入 main 自动发布，采用 A 仓库主标和 D 插件图标。发布后的四种隔离安装、图标内容比较与实际 Python 校验通过。Owner 提供的三张截图显示候选版本和详情页图标；两端完整客户端记录及 GitHub 独立批准仍未提供，具体证据见 [8.1.1 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。历史 v8.1.0 也包含三个插件，v8.0.0 仅包含 Diagram Kit。
 
 ### Codex
 
@@ -25,7 +25,7 @@ codex plugin list --json
 codex debug prompt-input '$diagram-kit:arch-diagram'
 ~~~
 
-上面的 main 指向正式分发分支；固定当前版本可将 --ref main 换为 --ref v8.1.0。三个插件可按需独立安装。调用 $diagram-kit:arch-diagram 或请求“给这个仓库画架构图”。开发分支的版本 badge 表示预计下一版本，已发布版本以 [GitHub Releases](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases) 为准。
+上面的 main 指向正式分发分支；固定当前版本可将 --ref main 换为 --ref v8.1.1。三个插件可按需独立安装。调用 $diagram-kit:arch-diagram 或请求“给这个仓库画架构图”。开发分支的版本 badge 表示预计下一版本，已发布版本以 [GitHub Releases](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases) 为准。
 
 ### Explain Kit
 
@@ -37,7 +37,7 @@ codex debug prompt-input '$diagram-kit:arch-diagram'
 
 ### Pop Quiz
 
-从 main / v8.1.0 安装 Understanding Kit 并显式调用 `$understanding-kit:pop-quiz`。安装及验收步骤见 [Pop Quiz 使用指南](docs/guide/[GUIDE]_Understanding_Pop_Quiz.md) 和 [验收记录](docs/runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)。
+从 main / v8.1.1 安装 Understanding Kit 并显式调用 `$understanding-kit:pop-quiz`。安装及验收步骤见 [Pop Quiz 使用指南](docs/guide/[GUIDE]_Understanding_Pop_Quiz.md) 和 [验收记录](docs/runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)。
 
 Codex 优先在 Side Chat 提供任务片段、职责与可定位的源码、规格或测试记录；ChatGPT 桌面端及普通会话采用明确的上下文快照。快照不会自动同步主会话后续变化。缺少职责时先提出暂定职责并等待确认；不会据此推断个人能力。
 
@@ -49,7 +49,7 @@ Codex 优先在 Side Chat 提供任务片段、职责与可定位的源码、规
 
 ### Development
 
-8.1.1 已完成版本准备，发布候选包含 #203/#204 的品牌实现与验收记录，插件分别为 Diagram 0.3.1 / Understanding 0.1.2 / Explain 0.1.1。Owner 已授权发布；当前公开版本仍为 v8.1.0，发布身份、自动检查和人工客户端证据见 [8.1.1 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。只有实际公开 Release 才表示发布完成。
+8.1.1 已正式发布，包含 #203/#204 的品牌实现及 #205 的版本说明。#206 已将发布 main 同步回 develop；本分支的 8.1.2 badge 表示未发布 pre-bump，版本工具先 dry-run 再实际更新市场 VERSION / README badge。插件保持 Diagram 0.3.1 / Understanding 0.1.2 / Explain 0.1.1；pre-bump 不创建同号标签或 Release。同期 main 文档 PR #207 的实际合并记录会继续同步。
 
 20 个开发技能位于 .agents/skills，公开技能为 arch-diagram、pop-quiz、glossary 和 concept。项目指令见 [AGENTS.md](AGENTS.md)，规范和历史见 [文档索引](docs/INDEX.md)，贡献见 [CONTRIBUTING.md](CONTRIBUTING.md)。代理运行 npm ci、npm run validate、npm test、npm run check:baseline-tools 和 npm run smoke:codex。正式发布需要发布授权、两个目标客户端的验收证据、当前发布提交独立批准与 required checks；本轮授权和证据分项记录。
 

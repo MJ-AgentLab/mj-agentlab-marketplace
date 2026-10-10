@@ -6,12 +6,12 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-10
 state: active
-version: v2.3
+version: v2.5
 ---
 
 # [GUIDE] Marketplace project overview
 
-当前开发市场注册 diagram-kit / arch-diagram、understanding-kit / pop-quiz 与 explain-kit / glossary、concept；20 个 mp-* 是仓库开发技能，不进入插件公开目录。支持 ChatGPT 桌面端和 Codex 本地；CLI 验收基线 0.147.0。已发布 main / v8.1.0 包含三个插件；develop 为未发布 8.1.1，本次品牌候选为 Diagram 0.3.1 / Understanding 0.1.2 / Explain 0.1.1。历史 v8.0.0 仅包含 Diagram Kit。
+当前市场注册 diagram-kit / arch-diagram、understanding-kit / pop-quiz 与 explain-kit / glossary、concept；20 个 mp-* 是仓库开发技能，不进入插件公开目录。支持 ChatGPT 桌面端和 Codex 本地；CLI 验收基线 0.147.0。已发布 main / v8.1.1 包含 Diagram 0.3.1 / Understanding 0.1.2 / Explain 0.1.1，采用 A 主标与 D 插件图标。#206 已回同步发布 main，本分支为未发布 8.1.2 pre-bump；[发布记录](../runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md) 保存实际身份与未完成证据。历史 v8.0.0 仅包含 Diagram Kit。
 
 - VERSION：市场版本权威。
 - plugins/*/plugin.json：各插件版本及 portable identity；OpenAI 展示在 extensions.com.openai。
