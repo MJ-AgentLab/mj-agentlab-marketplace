@@ -4,9 +4,9 @@ scope: marketplace
 summary: "当前 ChatGPT/Codex 文档、历史决策与退役资料导航"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-09
+updated: 2026-10-10
 state: active
-version: v2.7
+version: v2.8
 ---
 
 # 文档索引
@@ -26,7 +26,12 @@ version: v2.7
 - [Explain Kit 新增决策](adr/[ADR]_Explain_Kit_Addition.md)
 - [Explain Kit 实际验收](runbook/[RUNBOOK]_Explain_Kit_Acceptance.md)
 
+- [品牌统一决定](adr/[ADR]_Brand_Identity_And_Icon_Workflow.md)
+- [品牌和图标验收](runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)
+
 ## 当前规范和指南
+
+- [品牌规范](rule/[STANDARD]_Brand_Identity.md)
 
 - [[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md](rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)
 - [[STANDARD]_Commit_Message_Convention.md](rule/[STANDARD]_Commit_Message_Convention.md)

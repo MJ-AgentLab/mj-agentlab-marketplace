@@ -31,3 +31,7 @@ v8.0.0 已经 #190 合入 main 并自动发布，实际状态和未完成的桌�
 ## Codex 会话维护
 
 用户明确请求会话归档、推荐标题或重命名当前任务时，读取并遵循 [会话维护规则](.agents/references/session-maintenance.md)。引用、示例、否定和机制讨论不触发；普通任务“收尾”按实际对象处理。
+
+## 品牌与图标
+
+仓库主标使用 Owner 选定的 A（MJ＋斜向模块连接），三个插件采用已批准的 D 风格；品牌与图标修改读取 [品牌规范](docs/rule/[STANDARD]_Brand_Identity.md) 并使用 [.agents/skills/mp-design-icon](.agents/skills/mp-design-icon/SKILL.md)。开发技能现为 20 项，仍只有三个公开插件和四个公开技能。新增候选先选择后接入，已有批准直接复用。品牌补丁候选为 Diagram 0.3.1、Understanding 0.1.2、Explain 0.1.1，marketplace 保持未发布 8.1.1；历史已发布身份保持。资源、隔离安装、独立技能演练和桌面未验证项见 [品牌验收](docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。

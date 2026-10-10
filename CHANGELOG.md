@@ -5,7 +5,14 @@
 
 ## [Unreleased]
 
+### Added
+
+- Add the owner-selected MJ module-node marketplace logo, reusable brand tokens/templates/reference assets and repository-only mp-design-icon workflow; development skills increase from 19 to 20 while three plugins and four public skills remain.
+
+
 ### Changed
+
+- Prepare D family icons as editable SVG and 1024 PNG for Diagram 0.3.1, Understanding 0.1.2 and Explain 0.1.1. Add manifest icon fields, complete PNG/resource validation and source-to-installed icon comparison; marketplace stays at unpublished 8.1.1.
 
 - Clarify the published Marketplace v8.1.0 installation sources and record actual release identity, post-publication checks and remaining desktop acceptance gaps.
 - Update the three-plugin installation guides and retain separate CLI, model-behavior and real-client evidence. Preserve published CHANGELOG sections, tags and assets; documentation updates do not change plugin versions or introduce a new Release.

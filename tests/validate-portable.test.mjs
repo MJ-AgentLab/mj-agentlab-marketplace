@@ -8,13 +8,13 @@ import {spawnSync} from "node:child_process";
 import {validateManifest,validateSkill,validateSkillInterface,validateRepository,validateOpenAIConfig,parseFrontmatter,validateLinks,REPOSITORY_SKILLS,PUBLIC_SKILLS} from "../scripts/validate-portable.mjs";
 const root=path.resolve(import.meta.dirname,".."), read=p=>fs.readFileSync(path.join(root,p),"utf8");
 const manifest=()=>JSON.parse(read("plugins/diagram-kit/plugin.json"));
-test("three approved portable plugins and all 19 repository skills satisfy contracts",()=>{
- const r=validateRepository(root);assert.equal(r.ok,true,r.errors.join("\n"));assert.equal(r.repositorySkills,19);assert.deepEqual(r.publicSkills,[...PUBLIC_SKILLS]);
+test("three approved portable plugins and all 20 repository skills satisfy contracts",()=>{
+ const r=validateRepository(root);assert.equal(r.ok,true,r.errors.join("\n"));assert.equal(r.repositorySkills,20);assert.deepEqual(r.publicSkills,[...PUBLIC_SKILLS]);
 });
 test("strict repository validation rejects every retired instruction surface",t=>{
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),"retired-instructions-"));
  t.after(()=>fs.rmSync(dir,{recursive:true,force:true}));
- for(const p of [".agents",".codex",".github","scripts","tests","plugins","docs","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])
+ for(const p of ["assets",".agents",".codex",".github","scripts","tests","plugins","docs","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])
  fs.cpSync(path.join(root,p),path.join(dir,p),{recursive:true});
  assert.equal(validateRepository(dir).ok,true);
  for(const rel of ["CLAUDE.md",".claude",".claude-plugin"]){
@@ -58,7 +58,7 @@ test("native pop-quiz metadata requires a boolean explicit-only policy",()=>{
 });
 function repositoryFixture(t){
  const dir=fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()),"portable-inventory-"));t.after(()=>fs.rmSync(dir,{recursive:true,force:true}));
- for(const p of [".agents",".codex",".github","scripts","tests","plugins","docs","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])fs.cpSync(path.join(root,p),path.join(dir,p),{recursive:true});
+ for(const p of ["assets",".agents",".codex",".github","scripts","tests","plugins","docs","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])fs.cpSync(path.join(root,p),path.join(dir,p),{recursive:true});
  return dir;
 }
 test("catalog rejects missing, duplicate, unknown, versioned and escaped plugin entries",t=>{

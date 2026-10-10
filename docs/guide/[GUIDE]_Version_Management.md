@@ -4,9 +4,9 @@ scope: marketplace
 summary: "Marketplace and per-plugin authorities with transactional version preparation"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-09
+updated: 2026-10-10
 state: active
-version: v2.7
+version: v2.8
 ---
 
 # [GUIDE] Version management
@@ -20,3 +20,5 @@ owner 于 2026-10-09 授权先应用 8.0.0 / 0.3.0，并同步 CHANGELOG 和发�
 新增 Understanding Kit 的初始授权覆盖 0.1.0 的实现与 develop PR 准备；owner 在 #195 合并后要求继续后续工作，验收发现的技能修正按插件自身补丁推进到 0.1.1，并通过 #197 合入 develop。当时 marketplace VERSION 保持 8.0.1；[新增 ADR](../adr/[ADR]_Understanding_Kit_Addition.md) 本身不构成正式发布授权。owner 本次明确要求“继续后续工作，并发布”，据此准备 8.1.0；正式发布仍受客户端证据、required checks 和当前提交独立批准约束。发布完成后准备市场 8.1.1 pre-bump，只更新 VERSION 和派生 README badge，各插件按自身变更推进。
 
 Explain Kit 初始版本已批准为 0.1.0 并通过 #196 合入 develop；其新增时保持市场与既有插件版本。原功能发布建议 8.1.0 现按本次发布授权执行版本准备，插件根版本不连带变化，见 [Explain Kit ADR](../adr/[ADR]_Explain_Kit_Addition.md)。
+
+2026-10-10：Owner 批准品牌更新，本地插件补丁候选为 Diagram 0.3.1、Understanding 0.1.2、Explain 0.1.1；三个转换分别执行版本工具 dry-run 和实际写入，marketplace 保持未发布 8.1.1。正式发布身份仍为上述 v8.1.0；证据见 [品牌验收](../runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。
