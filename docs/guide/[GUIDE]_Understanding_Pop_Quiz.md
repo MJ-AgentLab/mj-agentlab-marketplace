@@ -4,9 +4,9 @@ scope: understanding-kit
 summary: "Use explicit Pop Quiz with Side Chat or a confirmed context snapshot"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-09
+updated: 2026-10-10
 state: active
-version: v1.2
+version: v1.3
 ---
 
 # [GUIDE] Understanding Pop Quiz
@@ -15,7 +15,7 @@ version: v1.2
 
 参与 AI 辅助开发、需要判断规格、设计、实现或验收结果的 owner。Pop Quiz 检查当前职责需要的理解，默认一次一个知识单元；它提供理解反馈，不要求学习全部技术内容。
 
-Understanding Kit 0.1.1 已随 Marketplace v8.1.0 通过 #198 合入 main 并发布，可从 main 或固定标签 v8.1.0 安装。历史 v8.0.0 仅包含 Diagram Kit，0.1.0 是未发布的初始开发身份。发布后安装复查与尚未执行的真实桌面交互见 [发布记录](../runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)。
+Understanding Kit 0.1.2 已随 Marketplace v8.1.1 通过 #205 合入 main 并发布，可从 main 或固定标签 v8.1.1 安装；本补丁只更新品牌图标，测验策略保持。历史 0.1.1 随 v8.1.0 发布，0.1.0 是未发布初始身份，v8.0.0 仅含 Diagram Kit。发布后安装、Owner 截图及完整客户端记录缺项见 [发布记录](../runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。
 
 ## §2 Walkthrough
 
@@ -24,14 +24,14 @@ Understanding Kit 0.1.1 已随 Marketplace v8.1.0 通过 #198 合入 main 并发
 从已发布市场安装，固定当前发布标签；开发验收可另将 source 替换为待测 worktree 的绝对根路径。
 
 ~~~text
-codex plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace --ref v8.1.0
+codex plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace --ref v8.1.1
 codex plugin add understanding-kit@mj-agentlab-marketplace
 codex plugin list --json
 ~~~
 
-确认安装版本与根 manifest 一致（本次发布为 0.1.1），pop-quiz 的安装元数据可解析。它设为显式调用，在普通 prompt 的隐式技能列表中隐藏；CLI 0.147.0 的 debug prompt-input 不替代其显式加载/实际调用验收。个人环境中已添加的同名来源可能指向旧标签或本地候选，应先核对实际 source；代理的正式隔离验收流程见 [RUNBOOK](../runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)，它不修改个人插件配置。
+确认安装版本与根 manifest 一致（本次发布为 0.1.2），pop-quiz 的安装元数据可解析。它设为显式调用，在普通 prompt 的隐式技能列表中隐藏；CLI 0.147.0 的 debug prompt-input 不替代其显式加载/实际调用验收。个人环境中已添加的同名来源可能指向旧标签或本地候选，应先核对实际 source；代理的正式隔离验收流程见 [RUNBOOK](../runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)，它不修改个人插件配置。
 
-ChatGPT 桌面端选择 main / v8.1.0 或待测 worktree 的 repo marketplace，刷新/重启后安装 Understanding Kit，在新会话显式选择或调用 SDLC Pop Quiz。安装与 composer 发现须在真实客户端检查，CLI 结果不能替代。
+ChatGPT 桌面端选择 main / v8.1.1 或待测 worktree 的 repo marketplace，刷新/重启后安装 Understanding Kit，在新会话显式选择或调用 SDLC Pop Quiz。安装与 composer 发现须在真实客户端检查，CLI 结果不能替代。
 
 ### §2.2 Choose the context
 
@@ -69,3 +69,4 @@ ChatGPT 桌面端或普通会话直接提供同样的任务快照：当前任务
 | Version | Date | Summary |
 | --- | --- | --- |
 | v1.0 | 2026-10-09 | 初版开发试用指南，区分已发布安装与本地新插件验收。 |
+| v1.3 | 2026-10-10 | 更新为已发布 0.1.2 / v8.1.1，保留测验策略和客户端证据缺项。 |
