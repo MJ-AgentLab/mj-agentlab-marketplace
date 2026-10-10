@@ -34,4 +34,4 @@ v8.0.0 已经 #190 合入 main 并自动发布，实际状态和未完成的桌�
 
 ## 品牌与图标
 
-仓库主标使用 Owner 选定的 A（MJ＋斜向模块连接），三个插件采用已批准的 D 风格；品牌与图标修改读取 [品牌规范](docs/rule/[STANDARD]_Brand_Identity.md) 并使用 [.agents/skills/mp-design-icon](.agents/skills/mp-design-icon/SKILL.md)。开发技能现为 20 项，仍只有三个公开插件和四个公开技能。新增候选先选择后接入，已有批准直接复用。品牌补丁候选为 Diagram 0.3.1、Understanding 0.1.2、Explain 0.1.1，marketplace 保持未发布 8.1.1；历史已发布身份保持。资源、隔离安装、独立技能演练和桌面未验证项见 [品牌验收](docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。
+仓库主标使用 Owner 选定的 A（MJ＋斜向模块连接），三个插件采用已批准的 D 风格；品牌与图标修改读取 [品牌规范](docs/rule/[STANDARD]_Brand_Identity.md) 并使用 [.agents/skills/mp-design-icon](.agents/skills/mp-design-icon/SKILL.md)。开发技能现为 20 项，仍只有三个公开插件和四个公开技能。新增候选先选择后接入，已有批准直接复用。#203 已合入 develop，merge 与已测 head 的 Git tree 相同，合并后的四种 canonical 安装及实际 Python 校验通过。develop 插件为 Diagram 0.3.1、Understanding 0.1.2、Explain 0.1.1，marketplace 保持未发布 8.1.1；main 和最新 Release 保持 8.1.0，不执行新 pre-bump。桌面图标实际显示仍未验证，#203 reviews 未见独立批准记录；资源、隔离安装、独立技能演练和合并后事实见 [品牌验收](docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。
