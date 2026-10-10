@@ -2,7 +2,7 @@
 
 <img src="assets/brand/marketplace/logo.svg" width="128" height="128" alt="MJ AgentLab Marketplace — MJ letters with connected modules">
 
-![Version](https://img.shields.io/badge/version-8.1.1-blue)
+![Version](https://img.shields.io/badge/version-8.1.2-blue)
 
 面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场。Marketplace v8.1.1 已发布，提供三个 portable 插件，无需 MCP 服务：
 
