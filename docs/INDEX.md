@@ -4,14 +4,18 @@ scope: marketplace
 summary: "当前 ChatGPT/Codex 文档、历史决策与退役资料导航"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-09
+updated: 2026-10-10
 state: active
-version: v2.6
+version: v2.10
 ---
 
 # 文档索引
 
-[Marketplace v8.1.0](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.0) 已通过 #198 合入 main 并自动发布，注册 diagram-kit 0.3.0 / arch-diagram、understanding-kit 0.1.1 / pop-quiz 与 explain-kit 0.1.0 / glossary、concept。客户端为 ChatGPT 桌面端和 Codex 本地环境。发布后四种 canonical 安装复查通过；真实桌面交互和未提供的 GitHub 独立批准记录分别保留。历史 v8.0.0 仅包含 Diagram Kit。
+[Marketplace v8.1.0](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.0) 已通过 #198 合入 main 并自动发布，注册 diagram-kit 0.3.0 / arch-diagram、understanding-kit 0.1.1 / pop-quiz 与 explain-kit 0.1.0 / glossary、concept。客户端为 ChatGPT 桌面端和 Codex 本地环境。#200 已修正发布记录，#201 已将 develop 预升至未发布的 8.1.1。发布后及预升合并后的四种 canonical 安装复查通过；真实桌面交互和未提供的 GitHub 独立批准记录分别保留。历史 v8.0.0 仅包含 Diagram Kit。
+
+#203 品牌更新已合入 develop：A 仓库主标、D 插件图标及 20 号开发技能已接入，插件为 Diagram 0.3.1 / Understanding 0.1.2 / Explain 0.1.1。合并提交的四种 canonical 安装与实际 Python 校验通过，市场保持未发布 8.1.1；桌面图标显示和独立批准缺项见 [合并后品牌验收](runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。
+
+Owner 已授权发布 8.1.1，版本与 CHANGELOG 已准备。候选检查、人工截图、客户端证据及当前提交合并门禁见 [8.1.1 发布记录](runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。
 
 ## 入口
 
@@ -26,7 +30,12 @@ version: v2.6
 - [Explain Kit 新增决策](adr/[ADR]_Explain_Kit_Addition.md)
 - [Explain Kit 实际验收](runbook/[RUNBOOK]_Explain_Kit_Acceptance.md)
 
+- [品牌统一决定](adr/[ADR]_Brand_Identity_And_Icon_Workflow.md)
+- [品牌和图标验收](runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)
+
 ## 当前规范和指南
+
+- [品牌规范](rule/[STANDARD]_Brand_Identity.md)
 
 - [[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md](rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)
 - [[STANDARD]_Commit_Message_Convention.md](rule/[STANDARD]_Commit_Message_Convention.md)

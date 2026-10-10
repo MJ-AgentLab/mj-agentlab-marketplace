@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
 state: active
-version: v1.1
+version: v1.3
 last-verified: 2026-10-09
 ---
 
@@ -82,7 +82,7 @@ npm run smoke:codex
 
 完成可由代理执行的候选准备后，按 [合并门禁技能](../../.agents/skills/mp-git-merge-gate/SKILL.md)核对 main 目标发布 PR 的最新 head、base、required checks、独立批准和未解决审查对话。AI 自检、独立 AI 复核和 #197 的合并事实分别记录，均不替代该发布 PR 的独立 GitHub 批准。门禁未齐时保留可审阅候选及具体缺口；owner 的明确例外决定若后续提供，单独记录其范围，不改写未执行结果。
 
-候选阶段 #198 保持 draft，全部 checks 通过，reviews=[]，reviewDecision=REVIEW_REQUIRED，审查 threads 0；代理没有请求外部 reviewer 或执行 merge。收到 owner 合并通知后，GitHub 确认为 MERGED，但 reviews 仍为空。未取得独立批准或豁免证据，不将主分支保护配置、合并结果或发布成功当成这些证据。当前后续工作是发布复查、文档修正、main → develop 同步与预升；不再次询问已经发生的发布是否获准。
+候选阶段 #198 保持 draft，全部 checks 通过，reviews=[]，reviewDecision=REVIEW_REQUIRED，审查 threads 0；代理没有请求外部 reviewer 或执行 merge。收到 owner 合并通知后，GitHub 确认为 MERGED，但 reviews 仍为空。未取得独立批准或豁免证据，不将主分支保护配置、合并结果或发布成功当成这些证据。实际的发布复查、文档修正、main → develop 同步与预升结果按 §3 分别记录，不再次询问已经发生的发布是否获准。owner 明确要求不指定审批人，代理未发送审查请求；#200 / #201 合并后 GitHub reviews 仍为空，保持 APPROVAL NOT RECORDED。
 
 ## §3 Verification ledger
 
@@ -105,7 +105,10 @@ npm run smoke:codex
 | 已发布提交 canonical 安装 | PASS | `d8a12d6` 四场景、资源字节、作用域及实际缓存 Python 全部通过；本轮独立执行，非旧候选日志换名 |
 | 历史保护 | PRESERVE | v8.0.0 继续绑定 `733bd3de7829bbf68d0849d93d731509d9447af8`；既有公开 Release 与历史 v7.x 资产不改写、覆盖或删除 |
 | 发布后 main → develop 同步 | MERGED / VERIFIED | [#199](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/199) 于 11:14:47 UTC 合并，merge `a220688d0f46c32f775d4284feb6f9c935085089`；tree 与已发布 `d8a12d6` 相同，原 develop 工作区已干净快进；reviews=[] 不追认批准 |
-| 下一补丁 pre-bump | PREPARATION；MERGE PENDING | 已满足 #199 同步前置条件，准备 marketplace `8.1.1` 预升 PR；版本工具仅 VERSION / badge 两目标，各插件保持版本；不创建同号 Release |
+| 主分支发布记录修正 | MERGED / VERIFIED | [#200](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/200) 于 13:19:56 UTC 合入 main，merge `65a05a8f8e1fc908cacd7d1bbb27f2510e93adf4`，tree 与已测 head `cb82070` 均为 `19fbb9feb60ee3f78578e29d1a1126d07ca90c81`；VERSION 保持 8.1.0，未触发新发布 |
+| 下一补丁 pre-bump | MERGED / VERIFIED | [#201](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/201) 于 13:20:16 UTC 合入 develop，merge `1781e28c37c09a962c0c0edccd6fa2ec574e48d9`，tree 与已测 head `76691c2` 均为 `cfc767b3629991f78e00233c675f15afef8ea216`；版本提交 `2d6281db2019b0938492769fe04ef039d59fab44` 仅 VERSION / badge 两目标，各插件保持版本；8.1.1 无标签或 Release |
+| 预升合并后检查 | PASS | 对实际 `1781e28` 再执行四场景 canonical 安装、严格校验与真实缓存 Python，均 PASS，FAIL 0 / WARN 0；日志 `%TEMP%/marketplace-post-pr201-canonical-install.log`。pre-bump workflow `37936122526` SUCCESS，实际输出 state=prebumped / ok=true，develop 8.1.1 ahead of main 8.1.0 |
+| 最新 main merge ancestry | COMMIT INCLUDED | 收尾分支以普通 merge 纳入 `65a05a8`，提交 `b78734e338c44beb6889c40868f923e2707963fa` 的 tree 与 `1781e28` 相同；零文件变化，保留 8.1.1。维护提交是否已落入远端以对应 GitHub PR 状态和分支 ancestry 为准 |
 
 ## §4 Failure, recovery and post-release
 
@@ -113,7 +116,7 @@ npm run smoke:codex
 
 正式流程在 main 当前 tip 上按“创建空 draft → 验证 canonical Git tree 安装/发现 → publish 前重新核对远端身份与状态 → publish → 复查已发布身份与实际 immutability 字段”执行。仓库当前没有启用 immutable releases，不宣称平台提供不可变保证；历史仍按规则保留。草稿身份不一致、意外资产或标签绑定不同 SHA 时停止，不覆盖已公开资产。正式发布后通过新修复版本处理故障，保留已经发布的标签与正文。
 
-发布身份与已发布提交安装已经完成复查，#199 同步也已合入 develop 并验证相同 Git tree。按 [发布后 pre-bump 决定](../adr/[ADR]_Develop_PreBump_Adoption.md)准备 `8.1.1` VERSION / README badge 预升 PR，后续 PR 的实际合并 SHA、CI 与批准仍逐项核对；保留承载未合并后续工作的 worktree。已经发布的标签、Release 正文及插件版本不受文档修正或开发预升影响。
+发布身份与已发布提交安装已经完成复查，#199 同步、#200 记录修正与 #201 预升已落地，分别验证了实际 merge 身份及安装证据。按 [发布后 pre-bump 决定](../adr/[ADR]_Develop_PreBump_Adoption.md)保持 main 8.1.0 / develop 8.1.1；并行文档合并产生的新 main ancestry 用普通 merge 同步，内容和开发版本保持。清理仅针对本任务已合并且不承载进行中工作的分支与 worktree；已经发布的标签、Release 正文及插件版本继续保留。
 
 ## §5 Change History
 
@@ -121,3 +124,5 @@ npm run smoke:codex
 | --- | --- | --- | --- |
 | v1.0 | 2026-10-09 | PENDING | 记录 #197 合并树、main ancestry 同步、已授权 8.1.0 版本准备、本轮 230 测试与四场景 canonical 安装；真实 UI、当前发布 head 批准、CI 与正式发布身份待补，不追认 PASS 或豁免。 |
 | v1.1 | 2026-10-09 | 2026-10-09（发布身份 / 安装） | 核实 #198 merge、v8.1.0 自动发布、正文与标签身份及实际 merge SHA 四场景安装；保留 UI NOT RUN、reviews=[] 和无明确豁免记录；准备 develop 同步及预升。 |
+| v1.2 | 2026-10-09 | 2026-10-09（版本准备） | 在 #199 已同步基线上执行 marketplace 8.1.1 两目标 dry-run / apply；预升 PR 待合并，各插件与正式 Release 保持。 |
+| v1.3 | 2026-10-09 | 2026-10-09（合并身份 / 安装） | 核实 #200 / #201 merge 与已测 tree 一致，记录实际 develop merge SHA 四场景安装及预升 workflow；同步最新 main merge ancestry，保留既有版本、UI NOT RUN 与未提供批准记录。 |

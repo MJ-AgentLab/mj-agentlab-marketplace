@@ -6,7 +6,7 @@
 
 understanding-kit 是显式调用的只读理解测验，Codex 优先 Side Chat；其他会话使用明确的上下文快照，不假定持续同步。插件边界及对旧单插件约束的局部替代见 [新增决定](docs/adr/[ADR]_Understanding_Kit_Addition.md)，真实客户端证据见 [验收记录](docs/runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)。learn-kit、NotebookLM 与 Claude 退役规则继续有效。
 
-Marketplace v8.1.0 已通过 #198 合入 main 并自动发布，包含 diagram-kit 0.3.0 / understanding-kit 0.1.1 / explain-kit 0.1.0。已发布 merge 与已测 head 的 Git tree 相同，发布后四种 canonical 安装与实际 Python 校验通过。真实桌面交互仍未执行，GitHub reviews 未提供独立批准记录；历史失败、中性路径重测、回放与未覆盖项继续分开保存，详见 [8.1.0 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)。按发布操作先同步 main 回 develop，再准备市场 8.1.1 pre-bump；预升不会创建同号 Release。
+Marketplace v8.1.0 已通过 #198 合入 main 并自动发布，包含 diagram-kit 0.3.0 / understanding-kit 0.1.1 / explain-kit 0.1.0。已发布 merge 与已测 head 的 Git tree 相同，发布后四种 canonical 安装与实际 Python 校验通过。真实桌面交互仍未执行，GitHub reviews 未提供独立批准记录；历史失败、中性路径重测、回放与未覆盖项继续分开保存，详见 [8.1.0 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)。#199 已完成 main → develop 同步，#200 发布记录修正与 #201 开发预升均已合并。main 为已发布 8.1.0，develop 为未发布 pre-bump 8.1.1；版本工具只更新 VERSION / README badge，插件根版本保持，不创建同号 Release。
 
 explain-kit 0.1.0 提供速解和深讲，默认中文、保留术语原文，按深度路由并适应用户格式。新增解释能力的 [ADR](docs/adr/[ADR]_Explain_Kit_Addition.md) 与 [验收记录](docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md) 不改变测验策略。
 
@@ -31,3 +31,9 @@ v8.0.0 已经 #190 合入 main 并自动发布，实际状态和未完成的桌�
 ## Codex 会话维护
 
 用户明确请求会话归档、推荐标题或重命名当前任务时，读取并遵循 [会话维护规则](.agents/references/session-maintenance.md)。引用、示例、否定和机制讨论不触发；普通任务“收尾”按实际对象处理。
+
+## 品牌与图标
+
+仓库主标使用 Owner 选定的 A（MJ＋斜向模块连接），三个插件采用已批准的 D 风格；品牌与图标修改读取 [品牌规范](docs/rule/[STANDARD]_Brand_Identity.md) 并使用 [.agents/skills/mp-design-icon](.agents/skills/mp-design-icon/SKILL.md)。开发技能现为 20 项，仍只有三个公开插件和四个公开技能。新增候选先选择后接入，已有批准直接复用。#203 已合入 develop，merge 与已测 head 的 Git tree 相同，合并后的四种 canonical 安装及实际 Python 校验通过。develop 插件为 Diagram 0.3.1、Understanding 0.1.2、Explain 0.1.1，marketplace 保持未发布 8.1.1；main 和最新 Release 保持 8.1.0，不执行新 pre-bump。桌面图标实际显示仍未验证，#203 reviews 未见独立批准记录；资源、隔离安装、独立技能演练和合并后事实见 [品牌验收](docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。
+
+Owner 于 2026-10-10 明确要求发布 8.1.1，发布授权已提供，不重复确认。候选从 develop 9bd54d7 派生，运行版本已匹配目标，无额外 bump。Owner 补充三张桌面截图，显示三插件详情页图标与候选版本，Diagram/Explain 示例提示区亦显示小图标；客户端版本、来源及实际输入框结果按已提供的具体证据记录，截图不补写未展示项。当前 main ruleset 要求当前 head 的非作者批准与 Validate Structure；门禁和后续发布事实见 [8.1.1 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。

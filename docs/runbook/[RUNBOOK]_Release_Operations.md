@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
 state: active
-version: v2.5
+version: v2.6
 ---
 
 # [RUNBOOK] Release operations
@@ -27,7 +27,7 @@ scripts/run-release.mjs 从指定 SHA 读取 VERSION 与 CHANGELOG，要求 SHA 
 
 记录标签、Release 身份和实际验收；按既有 [pre-bump 决策](../adr/[ADR]_Develop_PreBump_Adoption.md) 先将 main 同步回 develop，再准备 develop 的下一补丁 PR。Portable 格式仅预升 VERSION 与派生 README badge，市场索引不承载版本，各插件根 manifest 不连带更新；先执行版本工具 dry-run。develop badge 表示预计下一版本，不创建同号标签或 Release。回退与历史政策见 [迁移 ADR](../adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)。
 
-Understanding Kit 初始 0.1.0 通过 #195 合入 develop；行为缺陷修正 0.1.1 已通过 #197 合入，并随 v8.1.0 发布。此前保留 marketplace 8.0.1 pre-bump，[新增决定](../adr/[ADR]_Understanding_Kit_Addition.md) 本身不构成发布授权。已有 [验收记录](./[RUNBOOK]_Understanding_Kit_Acceptance.md) 的历史失败、未覆盖行为及未执行客户端结果保留。#199 已将已发布 main 同步回 develop；接着准备仅市场版本为 8.1.1 的预升 PR，各插件保持版本，不创建同号 Release。
+Understanding Kit 初始 0.1.0 通过 #195 合入 develop；行为缺陷修正 0.1.1 已通过 #197 合入，并随 v8.1.0 发布。此前保留 marketplace 8.0.1 pre-bump，[新增决定](../adr/[ADR]_Understanding_Kit_Addition.md) 本身不构成发布授权。已有 [验收记录](./[RUNBOOK]_Understanding_Kit_Acceptance.md) 的历史失败、未覆盖行为及未执行客户端结果保留。#199 同步已发布 main 回 develop，#200 修正发布记录，#201 将 develop 预升为 8.1.1，均已合并并核对实际 Git tree；main 保持 8.1.0，各插件保持版本，8.1.1 不创建同号 Release。若并行的主分支文档 PR 产生新的 merge 身份，收尾时同步该 ancestry，保留已预升版本与现有内容。
 
 v8.0.0 的标签、自动发布及合并后安装复查已记录在 [发布记录](./[RUNBOOK]_Portable_Migration_Release_Readiness.md)。已经发布不替代缺失的客户端验收或独立批准证据；保留未执行/未见记录状态，不追认 PASS 或未经提供的豁免。
 

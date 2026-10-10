@@ -5,10 +5,29 @@
 
 ## [Unreleased]
 
+## [8.1.1] - 2026-10-10
+
+**Marketplace `8.1.1` · Diagram Kit `0.3.1` · Understanding Kit `0.1.2` · Explain Kit `0.1.1`.** This patch prepares the approved brand update for publication. Actual publication and client evidence are tracked in the [8.1.1 release-readiness record](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md); this version section does not establish a published Release.
+
+### Added
+
+- Add the owner-selected MJ module-node marketplace logo, reusable brand tokens/templates/reference assets and repository-only mp-design-icon workflow; development skills increase from 19 to 20 while three plugins and four public skills remain.
+
+
 ### Changed
+
+- Record #203/#204's merged-tree identity, successful remote CI and four post-merge canonical installation checks. Keep supplied desktop screenshots, remaining client details and release approval evidence separate.
+
+- Package D family icons as editable SVG and 1024 PNG for Diagram 0.3.1, Understanding 0.1.2 and Explain 0.1.1. Add manifest icon fields, complete PNG/resource validation and source-to-installed icon comparison.
 
 - Clarify the published Marketplace v8.1.0 installation sources and record actual release identity, post-publication checks and remaining desktop acceptance gaps.
 - Update the three-plugin installation guides and retain separate CLI, model-behavior and real-client evidence. Preserve published CHANGELOG sections, tags and assets; documentation updates do not change plugin versions or introduce a new Release.
+- Record completed post-release documentation and develop 8.1.1 pre-bump merges, their tested-tree identities and canonical installation checks. Synchronize the latest main merge ancestry while preserving the development version.
+
+### Upgrade
+
+- After publication, refresh the marketplace from main or pin `v8.1.1`, then update the installed plugins to the patch versions above. Public skill entry points and behavior stay unchanged; the repository-only design skill remains outside plugin consumer discovery.
+- Preserve older tags, published notes and existing assets. The white rounded icon is shared across light/dark themes; no additional Dark variant is declared.
 
 ## [8.1.0] - 2026-10-09
 

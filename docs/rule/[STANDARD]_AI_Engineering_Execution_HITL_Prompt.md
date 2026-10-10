@@ -4,9 +4,9 @@ scope: marketplace
 summary: "Agent execution, owner decisions and marketplace workflow"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-09
+updated: 2026-10-10
 state: active
-version: v2.0
+version: v2.1
 ---
 
 # [STANDARD] AI engineering execution
@@ -21,7 +21,7 @@ version: v2.0
 
 ## Workflow
 
-Intake → Repo Scan → Plan → ADR → Author → Compliance → Dogfood → Self-review → Commit/Push/PR → Review/Merge → Post-merge。分支使用独立 worktree；main/develop 保持保护。19 个阶段/文档/Git 技能位于 .agents/skills，按具体阶段使用；工具不可用时由代理以环境可用能力完成，而不是要求 owner 复制命令。
+Intake → Repo Scan → Plan → ADR → Author → Compliance → Dogfood → Self-review → Commit/Push/PR → Review/Merge → Post-merge。分支使用独立 worktree；main/develop 保持保护。20 个阶段/文档/Git 技能位于 .agents/skills，按具体阶段使用；工具不可用时由代理以环境可用能力完成，而不是要求 owner 复制命令。
 
 ## Verification and release
 

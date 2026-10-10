@@ -5,10 +5,14 @@
     "validate": "node scripts/validate-portable.mjs",
     "check:baseline-tools": "node scripts/check-tool-versions.mjs --codex 0.147.0",
     "report:tool-versions": "node scripts/check-tool-versions.mjs --report-only",
-    "smoke:codex": "node scripts/smoke-codex-plugin.mjs"
+    "smoke:codex": "node scripts/smoke-codex-plugin.mjs",
+    "icons:export": "node scripts/export-icons.mjs",
+    "icons:preview": "node scripts/render-brand-previews.mjs"
   },
   "devDependencies": {
+    "@resvg/resvg-js": "2.6.2",
     "cross-spawn": "7.0.6",
+    "pngjs": "7.0.0",
     "yaml": "2.9.0"
   }
 }

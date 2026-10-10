@@ -17,3 +17,5 @@ The skill reads task evidence and may use read-only file/version searches. It do
 Install from the marketplace at main or pin v8.1.0. Installation and support status: see the [marketplace README](../../README.md), the [release record](../../docs/runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md) and the [acceptance record](../../docs/runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md). Publication and CLI installation checks do not establish completed desktop acceptance.
 
 The reusable behavior cases in [evals](skills/pop-quiz/evals/README.md) distinguish structural checks, actual model behavior and desktop interaction evidence.
+
+D 品牌图标包含可编辑 [SVG](assets/icon.svg) 和分发 [PNG](assets/icon.png)，列表与输入框共用；当前为未发布补丁候选，真实客户端显示见仓库 [品牌验收](../../docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。
