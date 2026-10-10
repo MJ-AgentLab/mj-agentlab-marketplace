@@ -10,3 +10,5 @@ description: "Use for marketplace installation and invocation acceptance / 本�
 在已有授权范围内由代理执行操作，owner 负责未决事项。需要决定时给出 2–3 个选项、影响及有理由的推荐；必须等待的决定等待答复，推荐不构成批准。详见 [执行与决策规范](../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)。
 
 Explain Kit 单独/组合安装与解释行为按 [Explain Kit 验收](../../../docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md) 执行，Python 必须实际运行；能力限制如实记录，不要求 owner 例行手工操作。
+
+图标变更检查各安装包的 logo/composerIcon 引用和 PNG 内容；四种隔离安装逐包比较源文件与缓存。仓库发现 20 个开发技能，消费者不得发现 mp-design-icon；图标实际视觉与客户端列表/composer 验收另记。

@@ -4,6 +4,7 @@ import os from "node:os";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { runCli, spawnCli } from "./run-cli.mjs";
+import { assertInstalledIcons } from "./plugin-icons.mjs";
 import { REPOSITORY_SKILLS, RUNTIME_PLUGINS, PUBLIC_SKILLS, EXPLICIT_ONLY_SKILLS, validateOpenAIConfig } from "./validate-portable.mjs";
 
 export const MARKETPLACE_NAME = "mj-agentlab-marketplace";
@@ -73,7 +74,7 @@ export function assertDiscovery(entries, { cacheRoot, repositoryRoot, inReposito
   const development = entries.filter(e => e.name.startsWith("mp-"));
   if (!inRepository && development.length) throw new Error("repository skills leaked to consumer cwd");
   if (inRepository) {
-    if (development.length !== REPOSITORY_SKILLS.length || new Set(development.map(e => e.name)).size !== REPOSITORY_SKILLS.length || development.some(e => !REPOSITORY_SKILLS.includes(e.name))) throw new Error("repository discovery must contain the 19 distinct mp-* skills");
+    if (development.length !== REPOSITORY_SKILLS.length || new Set(development.map(e => e.name)).size !== REPOSITORY_SKILLS.length || development.some(e => !REPOSITORY_SKILLS.includes(e.name))) throw new Error(`repository discovery must contain the ${REPOSITORY_SKILLS.length} distinct mp-* skills`);
     for (const e of development) if (!same(e.file, path.join(repositoryRoot, ".agents/skills", e.name, "SKILL.md"))) throw new Error(`incorrect repository skill scope: ${e.name}`);
   }
   return { publicSkills: publicSkills.length, repositorySkills: development.length };
@@ -143,7 +144,7 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
     return r.stdout;
   };
   try {
-    for (const rel of [".agents", "plugins", "AGENTS.md", ".codex", ".github", "docs", "scripts", "tests", "VERSION", "README.md", "CONTRIBUTING.md", "GLOSSARY.md", "CHANGELOG.md", "package.json", "package-lock.json"]) fs.cpSync(path.join(repoRoot, rel), path.join(src, rel), { recursive: true });
+    for (const rel of [".agents", "plugins", "assets", "AGENTS.md", ".codex", ".github", "docs", "scripts", "tests", "VERSION", "README.md", "CONTRIBUTING.md", "GLOSSARY.md", "CHANGELOG.md", "package.json", "package-lock.json"]) fs.cpSync(path.join(repoRoot, rel), path.join(src, rel), { recursive: true });
     await execute("git", ["init", "-q"], src);
     fs.writeFileSync(path.join(codexHome, "config.toml"), `[projects.${JSON.stringify(norm(src))}]\ntrust_level = "trusted"\n`);
     const version = (await execute(codexCommand, ["--version"])).trim();
@@ -161,6 +162,7 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
     const implicitSkills = expectedSkills.filter(name => !EXPLICIT_ONLY_SKILLS.includes(name));
     const external = parsePromptInputSkills(await execute(codexCommand, ["debug", "prompt-input", "ordinary task discovery check"]));
     const cacheRoot = path.join(codexHome, "plugins/cache", MARKETPLACE_NAME);
+    const installedIcons = Object.fromEntries(plugins.map(plugin => [plugin, assertInstalledIcons(path.join(src, "plugins", plugin), path.join(cacheRoot, plugin, pluginVersions[plugin]))]));
     const outside = assertDiscovery(external, { cacheRoot, repositoryRoot: src, inRepository: false, expectedSkills: implicitSkills, pluginVersions });
     const entries = parsePromptInputSkills(await execute(codexCommand, ["debug", "prompt-input", "repository skill discovery check"], src));
     const repository = assertDiscovery(entries, { cacheRoot, repositoryRoot: src, inRepository: true, expectedSkills: implicitSkills, pluginVersions });
@@ -210,7 +212,7 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
       diagramValidation = { skillPath: diagram.file, validatorPath, output: output.trim() };
     }
     complete = true;
-    return { ok: true, version, marketplaces: names, installed: plugins, outside, repository, nativeOutside: nativeInventories.outside, nativeRepository: nativeInventories.repository, explicitOnly: expectedSkills.filter(name => EXPLICIT_ONLY_SKILLS.includes(name)), skillPaths, publicSkillPaths: skillPaths, ...(diagramValidation ? { skillPath: diagram.file, validatorPath: diagramValidation.validatorPath, diagramValidation } : {}), ...(keepRoot ? { root, codexHome, repositoryRoot: src, consumerRoot: cwd } : {}), commands };
+    return { ok: true, version, marketplaces: names, installed: plugins, installedIcons, outside, repository, nativeOutside: nativeInventories.outside, nativeRepository: nativeInventories.repository, explicitOnly: expectedSkills.filter(name => EXPLICIT_ONLY_SKILLS.includes(name)), skillPaths, publicSkillPaths: skillPaths, ...(diagramValidation ? { skillPath: diagram.file, validatorPath: diagramValidation.validatorPath, diagramValidation } : {}), ...(keepRoot ? { root, codexHome, repositoryRoot: src, consumerRoot: cwd } : {}), commands };
   } finally {
     if (!keepRoot || !complete) cleanupIsolatedRoot(root);
   }

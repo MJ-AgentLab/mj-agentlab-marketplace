@@ -1,5 +1,7 @@
 # MJ AgentLab Marketplace
 
+<img src="assets/brand/marketplace/logo.svg" width="128" height="128" alt="MJ AgentLab Marketplace — MJ letters with connected modules">
+
 ![Version](https://img.shields.io/badge/version-8.1.1-blue)
 
 面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场。Marketplace v8.1.0 已发布，提供三个 portable 插件，无需 MCP 服务：
@@ -47,6 +49,8 @@ Codex 优先在 Side Chat 提供任务片段、职责与可定位的源码、规
 
 ### Development
 
-develop 的 8.1.1 badge 是已通过 #201 合并的下一补丁 pre-bump；正式发布仍为 v8.1.0，插件版本保持 0.3.0 / 0.1.1 / 0.1.0。预升不会创建同号标签或 Release。
+develop 的 8.1.1 badge 是已通过 #201 合并的下一补丁 pre-bump；正式发布仍为 v8.1.0，本次品牌更新候选分别为 Diagram 0.3.1 / Understanding 0.1.2 / Explain 0.1.1，尚未发布。预升不会创建同号标签或 Release。
 
-19 个开发技能位于 .agents/skills，公开技能为 arch-diagram、pop-quiz、glossary 和 concept。项目指令见 [AGENTS.md](AGENTS.md)，规范和历史见 [文档索引](docs/INDEX.md)，贡献见 [CONTRIBUTING.md](CONTRIBUTING.md)。代理运行 npm ci、npm run validate、npm test、npm run check:baseline-tools 和 npm run smoke:codex。正式发布需要发布授权、两个目标客户端的验收证据、当前发布提交独立批准与 required checks；本轮授权和证据分项记录。
+20 个开发技能位于 .agents/skills，公开技能为 arch-diagram、pop-quiz、glossary 和 concept。项目指令见 [AGENTS.md](AGENTS.md)，规范和历史见 [文档索引](docs/INDEX.md)，贡献见 [CONTRIBUTING.md](CONTRIBUTING.md)。代理运行 npm ci、npm run validate、npm test、npm run check:baseline-tools 和 npm run smoke:codex。正式发布需要发布授权、两个目标客户端的验收证据、当前发布提交独立批准与 required checks；本轮授权和证据分项记录。
+
+仓库主标与 D 插件图标遵循 [品牌规范](docs/rule/[STANDARD]_Brand_Identity.md)。新插件或图标修改可调用 `$mp-design-icon`，先展示候选再接入；当前批准与实际验收见 [记录](docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。

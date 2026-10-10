@@ -3,8 +3,11 @@ import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { parseDocument } from "yaml";
+import { ICON_FIELDS, validateIconReference, validatePluginIcons } from "./plugin-icons.mjs";
+import { validateBrandAssets } from "./brand-assets.mjs";
 
 export const REPOSITORY_SKILLS = [
+  "mp-design-icon",
   "mp-doc-author", "mp-doc-bump-version", "mp-doc-validate", "mp-flow-author",
   "mp-flow-compliance", "mp-flow-design-adr", "mp-flow-dogfood", "mp-flow-intake",
   "mp-flow-plan", "mp-flow-post-merge", "mp-flow-repo-scan", "mp-flow-self-review",
@@ -68,6 +71,11 @@ export function validateManifest(manifest, expectedName) {
   const ui = manifest.extensions?.["com.openai"]?.interface;
   for (const key of ["displayName", "shortDescription", "longDescription", "developerName", "category"]) {
     if (typeof ui?.[key] !== "string" || !ui[key].trim()) throw new Error(`interface.${key} is required`);
+  }
+  for (const field of ICON_FIELDS) {
+    if (Object.hasOwn(ui, field) || field === "logo" || field === "composerIcon") {
+      try { validateIconReference(ui[field]); } catch (error) { throw new Error(`interface.${field}: ${error.message}`); }
+    }
   }
   const capabilities = PLUGIN_CAPABILITIES[manifest.name];
   if (!Array.isArray(ui.capabilities) || ui.capabilities.length !== capabilities.length || new Set(ui.capabilities).size !== ui.capabilities.length || ui.capabilities.some(value => !capabilities.includes(value))) throw new Error("interface.capabilities must match the plugin's approved capabilities");
@@ -156,6 +164,8 @@ export function validateRepository(repoRoot) {
     }
   });
   for (const name of Object.keys(RUNTIME_PLUGINS)) check(`${name} manifest`, () => validateManifest(JSON.parse(read(root, `plugins/${name}/plugin.json`)), name));
+  for (const name of Object.keys(RUNTIME_PLUGINS)) check(`${name} icons`, () => validatePluginIcons(JSON.parse(read(root, `plugins/${name}/plugin.json`)), path.join(root, "plugins", name)));
+  check("brand resources", () => validateBrandAssets(root));
   check("plugin inventory", () => {
     const plugins = fs.readdirSync(path.join(root, "plugins")).sort();
     if (JSON.stringify(plugins) !== JSON.stringify(Object.keys(RUNTIME_PLUGINS).sort())) throw new Error("unexpected runtime plugin directory");
@@ -172,7 +182,7 @@ export function validateRepository(repoRoot) {
   });
   check("repository skill inventory", () => {
     const actual = fs.readdirSync(path.join(root, ".agents/skills")).sort();
-    if (JSON.stringify(actual) !== JSON.stringify([...REPOSITORY_SKILLS].sort())) throw new Error("repository must expose exactly the 19 mp-* skills");
+    if (JSON.stringify(actual) !== JSON.stringify([...REPOSITORY_SKILLS].sort())) throw new Error(`repository must expose exactly the ${REPOSITORY_SKILLS.length} mp-* skills`);
   });
   for (const name of REPOSITORY_SKILLS) check(name, () => validateSkill(read(root, `.agents/skills/${name}/SKILL.md`), name));
   for (const [plugin, skills] of Object.entries(RUNTIME_PLUGINS)) for (const skill of skills) {

@@ -20,7 +20,7 @@ function fixture(){const root=fs.mkdtempSync(path.join(fs.realpathSync.native(os
 test("consumer and repository inventories are scoped to real installed files",()=>{
  const f=fixture();try{
  assert.deepEqual(assertDiscovery(f.entries,{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false}),{publicSkills:4,repositorySkills:0});
- assert.deepEqual(assertDiscovery([...f.entries,...f.dev],{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:true}),{publicSkills:4,repositorySkills:19});
+ assert.deepEqual(assertDiscovery([...f.entries,...f.dev],{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:true}),{publicSkills:4,repositorySkills:20});
  assert.throws(()=>assertDiscovery([...f.entries,...f.dev],{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false}));
  }finally{cleanupIsolatedRoot(f.root);}});
 test("duplicate, missing and escaped public locators fail closed",()=>{
@@ -69,7 +69,7 @@ function aliasedPrompt(roots, entries) {
   "### Available skills",...entries.map(({name,file})=>`- ${name}: discover skill (file: ${file})`)].join("\n")}]);
 }
 
-test("root aliases resolve installed and all 19 repository skills before scope checks",()=>{
+test("root aliases resolve installed and all 20 repository skills before scope checks",()=>{
  const f=fixture();try{
   const roots=[["r1",f.cache],["r2",path.join(f.repo,".agents/skills")]];
   const entry={name:"diagram-kit:arch-diagram",file:"r1/"+path.relative(f.cache,f.file).split(path.sep).join("/")};
@@ -78,7 +78,7 @@ test("root aliases resolve installed and all 19 repository skills before scope c
   assert.deepEqual(assertDiscovery(consumer,{...opts,inRepository:false}),{publicSkills:1,repositorySkills:0});
   const dev=f.dev.map(({name})=>({name,file:`r2/${name}/SKILL.md`}));
   const repository=parsePromptInputSkills(aliasedPrompt(roots,[entry,...dev]));
-  assert.deepEqual(assertDiscovery(repository,{...opts,inRepository:true}),{publicSkills:1,repositorySkills:19});
+  assert.deepEqual(assertDiscovery(repository,{...opts,inRepository:true}),{publicSkills:1,repositorySkills:20});
   assert.throws(()=>assertDiscovery(repository,{...opts,inRepository:false}));
  }finally{cleanupIsolatedRoot(f.root);}
 });
@@ -107,7 +107,7 @@ for(const installed of [["diagram-kit"],["explain-kit"],["diagram-kit","explain-
   const entries=f.entries.filter(e=>installed.includes(e.name.split(":")[0])),expectedSkills=entries.map(e=>e.name);
   const opts={cacheRoot:f.cache,repositoryRoot:f.repo,expectedSkills};
   assert.deepEqual(assertDiscovery(entries,{...opts,inRepository:false}),{publicSkills:entries.length,repositorySkills:0});
-  assert.deepEqual(assertDiscovery([...entries,...f.dev],{...opts,inRepository:true}),{publicSkills:entries.length,repositorySkills:19});
+  assert.deepEqual(assertDiscovery([...entries,...f.dev],{...opts,inRepository:true}),{publicSkills:entries.length,repositorySkills:20});
   assert.throws(()=>assertDiscovery([...entries,{name:"mp-unknown",file:f.dev[0].file}],{...opts,inRepository:false}));
  }finally{cleanupIsolatedRoot(f.root);}
 });

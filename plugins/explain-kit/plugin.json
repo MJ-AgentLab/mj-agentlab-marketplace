@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "explain-kit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Explain unfamiliar terms briefly or explore concepts, tools and APIs through mechanisms, examples and boundaries.",
   "author": {
     "name": "MJ-AgentLab",
@@ -9,7 +9,12 @@
   },
   "repository": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace",
   "license": "MIT",
-  "keywords": ["explanation", "glossary", "concept", "learning"],
+  "keywords": [
+    "explanation",
+    "glossary",
+    "concept",
+    "learning"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
@@ -18,11 +23,15 @@
         "longDescription": "Use Glossary for a compact explanation or Concept for mechanisms, positive and counter-examples, related ideas and limits. Adapt to the requested audience, language and length; verify uncertain or version-sensitive facts.",
         "developerName": "MJ-AgentLab",
         "category": "Developer Tools",
-        "capabilities": ["Read"],
+        "capabilities": [
+          "Read"
+        ],
         "defaultPrompt": [
           "Use $explain-kit:glossary to briefly explain an unfamiliar term in Chinese.",
           "Use $explain-kit:concept to explain a concept's mechanism, examples and boundaries."
-        ]
+        ],
+        "logo": "./assets/icon.png",
+        "composerIcon": "./assets/icon.png"
       }
     }
   }

@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "diagram-kit",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Create evidence-grounded Mermaid architecture and UML diagrams from codebase facts.",
   "author": {
     "name": "MJ-AgentLab",
@@ -30,7 +30,9 @@
         ],
         "defaultPrompt": [
           "Use $diagram-kit:arch-diagram to draw evidence-backed Mermaid architecture diagrams for this repository."
-        ]
+        ],
+        "logo": "./assets/icon.png",
+        "composerIcon": "./assets/icon.png"
       }
     }
   }
