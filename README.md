@@ -49,7 +49,7 @@ Codex 优先在 Side Chat 提供任务片段、职责与可定位的源码、规
 
 ### Development
 
-8.1.1 已正式发布，包含 #203/#204 的品牌实现及 #205 的版本说明。发布后 main 回同步 PR #206 已准备；其合并后才应用 8.1.2 pre-bump。版本工具 dry-run 已确认只更新市场 VERSION / README badge，插件保持 Diagram 0.3.1 / Understanding 0.1.2 / Explain 0.1.1；pre-bump 不创建同号标签或 Release。
+8.1.1 已正式发布，包含 #203/#204 的品牌实现及 #205 的版本说明。#206 已将发布 main 同步回 develop；本分支的 8.1.2 badge 表示未发布 pre-bump，版本工具先 dry-run 再实际更新市场 VERSION / README badge。插件保持 Diagram 0.3.1 / Understanding 0.1.2 / Explain 0.1.1；pre-bump 不创建同号标签或 Release。同期 main 文档 PR #207 的实际合并记录会继续同步。
 
 20 个开发技能位于 .agents/skills，公开技能为 arch-diagram、pop-quiz、glossary 和 concept。项目指令见 [AGENTS.md](AGENTS.md)，规范和历史见 [文档索引](docs/INDEX.md)，贡献见 [CONTRIBUTING.md](CONTRIBUTING.md)。代理运行 npm ci、npm run validate、npm test、npm run check:baseline-tools 和 npm run smoke:codex。正式发布需要发布授权、两个目标客户端的验收证据、当前发布提交独立批准与 required checks；本轮授权和证据分项记录。
 

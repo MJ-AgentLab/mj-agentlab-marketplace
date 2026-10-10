@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-10
 state: active
-version: v2.7
+version: v2.8
 ---
 
 # [RUNBOOK] Release operations
@@ -25,7 +25,7 @@ scripts/run-release.mjs 从指定 SHA 读取 VERSION 与 CHANGELOG，要求 SHA 
 
 ## Post-release
 
-Marketplace v8.1.1 已通过 #205 合入 main 并于 2026-10-10 公开，tag 与 Release 绑定 merge 8f0e044a593408fadc90565f326ef4cb5906e840；发布后四种 canonical 安装、图标比较和实际 Python 校验通过。Owner 截图及未提供的两端完整客户端结果、#205 独立批准缺项继续分开记录，见 [8.1.1 发布记录](./[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。回同步 PR #206 已准备；8.1.2 dry-run 成功但未应用，按下述顺序执行。
+Marketplace v8.1.1 已通过 #205 合入 main 并于 2026-10-10 公开，tag 与 Release 绑定 merge 8f0e044a593408fadc90565f326ef4cb5906e840；发布后四种 canonical 安装、图标比较和实际 Python 校验通过。Owner 截图及未提供的两端完整客户端结果、#205 独立批准缺项继续分开记录，见 [8.1.1 发布记录](./[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。#206 已回同步发布 main；本分支随后先 dry-run 再实际应用仅 VERSION / README badge 的 8.1.2 pre-bump，插件版本保持。同期 main 文档 PR #207 的实际 merge ancestry 在收尾时继续纳入。
 
 记录标签、Release 身份和实际验收；按既有 [pre-bump 决策](../adr/[ADR]_Develop_PreBump_Adoption.md) 先将 main 同步回 develop，再准备 develop 的下一补丁 PR。Portable 格式仅预升 VERSION 与派生 README badge，市场索引不承载版本，各插件根 manifest 不连带更新；先执行版本工具 dry-run。develop badge 表示预计下一版本，不创建同号标签或 Release。回退与历史政策见 [迁移 ADR](../adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)。
 

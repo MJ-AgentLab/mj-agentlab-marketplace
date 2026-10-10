@@ -6,12 +6,12 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-10
 state: active
-version: v2.11
+version: v2.12
 ---
 
 # 文档索引
 
-[Marketplace v8.1.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.1) 已通过 #205 合入 main 并自动发布，注册 diagram-kit 0.3.1 / arch-diagram、understanding-kit 0.1.2 / pop-quiz 与 explain-kit 0.1.1 / glossary、concept。客户端为 ChatGPT 桌面端和 Codex 本地环境。实际发布 SHA 的四种 canonical 安装、图标比较及 Python 校验通过；Owner 截图、完整客户端记录缺项和未提供的 GitHub 独立批准分别保留。main 回同步 PR #206 已准备，合并后再应用 8.1.2 pre-bump。
+[Marketplace v8.1.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.1) 已通过 #205 合入 main 并自动发布，注册 diagram-kit 0.3.1 / arch-diagram、understanding-kit 0.1.2 / pop-quiz 与 explain-kit 0.1.1 / glossary、concept。客户端为 ChatGPT 桌面端和 Codex 本地环境。实际发布 SHA 的四种 canonical 安装、图标比较及 Python 校验通过；Owner 截图、完整客户端记录缺项和未提供的 GitHub 独立批准分别保留。#206 已将 main 回同步到 develop，本分支为未发布 8.1.2 pre-bump，插件版本保持；同期 #207 main 文档合并记录继续同步。
 
 #203/#204 接入 A 仓库主标、D 插件图标及 20 号开发技能，随 v8.1.1 分发；实现阶段的验收、未完成项和历史证据见 [品牌验收](runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。历史 v8.1.0 包含三个插件，v8.0.0 仅包含 Diagram Kit。
 

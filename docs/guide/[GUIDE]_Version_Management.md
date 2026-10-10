@@ -6,12 +6,12 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-10
 state: active
-version: v2.9
+version: v2.10
 ---
 
 # [GUIDE] Version management
 
-版本按职责独立管理：市场 VERSION 与各 plugins/*/plugin.json 的根 version 分别权威。Marketplace v8.1.1 已随 #205 合入 main 发布，diagram-kit 为 0.3.1，explain-kit 为 0.1.1，understanding-kit 为 0.1.2。main 回同步 PR #206 已准备，合并后才应用 8.1.2 pre-bump；dry-run 已确认只匹配 VERSION / README badge，未写入。市场索引不携带版本，插件不连带预升。发布身份、安装复查及未完成项见 [8.1.1 发布记录](../runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。
+版本按职责独立管理：市场 VERSION 与各 plugins/*/plugin.json 的根 version 分别权威。Marketplace v8.1.1 已随 #205 合入 main 发布，diagram-kit 为 0.3.1，explain-kit 为 0.1.1，understanding-kit 为 0.1.2。#206 已将发布 main 同步回 develop；本分支先 dry-run 再实际应用 8.1.2 pre-bump，只修改 VERSION / README badge 两锚点。市场索引不携带版本，插件不连带预升，8.1.2 不创建标签或 Release。发布身份、安装复查及未完成项见 [8.1.1 发布记录](../runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。
 
 历史 Marketplace v8.1.0 随 #198 发布，插件分别为 diagram-kit 0.3.0 / explain-kit 0.1.0 / understanding-kit 0.1.1。#199 将 main 同步回 develop，merge `a220688d0f46c32f775d4284feb6f9c935085089`；#201 merge `1781e28c37c09a962c0c0edccd6fa2ec574e48d9` 将 VERSION / README badge 预升为当时未发布的 8.1.1。当时 main 保持 8.1.0，pre-bump 没有创建标签或 Release；历史事实及验收缺项见 [8.1.0 发布记录](../runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)。
 
