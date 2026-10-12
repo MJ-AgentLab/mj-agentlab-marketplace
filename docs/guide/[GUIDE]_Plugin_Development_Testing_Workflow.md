@@ -4,9 +4,9 @@ scope: marketplace
 summary: "Portable plugin development and isolated testing workflow"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-10
+updated: 2026-10-12
 state: active
-version: v2.3
+version: v2.4
 ---
 
 # [GUIDE] Plugin development and testing
@@ -24,3 +24,11 @@ Explain Kit 单独安装及与 Diagram Kit、全部现有插件组合的隔离�
 新增插件、仓库标识或图标修改时调用 [mp-design-icon](../../.agents/skills/mp-design-icon/SKILL.md)，读取 [品牌规范](../rule/[STANDARD]_Brand_Identity.md)。新候选在选择前只写候选目录；已有批准直接重用。更新 exports.json 后运行 npm run icons:export、npm run icons:preview，检查实际尺寸，两个 manifest 图标字段使用包内 ./assets/icon.png。导出命令也支持单文件 --input SVG --output PNG --size pixels。
 
 常规 npm test / validate / smoke:codex 包含图标有效性与源/安装副本一致性；额外的模型演练验证选择停点和已有批准复用。保持开发资源只在仓库作用域发现。实际品牌验收见 [RUNBOOK](../runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。
+
+## HTML Guide Kit staged acceptance
+
+[新增 ADR](../adr/[ADR]_HTML_Guide_Kit_Addition.md) 区分治理、原子接入与最终工程验收。PR1 保持原三个插件/四公开技能；npm run check 和 npm run smoke 分别作为既有 check:baseline-tools 和 smoke:codex 的兼容入口。独立版本工具支持尚未接入的 html-guide-kit scope，但缺失 manifest 继续 fail closed。
+
+PR2 保留原安装组合，增加 HTML Guide 单独、与 Explain 和全部插件组合，检查图标/参考/版本/调用策略/缓存来源与资源字节，真实连续模型会话通过六组阻断行为后才可合并。PR3 扩展全部边界并完成两个目标客户端的新插件交互和实际 merge 复验。判准见 [验收 SPEC](../spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，实际执行与未覆盖项见 [RUNBOOK](../runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+模型实际读取本次安装缓存技能；中性随机 consumer 路径，隔离答案/评审控制，并明确排除 reviewer-only 的镜像内容。完整 canonical 身份、评审镜像身份与缓存运行哈希分别记录，不要求镜像 tree 与完整仓库相同。真实失败、回放、未覆盖与修正后的调用分开保存。2026-10-12 Owner 调整：本次不执行现实场景的理解效果测试，effect_status 保持未测量；效果另行测试，不阻断工程接入，也不能将模型行为或点击完成解释为理解改善。

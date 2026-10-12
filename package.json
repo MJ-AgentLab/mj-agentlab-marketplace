@@ -7,7 +7,9 @@
     "report:tool-versions": "node scripts/check-tool-versions.mjs --report-only",
     "smoke:codex": "node scripts/smoke-codex-plugin.mjs",
     "icons:export": "node scripts/export-icons.mjs",
-    "icons:preview": "node scripts/render-brand-previews.mjs"
+    "icons:preview": "node scripts/render-brand-previews.mjs",
+    "check": "npm run check:baseline-tools --",
+    "smoke": "npm run smoke:codex --"
   },
   "devDependencies": {
     "@resvg/resvg-js": "2.6.2",
