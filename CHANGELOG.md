@@ -7,6 +7,7 @@
 
 ### Added
 
+- Stage manual Learning Evidence GitHub publication/collection through the authenticated gh interface: complete segmented JSON and reading text, digest/read-back receipts, missing-only recovery and updated-time acquisition. Confirm scope before persisting filtered bodies, require bounded stable page inventories, and retain prior progress on failures; writes in engineering acceptance use a controlled substitute.
 - Stage Python 3.12 local Learning Evidence storage with immutable records, confirmed attribution, full baselines, idempotent transactions, reference-only worktree association, complete export/import and retained archive. Old runtime packages remain byte-identical; installation switch is deferred to PR4.
 - HTML Guide Kit 合同与前置治理（Refs #217、#218）：新增 ADR、验收 SPEC/RUNBOOK，预留提交 scope 与独立版本工具支持；缺失 manifest 继续失败，运行集合与 marketplace 8.1.2 / 现有插件版本保持。提供 npm run check / smoke 兼容入口；Owner 已选择第二轮 A「HTML 教材」图标，完整插件在后续 PR 原子接入。现实场景效果按 Owner 调整另测，不宣称理解改善。
 

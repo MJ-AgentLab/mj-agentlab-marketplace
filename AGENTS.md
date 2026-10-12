@@ -44,6 +44,8 @@ Owner 于 2026-10-10 明确要求发布 8.1.1，发布授权已提供，不重�
 
 Learning Evidence PR2 的共用本机能力暂存于 scripts/learning-evidence，旧运行包保持字节；保存、完整基线、身份、关联、恢复、导入导出和保留归档按新记录契约执行。测试显式隔离库；PR3 加入手动 GitHub 流转，PR4 才原子移入新包，当前公开注册不提前切换。实际测试、独立审查及未合并状态见验收账本。
 
+Learning Evidence PR3 同一暂存接口提供显式范围的完整 PR 评论发布、未知结果回读和缺段恢复，以及手动增量收集。收集先判定人/任务/时间范围再保存正文，翻页须观察连续稳定清单；失败保留已确认范围的快照与旧完成游标。工程验收使用独立临时库及替身 gh，真实账号权限、客户端和 GitHub 非作者批准另记，PR2/3 合入后才进入 PR4 原子迁移。
+
 ## HTML Guide Kit 阶段实施
 
 Owner 已授权按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 与三个子 Issue 推进 HTML Guide Kit，分阶段顺序合并 develop；[ADR](docs/adr/[ADR]_HTML_Guide_Kit_Addition.md) 记录已确定合同。PR1 仅前置治理、提交 scope、版本工具和验收判准，运行仍为原三个插件、四公开技能、三个自然启用技能和 20 项仓库开发技能，不注册或创建空包。独立版本工具虽支持 html-guide-kit，缺 manifest 仍失败。PR2 必须完整包、已选图标、严格合同和登记原子接入，并通过六组真实连续行为；PR3 完成扩展工程验收、双客户端交互和实际 merge 复验。判准与事实见 [SPEC](docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md) 和 [RUNBOOK](docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。

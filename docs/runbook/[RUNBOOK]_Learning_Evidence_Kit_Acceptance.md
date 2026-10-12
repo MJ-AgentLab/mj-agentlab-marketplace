@@ -6,9 +6,9 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-12
 state: active
-version: v1.1
+version: v1.2
 last-verified: 2026-10-12
-verification-scope: contract-and-isolated-local-library
+verification-scope: contract-and-isolated-local-and-github-flow
 ---
 
 # [RUNBOOK] Learning Evidence Kit acceptance
@@ -17,7 +17,7 @@ verification-scope: contract-and-isolated-local-library
 
 Follow the [migration ADR](../adr/[ADR]_Learning_Evidence_Kit_Migration.md) and [record/API SPEC](../spec/[SPEC]_Learning_Evidence_Record_And_API.md). Epic [#209](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/209) targets marketplace 8.2.0 / learning-evidence-kit 0.1.0, directly replacing Understanding Kit with two explicit public skills. At PR1, current runtime remains develop 8.1.2 with Diagram 0.3.1, Understanding 0.1.2 and Explain 0.1.1; no new version or package is installed by this document.
 
-`last-verified` and `verification-scope` describe source, contract and isolated local-library verification. No new-package installation, native-window or client acceptance is established by that date. Existing releases' evidence stays historical and is not reused as a PASS for 8.2.0.
+`last-verified` and `verification-scope` describe source, contract and isolated local/common-flow verification. No new-package installation, native-window or client acceptance is established by that date. Existing releases' evidence stays historical and is not reused as a PASS for 8.2.0.
 
 Owner authorized technical execution and conditional formal publication, then accepted staged delivery: preserve both public skills/common interfaces; defer native entries unable to meet strict-window conditions, and keep the Epic incomplete. PR5 records actual enabled entries individually. Synthetic role checks provide reproducible engineering evidence and remain distinct from real human learning, actual desktop interaction, GitHub nonauthor approval and Owner final product acceptance.
 
@@ -43,8 +43,8 @@ Use `PASS` only for the observed criterion and tested version. `FAIL` records an
 | Local save and identity | Explicit/reused identity confirmation; person/source author/operator separation; stable IDs without Issue; atomic save, idempotent retry, changed-input conflict and concurrent/interrupted recovery | PASS for PR2 isolated implementation below; merge pending |
 | Baseline and association | Complete recoverable requirement content survives source edits/worktree deletion; reference-only locally excluded manifest; new-worktree restore and distinct PR applications with stable learning ID | PASS for PR2 isolated implementation below; merge pending |
 | Export/import/archive | Complete linked export and digest manifest; import retains identity/history; malicious member paths, corrupt content and conflicting existing IDs fail safely; retained archive remains exportable | PASS for PR2 isolated implementation below; merge pending |
-| Ordinary PR sharing | Complete JSON/reading content and actual receipts; explicit scope; all segments read back; unknown result reconciliation, duplicate prevention and missing-parts-only recovery | NOT_RUN; PR3 fake-gh tests and separately scoped actual evidence |
-| Incremental acquisition | Visible open/closed/merged PR coverage; all pages; comment update time; five-minute overlap, equal-time deduplication and edited versions; failure retains snapshots and complete cursor; unavailability exposed as a gap | NOT_RUN; PR3 |
+| Ordinary PR sharing | Complete JSON/reading content and actual receipts; explicit scope; all segments read back; unknown result reconciliation, duplicate prevention and missing-parts-only recovery | PASS for PR3 isolated actual-Python/fake-gh implementation; no real remote publication claim |
+| Incremental acquisition | Visible open/closed/merged PR coverage; all pages; comment update time; five-minute overlap, equal-time deduplication and edited versions; failure retains snapshots and complete cursor; unavailability exposed as a gap | PASS for PR3 isolated actual-Python/fake-gh implementation; no real repository-wide collection claim |
 | Pop Quiz behavior | Explicit start; one default KU, explicit second KU, two-KU/five-question budget; withheld diagnostic feedback; no recommended answer; unanswered/default/timeout/close does not progress; explicit save handoff retains actual status | NOT_RUN; PR4/5 independent synthetic-role runs |
 | Learning Record Check | Specified record/task prerequisite; separate validity/application conclusions; person's explanation and matching existing materials; missing materials allow authorized record sharing only; later application needs a new manual trigger | NOT_RUN; PR4/5 independent synthetic-role runs |
 | Package and installation | Exactly three plugins, five public skills and two explicit policies; other plugin versions unchanged; approved icon bytes; no repository-skill leakage; installed common-script resolution/execution and no staging dependency | NOT_RUN; PR4/5, Codex 0.147.0 isolation |
@@ -87,6 +87,14 @@ Final checks: 241/241 Node tests, zero skipped, including 33 actual Python 3.12.
 
 PR2 is [#224](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/224). Before its merge, parallel HTML contract PR #221 advanced develop to `70267a5b91d759af09a8f1281a33e2d5a90fdbc9`. Synchronization preserves both projects' A6/Unreleased content, HTML version/scope support and all upstream assets. The runtime remains byte-identical to that base. Reverification passed 253/253 Node tests, zero skips, the same 33 actual Python storage cases, strict validation, exact Codex baseline and all four isolated installations with actual cached Python diagram checks. The initial receipt remains intact; its `upstream_sync` section records this broader rerun. GitHub approval and final merge remain pending.
 
+### PR3 manual GitHub flow and independent review (2026-10-12)
+
+The same staged JSON entry now implements `publish` and `collect` using the already authenticated `gh` executable with argument arrays and JSON stdin. Publication freezes actual target metadata, includes complete JSON plus generated reading text, splits by conservative UTF-8 limits and verifies every part. Initial/retry reads precede writes; unknown POST outcomes reconcile before missing-only recovery. Conflicts, incomplete receipts and failures retain their precise result.
+
+Collection includes actual open/closed/merged PR conversation sources, complete pagination, update-time cursors with five-minute overlap, equal-time/body-digest deduplication, immutable source versions, gaps and no false deletion. Independent spec review found that filtered collection persisted unselected bodies and that a moving offset page could lose a source while advancing the cursor. Repairs determine scope from complete validated groups before body persistence, and require two consecutive stable page inventories within four scans, with any repeated ID marking drift. Unknown filtered scope retains metadata gaps only; confirmed in-scope snapshots survive later failures; the previous complete cursor survives unstable/incomplete coverage. This observed stability is not a server-side atomic snapshot guarantee.
+
+All write acceptance uses real Python 3.12.13 invoking a controlled `gh` substitute through subprocess/JSON stdin, with explicit temporary libraries. No actual GitHub comment was created by these tests. Final regression passed 283/283 Node tests, zero skips, including 33 storage and 30 GitHub cases; strict validation, exact Codex baseline and four isolated installations with actual diagram Python checks passed. Independent original-case reruns passed person/task/time exclusion, malformed/incomplete scope gaps, same-request recovery, the 101-comment moved-page scenario and later-page failure recovery without scope leakage or duplicate snapshots. The [PR3 receipt](evidence/learning-evidence-github-checks.json) retains source hashes, methods and limits. Standards review found zero hard violations/required repairs and one nonblocking duplicate UTC-parser maintenance note. The current packages and versions remain unchanged; installing the staged scripts is PR4 work. Engineering review cannot supply GitHub nonauthor approval, actual desktop interaction or human learning evidence.
+
 ### Entry activation ledger
 
 PR5 fills one row for each actual host/entry combination, retaining method, client version, install source/plugin/head identity, actual call evidence, individual window results, impact and removal condition. No entry is enabled solely by the contract or a static metadata check.
@@ -109,7 +117,7 @@ All PRs use `Refs` for the corresponding child and Epic. A merged contract is no
 | --- | --- | --- | --- | --- |
 | 1 Contract and migration | [#210](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/210) | Intake | MERGED #216; child closed, contract tree equality verified; reviews empty | Actual merge f64fc957 and tested b83db6a tree equality; no retroactive independent approval claim |
 | 2 Local evidence library | [#211](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/211) | 1 | PR #224; 33 isolated cases, 253-test upstream rerun and independent review passed; approval/merge pending | Isolated Python runs, runtime-byte equality, merge and scoped receipts |
-| 3 GitHub flow/collection | [#212](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/212) | 2 | NOT_RUN | Substitute writes/recovery/coverage evidence, byte equality and merge |
+| 3 GitHub flow/collection | [#212](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/212) | 2 | PREPARED; isolated subprocess checks and independent review; dependency/approval/merge pending | Substitute writes/recovery/coverage evidence, byte equality and merge |
 | 4 Atomic skill/package switch | [#213](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/213) | 2, 3 | NOT_RUN | Exact inventory, new package/version identity, staging removal, installed execution and merge |
 | 5 Technical acceptance/preparation | [#214](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/214) | 4 | NOT_RUN | Per-entry results/deferred list, independent synthesis, tests, 8.2.0 notes and merge |
 | 6 Release and tracking | [#215](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/215) | 5 | NOT_RUN | Approval/checks/threads, release identity, canonical and post-publication results |
@@ -130,3 +138,4 @@ Use existing draft-first release controls and record actual remote state before 
 | --- | --- | --- | --- |
 | v1.0 | 2026-10-12 | Source/intake/document structure; new runtime NOT_RUN | Contract acceptance matrix, actual intake facts, strict-window staged-entry policy, six delivery PRs and two closeout PRs; Refs #210 and Epic #209 |
 | v1.1 | 2026-10-12 | Contract merge and isolated local library; clients NOT_RUN | PR2 independent repairs, 33 Python cases, #224 and 253-test latest-develop synchronization; preserve parallel HTML contracts and earlier evidence |
+| v1.2 | 2026-10-12 | Isolated manual GitHub flow with controlled remote substitute; clients NOT_RUN | Scope-before-persistence, stable pagination, partial recovery, source receipts and independent original-case reruns; Refs #212 |
