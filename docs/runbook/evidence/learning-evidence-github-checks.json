@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-12",
+  "scope": "PR3 staged manual GitHub common flow",
+  "base": "73f1c56113f9fad89f76ac147e3e021e8dd6853c",
+  "upstream_develop": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+  "depends_on": "PR #224; not merged at preparation",
+  "synthetic": true,
+  "python": "3.12.13",
+  "node_tests": {
+    "pass": 283,
+    "fail": 0,
+    "skipped": 0,
+    "duration_ms": 53341.251
+  },
+  "actual_python_cases": {
+    "storage": 33,
+    "github": 30,
+    "storage_duration_seconds": 24.089,
+    "interpreter_required": true
+  },
+  "method": {
+    "library": "Every write test uses an explicit isolated TemporaryDirectory library_root",
+    "transport": "Actual GhClient subprocess argv/JSON stdin invokes controlled fake_gh.py",
+    "actual_github_comment_writes": 0,
+    "source_hashes": "Tested working bytes and canonical LF source recorded separately; Git checkout line endings may vary"
+  },
+  "validation": {
+    "strict": "PASS: unchanged three plugins/four public skills",
+    "codex": "0.147.0",
+    "isolated_installation_scenarios": 4,
+    "installed_diagram_python": "FAIL 0 / WARN 0",
+    "runtime_diff": "empty against upstream develop for plugins, VERSION and marketplace registration"
+  },
+  "independent_review": {
+    "standards_hard_violations": 0,
+    "required_repairs_remaining": 0,
+    "nonblocking_maintenance_note": "RFC3339 UTC parsing is duplicated in common and flow modules",
+    "original_spec_failures": [
+      "Filtered collection persisted unselected person/task/time bodies",
+      "Moving offset pages missed evidence while advancing completed cursor"
+    ],
+    "repair": "Validate complete groups and scope before persistence; bounded consecutive stable inventories and repeated-ID drift",
+    "original_case_retest": "PASS: all three filtered scopes exclude secret bodies, unknown/partial scoped bodies are excluded, same-request recovery is complete without duplicate snapshots, 101-comment page move takes three scans and recovers source, later-page failure retains selected snapshots and prior cursor",
+    "github_nonauthor_approval": "Not supplied by engineering review"
+  },
+  "source_hashes": {
+    "common.py": {
+      "tested_working_bytes_sha256": "c41c6509ce3e52da78bebd694c23965307c2b869041d4bcf5978241bc6f1c00b",
+      "canonical_lf_source_sha256": "939e092bfaa5dbaef85641cdb4452938192cce544213e23d334cff92f2827446"
+    },
+    "storage.py": {
+      "tested_working_bytes_sha256": "3ac03569b251ad774b035cb8ba67bfeb417957b107e3823beb70b566eb12b9a4",
+      "canonical_lf_source_sha256": "06135056aca5d6bf0b65b108f131b5aceac87cefd80b84d9d1cf6255a6bf0c37"
+    },
+    "lek.py": {
+      "tested_working_bytes_sha256": "0dc1c4b7728aa65f47a555dcecab78c86b0b2290974947873c01ceaf59b658a7",
+      "canonical_lf_source_sha256": "b1da7a7716bdecd3a2315c315531a67bb30c56c3bc1230bf1a98d18c77ef0c27"
+    },
+    "github_flow.py": {
+      "tested_working_bytes_sha256": "0542ff20ac4af7912e67b2b9fbba187629fc8b28b17f11648d0ea38ad5910d1e",
+      "canonical_lf_source_sha256": "0542ff20ac4af7912e67b2b9fbba187629fc8b28b17f11648d0ea38ad5910d1e"
+    }
+  },
+  "limits": [
+    "Controlled remote substitute; no real repository-wide collection or comment publication claim",
+    "Observed stable pagination is not an atomic server-side snapshot guarantee",
+    "New-package installed execution belongs to PR4",
+    "Native question windows and actual desktop calls are NOT_RUN/deferred per entry",
+    "No human learning, formal release or Owner final acceptance",
+    "PR2/PR3 merge and GitHub independent approval remain separate"
+  ]
+}
