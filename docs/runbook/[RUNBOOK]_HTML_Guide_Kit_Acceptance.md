@@ -154,3 +154,5 @@ Owner 明确回复“A：HTML 教材（推荐）— 开放书页＋尖括号”�
 
 
 同步工作树重新执行 npm test 252/252、0 skip，validate、Codex 0.147.0 基线和四组 smoke 全部通过；三个含 Diagram 场景缓存 Python 均扫描 1、FAIL 0 / WARN 0。43 项运行资源 SHA-256 与最初工程证据一致，四项 incoming 专属文件的 staged Git blob 与 origin/develop 完全一致，见 [同步检查](evidence/html-guide-kit/pr1-develop-sync-checks.json) 和 [本轮测试日志](evidence/html-guide-kit/pr1-sync-npm-test.log)。
+
+同步 merge `6d40991e56829c406d911b550de5c0bb9bf2195e`、tree `37e0b24ec3559ce3aeaac2f19467363f42a90e9e` 的完整 canonical 严格校验和四种安装已通过，三个含 Diagram 场景实际缓存 Python 扫描 1、FAIL 0 / WARN 0；原始结果见 [同步后 canonical 安装](evidence/html-guide-kit/pr1-sync-canonical-install.json)。后续只保存此回执的文档提交不改变运行内容；最终 head 和字节等价关系由 PR 正文记录。独立只读双轴审查未见实质冲突，不能替代 GitHub 批准。
