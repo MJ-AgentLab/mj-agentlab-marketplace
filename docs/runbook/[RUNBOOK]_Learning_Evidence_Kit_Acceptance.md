@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-12
 state: active
-version: v1.0
+version: v1.1
 last-verified: 2026-10-12
 verification-scope: contract-and-isolated-local-library
 ---
@@ -17,7 +17,7 @@ verification-scope: contract-and-isolated-local-library
 
 Follow the [migration ADR](../adr/[ADR]_Learning_Evidence_Kit_Migration.md) and [record/API SPEC](../spec/[SPEC]_Learning_Evidence_Record_And_API.md). Epic [#209](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/209) targets marketplace 8.2.0 / learning-evidence-kit 0.1.0, directly replacing Understanding Kit with two explicit public skills. At PR1, current runtime remains develop 8.1.2 with Diagram 0.3.1, Understanding 0.1.2 and Explain 0.1.1; no new version or package is installed by this document.
 
-`last-verified` and `verification-scope` describe source, read-only intake and document-structure verification only. No new-package runtime, native-window or client acceptance is established by that date. Existing releases' evidence stays historical and is not reused as a PASS for 8.2.0.
+`last-verified` and `verification-scope` describe source, contract and isolated local-library verification. No new-package installation, native-window or client acceptance is established by that date. Existing releases' evidence stays historical and is not reused as a PASS for 8.2.0.
 
 Owner authorized technical execution and conditional formal publication, then accepted staged delivery: preserve both public skills/common interfaces; defer native entries unable to meet strict-window conditions, and keep the Epic incomplete. PR5 records actual enabled entries individually. Synthetic role checks provide reproducible engineering evidence and remain distinct from real human learning, actual desktop interaction, GitHub nonauthor approval and Owner final product acceptance.
 
@@ -85,6 +85,8 @@ Final checks: 241/241 Node tests, zero skipped, including 33 actual Python 3.12.
 
 #216 merged as `f64fc957b9fa595ac483724e2f60c1314b276574`; its Git tree equals tested `b83db6a`, all remote checks succeeded, review threads are absent, and GitHub reviews remain empty. #210 was explicitly closed on its contract delivery criteria; this does not retroactively establish a GitHub nonauthor approval. PR2 uses that current develop ancestry. No new-package installation, native question window, actual desktop route, formal publication, learning benefit or Owner final acceptance is established by these local-library results.
 
+PR2 is [#224](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/224). Before its merge, parallel HTML contract PR #221 advanced develop to `70267a5b91d759af09a8f1281a33e2d5a90fdbc9`. Synchronization preserves both projects' A6/Unreleased content, HTML version/scope support and all upstream assets. The runtime remains byte-identical to that base. Reverification passed 253/253 Node tests, zero skips, the same 33 actual Python storage cases, strict validation, exact Codex baseline and all four isolated installations with actual cached Python diagram checks. The initial receipt remains intact; its `upstream_sync` section records this broader rerun. GitHub approval and final merge remain pending.
+
 ### Entry activation ledger
 
 PR5 fills one row for each actual host/entry combination, retaining method, client version, install source/plugin/head identity, actual call evidence, individual window results, impact and removal condition. No entry is enabled solely by the contract or a static metadata check.
@@ -103,10 +105,10 @@ Real-task learning benefits, long-term retention, transfer and management judgme
 
 All PRs use `Refs` for the corresponding child and Epic. A merged contract is not a passing implementation; each child closes only after its own merged delivery and agreed acceptance. The release PR must not use `Closes #209`.
 
-| PR stage | Child | Depends on | State at PR1 | Completion evidence to record |
+| PR stage | Child | Depends on | Current state | Completion evidence to record |
 | --- | --- | --- | --- | --- |
-| 1 Contract and migration | [#210](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/210) | Intake | IN_PROGRESS; files prepared, local structure passed, broader validation/contract root review passed; nonauthor approval pending | Actual PR, tested head/tree, checks, merge and contract review |
-| 2 Local evidence library | [#211](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/211) | 1 | PREPARED; 33 isolated cases, full regression and independent review passed; merge pending | Isolated Python runs, runtime-byte equality, merge and scoped receipts |
+| 1 Contract and migration | [#210](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/210) | Intake | MERGED #216; child closed, contract tree equality verified; reviews empty | Actual merge f64fc957 and tested b83db6a tree equality; no retroactive independent approval claim |
+| 2 Local evidence library | [#211](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/211) | 1 | PR #224; 33 isolated cases, 253-test upstream rerun and independent review passed; approval/merge pending | Isolated Python runs, runtime-byte equality, merge and scoped receipts |
 | 3 GitHub flow/collection | [#212](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/212) | 2 | NOT_RUN | Substitute writes/recovery/coverage evidence, byte equality and merge |
 | 4 Atomic skill/package switch | [#213](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/213) | 2, 3 | NOT_RUN | Exact inventory, new package/version identity, staging removal, installed execution and merge |
 | 5 Technical acceptance/preparation | [#214](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/214) | 4 | NOT_RUN | Per-entry results/deferred list, independent synthesis, tests, 8.2.0 notes and merge |
@@ -127,3 +129,4 @@ Use existing draft-first release controls and record actual remote state before 
 | Version | Date | Verification scope | Summary |
 | --- | --- | --- | --- |
 | v1.0 | 2026-10-12 | Source/intake/document structure; new runtime NOT_RUN | Contract acceptance matrix, actual intake facts, strict-window staged-entry policy, six delivery PRs and two closeout PRs; Refs #210 and Epic #209 |
+| v1.1 | 2026-10-12 | Contract merge and isolated local library; clients NOT_RUN | PR2 independent repairs, 33 Python cases, #224 and 253-test latest-develop synchronization; preserve parallel HTML contracts and earlier evidence |
