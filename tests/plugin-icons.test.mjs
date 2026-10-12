@@ -8,6 +8,7 @@ import { validatePluginIcons, assertInstalledIcons, resolveIconPath, inspectPng,
 import { exportSvg } from "../scripts/export-icons.mjs";
 import { validateManifest, validateRepository } from "../scripts/validate-portable.mjs";
 import { validateBrandAssets } from "../scripts/brand-assets.mjs";
+import { renderBrandPreviews } from "../scripts/render-brand-previews.mjs";
 
 const repo = path.resolve(import.meta.dirname, "..");
 const manifest = () => ({ name: "future-workflow-kit", extensions: { "com.openai": { interface: { logo: "./assets/icon.png", composerIcon: "./assets/icon.png" } } } });
@@ -139,4 +140,31 @@ test("brand verification detects original-reference drift, theme drift and wrong
   fs.writeFileSync(source, svg.replaceAll("#223D66", "#FF0000")); assert.throws(() => validateBrandAssets(isolated), /palette drift/);
   fs.writeFileSync(source, svg.replaceAll('x2="100%"', 'x2="0%"')); assert.throws(() => validateBrandAssets(isolated), /gradient drift/); fs.writeFileSync(source, svg);
   fs.writeFileSync(path.join(isolated, "assets/brand/previews/diagram-kit-32.png"), png(48)); assert.throws(() => validateBrandAssets(isolated), /dimensions/);
+});
+
+test("four-icon comparison renders every large icon and both native-size rows without cropping", t => {
+  const { root } = fixture(t), previews = path.join(root, "assets/brand/previews");
+  fs.mkdirSync(previews, { recursive: true });
+  const colors = [[210,30,40,255], [20,180,70,255], [40,90,210,255], [150,40,190,255]];
+  const icons = colors.map((color, i) => ({ id: `fixture-${i}-kit`, output: `assets/icon-${i}.png` }));
+  const logos = ["a", "b", "c"].map(id => ({ id: `marketplace-${id}`, output: "assets/icon-0.png" }));
+  fs.writeFileSync(path.join(root,"assets/brand/exports.json"),JSON.stringify({icons:[...icons,...logos]}));
+  for (const [i, icon] of icons.entries()) {
+    fs.writeFileSync(path.join(root, icon.output), png(1024,1024,colors[i]));
+    for (const size of [32,48,64]) fs.writeFileSync(path.join(previews,`${icon.id}-${size}.png`),png(size,size,colors[i]));
+  }
+  for (const icon of logos) for (const size of [32,48,64]) fs.writeFileSync(path.join(previews,`${icon.id}-${size}.png`),png(size,size,colors[0]));
+  const [familyFile, candidateFile] = renderBrandPreviews(root);
+  const sheet = PNG.sync.read(fs.readFileSync(familyFile)), candidates = PNG.sync.read(fs.readFileSync(candidateFile));
+  assert.equal(sheet.width,1200);assert.equal(sheet.height,1170);assert.equal(candidates.height,650);
+  const pixel = (x,y) => [...sheet.data.subarray((y*sheet.width+x)*4,(y*sheet.width+x)*4+4)];
+  for (const [i,color] of colors.entries()) {
+    const x=36+(i%3)*388,y=Math.floor(i/3)*520;
+    assert.deepEqual(pixel(x+174,y+260),color,`large icon ${i} is visible`);
+    for (const [column,size] of [32,48,64].entries()) for (const py of [420,536]) {
+      const px=x+26+column*112;
+      assert.deepEqual(pixel(px+size-1,y+py+size-1),color,`icon ${i}, ${size}px, row ${py} is complete`);
+      assert.notDeepEqual(pixel(px+size,y+py+size-1),color,`icon ${i}, ${size}px is rendered at native width`);
+    }
+  }
 });
