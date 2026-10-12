@@ -11,6 +11,12 @@ version: v1.2
 
 # [RUNBOOK] Brand identity acceptance
 
+## Communication PR2 canonical 复验
+
+Owner 于 2026-10-12 明确选择第二轮 D 地球＋清晰文字，原稿/初轮候选/失败导出保留。PR2仍不注册第四插件，不改变正式exports或真实版本。当前准备head04b664d（包含PR1 #223证据）已实际调用verifyReleaseInstall；[canonical记录](evidence/communication-kit-2026-10-12-foundation-canonical-01.json)的四组既有安装、图标字节比较和三次安装缓存Python检查通过。
+
+PR1未正式合并、当前head独立批准及真实桌面显示仍是未完成条件；本记录不是Communication实际行为、客户端或发布后R04通过。
+
 ## Identity and approved design
 
 日期：2026-10-10（Asia/Taipei）。基准 develop 77f4395；独立分支 codex/marketplace-brand-icons。市场保持 8.1.1（未发布），插件候选版本为 diagram-kit 0.3.1 / understanding-kit 0.1.2 / explain-kit 0.1.1。
