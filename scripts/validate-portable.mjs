@@ -90,6 +90,7 @@ export function validateManifest(manifest, expectedName) {
   const capabilities = PLUGIN_CAPABILITIES[manifest.name];
   if (!Array.isArray(ui.capabilities) || ui.capabilities.length !== capabilities.length || new Set(ui.capabilities).size !== ui.capabilities.length || ui.capabilities.some(value => !capabilities.includes(value))) throw new Error("interface.capabilities must match the plugin's approved capabilities");
   if (ui.category !== "Developer Tools" || !Array.isArray(ui.defaultPrompt) || !ui.defaultPrompt.length || ui.defaultPrompt.some(p => !routesToOwnedSkill(p, manifest.name))) throw new Error("invalid OpenAI listing/routing metadata");
+  if (manifest.name === "html-guide-kit" && ui.defaultPrompt.some(prompt => [...prompt].length > 128)) throw new Error("html-guide-kit interface.defaultPrompt entries must be at most 128 characters");
   for (const skill of RUNTIME_PLUGINS[manifest.name]) {
     if (!ui.defaultPrompt.some(prompt => [...prompt.matchAll(/\$([a-z0-9-]+):([a-z0-9-]+)(?![A-Za-z0-9_-])/g)].some(([, plugin, name]) => plugin === manifest.name && name === skill))) throw new Error("listing must expose every public skill");
   }

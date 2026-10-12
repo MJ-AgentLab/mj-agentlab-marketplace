@@ -55,6 +55,23 @@ test("HTML Guide Kit manifest rejects wrong identity, root versions, capabilitie
  }
 });
 
+test("HTML Guide Kit marketplace default prompts remain discoverable within the runtime length limit",()=>{
+ const m=manifest(),prompts=ui(m).defaultPrompt;assert.equal(prompts.length,1);
+ assert.ok([...prompts[0]].length<=128,"runtime ignores marketplace examples longer than 128 characters");
+ const calls=[...prompts[0].matchAll(/\$([a-z0-9-]+):([a-z0-9-]+)(?![A-Za-z0-9_-])/g)];
+ assert.equal(calls.length,1);assert.equal(calls[0][1],PLUGIN);assert.equal(calls[0][2],"guide");
+ assert.match(prompts[0],/new teaching guide/);assert.match(prompts[0],/wait for my confirmation/);
+ assert.doesNotThrow(()=>validateManifest(m,PLUGIN));
+});
+
+test("HTML Guide Kit marketplace default prompts accept 128 characters and reject any oversized entry",()=>{
+ const prefix="Use $html-guide-kit:guide ",atLimit=prefix+"x".repeat(128-prefix.length),oversized=atLimit+"x";
+ const m=manifest();ui(m).defaultPrompt=[atLimit];assert.doesNotThrow(()=>validateManifest(m,PLUGIN));
+ for(const prompts of [[oversized],[atLimit,oversized],[oversized,atLimit]]){
+  ui(m).defaultPrompt=prompts;assert.throws(()=>validateManifest(m,PLUGIN),/defaultPrompt entries must be at most 128 characters/);
+ }
+});
+
 test("guide native metadata requires its own route and a boolean false invocation policy",()=>{
  const text=read(`${SKILL_PATH}/agents/openai.yaml`),valid=validateOpenAIConfig(text,PLUGIN,"guide");
  assert.equal(valid.policy.allow_implicit_invocation,false);
