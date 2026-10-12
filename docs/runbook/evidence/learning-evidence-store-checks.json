@@ -1,0 +1,48 @@
+{
+  "scope": "PR2 isolated local implementation",
+  "smoke": {
+    "scenarios": 4,
+    "codex": "0.147.0",
+    "diagram_output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+    "installed_native_skills": 4
+  },
+  "node_tests": {
+    "fail": 0,
+    "pass": 241,
+    "skipped": 0,
+    "duration_ms": 22046.3672
+  },
+  "synthetic": true,
+  "python_cases": {
+    "duration_seconds": 21.649,
+    "fail": 0,
+    "pass": 33
+  },
+  "runtime_diff": "empty against origin/develop for plugins/VERSION/marketplace registration",
+  "limits": [
+    "GitHub flow belongs to PR3; no remote write in these tests",
+    "New package migration/installed execution belongs to PR4",
+    "No native UI or human learning result",
+    "PR2 not merged at preparation; Owner final acceptance separate"
+  ],
+  "python": "3.12.13",
+  "library_isolation": "Every mutation in tests has an explicit TemporaryDirectory absolute library_root",
+  "schema_version": 1,
+  "independent_review": {
+    "fixed": true,
+    "standards": "0 unresolved findings",
+    "spec_original_findings": [
+      "Duplicate evidence root imported into a destination library",
+      "Receipt digest contradicted imported original"
+    ],
+    "independent_retest": "Both negative imports fail with no invalid writes; valid roundtrip restores exact originals/baseline/association",
+    "gitHub_approval": "Not provided by engineering review"
+  },
+  "base": "f64fc957b9fa595ac483724e2f60c1314b276574",
+  "date": "2026-10-12",
+  "code_hashes": {
+    "lek.py": "b1da7a7716bdecd3a2315c315531a67bb30c56c3bc1230bf1a98d18c77ef0c27",
+    "common.py": "939e092bfaa5dbaef85641cdb4452938192cce544213e23d334cff92f2827446",
+    "storage.py": "06135056aca5d6bf0b65b108f131b5aceac87cefd80b84d9d1cf6255a6bf0c37"
+  }
+}

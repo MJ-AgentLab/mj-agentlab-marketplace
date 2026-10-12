@@ -5,6 +5,13 @@
 
 ## [Unreleased]
 
+### Added
+
+- Stage Python 3.12 local Learning Evidence storage with immutable records, confirmed attribution, full baselines, idempotent transactions, reference-only worktree association, complete export/import and retained archive. Old runtime packages remain byte-identical; installation switch is deferred to PR4.
+
+- Record the accepted Learning Evidence Kit migration and immutable record/common JSON API contracts for Epic #209, with six dependent implementation PRs and two post-release closeout PRs. PR1 preserves current runtime packages and versions; target marketplace 8.2.0 / plugin 0.1.0 remains unimplemented and unpublished.
+- Add a scoped technical acceptance ledger for independent synthetic roles, persistence/recovery, manual GitHub flow and actual client entries. Preserve both explicit public skills/common interfaces; defer entries unable to meet strict native-window acceptance. Core delivery, full Epic completion and Owner final acceptance remain separate; contracts do not establish runtime or learning-effect success.
+
 ### Changed
 
 - Prepare the unpublished develop 8.1.2 pre-bump after #206 synchronized the published main. Update only marketplace VERSION and its derived README badge; keep all plugin versions, published version sections, tags and assets unchanged. Include the parallel publication-record documentation and synchronize its main merge ancestry when available.
