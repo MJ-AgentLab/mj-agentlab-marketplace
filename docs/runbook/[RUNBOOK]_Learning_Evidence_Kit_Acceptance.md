@@ -6,9 +6,9 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-12
 state: active
-version: v1.3
+version: v1.4
 last-verified: 2026-10-12
-verification-scope: contract-common-flow-and-isolated-package-installation
+verification-scope: contract-common-flow-package-and-partial-model-observations
 ---
 
 # [RUNBOOK] Learning Evidence Kit acceptance
@@ -115,6 +115,14 @@ The LRC selection prerequisite is now explicit before library reading/listing: r
 
 The first isolated config omitted the baseline's existing Windows native sandbox selection; permission probes using that existing implementation and managed constraints confirm bounded TEMP workspace writes. Native protection still refuses first-time Git metadata exclusion writes. The next handoff role therefore uses an explicitly preconfigured local exclusion; actual model save/association/manifest must still occur. This route cannot claim automatic Git-exclusion creation. P2's separately scoped actual-Python automatic exclusion evidence remains intact. New model runs use fresh roots/UUIDs, libraries independent of worktrees and controlled remote states within bounded TEMP roots; permission probes or prepared commands supply no model-behavior PASS.
 
+The second frozen-source round uses `26edea32edcab682a815a19e60c974d40986bebe`. Independent review observes actual complete handoff save/association and no library enumeration for unspecified selection, with original command/probe failures retained. It also found two new defects: CLI 0.147.0 ignores manifest listing prompt index 1 because its 176 characters exceed 128; the missing-material role announces and executes implementation/application probes before obtaining the person's explanation, although its final application status is not_run and no application_check is saved. That role's scoped record-check saving/publication and unchanged original are separate positive observations, not an overall behavior PASS.
+
+The [original second-round receipt](evidence/learning-evidence-second-model-round.json) retains six sessions/seven actual turns, all neutral inputs, actual command/API failures, library comparisons/receipts, controlled remote scope and transcript hashes. Material-arrival phases 1/2 also fail: quiz answers are reused as application explanation, and newly arrived files provoke application reassessment without another manual trigger. Phase 3 and the two final identity cases are NOT_RUN; copied auth files are zero after cleanup. The complete planned suite was not accepted.
+
+The unpublished candidate shortens that example to 89 Unicode scalar values and strictly enforces raw listing budgets of 128 scalar values / three examples, based on the fixed client source in the [manifest SPEC](../spec/[SPEC]_Plugin_Json_Schema.md). It also checks every application prerequisite before implementation investigation or probes, stopping immediately on missing inputs without generating substitute materials or partial application findings. Stage 1 provenance checks and authorized sharing remain available. Complete requests reuse confirmed inputs; material arrival still requires a new manual application trigger. The second round keeps its original source and failures, and these repairs require fresh-source actual model/canonical checks in PR5 before qualification.
+
+Repair checks passed 290/290, zero skips, including the same 33 storage and 31 actual-Python GitHub cases, plus 32 targeted document/portable cases and strict validation. The final small repairs reject unpaired surrogate listing strings and explicitly reject quiz answers/task text as application explanation; 32 targeted cases pass after those additions. The [repair receipt](evidence/learning-evidence-entry-gates-checks.json) preserves both tested-byte snapshots and the second round's premature application/material-arrival failures. Final frozen-source full regression/model/canonical criteria remain pending; green structural tests do not establish repaired model behavior.
+
 ### Entry activation ledger
 
 PR5 fills one row for each actual host/entry combination, retaining method, client version, install source/plugin/head identity, actual call evidence, individual window results, impact and removal condition. No entry is enabled solely by the contract or a static metadata check.
@@ -160,3 +168,4 @@ Use existing draft-first release controls and record actual remote state before 
 | v1.1 | 2026-10-12 | Contract merge and isolated local library; clients NOT_RUN | PR2 independent repairs, 33 Python cases, #224 and 253-test latest-develop synchronization; preserve parallel HTML contracts and earlier evidence |
 | v1.2 | 2026-10-12 | Isolated manual GitHub flow with controlled remote substitute; clients NOT_RUN | Scope-before-persistence, stable pagination, partial recovery, source receipts and independent original-case reruns; Refs #212 |
 | v1.3 | 2026-10-12 | Atomic candidate and installed-cache common capabilities; model/native desktop NOT_RUN | PR4 replacement, unchanged shared modules/other plugin versions, historical preservation and five installation combinations; Refs #213 |
+| v1.4 | 2026-10-12 | Actual second-round defects and candidate repairs; repair-model acceptance pending | Preserve ignored listing example and premature application probes; enforce listing budgets and Stage 2 prerequisites before investigation; Refs #213 / #214 |

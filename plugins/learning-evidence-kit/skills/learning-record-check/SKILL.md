@@ -21,7 +21,9 @@ Only explicit sharing authorization invokes publish for the complete valid learn
 
 ## Stage 2: knowledge application
 
-Proceed only when manual request covers application checking and supplies applicable record, current task/PR version, person's explanation and existing verification materials. A complete single request can execute both stages/their authorized publications without repeated confirmation. Missing materials permit Stage 1's authorized sharing; keep knowledge application not_run, list gaps, and wait for a new manual request after materials arrive.
+Before investigating the current implementation or running any probes/tests for application, establish every prerequisite: a manual application-check request, an applicable record, the current task/PR version, the person's explanation of their choices for this application and existing verification materials. Stored quiz answers, AI inferences and task source text do not supply that explanation. Stage 1 may verify stored baseline, task/source and version provenance; it does not authorize implementation/application evaluation. A complete single request can execute both stages/their authorized publications without repeated confirmation.
+
+If any application prerequisite is missing, stop Stage 2 immediately. Do not inspect or execute the implementation for application, generate substitute verification materials, or report partial implementation/application findings. Missing materials permit Stage 1's authorized sharing only; keep knowledge application not_run, list gaps, and wait for a new manual request after materials arrive. Material arrival alone does not resume Stage 2.
 
 Use actual repository/PR/base/head and existing test/build/review/acceptance evidence. If absent, request the person's explanation of choices, constraints, exceptions, expectations and evidential support; wait for explicit reply. AI guesses cannot be attributed to them. Investigate current implementation in an application context distinct from quiz questions; quiz answers do not replace explanation.
 

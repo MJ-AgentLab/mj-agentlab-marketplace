@@ -114,6 +114,39 @@ test("manifest discovery prompts cover only the package's complete public skill 
  const m=source();m.name="unknown";assert.throws(()=>validateManifest(m));
 });
 
+test("manifest defaultPrompt budget counts raw Unicode scalars at 128 and 129",()=>{
+ const prefix="Use $diagram-kit:arch-diagram ",remaining=128-[...prefix].length;
+ for(const filler of ['x','中','😀']){
+  const m=manifest(),ui=m.extensions['com.openai'].interface;
+  ui.defaultPrompt=[prefix+filler.repeat(remaining)];
+  assert.equal([...ui.defaultPrompt[0]].length,128);
+  if(filler==='😀')assert.ok(ui.defaultPrompt[0].length>128,'UTF-16 units must not replace scalar counting');
+  if(filler==='中')assert.ok(Buffer.byteLength(ui.defaultPrompt[0],'utf8')>128,'UTF-8 bytes must not replace scalar counting');
+  assert.doesNotThrow(()=>validateManifest(m));
+  ui.defaultPrompt[0]+=filler;
+  assert.throws(()=>validateManifest(m),/interface\.defaultPrompt\[0\].*128 Unicode scalar/);
+ }
+ const padded=manifest();padded.extensions['com.openai'].interface.defaultPrompt=[prefix+' '.repeat(129-[...prefix].length)];
+ assert.throws(()=>validateManifest(padded),/128 Unicode scalar.*before normalization/);
+ for(const unpaired of ['\ud800','\udc00']){
+  const malformed=manifest();malformed.extensions['com.openai'].interface.defaultPrompt=[prefix+unpaired];
+  assert.throws(()=>validateManifest(malformed),/well-formed Unicode scalar/);
+ }
+ const learning=JSON.parse(read('plugins/learning-evidence-kit/plugin.json')),ui=learning.extensions['com.openai'].interface;
+ assert.doesNotThrow(()=>validateManifest(learning));
+ const checkPrefix='Use $learning-evidence-kit:learning-record-check ';
+ ui.defaultPrompt[1]=checkPrefix+'x'.repeat(129-[...checkPrefix].length);
+ assert.throws(()=>validateManifest(learning),/interface\.defaultPrompt\[1\].*128 Unicode scalar/);
+});
+
+test("manifest defaultPrompt lists preserve three prompts and reject a fourth",()=>{
+ const m=manifest(),ui=m.extensions['com.openai'].interface;
+ ui.defaultPrompt=['Use $diagram-kit:arch-diagram for this repository','Use $diagram-kit:arch-diagram for this component','Use $diagram-kit:arch-diagram for this dependency'];
+ assert.doesNotThrow(()=>validateManifest(m));
+ ui.defaultPrompt.push('Use $diagram-kit:arch-diagram for this interface');
+ assert.throws(()=>validateManifest(m),/interface\.defaultPrompt.*at most 3 prompts/);
+});
+
 test("skill UI resources cannot resolve outside their plugin package",t=>{
  const dir=repositoryFixture(t),agents=path.join(dir,"plugins/explain-kit/skills/glossary/agents"),outside=path.join(dir,"external-agents");
  fs.renameSync(agents,outside);
