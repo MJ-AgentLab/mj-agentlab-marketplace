@@ -1,0 +1,1072 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-12",
+  "timezone": "Asia/Taipei",
+  "headBefore": "1965fb54fe0d0204eb9f070e97c5f6b8b2782fd0",
+  "incomingDevelop": "f64fc957b9fa595ac483724e2f60c1314b276574",
+  "incomingPR": 216,
+  "kind": "resolved merge workspace; committed canonical identity recorded subsequently",
+  "resolvedConflicts": [
+    "CHANGELOG.md",
+    "docs/INDEX.md"
+  ],
+  "resolution": "retain both feature additions; INDEX v2.14; no runtime changes",
+  "incomingFiles": [
+    {
+      "path": "docs/adr/[ADR]_Learning_Evidence_Kit_Migration.md",
+      "incomingBlob": "06eacc460f263658e04cf42d53241e88a5003aae",
+      "stagedBlob": "06eacc460f263658e04cf42d53241e88a5003aae"
+    },
+    {
+      "path": "docs/spec/[SPEC]_Learning_Evidence_Record_And_API.md",
+      "incomingBlob": "9cf698b945d12ef72687c3712ddbd5112543e171",
+      "stagedBlob": "9cf698b945d12ef72687c3712ddbd5112543e171"
+    },
+    {
+      "path": "docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md",
+      "incomingBlob": "34d994e76a1f61e674fd292e62e30edfb6efae06",
+      "stagedBlob": "34d994e76a1f61e674fd292e62e30edfb6efae06"
+    },
+    {
+      "path": "docs/runbook/evidence/learning-evidence-contract-checks.json",
+      "incomingBlob": "93a2ed50e037af80cc1d2c380c0563ac4836d312",
+      "stagedBlob": "93a2ed50e037af80cc1d2c380c0563ac4836d312"
+    }
+  ],
+  "runtimeResources": {
+    "plugins/diagram-kit/assets/icon.png": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f",
+    "plugins/diagram-kit/assets/icon.svg": "3b77a72c2012f934397e4b32b483f7cb4b0d87375a8de5a3f65fc231da147a5e",
+    "plugins/diagram-kit/plugin.json": "8c51243d90e61764724bdb56256e603bdcf4414723111986685d5b70255097ed",
+    "plugins/diagram-kit/skills/arch-diagram/SKILL.md": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b",
+    "plugins/diagram-kit/skills/arch-diagram/agents/openai.yaml": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428",
+    "plugins/diagram-kit/skills/arch-diagram/references/architecture-methodology.md": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f",
+    "plugins/diagram-kit/skills/arch-diagram/references/code-diagram.md": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75",
+    "plugins/diagram-kit/skills/arch-diagram/references/component-diagram.md": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37",
+    "plugins/diagram-kit/skills/arch-diagram/references/container-diagram.md": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3",
+    "plugins/diagram-kit/skills/arch-diagram/references/context-diagram.md": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a",
+    "plugins/diagram-kit/skills/arch-diagram/references/deployment-diagram.md": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d",
+    "plugins/diagram-kit/skills/arch-diagram/references/domain-acquisition.md": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9",
+    "plugins/diagram-kit/skills/arch-diagram/references/sequence-diagram.md": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb",
+    "plugins/diagram-kit/skills/arch-diagram/references/state-machine-diagram.md": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb",
+    "plugins/diagram-kit/skills/arch-diagram/scripts/validate_diagram.py": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33",
+    "plugins/explain-kit/assets/icon.png": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95",
+    "plugins/explain-kit/assets/icon.svg": "8d5cf6c5a1eb48f273378da8715a16d276da0b95ff28c79a142080ee715b5874",
+    "plugins/explain-kit/plugin.json": "62c24bc96f812e707f5f425dbea2e06433880707678cb591929586255e5c5b91",
+    "plugins/explain-kit/skills/concept/SKILL.md": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+    "plugins/explain-kit/skills/concept/agents/openai.yaml": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf",
+    "plugins/explain-kit/skills/glossary/SKILL.md": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+    "plugins/explain-kit/skills/glossary/agents/openai.yaml": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619",
+    "plugins/understanding-kit/assets/icon.png": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad",
+    "plugins/understanding-kit/assets/icon.svg": "fbd451eb605921ebb03c700777a359358e2e7fa20c5ecb4034595d4a90263b08",
+    "plugins/understanding-kit/plugin.json": "9b709584a8fdfff9340e36a5292267fe74ee235a2ce70d209138cc92cb58d404",
+    "plugins/understanding-kit/skills/pop-quiz/SKILL.md": "7504638906dea0273a2eff23f095082393919830d14ff85f86beea1fe565b66e",
+    "plugins/understanding-kit/skills/pop-quiz/agents/openai.yaml": "3b168081fb8c6fc3ad0f0357799a651d6c479c266bac3264225a41ad3c6775fd",
+    "plugins/understanding-kit/skills/pop-quiz/evals/README.md": "f9410b42856d7f4bde021e01e71cf7bc9bbbddbdf6f3d231a03308f75a5509bd",
+    "plugins/understanding-kit/skills/pop-quiz/evals/cases.json": "2ca177e7ecf17e87b4ae19c554a9cfb5a2cf4a88a533f35bd6ea6f1a83645826",
+    "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/conflicting-requirements.md": "76d77932f4debea87263f08d43131b3ce739feb4af5cb16f8f4ee02da093d8bf",
+    "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/owner-evidence.md": "19bda26a113f705f1b22fa5efef39b00a1f985444758f51d571d09aa680a0f15",
+    "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/report-r1.md": "58f993aaa83430fbfe8ac049c4cb11c39b0777d95cf0d3ee90d33aa6352d8d37",
+    "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/report-r2.md": "5bcc65446775ffd61ed363b0e59c8dbfc726ecf16e213a730546b022c05a2030",
+    "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/security-review.md": "2e43daafb4759c80a345c613554fbcc36b3bba8a5d3862ead8de6334ae1d2cb2",
+    "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/untrusted-note.md": "524a4a772d48361476187d2fd0e703feb9bdbbf9d8e6e5c0c4248213b738294d",
+    "plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-cases-01-05.md": "49bf28413e1684c146baef5287618b2ddd10274493da2731832cbded04a1f1f3",
+    "plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-cases-06-09-11.md": "dba1216284269a49dc7c5222a02627a9de5559b3424a9f5c3dbc79c99685cb4e",
+    "plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-cases-10-12.md": "51c914b348ac7292bde70757364d2a489d4c3b9ad7be9f349fd77380fef8f809",
+    "plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-forward-sample.md": "dac90a9ed9b7ecde168bab947ad93383ccc667af484fba1a4f011a79b3aa4e60",
+    "plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-post-merge-matrix.md": "7ab4af673aac17d07ea9d78b88ce61b77f516d73ba54b591b19b66cdbfae45a4",
+    "plugins/understanding-kit/skills/pop-quiz/evals/rubric.md": "0d7376f2da9e9a95b63234b0bf7d53467ca68d0da3ea7c8916c0c72c0d2f6c66",
+    "plugins/understanding-kit/skills/pop-quiz/references/ku-selection.md": "6d78cdd36367eceeba8e3682782acf11f1d1fa124df8879e26960461c4c4aa29",
+    "plugins/understanding-kit/skills/pop-quiz/references/quiz-policy.md": "1f54212029d2dd1d6f2741d8d441d8f2cc0fd2f9f2abe211da8a8de501ba326e"
+  },
+  "runtimeBytesUnchanged": true,
+  "checks": [
+    {
+      "command": "npm test",
+      "status": 0,
+      "env": {
+        "REQUIRE_PWSH": "1",
+        "REQUIRE_PYTHON": "1"
+      },
+      "tests": 252,
+      "pass": 252,
+      "skipped": 0,
+      "log": "pr1-sync-npm-test.log"
+    },
+    {
+      "command": "npm run validate",
+      "status": 0,
+      "publicSkills": 4,
+      "repositorySkills": 20
+    },
+    {
+      "command": "npm run check",
+      "status": 0,
+      "codex": "0.147.0"
+    },
+    {
+      "command": "npm run smoke",
+      "status": 0
+    }
+  ],
+  "smoke": {
+    "ok": true,
+    "version": "codex-cli 0.147.0",
+    "marketplaces": [
+      "mj-agentlab-marketplace"
+    ],
+    "installed": [
+      "diagram-kit",
+      "understanding-kit",
+      "explain-kit"
+    ],
+    "installedIcons": {
+      "diagram-kit": {
+        "logo": {
+          "reference": "./assets/icon.png",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 121492,
+          "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f"
+        },
+        "composerIcon": {
+          "reference": "./assets/icon.png",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 121492,
+          "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f"
+        }
+      },
+      "understanding-kit": {
+        "logo": {
+          "reference": "./assets/icon.png",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 111262,
+          "sha256": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad"
+        },
+        "composerIcon": {
+          "reference": "./assets/icon.png",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 111262,
+          "sha256": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad"
+        }
+      },
+      "explain-kit": {
+        "logo": {
+          "reference": "./assets/icon.png",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 100032,
+          "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95"
+        },
+        "composerIcon": {
+          "reference": "./assets/icon.png",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 100032,
+          "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95"
+        }
+      }
+    },
+    "outside": {
+      "publicSkills": 3,
+      "repositorySkills": 0
+    },
+    "repository": {
+      "publicSkills": 3,
+      "repositorySkills": 20
+    },
+    "nativeOutside": {
+      "publicSkills": 4,
+      "repositorySkills": 0
+    },
+    "nativeRepository": {
+      "publicSkills": 4,
+      "repositorySkills": 20
+    },
+    "explicitOnly": [
+      "understanding-kit:pop-quiz"
+    ],
+    "skillPaths": {
+      "diagram-kit:arch-diagram": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\SKILL.md",
+      "explain-kit:concept": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\concept\\SKILL.md",
+      "explain-kit:glossary": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\glossary\\SKILL.md",
+      "understanding-kit:pop-quiz": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\skills\\pop-quiz\\SKILL.md"
+    },
+    "publicSkillPaths": {
+      "diagram-kit:arch-diagram": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\SKILL.md",
+      "explain-kit:concept": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\concept\\SKILL.md",
+      "explain-kit:glossary": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\glossary\\SKILL.md",
+      "understanding-kit:pop-quiz": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\skills\\pop-quiz\\SKILL.md"
+    },
+    "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-RHDV35/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+    "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+    "diagramValidation": {
+      "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-RHDV35/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+      "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+      "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+    },
+    "commands": [
+      {
+        "command": "git",
+        "args": [
+          "init",
+          "-q"
+        ],
+        "status": 0
+      },
+      {
+        "command": "codex",
+        "args": [
+          "--version"
+        ],
+        "status": 0
+      },
+      {
+        "command": "codex",
+        "args": [
+          "plugin",
+          "marketplace",
+          "add",
+          "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\src",
+          "--json"
+        ],
+        "status": 0
+      },
+      {
+        "command": "codex",
+        "args": [
+          "plugin",
+          "marketplace",
+          "list",
+          "--json"
+        ],
+        "status": 0
+      },
+      {
+        "command": "codex",
+        "args": [
+          "plugin",
+          "add",
+          "diagram-kit",
+          "--marketplace",
+          "mj-agentlab-marketplace",
+          "--json"
+        ],
+        "status": 0
+      },
+      {
+        "command": "codex",
+        "args": [
+          "plugin",
+          "add",
+          "understanding-kit",
+          "--marketplace",
+          "mj-agentlab-marketplace",
+          "--json"
+        ],
+        "status": 0
+      },
+      {
+        "command": "codex",
+        "args": [
+          "plugin",
+          "add",
+          "explain-kit",
+          "--marketplace",
+          "mj-agentlab-marketplace",
+          "--json"
+        ],
+        "status": 0
+      },
+      {
+        "command": "codex",
+        "args": [
+          "plugin",
+          "list",
+          "--json"
+        ],
+        "status": 0
+      },
+      {
+        "command": "codex",
+        "args": [
+          "debug",
+          "prompt-input",
+          "ordinary task discovery check"
+        ],
+        "status": 0
+      },
+      {
+        "command": "codex",
+        "args": [
+          "debug",
+          "prompt-input",
+          "repository skill discovery check"
+        ],
+        "status": 0
+      },
+      {
+        "command": "codex",
+        "args": [
+          "app-server",
+          "--stdio"
+        ],
+        "method": "skills/list",
+        "status": 0
+      },
+      {
+        "command": "codex",
+        "args": [
+          "mcp",
+          "list",
+          "--json"
+        ],
+        "status": 0
+      },
+      {
+        "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+        "args": [
+          "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+          "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\consumer\\installed context 中文 diagram.md"
+        ],
+        "status": 0
+      }
+    ],
+    "scenarios": [
+      {
+        "ok": true,
+        "version": "codex-cli 0.147.0",
+        "marketplaces": [
+          "mj-agentlab-marketplace"
+        ],
+        "installed": [
+          "diagram-kit"
+        ],
+        "installedIcons": {
+          "diagram-kit": {
+            "logo": {
+              "reference": "./assets/icon.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 121492,
+              "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f"
+            },
+            "composerIcon": {
+              "reference": "./assets/icon.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 121492,
+              "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f"
+            }
+          }
+        },
+        "outside": {
+          "publicSkills": 1,
+          "repositorySkills": 0
+        },
+        "repository": {
+          "publicSkills": 1,
+          "repositorySkills": 20
+        },
+        "nativeOutside": {
+          "publicSkills": 1,
+          "repositorySkills": 0
+        },
+        "nativeRepository": {
+          "publicSkills": 1,
+          "repositorySkills": 20
+        },
+        "explicitOnly": [],
+        "skillPaths": {
+          "diagram-kit:arch-diagram": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-vqBCZs\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\SKILL.md"
+        },
+        "publicSkillPaths": {
+          "diagram-kit:arch-diagram": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-vqBCZs\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\SKILL.md"
+        },
+        "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-vqBCZs/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+        "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-vqBCZs\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+        "diagramValidation": {
+          "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-vqBCZs/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+          "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-vqBCZs\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+          "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+        },
+        "commands": [
+          {
+            "command": "git",
+            "args": [
+              "init",
+              "-q"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "--version"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "add",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-vqBCZs\\src",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "diagram-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "ordinary task discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "repository skill discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "app-server",
+              "--stdio"
+            ],
+            "method": "skills/list",
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "mcp",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-vqBCZs\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-vqBCZs\\consumer\\installed context 中文 diagram.md"
+            ],
+            "status": 0
+          }
+        ]
+      },
+      {
+        "ok": true,
+        "version": "codex-cli 0.147.0",
+        "marketplaces": [
+          "mj-agentlab-marketplace"
+        ],
+        "installed": [
+          "explain-kit"
+        ],
+        "installedIcons": {
+          "explain-kit": {
+            "logo": {
+              "reference": "./assets/icon.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 100032,
+              "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95"
+            },
+            "composerIcon": {
+              "reference": "./assets/icon.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 100032,
+              "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95"
+            }
+          }
+        },
+        "outside": {
+          "publicSkills": 2,
+          "repositorySkills": 0
+        },
+        "repository": {
+          "publicSkills": 2,
+          "repositorySkills": 20
+        },
+        "nativeOutside": {
+          "publicSkills": 2,
+          "repositorySkills": 0
+        },
+        "nativeRepository": {
+          "publicSkills": 2,
+          "repositorySkills": 20
+        },
+        "explicitOnly": [],
+        "skillPaths": {
+          "explain-kit:concept": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-wKAup7\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\concept\\SKILL.md",
+          "explain-kit:glossary": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-wKAup7\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\glossary\\SKILL.md"
+        },
+        "publicSkillPaths": {
+          "explain-kit:concept": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-wKAup7\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\concept\\SKILL.md",
+          "explain-kit:glossary": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-wKAup7\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\glossary\\SKILL.md"
+        },
+        "commands": [
+          {
+            "command": "git",
+            "args": [
+              "init",
+              "-q"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "--version"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "add",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-wKAup7\\src",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "explain-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "ordinary task discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "repository skill discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "app-server",
+              "--stdio"
+            ],
+            "method": "skills/list",
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "mcp",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          }
+        ]
+      },
+      {
+        "ok": true,
+        "version": "codex-cli 0.147.0",
+        "marketplaces": [
+          "mj-agentlab-marketplace"
+        ],
+        "installed": [
+          "diagram-kit",
+          "explain-kit"
+        ],
+        "installedIcons": {
+          "diagram-kit": {
+            "logo": {
+              "reference": "./assets/icon.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 121492,
+              "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f"
+            },
+            "composerIcon": {
+              "reference": "./assets/icon.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 121492,
+              "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f"
+            }
+          },
+          "explain-kit": {
+            "logo": {
+              "reference": "./assets/icon.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 100032,
+              "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95"
+            },
+            "composerIcon": {
+              "reference": "./assets/icon.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 100032,
+              "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95"
+            }
+          }
+        },
+        "outside": {
+          "publicSkills": 3,
+          "repositorySkills": 0
+        },
+        "repository": {
+          "publicSkills": 3,
+          "repositorySkills": 20
+        },
+        "nativeOutside": {
+          "publicSkills": 3,
+          "repositorySkills": 0
+        },
+        "nativeRepository": {
+          "publicSkills": 3,
+          "repositorySkills": 20
+        },
+        "explicitOnly": [],
+        "skillPaths": {
+          "diagram-kit:arch-diagram": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-8gvpw5\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\SKILL.md",
+          "explain-kit:concept": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-8gvpw5\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\concept\\SKILL.md",
+          "explain-kit:glossary": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-8gvpw5\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\glossary\\SKILL.md"
+        },
+        "publicSkillPaths": {
+          "diagram-kit:arch-diagram": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-8gvpw5\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\SKILL.md",
+          "explain-kit:concept": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-8gvpw5\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\concept\\SKILL.md",
+          "explain-kit:glossary": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-8gvpw5\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\glossary\\SKILL.md"
+        },
+        "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-8gvpw5/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+        "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-8gvpw5\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+        "diagramValidation": {
+          "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-8gvpw5/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+          "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-8gvpw5\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+          "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+        },
+        "commands": [
+          {
+            "command": "git",
+            "args": [
+              "init",
+              "-q"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "--version"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "add",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-8gvpw5\\src",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "diagram-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "explain-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "ordinary task discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "repository skill discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "app-server",
+              "--stdio"
+            ],
+            "method": "skills/list",
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "mcp",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-8gvpw5\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-8gvpw5\\consumer\\installed context 中文 diagram.md"
+            ],
+            "status": 0
+          }
+        ]
+      },
+      {
+        "ok": true,
+        "version": "codex-cli 0.147.0",
+        "marketplaces": [
+          "mj-agentlab-marketplace"
+        ],
+        "installed": [
+          "diagram-kit",
+          "understanding-kit",
+          "explain-kit"
+        ],
+        "installedIcons": {
+          "diagram-kit": {
+            "logo": {
+              "reference": "./assets/icon.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 121492,
+              "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f"
+            },
+            "composerIcon": {
+              "reference": "./assets/icon.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 121492,
+              "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f"
+            }
+          },
+          "understanding-kit": {
+            "logo": {
+              "reference": "./assets/icon.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 111262,
+              "sha256": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad"
+            },
+            "composerIcon": {
+              "reference": "./assets/icon.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 111262,
+              "sha256": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad"
+            }
+          },
+          "explain-kit": {
+            "logo": {
+              "reference": "./assets/icon.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 100032,
+              "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95"
+            },
+            "composerIcon": {
+              "reference": "./assets/icon.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 100032,
+              "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95"
+            }
+          }
+        },
+        "outside": {
+          "publicSkills": 3,
+          "repositorySkills": 0
+        },
+        "repository": {
+          "publicSkills": 3,
+          "repositorySkills": 20
+        },
+        "nativeOutside": {
+          "publicSkills": 4,
+          "repositorySkills": 0
+        },
+        "nativeRepository": {
+          "publicSkills": 4,
+          "repositorySkills": 20
+        },
+        "explicitOnly": [
+          "understanding-kit:pop-quiz"
+        ],
+        "skillPaths": {
+          "diagram-kit:arch-diagram": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\SKILL.md",
+          "explain-kit:concept": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\concept\\SKILL.md",
+          "explain-kit:glossary": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\glossary\\SKILL.md",
+          "understanding-kit:pop-quiz": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\skills\\pop-quiz\\SKILL.md"
+        },
+        "publicSkillPaths": {
+          "diagram-kit:arch-diagram": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\SKILL.md",
+          "explain-kit:concept": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\concept\\SKILL.md",
+          "explain-kit:glossary": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\glossary\\SKILL.md",
+          "understanding-kit:pop-quiz": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\skills\\pop-quiz\\SKILL.md"
+        },
+        "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-RHDV35/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+        "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+        "diagramValidation": {
+          "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-RHDV35/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+          "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+          "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+        },
+        "commands": [
+          {
+            "command": "git",
+            "args": [
+              "init",
+              "-q"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "--version"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "add",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\src",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "diagram-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "understanding-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "explain-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "ordinary task discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "repository skill discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "app-server",
+              "--stdio"
+            ],
+            "method": "skills/list",
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "mcp",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RHDV35\\consumer\\installed context 中文 diagram.md"
+            ],
+            "status": 0
+          }
+        ]
+      }
+    ]
+  },
+  "newPluginBehavior": "NOT_RUN",
+  "effectStatus": "NOT_MEASURED"
+}

@@ -144,3 +144,13 @@ Owner 于 2026-10-12 明确本次暂不需要实际场景效果测试，现实�
 Owner 明确回复“A：HTML 教材（推荐）— 开放书页＋尖括号”。选择对象为第二轮 revision-2/a.svg 与 a.png，准确字节与会话依据见 [选择记录](../../assets/brand/html-guide-kit/candidates/revision-2/selection.json)。已在仓库外的 PR2 包暂存区导出 1024 PNG；SVG 仅把候选标题替换为正式标题，几何不变，导出 PNG SHA-256 与所选候选完全一致。第一轮和第二轮未选 B/C 保留。
 
 本步骤不提前登记新插件，不修改现有插件或版本；正式包、图标、登记与严格合同将在 PR1 实际合并后的 PR2 原子接入。PR1 当前 GitHub 仍缺非作者批准，双客户端与模型行为状态保持 NOT_RUN，现实效果 NOT_MEASURED。
+
+
+### §6.3 Develop governance synchronization
+
+2026-10-12 重新获取 origin/develop，#216 已合入，目标为 `f64fc957b9fa595ac483724e2f60c1314b276574`。#221 原 head `1965fb54fe0d0204eb9f070e97c5f6b8b2782fd0` 在 CHANGELOG 的 Added 区与 INDEX 的当前事项区出现冲突。采用普通 merge，逐块同时保留 HTML Guide Kit 与 Learning Evidence Kit 的合同/索引条目；AGENTS 的两项实施授权各自限定作用域，未将另一 Epic 的发布授权扩展到本任务。INDEX 合并修订至 v2.14。
+
+保留 #216 的三份专属契约/验收文档及回执原字节。HTML Guide Kit 的 A 图标选择和集中授权保持，运行包、登记及市场/插件版本均未变；没有空包或发布动作。同步后的工程检查、最新 head 与 GitHub 门禁由 PR 正文追加实际结果，不沿用旧 head 的 CI/批准状态。
+
+
+同步工作树重新执行 npm test 252/252、0 skip，validate、Codex 0.147.0 基线和四组 smoke 全部通过；三个含 Diagram 场景缓存 Python 均扫描 1、FAIL 0 / WARN 0。43 项运行资源 SHA-256 与最初工程证据一致，四项 incoming 专属文件的 staged Git blob 与 origin/develop 完全一致，见 [同步检查](evidence/html-guide-kit/pr1-develop-sync-checks.json) 和 [本轮测试日志](evidence/html-guide-kit/pr1-sync-npm-test.log)。
