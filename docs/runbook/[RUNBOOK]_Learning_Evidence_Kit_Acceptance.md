@@ -107,6 +107,14 @@ Initial full regression was 287/288 because the new package CHANGELOG body omitt
 
 PR3 repair head `387f0ae2af609397a41f42b390111a5116958304` now has successful remote A6, Validate Structure and both Windows/Ubuntu baseline checks. PR4 inherits that tested repair and its retained original failure evidence. #224 and #227 remain dependency stages with separate current-head approval/merge requirements.
 
+### Initial actual model observations and repair
+
+PR5's first independent synthetic-role run installed actual GitHub SHA `e473a7b3aebc97fff2d45e9f7d1495461a9b58e4` with Codex 0.147.0 and its resolved default model `gpt-5.6-sol`, without a model override. Only four fresh sessions executed: natural invocation and correct deferred-entry handling have limited observed passes; direct handoff routed correctly but actual save was refused under the unexpected read-only context; an invocation selecting neither record nor task nevertheless enumerated the library and chose its sole record, an actual semantic failure. No missing-material/application/other-person case ran in this first round. The [original-round receipt](evidence/learning-evidence-first-model-round.json) retains neutral inputs, messages, library digests, transcript hashes/locators and exact failures; temporary auth copies were removed.
+
+The LRC selection prerequisite is now explicit before library reading/listing: reuse previously confirmed selection or a named task/PR/transferred record, but never infer selection from library path/identity/cwd or its only/latest entry. This implements the original scope requirement, not another confirmation for already selected records. Its actual model repair effect remains unverified until a fresh source run.
+
+The first isolated config omitted the baseline's existing Windows native sandbox selection; permission probes using that existing implementation and managed constraints confirm bounded TEMP workspace writes. Native protection still refuses first-time Git metadata exclusion writes. The next handoff role therefore uses an explicitly preconfigured local exclusion; actual model save/association/manifest must still occur. This route cannot claim automatic Git-exclusion creation. P2's separately scoped actual-Python automatic exclusion evidence remains intact. New model runs use fresh roots/UUIDs, libraries independent of worktrees and controlled remote states within bounded TEMP roots; permission probes or prepared commands supply no model-behavior PASS.
+
 ### Entry activation ledger
 
 PR5 fills one row for each actual host/entry combination, retaining method, client version, install source/plugin/head identity, actual call evidence, individual window results, impact and removal condition. No entry is enabled solely by the contract or a static metadata check.
