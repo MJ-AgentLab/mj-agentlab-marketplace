@@ -19,6 +19,12 @@ version: v2.12
 
 ## 入口
 
+- [Communication 完整实施计划](../plan/communication-kit-implementation-plan.md)与[原稿捕获](../plan/communication-kit-plan-provenance.json)
+- [Communication Kit 新增决定](adr/[ADR]_Communication_Kit_Addition.md)
+- [Communicate 行为契约](spec/[SPEC]_Communication_Communicate.md)
+- [沟通助手使用指南](guide/[GUIDE]_Communication_Communicate.md)
+- [Communication 基础验收与发布检查](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)
+
 - [项目说明](../README.md)
 - [贡献流程](../CONTRIBUTING.md)
 - [项目指令](../AGENTS.md)

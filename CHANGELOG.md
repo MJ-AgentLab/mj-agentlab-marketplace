@@ -5,6 +5,11 @@
 
 ## [Unreleased]
 
+### Added
+
+- Define the explicitly invoked Communication Kit / communicate product contract, source-freeze schema, usage guide and S01–S12 / C01–C18 acceptance fixtures under Refs #222. Preserve the saved implementation plan and its byte hash. Runtime plugins, public skills and versions remain unchanged in PR1.
+- Record necessary client and release checks as NOT RUN; defer real-world communication effects, personal trials and efficiency evaluation. The planned delivery ends at a published Release and post-publication canonical installation verification.
+
 ### Changed
 
 - Prepare the unpublished develop 8.1.2 pre-bump after #206 synchronized the published main. Update only marketplace VERSION and its derived README badge; keep all plugin versions, published version sections, tags and assets unchanged. Include the parallel publication-record documentation and synchronize its main merge ancestry when available.
