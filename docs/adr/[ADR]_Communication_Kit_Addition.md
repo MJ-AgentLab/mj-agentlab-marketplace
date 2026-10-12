@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-12
 state: draft
-version: v1.1
+version: v1.2
 ---
 
 # [ADR] Communication Kit addition
@@ -61,7 +61,7 @@ PR1/PR2 当时不注册新运行包。PR3 已有[manifest](../../plugins/communi
 
 ## §6 Acceptance
 
-依据[SPEC](../spec/[SPEC]_Communication_Communicate.md)、[固定案例](../../tests/fixtures/communication-kit/cases.json)与[RUNBOOK](../runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)，执行 S01–S12、C01–C18、必要双客户端基本可用性和 R01–R05。PR1 建立契约时没有运行包；PR3 已执行工程检查和九组合 canonical 安装，不将这些结果扩大为行为或客户端通过。S08 的 manifest/SVG 源缓存比较缺口正在修复，完整结论待复验；C01–C18 尚无判定，双客户端与 R01–R05 仍 NOT RUN。相关 PR 保持 draft，AI review 不替代当前 head 的 GitHub 非作者批准。
+依据[SPEC](../spec/[SPEC]_Communication_Communicate.md)、[固定案例](../../tests/fixtures/communication-kit/cases.json)与[RUNBOOK](../runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)，执行S01–S12、C01–C18、必要双客户端基本可用性和R01–R05。PR1建立契约时没有运行包；PR3已完成工程和完整九组合canonical，原交付/无据理由失败保留，通用修复后CLI C01–C15通过，文件子路径PARTIAL，当前工具角色三项限定功能通过另记。双客户端与R01–R05仍NOT RUN，相关PR保持draft，AI review不替代当前head的GitHub非作者批准。
 
 Owner 明确将九例真实场景、三稿对照、读者效果反馈、采用度与效率提升本次延期。延期项不作上线门槛，也不记为 PASS；事实、立场、承诺和必要限制失真仍是功能失败。
 
@@ -82,6 +82,7 @@ Owner 明确将九例真实场景、三稿对照、读者效果反馈、采用�
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.2 | 2026-10-12 | 记录通用缺陷修复、CLI新批与独立工具补充；独立批准/双客户端/发布仍未完成 |
 | v1.1 | 2026-10-12 | 更新 PR3 已实现候选及部分工程实证，保留 PR1 历史与未完成门禁 |
 | v1.0 | 2026-10-12 | 产品方向及实施、验收与发布契约；PR1 当时尚无运行包 |
 

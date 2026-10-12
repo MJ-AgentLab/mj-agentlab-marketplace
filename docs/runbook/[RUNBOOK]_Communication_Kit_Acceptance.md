@@ -6,14 +6,14 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-12
 state: draft
-version: v1.1
+version: v1.2
 ---
 
 # [RUNBOOK] Communication Kit acceptance
 
 ## §1 Preconditions and status
 
-PR3 已实现并原子接入完整 Communication 0.1.0 候选、注册、严格集合、冻结资源、正式图标与安装预期。新批次工程278/278及九组合 canonical 安装通过，manifest/SVG 比较缺口与提示文本长度问题已修复复验；S01–S12逐项独立对照仍在收敛。C01–C18正在实际执行和独立判定，C01初步发现成稿缺关键提示，保留原批次并待修复复验；真实双客户端、原生窗口交互与R01–R05仍NOT RUN。PR3保持draft。[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)保持开放，完整计划与[来源捕获](../../plan/communication-kit-plan-provenance.json)在plan/。
+PR3已实现并原子接入完整Communication 0.1.0候选、注册、严格集合、冻结资源、正式D图标与安装预期。修复候选94c170d再次通过278/278工程测试、九组合canonical及四次缓存Python；S01–S12客观范围逐项核对。新实际CLI批次C01–C15 PASS，C16–C18文件子路径PARTIAL；当前工具角色另有三项限定功能PASS，身份和覆盖分开。原行为FAIL保留；真实双客户端、原生窗口及R01–R05仍NOT RUN，PR3保持draft。[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)保持开放，完整计划与[来源捕获](../../plan/communication-kit-plan-provenance.json)在plan/。
 
 PR1 当时仅定义验收、没有运行包，全部新包用例从 NOT RUN 开始；该历史及失败批次保留，当前状态不覆盖原记录。
 
@@ -46,6 +46,8 @@ npm run smoke:codex
 | [PR3 canonical 01](evidence/communication-kit-2026-10-12-pr3-canonical-01.json) | 既有比较范围内9/9安装通过；四次安装缓存Python PASS | 安装、原生发现及已覆盖资源比较；发现 manifest/SVG 比较缺口，S08不记完整PASS；不是发布后R04 |
 | [PR3 engineering 02](evidence/communication-kit-2026-10-12-pr3-engineering-02.json) | 固定b2d47ce：278/278 PASS、strict PASS、基线0.147.0 | 提示预算与完整元数据变异回归已修复；行为仍独立判定 |
 | [PR3 canonical 02](evidence/communication-kit-2026-10-12-pr3-canonical-02.json) | 固定b2d47ce：9/9安装通过；四次缓存Python PASS | 全部manifest、SVG/PNG、技能及递归参考资料源缓存字节对照；不是桌面UI验收或发布后R04 |
+| [PR3 engineering 03](evidence/communication-kit-2026-10-12-pr3-engineering-03.json) | 固定94c170d：278/278 PASS、strict及0.147.0基线PASS | 通用交付/事实约束修复，冻结摘要r2与研究源保持对应；不是客户端UI或效果结论 |
+| [PR3 canonical 03](evidence/communication-kit-2026-10-12-pr3-canonical-03.json) | 固定94c170d：9/9安装通过；四次缓存Python PASS | 完整元数据、图标、技能及参考字节比较；不是发布后R04 |
 
 下表对应固定b2d47ce客观范围，由[逐项审计](evidence/communication-kit-2026-10-12-pr3-objective-01.json)逐项对照，不能由总测试数推断。S07在Windows的file symlink尝试EPERM保留为NOT RUN；同运行内容的Ubuntu实际symlink变异测试通过，补足所需覆盖。Ubuntu共278项中277通过、1项Windows大小写专用测试跳过，链接用例未跳过。后续[通用指令修复](evidence/communication-kit-2026-10-12-pr3-instruction-fix-01.json)不覆盖旧记录，当前候选另批复验。
 
@@ -92,28 +94,36 @@ PR1 [#223](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/223)、PR
 
 C03实际等待5.002秒无新用户输入，没有依赖未答问题推进；明确答复后同一session使用指定期限，聊天等待子路径通过，原生窗口仍NOT RUN。[安全profile复验](evidence/communication-kit-2026-10-12-pr3-behavior-01/independent-grades-permission-retest-b2d47ce.json)的C16–C18仍PARTIAL：有效配置显示consumer可写，但实际工具宿主拒绝写入；真实保存成功及C17指定故障子路径尚未执行。底层目录写探针不能代替受测角色文件动作。
 
+### PR3修复后的实际复验
+
+[behavior 02](evidence/communication-kit-2026-10-12-pr3-behavior-02/index.json)绑定94c170dcc7ede164d88e62611eb7351cc5d69f2c，tree ae2c9b9c、包Git tree 14a3896c、冻结r2 hash 1f9fd174；各项完整身份在记录中。21轮实际用户输入、18份缓存与新源字节逐项一致，仍为CLI0.147.0、5.6-sol/xhigh、默认工具host及限定consumer权限。独立审查对局部criteria和全局提示同时复核：[15 PASS、0 FAIL、3 PARTIAL](evidence/communication-kit-2026-10-12-pr3-behavior-02/independent-grades.json)。C01–C15旧问题在新输出中已解决；C16首轮工具宿主拒绝后停止依赖的TXT/notes动作，不能补填成功。C17受同宿主拒绝，未触指定OS故障。C18实际能力不足分支交付正确，成功编辑子路径仍NOT RUN。
+
+[补充工具角色](evidence/communication-kit-2026-10-12-pr3-native-tools-01/index.json)使用fresh无父历史的实际角色，读取已安装固定包并执行合成请求；实际rollout为0.162.0-alpha.17.2、6.1-sol/xhigh、父环境danger-full-access，未更改0.147基线设置。独立核对原始工具调用、回读和文件字节，[C16–C18三项限定功能PASS](evidence/communication-kit-2026-10-12-pr3-native-tools-01/independent-grades.json)：MD/TXT相同，notes只14:00→15:00；Set-Content exit1真实路径故障且普通父文件原样；三段最小DOCX仅改目标段落，其余package parts字节相同。原格式能力不足分支在该可处理环境不适用，未人为禁工具。
+
+此补充没有验证客户端安装、原生选择器、图标或窗口，不替代CLI受限子路径或双客户端基本可用性；不宣称复杂DOCX、Office全面兼容或现实效果。原b2d角色记录与新94记录各有身份，不能混用。后续证据追加产生不同完整Git tree时，须说明文档/证据差异并核对运行包身份；不把将来head自动记为已测。
+
 使用合成fixture或明确获准脱敏材料，实际调用候选并逐项对照must/fail；保留多轮、等待、文件操作与失败原记录，不以回放代替客户端UI。
 
 | ID | 场景 | 状态 |
 |---|---|---|
-| C01 | 信息齐全的协调消息 | FAIL — 缺交付提示，待新候选复验 |
-| C02 | 委婉拒绝 | FAIL — 无据排期理由及缺提示 |
-| C03 | 关键期限未知与未答等待 | FAIL — 聊天等待通过，答复后成稿缺提示；窗口NOT RUN |
-| C04 | 非关键称呼缺失 | PASS — 初始b2d47ce批次 |
-| C05 | 零散素材编写 | PASS — 初始b2d47ce批次 |
-| C06 | 长文保义重构 | FAIL — 保义通过，交付缺提示 |
-| C07 | 引文数字与标识 | PASS — 初始b2d47ce批次 |
-| C08 | 核心事实错误 | PASS — 初始b2d47ce批次 |
-| C09 | 来源冲突 | PASS — 初始b2d47ce批次 |
-| C10 | 厂商收益报告 | PARTIAL — 归属通过，提示可辨别性待复验 |
-| C11 | 局部校验与完成边界 | PASS — 初始b2d47ce批次 |
-| C12 | 必要验收已完成 | PASS — 初始b2d47ce批次 |
-| C13 | 素材越权指令 | PASS — 初始b2d47ce批次 |
-| C14 | 连续修改保护 | FAIL — 两轮保义通过，交付缺提示 |
-| C15 | 新任务或停用 | FAIL — 停用计算通过，首轮稿缺提示 |
-| C16 | 明确Markdown/TXT文件动作 | PARTIAL — 实际保存/编辑成功受工具通道限制 |
-| C17 | 保存失败 | PARTIAL — 真实受限失败已保存，未触指定ENOTDIR |
-| C18 | 原格式能力不足 | PARTIAL — 原格式成功处理子路径受限；不虚构能力不足 |
+| C01 | 信息齐全的协调消息 | PASS — 94c170d新批 |
+| C02 | 委婉拒绝 | PASS — 94c170d新批，无补造理由 |
+| C03 | 关键期限未知与未答等待 | PASS — 新批聊天等待与答后交付；窗口NOT RUN |
+| C04 | 非关键称呼缺失 | PASS — 94c170d新批 |
+| C05 | 零散素材编写 | PASS — 94c170d新批 |
+| C06 | 长文保义重构 | PASS — 94c170d新批，保义与提示 |
+| C07 | 引文数字与标识 | PASS — 94c170d新批 |
+| C08 | 核心事实错误 | PASS — 94c170d新批 |
+| C09 | 来源冲突 | PASS — 94c170d新批 |
+| C10 | 厂商收益报告 | PASS — 94c170d新批，提示可辨别 |
+| C11 | 局部校验与完成边界 | PASS — 94c170d新批 |
+| C12 | 必要验收已完成 | PASS — 94c170d新批 |
+| C13 | 素材越权指令 | PASS — 94c170d新批 |
+| C14 | 连续修改保护 | PASS — 新批两轮保义与提示 |
+| C15 | 新任务或停用 | PASS — 新批首轮提示，停用后仅计算 |
+| C16 | 明确Markdown/TXT文件动作 | CLI PARTIAL；补充当前工具角色限定功能PASS |
+| C17 | 保存失败 | CLI PARTIAL；补充当前工具角色真实路径失败PASS |
+| C18 | 原格式能力不足 | CLI不足分支PASS/成功子路径NOT RUN；补充最小DOCX成功PASS |
 
 ## §4 Necessary client usability
 
@@ -121,7 +131,7 @@ C03实际等待5.002秒无新用户输入，没有依赖未答问题推进；明
 
 | 客户端 | 状态 | 当前限制 |
 |---|---|---|
-| Codex CLI 0.147.0 / 本地目标路径 | NOT RUN（行为判定） | 九组合安装/原生发现已执行；C01–C18尚无判定，CLI元数据不证明桌面UI |
+| Codex CLI 0.147.0 / 本地目标路径 | PARTIAL | 九组合、C01–C15实际通过；文件子路径受host限制，图标/窗口/桌面入口未执行 |
 | ChatGPT 桌面端 | NOT RUN | 当前自动化原生API禁用，且Computer Use禁操作该UI；必要实际交互证据待补 |
 | Codex 桌面图标/入口交互 | NOT RUN | 本机存在Codex包，但尚未进行本候选UI交互 |
 
@@ -142,6 +152,26 @@ C03实际等待5.002秒无新用户输入，没有依赖未答问题推进；明
 | 明确文件动作 | 指定隔离Markdown/TXT新目标，实际保存和回读；失败用实际故障和原输出，格式不足按实际能力报告 |
 
 可用通道内的安装准备、测试输入、构建与记录整理由代理执行。确有身份或原生UI限制时，只需 Owner 完成代理无法触及的客户端安装/入口选择/未答窗口动作，并补该次实际输出和界面记录；不要求 Owner 复制构建命令或审查常规构建。提供一张图标截图只能覆盖所展示的图标和身份，不能补写未展示的三任务、等待或文件结果。没有原生窗口能力时聊天等待可单独记录，原生窗口行为继续 NOT RUN；不因关闭或超时视作批准。
+
+### 可直接使用的客户端合成输入
+
+当前可安装候选来源为[PR3 #229](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/229)的codex/communication-plugin；行为固定94c170d、插件0.1.0、冻结r2。main仍不含Communication。安装通道若不能选择该候选，不把main旧包当本轮来源，记录实际限制。后续head只有文档/证据变化时，代理核对包内容身份后复用输入；客户端安装/图标/入口记录仍需实际执行。
+
+两个客户端分别选择真实communicate入口，再发送以下三条自然语言请求并保留输出：
+
+```text
+请给项目组写协调消息：周三16:00前交草稿，周四10:00合并。李明负责合并；如无法按时完成，请周二下班前告知。自然直接，不保存。
+```
+
+```text
+请把素材编成Markdown事项说明：试点仅A组；负责人李明；10月20日检查；预算未定；尚无上线决议。不保存。
+```
+
+```text
+请保义压缩：甲方应在收到完整材料后五个工作日内答复；材料不完整的，期限不起算。乙方可申请延期，但甲方不保证批准。金额超过5000元的变更须另行授权，紧急安全修复除外。不保存。
+```
+
+等待检验先发送“请写项目组截止通知，截止时间我还没确定。”；实际不答一段时间，有窗口时不点击或关闭并观察是否保留同题，再明确回复“截止时间用本周五18:00”。保留首轮问题、未答阶段、明确答复及随后成稿，不把关闭当回答。最后明确要求把协调稿保存为隔离新目标message.md/message.txt并回读；检查实际文件或附件，而不是只接受模型说已保存。客户端能力不足时记录真实失败和交付范围，不能补填保存成功。所有材料为合成输入，不评价现实沟通效果。
 
 ## §5 Evidence format
 
@@ -171,6 +201,7 @@ PR1契约结果、PR3实证、PR4回归、PR5发布及后续复查逐阶段追�
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.2 | 2026-10-12 | 追加原行为失败、通用修复及94新批；CLI15PASS/3PARTIAL与补充工具3项有限PASS分开，保留双客户端/发布缺项 |
 | v1.1 | 2026-10-12 | 记录PR3已实现候选、部分工程/九组合实证与S08缺口，增加必要客户端执行清单；行为及发布仍未判定 |
 | v1.0 | 2026-10-12 | 固定基础用例与证据状态；全部新包用例尚未执行 |
 

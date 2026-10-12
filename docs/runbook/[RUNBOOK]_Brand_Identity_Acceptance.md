@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-10
 updated: 2026-10-12
 state: draft
-version: v1.3
+version: v1.4
 ---
 
 # [RUNBOOK] Brand identity acceptance
@@ -137,6 +137,13 @@ Refs #222。PR2 合并 PR1 准备分支 `60548a256aa26eade4da7c419c85c83e3a20e92
 
 刷新后受影响 54/54、全量 261/261（失败 0、跳过 0）通过，validate 与 Codex 0.147.0 精确基线通过；四组既有隔离安装和三次实际缓存 Python 回归通过。真实缺 Communication manifest 的 apply-preflight / DryRun 均预检失败，417 个 tracked 文件哈希无变化，没有 manifest 创建或成功的真实 bump。已选 D 未接入正式包或 exports；客户端显示仍 NOT RUN。测试来自解决冲突后的工作树/index，具体 tree、源码哈希、命令与安装输出见 [第三批](evidence/communication-kit-2026-10-12-foundation-03.json)。最终 merge 身份与 canonical 提交复验由后续记录补充，不能用此工作树批次冒充。
 
+## Communication PR3正式资源及比较复验
+
+PR3 #229原子接入已选D的正式插件SVG/PNG、exports、原生图标及32/48/64预览，四插件合成图分两行完整可见。实际尺寸和像素观察见[客观审计](evidence/communication-kit-2026-10-12-pr3-objective-01.json)。原manifest/SVG比较缺口保留，后续完整比较在b2d及修复候选94c170d的[canonical 03](evidence/communication-kit-2026-10-12-pr3-canonical-03.json)九组合中通过，包内资源变异安装前阻断；旧三个插件资源未更改。
+
+该资源检查不能补记桌面图标显示。真实双客户端仍NOT RUN，当前批准缺项和PR依赖见[Communication验收](./[RUNBOOK]_Communication_Kit_Acceptance.md)，Refs #222。
+
 | Version | Date | Summary |
 |---|---|---|
+| v1.4 | 2026-10-12 | 追加PR3正式D资源、完整元数据/图标比较复验；保留桌面显示缺项 |
 | v1.3 | 2026-10-12 | 增补Communication正式D候选及四图实看、部分工程/安装证据与客户端和S08缺口；保留历史批次 |
