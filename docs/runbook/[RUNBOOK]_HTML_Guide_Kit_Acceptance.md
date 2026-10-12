@@ -132,3 +132,9 @@ Owner 于 2026-10-12 明确本次暂不需要实际场景效果测试，现实�
 保留阶段内失败：文档尚未落地时 validate 出现四项 SPEC 缺链；同期图标测试 9/10。SPEC 落地后重新 validate 通过，最终完整测试 252/252 通过；没有降低校验或将旧失败追认 PASS。第一轮图标未获选，Owner 要求结合 HTML 与教学后生成第二轮，历史保留，候选选择及正式接入分别记录。未来运行资源在仓库外独立暂存区完成，静态检查与独立代理审查无实质问题，但没有正式登记、安装或真实模型行为证据。
 
 当前无阶段 merge、无新插件连续会话 UUID、无新插件双客户端证据；PR1 合并须等待实际 CI、当前 head 非作者批准及线程门禁。全部阶段子 Issue 和 Epic 保持开放，现实效果 NOT_MEASURED。
+
+### §6.1 Committed canonical candidate
+
+完整 canonical `803dba917218af3bf4072f05459e80eb4b4a2fcd`、tree `e1681aac4fbec8ddd620a78147b61c33282bba40` 已通过相同严格校验和四种实际隔离安装；结果见 [canonical 安装原始输出](evidence/html-guide-kit/pr1-canonical-install.json)。所有场景为 Codex CLI 0.147.0，原生公开技能 1/2/3/4、仓库外 0 / 仓库内 20 个开发技能；三个含 Diagram 场景缓存 Python 实际扫描 1、FAIL 0 / WARN 0。验证调用只使用既有 canonical 安装函数，没有运行发布状态机、创建 Release 或标签。
+
+后续仅记录此结果的文档提交以 PR 正文保存最终 head、差异与运行身份对应；运行资源不变时可以复用上述行为与安装证据。新插件仍未登记，新的模型行为、客户端及实际 merge 验收为 NOT_RUN，不能以本节通过替代。
