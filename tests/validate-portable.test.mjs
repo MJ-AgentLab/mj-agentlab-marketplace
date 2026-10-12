@@ -7,6 +7,18 @@ import os from "node:os";
 import {spawnSync} from "node:child_process";
 import {validateManifest,validateSkill,validateSkillInterface,validateRepository,validateOpenAIConfig,parseFrontmatter,validateLinks,validateCommunicationSnapshot,resolveOwnedResource,COMMUNICATION_REFERENCES,REPOSITORY_SKILLS,PUBLIC_SKILLS} from "../scripts/validate-portable.mjs";
 const root=path.resolve(import.meta.dirname,".."), read=p=>fs.readFileSync(path.join(root,p),"utf8");
+test("communication listing and native prompts stay within the actual client budget",()=>{
+ const source=JSON.parse(read("plugins/communication-kit/plugin.json"));
+ const native=read("plugins/communication-kit/skills/communicate/agents/openai.yaml");
+ const prefix="Use $communication-kit:communicate ";
+ for(const length of [128,129]){
+  const prompt=prefix+"x".repeat(length-prefix.length),m=structuredClone(source);
+  m.extensions["com.openai"].interface.defaultPrompt=[prompt];
+  const yaml=native.replace(/default_prompt: "[^"]+"/,'default_prompt: "'+prompt+'"');
+  if(length===128){assert.doesNotThrow(()=>validateManifest(m));assert.doesNotThrow(()=>validateOpenAIConfig(yaml,"communication-kit","communicate"));}
+  else{assert.throws(()=>validateManifest(m),/128-character/);assert.throws(()=>validateOpenAIConfig(yaml,"communication-kit","communicate"),/128-character/);}
+ }
+});
 const manifest=()=>JSON.parse(read("plugins/diagram-kit/plugin.json"));
 test("four approved portable plugins and all 20 repository skills satisfy contracts",()=>{
  const r=validateRepository(root);assert.equal(r.ok,true,r.errors.join("\n"));assert.equal(r.repositorySkills,20);assert.deepEqual(r.publicSkills,[...PUBLIC_SKILLS]);

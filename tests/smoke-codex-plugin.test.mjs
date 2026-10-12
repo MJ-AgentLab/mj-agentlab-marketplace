@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import {assertDiscovery,parsePromptInputSkills,cleanupIsolatedRoot,listNativeSkills,INSTALL_SCENARIOS,assertInstalledSkillResources} from "../scripts/smoke-codex-plugin.mjs";
+import {assertDiscovery,parsePromptInputSkills,cleanupIsolatedRoot,listNativeSkills,INSTALL_SCENARIOS,assertInstalledSkillResources,assertInstalledPackageMetadata} from "../scripts/smoke-codex-plugin.mjs";
 import {REPOSITORY_SKILLS,RUNTIME_PLUGINS,EXPLICIT_ONLY_SKILLS,COMMUNICATION_REFERENCES} from "../scripts/validate-portable.mjs";
 import {spawnCli} from "../scripts/run-cli.mjs";
 function fixture(){const root=fs.mkdtempSync(path.join(fs.realpathSync.native(os.tmpdir()),"discovery-fixture-"));
@@ -119,6 +119,29 @@ test("complete installed inventory rejects swapped skills and package identity/v
   const file=path.resolve(path.dirname(f.entries[2].file),"../../plugin.json"),original=fs.readFileSync(file),manifest=JSON.parse(original);
   for(const change of [{name:"diagram-kit"},{version:"9.9.9"}]){fs.writeFileSync(file,JSON.stringify({...manifest,...change}));assert.throws(()=>assertDiscovery(f.entries,opts),/identity\/version/);}
   fs.writeFileSync(file,original);assert.equal(assertDiscovery(f.entries,opts).publicSkills,5);
+ }finally{cleanupIsolatedRoot(f.root);}
+});
+
+test("complete installed manifest rejects metadata drift despite unchanged name and version",()=>{
+ const f=fixture();try{
+  for(const plugin of Object.keys(RUNTIME_PLUGINS)){
+   const source=path.join(f.repo,"plugins",plugin),installed=path.join(f.cache,plugin,f.pluginVersions[plugin]),file=path.join(installed,"plugin.json");
+   for(const target of [source,installed]){fs.mkdirSync(path.join(target,"assets"),{recursive:true});fs.copyFileSync(path.resolve(import.meta.dirname,"..","plugins",plugin,"assets/icon.svg"),path.join(target,"assets/icon.svg"));}
+   const bytes=fs.readFileSync(file),original=JSON.parse(bytes),facts=assertInstalledPackageMetadata(source,installed);
+   assert.equal(facts["plugin.json"].bytes,bytes.length);assert.match(facts["plugin.json"].sha256,/^[0-9a-f]{64}$/);assert.match(facts["assets/icon.svg"].sha256,/^[0-9a-f]{64}$/);
+   for(const mutate of [
+    m=>{m.extensions["com.openai"].interface.capabilities=["Execute"];},
+    m=>{m.extensions["com.openai"].interface.defaultPrompt=["Use $unapproved-kit:escape"];},
+    m=>{m.description="changed description";},m=>{m.extra="unexpected";},m=>{delete m.extensions;},
+   ]){
+    const changed=structuredClone(original);mutate(changed);assert.equal(changed.name,original.name);assert.equal(changed.version,original.version);
+    fs.writeFileSync(file,JSON.stringify(changed));assert.throws(()=>assertInstalledPackageMetadata(source,installed),/metadata bytes differ.*plugin\.json/);
+   }
+   for(const content of ["not JSON",JSON.stringify(original,null,2)]){fs.writeFileSync(file,content);assert.throws(()=>assertInstalledPackageMetadata(source,installed),/metadata bytes differ.*plugin\.json/);}
+   fs.unlinkSync(file);assert.throws(()=>assertInstalledPackageMetadata(source,installed));fs.mkdirSync(file);assert.throws(()=>assertInstalledPackageMetadata(source,installed),/ordinary owned file/);fs.rmdirSync(file);
+   fs.writeFileSync(file,bytes);assert.deepEqual(assertInstalledPackageMetadata(source,installed),facts);
+   const svg=path.join(installed,"assets/icon.svg"),svgBytes=fs.readFileSync(svg);fs.unlinkSync(svg);assert.throws(()=>assertInstalledPackageMetadata(source,installed));fs.writeFileSync(svg,Buffer.concat([svgBytes,Buffer.from("\nchanged\n")]));assert.throws(()=>assertInstalledPackageMetadata(source,installed),/metadata bytes differ.*icon\.svg/);fs.writeFileSync(svg,svgBytes);assert.deepEqual(assertInstalledPackageMetadata(source,installed),facts);
+  }
  }finally{cleanupIsolatedRoot(f.root);}
 });
 

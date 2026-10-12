@@ -86,6 +86,19 @@ export function assertDiscovery(entries, { cacheRoot, repositoryRoot, inReposito
   return { publicSkills: publicSkills.length, repositorySkills: development.length };
 }
 
+/** Compare the complete manifest and editable icon source, including formatting bytes. */
+export function assertInstalledPackageMetadata(sourceRoot, installedRoot) {
+  const sha256 = bytes => crypto.createHash("sha256").update(bytes).digest("hex");
+  const facts = {};
+  for (const reference of ["./plugin.json", "./assets/icon.svg"]) {
+    const source = fs.readFileSync(resolveOwnedResource(sourceRoot, reference));
+    const installed = fs.readFileSync(resolveOwnedResource(installedRoot, reference));
+    if (!source.equals(installed)) throw new Error(`installed package metadata bytes differ from source: ${reference}; source SHA-256 ${sha256(source)}, installed SHA-256 ${sha256(installed)}`);
+    facts[reference.slice(2)] = { bytes: installed.length, sha256: sha256(installed) };
+  }
+  return facts;
+}
+
 /** Compare the full skill tree, including every reference and native metadata byte. */
 export function assertInstalledSkillResources(sourceRoot, installedRoot, qualifiedName) {
   function inventory(root, relative = "") {
@@ -198,6 +211,7 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
     const implicitSkills = expectedSkills.filter(name => !EXPLICIT_ONLY_SKILLS.includes(name));
     const external = parsePromptInputSkills(await execute(codexCommand, ["debug", "prompt-input", "ordinary task discovery check"]));
     const cacheRoot = path.join(codexHome, "plugins/cache", MARKETPLACE_NAME);
+    const installedPackageMetadata = Object.fromEntries(plugins.map(plugin => [plugin, assertInstalledPackageMetadata(path.join(src, "plugins", plugin), path.join(cacheRoot, plugin, pluginVersions[plugin]))]));
     const installedIcons = Object.fromEntries(plugins.map(plugin => [plugin, assertInstalledIcons(path.join(src, "plugins", plugin), path.join(cacheRoot, plugin, pluginVersions[plugin]))]));
     const outside = assertDiscovery(external, { cacheRoot, repositoryRoot: src, inRepository: false, expectedSkills: implicitSkills, pluginVersions });
     const entries = parsePromptInputSkills(await execute(codexCommand, ["debug", "prompt-input", "repository skill discovery check"], src));
@@ -246,7 +260,7 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
       diagramValidation = { skillPath: diagram.file, validatorPath, output: output.trim() };
     }
     complete = true;
-    return { ok: true, version, marketplaces: names, installed: plugins, installedIcons, installedResources, outside, repository, nativeOutside: nativeInventories.outside, nativeRepository: nativeInventories.repository, explicitOnly: expectedSkills.filter(name => EXPLICIT_ONLY_SKILLS.includes(name)), skillPaths, publicSkillPaths: skillPaths, ...(diagramValidation ? { skillPath: diagram.file, validatorPath: diagramValidation.validatorPath, diagramValidation } : {}), ...(keepRoot ? { root, codexHome, repositoryRoot: src, consumerRoot: cwd } : {}), commands };
+    return { ok: true, version, marketplaces: names, installed: plugins, installedPackageMetadata, installedIcons, installedResources, outside, repository, nativeOutside: nativeInventories.outside, nativeRepository: nativeInventories.repository, explicitOnly: expectedSkills.filter(name => EXPLICIT_ONLY_SKILLS.includes(name)), skillPaths, publicSkillPaths: skillPaths, ...(diagramValidation ? { skillPath: diagram.file, validatorPath: diagramValidation.validatorPath, diagramValidation } : {}), ...(keepRoot ? { root, codexHome, repositoryRoot: src, consumerRoot: cwd } : {}), commands };
   } finally {
     if (!keepRoot || !complete) cleanupIsolatedRoot(root);
   }

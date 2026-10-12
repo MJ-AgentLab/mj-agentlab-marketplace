@@ -85,6 +85,7 @@ export function validateManifest(manifest, expectedName) {
   const capabilities = PLUGIN_CAPABILITIES[manifest.name];
   if (!Array.isArray(ui.capabilities) || ui.capabilities.length !== capabilities.length || new Set(ui.capabilities).size !== ui.capabilities.length || ui.capabilities.some(value => !capabilities.includes(value))) throw new Error("interface.capabilities must match the plugin's approved capabilities");
   if (ui.category !== "Developer Tools" || !Array.isArray(ui.defaultPrompt) || !ui.defaultPrompt.length || ui.defaultPrompt.some(p => !routesToOwnedSkill(p, manifest.name))) throw new Error("invalid OpenAI listing/routing metadata");
+  if (manifest.name === "communication-kit" && ui.defaultPrompt.some(prompt => [...prompt].length > 128)) throw new Error("communication listing prompt exceeds the 128-character client budget");
   for (const skill of RUNTIME_PLUGINS[manifest.name]) {
     if (!ui.defaultPrompt.some(prompt => [...prompt.matchAll(/\$([a-z0-9-]+):([a-z0-9-]+)(?![A-Za-z0-9_-])/g)].some(([, plugin, name]) => plugin === manifest.name && name === skill))) throw new Error("listing must expose every public skill");
   }
@@ -106,6 +107,7 @@ export function validateOpenAIConfig(text, plugin, skill) {
     if (typeof config.interface?.[key] !== "string" || !config.interface[key].trim()) throw new Error(`interface.${key} is required`);
   }
   if (!routesToOwnedSkill(config.interface.default_prompt, plugin, skill)) throw new Error("native default_prompt must invoke its own skill");
+  if (plugin === "communication-kit" && [...config.interface.default_prompt].length > 128) throw new Error("communication native prompt exceeds the 128-character client budget");
   if (typeof config.policy?.allow_implicit_invocation !== "boolean") throw new Error("native invocation policy must be an explicit boolean");
   if (EXPLICIT_ONLY_SKILLS.includes(`${plugin}:${skill}`) && config.policy.allow_implicit_invocation !== false) throw new Error(`${skill} must require explicit invocation`);
   if (plugin === "communication-kit" && ([...config.interface.short_description].length < 25 || [...config.interface.short_description].length > 64)) throw new Error("invalid communication skill presentation");
