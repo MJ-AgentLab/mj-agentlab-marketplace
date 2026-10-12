@@ -123,7 +123,7 @@ test("SVG export renders real pixel colors and native size rather than only a va
 
 test("repository validation fails when a registered plugin loses its icon resource", t => {
   const { root } = fixture(t), isolated = path.join(root, "repo"); fs.mkdirSync(isolated);
-  for (const rel of ["assets", ".agents", ".codex", ".github", "scripts", "tests", "plugins", "docs", "AGENTS.md", "README.md", "CONTRIBUTING.md", "GLOSSARY.md", "CHANGELOG.md", "VERSION"]) fs.cpSync(path.join(repo, rel), path.join(isolated, rel), { recursive: true });
+  for (const rel of ["assets", ".agents", ".codex", ".github", "scripts", "tests", "plugins", "docs", "plan", "AGENTS.md", "README.md", "CONTRIBUTING.md", "GLOSSARY.md", "CHANGELOG.md", "VERSION"]) fs.cpSync(path.join(repo, rel), path.join(isolated, rel), { recursive: true });
   assert.equal(validateRepository(isolated).ok, true);
   fs.unlinkSync(path.join(isolated, "plugins/explain-kit/assets/icon.png"));
   const result = validateRepository(isolated); assert.equal(result.ok, false); assert.ok(result.errors.some(e => e.includes("explain-kit icons")));

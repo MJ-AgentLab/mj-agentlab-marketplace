@@ -11,3 +11,5 @@ Refs #222。Owner 已明确：借鉴 ASD-STE100 官方封面的地球与文字�
 [比较与原生尺寸](comparison.png) 包含 32 / 48 / 64 像素的深浅背景。每个候选另有可编辑 SVG、1024 PNG 和单独尺寸预览；执行本目录 `render.mjs` 可复现。
 
 实际只读查看了 [官方主页](https://www.asd-ste100.org/) 提供的 [封面展示图](https://www.asd-ste100.org/assets/images/stemg2023-573x571.jpg-573x571.jpg)。浏览器成功显示蓝色背景、地球网格和文字；该展示图含官方 ASD 标志，本候选不采用。图的文件名含 2023，不能据此声明它就是 Issue 9 PDF 封面。研究 SOURCES.yaml 的 C01.local_copy 仍为 absent/path:null；web 获取官方 PDF 为 403，未取得或阅读 Issue 9 PDF。实际查看范围与限制详见本目录 `source-record.json`。
+
+Owner 已于 2026-10-12 明确选择第二轮 D 地球＋清晰文字。选定源为 d.svg / d.png；选择事实见 selection.json。正式插件和 exports 留到 PR3 原子接入，本阶段未验证客户端实际显示。

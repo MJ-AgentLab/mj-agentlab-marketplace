@@ -6,6 +6,8 @@
 
 understanding-kit 是显式调用的只读理解测验，Codex 优先 Side Chat；其他会话使用明确的上下文快照，不假定持续同步。插件边界及对旧单插件约束的局部替代见 [新增决定](docs/adr/[ADR]_Understanding_Kit_Addition.md)，真实客户端证据见 [验收记录](docs/runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)。learn-kit、NotebookLM 与 Claude 退役规则继续有效。
 
+实施 Learning Evidence Kit 时读取 [迁移 ADR](docs/adr/[ADR]_Learning_Evidence_Kit_Migration.md)、[记录/API 契约](docs/spec/[SPEC]_Learning_Evidence_Record_And_API.md)与[验收账本](docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。Epic #209 已获集中实施及条件发布授权，目标 8.2.0 / 0.1.0；PR1 不改当前注册、运行包或版本。Owner 接受保留双技能/接口、核心独立验收后交付，原生严格窗口不合格入口延期；PR5 按实际入口列证据，文字重述或 pending 状态不算持续显示通过。核心交付、原计划完成及 Owner 最终接受分别记录，Epic 保留延期项。
+
 Marketplace v8.1.1 已通过 #205 合入 main 并于 2026-10-10 自动发布，包含 diagram-kit 0.3.1 / understanding-kit 0.1.2 / explain-kit 0.1.1。已发布 merge 与已测 head 的 Git tree 相同，发布后四种 canonical 安装、图标内容比较与实际 Python 校验通过。Owner 截图支持详情页图标和版本，两端完整客户端记录及 #205 GitHub 独立批准未提供；事实见 [8.1.1 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。#206 已将实际发布 main 同步回 develop；本分支应用未发布的 8.1.2 pre-bump，只更新 VERSION / README badge，插件版本保持，不创建同号 Release。同期 main 文档 PR #207 的实际 merge ancestry 在收尾时继续纳入。
 
 历史 v8.1.0 通过 #198 发布，#199 完成 main → develop 同步，#200 修正发布记录，#201 将 develop 预升为当时未发布的 8.1.1。历史验收失败、回放、未覆盖客户端结果与缺失批准分别保留，见 [8.1.0 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)。
@@ -13,6 +15,8 @@ Marketplace v8.1.1 已通过 #205 合入 main 并于 2026-10-10 自动发布，�
 explain-kit 0.1.0 提供速解和深讲，默认中文、保留术语原文，按深度路由并适应用户格式。新增解释能力的 [ADR](docs/adr/[ADR]_Explain_Kit_Addition.md) 与 [验收记录](docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md) 不改变测验策略。
 
 ## 执行与决策
+
+communication-kit 首版按已保存的[完整计划](plan/communication-kit-implementation-plan.md)实施，来源与授权见[捕获记录](plan/communication-kit-plan-provenance.json)，由 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222) 管理 PR1–PR5 与正式上线。产品方向、显式 communicate 单入口、保义改写和文件边界已确认；设计与验收契约见[新增 ADR](docs/adr/[ADR]_Communication_Kit_Addition.md)及[验收 RUNBOOK](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。PR1/PR2 保持现有运行集合，PR3 原子接入新包。Owner 选择 Learning 先发布 8.2.0，Communication 随后独立 minor（预计 8.3.0），PR4 重查实际版本和基线；现实效果测试本次延期，基础通过不代表效果已验证。
 
 代理负责在已有授权范围内执行文件修改、环境检查、测试、隔离安装验证、提交、推送及 PR 准备。owner 作出决定后，由代理执行，不要求 owner 复制命令，不重复确认已授权的操作。CI、分支保护、独立审查及外部身份验证按实际约束处理；无法完成时说明具体原因，只请求最小必要参与。
 
@@ -42,4 +46,12 @@ Owner 于 2026-10-10 明确要求发布 8.1.1，发布授权已提供，不重�
 
 ## Communication 工具准备
 
-Epic #222 的 PR2 扩展提交和版本工具的 `communication-kit` 候选 scope，并让品牌预览按行容纳第四张图。运行集合仍是三个插件、四个公开技能；缺少实际 manifest 时版本工具应零写入失败，未执行真实 bump。新功能的 D 风格候选尚未获选，正式资源与注册等待后续原子接入；候选、实测及未覆盖项见 [品牌验收](docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。本阶段依赖 PR1 实际合并及 Owner 图标选择，不把准备工作写成上线完成。
+Epic #222 的 PR2 扩展提交和版本工具的 `communication-kit` 候选 scope，并让品牌预览按行容纳第四张图。运行集合仍是三个插件、四个公开技能；缺少实际 manifest 时版本工具应零写入失败，未执行真实 bump。Owner 已选择第二轮 D 地球＋清晰文字候选；初轮未选和导出失败保留，正式资源与注册等待 PR3 原子接入；候选、实测及未覆盖项见 [品牌验收](docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。本阶段仍依赖 PR1 实际合并和当前 head 独立批准，不把准备工作写成上线完成。
+
+## HTML Guide Kit 阶段实施
+
+Owner 已授权按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 与三个子 Issue 推进 HTML Guide Kit，分阶段顺序合并 develop；[ADR](docs/adr/[ADR]_HTML_Guide_Kit_Addition.md) 记录已确定合同。PR1 仅前置治理、提交 scope、版本工具和验收判准，运行仍为原三个插件、四公开技能、三个自然启用技能和 20 项仓库开发技能，不注册或创建空包。独立版本工具虽支持 html-guide-kit，缺 manifest 仍失败。PR2 必须完整包、已选图标、严格合同和登记原子接入，并通过六组真实连续行为；PR3 完成扩展工程验收、双客户端交互和实际 merge 复验。判准与事实见 [SPEC](docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md) 和 [RUNBOOK](docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+HTML Guide Kit 初始 0.1.0，仅显式 $html-guide-kit:guide，Read、聊天文本新建指南；读者/任务/理解问题须明确确认后生成。未答、推荐、预选、沉默、超时、无关回复或窗口消失不是确认，不能承诺锁宿主窗口。研究项目及指南聊天只作只读设计参考，运行包无本机路径或研究治理依赖。Owner 2026-10-12 调整：本次不做现实场景效果测试，实际效果另测，未测量不得写 PASS；安装、模型行为、客户端交互和工程门禁继续有效。
+
+本任务保持 marketplace 未发布 8.1.2 及其他插件版本，无 Release、发布 tag 或 main 发布 PR。首次修改已合并的新插件运行内容时推进 0.1.1，其后补丁递增；纯评审资料/记录保持版本，以哈希核对运行内容。npm run check / smoke 为既有基线检查/隔离安装入口。每阶段满足当前 head 非作者批准、CI 与线程门禁后合并，不 bypass；合并复验后才关闭子 Issue，最终行为和双客户端及 merge 验收完整后才关闭 Epic。

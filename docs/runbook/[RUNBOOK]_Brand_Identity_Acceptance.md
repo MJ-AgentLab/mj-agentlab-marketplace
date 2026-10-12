@@ -101,3 +101,13 @@ Refs #222。
 - [品牌规范](../rule/[STANDARD]_Brand_Identity.md)
 - [品牌决定](../adr/[ADR]_Brand_Identity_And_Icon_Workflow.md)
 - [设计入口](../../.agents/skills/mp-design-icon/SKILL.md)
+
+## Selected Communication candidate
+
+Owner 于 2026-10-12 明确选择第二轮 D 地球＋清晰文字，见 [selection](../../assets/brand/communication-kit/candidates/revision-2/selection.json)。选定 [SVG](../../assets/brand/communication-kit/candidates/revision-2/d.svg) 与 [1024 PNG](../../assets/brand/communication-kit/candidates/revision-2/d.png) 为修复后已查看的输出；初轮未选、D 首次失败导出与修复后的复验均保留。前段 PENDING 表格和第二批记录反映选择前的历史状态，本段记录明确的新决定。来源仍仅是官方主页实际展示图，未读 Issue 9 PDF；候选批准不补记客户端图标显示。PR2 不接正式插件、exports 或注册；PR1 实际合并、刷新后的当前 head CI、独立批准及线程门禁仍未满足。Refs #222。
+
+## Communication preparation base refresh
+
+Refs #222。PR2 合并 PR1 准备分支 `60548a256aa26eade4da7c419c85c83e3a20e922`，其中已纳入实际 develop `70267a5b91d759af09a8f1281a33e2d5a90fdbc9` 的 Learning Evidence / HTML Guide 契约。此为 feature 分支内的准备 merge，不是 PR1 或 PR2 正式合入受保护 develop。8 个实际冲突已逐项保留双方意图；提交与版本工具支持 HTML / Communication 两个候选 scope，v1.5 HTML 历史保留，Communication 规范推进 v1.6。新增 commit-convention 执行案例同时覆盖两个 scope、错误名称、类型和分隔格式；原 fixture / cleanup / tests 保留。
+
+刷新后受影响 54/54、全量 261/261（失败 0、跳过 0）通过，validate 与 Codex 0.147.0 精确基线通过；四组既有隔离安装和三次实际缓存 Python 回归通过。真实缺 Communication manifest 的 apply-preflight / DryRun 均预检失败，417 个 tracked 文件哈希无变化，没有 manifest 创建或成功的真实 bump。已选 D 未接入正式包或 exports；客户端显示仍 NOT RUN。测试来自解决冲突后的工作树/index，具体 tree、源码哈希、命令与安装输出见 [第三批](evidence/communication-kit-2026-10-12-foundation-03.json)。最终 merge 身份与 canonical 提交复验由后续记录补充，不能用此工作树批次冒充。

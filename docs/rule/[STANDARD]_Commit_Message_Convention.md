@@ -1,12 +1,12 @@
 ---
 type: standard
 scope: marketplace
-summary: Commit message format v1.5 — prepare communication-kit in the closed scope whitelist
+summary: Commit message format v1.6 — prepare communication-kit after html-guide-kit reservation
 owner: marketplace-maintainers
 created: 2026-05-15
 updated: 2026-10-12
 state: active
-version: v1.5
+version: v1.6
 domain: governance
 tags:
   - commit
@@ -18,7 +18,8 @@ related:
   - "./[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md"
   - "../../CONTRIBUTING.md"
 revision: |
-  2026-10-12 — v1.5: Prepare communication-kit scope for the approved staged implementation; synchronize hook and both validators without runtime registration. Refs #222.
+  2026-10-12 — v1.6: Prepare communication-kit after the merged html-guide-kit reservation; preserve both scopes, generated hooks, validators and execution tests. Refs #222.
+  2026-10-12 — v1.5: Reserve html-guide-kit before atomic runtime registration; synchronize generated hooks and both validators.
   2026-10-09 — v1.4: Add explain-kit scope for the independent explanation plugin; synchronize hook and shell/PowerShell validators, retaining historical learn-kit commits.
   2026-06-05 — v1.2: §4 scope 白名单加 `diagram-kit` plugin scope（marketplace 首次 plugin 1→2；per [ADR]_Diagram_Kit_Addition）；4 code 站点（install-hooks.ps1 + validate-commits.{sh,ps1}）+ RUNBOOK drift copy + bump-version.ps1 ValidateSet 同步；PATTERN 其余不变（仅扩白名单）
   2026-05-18 — v1.1: §11 Common Mistakes 新章（4 个 v4.5.0 后失败模式 + remediation）；companion scripts/validate-commits.{sh,ps1} + install-hooks.ps1 pre-push hook + 3 skill integrations（mp-git-commit / mp-git-push / mp-flow-self-review）；§9.3 Future CI Gates 更新指向新脚本；PATTERN regex 无变化（向后兼容）
@@ -84,6 +85,7 @@ Root `CONTRIBUTING.md` (per Documentation Framework v1.6 §1.1 root-level named 
 | `learn-kit` | historical commits only | retired; new runtime work uses the current plugin scope or marketplace |
 | `diagram-kit` | `plugins/diagram-kit/**` | architecture-diagramming plugin (added v6.3.0; marketplace's first 1→2 plugin count) |
 | `explain-kit` | `plugins/explain-kit/**` | quick glossary and deep concept explanation (initial plugin version 0.1.0) |
+| `html-guide-kit` | `plugins/html-guide-kit/**` | reserved for the explicit Read-only guide plugin; PR1 adds no runtime package |
 | `communication-kit` | `plugins/communication-kit/**` | approved communication candidate scope; plugin registration follows the atomic integration stage |
 | `ci` | `.github/workflows/`, `.github/PULL_REQUEST_TEMPLATE/`, `.github/ISSUE_TEMPLATE/` | CI / templates |
 | `scripts` | `scripts/**` | infrastructure scripts (`bump-version.ps1` etc.) |
@@ -302,7 +304,8 @@ This installs both `commit-msg` (per-commit validation at commit time) and `pre-
 
 | Version | Date | Summary |
 |---------|------|---------|
-| v1.5 | 2026-10-12 | Prepare communication-kit for the approved implementation. Synchronize generated hook, shell/PowerShell validators and diagnostics; no runtime registration or real version transition. Refs #222. |
+| v1.6 | 2026-10-12 | Prepare communication-kit after the merged html-guide-kit scope reservation; preserve all existing scopes and synchronize generated hooks, validators and their execution tests. No runtime registration or real version transition. Refs #222. |
+| v1.5 | 2026-10-12 | Reserve html-guide-kit scope for staged implementation; synchronize generated hooks and Shell/PowerShell validators, with positive and negative execution tests. Runtime registration remains unchanged in PR1. |
 | v1.4 | 2026-10-09 | Add explain-kit for the independent two-skill plugin. Synchronize install-hooks.ps1 and validate-commits.{sh,ps1} pattern, help and diagnostics. No change to the seven types or historical scopes. |
 | v1.3 | 2026-10-09 | Use the actual AI collaborator trailer for portable Codex work; preserve historical commit examples. |
 | v1.2 | 2026-06-05 | Add `diagram-kit` plugin scope to the §4 whitelist (marketplace's first 1→2 plugin count; new plugin per [ADR]_Diagram_Kit_Addition). Per the §4 rule, a new scope requires a minor bump of this STANDARD. Synced across 4 code sites (install-hooks.ps1 commit-msg PATTERN + 2 help strings; validate-commits.sh PATTERN + ALLOWED_SCOPES + diagnostic regex; validate-commits.ps1 Pattern + AllowedScopes + AllowedScopesRegex) + the [RUNBOOK]_Release_Operations drift copy + bump-version.ps1 ValidateSet. PATTERN otherwise unchanged (whitelist-extension only). |
