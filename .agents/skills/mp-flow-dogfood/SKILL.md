@@ -12,3 +12,5 @@ description: "Use for marketplace installation and invocation acceptance / 本�
 Explain Kit 单独/组合安装与解释行为按 [Explain Kit 验收](../../../docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md) 执行，Python 必须实际运行；能力限制如实记录，不要求 owner 例行手工操作。
 
 图标变更检查各安装包的 logo/composerIcon 引用和 PNG 内容；四种隔离安装逐包比较源文件与缓存。仓库发现 20 个开发技能，消费者不得发现 mp-design-icon；图标实际视觉与客户端列表/composer 验收另记。
+
+HTML Guide Kit 的新建只读文本和显式确认合同见 [ADR](../../../docs/adr/[ADR]_HTML_Guide_Kit_Addition.md)。验证当前授权集合时，保持旧四种安装并增加HTML单独、与Explain及全部插件；guide和pop-quiz仅显式调用，普通提示仍仅三个自然启用技能。合并后运行修正按插件自身补丁推进，评审/安装/模型/客户端结果分别记录。
