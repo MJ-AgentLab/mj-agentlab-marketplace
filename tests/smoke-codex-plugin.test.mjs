@@ -3,8 +3,8 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import {assertDiscovery,parsePromptInputSkills,cleanupIsolatedRoot,listNativeSkills} from "../scripts/smoke-codex-plugin.mjs";
-import {REPOSITORY_SKILLS,RUNTIME_PLUGINS} from "../scripts/validate-portable.mjs";
+import {assertDiscovery,parsePromptInputSkills,cleanupIsolatedRoot,listNativeSkills,INSTALL_SCENARIOS,assertInstalledSkillResources} from "../scripts/smoke-codex-plugin.mjs";
+import {REPOSITORY_SKILLS,RUNTIME_PLUGINS,EXPLICIT_ONLY_SKILLS,COMMUNICATION_REFERENCES} from "../scripts/validate-portable.mjs";
 import {spawnCli} from "../scripts/run-cli.mjs";
 function fixture(){const root=fs.mkdtempSync(path.join(fs.realpathSync.native(os.tmpdir()),"discovery-fixture-"));
  const cache=path.join(root,"cache"), repo=path.join(root,"repo");
@@ -14,13 +14,13 @@ function fixture(){const root=fs.mkdtempSync(path.join(fs.realpathSync.native(os
  const file=skillFile("diagram-kit","arch-diagram"),quizFile=skillFile("understanding-kit","pop-quiz");
  const explainEntries=["glossary","concept"].map(skill=>({name:"explain-kit:"+skill,file:skillFile("explain-kit",skill)}));
  for(const [plugin,manifest] of Object.entries(manifests))for(const base of [path.join(repo,"plugins",plugin),path.join(cache,plugin,pluginVersions[plugin])]){fs.mkdirSync(base,{recursive:true});fs.writeFileSync(path.join(base,"plugin.json"),JSON.stringify(manifest));}
- const entries=[{name:"diagram-kit:arch-diagram",file},{name:"understanding-kit:pop-quiz",file:quizFile},...explainEntries];
+ const entries=[{name:"diagram-kit:arch-diagram",file},{name:"understanding-kit:pop-quiz",file:quizFile},...explainEntries,{name:"communication-kit:communicate",file:skillFile("communication-kit","communicate")}];
  const dev=REPOSITORY_SKILLS.map(name=>{const file=path.join(repo,".agents/skills",name,"SKILL.md");fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,name);return {name,file};});
  return {root,cache,repo,file,quizFile,entries,dev,pluginVersions};}
 test("consumer and repository inventories are scoped to real installed files",()=>{
  const f=fixture();try{
- assert.deepEqual(assertDiscovery(f.entries,{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false}),{publicSkills:4,repositorySkills:0});
- assert.deepEqual(assertDiscovery([...f.entries,...f.dev],{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:true}),{publicSkills:4,repositorySkills:20});
+ assert.deepEqual(assertDiscovery(f.entries,{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false}),{publicSkills:5,repositorySkills:0});
+ assert.deepEqual(assertDiscovery([...f.entries,...f.dev],{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:true}),{publicSkills:5,repositorySkills:20});
  assert.throws(()=>assertDiscovery([...f.entries,...f.dev],{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false}));
  }finally{cleanupIsolatedRoot(f.root);}});
 test("duplicate, missing and escaped public locators fail closed",()=>{
@@ -102,7 +102,7 @@ test("root mappings are local to their prompt text block",()=>{
  }finally{cleanupIsolatedRoot(f.root);}
 });
 
-for(const installed of [["diagram-kit"],["explain-kit"],["diagram-kit","explain-kit"],Object.keys(RUNTIME_PLUGINS)])test("standalone and combined discovery: "+installed.join(" + "),()=>{
+for(const installed of INSTALL_SCENARIOS)test("standalone and combined discovery: "+installed.join(" + "),()=>{
  const f=fixture();try{
   const entries=f.entries.filter(e=>installed.includes(e.name.split(":")[0])),expectedSkills=entries.map(e=>e.name);
   const opts={cacheRoot:f.cache,repositoryRoot:f.repo,expectedSkills};
@@ -118,6 +118,32 @@ test("complete installed inventory rejects swapped skills and package identity/v
   const wrong=f.entries.map(e=>({...e}));wrong[2].file=wrong[3].file;assert.throws(()=>assertDiscovery(wrong,opts));
   const file=path.resolve(path.dirname(f.entries[2].file),"../../plugin.json"),original=fs.readFileSync(file),manifest=JSON.parse(original);
   for(const change of [{name:"diagram-kit"},{version:"9.9.9"}]){fs.writeFileSync(file,JSON.stringify({...manifest,...change}));assert.throws(()=>assertDiscovery(f.entries,opts),/identity\/version/);}
-  fs.writeFileSync(file,original);assert.equal(assertDiscovery(f.entries,opts).publicSkills,4);
+  fs.writeFileSync(file,original);assert.equal(assertDiscovery(f.entries,opts).publicSkills,5);
  }finally{cleanupIsolatedRoot(f.root);}
+});
+
+test("nine install combinations preserve implicit and native inventories including explicit standalone zero",()=>{
+ const f=fixture();try{
+  assert.equal(INSTALL_SCENARIOS.length,9);assert.equal(new Set(INSTALL_SCENARIOS.map(plugins=>plugins.join(","))).size,9);
+  for(const installed of INSTALL_SCENARIOS){
+   const native=f.entries.filter(entry=>installed.includes(entry.name.split(":")[0])),ordinary=native.filter(entry=>!EXPLICIT_ONLY_SKILLS.includes(entry.name));
+   const opts={cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false};
+   assert.equal(assertDiscovery(native,{...opts,expectedSkills:native.map(entry=>entry.name)}).publicSkills,native.length);
+   assert.equal(assertDiscovery(ordinary,{...opts,expectedSkills:ordinary.map(entry=>entry.name)}).publicSkills,ordinary.length);
+   if(installed.length===1&&installed[0]==="communication-kit"){assert.equal(native.length,1);assert.equal(ordinary.length,0);}
+   if(installed.length===4){assert.equal(native.length,5);assert.equal(ordinary.length,3);assert.equal(native.filter(entry=>EXPLICIT_ONLY_SKILLS.includes(entry.name)).length,2);}
+  }
+ }finally{cleanupIsolatedRoot(f.root);}
+});
+test("installed communication compares every reference byte, metadata and resource ownership",t=>{
+ const f=fixture();t.after(()=>cleanupIsolatedRoot(f.root));
+ const source=path.join(f.root,"source"),installed=path.join(f.root,"installed"),qualified="communication-kit:communicate";
+ fs.cpSync(path.resolve(import.meta.dirname,"..","plugins/communication-kit/skills/communicate"),source,{recursive:true});fs.cpSync(source,installed,{recursive:true});
+ const facts=assertInstalledSkillResources(source,installed,qualified);for(const reference of ["SKILL.md","agents/openai.yaml",...COMMUNICATION_REFERENCES])assert.match(facts[reference],/^[0-9a-f]{64}$/);
+ for(const reference of ["SKILL.md","agents/openai.yaml",...COMMUNICATION_REFERENCES]){
+  const file=path.join(installed,reference),bytes=fs.readFileSync(file);fs.unlinkSync(file);assert.throws(()=>assertInstalledSkillResources(source,installed,qualified),/inventory/);fs.writeFileSync(file,bytes);fs.appendFileSync(file,"\nchanged\n");assert.throws(()=>assertInstalledSkillResources(source,installed,qualified),/differs/);fs.writeFileSync(file,bytes);
+ }
+ const extra=path.join(installed,"references/unexpected.md");fs.writeFileSync(extra,"extra");assert.throws(()=>assertInstalledSkillResources(source,installed,qualified),/inventory/);fs.unlinkSync(extra);
+ const refs=path.join(installed,"references"),owned=path.join(installed,"owned");fs.renameSync(refs,owned);fs.symlinkSync(owned,refs,process.platform==="win32"?"junction":"dir");assert.throws(()=>assertInstalledSkillResources(source,installed,qualified),/symlink|junction|reparse/);fs.unlinkSync(refs);fs.renameSync(owned,refs);
+ assert.doesNotThrow(()=>assertInstalledSkillResources(source,installed,qualified));
 });

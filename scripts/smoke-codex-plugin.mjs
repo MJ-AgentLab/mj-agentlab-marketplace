@@ -2,13 +2,19 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
+import crypto from "node:crypto";
 import { pathToFileURL } from "node:url";
 import { runCli, spawnCli } from "./run-cli.mjs";
 import { assertInstalledIcons } from "./plugin-icons.mjs";
-import { REPOSITORY_SKILLS, RUNTIME_PLUGINS, PUBLIC_SKILLS, EXPLICIT_ONLY_SKILLS, validateOpenAIConfig } from "./validate-portable.mjs";
+import { REPOSITORY_SKILLS, RUNTIME_PLUGINS, PUBLIC_SKILLS, EXPLICIT_ONLY_SKILLS, validateOpenAIConfig, validateCommunicationSnapshot, resolveOwnedResource, validateRepository } from "./validate-portable.mjs";
 
 export const MARKETPLACE_NAME = "mj-agentlab-marketplace";
 export const BASELINE_VERSION = "0.147.0";
+export const INSTALL_SCENARIOS = Object.freeze([
+  ["diagram-kit"], ["understanding-kit"], ["explain-kit"], ["diagram-kit", "explain-kit"],
+  ["diagram-kit", "understanding-kit", "explain-kit"], ["communication-kit"],
+  ["communication-kit", "explain-kit"], ["communication-kit", "understanding-kit"], Object.keys(RUNTIME_PLUGINS),
+].map(plugins => Object.freeze(plugins)));
 const norm = p => String(p).replaceAll("\\", "/");
 // Native realpath expands Windows 8.3 aliases used by hosted runner temp paths.
 const real = p => fs.realpathSync.native(p);
@@ -80,6 +86,34 @@ export function assertDiscovery(entries, { cacheRoot, repositoryRoot, inReposito
   return { publicSkills: publicSkills.length, repositorySkills: development.length };
 }
 
+/** Compare the full skill tree, including every reference and native metadata byte. */
+export function assertInstalledSkillResources(sourceRoot, installedRoot, qualifiedName) {
+  function inventory(root, relative = "") {
+    if (fs.lstatSync(root).isSymbolicLink()) throw new Error("skill resource root must not be a symlink or junction/reparse link");
+    return fs.readdirSync(path.join(root, relative), { withFileTypes: true }).flatMap(entry => {
+      const rel = path.posix.join(relative, entry.name);
+      if (entry.isSymbolicLink()) throw new Error(`skill resource must not be a symlink or junction/reparse link: ${rel}`);
+      if (entry.isDirectory()) return inventory(root, rel);
+      resolveOwnedResource(root, `./${rel}`);
+      return [rel];
+    }).sort();
+  }
+  const sourceFiles = inventory(sourceRoot), installedFiles = inventory(installedRoot);
+  if (JSON.stringify(sourceFiles) !== JSON.stringify(installedFiles)) throw new Error(`installed skill resource inventory differs from source: ${qualifiedName}`);
+  const facts = {};
+  for (const rel of sourceFiles) {
+    const source = fs.readFileSync(resolveOwnedResource(sourceRoot, `./${rel}`));
+    const installed = fs.readFileSync(resolveOwnedResource(installedRoot, `./${rel}`));
+    if (!source.equals(installed)) throw new Error(`installed skill resource differs from source: ${qualifiedName}/${rel}`);
+    facts[rel] = crypto.createHash("sha256").update(installed).digest("hex");
+  }
+  if (qualifiedName === "communication-kit:communicate") {
+    validateCommunicationSnapshot(sourceRoot);
+    validateCommunicationSnapshot(installedRoot);
+  }
+  return facts;
+}
+
 /** Read the native skill inventory, which includes explicitly invoked skills omitted from prompt metadata. */
 export function listNativeSkills({ codexCommand = "codex", cwd, cwds, env, timeoutMs = 60000, spawn = spawnCli }) {
   return new Promise((resolve, reject) => {
@@ -145,6 +179,8 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
   };
   try {
     for (const rel of [".agents", "plugins", "assets", "AGENTS.md", ".codex", ".github", "docs", "scripts", "tests", "VERSION", "README.md", "CONTRIBUTING.md", "GLOSSARY.md", "CHANGELOG.md", "package.json", "package-lock.json"]) fs.cpSync(path.join(repoRoot, rel), path.join(src, rel), { recursive: true });
+    if (fs.existsSync(path.join(repoRoot, "plan"))) fs.cpSync(path.join(repoRoot, "plan"), path.join(src, "plan"), { recursive: true });
+    if (fs.existsSync(path.join(repoRoot, ".gitattributes"))) fs.copyFileSync(path.join(repoRoot, ".gitattributes"), path.join(src, ".gitattributes"));
     await execute("git", ["init", "-q"], src);
     fs.writeFileSync(path.join(codexHome, "config.toml"), `[projects.${JSON.stringify(norm(src))}]\ntrust_level = "trusted"\n`);
     const version = (await execute(codexCommand, ["--version"])).trim();
@@ -170,6 +206,7 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
     commands.push({ command: codexCommand, args: ["app-server", "--stdio"], method: "skills/list", status: 0 });
     const nativeInventories = {};
     const skillPaths = {};
+    const installedResources = {};
     for (const [key, at, inRepository] of [["outside", cwd, false], ["repository", src, true]]) {
       const matching = native.filter(entry => same(entry.cwd, at));
       if (matching.length !== 1 || !Array.isArray(matching[0].skills) || !Array.isArray(matching[0].errors) || matching[0].errors.length) throw new Error(`native ${key} inventory is missing or has skill errors`);
@@ -179,10 +216,7 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
         const [plugin, name] = skill.name.split(":"), installedRoot = path.dirname(skill.path), sourceRoot = path.join(src, "plugins", plugin, "skills", name);
         const config = validateOpenAIConfig(fs.readFileSync(path.join(installedRoot, "agents/openai.yaml"), "utf8"), plugin, name);
         if (skill.interface?.defaultPrompt !== config.interface.default_prompt || skill.interface?.displayName !== config.interface.display_name) throw new Error(`native presentation differs from installed metadata: ${skill.name}`);
-        for (const rel of ["SKILL.md", "agents/openai.yaml", ...(plugin === "understanding-kit" ? ["references/ku-selection.md", "references/quiz-policy.md"] : plugin === "diagram-kit" ? ["scripts/validate_diagram.py"] : [])]) {
-          const file = path.join(installedRoot, rel), relative = path.relative(real(installedRoot), real(file));
-          if (relative.startsWith("..") || path.isAbsolute(relative) || !fs.readFileSync(file).equals(fs.readFileSync(path.join(sourceRoot, rel)))) throw new Error(`installed skill resource is not its package-owned source: ${skill.name}/${rel}`);
-        }
+        installedResources[skill.name] ??= assertInstalledSkillResources(sourceRoot, installedRoot, skill.name);
         skillPaths[skill.name] = skill.path;
       }
       nativeInventories[key] = assertDiscovery(skills.map(s => ({ name: s.name, file: s.path })), { cacheRoot, repositoryRoot: src, inRepository, expectedSkills, pluginVersions });
@@ -212,7 +246,7 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
       diagramValidation = { skillPath: diagram.file, validatorPath, output: output.trim() };
     }
     complete = true;
-    return { ok: true, version, marketplaces: names, installed: plugins, installedIcons, outside, repository, nativeOutside: nativeInventories.outside, nativeRepository: nativeInventories.repository, explicitOnly: expectedSkills.filter(name => EXPLICIT_ONLY_SKILLS.includes(name)), skillPaths, publicSkillPaths: skillPaths, ...(diagramValidation ? { skillPath: diagram.file, validatorPath: diagramValidation.validatorPath, diagramValidation } : {}), ...(keepRoot ? { root, codexHome, repositoryRoot: src, consumerRoot: cwd } : {}), commands };
+    return { ok: true, version, marketplaces: names, installed: plugins, installedIcons, installedResources, outside, repository, nativeOutside: nativeInventories.outside, nativeRepository: nativeInventories.repository, explicitOnly: expectedSkills.filter(name => EXPLICIT_ONLY_SKILLS.includes(name)), skillPaths, publicSkillPaths: skillPaths, ...(diagramValidation ? { skillPath: diagram.file, validatorPath: diagramValidation.validatorPath, diagramValidation } : {}), ...(keepRoot ? { root, codexHome, repositoryRoot: src, consumerRoot: cwd } : {}), commands };
   } finally {
     if (!keepRoot || !complete) cleanupIsolatedRoot(root);
   }
@@ -220,9 +254,11 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
 
 /** Exercise each standalone package and the combined install with separate caches. */
 export async function runSmoke({ repoRoot = path.resolve(import.meta.dirname, ".."), codexCommand = "codex", baseEnv = process.env, keepRoot = false, allowVersionDrift = false } = {}) {
+  const validation = validateRepository(repoRoot);
+  if (!validation.ok) throw new Error(`smoke source failed strict validation: ${validation.errors.join("; ")}`);
   const scenarios = [];
   try {
-    for (const installed of [["diagram-kit"], ["explain-kit"], ["diagram-kit", "explain-kit"], Object.keys(RUNTIME_PLUGINS)]) {
+    for (const installed of INSTALL_SCENARIOS) {
       scenarios.push(await runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVersionDrift, installed }));
     }
     return { ...scenarios.at(-1), scenarios };
