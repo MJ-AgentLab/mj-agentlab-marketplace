@@ -13,7 +13,7 @@ version: v1.1
 
 ## §1 Preconditions and status
 
-PR3 已实现并原子接入完整 Communication 0.1.0 候选、注册、严格集合、冻结资源、正式图标与安装预期。工程检查与九组合 canonical 安装已有实测，S01–S12 逐项结论暂记 PARTIAL，S08 的 manifest/SVG 源缓存比对缺口正修复复验。C01–C18 正在准备或执行，尚无判定；真实双客户端、原生窗口交互与 R01–R05 仍 NOT RUN。PR3 保持 draft。[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)保持开放，完整计划与[来源捕获](../../plan/communication-kit-plan-provenance.json)在 plan/。
+PR3 已实现并原子接入完整 Communication 0.1.0 候选、注册、严格集合、冻结资源、正式图标与安装预期。新批次工程278/278及九组合 canonical 安装通过，manifest/SVG 比较缺口与提示文本长度问题已修复复验；S01–S12逐项独立对照仍在收敛。C01–C18正在实际执行和独立判定，C01初步发现成稿缺关键提示，保留原批次并待修复复验；真实双客户端、原生窗口交互与R01–R05仍NOT RUN。PR3保持draft。[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)保持开放，完整计划与[来源捕获](../../plan/communication-kit-plan-provenance.json)在plan/。
 
 PR1 当时仅定义验收、没有运行包，全部新包用例从 NOT RUN 开始；该历史及失败批次保留，当前状态不覆盖原记录。
 
@@ -44,6 +44,8 @@ npm run smoke:codex
 |---|---|---|
 | [PR3 engineering 01](evidence/communication-kit-2026-10-12-pr3-engineering-01.json) | npm test 276/276 PASS；strict 四插件/五公开技能/20开发技能/两显式入口 | 工程执行与候选内容身份；不证明 C01–C18、真实客户端或现实效果 |
 | [PR3 canonical 01](evidence/communication-kit-2026-10-12-pr3-canonical-01.json) | 既有比较范围内9/9安装通过；四次安装缓存Python PASS | 安装、原生发现及已覆盖资源比较；发现 manifest/SVG 比较缺口，S08不记完整PASS；不是发布后R04 |
+| [PR3 engineering 02](evidence/communication-kit-2026-10-12-pr3-engineering-02.json) | 固定b2d47ce：278/278 PASS、strict PASS、基线0.147.0 | 提示预算与完整元数据变异回归已修复；行为仍独立判定 |
+| [PR3 canonical 02](evidence/communication-kit-2026-10-12-pr3-canonical-02.json) | 固定b2d47ce：9/9安装通过；四次缓存Python PASS | 全部manifest、SVG/PNG、技能及递归参考资料源缓存字节对照；不是桌面UI验收或发布后R04 |
 
 下表 PARTIAL 表示已有相关工程路径执行，但逐用例证据、缺口修复与最终身份复验尚未收敛；不得由总测试数或安装成功推断每项全部通过。S08 修复后追加新批次，保留原比较范围和缺口。
 
@@ -56,7 +58,7 @@ npm run smoke:codex
 | S05 | 冻结字段、来源、章节、日期及哈希有效 | PARTIAL — 字节与结构已查，语义对照另记 |
 | S06 | 摘要改字节而未更新哈希时失败 | PARTIAL — 工程已执行，待逐项收敛 |
 | S07 | 包外路径、symlink及junction越界失败 | PARTIAL — 工程已执行，待逐项收敛 |
-| S08 | 安装缓存技能、元数据、参考资料与图标字节一致 | PARTIAL — manifest/SVG比较缺口修复复验中 |
+| S08 | 安装缓存技能、元数据、参考资料与图标字节一致 | PASS — canonical 02逐包完整字节对照，变异回归阻断 |
 | S09 | 版本DryRun零写入；独立更新及回滚正确 | PARTIAL — 工具批次已执行，无真实市场转换 |
 | S10 | 图标有效、尺寸正确、四图完整；小尺寸人工检查 | PARTIAL — 已选D与实际预览，客户端另验 |
 | S11 | canonical候选资源缺失或篡改阻止安装 | PARTIAL — 已有工程路径，待补足资源比较复验 |
