@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-12
 state: draft
-version: v1.0
+version: v1.1
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -173,3 +173,29 @@ PR2从实际最新origin/develop `70267a5` 派生，分支codex/html-guide-packa
 - 专项测试的[首轮失败](evidence/html-guide-kit/pr2-tests-first-run.json)与[修正重跑](evidence/html-guide-kit/pr2-tests-corrected-run.log)分别保留：首轮2项是测试模块import及fixture换行配置错误；修正后73/73、0 skip。未将首轮追认PASS。
 
 六组真实连续模型行为仍 NOT_RUN；当前 draft 不解除。双客户端及完整扩展属于PR3待完成；现实效果NOT_MEASURED。安装通过不替代真实模型读取或客户端显示。
+
+## §9 First canonical and actual invocation finding
+
+完整canonical `4992d751d3a9e66a22c95a95ff08a351e75331a4` 的[七安装](evidence/html-guide-kit/pr2-canonical-install-4992d75.json)通过，四次实际缓存Python扫描1/FAIL0/WARN0。相同源运行七文件与独立中性mirror和HTML安装cache逐字节对应。镜像排除了reviewer-only文档、root上下文、tests/evals/证据/控制，目录清单与源tree分开，不宣称两树相同。
+
+首次B1.1真实调用UUID `01a12f95-a121-7941-84aa-4d8ee0ae319c` 返回INVALID_RUN：默认桌面配置模型gpt-6.1-sol被CLI0.147.0/当前ChatGPT身份明确拒绝，没有模型指南输出、材料或技能读取事件；[准确输入输出与错误](evidence/html-guide-kit/pr2-first-model-invalid.json)保留。不能作为等待确认或任何行为PASS。stderr同时发现HTML interface.defaultPrompt超过128字符，被客户端忽略；这是真实分发缺陷，需修正、重新安装并建立新canonical批次。首版未合并，仍0.1.0。认证不写入证据，原用户配置不修改。
+
+客户端启动后会从已登录账号云端发现其它curated插件，不能把prepare阶段的单独HTML安装命令表述为模型实际技能集合只有HTML；实际环境需再次核对并记录。六组仍未通过，draft保持。
+
+示例提示修正候选 `1cd0f1c2a9395fd192260d06778e8489182516a8` 将唯一guide listing缩为123字符，保留新建及确认等待；严格HTML合同拒绝任意超过128的示例，不放宽校验。受影响[37测试](evidence/html-guide-kit/pr2-default-prompt-tests.log)与[修正后结构](evidence/html-guide-kit/pr2-default-prompt-validate-corrected.log)通过；[前置shell shim失败](evidence/html-guide-kit/pr2-default-prompt-validate.log)也保留，没有追认。修正后完整候选与真实模型重新安装验证另记。
+
+修正后[完整测试](evidence/html-guide-kit/pr2-post-prompt-full-tests.log)279/279 PASS、0skip；[新canonical七安装](evidence/html-guide-kit/pr2-canonical-install-1cd0f1c.json)通过，四次实际缓存Python也通过。旧候选安装通过保持其原身份，不能覆盖真实CLI示例忽略的失败或被测模型未运行的缺口。
+
+## §10 PR2 current blocking behavior outcome
+
+[汇总](evidence/html-guide-kit/pr2-behavior-summary.json)记录指定14个fresh变体、30轮连续会话在canonical `1cd0f1c2a9395fd192260d06778e8489182516a8`、HTML Guide Kit0.1.0上逐项独立PASS，六组B1–B6全部通过。三个subset分别独立随机HOME/consumer/mirror/cache，避免共享批次并发覆盖；每组保存真实UUID、输入输出、工具事件、raw源/mirror/cache hash、准确CLI/模型身份和逐项评审。实际为CLI0.147.0/openai/gpt-5.6-sol/low，选型依据该baseline当前身份model/list的实际默认值；用户原6.1-sol/xhigh配置未改。originator字段Codex Desktop不代表桌面UI验收。
+
+指定成功矩阵之外另保留一次原输入修订fresh重试，传输完成的模型会话共15 UUID/31轮（其中旧修订首attempt仍UNKNOWN，不称15个PASS会话）；最初不支持模型的UUID另为INVALID_RUN，共执行16 UUID/32输入轮次。旧修订首attempt保持UNKNOWN，不据新尝试追认其PASS；被拒读取、后台第三方缓存长路径及采样重试均保留。
+
+安装缓存SKILL的真实读取可由成功工具返回或客户端native附入证明。比较范围拒绝的session line11含准确cache locator和完整SKILL正文，与canonical/mirror/cache字节对应，原stdin不含正文，发生在模型回复前；这是native_skill_attachment，不是模型自述或shell读取。工具列表为空仍保存。范围请求在正常新建流程前被明确拒绝时，未读取的两参考为NOT_APPLICABLE而不是已读；新建/生成cases两参考均有完整真实读取。该适用性解释遵循SPEC§2.1“按运行要求读取”及SKILL阶段，控制程序前后hash和依据保留，冻结SPEC/输入/运行资源不改。
+
+B5.2有非阻断来源措辞note：读者/任务两项额外检查轴实际未在原文给出，但统括句将扩展检查轴都称为材料明确指出。独立评审按冻结B5.2判准通过，因为没有编造效果、唯一优劣或能力分数；该note完整保留，PR3针对原材料与设计判断归属进一步验证。
+
+六组通过仅覆盖本批有限CLI合成行为。E1–E18完整扩展、Codex应用UI、ChatGPT桌面与宿主窗口事件仍未通过；现实效果NOT_MEASURED。#226可在当前工程证据及CI核验后准备独立GitHub审查；合并仍必须当前head非作者批准、required checks、最新base与resolved threads，不使用bypass。实际merge及复验前#219保持开放，#220和Epic#217亦开放。
+
+完整原始证据的正式入口为[最终 lossless 索引](evidence/html-guide-kit/pr2-reviewer/final/index.json)，247原文件/7,057,848原字节封装为10 packets。每entry保留原绝对路径、相对映射、确切UTF8内容与SHA-256，复原逐字节校验及独立.NET复查通过；JSON格式避免改写原始输出的Markdown空白或JSONL换行。index提供所有评审绝对路径及JSONL行号到封存内容的映射，跨机复验需恢复新外部reviewer，而不是假定旧临时cache仍存在。controller/freeze/plan pin、实际models/list/skills/list诊断、前后控制解释、全部model输入输出/工具/stderr/会话快照/原评审及适配均封存。没有复制auth、临时home或原用户会话。早期243文件工程封装留为历史快照；当前验收仅引用final/index。

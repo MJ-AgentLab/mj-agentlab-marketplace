@@ -27,6 +27,6 @@ Diagram 0.3.1 / Understanding 0.1.2 / Explain 0.1.1 在本任务中保持不变�
 
 ## HTML Guide Kit development contract
 
-新增 plugins/html-guide-kit/plugin.json 0.1.0，唯一 guide，Read；defaultPrompt 仅指向 $html-guide-kit:guide。原生配置明确 allow_implicit_invocation: false，short_description 为 25–64 字符且 default_prompt 只有一次自身调用。技能目录精确包含 SKILL.md、agents/openai.yaml 与 references/guide-framework.md、references/interaction-design.md；不存在多余运行文件，也不得通过移除 Markdown 指针让缺失资源通过。
+新增 plugins/html-guide-kit/plugin.json 0.1.0，唯一 guide，Read；defaultPrompt 仅指向 $html-guide-kit:guide，每项最多128字符，避免 CLI0.147.0忽略示例入口。原生配置明确 allow_implicit_invocation: false，short_description 为 25–64 字符且 default_prompt 只有一次自身调用。技能目录精确包含 SKILL.md、agents/openai.yaml 与 references/guide-framework.md、references/interaction-design.md；不存在多余运行文件，也不得通过移除 Markdown 指针让缺失资源通过。
 
 SKILL_RESOURCES 定义必需包内资源；安装比较严格验证源/缓存 manifest 身份、版本、能力，逐字节比较 manifest、SVG/PNG 和全部必需技能资源，拒绝符号/junction 借用。源、镜像和缓存逐文件 SHA-256 独立记录，reviewer-only 文件从行为镜像排除。两只读显式技能为 pop-quiz 和 guide，普通提示自然发现仍仅 arch-diagram/glossary/concept。产品合同见 [HTML Guide ADR](../adr/[ADR]_HTML_Guide_Kit_Addition.md)。

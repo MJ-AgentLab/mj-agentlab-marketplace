@@ -44,7 +44,7 @@ Owner 于 2026-10-10 明确要求发布 8.1.1，发布授权已提供，不重�
 
 ## HTML Guide Kit 阶段实施
 
-Owner 已授权按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 与三个子 Issue 推进 HTML Guide Kit，分阶段顺序合并 develop；[ADR](docs/adr/[ADR]_HTML_Guide_Kit_Addition.md) 记录已确定合同。PR1 #221 已合并，实际 merge 70267a5 与已测 head tree 相同，四种 canonical 安装与缓存 Python 复验通过；#218 已显式关闭，独立批准缺项按实际记录保留。PR2 接入完整 HTML Guide Kit 0.1.0 包、Owner 选定的第二轮 A 图标与严格登记；开发运行集合为四插件、五公开技能、三个自然启用技能和 20 项仓库开发技能。版本工具缺 manifest 仍失败。PR2 以 draft 跟踪，严格合同、资源字节和七组安装场景通过后，仍须通过六组真实连续行为才能合并；PR3 完成扩展工程验收、双客户端交互和实际 merge 复验。判准与事实见 [SPEC](docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md) 和 [RUNBOOK](docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+Owner 已授权按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 与三个子 Issue 推进 HTML Guide Kit，分阶段顺序合并 develop；[ADR](docs/adr/[ADR]_HTML_Guide_Kit_Addition.md) 记录已确定合同。PR1 #221 已合并，实际 merge 70267a5 与已测 head tree 相同，四种 canonical 安装与缓存 Python 复验通过；#218 已显式关闭，独立批准缺项按实际记录保留。PR2 [#226](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/226) 接入完整 HTML Guide Kit 0.1.0 包、Owner 选定的第二轮 A 图标与严格登记；开发运行集合为四插件、五公开技能、三个自然启用技能和 20 项仓库开发技能。版本工具缺 manifest 仍失败。候选 1cd0f1c 的 279 测试、严格七安装及四次缓存 Python、六组14指定变体30连续轮次独立评审通过，未覆盖 UI/扩展/现实效果不据此追认。最初无效调用、工具拒绝、额外重试和 B5.2 来源措辞 note 保留。当前 head 独立批准及实际 merge 复验仍须满足，完成前 #219 不关闭；PR3 完成扩展工程验收、双客户端交互和实际 merge 复验。判准与事实见 [SPEC](docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md) 和 [RUNBOOK](docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
 
 HTML Guide Kit 初始 0.1.0，仅显式 $html-guide-kit:guide，Read、聊天文本新建指南；读者/任务/理解问题须明确确认后生成。未答、推荐、预选、沉默、超时、无关回复或窗口消失不是确认，不能承诺锁宿主窗口。研究项目及指南聊天只作只读设计参考，运行包无本机路径或研究治理依赖。Owner 2026-10-12 调整：本次不做现实场景效果测试，实际效果另测，未测量不得写 PASS；安装、模型行为、客户端交互和工程门禁继续有效。
 
