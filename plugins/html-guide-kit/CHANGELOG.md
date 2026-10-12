@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-10-12
+
+### Fixed
+
+- HTML Guide Kit 0.1.1 cross-checks each operation's source preconditions and allowed states against narrative, demonstrations, unavailable feedback and self-checks. A correct rule elsewhere cannot cancel contradictory feedback.
+- Preserve unspecified branches instead of deriving prohibition, opposite results or unchanged values from a rule that describes only one state. Use negative feedback only when the source establishes the corresponding necessary condition, exclusive scope or prohibition.
+- Attribute added inspection axes and teaching suggestions to design judgment instead of describing them as explicit source rules or omissions. Preserve historical 0.1.0 failures and require new installation and behavior evidence for this correction candidate.
+
 ## [0.1.0] - 2026-10-12
 
 ### Added
