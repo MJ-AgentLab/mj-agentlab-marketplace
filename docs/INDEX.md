@@ -4,9 +4,9 @@ scope: marketplace
 summary: "当前 ChatGPT/Codex 文档、历史决策与退役资料导航"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-10
+updated: 2026-10-12
 state: active
-version: v2.12
+version: v2.13
 ---
 
 # 文档索引
@@ -16,6 +16,8 @@ version: v2.12
 #203/#204 接入 A 仓库主标、D 插件图标及 20 号开发技能，随 v8.1.1 分发；实现阶段的验收、未完成项和历史证据见 [品牌验收](runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。历史 v8.1.0 包含三个插件，v8.0.0 仅包含 Diagram Kit。
 
 8.1.1 的实际 tag、Release、正文身份、发布后安装及保留缺项见 [发布记录](runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。
+
+HTML Guide Kit 正按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 分阶段实施：PR1 仅合同与工具前置，不改变运行集合。阶段门槛见 [ADR](adr/[ADR]_HTML_Guide_Kit_Addition.md)，判准见 [SPEC](spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，实际结果及未覆盖项见 [RUNBOOK](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。现实场景理解效果另测，本次仍保留工程行为与双客户端交互验收。
 
 ## 入口
 
@@ -29,6 +31,9 @@ version: v2.12
 
 - [Explain Kit 新增决策](adr/[ADR]_Explain_Kit_Addition.md)
 - [Explain Kit 实际验收](runbook/[RUNBOOK]_Explain_Kit_Acceptance.md)
+- [HTML Guide Kit 新增决定](adr/[ADR]_HTML_Guide_Kit_Addition.md)
+- [HTML Guide Kit 验收判准](spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)
+- [HTML Guide Kit 阶段验收](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)
 
 - [品牌统一决定](adr/[ADR]_Brand_Identity_And_Icon_Workflow.md)
 - [品牌和图标验收](runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)

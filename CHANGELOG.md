@@ -5,6 +5,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- HTML Guide Kit 合同与前置治理（Refs #217、#218）：新增 ADR、验收 SPEC/RUNBOOK，预留提交 scope 与独立版本工具支持；缺失 manifest 继续失败，运行集合与 marketplace 8.1.2 / 现有插件版本保持。提供 npm run check / smoke 兼容入口；图标候选等待 Owner 选择，完整插件在后续 PR 原子接入。现实场景效果按 Owner 调整另测，不宣称理解改善。
+
 ### Changed
 
 - Prepare the unpublished develop 8.1.2 pre-bump after #206 synchronized the published main. Update only marketplace VERSION and its derived README badge; keep all plugin versions, published version sections, tags and assets unchanged. Include the parallel publication-record documentation and synchronize its main merge ancestry when available.
