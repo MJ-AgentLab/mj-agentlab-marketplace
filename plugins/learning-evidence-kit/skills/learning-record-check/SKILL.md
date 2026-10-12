@@ -7,6 +7,8 @@ description: "Explicitly check a specified learning record for its task, then ch
 
 Use the user's language; default to Chinese with original terms. Start only on explicit request naming records/task. Saved quizzes or new materials alone authorize neither publication nor application checking. Reuse confirmed configuration and authorization in unchanged scope; ask only for essential missing inputs.
 
+Before reading or listing library records, establish the user's selected record or task scope. Reuse a selection already confirmed in this conversation; a named task/PR or explicitly transferred record is sufficient, so do not demand an ID the user need not know. An invocation plus a library path, identity or current directory alone is no selection. With neither selected record nor task, report the missing selection, ask for that essential choice and stop until an explicit reply. Do not enumerate the library, pick its only/latest record, infer a task from local files, or emit validity/application conclusions before selection.
+
 Read [record/common contract](../../references/record-contract.md). Derive plugin root two parents above this actual SKILL.md directory; locate owned scripts/lek.py, never cwd/repository staging. Locate actual Python 3.12; use separate arguments and one JSON stdin request. Structural checks return evidence, not a knowledge-mastery verdict.
 
 ## Stage 1: record validity
