@@ -41,3 +41,5 @@ v8.0.0 已经 #190 合入 main 并自动发布，实际状态和未完成的桌�
 仓库主标使用 Owner 选定的 A（MJ＋斜向模块连接），三个插件采用已批准的 D 风格；品牌与图标修改读取 [品牌规范](docs/rule/[STANDARD]_Brand_Identity.md) 并使用 [.agents/skills/mp-design-icon](.agents/skills/mp-design-icon/SKILL.md)。开发技能现为 20 项，仍只有三个公开插件和四个公开技能。新增候选先选择后接入，已有批准直接复用。#203/#204 已完成品牌实现和验收记录，并随 v8.1.1 发布；资源、隔离安装、独立技能演练及当时未完成项见 [品牌验收](docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。后续发布不追认历史验收或批准。
 
 Owner 于 2026-10-10 明确要求发布 8.1.1，发布授权已提供，不重复确认。候选从 develop 9bd54d7 派生，运行版本已匹配目标，无额外 bump。Owner 补充三张桌面截图，显示三插件详情页图标与候选版本，Diagram/Explain 示例提示区亦显示小图标；客户端版本、来源及实际输入框结果按已提供的具体证据记录，截图不补写未展示项。当前 main ruleset 要求当前 head 的非作者批准与 Validate Structure；门禁和后续发布事实见 [8.1.1 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。
+
+Learning Evidence PR2 的共用本机能力暂存于 scripts/learning-evidence，旧运行包保持字节；保存、完整基线、身份、关联、恢复、导入导出和保留归档按新记录契约执行。测试显式隔离库；PR3 加入手动 GitHub 流转，PR4 才原子移入新包，当前公开注册不提前切换。实际测试、独立审查及未合并状态见验收账本。
