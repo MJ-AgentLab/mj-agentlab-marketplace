@@ -1,6 +1,6 @@
 # Explain Kit
 
-面向 ChatGPT 桌面端与 Codex 本地环境的解释插件，版本 0.1.0，已随 Marketplace v8.1.0 发布，可从 main 或固定标签 v8.1.0 安装。
+面向 ChatGPT 桌面端与 Codex 本地环境的解释插件，版本 0.1.1，已随 Marketplace v8.1.1 发布，可从 main 或固定标签 v8.1.1 安装。
 
 | 技能 | 用途 | 默认输出 |
 |---|---|---|
@@ -17,4 +17,4 @@ Codex 使用 `$explain-kit:glossary` 或 `$explain-kit:concept`；ChatGPT 桌面
 
 安装、验收状态和发布限制见市场 [说明](../../README.md) 与 [验收记录](../../docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md)。
 
-D 品牌图标包含可编辑 [SVG](assets/icon.svg) 和分发 [PNG](assets/icon.png)，列表与输入框共用；当前为未发布补丁候选，真实客户端显示见仓库 [品牌验收](../../docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。
+D 品牌图标包含可编辑 [SVG](assets/icon.svg) 和分发 [PNG](assets/icon.png)，列表与输入框共用，已随本补丁分发；实际截图和完整客户端记录缺项见 [8.1.1 发布记录](../../docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。

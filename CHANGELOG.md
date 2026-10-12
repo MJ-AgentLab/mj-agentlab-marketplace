@@ -5,6 +5,12 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Prepare the unpublished develop 8.1.2 pre-bump after #206 synchronized the published main. Update only marketplace VERSION and its derived README badge; keep all plugin versions, published version sections, tags and assets unchanged. Include the parallel publication-record documentation and synchronize its main merge ancestry when available.
+
+- Record the actual Marketplace v8.1.1 release identity and successful post-publication canonical installation/icon/Python checks. Update current installation entry points to v8.1.1 while preserving supplied screenshot evidence, incomplete client details and missing independent approval records; published version sections and release assets remain unchanged.
+
 ## [8.1.1] - 2026-10-10
 
 **Marketplace `8.1.1` · Diagram Kit `0.3.1` · Understanding Kit `0.1.2` · Explain Kit `0.1.1`.** This patch prepares the approved brand update for publication. Actual publication and client evidence are tracked in the [8.1.1 release-readiness record](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md); this version section does not establish a published Release.
