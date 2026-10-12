@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "limits": [
+    "No new local-library or GitHub implementation evaluated by PR1.",
+    "No new skill behavior or native window/desktop result.",
+    "No independent GitHub approval or release established.",
+    "Synthetic engineering checks do not establish human learning benefits or Owner acceptance."
+  ],
+  "date": "2026-10-12",
+  "base": "b2e5a74109f47ecee7471ba741fb4c1348457f3b",
+  "scope": "PR1 contract and unchanged runtime regression",
+  "source_head": "fff175afcd8f7a3edd10849e3c88ac759f72de93",
+  "runs": [
+    {
+      "duration_ms": 19084.1813,
+      "command": "npm test",
+      "exit_code": 0,
+      "pass": 240,
+      "skipped": 0,
+      "fail": 0,
+      "environment": {
+        "REQUIRE_PYTHON": "1",
+        "REQUIRE_PWSH": "1"
+      },
+      "tests": 240
+    },
+    {
+      "repository_skills": 20,
+      "exit_code": 0,
+      "public_skills": 4,
+      "runtime_plugins": 3,
+      "command": "npm run validate"
+    },
+    {
+      "exit_code": 0,
+      "codex": "0.147.0",
+      "command": "npm run check:baseline-tools"
+    },
+    {
+      "codex": "0.147.0",
+      "exit_code": 0,
+      "scenarios": [
+        [
+          "diagram-kit"
+        ],
+        [
+          "explain-kit"
+        ],
+        [
+          "diagram-kit",
+          "explain-kit"
+        ],
+        [
+          "diagram-kit",
+          "understanding-kit",
+          "explain-kit"
+        ]
+      ],
+      "implicit_skills": 3,
+      "installed_diagram_output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+      "command": "npm run smoke:codex",
+      "combined_native_skills": 4,
+      "repository_skills": 20
+    },
+    {
+      "exit_code": 0,
+      "result": "empty; runtime bytes and version unchanged",
+      "command": "git diff origin/develop -- plugins VERSION .agents/plugins/marketplace.json"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ],
+  "candidate_documents": [
+    "AGENTS.md",
+    "CHANGELOG.md",
+    "docs/INDEX.md",
+    "docs/adr/[ADR]_Learning_Evidence_Kit_Migration.md",
+    "docs/spec/[SPEC]_Learning_Evidence_Record_And_API.md",
+    "docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md"
+  ]
+}
