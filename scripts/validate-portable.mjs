@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 import { pathToFileURL } from "node:url";
 import { parseDocument } from "yaml";
 import { ICON_FIELDS, validateIconReference, validatePluginIcons } from "./plugin-icons.mjs";
@@ -19,13 +20,22 @@ export const RUNTIME_PLUGINS = Object.freeze({
   "diagram-kit": Object.freeze(["arch-diagram"]),
   "understanding-kit": Object.freeze(["pop-quiz"]),
   "explain-kit": Object.freeze(["glossary", "concept"]),
+  "html-guide-kit": Object.freeze(["guide"]),
 });
 export const PUBLIC_SKILLS = Object.freeze(Object.entries(RUNTIME_PLUGINS).flatMap(([plugin, skills]) => skills.map(skill => `${plugin}:${skill}`)));
-export const EXPLICIT_ONLY_SKILLS = Object.freeze(["understanding-kit:pop-quiz"]);
+export const EXPLICIT_ONLY_SKILLS = Object.freeze(["understanding-kit:pop-quiz", "html-guide-kit:guide"]);
+export const SKILL_RESOURCES = Object.freeze({
+  "diagram-kit:arch-diagram": Object.freeze(["SKILL.md", "agents/openai.yaml", "scripts/validate_diagram.py", "references/architecture-methodology.md", "references/domain-acquisition.md", ...["context", "container", "component", "code", "sequence", "state-machine", "deployment"].map(t => `references/${t}-diagram.md`)]),
+  "understanding-kit:pop-quiz": Object.freeze(["SKILL.md", "agents/openai.yaml", "references/ku-selection.md", "references/quiz-policy.md"]),
+  "explain-kit:glossary": Object.freeze(["SKILL.md", "agents/openai.yaml"]),
+  "explain-kit:concept": Object.freeze(["SKILL.md", "agents/openai.yaml"]),
+  "html-guide-kit:guide": Object.freeze(["SKILL.md", "agents/openai.yaml", "references/guide-framework.md", "references/interaction-design.md"]),
+});
 const PLUGIN_CAPABILITIES = Object.freeze({
   "diagram-kit": Object.freeze(["Read", "Write"]),
   "understanding-kit": Object.freeze(["Read"]),
   "explain-kit": Object.freeze(["Read"]),
+  "html-guide-kit": Object.freeze(["Read"]),
 });
 const SEMVER = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/;
 const NAME = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -102,11 +112,16 @@ export function validateOpenAIConfig(text, plugin, skill) {
   }
   if (!routesToOwnedSkill(config.interface.default_prompt, plugin, skill)) throw new Error("native default_prompt must invoke its own skill");
   if (typeof config.policy?.allow_implicit_invocation !== "boolean") throw new Error("native invocation policy must be an explicit boolean");
-  if (EXPLICIT_ONLY_SKILLS.includes(`${plugin}:${skill}`) && config.policy.allow_implicit_invocation !== false) throw new Error("pop-quiz must require explicit invocation");
+  if (EXPLICIT_ONLY_SKILLS.includes(`${plugin}:${skill}`) && config.policy.allow_implicit_invocation !== false) throw new Error(`${plugin}:${skill} must require explicit invocation`);
   if (plugin === "explain-kit") {
     const length = [...config.interface.short_description].length;
     const calls = [...config.interface.default_prompt.matchAll(/\$([a-z0-9-]+):([a-z0-9-]+)(?![A-Za-z0-9_-])/g)];
     if (length < 25 || length > 64 || calls.length !== 1 || config.policy.allow_implicit_invocation !== true) throw new Error("invalid explanation skill presentation or implicit policy");
+  }
+  if (plugin === "html-guide-kit") {
+    const length = [...config.interface.short_description].length;
+    const calls = [...config.interface.default_prompt.matchAll(/\$([a-z0-9-]+):([a-z0-9-]+)(?![A-Za-z0-9_-])/g)];
+    if (length < 25 || length > 64 || calls.length !== 1) throw new Error("invalid guide skill presentation");
   }
   return config;
 }
@@ -127,6 +142,63 @@ function validateResourceTree(skillRoot) {
 
 function files(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? files(path.join(dir, e.name)) : [path.join(dir, e.name)]);
+}
+
+function ownedResource(root, rel) {
+  if (fs.lstatSync(root).isSymbolicLink() || path.isAbsolute(rel) || rel.includes("\\") || rel.split("/").some(p => !p || p === "." || p === "..")) throw new Error(`resource must be an owned file: ${rel}`);
+  let file = root;
+  for (const part of rel.split("/")) {
+    file = path.join(file, part);
+    if (fs.lstatSync(file).isSymbolicLink()) throw new Error(`resource must not be a symlink or reparse link: ${rel}`);
+  }
+  if (!inside(root, file) || !fs.statSync(file).isFile()) throw new Error(`resource is not an owned file: ${rel}`);
+  return file;
+}
+
+/** Match package-owned raw bytes, including references not mentioned by a Markdown link. */
+export function assertInstalledSkillResources(sourceSkillRoot, installedSkillRoot, qualifiedName) {
+  const required = SKILL_RESOURCES[qualifiedName];
+  if (!required) throw new Error("unapproved installed skill identity");
+  validateResourceTree(sourceSkillRoot);
+  validateResourceTree(installedSkillRoot);
+  const [plugin, skill] = qualifiedName.split(":");
+  for (const root of [sourceSkillRoot, installedSkillRoot]) {
+    validateSkill(fs.readFileSync(ownedResource(root, "SKILL.md"), "utf8"), skill);
+    validateOpenAIConfig(fs.readFileSync(ownedResource(root, "agents/openai.yaml"), "utf8"), plugin, skill);
+  }
+  if (qualifiedName === "html-guide-kit:guide") {
+    for (const root of [sourceSkillRoot, installedSkillRoot]) {
+      const actual = files(root).map(file => path.relative(root, file).replaceAll("\\", "/")).sort();
+      if (JSON.stringify(actual) !== JSON.stringify([...required].sort())) throw new Error("guide must contain exactly its approved skill resources");
+    }
+  }
+  return Object.fromEntries(required.map(rel => {
+    const source = ownedResource(sourceSkillRoot, rel), installed = ownedResource(installedSkillRoot, rel);
+    const bytes = fs.readFileSync(source);
+    if (!bytes.equals(fs.readFileSync(installed))) throw new Error(`installed skill resource differs: ${qualifiedName}/${rel}`);
+    return [rel, { sha256: crypto.createHash("sha256").update(bytes).digest("hex"), source, installed }];
+  }));
+}
+
+/** Validate both identities and compare distributed manifest, icons and approved skill files. */
+export function assertInstalledPluginResources(sourcePluginRoot, installedPluginRoot, expectedName) {
+  const source = JSON.parse(fs.readFileSync(ownedResource(sourcePluginRoot, "plugin.json"), "utf8"));
+  const installed = JSON.parse(fs.readFileSync(ownedResource(installedPluginRoot, "plugin.json"), "utf8"));
+  validateManifest(source, expectedName); validateManifest(installed, expectedName);
+  if (source.name !== installed.name || source.version !== installed.version) throw new Error("installed plugin identity/version differs");
+  const rootFiles = Object.fromEntries(["plugin.json", "assets/icon.svg", "assets/icon.png"].map(rel => {
+    const a = ownedResource(sourcePluginRoot, rel), b = ownedResource(installedPluginRoot, rel), bytes = fs.readFileSync(a);
+    if (!bytes.equals(fs.readFileSync(b))) throw new Error(`installed plugin resource differs: ${expectedName}/${rel}`);
+    return [rel, { sha256: crypto.createHash("sha256").update(bytes).digest("hex"), source: a, installed: b }];
+  }));
+  validatePluginIcons(source, sourcePluginRoot); validatePluginIcons(installed, installedPluginRoot);
+  for (const root of [sourcePluginRoot, installedPluginRoot]) {
+    const skillsRoot = path.join(root, "skills");
+    if (fs.lstatSync(skillsRoot).isSymbolicLink()) throw new Error("installed skills must not borrow a symlink or reparse directory");
+    if (JSON.stringify(fs.readdirSync(skillsRoot).sort()) !== JSON.stringify([...RUNTIME_PLUGINS[source.name]].sort())) throw new Error("installed public skill set differs");
+  }
+  const skills = Object.fromEntries(RUNTIME_PLUGINS[source.name].map(skill => [skill, assertInstalledSkillResources(path.join(sourcePluginRoot, "skills", skill), path.join(installedPluginRoot, "skills", skill), `${source.name}:${skill}`)]));
+  return { name: source.name, version: source.version, rootFiles, skills };
 }
 
 /** Check local file destinations, ignoring fenced examples and remote/anchor links. */
@@ -154,7 +226,7 @@ export function validateRepository(repoRoot) {
   check("marketplace", () => {
     const m = JSON.parse(read(root, ".agents/plugins/marketplace.json"));
     if (m.name !== "mj-agentlab-marketplace" || typeof m.interface?.displayName !== "string") throw new Error("invalid marketplace identity");
-    if (!Array.isArray(m.plugins) || JSON.stringify(m.plugins.map(p => p?.name).sort()) !== JSON.stringify(Object.keys(RUNTIME_PLUGINS).sort())) throw new Error("marketplace must contain exactly the three approved plugins");
+    if (!Array.isArray(m.plugins) || JSON.stringify(m.plugins.map(p => p?.name).sort()) !== JSON.stringify(Object.keys(RUNTIME_PLUGINS).sort())) throw new Error("marketplace must contain exactly the approved plugins");
     if ("version" in m) throw new Error("catalog must not become a version authority");
     for (const p of m.plugins) {
       if (p.source?.source !== "local" || p.source?.path !== `./plugins/${p.name}`) throw new Error("only approved local plugin sources are supported");
@@ -192,6 +264,11 @@ export function validateRepository(repoRoot) {
       validateResourceTree(skillRoot);
       validateSkill(read(skillRoot, "SKILL.md"), skill);
       validateOpenAIConfig(read(skillRoot, "agents/openai.yaml"), plugin, skill);
+      for (const rel of SKILL_RESOURCES[`${plugin}:${skill}`]) ownedResource(skillRoot, rel);
+      if (plugin === "html-guide-kit") {
+        const actual = files(skillRoot).map(file => path.relative(skillRoot, file).replaceAll("\\", "/")).sort();
+        if (JSON.stringify(actual) !== JSON.stringify([...SKILL_RESOURCES[`${plugin}:${skill}`]].sort())) throw new Error("guide must contain exactly its approved skill resources");
+      }
     });
   }
   check("project instruction budget", () => {
