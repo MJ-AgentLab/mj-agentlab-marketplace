@@ -80,6 +80,13 @@ export function validateManifest(manifest, expectedName) {
   const capabilities = PLUGIN_CAPABILITIES[manifest.name];
   if (!Array.isArray(ui.capabilities) || ui.capabilities.length !== capabilities.length || new Set(ui.capabilities).size !== ui.capabilities.length || ui.capabilities.some(value => !capabilities.includes(value))) throw new Error("interface.capabilities must match the plugin's approved capabilities");
   if (ui.category !== "Developer Tools" || !Array.isArray(ui.defaultPrompt) || !ui.defaultPrompt.length || ui.defaultPrompt.some(p => !routesToOwnedSkill(p, manifest.name))) throw new Error("invalid OpenAI listing/routing metadata");
+  if (ui.defaultPrompt.length > 3) throw new Error("interface.defaultPrompt supports at most 3 prompts");
+  for (const [index, prompt] of ui.defaultPrompt.entries()) {
+    if (!prompt.isWellFormed()) throw new Error(`interface.defaultPrompt[${index}] must contain well-formed Unicode scalar values`);
+    // Codex 0.147.0 counts Unicode scalars after whitespace normalization. Keep the
+    // repository's raw listing text within that budget so no normalization is needed.
+    if ([...prompt].length > 128) throw new Error(`interface.defaultPrompt[${index}] must be at most 128 Unicode scalar values before normalization`);
+  }
   for (const skill of RUNTIME_PLUGINS[manifest.name]) {
     if (!ui.defaultPrompt.some(prompt => [...prompt.matchAll(/\$([a-z0-9-]+):([a-z0-9-]+)(?![A-Za-z0-9_-])/g)].some(([, plugin, name]) => plugin === manifest.name && name === skill))) throw new Error("listing must expose every public skill");
   }

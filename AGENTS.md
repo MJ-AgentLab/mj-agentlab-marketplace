@@ -4,6 +4,8 @@
 
 当前候选注册 diagram-kit / arch-diagram、learning-evidence-kit / pop-quiz、learning-record-check 与 explain-kit / glossary、concept，共三插件、五公开技能、两个显式学习入口；目标客户端为 ChatGPT 桌面端和 Codex 本地环境，CLI 验收基线 0.147.0。marketplace 暂为未发布 8.1.2，Learning Evidence 0.1.0、Diagram 0.3.1 / Explain 0.1.1；PR5 才准备 8.2.0。运行信息以索引、manifest 和 VERSION 为准；公开 v8.1.1 仍包含旧 Understanding，候选须从待测 branch/SHA 安装。
 
+manifest 的公开示例按[插件契约](docs/spec/[SPEC]_Plugin_Json_Schema.md)保留完整路由，最多三条，各原值不超过 128 个 Unicode scalar values；严格校验防止客户端忽略超长示例而丢失公开入口，不依赖空白归一化。
+
 Learning Evidence Kit 的 Pop Quiz 诊断只读，明确移交后结束诊断，由包内共用能力保存和关联；Learning Record Check 分开核验指定记录有效性与任务应用。两个技能显式启动，不假定持续同步；共用能力不是第三技能。learn-kit、NotebookLM 与 Claude 退役规则继续有效，旧 [Understanding 决定](docs/adr/[ADR]_Understanding_Kit_Addition.md)与[验收](docs/runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)保留历史范围。
 
 实施或验收 Learning Evidence Kit 时读取 [迁移 ADR](docs/adr/[ADR]_Learning_Evidence_Kit_Migration.md)、[记录/API 契约](docs/spec/[SPEC]_Learning_Evidence_Record_And_API.md)、[使用指南](docs/guide/[GUIDE]_Learning_Evidence_Kit.md)与[验收账本](docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。Epic #209 已获集中实施及条件发布授权；PR4 原子切换包及精确校验，安装脚本归属新插件，不依赖仓库过渡路径。Owner 接受双技能/接口不变、核心独立验收后交付；所有启用提问入口严格待答，未提交/默认/超时/关闭不算答复，原生持续显示须实证，文字重述或 pending 不算窗口通过。PR5 列实际可启用与延期入口；核心交付、原计划完成及 Owner 最终接受分别记录，Epic 保留延期。
@@ -46,7 +48,7 @@ Learning Evidence PR2 的本机能力和 PR3 的手动 GitHub 流转曾暂存于
 
 Learning Evidence PR3 的同一共用接口提供显式范围的完整 PR 评论发布、未知结果回读和缺段恢复，以及手动增量收集。收集先判定人/任务/时间范围再保存正文，翻页须观察连续稳定清单；失败保留已确认范围的快照与旧完成游标。工程验收使用独立临时库及替身 gh，真实账号权限、客户端和 GitHub 非作者批准另记，PR4 迁移只改变包归属，冻结共用模块内容保持。
 
-Learning Record Check 先确认本会话已选定的记录或任务范围；已有选择可复用，命名任务/PR或明确移交记录足够，不强求 ID。仅库路径、身份或 cwd 不算选定，缺选择时停止，不枚举并擅选唯一/最新原件。真实模型初轮发现与修复、环境阻断及后续重跑按验收账本分别保留。
+Learning Record Check 先确认本会话已选定的记录或任务范围；已有选择可复用，命名任务/PR或明确移交记录足够，不强求 ID。仅库路径、身份或 cwd 不算选定，缺选择时停止，不枚举并擅选唯一/最新原件。应用检查须在实现调查或运行探针前确认手动请求、适用记录、当前版本、本人解释及既有验证材料齐备；缺前提立即停止应用阶段，不制造替代材料或先验证实现再记 not_run。材料到达不自动恢复，须新手动触发。真实模型各轮失败、修复、环境阻断及后续重跑按验收账本分别保留。
 
 ## HTML Guide Kit 阶段实施
 
