@@ -4,16 +4,18 @@ scope: marketplace
 summary: "Draft-first Git/tag release with install verification and immutable history"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-10
+updated: 2026-10-12
 state: active
-version: v2.8
+version: v2.9
 ---
 
 # [RUNBOOK] Release operations
 
 ## Preparation
 
-两个治理 PR 及迁移 PR 已合并。owner 已授权先完成 8.0.0 / 0.3.0 与正式 CHANGELOG 的版本准备，阶段调整见 [迁移 ADR](../adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)。代理执行版本 dry-run、更新、测试与 PR 准备，未完成的桌面端验收继续据实记录。VERSION 变化合入 main 会触发发布，因此正式 release PR 的合并必须已有完整客户端验收、发布意图授权、CI 和独立批准。
+两个治理 PR 及 portable 迁移 PR 已合并。历史 8.0.0 / 0.3.0 版本准备授权及阶段调整见 [迁移 ADR](../adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)。代理执行已授权 dry-run、更新、测试与 PR 准备，缺项据实记录。VERSION 变化合入 main 会触发发布，正式 release PR 必须满足实际发布范围的客户端验收、发布授权、CI、当前 head 非作者批准及已解决审查线程。
+
+Learning Evidence Epic #209 已获集中实施及条件发布授权，Owner 接受双技能/接口不变、核心独立验收后交付，不能满足严格原生窗口的入口延期。PR4 暂保持市场 8.1.2，PR5 准备 8.2.0 并逐项列实际可启用入口；未提交/默认/超时/关闭不算答复，文字重述/pending 不算窗口持续显示通过。按 [新 ADR](../adr/[ADR]_Learning_Evidence_Kit_Migration.md)与[验收账本](./[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)核对证据；核心发布不完成原 Epic，延期项、两个收尾 PR 和 Owner 最终接受仍独立追踪。
 
 #197 合并后，owner 明确要求继续并发布；#198 已合入 main，marketplace v8.1.0 于 2026-10-09 自动发布，包含 diagram-kit 0.3.0 / understanding-kit 0.1.1 / explain-kit 0.1.0。发布后四种 canonical 安装复查通过。真实桌面交互未执行、GitHub 未提供独立批准记录，不能因发布成功推定豁免或补记 PASS。发布身份与后续同步见 [8.1.0 发布记录](./[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)。
 

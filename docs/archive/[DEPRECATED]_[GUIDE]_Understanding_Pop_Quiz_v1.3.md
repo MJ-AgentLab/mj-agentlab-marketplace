@@ -5,9 +5,14 @@ summary: "Use explicit Pop Quiz with Side Chat or a confirmed context snapshot"
 owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-10
-state: active
+state: archived
 version: v1.3
+archived: 2026-10-12
+replaced-by: ../guide/[GUIDE]_Learning_Evidence_Kit.md
 ---
+
+> 历史归档（2026-10-12）：保留原正文和版本，仅修复移动或运行包退役导致的链接。原路径 `docs/guide/[GUIDE]_Understanding_Pop_Quiz.md`，来源提交 `b2e5a74109f47ecee7471ba741fb4c1348457f3b`。后继见 [当前契约/指南](../guide/[GUIDE]_Learning_Evidence_Kit.md)；原始 Git blob SHA-256 `42755efef784e622aa7c01c634a65270d024e63b50f4c3ca62a3c9d9117b0203`，见 [来源账本](history-sources.json)。
+
 
 # [GUIDE] Understanding Pop Quiz
 
@@ -59,7 +64,7 @@ ChatGPT 桌面端或普通会话直接提供同样的任务快照：当前任务
 
 ## §3 Further Reading
 
-- [行为契约](../spec/[SPEC]_Understanding_Pop_Quiz.md) — 证据、题量和待答状态。
+- [行为契约]([DEPRECATED]_[SPEC]_Understanding_Pop_Quiz_v1.0.md) — 证据、题量和待答状态。
 - [新增 ADR](../adr/[ADR]_Understanding_Kit_Addition.md) — 已批准边界与历史决定的局部替代。
 - [验收 RUNBOOK](../runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md) — 实际安装、行为及客户端结果。
 - [官方 Side Chat 操作](https://learn.chatgpt.com/docs/developer-commands) — 支持面的操作方法。

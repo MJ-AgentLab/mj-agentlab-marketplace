@@ -8,7 +8,7 @@ import {spawnSync} from 'node:child_process';
 
 const repository = 'synthetic-owner/evidence-sandbox';
 const root = path.resolve(import.meta.dirname, '..');
-const packageRoot = process.env.LEK_TEST_PACKAGE_ROOT ?? path.join(root, 'scripts/learning-evidence');
+const packageRoot = process.env.LEK_TEST_PACKAGE_ROOT ?? path.join(root, 'plugins/learning-evidence-kit/scripts');
 const driver = path.join(root, 'tests/fixtures/learning-evidence-github/driver.py');
 const sha = text => createHash('sha256').update(text).digest('hex');
 function interpreter() {

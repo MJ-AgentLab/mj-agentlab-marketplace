@@ -1,0 +1,40 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "learning-evidence-kit",
+  "version": "0.1.0",
+  "description": "Explicit learning diagnostics, recoverable local evidence and manual task record/application checks.",
+  "author": {
+    "name": "MJ-AgentLab",
+    "url": "https://github.com/MJ-AgentLab"
+  },
+  "repository": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace",
+  "license": "MIT",
+  "keywords": [
+    "learning",
+    "evidence",
+    "quiz",
+    "task",
+    "review"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Learning Evidence Kit",
+        "shortDescription": "Preserve learning evidence and check task application",
+        "longDescription": "Explicit Pop Quiz produces transferable learning observations. A manual handoff saves complete records; Learning Record Check separates record validity from knowledge application and explicitly shares approved records. Native question entries lacking strict-window acceptance remain deferred.",
+        "developerName": "MJ-AgentLab",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "defaultPrompt": [
+          "Use $learning-evidence-kit:pop-quiz to diagnose the knowledge needed for my task using an available accepted question entry.",
+          "Use $learning-evidence-kit:learning-record-check to verify this saved record for the specified task and, when materials and my explanation are available, check its application."
+        ],
+        "logo": "./assets/icon.png",
+        "composerIcon": "./assets/icon.png"
+      }
+    }
+  }
+}

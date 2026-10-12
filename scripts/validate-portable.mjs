@@ -17,14 +17,14 @@ export const REPOSITORY_SKILLS = [
 export const PORTABLE_SCHEMA = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json";
 export const RUNTIME_PLUGINS = Object.freeze({
   "diagram-kit": Object.freeze(["arch-diagram"]),
-  "understanding-kit": Object.freeze(["pop-quiz"]),
+  "learning-evidence-kit": Object.freeze(["pop-quiz", "learning-record-check"]),
   "explain-kit": Object.freeze(["glossary", "concept"]),
 });
 export const PUBLIC_SKILLS = Object.freeze(Object.entries(RUNTIME_PLUGINS).flatMap(([plugin, skills]) => skills.map(skill => `${plugin}:${skill}`)));
-export const EXPLICIT_ONLY_SKILLS = Object.freeze(["understanding-kit:pop-quiz"]);
+export const EXPLICIT_ONLY_SKILLS = Object.freeze(["learning-evidence-kit:pop-quiz", "learning-evidence-kit:learning-record-check"]);
 const PLUGIN_CAPABILITIES = Object.freeze({
   "diagram-kit": Object.freeze(["Read", "Write"]),
-  "understanding-kit": Object.freeze(["Read"]),
+  "learning-evidence-kit": Object.freeze(["Read", "Write"]),
   "explain-kit": Object.freeze(["Read"]),
 });
 const SEMVER = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/;
@@ -102,7 +102,7 @@ export function validateOpenAIConfig(text, plugin, skill) {
   }
   if (!routesToOwnedSkill(config.interface.default_prompt, plugin, skill)) throw new Error("native default_prompt must invoke its own skill");
   if (typeof config.policy?.allow_implicit_invocation !== "boolean") throw new Error("native invocation policy must be an explicit boolean");
-  if (EXPLICIT_ONLY_SKILLS.includes(`${plugin}:${skill}`) && config.policy.allow_implicit_invocation !== false) throw new Error("pop-quiz must require explicit invocation");
+  if (EXPLICIT_ONLY_SKILLS.includes(`${plugin}:${skill}`) && config.policy.allow_implicit_invocation !== false) throw new Error("learning evidence skills must require explicit invocation");
   if (plugin === "explain-kit") {
     const length = [...config.interface.short_description].length;
     const calls = [...config.interface.default_prompt.matchAll(/\$([a-z0-9-]+):([a-z0-9-]+)(?![A-Za-z0-9_-])/g)];
@@ -172,6 +172,7 @@ export function validateRepository(repoRoot) {
     for (const [plugin, expectedSkills] of Object.entries(RUNTIME_PLUGINS)) {
       const pluginRoot = path.join(root, "plugins", plugin);
       if (!inside(root, pluginRoot)) throw new Error(`plugin escapes repository: ${plugin}`);
+      validateResourceTree(pluginRoot);
       const skills = fs.readdirSync(path.join(pluginRoot, "skills")).sort();
       if (JSON.stringify(skills) !== JSON.stringify([...expectedSkills].sort())) throw new Error(`unexpected public skill set: ${plugin}`);
       for (const rel of ["plugin.json", "README.md", "LICENSE", "CHANGELOG.md", ...expectedSkills.flatMap(skill => [`skills/${skill}/SKILL.md`, `skills/${skill}/agents/openai.yaml`])]) {
@@ -212,9 +213,24 @@ export function validateRepository(repoRoot) {
     }
   });
   check("quiz resources", () => {
-    const skillRoot = path.join(root, "plugins/understanding-kit/skills/pop-quiz");
+    const skillRoot = path.join(root, "plugins/learning-evidence-kit/skills/pop-quiz");
     for (const rel of ["references/ku-selection.md", "references/quiz-policy.md"]) {
       if (!inside(skillRoot, path.join(skillRoot, rel)) || !fs.statSync(path.join(skillRoot, rel)).isFile()) throw new Error(`resource is not an owned skill file: ${rel}`);
+    }
+  });
+  check("learning evidence common resources", () => {
+    const pluginRoot = path.join(root, "plugins/learning-evidence-kit");
+    for (const rel of ["scripts/lek.py", "scripts/common.py", "scripts/storage.py", "scripts/github_flow.py", "references/record-contract.md", "references/record-template.json", "references/client-entries.json"]) {
+      const file = path.join(pluginRoot, rel);
+      if (!inside(pluginRoot, file) || !fs.statSync(file).isFile()) throw new Error(`common resource is not package-owned: ${rel}`);
+    }
+    if (fs.existsSync(path.join(root, "scripts/learning-evidence"))) throw new Error("transitional learning evidence scripts must be removed atomically");
+    const entries = JSON.parse(read(pluginRoot, "references/client-entries.json"));
+    if (entries.schema_version !== 1 || entries.plugin_version !== JSON.parse(read(pluginRoot, "plugin.json")).version || !Array.isArray(entries.entries)) throw new Error("invalid client entry ledger");
+    const expectedEntries = ["chatgpt-desktop-native-questions", "codex-native-questions"];
+    if (JSON.stringify(entries.entries.map(e => e?.id).sort()) !== JSON.stringify(expectedEntries)) throw new Error("client ledger must preserve both known deferred entries");
+    for (const entry of entries.entries) {
+      if (!entry || typeof entry !== "object" || Object.keys(entry).sort().join(",") !== "id,reason,removal_condition,status" || entry.status !== "deferred" || typeof entry.reason !== "string" || !entry.reason.trim() || typeof entry.removal_condition !== "string" || !entry.removal_condition.trim()) throw new Error("0.1.0 native entries require explicit deferral and removal conditions");
     }
   });
   for (const file of files(path.join(root, "docs")).filter(p => p.endsWith(".md") && !p.includes(`${path.sep}archive${path.sep}`) && !p.includes(`${path.sep}_templates${path.sep}`))) {

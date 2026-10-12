@@ -4,9 +4,9 @@ scope: marketplace
 summary: "MJ brand geometry, plugin icon sources and selection contract"
 owner: marketplace-maintainers
 created: 2026-10-10
-updated: 2026-10-10
+updated: 2026-10-12
 state: active
-version: v1.0
+version: v1.1
 ---
 
 # [STANDARD] MJ brand identity
@@ -19,7 +19,7 @@ version: v1.0
 
 [参数](../../assets/brand/tokens.json) 集中维护 1024 方形画布、白色圆角底、颜色、轮廓、留白与渐变方向；[模板](../../assets/brand/templates/icon.svg) 和 [提示词](../../assets/brand/design-prompts.md) 供未来设计复用。深蓝 #223D66 为主体，蓝 #126CB0 与青 #37C3D2 为连接和强调；渐变统一左上至右下。圆角底半径 144，安全内边距 96，主要连接线宽 48，厚轮廓参考 72。MJ 主标的连接线为 32，模块边长 72；与字形融合时保留足够空间，不能机械套用插件外框。
 
-使用厚实几何形和少量连接点，避免细网、光晕和装饰堆积。Diagram 为三节点连接图，Explain 为气泡与灯泡，Understanding 为问号与选项卡；未来插件根据真实功能提炼新的符号。主标模块表达可扩展的插件生态，不代表固定插件数量。白色圆角底外保留透明角区，同一资源用于深浅背景；本次不增加 Dark 变体。
+使用厚实几何形和少量连接点，避免细网、光晕和装饰堆积。Diagram 为三节点连接图，Explain 为气泡与灯泡，Learning Evidence 复用已批准 Understanding 的问号与选项卡图标；只迁移包及集中导出/预览归属，图标内容保持。未来插件根据真实功能提炼新的符号。主标模块表达可扩展的插件生态，不代表固定插件数量。白色圆角底外保留透明角区，同一资源用于深浅背景；不增加 Dark 变体。该复用决定见 [迁移 ADR](../adr/[ADR]_Learning_Evidence_Kit_Migration.md)，不追认新客户端显示结果。
 
 ## Sources, selection and export
 

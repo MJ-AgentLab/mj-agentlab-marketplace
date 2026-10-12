@@ -23,7 +23,7 @@ test("Learning evidence storage: actual Python 3.12 isolated recovery/import/att
   const interpreter = python312();
   t.diagnostic(`Interpreter: ${interpreter.version}`);
   const cases = path.join(root, "tests", "fixtures", "learning-evidence", "store_cases.py");
-  const lek = path.join(root, "scripts", "learning-evidence", "lek.py");
+  const lek = path.join(root, "plugins", "learning-evidence-kit", "scripts", "lek.py");
   const result = spawnSync(interpreter.command, [...interpreter.args, cases, lek], {
     encoding: "utf8", shell: false, timeout: 170000,
     env: { ...process.env, PYTHONDONTWRITEBYTECODE: "1", PYTHONUTF8: "1" },

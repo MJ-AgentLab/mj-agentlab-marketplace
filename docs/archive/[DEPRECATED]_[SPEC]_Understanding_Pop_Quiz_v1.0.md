@@ -5,15 +5,20 @@ summary: "Responsibility-grounded quiz contract, evidence limits and pending ans
 owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-09
-state: active
+state: archived
 version: v1.0
+archived: 2026-10-12
+replaced-by: ../guide/[GUIDE]_Learning_Evidence_Kit.md
 ---
+
+> 历史归档（2026-10-12）：保留原正文和版本，仅修复移动或运行包退役导致的链接。原路径 `docs/spec/[SPEC]_Understanding_Pop_Quiz.md`，来源提交 `b2e5a74109f47ecee7471ba741fb4c1348457f3b`。后继行为边界见 [当前指南](../guide/[GUIDE]_Learning_Evidence_Kit.md)，记录/API 见 [新契约](../spec/[SPEC]_Learning_Evidence_Record_And_API.md)；原始 Git blob SHA-256 `f0018ad5abed88aad70d39d9938a77d2c3d1c3e8fd32b56aa46c5903c1e478df`，见 [来源账本](history-sources.json)。
+
 
 # [SPEC] Understanding Pop Quiz
 
 ## §1 Purpose
 
-规定 understanding-kit / pop-quiz 的用户可观察行为。它为当前工作中的必要判断收集局部理解证据，默认聚焦 Q2 或待确认的 Q2 candidate；AI 侧证据不足先处理正确性问题。完整执行规则由 [SKILL.md](../../plugins/understanding-kit/skills/pop-quiz/SKILL.md) 及其按需引用的 [KU selection](../../plugins/understanding-kit/skills/pop-quiz/references/ku-selection.md) / [Quiz policy](../../plugins/understanding-kit/skills/pop-quiz/references/quiz-policy.md) 维护。
+规定 understanding-kit / pop-quiz 的用户可观察行为。它为当前工作中的必要判断收集局部理解证据，默认聚焦 Q2 或待确认的 Q2 candidate；AI 侧证据不足先处理正确性问题。完整执行规则由 [SKILL.md](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/b2e5a74109f47ecee7471ba741fb4c1348457f3b/plugins/understanding-kit/skills/pop-quiz/SKILL.md) 及其按需引用的 [KU selection](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/b2e5a74109f47ecee7471ba741fb4c1348457f3b/plugins/understanding-kit/skills/pop-quiz/references/ku-selection.md) / [Quiz policy](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/b2e5a74109f47ecee7471ba741fb4c1348457f3b/plugins/understanding-kit/skills/pop-quiz/references/quiz-policy.md) 维护。
 
 ## §2 Input and evidence contract
 

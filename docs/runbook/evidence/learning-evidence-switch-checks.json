@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-12",
+  "scope": "PR4 atomic switch; working-source isolated installation",
+  "base": "1b94ef2ecbea17ab89facff14beb720bad5abb91",
+  "dependencies": [
+    224,
+    227
+  ],
+  "synthetic": true,
+  "versions": {
+    "marketplace": "8.1.2",
+    "learning_evidence": "0.1.0",
+    "diagram": "0.3.1",
+    "explain": "0.1.1"
+  },
+  "node_tests": {
+    "pass": 288,
+    "fail": 0,
+    "skipped": 0,
+    "duration_ms": 50485.699
+  },
+  "python": {
+    "version": "3.12.13",
+    "storage_cases": 33,
+    "github_cases": 31
+  },
+  "inventory": {
+    "plugins": 3,
+    "public_skills": 5,
+    "explicit_only": 2,
+    "repository_skills": 20,
+    "naturally_discovered_public_skills": 3,
+    "consumer_repository_skills": 0
+  },
+  "source_modules": {
+    "lek.py": {
+      "canonical_lf_sha256": "b1da7a7716bdecd3a2315c315531a67bb30c56c3bc1230bf1a98d18c77ef0c27",
+      "unchanged_source_blob": true
+    },
+    "common.py": {
+      "canonical_lf_sha256": "939e092bfaa5dbaef85641cdb4452938192cce544213e23d334cff92f2827446",
+      "unchanged_source_blob": true
+    },
+    "storage.py": {
+      "canonical_lf_sha256": "06135056aca5d6bf0b65b108f131b5aceac87cefd80b84d9d1cf6255a6bf0c37",
+      "unchanged_source_blob": true
+    },
+    "github_flow.py": {
+      "canonical_lf_sha256": "0542ff20ac4af7912e67b2b9fbba187629fc8b28b17f11648d0ea38ad5910d1e",
+      "unchanged_source_blob": true
+    }
+  },
+  "staging_location": "removed",
+  "old_runtime_package": "removed",
+  "other_runtime_diff": "empty for Diagram, Explain, VERSION",
+  "installation": {
+    "codex": "0.147.0",
+    "method": "Actual CLI installs isolated copied working source; native skills/list and prompt discovery checked",
+    "scenarios": [
+      {
+        "installed": [
+          "diagram-kit"
+        ],
+        "explicit_only": [],
+        "consumer_discovery": {
+          "publicSkills": 1,
+          "repositorySkills": 0
+        },
+        "diagram_python": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+      },
+      {
+        "installed": [
+          "explain-kit"
+        ],
+        "explicit_only": [],
+        "consumer_discovery": {
+          "publicSkills": 2,
+          "repositorySkills": 0
+        }
+      },
+      {
+        "installed": [
+          "learning-evidence-kit"
+        ],
+        "explicit_only": [
+          "learning-evidence-kit:pop-quiz",
+          "learning-evidence-kit:learning-record-check"
+        ],
+        "consumer_discovery": {
+          "publicSkills": 0,
+          "repositorySkills": 0
+        },
+        "learning_common": {
+          "python": "3.12.13 (main, Jun 11 2026, 04:05:29) [MSC v.1944 64 bit (AMD64)]",
+          "resources": [
+            "scripts/lek.py",
+            "scripts/common.py",
+            "scripts/storage.py",
+            "scripts/github_flow.py",
+            "references/record-contract.md",
+            "references/record-template.json",
+            "references/client-entries.json"
+          ],
+          "save_status": "ok",
+          "replay_identical": true,
+          "structurally_valid": true
+        }
+      },
+      {
+        "installed": [
+          "diagram-kit",
+          "explain-kit"
+        ],
+        "explicit_only": [],
+        "consumer_discovery": {
+          "publicSkills": 3,
+          "repositorySkills": 0
+        },
+        "diagram_python": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+      },
+      {
+        "installed": [
+          "diagram-kit",
+          "learning-evidence-kit",
+          "explain-kit"
+        ],
+        "explicit_only": [
+          "learning-evidence-kit:pop-quiz",
+          "learning-evidence-kit:learning-record-check"
+        ],
+        "consumer_discovery": {
+          "publicSkills": 3,
+          "repositorySkills": 0
+        },
+        "learning_common": {
+          "python": "3.12.13 (main, Jun 11 2026, 04:05:29) [MSC v.1944 64 bit (AMD64)]",
+          "resources": [
+            "scripts/lek.py",
+            "scripts/common.py",
+            "scripts/storage.py",
+            "scripts/github_flow.py",
+            "references/record-contract.md",
+            "references/record-template.json",
+            "references/client-entries.json"
+          ],
+          "save_status": "ok",
+          "replay_identical": true,
+          "structurally_valid": true
+        },
+        "diagram_python": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+      }
+    ]
+  },
+  "independent_review": {
+    "standards_hard_violations": 0,
+    "spec_critical_defects": 0,
+    "actual_independent_cache_runs": "Pending save/replay/check preserve original; documented publish/collect complete in offline substitute",
+    "nonblocking_note": "Seven common resources duplicated in validation and installation smoke lists",
+    "native_ui": "Not observed; static skill review is separate from PR5 actual model calls"
+  },
+  "initial_failures_and_repairs": [
+    {
+      "failure": "Full Node run 287/288: plugin CHANGELOG shipping body lacked its version",
+      "repair": "Add accurate 0.1.0 unpublished-candidate scope paragraph",
+      "targeted_rerun": "27 documentation/smoke cases passed before final full run"
+    },
+    {
+      "failure": "Installed save replay falsely rejected equivalent JSON property order",
+      "repair": "Deep semantic equality of full receipt/IDs; actual repaired five-scenario smoke passed"
+    },
+    {
+      "failure": "Targeted resource-escape assertions and Windows file symlink EPERM",
+      "repair": "Expect earlier owned-tree guard and exercise real external scripts directory junction; no skipped negative"
+    }
+  ],
+  "preserved": {
+    "approved_icon_and_previews": "Same Git source blobs; PNG/preview byte equality; editable SVG canonical LF blob unchanged",
+    "historical_spec_guide": "Fixed b2e5a741 source/hash, only moved links repaired",
+    "parallel_html": "Assets/contracts/hooks/version support and check/smoke aliases inherited"
+  },
+  "limits": [
+    "Working-source cache execution is not canonical Git publication acceptance",
+    "Actual model skill behavior belongs to PR5",
+    "Both strict native question entries remain deferred; no textual/pending substitute",
+    "Actual ChatGPT/Codex desktop interaction, human learning and Owner final acceptance remain separate",
+    "PR2/3/4 depend on current-head GitHub approvals, checks and actual merges; no bypass"
+  ]
+}

@@ -42,9 +42,9 @@ Uncertainty without an answer is `UNCERTAIN`, not an incorrect answer. If an ans
 
 ## Waiting and user control
 
-Use native choice tools only when available and able to show four knowledge choices without answer leakage. In another environment, show a compact A–D question in chat. Offer uncertainty, skip, brief explanation and stop as controls in text or separate native controls; avoid tools that force a recommendation of a knowledge answer. A host's preselected first option is not a submitted answer. Never count silence, elapsed time, window closure or automatic timeout resolution as a user answer or permission to continue.
+Use native choice tools only through an entry listed as enabled in the package client ledger and able to retain the window until explicit submission with four choices and no answer leakage. An unqualified entry is deferred; textual questions cannot substitute for strict-window acceptance. Offer uncertainty, skip, explanation and stop separately. A host's preselected first option is not a submitted answer. Silence, elapsed time, closure and automatic timeout resolution are not user answers or permission to continue.
 
-Keep one pending knowledge question. A partial/ambiguous response needs clarification without scoring; once explicitly submitted, lock it for the remaining pre-feedback diagnostic branch. A user correction can be recorded without pretending the original response did not occur. If the UI loses the pending question, restate that same question and wait; it consumes no new slot. Do not promise that a skill can prevent host closure, turn changes or interruption.
+Keep one pending question; clarify ambiguity without scoring. Lock an explicitly submitted answer for diagnosis and preserve any later correction separately. If the UI loses its pre-submission window, suspend that entry and retain the same unanswered question. Textual restatement is logical recovery only and does not make the failed entry eligible. Never promise that a skill controls host closure, turn changes or interruption.
 
 Respect explicit user control immediately:
 

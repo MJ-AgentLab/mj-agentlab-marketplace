@@ -6,16 +6,18 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-12
 state: active
-version: v2.4
+version: v2.5
 ---
 
 # [GUIDE] Plugin development and testing
 
 在独立 worktree 修改各插件根 manifest、skills 和资源。运行 npm ci、npm run validate、npm test、npm run check:baseline-tools 与 npm run smoke:codex。测试覆盖合法/非法 YAML、三插件索引及独立版本、版本原子更新与失败回滚、A6 防绕过、无资产发布状态机和 Python 校验器真实执行。
 
-隔离安装使用独立 HOME、CODEX_HOME、cache、consumer cwd 和仓库镜像，验证 consumer 不发现 mp-*，repo 正确发现全部 20 个技能。安装元数据应解析四公开技能；普通 prompt 含 arch-diagram、glossary 和 concept，显式调用的 pop-quiz 主动隐藏，另查 app-server 元数据与实际模型加载。用已安装的 arch-diagram 实际生成图与证据表，解析 Python 返回码。在 ChatGPT 桌面端另行完成市场、安装、composer 发现与调用；无原生 UI 控制能力时明确记录该限制，不能以 CLI 代替。
+隔离安装使用独立 HOME、CODEX_HOME、cache、consumer cwd 和仓库镜像，验证 consumer 不发现 mp-*，repo 正确发现全部 20 个技能。元数据应解析三插件/五公开技能；普通 prompt 含 arch-diagram、glossary 和 concept，pop-quiz 与 learning-record-check 两个显式入口另查 app-server 元数据和实际加载。新包使用待测 branch/精确 SHA，不使用公开 v8.1.1 代替候选；marketplace 暂保持 8.1.2，插件为 Diagram 0.3.1 / Learning Evidence 0.1.0 / Explain 0.1.1。
 
-pop-quiz 的静态结构和 CLI 发现只证明可安装和加载；使用已安装技能进行职责差异、可信答案、2+1 分支、无答不推进、题量边界与只读行为回放，再独立检查 Codex Side Chat 和 ChatGPT 桌面端快照分支。按 [Understanding Kit 验收记录](../runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md) 分层登记实际结果。工程开发代理可执行仓库测试；pop-quiz 在学习会话只读取已有证据，不运行项目代码或测试。
+静态结构和发现只证明安装/加载。使用已安装技能执行独立合成角色验收：Pop Quiz 的职责、来源、2+1、预算、无答待答与只读；明确移交保存后保留实际状态；Learning Record Check 两阶段结论及缺材料手动恢复。所有保存测试显式隔离证据库，GitHub 写入用受控替身；完整基线、身份归属、重试/冲突/恢复、导入导出、分段共享及增量进度都以实际运行输出验证。共用脚本必须在安装缓存、无关 cwd 执行，证明仓库脚本区已删除且不是依赖。
+
+实际客户端安装、调用和原生窗口分层核验。所有启用入口严格待答；默认、空返回、超时或关闭不算答复，未提交前窗口持续显示单独验证。文字重述/逻辑 pending 不算窗口通过；不可达或不合格入口延期。按 [新验收账本](../runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)登记方法、输入、版本、输出和限制；Agent 合成不冒充真人、窗口或 GitHub 非作者批准。PR5 明确可启用入口，Epic 保留延期，Owner 最终接受单独记录。
 
 Explain Kit 单独安装及与 Diagram Kit、全部现有插件组合的隔离场景分别验收。代理检查解释路由、格式适应、未知术语及主任务保留，并执行安装缓存的 Python 图表校验；详见 [Explain Kit 验收](../runbook/[RUNBOOK]_Explain_Kit_Acceptance.md)。不能执行的客户端项记录约束，不交给 owner 例行手工完成。
 
