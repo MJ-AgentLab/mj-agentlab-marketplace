@@ -13,7 +13,7 @@ args = sys.argv[1:]
 assert args[0] == "api" and "--method" in args
 endpoint = args[1]
 method = args[args.index("--method") + 1]
-body = json.load(sys.stdin) if "--input" in args else None
+body = json.loads(sys.stdin.buffer.read().decode("utf-8")) if "--input" in args else None
 if body is not None:
     assert args[args.index("--input") + 1] == "-"
 state.setdefault("calls", []).append({"args": args, "method": method, "endpoint": endpoint, "body": body})
@@ -133,4 +133,4 @@ else:
 persist()
 if rule:
     fail(rule)
-sys.stdout.write(json.dumps(result, ensure_ascii=False))
+sys.stdout.buffer.write(json.dumps(result, ensure_ascii=False).encode("utf-8"))

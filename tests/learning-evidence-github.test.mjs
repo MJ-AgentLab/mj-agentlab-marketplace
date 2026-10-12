@@ -74,7 +74,7 @@ function call(f, operation, input, requestId = operation + '-request') {
   const request = {schema_version: 1, operation, request_id: requestId, library_root: f.library, input};
   const run = spawnSync(python.command, [...python.args, driver, packageRoot], {input: JSON.stringify(request), encoding: 'utf8',
     shell: false, cwd: f.temp, env: {...process.env, LEK_FAKE_GH_STATE: f.statePath, LOCALAPPDATA: path.join(f.temp, 'user data'),
-      XDG_DATA_HOME: path.join(f.temp, 'user data')}, maxBuffer: 40 * 1024 * 1024});
+      XDG_DATA_HOME: path.join(f.temp, 'user data'), ...(f.processEnv ?? {})}, maxBuffer: 40 * 1024 * 1024});
   assert.ifError(run.error);
   assert.ok(run.stdout?.trim(), `Actual Python flow returned no JSON: ${run.stderr}`);
   const result = JSON.parse(run.stdout);
@@ -543,6 +543,16 @@ test('filters and source times require complete second-level RFC3339 UTC; invali
   assert.equal(result.data.new_snapshot_ids.length, 1);
   const raw = JSON.parse(fs.readFileSync(path.join(f.library, 'collections/snapshots', result.data.new_snapshot_ids[0] + '.json'), 'utf8'));
   assert.equal(raw.comment.updated_at, '2026-10-12T01Z');
+});
+
+test('UTF-8 gh JSON transport remains exact when the Python console encoding is Windows cp1252', t => {
+  const f = fixture(t), value = seed(f);
+  f.processEnv = {PYTHONIOENCODING: 'cp1252'};
+  assert.equal(call(f, 'publish', publication(value), 'cp1252-publish').status, 'ok');
+  const acquired = call(f, 'collect', collection(), 'cp1252-collect');
+  assert.equal(acquired.status, 'ok', JSON.stringify(acquired));
+  assert.deepEqual(acquired.data.entries[0].payload.record, value);
+  assert.equal(posts(f).length, 1);
 });
 
 test('repeated IDs across pages cannot establish full coverage even when bodies are unchanged; stable retry deduplicates retained snapshots', t => {
