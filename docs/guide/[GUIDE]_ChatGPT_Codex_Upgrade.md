@@ -4,14 +4,14 @@ scope: marketplace
 summary: "Upgrade, retirement and uninstall steps for existing users"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-10
+updated: 2026-10-12
 state: active
-version: v1.6
+version: v1.7
 ---
 
 # [GUIDE] ChatGPT / Codex upgrade
 
-仅 ChatGPT 桌面端和 Codex 本地继续支持；停止 Claude 支持。[Marketplace v8.1.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.1) 已发布，包含 diagram-kit 0.3.1、understanding-kit 0.1.2、explain-kit 0.1.1，三个插件、四个公开技能。main / v8.1.1 可获取全部插件，历史 v8.0.0 仅包含 Diagram Kit。发布后安装复查、Owner 截图和完整客户端证据缺项见 [8.1.1 发布记录](../runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。开发技能位于 .agents/skills，根项目入口为 AGENTS.md。
+仅 ChatGPT 桌面端和 Codex 本地继续支持；停止 Claude 支持。[Marketplace v8.1.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.1) 已发布，包含 diagram-kit 0.3.1、understanding-kit 0.1.2、explain-kit 0.1.1，三个插件、四个公开技能。main / v8.1.1 可获取这三个已发布插件，历史 v8.0.0 仅包含 Diagram Kit。Communication 0.1.0 是 PR3 原子集成的未发布候选；当前开发市场仍8.1.2，增加候选包不改变正式分发来源。发布后安装复查、Owner 截图和完整客户端证据缺项见 [8.1.1 发布记录](../runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。开发技能位于 .agents/skills，根项目入口为 AGENTS.md。
 
 ## Existing learn-kit users
 
@@ -31,9 +31,13 @@ codex debug prompt-input '$diagram-kit:arch-diagram'
 
 main / v8.1.1 的索引还包含 Understanding Kit 与 Explain Kit。使用 `codex plugin add understanding-kit@mj-agentlab-marketplace` 安装并按 [使用指南](./[GUIDE]_Understanding_Pop_Quiz.md) 显式调用 `$understanding-kit:pop-quiz`；使用 `codex plugin add explain-kit@mj-agentlab-marketplace` 单独安装，调用 `$explain-kit:glossary` 或 `$explain-kit:concept`。本地候选验证可将 marketplace source 替换为当前 worktree 的绝对根路径，由代理运行 npm run smoke:codex；本地试用与正式发布分别记录。插件资源从已安装 SKILL.md locator 定位。
 
+Communication 仅从隔离候选来源验证，不从 main / v8.1.1 安装。候选来源安装后以 `$communication-kit:communicate` 显式调用，使用[包说明](../../plugins/communication-kit/README.md)和[技能](../../plugins/communication-kit/skills/communicate/SKILL.md)。独装预期普通发现0、原生1；四插件全量普通3、原生5，pop-quiz 与 communicate 均显式调用。安装包只依赖冻结参考资源，研究路径不是运行前提。候选实际功能与客户端可用性仍 NOT RUN，按[验收记录](../runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)独立登记。
+
 ## ChatGPT desktop
 
 将已发布/待测仓库的 .agents/plugins/marketplace.json 作为 repo marketplace，重启/刷新后选择 MJ AgentLab Marketplace。main / v8.1.1 预期显示 Diagram Kit、Understanding Kit 与 Explain Kit；历史 v8.0.0 只含 Diagram Kit。在新聊天选择 Architecture Diagram 或请求“给这个仓库画组件依赖图”，检查图源、文件行号证据和 Python 校验结果。Understanding Kit 的快照和答题交互独立验收；Explain Kit 检查 Glossary 与 Concept 的发现、实际调用和深度路由。以上为预期验收步骤，真实桌面结果仍按记录据实填写；旧 Learn Kit 须独立卸载。
+
+Communication 候选另查“沟通助手”详情图标与版本、显式入口、沟通/编写/改写、关键澄清等待、聊天交付和明确请求才写文件。Owner 选定的 D“地球＋清晰文字”是原创 MJ 图标；资源校验、旧截图或 CLI 元数据不能替代此次实际显示与交互。现实效果测试本轮延期，基础客户端通过不证明收益。
 
 历史版本和资产继续保留；旧工作流仅通过固定标签复现。[决策与回退](../adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)。
 
@@ -42,3 +46,7 @@ Codex CLI 0.147.0 的卸载命令（从本机配置和插件缓存移除）：
 ```text
 codex plugin remove learn-kit@mj-agentlab-marketplace
 ```
+
+| Version | Date | Summary |
+|---|---|---|
+| v1.7 | 2026-10-12 | 区分正式三插件安装与 Communication 未发布候选、显式入口和证据边界 |

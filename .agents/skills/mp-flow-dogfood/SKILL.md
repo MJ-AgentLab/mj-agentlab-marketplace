@@ -5,10 +5,14 @@ description: "Use for marketplace installation and invocation acceptance / 本�
 
 # mp-flow-dogfood
 
-运行 npm run check:baseline-tools 和 npm run smoke:codex。冒烟使用隔离 HOME / CODEX_HOME / cache 和市场镜像，检查 diagram-kit / arch-diagram 与 understanding-kit / pop-quiz 的安装元数据。全部安装时普通 prompt 含 arch-diagram、glossary、concept，pop-quiz 显式加载另查 app-server 元数据与实际调用；开发技能只在仓库作用域发现，外部 cwd 不泄露。分别在 Codex CLI 0.147.0 与 ChatGPT 桌面端安装并实际调用公开技能：arch-diagram 检查图源、证据表、资源定位和 Python 结果；pop-quiz 按 [验收记录](../../../docs/runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md) 检查只读、快照、未答不推进、诊断反馈和题量。把静态、发现、模型执行、Side Chat 和桌面端 UI 结果分开记录；未执行写明原因，不把发现成功称作行为通过。
+运行 npm run check:baseline-tools 和 npm run smoke:codex。冒烟使用隔离 HOME / CODEX_HOME / cache、consumer cwd 和市场镜像，按候选完整集合检查安装元数据与包内资源。全量普通 prompt 含 arch-diagram、glossary、concept 共3个，原生清单5个；pop-quiz 与 communicate 显式加载另查 app-server 元数据与实际调用，Communication 独装普通0/原生1。开发技能仅在仓库作用域发现，消费者不泄露20个 mp-*。基线 Codex CLI 0.147.0，canary同矩阵兼容结果单列。arch-diagram 检查图源、证据表、资源定位和 Python 实际执行；pop-quiz 按[验收记录](../../../docs/runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)检查只读、快照、等待、诊断反馈和题量。静态、发现、模型行为、Side Chat 和两端 UI 结果分开记录，未执行写明具体原因。
 
 在已有授权范围内由代理执行操作，owner 负责未决事项。需要决定时给出 2–3 个选项、影响及有理由的推荐；必须等待的决定等待答复，推荐不构成批准。详见 [执行与决策规范](../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)。
 
 Explain Kit 单独/组合安装与解释行为按 [Explain Kit 验收](../../../docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md) 执行，Python 必须实际运行；能力限制如实记录，不要求 owner 例行手工操作。
 
-图标变更检查各安装包的 logo/composerIcon 引用和 PNG 内容；四种隔离安装逐包比较源文件与缓存。仓库发现 20 个开发技能，消费者不得发现 mp-design-icon；图标实际视觉与客户端列表/composer 验收另记。
+Communication 按[验收契约](../../../docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)执行九个独立组合：Diagram、Understanding、Explain、Diagram＋Explain、原三插件、Communication、Communication＋Explain、Communication＋Understanding、全四插件。逐资源比较源/安装字节和摘要哈希，确认无MCP，实际运行已安装 Python 图表校验器。执行 S01–S12、C01–C18，包括多轮未答等待、保义与来源声明、真实文件执行/回读/故障；两个目标客户端分别验证候选来源/版本、安装、图标、显式入口、三类写作、等待及聊天/文件边界。缺项保留 PR3 draft，继续独立工作；旧截图、离线回放和模型自评不能替代实际客户端。
+
+每批记录候选 SHA/tree、包与摘要身份、方法、输入/输出/动作、结果和未覆盖项；失败保留原批次，修复后新身份复验。现实场景效果、个人试用、三稿对照、读者反馈、采用度与效率评价本轮延期，基础通过不证明现实效果。
+
+图标变更检查各安装包的 logo/composerIcon 引用、PNG 内容及源/缓存一致；实际小尺寸视觉与客户端列表/composer 交互另记。
