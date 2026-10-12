@@ -48,6 +48,8 @@ Owner 已授权按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-market
 
 PR3 从实际 merge 后的最新 develop 派生 codex/html-guide-acceptance，继续扩展行为、双客户端和最终 merge 复验；纯证据更新保持 0.1.0 并核对运行字节。当前操作工具仅提供浏览器，原生应用控制被禁用，Codex 应用 UI、ChatGPT 桌面与原生空返回/超时/关闭事件尚未执行；CLI 不替代这些证据，#220 与 Epic 保持开放。每阶段实际合并后复验并显式关闭相应子 Issue，后续合并仍必须当前 head 非作者批准、CI 与线程门禁。判准与事实见 [SPEC](docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md) 和 [RUNBOOK](docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
 
+PR3 的 0.1.0 受众扩展实际发现工作人员指南内同一操作的不可用反馈与源规则冲突，独立记 FAIL 并保留。首次运行修正候选为 0.1.1，只推进本插件：SKILL 与两参考强化操作前置状态/允许范围在正文、演示、反馈、自检中的一致性和新增设计轴的来源归属；需新 canonical 安装、受影响扩展及全部六组阻断复验，不能以修正意图或旧 PASS 宣称新候选通过。
+
 HTML Guide Kit 初始 0.1.0，仅显式 $html-guide-kit:guide，Read、聊天文本新建指南；读者/任务/理解问题须明确确认后生成。未答、推荐、预选、沉默、超时、无关回复或窗口消失不是确认，不能承诺锁宿主窗口。研究项目及指南聊天只作只读设计参考，运行包无本机路径或研究治理依赖。Owner 2026-10-12 调整：本次不做现实场景效果测试，实际效果另测，未测量不得写 PASS；安装、模型行为、客户端交互和工程门禁继续有效。
 
 本任务保持 marketplace 未发布 8.1.2 及其他插件版本，无 Release、发布 tag 或 main 发布 PR。首次修改已合并的新插件运行内容时推进 0.1.1，其后补丁递增；纯评审资料/记录保持版本，以哈希核对运行内容。npm run check / smoke 为既有基线检查/隔离安装入口。每阶段满足当前 head 非作者批准、CI 与线程门禁后合并，不 bypass；合并复验后才关闭子 Issue，最终行为和双客户端及 merge 验收完整后才关闭 Epic。

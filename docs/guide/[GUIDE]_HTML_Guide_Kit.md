@@ -6,12 +6,12 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-12
 state: active
-version: v1.0
+version: v1.1
 ---
 
 # [GUIDE] HTML Guide Kit
 
-HTML Guide Kit 从文档或明确对话快照，新建可复制的交互教材绘制指南。初始版本 0.1.0 是 develop 的开发候选；main / v8.1.1 已发布范围保持原三插件。实际登记、安装和客户端状态见当前市场与 [验收记录](../runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+HTML Guide Kit 从文档或明确对话快照，新建可复制的交互教材绘制指南。初始 0.1.0 已合入 develop；本分支 0.1.1 修正操作条件与反馈一致性、原材料与设计判断归属。main / v8.1.1 已发布范围保持原三插件。实际登记、安装和客户端状态见当前市场与 [验收记录](../runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
 
 ## Start and confirm
 
