@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-12
 state: draft
-version: v1.1
+version: v1.2
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -15,7 +15,7 @@ related:
 
 # [RUNBOOK] HTML Guide Kit acceptance
 
-本记录于 2026-10-12 初始化。当前保存阶段 1 的实际仓库读取、前置治理检查和已定稿的验收流程；HTML Guide Kit 安装、模型行为、双客户端及 merge 复验尚未执行。保持 draft / `last-verified: null`，不能把产品合同、研究参考、现有插件通过记录或评审意见写成新插件 PASS。
+本记录保存 HTML Guide Kit 三阶段实施的实际证据。PR1 #221 已合并并复验，PR2 #226 已合并；PR2 工程安装与六组指定连续模型行为见 §8–§10，实际 merge 与 PR3 进展从 §11 追加。阶段早期的未执行、失败与无效调用保留原身份，不追认 PASS。扩展与原生客户端验收尚未完成，保持 draft / `last-verified: null`；不能以产品合同、研究参考或 CLI 安装替代缺失的客户端与效果证据。
 
 验收依据为 [SPEC](../spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，产品与阶段决定见 [ADR](../adr/[ADR]_HTML_Guide_Kit_Addition.md)。本 RUNBOOK、SPEC 及后续评审证据都是 **reviewer-only**，从被测模型的镜像和 consumer 环境排除。模型只见原材料及逐轮输入。
 
@@ -75,7 +75,7 @@ Owner 于 2026-10-12 明确本次暂不需要实际场景效果测试，现实�
 
 阶段 1、2 的子 Issue 只在各自 merge 复验完成后显式关闭。扩展、双客户端或最终 merge 证据缺失时 #220 和 #217 保持开放。只改评审资料/记录时运行版本保持并证明哈希未变；新增运行修改则推进本插件补丁并重新安装。无 Release、发布标签或 main 发布 PR。
 
-## §3 Current verification ledger
+## §3 PR1 initial verification snapshot
 
 | 层次 / 集合 | 状态 | 当前证据 / 缺口 |
 | --- | --- | --- |
@@ -118,6 +118,8 @@ Owner 于 2026-10-12 明确本次暂不需要实际场景效果测试，现实�
 | Version | Date | last-verified | Summary |
 | --- | --- | --- | --- |
 | v1.0 | 2026-10-12 | null | 初始化真实起点和三阶段流程；所有新插件工程/安装/行为/客户端/merge 项为未执行；现实效果按 Owner 决定暂不测量。 |
+| v1.1 | 2026-10-12 | null | PR2 保存工程、真实调用缺陷与修正、六组指定行为和独立评审原始证据；原生客户端及扩展仍未完成。 |
+| v1.2 | 2026-10-12 | null | 记录 PR2 实际 merge 和 PR3 扩展进展，区分历史快照、缺失批准与当前客户端操作限制；运行版本保持 0.1.0。 |
 
 ## §6 PR1 engineering execution (2026-10-12)
 
@@ -199,3 +201,17 @@ B5.2有非阻断来源措辞note：读者/任务两项额外检查轴实际未�
 六组通过仅覆盖本批有限CLI合成行为。E1–E18完整扩展、Codex应用UI、ChatGPT桌面与宿主窗口事件仍未通过；现实效果NOT_MEASURED。#226可在当前工程证据及CI核验后准备独立GitHub审查；合并仍必须当前head非作者批准、required checks、最新base与resolved threads，不使用bypass。实际merge及复验前#219保持开放，#220和Epic#217亦开放。
 
 完整原始证据的正式入口为[最终 lossless 索引](evidence/html-guide-kit/pr2-reviewer/final/index.json)，247原文件/7,057,848原字节封装为10 packets。每entry保留原绝对路径、相对映射、确切UTF8内容与SHA-256，复原逐字节校验及独立.NET复查通过；JSON格式避免改写原始输出的Markdown空白或JSONL换行。index提供所有评审绝对路径及JSONL行号到封存内容的映射，跨机复验需恢复新外部reviewer，而不是假定旧临时cache仍存在。controller/freeze/plan pin、实际models/list/skills/list诊断、前后控制解释、全部model输入输出/工具/stderr/会话快照/原评审及适配均封存。没有复制auth、临时home或原用户会话。早期243文件工程封装留为历史快照；当前验收仅引用final/index。
+
+## §11 PR2 actual merge and PR3 execution
+
+PR2 #226 于 2026-10-12T11:25:49Z 由 ranzuozhou 合入 develop，实际 merge `d106e76651d53cdf3f0cef2bb33ce47e8d7fda38`；与最终 head `72cdd08ed8d5a6665e2cedd5f3f2ed5c6dd06ab8` 的完整 Git tree 同为 `238d428b740d66069705a6208c17619cf97e338d`。GitHub reviews API 实际为空、reviewThreads 为空；缺失独立批准记录不能由合并事实追认 PASS。工程代理本轮仅查询合并事实，没有执行 bypass。后续 PR 继续核对当前 head 的非作者批准、CI、审查线程和最新 base。
+
+PR3 从该实际最新 origin/develop 派生 `codex/html-guide-acceptance` 独立 worktree，用户 main/develop 与只读研究项目保持。三个 canonical Git 对象 plugins/ 下的 62 个跟踪文件（含 14 个 evals/评审文件）Git blob 原始字节相同：实际 merge、PR2 最终 head、已测行为候选 `1cd0f1c2a9395fd192260d06778e8489182516a8`。Windows checkout 的旧包可能有 CRLF 转换；这不是 checkout 全目录或剔除评审文件后镜像的等树声明。HTML 七项运行资源另有 source/mirror/cache raw SHA 对应。该对应只允许复用已有行为覆盖，不把 PR3 未执行项目推定通过。运行包保持 0.1.0，marketplace 仍未发布 8.1.2，其余插件版本保持；无新 Release、发布标签或 main 发布 PR。
+
+合并后强制 REQUIRE_PYTHON/PWSH=1 的[工程汇总](evidence/html-guide-kit/pr3-post-merge/20261012-d106e766-engineering/checks-summary.json)记录 npm test 279/279 PASS、0 skip，validate/check PASS。第一轮 canonical 的新 detach 检出目录没有 node_modules，npm smoke 因 cross-spawn 缺失返回 1；[原始失败](evidence/html-guide-kit/pr3-post-merge/20261012-d106e766-engineering/canonical-failure.json)及 stdout/stderr 保留，不能按后续结果重写。新批次按 lock 在精确 canonical 检出目录 npm ci --ignore-scripts 后重新执行 npm run smoke，[完整原始安装结果](evidence/html-guide-kit/pr3-post-merge/20261012-d106e766-canonical-ready/canonical-installation.json)与[逐场景汇总](evidence/html-guide-kit/pr3-post-merge/20261012-d106e766-canonical-ready/canonical-summary.json)为 PASS：七场景、原生技能 1/2/3/4/1/3/5、自然启用 1/2/3/3/0/2/3，consumer 开发技能 0 / repo 20。四个含 Diagram 场景实际调用各自缓存 Python，均扫描 1、FAIL 0 / WARN 0；manifest、必需参考、调用策略、图标与源/cache raw bytes 严格对应。
+
+[全 62 文件 Git blob 清单](evidence/html-guide-kit/pr3-post-merge/20261012-d106e766-engineering/plugin-distribution-inventory.json)证明三个 canonical plugins/ 对象字节一致；[行为运行资源对应](evidence/html-guide-kit/pr3-post-merge/20261012-d106e766-canonical-ready/behavior-runtime-correspondence.json)逐项保存三种本轮 HTML 安装与三批旧行为缓存之间七资源的 63 条对应。[远端事实](evidence/html-guide-kit/pr3-post-merge/20261012-d106e766-engineering/facts-summary.json)保存 main 8.1.1、最新 Release v8.1.1、无 v8.1.2 发布及 reviews 空记录；初 facts 读取不存在的顶层 capabilities 为 null，[准确 manifest 合同补记](evidence/html-guide-kit/pr3-post-merge/20261012-d106e766-engineering/manifest-contract-addendum.json)从 extensions.com.openai.interface.capabilities 保存实际 Read，不覆盖原始观察。完整证据与每项原 size/SHA 见[108 文件索引](evidence/html-guide-kit/pr3-post-merge/d106e766-final-verification-index.json)。此阶段工程与 merge 复验完成后显式关闭 #219，历史独立批准缺项不据此追认。#220 和 Epic 的最终条件继续保留。
+
+本轮先复验 PR2 实际 merge 的工程与完整 canonical 安装，再逐项执行冻结 SPEC v1.0 的 E1–E15 可运行扩展。每个变体分别保留实际连续会话 UUID、输入输出、工具事件、源/镜像/cache 哈希与独立评审；仅准备输入或控制脚本不记 PASS。旧 B5.2 来源归因 note 在新扩展中复核，原先有限判准的结果及具体措辞均保留。原生客户端与最终 PR3 merge 尚未完成，#220 和 #217 保持开放。
+
+2026-10-12 实际调用 `cua.getState()` 返回原生 apps 空集合，只提供 Edge、Codex In-app Browser 与 Codex MCP Apps 浏览器；本会话工具配置明确禁用 native computer APIs，见[准确能力观察](evidence/html-guide-kit/pr3-post-merge/host-capability-observation.json)。浏览器界面不能作为 Codex 应用 UI 或 ChatGPT 桌面的新插件证据。E10 原生无答案返回、E11 超时/关闭/消失、E16 Codex 应用 UI 与 E17 ChatGPT 桌面均为 NOT_RUN，没有合成对应工具事件，也没有以 CLI、旧插件截图或模型自述填补。所缺条件为两个真实应用的可用原生操作能力或本插件真实客户端过程证据；无需 Owner 复制构建命令。其余工程与模型扩展继续执行。

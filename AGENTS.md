@@ -44,7 +44,9 @@ Owner 于 2026-10-10 明确要求发布 8.1.1，发布授权已提供，不重�
 
 ## HTML Guide Kit 阶段实施
 
-Owner 已授权按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 与三个子 Issue 推进 HTML Guide Kit，分阶段顺序合并 develop；[ADR](docs/adr/[ADR]_HTML_Guide_Kit_Addition.md) 记录已确定合同。PR1 #221 已合并，实际 merge 70267a5 与已测 head tree 相同，四种 canonical 安装与缓存 Python 复验通过；#218 已显式关闭，独立批准缺项按实际记录保留。PR2 [#226](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/226) 接入完整 HTML Guide Kit 0.1.0 包、Owner 选定的第二轮 A 图标与严格登记；开发运行集合为四插件、五公开技能、三个自然启用技能和 20 项仓库开发技能。版本工具缺 manifest 仍失败。候选 1cd0f1c 的 279 测试、严格七安装及四次缓存 Python、六组14指定变体30连续轮次独立评审通过，未覆盖 UI/扩展/现实效果不据此追认。最初无效调用、工具拒绝、额外重试和 B5.2 来源措辞 note 保留。当前 head 独立批准及实际 merge 复验仍须满足，完成前 #219 不关闭；PR3 完成扩展工程验收、双客户端交互和实际 merge 复验。判准与事实见 [SPEC](docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md) 和 [RUNBOOK](docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+Owner 已授权按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 与三个子 Issue 推进 HTML Guide Kit，分阶段顺序合并 develop；[ADR](docs/adr/[ADR]_HTML_Guide_Kit_Addition.md) 记录已确定合同。PR1 #221 已合并并复验，#218 已显式关闭。PR2 [#226](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/226) 已于 2026-10-12 合入 develop，实际 merge d106e766 与已测 head 72cdd08 tree 相同，接入完整 HTML Guide Kit 0.1.0 包、Owner 选定的第二轮 A 图标与严格登记。开发运行集合为四插件、五公开技能、三个自然启用技能和 20 项仓库开发技能；版本工具缺 manifest 仍失败。候选 1cd0f1c 的 279 测试、严格七安装及四次缓存 Python、六组14指定变体30连续轮次独立评审通过；最初无效调用、工具拒绝、额外重试和 B5.2 来源措辞 note 保留。#221/#226 GitHub reviews 未提供独立批准记录，不追认历史门禁通过。
+
+PR3 从实际 merge 后的最新 develop 派生 codex/html-guide-acceptance，继续扩展行为、双客户端和最终 merge 复验；纯证据更新保持 0.1.0 并核对运行字节。当前操作工具仅提供浏览器，原生应用控制被禁用，Codex 应用 UI、ChatGPT 桌面与原生空返回/超时/关闭事件尚未执行；CLI 不替代这些证据，#220 与 Epic 保持开放。每阶段实际合并后复验并显式关闭相应子 Issue，后续合并仍必须当前 head 非作者批准、CI 与线程门禁。判准与事实见 [SPEC](docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md) 和 [RUNBOOK](docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
 
 HTML Guide Kit 初始 0.1.0，仅显式 $html-guide-kit:guide，Read、聊天文本新建指南；读者/任务/理解问题须明确确认后生成。未答、推荐、预选、沉默、超时、无关回复或窗口消失不是确认，不能承诺锁宿主窗口。研究项目及指南聊天只作只读设计参考，运行包无本机路径或研究治理依赖。Owner 2026-10-12 调整：本次不做现实场景效果测试，实际效果另测，未测量不得写 PASS；安装、模型行为、客户端交互和工程门禁继续有效。
 

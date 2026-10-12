@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-12
 state: active
-version: v2.15
+version: v2.16
 ---
 
 # 文档索引
@@ -17,7 +17,7 @@ version: v2.15
 
 8.1.1 的实际 tag、Release、正文身份、发布后安装及保留缺项见 [发布记录](runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。
 
-HTML Guide Kit 正按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 分阶段实施：PR1 #221 已合入并复验；PR2 原子接入完整 0.1.0 插件、已选 A 图标与严格合同，开发集合增至四插件五技能，仍保持 draft 验收门槛。阶段门槛见 [ADR](adr/[ADR]_HTML_Guide_Kit_Addition.md)，判准见 [SPEC](spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，实际结果及未覆盖项见 [RUNBOOK](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。现实场景理解效果另测，本次仍保留工程行为与双客户端交互验收。
+HTML Guide Kit 正按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 分阶段实施：PR1 #221 已合入并复验；PR2 #226 已将完整 0.1.0 插件、已选 A 图标与严格合同原子合入 develop，开发集合为四插件五技能。实际 merge d106e76 与已测 head tree 相同，GitHub 独立批准缺项如实保留；PR3 从该 merge 派生，扩展行为与原生客户端验收逐项记录，不据 CLI 结果关闭 Epic。阶段门槛见 [ADR](adr/[ADR]_HTML_Guide_Kit_Addition.md)，判准见 [SPEC](spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，实际结果及未覆盖项见 [RUNBOOK](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。现实场景理解效果另测，本次仍保留工程行为与双客户端交互验收。
 
 Epic #209 开始 Learning Evidence Kit / marketplace 8.2.0 实施。PR1 固定已接受的双技能、七机制与共用接口，不修改当前 8.1.2 运行包；[迁移 ADR](adr/[ADR]_Learning_Evidence_Kit_Migration.md)、[记录/API 契约](spec/[SPEC]_Learning_Evidence_Record_And_API.md)及[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)分别维护决定、数据与实际证据。Owner 接受核心独立验收后分段交付，严格窗口不合格入口延期，Epic 保持未完成；契约交付不表示运行、客户端或学习效果通过。
 
