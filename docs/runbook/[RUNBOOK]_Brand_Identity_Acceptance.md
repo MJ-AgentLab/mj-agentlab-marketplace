@@ -4,9 +4,9 @@ scope: marketplace
 summary: "Brand icon source, merged-tree acceptance and client limitations"
 owner: marketplace-maintainers
 created: 2026-10-10
-updated: 2026-10-10
+updated: 2026-10-12
 state: active
-version: v1.1
+version: v1.2
 ---
 
 # [RUNBOOK] Brand identity acceptance
@@ -61,6 +61,40 @@ Owner 选择 D 插件风格及仓库 A 斜向连接主标；原标与批准稿�
 市场保持未发布 8.1.1，develop 插件版本为 Diagram 0.3.1 / Understanding 0.1.2 / Explain 0.1.1。main 保持 8.1.0，最新公开 Release 为 v8.1.0（Release ID 407832742，published，非 prerelease），标签绑定 d8a12d612ee0907a919e302c76bca9f906353669。本次未创建标签或 Release，未执行下一补丁预升；下一次 pre-bump 只在正式发布后按既有流程进行。
 
 Owner 已确认 #203 合并并要求继续后续工作；本轮仅完成合并后核验、开发工作区同步、已合并特性分支清理及文档收尾。正式发布仍需要客户端验收、独立批准、required checks 和单独的发布授权，现有缺项保持未完成状态。
+
+## Communication PR2 preparation — 2026-10-12
+
+Refs #222。隔离分支 `codex/communication-foundation`，基准 `b2e5a74109f47ecee7471ba741fb4c1348457f3b`。本批测试来自尚未提交的工作树，不将其称作 canonical 提交验证。marketplace 保持未发布 8.1.2；三个现有插件版本、注册、正式图标和导出/来源清单保持。
+
+准备了三个 D 风格候选：[比较与真实尺寸](../../assets/brand/communication-kit/candidates/comparison.png)、[候选说明](../../assets/brand/communication-kit/candidates/README.md)、[选择状态](../../assets/brand/communication-kit/candidates/selection.json)。首轮 A 气泡与笔覆盖沟通及成稿，Agent 原建议选 A；B 双消息强调交流，C 文稿与箭头强调改写。已实际看图：32/48/64 深浅背景均可见功能形状，此项仅是 Agent 视觉检查；Owner 尚未选择，随后要求使用“ASD-STATE100的icon元素”；准确来源仍待同一 Q2 确认。首轮原稿保留，未制作或接入新方向正式资源。每个候选保留可编辑 SVG、1024 PNG、原生尺寸 PNG 和单独对比图，可运行候选目录 `render.mjs` 复现。
+
+品牌比较布局从固定单行改为每行至多三图、按图数增加高度。临时四图 fixture 对每张大图以及两行 32/48/64 图逐像素检查，证明第四图完整可见且小图保持原生尺寸；实际运行集合依然只有三个插件。
+
+| 检查 | 实际结果 | 证据及限制 |
+| --- | --- | --- |
+| 提交工具 scope | PASS | PowerShell / Shell 两验证器与隔离仓库中实际生成的 commit-msg hook 接受 communication-kit，拒绝错误 scope/type；保留历史 learn-kit |
+| 合成新包版本工具 | PASS | 独立根版本更新、嵌套版本与其他包不动；DryRun 零写入；写失败、写后损坏均恢复原字节；identity / From 不符零写入失败 |
+| 真实仓库缺目标预检 | PASS | apply-preflight / DryRun 都以缺 manifest 退出 1，261 个 tracked 文件哈希前后相同，无 manifest 创建；没有执行成功的真实 bump |
+| 四图布局与候选导出 | PASS | 四图像素 fixture 通过；候选可编辑 SVG 与 1024/32/48/64 PNG 已实际导出；原正式导出可重复生成 |
+| npm test | PASS | 249/249，失败 0、跳过 0；REQUIRE_PWSH / REQUIRE_PYTHON / REQUIRE_SHELL 均为 1；含实际 Python 图表执行 |
+| npm run validate | PASS | 三插件、四公开技能、20 开发技能，未注册第四插件 |
+| npm run check:baseline-tools | PASS | codex-cli 0.147.0 精确匹配 |
+| npm run icons:export / icons:preview | PASS | 既有正式资源正常重导出；候选独立保存，不进入 exports |
+| npm run smoke:codex | PASS | 四种既有隔离安装；包内资源/原生清单核对，三个含 Diagram 的场景实际运行安装缓存 Python 校验，均扫描 1 图、FAIL 0 |
+| PR1 dependency / Owner selection | PENDING | PR1 尚未实际合并；Owner 已确认地球＋文字原创方向，新 D/E/F 候选尚未选择。PR2 保持 draft，刷新最新 develop 后仍需当前 head CI、独立批准及解决线程 |
+| canonical / remote CI / clients | NOT RUN | 未提交、未推送或创建 PR，未做新包安装/模型行为/桌面显示；静态及既有安装结果不替代后续 PR3 验收 |
+
+完整命令输出、候选哈希、缺目标预检与限制见 [本批 JSON](evidence/communication-kit-2026-10-12-foundation-01.json)。测试夹具初次使用 Windows `os.devNull` 作为 Git config，两个 scope 测试因 `fatal: unable to access '\\.\nul': Invalid argument` 失败；改用隔离目录内普通空配置文件后 2/2 复验通过，全量再通过 249/249，原失败保留。文字编辑辅助首次探测 `python` 不在 PATH，未发生写入；改用已有 Node。Python 图表实际回归通过仓库既有 uv 定位得到的 3.12 解释器执行。基础工具通过不代表现实沟通效果经过测试。
+
+## Communication icon direction revision
+
+Owner 于 2026-10-12 明确指 ASD-STE100，采用官方封面地球＋文字意象并以 MJ D 风格原创重绘。初轮 A/B/C 未选择并原样保留；新增 [D/E/F 比较](../../assets/brand/communication-kit/candidates/revision-2/comparison.png)，每个候选有可编辑 SVG、1024 PNG 与真实 32/48/64 深浅预览。推荐 D 的单一地球＋清晰文字，其余分别强调消息或文稿；具体选择仍 PENDING，未接入正式资源。
+
+实际通过 Edge 只读查看了官方主页提供的封面展示图；web 获取主页/PDF均 403，研究 C01.local_copy 为 absent。只查看主页图片，没有取得或读过 Issue 9 PDF；该图片文件名含 2023，不能称其为 Issue 9 的准确 PDF 封面。候选仅使用地球、网格和清晰文字的通用意象，未复制官方标志、商标字样或位图。查看事实及排除内容见 [source record](../../assets/brand/communication-kit/candidates/revision-2/source-record.json)。
+
+D 首次导出的第二行文字未显示，原 SVG、PNG 与比较图保留在第二轮 failed-first-export。将水平 gradient stroke 改为共享 cyan 实色后重新导出并实际看图，两行均显示。新候选 12 个尺寸 PNG 的完整解码/尺寸检查通过，实际小尺寸及深浅背景形状清楚；此为 Agent 视觉检查，不代替 Owner 选择或客户端显示。新批次与原失败见 [本批 JSON](evidence/communication-kit-2026-10-12-foundation-02.json)。仅候选资源变化，未重复全量工具测试；base 刷新后的必要回归另记新批次。
+
+Refs #222。
 
 ## References
 
