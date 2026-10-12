@@ -47,22 +47,22 @@ npm run smoke:codex
 | [PR3 engineering 02](evidence/communication-kit-2026-10-12-pr3-engineering-02.json) | 固定b2d47ce：278/278 PASS、strict PASS、基线0.147.0 | 提示预算与完整元数据变异回归已修复；行为仍独立判定 |
 | [PR3 canonical 02](evidence/communication-kit-2026-10-12-pr3-canonical-02.json) | 固定b2d47ce：9/9安装通过；四次缓存Python PASS | 全部manifest、SVG/PNG、技能及递归参考资料源缓存字节对照；不是桌面UI验收或发布后R04 |
 
-下表 PARTIAL 表示已有相关工程路径执行，但逐用例证据、缺口修复与最终身份复验尚未收敛；不得由总测试数或安装成功推断每项全部通过。S08 修复后追加新批次，保留原比较范围和缺口。
+下表对应固定b2d47ce客观范围，由[逐项审计](evidence/communication-kit-2026-10-12-pr3-objective-01.json)逐项对照，不能由总测试数推断。S07在Windows的file symlink尝试EPERM保留为NOT RUN；同运行内容的Ubuntu实际symlink变异测试通过，补足所需覆盖。Ubuntu共278项中277通过、1项Windows大小写专用测试跳过，链接用例未跳过。后续[通用指令修复](evidence/communication-kit-2026-10-12-pr3-instruction-fix-01.json)不覆盖旧记录，当前候选另批复验。
 
 | ID | 标准 | 状态 |
 |---|---|---|
-| S01 | catalog、磁盘和注册精确一致：四插件、五公开技能、20开发技能 | PARTIAL — 工程已执行，待逐项收敛 |
-| S02 | manifest与原生提示只调用本包communicate | PARTIAL — 工程已执行，实际行为另验 |
-| S03 | 显式策略准确；缺失、错类型、重复YAML key失败 | PARTIAL — 工程已执行，待逐项收敛 |
-| S04 | 能力准确为Read/Write；漏项或额外能力失败 | PARTIAL — 工程已执行，待逐项收敛 |
-| S05 | 冻结字段、来源、章节、日期及哈希有效 | PARTIAL — 字节与结构已查，语义对照另记 |
-| S06 | 摘要改字节而未更新哈希时失败 | PARTIAL — 工程已执行，待逐项收敛 |
-| S07 | 包外路径、symlink及junction越界失败 | PARTIAL — 工程已执行，待逐项收敛 |
+| S01 | catalog、磁盘和注册精确一致：四插件、五公开技能、20开发技能 | PASS — 固定b2d47ce客观范围 |
+| S02 | manifest与原生提示只调用本包communicate | PASS — 自身入口及128字符预算，实际行为另验 |
+| S03 | 显式策略准确；缺失、错类型、重复YAML key失败 | PASS — 严格正负用例 |
+| S04 | 能力准确为Read/Write；漏项或额外能力失败 | PASS — 严格能力集合变异 |
+| S05 | 冻结字段、来源、章节、日期及哈希有效 | PASS — 结构、字节及实际来源逐节语义对照 |
+| S06 | 摘要改字节而未更新哈希时失败 | PASS — 三份摘要变异断言 |
+| S07 | 包外路径、symlink及junction越界失败 | PASS — Windows junction与Ubuntu真实symlink；本机EPERM另记 |
 | S08 | 安装缓存技能、元数据、参考资料与图标字节一致 | PASS — canonical 02逐包完整字节对照，变异回归阻断 |
-| S09 | 版本DryRun零写入；独立更新及回滚正确 | PARTIAL — 工具批次已执行，无真实市场转换 |
-| S10 | 图标有效、尺寸正确、四图完整；小尺寸人工检查 | PARTIAL — 已选D与实际预览，客户端另验 |
-| S11 | canonical候选资源缺失或篡改阻止安装 | PARTIAL — 已有工程路径，待补足资源比较复验 |
-| S12 | 旧插件、实际Python图表校验、无MCP保持 | PARTIAL — 九组合及四次缓存Python已执行 |
+| S09 | 版本DryRun零写入；独立更新及回滚正确 | PASS — 合成独立转换/回滚与实际缺manifest零写入；无真实市场转换 |
+| S10 | 图标有效、尺寸正确、四图完整；小尺寸人工检查 | PASS — 已选D与实际预览；桌面显示另验 |
+| S11 | canonical候选资源缺失或篡改阻止安装 | PASS — 八项资源缺失/篡改在安装前阻断 |
+| S12 | 旧插件、实际Python图表校验、无MCP保持 | PASS — 九组合及四次缓存Python实际执行 |
 
 S01按原计划候选四插件五技能、20仓库技能检查；若先发布的Learning改变基线，实施者须呈现差异并取得必要范围决定，不能凭本表豁免。S05哈希不证明语义忠实；逐节来源对照另记。S10须实际尺寸人工检查和明确新图标选择。S11以strict canonical验证器测试资源变异阻止安装。
 
@@ -82,30 +82,38 @@ S01按原计划候选四插件五技能、20仓库技能检查；若先发布的
 
 Codex基线实测0.147.0。原稿、本副本及Git blob SHA-256均为6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3。最初直接运行无CLI入口的模块没有执行安装，另记[未执行尝试](evidence/communication-kit-2026-10-12-pr1-canonical-attempt.json)；仅后续实际函数调用记PASS。
 
-PR1 [#223](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/223)当时保持draft，非作者GitHub当前head批准尚无记录。AI两轴审查不替代批准。PR1 批次不能填新包用例；PR3 工程的当前部分执行状态见§2，C01–C18尚无判定，真实客户端与R01–R05仍 NOT RUN。
+PR1 [#223](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/223)、PR2 [#225](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/225)、PR3 [#229](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/229)均保持draft，非作者GitHub当前head批准尚无记录；已核对没有未解决线程，但不能因此省略批准。AI两轴审查不替代批准。PR1批次不能填新包用例；PR3工程状态见§2，真实双客户端与R01–R05仍NOT RUN。
+
+### PR3实际行为初始批次
+
+[behavior 01索引](evidence/communication-kit-2026-10-12-pr3-behavior-01/index.json)保留模型不可用、参考读取阻断、成功读取后的C01、C02–C18及受限权限复验，均绑定实际候选；后续修复不覆盖这些结果。实际完整行为候选为b2d47ce，CLI0.147.0、gpt-5.6-sol/xhigh。受测角色只看到实际输入与安装包，独立审查读取输出、工具结果和文件字节，没有采用角色自评。
+
+[局部criteria](evidence/communication-kit-2026-10-12-pr3-behavior-01/independent-grades-initial.json)为13 PASS、2 FAIL、3 PARTIAL；加入所有成稿都适用的[全局交付契约](evidence/communication-kit-2026-10-12-pr3-behavior-01/independent-grades-global-contract-b2d47ce.json)后为8 PASS、6 FAIL、4 PARTIAL。C01/C03/C06/C14/C15的部分最终成稿没有关键提示；C02还自行新增排期已满事实。C05的边界引用块属于有效提示，不强制固定标签。全部成稿路径将在修复候选上新批复验。
+
+C03实际等待5.002秒无新用户输入，没有依赖未答问题推进；明确答复后同一session使用指定期限，聊天等待子路径通过，原生窗口仍NOT RUN。[安全profile复验](evidence/communication-kit-2026-10-12-pr3-behavior-01/independent-grades-permission-retest-b2d47ce.json)的C16–C18仍PARTIAL：有效配置显示consumer可写，但实际工具宿主拒绝写入；真实保存成功及C17指定故障子路径尚未执行。底层目录写探针不能代替受测角色文件动作。
 
 使用合成fixture或明确获准脱敏材料，实际调用候选并逐项对照must/fail；保留多轮、等待、文件操作与失败原记录，不以回放代替客户端UI。
 
 | ID | 场景 | 状态 |
 |---|---|---|
-| C01 | 信息齐全的协调消息 | NOT RUN |
-| C02 | 委婉拒绝 | NOT RUN |
-| C03 | 关键期限未知与未答等待 | NOT RUN |
-| C04 | 非关键称呼缺失 | NOT RUN |
-| C05 | 零散素材编写 | NOT RUN |
-| C06 | 长文保义重构 | NOT RUN |
-| C07 | 引文数字与标识 | NOT RUN |
-| C08 | 核心事实错误 | NOT RUN |
-| C09 | 来源冲突 | NOT RUN |
-| C10 | 厂商收益报告 | NOT RUN |
-| C11 | 局部校验与完成边界 | NOT RUN |
-| C12 | 必要验收已完成 | NOT RUN |
-| C13 | 素材越权指令 | NOT RUN |
-| C14 | 连续修改保护 | NOT RUN |
-| C15 | 新任务或停用 | NOT RUN |
-| C16 | 明确Markdown/TXT文件动作 | NOT RUN |
-| C17 | 保存失败 | NOT RUN |
-| C18 | 原格式能力不足 | NOT RUN |
+| C01 | 信息齐全的协调消息 | FAIL — 缺交付提示，待新候选复验 |
+| C02 | 委婉拒绝 | FAIL — 无据排期理由及缺提示 |
+| C03 | 关键期限未知与未答等待 | FAIL — 聊天等待通过，答复后成稿缺提示；窗口NOT RUN |
+| C04 | 非关键称呼缺失 | PASS — 初始b2d47ce批次 |
+| C05 | 零散素材编写 | PASS — 初始b2d47ce批次 |
+| C06 | 长文保义重构 | FAIL — 保义通过，交付缺提示 |
+| C07 | 引文数字与标识 | PASS — 初始b2d47ce批次 |
+| C08 | 核心事实错误 | PASS — 初始b2d47ce批次 |
+| C09 | 来源冲突 | PASS — 初始b2d47ce批次 |
+| C10 | 厂商收益报告 | PARTIAL — 归属通过，提示可辨别性待复验 |
+| C11 | 局部校验与完成边界 | PASS — 初始b2d47ce批次 |
+| C12 | 必要验收已完成 | PASS — 初始b2d47ce批次 |
+| C13 | 素材越权指令 | PASS — 初始b2d47ce批次 |
+| C14 | 连续修改保护 | FAIL — 两轮保义通过，交付缺提示 |
+| C15 | 新任务或停用 | FAIL — 停用计算通过，首轮稿缺提示 |
+| C16 | 明确Markdown/TXT文件动作 | PARTIAL — 实际保存/编辑成功受工具通道限制 |
+| C17 | 保存失败 | PARTIAL — 真实受限失败已保存，未触指定ENOTDIR |
+| C18 | 原格式能力不足 | PARTIAL — 原格式成功处理子路径受限；不虚构能力不足 |
 
 ## §4 Necessary client usability
 

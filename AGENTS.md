@@ -14,7 +14,7 @@ Marketplace v8.1.1 已通过 #205 合入 main 并于 2026-10-10 自动发布，�
 
 explain-kit 0.1.0 提供速解和深讲，默认中文、保留术语原文，按深度路由并适应用户格式。新增解释能力的 [ADR](docs/adr/[ADR]_Explain_Kit_Addition.md) 与 [验收记录](docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md) 不改变测验策略。
 
-Communication 实施与发布使用 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。候选[包说明](plugins/communication-kit/README.md)和[communicate](plugins/communication-kit/skills/communicate/SKILL.md)定义显式单入口、沟通/编写/保义改写、关键缺口等待、成稿＋关键提示及明确请求才保存编辑。冻结 AICS 来源保持 Lab Proposal / Informative；来源脏状态与字节身份仅作追溯，运行只依赖包内摘要。实际行为及双客户端基本可用性尚未验收，现实效果测试本轮延期。
+Communication 实施与发布使用 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。候选[包说明](plugins/communication-kit/README.md)和[communicate](plugins/communication-kit/skills/communicate/SKILL.md)定义显式单入口、沟通/编写/保义改写、关键缺口等待、成稿＋关键提示及明确请求才保存编辑。冻结AICS来源保持Lab Proposal / Informative；来源脏状态与字节身份仅作追溯，运行只依赖包内摘要。PR3初轮行为发现缺提示和无据理由，已作通用修复并更新冻结身份，原失败保留，新候选实际行为待复验。真实双客户端基本可用性尚未验收，现实效果测试本轮延期。
 
 ## 执行与决策
 

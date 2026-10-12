@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T11:06:33.172Z",
+  "fixedFailedCandidate": "b2d47ce779e32741af8cea604ac4b1ea8bb787f2",
+  "baseHead": "14f9c5df18e1eafec46b6d50a63d8a3f1a96b7af",
+  "status": "Instruction correction prepared; new fixed-candidate behavior acceptance pending",
+  "scope": [
+    "Require a brief identifiable end note after every active-skill draft and revision; a neutral basis/preserved-content/actual-scope note suffices without a substantive gap",
+    "Do not add unsupported factual reasons, motives, diagnoses, schedules, approval or execution states; retain polite connecting text without implying facts",
+    "Stopped and unrelated tasks remain outside writing delivery rule"
+  ],
+  "changedFiles": [
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-plugin/develop/plugins/communication-kit/skills/communicate/SKILL.md",
+      "sha256": "7a5644c9e2f156acd98286d36ac5b869fd921e23704fa98030d792faadaf630f"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-plugin/develop/plugins/communication-kit/skills/communicate/references/task-patterns.md",
+      "sha256": "190c47c125759de5dbdca218417a418b76ba555df44923dc2cf48b86d60d0cff"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-plugin/develop/plugins/communication-kit/skills/communicate/references/source-provenance.md",
+      "sha256": "53272cc56dba8cfe32203543d9f3d6aee8ec55ebc3602f4dc5652be90b9ed725"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-plugin/develop/plugins/communication-kit/skills/communicate/references/aics-snapshot.json",
+      "sha256": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-plugin/develop/plugins/communication-kit/CHANGELOG.md",
+      "sha256": "b758a56df9fe7deba304482d46324e7ed73c7439c0416f48497df8cd5b799e3f"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-plugin/develop/docs/spec/[SPEC]_Communication_Communicate.md",
+      "sha256": "ccea94d1af01c1edd71890dc3204548643cf118615272580977965ba45c219b5"
+    }
+  ],
+  "snapshotIdentity": {
+    "snapshotId": "communication-kit-aics-2026-10-12-r2",
+    "capturedAt": "2026-10-12T11:04:52.915Z",
+    "captureDate": "2026-10-12",
+    "summaries": [
+      {
+        "path": "./aics-policy.md",
+        "sha256": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+        "sourceIds": [
+          "PROJECT-current-learning",
+          "RN-02"
+        ]
+      },
+      {
+        "path": "./task-patterns.md",
+        "sha256": "190c47c125759de5dbdca218417a418b76ba555df44923dc2cf48b86d60d0cff",
+        "sourceIds": [
+          "PROJECT-current-learning",
+          "RN-02"
+        ]
+      },
+      {
+        "path": "./source-provenance.md",
+        "sha256": "53272cc56dba8cfe32203543d9f3d6aee8ec55ebc3602f4dc5652be90b9ed725",
+        "sourceIds": [
+          "PROJECT-current-learning",
+          "RN-02"
+        ]
+      }
+    ]
+  },
+  "sourceRecheck": [
+    {
+      "id": "PROJECT-current-learning",
+      "path": "D:/workspace/11-knowledge/01-AI-Communication-Research/PROJECT.md",
+      "expectedSha256": "2f7cbd6883659673bb217b88f4bd8ff51cc292e904f3f491d86a1e8d2a6b7250",
+      "actualSha256": "2f7cbd6883659673bb217b88f4bd8ff51cc292e904f3f491d86a1e8d2a6b7250",
+      "head": "474275b6d83d25bc5e8a23848b682df4a5199ff0",
+      "dirty": true,
+      "fileState": "modified",
+      "semanticReference": "communication-pr3-objective-review.json/sourceSemanticComparison; selected current learning and RN-02 sections re-read, same meaning and byte identity"
+    },
+    {
+      "id": "RN-02",
+      "path": "D:/workspace/11-knowledge/01-AI-Communication-Research/artifacts/RN-02-current-learning-reference.md",
+      "expectedSha256": "6f2bf99fe5b126513fa21520874731219b5c4c5fe8175e19b6903f08e70030d3",
+      "actualSha256": "6f2bf99fe5b126513fa21520874731219b5c4c5fe8175e19b6903f08e70030d3",
+      "head": "474275b6d83d25bc5e8a23848b682df4a5199ff0",
+      "dirty": true,
+      "fileState": "untracked",
+      "semanticReference": "communication-pr3-objective-review.json/sourceSemanticComparison; selected current learning and RN-02 sections re-read, same meaning and byte identity"
+    }
+  ],
+  "validation": [
+    {
+      "check": "node scripts/validate-portable.mjs",
+      "exitCode": 0,
+      "result": {
+        "ok": true,
+        "publicSkills": 5,
+        "repositorySkills": 20
+      }
+    },
+    {
+      "check": "node --test --test-name-pattern='communication|frozen' tests/validate-portable.test.mjs",
+      "exitCode": 0,
+      "result": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skip": 0
+      }
+    },
+    {
+      "check": "skill-creator quick_validate.py with isolated PyYAML runtime",
+      "exitCode": 0,
+      "result": "Skill is valid!"
+    },
+    {
+      "check": "git diff --check",
+      "exitCode": 0,
+      "result": "No whitespace errors"
+    }
+  ],
+  "notExecuted": [
+    "Full npm test for corrected candidate",
+    "Canonical9 for corrected candidate",
+    "C01-C18 new batch",
+    "Real dual-client acceptance",
+    "R01-R05 and publishing"
+  ],
+  "version": "communication-kit remains unpublished 0.1.0",
+  "historicalEvidence": "Original b2d failed behavior batch and independent grader conclusions retained by root; not replaced by static checks",
+  "noWritesToResearch": true,
+  "noStageCommitPush": true
+}
