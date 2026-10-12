@@ -140,10 +140,11 @@ test("complete installed inventory rejects swapped skills and package identity/v
 test("guide discovery rejects borrowed skill locations, wrong version cache and swapped installed manifest",()=>{
  const f=fixture();try{
   const opts={cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false},guide=f.entries.find(e=>e.name==="html-guide-kit:guide");
+  const differentParts=f.pluginVersions["html-guide-kit"].split(".").map(Number);differentParts[2]++;const differentVersion=differentParts.join(".");
   assert.throws(()=>assertDiscovery(f.entries.map(e=>e===guide?{...e,file:f.quizFile}:e),opts),/own isolated plugin\/version cache/);
-  assert.throws(()=>assertDiscovery(f.entries,{...opts,pluginVersions:{...f.pluginVersions,"html-guide-kit":"0.1.1"}}),/own isolated plugin\/version cache/);
+  assert.throws(()=>assertDiscovery(f.entries,{...opts,pluginVersions:{...f.pluginVersions,"html-guide-kit":differentVersion}}),/own isolated plugin\/version cache/);
   const file=path.resolve(path.dirname(guide.file),"../../plugin.json"),original=fs.readFileSync(file),manifest=JSON.parse(original);
-  for(const change of [{name:"explain-kit"},{version:"0.1.1"}]){
+  for(const change of [{name:"explain-kit"},{version:differentVersion}]){
    fs.writeFileSync(file,JSON.stringify({...manifest,...change}));assert.throws(()=>assertDiscovery(f.entries,opts),/identity\/version/);
   }
   fs.writeFileSync(file,original);assert.equal(assertDiscovery(f.entries,opts).publicSkills,5);
