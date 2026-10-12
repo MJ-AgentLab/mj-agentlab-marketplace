@@ -156,3 +156,20 @@ Owner 明确回复“A：HTML 教材（推荐）— 开放书页＋尖括号”�
 同步工作树重新执行 npm test 252/252、0 skip，validate、Codex 0.147.0 基线和四组 smoke 全部通过；三个含 Diagram 场景缓存 Python 均扫描 1、FAIL 0 / WARN 0。43 项运行资源 SHA-256 与最初工程证据一致，四项 incoming 专属文件的 staged Git blob 与 origin/develop 完全一致，见 [同步检查](evidence/html-guide-kit/pr1-develop-sync-checks.json) 和 [本轮测试日志](evidence/html-guide-kit/pr1-sync-npm-test.log)。
 
 同步 merge `6d40991e56829c406d911b550de5c0bb9bf2195e`、tree `37e0b24ec3559ce3aeaac2f19467363f42a90e9e` 的完整 canonical 严格校验和四种安装已通过，三个含 Diagram 场景实际缓存 Python 扫描 1、FAIL 0 / WARN 0；原始结果见 [同步后 canonical 安装](evidence/html-guide-kit/pr1-sync-canonical-install.json)。后续只保存此回执的文档提交不改变运行内容；最终 head 和字节等价关系由 PR 正文记录。独立只读双轴审查未见实质冲突，不能替代 GitHub 批准。
+
+## §7 PR1 actual merge and PR2 start
+
+#221于2026-10-12合入develop，实际merge `70267a5b91d759af09a8f1281a33e2d5a90fdbc9` 与已测head `385e6919c44cc280266f9fe8c7105f379d45872f` 的tree同为 `767ec5082451014eb224b6727b5955e6f56574a2`。合并后四组完整canonical严格安装及三个含Diagram场景的实际缓存Python复验通过，见 [原始结果](evidence/html-guide-kit/pr1-post-merge-install.json)。#218已显式关闭；GitHub reviews API未提供独立批准记录，保存历史缺口而不追认PASS。Owner要求继续后续工程。
+
+PR2从实际最新origin/develop `70267a5` 派生，分支codex/html-guide-package。完整0.1.0包、两参考、显式策略和所选第二轮A在同一PR与登记/严格校验接入；marketplace8.1.2与原三插件版本保持。模型行为六组、评审镜像与源/缓存hash仍待实际批次，当前不可据结构通过宣称行为PASS。现实效果NOT_MEASURED，双客户端扩展和最终merge仍留PR3。
+
+## §8 PR2 engineering candidate
+
+候选基于实际 origin/develop 70267a5，完整 HTML Guide Kit 0.1.0 包、已选图标及市场/校验合同在本 PR 原子加入。marketplace VERSION 8.1.2、Diagram 0.3.1、Understanding 0.1.2、Explain 0.1.1 保持，既有包没有文件改动。A 图标 PNG 与候选哈希相同，正式 SVG 只修改标题；限定新包 LF 规则保留 raw bytes。
+
+- [全测试](evidence/html-guide-kit/pr2-full-tests.log)：277/277 PASS、0 skip，REQUIRE_PWSH/REQUIRE_PYTHON=1。
+- [结构](evidence/html-guide-kit/pr2-validate.log)与[CLI基线](evidence/html-guide-kit/pr2-check.log)：PASS，Codex CLI0.147.0，四插件/五公开技能/20仓库技能。
+- [工作候选安装](evidence/html-guide-kit/pr2-working-install.json)：七种场景全部通过；自然启用1/2/3/3/0/2/3，原生公开1/2/3/4/1/3/5。四个含Diagram场景实际运行各自安装缓存Python，均扫描1、FAIL0、WARN0。manifest/icon/SKILL/native config/mandatory references的source/cache字节与SHA-256逐项对应。canonical提交验证仍需独立保存。
+- 专项测试的[首轮失败](evidence/html-guide-kit/pr2-tests-first-run.json)与[修正重跑](evidence/html-guide-kit/pr2-tests-corrected-run.log)分别保留：首轮2项是测试模块import及fixture换行配置错误；修正后73/73、0 skip。未将首轮追认PASS。
+
+六组真实连续模型行为仍 NOT_RUN；当前 draft 不解除。双客户端及完整扩展属于PR3待完成；现实效果NOT_MEASURED。安装通过不替代真实模型读取或客户端显示。
