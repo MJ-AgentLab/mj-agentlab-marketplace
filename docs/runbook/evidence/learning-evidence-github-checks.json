@@ -69,5 +69,34 @@
     "Native question windows and actual desktop calls are NOT_RUN/deferred per entry",
     "No human learning, formal release or Owner final acceptance",
     "PR2/PR3 merge and GitHub independent approval remain separate"
-  ]
+  ],
+  "encoding_repair": {
+    "date": "2026-10-12",
+    "base": "3051e9537c017252169e05d7cabdabbdc76f8c75",
+    "failed_remote_runs": [
+      38234357221,
+      38234446661
+    ],
+    "windows_failed_cases": 11,
+    "cause": "fake gh used the default Windows text encoding for JSON stdin/stdout; production transport already used explicit UTF-8 byte streams",
+    "local_reproduction": "Forcing PYTHONIOENCODING=cp1252 reproduced three original publication/collection failures",
+    "repair": "The controlled fixture reads/writes explicit UTF-8 byte streams; add a cp1252 publish/collect roundtrip regression",
+    "targeted_cp1252_cases": {
+      "pass": 4,
+      "fail": 0,
+      "skipped": 0
+    },
+    "full_regression": {
+      "pass": 284,
+      "fail": 0,
+      "skipped": 0,
+      "duration_ms": 53932.1849,
+      "github_cases": 31,
+      "storage_cases": 33
+    },
+    "production_module_hashes": "unchanged from frozen reviewed source",
+    "test_sha256": "f2d0a24962676370ca7a283019a18a981b1711965ead8c40caa5033256156be7",
+    "fake_gh_sha256": "ee340f5fe3bfd956afe5c2d018c9518d25626853b5de952650492402b15b7058",
+    "remote_recheck": "pending on repair commit"
+  }
 }
