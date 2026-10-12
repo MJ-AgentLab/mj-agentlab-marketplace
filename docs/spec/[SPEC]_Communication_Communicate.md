@@ -6,16 +6,20 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-12
 state: draft
-version: v1.0
+version: v1.1
 ---
 
 # [SPEC] Communication Communicate
 
 ## §1 Purpose and identity
 
-本契约指导 `communication-kit / communicate` 首版，产品方向已确认，运行实现尚未发生。唯一入口 `$communication-kit:communicate`，原生展示“沟通助手”，`allow_implicit_invocation: false`，manifest 能力准确为 `["Read", "Write"]`。manifest 与原生默认提示仅调用本入口。PR1 保持现有三插件四技能；PR3 才原子接入候选完整集合。
+本契约指导 `communication-kit / communicate` 首版。PR1 当时只建立契约、保持三插件四技能；PR3 已实现完整0.1.0候选并原子接入插件、注册、严格集合、冻结资源、图标及安装预期，候选四插件五技能、20开发技能。唯一入口 `$communication-kit:communicate`，原生展示“沟通助手”，`allow_implicit_invocation: false`，manifest 能力准确为 `["Read", "Write"]`，manifest 与原生默认提示仅调用本入口。实际文件见[manifest](../../plugins/communication-kit/plugin.json)、[主技能](../../plugins/communication-kit/skills/communicate/SKILL.md)及[原生配置](../../plugins/communication-kit/skills/communicate/agents/openai.yaml)。
+
+候选实现不等于契约已全部验收。工程与九组合 canonical 安装已有实测；S08 全部包资源比对仍待修复复验，C01–C18 尚无判定，真实双客户端及 R01–R05 仍 NOT RUN，PR3 保持 draft。当前市场未发布8.1.2、main / 最新 Release 8.1.1的前三插件范围和当前候选分别记录。
 
 ## §2 Ordered behavior
+
+候选的manifest示例提示与原生default_prompt均保持128字符以内，准确调用自身入口。0.147.0实际调用曾忽略181字符的manifest提示；修复记录保留，预算由严格校验阻止超限回归。此项限定新Communication候选，不改写旧插件运行文件。
 
 1. 确认显式调用及当前任务；识别受众、沟通目的、材料、使用渠道、要求的语言/长度/语气。
 2. 内部分流为沟通、编写或保义改写；优先用户目标，不要求用户选内部模式。
@@ -42,7 +46,7 @@ version: v1.0
 
 ## §5 Frozen source contract
 
-拟包内资源为 `references/aics-policy.md`、`task-patterns.md`、`source-provenance.md`、`aics-snapshot.json`。运行只读取本包资源。源为 PROJECT 当前学习解释与 RN-02 当前速查，状态保留 Lab Proposal / Informative；提炼/改编/排除映射在 provenance 可定位，不移植研究治理、会话维护或完整研究原件。
+已打包资源为[AICS 精选摘要](../../plugins/communication-kit/skills/communicate/references/aics-policy.md)、[任务模式](../../plugins/communication-kit/skills/communicate/references/task-patterns.md)、[来源说明](../../plugins/communication-kit/skills/communicate/references/source-provenance.md)及[冻结记录](../../plugins/communication-kit/skills/communicate/references/aics-snapshot.json)。运行只读取本包资源。源为 PROJECT 当前学习解释与 RN-02 当前速查，状态保留 Lab Proposal / Informative；提炼/改编/排除映射在 provenance 可定位，不移植研究治理、会话维护或完整研究原件。插件实现不升级研究来源状态，哈希检查不证明语义忠实或现实沟通效果。
 
 冻结记录 `schemaVersion: 1` 采用下表的精确成员结构；必填，额外键、重复身份和错误类型失败。字符串除明确允许的 null 外均非空，数组不重复。
 
@@ -68,5 +72,6 @@ version: v1.0
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.1 | 2026-10-12 | 对齐已实现0.1.0候选、精确冻结记录及部分工程实证；保留未完成验收 |
 | v1.0 | 2026-10-12 | 固定显式入口、保真、等待、冻结来源与操作边界；尚未实施验收 |
 

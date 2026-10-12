@@ -6,14 +6,14 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-12
 state: draft
-version: v1.0
+version: v1.1
 ---
 
 # [ADR] Communication Kit addition
 
 | Field | Value |
 |---|---|
-| Status | 产品方向已确认；实施及验收尚未完成 |
+| Status | 0.1.0 完整候选已实现；工程已执行，行为、客户端及发布验收未完成 |
 | Date | 2026-10-12 |
 | Author | marketplace-maintainers，依 Owner 明确决定 |
 | Scope | communication-kit / marketplace |
@@ -23,7 +23,9 @@ version: v1.0
 
 Owner 要求按[完整实施计划](../../plan/communication-kit-implementation-plan.md)执行并正式上线；追踪 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。计划原稿保留在原隔离工作树，同字节副本与[捕获记录](../../plan/communication-kit-plan-provenance.json)纳入 PR1。
 
-实施基线为 origin/develop `b2e5a74109f47ecee7471ba741fb4c1348457f3b`，marketplace 8.1.2；main `0c681a8f8b7520134a86a70934fc46288c627d8d` 为已发布 8.1.1。当前运行集合三插件、四公开技能、20 个仓库技能。计划旧基线只保留为历史，不用于当前转换。
+PR1 实施起始基线为 origin/develop `b2e5a74109f47ecee7471ba741fb4c1348457f3b`，marketplace 8.1.2；main `0c681a8f8b7520134a86a70934fc46288c627d8d` 为已发布 8.1.1。当时运行集合三插件、四公开技能、20 个仓库技能。计划旧基线与 PR1 状态保留为历史，不用于当前转换。
+
+PR3 已实现完整 Communication 0.1.0 候选并原子接入插件、注册、严格校验、冻结资源、正式图标与安装预期，候选四插件五公开技能、20 开发技能，pop-quiz / communicate 为两个显式入口。marketplace 仍为未发布8.1.2；main / 最新 Release 8.1.1 仍仅包含前三插件。已执行工程与 canonical 安装检查，实际行为、双客户端及发布验收未完成；当前身份、覆盖及缺口见[验收账本](../runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。
 
 ## §2 Decision
 
@@ -55,17 +57,17 @@ Communication 产出或修改沟通稿件；[Explain](./[ADR]_Explain_Kit_Additi
 
 PR1 契约与固定案例 → PR2 scope 工具及候选图标 → PR3 插件/注册/严格校验/资源/安装预期原子接入 → PR4 获准版本及回归 → PR5 main 发布 → 发布后 canonical 复查及维护。所有阶段使用 Refs #222，依赖顺序和当前 head 门禁按计划执行。
 
-PR1/PR2 不注册新运行包。拟新增包路径只作为计划：`plugins/communication-kit/plugin.json`、`skills/communicate/SKILL.md`、`agents/openai.yaml`、`references/{aics-policy.md,task-patterns.md,source-provenance.md,aics-snapshot.json}`，完整结构见计划。
+PR1/PR2 当时不注册新运行包。PR3 已有[manifest](../../plugins/communication-kit/plugin.json)、[包说明](../../plugins/communication-kit/README.md)、[主技能](../../plugins/communication-kit/skills/communicate/SKILL.md)、[原生配置](../../plugins/communication-kit/skills/communicate/agents/openai.yaml)与包内三份参考摘要及[冻结记录](../../plugins/communication-kit/skills/communicate/references/aics-snapshot.json)。Owner 已明确选择第二轮 D 地球＋清晰文字，正式包与四图家族预览已接入；真实客户端显示仍 NOT RUN。完整原计划继续保留，不以候选实现表示已经上线。
 
 ## §6 Acceptance
 
-依据[SPEC](../spec/[SPEC]_Communication_Communicate.md)、[固定案例](../../tests/fixtures/communication-kit/cases.json)与[RUNBOOK](../runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)，执行 S01–S12、C01–C18、必要双客户端基本可用性和 R01–R05。PR1 建立契约不代表新包已经通过。
+依据[SPEC](../spec/[SPEC]_Communication_Communicate.md)、[固定案例](../../tests/fixtures/communication-kit/cases.json)与[RUNBOOK](../runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)，执行 S01–S12、C01–C18、必要双客户端基本可用性和 R01–R05。PR1 建立契约时没有运行包；PR3 已执行工程检查和九组合 canonical 安装，不将这些结果扩大为行为或客户端通过。S08 的 manifest/SVG 源缓存比较缺口正在修复，完整结论待复验；C01–C18 尚无判定，双客户端与 R01–R05 仍 NOT RUN。相关 PR 保持 draft，AI review 不替代当前 head 的 GitHub 非作者批准。
 
 Owner 明确将九例真实场景、三稿对照、读者效果反馈、采用度与效率提升本次延期。延期项不作上线门槛，也不记为 PASS；事实、立场、承诺和必要限制失真仍是功能失败。
 
 ## §7 Version, release and rollback
 
-新包候选建议 0.1.0。Owner 于 2026-10-12 选择 [Learning Evidence #209](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/209)先发布 8.2.0，Communication 随后独立 minor，预计 8.3.0；PR4 重查实际 From/To、最新基线及发布范围。本 ADR 未执行任何转换，不提前承诺待发布基线的精确运行集合。
+新包实际候选为0.1.0，尚未发布，现有三个插件版本保持。Owner 于 2026-10-12 选择 [Learning Evidence #209](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/209)先发布 8.2.0，Communication 随后独立 minor，预计 8.3.0；PR4 重查实际 From/To、最新基线及发布范围。PR3 未执行市场版本转换，不提前承诺待发布基线的精确运行集合。
 
 正式发布已获本任务授权，仍受真实客户端验收、CI、非作者批准、最新 base、code-owner 要求和未解决线程约束。回退经新 PR 原子撤销新包及集成，恢复先前完整集合；已发布历史不覆盖，故障使用新修复版本。流程见[发布操作](../runbook/[RUNBOOK]_Release_Operations.md)。
 
@@ -73,6 +75,13 @@ Owner 明确将九例真实场景、三稿对照、读者效果反馈、采用�
 
 | 日期 | 依据 | 状态 |
 |---|---|---|
-| 2026-10-12 | Owner 要求完整实施与正式上线，保留已确认产品契约与缩减效果测试范围 | 接受产品方向和执行授权；实现未完成 |
+| 2026-10-12 | Owner 要求完整实施与正式上线，保留已确认产品契约与缩减效果测试范围 | PR1 时接受产品方向和执行授权；当时尚未实现 |
 | 2026-10-12 | Owner 答复版本顺序 grilling Q1 | Learning 先 8.2.0；Communication 随后独立 minor，PR4 重查版本和基线 |
+| 2026-10-12 | Owner 明确选择第二轮 D 地球＋清晰文字 | 已接入原创 MJ D 正式资源；不补记客户端显示 |
+| 2026-10-12 | PR3 完整候选与工程批次 | 候选已实现，工程部分实证可追溯；行为、双客户端、发布和 S08 完整复验待完成 |
+
+| Version | Date | Summary |
+|---|---|---|
+| v1.1 | 2026-10-12 | 更新 PR3 已实现候选及部分工程实证，保留 PR1 历史与未完成门禁 |
+| v1.0 | 2026-10-12 | 产品方向及实施、验收与发布契约；PR1 当时尚无运行包 |
 

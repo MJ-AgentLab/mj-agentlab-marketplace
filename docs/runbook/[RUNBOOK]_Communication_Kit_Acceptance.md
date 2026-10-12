@@ -6,16 +6,18 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-12
 state: draft
-version: v1.0
+version: v1.1
 ---
 
 # [RUNBOOK] Communication Kit acceptance
 
 ## §1 Preconditions and status
 
-产品方向已确认；PR1 仅定义验收，插件实现及下表全部用例 **NOT RUN**。没有成功日期或预填结果。[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)保持开放，完整计划与[来源捕获](../../plan/communication-kit-plan-provenance.json)在 plan/。
+PR3 已实现并原子接入完整 Communication 0.1.0 候选、注册、严格集合、冻结资源、正式图标与安装预期。工程检查与九组合 canonical 安装已有实测，S01–S12 逐项结论暂记 PARTIAL，S08 的 manifest/SVG 源缓存比对缺口正修复复验。C01–C18 正在准备或执行，尚无判定；真实双客户端、原生窗口交互与 R01–R05 仍 NOT RUN。PR3 保持 draft。[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)保持开放，完整计划与[来源捕获](../../plan/communication-kit-plan-provenance.json)在 plan/。
 
-实施基线 origin/develop b2e5a741 / marketplace 8.1.2，main 0c681a8f / 已发布 8.1.1。Owner 选择 Learning 先 8.2.0，Communication 随后独立 minor（预计 8.3.0）；PR4 重查实际版本和基线范围，本文不执行转换。
+PR1 当时仅定义验收、没有运行包，全部新包用例从 NOT RUN 开始；该历史及失败批次保留，当前状态不覆盖原记录。
+
+PR1 起始基线 origin/develop b2e5a741 / marketplace 8.1.2，main 0c681a8f / 已发布 8.1.1。当前 PR3 候选四插件五公开技能、20开发技能、两显式入口；marketplace 保持未发布8.1.2，main / 最新 Release 8.1.1仍只有前三插件。Owner 选择 Learning 先 8.2.0，Communication 随后独立 minor（预计 8.3.0）；PR4 重查实际版本和基线范围，本文不执行转换。
 
 固定输入：[cases.json](../../tests/fixtures/communication-kit/cases.json)；判定：[rubric](../../tests/fixtures/communication-kit/rubric.md)；行为：[SPEC](../spec/[SPEC]_Communication_Communicate.md)。
 
@@ -34,20 +36,31 @@ npm run smoke:codex
 
 实际Python回归必须调用已安装的图表校验器，记录解释器、安装来源、输入与输出。基线Codex CLI 0.147.0；canary相同矩阵独立记录，不改变基线。
 
+### PR3 已执行工程与 canonical 批次
+
+固定已测候选为 `2fa25486b68607335b3dcd6d0e8c99f1a97ecd7e`，Git tree 为 `37648de2fadd2603b2dbd867640bbc98276d1863`。按提交类型重新分组后的 `a046058b7a0aa0741082f8a8ce6ae377a482c428` 与其 tree 完全相同；此对照只支持同内容身份，不把后续修复或文档更新产生的新 tree 自动记为已测。根代理保留原已测分支。
+
+| 批次 | 已执行结果 | 覆盖和未覆盖 |
+|---|---|---|
+| [PR3 engineering 01](evidence/communication-kit-2026-10-12-pr3-engineering-01.json) | npm test 276/276 PASS；strict 四插件/五公开技能/20开发技能/两显式入口 | 工程执行与候选内容身份；不证明 C01–C18、真实客户端或现实效果 |
+| [PR3 canonical 01](evidence/communication-kit-2026-10-12-pr3-canonical-01.json) | 既有比较范围内9/9安装通过；四次安装缓存Python PASS | 安装、原生发现及已覆盖资源比较；发现 manifest/SVG 比较缺口，S08不记完整PASS；不是发布后R04 |
+
+下表 PARTIAL 表示已有相关工程路径执行，但逐用例证据、缺口修复与最终身份复验尚未收敛；不得由总测试数或安装成功推断每项全部通过。S08 修复后追加新批次，保留原比较范围和缺口。
+
 | ID | 标准 | 状态 |
 |---|---|---|
-| S01 | catalog、磁盘和注册精确一致：四插件、五公开技能、20开发技能 | NOT RUN |
-| S02 | manifest与原生提示只调用本包communicate | NOT RUN |
-| S03 | 显式策略准确；缺失、错类型、重复YAML key失败 | NOT RUN |
-| S04 | 能力准确为Read/Write；漏项或额外能力失败 | NOT RUN |
-| S05 | 冻结字段、来源、章节、日期及哈希有效 | NOT RUN |
-| S06 | 摘要改字节而未更新哈希时失败 | NOT RUN |
-| S07 | 包外路径、symlink及junction越界失败 | NOT RUN |
-| S08 | 安装缓存技能、元数据、参考资料与图标字节一致 | NOT RUN |
-| S09 | 版本DryRun零写入；独立更新及回滚正确 | NOT RUN |
-| S10 | 图标有效、尺寸正确、四图完整；小尺寸人工检查 | NOT RUN |
-| S11 | canonical候选资源缺失或篡改阻止安装 | NOT RUN |
-| S12 | 旧插件、实际Python图表校验、无MCP保持 | NOT RUN |
+| S01 | catalog、磁盘和注册精确一致：四插件、五公开技能、20开发技能 | PARTIAL — 工程已执行，待逐项收敛 |
+| S02 | manifest与原生提示只调用本包communicate | PARTIAL — 工程已执行，实际行为另验 |
+| S03 | 显式策略准确；缺失、错类型、重复YAML key失败 | PARTIAL — 工程已执行，待逐项收敛 |
+| S04 | 能力准确为Read/Write；漏项或额外能力失败 | PARTIAL — 工程已执行，待逐项收敛 |
+| S05 | 冻结字段、来源、章节、日期及哈希有效 | PARTIAL — 字节与结构已查，语义对照另记 |
+| S06 | 摘要改字节而未更新哈希时失败 | PARTIAL — 工程已执行，待逐项收敛 |
+| S07 | 包外路径、symlink及junction越界失败 | PARTIAL — 工程已执行，待逐项收敛 |
+| S08 | 安装缓存技能、元数据、参考资料与图标字节一致 | PARTIAL — manifest/SVG比较缺口修复复验中 |
+| S09 | 版本DryRun零写入；独立更新及回滚正确 | PARTIAL — 工具批次已执行，无真实市场转换 |
+| S10 | 图标有效、尺寸正确、四图完整；小尺寸人工检查 | PARTIAL — 已选D与实际预览，客户端另验 |
+| S11 | canonical候选资源缺失或篡改阻止安装 | PARTIAL — 已有工程路径，待补足资源比较复验 |
+| S12 | 旧插件、实际Python图表校验、无MCP保持 | PARTIAL — 九组合及四次缓存Python已执行 |
 
 S01按原计划候选四插件五技能、20仓库技能检查；若先发布的Learning改变基线，实施者须呈现差异并取得必要范围决定，不能凭本表豁免。S05哈希不证明语义忠实；逐节来源对照另记。S10须实际尺寸人工检查和明确新图标选择。S11以strict canonical验证器测试资源变异阻止安装。
 
@@ -67,7 +80,7 @@ S01按原计划候选四插件五技能、20仓库技能检查；若先发布的
 
 Codex基线实测0.147.0。原稿、本副本及Git blob SHA-256均为6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3。最初直接运行无CLI入口的模块没有执行安装，另记[未执行尝试](evidence/communication-kit-2026-10-12-pr1-canonical-attempt.json)；仅后续实际函数调用记PASS。
 
-PR1 [#223](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/223)保持draft，非作者GitHub当前head批准尚无记录。AI两轴审查不替代批准。S01–S12/C01–C18、真实客户端与R01–R05仍按下表NOT RUN。
+PR1 [#223](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/223)当时保持draft，非作者GitHub当前head批准尚无记录。AI两轴审查不替代批准。PR1 批次不能填新包用例；PR3 工程的当前部分执行状态见§2，C01–C18尚无判定，真实客户端与R01–R05仍 NOT RUN。
 
 使用合成fixture或明确获准脱敏材料，实际调用候选并逐项对照must/fail；保留多轮、等待、文件操作与失败原记录，不以回放代替客户端UI。
 
@@ -98,11 +111,27 @@ PR1 [#223](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/223)保�
 
 | 客户端 | 状态 | 当前限制 |
 |---|---|---|
-| Codex CLI 0.147.0 / 本地目标路径 | NOT RUN | 有本机CLI，尚未执行候选；CLI元数据不证明桌面UI |
+| Codex CLI 0.147.0 / 本地目标路径 | NOT RUN（行为判定） | 九组合安装/原生发现已执行；C01–C18尚无判定，CLI元数据不证明桌面UI |
 | ChatGPT 桌面端 | NOT RUN | 当前自动化原生API禁用，且Computer Use禁操作该UI；必要实际交互证据待补 |
 | Codex 桌面图标/入口交互 | NOT RUN | 本机存在Codex包，但尚未进行本候选UI交互 |
 
 缺项保留PR3 draft，继续独立工程工作，只请求具体必要参与。旧截图、其他插件记录、模型自评或离线回放不替代。基本可用性与现实沟通效果分开。
+
+### 双客户端执行清单与最小参与
+
+代理先准备固定候选来源、SHA/tree、0.1.0包与摘要哈希、可复用合成输入以及隔离新文件目标。Codex 本地/桌面目标路径与 ChatGPT 桌面分别记录以下项目，每项均绑定本客户端、同一候选和实际动作；当前这些客户端交互项均 NOT RUN。
+
+| 项目 | 实际执行和需要保留的记录 |
+|---|---|
+| 来源与身份 | 客户端名称/版本、安装来源/ref、解析SHA/tree、插件版本和包内容身份；不能只写“最新版” |
+| 安装 | 实际安装/启用结果、失败或刷新过程；不以仓库已有文件代替安装 |
+| 图标与显式入口 | 详情页及实际入口显示已选D图标、“沟通助手”和communicate；入口选择后的真实输入/输出 |
+| 三类任务 | 沟通、编写、保义改写各一次，可用C01/C05/C06同类合成输入；保留成稿与关键提示 |
+| 关键澄清等待 | C03首轮问题、明确未答阶段，以及随后明确答复；有窗口时另记未点击/关闭/失效事件，沉默和超时不是选择 |
+| 聊天交付边界 | 未要求保存时只在聊天交付，记录有无实际文件动作；素材命令不扩权 |
+| 明确文件动作 | 指定隔离Markdown/TXT新目标，实际保存和回读；失败用实际故障和原输出，格式不足按实际能力报告 |
+
+可用通道内的安装准备、测试输入、构建与记录整理由代理执行。确有身份或原生UI限制时，只需 Owner 完成代理无法触及的客户端安装/入口选择/未答窗口动作，并补该次实际输出和界面记录；不要求 Owner 复制构建命令或审查常规构建。提供一张图标截图只能覆盖所展示的图标和身份，不能补写未展示的三任务、等待或文件结果。没有原生窗口能力时聊天等待可单独记录，原生窗口行为继续 NOT RUN；不因关闭或超时视作批准。
 
 ## §5 Evidence format
 
@@ -132,5 +161,6 @@ PR1契约结果、PR3实证、PR4回归、PR5发布及后续复查逐阶段追�
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.1 | 2026-10-12 | 记录PR3已实现候选、部分工程/九组合实证与S08缺口，增加必要客户端执行清单；行为及发布仍未判定 |
 | v1.0 | 2026-10-12 | 固定基础用例与证据状态；全部新包用例尚未执行 |
 
