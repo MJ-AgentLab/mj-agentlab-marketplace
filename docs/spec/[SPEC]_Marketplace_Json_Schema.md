@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-12
 state: active
-version: v2.3
+version: v2.4
 ---
 
 # [SPEC] Marketplace index
@@ -21,7 +21,7 @@ version: v2.3
 
 每项 source 为 local，installation 为 AVAILABLE，authentication 为 ON_INSTALL，category 为 Developer Tools。path 相对仓库根解析，不能逃逸。市场索引和条目不含版本；版本从 VERSION 与各根 manifest 读取。候选集合按 [Learning Evidence Kit 迁移 ADR](../adr/[ADR]_Learning_Evidence_Kit_Migration.md) 直接替换 understanding-kit，没有过渡插件。两个学习技能都设置显式调用策略；共用脚本不成为第六个公开技能。
 
-当前候选 marketplace 为未发布 8.1.2，learning-evidence-kit 为 0.1.0，diagram-kit 0.3.1 / explain-kit 0.1.1 保持。目标 8.2.0 在 PR5 准备；公开 v8.1.1 仍是 Understanding Kit 0.1.2 的旧集合，不能用该标签安装新包。
+PR5 已准备未发布 marketplace 8.2.0，learning-evidence-kit 为 0.1.0，diagram-kit 0.3.1 / explain-kit 0.1.1 保持。公开 v8.1.1 仍是 Understanding Kit 0.1.2 的旧集合，不能用该标签安装新包；版本准备与实际发布状态分开记录。
 
 插件发布继续由 Git 仓库和版本标签分发，不在本索引绑定附加 wheel 或 checksum。
 

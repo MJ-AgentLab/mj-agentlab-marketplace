@@ -6,12 +6,12 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-12
 state: active
-version: v2.6
+version: v2.7
 ---
 
 # [SPEC] Plugin manifest
 
-plugins/diagram-kit/plugin.json、plugins/learning-evidence-kit/plugin.json 与 plugins/explain-kit/plugin.json 各声明 https://agent-plugins.org/schemas/1.0.0/plugin.schema.json。根字段为 name、version、description、author、repository、license、keywords、extensions。根 version 是对应插件的权威版本；当前未发布候选为 learning-evidence-kit 0.1.0、diagram-kit 0.3.1、explain-kit 0.1.1，marketplace 保持 8.1.2。技能由根 skills/ 自动发现，无 skills 字段、兼容包装或空 MCP 文件。公开 v8.1.1 的旧 Understanding Kit 身份保留在历史发布记录。
+plugins/diagram-kit/plugin.json、plugins/learning-evidence-kit/plugin.json 与 plugins/explain-kit/plugin.json 各声明 https://agent-plugins.org/schemas/1.0.0/plugin.schema.json。根字段为 name、version、description、author、repository、license、keywords、extensions。根 version 是对应插件的权威版本；当前未发布候选为 learning-evidence-kit 0.1.0、diagram-kit 0.3.1、explain-kit 0.1.1，PR5 已准备 marketplace 8.2.0。技能由根 skills/ 自动发现，无 skills 字段、兼容包装或空 MCP 文件。公开 v8.1.1 的旧 Understanding Kit 身份保留在历史发布记录。
 
 extensions.com.openai.interface 提供 displayName、shortDescription、longDescription、developerName、category、capabilities、defaultPrompt。diagram-kit 的 defaultPrompt 使用 $diagram-kit:arch-diagram，capabilities 为 Read/Write。learning-evidence-kit 的 capabilities 为 Read/Write，defaultPrompt 完整覆盖 $learning-evidence-kit:pop-quiz 与 $learning-evidence-kit:learning-record-check；两个 agents/openai.yaml 都设置 allow_implicit_invocation: false，不能路由其他技能。包权限允许明确移交后的共用持久化与授权共享，Pop Quiz 诊断阶段仍只读。SKILL.md 的 name/description 使用严格 YAML；本仓描述预算 1024 字符。验证实现见 scripts/validate-portable.mjs；[官方格式](https://developers.openai.com/plugins/build/plugins)。
 

@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-12
 state: active
-version: v1.0
+version: v1.1
 supersedes:
   - "../archive/[DEPRECATED]_[GUIDE]_Understanding_Pop_Quiz_v1.3.md"
   - "../archive/[DEPRECATED]_[SPEC]_Understanding_Pop_Quiz_v1.0.md"
@@ -16,7 +16,7 @@ supersedes:
 
 ## Candidate and published sources
 
-Learning Evidence Kit 0.1.0 is an unpublished candidate replacing Understanding Kit in the development index. Marketplace VERSION remains 8.1.2; 8.2.0 is prepared in PR5. Published `v8.1.1` still contains Understanding Kit 0.1.2 and its old namespaced skill. Installing that tag does not install this new package.
+Learning Evidence Kit 0.1.0 is an unpublished candidate replacing Understanding Kit in the development index. PR5 prepares marketplace VERSION 8.2.0 from the unpublished 8.1.2 pre-bump, without changing plugin versions. Published `v8.1.1` still contains Understanding Kit 0.1.2 and its old namespaced skill. Installing that tag does not install this new package. The [release-readiness ledger](../runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md) records actual entry qualifications and remaining publication gates.
 
 For isolated candidate testing, use the exact tested branch or commit, then compare actual manifest versions and receipts. The following branch is a development source, not a release identity; a final tested SHA is preferable for reproducibility.
 
@@ -65,3 +65,4 @@ Reviewer decisions/personnel changes, mj-system integration and Space publicatio
 | Version | Date | Change |
 | --- | --- | --- |
 | v1.0 | 2026-10-12 | Candidate-only installation, dual explicit skills, handoff and separated checks; no client/window acceptance claim |
+| v1.1 | 2026-10-12 | Prepare unpublished marketplace 8.2.0 with unchanged plugin versions and link the per-entry release-readiness boundaries |
