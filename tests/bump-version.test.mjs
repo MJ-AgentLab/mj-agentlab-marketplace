@@ -7,7 +7,12 @@ import {spawnSync} from "node:child_process";
 import {runCli} from "../scripts/run-cli.mjs";
 const REPO=path.resolve(import.meta.dirname,".."), HAVE=spawnSync("pwsh",["-NoProfile","-Command","exit 0"]).status===0;
 if(process.env.REQUIRE_PWSH==="1") assert.ok(HAVE,"required PowerShell is missing");
-const dirs=[];test.after(()=>dirs.forEach(d=>fs.rmSync(d,{recursive:true,force:true})));
+const TEMP_ROOT=fs.realpathSync(os.tmpdir()),dirs=[];
+test.after(()=>dirs.forEach(d=>{
+ const resolved=fs.realpathSync(d),relative=path.relative(TEMP_ROOT,resolved);
+ assert.ok(relative&&!path.isAbsolute(relative)&&relative!==".."&&!relative.startsWith(`..${path.sep}`)&&path.basename(resolved).startsWith("bump-fixture-"),"cleanup must stay inside its temporary fixture root");
+ fs.rmSync(resolved,{recursive:true,force:true});
+}));
 function fixture(){
  const d=fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()),"bump-fixture-"));dirs.push(d);
  fs.mkdirSync(path.join(d,"scripts"));fs.copyFileSync(path.join(REPO,"scripts/bump-version.ps1"),path.join(d,"scripts/bump-version.ps1"));
@@ -19,15 +24,17 @@ function fixture(){
  fs.writeFileSync(path.join(d,"plugins/understanding-kit/plugin.json"),JSON.stringify({name:"understanding-kit",version:"0.1.0",description:"design v0.3",extensions:{history:{version:"0.1.0"}}},null,2)+"\n");
  fs.mkdirSync(path.join(d,"plugins/explain-kit"),{recursive:true});
  fs.writeFileSync(path.join(d,"plugins/explain-kit/plugin.json"),JSON.stringify({name:"explain-kit",version:"0.1.0",description:"history 0.1.0",extensions:{history:{version:"0.1.0"}}},null,2)+"\n");
+ fs.mkdirSync(path.join(d,"plugins/html-guide-kit"),{recursive:true});
+ fs.writeFileSync(path.join(d,"plugins/html-guide-kit/plugin.json"),JSON.stringify({name:"html-guide-kit",version:"0.1.0",description:"history 0.1.0",extensions:{history:{version:"0.1.0"}}},null,2)+"\n");
  fs.copyFileSync(path.join(REPO,".agents/plugins/marketplace.json"),path.join(d,".agents/plugins/marketplace.json"));return d;
 }
-const files=["VERSION","README.md","plugins/diagram-kit/plugin.json","plugins/understanding-kit/plugin.json","plugins/explain-kit/plugin.json",".agents/plugins/marketplace.json"];
-const bytes=d=>Object.fromEntries(files.map(p=>[p,fs.readFileSync(path.join(d,p))]));
+const files=["VERSION","README.md","plugins/diagram-kit/plugin.json","plugins/understanding-kit/plugin.json","plugins/explain-kit/plugin.json","plugins/html-guide-kit/plugin.json",".agents/plugins/marketplace.json"];
+const bytes=d=>Object.fromEntries(files.map(p=>[p,fs.existsSync(path.join(d,p))?fs.readFileSync(path.join(d,p)):null]));
 const read=(d,p)=>fs.readFileSync(path.join(d,p),"utf8");
 function noBackups(d){for(const p of files) assert.ok(!fs.existsSync(path.join(d,p+".bump-backup")));}
 const opts={skip:!HAVE&&"PowerShell unavailable"};
 async function bump(d,scope="marketplace",extra=[],env={}){
- const versions={marketplace:["7.0.2","8.0.0"],"diagram-kit":["0.2.0","0.3.0"],"understanding-kit":["0.1.0","0.2.0"],"explain-kit":["0.1.0","0.2.0"]};
+ const versions={marketplace:["7.0.2","8.0.0"],"diagram-kit":["0.2.0","0.3.0"],"understanding-kit":["0.1.0","0.2.0"],"explain-kit":["0.1.0","0.2.0"],"html-guide-kit":["0.1.0","0.1.1"]};
  return runCli("pwsh",["-NoProfile","-File","./scripts/bump-version.ps1","-From",versions[scope][0],"-To",versions[scope][1],"-Scope",scope,...extra],{cwd:d,env:{...process.env,...env},timeoutMs:60000});
 }
 test("marketplace updates VERSION and derived badge only",opts,async()=>{
@@ -46,7 +53,7 @@ test("understanding-kit bumps independently from marketplace and diagram-kit",op
  const m=JSON.parse(read(d,"plugins/understanding-kit/plugin.json"));assert.equal(m.version,"0.2.0");assert.equal(m.description,"design v0.3");assert.equal(m.extensions.history.version,"0.1.0");
  for(const p of files.filter(p=>p!=="plugins/understanding-kit/plugin.json")) assert.deepEqual(fs.readFileSync(path.join(d,p)),before[p]);noBackups(d);
 });
-for(const scope of ["marketplace","diagram-kit","understanding-kit","explain-kit"])test("DryRun writes nothing: "+scope,opts,async()=>{
+for(const scope of ["marketplace","diagram-kit","understanding-kit","explain-kit","html-guide-kit"])test("DryRun writes nothing: "+scope,opts,async()=>{
  const d=fixture(),before=bytes(d),r=await bump(d,scope,["-DryRun"]);assert.equal(r.status,0,r.stdout+r.stderr);
  assert.match(r.stdout,/No files were modified/);assert.deepEqual(bytes(d),before);noBackups(d);
 });
@@ -103,7 +110,7 @@ test("explain-kit version changes preserve the other plugin and marketplace",opt
 });
 
 
-for(const scope of ["diagram-kit","explain-kit"])test("plugin write failure restores original bytes: "+scope,opts,async()=>{
+for(const scope of ["diagram-kit","explain-kit","html-guide-kit"])test("plugin write failure restores original bytes: "+scope,opts,async()=>{
  const d=fixture(),before=bytes(d),r=await bump(d,scope,["-TestFailAfterReplace","1"],{MP_BUMP_TESTING:"1"});
  assert.notEqual(r.status,0);assert.deepEqual(bytes(d),before);noBackups(d);
 });
@@ -114,4 +121,34 @@ test("plugin scope cannot modify a manifest with another identity or version",op
  fs.writeFileSync(p,JSON.stringify({...m,...change},null,2)+"\n");const before=bytes(d),r=await bump(d,"explain-kit");
  assert.notEqual(r.status,0);assert.deepEqual(bytes(d),before);noBackups(d);
  }
+});
+
+test("html-guide-kit patch bump preserves history, nested versions and all other version sources",opts,async()=>{
+ const d=fixture(),before=bytes(d),r=await bump(d,"html-guide-kit");assert.equal(r.status,0,r.stdout+r.stderr);
+ const p="plugins/html-guide-kit/plugin.json",m=JSON.parse(read(d,p));
+ assert.equal(m.version,"0.1.1");assert.equal(m.description,"history 0.1.0");assert.equal(m.extensions.history.version,"0.1.0");
+ for(const other of files.filter(file=>file!==p))assert.deepEqual(fs.readFileSync(path.join(d,other)),before[other]);noBackups(d);
+});
+
+for(const extra of [["-DryRun"],[]])test("html-guide-kit missing manifest fails with zero writes: "+(extra.length?"dry run":"apply"),opts,async()=>{
+ const d=fixture(),p="plugins/html-guide-kit/plugin.json";fs.unlinkSync(path.join(d,p));
+ const before=bytes(d),r=await bump(d,"html-guide-kit",extra);
+ assert.equal(r.status,1,r.stdout+r.stderr);assert.match(r.stdout+r.stderr,/required file missing/);assert.match(r.stdout+r.stderr,/NOTHING was written/);
+ assert.deepEqual(bytes(d),before);assert.equal(bytes(d)[p],null);noBackups(d);
+});
+
+for(const change of [{name:"explain-kit"},{version:"0.9.0"}])test("html-guide-kit rejects mismatched "+Object.keys(change)[0]+" before dry-run or apply writes",opts,async()=>{
+ const d=fixture(),p="plugins/html-guide-kit/plugin.json",m=JSON.parse(read(d,p));
+ fs.writeFileSync(path.join(d,p),JSON.stringify({...m,...change},null,2)+"\n");const before=bytes(d);
+ for(const extra of [["-DryRun"],[]]){
+  const r=await bump(d,"html-guide-kit",extra);assert.equal(r.status,1,r.stdout+r.stderr);
+  assert.match(r.stdout+r.stderr,change.name?/identity does not match Scope/:/version does not match From/);
+  assert.deepEqual(bytes(d),before);noBackups(d);
+ }
+});
+
+test("html-guide-kit post-write validation failure restores exact bytes and other versions",opts,async()=>{
+ const d=fixture(),before=bytes(d),r=await bump(d,"html-guide-kit",["-TestCorruptAfterWrite","1"],{MP_BUMP_TESTING:"1"});
+ assert.equal(r.status,1,r.stdout+r.stderr);assert.match(r.stdout+r.stderr,/post-write validation failed/);
+ assert.match(r.stdout+r.stderr,/restored to their original bytes/);assert.deepEqual(bytes(d),before);noBackups(d);
 });
