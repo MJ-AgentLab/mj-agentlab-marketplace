@@ -5,7 +5,7 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { runCli, spawnCli } from "./run-cli.mjs";
 import { assertInstalledIcons } from "./plugin-icons.mjs";
-import { REPOSITORY_SKILLS, RUNTIME_PLUGINS, PUBLIC_SKILLS, EXPLICIT_ONLY_SKILLS, validateOpenAIConfig } from "./validate-portable.mjs";
+import { REPOSITORY_SKILLS, RUNTIME_PLUGINS, PUBLIC_SKILLS, EXPLICIT_ONLY_SKILLS, validateOpenAIConfig, assertInstalledPluginResources, assertInstalledSkillResources } from "./validate-portable.mjs";
 
 export const MARKETPLACE_NAME = "mj-agentlab-marketplace";
 export const BASELINE_VERSION = "0.147.0";
@@ -163,6 +163,7 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
     const external = parsePromptInputSkills(await execute(codexCommand, ["debug", "prompt-input", "ordinary task discovery check"]));
     const cacheRoot = path.join(codexHome, "plugins/cache", MARKETPLACE_NAME);
     const installedIcons = Object.fromEntries(plugins.map(plugin => [plugin, assertInstalledIcons(path.join(src, "plugins", plugin), path.join(cacheRoot, plugin, pluginVersions[plugin]))]));
+    const installedResources = Object.fromEntries(plugins.map(plugin => [plugin, assertInstalledPluginResources(path.join(src, "plugins", plugin), path.join(cacheRoot, plugin, pluginVersions[plugin]), plugin)]));
     const outside = assertDiscovery(external, { cacheRoot, repositoryRoot: src, inRepository: false, expectedSkills: implicitSkills, pluginVersions });
     const entries = parsePromptInputSkills(await execute(codexCommand, ["debug", "prompt-input", "repository skill discovery check"], src));
     const repository = assertDiscovery(entries, { cacheRoot, repositoryRoot: src, inRepository: true, expectedSkills: implicitSkills, pluginVersions });
@@ -179,10 +180,7 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
         const [plugin, name] = skill.name.split(":"), installedRoot = path.dirname(skill.path), sourceRoot = path.join(src, "plugins", plugin, "skills", name);
         const config = validateOpenAIConfig(fs.readFileSync(path.join(installedRoot, "agents/openai.yaml"), "utf8"), plugin, name);
         if (skill.interface?.defaultPrompt !== config.interface.default_prompt || skill.interface?.displayName !== config.interface.display_name) throw new Error(`native presentation differs from installed metadata: ${skill.name}`);
-        for (const rel of ["SKILL.md", "agents/openai.yaml", ...(plugin === "understanding-kit" ? ["references/ku-selection.md", "references/quiz-policy.md"] : plugin === "diagram-kit" ? ["scripts/validate_diagram.py"] : [])]) {
-          const file = path.join(installedRoot, rel), relative = path.relative(real(installedRoot), real(file));
-          if (relative.startsWith("..") || path.isAbsolute(relative) || !fs.readFileSync(file).equals(fs.readFileSync(path.join(sourceRoot, rel)))) throw new Error(`installed skill resource is not its package-owned source: ${skill.name}/${rel}`);
-        }
+        assertInstalledSkillResources(sourceRoot, installedRoot, skill.name);
         skillPaths[skill.name] = skill.path;
       }
       nativeInventories[key] = assertDiscovery(skills.map(s => ({ name: s.name, file: s.path })), { cacheRoot, repositoryRoot: src, inRepository, expectedSkills, pluginVersions });
@@ -212,7 +210,7 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
       diagramValidation = { skillPath: diagram.file, validatorPath, output: output.trim() };
     }
     complete = true;
-    return { ok: true, version, marketplaces: names, installed: plugins, installedIcons, outside, repository, nativeOutside: nativeInventories.outside, nativeRepository: nativeInventories.repository, explicitOnly: expectedSkills.filter(name => EXPLICIT_ONLY_SKILLS.includes(name)), skillPaths, publicSkillPaths: skillPaths, ...(diagramValidation ? { skillPath: diagram.file, validatorPath: diagramValidation.validatorPath, diagramValidation } : {}), ...(keepRoot ? { root, codexHome, repositoryRoot: src, consumerRoot: cwd } : {}), commands };
+    return { ok: true, version, marketplaces: names, installed: plugins, installedIcons, installedResources, outside, repository, nativeOutside: nativeInventories.outside, nativeRepository: nativeInventories.repository, explicitOnly: expectedSkills.filter(name => EXPLICIT_ONLY_SKILLS.includes(name)), skillPaths, publicSkillPaths: skillPaths, ...(diagramValidation ? { skillPath: diagram.file, validatorPath: diagramValidation.validatorPath, diagramValidation } : {}), ...(keepRoot ? { root, codexHome, repositoryRoot: src, consumerRoot: cwd } : {}), commands };
   } finally {
     if (!keepRoot || !complete) cleanupIsolatedRoot(root);
   }
@@ -222,7 +220,7 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
 export async function runSmoke({ repoRoot = path.resolve(import.meta.dirname, ".."), codexCommand = "codex", baseEnv = process.env, keepRoot = false, allowVersionDrift = false } = {}) {
   const scenarios = [];
   try {
-    for (const installed of [["diagram-kit"], ["explain-kit"], ["diagram-kit", "explain-kit"], Object.keys(RUNTIME_PLUGINS)]) {
+    for (const installed of [["diagram-kit"], ["explain-kit"], ["diagram-kit", "explain-kit"], ["diagram-kit", "understanding-kit", "explain-kit"], ["html-guide-kit"], ["html-guide-kit", "explain-kit"], Object.keys(RUNTIME_PLUGINS)]) {
       scenarios.push(await runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVersionDrift, installed }));
     }
     return { ...scenarios.at(-1), scenarios };
