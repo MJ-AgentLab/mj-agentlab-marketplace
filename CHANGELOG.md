@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+- Prepare HTML Guide Kit 0.1.13: retain every source recovery action/object/result and recovery exceptions in exclusive relations; define current-state and retry/reset lifecycle before feedback. Retain 0.1.12 actual 15 sessions/31 inputs, 9PASS/4FAIL/2UNEXERCISED without inheriting PASS. Synchronize approved upstream Communication runtime and marketplace 8.3.0; preserve other plugin versions. Refs #217, #220.
+
 - Prepare HTML Guide Kit0.1.12 with complete source-rule composition and separate direct-operation versus later-path judgments. Retain eight actual0.1.11 sessions5PASS/2FAIL/1UNEXERCISED and all original evidence; marketplace8.2.1 and other plugins remain unchanged. Refs #217, #220.
 
 - Prepare HTML Guide Kit0.1.11 to retain full conditions across guide summaries and retries and distinguish source reset rules from additional interface design. Preserve actual0.1.10 twelve-session results6PASS/3FAIL/3UNEXERCISED and original evidence; keep marketplace8.2.1 and other plugin versions. Refs #217, #220.
@@ -20,6 +22,8 @@
 - Prepare HTML Guide Kit 0.1.6 after observed baseline native skill truncation: compact the entry, preserve reference methods and reject oversized entries in repository and installation validation. Fresh native full-body and behavioral verification remain required. Refs #217, #220.
 
 ### Added
+
+- Archive Communication baseline synchronization, exact raw engineering/install logs and resolved parallel conflicts under Refs #222; preserve package hashes and Owner Q3 four-package formal scope.
 
 - Define the explicit Communication Kit / communicate contract, source-freeze schema and S01–S12 / C01–C18 fixtures under Refs #222; retain the exact saved plan and preserve all failure evidence.
 - Keep real-world effects deferred; the authorized delivery ends at a published Communication Release and post-publication installation verification.
@@ -51,6 +55,12 @@
 
 - Preserve the stopped 0.1.2 candidate's 506 original evidence files, failed semantics and operator interruption with lossless restoration. Verify the 0.1.3 canonical seven installations and four actual cache Python runs; fresh model reviews and coverage supplements remain separate from unavailable native-client evidence. Refs #217, #220.
 
+- Prepare the Communication PR4 gate ledger; actual version preparation, protected phase merges and release/post-publication cases remain incomplete. Learning 8.2.0 publication is a satisfied prerequisite, not this package's release.
+
+- Prepare communication-kit commit/version tooling and three D-style icon candidates for Epic #222. Render plugin comparison sheets across rows so a fourth icon and its native previews remain visible. Runtime registration, formal icon exports and all real versions remain unchanged; the new icon awaits Owner selection.
+
+- Atomically integrate the unpublished Communication Kit 0.1.0 with explicit invocation, frozen AICS resources and synchronized registration, strict checks and installation expectations under Refs #222. Learning replacement and retained development-only HTML form five packages/seven skills; the Owner-approved Communication release contains only Diagram, Learning Evidence, Explain and Communication (four packages/six skills). CLI behavior, limited tool roles and two actual local app routes are recorded with their limitations; real-world effects are deferred.
+
 - Record actual atomic package delivery #228 and #213 completion, exact-merge canonical cache/Python checks and the unchanged 8.2.0 development candidate rerun. Preserve original model/failure evidence, missing historical reviews and the separate three-plugin public release scope.
 
 - Record the actual GitHub-flow merge #227 and child #212 delivery, canonical installation/Python checks and the observed missing GitHub reviews. Prepare the unchanged qualified package stage with 317 tests/eight installs and exact common/model resource closure; honor the Owner preference to leave later review requests unassigned.
@@ -64,6 +74,22 @@
 - Prepare the unpublished develop 8.1.2 pre-bump after #206 synchronized the published main. Update only marketplace VERSION and its derived README badge; keep all plugin versions, published version sections, tags and assets unchanged. Include the parallel publication-record documentation and synchronize its main merge ancestry when available.
 
 - Record the actual Marketplace v8.1.1 release identity and successful post-publication canonical installation/icon/Python checks. Update current installation entry points to v8.1.1 while preserving supplied screenshot evidence, incomplete client details and missing independent approval records; published version sections and release assets remain unchanged.
+
+## [8.3.0] - 2026-10-13
+
+**Marketplace `8.3.0` · Communication Kit `0.1.0` · Diagram `0.3.1` / Learning Evidence `0.1.0` / Explain `0.1.1` unchanged.** This is the Owner-authorized next minor after the published Learning 8.2.0 baseline. The formal release adds only Communication to those three packages (four packages/six public skills); HTML stays on develop for a separate release. Version preparation does not establish a main merge, published Release, complete client coverage or real-world effectiveness. Actual gates and publication identities are recorded in the [8.3.0 release-readiness ledger](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md). Refs #222.
+
+### Added
+
+- Provide one explicit `communication-kit:communicate` entry for everyday communication, document writing and meaning-preserving rewriting, shown as 沟通助手. Ask with options and wait for critical missing information; an unanswered question, closure or timeout does not select an option.
+- Preserve facts, positions, conditions, exceptions, responsibility, numbers, quotations and commitments through revisions. Deliver a draft and brief key notes; save or edit Markdown/TXT only on explicit request, execute the action and read back the target, and report real failures and format limits accurately.
+- Package selected original AICS summaries with frozen provenance and byte hashes, retaining Lab Proposal / Informative status. Use the Owner-selected original MJ D globe-and-clear-text icon. Registration, strict resource checks, presentation, explicit policy and installation expectations are integrated atomically.
+
+### Validation and limits
+
+- Preserve S01–S12 objective checks, actual C01–C18 batches and failures: CLI 0.147.0 has 15 PASS/3 PARTIAL, with three separate limited file/format tool-role results. Actual Codex local and ChatGPT/Work local routes within the same desktop application cover basic installation, icon, invocation, writing, unanswered waiting and explicit file creation/read-back; independent classic ChatGPT/cloud and native question-window events are not verified.
+- Verify development and formal installation inventories separately. A green development five-package matrix does not establish the four-package release candidate, main merge or post-publication canonical install. Current-head independent approval, required checks and resolved threads remain mandatory.
+- Real scenario effectiveness, nine personal trials, three-draft comparisons, reader feedback, adoption and efficiency improvements were deferred by the Owner and are not claimed.
 
 ## [8.2.0] - 2026-10-12
 

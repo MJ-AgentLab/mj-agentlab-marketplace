@@ -6,8 +6,9 @@ import path from "node:path";
 import { PNG } from "pngjs";
 import { validatePluginIcons, assertInstalledIcons, resolveIconPath, inspectPng, ICON_LIMITS } from "../scripts/plugin-icons.mjs";
 import { exportSvg } from "../scripts/export-icons.mjs";
-import { validateManifest, validateRepository } from "../scripts/validate-portable.mjs";
+import { validateManifest, validateRepository, RUNTIME_PLUGINS } from "../scripts/validate-portable.mjs";
 import { validateBrandAssets } from "../scripts/brand-assets.mjs";
+import { renderBrandPreviews } from "../scripts/render-brand-previews.mjs";
 
 const repo = path.resolve(import.meta.dirname, "..");
 const manifest = () => ({ name: "future-workflow-kit", extensions: { "com.openai": { interface: { logo: "./assets/icon.png", composerIcon: "./assets/icon.png" } } } });
@@ -151,11 +152,69 @@ test("brand verification detects original-reference drift, theme drift and wrong
   const { root } = fixture(t), isolated = path.join(root, "repo"); fs.mkdirSync(isolated);
   fs.cpSync(path.join(repo, "assets"), path.join(isolated, "assets"), { recursive: true });
   fs.cpSync(path.join(repo, "plugins"), path.join(isolated, "plugins"), { recursive: true });
-  assert.equal(validateBrandAssets(isolated).icons, 8);
+  assert.equal(validateBrandAssets(isolated).icons, Object.keys(RUNTIME_PLUGINS).length + 4);
   const original = path.join(isolated, "assets/brand/references/team-logo-original.png"), bytes = fs.readFileSync(original);
   fs.writeFileSync(original, png()); assert.throws(() => validateBrandAssets(isolated), /recorded original/); fs.writeFileSync(original, bytes);
   const source = path.join(isolated, "plugins/diagram-kit/assets/icon.svg"), svg = fs.readFileSync(source, "utf8");
   fs.writeFileSync(source, svg.replaceAll("#223D66", "#FF0000")); assert.throws(() => validateBrandAssets(isolated), /palette drift/);
   fs.writeFileSync(source, svg.replaceAll('x2="100%"', 'x2="0%"')); assert.throws(() => validateBrandAssets(isolated), /gradient drift/); fs.writeFileSync(source, svg);
   fs.writeFileSync(path.join(isolated, "assets/brand/previews/diagram-kit-32.png"), png(48)); assert.throws(() => validateBrandAssets(isolated), /dimensions/);
+});
+
+test("four-icon comparison renders every large icon and both native-size rows without cropping", t => {
+  const { root } = fixture(t), previews = path.join(root, "assets/brand/previews");
+  fs.mkdirSync(previews, { recursive: true });
+  const colors = [[210,30,40,255], [20,180,70,255], [40,90,210,255], [150,40,190,255]];
+  const icons = colors.map((color, i) => ({ id: `fixture-${i}-kit`, output: `assets/icon-${i}.png` }));
+  const logos = ["a", "b", "c"].map(id => ({ id: `marketplace-${id}`, output: "assets/icon-0.png" }));
+  fs.writeFileSync(path.join(root,"assets/brand/exports.json"),JSON.stringify({icons:[...icons,...logos]}));
+  for (const [i, icon] of icons.entries()) {
+    fs.writeFileSync(path.join(root, icon.output), png(1024,1024,colors[i]));
+    for (const size of [32,48,64]) fs.writeFileSync(path.join(previews,`${icon.id}-${size}.png`),png(size,size,colors[i]));
+  }
+  for (const icon of logos) for (const size of [32,48,64]) fs.writeFileSync(path.join(previews,`${icon.id}-${size}.png`),png(size,size,colors[0]));
+  const [familyFile, candidateFile] = renderBrandPreviews(root);
+  const sheet = PNG.sync.read(fs.readFileSync(familyFile)), candidates = PNG.sync.read(fs.readFileSync(candidateFile));
+  assert.equal(sheet.width,1200);assert.equal(sheet.height,1170);assert.equal(candidates.height,650);
+  const pixel = (x,y) => [...sheet.data.subarray((y*sheet.width+x)*4,(y*sheet.width+x)*4+4)];
+  for (const [i,color] of colors.entries()) {
+    const x=36+(i%3)*388,y=Math.floor(i/3)*520;
+    assert.deepEqual(pixel(x+174,y+260),color,`large icon ${i} is visible`);
+    for (const [column,size] of [32,48,64].entries()) for (const py of [420,536]) {
+      const px=x+26+column*112;
+      assert.deepEqual(pixel(px+size-1,y+py+size-1),color,`icon ${i}, ${size}px, row ${py} is complete`);
+      assert.notDeepEqual(pixel(px+size,y+py+size-1),color,`icon ${i}, ${size}px is rendered at native width`);
+    }
+  }
+});
+
+test("each registered plugin has its own formal brand export and packaged icon", () => {
+  const config = JSON.parse(fs.readFileSync(path.join(repo, "assets/brand/exports.json"), "utf8"));
+  for (const plugin of Object.keys(RUNTIME_PLUGINS)) {
+    const entries = config.icons.filter(icon => icon.id === plugin);
+    assert.equal(entries.length, 1, plugin);
+    assert.equal(entries[0].source, `plugins/${plugin}/assets/icon.svg`);
+    assert.equal(entries[0].output, `plugins/${plugin}/assets/icon.png`);
+    const manifest = JSON.parse(fs.readFileSync(path.join(repo, "plugins", plugin, "plugin.json"), "utf8"));
+    const icons = validatePluginIcons(manifest, path.join(repo, "plugins", plugin));
+    assert.equal(icons.logo.sha256, icons.composerIcon.sha256);
+  }
+});
+
+test("strict repository validation rejects deleted, duplicated or borrowed Communication brand exports", t => {
+  const { root } = fixture(t), isolated = path.join(root, "repo"); fs.mkdirSync(isolated);
+  for (const rel of ["assets", ".agents", ".codex", ".github", "scripts", "tests", "plugins", "docs", "AGENTS.md", "README.md", "CONTRIBUTING.md", "GLOSSARY.md", "CHANGELOG.md", "VERSION", ...(fs.existsSync(path.join(repo, "plan")) ? ["plan"] : [])]) fs.cpSync(path.join(repo, rel), path.join(isolated, rel), { recursive: true });
+  const baseline = validateRepository(isolated); assert.equal(baseline.ok, true, baseline.errors.join("\n"));
+  const file = path.join(isolated, "assets/brand/exports.json"), original = JSON.parse(fs.readFileSync(file, "utf8"));
+  for (const mutate of [
+    config => { config.icons = config.icons.filter(icon => icon.id !== "communication-kit"); },
+    config => { config.icons.find(icon => icon.id === "communication-kit").source = "plugins/diagram-kit/assets/icon.svg"; },
+    config => { config.icons.find(icon => icon.id === "communication-kit").output = "plugins/diagram-kit/assets/icon.png"; },
+    config => { config.icons.push(config.icons.find(icon => icon.id === "communication-kit")); },
+  ]) {
+    const config = structuredClone(original); mutate(config); fs.writeFileSync(file, JSON.stringify(config));
+    const result = validateRepository(isolated); assert.equal(result.ok, false);
+    assert.ok(result.errors.some(error => error.startsWith("brand resources:")), result.errors.join("\n"));
+  }
+  fs.writeFileSync(file, JSON.stringify(original)); assert.equal(validateRepository(isolated).ok, true);
 });

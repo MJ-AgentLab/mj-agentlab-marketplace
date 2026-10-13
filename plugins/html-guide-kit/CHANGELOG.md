@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.1.13] - 2026-10-13
+
+- HTML Guide Kit 0.1.13 composes source rules with all explicit actions, objects, field results and exceptions; full recovery and exclusive relations preserve recovery rules. Define each attempt’s entry, current state, retry, continuation and reset before feedback.
+- Preserve local scope and source/UI attribution, explicit confirmation, Read capability and text-only new-guide boundary. Static review does not substitute fresh installation or behavioral acceptance.
+- Retain 0.1.12 independent failures and exact original evidence. Refs #217, #220.
+
 ## [0.1.12] - 2026-10-13
 
 ### Fixed

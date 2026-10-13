@@ -1,0 +1,669 @@
+{
+  "schemaVersion": 1,
+  "refs": 222,
+  "capturedAt": "2026-10-13T09:01:06.745Z",
+  "base": "98068a8bd7060585b9915be9490a02a733fcb1a6",
+  "basePrevious": "3af6837338478ef49a7cea6bb935c07c5c19400c",
+  "main": "ebc4bdc3abc62c36348d9ba28de7161b04b3b466",
+  "release": {
+    "tag": "v8.2.0",
+    "published": "parent verified, unchanged by this task"
+  },
+  "developmentScope": {
+    "packages": 4,
+    "publicSkills": 6,
+    "explicitSkills": 3,
+    "ordinarySkills": 3,
+    "repositorySkills": 20
+  },
+  "communicationRegistered": false,
+  "formalCommunicationScope": {
+    "packages": 4,
+    "publicSkills": 6,
+    "explicitSkills": 3,
+    "html": "develop only, separate release"
+  },
+  "extraBump": false,
+  "stages": [
+    {
+      "stage": "PR1",
+      "root": "C:/Users/Admin/.codex/worktrees/communication-contract/develop",
+      "branch": "codex/communication-contract",
+      "head": "6c0d609b593b7325654774270628d860e1a2f557",
+      "tree": "2b18b1f0f2d18e74a5f0778ed1def359812b62de",
+      "parents": [
+        "5038a53d675b78f4a77992e660b74696de225c9f",
+        "98068a8bd7060585b9915be9490a02a733fcb1a6"
+      ],
+      "previous": "5038a53d675b78f4a77992e660b74696de225c9f",
+      "changedPaths": [
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "README.md",
+        "docs/INDEX.md",
+        "docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md",
+        "docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md",
+        "docs/runbook/[RUNBOOK]_Release_Operations.md",
+        "docs/runbook/evidence/learning-evidence-8-2-0-closeout.json"
+      ],
+      "baseIncluded": true,
+      "clean": true,
+      "remoteHead": "6c0d609b593b7325654774270628d860e1a2f557",
+      "version": "8.2.1",
+      "runtimeAndToolsUnchangedFromPrevious": true,
+      "sourceRuntimeEquivalence": true,
+      "packageTrees": {
+        "diagram-kit": {
+          "source": "e217c41be2cd4c3653aa17aa7b28c8312be06268",
+          "actual": "e217c41be2cd4c3653aa17aa7b28c8312be06268",
+          "equal": true
+        },
+        "learning-evidence-kit": {
+          "source": "c88818fac37e937a245436f0f999f3488babfe1f",
+          "actual": "c88818fac37e937a245436f0f999f3488babfe1f",
+          "equal": true
+        },
+        "explain-kit": {
+          "source": "ef6a90bc60e9af45915c30ecf4668559978e29e5",
+          "actual": "ef6a90bc60e9af45915c30ecf4668559978e29e5",
+          "equal": true
+        },
+        "html-guide-kit": {
+          "source": "67e468c944bd9da076994667eef378367a012b14",
+          "actual": "67e468c944bd9da076994667eef378367a012b14",
+          "equal": true
+        }
+      },
+      "closeoutEvidenceSourceIdentical": true,
+      "publishedHistory": {
+        "unchanged": true,
+        "sha256": "30768f1e63db40765852d168520230d7407f1ac7c23cca7885ad0e3953d1cbd8"
+      },
+      "plan": {
+        "unchanged": true,
+        "lines": 405,
+        "sha256": "6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3"
+      },
+      "agents": {
+        "gitBytes": 14740,
+        "crlfBytes": 14813,
+        "limit": 16384,
+        "margin": 1571
+      },
+      "checks": {
+        "strict": "PASS",
+        "documentationA6Tests": 65,
+        "failures": 0,
+        "skips": 0,
+        "whitespace": "PASS",
+        "localA6": "PASS/no trigger",
+        "actualBaseCheckerByteIdentical": true,
+        "commitValidation": {
+          "pass": true,
+          "count": 7
+        }
+      },
+      "conflicts": {
+        "count": 4,
+        "paths": [
+          "AGENTS.md",
+          "CHANGELOG.md",
+          "README.md",
+          "docs/INDEX.md"
+        ],
+        "resolution": "Preserve prerequisite Communication content and union unpublished notes; accept latest Learning closeout/current published installation facts; update phase pointer and INDEX metadata."
+      },
+      "message": "docs(marketplace): sync communication contract closeout\n\nRefs #222\n\nCo-Authored-By: OpenAI Codex <noreply@openai.com>"
+    },
+    {
+      "stage": "PR2",
+      "root": "C:/Users/Admin/.codex/worktrees/communication-foundation/develop",
+      "branch": "codex/communication-foundation",
+      "head": "c198f5c769950e693d194c878f9c72d9a1cded20",
+      "tree": "b176bb82b084867c240daa611bbe01ca307eddad",
+      "parents": [
+        "ae8bbeefc09ca8978848f391ea2afca9c5d8962f",
+        "6c0d609b593b7325654774270628d860e1a2f557"
+      ],
+      "previous": "ae8bbeefc09ca8978848f391ea2afca9c5d8962f",
+      "changedPaths": [
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "README.md",
+        "docs/INDEX.md",
+        "docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md",
+        "docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md",
+        "docs/runbook/[RUNBOOK]_Release_Operations.md",
+        "docs/runbook/evidence/learning-evidence-8-2-0-closeout.json"
+      ],
+      "baseIncluded": true,
+      "clean": true,
+      "remoteHead": "c198f5c769950e693d194c878f9c72d9a1cded20",
+      "version": "8.2.1",
+      "runtimeAndToolsUnchangedFromPrevious": true,
+      "sourceRuntimeEquivalence": true,
+      "packageTrees": {
+        "diagram-kit": {
+          "source": "e217c41be2cd4c3653aa17aa7b28c8312be06268",
+          "actual": "e217c41be2cd4c3653aa17aa7b28c8312be06268",
+          "equal": true
+        },
+        "learning-evidence-kit": {
+          "source": "c88818fac37e937a245436f0f999f3488babfe1f",
+          "actual": "c88818fac37e937a245436f0f999f3488babfe1f",
+          "equal": true
+        },
+        "explain-kit": {
+          "source": "ef6a90bc60e9af45915c30ecf4668559978e29e5",
+          "actual": "ef6a90bc60e9af45915c30ecf4668559978e29e5",
+          "equal": true
+        },
+        "html-guide-kit": {
+          "source": "67e468c944bd9da076994667eef378367a012b14",
+          "actual": "67e468c944bd9da076994667eef378367a012b14",
+          "equal": true
+        }
+      },
+      "closeoutEvidenceSourceIdentical": true,
+      "publishedHistory": {
+        "unchanged": true,
+        "sha256": "30768f1e63db40765852d168520230d7407f1ac7c23cca7885ad0e3953d1cbd8"
+      },
+      "plan": {
+        "unchanged": true,
+        "lines": 405,
+        "sha256": "6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3"
+      },
+      "agents": {
+        "gitBytes": 14886,
+        "crlfBytes": 14963,
+        "limit": 16384,
+        "margin": 1421
+      },
+      "checks": {
+        "strict": "PASS",
+        "documentationA6Tests": 65,
+        "failures": 0,
+        "skips": 0,
+        "whitespace": "PASS",
+        "localA6": "PASS/root AGENTS synced",
+        "actualBaseCheckerByteIdentical": true,
+        "commitValidation": {
+          "pass": true,
+          "count": 13
+        }
+      },
+      "conflicts": {
+        "count": 1,
+        "paths": [
+          "AGENTS.md"
+        ],
+        "resolution": "Preserve prerequisite Communication content and union unpublished notes; accept latest Learning closeout/current published installation facts; update phase pointer and INDEX metadata."
+      },
+      "message": "docs(marketplace): sync communication foundation closeout\n\nRefs #222\n\nCo-Authored-By: OpenAI Codex <noreply@openai.com>"
+    },
+    {
+      "stage": "PR3",
+      "root": "C:/Users/Admin/.codex/worktrees/communication-plugin/develop",
+      "branch": "codex/communication-plugin",
+      "head": "c6d40a8a79943bae64ab19b418c8a7cdd7fa82eb",
+      "tree": "f60f32f21f9d6c3e0b68ac90822e20e880f237f5",
+      "previous": "cf63337b8efccc5d56c4df02ab3aebd165c0c6bf",
+      "mergedSource": "c198f5c769950e693d194c878f9c72d9a1cded20",
+      "parents": [
+        "cf63337b8efccc5d56c4df02ab3aebd165c0c6bf",
+        "c198f5c769950e693d194c878f9c72d9a1cded20"
+      ],
+      "baseIncluded": true,
+      "changedPaths": [
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "README.md",
+        "docs/INDEX.md",
+        "docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md",
+        "docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md",
+        "docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md",
+        "docs/runbook/[RUNBOOK]_Release_Operations.md",
+        "docs/runbook/evidence/learning-evidence-8-2-0-closeout.json"
+      ],
+      "clean": true,
+      "remoteHead": "c6d40a8a79943bae64ab19b418c8a7cdd7fa82eb",
+      "version": "8.2.1",
+      "productionZeroDiff": true,
+      "packageTrees": {
+        "diagram-kit": {
+          "source": "e217c41be2cd4c3653aa17aa7b28c8312be06268",
+          "actual": "e217c41be2cd4c3653aa17aa7b28c8312be06268",
+          "equal": true
+        },
+        "learning-evidence-kit": {
+          "source": "c88818fac37e937a245436f0f999f3488babfe1f",
+          "actual": "c88818fac37e937a245436f0f999f3488babfe1f",
+          "equal": true
+        },
+        "explain-kit": {
+          "source": "ef6a90bc60e9af45915c30ecf4668559978e29e5",
+          "actual": "ef6a90bc60e9af45915c30ecf4668559978e29e5",
+          "equal": true
+        },
+        "html-guide-kit": {
+          "source": "67e468c944bd9da076994667eef378367a012b14",
+          "actual": "67e468c944bd9da076994667eef378367a012b14",
+          "equal": true
+        }
+      },
+      "communicationTree": "14a3896c7ad50597bfc83996bcfec25180a720f9",
+      "nativeCommunicationEquivalentExceptChangelog": true,
+      "sourceCloseoutEvidenceIdentical": true,
+      "formalAndPublishedChangelog": {
+        "unchanged": true,
+        "sha256": "30768f1e63db40765852d168520230d7407f1ac7c23cca7885ad0e3953d1cbd8"
+      },
+      "communicationChangelogSha256": "20057c43b875fc67850b73f53a9c9b20e6f51cf9b121804a7b85f9b348fa866a",
+      "plan": {
+        "unchanged": true,
+        "lines": 405,
+        "sha256": "6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3"
+      },
+      "agents": {
+        "gitBytes": 15639,
+        "crlfBytes": 15716,
+        "margin": 668,
+        "limit": 16384
+      },
+      "metadata": {
+        "index": "v2.23",
+        "acceptance": "v1.7"
+      },
+      "checks": {
+        "strict": "PASS",
+        "documentationA6Tests": 65,
+        "failures": 0,
+        "skips": 0,
+        "whitespace": "PASS",
+        "actualBaseNormalA6": "PASS/root AGENTS synced",
+        "commitValidation": {
+          "pass": true,
+          "count": 26
+        }
+      },
+      "conflicts": {
+        "count": 3,
+        "paths": [
+          "AGENTS.md",
+          "README.md",
+          "docs/INDEX.md"
+        ],
+        "resolution": "Keep five-package contract, accept latest Learning closeout/current installation facts and update metadata."
+      },
+      "message": "docs(marketplace): sync communication plugin closeout\n\nRefs #222\n\nCo-Authored-By: OpenAI Codex <noreply@openai.com>"
+    },
+    {
+      "stage": "PR4",
+      "root": "C:/Users/Admin/.codex/worktrees/communication-readiness/develop",
+      "branch": "codex/communication-readiness",
+      "head": "86a364eab1af861e2bcd7eba505594384f18a902",
+      "tree": "4a8d76b1db07f4e99608728b0c3709f71777c210",
+      "previous": "48437bef655c7ce8aed8452db01dac9dd638af1c",
+      "mergedSource": "c6d40a8a79943bae64ab19b418c8a7cdd7fa82eb",
+      "parents": [
+        "48437bef655c7ce8aed8452db01dac9dd638af1c",
+        "c6d40a8a79943bae64ab19b418c8a7cdd7fa82eb"
+      ],
+      "baseIncluded": true,
+      "changedPaths": [
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "README.md",
+        "docs/INDEX.md",
+        "docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md",
+        "docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md",
+        "docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md",
+        "docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md",
+        "docs/runbook/[RUNBOOK]_Release_Operations.md",
+        "docs/runbook/evidence/learning-evidence-8-2-0-closeout.json"
+      ],
+      "clean": true,
+      "remoteHead": "86a364eab1af861e2bcd7eba505594384f18a902",
+      "version": "8.3.0",
+      "productionZeroDiff": true,
+      "packageTrees": {
+        "diagram-kit": {
+          "source": "e217c41be2cd4c3653aa17aa7b28c8312be06268",
+          "actual": "e217c41be2cd4c3653aa17aa7b28c8312be06268",
+          "equal": true
+        },
+        "learning-evidence-kit": {
+          "source": "c88818fac37e937a245436f0f999f3488babfe1f",
+          "actual": "c88818fac37e937a245436f0f999f3488babfe1f",
+          "equal": true
+        },
+        "explain-kit": {
+          "source": "ef6a90bc60e9af45915c30ecf4668559978e29e5",
+          "actual": "ef6a90bc60e9af45915c30ecf4668559978e29e5",
+          "equal": true
+        },
+        "html-guide-kit": {
+          "source": "67e468c944bd9da076994667eef378367a012b14",
+          "actual": "67e468c944bd9da076994667eef378367a012b14",
+          "equal": true
+        }
+      },
+      "communicationTree": "170fcad82f33548c8d91b62984df4ff38635e69f",
+      "nativeCommunicationEquivalentExceptChangelog": true,
+      "sourceCloseoutEvidenceIdentical": true,
+      "formalAndPublishedChangelog": {
+        "unchanged": true,
+        "sha256": "61c46f838ef6fed077b3ceeda640ef326b1738d1d3b8e7d65bd49e37717b4ea5"
+      },
+      "communicationChangelogSha256": "0c892c06e3140050fdff8abf6936cc12e1406db2d6b5a9860884dfda44aadfa4",
+      "plan": {
+        "unchanged": true,
+        "lines": 405,
+        "sha256": "6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3"
+      },
+      "agents": {
+        "gitBytes": 15745,
+        "crlfBytes": 15824,
+        "margin": 560,
+        "limit": 16384
+      },
+      "metadata": {
+        "index": "v2.24",
+        "acceptance": "v1.12",
+        "releaseReadiness": "v1.3"
+      },
+      "checks": {
+        "strict": "PASS",
+        "documentationA6Tests": 65,
+        "failures": 0,
+        "skips": 0,
+        "whitespace": "PASS",
+        "actualBaseNormalA6": "PASS/root AGENTS synced",
+        "commitValidation": {
+          "pass": true,
+          "count": 29
+        }
+      },
+      "conflicts": {
+        "count": 3,
+        "paths": [
+          "AGENTS.md",
+          "docs/INDEX.md",
+          "docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md"
+        ],
+        "resolution": "Keep prepared 8.3.0 and all formal CH/history; union both acceptance bodies and scope parallel document-version rows to PR3; distinguish upstream 8.2.1 from current PR4 8.3.0."
+      },
+      "message": "docs(marketplace): sync communication readiness closeout\n\nRefs #222\n\nCo-Authored-By: OpenAI Codex <noreply@openai.com>"
+    }
+  ],
+  "logs": [
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr1-a6.log",
+      "bytes": 56,
+      "sha256": "1d3428e88ffa6a038f4cb5ff905e218002bbadaafdcbdef2fcb09098630a7f8b"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr1-commit.log",
+      "bytes": 96,
+      "sha256": "f7185704851f82cd47e4537814d67c88cb8266a5a4e4b448ddc3e10377c1bdc0"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr1-commits.log",
+      "bytes": 72,
+      "sha256": "2418493d2dc949f2af91bd1ccf486527fb6041d2064f3d3c19822eada304712d"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr1-conflicts.log",
+      "bytes": 6757,
+      "sha256": "e1619655390d2973ac236f5d41fdd593d7f09bc9dbceb509363519d3ddb68384"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr1-doc-a6.log",
+      "bytes": 12631,
+      "sha256": "2cdadcd1ab69a0be5028608cd619b90ad8eaab13da9d6dff4b2dc88769dfd67c"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr1-identity-initial-failure.log",
+      "bytes": 2581,
+      "sha256": "09affbff6f560a4386fce416762287f36a2752f1c88507637ac54253b84af293"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr1-identity.log",
+      "bytes": 706,
+      "sha256": "a34ab8b376bc7f90982b8875adc54a0624080d2b0dd6ee8a5752a098e3ac82c5"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr1-push.log",
+      "bytes": 118,
+      "sha256": "bbdc935f0503aa44b199f8ae2eb16b35b1dad7b267ab5a5aa346f64df5abdcb9"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr1-validate.log",
+      "bytes": 354,
+      "sha256": "10dcad75d29a73396e2a3003d7c619a4d5b030e325667d9f8c56811ea564d37e"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr1-whitespace.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr2-a6.log",
+      "bytes": 186,
+      "sha256": "02aedf43af34bd8d386b194319f8b4e894738b7348243f1eda98c1134467445b"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr2-commit.log",
+      "bytes": 100,
+      "sha256": "2ee2068cf48c3745f6d094c3b37dcd00d9f07257056bbe73c7bc159535c41381"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr2-commits.log",
+      "bytes": 73,
+      "sha256": "c48814b2a40eca0db902213c18f1606c109476449997e5192cde3ffe8e02c5af"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr2-conflicts.log",
+      "bytes": 5564,
+      "sha256": "1d6a6857990009bf00e14ea6d6331360b3bb81ca36a370f9717f4e8d09ff1ec4"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr2-doc-a6.log",
+      "bytes": 12636,
+      "sha256": "e3fbacff51536aabb476d4cc4848662461f67eb66af034698253159d1c183462"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr2-identity.log",
+      "bytes": 706,
+      "sha256": "f7960aff30a96b012d053d96d50cb2e3d01ba07d28c0c6667599361fdd02eb3d"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr2-merge.log",
+      "bytes": 195,
+      "sha256": "0106a9e136c3bdbf86e45e85611180fc6339fc5e9022c5ddd8dbcaae434c105e"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr2-push.log",
+      "bytes": 120,
+      "sha256": "5422b8a929af991c5dd553fde5caf9a5e3ef8fad07c3300d6d5fefd41d36febc"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr2-validate.log",
+      "bytes": 354,
+      "sha256": "10dcad75d29a73396e2a3003d7c619a4d5b030e325667d9f8c56811ea564d37e"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr2-whitespace.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr3-a6.log",
+      "bytes": 579,
+      "sha256": "3f1e9fc0744c54b0e4729e135342ba8e2190d3459de74f5b7ff124a553a58d22"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr3-commit.log",
+      "bytes": 92,
+      "sha256": "f49a11b3cd3aa01d7a29e9bf31c25b49798b19e08aca3c326072b87684ce6c06"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr3-commits.log",
+      "bytes": 73,
+      "sha256": "99fb1ab565e21d6826941c8f2739606f0af56c32f9b4c1039f3b7775e85dc486"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr3-conflicts.log",
+      "bytes": 10721,
+      "sha256": "e0102e594e19abbb896e846efff09db4911afd6d352edeccea7fc0b95e582d7f"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr3-doc-a6.log",
+      "bytes": 12638,
+      "sha256": "4ba732dc8351301e4d5019e7bec6bd6706284e079431b9e2b484852df85e8aa7"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr3-identity-initial-failure.log",
+      "bytes": 1318,
+      "sha256": "fa4a4fe90e161655976eb00c59413e4d7069501aae211fa2a2dd8f10ae963ab3"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr3-identity.log",
+      "bytes": 1684,
+      "sha256": "e3498695c113adf30d7fdf2ff2861a5bfb7af94245caa0a581fa3ddfb1e8dc8d"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr3-push.log",
+      "bytes": 116,
+      "sha256": "d9aeb9e51426517c49026fb504187d54a3de1d695d470cb94d65253a341050cf"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr3-validate.log",
+      "bytes": 392,
+      "sha256": "e3bedb0233222e468a1e207cfbcbaf1c3138a8827fde2769e9e2ede3a85eb3d8"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr3-whitespace.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr4-a6.log",
+      "bytes": 592,
+      "sha256": "e52a779aaf2bf87f2d0f7cd87b375cfdc8a5405be85090f14e68766ab0343855"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr4-commit.log",
+      "bytes": 98,
+      "sha256": "c829c398eeac3a9921c5784a370c01fd077c839da1aaf7e67c5210a85c88736f"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr4-commits.log",
+      "bytes": 73,
+      "sha256": "6fe42abb8c6e8ed937e2b6274dbcead432fdf933b448cd1bfc04398c48a7acfc"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr4-conflicts.log",
+      "bytes": 15048,
+      "sha256": "73a90802ad137503e6042c613be023eee6390502a5c0a930a88066cdc38e6b27"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr4-doc-a6-final.log",
+      "bytes": 12630,
+      "sha256": "f9ff93c9f02328b0faa7d0194c6740b8d22cebe31ba62dbf614f527e80ecefd9"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr4-doc-a6.log",
+      "bytes": 12636,
+      "sha256": "d365bc0ee63927ea9dfd3c0fe6732edfedd394b4c3b2d6cd0d4d13e5d637331c"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr4-identity-final.log",
+      "bytes": 1811,
+      "sha256": "4452c03be355e4d3e99d6efad6f68ff02d524262577717176e9aeecc1a4ae0b8"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr4-identity.log",
+      "bytes": 1811,
+      "sha256": "4452c03be355e4d3e99d6efad6f68ff02d524262577717176e9aeecc1a4ae0b8"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr4-merge.log",
+      "bytes": 435,
+      "sha256": "afbff0718f857d4c204a4c9f1a6bbc25980a359c5cb54866576cda006155733f"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr4-push.log",
+      "bytes": 119,
+      "sha256": "c775998a259e2e9c3995ee6100d63b86beb6fcd9f8e8c41181d536651e6a4642"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr4-validate-final.log",
+      "bytes": 392,
+      "sha256": "e3bedb0233222e468a1e207cfbcbaf1c3138a8827fde2769e9e2ede3a85eb3d8"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr4-validate.log",
+      "bytes": 392,
+      "sha256": "e3bedb0233222e468a1e207cfbcbaf1c3138a8827fde2769e9e2ede3a85eb3d8"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr4-whitespace.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "failures": [
+    {
+      "log": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr1-identity-initial-failure.log",
+      "cause": "Read-only audit helper generated ::CHANGELOG.md instead of staged :CHANGELOG.md.",
+      "repair": "Correct the index selector; unchanged repository tree passed rerun."
+    },
+    {
+      "log": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr3-identity-initial-failure.log",
+      "cause": "Read-only helper tried an index directory selector, which only resolves file entries.",
+      "repair": "Write the fully resolved index tree and resolve package directories from that tree; production remained unchanged and rerun passed."
+    }
+  ],
+  "limits": [
+    "Document/evidence-only source sync: no full-suite, installation, Python, behavior or UI rerun; prior evidence retained.",
+    "No PR state/reviewer changed and no branch-protection or independent approval claim.",
+    "Root PR3/PR4 worktrees untouched."
+  ],
+  "appendedAt": "2026-10-13T09:14:15.601Z",
+  "priorAudit": {
+    "path": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr12-audit-original.json",
+    "bytes": 11949,
+    "sha256": "e273ed90ea58db77430e311138199a6d4d3b75d7fc3997fd81eaf9035465ee6f",
+    "priorLogsVerifiedUnchanged": 20
+  },
+  "phaseLimits": [
+    "No full-suite, installation, Python, model behavior or UI rerun for PR3/4 document-only closeout sync.",
+    "No GitHub PR state/reviewer changed; normal local A6 does not establish live independent approval.",
+    "Only PR3/PR4 worktrees were written in this phase; release-preparation projection was untouched and is not treated as PR5."
+  ],
+  "scopeClarification": {
+    "originalTopLevelScopeAndLimits": "The existing developmentScope, communicationRegistered and limits fields describe the earlier PR1/PR2-only task.",
+    "PR1PR2": {
+      "packages": 4,
+      "publicSkills": 6,
+      "explicitSkills": 3,
+      "communicationRegistered": false
+    },
+    "PR3PR4": {
+      "packages": 5,
+      "publicSkills": 7,
+      "explicitSkills": 4,
+      "ordinarySkills": 3,
+      "repositorySkills": 20,
+      "communicationRegistered": true
+    },
+    "formalRelease": {
+      "packages": 4,
+      "publicSkills": 6,
+      "explicitSkills": 3,
+      "html": "develop-only separate release; current production projection handled independently"
+    }
+  }
+}

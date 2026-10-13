@@ -1,0 +1,675 @@
+{
+  "case": "C16",
+  "title": "明确Markdown/TXT文件动作",
+  "input_kind": "synthetic",
+  "candidate": {
+    "candidate_sha": "b2d47ce779e32741af8cea604ac4b1ea8bb787f2",
+    "candidate_tree": "d4c59b67c0fa55b15f565845b5717e304fb0c370",
+    "canonical_package_git_tree": "91373d751c4cc4ce2a5a586c2dec74f9147cc38f",
+    "runtime_mirror": "C:\\Users\\Admin\\AppData\\Local\\Temp\\m-l4tYGN",
+    "mirror_git_tree": "d80e55339fae47a9ef8c0ac6a0257e53dd03f63c",
+    "mirror_is_full_repository": false,
+    "mirror_excludes": [
+      "reviewer fixture/rubric",
+      "repository AGENTS",
+      "repository development skills",
+      "docs and plan"
+    ],
+    "plugin_version": "0.1.0",
+    "manifest_prompt_lengths": [
+      91
+    ],
+    "source_package_sha256": "467f4371ba84c901b0a7ad6b41632346d73eea3bbaaa02a84fb7f12399ba44a5",
+    "source_resource_sha256": {
+      "assets/icon.png": "07f8a9ad4d04f20bc0551f3e72ed8c9e1b14368a743b392d4feee3aaec314ddf",
+      "assets/icon.svg": "be2ecb005473fab4e5c79ae9bcfddad58665cb9d322a373a110777fc03753f28",
+      "CHANGELOG.md": "553034ee828f53028174526e1af515502b142573a03019bf58e3f7f53ed0e316",
+      "LICENSE": "cfd483b2cc03452033bbc34d6ceabcc46d9917539070f6721d671705926a2a8d",
+      "plugin.json": "fe255f7ef47f1f7627445ee10b4967412c71b9e2ff1a5b2449bcf6caa2c9fe13",
+      "README.md": "7f2f21555070e5c9803dd15e6ac30bd156617830bd01e0962cacf74a08b8ed75",
+      "skills/communicate/agents/openai.yaml": "1aab91721ebf933aa3d6f52a1581a434bb000bbee2d0f19f9d32fcea5cf627c5",
+      "skills/communicate/references/aics-policy.md": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+      "skills/communicate/references/aics-snapshot.json": "dcfc424f7a18ac7187c77d947b58c457821363c22936c20682ef08527c14ed33",
+      "skills/communicate/references/source-provenance.md": "ad8f3065a538a4e4a2b07750fdf15d088106f28adabb07eb4eb24e1b93c80b7d",
+      "skills/communicate/references/task-patterns.md": "0d427c2dfc1b3612a1ee230eb8dc949ef8d59c00a5fd1fe525af2b14f3f24595",
+      "skills/communicate/SKILL.md": "ed5614a206cf3346b43827d87439addf3d08567441f567e052c698de41b913df"
+    },
+    "snapshot_sha256": "dcfc424f7a18ac7187c77d947b58c457821363c22936c20682ef08527c14ed33",
+    "fixture_sha256": "38cafcd318ead054cf9a0db599dd43160c6f3293dabe14cb2aec0d29a20ff68d",
+    "declared_user_model_settings": {
+      "model": "\"gpt-5.6-sol\"",
+      "model_reasoning_effort": "\"xhigh\""
+    },
+    "capabilities": {
+      "python": {
+        "executable": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+        "version": "Python 3.12.13",
+        "stdlib_zip_xml": "available"
+      },
+      "node": {
+        "executable": "D:\\Development\\nodejs\\node.exe",
+        "version": "v22.18.0"
+      },
+      "windows_sandbox_requested": true,
+      "docx_note": "Generic shell plus existing Python/Node are preserved; actual document handling is observed, never made unavailable by disabling tools."
+    }
+  },
+  "started": "2026-10-12T10:52:44.128Z",
+  "consumer": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e-yZsAOR\\data",
+  "consumer_git_root": "C:/Users/Admin/AppData/Local/Temp/e-yZsAOR/data",
+  "file_snapshot_excludes": [
+    ".git administrative metadata"
+  ],
+  "isolated_codex_home": "C:\\Users\\Admin\\.codex\\worktrees\\communication-behavior\\isolated-homes\\7527349f-2a1b-4c0c-9a14-a4ac563fc0a0",
+  "native_tool_host_diagnostic_requested": true,
+  "sandbox_requested": "workspace-write",
+  "permission_profile_requested": "communication-consumer",
+  "approval_policy_requested": "never",
+  "sandbox_reason": "Preserved legacy flags resolved read-only despite workspace-write request. Documented named profile extends :workspace, only synthetic consumer writable, general tmp roots read-only, network false, installed public cache outside consumer. No managed requirements removed. File changes and all attempts remain observable for independent review.",
+  "reused_authentication": "Authorization file copied without reading or logging its contents",
+  "status": "EXECUTED_REQUIRES_INDEPENDENT_REVIEW",
+  "setup": {
+    "cwd": "isolated consumer directory",
+    "files": [
+      {
+        "path": "notes.md",
+        "content": "# 会议\n\n时间：14:00\n地点：会议室A\n范围：仅A组；预算未定。\n\n团队约定：本节保持原样。\n"
+      }
+    ],
+    "absentPaths": [
+      "message.md",
+      "message.txt"
+    ]
+  },
+  "setup_actions": [
+    {
+      "type": "initialize_isolated_consumer_git",
+      "root": "C:/Users/Admin/AppData/Local/Temp/e-yZsAOR/data"
+    },
+    {
+      "type": "create_fixture_file",
+      "path": "notes.md",
+      "sha256": "fa2775eab338fa4462cf7e86fe84cc6e017257a847c383c1f7d6ec552faae599"
+    }
+  ],
+  "invocations": [
+    {
+      "type": "user",
+      "text": "$communication-kit:communicate 将“明天14:00在会议室A讨论方案。”保存为测试环境的新文件 message.md，并回读。",
+      "args": [
+        "exec",
+        "--json",
+        "--disable",
+        "code_mode_host",
+        "--color",
+        "never",
+        "-c",
+        "approval_policy=\"never\"",
+        "--cd",
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\e-yZsAOR\\data",
+        "-"
+      ],
+      "started": "2026-10-12T10:52:49.359Z",
+      "ended": "2026-10-12T10:53:12.009Z",
+      "exit_code": 0,
+      "execution_error": null,
+      "session_id": "01a12fbe-65f2-7d10-82af-e3904af6c920",
+      "events": [
+        {
+          "type": "thread.started",
+          "thread_id": "01a12fbe-65f2-7d10-82af-e3904af6c920"
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_0",
+            "type": "error",
+            "message": "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+          }
+        },
+        {
+          "type": "turn.started"
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_1",
+            "type": "agent_message",
+            "text": "我会按 `communication-kit:communicate` 的文件交付流程处理：先读取审校规则和“文件保存”对应任务模式，并确认目标文件不存在；随后写入并回读核对。"
+          }
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_2",
+            "type": "agent_message",
+            "text": "刚才的并行读取入口未启动成功；我改为逐项读取，仍会在写入前完成相同核对。"
+          }
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_3",
+            "type": "agent_message",
+            "text": "文件操作工具当前不可用（`code-mode host is disabled`），因此 `message.md` 尚未创建，也无法回读核验。\n\n拟保存内容：\n\n```markdown\n明天14:00在会议室A讨论方案。\n```"
+          }
+        },
+        {
+          "type": "turn.completed",
+          "usage": {
+            "input_tokens": 46238,
+            "cached_input_tokens": 30080,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1155,
+            "reasoning_output_tokens": 396
+          }
+        }
+      ],
+      "stdout_sha256": "445271bfa1e01d55aafd0db7f1c51fb57bbee76a4f53680b024898ec2e44230f",
+      "files_after": {
+        "notes.md": {
+          "bytes": 118,
+          "sha256": "fa2775eab338fa4462cf7e86fe84cc6e017257a847c383c1f7d6ec552faae599",
+          "text": "# 会议\n\n时间：14:00\n地点：会议室A\n范围：仅A组；预算未定。\n\n团队约定：本节保持原样。\n"
+        }
+      }
+    },
+    {
+      "type": "user",
+      "text": "将同一成稿保存为测试环境的新文件 message.txt，并回读。",
+      "args": [
+        "exec",
+        "resume",
+        "--json",
+        "--disable",
+        "code_mode_host",
+        "-c",
+        "approval_policy=\"never\"",
+        "01a12fbe-65f2-7d10-82af-e3904af6c920",
+        "-"
+      ],
+      "started": "2026-10-12T10:53:12.023Z",
+      "ended": "2026-10-12T10:53:29.712Z",
+      "exit_code": 0,
+      "execution_error": null,
+      "session_id": "01a12fbe-65f2-7d10-82af-e3904af6c920",
+      "events": [
+        {
+          "type": "thread.started",
+          "thread_id": "01a12fbe-65f2-7d10-82af-e3904af6c920"
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_0",
+            "type": "error",
+            "message": "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+          }
+        },
+        {
+          "type": "turn.started"
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_1",
+            "type": "agent_message",
+            "text": "我继续按沟通助手的文件交付流程处理：将先确认 `message.txt` 是新文件，再保存同一成稿并回读核对。"
+          }
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_2",
+            "type": "agent_message",
+            "text": "文件工具仍不可用（`code-mode host is disabled`），所以 `message.txt` 尚未创建，亦无法回读核验。\n\n拟保存内容：\n\n```text\n明天14:00在会议室A讨论方案。\n```"
+          }
+        },
+        {
+          "type": "turn.completed",
+          "usage": {
+            "input_tokens": 79066,
+            "cached_input_tokens": 61568,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1955,
+            "reasoning_output_tokens": 627
+          }
+        }
+      ],
+      "stdout_sha256": "f93e8379a06ea71ae74d5fc067fb04d9df6886f317741a7619edaa7690c4a5bb",
+      "files_after": {
+        "notes.md": {
+          "bytes": 118,
+          "sha256": "fa2775eab338fa4462cf7e86fe84cc6e017257a847c383c1f7d6ec552faae599",
+          "text": "# 会议\n\n时间：14:00\n地点：会议室A\n范围：仅A组；预算未定。\n\n团队约定：本节保持原样。\n"
+        }
+      }
+    },
+    {
+      "type": "user",
+      "text": "$communication-kit:communicate 编辑现有 notes.md：只把时间14:00改成15:00，其余内容原样保留，保存后回读。",
+      "args": [
+        "exec",
+        "resume",
+        "--json",
+        "--disable",
+        "code_mode_host",
+        "-c",
+        "approval_policy=\"never\"",
+        "01a12fbe-65f2-7d10-82af-e3904af6c920",
+        "-"
+      ],
+      "started": "2026-10-12T10:53:29.718Z",
+      "ended": "2026-10-12T10:53:54.310Z",
+      "exit_code": 0,
+      "execution_error": null,
+      "session_id": "01a12fbe-65f2-7d10-82af-e3904af6c920",
+      "events": [
+        {
+          "type": "thread.started",
+          "thread_id": "01a12fbe-65f2-7d10-82af-e3904af6c920"
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_0",
+            "type": "error",
+            "message": "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+          }
+        },
+        {
+          "type": "turn.started"
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_1",
+            "type": "agent_message",
+            "text": "我会按 `communication-kit:communicate` 的保义编辑流程，先读取 `notes.md` 与审校规则，确认原文及 `14:00` 的出现位置；随后仅替换该时间并回读核验。"
+          }
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_2",
+            "type": "agent_message",
+            "text": "文件工具仍不可用（`code-mode host is disabled`），无法读取 `notes.md`，因此未作任何修改，也无法回读核验。待文件工具恢复后可重新执行。"
+          }
+        },
+        {
+          "type": "turn.completed",
+          "usage": {
+            "input_tokens": 116254,
+            "cached_input_tokens": 96128,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2696,
+            "reasoning_output_tokens": 803
+          }
+        }
+      ],
+      "stdout_sha256": "983bc7978a0b47bc75b23cde1eb3e3ed74bcedc6b57cde0770a7c5dbbf74909b",
+      "files_after": {
+        "notes.md": {
+          "bytes": 118,
+          "sha256": "fa2775eab338fa4462cf7e86fe84cc6e017257a847c383c1f7d6ec552faae599",
+          "text": "# 会议\n\n时间：14:00\n地点：会议室A\n范围：仅A组；预算未定。\n\n团队约定：本节保持原样。\n"
+        }
+      }
+    }
+  ],
+  "observations": [],
+  "client_window": {
+    "status": "NOT RUN",
+    "reason": "Non-interactive CLI has no desktop question-window observation channel"
+  },
+  "grade": "UNASSESSED",
+  "independent_review_required": true,
+  "installation": {
+    "installed": {
+      "installed": [
+        {
+          "pluginId": "communication-kit@mj-agentlab-marketplace",
+          "name": "communication-kit",
+          "marketplaceName": "mj-agentlab-marketplace",
+          "version": "0.1.0",
+          "installed": true,
+          "enabled": true,
+          "source": {
+            "source": "local",
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\m-l4tYGN\\plugins\\communication-kit"
+          },
+          "marketplaceSource": {
+            "sourceType": "local",
+            "source": "\\\\?\\C:\\Users\\Admin\\AppData\\Local\\Temp\\m-l4tYGN"
+          },
+          "installPolicy": "AVAILABLE",
+          "authPolicy": "ON_INSTALL"
+        }
+      ],
+      "available": []
+    },
+    "native_skill": {
+      "name": "communication-kit:communicate",
+      "description": "Draft everyday messages or documents and faithfully rewrite supplied material on explicit request. Deliver a usable draft and key notes; preserve facts, positions, conditions and commitments. Start only when the user invokes this skill or explicitly requests the communication assistant.",
+      "interface": {
+        "displayName": "沟通助手",
+        "shortDescription": "围绕当前任务编写沟通稿与文档，保义改写并核对关键条件和执行范围",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": "Use $communication-kit:communicate to draft or faithfully rewrite this message or document."
+      },
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\communication-behavior\\isolated-homes\\7527349f-2a1b-4c0c-9a14-a4ac563fc0a0\\plugins\\cache\\mj-agentlab-marketplace\\communication-kit\\0.1.0\\skills\\communicate\\SKILL.md",
+      "scope": "user",
+      "enabled": true
+    },
+    "cache_sha256": "467f4371ba84c901b0a7ad6b41632346d73eea3bbaaa02a84fb7f12399ba44a5",
+    "cache_resource_sha256": {
+      "assets/icon.png": "07f8a9ad4d04f20bc0551f3e72ed8c9e1b14368a743b392d4feee3aaec314ddf",
+      "assets/icon.svg": "be2ecb005473fab4e5c79ae9bcfddad58665cb9d322a373a110777fc03753f28",
+      "CHANGELOG.md": "553034ee828f53028174526e1af515502b142573a03019bf58e3f7f53ed0e316",
+      "LICENSE": "cfd483b2cc03452033bbc34d6ceabcc46d9917539070f6721d671705926a2a8d",
+      "plugin.json": "fe255f7ef47f1f7627445ee10b4967412c71b9e2ff1a5b2449bcf6caa2c9fe13",
+      "README.md": "7f2f21555070e5c9803dd15e6ac30bd156617830bd01e0962cacf74a08b8ed75",
+      "skills/communicate/agents/openai.yaml": "1aab91721ebf933aa3d6f52a1581a434bb000bbee2d0f19f9d32fcea5cf627c5",
+      "skills/communicate/references/aics-policy.md": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+      "skills/communicate/references/aics-snapshot.json": "dcfc424f7a18ac7187c77d947b58c457821363c22936c20682ef08527c14ed33",
+      "skills/communicate/references/source-provenance.md": "ad8f3065a538a4e4a2b07750fdf15d088106f28adabb07eb4eb24e1b93c80b7d",
+      "skills/communicate/references/task-patterns.md": "0d427c2dfc1b3612a1ee230eb8dc949ef8d59c00a5fd1fe525af2b14f3f24595",
+      "skills/communicate/SKILL.md": "ed5614a206cf3346b43827d87439addf3d08567441f567e052c698de41b913df"
+    },
+    "mcp_count": 0
+  },
+  "model_capability": {
+    "actual_model_list": {
+      "data": [
+        {
+          "id": "gpt-5.6-sol",
+          "model": "gpt-5.6-sol",
+          "upgrade": null,
+          "upgradeInfo": null,
+          "availabilityNux": null,
+          "displayName": "GPT-5.6-Sol",
+          "description": "Older generation workhorse model.",
+          "modelSpecialty": null,
+          "hidden": false,
+          "supportedReasoningEfforts": [
+            {
+              "reasoningEffort": "low",
+              "description": "Fast responses with lighter reasoning"
+            },
+            {
+              "reasoningEffort": "medium",
+              "description": "Balances speed and reasoning depth for everyday tasks"
+            },
+            {
+              "reasoningEffort": "high",
+              "description": "Greater reasoning depth for complex problems"
+            },
+            {
+              "reasoningEffort": "xhigh",
+              "description": "Extra high reasoning depth for complex problems"
+            },
+            {
+              "reasoningEffort": "max",
+              "description": "Maximum reasoning depth for the hardest problems"
+            },
+            {
+              "reasoningEffort": "ultra",
+              "description": "Maximum reasoning with automatic task delegation"
+            }
+          ],
+          "defaultReasoningEffort": "low",
+          "inputModalities": [
+            "text",
+            "image"
+          ],
+          "supportsPersonality": false,
+          "additionalSpeedTiers": [
+            "fast"
+          ],
+          "serviceTiers": [
+            {
+              "id": "priority",
+              "name": "Fast",
+              "description": "1.5x speed, increased usage"
+            }
+          ],
+          "defaultServiceTier": null,
+          "isDefault": true
+        },
+        {
+          "id": "gpt-5.6-terra",
+          "model": "gpt-5.6-terra",
+          "upgrade": null,
+          "upgradeInfo": null,
+          "availabilityNux": null,
+          "displayName": "GPT-5.6-Terra",
+          "description": "Older balanced model for straightforward work.",
+          "modelSpecialty": null,
+          "hidden": false,
+          "supportedReasoningEfforts": [
+            {
+              "reasoningEffort": "low",
+              "description": "Fast responses with lighter reasoning"
+            },
+            {
+              "reasoningEffort": "medium",
+              "description": "Balances speed and reasoning depth for everyday tasks"
+            },
+            {
+              "reasoningEffort": "high",
+              "description": "Greater reasoning depth for complex problems"
+            },
+            {
+              "reasoningEffort": "xhigh",
+              "description": "Extra high reasoning depth for complex problems"
+            },
+            {
+              "reasoningEffort": "max",
+              "description": "Maximum reasoning depth for the hardest problems"
+            },
+            {
+              "reasoningEffort": "ultra",
+              "description": "Maximum reasoning with automatic task delegation"
+            }
+          ],
+          "defaultReasoningEffort": "medium",
+          "inputModalities": [
+            "text",
+            "image"
+          ],
+          "supportsPersonality": false,
+          "additionalSpeedTiers": [
+            "fast"
+          ],
+          "serviceTiers": [
+            {
+              "id": "priority",
+              "name": "Fast",
+              "description": "1.5x speed, increased usage"
+            }
+          ],
+          "defaultServiceTier": null,
+          "isDefault": false
+        },
+        {
+          "id": "gpt-5.6-luna",
+          "model": "gpt-5.6-luna",
+          "upgrade": null,
+          "upgradeInfo": null,
+          "availabilityNux": null,
+          "displayName": "GPT-5.6-Luna",
+          "description": "Older fast and efficient model.",
+          "modelSpecialty": null,
+          "hidden": false,
+          "supportedReasoningEfforts": [
+            {
+              "reasoningEffort": "low",
+              "description": "Fast responses with lighter reasoning"
+            },
+            {
+              "reasoningEffort": "medium",
+              "description": "Balances speed and reasoning depth for everyday tasks"
+            },
+            {
+              "reasoningEffort": "high",
+              "description": "Greater reasoning depth for complex problems"
+            },
+            {
+              "reasoningEffort": "xhigh",
+              "description": "Extra high reasoning depth for complex problems"
+            },
+            {
+              "reasoningEffort": "max",
+              "description": "Maximum reasoning depth for the hardest problems"
+            }
+          ],
+          "defaultReasoningEffort": "medium",
+          "inputModalities": [
+            "text",
+            "image"
+          ],
+          "supportsPersonality": false,
+          "additionalSpeedTiers": [
+            "fast"
+          ],
+          "serviceTiers": [
+            {
+              "id": "priority",
+              "name": "Fast",
+              "description": "1.5x speed, increased usage"
+            }
+          ],
+          "defaultServiceTier": null,
+          "isDefault": false
+        }
+      ],
+      "nextCursor": null
+    },
+    "selected_model": "gpt-5.6-sol",
+    "selected_effort": "xhigh",
+    "metadata_is_backend_acceptance": false
+  },
+  "effective_permission_preflight": [
+    "<filesystem><workspace_roots><root>C:\\Users\\Admin\\AppData\\Local\\Temp\\e-yZsAOR\\data</root></workspace_roots><permission_profile type=\"managed\"><file_system type=\"restricted\"><entry access=\"read\"><special>:root</special></entry><entry access=\"read\"><special>:slash_tmp</special></entry><entry access=\"read\"><special>:tmpdir</special></entry><entry access=\"write\"><path>C:\\Users\\Admin\\AppData\\Local\\Temp\\e-yZsAOR\\data</path></entry></file_system></permission_profile></filesystem>"
+  ],
+  "config_sha256": "00acf184d1a8f4f22a7dbd801ed358a2a06e92bd8d68dbfddd7f660d5584968c",
+  "native_tool_host_feature_check": [
+    "apply_patch_freeform                 removed            false",
+    "apply_patch_streaming_events         under development  false",
+    "code_mode                            under development  false",
+    "code_mode_buffered_exec              under development  false",
+    "code_mode_host                       stable             false",
+    "code_mode_only                       under development  false",
+    "plugins                              stable             true",
+    "recommended_plugins                  stable             false",
+    "shell_tool                           stable             true",
+    "unified_exec                         stable             false",
+    "unified_exec_zsh_fork                under development  false"
+  ],
+  "files_before": {
+    "notes.md": {
+      "bytes": 118,
+      "sha256": "fa2775eab338fa4462cf7e86fe84cc6e017257a847c383c1f7d6ec552faae599",
+      "text": "# 会议\n\n时间：14:00\n地点：会议室A\n范围：仅A组；预算未定。\n\n团队约定：本节保持原样。\n"
+    }
+  },
+  "session_identity": {
+    "metadata": {
+      "id": "01a12fbe-65f2-7d10-82af-e3904af6c920",
+      "timestamp": "2026-10-12T10:52:49.577Z",
+      "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e-yZsAOR\\data",
+      "originator": "Codex Desktop",
+      "cli_version": "0.147.0",
+      "source": "exec",
+      "model_provider": "openai"
+    },
+    "turn_contexts": [
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "xhigh",
+        "approval_policy": "never",
+        "sandbox_policy": {
+          "type": "workspace-write",
+          "network_access": false,
+          "exclude_tmpdir_env_var": true,
+          "exclude_slash_tmp": true
+        }
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "xhigh",
+        "approval_policy": "never",
+        "sandbox_policy": {
+          "type": "workspace-write",
+          "network_access": false,
+          "exclude_tmpdir_env_var": true,
+          "exclude_slash_tmp": true
+        }
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "xhigh",
+        "approval_policy": "never",
+        "sandbox_policy": {
+          "type": "workspace-write",
+          "network_access": false,
+          "exclude_tmpdir_env_var": true,
+          "exclude_slash_tmp": true
+        }
+      }
+    ]
+  },
+  "effective_permissions_observed": [
+    "<filesystem><workspace_roots><root>C:\\Users\\Admin\\AppData\\Local\\Temp\\e-yZsAOR\\data</root></workspace_roots><permission_profile type=\"managed\"><file_system type=\"restricted\"><entry access=\"read\"><special>:root</special></entry><entry access=\"read\"><special>:slash_tmp</special></entry><entry access=\"read\"><special>:tmpdir</special></entry><entry access=\"write\"><path>C:\\Users\\Admin\\AppData\\Local\\Temp\\e-yZsAOR\\data</path></entry></file_system></permission_profile></filesystem>"
+  ],
+  "actual_tool_surface": [
+    "exec"
+  ],
+  "invocation_evidence": {
+    "native_cache_skill_verified": true,
+    "runtime_skill_injection_matches_cache_bytes": true,
+    "injected_skill_mentions_installed_cache": true,
+    "event_mentions_installed_cache": false,
+    "rollout_mentions_installed_cache": true
+  },
+  "reviewer_control_access_observed": false,
+  "files_after": {
+    "notes.md": {
+      "bytes": 118,
+      "sha256": "fa2775eab338fa4462cf7e86fe84cc6e017257a847c383c1f7d6ec552faae599",
+      "text": "# 会议\n\n时间：14:00\n地点：会议室A\n范围：仅A组；预算未定。\n\n团队约定：本节保持原样。\n"
+    }
+  },
+  "cache_after": {
+    "resource_sha256": {
+      "assets/icon.png": "07f8a9ad4d04f20bc0551f3e72ed8c9e1b14368a743b392d4feee3aaec314ddf",
+      "assets/icon.svg": "be2ecb005473fab4e5c79ae9bcfddad58665cb9d322a373a110777fc03753f28",
+      "CHANGELOG.md": "553034ee828f53028174526e1af515502b142573a03019bf58e3f7f53ed0e316",
+      "LICENSE": "cfd483b2cc03452033bbc34d6ceabcc46d9917539070f6721d671705926a2a8d",
+      "plugin.json": "fe255f7ef47f1f7627445ee10b4967412c71b9e2ff1a5b2449bcf6caa2c9fe13",
+      "README.md": "7f2f21555070e5c9803dd15e6ac30bd156617830bd01e0962cacf74a08b8ed75",
+      "skills/communicate/agents/openai.yaml": "1aab91721ebf933aa3d6f52a1581a434bb000bbee2d0f19f9d32fcea5cf627c5",
+      "skills/communicate/references/aics-policy.md": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+      "skills/communicate/references/aics-snapshot.json": "dcfc424f7a18ac7187c77d947b58c457821363c22936c20682ef08527c14ed33",
+      "skills/communicate/references/source-provenance.md": "ad8f3065a538a4e4a2b07750fdf15d088106f28adabb07eb4eb24e1b93c80b7d",
+      "skills/communicate/references/task-patterns.md": "0d427c2dfc1b3612a1ee230eb8dc949ef8d59c00a5fd1fe525af2b14f3f24595",
+      "skills/communicate/SKILL.md": "ed5614a206cf3346b43827d87439addf3d08567441f567e052c698de41b913df"
+    },
+    "canonical_bytes_unchanged": true
+  },
+  "objective_file_observations": {
+    "message_md_exists": false,
+    "message_txt_exists": false,
+    "notes_exact_requested_change": false
+  },
+  "finished": "2026-10-12T10:53:54.318Z",
+  "archive": {
+    "originalCollectionSha256": "dcaf87aa13368e9355424c82ae27b643a4a9282a7b92eaa971e479961fa3753d",
+    "originalBytes": 27491,
+    "scope": "Preserved failed environment diagnostic; not formal behavior PASS. No authentication or internal reasoning copied."
+  }
+}

@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.21
+version: v1.22
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -426,3 +426,19 @@ B6.1 UUID01a134bd-4ecd-7150-86db-f7f8c1e45ead / attempt8f80afcb-f8dd-4948-a7da-8
 2026-10-13本地修正checkpoint dbd57d8d22658636d3248a1236b878747091c008（tree92b1978ef1cd200f035e6a816e6e20d888da0ab2）后，观察到origin/develop实际#223 merge bca7b5c903c611d698e59eef5268b7e45cfe2b96。普通merge保留双方AGENTS/INDEX内容、Communication ADR/SPEC/GUIDE/RUNBOOK、已批准plan及原始证据。#223仅前置契约，没有新运行包、索引或版本变更；本任务未新建实施plans。公开main/tag/Release仍v8.2.0三插件，开发8.2.1四插件六技能，HTML0.1.12未发行，其他插件版本保持。
 
 上游三个隔离测试fixture已加入plan复制；本任务HTML仓库fixture同步加入相同目录，以满足真实文档链接，不放宽严格校验。七项HTML运行资源须与dbd57d8 Git原字节相同；其他插件、索引/VERSION及非本任务修改脚本保持bca7b5c的Git内容，本PR既有validate-portable入口6144预算强化保持dbd57d8不变。普通文本checkout的CRLF和Git LF分别记录，不伪称全部原字节相同；冻结plan及已标记-text的证据保持Git原字节，其他传入证据保留原Git内容。合成npm test319/319零skip、65文档/A6、validate/check通过，新的合成head仍须八种canonical安装/四缓存Python及冻结连续模型复验。同步不修改运行内容、不额外bump，不继承源11模型PASS。当前合成安装/模型NOT_RUN，当前head CI/非作者批准/线程与actualmerge待实际核验；原生客户端延期、效果NOT_MEASURED、#220/Epic开放。初始冲突日志与合成检查保存在独立reviewer目录，后续按准确提交身份补证。
+
+## 30. 0.1.12完整评审、Communication运行同步与0.1.13修正
+
+源12准确canonical 5bce83410802b04c2d0c7fb0324610f87917a386 / tree d7695ad8484f4e68902ee8bd29f413d829da5a63的[八严格安装/四缓存Python](evidence/html-guide-kit/pr3-post-merge/engineering-5bce8341/archive-index.json)通过。319/319零skip、65文档/A6、validate/check与该head实际CI通过；reviews为空，批准不追认。此前[普通#223同步](evidence/html-guide-kit/pr3-post-merge/upstream-sync-223-0-1-12/archive-index.json)的原冲突、检查失败与修正保留。
+
+三批B和E15共15fresh UUID/31实际输入全部COMPLETE，最终独立9PASS/4FAIL/2UNEXERCISED。Root B1.1与combined PASS，delayed与B2.1 FAIL；A B3.1/B3.2/B4.2 PASS，B4.1/B5.1 FAIL，B5.2只首轮UNEXERCISED；B B6.1及三范围拒绝变体PASS，E15两轮UNEXERCISED。每次选择来自该真实目标及单一三元组，原输入/判准/default不变。delayed、B4.1、B5.1的完整恢复重述或可靠答案漏源清除当前操作，初值表或别处正确恢复不补本处；B4.1改条件重试未给每轮必要当前态及复位依据。B2.1全局只有断言漏源恢复库存，别处正确例外或章节引用不缩小该句。原确认/局部模拟等PASS均保留，不抵消FAIL。B3.1的疑点按原完整输出澄清为局部教学设计与全局重试说明，不新增字面标签判准。
+
+全部writer正常边界停止，无kill、重试、重采样或追加输入。Root暂停marker2026-10-13T11:48:14.612Z；A B5.2首轮11:46:24.971Z启动/11:47:02.670Z完成，早于marker。E15 T2于11:47:41.946Z已启动，11:48:26.698Z在marker后正常完成，随后保留sourceTurn2待选，T3未调用；不能声称暂停前全部完成。未调用剩余E/S/重复NOT_RUN。原outer运输未知、时间helper解析false、逐段上下文重建及技术grade准备语法失败分别保留，未重跑模型或改语义结果。真实native入口6144全文和同会话分段参考读取据原tool return判定，CLI汇总或模型自述不当完整加载证据。
+
+技术grade15成功/零error、四summary，前445文件仅四batch metadata变化，15独立final字段/criteria/理由/读取/适用性等价、原控制/评审稳定、28 Git源/镜像/安装cache资源对应通过。完整[456文件封存](evidence/html-guide-kit/pr3-reviewer/patch-022-stopped/index.json)原字节13,749,668，九packet，sourceInventorySHA2e71049a1ed2a6421c2846008cbf0abe155bc495756d622ab3b76d8b093ceea0；Root实际Node及独立.NET精确复原通过，旧封包不覆盖。原canonical、排除reviewer的镜像及cache分别记录，不要求镜像tree等于完整仓库。
+
+当前origin/develop c1fa458df1b531d7c38436908b750ba810b0b116已实际合入#225/#229/#233的Communication完整运行、严格校验/安装矩阵及未发布marketplace8.3.0。本任务普通merge解决七处冲突，保留上游注册、12项Communication资源/冻结摘要/品牌、开发技能、版本工具和其已批准计划及原始证据。开发为五插件/七公开/四显式/三自然/20repo-only；Diagram0.3.1、LearningEvidence0.1.0、Explain0.1.1、Communication0.1.0保持。上游完整十三场景含此前八场景，实际Diagram缓存Python须六次；仅工程计数helper由8/4改13/6，原version-only helper、原33+5控制复制proof及六数值差异另存，其余冻结输入/判准/模型/选择控制不变。正式Communication四包六技能不含HTML，main公开8.2.0三包不变；本任务无Release/tag/main发布动作。
+
+仅HTML0.1.12→0.1.13；三个已审查资源精确6144/19793/20673字节，入口严格6144不放宽。通用规则保留全部源动作、对象与字段及局部条件，完整恢复不以初值或新增UI清理代替；关系和排他纳入同字段恢复/例外。先说明每轮进入、当前态来源、继续、改条件、重试、退出与复位，再写反馈；共享态取最新结果，独立情境每次明确恢复范围/依据，不把改条件当复位或补造缺规则。完整恢复可明示继承覆盖本处的完整共同规则，局部视图标范围；无定义源对象保留原称呼/缺口，不扩为日志、永久删除或系统行为。原显式确认/文本Read/新建范围和所有旧边界保持，无fixture答案/Owner路径。6509/6353/6268/6194外部draft预算失败原脚本/日志保留，两份独立静态审查无阻断只属STATIC_ONLY。
+
+新13安装/模型NOT_RUN；须准确新canonical十三安装/六缓存Python，再按同冻结B14/30、全部E29/59、重复1/2、连续S2/9实际新会话复验，不继承旧PASS。原生应用接口不可用，双客户端与空返回/超时/关闭NOT_RUN，现实效果NOT_MEASURED；合格核心可分段交付，延期不当通过，#220/Epic开放，Owner最终接受独立。当前head CI、非作者批准、解决线程、最新base和实际merge按新身份单独核验。

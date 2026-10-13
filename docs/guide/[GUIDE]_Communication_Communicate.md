@@ -6,14 +6,16 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.0.1
+version: v1.2.1
 ---
 
 # [GUIDE] 沟通助手
 
 ## §1 当前状态
 
-产品方向已确认，插件正在准备，PR1 尚无可安装 Communication 包。[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)追踪上线；以下为计划入口的使用示例，不代表已经完成实际调用。
+PR3 已有完整 Communication 0.1.0 候选，包、单入口、冻结摘要、已选正式 D 图标及原子集成已实现，九组合 canonical 安装检查已实际执行。候选[包说明](../../plugins/communication-kit/README.md)与[communicate](../../plugins/communication-kit/skills/communicate/SKILL.md)可定位；main / 最新 Release 8.1.1尚不包含本包，当前市场仍为未发布8.1.2。[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)追踪正式上线。
+
+PR1当时仅定义契约，没有可安装包；该历史保留。候选已通过完整资源比对，94新批CLI C01–C15通过，文件子路径仍受限；补充工具角色的限定成功单独记录。以下示例是候选使用和验收输入，真实双客户端及发布仍NOT RUN；实际结果见[验收账本](../runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。
 
 ## §2 三类使用
 
@@ -61,4 +63,6 @@ $communication-kit:communicate
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.2 | 2026-10-12 | 对齐修复候选的新CLI与补充工具结果；真实客户端及发布仍未验收 |
+| v1.1 | 2026-10-12 | 可定位的0.1.0未发布候选与已执行工程范围，保留实际调用未验收状态 |
 | v1.0 | 2026-10-12 | 三类计划使用示例与聊天/文件操作边界 |
