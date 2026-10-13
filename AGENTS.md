@@ -18,6 +18,8 @@ explain-kit 0.1.0 提供速解和深讲，默认中文、保留术语原文，�
 
 ## 执行与决策
 
+Communication正式发行范围已由Owner通过grilling Q3明确为Learning已公开三包＋Communication（四包六技能），HTML保留develop另发；PR3开发集成仍保留HTML，形成五包七技能。范围决定不等于版本转换、GitHub独立批准或发布已完成，沿[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)记录实际门禁。
+
 communication-kit 首版按已保存的[完整计划](plan/communication-kit-implementation-plan.md)实施，来源与授权见[捕获记录](plan/communication-kit-plan-provenance.json)，由 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222) 管理 PR1–PR5 与正式上线。产品方向、显式 communicate 单入口、保义改写和文件边界已确认；设计与验收契约见[新增 ADR](docs/adr/[ADR]_Communication_Kit_Addition.md)及[验收 RUNBOOK](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。PR1/PR2 保持现有运行集合，PR3 原子接入新包。Owner 选择 Learning 先发布 8.2.0，Communication 随后独立 minor（预计 8.3.0），PR4 重查实际版本和基线；现实效果测试本次延期，基础通过不代表效果已验证。
 
 代理负责在已有授权范围内执行文件修改、环境检查、测试、隔离安装验证、提交、推送及 PR 准备。owner 作出决定后，由代理执行，不要求 owner 复制命令，不重复确认已授权的操作。CI、分支保护、独立审查及外部身份验证按实际约束处理；无法完成时说明具体原因，只请求最小必要参与。
@@ -70,6 +72,6 @@ HTML Guide Kit 初始 0.1.0，仅显式 $html-guide-kit:guide，Read、聊天文
 
 Learning Evidence #224 已于 2026-10-13 获 yrk666 对当前 c1d7bab 的非作者批准并合入 a2090ff8；merge 与已验收 head 的 Git tree 相同，七种精确 canonical 安装和四次已安装 Python 校验通过，#211 显式关闭。PR3 同步实际 merge 后运行内容不变，311/311、33 存储/31 离线 GitHub 实际 Python、严格校验、精确 CLI 基线与七隔离安装通过；当前最终 head 的独立批准和合入另核对。旧 pending 文字按原时点保留，完整合并回执见验收账本。Owner 再次确认按 #227 → #228 → #230 → #232 推进并条件发布三插件 8.2.0，HTML 留 develop 另发，Epic 延期项继续开放。
 
-PR4 为准备后续依赖合入，普通同步 PR3 当前 bcccb38 的合并回执与文档；全部运行包、测试、脚本、版本及已冻结第五轮证据保持。#227 尚待其当前 head 的真实非作者批准与保护合入，PR4 继续 Draft，不把前序审查请求算作本阶段批准。
+Learning前序PR4依赖快照、#224/#227实际交付、旧pending/批准缺项与回执保留于[验收账本](docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)，历史快照不追认为当前门禁通过。
 
 Learning Evidence #227 已合入 f958908e，与已验收 bcccb38 同树；精确 merge 的七 canonical 安装/四次缓存 Python 通过，#212 显式关闭。GitHub 当前 reviews 为空，缺项原样保留，不补记批准或豁免。PR4 按实际 merge 同步后运行内容不变，317/317、八隔离安装、143资源实例及四次图表/三组证据保存重放检查实际通过，Learning十九资源仍等于限定模型源acf3。Owner 最新要求后续不指定人发出审查请求；准备可审查 PR 时不指派个人或团队，当前 head 的真实非作者批准/CI/线程门禁继续按实际核对。8.2.0 仍条件发布原三插件，HTML留develop另发，原生延期/桌面未运行/Owner最终接受及历史审查缺项独立保留。
