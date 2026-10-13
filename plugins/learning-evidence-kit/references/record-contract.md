@@ -18,6 +18,8 @@ Baseline includes complete UTF-8 original intention/SHA-256, source/version/capt
 
 Kinds: learning/correction/retest/record_check/application_check. Append linked immutable entries, preserving original evidence ID/person/raw answers. Quiz status: pending/completed/skipped/stopped/interrupted/not_applicable; pending has no invented answer/completion. Each conclusion has supported/partially_supported/unsupported/not_run, rationale/evidence_refs/limitations. Structural success does not decide semantic validity. Application requires actual person's explanation and versioned existing verification materials.
 
+For a newly generated check, source_author is its actual generating author, not the original learning-record author. The checking assistant uses its actual agent identity (kind agent), current installed plugin/skill/version and manual-check context in provenance, actual operation in operator and a real observed clock value in occurred_at. Unknown operator accounts may be null with limits. Freeze these values with the request for exact retry. Preserve the original learning author/provenance/time through unchanged originals and related_record_ids/evidence_id; never rewrite an existing handoff/import/export/shared record to masquerade as a new check.
+
 ## Operations
 
 confirm_identity stores explicit confirmation. save takes {record,worktree?}, returns IDs/receipts without publication. get/list read; check_record takes {record_id,task_id?,responsible_person_id?,ku_ids?,code_version?} for structure/attribution/baseline/lineage/applicability. Save actual semantic conclusions as separate linked entries.

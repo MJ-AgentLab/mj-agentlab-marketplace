@@ -19,6 +19,8 @@
 
 ### Changed
 
+- Correct new Learning Record Check generation metadata after actual role acceptance exposed inherited learning authors/skills and an invented future event time. Use the actual check author, current installed checker context and observed event clock; preserve original metadata through immutable originals and lineage. Original failures remain recorded; repaired behavior requires a fresh-source rerun.
+
 - Repair unpublished Learning Evidence candidate entry handling: keep listing examples within the Codex 0.147.0 character/count limits, and require all application prerequisites before implementation investigation or probes. Preserve the actual ignored-example and premature-application failures; repaired model behavior remains subject to a fresh-source rerun.
 
 - Prepare the unpublished develop 8.1.2 pre-bump after #206 synchronized the published main. Update only marketplace VERSION and its derived README badge; keep all plugin versions, published version sections, tags and assets unchanged. Include the parallel publication-record documentation and synchronize its main merge ancestry when available.
