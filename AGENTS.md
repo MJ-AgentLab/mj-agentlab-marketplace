@@ -71,3 +71,5 @@ HTML PR1 当时保持 marketplace 未发布 8.1.2 及其他插件版本，无 Re
 Learning Evidence 当前交付：#216/#224/#227/#228/#230已交付，#210–214关闭。#232/main ebc4bdc3于2026-10-13公开v8.2.0，tag/Release同SHA，发布后五精确安装/实际Python及published-noop复查通过。#234实际merge 2c0a8317同步main ancestry，#235实际merge 3af68373完成未发布8.2.1预升，均与已测head同树且各八精确安装/实际Python通过；HTML四插件开发集合及插件版本保持。版本工具只更新VERSION/badge两锚点，#235按Owner要求修复failing check另补真实根摘要，三路径走正常A6；原例外失败保留，checker/workflow/批准规则未改。main/public仍原三插件8.2.0，无8.2.1 tag/Release；版本清单以VERSION、索引和manifest为准。#224实际批准与其他交付PR的空reviews分别留档，不推定豁免；repo immutable配置UNKNOWN，Release immutable=false。完整事实见[发行账本](docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)与[收尾回执](docs/runbook/evidence/learning-evidence-8-2-0-closeout.json)。后续不指定审查人；原生延期、桌面/Side Chat未运行、效果未测和Owner最终接受仍由#215/Epic独立追踪。
 
 Communication PR1 普通同步已合入的 #236 / develop `98068a8` 文档收尾；当前开发基线8.2.1仍四包六技能，Communication在本前置阶段未注册。main/tag/Release仍为 `ebc4bdc3` / published v8.2.0三包五技能；Q3正式Communication四包六技能、HTML留develop另发保持。最新来源和延期见上述发行账本与收尾回执，本轮保留原计划及历史证据，不额外bump，Refs #222。
+
+PR1继承空白修复检查完整PR范围；冻结计划、来源及原失败证据保留原字节。

@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.2
+version: v1.2.1
 ---
 
 # [RUNBOOK] Communication Kit acceptance
@@ -138,4 +138,3 @@ PR1契约结果、PR3实证、PR4回归、PR5发布及后续复查逐阶段追�
 | v1.2 | 2026-10-13 | 明确先行Learning迁移后的开发/正式两个精确集合与Owner Q3范围；原计划、旧结果及新包未测状态保留 |
 | v1.1 | 2026-10-13 | 追加HTML基线同步、279测试与七组canonical；如实记录原路径缺失和原字节副本身份 |
 | v1.0 | 2026-10-12 | 固定基础用例与证据状态；全部新包用例尚未执行 |
-
