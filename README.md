@@ -2,9 +2,9 @@
 
 <img src="assets/brand/marketplace/logo.svg" width="128" height="128" alt="MJ AgentLab Marketplace — MJ letters with connected modules">
 
-![Version](https://img.shields.io/badge/version-8.2.0-blue)
+![Version](https://img.shields.io/badge/version-8.2.1-blue)
 
-面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场。当前开发候选为未发布 marketplace 8.2.0，注册四个 portable 插件、六个公开技能，无需 MCP 服务。Owner 已确认公开 8.2.0 保持 Diagram、Learning Evidence、Explain 三插件/五技能；develop 保留 HTML，另行发行：
+面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场。当前开发候选为未发布 marketplace 8.2.1，注册四个 portable 插件、六个公开技能，无需 MCP 服务。Owner 已确认公开 8.2.0 保持 Diagram、Learning Evidence、Explain 三插件/五技能；develop 保留 HTML，另行发行：
 
 | 插件 / 公开技能 | 用途 | 版本与分发状态 |
 | --- | --- | --- |
