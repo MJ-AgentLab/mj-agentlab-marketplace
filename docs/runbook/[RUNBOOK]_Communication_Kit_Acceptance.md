@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.5
+version: v1.6
 ---
 
 # [RUNBOOK] Communication Kit acceptance
@@ -206,7 +206,7 @@ PR1契约结果、PR3实证、PR4回归、PR5发布及后续复查逐阶段追�
 
 [PR4 preflight 01](evidence/communication-kit-2026-10-13-pr4-preflight-01.json)从PR3 `82ee85b446c1aa74dce652975fe967f1f3d55b13`独立派生，只汇总已有实证与实际远端门禁；不是PR3合并后验收、正式版本转换或发布。Owner已再次授权按原顺序推进，并答复不指定审查人；聊天批准继续作为执行授权，不能补作GitHub非作者review。
 
-| 检查面 | 当前事实 | 后续解除条件 |
+| 检查面 | preflight 01捕获时事实 | 后续解除条件 |
 |---|---|---|
 | S01–S12工程/安装 | 已有客观PASS；当前五插件/六公开技能、十三canonical及六次实际缓存Python，包tree14a3896c保持 | Learning先发及PR3实际合并后重算集合与身份，复验受影响安装范围 |
 | C01–C18行为 | CLI0.147批次15PASS/3PARTIAL保留；不同工具身份C16–C18三项限定PASS，旧FAIL不覆盖 | 保留每批身份及覆盖，不将有限子路径填成基线全PASS |
@@ -215,6 +215,10 @@ PR1契约结果、PR3实证、PR4回归、PR5发布及后续复查逐阶段追�
 | Learning8.2.0 | #230仍draft、未合并，未发现8.2.0发布tag或Release | 先完成已确认的Learning8.2正式发布；不把本包注册带入先发范围 |
 | 实际版本 | origin/main 0c681a8f为8.1.1；origin/develop d106e76为未发布8.1.2；Communication0.1.0 | PR3合并及Learning先发后重查实际From/To和完整范围；预计独立minor8.3.0，不在本预备批次转换 |
 | 最新Release | v8.1.1已published，bot身份，tag目标8f0e044a，mutable/no assets | 本包正式发布后另核R01–R05；现有旧Release不计本包完成 |
+
+2026-10-13后续实际develop推进到`a2090ff89bb4a4135bfcf8fefc0f1a554fbe9302`，合入Learning本地存储PR #224；该PR具有其实际head的非作者APPROVED记录，但不提供Communication各PR的批准。PR1→PR2→PR3→PR4按普通merge继承该基线，保留两方CHANGELOG与AGENTS内容，修正PR2旧运行数量说明。PR1 CHANGELOG及PR2 AGENTS合并冲突、解决与实际复验分开保存在[storage baseline 01](evidence/communication-kit-2026-10-13-storage-baseline-01.json)及原始日志；不覆盖preflight 01快照或以前的失败。
+
+此批PR1/2/3实际全量测试分别280/289/308项，严格校验通过；前两阶段七组隔离smoke安装/四次缓存Python、PR3十三组/六次缓存Python实际通过，Codex保持0.147.0。本批方法是工作树快照的`npm run smoke:codex`，未执行`verifyReleaseInstall`固定提交的detached canonical批次；旧固定000e803 canonical证据按原身份保留。原子接入的Communication包tree仍为`14a3896c7ad50597bfc83996bcfec25180a720f9`，运行包、版本及安装校验器相对82ee85b不变。PR4本批完整工程复验与精确日志身份见上述新记录；行为和真实UI结果按原候选保留，不冒充新客户端批次或正式发布后验收。新head仍需实际CI、非作者最新推送批准、最新base和线程门禁；Learning #232的8.2.0 Release依赖未因#224合入而完成。
 
 PR4当前仅准备上述账本。完成PR3合并身份比较后，核对未发布且获准的实际版本/范围，先DryRun再应用版本工具、正式CHANGELOG及绑定实际版本的发布RUNBOOK；未经实际转换不预造版本段或发布身份。只补证据时不重跑全部行为，运行内容变化则复验相应案例和必要客户端路径。PR5仍须从PR4已验收的实际merge派生，核查main代码所有者批准、CI和线程，沿既有draft-first状态机发布，再从真实tag解析SHA另做上线后canonical/资源/Python复查。main→develop同步、下一patch预升和证据入库均使用受保护PR；Release published且安装复查完成后才关闭Epic。
 
@@ -240,6 +244,7 @@ PR4当前仅准备上述账本。完成PR3合并身份比较后，核对未发�
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.6 | 2026-10-13 | 普通merge继承实际Learning存储基线#224；追加四阶段新身份、冲突保留与工程复验，不替换既有UI身份或预填正式发布 |
 | v1.5 | 2026-10-13 | PR4并行准备验收汇总和远端门禁事实；保留Learning先发/非作者批准阻塞，不转换版本，不预填R01–R05 |
 | v1.4 | 2026-10-13 | 追加代理亲自执行的同应用Codex/ChatGPT Work两个本机入口实证及独立核验；保留CLI限制、窗口与发布未测、批准和版本依赖 |
 | v1.3 | 2026-10-13 | 保留旧身份结果，整合PR1/2新实证和原路径缺失记录；HTML新基线五插件六技能/十三组合，客户端及发布仍待实际证据 |

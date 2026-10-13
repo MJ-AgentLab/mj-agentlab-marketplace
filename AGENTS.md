@@ -18,6 +18,8 @@ Communication实施与发布使用[Epic #222](https://github.com/MJ-AgentLab/mj-
 
 ## 执行与决策
 
+Communication四阶段实施分支已普通merge继承实际develop `a2090ff`（Learning本地存储#224），上游存储源码保持字节，Communication包tree14a3896c及全部运行版本不变。PR1/2/3新工程批次为280/289/308测试，严格及各自隔离安装通过；PR4新批证据、冲突与原始日志见[验收记录§6](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。实施分支同步不等于各PR已合并，Learning8.2发布与Communication新head非作者批准仍须实际满足。
+
 communication-kit 首版按已保存的[完整计划](plan/communication-kit-implementation-plan.md)实施，来源与授权见[捕获记录](plan/communication-kit-plan-provenance.json)，由 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222) 管理 PR1–PR5 与正式上线。产品方向、显式 communicate 单入口、保义改写和文件边界已确认；设计与验收契约见[新增 ADR](docs/adr/[ADR]_Communication_Kit_Addition.md)及[验收 RUNBOOK](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。PR1/PR2 保持现有运行集合，PR3 原子接入新包。Owner 选择 Learning 先发布 8.2.0，Communication 随后独立 minor（预计 8.3.0），PR4 重查实际版本和基线；现实效果测试本次延期，基础通过不代表效果已验证。
 
 代理负责在已有授权范围内执行文件修改、环境检查、测试、隔离安装验证、提交、推送及 PR 准备。owner 作出决定后，由代理执行，不要求 owner 复制命令，不重复确认已授权的操作。CI、分支保护、独立审查及外部身份验证按实际约束处理；无法完成时说明具体原因，只请求最小必要参与。
@@ -46,9 +48,13 @@ v8.0.0 已经 #190 合入 main 并自动发布，实际状态和未完成的桌�
 
 Owner 于 2026-10-10 明确要求发布 8.1.1，发布授权已提供，不重复确认。候选从 develop 9bd54d7 派生，运行版本已匹配目标，无额外 bump。Owner 补充三张桌面截图，显示三插件详情页图标与候选版本，Diagram/Explain 示例提示区亦显示小图标；客户端版本、来源及实际输入框结果按已提供的具体证据记录，截图不补写未展示项。当前 main ruleset 要求当前 head 的非作者批准与 Validate Structure；门禁和后续发布事实见 [8.1.1 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。
 
+Learning Evidence PR2 的共用本机能力暂存于 scripts/learning-evidence，旧运行包保持字节；保存、完整基线、身份、关联、恢复、导入导出和保留归档按新记录契约执行。测试显式隔离库；PR3 加入手动 GitHub 流转，PR4 才原子移入新包，当前公开注册不提前切换。实际测试、独立审查及未合并状态见验收账本。
+
+PR2 已同步 #226 合入的 HTML Guide Kit 0.1.0，当前 develop 基准四插件、五公开技能、两项显式策略，marketplace 保持未发布 8.1.2；本阶段全部运行包、登记及 VERSION 相对该基准不变。Owner 已决定 develop 保留已合入 HTML 内容；8.2.0 从独立发行候选交付 Diagram、Learning Evidence、Explain 三插件与五公开技能，HTML 另行发行，不因并行合入扩大本次公开发行范围。
+
 ## Communication 工具准备
 
-Epic #222 的 PR2 扩展提交和版本工具的 `communication-kit` 候选 scope，并让品牌预览按行容纳第四张图。运行集合仍是三个插件、四个公开技能；缺少实际 manifest 时版本工具应零写入失败，未执行真实 bump。Owner 已选择第二轮 D 地球＋清晰文字候选；初轮未选和导出失败保留，正式资源与注册等待 PR3 原子接入；候选、实测及未覆盖项见 [品牌验收](docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。本阶段仍依赖 PR1 实际合并和当前 head 独立批准，不把准备工作写成上线完成。
+Epic #222 的 PR2 扩展提交和版本工具的 `communication-kit` 候选 scope，并让品牌预览按行容纳第四张图。当前同步基线的运行集合为四个插件、五个公开技能；缺少实际 manifest 时版本工具应零写入失败，未执行真实 bump。Owner 已选择第二轮 D 地球＋清晰文字候选；初轮未选和导出失败保留，正式资源与注册等待 PR3 原子接入；候选、实测及未覆盖项见 [品牌验收](docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。本阶段仍依赖 PR1 实际合并和当前 head 独立批准，不把准备工作写成上线完成。
 
 ## HTML Guide Kit 阶段实施
 

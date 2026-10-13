@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.18
+version: v2.19
 ---
 
 # 文档索引
@@ -25,7 +25,7 @@ PR3 开发候选增加 Communication 0.1.0，并同步 HTML 0.1.0 开发基线�
 
 ## 入口
 
-Communication PR4正并行准备验收汇总与远端发布门禁核查，见[验收记录§6](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)；独立批准和Learning8.2先发仍未满足，未执行实际版本转换、PR5或Release，不预造正式版本身份。
+Communication PR4正并行准备验收汇总与远端发布门禁核查，见[验收记录§6](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)；已普通merge同步Learning存储#224并追加新批工程证据，Communication运行包身份保持。独立批准和Learning8.2先发仍未满足，未执行实际版本转换、PR5或Release，不预造正式版本身份。
 
 - [Communication 完整实施计划](../plan/communication-kit-implementation-plan.md)与[原稿捕获](../plan/communication-kit-plan-provenance.json)
 - [Communication Kit 新增决定](adr/[ADR]_Communication_Kit_Addition.md)

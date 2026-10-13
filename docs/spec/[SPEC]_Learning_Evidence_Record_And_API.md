@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-12
 state: active
-version: v1.0
+version: v1.1
 ---
 
 # [SPEC] Learning Evidence records and common API
@@ -39,7 +39,7 @@ All required fields below must exist. Unknown facts use explicit null with a cor
 | `operator` | Operation provenance `{account, tool}`; distinct from responsible person and author |
 | `task` | Task object below; no Issue number causes a stable local task ID |
 | `knowledge_units` | One or two KU objects `{id, goal, sources}`; each source retains `{locator, version, content_or_excerpt, authority, limitations}` |
-| `observations` | Array `{id, ku_id, stage, question, respondent_id, response, answer_status, support, feedback, observed_at}` |
+| `observations` | Array `{id, question_id?, ku_id, stage, question, respondent_id, response, answer_status, support, feedback, observed_at}` |
 | `requirement_baseline` | Complete recoverable original intention and requirements, as below |
 | `code_version` | `{repository, base, head, paths}`; unknown values are explicit and explained |
 | `quiz_status` | `pending`, `completed`, `skipped`, `stopped`, `interrupted`, `not_applicable` |
@@ -56,9 +56,9 @@ Each conclusion status is `supported`, `partially_supported`, `unsupported` or `
 
 `requirement_baseline` contains `baseline_id`, `origin` (`{kind, locator, version}`), `captured_at`, complete UTF-8 `content`, `sha256` and `requirements`. Each requirement retains `{id, text, ku_ids, acceptance_refs}`. The digest covers the complete content's UTF-8 bytes. A live path, URL, digest or summary alone is insufficient. Versioned original intention and requirement items must remain recoverable after source changes or worktree deletion. The requirement baseline is distinct from authoritative knowledge-answer sources. Unknown source authority is declared, not replaced with the requirement text.
 
-Each observation distinguishes initial and supported responses using `stage` (`initial`, `supported`, `retest`, `application`) and `support` (an array of `{kind, provider, content}`). `answer_status` is `answered`, `pending`, `skipped` or `stopped`. Pending has null response. Preselection, timeout and close events may be recorded as limitations but never as answered. At most five displayed quiz questions occur in a diagnostic; the second KU requires `provenance.second_ku_continuation: {confirmed: true, reference: "explicit response source"}`. Full question, response, feedback and support content is retained.
+Each observation distinguishes initial and supported responses using `stage` (`initial`, `supported`, `retest`, `application`) and `support` (an array of `{kind, provider, content}`). `answer_status` is `answered`, `pending`, `skipped` or `stopped`. Pending has null response. Preselection, timeout and close events may be recorded as limitations but never as answered. At most five displayed quiz questions occur in a diagnostic; the second KU requires `provenance.second_ku_continuation: {confirmed: true, reference: "explicit response source"}`. Full question, response, feedback and support content is retained. Distinct new displays/replacements have distinct question_id values; same-question redisplay/support uses the same ID. When absent, observation.id is the display ID. Identical question text does not merge distinct displays or evade the budget.
 
-`application` contains `{scope, explanation, respondent_id, expectations, materials, code_version, affected_ku_ids}`. Scope identifies the exact task/PR and version; explanation is the actual person's account of choices, constraints and exceptions. Materials retain locator, version, observed result and recoverable relevant content. A check without explanation or materials remains `not_run`/blocked and reports missing inputs. Correct multiple-choice answers cannot replace application explanation. Changed relevant requirements, source or code are reported as needing review; unrelated changes do not force a full retest.
+`application` contains `{scope, explanation, respondent_id, expectations, materials, code_version, affected_ku_ids}`. Scope retains task_id, repository, base, head and optional PR number. Executed application matches record.code_version and application.code_version and requires known repository/head; not_run may retain missing-input limits. Scope identifies the exact task/PR and version; explanation is the actual person's account of choices, constraints and exceptions. Materials retain locator, version, observed result and recoverable relevant content. A check without explanation or materials remains `not_run`/blocked and reports missing inputs. Correct multiple-choice answers cannot replace application explanation. Changed relevant requirements, source or code are reported as needing review; unrelated changes do not force a full retest.
 
 ## 3. JSON request and receipt
 
@@ -117,7 +117,7 @@ Library files separate immutable `records/`, confirmed `identities/`, `tasks/`, 
 
 The worktree's `.learning-evidence/manifest.json` contains only schema version, library locator and record/evidence/task/association references. It contains no answer, baseline, token or full record cache. Verify the resolved worktree and manifest target; reject path escape and unexpected existing content. Add `/.learning-evidence/` to the repository's local Git exclude, not to a tracked business file. A tracked learning manifest is a conflict. Deleting a worktree leaves the library intact; `restore` rebuilds a new worktree's references.
 
-Exports include a manifest of exact member digests and structure version. Import validates member names, size bounds, digests, record structure and references before writing. Import/export retain source IDs; a shared copy does not count as new learning. Backups are explicit export packages. Archive is retained indefinitely in 0.1.0; there is no automatic deletion or cloud synchronization.
+Exports include a manifest of exact member digests and structure version. Import validates member names, size bounds, digests, record structure and references before writing. Import/export retain source IDs; a shared copy does not count as new learning. A related bulk receipt spanning unselected records returns blocked instead of expanding the export or emitting an incomplete package; explicitly selecting its full related scope allows a complete export. Backups are explicit export packages. Archive is retained indefinitely in 0.1.0; there is no automatic deletion or cloud synchronization.
 
 ## 5. Complete comment publication
 
@@ -145,4 +145,5 @@ Schema breaking changes require a new schema version and explicit import compati
 
 | Version | Date | Change |
 | --- | --- | --- |
+| v1.1 | 2026-10-12 | Implementation clarifies stable display IDs, executed-application scope/version and complete export scope |
 | v1.0 | 2026-10-12 | Accepted record/common API contract, immutable history, manual flow and staged-entry boundary; Refs #210 and Epic #209 |
