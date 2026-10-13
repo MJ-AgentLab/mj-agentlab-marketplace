@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: active
-version: v1.5
+version: v1.6
 last-verified: 2026-10-13
 verification-scope: scoped-cli-core-and-candidate-engineering
 ---
@@ -39,13 +39,15 @@ verification-scope: scoped-cli-core-and-candidate-engineering
 | 契约与迁移 | [#216](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/216) / [#210](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/210) | 已合入，子 Issue 已关闭；不追认未提供的非作者批准 |
 | 本机证据库 | [#224](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/224) / [#211](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/211) | 已获当前head非作者批准并合入a2090ff8；同树七canonical安装/缓存Python通过，#211关闭 |
 | GitHub 流转 | [#227](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/227) / [#212](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/212) | 已实际合入f958908e；同树七canonical安装/缓存Python通过，#212关闭；当前reviews为空，不补记批准 |
-| 原子插件切换 | [#228](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/228) / [#213](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/213) | 当前8eb1103已解除前序依赖并转为可审查；317/八安装/19资源模型闭包通过，当前head批准/CI/merge另核对，不指定审查人 |
-| 技术验收与 8.2.0 准备 | Draft [#230](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/230) / [#214](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/214) | 开发317/八安装与独立公开290/五canonical分别通过；第五轮限定核心通过，最终当前head/批准/merge仍待实际门禁 |
+| 原子插件切换 | [#228](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/228) / [#213](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/213) | 已实际合入434d053；八精确canonical安装/143资源/实际Python通过，#213关闭；当前reviews为空不补记批准 |
+| 技术验收与 8.2.0 准备 | [#230](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/230) / [#214](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/214) | 前序已交付；3d71963最新8.2.0开发源317/八安装通过，生产/模型资源与证据不变；准备最终head独立审查，批准/CI/merge实际另核对 |
 | 正式发布与跟踪 | [#215](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/215) | Draft [#232](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/232) 已创建并附加；main 合入和正式发布 NOT_RUN，PR 只写 Refs，不自动 Closes Epic |
 
-2026-10-13 当前依赖更新：#224 的实际批准/merge/关闭见[PR2合并回执](evidence/learning-evidence-pr224-post-merge.json)，#227 的真实merge、空reviews/关闭及#228同树317/八安装/四共用模块和十九模型资源闭包见[PR3合并回执](evidence/learning-evidence-pr227-post-merge.json)。#228未合入，#230/#232继续Draft；公开候选b7bdd769未因开发侧新账本改变，main/latest Release仍8.1.1。Owner再次确认三插件8.2.0条件发布和依赖顺序，并要求后续不指定人发出请求审查。此偏好不解除当前head非作者批准、CI及已解决线程门禁，也不追认历史#216/#227缺失批准。
+2026-10-13 较早依赖快照：#224 的实际批准/merge/关闭见[PR2合并回执](evidence/learning-evidence-pr224-post-merge.json)，#227 的真实merge、空reviews/关闭及#228同树317/八安装/四共用模块和十九模型资源闭包见[PR3合并回执](evidence/learning-evidence-pr227-post-merge.json)。#228未合入，#230/#232继续Draft；公开候选b7bdd769未因开发侧新账本改变，main/latest Release仍8.1.1。Owner再次确认三插件8.2.0条件发布和依赖顺序，并要求后续不指定人发出请求审查。此偏好不解除当前head非作者批准、CI及已解决线程门禁，也不追认历史#216/#227缺失批准。
 
 本次PR5文档同步初次严格校验发现根AGENTS摘要为16413字节，超过既有16384字节预算；生产代码未变。已将五段重复/过时阶段摘要合并为当前状态与账本指针，完整修复前文本、原错误及变更边界保留在[指令预算修复回执](evidence/learning-evidence-pr5-instruction-budget-repair.json)。不提高预算、不修改校验器；修复后摘要14704字节，实际严格校验及65/65文档/A6检查通过；原失败与成功输出的来源和hash分别保留。
+
+2026-10-13 当前更新：#228已实际合入并完成八canonical/实际缓存Python复验，#213关闭，空reviews历史保留；#230同步后的8.2.0开发候选完整317/八安装及不变十九资源/原始模型证据核对通过，详见[PR4合并回执](evidence/learning-evidence-pr228-post-merge.json)。本阶段不指定审查人，当前head批准/CI/线程和实际合入仍按门禁；#232继续三插件Draft，尚未公开8.2.0。
 
 ## §2 Steps and evidence preparation
 
@@ -138,6 +140,7 @@ Owner 已确认 8.2.0 仍为原定三插件/五技能/两项学习策略。devel
 
 | Version | Date | last-verified | Change |
 | --- | --- | --- | --- |
+| v1.6 | 2026-10-13 | PR4实际合并和PR5最新完整工程验收 | 保留空reviews历史，#213交付关闭，317/八安装及资源/原模型证据闭包通过；PR5/正式发行当前head门禁仍待完成 |
 | v1.5 | 2026-10-13 | 前序实际交付与PR4当前可审查来源 | #224/#227合并复验及#211/#212关闭，保留空reviews历史与不指定审查人偏好；后续依赖/当前head门禁和正式发布仍待完成 |
 | v1.4 | 2026-10-13 | 实际发行草稿及最终 Git 提交安装 | #232/b7bdd76 三插件，五种 canonical 安装及实际 Python 通过；依赖/批准/保护合入/正式发布待实际完成 |
 | v1.3 | 2026-10-13 | 第五轮限定 CLI 核心及两种集合的实际工程结果 | 保存完整回执/独立审查、原超时和错误，核心资格与实际交付/发布/Owner接受分别记录 |

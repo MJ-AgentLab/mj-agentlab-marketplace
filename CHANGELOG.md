@@ -18,6 +18,8 @@
 
 ### Changed
 
+- Record actual atomic package delivery #228 and #213 completion, exact-merge canonical cache/Python checks and the unchanged 8.2.0 development candidate rerun. Preserve original model/failure evidence, missing historical reviews and the separate three-plugin public release scope.
+
 - Record the actual GitHub-flow merge #227 and child #212 delivery, canonical installation/Python checks and the observed missing GitHub reviews. Prepare the unchanged qualified package stage with 317 tests/eight installs and exact common/model resource closure; honor the Owner preference to leave later review requests unassigned.
 
 - Correct new Learning Record Check generation metadata after actual role acceptance exposed inherited learning authors/skills and an invented future event time. Use the actual check author, current installed checker context and observed event clock; preserve original metadata through immutable originals and lineage. Original failures remain recorded; repaired behavior requires a fresh-source rerun.

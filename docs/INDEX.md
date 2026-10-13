@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.17.2
+version: v2.17.3
 ---
 
 # 文档索引
@@ -24,6 +24,8 @@ HTML Guide Kit 正按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-mar
 Learning Evidence #224 已获当前 head 非作者批准并合入；实际 merge 的七种 canonical 安装和缓存 Python 通过，#211 已关闭。PR3 已按实际 merge 同步并通过 311 项回归与七隔离安装，其当前 head 独立批准与合入仍待完成，详见[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。公开 8.2.0 保持原三插件，HTML 另行发行。
 
 Learning Evidence #227 已实际合入并通过七种精确 canonical 安装/缓存 Python，#212 已关闭；其当前 GitHub 审查记录为空，按原事实保留。PR4 同步后通过317项回归/八安装并保持已验收模型资源，仍待本阶段当前head批准与合入；后续不指定审查人，门禁不变，详见[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。
+
+Learning Evidence #228已实际合入并通过八种精确canonical安装/143资源/缓存Python，#213关闭；空reviews缺项保留。PR5最新8.2.0开发源完整317/八安装及未变模型资源通过，准备当前head审查；公开候选仍原三插件，详见[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)与[发行准备](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。
 
 ## 入口
 
