@@ -9,6 +9,8 @@
 
 - Define the explicitly invoked Communication Kit / communicate product contract, source-freeze schema, usage guide and S01–S12 / C01–C18 acceptance fixtures under Refs #222. Preserve the saved implementation plan and its byte hash. Runtime plugins, public skills and versions remain unchanged in PR1.
 - Record necessary client and release checks as NOT RUN; defer real-world communication effects, personal trials and efficiency evaluation. The planned delivery ends at a published Release and post-publication canonical installation verification.
+
+- Stage manual Learning Evidence GitHub publication/collection through the authenticated gh interface: complete segmented JSON and reading text, digest/read-back receipts, missing-only recovery and updated-time acquisition. Confirm scope before persisting filtered bodies, require bounded stable page inventories, and retain prior progress on failures; writes in engineering acceptance use a controlled substitute.
 - Stage Python 3.12 local Learning Evidence storage with immutable records, confirmed attribution, full baselines, idempotent transactions, reference-only worktree association, complete export/import and retained archive. Old runtime packages remain byte-identical; installation switch is deferred to PR4.
 - Atomically add the HTML Guide Kit 0.1.0 development candidate: one explicit Read skill, guide, two packaged references, the Owner-selected round-2 A HTML textbook icon, strict registration and source/cache byte checks. Preserve the four original installation scenarios and add HTML alone, HTML + Explain and all four plugins; natural discovery remains three skills. This candidate is not a formal release or a claim of client/learning-effect acceptance. Refs #217, #219.
 - HTML Guide Kit 合同与前置治理（Refs #217、#218）：新增 ADR、验收 SPEC/RUNBOOK，预留提交 scope 与独立版本工具支持；缺失 manifest 继续失败，运行集合与 marketplace 8.1.2 / 现有插件版本保持。提供 npm run check / smoke 兼容入口；Owner 已选择第二轮 A「HTML 教材」图标，完整插件在后续 PR 原子接入。现实场景效果按 Owner 调整另测，不宣称理解改善。
@@ -19,6 +21,8 @@
 ### Changed
 
 - Prepare communication-kit commit/version tooling and three D-style icon candidates for Epic #222. Render plugin comparison sheets across rows so a fourth icon and its native previews remain visible. Runtime registration, formal icon exports and all real versions remain unchanged; the new icon awaits Owner selection.
+
+- Record the protected Learning Evidence local-store merge #224, exact-tree canonical installation/Python verification and child #211 completion; synchronize PR3 ancestry with unchanged production modules and a fresh 311-test/seven-install rerun. Preserve the separately approved three-plugin 8.2.0 release scope and deferred entries.
 
 - Prepare the unpublished develop 8.1.2 pre-bump after #206 synchronized the published main. Update only marketplace VERSION and its derived README badge; keep all plugin versions, published version sections, tags and assets unchanged. Include the parallel publication-record documentation and synchronize its main merge ancestry when available.
 
