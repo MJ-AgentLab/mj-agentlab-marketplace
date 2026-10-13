@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.17.3
+version: v2.17.4
 ---
 
 # 文档索引
@@ -21,11 +21,13 @@ Epic #209 的 PR4 原子迁移当前候选为 Diagram 0.3.1 / Learning Evidence 
 
 HTML Guide Kit 正按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 分阶段实施：PR1 #221 已合入并复验；PR2 原子接入完整 0.1.0 插件、已选 A 图标与严格合同，当时开发集合增至四插件五技能；Learning Evidence 替换后四插件六技能，公开 8.2.0 仍原三插件五技能，HTML 另行发行。阶段门槛见 [ADR](adr/[ADR]_HTML_Guide_Kit_Addition.md)，判准见 [SPEC](spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，实际结果及未覆盖项见 [RUNBOOK](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。现实场景理解效果另测，本次仍保留工程行为与双客户端交互验收。
 
-Learning Evidence #224 已获当前 head 非作者批准并合入；实际 merge 的七种 canonical 安装和缓存 Python 通过，#211 已关闭。PR3 已按实际 merge 同步并通过 311 项回归与七隔离安装，其当前 head 独立批准与合入仍待完成，详见[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。公开 8.2.0 保持原三插件，HTML 另行发行。
 
-Learning Evidence #227 已实际合入并通过七种精确 canonical 安装/缓存 Python，#212 已关闭；其当前 GitHub 审查记录为空，按原事实保留。PR4 同步后通过317项回归/八安装并保持已验收模型资源，仍待本阶段当前head批准与合入；后续不指定审查人，门禁不变，详见[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。
 
-Learning Evidence #228已实际合入并通过八种精确canonical安装/143资源/缓存Python，#213关闭；空reviews缺项保留。PR5最新8.2.0开发源完整317/八安装及未变模型资源通过，准备当前head审查；公开候选仍原三插件，详见[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)与[发行准备](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。
+
+
+
+
+Marketplace v8.2.0已通过#232/main ebc4bdc3公开，原三插件/五技能/两学习策略，发布后五精确安装/实际Python通过；#210–214关闭，历史reviews缺项/原生延期/桌面未运行/Owner最终接受保留。本main→develop同步保留HTML四插件开发集合，再按顺序仅预升VERSION/badge至8.2.1；#215/Epic仍OPEN，详见[发行账本](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)与[验收](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。
 
 ## 入口
 
