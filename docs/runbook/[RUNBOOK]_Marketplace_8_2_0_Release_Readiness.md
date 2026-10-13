@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: active
-version: v1.9
+version: v1.9.1
 last-verified: 2026-10-13
 verification-scope: scoped-cli-core-published-identity-and-post-release-install
 ---
@@ -17,7 +17,7 @@ verification-scope: scoped-cli-core-published-identity-and-post-release-install
 
 本账本记录 **8.2.0 实际公开发布与复查**，保留所有较早候选/失败快照及未完成项。Owner 已授权 Epic [#209](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/209) 的集中实施及条件发布，并接受保留两个公开技能和共用接口、核心独立验收后分段交付；不能满足严格原生窗口的入口延期，Epic 保留未完成事项。遵循 [迁移 ADR](../adr/[ADR]_Learning_Evidence_Kit_Migration.md)、[记录/API 契约](../spec/[SPEC]_Learning_Evidence_Record_And_API.md)和[发布操作](./[RUNBOOK]_Release_Operations.md)，不重复索取已提供的授权。
 
-当前main与公开Release为 **8.2.0**。#232实际merge `ebc4bdc3abc62c36348d9ba28de7161b04b3b466` 与已测6d83c8e同树5c7557fe；v8.2.0 tag/Release 411293170 target均绑定该merge，2026-10-13 05:00:19 UTC已公开，非draft/prerelease、无资产。发布后五种精确canonical安装及实际Python通过，发布脚本再运行仅验证并noop。#232 reviews为空、独立批准NOT_OBSERVED，不能因发布补记批准/豁免；repo未启用immutable releases、实际immutable=false，不声称已锁定。完整原始事实和输出见[发布回执](evidence/learning-evidence-8-2-0-post-release.json)。较早段落的8.1.1/未发布描述均为相应时点历史，不代表当前公开状态。
+当前main与公开Release为 **8.2.0**。#232实际merge `ebc4bdc3abc62c36348d9ba28de7161b04b3b466` 与已测6d83c8e同树5c7557fe；v8.2.0 tag/Release 411293170 target均绑定该merge，2026-10-13 05:00:19 UTC已公开，非draft/prerelease、无资产。发布后五种精确canonical安装及实际Python通过，发布脚本再运行仅验证并noop。#232 reviews为空、独立批准NOT_OBSERVED，不能因发布补记批准/豁免；repo API未提供immutable配置字段、流程使用false默认值；实际Release immutable=false，不声称已锁定。完整原始事实和输出见[发布回执](evidence/learning-evidence-8-2-0-post-release.json)。较早段落的8.1.1/未发布描述均为相应时点历史，不代表当前公开状态。
 
 | 对象 | 当前身份或状态 | 本记录的证据边界 |
 | --- | --- | --- |
@@ -146,6 +146,7 @@ Owner 已确认 8.2.0 仍为原定三插件/五技能/两项学习策略。devel
 
 | Version | Date | last-verified | Change |
 | --- | --- | --- | --- |
+| v1.9.1 | 2026-10-13 | immutable配置字段未提供/Release flag=false | 保留原脚本false默认值及原输出，明确配置unknown与实际未锁定发布；不推断已关闭配置 |
 | v1.9 | 2026-10-13 | 实际公开/tag/Release/精确安装复查 | 保存自动draft-first与published-noop、same-tree身份、empty reviews、immutable=false；同步保留四插件开发范围，后续两文件pre-bump独立 |
 | v1.8 | 2026-10-13 | PR5实际合并同树精确验收及分段关闭 | #230/6b5a19e八canonical与实际Python通过；#214关闭并保留reviews缺项/全部延期；公开依赖已交付，新发行head仍需精确安装及保护门禁 |
 | v1.7 | 2026-10-13 | 三插件公开文档同步；新head待精确canonical/保护门禁 | 保持全部运行/测试/版本及原模型证据，复制实际依赖回执与历史缺项；P5/发行当前head批准/合入/正式发布另核对 |

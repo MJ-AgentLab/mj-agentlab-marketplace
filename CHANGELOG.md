@@ -8,7 +8,7 @@
 ### Added
 
 - Record actual PR5 scoped technical delivery and unchanged three-plugin release dependencies. Exact merged-source installation/Python evidence, missing historical reviews and deferred client entries remain separate from publication and full Epic acceptance.
-- Record Marketplace v8.2.0 publication at the actual main merge, exact post-publication three-plugin installations/Python, retained review gaps and unset release immutability. Synchronize main ancestry into the four-plugin development tree before the separate VERSION/badge-only 8.2.1 pre-bump.
+- Record Marketplace v8.2.0 publication at the actual main merge, exact post-publication three-plugin installations/Python, retained review gaps and unreported repository immutability configuration and the observed mutable Release flag. Synchronize main ancestry into the four-plugin development tree before the separate VERSION/badge-only 8.2.1 pre-bump.
 
 - Stage manual Learning Evidence GitHub publication/collection through the authenticated gh interface: complete segmented JSON and reading text, digest/read-back receipts, missing-only recovery and updated-time acquisition. Confirm scope before persisting filtered bodies, require bounded stable page inventories, and retain prior progress on failures; writes in engineering acceptance use a controlled substitute.
 - Stage Python 3.12 local Learning Evidence storage with immutable records, confirmed attribution, full baselines, idempotent transactions, reference-only worktree association, complete export/import and retained archive. Old runtime packages remain byte-identical; installation switch is deferred to PR4.

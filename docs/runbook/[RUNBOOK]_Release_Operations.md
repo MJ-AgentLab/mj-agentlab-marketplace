@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.9.1
+version: v2.9.2
 ---
 
 # [RUNBOOK] Release operations
@@ -27,7 +27,7 @@ scripts/run-release.mjs 从指定 SHA 读取 VERSION 与 CHANGELOG，要求 SHA 
 
 ## Post-release
 
-Marketplace v8.2.0已通过#232/main ebc4bdc3于2026-10-13自动公开，原三插件/五技能/两显式学习策略，发布后五精确canonical安装与实际Python通过；空reviews和未启用immutable releases保留，见[发行账本](./[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。先同步实际main ancestry回develop，保留其HTML四插件开发集合；同步合入后再通过独立PR只预升VERSION/README badge到8.2.1，不创建同号Release。仅两文件的预升按既有A6无实质同步规则使用[skip a6]和当前head合格非作者精确签核，不能据已授权预升自签或放松校验。原生延期、桌面未运行、效果/Owner最终接受与Epic继续独立追踪。
+Marketplace v8.2.0已通过#232/main ebc4bdc3于2026-10-13自动公开，原三插件/五技能/两显式学习策略，发布后五精确canonical安装与实际Python通过；空reviews及immutable配置未提供/Release immutable=false保留，见[发行账本](./[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。先同步实际main ancestry回develop，保留其HTML四插件开发集合；同步合入后再通过独立PR只预升VERSION/README badge到8.2.1，不创建同号Release。仅两文件的预升按既有A6无实质同步规则使用[skip a6]和当前head合格非作者精确签核，不能据已授权预升自签或放松校验。原生延期、桌面未运行、效果/Owner最终接受与Epic继续独立追踪。
 
 Marketplace v8.1.1 已通过 #205 合入 main 并于 2026-10-10 公开，tag 与 Release 绑定 merge 8f0e044a593408fadc90565f326ef4cb5906e840；发布后四种 canonical 安装、图标比较和实际 Python 校验通过。Owner 截图及未提供的两端完整客户端结果、#205 独立批准缺项继续分开记录，见 [8.1.1 发布记录](./[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。#206 已回同步发布 main；本分支随后先 dry-run 再实际应用仅 VERSION / README badge 的 8.1.2 pre-bump，插件版本保持。同期 main 文档 PR #207 的实际 merge ancestry 在收尾时继续纳入。
 
