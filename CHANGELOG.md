@@ -5,12 +5,15 @@
 
 ## [Unreleased]
 
+- Prepare the authorized four-package Communication publication projection atomically; HTML remains on develop. Fixed candidate verification is separate from the protected phase merges and post-publication checks. Refs #222.
+
 ### Added
 
 - Archive Communication baseline synchronization, exact raw engineering/install logs and resolved parallel conflicts under Refs #222; preserve package hashes and Owner Q3 four-package formal scope.
 
 - Define the explicit Communication Kit / communicate contract, source-freeze schema and S01–S12 / C01–C18 fixtures under Refs #222; retain the exact saved plan and preserve all failure evidence.
 - Keep real-world effects deferred; the authorized delivery ends at a published Communication Release and post-publication installation verification.
+- Record both completed 8.2.0 closeouts: #234 synchronized actual main ancestry, and #235 pre-bumped develop to unpublished 8.2.1 with preserved plugin versions. Each actual merge passed eight canonical installations/installed Python. Preserve the original A6 exception failure, substantive normal-path root-summary repair and empty review evidence; update current installation to published v8.2.0 while keeping the public three-plugin/development four-plugin scopes and open deferred Epic entries.
 
 - Record actual PR5 scoped technical delivery and unchanged three-plugin release dependencies. Exact merged-source installation/Python evidence, missing historical reviews and deferred client entries remain separate from publication and full Epic acceptance.
 - Record Marketplace v8.2.0 publication at the actual main merge, exact post-publication three-plugin installations/Python, retained review gaps and unreported repository immutability configuration and the observed mutable Release flag. Synchronize main ancestry into the four-plugin development tree before the separate VERSION/badge-only 8.2.1 pre-bump.

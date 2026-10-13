@@ -1,0 +1,400 @@
+TAP version 13
+# Subtest: isA6Trigger matches every §2.7 allowlist category
+ok 1 - isA6Trigger matches every §2.7 allowlist category
+  ---
+  duration_ms: 1.2332
+  type: 'test'
+  ...
+# Subtest: isA6Trigger matches the Codex dual-native additions
+ok 2 - isA6Trigger matches the Codex dual-native additions
+  ---
+  duration_ms: 0.2678
+  type: 'test'
+  ...
+# Subtest: isA6Trigger ignores non-allowlist paths
+ok 3 - isA6Trigger ignores non-allowlist paths
+  ---
+  duration_ms: 0.0818
+  type: 'test'
+  ...
+# Subtest: a trigger path containing a newline is still a trigger
+ok 4 - a trigger path containing a newline is still a trigger
+  ---
+  duration_ms: 0.061
+  type: 'test'
+  ...
+# Subtest: trigger patterns anchor to end of input, not to a trailing newline
+ok 5 - trigger patterns anchor to end of input, not to a trailing newline
+  ---
+  duration_ms: 0.0532
+  type: 'test'
+  ...
+# Subtest: isA6Trigger is anchored — near-miss paths do not match
+ok 6 - isA6Trigger is anchored — near-miss paths do not match
+  ---
+  duration_ms: 0.0594
+  type: 'test'
+  ...
+# Subtest: passes when the diff touches no trigger file
+ok 7 - passes when the diff touches no trigger file
+  ---
+  duration_ms: 0.4734
+  type: 'test'
+  ...
+# Subtest: passes when a trigger file is accompanied by a modified AGENTS.md
+ok 8 - passes when a trigger file is accompanied by a modified AGENTS.md
+  ---
+  duration_ms: 0.1831
+  type: 'test'
+  ...
+# Subtest: passes when AGENTS.md is newly added alongside a trigger
+ok 9 - passes when AGENTS.md is newly added alongside a trigger
+  ---
+  duration_ms: 0.1981
+  type: 'test'
+  ...
+# Subtest: reports every triggered path, not just the first
+ok 10 - reports every triggered path, not just the first
+  ---
+  duration_ms: 0.2264
+  type: 'test'
+  ...
+# Subtest: blocks when a trigger file is touched and AGENTS.md is absent
+ok 11 - blocks when a trigger file is touched and AGENTS.md is absent
+  ---
+  duration_ms: 0.1007
+  type: 'test'
+  ...
+# Subtest: deleting root AGENTS.md does NOT count as syncing it
+ok 12 - deleting root AGENTS.md does NOT count as syncing it
+  ---
+  duration_ms: 0.0526
+  type: 'test'
+  ...
+# Subtest: a AGENTS.md typechange does not count as syncing it
+ok 13 - a AGENTS.md typechange does not count as syncing it
+  ---
+  duration_ms: 0.0438
+  type: 'test'
+  ...
+# Subtest: only ROOT AGENTS.md counts — a plugin AGENTS.md does not
+ok 14 - only ROOT AGENTS.md counts — a plugin AGENTS.md does not
+  ---
+  duration_ms: 0.0413
+  type: 'test'
+  ...
+# Subtest: REGRESSION: [skip a6] alone does not bypass the gate
+ok 15 - REGRESSION: [skip a6] alone does not bypass the gate
+  ---
+  duration_ms: 0.0976
+  type: 'test'
+  ...
+# Subtest: [skip a6] plus a valid reviewer sign-off bypasses the gate
+ok 16 - [skip a6] plus a valid reviewer sign-off bypasses the gate
+  ---
+  duration_ms: 0.081
+  type: 'test'
+  ...
+# Subtest: the skip token must be the literal string
+ok 17 - the skip token must be the literal string
+  ---
+  duration_ms: 0.0588
+  type: 'test'
+  ...
+# Subtest: a sign-off without the skip token does not bypass the gate
+ok 18 - a sign-off without the skip token does not bypass the gate
+  ---
+  duration_ms: 0.0321
+  type: 'test'
+  ...
+# Subtest: the PR author cannot sign off on their own PR
+ok 19 - the PR author cannot sign off on their own PR
+  ---
+  duration_ms: 0.0386
+  type: 'test'
+  ...
+# Subtest: author self-signoff is rejected case-insensitively
+ok 20 - author self-signoff is rejected case-insensitively
+  ---
+  duration_ms: 0.0334
+  type: 'test'
+  ...
+# Subtest: only OWNER / MEMBER / COLLABORATOR may sign off
+ok 21 - only OWNER / MEMBER / COLLABORATOR may sign off
+  ---
+  duration_ms: 0.1106
+  type: 'test'
+  ...
+# Subtest: a sign-off against a stale head SHA does not count
+ok 22 - a sign-off against a stale head SHA does not count
+  ---
+  duration_ms: 0.0404
+  type: 'test'
+  ...
+# Subtest: the review must be an APPROVAL, not a comment
+ok 23 - the review must be an APPROVAL, not a comment
+  ---
+  duration_ms: 0.0457
+  type: 'test'
+  ...
+# Subtest: the review body must equal the sign-off phrase exactly
+ok 24 - the review body must equal the sign-off phrase exactly
+  ---
+  duration_ms: 0.061
+  type: 'test'
+  ...
+# Subtest: surrounding whitespace and CRLF in the sign-off body are tolerated
+ok 25 - surrounding whitespace and CRLF in the sign-off body are tolerated
+  ---
+  duration_ms: 0.0424
+  type: 'test'
+  ...
+# Subtest: a later CHANGES_REQUESTED from the same reviewer revokes their sign-off
+ok 26 - a later CHANGES_REQUESTED from the same reviewer revokes their sign-off
+  ---
+  duration_ms: 0.0745
+  type: 'test'
+  ...
+# Subtest: a re-approval after CHANGES_REQUESTED restores the sign-off
+ok 27 - a re-approval after CHANGES_REQUESTED restores the sign-off
+  ---
+  duration_ms: 0.1048
+  type: 'test'
+  ...
+# Subtest: review recency follows submitted_at, not array position or id
+ok 28 - review recency follows submitted_at, not array position or id
+  ---
+  duration_ms: 0.0554
+  type: 'test'
+  ...
+# Subtest: review recency falls back to id when submitted_at ties
+ok 29 - review recency falls back to id when submitted_at ties
+  ---
+  duration_ms: 0.0401
+  type: 'test'
+  ...
+# Subtest: one reviewer's CHANGES_REQUESTED does not void another's valid sign-off
+ok 30 - one reviewer's CHANGES_REQUESTED does not void another's valid sign-off
+  ---
+  duration_ms: 0.0444
+  type: 'test'
+  ...
+# Subtest: a reviewer with no login is ignored rather than crashing
+ok 31 - a reviewer with no login is ignored rather than crashing
+  ---
+  duration_ms: 0.0392
+  type: 'test'
+  ...
+# Subtest: evaluateA6 rejects malformed input rather than guessing
+ok 32 - evaluateA6 rejects malformed input rather than guessing
+  ---
+  duration_ms: 0.2838
+  type: 'test'
+  ...
+# Subtest: flattenReviews accepts both a plain array and --paginate --slurp nesting
+ok 33 - flattenReviews accepts both a plain array and --paginate --slurp nesting
+  ---
+  duration_ms: 0.1855
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ parses git's STATUS\\0PATH\\0 records
+ok 34 - parseNameStatusZ parses git's STATUS\\0PATH\\0 records
+  ---
+  duration_ms: 0.1286
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ handles an empty diff
+ok 35 - parseNameStatusZ handles an empty diff
+  ---
+  duration_ms: 0.0421
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ keeps newlines inside a path intact
+ok 36 - parseNameStatusZ keeps newlines inside a path intact
+  ---
+  duration_ms: 0.0421
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ strips similarity scores from status codes
+ok 37 - parseNameStatusZ strips similarity scores from status codes
+  ---
+  duration_ms: 0.0338
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ rejects a rename record instead of misreading it
+ok 38 - parseNameStatusZ rejects a rename record instead of misreading it
+  ---
+  duration_ms: 0.0469
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ rejects a trailing status with no path
+ok 39 - parseNameStatusZ rejects a trailing status with no path
+  ---
+  duration_ms: 0.2594
+  type: 'test'
+  ...
+# Subtest: CLI exits 2 when a required environment variable is missing
+ok 40 - CLI exits 2 when a required environment variable is missing
+  ---
+  duration_ms: 248.3065
+  type: 'test'
+  ...
+# Subtest: CLI exits 2 on an unreadable reviews file
+ok 41 - CLI exits 2 on an unreadable reviews file
+  ---
+  duration_ms: 235.9795
+  type: 'test'
+  ...
+# Subtest: CLI exits 2 on malformed reviews JSON
+ok 42 - CLI exits 2 on malformed reviews JSON
+  ---
+  duration_ms: 227.7824
+  type: 'test'
+  ...
+# Subtest: CLI exits 2 on an unresolvable SHA rather than treating the diff as empty
+ok 43 - CLI exits 2 on an unresolvable SHA rather than treating the diff as empty
+  ---
+  duration_ms: 278.5961
+  type: 'test'
+  ...
+# Subtest: CLI exits 1 and names the triggers when the gate blocks
+ok 44 - CLI exits 1 and names the triggers when the gate blocks
+  ---
+  duration_ms: 353.6536
+  type: 'test'
+  ...
+# Subtest: CLI exits 0 when AGENTS.md is synced alongside the trigger
+ok 45 - CLI exits 0 when AGENTS.md is synced alongside the trigger
+  ---
+  duration_ms: 359.2755
+  type: 'test'
+  ...
+# Subtest: CLI exits 0 when the PR touches nothing on the allowlist
+ok 46 - CLI exits 0 when the PR touches nothing on the allowlist
+  ---
+  duration_ms: 388.7588
+  type: 'test'
+  ...
+# Subtest: CLI exits 1 for [skip a6] with no sign-off
+ok 47 - CLI exits 1 for [skip a6] with no sign-off
+  ---
+  duration_ms: 351.7082
+  type: 'test'
+  ...
+# Subtest: CLI exits 0 for [skip a6] with a valid sign-off
+ok 48 - CLI exits 0 for [skip a6] with a valid sign-off
+  ---
+  duration_ms: 377.0569
+  type: 'test'
+  ...
+# Subtest: CLI exits 1 when deleting root AGENTS.md is the only 'sync'
+ok 49 - CLI exits 1 when deleting root AGENTS.md is the only 'sync'
+  ---
+  duration_ms: 343.3643
+  type: 'test'
+  ...
+# Subtest: CLI uses a three-dot range: a base-branch AGENTS.md edit cannot satisfy the PR
+ok 50 - CLI uses a three-dot range: a base-branch AGENTS.md edit cannot satisfy the PR
+  ---
+  duration_ms: 530.9523
+  type: 'test'
+  ...
+# Subtest: CLI sees a renamed trigger file rather than a rename record
+ok 51 - CLI sees a renamed trigger file rather than a rename record
+  ---
+  duration_ms: 350.7635
+  type: 'test'
+  ...
+# Subtest: CLI treats a shell-metacharacter PR title as inert data
+ok 52 - CLI treats a shell-metacharacter PR title as inert data
+  ---
+  duration_ms: 354.4977
+  type: 'test'
+  ...
+# Subtest: CLI handles a PR title that is exactly the skip token with odd spacing
+ok 53 - CLI handles a PR title that is exactly the skip token with odd spacing
+  ---
+  duration_ms: 342.5419
+  type: 'test'
+  ...
+# Subtest: portable manifest and migrated repository skills trigger A6
+ok 54 - portable manifest and migrated repository skills trigger A6
+  ---
+  duration_ms: 0.0923
+  type: 'test'
+  ...
+# Subtest: legacy CLAUDE.md alone cannot satisfy the new sync target
+ok 55 - legacy CLAUDE.md alone cannot satisfy the new sync target
+  ---
+  duration_ms: 0.0539
+  type: 'test'
+  ...
+# Subtest: parseChangelog: section boundaries, heading-free bodies, fence blindness fixed
+ok 56 - parseChangelog: section boundaries, heading-free bodies, fence blindness fixed
+  ---
+  duration_ms: 1.2908
+  type: 'test'
+  ...
+# Subtest: parseChangelog: flags heading lookalikes, leaves ordinary prose alone
+ok 57 - parseChangelog: flags heading lookalikes, leaves ordinary prose alone
+  ---
+  duration_ms: 0.1999
+  type: 'test'
+  ...
+# Subtest: no CHANGELOG has a heading that only looks like a section heading
+ok 58 - no CHANGELOG has a heading that only looks like a section heading
+  ---
+  duration_ms: 2.239
+  type: 'test'
+  ...
+# Subtest: every CHANGELOG section heading has the exact shape run-release.mjs greps for
+ok 59 - every CHANGELOG section heading has the exact shape run-release.mjs greps for
+  ---
+  duration_ms: 2.262
+  type: 'test'
+  ...
+# Subtest: the newest shipping CHANGELOG section is substantive and names its own version
+ok 60 - the newest shipping CHANGELOG section is substantive and names its own version
+  ---
+  duration_ms: 1.5343
+  type: 'test'
+  ...
+# Subtest: root CHANGELOG permanently carries the NLM-only BREAKING disclosures in one section
+ok 61 - root CHANGELOG permanently carries the NLM-only BREAKING disclosures in one section
+  ---
+  duration_ms: 0.91
+  type: 'test'
+  ...
+# Subtest: learn-kit CHANGELOG permanently marks the 4.0.0 NLM break in one section
+ok 62 - learn-kit CHANGELOG permanently marks the 4.0.0 NLM break in one section
+  ---
+  duration_ms: 0.3696
+  type: 'test'
+  ...
+# Subtest: diagram-kit CHANGELOG permanently marks the 0.2.0 Codex bump in one section
+ok 63 - diagram-kit CHANGELOG permanently marks the 0.2.0 Codex bump in one section
+  ---
+  duration_ms: 0.2197
+  type: 'test'
+  ...
+# Subtest: README covers both clients and every maintained qualified public skill
+ok 64 - README covers both clients and every maintained qualified public skill
+  ---
+  duration_ms: 0.4529
+  type: 'test'
+  ...
+# Subtest: upgrade guide preserves old data and explains explicit uninstall
+ok 65 - upgrade guide preserves old data and explains explicit uninstall
+  ---
+  duration_ms: 0.3648
+  type: 'test'
+  ...
+1..65
+# tests 65
+# suites 0
+# pass 65
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4810.1466
