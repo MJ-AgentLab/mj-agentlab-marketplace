@@ -4,10 +4,10 @@ scope: marketplace
 summary: "Learning Evidence Kit technical acceptance, staged entries and release evidence ledger"
 owner: marketplace-maintainers
 created: 2026-10-12
-updated: 2026-10-12
+updated: 2026-10-13
 state: active
-version: v1.2
-last-verified: 2026-10-12
+version: v1.2.1
+last-verified: 2026-10-13
 verification-scope: contract-and-isolated-local-and-github-flow
 ---
 
@@ -87,6 +87,8 @@ Final checks: 241/241 Node tests, zero skipped, including 33 actual Python 3.12.
 
 PR2 is [#224](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/224). Before its merge, parallel HTML contract PR #221 advanced develop to `70267a5b91d759af09a8f1281a33e2d5a90fdbc9`. Synchronization preserves both projects' A6/Unreleased content, HTML version/scope support and all upstream assets. The runtime remains byte-identical to that base. Reverification passed 253/253 Node tests, zero skips, the same 33 actual Python storage cases, strict validation, exact Codex baseline and all four isolated installations with actual cached Python diagram checks. The initial receipt remains intact; its `upstream_sync` section records this broader rerun. GitHub approval and final merge remain pending.
 
+Parallel HTML package PR #226 then merged as develop `d106e76651d53cdf3f0cef2bb33ce47e8d7fda38`. PR2 synchronizes that ancestry while keeping all four registered runtime packages, index and VERSION byte-identical to this new base. The staged storage modules remain unchanged. Reverification passed 280/280, zero skips, the same 33 actual Python 3.12.13 storage cases, strict validation and exact Codex 0.147.0. All seven actual isolated installation scenarios pass, including HTML alone/with Explain and all four packages, with actual installed Diagram Python checks. The receipt appends `upstream_sync_after_html` and retains prior snapshots. Owner explicitly decided to retain HTML in develop while preparing a separate 8.2.0 release candidate containing only Diagram, Learning Evidence and Explain, with five public skills; HTML will be released separately. This synchronization does not expand that approved public release scope. PR2 approval/merge and child #211 remain pending.
+
 ### PR3 manual GitHub flow and independent review (2026-10-12)
 
 The same staged JSON entry now implements `publish` and `collect` using the already authenticated `gh` executable with argument arrays and JSON stdin. Publication freezes actual target metadata, includes complete JSON plus generated reading text, splits by conservative UTF-8 limits and verifies every part. Initial/retry reads precede writes; unknown POST outcomes reconcile before missing-only recovery. Conflicts, incomplete receipts and failures retain their precise result.
@@ -118,7 +120,7 @@ All PRs use `Refs` for the corresponding child and Epic. A merged contract is no
 | PR stage | Child | Depends on | Current state | Completion evidence to record |
 | --- | --- | --- | --- | --- |
 | 1 Contract and migration | [#210](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/210) | Intake | MERGED #216; child closed, contract tree equality verified; reviews empty | Actual merge f64fc957 and tested b83db6a tree equality; no retroactive independent approval claim |
-| 2 Local evidence library | [#211](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/211) | 1 | PR #224; 33 isolated cases, 253-test upstream rerun and independent review passed; approval/merge pending | Isolated Python runs, runtime-byte equality, merge and scoped receipts |
+| 2 Local evidence library | [#211](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/211) | 1 | PR #224; 33 isolated cases, latest 280-test/four-package upstream rerun and independent review passed; earlier 253-test receipt retained; approval/merge pending | Isolated Python runs, runtime-byte equality, merge and scoped receipts |
 | 3 GitHub flow/collection | [#212](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/212) | 2 | PREPARED; isolated subprocess checks and independent review; dependency/approval/merge pending | Substitute writes/recovery/coverage evidence, byte equality and merge |
 | 4 Atomic skill/package switch | [#213](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/213) | 2, 3 | NOT_RUN | Exact inventory, new package/version identity, staging removal, installed execution and merge |
 | 5 Technical acceptance/preparation | [#214](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/214) | 4 | NOT_RUN | Per-entry results/deferred list, independent synthesis, tests, 8.2.0 notes and merge |
@@ -140,4 +142,6 @@ Use existing draft-first release controls and record actual remote state before 
 | --- | --- | --- | --- |
 | v1.0 | 2026-10-12 | Source/intake/document structure; new runtime NOT_RUN | Contract acceptance matrix, actual intake facts, strict-window staged-entry policy, six delivery PRs and two closeout PRs; Refs #210 and Epic #209 |
 | v1.1 | 2026-10-12 | Contract merge and isolated local library; clients NOT_RUN | PR2 independent repairs, 33 Python cases, #224 and 253-test latest-develop synchronization; preserve parallel HTML contracts and earlier evidence |
+| v1.1.1 | 2026-10-12 | Current four-package runtime preservation and seven isolated installations; separate three-plugin 8.2.0 release scope confirmed | Synchronize actual #226 runtime merge, 280-test/33-Python rerun and unchanged staged storage; keep earlier receipts, retain HTML in develop and record Owner's separate-release decision |
 | v1.2 | 2026-10-12 | Isolated manual GitHub flow with controlled remote substitute; clients NOT_RUN | Scope-before-persistence, stable pagination, partial recovery, source receipts and independent original-case reruns; Refs #212 |
+| v1.2.1 | 2026-10-13 | HTML ancestry retained; new full checks pending | Preserve all four runtime packages and prior storage/GitHub receipts while synchronizing #226 through PR2; no public release scope expansion |
