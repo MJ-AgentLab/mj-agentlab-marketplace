@@ -6,14 +6,14 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.3
+version: v1.4
 ---
 
 # [RUNBOOK] Communication Kit acceptance
 
 ## §1 Preconditions and status
 
-PR3已实现并原子接入完整Communication 0.1.0候选、注册、严格集合、冻结资源、正式D图标与安装预期。修复候选94c170d的278测试/九组合保留；HTML基线同步后工程源通过307/307，固定000e803的十三组canonical与六次缓存Python通过。S01–S12客观范围逐项核对。实际CLI批次C01–C15 PASS，C16–C18文件子路径PARTIAL；补充工具角色另有三项限定功能PASS，身份和覆盖分开。原行为FAIL保留；Owner已答复可安排真实界面验收，实际双客户端、原生窗口及R01–R05结果仍NOT RUN，PR3保持draft。[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)保持开放，完整计划与[来源捕获](../../plan/communication-kit-plan-provenance.json)在plan/。
+PR3已实现并原子接入完整Communication 0.1.0候选、注册、严格集合、冻结资源、正式D图标与安装预期。修复候选94c170d的278测试/九组合保留；HTML基线同步后工程源通过307/307，固定000e803的十三组canonical与六次缓存Python通过。S01–S12客观范围逐项核对。实际CLI批次C01–C15 PASS，C16–C18文件子路径PARTIAL；补充工具角色另有三项限定功能PASS，身份和覆盖分开。2026-10-13代理亲自完成统一桌面应用内Codex本地和ChatGPT/Work本机两个实际入口的必要基本功能，限定范围PASS，详见§4。原行为FAIL、CLI限制与原生选择窗口NOT RUN保留；R01–R05未执行，依赖和GitHub批准未满足，PR3保持draft。[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)保持开放，完整计划与[来源捕获](../../plan/communication-kit-plan-provenance.json)在plan/。
 
 PR1 当时仅定义验收、没有运行包，全部新包用例从 NOT RUN 开始；该历史及失败批次保留，当前状态不覆盖原记录。
 
@@ -91,7 +91,7 @@ Codex基线实测0.147.0。原稿、本副本及Git blob SHA-256均为6d0de62b59
 
 2026-10-13续跑时，原指定计划路径已不存在，Git worktree清单亦无communication-plan；上句原稿哈希描述的是2026-10-12实际捕获时的事实。本副本仍为已实际读取的405行原字节，哈希与捕获记录相同。保持副本与原捕获记录，不从聊天摘要重建，也不重建已消失的原工作树；当前来源可用性另记baseline 05。当前工程基线因#226变为四插件五公开技能；PR3保留HTML并接入Communication，形成五插件六公开技能及两方安装矩阵并集，不能删去上游包或旧组合。真实发布范围仍由PR4按Owner已确认顺序核查。
 
-PR1 [#223](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/223)、PR2 [#225](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/225)、PR3 [#229](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/229)均保持draft，非作者GitHub当前head批准尚无记录；已核对没有未解决线程，但不能因此省略批准。AI两轴审查不替代批准。PR1批次不能填新包用例；PR3工程状态见§2，真实双客户端与R01–R05仍NOT RUN。
+PR1 [#223](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/223)、PR2 [#225](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/225)、PR3 [#229](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/229)均保持draft，非作者GitHub当前head批准尚无记录；已核对没有未解决线程，但不能因此省略批准。AI两轴审查不替代批准。PR1批次不能填新包用例；PR3工程状态见§2，两个当前桌面入口的实际基本可用性见§4，R01–R05仍NOT RUN。
 
 ### PR3实际行为初始批次
 
@@ -138,21 +138,33 @@ C03实际等待5.002秒无新用户输入，没有依赖未答问题推进；明
 
 | 客户端 | 状态 | 当前限制 |
 |---|---|---|
-| Codex CLI 0.147.0 / 本地目标路径 | PARTIAL | 九组合、C01–C15实际通过；文件子路径受host限制，图标/窗口/桌面入口未执行 |
-| ChatGPT 桌面端 | NOT RUN | 当前自动化原生API禁用，且Computer Use禁操作该UI；必要实际交互证据待补 |
-| Codex 桌面图标/入口交互 | NOT RUN | 本机存在Codex包，但尚未进行本候选UI交互 |
+| Codex CLI 0.147.0批次 | PARTIAL保留 | 安装和C01–C15实际通过；文件子路径受host限制，不由新UI批次追认 |
+| Codex本地桌面入口 | 必要范围PASS | 固定000e803实际安装、详情页D图标、显式communicate、三任务、聊天等待、新MD/TXT保存与回读；无原生选择窗口事件 |
+| ChatGPT/Work本机桌面入口 | 必要范围PASS | 新Work会话实际识别插件，三任务、等待与新MD/TXT保存回读；与Codex入口使用同一桌面包、本机执行，不代表另一独立ChatGPT安装或云路径 |
 
 缺项保留PR3 draft，继续独立工程工作，只请求具体必要参与。旧截图、其他插件记录、模型自评或离线回放不替代。基本可用性与现实沟通效果分开。
 
+### 2026-10-13代理亲自执行的实际桌面批次
+
+[native UI 01索引](evidence/communication-kit-2026-10-13-native-ui-01.json)记录Windows原生操作、目标区域截图、实际界面输入输出、应用执行trace与独立物理回读。应用显示ChatGPT，实际安装包为`OpenAI.Codex_2p2nqsd0c76g0`、版本`26.1007.2314.0`；两个新会话分别显示`Work with Codex`和`Work with ChatGPT`，均为`codex/local`线程、GPT-6.1 Sol Extra High及原有Full access。此批次覆盖这两个实际目标入口，不能声称测试了另一个独立ChatGPT桌面安装、经典Chat或云端Work，也不改变CLI0.147.0基线。
+
+代理在原生Plugins界面添加`MJ-AgentLab/mj-agentlab-marketplace`、指定完整ref `000e8033ce2f639c974c3953aadc06b9be21878c`，打开“沟通助手”0.1.0详情并实际安装成功；显示已选D地球图标和单个技能。随后两个入口均实际提交显式调用，呈现“沟通助手”调用chip。实际市场镜像HEAD解析同SHA，12份源镜像/安装缓存文件字节相同；Windows换行规范化单独处理，不声称原Git blob与工作区原始字节相同。
+
+两入口分别执行本节三类合成输入，保留全部给定事实、义务强度、条件、例外和未决状态，稿后均有关键提示。Codex未答观察10.177秒、Work未答观察23.943秒，均保持同题、不代选推荐项、不提前成稿；随后真实提交明确期限和事项才交付通知。没有出现原生选择窗口，关闭/失效/空提交路径继续NOT RUN，不能由聊天等待外推。
+
+仅最后明确请求才保存。Codex两个新文件均151字节、SHA-256 `1ab7aadcab683755ec048e2a8d87ccf04235c763004589303b66c1300c567b7e`；Work两个新文件均148字节、SHA-256 `a857dd52b8bb7e662ef9bde3ca421817ee3b9b332bcb74b2e2617d001245479a`，分别与各入口自己的协调初稿相同、不含提示、目录仅两个目标。真实执行trace包含CreateNew、分别ReadAllText及正文比较，exit0、回读输出未截断；完整六轮trace显示此前只有读缓存技能/摘要，没有保存动作。物理读数由独立观察者复核，不采用“已保存”的模型自述代替。新文件子路径PASS不补填完整C16的既有文件编辑；原CLI PARTIAL与补充工具角色结果继续分开。
+
+独立审查核对实际输出、工具调用和物理字节，限定基本可用性通过，不代表GitHub非作者批准或Owner最终接受。旧CUA通道native API禁用的事实保留，但不能推断所有Windows通道不可用；用户明确要求代理亲自执行后，Computer Use的`@oai/sky`实际可用。初始用户输入保护拒绝、滞后快照、搜索不筛选及证据裁剪工具修复均记录于索引。截图裁剪排除无关侧栏/通知，路由文本剔除无关建议，原始全幅截图未入库。
+
 ### 双客户端执行清单与最小参与
 
-代理先准备固定候选来源、SHA/tree、0.1.0包与摘要哈希、可复用合成输入以及隔离新文件目标。Codex 本地/桌面目标路径与 ChatGPT 桌面分别记录以下项目，每项均绑定本客户端、同一候选和实际动作；当前这些客户端交互项均 NOT RUN。
+代理先准备固定候选来源、SHA/tree、0.1.0包与摘要哈希、可复用合成输入以及隔离新文件目标。Codex 本地/桌面目标路径与 ChatGPT 桌面分别记录以下项目，每项均绑定本客户端、同一候选和实际动作；当前已执行项目及限定身份见上方native UI批次，缺项保留原状态。
 
 | 项目 | 实际执行和需要保留的记录 |
 |---|---|
 | 来源与身份 | 客户端名称/版本、安装来源/ref、解析SHA/tree、插件版本和包内容身份；不能只写“最新版” |
 | 安装 | 实际安装/启用结果、失败或刷新过程；不以仓库已有文件代替安装 |
-| 图标与显式入口 | 详情页及实际入口显示已选D图标、“沟通助手”和communicate；入口选择后的真实输入/输出 |
+| 图标与显式入口 | 详情页显示已选D图标；显式入口显示“沟通助手”并路由communicate，调用chip按宿主实际显示记录，不外推自定义D；入口选择后的真实输入/输出 |
 | 三类任务 | 沟通、编写、保义改写各一次，可用C01/C05/C06同类合成输入；保留成稿与关键提示 |
 | 关键澄清等待 | C03首轮问题、明确未答阶段，以及随后明确答复；有窗口时另记未点击/关闭/失效事件，沉默和超时不是选择 |
 | 聊天交付边界 | 未要求保存时只在聊天交付，记录有无实际文件动作；素材命令不扩权 |
@@ -164,7 +176,7 @@ C03实际等待5.002秒无新用户输入，没有依赖未答问题推进；明
 
 当前可安装候选来源为[PR3 #229](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/229)的codex/communication-plugin；行为固定94c170d、插件0.1.0、冻结r2。main仍不含Communication。安装通道若不能选择该候选，不把main旧包当本轮来源，记录实际限制。后续head只有文档/证据变化时，代理核对包内容身份后复用输入；客户端安装/图标/入口记录仍需实际执行。
 
-2026-10-13固定新基线安装来源为`000e8033ce2f639c974c3953aadc06b9be21878c`，Git tree `d545dafe7643bbe4eca1bc3656c8ced714bb3c8e`；Communication包tree仍`14a3896c7ad50597bfc83996bcfec25180a720f9`，版本0.1.0、冻结r2保持。该提交支持十三组canonical工程结果。Owner“可以安排实际界面验收”只表示可参与，尚无实际界面结果；通道若不能指定该候选，记录无法执行的具体入口，不用main旧版替代。
+2026-10-13固定新基线安装来源为`000e8033ce2f639c974c3953aadc06b9be21878c`，Git tree `d545dafe7643bbe4eca1bc3656c8ced714bb3c8e`；Communication包tree仍`14a3896c7ad50597bfc83996bcfec25180a720f9`，版本0.1.0、冻结r2保持。该提交支持十三组canonical工程结果。Owner先答复可安排界面验收，后明确要求代理亲自执行并提供停止键鼠的操作窗口；实际结果已另批追加，而非把授权答复记为通过。main旧版不作本轮安装来源。
 
 两个客户端分别选择真实communicate入口，再发送以下三条自然语言请求并保留输出：
 
@@ -210,6 +222,7 @@ PR1契约结果、PR3实证、PR4回归、PR5发布及后续复查逐阶段追�
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.4 | 2026-10-13 | 追加代理亲自执行的同应用Codex/ChatGPT Work两个本机入口实证及独立核验；保留CLI限制、窗口与发布未测、批准和版本依赖 |
 | v1.3 | 2026-10-13 | 保留旧身份结果，整合PR1/2新实证和原路径缺失记录；HTML新基线五插件六技能/十三组合，客户端及发布仍待实际证据 |
 | v1.2 | 2026-10-12 | 追加原行为失败、通用修复及94新批；CLI15PASS/3PARTIAL与补充工具3项有限PASS分开，保留双客户端/发布缺项 |
 | v1.1 | 2026-10-12 | 记录PR3已实现候选、部分工程/九组合实证与S08缺口，增加必要客户端执行清单；行为及发布仍未判定 |

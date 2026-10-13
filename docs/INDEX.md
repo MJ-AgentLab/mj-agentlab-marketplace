@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.16
+version: v2.17
 ---
 
 # 文档索引
@@ -21,7 +21,7 @@ HTML Guide Kit 正按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-mar
 
 Epic #209 开始 Learning Evidence Kit / marketplace 8.2.0 实施。PR1 固定已接受的双技能、七机制与共用接口，不修改当前 8.1.2 运行包；[迁移 ADR](adr/[ADR]_Learning_Evidence_Kit_Migration.md)、[记录/API 契约](spec/[SPEC]_Learning_Evidence_Record_And_API.md)及[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)分别维护决定、数据与实际证据。Owner 接受核心独立验收后分段交付，严格窗口不合格入口延期，Epic 保持未完成；契约交付不表示运行、客户端或学习效果通过。
 
-PR3 开发候选增加 Communication 0.1.0，并同步 HTML 0.1.0 开发基线，共五插件六公开技能、20 开发技能；市场仍未发布8.1.2，main / 最新 Release 8.1.1 仍为三插件四技能。Communication 既有 CLI 行为与限定工具角色结果、缺失的真实双客户端证据分别见验收记录，现实场景效果测试本轮延期。Owner 已选择 Learning 先8.2.0，Communication 随后独立 minor（预计8.3.0），PR4 重查版本和基线；实施使用 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。
+PR3 开发候选增加 Communication 0.1.0，并同步 HTML 0.1.0 开发基线，共五插件六公开技能、20 开发技能；市场仍未发布8.1.2，main / 最新 Release 8.1.1 仍为三插件四技能。Communication实际CLI行为、限定工具角色及代理亲自执行的同应用Codex/ChatGPT Work本机两个入口证据见[验收记录](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)，客户端身份、历史限制与未覆盖项分别保留；现实场景效果测试本轮延期。Owner 已选择 Learning 先8.2.0，Communication 随后独立 minor（预计8.3.0），PR4 重查版本和基线；实施使用 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。
 
 ## 入口
 
