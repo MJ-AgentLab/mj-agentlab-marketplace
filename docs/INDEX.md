@@ -23,6 +23,8 @@ HTML Guide Kit 正按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-mar
 
 HTML Guide Kit 正按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 分阶段实施：PR1 仅合同与工具前置，不改变运行集合。阶段门槛见 [ADR](adr/[ADR]_HTML_Guide_Kit_Addition.md)，判准见 [SPEC](spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，实际结果及未覆盖项见 [RUNBOOK](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。现实场景理解效果另测，本次仍保留工程行为与双客户端交互验收。
 
+Learning Evidence #224 已获当前 head 非作者批准并合入；实际 merge 的七种 canonical 安装和缓存 Python 通过，#211 已关闭。PR3 已按实际 merge 同步并通过 311 项回归与七隔离安装，其当前 head 独立批准与合入仍待完成，详见[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。公开 8.2.0 保持原三插件，HTML 另行发行。
+
 ## 入口
 
 - [项目说明](../README.md)
