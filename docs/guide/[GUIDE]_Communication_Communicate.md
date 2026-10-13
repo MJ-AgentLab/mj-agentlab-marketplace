@@ -4,9 +4,9 @@ scope: marketplace
 summary: "Explicit communication, writing and rewrite usage with clear boundaries"
 owner: marketplace-maintainers
 created: 2026-10-12
-updated: 2026-10-12
+updated: 2026-10-13
 state: draft
-version: v1.2
+version: v1.2.1
 ---
 
 # [GUIDE] 沟通助手
@@ -66,4 +66,3 @@ $communication-kit:communicate
 | v1.2 | 2026-10-12 | 对齐修复候选的新CLI与补充工具结果；真实客户端及发布仍未验收 |
 | v1.1 | 2026-10-12 | 可定位的0.1.0未发布候选与已执行工程范围，保留实际调用未验收状态 |
 | v1.0 | 2026-10-12 | 三类计划使用示例与聊天/文件操作边界 |
-

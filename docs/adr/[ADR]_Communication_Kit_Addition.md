@@ -4,9 +4,9 @@ scope: marketplace
 summary: "Explicit communication, writing and meaning-preserving rewrite contract"
 owner: marketplace-maintainers
 created: 2026-10-12
-updated: 2026-10-12
+updated: 2026-10-13
 state: draft
-version: v1.3
+version: v1.3.1
 ---
 
 # [ADR] Communication Kit addition
@@ -89,4 +89,3 @@ Owner 明确将九例真实场景、三稿对照、读者效果反馈、采用�
 | v1.2 | 2026-10-12 | 记录通用缺陷修复、CLI新批与独立工具补充；独立批准/双客户端/发布仍未完成 |
 | v1.1 | 2026-10-12 | 更新 PR3 已实现候选及部分工程实证，保留 PR1 历史与未完成门禁 |
 | v1.0 | 2026-10-12 | 产品方向及实施、验收与发布契约；PR1 当时尚无运行包 |
-
