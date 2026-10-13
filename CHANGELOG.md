@@ -18,6 +18,8 @@
 
 ### Changed
 
+- Record the actual GitHub-flow merge #227 and child #212 delivery, canonical installation/Python checks and the observed missing GitHub reviews. Prepare the unchanged qualified package stage with 317 tests/eight installs and exact common/model resource closure; honor the Owner preference to leave later review requests unassigned.
+
 - Correct new Learning Record Check generation metadata after actual role acceptance exposed inherited learning authors/skills and an invented future event time. Use the actual check author, current installed checker context and observed event clock; preserve original metadata through immutable originals and lineage. Original failures remain recorded; repaired behavior requires a fresh-source rerun.
 
 - Repair unpublished Learning Evidence candidate entry handling: keep listing examples within the Codex 0.147.0 character/count limits, and require all application prerequisites before implementation investigation or probes. Preserve the actual ignored-example and premature-application failures; repaired model behavior remains subject to a fresh-source rerun.
