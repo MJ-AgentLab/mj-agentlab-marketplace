@@ -16,8 +16,6 @@ export const INSTALL_SCENARIOS = Object.freeze([
   ["diagram-kit", "learning-evidence-kit", "explain-kit"], ["communication-kit"],
   ["communication-kit", "explain-kit"], ["communication-kit", "learning-evidence-kit"],
   ["diagram-kit", "learning-evidence-kit", "explain-kit", "communication-kit"],
-  ["html-guide-kit"], ["html-guide-kit", "explain-kit"],
-  ["diagram-kit", "learning-evidence-kit", "explain-kit", "html-guide-kit"], Object.keys(RUNTIME_PLUGINS),
 ].map(plugins => Object.freeze(plugins)));
 const norm = p => String(p).replaceAll("\\", "/");
 // Native realpath expands Windows 8.3 aliases used by hosted runner temp paths.

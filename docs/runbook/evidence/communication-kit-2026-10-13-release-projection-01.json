@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 1,
+  "refs": [
+    "#222"
+  ],
+  "capturedAt": "2026-10-13T09:10:27.284456+00:00",
+  "kind": "Owner Q3 four-package publication projection preparation; not formal PR5",
+  "source": {
+    "preparationHead": "48437bef655c7ce8aed8452db01dac9dd638af1c",
+    "testedIndexTree": "3643f2b6c071e351c7d171178ce6e5e5001d0677",
+    "actualProtectedPr4Merge": "NOT RUN",
+    "actualPr5": "NOT RUN",
+    "canonical": "NOT RUN in this initial batch"
+  },
+  "scope": {
+    "plugins": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "communication-kit"
+    ],
+    "publicSkills": 6,
+    "explicit": 3,
+    "ordinary": 3,
+    "repositorySkills": 20,
+    "installScenarios": 9,
+    "html": "Removed atomically only from isolated publication preparation; preserved in development source. Historical assets/docs/evidence remain."
+  },
+  "packages": {
+    "diagram-kit": {
+      "tree": "e217c41be2cd4c3653aa17aa7b28c8312be06268",
+      "sourceTree": "e217c41be2cd4c3653aa17aa7b28c8312be06268",
+      "version": "0.3.1"
+    },
+    "learning-evidence-kit": {
+      "tree": "c88818fac37e937a245436f0f999f3488babfe1f",
+      "sourceTree": "c88818fac37e937a245436f0f999f3488babfe1f",
+      "version": "0.1.0"
+    },
+    "explain-kit": {
+      "tree": "ef6a90bc60e9af45915c30ecf4668559978e29e5",
+      "sourceTree": "ef6a90bc60e9af45915c30ecf4668559978e29e5",
+      "version": "0.1.1"
+    },
+    "communication-kit": {
+      "tree": "170fcad82f33548c8d91b62984df4ff38635e69f",
+      "sourceTree": "170fcad82f33548c8d91b62984df4ff38635e69f",
+      "version": "0.1.0"
+    }
+  },
+  "marketplaceVersion": "8.3.0 unreleased",
+  "plan": {
+    "lines": 405,
+    "sha256": "6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3",
+    "originalSource": "Previously unavailable original path remains unrecreated; captured committed bytes unchanged."
+  },
+  "actualChecks": {
+    "strict": "PASS",
+    "tests": {
+      "tests": 318,
+      "pass": 318,
+      "fail": 0,
+      "skipped": 0
+    },
+    "baseline": "codex-cli 0.147.0",
+    "snapshotInstall": {
+      "ok": true,
+      "scenarios": 9,
+      "diagramPython": 4,
+      "learningPython": 4,
+      "interpreters": [
+        "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]"
+      ],
+      "fullNative": {
+        "publicSkills": 6,
+        "repositorySkills": 0
+      },
+      "fullOrdinary": {
+        "publicSkills": 3,
+        "repositorySkills": 0
+      },
+      "explicitOnly": [
+        "learning-evidence-kit:pop-quiz",
+        "learning-evidence-kit:learning-record-check",
+        "communication-kit:communicate"
+      ]
+    },
+    "brand": "Actual four-icon family rendered and viewed; 224px and native32/48/64px on light/dark surfaces, no cropping. Approved original D globe unchanged."
+  },
+  "failuresAndRepairs": [
+    {
+      "kind": "read-only local path lookup",
+      "failure": "Tried scripts/a6-check.mjs; actual existing file is scripts/check-a6.mjs",
+      "repair": "rg --files located actual filename. No checks claimed from failed read, no repository mutation."
+    }
+  ],
+  "releaseCases": {
+    "R01": "NOT RUN",
+    "R02": "NOT RUN",
+    "R03": "NOT RUN",
+    "R04": "NOT RUN",
+    "R05": "NOT RUN"
+  },
+  "limits": [
+    "Engineering preparation only; current docs will be updated and latest PR4 ancestry imported before final preparation freeze.",
+    "Initial full/snapshot checks bind the stated index, not a canonical commit; later differences require appropriate checks.",
+    "No new client/model/effect tests and no GitHub independent approvals. Existing failure/partial/client identity records remain.",
+    "Formal PR5 must derive from actual protected PR4 merge and refresh actual main before acceptance."
+  ],
+  "artifacts": [
+    {
+      "kind": "validate",
+      "startedAt": "2026-10-13T09:05:22.769302+00:00",
+      "finishedAt": "2026-10-13T09:05:24.804551+00:00",
+      "command": [
+        "D:/Development/nodejs/node.exe",
+        "scripts/validate-portable.mjs"
+      ],
+      "exitCode": 0,
+      "log": "communication-kit-2026-10-13-release-projection-01-validate.log",
+      "rawBytes": 296,
+      "sha256": "addbcdc7630dbaeca538428e86e2d671336318e888204e689972dc34400aa645"
+    },
+    {
+      "kind": "test",
+      "startedAt": "2026-10-13T09:05:25.292095+00:00",
+      "finishedAt": "2026-10-13T09:06:35.827567+00:00",
+      "command": [
+        "D:/Development/nodejs/node.exe",
+        "--test",
+        "tests\\bump-version.test.mjs",
+        "tests\\check-a6.test.mjs",
+        "tests\\check-prebump.test.mjs",
+        "tests\\commit-convention.test.mjs",
+        "tests\\communication-foundation.test.mjs",
+        "tests\\diagram-validator-contract.test.mjs",
+        "tests\\documentation-contract.test.mjs",
+        "tests\\learning-evidence-github.test.mjs",
+        "tests\\learning-evidence-store.test.mjs",
+        "tests\\plugin-icons.test.mjs",
+        "tests\\release-verify-install.test.mjs",
+        "tests\\resolve-release-state.test.mjs",
+        "tests\\run-cli.test.mjs",
+        "tests\\run-release.test.mjs",
+        "tests\\smoke-codex-plugin.test.mjs",
+        "tests\\validate-portable.test.mjs"
+      ],
+      "exitCode": 0,
+      "log": "communication-kit-2026-10-13-release-projection-01-test.log",
+      "rawBytes": 69824,
+      "sha256": "a2b8a7ec536506481e8ec3a153f5b3fb7475ca4bd45536cf50e4bf6edb44f615",
+      "counts": {
+        "tests": 318,
+        "pass": 318,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "kind": "baseline",
+      "startedAt": "2026-10-13T09:06:50.884604+00:00",
+      "finishedAt": "2026-10-13T09:06:51.026124+00:00",
+      "command": [
+        "D:/Development/nodejs/node.exe",
+        "scripts/check-tool-versions.mjs",
+        "--codex",
+        "0.147.0"
+      ],
+      "exitCode": 0,
+      "log": "communication-kit-2026-10-13-release-projection-01-baseline.log",
+      "rawBytes": 78,
+      "sha256": "82197eb53955d1a20c2af1254bd106d9528d40f6030e0f1d02f64a4da6c694e6"
+    },
+    {
+      "kind": "smoke",
+      "startedAt": "2026-10-13T09:06:51.119325+00:00",
+      "finishedAt": "2026-10-13T09:07:20.355710+00:00",
+      "command": [
+        "D:/Development/nodejs/node.exe",
+        "scripts/smoke-codex-plugin.mjs"
+      ],
+      "exitCode": 0,
+      "log": "communication-kit-2026-10-13-release-projection-01-smoke.log",
+      "rawBytes": 207004,
+      "sha256": "f1b83c043f1242df0182d98ed27a06e7aab04637cbfdd272a966312dadd02105"
+    },
+    {
+      "kind": "preview",
+      "startedAt": "2026-10-13T09:08:02.959991+00:00",
+      "finishedAt": "2026-10-13T09:08:03.325612+00:00",
+      "command": [
+        "D:/Development/nodejs/node.exe",
+        "scripts/render-brand-previews.mjs"
+      ],
+      "exitCode": 0,
+      "log": "communication-kit-2026-10-13-release-projection-01-preview.log",
+      "rawBytes": 270,
+      "sha256": "44ed1adf8dcd3ecdbbce821e8c7e2f4a8b7ba6419be997bcea228b15d0c48107"
+    }
+  ]
+}

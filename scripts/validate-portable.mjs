@@ -21,10 +21,9 @@ export const RUNTIME_PLUGINS = Object.freeze({
   "learning-evidence-kit": Object.freeze(["pop-quiz", "learning-record-check"]),
   "explain-kit": Object.freeze(["glossary", "concept"]),
   "communication-kit": Object.freeze(["communicate"]),
-  "html-guide-kit": Object.freeze(["guide"]),
 });
 export const PUBLIC_SKILLS = Object.freeze(Object.entries(RUNTIME_PLUGINS).flatMap(([plugin, skills]) => skills.map(skill => `${plugin}:${skill}`)));
-export const EXPLICIT_ONLY_SKILLS = Object.freeze(["learning-evidence-kit:pop-quiz", "learning-evidence-kit:learning-record-check", "communication-kit:communicate", "html-guide-kit:guide"]);
+export const EXPLICIT_ONLY_SKILLS = Object.freeze(["learning-evidence-kit:pop-quiz", "learning-evidence-kit:learning-record-check", "communication-kit:communicate"]);
 export const COMMUNICATION_REFERENCES = Object.freeze(["references/aics-policy.md", "references/task-patterns.md", "references/source-provenance.md", "references/aics-snapshot.json"]);
 export const SKILL_RESOURCES = Object.freeze({
   "diagram-kit:arch-diagram": Object.freeze(["SKILL.md", "agents/openai.yaml", "scripts/validate_diagram.py", "references/architecture-methodology.md", "references/domain-acquisition.md", ...["context", "container", "component", "code", "sequence", "state-machine", "deployment"].map(t => `references/${t}-diagram.md`)]),
@@ -33,14 +32,12 @@ export const SKILL_RESOURCES = Object.freeze({
   "explain-kit:glossary": Object.freeze(["SKILL.md", "agents/openai.yaml"]),
   "explain-kit:concept": Object.freeze(["SKILL.md", "agents/openai.yaml"]),
   "communication-kit:communicate": Object.freeze(["SKILL.md", "agents/openai.yaml", ...COMMUNICATION_REFERENCES]),
-  "html-guide-kit:guide": Object.freeze(["SKILL.md", "agents/openai.yaml", "references/guide-framework.md", "references/interaction-design.md"]),
 });
 const PLUGIN_CAPABILITIES = Object.freeze({
   "diagram-kit": Object.freeze(["Read", "Write"]),
   "learning-evidence-kit": Object.freeze(["Read", "Write"]),
   "explain-kit": Object.freeze(["Read"]),
   "communication-kit": Object.freeze(["Read", "Write"]),
-  "html-guide-kit": Object.freeze(["Read"]),
 });
 const SEMVER = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/;
 const NAME = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -132,11 +129,6 @@ export function validateOpenAIConfig(text, plugin, skill) {
     const length = [...config.interface.short_description].length;
     const calls = [...config.interface.default_prompt.matchAll(/\$([a-z0-9-]+):([a-z0-9-]+)(?![A-Za-z0-9_-])/g)];
     if (length < 25 || length > 64 || calls.length !== 1 || config.policy.allow_implicit_invocation !== true) throw new Error("invalid explanation skill presentation or implicit policy");
-  }
-  if (plugin === "html-guide-kit") {
-    const length = [...config.interface.short_description].length;
-    const calls = [...config.interface.default_prompt.matchAll(/\$([a-z0-9-]+):([a-z0-9-]+)(?![A-Za-z0-9_-])/g)];
-    if (length < 25 || length > 64 || calls.length !== 1) throw new Error("invalid guide skill presentation");
   }
   return config;
 }
@@ -274,12 +266,6 @@ export function assertInstalledSkillResources(sourceSkillRoot, installedSkillRoo
     validateSkill(fs.readFileSync(ownedResource(root, "SKILL.md"), "utf8"), skill);
     validateOpenAIConfig(fs.readFileSync(ownedResource(root, "agents/openai.yaml"), "utf8"), plugin, skill);
   }
-  if (qualifiedName === "html-guide-kit:guide") {
-    for (const root of [sourceSkillRoot, installedSkillRoot]) {
-      const actual = files(root).map(file => path.relative(root, file).replaceAll("\\", "/")).sort();
-      if (JSON.stringify(actual) !== JSON.stringify([...required].sort())) throw new Error("guide must contain exactly its approved skill resources");
-    }
-  }
   return Object.fromEntries(required.map(rel => {
     const source = ownedResource(sourceSkillRoot, rel), installed = ownedResource(installedSkillRoot, rel);
     const bytes = fs.readFileSync(source);
@@ -381,10 +367,6 @@ export function validateRepository(repoRoot) {
       validateSkill(read(skillRoot, "SKILL.md"), skill);
       validateOpenAIConfig(read(skillRoot, "agents/openai.yaml"), plugin, skill);
       for (const rel of SKILL_RESOURCES[`${plugin}:${skill}`]) ownedResource(skillRoot, rel);
-      if (plugin === "html-guide-kit") {
-        const actual = files(skillRoot).map(file => path.relative(skillRoot, file).replaceAll("\\", "/")).sort();
-        if (JSON.stringify(actual) !== JSON.stringify([...SKILL_RESOURCES[`${plugin}:${skill}`]].sort())) throw new Error("guide must contain exactly its approved skill resources");
-      }
     });
   }
   check("project instruction budget", () => {

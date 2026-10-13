@@ -2,7 +2,9 @@
 
 ## 项目上下文
 
-当前PR3候选注册Diagram、Learning Evidence、Explain、HTML、Communication五包七技能/四显式，PR4准备未发布VERSION8.3.0；main/latest Release8.2.0仅前三包五技能，tag/发布目标ebc4bdc3。Communication正式范围按Owner Q3为前三包加Communication四包六技能，HTML留develop另发；后续独立minor目标8.3.0，PR4核对实际From/To。目标为ChatGPT桌面和Codex本地，CLI基线0.147.0；版本与来源以权威文件为准。
+本工作树是 Communication 四包发行预备投影，Refs #222；不是从实际 PR4 merge 派生的 PR5。VERSION 8.3.0、Communication 0.1.0 均未发布。注册、插件目录、严格资源集合、品牌导出与九组安装矩阵原子限定 Diagram、Learning Evidence、Explain、Communication，六公开技能、三显式、普通三、开发二十。正式 PR5 须从受保护 PR4 实际验收 merge 重新派生并核对差异；R01–R05 尚未执行。
+
+develop PR3候选保留HTML，共五包七技能/四显式；main/latest Release8.2.0仅前三包五技能，tag/发布目标ebc4bdc3。Owner Q3明确HTML留develop另发，本工作树不分发它。目标为ChatGPT桌面和Codex本地，CLI基线0.147.0；版本与来源以权威文件为准。
 
 manifest 的公开示例按[插件契约](docs/spec/[SPEC]_Plugin_Json_Schema.md)保留完整路由，最多三条，各原值不超过 128 个 Unicode scalar values；严格校验防止客户端忽略超长示例而丢失公开入口，不依赖空白归一化。
 

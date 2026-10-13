@@ -105,21 +105,6 @@ test("installed comparison rejects missing resources, content drift, reference d
   assert.throws(() => assertInstalledIcons(source.root, installed.root), /differs/);
 });
 
-test("approved HTML Guide Kit icon is 1024 pixels and installed PNG drift is rejected", t => {
-  const source = path.join(repo, "plugins/html-guide-kit"), installed = fixture(t);
-  fs.cpSync(source, installed.root, { recursive: true });
-  const m = JSON.parse(fs.readFileSync(path.join(source, "plugin.json"), "utf8")), result = validatePluginIcons(m, source);
-  assert.equal(result.logo.width, 1024); assert.equal(result.composerIcon.width, 1024);
-  assert.equal(result.logo.sha256, result.composerIcon.sha256);
-  const selected = JSON.parse(fs.readFileSync(path.join(repo, "assets/brand/html-guide-kit/candidates/revision-2/selection.json"), "utf8"));
-  assert.equal(selected.plugin, "html-guide-kit"); assert.equal(selected.selection, "a"); assert.equal(selected.revision, 2);
-  assert.equal(result.logo.sha256, selected.selectedSource.pngSha256);
-  assert.deepEqual(fs.readFileSync(path.join(source, "assets/icon.png")), fs.readFileSync(path.join(repo, "assets/brand/html-guide-kit/candidates/revision-2", selected.selectedSource.png)));
-  assert.doesNotThrow(() => assertInstalledIcons(source, installed.root));
-  fs.writeFileSync(path.join(installed.root, "assets/icon.png"), png(1024, 1024, [1, 2, 3, 255]));
-  assert.throws(() => assertInstalledIcons(source, installed.root), /differs/);
-});
-
 test("SVG export renders real pixel colors and native size rather than only a valid header", t => {
   const { root } = fixture(t), input = path.join(root, "source.svg"), output = path.join(root, "render.png");
   fs.writeFileSync(input, '<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128"><rect width="128" height="128" fill="#223D66"/><rect x="32" y="32" width="64" height="64" fill="#37C3D2"/></svg>');
@@ -140,7 +125,7 @@ test("repository validation fails when a registered plugin loses its icon resour
   const { root } = fixture(t), isolated = path.join(root, "repo"); fs.mkdirSync(isolated);
   for (const rel of ["assets", ".agents", ".codex", ".github", "scripts", "tests", "plugins", "docs", "plan", "AGENTS.md", "README.md", "CONTRIBUTING.md", "GLOSSARY.md", "CHANGELOG.md", "VERSION"]) fs.cpSync(path.join(repo, rel), path.join(isolated, rel), { recursive: true });
   assert.equal(validateRepository(isolated).ok, true);
-  for (const plugin of ["explain-kit", "html-guide-kit"]) {
+  for (const plugin of ["explain-kit", "communication-kit"]) {
     const file = path.join(isolated, "plugins", plugin, "assets/icon.png"), bytes = fs.readFileSync(file);
     fs.unlinkSync(file);
     const result = validateRepository(isolated); assert.equal(result.ok, false); assert.ok(result.errors.some(e => e.includes(`${plugin} icons`)));

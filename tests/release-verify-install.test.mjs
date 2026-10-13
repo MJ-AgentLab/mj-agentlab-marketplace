@@ -40,13 +40,13 @@ function fixture({syntheticCommunication=false}={}){const d=fs.mkdtempSync(path.
  git(d,"config","gc.auto","0");git(d,"config","maintenance.auto","false");
  git(d,"add",".");git(d,"commit","--quiet","-m","fixture");return {d,sha:git(d,"rev-parse","HEAD"),version:fs.readFileSync(path.join(d,"VERSION"),"utf8").trim()};}
 test("release install uses the exact canonical tree rather than a dirty checkout",async()=>{
- const {d,sha,version}=fixture(),guide="plugins/html-guide-kit/skills/guide/references/guide-framework.md",guideBytes=fs.readFileSync(path.join(d,guide));
- fs.writeFileSync(path.join(d,"VERSION"),"9.9.9\n");fs.writeFileSync(path.join(d,guide),"dirty untested guide\n");let temporary;
+ const {d,sha,version}=fixture(),guide="plugins/communication-kit/skills/communicate/references/task-patterns.md",guideBytes=fs.readFileSync(path.join(d,guide));
+ fs.writeFileSync(path.join(d,"VERSION"),"9.9.9\n");fs.writeFileSync(path.join(d,guide),"dirty untested patterns\n");let temporary;
  const r=await verifyReleaseInstall({repoRoot:d,canonicalSha:sha,install:async({repoRoot})=>{
  temporary=repoRoot;assert.equal(git(repoRoot,"rev-parse","HEAD"),sha);
  assert.equal(fs.readFileSync(path.join(repoRoot,"VERSION"),"utf8").trim(),version);
  assert.deepEqual(fs.readFileSync(path.join(repoRoot,guide)),guideBytes);
- assert.equal(JSON.parse(fs.readFileSync(path.join(repoRoot,"plugins/html-guide-kit/plugin.json"),"utf8")).version,"0.1.0");return {ok:true};}});
+ assert.equal(JSON.parse(fs.readFileSync(path.join(repoRoot,"plugins/communication-kit/plugin.json"),"utf8")).version,"0.1.0");return {ok:true};}});
  assert.equal(r.ok,true);assert.ok(!fs.existsSync(temporary));assert.equal(git(d,"worktree","list","--porcelain").match(/^worktree /gm).length,1);
 });
 test("invalid canonical source never calls the installer",async()=>{
@@ -98,20 +98,16 @@ test("canonical communication resource loss or tampering blocks installation bef
  const restored=validateRepository(d);assert.equal(restored.ok,true,restored.errors.join("\n"));
 });
 
-test("canonical installation rejects missing HTML Guide Kit runtime files and contract drift before calling installer",async()=>{
- const {d}=fixture(),plugin=path.join(d,"plugins/html-guide-kit");
- const runtime=["plugin.json","skills/guide/SKILL.md","skills/guide/agents/openai.yaml","skills/guide/references/guide-framework.md","skills/guide/references/interaction-design.md"];
- const original=Object.fromEntries(runtime.map(rel=>[rel,fs.readFileSync(path.join(plugin,rel))]));
- const mutations=[
-  ...runtime.map(rel=>({name:`missing ${rel}`,apply:()=>fs.unlinkSync(path.join(plugin,rel)),reason:new RegExp(rel.endsWith("SKILL.md")?"html-guide-kit:guide":path.basename(rel).replaceAll(".","\\."))})),
-  {name:"implicit policy",apply:()=>fs.writeFileSync(path.join(plugin,"skills/guide/agents/openai.yaml"),original["skills/guide/agents/openai.yaml"].toString().replace("allow_implicit_invocation: false","allow_implicit_invocation: true")),reason:/html-guide-kit:guide/},
-  {name:"malformed root version",apply:()=>{const m=JSON.parse(original["plugin.json"]);m.version="00.1.0";fs.writeFileSync(path.join(plugin,"plugin.json"),JSON.stringify(m));},reason:/html-guide-kit manifest/},
- ];
- let calls=0;
- for(const item of mutations){
-  for(const [rel,bytes] of Object.entries(original))fs.writeFileSync(path.join(plugin,rel),bytes);
-  item.apply();git(d,"add",".");git(d,"commit","--quiet","-m",item.name);
-  await assert.rejects(verifyReleaseInstall({repoRoot:d,canonicalSha:git(d,"rev-parse","HEAD"),install:async()=>{calls++;return {ok:true};}}),item.reason,item.name);
+test("formal canonical scope rejects a deferred HTML catalog entry or runtime directory",async()=>{
+ const {d}=fixture(),catalogFile=path.join(d,".agents/plugins/marketplace.json"),original=fs.readFileSync(catalogFile);
+ const deferred=path.join(d,"plugins/html-guide-kit");let calls=0;
+ for(const mutation of ["catalog only","directory only","catalog and directory"]){
+  fs.writeFileSync(catalogFile,original);
+  if(fs.existsSync(deferred)){fs.unlinkSync(path.join(deferred,"README.md"));fs.rmdirSync(deferred);}
+  if(mutation.includes("catalog")){const catalog=JSON.parse(original),entry=structuredClone(catalog.plugins[0]);entry.name="html-guide-kit";entry.source.path="./plugins/html-guide-kit";catalog.plugins.push(entry);fs.writeFileSync(catalogFile,JSON.stringify(catalog));}
+  if(mutation.includes("directory")){fs.mkdirSync(deferred);fs.writeFileSync(path.join(deferred,"README.md"),"Deferred development package\n");}
+  git(d,"add",".");git(d,"commit","--quiet","-m",mutation);
+  await assert.rejects(verifyReleaseInstall({repoRoot:d,canonicalSha:git(d,"rev-parse","HEAD"),install:async()=>{calls++;return {ok:true};}}),/exactly the approved plugins|unexpected runtime plugin directory/);
   assert.equal(calls,0);assert.equal(git(d,"worktree","list","--porcelain").match(/^worktree /gm).length,1);
  }
 });
