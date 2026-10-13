@@ -1,0 +1,136 @@
+{
+  "epic": 222,
+  "date": "2026-10-12",
+  "timezone": "Asia/Taipei",
+  "stage": "PR2 revised icon candidates",
+  "base_sha": "b2e5a74109f47ecee7471ba741fb4c1348457f3b",
+  "direction": {
+    "status": "owner-confirmed",
+    "source_name": "ASD-STE100",
+    "scope": "Borrow globe and clear-text imagery; redraw with original MJ D geometry",
+    "authority": "Owner explicit reply in current chat, relayed by root",
+    "candidate_selection": null
+  },
+  "viewed_source": {
+    "method": "Connected Edge browser read-only DOM and direct image screenshot",
+    "homepage": "https://www.asd-ste100.org/",
+    "image_url": "https://www.asd-ste100.org/assets/images/stemg2023-573x571.jpg-573x571.jpg",
+    "observed_dimensions": {
+      "width": 573,
+      "height": 571
+    },
+    "observed": "Blue background, globe wireframe and text; official ASD logo appears in the source image",
+    "scope": "Homepage image only; not the Issue 9 PDF cover or text"
+  },
+  "source_record": "assets/brand/communication-kit/candidates/revision-2/source-record.json",
+  "first_batch_retained": true,
+  "formal_integration": false,
+  "candidate_outputs": [
+    {
+      "file": "assets/brand/communication-kit/candidates/revision-2/d.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 79377,
+      "sha256": "07f8a9ad4d04f20bc0551f3e72ed8c9e1b14368a743b392d4feee3aaec314ddf"
+    },
+    {
+      "file": "assets/brand/communication-kit/candidates/revision-2/d-32.png",
+      "width": 32,
+      "height": 32,
+      "bytes": 1392,
+      "sha256": "0d4c58f035279b6895683673988d34036716346e9c502af63359a98ee7b70e24"
+    },
+    {
+      "file": "assets/brand/communication-kit/candidates/revision-2/d-48.png",
+      "width": 48,
+      "height": 48,
+      "bytes": 2138,
+      "sha256": "890cca7876f167a88aa0f3c97d733a5f01f3607bcbed8650a55205a45be854c3"
+    },
+    {
+      "file": "assets/brand/communication-kit/candidates/revision-2/d-64.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 2956,
+      "sha256": "f11aab662c4dcf037babe3685c4d0e4b74b10ac6720f7ee6b4980b174f7eeb54"
+    },
+    {
+      "file": "assets/brand/communication-kit/candidates/revision-2/e.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 92325,
+      "sha256": "61ad43983a515d7ba4fef1f926d7b4127d458f82af05349198b80b20a6d1b158"
+    },
+    {
+      "file": "assets/brand/communication-kit/candidates/revision-2/e-32.png",
+      "width": 32,
+      "height": 32,
+      "bytes": 1352,
+      "sha256": "e1ddbb5add9692bb52642ed97dbc87db7d05ba802b4611301fde68fa574486fe"
+    },
+    {
+      "file": "assets/brand/communication-kit/candidates/revision-2/e-48.png",
+      "width": 48,
+      "height": 48,
+      "bytes": 2098,
+      "sha256": "3977ce20d8687ed9f10bc6d449646e76d2083c3be366368b3adaba6396a08ff7"
+    },
+    {
+      "file": "assets/brand/communication-kit/candidates/revision-2/e-64.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 2982,
+      "sha256": "ef3291e81ebd027ed77e3a117643f7a1cf3780c27eedb10ae63a88c136bc7de4"
+    },
+    {
+      "file": "assets/brand/communication-kit/candidates/revision-2/f.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 81439,
+      "sha256": "ab3f23659acdb0f4bac9f9cf2a4d7c3408806afa3917f592141d47e8c26be956"
+    },
+    {
+      "file": "assets/brand/communication-kit/candidates/revision-2/f-32.png",
+      "width": 32,
+      "height": 32,
+      "bytes": 1346,
+      "sha256": "c2dd3f8daf34d3891ed35de2a75e0b4f121e032410dbe2bee7828719e838bca6"
+    },
+    {
+      "file": "assets/brand/communication-kit/candidates/revision-2/f-48.png",
+      "width": 48,
+      "height": 48,
+      "bytes": 2094,
+      "sha256": "aef6935343321aaabb5c31669fbefbb8936f7ecf800f674c82c688912bdf9a08"
+    },
+    {
+      "file": "assets/brand/communication-kit/candidates/revision-2/f-64.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 2907,
+      "sha256": "320ab0825ca67dc7a55e085657226f86c7cf7c26c272c80cb56c1c6716c1ea6b"
+    }
+  ],
+  "render_command": "node assets/brand/communication-kit/candidates/revision-2/render.mjs",
+  "visual_review": {
+    "method": "Actual comparison image inspection",
+    "result": "D/E/F globe and writing/message/document shapes visible at 32/48/64 on light and dark backgrounds",
+    "owner_approval": "PENDING"
+  },
+  "failures": [
+    {
+      "attempt": "D first SVG export",
+      "observed": "Second text line invisible in the actual comparison image",
+      "preserved": "assets/brand/communication-kit/candidates/revision-2/failed-first-export/",
+      "repair": "Replace zero-height horizontal gradient stroke with shared cyan solid stroke",
+      "retest": "Re-exported and visually confirmed both lines present"
+    }
+  ],
+  "limitations": [
+    "Official PDF unavailable and not read",
+    "No official source image copied into distributable assets",
+    "Specific candidate selection pending",
+    "No runtime registration or real version transition",
+    "Prior full tooling suite not repeated solely for candidate assets"
+  ]
+}

@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.2.1
+version: v1.2.2
 ---
 
 # [RUNBOOK] Communication Kit acceptance
@@ -65,6 +65,7 @@ S01原计划候选四插件五技能保留为历史；先行Learning迁移#228�
 | [04](evidence/communication-kit-2026-10-12-pr1-04.json) | 同步develop后252/252 PASS、validate PASS | 60548a2；保留#216/#221契约和8.1.2版本/原运行集合；记录规范1/计划3项AI审查修复 |
 | [canonical](evidence/communication-kit-2026-10-12-pr1-canonical-01.json) | 四组严格canonical安装、资源及3次真实缓存Python PASS | 实际调用verifyReleaseInstall，SHA60548a2；不是发布后R04 |
 | [baseline 05](evidence/communication-kit-2026-10-13-pr1-baseline-05.json) | HTML基线刷新后279/279 PASS、strict PASS；七组canonical和4次缓存Python PASS | 固定40b2957，保留d106e76的四插件/五公开技能和版本；新包行为/UI/发布不在本阶段覆盖 |
+| [PR2 baseline 05](evidence/communication-kit-2026-10-13-pr2-baseline-05.json) | 工具/预览合并后288/288 PASS、strict PASS；七组canonical和4次缓存Python PASS | 固定d0618ba；动态多行预览保留，Communication仍未在本阶段注册；后续仅追加证据/字节保留规则 |
 
 Codex基线实测0.147.0。原稿、本副本及Git blob SHA-256均为6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3。最初直接运行无CLI入口的模块没有执行安装，另记[未执行尝试](evidence/communication-kit-2026-10-12-pr1-canonical-attempt.json)；仅后续实际函数调用记PASS。
 
@@ -138,3 +139,7 @@ PR1契约结果、PR3实证、PR4回归、PR5发布及后续复查逐阶段追�
 | v1.2 | 2026-10-13 | 明确先行Learning迁移后的开发/正式两个精确集合与Owner Q3范围；原计划、旧结果及新包未测状态保留 |
 | v1.1 | 2026-10-13 | 追加HTML基线同步、279测试与七组canonical；如实记录原路径缺失和原字节副本身份 |
 | v1.0 | 2026-10-12 | 固定基础用例与证据状态；全部新包用例尚未执行 |
+
+### PR1实际合并与固定来源复验
+
+Refs #222。[M1 postmerge 01](evidence/communication-kit-2026-10-13-pr1-merge-01.json)记录#223于2026-10-13T10:42:13Z实际合入develop `bca7b5c`，与已测head `5a9d845`同tree `b3d1f5b`。Root对该固定merge执行doc/A6 65/65、strict四开发包六技能和八组detached canonical，原summary列CLI0.147.0、四次Diagram/三组Learning实际Python3.12.14。初始python PATH launcher失效令三个尝试均未执行，绝对路径修复成功的完整原件分开保留。六份外部原件（含完整canonical result与GHfacts）按byte/hash归档，不摘取代替原始数据；reviews=[]/REVIEW_REQUIRED不能补作独立批准。M1复验不是Communication或R04/R05，后续来源/运行/安装范围变化须按record失效边界复验。

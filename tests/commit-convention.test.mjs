@@ -28,6 +28,10 @@ test.after(()=>dirs.forEach(d=>{
 const ORIGINAL_SCOPES=["learn-kit","diagram-kit","explain-kit","marketplace","ci","scripts","deps","infra","docs-rule","docs-adr","docs-guide","docs-runbook","docs-spec","release"];
 const cases=[
  {subject:"feat(html-guide-kit): add guide contract",pass:true},
+ {subject:"feat(communication-kit): add communicate contract",pass:true},
+ {subject:"feat(communications-kit): reject misspelled scope",pass:false},
+ {subject:"chore(communication-kit): reject unsupported type",pass:false},
+ {subject:"feat(communication-kit):reject missing separator space",pass:false},
  ...ORIGINAL_SCOPES.map(scope=>({subject:`test(${scope}): retain accepted scope`,pass:true})),
  {subject:"feat(future-kit): reject unknown scope",pass:false},
  {subject:"chore(html-guide-kit): reject unsupported type",pass:false},
@@ -70,7 +74,7 @@ function checkedRange(r,c){
  assert.doesNotMatch(r.stdout+r.stderr,/no commits in range/);
 }
 
-test("generated commit-msg hook accepts html-guide-kit and all original scopes, rejects invalid subjects",opts,async()=>{
+test("generated commit-msg hook accepts html-guide-kit, communication-kit and all original scopes, rejects invalid subjects",opts,async()=>{
  const f=await fixture(),message=path.join(f.d,"message.txt");
  for(const c of cases){
   fs.writeFileSync(message,c.subject+"\n\nRefs: #1\n");

@@ -2,7 +2,7 @@
 
 ## 项目上下文
 
-当前develop注册Diagram、Learning Evidence、Explain、HTML四包六技能/三显式，VERSION8.2.1（未发布开发预升）；main/latest Release8.2.0仅Diagram、Learning、Explain三包五技能，tag/发布目标ebc4bdc3，HTML未公开。Communication在PR1仅契约，正式范围按Q3在公开三包上加自身，目标后续独立minor；CLI基线0.147.0，版本/来源以权威文件为准。
+当前develop注册Diagram、Learning Evidence、Explain、HTML四包六技能/三显式，VERSION8.2.1（未发布开发预升）；main/latest Release8.2.0仅Diagram、Learning、Explain三包五技能，tag/发布目标ebc4bdc3，HTML未公开。Communication在前置阶段仅契约及工具准备，正式范围按Q3在公开三包上加自身，目标后续独立minor；CLI基线0.147.0，版本/来源以权威文件为准。
 
 manifest 的公开示例按[插件契约](docs/spec/[SPEC]_Plugin_Json_Schema.md)保留完整路由，最多三条，各原值不超过 128 个 Unicode scalar values；严格校验防止客户端忽略超长示例而丢失公开入口，不依赖空白归一化。
 
@@ -46,7 +46,7 @@ v8.0.0 已经 #190 合入 main 并自动发布，实际状态和未完成的桌�
 
 仓库主标使用 Owner 选定的 A（MJ＋斜向模块连接），三个插件采用已批准的 D 风格；品牌与图标修改读取 [品牌规范](docs/rule/[STANDARD]_Brand_Identity.md) 并使用 [.agents/skills/mp-design-icon](.agents/skills/mp-design-icon/SKILL.md)。开发技能为 20 项，开发候选四插件/六公开技能；Learning Evidence 复用旧 Understanding 批准图标并迁移资源归属。新增候选先选择后接入，已有批准直接复用。#203/#204 已完成品牌实现和验收记录，并随 v8.1.1 发布；[品牌验收](docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)保留当时范围。后续发布不追认历史验收或批准。
 
-Owner 于 2026-10-10 明确要求发布 8.1.1，发布授权已提供，不重复确认。候选从 develop 9bd54d7 派生，运行版本已匹配目标，无额外 bump。Owner 补充三张桌面截图，显示三插件详情页图标与候选版本，Diagram/Explain 示例提示区亦显示小图标；客户端版本、来源及实际输入框结果按已提供的具体证据记录，截图不补写未展示项。当前 main ruleset 要求当前 head 的非作者批准与 Validate Structure；门禁和后续发布事实见 [8.1.1 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。
+8.1.1的发布授权、Owner三张图标截图及实际门禁见[发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)；截图不补写未展示项，历史独立批准缺项不追认。
 
 Learning Evidence PR2 的本机能力和 PR3 的手动 GitHub 流转曾暂存于 scripts/learning-evidence，保持旧运行包字节；PR4 候选原子迁入 plugins/learning-evidence-kit/scripts 并删除暂存位置。保存、完整基线、身份、关联、恢复、导入导出和保留归档按记录契约执行，测试显式隔离库；实际分阶段测试、独立审查及合并状态见验收账本。
 
@@ -55,6 +55,10 @@ Learning Evidence PR3 的同一共用接口提供显式范围的完整 PR 评论
 Learning Record Check 先确认已选定记录或任务，分开适用性与应用阶段；实际作者/当前技能/真实时钟、手动触发及既有材料要求按[新指南](docs/guide/[GUIDE]_Learning_Evidence_Kit.md)和[记录/API](docs/spec/[SPEC]_Learning_Evidence_Record_And_API.md)执行，原学习信息保留原件。失败、阻断与重跑见验收账本。
 
 PR2 已同步 #226 合入的 HTML Guide Kit 0.1.0，当时基准为四插件、五技能；PR4 替换 Learning Evidence 后开发集合为四插件、六公开技能、三项显式策略，PR4 当时 marketplace 为未发布 8.1.2，PR5 已准备未发布 8.2.0。HTML 包/其他插件/版本相对当前 develop 基准保持，旧 Understanding 只按已批准迁移替换。Owner 已决定 develop 保留已合入 HTML 内容；8.2.0 从独立发行候选交付 Diagram、Learning Evidence、Explain 三插件与五公开技能，HTML 另行发行，不因并行合入扩大本次公开发行范围。
+
+## Communication 工具准备
+
+Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基线为Diagram、Learning、Explain、HTML四包六技能。缺Communication manifest时apply/DryRun必须零写入失败。D地球＋文字图标已获Owner选择，正式资源等待PR3原子接入；旧失败见[品牌验收](docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。Q3已确认正式只公开Learning三包＋Communication四包六技能，HTML留develop另发。未转换版本、未发布；当前head批准及阶段依赖仍须满足。
 
 ## HTML Guide Kit 阶段实施
 
@@ -66,10 +70,12 @@ HTML PR1 当时保持 marketplace 未发布 8.1.2 及其他插件版本，无 Re
 
 第五轮来源 acf3c9d 的六 fresh 会话/八调用已通过限定 CLI 核心判据：七次自然完成、一次执行器超时保留；九条新核验、两次限定离线共享及原件/生成信息均经独立核对。四轮原失败、两次策略拒绝、换行格式差异和幂等重放分别保留，不称所有调用成功。原移交仅按十二项未变资源闭包沿用并限已有本地 Git exclude；原生提问仍延期、桌面/Side Chat 未运行，实际保护合入、发布和 Owner 最终接受待各自证据。完整入口资格与限制见上述 Learning Evidence 验收账本。
 
-较早发行准备快照（当前状态见下段）：三插件发行草稿 #232 已创建，head b7bdd769 / tree 428760eb；该最终 Git 提交的五种 canonical 安装及实际缓存 Python 通过，运行/测试代码与模型源 acf3 一致。develop 的四插件仍保留，main/latest Release 仍 8.1.1；最后依赖 #230、当前 head 非作者批准、main 合入与公开发布仍待完成，详见发行准备账本。
+此前三插件发行草稿快照：#232 已创建，head b7bdd769 / tree 428760eb；该最终 Git 提交的五种 canonical 安装及实际缓存 Python 通过，运行/测试代码与模型源 acf3 一致。develop 的四插件仍保留，main/latest Release 仍 8.1.1；最后依赖 #230、当前 head 非作者批准、main 合入与公开发布仍待完成，详见发行准备账本。
 
 Learning Evidence 当前交付：#216/#224/#227/#228/#230已交付，#210–214关闭。#232/main ebc4bdc3于2026-10-13公开v8.2.0，tag/Release同SHA，发布后五精确安装/实际Python及published-noop复查通过。#234实际merge 2c0a8317同步main ancestry，#235实际merge 3af68373完成未发布8.2.1预升，均与已测head同树且各八精确安装/实际Python通过；HTML四插件开发集合及插件版本保持。版本工具只更新VERSION/badge两锚点，#235按Owner要求修复failing check另补真实根摘要，三路径走正常A6；原例外失败保留，checker/workflow/批准规则未改。main/public仍原三插件8.2.0，无8.2.1 tag/Release；版本清单以VERSION、索引和manifest为准。#224实际批准与其他交付PR的空reviews分别留档，不推定豁免；repo immutable配置UNKNOWN，Release immutable=false。完整事实见[发行账本](docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)与[收尾回执](docs/runbook/evidence/learning-evidence-8-2-0-closeout.json)。后续不指定审查人；原生延期、桌面/Side Chat未运行、效果未测和Owner最终接受仍由#215/Epic独立追踪。
 
-Communication PR1 普通同步已合入的 #236 / develop `98068a8` 文档收尾；当前开发基线8.2.1仍四包六技能，Communication在本前置阶段未注册。main/tag/Release仍为 `ebc4bdc3` / published v8.2.0三包五技能；Q3正式Communication四包六技能、HTML留develop另发保持。最新来源和延期见上述发行账本与收尾回执，本轮保留原计划及历史证据，不额外bump，Refs #222。
+Communication PR2 普通同步已合入的 #236 / develop `98068a8` 文档收尾；当前开发基线8.2.1仍四包六技能，Communication在本前置阶段未注册。main/tag/Release仍为 `ebc4bdc3` / published v8.2.0三包五技能；Q3正式Communication四包六技能、HTML留develop另发保持。最新来源和延期见上述发行账本与收尾回执，本轮保留原计划及历史证据，不额外bump，Refs #222。
 
-PR1继承空白修复检查完整PR范围；冻结计划、来源及原失败证据保留原字节。
+PR2继承空白修复检查完整PR范围；冻结计划、来源及原失败证据保留原字节。
+
+PR1 #223已实际合入develop bca7b5c（2026-10-13，源5a9d845同树）；reviews=[]不追认独立批准。本分支普通同步，Refs #222。
