@@ -43,7 +43,7 @@ test("HTML Guide Kit has one approved Read-only explicit entry without changing 
  assert.deepEqual(EXPLICIT_ONLY_SKILLS,["understanding-kit:pop-quiz",SKILL]);
  assert.deepEqual(PUBLIC_SKILLS.filter(name=>!EXPLICIT_ONLY_SKILLS.includes(name)),["diagram-kit:arch-diagram","explain-kit:glossary","explain-kit:concept"]);
  assert.equal(REPOSITORY_SKILLS.length,20);assert.ok(!REPOSITORY_SKILLS.includes("guide"));
- const m=manifest();assert.equal(m.name,PLUGIN);assert.equal(m.version,"0.1.4");assert.deepEqual(ui(m).capabilities,["Read"]);validateManifest(m,PLUGIN);
+ const m=manifest();assert.equal(m.name,PLUGIN);assert.equal(m.version,"0.1.5");assert.deepEqual(ui(m).capabilities,["Read"]);validateManifest(m,PLUGIN);
 });
 
 test("HTML Guide Kit manifest rejects wrong identity, root versions, capabilities and routes",()=>{

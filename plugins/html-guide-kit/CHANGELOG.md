@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [0.1.5] - 2026-10-13
+
+### Fixed
+
+- HTML Guide Kit 0.1.5 applies the text-only boundary to refusals and source quotations: summarize necessary meaning without echoing supplied HTML, code, pseudocode or production commands.
+- Distinguish mutually exclusive operation branches from cumulative feedback; audit broad rows for overlap without losing known missing conditions or unknown-information notices.
+- Preserve the actual 0.1.3 HTML-echo failure and repeated-operation failures. The intermediate 0.1.4 installation passed but its model behavior was not tested; verify the complete correction on a fresh canonical cache.
+
 ## [0.1.4] - 2026-10-13
 
 ### Fixed

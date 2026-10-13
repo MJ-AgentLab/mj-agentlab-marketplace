@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.8
+version: v1.9
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -285,3 +285,17 @@ dry-run 后只将 HTML Guide Kit 推进 0.1.2→0.1.3，市场和其他插件版
 dry-run 后仅将本插件推进 0.1.3→0.1.4。通用方法按本次当前状态重新匹配重复操作的源条件，保留仍适用的字段结果，将未规定的额外提示限制在提示本身；不新增有效性、限次条件或验收领域答案。市场和其他插件版本、图标、显式 Read 与确认等待边界不变。新候选须完成严格 canonical 安装、受影响 E13/术语路径与重复操作补证，以及全部六组阻断项；未测试的新版本不能继承旧 PASS。0.1.3 其余独立评审继续保存历史实际结果，原生入口及最终 head/merge 门禁仍未完成。
 
 0.1.4 工作修正的[完整测试](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-4/npm-test.log)279/279、零 skip，[validate](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-4/npm-validate.log)及[基线 check](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-4/npm-check.log)通过；[原始索引](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-4/archive-index.json)保留 dry-run/apply 唯一 manifest 目标。此处是工作候选工程检查，不是 committed canonical 安装或 0.1.4 模型行为通过。
+
+## §18 Complete correction after remaining historical reviews
+
+0.1.3 原 E 的另 19 变体 / 38 轮独立评审全部完成：15 PASS、4 FAIL。除 §17 E13 外，E15 UUID `01a13337-1b98-73a0-a188-d5b96433d819` / attempt `1c325816-e9e3-4194-a5ec-0072b022a19b` 第三轮第 70、140、142 行同样把重复取消统判未知，并新增预约必须有效的前提。缺材料索取、补件读取与确认正确，不抵消指南中的规则错误。人工维护者补证 UUID `01a13342-9be1-7161-8803-6611d9b596e1` / attempt `50ac9dbc-8fa4-4806-805b-88244b53b63e` 的第二轮第 118、122、335 行亦有同类错误；其实际顶层标题与摘录有效，独立 FAIL 不覆盖原误控维护者的 INVALID_RUN。
+
+E14-review UUID `01a13331-3167-70d3-840e-13bb519e13ed` / attempt `25e727ff-7118-4c70-b998-4deef28d8d52` 首轮第 14–16 行在拒绝已有 HTML 审查后回显 fenced HTML。实际未审查、未写入，也不能抵消代码输出边界违例；这是独立 FAIL。E9-recommended UUID `01a13319-8863-7ad1-9440-bfc018d3b846` / attempt `5a5be555-a137-4866-947e-e592cc4d33e6` 第二轮第 151、153、155 行的宽泛条件覆盖具体条件，反馈没有互斥、优先或合并规则。条件真假本身正确、推荐后明确确认有效，失败限定为分支反馈可判定性，不写成已知否被未知覆盖。其余通过变体及提早读取参考的真实时序另存，不把限定路径或未触发维度外推成全部语义/读取顺序通过。
+
+中间 0.1.4 canonical `1e715560e0e9023c64a88b2617baa5ab903ae46b` / tree `4a1ff40c6689d77f88e9475255e1dcaa8dd1c6f8` 的[严格安装](evidence/html-guide-kit/pr3-post-merge/engineering-1e715560/installation.json)与[汇总](evidence/html-guide-kit/pr3-post-merge/engineering-1e715560/summary.json)通过七场景、四次实际缓存 Python，[24 文件索引](evidence/html-guide-kit/pr3-post-merge/engineering-1e715560/archive-index.json)保持原始命令与资源字节。发现旧批其余失败后未开始 0.1.4 模型调用，行为状态为 NOT_RUN，不称其行为失败或通过。
+
+按后续补丁规则 dry-run/apply 仅推进 HTML Guide Kit 0.1.4→0.1.5。完整修正保留重复操作的已知结果；拒绝与引用也不得回显 HTML/代码/伪代码/制作命令，必要来源语义以自然语言及定位保留；操作分支与累计反馈分别说明，逐对核对宽泛行覆盖关系及合并方式。无验收领域规则、答案或本机来源依赖。独立静态评审三运行资源无阻断、仅 STATIC_ONLY，不当作行为 PASS。
+
+0.1.5 须新 committed canonical 严格安装、全部六组 14 指定变体 / 30 连续轮次，以及 E13、真实双语、HTML 拒绝回显、推荐确认、补件后交付、维护者和新增重复操作补证。新模型只见原材料与自然用户输入，控制/答案及评审仍隔离；选择从真实顶层目标与三元组摘录人工取得，旧模型和误控结果分别保留。原生入口、现实效果及最终 head/merge 门禁状态不变。
+
+另四份 0.1.3 失败原评审的字节、UUID 与来源见[独立失败索引](evidence/html-guide-kit/pr3-post-merge/candidate013-additional-failures/archive-index.json)，完整会话仍随最终历史封存。0.1.5 工作候选[完整测试](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-5/npm-test.log)279/279、零 skip、validate/check 通过；[独立静态评审](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-5/static-review.json)三资源 SHA 与当前字节一致，无静态阻断，behavior NOT_RUN。[原始检查索引](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-5/archive-index.json)记录唯一 manifest dry-run/apply 及实际检查，不代替 canonical 安装、模型或 GitHub 批准。

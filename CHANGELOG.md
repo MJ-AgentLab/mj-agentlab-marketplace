@@ -16,6 +16,8 @@
 
 ### Changed
 
+- Prepare HTML Guide Kit 0.1.5 after remaining historical reviews found HTML echoed in a refusal, overlapping branch feedback and further repeated-operation errors. Preserve the intermediate 0.1.4 installation with behavior NOT_RUN; verify the complete correction on fresh caches. Refs #217, #220.
+
 - Prepare HTML Guide Kit 0.1.4 after an actual repeated-operation fidelity failure: match source preconditions to the current state again and separate known field results from unspecified extra feedback. Preserve invalid operator selection provenance and require actual target-heading selections in fresh verification. Refs #217, #220.
 
 - Record HTML Guide Kit PR2's actual develop merge d106e766 and PR3 expanded acceptance. Preserve missing independent GitHub approval, historical failures and unavailable native client events; real-world effectiveness remains NOT_MEASURED. Refs #217, #220.
