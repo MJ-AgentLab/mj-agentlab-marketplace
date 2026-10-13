@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "refs": [
+    "#222"
+  ],
+  "capturedAt": "2026-10-13T10:53:59.562Z",
+  "kind": "actual M1 protected merge and fixed-source post-merge contract engineering verification",
+  "actualMerge": {
+    "pr": 223,
+    "merge": "bca7b5c903c611d698e59eef5268b7e45cfe2b96",
+    "head": "5a9d8453dbafd4b54272336ceb61ec3eb5fac974",
+    "tree": "b3d1f5bb060c87d963c94405639818221e1ddb6d",
+    "headTreeIdentical": true,
+    "mergedAt": "2026-10-13T10:42:13Z",
+    "reviewsObserved": [],
+    "reviewDecisionObserved": "REVIEW_REQUIRED",
+    "independentApprovalRecorded": false
+  },
+  "postMerge": {
+    "source": "Root actually executed fixed bca detached verifyReleaseInstall; complete raw result retained.",
+    "docPass": 65,
+    "strict": "PASS/four development packages and six skills",
+    "canonicalSummary": {
+      "canonicalSha": "bca7b5c903c611d698e59eef5268b7e45cfe2b96",
+      "ok": true,
+      "scenarios": 8,
+      "cli": "codex-cli 0.147.0",
+      "diagramPython": 4,
+      "learningPython": 3,
+      "learningInterpreters": [
+        "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]"
+      ],
+      "all": [
+        "diagram-kit",
+        "learning-evidence-kit",
+        "explain-kit",
+        "html-guide-kit"
+      ],
+      "implicit": {
+        "publicSkills": 3,
+        "repositorySkills": 0
+      },
+      "native": 6
+    }
+  },
+  "launcherFailure": {
+    "phase": "pr1-merge-01",
+    "kind": "launcher-failure",
+    "exitCode": 1,
+    "attempts": [
+      "canonical",
+      "doc",
+      "validate"
+    ],
+    "message": "PowerShell python command was not recognized; Python wrapper and all checks did not execute, no PASS inferred. Retry uses actual configured Python 3.12.14 absolute path."
+  },
+  "repair": "Initial launcher could not resolve python; those three checks did not execute. Root retried with actual configured Python 3.12.14 absolute path; successful root source receipts are separate.",
+  "plan": {
+    "lines": 405,
+    "sha256": "6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3"
+  },
+  "invalidatesIf": "The actual source tree, runtime/resources/registration, validator or installation matrix changes; perform the affected checks for that new source. This receipt is for bca PR1 only.",
+  "limits": [
+    "M1 contract postmerge succeeds within this four-package baseline; Communication is not registered or released.",
+    "No Communication client result, formal release or R04/R05 post-publication check is supplied here.",
+    "Empty reviews/REVIEW_REQUIRED remain observed facts; actual merge does not create an independent approval record.",
+    "Main/Release 8.2.0 and v8.3 404 are captured-time GitHub facts, not future state guarantees."
+  ],
+  "evidenceWhitespaceExceptions": [],
+  "artifacts": [
+    {
+      "rawPath": "communication-kit-2026-10-13-pr1-merge-01-raw-doc.log",
+      "original": "communication-kit-2026-10-13-pr1-merge-01-doc.log",
+      "rawBytes": 12236,
+      "sha256": "91a11623a4dbff94881a9d3bc94dbde7733d86e352c24c9c8107d124ece6a032"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-pr1-merge-01-raw-validate.log",
+      "original": "communication-kit-2026-10-13-pr1-merge-01-validate.log",
+      "rawBytes": 287,
+      "sha256": "be07d190dfe9a9fdc2174733d6fab5791a21222c6633b7c2b1019b6699ee164d"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-pr1-merge-01-raw-canonical.log",
+      "original": "communication-kit-2026-10-13-pr1-merge-01-canonical.log",
+      "rawBytes": 466,
+      "sha256": "c720ab20d347dd911c91a0ec7a293303942355b2f1b2155fa38dfd657b57ad6b"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-pr1-merge-01-raw-launcher-failure.json",
+      "original": "communication-kit-2026-10-13-pr1-merge-01-launcher-failure.json",
+      "rawBytes": 289,
+      "sha256": "f9e3294434f51bbf67b26ce6f5ece57a124c40dd37c958e7111b3fa51cdfcd55"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-pr1-merge-01-raw-github-facts.json",
+      "original": "communication-kit-2026-10-13-pr1-merge-01-github-facts.json",
+      "rawBytes": 33111,
+      "sha256": "b5a2d3a5992a38643208fcc7e5a879d04dc9fb52c34426db9075025ac1870d02"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-pr1-merge-01-raw-canonical-result.json",
+      "original": "communication-pr1-merge-canonical-result-01.json",
+      "rawBytes": 166198,
+      "sha256": "1a460033a6f79e11e3872958f18e7ea2798856dd6653ea8e05bccaac605b6f86"
+    }
+  ]
+}

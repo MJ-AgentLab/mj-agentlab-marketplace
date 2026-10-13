@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.7.1
+version: v1.7.2
 ---
 
 # [RUNBOOK] Communication Kit acceptance
@@ -245,3 +245,7 @@ Owner 后续已明确 Q3：Communication 正式发行采用 Learning 三包基�
 Refs #222。2026-10-13从原head `cf63337b8efccc5d56c4df02ab3aebd165c0c6bf`普通merge PR2 `c198f5c769950e693d194c878f9c72d9a1cded20`，包含实际develop `98068a8bd7060585b9915be9490a02a733fcb1a6`（#236）。保留五包七技能/四显式/普通三/开发20，VERSION与badge8.2.1；main/tag/published v8.2.0仍为 `ebc4bdc3` 的Learning三包。最新发行收尾与原A6失败/修复、空reviews以[Learning账本](./[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)及[收尾回执](evidence/learning-evidence-8-2-0-closeout.json)为准，不能追认为Communication批准或发布。
 
 本轮相对原head的plugins、scripts、tests与市场注册零差异；Communication包tree仍 `14a3896c7ad50597bfc83996bcfec25180a720f9`，其他包与原head及980来源相同，原计划405行/hash、旧公开CHANGELOG、模型失败/CLI PARTIAL与限定UI批次保持。AGENTS/README/INDEX冲突逐块保留双方意图，收敛阶段摘要并更新INDEX元数据；只执行严格校验、65项documentation/A6、whitespace、实际base正常A6与提交规范，不重复full、安装、Python或UI。原始日志保存在worktrees外部 `C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr3-*.log`；结果/hash与本轮确切head/tree见同目录追加审计 `communication-closeout-sync-audit.json`。正式四包范围、PR4已准备目标及阶段保护合并/R01–R05由各阶段记录，当前仍未宣称完成。
+
+### PR1实际合并与固定来源复验
+
+Refs #222。[M1 postmerge 01](evidence/communication-kit-2026-10-13-pr1-merge-01.json)记录#223于2026-10-13T10:42:13Z实际合入develop `bca7b5c`，与已测head `5a9d845`同tree `b3d1f5b`。Root对该固定merge执行doc/A6 65/65、strict四开发包六技能和八组detached canonical，原summary列CLI0.147.0、四次Diagram/三组Learning实际Python3.12.14。初始python PATH launcher失效令三个尝试均未执行，绝对路径修复成功的完整原件分开保留。六份外部原件（含完整canonical result与GHfacts）按byte/hash归档，不摘取代替原始数据；reviews=[]/REVIEW_REQUIRED不能补作独立批准。M1复验不是Communication或R04/R05，后续来源/运行/安装范围变化须按record失效边界复验。

@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.23.1
+version: v2.23.2
 ---
 
 # 文档索引
@@ -28,6 +28,8 @@ Learning #224的当前head批准及交付、#227/#228的交付与空reviews事�
 Marketplace v8.2.0已通过#232/main ebc4bdc3公开；#234同步和#235未发布8.2.1预升已依序实际合入，两次精确merge各八安装/实际Python通过。Learning公开三插件、上游develop四插件范围保持；原A6例外失败、正常摘要修复及空reviews见[收尾回执](runbook/evidence/learning-evidence-8-2-0-closeout.json)。#210–214关闭；#215/Epic保留原生延期、真实客户端/效果与Owner接受，继续OPEN。
 
 Communication PR3普通继承PR2 `c198f5c` / develop `98068a8`最新文档收尾，五包七技能/四显式及未发布8.2.1保持；运行包与既有证据身份分别核对，记录见[验收账本](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)，Refs #222。
+
+PR1 #223实际合入bca、head同tree与限定M1 postmerge原始证据见[M1 postmerge 01](runbook/evidence/communication-kit-2026-10-13-pr1-merge-01.json)；空reviews不追认独立批准。
 
 ## 入口
 

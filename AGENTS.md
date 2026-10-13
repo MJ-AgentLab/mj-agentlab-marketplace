@@ -16,7 +16,7 @@ Marketplace v8.1.1 已通过 #205 合入 main 并于 2026-10-10 自动发布，�
 
 explain-kit 0.1.0 提供速解和深讲，默认中文、保留术语原文，按深度路由并适应用户格式。新增解释能力的 [ADR](docs/adr/[ADR]_Explain_Kit_Addition.md) 与 [验收记录](docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md) 不改变测验策略。
 
-Communication实施与发布使用[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。候选[包说明](plugins/communication-kit/README.md)和[communicate](plugins/communication-kit/skills/communicate/SKILL.md)定义显式单入口、沟通/编写/保义改写、关键缺口等待、成稿＋关键提示及明确请求才保存编辑。冻结AICS保持Lab Proposal / Informative，运行只依赖包内摘要。工程307测试、十三组canonical及六次缓存Python通过；旧行为失败与CLI C16–C18 PARTIAL保留。2026-10-13代理亲自执行同一26.1007.2314.0桌面应用内Codex本地和ChatGPT/Work本机两个入口，安装、图标、三任务、聊天等待及新MD/TXT保存回读限定范围PASS；身份、原生窗口/其他客户端未覆盖项见[验收记录§4](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。发布未执行，PR1–3保持draft，Learning先发已完成，当前阶段独立批准与合并仍缺；现实效果测试本轮延期。
+Communication实施与发布使用[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。候选[包说明](plugins/communication-kit/README.md)和[communicate](plugins/communication-kit/skills/communicate/SKILL.md)定义显式单入口、沟通/编写/保义改写、关键缺口等待、成稿＋关键提示及明确请求才保存编辑。冻结AICS保持Lab Proposal / Informative，运行只依赖包内摘要。工程307测试、十三组canonical及六次缓存Python通过；旧行为失败与CLI C16–C18 PARTIAL保留。2026-10-13代理亲自执行同一26.1007.2314.0桌面应用内Codex本地和ChatGPT/Work本机两个入口，安装、图标、三任务、聊天等待及新MD/TXT保存回读限定范围PASS；身份、原生窗口/其他客户端未覆盖项见[验收记录§4](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。发布未执行，此前PR1–3保持draft，Learning先发已完成，当前阶段独立批准与合并仍缺；现实效果测试本轮延期。
 
 ## 执行与决策
 
@@ -77,3 +77,5 @@ Learning当前收尾：main/tag/published v8.2.0为ebc4bdc3三包五技能；#23
 Communication PR3已普通继承PR2 c198f5c及最新#236/develop98068a8的文档收尾，VERSION/badge8.2.1保持；生产包、脚本/测试/注册与cf63337零新差异，仍五包七技能/四显式/普通三/开发20。正式仅D/L/E/Comm四包六技能，HTML留develop；旧失败、CLI PARTIAL及限定UI身份保持，未重跑安装或客户端。当前head批准、CI/线程及保护合并另核对，Refs #222。
 
 PR3继承空白修复检查完整PR范围；冻结计划、来源及原失败证据保留原字节。
+
+PR1 #223已实际合入develop bca7b5c（2026-10-13，源5a9d845同树）；reviews=[]不追认独立批准。本分支普通同步，Refs #222。
