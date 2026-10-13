@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [0.1.3] - 2026-10-13
+
+### Fixed
+
+- HTML Guide Kit 0.1.3 distinguishes a single operation in its current state from a later multi-step path. An undefined path does not erase an explicit prohibition on the direct operation.
+- Audit operation assertions across guide body, simulations, feedback and boundary statements before delivery. Preserve the actual 0.1.2 B4.1 failure separately from its successful B4.2 correction.
+- Keep source terms and value types distinct from derived predicates; compressed headings and tables cannot add unsupported exclusive conditions.
+
 ## [0.1.2] - 2026-10-12
 
 ### Fixed
