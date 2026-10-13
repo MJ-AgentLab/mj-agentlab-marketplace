@@ -122,3 +122,5 @@ Refs #222。本预备普通合入PR4 `a5dd8252b3bc9f3230aaf798b4dfe7b1fead7841`�
 ### 正式PR5从实际M4派生
 
 Refs #222。正式候选从实际M4 c1fa458创建独立codex/communication-release，普通接入已测7548四包投影；投影初始完整树bfcd29ec与原7548一致。保留所有插件/脚本/JS测试/图标/版本/正式CH/冻结计划对象，更新本阶段说明而不改变运行内容。最新main ebc4bdc3已是M4祖先，正式发布范围只增加Communication，HTML运行目录与注册均不公开；开发五包继续保留。先执行本候选完整工程、九组合和固定canonical并记录实际源，再创建draft及核查main门禁。R01–R05仍NOT RUN，发布前验证不计上线后复查。
+
+Refs #222。正式候选的原始命令/退出码、完整canonical result、main差异与失败修复见[formal PR5 01](evidence/communication-kit-2026-10-13-formal-pr5-01.json)；实际M2–M4来源、闭包沿用边界及fresh c1十三组见[postmerge M2–M4 01](evidence/communication-kit-2026-10-13-postmerge-m2-m4-01-manifest.json)。归档后只复验受影响文档/严格集合；最终待合入head的CI、GitHub独立批准及R01–R05仍分别核对。

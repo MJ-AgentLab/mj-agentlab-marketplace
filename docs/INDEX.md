@@ -27,6 +27,8 @@ PR1 #223实际合入bca、head同tree与限定M1 postmerge原始证据见[M1 pos
 
 实际M1 merge后的普通下游继承与限定最终检查来源见[PR1 merge sync 01](runbook/evidence/communication-kit-2026-10-13-pr1-merge-sync-01.json)，独立批准/后续正式合并仍分别核对。
 
+正式PR5实际M4派生、318工程、九固定canonical及失败原件见[formal PR5 01](runbook/evidence/communication-kit-2026-10-13-formal-pr5-01.json)，实际开发M4十三组与M2/M3闭包沿用边界见[postmerge M2–M4 01](runbook/evidence/communication-kit-2026-10-13-postmerge-m2-m4-01-manifest.json)；main/Release/R仍待完成。
+
 ## 入口
 
 - [Communication Marketplace 8.3.0 发布准备](runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)：已授权四包六技能，版本准备与实际合并/发布/安装复查分开记录。

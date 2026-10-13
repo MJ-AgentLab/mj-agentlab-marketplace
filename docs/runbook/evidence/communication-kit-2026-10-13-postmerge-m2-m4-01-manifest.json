@@ -1,0 +1,342 @@
+{
+  "schemaVersion": 1,
+  "refs": [
+    "#222"
+  ],
+  "capturedAt": "2026-10-13T12:37:33.040Z",
+  "kind": "read-only actual M2-M4 postmerge comparison and fresh fixed-M4 installation verification",
+  "factsFile": "C:/Users/Admin/.codex/worktrees/communication-kit-2026-10-13-postmerge-m2-m4-01-facts.json",
+  "actualStages": [
+    {
+      "milestone": 2,
+      "head": "7040dca2a5a72a0ccb5daa3a9d1c0782b847cdab",
+      "merge": "98195091235ca27df83dfebabc239375149538a3",
+      "mergedAt": "2026-10-13T11:47:35Z",
+      "headTree": "a79b0d99301dcef6dfb527d5e783b11af1b57985",
+      "mergeTree": "a79b0d99301dcef6dfb527d5e783b11af1b57985",
+      "headTreeEqual": true,
+      "parents": [
+        "bca7b5c903c611d698e59eef5268b7e45cfe2b96",
+        "7040dca2a5a72a0ccb5daa3a9d1c0782b847cdab"
+      ],
+      "version": "8.2.1",
+      "plugins": [
+        "diagram-kit",
+        "learning-evidence-kit",
+        "explain-kit",
+        "html-guide-kit"
+      ],
+      "packageTrees": {
+        "diagram-kit": "e217c41be2cd4c3653aa17aa7b28c8312be06268",
+        "learning-evidence-kit": "c88818fac37e937a245436f0f999f3488babfe1f",
+        "explain-kit": "ef6a90bc60e9af45915c30ecf4668559978e29e5",
+        "html-guide-kit": "67e468c944bd9da076994667eef378367a012b14"
+      },
+      "reviewsObserved": [],
+      "reviewsObservationSource": "Root verified GitHub snapshots; no independent approval inferred"
+    },
+    {
+      "milestone": 3,
+      "head": "32b723acf87a62d0cae8f3b45a417c142b3cef5a",
+      "merge": "58cd1150cad08b947014bd61203ec63239d708db",
+      "mergedAt": "2026-10-13T12:13:52Z",
+      "headTree": "2330acaf972873b8c4ad216559713a000cf2e6ad",
+      "mergeTree": "2330acaf972873b8c4ad216559713a000cf2e6ad",
+      "headTreeEqual": true,
+      "parents": [
+        "98195091235ca27df83dfebabc239375149538a3",
+        "32b723acf87a62d0cae8f3b45a417c142b3cef5a"
+      ],
+      "version": "8.2.1",
+      "plugins": [
+        "diagram-kit",
+        "learning-evidence-kit",
+        "explain-kit",
+        "communication-kit",
+        "html-guide-kit"
+      ],
+      "packageTrees": {
+        "diagram-kit": "e217c41be2cd4c3653aa17aa7b28c8312be06268",
+        "learning-evidence-kit": "c88818fac37e937a245436f0f999f3488babfe1f",
+        "explain-kit": "ef6a90bc60e9af45915c30ecf4668559978e29e5",
+        "communication-kit": "14a3896c7ad50597bfc83996bcfec25180a720f9",
+        "html-guide-kit": "67e468c944bd9da076994667eef378367a012b14"
+      },
+      "reviewsObserved": [],
+      "reviewsObservationSource": "Root verified GitHub snapshots; no independent approval inferred"
+    },
+    {
+      "milestone": 4,
+      "head": "6344cd726b3901f057b5647ca6713b24903aea64",
+      "merge": "c1fa458df1b531d7c38436908b750ba810b0b116",
+      "mergedAt": "2026-10-13T12:22:14Z",
+      "headTree": "c3ff00f88f778257b12d5d01515eb9d4e2a9d39c",
+      "mergeTree": "c3ff00f88f778257b12d5d01515eb9d4e2a9d39c",
+      "headTreeEqual": true,
+      "parents": [
+        "58cd1150cad08b947014bd61203ec63239d708db",
+        "6344cd726b3901f057b5647ca6713b24903aea64"
+      ],
+      "version": "8.3.0",
+      "plugins": [
+        "diagram-kit",
+        "learning-evidence-kit",
+        "explain-kit",
+        "communication-kit",
+        "html-guide-kit"
+      ],
+      "packageTrees": {
+        "diagram-kit": "e217c41be2cd4c3653aa17aa7b28c8312be06268",
+        "learning-evidence-kit": "c88818fac37e937a245436f0f999f3488babfe1f",
+        "explain-kit": "ef6a90bc60e9af45915c30ecf4668559978e29e5",
+        "communication-kit": "170fcad82f33548c8d91b62984df4ff38635e69f",
+        "html-guide-kit": "67e468c944bd9da076994667eef378367a012b14"
+      },
+      "reviewsObserved": [],
+      "reviewsObservationSource": "Root verified GitHub snapshots; no independent approval inferred"
+    }
+  ],
+  "scopedResults": {
+    "M2": {
+      "status": "PASS for actual merge/head/tree and scoped engineering content; installation evidence reused by closed content proof",
+      "actualMerge": "98195091235ca27df83dfebabc239375149538a3",
+      "actualTree": "a79b0d99301dcef6dfb527d5e783b11af1b57985",
+      "canonical": {
+        "freshRun": false,
+        "reusedFromSha": "bca7b5c903c611d698e59eef5268b7e45cfe2b96",
+        "scenarios": 8,
+        "sourceTreeAndInstallerClosureEvidence": {
+          "sourceM1": "bca7b5c903c611d698e59eef5268b7e45cfe2b96",
+          "actualM2": "98195091235ca27df83dfebabc239375149538a3",
+          "allPackageTreesAndCanonicalEngineIdentical": true,
+          "engineClosure": [
+            "scripts/release-verify-install.mjs",
+            "scripts/smoke-codex-plugin.mjs",
+            "scripts/validate-portable.mjs",
+            "scripts/run-cli.mjs",
+            "scripts/plugin-icons.mjs",
+            "scripts/brand-assets.mjs",
+            "package.json",
+            "package-lock.json",
+            ".agents/plugins/marketplace.json",
+            "tests/fixtures/learning-evidence/learning-record.json"
+          ],
+          "delta": [],
+          "reuse": "M1 actual fixed bca eight canonical source evidence is reused for identical installed closure; no fresh M2 SHA installation claimed."
+        }
+      },
+      "docAndStrict": {
+        "freshRun": false,
+        "sourceHead": "7040dca2a5a72a0ccb5daa3a9d1c0782b847cdab",
+        "sourceTreeSameAsActualMerge": true,
+        "tests": 65,
+        "pass": 65,
+        "fail": 0,
+        "skip": 0,
+        "strict": true
+      }
+    },
+    "M3": {
+      "status": "PASS for actual merge/head/tree and common runtime/installed-resource functional closure; fresh exact M3 SHA installation not claimed",
+      "actualMerge": "58cd1150cad08b947014bd61203ec63239d708db",
+      "actualTree": "2330acaf972873b8c4ad216559713a000cf2e6ad",
+      "canonical": {
+        "freshRun": false,
+        "coverageReusedFromActualM4Sha": "c1fa458df1b531d7c38436908b750ba810b0b116",
+        "scenarios": 13,
+        "exception": "VERSION and Comm CHANGELOG differ; installed manifest/icons/skill/resources and installer scripts are identical, package CHANGELOG is not part of source/cache byte assertions. No M3 installed CHANGELOG identity or full-package equality inferred."
+      },
+      "docAndStrict": {
+        "freshRun": false,
+        "sourceHead": "10674c6eb96a9a7b502fa4b3fe7143741bab69c2",
+        "sourceTreeSameAsActualMerge": true,
+        "tests": 65,
+        "pass": 65,
+        "fail": 0,
+        "skip": 0,
+        "strict": true
+      }
+    },
+    "M4": {
+      "status": "PASS/fresh fixed actual merge canonical",
+      "actualMerge": "c1fa458df1b531d7c38436908b750ba810b0b116",
+      "actualTree": "c3ff00f88f778257b12d5d01515eb9d4e2a9d39c",
+      "canonical": {
+        "freshRun": true,
+        "canonicalSha": "c1fa458df1b531d7c38436908b750ba810b0b116",
+        "ok": true,
+        "scenarios": 13,
+        "cli": "codex-cli 0.147.0",
+        "diagramPython": 6,
+        "learningPython": 6,
+        "learningInterpreters": [
+          "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]"
+        ],
+        "installed": [
+          "diagram-kit",
+          "learning-evidence-kit",
+          "explain-kit",
+          "communication-kit",
+          "html-guide-kit"
+        ],
+        "implicit": {
+          "publicSkills": 3,
+          "repositorySkills": 0
+        },
+        "native": 7
+      },
+      "strict": {
+        "freshRun": true,
+        "performed": "Actual c1 detached tree validation inside verifyReleaseInstall and each isolated runSmoke."
+      },
+      "doc": {
+        "freshRun": false,
+        "sourceHead": "a5dd8252b3bc9f3230aaf798b4dfe7b1fead7841",
+        "sourceTreeSameAsActualMerge": true,
+        "tests": 65,
+        "pass": 65,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  "plan": {
+    "savedCopy": "C:/Users/Admin/.codex/worktrees/communication-readiness/develop/plan/communication-kit-implementation-plan.md",
+    "lines": 405,
+    "sha256": "6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3",
+    "originalPathExists": false
+  },
+  "inspectionFailuresAndCorrections": [
+    {
+      "missingReadPath": "scripts/check-baseline-tools.mjs",
+      "actualPath": "scripts/check-tool-versions.mjs",
+      "reason": "Nonexistent guessed inspection filename; no check ran."
+    },
+    {
+      "missingReadPath": "scripts/plugin-resources.mjs",
+      "actualPath": "scripts/validate-portable.mjs#assertInstalledPluginResources",
+      "reason": "Resource helper is embedded in the actual validator; no separate module exists."
+    }
+  ],
+  "canonicalFailures": [],
+  "closedWorktreesUnchanged": [
+    {
+      "milestone": "M2",
+      "root": "C:/Users/Admin/.codex/worktrees/communication-foundation/develop",
+      "head": "7040dca2a5a72a0ccb5daa3a9d1c0782b847cdab",
+      "clean": true
+    },
+    {
+      "milestone": "M3",
+      "root": "C:/Users/Admin/.codex/worktrees/communication-plugin/develop",
+      "head": "10674c6eb96a9a7b502fa4b3fe7143741bab69c2",
+      "clean": true
+    },
+    {
+      "milestone": "M4",
+      "root": "C:/Users/Admin/.codex/worktrees/communication-readiness/develop",
+      "head": "a5dd8252b3bc9f3230aaf798b4dfe7b1fead7841",
+      "clean": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-kit-2026-10-13-postmerge-m2-m4-01-canonical-result.json",
+      "bytes": 334251,
+      "sha256": "2f1fa10b486ef89bbe4c6ee395f2fca76425a73bdd00cdcd2d4c76d03c781df2"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-kit-2026-10-13-postmerge-m2-m4-01-canonical.log",
+      "bytes": 521,
+      "sha256": "a3a278f90b63cdcf7f1cbf1e6b2e38f8a0e6141c374ef9981e152b8fefac9e28"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-kit-2026-10-13-postmerge-m2-m4-01-canonical.mjs",
+      "bytes": 3403,
+      "sha256": "c0c9fdfc0faea9fca4b3b29f30c18ef994a20b28c5bf949469e61b2a5811b86c"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-kit-2026-10-13-postmerge-m2-m4-01-facts.json",
+      "bytes": 6171,
+      "sha256": "fbc59cd91ce3bb02e47514755766105fe18c07aed83fcc003a4c062936ccfab9"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-kit-2026-10-13-postmerge-m2-m4-01-facts.log",
+      "bytes": 1036,
+      "sha256": "b19d2420d70b090ff3642c7148a40ac8b8ed909ca48e5c7e387bd1b28cfe5e06"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-kit-2026-10-13-postmerge-m2-m4-01-facts.mjs",
+      "bytes": 5064,
+      "sha256": "df6ee71c54a260edcb2d9e0b0d80859bd2e7c77774c5edcc43b715f86e3a94f2"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-kit-2026-10-13-postmerge-m2-m4-01-manifest.mjs",
+      "bytes": 5693,
+      "sha256": "d0eb817b443b49da0e5efa066a2c875d6afda558c13eaa3a0a3c25f91072be7d"
+    }
+  ],
+  "reusedReceipts": [
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr1-merge-canonical-result-01.json",
+      "bytes": 166198,
+      "sha256": "1a460033a6f79e11e3872958f18e7ea2798856dd6653ea8e05bccaac605b6f86",
+      "newExecution": false
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-kit-2026-10-13-pr1-merge-01-canonical.log",
+      "bytes": 466,
+      "sha256": "c720ab20d347dd911c91a0ec7a293303942355b2f1b2155fa38dfd657b57ad6b",
+      "newExecution": false
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr1-merge-sync-01-pr2-doc-a6-final.log",
+      "bytes": 12636,
+      "sha256": "e344135b52d65e18f7ccc368855f5f32e9508f4dfe782a1dfdfecd1b96be4dcc",
+      "newExecution": false
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr1-merge-sync-01-pr2-validate-final.log",
+      "bytes": 354,
+      "sha256": "10dcad75d29a73396e2a3003d7c619a4d5b030e325667d9f8c56811ea564d37e",
+      "newExecution": false
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr1-merge-sync-01-pr3-doc-a6.log",
+      "bytes": 12637,
+      "sha256": "ed33184841e0db104187aa2ce7b4bd1014acc35c4ef07cfe7f03d0b1a60ebcf0",
+      "newExecution": false
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr1-merge-sync-01-pr3-validate.log",
+      "bytes": 392,
+      "sha256": "e3bedb0233222e468a1e207cfbcbaf1c3138a8827fde2769e9e2ede3a85eb3d8",
+      "newExecution": false
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr1-merge-sync-01-pr4-doc-a6.log",
+      "bytes": 12636,
+      "sha256": "71d0beed16b5a56d040ea6adb0e4dedc391ec1c84466edb3622514648c9adf09",
+      "newExecution": false
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr1-merge-sync-01-pr4-validate.log",
+      "bytes": 392,
+      "sha256": "e3bedb0233222e468a1e207cfbcbaf1c3138a8827fde2769e9e2ede3a85eb3d8",
+      "newExecution": false
+    }
+  ],
+  "scope": {
+    "developmentM2": "four packages/six public skills,8.2.1",
+    "developmentM3": "five packages/seven public skills,four explicit,8.2.1; Comm14a3896",
+    "developmentM4": "five packages/seven public skills,four explicit,8.3.0; Comm170fcad",
+    "formalTarget": "Owner-authorized D/L/E/Comm four packages/six skills; independent PR5 still required"
+  },
+  "limits": [
+    "Reviews=[] are Root observations and do not establish non-author approval; no actual merge is retroactively treated as approval.",
+    "Fresh canonical checks are M4 c1 only. M2/M3 reuse is explicitly bounded; no fresh M2/M3 SHA installation is claimed.",
+    "Source/cache bytes in Windows checkout are compared to the matching checkout, not blanket equality to raw Git LF blobs; frozen resources preserve their own byte identity.",
+    "No full/model/UI rerun, closed branch/primary modification, commit/push, version bump, Release or R04/R05 completion.",
+    "Original plan path is absent; real 405-line saved copy/hash retained, not recreated from chat."
+  ]
+}

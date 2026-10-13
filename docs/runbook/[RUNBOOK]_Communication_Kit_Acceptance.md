@@ -6,14 +6,14 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.15.1
+version: v1.16
 ---
 
 # [RUNBOOK] Communication Kit acceptance
 
 ## §1 Preconditions and status
 
-PR3已实现并原子接入完整Communication 0.1.0候选、注册、严格集合、冻结资源、正式D图标与安装预期。修复候选94c170d的278测试/九组合保留；HTML基线同步后工程源通过307/307，固定000e803的十三组canonical与六次缓存Python通过。S01–S12客观范围逐项核对。实际CLI批次C01–C15 PASS，C16–C18文件子路径PARTIAL；补充工具角色另有三项限定功能PASS，身份和覆盖分开。2026-10-13代理亲自完成统一桌面应用内Codex本地和ChatGPT/Work本机两个实际入口的必要基本功能，限定范围PASS，详见§4。原行为FAIL、CLI限制与原生选择窗口NOT RUN保留；R01–R05未执行，Learning8.2已published，但GitHub批准和阶段实际合并未满足，PR3保持draft。[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)保持开放，完整计划与[来源捕获](../../plan/communication-kit-plan-provenance.json)在plan/。
+PR3已实现并原子接入完整Communication 0.1.0候选、注册、严格集合、冻结资源、正式D图标与安装预期。修复候选94c170d的278测试/九组合保留；HTML基线同步后工程源通过307/307，固定000e803的十三组canonical与六次缓存Python通过。S01–S12客观范围逐项核对。实际CLI批次C01–C15 PASS，C16–C18文件子路径PARTIAL；补充工具角色另有三项限定功能PASS，身份和覆盖分开。2026-10-13代理亲自完成统一桌面应用内Codex本地和ChatGPT/Work本机两个实际入口的必要基本功能，限定范围PASS，详见§4。原行为FAIL、CLI限制与原生选择窗口NOT RUN保留；R01–R05未执行，Learning8.2已published，M1–4已按实际顺序合并；各历史reviews缺项不追认。正式PR5从实际M4 c1fa458派生，独立/代码所有者批准、main/Release及R01–R05仍待完成。[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)保持开放，完整计划与[来源捕获](../../plan/communication-kit-plan-provenance.json)在plan/。
 
 PR1 当时仅定义验收、没有运行包，全部新包用例从 NOT RUN 开始；该历史及失败批次保留，当前状态不覆盖原记录。
 
@@ -341,3 +341,9 @@ Refs #222。[M1 postmerge 01](evidence/communication-kit-2026-10-13-pr1-merge-01
 ### 实际PR1合并后的下游同步
 
 Refs #222。[PR1 merge sync 01](evidence/communication-kit-2026-10-13-pr1-merge-sync-01.json)绑定实际M1 merge `bca7b5c`/head `5a9d845`同tree、PR2 `7040dca`和PR3 `10674c6`的普通继承及PR4源输入，保留新的merge/检查/CRLF归档失败与窄修复原日志。M1固定postmerge六份完整原件由PR2先归档并原字节向后继承；不以摘要代替canonical result或GHfacts。此同步只更改文档/证据与精确原字节属性，运行/版本/正式CH保持，最终当前head检查与PR身份另记，不把M1reviews=[]推定批准，不计Communication或R04/R05；旧draft/NOT RUN及客户端/效果限制按原时间保留。
+
+### 正式PR5四包候选验收
+
+Refs #222。正式codex/communication-release从实际M4 c1fa458派生，普通接入已测7548四包投影，main ebc4bdc3已为祖先。初始固定ceb0b7d/treefe00ae14的实际npm test318/318、strict、CLI0.147.0、图标export/preview和九snapshot通过；九组detached canonical、四图表Python/四Learning保存重放回读通过（Python3.12.14）。D/L/E完整Git tree同已published main；Comm完整tree170同M4，运行资源闭包与实际UI来源000e803保持，仅原阶段CHANGELOG差异明确记录。源归档和当前head受影响检查另追加，不把旧UI、C01–C18或效果测试写成新执行。本批为发布前正式候选，R01–R05仍NOT RUN；新worktree npm依赖缺失和初始索引目录表达式失败保留，修复后才继续依赖步骤。
+
+Refs #222。正式候选的原始命令/退出码、完整canonical result、main差异与失败修复见[formal PR5 01](evidence/communication-kit-2026-10-13-formal-pr5-01.json)；实际M2–M4来源、闭包沿用边界及fresh c1十三组见[postmerge M2–M4 01](evidence/communication-kit-2026-10-13-postmerge-m2-m4-01-manifest.json)。归档后只复验受影响文档/严格集合；最终待合入head的CI、GitHub独立批准及R01–R05仍分别核对。

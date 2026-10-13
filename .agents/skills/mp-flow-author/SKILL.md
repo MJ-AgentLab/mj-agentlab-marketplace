@@ -19,4 +19,4 @@ HTML Guide Kit 的新建只读文本和显式确认合同见 [ADR](../../../docs
 
 Communication 的旧九组合与develop Learning/HTML 基线并集经 Understanding → Learning 替换后为十三组合；全五插件普通3/原生7/显式4。冻结包内容与摘要哈希保持，工程、行为和实际客户端证据分层记录，Refs #222。
 
-本发行预备工作树按Owner Q3精确限定D/L/E/Comm四包六技能、三显式、普通三、开发二十、九组安装；HTML留develop另发。以本源市场索引、严格常量和实际manifest为准，不将develop十三组结果代填本源canonical或R04。正式PR5须从PR4实际受保护验收merge重新派生、刷新main并执行差异检查；本预备分支不是PR5。Refs #222。
+本正式发行候选工作树按Owner Q3精确限定D/L/E/Comm四包六技能、三显式、普通三、开发二十、九组安装；HTML留develop另发。以本源市场索引、严格常量和实际manifest为准，不将develop十三组结果代填本源canonical或R04。本正式PR5已从实际PR4 merge c1fa458派生并核对main ebc4bdc3基础；当前head发布门禁和上线后R04仍分别待实际完成。Refs #222。

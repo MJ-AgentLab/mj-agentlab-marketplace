@@ -5,7 +5,7 @@ description: "Use after marketplace plugin or skill changes / 合规检查 to va
 
 # mp-flow-compliance
 
-运行 npm run validate 检查市场、各 portable manifest、公开和开发技能的 YAML、名称/描述预算、资源路径和当前文档。核对本预备源精确四包六技能/三显式/开发20；develop PR3保留HTML五包七技能/四显式，已公开main/v8.2.0为三包五技能/两显式；Learning Evidence 共用脚本属于包内，过渡目录不再存在，旧 Understanding 未注册。运行受影响的有行为意义的测试；实际 Python 与安装缓存执行不能用静态扫描代替，保存测试明确隔离库、GitHub 写入使用替身。A6 触发集合以 scripts/check-a6.mjs 为准，更新根 AGENTS.md。按 [验收账本](../../../docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)区分结构、合成角色、客户端和窗口证据；所有启用入口严格待答，原生持续显示缺证据或失败则延期。输出错误、已验证项和限制，修复后重跑受影响检查。
+运行 npm run validate 检查市场、各 portable manifest、公开和开发技能的 YAML、名称/描述预算、资源路径和当前文档。核对本正式候选源精确四包六技能/三显式/开发20；develop PR3保留HTML五包七技能/四显式，已公开main/v8.2.0为三包五技能/两显式；Learning Evidence 共用脚本属于包内，过渡目录不再存在，旧 Understanding 未注册。运行受影响的有行为意义的测试；实际 Python 与安装缓存执行不能用静态扫描代替，保存测试明确隔离库、GitHub 写入使用替身。A6 触发集合以 scripts/check-a6.mjs 为准，更新根 AGENTS.md。按 [验收账本](../../../docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)区分结构、合成角色、客户端和窗口证据；所有启用入口严格待答，原生持续显示缺证据或失败则延期。输出错误、已验证项和限制，修复后重跑受影响检查。
 
 在已有授权范围内由代理执行操作，owner 负责未决事项。需要决定时给出 2–3 个选项、影响及有理由的推荐；必须等待的决定等待答复，推荐不构成批准。详见 [执行与决策规范](../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)。
 
@@ -19,4 +19,4 @@ HTML Guide Kit 的新建只读文本和显式确认合同见 [ADR](../../../docs
 
 Communication 的旧九组合与develop Learning/HTML 基线并集经 Understanding → Learning 替换后为十三组合；全五插件普通3/原生7/显式4。冻结包内容与摘要哈希保持，工程、行为和实际客户端证据分层记录，Refs #222。
 
-本发行预备工作树按Owner Q3精确限定D/L/E/Comm四包六技能、三显式、普通三、开发二十、九组安装；HTML留develop另发。以本源市场索引、严格常量和实际manifest为准，不将develop十三组结果代填本源canonical或R04。正式PR5须从PR4实际受保护验收merge重新派生、刷新main并执行差异检查；本预备分支不是PR5。Refs #222。
+本正式发行候选工作树按Owner Q3精确限定D/L/E/Comm四包六技能、三显式、普通三、开发二十、九组安装；HTML留develop另发。以本源市场索引、严格常量和实际manifest为准，不将develop十三组结果代填本源canonical或R04。本正式PR5已从实际PR4 merge c1fa458派生并核对main ebc4bdc3基础；当前head发布门禁和上线后R04仍分别待实际完成。Refs #222。
