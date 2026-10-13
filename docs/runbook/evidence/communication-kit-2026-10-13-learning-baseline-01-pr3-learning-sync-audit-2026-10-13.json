@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "kind": "actual-working-tree-merge-audit",
+  "refs": 222,
+  "capturedAt": "2026-10-13T04:51:23.715Z",
+  "timezone": "Asia/Taipei",
+  "source": {
+    "head": "b936dc37b6958fb809fd8417f3ad1db103360924",
+    "mergeInput": "434d053ae3bcc35706fc52f0d8774c3aa61c6c57",
+    "indexTree": "1e165f2613cc6adfd6060a19804ee62d8299879e",
+    "canonicalRun": false,
+    "committed": false,
+    "pushed": false
+  },
+  "development": {
+    "plugins": 5,
+    "publicSkills": 7,
+    "explicit": 4,
+    "ordinary": 3,
+    "repositorySkills": 20,
+    "installScenarios": 13
+  },
+  "selectedFormalScope": {
+    "plugins": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "communication-kit"
+    ],
+    "publicSkills": 6,
+    "explicit": 3,
+    "html": "retained on develop, separate release",
+    "state": "Owner Q3 selected; formal candidate not verified here"
+  },
+  "packageTrees": {
+    "communication-kit": {
+      "candidate": "14a3896c7ad50597bfc83996bcfec25180a720f9",
+      "baseline": "14a3896c7ad50597bfc83996bcfec25180a720f9",
+      "version": "0.1.0"
+    },
+    "learning-evidence-kit": {
+      "candidate": "c88818fac37e937a245436f0f999f3488babfe1f",
+      "baseline": "c88818fac37e937a245436f0f999f3488babfe1f",
+      "version": "0.1.0"
+    },
+    "diagram-kit": {
+      "candidate": "e217c41be2cd4c3653aa17aa7b28c8312be06268",
+      "baseline": "e217c41be2cd4c3653aa17aa7b28c8312be06268",
+      "version": "0.3.1"
+    },
+    "explain-kit": {
+      "candidate": "ef6a90bc60e9af45915c30ecf4668559978e29e5",
+      "baseline": "ef6a90bc60e9af45915c30ecf4668559978e29e5",
+      "version": "0.1.1"
+    },
+    "html-guide-kit": {
+      "candidate": "67e468c944bd9da076994667eef378367a012b14",
+      "baseline": "67e468c944bd9da076994667eef378367a012b14",
+      "version": "0.1.0"
+    }
+  },
+  "savedPlan": {
+    "lines": 405,
+    "sha256": "6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3"
+  },
+  "sourceCodeHashes": {
+    "scripts/validate-portable.mjs": "5d243631fa61b45296e19a1481a0011e69d2f380a7c25a635eec2c6e44a2029a",
+    "scripts/smoke-codex-plugin.mjs": "1eba8c85cb7944b466c9bbdfb607c33a926649c893312fabac1bd2a7cca798d4",
+    "scripts/release-verify-install.mjs": "e8d05653966e5e8242b01560156f0ae028729bd2bd48bfae734e87a005002e9a",
+    "scripts/bump-version.ps1": "e904f48addf0d6e2b8cf821a760d66444666dd7cf66e71abdf1799b10fdc4ea8",
+    "tests/validate-portable.test.mjs": "2eb718c6aebdda779cf4036255743a233c9feeeb26220c97e381d35a14205c82",
+    "tests/smoke-codex-plugin.test.mjs": "2aafa9539b5bbb5d96ea802eb746ed6acf8af6524a77db71562125d0402ff163",
+    "tests/html-guide-kit.test.mjs": "84ddb55cb2d9c28120321563d8cd99f51c984d7b34c1c4d1ddff2efd0e76927f",
+    "tests/bump-version.test.mjs": "5c201a1d3be5de5785ece5c3701e7c00b5ff9436e23c1f588585b1ab0fb475b8"
+  },
+  "outcomes": {
+    "firstStrict": {
+      "status": "FAIL",
+      "errors": [
+        "AGENTS.md exceeds configured instruction budget",
+        "transitional learning evidence scripts must be removed atomically"
+      ]
+    },
+    "firstStrictRepair": "AGENTS history disclosed behind existing ledger pointers; verified stale staging held only three generated pyc files, removed inside this worktree",
+    "secondStrict": {
+      "status": "FAIL",
+      "error": "AGENTS.md exceeds configured instruction budget"
+    },
+    "instructionBudget": 16384,
+    "actualInstructionBytes": 16265,
+    "firstFull": {
+      "total": 344,
+      "pass": 343,
+      "fail": 1,
+      "skip": 0,
+      "reason": "HTML oversize prompt diagnostic was intercepted by an old package-specific branch instead of upstream generic Unicode scalar validation"
+    },
+    "repair": "Generic upstream all-plugin listing validation retained as single authority; communication native prompt budget retained",
+    "finalFull": {
+      "total": 344,
+      "pass": 344,
+      "fail": 0,
+      "skip": 0
+    },
+    "baseline": "0.147.0 exact-match PASS",
+    "strict": "PASS",
+    "uv": {
+      "python": "3.12.13",
+      "fullStoreCases": 33,
+      "githubCases": 31,
+      "installation": {
+        "ok": true,
+        "scenarios": 13,
+        "diagram": 6,
+        "learning": 6,
+        "python": [
+          "3.12.13 (main, Jun 11 2026, 04:05:29) [MSC v.1944 64 bit (AMD64)]"
+        ],
+        "baseline": [
+          "codex-cli 0.147.0"
+        ],
+        "all": [
+          "diagram-kit",
+          "learning-evidence-kit",
+          "explain-kit",
+          "communication-kit",
+          "html-guide-kit"
+        ],
+        "implicit": {
+          "publicSkills": 3,
+          "repositorySkills": 0
+        },
+        "native": {
+          "publicSkills": 7,
+          "repositorySkills": 0
+        },
+        "explicit": [
+          "learning-evidence-kit:pop-quiz",
+          "learning-evidence-kit:learning-record-check",
+          "communication-kit:communicate",
+          "html-guide-kit:guide"
+        ]
+      },
+      "beforeLastListingDiagnosticFix": true
+    },
+    "bundled": {
+      "python": "3.12.14",
+      "nodeTests": 32,
+      "storeCases": 33,
+      "githubCases": 31,
+      "installation": {
+        "ok": true,
+        "scenarios": 13,
+        "diagram": 6,
+        "learning": 6,
+        "python": [
+          "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]"
+        ],
+        "baseline": [
+          "codex-cli 0.147.0"
+        ],
+        "all": [
+          "diagram-kit",
+          "learning-evidence-kit",
+          "explain-kit",
+          "communication-kit",
+          "html-guide-kit"
+        ],
+        "implicit": {
+          "publicSkills": 3,
+          "repositorySkills": 0
+        },
+        "native": {
+          "publicSkills": 7,
+          "repositorySkills": 0
+        },
+        "explicit": [
+          "learning-evidence-kit:pop-quiz",
+          "learning-evidence-kit:learning-record-check",
+          "communication-kit:communicate",
+          "html-guide-kit:guide"
+        ],
+        "diagramInterpreters": [
+          "python"
+        ]
+      }
+    }
+  },
+  "logs": [
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr3-learning-sync-tests-2026-10-13.log",
+      "bytes": 80387,
+      "sha256": "272afe304f96813617cbe97c0ffba8d83c6284c84810b029a246a7d66f226d2b"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr3-learning-sync-tests-2026-10-13-r2.log",
+      "bytes": 78512,
+      "sha256": "c4fe72188dadc35b2a9bf5a1fbb0c847c7bee7a76b2c3df481f11312aac99b87"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr3-learning-sync-bundled-python-2026-10-13.log",
+      "bytes": 14736,
+      "sha256": "c28eb633f57c2cbd833644d5a22f6592f2ccd781d0a1ef20fe0270c8025ada92"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr3-learning-sync-smoke-2026-10-13.log",
+      "bytes": 324196,
+      "sha256": "7090d3e3a69c50d155053295c597f218ee100513dd66e819073f9527565d4d94"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr3-learning-sync-smoke-summary-2026-10-13.json",
+      "bytes": 646,
+      "sha256": "876d0d25d6456aa56285657c4dab8487936c94f346682f21a0b32276408d9223"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr3-learning-sync-smoke-bundled-2026-10-13.log",
+      "bytes": 321788,
+      "sha256": "19ca3db2a9f1530344e627811a9d0abbedc0ca08fc16bc875ba18ad0544eec89"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr3-learning-sync-smoke-bundled-summary-2026-10-13.json",
+      "bytes": 691,
+      "sha256": "77a97dda9192020fe91f007d30e1e76b200b05f6e05e603db0cc5318710e65ab"
+    }
+  ],
+  "limits": [
+    "No fixed merged-candidate commit or canonical installation was created here.",
+    "No GitHub objects, approvals, Release, tags or protected branches were changed.",
+    "No new model-behavior or client UI execution in this sync task; existing failures, CLI partials and limited UI evidence retained.",
+    "Formal four-plugin release From/To, exact main/Release identity and canonical installation remain later-stage work."
+  ]
+}

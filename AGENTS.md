@@ -2,7 +2,7 @@
 
 ## 项目上下文
 
-当前PR3候选注册Diagram、Learning Evidence、Explain、HTML、Communication五包七技能/四显式，VERSION8.2.0；main/latest Release8.2.0仅前三包五技能，tag/发布目标ebc4bdc3。Communication正式范围按Owner Q3为前三包加Communication四包六技能，HTML留develop另发；后续独立minor目标8.3.0，PR4核对实际From/To。目标为ChatGPT桌面和Codex本地，CLI基线0.147.0；版本与来源以权威文件为准。
+当前PR3候选注册Diagram、Learning Evidence、Explain、HTML、Communication五包七技能/四显式，PR4准备未发布VERSION8.3.0；main/latest Release8.2.0仅前三包五技能，tag/发布目标ebc4bdc3。Communication正式范围按Owner Q3为前三包加Communication四包六技能，HTML留develop另发；后续独立minor目标8.3.0，PR4核对实际From/To。目标为ChatGPT桌面和Codex本地，CLI基线0.147.0；版本与来源以权威文件为准。
 
 manifest 的公开示例按[插件契约](docs/spec/[SPEC]_Plugin_Json_Schema.md)保留完整路由，最多三条，各原值不超过 128 个 Unicode scalar values；严格校验防止客户端忽略超长示例而丢失公开入口，不依赖空白归一化。
 
@@ -16,7 +16,7 @@ Marketplace v8.1.1 已通过 #205 合入 main 并于 2026-10-10 自动发布，�
 
 explain-kit 0.1.0 提供速解和深讲，默认中文、保留术语原文，按深度路由并适应用户格式。新增解释能力的 [ADR](docs/adr/[ADR]_Explain_Kit_Addition.md) 与 [验收记录](docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md) 不改变测验策略。
 
-Communication实施与发布使用[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。候选[包说明](plugins/communication-kit/README.md)和[communicate](plugins/communication-kit/skills/communicate/SKILL.md)定义显式单入口、沟通/编写/保义改写、关键缺口等待、成稿＋关键提示及明确请求才保存编辑。冻结AICS保持Lab Proposal / Informative，运行只依赖包内摘要。工程307测试、十三组canonical及六次缓存Python通过；旧行为失败与CLI C16–C18 PARTIAL保留。2026-10-13代理亲自执行同一26.1007.2314.0桌面应用内Codex本地和ChatGPT/Work本机两个入口，安装、图标、三任务、聊天等待及新MD/TXT保存回读限定范围PASS；身份、原生窗口/其他客户端未覆盖项见[验收记录§4](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。发布未执行，PR1–3保持draft，独立批准及Learning先发依赖尚缺；现实效果测试本轮延期。
+Communication实施与发布使用[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。候选[包说明](plugins/communication-kit/README.md)和[communicate](plugins/communication-kit/skills/communicate/SKILL.md)定义显式单入口、沟通/编写/保义改写、关键缺口等待、成稿＋关键提示及明确请求才保存编辑。冻结AICS保持Lab Proposal / Informative，运行只依赖包内摘要。工程307测试、十三组canonical及六次缓存Python通过；旧行为失败与CLI C16–C18 PARTIAL保留。2026-10-13代理亲自执行同一26.1007.2314.0桌面应用内Codex本地和ChatGPT/Work本机两个入口，安装、图标、三任务、聊天等待及新MD/TXT保存回读限定范围PASS；身份、原生窗口/其他客户端未覆盖项见[验收记录§4](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。Communication发布未执行，PR1–4保持draft；Learning先发已完成，当前阶段独立批准与合并仍缺；现实效果测试本轮延期。
 
 ## 执行与决策
 
@@ -60,7 +60,7 @@ PR2 已同步 #226 合入的 HTML Guide Kit 0.1.0，当时基准为四插件、�
 
 ## Communication 工具准备
 
-Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基线为Diagram、Learning、Explain、HTML四包六技能。缺Communication manifest时apply/DryRun必须零写入失败。D地球＋文字图标已获Owner选择并在PR3原子接入；旧失败见[品牌验收](docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。Q3已确认正式只公开Learning三包＋Communication四包六技能，HTML留develop另发。Communication尚未转换市场版本或发布；当前head批准及阶段依赖仍须满足。
+Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基线为Diagram、Learning、Explain、HTML四包六技能。缺Communication manifest时apply/DryRun必须零写入失败。D地球＋文字图标已获Owner选择并在PR3原子接入；旧失败见[品牌验收](docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。Q3已确认正式只公开Learning三包＋Communication四包六技能，HTML留develop另发。PR4已准备未发布8.3.0，Communication尚未正式公开；当前head批准及阶段依赖仍须满足。
 
 ## HTML Guide Kit 阶段实施
 
@@ -75,3 +75,5 @@ HTML PR1 当时保持 marketplace 未发布 8.1.2 及其他插件版本，无 Re
 Learning前序交付#224/a2090ff8、#227/f958908e、#228/434d053及#211–213关闭、精确canonical/Python复验保留于[验收账本](docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。#224有其head批准，#227/#228空reviews不追认。#230/6b5a19e准备8.2.0，#232于2026-10-13合入main ebc4bdc3，v8.2.0已由github-actions[bot]公开；历史草稿、失败、超时、延期入口及Owner最终接受分开保留。不指派个人或团队审查；当前head真实非作者批准/CI/已解决线程仍逐次核对。
 
 Communication PR3已同步Learning原子迁移及8.2准备，仅沿用未变运行包；开发五包七技能/四显式/普通三/开发20，旧Understanding退出磁盘及注册。十三组合工作树安装、Learning包内Python保存/重放/回读与固定提交canonical分别记录。正式仅D/L/E/Comm四包六技能，HTML留develop；既有UI、CLI PARTIAL、失败与旧canonical按原身份保留，Refs #222。
+
+Communication PR4以已公开8.2.0基线先DryRun零写入后准备8.3.0 VERSION/badge；五包根版本保持，包变更仅首版CHANGELOG正式段。PR1–4仍draft，实际PR3/4受保护merge与正式四包候选未完成；R01–R05不填PASS，见[8.3.0账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)，Refs #222。

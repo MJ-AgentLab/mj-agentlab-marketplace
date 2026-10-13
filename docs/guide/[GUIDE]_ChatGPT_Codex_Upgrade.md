@@ -72,5 +72,4 @@ codex plugin remove learn-kit@mj-agentlab-marketplace
 | Version | Date | Summary |
 |---|---|---|
 | v1.9 | 2026-10-13 | 同步 Learning 原子替代与 Communication 完整集成，按当前集合验收，发行范围另核对 |
-
 | v1.10 | 2026-10-13 | 同步已公开Learning8.2.0基线，保留Communication开发五包与正式四包范围及历史限制 |

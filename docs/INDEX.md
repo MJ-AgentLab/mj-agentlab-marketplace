@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.21
+version: v2.22
 ---
 
 # 文档索引
@@ -21,7 +21,7 @@ Epic #209 的 PR4 原子迁移当前候选为 Diagram 0.3.1 / Learning Evidence 
 
 HTML Guide Kit 正按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 分阶段实施：PR1 #221 已合入并复验；PR2 原子接入完整 0.1.0 插件、已选 A 图标与严格合同，当时开发集合增至四插件五技能；Learning Evidence 替换后四插件六技能，公开 8.2.0 仍原三插件五技能，HTML 另行发行。阶段门槛见 [ADR](adr/[ADR]_HTML_Guide_Kit_Addition.md)，判准见 [SPEC](spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，实际结果及未覆盖项见 [RUNBOOK](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。现实场景理解效果另测，本次仍保留工程行为与双客户端交互验收。
 
-PR3开发候选增加Communication0.1.0并保留HTML0.1.0，当前五包七技能/20开发技能。Learning8.2.0已于2026-10-13公开，main三包五技能；Communication沿用8.2.0开发基线但尚未公开。实际CLI、限定工具角色及代理亲自执行的同应用Codex/ChatGPT Work本机两个入口证据见[验收记录](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)，身份、失败及未覆盖项分别保留，现实效果另测。Owner已确认Communication正式四包六技能，HTML另发；后续独立minor目标8.3.0，PR4重查实际版本和基线，Refs [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。
+PR3开发候选增加Communication0.1.0并保留HTML0.1.0，当前五包七技能/20开发技能。Learning8.2.0已于2026-10-13公开，main三包五技能；Communication PR4已准备未发布8.3.0，尚未公开。实际CLI、限定工具角色及代理亲自执行的同应用Codex/ChatGPT Work本机两个入口证据见[验收记录](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)，身份、失败及未覆盖项分别保留，现实效果另测。Owner已确认Communication正式四包六技能，HTML另发；后续独立minor目标8.3.0，PR4重查实际版本和基线，Refs [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。
 
 Learning #224的当前head批准及交付、#227/#228的交付与空reviews事实均见[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)，历史缺项不追认。
 
@@ -30,6 +30,8 @@ Learning Evidence #227 已实际合入并通过七种精确 canonical 安装/缓
 Learning Evidence #228已实际合入并通过八种精确canonical安装/143资源/缓存Python，#213关闭；空reviews缺项保留。PR5最新8.2.0开发源完整317/八安装及未变模型资源通过，准备当前head审查；公开候选仍原三插件，详见[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)与[发行准备](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。
 
 ## 入口
+
+- [Communication Marketplace 8.3.0 发布准备](runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)：已授权四包六技能，版本准备与实际合并/发布/安装复查分开记录。
 
 Communication PR4同步验收证据和实际发布基线，见[验收记录§6](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。Learning8.2已published，正式Communication范围为四包六技能、HTML另发；当前head独立批准和阶段实际合入仍未满足。
 
@@ -161,4 +163,5 @@ Owner Q3已确认Communication正式发行仅为Learning已公开三包加Commun
 
 | Version | Date | Summary |
 |---|---|---|
+| v2.22 | 2026-10-13 | 加入Communication8.3.0版本准备入口与Learning迁移原始工程证据，保留实际未解除门禁 |
 | v2.19 | 2026-10-13 | 同步 Learning 原子替代与 Communication 完整集成，按当前集合验收，发行范围另核对 |

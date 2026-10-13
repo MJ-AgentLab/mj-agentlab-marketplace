@@ -5,6 +5,11 @@ plugins/communication-kit/skills/communicate/references/* -text
 # Preserve actual evidence bytes for the archived SHA-256 values.
 docs/runbook/evidence/communication-kit-2026-10-13-* -text
 docs/runbook/evidence/communication-kit-2026-10-13-*.log whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# The original Node failure receipt contains two indented blank lines; keep its bytes.
+docs/runbook/evidence/communication-kit-2026-10-13-learning-baseline-01-pr3-learning-sync-tests-2026-10-13.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Version-tool console receipts retain their original final blank line and CRLF JSON.
+docs/runbook/evidence/communication-kit-2026-10-13-version-prep-01-*.log whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+docs/runbook/evidence/communication-kit-2026-10-13-version-prep-01-audit.json whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 plugins/html-guide-kit/** text eol=lf
 plugins/html-guide-kit/**/*.png -text
 assets/brand/html-guide-kit/candidates/revision-2/*.svg text eol=lf

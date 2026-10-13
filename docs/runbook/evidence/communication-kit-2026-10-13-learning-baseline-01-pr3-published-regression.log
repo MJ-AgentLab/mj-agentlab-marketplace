@@ -1,0 +1,232 @@
+TAP version 13
+# Subtest: marketplace updates VERSION and derived badge only
+ok 1 - marketplace updates VERSION and derived badge only
+  ---
+  duration_ms: 623.0951
+  type: 'test'
+  ...
+# Subtest: plugin bumps root identity without touching prose, nested versions or catalog
+ok 2 - plugin bumps root identity without touching prose, nested versions or catalog
+  ---
+  duration_ms: 603.3555
+  type: 'test'
+  ...
+# Subtest: learning-evidence-kit bumps independently from marketplace and diagram-kit
+ok 3 - learning-evidence-kit bumps independently from marketplace and diagram-kit
+  ---
+  duration_ms: 575.4932
+  type: 'test'
+  ...
+# Subtest: DryRun writes nothing: marketplace
+ok 4 - DryRun writes nothing: marketplace
+  ---
+  duration_ms: 562.99
+  type: 'test'
+  ...
+# Subtest: DryRun writes nothing: diagram-kit
+ok 5 - DryRun writes nothing: diagram-kit
+  ---
+  duration_ms: 577.9339
+  type: 'test'
+  ...
+# Subtest: DryRun writes nothing: learning-evidence-kit
+ok 6 - DryRun writes nothing: learning-evidence-kit
+  ---
+  duration_ms: 568.2256
+  type: 'test'
+  ...
+# Subtest: DryRun writes nothing: explain-kit
+ok 7 - DryRun writes nothing: explain-kit
+  ---
+  duration_ms: 583.0697
+  type: 'test'
+  ...
+# Subtest: DryRun writes nothing: html-guide-kit
+ok 8 - DryRun writes nothing: html-guide-kit
+  ---
+  duration_ms: 564.0004
+  type: 'test'
+  ...
+# Subtest: DryRun writes nothing: communication-kit
+ok 9 - DryRun writes nothing: communication-kit
+  ---
+  duration_ms: 578.608
+  type: 'test'
+  ...
+# Subtest: fault after write 1 restores exact original bytes
+ok 10 - fault after write 1 restores exact original bytes
+  ---
+  duration_ms: 574.256
+  type: 'test'
+  ...
+# Subtest: fault after write 2 restores exact original bytes
+ok 11 - fault after write 2 restores exact original bytes
+  ---
+  duration_ms: 559.9547
+  type: 'test'
+  ...
+# Subtest: post-write corruption is caught and rolled back
+ok 12 - post-write corruption is caught and rolled back
+  ---
+  duration_ms: 569.1588
+  type: 'test'
+  ...
+# Subtest: fault injectors are unreachable without test opt-in
+ok 13 - fault injectors are unreachable without test opt-in
+  ---
+  duration_ms: 1307.6494
+  type: 'test'
+  ...
+# Subtest: backup cleanup failure does not undo a committed bump
+ok 14 - backup cleanup failure does not undo a committed bump
+  ---
+  duration_ms: 307.3203
+  type: 'test'
+  ...
+# Subtest: drifted or duplicate badge fails before writes
+ok 15 - drifted or duplicate badge fails before writes
+  ---
+  duration_ms: 294.2171
+  type: 'test'
+  ...
+# Subtest: drifted or duplicate badge fails before writes
+ok 16 - drifted or duplicate badge fails before writes
+  ---
+  duration_ms: 276.014
+  type: 'test'
+  ...
+# Subtest: wrong From and missing targets fail without writes
+ok 17 - wrong From and missing targets fail without writes
+  ---
+  duration_ms: 543.9031
+  type: 'test'
+  ...
+# Subtest: retired scope and malformed semver are rejected before writes
+ok 18 - retired scope and malformed semver are rejected before writes
+  ---
+  duration_ms: 4692.4071
+  type: 'test'
+  ...
+# Subtest: mis-indented nested version cannot stand in for the root version
+ok 19 - mis-indented nested version cannot stand in for the root version
+  ---
+  duration_ms: 287.8572
+  type: 'test'
+  ...
+# Subtest: plugin scope cannot bump a manifest with another plugin identity
+ok 20 - plugin scope cannot bump a manifest with another plugin identity
+  ---
+  duration_ms: 270.9116
+  type: 'test'
+  ...
+# Subtest: learning-evidence-kit failure restores its version without touching the other plugin
+ok 21 - learning-evidence-kit failure restores its version without touching the other plugin
+  ---
+  duration_ms: 569.8708
+  type: 'test'
+  ...
+# Subtest: explain-kit version changes preserve the other plugin and marketplace
+ok 22 - explain-kit version changes preserve the other plugin and marketplace
+  ---
+  duration_ms: 558.9428
+  type: 'test'
+  ...
+# Subtest: plugin write failure restores original bytes: diagram-kit
+ok 23 - plugin write failure restores original bytes: diagram-kit
+  ---
+  duration_ms: 581.5774
+  type: 'test'
+  ...
+# Subtest: plugin write failure restores original bytes: explain-kit
+ok 24 - plugin write failure restores original bytes: explain-kit
+  ---
+  duration_ms: 560.5822
+  type: 'test'
+  ...
+# Subtest: plugin write failure restores original bytes: html-guide-kit
+ok 25 - plugin write failure restores original bytes: html-guide-kit
+  ---
+  duration_ms: 561.21
+  type: 'test'
+  ...
+# Subtest: plugin write failure restores original bytes: communication-kit
+ok 26 - plugin write failure restores original bytes: communication-kit
+  ---
+  duration_ms: 554.9928
+  type: 'test'
+  ...
+# Subtest: plugin scope cannot modify a manifest with another identity or version
+ok 27 - plugin scope cannot modify a manifest with another identity or version
+  ---
+  duration_ms: 551.8144
+  type: 'test'
+  ...
+# Subtest: html-guide-kit patch bump preserves history, nested versions and all other version sources
+ok 28 - html-guide-kit patch bump preserves history, nested versions and all other version sources
+  ---
+  duration_ms: 558.1193
+  type: 'test'
+  ...
+# Subtest: html-guide-kit missing manifest fails with zero writes: dry run
+ok 29 - html-guide-kit missing manifest fails with zero writes: dry run
+  ---
+  duration_ms: 263.7354
+  type: 'test'
+  ...
+# Subtest: html-guide-kit missing manifest fails with zero writes: apply
+ok 30 - html-guide-kit missing manifest fails with zero writes: apply
+  ---
+  duration_ms: 269.4214
+  type: 'test'
+  ...
+# Subtest: html-guide-kit rejects mismatched name before dry-run or apply writes
+ok 31 - html-guide-kit rejects mismatched name before dry-run or apply writes
+  ---
+  duration_ms: 520.5797
+  type: 'test'
+  ...
+# Subtest: html-guide-kit rejects mismatched version before dry-run or apply writes
+ok 32 - html-guide-kit rejects mismatched version before dry-run or apply writes
+  ---
+  duration_ms: 512.5132
+  type: 'test'
+  ...
+# Subtest: html-guide-kit post-write validation failure restores exact bytes and other versions
+ok 33 - html-guide-kit post-write validation failure restores exact bytes and other versions
+  ---
+  duration_ms: 565.4309
+  type: 'test'
+  ...
+# Subtest: communication-kit synthetic candidate updates only its root version
+ok 34 - communication-kit synthetic candidate updates only its root version
+  ---
+  duration_ms: 550.4289
+  type: 'test'
+  ...
+# Subtest: communication-kit post-write corruption restores every original byte
+ok 35 - communication-kit post-write corruption restores every original byte
+  ---
+  duration_ms: 571.6768
+  type: 'test'
+  ...
+# Subtest: communication-kit identity and From mismatches fail without writes
+ok 36 - communication-kit identity and From mismatches fail without writes
+  ---
+  duration_ms: 562.1566
+  type: 'test'
+  ...
+# Subtest: absent communication-kit target fails before writes in apply and DryRun
+ok 37 - absent communication-kit target fails before writes in apply and DryRun
+  ---
+  duration_ms: 509.0686
+  type: 'test'
+  ...
+1..37
+# tests 37
+# suites 0
+# pass 37
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 24539.2166

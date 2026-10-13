@@ -2,9 +2,9 @@
 
 <img src="assets/brand/marketplace/logo.svg" width="128" height="128" alt="MJ AgentLab Marketplace — MJ letters with connected modules">
 
-![Version](https://img.shields.io/badge/version-8.2.0-blue)
+![Version](https://img.shields.io/badge/version-8.3.0-blue)
 
-面向ChatGPT桌面端与Codex本地环境（CLI验收基线0.147.0）的插件市场，无需MCP服务。已发布main/v8.2.0提供Diagram、Learning Evidence、Explain三包五技能；当前PR3开发候选增加Communication并保留HTML，共五插件七公开技能，VERSION沿用8.2.0基线，尚未发布Communication：
+面向ChatGPT桌面端与Codex本地环境（CLI验收基线0.147.0）的插件市场，无需MCP服务。已发布main/v8.2.0提供Diagram、Learning Evidence、Explain三包五技能；当前PR3开发候选增加Communication并保留HTML，共五插件七公开技能，PR4已准备未发布VERSION8.3.0，尚未发布Communication：
 
 | 插件 / 公开技能 | 用途 | 版本与分发状态 |
 | --- | --- | --- |
@@ -73,11 +73,11 @@ Communication尚未进入main/v8.2.0。在隔离候选安装中显式调用 `$co
 
 ### Development
 
-Learning的[8.2.0 Release](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.2.0)已于2026-10-13发布，实际main merge为ebc4bdc3。当前Communication候选沿用8.2.0 VERSION及既有插件版本，尚未进行自己的市场版本转换。Diagram0.3.1、Learning Evidence0.1.0、Explain0.1.1已公开；HTML0.1.0和Communication0.1.0仅属开发候选。共用Learning脚本归属安装包，不依赖仓库过渡路径。
+Learning的[8.2.0 Release](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.2.0)已于2026-10-13发布，实际main merge为ebc4bdc3。当前PR4以实际8.2.0基线先DryRun零写入再准备8.3.0 VERSION/badge，五包根版本均保持；正式候选四包范围及发布门禁见[8.3.0账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。Diagram0.3.1、Learning Evidence0.1.0、Explain0.1.1已公开；HTML0.1.0和Communication0.1.0仅属开发候选。共用Learning脚本归属安装包，不依赖仓库过渡路径。
 
 20 个开发技能位于 .agents/skills，候选公开技能为 arch-diagram、pop-quiz、learning-record-check、glossary、concept、guide 和 communicate。pop-quiz、learning-record-check、guide 与 communicate 为显式入口；全量普通发现预期为三个技能，原生清单为七个；Communication 独装普通发现为零、原生清单为一个。十三组合安装、包内资源字节核对、实际 Python 回归与无 MCP 检查的执行结果单独记录。
 
-[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222) 管理 Communication PR1–PR5。Owner 已选择 Learning 先发布 8.2.0，Communication 随后独立 minor（预计 8.3.0）；PR4 重查实际 From/To、基线和发布范围。项目指令见 [AGENTS.md](AGENTS.md)，规范和历史见 [文档索引](docs/INDEX.md)，贡献见 [CONTRIBUTING.md](CONTRIBUTING.md)。代理运行 npm ci、npm run validate、npm test、npm run check:baseline-tools 和 npm run smoke:codex。正式发布需要发布授权、两个目标客户端的验收证据、当前发布提交独立批准与 required checks；本轮授权和证据分项记录。
+[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222) 管理 Communication PR1–PR5。Owner 已选择 Learning 先发布 8.2.0，Communication 随后独立 minor（预计 8.3.0）；PR4已核查基线并准备8.2.0→8.3.0；阶段合并与正式发行仍待实际门禁。项目指令见 [AGENTS.md](AGENTS.md)，规范和历史见 [文档索引](docs/INDEX.md)，贡献见 [CONTRIBUTING.md](CONTRIBUTING.md)。代理运行 npm ci、npm run validate、npm test、npm run check:baseline-tools 和 npm run smoke:codex。正式发布需要发布授权、两个目标客户端的验收证据、当前发布提交独立批准与 required checks；本轮授权和证据分项记录。
 
 仓库主标与 D 插件图标遵循 [品牌规范](docs/rule/[STANDARD]_Brand_Identity.md)。新插件或图标修改可调用 `$mp-design-icon`，先展示候选再接入；当前批准与实际验收见 [记录](docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。
 

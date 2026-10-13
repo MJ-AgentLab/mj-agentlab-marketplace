@@ -1,0 +1,62 @@
+---
+type: runbook
+scope: marketplace
+summary: "Communication 8.3.0 preparation, protected phase gates and post-publication checks"
+owner: marketplace-maintainers
+created: 2026-10-13
+updated: 2026-10-13
+state: draft
+version: v1.0
+---
+
+# [RUNBOOK] Marketplace 8.3.0 release readiness
+
+Refs [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。本记录属于Communication PR4的并行准备，不是PR3实际合并后的验收或PR5发布成功记录。五份主PR按计划依赖顺序经保护门禁合并；Epic保持开放。
+
+## Authorized scope and current identity
+
+Owner已授权实施至正式上线、Release及上线后安装复查；Q1选定Learning先8.2.0、Communication随后独立minor，Q3选定正式只公开Learning三包＋Communication，HTML保留develop另发。已确认产品和上线目标继续复用，不新增发布范围。
+
+Learning v8.2.0已于2026-10-13T05:00:19Z由`github-actions[bot]`公开，main/tag/Release目标均为`ebc4bdc3abc62c36348d9ba28de7161b04b3b466`。正式三包为Diagram0.3.1、Learning Evidence0.1.0、Explain0.1.1；此Release不是Communication交付。发布后同步#234实际develop为`2c0a83172507bcb77d105d9f9294fec2e6672ac1`，VERSION8.2.0；8.2.1预升#235当时未合并，不作为已生效基线。应用版本工具前查询v8.3.0 tag与Release均404，不覆写既有身份。
+
+PR4从`7cfb59d35072a210c96973a0d0fd06b6da719d14`的8.2.0工作源准备8.3.0。版本工具日志与完整新候选检查见[version preparation 01](evidence/communication-kit-2026-10-13-version-prep-01.json)。版本工具DryRun对VERSION、README与五包manifest零写入；实际apply只改变VERSION/README badge两个锚点，五包根版本保持。正式CHANGELOG准备8.3.0/Comm0.1.0段并保留Unreleased；旧公开版本段保持。第一次同进程脚本调用未设置LASTEXITCODE，包装检查停止在apply之前，原输出保留；改用独立pwsh进程后实际exit0及七文件哈希核对通过。
+
+| 集合 | 插件/技能与安装预期 | 状态 |
+| --- | --- | --- |
+| develop候选 | D/L/E/HTML/Comm五包七技能，普通3、显式4、开发20；十三snapshot/canonical组合 | 8.3.0工作树344/344、strict/CLI0.147.0、十三snapshot、六次图表Python/六组Learning保存重放回读通过；未冒充canonical |
+| Owner正式8.3.0范围 | D/L/E/Comm四包六技能，普通3、显式3、开发20；原九组合按Learning双技能替换 | PR5原子移除HTML运行注册、白名单/资源/安装预期并严格复验，尚未完成 |
+| 实际main/Release | v8.2.0三包五技能，Communication未公开 | 已核对依赖身份，不记本包完成 |
+
+## Acceptance and remaining merge gates
+
+详细S01–S12、C01–C18、失败/修复/复验与客户端身份见[Communication验收](./[RUNBOOK]_Communication_Kit_Acceptance.md)。Learning原子迁移工程与原始日志见[新批次](evidence/communication-kit-2026-10-13-learning-baseline-01.json)。不因总测试数量或模型自評补填未执行项。
+
+实际CLI0.147.0行为批次15 PASS/3 PARTIAL；C16–C18由不同工具身份提供三项限定功能结果，CLI被宿主阻断的子路径仍PARTIAL。同一26.1007.2314.0桌面应用内的Codex本地及ChatGPT/Work本机两个实际入口已验证安装、图标/communicate、沟通/编写/改写、文字问题未答等待、聊天交付和明确新MD/TXT保存/回读。两个路线的线程、安装源及字节证据分别保留；独立classic ChatGPT/cloud、原生问题窗口关闭/预选/超时及全部Office编辑没有通过证据。这些基础结果不证明现实沟通效果。
+
+当前四PR仍draft。PR1 [#223](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/223)→PR2 [#225](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/225)→PR3 [#229](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/229)→PR4 [#233](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/233)必须依次满足最新develop、当前head required CI、非作者最新推送批准及已解决线程。此前reviews为空且A6因冲突未执行，不能把仅push Structure成功写成全部门禁通过；每次刷新后重新核对。聊天批准仅执行授权，Agent自检和独立AI审查不替代GitHub review。
+
+PR3实际merge尚无，故PR4与该merge的tree/运行包比较NOT RUN；并行版本准备不解除依赖。PR4实际merge、正式发布候选SHA/tree与主分支差异均NOT RUN。PR5只从PR4经门禁合入的实际merge派生；main还须实际代码所有者与独立批准，不绕过保护。
+
+## Draft-first release and post-publication verification
+
+按[Release Operations](./[RUNBOOK]_Release_Operations.md)执行：门禁合入main后，现有VERSION触发自动发布；跟踪实际workflow，核对空draft、固定main tip、tag/正文/targetSHA、canonical安装及实际Python、publish和published/immutability/assets状态。不并行创建同号Release，不覆盖历史tag/正文/资产。未知结果先回读实际状态，故障保留并修复。
+
+| ID | 当前状态 | 实际通过所需证据 |
+| --- | --- | --- |
+| R01 | NOT RUN | 实际main merge及与已测候选tree/包对照；差异和对应复验 |
+| R02 | NOT RUN | VERSION、badge、CHANGELOG、tag peel和Release实际SHA/版本一致 |
+| R03 | NOT RUN | 真实workflow成功，Release published，作者/immutability/资产符合流程 |
+| R04 | NOT RUN | 发布后从真实tag解析SHA，在新隔离环境执行正式九组合canonical、资源字节及真实缓存Python |
+| R05 | NOT RUN | 正式来源安装与实际显式入口基本调用对应；源或运行包变动时复查受影响真实路径 |
+
+上述全部实际完成后才明确关闭Epic。上线后证据通过文档PR入库；随后按既有流程经PR同步main→develop并准备下一补丁pre-bump，仅VERSION/badge，不创建同号Release。HTML保持开发范围，需防止正式四包回同步误删开发HTML；按两个集合做原子完整校验。
+
+## Deferred evaluation and recovery
+
+本次不执行现实场景效果、九例个人试用、三稿对照、读者反馈、采用度或效率提升评价；不将基础通过表述为现实效果已验证，也不以延期效果测试阻塞上线。以后另有授权才开展独立任务。
+
+合并前失败保留原日志并修复/复验；撤回或发布后修复使用新的受保护PR及适当新版本。版本准备可通过PR恢复权威锚点，发布历史保持不可覆盖。客户端或批准不可得保持对应draft，并继续独立工作。
+
+| Version | Date | Summary |
+| --- | --- | --- |
+| v1.0 | 2026-10-13 | 绑定已授权8.3.0准备；Learning已公开、四包正式范围、阶段批准和R01–R05待真实完成 |

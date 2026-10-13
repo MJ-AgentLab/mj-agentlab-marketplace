@@ -1,0 +1,437 @@
+{
+  "schemaVersion": 1,
+  "refs": [
+    "#222"
+  ],
+  "capturedAt": "2026-10-13T05:48:00.051262+00:00",
+  "kind": "retained Learning atomic-migration and published-preparation engineering evidence",
+  "upstream": {
+    "atomicMigration": "434d053ae3bcc35706fc52f0d8774c3aa61c6c57",
+    "versionPreparation": "6b5a19e674b5a9e834412de3d2eaee1ca5c172e2",
+    "learningRelease": {
+      "tag": "v8.2.0",
+      "sha": "ebc4bdc3abc62c36348d9ba28de7161b04b3b466",
+      "publishedAt": "2026-10-13T05:00:19Z",
+      "author": "github-actions[bot]",
+      "draft": false,
+      "prerelease": false
+    }
+  },
+  "committedFollowupSources": {
+    "pr1": {
+      "head": "4ce55d2da526a8a8392ec2352d59966b811a0379",
+      "tree": "b6cff4ffd830da6354514a493bc1a8192cf5ff13"
+    },
+    "pr2": {
+      "head": "14a9af6eb710c79dd457f0909c75b43d60af2349",
+      "tree": "43a548094c6838cb5e963aeca07fbe75b8a20a1f"
+    },
+    "pr3": {
+      "head": "1388fb97d0b55d51c8aa8a3bdd91b611a05775e0",
+      "tree": "738685d9a07d109767a1237e9f7fec8c5b4fe148"
+    },
+    "pr4": {
+      "head": "7cfb59d35072a210c96973a0d0fd06b6da719d14",
+      "tree": "df9ee59a60846f2e18144c44710d18c50ee95c55"
+    }
+  },
+  "sourceQualification": "Root full PR1/2 logs ran in the resolved ordinary merge of 434d053 before commit; their complete dirty index trees were not captured. They establish actual execution counts, not exact canonical commit proof. The retained PR3 agent audit captures its original index/tree and code hashes. Later committed sources and published-base regressions are recorded separately; docs-only/source equivalence does not relabel old logs as new executions.",
+  "runtimeEquivalence": {
+    "testedPr3Commit": "5b6340556577c0b603fe50f1d7e590b673cf9283",
+    "followupPr3": "1388fb97d0b55d51c8aa8a3bdd91b611a05775e0",
+    "changedProductionPaths": [],
+    "soleTestChangeAfterCore": "tests/bump-version.test.mjs: upstream diagnostic assertion, no new test behavior",
+    "packageTrees": {
+      "communication-kit": {
+        "candidate": "14a3896c7ad50597bfc83996bcfec25180a720f9",
+        "baseline": "14a3896c7ad50597bfc83996bcfec25180a720f9",
+        "version": "0.1.0"
+      },
+      "learning-evidence-kit": {
+        "candidate": "c88818fac37e937a245436f0f999f3488babfe1f",
+        "baseline": "c88818fac37e937a245436f0f999f3488babfe1f",
+        "version": "0.1.0"
+      },
+      "diagram-kit": {
+        "candidate": "e217c41be2cd4c3653aa17aa7b28c8312be06268",
+        "baseline": "e217c41be2cd4c3653aa17aa7b28c8312be06268",
+        "version": "0.3.1"
+      },
+      "explain-kit": {
+        "candidate": "ef6a90bc60e9af45915c30ecf4668559978e29e5",
+        "baseline": "ef6a90bc60e9af45915c30ecf4668559978e29e5",
+        "version": "0.1.1"
+      },
+      "html-guide-kit": {
+        "candidate": "67e468c944bd9da076994667eef378367a012b14",
+        "baseline": "67e468c944bd9da076994667eef378367a012b14",
+        "version": "0.1.0"
+      }
+    }
+  },
+  "actualCoreFullCounts": {
+    "pr1": 317,
+    "pr2": 326,
+    "pr3": 344,
+    "pr3First": {
+      "pass": 343,
+      "fail": 1
+    }
+  },
+  "publishedBaseRegressions": {
+    "pr1": 96,
+    "pr2": 102,
+    "pr3": {
+      "bumpVersion": 37,
+      "documentationAndA6": 65
+    },
+    "pr4": 102
+  },
+  "mistakenTestInvocation": {
+    "file": "communication-pr3-published-regression.log",
+    "intended": "documentation/A6 plus bump-version",
+    "actual": "37 bump-version tests only; two guessed names matched no files",
+    "repair": "Explicit existing documentation-contract.test.mjs and check-a6.test.mjs ran separately, 65/65 PASS; both original logs retained."
+  },
+  "failuresAndRepairs": [
+    {
+      "stage": "PR1/PR2/PR3/PR4 migration",
+      "failure": "strict rejected obsolete scripts/learning-evidence directory containing generated pyc only",
+      "repair": "Read exact paths and contents first; remove three verified generated files and empty directories nonrecursively within corresponding worktree. A recursive cleanup command was rejected before mutation; its policy supplied no detailed reason, safer native nonrecursive deletion succeeded."
+    },
+    {
+      "stage": "PR2 and PR3 instructions",
+      "failure": "AGENTS exceeded 16384-byte instruction budget after independent source and contract merges",
+      "repair": "Compress history into existing ledger pointers while retaining live behavior and source facts; final strict checks PASS. Retain first PR2 raw failure and PR3 audit of both failures."
+    },
+    {
+      "stage": "PR3 full suite",
+      "failure": "343 PASS/1 FAIL, legacy HTML-specific prompt diagnostic intercepted upstream generic Unicode validation",
+      "repair": "Retain generic all-plugin 1–3/128 Unicode-scalar/wellformed authority; remove redundant branch without weakening Communication native prompt budget. Full 344/344 and both actual Python identities retained."
+    },
+    {
+      "stage": "shared documents",
+      "failure": "normal merge conflicts and one extra EOF blank line",
+      "repair": "Preserve Communication development five-package scope and Owner formal four-package scope, actual Learning published facts and higher document metadata; repair whitespace and run affected checks."
+    },
+    {
+      "stage": "published-base guide patch",
+      "failure": "an apply_patch exact-line context did not match its longer paragraph; no file changed",
+      "repair": "Read actual paragraph and apply exact current-content replacement before checks."
+    }
+  ],
+  "clientEvidence": "No new native/model run in this engineering batch. Fixed 000e803 native app identity, same-app limited paths, earlier FAIL and CLI PARTIAL records remain unchanged; package tree 14a3896c is preserved.",
+  "formalScope": {
+    "plugins": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "communication-kit"
+    ],
+    "publicSkills": 6,
+    "explicit": 3,
+    "html": "retained on develop, separate release",
+    "state": "Owner Q3 selected; formal candidate not verified here"
+  },
+  "releaseCases": {
+    "R01": "NOT RUN",
+    "R02": "NOT RUN",
+    "R03": "NOT RUN",
+    "R04": "NOT RUN",
+    "R05": "NOT RUN"
+  },
+  "limits": [
+    "No protected Communication phase merged. No GitHub independent approvals were created or inferred.",
+    "Worktree snapshots are not canonical installation or post-publication R04.",
+    "Root PR4 full-suite/smoke and version preparation are not represented by the PR3 audit.",
+    "Source-specific Python 3.12.13 versus 3.12.14 outcomes are separate in the exact retained agent audit.",
+    "A future formal four-package candidate must be atomically projected and independently verified."
+  ],
+  "artifacts": [
+    {
+      "original": "communication-pr1-learning-sync-test.log",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr1-learning-sync-test.log",
+      "rawBytes": 71965,
+      "sha256": "45fd2d8267fb04114eeeb35224fa4a2ada4c49f47b99949c08783afe430b336f",
+      "encoding": "utf-8-sig",
+      "actualNodeCounts": {
+        "tests": 317,
+        "pass": 317,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "original": "communication-pr1-learning-sync-validate.log",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr1-learning-sync-validate.log",
+      "rawBytes": 354,
+      "sha256": "10dcad75d29a73396e2a3003d7c619a4d5b030e325667d9f8c56811ea564d37e",
+      "encoding": "utf-8-sig"
+    },
+    {
+      "original": "communication-pr1-learning-sync-smoke.log",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr1-learning-sync-smoke.log",
+      "rawBytes": 164558,
+      "sha256": "df87cc18617b777ab05b25f8d34454ff223fb62ba362df013c0125fcfb30b669",
+      "encoding": "utf-8-sig",
+      "smoke": {
+        "result": "PASS",
+        "method": "isolated worktree snapshot, not detached canonical",
+        "scenarios": 8,
+        "cachedDiagramPython": 4,
+        "cachedLearningPython": 3,
+        "actualCliVersion": "codex-cli 0.147.0"
+      }
+    },
+    {
+      "original": "communication-pr1-learning-published-regression.log",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr1-learning-published-regression.log",
+      "rawBytes": 18652,
+      "sha256": "69c43e45b8a8151293909feab6f2c411959ef0d78a7ea8f3318c0d8e36469238",
+      "encoding": "utf-8-sig",
+      "actualNodeCounts": {
+        "tests": 96,
+        "pass": 96,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "original": "communication-pr2-learning-sync-test.log",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr2-learning-sync-test.log",
+      "rawBytes": 73913,
+      "sha256": "1803dae62816b6f96e40b28993e6f09a970ce127d36f91cce71b169e5ee489c2",
+      "encoding": "utf-8-sig",
+      "actualNodeCounts": {
+        "tests": 326,
+        "pass": 326,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "original": "communication-pr2-learning-sync-validate.log",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr2-learning-sync-validate.log",
+      "rawBytes": 354,
+      "sha256": "10dcad75d29a73396e2a3003d7c619a4d5b030e325667d9f8c56811ea564d37e",
+      "encoding": "utf-8-sig"
+    },
+    {
+      "original": "communication-pr2-learning-sync-validate-fail-01.log",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr2-learning-sync-validate-fail-01.log",
+      "rawBytes": 442,
+      "sha256": "c134b53e366e1e1a26a88cb5573e42a620af1e0f3cf9bb117e37e7f70a2ba1ec",
+      "encoding": "utf-8-sig"
+    },
+    {
+      "original": "communication-pr2-learning-sync-smoke.log",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr2-learning-sync-smoke.log",
+      "rawBytes": 164558,
+      "sha256": "bb33b92092de3502e20c2fcb74d340e640b0988b6b0398053d950a9593b1df00",
+      "encoding": "utf-8-sig",
+      "smoke": {
+        "result": "PASS",
+        "method": "isolated worktree snapshot, not detached canonical",
+        "scenarios": 8,
+        "cachedDiagramPython": 4,
+        "cachedLearningPython": 3,
+        "actualCliVersion": "codex-cli 0.147.0"
+      }
+    },
+    {
+      "original": "communication-pr2-learning-contract-docs.log",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr2-learning-contract-docs.log",
+      "rawBytes": 12631,
+      "sha256": "02cb8aa195d165924cb45a5078352808048e47505e659ef33a298bb0e92c1795",
+      "encoding": "utf-8-sig",
+      "actualNodeCounts": {
+        "tests": 65,
+        "pass": 65,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "original": "communication-pr2-learning-published-regression.log",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr2-learning-published-regression.log",
+      "rawBytes": 19875,
+      "sha256": "ff60bdecc14053d0b19edcafad10d7295f711bbfde0d155ac1022a2ab60d17c8",
+      "encoding": "utf-8-sig",
+      "actualNodeCounts": {
+        "tests": 102,
+        "pass": 102,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "original": "communication-pr3-learning-contract-docs.log",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr3-learning-contract-docs.log",
+      "rawBytes": 12639,
+      "sha256": "7b99c2775a6f14a7f2cb272655967d16614d2b14821b1056bde11601dc758bc8",
+      "encoding": "utf-8-sig",
+      "actualNodeCounts": {
+        "tests": 65,
+        "pass": 65,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "original": "communication-pr4-learning-contract-docs.log",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr4-learning-contract-docs.log",
+      "rawBytes": 12633,
+      "sha256": "81377950c852af7da17d0a36375f5ee64b03eb846b656102eb4da3a1f1d32bbc",
+      "encoding": "utf-8-sig",
+      "actualNodeCounts": {
+        "tests": 65,
+        "pass": 65,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "original": "communication-pr3-published-validate.log",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr3-published-validate.log",
+      "rawBytes": 392,
+      "sha256": "e3bedb0233222e468a1e207cfbcbaf1c3138a8827fde2769e9e2ede3a85eb3d8",
+      "encoding": "utf-8-sig"
+    },
+    {
+      "original": "communication-pr3-published-regression.log",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr3-published-regression.log",
+      "rawBytes": 7354,
+      "sha256": "e5d5dcc030261e5b02b4a14ff59eb8e0fc62f7409d17217cd65d168d1270009b",
+      "encoding": "utf-8-sig",
+      "actualNodeCounts": {
+        "tests": 37,
+        "pass": 37,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "original": "communication-pr3-published-docs.log",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr3-published-docs.log",
+      "rawBytes": 12629,
+      "sha256": "53089ce4a2d9ad9729d76a92da8c5b6922373c39b15297b26dc049e6f94ad290",
+      "encoding": "utf-8-sig",
+      "actualNodeCounts": {
+        "tests": 65,
+        "pass": 65,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "original": "communication-pr4-published-validate.log",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr4-published-validate.log",
+      "rawBytes": 392,
+      "sha256": "e3bedb0233222e468a1e207cfbcbaf1c3138a8827fde2769e9e2ede3a85eb3d8",
+      "encoding": "utf-8-sig"
+    },
+    {
+      "original": "communication-pr4-published-regression.log",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr4-published-regression.log",
+      "rawBytes": 19876,
+      "sha256": "83c73ba670b492020ebcc40c65b84ec1c9b09aa5131bff6d3b36b490623b5135",
+      "encoding": "utf-8-sig",
+      "actualNodeCounts": {
+        "tests": 102,
+        "pass": 102,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "original": "communication-pr3-learning-sync-tests-2026-10-13.log",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr3-learning-sync-tests-2026-10-13.log",
+      "rawBytes": 80387,
+      "sha256": "272afe304f96813617cbe97c0ffba8d83c6284c84810b029a246a7d66f226d2b",
+      "encoding": "utf-8-sig",
+      "actualNodeCounts": {
+        "tests": 344,
+        "pass": 343,
+        "fail": 1,
+        "skipped": 0
+      }
+    },
+    {
+      "original": "communication-pr3-learning-sync-tests-2026-10-13-r2.log",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr3-learning-sync-tests-2026-10-13-r2.log",
+      "rawBytes": 78512,
+      "sha256": "c4fe72188dadc35b2a9bf5a1fbb0c847c7bee7a76b2c3df481f11312aac99b87",
+      "encoding": "utf-8-sig",
+      "actualNodeCounts": {
+        "tests": 344,
+        "pass": 344,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "original": "communication-pr3-learning-sync-bundled-python-2026-10-13.log",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr3-learning-sync-bundled-python-2026-10-13.log",
+      "rawBytes": 14736,
+      "sha256": "c28eb633f57c2cbd833644d5a22f6592f2ccd781d0a1ef20fe0270c8025ada92",
+      "encoding": "utf-8-sig",
+      "actualNodeCounts": {
+        "tests": 32,
+        "pass": 32,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "original": "communication-pr3-learning-sync-smoke-2026-10-13.log",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr3-learning-sync-smoke-2026-10-13.log",
+      "rawBytes": 324196,
+      "sha256": "7090d3e3a69c50d155053295c597f218ee100513dd66e819073f9527565d4d94",
+      "encoding": "utf-8-sig",
+      "smoke": {
+        "result": "PASS",
+        "method": "isolated worktree snapshot, not detached canonical",
+        "scenarios": 13,
+        "cachedDiagramPython": 6,
+        "cachedLearningPython": 6,
+        "actualCliVersion": "codex-cli 0.147.0"
+      }
+    },
+    {
+      "original": "communication-pr3-learning-sync-smoke-summary-2026-10-13.json",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr3-learning-sync-smoke-summary-2026-10-13.json",
+      "rawBytes": 646,
+      "sha256": "876d0d25d6456aa56285657c4dab8487936c94f346682f21a0b32276408d9223",
+      "encoding": "utf-8-sig"
+    },
+    {
+      "original": "communication-pr3-learning-sync-smoke-bundled-2026-10-13.log",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr3-learning-sync-smoke-bundled-2026-10-13.log",
+      "rawBytes": 321788,
+      "sha256": "19ca3db2a9f1530344e627811a9d0abbedc0ca08fc16bc875ba18ad0544eec89",
+      "encoding": "utf-8-sig",
+      "smoke": {
+        "result": "PASS",
+        "method": "isolated worktree snapshot, not detached canonical",
+        "scenarios": 13,
+        "cachedDiagramPython": 6,
+        "cachedLearningPython": 6,
+        "actualCliVersion": "codex-cli 0.147.0"
+      }
+    },
+    {
+      "original": "communication-pr3-learning-sync-smoke-bundled-summary-2026-10-13.json",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr3-learning-sync-smoke-bundled-summary-2026-10-13.json",
+      "rawBytes": 691,
+      "sha256": "77a97dda9192020fe91f007d30e1e76b200b05f6e05e603db0cc5318710e65ab",
+      "encoding": "utf-8-sig"
+    },
+    {
+      "original": "communication-pr3-learning-sync-audit-2026-10-13.json",
+      "rawLog": "communication-kit-2026-10-13-learning-baseline-01-pr3-learning-sync-audit-2026-10-13.json",
+      "rawBytes": 8082,
+      "sha256": "ba7a7e76aeb5bf00e947c7fcf36952460d38f5368ff35374cbaca44e0379f8f4",
+      "encoding": "utf-8-sig"
+    }
+  ]
+}

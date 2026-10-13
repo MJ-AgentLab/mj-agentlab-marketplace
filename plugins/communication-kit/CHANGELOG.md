@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-10-13
+
 ### Added
 
 - Prepare communication-kit 0.1.0 with the explicit communicate entry for messages, document writing and faithful rewriting.
@@ -15,4 +17,4 @@
 - Keep factual content grounded in supplied material or explicit user confirmation, including reasons, motives, diagnoses and approval or execution states; politeness cannot introduce unsupported facts.
 - Refresh the frozen summary identity after these instruction corrections while retaining the unchanged research-source hashes and historical failed acceptance batch.
 
-Refs #222. This is an implementation candidate; publication, icon selection, installation, behavior and client acceptance are recorded separately and are not claimed by this entry.
+Refs #222. Initial version prepared for Marketplace 8.3.0; publication is pending. The Owner-selected D globe icon and actual basic client/engineering results have separate evidence, with retained failures and limitations. Real-world communication effects have not been tested.
