@@ -6,12 +6,12 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.6
+version: v2.7
 ---
 
 # [GUIDE] Marketplace project overview
 
-当前候选注册 diagram-kit / arch-diagram、learning-evidence-kit / pop-quiz、learning-record-check 、explain-kit / glossary、concept 与 html-guide-kit / guide：四插件、六公开技能、三个显式入口。20 个 mp-* 是仓库开发技能，不进入插件公开目录。目标客户端为 ChatGPT 桌面端和 Codex 本地；CLI 验收基线 0.147.0。候选版本为 marketplace 8.1.2、Learning Evidence 0.1.0，Diagram 0.3.1 / Explain 0.1.1 保持；PR5 准备 8.2.0。
+当前候选注册 diagram-kit / arch-diagram、learning-evidence-kit / pop-quiz、learning-record-check 、explain-kit / glossary、concept 与 html-guide-kit / guide：四插件、六公开技能、三个显式入口。20 个 mp-* 是仓库开发技能，不进入插件公开目录。目标客户端为 ChatGPT 桌面端和 Codex 本地；CLI 验收基线 0.147.0。PR5 已准备未发布 marketplace 8.2.0，Learning Evidence 0.1.0、Diagram 0.3.1 / Explain 0.1.1 / HTML 0.1.0 保持；逐入口资格与剩余门槛见 [发布准备](../runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。
 
 Owner 已确认独立公开 8.2.0 保持 Diagram、Learning Evidence、Explain 三插件/五技能，HTML 在 develop 保留并另行发行。
 

@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-12
 state: active
-version: v2.12
+version: v2.13
 ---
 
 # [GUIDE] Version management
@@ -15,7 +15,7 @@ version: v2.12
 
 历史 Marketplace v8.1.0 随 #198 发布，插件分别为 diagram-kit 0.3.0 / explain-kit 0.1.0 / understanding-kit 0.1.1。#199 将 main 同步回 develop，merge `a220688d0f46c32f775d4284feb6f9c935085089`；#201 merge `1781e28c37c09a962c0c0edccd6fa2ec574e48d9` 将 VERSION / README badge 预升为当时未发布的 8.1.1。当时 main 保持 8.1.0，pre-bump 没有创建标签或 Release；历史事实及验收缺项见 [8.1.0 发布记录](../runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)。
 
-当前 PR4 原子替换候选注册为 learning-evidence-kit 0.1.0，diagram-kit 0.3.1 / explain-kit 0.1.1 不变；marketplace VERSION / badge 暂保持 8.1.2。Owner 授权的目标为 8.2.0，PR5 才执行该市场版本准备；新版本尚未发布。正式发布后先同步实际 main，再以另一个 PR 准备 8.2.1 marketplace pre-bump，仅 VERSION / badge 改变。
+PR4 原子替换候选注册为 learning-evidence-kit 0.1.0；PR5 对 Owner 授权的 marketplace 8.1.2 → 8.2.0 先 dry-run 后 apply，仅版本工具的 VERSION / badge 两锚点改变。Learning Evidence 0.1.0 / Diagram 0.3.1 / Explain 0.1.1 保持，新版本尚未发布。最终入口资格和保护门槛见 [8.2.0 发布准备](../runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。正式发布后先同步实际 main，再以另一个 PR 准备 8.2.1 marketplace pre-bump，仅 VERSION / badge 改变。
 
 代理先执行 scripts/bump-version.ps1 的 -DryRun，当前使用 -Scope marketplace、diagram-kit、learning-evidence-kit、explain-kit、html-guide-kit 或 communication-kit；这是版本工具的参数，与 Git 提交 scope 分开。understanding-kit 已退出候选，不再接受新 bump。From 必须匹配真实版本，To 必须合法 semver。脚本在所有目标预检成功后写入；任何写入或校验失败恢复原字节，清理失败只保留备份并报告。历史正文不做全局版本替换。
 
