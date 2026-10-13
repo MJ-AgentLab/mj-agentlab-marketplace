@@ -18,7 +18,7 @@
 
 - Record HTML Guide Kit PR2's actual develop merge d106e766 and PR3 expanded acceptance. Preserve missing independent GitHub approval, historical failures and unavailable native client events; real-world effectiveness remains NOT_MEASURED. Refs #217, #220.
 
-- Prepare HTML Guide Kit 0.1.2 after real 0.1.0 source-fidelity failures and a subsequent 0.1.1 partial-condition simulation failure. Cross-check operation feedback and attribution, preserve decisive known conditions when combining unknowns, and keep local condition results within source scope. Preserve each failed version and require new canonical installation and affected/six-group behavior verification. Refs #217, #220.
+- Prepare HTML Guide Kit 0.1.3 after actual source-fidelity and simulation failures across 0.1.0–0.1.2. Preserve decisive known conditions, distinguish direct operations from undefined later paths, and retain source terms, value types and quantifiers. Cross-check assertions across all guide sections. Preserve each failed version and require new canonical installation and affected/six-group behavior verification. Refs #217, #220.
 
 - Seal 788 original HTML Guide Kit historical control/session/review files with lossless packet mappings and independent byte restoration. Verify the 0.1.2 canonical seven installations and four actual cache Python runs; ongoing model and unavailable native-client paths retain their actual status. Refs #217, #220.
 

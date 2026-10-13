@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.5
+version: v1.6
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -251,3 +251,15 @@ PR3 从该实际最新 origin/develop 派生 `codex/html-guide-acceptance` 独�
 0.1.2 canonical `59c7aea91e51997a74870c730c260a4667b6470c` / tree `1bb4b82807a4029a9e8c46a5a9ca4f104702e96e` 的[完整严格安装](evidence/html-guide-kit/pr3-post-merge/engineering-59c7aea9/installation.json)和[汇总](evidence/html-guide-kit/pr3-post-merge/engineering-59c7aea9/summary.json)通过：七场景、四次实际缓存 Python，四插件/五公开技能/三个自然启用技能、consumer 开发技能 0 / repository 20。精确 detach、lock 依赖准备和源/cache 字节校验与身份见[原始文件索引](evidence/html-guide-kit/pr3-post-merge/engineering-59c7aea9/archive-index.json)。[工作候选测试](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-2/npm-test.log)279/279、零 skip，validate/check 通过；该 head GitHub CI 当前全部通过。
 
 新 0.1.2 六组 14 fresh / 30 轮、扩展 29 fresh / 59 轮分别用新中性 HOME/mirror/cache 实际执行，尚未形成完整通过结论。另准备 E7 确认后收到材料更新与 E12 停止后重新启动的 2 fresh / 9 连续轮次，补充原判准未执行分支，不改旧冻结输入或结果。原生客户端/E10/E11 与最终 merge 条件继续保留；现实效果 NOT_MEASURED。
+
+## §15 Direct-operation and semantic correction
+
+0.1.2 六组完成全部 14 指定 fresh / 30 连续轮次，独立结果 13 PASS、B4.1 FAIL。B4.2 的“明确否＋未知”与互斥分支已实际修复，不能抵消另一完整模拟中的错误。B4.1 session UUID `01a132eb-d8bb-7421-966b-0fe59c9f5aa9` / attempt `7a236861-60c3-413d-8f3a-e7d8070a35b9` 第二轮第 65、170 行正确写已归还不可领取，但第 207、323–324 行将已归还后的“再次核验或再次领取”统称未规定，不允许判允许或禁止。源 §4 已明确其他当前状态不可领取；未知的是再次核验及后续路径，原输出没有把未知限定到该路径。这是内部和来源冲突，独立 FAIL 保留。
+
+0.1.2 E13 UUID `01a132f5-19a2-7fa3-88c4-a2d9ed111f0a` / attempt `3d850405-18ad-42a9-905f-49130c01268d` 与 E13-bilingual UUID `01a132f7-a70c-7ad2-a88c-bf42ac670373` / attempt `1c79c9fc-75aa-4648-b67f-28d5d4c76f25` 的第二轮第 29/28 行源规则表加入“仅在未核验状态操作”，§3 只给该状态下的处理而未排他禁止其他状态。bilingual 第 135 行还把原文 Inventory（库存）改为 Inventory（库存充足），由原变量变成派生真假条件；第 16 行的正确对照不能抵消它。分别独立 FAIL；原版未触发源材料双语路径另保留 UNEXERCISED 维度，不把新双语调用或其他格式正确追认旧结果。
+
+发现上述问题后暂停新扩展调度。A 分区暂停外层进程时也中断了已启动的 E2 第二轮：UUID `01a132fb-de07-7a01-9c16-2ac00e0da8e0` 第一轮 COMPLETE，第二轮只有 partial/thread.started、原 batch RUNNING 保留，原因叠加为 OPERATOR_INTERRUPTED_OR_INCOMPLETE。这不是模型语义 FAIL 或 COMPLETE；不会据部分输出补写 PASS。后续纯操作 runner 改为变体边界读取 pause 标志并正常返回，不杀外层或模型子进程。B 分区已完成的 E14-html 保留完整两轮，其余未执行；补充 E12-restart 仅首轮完成后未继续，不是已测重启。所有旧记录待封存时保留准确实际计数和独立评审。
+
+dry-run 后只将 HTML Guide Kit 推进 0.1.2→0.1.3，市场和其他插件版本不动。通用方法固定当前状态和单个操作，分开直接操作与多步路径；未知路径不覆盖源规则确定的直接禁止。检查全文排他量词和术语值类型，原变量与派生真假判断分别命名，不能由表头或压缩句新增原文没有的“仅”。不搬入验收领域规则、答案或案例身份，不改变 Read、显式调用、确认等待、文本交付和已选图标。
+
+0.1.3 工作候选完整测试 279/279、零 skip，尚待 committed canonical、严格新安装及全部六组/受影响扩展真实复验。0.1.2 的安装、有限 PASS、FAIL、操作中断及未执行分别保持其真实身份；不据修正意图或工程检查宣称 0.1.3 行为通过。原生客户端、最终 head/merge 门禁与现实效果状态保持。
