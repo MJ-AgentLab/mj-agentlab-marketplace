@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: active
-version: v1.4.2
+version: v1.4.3
 last-verified: 2026-10-13
 verification-scope: contract-common-flow-package-and-partial-model-observations
 ---
@@ -140,6 +140,14 @@ On 2026-10-12 Owner explicitly chose the original public 8.2.0 scope after paral
 
 PR4 now retains the merged HTML runtime and combines both strict resource contracts: development has four plugins/six public skills/three explicit policies; the separate public 8.2.0 source remains the approved original three/five/two. All Learning package bytes equal fourth-round source `8546aef`, while Diagram/Explain/HTML and VERSION equal actual develop `d106e766`. The first working merge test run failed five stale inventory/error-wording cases (312/317), preserved in its receipt; after reconciliation full regression passes 317/317 with zero skips, including 33 storage and 31 GitHub actual Python cases. All eight actual isolated install scenarios pass, with four cached Diagram Python runs and three cached Learning save/replay/check scenarios. Strict validation/exact Codex 0.147.0 pass. The `upstream_sync_after_html` section records tested merge source, original failure/log hashes and raw smoke results. Actual fourth-round model acceptance remains separate and pending; no desktop/native, GitHub approval or release completion is inferred.
 
+### Fourth actual round and applicability-order repair (2026-10-13)
+
+The [complete fourth-round partial receipt](evidence/learning-evidence-fourth-model-round.json) preserves six actual fresh scenarios/eight turns/55 commands from source `8546aef`, with [independent complete review](evidence/learning-evidence-fourth-model-independent-review.json). Auth copies are zero. Handoff, unspecified selection, missing materials, three-phase manual material arrival and different-source-author checks pass their stated limits; six newly generated checks now have actual agent/LRC/operator/clock facts and immutable originals. Overall FAIL remains: the other-person case actually read explanation, verification and full implementation before get/check_record established identity mismatch. Its later not_run does not cancel those reads. Listing was never set up or invoked and remains NOT_RUN. All original help/API/parser failures remain in the complete receipt.
+
+The new LRC text executes Stage 1 first: retrieve/check the selected original, establish person/task/KU/version applicability, and only then open application materials/implementation. Invalid applicability stops before those reads; Stage 2 reads cannot be batched into unfinished Stage 1. Confirmed scope and baseline/source/version inspection remain available; no Owner decision, schema or Python API is added. Independent text review passes, while a fresh six-LRC/eight-turn fifth round remains pending. Fourth-round handoff may be retained only against its complete unchanged observed resource closure; no native or full-new-source behavior is inferred.
+
+Three agent-written docs commits incorrectly used the closed-out `acceptance` scope. The [metadata repair](evidence/learning-evidence-commit-scope-repair.json) preserves old remote history, corrects the three draft PR branches under exact old-head leases and proves identical Git trees; no validator bypass or runtime change is used. Current checks/approval still apply to each new head.
+
 ### Entry activation ledger (continued)
 
 PR5 fills one row for each actual host/entry combination, retaining method, client version, install source/plugin/head identity, actual call evidence, individual window results, impact and removal condition. No entry is enabled solely by the contract or a static metadata check.
@@ -181,6 +189,7 @@ Use existing draft-first release controls and record actual remote state before 
 
 | Version | Date | Verification scope | Summary |
 | --- | --- | --- | --- |
+| v1.4.3 | 2026-10-13 | Complete fourth-round failure and static order repair; fifth actual acceptance pending | Retain original commands/metadata positives, stop identity mismatch before application reads, preserve exact-tree commit-scope repair and old sources |
 | v1.0 | 2026-10-12 | Source/intake/document structure; new runtime NOT_RUN | Contract acceptance matrix, actual intake facts, strict-window staged-entry policy, six delivery PRs and two closeout PRs; Refs #210 and Epic #209 |
 | v1.1 | 2026-10-12 | Contract merge and isolated local library; clients NOT_RUN | PR2 independent repairs, 33 Python cases, #224 and 253-test latest-develop synchronization; preserve parallel HTML contracts and earlier evidence |
 | v1.1.1 | 2026-10-12 | Current four-package runtime preservation and seven isolated installations; separate three-plugin 8.2.0 release scope confirmed | Synchronize actual #226 runtime merge, 280-test/33-Python rerun and unchanged staged storage; keep earlier receipts, retain HTML in develop and record Owner's separate-release decision |
