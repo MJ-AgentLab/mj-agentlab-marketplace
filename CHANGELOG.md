@@ -18,6 +18,8 @@
 
 ### Changed
 
+- Record the protected Learning Evidence local-store merge #224, exact-tree canonical installation/Python verification and child #211 completion; synchronize PR3 ancestry with unchanged production modules and a fresh 311-test/seven-install rerun. Preserve the separately approved three-plugin 8.2.0 release scope and deferred entries.
+
 - Prepare the unpublished develop 8.1.2 pre-bump after #206 synchronized the published main. Update only marketplace VERSION and its derived README badge; keep all plugin versions, published version sections, tags and assets unchanged. Include the parallel publication-record documentation and synchronize its main merge ancestry when available.
 
 - Record the actual Marketplace v8.1.1 release identity and successful post-publication canonical installation/icon/Python checks. Update current installation entry points to v8.1.1 while preserving supplied screenshot evidence, incomplete client details and missing independent approval records; published version sections and release assets remain unchanged.
