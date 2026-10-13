@@ -6,12 +6,12 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.8
+version: v2.9
 ---
 
 # [GUIDE] Marketplace project overview
 
-当前候选注册 diagram-kit / arch-diagram、learning-evidence-kit / pop-quiz、learning-record-check 、explain-kit / glossary、concept 、html-guide-kit / guide 与 communication-kit / communicate：五插件、七公开技能、四个显式入口。20 个 mp-* 是仓库开发技能，不进入插件公开目录。目标客户端为 ChatGPT 桌面端和 Codex 本地；CLI 验收基线 0.147.0。候选版本为 marketplace 8.1.2、Learning Evidence 0.1.0，Diagram 0.3.1 / Explain 0.1.1 保持；PR5 准备 8.2.0。
+当前PR3候选注册diagram-kit/arch-diagram、learning-evidence-kit/pop-quiz及learning-record-check、explain-kit/glossary及concept、html-guide-kit/guide和communication-kit/communicate：五插件七公开技能、四显式入口，20个mp-*仅属仓库开发技能。目标为ChatGPT桌面和Codex本地，CLI基线0.147.0。VERSION沿用8.2.0；main已发布三包五技能，Diagram0.3.1/Learning0.1.0/Explain0.1.1，HTML0.1.0/Communication0.1.0未公开。Communication正式四包六技能、HTML留develop另发，后续minor目标8.3.0；实际发布与入口资格见[8.2.0账本](../runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)及[Communication验收](../runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。
 
 Owner 已确认独立公开 8.2.0 保持 Diagram、Learning Evidence、Explain 三插件/五技能，HTML 在 develop 保留并另行发行。
 
@@ -48,3 +48,5 @@ HTML Guide Kit 0.1.0 作为 develop 开发候选原子接入，新增唯一显�
 | Version | Date | Summary |
 |---|---|---|
 | v2.8 | 2026-10-13 | 同步 Learning 原子替代与 Communication 完整集成，按当前集合验收，发行范围另核对 |
+
+| v2.9 | 2026-10-13 | 同步已公开Learning8.2.0基线，保留Communication开发五包与正式四包范围及历史限制 |
