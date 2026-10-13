@@ -70,7 +70,7 @@ Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基
 
 本分支HTML0.1.13未合并；普通同步c1fa458（#225/#229/#233），五包七公开/四显式/三自然/20repo-only，保留他插件版本及上游未发布8.3.0。main公开8.2.0三包，HTML另发；本任务无Release/tag/main发布授权，缺manifest仍失败。源12固定5bce834八安装/四Python/CI，15UUID/31COMPLETE独立9P4F2UNEX；恢复动作、关系例外及重试当前态FAIL，局部PASS不抵消。旧失败/invalid/未跑封存，0.1.4/0.1.7模型NOT_RUN。新13须十三安装/六Python及冻结行为全新cache复验。
 
-现实效果另测NOT_MEASURED；本任务原生接口不可用，Codex应用UI/ChatGPT桌面及空返回/超时/关闭未执行，其他插件/CLI证据不替代。核心可分段交付，延期不当通过，#220/Epic开放、Owner接受独立。控制修正/来源/准确会话及历史见[RUNBOOK](docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)§11–30；不继承旧PASS。研究项目只读。
+现实效果另测NOT_MEASURED；本任务原生接口不可用，Codex应用UI/ChatGPT桌面及空返回/超时/关闭未执行，其他插件/CLI证据不替代。核心可分段交付，延期不当通过，#220/Epic开放、Owner接受独立。控制修正/来源/准确会话及历史见[RUNBOOK](docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)§11–31；不继承旧PASS。研究项目只读。
 
 第五轮来源 acf3c9d 的六 fresh 会话/八调用已通过限定 CLI 核心判据：七次自然完成、一次执行器超时保留；九条新核验、两次限定离线共享及原件/生成信息均经独立核对。四轮原失败、两次策略拒绝、换行格式差异和幂等重放分别保留，不称所有调用成功。原移交仅按十二项未变资源闭包沿用并限已有本地 Git exclude；原生提问仍延期、桌面/Side Chat 未运行，实际保护合入、发布和 Owner 最终接受待各自证据。完整入口资格与限制见上述 Learning Evidence 验收账本。
 

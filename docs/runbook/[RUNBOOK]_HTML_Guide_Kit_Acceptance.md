@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.22
+version: v1.23
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -441,4 +441,12 @@ B6.1 UUID01a134bd-4ecd-7150-86db-f7f8c1e45ead / attempt8f80afcb-f8dd-4948-a7da-8
 
 仅HTML0.1.12→0.1.13；三个已审查资源精确6144/19793/20673字节，入口严格6144不放宽。通用规则保留全部源动作、对象与字段及局部条件，完整恢复不以初值或新增UI清理代替；关系和排他纳入同字段恢复/例外。先说明每轮进入、当前态来源、继续、改条件、重试、退出与复位，再写反馈；共享态取最新结果，独立情境每次明确恢复范围/依据，不把改条件当复位或补造缺规则。完整恢复可明示继承覆盖本处的完整共同规则，局部视图标范围；无定义源对象保留原称呼/缺口，不扩为日志、永久删除或系统行为。原显式确认/文本Read/新建范围和所有旧边界保持，无fixture答案/Owner路径。6509/6353/6268/6194外部draft预算失败原脚本/日志保留，两份独立静态审查无阻断只属STATIC_ONLY。
 
-新13安装/模型NOT_RUN；须准确新canonical十三安装/六缓存Python，再按同冻结B14/30、全部E29/59、重复1/2、连续S2/9实际新会话复验，不继承旧PASS。原生应用接口不可用，双客户端与空返回/超时/关闭NOT_RUN，现实效果NOT_MEASURED；合格核心可分段交付，延期不当通过，#220/Epic开放，Owner最终接受独立。当前head CI、非作者批准、解决线程、最新base和实际merge按新身份单独核验。
+0.1.13初次修正准备时安装/模型NOT_RUN；须准确新canonical十三安装/六缓存Python，再按同冻结B14/30、全部E29/59、重复1/2、连续S2/9实际新会话复验，不继承旧PASS。原生应用接口不可用，双客户端与空返回/超时/关闭NOT_RUN，现实效果NOT_MEASURED；合格核心可分段交付，延期不当通过，#220/Epic开放，Owner最终接受独立。当前head CI、非作者批准、解决线程、最新base和实际merge按新身份单独核验。
+
+## 31. 0.1.13精确安装与Windows归档路径修正
+
+0.1.13准确canonical09c173a91e19c688a79420673ecc76ccd35c51f0 / tree31db830c87f3839e239c9f1e9dcdcc84074c4b5f的[十三严格安装/六实际缓存Python](evidence/html-guide-kit/pr3-post-merge/engineering-09c173a9/archive-index.json)已通过。实际五插件/七公开/四显式/三自然/20repo-only及市场8.3.0/各批准版本逐项核对，所有安装资源与源候选字节对应。Root、A、B已从各自新中性镜像/本次缓存启动冻结六组的全新真实连续会话，独立评审仍进行，不以安装/静态审查宣称语义通过，也不重归后续纯证据提交身份。
+
+该head实际A6/Structure/Ubuntu检查通过，Windows run38402067400的346单元为339PASS/7FAIL，原[失败与窄修正](evidence/html-guide-kit/pr3-post-merge/ci-13-path-fix/archive-index.json)保存。两份原始交互参考快照在Windows CI临时canonical目录中路径超长，checkout失败并连带阻断七个release安装测试；不能当作预期运行合同失败或CI通过。仅缩短新0.1.13归档UUID目录为static-review，原78行文件全部SHA/字节稳定，九个移动文件与原09c Git blob逐字相同，原索引另存，新索引按真实位置定位；旧封包不覆盖。首个验证helper直接git show长revision:path触发Windows stat失败，原script/log保留，改用ls-tree对象ID/cat-file准确读取Git字节后通过，不改产品校验或Git全局配置。
+
+受影响release单元七项在短路径后实际PASS、零fail/skip；新head的真实Windows CI仍须单独验证，不追認旧失败。运行包、manifest、metadata、图标、登记、scripts与行为控制均未修改，HTML继续0.1.13，五包市场8.3.0保持；纯证据路径修正不bump。真实模型会话继续固定09c源及其cache身份；最终提交与actualmerge仍须资源哈希对应和准确canonical安装复验。当前非作者批准、CI/threads、原生客户端延期、现实效果NOT_MEASURED与Owner接受各自追踪，#220/Epic开放，无发布动作。

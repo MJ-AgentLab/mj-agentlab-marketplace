@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.38
+version: v2.39
 ---
 
 # 文档索引
@@ -55,7 +55,7 @@ PR1 #223实际合入bca、head同tree与限定M1 postmerge原始证据见[M1 pos
 
 0.1.10评审与0.1.11准备时的快照：PR3候选为0.1.11。0.1.10源7c1f230b与纯文档同步6a919166各八安装/四缓存Python通过；12UUID/23实际COMPLETE独立结果6PASS/3FAIL/3UNEXERCISED，374原字节文件封存并独立复原。局部动态guard通过不抵消概览条件遗漏和混合UI重置来源归因FAIL；B6.1原PASS与同attempt补充FAIL都保留。新候选对每处操作结论保留完整条件，源重置字段与新增界面清理逐项分开归因；须新安装与冻结行为复验，不以静态修正追认模型通过。marketplace8.2.1及其他插件不变，双客户端/原生窗口延期、现实效果另测、GitHub当前head批准和实际merge仍待各自证据，#220/Epic开放；见HTML RUNBOOK §27。
 
-HTML当前PR3修正候选为0.1.13。源12固定5bce8341八安装/四缓存Python/CI通过，15fresh UUID/31COMPLETE独立9PASS/4FAIL/2UNEXERCISED；456文件原字节封存与Node/.NET复原通过。局部PASS不抵消完整源恢复遗漏、排他关系遗漏恢复例外及重试当前态缺口。新方法逐项保留源动作/对象/字段，先定每轮尝试生命周期，再写反馈。已普通同步c1fa458上游Communication运行与未发布8.3.0，开发五包七技能/四显式/三自然/20repo-only，其他批准版本保持；HTML仍另行发行。新合成須十三精确安装/六缓存Python及冻结行为矩阵，不继承旧PASS。原生/双客户端延期、现实效果另测、当前head非作者批准与actualmerge仍分别待证，#220/Epic开放；见HTML RUNBOOK §30。
+HTML当前PR3修正候选为0.1.13。源12固定5bce8341八安装/四缓存Python/CI通过，15fresh UUID/31COMPLETE独立9PASS/4FAIL/2UNEXERCISED；456文件原字节封存与Node/.NET复原通过。局部PASS不抵消完整源恢复遗漏、排他关系遗漏恢复例外及重试当前态缺口。新方法逐项保留源动作/对象/字段，先定每轮尝试生命周期，再写反馈。已普通同步c1fa458上游Communication运行与未发布8.3.0，开发五包七技能/四显式/三自然/20repo-only，其他批准版本保持；HTML仍另行发行。新canonical09c173a9十三精确安装/六缓存Python通过，冻结行为新会话评审进行中；Windows归档长路径的七单元失败、窄修正和本地七项复验原样保留，最终CI另核验，不继承旧PASS。原生/双客户端延期、现实效果另测、当前head非作者批准与actualmerge仍分别待证，#220/Epic开放；见HTML RUNBOOK §30–31。
 
 ## 入口
 
