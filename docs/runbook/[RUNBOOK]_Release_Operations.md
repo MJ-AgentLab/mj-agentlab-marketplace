@@ -4,16 +4,18 @@ scope: marketplace
 summary: "Draft-first Git/tag release with install verification and immutable history"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-10
+updated: 2026-10-12
 state: active
-version: v2.7
+version: v2.9
 ---
 
 # [RUNBOOK] Release operations
 
 ## Preparation
 
-两个治理 PR 及迁移 PR 已合并。owner 已授权先完成 8.0.0 / 0.3.0 与正式 CHANGELOG 的版本准备，阶段调整见 [迁移 ADR](../adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)。代理执行版本 dry-run、更新、测试与 PR 准备，未完成的桌面端验收继续据实记录。VERSION 变化合入 main 会触发发布，因此正式 release PR 的合并必须已有完整客户端验收、发布意图授权、CI 和独立批准。
+两个治理 PR 及 portable 迁移 PR 已合并。历史 8.0.0 / 0.3.0 版本准备授权及阶段调整见 [迁移 ADR](../adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)。代理执行已授权 dry-run、更新、测试与 PR 准备，缺项据实记录。VERSION 变化合入 main 会触发发布，正式 release PR 必须满足实际发布范围的客户端验收、发布授权、CI、当前 head 非作者批准及已解决审查线程。
+
+Learning Evidence Epic #209 已获集中实施及条件发布授权，Owner 接受双技能/接口不变、核心独立验收后交付，不能满足严格原生窗口的入口延期。PR4 暂保持市场 8.1.2，PR5 准备 8.2.0 并逐项列实际可启用入口；未提交/默认/超时/关闭不算答复，文字重述/pending 不算窗口持续显示通过。按 [新 ADR](../adr/[ADR]_Learning_Evidence_Kit_Migration.md)与[验收账本](./[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)核对证据；核心发布不完成原 Epic，延期项、两个收尾 PR 和 Owner 最终接受仍独立追踪。
 
 #197 合并后，owner 明确要求继续并发布；#198 已合入 main，marketplace v8.1.0 于 2026-10-09 自动发布，包含 diagram-kit 0.3.0 / understanding-kit 0.1.1 / explain-kit 0.1.0。发布后四种 canonical 安装复查通过。真实桌面交互未执行、GitHub 未提供独立批准记录，不能因发布成功推定豁免或补记 PASS。发布身份与后续同步见 [8.1.0 发布记录](./[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)。
 
@@ -25,7 +27,7 @@ scripts/run-release.mjs 从指定 SHA 读取 VERSION 与 CHANGELOG，要求 SHA 
 
 ## Post-release
 
-Marketplace v8.1.1 已通过 #205 合入 main 并于 2026-10-10 公开，tag 与 Release 绑定 merge 8f0e044a593408fadc90565f326ef4cb5906e840；发布后四种 canonical 安装、图标比较和实际 Python 校验通过。Owner 截图及未提供的两端完整客户端结果、#205 独立批准缺项继续分开记录，见 [8.1.1 发布记录](./[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。回同步 PR #206 已准备；8.1.2 dry-run 成功但未应用，按下述顺序执行。
+Marketplace v8.1.1 已通过 #205 合入 main 并于 2026-10-10 公开，tag 与 Release 绑定 merge 8f0e044a593408fadc90565f326ef4cb5906e840；发布后四种 canonical 安装、图标比较和实际 Python 校验通过。Owner 截图及未提供的两端完整客户端结果、#205 独立批准缺项继续分开记录，见 [8.1.1 发布记录](./[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。#206 已回同步发布 main；本分支随后先 dry-run 再实际应用仅 VERSION / README badge 的 8.1.2 pre-bump，插件版本保持。同期 main 文档 PR #207 的实际 merge ancestry 在收尾时继续纳入。
 
 记录标签、Release 身份和实际验收；按既有 [pre-bump 决策](../adr/[ADR]_Develop_PreBump_Adoption.md) 先将 main 同步回 develop，再准备 develop 的下一补丁 PR。Portable 格式仅预升 VERSION 与派生 README badge，市场索引不承载版本，各插件根 manifest 不连带更新；先执行版本工具 dry-run。develop badge 表示预计下一版本，不创建同号标签或 Release。回退与历史政策见 [迁移 ADR](../adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)。
 

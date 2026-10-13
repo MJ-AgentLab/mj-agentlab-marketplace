@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-10
 updated: 2026-10-10
 state: active
-version: v1.1
+version: v1.2
 ---
 
 # [RUNBOOK] Marketplace 8.1.1 release readiness
@@ -62,7 +62,11 @@ main 使用 active protect-main ruleset（ID 14008213），要求 1 个批准、
 
 ## Follow-up state
 
-main 回同步 PR [#206](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/206) 直接指向发布 merge，base 为 develop 9bd54d7；不新增文件编辑或版本转换。发布记录修正通过独立 main 文档 PR 推进，其 main merge ancestry 在最终同步时继续纳入。8.1.1→8.1.2 dry-run 已成功，恰好匹配 VERSION 和 README badge，未写入；按 [发布操作](./[RUNBOOK]_Release_Operations.md) 在回同步合并后再应用 pre-bump，插件版本不动，不创建 v8.1.2 标签或 Release。
+main 回同步 PR [#206](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/206) 于 2026-10-10 11:00:30（Asia/Taipei）合入 develop，merge `a6e0e150b20b52b105d707b20719e82449b4e758`；其 Git tree 与发布 merge 同为 `db34699b781393afa4e8ab04b686b6fd14b10950`。检查均成功、reviews API 为空；未新增文件编辑或版本转换，原 develop 工作区已 clean fast-forward。相同 tree 的安装证据复用上述实际发布 SHA 的四种验证，不冒称另执行一次。
+
+发布记录修正 PR [#207](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/207) 以 main 为 base，head `f30ea7541169d0526c831ba3df6ad6cc81ba6621` / tree `fe2cafc7ae20da2e3fbb507a01e3e3e3ba4bd197`，本地 240 tests / 0 fail / 0 skip、结构与四种安装通过，远端检查均成功。pre-bump 分支合入同一文档提交，其实际 main merge ancestry 在最终同步时继续纳入。
+
+#206 合并后，在独立分支重新执行 8.1.1→8.1.2 dry-run，恰好匹配 VERSION / README badge 两锚点，随后实际写入。按 [发布操作](./[RUNBOOK]_Release_Operations.md) 准备 develop 的未发布 8.1.2 pre-bump PR，并同步当前文档；插件版本不动，不创建 v8.1.2 标签或 Release。
 
 ## Publication and recovery
 
