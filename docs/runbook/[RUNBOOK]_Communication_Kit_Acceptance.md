@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.1
+version: v1.2
 ---
 
 # [RUNBOOK] Communication Kit acceptance
@@ -36,7 +36,7 @@ npm run smoke:codex
 
 | ID | 标准 | 状态 |
 |---|---|---|
-| S01 | catalog、磁盘和注册精确一致：四插件、五公开技能、20开发技能 | NOT RUN |
+| S01 | catalog、磁盘和注册精确一致：当前PR3开发五插件、七公开技能、20开发技能；正式范围另核 | NOT RUN |
 | S02 | manifest与原生提示只调用本包communicate | NOT RUN |
 | S03 | 显式策略准确；缺失、错类型、重复YAML key失败 | NOT RUN |
 | S04 | 能力准确为Read/Write；漏项或额外能力失败 | NOT RUN |
@@ -49,9 +49,9 @@ npm run smoke:codex
 | S11 | canonical候选资源缺失或篡改阻止安装 | NOT RUN |
 | S12 | 旧插件、实际Python图表校验、无MCP保持 | NOT RUN |
 
-S01按原计划候选四插件五技能、20仓库技能检查；若先发布的Learning改变基线，实施者须呈现差异并取得必要范围决定，不能凭本表豁免。S05哈希不证明语义忠实；逐节来源对照另记。S10须实际尺寸人工检查和明确新图标选择。S11以strict canonical验证器测试资源变异阻止安装。
+S01原计划候选四插件五技能保留为历史；先行Learning迁移#228使当前开发基线四插件六技能，PR3新增Communication后五插件七技能，20仓库技能保持。Owner已通过Q3选择正式发行Learning公开三包＋Communication（四包六技能），HTML留develop另发；每个集合均须精确核对磁盘/注册/白名单，不凭历史数量豁免。S05哈希不证明语义忠实；逐节来源对照另记。S10须实际尺寸人工检查和明确新图标选择。S11以strict canonical验证器测试资源变异阻止安装。
 
-九个隔离安装组合：Diagram；Understanding；Explain；Diagram＋Explain；原三插件；Communication；Communication＋Explain；Communication＋Understanding；全四插件。每组合独立cache，逐资源字节对照。全量普通发现3、原生5；Communication独装普通0、原生1；仓库开发技能20，消费者0。新基线引起矩阵变化须明确处理。
+原九组合含Understanding，按原候选身份保留。当前Learning基线对应九组合为Diagram；Learning；Explain；Diagram＋Explain；公开基础三包；Communication；Communication＋Explain；Communication＋Learning；正式全四包。开发另保留上游HTML组合与全五包，最终矩阵以实际安装记录为准。每组合独立cache并逐资源字节对照；正式全量普通发现3、原生6，开发全量普通3、原生7；Communication独装普通0、原生1；仓库开发技能20、消费者0。旧结果不改写成新集合。
 
 ## §3 Behavioral cases
 
@@ -135,6 +135,7 @@ PR1契约结果、PR3实证、PR4回归、PR5发布及后续复查逐阶段追�
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.2 | 2026-10-13 | 明确先行Learning迁移后的开发/正式两个精确集合与Owner Q3范围；原计划、旧结果及新包未测状态保留 |
 | v1.1 | 2026-10-13 | 追加HTML基线同步、279测试与七组canonical；如实记录原路径缺失和原字节副本身份 |
 | v1.0 | 2026-10-12 | 固定基础用例与证据状态；全部新包用例尚未执行 |
 

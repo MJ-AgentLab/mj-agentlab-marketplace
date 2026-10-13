@@ -4,16 +4,16 @@ scope: marketplace
 summary: "Communicate routing, fidelity, clarification, source and write boundaries"
 owner: marketplace-maintainers
 created: 2026-10-12
-updated: 2026-10-12
+updated: 2026-10-13
 state: draft
-version: v1.0
+version: v1.1
 ---
 
 # [SPEC] Communication Communicate
 
 ## §1 Purpose and identity
 
-本契约指导 `communication-kit / communicate` 首版，产品方向已确认，运行实现尚未发生。唯一入口 `$communication-kit:communicate`，原生展示“沟通助手”，`allow_implicit_invocation: false`，manifest 能力准确为 `["Read", "Write"]`。manifest 与原生默认提示仅调用本入口。PR1 保持现有三插件四技能；PR3 才原子接入候选完整集合。
+本契约指导 `communication-kit / communicate` 首版，产品方向已确认，运行实现尚未发生。唯一入口 `$communication-kit:communicate`，原生展示“沟通助手”，`allow_implicit_invocation: false`，manifest 能力准确为 `["Read", "Write"]`。manifest 与原生默认提示仅调用本入口。PR1最初保持当时三插件四技能；随后先行HTML接入及Learning替换Understanding使本阶段实际基线成为四插件六技能，PR1不注册Communication。PR3开发候选在该基线上原子新增Communication，形成五插件七技能；Owner已明确正式发行仅在Learning公开三包上加入Communication（四包六技能），HTML留develop另发。显式单入口及行为契约不因此改变。
 
 ## §2 Ordered behavior
 
@@ -68,5 +68,6 @@ version: v1.0
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.1 | 2026-10-13 | 区分Learning先行迁移后的开发基线与Owner明确选择的四包正式发行范围；保留原行为契约 |
 | v1.0 | 2026-10-12 | 固定显式入口、保真、等待、冻结来源与操作边界；尚未实施验收 |
 

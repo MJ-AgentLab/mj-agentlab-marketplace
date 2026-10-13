@@ -4,9 +4,9 @@ scope: marketplace
 summary: "Explicit communication, writing and meaning-preserving rewrite contract"
 owner: marketplace-maintainers
 created: 2026-10-12
-updated: 2026-10-12
+updated: 2026-10-13
 state: draft
-version: v1.0
+version: v1.1
 ---
 
 # [ADR] Communication Kit addition
@@ -23,7 +23,9 @@ version: v1.0
 
 Owner 要求按[完整实施计划](../../plan/communication-kit-implementation-plan.md)执行并正式上线；追踪 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。计划原稿保留在原隔离工作树，同字节副本与[捕获记录](../../plan/communication-kit-plan-provenance.json)纳入 PR1。
 
-实施基线为 origin/develop `b2e5a74109f47ecee7471ba741fb4c1348457f3b`，marketplace 8.1.2；main `0c681a8f8b7520134a86a70934fc46288c627d8d` 为已发布 8.1.1。当前运行集合三插件、四公开技能、20 个仓库技能。计划旧基线只保留为历史，不用于当前转换。
+起始实施基线为 origin/develop `b2e5a74109f47ecee7471ba741fb4c1348457f3b`，marketplace 8.1.2；main `0c681a8f8b7520134a86a70934fc46288c627d8d` 为已发布 8.1.1。当时运行集合三插件、四公开技能、20 个仓库技能。计划旧基线只保留为历史，不用于当前转换。
+
+2026-10-13先行Learning原子迁移#228合入develop `434d053`，以Learning Evidence替换Understanding并保留HTML，开发基线成为四插件六技能。Communication开发候选保持全部上游包并新增自身，形成五插件七技能。Owner通过grilling Q3明确正式公开仅为Learning已公开三包加Communication（四包六技能），HTML留develop另发；PR4/PR5区分两个集合，实际版本仍待Learning published后核对，不从开发全量推断正式范围。
 
 ## §2 Decision
 
@@ -75,4 +77,5 @@ Owner 明确将九例真实场景、三稿对照、读者效果反馈、采用�
 |---|---|---|
 | 2026-10-12 | Owner 要求完整实施与正式上线，保留已确认产品契约与缩减效果测试范围 | 接受产品方向和执行授权；实现未完成 |
 | 2026-10-12 | Owner 答复版本顺序 grilling Q1 | Learning 先 8.2.0；Communication 随后独立 minor，PR4 重查版本和基线 |
+| 2026-10-13 | Learning迁移434d053及Owner答复新增发行范围grilling Q3 | 公开范围为Learning三包＋Communication四包六技能；HTML保留开发、另行发行，原单入口/行为不变 |
 

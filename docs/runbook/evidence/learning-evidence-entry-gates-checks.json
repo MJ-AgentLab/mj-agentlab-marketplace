@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-12",
+  "scope": "Unmerged PR4 entry repairs; model rerun pending",
+  "base_source": "26edea32edcab682a815a19e60c974d40986bebe",
+  "node_tests": {
+    "pass": 290,
+    "fail": 0,
+    "skipped": 0,
+    "duration_ms": 54734.5222
+  },
+  "targeted_tests": {
+    "pass": 32,
+    "fail": 0,
+    "skipped": 0,
+    "duration_ms": 13021.9555
+  },
+  "python": {
+    "version": "3.12.13",
+    "storage_cases": 33,
+    "github_cases": 31,
+    "method": "actual isolated Python; controlled gh substitute"
+  },
+  "strict_validation": {
+    "ok": true,
+    "repository_skills": 20,
+    "public_skills": 5
+  },
+  "source_bytes": {
+    "plugins/learning-evidence-kit/plugin.json": {
+      "working_sha256": "c3b49b6428d25c6598bc6b9f2ce41339c78e32e538e905ecbd6ced483836ed46",
+      "canonical_lf_sha256": "0f79acfcbdd38d4abe8a6f2d30b426e0bf9616321b3ba3d774a2e484a25fcef8"
+    },
+    "plugins/learning-evidence-kit/skills/learning-record-check/SKILL.md": {
+      "working_sha256": "d56bdc2e7964162b8edea2fa29bed65efa4e65664b3aaf7434347da253d11205",
+      "canonical_lf_sha256": "7f87440ba5f8024e419a00a8b19db05aa46fec3850066bce9a740bb46c35cb93"
+    },
+    "scripts/validate-portable.mjs": {
+      "working_sha256": "2670d2a20f80aa8283629f3db07fda8c12e3832dd1562342ed9ef82caa0bd6d9",
+      "canonical_lf_sha256": "6ddec7f85d0e24caac6c9390f3b5c33ba490db80951d238efba87af198885482"
+    },
+    "tests/validate-portable.test.mjs": {
+      "working_sha256": "2d42887bc477bba10914af092efc045c53c5685c0ca6ca0476db9f70d402c14f",
+      "canonical_lf_sha256": "45fc5594f559710d8c3fc6230b4a4c9c098c9a71537fcb571a09d6449bd1e161"
+    }
+  },
+  "regression_log": {
+    "locator": "C:/Users/Admin/AppData/Local/Temp/lek-pr4-final-entry-gates-tests.log",
+    "sha256": "e28b9e177d3ec92ffd7fb243a54f48395a0d6ed7a2793f76ba5bd4d2d8b2a9ef"
+  },
+  "listing": {
+    "original_scalar_length": 176,
+    "repaired_scalar_length": 89,
+    "raw_scalar_budget": 128,
+    "prompt_count_budget": 3,
+    "client": "0.147.0",
+    "fixed_primary_source": "https://github.com/openai/codex/blob/be6e8eac029b183056b7e4402879f15d2c85f61b/codex-rs/core-plugins/src/manifest.rs#L539-L557"
+  },
+  "preserved_failures": [
+    {
+      "round": 2,
+      "source": "26edea32edcab682a815a19e60c974d40986bebe",
+      "criterion": "listing example 1",
+      "result": "FAIL_COMPATIBILITY",
+      "observation": "actual CLI ignores a 176-character prompt"
+    },
+    {
+      "round": 2,
+      "source": "26edea32edcab682a815a19e60c974d40986bebe",
+      "case": "missing-materials",
+      "session": "01a12fd2-543c-7862-87d9-f078be8d7fc0",
+      "result": "FAIL_SEMANTIC",
+      "observation": "item14 announces application investigation; item16 executes implementation/probes before explanation/material prerequisites; final not_run does not erase action",
+      "positive_subset": "actual scoped record_check save, unchanged original and complete offline publication only to authorized PR"
+    },
+    {
+      "round": 2,
+      "source": "26edea32edcab682a815a19e60c974d40986bebe",
+      "case": "material-arrival",
+      "phases": [
+        1,
+        2
+      ],
+      "result": "FAIL_SEMANTIC",
+      "observation": "phase1 treats quiz answers as application explanation and evaluates implementation before supplied materials; phase2 reevaluates application on material arrival without a new manual trigger",
+      "phase3": "NOT_RUN"
+    }
+  ],
+  "limits": [
+    "Fresh-source model repair acceptance pending",
+    "Canonical repaired Git installation pending",
+    "No native continuous-window or desktop interaction PASS",
+    "No real remote comment posted",
+    "No GitHub nonauthor approval, publication, human learning or Owner final acceptance inferred"
+  ],
+  "unchanged": [
+    "four common Python modules",
+    "Diagram and Explain runtime/version",
+    "marketplace VERSION 8.1.2",
+    "client-entry deferrals",
+    "original model evidence"
+  ],
+  "final_targeted_repair": {
+    "pass": 32,
+    "fail": 0,
+    "skipped": 0,
+    "changes_after_full_regression": [
+      "reject unpaired Unicode surrogate listing strings",
+      "explicitly reject stored quiz answers/task text as application explanation"
+    ],
+    "source_bytes": {
+      "plugins/learning-evidence-kit/skills/learning-record-check/SKILL.md": {
+        "working_sha256": "b33a35ea2f44d7eaed0172307982a25fdaaa54b1593524642f0a90baf30bcea4",
+        "canonical_lf_sha256": "cc1a9c995fc958d4c3af6e522e5ea27278a6ad7ebdd6541984841f5d8e850b89"
+      },
+      "scripts/validate-portable.mjs": {
+        "working_sha256": "0658c20115d721cff10d88ff418862d783529e090a1120a786d4c51005808f84",
+        "canonical_lf_sha256": "a06d9e7222535c9d959617259b425027a6a7276125bf1ae9c2edbbe78f8f1a02"
+      },
+      "tests/validate-portable.test.mjs": {
+        "working_sha256": "1217ff664811fe7bf247ef14c6cbae459ada277802a6490c365949195ace66c8",
+        "canonical_lf_sha256": "666f2af29a57c9195097671159bb43fea4e9670d79f63a25bf95b4597372ec0f"
+      }
+    },
+    "log": {
+      "locator": "C:/Users/Admin/AppData/Local/Temp/lek-pr4-entry-gates-targeted-final.log",
+      "sha256": "dfd73cf71cad606e6ac4426860aea9c05d58075d0345d9e22f5d1cb0ef2ae37b"
+    },
+    "limitations": [
+      "290-test regression above precedes these final small repairs",
+      "Final frozen PR5 full regression/canonical/model checks remain required"
+    ]
+  }
+}
