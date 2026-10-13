@@ -1,0 +1,56 @@
+{
+  "recordedAt": "2026-10-13T01:36:27.032Z",
+  "candidateBeforeRepair": "477319d823012025217ed85239488afadfc8f11a",
+  "issue": "autocrlf normalized raw logs on initial staging; expected raw source bytes differed from Git blob",
+  "before": [
+    {
+      "name": "communication-kit-2026-10-13-pr1-baseline-05-tests.log",
+      "expected": "b36458aad05f724ef4121114747adc3e4b04d04273ec9d8d4083a0b9267ee701",
+      "gitBlobSha256": "e1f78e7f761ecdc11895a57be0c7741a87dfea6691fe5abd173077b562202d67",
+      "matches": false
+    },
+    {
+      "name": "communication-kit-2026-10-13-pr1-baseline-05-validate.log",
+      "expected": "30df367edd1a61ce1fcb50e16cab153a6b94083a9654f909d9259adc58b15f17",
+      "gitBlobSha256": "d75f092194855b7676a52d7a3635d5f3e986c7a6eeac8427f4b82150380e08c2",
+      "matches": false
+    },
+    {
+      "name": "communication-kit-2026-10-13-pr1-baseline-05-canonical.json",
+      "expected": "6618a40d45db7ac6ebf373c7b7161f06491aa24a9d58bc570a3377a9a3c23aa9",
+      "gitBlobSha256": "6618a40d45db7ac6ebf373c7b7161f06491aa24a9d58bc570a3377a9a3c23aa9",
+      "matches": true
+    }
+  ],
+  "firstRepairAttempt": {
+    "result": "FAIL",
+    "error": "staged evidence bytes differ",
+    "reason": "ordinary git add retained existing clean-index normalization; attributes alone did not rewrite recorded blobs",
+    "recordedCommit": "477319d"
+  },
+  "repair": "apply narrow -text evidence attributes and force renormalization of untouched actual raw source files",
+  "after": [
+    {
+      "name": "communication-kit-2026-10-13-pr1-baseline-05-tests.log",
+      "expected": "b36458aad05f724ef4121114747adc3e4b04d04273ec9d8d4083a0b9267ee701",
+      "gitBlobSha256": "e1f78e7f761ecdc11895a57be0c7741a87dfea6691fe5abd173077b562202d67",
+      "matches": false,
+      "stagedSha256": "b36458aad05f724ef4121114747adc3e4b04d04273ec9d8d4083a0b9267ee701"
+    },
+    {
+      "name": "communication-kit-2026-10-13-pr1-baseline-05-validate.log",
+      "expected": "30df367edd1a61ce1fcb50e16cab153a6b94083a9654f909d9259adc58b15f17",
+      "gitBlobSha256": "d75f092194855b7676a52d7a3635d5f3e986c7a6eeac8427f4b82150380e08c2",
+      "matches": false,
+      "stagedSha256": "30df367edd1a61ce1fcb50e16cab153a6b94083a9654f909d9259adc58b15f17"
+    },
+    {
+      "name": "communication-kit-2026-10-13-pr1-baseline-05-canonical.json",
+      "expected": "6618a40d45db7ac6ebf373c7b7161f06491aa24a9d58bc570a3377a9a3c23aa9",
+      "gitBlobSha256": "6618a40d45db7ac6ebf373c7b7161f06491aa24a9d58bc570a3377a9a3c23aa9",
+      "matches": true,
+      "stagedSha256": "6618a40d45db7ac6ebf373c7b7161f06491aa24a9d58bc570a3377a9a3c23aa9"
+    }
+  ],
+  "result": "PASS - staged bytes equal recorded hashes; execution results unchanged"
+}
