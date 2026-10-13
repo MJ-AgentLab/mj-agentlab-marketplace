@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.26
+version: v2.27
 ---
 
 # 文档索引
@@ -20,6 +20,8 @@ Learning [8.2.0发行](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)
 HTML [ADR](adr/[ADR]_HTML_Guide_Kit_Addition.md)、[验收SPEC](spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)与[RUNBOOK](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)继续维护develop另发范围。历史[8.1.1发行](runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)保留Understanding旧集合，历史版本、失败和批准不由新结果追认；[品牌验收](runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)保存A主标、D图标及实际客户端覆盖。
 
 四阶段文档收尾实际head、生产零差异、限定65项检查及43原始日志/hash见[Closeout sync 01](runbook/evidence/communication-kit-2026-10-13-closeout-sync-01.json)，原字节与失败链保留，AI审查不替代GitHub批准。
+
+继承空白失败、窄修复、四实际head完整PR范围复验及原字节manifest见[Inherited whitespace 01](runbook/evidence/communication-kit-2026-10-13-inherited-whitespace-01.json)。
 
 ## 入口
 
@@ -166,3 +168,7 @@ Owner Q3已确认Communication正式发行仅为Learning已公开三包加Commun
 | Version | Date | Summary |
 | --- | --- | --- |
 | v2.26 | 2026-10-13 | 合入PR4实际49036ad文档归档，保留四包预备canonical与五包开发来源；生产保持cd7未变 |
+
+| Version | Date | Summary |
+| --- | --- | --- |
+| v2.27 | 2026-10-13 | 导入实际8a841a7完整范围空白修复及原日志，冻结原稿/运行包保持，正式发布门禁未完成 |
