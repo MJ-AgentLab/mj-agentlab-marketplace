@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.13
+version: v1.13.1
 ---
 
 # [RUNBOOK] Communication Kit acceptance
