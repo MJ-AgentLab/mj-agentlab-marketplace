@@ -2,7 +2,7 @@
 
 ## 项目上下文
 
-当前develop注册Diagram、Learning Evidence、Explain、HTML四包六技能/三显式，VERSION8.2.0；main/latest Release8.2.0仅Diagram、Learning、Explain三包五技能，tag/发布目标ebc4bdc3，HTML未公开。Communication在PR1仅契约，正式范围按Q3在公开三包上加自身，目标后续独立minor；CLI基线0.147.0，版本/来源以权威文件为准。
+当前develop注册Diagram、Learning Evidence、Explain、HTML四包六技能/三显式，VERSION8.2.1（未发布开发预升）；main/latest Release8.2.0仅Diagram、Learning、Explain三包五技能，tag/发布目标ebc4bdc3，HTML未公开。Communication在PR1仅契约，正式范围按Q3在公开三包上加自身，目标后续独立minor；CLI基线0.147.0，版本/来源以权威文件为准。
 
 manifest 的公开示例按[插件契约](docs/spec/[SPEC]_Plugin_Json_Schema.md)保留完整路由，最多三条，各原值不超过 128 个 Unicode scalar values；严格校验防止客户端忽略超长示例而丢失公开入口，不依赖空白归一化。
 
@@ -68,6 +68,6 @@ HTML PR1 当时保持 marketplace 未发布 8.1.2 及其他插件版本，无 Re
 
 较早发行准备快照（当前状态见下段）：三插件发行草稿 #232 已创建，head b7bdd769 / tree 428760eb；该最终 Git 提交的五种 canonical 安装及实际缓存 Python 通过，运行/测试代码与模型源 acf3 一致。develop 的四插件仍保留，main/latest Release 仍 8.1.1；最后依赖 #230、当前 head 非作者批准、main 合入与公开发布仍待完成，详见发行准备账本。
 
-Learning Evidence 历史交付快照：#216/#224/#227/#228/#230已实际交付，#210–214关闭；#232于2026-10-13合入main ebc4bdc3并自动公开v8.2.0，tag/Release同SHA，merge与已测6d83c8e同树5c7557fe。发布后五精确canonical/三图表Python/两组记录保存重放检查通过，发布脚本复核noop。#224有实际当前head批准；#216/#227/#228/#230/#232未提供或空reviews缺项保留，不推定豁免。仓库API未提供immutable配置字段，实际Release immutable=false，不声称锁定。完整来源/原始模型失败及发布事实见[发布账本](docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。本同步保留develop全部四插件运行/脚本/测试/版本和HTML证据，只接入实际main ancestry及当前记录；同步与下一8.2.1两文件pre-bump分两个PR执行，实际状态以VERSION/各PR回执为准，不创建8.2.1 Release。Owner要求不指定审查人；当前head批准/CI/线程门禁保持。原生入口延期、桌面/Side Chat未运行、现实效果/Owner最终接受和两个收尾PR分别追踪，#215/Epic保持OPEN。
+Learning Evidence 当前交付：#216/#224/#227/#228/#230已交付，#210–214关闭。#232/main ebc4bdc3于2026-10-13公开v8.2.0，tag/Release同SHA，发布后五精确安装/实际Python及published-noop复查通过。#234已合入develop 2c0a8317并完成八精确安装/Python复验，实际main ancestry与HTML四插件开发集合保持。#235已实际合入develop `3af6837`，准备的8.2.1预升现已生效，版本工具只更新VERSION/README badge两锚点，各插件manifest、运行包及公开8.2.0原三插件范围保持；8.2.1是未发布开发候选，不创建同号tag/Release。本次修复同步此根摘要，A6按正常摘要同步路径检查；合入仍须当前head非作者批准、required checks与已解决线程。版本/清单以VERSION、索引和manifest为准，本同步固定#235实际merge `3af6837`，其reviews观察为空，不追认独立批准。#224实际批准及其他已交付PR未提供/空reviews分别留档，不推定豁免；仓库API未提供immutable配置字段，Release immutable=false，不声称锁定。完整发布事实/入口资格见[发行账本](docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。后续不指定审查人；原生入口延期、桌面/Side Chat未运行、现实效果未测和Owner最终接受继续在#215/Epic独立追踪。
 
-Communication PR1 普通同步 #234 合入的实际 develop `2c0a831`，保留四开发包/六公开技能/三显式及20开发技能，未注册Communication。main/v8.2.0 published身份为 `ebc4bdc3`；三公开包与HTML开发包分开。#235的8.2.1尚未合入，本阶段不引入、不实际bump；Q3四包正式Communication范围和405行计划保持，Refs #222。
+Communication PR1 普通同步已合入的 #235 / develop `3af6837`；本轮仅更新AGENTS、VERSION及README开发badge/当前说明，插件与已发布CHANGELOG段保持，不额外bump。main/v8.2.0仍为Learning三公开包，Q3正式Communication四包六技能及HTML留develop另发保持，Refs #222。
