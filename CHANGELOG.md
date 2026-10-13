@@ -18,7 +18,7 @@
 
 - Record HTML Guide Kit PR2's actual develop merge d106e766 and PR3 expanded acceptance. Preserve missing independent GitHub approval, historical failures and unavailable native client events; real-world effectiveness remains NOT_MEASURED. Refs #217, #220.
 
-- Prepare HTML Guide Kit 0.1.1 after a real expanded staff-guide output contradicted the source's operation precondition. Cross-check source conditions across demonstrations, unavailable feedback and self-checks, and distinguish added design axes from source claims. Preserve the 0.1.0 failure and require a new canonical installation and affected/six-group behavior verification. Refs #217, #220.
+- Prepare HTML Guide Kit 0.1.2 after real 0.1.0 source-fidelity failures and a subsequent 0.1.1 partial-condition simulation failure. Cross-check operation feedback and attribution, preserve decisive known conditions when combining unknowns, and keep local condition results within source scope. Preserve each failed version and require new canonical installation and affected/six-group behavior verification. Refs #217, #220.
 
 - Prepare the unpublished develop 8.1.2 pre-bump after #206 synchronized the published main. Update only marketplace VERSION and its derived README badge; keep all plugin versions, published version sections, tags and assets unchanged. Include the parallel publication-record documentation and synchronize its main merge ancestry when available.
 

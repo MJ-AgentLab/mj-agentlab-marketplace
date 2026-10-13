@@ -4,14 +4,14 @@
 
 ![Version](https://img.shields.io/badge/version-8.1.2-blue)
 
-面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场。Marketplace v8.1.1 已发布三个 portable 插件；develop 新增 HTML Guide Kit，本分支提供 0.1.1 修正候选，共四插件，无需 MCP 服务：
+面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场。Marketplace v8.1.1 已发布三个 portable 插件；develop 新增 HTML Guide Kit，本分支提供 0.1.2 修正候选，共四插件，无需 MCP 服务：
 
 | 插件 / 公开技能 | 用途 | 版本与分发状态 |
 | --- | --- | --- |
 | **diagram-kit / arch-diagram** | 从源码事实生成七类 Mermaid 架构/UML 图，节点与边追溯到文件行号，实际运行 Python 校验器 | 0.3.1，已随市场 v8.1.1 发布 |
 | **explain-kit / glossary、concept** | 陌生术语速解与机制、反例、边界深讲，遵从受众、语言和长度要求 | 0.1.1，已随市场 v8.1.1 发布 |
 | **understanding-kit / pop-quiz** | 从当前职责和关键判断选取必要知识，进行 2+1 自适应理解测验并给出简要反馈 | 0.1.2，已随市场 v8.1.1 发布 |
-| **html-guide-kit / guide** | 确认读者、任务和理解问题后，新建可复制的交互教材绘制指南文本 | 0.1.1，develop 修正候选，未正式发布 |
+| **html-guide-kit / guide** | 确认读者、任务和理解问题后，新建可复制的交互教材绘制指南文本 | 0.1.2，develop 修正候选，未正式发布 |
 
 [Marketplace v8.1.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.1) 于 2026-10-10 随 #205 合入 main 自动发布，采用 A 仓库主标和 D 插件图标。发布后的四种隔离安装、图标内容比较与实际 Python 校验通过。Owner 提供的三张截图显示候选版本和详情页图标；两端完整客户端记录及 GitHub 独立批准仍未提供，具体证据见 [8.1.1 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。历史 v8.1.0 也包含三个插件，v8.0.0 仅包含 Diagram Kit。
 

@@ -4,9 +4,9 @@ scope: html-guide-kit
 summary: "HTML Guide Kit staged execution ledger and unperformed acceptance gaps"
 owner: marketplace-maintainers
 created: 2026-10-12
-updated: 2026-10-12
+updated: 2026-10-13
 state: draft
-version: v1.3
+version: v1.4
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -121,6 +121,7 @@ Owner 于 2026-10-12 明确本次暂不需要实际场景效果测试，现实�
 | v1.1 | 2026-10-12 | null | PR2 保存工程、真实调用缺陷与修正、六组指定行为和独立评审原始证据；原生客户端及扩展仍未完成。 |
 | v1.2 | 2026-10-12 | null | 记录 PR2 实际 merge 和 PR3 扩展进展，区分历史快照、缺失批准与当前客户端操作限制；运行版本保持 0.1.0。 |
 | v1.3 | 2026-10-12 | null | 保存 0.1.0 受众扩展实际状态反馈冲突与首次 0.1.1 修正候选；新安装、受影响扩展及六组复验另行记录。 |
+| v1.4 | 2026-10-12 | null | 保存 0.1.1 新缓存上的 B4.2 组合条件 FAIL 和 0.1.2 局部判定修正候选；旧失败/容量错误与新复验分别登记。 |
 
 ## §6 PR1 engineering execution (2026-10-12)
 
@@ -226,3 +227,13 @@ PR3 从该实际最新 origin/develop 派生 `codex/html-guide-acceptance` 独�
 本插件首次修改已合并运行内容，先 dry-run 核对唯一根 manifest 目标，再实际推进 0.1.0→0.1.1；marketplace 和其他插件版本保持。修正 SKILL 与两参考，以通用方法逐操作核对源前置状态、必要条件、允许与不可用范围以及正文/演示/反馈/自检之间的一致性，另强化新增检查轴与原材料归因边界，不搬入验收材料的领域规则或评审答案。版本、包文档同步，不改变显式调用、Read、首版范围、图标或确认等待边界。
 
 修正后须形成新 committed canonical、严格隔离安装，并重测受影响扩展及六组 PR2 全部指定变体。当前只记录已观察失败和修正实现，不将静态检查、修正意图或旧版本 PASS 写成 0.1.1 行为 PASS；原生客户端与最终 merge 条件仍未完成。
+
+0.1.1 完整 canonical `62b4af8ecd443fe98484d8ac0fd9b7ca78e5d005` / tree `7f7632cb62b16f4fd32e7f279a2e1eb7772d7995` 的[严格安装](evidence/html-guide-kit/pr3-post-merge/engineering-62b4af8e/installation.json)与[汇总](evidence/html-guide-kit/pr3-post-merge/engineering-62b4af8e/summary.json)通过，七场景、四次实际 cache Python 均 PASS。修正工作候选[初轮全测试](evidence/html-guide-kit/pr3-post-merge/patch-checks/npm-test.log)四项失败为 CHANGELOG 未在正文注明自身版本、两个固定 0.1.0/0.1.1 版本预期与缓存负例撞到新正确版本；修改正文和负例、不放宽验证后，[受影响 57 项](evidence/html-guide-kit/pr3-post-merge/patch-checks/affected-corrected.log)、[全 279 项](evidence/html-guide-kit/pr3-post-merge/patch-checks/npm-test-corrected.log)均零 skip PASS，[基线](evidence/html-guide-kit/pr3-post-merge/patch-checks/npm-check.log)通过。当前 committed CI 同样通过，真实模型复验另记。
+
+## §13 Partial-rule simulation correction
+
+新 0.1.1 B4.2 原首次调用因模型服务 capacity 未完成，错误和 UUID 保留；一次相同输入 fresh retry 的 session UUID `01a13019-b6ca-7011-93eb-5ef936004d23` / attempt `8a8a4930-883f-41a0-860a-e920b97e83d3` 完成两轮，但第二轮第 75–76 行将“任意状态＋未知”统判信息不足，第 105–111 行又同时写任一明确不成立则不符合、任一未知则信息不足，分支重叠且无优先关系。原材料的合取必要条件允许在一项明确不满足时局部判定组合不满足；另一项未知不能撤销此结论。独立评审 FAIL；未知库存、取消与归还边界各自正确不抵消组合错误，旧 capacity 错误也不当作语义失败。
+
+按后续补丁规则 dry-run 后推进 HTML Guide Kit 0.1.1→0.1.2。通用方法先区分已满足、明确不满足与信息未知，再依据原文“且／或”组合；保留足以决定的局部结论，核对分支互斥或优先，不能把组合结果扩成未规定的操作或数值。没有搬入材料中的预约、导览等领域规则或评审答案，其他插件及市场版本保持。
+
+0.1.2 候选必须新 canonical 安装、受影响扩展与六组指定行为复验。0.1.0 和 0.1.1 的实际失败、未知、未执行、容量中断及显式 fresh retry 分别保留；不以工程 PASS 或前一版本的局部 PASS 追认新版本行为。原生客户端与最终 merge 仍待完整条件。
