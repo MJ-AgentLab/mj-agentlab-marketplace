@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.4
+version: v1.5
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -237,3 +237,17 @@ PR3 从该实际最新 origin/develop 派生 `codex/html-guide-acceptance` 独�
 按后续补丁规则 dry-run 后推进 HTML Guide Kit 0.1.1→0.1.2。通用方法先区分已满足、明确不满足与信息未知，再依据原文“且／或”组合；保留足以决定的局部结论，核对分支互斥或优先，不能把组合结果扩成未规定的操作或数值。没有搬入材料中的预约、导览等领域规则或评审答案，其他插件及市场版本保持。
 
 0.1.2 候选必须新 canonical 安装、受影响扩展与六组指定行为复验。0.1.0 和 0.1.1 的实际失败、未知、未执行、容量中断及显式 fresh retry 分别保留；不以工程 PASS 或前一版本的局部 PASS 追认新版本行为。原生客户端与最终 merge 仍待完整条件。
+
+## §14 Historical sealing and 0.1.2 engineering verification
+
+2026-10-13 从实际旧批次和独立评审形成[历史账本](evidence/html-guide-kit/pr3-post-merge/history-ledger.json)。0.1.0 扩展执行 17 fresh UUID / 37 轮：13 PASS、3 FAIL、1 UNEXERCISED；原先准备但未调用的批次另列，未覆盖不当通过。0.1.1 执行 29 个指定 fresh 变体 / 63 个完整轮次：28 PASS、B4.2 FAIL；另有 4 次模型服务中断，各自 UUID 与输入保留，故总计 33 UUID / 67 输入轮次，不能表述为 33 个通过会话。0.1.1 扩展中的其余 14 个变体未调用。E13 旧全中文材料没有实际触发双语路径，新 E13-bilingual 为独立真实调用，不能追认旧 UNEXERCISED。
+
+[历史 lossless 索引](evidence/html-guide-kit/pr3-reviewer/history/index.json)封存 788 个原文件 / 25,528,480 原字节、18 packets，含冻结 SPEC、控制前后哈希、原材料、实际输入输出、JSONL 工具及 session、准确 UUID/身份、源/镜像/cache 对应和原始评审。每条原绝对定位映射到 packet entry；复原保持原始行号。Node 对原文件及复原字节的逐项校验和[独立 .NET 复原](evidence/html-guide-kit/pr3-post-merge/history-dotnet-verification.json)均通过。仅选择外部 reviewer 内的控制/证据目录，不跟随 TEMP/HOME/auth/cache 或原用户 session 定位；秘密模式扫描零发现。镜像排除 reviewer-only，不宣称其与完整 canonical tree 相同。
+
+评审导入首轮因操作脚本误用参数退出 1，原日志与修正后的导入日志分别封存。导入不修改模型输入、输出、冻结判准或运行资源。E5 缺材料和 E12 确认前停止时，交互参考未到适用阶段；只允许独立引用依据的 NOT_APPLICABLE，正常流程仍须实际读取 SKILL/framework，已确认并交付指南仍须实际读取两参考。该 grade-only 适配不能安装或调用模型。原错误参数、条件读取旧拒绝及实际工具拒绝没有变成 PASS。
+
+.NET 校验器首轮将零字节文件经 PowerShell 管道解包成 null 而失败，[准确观察](evidence/html-guide-kit/pr3-post-merge/history-dotnet-first-failure.json)保留；按类型直接保存空数组后重跑通过，packet 与原证据字节未改。[校验器](evidence/html-guide-kit/pr3-post-merge/history-dotnet-verifier.ps1)可对索引重复复原。
+
+0.1.2 canonical `59c7aea91e51997a74870c730c260a4667b6470c` / tree `1bb4b82807a4029a9e8c46a5a9ca4f104702e96e` 的[完整严格安装](evidence/html-guide-kit/pr3-post-merge/engineering-59c7aea9/installation.json)和[汇总](evidence/html-guide-kit/pr3-post-merge/engineering-59c7aea9/summary.json)通过：七场景、四次实际缓存 Python，四插件/五公开技能/三个自然启用技能、consumer 开发技能 0 / repository 20。精确 detach、lock 依赖准备和源/cache 字节校验与身份见[原始文件索引](evidence/html-guide-kit/pr3-post-merge/engineering-59c7aea9/archive-index.json)。[工作候选测试](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-2/npm-test.log)279/279、零 skip，validate/check 通过；该 head GitHub CI 当前全部通过。
+
+新 0.1.2 六组 14 fresh / 30 轮、扩展 29 fresh / 59 轮分别用新中性 HOME/mirror/cache 实际执行，尚未形成完整通过结论。另准备 E7 确认后收到材料更新与 E12 停止后重新启动的 2 fresh / 9 连续轮次，补充原判准未执行分支，不改旧冻结输入或结果。原生客户端/E10/E11 与最终 merge 条件继续保留；现实效果 NOT_MEASURED。

@@ -4,7 +4,7 @@ scope: html-guide-kit
 summary: "Use the explicit Read-only guide entry and confirm a teaching goal"
 owner: marketplace-maintainers
 created: 2026-10-12
-updated: 2026-10-12
+updated: 2026-10-13
 state: active
 version: v1.2
 ---

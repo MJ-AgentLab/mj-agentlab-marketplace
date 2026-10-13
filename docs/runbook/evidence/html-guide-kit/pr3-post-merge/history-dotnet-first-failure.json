@@ -1,0 +1,12 @@
+{
+  "observedDate": "2026-10-13",
+  "source": "exec tool result of first verify-packets.ps1 invocation",
+  "exitCode": 1,
+  "error": "Exception calling HashData with 1 argument(s): Value cannot be null. (Parameter 'source')",
+  "cause": "PowerShell pipeline enumeration turned an empty byte array into null. Some preserved original stderr files are legitimately empty.",
+  "stdoutFile": "history-dotnet-verification-first-failure.log",
+  "stderrWasCapturedToFile": false,
+  "correction": "Assign a typed byte array directly within each branch, preserving an empty array. Packet content and archived original bytes were unchanged.",
+  "laterResult": "history-dotnet-verification.json",
+  "originalFailureNotRelabeled": true
+}

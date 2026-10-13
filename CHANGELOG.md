@@ -20,6 +20,8 @@
 
 - Prepare HTML Guide Kit 0.1.2 after real 0.1.0 source-fidelity failures and a subsequent 0.1.1 partial-condition simulation failure. Cross-check operation feedback and attribution, preserve decisive known conditions when combining unknowns, and keep local condition results within source scope. Preserve each failed version and require new canonical installation and affected/six-group behavior verification. Refs #217, #220.
 
+- Seal 788 original HTML Guide Kit historical control/session/review files with lossless packet mappings and independent byte restoration. Verify the 0.1.2 canonical seven installations and four actual cache Python runs; ongoing model and unavailable native-client paths retain their actual status. Refs #217, #220.
+
 - Prepare the unpublished develop 8.1.2 pre-bump after #206 synchronized the published main. Update only marketplace VERSION and its derived README badge; keep all plugin versions, published version sections, tags and assets unchanged. Include the parallel publication-record documentation and synchronize its main merge ancestry when available.
 
 - Record the actual Marketplace v8.1.1 release identity and successful post-publication canonical installation/icon/Python checks. Update current installation entry points to v8.1.1 while preserving supplied screenshot evidence, incomplete client details and missing independent approval records; published version sections and release assets remain unchanged.

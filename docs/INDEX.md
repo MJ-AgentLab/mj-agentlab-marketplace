@@ -4,9 +4,9 @@ scope: marketplace
 summary: "当前 ChatGPT/Codex 文档、历史决策与退役资料导航"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-12
+updated: 2026-10-13
 state: active
-version: v2.18
+version: v2.19
 ---
 
 # 文档索引
@@ -22,6 +22,8 @@ HTML Guide Kit 正按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-mar
 PR3 的真实受众扩展发现 0.1.0 操作反馈前置状态冲突，保存 FAIL 后准备 0.1.1 修正候选。运行改变须重新安装并复验受影响扩展及全部六组；旧运行证据只保留其原版本身份，不外推新候选通过。
 
 新 0.1.1 复验发现组合条件中明确不满足被未知覆盖及分支重叠，保存独立 B4.2 FAIL；当前 0.1.2 修正候选重新核对组合判定和局部范围，安装/行为/原生客户端/最终 merge 按各自实际证据记录。
+
+0.1.2 canonical 59c7aea 的七种严格安装、四次缓存 Python 通过，279 测试零 skip 与当前 CI 通过；新模型行为仍逐项核验。788 文件的 0.1.0/0.1.1 历史原始证据已 lossless 封存并独立复原校验，旧失败不追认通过，具体身份及覆盖见 RUNBOOK §14。
 
 Epic #209 开始 Learning Evidence Kit / marketplace 8.2.0 实施。PR1 固定已接受的双技能、七机制与共用接口，不修改当前 8.1.2 运行包；[迁移 ADR](adr/[ADR]_Learning_Evidence_Kit_Migration.md)、[记录/API 契约](spec/[SPEC]_Learning_Evidence_Record_And_API.md)及[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)分别维护决定、数据与实际证据。Owner 接受核心独立验收后分段交付，严格窗口不合格入口延期，Epic 保持未完成；契约交付不表示运行、客户端或学习效果通过。
 
