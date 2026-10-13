@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.16
+version: v1.17
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -362,3 +362,23 @@ E14-review UUID `01a13331-3167-70d3-840e-13bb519e13ed` / attempt `25e727ff-7118-
 0.1.8最终技术grade无adapter：22次成功/零失败，六summary齐，实际14PASS/6FAIL/2UNEXERCISED，九个已准备无attempt项目仍NOT_RUN。before504原文件仅六batch结果metadata预期改变，原输入/输出/events/session/量表与控制字节不变；22原判准/读取/结果逐份等价，42运行资源源/镜像/cache哈希稳定。完整[620文件封存](evidence/html-guide-kit/pr3-reviewer/correction-0-1-8/index.json)及[Node/.NET复原](evidence/html-guide-kit/pr3-post-merge/candidate018-final-seal/archive-index.json)通过，原字节16,632,204、10packet、inventorySHA a0a4be0d8e3eebebea53d5cf778108899ddbb167874b3dfd9ac1a54103a7f62b。镜像58源内容文件与18个初始化空Git metadata分开解释，原literal全文件比较false不改，不把空Git metadata当成隔离FAIL。
 
 新0.1.9工作检查319/319零skip、validate/check通过；初次测试版本锚点仍0.1.8造成318/319，随后精确同步0.1.9锚点重新完整通过，原失败日志保留。独立[最终静态审查](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-9/archive-index.json)对6143/14551/15925字节的三文本无新阻断，早期6136草稿snapshot和另一次reviewer容量中断不改写。静态/单元检查不代模型或原生加载，完整源9安装与真实会话在准确提交后新执行。
+
+## 25. 0.1.9完整已执行评审与0.1.10修正
+
+0.1.9准确880fc8ccd8d28a75e84e8bfd0ec90c58f657356a / treef3befc371d28a570572ea74135500c5e58f00e84的[八严格安装/四次缓存Python](evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/archive-index.json)通过。当前head的A6、Validate Structure、Ubuntu/Windows baseline全部SUCCESS，reviews为空、REVIEW_REQUIRED；CI不替代行为或非作者批准。市场保持3af6837的未发布8.2.1；公开main/latest v8.2.0原三插件范围不含HTML，本任务无发布。
+
+本轮全部writer正常边界停止，共11fresh UUID、22实际输入全部COMPLETE。Root批B1.1四轮PASS、B1.2-delayed仅首轮UNEXERCISED；B1.2-combined/B2无attempt。独立cross批B3.1/B3.2各三轮PASS、B4.1两轮FAIL、B4.2仅首轮UNEXERCISED，B5两项无attempt。B6四变体五轮为两PASS两FAIL；E15三轮FAIL。合计5PASS/4FAIL/2UNEXERCISED，四个已准备无attempt NOT_RUN，剩余E/重复/S尚未准备或调用；没有kill、重试、追补输入或追认PASS。完整原始source/cache/mirror哈希、实际默认CLI0.147.0/gpt-5.6-sol/low、UUID、输入输出、工具、手选topheading/单triplet和暂停时序随后lossless封存。
+
+三处动态反馈FAIL分别是B6.1 T2:178–182、B4.1 T2:124–145、E15 T3:140–145：条件反馈给出状态结果，但缺本反馈分支或整个反馈块的当前状态前提。其他正确操作表或独立情境不默补局部范围。B1.1明确独立起点与复位的演示整体PASS，不泛化所有模拟失败。B6.2-compare T1:12把原材料已给呈现对象的读者线索统称未提供；仅任务/判准不足不能否定已有字段。拒绝比较的原范围PASS保持，额外来源归因FAIL同样保留。E15缺材料先索取、真实材料后给目标并明确确认的主路径局部PASS，不抵消后续反馈表FAIL。
+
+B4.2操作观察误用了另一补充变体措辞；实际raw首轮要求先读入口和随附参考，再读材料，原SHA2ef04d644344e0bc8024f71de70b11b0c4e87c8fde6bb9eb5b901ced5ac42e79及冻结输入不改。准确澄清与错误原观察分开保存，该次提前只读两参考不判模型FAIL；未执行第二轮仍UNEXERCISED，实际全文读取true。
+
+仅推进本插件0.1.9→0.1.10。一个SKILL和两参考按单个操作及必要当前状态组织确定反馈，共同guard须就地声明覆盖的全部子分支，否则逐分支写足。范围外先核对其他源规则，已知结果不抹掉；不能写清动态范围时可用独立固定情境，明确题设、每次复位及范围，不补源规则、不强制格式。纯条件真假结论与操作状态/数值结果分开。逐字段保留已给内容/线索，缺完整目标和未确认不等于字段未提供，拒绝理由也有来源依据。入口压缩草稿两处静态歧义已恢复“其他会话”和“被替换条款”，原draft快照及预算失败准备日志保留；最终6142字节，6144严格预算不放宽，没有领域答案。
+
+新10模型NOT_RUN，静态审查和工作检查不能替代新canonical八安装/四Python、全部六组14/30、受影响E6/12、重复1/2、连续S2/9以及原其余可运行E矩阵。冻结输入/判准/模型默认策略和真实目标手选不变。原生窗口、Codex应用UI和ChatGPT桌面仍NOT_RUN，现实效果NOT_MEASURED；合格核心可分段交付，延期不称通过，#220/Epic开放，Owner最终接受及当前最终head非作者批准/CI/threads/实际merge复验独立保持。
+
+0.1.9技术grade全部11次成功、零schema失败，四summary齐；原312文件只有四batch结果metadata更新，输入输出/events/session/量表/控制/原评审不变，11判准、理由及实际读取逐份等价，28三方运行哈希稳定。缺少未运行S目录的外部枚举helper错误及其修复单列，不创建虚假run、不计插件或模型FAIL。完整[327文件原字节封存](evidence/html-guide-kit/pr3-reviewer/patch-019-stopped/index.json)与[独立Node/.NET复原](evidence/html-guide-kit/pr3-post-merge/candidate019-final-seal/archive-index.json)通过，8,508,587原字节、6packet，sourceInventorySHA7c784b503fe385e5e5f8745207ba9699ff0e081b534ef35386a9200b5365ddc3；早期版本封包不覆盖，工作runtime随后改变不重写880源身份。
+
+新10[工作检查与独立静态审查](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-10/archive-index.json)保留37原始文件：初次318/319仅因CHANGELOG新节正文未写本节版本，补正文后319/319零skip、validate/check通过，没有改门禁；两次仅外部draft字节预算失败及静态压缩歧义分别保留。最终三个资源6142/15805/16685字节，对应SHA f5451cc24ec3468553bf75c43c379ac1de75f5444347bcc27816ba4b5898fff9 / 8dc9ea11dbd4abd0775110b1069cc997ef2c6b1b73f9cc1bc057d36c75e7cbfb / f748144c39468991e21db6119305aab7f2de946f1608c2d72ee40d90451b8178，与实际working原字节一致。独立precommit审查无新静态阻断；随后新增封存/README状态澄清属于评审snapshot后的文档证据，最终A6/文档校验及Git暂存字节另核，不据此宣称新安装或模型通过。
+
+初步静态快照按原.md名归档，被严格文档frontmatter校验拒绝。九个数据快照改为.md.snapshot.txt，逐个内容SHA/字节不变；原索引、失败日志和改名证明另存，归档现为40条文件记录。仅修正未提交工程归档的文件类型命名，不放宽文档或运行校验、不改外部原快照或任何已封历史包。修正后validate及十项文档/A6检查通过，实际新canonical安装随后从准确提交执行。

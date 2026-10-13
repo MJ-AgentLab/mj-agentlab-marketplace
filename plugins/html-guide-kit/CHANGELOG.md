@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [0.1.10] - 2026-10-13
+
+### Fixed
+
+- HTML Guide Kit 0.1.10 declares each feedback block's current operation/state scope across all its branches; re-evaluate after state changes, or use explicitly reset independent scenarios without inventing source rules.
+- Preserve existing reader/task clues when a complete target or criterion is missing. Scope refusals must not add unsupported claims about absent source fields.
+- Retain every actual0.1.9 failure and incomplete/unrun path; require fresh installed acceptance with unchanged inputs and criteria. Refs #217, #220.
+
 ## [0.1.9] - 2026-10-13
 
 ### Fixed

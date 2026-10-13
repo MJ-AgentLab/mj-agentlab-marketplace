@@ -1,0 +1,1403 @@
+{
+  "recordedAt": "2026-10-13T08:40:12.494Z",
+  "reviewer": "/root/behavior_a",
+  "role": "Independent read-only precommit reviewer",
+  "method": "mp-flow-self-review",
+  "scope": {
+    "repository": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/develop",
+    "comparison": "880fc8ccd8d28a75e84e8bfd0ec90c58f657356a -> observed working tree",
+    "baselineHead": "880fc8ccd8d28a75e84e8bfd0ec90c58f657356a",
+    "baselineTree": "f3befc371d28a570572ea74135500c5e58f00e84",
+    "candidateVersion": "0.1.10",
+    "trackedChangedFiles": 14,
+    "sourceSnapshot": [
+      {
+        "path": "AGENTS.md",
+        "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\AGENTS.md",
+        "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-10\\precommit-snapshot-behavior-a\\AGENTS.md",
+        "bytes": 15954,
+        "sha256": "dab3fb17ccd22af93019516b53b49f8ee1b131aa1036535e5de30ea7e0c14c7f"
+      },
+      {
+        "path": "CHANGELOG.md",
+        "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\CHANGELOG.md",
+        "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-10\\precommit-snapshot-behavior-a\\CHANGELOG.md",
+        "bytes": 200770,
+        "sha256": "5d47a1bc45aa2e0e6a9bdc903e5232fafa0410ea0ad5cd2566bc73bcbf2771d7"
+      },
+      {
+        "path": "README.md",
+        "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\README.md",
+        "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-10\\precommit-snapshot-behavior-a\\README.md",
+        "bytes": 8504,
+        "sha256": "1cd6a7e5dc33acaa936e52de7586953e4a4ce72c13dafea9f565b94a7f32e1e9"
+      },
+      {
+        "path": "docs/INDEX.md",
+        "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\INDEX.md",
+        "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-10\\precommit-snapshot-behavior-a\\docs\\INDEX.md",
+        "bytes": 15577,
+        "sha256": "41e01c462c6f85f8b9b7f3efca7c6ca52aa9810da81f268284e12f9dcfa9aedc"
+      },
+      {
+        "path": "docs/guide/[GUIDE]_HTML_Guide_Kit.md",
+        "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\guide\\[GUIDE]_HTML_Guide_Kit.md",
+        "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-10\\precommit-snapshot-behavior-a\\docs\\guide\\[GUIDE]_HTML_Guide_Kit.md",
+        "bytes": 3045,
+        "sha256": "260d5ce30638df0c095aeea1c1fbf5b04fac3a3ee8a9ee5843a94cf3e5e870c1"
+      },
+      {
+        "path": "docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md",
+        "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\guide\\[GUIDE]_Plugin_Development_Testing_Workflow.md",
+        "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-10\\precommit-snapshot-behavior-a\\docs\\guide\\[GUIDE]_Plugin_Development_Testing_Workflow.md",
+        "bytes": 6045,
+        "sha256": "ecbf886e2926f30e129b1e956ff142cde86a18d89157b475beda372bf1443f72"
+      },
+      {
+        "path": "docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md",
+        "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\[RUNBOOK]_HTML_Guide_Kit_Acceptance.md",
+        "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-10\\precommit-snapshot-behavior-a\\docs\\runbook\\[RUNBOOK]_HTML_Guide_Kit_Acceptance.md",
+        "bytes": 71969,
+        "sha256": "5cba32970a02e57aa1f2c1825b6aa39cd1e3ae94695cf8e9bbc43fb0e50d7363"
+      },
+      {
+        "path": "plugins/html-guide-kit/CHANGELOG.md",
+        "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\CHANGELOG.md",
+        "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-10\\precommit-snapshot-behavior-a\\plugins\\html-guide-kit\\CHANGELOG.md",
+        "bytes": 6599,
+        "sha256": "5dce22be274d5ca7080c202cd05106e2fe48d11714b88c165388b56c97c5a797"
+      },
+      {
+        "path": "plugins/html-guide-kit/README.md",
+        "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\README.md",
+        "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-10\\precommit-snapshot-behavior-a\\plugins\\html-guide-kit\\README.md",
+        "bytes": 2071,
+        "sha256": "d49619a5f81fb620dbb1f9fbac9295d1bc308a50178db1309581af62c519975b"
+      },
+      {
+        "path": "plugins/html-guide-kit/plugin.json",
+        "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\plugin.json",
+        "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-10\\precommit-snapshot-behavior-a\\plugins\\html-guide-kit\\plugin.json",
+        "bytes": 1531,
+        "sha256": "798b117c4b61f8928cef2143c6ad7a05424edcfd1aa16188b71e84e524853708"
+      },
+      {
+        "path": "plugins/html-guide-kit/skills/guide/SKILL.md",
+        "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+        "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-10\\precommit-snapshot-behavior-a\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+        "bytes": 6142,
+        "sha256": "f5451cc24ec3468553bf75c43c379ac1de75f5444347bcc27816ba4b5898fff9"
+      },
+      {
+        "path": "plugins/html-guide-kit/skills/guide/references/guide-framework.md",
+        "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\guide-framework.md",
+        "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-10\\precommit-snapshot-behavior-a\\plugins\\html-guide-kit\\skills\\guide\\references\\guide-framework.md",
+        "bytes": 15805,
+        "sha256": "8dc9ea11dbd4abd0775110b1069cc997ef2c6b1b73f9cc1bc057d36c75e7cbfb"
+      },
+      {
+        "path": "plugins/html-guide-kit/skills/guide/references/interaction-design.md",
+        "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\interaction-design.md",
+        "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-10\\precommit-snapshot-behavior-a\\plugins\\html-guide-kit\\skills\\guide\\references\\interaction-design.md",
+        "bytes": 16685,
+        "sha256": "f748144c39468991e21db6119305aab7f2de946f1608c2d72ee40d90451b8178"
+      },
+      {
+        "path": "tests/html-guide-kit.test.mjs",
+        "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\tests\\html-guide-kit.test.mjs",
+        "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-10\\precommit-snapshot-behavior-a\\tests\\html-guide-kit.test.mjs",
+        "bytes": 13762,
+        "sha256": "9082845d214537049a851c75f2216972ea9e41259b5f549300d69755c7d41416"
+      }
+    ]
+  },
+  "verdict": "NO_PRECOMMIT_STATIC_BLOCKER",
+  "reproducibleLocalVerification": {
+    "result": "22 local read-only checks PASS",
+    "evidence": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-10\\precommit-checks-results.json",
+    "evidenceSha256": "65f31f3e04571c2b9bf70e88d6d738ebdb66f1fb5bdea917986573a0e5d7e0fc",
+    "checks": [
+      {
+        "id": "exact-baseline",
+        "status": "PASS",
+        "detail": {
+          "actual": "880fc8ccd8d28a75e84e8bfd0ec90c58f657356a",
+          "expected": "880fc8ccd8d28a75e84e8bfd0ec90c58f657356a"
+        }
+      },
+      {
+        "id": "tracked-scope",
+        "status": "PASS",
+        "detail": [
+          "AGENTS.md",
+          "CHANGELOG.md",
+          "README.md",
+          "docs/INDEX.md",
+          "docs/guide/[GUIDE]_HTML_Guide_Kit.md",
+          "docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md",
+          "docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md",
+          "plugins/html-guide-kit/CHANGELOG.md",
+          "plugins/html-guide-kit/README.md",
+          "plugins/html-guide-kit/plugin.json",
+          "plugins/html-guide-kit/skills/guide/SKILL.md",
+          "plugins/html-guide-kit/skills/guide/references/guide-framework.md",
+          "plugins/html-guide-kit/skills/guide/references/interaction-design.md",
+          "tests/html-guide-kit.test.mjs"
+        ]
+      },
+      {
+        "id": "untracked-evidence-only",
+        "status": "PASS",
+        "detail": [
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/archive-index.json",
+            "bytes": 7721,
+            "sha256": "0ea2018396ce04a48a3cf2cf2b8bb52a50a3b4e5b12878948c368b2ee174044f"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/canonical-status.command.json",
+            "bytes": 507,
+            "sha256": "d844a7ca81a4203b8e616409101eb56366c1678c22b6a0ca5cd6905b3009c017"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/canonical-status.stderr.log",
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/canonical-status.stdout.log",
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/canonical-tree.command.json",
+            "bytes": 538,
+            "sha256": "3a5b78f339a4fd3a5373e65859e6068297c4a768dd765da6c3c80250eec909bd"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/canonical-tree.stderr.log",
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/canonical-tree.stdout.log",
+            "bytes": 41,
+            "sha256": "dad0381bd67b1f8cb4f7d63b1e5d7da972c3475eebc62e9a3984d32b74c31cd5"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/control.json",
+            "bytes": 334,
+            "sha256": "b305ed090bfca2a7ff2112d87f6cc4a8419e29e46314b16327ed3c5fab1fb98a"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/controller.mjs",
+            "bytes": 5198,
+            "sha256": "c21415b9b0b17c9a618815bd06c3ac2923c06f2f30f7594e0c73516473327093"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/detached-head.command.json",
+            "bytes": 501,
+            "sha256": "bdf51a955813d1d950ecac9b15ecaa3c2d1ce1386f9930828bdcec879e6be42b"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/detached-head.stderr.log",
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/detached-head.stdout.log",
+            "bytes": 41,
+            "sha256": "651b38ae5cd128bb15f804a307b017074f88fd20f20f921835634153d451edfd"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/detached-tree.command.json",
+            "bytes": 508,
+            "sha256": "bfb9a27facb0b6941dbca3b672c7df397bfcc7ab6ce47186b735b92c3aa3a65c"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/detached-tree.stderr.log",
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/detached-tree.stdout.log",
+            "bytes": 41,
+            "sha256": "dad0381bd67b1f8cb4f7d63b1e5d7da972c3475eebc62e9a3984d32b74c31cd5"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/installation.json",
+            "bytes": 160123,
+            "sha256": "a991634c4237012382fcb1cd62239186fdcc718cc6fdde371ae4046bb404d9d4"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/npm-ci.command.json",
+            "bytes": 507,
+            "sha256": "1b87c18a842d02865014f28c0e28c3d71d4225098253660fbfa360c06467b36c"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/npm-ci.stderr.log",
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/npm-ci.stdout.log",
+            "bytes": 138,
+            "sha256": "53e61fed19389ce1c18d09554b71adb4203caff1f1176ec7bd7527d2a6a2688a"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/npm-smoke.command.json",
+            "bytes": 500,
+            "sha256": "84435f24e5b96553ff5e1cfd185ac97073548c7e87a31aed599d9d08a678a185"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/npm-smoke.stderr.log",
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/npm-smoke.stdout.log",
+            "bytes": 160087,
+            "sha256": "897275ec62bc39fa63718e3589dafc4dc4a4b17a00896627306c27a6b06822d8"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/summary.json",
+            "bytes": 6674,
+            "sha256": "d5252c31fbc72f7e175d0328f0cfb1e1872ae5502e6bf64c2083a2039afc02ac"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/validation.json",
+            "bytes": 412,
+            "sha256": "45076d5b68124e5d67c823a50aa83be921115313b6f9426ce187659fc84d8608"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-880fc8cc/versions.json",
+            "bytes": 173,
+            "sha256": "7b58955a644a5466a0b908fc74c78420326d3e28db471e4baa97fe0132ab58bf"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-reviewer/patch-019-stopped/identities.json",
+            "bytes": 15766,
+            "sha256": "3421d6b3b45b6da47e57d745ef687a314e6491573432366c10e0d017a0981c61"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-reviewer/patch-019-stopped/index.json",
+            "bytes": 245192,
+            "sha256": "5285d6b458e2b8d7ae75045c0b89e7aef6afcc1b748d621e0d9f5605a8bcf649"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-reviewer/patch-019-stopped/packets/corrections-001.json",
+            "bytes": 2082342,
+            "sha256": "bc980aef44100da46fd07211f657357f19a9af0cdec9094147f5829d840f4530"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-reviewer/patch-019-stopped/packets/corrections-002.json",
+            "bytes": 2007352,
+            "sha256": "8227d433aad88c70a4e6c1615b47c5d7339887b0d10a420830c56c6b8e49602a"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-reviewer/patch-019-stopped/packets/corrections-003.json",
+            "bytes": 2056305,
+            "sha256": "ac2eb86f62805a73808343fd9a96f2d997585b2068caaced295288fca93da51c"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-reviewer/patch-019-stopped/packets/corrections-004.json",
+            "bytes": 2087635,
+            "sha256": "d09ecaa84674bdf5d57b0f352e8e0c540165915cb2f11ff9e55a8cfb7fbf216e"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-reviewer/patch-019-stopped/packets/corrections-005.json",
+            "bytes": 823622,
+            "sha256": "8d10526caaab1a089b27a65b7f6225efd9b2299e0192d5375b235e4cb0316125"
+          },
+          {
+            "path": "docs/runbook/evidence/html-guide-kit/pr3-reviewer/patch-019-stopped/packets/root-control-001.json",
+            "bytes": 66679,
+            "sha256": "7869e5e28a938d51ea462f314a2b1b597a2c99f3a468927132e0c3e778eb57d9"
+          }
+        ]
+      },
+      {
+        "id": "git-diff-check",
+        "status": "PASS",
+        "detail": {
+          "baseline": "880fc8ccd8d28a75e84e8bfd0ec90c58f657356a"
+        }
+      },
+      {
+        "id": "versions-registration-strict-gates-icon-policy-unchanged",
+        "status": "PASS",
+        "detail": {
+          "pins": [
+            {
+              "path": "VERSION",
+              "workingRawSha256": "ad504ae582b4ffbffb0687ecdb1879c9d1f174f98c6e2d6aa729089cbc4f1d60",
+              "baselineGitBlobSha256": "4fa9948d0ae7007cbd1cc05768bc3e7cc6ec46ad0ea84c87df79e7a0c48d76b4",
+              "rawSame": false,
+              "onlyCheckoutLineEndingDifference": true,
+              "gitDiffEmpty": true
+            },
+            {
+              "path": ".agents/plugins/marketplace.json",
+              "workingRawSha256": "49ad5832dd2d72244b7abb6011f142188449fad88ddcc8d404fe5baeb631aabc",
+              "baselineGitBlobSha256": "c3093860c4be6903e3aa86f5895c254e374e2e77bb364a90c9391bfee158b5dd",
+              "rawSame": false,
+              "onlyCheckoutLineEndingDifference": true,
+              "gitDiffEmpty": true
+            },
+            {
+              "path": "plugins/diagram-kit/plugin.json",
+              "workingRawSha256": "8c51243d90e61764724bdb56256e603bdcf4414723111986685d5b70255097ed",
+              "baselineGitBlobSha256": "73187e59a99b5a292efd23cf288cecbe5d67110c767044c01f8e76ecbc5162c1",
+              "rawSame": false,
+              "onlyCheckoutLineEndingDifference": true,
+              "gitDiffEmpty": true
+            },
+            {
+              "path": "plugins/learning-evidence-kit/plugin.json",
+              "workingRawSha256": "c3b49b6428d25c6598bc6b9f2ce41339c78e32e538e905ecbd6ced483836ed46",
+              "baselineGitBlobSha256": "0f79acfcbdd38d4abe8a6f2d30b426e0bf9616321b3ba3d774a2e484a25fcef8",
+              "rawSame": false,
+              "onlyCheckoutLineEndingDifference": true,
+              "gitDiffEmpty": true
+            },
+            {
+              "path": "plugins/explain-kit/plugin.json",
+              "workingRawSha256": "62c24bc96f812e707f5f425dbea2e06433880707678cb591929586255e5c5b91",
+              "baselineGitBlobSha256": "a946b7c7fe8c2fe69c87c0cd41884b7a3276d60986db1beb6ec6b60a9f212433",
+              "rawSame": false,
+              "onlyCheckoutLineEndingDifference": true,
+              "gitDiffEmpty": true
+            },
+            {
+              "path": "scripts/validate-portable.mjs",
+              "workingRawSha256": "369234fcaa1b51d1a0f77cbc43bc03783a529b1d25068a31b53567d45b47cfd1",
+              "baselineGitBlobSha256": "cdb3c5f9a058810d31d25d58d597bfe789c8d2001889bff7b192afb4df476813",
+              "rawSame": false,
+              "onlyCheckoutLineEndingDifference": true,
+              "gitDiffEmpty": true
+            },
+            {
+              "path": "scripts/check-a6.mjs",
+              "workingRawSha256": "db851aee64008ad1923d2d83e09a16266fd567b0fd3bb858cfa3b01cdd336da3",
+              "baselineGitBlobSha256": "0ea190df6568f7ed39ebd5fb64d97755532487cfa200452bc4f01b57b0e90d95",
+              "rawSame": false,
+              "onlyCheckoutLineEndingDifference": true,
+              "gitDiffEmpty": true
+            },
+            {
+              "path": "plugins/html-guide-kit/skills/guide/agents/openai.yaml",
+              "workingRawSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+              "baselineGitBlobSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+              "rawSame": true,
+              "onlyCheckoutLineEndingDifference": true,
+              "gitDiffEmpty": true
+            },
+            {
+              "path": "plugins/html-guide-kit/assets/icon.svg",
+              "workingRawSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+              "baselineGitBlobSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+              "rawSame": true,
+              "onlyCheckoutLineEndingDifference": true,
+              "gitDiffEmpty": true
+            },
+            {
+              "path": "plugins/html-guide-kit/assets/icon.png",
+              "workingRawSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+              "baselineGitBlobSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+              "rawSame": true,
+              "onlyCheckoutLineEndingDifference": true,
+              "gitDiffEmpty": true
+            }
+          ],
+          "comparison": "Git semantic file scope plus exact LF-normalized equality only for unchanged checkout files; actual new runtime hashes remain raw"
+        }
+      },
+      {
+        "id": "manifest-only-patch-version",
+        "status": "PASS",
+        "detail": {
+          "old": "0.1.9",
+          "current": "0.1.10"
+        }
+      },
+      {
+        "id": "read-capability",
+        "status": "PASS",
+        "detail": [
+          "Read"
+        ]
+      },
+      {
+        "id": "explicit-invocation-only",
+        "status": "PASS",
+        "detail": {
+          "interface": {
+            "display_name": "HTML Guide Kit",
+            "short_description": "Create a teaching guide after confirming its reader and task",
+            "default_prompt": "Use $html-guide-kit:guide to create a new interactive HTML teaching guide from this material. First propose distinct reader, task and understanding-question choices, then wait for my explicit confirmation. Deliver only copyable guide text in this chat."
+          },
+          "policy": {
+            "allow_implicit_invocation": false
+          }
+        }
+      },
+      {
+        "id": "entry-byte-budget",
+        "status": "PASS",
+        "detail": {
+          "actual": 6142,
+          "strictLimit": 6144,
+          "rawSha256": "f5451cc24ec3468553bf75c43c379ac1de75f5444347bcc27816ba4b5898fff9"
+        }
+      },
+      {
+        "id": "agents-byte-budget",
+        "status": "PASS",
+        "detail": {
+          "actual": 15954,
+          "limit": 16384
+        }
+      },
+      {
+        "id": "skill-frontmatter",
+        "status": "PASS",
+        "detail": {
+          "name": "guide",
+          "description": "Create a text-only interactive HTML teaching guide from supplied material after explicit reader/task/question confirmation. Explicit requests only; no HTML production, guide revision, design comparison or HTML review."
+        }
+      },
+      {
+        "id": "approved-collection",
+        "status": "PASS",
+        "detail": {
+          "plugins": [
+            "diagram-kit",
+            "learning-evidence-kit",
+            "explain-kit",
+            "html-guide-kit"
+          ],
+          "publicSkills": [
+            "diagram-kit:arch-diagram",
+            "learning-evidence-kit:learning-record-check",
+            "learning-evidence-kit:pop-quiz",
+            "explain-kit:concept",
+            "explain-kit:glossary",
+            "html-guide-kit:guide"
+          ],
+          "repositorySkills": 20,
+          "marketplaceVersion": "8.2.1"
+        }
+      },
+      {
+        "id": "a6-substantive-sync",
+        "status": "PASS",
+        "detail": {
+          "changedTriggerPaths": [
+            "plugins/html-guide-kit/plugin.json",
+            "plugins/html-guide-kit/skills/guide/SKILL.md"
+          ],
+          "rootAgentsChanged": true
+        }
+      },
+      {
+        "id": "document-metadata",
+        "status": "PASS",
+        "detail": [
+          {
+            "path": "docs/INDEX.md",
+            "fields": {
+              "type": "guide",
+              "scope": "marketplace",
+              "summary": "当前 ChatGPT/Codex 文档、历史决策与退役资料导航",
+              "owner": "marketplace-maintainers",
+              "created": "2026-10-09",
+              "updated": "2026-10-13",
+              "state": "active",
+              "version": "v2.32"
+            },
+            "valid": true
+          },
+          {
+            "path": "docs/guide/[GUIDE]_HTML_Guide_Kit.md",
+            "fields": {
+              "type": "guide",
+              "scope": "html-guide-kit",
+              "summary": "Use the explicit Read-only guide entry and confirm a teaching goal",
+              "owner": "marketplace-maintainers",
+              "created": "2026-10-12",
+              "updated": "2026-10-13",
+              "state": "active",
+              "version": "v1.10"
+            },
+            "valid": true
+          },
+          {
+            "path": "docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md",
+            "fields": {
+              "type": "guide",
+              "scope": "marketplace",
+              "summary": "Portable plugin development and isolated testing workflow",
+              "owner": "marketplace-maintainers",
+              "created": "2026-10-09",
+              "updated": "2026-10-13",
+              "state": "active",
+              "version": "v2.8"
+            },
+            "valid": true
+          },
+          {
+            "path": "docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md",
+            "fields": {
+              "type": "runbook",
+              "scope": "html-guide-kit",
+              "summary": "HTML Guide Kit staged execution ledger and unperformed acceptance gaps",
+              "owner": "marketplace-maintainers",
+              "created": "2026-10-12",
+              "updated": "2026-10-13",
+              "state": "draft",
+              "version": "v1.17",
+              "last-verified": null,
+              "related": [
+                "../adr/[ADR]_HTML_Guide_Kit_Addition.md",
+                "../spec/[SPEC]_HTML_Guide_Kit_Acceptance.md"
+              ]
+            },
+            "valid": true
+          }
+        ]
+      },
+      {
+        "id": "exact-final-draft-resources",
+        "status": "PASS",
+        "detail": [
+          {
+            "path": "plugins/html-guide-kit/skills/guide/SKILL.md",
+            "bytes": 6142,
+            "sha256": "f5451cc24ec3468553bf75c43c379ac1de75f5444347bcc27816ba4b5898fff9"
+          },
+          {
+            "path": "plugins/html-guide-kit/skills/guide/references/guide-framework.md",
+            "bytes": 15805,
+            "sha256": "8dc9ea11dbd4abd0775110b1069cc997ef2c6b1b73f9cc1bc057d36c75e7cbfb"
+          },
+          {
+            "path": "plugins/html-guide-kit/skills/guide/references/interaction-design.md",
+            "bytes": 16685,
+            "sha256": "f748144c39468991e21db6119305aab7f2de946f1608c2d72ee40d90451b8178"
+          }
+        ]
+      },
+      {
+        "id": "no-obvious-fixtures-owner-path-or-review-controls-in-runtime",
+        "status": "PASS",
+        "detail": {
+          "hits": [],
+          "scope": "lexical check plus separate semantic judgment"
+        }
+      },
+      {
+        "id": "no-new-release-or-closing-action-in-diff",
+        "status": "PASS",
+        "detail": {
+          "branch": "codex/html-guide-acceptance",
+          "versionUnchanged": "8.2.1",
+          "releaseFilesUnchanged": true
+        }
+      },
+      {
+        "id": "old-nine-accurate-accounting-and-original-review-pins",
+        "status": "PASS",
+        "detail": {
+          "receiptPath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\provenance\\grade-import\\final-equivalence-receipt.json",
+          "receiptSha256": "3c18ccb8e1734271801dbf273cacc4ad25c8421fa27a8b3180b881991624f901",
+          "uuid": 11,
+          "completeInputs": 22,
+          "actualCounts": {
+            "PASS": 5,
+            "UNEXERCISED": 2,
+            "FAIL": 4
+          },
+          "originalReviewPins": [
+            {
+              "variant": "B1.1",
+              "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\blocking\\reviews\\B1.1-cef7452c.json",
+              "expected": "4ba67d71559f0080ab7fd3711b24313ff1c1b4c59776f04e78308cf277955347",
+              "actual": "4ba67d71559f0080ab7fd3711b24313ff1c1b4c59776f04e78308cf277955347",
+              "status": "PASS",
+              "importedStatus": "PASS"
+            },
+            {
+              "variant": "B1.2-delayed",
+              "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\blocking\\reviews\\B1.2-delayed-89cdd7b6.json",
+              "expected": "046f31779f0f4d98c8efd2ba1774a81862d4bd3b3ea3a380691c57010a2ff339",
+              "actual": "046f31779f0f4d98c8efd2ba1774a81862d4bd3b3ea3a380691c57010a2ff339",
+              "status": "UNEXERCISED",
+              "importedStatus": "UNEXERCISED"
+            },
+            {
+              "variant": "B6.1",
+              "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\blocking\\reviews\\B6.1-f993ca4d.json",
+              "expected": "8832a54d68166c8e0a808633bf58f049747b7d92000e9380a64e242e44746a54",
+              "actual": "8832a54d68166c8e0a808633bf58f049747b7d92000e9380a64e242e44746a54",
+              "status": "FAIL",
+              "importedStatus": "FAIL"
+            },
+            {
+              "variant": "B6.2-compare",
+              "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\blocking\\reviews\\B6.2-compare-6b9d36b0.json",
+              "expected": "0a10e219fe27d5e85ebeb49bb15a2833b2f9794ed47361cf46231f19a1509574",
+              "actual": "0a10e219fe27d5e85ebeb49bb15a2833b2f9794ed47361cf46231f19a1509574",
+              "status": "FAIL",
+              "importedStatus": "FAIL"
+            },
+            {
+              "variant": "B6.2-review",
+              "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\blocking\\reviews\\B6.2-review-53e4a211.json",
+              "expected": "52055d79718a738e1737411a0e0f92aa18e1a6b3664b4d8eb1ca39d2c8fdb844",
+              "actual": "52055d79718a738e1737411a0e0f92aa18e1a6b3664b4d8eb1ca39d2c8fdb844",
+              "status": "PASS",
+              "importedStatus": "PASS"
+            },
+            {
+              "variant": "B6.2-revise",
+              "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\blocking\\reviews\\B6.2-revise-2dcce80a.json",
+              "expected": "07251341b1f3231b2b813bae15228cefc7a68c47a850219884c2e36dbe689300",
+              "actual": "07251341b1f3231b2b813bae15228cefc7a68c47a850219884c2e36dbe689300",
+              "status": "PASS",
+              "importedStatus": "PASS"
+            },
+            {
+              "variant": "B3.1",
+              "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\blocking\\reviews\\cross-cad4a7b8\\B3.1.json",
+              "expected": "f400e79514ed41a7d8251e5e53bf677f6639dfea0db176c30a2ab358fefad9cd",
+              "actual": "f400e79514ed41a7d8251e5e53bf677f6639dfea0db176c30a2ab358fefad9cd",
+              "status": "PASS",
+              "importedStatus": "PASS"
+            },
+            {
+              "variant": "B3.2",
+              "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\blocking\\reviews\\cross-cad4a7b8\\B3.2.json",
+              "expected": "cf78e20a607cd2ed9fd26d4412396aef1f9dd1a59cbc51bf65ae60150f412637",
+              "actual": "cf78e20a607cd2ed9fd26d4412396aef1f9dd1a59cbc51bf65ae60150f412637",
+              "status": "PASS",
+              "importedStatus": "PASS"
+            },
+            {
+              "variant": "B4.1",
+              "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\blocking\\reviews\\cross-cad4a7b8\\B4.1.json",
+              "expected": "f7bb5220dba1ba3fce088635d182faeadebe134c6338fae0f8ceb2461f471001",
+              "actual": "f7bb5220dba1ba3fce088635d182faeadebe134c6338fae0f8ceb2461f471001",
+              "status": "FAIL",
+              "importedStatus": "FAIL"
+            },
+            {
+              "variant": "B4.2",
+              "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\blocking\\reviews\\cross-cad4a7b8\\B4.2.json",
+              "expected": "228aff801bf078b105ff91de4f4eba84258cb1a5d72d3ce052ec169c188abe34",
+              "actual": "228aff801bf078b105ff91de4f4eba84258cb1a5d72d3ce052ec169c188abe34",
+              "status": "UNEXERCISED",
+              "importedStatus": "UNEXERCISED"
+            },
+            {
+              "variant": "E15",
+              "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\expanded\\reviews\\independent-4fc3ff00-behavior-a\\E15-review.json",
+              "expected": "446daf40069ec94655611b6709eeb43208324d5e32358049aefc1e3de05e68ba",
+              "actual": "446daf40069ec94655611b6709eeb43208324d5e32358049aefc1e3de05e68ba",
+              "status": "FAIL",
+              "importedStatus": "FAIL"
+            }
+          ],
+          "noAttempt": [
+            "B1.2-combined",
+            "B2.1",
+            "B5.1",
+            "B5.2"
+          ]
+        }
+      },
+      {
+        "id": "old-nine-engineering-archive-pins-and-eight-four",
+        "status": "PASS",
+        "detail": {
+          "indexSha256": "0ea2018396ce04a48a3cf2cf2b8bb52a50a3b4e5b12878948c368b2ee174044f",
+          "canonical": "880fc8ccd8d28a75e84e8bfd0ec90c58f657356a",
+          "tree": "f3befc371d28a570572ea74135500c5e58f00e84",
+          "entries": [
+            {
+              "name": "canonical-status.command.json",
+              "expected": "d844a7ca81a4203b8e616409101eb56366c1678c22b6a0ca5cd6905b3009c017",
+              "actual": "d844a7ca81a4203b8e616409101eb56366c1678c22b6a0ca5cd6905b3009c017",
+              "bytes": 507,
+              "expectedBytes": 507,
+              "sourceSame": true
+            },
+            {
+              "name": "canonical-status.stderr.log",
+              "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "bytes": 0,
+              "expectedBytes": 0,
+              "sourceSame": true
+            },
+            {
+              "name": "canonical-status.stdout.log",
+              "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "bytes": 0,
+              "expectedBytes": 0,
+              "sourceSame": true
+            },
+            {
+              "name": "canonical-tree.command.json",
+              "expected": "3a5b78f339a4fd3a5373e65859e6068297c4a768dd765da6c3c80250eec909bd",
+              "actual": "3a5b78f339a4fd3a5373e65859e6068297c4a768dd765da6c3c80250eec909bd",
+              "bytes": 538,
+              "expectedBytes": 538,
+              "sourceSame": true
+            },
+            {
+              "name": "canonical-tree.stderr.log",
+              "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "bytes": 0,
+              "expectedBytes": 0,
+              "sourceSame": true
+            },
+            {
+              "name": "canonical-tree.stdout.log",
+              "expected": "dad0381bd67b1f8cb4f7d63b1e5d7da972c3475eebc62e9a3984d32b74c31cd5",
+              "actual": "dad0381bd67b1f8cb4f7d63b1e5d7da972c3475eebc62e9a3984d32b74c31cd5",
+              "bytes": 41,
+              "expectedBytes": 41,
+              "sourceSame": true
+            },
+            {
+              "name": "control.json",
+              "expected": "b305ed090bfca2a7ff2112d87f6cc4a8419e29e46314b16327ed3c5fab1fb98a",
+              "actual": "b305ed090bfca2a7ff2112d87f6cc4a8419e29e46314b16327ed3c5fab1fb98a",
+              "bytes": 334,
+              "expectedBytes": 334,
+              "sourceSame": true
+            },
+            {
+              "name": "controller.mjs",
+              "expected": "c21415b9b0b17c9a618815bd06c3ac2923c06f2f30f7594e0c73516473327093",
+              "actual": "c21415b9b0b17c9a618815bd06c3ac2923c06f2f30f7594e0c73516473327093",
+              "bytes": 5198,
+              "expectedBytes": 5198,
+              "sourceSame": true
+            },
+            {
+              "name": "detached-head.command.json",
+              "expected": "bdf51a955813d1d950ecac9b15ecaa3c2d1ce1386f9930828bdcec879e6be42b",
+              "actual": "bdf51a955813d1d950ecac9b15ecaa3c2d1ce1386f9930828bdcec879e6be42b",
+              "bytes": 501,
+              "expectedBytes": 501,
+              "sourceSame": true
+            },
+            {
+              "name": "detached-head.stderr.log",
+              "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "bytes": 0,
+              "expectedBytes": 0,
+              "sourceSame": true
+            },
+            {
+              "name": "detached-head.stdout.log",
+              "expected": "651b38ae5cd128bb15f804a307b017074f88fd20f20f921835634153d451edfd",
+              "actual": "651b38ae5cd128bb15f804a307b017074f88fd20f20f921835634153d451edfd",
+              "bytes": 41,
+              "expectedBytes": 41,
+              "sourceSame": true
+            },
+            {
+              "name": "detached-tree.command.json",
+              "expected": "bfb9a27facb0b6941dbca3b672c7df397bfcc7ab6ce47186b735b92c3aa3a65c",
+              "actual": "bfb9a27facb0b6941dbca3b672c7df397bfcc7ab6ce47186b735b92c3aa3a65c",
+              "bytes": 508,
+              "expectedBytes": 508,
+              "sourceSame": true
+            },
+            {
+              "name": "detached-tree.stderr.log",
+              "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "bytes": 0,
+              "expectedBytes": 0,
+              "sourceSame": true
+            },
+            {
+              "name": "detached-tree.stdout.log",
+              "expected": "dad0381bd67b1f8cb4f7d63b1e5d7da972c3475eebc62e9a3984d32b74c31cd5",
+              "actual": "dad0381bd67b1f8cb4f7d63b1e5d7da972c3475eebc62e9a3984d32b74c31cd5",
+              "bytes": 41,
+              "expectedBytes": 41,
+              "sourceSame": true
+            },
+            {
+              "name": "installation.json",
+              "expected": "a991634c4237012382fcb1cd62239186fdcc718cc6fdde371ae4046bb404d9d4",
+              "actual": "a991634c4237012382fcb1cd62239186fdcc718cc6fdde371ae4046bb404d9d4",
+              "bytes": 160123,
+              "expectedBytes": 160123,
+              "sourceSame": true
+            },
+            {
+              "name": "npm-ci.command.json",
+              "expected": "1b87c18a842d02865014f28c0e28c3d71d4225098253660fbfa360c06467b36c",
+              "actual": "1b87c18a842d02865014f28c0e28c3d71d4225098253660fbfa360c06467b36c",
+              "bytes": 507,
+              "expectedBytes": 507,
+              "sourceSame": true
+            },
+            {
+              "name": "npm-ci.stderr.log",
+              "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "bytes": 0,
+              "expectedBytes": 0,
+              "sourceSame": true
+            },
+            {
+              "name": "npm-ci.stdout.log",
+              "expected": "53e61fed19389ce1c18d09554b71adb4203caff1f1176ec7bd7527d2a6a2688a",
+              "actual": "53e61fed19389ce1c18d09554b71adb4203caff1f1176ec7bd7527d2a6a2688a",
+              "bytes": 138,
+              "expectedBytes": 138,
+              "sourceSame": true
+            },
+            {
+              "name": "npm-smoke.command.json",
+              "expected": "84435f24e5b96553ff5e1cfd185ac97073548c7e87a31aed599d9d08a678a185",
+              "actual": "84435f24e5b96553ff5e1cfd185ac97073548c7e87a31aed599d9d08a678a185",
+              "bytes": 500,
+              "expectedBytes": 500,
+              "sourceSame": true
+            },
+            {
+              "name": "npm-smoke.stderr.log",
+              "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "bytes": 0,
+              "expectedBytes": 0,
+              "sourceSame": true
+            },
+            {
+              "name": "npm-smoke.stdout.log",
+              "expected": "897275ec62bc39fa63718e3589dafc4dc4a4b17a00896627306c27a6b06822d8",
+              "actual": "897275ec62bc39fa63718e3589dafc4dc4a4b17a00896627306c27a6b06822d8",
+              "bytes": 160087,
+              "expectedBytes": 160087,
+              "sourceSame": true
+            },
+            {
+              "name": "summary.json",
+              "expected": "d5252c31fbc72f7e175d0328f0cfb1e1872ae5502e6bf64c2083a2039afc02ac",
+              "actual": "d5252c31fbc72f7e175d0328f0cfb1e1872ae5502e6bf64c2083a2039afc02ac",
+              "bytes": 6674,
+              "expectedBytes": 6674,
+              "sourceSame": true
+            },
+            {
+              "name": "validation.json",
+              "expected": "45076d5b68124e5d67c823a50aa83be921115313b6f9426ce187659fc84d8608",
+              "actual": "45076d5b68124e5d67c823a50aa83be921115313b6f9426ce187659fc84d8608",
+              "bytes": 412,
+              "expectedBytes": 412,
+              "sourceSame": true
+            },
+            {
+              "name": "versions.json",
+              "expected": "7b58955a644a5466a0b908fc74c78420326d3e28db471e4baa97fe0132ab58bf",
+              "actual": "7b58955a644a5466a0b908fc74c78420326d3e28db471e4baa97fe0132ab58bf",
+              "bytes": 173,
+              "expectedBytes": 173,
+              "sourceSame": true
+            }
+          ],
+          "scenarioCount": 8,
+          "actualCachePython": 4,
+          "noBehaviorInferred": true
+        }
+      },
+      {
+        "id": "old-nine-index-source-pins-no-packet-body-read",
+        "status": "PASS",
+        "detail": {
+          "indexSha256": "5285d6b458e2b8d7ae75045c0b89e7aef6afcc1b748d621e0d9f5605a8bcf649",
+          "fileCount": 327,
+          "sourceInventorySha256": "7c784b503fe385e5e5f8745207ba9699ff0e081b534ef35386a9200b5365ddc3",
+          "originalBytes": 8508587,
+          "accounting": {
+            "distinctRealUuidCount": 11,
+            "rawInputFileCount": 22,
+            "partialAndNoAttemptStates": "Preserved exactly; not promoted to PASS"
+          },
+          "security": {
+            "scannedFiles": 327,
+            "findings": 0,
+            "matchedSecretValuesExcludedFromReport": true,
+            "authenticationActualFilesExcluded": true
+          },
+          "sourcePinCount": 327,
+          "allSourcePinsEqual": true,
+          "packetBodyRead": false
+        }
+      },
+      {
+        "id": "new-ten-controls-frozen-exact",
+        "status": "PASS",
+        "detail": {
+          "copiedFiles": 33,
+          "exactCopies": 30,
+          "versionGuardOnly": 3,
+          "pins": [
+            {
+              "path": "blocking/harness.mjs",
+              "operation": "EXACT_COPY",
+              "actualSha256": "a2a7089587831fffbd74f9af773c144a5fec7d23fef42c617d28a26123b42304",
+              "expectedSha256": "a2a7089587831fffbd74f9af773c144a5fec7d23fef42c617d28a26123b42304",
+              "sourceSha256": "a2a7089587831fffbd74f9af773c144a5fec7d23fef42c617d28a26123b42304",
+              "expectedSourceSha256": "a2a7089587831fffbd74f9af773c144a5fec7d23fef42c617d28a26123b42304",
+              "allowedBytes": true
+            },
+            {
+              "path": "blocking/plan.json",
+              "operation": "EXACT_COPY",
+              "actualSha256": "58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2",
+              "expectedSha256": "58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2",
+              "sourceSha256": "58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2",
+              "expectedSourceSha256": "58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2",
+              "allowedBytes": true
+            },
+            {
+              "path": "blocking/frozen-spec.md",
+              "operation": "EXACT_COPY",
+              "actualSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+              "expectedSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+              "sourceSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+              "expectedSourceSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+              "allowedBytes": true
+            },
+            {
+              "path": "blocking/choose-first.mjs",
+              "operation": "EXACT_COPY",
+              "actualSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+              "expectedSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+              "sourceSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+              "expectedSourceSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+              "allowedBytes": true
+            },
+            {
+              "path": "blocking/record-native-loading.mjs",
+              "operation": "EXACT_COPY",
+              "actualSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+              "expectedSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+              "sourceSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+              "expectedSourceSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+              "allowedBytes": true
+            },
+            {
+              "path": "blocking/operator-observations.mjs",
+              "operation": "EXACT_COPY",
+              "actualSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+              "expectedSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+              "sourceSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+              "expectedSourceSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+              "allowedBytes": true
+            },
+            {
+              "path": "expanded/harness.mjs",
+              "operation": "EXACT_COPY",
+              "actualSha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645",
+              "expectedSha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645",
+              "sourceSha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645",
+              "expectedSourceSha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645",
+              "allowedBytes": true
+            },
+            {
+              "path": "expanded/plan.json",
+              "operation": "EXACT_COPY",
+              "actualSha256": "bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04",
+              "expectedSha256": "bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04",
+              "sourceSha256": "bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04",
+              "expectedSourceSha256": "bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04",
+              "allowedBytes": true
+            },
+            {
+              "path": "expanded/frozen-spec.md",
+              "operation": "EXACT_COPY",
+              "actualSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+              "expectedSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+              "sourceSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+              "expectedSourceSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+              "allowedBytes": true
+            },
+            {
+              "path": "expanded/choose-first.mjs",
+              "operation": "EXACT_COPY",
+              "actualSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+              "expectedSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+              "sourceSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+              "expectedSourceSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+              "allowedBytes": true
+            },
+            {
+              "path": "expanded/record-native-loading.mjs",
+              "operation": "EXACT_COPY",
+              "actualSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+              "expectedSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+              "sourceSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+              "expectedSourceSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+              "allowedBytes": true
+            },
+            {
+              "path": "expanded/operator-observations.mjs",
+              "operation": "EXACT_COPY",
+              "actualSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+              "expectedSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+              "sourceSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+              "expectedSourceSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+              "allowedBytes": true
+            },
+            {
+              "path": "expanded/expanded-plan.mjs",
+              "operation": "EXACT_COPY",
+              "actualSha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+              "expectedSha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+              "sourceSha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+              "expectedSourceSha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+              "allowedBytes": true
+            },
+            {
+              "path": "continuous-supplement/harness.mjs",
+              "operation": "EXACT_COPY",
+              "actualSha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645",
+              "expectedSha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645",
+              "sourceSha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645",
+              "expectedSourceSha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645",
+              "allowedBytes": true
+            },
+            {
+              "path": "continuous-supplement/plan.json",
+              "operation": "EXACT_COPY",
+              "actualSha256": "af18c35badde6b55ba3134781823565f9688e14e3e51505ffb8760b05fb57cd9",
+              "expectedSha256": "af18c35badde6b55ba3134781823565f9688e14e3e51505ffb8760b05fb57cd9",
+              "sourceSha256": "af18c35badde6b55ba3134781823565f9688e14e3e51505ffb8760b05fb57cd9",
+              "expectedSourceSha256": "af18c35badde6b55ba3134781823565f9688e14e3e51505ffb8760b05fb57cd9",
+              "allowedBytes": true
+            },
+            {
+              "path": "continuous-supplement/frozen-spec.md",
+              "operation": "EXACT_COPY",
+              "actualSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+              "expectedSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+              "sourceSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+              "expectedSourceSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+              "allowedBytes": true
+            },
+            {
+              "path": "continuous-supplement/choose-first.mjs",
+              "operation": "EXACT_COPY",
+              "actualSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+              "expectedSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+              "sourceSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+              "expectedSourceSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+              "allowedBytes": true
+            },
+            {
+              "path": "continuous-supplement/record-native-loading.mjs",
+              "operation": "EXACT_COPY",
+              "actualSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+              "expectedSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+              "sourceSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+              "expectedSourceSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+              "allowedBytes": true
+            },
+            {
+              "path": "continuous-supplement/operator-observations.mjs",
+              "operation": "EXACT_COPY",
+              "actualSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+              "expectedSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+              "sourceSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+              "expectedSourceSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+              "allowedBytes": true
+            },
+            {
+              "path": "continuous-supplement/expanded-plan.mjs",
+              "operation": "EXACT_COPY",
+              "actualSha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+              "expectedSha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+              "sourceSha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+              "expectedSourceSha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+              "allowedBytes": true
+            },
+            {
+              "path": "expanded/criterion-citation-erratum.json",
+              "operation": "EXACT_COPY",
+              "actualSha256": "8a1e7e3a4305b076e9069c39dd5f605ff21dca5a5ade59ada17afba60ed63969",
+              "expectedSha256": "8a1e7e3a4305b076e9069c39dd5f605ff21dca5a5ade59ada17afba60ed63969",
+              "sourceSha256": "8a1e7e3a4305b076e9069c39dd5f605ff21dca5a5ade59ada17afba60ed63969",
+              "expectedSourceSha256": "8a1e7e3a4305b076e9069c39dd5f605ff21dca5a5ade59ada17afba60ed63969",
+              "allowedBytes": true
+            },
+            {
+              "path": "expanded/repeated-plan.json",
+              "operation": "EXACT_COPY",
+              "actualSha256": "0b97085cdf412893e267bda912776d371a36f58e6fec7cb15bc086989c081d23",
+              "expectedSha256": "0b97085cdf412893e267bda912776d371a36f58e6fec7cb15bc086989c081d23",
+              "sourceSha256": "0b97085cdf412893e267bda912776d371a36f58e6fec7cb15bc086989c081d23",
+              "expectedSourceSha256": "0b97085cdf412893e267bda912776d371a36f58e6fec7cb15bc086989c081d23",
+              "allowedBytes": true
+            },
+            {
+              "path": "operator-sequential.manual.mjs",
+              "operation": "EXACT_COPY",
+              "actualSha256": "8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b",
+              "expectedSha256": "8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b",
+              "sourceSha256": "8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b",
+              "expectedSourceSha256": "8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b",
+              "allowedBytes": true
+            },
+            {
+              "path": "repeated-plan-control.json",
+              "operation": "EXACT_COPY",
+              "actualSha256": "47a66a9d5148b301f1fbff721670de92c8986467d590030159adcfd239c69c79",
+              "expectedSha256": "47a66a9d5148b301f1fbff721670de92c8986467d590030159adcfd239c69c79",
+              "sourceSha256": "47a66a9d5148b301f1fbff721670de92c8986467d590030159adcfd239c69c79",
+              "expectedSourceSha256": "47a66a9d5148b301f1fbff721670de92c8986467d590030159adcfd239c69c79",
+              "allowedBytes": true
+            },
+            {
+              "path": "record-operator-handoff.mjs",
+              "operation": "EXACT_COPY",
+              "actualSha256": "553c482e3977ed600b0846051ee1de9fa983e3a656867a3aa4c05cda393339bf",
+              "expectedSha256": "553c482e3977ed600b0846051ee1de9fa983e3a656867a3aa4c05cda393339bf",
+              "sourceSha256": "553c482e3977ed600b0846051ee1de9fa983e3a656867a3aa4c05cda393339bf",
+              "expectedSourceSha256": "553c482e3977ed600b0846051ee1de9fa983e3a656867a3aa4c05cda393339bf",
+              "allowedBytes": true
+            },
+            {
+              "path": "manual-selection-behavior-a.mjs",
+              "operation": "EXACT_COPY",
+              "actualSha256": "eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559",
+              "expectedSha256": "eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559",
+              "sourceSha256": "eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559",
+              "expectedSourceSha256": "eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559",
+              "allowedBytes": true
+            },
+            {
+              "path": "manual-selection-continuous-behavior-a.mjs",
+              "operation": "EXACT_COPY",
+              "actualSha256": "7fcf3c78437f33f8d146684e7e6173324a996b65c6722d58fec17dcfba643ecc",
+              "expectedSha256": "7fcf3c78437f33f8d146684e7e6173324a996b65c6722d58fec17dcfba643ecc",
+              "sourceSha256": "7fcf3c78437f33f8d146684e7e6173324a996b65c6722d58fec17dcfba643ecc",
+              "expectedSourceSha256": "7fcf3c78437f33f8d146684e7e6173324a996b65c6722d58fec17dcfba643ecc",
+              "allowedBytes": true
+            },
+            {
+              "path": "manual-selection-continuous-control.json",
+              "operation": "EXACT_COPY",
+              "actualSha256": "b84e79d9c799413461c708b9fde47860acf1be57887dcd50f2f7a34c25750eea",
+              "expectedSha256": "b84e79d9c799413461c708b9fde47860acf1be57887dcd50f2f7a34c25750eea",
+              "sourceSha256": "b84e79d9c799413461c708b9fde47860acf1be57887dcd50f2f7a34c25750eea",
+              "expectedSourceSha256": "b84e79d9c799413461c708b9fde47860acf1be57887dcd50f2f7a34c25750eea",
+              "allowedBytes": true
+            },
+            {
+              "path": "manual-selection-continuous-control.final.json",
+              "operation": "EXACT_COPY",
+              "actualSha256": "f958efe94dc9475a32703e57885c069e7f95f884cd6b259471a490b085b57039",
+              "expectedSha256": "f958efe94dc9475a32703e57885c069e7f95f884cd6b259471a490b085b57039",
+              "sourceSha256": "f958efe94dc9475a32703e57885c069e7f95f884cd6b259471a490b085b57039",
+              "expectedSourceSha256": "f958efe94dc9475a32703e57885c069e7f95f884cd6b259471a490b085b57039",
+              "allowedBytes": true
+            },
+            {
+              "path": "record-operator-handoff-behavior-a.mjs",
+              "operation": "EXACT_COPY",
+              "actualSha256": "c9e93fb47caee212c3b5eb2322e963fa89fbe10008db469d9dd4dc6a47546d82",
+              "expectedSha256": "c9e93fb47caee212c3b5eb2322e963fa89fbe10008db469d9dd4dc6a47546d82",
+              "sourceSha256": "c9e93fb47caee212c3b5eb2322e963fa89fbe10008db469d9dd4dc6a47546d82",
+              "expectedSourceSha256": "c9e93fb47caee212c3b5eb2322e963fa89fbe10008db469d9dd4dc6a47546d82",
+              "allowedBytes": true
+            },
+            {
+              "path": "prepare-correction.mjs",
+              "operation": "VERSION_GUARD_ONLY",
+              "actualSha256": "3f4529e0c43a05e68d82e88e47c27753b49ea0f3fb5e6b91de64dd451f1439b6",
+              "expectedSha256": "3f4529e0c43a05e68d82e88e47c27753b49ea0f3fb5e6b91de64dd451f1439b6",
+              "sourceSha256": "763b1595882e12ffed73ff9548c483bfb5a57426a8fc79ec94a1cafc02913dde",
+              "expectedSourceSha256": "763b1595882e12ffed73ff9548c483bfb5a57426a8fc79ec94a1cafc02913dde",
+              "allowedBytes": true
+            },
+            {
+              "path": "prepare-coverage.mjs",
+              "operation": "VERSION_GUARD_ONLY",
+              "actualSha256": "75ba1dfb57f45afdd17bbe75cd5da30dabb28f3cd9ebf154859164f087951a05",
+              "expectedSha256": "75ba1dfb57f45afdd17bbe75cd5da30dabb28f3cd9ebf154859164f087951a05",
+              "sourceSha256": "5aba48032a46675556ba743931439f7af75f4e7ca230c7ffebe043e78105417f",
+              "expectedSourceSha256": "5aba48032a46675556ba743931439f7af75f4e7ca230c7ffebe043e78105417f",
+              "allowedBytes": true
+            },
+            {
+              "path": "verify-canonical.mjs",
+              "operation": "VERSION_GUARD_ONLY",
+              "actualSha256": "8d1d7bf78a59a9544f1af54ab7b2703dd9a0d86f1c588fb237ef21b68bf53a92",
+              "expectedSha256": "8d1d7bf78a59a9544f1af54ab7b2703dd9a0d86f1c588fb237ef21b68bf53a92",
+              "sourceSha256": "c21415b9b0b17c9a618815bd06c3ac2923c06f2f30f7594e0c73516473327093",
+              "expectedSourceSha256": "c21415b9b0b17c9a618815bd06c3ac2923c06f2f30f7594e0c73516473327093",
+              "allowedBytes": true
+            }
+          ],
+          "inventorySha256": "9fb2d7f2bc6637b0183c34dd31b4a6c88aa4bb06ebf6ec82444385be1b6cac52",
+          "modelInvokedByPreparation": false,
+          "gradeInvokedByPreparation": false,
+          "installationInvokedByPreparation": false
+        }
+      },
+      {
+        "id": "new-ten-models-not-run",
+        "status": "PASS",
+        "detail": {
+          "batchRunDirsPresent": [],
+          "actualCandidateCanonical": null
+        }
+      }
+    ],
+    "additionalFacts": {
+      "readmeDevelopmentHistoryClarified": true,
+      "rootAgentsBytes": 15954,
+      "rootAgentsLimit": 16384,
+      "entryBytes": 6142,
+      "entryLimit": 6144,
+      "marketplaceVersion": "8.2.1",
+      "publishedVersionDocumented": "8.2.0",
+      "approvedDevelopCollection": {
+        "plugins": 4,
+        "publicSkills": 6,
+        "naturalSkills": 3,
+        "explicitSkills": 3,
+        "repositorySkills": 20
+      },
+      "oldNineAccounting": {
+        "uuids": 11,
+        "completeInputs": 22,
+        "pass": 5,
+        "fail": 4,
+        "unexercised": 2,
+        "preparedNoAttempt": 4
+      },
+      "engineering880ArchiveEntryPinsChecked": 25,
+      "oldNineStoppedArchiveSourcePinsChecked": 327,
+      "oldNinePacketBodiesRead": false,
+      "otherHistoricalCompressedPacketBodiesRead": false
+    },
+    "inheritedRootExecutionLogs": {
+      "observed": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-10\\patch-checks\\npm-test.log",
+          "sha256": "690ac60eaf61801708bb668d0c35f82fe2c43b3237d38c7d0ecd69a99cf985b1",
+          "bytes": 73265,
+          "observedTestCount": "319",
+          "observedPass": "318",
+          "observedFail": "1",
+          "observedSkip": "0"
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-10\\patch-checks\\docs-tests-corrected.log",
+          "sha256": "3cbc3bcd69451a2f8b3b94b1a3afcea02e7b7cfa307ad6ecbcfdb0e827f0f36a",
+          "bytes": 2341,
+          "observedTestCount": "10",
+          "observedPass": "10",
+          "observedFail": "0",
+          "observedSkip": "0"
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-10\\patch-checks\\npm-test-corrected.log",
+          "sha256": "b44913e30d72b90e5d561f03c436c0483c98d1c8e6d155f04a56fc143e8cba58",
+          "bytes": 72357,
+          "observedTestCount": "319",
+          "observedPass": "319",
+          "observedFail": "0",
+          "observedSkip": "0"
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-10\\patch-checks\\npm-validate.log",
+          "sha256": "10dcad75d29a73396e2a3003d7c619a4d5b030e325667d9f8c56811ea564d37e",
+          "bytes": 354,
+          "observedTestCount": null,
+          "observedPass": null,
+          "observedFail": null,
+          "observedSkip": null
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-10\\patch-checks\\npm-check.log",
+          "sha256": "6c194d3cab975bfcaadd9ef894adc247ca34e53e06af305b0c215099eb27add3",
+          "bytes": 213,
+          "observedTestCount": null,
+          "observedPass": null,
+          "observedFail": null,
+          "observedSkip": null
+        }
+      ],
+      "notRunByThisReviewer": true,
+      "originalFailure": "Initial full run318/319 was documentation-contract failure for missing0.1.10 in the plugin CHANGELOG section body, not runtime/model failure; the exact original log is retained.",
+      "correctedObserved": "Corrected full output319/319, fail0, skipped0. Root also reports validate/check PASS. These do not constitute new model or canonical installation acceptance.",
+      "remaining": "Root will run final validation after subsequent documentation/evidence imports and exact committed canonical eight installs/four actual-cache Python."
+    },
+    "mechanicalCheckerCorrections": {
+      "originalCheckResult": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-10\\precommit-checks-initial-raw-assumptions.json",
+      "originalCheckResultSha256": "4db5ffd98bdfc5d645fe59589c732306772a6937abcdbb03094311299f49e588",
+      "originalHelper": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-10\\precommit-checks-original-raw-assumptions.mjs",
+      "originalHelperSha256": "298d89989cb0270f4b2ad945f0a886718f3575004dfafe1e77815bc343988353",
+      "correctedHelper": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-10\\precommit-checks-behavior-a.mjs",
+      "correctedHelperSha256": "c80037af4b85c36fd92c2bae2550a676a2625ced220d3c2bafe75198e549c3d9",
+      "reason": "Initial read-only checker expected unchanged working checkout bytes to equal LF Git blobs despite inherited CRLF checkout conversion, and misclassified the three documented VERSION_GUARD_ONLY entries as exact copies. Both assumptions were reviewer-control mistakes. Final check preserves raw hashes, separately verifies no Git diff and exact newline-normalized unchanged text, and verifies thirty raw exact copies plus three version-only reversals. Actual candidate runtime hashes always remain raw. Initial observations were retained, not rewritten as product/model failures."
+    }
+  },
+  "aiJudgment": {
+    "result": "No new static blocker in the observed scope; real installed behavior remains untested for0.1.10.",
+    "contract": "The only public entry remains $html-guide-kit:guide, Read, explicit invocation. It creates new guide text in chat in Chinese with original terms, offers2–3 materially distinct reader/task/question triplets, waits for explicit selection/modification confirmation and preserves pending options. It neither creates HTML/code/files nor gives making-tool operations, guide revision/comparison/HTML review, scores ability, infers durable mastery or promises host-window control.",
+    "repairs": [
+      "Confirmed guide composition keeps operation and necessary current-state premises local to each feedback block or each branch. Shared scope must explicitly cover all named subbranches. Other correct tables, the initial panel, earlier examples and independent scenarios cannot silently provide that scope.",
+      "Dynamic operations rematch the latest state. Outside a local common guard, other source-covered outcomes stay known and only the related missing result remains pending; outside does not automatically mean forbidden, unchanged or wholly unknown.",
+      "An explicitly bounded, reset independent teaching scenario is permitted when dynamic scope cannot be made clear. It may supply labelled local teaching premises, never missing source rules. Pure condition truth predicates are distinguished from operation/state/numeric results.",
+      "Existing reader/task content and limited source clues are preserved field by field. Missing complete target, criteria or confirmation cannot become a claim that existing source fields are absent. Scope-refusal reasons also require source support.",
+      "Earlier source-update, broad-rule repeated-operation, conjunction/disjunction, local numeric-domain, object-scope, exclusive-quantifier/restore, code-no-echo and reliable-selfcheck premise controls remain intact. The new prose is generic rather than a frozen-case answer or domain fixture."
+    ],
+    "documentHistory": "Current candidate0.1.10, develop8.2.1 and published main8.2.0 are distinguished. Old9 retains every5PASS/4FAIL/2UNEXERCISED outcome and original B4.2 stage-observation wording plus exact clarification. Old0.1.4/0.1.7 models stay NOT_RUN. RUNBOOK§25 and root A6/INDEX/current user documents sync without rewriting earlier historical claims.",
+    "resolvedFinding": {
+      "path": "README.md",
+      "line": 69,
+      "issue": "Development prose previously called the LEK migration candidate not distributed without a historical marker, contradicting the current published8.2.0 paragraph.",
+      "resolution": "Root labelled that paragraph a migration-time snapshot and recorded #232 published8.2.0, #235 develop8.2.1, and HTML pending later distribution. Exact corrected bytes are in this independent snapshot.",
+      "status": "RESOLVED_IN_REVIEWED_WORKING_TREE"
+    },
+    "evidencePrivacyAndScope": "Added880 engineering files contain recorded command/results and historical resource locators, not actual HOME/cache/auth directories. Old9 archive allowlist is restricted to stopped0.1.9 plus its archive control, with verified source pins; packet bodies were not reinterpreted or regraded. No shared registration, strict gate, cache-source rule, approved icon, other-plugin version or marketplace version is weakened."
+  },
+  "remainingGates": {
+    "newTenCommittedCanonical": null,
+    "newTenModelStatus": "NOT_RUN",
+    "newTenInstalledCanonical": "NOT_RUN_AT_REVIEW_TIME",
+    "freshAcceptanceRequired": "Six groups14 variants/30 turns; affected E6/12, repeated1/2, continuous S2/9 and remaining original runnable E. Inputs/criteria/default model/manual selection unchanged; old PASS is not inherited.",
+    "nativeClientAndWindowEvidence": "NOT_RUN",
+    "realityEffect": "NOT_MEASURED; excluded by Owner for this engineering delivery",
+    "ownerFinalAcceptance": "SEPARATE",
+    "githubCurrentHeadNonAuthorApproval": "REQUIRED; this report is not GitHub approval",
+    "ciAndReviewThreads": "REQUIRED on actual final head",
+    "actualDevelopMergeAndPostMergeReverification": "NOT_DONE",
+    "epic217AndIssue220": "KEEP_OPEN",
+    "formalReleaseTagMainPublish": "OUT_OF_SCOPE"
+  },
+  "actions": {
+    "repositoryWritten": false,
+    "installationInvoked": false,
+    "modelInvoked": false,
+    "gradeInvoked": false,
+    "githubSelfApproval": false,
+    "oldRawOrReviewsEdited": false,
+    "onlyExternalReportSnapshotFilesWritten": true
+  }
+}
