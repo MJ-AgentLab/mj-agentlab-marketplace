@@ -6,12 +6,12 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.7
+version: v2.8
 ---
 
 # [SPEC] Plugin manifest
 
-plugins/diagram-kit/plugin.json、plugins/learning-evidence-kit/plugin.json、plugins/explain-kit/plugin.json 、plugins/html-guide-kit/plugin.json 与 plugins/communication-kit/plugin.json 各声明 https://agent-plugins.org/schemas/1.0.0/plugin.schema.json。根字段为 name、version、description、author、repository、license、keywords、extensions。根 version 是对应插件的权威版本；Diagram/Explain 已随 main / v8.1.1 发布；Learning Evidence 0.1.0、HTML 0.1.0 与 Communication 0.1.0 为未发布开发候选。已发布历史版本记录保持。技能由根 skills/ 自动发现，无 skills 字段、兼容包装或空 MCP 文件。
+plugins/diagram-kit/plugin.json、plugins/learning-evidence-kit/plugin.json、plugins/explain-kit/plugin.json 、plugins/html-guide-kit/plugin.json 与 plugins/communication-kit/plugin.json 各声明 https://agent-plugins.org/schemas/1.0.0/plugin.schema.json。根字段为 name、version、description、author、repository、license、keywords、extensions。根 version 是对应插件的权威版本；Diagram0.3.1/Explain0.1.1/Learning Evidence0.1.0已随main/v8.2.0公开；HTML0.1.0与Communication0.1.0为未发布开发候选。已发布历史版本记录保持。技能由根 skills/ 自动发现，无 skills 字段、兼容包装或空 MCP 文件。
 
 extensions.com.openai.interface 提供 displayName、shortDescription、longDescription、developerName、category、capabilities、defaultPrompt。diagram-kit 的 defaultPrompt 使用 $diagram-kit:arch-diagram，capabilities 为 Read/Write。learning-evidence-kit 的 capabilities 为 Read/Write，defaultPrompt 完整覆盖 $learning-evidence-kit:pop-quiz 与 $learning-evidence-kit:learning-record-check；两个 agents/openai.yaml 都设置 allow_implicit_invocation: false，不能路由其他技能。包权限允许明确移交后的共用持久化与授权共享，Pop Quiz 诊断阶段仍只读。SKILL.md 的 name/description 使用严格 YAML；本仓描述预算 1024 字符。验证实现见 scripts/validate-portable.mjs；[官方格式](https://developers.openai.com/plugins/build/plugins)。
 
@@ -55,3 +55,5 @@ SKILL_RESOURCES 定义必需包内资源；安装比较严格验证源/缓存 ma
 | Version | Date | Summary |
 |---|---|---|
 | v2.7 | 2026-10-13 | 同步 Learning 原子替代与 Communication 完整集成，按当前集合验收，发行范围另核对 |
+
+| v2.8 | 2026-10-13 | 同步已公开Learning8.2.0基线，保留Communication开发五包与正式四包范围及历史限制 |

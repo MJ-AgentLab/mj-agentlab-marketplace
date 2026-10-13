@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.7
+version: v2.8
 ---
 
 # [GUIDE] Plugin development and testing
@@ -54,3 +54,5 @@ PR2 已原子加入 HTML Guide Kit 0.1.0 与 Owner 选定的第二轮 A。保留
 | Version | Date | Summary |
 |---|---|---|
 | v2.7 | 2026-10-13 | 同步 Learning 原子替代与 Communication 完整集成，按当前集合验收，发行范围另核对 |
+
+| v2.8 | 2026-10-13 | 同步已公开Learning8.2.0基线，保留Communication开发五包与正式四包范围及历史限制 |
