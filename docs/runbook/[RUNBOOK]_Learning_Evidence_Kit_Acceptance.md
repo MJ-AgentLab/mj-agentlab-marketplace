@@ -136,6 +136,10 @@ The unmerged repair uses actual check authors, installed LRC versions/context, a
 
 On 2026-10-12 Owner explicitly chose the original public 8.2.0 scope after parallel HTML package #226 merged: develop retains HTML, while the independent 8.2.0 release candidate contains the original three plugins/five skills/two learning policies. HTML is separately released. Development synchronization and public candidate inventory must be described separately; no already merged HTML runtime is deleted to enforce the release inventory.
 
+### Development integration after HTML (2026-10-13)
+
+PR4 now retains the merged HTML runtime and combines both strict resource contracts: development has four plugins/six public skills/three explicit policies; the separate public 8.2.0 source remains the approved original three/five/two. All Learning package bytes equal fourth-round source `8546aef`, while Diagram/Explain/HTML and VERSION equal actual develop `d106e766`. The first working merge test run failed five stale inventory/error-wording cases (312/317), preserved in its receipt; after reconciliation full regression passes 317/317 with zero skips, including 33 storage and 31 GitHub actual Python cases. All eight actual isolated install scenarios pass, with four cached Diagram Python runs and three cached Learning save/replay/check scenarios. Strict validation/exact Codex 0.147.0 pass. The `upstream_sync_after_html` section records tested merge source, original failure/log hashes and raw smoke results. Actual fourth-round model acceptance remains separate and pending; no desktop/native, GitHub approval or release completion is inferred.
+
 ### Entry activation ledger (continued)
 
 PR5 fills one row for each actual host/entry combination, retaining method, client version, install source/plugin/head identity, actual call evidence, individual window results, impact and removal condition. No entry is enabled solely by the contract or a static metadata check.
@@ -185,4 +189,4 @@ Use existing draft-first release controls and record actual remote state before 
 | v1.3 | 2026-10-12 | Atomic candidate and installed-cache common capabilities; model/native desktop NOT_RUN | PR4 replacement, unchanged shared modules/other plugin versions, historical preservation and five installation combinations; Refs #213 |
 | v1.4 | 2026-10-12 | Actual second-round defects and candidate repairs; repair-model acceptance pending | Preserve ignored listing example and premature application probes; enforce listing budgets and Stage 2 prerequisites before investigation; Refs #213 / #214 |
 | v1.4.1 | 2026-10-13 | Complete third-round actual failures and generation-field repair; new acceptance pending | Actual author/LRC provenance/event time for new checks, unchanged originals/lineage, scoped internal application saving and Owner's separate HTML/public-release boundary |
-| v1.4.2 | 2026-10-13 | Four-package development integration; fresh checks pending | Retain HTML runtime/resources and strict six-skill/three-explicit development inventory; original three-plugin public source stays separate |
+| v1.4.2 | 2026-10-13 | Four-package development integration; 317 tests/eight installs passed | Retain HTML runtime/resources and strict six-skill/three-explicit development inventory; original three-plugin public source stays separate |
