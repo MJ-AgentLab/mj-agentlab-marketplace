@@ -1,0 +1,615 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T10:59:47.914Z",
+  "timezone": "Asia/Taipei",
+  "role": "Independent objective evidence audit; not GitHub approval",
+  "fixedCandidateSha": "b2d47ce779e32741af8cea604ac4b1ea8bb787f2",
+  "fixedCandidateTree": "d4c59b67c0fa55b15f565845b5717e304fb0c370",
+  "currentEvidenceOnlyHead": "14f9c5df18e1eafec46b6d50a63d8a3f1a96b7af",
+  "currentHeadRuntimeDifference": "",
+  "packageTree": "91373d751c4cc4ce2a5a586c2dec74f9147cc38f",
+  "checks": [
+    {
+      "id": "S01",
+      "definition": "catalog、磁盘和注册集合精确一致：四插件、五公开技能、20 开发技能",
+      "status": "PASS",
+      "assessment": "catalog / disk / whitelist are exactly 4 plugins, 5 public skills and 20 development skills. Old three packages are unchanged relative to PR2.",
+      "evidence": [
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-pr3-validate-02.log",
+          "locator": "ok=true; publicSkills.length=5; repositorySkills=20"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin-tests-02.log",
+          "locator": "# Subtest: four approved portable plugins and all 20 repository skills satisfy contracts",
+          "method": "Actual recorded passing test; code read to identify exercised invariant"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin-tests-02.log",
+          "locator": "# Subtest: catalog rejects missing, duplicate, unknown, versioned and escaped plugin entries",
+          "method": "Actual recorded passing test; code read to identify exercised invariant"
+        }
+      ],
+      "scope": "Original S definition only; not behavior/client/release acceptance"
+    },
+    {
+      "id": "S02",
+      "definition": "manifest 与原生提示只调用本包 communicate",
+      "status": "PASS",
+      "assessment": "Both default prompts invoke only communication-kit:communicate; own-route and cross-route mutations passed. New 128/129 character client-budget regression is enforced. No actual writing behavior is inferred.",
+      "evidence": [
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin-tests-02.log",
+          "locator": "# Subtest: communication manifest and native metadata require the owned explicit entry",
+          "method": "Actual recorded passing test; code read to identify exercised invariant"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin-tests-02.log",
+          "locator": "# Subtest: communication listing and native prompts stay within the actual client budget",
+          "method": "Actual recorded passing test; code read to identify exercised invariant"
+        }
+      ],
+      "scope": "Original S definition only; not behavior/client/release acceptance"
+    },
+    {
+      "id": "S03",
+      "definition": "显式策略准确；缺失、错误类型、重复 YAML key 均失败",
+      "status": "PASS",
+      "assessment": "Boolean false is required; deletion, true, string and duplicate YAML keys fail. Ordinary/native actual inventories corroborate explicit-only discovery.",
+      "evidence": [
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin-tests-02.log",
+          "locator": "# Subtest: communication manifest and native metadata require the owned explicit entry",
+          "method": "Actual recorded passing test; code read to identify exercised invariant"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-pr3-canonical.json",
+          "locator": "/result/scenarios/5/{outside,nativeOutside,explicitOnly}"
+        }
+      ],
+      "scope": "Original S definition only; not behavior/client/release acceptance"
+    },
+    {
+      "id": "S04",
+      "definition": "能力准确为 Read/Write，漏项或额外能力失败",
+      "status": "PASS",
+      "assessment": "Read/Write exact set is enforced, including missing, duplicate, extra and non-array mutations. Complete installed manifest bytes match source.",
+      "evidence": [
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin-tests-02.log",
+          "locator": "# Subtest: each plugin advertises its exact approved capabilities without duplicates",
+          "method": "Actual recorded passing test; code read to identify exercised invariant"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-pr3-canonical.json",
+          "locator": "/result/scenarios/5/installedPackageMetadata/communication-kit/plugin.json"
+        }
+      ],
+      "scope": "Original S definition only; not behavior/client/release acceptance"
+    },
+    {
+      "id": "S05",
+      "definition": "冻结记录字段、来源、章节、日期及哈希有效",
+      "status": "PASS",
+      "assessment": "Exact schema, 2 sources, 3 summaries, valid dates, dirty Git state, references and hashes are verified. This audit reread the selected source chapters and performed semantic comparison for every summary; no source status or effectiveness upgrade.",
+      "evidence": [
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin-tests-02.log",
+          "locator": "# Subtest: frozen snapshot rejects malicious fields, dates, references and inconsistent Git states",
+          "method": "Actual recorded passing test; code read to identify exercised invariant"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin-tests-02.log",
+          "locator": "# Subtest: frozen snapshot validates entirely from owned bytes without accessing research paths",
+          "method": "Actual recorded passing test; code read to identify exercised invariant"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin/develop/plugins/communication-kit/skills/communicate/references/aics-snapshot.json",
+          "locator": "/sources,/summaries,/mapping"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-pr3-objective-review.json",
+          "locator": "/sourceSemanticComparison,/sourceHashes,/summaryHashes"
+        }
+      ],
+      "scope": "Original S definition only; not behavior/client/release acceptance"
+    },
+    {
+      "id": "S06",
+      "definition": "摘要改字节而未更新哈希时校验失败",
+      "status": "PASS",
+      "assessment": "Every Markdown summary is altered without a hash update and rejected; actual canonical installed summary hashes match frozen bytes.",
+      "evidence": [
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin-tests-02.log",
+          "locator": "# Subtest: frozen snapshot detects every missing or altered reference and ignores fenced fake headings",
+          "method": "Actual recorded passing test; code read to identify exercised invariant"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-pr3-canonical.json",
+          "locator": "/result/scenarios/5/installedResources/communication-kit:communicate/references"
+        }
+      ],
+      "scope": "Original S definition only; not behavior/client/release acceptance"
+    },
+    {
+      "id": "S07",
+      "definition": "包外路径、符号链接及 junction 越界失败",
+      "status": "PASS",
+      "assessment": "Owned paths and traversal fail closed; local Windows junction mutations passed. Same-runtime Ubuntu CI actually executed the dir-symlink branch for internal and external targets and passed. Additional local file-symlink creation attempts were EPERM/NOT RUN and remain recorded, not counted as PASS.",
+      "evidence": [
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin-tests-02.log",
+          "locator": "# Subtest: frozen references reject traversal, non-files and internal or external junction components",
+          "method": "Actual recorded passing test; code read to identify exercised invariant"
+        },
+        {
+          "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38237968674/job/114773236174",
+          "locator": "ok 278; frozen references reject traversal, non-files and internal or external junction components; actual checkout 14f9c5d"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin/develop/tests/validate-portable.test.mjs",
+          "locator": "fs.symlinkSync(target,refs,process.platform===win32?junction:dir) and assert.throws(validateCommunicationSnapshot)"
+        }
+      ],
+      "scope": "Original S definition only; not behavior/client/release acceptance"
+    },
+    {
+      "id": "S08",
+      "definition": "安装缓存中的技能、元数据、参考资料和图标与源一致",
+      "status": "PASS",
+      "assessment": "All 9 actual canonical scenarios match complete plugin.json, editable icon.svg, PNG metadata/content and recursive skill files. Communication has 6 skill resources including all 4 references. Metadata/SVG and skill-tree drift mutations fail. This closes the earlier name/version-only gap.",
+      "evidence": [
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin-tests-02.log",
+          "locator": "# Subtest: complete installed manifest rejects metadata drift despite unchanged name and version",
+          "method": "Actual recorded passing test; code read to identify exercised invariant"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin-tests-02.log",
+          "locator": "# Subtest: installed communication compares every reference byte, metadata and resource ownership",
+          "method": "Actual recorded passing test; code read to identify exercised invariant"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-pr3-canonical.json",
+          "locator": "/result/scenarios/*/{installedPackageMetadata,installedIcons,installedResources}"
+        }
+      ],
+      "scope": "Original S definition only; not behavior/client/release acceptance"
+    },
+    {
+      "id": "S09",
+      "definition": "版本 DryRun 零写入；独立更新及失败回滚正确",
+      "status": "PASS",
+      "assessment": "Synthetic communication scope DryRun is zero-write; root-only update, write failure/post-write corruption rollback, identity/From mismatch and missing-target zero-write preflight all actually passed. No real marketplace/plugin version transition is claimed.",
+      "evidence": [
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin-tests-02.log",
+          "locator": "# Subtest: DryRun writes nothing: communication-kit",
+          "method": "Actual recorded passing test; code read to identify exercised invariant"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin-tests-02.log",
+          "locator": "# Subtest: communication-kit synthetic candidate updates only its root version",
+          "method": "Actual recorded passing test; code read to identify exercised invariant"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin-tests-02.log",
+          "locator": "# Subtest: plugin write failure restores original bytes: communication-kit",
+          "method": "Actual recorded passing test; code read to identify exercised invariant"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin-tests-02.log",
+          "locator": "# Subtest: communication-kit post-write corruption restores every original byte",
+          "method": "Actual recorded passing test; code read to identify exercised invariant"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin-tests-02.log",
+          "locator": "# Subtest: communication-kit identity and From mismatches fail without writes",
+          "method": "Actual recorded passing test; code read to identify exercised invariant"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin-tests-02.log",
+          "locator": "# Subtest: absent communication-kit target fails before writes in apply and DryRun",
+          "method": "Actual recorded passing test; code read to identify exercised invariant"
+        }
+      ],
+      "scope": "Original S definition only; not behavior/client/release acceptance"
+    },
+    {
+      "id": "S10",
+      "definition": "图标有效、尺寸正确、四图完整可见；人工检查小尺寸辨识",
+      "status": "PASS",
+      "assessment": "Approved revision-2 D is packaged; PNG dimensions/CRC and exact runtime brand exports pass. Four-icon pixel fixture confirms all large icons and both native-size rows. This reviewer actually viewed current formal family sheet: four icons uncropped, globe+text recognizable at 32/48/64 on light/dark backgrounds. Desktop display remains separate NOT RUN.",
+      "evidence": [
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin-tests-02.log",
+          "locator": "# Subtest: four-icon comparison renders every large icon and both native-size rows without cropping",
+          "method": "Actual recorded passing test; code read to identify exercised invariant"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin-tests-02.log",
+          "locator": "# Subtest: each registered plugin has its own formal brand export and packaged icon",
+          "method": "Actual recorded passing test; code read to identify exercised invariant"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin/develop/assets/brand/previews/plugin-family.png",
+          "locator": "Actual view_image inspection during this audit"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin/develop/assets/brand/communication-kit/candidates/revision-2/selection.json",
+          "locator": "selection=d; authority=Owner"
+        }
+      ],
+      "scope": "Original S definition only; not behavior/client/release acceptance"
+    },
+    {
+      "id": "S11",
+      "definition": "canonical 候选资源缺失或篡改时阻止安装",
+      "status": "PASS",
+      "assessment": "Canonical temporary fixture first validates a good Git checkout, then 8 required Communication resources x missing/tampered are rejected before installer call; calls=0. Actual production-candidate canonical 9 scenarios also succeed. Mutation fixture is synthetic and not mislabeled as desktop/release evidence.",
+      "evidence": [
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin-tests-02.log",
+          "locator": "# Subtest: canonical communication resource loss or tampering blocks installation before any installer call",
+          "method": "Actual recorded passing test; code read to identify exercised invariant"
+        }
+      ],
+      "scope": "Original S definition only; not behavior/client/release acceptance"
+    },
+    {
+      "id": "S12",
+      "definition": "旧插件、真实 Python 图表校验和无 MCP 契约保持",
+      "status": "PASS",
+      "assessment": "Old three plugin runtime files/versions are unchanged; full regression and 9 installs succeeded. Four scenarios containing Diagram actually ran installed-cache Python with one scanned diagram, FAIL 0/WARN 0. Every scenario executed MCP list and the fixed smoke code requires empty inventory before ok=true.",
+      "evidence": [
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-pr3-canonical.json",
+          "locator": "/result/scenarios/{0,3,4,8}/diagramValidation; all /commands MCP list statuses=0"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin/develop/scripts/smoke-codex-plugin.mjs",
+          "locator": "empty MCP inventory assertion and installed Python execution"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-plugin/develop",
+          "locator": "git diff 8653e6d...b2d47ce -- plugins/{diagram-kit,understanding-kit,explain-kit}: empty"
+        }
+      ],
+      "scope": "Original S definition only; not behavior/client/release acceptance"
+    }
+  ],
+  "evidenceFiles": [
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-plugin-tests-02.log",
+      "sha256": "b5b452e01d35e2f934e304057571d612aab94a8dde0f3b3d8d3c55df1e2a7562"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr3-canonical.json",
+      "sha256": "46943fc3f71c99a382160d79475354a3534a0c67ff77f68255e3605f66e4a6ef"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-plugin/develop/docs/runbook/evidence/communication-kit-2026-10-12-pr3-engineering-01.json",
+      "sha256": "d1374d50d3fb0f70b3ef00e5b4647792f2b6722ce850eecf4ea3b47f51a9412d"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-plugin/develop/docs/runbook/evidence/communication-kit-2026-10-12-pr3-engineering-02.json",
+      "sha256": "4bb27413e02749df81e8da16cf6d986993b95e14162eaa77ac05a3efc9531356"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr3-validate-02.log",
+      "sha256": "23f2ca82e1190f4bc0ddeabd6436bfa2a96fa8da1cbf52383b7c7cf4b1f66c66"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr3-baseline-02.log",
+      "sha256": "68ad909418d8afbe4cffa1f080ea0ab54359beecfa396b562e10c2ff0ad79704"
+    }
+  ],
+  "localTests": {
+    "tests": 278,
+    "pass": 278,
+    "fail": 0,
+    "skipped": 0,
+    "identityBinding": "engineering-02 explicitly binds log hash and fixed b2d47ce"
+  },
+  "canonical": {
+    "sha": "b2d47ce779e32741af8cea604ac4b1ea8bb787f2",
+    "checkedAt": "2026-10-12T10:28:34.188Z",
+    "scenarios": 9,
+    "allCommandsZero": true,
+    "pythonRuns": 4,
+    "communicationResources": {
+      "SKILL.md": "8f9f77253a1feb0e31632661c5b25ec4305e29afda276b332e69f6b8203e6dfb",
+      "agents/openai.yaml": "c89a7134a1dd2fffa3e99d38bdcedb2bdaf46fb03de9b69ff1b19ad667c01d2d",
+      "references/aics-policy.md": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+      "references/aics-snapshot.json": "dcfc424f7a18ac7187c77d947b58c457821363c22936c20682ef08527c14ed33",
+      "references/source-provenance.md": "ad8f3065a538a4e4a2b07750fdf15d088106f28adabb07eb4eb24e1b93c80b7d",
+      "references/task-patterns.md": "0d427c2dfc1b3612a1ee230eb8dc949ef8d59c00a5fd1fe525af2b14f3f24595"
+    },
+    "metadata": {
+      "plugin.json": {
+        "bytes": 1439,
+        "sha256": "7eead6be18358eb3925f283a9d2b2a149adeae2cfcb8e42bda6d859bf78e28c8"
+      },
+      "assets/icon.svg": {
+        "bytes": 1168,
+        "sha256": "7a0a594df6ff9b622e5900771731fe63f97ebfb873e3874881e3a1a1764ec5ea"
+      }
+    }
+  },
+  "ubuntuCI": [
+    {
+      "jobId": "114773236174",
+      "runId": 38237968674,
+      "status": "completed",
+      "conclusion": "success",
+      "headSha": "14f9c5df18e1eafec46b6d50a63d8a3f1a96b7af",
+      "effectiveCheckoutSha": "14f9c5df18e1eafec46b6d50a63d8a3f1a96b7af",
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38237968674/job/114773236174",
+      "logSha256": "ad62f52918b423046d6f057a666edcad54fb807824d77f6b6028cf3be2614c9d",
+      "excerpts": [
+        "2026-10-12T10:42:13.7837236Z [command]/usr/bin/git log -1 --format=%H",
+        "2026-10-12T10:43:23.7905212Z ok 234 - Windows equivalent file casing still passes containment # SKIP",
+        "2026-10-12T10:43:23.7949763Z ok 278 - frozen references reject traversal, non-files and internal or external junction components",
+        "2026-10-12T10:43:23.7950270Z # tests 278",
+        "2026-10-12T10:43:23.7950441Z # pass 277",
+        "2026-10-12T10:43:23.7950523Z # fail 0",
+        "2026-10-12T10:43:23.7950697Z # skipped 1"
+      ],
+      "counts": {
+        "tests": 278,
+        "pass": 277,
+        "fail": 0,
+        "skipped": 1
+      },
+      "skipReason": "Windows-equivalent casing test only; frozen-resource symbolic-link test is not skipped"
+    },
+    {
+      "jobId": "114773299175",
+      "runId": 38237988376,
+      "status": "completed",
+      "conclusion": "success",
+      "headSha": "14f9c5df18e1eafec46b6d50a63d8a3f1a96b7af",
+      "effectiveCheckoutSha": "0f46caad45e441f76b03d85c74bfb1633ca894d5",
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38237988376/job/114773299175",
+      "logSha256": "266c87a4009d52407f671783cd5c22d0ee4083ce53d191b67be2ef852ae5ec94",
+      "excerpts": [
+        "2026-10-12T10:42:25.3320397Z [command]/usr/bin/git log -1 --format=%H",
+        "2026-10-12T10:43:44.8082084Z ok 234 - Windows equivalent file casing still passes containment # SKIP",
+        "2026-10-12T10:43:44.8133284Z ok 278 - frozen references reject traversal, non-files and internal or external junction components",
+        "2026-10-12T10:43:44.8133847Z # tests 278",
+        "2026-10-12T10:43:44.8134031Z # pass 277",
+        "2026-10-12T10:43:44.8134124Z # fail 0",
+        "2026-10-12T10:43:44.8134330Z # skipped 1"
+      ],
+      "counts": {
+        "tests": 278,
+        "pass": 277,
+        "fail": 0,
+        "skipped": 1
+      },
+      "skipReason": "Windows-equivalent casing test only; frozen-resource symbolic-link test is not skipped"
+    }
+  ],
+  "localFileSymlinkAttempts": [
+    {
+      "kind": "inside-file-symlink",
+      "status": "NOT RUN",
+      "reason": "EPERM while creating Windows link; validator was not invoked"
+    },
+    {
+      "kind": "outside-file-symlink",
+      "status": "NOT RUN",
+      "reason": "EPERM while creating Windows link; validator was not invoked"
+    }
+  ],
+  "sourceHashes": [
+    {
+      "id": "PROJECT-current-learning",
+      "path": "D:/workspace/11-knowledge/01-AI-Communication-Research/PROJECT.md",
+      "recorded": "2f7cbd6883659673bb217b88f4bd8ff51cc292e904f3f491d86a1e8d2a6b7250",
+      "actual": "2f7cbd6883659673bb217b88f4bd8ff51cc292e904f3f491d86a1e8d2a6b7250",
+      "matches": true,
+      "head": "474275b6d83d25bc5e8a23848b682df4a5199ff0",
+      "fileState": "modified",
+      "status": [
+        " M .gitignore",
+        " M PROJECT.md",
+        " M SOURCES.yaml",
+        " M STATE.md",
+        "?? .python-version",
+        "?? artifacts/DR-01-site-naming.md",
+        "?? artifacts/DR-01-site-naming/",
+        "?? artifacts/RN-01-cloud-learning-artifacts.md",
+        "?? artifacts/RN-02-current-learning-reference.md",
+        "?? sources/cloud-learning/",
+        "?? uv.toml"
+      ]
+    },
+    {
+      "id": "RN-02",
+      "path": "D:/workspace/11-knowledge/01-AI-Communication-Research/artifacts/RN-02-current-learning-reference.md",
+      "recorded": "6f2bf99fe5b126513fa21520874731219b5c4c5fe8175e19b6903f08e70030d3",
+      "actual": "6f2bf99fe5b126513fa21520874731219b5c4c5fe8175e19b6903f08e70030d3",
+      "matches": true,
+      "head": "474275b6d83d25bc5e8a23848b682df4a5199ff0",
+      "fileState": "untracked",
+      "status": [
+        " M .gitignore",
+        " M PROJECT.md",
+        " M SOURCES.yaml",
+        " M STATE.md",
+        "?? .python-version",
+        "?? artifacts/DR-01-site-naming.md",
+        "?? artifacts/DR-01-site-naming/",
+        "?? artifacts/RN-01-cloud-learning-artifacts.md",
+        "?? artifacts/RN-02-current-learning-reference.md",
+        "?? sources/cloud-learning/",
+        "?? uv.toml"
+      ]
+    }
+  ],
+  "summaryHashes": [
+    {
+      "path": "./aics-policy.md",
+      "recorded": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+      "actual": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+      "matches": true
+    },
+    {
+      "path": "./task-patterns.md",
+      "recorded": "0d427c2dfc1b3612a1ee230eb8dc949ef8d59c00a5fd1fe525af2b14f3f24595",
+      "actual": "0d427c2dfc1b3612a1ee230eb8dc949ef8d59c00a5fd1fe525af2b14f3f24595",
+      "matches": true
+    },
+    {
+      "path": "./source-provenance.md",
+      "recorded": "ad8f3065a538a4e4a2b07750fdf15d088106f28adabb07eb4eb24e1b93c80b7d",
+      "actual": "ad8f3065a538a4e4a2b07750fdf15d088106f28adabb07eb4eb24e1b93c80b7d",
+      "matches": true
+    }
+  ],
+  "sourceSemanticComparison": [
+    {
+      "summary": "aics-policy.md",
+      "section": "四类审校表",
+      "sources": [
+        "PROJECT.md:526 §10.1 and :615 四类检查与 Evidence",
+        "RN-02:20 四类检查"
+      ],
+      "result": "PASS",
+      "comparison": "Preserves the 4 categories, actor/action/conditions/identifiers, important conclusion/limits/next step, claim evidence/status and execution accountability. Evidence crosses categories; no fifth content class or forced visible labels."
+    },
+    {
+      "summary": "aics-policy.md",
+      "section": "来源报告与 Claim 的强度",
+      "sources": [
+        "PROJECT.md:619 Confirmed 与来源关系",
+        "RN-02:31 知识状态与来源关系"
+      ],
+      "result": "PASS",
+      "comparison": "Confirmed remains claim-scoped with inspectable basis. Source-supported is source relation, not fifth state or claim verification. Vendor 18% report, sample mean, causation and generalization remain distinct evidence scopes."
+    },
+    {
+      "summary": "aics-policy.md",
+      "section": "核验与完成",
+      "sources": [
+        "PROJECT.md:623 Execution State 与完成声明",
+        "RN-02:43 执行与完成"
+      ],
+      "result": "PASS",
+      "comparison": "Preserves Planned/Attempted/Executed/Verified and Completed as Report Status. Required unfinished work is not Completed with exception; parser-only success does not finish a release task. Model self-review does not replace objective evidence."
+    },
+    {
+      "summary": "aics-policy.md",
+      "section": "适用强度与信息层次",
+      "sources": [
+        "PROJECT.md:541-555 §10.1",
+        "RN-02:59 严格度与信息层次"
+      ],
+      "result": "PASS",
+      "comparison": "Correctness remains common to all levels; strictness independent of length and information levels. Relevant failure/risk/exception visible near main answer; reader-result check does not replace factual verification or prove real-world benefit."
+    },
+    {
+      "summary": "task-patterns.md",
+      "section": "日常沟通/文档编写/保义改写与连续修改",
+      "sources": [
+        "PROJECT.md:526 §10.1",
+        "RN-02:20 四类检查 and :31 知识状态与来源关系",
+        "Saved plan §1 product contract"
+      ],
+      "result": "PASS",
+      "comparison": "Draft/rewrite patterns preserve conditions, exceptions, actor/responsibility, obligation strength, facts/identifiers and attribution. Explicit entry, waiting, repeated-revision protection and final notes are identified as plugin adaptation from Owner contract, not quoted AICS mandates. Generic reason wording needs behavioral correction as reported C02, without changing source status."
+    },
+    {
+      "summary": "task-patterns.md",
+      "section": "交付与能力边界",
+      "sources": [
+        "PROJECT.md:623 Execution State 与完成声明",
+        "Saved plan §1 / C16-C18"
+      ],
+      "result": "PASS",
+      "comparison": "Save/read-back and format limitations report actual operation scope; generated text is not a successfully edited DOCX. This is a product adaptation of execution accountability, not empirical effectiveness evidence."
+    },
+    {
+      "summary": "source-provenance.md",
+      "section": "实际来源",
+      "sources": [
+        "PROJECT.md:611 当前学习解释",
+        "RN-02 frontmatter and :69 Source",
+        "Actual read-only Git status/head and source byte hashes"
+      ],
+      "result": "PASS",
+      "comparison": "Dates, modified PROJECT, untracked RN-02 and dirty capture match actual files/status. HEAD is capture environment, not a committed source claim. Historical Site verification is attributed to RN-02; this audit did not verify the Site or Issue 9 PDF."
+    },
+    {
+      "summary": "source-provenance.md",
+      "section": "选取/改编/排除与更新",
+      "sources": [
+        "PROJECT.md research governance headings outside selected learning scope",
+        "RN-02:86 Interpretation, :90 Proposal, :105 本轮核验",
+        "Saved plan §5.2 source-update contract"
+      ],
+      "result": "PASS",
+      "comparison": "Excludes research startup/governance, session protocols, whole artifacts, research evaluation and historic file-verification conclusions from runtime. No rule adoption, new AICS version, benefit proof or automatic upstream synchronization is claimed."
+    }
+  ],
+  "visualInspection": {
+    "path": "C:/Users/Admin/.codex/worktrees/communication-plugin/develop/assets/brand/previews/plugin-family.png",
+    "sha256": "d54d1a9e5a2983ada9f501cc63e22fb0356b3d220fac83fceebfce28adbf296f",
+    "method": "Actual view_image pixel inspection",
+    "observation": "All four large icons and both light/dark 32/48/64 rows are visible; Communication globe/text distinct. This is artifact inspection, not desktop client display."
+  },
+  "atomicScope": {
+    "status": "PASS",
+    "newPackage": "communication-kit 0.1.0",
+    "marketplaceVersion": "8.1.2 unpublished, unchanged",
+    "oldPluginFilesVersions": "unchanged relative to PR2",
+    "runtimeSet": "4 plugins/5 public/20 development/2 explicit",
+    "registrationValidationResourcesIconsInstallationExpectations": "land in one candidate tree",
+    "ciA6DependenciesPythonValidator": "unchanged"
+  },
+  "observedDefects": [
+    {
+      "id": "C01-missing-final-key-note",
+      "status": "FAIL",
+      "evidence": {
+        "path": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801283992-ae5afc3f-cbc3-4d13-bfe4-1390845ffe13/C01/turn-1.jsonl",
+        "line": 9,
+        "itemId": "item_4"
+      },
+      "detail": "Final is only coordination draft; successful rule read is recorded at line 8, so initial policy refusal does not excuse missing mandatory final key note."
+    },
+    {
+      "id": "C02-unsupported-cause",
+      "status": "FAIL",
+      "evidence": {
+        "path": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801353141-217e5a00-933d-4d41-b26d-6607e2a0aaa8/C02/turn-1.jsonl",
+        "line": 6,
+        "itemId": "item_2"
+      },
+      "detail": "Final adds schedule already full although input only says cannot take new requests; generic facts/causes fidelity fix required."
+    }
+  ],
+  "remainingGates": [
+    "Aggregate and fix behavioral defects; independent full C01-C18 judgement/retest pending",
+    "Real ChatGPT and Codex target-client basic-usability evidence remains incomplete",
+    "Native window/closed/no-answer UI evidence not established by CLI metadata",
+    "Independent GitHub approval and actual protected merge dependencies remain required",
+    "PR4 version/range baseline recheck; R01-R05 and publication/post-release verification not executed"
+  ],
+  "deferred": [
+    "real-world effect experiments",
+    "nine personal trials",
+    "three-draft comparison",
+    "reader feedback",
+    "adoption",
+    "efficiency"
+  ],
+  "limitations": [
+    "S PASS is objective engineering scope only, not whole PR3 acceptance",
+    "Old engineering-01/S08 gap record retained; new canonical-02 closes that comparison gap",
+    "Understanding existing listing prompt budget limitation is recorded in engineering-02 and unchanged by this authorized addition",
+    "Windows local file-symlink EPERM attempts remain NOT RUN; required true-symlink coverage is independently supported by same-runtime Ubuntu directory-symlink branches"
+  ]
+}

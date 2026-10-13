@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "stage": "PR3",
+  "batch": "engineering-03",
+  "recordedAt": "2026-10-12T11:22:53.338Z",
+  "candidateSha": "94c170dcc7ede164d88e62611eb7351cc5d69f2c",
+  "candidateTree": "ae2c9b9c922b019e0a2d3d3a89d1b0d6179ec01b",
+  "packageGitTree": "14a3896c7ad50597bfc83996bcfec25180a720f9",
+  "fixes": "Generic factual-grounding and mandatory draft-note correction; original failed batch retained.",
+  "snapshot": {
+    "id": "communication-kit-aics-2026-10-12-r2",
+    "capturedAt": "2026-10-12T11:04:52.915Z",
+    "sha256": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332",
+    "summaries": [
+      {
+        "path": "./aics-policy.md",
+        "sha256": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+        "sourceIds": [
+          "PROJECT-current-learning",
+          "RN-02"
+        ]
+      },
+      {
+        "path": "./task-patterns.md",
+        "sha256": "190c47c125759de5dbdca218417a418b76ba555df44923dc2cf48b86d60d0cff",
+        "sourceIds": [
+          "PROJECT-current-learning",
+          "RN-02"
+        ]
+      },
+      {
+        "path": "./source-provenance.md",
+        "sha256": "53272cc56dba8cfe32203543d9f3d6aee8ec55ebc3602f4dc5652be90b9ed725",
+        "sourceIds": [
+          "PROJECT-current-learning",
+          "RN-02"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "PROJECT-current-learning",
+        "sha256": "2f7cbd6883659673bb217b88f4bd8ff51cc292e904f3f491d86a1e8d2a6b7250",
+        "fileState": "modified"
+      },
+      {
+        "id": "RN-02",
+        "sha256": "6f2bf99fe5b126513fa21520874731219b5c4c5fe8175e19b6903f08e70030d3",
+        "fileState": "untracked"
+      }
+    ]
+  },
+  "checks": {
+    "npmTest": {
+      "exitCode": 0,
+      "pass": 278,
+      "fail": 0,
+      "skipped": 0,
+      "file": "communication-kit-2026-10-12-pr3-test-03.log",
+      "sha256": "e97e7e41715f396321766715e3eac62467bea7bfcaa60d17ce20829fab3a2cd7"
+    },
+    "strict": {
+      "exitCode": 0,
+      "plugins": 4,
+      "publicSkills": 5,
+      "repositorySkills": 20,
+      "explicitOnly": 2,
+      "file": "communication-kit-2026-10-12-pr3-strict-03.log",
+      "sha256": "23f2ca82e1190f4bc0ddeabd6436bfa2a96fa8da1cbf52383b7c7cf4b1f66c66"
+    },
+    "baseline": {
+      "exitCode": 0,
+      "codex": "0.147.0",
+      "file": "communication-kit-2026-10-12-pr3-baseline-03.log",
+      "sha256": "68ad909418d8afbe4cffa1f080ea0ab54359beecfa396b562e10c2ff0ad79704"
+    },
+    "canonical": {
+      "result": "PASS",
+      "scenarios": 9,
+      "pythonRuns": 4,
+      "evidence": "communication-kit-2026-10-12-pr3-canonical-03.json",
+      "scope": "Complete metadata, icons and skill/resource byte comparison in actual canonical installations; not release R04"
+    }
+  },
+  "objectiveEvidence": "communication-kit-2026-10-12-pr3-objective-01.json records original fixed b2d S01-S12; unchanged validators/tests/path contracts and icon exports are reused only for unchanged content. Current full suite, strict and complete canonical resources independently rerun after snapshot correction.",
+  "behavior": "New actual C01-C18 batch bound to 94c170d in progress; no old PASS reused.",
+  "clients": {
+    "codexCLI": "Actual baseline behavior collected and independently graded separately; known host file restrictions preserved",
+    "chatgptDesktop": "NOT RUN",
+    "codexDesktopUI": "NOT RUN"
+  },
+  "release": "R01-R05 NOT RUN",
+  "realWorldEffects": "DEFERRED / OUT OF SCOPE"
+}

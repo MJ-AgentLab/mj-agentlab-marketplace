@@ -1,0 +1,698 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "Independent reviewer /root/contract_standards (separate from runner subjects)",
+  "reviewedAt": "2026-10-12T10:52:59.432Z",
+  "batch": "1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6",
+  "candidate": {
+    "sha": "b2d47ce779e32741af8cea604ac4b1ea8bb787f2",
+    "tree": "d4c59b67c0fa55b15f565845b5717e304fb0c370",
+    "packageSha256": "467f4371ba84c901b0a7ad6b41632346d73eea3bbaaa02a84fb7f12399ba44a5",
+    "snapshotSha256": "dcfc424f7a18ac7187c77d947b58c457821363c22936c20682ef08527c14ed33",
+    "fixtureSha256": "38cafcd318ead054cf9a0db599dd43160c6f3293dabe14cb2aec0d29a20ff68d"
+  },
+  "method": "Independent reading of completed real retry rollouts, actual tool outputs and observed bytes; profile fields alone do not prove successful writes.",
+  "grades": [
+    {
+      "case": "C16",
+      "status": "PARTIAL",
+      "reason": "实际turn_context为workspace-write，但补丁工具拒绝目标项目根/外部路径，原生写入也被policy拒绝。两个新目标未创建，notes原118字节hash保持；读取/诚实失败声明可覆盖，成功保存/单点编辑/回读仍未执行。",
+      "candidate": {
+        "sha": "b2d47ce779e32741af8cea604ac4b1ea8bb787f2",
+        "tree": "d4c59b67c0fa55b15f565845b5717e304fb0c370",
+        "packageSha256": "467f4371ba84c901b0a7ad6b41632346d73eea3bbaaa02a84fb7f12399ba44a5",
+        "snapshotSha256": "dcfc424f7a18ac7187c77d947b58c457821363c22936c20682ef08527c14ed33",
+        "fixtureSha256": "38cafcd318ead054cf9a0db599dd43160c6f3293dabe14cb2aec0d29a20ff68d"
+      },
+      "session": {
+        "metadata": {
+          "id": "01a12fb4-bcc0-7ae0-a0bf-4dc960486083",
+          "timestamp": "2026-10-12T10:42:16.385Z",
+          "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e-3f7w3C\\data",
+          "originator": "Codex Desktop",
+          "cli_version": "0.147.0",
+          "source": "exec",
+          "model_provider": "openai"
+        },
+        "turn_contexts": [
+          {
+            "model": "gpt-5.6-sol",
+            "effort": "xhigh",
+            "approval_policy": "never",
+            "sandbox_policy": {
+              "type": "workspace-write",
+              "network_access": false,
+              "exclude_tmpdir_env_var": true,
+              "exclude_slash_tmp": true
+            }
+          },
+          {
+            "model": "gpt-5.6-sol",
+            "effort": "xhigh",
+            "approval_policy": "never",
+            "sandbox_policy": {
+              "type": "workspace-write",
+              "network_access": false,
+              "exclude_tmpdir_env_var": true,
+              "exclude_slash_tmp": true
+            }
+          },
+          {
+            "model": "gpt-5.6-sol",
+            "effort": "xhigh",
+            "approval_policy": "never",
+            "sandbox_policy": {
+              "type": "workspace-write",
+              "network_access": false,
+              "exclude_tmpdir_env_var": true,
+              "exclude_slash_tmp": true
+            }
+          }
+        ]
+      },
+      "source": {
+        "collection": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/collection.json",
+        "sha256": "bc769f53a4f2719c0f8061adc7acb4ec631e8bed61773e23a760cd29c5ff5bf5"
+      },
+      "filesBefore": {
+        "notes.md": {
+          "bytes": 118,
+          "sha256": "fa2775eab338fa4462cf7e86fe84cc6e017257a847c383c1f7d6ec552faae599",
+          "text": "# 会议\n\n时间：14:00\n地点：会议室A\n范围：仅A组；预算未定。\n\n团队约定：本节保持原样。\n"
+        }
+      },
+      "filesAfter": {
+        "notes.md": {
+          "bytes": 118,
+          "sha256": "fa2775eab338fa4462cf7e86fe84cc6e017257a847c383c1f7d6ec552faae599",
+          "text": "# 会议\n\n时间：14:00\n地点：会议室A\n范围：仅A组；预算未定。\n\n团队约定：本节保持原样。\n"
+        }
+      },
+      "actualOutputs": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/turn-1.jsonl",
+          "messages": [
+            {
+              "line": 3,
+              "text": "我会按 `communication-kit:communicate` 的文件交付流程执行：先核对技能要求和目标文件是否已存在，再创建 `message.md`，随后回读验证内容。"
+            },
+            {
+              "line": 6,
+              "text": "技能包路径的直接读取被沙箱策略拦截了；技能正文已随请求完整提供。我会继续尝试读取其必需的审校参考，若仍受限，则严格依据已提供的技能正文完成保存与回读。"
+            },
+            {
+              "line": 19,
+              "text": "目标目录中不存在 `message.md`，不会覆盖已有内容。现在创建该文件，并按技能要求回读核对文字、时间和地点。"
+            },
+            {
+              "line": 20,
+              "text": "文件补丁工具与本次测试目录的项目根配置不一致，已拒绝两次写入。我会在同一明确目标上改用工作区内的原生文本写入，并立即回读；操作范围仍仅限新建 `message.md`。"
+            },
+            {
+              "line": 39,
+              "text": "保存失败：写入操作被测试环境策略拒绝。回查目录确认 `message.md` 未创建，因此无法回读文件。\n\n待保存内容：\n\n```text\n明天14:00在会议室A讨论方案。\n```"
+            }
+          ]
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/turn-2.jsonl",
+          "messages": [
+            {
+              "line": 3,
+              "text": "继续按同一成稿处理。我会先确认 `message.txt` 不存在，再创建并回读核验；文件内容保持不变。"
+            },
+            {
+              "line": 6,
+              "text": "已确认目标目录中没有 `message.txt`，不会覆盖现有内容。现在创建文件并准备回读。"
+            },
+            {
+              "line": 9,
+              "text": "保存失败：测试环境再次拒绝写入。回查目录确认 `message.txt` 未创建，因此无法回读。\n\n待保存内容：\n\n```text\n明天14:00在会议室A讨论方案。\n```"
+            }
+          ]
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/turn-3.jsonl",
+          "messages": [
+            {
+              "line": 3,
+              "text": "我会再次按 `communication-kit:communicate` 的保义编辑流程执行：先读取技能要求和现有 `notes.md`，确认原文中目标时间的出现位置，再只替换 `14:00` 并回读核对其余内容。"
+            },
+            {
+              "line": 8,
+              "text": "原文中 `14:00` 仅出现一次，修改范围明确；标题、地点、范围、预算状态及末行约定均保持原样。现在执行单行替换。"
+            },
+            {
+              "line": 11,
+              "text": "编辑失败：测试环境拒绝写入。回读确认 [notes.md](C:/Users/Admin/AppData/Local/Temp/e-3f7w3C/data/notes.md) 仍为 `时间：14:00`，其他内容也未改变。\n\n目标修改应为 `时间：15:00`；需在允许写入后重试。"
+            }
+          ]
+        }
+      ],
+      "writeAttempts": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 47,
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callId": "call_6f312f15784540a6ba17f1c0d167b011",
+          "text": "const patch = \"*** Begin Patch\\n*** Add File: message.md\\n+明天14:00在会议室A讨论方案。\\n*** End Patch\";\ntext(await tools.apply_patch(patch));\n"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 51,
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callId": "call_6b8d4c31dd154af791df29f9c1bd46b8",
+          "text": "const patch = \"*** Begin Patch\\n*** Add File: ./message.md\\n+明天14:00在会议室A讨论方案。\\n*** End Patch\";\ntext(await tools.apply_patch(patch));\n"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 55,
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callId": "call_5f8886348e7a466d8a8d08b8dd2138da",
+          "text": "const patch = \"*** Begin Patch\\n*** Add File: C:/Users/Admin/AppData/Local/Temp/e-3f7w3C/data/message.md\\n+明天14:00在会议室A讨论方案。\\n*** End Patch\";\ntext(await tools.apply_patch(patch));\n"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 61,
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callId": "call_2976b5ccbaca4a86a84774c47bcf7c2d",
+          "text": "const r = await tools.shell_command({\n  command: \"Set-Content -LiteralPath 'message.md' -Value '明天14:00在会议室A讨论方案。' -Encoding utf8\",\n  workdir: \"C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e-3f7w3C\\\\data\",\n  timeout_ms: 10000\n});\ntext(r);\n"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 65,
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callId": "call_975ab563014a4e8b9697746cb7442c35",
+          "text": "const r = await tools.shell_command({\n  command: \"Set-Content -LiteralPath 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e-3f7w3C\\\\data\\\\message.md' -Value '明天14:00在会议室A讨论方案。' -Encoding utf8\",\n  workdir: \"C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e-3f7w3C\\\\data\",\n  timeout_ms: 10000\n});\ntext(r);\n"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 77,
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callId": "call_0bd73efc75264e6f8805be93be16d1bc",
+          "text": "const r = await tools.shell_command({\n  command: \"Get-Command apply_patch -ErrorAction SilentlyContinue\",\n  workdir: \"C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e-3f7w3C\\\\data\",\n  timeout_ms: 10000\n});\ntext(r);\n"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 81,
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callId": "call_d0a1b5bf353c448f9ccb0f9071061500",
+          "text": "const r = await tools.shell_command({\n  command: \"where.exe apply_patch\",\n  workdir: \"C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e-3f7w3C\\\\data\",\n  timeout_ms: 10000\n});\ntext(r);\n"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 85,
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callId": "call_f42d357721814b3aaf689e14999925a9",
+          "text": "const patch = \"*** Begin Patch\\n*** Add File: data/message.md\\n+明天14:00在会议室A讨论方案。\\n*** End Patch\";\ntext(await tools.apply_patch(patch));\n"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 89,
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callId": "call_151f03acf57d4054b8d28d0c3f233d83",
+          "text": "const r = await tools.shell_command({\n  command: \"Get-ChildItem -Path 'C:\\\\Users\\\\Admin\\\\.cache\\\\codex-runtimes' -Recurse -Filter 'apply_patch*' -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName\",\n  workdir: \"C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e-3f7w3C\\\\data\",\n  timeout_ms: 10000\n});\ntext(r);\n"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 93,
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callId": "call_e3d4898daf694ddfa2c23cd007678e03",
+          "text": "const r = await tools.shell_command({\n  command: \"Get-ChildItem -Path 'C:\\\\Users\\\\Admin' -Recurse -Filter 'apply_patch*' -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName\",\n  workdir: \"C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e-3f7w3C\\\\data\",\n  timeout_ms: 10000\n});\ntext(r);\n"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 97,
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callId": "call_ab84e32f58a34183813b45e08d4e9631",
+          "text": "const r = await tools.shell_command({\n  command: \"[System.IO.File]::WriteAllText('C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e-3f7w3C\\\\data\\\\message.md', '明天14:00在会议室A讨论方案。', [System.Text.UTF8Encoding]::new($false))\",\n  workdir: \"C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e-3f7w3C\\\\data\",\n  timeout_ms: 10000,\n  login: false\n});\ntext(r);\n"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 131,
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callId": "call_dce393c4fecd47bfb54a224e23a19948",
+          "text": "const patch = \"*** Begin Patch\\n*** Add File: message.txt\\n+明天14:00在会议室A讨论方案。\\n*** End Patch\";\ntext(await tools.apply_patch(patch));\n"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 162,
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callId": "call_d518911bc0cb4368ace5ab071126625d",
+          "text": "const patch = \"*** Begin Patch\\n*** Update File: notes.md\\n@@\\n-时间：14:00\\n+时间：15:00\\n*** End Patch\";\ntext(await tools.apply_patch(patch));\n"
+        }
+      ],
+      "rejectionEvidence": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 16,
+          "type": "custom_tool_call_output",
+          "callId": "call_907aea6e791b462e9a8e8971add1b4d5",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.6 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command '$skillRoot = '\\\"'C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.codex\\\\\\\\worktrees\\\\\\\\communication-behavior\\\\\\\\isolated-homes\\\\\\\\7fb76d04-fac7-45e3-924f-8d08a249ac7e\\\\\\\\plugins\\\\\\\\cache\\\\\\\\mj-agentlab-marketplace\\\\\\\\communication-kit\\\\\\\\0.1.0\\\\\\\\skills\\\\\\\\communicate'; Get-Content -LiteralPath (Join-Path \\\"'$skillRoot '\\\"'SKILL.md') -Raw; Get-Content -LiteralPath (Join-Path \\\"'$skillRoot '\\\"'references\\\\\\\\aics-policy.md') -Raw; Get-Content -LiteralPath (Join-Path \\\"'$skillRoot '\\\"'references\\\\\\\\task-patterns.md') -Raw; if (Test-Path -LiteralPath '.\\\\\\\\message.md') { 'TARGET_EXISTS'; Get-Content -LiteralPath '.\\\\\\\\message.md' -Raw } else { 'TARGET_MISSING' }\\\"` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 26,
+          "type": "custom_tool_call_output",
+          "callId": "call_4884ab47bf684faaaea6b9e4f27d179d",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.1 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command \\\"Get-Content -LiteralPath 'C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.codex\\\\\\\\worktrees\\\\\\\\communication-behavior\\\\\\\\isolated-homes\\\\\\\\7fb76d04-fac7-45e3-924f-8d08a249ac7e\\\\\\\\plugins\\\\\\\\cache\\\\\\\\mj-agentlab-marketplace\\\\\\\\communication-kit\\\\\\\\0.1.0\\\\\\\\skills\\\\\\\\communicate\\\\\\\\references\\\\\\\\task-patterns.md' -Raw; if (Test-Path -LiteralPath '.\\\\\\\\message.md') { 'TARGET_EXISTS'; Get-Content -LiteralPath '.\\\\\\\\message.md' -Raw } else { 'TARGET_MISSING' }\\\"` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 34,
+          "type": "custom_tool_call_output",
+          "callId": "call_7cb5df00109742dcad41af841615c12c",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.1 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command \\\"if (Test-Path -LiteralPath '.\\\\\\\\message.md') { 'TARGET_EXISTS'; Get-Content -LiteralPath '.\\\\\\\\message.md' -Raw } else { 'TARGET_MISSING' }\\\"` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 38,
+          "type": "custom_tool_call_output",
+          "callId": "call_f272dfd1047c4a21989d63348db81ac6",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.1 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command \\\"Get-Item -LiteralPath 'message.md' -ErrorAction SilentlyContinue | Format-List FullName,Length\\\"` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 48,
+          "type": "custom_tool_call_output",
+          "callId": "call_6f312f15784540a6ba17f1c0d167b011",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.0 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\npatch rejected: writing outside of the project; rejected by user approval settings\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 52,
+          "type": "custom_tool_call_output",
+          "callId": "call_6b8d4c31dd154af791df29f9c1bd46b8",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.0 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\npatch rejected: writing outside of the project; rejected by user approval settings\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 56,
+          "type": "custom_tool_call_output",
+          "callId": "call_5f8886348e7a466d8a8d08b8dd2138da",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.0 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\npatch rejected: writing outside of the project; rejected by user approval settings\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 62,
+          "type": "custom_tool_call_output",
+          "callId": "call_2976b5ccbaca4a86a84774c47bcf7c2d",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.1 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command \\\"Set-Content -LiteralPath 'message.md' -Value '明天14:00在会议室A讨论方案。' -Encoding utf8\\\"` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 66,
+          "type": "custom_tool_call_output",
+          "callId": "call_975ab563014a4e8b9697746cb7442c35",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.0 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command \\\"Set-Content -LiteralPath 'C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\e-3f7w3C\\\\\\\\data\\\\\\\\message.md' -Value '明天14:00在会议室A讨论方案。' -Encoding utf8\\\"` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 78,
+          "type": "custom_tool_call_output",
+          "callId": "call_0bd73efc75264e6f8805be93be16d1bc",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.0 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command 'Get-Command apply_patch -ErrorAction SilentlyContinue'` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 82,
+          "type": "custom_tool_call_output",
+          "callId": "call_d0a1b5bf353c448f9ccb0f9071061500",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.0 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command 'where.exe apply_patch'` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 86,
+          "type": "custom_tool_call_output",
+          "callId": "call_f42d357721814b3aaf689e14999925a9",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.0 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\npatch rejected: writing outside of the project; rejected by user approval settings\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 98,
+          "type": "custom_tool_call_output",
+          "callId": "call_ab84e32f58a34183813b45e08d4e9631",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.0 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -NoProfile -Command \\\"[System.IO.File]::WriteAllText('C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\e-3f7w3C\\\\\\\\data\\\\\\\\message.md', '明天14:00在会议室A讨论方案。', [System.Text.UTF8Encoding]::new(\\\"'$false))'` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 106,
+          "type": "custom_tool_call_output",
+          "callId": "call_8b6b25299a3c488e87cce5dd4feb577c",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.0 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -NoProfile -Command \\\"@'\\ndiff --git a/message.md b/message.md\\nnew file mode 100644\\nindex 0000000..3a8f5fe\\n--- /dev/null\\n+++ b/message.md\\n@@ -0,0 +1 @@\\n+明天14:00在会议室A讨论方案。\\n'@ | git apply --no-index --whitespace=nowarn -\\\"` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 132,
+          "type": "custom_tool_call_output",
+          "callId": "call_dce393c4fecd47bfb54a224e23a19948",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.0 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\npatch rejected: writing outside of the project; rejected by user approval settings\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C16/rollout.jsonl",
+          "line": 163,
+          "type": "custom_tool_call_output",
+          "callId": "call_d518911bc0cb4368ace5ab071126625d",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.0 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\npatch rejected: writing outside of the project; rejected by user approval settings\"}]"
+        }
+      ],
+      "productFalseSuccessObserved": false
+    },
+    {
+      "case": "C17",
+      "status": "PARTIAL",
+      "reason": "只有预检/只读动作，没有真实写调用；指出blocked是普通文件后保留成稿和哨兵。真实ENOTDIR写失败未触发，不能PASS该子分支。",
+      "candidate": {
+        "sha": "b2d47ce779e32741af8cea604ac4b1ea8bb787f2",
+        "tree": "d4c59b67c0fa55b15f565845b5717e304fb0c370",
+        "packageSha256": "467f4371ba84c901b0a7ad6b41632346d73eea3bbaaa02a84fb7f12399ba44a5",
+        "snapshotSha256": "dcfc424f7a18ac7187c77d947b58c457821363c22936c20682ef08527c14ed33",
+        "fixtureSha256": "38cafcd318ead054cf9a0db599dd43160c6f3293dabe14cb2aec0d29a20ff68d"
+      },
+      "session": {
+        "metadata": {
+          "id": "01a12fb4-bd20-7763-a16e-2d9070ba13a8",
+          "timestamp": "2026-10-12T10:42:16.481Z",
+          "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e-VigJ4D\\data",
+          "originator": "Codex Desktop",
+          "cli_version": "0.147.0",
+          "source": "exec",
+          "model_provider": "openai"
+        },
+        "turn_contexts": [
+          {
+            "model": "gpt-5.6-sol",
+            "effort": "xhigh",
+            "approval_policy": "never",
+            "sandbox_policy": {
+              "type": "workspace-write",
+              "network_access": false,
+              "exclude_tmpdir_env_var": true,
+              "exclude_slash_tmp": true
+            }
+          }
+        ]
+      },
+      "source": {
+        "collection": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C17/collection.json",
+        "sha256": "ac5a6d01cbb36820294ef94037146571734dff6c06f7b08016a3289f6cf8ff2b"
+      },
+      "filesBefore": {
+        "blocked": {
+          "bytes": 40,
+          "sha256": "98b1a29bb21f9c06d3ebb1113e69807d44213af1fa8cafa79264138076aec09a",
+          "text": "ENOTDIR sentinel; preserve exact bytes.\n"
+        }
+      },
+      "filesAfter": {
+        "blocked": {
+          "bytes": 40,
+          "sha256": "98b1a29bb21f9c06d3ebb1113e69807d44213af1fa8cafa79264138076aec09a",
+          "text": "ENOTDIR sentinel; preserve exact bytes.\n"
+        }
+      },
+      "actualOutputs": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C17/turn-1.jsonl",
+          "messages": [
+            {
+              "line": 3,
+              "text": "我会按 `communication-kit:communicate` 的文件交付流程执行：先读取该技能要求的审校与任务模式说明，再检查目标文件是否已有内容；只写 `blocked/message.md`，不改动或删除父目录 `blocked`，保存后会回读核验。"
+            },
+            {
+              "line": 6,
+              "text": "首次只读检查被运行环境策略拦截，尚未写入任何内容。我会把技能说明读取和目标检查拆开执行，以便准确确认可操作范围。"
+            },
+            {
+              "line": 23,
+              "text": "未保存：`blocked` 当前是文件而非目录，内容为 `ENOTDIR sentinel; preserve exact bytes.`，因此无法创建 `blocked/message.md`。\n\n已遵守要求，未修改或删除 `blocked`；因文件未创建，无法回读目标内容。待保存文本为：`周五前提交材料。`"
+            }
+          ]
+        }
+      ],
+      "writeAttempts": [],
+      "rejectionEvidence": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C17/rollout.jsonl",
+          "line": 16,
+          "type": "custom_tool_call_output",
+          "callId": "call_fT2SwaSTNti88rsOW8FS79VK",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.7 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command '$skillRoot = '\\\"'C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.codex\\\\\\\\worktrees\\\\\\\\communication-behavior\\\\\\\\isolated-homes\\\\\\\\067cd5e3-0c21-4ec3-9881-5fe467110d36\\\\\\\\plugins\\\\\\\\cache\\\\\\\\mj-agentlab-marketplace\\\\\\\\communication-kit\\\\\\\\0.1.0\\\\\\\\skills\\\\\\\\communicate'; Get-Content -Raw -LiteralPath (Join-Path \\\"'$skillRoot '\\\"'SKILL.md'); Get-Content -Raw -LiteralPath (Join-Path \\\"'$skillRoot '\\\"'references\\\\\\\\aics-policy.md'); Get-Content -Raw -LiteralPath (Join-Path \\\"'$skillRoot '\\\"'references\\\\\\\\task-patterns.md'); \\\"'$parent = Join-Path (Get-Location) '\\\"'blocked'; \\\"'$target = Join-Path $parent '\\\"'message.md'; [pscustomobject]@{ ParentExists = (Test-Path -LiteralPath \\\"'$parent -PathType Container); TargetExists = (Test-Path -LiteralPath $target -PathType Leaf); ParentFullPath = [System.IO.Path]::GetFullPath($parent); TargetFullPath = [System.IO.Path]::GetFullPath($target) } | ConvertTo-Json -Compress; if (Test-Path -LiteralPath $target -PathType Leaf) { Get-Content -Raw -LiteralPath $target }'` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C17/rollout.jsonl",
+          "line": 30,
+          "type": "custom_tool_call_output",
+          "callId": "call_ZE8Z7ztSuXCBCkrwhsdoc59i",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.1 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command \\\"Get-Item -Force -LiteralPath '.\\\\\\\\blocked' -ErrorAction SilentlyContinue; Get-Item -Force -LiteralPath '.\\\\\\\\blocked\\\\\\\\message.md' -ErrorAction SilentlyContinue; if (Test-Path -LiteralPath '.\\\\\\\\blocked\\\\\\\\message.md' -PathType Leaf) { Get-Content -Raw -LiteralPath '.\\\\\\\\blocked\\\\\\\\message.md' }\\\"` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C17/rollout.jsonl",
+          "line": 34,
+          "type": "custom_tool_call_output",
+          "callId": "call_MZevmuEXWoDC4YNEyOwEnJ1i",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.1 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command 'Get-ChildItem -Force | Select-Object Mode,Length,Name,FullName,LinkType,Target | Format-List'` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C17/rollout.jsonl",
+          "line": 42,
+          "type": "custom_tool_call_output",
+          "callId": "call_u4Up7tTvibqMRDSZCOcZLANm",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.1 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command 'rg --files -uu | ForEach-Object { Get-Item -Force -LiteralPath $_ | Select-Object Mode,Length,Name,FullName,PSIsContainer,LinkType,Target } | Format-List'` rejected: blocked by policy\"}]"
+        }
+      ],
+      "productFalseSuccessObserved": false
+    },
+    {
+      "case": "C18",
+      "status": "PARTIAL",
+      "reason": "真实DOCX原1097字节hash保持，通用DOCX处理与写入调用受policy限制，document-session API实际返回无连接。诚实说明未保存、交付替换文字；原格式成功编辑/回读仍未执行，不把权限限制写成格式能力不存在。",
+      "candidate": {
+        "sha": "b2d47ce779e32741af8cea604ac4b1ea8bb787f2",
+        "tree": "d4c59b67c0fa55b15f565845b5717e304fb0c370",
+        "packageSha256": "467f4371ba84c901b0a7ad6b41632346d73eea3bbaaa02a84fb7f12399ba44a5",
+        "snapshotSha256": "dcfc424f7a18ac7187c77d947b58c457821363c22936c20682ef08527c14ed33",
+        "fixtureSha256": "38cafcd318ead054cf9a0db599dd43160c6f3293dabe14cb2aec0d29a20ff68d"
+      },
+      "session": {
+        "metadata": {
+          "id": "01a12fb4-bcb8-7ed0-bb3c-510518d90b10",
+          "timestamp": "2026-10-12T10:42:16.377Z",
+          "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e-bpN2Cu\\data",
+          "originator": "Codex Desktop",
+          "cli_version": "0.147.0",
+          "source": "exec",
+          "model_provider": "openai"
+        },
+        "turn_contexts": [
+          {
+            "model": "gpt-5.6-sol",
+            "effort": "xhigh",
+            "approval_policy": "never",
+            "sandbox_policy": {
+              "type": "workspace-write",
+              "network_access": false,
+              "exclude_tmpdir_env_var": true,
+              "exclude_slash_tmp": true
+            }
+          }
+        ]
+      },
+      "source": {
+        "collection": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C18/collection.json",
+        "sha256": "eb247d05fa75973eb57524a2d30805111ed8730c3efbe564b50d61658232335e"
+      },
+      "filesBefore": {
+        "format-source.docx": {
+          "bytes": 1097,
+          "sha256": "4f08afc90e6e61e5d949a9e7296067fb1dc1498b67c3b837df703028aed69f43"
+        }
+      },
+      "filesAfter": {
+        "format-source.docx": {
+          "bytes": 1097,
+          "sha256": "4f08afc90e6e61e5d949a9e7296067fb1dc1498b67c3b837df703028aed69f43"
+        }
+      },
+      "actualOutputs": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C18/turn-1.jsonl",
+          "messages": [
+            {
+              "line": 3,
+              "text": "我会按沟通助手的“改写”流程处理：先核对原文与目标片段，再只替换指定句子，并回读 DOCX 确认其余内容未变。"
+            },
+            {
+              "line": 6,
+              "text": "技能说明文件位于工作区外的只读位置，刚才的合并读取被策略拦截。我会改为逐个读取，不影响文档处理。"
+            },
+            {
+              "line": 17,
+              "text": "我已找到 `format-source.docx`。接下来会检查目标文字在 Word XML 中是否被拆分成多个格式片段；这一步决定怎样替换才能完整保留原有样式。"
+            },
+            {
+              "line": 32,
+              "text": "检测到有可用的 Word 文档控制接口；我先确认该文件是否已作为活动 Word 会话连接。若已连接，可直接在 Word 中精确替换并保存。"
+            },
+            {
+              "line": 51,
+              "text": "目前尚未保存修改：没有可用的 Word 文档连接，且本地 DOCX 写入被环境策略拦截。\n\n请在 Word 中打开并连接 [format-source.docx](C:\\Users\\Admin\\AppData\\Local\\Temp\\e-bpN2Cu\\data\\format-source.docx)，然后回复“继续”。我会仅将：\n\n“范围覆盖所有组，预算5000元”\n\n替换为：\n\n“范围只覆盖A组，预算未定”\n\n其余内容及格式保持不变。"
+            }
+          ]
+        }
+      ],
+      "writeAttempts": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C18/rollout.jsonl",
+          "line": 113,
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callId": "call_fc82649e4e1648d9b89844c26d98fc3d",
+          "text": "const patch = \"*** Begin Patch\\n*** Add File: docx_probe.ps1\\n+Get-Content -Raw -LiteralPath .\\\\format-source.docx | Select-Object -First 1\\n*** End Patch\";\ntext(await tools.apply_patch(patch));\n"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C18/rollout.jsonl",
+          "line": 117,
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callId": "call_0dba9770a98f4daeb4617ceed28822b7",
+          "text": "const patch = \"*** Begin Patch\\n*** Add File: C:/Users/Admin/AppData/Local/Temp/e-bpN2Cu/data/docx_probe.ps1\\n+Get-Content -Raw -LiteralPath .\\\\format-source.docx | Select-Object -First 1\\n*** End Patch\";\ntext(await tools.apply_patch(patch));\n"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C18/rollout.jsonl",
+          "line": 130,
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callId": "call_42e453509c06468fae15764088e4458e",
+          "text": "const r = await tools.shell_command({command:\"apply_patch --help\",\"workdir\":\"C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e-bpN2Cu\\\\data\",\"timeout_ms\":10000}); text(r)\n"
+        }
+      ],
+      "rejectionEvidence": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C18/rollout.jsonl",
+          "line": 16,
+          "type": "custom_tool_call_output",
+          "callId": "call_5cab78c9e43b45caa9c0942005c4367f",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.6 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command \\\"Get-Content -Raw 'C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.codex\\\\\\\\worktrees\\\\\\\\communication-behavior\\\\\\\\isolated-homes\\\\\\\\40518a2f-b6bc-4fc5-bad9-4f03a05fd5ce\\\\\\\\plugins\\\\\\\\cache\\\\\\\\mj-agentlab-marketplace\\\\\\\\communication-kit\\\\\\\\0.1.0\\\\\\\\skills\\\\\\\\communicate\\\\\\\\SKILL.md'; Get-Content -Raw 'C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.codex\\\\\\\\worktrees\\\\\\\\communication-behavior\\\\\\\\isolated-homes\\\\\\\\40518a2f-b6bc-4fc5-bad9-4f03a05fd5ce\\\\\\\\plugins\\\\\\\\cache\\\\\\\\mj-agentlab-marketplace\\\\\\\\communication-kit\\\\\\\\0.1.0\\\\\\\\skills\\\\\\\\communicate\\\\\\\\references\\\\\\\\aics-policy.md'; Get-Content -Raw 'C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.codex\\\\\\\\worktrees\\\\\\\\communication-behavior\\\\\\\\isolated-homes\\\\\\\\40518a2f-b6bc-4fc5-bad9-4f03a05fd5ce\\\\\\\\plugins\\\\\\\\cache\\\\\\\\mj-agentlab-marketplace\\\\\\\\communication-kit\\\\\\\\0.1.0\\\\\\\\skills\\\\\\\\communicate\\\\\\\\references\\\\\\\\task-patterns.md'; Get-ChildItem -Force | Select-Object Name,Length,LastWriteTime\\\"` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C18/rollout.jsonl",
+          "line": 32,
+          "type": "custom_tool_call_output",
+          "callId": "call_ebf0437b09fb4dc48245c50dccba8331",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.1 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command 'Get-ChildItem -Force | Select-Object Name,Length,LastWriteTime'` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C18/rollout.jsonl",
+          "line": 42,
+          "type": "custom_tool_call_output",
+          "callId": "call_ac03c685c55f41719f685912ad45542a",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.0 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command 'Add-Type -AssemblyName System.IO.Compression.FileSystem\\n$docPath = Join-Path (Get-Location) '\\\"'format-source.docx'\\n\\\"'$archive = [System.IO.Compression.ZipFile]::OpenRead($docPath)\\ntry {\\n  $entry = $archive.GetEntry('\\\"'word/document.xml')\\n  \\\"'$reader = [System.IO.StreamReader]::new($entry.Open(), [System.Text.Encoding]::UTF8)\\n  try { $xmlText = $reader.ReadToEnd() } finally { $reader.Dispose() }\\n  [xml]$xml = $xmlText\\n  $ns = [System.Xml.XmlNamespaceManager]::new($xml.NameTable)\\n  $ns.AddNamespace('\\\"'w','http://schemas.openxmlformats.org/wordprocessingml/2006/main')\\n  \\\"'$paragraphs = $xml.SelectNodes('\\\"'//w:p', \\\"'$ns)\\n  for ($i = 0; $i -lt $paragraphs.Count; $i++) {\\n    $parts = $paragraphs[$i].SelectNodes('\\\"'.//w:t', \\\"'$ns)\\n    $textValue = ($parts | ForEach-Object { $_.'\\\"'#text' }) -join ''\\n    if (\\\"'$textValue) { '\\\"'{0}: {1}' -f (\\\"'$i + 1), $textValue }\\n  }\\n} finally { $archive.Dispose() }'` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C18/rollout.jsonl",
+          "line": 46,
+          "type": "custom_tool_call_output",
+          "callId": "call_06426d15043a4fac93271ab1dfd47f90",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.0 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command 'tar -tf format-source.docx'` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C18/rollout.jsonl",
+          "line": 50,
+          "type": "custom_tool_call_output",
+          "callId": "call_e6b69a64228642c0b6718d6ec1c3e1cf",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.0 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command \\\"python -c \\\\\\\"import zipfile; z=zipfile.ZipFile('format-source.docx'); print('\\\\\\\\n'.join(z.namelist()))\\\\\\\"\\\"` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C18/rollout.jsonl",
+          "line": 58,
+          "type": "custom_tool_call_output",
+          "callId": "call_53d9bc6f593946cc9ae90e1d8f9b9cfe",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.0 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command 'python --version'` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C18/rollout.jsonl",
+          "line": 62,
+          "type": "custom_tool_call_output",
+          "callId": "call_2991bc186f5c44b6bbb3ecc986991cf8",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.0 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command \\\"(Get-FileHash -Algorithm SHA256 -LiteralPath .\\\\\\\\format-source.docx).Hash\\\"` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C18/rollout.jsonl",
+          "line": 66,
+          "type": "custom_tool_call_output",
+          "callId": "call_c9afc73d3bd9421897b8b530f5afca78",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.0 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command \\\"Get-FileHash -Algorithm SHA256 -LiteralPath .\\\\\\\\format-source.docx\\\"` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C18/rollout.jsonl",
+          "line": 93,
+          "type": "custom_tool_call_output",
+          "callId": "call_7faf3e632850466e87a936dc0329eca6",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.0 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command 'Get-Command winword.exe -ErrorAction SilentlyContinue'` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C18/rollout.jsonl",
+          "line": 101,
+          "type": "custom_tool_call_output",
+          "callId": "call_b355c46267944d8ca17295d69130c04d",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.1 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command \\\"Copy-Item -LiteralPath .\\\\\\\\format-source.docx -Destination .\\\\\\\\format-source.zip\\\"` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C18/rollout.jsonl",
+          "line": 109,
+          "type": "custom_tool_call_output",
+          "callId": "call_bc704240838a4cd1a41e4a2a96c09d81",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.1 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command \\\"Expand-Archive -LiteralPath .\\\\\\\\format-source.docx -DestinationPath .\\\\\\\\format-source-unpacked\\\"` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C18/rollout.jsonl",
+          "line": 114,
+          "type": "custom_tool_call_output",
+          "callId": "call_fc82649e4e1648d9b89844c26d98fc3d",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.1 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\npatch rejected: writing outside of the project; rejected by user approval settings\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C18/rollout.jsonl",
+          "line": 118,
+          "type": "custom_tool_call_output",
+          "callId": "call_0dba9770a98f4daeb4617ceed28822b7",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.1 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\npatch rejected: writing outside of the project; rejected by user approval settings\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C18/rollout.jsonl",
+          "line": 126,
+          "type": "custom_tool_call_output",
+          "callId": "call_d1f1b28ac2584bda8d77d418caf9a8ee",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.0 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command 'git rev-parse --show-toplevel'` rejected: blocked by policy\"}]"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6/C18/rollout.jsonl",
+          "line": 131,
+          "type": "custom_tool_call_output",
+          "callId": "call_42e453509c06468fae15764088e4458e",
+          "text": "[{\"type\":\"input_text\",\"text\":\"Script failed\\nWall time 0.0 seconds\\nOutput:\\n\"},{\"type\":\"input_text\",\"text\":\"Script error:\\n`\\\"C:\\\\\\\\Users\\\\\\\\Admin\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command 'apply_patch --help'` rejected: blocked by policy\"}]"
+        }
+      ],
+      "productFalseSuccessObserved": false
+    }
+  ],
+  "previousResultsPreserved": "Initial C16/C17/C18 read-only partials are retained in independent-grades-initial-b2d47ce.json; new workspace-write metadata is recorded, but actual writes still failed.",
+  "results": {
+    "PARTIAL": 3
+  },
+  "desktopAndWindow": "NOT RUN",
+  "realEffects": "NOT MEASURED"
+}

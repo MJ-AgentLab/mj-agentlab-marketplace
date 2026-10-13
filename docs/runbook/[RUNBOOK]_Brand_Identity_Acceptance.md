@@ -5,11 +5,30 @@ summary: "Brand icon source, merged-tree acceptance and client limitations"
 owner: marketplace-maintainers
 created: 2026-10-10
 updated: 2026-10-12
-state: active
-version: v1.2
+state: draft
+version: v1.4
 ---
 
 # [RUNBOOK] Brand identity acceptance
+
+## Communication PR3 当前候选 — 2026-10-12
+
+Refs #222。Owner 已明确选择第二轮 D 地球＋清晰文字，原始选择见 [selection](../../assets/brand/communication-kit/candidates/revision-2/selection.json)。PR3 已将修复后已查看的原创 MJ D 资源接入完整 Communication 0.1.0 候选：[正式SVG](../../plugins/communication-kit/assets/icon.svg)、[1024 PNG](../../plugins/communication-kit/assets/icon.png)、manifest 的 logo/composerIcon、[exports](../../assets/brand/exports.json)和[来源账本](../../assets/brand/provenance.json)同时更新。研究来源冻结仍为 Lab Proposal / Informative，插件实现与设计接入不升级研究状态。
+
+已实际查看[四插件家族总览](../../assets/brand/previews/plugin-family.png)：第四张图及各行32/48/64深浅预览完整可见；新包原生尺寸另见[32](../../assets/brand/previews/communication-kit-32.png)、[48](../../assets/brand/previews/communication-kit-48.png)、[64](../../assets/brand/previews/communication-kit-64.png)。此为实际资源及 Agent 视觉检查，不是两个桌面客户端中的图标显示结果。
+
+固定已测候选 `2fa25486b68607335b3dcd6d0e8c99f1a97ecd7e` 和重分提交后的 `a046058b7a0aa0741082f8a8ce6ae377a482c428` 的 tree 均为 `37648de2fadd2603b2dbd867640bbc98276d1863`；后续修复的新tree须另记复验。候选四插件五公开技能、20开发技能、两显式入口；marketplace 保持未发布8.1.2，main / 最新 Release 8.1.1仍为前三插件，Communication 未发布。
+
+| 项目 | 当前实际结果 | 证据及限制 |
+|---|---|---|
+| 正式D资源与四图布局 | 已接入／已查看 | 1024分发图、32/48/64实际预览和完整四图总览；首轮未选及第二轮首次失败仍保留 |
+| PR3工程检查 | 已执行 | [engineering 01](evidence/communication-kit-2026-10-12-pr3-engineering-01.json)：npm test276/276、严格候选集合通过；不证明模型或桌面显示 |
+| 九组合canonical安装 | PARTIAL | [canonical 01](evidence/communication-kit-2026-10-12-pr3-canonical-01.json)：现有比较范围9/9、四次缓存Python通过；发现manifest/SVG源缓存比较缺口，S08完整结果待修复复验 |
+| 模型C01–C18 | NOT RUN（判定） | 尚无判定；准备或执行不能记PASS |
+| ChatGPT／Codex真实图标及入口 | NOT RUN | 详情页、输入框、实际调用须绑定本候选；旧截图、CLI元数据、源PNG和视觉判断不能替代 |
+| 正式发布及发布后R04 | NOT RUN | PR3保持draft；Release、当前head非作者批准与发布后复查未完成 |
+
+详细功能、必要客户端清单、候选身份及S08缺口见 [Communication 验收](./[RUNBOOK]_Communication_Kit_Acceptance.md)。当前段是 PR3 进展；以下 PR2 与旧品牌阶段的三插件集合、PENDING、失败和当时限制继续按各自阶段保存，不作为当前集合或已通过客户端的结论。AI review 不替代 GitHub 非作者批准。现实场景沟通效果本轮延期，不因资源、安装或功能通过而宣称收益。
 
 ## Communication PR2 canonical 复验
 
@@ -117,3 +136,14 @@ Owner 于 2026-10-12 明确选择第二轮 D 地球＋清晰文字，见 [select
 Refs #222。PR2 合并 PR1 准备分支 `60548a256aa26eade4da7c419c85c83e3a20e922`，其中已纳入实际 develop `70267a5b91d759af09a8f1281a33e2d5a90fdbc9` 的 Learning Evidence / HTML Guide 契约。此为 feature 分支内的准备 merge，不是 PR1 或 PR2 正式合入受保护 develop。8 个实际冲突已逐项保留双方意图；提交与版本工具支持 HTML / Communication 两个候选 scope，v1.5 HTML 历史保留，Communication 规范推进 v1.6。新增 commit-convention 执行案例同时覆盖两个 scope、错误名称、类型和分隔格式；原 fixture / cleanup / tests 保留。
 
 刷新后受影响 54/54、全量 261/261（失败 0、跳过 0）通过，validate 与 Codex 0.147.0 精确基线通过；四组既有隔离安装和三次实际缓存 Python 回归通过。真实缺 Communication manifest 的 apply-preflight / DryRun 均预检失败，417 个 tracked 文件哈希无变化，没有 manifest 创建或成功的真实 bump。已选 D 未接入正式包或 exports；客户端显示仍 NOT RUN。测试来自解决冲突后的工作树/index，具体 tree、源码哈希、命令与安装输出见 [第三批](evidence/communication-kit-2026-10-12-foundation-03.json)。最终 merge 身份与 canonical 提交复验由后续记录补充，不能用此工作树批次冒充。
+
+## Communication PR3正式资源及比较复验
+
+PR3 #229原子接入已选D的正式插件SVG/PNG、exports、原生图标及32/48/64预览，四插件合成图分两行完整可见。实际尺寸和像素观察见[客观审计](evidence/communication-kit-2026-10-12-pr3-objective-01.json)。原manifest/SVG比较缺口保留，后续完整比较在b2d及修复候选94c170d的[canonical 03](evidence/communication-kit-2026-10-12-pr3-canonical-03.json)九组合中通过，包内资源变异安装前阻断；旧三个插件资源未更改。
+
+该资源检查不能补记桌面图标显示。真实双客户端仍NOT RUN，当前批准缺项和PR依赖见[Communication验收](./[RUNBOOK]_Communication_Kit_Acceptance.md)，Refs #222。
+
+| Version | Date | Summary |
+|---|---|---|
+| v1.4 | 2026-10-12 | 追加PR3正式D资源、完整元数据/图标比较复验；保留桌面显示缺项 |
+| v1.3 | 2026-10-12 | 增补Communication正式D候选及四图实看、部分工程/安装证据与客户端和S08缺口；保留历史批次 |

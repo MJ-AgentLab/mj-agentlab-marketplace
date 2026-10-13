@@ -4,14 +4,14 @@ scope: marketplace
 summary: "Upgrade, retirement and uninstall steps for existing users"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-12
+updated: 2026-10-13
 state: active
-version: v1.8
+version: v1.10
 ---
 
 # [GUIDE] ChatGPT / Codex upgrade
 
-仅 ChatGPT 桌面端和 Codex 本地继续支持；停止 Claude 支持。[Marketplace v8.1.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.1) 已发布，包含 diagram-kit 0.3.1、understanding-kit 0.1.2、explain-kit 0.1.1，三个插件、四个公开技能。main / v8.1.1 可获取全部插件，历史 v8.0.0 仅包含 Diagram Kit。发布后安装复查、Owner 截图和完整客户端证据缺项见 [8.1.1 发布记录](../runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。开发技能位于 .agents/skills，根项目入口为 AGENTS.md。
+仅ChatGPT桌面端和Codex本地继续支持；停止Claude支持。[Marketplace v8.2.0](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.2.0)已公开Diagram0.3.1、Learning Evidence0.1.0、Explain0.1.1三包五技能，实际身份见[8.2.0账本](../runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。历史v8.1.1仍含Understanding，旧[8.1.1记录](../runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)及未覆盖项保持。Communication0.1.0与HTML0.1.0仅属开发候选，当前VERSION沿用8.2.0基线；开发技能位于.agents/skills，根入口为AGENTS.md。
 
 ## Existing learn-kit users
 
@@ -19,35 +19,39 @@ version: v1.8
 
 ## Codex CLI 0.147.0
 
-通过 Git 固定当前已发布 v8.1.1 的旧集合，再按需独立安装插件；新候选来源在下一节单独指定：
+通过Git固定已发布v8.2.0，再按需独立安装插件；Communication候选来源单独指定：
 
 ~~~text
-codex plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace --ref v8.1.1
+codex plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace --ref v8.2.0
 codex plugin marketplace upgrade mj-agentlab-marketplace
 codex plugin add diagram-kit@mj-agentlab-marketplace
 codex plugin list --json
 codex debug prompt-input '$diagram-kit:arch-diagram'
 ~~~
 
-当前已发布 v8.1.1 的索引还包含 Understanding Kit 与 Explain Kit。历史 Understanding 安装与 `$understanding-kit:pop-quiz` 见 [归档指南](../archive/[DEPRECATED]_[GUIDE]_Understanding_Pop_Quiz_v1.3.md)；使用 `codex plugin add explain-kit@mj-agentlab-marketplace` 单独安装，调用 `$explain-kit:glossary` 或 `$explain-kit:concept`。Learning Evidence Kit 尚未发布，不能从 v8.1.1 安装。
+已发布v8.2.0包含Learning Evidence与Explain。使用`codex plugin add explain-kit@mj-agentlab-marketplace`后调用`$explain-kit:glossary`或`$explain-kit:concept`。旧Understanding与`$understanding-kit:pop-quiz`只在[归档指南](../archive/[DEPRECATED]_[GUIDE]_Understanding_Pop_Quiz_v1.3.md)和历史标签保留。
 
-## Learning Evidence candidate migration
+## Learning Evidence migration
 
-新候选直接替换 understanding-kit 注册，保持 Learning Evidence 0.1.0 / Diagram 0.3.1 / Explain 0.1.1；PR5 将未发布 marketplace 8.1.2 准备为 8.2.0，尚无新 Release。代理隔离验收使用待测 branch 或固定 SHA，不改变个人插件来源。个人试用先核对现有来源、包身份和必要原件，再选择新候选；已安装 Understanding 缓存不会自动卸载。入口资格和发布条件见 [8.2.0 发布准备](../runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。
+8.2.0已原子替换Understanding注册，保持Learning Evidence0.1.0/Diagram0.3.1/Explain0.1.1。先核对现有来源、包身份和必要原件，再刷新已发布来源并安装Learning；已安装Understanding缓存不会自动卸载。入口资格、延期及实际发布身份见[8.2.0账本](../runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。
 
 ~~~text
-codex plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace --ref codex/learning-evidence-switch
+codex plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace --ref v8.2.0
 codex plugin add learning-evidence-kit@mj-agentlab-marketplace
 codex plugin list --json
 ~~~
 
-此 branch 是开发来源，实际验收记录待测 SHA；本地 worktree source 仅供隔离测试。正式新包标签尚未创建。确认要移除旧包时使用 `codex plugin remove understanding-kit@mj-agentlab-marketplace`；移除缓存不授权删除学习资料。新包采用 `$learning-evidence-kit:pop-quiz` 和 `$learning-evidence-kit:learning-record-check`，旧限定名不再属于候选注册。
+正式标签v8.2.0已创建；工作树及其他待测SHA仅用于隔离测试。确认要移除旧包时使用`codex plugin remove understanding-kit@mj-agentlab-marketplace`，移除缓存不授权删除学习资料。新包采用`$learning-evidence-kit:pop-quiz`和`$learning-evidence-kit:learning-record-check`，旧限定名退出当前注册。
 
 安装本身不启用尚未验收的提问入口。所有启用入口严格待答，原生窗口提交前持续显示单独核验；默认、超时、关闭和文字重述均不能冒充答案或窗口通过。不合格入口延期，双技能接口保留。行为、保存移交与两阶段核验见 [新指南](./[GUIDE]_Learning_Evidence_Kit.md)，具体入口结果见 [账本](../runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。
 
+Communication 仅从隔离候选来源验证，不从 main / v8.2.0 安装。候选来源安装后以 `$communication-kit:communicate` 显式调用，使用[包说明](../../plugins/communication-kit/README.md)和[技能](../../plugins/communication-kit/skills/communicate/SKILL.md)。独装预期普通发现0、原生1；五插件全量普通3、原生7，pop-quiz、learning-record-check、guide 与 communicate 均显式调用。安装包只依赖冻结参考资源，研究路径不是运行前提。候选实际功能与客户端可用性按实际结果分别登记，按[验收记录](../runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)独立登记。
+
 ## ChatGPT desktop
 
-将准确已发布标签或待测 SHA 的 .agents/plugins/marketplace.json 作为 repo marketplace，刷新后核对实际来源和版本。v8.1.1 显示旧 Diagram/Understanding/Explain 集合；新候选定义 Diagram/Learning Evidence/Explain。桌面安装、composer 发现、实际调用和原生窗口条件独立验收；本指南没有提供通过证据。能力不可达或窗口不合格的入口明确延期，不要求 Owner 例行人工操作。旧包在准确核对身份后独立卸载。
+将准确已发布标签或待测SHA的.agents/plugins/marketplace.json作为repo marketplace，刷新后核对来源与版本。v8.2.0为Diagram/Learning Evidence/Explain；开发候选另含HTML/Communication。桌面安装、composer发现、实际调用和原生窗口条件独立验收，本指南不提供通过证据；不合格入口明确延期，旧包在核对身份后独立卸载。
+
+Communication 候选另查“沟通助手”详情图标与版本、显式入口、沟通/编写/改写、关键澄清等待、聊天交付和明确请求才写文件。Owner 选定的 D“地球＋清晰文字”是原创 MJ 图标；资源校验、旧截图或 CLI 元数据不能替代此次实际显示与交互。现实效果测试本轮延期，基础客户端通过不证明收益。
 
 历史版本和资产继续保留；旧工作流仅通过固定标签复现。[决策与回退](../adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)。
 
@@ -56,3 +60,17 @@ Codex CLI 0.147.0 的卸载命令（从本机配置和插件缓存移除）：
 ```text
 codex plugin remove learn-kit@mj-agentlab-marketplace
 ```
+
+| Version | Date | Summary |
+|---|---|---|
+| v1.7 | 2026-10-12 | 区分正式三插件安装与 Communication 未发布候选、显式入口和证据边界 |
+
+| Version | Date | Summary |
+|---|---|---|
+| v1.8 | 2026-10-13 | 同步 HTML 开发基线，保留 Communication 合同并更新五插件集合与十三组合预期 |
+
+| Version | Date | Summary |
+|---|---|---|
+| v1.9 | 2026-10-13 | 同步 Learning 原子替代与 Communication 完整集成，按当前集合验收，发行范围另核对 |
+
+| v1.10 | 2026-10-13 | 同步已公开Learning8.2.0基线，保留Communication开发五包与正式四包范围及历史限制 |

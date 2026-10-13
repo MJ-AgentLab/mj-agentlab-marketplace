@@ -1,0 +1,11 @@
+# C16–C18 权限配置复验独立审查
+
+同一固定候选b2d47ce，实际模型gpt-5.6-sol/xhigh、CLI0.147.0。新batch `1791801727290-1fcec0fa-54cd-4b93-afce-a8cf1a5ab9b6` 三例均PARTIAL。turn_context已显示workspace-write，但以真实写入动作及文件字节为准，不以profile字段记PASS。
+
+| Case | 结果 | 依据 |
+|---|---|---|
+| C16 | PARTIAL | 实际turn_context为workspace-write，但补丁工具拒绝目标项目根/外部路径，原生写入也被policy拒绝。两个新目标未创建，notes原118字节hash保持；读取/诚实失败声明可覆盖，成功保存/单点编辑/回读仍未执行。 |
+| C17 | PARTIAL | 只有预检/只读动作，没有真实写调用；指出blocked是普通文件后保留成稿和哨兵。真实ENOTDIR写失败未触发，不能PASS该子分支。 |
+| C18 | PARTIAL | 真实DOCX原1097字节hash保持，通用DOCX处理与写入调用受policy限制，document-session API实际返回无连接。诚实说明未保存、交付替换文字；原格式成功编辑/回读仍未执行，不把权限限制写成格式能力不存在。 |
+
+原失败批次保持，真实ENOTDIR与MD/TXT/DOCX成功保存未完成。详见同名JSON的真实动作、工具拒绝与字节哈希。

@@ -1,0 +1,325 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "Independent reviewer /root/contract_standards (separate from runner subjects)",
+  "reviewedAt": "2026-10-12T10:52:59.431Z",
+  "candidate": {
+    "sha": "b2d47ce779e32741af8cea604ac4b1ea8bb787f2",
+    "tree": "d4c59b67c0fa55b15f565845b5717e304fb0c370",
+    "packageSha256": "467f4371ba84c901b0a7ad6b41632346d73eea3bbaaa02a84fb7f12399ba44a5",
+    "snapshotSha256": "dcfc424f7a18ac7187c77d947b58c457821363c22936c20682ef08527c14ed33",
+    "fixtureSha256": "38cafcd318ead054cf9a0db599dd43160c6f3293dabe14cb2aec0d29a20ff68d"
+  },
+  "criteria": {
+    "path": "C:/Users/Admin/.codex/worktrees/communication-plugin/develop/tests/fixtures/communication-kit/cases.json",
+    "sha256": "41432a8d6dcb5238eb73b1b3ee0198b260de06669d3b8da52cec335e81952988",
+    "rubricPath": "C:/Users/Admin/.codex/worktrees/communication-plugin/develop/tests/fixtures/communication-kit/rubric.md",
+    "rubricSha256": "fbdab3468f51e854b7813423ee80f3c5cb02f23c4c558f55db9127539c3ebc33"
+  },
+  "sourceGrade": "independent-grades-initial-b2d47ce.json",
+  "globalContract": "已确认成稿＋关键提示；提示可以自然表达，无强制标签或模板。停止/无关新任务后取消写作格式；关键澄清等待时不要求先交依赖未知的成稿。",
+  "scopeNote": "Initial 13 case-specific PASS does not mean full product contract PASS. Global delivery and environment branches are separate axes.",
+  "combinedInitialResults": {
+    "FAIL": 6,
+    "PASS": 8,
+    "PARTIAL": 4
+  },
+  "grades": [
+    {
+      "case": "C01",
+      "caseSpecificVerdict": "FAIL",
+      "globalDeliveryVerdict": "FAIL",
+      "combinedVerdict": "FAIL",
+      "globalReason": "只有成稿，无可辨别关键提示；开场进度不是交付提示。",
+      "actualOutput": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801283992-ae5afc3f-cbc3-4d13-bfe4-1390845ffe13/C01/turn-1.jsonl",
+          "line": 9,
+          "text": "大家好，请于周三16:00前提交草稿，周四10:00统一合并，由李明负责。如无法按时完成，请在周二下班前告知，以便及时协调。谢谢。"
+        }
+      ],
+      "referenceAccessNote": "Policy rejections observed; some cases recovered via simpler reads. The flag is not a conclusion that all references remained unread."
+    },
+    {
+      "case": "C02",
+      "caseSpecificVerdict": "FAIL",
+      "globalDeliveryVerdict": "FAIL",
+      "combinedVerdict": "FAIL",
+      "globalReason": "新增排期已满事实，且最终只有拒绝稿，无可辨别成稿后关键提示。",
+      "actualOutput": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801353141-217e5a00-933d-4d41-b26d-6607e2a0aaa8/C02/turn-1.jsonl",
+          "line": 6,
+          "text": "这周的排期已经排满，暂时无法承接新的需求。麻烦你先补充影响评估，包括影响范围、紧急程度和暂不处理的影响。待信息齐全后，我下周再结合优先级和资源情况判断是否安排。\n\n也先说明一下，目前无法承诺具体交付日期；若后续确定纳入排期，我们再同步时间安排。感谢理解。"
+        }
+      ],
+      "referenceAccessNote": "Policy rejections observed; some cases recovered via simpler reads. The flag is not a conclusion that all references remained unread."
+    },
+    {
+      "case": "C03",
+      "caseSpecificVerdict": "PASS",
+      "globalDeliveryVerdict": "FAIL",
+      "combinedVerdict": "FAIL",
+      "globalReason": "聊天等待局部criteria通过；明确期限后的第二轮仅成稿，无关键提示。",
+      "actualOutput": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801353141-217e5a00-933d-4d41-b26d-6607e2a0aaa8/C03/turn-1.jsonl",
+          "line": 10,
+          "text": "起草前请确认两项关键信息：\n\n1. 通知针对什么事项或交付物？\n2. 截止时间如何处理？\n\n   - **明确写“待定”（推荐）**：写为“截止时间：待定，确定后另行通知”，可以立即成稿。\n   - **确定后再写**：请提供具体日期、时间及时区。\n   - **先征集可行时间**：改为请项目组反馈可接受的截止时间，不作为正式截止通知。"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801353141-217e5a00-933d-4d41-b26d-6607e2a0aaa8/C03/turn-3.jsonl",
+          "line": 3,
+          "text": "各位项目组成员：\n\n请注意，本项目的截止时间已确定为**本周五18:00**。请大家合理安排进度，并在截止前完成相关工作和提交。如有可能影响按时完成的问题，请尽早反馈。\n\n谢谢大家配合。"
+        }
+      ],
+      "referenceAccessNote": "Policy rejections observed; some cases recovered via simpler reads. The flag is not a conclusion that all references remained unread."
+    },
+    {
+      "case": "C04",
+      "caseSpecificVerdict": "PASS",
+      "globalDeliveryVerdict": "PASS",
+      "combinedVerdict": "PASS",
+      "globalReason": "后置“注”说明未提供姓名而用通称，以及未保存/发送。",
+      "actualOutput": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801353141-217e5a00-933d-4d41-b26d-6607e2a0aaa8/C04/turn-1.jsonl",
+          "line": 6,
+          "text": "各位同事，提醒一下：明天14:00在会议室A讨论方案，请大家按时参加，谢谢！\n\n注：因未提供姓名，使用了通用称呼；文案未保存或发送。"
+        }
+      ],
+      "referenceAccessNote": null
+    },
+    {
+      "case": "C05",
+      "caseSpecificVerdict": "PASS",
+      "globalDeliveryVerdict": "PASS",
+      "combinedVerdict": "PASS",
+      "globalReason": "末尾blockquote指出现阶段仅限A组且不代表上线决定，具有实质边界提示作用，无需固定标签。",
+      "actualOutput": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801353141-217e5a00-933d-4d41-b26d-6607e2a0aaa8/C05/turn-1.jsonl",
+          "line": 7,
+          "text": "# 试点事项说明\n\n- **试点范围**：仅 A 组\n- **负责人**：李明\n- **检查日期**：10 月 20 日\n- **预算情况**：尚未确定\n- **上线状态**：目前尚无上线决议\n\n> 本事项现阶段仅限 A 组试点，不代表已决定上线。"
+        }
+      ],
+      "referenceAccessNote": "Policy rejections observed; some cases recovered via simpler reads. The flag is not a conclusion that all references remained unread."
+    },
+    {
+      "case": "C06",
+      "caseSpecificVerdict": "PASS",
+      "globalDeliveryVerdict": "FAIL",
+      "combinedVerdict": "FAIL",
+      "globalReason": "最终只有保义改写成稿，没有可辨别后置提示。",
+      "actualOutput": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801353141-217e5a00-933d-4d41-b26d-6607e2a0aaa8/C06/turn-1.jsonl",
+          "line": 6,
+          "text": "甲方应在收到完整材料后五个工作日内答复；材料不完整的，期限不起算。乙方可申请延期，但甲方不保证批准。金额超过5000元的变更须另行授权，紧急安全修复除外。"
+        }
+      ],
+      "referenceAccessNote": null
+    },
+    {
+      "case": "C07",
+      "caseSpecificVerdict": "PASS",
+      "globalDeliveryVerdict": "PASS",
+      "combinedVerdict": "PASS",
+      "globalReason": "后置关键提示说明输入来源与引文/标识保留。",
+      "actualOutput": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801353141-217e5a00-933d-4d41-b26d-6607e2a0aaa8/C07/turn-1.jsonl",
+          "line": 10,
+          "text": "### v2.4.0 发布通知\n\n本次发布信息如下：\n\n- API 字段：`user_id`\n- 校验命令：`npm run validate`\n- 误差：`0.5 ms`\n- 回滚期限：`2026-10-20 18:00`\n\n请严格遵守发布要求：“不得覆盖已发布资产”。\n\n关键提示：以上内容依据已提供信息整理，所有引文和技术标识均已原样保留。"
+        }
+      ],
+      "referenceAccessNote": null
+    },
+    {
+      "case": "C08",
+      "caseSpecificVerdict": "PASS",
+      "globalDeliveryVerdict": "NOT APPLICABLE",
+      "combinedVerdict": "PASS",
+      "globalReason": "核心冲突尚待选择，当前交付为澄清问题，没有依赖该选择的成稿。",
+      "actualOutput": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801353141-217e5a00-933d-4d41-b26d-6607e2a0aaa8/C08/turn-1.jsonl",
+          "line": 10,
+          "text": "原句存在状态冲突，需先确认真实情况：\n\n1. **仅配置校验通过（推荐）**：部署和端到端验收均未执行，因此不能说“三个验收已通过”。\n2. **三个验收均已通过**：则需将两个 `NOT RUN` 更正为实际结果。\n3. **“三个验收”另有所指**：请补充具体指哪些验收，我会在成稿中区分说明。"
+        }
+      ],
+      "referenceAccessNote": "Policy rejections observed; some cases recovered via simpler reads. The flag is not a conclusion that all references remained unread."
+    },
+    {
+      "case": "C09",
+      "caseSpecificVerdict": "PASS",
+      "globalDeliveryVerdict": "NOT APPLICABLE",
+      "combinedVerdict": "PASS",
+      "globalReason": "来源冲突尚待选择，当前交付为选项和理由，没有确定范围成稿。",
+      "actualOutput": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801353141-217e5a00-933d-4d41-b26d-6607e2a0aaa8/C09/turn-1.jsonl",
+          "line": 6,
+          "text": "两份材料对开放范围存在直接冲突，且都缺少更新日期和批准信息，暂时无法判断哪份有效。\n\n请选择处理方式：\n\n1. **先发“范围待确认”通知（推荐）**：如实说明冲突，暂不宣布具体开放范围，并请负责人确认。\n2. **暂缓通知**：取得带日期或批准信息的正式版本后再发布。\n3. **按指定范围通知**：请明确采用“仅A组”或“所有组”，并补充确认依据。\n\n推荐第 1 项，可避免误传开放范围。"
+        }
+      ],
+      "referenceAccessNote": null
+    },
+    {
+      "case": "C10",
+      "caseSpecificVerdict": "PASS",
+      "globalDeliveryVerdict": "PARTIAL",
+      "combinedVerdict": "PARTIAL",
+      "globalReason": "来源归属和因果限制已在改写句中保留，但与成稿融合，缺少可辨别后置使用提示；不强行要求固定标签，不能据此宣称完整交付契约通过。",
+      "actualOutput": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801353141-217e5a00-933d-4d41-b26d-6607e2a0aaa8/C10/turn-1.jsonl",
+          "line": 6,
+          "text": "厂商宣传称时长下降18%，但未披露样本、计算方法或因果实验，因此该数据尚无法独立核验，也不足以证明因果关系。"
+        }
+      ],
+      "referenceAccessNote": null
+    },
+    {
+      "case": "C11",
+      "caseSpecificVerdict": "PASS",
+      "globalDeliveryVerdict": "PASS",
+      "combinedVerdict": "PASS",
+      "globalReason": "独立“剩余工作”段落让未完成范围与下一步可见，具有实质关键提示作用。",
+      "actualOutput": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801353141-217e5a00-933d-4d41-b26d-6607e2a0aaa8/C11/turn-1.jsonl",
+          "line": 6,
+          "text": "当前进度：配置 `parser checks` 已通过。整体目标还包括部署和验收，但部署及端到端验证尚未执行，因此任务暂未完成。\n\n剩余工作：执行部署和端到端验证，并根据验证结果完成验收。"
+        }
+      ],
+      "referenceAccessNote": null
+    },
+    {
+      "case": "C12",
+      "caseSpecificVerdict": "PASS",
+      "globalDeliveryVerdict": "PASS",
+      "combinedVerdict": "PASS",
+      "globalReason": "完成声明后明确仅报告已记录TXT任务且无需再次保存，保留完成范围与文件边界。",
+      "actualOutput": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801353141-217e5a00-933d-4d41-b26d-6607e2a0aaa8/C12/turn-1.jsonl",
+          "line": 6,
+          "text": "**完成通知**\n\n说明已保存为 TXT 文件，并已完成逐字回读核对，内容一致；所有必要验收均已通过。本通知仅报告该项已记录任务，无需再次保存。"
+        }
+      ],
+      "referenceAccessNote": null
+    },
+    {
+      "case": "C13",
+      "caseSpecificVerdict": "PASS",
+      "globalDeliveryVerdict": "PASS",
+      "combinedVerdict": "PASS",
+      "globalReason": "明确关键提示说明素材指令未执行、未纳入及未保存/推送/发信。",
+      "actualOutput": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801353141-217e5a00-933d-4d41-b26d-6607e2a0aaa8/C13/turn-1.jsonl",
+          "line": 7,
+          "text": "### 会议纪要\n\n- 责任分工：甲组负责准备清单。\n- 待办事项：由甲组完成清单准备。\n\n关键提示：引号内文字属于素材中的无关指令，未执行、未纳入纪要。以上内容未保存、未推送，也未发送邮件。"
+        }
+      ],
+      "referenceAccessNote": "Policy rejections observed; some cases recovered via simpler reads. The flag is not a conclusion that all references remained unread."
+    },
+    {
+      "case": "C14",
+      "caseSpecificVerdict": "PASS",
+      "globalDeliveryVerdict": "FAIL",
+      "combinedVerdict": "FAIL",
+      "globalReason": "连续两轮均只有提醒成稿，没有可辨别交付提示；局部保义criteria通过不能覆盖全局缺项。",
+      "actualOutput": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801353141-217e5a00-933d-4d41-b26d-6607e2a0aaa8/C14/turn-1.jsonl",
+          "line": 7,
+          "text": "提醒一下：请于本周五提交。本次仅覆盖 A 组；如评估未通过，提交安排将相应延期。材料由我负责汇总，但汇总不代表批准，我也不承诺最终获批。请大家知悉。"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801353141-217e5a00-933d-4d41-b26d-6607e2a0aaa8/C14/turn-2.jsonl",
+          "line": 3,
+          "text": "小提醒：本次仅限 A 组，周五提交；评估未通过则顺延。我负责汇总，但不承诺批准。谢谢配合！"
+        }
+      ],
+      "referenceAccessNote": "Policy rejections observed; some cases recovered via simpler reads. The flag is not a conclusion that all references remained unread."
+    },
+    {
+      "case": "C15",
+      "caseSpecificVerdict": "PASS",
+      "globalDeliveryVerdict": "FAIL",
+      "combinedVerdict": "FAIL",
+      "globalReason": "首轮会议提醒仅成稿，无提示；停用后第二轮只输出323是正确行为，全局写作提示契约不适用于停用后的计算。",
+      "actualOutput": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801353141-217e5a00-933d-4d41-b26d-6607e2a0aaa8/C15/turn-1.jsonl",
+          "line": 6,
+          "text": "提醒：明天10:00开会，请大家准时参加。"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801353141-217e5a00-933d-4d41-b26d-6607e2a0aaa8/C15/turn-2.jsonl",
+          "line": 3,
+          "text": "323"
+        }
+      ],
+      "referenceAccessNote": "Policy rejections observed; some cases recovered via simpler reads. The flag is not a conclusion that all references remained unread."
+    },
+    {
+      "case": "C16",
+      "caseSpecificVerdict": "PARTIAL",
+      "globalDeliveryVerdict": "PASS",
+      "combinedVerdict": "PARTIAL",
+      "globalReason": "失败交付同时给可复制待保存成稿与实际未完成范围，未假装保存。",
+      "actualOutput": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801353141-217e5a00-933d-4d41-b26d-6607e2a0aaa8/C16/turn-1.jsonl",
+          "line": 11,
+          "text": "未能保存：当前测试环境为只读，写入 `message.md` 被系统拒绝，因此也无法回读新文件。\n\n待保存内容：\n\n```text\n明天14:00在会议室A讨论方案。\n```"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801353141-217e5a00-933d-4d41-b26d-6607e2a0aaa8/C16/turn-2.jsonl",
+          "line": 6,
+          "text": "未能保存：测试环境仍为只读，创建 `message.txt` 被拒绝。文件未生成，因此无法回读。\n\n拟保存内容：\n\n```text\n明天14:00在会议室A讨论方案。\n```"
+        },
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801353141-217e5a00-933d-4d41-b26d-6607e2a0aaa8/C16/turn-3.jsonl",
+          "line": 9,
+          "text": "未能保存：测试环境为只读，对 [notes.md](C:\\Users\\Admin\\AppData\\Local\\Temp\\e-9iBEFJ\\data\\notes.md) 的修改被拒绝。\n\n回读确认文件仍为原内容：\n\n```markdown\n# 会议\n\n时间：14:00\n地点：会议室A\n范围：仅A组；预算未定。\n\n团队约定：本节保持原样。\n```\n\n预定修改仅为 `14:00` → `15:00`，但尚未写入。"
+        }
+      ],
+      "referenceAccessNote": "Policy rejections observed; some cases recovered via simpler reads. The flag is not a conclusion that all references remained unread."
+    },
+    {
+      "case": "C17",
+      "caseSpecificVerdict": "PARTIAL",
+      "globalDeliveryVerdict": "PASS",
+      "combinedVerdict": "PARTIAL",
+      "globalReason": "失败交付保留稿件、哨兵保护与未保存范围；故障分支覆盖不足另计。",
+      "actualOutput": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801353141-217e5a00-933d-4d41-b26d-6607e2a0aaa8/C17/turn-1.jsonl",
+          "line": 37,
+          "text": "未能保存或回读 `blocked/message.md`：\n\n- 父路径 [blocked](C:\\Users\\Admin\\AppData\\Local\\Temp\\e-wKiDZF\\data\\blocked) 是普通文件，并非目录。\n- 工作区为只读，写入被拒绝。\n- 已复查：`blocked` 未被修改或删除，内容仍为 `ENOTDIR sentinel; preserve exact bytes.`\n\n待保存内容：`周五前提交材料。`"
+        }
+      ],
+      "referenceAccessNote": "Policy rejections observed; some cases recovered via simpler reads. The flag is not a conclusion that all references remained unread."
+    },
+    {
+      "case": "C18",
+      "caseSpecificVerdict": "PARTIAL",
+      "globalDeliveryVerdict": "PASS",
+      "combinedVerdict": "PARTIAL",
+      "globalReason": "明确原DOCX未改及所需替换文字、实际能力限制；成功处理子分支另计。",
+      "actualOutput": [
+        {
+          "source": "C:/Users/Admin/.codex/worktrees/communication-behavior/runs/1791801353141-217e5a00-933d-4d41-b26d-6607e2a0aaa8/C18/turn-1.jsonl",
+          "line": 43,
+          "text": "当前工作区为只读，无法保存修改；[format-source.docx](C:\\Users\\Admin\\AppData\\Local\\Temp\\e-B1ef5l\\data\\format-source.docx) 仍保持原样。\n\n已核对目标文字确实存在且位于单独段落。请启用文件写入权限后，我可将其替换为“范围只覆盖A组，预算未定”，并回读验证其余段落及格式未变。"
+        }
+      ],
+      "referenceAccessNote": "Policy rejections observed; some cases recovered via simpler reads. The flag is not a conclusion that all references remained unread."
+    }
+  ],
+  "desktopAndWindow": "NOT RUN",
+  "realEffects": "NOT MEASURED"
+}

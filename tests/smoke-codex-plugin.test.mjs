@@ -3,8 +3,8 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import {assertDiscovery,parsePromptInputSkills,cleanupIsolatedRoot,listNativeSkills} from "../scripts/smoke-codex-plugin.mjs";
-import {REPOSITORY_SKILLS,RUNTIME_PLUGINS} from "../scripts/validate-portable.mjs";
+import {assertDiscovery,parsePromptInputSkills,cleanupIsolatedRoot,listNativeSkills,INSTALL_SCENARIOS,assertInstalledSkillResources,assertInstalledPackageMetadata} from "../scripts/smoke-codex-plugin.mjs";
+import {REPOSITORY_SKILLS,RUNTIME_PLUGINS,EXPLICIT_ONLY_SKILLS,COMMUNICATION_REFERENCES} from "../scripts/validate-portable.mjs";
 import {spawnCli} from "../scripts/run-cli.mjs";
 function fixture(){const root=fs.mkdtempSync(path.join(fs.realpathSync.native(os.tmpdir()),"discovery-fixture-"));
  const cache=path.join(root,"cache"), repo=path.join(root,"repo");
@@ -15,13 +15,13 @@ function fixture(){const root=fs.mkdtempSync(path.join(fs.realpathSync.native(os
  const explainEntries=["glossary","concept"].map(skill=>({name:"explain-kit:"+skill,file:skillFile("explain-kit",skill)}));
  const guideFile=skillFile("html-guide-kit","guide");
  for(const [plugin,manifest] of Object.entries(manifests))for(const base of [path.join(repo,"plugins",plugin),path.join(cache,plugin,pluginVersions[plugin])]){fs.mkdirSync(base,{recursive:true});fs.writeFileSync(path.join(base,"plugin.json"),JSON.stringify(manifest));}
- const entries=[{name:"diagram-kit:arch-diagram",file},{name:"learning-evidence-kit:pop-quiz",file:quizFile},{name:"learning-evidence-kit:learning-record-check",file:skillFile("learning-evidence-kit","learning-record-check")},...explainEntries,{name:"html-guide-kit:guide",file:guideFile}];
+ const entries=[{name:"diagram-kit:arch-diagram",file},{name:"learning-evidence-kit:pop-quiz",file:quizFile},{name:"learning-evidence-kit:learning-record-check",file:skillFile("learning-evidence-kit","learning-record-check")},...explainEntries,{name:"communication-kit:communicate",file:skillFile("communication-kit","communicate")},{name:"html-guide-kit:guide",file:guideFile}];
  const dev=REPOSITORY_SKILLS.map(name=>{const file=path.join(repo,".agents/skills",name,"SKILL.md");fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,name);return {name,file};});
  return {root,cache,repo,file,quizFile,guideFile,entries,dev,pluginVersions};}
 test("consumer and repository inventories are scoped to real installed files",()=>{
  const f=fixture();try{
- assert.deepEqual(assertDiscovery(f.entries,{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false}),{publicSkills:6,repositorySkills:0});
- assert.deepEqual(assertDiscovery([...f.entries,...f.dev],{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:true}),{publicSkills:6,repositorySkills:20});
+ assert.deepEqual(assertDiscovery(f.entries,{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false}),{publicSkills:7,repositorySkills:0});
+ assert.deepEqual(assertDiscovery([...f.entries,...f.dev],{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:true}),{publicSkills:7,repositorySkills:20});
  assert.throws(()=>assertDiscovery([...f.entries,...f.dev],{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false}));
  }finally{cleanupIsolatedRoot(f.root);}});
 test("duplicate, missing and escaped public locators fail closed",()=>{
@@ -35,11 +35,11 @@ test("duplicate, missing and escaped public locators fail closed",()=>{
  }finally{cleanupIsolatedRoot(f.root);}});
 test("Windows equivalent file casing still passes containment",{skip:process.platform!=="win32"},()=>{
  const f=fixture();try{assertDiscovery(f.entries.map(e=>({...e,file:e.file.toLowerCase()})),{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false});}finally{cleanupIsolatedRoot(f.root);}});
-test("ordinary prompt metadata contains three natural skills and excludes the explicit-only quiz and guide",()=>{
+test("ordinary prompt metadata contains three natural skills and excludes the explicit-only two learning skills, guide and communication",()=>{
  const f=fixture();try{const expectedSkills=["diagram-kit:arch-diagram","explain-kit:glossary","explain-kit:concept"],opts={cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false,expectedSkills};
  const natural=f.entries.filter(e=>expectedSkills.includes(e.name));
  assert.deepEqual(assertDiscovery(natural,opts),{publicSkills:3,repositorySkills:0});assert.throws(()=>assertDiscovery(f.entries,opts));
- for(const explicit of [f.entries[1],f.entries[4]])assert.throws(()=>assertDiscovery([...natural,explicit],opts),/exactly the expected approved skills/);
+ for(const explicit of f.entries.filter(entry=>EXPLICIT_ONLY_SKILLS.includes(entry.name)))assert.throws(()=>assertDiscovery([...natural,explicit],opts),/exactly the expected approved skills/);
  }finally{cleanupIsolatedRoot(f.root);}
 });
 test("a plugin cache junction cannot claim files outside its marketplace directory",t=>{
@@ -117,7 +117,7 @@ test("root mappings are local to their prompt text block",()=>{
  }finally{cleanupIsolatedRoot(f.root);}
 });
 
-for(const installed of [["diagram-kit"], ["explain-kit"], ["learning-evidence-kit"], ["diagram-kit", "explain-kit"], ["diagram-kit", "learning-evidence-kit", "explain-kit"], ["html-guide-kit"], ["html-guide-kit", "explain-kit"], Object.keys(RUNTIME_PLUGINS)])test("standalone and combined discovery: "+installed.join(" + "),()=>{
+for(const installed of INSTALL_SCENARIOS)test("standalone and combined discovery: "+installed.join(" + "),()=>{
  const f=fixture();try{
   const entries=f.entries.filter(e=>installed.includes(e.name.split(":")[0])),expectedSkills=entries.map(e=>e.name);
   const opts={cacheRoot:f.cache,repositoryRoot:f.repo,expectedSkills};
@@ -133,8 +133,58 @@ test("complete installed inventory rejects swapped skills and package identity/v
   const wrong=f.entries.map(e=>({...e}));wrong[2].file=wrong[3].file;assert.throws(()=>assertDiscovery(wrong,opts));
   const file=path.resolve(path.dirname(f.entries[2].file),"../../plugin.json"),original=fs.readFileSync(file),manifest=JSON.parse(original);
   for(const change of [{name:"diagram-kit"},{version:"9.9.9"}]){fs.writeFileSync(file,JSON.stringify({...manifest,...change}));assert.throws(()=>assertDiscovery(f.entries,opts),/identity\/version/);}
-  fs.writeFileSync(file,original);assert.equal(assertDiscovery(f.entries,opts).publicSkills,6);
+  fs.writeFileSync(file,original);assert.equal(assertDiscovery(f.entries,opts).publicSkills,7);
  }finally{cleanupIsolatedRoot(f.root);}
+});
+
+test("complete installed manifest rejects metadata drift despite unchanged name and version",()=>{
+ const f=fixture();try{
+  for(const plugin of Object.keys(RUNTIME_PLUGINS)){
+   const source=path.join(f.repo,"plugins",plugin),installed=path.join(f.cache,plugin,f.pluginVersions[plugin]),file=path.join(installed,"plugin.json");
+   for(const target of [source,installed]){fs.mkdirSync(path.join(target,"assets"),{recursive:true});fs.copyFileSync(path.resolve(import.meta.dirname,"..","plugins",plugin,"assets/icon.svg"),path.join(target,"assets/icon.svg"));}
+   const bytes=fs.readFileSync(file),original=JSON.parse(bytes),facts=assertInstalledPackageMetadata(source,installed);
+   assert.equal(facts["plugin.json"].bytes,bytes.length);assert.match(facts["plugin.json"].sha256,/^[0-9a-f]{64}$/);assert.match(facts["assets/icon.svg"].sha256,/^[0-9a-f]{64}$/);
+   for(const mutate of [
+    m=>{m.extensions["com.openai"].interface.capabilities=["Execute"];},
+    m=>{m.extensions["com.openai"].interface.defaultPrompt=["Use $unapproved-kit:escape"];},
+    m=>{m.description="changed description";},m=>{m.extra="unexpected";},m=>{delete m.extensions;},
+   ]){
+    const changed=structuredClone(original);mutate(changed);assert.equal(changed.name,original.name);assert.equal(changed.version,original.version);
+    fs.writeFileSync(file,JSON.stringify(changed));assert.throws(()=>assertInstalledPackageMetadata(source,installed),/metadata bytes differ.*plugin\.json/);
+   }
+   for(const content of ["not JSON",JSON.stringify(original,null,2)]){fs.writeFileSync(file,content);assert.throws(()=>assertInstalledPackageMetadata(source,installed),/metadata bytes differ.*plugin\.json/);}
+   fs.unlinkSync(file);assert.throws(()=>assertInstalledPackageMetadata(source,installed));fs.mkdirSync(file);assert.throws(()=>assertInstalledPackageMetadata(source,installed),/ordinary owned file/);fs.rmdirSync(file);
+   fs.writeFileSync(file,bytes);assert.deepEqual(assertInstalledPackageMetadata(source,installed),facts);
+   const svg=path.join(installed,"assets/icon.svg"),svgBytes=fs.readFileSync(svg);fs.unlinkSync(svg);assert.throws(()=>assertInstalledPackageMetadata(source,installed));fs.writeFileSync(svg,Buffer.concat([svgBytes,Buffer.from("\nchanged\n")]));assert.throws(()=>assertInstalledPackageMetadata(source,installed),/metadata bytes differ.*icon\.svg/);fs.writeFileSync(svg,svgBytes);assert.deepEqual(assertInstalledPackageMetadata(source,installed),facts);
+  }
+ }finally{cleanupIsolatedRoot(f.root);}
+});
+
+test("thirteen install combinations preserve implicit and native inventories including explicit standalone zero",()=>{
+ const f=fixture();try{
+  assert.equal(INSTALL_SCENARIOS.length,13);assert.equal(new Set(INSTALL_SCENARIOS.map(plugins=>plugins.join(","))).size,13);
+  for(const installed of INSTALL_SCENARIOS){
+   const native=f.entries.filter(entry=>installed.includes(entry.name.split(":")[0])),ordinary=native.filter(entry=>!EXPLICIT_ONLY_SKILLS.includes(entry.name));
+   const opts={cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false};
+   assert.equal(assertDiscovery(native,{...opts,expectedSkills:native.map(entry=>entry.name)}).publicSkills,native.length);
+   assert.equal(assertDiscovery(ordinary,{...opts,expectedSkills:ordinary.map(entry=>entry.name)}).publicSkills,ordinary.length);
+   if(installed.length===1&&installed[0]==="communication-kit"){assert.equal(native.length,1);assert.equal(ordinary.length,0);}
+   if(installed.length===4){assert.equal(native.length,6);assert.equal(ordinary.length,3);assert.equal(native.filter(entry=>EXPLICIT_ONLY_SKILLS.includes(entry.name)).length,3);}
+   if(installed.length===5){assert.equal(native.length,7);assert.equal(ordinary.length,3);assert.equal(native.filter(entry=>EXPLICIT_ONLY_SKILLS.includes(entry.name)).length,4);}
+  }
+ }finally{cleanupIsolatedRoot(f.root);}
+});
+test("installed communication compares every reference byte, metadata and resource ownership",t=>{
+ const f=fixture();t.after(()=>cleanupIsolatedRoot(f.root));
+ const source=path.join(f.root,"source"),installed=path.join(f.root,"installed"),qualified="communication-kit:communicate";
+ fs.cpSync(path.resolve(import.meta.dirname,"..","plugins/communication-kit/skills/communicate"),source,{recursive:true});fs.cpSync(source,installed,{recursive:true});
+ const facts=assertInstalledSkillResources(source,installed,qualified);for(const reference of ["SKILL.md","agents/openai.yaml",...COMMUNICATION_REFERENCES])assert.match(facts[reference],/^[0-9a-f]{64}$/);
+ for(const reference of ["SKILL.md","agents/openai.yaml",...COMMUNICATION_REFERENCES]){
+  const file=path.join(installed,reference),bytes=fs.readFileSync(file);fs.unlinkSync(file);assert.throws(()=>assertInstalledSkillResources(source,installed,qualified),/inventory/);fs.writeFileSync(file,bytes);fs.appendFileSync(file,"\nchanged\n");assert.throws(()=>assertInstalledSkillResources(source,installed,qualified),/differs/);fs.writeFileSync(file,bytes);
+ }
+ const extra=path.join(installed,"references/unexpected.md");fs.writeFileSync(extra,"extra");assert.throws(()=>assertInstalledSkillResources(source,installed,qualified),/inventory/);fs.unlinkSync(extra);
+ const refs=path.join(installed,"references"),owned=path.join(installed,"owned");fs.renameSync(refs,owned);fs.symlinkSync(owned,refs,process.platform==="win32"?"junction":"dir");assert.throws(()=>assertInstalledSkillResources(source,installed,qualified),/symlink|junction|reparse/);fs.unlinkSync(refs);fs.renameSync(owned,refs);
+ assert.doesNotThrow(()=>assertInstalledSkillResources(source,installed,qualified));
 });
 
 test("guide discovery rejects borrowed skill locations, wrong version cache and swapped installed manifest",()=>{
@@ -146,6 +196,6 @@ test("guide discovery rejects borrowed skill locations, wrong version cache and 
   for(const change of [{name:"explain-kit"},{version:"0.1.1"}]){
    fs.writeFileSync(file,JSON.stringify({...manifest,...change}));assert.throws(()=>assertDiscovery(f.entries,opts),/identity\/version/);
   }
-  fs.writeFileSync(file,original);assert.equal(assertDiscovery(f.entries,opts).publicSkills,6);
+  fs.writeFileSync(file,original);assert.equal(assertDiscovery(f.entries,opts).publicSkills,7);
  }finally{cleanupIsolatedRoot(f.root);}
 });

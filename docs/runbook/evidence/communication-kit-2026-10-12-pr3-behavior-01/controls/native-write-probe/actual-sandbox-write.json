@@ -1,0 +1,18 @@
+{
+  "purpose": "Actual Windows sandbox scoped write/read/remove on independent synthetic scratch; no model/user fixture changed",
+  "home": "C:\\Users\\Admin\\.codex\\worktrees\\communication-behavior\\permission-probes\\72d45b6c-96a3-40e1-83f9-940cc48d408c\\scoped-consumer\\home",
+  "consumer": "C:\\Users\\Admin\\AppData\\Local\\Temp\\permission-probe-ccTQmB",
+  "args": [
+    "sandbox",
+    "-C",
+    "C:\\Users\\Admin\\AppData\\Local\\Temp\\permission-probe-ccTQmB",
+    "--",
+    "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+    "-c",
+    "from pathlib import Path; p=Path('sandbox-probe.txt'); p.write_text('isolated write probe',encoding='utf-8'); print(p.read_text(encoding='utf-8')); p.unlink()"
+  ],
+  "exit": 2,
+  "stdout": "",
+  "stderr": "error: the following required arguments were not provided:\n  --permission-profile <NAME>\n\nUsage: codex sandbox --permission-profile <NAME> --cd <DIR> <COMMAND>...\n\nFor more information, try '--help'.\n",
+  "residue": []
+}

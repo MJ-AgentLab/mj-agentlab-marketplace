@@ -6,14 +6,14 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.1.1
+version: v1.3.1
 ---
 
 # [ADR] Communication Kit addition
 
 | Field | Value |
 |---|---|
-| Status | 产品方向已确认；实施及验收尚未完成 |
+| Status | 0.1.0 完整候选已实现；工程已执行，行为、客户端及发布验收未完成 |
 | Date | 2026-10-12 |
 | Author | marketplace-maintainers，依 Owner 明确决定 |
 | Scope | communication-kit / marketplace |
@@ -23,9 +23,11 @@ version: v1.1.1
 
 Owner 要求按[完整实施计划](../../plan/communication-kit-implementation-plan.md)执行并正式上线；追踪 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。计划原稿保留在原隔离工作树，同字节副本与[捕获记录](../../plan/communication-kit-plan-provenance.json)纳入 PR1。
 
-起始实施基线为 origin/develop `b2e5a74109f47ecee7471ba741fb4c1348457f3b`，marketplace 8.1.2；main `0c681a8f8b7520134a86a70934fc46288c627d8d` 为已发布 8.1.1。当时运行集合三插件、四公开技能、20 个仓库技能。计划旧基线只保留为历史，不用于当前转换。
+PR1 实施起始基线为 origin/develop `b2e5a74109f47ecee7471ba741fb4c1348457f3b`，marketplace 8.1.2；main `0c681a8f8b7520134a86a70934fc46288c627d8d` 为已发布 8.1.1。当时运行集合三插件、四公开技能、20 个仓库技能。计划旧基线与 PR1 状态保留为历史，不用于当前转换。
 
-2026-10-13先行Learning原子迁移#228合入develop `434d053`，以Learning Evidence替换Understanding并保留HTML，开发基线成为四插件六技能。Communication开发候选保持全部上游包并新增自身，形成五插件七技能。Owner通过grilling Q3明确正式公开仅为Learning已公开三包加Communication（四包六技能），HTML留develop另发；PR4/PR5区分两个集合，实际版本仍待Learning published后核对，不从开发全量推断正式范围。
+PR3已实现完整Communication0.1.0候选并原子接入插件、注册、严格校验、冻结资源、正式图标与安装预期；先行Learning迁移#228及HTML开发基线下为五插件七公开技能、20开发技能、四显式入口。marketplace仍未发布8.1.2；旧工程、行为及同应用两个本机入口必要范围的实证分别保留，发布未执行，详见[验收账本](../runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。
+
+Owner通过grilling Q3明确正式公开仅为Learning已公开三包加Communication（四包六技能、三显式），HTML留develop另发。PR4/5各自核实集合与实际From/To，不从开发全量推断公开范围；现有单入口与行为契约不变。
 
 ## §2 Decision
 
@@ -57,17 +59,17 @@ Communication 产出或修改沟通稿件；[Explain](./[ADR]_Explain_Kit_Additi
 
 PR1 契约与固定案例 → PR2 scope 工具及候选图标 → PR3 插件/注册/严格校验/资源/安装预期原子接入 → PR4 获准版本及回归 → PR5 main 发布 → 发布后 canonical 复查及维护。所有阶段使用 Refs #222，依赖顺序和当前 head 门禁按计划执行。
 
-PR1/PR2 不注册新运行包。拟新增包路径只作为计划：`plugins/communication-kit/plugin.json`、`skills/communicate/SKILL.md`、`agents/openai.yaml`、`references/{aics-policy.md,task-patterns.md,source-provenance.md,aics-snapshot.json}`，完整结构见计划。
+PR1/PR2 当时不注册新运行包。PR3 已有[manifest](../../plugins/communication-kit/plugin.json)、[包说明](../../plugins/communication-kit/README.md)、[主技能](../../plugins/communication-kit/skills/communicate/SKILL.md)、[原生配置](../../plugins/communication-kit/skills/communicate/agents/openai.yaml)与包内三份参考摘要及[冻结记录](../../plugins/communication-kit/skills/communicate/references/aics-snapshot.json)。Owner 已明确选择第二轮 D 地球＋清晰文字，正式包与四图家族预览已接入；真实客户端显示仍 NOT RUN。完整原计划继续保留，不以候选实现表示已经上线。
 
 ## §6 Acceptance
 
-依据[SPEC](../spec/[SPEC]_Communication_Communicate.md)、[固定案例](../../tests/fixtures/communication-kit/cases.json)与[RUNBOOK](../runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)，执行 S01–S12、C01–C18、必要双客户端基本可用性和 R01–R05。PR1 建立契约不代表新包已经通过。
+依据[SPEC](../spec/[SPEC]_Communication_Communicate.md)、[固定案例](../../tests/fixtures/communication-kit/cases.json)与[RUNBOOK](../runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)，执行S01–S12、C01–C18、必要双客户端基本可用性和R01–R05。PR1建立契约时没有运行包；PR3已完成工程和完整九组合canonical，原交付/无据理由失败保留，通用修复后CLI C01–C15通过，文件子路径PARTIAL，当前工具角色三项限定功能通过另记。双客户端与R01–R05仍NOT RUN，相关PR保持draft，AI review不替代当前head的GitHub非作者批准。
 
 Owner 明确将九例真实场景、三稿对照、读者效果反馈、采用度与效率提升本次延期。延期项不作上线门槛，也不记为 PASS；事实、立场、承诺和必要限制失真仍是功能失败。
 
 ## §7 Version, release and rollback
 
-新包候选建议 0.1.0。Owner 于 2026-10-12 选择 [Learning Evidence #209](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/209)先发布 8.2.0，Communication 随后独立 minor，预计 8.3.0；PR4 重查实际 From/To、最新基线及发布范围。本 ADR 未执行任何转换，不提前承诺待发布基线的精确运行集合。
+新包实际候选为0.1.0，尚未发布，现有三个插件版本保持。Owner 于 2026-10-12 选择 [Learning Evidence #209](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/209)先发布 8.2.0，Communication 随后独立 minor，预计 8.3.0；PR4 重查实际 From/To、最新基线及发布范围。PR3 未执行市场版本转换，不提前承诺待发布基线的精确运行集合。
 
 正式发布已获本任务授权，仍受真实客户端验收、CI、非作者批准、最新 base、code-owner 要求和未解决线程约束。回退经新 PR 原子撤销新包及集成，恢复先前完整集合；已发布历史不覆盖，故障使用新修复版本。流程见[发布操作](../runbook/[RUNBOOK]_Release_Operations.md)。
 
@@ -75,6 +77,15 @@ Owner 明确将九例真实场景、三稿对照、读者效果反馈、采用�
 
 | 日期 | 依据 | 状态 |
 |---|---|---|
-| 2026-10-12 | Owner 要求完整实施与正式上线，保留已确认产品契约与缩减效果测试范围 | 接受产品方向和执行授权；实现未完成 |
+| 2026-10-13 | Learning原子迁移434d053及Owner答复grilling Q3 | 开发五包七技能、正式四包六技能；HTML保留开发另发，旧来源和行为证据保留 |
+| 2026-10-12 | Owner 要求完整实施与正式上线，保留已确认产品契约与缩减效果测试范围 | PR1 时接受产品方向和执行授权；当时尚未实现 |
 | 2026-10-12 | Owner 答复版本顺序 grilling Q1 | Learning 先 8.2.0；Communication 随后独立 minor，PR4 重查版本和基线 |
-| 2026-10-13 | Learning迁移434d053及Owner答复新增发行范围grilling Q3 | 公开范围为Learning三包＋Communication四包六技能；HTML保留开发、另行发行，原单入口/行为不变 |
+| 2026-10-12 | Owner 明确选择第二轮 D 地球＋清晰文字 | 已接入原创 MJ D 正式资源；不补记客户端显示 |
+| 2026-10-12 | PR3 完整候选与工程批次 | 候选已实现，工程部分实证可追溯；行为、双客户端、发布和 S08 完整复验待完成 |
+
+| Version | Date | Summary |
+|---|---|---|
+| v1.3 | 2026-10-13 | 合并PR1范围澄清与已实现候选事实，区分开发/正式集合，保留历史与未解除门禁 |
+| v1.2 | 2026-10-12 | 记录通用缺陷修复、CLI新批与独立工具补充；独立批准/双客户端/发布仍未完成 |
+| v1.1 | 2026-10-12 | 更新 PR3 已实现候选及部分工程实证，保留 PR1 历史与未完成门禁 |
+| v1.0 | 2026-10-12 | 产品方向及实施、验收与发布契约；PR1 当时尚无运行包 |

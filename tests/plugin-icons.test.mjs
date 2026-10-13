@@ -6,7 +6,7 @@ import path from "node:path";
 import { PNG } from "pngjs";
 import { validatePluginIcons, assertInstalledIcons, resolveIconPath, inspectPng, ICON_LIMITS } from "../scripts/plugin-icons.mjs";
 import { exportSvg } from "../scripts/export-icons.mjs";
-import { validateManifest, validateRepository } from "../scripts/validate-portable.mjs";
+import { validateManifest, validateRepository, RUNTIME_PLUGINS } from "../scripts/validate-portable.mjs";
 import { validateBrandAssets } from "../scripts/brand-assets.mjs";
 import { renderBrandPreviews } from "../scripts/render-brand-previews.mjs";
 
@@ -152,7 +152,7 @@ test("brand verification detects original-reference drift, theme drift and wrong
   const { root } = fixture(t), isolated = path.join(root, "repo"); fs.mkdirSync(isolated);
   fs.cpSync(path.join(repo, "assets"), path.join(isolated, "assets"), { recursive: true });
   fs.cpSync(path.join(repo, "plugins"), path.join(isolated, "plugins"), { recursive: true });
-  assert.equal(validateBrandAssets(isolated).icons, 8);
+  assert.equal(validateBrandAssets(isolated).icons, Object.keys(RUNTIME_PLUGINS).length + 4);
   const original = path.join(isolated, "assets/brand/references/team-logo-original.png"), bytes = fs.readFileSync(original);
   fs.writeFileSync(original, png()); assert.throws(() => validateBrandAssets(isolated), /recorded original/); fs.writeFileSync(original, bytes);
   const source = path.join(isolated, "plugins/diagram-kit/assets/icon.svg"), svg = fs.readFileSync(source, "utf8");
@@ -186,4 +186,35 @@ test("four-icon comparison renders every large icon and both native-size rows wi
       assert.notDeepEqual(pixel(px+size,y+py+size-1),color,`icon ${i}, ${size}px is rendered at native width`);
     }
   }
+});
+
+test("each registered plugin has its own formal brand export and packaged icon", () => {
+  const config = JSON.parse(fs.readFileSync(path.join(repo, "assets/brand/exports.json"), "utf8"));
+  for (const plugin of Object.keys(RUNTIME_PLUGINS)) {
+    const entries = config.icons.filter(icon => icon.id === plugin);
+    assert.equal(entries.length, 1, plugin);
+    assert.equal(entries[0].source, `plugins/${plugin}/assets/icon.svg`);
+    assert.equal(entries[0].output, `plugins/${plugin}/assets/icon.png`);
+    const manifest = JSON.parse(fs.readFileSync(path.join(repo, "plugins", plugin, "plugin.json"), "utf8"));
+    const icons = validatePluginIcons(manifest, path.join(repo, "plugins", plugin));
+    assert.equal(icons.logo.sha256, icons.composerIcon.sha256);
+  }
+});
+
+test("strict repository validation rejects deleted, duplicated or borrowed Communication brand exports", t => {
+  const { root } = fixture(t), isolated = path.join(root, "repo"); fs.mkdirSync(isolated);
+  for (const rel of ["assets", ".agents", ".codex", ".github", "scripts", "tests", "plugins", "docs", "AGENTS.md", "README.md", "CONTRIBUTING.md", "GLOSSARY.md", "CHANGELOG.md", "VERSION", ...(fs.existsSync(path.join(repo, "plan")) ? ["plan"] : [])]) fs.cpSync(path.join(repo, rel), path.join(isolated, rel), { recursive: true });
+  const baseline = validateRepository(isolated); assert.equal(baseline.ok, true, baseline.errors.join("\n"));
+  const file = path.join(isolated, "assets/brand/exports.json"), original = JSON.parse(fs.readFileSync(file, "utf8"));
+  for (const mutate of [
+    config => { config.icons = config.icons.filter(icon => icon.id !== "communication-kit"); },
+    config => { config.icons.find(icon => icon.id === "communication-kit").source = "plugins/diagram-kit/assets/icon.svg"; },
+    config => { config.icons.find(icon => icon.id === "communication-kit").output = "plugins/diagram-kit/assets/icon.png"; },
+    config => { config.icons.push(config.icons.find(icon => icon.id === "communication-kit")); },
+  ]) {
+    const config = structuredClone(original); mutate(config); fs.writeFileSync(file, JSON.stringify(config));
+    const result = validateRepository(isolated); assert.equal(result.ok, false);
+    assert.ok(result.errors.some(error => error.startsWith("brand resources:")), result.errors.join("\n"));
+  }
+  fs.writeFileSync(file, JSON.stringify(original)); assert.equal(validateRepository(isolated).ok, true);
 });

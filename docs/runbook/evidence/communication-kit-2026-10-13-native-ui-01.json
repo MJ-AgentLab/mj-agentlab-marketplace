@@ -1,0 +1,378 @@
+{
+  "schemaVersion": 1,
+  "epic": 222,
+  "date": "2026-10-13",
+  "method": "Personally operated actual Windows native UI using Computer Use @oai/sky, target-only UI text and cropped screenshots; app actual command execution trace and observer physical reads supplement UI.",
+  "candidate": {
+    "sha": "000e8033ce2f639c974c3953aadc06b9be21878c",
+    "tree": "d545dafe7643bbe4eca1bc3656c8ced714bb3c8e",
+    "packageGitTree": "14a3896c7ad50597bfc83996bcfec25180a720f9",
+    "plugin": "communication-kit",
+    "version": "0.1.0",
+    "snapshot": "communication-kit-aics-2026-10-12-r2",
+    "snapshotSha256": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332"
+  },
+  "desktop": {
+    "displayName": "ChatGPT",
+    "appId": "OpenAI.Codex_2p2nqsd0c76g0!App",
+    "packageFamily": "OpenAI.Codex_2p2nqsd0c76g0",
+    "packageVersion": "26.1007.2314.0",
+    "windowId": 197142,
+    "windowTitle": "ChatGPT",
+    "modelShown": "GPT-6.1 Sol Extra High",
+    "permissionsShown": "Full access (pre-existing; unchanged)",
+    "identityLimit": "Same desktop package, two distinct native UI routes, both actual threads kind=codex/local. Not a separate ChatGPT installation, classic Chat or cloud execution; not the CLI 0.147.0 batch."
+  },
+  "install": {
+    "source": "MJ-AgentLab/mj-agentlab-marketplace",
+    "gitRef": "000e8033ce2f639c974c3953aadc06b9be21878c",
+    "actions": "Native Plugins/Add/Add marketplace, entered source and pinned ref; opened 沟通助手 detail and clicked Install; success banner and enabled skill observed.",
+    "shownVersion": "0.1.0",
+    "detailIcon": "Owner-selected D globe with text observed in actual detail",
+    "entry": "communicate single skill and explicit orange 沟通助手 invocation chip; list small icon observed, do not claim custom D rendering for every host chip",
+    "cacheComparison": "12 source mirror/cache files exact bytes; pinned mirror Git HEAD verified; Windows checkout newline normalization means raw Git blob bytes not asserted",
+    "evidence": [
+      "installed.png",
+      "cache.json"
+    ]
+  },
+  "routes": [
+    {
+      "id": "codex",
+      "route": "Codex → plugin Try now → Don't work in a project → This computer",
+      "composer": "Work with Codex",
+      "threadId": "01a13319-72a6-7e93-b8c2-dae52693ea16",
+      "threadTitle": "起草项目协调消息",
+      "cases": {
+        "communication": "PASS",
+        "writing": "PASS",
+        "faithfulRewrite": "PASS",
+        "criticalQuestionAndChatWait": "PASS",
+        "explicitNewMdTxtAndActualReadback": "PASS",
+        "noFileWritesBeforeExplicitRequest": "PASS: actual complete six-turn execution trace; initial package reads only"
+      },
+      "waiting": {
+        "request": "2026-10-13T02:35:29.704Z",
+        "observedStart": "2026-10-13T02:36:44.301Z",
+        "observedEnd": "2026-10-13T02:36:54.478Z",
+        "elapsedMs": 10177,
+        "explicitReply": "2026-10-13T02:37:46.284Z"
+      },
+      "fileRequest": "2026-10-13T02:39:00.559Z",
+      "fileBytes": 151,
+      "fileSha256": "1ab7aadcab683755ec048e2a8d87ccf04235c763004589303b66c1300c567b7e",
+      "evidence": [
+        "codex-communication.txt",
+        "codex-writing.txt",
+        "codex-writing.png",
+        "codex-rewrite.txt",
+        "codex-rewrite.png",
+        "codex-wait-unanswered.txt",
+        "codex-wait-unanswered.png",
+        "codex-wait-answer.txt",
+        "codex-files.txt",
+        "codex-files.png",
+        "codex-file-actions.txt",
+        "files-readback.json",
+        "codex-execution.json"
+      ]
+    },
+    {
+      "id": "work",
+      "route": "ChatGPT → New chat → Work → no project → On your computer",
+      "composer": "Work with ChatGPT",
+      "threadId": "01a1332a-da34-78b3-addd-473d3f7b3777",
+      "threadTitle": "撰写项目组协调消息",
+      "firstSubmitted": "2026-10-13T02:50:16.940Z",
+      "cases": {
+        "communication": "PASS",
+        "writing": "PASS",
+        "faithfulRewrite": "PASS",
+        "criticalQuestionAndChatWait": "PASS",
+        "explicitNewMdTxtAndActualReadback": "PASS",
+        "noFileWritesBeforeExplicitRequest": "PASS: actual complete six-turn execution trace; initial package reads only"
+      },
+      "waiting": {
+        "request": "2026-10-13T02:53:51.260Z",
+        "observedStart": "2026-10-13T02:54:51.836Z",
+        "observedEnd": "2026-10-13T02:55:15.779Z",
+        "elapsedMs": 23943,
+        "explicitReply": "2026-10-13T02:55:44.344Z"
+      },
+      "fileRequest": "2026-10-13T02:56:47.363Z",
+      "fileBytes": 148,
+      "fileSha256": "a857dd52b8bb7e662ef9bde3ca421817ee3b9b332bcb74b2e2617d001245479a",
+      "evidence": [
+        "app-mode.png",
+        "work-route.png",
+        "work-route.txt",
+        "work-location.png",
+        "work-communication.txt",
+        "work-communication.png",
+        "work-writing.txt",
+        "work-writing.png",
+        "work-rewrite.txt",
+        "work-rewrite.png",
+        "work-wait-start.txt",
+        "work-wait-unanswered.txt",
+        "work-wait-unanswered.png",
+        "work-wait-answer.txt",
+        "work-files.txt",
+        "work-files.png",
+        "work-file-actions.txt",
+        "work-files-readback.json",
+        "work-execution.json"
+      ]
+    }
+  ],
+  "independentReview": {
+    "agent": "communication_sync_review",
+    "method": "Read actual native UI transcripts/screenshots, complete actual execution traces and independently reread physical targets; no UI action or target writes by reviewer; compare facts/commitments/notes and must/fail criteria, not model self-evaluation",
+    "result": "PASS within necessary usability of these two actual routes; file new-save/readback only, not full C16",
+    "gitApproval": false,
+    "repair": "Reviewer found checklist could overstate custom D on host invocation chip; clarified actual detail D versus host chip display. No runtime change."
+  },
+  "failuresAndRepairs": [
+    {
+      "event": "Unified CUA native APIs disabled",
+      "handling": "Constraint specific to that API. Prior claim that all native UI work was unavailable corrected; @oai/sky works under user's explicit personal-execution instruction."
+    },
+    {
+      "event": "Initial activation and two clicks rejected: user input was detected in this window",
+      "handling": "Owner explicitly provided hands-off window; resumed actual native actions successfully; do not equate non-answer with stopped input."
+    },
+    {
+      "event": "Accessibility snapshots can lag actual render; plugin search value did not filter menu",
+      "handling": "Fresh screenshots and action-refresh loop, actual dropdown scrolling located visible 沟通助手; no guessed offscreen click or fictitious filter pass."
+    },
+    {
+      "event": "Evidence capture sharp import unsupported; python executable absent from PATH",
+      "handling": "Bundled Python/Pillow cropped target-only evidence; raw private full-frame files removed after crops; capture-tool repair not plugin defect."
+    },
+    {
+      "event": "Work tool-status UI did not expose full command details on click",
+      "handling": "Retained actual UI evidence plus app read_thread actual untruncated CreateNew/ReadAllText exit0 output; separate observer file hashes corroborate. No replay or metadata-only acceptance."
+    },
+    {
+      "event": "Initial literal-tab redaction script found no matching suggestion block and exited before writing",
+      "handling": "Whitespace-aware matching removed unrelated home suggestions; assertions confirmed exclusion before staging. Index patch retry rejected duplicate path operations before mutation, then corrected."
+    },
+    {
+      "event": "First staged git diff --check rejected CRLF in new generated JSON and target UI text excerpts under raw-byte evidence attributes",
+      "handling": "Canonical LF serialization for these new authored records/excerpts only; original npm log bytes kept. Rehash and staged Git blob verification repeated. Initial command continued after diff failure, so its final exit0 was not treated as whitespace PASS. Second attempt exposed trailing spaces in empty accessibility text nodes; trimmed horizontal line-end whitespace in UI excerpts and preserved failure output in whitespace-failure-02.json. No case input/output meaning changed."
+    }
+  ],
+  "notCovered": [
+    "Native question selection window close/empty/timeout events (ordinary chat questions used, no such window appeared)",
+    "CLI 0.147.0 host-blocked C16-C18 successful subpaths (historical PARTIAL retained)",
+    "Full C16 existing-file notes edit in these UI routes (separate tools-role batch covers limited edit)",
+    "Separate ChatGPT app installation, classic Chat mode or cloud Work execution",
+    "R01-R05 formal publication and post-release installation",
+    "Real-world efficacy/nine personal trials/three-draft comparisons/reader feedback/adoption/efficiency"
+  ],
+  "privacy": "Only synthetic task material and allowed candidate/cache identity archived; unrelated sidebar/home suggestions/notifications excluded from crops and text; reasoning items omitted from supplementary actual traces. Target UI text excerpts and generated JSON use LF, leading/trailing empty lines trimmed. Original npm log bytes preserved. Artifact hashes bind final archived bytes.",
+  "status": "Necessary usability PASS for recorded current native UI routes; PR3 remains draft for dependency, fresh base/CI and independent GitHub approval. Epic open, no Communication release.",
+  "artifacts": [
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-app-mode.png",
+      "bytes": 3787,
+      "sha256": "c73b23f2c9dcbdb0ff19cbb3acd0496584e29ea46cac49db27f4ce6ee96fb404"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-cache.json",
+      "bytes": 3548,
+      "sha256": "0bde8a650673ac159c0899cfffd7b7421f2240fedae66a5aa5120d0d75cecdaa"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-codex-communication.txt",
+      "bytes": 2863,
+      "sha256": "ec78c31d260f69baaed5e76dc0c48aa694cb5d1b61fc66ec5cdc1ddf6ec10e54"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-codex-execution.json",
+      "bytes": 31051,
+      "sha256": "f45bd2b36a81cb3ab06b1f867aae5b2138ecfb06b2ed4263d646b005cbec8ea5"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-codex-file-actions.txt",
+      "bytes": 16747,
+      "sha256": "05a90e7138f3ec56f42e6fe0b61656cf28084d2a3240e1c82e97cd60f7d7e030"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-codex-files.png",
+      "bytes": 180452,
+      "sha256": "498aa30ed79aa5e8fe1184096c726767b9160088d2f62b6a2e8a524c5448ee0d"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-codex-files.txt",
+      "bytes": 5662,
+      "sha256": "5a09509bc8b74725412a284be4c2ec84699383da84d6039c2e38ab4fcdd03617"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-codex-rewrite.png",
+      "bytes": 129021,
+      "sha256": "e1df99ca5678044b2df16f1053de48d492e3872f7f233f6fd293aa4bd5a7dace"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-codex-rewrite.txt",
+      "bytes": 6150,
+      "sha256": "2b2f7c2429dad3a61f37f4bd5bdef48333c6b2ae55403ac21faabca910ddc9b6"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-codex-wait-answer.txt",
+      "bytes": 4806,
+      "sha256": "d027f6ee20b8ab6addfd7056db35eb3a248504f5890bb0a0c57f4d86f7c6fd0a"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-codex-wait-unanswered.png",
+      "bytes": 108211,
+      "sha256": "bac299b51d0c5e46642c2b0e1f8cd8098a0a7e08270c3bacc2a90c8a3ae371b1"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-codex-wait-unanswered.txt",
+      "bytes": 8013,
+      "sha256": "543ab2ede8a1be817f9ecced52f0285cd8035fa5540d6277dc22703b8ed9568e"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-codex-writing.png",
+      "bytes": 214856,
+      "sha256": "14e3aeb15b771f335a10b26119c1a3dcf990fcec551d93313a2d1ba9274c0ab2"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-codex-writing.txt",
+      "bytes": 4773,
+      "sha256": "c333d89101a92e3634e0a45238e5be7430c9a9c5b968b0f01211922cfa8a1174"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-files-readback.json",
+      "bytes": 1061,
+      "sha256": "eb47b6e1355932bc705afce6c7d14319a080e21d158cdaadf1ce5088a4985c09"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-installed.png",
+      "bytes": 203012,
+      "sha256": "88052657371d4f60f42ef1c6d13e4aed25e8aab96b9630b827597897cb901e21"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-test.log",
+      "bytes": 62698,
+      "sha256": "4c8a312ff7361c68463c23cdd762823278ee445b96be95d694719de49a9f3371"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-whitespace-failure-02.json",
+      "bytes": 9118,
+      "sha256": "ed39fc704ce456dcc80346e20ce4b84466783847e5a5fc91d7d3594fe9c3daa6"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-work-communication.png",
+      "bytes": 105943,
+      "sha256": "b2224a86c0e2fd9459d00a7084f3b9970c5a47a5a81fb0bb5ad7202f1eb39d33"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-work-communication.txt",
+      "bytes": 3441,
+      "sha256": "672e720fcb87b1e37ce4018fb3fccec9763f3a9229ef7a189b46e9ee32c047b8"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-work-execution.json",
+      "bytes": 28569,
+      "sha256": "91341a83de896375e0d4d452955921e9f6f2356c60a29448fc0ea103f702228f"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-work-file-actions.txt",
+      "bytes": 12661,
+      "sha256": "cc983922429317e9d478f2844a9670e1a5b280f1a363a78378865bfa6c387236"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-work-files-readback.json",
+      "bytes": 979,
+      "sha256": "f3e391b7553be55bf757b7bded91eae188840dd5fe38804d038f42c788ea70fc"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-work-files.png",
+      "bytes": 170566,
+      "sha256": "9c610d744651e51cc18fe9331ba3c29d2c6aabd69cc10a6cbd7b842a5acea50b"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-work-files.txt",
+      "bytes": 12331,
+      "sha256": "9d2fe51ac653e05ed81937890f44fcf033c15a1c697f5a557de4afb71227d759"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-work-location.png",
+      "bytes": 24415,
+      "sha256": "a3bfc5178d0490a2e6bcb9489e4c8997b038e3c707b55bf8b7ab6f8d65a429b0"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-work-rewrite.png",
+      "bytes": 140904,
+      "sha256": "4144bdb484785f797dfd5b9f7e06096031ab4bea4ab5e25cd4e307cb368e4237"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-work-rewrite.txt",
+      "bytes": 7234,
+      "sha256": "4ce6b0b77bd134b3f5d3f57ea7d0567d3b9c431cb386fba3103e2025d56e0c96"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-work-route.png",
+      "bytes": 54086,
+      "sha256": "350f357e2473477dac904e5a093f40600b3f29460c645f40d1b979e9d2d91e6f"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-work-route.txt",
+      "bytes": 2198,
+      "sha256": "9c537298b0530e3b2945f4dd2d3fb139ed6c4e4e80d0093ac42e2bd19063fa2c"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-work-wait-answer.txt",
+      "bytes": 10602,
+      "sha256": "80fd648eff60ca366e06c5ec9e82be2a7845bdcbaabd9992bc1cc7498362987a"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-work-wait-start.txt",
+      "bytes": 9347,
+      "sha256": "5f7efd108598aacbad82765ec11cc574e7359391d079a62363064e96b53eb32c"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-work-wait-unanswered.png",
+      "bytes": 131214,
+      "sha256": "164074c6f0572eaeae5fee2fa82da2ef31db0f8e7f228467f5febbbafeedc688"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-work-wait-unanswered.txt",
+      "bytes": 9347,
+      "sha256": "5f7efd108598aacbad82765ec11cc574e7359391d079a62363064e96b53eb32c"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-work-writing.png",
+      "bytes": 103577,
+      "sha256": "5e2a1fa364ba2b4c65cd03a9d7a352bfcfbf9cb28cbd5c2b11576f8a829d7168"
+    },
+    {
+      "path": "communication-kit-2026-10-13-native-ui-01-work-writing.txt",
+      "bytes": 5520,
+      "sha256": "0ab1c4b6e87c938bd431666aae088b67ff33b7f1eb3d618db5a63b82c409e7ad"
+    }
+  ],
+  "engineeringRecheck": {
+    "headBeforeEvidenceCommit": "156307a008b04daf12f27c1ca58dd51b7856d743",
+    "workingChanges": "Only AGENTS.md, docs/INDEX.md, Communication RUNBOOK and native-ui evidence; runtime paths unchanged versus 000e803",
+    "test": {
+      "command": "npm test",
+      "exitCode": 0,
+      "tests": 307,
+      "pass": 307,
+      "fail": 0,
+      "skip": 0,
+      "durationMs": 67365.1765,
+      "log": "communication-kit-2026-10-13-native-ui-01-test.log"
+    },
+    "strict": {
+      "command": "npm run validate",
+      "exitCode": 0,
+      "repositorySkills": 20,
+      "publicSkills": 6
+    },
+    "canonicalRepetition": "Not repeated for documentation-only evidence; fixed 000e803 thirteen canonical installs and six actual cached Python remain separately identified, package tree unchanged."
+  }
+}

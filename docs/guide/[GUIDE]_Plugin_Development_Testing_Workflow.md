@@ -6,20 +6,26 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.6
+version: v2.8
 ---
 
 # [GUIDE] Plugin development and testing
 
-在独立 worktree 修改各插件根 manifest、skills 和资源。运行 npm ci、npm run validate、npm test、npm run check:baseline-tools 与 npm run smoke:codex。测试覆盖合法/非法 YAML、批准的开发四插件/公开候选三插件索引及独立版本、版本原子更新与失败回滚、A6 防绕过、无资产发布状态机和 Python 校验器真实执行。
+在独立 worktree 修改各插件根 manifest、skills 和资源。运行 npm ci、npm run validate、npm test、npm run check:baseline-tools 与 npm run smoke:codex。测试覆盖合法/非法 YAML、五插件候选索引及独立版本、版本原子更新与失败回滚、A6 防绕过、无资产发布状态机和 Python 校验器真实执行。新增插件、注册、严格校验、冻结资源、图标与安装预期同 PR 原子接入；main / 最新 Release v8.1.1 的三插件范围另记。
 
-隔离安装使用独立 HOME、CODEX_HOME、cache、consumer cwd 和仓库镜像，验证 consumer 不发现 mp-*，repo 正确发现全部 20 个技能。开发元数据应解析四插件/六公开技能；独立 8.2.0 公开候选三插件/五技能；普通 prompt 含 arch-diagram、glossary 和 concept，pop-quiz、learning-record-check 与 guide 三个开发显式入口另查 app-server 元数据和实际加载。新包使用待测 branch/精确 SHA，不使用公开 v8.1.1 代替候选；PR5 已准备未发布 marketplace 8.2.0，插件为 Diagram 0.3.1 / Learning Evidence 0.1.0 / Explain 0.1.1 / HTML 0.1.0。HTML 保留在 develop，另行公开发行。
+隔离安装使用独立 HOME、CODEX_HOME、cache、consumer cwd 和仓库镜像，验证 consumer 不发现 mp-*，repo 正确发现全部20个技能。全量候选安装原生元数据应解析七公开技能；普通 prompt 含 arch-diagram、glossary、concept 共三个，pop-quiz、learning-record-check、guide 与 communicate 显式加载另查 app-server 元数据与实际调用。Communication 独装普通发现0、原生1。用已安装的 arch-diagram 实际生成图与证据表，实际执行 Python 并记录返回码，确认 mcp list 为空。在两个目标客户端另行完成市场、安装、图标、入口与实际调用；无原生 UI 控制能力时明确记录限制，不能以 CLI 发现代替。
+
+同步 Learning 替代后的十三组合为 Diagram、Learning Evidence、Explain、Diagram＋Explain、Diagram＋Learning Evidence＋Explain、Communication、Communication＋Explain、Communication＋Learning Evidence、Diagram＋Learning Evidence＋Explain＋Communication、HTML、HTML＋Explain、Diagram＋Learning Evidence＋Explain＋HTML、全五插件；每组独立 cache，核对技能、原生元数据、三份参考摘要、冻结记录与图标的源/缓存字节。安装矩阵和真实 Python 执行结果按候选 SHA/tree 与包内容绑定。
 
 静态结构和发现只证明安装/加载。使用已安装技能执行独立合成角色验收：Pop Quiz 的职责、来源、2+1、预算、无答待答与只读；明确移交保存后保留实际状态；Learning Record Check 两阶段结论及缺材料手动恢复。所有保存测试显式隔离证据库，GitHub 写入用受控替身；完整基线、身份归属、重试/冲突/恢复、导入导出、分段共享及增量进度都以实际运行输出验证。共用脚本必须在安装缓存、无关 cwd 执行，证明仓库脚本区已删除且不是依赖。
 
 实际客户端安装、调用和原生窗口分层核验。所有启用入口严格待答；默认、空返回、超时或关闭不算答复，未提交前窗口持续显示单独验证。文字重述/逻辑 pending 不算窗口通过；不可达或不合格入口延期。按 [新验收账本](../runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)登记方法、输入、版本、输出和限制；Agent 合成不冒充真人、窗口或 GitHub 非作者批准。PR5 明确可启用入口，Epic 保留延期，Owner 最终接受单独记录。
 
 Explain Kit 单独安装及与 Diagram Kit、全部现有插件组合的隔离场景分别验收。代理检查解释路由、格式适应、未知术语及主任务保留，并执行安装缓存的 Python 图表校验；详见 [Explain Kit 验收](../runbook/[RUNBOOK]_Explain_Kit_Acceptance.md)。不能执行的客户端项记录约束，不交给 owner 例行手工完成。
+
+Communication 按[固定验收契约](../runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)执行 S01–S12、C01–C18、必要双客户端基本可用性及后续 R01–R05。先核对冻结来源与提炼映射、实际脏状态及三份摘要哈希，再执行合成案例的保真、等待、授权、保存/回读/真实失败边界。两端分别记录候选来源/版本、安装、显式 communicate、图标、三类写作、关键等待、聊天交付与文件边界；缺项保持 PR3 draft。失败批次保留，修复产生新身份、新批次复验。
+
+实际行为、UI 交互和安装验证分别记结果；当前 Communication 已有 CLI 行为与限定工具角色结果，双客户端验收仍缺项，具体见验收记录。现实场景效果、九例个人试用、三稿对照、读者反馈、采用度和效率评价本轮延期；基础通过不代表现实收益。Learning 先8.2.0，Communication 随后独立 minor；PR4 重查 From/To 与完整基线，PR3 市场保持未发布8.1.2，新包0.1.0。
 
 ## Brand design and assets
 
@@ -35,6 +41,18 @@ PR2 保留原安装组合，增加 HTML Guide 单独、与 Explain 和全部插�
 
 模型实际读取本次安装缓存技能；中性随机 consumer 路径，隔离答案/评审控制，并明确排除 reviewer-only 的镜像内容。完整 canonical 身份、评审镜像身份与缓存运行哈希分别记录，不要求镜像 tree 与完整仓库相同。真实失败、回放、未覆盖与修正后的调用分开保存。2026-10-12 Owner 调整：本次不执行现实场景的理解效果测试，effect_status 保持未测量；效果另行测试，不阻断工程接入，也不能将模型行为或点击完成解释为理解改善。
 
-HTML PR2 已原子加入 HTML Guide Kit 0.1.0 与 Owner 选定的第二轮 A。保留原四组安装并新增 HTML 单独、HTML+Explain、全四插件，当时共七组；原生公开技能依次1/2/3/4/1/3/5，自然启用依次1/2/3/3/0/2/3。source/cache 必需资源按 SKILL_RESOURCES 比对 raw bytes、metadata 和路径归属；新guide恰有SKILL/native config/两参考，不允许missing或extra。连续行为测评与完整canonical安装分开，真实模型必须读取本次缓存，评审镜像剔除控制/答案。
+| Version | Date | Summary |
+|---|---|---|
+| v2.5 | 2026-10-12 | 保留 HTML 分段验收并接入 Communication 九组合、冻结资源、两个显式入口及基础验收范围 |
 
-Learning Evidence 替换后的开发安装执行八组：Diagram、Explain、Learning 单独，Diagram+Explain、原三插件组合，HTML 单独、HTML+Explain、全部四插件。每组以实际登记与缓存核验，独立原三插件发行候选另行执行其五组 canonical 安装；不同集合的通过记录不能混用。
+PR2 已原子加入 HTML Guide Kit 0.1.0 与 Owner 选定的第二轮 A。保留原四组安装并新增 HTML 单独、HTML+Explain、全四插件，共七组；原生公开技能依次1/2/3/4/1/3/5，自然启用依次1/2/3/3/0/2/3。source/cache 必需资源按 SKILL_RESOURCES 比对 raw bytes、metadata 和路径归属；新guide恰有SKILL/native config/两参考，不允许missing或extra。连续行为测评与完整canonical安装分开，真实模型必须读取本次缓存，评审镜像剔除控制/答案。
+
+| Version | Date | Summary |
+|---|---|---|
+| v2.6 | 2026-10-13 | 同步 HTML 开发基线，保留 Communication 合同并更新五插件集合与十三组合预期 |
+
+| Version | Date | Summary |
+|---|---|---|
+| v2.7 | 2026-10-13 | 同步 Learning 原子替代与 Communication 完整集成，按当前集合验收，发行范围另核对 |
+
+| v2.8 | 2026-10-13 | 同步已公开Learning8.2.0基线，保留Communication开发五包与正式四包范围及历史限制 |

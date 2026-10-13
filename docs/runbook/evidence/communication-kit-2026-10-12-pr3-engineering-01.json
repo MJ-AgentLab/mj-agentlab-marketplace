@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "stage": "PR3",
+  "batch": "engineering-01",
+  "recordedAt": "2026-10-12T10:19:16.598Z",
+  "candidateSha": "a046058b7a0aa0741082f8a8ce6ae377a482c428",
+  "candidateTree": "37648de2fadd2603b2dbd867640bbc98276d1863",
+  "testedCanonicalSha": "2fa25486b68607335b3dcd6d0e8c99f1a97ecd7e",
+  "testedCanonicalTree": "37648de2fadd2603b2dbd867640bbc98276d1863",
+  "identityNote": "Commit partition corrected without changing tree; original tested commit retained locally as codex/communication-tested-2fa2548. npm test ran in prepared dirty/index integration tree before commit; canonical installation ran from actual fixed Git commit.",
+  "checks": {
+    "npmTest": {
+      "exitCode": 0,
+      "pass": 276,
+      "fail": 0,
+      "skipped": 0,
+      "log": "communication-kit-2026-10-12-pr3-engineering-01.log",
+      "sha256": "52786687e43f51091a1440ce3a569b6479777c86c8b674907c35b5047311f8b4"
+    },
+    "strict": {
+      "ok": true,
+      "plugins": 4,
+      "publicSkills": 5,
+      "repositorySkills": 20,
+      "explicitOnly": 2
+    },
+    "canonical": {
+      "result": "PASS",
+      "scenarios": 9,
+      "pythonRuns": 4,
+      "scope": "Strict source validation, installation/discovery, complete skill directory byte comparisons, PNG fields and installed Python; not release R04"
+    },
+    "icon": {
+      "ownerSelection": "revision-2/d",
+      "nativePreviews": [
+        32,
+        48,
+        64
+      ],
+      "fourPluginSheetVisible": true,
+      "desktopDisplay": "NOT RUN"
+    }
+  },
+  "review": {
+    "standards": {
+      "findings": 1,
+      "resolution": "Move PR templates into separate infra(ci) commit; final tree unchanged"
+    },
+    "spec": {
+      "findings": 2,
+      "pending": [
+        "Complete installed manifest and SVG byte comparison (name/version was insufficient)",
+        "Refresh dedicated PR1 Communication docs to implemented candidate status"
+      ]
+    }
+  },
+  "s08Status": "PARTIAL pending metadata/SVG regression and canonical recheck",
+  "cases": "C01-C18 awaiting actual subject execution/independent judgement",
+  "clients": {
+    "codexCLI": "Installation verified; actual behavior pending",
+    "chatgptDesktop": "NOT RUN",
+    "codexDesktopUI": "NOT RUN"
+  },
+  "release": "R01-R05 NOT RUN",
+  "deferred": [
+    "real-world effects",
+    "nine personal trials",
+    "three-draft comparison",
+    "reader feedback",
+    "adoption",
+    "efficiency"
+  ]
+}

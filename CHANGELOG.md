@@ -27,6 +27,8 @@
 
 - Prepare communication-kit commit/version tooling and three D-style icon candidates for Epic #222. Render plugin comparison sheets across rows so a fourth icon and its native previews remain visible. Runtime registration, formal icon exports and all real versions remain unchanged; the new icon awaits Owner selection.
 
+- Atomically integrate the unpublished Communication Kit 0.1.0 with explicit invocation, frozen AICS resources and synchronized registration, strict checks and installation expectations under Refs #222. Learning replacement and retained development-only HTML form five packages/seven skills; the Owner-approved Communication release contains only Diagram, Learning Evidence, Explain and Communication (four packages/six skills). CLI behavior, limited tool roles and two actual local app routes are recorded with their limitations; real-world effects are deferred.
+
 - Record actual atomic package delivery #228 and #213 completion, exact-merge canonical cache/Python checks and the unchanged 8.2.0 development candidate rerun. Preserve original model/failure evidence, missing historical reviews and the separate three-plugin public release scope.
 
 - Record the actual GitHub-flow merge #227 and child #212 delivery, canonical installation/Python checks and the observed missing GitHub reviews. Prepare the unchanged qualified package stage with 317 tests/eight installs and exact common/model resource closure; honor the Owner preference to leave later review requests unassigned.

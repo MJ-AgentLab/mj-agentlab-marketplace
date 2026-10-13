@@ -5,6 +5,7 @@ import os from "node:os";
 import path from "node:path";
 import {spawnSync} from "node:child_process";
 import {verifyReleaseInstall} from "../scripts/release-verify-install.mjs";
+import {validateRepository,COMMUNICATION_REFERENCES} from "../scripts/validate-portable.mjs";
 const REPO=path.resolve(import.meta.dirname,".."), dirs=[];
 test.after(()=>dirs.forEach(d=>{
  const relative=path.relative(fs.realpathSync(os.tmpdir()),fs.realpathSync(d));
@@ -15,9 +16,23 @@ test.after(()=>dirs.forEach(d=>{
  assert.ok(!fs.existsSync(d),"fixture cleanup must finish");
 }));
 function git(d,...args){const r=spawnSync("git",args,{cwd:d,encoding:"utf8"});assert.equal(r.status,0,r.stderr);return r.stdout.trim();}
-function fixture(){const d=fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()),"canonical-fixture-"));dirs.push(d);
+function fixture({syntheticCommunication=false}={}){const d=fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()),"canonical-fixture-"));dirs.push(d);
  for(const p of ["assets",".agents",".codex",".github","scripts","tests","plugins","docs","plan","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])
  fs.cpSync(path.join(REPO,p),path.join(d,p),{recursive:true});
+ if(fs.existsSync(path.join(REPO,".gitattributes")))fs.copyFileSync(path.join(REPO,".gitattributes"),path.join(d,".gitattributes"));
+ // The mutation suite uses a complete synthetic registration/icon only inside its temporary Git repo.
+ // Actual repository/candidate installation is validated separately without this preparation.
+ if(syntheticCommunication){
+  const catalogFile=path.join(d,".agents/plugins/marketplace.json"),catalog=JSON.parse(fs.readFileSync(catalogFile,"utf8"));
+  if(!catalog.plugins.some(plugin=>plugin.name==="communication-kit")){const plugin=structuredClone(catalog.plugins[0]);plugin.name="communication-kit";plugin.source.path="./plugins/communication-kit";catalog.plugins.push(plugin);fs.writeFileSync(catalogFile,JSON.stringify(catalog));}
+  const icons=path.join(d,"plugins/communication-kit/assets");fs.mkdirSync(icons,{recursive:true});
+  for(const ext of ["svg","png"])fs.copyFileSync(path.join(d,`plugins/diagram-kit/assets/icon.${ext}`),path.join(icons,`icon.${ext}`));
+  for(const size of [32,48,64])fs.copyFileSync(path.join(d,`assets/brand/previews/diagram-kit-${size}.png`),path.join(d,`assets/brand/previews/communication-kit-${size}.png`));
+  const exportsFile=path.join(d,"assets/brand/exports.json"),exports=JSON.parse(fs.readFileSync(exportsFile,"utf8"));
+  exports.icons=exports.icons.filter(icon=>icon.id!=="communication-kit");exports.icons.push({id:"communication-kit",source:"plugins/communication-kit/assets/icon.svg",output:"plugins/communication-kit/assets/icon.png"});fs.writeFileSync(exportsFile,JSON.stringify(exports));
+  fs.appendFileSync(path.join(d,".gitattributes"),"\nplugins/communication-kit/skills/communicate/references/* -text\n");
+  const result=validateRepository(d);assert.equal(result.ok,true,result.errors.join("\n"));
+ }
  git(d,"init","--quiet");git(d,"config","user.name","Fixture");git(d,"config","user.email","fixture@example.invalid");
  // Canonical byte assertions use fixture-local settings, independent of system checkout conversion.
  git(d,"config","--local","core.autocrlf","false");
@@ -59,6 +74,28 @@ test("canonical release validation includes explain-kit before invoking installa
  git(d,"add",".");git(d,"commit","--quiet","-m","missing-public-skill");let calls=0;
  await assert.rejects(verifyReleaseInstall({repoRoot:d,canonicalSha:git(d,"rev-parse","HEAD"),install:async()=>{calls++;return {ok:true};}}),/explain-kit:concept/);
  assert.equal(calls,0);assert.equal(git(d,"worktree","list","--porcelain").match(/^worktree /gm).length,1);
+});
+
+test("canonical communication resource loss or tampering blocks installation before any installer call",async()=>{
+ const {d,sha}=fixture({syntheticCommunication:true}),base="plugins/communication-kit/skills/communicate/";
+ await verifyReleaseInstall({repoRoot:d,canonicalSha:sha,install:async({repoRoot})=>{const valid=validateRepository(repoRoot);assert.equal(valid.ok,true,valid.errors.join("\n"));return {ok:true};}});
+ const resources=[base+"SKILL.md",base+"agents/openai.yaml",...COMMUNICATION_REFERENCES.map(reference=>base+reference),"plugins/communication-kit/assets/icon.png","plugins/communication-kit/assets/icon.svg"];
+ let calls=0;
+ for(const rel of resources){
+  const file=path.join(d,rel),bytes=fs.readFileSync(file);
+  for(const mutation of ["missing","tampered"]){
+   if(mutation==="missing")fs.unlinkSync(file);
+   else if(rel.endsWith(".png")){const corrupted=Buffer.from(bytes);corrupted[29]^=1;fs.writeFileSync(file,corrupted);}
+   else if(rel.endsWith(".md")&&rel.includes("/references/"))fs.writeFileSync(file,Buffer.concat([bytes,Buffer.from("\naltered\n")]));
+   else fs.writeFileSync(file,"invalid resource\n");
+   git(d,"add",".");git(d,"commit","--quiet","-m",mutation+"-communication-resource");
+   await assert.rejects(verifyReleaseInstall({repoRoot:d,canonicalSha:git(d,"rev-parse","HEAD"),install:async()=>{calls++;return {ok:true};}}),/communication|brand resources|invalid package resource/,rel+" "+mutation);
+   fs.writeFileSync(file,bytes);
+   assert.equal(git(d,"worktree","list","--porcelain").match(/^worktree /gm).length,1);
+  }
+ }
+ assert.equal(calls,0);
+ const restored=validateRepository(d);assert.equal(restored.ok,true,restored.errors.join("\n"));
 });
 
 test("canonical installation rejects missing HTML Guide Kit runtime files and contract drift before calling installer",async()=>{
