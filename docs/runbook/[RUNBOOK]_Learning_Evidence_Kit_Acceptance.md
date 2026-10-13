@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: active
-version: v1.5
+version: v1.5.1
 last-verified: 2026-10-13
 verification-scope: contract-common-flow-package-and-partial-model-observations
 ---
@@ -137,6 +137,14 @@ On 2026-10-12 Owner explicitly chose the original public 8.2.0 scope after paral
 
 Fourth-round preparation contains seven fresh affected scenarios/nine turns, including handoff and all six LRC scenarios. The material-arrival case alone resumes its same UUID. Source freezing, canonical installation and complete actual-model acceptance are pending. Its neutral fixtures and environment preparation provide no behavior PASS; older natural/deferred observations retain their original limited scope.
 
+### Fourth actual round and applicability-order repair (2026-10-13)
+
+The [complete fourth-round partial receipt](evidence/learning-evidence-fourth-model-round.json) preserves six actual fresh scenarios/eight turns/55 commands from source `8546aef`, with [independent complete review](evidence/learning-evidence-fourth-model-independent-review.json). Auth copies are zero. Handoff, unspecified selection, missing materials, three-phase manual material arrival and different-source-author checks pass their stated limits; six newly generated checks now have actual agent/LRC/operator/clock facts and immutable originals. Overall FAIL remains: the other-person case actually read explanation, verification and full implementation before get/check_record established identity mismatch. Its later not_run does not cancel those reads. Listing was never set up or invoked and remains NOT_RUN. All original help/API/parser failures remain in the complete receipt.
+
+The new LRC text executes Stage 1 first: retrieve/check the selected original, establish person/task/KU/version applicability, and only then open application materials/implementation. Invalid applicability stops before those reads; Stage 2 reads cannot be batched into unfinished Stage 1. Confirmed scope and baseline/source/version inspection remain available; no Owner decision, schema or Python API is added. Independent text review passes, while a fresh six-LRC/eight-turn fifth round remains pending. Fourth-round handoff may be retained only against its complete unchanged observed resource closure; no native or full-new-source behavior is inferred.
+
+Three agent-written docs commits incorrectly used the closed-out `acceptance` scope. The [metadata repair](evidence/learning-evidence-commit-scope-repair.json) preserves old remote history, corrects the three draft PR branches under exact old-head leases and proves identical Git trees; no validator bypass or runtime change is used. Current checks/approval still apply to each new head.
+
 ### Entry activation ledger
 
 PR5 fills one row for each actual host/entry combination, retaining method, client version, install source/plugin/head identity, actual call evidence, individual window results, impact and removal condition. No entry is enabled solely by the contract or a static metadata check.
@@ -181,6 +189,7 @@ Use existing draft-first release controls and record actual remote state before 
 
 | Version | Date | Verification scope | Summary |
 | --- | --- | --- | --- |
+| v1.5.1 | 2026-10-13 | Complete fourth-round failure and static order repair; fifth actual acceptance pending | Retain original commands/metadata positives, stop identity mismatch before application reads, preserve exact-tree commit-scope repair and old sources |
 | v1.0 | 2026-10-12 | Source/intake/document structure; new runtime NOT_RUN | Contract acceptance matrix, actual intake facts, strict-window staged-entry policy, six delivery PRs and two closeout PRs; Refs #210 and Epic #209 |
 | v1.1 | 2026-10-12 | Contract merge and isolated local library; clients NOT_RUN | PR2 independent repairs, 33 Python cases, #224 and 253-test latest-develop synchronization; preserve parallel HTML contracts and earlier evidence |
 | v1.2 | 2026-10-12 | Isolated manual GitHub flow with controlled remote substitute; clients NOT_RUN | Scope-before-persistence, stable pagination, partial recovery, source receipts and independent original-case reruns; Refs #212 |

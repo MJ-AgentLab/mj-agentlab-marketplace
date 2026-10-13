@@ -13,9 +13,11 @@ Read [record/common contract](../../references/record-contract.md). Derive plugi
 
 ## Stage 1: record validity
 
-Read named saved record or explicitly transferred complete export. Run check_record against confirmed person/task/KU/versions. Inspect respondent attribution, confirmation, initial/support observations, recoverable requirement content/hash, independent sources, lineage and changed applicability. PR/account authorship is provenance, not identity proof. Another person's record remains background.
+Complete this stage before opening application materials or investigating the implementation. First retrieve the selected original record or explicitly transferred complete export. Run check_record against confirmed person/task/KU/versions, inspect its actual findings, and establish whether the record applies to this person and task. A record ID, a supplied explanation or a verification-file path does not establish applicability. Do not announce that application prerequisites are complete before checking them.
 
-With no valid applicable record, stop and return gaps. Do not fabricate observations, overwrite raw answers or trigger a quiz. Report record validity separately as supported/partially_supported/unsupported/not_run with reasons/references/limits. If requested, save actual conclusion as a new record_check linked to original evidence ID.
+Keep Stage 1 and Stage 2 file reads/actions in separate command batches. Stage 1 may read requirement/knowledge-source and version provenance; it must not bundle explanation, verification or implementation reads, probes or tests before applicability is established. Inspect respondent attribution, confirmation, initial/support observations, recoverable requirement content/hash, independent sources, lineage and changed applicability. PR/account authorship is provenance, not identity proof. Another person's record remains background.
+
+With no valid applicable record, stop and return gaps before opening the person's application explanation, verification materials or implementation, even when the request names those files. Do not fabricate observations, overwrite raw answers or trigger a quiz. Report record validity separately as supported/partially_supported/unsupported/not_run with reasons/references/limits. If requested, save actual conclusion as a new record_check linked to original evidence ID.
 
 Only explicit sharing authorization invokes publish for the complete valid learning record within its repository/PR/record scope. Verify all parts and return actual receipts; partial remains partial. No PR supports explicitly requested complete export handoff. Save is not publication authorization.
 

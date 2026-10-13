@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-13",
+  "round": 4,
+  "original_receipt": "learning-evidence-fourth-model-round.json",
+  "original_receipt_sha256": "27c7c5a914869d7ffb9c505b72ddd64c1c5206daeb27431676215b3868cd5239",
+  "reviewer": "Independent store_spec_review agent; complete JSONL, actual libraries, cache/context and artifact hashes examined",
+  "overall": "FAIL_PREMATURE_APPLICATION_INVESTIGATION_PARTIAL_HOLD",
+  "actual_cases": 6,
+  "actual_turns": 8,
+  "terminal_commands": 55,
+  "passed_scopes": [
+    "handoff with preconfigured local exclusion",
+    "unspecified selection stops",
+    "missing materials stops before implementation",
+    "material-arrival three-phase manual trigger",
+    "different-source-author current metadata and immutable originals"
+  ],
+  "failed_scope": {
+    "case": "another-person",
+    "actual_order": [
+      "JSONL line10/item4 reads explanation, verification and full implementation",
+      "line14/item6 retrieves selected original",
+      "line17/item8 detects identity mismatch and stops"
+    ],
+    "final_not_run_does_not_cancel_read": true
+  },
+  "not_run": [
+    "listing-task-selection"
+  ],
+  "new_generated_checks": 6,
+  "metadata_positive": "Actual agent/current LRC/null unknown operator with limits/real clock; all originals unchanged",
+  "cache_packages": 6,
+  "resource_files_each": 19,
+  "runtime_digest": "d69c9fddfd74ff61f32c44ecea2559b0395a4e5b8a457f7177ee1b774878747d",
+  "actual_model": "gpt-5.6-sol",
+  "model_override": false,
+  "auth_remaining": 0,
+  "unexercised": [
+    "New nonnull operation account",
+    "Model durable exact-save retry",
+    "Automatic Git exclusion in restricted model route"
+  ],
+  "native": "DEFERRED",
+  "static_repair_review": "PASS for existing Stage1-before-Stage2 applicability requirement, no new Owner gate; new actual model acceptance remains pending"
+}

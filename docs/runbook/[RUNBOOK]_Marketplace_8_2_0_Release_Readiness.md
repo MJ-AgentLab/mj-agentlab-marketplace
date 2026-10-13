@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: active
-version: v1.1
+version: v1.2
 last-verified: 2026-10-13
 verification-scope: preparation-version-and-existing-evidence-only
 ---
@@ -27,6 +27,7 @@ verification-scope: preparation-version-and-existing-evidence-only
 | 候选集合 | 三插件、五公开技能、两项显式学习策略 | 安装/发现通过不能代替实际模型、桌面调用或原生窗口验收 |
 | 最新运行修复来源 | PR4 新核验生成信息修复已正常继承至 PR5 | 新作者/LRC 来源/操作/实际事件时间使用当前事实，保留原件；第四轮新源码实际验收待完成 |
 | 已冻结并安装的 8.2.0 技术来源 | `36ef16cd8798b107e16673e1520f3086964c4e3e` | [技术回执](evidence/learning-evidence-acceptance-checks.json)记录精确 Git tree、290-test 日志、五种 canonical 安装及模型冻结摘要 |
+| 新修复精确技术来源 | `8546aef1143642057693303fd334a09538081efa` / tree `85cf4d0c565d7e5bdd5ecfbc34e76b7e69d5307f` | [新技术回执](evidence/learning-evidence-generator-repair-checks.json)：290/290、零跳过，严格 baseline 和五种 canonical 安装通过；第四轮仍在实际执行 |
 | 最终交付 head / Git tree | PENDING | 完整回执及审查记录提交后重新冻结，比较运行资源并复核当前 head 门禁；不把前一候选身份冒充最终交付 |
 | Main 发布 merge / v8.2.0 tag / Release 身份 | NOT_RUN | 尚无本次公开发布身份；不得用候选版本或旧发布结果代填 |
 
@@ -74,7 +75,7 @@ verification-scope: preparation-version-and-existing-evidence-only
 
 候选已修复：应用调查/探针之前检查本人应用解释及既有材料等全部前提，禁止测验答案/AI 推断/任务文本替代；缺项立即停止应用阶段，材料到达仍须新手动触发。listing 示例缩至 89 个 Unicode scalar values，严格拒绝超 128、超过三条及未配对 surrogate。修复检查及不同测试字节快照见 [修复回执](evidence/learning-evidence-entry-gates-checks.json)；原失败不覆盖。第三轮已在精确 8.2.0 来源 36ef16cd 执行九场景/十一回合，完整实际行为结果为 FAIL；不能继续描述为未执行。
 
-第三轮的完整原始回执见 [第三轮证据](evidence/learning-evidence-third-model-round.json)：等待、范围选择、原件移交、应用比较及限定分享有各自正面观察；新增条目却误用原作者或 Pop Quiz 来源，他人记录另伪造晚于保存时间的事件时间。候选已明确使用实际生成代理、当前 LRC 版本/上下文、真实操作及观察到的时钟，重试保持相同请求字节；共用 Python、schema 与原件保持。第四轮七场景/九回合已准备，安装、模型和独立完整审查尚未完成。
+第三轮的完整原始回执见 [第三轮证据](evidence/learning-evidence-third-model-round.json)：等待、范围选择、原件移交、应用比较及限定分享有各自正面观察；新增条目却误用原作者或 Pop Quiz 来源，他人记录另伪造晚于保存时间的事件时间。候选已明确使用实际生成代理、当前 LRC 版本/上下文、真实操作及观察到的时钟，重试保持相同请求字节；共用 Python、schema 与原件保持。第四轮已实际执行六场景/八回合，整体 FAIL：他人记录在适用性核验前读取实现；listing 未启动。完整[第四轮证据](evidence/learning-evidence-fourth-model-round.json)与[独立审查](evidence/learning-evidence-fourth-model-independent-review.json)保留，auth 为零。新核验生成信息已分别通过，但不能覆盖顺序失败。新文本明确 Stage1 适用性建立后才读取应用材料/实现，第五轮六 LRC/八回合待新来源实际复验。
 
 Owner 已确认 8.2.0 仍为原定三插件/五技能/两项学习策略。develop 保留 #226 的 HTML，Learning Evidence 替换后开发集合为四插件/六技能；独立公开候选只含 Diagram、Learning Evidence、Explain，HTML 另行发行。不得以原公开集合校验删除 develop 的已合并 HTML。
 
@@ -105,7 +106,7 @@ Owner 已确认 8.2.0 仍为原定三插件/五技能/两项学习策略。devel
 | 条件发布授权与分段边界 | AUTHORIZED / ACCEPTED | 本记录 §1 与已接受 ADR；边界未实质变化时复用 |
 | 8.1.2 → 8.2.0 版本准备 | APPLIED，未发布 | VERSION / README badge 两锚点；最终冻结提交及对应检查 PENDING |
 | 8.2.0 技术来源完整工程及 canonical 安装 | PASS_FOR_36EF16CD | 290/290、零跳过，严格校验/精确 baseline、五种精确 Git 安装和实际图表/共用 Python 通过；未来最终交付另核当前身份 |
-| 修复后完整核心实际模型验收 | THIRD_ROUND_FAIL / FOURTH_ROUND_PENDING | 各场景输入/source/模型版本、实际操作与独立审查；不得合并不同轮次为无失败 PASS |
+| 修复后完整核心实际模型验收 | FOURTH_ROUND_FAIL / FIFTH_ROUND_PENDING | 各场景输入/source/模型版本、实际操作与独立审查；不得合并不同轮次为无失败 PASS |
 | 当前 head 的真实非作者 APPROVED review | PENDING | 合格非作者、review 状态及绑定 head；Agent 自检不替代 |
 | Required checks / resolved threads | PENDING FOR_FINAL_HEAD | 实际远端检查结论及审查线程；既有绿色 CI 不覆盖未来最终 head |
 | 正式发布 PR / main merge | NOT_RUN | PR 号、head、批准/检查/线程事实、实际 merge SHA/tree |
@@ -130,6 +131,7 @@ Owner 已确认 8.2.0 仍为原定三插件/五技能/两项学习策略。devel
 
 | Version | Date | last-verified | Change |
 | --- | --- | --- | --- |
+| v1.2 | 2026-10-13 | 完整第四轮失败和阶段顺序修复 | 保留生成信息的有限正向、未运行 listing 与全部原错误；第五轮核心接受和正式发布仍待完成 |
 | v1.1 | 2026-10-13 | 原精确技术结果、完整第三轮失败及新修复范围 | 保留三插件公开范围与四插件开发集合；第四轮实际验收、保护合入和正式发布仍待完成 |
 | v1.0 | 2026-10-12 | 2026-10-12，准备/已有证据范围 | 建立 8.2.0 未发布准备账本，保留两轮模型与 CI 原失败、入口条件/延期、当前 head 门禁及发布后待办；Refs #214 / #215 / #209 |
 

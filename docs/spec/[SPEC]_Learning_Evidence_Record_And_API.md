@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: active
-version: v1.3
+version: v1.3.1
 ---
 
 # [SPEC] Learning Evidence records and common API
@@ -18,6 +18,8 @@ JSON is authoritative; Markdown is generated from the same JSON. This contract i
 `pop-quiz` explicitly starts a read-only diagnostic and produces a complete transferable record. An explicit handoff ends that diagnostic and calls common save/association capabilities. A pending or interrupted quiz remains pending or interrupted in its record; saving cannot manufacture completion. `learning-record-check` explicitly checks the specified record's validity, then checks task application using the person's explanation and existing verification materials. These conclusions remain separate. Saving does not authorize publication; new materials do not authorize another check. A single explicit request with complete scope and inputs may execute both stages and their authorized publications.
 
 On 2026-10-12 Owner accepted staged delivery: keep both public skills and common interfaces; defer native client entries that cannot meet strict-window acceptance. PR5 must identify every enabled entry and its actual evidence. Unsubmitted, preselected, timed-out or closed questions are not answers. A pending JSON state or textual redisplay does not prove persistent native-window display. Deferred entries remain incomplete under [the acceptance ledger](../runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md).
+
+Record checking establishes applicability from the selected original and actual person/task/KU/version findings before opening application explanations, verification materials or implementation. A supplied record ID or material path is not proof of applicability. Keep the two stages in separate action batches; an inapplicable record stops before any application-material/implementation read, even when those files were named. Stage 1 still permits requirement/knowledge-source and version-provenance checks, reuses confirmed scope, and can append an authorized actual validity conclusion. This executes the existing applicability prerequisite; it adds no Owner confirmation or engineering gate.
 
 ## 2. Immutable record, schema version 1
 
