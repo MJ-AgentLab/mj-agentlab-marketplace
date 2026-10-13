@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.4
+version: v1.5
 ---
 
 # [RUNBOOK] Communication Kit acceptance
@@ -17,7 +17,7 @@ PR3已实现并原子接入完整Communication 0.1.0候选、注册、严格集�
 
 PR1 当时仅定义验收、没有运行包，全部新包用例从 NOT RUN 开始；该历史及失败批次保留，当前状态不覆盖原记录。
 
-PR1 起始基线 origin/develop b2e5a741 / marketplace 8.1.2，main 0c681a8f / 已发布 8.1.1。2026-10-13 PR3 同步 HTML 开发基线后，当前候选五插件六公开技能、20开发技能、三显式入口；Communication 的既有四插件批次按原身份保留，不能改写为五插件结果。marketplace 保持未发布8.1.2，main / 最新 Release 8.1.1仍只有前三插件。Owner 选择 Learning 先 8.2.0，Communication 随后独立 minor（预计 8.3.0）；PR4 重查实际版本和基线范围，本文不执行转换。
+PR1 起始基线 origin/develop b2e5a741 / marketplace 8.1.2，main 0c681a8f / 已发布 8.1.1。2026-10-13 PR3 同步 HTML 后当时为五插件六公开技能、20开发技能、三显式入口；后续 Learning 替代后的当前开发集合为五插件七公开技能、四显式入口，普通三、开发20。既有四插件及 HTML 五插件批次按原身份保留，不能改写为新集合结果。Owner Q3 明确 Communication 正式发行只含 Diagram/Learning Evidence/Explain/Communication 四包六技能、三显式策略，HTML 留 develop 另发。实际 main/Release 身份、From/To 与先发顺序在 PR4 复核，本文不执行转换。
 
 固定输入：[cases.json](../../tests/fixtures/communication-kit/cases.json)；判定：[rubric](../../tests/fixtures/communication-kit/rubric.md)；行为：[SPEC](../spec/[SPEC]_Communication_Communicate.md)。
 
@@ -54,7 +54,7 @@ npm run smoke:codex
 
 | ID | 标准 | 状态 |
 |---|---|---|
-| S01 | catalog、磁盘和注册精确一致：当前五插件、六公开技能、20开发技能 | PASS — 新基线strict/十三组合；原四插件结果保留 |
+| S01 | catalog、磁盘和注册精确一致：开发五插件、七公开技能、20开发技能；正式范围四插件、六技能另验 | PASS — Learning 工作树strict/十三组合；正式发行候选未执行，旧canonical按原身份保留 |
 | S02 | manifest与原生提示只调用本包communicate | PASS — 自身入口及128字符预算，实际行为另验 |
 | S03 | 显式策略准确；缺失、错类型、重复YAML key失败 | PASS — 严格正负用例 |
 | S04 | 能力准确为Read/Write；漏项或额外能力失败 | PASS — 严格能力集合变异 |
@@ -228,3 +228,13 @@ PR1契约结果、PR3实证、PR4回归、PR5发布及后续复查逐阶段追�
 | v1.1 | 2026-10-12 | 记录PR3已实现候选、部分工程/九组合实证与S08缺口，增加必要客户端执行清单；行为及发布仍未判定 |
 | v1.0 | 2026-10-12 | 固定基础用例与证据状态；全部新包用例尚未执行 |
 
+
+## Learning 原子迁移后的 PR3 开发集成
+
+Refs #222。2026-10-13 普通合入 #228 精确来源 `434d053ae3bcc35706fc52f0d8774c3aa61c6c57`；当前磁盘/注册/白名单为 Diagram、Learning Evidence、Explain、HTML、Communication 五插件，七公开技能、四显式入口，普通发现三，开发20。Understanding 已退出当前候选；原计划405行及旧批次按原身份保留。十三组合将原 Understanding 替换为 Learning 双技能，包含6组实际缓存图表Python及6组Learning包内保存/重放/回读；新工作树工程结果及后续固定提交canonical分批记录。两套验收规则都保持，Communication 包tree仍 `14a3896c7ad50597bfc83996bcfec25180a720f9`，不改变任何运行包或VERSION。旧失败、CLI PARTIAL、已执行UI的限定范围和未覆盖项不由本次合并追认；实际发行From/To与新增范围留PR4。
+
+Owner 后续已明确 Q3：Communication 正式发行采用 Learning 三包基准＋Communication，共四包六技能、三显式入口，HTML 保留 develop 另发。当前五包开发安装通过不代表正式四包发行已验证；实际 From/To、main/tag/Release 身份及正式候选回归在 PR4 执行。该决定不改405行保存计划及其哈希，不重问已确认产品和上线目标。
+
+当前工作树工程首轮344项为343 PASS/1 FAIL：HTML 的旧专用128字符错误遮住上游统一Unicode诊断。保留原始失败日志后，统一采用全插件1–3条/128 Unicode scalar values/合法Unicode规则，Communication原生提示预算保持；完整复验344/344、0跳过通过。首次严格检查的根指令预算和仅pyc残存过渡目录失败亦保留；按历史账本指针收敛根指令、核验后清理缓存，未提高预算。uv3.12.13 与 bundled3.12.14分别完成13组合隔离安装、6次缓存Diagram和6组Learning保存/重放/回读；两解释器下33存储/31受控GitHub Python用例通过，GitHub测试无真实远端写入。它们都是未提交工作树批次，固定提交canonical尚未执行；源码、包身份与原始日志待最终固定提交分别归档。
+
+| v1.5 | 2026-10-13 | Learning 原子替代、两解释器工程复验与失败链；开发与已选正式范围分开 |

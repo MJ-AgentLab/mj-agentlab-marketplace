@@ -13,7 +13,7 @@ version: v1.3
 
 ## §1 Purpose and identity
 
-本契约指导 `communication-kit / communicate` 首版。PR1 当时只建立契约、保持三插件四技能；PR3 已实现完整0.1.0候选并原子接入插件、注册、严格集合、冻结资源、图标及安装预期，同步 HTML 开发基线后的候选五插件六技能、20开发技能。唯一入口 `$communication-kit:communicate`，原生展示“沟通助手”，`allow_implicit_invocation: false`，manifest 能力准确为 `["Read", "Write"]`，manifest 与原生默认提示仅调用本入口。实际文件见[manifest](../../plugins/communication-kit/plugin.json)、[主技能](../../plugins/communication-kit/skills/communicate/SKILL.md)及[原生配置](../../plugins/communication-kit/skills/communicate/agents/openai.yaml)。
+本契约指导 `communication-kit / communicate` 首版。PR1 当时只建立契约、保持三插件四技能；PR3 已实现完整0.1.0候选并原子接入插件、注册、严格集合、冻结资源、图标及安装预期，同步 Learning 替代与 HTML 开发基线后的候选五插件七技能、20开发技能。唯一入口 `$communication-kit:communicate`，原生展示“沟通助手”，`allow_implicit_invocation: false`，manifest 能力准确为 `["Read", "Write"]`，manifest 与原生默认提示仅调用本入口。实际文件见[manifest](../../plugins/communication-kit/plugin.json)、[主技能](../../plugins/communication-kit/skills/communicate/SKILL.md)及[原生配置](../../plugins/communication-kit/skills/communicate/agents/openai.yaml)。
 
 候选实现不等于契约已全部验收。固定b2d47ce的S01–S12客观范围已有实测，完整资源比对缺口已补；初轮实际行为的交付和无据事实问题保留。通用修复后的94c170d实际CLI批次为15 PASS、3 PARTIAL；补充工具角色三项限定功能PASS，不能替代CLI未覆盖子路径或真实双客户端。同步HTML不改变Communication包内容，新增矩阵另做工程复验。真实双客户端及R01–R05仍NOT RUN，PR3保持draft。当前市场未发布8.1.2、main / 最新Release 8.1.1的前三插件范围和当前候选分别记录。
 

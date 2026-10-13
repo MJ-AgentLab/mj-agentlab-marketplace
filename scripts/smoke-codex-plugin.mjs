@@ -4,6 +4,7 @@ import os from "node:os";
 import path from "node:path";
 import crypto from "node:crypto";
 import { pathToFileURL } from "node:url";
+import { isDeepStrictEqual } from "node:util";
 import { runCli, spawnCli } from "./run-cli.mjs";
 import { assertInstalledIcons } from "./plugin-icons.mjs";
 import { REPOSITORY_SKILLS, RUNTIME_PLUGINS, PUBLIC_SKILLS, EXPLICIT_ONLY_SKILLS, validateOpenAIConfig, validateCommunicationSnapshot, resolveOwnedResource, validateRepository, assertInstalledPluginResources } from "./validate-portable.mjs";
@@ -11,12 +12,12 @@ import { REPOSITORY_SKILLS, RUNTIME_PLUGINS, PUBLIC_SKILLS, EXPLICIT_ONLY_SKILLS
 export const MARKETPLACE_NAME = "mj-agentlab-marketplace";
 export const BASELINE_VERSION = "0.147.0";
 export const INSTALL_SCENARIOS = Object.freeze([
-  ["diagram-kit"], ["understanding-kit"], ["explain-kit"], ["diagram-kit", "explain-kit"],
-  ["diagram-kit", "understanding-kit", "explain-kit"], ["communication-kit"],
-  ["communication-kit", "explain-kit"], ["communication-kit", "understanding-kit"],
-  ["diagram-kit", "understanding-kit", "explain-kit", "communication-kit"],
+  ["diagram-kit"], ["learning-evidence-kit"], ["explain-kit"], ["diagram-kit", "explain-kit"],
+  ["diagram-kit", "learning-evidence-kit", "explain-kit"], ["communication-kit"],
+  ["communication-kit", "explain-kit"], ["communication-kit", "learning-evidence-kit"],
+  ["diagram-kit", "learning-evidence-kit", "explain-kit", "communication-kit"],
   ["html-guide-kit"], ["html-guide-kit", "explain-kit"],
-  ["diagram-kit", "understanding-kit", "explain-kit", "html-guide-kit"], Object.keys(RUNTIME_PLUGINS),
+  ["diagram-kit", "learning-evidence-kit", "explain-kit", "html-guide-kit"], Object.keys(RUNTIME_PLUGINS),
 ].map(plugins => Object.freeze(plugins)));
 const norm = p => String(p).replaceAll("\\", "/");
 // Native realpath expands Windows 8.3 aliases used by hosted runner temp paths.
@@ -187,8 +188,8 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
   const env = { ...baseEnv, HOME: home, USERPROFILE: home, CODEX_HOME: codexHome, APPDATA: path.join(home, "Roaming"), LOCALAPPDATA: path.join(home, "Local"), XDG_CONFIG_HOME: path.join(home, "config"), TEMP: tmp, TMP: tmp, TMPDIR: tmp };
   const commands = [];
   let complete = false;
-  const execute = async (name, args, at = cwd) => {
-    const r = await runCli(name, args, { cwd: at, env, timeoutMs: 60000 });
+  const execute = async (name, args, at = cwd, input) => {
+    const r = await runCli(name, args, { cwd: at, env, input, timeoutMs: 60000 });
     commands.push({ command: name, args, status: r.status });
     if (r.error || r.status !== 0) throw new Error(`${name} ${args.join(" ")}: ${r.error?.message ?? `${r.stderr}${r.stdout}`}`);
     return r.stdout;
@@ -241,6 +242,40 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
     }
     const mcp = JSON.parse(await execute(codexCommand, ["mcp", "list", "--json"]));
     if (!Array.isArray(mcp) || mcp.length) throw new Error("the approved plugins should not install an MCP server");
+    let learningEvidenceValidation;
+    if (plugins.includes("learning-evidence-kit")) {
+      const pluginRoot = path.join(cacheRoot, "learning-evidence-kit", pluginVersions["learning-evidence-kit"]);
+      const sourceRoot = path.join(src, "plugins/learning-evidence-kit");
+      const resources = ["scripts/lek.py", "scripts/common.py", "scripts/storage.py", "scripts/github_flow.py", "references/record-contract.md", "references/record-template.json", "references/client-entries.json"];
+      for (const rel of resources) {
+        const target = path.join(pluginRoot, rel), relative = path.relative(real(pluginRoot), real(target));
+        if (relative.startsWith("..") || path.isAbsolute(relative) || !fs.readFileSync(target).equals(fs.readFileSync(path.join(sourceRoot, rel)))) throw new Error(`installed common resource differs from its package: ${rel}`);
+      }
+      let python;
+      for (const [command, pre] of [["python3.12", []], ["python3", []], ["python", []], ["py", ["-3.12"]]]) {
+        const r = await runCli(command, [...pre, "-c", "import sys; print(sys.version); raise SystemExit(0 if sys.version_info[:2] == (3,12) else 1)"], { cwd, env, timeoutMs: 10000 });
+        if (!r.error && r.status === 0) { python = { command, pre, version: r.stdout.trim() }; break; }
+      }
+      if (!python) {
+        const located = await runCli("uv", ["python", "find", "3.12"], { cwd, env: baseEnv, timeoutMs: 10000 });
+        const command = located.stdout.trim();
+        if (!located.error && located.status === 0 && command && fs.existsSync(command)) {
+          const probe = await runCli(command, ["-c", "import sys; print(sys.version); raise SystemExit(0 if sys.version_info[:2] == (3,12) else 1)"], { cwd, env, timeoutMs: 10000 });
+          if (!probe.error && probe.status === 0) python = { command, pre: [], version: probe.stdout.trim() };
+        }
+      }
+      if (!python) throw new Error("installed common capabilities require an actual Python 3.12 interpreter");
+      const entry = path.join(pluginRoot, "scripts/lek.py"), libraryRoot = path.join(cwd, "isolated evidence 中文");
+      const record = JSON.parse(fs.readFileSync(path.join(repoRoot, "tests/fixtures/learning-evidence/learning-record.json"), "utf8"));
+      const saveRequest = { schema_version: 1, operation: "save", request_id: "installed-synthetic-save", library_root: libraryRoot, input: { record } };
+      const saved = JSON.parse(await execute(python.command, [...python.pre, "-B", entry], cwd, JSON.stringify(saveRequest)));
+      if (saved.status !== "ok" || !saved.data.record_id || !saved.data.evidence_id) throw new Error("installed common entry failed an isolated save");
+      const replay = JSON.parse(await execute(python.command, [...python.pre, "-B", entry], cwd, JSON.stringify(saveRequest)));
+      if (!isDeepStrictEqual(replay, saved)) throw new Error("installed save replay changed receipt/IDs");
+      const checked = JSON.parse(await execute(python.command, [...python.pre, "-B", entry], cwd, JSON.stringify({ schema_version: 1, operation: "check_record", library_root: libraryRoot, input: { record_id: saved.data.record_id } })));
+      if (checked.data.structurally_valid !== true) throw new Error("installed common entry could not read its saved record");
+      learningEvidenceValidation = { entry, interpreter: python.version, resources, recordId: saved.data.record_id, evidenceId: saved.data.evidence_id, saveStatus: saved.status, replayIdentical: true, structurallyValid: true };
+    }
     const diagram = external.find(e => e.name === "diagram-kit:arch-diagram");
     let diagramValidation;
     if (diagram) {
@@ -264,7 +299,7 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
       diagramValidation = { skillPath: diagram.file, validatorPath, output: output.trim() };
     }
     complete = true;
-    return { ok: true, version, marketplaces: names, installed: plugins, installedPackageMetadata, installedIcons, installedResources, installedPluginResources, outside, repository, nativeOutside: nativeInventories.outside, nativeRepository: nativeInventories.repository, explicitOnly: expectedSkills.filter(name => EXPLICIT_ONLY_SKILLS.includes(name)), skillPaths, publicSkillPaths: skillPaths, ...(diagramValidation ? { skillPath: diagram.file, validatorPath: diagramValidation.validatorPath, diagramValidation } : {}), ...(keepRoot ? { root, codexHome, repositoryRoot: src, consumerRoot: cwd } : {}), commands };
+    return { ok: true, version, marketplaces: names, installed: plugins, installedPackageMetadata, installedIcons, installedResources, installedPluginResources, outside, repository, nativeOutside: nativeInventories.outside, nativeRepository: nativeInventories.repository, explicitOnly: expectedSkills.filter(name => EXPLICIT_ONLY_SKILLS.includes(name)), skillPaths, publicSkillPaths: skillPaths, ...(diagramValidation ? { skillPath: diagram.file, validatorPath: diagramValidation.validatorPath, diagramValidation } : {}), ...(learningEvidenceValidation ? { learningEvidenceValidation } : {}), ...(keepRoot ? { root, codexHome, repositoryRoot: src, consumerRoot: cwd } : {}), commands };
   } finally {
     if (!keepRoot || !complete) cleanupIsolatedRoot(root);
   }
