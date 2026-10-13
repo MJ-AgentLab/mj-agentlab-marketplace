@@ -10,32 +10,32 @@
 | --- | --- | --- |
 | **diagram-kit / arch-diagram** | 从源码事实生成七类 Mermaid 架构/UML 图，节点与边追溯到文件行号，实际运行 Python 校验器 | 0.3.1，已随市场 v8.1.1 发布 |
 | **explain-kit / glossary、concept** | 陌生术语速解与机制、反例、边界深讲，遵从受众、语言和长度要求 | 0.1.1，已随市场 v8.1.1 发布 |
-| **learning-evidence-kit / pop-quiz、learning-record-check** | 显式诊断并移交完整记录，保留本机原件；分开核验指定记录有效性与任务应用，按授权共享 | 0.1.0，已随市场v8.2.0发布 |
+| **learning-evidence-kit / pop-quiz、learning-record-check** | 显式诊断并移交完整记录，保留本机原件；分开核验指定记录有效性与任务应用，按授权共享 | 0.1.0，已随市场 v8.2.0 发布 |
 | **html-guide-kit / guide** | 确认读者、任务和理解问题后，新建可复制的交互教材绘制指南文本 | 0.1.0，develop 开发候选，未正式发布 |
 | **communication-kit / communicate** | 显式调用，沟通、编写与保义改写；关键缺口先问并等待，交付成稿和关键提示 | 0.1.0，PR3 开发候选，尚未发布 |
 
-[Marketplace v8.1.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.1) 于 2026-10-10 随 #205 合入 main 自动发布，仍包含 Understanding Kit 0.1.2 / pop-quiz，采用 A 仓库主标和 D 插件图标。该次发布后的四种隔离安装、图标内容比较与实际 Python 校验通过；Owner 截图、两端完整客户端记录缺项及未提供的 GitHub 独立批准见 [8.1.1 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。这些历史结果不证明新候选的客户端或窗口通过。
+历史 [Marketplace v8.1.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.1) 于 2026-10-10 随 #205 合入 main 自动发布，该历史版本包含 Understanding Kit 0.1.2 / pop-quiz，采用 A 仓库主标和 D 插件图标。该次发布后的四种隔离安装、图标内容比较与实际 Python 校验通过；Owner 截图、两端完整客户端记录缺项及未提供的 GitHub 独立批准见 [8.1.1 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。这些历史结果不证明新候选的客户端或窗口通过。
 
 ### Codex
 
 ~~~text
 codex plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace --ref v8.2.0
 codex plugin add diagram-kit@mj-agentlab-marketplace
-codex plugin add understanding-kit@mj-agentlab-marketplace
+codex plugin add learning-evidence-kit@mj-agentlab-marketplace
 codex plugin add explain-kit@mj-agentlab-marketplace
 codex plugin list --json
 codex debug prompt-input '$diagram-kit:arch-diagram'
 ~~~
 
-上面固定已发布的旧集合，不包含 Learning Evidence Kit。三个插件可按需独立安装；调用 `$diagram-kit:arch-diagram` 或请求“给这个仓库画架构图”。新包的隔离候选验收使用待测 branch 或精确 SHA：
+上面固定已发布的三插件集合，不包含 HTML Guide Kit。三个插件可按需独立安装；调用 `$diagram-kit:arch-diagram` 或请求“给这个仓库画架构图”。开发候选安装另使用 develop 或精确 SHA：
 
 ~~~text
-codex plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace --ref codex/learning-evidence-switch
+codex plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace --ref develop
 codex plugin add learning-evidence-kit@mj-agentlab-marketplace
 codex plugin list --json
 ~~~
 
-该 branch 只表示候选来源，实际运行必须核对来源和版本，并记录待测 SHA。PR5 准备的 VERSION / badge 为 8.2.0；已发布身份以 [GitHub Releases](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases) 为准，发布门槛与入口限制见 [8.2.0 发布准备](docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。
+上游 develop 8.2.1 是未发布开发基线，本 PR4 的 VERSION/badge 8.3.0 是已准备的未发布目标；安装后须核对实际来源、版本及待测 SHA。公开 v8.2.0 由 #232 合入 main 后发布；#234 已完成 main→develop 同步，#235 已预升上游 VERSION/badge，插件版本保持，无 v8.2.1 tag/Release。实际身份以 [GitHub Releases](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases) 为准，历史发行见 [8.2.0 记录](docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)，本候选的范围与未完成门禁见 [8.3.0 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。
 
 ### Explain Kit
 

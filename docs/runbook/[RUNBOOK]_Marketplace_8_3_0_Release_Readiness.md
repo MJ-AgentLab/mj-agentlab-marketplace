@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-13
 updated: 2026-10-13
 state: draft
-version: v1.2
+version: v1.3
 ---
 
 # [RUNBOOK] Marketplace 8.3.0 release readiness
@@ -17,7 +17,7 @@ Refs [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/2
 
 Owner已授权实施至正式上线、Release及上线后安装复查；Q1选定Learning先8.2.0、Communication随后独立minor，Q3选定正式只公开Learning三包＋Communication，HTML保留develop另发。已确认产品和上线目标继续复用，不新增发布范围。
 
-当前最新develop为实际#235 merge3af6837、未发布8.2.1；PR4保留已准备8.3.0。此前Lookup/版本操作和各原始源身份按当时事实保留，最新小同步见[pre-bump sync 01](evidence/communication-kit-2026-10-13-prebump-sync-01.json)。
+当前最新develop为实际#236 merge98068a8（文档/evidence收尾）、未发布8.2.1；PR4普通继承PR3 c6d40a8并保留已准备8.3.0。此前Lookup/版本操作和各原始源身份按当时事实保留，较早预升同步见[pre-bump sync 01](evidence/communication-kit-2026-10-13-prebump-sync-01.json)，本轮来源与检查记录见本文末节。README分别标明上游develop8.2.1与本PR4已准备badge8.3.0。
 
 Learning v8.2.0已于2026-10-13T05:00:19Z由`github-actions[bot]`公开，main/tag/Release目标均为`ebc4bdc3abc62c36348d9ba28de7161b04b3b466`。正式三包为Diagram0.3.1、Learning Evidence0.1.0、Explain0.1.1；此Release不是Communication交付。发布后同步#234实际develop为`2c0a83172507bcb77d105d9f9294fec2e6672ac1`，VERSION8.2.0；8.2.1预升#235当时未合并，不作为已生效基线。应用版本工具前查询v8.3.0 tag与Release均404，不覆写既有身份。
 
@@ -61,6 +61,7 @@ PR3实际merge尚无，故PR4与该merge的tree/运行包比较NOT RUN；并行�
 
 | Version | Date | Summary |
 | --- | --- | --- |
+| v1.3 | 2026-10-13 | 普通继承最新980文档收尾，保持生产/正式CH身份与8.3目标，仅文档/A6复验 |
 | v1.2 | 2026-10-13 | 实际8.2.1上游已合入，保持已准备8.3.0并限定沿用未变运行内容的既有检查 |
 | v1.1 | 2026-10-13 | 纳入真实发布后基线及固定08cc开发canonical证据；正式四包与R01–R05不预填 |
 | v1.0 | 2026-10-13 | 绑定已授权8.3.0准备；Learning已公开、四包正式范围、阶段批准和R01–R05待真实完成 |
@@ -72,3 +73,7 @@ Refs #222。[Post-release sync 01](evidence/communication-kit-2026-10-13-postrel
 ### 实际8.2.1开发预升导入
 
 Refs #222。#235于2026-10-13T06:10:55Z实际合入3af6837，仅AGENTS、VERSION与README badge变化，当前develop8.2.1；其reviews为空，历史缺项不追认。PR1/2/3普通继承8.2.1；PR4普通继承真实ancestry并保留已匹配目标8.3.0及根badge，不重复版本工具转换。原8.2.0→8.3.0的真实DryRun/apply与时间/源保持原记录。当前运行包/脚本/测试及8.3正式CH相对已测源保持；只做受影响文档/A6与strict复验，不将旧全量/canonical写为新执行。实际phase merge、非作者批准、正式四包和R仍未完成。
+
+### #236文档收尾同步
+
+Refs #222。PR4由原head `48437be`普通合入PR3 `c6d40a8`，包含实际develop `98068a8bd7060585b9915be9490a02a733fcb1a6`；当前VERSION/badge8.3.0已匹配，不重复bump。生产包/scripts/tests/catalog相对原head零差异，Comm包tree170fcad保持且除首版CHANGELOG外等于实际native UI来源000e803。开发五包与正式四包范围分开，main/v8.2.0仍Learning三包；上游收尾见[回执](evidence/learning-evidence-8-2-0-closeout.json)。本轮只检查文档/严格/A6/whitespace和提交规范，外部原日志 `C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr4-*.log` 与追加审计记录实际结果和hash，不把旧full/canonical/Python/UI改写为新执行。具体来源及冲突整合见[验收账本末节](./[RUNBOOK]_Communication_Kit_Acceptance.md)。预备四包projection仍是独立工作，不是正式PR5，阶段实际合入、当前head批准/线程、正式候选与R01–R05继续按实际证据处理。
