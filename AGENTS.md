@@ -72,6 +72,6 @@ HTML PR1 当时保持 marketplace 未发布 8.1.2 及其他插件版本，无 Re
 
 第五轮来源 acf3c9d 的六 fresh 会话/八调用已通过限定 CLI 核心判据：七次自然完成、一次执行器超时保留；九条新核验、两次限定离线共享及原件/生成信息均经独立核对。四轮原失败、两次策略拒绝、换行格式差异和幂等重放分别保留，不称所有调用成功。原移交仅按十二项未变资源闭包沿用并限已有本地 Git exclude；原生提问仍延期、桌面/Side Chat 未运行，实际保护合入、发布和 Owner 最终接受待各自证据。完整入口资格与限制见上述 Learning Evidence 验收账本。
 
-Learning前序#216/#224/#227/#228/#230交付与#210–214关闭、模型原失败和审查缺项见[验收账本](docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。#232/main ebc4bdc3与已测6d83c8e同树，v8.2.0由bot公开，发布后五canonical/三图表Python/两组保存重放通过，发布脚本noop；immutable=false，API未提供配置字段。#224有实际批准，其他未见/空reviews不追认。原生入口延期、桌面/Side Chat未测、现实效果及Owner最终接受另记，#215/Epic仍OPEN。
+Learning当前收尾：main/tag/published v8.2.0为ebc4bdc3三包五技能；#234同步2c0a831与#235预升3af6837实际合入，各八精确安装/实际Python通过，develop8.2.1仍未发布。#236/98068a8已收敛当前记录，原A6例外失败、正常摘要修复与空reviews保留，不追认批准；immutable配置UNKNOWN、Release immutable=false。详见[8.2.0账本](docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)与[收尾回执](docs/runbook/evidence/learning-evidence-8-2-0-closeout.json)；原生延期、桌面/Side Chat及效果未测、Owner接受仍由#215/Epic独立追踪。
 
-Communication PR3普通同步已合并#234的develop2c0a831，完整保留HTML及Learning/Diagram/Explain运行包，接入五包七技能/四显式/普通三/开发20。十三snapshot和固定提交canonical分开，既有Comm UI/CLI PARTIAL/失败按原身份保留；正式仅D/L/E/Comm四包六技能，HTML留develop。#235现已实际合入develop3af6837，版本/badge8.2.1生效，插件/运行内容保持；其reviews为空不追认批准，本分支仅继承，不额外bump。Refs #222；当前head批准、CI/线程及实际保护合并仍待完成。
+Communication PR3已普通继承PR2 c198f5c及最新#236/develop98068a8的文档收尾，VERSION/badge8.2.1保持；生产包、脚本/测试/注册与cf63337零新差异，仍五包七技能/四显式/普通三/开发20。正式仅D/L/E/Comm四包六技能，HTML留develop；旧失败、CLI PARTIAL及限定UI身份保持，未重跑安装或客户端。当前head批准、CI/线程及保护合并另核对，Refs #222。

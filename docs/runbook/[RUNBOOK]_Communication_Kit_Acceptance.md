@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.6
+version: v1.7
 ---
 
 # [RUNBOOK] Communication Kit acceptance
@@ -222,6 +222,7 @@ PR1契约结果、PR3实证、PR4回归、PR5发布及后续复查逐阶段追�
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.7 | 2026-10-13 | 普通继承最新980文档收尾，生产零差异与既有基础实证身份保留，限定本轮文档/A6检查 |
 | v1.6 | 2026-10-13 | 合并PR1已确认范围与原子迁移工程事实，历史分阶段结果及限定客户端身份分别保留 |
 | v1.5 | 2026-10-13 | Learning原子替代与两解释器工程复验，开发/正式范围分开 |
 | v1.4 | 2026-10-13 | 追加代理亲自执行的同应用Codex/ChatGPT Work两个本机入口实证及独立核验；保留CLI限制、窗口与发布未测、批准和版本依赖 |
@@ -238,3 +239,9 @@ Refs #222。2026-10-13 普通合入 #228 精确来源 `434d053ae3bcc35706fc52f0d
 Owner 后续已明确 Q3：Communication 正式发行采用 Learning 三包基准＋Communication，共四包六技能、三显式入口，HTML 保留 develop 另发。当前五包开发安装通过不代表正式四包发行已验证；实际 From/To、main/tag/Release 身份及正式候选回归在 PR4 执行。该决定不改405行保存计划及其哈希，不重问已确认产品和上线目标。
 
 当前工作树工程首轮344项为343 PASS/1 FAIL：HTML 的旧专用128字符错误遮住上游统一Unicode诊断。保留原始失败日志后，统一采用全插件1–3条/128 Unicode scalar values/合法Unicode规则，Communication原生提示预算保持；完整复验344/344、0跳过通过。首次严格检查的根指令预算和仅pyc残存过渡目录失败亦保留；按历史账本指针收敛根指令、核验后清理缓存，未提高预算。uv3.12.13 与 bundled3.12.14分别完成13组合隔离安装、6次缓存Diagram和6组Learning保存/重放/回读；两解释器下33存储/31受控GitHub Python用例通过，GitHub测试无真实远端写入。它们都是未提交工作树批次，固定提交canonical尚未执行；源码、包身份与原始日志待最终固定提交分别归档。
+
+### #236文档收尾基线的PR3同步
+
+Refs #222。2026-10-13从原head `cf63337b8efccc5d56c4df02ab3aebd165c0c6bf`普通merge PR2 `c198f5c769950e693d194c878f9c72d9a1cded20`，包含实际develop `98068a8bd7060585b9915be9490a02a733fcb1a6`（#236）。保留五包七技能/四显式/普通三/开发20，VERSION与badge8.2.1；main/tag/published v8.2.0仍为 `ebc4bdc3` 的Learning三包。最新发行收尾与原A6失败/修复、空reviews以[Learning账本](./[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)及[收尾回执](evidence/learning-evidence-8-2-0-closeout.json)为准，不能追认为Communication批准或发布。
+
+本轮相对原head的plugins、scripts、tests与市场注册零差异；Communication包tree仍 `14a3896c7ad50597bfc83996bcfec25180a720f9`，其他包与原head及980来源相同，原计划405行/hash、旧公开CHANGELOG、模型失败/CLI PARTIAL与限定UI批次保持。AGENTS/README/INDEX冲突逐块保留双方意图，收敛阶段摘要并更新INDEX元数据；只执行严格校验、65项documentation/A6、whitespace、实际base正常A6与提交规范，不重复full、安装、Python或UI。原始日志保存在worktrees外部 `C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr3-*.log`；结果/hash与本轮确切head/tree见同目录追加审计 `communication-closeout-sync-audit.json`。正式四包范围、PR4已准备目标及阶段保护合并/R01–R05由各阶段记录，当前仍未宣称完成。
