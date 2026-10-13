@@ -30,3 +30,5 @@ Explain Kit 初始版本已批准为 0.1.0 并通过 #196 合入 develop；其�
 2026-10-10 品牌实施阶段：Owner 批准 Diagram 0.3.1、Understanding 0.1.2、Explain 0.1.1；三个转换分别执行版本工具 dry-run 和实际写入，当时 marketplace 保持未发布 8.1.1、正式身份为 v8.1.0。#203/#204 证据见 [品牌验收](../runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)，随后 #205 发布为 v8.1.1。旧版本正文和公开资产保持。
 
 HTML Guide Kit 的 [新增 ADR](../adr/[ADR]_HTML_Guide_Kit_Addition.md) 预留独立版本工具 scope，但 PR1 不创建 manifest：对缺失包的 dry-run 与实际调用均须失败且零写入。PR2 原子接入初始 0.1.0；首次修改已合并的技能、参考、行为 metadata 或分发资源推进至 0.1.1，其后同范围修正补丁递增。PR3 只修改评审资料或验收记录时保持插件版本，以运行资源哈希证明可复用证据。市场与其他插件版本保持，任务没有正式发布授权。
+
+PR1 #221 实际合入 develop；PR2 创建 HTML Guide Kit 初始根版本 0.1.0，无其它插件或市场版本转换。首次合并前同范围修正仍是初始候选；合并后首次运行变更按既定合同推进0.1.1，再按补丁递增。纯评审或记录变更通过运行哈希证明等价；独立版本工具范围和缺manifest失败合同继续有效。
