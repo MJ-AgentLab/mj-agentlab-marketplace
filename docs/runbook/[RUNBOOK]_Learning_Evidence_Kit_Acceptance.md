@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: active
-version: v1.4.3
+version: v1.4.4
 last-verified: 2026-10-13
 verification-scope: contract-common-flow-package-and-partial-model-observations
 ---
@@ -148,15 +148,39 @@ The new LRC text executes Stage 1 first: retrieve/check the selected original, e
 
 Three agent-written docs commits incorrectly used the closed-out `acceptance` scope. The [metadata repair](evidence/learning-evidence-commit-scope-repair.json) preserves old remote history, corrects the three draft PR branches under exact old-head leases and proves identical Git trees; no validator bypass or runtime change is used. Current checks/approval still apply to each new head.
 
+### Fifth complete scoped core review (2026-10-13)
+
+Frozen public source `acf3c9d48a314cab153632bd5c09a141823789c3` / tree `ae61349bd01513f8ac36cd4702c5d440dae550e2` passes the scoped CLI core criteria, with original command errors and one transport timeout retained. The [complete fifth-round receipt](evidence/learning-evidence-fifth-model-round.json) is unchanged (SHA-256 `f97ef18db16de9e05ade8ad408553624e2ca7c7ed8b05ae25a93a9f90b4afde4`); [independent final review](evidence/learning-evidence-fifth-model-independent-review.json) and [source engineering/canonical proof](evidence/learning-evidence-fifth-source-checks.json) state their actual limits. The raw receipt's final-review PENDING header is its original generation snapshot; the separate final review supplies the later result.
+
+Six fresh UUIDs execute eight prescribed invocations: seven naturally complete/exit0, while material phase1 retains completed0/failed1 and the actual 300000ms timeout. There are 86 terminal attempts, 84 executed and two policy-declined cache-cleanup attempts; nine distinct new check entries, ten successful save attempts including one same-request/same-receipt replay, and two original-only offline PR1 POSTs. No extra recovery model call occurred. Setup/seed/probes are preparation. All six 19-file installed matrices match raw source digest `3945a3f78b8ddb57ad6ebeae8b6ec01b7b930d32b193577f31dcec495a836558`. Actual CLI0.147.0/default gpt-5.6-sol/OpenAI/Python3.12.13, workspace-write/never/networkfalse are recorded; temporary auth copies and matching subject processes are zero.
+
+| Fresh scenario | Prescribed invocations | Actual bounded verdict | Observed boundary |
+| --- | --- | --- | --- |
+| another-person | 1 | PASS_STAGE1_STOP_WITH_RETAINED_ERRORS | Identity mismatch stops before application materials or implementation reads |
+| listing-task-selection | 1 | PASS_SCOPED_TASK_ONLY_APPLICATION | Exact task-only listing example accepted; Stage1 precedes separate application reads/probe/save |
+| unspecified | 1 | PASS_SELECTION_GATE | Essential selection question then stop; no enumeration or tools |
+| missing-materials | 1 | PASS_WITH_NOT_RUN_GAP_APPEND_NOTE | No implementation read/probe; honest not_run gap append and original-only offline publication |
+| material-arrival | 3 | PASS_SEMANTIC_WITH_TRANSPORT_TIMEOUT | Missing inputs stop; material arrival alone waits; new manual request runs application |
+| different-source-author | 1 | PASS_GENERATOR_METADATA_WITH_RETAINED_ERRORS_AND_POLICY_REJECTIONS | Original author/person preserved; new checks use actual agent/current checker/clock |
+
+Material phase1's original stdout/exit/input/stderr remain exact. The underlying actual final_answer followed by turn_aborted, complete transactions/readbacks and no live process justify pure TEMP bookkeeping before the original phase2 resumed the same UUID. The before snapshot is the setup baseline, not a separately recovered turn-start snapshot. The original rollout prefix is archived locally and hash-verified; private reasoning and account telemetry stay local, while all actual actions, final/aborted events and original hashes are in the public supplement. The initial reader's save/replay clock pairing mistake is retained with an independently corrected mapping.
+
+An additional missing-input application_check faithfully records not_run, null explanation/expectations and empty materials under the original save-conclusions scope. SPEC §2 permits these missing-input limits; the original rubric's narrower saving sentence is retained and its contract interpretation is explicit. In the final author case the explanation loses only its terminal newline and verification JSON differs only in formatting; complete semantic content remains, but these two materials are not claimed byte-identical. Every immutable original and its complete UTF-8 requirement baseline remain exact. Two cleanup requests were policy-declined; only the exact probe-generated pyc was later removed with resolved-path containment, without expanding permissions.
+
+The [12-resource unchanged handoff closure](evidence/learning-evidence-handoff-reuse-closure.json) preserves both original 11-item tables and adds the actually read template. It retains only the fourth-round handoff with preconfigured Git exclusion; it is not another fifth-round session, LRC-body acceptance or native-window result. Unknown-null operator provenance and within-turn idempotent replay were observed; known-account behavior and cross-interruption durable save recovery remain unexercised. All four earlier model failures remain separate. Native questions remain DEFERRED, desktop/Side Chat calls NOT_RUN, real learning effects unmeasured, protected merges/publication pending and Owner final acceptance NOT_ACCEPTED.
+
 ### Entry activation ledger (continued)
 
 PR5 fills one row for each actual host/entry combination, retaining method, client version, install source/plugin/head identity, actual call evidence, individual window results, impact and removal condition. No entry is enabled solely by the contract or a static metadata check.
 
 | Entry category | Current status | Enablement or deferral condition |
 | --- | --- | --- |
-| Codex normal/Side Chat invocation routes | NOT_RUN; no enablement claim | Identify actual routes and independently pass their applicable criteria; defer any native question route failing strict display. |
+| Codex CLI complete-input core routes | QUALIFIED_SCOPED_CLI_CORE | Explicit selected task/record, accessible library and applicable version; frozen acf3 source passes six fresh/eight prescribed invocation criteria with retained errors and one timeout. Four-package development installation is separate evidence. |
+| CLI complete handoff with worktree association | QUALIFIED_CONDITIONAL | Fourth handoff is retained only through the twelve-resource unchanged closure and preconfigured local Git exclusion. Automatic model-created exclusion remains unexercised. |
+| Codex desktop/Side Chat invocation routes | NOT_RUN; no enablement claim | Actual same-source route controls and calls are required; CLI evidence does not establish desktop interaction. |
 | ChatGPT desktop invocation routes | NOT_RUN; no enablement claim | Obtain actual installation/call/window evidence through available Agent controls; defer inaccessible or failing entries with stated impact. |
-| Native entry unable to meet strict windows | DEFERRED when observed; none classified by PR1 | Owner accepted deferral policy. Resume after a supported client/version/control can reproducibly keep the window displayed until explicit submission and pass remaining criteria. |
+| codex-native-questions | DEFERRED | No observed native continuous-display acceptance; actual client/version/control must keep the window until explicit submission and pass silence/default/timeout/close criteria. |
+| chatgpt-desktop-native-questions | DEFERRED | Executable desktop installation/call/window controls are missing; the same strict criteria must pass before enabling questions. |
 
 Deferring an entry restricts availability for that host/route; it does not remove either public skill or relax the common interface. Qualified core delivery, full original-plan completion and Owner final acceptance are independent states. Keep the original Epic open for deferred entries until they are accepted or Owner expressly adjusts completion scope and assigns follow-up responsibility.
 
@@ -172,7 +196,7 @@ All PRs use `Refs` for the corresponding child and Epic. A merged contract is no
 | 2 Local evidence library | [#211](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/211) | 1 | PR #224; 33 isolated cases, latest 280-test/four-package upstream rerun and independent review passed; earlier 253-test receipt retained; approval/merge pending | Isolated Python runs, runtime-byte equality, merge and scoped receipts |
 | 3 GitHub flow/collection | [#212](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/212) | 2 | PREPARED; isolated subprocess checks and independent review; dependency/approval/merge pending | Substitute writes/recovery/coverage evidence, byte equality and merge |
 | 4 Atomic skill/package switch | [#213](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/213) | 2, 3 | PREPARED; exact inventory/cache common execution and independent review; dependency/approval/merge pending | Exact inventory, new package/version identity, staging removal, installed execution and merge |
-| 5 Technical acceptance/preparation | [#214](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/214) | 4 | NOT_RUN | Per-entry results/deferred list, independent synthesis, tests, 8.2.0 notes and merge |
+| 5 Technical acceptance/preparation | [#214](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/214) | 4 | DRAFT #230; separate public290/canonical5 and development317/install8; fifth scoped core qualified with one timeout/errors retained; approval/merge pending | Per-entry results/deferred list, independent synthesis, tests, 8.2.0 notes and merge |
 | 6 Release and tracking | [#215](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/215) | 5 | NOT_RUN | Approval/checks/threads, release identity, canonical and post-publication results |
 | Post-release main → develop sync | Refs #215 / #209 | 6 publication | NOT_RUN | Actual main ancestry and content/installation verification |
 | Post-release 8.2.1 pre-bump | Refs #215 / #209 | Synchronization | NOT_RUN | Version dry-run, VERSION/badge-only diff, checks and merge; no 8.2.1 Release |
@@ -190,6 +214,7 @@ Use existing draft-first release controls and record actual remote state before 
 | Version | Date | Verification scope | Summary |
 | --- | --- | --- | --- |
 | v1.4.3 | 2026-10-13 | Complete fourth-round failure and static order repair; fifth actual acceptance pending | Retain original commands/metadata positives, stop identity mismatch before application reads, preserve exact-tree commit-scope repair and old sources |
+| v1.4.4 | 2026-10-13 | Complete fifth scoped CLI core and source proof; publication pending | Six fresh/eight invocations, seven natural completions/one timeout, full originals/metadata, exact twelve-resource handoff reuse and separate public/development inventories |
 | v1.0 | 2026-10-12 | Source/intake/document structure; new runtime NOT_RUN | Contract acceptance matrix, actual intake facts, strict-window staged-entry policy, six delivery PRs and two closeout PRs; Refs #210 and Epic #209 |
 | v1.1 | 2026-10-12 | Contract merge and isolated local library; clients NOT_RUN | PR2 independent repairs, 33 Python cases, #224 and 253-test latest-develop synchronization; preserve parallel HTML contracts and earlier evidence |
 | v1.1.1 | 2026-10-12 | Current four-package runtime preservation and seven isolated installations; separate three-plugin 8.2.0 release scope confirmed | Synchronize actual #226 runtime merge, 280-test/33-Python rerun and unchanged staged storage; keep earlier receipts, retain HTML in develop and record Owner's separate-release decision |
