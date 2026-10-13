@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.17
+version: v1.18
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -382,3 +382,9 @@ B4.2操作观察误用了另一补充变体措辞；实际raw首轮要求先读�
 新10[工作检查与独立静态审查](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-10/archive-index.json)保留37原始文件：初次318/319仅因CHANGELOG新节正文未写本节版本，补正文后319/319零skip、validate/check通过，没有改门禁；两次仅外部draft字节预算失败及静态压缩歧义分别保留。最终三个资源6142/15805/16685字节，对应SHA f5451cc24ec3468553bf75c43c379ac1de75f5444347bcc27816ba4b5898fff9 / 8dc9ea11dbd4abd0775110b1069cc997ef2c6b1b73f9cc1bc057d36c75e7cbfb / f748144c39468991e21db6119305aab7f2de946f1608c2d72ee40d90451b8178，与实际working原字节一致。独立precommit审查无新静态阻断；随后新增封存/README状态澄清属于评审snapshot后的文档证据，最终A6/文档校验及Git暂存字节另核，不据此宣称新安装或模型通过。
 
 初步静态快照按原.md名归档，被严格文档frontmatter校验拒绝。九个数据快照改为.md.snapshot.txt，逐个内容SHA/字节不变；原索引、失败日志和改名证明另存，归档现为40条文件记录。仅修正未提交工程归档的文件类型命名，不放宽文档或运行校验、不改外部原快照或任何已封历史包。修正后validate及十项文档/A6检查通过，实际新canonical安装随后从准确提交执行。
+
+## 26. 0.1.10准确安装与并发收口同步
+
+修正提交7c1f230bee180dd4cf2edc72edc81b5d7b2380e3 / treece227e2675dbf4089ae370fd8f5f4d1b2abeacfc已推送PR #231。准确canonical八种严格安装、四次缓存Python及全部资源字节比较通过；新B1–B6从该源、新0.1.10缓存和冻结输入/默认模型参数开始连续会话，完整native加载与语义仍逐项独立审查。新安装不追认新模型PASS，也不代原生UI。
+
+随后上游#236于2026-10-13实际合入origin/develop98068a8bd7060585b9915be9490a02a733fcb1a6，更新8.2.0收口事实、当前README及发行操作。相对3af6837，插件、scripts、tests、VERSION和市场索引没有变化。本分支普通merge解决AGENTS/README/INDEX三处文字冲突，保留上游收口及HTML0.1.10候选/验收历史；运行版本不bump，不重归正在执行的7c源会话。合成后须核对七项HTML资源及其他插件原Git字节、当前headCI/非作者批准/线程/最新base，并重新检查实际合入SHA。marketplace仍未发布8.2.1，公开v8.2.0三插件不含HTML，本任务不发布；#220/Epic与所有延期项保持开放。

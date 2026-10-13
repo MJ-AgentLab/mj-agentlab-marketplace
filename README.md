@@ -4,7 +4,7 @@
 
 ![Version](https://img.shields.io/badge/version-8.2.1-blue)
 
-面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场。当前开发候选为未发布 marketplace 8.2.1，注册四个 portable 插件、六个公开技能，无需 MCP 服务。Owner 已确认公开 8.2.0 保持 Diagram、Learning Evidence、Explain 三插件/五技能；develop 保留 HTML，另行发行：
+面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场。当前开发候选为未发布 marketplace 8.2.1，注册四个 portable 插件、六个公开技能，无需 MCP 服务。已公开 8.2.0 保持 Diagram、Learning Evidence、Explain 三插件/五技能；develop 保留 HTML，另行发行：
 
 | 插件 / 公开技能 | 用途 | 版本与分发状态 |
 | --- | --- | --- |
@@ -13,28 +13,28 @@
 | **learning-evidence-kit / pop-quiz、learning-record-check** | 显式诊断并移交完整记录，保留本机原件；分开核验指定记录有效性与任务应用，按授权共享 | 0.1.0，已随市场 v8.2.0 发布 |
 | **html-guide-kit / guide** | 确认读者、任务和理解问题后，新建可复制的交互教材绘制指南文本 | 0.1.10，develop 修正候选，未正式发布 |
 
-[Marketplace v8.1.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.1) 于 2026-10-10 随 #205 合入 main 自动发布，仍包含 Understanding Kit 0.1.2 / pop-quiz，采用 A 仓库主标和 D 插件图标。该次发布后的四种隔离安装、图标内容比较与实际 Python 校验通过；Owner 截图、两端完整客户端记录缺项及未提供的 GitHub 独立批准见 [8.1.1 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。这些历史结果不证明新候选的客户端或窗口通过。
+历史 [Marketplace v8.1.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.1) 于 2026-10-10 随 #205 合入 main 自动发布，该历史版本包含 Understanding Kit 0.1.2 / pop-quiz，采用 A 仓库主标和 D 插件图标。该次发布后的四种隔离安装、图标内容比较与实际 Python 校验通过；Owner 截图、两端完整客户端记录缺项及未提供的 GitHub 独立批准见 [8.1.1 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。这些历史结果不证明新候选的客户端或窗口通过。
 
 ### Codex
 
 ~~~text
-codex plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace --ref v8.1.1
+codex plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace --ref v8.2.0
 codex plugin add diagram-kit@mj-agentlab-marketplace
-codex plugin add understanding-kit@mj-agentlab-marketplace
+codex plugin add learning-evidence-kit@mj-agentlab-marketplace
 codex plugin add explain-kit@mj-agentlab-marketplace
 codex plugin list --json
 codex debug prompt-input '$diagram-kit:arch-diagram'
 ~~~
 
-上面固定已发布的旧集合，不包含 Learning Evidence Kit。三个插件可按需独立安装；调用 `$diagram-kit:arch-diagram` 或请求“给这个仓库画架构图”。新包的隔离候选验收使用待测 branch 或精确 SHA：
+上面固定已发布的三插件集合，不包含 HTML Guide Kit。三个插件可按需独立安装；调用 `$diagram-kit:arch-diagram` 或请求“给这个仓库画架构图”。开发候选安装另使用 develop 或精确 SHA：
 
 ~~~text
-codex plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace --ref codex/learning-evidence-switch
+codex plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace --ref develop
 codex plugin add learning-evidence-kit@mj-agentlab-marketplace
 codex plugin list --json
 ~~~
 
-该 branch 只表示候选来源，实际运行必须核对来源和版本，并记录待测 SHA。PR5 准备的 VERSION / badge 为 8.2.0；已发布身份以 [GitHub Releases](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases) 为准，发布门槛与入口限制见 [8.2.0 发布准备](docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。
+develop / badge 8.2.1 表示未发布开发候选，安装后须核对实际来源、版本及待测 SHA。公开 v8.2.0 由 #232 合入 main 后发布；#234 已完成 main→develop 同步，#235 已预升 VERSION/badge，插件版本保持，无 v8.2.1 tag/Release。实际身份以 [GitHub Releases](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases) 为准，发布事实和入口限制见 [8.2.0 发行记录](docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。
 
 ### Explain Kit
 
@@ -44,7 +44,7 @@ codex plugin list --json
 
 开发候选安装后显式调用 `$html-guide-kit:guide` 并提供文档或明确对话快照。先获得 2–3 套读者、任务和理解问题选项；明确选择或修改确认后才编排。输出为聊天指南文本，篇幅按材料调整。技能能力 Read，不制作 HTML、代码或文件，不提供具体制作工具操作说明；只新建指南，既有指南修订、方案比较和 HTML 审查另属范围。使用方法见 [指南](docs/guide/[GUIDE]_HTML_Guide_Kit.md)。
 
-上面固定v8.1.1的历史安装；当前main/v8.2.0也为三插件，包含Learning Evidence、不包含HTML。验证 HTML Guide 开发候选时，对准备好的独立候选目录运行 `codex plugin marketplace add <候选目录>`，再安装 `html-guide-kit@mj-agentlab-marketplace`；合入 develop 后可以显式选择 --ref develop。开发安装与正式发布分别记录。
+上面的main/v8.2.0安装范围为已发布三插件，不包含HTML。验证 HTML Guide 开发候选时，对准备好的独立候选目录运行 `codex plugin marketplace add <候选目录>`，再安装 `html-guide-kit@mj-agentlab-marketplace`；合入 develop 后可以显式选择 --ref develop。开发安装与正式发布分别记录。
 
 ### ChatGPT desktop
 
