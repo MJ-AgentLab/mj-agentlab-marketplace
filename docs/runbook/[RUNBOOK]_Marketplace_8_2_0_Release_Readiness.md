@@ -4,10 +4,10 @@ scope: marketplace
 summary: "Marketplace 8.2.0 preparation, entry boundaries and protected release evidence"
 owner: marketplace-maintainers
 created: 2026-10-12
-updated: 2026-10-12
+updated: 2026-10-13
 state: active
-version: v1.0
-last-verified: 2026-10-12
+version: v1.1
+last-verified: 2026-10-13
 verification-scope: preparation-version-and-existing-evidence-only
 ---
 
@@ -25,8 +25,9 @@ verification-scope: preparation-version-and-existing-evidence-only
 | Learning Evidence Kit | 0.1.0 | 直接替换 Understanding 注册，pop-quiz / learning-record-check 均显式启动；共用能力不是第三技能 |
 | Diagram / Explain | 0.3.1 / 0.1.1 | 本 Epic 保持其版本；批准图标复用和包归属见技术验收账本 |
 | 候选集合 | 三插件、五公开技能、两项显式学习策略 | 安装/发现通过不能代替实际模型、桌面调用或原生窗口验收 |
-| 最新运行修复来源 | `26d3e4002f63a8eef9ae9e0dfbb12469c3f71673` | 选择前提、应用调查前的材料门槛与 listing 预算均已修复；新的完整模型验收仍待执行 |
-| 最终 8.2.0 head / Git tree | PENDING | 须在最终提交冻结后填写，并绑定最终工程、canonical 安装与模型证据 |
+| 最新运行修复来源 | PR4 新核验生成信息修复已正常继承至 PR5 | 新作者/LRC 来源/操作/实际事件时间使用当前事实，保留原件；第四轮新源码实际验收待完成 |
+| 已冻结并安装的 8.2.0 技术来源 | `36ef16cd8798b107e16673e1520f3086964c4e3e` | [技术回执](evidence/learning-evidence-acceptance-checks.json)记录精确 Git tree、290-test 日志、五种 canonical 安装及模型冻结摘要 |
+| 最终交付 head / Git tree | PENDING | 完整回执及审查记录提交后重新冻结，比较运行资源并复核当前 head 门禁；不把前一候选身份冒充最终交付 |
 | Main 发布 merge / v8.2.0 tag / Release 身份 | NOT_RUN | 尚无本次公开发布身份；不得用候选版本或旧发布结果代填 |
 
 阶段依赖及关闭条件继续按 [验收账本](./[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)追踪：
@@ -37,7 +38,7 @@ verification-scope: preparation-version-and-existing-evidence-only
 | 本机证据库 | [#224](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/224) / [#211](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/211) | 等待实际当前 head 的独立批准及合入 |
 | GitHub 流转 | [#227](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/227) / [#212](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/212) | Draft，依赖 #224；批准/合入独立待办 |
 | 原子插件切换 | [#228](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/228) / [#213](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/213) | Draft，依赖 #227；批准/合入独立待办 |
-| 技术验收与 8.2.0 准备 | [#214](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/214) | PR5 实施中；最终 PR 号、冻结 head、验收及 merge 均 PENDING |
+| 技术验收与 8.2.0 准备 | Draft [#230](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/230) / [#214](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/214) | 技术来源 36ef16cd 已冻结/安装；完整模型接受、最终交付 head 及 merge 仍 PENDING |
 | 正式发布与跟踪 | [#215](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/215) | NOT_RUN；发布 PR 只写 Refs，不自动 Closes Epic |
 
 ## §2 Steps and evidence preparation
@@ -50,7 +51,7 @@ verification-scope: preparation-version-and-existing-evidence-only
 | --- | --- | --- |
 | PR4 完整工程回归；临时证据库、合成身份及受控 gh 替身 | PASS：288/288，0 fail / 0 skip；33 storage / 31 GitHub 实际 Python 用例 | Python 3.12.13；[PR4 结构化回执](evidence/learning-evidence-switch-checks.json)。覆盖当时工作源候选，不能代替最终 8.2.0 冻结提交回归 |
 | PR4 五种工作源安装：Diagram、Explain、Learning 单独，Diagram＋Explain，全部三插件 | PASS：Codex 0.147.0 安装/发现、两项显式策略、缓存资源比较、安装副本 save/replay/check；Diagram 实际 Python FAIL 0 / WARN 0 | 无关 cwd、独立缓存与库；属于工程安装/共用脚本运行，不是技能模型或桌面调用验收 |
-| 精确 Git 来源 `e473a7b3aebc97fff2d45e9f7d1495461a9b58e4` 的五种 canonical 安装 | PASS：该来源已实际安装核验 | 只覆盖该旧来源；LRC 修复后的 `26edea32edcab682a815a19e60c974d40986bebe` 及最终 8.2.0 canonical 结果 PENDING，不静默沿用 |
+| 精确 Git 来源的五种 canonical 安装 | PASS：旧来源 `e473a7b3aebc97fff2d45e9f7d1495461a9b58e4` 与修复后 8.2.0 `36ef16cd8798b107e16673e1520f3086964c4e3e` 分别实际核验 | 各来源证据分开；本次 36ef16cd 的完整结果见技术回执。未来最终交付若改变 source/tree 仍须据实际复核，不能静默沿用 |
 | PR3 Windows 测试替身编码故障与独立 cp1252 复现 | 原失败保留；fixture 显式 UTF-8 流修复后 284/284、31 GitHub / 33 storage 通过 | 修复提交 `387f0ae2af609397a41f42b390111a5116958304` 的实际远端检查已成功；四个生产模块未为该 fixture 修复改写。原失败和修复范围见 [PR3 回执](evidence/learning-evidence-github-checks.json)及[验收账本](./[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md) |
 | PR4 初始 Ubuntu 提前退出 | 原失败原因 UNKNOWN；同 head 的另一次 run 成功，原失败 run 的 attempt 2 重跑成功 | 保存失败与后续成功的独立状态；不能将成功重跑记为已定位或修复根因。最终门禁仍须复核当前 head |
 | PR5 最新修复与 8.2.0 工作候选完整工程回归 | PASS：290/290，0 fail / 0 skip；33 storage / 31 GitHub 实际 Python 用例、严格结构及精确 Codex baseline 通过 | 实际完整日志保留；本次包含最终 Unicode/应用解释修复和未发布 8.2.0 文档。Canonical Git 安装和实际模型仍分别待冻结后执行 |
@@ -71,7 +72,11 @@ verification-scope: preparation-version-and-existing-evidence-only
 
 缺材料场景整体 FAIL：模型先执行实现/应用探针，最终 not_run 不撤销先行动作；其记录核验、追加保存与仅指定 PR 的完整替身分享分别保留正面结果。材料到达场景两阶段也 FAIL：第一阶段将测验答案代替本人应用解释并提前评估，第二阶段没有新手动触发仍重评应用。第三阶段、不同来源作者及他人记录未执行，不把 seed 或预计分支当通过。此外，实际客户端忽略 176 字符的 LRC listing 示例。
 
-候选已修复：应用调查/探针之前检查本人应用解释及既有材料等全部前提，禁止测验答案/AI 推断/任务文本替代；缺项立即停止应用阶段，材料到达仍须新手动触发。listing 示例缩至 89 个 Unicode scalar values，严格拒绝超 128、超过三条及未配对 surrogate。修复检查及不同测试字节快照见 [修复回执](evidence/learning-evidence-entry-gates-checks.json)；原失败不覆盖。第三轮将以新 8.2.0 精确 Git 来源、统一真实 Python 3.12 环境重跑全部场景并补验 listing/task-only 选择，完整实际行为接受仍 PENDING。
+候选已修复：应用调查/探针之前检查本人应用解释及既有材料等全部前提，禁止测验答案/AI 推断/任务文本替代；缺项立即停止应用阶段，材料到达仍须新手动触发。listing 示例缩至 89 个 Unicode scalar values，严格拒绝超 128、超过三条及未配对 surrogate。修复检查及不同测试字节快照见 [修复回执](evidence/learning-evidence-entry-gates-checks.json)；原失败不覆盖。第三轮已在精确 8.2.0 来源 36ef16cd 执行九场景/十一回合，完整实际行为结果为 FAIL；不能继续描述为未执行。
+
+第三轮的完整原始回执见 [第三轮证据](evidence/learning-evidence-third-model-round.json)：等待、范围选择、原件移交、应用比较及限定分享有各自正面观察；新增条目却误用原作者或 Pop Quiz 来源，他人记录另伪造晚于保存时间的事件时间。候选已明确使用实际生成代理、当前 LRC 版本/上下文、真实操作及观察到的时钟，重试保持相同请求字节；共用 Python、schema 与原件保持。第四轮七场景/九回合已准备，安装、模型和独立完整审查尚未完成。
+
+Owner 已确认 8.2.0 仍为原定三插件/五技能/两项学习策略。develop 保留 #226 的 HTML，Learning Evidence 替换后开发集合为四插件/六技能；独立公开候选只含 Diagram、Learning Evidence、Explain，HTML 另行发行。不得以原公开集合校验删除 develop 的已合并 HTML。
 
 ### §2.3 Classify entries before enabling publication scope
 
@@ -89,7 +94,7 @@ verification-scope: preparation-version-and-existing-evidence-only
 
 ### §2.4 Execute the protected draft-first release only after readiness
 
-按 [发布操作](./[RUNBOOK]_Release_Operations.md)执行，不在本记录复制另一套发布实现：冻结最终 8.2.0 head/tree 和准确 CHANGELOG，完成该提交的工程/安装/已启用核心验收，依顺序合入 develop，再复核正式 develop → main 发布 PR 的当前 head 门禁。
+按 [发布操作](./[RUNBOOK]_Release_Operations.md)执行，不在本记录复制另一套发布实现：冻结最终 8.2.0 head/tree 和准确 CHANGELOG，完成该提交的工程/安装/已启用核心验收，依顺序合入 develop 并保留 HTML；从通过验收的原三插件来源准备独立 main 发布 PR，再复核其当前 head 门禁和与已验收资源的一致性。
 
 门禁满足后由代理执行获授权的发布流程：绑定实际 main tip 创建空 draft，验证其 canonical Git tree 的安装及实际 Python 运行，紧邻 publish 重新核对 tag/draft/body/target SHA，公开后复核版本/标签/Release/提交及安装。任一步结果不明，先读取实际远端状态再恢复缺失步骤；缺少证据或权限时保持原状态，不提前标记公开成功。
 
@@ -99,8 +104,8 @@ verification-scope: preparation-version-and-existing-evidence-only
 | --- | --- | --- |
 | 条件发布授权与分段边界 | AUTHORIZED / ACCEPTED | 本记录 §1 与已接受 ADR；边界未实质变化时复用 |
 | 8.1.2 → 8.2.0 版本准备 | APPLIED，未发布 | VERSION / README badge 两锚点；最终冻结提交及对应检查 PENDING |
-| 最终 8.2.0 完整工程及 canonical 安装 | WORKING_REGRESSION_PASS / CANONICAL_PENDING | 工作候选 290/290、零跳过，严格校验/精确 baseline 通过；冻结 head/tree、五种 canonical 安装及图表/共用脚本回执待补 |
-| 修复后完整核心实际模型验收 | ORIGINAL_FAIL / REPAIR_ACCEPTANCE_PENDING | 各场景输入/source/模型版本、实际操作与独立审查；不得合并不同轮次为无失败 PASS |
+| 8.2.0 技术来源完整工程及 canonical 安装 | PASS_FOR_36EF16CD | 290/290、零跳过，严格校验/精确 baseline、五种精确 Git 安装和实际图表/共用 Python 通过；未来最终交付另核当前身份 |
+| 修复后完整核心实际模型验收 | THIRD_ROUND_FAIL / FOURTH_ROUND_PENDING | 各场景输入/source/模型版本、实际操作与独立审查；不得合并不同轮次为无失败 PASS |
 | 当前 head 的真实非作者 APPROVED review | PENDING | 合格非作者、review 状态及绑定 head；Agent 自检不替代 |
 | Required checks / resolved threads | PENDING FOR_FINAL_HEAD | 实际远端检查结论及审查线程；既有绿色 CI 不覆盖未来最终 head |
 | 正式发布 PR / main merge | NOT_RUN | PR 号、head、批准/检查/线程事实、实际 merge SHA/tree |
@@ -125,6 +130,7 @@ verification-scope: preparation-version-and-existing-evidence-only
 
 | Version | Date | last-verified | Change |
 | --- | --- | --- | --- |
+| v1.1 | 2026-10-13 | 原精确技术结果、完整第三轮失败及新修复范围 | 保留三插件公开范围与四插件开发集合；第四轮实际验收、保护合入和正式发布仍待完成 |
 | v1.0 | 2026-10-12 | 2026-10-12，准备/已有证据范围 | 建立 8.2.0 未发布准备账本，保留两轮模型与 CI 原失败、入口条件/延期、当前 head 门禁及发布后待办；Refs #214 / #215 / #209 |
 
 - [Learning Evidence 技术验收账本](./[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)
