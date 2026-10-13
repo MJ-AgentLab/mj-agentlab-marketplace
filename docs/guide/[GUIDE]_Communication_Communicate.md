@@ -4,9 +4,9 @@ scope: marketplace
 summary: "Explicit communication, writing and rewrite usage with clear boundaries"
 owner: marketplace-maintainers
 created: 2026-10-12
-updated: 2026-10-12
+updated: 2026-10-13
 state: draft
-version: v1.0
+version: v1.0.1
 ---
 
 # [GUIDE] 沟通助手
@@ -62,4 +62,3 @@ $communication-kit:communicate
 | Version | Date | Summary |
 |---|---|---|
 | v1.0 | 2026-10-12 | 三类计划使用示例与聊天/文件操作边界 |
-

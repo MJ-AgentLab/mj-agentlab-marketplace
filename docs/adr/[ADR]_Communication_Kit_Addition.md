@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.1
+version: v1.1.1
 ---
 
 # [ADR] Communication Kit addition
@@ -78,4 +78,3 @@ Owner 明确将九例真实场景、三稿对照、读者效果反馈、采用�
 | 2026-10-12 | Owner 要求完整实施与正式上线，保留已确认产品契约与缩减效果测试范围 | 接受产品方向和执行授权；实现未完成 |
 | 2026-10-12 | Owner 答复版本顺序 grilling Q1 | Learning 先 8.2.0；Communication 随后独立 minor，PR4 重查版本和基线 |
 | 2026-10-13 | Learning迁移434d053及Owner答复新增发行范围grilling Q3 | 公开范围为Learning三包＋Communication四包六技能；HTML保留开发、另行发行，原单入口/行为不变 |
-

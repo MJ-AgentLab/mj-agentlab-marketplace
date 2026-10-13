@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.1
+version: v1.1.1
 ---
 
 # [SPEC] Communication Communicate
@@ -70,4 +70,3 @@ version: v1.1
 |---|---|---|
 | v1.1 | 2026-10-13 | 区分Learning先行迁移后的开发基线与Owner明确选择的四包正式发行范围；保留原行为契约 |
 | v1.0 | 2026-10-12 | 固定显式入口、保真、等待、冻结来源与操作边界；尚未实施验收 |
-
