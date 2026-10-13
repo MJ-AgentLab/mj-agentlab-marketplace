@@ -83,7 +83,7 @@ Owner 提供 SDLC Understanding Pop Quiz v0.3 设计并通过 grill-me 确认实
 ## §7 References
 
 - [局部被替代的迁移 ADR](./[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)
-- [Pop Quiz 契约](../spec/[SPEC]_Understanding_Pop_Quiz.md) / [使用指南](../guide/[GUIDE]_Understanding_Pop_Quiz.md)
+- [Pop Quiz 契约](../archive/[DEPRECATED]_[SPEC]_Understanding_Pop_Quiz_v1.0.md) / [使用指南](../archive/[DEPRECATED]_[GUIDE]_Understanding_Pop_Quiz_v1.3.md)
 - [发布操作](../runbook/[RUNBOOK]_Release_Operations.md)
 - [官方技能工作流边界](https://developers.openai.com/plugins/concepts/skills)
 - [官方 Side Chat 操作](https://learn.chatgpt.com/docs/developer-commands)
