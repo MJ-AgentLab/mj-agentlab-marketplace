@@ -4,9 +4,9 @@ scope: marketplace
 summary: "当前 ChatGPT/Codex 文档、历史决策与退役资料导航"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-12
+updated: 2026-10-13
 state: active
-version: v2.16
+version: v2.16.1
 ---
 
 # 文档索引
@@ -20,6 +20,8 @@ version: v2.16
 Epic #209 的 PR4 原子迁移当前候选为 Diagram 0.3.1 / Learning Evidence 0.1.0 / Explain 0.1.1，三插件、五公开技能、两个显式学习策略；PR5 已准备未发布 marketplace 8.2.0。新包安装使用候选 branch/精确 SHA，公开 v8.1.1 仍是旧 Understanding 集合。[迁移 ADR](adr/[ADR]_Learning_Evidence_Kit_Migration.md)、[记录/API 契约](spec/[SPEC]_Learning_Evidence_Record_And_API.md)、[新指南](guide/[GUIDE]_Learning_Evidence_Kit.md)及[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)分别维护决定、数据、使用边界与实际证据；[8.2.0 发布准备](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)记录逐入口资格和剩余门槛。Owner 接受核心独立验收后分段交付，所有启用提问入口严格待答；原生窗口不合格入口延期，文字重述不算窗口通过。Epic 与 Owner 最终接受独立追踪，新候选不追认历史或学习效果验收。
 
 HTML Guide Kit 正按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 分阶段实施：PR1 仅合同与工具前置，不改变运行集合。阶段门槛见 [ADR](adr/[ADR]_HTML_Guide_Kit_Addition.md)，判准见 [SPEC](spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，实际结果及未覆盖项见 [RUNBOOK](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。现实场景理解效果另测，本次仍保留工程行为与双客户端交互验收。
+
+Learning Evidence #224/#227/#228已在develop实际交付并完成精确安装复验，#211–213关闭，历史空reviews缺项保留。#230当前f1fe48b可审查，正式main发行候选仍原三插件；本次仅同步当前依赖与回执，新发行head须另验canonical及保护门禁，详见[发行准备](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。
 
 ## 入口
 
