@@ -7,6 +7,7 @@
 
 ### Added
 
+- Stage manual Learning Evidence GitHub publication/collection through the authenticated gh interface: complete segmented JSON and reading text, digest/read-back receipts, missing-only recovery and updated-time acquisition. Confirm scope before persisting filtered bodies, require bounded stable page inventories, and retain prior progress on failures; writes in engineering acceptance use a controlled substitute.
 - Stage Python 3.12 local Learning Evidence storage with immutable records, confirmed attribution, full baselines, idempotent transactions, reference-only worktree association, complete export/import and retained archive. Old runtime packages remain byte-identical; installation switch is deferred to PR4.
 - Atomically add the HTML Guide Kit 0.1.0 development candidate: one explicit Read skill, guide, two packaged references, the Owner-selected round-2 A HTML textbook icon, strict registration and source/cache byte checks. Preserve the four original installation scenarios and add HTML alone, HTML + Explain and all four plugins; natural discovery remains three skills. This candidate is not a formal release or a claim of client/learning-effect acceptance. Refs #217, #219.
 
@@ -16,6 +17,8 @@
 - Add a scoped technical acceptance ledger for independent synthetic roles, persistence/recovery, manual GitHub flow and actual client entries. Preserve both explicit public skills/common interfaces; defer entries unable to meet strict native-window acceptance. Core delivery, full Epic completion and Owner final acceptance remain separate; contracts do not establish runtime or learning-effect success.
 
 ### Changed
+
+- Record the protected Learning Evidence local-store merge #224, exact-tree canonical installation/Python verification and child #211 completion; synchronize PR3 ancestry with unchanged production modules and a fresh 311-test/seven-install rerun. Preserve the separately approved three-plugin 8.2.0 release scope and deferred entries.
 
 - Prepare the unpublished develop 8.1.2 pre-bump after #206 synchronized the published main. Update only marketplace VERSION and its derived README badge; keep all plugin versions, published version sections, tags and assets unchanged. Include the parallel publication-record documentation and synchronize its main merge ancestry when available.
 
