@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.23
+version: v2.24
 ---
 
 # 文档索引
@@ -25,13 +25,13 @@ PR3 的真实受众扩展发现 0.1.0 操作反馈前置状态冲突，保存 FA
 
 0.1.2 canonical 59c7aea 的七种严格安装、四次缓存 Python 通过，279 测试零 skip 与当前 CI 通过；新模型行为仍逐项核验。788 文件的 0.1.0/0.1.1 历史原始证据已 lossless 封存并独立复原校验，旧失败不追认通过，具体身份及覆盖见 RUNBOOK §14。
 
-0.1.2 B4.2 真实修复通过，但 B4.1 将已禁止的直接操作与未知后续路径混合，E13 两变体亦发现表格排他量词/术语类型改写，分别独立 FAIL。当前 0.1.3 修正上述通用方法，未宣称新候选行为通过；暂停造成的一轮操作中断单独保留，见 RUNBOOK §15。
+0.1.2 B4.2 真实修复通过，但 B4.1 将已禁止的直接操作与未知后续路径混合，E13 两变体亦发现表格排他量词/术语类型改写，分别独立 FAIL。当期 0.1.3 修正上述通用方法，未宣称新候选行为通过；暂停造成的一轮操作中断单独保留，见 RUNBOOK §15。
 
 已停止的 0.1.2 证据 506 文件 lossless 封存、Node/.NET 逐字节复原通过，28 UUID / 61 输入的失败与中断均保留。0.1.3 canonical ffaa68f 的七种严格安装、四次实际缓存 Python 通过；新模型矩阵仍独立评审，窄目标未覆盖与选择出处缺陷另补证，不追认原调用 PASS。实际身份和缺项见 RUNBOOK §16。
 
-0.1.3 E13 又发现重复操作的已知字段结果被整体判未知，独立 FAIL。当前 0.1.4 按本次状态重匹配源条件、分开字段结果与额外提示；选择器误取嵌套题号的旧控制缺口另列 INVALID_RUN，后续仅人工真实目标摘录。新版本须新安装、受影响及全部六组复验，历史实际结果继续保存，见 RUNBOOK §17。
+0.1.3 E13 又发现重复操作的已知字段结果被整体判未知，独立 FAIL。当期 0.1.4 按本次状态重匹配源条件、分开字段结果与额外提示；选择器误取嵌套题号的旧控制缺口另列 INVALID_RUN，后续仅人工真实目标摘录。新版本须新安装、受影响及全部六组复验，历史实际结果继续保存，见 RUNBOOK §17。
 
-旧 0.1.3 剩余 E19/38 独立评审为15 PASS / 4 FAIL；另有效维护者补证同类重复操作 FAIL。中间0.1.4七安装/四缓存Python通过，未启动模型。当前完整修正候选0.1.5一并限制拒绝/引用的代码回显并核对分支反馈覆盖，静态审查无阻断但行为未执行；实际身份和新复验范围见 RUNBOOK §18。
+旧 0.1.3 剩余 E19/38 独立评审为15 PASS / 4 FAIL；另有效维护者补证同类重复操作 FAIL。中间0.1.4七安装/四缓存Python通过，未启动模型。后续完整修正候选0.1.5一并限制拒绝/引用的代码回显并核对分支反馈覆盖，静态审查无阻断但行为未执行；实际身份和新复验范围见 RUNBOOK §18。
 
 Epic #209 开始 Learning Evidence Kit / marketplace 8.2.0 实施。PR1 固定已接受的双技能、七机制与共用接口，不修改当前 8.1.2 运行包；[迁移 ADR](adr/[ADR]_Learning_Evidence_Kit_Migration.md)、[记录/API 契约](spec/[SPEC]_Learning_Evidence_Record_And_API.md)及[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)分别维护决定、数据与实际证据。Owner 接受核心独立验收后分段交付，严格窗口不合格入口延期，Epic 保持未完成；契约交付不表示运行、客户端或学习效果通过。
 
@@ -144,3 +144,5 @@ Epic #209 开始 Learning Evidence Kit / marketplace 8.2.0 实施。PR1 固定�
 - [[DEPRECATED]_[RUNBOOK]_Doc_Archive_Procedure_v1.1.md](archive/[DEPRECATED]_[RUNBOOK]_Doc_Archive_Procedure_v1.1.md)
 
 - [[DEPRECATED]_[STANDARD]_GitHub_Markdown_v1.0.md](archive/[DEPRECATED]_[STANDARD]_GitHub_Markdown_v1.0.md)
+
+0.1.5 基线 CLI 原生入口截断，部分会话补读全文才取得完整技能；未补读的拒绝样本为 UNKNOWN/INVALID_RUN。当前0.1.6精简入口并增加保守字节预算，详细方法仍用两份参考；新安装与完整原生加载/行为须实际复验，不能继承旧 PASS。事实与分段缺项见 RUNBOOK §19。

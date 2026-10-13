@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.9
+version: v1.10
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -299,3 +299,11 @@ E14-review UUID `01a13331-3167-70d3-840e-13bb519e13ed` / attempt `25e727ff-7118-
 0.1.5 须新 committed canonical 严格安装、全部六组 14 指定变体 / 30 连续轮次，以及 E13、真实双语、HTML 拒绝回显、推荐确认、补件后交付、维护者和新增重复操作补证。新模型只见原材料与自然用户输入，控制/答案及评审仍隔离；选择从真实顶层目标与三元组摘录人工取得，旧模型和误控结果分别保留。原生入口、现实效果及最终 head/merge 门禁状态不变。
 
 另四份 0.1.3 失败原评审的字节、UUID 与来源见[独立失败索引](evidence/html-guide-kit/pr3-post-merge/candidate013-additional-failures/archive-index.json)，完整会话仍随最终历史封存。0.1.5 工作候选[完整测试](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-5/npm-test.log)279/279、零 skip、validate/check 通过；[独立静态评审](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-5/static-review.json)三资源 SHA 与当前字节一致，无静态阻断，behavior NOT_RUN。[原始检查索引](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-5/archive-index.json)记录唯一 manifest dry-run/apply 及实际检查，不代替 canonical 安装、模型或 GitHub 批准。
+
+## 19. 原生入口截断与 0.1.6 精简候选
+
+0.1.5 canonical 3bf1fe05184afaf56bba408eb3c09a45ee7d9197 / tree d5221a98db3d4677ee317260f87f9f5dc159c162 的七种严格安装与四次实际缓存 Python 通过。新 B6 四变体五轮真实调用发现基线 CLI 0.147.0 报入口 main prompt context limit exceeded；缓存 SKILL 为8828字节/3343字符，原生会话仅注入3064字符前缀，不能当作全文读取。B6.1/compare/review 通过成功只读工具取得缓存全文，各自独立 PASS；revise 没有补读，仅正确拒绝观察，整体 UNKNOWN、executionValidity INVALID_RUN。三项 PASS 不消除原生截断缺陷；原结果、事件、读取出处与独立评审保留，不追认通过。
+
+各 0.1.5 writer 在真实轮次结束后正常暂停，不 kill，不继续新变体。完整变体、partial、未执行和实际读取分别保存；缺少完整模型证据不得推断为运行 FAIL。现实场景效果仍为 NOT_MEASURED，原生桌面入口仍按已记录能力缺口延期，Issue #220 / Epic #217 保持开放。
+
+仅将 HTML Guide Kit 0.1.5→0.1.6；main/marketplace/其他插件版本不变。精简 SKILL 去除与两份参考重复的细化段落，保留产品边界、两阶段真实参考读取、严格确认及核心语义核对。详细方法仍在现有两份参考中，不增加运行文件或验收答案。新增仓库及安装共用的6144 UTF-8字节保守入口预算，拒绝相同但过长的源/缓存资源；此预算是本插件工程控制，不声称所有客户端有同一限制。必须新安装、新真实连续会话证实完整原生正文加载，并复验全部六组与受影响路径、重复操作补证；静态预算与旧 PASS 均不替代该实际证据。

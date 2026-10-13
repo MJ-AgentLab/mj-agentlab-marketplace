@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+- Prepare HTML Guide Kit 0.1.6 after observed baseline native skill truncation: compact the entry, preserve reference methods and reject oversized entries in repository and installation validation. Fresh native full-body and behavioral verification remain required. Refs #217, #220.
+
 ### Added
 
 - Atomically add the HTML Guide Kit 0.1.0 development candidate: one explicit Read skill, guide, two packaged references, the Owner-selected round-2 A HTML textbook icon, strict registration and source/cache byte checks. Preserve the four original installation scenarios and add HTML alone, HTML + Explain and all four plugins; natural discovery remains three skills. This candidate is not a formal release or a claim of client/learning-effect acceptance. Refs #217, #219.

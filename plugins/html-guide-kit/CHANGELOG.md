@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [0.1.6] - 2026-10-13
+
+### Fixed
+
+- HTML Guide Kit 0.1.6 compacts the entry skill after observed native prompt truncation on the baseline CLI; preserve full semantic methods in the existing two references.
+- Enforce a conservative 6144-byte UTF-8 entry budget in repository and installed-resource validation, including byte-identical oversized packages.
+- Preserve truncated/partial calls separately and require fresh cache, full native loading and behavior verification. Refs #217, #220.
+
 ## [0.1.5] - 2026-10-13
 
 ### Fixed
