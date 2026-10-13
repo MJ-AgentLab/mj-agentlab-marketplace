@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.13
+version: v1.14
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -336,3 +336,9 @@ E14-review UUID `01a13331-3167-70d3-840e-13bb519e13ed` / attempt `25e727ff-7118-
 只推进本插件0.1.7→0.1.8，保留marketplace8.2.0（上游准备）和其他批准集合/版本。通用方法按行/字段归因新增展示默认，明确被替换源及其例外退出active；每处排他量词就地scope并回查恢复例外；未知仅阻未决组合，所有文字/表格/反馈一致；逐题明确必要状态/输入，共用默认仅在已明确范围有效。题设假设明确补齐且源规则足够时可给该假设范围内可靠反馈，不能补造源规则或事实。初值/可达值/完整输入域继续分开，主入口仍低于6144字节，没有测试领域答案/个人来源依赖。
 
 完整候选须新canonical八安装/四Python、六组14/30、E6/12、重复操作1/2和S2/9全新真实cache会话；控制/判准/原用户输入不变，实际顶层目标/单triplet及sourceTurn3/history人工核对。运行资源与旧版本分别哈希，任何FAIL/无效/partial/未跑不追认。原生桌面/窗口延期、现实效果NOT_MEASURED、当前head非作者批准/CI/threads/最新base与实际merge门禁不变；Issue220/Epic开放。
+
+## 23. 已发布上游 ancestry 同步
+
+并发 #234 的 origin/develop 2c0a83172507bcb77d105d9f9294fec2e6672ac1 已接入实际 v8.2.0 发布 ancestry 与记录。相对前次上游6b5a19e，插件、scripts、tests及VERSION无差异；本任务普通merge解决根AGENTS和INDEX的文字冲突，保留上游发布事实及HTML阶段账本，不重写历史或修改其他运行包。HTML三份运行文本仍逐字等于0.1.8修正提交61cf52dc2da2e81d9d6f1389ecd65cabf9b1f6da。
+
+实际main与latest Release为v8.2.0的三插件/五技能，HTML不在该发行集合；本分支四插件/六技能为develop候选。marketplace版本保持上游8.2.0，后续pre-bump如有实际合入再同步，不自行准备发行。0.1.8新的canonical安装、缓存实际加载与独立行为结果随后追加，尚未完成项不能由纯文档同步推定通过。

@@ -2,7 +2,7 @@
 
 ## 项目上下文
 
-当前候选注册 diagram-kit / arch-diagram、learning-evidence-kit / pop-quiz、learning-record-check 、explain-kit / glossary、concept 与 html-guide-kit / guide，共四插件、六公开技能、三个显式入口；目标客户端为 ChatGPT 桌面端和 Codex 本地环境，CLI 验收基线 0.147.0。PR5 已准备未发布 marketplace 8.2.0，Learning Evidence 0.1.0、Diagram 0.3.1 / Explain 0.1.1 / HTML 0.1.0 保持。运行信息以索引、manifest 和 VERSION 为准；公开 v8.1.1 仍包含旧 Understanding，候选须从待测 branch/SHA 安装。
+当前develop注册 diagram-kit / arch-diagram、learning-evidence-kit / pop-quiz、learning-record-check、explain-kit / glossary、concept 与 html-guide-kit / guide，共四插件、六公开技能、三个显式入口。公开 Marketplace v8.2.0 已经 #232 合入main并自动发布，只有原定Diagram 0.3.1 / Learning Evidence 0.1.0 / Explain 0.1.1三个插件、五技能、两显式学习策略；HTML保留develop另发，本分支0.1.8修正候选未发行。目标客户端为ChatGPT桌面端和Codex本地环境，CLI验收基线0.147.0；各运行版本与清单以VERSION、索引和manifest为准。
 
 manifest 的公开示例按[插件契约](docs/spec/[SPEC]_Plugin_Json_Schema.md)保留完整路由，最多三条，各原值不超过 128 个 Unicode scalar values；严格校验防止客户端忽略超长示例而丢失公开入口，不依赖空白归一化。
 
@@ -54,18 +54,18 @@ PR2 已同步 #226 合入的 HTML Guide Kit 0.1.0，当时基准为四插件、�
 
 第五轮来源 acf3c9d 的六 fresh 会话/八调用已通过限定 CLI 核心判据：七次自然完成、一次执行器超时保留；九条新核验、两次限定离线共享及原件/生成信息均经独立核对。四轮原失败、两次策略拒绝、换行格式差异和幂等重放分别保留，不称所有调用成功。原移交仅按十二项未变资源闭包沿用并限已有本地 Git exclude；原生提问仍延期、桌面/Side Chat 未运行，实际保护合入、发布和 Owner 最终接受待各自证据。完整入口资格与限制见上述 Learning Evidence 验收账本。
 
-三插件发行草稿 #232 已创建，head b7bdd769 / tree 428760eb；该最终 Git 提交的五种 canonical 安装及实际缓存 Python 通过，运行/测试代码与模型源 acf3 一致。develop 的四插件仍保留，main/latest Release 仍 8.1.1；最后依赖 #230、当前 head 非作者批准、main 合入与公开发布仍待完成，详见发行准备账本。
+较早发行准备快照（当前状态见下段）：三插件发行草稿 #232 已创建，head b7bdd769 / tree 428760eb；该最终 Git 提交的五种 canonical 安装及实际缓存 Python 通过，运行/测试代码与模型源 acf3 一致。develop 的四插件仍保留，main/latest Release 仍 8.1.1；最后依赖 #230、当前 head 非作者批准、main 合入与公开发布仍待完成，详见发行准备账本。
 
-Learning Evidence 当前交付：#224/a2090ff8、#227/f958908e、#228/434d053均已实际合入并完成精确安装/Python复验，#211–213关闭；#224有当前head批准，#227/#228当前GitHub reviews为空，缺项不追认。#228的八canonical安装/143资源、四次图表Python/三组保存重放检查通过；#230同步后3d71963技术来源317/八安装通过，全部生产包及十九模型资源等于已交付/限定来源，原始失败/超时证据保持。前序依赖已解除，PR5准备当前head审查，#232仍b7bdd769三插件发行Draft。Owner要求后续不指定人发出审查请求；真实非作者批准/CI/已解决线程继续按实际门禁处理。开发四插件、公开三插件/HTML另发及Epic延期边界保持，完整历史见上述验收和发行账本。
+Learning Evidence 当前交付：#216/#224/#227/#228/#230已实际交付，#210–214关闭；#232于2026-10-13合入main ebc4bdc3并自动公开v8.2.0，tag/Release同SHA，merge与已测6d83c8e同树5c7557fe。发布后五精确canonical/三图表Python/两组记录保存重放检查通过，发布脚本复核noop。#224有实际当前head批准；#216/#227/#228/#230/#232未提供或空reviews缺项保留，不推定豁免。仓库API未提供immutable配置字段，实际Release immutable=false，不声称锁定。完整来源/原始模型失败及发布事实见[发布账本](docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。本同步保留develop全部四插件运行/脚本/测试/版本和HTML证据，只接入实际main ancestry及当前记录；同步与下一8.2.1两文件pre-bump分两个PR执行，实际状态以VERSION/各PR回执为准，不创建8.2.1 Release。Owner要求不指定审查人；当前head批准/CI/线程门禁保持。原生入口延期、桌面/Side Chat未运行、现实效果/Owner最终接受和两个收尾PR分别追踪，#215/Epic保持OPEN。
 
 ## HTML Guide Kit 阶段实施
 
 Owner 已授权 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 的三个阶段、独立 worktree 和 codex/ 分支。PR1 #221 实际 merge 70267a5 已复验，#218 已关闭；PR2 [#226](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/226) 于2026-10-12接入完整0.1.0包、第二轮已选A图标与严格合同，merge d106e766 与已测head72cdd08 tree相同，七安装/四缓存Python通过，#219已显式关闭。历史GitHub reviews缺少独立批准如实保留，不追认门禁。PR3 #231 继续扩展工程、双客户端及最终merge复验；当前head非作者批准、required checks和已解决审查线程仍须满足，不bypass。
 
-当前分支 HTML Guide Kit 0.1.8 是未合并修正候选；marketplace按并发#230已准备未发布8.2.0。已同步并发origin/develop6b5a19e（前期434d053）的Learning Evidence迁移，保留四插件、六公开技能、三个自然启用技能、三个显式策略和20项仓库开发技能，本任务不修改其他插件版本。公开8.2.0三插件发行范围按并行任务决定，HTML保留develop、另行发行；本任务无Release、tag或main发布授权。版本工具缺manifest仍失败。
+当前分支 HTML Guide Kit 0.1.8 是未合并修正候选；marketplace保持上游8.2.0；已发布main只含三插件，develop四插件集合未发行。已同步并发origin/develop2c0a831（前期6b5a19e/434d053）的Learning Evidence迁移，保留四插件、六公开技能、三个自然启用技能、三个显式策略和20项仓库开发技能，本任务不修改其他插件版本。公开8.2.0三插件发行范围按并行任务决定，HTML保留develop、另行发行；本任务无Release、tag或main发布授权。版本工具缺manifest仍失败。
 
 唯一入口 $html-guide-kit:guide，显式调用、Read、默认中文/原术语，聊天文本新建指南。每次实际读材料/快照并区分证据、保留冲突缺口；给2–3套不同读者/任务/理解问题，推荐及理由。明确选择或修改确认后才生成；推荐、预选、沉默、超时、无关回复或窗口消失不算确认，未答保留同一待确认，不承诺锁宿主窗口。深度按材料调整；保留来源、条件、例外与未知；需要的演示/模拟/自检含反馈及恢复，无可靠判准仅有限参考，不评分或推断长期掌握。只新建，不修订/比较/审查，不输出HTML/代码/文件/具体制作工具步骤或越权执行。运行资源仅SKILL及两份参考，无Owner路径/研究治理/历史聊天依赖。
 
 0.1.0–0.1.3真实失败、修正调用、回放、控制INVALID_RUN、未覆盖及操作中断分别保留；788历史文件及506个0.1.2文件已lossless封存并经Node/.NET复原，不能追认PASS。0.1.3独立评审发现重复操作整体未知、拒绝回显HTML及重叠反馈；中间0.1.4安装通过但模型NOT_RUN。0.1.5原生SKILL注入截断，B6 revise无补读为UNKNOWN/INVALID_RUN，其他三项有工具全文补读的局部PASS不消除缺陷。0.1.6精简入口实际完整加载，但新B6.1给未标构造的通用输入域，独立补充fidelity FAIL。0.1.7安装通过但模型NOT_RUN。0.1.8完整修正源字段归因、值域、自检必要前提、局部排他范围、未知组合及替换源的例外清理；保留已知局部结果，须新cache全部六组/受影响/连续流程。仓库/安装共用6144 UTF-8字节保守预算；须新canonical安装、完整实际加载及全部六组/受影响行为复验，不能继承旧PASS。
 
-Owner调整现实场景效果另测，本次NOT_MEASURED。当前操作工具仅浏览器，原生应用API禁用；Codex应用UI、ChatGPT桌面及空返回/超时/关闭事件未执行，CLI不替代。合格核心可分段交付，延期入口不视为通过；Issue #220与Epic保持开放，Owner最终接受独立记录。决定见[ADR](docs/adr/[ADR]_HTML_Guide_Kit_Addition.md)，判准见[SPEC](docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，完整历史/实际证据/当前候选见[RUNBOOK](docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)§11–19。研究项目只读，不整理或提交其沉淀。
+Owner调整现实场景效果另测，本次NOT_MEASURED。当前操作工具仅浏览器，原生应用API禁用；Codex应用UI、ChatGPT桌面及空返回/超时/关闭事件未执行，CLI不替代。合格核心可分段交付，延期入口不视为通过；Issue #220与Epic保持开放，Owner最终接受独立记录。决定见[ADR](docs/adr/[ADR]_HTML_Guide_Kit_Addition.md)，判准见[SPEC](docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，完整历史/实际证据/当前候选见[RUNBOOK](docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)§11–22。研究项目只读，不整理或提交其沉淀。
