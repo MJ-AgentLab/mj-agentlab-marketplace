@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-10-12
+
+### Fixed
+
+- HTML Guide Kit 0.1.2 preserves decisive known conditions when combining AND/OR with unknown information. Check branch overlap and priority without extending a local condition result into undefined actions or values.
+- Preserve the actual 0.1.1 partial-rule simulation failure and require new installation, affected cases and all six blocking groups on this candidate.
+
 ## [0.1.1] - 2026-10-12
 
 ### Fixed
