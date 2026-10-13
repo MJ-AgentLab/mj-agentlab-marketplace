@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "kind": "Original second-round API-error index supplement",
+  "original_receipt": "learning-evidence-second-model-round.json",
+  "source_sha": "26edea32edcab682a815a19e60c974d40986bebe",
+  "status_unchanged": "FAIL_PARTIAL_STOPPED_BY_ROOT",
+  "scope": "material-arrival phase1; no source log/output modified",
+  "actual_errors_added_to_index": [
+    {
+      "command_id": "item_12",
+      "jsonl_line": 25,
+      "output_line": 1,
+      "envelope": {
+        "schema_version": 1,
+        "operation": null,
+        "request_id": null,
+        "status": "error",
+        "data": {},
+        "receipts": [],
+        "gaps": [],
+        "errors": [
+          {
+            "code": "interpreter_version",
+            "message": "Learning Evidence Kit requires an actual Python 3.12 interpreter"
+          }
+        ]
+      }
+    }
+  ],
+  "reason": "Original complete command output already retained interpreter_version; original index omitted errors whose operation was null",
+  "complete_v2_locator": "C:/Users/Admin/AppData/Local/Temp/lek-role-pr5-round2-caabdc17dd624e6b9a401b396a2df9fe/reviewer/round2-partial-receipt-v2.json",
+  "complete_v2_sha256": "18c6aa450735887fb30685996129da2ef2c6225d0289dc2ad04f5e5b9a908e82",
+  "auth_cleanup": {
+    "finished_at": "2026-10-12T11:26:47.213Z",
+    "recorded_removed": true,
+    "remaining_auth_copies": 0
+  }
+}

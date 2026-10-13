@@ -9,9 +9,6 @@
 
 ### Added
 
-- Define the unpublished Learning Evidence Kit 0.1.0 candidate's dual explicit skill interfaces and package-owned common Python capabilities. Candidate inventory becomes three plugins/five public skills/two explicit policies; marketplace stays 8.1.2 until PR5, with Diagram 0.3.1 and Explain 0.1.1 unchanged. Archive the former Understanding SPEC/GUIDE with exact Git source hashes, and use fixed historical links for removed runtime/evaluation evidence.
-- Update candidate-only installation and development guidance. Published v8.1.1 retains Understanding Kit; enabled native/question entries require actual strict-wait/window evidence, unsupported entries remain deferred, and no desktop/window or learning-effect success is inferred from the migration.
-
 - Stage manual Learning Evidence GitHub publication/collection through the authenticated gh interface: complete segmented JSON and reading text, digest/read-back receipts, missing-only recovery and updated-time acquisition. Confirm scope before persisting filtered bodies, require bounded stable page inventories, and retain prior progress on failures; writes in engineering acceptance use a controlled substitute.
 - Stage Python 3.12 local Learning Evidence storage with immutable records, confirmed attribution, full baselines, idempotent transactions, reference-only worktree association, complete export/import and retained archive. Old runtime packages remain byte-identical; installation switch is deferred to PR4.
 - Atomically add the HTML Guide Kit 0.1.0 development candidate: one explicit Read skill, guide, two packaged references, the Owner-selected round-2 A HTML textbook icon, strict registration and source/cache byte checks. Preserve the four original installation scenarios and add HTML alone, HTML + Explain and all four plugins; natural discovery remains three skills. This candidate is not a formal release or a claim of client/learning-effect acceptance. Refs #217, #219.
@@ -35,6 +32,8 @@
 
 - Preserve the stopped 0.1.2 candidate's 506 original evidence files, failed semantics and operator interruption with lossless restoration. Verify the 0.1.3 canonical seven installations and four actual cache Python runs; fresh model reviews and coverage supplements remain separate from unavailable native-client evidence. Refs #217, #220.
 
+- Record actual atomic package delivery #228 and #213 completion, exact-merge canonical cache/Python checks and the unchanged 8.2.0 development candidate rerun. Preserve original model/failure evidence, missing historical reviews and the separate three-plugin public release scope.
+
 - Record the actual GitHub-flow merge #227 and child #212 delivery, canonical installation/Python checks and the observed missing GitHub reviews. Prepare the unchanged qualified package stage with 317 tests/eight installs and exact common/model resource closure; honor the Owner preference to leave later review requests unassigned.
 
 - Correct new Learning Record Check generation metadata after actual role acceptance exposed inherited learning authors/skills and an invented future event time. Use the actual check author, current installed checker context and observed event clock; preserve original metadata through immutable originals and lineage. Original failures remain recorded; repaired behavior requires a fresh-source rerun.
@@ -46,6 +45,26 @@
 - Prepare the unpublished develop 8.1.2 pre-bump after #206 synchronized the published main. Update only marketplace VERSION and its derived README badge; keep all plugin versions, published version sections, tags and assets unchanged. Include the parallel publication-record documentation and synchronize its main merge ancestry when available.
 
 - Record the actual Marketplace v8.1.1 release identity and successful post-publication canonical installation/icon/Python checks. Update current installation entry points to v8.1.1 while preserving supplied screenshot evidence, incomplete client details and missing independent approval records; published version sections and release assets remain unchanged.
+
+## [8.2.0] - 2026-10-12
+
+**Marketplace `8.2.0` · Learning Evidence Kit `0.1.0` · Diagram Kit `0.3.1` / Explain Kit `0.1.1` unchanged.** This section prepares an unpublished candidate from the develop 8.1.2 pre-bump. Actual entry qualifications, independent approvals, publication identity and remaining gates are recorded in the [8.2.0 release-readiness ledger](docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md). Version preparation does not establish publication, desktop acceptance, learning benefit or Owner final acceptance.
+
+### Added
+
+- Provide two explicit skills: `pop-quiz` diagnoses understanding and transfers a complete record for saving; `learning-record-check` separately checks a selected record's validity and its application to a task. Reuse confirmed selection and identity; missing record/task selection stops before library enumeration. Existing complete handoffs save directly without restarting diagnosis.
+- Package a shared Python 3.12 standard-library JSON interface with an independent authoritative evidence library and derived Markdown. Retain original attribution, complete recoverable baselines, stable learning IDs, immutable corrections/retests/checks, idempotent recovery, reference-only worktree associations, complete export/import and retained archive.
+- Support explicitly authorized complete ordinary PR-comment sharing, UTF-8 multipart content, read-back digests and missing-only recovery. Manual acquisition uses comment update times, five-minute overlap, pagination, deduplication, scoped persistence and preserved snapshots/cursors on failures. Engineering write tests use a controlled substitute.
+
+### Changed
+
+- Replace the candidate Understanding registration and runtime package atomically with Learning Evidence Kit, for three plugins, five public skills and two explicit learning policies. Common scripts belong to the installed package; the staging location is removed. Reuse the approved icon bytes, preserve former SPEC/GUIDE content with exact Git-source history, and retain published release sections/assets.
+- Establish selected-record applicability before any application-material or implementation reads. New check entries retain actual generator/current checker/operation/observed clock, with immutable originals. Scoped CLI criteria are qualified with retained command errors and one transport timeout; actual publication and deferred entries remain separate.
+- Preserve both skills and common interfaces under the accepted staged boundary. Native question routes remain deferred until actual strict-wait and continuous-window evidence qualifies each route; text or pending state cannot substitute. Core delivery, the open Epic, human learning evaluations and Owner final acceptance remain separately tracked.
+
+### Upgrade
+
+- Until publication, use a tested candidate branch or exact SHA and verify actual package identity. Published `v8.1.1` still installs Understanding Kit. After a verified 8.2.0 publication, refresh the marketplace and explicitly install Learning Evidence Kit; deleting its former index entry does not uninstall an existing Understanding cache. Preserve user records and historical releases.
 
 ## [8.1.1] - 2026-10-10
 
