@@ -2,9 +2,9 @@
 
 <img src="assets/brand/marketplace/logo.svg" width="128" height="128" alt="MJ AgentLab Marketplace — MJ letters with connected modules">
 
-![Version](https://img.shields.io/badge/version-8.2.0-blue)
+![Version](https://img.shields.io/badge/version-8.2.1-blue)
 
-面向ChatGPT桌面端与Codex本地环境（CLI验收基线0.147.0）的插件市场，无需MCP服务。已发布main/v8.2.0提供Diagram、Learning Evidence、Explain三包五技能；当前PR3开发候选增加Communication并保留HTML，共五插件七公开技能，VERSION沿用8.2.0基线，尚未发布Communication：
+面向ChatGPT桌面端与Codex本地环境（CLI验收基线0.147.0）的插件市场，无需MCP服务。已发布main/v8.2.0提供Diagram、Learning Evidence、Explain三包五技能；当前PR3开发候选增加Communication并保留HTML，共五插件七公开技能，VERSION继承已生效8.2.1 pre-bump，尚未发布Communication：
 
 | 插件 / 公开技能 | 用途 | 版本与分发状态 |
 | --- | --- | --- |
@@ -73,7 +73,7 @@ Communication尚未进入main/v8.2.0。在隔离候选安装中显式调用 `$co
 
 ### Development
 
-Learning的[8.2.0 Release](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.2.0)已于2026-10-13发布，实际main merge为ebc4bdc3。当前Communication候选沿用8.2.0 VERSION及既有插件版本，尚未进行自己的市场版本转换。Diagram0.3.1、Learning Evidence0.1.0、Explain0.1.1已公开；HTML0.1.0和Communication0.1.0仅属开发候选。共用Learning脚本归属安装包，不依赖仓库过渡路径。
+Learning的[8.2.0 Release](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.2.0)已于2026-10-13发布，实际main merge为ebc4bdc3。当前Communication候选继承已生效8.2.1 VERSION/badge及既有插件版本，尚未进行自己的市场版本转换。Diagram0.3.1、Learning Evidence0.1.0、Explain0.1.1已公开；HTML0.1.0和Communication0.1.0仅属开发候选。共用Learning脚本归属安装包，不依赖仓库过渡路径。
 
 20 个开发技能位于 .agents/skills，候选公开技能为 arch-diagram、pop-quiz、learning-record-check、glossary、concept、guide 和 communicate。pop-quiz、learning-record-check、guide 与 communicate 为显式入口；全量普通发现预期为三个技能，原生清单为七个；Communication 独装普通发现为零、原生清单为一个。十三组合安装、包内资源字节核对、实际 Python 回归与无 MCP 检查的执行结果单独记录。
 

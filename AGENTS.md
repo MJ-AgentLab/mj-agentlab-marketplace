@@ -2,7 +2,7 @@
 
 ## 项目上下文
 
-当前PR3候选注册Diagram、Learning Evidence、Explain、HTML、Communication五包七技能/四显式，VERSION8.2.0；main/latest Release8.2.0仅前三包五技能，tag/发布目标ebc4bdc3。Communication正式范围按Owner Q3为前三包加Communication四包六技能，HTML留develop另发；后续独立minor目标8.3.0，PR4核对实际From/To。目标为ChatGPT桌面和Codex本地，CLI基线0.147.0；版本与来源以权威文件为准。
+当前PR3候选注册Diagram、Learning Evidence、Explain、HTML、Communication五包七技能/四显式，VERSION8.2.1（未发布pre-bump）；main/latest Release8.2.0仅前三包五技能，tag/发布目标ebc4bdc3。Communication正式范围按Owner Q3为前三包加Communication四包六技能，HTML留develop另发；后续独立minor目标8.3.0，PR4核对实际From/To。目标为ChatGPT桌面和Codex本地，CLI基线0.147.0；版本与来源以权威文件为准。
 
 manifest 的公开示例按[插件契约](docs/spec/[SPEC]_Plugin_Json_Schema.md)保留完整路由，最多三条，各原值不超过 128 个 Unicode scalar values；严格校验防止客户端忽略超长示例而丢失公开入口，不依赖空白归一化。
 
@@ -74,4 +74,4 @@ HTML PR1 当时保持 marketplace 未发布 8.1.2 及其他插件版本，无 Re
 
 Learning前序#216/#224/#227/#228/#230交付与#210–214关闭、模型原失败和审查缺项见[验收账本](docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。#232/main ebc4bdc3与已测6d83c8e同树，v8.2.0由bot公开，发布后五canonical/三图表Python/两组保存重放通过，发布脚本noop；immutable=false，API未提供配置字段。#224有实际批准，其他未见/空reviews不追认。原生入口延期、桌面/Side Chat未测、现实效果及Owner最终接受另记，#215/Epic仍OPEN。
 
-Communication PR3普通同步已合并#234的develop2c0a831，完整保留HTML及Learning/Diagram/Explain运行包，接入五包七技能/四显式/普通三/开发20。十三snapshot和固定提交canonical分开，既有Comm UI/CLI PARTIAL/失败按原身份保留；正式仅D/L/E/Comm四包六技能，HTML留develop。#235未合入，不带入8.2.1、不bump。Refs #222；当前head批准、CI/线程及实际保护合并仍待完成。
+Communication PR3普通同步已合并#234的develop2c0a831，完整保留HTML及Learning/Diagram/Explain运行包，接入五包七技能/四显式/普通三/开发20。十三snapshot和固定提交canonical分开，既有Comm UI/CLI PARTIAL/失败按原身份保留；正式仅D/L/E/Comm四包六技能，HTML留develop。#235现已实际合入develop3af6837，版本/badge8.2.1生效，插件/运行内容保持；其reviews为空不追认批准，本分支仅继承，不额外bump。Refs #222；当前head批准、CI/线程及实际保护合并仍待完成。
