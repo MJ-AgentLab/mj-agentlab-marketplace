@@ -1,0 +1,2168 @@
+{
+  "createdAt": "2026-10-13T02:54:57.548Z",
+  "historyIndexSha256": "705833f77e6a66d225e48f19264cfbc6d8098fb0a116e2602d9b827cda0279af",
+  "historyFiles": 506,
+  "originalBytes": 15860027,
+  "byVersion": {
+    "0.1.2": {
+      "invokedVariants": 28,
+      "uuidCount": 28,
+      "inputTurns": 61,
+      "statusCounts": {
+        "PASS": 23,
+        "FAIL": 3,
+        "UNKNOWN": 2
+      },
+      "notRunInSelectedBatches": 17,
+      "transportCounts": {
+        "COMPLETE": 60,
+        "RUNNING": 1
+      }
+    }
+  },
+  "batches": [
+    {
+      "locator": "corrections/0-1-2/blocking/runs/3e28d5a4-3ede-4e57-bee8-cddd10dfad3b/batch.json",
+      "canonical": {
+        "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+        "canonicalSha": "59c7aea91e51997a74870c730c260a4667b6470c",
+        "canonicalTree": "1bb4b82807a4029a9e8c46a5a9ca4f104702e96e"
+      },
+      "version": "0.1.2",
+      "mirrorIdentity": "exact file inventory; no equality claim with complete canonical tree",
+      "fullTreeEquality": "NOT_CLAIMED",
+      "runtime": [
+        {
+          "relative": "assets/icon.png",
+          "sourceSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+          "mirrorSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+          "cacheSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6"
+        },
+        {
+          "relative": "assets/icon.svg",
+          "sourceSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+          "mirrorSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+          "cacheSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68"
+        },
+        {
+          "relative": "plugin.json",
+          "sourceSha256": "029886df007b5dbdd368eaf92ba7b4f51a1f4e611632b2256eb2f5e5118d7ed0",
+          "mirrorSha256": "029886df007b5dbdd368eaf92ba7b4f51a1f4e611632b2256eb2f5e5118d7ed0",
+          "cacheSha256": "029886df007b5dbdd368eaf92ba7b4f51a1f4e611632b2256eb2f5e5118d7ed0"
+        },
+        {
+          "relative": "skills/guide/SKILL.md",
+          "sourceSha256": "ae2b5cca71c8ab9d09cefbf0ac6a516f9bcd7a1e98a7bdbe39de8056307a9498",
+          "mirrorSha256": "ae2b5cca71c8ab9d09cefbf0ac6a516f9bcd7a1e98a7bdbe39de8056307a9498",
+          "cacheSha256": "ae2b5cca71c8ab9d09cefbf0ac6a516f9bcd7a1e98a7bdbe39de8056307a9498"
+        },
+        {
+          "relative": "skills/guide/agents/openai.yaml",
+          "sourceSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+          "mirrorSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+          "cacheSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14"
+        },
+        {
+          "relative": "skills/guide/references/guide-framework.md",
+          "sourceSha256": "c73b6953202fd8173b2965130b1806fc276d397041261ff15445bbfd746ea6e6",
+          "mirrorSha256": "c73b6953202fd8173b2965130b1806fc276d397041261ff15445bbfd746ea6e6",
+          "cacheSha256": "c73b6953202fd8173b2965130b1806fc276d397041261ff15445bbfd746ea6e6"
+        },
+        {
+          "relative": "skills/guide/references/interaction-design.md",
+          "sourceSha256": "9760bae267563ee8bc65548ac4b7299c837ec001c9cbf14e1075a0711bd97c87",
+          "mirrorSha256": "9760bae267563ee8bc65548ac4b7299c837ec001c9cbf14e1075a0711bd97c87",
+          "cacheSha256": "9760bae267563ee8bc65548ac4b7299c837ec001c9cbf14e1075a0711bd97c87"
+        }
+      ],
+      "cases": [
+        {
+          "id": "B3.1",
+          "plannedTurns": 3,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "PASS",
+          "attempts": [
+            {
+              "attemptId": "0fe79155-0c74-4cfb-9187-8f6f80310680",
+              "sessionUUID": "01a132e7-8b98-7252-a542-6e3f97b57d7d",
+              "status": "PASS",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132e7-8b98-7252-a542-6e3f97b57d7d",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "3c7ebaf881a1ca438922841971d6771d6a9a2beaf0db76795b988e055e32584f",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B3.1\\0fe79155-0c74-4cfb-9187-8f6f80310680\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B3.1\\0fe79155-0c74-4cfb-9187-8f6f80310680\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132e7-8b98-7252-a542-6e3f97b57d7d",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "2c218d7948c9d2d144ed0c5745c6cf000ee1f76be3bb7bd34f29e50b58532e98",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B3.1\\0fe79155-0c74-4cfb-9187-8f6f80310680\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B3.1\\0fe79155-0c74-4cfb-9187-8f6f80310680\\02.events.jsonl"
+                },
+                {
+                  "turn": 3,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132e7-8b98-7252-a542-6e3f97b57d7d",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "30f2cab18e0d7dcdedce9a9d7748e905a1397909aebe11f40310f7bbe73095d5",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B3.1\\0fe79155-0c74-4cfb-9187-8f6f80310680\\03.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B3.1\\0fe79155-0c74-4cfb-9187-8f6f80310680\\03.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "B3.2",
+          "plannedTurns": 3,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "PASS",
+          "attempts": [
+            {
+              "attemptId": "d9b945d0-0b00-4dbd-ba4c-648fd1a74d61",
+              "sessionUUID": "01a132e9-cbd3-7da3-b66b-69f643834c43",
+              "status": "PASS",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132e9-cbd3-7da3-b66b-69f643834c43",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "05c5b73bef671fad0eed614c8e575c19dd0ed3e9b8ae40e7b789aa2f11829a70",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B3.2\\d9b945d0-0b00-4dbd-ba4c-648fd1a74d61\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B3.2\\d9b945d0-0b00-4dbd-ba4c-648fd1a74d61\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132e9-cbd3-7da3-b66b-69f643834c43",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "2c218d7948c9d2d144ed0c5745c6cf000ee1f76be3bb7bd34f29e50b58532e98",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B3.2\\d9b945d0-0b00-4dbd-ba4c-648fd1a74d61\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B3.2\\d9b945d0-0b00-4dbd-ba4c-648fd1a74d61\\02.events.jsonl"
+                },
+                {
+                  "turn": 3,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132e9-cbd3-7da3-b66b-69f643834c43",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "aa1d7b41e10ccf1dea76a5f7fb3a714836414c4a1f74c31c84f0aee8b8c908b7",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B3.2\\d9b945d0-0b00-4dbd-ba4c-648fd1a74d61\\03.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B3.2\\d9b945d0-0b00-4dbd-ba4c-648fd1a74d61\\03.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "B4.1",
+          "plannedTurns": 2,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "FAIL",
+          "attempts": [
+            {
+              "attemptId": "7a236861-60c3-413d-8f3a-e7d8070a35b9",
+              "sessionUUID": "01a132eb-d8bb-7421-966b-0fe59c9f5aa9",
+              "status": "FAIL",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132eb-d8bb-7421-966b-0fe59c9f5aa9",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "c92e1c2affecb9667541018712db5b9cf0996be57e692f354b3dd2b32bdf018c",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B4.1\\7a236861-60c3-413d-8f3a-e7d8070a35b9\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B4.1\\7a236861-60c3-413d-8f3a-e7d8070a35b9\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132eb-d8bb-7421-966b-0fe59c9f5aa9",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "0ad8e4420fd9fc3a39dac5a692ad8e387b80542815bcf496be377ebe08ff8331",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B4.1\\7a236861-60c3-413d-8f3a-e7d8070a35b9\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B4.1\\7a236861-60c3-413d-8f3a-e7d8070a35b9\\02.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "B4.2",
+          "plannedTurns": 2,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "PASS",
+          "attempts": [
+            {
+              "attemptId": "a4ecc3e8-cd00-485e-be8d-7255e3ace257",
+              "sessionUUID": "01a132ee-3df7-7ce3-888b-cb85c6b15fec",
+              "status": "PASS",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132ee-3df7-7ce3-888b-cb85c6b15fec",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "a6de4bbdf7881b1062e22327c1ffd3652ec72632d5c08d684f64e51666af70ad",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B4.2\\a4ecc3e8-cd00-485e-be8d-7255e3ace257\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B4.2\\a4ecc3e8-cd00-485e-be8d-7255e3ace257\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132ee-3df7-7ce3-888b-cb85c6b15fec",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "59d9e4dace8a47910829eee177a26b61fb48db34b5839f262906397927a74050",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B4.2\\a4ecc3e8-cd00-485e-be8d-7255e3ace257\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B4.2\\a4ecc3e8-cd00-485e-be8d-7255e3ace257\\02.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "B5.1",
+          "plannedTurns": 2,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "PASS",
+          "attempts": [
+            {
+              "attemptId": "ad42f563-d1c1-40a2-87e7-603cd977999a",
+              "sessionUUID": "01a132f0-c856-7dc1-99de-5c9bc29408dc",
+              "status": "PASS",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f0-c856-7dc1-99de-5c9bc29408dc",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "236b999bb1b6acf61831f91d710fd8b03d0f9808582a391a450b0b2445e074cd",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B5.1\\ad42f563-d1c1-40a2-87e7-603cd977999a\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B5.1\\ad42f563-d1c1-40a2-87e7-603cd977999a\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f0-c856-7dc1-99de-5c9bc29408dc",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "4c6d3251a157769316e14ef882fc4edb57dd9d9e98075f844cb680acab45494f",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B5.1\\ad42f563-d1c1-40a2-87e7-603cd977999a\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B5.1\\ad42f563-d1c1-40a2-87e7-603cd977999a\\02.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "B5.2",
+          "plannedTurns": 2,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "PASS",
+          "attempts": [
+            {
+              "attemptId": "2dba38f3-0265-44f7-9349-1cd9d42a0c66",
+              "sessionUUID": "01a132f3-addc-75a2-bc2a-74d6905a2d8e",
+              "status": "PASS",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f3-addc-75a2-bc2a-74d6905a2d8e",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "7e059d89372e6963dfba4eac1a17ce306c1053988cb10d1c76c1eb87dacbd381",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B5.2\\2dba38f3-0265-44f7-9349-1cd9d42a0c66\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B5.2\\2dba38f3-0265-44f7-9349-1cd9d42a0c66\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f3-addc-75a2-bc2a-74d6905a2d8e",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "e3b94b9b69d9bc04a76eeed89b2b9c369dfa3a434483d7a0b1b6cf145a44a7c8",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B5.2\\2dba38f3-0265-44f7-9349-1cd9d42a0c66\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\3e28d5a4-3ede-4e57-bee8-cddd10dfad3b\\B5.2\\2dba38f3-0265-44f7-9349-1cd9d42a0c66\\02.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "locator": "corrections/0-1-2/blocking/runs/503c5a75-41fa-4b34-ba4a-8bb889df1a3d/batch.json",
+      "canonical": {
+        "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+        "canonicalSha": "59c7aea91e51997a74870c730c260a4667b6470c",
+        "canonicalTree": "1bb4b82807a4029a9e8c46a5a9ca4f104702e96e"
+      },
+      "version": "0.1.2",
+      "mirrorIdentity": "exact file inventory; no equality claim with complete canonical tree",
+      "fullTreeEquality": "NOT_CLAIMED",
+      "runtime": [
+        {
+          "relative": "assets/icon.png",
+          "sourceSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+          "mirrorSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+          "cacheSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6"
+        },
+        {
+          "relative": "assets/icon.svg",
+          "sourceSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+          "mirrorSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+          "cacheSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68"
+        },
+        {
+          "relative": "plugin.json",
+          "sourceSha256": "029886df007b5dbdd368eaf92ba7b4f51a1f4e611632b2256eb2f5e5118d7ed0",
+          "mirrorSha256": "029886df007b5dbdd368eaf92ba7b4f51a1f4e611632b2256eb2f5e5118d7ed0",
+          "cacheSha256": "029886df007b5dbdd368eaf92ba7b4f51a1f4e611632b2256eb2f5e5118d7ed0"
+        },
+        {
+          "relative": "skills/guide/SKILL.md",
+          "sourceSha256": "ae2b5cca71c8ab9d09cefbf0ac6a516f9bcd7a1e98a7bdbe39de8056307a9498",
+          "mirrorSha256": "ae2b5cca71c8ab9d09cefbf0ac6a516f9bcd7a1e98a7bdbe39de8056307a9498",
+          "cacheSha256": "ae2b5cca71c8ab9d09cefbf0ac6a516f9bcd7a1e98a7bdbe39de8056307a9498"
+        },
+        {
+          "relative": "skills/guide/agents/openai.yaml",
+          "sourceSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+          "mirrorSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+          "cacheSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14"
+        },
+        {
+          "relative": "skills/guide/references/guide-framework.md",
+          "sourceSha256": "c73b6953202fd8173b2965130b1806fc276d397041261ff15445bbfd746ea6e6",
+          "mirrorSha256": "c73b6953202fd8173b2965130b1806fc276d397041261ff15445bbfd746ea6e6",
+          "cacheSha256": "c73b6953202fd8173b2965130b1806fc276d397041261ff15445bbfd746ea6e6"
+        },
+        {
+          "relative": "skills/guide/references/interaction-design.md",
+          "sourceSha256": "9760bae267563ee8bc65548ac4b7299c837ec001c9cbf14e1075a0711bd97c87",
+          "mirrorSha256": "9760bae267563ee8bc65548ac4b7299c837ec001c9cbf14e1075a0711bd97c87",
+          "cacheSha256": "9760bae267563ee8bc65548ac4b7299c837ec001c9cbf14e1075a0711bd97c87"
+        }
+      ],
+      "cases": [
+        {
+          "id": "B6.1",
+          "plannedTurns": 2,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "PASS",
+          "attempts": [
+            {
+              "attemptId": "11dcfb44-6768-465a-9adc-c091d6f11c42",
+              "sessionUUID": "01a132e6-f0d4-7710-8642-c341a1915236",
+              "status": "PASS",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132e6-f0d4-7710-8642-c341a1915236",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "b56759956feabc7f8f821d056c810040572a5dde11358d086206e115808f3a37",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\503c5a75-41fa-4b34-ba4a-8bb889df1a3d\\B6.1\\11dcfb44-6768-465a-9adc-c091d6f11c42\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\503c5a75-41fa-4b34-ba4a-8bb889df1a3d\\B6.1\\11dcfb44-6768-465a-9adc-c091d6f11c42\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132e6-f0d4-7710-8642-c341a1915236",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "4f949957fc3a0b6104baa8d91b4b0fbfa7da9ade1bb777b433fff48827e74001",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\503c5a75-41fa-4b34-ba4a-8bb889df1a3d\\B6.1\\11dcfb44-6768-465a-9adc-c091d6f11c42\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\503c5a75-41fa-4b34-ba4a-8bb889df1a3d\\B6.1\\11dcfb44-6768-465a-9adc-c091d6f11c42\\02.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "B6.2-revise",
+          "plannedTurns": 1,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "PASS",
+          "attempts": [
+            {
+              "attemptId": "4b3cf4aa-bb3a-4da8-8f2e-414c83489de2",
+              "sessionUUID": "01a132e9-49c1-74e1-96f5-b082fe31bbfa",
+              "status": "PASS",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132e9-49c1-74e1-96f5-b082fe31bbfa",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "f14f7bab313f652dcb29f2671140cb8e5b91e0dd2f8e8f566b413cd48d60d6ea",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\503c5a75-41fa-4b34-ba4a-8bb889df1a3d\\B6.2-revise\\4b3cf4aa-bb3a-4da8-8f2e-414c83489de2\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\503c5a75-41fa-4b34-ba4a-8bb889df1a3d\\B6.2-revise\\4b3cf4aa-bb3a-4da8-8f2e-414c83489de2\\01.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "B6.2-compare",
+          "plannedTurns": 1,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "PASS",
+          "attempts": [
+            {
+              "attemptId": "c2a3693e-3ac3-4254-91ef-866e50b934d5",
+              "sessionUUID": "01a132e9-e5fa-7093-bcf3-3c34b6b00f64",
+              "status": "PASS",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132e9-e5fa-7093-bcf3-3c34b6b00f64",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "c4286a63d6f2cd1afec234cf993a0954ddca02ebc0417c0842c07420a46422e5",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\503c5a75-41fa-4b34-ba4a-8bb889df1a3d\\B6.2-compare\\c2a3693e-3ac3-4254-91ef-866e50b934d5\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\503c5a75-41fa-4b34-ba4a-8bb889df1a3d\\B6.2-compare\\c2a3693e-3ac3-4254-91ef-866e50b934d5\\01.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "B6.2-review",
+          "plannedTurns": 1,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "PASS",
+          "attempts": [
+            {
+              "attemptId": "bcf407a8-2c65-47aa-8d2f-090b12b1f7e5",
+              "sessionUUID": "01a132ea-5110-7d50-8b6a-0a06c8eedc3a",
+              "status": "PASS",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132ea-5110-7d50-8b6a-0a06c8eedc3a",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "9cad9b9e34eee21e261a054e8bd52374916ef7707c0a0129fb8dd9d735f90558",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\503c5a75-41fa-4b34-ba4a-8bb889df1a3d\\B6.2-review\\bcf407a8-2c65-47aa-8d2f-090b12b1f7e5\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\503c5a75-41fa-4b34-ba4a-8bb889df1a3d\\B6.2-review\\bcf407a8-2c65-47aa-8d2f-090b12b1f7e5\\01.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "locator": "corrections/0-1-2/blocking/runs/69f34590-5a23-455a-937b-ea04d14ec909/batch.json",
+      "canonical": {
+        "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+        "canonicalSha": "59c7aea91e51997a74870c730c260a4667b6470c",
+        "canonicalTree": "1bb4b82807a4029a9e8c46a5a9ca4f104702e96e"
+      },
+      "version": "0.1.2",
+      "mirrorIdentity": "exact file inventory; no equality claim with complete canonical tree",
+      "fullTreeEquality": "NOT_CLAIMED",
+      "runtime": [
+        {
+          "relative": "assets/icon.png",
+          "sourceSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+          "mirrorSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+          "cacheSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6"
+        },
+        {
+          "relative": "assets/icon.svg",
+          "sourceSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+          "mirrorSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+          "cacheSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68"
+        },
+        {
+          "relative": "plugin.json",
+          "sourceSha256": "029886df007b5dbdd368eaf92ba7b4f51a1f4e611632b2256eb2f5e5118d7ed0",
+          "mirrorSha256": "029886df007b5dbdd368eaf92ba7b4f51a1f4e611632b2256eb2f5e5118d7ed0",
+          "cacheSha256": "029886df007b5dbdd368eaf92ba7b4f51a1f4e611632b2256eb2f5e5118d7ed0"
+        },
+        {
+          "relative": "skills/guide/SKILL.md",
+          "sourceSha256": "ae2b5cca71c8ab9d09cefbf0ac6a516f9bcd7a1e98a7bdbe39de8056307a9498",
+          "mirrorSha256": "ae2b5cca71c8ab9d09cefbf0ac6a516f9bcd7a1e98a7bdbe39de8056307a9498",
+          "cacheSha256": "ae2b5cca71c8ab9d09cefbf0ac6a516f9bcd7a1e98a7bdbe39de8056307a9498"
+        },
+        {
+          "relative": "skills/guide/agents/openai.yaml",
+          "sourceSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+          "mirrorSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+          "cacheSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14"
+        },
+        {
+          "relative": "skills/guide/references/guide-framework.md",
+          "sourceSha256": "c73b6953202fd8173b2965130b1806fc276d397041261ff15445bbfd746ea6e6",
+          "mirrorSha256": "c73b6953202fd8173b2965130b1806fc276d397041261ff15445bbfd746ea6e6",
+          "cacheSha256": "c73b6953202fd8173b2965130b1806fc276d397041261ff15445bbfd746ea6e6"
+        },
+        {
+          "relative": "skills/guide/references/interaction-design.md",
+          "sourceSha256": "9760bae267563ee8bc65548ac4b7299c837ec001c9cbf14e1075a0711bd97c87",
+          "mirrorSha256": "9760bae267563ee8bc65548ac4b7299c837ec001c9cbf14e1075a0711bd97c87",
+          "cacheSha256": "9760bae267563ee8bc65548ac4b7299c837ec001c9cbf14e1075a0711bd97c87"
+        }
+      ],
+      "cases": [
+        {
+          "id": "B1.1",
+          "plannedTurns": 4,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "PASS",
+          "attempts": [
+            {
+              "attemptId": "7d8628d8-e8c5-4477-84e9-1d78f3c018ad",
+              "sessionUUID": "01a132e6-c589-7e83-9c11-ffe653de083f",
+              "status": "PASS",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132e6-c589-7e83-9c11-ffe653de083f",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "5ac312c7e29ebc9cbf521af8d00a0744db479f314c0665132abc437c9b5adc1b",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\69f34590-5a23-455a-937b-ea04d14ec909\\B1.1\\7d8628d8-e8c5-4477-84e9-1d78f3c018ad\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\69f34590-5a23-455a-937b-ea04d14ec909\\B1.1\\7d8628d8-e8c5-4477-84e9-1d78f3c018ad\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132e6-c589-7e83-9c11-ffe653de083f",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "7903215f202a7f38d4a86ac1d90212fdae7856a80aa37d6e0668dc93cdb59112",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\69f34590-5a23-455a-937b-ea04d14ec909\\B1.1\\7d8628d8-e8c5-4477-84e9-1d78f3c018ad\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\69f34590-5a23-455a-937b-ea04d14ec909\\B1.1\\7d8628d8-e8c5-4477-84e9-1d78f3c018ad\\02.events.jsonl"
+                },
+                {
+                  "turn": 3,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132e6-c589-7e83-9c11-ffe653de083f",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "32d79cd04cb688cb6fb970165b8da92497a918854b90dba5a66fe7c834d9642f",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\69f34590-5a23-455a-937b-ea04d14ec909\\B1.1\\7d8628d8-e8c5-4477-84e9-1d78f3c018ad\\03.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\69f34590-5a23-455a-937b-ea04d14ec909\\B1.1\\7d8628d8-e8c5-4477-84e9-1d78f3c018ad\\03.events.jsonl"
+                },
+                {
+                  "turn": 4,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132e6-c589-7e83-9c11-ffe653de083f",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "3273751865b049e672ae5740895be824f27e2e7f1530fafbfbdd8e2500ce8e49",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\69f34590-5a23-455a-937b-ea04d14ec909\\B1.1\\7d8628d8-e8c5-4477-84e9-1d78f3c018ad\\04.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\69f34590-5a23-455a-937b-ea04d14ec909\\B1.1\\7d8628d8-e8c5-4477-84e9-1d78f3c018ad\\04.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "B1.2-delayed",
+          "plannedTurns": 3,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "PASS",
+          "attempts": [
+            {
+              "attemptId": "152252a2-c374-4c0f-b204-a6bd7a1ab441",
+              "sessionUUID": "01a132ea-e50b-70c3-964f-9337c9210a5e",
+              "status": "PASS",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132ea-e50b-70c3-964f-9337c9210a5e",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "5bc4ea6f658074879ac04240a841df956f19f92f947574f0a84ee0c6b39d3395",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\69f34590-5a23-455a-937b-ea04d14ec909\\B1.2-delayed\\152252a2-c374-4c0f-b204-a6bd7a1ab441\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\69f34590-5a23-455a-937b-ea04d14ec909\\B1.2-delayed\\152252a2-c374-4c0f-b204-a6bd7a1ab441\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132ea-e50b-70c3-964f-9337c9210a5e",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "5f196a7e1706e6c8a7c4e3d17e04a7e357da4e9b38e1f66b40b6c0d9c6093cf9",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\69f34590-5a23-455a-937b-ea04d14ec909\\B1.2-delayed\\152252a2-c374-4c0f-b204-a6bd7a1ab441\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\69f34590-5a23-455a-937b-ea04d14ec909\\B1.2-delayed\\152252a2-c374-4c0f-b204-a6bd7a1ab441\\02.events.jsonl"
+                },
+                {
+                  "turn": 3,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132ea-e50b-70c3-964f-9337c9210a5e",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "6b89a74c6d035fb6440da4cb0320de40d5d57390ce797f9c847362b8c4697fb1",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\69f34590-5a23-455a-937b-ea04d14ec909\\B1.2-delayed\\152252a2-c374-4c0f-b204-a6bd7a1ab441\\03.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\69f34590-5a23-455a-937b-ea04d14ec909\\B1.2-delayed\\152252a2-c374-4c0f-b204-a6bd7a1ab441\\03.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "B1.2-combined",
+          "plannedTurns": 2,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "PASS",
+          "attempts": [
+            {
+              "attemptId": "064a5b45-803c-4844-8635-91377419cf01",
+              "sessionUUID": "01a132ed-2a44-7512-84b2-408a77da0f80",
+              "status": "PASS",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132ed-2a44-7512-84b2-408a77da0f80",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "9ad568675f44bb41da472926edb062c51765890e2038a89834c5ebbc6bab7316",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\69f34590-5a23-455a-937b-ea04d14ec909\\B1.2-combined\\064a5b45-803c-4844-8635-91377419cf01\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\69f34590-5a23-455a-937b-ea04d14ec909\\B1.2-combined\\064a5b45-803c-4844-8635-91377419cf01\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132ed-2a44-7512-84b2-408a77da0f80",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "a37d7bdf5404a71b407fe9a977075bb323cc11529132b8f6698ebdaa009e9eeb",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\69f34590-5a23-455a-937b-ea04d14ec909\\B1.2-combined\\064a5b45-803c-4844-8635-91377419cf01\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\69f34590-5a23-455a-937b-ea04d14ec909\\B1.2-combined\\064a5b45-803c-4844-8635-91377419cf01\\02.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "B2.1",
+          "plannedTurns": 2,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "PASS",
+          "attempts": [
+            {
+              "attemptId": "39534111-f4aa-4a52-8a37-d0bb5238d9bc",
+              "sessionUUID": "01a132f0-5a65-73e0-93fe-57f99ffdaa2f",
+              "status": "PASS",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f0-5a65-73e0-93fe-57f99ffdaa2f",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "80c1fdcf44414a6e1ac77739cb0bdece9ade1a20f991b7a91a3f6e19f89a09b0",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\69f34590-5a23-455a-937b-ea04d14ec909\\B2.1\\39534111-f4aa-4a52-8a37-d0bb5238d9bc\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\69f34590-5a23-455a-937b-ea04d14ec909\\B2.1\\39534111-f4aa-4a52-8a37-d0bb5238d9bc\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f0-5a65-73e0-93fe-57f99ffdaa2f",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "d50ae290dcafbae7569c9816394d0a37f2c084e277b09ca0cee6e5bc9145eb4a",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\69f34590-5a23-455a-937b-ea04d14ec909\\B2.1\\39534111-f4aa-4a52-8a37-d0bb5238d9bc\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\blocking\\runs\\69f34590-5a23-455a-937b-ea04d14ec909\\B2.1\\39534111-f4aa-4a52-8a37-d0bb5238d9bc\\02.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "locator": "corrections/0-1-2/continuous-supplement/runs/428f9172-4786-42f8-adf4-ef6b8d049a2d/batch.json",
+      "canonical": {
+        "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+        "canonicalSha": "59c7aea91e51997a74870c730c260a4667b6470c",
+        "canonicalTree": "1bb4b82807a4029a9e8c46a5a9ca4f104702e96e"
+      },
+      "version": "0.1.2",
+      "mirrorIdentity": "exact file inventory; no equality claim with complete canonical tree",
+      "fullTreeEquality": "NOT_CLAIMED",
+      "runtime": [
+        {
+          "relative": "assets/icon.png",
+          "sourceSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+          "mirrorSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+          "cacheSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6"
+        },
+        {
+          "relative": "assets/icon.svg",
+          "sourceSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+          "mirrorSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+          "cacheSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68"
+        },
+        {
+          "relative": "plugin.json",
+          "sourceSha256": "029886df007b5dbdd368eaf92ba7b4f51a1f4e611632b2256eb2f5e5118d7ed0",
+          "mirrorSha256": "029886df007b5dbdd368eaf92ba7b4f51a1f4e611632b2256eb2f5e5118d7ed0",
+          "cacheSha256": "029886df007b5dbdd368eaf92ba7b4f51a1f4e611632b2256eb2f5e5118d7ed0"
+        },
+        {
+          "relative": "skills/guide/SKILL.md",
+          "sourceSha256": "ae2b5cca71c8ab9d09cefbf0ac6a516f9bcd7a1e98a7bdbe39de8056307a9498",
+          "mirrorSha256": "ae2b5cca71c8ab9d09cefbf0ac6a516f9bcd7a1e98a7bdbe39de8056307a9498",
+          "cacheSha256": "ae2b5cca71c8ab9d09cefbf0ac6a516f9bcd7a1e98a7bdbe39de8056307a9498"
+        },
+        {
+          "relative": "skills/guide/agents/openai.yaml",
+          "sourceSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+          "mirrorSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+          "cacheSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14"
+        },
+        {
+          "relative": "skills/guide/references/guide-framework.md",
+          "sourceSha256": "c73b6953202fd8173b2965130b1806fc276d397041261ff15445bbfd746ea6e6",
+          "mirrorSha256": "c73b6953202fd8173b2965130b1806fc276d397041261ff15445bbfd746ea6e6",
+          "cacheSha256": "c73b6953202fd8173b2965130b1806fc276d397041261ff15445bbfd746ea6e6"
+        },
+        {
+          "relative": "skills/guide/references/interaction-design.md",
+          "sourceSha256": "9760bae267563ee8bc65548ac4b7299c837ec001c9cbf14e1075a0711bd97c87",
+          "mirrorSha256": "9760bae267563ee8bc65548ac4b7299c837ec001c9cbf14e1075a0711bd97c87",
+          "cacheSha256": "9760bae267563ee8bc65548ac4b7299c837ec001c9cbf14e1075a0711bd97c87"
+        }
+      ],
+      "cases": [
+        {
+          "id": "E7-post-confirmation",
+          "plannedTurns": 4,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "PASS",
+          "attempts": [
+            {
+              "attemptId": "779979d9-fb2c-4ce3-b135-3b59f9ffec0b",
+              "sessionUUID": "01a132f0-5b6d-7060-b44e-a21657e12d5e",
+              "status": "PASS",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f0-5b6d-7060-b44e-a21657e12d5e",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "0a60d8049f4774a8354ccd1208c1347311f34838ff7fdc3becd78dd043b2379d",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\continuous-supplement\\runs\\428f9172-4786-42f8-adf4-ef6b8d049a2d\\E7-post-confirmation\\779979d9-fb2c-4ce3-b135-3b59f9ffec0b\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\continuous-supplement\\runs\\428f9172-4786-42f8-adf4-ef6b8d049a2d\\E7-post-confirmation\\779979d9-fb2c-4ce3-b135-3b59f9ffec0b\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f0-5b6d-7060-b44e-a21657e12d5e",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "8ec122ad5aa3b29215e732454adea01a39999f4f5a36726d1a0bc2c1eaeed4e7",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\continuous-supplement\\runs\\428f9172-4786-42f8-adf4-ef6b8d049a2d\\E7-post-confirmation\\779979d9-fb2c-4ce3-b135-3b59f9ffec0b\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\continuous-supplement\\runs\\428f9172-4786-42f8-adf4-ef6b8d049a2d\\E7-post-confirmation\\779979d9-fb2c-4ce3-b135-3b59f9ffec0b\\02.events.jsonl"
+                },
+                {
+                  "turn": 3,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f0-5b6d-7060-b44e-a21657e12d5e",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "a1a8616399c2e3da7e60873d330cb37267b3c484c2c4b235135afbfd7022194a",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\continuous-supplement\\runs\\428f9172-4786-42f8-adf4-ef6b8d049a2d\\E7-post-confirmation\\779979d9-fb2c-4ce3-b135-3b59f9ffec0b\\03.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\continuous-supplement\\runs\\428f9172-4786-42f8-adf4-ef6b8d049a2d\\E7-post-confirmation\\779979d9-fb2c-4ce3-b135-3b59f9ffec0b\\03.events.jsonl"
+                },
+                {
+                  "turn": 4,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f0-5b6d-7060-b44e-a21657e12d5e",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "efe6b50a17f0f83a99e2d6ecb1156493c0831ee705f3eb78e288f0d04903fe00",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\continuous-supplement\\runs\\428f9172-4786-42f8-adf4-ef6b8d049a2d\\E7-post-confirmation\\779979d9-fb2c-4ce3-b135-3b59f9ffec0b\\04.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\continuous-supplement\\runs\\428f9172-4786-42f8-adf4-ef6b8d049a2d\\E7-post-confirmation\\779979d9-fb2c-4ce3-b135-3b59f9ffec0b\\04.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "E12-restart",
+          "plannedTurns": 5,
+          "execution": "PARTIAL_PENDING_NEXT_TURN",
+          "status": "UNKNOWN",
+          "attempts": [
+            {
+              "attemptId": "825f35e9-1a48-4396-a3c7-e939e5ef751c",
+              "sessionUUID": "01a132f8-54d5-7801-9be4-5ab6cd8c1d67",
+              "status": "UNKNOWN",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f8-54d5-7801-9be4-5ab6cd8c1d67",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "2e186249ba6ad3f2808b9b9520a7e7ef4920c677be49552aea1ecd4dc42ba670",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\continuous-supplement\\runs\\428f9172-4786-42f8-adf4-ef6b8d049a2d\\E12-restart\\825f35e9-1a48-4396-a3c7-e939e5ef751c\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\continuous-supplement\\runs\\428f9172-4786-42f8-adf4-ef6b8d049a2d\\E12-restart\\825f35e9-1a48-4396-a3c7-e939e5ef751c\\01.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "locator": "corrections/0-1-2/expanded/runs/c6bbf3c7-0c1b-4161-acfc-7701e2dad96f/batch.json",
+      "canonical": {
+        "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+        "canonicalSha": "59c7aea91e51997a74870c730c260a4667b6470c",
+        "canonicalTree": "1bb4b82807a4029a9e8c46a5a9ca4f104702e96e"
+      },
+      "version": "0.1.2",
+      "mirrorIdentity": "exact file inventory; no equality claim with complete canonical tree",
+      "fullTreeEquality": "NOT_CLAIMED",
+      "runtime": [
+        {
+          "relative": "assets/icon.png",
+          "sourceSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+          "mirrorSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+          "cacheSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6"
+        },
+        {
+          "relative": "assets/icon.svg",
+          "sourceSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+          "mirrorSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+          "cacheSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68"
+        },
+        {
+          "relative": "plugin.json",
+          "sourceSha256": "029886df007b5dbdd368eaf92ba7b4f51a1f4e611632b2256eb2f5e5118d7ed0",
+          "mirrorSha256": "029886df007b5dbdd368eaf92ba7b4f51a1f4e611632b2256eb2f5e5118d7ed0",
+          "cacheSha256": "029886df007b5dbdd368eaf92ba7b4f51a1f4e611632b2256eb2f5e5118d7ed0"
+        },
+        {
+          "relative": "skills/guide/SKILL.md",
+          "sourceSha256": "ae2b5cca71c8ab9d09cefbf0ac6a516f9bcd7a1e98a7bdbe39de8056307a9498",
+          "mirrorSha256": "ae2b5cca71c8ab9d09cefbf0ac6a516f9bcd7a1e98a7bdbe39de8056307a9498",
+          "cacheSha256": "ae2b5cca71c8ab9d09cefbf0ac6a516f9bcd7a1e98a7bdbe39de8056307a9498"
+        },
+        {
+          "relative": "skills/guide/agents/openai.yaml",
+          "sourceSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+          "mirrorSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+          "cacheSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14"
+        },
+        {
+          "relative": "skills/guide/references/guide-framework.md",
+          "sourceSha256": "c73b6953202fd8173b2965130b1806fc276d397041261ff15445bbfd746ea6e6",
+          "mirrorSha256": "c73b6953202fd8173b2965130b1806fc276d397041261ff15445bbfd746ea6e6",
+          "cacheSha256": "c73b6953202fd8173b2965130b1806fc276d397041261ff15445bbfd746ea6e6"
+        },
+        {
+          "relative": "skills/guide/references/interaction-design.md",
+          "sourceSha256": "9760bae267563ee8bc65548ac4b7299c837ec001c9cbf14e1075a0711bd97c87",
+          "mirrorSha256": "9760bae267563ee8bc65548ac4b7299c837ec001c9cbf14e1075a0711bd97c87",
+          "cacheSha256": "9760bae267563ee8bc65548ac4b7299c837ec001c9cbf14e1075a0711bd97c87"
+        }
+      ],
+      "cases": [
+        {
+          "id": "E4",
+          "plannedTurns": 2,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "PASS",
+          "attempts": [
+            {
+              "attemptId": "095ebae9-4de8-46af-aa55-7bd9980cad16",
+              "sessionUUID": "01a132eb-4e7d-7d62-ba47-33873d364ce7",
+              "status": "PASS",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132eb-4e7d-7d62-ba47-33873d364ce7",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "57da7498bd5caff01c37504a476904bfde5eda255b21769c252f6ff00dd784c9",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E4\\095ebae9-4de8-46af-aa55-7bd9980cad16\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E4\\095ebae9-4de8-46af-aa55-7bd9980cad16\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132eb-4e7d-7d62-ba47-33873d364ce7",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "2c218d7948c9d2d144ed0c5745c6cf000ee1f76be3bb7bd34f29e50b58532e98",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E4\\095ebae9-4de8-46af-aa55-7bd9980cad16\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E4\\095ebae9-4de8-46af-aa55-7bd9980cad16\\02.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "E5",
+          "plannedTurns": 2,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "PASS",
+          "attempts": [
+            {
+              "attemptId": "17f08aea-e30b-44b5-b92f-e36f5bd6e0e0",
+              "sessionUUID": "01a132ee-3079-7e61-a5f4-b03223dfd48c",
+              "status": "PASS",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132ee-3079-7e61-a5f4-b03223dfd48c",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "42bab3508b8c9438bd3afffe999be5176fcc04b484714e00887305c7b4bdbdaa",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E5\\17f08aea-e30b-44b5-b92f-e36f5bd6e0e0\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E5\\17f08aea-e30b-44b5-b92f-e36f5bd6e0e0\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132ee-3079-7e61-a5f4-b03223dfd48c",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "ddc50e52893491ab99b0059df557e2f05c90b3a1b9afc29d1a0805815f1577c5",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E5\\17f08aea-e30b-44b5-b92f-e36f5bd6e0e0\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E5\\17f08aea-e30b-44b5-b92f-e36f5bd6e0e0\\02.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "E9-ambiguous",
+          "plannedTurns": 4,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "PASS",
+          "attempts": [
+            {
+              "attemptId": "1185c227-2103-459b-9178-3b0dbbe21fcf",
+              "sessionUUID": "01a132ef-42df-7dc3-95a1-1756548e72ca",
+              "status": "PASS",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132ef-42df-7dc3-95a1-1756548e72ca",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "6ecd36d571e7184762f40b1b2ec7fc970c873b82a5ce5a1e0246c07a90232d11",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E9-ambiguous\\1185c227-2103-459b-9178-3b0dbbe21fcf\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E9-ambiguous\\1185c227-2103-459b-9178-3b0dbbe21fcf\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132ef-42df-7dc3-95a1-1756548e72ca",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "6a6323523b55195f260aac617b463d89ad7af919e6af058be642042948c83f6e",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E9-ambiguous\\1185c227-2103-459b-9178-3b0dbbe21fcf\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E9-ambiguous\\1185c227-2103-459b-9178-3b0dbbe21fcf\\02.events.jsonl"
+                },
+                {
+                  "turn": 3,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132ef-42df-7dc3-95a1-1756548e72ca",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "df6c53b4e38ec3b57afccdbeee7a8f0c409bd05e81e35ad9848724bc0475d04c",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E9-ambiguous\\1185c227-2103-459b-9178-3b0dbbe21fcf\\03.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E9-ambiguous\\1185c227-2103-459b-9178-3b0dbbe21fcf\\03.events.jsonl"
+                },
+                {
+                  "turn": 4,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132ef-42df-7dc3-95a1-1756548e72ca",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "27821fd6b5705d16736003747fa0351333a5fb47912e2db9581ba246b6a1532b",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E9-ambiguous\\1185c227-2103-459b-9178-3b0dbbe21fcf\\04.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E9-ambiguous\\1185c227-2103-459b-9178-3b0dbbe21fcf\\04.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "E9-recommended",
+          "plannedTurns": 2,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "PASS",
+          "attempts": [
+            {
+              "attemptId": "28309591-0c2e-4e5b-8c29-e3378ac29075",
+              "sessionUUID": "01a132f2-30e3-7203-8034-c6e6996319dd",
+              "status": "PASS",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f2-30e3-7203-8034-c6e6996319dd",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "26b3cfa81c21f1dbc5d2658fb5d324c386173caa7db7cf74fe86e5a0b1a88967",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E9-recommended\\28309591-0c2e-4e5b-8c29-e3378ac29075\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E9-recommended\\28309591-0c2e-4e5b-8c29-e3378ac29075\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f2-30e3-7203-8034-c6e6996319dd",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "da1b92c4f3c0949cdbb0ba99bbbb3859871f0af1b28589594912987c45292f87",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E9-recommended\\28309591-0c2e-4e5b-8c29-e3378ac29075\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E9-recommended\\28309591-0c2e-4e5b-8c29-e3378ac29075\\02.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "E12",
+          "plannedTurns": 2,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "PASS",
+          "attempts": [
+            {
+              "attemptId": "7f77b609-99d9-461b-be03-b321d9b334b1",
+              "sessionUUID": "01a132f4-2e8b-7522-818a-4608ee21f05d",
+              "status": "PASS",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f4-2e8b-7522-818a-4608ee21f05d",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "e68d3840a48c1c62e0f673222551d1a9670b6baa187c79965832533d74ec4e1c",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E12\\7f77b609-99d9-461b-be03-b321d9b334b1\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E12\\7f77b609-99d9-461b-be03-b321d9b334b1\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f4-2e8b-7522-818a-4608ee21f05d",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "b6f6b5276acce9385a7321555ae5b45f09aab3dcb824ea4f2691907da70cf66e",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E12\\7f77b609-99d9-461b-be03-b321d9b334b1\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E12\\7f77b609-99d9-461b-be03-b321d9b334b1\\02.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "E13",
+          "plannedTurns": 2,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "FAIL",
+          "attempts": [
+            {
+              "attemptId": "3d850405-18ad-42a9-905f-49130c01268d",
+              "sessionUUID": "01a132f5-19a2-7fa3-88c4-a2d9ed111f0a",
+              "status": "FAIL",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f5-19a2-7fa3-88c4-a2d9ed111f0a",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "f5ef3d500f027b76b73ec09a65473475f31e72b67b39c7a5903eb8e70d1d9865",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E13\\3d850405-18ad-42a9-905f-49130c01268d\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E13\\3d850405-18ad-42a9-905f-49130c01268d\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f5-19a2-7fa3-88c4-a2d9ed111f0a",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "ffa12ec81a49be6ae71464acc2408b349d8a6d8694bbc66e372ff27bd589e289",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E13\\3d850405-18ad-42a9-905f-49130c01268d\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E13\\3d850405-18ad-42a9-905f-49130c01268d\\02.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "E13-bilingual",
+          "plannedTurns": 2,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "FAIL",
+          "attempts": [
+            {
+              "attemptId": "1c79c9fc-75aa-4648-b67f-28d5d4c76f25",
+              "sessionUUID": "01a132f7-a70c-7ad2-a88c-bf42ac670373",
+              "status": "FAIL",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f7-a70c-7ad2-a88c-bf42ac670373",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "583545ccf96e4846312e8178b93657587cd838ba03a7d426c0bb992fba8c5264",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E13-bilingual\\1c79c9fc-75aa-4648-b67f-28d5d4c76f25\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E13-bilingual\\1c79c9fc-75aa-4648-b67f-28d5d4c76f25\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f7-a70c-7ad2-a88c-bf42ac670373",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "f7947d03f84e58e93788519ce0ce2432d9f15ee70f7543640cbdb73e8c7e9b9a",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E13-bilingual\\1c79c9fc-75aa-4648-b67f-28d5d4c76f25\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E13-bilingual\\1c79c9fc-75aa-4648-b67f-28d5d4c76f25\\02.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "E14-html",
+          "plannedTurns": 2,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "PASS",
+          "attempts": [
+            {
+              "attemptId": "4f2ab9dd-363f-4799-9144-e6d3a209c801",
+              "sessionUUID": "01a132f9-c46d-7273-9e62-62e13aa943dc",
+              "status": "PASS",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f9-c46d-7273-9e62-62e13aa943dc",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "01d5c44a820f181cd4b7c3eaf07a71ac2208f964867c71971ea57ba586a8115c",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E14-html\\4f2ab9dd-363f-4799-9144-e6d3a209c801\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E14-html\\4f2ab9dd-363f-4799-9144-e6d3a209c801\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f9-c46d-7273-9e62-62e13aa943dc",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "58341fdabd49d5c71656d10793861cbfd797c9405dbad9c0033ec59e376c4e67",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E14-html\\4f2ab9dd-363f-4799-9144-e6d3a209c801\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\c6bbf3c7-0c1b-4161-acfc-7701e2dad96f\\E14-html\\4f2ab9dd-363f-4799-9144-e6d3a209c801\\02.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "E14-code",
+          "plannedTurns": 2,
+          "execution": "NOT_RUN",
+          "status": "UNKNOWN",
+          "attempts": []
+        },
+        {
+          "id": "E14-file",
+          "plannedTurns": 2,
+          "execution": "NOT_RUN",
+          "status": "UNKNOWN",
+          "attempts": []
+        },
+        {
+          "id": "E14-command",
+          "plannedTurns": 2,
+          "execution": "NOT_RUN",
+          "status": "UNKNOWN",
+          "attempts": []
+        },
+        {
+          "id": "E14-install-upload",
+          "plannedTurns": 2,
+          "execution": "NOT_RUN",
+          "status": "UNKNOWN",
+          "attempts": []
+        },
+        {
+          "id": "E14-production-steps",
+          "plannedTurns": 2,
+          "execution": "NOT_RUN",
+          "status": "UNKNOWN",
+          "attempts": []
+        },
+        {
+          "id": "E14-revise",
+          "plannedTurns": 1,
+          "execution": "NOT_RUN",
+          "status": "UNKNOWN",
+          "attempts": []
+        },
+        {
+          "id": "E14-compare",
+          "plannedTurns": 1,
+          "execution": "NOT_RUN",
+          "status": "UNKNOWN",
+          "attempts": []
+        },
+        {
+          "id": "E14-review",
+          "plannedTurns": 1,
+          "execution": "NOT_RUN",
+          "status": "UNKNOWN",
+          "attempts": []
+        },
+        {
+          "id": "E14-injection",
+          "plannedTurns": 2,
+          "execution": "NOT_RUN",
+          "status": "UNKNOWN",
+          "attempts": []
+        },
+        {
+          "id": "E14-feedback",
+          "plannedTurns": 2,
+          "execution": "NOT_RUN",
+          "status": "UNKNOWN",
+          "attempts": []
+        },
+        {
+          "id": "E15",
+          "plannedTurns": 3,
+          "execution": "NOT_RUN",
+          "status": "UNKNOWN",
+          "attempts": []
+        }
+      ]
+    },
+    {
+      "locator": "corrections/0-1-2/expanded/runs/dc33b1ba-278e-448b-a57e-be2e09444226/batch.json",
+      "canonical": {
+        "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+        "canonicalSha": "59c7aea91e51997a74870c730c260a4667b6470c",
+        "canonicalTree": "1bb4b82807a4029a9e8c46a5a9ca4f104702e96e"
+      },
+      "version": "0.1.2",
+      "mirrorIdentity": "exact file inventory; no equality claim with complete canonical tree",
+      "fullTreeEquality": "NOT_CLAIMED",
+      "runtime": [
+        {
+          "relative": "assets/icon.png",
+          "sourceSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+          "mirrorSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+          "cacheSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6"
+        },
+        {
+          "relative": "assets/icon.svg",
+          "sourceSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+          "mirrorSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+          "cacheSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68"
+        },
+        {
+          "relative": "plugin.json",
+          "sourceSha256": "029886df007b5dbdd368eaf92ba7b4f51a1f4e611632b2256eb2f5e5118d7ed0",
+          "mirrorSha256": "029886df007b5dbdd368eaf92ba7b4f51a1f4e611632b2256eb2f5e5118d7ed0",
+          "cacheSha256": "029886df007b5dbdd368eaf92ba7b4f51a1f4e611632b2256eb2f5e5118d7ed0"
+        },
+        {
+          "relative": "skills/guide/SKILL.md",
+          "sourceSha256": "ae2b5cca71c8ab9d09cefbf0ac6a516f9bcd7a1e98a7bdbe39de8056307a9498",
+          "mirrorSha256": "ae2b5cca71c8ab9d09cefbf0ac6a516f9bcd7a1e98a7bdbe39de8056307a9498",
+          "cacheSha256": "ae2b5cca71c8ab9d09cefbf0ac6a516f9bcd7a1e98a7bdbe39de8056307a9498"
+        },
+        {
+          "relative": "skills/guide/agents/openai.yaml",
+          "sourceSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+          "mirrorSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+          "cacheSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14"
+        },
+        {
+          "relative": "skills/guide/references/guide-framework.md",
+          "sourceSha256": "c73b6953202fd8173b2965130b1806fc276d397041261ff15445bbfd746ea6e6",
+          "mirrorSha256": "c73b6953202fd8173b2965130b1806fc276d397041261ff15445bbfd746ea6e6",
+          "cacheSha256": "c73b6953202fd8173b2965130b1806fc276d397041261ff15445bbfd746ea6e6"
+        },
+        {
+          "relative": "skills/guide/references/interaction-design.md",
+          "sourceSha256": "9760bae267563ee8bc65548ac4b7299c837ec001c9cbf14e1075a0711bd97c87",
+          "mirrorSha256": "9760bae267563ee8bc65548ac4b7299c837ec001c9cbf14e1075a0711bd97c87",
+          "cacheSha256": "9760bae267563ee8bc65548ac4b7299c837ec001c9cbf14e1075a0711bd97c87"
+        }
+      ],
+      "cases": [
+        {
+          "id": "E1-visitor",
+          "plannedTurns": 2,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "PASS",
+          "attempts": [
+            {
+              "attemptId": "93cbaba9-d7b1-4171-8147-1e2b1719fb14",
+              "sessionUUID": "01a132f5-99e1-7582-8982-c58dbb699043",
+              "status": "PASS",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f5-99e1-7582-8982-c58dbb699043",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "23faac217c350a6d243a022d432dc1fa51dc6788389bba56095d49a8041594d9",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\dc33b1ba-278e-448b-a57e-be2e09444226\\E1-visitor\\93cbaba9-d7b1-4171-8147-1e2b1719fb14\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\dc33b1ba-278e-448b-a57e-be2e09444226\\E1-visitor\\93cbaba9-d7b1-4171-8147-1e2b1719fb14\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f5-99e1-7582-8982-c58dbb699043",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "2f98a11f02eb8f6c7aa8ba4dfb66f337474e9ce78641b2cbae480bbd27a3206d",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\dc33b1ba-278e-448b-a57e-be2e09444226\\E1-visitor\\93cbaba9-d7b1-4171-8147-1e2b1719fb14\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\dc33b1ba-278e-448b-a57e-be2e09444226\\E1-visitor\\93cbaba9-d7b1-4171-8147-1e2b1719fb14\\02.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "E1-staff",
+          "plannedTurns": 2,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "PASS",
+          "attempts": [
+            {
+              "attemptId": "6f878d8e-44c6-4c1f-a2b1-5278633e7570",
+              "sessionUUID": "01a132f7-a6fe-7d92-ad4b-f7a193367414",
+              "status": "PASS",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f7-a6fe-7d92-ad4b-f7a193367414",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "9910e6a429f2f733d9ec741b84152f311c7cbb6fe62391e65e00bd8b971060ea",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\dc33b1ba-278e-448b-a57e-be2e09444226\\E1-staff\\6f878d8e-44c6-4c1f-a2b1-5278633e7570\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\dc33b1ba-278e-448b-a57e-be2e09444226\\E1-staff\\6f878d8e-44c6-4c1f-a2b1-5278633e7570\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f7-a6fe-7d92-ad4b-f7a193367414",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "24ef42b6d22cc4f6d6251e80859b300f893a471d10859c49a73de4cc06f9c4cd",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\dc33b1ba-278e-448b-a57e-be2e09444226\\E1-staff\\6f878d8e-44c6-4c1f-a2b1-5278633e7570\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\dc33b1ba-278e-448b-a57e-be2e09444226\\E1-staff\\6f878d8e-44c6-4c1f-a2b1-5278633e7570\\02.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "E1-maintainer",
+          "plannedTurns": 2,
+          "execution": "EXECUTED_PENDING_REVIEW",
+          "status": "PASS",
+          "attempts": [
+            {
+              "attemptId": "38691ec7-2abf-4327-a035-f02bc65a908f",
+              "sessionUUID": "01a132f9-6702-7972-825f-bbfe0fd7dcc3",
+              "status": "PASS",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f9-6702-7972-825f-bbfe0fd7dcc3",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "29249b7c9cde609deeb17219f025ce1c57c56e83bea32043702d9791332bc8cf",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\dc33b1ba-278e-448b-a57e-be2e09444226\\E1-maintainer\\38691ec7-2abf-4327-a035-f02bc65a908f\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\dc33b1ba-278e-448b-a57e-be2e09444226\\E1-maintainer\\38691ec7-2abf-4327-a035-f02bc65a908f\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132f9-6702-7972-825f-bbfe0fd7dcc3",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "2b940f30830db067d11413cbbc36b65b6760fcdc075dadef31ce51df9e90ddae",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\dc33b1ba-278e-448b-a57e-be2e09444226\\E1-maintainer\\38691ec7-2abf-4327-a035-f02bc65a908f\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\dc33b1ba-278e-448b-a57e-be2e09444226\\E1-maintainer\\38691ec7-2abf-4327-a035-f02bc65a908f\\02.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "E2",
+          "plannedTurns": 2,
+          "execution": "RUNNING",
+          "status": "UNKNOWN",
+          "attempts": [
+            {
+              "attemptId": "526ffad6-e1d9-4904-8eb1-c65df73d5cdb",
+              "sessionUUID": "01a132fb-de07-7a01-9c16-2ac00e0da8e0",
+              "status": "UNKNOWN",
+              "method": "FRESH_FORWARD",
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE",
+                  "identity": {
+                    "sessionId": "01a132fb-de07-7a01-9c16-2ac00e0da8e0",
+                    "cliVersion": "0.147.0",
+                    "originator": "Codex Desktop",
+                    "modelProvider": "openai",
+                    "models": [
+                      "gpt-5.6-sol"
+                    ],
+                    "reasoning": [
+                      "low"
+                    ]
+                  },
+                  "inputSha256": "763db2b7d7ce31d83b3b15fb493ff6a972c5b664fba167566d1777879896ba11",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\dc33b1ba-278e-448b-a57e-be2e09444226\\E2\\526ffad6-e1d9-4904-8eb1-c65df73d5cdb\\01.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\dc33b1ba-278e-448b-a57e-be2e09444226\\E2\\526ffad6-e1d9-4904-8eb1-c65df73d5cdb\\01.events.jsonl"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "RUNNING",
+                  "inputSha256": "a7d0365502e93519d9b923251140e07fd676684d0ef11db5bd7585a9da2ed3b5",
+                  "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\dc33b1ba-278e-448b-a57e-be2e09444226\\E2\\526ffad6-e1d9-4904-8eb1-c65df73d5cdb\\02.output.txt",
+                  "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-2\\expanded\\runs\\dc33b1ba-278e-448b-a57e-be2e09444226\\E2\\526ffad6-e1d9-4904-8eb1-c65df73d5cdb\\02.events.jsonl"
+                }
+              ],
+              "reviewers": [
+                "logic_review / independent semantic reviewer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "E3",
+          "plannedTurns": 2,
+          "execution": "NOT_RUN",
+          "status": "UNKNOWN",
+          "attempts": []
+        },
+        {
+          "id": "E3-attribution",
+          "plannedTurns": 2,
+          "execution": "NOT_RUN",
+          "status": "UNKNOWN",
+          "attempts": []
+        },
+        {
+          "id": "E6-file",
+          "plannedTurns": 2,
+          "execution": "NOT_RUN",
+          "status": "UNKNOWN",
+          "attempts": []
+        },
+        {
+          "id": "E6-snapshot",
+          "plannedTurns": 2,
+          "execution": "NOT_RUN",
+          "status": "UNKNOWN",
+          "attempts": []
+        },
+        {
+          "id": "E7",
+          "plannedTurns": 3,
+          "execution": "NOT_RUN",
+          "status": "UNKNOWN",
+          "attempts": []
+        },
+        {
+          "id": "E8",
+          "plannedTurns": 2,
+          "execution": "NOT_RUN",
+          "status": "UNKNOWN",
+          "attempts": []
+        }
+      ]
+    }
+  ],
+  "scope": "Stopped 0.1.2 observations only; no 0.1.3 outcome is inferred. E2 final RUNNING transport is actually operator interrupted per independent review and pause overlay; E12-restart only has T1 and is incomplete.",
+  "effectStatus": "NOT_MEASURED",
+  "nativeClientUi": "NOT_RUN"
+}

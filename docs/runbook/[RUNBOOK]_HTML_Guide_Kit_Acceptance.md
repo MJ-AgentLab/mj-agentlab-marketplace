@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.6
+version: v1.7
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -263,3 +263,13 @@ PR3 从该实际最新 origin/develop 派生 `codex/html-guide-acceptance` 独�
 dry-run 后只将 HTML Guide Kit 推进 0.1.2→0.1.3，市场和其他插件版本不动。通用方法固定当前状态和单个操作，分开直接操作与多步路径；未知路径不覆盖源规则确定的直接禁止。检查全文排他量词和术语值类型，原变量与派生真假判断分别命名，不能由表头或压缩句新增原文没有的“仅”。不搬入验收领域规则、答案或案例身份，不改变 Read、显式调用、确认等待、文本交付和已选图标。
 
 0.1.3 工作候选完整测试 279/279、零 skip，尚待 committed canonical、严格新安装及全部六组/受影响扩展真实复验。0.1.2 的安装、有限 PASS、FAIL、操作中断及未执行分别保持其真实身份；不据修正意图或工程检查宣称 0.1.3 行为通过。原生客户端、最终 head/merge 门禁与现实效果状态保持。
+
+## §16 Candidate 0.1.2 preservation and 0.1.3 canonical verification
+
+已停止的 0.1.2 控制与模型证据封存于 [candidate012 索引](evidence/html-guide-kit/pr3-reviewer/candidate012/index.json)：506 原文件 / 15,860,027 原字节、10 packets，inventory SHA-256 为 `8f639798108f4f6bd969ddac554ded33ac4e62bedffe8d7b19580b911d1dacc8`。Node 原文件/复原逐字节校验与[独立 .NET 复原](evidence/html-guide-kit/pr3-post-merge/candidate012-dotnet-verification.json)均通过，秘密模式扫描零发现。选择范围仅为外部 reviewer 的已停止 0.1.2 子树与封存控制；不跟随真实 HOME、auth、TEMP/cache 或原用户 session 定位，不纳入仍在运行的 0.1.3。
+
+[0.1.2 账本](evidence/html-guide-kit/pr3-post-merge/candidate012-ledger.json)保留实际 28 UUID / 61 输入轮次，23 PASS、3 FAIL、2 UNKNOWN；传输 60 COMPLETE 与 1 原始 RUNNING。后一轮的独立操作中断叠加原因见 §15，不改原传输记录。选定批次另有 17 变体未调用，不能推定 PASS。完整六组 13 PASS / 1 FAIL 与两条 E13 失败、旧 E2 中断、E12-restart 仅首轮分别保留；修正候选不覆盖旧版本结果。
+
+0.1.3 canonical `ffaa68f8998d3d0344b760492dd7169c13bee0a5` / tree `d97ea04a46b804588bdcd98efb94171e628aa6f9` 的[完整严格安装](evidence/html-guide-kit/pr3-post-merge/engineering-ffaa68f8/installation.json)及[汇总](evidence/html-guide-kit/pr3-post-merge/engineering-ffaa68f8/summary.json)通过：保留原四场景并加入 HTML、HTML + Explain、全部四插件，共七场景；四个含 Diagram 场景实际缓存 Python 均 PASS。源/cache 资源字节、manifest、版本、图标、引用及调用策略均严格校验，consumer 开发技能 0 / repository 20。原始命令、detached head/tree、依赖准备和各资源身份见[24 文件索引](evidence/html-guide-kit/pr3-post-merge/engineering-ffaa68f8/archive-index.json)。评审镜像排除 reviewer-only，不宣称与完整 canonical tree 相等。
+
+新模型六组、29 个扩展变体及两条连续流程补证正在该 canonical 的独立中性路径/cache 上执行；仅完整真实输出及独立语义评审允许 PASS。首个 B4.1 选择了较窄理解目标，未触发归还/取消等全分支，独立 UNEXERCISED 保留；另以同候选和冻结原输入新增完整目标会话补覆盖。E7 操作侧自动选择误取嵌套问题编号的原调用保留选择出处缺陷，新会话从实际更新目标标题人工选择；这不是运行语义 FAIL，也不能作为有效选择来源证明。未完成的独立评审、原生客户端与实际窗口事件、最终 PR head/merge 和 GitHub 当前提交非作者批准继续保留，不以工程通过代替。
