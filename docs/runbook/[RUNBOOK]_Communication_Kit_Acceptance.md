@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.13.3
+version: v1.15.1
 ---
 
 # [RUNBOOK] Communication Kit acceptance
@@ -302,6 +302,18 @@ Refs #222。2026-10-13从PR4原head `48437bef655c7ce8aed8452db01dac9dd638af1c`�
 
 AGENTS、INDEX及本账本冲突逐块整合：保留PR4版本准备/canonical和旧失败/PARTIAL，PR3分支的同号文档版本单独标记来源，不覆盖本分支历史。当前开发仍五包七技能/四显式，正式四包六技能/三显式、HTML留develop另发；最新Learning收尾与原A6失败/修复、空reviews见[8.2.0账本](./[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)及[回执](evidence/learning-evidence-8-2-0-closeout.json)。原计划405行/hash与全部原始实证保持，仅执行strict、65项documentation/A6、whitespace、真实base正常A6及提交规范；原始日志保存在外部 `C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr4-*.log`，结果/hash及本轮head/tree追加到同目录 `communication-closeout-sync-audit.json`。不重跑full、安装、Python或客户端，不将预备四包projection算正式PR5/保护合并/R01–R05。
 
+### Owner Q3 四包发行预备投影
+
+Refs #222。[预备工程01](evidence/communication-kit-2026-10-13-release-projection-01.json)固定最初tested index3643f2b6，实际318/318测试、strict、CLI0.147.0和九组snapshot安装通过，实际四次图表Python/四组Learning保存重放回读、解释器3.12.14。catalog、插件目录、严格资源/显式集合、品牌导出与安装预期原子限定四包六技能/三显式；四个保留插件完整Git tree及版本与48437源相同，主技能/refs/icons未变。新HTML混入三变体固定真实fixture commit，canonical strict先拒绝再installer零调用；[独立AI工程窄审](evidence/communication-kit-2026-10-13-release-projection-review-01.json)不是GitHub批准。
+
+此codex/communication-release-preparation仅是独立预备分支，正式PR5未创建。最初检查后仅导入最新Learning文档收尾、纠正本预备源当前范围，并做受影响doc/A6/strict复验；固定canonical证据另追加。不得把本源准备记为PR4实际merge验收、正式PR5或R04上线后复查。正式PR5仍须从PR4经门禁合入的实际merge重新派生、刷新main，并比较本预备投影与最终候选；R01–R05和Epic关闭条件保持原要求。
+
+| Version | Date | Summary |
+| --- | --- | --- |
+| v1.13 | 2026-10-13 | 记录Owner Q3四包独立预备工程；正式阶段merge/PR5/上线后检查保持未完成 |
+
+Refs #222。固定cd7a9fbd/tree129cc599的[四包canonical01](evidence/communication-kit-2026-10-13-release-projection-canonical-01.json)实际执行detached strict和九组CLI0.147.0安装，四图表Python/四Learning保存重放回读通过，Python3.12.14；普通3/原生6/显式3/开发20。本批是发布前预备验证，R04上线后复查仍NOT RUN，正式PR5须从实际PR4 merge另派生并刷新main。
+
 ### 文档收尾原始证据归档
 
 Refs #222。[Closeout sync 01](evidence/communication-kit-2026-10-13-closeout-sync-01.json)绑定PR1 `6c0d609`、PR2 `c198f5c`、PR3 `c6d40a8`、PR4 `86a364e`实际head/tree、来源develop `98068a8`、各阶段生产零新增差异及65项受影响文档/A6范围，按raw manifest保存外部审计与43份原始日志。此前20份日志、两次只读审计helper失败及修复复验原字节保留，不覆盖旧record。当前归档基于86a364e，仅文档与evidence变化；五包开发、8.3.0及根/Comm正式CHANGELOG保持，不导入独立四包preview。AI独立核验和本地正常A6不替代GitHub当前head非作者批准、required checks或线程门禁，不补填正式PR5/Release/R01–R05，历史CLI PARTIAL、限定客户端及现实效果延期保持。
@@ -310,9 +322,17 @@ Refs #222。[Closeout sync 01](evidence/communication-kit-2026-10-13-closeout-sy
 
 第二次whitespace exit2进一步识别PR3原diff回执的末尾空行；只为该精确证据文件保留EOF字节，第二失败回执及修复说明同样追加，不改写原日志。
 
+| Version | Date | Summary |
+| --- | --- | --- |
+| v1.14 | 2026-10-13 | 合入PR4实际49036ad文档归档，保留四包预备canonical与五包开发来源；生产保持cd7未变 |
+
 ### 继承空白问题的完整范围复验
 
 Refs #222。[Inherited whitespace 01](evidence/communication-kit-2026-10-13-inherited-whitespace-01.json)保留四阶段首轮真实full-range exit2、普通来源继承与最小修复；各固定实际head的`git diff --check origin/develop...HEAD`、staged、strict及65项documentation/A6均通过，未用parent/staged结果代替完整PR检查。非冻结guide/fixture和当时ADR/SPEC/验收仅收敛EOF，文档正文/案例解析值不变；计划405行/hash、来源记录和原Node失败日志各自磁盘/Git blob身份保持，只设置精确冻结属性。原日志、源身份、全部hash和证据文件的窄空白属性见manifest/audit。当前C4归档只补文档证据并保留开发五包/8.3.0及正式CH；不导入预备四包代码，不宣称GitHub批准、正式发布或新增full/install/Python/UI执行。
+
+| Version | Date | Summary |
+| --- | --- | --- |
+| v1.15 | 2026-10-13 | 导入实际8a841a7完整范围空白修复及原日志，冻结原稿/运行包保持，正式发布门禁未完成 |
 
 ### PR1实际合并与固定来源复验
 

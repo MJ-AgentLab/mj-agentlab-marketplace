@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+- Prepare the authorized four-package Communication publication projection atomically; HTML remains on develop. Fixed candidate verification is separate from the protected phase merges and post-publication checks. Refs #222.
+
 ### Added
 
 - Archive Communication baseline synchronization, exact raw engineering/install logs and resolved parallel conflicts under Refs #222; preserve package hashes and Owner Q3 four-package formal scope.

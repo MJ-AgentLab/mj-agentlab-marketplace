@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "refs": [
+    "#222"
+  ],
+  "capturedAt": "2026-10-13T09:18:02.750795+00:00",
+  "kind": "Actual latest PR4 development ancestry import and publication-preparation scope documentation",
+  "source": {
+    "initialPreparationCommit": "ba31a27392db109d19569446e995e06205678e66",
+    "importedPr4Head": "86a364eab1af861e2bcd7eba505594384f18a902",
+    "actualDevelop": "98068a8bd7060585b9915be9490a02a733fcb1a6",
+    "finalDocsTestedIndexTree": "449f9f4a0c3f7d2cb3b49e1cda02abe712db4a07",
+    "actualProtectedPr4Merge": "NOT RUN"
+  },
+  "actualChecks": {
+    "strict": "PASS",
+    "affectedDocA6": {
+      "tests": 65,
+      "pass": 65,
+      "fail": 0,
+      "skipped": 0
+    },
+    "fullAndSnapshotReuse": "Production packages/scripts/tests/catalog/brand exports/VERSION unchanged from tested3643 after doc-only ancestry import; retain actual318 and9 snapshot receipts, do not claim reexecuted full or install."
+  },
+  "failuresAndRepairs": [
+    {
+      "failure": "README rewrite omitted codex debug prompt-input example; actual doc test64 failed, overall64/65",
+      "repair": "Restore the required exact example; affected suite65/65 passed. No test weakening or runtime change. Original failure receipt retained."
+    }
+  ],
+  "limits": [
+    "This prepared branch is not PR5 or an actual M4 protected merge. Formal candidate derivation, main refresh, approvals, publishing and R01-R05 remain required.",
+    "No new client/model/effects tests. Current documents distinguish development5/package7, preparation4/skills6 and published3/skills5."
+  ],
+  "artifacts": [
+    {
+      "kind": "validate",
+      "startedAt": "2026-10-13T09:10:59.201739+00:00",
+      "finishedAt": "2026-10-13T09:10:59.673046+00:00",
+      "command": [
+        "D:/Development/nodejs/node.exe",
+        "scripts/validate-portable.mjs"
+      ],
+      "exitCode": 0,
+      "log": "communication-kit-2026-10-13-release-projection-doc-01-validate-02.log",
+      "rawBytes": 296,
+      "sha256": "addbcdc7630dbaeca538428e86e2d671336318e888204e689972dc34400aa645"
+    },
+    {
+      "kind": "doc",
+      "startedAt": "2026-10-13T09:11:00.190617+00:00",
+      "finishedAt": "2026-10-13T09:11:05.267056+00:00",
+      "command": [
+        "D:/Development/nodejs/node.exe",
+        "--test",
+        "tests/documentation-contract.test.mjs",
+        "tests/check-a6.test.mjs"
+      ],
+      "exitCode": 0,
+      "log": "communication-kit-2026-10-13-release-projection-doc-01-doc-01.log",
+      "rawBytes": 12234,
+      "sha256": "95422a7571151425fc6afdd6173f05bae93caf4cf6534ff9b48662965f76c3ec",
+      "counts": {
+        "tests": 65,
+        "pass": 65,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "kind": "validate",
+      "startedAt": "2026-10-13T09:15:24.242946+00:00",
+      "finishedAt": "2026-10-13T09:15:24.797525+00:00",
+      "command": [
+        "D:/Development/nodejs/node.exe",
+        "scripts/validate-portable.mjs"
+      ],
+      "exitCode": 0,
+      "log": "communication-kit-2026-10-13-release-projection-doc-01-validate-03.log",
+      "rawBytes": 296,
+      "sha256": "addbcdc7630dbaeca538428e86e2d671336318e888204e689972dc34400aa645"
+    },
+    {
+      "kind": "doc",
+      "startedAt": "2026-10-13T09:15:25.230795+00:00",
+      "finishedAt": "2026-10-13T09:15:30.565078+00:00",
+      "command": [
+        "D:/Development/nodejs/node.exe",
+        "--test",
+        "tests/documentation-contract.test.mjs",
+        "tests/check-a6.test.mjs"
+      ],
+      "exitCode": 1,
+      "log": "communication-kit-2026-10-13-release-projection-doc-01-doc-02.log",
+      "rawBytes": 13179,
+      "sha256": "a7647cd4b9b44dab6a8ca4f58c509f1cdf0023d3f9f14f3b21fcabf41d552b48",
+      "counts": {
+        "tests": 65,
+        "pass": 64,
+        "fail": 1,
+        "skipped": 0
+      }
+    },
+    {
+      "kind": "doc",
+      "startedAt": "2026-10-13T09:17:04.924670+00:00",
+      "finishedAt": "2026-10-13T09:17:09.772864+00:00",
+      "command": [
+        "D:/Development/nodejs/node.exe",
+        "--test",
+        "tests/documentation-contract.test.mjs",
+        "tests/check-a6.test.mjs"
+      ],
+      "exitCode": 0,
+      "log": "communication-kit-2026-10-13-release-projection-doc-01-doc-03.log",
+      "rawBytes": 12233,
+      "sha256": "203b7d37464e7bd2835a02e41e0da267ab2429e7fa2aaa987cb7c9301e6f19ca",
+      "counts": {
+        "tests": 65,
+        "pass": 65,
+        "fail": 0,
+        "skipped": 0
+      }
+    }
+  ]
+}

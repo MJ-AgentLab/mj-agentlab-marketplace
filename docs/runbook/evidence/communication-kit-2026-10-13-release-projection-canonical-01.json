@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "refs": [
+    "#222"
+  ],
+  "capturedAt": "2026-10-13T09:20:17.215363+00:00",
+  "kind": "Actual fixed four-package preparation canonical install, before publication",
+  "source": {
+    "canonicalSha": "cd7a9fbdc84a28ade4e44d423c604b83c2c4f044",
+    "canonicalTree": "129cc5996d4ae0b01b973599e1d94f196b9b5225",
+    "marketplaceVersion": "8.3.0 unreleased",
+    "actualPr4ProtectedMerge": "NOT RUN",
+    "actualPr5": "NOT RUN",
+    "actualMain": "ebc4bdc3abc62c36348d9ba28de7161b04b3b466",
+    "publishedTag": "v8.2.0; this check did not use a Communication publication tag"
+  },
+  "execution": {
+    "kind": "canonical",
+    "startedAt": "2026-10-13T09:18:43.756288+00:00",
+    "finishedAt": "2026-10-13T09:19:16.496699+00:00",
+    "command": [
+      "D:/Development/nodejs/node.exe",
+      "C:\\Users\\Admin\\.codex\\worktrees\\communication-preview-canonical.mjs",
+      "cd7a9fbdc84a28ade4e44d423c604b83c2c4f044"
+    ],
+    "exitCode": 0,
+    "log": "C:\\Users\\Admin\\.codex\\worktrees\\communication-preview-canonical-01.log",
+    "rawBytes": 414,
+    "sha256": "f1349b60e2176c26e2866618d997065f2c197d30a224a9fde084100edd3bb412"
+  },
+  "method": "verifyReleaseInstall creates a detached worktree from the exact SHA, executes the same strict validator and nine actual isolated Codex installs, then removes its temporary canonical checkout.",
+  "actualChecks": {
+    "ok": true,
+    "cli": "codex-cli 0.147.0",
+    "scenarios": 9,
+    "allScenariosPass": true,
+    "installed": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "communication-kit"
+    ],
+    "native": {
+      "publicSkills": 6,
+      "repositorySkills": 0
+    },
+    "ordinary": {
+      "publicSkills": 3,
+      "repositorySkills": 0
+    },
+    "explicitOnly": [
+      "learning-evidence-kit:pop-quiz",
+      "learning-evidence-kit:learning-record-check",
+      "communication-kit:communicate"
+    ],
+    "diagramPython": 4,
+    "learningPython": 4,
+    "interpreters": [
+      "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]"
+    ]
+  },
+  "packageTrees": {
+    "diagram-kit": "e217c41be2cd4c3653aa17aa7b28c8312be06268",
+    "learning-evidence-kit": "c88818fac37e937a245436f0f999f3488babfe1f",
+    "explain-kit": "ef6a90bc60e9af45915c30ecf4668559978e29e5",
+    "communication-kit": "170fcad82f33548c8d91b62984df4ff38635e69f"
+  },
+  "releaseCases": {
+    "R01": "NOT RUN",
+    "R02": "NOT RUN",
+    "R03": "NOT RUN",
+    "R04": "NOT RUN",
+    "R05": "NOT RUN"
+  },
+  "limits": [
+    "This is a pre-publication preparation branch, not formal PR5 or R04. Post-publication must independently resolve the actual tag and execute a new canonical install.",
+    "No new actual client invocation, model behavior, native question window or real-world effect test. Original identity/partial/failure records remain.",
+    "Formal source must be rederived from actual protected M4 merge, refresh main and compare source differences."
+  ],
+  "artifacts": [
+    {
+      "kind": "result",
+      "rawLog": "communication-kit-2026-10-13-release-projection-canonical-01-result.json",
+      "rawBytes": 214893,
+      "sha256": "1ce77dc9d2f2317cb19a87b3f4955bae5066a8ed8af90e905254bcfce0077358"
+    },
+    {
+      "kind": "execution",
+      "rawLog": "communication-kit-2026-10-13-release-projection-canonical-01-execution.log",
+      "rawBytes": 414,
+      "sha256": "f1349b60e2176c26e2866618d997065f2c197d30a224a9fde084100edd3bb412"
+    }
+  ]
+}

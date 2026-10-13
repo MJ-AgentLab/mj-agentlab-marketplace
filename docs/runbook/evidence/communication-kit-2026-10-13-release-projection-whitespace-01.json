@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "refs": [
+    "#222"
+  ],
+  "capturedAt": "2026-10-13T09:54:30.078717+00:00",
+  "kind": "Actual inherited whitespace repair import into four-package preparation",
+  "source": {
+    "previousHead": "88f294b",
+    "importedPr4": "8a841a76e2eae9679773ce24773fcfb3b8a064cf",
+    "testedIndexTree": "ce8417550e5a0318e3a244c2ba901db7b24c3aeb",
+    "actualCanonicalSource": "cd7a9fbdc84a28ade4e44d423c604b83c2c4f044",
+    "actualProtectedPr4Merge": "NOT RUN"
+  },
+  "actualChecks": {
+    "strict": "PASS",
+    "docA6": {
+      "tests": 65,
+      "pass": 65,
+      "fail": 0,
+      "skipped": 0
+    },
+    "fullCandidateIndexVersusActualDevelopWhitespace": "PASS",
+    "publicRuntimeScriptsManifestCatalogExportsVersionEqualCanonical": true,
+    "testsJsCodeEqualCanonical": true,
+    "fixtureRawChanges": [
+      "tests/fixtures/communication-kit/cases.json",
+      "tests/fixtures/communication-kit/rubric.md"
+    ],
+    "fixtureJsonValuesAndRubricBodyEqualCanonical": true,
+    "instructionWorktreeBytes": 16336
+  },
+  "repair": "Preserve frozen owner plan Markdown hard breaks, original provenance EOF and initial failed log bytes using exact file attributes; trim only non-frozen document/fixture EOF blanks, retain both metadata/evidence histories. Four original phase HEAD full-range failures/repairs are separately archived by PR4.",
+  "limits": [
+    "Canonical remains the actual cd7 check, not a new installation at this index. No repeated full/model/client/effects checks for whitespace-only data changes.",
+    "The original2026-10-12 log has distinct historical disk CRLF and Git LF hashes; both identities remain unchanged. New2026-10-13 raw receipts preserve disk/Git bytes exactly.",
+    "Formal PR5, protected merges, approvals, Communication publication and post-publication R01-R05 remain incomplete."
+  ],
+  "artifacts": [
+    {
+      "kind": "original failed full-range reproduction",
+      "rawLog": "communication-kit-2026-10-13-release-projection-whitespace-01-initial.log",
+      "exitCode": 2,
+      "rawBytes": 1729,
+      "sha256": "b88b140a55745fb4b3999cecf013c3337b0f310fca5f6093ab6d1bdf4694cb3a"
+    },
+    {
+      "kind": "validate",
+      "startedAt": "2026-10-13T09:52:27.644526+00:00",
+      "finishedAt": "2026-10-13T09:52:28.169800+00:00",
+      "command": [
+        "D:/Development/nodejs/node.exe",
+        "scripts/validate-portable.mjs"
+      ],
+      "exitCode": 0,
+      "log": "communication-kit-2026-10-13-release-projection-whitespace-01-validate.log",
+      "rawBytes": 296,
+      "sha256": "addbcdc7630dbaeca538428e86e2d671336318e888204e689972dc34400aa645"
+    },
+    {
+      "kind": "doc",
+      "startedAt": "2026-10-13T09:52:28.662714+00:00",
+      "finishedAt": "2026-10-13T09:52:34.247300+00:00",
+      "command": [
+        "D:/Development/nodejs/node.exe",
+        "--test",
+        "tests/documentation-contract.test.mjs",
+        "tests/check-a6.test.mjs"
+      ],
+      "exitCode": 0,
+      "log": "communication-kit-2026-10-13-release-projection-whitespace-01-doc.log",
+      "rawBytes": 12229,
+      "sha256": "66866ec94baa96c7e988fb7ce0e4a9aef2ddef29a087dffb89e6b3d0f01f1747",
+      "counts": {
+        "tests": 65,
+        "pass": 65,
+        "fail": 0,
+        "skipped": 0
+      }
+    }
+  ]
+}

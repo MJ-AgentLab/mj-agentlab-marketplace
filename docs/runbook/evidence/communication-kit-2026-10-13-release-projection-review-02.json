@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "refs": [
+    "#222"
+  ],
+  "capturedAt": "2026-10-13T09:27:35.222386+00:00",
+  "kind": "Independent AI scope and engineering evidence review; not GitHub approval",
+  "reviewer": "/root/communication_sync_review",
+  "canonicalSource": "cd7a9fbdc84a28ade4e44d423c604b83c2c4f044",
+  "scopeFixReviewedIndex": "a2fa62783092ed226e8ac0b4efe6c063fef5a1fb",
+  "findingsAndRepairs": [
+    {
+      "finding": "Compliance retained unqualified three-package public candidate and four explicit entries; repo scan also retained four explicit entries. These executable instructions conflicted with preparation4/6/3 despite the final note.",
+      "repair": "Make active instructions explicitly separate current preparation4/6/3, development5/7/4 and published8.2 3/5/2. Correct author/dogfood candidate phrasing to actual published Learning. Independent reread confirms all three residual conflicts resolved."
+    }
+  ],
+  "finalReport": "修复复核完成，三处残留集合指令已解除，4repo skill首段/Communication规则与当前4/6/3及develop5/7/4、published3/5/2一致。AGENTS16217 bytes<16384；生产相对cd7零未提交diff，diff --check PASS。实际doc04为65/65、0fail/skip，SHA7fdebd8d8c9556d4d273864fb61592f381aa628fa35bbff0419bb00aa7b543fe。新canonical manifest和2artifacts长度/hash匹配，execution归档字节等于原路径；raw实际固定cd7、9全ok/全部命令0、4Diagram/4LEK/Python3.12.14/ordinary3/native6/explicit3。修复后限定双轴PASS，canonical绑定cd7而非尚未提交scope文本。",
+  "identityClarification": "The final docs tested index to cd7 difference includes .gitattributes and five raw logs plus their evidence manifest, all evidence additions; it is not an attribute-only complete Git-tree change. Production zero-diff is independently verified.",
+  "limits": [
+    "AI review does not satisfy a current-head non-author GitHub approval.",
+    "Scope corrections and evidence additions are documentation only; canonical was actually executed at cd7 before these changes.",
+    "This preparation is not a protected M4 merge, official PR5 or post-publication R01-R05."
+  ],
+  "artifacts": [
+    {
+      "kind": "doc",
+      "startedAt": "2026-10-13T09:22:06.085534+00:00",
+      "finishedAt": "2026-10-13T09:22:11.133882+00:00",
+      "command": [
+        "D:/Development/nodejs/node.exe",
+        "--test",
+        "tests/documentation-contract.test.mjs",
+        "tests/check-a6.test.mjs"
+      ],
+      "exitCode": 0,
+      "log": "communication-kit-2026-10-13-release-projection-review-02-doc.log",
+      "rawBytes": 12234,
+      "sha256": "7fdebd8d8c9556d4d273864fb61592f381aa628fa35bbff0419bb00aa7b543fe",
+      "counts": {
+        "tests": 65,
+        "pass": 65,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "kind": "validate",
+      "startedAt": "2026-10-13T09:25:19.781103+00:00",
+      "finishedAt": "2026-10-13T09:25:20.281918+00:00",
+      "command": [
+        "D:/Development/nodejs/node.exe",
+        "scripts/validate-portable.mjs"
+      ],
+      "exitCode": 0,
+      "log": "communication-kit-2026-10-13-release-projection-review-02-validate.log",
+      "rawBytes": 296,
+      "sha256": "addbcdc7630dbaeca538428e86e2d671336318e888204e689972dc34400aa645"
+    }
+  ]
+}

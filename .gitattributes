@@ -10,6 +10,11 @@ docs/runbook/evidence/communication-kit-2026-10-13-learning-baseline-01-pr3-lear
 # Version-tool console receipts retain their original final blank line and CRLF JSON.
 docs/runbook/evidence/communication-kit-2026-10-13-version-prep-01-*.log whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
 docs/runbook/evidence/communication-kit-2026-10-13-version-prep-01-audit.json whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Preserve the two indented blank lines in the original README regression failure.
+docs/runbook/evidence/communication-kit-2026-10-13-release-projection-doc-01-doc-02.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Retain the exact original full-range diagnostic, including the quoted frozen spaces.
+docs/runbook/evidence/communication-kit-2026-10-13-release-projection-whitespace-01-initial.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
 # Exact Git diff receipts contain intentional space-only context lines.
 docs/runbook/evidence/communication-kit-2026-10-13-closeout-sync-01-raw-pr[1-4]-conflicts.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # PR3's original diff receipt also ends with one intentional empty line.
@@ -41,3 +46,6 @@ docs/runbook/evidence/communication-kit-2026-10-13-inherited-whitespace-01-raw-p
 docs/runbook/evidence/communication-kit-2026-10-13-inherited-whitespace-01-raw-pr4-initial.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/runbook/evidence/communication-kit-2026-10-13-pr1-merge-sync-01-raw-pr3-conflicts.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/runbook/evidence/communication-kit-2026-10-13-pr1-merge-sync-01-raw-pr4-conflicts.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Exact Windows identity receipt retains CRLF without disabling whitespace checks.
+docs/runbook/evidence/communication-kit-2026-10-13-pr1-merge-preparation-01-raw-identity.json whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

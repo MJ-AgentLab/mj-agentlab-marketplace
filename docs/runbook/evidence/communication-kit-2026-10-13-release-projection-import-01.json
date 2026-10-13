@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "refs": [
+    "#222"
+  ],
+  "capturedAt": "2026-10-13T09:32:04.164290+00:00",
+  "kind": "Actual PR4 evidence import into isolated publication preparation, no runtime change",
+  "source": {
+    "importMergeCommit": "4576be9401171dd89af331ec62b2e617abc4d768",
+    "beforePreparationHead": "aa7f5bc602462a7e7c34073f2929bee7e29db1f1",
+    "importedPr4Head": "49036ad9af9bef6795aa3b6d93218ca225921451",
+    "canonicalSource": "cd7a9fbdc84a28ade4e44d423c604b83c2c4f044",
+    "testedDocsIndexTree": "0ef6163b305dccc1429bfc68014529d3d82f9cae",
+    "actualProtectedPr4Merge": "NOT RUN"
+  },
+  "actualChecks": {
+    "strict": "PASS",
+    "affectedDocA6": {
+      "tests": 65,
+      "pass": 65,
+      "fail": 0,
+      "skipped": 0
+    },
+    "rawImportedDiskAndStagedBytes": {
+      "artifacts": 46,
+      "ok": true
+    },
+    "productionEqualCanonical": true,
+    "whitespace": "PASS after retaining both sets of existing evidence attributes",
+    "instructionWorktreeBytes": 16231
+  },
+  "mergeResolution": "Three content conflicts: retain both independent publication-preparation and PR4 archive sections; retain both exact evidence whitespace attributes. Update current metadata, compress duplicate historical instruction prose while preserving its original release link and records.",
+  "readOnlyLookupRepair": "A guessed standalone raw-manifest filename was absent; rg located the actual manifest as the artifacts array embedded in closeout-sync-01.json. All 46 entries were then verified; no missing file result was treated as a pass.",
+  "captureFailureAndRepair": "Initial helper verified the44 main entries but incorrectly asserted that the main array contained46. The other2 failure receipts are separate receipt fields. A local PowerShell chain continued to the already-authorized documentation merge commit4576 despite the assertion; no record or successful check was inferred from that failed capture. Fix the manifest traversal to explicitly include44+2, verify all46, and separate dependent tool operations so failure stops later mutations. Preserve the original tool failure output separately.",
+  "limits": [
+    "No repeated full/installation/client tests for documentation-only import; previous receipts keep their exact identities.",
+    "Formal PR5 still derives from an actual protected M4 merge and refreshes main. R01-R05 and published Communication are not complete.",
+    "AI review and local A6 do not satisfy independent GitHub approval."
+  ],
+  "artifacts": [
+    {
+      "kind": "validate",
+      "startedAt": "2026-10-13T09:28:47.086280+00:00",
+      "finishedAt": "2026-10-13T09:28:47.583418+00:00",
+      "command": [
+        "D:/Development/nodejs/node.exe",
+        "scripts/validate-portable.mjs"
+      ],
+      "exitCode": 0,
+      "log": "communication-kit-2026-10-13-release-projection-import-01-validate.log",
+      "rawBytes": 296,
+      "sha256": "addbcdc7630dbaeca538428e86e2d671336318e888204e689972dc34400aa645"
+    },
+    {
+      "kind": "doc",
+      "startedAt": "2026-10-13T09:28:48.093214+00:00",
+      "finishedAt": "2026-10-13T09:28:53.059501+00:00",
+      "command": [
+        "D:/Development/nodejs/node.exe",
+        "--test",
+        "tests/documentation-contract.test.mjs",
+        "tests/check-a6.test.mjs"
+      ],
+      "exitCode": 0,
+      "log": "communication-kit-2026-10-13-release-projection-import-01-doc.log",
+      "rawBytes": 12234,
+      "sha256": "dcd3aaf86282cd9f105d7b84b2385936eba97348fbde32700d26e0ee8e990764",
+      "counts": {
+        "tests": 65,
+        "pass": 65,
+        "fail": 0,
+        "skipped": 0
+      }
+    }
+  ]
+}

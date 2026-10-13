@@ -6,18 +6,18 @@ owner: marketplace-maintainers
 created: 2026-10-13
 updated: 2026-10-13
 state: draft
-version: v1.4.2
+version: v1.7
 ---
 
 # [RUNBOOK] Marketplace 8.3.0 release readiness
 
-Refs [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。本记录属于Communication PR4的并行准备，不是PR3实际合并后的验收或PR5发布成功记录。五份主PR按计划依赖顺序经保护门禁合并；Epic保持开放。
+Refs [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。本记录保留PR4/四包预备历史，并追加从实际M4 merge派生的正式PR5候选。M1–4已实际合并；main/Release与发布后复查仍待完成，Epic保持开放。
 
 ## Authorized scope and current identity
 
 Owner已授权实施至正式上线、Release及上线后安装复查；Q1选定Learning先8.2.0、Communication随后独立minor，Q3选定正式只公开Learning三包＋Communication，HTML保留develop另发。已确认产品和上线目标继续复用，不新增发布范围。
 
-当前develop已实际合入PR1 #223 / bca7b5c、未发布8.2.1；PR4普通继承PR3 10674c6并保留已准备8.3.0。此前Lookup/版本操作和各原始源身份按当时事实保留，较早预升同步见[pre-bump sync 01](evidence/communication-kit-2026-10-13-prebump-sync-01.json)，本轮来源与检查记录见本文末节。README分别标明上游develop8.2.1与本PR4已准备badge8.3.0。
+当前develop为实际M4 #233 merge `c1fa458df1b531d7c38436908b750ba810b0b116` / 未发布8.3.0，开发五包七技能。M2 #225 merge9819509、M3 #229 merge58cd115按实际顺序落地，更新后的PR3/4 head32b723a/6344cd7与merge树一致，M4树与受测a5dd一致。正式PR5从此实际M4派生并接入7548四包投影；main最新仍ebc4bdc3/published8.2.0，无8.3 tag/Release，版本已匹配目标不重复bump。三阶段reviews观察仍为空，不补作批准或豁免。
 
 Learning v8.2.0已于2026-10-13T05:00:19Z由`github-actions[bot]`公开，main/tag/Release目标均为`ebc4bdc3abc62c36348d9ba28de7161b04b3b466`。正式三包为Diagram0.3.1、Learning Evidence0.1.0、Explain0.1.1；此Release不是Communication交付。发布后同步#234实际develop为`2c0a83172507bcb77d105d9f9294fec2e6672ac1`，VERSION8.2.0；8.2.1预升#235当时未合并，不作为已生效基线。应用版本工具前查询v8.3.0 tag与Release均404，不覆写既有身份。
 
@@ -26,7 +26,7 @@ PR4从`7cfb59d35072a210c96973a0d0fd06b6da719d14`的8.2.0工作源准备8.3.0。�
 | 集合 | 插件/技能与安装预期 | 状态 |
 | --- | --- | --- |
 | develop候选 | D/L/E/HTML/Comm五包七技能，普通3、显式4、开发20；十三snapshot/canonical组合 | 8.3.0工作树344/344、strict/CLI0.147.0、十三snapshot、六次图表Python/六组Learning保存重放回读通过；未冒充canonical |
-| Owner正式8.3.0范围 | D/L/E/Comm四包六技能，普通3、显式3、开发20；原九组合按Learning双技能替换 | PR5原子移除HTML运行注册、白名单/资源/安装预期并严格复验，尚未完成 |
+| Owner正式8.3.0范围 | D/L/E/Comm四包六技能，普通3、显式3、开发20；九组合 | 独立预备投影已原子准备、318项工程与九snapshot通过；正式PR5仍须从实际PR4 merge派生并验收，尚未完成 |
 | 实际main/Release | v8.2.0三包五技能，Communication未公开 | 已核对依赖身份，不记本包完成 |
 
 ## Acceptance and remaining merge gates
@@ -37,7 +37,7 @@ PR4从`7cfb59d35072a210c96973a0d0fd06b6da719d14`的8.2.0工作源准备8.3.0。�
 
 此前四PR均draft；PR1现已实际合入，reviews缺项保留，后续阶段仍须当前head门禁。PR1 [#223](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/223)→PR2 [#225](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/225)→PR3 [#229](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/229)→PR4 [#233](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/233)必须依次满足最新develop、当前head required CI、非作者最新推送批准及已解决线程。此前reviews为空且A6因冲突未执行，不能把仅push Structure成功写成全部门禁通过；每次刷新后重新核对。聊天批准仅执行授权，Agent自检和独立AI审查不替代GitHub review。
 
-PR3实际merge尚无，故PR4与该merge的tree/运行包比较NOT RUN；并行版本准备不解除依赖。PR4实际merge、正式发布候选SHA/tree与主分支差异均NOT RUN。PR5只从PR4经门禁合入的实际merge派生；main还须实际代码所有者与独立批准，不绕过保护。
+实际M3/M4 merge及包内容比较已核实：M3 Comm14a3896c、M4 Comm170fcad8，差异仅首版CHANGELOG；主技能/refs/manifest/icons保持已测来源。PR5已从实际M4 c1fa458派生，完整发行/安装检查与main差异另追加实际批次；main还须当前head代码所有者和独立批准，不绕过保护。
 
 ## Draft-first release and post-publication verification
 
@@ -79,6 +79,18 @@ Refs #222。#235于2026-10-13T06:10:55Z实际合入3af6837，仅AGENTS、VERSION
 
 Refs #222。PR4由原head `48437be`普通合入PR3 `c6d40a8`，包含实际develop `98068a8bd7060585b9915be9490a02a733fcb1a6`；当前VERSION/badge8.3.0已匹配，不重复bump。生产包/scripts/tests/catalog相对原head零差异，Comm包tree170fcad保持且除首版CHANGELOG外等于实际native UI来源000e803。开发五包与正式四包范围分开，main/v8.2.0仍Learning三包；上游收尾见[回执](evidence/learning-evidence-8-2-0-closeout.json)。本轮只检查文档/严格/A6/whitespace和提交规范，外部原日志 `C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr4-*.log` 与追加审计记录实际结果和hash，不把旧full/canonical/Python/UI改写为新执行。具体来源及冲突整合见[验收账本末节](./[RUNBOOK]_Communication_Kit_Acceptance.md)。预备四包projection仍是独立工作，不是正式PR5，阶段实际合入、当前head批准/线程、正式候选与R01–R05继续按实际证据处理。
 
+### Owner Q3 四包发行预备投影
+
+Refs #222。[预备工程01](evidence/communication-kit-2026-10-13-release-projection-01.json)固定最初tested index3643f2b6，实际318/318测试、strict、CLI0.147.0和九组snapshot安装通过，实际四次图表Python/四组Learning保存重放回读、解释器3.12.14。catalog、插件目录、严格资源/显式集合、品牌导出与安装预期原子限定四包六技能/三显式；四个保留插件完整Git tree及版本与48437源相同，主技能/refs/icons未变。新HTML混入三变体固定真实fixture commit，canonical strict先拒绝再installer零调用；[独立AI工程窄审](evidence/communication-kit-2026-10-13-release-projection-review-01.json)不是GitHub批准。
+
+此codex/communication-release-preparation仅是独立预备分支，正式PR5未创建。最初检查后仅导入最新Learning文档收尾、纠正本预备源当前范围，并做受影响doc/A6/strict复验；固定canonical证据另追加。不得把本源准备记为PR4实际merge验收、正式PR5或R04上线后复查。正式PR5仍须从PR4经门禁合入的实际merge重新派生、刷新main，并比较本预备投影与最终候选；R01–R05和Epic关闭条件保持原要求。
+
+| Version | Date | Summary |
+| --- | --- | --- |
+| v1.4 | 2026-10-13 | 记录Owner Q3四包独立预备工程；正式阶段merge/PR5/上线后检查保持未完成 |
+
+Refs #222。固定cd7a9fbd/tree129cc599的[四包canonical01](evidence/communication-kit-2026-10-13-release-projection-canonical-01.json)实际执行detached strict和九组CLI0.147.0安装，四图表Python/四Learning保存重放回读通过，Python3.12.14；普通3/原生6/显式3/开发20。本批是发布前预备验证，R04上线后复查仍NOT RUN，正式PR5须从实际PR4 merge另派生并刷新main。
+
 ### 文档收尾原始证据归档
 
 Refs #222。[Closeout sync 01](evidence/communication-kit-2026-10-13-closeout-sync-01.json)绑定PR1 `6c0d609`、PR2 `c198f5c`、PR3 `c6d40a8`、PR4 `86a364e`实际head/tree、来源develop `98068a8`、各阶段生产零新增差异及65项受影响文档/A6范围，按raw manifest保存外部审计与43份原始日志。此前20份日志、两次只读审计helper失败及修复复验原字节保留，不覆盖旧record。当前归档基于86a364e，仅文档与evidence变化；五包开发、8.3.0及根/Comm正式CHANGELOG保持，不导入独立四包preview。AI独立核验和本地正常A6不替代GitHub当前head非作者批准、required checks或线程门禁，不补填正式PR5/Release/R01–R05，历史CLI PARTIAL、限定客户端及现实效果延期保持。
@@ -87,10 +99,26 @@ Refs #222。[Closeout sync 01](evidence/communication-kit-2026-10-13-closeout-sy
 
 第二次whitespace exit2进一步识别PR3原diff回执的末尾空行；只为该精确证据文件保留EOF字节，第二失败回执及修复说明同样追加，不改写原日志。
 
+| Version | Date | Summary |
+| --- | --- | --- |
+| v1.5 | 2026-10-13 | 合入PR4实际49036ad文档归档，保留四包预备canonical与五包开发来源；生产保持cd7未变 |
+
 ### 继承空白问题的完整范围复验
 
 Refs #222。[Inherited whitespace 01](evidence/communication-kit-2026-10-13-inherited-whitespace-01.json)保留四阶段首轮真实full-range exit2、普通来源继承与最小修复；各固定实际head的`git diff --check origin/develop...HEAD`、staged、strict及65项documentation/A6均通过，未用parent/staged结果代替完整PR检查。非冻结guide/fixture和当时ADR/SPEC/验收仅收敛EOF，文档正文/案例解析值不变；计划405行/hash、来源记录和原Node失败日志各自磁盘/Git blob身份保持，只设置精确冻结属性。原日志、源身份、全部hash和证据文件的窄空白属性见manifest/audit。当前C4归档只补文档证据并保留开发五包/8.3.0及正式CH；不导入预备四包代码，不宣称GitHub批准、正式发布或新增full/install/Python/UI执行。
 
+| Version | Date | Summary |
+| --- | --- | --- |
+| v1.6 | 2026-10-13 | 导入实际8a841a7完整范围空白修复及原日志，冻结原稿/运行包保持，正式发布门禁未完成 |
+
 ### 实际PR1合并后的下游同步
 
 Refs #222。[PR1 merge sync 01](evidence/communication-kit-2026-10-13-pr1-merge-sync-01.json)绑定实际M1 merge `bca7b5c`/head `5a9d845`同tree、PR2 `7040dca`和PR3 `10674c6`的普通继承及PR4源输入，保留新的merge/检查/CRLF归档失败与窄修复原日志。M1固定postmerge六份完整原件由PR2先归档并原字节向后继承；不以摘要代替canonical result或GHfacts。此同步只更改文档/证据与精确原字节属性，运行/版本/正式CH保持，最终当前head检查与PR身份另记，不把M1reviews=[]推定批准，不计Communication或R04/R05；旧draft/NOT RUN及客户端/效果限制按原时间保留。
+
+### 四包预备继承实际M1后续来源
+
+Refs #222。本预备普通合入PR4 `a5dd8252b3bc9f3230aaf798b4dfe7b1fead7841`，继承实际M1 merge与完整原始证据；三处文档冲突保留双方历史/新M1记录，并保持更高文档版本。运行包/脚本/JS测试/注册/图标/版本相对预备23ab577保持，未重新执行旧全量/canonical/Python/UI。四包/六技能/三显式/九组合继续限定Owner Q3，源development仍五包；本分支不是实际M4 merge或正式PR5，R01–R05未执行。原合并冲突及指令预算修复、最终检查在[本轮追加记录](evidence/communication-kit-2026-10-13-pr1-merge-preparation-01.json)中保留。
+
+### 正式PR5从实际M4派生
+
+Refs #222。正式候选从实际M4 c1fa458创建独立codex/communication-release，普通接入已测7548四包投影；投影初始完整树bfcd29ec与原7548一致。保留所有插件/脚本/JS测试/图标/版本/正式CH/冻结计划对象，更新本阶段说明而不改变运行内容。最新main ebc4bdc3已是M4祖先，正式发布范围只增加Communication，HTML运行目录与注册均不公开；开发五包继续保留。先执行本候选完整工程、九组合和固定canonical并记录实际源，再创建draft及核查main门禁。R01–R05仍NOT RUN，发布前验证不计上线后复查。
