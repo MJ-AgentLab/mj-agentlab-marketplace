@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.2.1
+version: v1.2.2
 ---
 
 # [RUNBOOK] Communication Kit acceptance
@@ -139,3 +139,7 @@ PR1契约结果、PR3实证、PR4回归、PR5发布及后续复查逐阶段追�
 | v1.2 | 2026-10-13 | 明确先行Learning迁移后的开发/正式两个精确集合与Owner Q3范围；原计划、旧结果及新包未测状态保留 |
 | v1.1 | 2026-10-13 | 追加HTML基线同步、279测试与七组canonical；如实记录原路径缺失和原字节副本身份 |
 | v1.0 | 2026-10-12 | 固定基础用例与证据状态；全部新包用例尚未执行 |
+
+### PR1实际合并与固定来源复验
+
+Refs #222。[M1 postmerge 01](evidence/communication-kit-2026-10-13-pr1-merge-01.json)记录#223于2026-10-13T10:42:13Z实际合入develop `bca7b5c`，与已测head `5a9d845`同tree `b3d1f5b`。Root对该固定merge执行doc/A6 65/65、strict四开发包六技能和八组detached canonical，原summary列CLI0.147.0、四次Diagram/三组Learning实际Python3.12.14。初始python PATH launcher失效令三个尝试均未执行，绝对路径修复成功的完整原件分开保留。六份外部原件（含完整canonical result与GHfacts）按byte/hash归档，不摘取代替原始数据；reviews=[]/REVIEW_REQUIRED不能补作独立批准。M1复验不是Communication或R04/R05，后续来源/运行/安装范围变化须按record失效边界复验。

@@ -77,3 +77,5 @@ Learning Evidence 当前交付：#216/#224/#227/#228/#230已交付，#210–214�
 Communication PR2 普通同步已合入的 #236 / develop `98068a8` 文档收尾；当前开发基线8.2.1仍四包六技能，Communication在本前置阶段未注册。main/tag/Release仍为 `ebc4bdc3` / published v8.2.0三包五技能；Q3正式Communication四包六技能、HTML留develop另发保持。最新来源和延期见上述发行账本与收尾回执，本轮保留原计划及历史证据，不额外bump，Refs #222。
 
 PR2继承空白修复检查完整PR范围；冻结计划、来源及原失败证据保留原字节。
+
+PR1 #223已实际合入develop bca7b5c（2026-10-13，源5a9d845同树）；reviews=[]不追认独立批准。本分支普通同步，Refs #222。
