@@ -10,7 +10,7 @@ Learning Evidence Kit 的 Pop Quiz 诊断只读，明确移交后结束诊断，
 
 实施或验收 Learning Evidence Kit 时读取 [迁移 ADR](docs/adr/[ADR]_Learning_Evidence_Kit_Migration.md)、[记录/API 契约](docs/spec/[SPEC]_Learning_Evidence_Record_And_API.md)、[使用指南](docs/guide/[GUIDE]_Learning_Evidence_Kit.md)与[验收账本](docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。Epic #209 已获集中实施及条件发布授权；PR4 原子切换包及精确校验，安装脚本归属新插件，不依赖仓库过渡路径。Owner 接受双技能/接口不变、核心独立验收后交付；所有启用提问入口严格待答，未提交/默认/超时/关闭不算答复，原生持续显示须实证，文字重述或 pending 不算窗口通过。PR5 列实际可启用与延期入口；核心交付、原计划完成及 Owner 最终接受分别记录，Epic 保留延期。
 
-Marketplace v8.1.1 已通过 #205 合入 main 并于 2026-10-10 自动发布，包含 diagram-kit 0.3.1 / understanding-kit 0.1.2 / explain-kit 0.1.1。已发布 merge 与已测 head 的 Git tree 相同，发布后四种 canonical 安装、图标内容比较与实际 Python 校验通过。Owner 截图支持详情页图标和版本，两端完整客户端记录及 #205 GitHub 独立批准未提供；事实见 [8.1.1 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。#206 已将实际发布 main 同步回 develop；此前 #208 应用未发布的 8.1.2 pre-bump，当时只更新 VERSION / README badge，保持旧插件版本，不创建同号 Release。同期 main 文档 PR #207 的实际 merge ancestry 在收尾时继续纳入。
+历史v8.1.1的main/merge/tag、四种canonical与真实Python、Owner截图、两端完整客户端及独立批准缺项见[发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。#206回同步、#208当时8.1.2预升及同期文档历史保留，公开历史和未覆盖项不由后续发布追认。
 
 历史 v8.1.0 通过 #198 发布，#199 完成 main → develop 同步，#200 修正发布记录，#201 将 develop 预升为当时未发布的 8.1.1。历史验收失败、回放、未覆盖客户端结果与缺失批准分别保留，见 [8.1.0 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)。
 
@@ -74,6 +74,6 @@ HTML PR1 当时保持 marketplace 未发布 8.1.2 及其他插件版本，无 Re
 
 Learning前序#216/#224/#227/#228/#230交付与#210–214关闭、模型原失败和审查缺项见[验收账本](docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。#232/main ebc4bdc3与已测6d83c8e同树，v8.2.0由bot公开，发布后五canonical/三图表Python/两组保存重放通过，发布脚本noop；immutable=false，API未提供配置字段。#224有实际批准，其他未见/空reviews不追认。原生入口延期、桌面/Side Chat未测、现实效果及Owner最终接受另记，#215/Epic仍OPEN。
 
-Communication PR3普通同步已合并#234的develop2c0a831，完整保留HTML及Learning/Diagram/Explain运行包，接入五包七技能/四显式/普通三/开发20。十三snapshot和固定提交canonical分开，既有Comm UI/CLI PARTIAL/失败按原身份保留；正式仅D/L/E/Comm四包六技能，HTML留develop。#235未合入，不带入8.2.1、不bump。Refs #222；当前head批准、CI/线程及实际保护合并仍待完成。
+Communication PR3普通同步已合并#234的develop2c0a831，完整保留HTML及Learning/Diagram/Explain运行包，接入五包七技能/四显式/普通三/开发20。十三snapshot和固定提交canonical分开，既有Comm UI/CLI PARTIAL/失败按原身份保留；正式仅D/L/E/Comm四包六技能，HTML留develop。#235现已实际合入develop3af6837，版本/badge8.2.1生效，插件/运行内容保持；其reviews为空不追认批准，PR3仅继承，不额外bump；PR4保留已准备8.3.0，不以8.2.1覆盖获准目标。Refs #222；当前head批准、CI/线程及实际保护合并仍待完成。
 
 Communication PR4以已公开8.2.0基线先DryRun零写入后准备8.3.0 VERSION/badge；五包根版本保持，包变更仅首版CHANGELOG正式段。PR1–4仍draft，实际PR3/4受保护merge与正式四包候选未完成；R01–R05不填PASS，见[8.3.0账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)，Refs #222。

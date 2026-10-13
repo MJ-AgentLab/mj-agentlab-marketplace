@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-13
 updated: 2026-10-13
 state: draft
-version: v1.1
+version: v1.2
 ---
 
 # [RUNBOOK] Marketplace 8.3.0 release readiness
@@ -16,6 +16,8 @@ Refs [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/2
 ## Authorized scope and current identity
 
 Owner已授权实施至正式上线、Release及上线后安装复查；Q1选定Learning先8.2.0、Communication随后独立minor，Q3选定正式只公开Learning三包＋Communication，HTML保留develop另发。已确认产品和上线目标继续复用，不新增发布范围。
+
+当前最新develop为实际#235 merge3af6837、未发布8.2.1；PR4保留已准备8.3.0。此前Lookup/版本操作和各原始源身份按当时事实保留，最新小同步见[pre-bump sync 01](evidence/communication-kit-2026-10-13-prebump-sync-01.json)。
 
 Learning v8.2.0已于2026-10-13T05:00:19Z由`github-actions[bot]`公开，main/tag/Release目标均为`ebc4bdc3abc62c36348d9ba28de7161b04b3b466`。正式三包为Diagram0.3.1、Learning Evidence0.1.0、Explain0.1.1；此Release不是Communication交付。发布后同步#234实际develop为`2c0a83172507bcb77d105d9f9294fec2e6672ac1`，VERSION8.2.0；8.2.1预升#235当时未合并，不作为已生效基线。应用版本工具前查询v8.3.0 tag与Release均404，不覆写既有身份。
 
@@ -59,9 +61,14 @@ PR3实际merge尚无，故PR4与该merge的tree/运行包比较NOT RUN；并行�
 
 | Version | Date | Summary |
 | --- | --- | --- |
+| v1.2 | 2026-10-13 | 实际8.2.1上游已合入，保持已准备8.3.0并限定沿用未变运行内容的既有检查 |
 | v1.1 | 2026-10-13 | 纳入真实发布后基线及固定08cc开发canonical证据；正式四包与R01–R05不预填 |
 | v1.0 | 2026-10-13 | 绑定已授权8.3.0准备；Learning已公开、四包正式范围、阶段批准和R01–R05待真实完成 |
 
 ### 已固定开发候选的canonical与同步复查
 
 Refs #222。[Post-release sync 01](evidence/communication-kit-2026-10-13-postrelease-sync-01.json)保留四分支普通导入真实develop2c0a831的来源、20原始日志/审计和135/148/65/65受影响回归；PR3/4后续只改文档，生产/测试保持。PR4实际固定08cc006、tree859066f、VERSION8.3.0的[canonical 01](evidence/communication-kit-2026-10-13-pr4-canonical-01.json)通过严格校验、十三安装、六次图表Python/六组Learning保存重放回读，CLI0.147.0、Learning解释器3.12.14。Communication主技能/refs/manifest/icons与原000e803实际UI来源一致，完整Comm包仅首版CHANGELOG改变tree；Learning替换及其他包集合按新基线独立验证。该批为发布前五包开发候选，不能填正式四包验收、阶段保护合并或R04上线后复查；原模型/UI失败与PARTIAL继续保留。
+
+### 实际8.2.1开发预升导入
+
+Refs #222。#235于2026-10-13T06:10:55Z实际合入3af6837，仅AGENTS、VERSION与README badge变化，当前develop8.2.1；其reviews为空，历史缺项不追认。PR1/2/3普通继承8.2.1；PR4普通继承真实ancestry并保留已匹配目标8.3.0及根badge，不重复版本工具转换。原8.2.0→8.3.0的真实DryRun/apply与时间/源保持原记录。当前运行包/脚本/测试及8.3正式CH相对已测源保持；只做受影响文档/A6与strict复验，不将旧全量/canonical写为新执行。实际phase merge、非作者批准、正式四包和R仍未完成。

@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.10
+version: v1.11
 ---
 
 # [RUNBOOK] Communication Kit acceptance
@@ -246,6 +246,7 @@ PR4当前仅准备上述账本。完成PR3合并身份比较后，核对未发�
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.11 | 2026-10-13 | 实际继承8.2.1预升基线、保持已匹配8.3.0目标，原工具操作身份不改写 |
 | v1.10 | 2026-10-13 | 固定8.3开发候选canonical与发布后基线同步工程证据，实际阶段合并/正式四包/上线后复查仍未执行 |
 | v1.9 | 2026-10-13 | 原字节归档Learning三轮工程与真实失败；准备8.3.0身份，保留受保护合并/正式候选/上线后未执行状态 |
 | v1.8 | 2026-10-13 | 整合Learning原子替代、Owner Q3四包公开范围与三轮工程记录；Learning正式先发已完成，Communication门禁和发布未完成 |
@@ -279,3 +280,7 @@ Learning v8.2.0实际发布依赖已满足，tag/Release/main merge均为ebc4bdc
 ### 已固定开发候选的canonical与同步复查
 
 Refs #222。[Post-release sync 01](evidence/communication-kit-2026-10-13-postrelease-sync-01.json)保留四分支普通导入真实develop2c0a831的来源、20原始日志/审计和135/148/65/65受影响回归；PR3/4后续只改文档，生产/测试保持。PR4实际固定08cc006、tree859066f、VERSION8.3.0的[canonical 01](evidence/communication-kit-2026-10-13-pr4-canonical-01.json)通过严格校验、十三安装、六次图表Python/六组Learning保存重放回读，CLI0.147.0、Learning解释器3.12.14。Communication主技能/refs/manifest/icons与原000e803实际UI来源一致，完整Comm包仅首版CHANGELOG改变tree；Learning替换及其他包集合按新基线独立验证。该批为发布前五包开发候选，不能填正式四包验收、阶段保护合并或R04上线后复查；原模型/UI失败与PARTIAL继续保留。
+
+### 实际8.2.1开发预升导入
+
+Refs #222。#235于2026-10-13T06:10:55Z实际合入3af6837，仅AGENTS、VERSION与README badge变化，当前develop8.2.1；其reviews为空，历史缺项不追认。PR1/2/3普通继承8.2.1；PR4普通继承真实ancestry并保留已匹配目标8.3.0及根badge，不重复版本工具转换。原8.2.0→8.3.0的真实DryRun/apply与时间/源保持原记录。当前运行包/脚本/测试及8.3正式CH相对已测源保持；只做受影响文档/A6与strict复验，不将旧全量/canonical写为新执行。实际phase merge、非作者批准、正式四包和R仍未完成。
