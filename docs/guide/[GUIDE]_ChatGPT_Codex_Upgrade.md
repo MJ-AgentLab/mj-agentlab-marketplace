@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-12
 state: active
-version: v1.7
+version: v1.8
 ---
 
 # [GUIDE] ChatGPT / Codex upgrade
@@ -33,7 +33,7 @@ codex debug prompt-input '$diagram-kit:arch-diagram'
 
 ## Learning Evidence candidate migration
 
-新候选直接替换 understanding-kit 注册，保持 Diagram 0.3.1 / Explain 0.1.1；marketplace 暂为 8.1.2，Learning Evidence 0.1.0，8.2.0 在 PR5 准备。代理隔离验收使用待测 branch 或固定 SHA，不改变个人插件来源。个人试用先核对现有来源、包身份和必要原件，再选择新候选；已安装 Understanding 缓存不会自动卸载。
+新候选直接替换 understanding-kit 注册，保持 Learning Evidence 0.1.0 / Diagram 0.3.1 / Explain 0.1.1；PR5 将未发布 marketplace 8.1.2 准备为 8.2.0，尚无新 Release。代理隔离验收使用待测 branch 或固定 SHA，不改变个人插件来源。个人试用先核对现有来源、包身份和必要原件，再选择新候选；已安装 Understanding 缓存不会自动卸载。入口资格和发布条件见 [8.2.0 发布准备](../runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。
 
 ~~~text
 codex plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace --ref codex/learning-evidence-switch

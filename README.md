@@ -2,9 +2,9 @@
 
 <img src="assets/brand/marketplace/logo.svg" width="128" height="128" alt="MJ AgentLab Marketplace — MJ letters with connected modules">
 
-![Version](https://img.shields.io/badge/version-8.1.2-blue)
+![Version](https://img.shields.io/badge/version-8.2.0-blue)
 
-面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场。当前开发候选保持 marketplace 8.1.2，注册四个 portable 插件、六个公开技能，无需 MCP 服务。Owner 已确认公开 8.2.0 保持 Diagram、Learning Evidence、Explain 三插件/五技能；develop 保留 HTML，另行发行：
+面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场。当前开发候选为未发布 marketplace 8.2.0，注册四个 portable 插件、六个公开技能，无需 MCP 服务。Owner 已确认公开 8.2.0 保持 Diagram、Learning Evidence、Explain 三插件/五技能；develop 保留 HTML，另行发行：
 
 | 插件 / 公开技能 | 用途 | 版本与分发状态 |
 | --- | --- | --- |
@@ -34,7 +34,7 @@ codex plugin add learning-evidence-kit@mj-agentlab-marketplace
 codex plugin list --json
 ~~~
 
-该 branch 只表示候选来源，实际运行必须核对来源和版本，并记录待测 SHA。开发 badge 保持 8.1.2；已发布身份以 [GitHub Releases](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases) 为准。
+该 branch 只表示候选来源，实际运行必须核对来源和版本，并记录待测 SHA。PR5 准备的 VERSION / badge 为 8.2.0；已发布身份以 [GitHub Releases](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases) 为准，发布门槛与入口限制见 [8.2.0 发布准备](docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。
 
 ### Explain Kit
 
@@ -66,7 +66,7 @@ Codex 优先在 Side Chat 提供任务片段、职责与可定位的源码、规
 
 ### Development
 
-Epic #209 的 PR4 原子切换候选包：Learning Evidence 0.1.0，Diagram 0.3.1 / Explain 0.1.1 保持；当前 VERSION / badge 仍为未发布 8.1.2，PR5 才准备 8.2.0。共用脚本已归属新插件，安装运行不能依赖仓库或 worktree 过渡路径。品牌图标复用既有批准；候选尚未正式分发。
+Epic #209 的 PR4 原子切换候选包，PR5 将 VERSION / badge 从未发布 8.1.2 准备为 8.2.0。Learning Evidence 0.1.0、Diagram 0.3.1 / Explain 0.1.1 保持。共用脚本已归属新插件，安装运行不能依赖仓库或 worktree 过渡路径。品牌图标复用既有批准；候选尚未正式分发。
 
 20 个开发技能位于 .agents/skills，公开技能为 arch-diagram、pop-quiz、learning-record-check、glossary、concept 和 guide。项目指令见 [AGENTS.md](AGENTS.md)，规范和历史见 [文档索引](docs/INDEX.md)，贡献见 [CONTRIBUTING.md](CONTRIBUTING.md)。代理运行 npm ci、npm run validate、npm test、npm run check:baseline-tools 和 npm run smoke:codex；真实 Python 必须执行。Owner 已提供本 Epic 条件发布授权并接受分段边界；正式发布仍需合格入口的实际证据、当前提交非作者批准、required checks 和已解决审查线程。延期入口、整个 Epic 及最终接受独立追踪。
 
