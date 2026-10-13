@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [0.1.7] - 2026-10-13
+
+### Fixed
+
+- HTML Guide Kit 0.1.7 separates initial/assigned values and reachable-state properties from a complete accepted-input domain. Source omissions remain explicit; added teaching constraints need local construction/design attribution.
+- Keep known source-covered operations and field results despite unrelated input-domain gaps; an attribution elsewhere does not repair an unmarked restriction here.
+- Preserve the actual0.1.6 fidelity failure and full native loading evidence; require new installation, affected paths and all six blocking groups. Refs #217, #220.
+
 ## [0.1.6] - 2026-10-13
 
 ### Fixed

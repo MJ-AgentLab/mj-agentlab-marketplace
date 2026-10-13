@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.11
+version: v1.12
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -315,3 +315,14 @@ E14-review UUID `01a13331-3167-70d3-840e-13bb519e13ed` / attempt `25e727ff-7118-
 开始的新0.1.6原会话中，完整 native SKILL 正文与本次缓存路径/正文逐字匹配，旧截断缺陷有受影响实际加载证据；这不替代每变体的独立语义判准、工具事件核查和完整矩阵结论。没有通过控制信息诱导补读，人工选择只来自实际顶层目标与单一三元组，冻结用户输入/原SPEC/原计划保持同字节。
 
 随后远端又合入#230，实际6b5a19e将marketplace准备为未发布8.2.0并更新治理/验收资料与一个版本测试；434d053→6b5a19e全部插件及scripts没有变化。本分支普通同步该已批准状态，不自行bump市场或其他插件，也不创建发布。b5170b0的模型源、后续提交与安装缓存的HTML运行资源必须逐项哈希对应，不能宣称完整repo tree相同。#230同步后又实际运行319/319零skip、validate/check，通过；当前合并提交、严格安装及最终head/merge门禁另存精确身份。现实效果NOT_MEASURED，原生桌面及当前head独立批准缺项不据此取消，#220/Epic开放。
+## 21. 新值域归因失败、0.1.7修正与完整历史封存
+
+0.1.6 全部B14fresh/30轮及受影响E6/12已真实调用，native正文均有本次缓存全文匹配，读取/输出及全部语义仍须独立判准。B6.1 UUID01a1339d-3c3a-7d13-bfc1-bc43bcab430c / attempt7f660cce-a3f6-4c6d-8761-2ede3f1ec546的第二轮36–41行将初值和运算扩为库存的通用非负整数域，未标构造或限定可达状态集合。135–143的其他正整数构造标签不能抵消41的源事实归因。原B6范围/Read三个判准PASS仍保留；补充来源忠实判准FAIL、整体FAIL，不发明未调用负数/小数路径的结果。新0.1.7通用方法区分初值、单次赋值、可达性质与完整输入域，就地标额外教学限制，保留原流程已知局部操作和结果，无验收答案。只推进本插件补丁，不改变市场及其他运行包。
+
+已停止0.1.3的完整控制、115输入输出/工具事件、53准确UUID与原评审已lossless封存：[919文件索引](evidence/html-guide-kit/pr3-reviewer/candidate-013/index.json)、[逐调用账本](evidence/html-guide-kit/pr3-post-merge/candidate013-ledger.json)、[独立Node/.NET校验](evidence/html-guide-kit/pr3-post-merge/candidate013-final-seal/archive-index.json)。原字节32,852,373，19包，sourceInventorySha25627f762d892e0613b82f97737da84ed1401a3a7f329c74305576c9a7599ef3af0；38PASS/5FAIL/8INVALID_RUN/2UNEXERCISED，另准备未调用NOT_RUN单列。原控制/原评审与补充控制归因分别保留；Rootarchive历史元信息不改，packer仅修正未使用的旧索引描述，不改变选文件/pins/扫描/还原范围。
+
+[0.1.5精确安装](evidence/html-guide-kit/pr3-post-merge/engineering-3bf1fe05/archive-index.json)七场景/四Python；[0.1.6行为源b517工程](evidence/html-guide-kit/pr3-post-merge/engineering-b5170b0e/archive-index.json)与[同步后422工程](evidence/html-guide-kit/pr3-post-merge/engineering-422c3763/archive-index.json)各八场景/四Python通过。两份静态snapshot与旧281初次文档检查失败及修正、两次上游同步319完整检查的raw控制保存；不是行为或GitHub批准替代。
+
+0.1.6连续补证在已启动轮次正常结束后停止：E7四轮COMPLETE；暂停标志晚于下一E12启动29.195秒，新增E12 T1真实UUID01a133b0-b346-7233-b2ba-da590300a3fd，原重连OS10054 error后虽有turn.completed，冻结transport仍FAILED_OR_INVALID，余四轮NOT_RUN。无kill/重试，不追写前序全未跑或COMPLETE。重复操作补证尚未prepare/调用，NOT_RUN。0.1.6其他独立结果随后继续封存，不因下一补丁覆盖历史。
+
+0.1.7须新canonical严格八安装/四Python，全部六组14/30、受影响E6/12、重复操作1/2及连续流程S2/9重新独立验收；原有效失败、控制无效、partial/未跑与新修正调用分别记录。现实效果NOT_MEASURED，原生桌面延期、最终head批准/CI/threads及actualmerge门禁不据此取消，#220/Epic开放。

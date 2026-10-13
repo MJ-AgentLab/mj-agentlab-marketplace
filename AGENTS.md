@@ -62,10 +62,10 @@ Learning Evidence 当前交付：#224/a2090ff8、#227/f958908e、#228/434d053均
 
 Owner 已授权 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 的三个阶段、独立 worktree 和 codex/ 分支。PR1 #221 实际 merge 70267a5 已复验，#218 已关闭；PR2 [#226](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/226) 于2026-10-12接入完整0.1.0包、第二轮已选A图标与严格合同，merge d106e766 与已测head72cdd08 tree相同，七安装/四缓存Python通过，#219已显式关闭。历史GitHub reviews缺少独立批准如实保留，不追认门禁。PR3 #231 继续扩展工程、双客户端及最终merge复验；当前head非作者批准、required checks和已解决审查线程仍须满足，不bypass。
 
-当前分支 HTML Guide Kit 0.1.6 是未合并修正候选；marketplace按并发#230已准备未发布8.2.0。已同步并发origin/develop6b5a19e（前期434d053）的Learning Evidence迁移，保留四插件、六公开技能、三个自然启用技能、三个显式策略和20项仓库开发技能，本任务不修改其他插件版本。公开8.2.0三插件发行范围按并行任务决定，HTML保留develop、另行发行；本任务无Release、tag或main发布授权。版本工具缺manifest仍失败。
+当前分支 HTML Guide Kit 0.1.7 是未合并修正候选；marketplace按并发#230已准备未发布8.2.0。已同步并发origin/develop6b5a19e（前期434d053）的Learning Evidence迁移，保留四插件、六公开技能、三个自然启用技能、三个显式策略和20项仓库开发技能，本任务不修改其他插件版本。公开8.2.0三插件发行范围按并行任务决定，HTML保留develop、另行发行；本任务无Release、tag或main发布授权。版本工具缺manifest仍失败。
 
 唯一入口 $html-guide-kit:guide，显式调用、Read、默认中文/原术语，聊天文本新建指南。每次实际读材料/快照并区分证据、保留冲突缺口；给2–3套不同读者/任务/理解问题，推荐及理由。明确选择或修改确认后才生成；推荐、预选、沉默、超时、无关回复或窗口消失不算确认，未答保留同一待确认，不承诺锁宿主窗口。深度按材料调整；保留来源、条件、例外与未知；需要的演示/模拟/自检含反馈及恢复，无可靠判准仅有限参考，不评分或推断长期掌握。只新建，不修订/比较/审查，不输出HTML/代码/文件/具体制作工具步骤或越权执行。运行资源仅SKILL及两份参考，无Owner路径/研究治理/历史聊天依赖。
 
-0.1.0–0.1.3真实失败、修正调用、回放、控制INVALID_RUN、未覆盖及操作中断分别保留；788历史文件及506个0.1.2文件已lossless封存并经Node/.NET复原，不能追认PASS。0.1.3独立评审发现重复操作整体未知、拒绝回显HTML及重叠反馈；中间0.1.4安装通过但模型NOT_RUN。0.1.5原生SKILL注入截断，B6 revise无补读为UNKNOWN/INVALID_RUN，其他三项有工具全文补读的局部PASS不消除缺陷。0.1.6精简入口、保留两参考，仓库/安装共用6144 UTF-8字节保守预算；须新canonical安装、完整实际加载及全部六组/受影响行为复验，不能继承旧PASS。
+0.1.0–0.1.3真实失败、修正调用、回放、控制INVALID_RUN、未覆盖及操作中断分别保留；788历史文件及506个0.1.2文件已lossless封存并经Node/.NET复原，不能追认PASS。0.1.3独立评审发现重复操作整体未知、拒绝回显HTML及重叠反馈；中间0.1.4安装通过但模型NOT_RUN。0.1.5原生SKILL注入截断，B6 revise无补读为UNKNOWN/INVALID_RUN，其他三项有工具全文补读的局部PASS不消除缺陷。0.1.6精简入口实际完整加载，但新B6.1给未标构造的通用输入域，独立补充fidelity FAIL。0.1.7区分初值/可达值/完整输入域，就地标额外限制的构造及范围，保留已知局部结果。仓库/安装共用6144 UTF-8字节保守预算；须新canonical安装、完整实际加载及全部六组/受影响行为复验，不能继承旧PASS。
 
 Owner调整现实场景效果另测，本次NOT_MEASURED。当前操作工具仅浏览器，原生应用API禁用；Codex应用UI、ChatGPT桌面及空返回/超时/关闭事件未执行，CLI不替代。合格核心可分段交付，延期入口不视为通过；Issue #220与Epic保持开放，Owner最终接受独立记录。决定见[ADR](docs/adr/[ADR]_HTML_Guide_Kit_Addition.md)，判准见[SPEC](docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，完整历史/实际证据/当前候选见[RUNBOOK](docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)§11–19。研究项目只读，不整理或提交其沉淀。
