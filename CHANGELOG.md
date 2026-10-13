@@ -7,6 +7,7 @@
 
 ### Added
 
+- Stage Python 3.12 local Learning Evidence storage with immutable records, confirmed attribution, full baselines, idempotent transactions, reference-only worktree association, complete export/import and retained archive. Old runtime packages remain byte-identical; installation switch is deferred to PR4.
 - Atomically add the HTML Guide Kit 0.1.0 development candidate: one explicit Read skill, guide, two packaged references, the Owner-selected round-2 A HTML textbook icon, strict registration and source/cache byte checks. Preserve the four original installation scenarios and add HTML alone, HTML + Explain and all four plugins; natural discovery remains three skills. This candidate is not a formal release or a claim of client/learning-effect acceptance. Refs #217, #219.
 
 - HTML Guide Kit 合同与前置治理（Refs #217、#218）：新增 ADR、验收 SPEC/RUNBOOK，预留提交 scope 与独立版本工具支持；缺失 manifest 继续失败，运行集合与 marketplace 8.1.2 / 现有插件版本保持。提供 npm run check / smoke 兼容入口；Owner 已选择第二轮 A「HTML 教材」图标，完整插件在后续 PR 原子接入。现实场景效果按 Owner 调整另测，不宣称理解改善。
