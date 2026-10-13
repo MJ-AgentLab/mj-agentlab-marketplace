@@ -4,16 +4,16 @@ scope: marketplace
 summary: "Portable plugin development and isolated testing workflow"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-12
+updated: 2026-10-13
 state: active
 version: v2.6
 ---
 
 # [GUIDE] Plugin development and testing
 
-在独立 worktree 修改各插件根 manifest、skills 和资源。运行 npm ci、npm run validate、npm test、npm run check:baseline-tools 与 npm run smoke:codex。测试覆盖合法/非法 YAML、三插件索引及独立版本、版本原子更新与失败回滚、A6 防绕过、无资产发布状态机和 Python 校验器真实执行。
+在独立 worktree 修改各插件根 manifest、skills 和资源。运行 npm ci、npm run validate、npm test、npm run check:baseline-tools 与 npm run smoke:codex。测试覆盖合法/非法 YAML、批准的开发四插件/公开候选三插件索引及独立版本、版本原子更新与失败回滚、A6 防绕过、无资产发布状态机和 Python 校验器真实执行。
 
-隔离安装使用独立 HOME、CODEX_HOME、cache、consumer cwd 和仓库镜像，验证 consumer 不发现 mp-*，repo 正确发现全部 20 个技能。元数据应解析三插件/五公开技能；普通 prompt 含 arch-diagram、glossary 和 concept，pop-quiz 与 learning-record-check 两个显式入口另查 app-server 元数据和实际加载。新包使用待测 branch/精确 SHA，不使用公开 v8.1.1 代替候选；PR5 已准备未发布 marketplace 8.2.0，插件为 Diagram 0.3.1 / Learning Evidence 0.1.0 / Explain 0.1.1。
+隔离安装使用独立 HOME、CODEX_HOME、cache、consumer cwd 和仓库镜像，验证 consumer 不发现 mp-*，repo 正确发现全部 20 个技能。开发元数据应解析四插件/六公开技能；独立 8.2.0 公开候选三插件/五技能；普通 prompt 含 arch-diagram、glossary 和 concept，pop-quiz、learning-record-check 与 guide 三个开发显式入口另查 app-server 元数据和实际加载。新包使用待测 branch/精确 SHA，不使用公开 v8.1.1 代替候选；PR5 已准备未发布 marketplace 8.2.0，插件为 Diagram 0.3.1 / Learning Evidence 0.1.0 / Explain 0.1.1 / HTML 0.1.0。HTML 保留在 develop，另行公开发行。
 
 静态结构和发现只证明安装/加载。使用已安装技能执行独立合成角色验收：Pop Quiz 的职责、来源、2+1、预算、无答待答与只读；明确移交保存后保留实际状态；Learning Record Check 两阶段结论及缺材料手动恢复。所有保存测试显式隔离证据库，GitHub 写入用受控替身；完整基线、身份归属、重试/冲突/恢复、导入导出、分段共享及增量进度都以实际运行输出验证。共用脚本必须在安装缓存、无关 cwd 执行，证明仓库脚本区已删除且不是依赖。
 
@@ -34,3 +34,7 @@ Explain Kit 单独安装及与 Diagram Kit、全部现有插件组合的隔离�
 PR2 保留原安装组合，增加 HTML Guide 单独、与 Explain 和全部插件组合，检查图标/参考/版本/调用策略/缓存来源与资源字节，真实连续模型会话通过六组阻断行为后才可合并。PR3 扩展全部边界并完成两个目标客户端的新插件交互和实际 merge 复验。判准见 [验收 SPEC](../spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，实际执行与未覆盖项见 [RUNBOOK](../runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
 
 模型实际读取本次安装缓存技能；中性随机 consumer 路径，隔离答案/评审控制，并明确排除 reviewer-only 的镜像内容。完整 canonical 身份、评审镜像身份与缓存运行哈希分别记录，不要求镜像 tree 与完整仓库相同。真实失败、回放、未覆盖与修正后的调用分开保存。2026-10-12 Owner 调整：本次不执行现实场景的理解效果测试，effect_status 保持未测量；效果另行测试，不阻断工程接入，也不能将模型行为或点击完成解释为理解改善。
+
+HTML PR2 已原子加入 HTML Guide Kit 0.1.0 与 Owner 选定的第二轮 A。保留原四组安装并新增 HTML 单独、HTML+Explain、全四插件，当时共七组；原生公开技能依次1/2/3/4/1/3/5，自然启用依次1/2/3/3/0/2/3。source/cache 必需资源按 SKILL_RESOURCES 比对 raw bytes、metadata 和路径归属；新guide恰有SKILL/native config/两参考，不允许missing或extra。连续行为测评与完整canonical安装分开，真实模型必须读取本次缓存，评审镜像剔除控制/答案。
+
+Learning Evidence 替换后的开发安装执行八组：Diagram、Explain、Learning 单独，Diagram+Explain、原三插件组合，HTML 单独、HTML+Explain、全部四插件。每组以实际登记与缓存核验，独立原三插件发行候选另行执行其五组 canonical 安装；不同集合的通过记录不能混用。
