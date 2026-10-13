@@ -1,0 +1,479 @@
+{
+  "schemaVersion": 1,
+  "refs": [
+    "#222"
+  ],
+  "capturedAt": "2026-10-13T09:18:47.624Z",
+  "kind": "exact-byte archival of actual four-phase closeout synchronization and bounded documentation checks",
+  "sourceDevelop": "98068a8bd7060585b9915be9490a02a733fcb1a6",
+  "archiveSourceHead": "86a364eab1af861e2bcd7eba505594384f18a902",
+  "archiveSourceTree": "4a8d76b1db07f4e99608728b0c3709f71777c210",
+  "phases": [
+    {
+      "phase": "PR1",
+      "head": "6c0d609b593b7325654774270628d860e1a2f557",
+      "tree": "2b18b1f0f2d18e74a5f0778ed1def359812b62de",
+      "previous": "5038a53d675b78f4a77992e660b74696de225c9f",
+      "sourceIncluded": true,
+      "version": "8.2.1",
+      "productionZeroDiff": true,
+      "documentationA6Tests": 65,
+      "failures": 0,
+      "skips": 0,
+      "localA6": "PASS/no trigger",
+      "commitValidation": {
+        "pass": true,
+        "count": 7
+      },
+      "communicationTree": null
+    },
+    {
+      "phase": "PR2",
+      "head": "c198f5c769950e693d194c878f9c72d9a1cded20",
+      "tree": "b176bb82b084867c240daa611bbe01ca307eddad",
+      "previous": "ae8bbeefc09ca8978848f391ea2afca9c5d8962f",
+      "sourceIncluded": true,
+      "version": "8.2.1",
+      "productionZeroDiff": true,
+      "documentationA6Tests": 65,
+      "failures": 0,
+      "skips": 0,
+      "localA6": "PASS/root AGENTS synced",
+      "commitValidation": {
+        "pass": true,
+        "count": 13
+      },
+      "communicationTree": null
+    },
+    {
+      "phase": "PR3",
+      "head": "c6d40a8a79943bae64ab19b418c8a7cdd7fa82eb",
+      "tree": "f60f32f21f9d6c3e0b68ac90822e20e880f237f5",
+      "previous": "cf63337b8efccc5d56c4df02ab3aebd165c0c6bf",
+      "sourceIncluded": true,
+      "version": "8.2.1",
+      "productionZeroDiff": true,
+      "documentationA6Tests": 65,
+      "failures": 0,
+      "skips": 0,
+      "localA6": "PASS/root AGENTS synced",
+      "commitValidation": {
+        "pass": true,
+        "count": 26
+      },
+      "communicationTree": "14a3896c7ad50597bfc83996bcfec25180a720f9"
+    },
+    {
+      "phase": "PR4",
+      "head": "86a364eab1af861e2bcd7eba505594384f18a902",
+      "tree": "4a8d76b1db07f4e99608728b0c3709f71777c210",
+      "previous": "48437bef655c7ce8aed8452db01dac9dd638af1c",
+      "sourceIncluded": true,
+      "version": "8.3.0",
+      "productionZeroDiff": true,
+      "documentationA6Tests": 65,
+      "failures": 0,
+      "skips": 0,
+      "localA6": "PASS/root AGENTS synced",
+      "commitValidation": {
+        "pass": true,
+        "count": 29
+      },
+      "communicationTree": "170fcad82f33548c8d91b62984df4ff38635e69f"
+    }
+  ],
+  "scope": {
+    "pr1pr2": {
+      "packages": 4,
+      "publicSkills": 6,
+      "explicitSkills": 3,
+      "communicationRegistered": false
+    },
+    "pr3pr4": {
+      "packages": 5,
+      "publicSkills": 7,
+      "explicitSkills": 4,
+      "ordinarySkills": 3,
+      "repositorySkills": 20,
+      "communicationRegistered": true
+    },
+    "formal": {
+      "packages": 4,
+      "publicSkills": 6,
+      "explicitSkills": 3,
+      "html": "retained on develop for separate release"
+    }
+  },
+  "preservation": {
+    "audit": {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-audit.json",
+      "sha256": "e099927db3695c1aad3165579b1a219b5179bd4ab65e7a99cad5278409b2d38c"
+    },
+    "rawLogCount": 43,
+    "rawArtifactCount": 44,
+    "prior20LogsByteIdentical": true,
+    "failuresPreserved": [
+      {
+        "log": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr1-identity-initial-failure.log",
+        "cause": "Read-only audit helper generated ::CHANGELOG.md instead of staged :CHANGELOG.md.",
+        "repair": "Correct the index selector; unchanged repository tree passed rerun."
+      },
+      {
+        "log": "C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr3-identity-initial-failure.log",
+        "cause": "Read-only helper tried an index directory selector, which only resolves file entries.",
+        "repair": "Write the fully resolved index tree and resolve package directories from that tree; production remained unchanged and rerun passed."
+      }
+    ],
+    "plan": {
+      "lines": 405,
+      "sha256": "6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3"
+    },
+    "productionUnchanged": true,
+    "version": "8.3.0 retained; no repeated bump",
+    "formalAndPublishedChangelogUnchanged": true
+  },
+  "method": "Ordinary dependent merges; preserve both contract/phase intentions, current scopes and higher document metadata. Audit and 43 logs copied as bytes under existing -text attributes; disk and staged Git blob identities verified separately.",
+  "independentReview": {
+    "aiReviewIsNotGithubApproval": true,
+    "localA6IsNotLiveGithubApproval": true,
+    "doesNotEstablishCurrentHeadRequiredChecksOrThreadResolution": true
+  },
+  "checksScope": "Imported phase receipts each run exactly 65 documentation/A6 tests, strict, whitespace, actual-base normal A6 and commit convention. This archival commit only reruns affected strict/documentation/A6/whitespace and commit checks; it does not claim new full, installation, Python, model behavior or UI execution.",
+  "limits": [
+    "Historical failures, CLI PARTIAL and limited actual client identities retain their original source and coverage.",
+    "No protected phase/main merge, formal PR5, Communication Release or post-publication R01–R05 completion is established by this batch.",
+    "Independent four-package preview/runtime work is not imported into this five-package development branch.",
+    "Real-world effects are deferred and remain unverified."
+  ],
+  "artifacts": [
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-audit.json",
+      "kind": "audit",
+      "original": "communication-closeout-sync-audit.json",
+      "rawBytes": 25797,
+      "sha256": "e099927db3695c1aad3165579b1a219b5179bd4ab65e7a99cad5278409b2d38c"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr1-a6.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr1-a6.log",
+      "rawBytes": 56,
+      "sha256": "1d3428e88ffa6a038f4cb5ff905e218002bbadaafdcbdef2fcb09098630a7f8b"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr1-commit.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr1-commit.log",
+      "rawBytes": 96,
+      "sha256": "f7185704851f82cd47e4537814d67c88cb8266a5a4e4b448ddc3e10377c1bdc0"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr1-commits.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr1-commits.log",
+      "rawBytes": 72,
+      "sha256": "2418493d2dc949f2af91bd1ccf486527fb6041d2064f3d3c19822eada304712d"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr1-conflicts.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr1-conflicts.log",
+      "rawBytes": 6757,
+      "sha256": "e1619655390d2973ac236f5d41fdd593d7f09bc9dbceb509363519d3ddb68384"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr1-doc-a6.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr1-doc-a6.log",
+      "rawBytes": 12631,
+      "sha256": "2cdadcd1ab69a0be5028608cd619b90ad8eaab13da9d6dff4b2dc88769dfd67c"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr1-identity-initial-failure.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr1-identity-initial-failure.log",
+      "rawBytes": 2581,
+      "sha256": "09affbff6f560a4386fce416762287f36a2752f1c88507637ac54253b84af293"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr1-identity.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr1-identity.log",
+      "rawBytes": 706,
+      "sha256": "a34ab8b376bc7f90982b8875adc54a0624080d2b0dd6ee8a5752a098e3ac82c5"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr1-push.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr1-push.log",
+      "rawBytes": 118,
+      "sha256": "bbdc935f0503aa44b199f8ae2eb16b35b1dad7b267ab5a5aa346f64df5abdcb9"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr1-validate.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr1-validate.log",
+      "rawBytes": 354,
+      "sha256": "10dcad75d29a73396e2a3003d7c619a4d5b030e325667d9f8c56811ea564d37e"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr1-whitespace.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr1-whitespace.log",
+      "rawBytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr2-a6.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr2-a6.log",
+      "rawBytes": 186,
+      "sha256": "02aedf43af34bd8d386b194319f8b4e894738b7348243f1eda98c1134467445b"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr2-commit.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr2-commit.log",
+      "rawBytes": 100,
+      "sha256": "2ee2068cf48c3745f6d094c3b37dcd00d9f07257056bbe73c7bc159535c41381"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr2-commits.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr2-commits.log",
+      "rawBytes": 73,
+      "sha256": "c48814b2a40eca0db902213c18f1606c109476449997e5192cde3ffe8e02c5af"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr2-conflicts.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr2-conflicts.log",
+      "rawBytes": 5564,
+      "sha256": "1d6a6857990009bf00e14ea6d6331360b3bb81ca36a370f9717f4e8d09ff1ec4"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr2-doc-a6.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr2-doc-a6.log",
+      "rawBytes": 12636,
+      "sha256": "e3fbacff51536aabb476d4cc4848662461f67eb66af034698253159d1c183462"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr2-identity.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr2-identity.log",
+      "rawBytes": 706,
+      "sha256": "f7960aff30a96b012d053d96d50cb2e3d01ba07d28c0c6667599361fdd02eb3d"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr2-merge.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr2-merge.log",
+      "rawBytes": 195,
+      "sha256": "0106a9e136c3bdbf86e45e85611180fc6339fc5e9022c5ddd8dbcaae434c105e"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr2-push.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr2-push.log",
+      "rawBytes": 120,
+      "sha256": "5422b8a929af991c5dd553fde5caf9a5e3ef8fad07c3300d6d5fefd41d36febc"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr2-validate.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr2-validate.log",
+      "rawBytes": 354,
+      "sha256": "10dcad75d29a73396e2a3003d7c619a4d5b030e325667d9f8c56811ea564d37e"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr2-whitespace.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr2-whitespace.log",
+      "rawBytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr3-a6.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr3-a6.log",
+      "rawBytes": 579,
+      "sha256": "3f1e9fc0744c54b0e4729e135342ba8e2190d3459de74f5b7ff124a553a58d22"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr3-commit.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr3-commit.log",
+      "rawBytes": 92,
+      "sha256": "f49a11b3cd3aa01d7a29e9bf31c25b49798b19e08aca3c326072b87684ce6c06"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr3-commits.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr3-commits.log",
+      "rawBytes": 73,
+      "sha256": "99fb1ab565e21d6826941c8f2739606f0af56c32f9b4c1039f3b7775e85dc486"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr3-conflicts.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr3-conflicts.log",
+      "rawBytes": 10721,
+      "sha256": "e0102e594e19abbb896e846efff09db4911afd6d352edeccea7fc0b95e582d7f"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr3-doc-a6.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr3-doc-a6.log",
+      "rawBytes": 12638,
+      "sha256": "4ba732dc8351301e4d5019e7bec6bd6706284e079431b9e2b484852df85e8aa7"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr3-identity-initial-failure.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr3-identity-initial-failure.log",
+      "rawBytes": 1318,
+      "sha256": "fa4a4fe90e161655976eb00c59413e4d7069501aae211fa2a2dd8f10ae963ab3"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr3-identity.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr3-identity.log",
+      "rawBytes": 1684,
+      "sha256": "e3498695c113adf30d7fdf2ff2861a5bfb7af94245caa0a581fa3ddfb1e8dc8d"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr3-push.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr3-push.log",
+      "rawBytes": 116,
+      "sha256": "d9aeb9e51426517c49026fb504187d54a3de1d695d470cb94d65253a341050cf"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr3-validate.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr3-validate.log",
+      "rawBytes": 392,
+      "sha256": "e3bedb0233222e468a1e207cfbcbaf1c3138a8827fde2769e9e2ede3a85eb3d8"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr3-whitespace.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr3-whitespace.log",
+      "rawBytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr4-a6.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr4-a6.log",
+      "rawBytes": 592,
+      "sha256": "e52a779aaf2bf87f2d0f7cd87b375cfdc8a5405be85090f14e68766ab0343855"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr4-commit.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr4-commit.log",
+      "rawBytes": 98,
+      "sha256": "c829c398eeac3a9921c5784a370c01fd077c839da1aaf7e67c5210a85c88736f"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr4-commits.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr4-commits.log",
+      "rawBytes": 73,
+      "sha256": "6fe42abb8c6e8ed937e2b6274dbcead432fdf933b448cd1bfc04398c48a7acfc"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr4-conflicts.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr4-conflicts.log",
+      "rawBytes": 15048,
+      "sha256": "73a90802ad137503e6042c613be023eee6390502a5c0a930a88066cdc38e6b27"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr4-doc-a6-final.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr4-doc-a6-final.log",
+      "rawBytes": 12630,
+      "sha256": "f9ff93c9f02328b0faa7d0194c6740b8d22cebe31ba62dbf614f527e80ecefd9"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr4-doc-a6.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr4-doc-a6.log",
+      "rawBytes": 12636,
+      "sha256": "d365bc0ee63927ea9dfd3c0fe6732edfedd394b4c3b2d6cd0d4d13e5d637331c"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr4-identity-final.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr4-identity-final.log",
+      "rawBytes": 1811,
+      "sha256": "4452c03be355e4d3e99d6efad6f68ff02d524262577717176e9aeecc1a4ae0b8"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr4-identity.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr4-identity.log",
+      "rawBytes": 1811,
+      "sha256": "4452c03be355e4d3e99d6efad6f68ff02d524262577717176e9aeecc1a4ae0b8"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr4-merge.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr4-merge.log",
+      "rawBytes": 435,
+      "sha256": "afbff0718f857d4c204a4c9f1a6bbc25980a359c5cb54866576cda006155733f"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr4-push.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr4-push.log",
+      "rawBytes": 119,
+      "sha256": "c775998a259e2e9c3995ee6100d63b86beb6fcd9f8e8c41181d536651e6a4642"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr4-validate-final.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr4-validate-final.log",
+      "rawBytes": 392,
+      "sha256": "e3bedb0233222e468a1e207cfbcbaf1c3138a8827fde2769e9e2ede3a85eb3d8"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr4-validate.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr4-validate.log",
+      "rawBytes": 392,
+      "sha256": "e3bedb0233222e468a1e207cfbcbaf1c3138a8827fde2769e9e2ede3a85eb3d8"
+    },
+    {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-raw-pr4-whitespace.log",
+      "kind": "raw log",
+      "original": "communication-closeout-sync-pr4-whitespace.log",
+      "rawBytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "archivalFailureAndRepair": {
+    "initialWhitespaceExitCode": 2,
+    "cause": "Four raw Git conflict/diff receipts retain intentional space-only context lines.",
+    "repair": "Narrow evidence-only attributes disable blank-at-eol for the four exact conflict receipts and this copied failure log; preserve original raw bytes and other whitespace checks.",
+    "receipt": {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-archive-whitespace-initial.log",
+      "rawBytes": 5807,
+      "sha256": "320c52278c273be04f4edbd6ba1f70524158a4ab77519a077e3777295bf8c3f5",
+      "original": "communication-closeout-archive-whitespace-initial.log"
+    },
+    "verification": "Final whitespace rerun and all imported disk/Git blob checks are recorded separately; no production rule or branch gate changed.",
+    "secondWhitespaceExitCode": 2,
+    "secondCause": "The PR3 raw Git diff receipt also retains its original final empty line.",
+    "secondRepair": "Disable blank-at-eof only for that exact raw PR3 conflicts log, with the existing blank-at-eol exception; all raw bytes remain unchanged.",
+    "secondReceipt": {
+      "rawPath": "communication-kit-2026-10-13-closeout-sync-01-archive-whitespace-second.log",
+      "rawBytes": 118,
+      "sha256": "fcf3e850e5e663995c81303a53bf65187cc0da8c4329f8f165b7b3d3e08add8c",
+      "original": "communication-closeout-archive-whitespace-second-failure.log"
+    }
+  }
+}

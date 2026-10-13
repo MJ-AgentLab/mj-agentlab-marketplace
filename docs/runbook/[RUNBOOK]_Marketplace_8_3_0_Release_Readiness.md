@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-13
 updated: 2026-10-13
 state: draft
-version: v1.3
+version: v1.4
 ---
 
 # [RUNBOOK] Marketplace 8.3.0 release readiness
@@ -61,6 +61,7 @@ PR3实际merge尚无，故PR4与该merge的tree/运行包比较NOT RUN；并行�
 
 | Version | Date | Summary |
 | --- | --- | --- |
+| v1.4 | 2026-10-13 | 精确归档文档收尾原始证据，不改变候选版本/运行或正式门禁状态 |
 | v1.3 | 2026-10-13 | 普通继承最新980文档收尾，保持生产/正式CH身份与8.3目标，仅文档/A6复验 |
 | v1.2 | 2026-10-13 | 实际8.2.1上游已合入，保持已准备8.3.0并限定沿用未变运行内容的既有检查 |
 | v1.1 | 2026-10-13 | 纳入真实发布后基线及固定08cc开发canonical证据；正式四包与R01–R05不预填 |
@@ -77,3 +78,11 @@ Refs #222。#235于2026-10-13T06:10:55Z实际合入3af6837，仅AGENTS、VERSION
 ### #236文档收尾同步
 
 Refs #222。PR4由原head `48437be`普通合入PR3 `c6d40a8`，包含实际develop `98068a8bd7060585b9915be9490a02a733fcb1a6`；当前VERSION/badge8.3.0已匹配，不重复bump。生产包/scripts/tests/catalog相对原head零差异，Comm包tree170fcad保持且除首版CHANGELOG外等于实际native UI来源000e803。开发五包与正式四包范围分开，main/v8.2.0仍Learning三包；上游收尾见[回执](evidence/learning-evidence-8-2-0-closeout.json)。本轮只检查文档/严格/A6/whitespace和提交规范，外部原日志 `C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr4-*.log` 与追加审计记录实际结果和hash，不把旧full/canonical/Python/UI改写为新执行。具体来源及冲突整合见[验收账本末节](./[RUNBOOK]_Communication_Kit_Acceptance.md)。预备四包projection仍是独立工作，不是正式PR5，阶段实际合入、当前head批准/线程、正式候选与R01–R05继续按实际证据处理。
+
+### 文档收尾原始证据归档
+
+Refs #222。[Closeout sync 01](evidence/communication-kit-2026-10-13-closeout-sync-01.json)绑定PR1 `6c0d609`、PR2 `c198f5c`、PR3 `c6d40a8`、PR4 `86a364e`实际head/tree、来源develop `98068a8`、各阶段生产零新增差异及65项受影响文档/A6范围，按raw manifest保存外部审计与43份原始日志。此前20份日志、两次只读审计helper失败及修复复验原字节保留，不覆盖旧record。当前归档基于86a364e，仅文档与evidence变化；五包开发、8.3.0及根/Comm正式CHANGELOG保持，不导入独立四包preview。AI独立核验和本地正常A6不替代GitHub当前head非作者批准、required checks或线程门禁，不补填正式PR5/Release/R01–R05，历史CLI PARTIAL、限定客户端及现实效果延期保持。
+
+本批归档首轮whitespace exit2由四份原始Git diff日志的空白上下文触发；只为本批对应证据和失败回执设置精确属性，保留其原字节及其余空白检查。失败回执/hash与修复说明随主record保存，不修改生产规则或分支门禁。
+
+第二次whitespace exit2进一步识别PR3原diff回执的末尾空行；只为该精确证据文件保留EOF字节，第二失败回执及修复说明同样追加，不改写原日志。

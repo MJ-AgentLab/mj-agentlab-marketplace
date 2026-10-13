@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.24
+version: v2.25
 ---
 
 # 文档索引
@@ -28,6 +28,8 @@ Learning #224的当前head批准及交付、#227/#228的交付与空reviews事�
 Marketplace v8.2.0已通过#232/main ebc4bdc3公开；#234同步和#235未发布8.2.1预升已依序实际合入，两次精确merge各八安装/实际Python通过。Learning公开三插件、上游develop四插件范围保持；原A6例外失败、正常摘要修复及空reviews见[收尾回执](runbook/evidence/learning-evidence-8-2-0-closeout.json)。#210–214关闭；#215/Epic保留原生延期、真实客户端/效果与Owner接受，继续OPEN。
 
 Communication PR3已在8.2.1普通继承PR2 `c198f5c` / develop `98068a8`文档收尾；PR4继续普通合入PR3 `c6d40a8`并保留已准备8.3.0、五包七技能/四显式及正式四包六技能范围。运行与历史实证身份核对、最新同步见[验收账本](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)和[8.3.0账本](runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)，Refs #222。
+
+四阶段文档收尾实际head、生产零差异、限定65项检查及43原始日志/hash见[Closeout sync 01](runbook/evidence/communication-kit-2026-10-13-closeout-sync-01.json)，原字节与失败链保留，AI审查不替代GitHub批准。
 
 ## 入口
 

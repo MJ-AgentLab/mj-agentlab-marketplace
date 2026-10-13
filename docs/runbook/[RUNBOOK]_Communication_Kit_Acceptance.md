@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.12
+version: v1.13
 ---
 
 # [RUNBOOK] Communication Kit acceptance
@@ -246,6 +246,7 @@ PR4当前仅准备上述账本。完成PR3合并身份比较后，核对未发�
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.13 | 2026-10-13 | 精确归档四阶段收尾审计与43原始日志，绑定实际head/零生产差异及限定检查 |
 | v1.12 | 2026-10-13 | 普通合入PR3最新980文档收尾，保留8.3准备及全部旧验收，仅限定文档/A6复验 |
 | v1.11 | 2026-10-13 | 实际继承8.2.1预升基线、保持已匹配8.3.0目标，原工具操作身份不改写 |
 | v1.10 | 2026-10-13 | 固定8.3开发候选canonical与发布后基线同步工程证据，实际阶段合并/正式四包/上线后复查仍未执行 |
@@ -300,3 +301,11 @@ Refs #222。2026-10-13从原head `cf63337b8efccc5d56c4df02ab3aebd165c0c6bf`普�
 Refs #222。2026-10-13从PR4原head `48437bef655c7ce8aed8452db01dac9dd638af1c`普通merge PR3 `c6d40a8a79943bae64ab19b418c8a7cdd7fa82eb`，包含实际develop `98068a8bd7060585b9915be9490a02a733fcb1a6`的文档收尾。相对原head生产包、scripts、tests、catalog及品牌资源零新增差异；已准备VERSION/badge8.3.0、根8.3.0和Comm0.1.0正式CHANGELOG段保持，不重复转换。Comm包tree `170fcad82f33548c8d91b62984df4ff38635e69f`保持，仅CHANGELOG区别于原native UI源 `000e8033ce2f639c974c3953aadc06b9be21878c`，其余manifest/技能/refs/icons相同；其他四包与实际980来源逐字节一致。
 
 AGENTS、INDEX及本账本冲突逐块整合：保留PR4版本准备/canonical和旧失败/PARTIAL，PR3分支的同号文档版本单独标记来源，不覆盖本分支历史。当前开发仍五包七技能/四显式，正式四包六技能/三显式、HTML留develop另发；最新Learning收尾与原A6失败/修复、空reviews见[8.2.0账本](./[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)及[回执](evidence/learning-evidence-8-2-0-closeout.json)。原计划405行/hash与全部原始实证保持，仅执行strict、65项documentation/A6、whitespace、真实base正常A6及提交规范；原始日志保存在外部 `C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr4-*.log`，结果/hash及本轮head/tree追加到同目录 `communication-closeout-sync-audit.json`。不重跑full、安装、Python或客户端，不将预备四包projection算正式PR5/保护合并/R01–R05。
+
+### 文档收尾原始证据归档
+
+Refs #222。[Closeout sync 01](evidence/communication-kit-2026-10-13-closeout-sync-01.json)绑定PR1 `6c0d609`、PR2 `c198f5c`、PR3 `c6d40a8`、PR4 `86a364e`实际head/tree、来源develop `98068a8`、各阶段生产零新增差异及65项受影响文档/A6范围，按raw manifest保存外部审计与43份原始日志。此前20份日志、两次只读审计helper失败及修复复验原字节保留，不覆盖旧record。当前归档基于86a364e，仅文档与evidence变化；五包开发、8.3.0及根/Comm正式CHANGELOG保持，不导入独立四包preview。AI独立核验和本地正常A6不替代GitHub当前head非作者批准、required checks或线程门禁，不补填正式PR5/Release/R01–R05，历史CLI PARTIAL、限定客户端及现实效果延期保持。
+
+本批归档首轮whitespace exit2由四份原始Git diff日志的空白上下文触发；只为本批对应证据和失败回执设置精确属性，保留其原字节及其余空白检查。失败回执/hash与修复说明随主record保存，不修改生产规则或分支门禁。
+
+第二次whitespace exit2进一步识别PR3原diff回执的末尾空行；只为该精确证据文件保留EOF字节，第二失败回执及修复说明同样追加，不改写原日志。

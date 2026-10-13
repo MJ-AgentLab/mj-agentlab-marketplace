@@ -1,0 +1,94 @@
+UU AGENTS.md
+M  CHANGELOG.md
+UU README.md
+UU docs/INDEX.md
+M  docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md
+M  docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md
+M  docs/runbook/[RUNBOOK]_Release_Operations.md
+A  docs/runbook/evidence/learning-evidence-8-2-0-closeout.json
+
+diff --cc AGENTS.md
+index 260f9f2,c0b334e..0000000
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@@ -72,6 -70,8 +72,12 @@@ HTML PR1 当时保持 marketplace 未�
+  
+  第五轮来源 acf3c9d 的六 fresh 会话/八调用已通过限定 CLI 核心判据：七次自然完成、一次执行器超时保留；九条新核验、两次限定离线共享及原件/生成信息均经独立核对。四轮原失败、两次策略拒绝、换行格式差异和幂等重放分别保留，不称所有调用成功。原移交仅按十二项未变资源闭包沿用并限已有本地 Git exclude；原生提问仍延期、桌面/Side Chat 未运行，实际保护合入、发布和 Owner 最终接受待各自证据。完整入口资格与限制见上述 Learning Evidence 验收账本。
+  
+ -此前三插件发行草稿快照：#232 已创建，head b7bdd769 / tree 428760eb；该最终 Git 提交的五种 canonical 安装及实际缓存 Python 通过，运行/测试代码与模型源 acf3 一致。develop 的四插件仍保留，main/latest Release 仍 8.1.1；最后依赖 #230、当前 head 非作者批准、main 合入与公开发布仍待完成，详见发行准备账本。
+ +Learning前序#216/#224/#227/#228/#230交付与#210–214关闭、模型原失败和审查缺项见[验收账本](docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。#232/main ebc4bdc3与已测6d83c8e同树，v8.2.0由bot公开，发布后五canonical/三图表Python/两组保存重放通过，发布脚本noop；immutable=false，API未提供配置字段。#224有实际批准，其他未见/空reviews不追认。原生入口延期、桌面/Side Chat未测、现实效果及Owner最终接受另记，#215/Epic仍OPEN。
+  
+++<<<<<<< HEAD
+ +Communication PR3普通同步已合并#234的develop2c0a831，完整保留HTML及Learning/Diagram/Explain运行包，接入五包七技能/四显式/普通三/开发20。十三snapshot和固定提交canonical分开，既有Comm UI/CLI PARTIAL/失败按原身份保留；正式仅D/L/E/Comm四包六技能，HTML留develop。#235现已实际合入develop3af6837，版本/badge8.2.1生效，插件/运行内容保持；其reviews为空不追认批准，本分支仅继承，不额外bump。Refs #222；当前head批准、CI/线程及实际保护合并仍待完成。
+++=======
++ Learning Evidence 当前交付：#216/#224/#227/#228/#230已交付，#210–214关闭。#232/main ebc4bdc3于2026-10-13公开v8.2.0，tag/Release同SHA，发布后五精确安装/实际Python及published-noop复查通过。#234实际merge 2c0a8317同步main ancestry，#235实际merge 3af68373完成未发布8.2.1预升，均与已测head同树且各八精确安装/实际Python通过；HTML四插件开发集合及插件版本保持。版本工具只更新VERSION/badge两锚点，#235按Owner要求修复failing check另补真实根摘要，三路径走正常A6；原例外失败保留，checker/workflow/批准规则未改。main/public仍原三插件8.2.0，无8.2.1 tag/Release；版本清单以VERSION、索引和manifest为准。#224实际批准与其他交付PR的空reviews分别留档，不推定豁免；repo immutable配置UNKNOWN，Release immutable=false。完整事实见[发行账本](docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)与[收尾回执](docs/runbook/evidence/learning-evidence-8-2-0-closeout.json)。后续不指定审查人；原生延期、桌面/Side Chat未运行、效果未测和Owner最终接受仍由#215/Epic独立追踪。
++ 
++ Communication PR2 普通同步已合入的 #236 / develop `98068a8` 文档收尾；当前开发基线8.2.1仍四包六技能，Communication在本前置阶段未注册。main/tag/Release仍为 `ebc4bdc3` / published v8.2.0三包五技能；Q3正式Communication四包六技能、HTML留develop另发保持。最新来源和延期见上述发行账本与收尾回执，本轮保留原计划及历史证据，不额外bump，Refs #222。
+++>>>>>>> codex/communication-foundation
+diff --cc README.md
+index 70470f6,2a1aeed..0000000
+--- a/README.md
++++ b/README.md
+@@@ -4,17 -4,16 +4,25 @@@
+  
+  ![Version](https://img.shields.io/badge/version-8.2.1-blue)
+  
+++<<<<<<< HEAD
+ +面向ChatGPT桌面端与Codex本地环境（CLI验收基线0.147.0）的插件市场，无需MCP服务。已发布main/v8.2.0提供Diagram、Learning Evidence、Explain三包五技能；当前PR3开发候选增加Communication并保留HTML，共五插件七公开技能，VERSION继承已生效8.2.1 pre-bump，尚未发布Communication：
+++=======
++ 面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场。当前开发候选为未发布 marketplace 8.2.1，注册四个 portable 插件、六个公开技能，无需 MCP 服务。已公开 8.2.0 保持 Diagram、Learning Evidence、Explain 三插件/五技能；develop 保留 HTML，另行发行：
+++>>>>>>> codex/communication-foundation
+  
+  | 插件 / 公开技能 | 用途 | 版本与分发状态 |
+  | --- | --- | --- |
+  | **diagram-kit / arch-diagram** | 从源码事实生成七类 Mermaid 架构/UML 图，节点与边追溯到文件行号，实际运行 Python 校验器 | 0.3.1，已随市场 v8.1.1 发布 |
+  | **explain-kit / glossary、concept** | 陌生术语速解与机制、反例、边界深讲，遵从受众、语言和长度要求 | 0.1.1，已随市场 v8.1.1 发布 |
+++<<<<<<< HEAD
+ +| **learning-evidence-kit / pop-quiz、learning-record-check** | 显式诊断并移交完整记录，保留本机原件；分开核验指定记录有效性与任务应用，按授权共享 | 0.1.0，已随市场v8.2.0发布 |
+++=======
++ | **learning-evidence-kit / pop-quiz、learning-record-check** | 显式诊断并移交完整记录，保留本机原件；分开核验指定记录有效性与任务应用，按授权共享 | 0.1.0，已随市场 v8.2.0 发布 |
+++>>>>>>> codex/communication-foundation
+  | **html-guide-kit / guide** | 确认读者、任务和理解问题后，新建可复制的交互教材绘制指南文本 | 0.1.0，develop 开发候选，未正式发布 |
+ +| **communication-kit / communicate** | 显式调用，沟通、编写与保义改写；关键缺口先问并等待，交付成稿和关键提示 | 0.1.0，PR3 开发候选，尚未发布 |
+  
+- [Marketplace v8.1.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.1) 于 2026-10-10 随 #205 合入 main 自动发布，仍包含 Understanding Kit 0.1.2 / pop-quiz，采用 A 仓库主标和 D 插件图标。该次发布后的四种隔离安装、图标内容比较与实际 Python 校验通过；Owner 截图、两端完整客户端记录缺项及未提供的 GitHub 独立批准见 [8.1.1 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。这些历史结果不证明新候选的客户端或窗口通过。
++ 历史 [Marketplace v8.1.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.1) 于 2026-10-10 随 #205 合入 main 自动发布，该历史版本包含 Understanding Kit 0.1.2 / pop-quiz，采用 A 仓库主标和 D 插件图标。该次发布后的四种隔离安装、图标内容比较与实际 Python 校验通过；Owner 截图、两端完整客户端记录缺项及未提供的 GitHub 独立批准见 [8.1.1 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。这些历史结果不证明新候选的客户端或窗口通过。
+  
+  ### Codex
+  
+diff --cc docs/INDEX.md
+index 7fb58db,f73b81f..0000000
+--- a/docs/INDEX.md
++++ b/docs/INDEX.md
+@@@ -6,7 -6,7 +6,11 @@@ owner: marketplace-maintainer
+  created: 2026-10-09
+  updated: 2026-10-13
+  state: active
+++<<<<<<< HEAD
+ +version: v2.22
+++=======
++ version: v2.21
+++>>>>>>> codex/communication-foundation
+  ---
+  
+  # 文档索引
+@@@ -21,11 -21,13 +25,19 @@@ Epic #209 的 PR4/PR5历史候选曾为
+  
+  HTML Guide Kit 正按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 分阶段实施：PR1 #221 已合入并复验；PR2 原子接入完整 0.1.0 插件、已选 A 图标与严格合同，当时开发集合增至四插件五技能；Learning Evidence 替换后四插件六技能，公开 8.2.0 仍原三插件五技能，HTML 另行发行。阶段门槛见 [ADR](adr/[ADR]_HTML_Guide_Kit_Addition.md)，判准见 [SPEC](spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，实际结果及未覆盖项见 [RUNBOOK](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。现实场景理解效果另测，本次仍保留工程行为与双客户端交互验收。
+  
+ +PR3开发候选增加Communication0.1.0并保留HTML0.1.0，当前五包七技能/20开发技能。Learning8.2.0已于2026-10-13公开，main三包五技能；Communication沿用8.2.0开发基线但尚未公开。实际CLI、限定工具角色及代理亲自执行的同应用Codex/ChatGPT Work本机两个入口证据见[验收记录](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)，身份、失败及未覆盖项分别保留，现实效果另测。Owner已确认Communication正式四包六技能，HTML另发；后续独立minor目标8.3.0，PR4重查实际版本和基线，Refs [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。
+  
+ +Learning #224的当前head批准及交付、#227/#228的交付与空reviews事实均见[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)，历史缺项不追认。
+  
+++<<<<<<< HEAD
+ +Marketplace v8.2.0已通过#232/main ebc4bdc3公开，原三插件/五技能/两学习策略，发布后五精确安装/实际Python通过；#210–214关闭，历史reviews缺项/原生延期/桌面未运行/Owner最终接受保留。此前main→develop同步保留HTML四插件集合，随后8.2.1预升尚待实际合并；当前PR3加Comm为五插件；#215/Epic仍OPEN，详见[发行账本](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)与[验收](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。
+++=======
++ 
++ 
++ 
++ 
++ Marketplace v8.2.0已通过#232/main ebc4bdc3公开；#234同步和#235未发布8.2.1预升已依序实际合入，两次精确merge各八安装/实际Python通过。公开三插件、开发四插件范围保持；原A6例外失败、正常摘要修复及空reviews见[收尾回执](runbook/evidence/learning-evidence-8-2-0-closeout.json)。#210–214关闭；#215/Epic保留原生延期、真实客户端/效果与Owner接受，继续OPEN。
+++>>>>>>> codex/communication-foundation
+  
+  ## 入口
+  
