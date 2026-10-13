@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [0.1.9] - 2026-10-13
+
+### Fixed
+
+- HTML Guide Kit 0.1.9 separates execution references from user-designated teaching material, checks broad source rules before declaring gaps, and uses current premises after each state-changing interaction.
+- Preserve source-covered local inputs despite an unknown complete domain. Require evidence and local scope for exclusivity, including restore/reset, and retain the source's subject when stating applicability.
+- Keep all actual0.1.8 failures and partial/unrun paths; require new installation and continuous model acceptance without changing frozen inputs or criteria. Refs #217, #220.
+
 ## [0.1.8] - 2026-10-13
 
 ### Fixed

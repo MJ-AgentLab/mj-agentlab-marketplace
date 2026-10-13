@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.15
+version: v1.16
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -348,3 +348,17 @@ E14-review UUID `01a13331-3167-70d3-840e-13bb519e13ed` / attempt `25e727ff-7118-
 0.1.8准确canonical44703886c3c409f5e748c6c4a0b0c310b9358635/tree a54c4c7fcdff09310fc799df00d6fbd8549b06bc的[八严格安装/四缓存Python](evidence/html-guide-kit/pr3-post-merge/engineering-44703886/archive-index.json)已通过。新B1–B6、受影响E、重复操作与连续流程仍在独立新cache实际调用；当前全文加载观察不代表整体语义通过，也不代原生UI。
 
 停止的0.1.5/0.1.6共35UUID/72输入、原40评审与10schema失败及技术metadata投影完整封存：[1009文件lossless索引](evidence/html-guide-kit/pr3-reviewer/candidate-015-016/index.json)、[独立Node/.NET复原](evidence/html-guide-kit/pr3-post-merge/candidate015-016-final-seal/archive-index.json)。原字节31,051,481、18packet、sourceInventorySha25615dd9534a116b0b8a6f4c8e8f5fe78bf0310eb46c07f072c81142599008235d9。0.1.5为8PASS/2UNKNOWN/2INVALID_RUN/1UNEXERCISED；0.1.6为14PASS/7FAIL/1UNKNOWN，实际运输无效/未跑另列。全部原评审/模型/判准不改，技术投影只导入同一结果；0.1.3封存字节仍未变，任何旧PASS不自动覆盖0.1.8。
+
+## 24. 0.1.8真实失败与完整边界修正
+
+源44703886的B14/30全部真实COMPLETE，独立结果10PASS/4FAIL。B1.1确认等待通过；B1.2-delayed/combined与B5.1在会改状态、可继续的同一模拟中，核验反馈只判断其他条件而缺本次当前未核验前提，超出源覆盖范围。原修改/明确确认、自检等相应PASS仍保留。combined另将完整值域未知写成未标设计的输入禁令；B2.1当前状态重试正确，但核对清单的全局“只在归还时增加”漏源恢复例外，且把源排除物件事项改为人物身份前提。六份B3–B5与四份B6原及补充判准各自保存，不能以正确章节抵消本处错误。
+
+受影响E6有五完整与E15两轮部分，共6UUID/11COMPLETE，独立4PASS/2FAIL。E1-maintainer把源宽规则已覆盖的预约无效时取消写成缺规则；E15 T1只有执行入口/参考，没有用户指定的教材材料，仍自定方法主题并称这些资源“三份材料”。T2真实材料到达后正确重整目标不能消除T1违例，T3未调用。允许用户明确指定方法文档为教材对象，修正不绝对禁止相关主题。
+
+收到E15 blocker后全部writer正常边界停止，不kill或重采样。S E7 UUID01a133f9-e3a8-7a63-bff6-d5c3684f2a07的T3已在06:41:07.839Z启动，早于暂停标志06:41:21.157Z，06:41:37.643Z自然COMPLETE并返回sourceTurn3人工边界；共3/4实际轮，未选T4，E12五轮无attempt，保留UNEXERCISED/NOT_RUN。Root扩展另有E1-visitor首轮，未确认及未调用第二轮，其余八准备变体未跑；余十四扩展路径及重复操作尚未prepare。全源8总22真实UUID/45实际输入均COMPLETE，完整原评审/partial/未跑及后续技术grade封存另存，不追认完整验收。
+
+仅推进本插件0.1.8→0.1.9，marketplace保持上游未发布8.2.1，其他插件版本及main/latest Release8.2.0不变。一个SKILL及两参考分别修正方法资源的教材角色、每条未知回查宽规则、动态反馈每次重匹配当前前提、未知完整值域不禁局部已覆盖输入、排他性须有完整依据及局部范围、事项范围不改为人物资格。没有领域答案或研究治理依赖。入口仍受同一6144 UTF-8预算；新0.1.9须准确canonical八安装/四缓存Python及全新六组、受影响与连续会话，旧静态/PASS不继承。原生桌面/窗口延期、现实效果NOT_MEASURED、Owner最终接受及GitHub当前head批准/CI/线程/实际merge门禁保持，#220/Epic开放。
+
+0.1.8最终技术grade无adapter：22次成功/零失败，六summary齐，实际14PASS/6FAIL/2UNEXERCISED，九个已准备无attempt项目仍NOT_RUN。before504原文件仅六batch结果metadata预期改变，原输入/输出/events/session/量表与控制字节不变；22原判准/读取/结果逐份等价，42运行资源源/镜像/cache哈希稳定。完整[620文件封存](evidence/html-guide-kit/pr3-reviewer/correction-0-1-8/index.json)及[Node/.NET复原](evidence/html-guide-kit/pr3-post-merge/candidate018-final-seal/archive-index.json)通过，原字节16,632,204、10packet、inventorySHA a0a4be0d8e3eebebea53d5cf778108899ddbb167874b3dfd9ac1a54103a7f62b。镜像58源内容文件与18个初始化空Git metadata分开解释，原literal全文件比较false不改，不把空Git metadata当成隔离FAIL。
+
+新0.1.9工作检查319/319零skip、validate/check通过；初次测试版本锚点仍0.1.8造成318/319，随后精确同步0.1.9锚点重新完整通过，原失败日志保留。独立[最终静态审查](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-9/archive-index.json)对6143/14551/15925字节的三文本无新阻断，早期6136草稿snapshot和另一次reviewer容量中断不改写。静态/单元检查不代模型或原生加载，完整源9安装与真实会话在准确提交后新执行。

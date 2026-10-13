@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+- Prepare HTML Guide Kit0.1.9 after actual0.1.8 source and dynamic-feedback failures. Distinguish method resources from teaching materials; preserve broad rule coverage, current state premises, local input results, exclusivity scope and source subjects. Keep raw failures and partial/unrun paths, then reinstall and verify fresh sessions. Refs #217, #220.
+
 - Prepare HTML Guide Kit0.1.8 with complete source-attribution, replacement, exclusivity, known-condition and reliable-feedback corrections after independent0.1.6 reviews. Preserve every actual failure and intermediate0.1.7 model NOT_RUN. Refs #217, #220.
 
 - Prepare HTML Guide Kit0.1.7 after independent review found a source initial value expanded into an unmarked general input domain. Separate values, reachability and complete input range; attribute extra teaching constraints locally and preserve known results. Refs #217, #220.
