@@ -35,6 +35,7 @@
 ### Changed
 
 - Replace the candidate Understanding registration and runtime package atomically with Learning Evidence Kit, for three plugins, five public skills and two explicit learning policies. Common scripts belong to the installed package; the staging location is removed. Reuse the approved icon bytes, preserve former SPEC/GUIDE content with exact Git-source history, and retain published release sections/assets.
+- Establish selected-record applicability before any application-material or implementation reads. New check entries retain actual generator/current checker/operation/observed clock, with immutable originals. Scoped CLI criteria are qualified with retained command errors and one transport timeout; actual publication and deferred entries remain separate.
 - Preserve both skills and common interfaces under the accepted staged boundary. Native question routes remain deferred until actual strict-wait and continuous-window evidence qualifies each route; text or pending state cannot substitute. Core delivery, the open Epic, human learning evaluations and Owner final acceptance remain separately tracked.
 
 ### Upgrade
