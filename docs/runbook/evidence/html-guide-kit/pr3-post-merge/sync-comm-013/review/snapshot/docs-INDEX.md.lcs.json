@@ -1,0 +1,1216 @@
+{
+  "method": "complete_line_lcs",
+  "displayLineEndingNormalizationOnly": true,
+  "oldLines": 177,
+  "newLines": 203,
+  "operations": [
+    {
+      "kind": "equal",
+      "oldLine": 1,
+      "newLine": 1,
+      "text": "---"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 2,
+      "newLine": 2,
+      "text": "type: guide"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 3,
+      "newLine": 3,
+      "text": "scope: marketplace"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 4,
+      "newLine": 4,
+      "text": "summary: \"当前 ChatGPT/Codex 文档、历史决策与退役资料导航\""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 5,
+      "newLine": 5,
+      "text": "owner: marketplace-maintainers"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 6,
+      "newLine": 6,
+      "text": "created: 2026-10-09"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 7,
+      "newLine": 7,
+      "text": "updated: 2026-10-13"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 8,
+      "newLine": 8,
+      "text": "state: active"
+    },
+    {
+      "kind": "remove",
+      "oldLine": 9,
+      "text": "version: v2.25.3"
+    },
+    {
+      "kind": "add",
+      "newLine": 9,
+      "text": "version: v2.38"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 10,
+      "newLine": 10,
+      "text": "---"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 11,
+      "newLine": 11,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 12,
+      "newLine": 12,
+      "text": "# 文档索引"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 13,
+      "newLine": 13,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 14,
+      "newLine": 14,
+      "text": "[Marketplace v8.1.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.1) 已通过 #205 合入 main 并自动发布，注册 diagram-kit 0.3.1 / arch-diagram、understanding-kit 0.1.2 / pop-quiz 与 explain-kit 0.1.1 / glossary、concept。实际发布 SHA 的四种 canonical 安装、图标比较及 Python 校验通过；Owner 截图、完整客户端缺项和未提供的 GitHub 独立批准分别保留。#206 回同步发布 main，#207/#208 随后完成 ancestry 同步与当时的 8.1.2 pre-bump；该阶段保持旧插件版本。以下 PR4 候选范围独立说明。"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 15,
+      "newLine": 15,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 16,
+      "newLine": 16,
+      "text": "#203/#204 接入 A 仓库主标、D 插件图标及 20 号开发技能，随 v8.1.1 分发；实现阶段的验收、未完成项和历史证据见 [品牌验收](runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。历史 v8.1.0 包含三个插件，v8.0.0 仅包含 Diagram Kit。"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 17,
+      "newLine": 17,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 18,
+      "newLine": 18,
+      "text": "8.1.1 的实际 tag、Release、正文身份、发布后安装及保留缺项见 [发布记录](runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 19,
+      "newLine": 19,
+      "text": ""
+    },
+    {
+      "kind": "remove",
+      "oldLine": 20,
+      "text": "Epic #209 的 PR4/PR5历史候选曾为未发布8.2.0；当前公开v8.2.0包含Diagram0.3.1 / LearningEvidence0.1.0 / Explain0.1.1三插件五技能，当前develop为未发布8.2.1并保留HTML0.1.0四插件六技能。[迁移 ADR](adr/[ADR]_Learning_Evidence_Kit_Migration.md)、[记录/API 契约](spec/[SPEC]_Learning_Evidence_Record_And_API.md)、[指南](guide/[GUIDE]_Learning_Evidence_Kit.md)及[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)分别维护决定、数据、使用边界与实际证据；[8.2.0发行账本](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)维护实际公开、收尾与入口资格。Owner接受核心独立验收后分段交付；所有启用提问入口严格待答，原生窗口不合格入口延期，文字重述不算窗口通过。Epic与Owner最终接受独立追踪，公开发布不证明现实学习效果。"
+    },
+    {
+      "kind": "add",
+      "newLine": 20,
+      "text": "HTML Guide Kit 正按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 分阶段实施：PR1 #221 已合入并复验；PR2 #226 已将完整 0.1.0 插件、已选 A 图标与严格合同原子合入 develop，当时开发集合为四插件五技能。实际 merge d106e76 与已测 head tree 相同，GitHub 独立批准缺项如实保留；PR3 从该 merge 派生，扩展行为与原生客户端验收逐项记录，不据 CLI 结果关闭 Epic。阶段门槛见 [ADR](adr/[ADR]_HTML_Guide_Kit_Addition.md)，判准见 [SPEC](spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，实际结果及未覆盖项见 [RUNBOOK](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。现实场景理解效果另测，本次仍保留工程行为与双客户端交互验收。"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 21,
+      "newLine": 21,
+      "text": ""
+    },
+    {
+      "kind": "remove",
+      "oldLine": 22,
+      "text": "HTML Guide Kit 正按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 分阶段实施：PR1 #221 已合入并复验；PR2 原子接入完整 0.1.0 插件、已选 A 图标与严格合同，当时开发集合增至四插件五技能；Learning Evidence 替换后四插件六技能，公开 8.2.0 仍原三插件五技能，HTML 另行发行。阶段门槛见 [ADR](adr/[ADR]_HTML_Guide_Kit_Addition.md)，判准见 [SPEC](spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，实际结果及未覆盖项见 [RUNBOOK](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。现实场景理解效果另测，本次仍保留工程行为与双客户端交互验收。"
+    },
+    {
+      "kind": "add",
+      "newLine": 22,
+      "text": "PR3 的真实受众扩展发现 0.1.0 操作反馈前置状态冲突，保存 FAIL 后准备 0.1.1 修正候选。运行改变须重新安装并复验受影响扩展及全部六组；旧运行证据只保留其原版本身份，不外推新候选通过。"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 23,
+      "newLine": 23,
+      "text": ""
+    },
+    {
+      "kind": "remove",
+      "oldLine": 24,
+      "text": "PR3开发候选增加Communication0.1.0并保留HTML0.1.0，当前五包七技能/20开发技能。Learning8.2.0已于2026-10-13公开，main三包五技能；Communication PR4已准备未发布8.3.0，尚未公开。实际CLI、限定工具角色及代理亲自执行的同应用Codex/ChatGPT Work本机两个入口证据见[验收记录](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)，身份、失败及未覆盖项分别保留，现实效果另测。Owner已确认Communication正式四包六技能，HTML另发；后续独立minor目标8.3.0，PR4重查实际版本和基线，Refs [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。"
+    },
+    {
+      "kind": "add",
+      "newLine": 24,
+      "text": "新 0.1.1 复验发现组合条件中明确不满足被未知覆盖及分支重叠，保存独立 B4.2 FAIL；0.1.2 修正候选重新核对组合判定和局部范围，安装/行为/原生客户端/最终 merge 按各自实际证据记录。"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 25,
+      "newLine": 25,
+      "text": ""
+    },
+    {
+      "kind": "add",
+      "newLine": 26,
+      "text": "0.1.2 canonical 59c7aea 的七种严格安装、四次缓存 Python 通过，279 测试零 skip 与当前 CI 通过；新模型行为仍逐项核验。788 文件的 0.1.0/0.1.1 历史原始证据已 lossless 封存并独立复原校验，旧失败不追认通过，具体身份及覆盖见 RUNBOOK §14。"
+    },
+    {
+      "kind": "add",
+      "newLine": 27,
+      "text": ""
+    },
+    {
+      "kind": "add",
+      "newLine": 28,
+      "text": "0.1.2 B4.2 真实修复通过，但 B4.1 将已禁止的直接操作与未知后续路径混合，E13 两变体亦发现表格排他量词/术语类型改写，分别独立 FAIL。当期 0.1.3 修正上述通用方法，未宣称新候选行为通过；暂停造成的一轮操作中断单独保留，见 RUNBOOK §15。"
+    },
+    {
+      "kind": "add",
+      "newLine": 29,
+      "text": ""
+    },
+    {
+      "kind": "add",
+      "newLine": 30,
+      "text": "已停止的 0.1.2 证据 506 文件 lossless 封存、Node/.NET 逐字节复原通过，28 UUID / 61 输入的失败与中断均保留。0.1.3 canonical ffaa68f 的七种严格安装、四次实际缓存 Python 通过；新模型矩阵仍独立评审，窄目标未覆盖与选择出处缺陷另补证，不追认原调用 PASS。实际身份和缺项见 RUNBOOK §16。"
+    },
+    {
+      "kind": "add",
+      "newLine": 31,
+      "text": ""
+    },
+    {
+      "kind": "add",
+      "newLine": 32,
+      "text": "0.1.3 E13 又发现重复操作的已知字段结果被整体判未知，独立 FAIL。当期 0.1.4 按本次状态重匹配源条件、分开字段结果与额外提示；选择器误取嵌套题号的旧控制缺口另列 INVALID_RUN，后续仅人工真实目标摘录。新版本须新安装、受影响及全部六组复验，历史实际结果继续保存，见 RUNBOOK §17。"
+    },
+    {
+      "kind": "add",
+      "newLine": 33,
+      "text": ""
+    },
+    {
+      "kind": "add",
+      "newLine": 34,
+      "text": "旧 0.1.3 剩余 E19/38 独立评审为15 PASS / 4 FAIL；另有效维护者补证同类重复操作 FAIL。中间0.1.4七安装/四缓存Python通过，未启动模型。后续完整修正候选0.1.5一并限制拒绝/引用的代码回显并核对分支反馈覆盖，静态审查无阻断但行为未执行；实际身份和新复验范围见 RUNBOOK §18。"
+    },
+    {
+      "kind": "add",
+      "newLine": 35,
+      "text": ""
+    },
+    {
+      "kind": "add",
+      "newLine": 36,
+      "text": "Epic #209 的 PR4/PR5历史候选曾为未发布8.2.0；当前公开v8.2.0包含Diagram0.3.1 / LearningEvidence0.1.0 / Explain0.1.1三插件五技能，Learning收尾当时develop为未发布8.2.1并保留HTML0.1.0四插件六技能；当前合成候选五包七技能/8.3.0/HTML0.1.13见下文。[迁移 ADR](adr/[ADR]_Learning_Evidence_Kit_Migration.md)、[记录/API 契约](spec/[SPEC]_Learning_Evidence_Record_And_API.md)、[指南](guide/[GUIDE]_Learning_Evidence_Kit.md)及[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)分别维护决定、数据、使用边界与实际证据；[8.2.0发行账本](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)维护实际公开、收尾与入口资格。Owner接受核心独立验收后分段交付；所有启用提问入口严格待答，原生窗口不合格入口延期，文字重述不算窗口通过。Epic与Owner最终接受独立追踪，公开发布不证明现实学习效果。"
+    },
+    {
+      "kind": "add",
+      "newLine": 37,
+      "text": ""
+    },
+    {
+      "kind": "add",
+      "newLine": 38,
+      "text": "Communication PR3当时开发候选增加Communication0.1.0并保留HTML0.1.0，五包七技能/20开发技能；当前HTML修正版本见下文。Learning8.2.0已于2026-10-13公开，main三包五技能；Communication PR4已准备未发布8.3.0，尚未公开。实际CLI、限定工具角色及代理亲自执行的同应用Codex/ChatGPT Work本机两个入口证据见[验收记录](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)，身份、失败及未覆盖项分别保留，现实效果另测。Owner已确认Communication正式四包六技能，HTML另发；后续独立minor目标8.3.0，PR4重查实际版本和基线，Refs [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。"
+    },
+    {
+      "kind": "add",
+      "newLine": 39,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 26,
+      "newLine": 40,
+      "text": "Learning #224的当前head批准及交付、#227/#228的交付与空reviews事实均见[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)，历史缺项不追认。"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 27,
+      "newLine": 41,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 28,
+      "newLine": 42,
+      "text": "Marketplace v8.2.0已通过#232/main ebc4bdc3公开；#234同步和#235未发布8.2.1预升已依序实际合入，两次精确merge各八安装/实际Python通过。Learning公开三插件、上游develop四插件范围保持；原A6例外失败、正常摘要修复及空reviews见[收尾回执](runbook/evidence/learning-evidence-8-2-0-closeout.json)。#210–214关闭；#215/Epic保留原生延期、真实客户端/效果与Owner接受，继续OPEN。"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 29,
+      "newLine": 43,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 30,
+      "newLine": 44,
+      "text": "Communication PR3已在8.2.1普通继承PR2 `c198f5c` / develop `98068a8`文档收尾；PR4继续普通合入PR3 `c6d40a8`并保留已准备8.3.0、五包七技能/四显式及正式四包六技能范围。运行与历史实证身份核对、最新同步见[验收账本](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)和[8.3.0账本](runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)，Refs #222。"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 31,
+      "newLine": 45,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 32,
+      "newLine": 46,
+      "text": "四阶段文档收尾实际head、生产零差异、限定65项检查及43原始日志/hash见[Closeout sync 01](runbook/evidence/communication-kit-2026-10-13-closeout-sync-01.json)，原字节与失败链保留，AI审查不替代GitHub批准。"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 33,
+      "newLine": 47,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 34,
+      "newLine": 48,
+      "text": "继承空白失败、窄修复、四实际head完整PR范围复验及原字节manifest见[Inherited whitespace 01](runbook/evidence/communication-kit-2026-10-13-inherited-whitespace-01.json)。"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 35,
+      "newLine": 49,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 36,
+      "newLine": 50,
+      "text": "PR1 #223实际合入bca、head同tree与限定M1 postmerge原始证据见[M1 postmerge 01](runbook/evidence/communication-kit-2026-10-13-pr1-merge-01.json)；空reviews不追认独立批准。"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 37,
+      "newLine": 51,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 38,
+      "newLine": 52,
+      "text": "实际M1 merge后的普通下游继承与限定最终检查来源见[PR1 merge sync 01](runbook/evidence/communication-kit-2026-10-13-pr1-merge-sync-01.json)，独立批准/后续正式合并仍分别核对。"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 39,
+      "newLine": 53,
+      "text": ""
+    },
+    {
+      "kind": "add",
+      "newLine": 54,
+      "text": "0.1.9评审与0.1.10准备时的快照：PR3 #231仍草稿；0.1.9源880fc8cc的八安装/四缓存Python及CI通过，新11UUID/22轮独立评审5PASS/4FAIL/2UNEXERCISED，原字节与局部PASS/未跑保留。0.1.10修正候选明确反馈组当前状态范围并保留来源已有字段线索；须新canonical安装和冻结行为矩阵，静态修正不等于新模型通过。开发市场保持上游未发布8.2.1、其他插件不变；已发布v8.2.0三插件不含HTML。原生入口/双客户端延期、现实效果另测、当前head非作者批准及实际merge复验仍单列，#220/Epic开放；见HTML RUNBOOK §25。"
+    },
+    {
+      "kind": "add",
+      "newLine": 55,
+      "text": ""
+    },
+    {
+      "kind": "add",
+      "newLine": 56,
+      "text": "0.1.10评审与0.1.11准备时的快照：PR3候选为0.1.11。0.1.10源7c1f230b与纯文档同步6a919166各八安装/四缓存Python通过；12UUID/23实际COMPLETE独立结果6PASS/3FAIL/3UNEXERCISED，374原字节文件封存并独立复原。局部动态guard通过不抵消概览条件遗漏和混合UI重置来源归因FAIL；B6.1原PASS与同attempt补充FAIL都保留。新候选对每处操作结论保留完整条件，源重置字段与新增界面清理逐项分开归因；须新安装与冻结行为复验，不以静态修正追认模型通过。marketplace8.2.1及其他插件不变，双客户端/原生窗口延期、现实效果另测、GitHub当前head批准和实际merge仍待各自证据，#220/Epic开放；见HTML RUNBOOK §27。"
+    },
+    {
+      "kind": "add",
+      "newLine": 57,
+      "text": ""
+    },
+    {
+      "kind": "add",
+      "newLine": 58,
+      "text": "HTML当前PR3修正候选为0.1.13。源12固定5bce8341八安装/四缓存Python/CI通过，15fresh UUID/31COMPLETE独立9PASS/4FAIL/2UNEXERCISED；456文件原字节封存与Node/.NET复原通过。局部PASS不抵消完整源恢复遗漏、排他关系遗漏恢复例外及重试当前态缺口。新方法逐项保留源动作/对象/字段，先定每轮尝试生命周期，再写反馈。已普通同步c1fa458上游Communication运行与未发布8.3.0，开发五包七技能/四显式/三自然/20repo-only，其他批准版本保持；HTML仍另行发行。新合成須十三精确安装/六缓存Python及冻结行为矩阵，不继承旧PASS。原生/双客户端延期、现实效果另测、当前head非作者批准与actualmerge仍分别待证，#220/Epic开放；见HTML RUNBOOK §30。"
+    },
+    {
+      "kind": "add",
+      "newLine": 59,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 40,
+      "newLine": 60,
+      "text": "## 入口"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 41,
+      "newLine": 61,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 42,
+      "newLine": 62,
+      "text": "- [Communication Marketplace 8.3.0 发布准备](runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)：已授权四包六技能，版本准备与实际合并/发布/安装复查分开记录。"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 43,
+      "newLine": 63,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 44,
+      "newLine": 64,
+      "text": "Communication PR4同步验收证据和实际发布基线，见[验收记录§6](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。Learning8.2已published，正式Communication范围为四包六技能、HTML另发；当前head独立批准和阶段实际合入仍未满足。"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 45,
+      "newLine": 65,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 46,
+      "newLine": 66,
+      "text": "Owner Q3已确认Communication正式发行仅为Learning已公开三包加Communication（四包六技能），HTML保留develop另发；开发集成五包七技能，两个集合各自精确验证。"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 47,
+      "newLine": 67,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 48,
+      "newLine": 68,
+      "text": "- [Communication 完整实施计划](../plan/communication-kit-implementation-plan.md)与[原稿捕获](../plan/communication-kit-plan-provenance.json)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 49,
+      "newLine": 69,
+      "text": "- [Communication Kit 新增决定](adr/[ADR]_Communication_Kit_Addition.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 50,
+      "newLine": 70,
+      "text": "- [Communicate 行为契约](spec/[SPEC]_Communication_Communicate.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 51,
+      "newLine": 71,
+      "text": "- [沟通助手使用指南](guide/[GUIDE]_Communication_Communicate.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 52,
+      "newLine": 72,
+      "text": "- [Communication 基础验收与发布检查](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 53,
+      "newLine": 73,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 54,
+      "newLine": 74,
+      "text": "- [项目说明](../README.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 55,
+      "newLine": 75,
+      "text": "- [贡献流程](../CONTRIBUTING.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 56,
+      "newLine": 76,
+      "text": "- [项目指令](../AGENTS.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 57,
+      "newLine": 77,
+      "text": "- [术语](../GLOSSARY.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 58,
+      "newLine": 78,
+      "text": "- [历史发布日志](../CHANGELOG.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 59,
+      "newLine": 79,
+      "text": "- [迁移与退役 ADR](adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 60,
+      "newLine": 80,
+      "text": "- [Understanding Kit 新增决定](adr/[ADR]_Understanding_Kit_Addition.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 61,
+      "newLine": 81,
+      "text": "- [Learning Evidence Kit 迁移决定](adr/[ADR]_Learning_Evidence_Kit_Migration.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 62,
+      "newLine": 82,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 63,
+      "newLine": 83,
+      "text": "- [Explain Kit 新增决策](adr/[ADR]_Explain_Kit_Addition.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 64,
+      "newLine": 84,
+      "text": "- [Explain Kit 实际验收](runbook/[RUNBOOK]_Explain_Kit_Acceptance.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 65,
+      "newLine": 85,
+      "text": "- [HTML Guide Kit 新增决定](adr/[ADR]_HTML_Guide_Kit_Addition.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 66,
+      "newLine": 86,
+      "text": "- [HTML Guide Kit 验收判准](spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 67,
+      "newLine": 87,
+      "text": "- [HTML Guide Kit 阶段验收](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 68,
+      "newLine": 88,
+      "text": "- [HTML Guide Kit 使用指南](guide/[GUIDE]_HTML_Guide_Kit.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 69,
+      "newLine": 89,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 70,
+      "newLine": 90,
+      "text": "- [Communication 未发布候选包](../plugins/communication-kit/README.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 71,
+      "newLine": 91,
+      "text": "- [Communicate 显式公开技能](../plugins/communication-kit/skills/communicate/SKILL.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 72,
+      "newLine": 92,
+      "text": "- [Communication 精选冻结来源](../plugins/communication-kit/skills/communicate/references/source-provenance.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 73,
+      "newLine": 93,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 74,
+      "newLine": 94,
+      "text": "- [品牌统一决定](adr/[ADR]_Brand_Identity_And_Icon_Workflow.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 75,
+      "newLine": 95,
+      "text": "- [品牌和图标验收](runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 76,
+      "newLine": 96,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 77,
+      "newLine": 97,
+      "text": "## 当前规范和指南"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 78,
+      "newLine": 98,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 79,
+      "newLine": 99,
+      "text": "- [品牌规范](rule/[STANDARD]_Brand_Identity.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 80,
+      "newLine": 100,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 81,
+      "newLine": 101,
+      "text": "- [[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md](rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 82,
+      "newLine": 102,
+      "text": "- [[STANDARD]_Commit_Message_Convention.md](rule/[STANDARD]_Commit_Message_Convention.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 83,
+      "newLine": 103,
+      "text": "- [[STANDARD]_Documentation_Framework.md](rule/[STANDARD]_Documentation_Framework.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 84,
+      "newLine": 104,
+      "text": "- [[STANDARD]_GitHub_Markdown.md](rule/[STANDARD]_GitHub_Markdown.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 85,
+      "newLine": 105,
+      "text": "- [[GUIDE]_ChatGPT_Codex_Upgrade.md](guide/[GUIDE]_ChatGPT_Codex_Upgrade.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 86,
+      "newLine": 106,
+      "text": "- [[GUIDE]_Marketplace_Agent_Execution_Checklist.md](guide/[GUIDE]_Marketplace_Agent_Execution_Checklist.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 87,
+      "newLine": 107,
+      "text": "- [[GUIDE]_Marketplace_Project_Overview.md](guide/[GUIDE]_Marketplace_Project_Overview.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 88,
+      "newLine": 108,
+      "text": "- [[GUIDE]_Plugin_Development_Testing_Workflow.md](guide/[GUIDE]_Plugin_Development_Testing_Workflow.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 89,
+      "newLine": 109,
+      "text": "- [[GUIDE]_Version_Management.md](guide/[GUIDE]_Version_Management.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 90,
+      "newLine": 110,
+      "text": "- [[GUIDE]_Learning_Evidence_Kit.md](guide/[GUIDE]_Learning_Evidence_Kit.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 91,
+      "newLine": 111,
+      "text": "- [[SPEC]_Marketplace_Json_Schema.md](spec/[SPEC]_Marketplace_Json_Schema.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 92,
+      "newLine": 112,
+      "text": "- [[SPEC]_Plugin_Json_Schema.md](spec/[SPEC]_Plugin_Json_Schema.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 93,
+      "newLine": 113,
+      "text": "- [[SPEC]_Learning_Evidence_Record_And_API.md](spec/[SPEC]_Learning_Evidence_Record_And_API.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 94,
+      "newLine": 114,
+      "text": "- [[RUNBOOK]_Doc_Archive_Procedure.md](runbook/[RUNBOOK]_Doc_Archive_Procedure.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 95,
+      "newLine": 115,
+      "text": "- [[RUNBOOK]_Release_Operations.md](runbook/[RUNBOOK]_Release_Operations.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 96,
+      "newLine": 116,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 97,
+      "newLine": 117,
+      "text": "- [Communicate 行为契约](spec/[SPEC]_Communication_Communicate.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 98,
+      "newLine": 118,
+      "text": "- [沟通助手使用指南](guide/[GUIDE]_Communication_Communicate.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 99,
+      "newLine": 119,
+      "text": "- [Communication 基础验收与发布检查](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 100,
+      "newLine": 120,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 101,
+      "newLine": 121,
+      "text": "- [迁移实际验收记录](runbook/[RUNBOOK]_ChatGPT_Codex_Migration_Acceptance.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 102,
+      "newLine": 122,
+      "text": "- [发布准备、实际发布与后续记录](runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 103,
+      "newLine": 123,
+      "text": "- [Marketplace 8.1.0 发布事实、复查与未完成验收](runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 104,
+      "newLine": 124,
+      "text": "- [Understanding Kit 合并后安装、行为及客户端验收](runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 105,
+      "newLine": 125,
+      "text": "- [Learning Evidence Kit 分段验收、发行与 Epic 追踪](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 106,
+      "newLine": 126,
+      "text": "- [Marketplace 8.2.0 候选、入口限制与发布门槛](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 107,
+      "newLine": 127,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 108,
+      "newLine": 128,
+      "text": "## 决策与故障历史"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 109,
+      "newLine": 129,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 110,
+      "newLine": 130,
+      "text": "以下旧 ADR 保留原有决策正文；涉及 Claude、learn-kit 或 NotebookLM 的方案由 portable 迁移 ADR 替代。Understanding 新增 ADR 是历史局部扩展决定，当前 Learning Evidence 迁移替代其包身份、持久化及入口边界；历史正文和结论保持，运行/验收以新契约及实际账本为准。"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 111,
+      "newLine": 131,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 112,
+      "newLine": 132,
+      "text": "- [[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md](adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 113,
+      "newLine": 133,
+      "text": "- [[ADR]_Understanding_Kit_Addition.md](adr/[ADR]_Understanding_Kit_Addition.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 114,
+      "newLine": 134,
+      "text": "- [[ADR]_Codex_Dual_Native_Plugin_Support.md](adr/[ADR]_Codex_Dual_Native_Plugin_Support.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 115,
+      "newLine": 135,
+      "text": "- [[ADR]_Develop_PreBump_Adoption.md](adr/[ADR]_Develop_PreBump_Adoption.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 116,
+      "newLine": 136,
+      "text": "- [[ADR]_Diagram_Kit_Addition.md](adr/[ADR]_Diagram_Kit_Addition.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 117,
+      "newLine": 137,
+      "text": "- [[ADR]_Documentation_Framework_Exemption_Reversal.md](adr/[ADR]_Documentation_Framework_Exemption_Reversal.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 118,
+      "newLine": 138,
+      "text": "- [[ADR]_LearnKit_Consolidation_To_Single_Skill.md](adr/[ADR]_LearnKit_Consolidation_To_Single_Skill.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 119,
+      "newLine": 139,
+      "text": "- [[ADR]_LearnKit_Explanation_Skills_Addition.md](adr/[ADR]_LearnKit_Explanation_Skills_Addition.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 120,
+      "newLine": 140,
+      "text": "- [[ADR]_LearnKit_Init_Skill_Rename.md](adr/[ADR]_LearnKit_Init_Skill_Rename.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 121,
+      "newLine": 141,
+      "text": "- [[ADR]_LearnKit_ThreeViews_HITL_Expansion.md](adr/[ADR]_LearnKit_ThreeViews_HITL_Expansion.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 122,
+      "newLine": 142,
+      "text": "- [[ADR]_NotebookLM_Kit_Retirement.md](adr/[ADR]_NotebookLM_Kit_Retirement.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 123,
+      "newLine": 143,
+      "text": "- [[ADR]_Root_Level_Named_Files_Codification.md](adr/[ADR]_Root_Level_Named_Files_Codification.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 124,
+      "newLine": 144,
+      "text": "- [[POSTMORTEM]_2026-05-18_Bulk_Cleanup_Trap_Analysis.md](postmortem/[POSTMORTEM]_2026-05-18_Bulk_Cleanup_Trap_Analysis.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 125,
+      "newLine": 145,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 126,
+      "newLine": 146,
+      "text": "## 归档"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 127,
+      "newLine": 147,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 128,
+      "newLine": 148,
+      "text": "历史正文、版本及来源保留在平面归档目录。账本记录来源提交和 Git blob 的 SHA-256；链接按归档位置修复，已删除运行文件指向固定提交。"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 129,
+      "newLine": 149,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 130,
+      "newLine": 150,
+      "text": "- [来源账本](archive/history-sources.json)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 131,
+      "newLine": 151,
+      "text": "- [Understanding Pop Quiz 历史 SPEC v1.0](archive/[DEPRECATED]_[SPEC]_Understanding_Pop_Quiz_v1.0.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 132,
+      "newLine": 152,
+      "text": "- [Understanding Pop Quiz 历史 GUIDE v1.3](archive/[DEPRECATED]_[GUIDE]_Understanding_Pop_Quiz_v1.3.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 133,
+      "newLine": 153,
+      "text": "- [[DEPRECATED]_GLOSSARY_Pre_Portable_v7.0.2.md](archive/[DEPRECATED]_GLOSSARY_Pre_Portable_v7.0.2.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 134,
+      "newLine": 154,
+      "text": "- [[DEPRECATED]_INDEX_Pre_Portable_v7.0.0.md](archive/[DEPRECATED]_INDEX_Pre_Portable_v7.0.0.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 135,
+      "newLine": 155,
+      "text": "- [[DEPRECATED]_LearnKit_CHANGELOG_v4.0.1.md](archive/[DEPRECATED]_LearnKit_CHANGELOG_v4.0.1.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 136,
+      "newLine": 156,
+      "text": "- [[DEPRECATED]_LearnKit_CLAUDE_v4.0.1.md](archive/[DEPRECATED]_LearnKit_CLAUDE_v4.0.1.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 137,
+      "newLine": 157,
+      "text": "- [[DEPRECATED]_LearnKit_INDEX_v1.3.md](archive/[DEPRECATED]_LearnKit_INDEX_v1.3.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 138,
+      "newLine": 158,
+      "text": "- [[DEPRECATED]_LearnKit_README_v4.0.1.md](archive/[DEPRECATED]_LearnKit_README_v4.0.1.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 139,
+      "newLine": 159,
+      "text": "- [[DEPRECATED]_LearnKit_[ADR]_LearnKit_Discovery_Skills_v1.0.md](archive/[DEPRECATED]_LearnKit_[ADR]_LearnKit_Discovery_Skills_v1.0.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 140,
+      "newLine": 160,
+      "text": "- [[DEPRECATED]_LearnKit_[GUIDE]_LearnKit_Design_v1.1.md](archive/[DEPRECATED]_LearnKit_[GUIDE]_LearnKit_Design_v1.1.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 141,
+      "newLine": 161,
+      "text": "- [[DEPRECATED]_LearnKit_[GUIDE]_LearnKit_Discovery_Recipes_v1.0.md](archive/[DEPRECATED]_LearnKit_[GUIDE]_LearnKit_Discovery_Recipes_v1.0.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 142,
+      "newLine": 162,
+      "text": "- [[DEPRECATED]_LearnKit_[GUIDE]_LearnKit_Pedagogy_v1.0.md](archive/[DEPRECATED]_LearnKit_[GUIDE]_LearnKit_Pedagogy_v1.0.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 143,
+      "newLine": 163,
+      "text": "- [[DEPRECATED]_README_Pre_Portable_v7.0.2.md](archive/[DEPRECATED]_README_Pre_Portable_v7.0.2.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 144,
+      "newLine": 164,
+      "text": "- [[DEPRECATED]_[ADR]_Documentation_Framework_Exemption_Review_v1.0.md](archive/[DEPRECATED]_[ADR]_Documentation_Framework_Exemption_Review_v1.0.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 145,
+      "newLine": 165,
+      "text": "- [[DEPRECATED]_[GUIDE]_Contributing_v1.1.md](archive/[DEPRECATED]_[GUIDE]_Contributing_v1.1.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 146,
+      "newLine": 166,
+      "text": "- [[DEPRECATED]_[GUIDE]_Marketplace_Agent_Execution_Checklist_v1.3.md](archive/[DEPRECATED]_[GUIDE]_Marketplace_Agent_Execution_Checklist_v1.3.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 147,
+      "newLine": 167,
+      "text": "- [[DEPRECATED]_[GUIDE]_Marketplace_Project_Overview_v1.0.md](archive/[DEPRECATED]_[GUIDE]_Marketplace_Project_Overview_v1.0.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 148,
+      "newLine": 168,
+      "text": "- [[DEPRECATED]_[GUIDE]_Migration_From_v3_to_v4_v6.0.md](archive/[DEPRECATED]_[GUIDE]_Migration_From_v3_to_v4_v6.0.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 149,
+      "newLine": 169,
+      "text": "- [[DEPRECATED]_[GUIDE]_Plugin_Development_Testing_Workflow_v1.1.md](archive/[DEPRECATED]_[GUIDE]_Plugin_Development_Testing_Workflow_v1.1.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 150,
+      "newLine": 170,
+      "text": "- [[DEPRECATED]_[GUIDE]_Version_Management_v1.1.md](archive/[DEPRECATED]_[GUIDE]_Version_Management_v1.1.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 151,
+      "newLine": 171,
+      "text": "- [[DEPRECATED]_[RUNBOOK]_Codex_Dual_Native_Manual_Acceptance_v1.1.md](archive/[DEPRECATED]_[RUNBOOK]_Codex_Dual_Native_Manual_Acceptance_v1.1.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 152,
+      "newLine": 172,
+      "text": "- [[DEPRECATED]_[RUNBOOK]_NotebookLM_Smoke_Acceptance_v1.1.md](archive/[DEPRECATED]_[RUNBOOK]_NotebookLM_Smoke_Acceptance_v1.1.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 153,
+      "newLine": 173,
+      "text": "- [[DEPRECATED]_[RUNBOOK]_Release_Operations_v1.5.md](archive/[DEPRECATED]_[RUNBOOK]_Release_Operations_v1.5.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 154,
+      "newLine": 174,
+      "text": "- [[DEPRECATED]_[SPEC]_Marketplace_Json_Schema_v1.1.md](archive/[DEPRECATED]_[SPEC]_Marketplace_Json_Schema_v1.1.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 155,
+      "newLine": 175,
+      "text": "- [[DEPRECATED]_[SPEC]_Plugin_Json_Schema_v1.1.md](archive/[DEPRECATED]_[SPEC]_Plugin_Json_Schema_v1.1.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 156,
+      "newLine": 176,
+      "text": "- [[DEPRECATED]_[STANDARD]_AI_Engineering_Execution_HITL_Prompt_v1.5.md](archive/[DEPRECATED]_[STANDARD]_AI_Engineering_Execution_HITL_Prompt_v1.5.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 157,
+      "newLine": 177,
+      "text": "- [[DEPRECATED]_[STANDARD]_Documentation_Framework_v1.9.md](archive/[DEPRECATED]_[STANDARD]_Documentation_Framework_v1.9.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 158,
+      "newLine": 178,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 159,
+      "newLine": 179,
+      "text": "## 模板"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 160,
+      "newLine": 180,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 161,
+      "newLine": 181,
+      "text": "- [TEMPLATE_ADR.md](_templates/TEMPLATE_ADR.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 162,
+      "newLine": 182,
+      "text": "- [TEMPLATE_GUIDE.md](_templates/TEMPLATE_GUIDE.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 163,
+      "newLine": 183,
+      "text": "- [TEMPLATE_POSTMORTEM.md](_templates/TEMPLATE_POSTMORTEM.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 164,
+      "newLine": 184,
+      "text": "- [TEMPLATE_RUNBOOK.md](_templates/TEMPLATE_RUNBOOK.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 165,
+      "newLine": 185,
+      "text": "- [TEMPLATE_SPEC.md](_templates/TEMPLATE_SPEC.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 166,
+      "newLine": 186,
+      "text": "- [TEMPLATE_STANDARD.md](_templates/TEMPLATE_STANDARD.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 167,
+      "newLine": 187,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 168,
+      "newLine": 188,
+      "text": "- [[DEPRECATED]_[RUNBOOK]_Doc_Archive_Procedure_v1.1.md](archive/[DEPRECATED]_[RUNBOOK]_Doc_Archive_Procedure_v1.1.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 169,
+      "newLine": 189,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 170,
+      "newLine": 190,
+      "text": "- [[DEPRECATED]_[STANDARD]_GitHub_Markdown_v1.0.md](archive/[DEPRECATED]_[STANDARD]_GitHub_Markdown_v1.0.md)"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 171,
+      "newLine": 191,
+      "text": ""
+    },
+    {
+      "kind": "add",
+      "newLine": 192,
+      "text": "0.1.5 基线 CLI 原生入口截断，部分会话补读全文才取得完整技能；未补读的拒绝样本为 UNKNOWN/INVALID_RUN。当前0.1.6精简入口并增加保守字节预算，详细方法仍用两份参考；新安装与完整原生加载/行为须实际复验，不能继承旧 PASS。事实与分段缺项见 RUNBOOK §19。"
+    },
+    {
+      "kind": "add",
+      "newLine": 193,
+      "text": ""
+    },
+    {
+      "kind": "add",
+      "newLine": 194,
+      "text": "Communication前置阶段较早同步快照（当前develop已含#235/#236/#223）：Communication 前置阶段已普通同步 #234 的实际 develop 2c0a831：运行仍四开发包六技能，正式 main/v8.2.0为ebc4bdc3三包五技能，HTML留develop。未合入8.2.1预升不带入，未注册Communication、未实际bump，Refs #222。"
+    },
+    {
+      "kind": "add",
+      "newLine": 195,
+      "text": ""
+    },
+    {
+      "kind": "add",
+      "newLine": 196,
+      "text": "HTML候选已普通同步#223实际develop bca7b5c，保留Communication契约、计划及原始证据；前置阶段未新增运行包。HTML隔离仓库fixture同步复制上游plan，严格校验未放宽，运行资源与dbd57d8逐字节不变；新合成候选仍须精确安装及冻结行为复验，见HTML RUNBOOK §29。"
+    },
+    {
+      "kind": "add",
+      "newLine": 197,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 172,
+      "newLine": 198,
+      "text": "| Version | Date | Summary |"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 173,
+      "newLine": 199,
+      "text": "|---|---|---|"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 174,
+      "newLine": 200,
+      "text": "| v2.23 | 2026-10-13 | 加入Communication8.3.0版本准备入口与Learning迁移原始工程证据，保留实际未解除门禁 |"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 175,
+      "newLine": 201,
+      "text": "| v2.22 | 2026-10-13 | 普通同步#234发布后基线及真实学习Release记录，保持Communication五包候选与四包正式范围 |"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 176,
+      "newLine": 202,
+      "text": "| v2.19 | 2026-10-13 | 同步 Learning 原子替代与 Communication 完整集成，按当前集合验收，发行范围另核对 |"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 177,
+      "newLine": 203,
+      "text": ""
+    }
+  ]
+}

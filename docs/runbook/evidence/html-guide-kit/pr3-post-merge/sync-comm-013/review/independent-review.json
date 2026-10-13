@@ -1,0 +1,532 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-13T13:00:46.306Z",
+  "reviewer": "logic_review / independent readonly composition reviewer",
+  "method": "read_only_git_and_raw_filesystem_composition_review",
+  "status": "STATIC_ONLY",
+  "conclusion": "NO_REMAINING_STATIC_BLOCKERS",
+  "mergePhase": "resolved_and_staged_working_merge_before_commit",
+  "head": "5bce83410802b04c2d0c7fb0324610f87917a386",
+  "incoming": "c1fa458df1b531d7c38436908b750ba810b0b116",
+  "unmergedIndexPathsAtFinal": [],
+  "sevenConflictFiles": [
+    {
+      "relative": ".agents/skills/mp-doc-bump-version/SKILL.md",
+      "currentBytes": 2556,
+      "currentSha256": "80183eb0549b387a60db0847e784a2f527619e966f706723aa31e5743f5b263a",
+      "incomingSha256": "e79f27228e543fecbcc4700b2add94a3eb509081fc2553e8af7f8412fc92f104",
+      "workingSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\working\\.agents\\skills\\mp-doc-bump-version\\SKILL.md",
+      "incomingSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\incoming\\.agents\\skills\\mp-doc-bump-version\\SKILL.md",
+      "diffPath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\.agents-skills-mp-doc-bump-version-SKILL.md.lcs.json",
+      "diffSha256": "6e95e05ebd187c81ebaf4a2d469860d7934984f8b1efeee483c615c4cafaace4",
+      "added": 2,
+      "removed": 0,
+      "conflictMarkers": false
+    },
+    {
+      "relative": "AGENTS.md",
+      "currentBytes": 16165,
+      "currentSha256": "dfab0691d60398b20dbf2609dc25f1409ccd2bcab22ff7a1634de53dfaf8de2b",
+      "incomingSha256": "5a59c75e5525bae67311342d1d1c729b3466f796a52284146a7a72610201bb5f",
+      "workingSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\working\\AGENTS.md",
+      "incomingSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\incoming\\AGENTS.md",
+      "diffPath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\AGENTS.md.lcs.json",
+      "diffSha256": "18c4ce69dee1678561ed51c5b8259705e53bec943f89cf7d704b675a39b48911",
+      "added": 9,
+      "removed": 7,
+      "conflictMarkers": false
+    },
+    {
+      "relative": "CHANGELOG.md",
+      "currentBytes": 206573,
+      "currentSha256": "bd5d006bcf15aa3a113952275f82c50d89007ca3effcc8ffdfc55debcecbf867",
+      "incomingSha256": "bcaeaec22ee54d2476d7163b4f8534db33b7074b290efdc601e8d20e86bdec71",
+      "workingSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\working\\CHANGELOG.md",
+      "incomingSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\incoming\\CHANGELOG.md",
+      "diffPath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\CHANGELOG.md.lcs.json",
+      "diffSha256": "dc62d91612e269bc55bb1ebf6c4171b9e20d4607041c5282b648e4d70b0b31d0",
+      "added": 28,
+      "removed": 0,
+      "conflictMarkers": false
+    },
+    {
+      "relative": "README.md",
+      "currentBytes": 11013,
+      "currentSha256": "41614ecc335994bfa835e8fa6a57652202217a958e3d2f6cd99b8e7ec6bde121",
+      "incomingSha256": "a1f1e4c09d5ee2f8110bfdf757a57d94a3b37243413ef34090fdd8fafd9b7828",
+      "workingSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\working\\README.md",
+      "incomingSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\incoming\\README.md",
+      "diffPath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\README.md.lcs.json",
+      "diffSha256": "56db03735fc1c702b3a2536631df10f36add80b59b00057dbc86ab4a6cb0286f",
+      "added": 2,
+      "removed": 2,
+      "conflictMarkers": false
+    },
+    {
+      "relative": "docs/INDEX.md",
+      "currentBytes": 22113,
+      "currentSha256": "195a8d65c3afb4caad4b34cbf6f197b8b5e7a6466670a06793453f8a6bb2b0bd",
+      "incomingSha256": "0deb7d2699968cdfa11bb5a32c86fee8bc29299047121ad4b29fe8314848f07e",
+      "workingSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\working\\docs\\INDEX.md",
+      "incomingSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\incoming\\docs\\INDEX.md",
+      "diffPath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\docs-INDEX.md.lcs.json",
+      "diffSha256": "a2f7c55ef18e4166fdae39c3edc7affa4163e993c8fb0753ea6b5e1818217492",
+      "added": 30,
+      "removed": 4,
+      "conflictMarkers": false
+    },
+    {
+      "relative": "docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md",
+      "currentBytes": 8327,
+      "currentSha256": "bbb2b5ccbcc98f0ec31162c46454bb7d998903c9cbec7f5054cef6d5b52a57a5",
+      "incomingSha256": "ca7f46dcfef7f4e9e49b2138892cae53ebcdfdbbdb5487abde54a70d240ead3e",
+      "workingSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\working\\docs\\guide\\[GUIDE]_Plugin_Development_Testing_Workflow.md",
+      "incomingSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\incoming\\docs\\guide\\[GUIDE]_Plugin_Development_Testing_Workflow.md",
+      "diffPath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\docs-guide-[GUIDE]_Plugin_Development_Testing_Workflow.md.lcs.json",
+      "diffSha256": "5c6f444225b5128af87c45ac94e0b2ac4292a1e59c7488302f971d646136d611",
+      "added": 3,
+      "removed": 1,
+      "conflictMarkers": false
+    },
+    {
+      "relative": "scripts/validate-portable.mjs",
+      "currentBytes": 37143,
+      "currentSha256": "c1537477d87d21c802f8d19fbe821cd21eab81ce0843c52307f6dc568fc9138c",
+      "incomingSha256": "05da36008b9eac588f48c681743a1639c18743d9719e9a443844e0c237a195db",
+      "workingSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\working\\scripts\\validate-portable.mjs",
+      "incomingSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\incoming\\scripts\\validate-portable.mjs",
+      "diffPath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\scripts-validate-portable.mjs.lcs.json",
+      "diffSha256": "c9b5c49b0cf4ad1dad0072eafec6c9ba2cbbd2ecb1247bc4582ac1f45b2c1b44",
+      "added": 9,
+      "removed": 0,
+      "conflictMarkers": false
+    }
+  ],
+  "otherIntentSnapshots": [
+    {
+      "relative": ".gitattributes",
+      "currentBytes": 4742,
+      "currentSha256": "1cbe9e4891dbd211aabc6264d0faf78d07dde498206861912651a27e4ab1d278",
+      "incomingSha256": "88e5b5031121defef525e0f361052d84a9f67a0ff858ae656b58fe2420aa23cb",
+      "workingSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\working\\.gitattributes",
+      "incomingSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\incoming\\.gitattributes",
+      "diffPath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\.gitattributes.lcs.json",
+      "diffSha256": "3d637e5544e71c367136c1becfa6c83fa103ccd2171cb7c1936ef3c8ce207103",
+      "added": 3,
+      "removed": 0,
+      "conflictMarkers": false
+    },
+    {
+      "relative": "tests/html-guide-kit.test.mjs",
+      "currentBytes": 14111,
+      "currentSha256": "56ef76602c8a498e89cec8f9bbc7c7542134c1c90eea175f4273b36f04470bff",
+      "incomingSha256": "25d4090540d2a1d9e3c5aa104b898b1ada6e9f2a71843fa670ad97e26572ef0d",
+      "workingSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\working\\tests\\html-guide-kit.test.mjs",
+      "incomingSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\incoming\\tests\\html-guide-kit.test.mjs",
+      "diffPath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\tests-html-guide-kit.test.mjs.lcs.json",
+      "diffSha256": "1a88584326705159d440612c1db4140571a5364abd2bdad1f14669c8b260b1cf",
+      "added": 24,
+      "removed": 3,
+      "conflictMarkers": false
+    },
+    {
+      "relative": "plugins/html-guide-kit/plugin.json",
+      "currentBytes": 1531,
+      "currentSha256": "0035e0c36dbaecb33cd10da1857f4f08b01074161174e6411ebfd16bdef46e56",
+      "incomingSha256": "ca653936ef2e38e0ae6d69b8d2d6ca515cc42c145331e500bd948fc78cfad3fa",
+      "workingSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\working\\plugins\\html-guide-kit\\plugin.json",
+      "incomingSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\incoming\\plugins\\html-guide-kit\\plugin.json",
+      "diffPath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39\\plugins-html-guide-kit-plugin.json.lcs.json",
+      "diffSha256": "00b88de8f749c7eb11f9946f89093327604240d92b13e1e049c4652a86fa31ec",
+      "added": 1,
+      "removed": 1,
+      "conflictMarkers": false
+    }
+  ],
+  "htmlRuntime": [
+    {
+      "relative": "assets/icon.png",
+      "bytes": 119566,
+      "sha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+      "reviewedDraftExact": null,
+      "unchangedBaseRawExact": true,
+      "manifestOnlyPatchVersion": null
+    },
+    {
+      "relative": "assets/icon.svg",
+      "bytes": 1261,
+      "sha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+      "reviewedDraftExact": null,
+      "unchangedBaseRawExact": true,
+      "manifestOnlyPatchVersion": null
+    },
+    {
+      "relative": "plugin.json",
+      "bytes": 1531,
+      "sha256": "0035e0c36dbaecb33cd10da1857f4f08b01074161174e6411ebfd16bdef46e56",
+      "reviewedDraftExact": null,
+      "unchangedBaseRawExact": null,
+      "manifestOnlyPatchVersion": true
+    },
+    {
+      "relative": "skills/guide/SKILL.md",
+      "bytes": 6144,
+      "sha256": "57cd9dcc469b55cbed015c4e5efb6d900b556493dec96420ca0bdce9ce9b4ac8",
+      "reviewedDraftExact": true,
+      "unchangedBaseRawExact": null,
+      "manifestOnlyPatchVersion": null
+    },
+    {
+      "relative": "skills/guide/agents/openai.yaml",
+      "bytes": 444,
+      "sha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+      "reviewedDraftExact": null,
+      "unchangedBaseRawExact": true,
+      "manifestOnlyPatchVersion": null
+    },
+    {
+      "relative": "skills/guide/references/guide-framework.md",
+      "bytes": 19793,
+      "sha256": "75fa5588ebf057077d4067c066e3de33397fbbdbf1f7acac9b95f038114575ed",
+      "reviewedDraftExact": true,
+      "unchangedBaseRawExact": null,
+      "manifestOnlyPatchVersion": null
+    },
+    {
+      "relative": "skills/guide/references/interaction-design.md",
+      "bytes": 20673,
+      "sha256": "65073f861d11a7b76e3d6d8667d8e2b72bd3480836c95ca53e6b5d725a679498",
+      "reviewedDraftExact": true,
+      "unchangedBaseRawExact": null,
+      "manifestOnlyPatchVersion": null
+    }
+  ],
+  "priorDraftStaticReview": {
+    "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\static-review-013.json",
+    "sha256": "713698720a1427d041c0da30b1386e1d6dc325310d302887cd37a3c1128e8524",
+    "conclusion": "NO_STATIC_BLOCKERS",
+    "notRepeatedOrRegraded": true
+  },
+  "communication12": [
+    {
+      "mode": "100644",
+      "type": "blob",
+      "gitBlob": "16ad1f9041f86ed01fcab34771af9ab40c67bcf8",
+      "relative": "plugins/communication-kit/CHANGELOG.md",
+      "exists": true,
+      "bytes": 1493,
+      "rawSha256": "747f6fffa17c3d932cba5eb1fb5ebc39764bf7a6eb6aff7155c4b255279f2f96",
+      "rawGitBlob": "15eb9a43cad3ce279ddc37e68adf84b89a8be889",
+      "filteredGitBlob": "16ad1f9041f86ed01fcab34771af9ab40c67bcf8",
+      "rawExactToIncoming": false,
+      "filteredExactToIncoming": true
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "gitBlob": "5ce28e0a42b9f781087df184517daafa2f483602",
+      "relative": "plugins/communication-kit/LICENSE",
+      "exists": true,
+      "bytes": 1089,
+      "rawSha256": "592eb7380e87ac4d835a7f0e95236d485bc12e1133b2d371c38b73e3a049f31f",
+      "rawGitBlob": "217a685ab0764df37dccaa3831d8d00896ade6f6",
+      "filteredGitBlob": "5ce28e0a42b9f781087df184517daafa2f483602",
+      "rawExactToIncoming": false,
+      "filteredExactToIncoming": true
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "gitBlob": "e48e6a5ee5e783ca93486702330a789989481f84",
+      "relative": "plugins/communication-kit/README.md",
+      "exists": true,
+      "bytes": 1923,
+      "rawSha256": "55af52185c5c2882cd9e01331af4c9ddbed6ad78fe90fe3a4fa5c790c8486c20",
+      "rawGitBlob": "bcce09c0dda8698373e211c7380806c396a4806e",
+      "filteredGitBlob": "e48e6a5ee5e783ca93486702330a789989481f84",
+      "rawExactToIncoming": false,
+      "filteredExactToIncoming": true
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "gitBlob": "39a708ea85835de34a9698d1d431e25205ead387",
+      "relative": "plugins/communication-kit/assets/icon.png",
+      "exists": true,
+      "bytes": 79377,
+      "rawSha256": "07f8a9ad4d04f20bc0551f3e72ed8c9e1b14368a743b392d4feee3aaec314ddf",
+      "rawGitBlob": "39a708ea85835de34a9698d1d431e25205ead387",
+      "filteredGitBlob": "39a708ea85835de34a9698d1d431e25205ead387",
+      "rawExactToIncoming": true,
+      "filteredExactToIncoming": true
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "gitBlob": "6e48cac24e63b6c202d44ecfff89dcb3f3daad6b",
+      "relative": "plugins/communication-kit/assets/icon.svg",
+      "exists": true,
+      "bytes": 1168,
+      "rawSha256": "7a0a594df6ff9b622e5900771731fe63f97ebfb873e3874881e3a1a1764ec5ea",
+      "rawGitBlob": "0cc1f9138ef5f47579c74fd17d7f171adde4e46f",
+      "filteredGitBlob": "6e48cac24e63b6c202d44ecfff89dcb3f3daad6b",
+      "rawExactToIncoming": false,
+      "filteredExactToIncoming": true
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "gitBlob": "c43bc6bbff0f9cc6cfcccadf4a07d98017c84791",
+      "relative": "plugins/communication-kit/plugin.json",
+      "exists": true,
+      "bytes": 1439,
+      "rawSha256": "7eead6be18358eb3925f283a9d2b2a149adeae2cfcb8e42bda6d859bf78e28c8",
+      "rawGitBlob": "1e1f1275fa7014524c657ec12ea8d87275015b44",
+      "filteredGitBlob": "c43bc6bbff0f9cc6cfcccadf4a07d98017c84791",
+      "rawExactToIncoming": false,
+      "filteredExactToIncoming": true
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "gitBlob": "f26f93ca7e2d783301bcd98b0cbb5bf1498c39d0",
+      "relative": "plugins/communication-kit/skills/communicate/SKILL.md",
+      "exists": true,
+      "bytes": 5803,
+      "rawSha256": "7a5644c9e2f156acd98286d36ac5b869fd921e23704fa98030d792faadaf630f",
+      "rawGitBlob": "6d262c111055c1611e93bddc1e1d2313536fe350",
+      "filteredGitBlob": "f26f93ca7e2d783301bcd98b0cbb5bf1498c39d0",
+      "rawExactToIncoming": false,
+      "filteredExactToIncoming": true
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "gitBlob": "d5536a61a8b67ebb1c3f7e81d66b6cc529c2a56c",
+      "relative": "plugins/communication-kit/skills/communicate/agents/openai.yaml",
+      "exists": true,
+      "bytes": 320,
+      "rawSha256": "c89a7134a1dd2fffa3e99d38bdcedb2bdaf46fb03de9b69ff1b19ad667c01d2d",
+      "rawGitBlob": "3cdcdbfadec1b6ee80d8b57439a38d65b3cc2a48",
+      "filteredGitBlob": "d5536a61a8b67ebb1c3f7e81d66b6cc529c2a56c",
+      "rawExactToIncoming": false,
+      "filteredExactToIncoming": true
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "gitBlob": "505bed066b8229177277713c6eae21b17f9a7a70",
+      "relative": "plugins/communication-kit/skills/communicate/references/aics-policy.md",
+      "exists": true,
+      "bytes": 4423,
+      "rawSha256": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+      "rawGitBlob": "505bed066b8229177277713c6eae21b17f9a7a70",
+      "filteredGitBlob": "505bed066b8229177277713c6eae21b17f9a7a70",
+      "rawExactToIncoming": true,
+      "filteredExactToIncoming": true
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "gitBlob": "7f6136ae1f633be56eb194f11a67d1466490990a",
+      "relative": "plugins/communication-kit/skills/communicate/references/aics-snapshot.json",
+      "exists": true,
+      "bytes": 10361,
+      "rawSha256": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332",
+      "rawGitBlob": "7f6136ae1f633be56eb194f11a67d1466490990a",
+      "filteredGitBlob": "7f6136ae1f633be56eb194f11a67d1466490990a",
+      "rawExactToIncoming": true,
+      "filteredExactToIncoming": true
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "gitBlob": "620db99d40ff20dbba3e8ca818d4737700ee16f9",
+      "relative": "plugins/communication-kit/skills/communicate/references/source-provenance.md",
+      "exists": true,
+      "bytes": 5621,
+      "rawSha256": "53272cc56dba8cfe32203543d9f3d6aee8ec55ebc3602f4dc5652be90b9ed725",
+      "rawGitBlob": "620db99d40ff20dbba3e8ca818d4737700ee16f9",
+      "filteredGitBlob": "620db99d40ff20dbba3e8ca818d4737700ee16f9",
+      "rawExactToIncoming": true,
+      "filteredExactToIncoming": true
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "gitBlob": "3dfd90a1d5a6826f92e9abfddf650e4c8b763e8a",
+      "relative": "plugins/communication-kit/skills/communicate/references/task-patterns.md",
+      "exists": true,
+      "bytes": 4178,
+      "rawSha256": "190c47c125759de5dbdca218417a418b76ba555df44923dc2cf48b86d60d0cff",
+      "rawGitBlob": "3dfd90a1d5a6826f92e9abfddf650e4c8b763e8a",
+      "filteredGitBlob": "3dfd90a1d5a6826f92e9abfddf650e4c8b763e8a",
+      "rawExactToIncoming": true,
+      "filteredExactToIncoming": true
+    }
+  ],
+  "frozenCommunicationSummaries": {
+    "snapshotRawSha256": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332",
+    "snapshotRawExactToIncoming": true,
+    "status": "Lab Proposal / Informative",
+    "sourceGitDirtyStatesPreserved": [
+      {
+        "id": "PROJECT-current-learning",
+        "dirty": true,
+        "fileState": "modified"
+      },
+      {
+        "id": "RN-02",
+        "dirty": true,
+        "fileState": "untracked"
+      }
+    ],
+    "threeSummaryHashes": [
+      {
+        "path": "./aics-policy.md",
+        "expected": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+        "actual": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+        "exact": true
+      },
+      {
+        "path": "./task-patterns.md",
+        "expected": "190c47c125759de5dbdca218417a418b76ba555df44923dc2cf48b86d60d0cff",
+        "actual": "190c47c125759de5dbdca218417a418b76ba555df44923dc2cf48b86d60d0cff",
+        "exact": true
+      },
+      {
+        "path": "./source-provenance.md",
+        "expected": "53272cc56dba8cfe32203543d9f3d6aee8ec55ebc3602f4dc5652be90b9ed725",
+        "actual": "53272cc56dba8cfe32203543d9f3d6aee8ec55ebc3602f4dc5652be90b9ed725",
+        "exact": true
+      }
+    ]
+  },
+  "protectedIncomingSummary": {
+    "checked": 158,
+    "exactIncomingGitContentExcludingIntentionalAttributeUnion": true,
+    "exactCountExcludingAttributeUnion": 157,
+    "ordinaryCheckoutRawVsGitDistinguished": true,
+    "intentionalExceptions": [
+      {
+        "path": ".gitattributes",
+        "finding": "Incoming lines retained, only two HTML frozen-evidence -text scopes plus blankline added; no global JSON serialization or permission change."
+      },
+      {
+        "path": "scripts/validate-portable.mjs",
+        "finding": "All incoming strict logic retained; only9addedlines preserve Guide6144-byte inclusive guard and repository/installed seams, zero removedlines."
+      },
+      {
+        "path": ".agents/skills/mp-doc-bump-version/SKILL.md",
+        "finding": "All incoming Communication/Learning/version scope instructions retained; only existing HTML ADR/ownmanifest/missingmanifest fail-closed pointer appended."
+      }
+    ]
+  },
+  "contractFindings": [
+    {
+      "id": "collections_versions_and_metadata",
+      "result": "NO_STATIC_BLOCKER",
+      "finding": "Market registry exactincoming fiveplugins; sevenpublic/fourexplicit/three natural and20repo scope remain exact. VERSION8.3.0 is upstreamunpublished preparation; Diagram0.3.1/Learning0.1.0/Explain0.1.1/Comm0.1.0 retainincoming. HTMLmanifest only ownpatch12→13, unchangedRead/explicitconfig/icons, three runtime texts match reviewedrawpins."
+    },
+    {
+      "id": "strict_runtime_install_matrix",
+      "result": "NO_STATIC_BLOCKER",
+      "finding": "Incoming Communication snapshot requiredfields/hashes/path/ReadWrite/implicitfalse/ownrouting andall strict package checks remain. Guide6144 budget applies atbothrepositoryandinstalled-resource seams, extra/missingref strictness preserved. Smoke is incomingexact13 scenario union; six scenarios containingDiagram requireactualcache Python; this review doesnotexecuteinstallation."
+    },
+    {
+      "id": "governance_docs_and_brand",
+      "result": "NO_STATIC_BLOCKER",
+      "finding": "AGENTS16165 LF bytes<=16384 retains Communication contract/Q3range/plan/writing/LEK policies plus currentHTML13summaryandfailure/deferral gates. Rootdocs preserve incominghistory, scopes/hooks/independentapproval/CI/threads/no-release authority. Incomingbrand/exports/previews/provenance protectedfiles filteredGitexact; Commfrozenrefs andiconsPNGrawexact."
+    },
+    {
+      "id": "two_current_document_claims_clarified",
+      "result": "RESOLVED_IN_CURRENT_SNAPSHOT",
+      "finding": "README Development now limits fivepackage unchanged claim to Communication PR4 phaseandstatescurrentHTML0.1.13. INDEX36 says Learning closeout then8.2.1/fourpackages and pointscurrent8.3/HTML13;38 labelsCommunicationPR3thenHTML0.1.0. No historydata orsourceJSONwasrewritten.",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\README.md",
+          "sha256": "41614ecc335994bfa835e8fa6a57652202217a958e3d2f6cd99b8e7ec6bde121",
+          "lineStart": 76,
+          "lineEnd": 76,
+          "text": "Learning的[8.2.0 Release](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.2.0)已于2026-10-13发布，实际main merge为ebc4bdc3。Communication PR4以实际8.2.0基线先DryRun零写入再准备8.3.0 VERSION/badge，其阶段五包根版本均保持；正式候选四包范围及发布门禁见[8.3.0账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。Diagram0.3.1、Learning Evidence0.1.0、Explain0.1.1已公开；当前HTML0.1.13修正候选与Communication0.1.0仅属开发候选。共用Learning脚本归属安装包，不依赖仓库过渡路径。"
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\INDEX.md",
+          "sha256": "195a8d65c3afb4caad4b34cbf6f197b8b5e7a6466670a06793453f8a6bb2b0bd",
+          "lineStart": 36,
+          "lineEnd": 38,
+          "text": "Epic #209 的 PR4/PR5历史候选曾为未发布8.2.0；当前公开v8.2.0包含Diagram0.3.1 / LearningEvidence0.1.0 / Explain0.1.1三插件五技能，Learning收尾当时develop为未发布8.2.1并保留HTML0.1.0四插件六技能；当前合成候选五包七技能/8.3.0/HTML0.1.13见下文。[迁移 ADR](adr/[ADR]_Learning_Evidence_Kit_Migration.md)、[记录/API 契约](spec/[SPEC]_Learning_Evidence_Record_And_API.md)、[指南](guide/[GUIDE]_Learning_Evidence_Kit.md)及[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)分别维护决定、数据、使用边界与实际证据；[8.2.0发行账本](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)维护实际公开、收尾与入口资格。Owner接受核心独立验收后分段交付；所有启用提问入口严格待答，原生窗口不合格入口延期，文字重述不算窗口通过。Epic与Owner最终接受独立追踪，公开发布不证明现实学习效果。\n\nCommunication PR3当时开发候选增加Communication0.1.0并保留HTML0.1.0，五包七技能/20开发技能；当前HTML修正版本见下文。Learning8.2.0已于2026-10-13公开，main三包五技能；Communication PR4已准备未发布8.3.0，尚未公开。实际CLI、限定工具角色及代理亲自执行的同应用Codex/ChatGPT Work本机两个入口证据见[验收记录](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)，身份、失败及未覆盖项分别保留，现实效果另测。Owner已确认Communication正式四包六技能，HTML另发；后续独立minor目标8.3.0，PR4重查实际版本和基线，Refs [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。"
+        }
+      ]
+    },
+    {
+      "id": "old_raw_evidence_preservation",
+      "result": "NO_STATIC_BLOCKER",
+      "finding": "885 alreadytrackedHTML postmerge/reviewerarchive files independentlyrawGitblobexacttobase5b.398 incomingCommunication/plan evidence files preserveincomingGitcontent;296 currentrawbytesexact,102 ordinaryoldercheckouttextCRLF differences separatelyrecorded ratherthan falselyclaimedrawexact. All frozenCommreferencebytes and2026-10-13protected evidencebytes remainincoming. Newsource12sealed456andseparatechecks are Parentstaging/restore proof scope, not claimedasnew independentfullrestore here."
+    },
+    {
+      "id": "local_engineering_evidence_vs_behavior",
+      "result": "NO_STATIC_BLOCKER",
+      "finding": "Read actualcompletedlogs: initial346tests345PASS1FAIL retained; corrected346/346zeroFailSkip, corrected65doc/A6, validate7public20repo andCLI0.147check successful. No test rerunbyreviewer. These engineeringfacts do not establish fresh13 installation/model/UI/effect orGitHubapproval."
+    }
+  ],
+  "engineeringLogEvidence": [
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\full-test-working.log",
+      "bytes": 79814,
+      "sha256": "85aacda647ed434afe76f986b73b59dd30dcc05f5e34bb9f2c124f1f3773d2a4",
+      "actualTailRead": true
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\full-test-working-corrected.log",
+      "bytes": 78938,
+      "sha256": "08f04d744084e7e754950b32444a8211bf794132a8842423679fd13f44f19261",
+      "actualTailRead": true
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\doc-a6-working-corrected.log",
+      "bytes": 12632,
+      "sha256": "3cba6ccd9c3dbc7ac626c6ea317c8a155d9cfbb3a1a980b57908bfa34a07e7ec",
+      "actualTailRead": true
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\validate-working.log",
+      "bytes": 392,
+      "sha256": "e3bedb0233222e468a1e207cfbcbaf1c3138a8827fde2769e9e2ede3a85eb3d8",
+      "actualTailRead": true
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\check-working.log",
+      "bytes": 213,
+      "sha256": "6c194d3cab975bfcaadd9ef894adc247ca34e53e06af305b0c215099eb27add3",
+      "actualTailRead": true
+    }
+  ],
+  "appliedReviewedProof": {
+    "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\applied-reviewed-runtime.json",
+    "sha256": "927997c16f51de6d286940a541fe7c6c28b797f6a2501db088dc5556e606e0bd",
+    "threeCurrentResourcesIndependentlyExact": true
+  },
+  "snapshotsDirectory": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\upstream-sync-communication\\snapshot-aba6b4cc-d0e3-41b7-bd1c-28e4db7a3c39",
+  "snapshotStableAtFinal": true,
+  "blockers": [],
+  "notPerformed": {
+    "model": true,
+    "installation": true,
+    "gitMutation": true,
+    "repositoryEdit": true,
+    "sharedFileEdit": true,
+    "grade": true,
+    "githubApproval": true
+  },
+  "fresh13Behavior": "NOT_RUN",
+  "fresh13Installation": "NOT_RUN",
+  "clientUi": "NOT_RUN",
+  "realEffect": "NOT_MEASURED",
+  "limitations": [
+    "This is precommitworkingcomposition identity, not futuremergeSHA/tree or actualinstallationcacheidentity.",
+    "Gitfilteredcontent equality andrawbyte equality are reportedseparately; no JSON parse/reserialize wasapplied to source files.",
+    "No fullhistorical semanticledger rereview ornew archive restorationperformed; existinglegacycandidate012 tenpacket hash checks arenot misattributed to current0.1.12.",
+    "Independentstaticreview doesnotreplace GitHubcurrenthead nonauthor approval orrequiredCI/threads."
+  ]
+}

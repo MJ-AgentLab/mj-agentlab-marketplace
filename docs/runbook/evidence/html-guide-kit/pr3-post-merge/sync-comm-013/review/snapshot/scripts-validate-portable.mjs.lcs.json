@@ -1,0 +1,2747 @@
+{
+  "method": "complete_line_lcs",
+  "displayLineEndingNormalizationOnly": true,
+  "oldLines": 449,
+  "newLines": 458,
+  "operations": [
+    {
+      "kind": "equal",
+      "oldLine": 1,
+      "newLine": 1,
+      "text": "#!/usr/bin/env node"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 2,
+      "newLine": 2,
+      "text": "import fs from \"node:fs\";"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 3,
+      "newLine": 3,
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 4,
+      "newLine": 4,
+      "text": "import crypto from \"node:crypto\";"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 5,
+      "newLine": 5,
+      "text": "import { pathToFileURL } from \"node:url\";"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 6,
+      "newLine": 6,
+      "text": "import { parseDocument } from \"yaml\";"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 7,
+      "newLine": 7,
+      "text": "import { ICON_FIELDS, validateIconReference, validatePluginIcons } from \"./plugin-icons.mjs\";"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 8,
+      "newLine": 8,
+      "text": "import { validateBrandAssets } from \"./brand-assets.mjs\";"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 9,
+      "newLine": 9,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 10,
+      "newLine": 10,
+      "text": "export const REPOSITORY_SKILLS = ["
+    },
+    {
+      "kind": "equal",
+      "oldLine": 11,
+      "newLine": 11,
+      "text": "  \"mp-design-icon\","
+    },
+    {
+      "kind": "equal",
+      "oldLine": 12,
+      "newLine": 12,
+      "text": "  \"mp-doc-author\", \"mp-doc-bump-version\", \"mp-doc-validate\", \"mp-flow-author\","
+    },
+    {
+      "kind": "equal",
+      "oldLine": 13,
+      "newLine": 13,
+      "text": "  \"mp-flow-compliance\", \"mp-flow-design-adr\", \"mp-flow-dogfood\", \"mp-flow-intake\","
+    },
+    {
+      "kind": "equal",
+      "oldLine": 14,
+      "newLine": 14,
+      "text": "  \"mp-flow-plan\", \"mp-flow-post-merge\", \"mp-flow-repo-scan\", \"mp-flow-self-review\","
+    },
+    {
+      "kind": "equal",
+      "oldLine": 15,
+      "newLine": 15,
+      "text": "  \"mp-git-branch\", \"mp-git-cleanup\", \"mp-git-commit\", \"mp-git-merge-gate\","
+    },
+    {
+      "kind": "equal",
+      "oldLine": 16,
+      "newLine": 16,
+      "text": "  \"mp-git-pr\", \"mp-git-push\", \"mp-git-sync\","
+    },
+    {
+      "kind": "equal",
+      "oldLine": 17,
+      "newLine": 17,
+      "text": "];"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 18,
+      "newLine": 18,
+      "text": "export const PORTABLE_SCHEMA = \"https://agent-plugins.org/schemas/1.0.0/plugin.schema.json\";"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 19,
+      "newLine": 19,
+      "text": "export const RUNTIME_PLUGINS = Object.freeze({"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 20,
+      "newLine": 20,
+      "text": "  \"diagram-kit\": Object.freeze([\"arch-diagram\"]),"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 21,
+      "newLine": 21,
+      "text": "  \"learning-evidence-kit\": Object.freeze([\"pop-quiz\", \"learning-record-check\"]),"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 22,
+      "newLine": 22,
+      "text": "  \"explain-kit\": Object.freeze([\"glossary\", \"concept\"]),"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 23,
+      "newLine": 23,
+      "text": "  \"communication-kit\": Object.freeze([\"communicate\"]),"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 24,
+      "newLine": 24,
+      "text": "  \"html-guide-kit\": Object.freeze([\"guide\"]),"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 25,
+      "newLine": 25,
+      "text": "});"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 26,
+      "newLine": 26,
+      "text": "export const PUBLIC_SKILLS = Object.freeze(Object.entries(RUNTIME_PLUGINS).flatMap(([plugin, skills]) => skills.map(skill => `${plugin}:${skill}`)));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 27,
+      "newLine": 27,
+      "text": "export const EXPLICIT_ONLY_SKILLS = Object.freeze([\"learning-evidence-kit:pop-quiz\", \"learning-evidence-kit:learning-record-check\", \"communication-kit:communicate\", \"html-guide-kit:guide\"]);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 28,
+      "newLine": 28,
+      "text": "export const COMMUNICATION_REFERENCES = Object.freeze([\"references/aics-policy.md\", \"references/task-patterns.md\", \"references/source-provenance.md\", \"references/aics-snapshot.json\"]);"
+    },
+    {
+      "kind": "add",
+      "newLine": 29,
+      "text": "// Conservative package budget following observed native truncation on CLI 0.147.0;"
+    },
+    {
+      "kind": "add",
+      "newLine": 30,
+      "text": "// this is not a claim about a universal client token/byte limit."
+    },
+    {
+      "kind": "add",
+      "newLine": 31,
+      "text": "export const GUIDE_ENTRY_MAX_BYTES = 6144;"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 29,
+      "newLine": 32,
+      "text": "export const SKILL_RESOURCES = Object.freeze({"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 30,
+      "newLine": 33,
+      "text": "  \"diagram-kit:arch-diagram\": Object.freeze([\"SKILL.md\", \"agents/openai.yaml\", \"scripts/validate_diagram.py\", \"references/architecture-methodology.md\", \"references/domain-acquisition.md\", ...[\"context\", \"container\", \"component\", \"code\", \"sequence\", \"state-machine\", \"deployment\"].map(t => `references/${t}-diagram.md`)]),"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 31,
+      "newLine": 34,
+      "text": "  \"learning-evidence-kit:pop-quiz\": Object.freeze([\"SKILL.md\", \"agents/openai.yaml\", \"references/ku-selection.md\", \"references/quiz-policy.md\"]),"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 32,
+      "newLine": 35,
+      "text": "  \"learning-evidence-kit:learning-record-check\": Object.freeze([\"SKILL.md\", \"agents/openai.yaml\"]),"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 33,
+      "newLine": 36,
+      "text": "  \"explain-kit:glossary\": Object.freeze([\"SKILL.md\", \"agents/openai.yaml\"]),"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 34,
+      "newLine": 37,
+      "text": "  \"explain-kit:concept\": Object.freeze([\"SKILL.md\", \"agents/openai.yaml\"]),"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 35,
+      "newLine": 38,
+      "text": "  \"communication-kit:communicate\": Object.freeze([\"SKILL.md\", \"agents/openai.yaml\", ...COMMUNICATION_REFERENCES]),"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 36,
+      "newLine": 39,
+      "text": "  \"html-guide-kit:guide\": Object.freeze([\"SKILL.md\", \"agents/openai.yaml\", \"references/guide-framework.md\", \"references/interaction-design.md\"]),"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 37,
+      "newLine": 40,
+      "text": "});"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 38,
+      "newLine": 41,
+      "text": "const PLUGIN_CAPABILITIES = Object.freeze({"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 39,
+      "newLine": 42,
+      "text": "  \"diagram-kit\": Object.freeze([\"Read\", \"Write\"]),"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 40,
+      "newLine": 43,
+      "text": "  \"learning-evidence-kit\": Object.freeze([\"Read\", \"Write\"]),"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 41,
+      "newLine": 44,
+      "text": "  \"explain-kit\": Object.freeze([\"Read\"]),"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 42,
+      "newLine": 45,
+      "text": "  \"communication-kit\": Object.freeze([\"Read\", \"Write\"]),"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 43,
+      "newLine": 46,
+      "text": "  \"html-guide-kit\": Object.freeze([\"Read\"]),"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 44,
+      "newLine": 47,
+      "text": "});"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 45,
+      "newLine": 48,
+      "text": "const SEMVER = /^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)$/;"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 46,
+      "newLine": 49,
+      "text": "const NAME = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 47,
+      "newLine": 50,
+      "text": "const read = (root, rel) => fs.readFileSync(path.join(root, rel), \"utf8\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 48,
+      "newLine": 51,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 49,
+      "newLine": 52,
+      "text": "export function parseFrontmatter(text) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 50,
+      "newLine": 53,
+      "text": "  const match = text.match(/^---\\r?\\n([\\s\\S]*?)\\r?\\n---(?:\\r?\\n|$)/);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 51,
+      "newLine": 54,
+      "text": "  if (!match) throw new Error(\"missing YAML frontmatter\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 52,
+      "newLine": 55,
+      "text": "  const doc = parseDocument(match[1], { uniqueKeys: true });"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 53,
+      "newLine": 56,
+      "text": "  if (doc.errors.length) throw new Error(doc.errors.map(e => e.message).join(\"; \"));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 54,
+      "newLine": 57,
+      "text": "  const metadata = doc.toJS();"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 55,
+      "newLine": 58,
+      "text": "  if (!metadata || typeof metadata !== \"object\" || Array.isArray(metadata)) throw new Error(\"frontmatter must be a mapping\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 56,
+      "newLine": 59,
+      "text": "  return { metadata, body: text.slice(match[0].length) };"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 57,
+      "newLine": 60,
+      "text": "}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 58,
+      "newLine": 61,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 59,
+      "newLine": 62,
+      "text": "export function validateSkill(text, expectedName) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 60,
+      "newLine": 63,
+      "text": "  const { metadata, body } = parseFrontmatter(text);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 61,
+      "newLine": 64,
+      "text": "  if (metadata.name !== expectedName || !NAME.test(metadata.name) || metadata.name.length > 64) throw new Error(\"name must match its kebab-case directory, at most 64 characters\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 62,
+      "newLine": 65,
+      "text": "  if (typeof metadata.description !== \"string\" || !metadata.description.trim() || [...metadata.description].length > 1024) throw new Error(\"description must be a nonempty string within the 1024-character repository budget\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 63,
+      "newLine": 66,
+      "text": "  if (/<[^>]+>|\\{\\{[^}]+\\}\\}|\\b(?:TODO|TBD)\\b/.test(metadata.description)) throw new Error(\"description contains a placeholder\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 64,
+      "newLine": 67,
+      "text": "  if (Object.keys(metadata).some(k => ![\"name\", \"description\", \"metadata\", \"license\", \"compatibility\"].includes(k))) throw new Error(\"unsupported skill frontmatter field\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 65,
+      "newLine": 68,
+      "text": "  if (expectedName === \"communicate\") exactKeys(metadata, [\"name\", \"description\"], \"communicate frontmatter\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 66,
+      "newLine": 69,
+      "text": "  if (!body.trim()) throw new Error(\"skill body is empty\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 67,
+      "newLine": 70,
+      "text": "  if (/CLAUDE_SKILL_DIR|CLAUDE_PLUGIN_ROOT|AskUserQuestion|plugin-dev:|superpowers:|learn-kit:/.test(body)) throw new Error(\"skill body depends on a retired host or workflow\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 68,
+      "newLine": 71,
+      "text": "  return metadata;"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 69,
+      "newLine": 72,
+      "text": "}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 70,
+      "newLine": 73,
+      "text": ""
+    },
+    {
+      "kind": "add",
+      "newLine": 74,
+      "text": "export function validateGuideEntryBudget(text) {"
+    },
+    {
+      "kind": "add",
+      "newLine": 75,
+      "text": "  if (Buffer.byteLength(text, \"utf8\") > GUIDE_ENTRY_MAX_BYTES) throw new Error(`guide SKILL.md exceeds the ${GUIDE_ENTRY_MAX_BYTES}-byte entry budget`);"
+    },
+    {
+      "kind": "add",
+      "newLine": 76,
+      "text": "}"
+    },
+    {
+      "kind": "add",
+      "newLine": 77,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 71,
+      "newLine": 78,
+      "text": "function inside(root, candidate) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 72,
+      "newLine": 79,
+      "text": "  const rel = path.relative(fs.realpathSync(root), fs.realpathSync(candidate));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 73,
+      "newLine": 80,
+      "text": "  return rel !== \"\" && !rel.startsWith(`..${path.sep}`) && rel !== \"..\" && !path.isAbsolute(rel);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 74,
+      "newLine": 81,
+      "text": "}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 75,
+      "newLine": 82,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 76,
+      "newLine": 83,
+      "text": "/** Validates the portable fields and the maintained OpenAI extension subset. */"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 77,
+      "newLine": 84,
+      "text": "export function validateManifest(manifest, expectedName) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 78,
+      "newLine": 85,
+      "text": "  if (!manifest || typeof manifest !== \"object\" || Array.isArray(manifest)) throw new Error(\"manifest must be an object\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 79,
+      "newLine": 86,
+      "text": "  if (manifest.$schema !== PORTABLE_SCHEMA) throw new Error(\"portable schema is required\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 80,
+      "newLine": 87,
+      "text": "  if (typeof manifest.name !== \"string\" || !Object.hasOwn(RUNTIME_PLUGINS, manifest.name) || (expectedName && manifest.name !== expectedName) || (typeof manifest.version !== \"string\" || !SEMVER.test(manifest.version))) throw new Error(\"invalid portable identity/version\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 81,
+      "newLine": 88,
+      "text": "  if (typeof manifest.description !== \"string\" || !manifest.description.trim() || manifest.description.length > 4000) throw new Error(\"invalid description\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 82,
+      "newLine": 89,
+      "text": "  if (typeof manifest.author?.name !== \"string\" || !manifest.author.name.trim()) throw new Error(\"author.name is required\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 83,
+      "newLine": 90,
+      "text": "  if (manifest.license !== \"MIT\") throw new Error(\"expected MIT license\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 84,
+      "newLine": 91,
+      "text": "  const keys = [\"$schema\", \"name\", \"version\", \"description\", \"author\", \"homepage\", \"repository\", \"license\", \"keywords\", \"extensions\"];"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 85,
+      "newLine": 92,
+      "text": "  if (Object.keys(manifest).some(k => !keys.includes(k))) throw new Error(\"unsupported portable root field (skills and MCP use fixed package paths)\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 86,
+      "newLine": 93,
+      "text": "  if (!Array.isArray(manifest.keywords) || manifest.keywords.some(k => typeof k !== \"string\")) throw new Error(\"keywords must be strings\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 87,
+      "newLine": 94,
+      "text": "  const ui = manifest.extensions?.[\"com.openai\"]?.interface;"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 88,
+      "newLine": 95,
+      "text": "  for (const key of [\"displayName\", \"shortDescription\", \"longDescription\", \"developerName\", \"category\"]) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 89,
+      "newLine": 96,
+      "text": "    if (typeof ui?.[key] !== \"string\" || !ui[key].trim()) throw new Error(`interface.${key} is required`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 90,
+      "newLine": 97,
+      "text": "  }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 91,
+      "newLine": 98,
+      "text": "  for (const field of ICON_FIELDS) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 92,
+      "newLine": 99,
+      "text": "    if (Object.hasOwn(ui, field) || field === \"logo\" || field === \"composerIcon\") {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 93,
+      "newLine": 100,
+      "text": "      try { validateIconReference(ui[field]); } catch (error) { throw new Error(`interface.${field}: ${error.message}`); }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 94,
+      "newLine": 101,
+      "text": "    }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 95,
+      "newLine": 102,
+      "text": "  }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 96,
+      "newLine": 103,
+      "text": "  const capabilities = PLUGIN_CAPABILITIES[manifest.name];"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 97,
+      "newLine": 104,
+      "text": "  if (!Array.isArray(ui.capabilities) || ui.capabilities.length !== capabilities.length || new Set(ui.capabilities).size !== ui.capabilities.length || ui.capabilities.some(value => !capabilities.includes(value))) throw new Error(\"interface.capabilities must match the plugin's approved capabilities\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 98,
+      "newLine": 105,
+      "text": "  if (ui.category !== \"Developer Tools\" || !Array.isArray(ui.defaultPrompt) || !ui.defaultPrompt.length || ui.defaultPrompt.some(p => !routesToOwnedSkill(p, manifest.name))) throw new Error(\"invalid OpenAI listing/routing metadata\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 99,
+      "newLine": 106,
+      "text": "  if (ui.defaultPrompt.length > 3) throw new Error(\"interface.defaultPrompt supports at most 3 prompts\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 100,
+      "newLine": 107,
+      "text": "  for (const [index, prompt] of ui.defaultPrompt.entries()) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 101,
+      "newLine": 108,
+      "text": "    if (!prompt.isWellFormed()) throw new Error(`interface.defaultPrompt[${index}] must contain well-formed Unicode scalar values`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 102,
+      "newLine": 109,
+      "text": "    // Codex 0.147.0 counts Unicode scalars after whitespace normalization. Keep the"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 103,
+      "newLine": 110,
+      "text": "    // repository's raw listing text within that budget so no normalization is needed."
+    },
+    {
+      "kind": "equal",
+      "oldLine": 104,
+      "newLine": 111,
+      "text": "    if ([...prompt].length > 128) throw new Error(`interface.defaultPrompt[${index}] must be at most 128 Unicode scalar values before normalization`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 105,
+      "newLine": 112,
+      "text": "  }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 106,
+      "newLine": 113,
+      "text": "  for (const skill of RUNTIME_PLUGINS[manifest.name]) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 107,
+      "newLine": 114,
+      "text": "    if (!ui.defaultPrompt.some(prompt => [...prompt.matchAll(/\\$([a-z0-9-]+):([a-z0-9-]+)(?![A-Za-z0-9_-])/g)].some(([, plugin, name]) => plugin === manifest.name && name === skill))) throw new Error(\"listing must expose every public skill\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 108,
+      "newLine": 115,
+      "text": "  }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 109,
+      "newLine": 116,
+      "text": "}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 110,
+      "newLine": 117,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 111,
+      "newLine": 118,
+      "text": "function routesToOwnedSkill(prompt, plugin, skill) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 112,
+      "newLine": 119,
+      "text": "  if (typeof prompt !== \"string\") return false;"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 113,
+      "newLine": 120,
+      "text": "  const invocations = [...prompt.matchAll(/\\$([a-z0-9-]+):([a-z0-9-]+)(?![A-Za-z0-9_-])/g)];"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 114,
+      "newLine": 121,
+      "text": "  return invocations.length > 0 && invocations.every(([, p, s]) => p === plugin && RUNTIME_PLUGINS[plugin]?.includes(s) && (!skill || s === skill));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 115,
+      "newLine": 122,
+      "text": "}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 116,
+      "newLine": 123,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 117,
+      "newLine": 124,
+      "text": "/** Validate native presentation and each skill's approved invocation policy. */"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 118,
+      "newLine": 125,
+      "text": "export function validateOpenAIConfig(text, plugin, skill) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 119,
+      "newLine": 126,
+      "text": "  const doc = parseDocument(text, { uniqueKeys: true });"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 120,
+      "newLine": 127,
+      "text": "  if (doc.errors.length) throw new Error(doc.errors.map(e => e.message).join(\"; \"));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 121,
+      "newLine": 128,
+      "text": "  const config = doc.toJS();"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 122,
+      "newLine": 129,
+      "text": "  if (!RUNTIME_PLUGINS[plugin]?.includes(skill) || !config || typeof config !== \"object\" || Array.isArray(config)) throw new Error(\"invalid native skill identity/configuration\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 123,
+      "newLine": 130,
+      "text": "  for (const key of [\"display_name\", \"short_description\", \"default_prompt\"]) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 124,
+      "newLine": 131,
+      "text": "    if (typeof config.interface?.[key] !== \"string\" || !config.interface[key].trim()) throw new Error(`interface.${key} is required`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 125,
+      "newLine": 132,
+      "text": "  }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 126,
+      "newLine": 133,
+      "text": "  if (!routesToOwnedSkill(config.interface.default_prompt, plugin, skill)) throw new Error(\"native default_prompt must invoke its own skill\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 127,
+      "newLine": 134,
+      "text": "  if (plugin === \"communication-kit\" && [...config.interface.default_prompt].length > 128) throw new Error(\"communication native prompt exceeds the 128-character client budget\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 128,
+      "newLine": 135,
+      "text": "  if (typeof config.policy?.allow_implicit_invocation !== \"boolean\") throw new Error(\"native invocation policy must be an explicit boolean\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 129,
+      "newLine": 136,
+      "text": "  if (EXPLICIT_ONLY_SKILLS.includes(`${plugin}:${skill}`) && config.policy.allow_implicit_invocation !== false) throw new Error(`${skill} must require explicit invocation`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 130,
+      "newLine": 137,
+      "text": "  if (plugin === \"communication-kit\" && ([...config.interface.short_description].length < 25 || [...config.interface.short_description].length > 64)) throw new Error(\"invalid communication skill presentation\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 131,
+      "newLine": 138,
+      "text": "  if (plugin === \"explain-kit\") {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 132,
+      "newLine": 139,
+      "text": "    const length = [...config.interface.short_description].length;"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 133,
+      "newLine": 140,
+      "text": "    const calls = [...config.interface.default_prompt.matchAll(/\\$([a-z0-9-]+):([a-z0-9-]+)(?![A-Za-z0-9_-])/g)];"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 134,
+      "newLine": 141,
+      "text": "    if (length < 25 || length > 64 || calls.length !== 1 || config.policy.allow_implicit_invocation !== true) throw new Error(\"invalid explanation skill presentation or implicit policy\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 135,
+      "newLine": 142,
+      "text": "  }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 136,
+      "newLine": 143,
+      "text": "  if (plugin === \"html-guide-kit\") {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 137,
+      "newLine": 144,
+      "text": "    const length = [...config.interface.short_description].length;"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 138,
+      "newLine": 145,
+      "text": "    const calls = [...config.interface.default_prompt.matchAll(/\\$([a-z0-9-]+):([a-z0-9-]+)(?![A-Za-z0-9_-])/g)];"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 139,
+      "newLine": 146,
+      "text": "    if (length < 25 || length > 64 || calls.length !== 1) throw new Error(\"invalid guide skill presentation\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 140,
+      "newLine": 147,
+      "text": "  }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 141,
+      "newLine": 148,
+      "text": "  return config;"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 142,
+      "newLine": 149,
+      "text": "}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 143,
+      "newLine": 150,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 144,
+      "newLine": 151,
+      "text": "export function validateSkillInterface(text, qualifiedName) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 145,
+      "newLine": 152,
+      "text": "  const [plugin, skill] = qualifiedName.split(\":\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 146,
+      "newLine": 153,
+      "text": "  return validateOpenAIConfig(text, plugin, skill);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 147,
+      "newLine": 154,
+      "text": "}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 148,
+      "newLine": 155,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 149,
+      "newLine": 156,
+      "text": "/** Resolve an ordinary owned resource, checking every link/junction component. */"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 150,
+      "newLine": 157,
+      "text": "export function resolveOwnedResource(resourceRoot, reference) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 151,
+      "newLine": 158,
+      "text": "  if (typeof reference !== \"string\" || !reference.startsWith(\"./\") || /[\\\\:\\0]/.test(reference)) throw new Error(\"resource path must be ./-prefixed and package-owned\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 152,
+      "newLine": 159,
+      "text": "  const parts = reference.slice(2).split(\"/\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 153,
+      "newLine": 160,
+      "text": "  if (parts.some(part => !part || part === \".\" || part === \"..\")) throw new Error(\"resource path must not contain traversal\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 154,
+      "newLine": 161,
+      "text": "  if (fs.lstatSync(resourceRoot).isSymbolicLink()) throw new Error(\"resource root must not be a symlink or junction/reparse link\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 155,
+      "newLine": 162,
+      "text": "  const root = fs.realpathSync.native(resourceRoot);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 156,
+      "newLine": 163,
+      "text": "  let file = root;"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 157,
+      "newLine": 164,
+      "text": "  for (const [index, part] of parts.entries()) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 158,
+      "newLine": 165,
+      "text": "    file = path.join(file, part);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 159,
+      "newLine": 166,
+      "text": "    const stat = fs.lstatSync(file);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 160,
+      "newLine": 167,
+      "text": "    if (stat.isSymbolicLink()) throw new Error(\"resource must not contain a symlink or junction/reparse link\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 161,
+      "newLine": 168,
+      "text": "    if (!inside(root, file) || (index < parts.length - 1 ? !stat.isDirectory() : !stat.isFile())) throw new Error(\"resource must be an ordinary owned file\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 162,
+      "newLine": 169,
+      "text": "  }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 163,
+      "newLine": 170,
+      "text": "  return file;"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 164,
+      "newLine": 171,
+      "text": "}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 165,
+      "newLine": 172,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 166,
+      "newLine": 173,
+      "text": "const SHA256 = /^[0-9a-f]{64}$/;"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 167,
+      "newLine": 174,
+      "text": "const nonempty = value => typeof value === \"string\" && !!value.trim();"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 168,
+      "newLine": 175,
+      "text": "function exactKeys(value, keys, label) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 169,
+      "newLine": 176,
+      "text": "  if (!value || typeof value !== \"object\" || Array.isArray(value) || JSON.stringify(Object.keys(value).sort()) !== JSON.stringify([...keys].sort())) throw new Error(`${label} must have exactly its approved fields`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 170,
+      "newLine": 177,
+      "text": "}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 171,
+      "newLine": 178,
+      "text": "function uniqueStrings(value, label, allowEmpty = false) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 172,
+      "newLine": 179,
+      "text": "  if (!Array.isArray(value) || (!allowEmpty && !value.length) || value.some(item => !nonempty(item)) || new Set(value).size !== value.length) throw new Error(`${label} must be a distinct string array`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 173,
+      "newLine": 180,
+      "text": "}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 174,
+      "newLine": 181,
+      "text": "function validDate(value) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 175,
+      "newLine": 182,
+      "text": "  return typeof value === \"string\" && /^\\d{4}-\\d{2}-\\d{2}$/.test(value) && Number.isFinite(Date.parse(`${value}T00:00:00Z`)) && new Date(`${value}T00:00:00Z`).toISOString().slice(0, 10) === value;"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 176,
+      "newLine": 183,
+      "text": "}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 177,
+      "newLine": 184,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 178,
+      "newLine": 185,
+      "text": "/** Validate captured identities and owned summary bytes; never read source paths. */"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 179,
+      "newLine": 186,
+      "text": "export function validateCommunicationSnapshot(skillRoot) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 180,
+      "newLine": 187,
+      "text": "  const file = resolveOwnedResource(skillRoot, \"./references/aics-snapshot.json\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 181,
+      "newLine": 188,
+      "text": "  const text = fs.readFileSync(file, \"utf8\"), snapshot = JSON.parse(text);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 182,
+      "newLine": 189,
+      "text": "  const json = parseDocument(text, { uniqueKeys: true });"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 183,
+      "newLine": 190,
+      "text": "  if (json.errors.length) throw new Error(`snapshot JSON has duplicate/invalid keys: ${json.errors.map(error => error.message).join(\"; \")}`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 184,
+      "newLine": 191,
+      "text": "  exactKeys(snapshot, [\"schemaVersion\", \"snapshotId\", \"status\", \"capturedAt\", \"captureDate\", \"timezone\", \"sources\", \"summaries\", \"mapping\"], \"snapshot\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 185,
+      "newLine": 192,
+      "text": "  if (snapshot.schemaVersion !== 1 || !nonempty(snapshot.snapshotId) || snapshot.status !== \"Lab Proposal / Informative\" || snapshot.timezone !== \"Asia/Taipei\") throw new Error(\"invalid frozen snapshot identity/status/timezone\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 186,
+      "newLine": 193,
+      "text": "  if (typeof snapshot.capturedAt !== \"string\" || !/^\\d{4}-\\d{2}-\\d{2}T(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d{1,3})?Z$/.test(snapshot.capturedAt) || !validDate(snapshot.capturedAt.slice(0, 10)) || !Number.isFinite(Date.parse(snapshot.capturedAt)) || !validDate(snapshot.captureDate)) throw new Error(\"invalid snapshot capture date/time\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 187,
+      "newLine": 194,
+      "text": "  const parts = Object.fromEntries(new Intl.DateTimeFormat(\"en-US\", { timeZone: snapshot.timezone, year: \"numeric\", month: \"2-digit\", day: \"2-digit\" }).formatToParts(new Date(snapshot.capturedAt)).map(part => [part.type, part.value]));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 188,
+      "newLine": 195,
+      "text": "  if (snapshot.captureDate !== `${parts.year}-${parts.month}-${parts.day}`) throw new Error(\"captureDate must match capturedAt in Asia/Taipei\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 189,
+      "newLine": 196,
+      "text": "  if (!Array.isArray(snapshot.sources) || snapshot.sources.length !== 2 || JSON.stringify(snapshot.sources.map(source => source?.id).sort()) !== JSON.stringify([\"PROJECT-current-learning\", \"RN-02\"].sort())) throw new Error(\"snapshot must contain the two approved source identities\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 190,
+      "newLine": 197,
+      "text": "  for (const source of snapshot.sources) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 191,
+      "newLine": 198,
+      "text": "    exactKeys(source, [\"id\", \"title\", \"path\", \"sections\", \"updated\", \"sha256\", \"git\"], \"source\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 192,
+      "newLine": 199,
+      "text": "    if (!nonempty(source.title) || !nonempty(source.path) || !validDate(source.updated) || typeof source.sha256 !== \"string\" || !SHA256.test(source.sha256)) throw new Error(\"invalid source title/path/date/hash\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 193,
+      "newLine": 200,
+      "text": "    uniqueStrings(source.sections, \"source.sections\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 194,
+      "newLine": 201,
+      "text": "    exactKeys(source.git, [\"repo\", \"head\", \"dirty\", \"status\", \"fileState\"], \"source.git\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 195,
+      "newLine": 202,
+      "text": "    const git = source.git;"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 196,
+      "newLine": 203,
+      "text": "    if (!nonempty(git.repo) || typeof git.head !== \"string\" || !/^[0-9a-f]{40}$/.test(git.head) || typeof git.dirty !== \"boolean\" || ![\"clean\", \"modified\", \"untracked\"].includes(git.fileState)) throw new Error(\"invalid source Git identity/state\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 197,
+      "newLine": 204,
+      "text": "    uniqueStrings(git.status, \"source.git.status\", true);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 198,
+      "newLine": 205,
+      "text": "    if (git.dirty !== (git.status.length > 0) || (git.fileState !== \"clean\" && !git.dirty) || git.status.some(line => !/^(?:\\?\\?|[ MARCUD][ MARCUD]) [^\\r\\n\\0]+$/.test(line) || line.startsWith(\"  \"))) throw new Error(\"source Git dirty/fileState/status are inconsistent\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 199,
+      "newLine": 206,
+      "text": "    const repo = git.repo.replaceAll(\"\\\\\", \"/\").replace(/\\/$/, \"\"), sourcePath = source.path.replaceAll(\"\\\\\", \"/\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 200,
+      "newLine": 207,
+      "text": "    if (sourcePath.startsWith(`${repo}/`)) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 201,
+      "newLine": 208,
+      "text": "      const relative = sourcePath.slice(repo.length + 1);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 202,
+      "newLine": 209,
+      "text": "      const statuses = git.status.filter(line => {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 203,
+      "newLine": 210,
+      "text": "        const target = line.slice(3).split(\" -> \").at(-1);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 204,
+      "newLine": 211,
+      "text": "        return target === relative || (target.endsWith(\"/\") && relative.startsWith(target));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 205,
+      "newLine": 212,
+      "text": "      });"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 206,
+      "newLine": 213,
+      "text": "      if (git.fileState === \"clean\" ? statuses.length > 0 : !statuses.some(line => git.fileState === \"untracked\" ? line.startsWith(\"?? \") : !line.startsWith(\"?? \"))) throw new Error(\"source fileState does not match recorded porcelain status\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 207,
+      "newLine": 214,
+      "text": "    }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 208,
+      "newLine": 215,
+      "text": "  }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 209,
+      "newLine": 216,
+      "text": "  const expectedSummaries = COMMUNICATION_REFERENCES.filter(reference => reference.endsWith(\".md\")).map(reference => `./${path.posix.basename(reference)}`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 210,
+      "newLine": 217,
+      "text": "  if (!Array.isArray(snapshot.summaries) || snapshot.summaries.length !== 3 || JSON.stringify(snapshot.summaries.map(summary => summary?.path).sort()) !== JSON.stringify(expectedSummaries.sort())) throw new Error(\"snapshot must contain exactly the three owned summaries\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 211,
+      "newLine": 218,
+      "text": "  const sourceIds = new Set(snapshot.sources.map(source => source.id)), headings = new Map();"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 212,
+      "newLine": 219,
+      "text": "  for (const summary of snapshot.summaries) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 213,
+      "newLine": 220,
+      "text": "    exactKeys(summary, [\"path\", \"sha256\", \"sourceIds\"], \"summary\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 214,
+      "newLine": 221,
+      "text": "    uniqueStrings(summary.sourceIds, \"summary.sourceIds\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 215,
+      "newLine": 222,
+      "text": "    if (summary.sourceIds.some(id => !sourceIds.has(id)) || typeof summary.sha256 !== \"string\" || !SHA256.test(summary.sha256)) throw new Error(\"invalid summary source reference/hash\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 216,
+      "newLine": 223,
+      "text": "    const summaryFile = resolveOwnedResource(skillRoot, `./references/${summary.path.slice(2)}`), bytes = fs.readFileSync(summaryFile);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 217,
+      "newLine": 224,
+      "text": "    if (crypto.createHash(\"sha256\").update(bytes).digest(\"hex\") !== summary.sha256) throw new Error(`summary SHA-256 differs from frozen bytes: ${summary.path}`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 218,
+      "newLine": 225,
+      "text": "    const prose = bytes.toString(\"utf8\").replace(/^ {0,3}(`{3,}|~{3,})[^\\n]*\\n[\\s\\S]*?^ {0,3}\\1\\s*$/gm, \"\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 219,
+      "newLine": 226,
+      "text": "    headings.set(summary.path, new Set([...prose.matchAll(/^ {0,3}#{1,6}\\s+(.+)$/gm)].map(match => match[1].trim().replace(/\\s+#+$/, \"\"))));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 220,
+      "newLine": 227,
+      "text": "  }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 221,
+      "newLine": 228,
+      "text": "  if (!Array.isArray(snapshot.mapping) || !snapshot.mapping.length) throw new Error(\"snapshot mapping must be nonempty\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 222,
+      "newLine": 229,
+      "text": "  const mappedSources = new Set(), mappedSummaries = new Set(), mappingIds = new Set();"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 223,
+      "newLine": 230,
+      "text": "  for (const mapping of snapshot.mapping) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 224,
+      "newLine": 231,
+      "text": "    exactKeys(mapping, [\"sourceId\", \"section\", \"summaryPath\", \"summarySection\", \"disposition\", \"reason\"], \"mapping\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 225,
+      "newLine": 232,
+      "text": "    const source = snapshot.sources.find(candidate => candidate.id === mapping.sourceId);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 226,
+      "newLine": 233,
+      "text": "    if (!source || !source.sections.includes(mapping.section) || !nonempty(mapping.reason) || ![\"extract\", \"adapt\", \"exclude\"].includes(mapping.disposition)) throw new Error(\"invalid mapping source/section/disposition/reason\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 227,
+      "newLine": 234,
+      "text": "    const identity = JSON.stringify([mapping.sourceId, mapping.section, mapping.summaryPath, mapping.summarySection, mapping.disposition]);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 228,
+      "newLine": 235,
+      "text": "    if (mappingIds.has(identity)) throw new Error(\"duplicate source mapping\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 229,
+      "newLine": 236,
+      "text": "    mappingIds.add(identity); mappedSources.add(source.id);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 230,
+      "newLine": 237,
+      "text": "    if (mapping.disposition === \"exclude\") {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 231,
+      "newLine": 238,
+      "text": "      if (mapping.summaryPath !== null || mapping.summarySection !== null) throw new Error(\"excluded mapping must have null summary locators\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 232,
+      "newLine": 239,
+      "text": "    } else {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 233,
+      "newLine": 240,
+      "text": "      const summary = snapshot.summaries.find(candidate => candidate.path === mapping.summaryPath);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 234,
+      "newLine": 241,
+      "text": "      if (!summary || !summary.sourceIds.includes(mapping.sourceId) || !nonempty(mapping.summarySection) || !headings.get(mapping.summaryPath).has(mapping.summarySection)) throw new Error(\"mapping must locate an owned summary heading and source reference\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 235,
+      "newLine": 242,
+      "text": "      mappedSummaries.add(summary.path);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 236,
+      "newLine": 243,
+      "text": "    }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 237,
+      "newLine": 244,
+      "text": "  }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 238,
+      "newLine": 245,
+      "text": "  if (mappedSources.size !== 2 || mappedSummaries.size !== 3) throw new Error(\"each source and summary must have a locatable mapping\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 239,
+      "newLine": 246,
+      "text": "  return snapshot;"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 240,
+      "newLine": 247,
+      "text": "}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 241,
+      "newLine": 248,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 242,
+      "newLine": 249,
+      "text": "function validateResourceTree(skillRoot) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 243,
+      "newLine": 250,
+      "text": "  for (const entry of fs.readdirSync(skillRoot, { withFileTypes: true })) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 244,
+      "newLine": 251,
+      "text": "    const candidate = path.join(skillRoot, entry.name);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 245,
+      "newLine": 252,
+      "text": "    if (!inside(skillRoot, candidate)) throw new Error(`resource escapes skill: ${entry.name}`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 246,
+      "newLine": 253,
+      "text": "    if (entry.isSymbolicLink()) throw new Error(`resource must be a package-owned file or directory: ${entry.name}`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 247,
+      "newLine": 254,
+      "text": "    if (entry.isDirectory()) validateResourceTree(candidate);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 248,
+      "newLine": 255,
+      "text": "  }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 249,
+      "newLine": 256,
+      "text": "}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 250,
+      "newLine": 257,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 251,
+      "newLine": 258,
+      "text": "function files(dir) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 252,
+      "newLine": 259,
+      "text": "  return fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? files(path.join(dir, e.name)) : [path.join(dir, e.name)]);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 253,
+      "newLine": 260,
+      "text": "}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 254,
+      "newLine": 261,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 255,
+      "newLine": 262,
+      "text": "function ownedResource(root, rel) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 256,
+      "newLine": 263,
+      "text": "  if (fs.lstatSync(root).isSymbolicLink() || path.isAbsolute(rel) || rel.includes(\"\\\\\") || rel.split(\"/\").some(p => !p || p === \".\" || p === \"..\")) throw new Error(`resource must be an owned file: ${rel}`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 257,
+      "newLine": 264,
+      "text": "  let file = root;"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 258,
+      "newLine": 265,
+      "text": "  for (const part of rel.split(\"/\")) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 259,
+      "newLine": 266,
+      "text": "    file = path.join(file, part);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 260,
+      "newLine": 267,
+      "text": "    if (fs.lstatSync(file).isSymbolicLink()) throw new Error(`resource must not be a symlink or reparse link: ${rel}`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 261,
+      "newLine": 268,
+      "text": "  }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 262,
+      "newLine": 269,
+      "text": "  if (!inside(root, file) || !fs.statSync(file).isFile()) throw new Error(`resource is not an owned file: ${rel}`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 263,
+      "newLine": 270,
+      "text": "  return file;"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 264,
+      "newLine": 271,
+      "text": "}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 265,
+      "newLine": 272,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 266,
+      "newLine": 273,
+      "text": "/** Match package-owned raw bytes, including references not mentioned by a Markdown link. */"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 267,
+      "newLine": 274,
+      "text": "export function assertInstalledSkillResources(sourceSkillRoot, installedSkillRoot, qualifiedName) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 268,
+      "newLine": 275,
+      "text": "  const required = SKILL_RESOURCES[qualifiedName];"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 269,
+      "newLine": 276,
+      "text": "  if (!required) throw new Error(\"unapproved installed skill identity\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 270,
+      "newLine": 277,
+      "text": "  validateResourceTree(sourceSkillRoot);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 271,
+      "newLine": 278,
+      "text": "  validateResourceTree(installedSkillRoot);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 272,
+      "newLine": 279,
+      "text": "  const [plugin, skill] = qualifiedName.split(\":\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 273,
+      "newLine": 280,
+      "text": "  for (const root of [sourceSkillRoot, installedSkillRoot]) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 274,
+      "newLine": 281,
+      "text": "    validateSkill(fs.readFileSync(ownedResource(root, \"SKILL.md\"), \"utf8\"), skill);"
+    },
+    {
+      "kind": "add",
+      "newLine": 282,
+      "text": "    if (qualifiedName === \"html-guide-kit:guide\") validateGuideEntryBudget(fs.readFileSync(ownedResource(root, \"SKILL.md\"), \"utf8\"));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 275,
+      "newLine": 283,
+      "text": "    validateOpenAIConfig(fs.readFileSync(ownedResource(root, \"agents/openai.yaml\"), \"utf8\"), plugin, skill);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 276,
+      "newLine": 284,
+      "text": "  }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 277,
+      "newLine": 285,
+      "text": "  if (qualifiedName === \"html-guide-kit:guide\") {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 278,
+      "newLine": 286,
+      "text": "    for (const root of [sourceSkillRoot, installedSkillRoot]) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 279,
+      "newLine": 287,
+      "text": "      const actual = files(root).map(file => path.relative(root, file).replaceAll(\"\\\\\", \"/\")).sort();"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 280,
+      "newLine": 288,
+      "text": "      if (JSON.stringify(actual) !== JSON.stringify([...required].sort())) throw new Error(\"guide must contain exactly its approved skill resources\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 281,
+      "newLine": 289,
+      "text": "    }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 282,
+      "newLine": 290,
+      "text": "  }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 283,
+      "newLine": 291,
+      "text": "  return Object.fromEntries(required.map(rel => {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 284,
+      "newLine": 292,
+      "text": "    const source = ownedResource(sourceSkillRoot, rel), installed = ownedResource(installedSkillRoot, rel);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 285,
+      "newLine": 293,
+      "text": "    const bytes = fs.readFileSync(source);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 286,
+      "newLine": 294,
+      "text": "    if (!bytes.equals(fs.readFileSync(installed))) throw new Error(`installed skill resource differs: ${qualifiedName}/${rel}`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 287,
+      "newLine": 295,
+      "text": "    return [rel, { sha256: crypto.createHash(\"sha256\").update(bytes).digest(\"hex\"), source, installed }];"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 288,
+      "newLine": 296,
+      "text": "  }));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 289,
+      "newLine": 297,
+      "text": "}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 290,
+      "newLine": 298,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 291,
+      "newLine": 299,
+      "text": "/** Validate both identities and compare distributed manifest, icons and approved skill files. */"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 292,
+      "newLine": 300,
+      "text": "export function assertInstalledPluginResources(sourcePluginRoot, installedPluginRoot, expectedName) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 293,
+      "newLine": 301,
+      "text": "  const source = JSON.parse(fs.readFileSync(ownedResource(sourcePluginRoot, \"plugin.json\"), \"utf8\"));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 294,
+      "newLine": 302,
+      "text": "  const installed = JSON.parse(fs.readFileSync(ownedResource(installedPluginRoot, \"plugin.json\"), \"utf8\"));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 295,
+      "newLine": 303,
+      "text": "  validateManifest(source, expectedName); validateManifest(installed, expectedName);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 296,
+      "newLine": 304,
+      "text": "  if (source.name !== installed.name || source.version !== installed.version) throw new Error(\"installed plugin identity/version differs\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 297,
+      "newLine": 305,
+      "text": "  const rootFiles = Object.fromEntries([\"plugin.json\", \"assets/icon.svg\", \"assets/icon.png\"].map(rel => {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 298,
+      "newLine": 306,
+      "text": "    const a = ownedResource(sourcePluginRoot, rel), b = ownedResource(installedPluginRoot, rel), bytes = fs.readFileSync(a);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 299,
+      "newLine": 307,
+      "text": "    if (!bytes.equals(fs.readFileSync(b))) throw new Error(`installed plugin resource differs: ${expectedName}/${rel}`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 300,
+      "newLine": 308,
+      "text": "    return [rel, { sha256: crypto.createHash(\"sha256\").update(bytes).digest(\"hex\"), source: a, installed: b }];"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 301,
+      "newLine": 309,
+      "text": "  }));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 302,
+      "newLine": 310,
+      "text": "  validatePluginIcons(source, sourcePluginRoot); validatePluginIcons(installed, installedPluginRoot);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 303,
+      "newLine": 311,
+      "text": "  for (const root of [sourcePluginRoot, installedPluginRoot]) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 304,
+      "newLine": 312,
+      "text": "    const skillsRoot = path.join(root, \"skills\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 305,
+      "newLine": 313,
+      "text": "    if (fs.lstatSync(skillsRoot).isSymbolicLink()) throw new Error(\"installed skills must not borrow a symlink or reparse directory\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 306,
+      "newLine": 314,
+      "text": "    if (JSON.stringify(fs.readdirSync(skillsRoot).sort()) !== JSON.stringify([...RUNTIME_PLUGINS[source.name]].sort())) throw new Error(\"installed public skill set differs\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 307,
+      "newLine": 315,
+      "text": "  }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 308,
+      "newLine": 316,
+      "text": "  const skills = Object.fromEntries(RUNTIME_PLUGINS[source.name].map(skill => [skill, assertInstalledSkillResources(path.join(sourcePluginRoot, \"skills\", skill), path.join(installedPluginRoot, \"skills\", skill), `${source.name}:${skill}`)]));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 309,
+      "newLine": 317,
+      "text": "  return { name: source.name, version: source.version, rootFiles, skills };"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 310,
+      "newLine": 318,
+      "text": "}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 311,
+      "newLine": 319,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 312,
+      "newLine": 320,
+      "text": "/** Check local file destinations, ignoring fenced examples and remote/anchor links. */"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 313,
+      "newLine": 321,
+      "text": "export function validateLinks(text, file) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 314,
+      "newLine": 322,
+      "text": "  const prose = text.replace(/^ {0,3}(`{3,}|~{3,})[^\\n]*\\n[\\s\\S]*?^ {0,3}\\1\\s*$/gm, \"\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 315,
+      "newLine": 323,
+      "text": "  const targets = [...prose.replace(/`[^`\\n]+`/g, \"\").matchAll(/\\]\\(([^)\\r\\n]+)\\)/g)].map(m => m[1]);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 316,
+      "newLine": 324,
+      "text": "  const { metadata } = text.startsWith(\"---\") ? parseFrontmatter(text) : { metadata: {} };"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 317,
+      "newLine": 325,
+      "text": "  for (const key of [\"related\", \"supersedes\"]) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 318,
+      "newLine": 326,
+      "text": "    const values = metadata[key];"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 319,
+      "newLine": 327,
+      "text": "    if (Array.isArray(values)) targets.push(...values.filter(v => typeof v === \"string\"));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 320,
+      "newLine": 328,
+      "text": "  }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 321,
+      "newLine": 329,
+      "text": "  for (let target of targets) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 322,
+      "newLine": 330,
+      "text": "    target = target.trim().replace(/^<|>$/g, \"\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 323,
+      "newLine": 331,
+      "text": "    if (/^(?:[a-z][a-z0-9+.-]*:|#|\\/)/i.test(target) || /[{}<>]/.test(target)) continue;"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 324,
+      "newLine": 332,
+      "text": "    const pathname = decodeURIComponent(target.split(\"#\")[0]);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 325,
+      "newLine": 333,
+      "text": "    if (!pathname) continue;"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 326,
+      "newLine": 334,
+      "text": "    if (!fs.existsSync(path.resolve(path.dirname(file), pathname))) throw new Error(`missing linked file: ${target}`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 327,
+      "newLine": 335,
+      "text": "  }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 328,
+      "newLine": 336,
+      "text": "}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 329,
+      "newLine": 337,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 330,
+      "newLine": 338,
+      "text": "export function validateRepository(repoRoot) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 331,
+      "newLine": 339,
+      "text": "  const root = path.resolve(repoRoot);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 332,
+      "newLine": 340,
+      "text": "  const errors = [];"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 333,
+      "newLine": 341,
+      "text": "  const check = (label, operation) => { try { operation(); } catch (e) { errors.push(`${label}: ${e.message}`); } };"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 334,
+      "newLine": 342,
+      "text": "  check(\"marketplace\", () => {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 335,
+      "newLine": 343,
+      "text": "    const m = JSON.parse(read(root, \".agents/plugins/marketplace.json\"));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 336,
+      "newLine": 344,
+      "text": "    if (m.name !== \"mj-agentlab-marketplace\" || typeof m.interface?.displayName !== \"string\") throw new Error(\"invalid marketplace identity\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 337,
+      "newLine": 345,
+      "text": "    if (!Array.isArray(m.plugins) || JSON.stringify(m.plugins.map(p => p?.name).sort()) !== JSON.stringify(Object.keys(RUNTIME_PLUGINS).sort())) throw new Error(\"marketplace must contain exactly the approved plugins\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 338,
+      "newLine": 346,
+      "text": "    if (\"version\" in m) throw new Error(\"catalog must not become a version authority\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 339,
+      "newLine": 347,
+      "text": "    for (const p of m.plugins) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 340,
+      "newLine": 348,
+      "text": "      if (p.source?.source !== \"local\" || p.source?.path !== `./plugins/${p.name}`) throw new Error(\"only approved local plugin sources are supported\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 341,
+      "newLine": 349,
+      "text": "      if (p.policy?.installation !== \"AVAILABLE\" || p.policy?.authentication !== \"ON_INSTALL\" || p.category !== \"Developer Tools\") throw new Error(\"invalid installation policy/category\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 342,
+      "newLine": 350,
+      "text": "      if (\"version\" in p) throw new Error(\"catalog must not become a version authority\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 343,
+      "newLine": 351,
+      "text": "      if (!inside(root, path.join(root, p.source.path))) throw new Error(\"plugin source escapes repository\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 344,
+      "newLine": 352,
+      "text": "    }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 345,
+      "newLine": 353,
+      "text": "  });"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 346,
+      "newLine": 354,
+      "text": "  for (const name of Object.keys(RUNTIME_PLUGINS)) check(`${name} manifest`, () => validateManifest(JSON.parse(read(root, `plugins/${name}/plugin.json`)), name));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 347,
+      "newLine": 355,
+      "text": "  for (const name of Object.keys(RUNTIME_PLUGINS)) check(`${name} icons`, () => validatePluginIcons(JSON.parse(read(root, `plugins/${name}/plugin.json`)), path.join(root, \"plugins\", name)));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 348,
+      "newLine": 356,
+      "text": "  check(\"brand resources\", () => {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 349,
+      "newLine": 357,
+      "text": "    validateBrandAssets(root);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 350,
+      "newLine": 358,
+      "text": "    const config = JSON.parse(read(root, \"assets/brand/exports.json\"));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 351,
+      "newLine": 359,
+      "text": "    for (const plugin of Object.keys(RUNTIME_PLUGINS)) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 352,
+      "newLine": 360,
+      "text": "      const icons = config.icons.filter(candidate => candidate.id === plugin);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 353,
+      "newLine": 361,
+      "text": "      if (icons.length !== 1 || icons[0].source !== `plugins/${plugin}/assets/icon.svg` || icons[0].output !== `plugins/${plugin}/assets/icon.png`) throw new Error(`registered plugin requires its own brand export: ${plugin}`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 354,
+      "newLine": 362,
+      "text": "    }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 355,
+      "newLine": 363,
+      "text": "  });"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 356,
+      "newLine": 364,
+      "text": "  check(\"plugin inventory\", () => {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 357,
+      "newLine": 365,
+      "text": "    const plugins = fs.readdirSync(path.join(root, \"plugins\")).sort();"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 358,
+      "newLine": 366,
+      "text": "    if (JSON.stringify(plugins) !== JSON.stringify(Object.keys(RUNTIME_PLUGINS).sort())) throw new Error(\"unexpected runtime plugin directory\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 359,
+      "newLine": 367,
+      "text": "    for (const [plugin, expectedSkills] of Object.entries(RUNTIME_PLUGINS)) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 360,
+      "newLine": 368,
+      "text": "      const pluginRoot = path.join(root, \"plugins\", plugin);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 361,
+      "newLine": 369,
+      "text": "      if (!inside(root, pluginRoot)) throw new Error(`plugin escapes repository: ${plugin}`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 362,
+      "newLine": 370,
+      "text": "      validateResourceTree(pluginRoot);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 363,
+      "newLine": 371,
+      "text": "      const skills = fs.readdirSync(path.join(pluginRoot, \"skills\")).sort();"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 364,
+      "newLine": 372,
+      "text": "      if (JSON.stringify(skills) !== JSON.stringify([...expectedSkills].sort())) throw new Error(`unexpected public skill set: ${plugin}`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 365,
+      "newLine": 373,
+      "text": "      for (const rel of [\"plugin.json\", \"README.md\", \"LICENSE\", \"CHANGELOG.md\", ...expectedSkills.flatMap(skill => [`skills/${skill}/SKILL.md`, `skills/${skill}/agents/openai.yaml`])]) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 366,
+      "newLine": 374,
+      "text": "        try { resolveOwnedResource(root, `./plugins/${plugin}/${rel}`); } catch (error) { throw new Error(`invalid package resource: ${rel}: ${error.message}`); }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 367,
+      "newLine": 375,
+      "text": "      }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 368,
+      "newLine": 376,
+      "text": "      for (const rel of [\"mcp.json\", \".mcp.json\", \".claude-plugin\", \".codex-plugin\", \"CLAUDE.md\"]) if (fs.existsSync(path.join(pluginRoot, rel))) throw new Error(`unneeded compatibility/config surface: ${plugin}/${rel}`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 369,
+      "newLine": 377,
+      "text": "    }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 370,
+      "newLine": 378,
+      "text": "  });"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 371,
+      "newLine": 379,
+      "text": "  check(\"repository skill inventory\", () => {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 372,
+      "newLine": 380,
+      "text": "    const actual = fs.readdirSync(path.join(root, \".agents/skills\")).sort();"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 373,
+      "newLine": 381,
+      "text": "    if (JSON.stringify(actual) !== JSON.stringify([...REPOSITORY_SKILLS].sort())) throw new Error(`repository must expose exactly the ${REPOSITORY_SKILLS.length} mp-* skills`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 374,
+      "newLine": 382,
+      "text": "  });"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 375,
+      "newLine": 383,
+      "text": "  for (const name of REPOSITORY_SKILLS) check(name, () => validateSkill(read(root, `.agents/skills/${name}/SKILL.md`), name));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 376,
+      "newLine": 384,
+      "text": "  for (const [plugin, skills] of Object.entries(RUNTIME_PLUGINS)) for (const skill of skills) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 377,
+      "newLine": 385,
+      "text": "    const skillRoot = path.join(root, \"plugins\", plugin, \"skills\", skill);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 378,
+      "newLine": 386,
+      "text": "    check(`${plugin}:${skill}`, () => {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 379,
+      "newLine": 387,
+      "text": "      if (!inside(path.join(root, \"plugins\", plugin), skillRoot)) throw new Error(\"skill escapes plugin\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 380,
+      "newLine": 388,
+      "text": "      validateResourceTree(skillRoot);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 381,
+      "newLine": 389,
+      "text": "      validateSkill(read(skillRoot, \"SKILL.md\"), skill);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 382,
+      "newLine": 390,
+      "text": "      validateOpenAIConfig(read(skillRoot, \"agents/openai.yaml\"), plugin, skill);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 383,
+      "newLine": 391,
+      "text": "      for (const rel of SKILL_RESOURCES[`${plugin}:${skill}`]) ownedResource(skillRoot, rel);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 384,
+      "newLine": 392,
+      "text": "      if (plugin === \"html-guide-kit\") {"
+    },
+    {
+      "kind": "add",
+      "newLine": 393,
+      "text": "        validateGuideEntryBudget(read(skillRoot, \"SKILL.md\"));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 385,
+      "newLine": 394,
+      "text": "        const actual = files(skillRoot).map(file => path.relative(skillRoot, file).replaceAll(\"\\\\\", \"/\")).sort();"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 386,
+      "newLine": 395,
+      "text": "        if (JSON.stringify(actual) !== JSON.stringify([...SKILL_RESOURCES[`${plugin}:${skill}`]].sort())) throw new Error(\"guide must contain exactly its approved skill resources\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 387,
+      "newLine": 396,
+      "text": "      }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 388,
+      "newLine": 397,
+      "text": "    });"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 389,
+      "newLine": 398,
+      "text": "  }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 390,
+      "newLine": 399,
+      "text": "  check(\"project instruction budget\", () => {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 391,
+      "newLine": 400,
+      "text": "    if (Buffer.byteLength(read(root, \"AGENTS.md\")) > 16384) throw new Error(\"AGENTS.md exceeds configured instruction budget\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 392,
+      "newLine": 401,
+      "text": "    for (const rel of [\"CLAUDE.md\", \".claude\", \".claude-plugin\"]) if (fs.existsSync(path.join(root, rel))) throw new Error(`retired instruction surface: ${rel}`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 393,
+      "newLine": 402,
+      "text": "    if (!read(root, \"AGENTS.md\").includes(\".agents/references/session-maintenance.md\")) throw new Error(\"session maintenance pointer is missing\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 394,
+      "newLine": 403,
+      "text": "  });"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 395,
+      "newLine": 404,
+      "text": "  check(\"version display\", () => {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 396,
+      "newLine": 405,
+      "text": "    const version = read(root, \"VERSION\").trim();"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 397,
+      "newLine": 406,
+      "text": "    if (!SEMVER.test(version)) throw new Error(\"VERSION is not semver\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 398,
+      "newLine": 407,
+      "text": "    const badges = [...read(root, \"README.md\").matchAll(/badge\\/version-(\\d+\\.\\d+\\.\\d+)-blue/g)];"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 399,
+      "newLine": 408,
+      "text": "    if (badges.length !== 1 || badges[0][1] !== version) throw new Error(\"README version badge does not match VERSION\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 400,
+      "newLine": 409,
+      "text": "  });"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 401,
+      "newLine": 410,
+      "text": "  check(\"diagram resources\", () => {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 402,
+      "newLine": 411,
+      "text": "    const skillRoot = path.join(root, \"plugins/diagram-kit/skills/arch-diagram\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 403,
+      "newLine": 412,
+      "text": "    for (const rel of [\"scripts/validate_diagram.py\", \"references/architecture-methodology.md\", \"references/domain-acquisition.md\", ...[\"context\", \"container\", \"component\", \"code\", \"sequence\", \"state-machine\", \"deployment\"].map(t => `references/${t}-diagram.md`)]) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 404,
+      "newLine": 413,
+      "text": "      if (!inside(skillRoot, path.join(skillRoot, rel))) throw new Error(`resource escapes skill: ${rel}`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 405,
+      "newLine": 414,
+      "text": "    }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 406,
+      "newLine": 415,
+      "text": "  });"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 407,
+      "newLine": 416,
+      "text": "  check(\"quiz resources\", () => {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 408,
+      "newLine": 417,
+      "text": "    const skillRoot = path.join(root, \"plugins/learning-evidence-kit/skills/pop-quiz\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 409,
+      "newLine": 418,
+      "text": "    for (const rel of [\"references/ku-selection.md\", \"references/quiz-policy.md\"]) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 410,
+      "newLine": 419,
+      "text": "      if (!inside(skillRoot, path.join(skillRoot, rel)) || !fs.statSync(path.join(skillRoot, rel)).isFile()) throw new Error(`resource is not an owned skill file: ${rel}`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 411,
+      "newLine": 420,
+      "text": "    }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 412,
+      "newLine": 421,
+      "text": "  });"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 413,
+      "newLine": 422,
+      "text": "  check(\"communication resources\", () => validateCommunicationSnapshot(path.join(root, \"plugins/communication-kit/skills/communicate\")));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 414,
+      "newLine": 423,
+      "text": "  check(\"learning evidence common resources\", () => {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 415,
+      "newLine": 424,
+      "text": "    const pluginRoot = path.join(root, \"plugins/learning-evidence-kit\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 416,
+      "newLine": 425,
+      "text": "    for (const rel of [\"scripts/lek.py\", \"scripts/common.py\", \"scripts/storage.py\", \"scripts/github_flow.py\", \"references/record-contract.md\", \"references/record-template.json\", \"references/client-entries.json\"]) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 417,
+      "newLine": 426,
+      "text": "      const file = path.join(pluginRoot, rel);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 418,
+      "newLine": 427,
+      "text": "      if (!inside(pluginRoot, file) || !fs.statSync(file).isFile()) throw new Error(`common resource is not package-owned: ${rel}`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 419,
+      "newLine": 428,
+      "text": "    }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 420,
+      "newLine": 429,
+      "text": "    if (fs.existsSync(path.join(root, \"scripts/learning-evidence\"))) throw new Error(\"transitional learning evidence scripts must be removed atomically\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 421,
+      "newLine": 430,
+      "text": "    const entries = JSON.parse(read(pluginRoot, \"references/client-entries.json\"));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 422,
+      "newLine": 431,
+      "text": "    if (entries.schema_version !== 1 || entries.plugin_version !== JSON.parse(read(pluginRoot, \"plugin.json\")).version || !Array.isArray(entries.entries)) throw new Error(\"invalid client entry ledger\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 423,
+      "newLine": 432,
+      "text": "    const expectedEntries = [\"chatgpt-desktop-native-questions\", \"codex-native-questions\"];"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 424,
+      "newLine": 433,
+      "text": "    if (JSON.stringify(entries.entries.map(e => e?.id).sort()) !== JSON.stringify(expectedEntries)) throw new Error(\"client ledger must preserve both known deferred entries\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 425,
+      "newLine": 434,
+      "text": "    for (const entry of entries.entries) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 426,
+      "newLine": 435,
+      "text": "      if (!entry || typeof entry !== \"object\" || Object.keys(entry).sort().join(\",\") !== \"id,reason,removal_condition,status\" || entry.status !== \"deferred\" || typeof entry.reason !== \"string\" || !entry.reason.trim() || typeof entry.removal_condition !== \"string\" || !entry.removal_condition.trim()) throw new Error(\"0.1.0 native entries require explicit deferral and removal conditions\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 427,
+      "newLine": 436,
+      "text": "    }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 428,
+      "newLine": 437,
+      "text": "  });"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 429,
+      "newLine": 438,
+      "text": "  for (const file of files(path.join(root, \"docs\")).filter(p => p.endsWith(\".md\") && !p.includes(`${path.sep}archive${path.sep}`) && !p.includes(`${path.sep}_templates${path.sep}`))) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 430,
+      "newLine": 439,
+      "text": "    check(path.relative(root, file), () => {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 431,
+      "newLine": 440,
+      "text": "      const { metadata } = parseFrontmatter(fs.readFileSync(file, \"utf8\"));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 432,
+      "newLine": 441,
+      "text": "      for (const key of [\"type\", \"scope\", \"summary\", \"owner\", \"created\", \"updated\", \"state\", \"version\"]) if (!metadata[key]) throw new Error(`missing document field ${key}`);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 433,
+      "newLine": 442,
+      "text": "      validateLinks(fs.readFileSync(file, \"utf8\"), file);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 434,
+      "newLine": 443,
+      "text": "    });"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 435,
+      "newLine": 444,
+      "text": "  }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 436,
+      "newLine": 445,
+      "text": "  for (const rel of [\"README.md\", \"CONTRIBUTING.md\", \"GLOSSARY.md\", \"AGENTS.md\", ...Object.keys(RUNTIME_PLUGINS).map(n => `plugins/${n}/README.md`), ...REPOSITORY_SKILLS.map(n => `.agents/skills/${n}/SKILL.md`), ...PUBLIC_SKILLS.map(n => { const [plugin, skill] = n.split(\":\"); return `plugins/${plugin}/skills/${skill}/SKILL.md`; })]) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 437,
+      "newLine": 446,
+      "text": "    check(`${rel} links`, () => validateLinks(read(root, rel), path.join(root, rel)));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 438,
+      "newLine": 447,
+      "text": "  }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 439,
+      "newLine": 448,
+      "text": "  return { ok: errors.length === 0, errors, repositorySkills: REPOSITORY_SKILLS.length, publicSkills: [...PUBLIC_SKILLS] };"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 440,
+      "newLine": 449,
+      "text": "}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 441,
+      "newLine": 450,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 442,
+      "newLine": 451,
+      "text": "if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 443,
+      "newLine": 452,
+      "text": "  const args = process.argv.slice(2);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 444,
+      "newLine": 453,
+      "text": "  if (args.length > 1 || args.some(arg => arg.startsWith(\"--\"))) throw new Error(\"expected an optional repository path\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 445,
+      "newLine": 454,
+      "text": "  const result = validateRepository(args[0] ?? path.resolve(import.meta.dirname, \"..\"));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 446,
+      "newLine": 455,
+      "text": "  process.stdout.write(JSON.stringify(result, null, 2) + \"\\n\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 447,
+      "newLine": 456,
+      "text": "  process.exitCode = result.ok ? 0 : 1;"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 448,
+      "newLine": 457,
+      "text": "}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 449,
+      "newLine": 458,
+      "text": ""
+    }
+  ]
+}
