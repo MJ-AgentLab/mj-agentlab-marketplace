@@ -2,7 +2,7 @@
 
 ## 项目上下文
 
-本工作树是 Communication 四包发行预备投影，Refs #222；不是从实际 PR4 merge 派生的 PR5。VERSION 8.3.0、Communication 0.1.0 均未发布。注册、插件目录、严格资源集合、品牌导出与九组安装矩阵原子限定 Diagram、Learning Evidence、Explain、Communication，六公开技能、三显式、普通三、开发二十。正式 PR5 须从受保护 PR4 实际验收 merge 重新派生并核对差异；R01–R05 尚未执行。
+本工作树是 Communication 四包发行预备投影，Refs #222；不是从实际 PR4 merge 派生的 PR5。VERSION 8.3.0、Communication 0.1.0 均未发布。注册、插件目录、严格资源集合、品牌导出与九组安装矩阵原子限定 Diagram、Learning Evidence、Explain、Communication，六公开技能、三显式、普通三、开发二十。318测试、九snapshot及固定cd7a9fb九canonical、四图表Python/四Learning回读通过。正式 PR5 须从受保护 PR4 实际验收 merge 重新派生并核对差异；R01–R05 尚未执行。
 
 develop PR3候选保留HTML，共五包七技能/四显式；main/latest Release8.2.0仅前三包五技能，tag/发布目标ebc4bdc3。Owner Q3明确HTML留develop另发，本工作树不分发它。目标为ChatGPT桌面和Codex本地，CLI基线0.147.0；版本与来源以权威文件为准。
 

@@ -11,7 +11,7 @@ description: "Use for marketplace repo scan / 事实核查 before implementation
 
 涉及视觉资源时核查品牌 STANDARD、assets/brand 与各包图标，核对来源、批准和 manifest 引用。
 
-涉及 Communication 时读[新增 ADR](../../../docs/adr/[ADR]_Communication_Kit_Addition.md)与[冻结来源记录](../../../plugins/communication-kit/skills/communicate/references/source-provenance.md)，核对四显式入口、Read/Write、自身提示、三份摘要哈希和来源实际 Git 状态。源路径只用于追溯；消费端运行依赖限于包内资源。版本准备另核对 Learning 先8.2.0、Communication 随后独立 minor 的依赖和实际 From/To，不从候选版本猜发布状态。
+涉及 Communication 时读[新增 ADR](../../../docs/adr/[ADR]_Communication_Kit_Addition.md)与[冻结来源记录](../../../plugins/communication-kit/skills/communicate/references/source-provenance.md)，核对本源三显式入口（develop四项另记）、Read/Write、自身提示、三份摘要哈希和来源实际 Git 状态。源路径只用于追溯；消费端运行依赖限于包内资源。版本准备另核对 Learning 先8.2.0、Communication 随后独立 minor 的依赖和实际 From/To，不从候选版本猜发布状态。
 
 HTML Guide Kit 的新建只读文本和显式确认合同见 [ADR](../../../docs/adr/[ADR]_HTML_Guide_Kit_Addition.md)。验证develop五包集合时，保留 Communication 九组合和 HTML 七组合的并集，并增加全五插件安装，共十三组合；guide、communicate、pop-quiz 和 learning-record-check 仅显式调用，普通提示仍仅三个自然启用技能。合并后运行修正按插件自身补丁推进，评审/安装/模型/客户端结果分别记录。
 

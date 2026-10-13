@@ -87,3 +87,5 @@ Refs #222。[预备工程01](evidence/communication-kit-2026-10-13-release-proje
 | Version | Date | Summary |
 | --- | --- | --- |
 | v1.4 | 2026-10-13 | 记录Owner Q3四包独立预备工程；正式阶段merge/PR5/上线后检查保持未完成 |
+
+Refs #222。固定cd7a9fbd/tree129cc599的[四包canonical01](evidence/communication-kit-2026-10-13-release-projection-canonical-01.json)实际执行detached strict和九组CLI0.147.0安装，四图表Python/四Learning保存重放回读通过，Python3.12.14；普通3/原生6/显式3/开发20。本批是发布前预备验证，R04上线后复查仍NOT RUN，正式PR5须从实际PR4 merge另派生并刷新main。
