@@ -83,8 +83,12 @@ S01按原计划候选四插件五技能、20仓库技能检查；若先发布的
 | [03](evidence/communication-kit-2026-10-12-pr1-03.json) | 修正评审问题后240/240 PASS | 19690b8；冻结字段/已有文件编辑/环境事件修正 |
 | [04](evidence/communication-kit-2026-10-12-pr1-04.json) | 同步develop后252/252 PASS、validate PASS | 60548a2；保留#216/#221契约和8.1.2版本/原运行集合；记录规范1/计划3项AI审查修复 |
 | [canonical](evidence/communication-kit-2026-10-12-pr1-canonical-01.json) | 四组严格canonical安装、资源及3次真实缓存Python PASS | 实际调用verifyReleaseInstall，SHA60548a2；不是发布后R04 |
+| [baseline 05](evidence/communication-kit-2026-10-13-pr1-baseline-05.json) | HTML基线刷新后279/279 PASS、strict PASS；七组canonical和4次缓存Python PASS | 固定40b2957，保留d106e76的四插件/五公开技能和版本；新包行为/UI/发布不在本阶段覆盖 |
+| [PR2 baseline 05](evidence/communication-kit-2026-10-13-pr2-baseline-05.json) | 工具/预览合并后288/288 PASS、strict PASS；七组canonical和4次缓存Python PASS | 固定d0618ba；动态多行预览保留，Communication仍未在本阶段注册；后续仅追加证据/字节保留规则 |
 
 Codex基线实测0.147.0。原稿、本副本及Git blob SHA-256均为6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3。最初直接运行无CLI入口的模块没有执行安装，另记[未执行尝试](evidence/communication-kit-2026-10-12-pr1-canonical-attempt.json)；仅后续实际函数调用记PASS。
+
+2026-10-13续跑时，原指定计划路径已不存在，Git worktree清单亦无communication-plan；上句原稿哈希描述的是2026-10-12实际捕获时的事实。本副本仍为已实际读取的405行原字节，哈希与捕获记录相同。保持副本与原捕获记录，不从聊天摘要重建，也不重建已消失的原工作树；当前来源可用性另记baseline 05。当前工程基线因#226变为四插件五公开技能；PR3保留HTML并接入Communication，形成五插件六公开技能及两方安装矩阵并集，不能删去上游包或旧组合。真实发布范围仍由PR4按Owner已确认顺序核查。
 
 PR1 [#223](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/223)、PR2 [#225](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/225)、PR3 [#229](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/229)均保持draft，非作者GitHub当前head批准尚无记录；已核对没有未解决线程，但不能因此省略批准。AI两轴审查不替代批准。PR1批次不能填新包用例；PR3工程状态见§2，真实双客户端与R01–R05仍NOT RUN。
 
@@ -203,7 +207,7 @@ PR1契约结果、PR3实证、PR4回归、PR5发布及后续复查逐阶段追�
 
 | Version | Date | Summary |
 |---|---|---|
-| v1.3 | 2026-10-13 | 保留旧身份结果，记录HTML新基线、五插件六技能与十三组合；真实客户端及发布仍待实际证据 |
+| v1.3 | 2026-10-13 | 保留旧身份结果，整合PR1/2新实证和原路径缺失记录；HTML新基线五插件六技能/十三组合，客户端及发布仍待实际证据 |
 | v1.2 | 2026-10-12 | 追加原行为失败、通用修复及94新批；CLI15PASS/3PARTIAL与补充工具3项有限PASS分开，保留双客户端/发布缺项 |
 | v1.1 | 2026-10-12 | 记录PR3已实现候选、部分工程/九组合实证与S08缺口，增加必要客户端执行清单；行为及发布仍未判定 |
 | v1.0 | 2026-10-12 | 固定基础用例与证据状态；全部新包用例尚未执行 |
