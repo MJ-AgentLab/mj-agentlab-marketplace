@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.33
+version: v2.34
 ---
 
 # 文档索引
@@ -43,7 +43,9 @@ Epic #209 的 PR4/PR5历史候选曾为未发布8.2.0；当前公开v8.2.0包含
 
 Marketplace v8.2.0已通过#232/main ebc4bdc3公开；#234同步和#235未发布8.2.1预升已依序实际合入，两次精确merge各八安装/实际Python通过。公开三插件、开发四插件范围保持；原A6例外失败、正常摘要修复及空reviews见[收尾回执](runbook/evidence/learning-evidence-8-2-0-closeout.json)。#210–214关闭；#215/Epic保留原生延期、真实客户端/效果与Owner接受，继续OPEN。
 
-HTML当前PR3 #231仍草稿；0.1.9源880fc8cc的八安装/四缓存Python及CI通过，新11UUID/22轮独立评审5PASS/4FAIL/2UNEXERCISED，原字节与局部PASS/未跑保留。0.1.10修正候选明确反馈组当前状态范围并保留来源已有字段线索；须新canonical安装和冻结行为矩阵，静态修正不等于新模型通过。开发市场保持上游未发布8.2.1、其他插件不变；已发布v8.2.0三插件不含HTML。原生入口/双客户端延期、现实效果另测、当前head非作者批准及实际merge复验仍单列，#220/Epic开放；见HTML RUNBOOK §25。
+0.1.9评审与0.1.10准备时的快照：PR3 #231仍草稿；0.1.9源880fc8cc的八安装/四缓存Python及CI通过，新11UUID/22轮独立评审5PASS/4FAIL/2UNEXERCISED，原字节与局部PASS/未跑保留。0.1.10修正候选明确反馈组当前状态范围并保留来源已有字段线索；须新canonical安装和冻结行为矩阵，静态修正不等于新模型通过。开发市场保持上游未发布8.2.1、其他插件不变；已发布v8.2.0三插件不含HTML。原生入口/双客户端延期、现实效果另测、当前head非作者批准及实际merge复验仍单列，#220/Epic开放；见HTML RUNBOOK §25。
+
+HTML当前PR3候选为0.1.11。0.1.10源7c1f230b与纯文档同步6a919166各八安装/四缓存Python通过；12UUID/23实际COMPLETE独立结果6PASS/3FAIL/3UNEXERCISED，374原字节文件封存并独立复原。局部动态guard通过不抵消概览条件遗漏和混合UI重置来源归因FAIL；B6.1原PASS与同attempt补充FAIL都保留。新候选对每处操作结论保留完整条件，源重置字段与新增界面清理逐项分开归因；须新安装与冻结行为复验，不以静态修正追认模型通过。marketplace8.2.1及其他插件不变，双客户端/原生窗口延期、现实效果另测、GitHub当前head批准和实际merge仍待各自证据，#220/Epic开放；见HTML RUNBOOK §27。
 
 ## 入口
 

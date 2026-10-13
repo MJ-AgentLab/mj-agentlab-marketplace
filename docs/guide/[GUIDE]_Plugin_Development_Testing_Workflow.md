@@ -6,14 +6,14 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.8
+version: v2.9
 ---
 
 # [GUIDE] Plugin development and testing
 
 在独立 worktree 修改各插件根 manifest、skills 和资源。运行 npm ci、npm run validate、npm test、npm run check:baseline-tools 与 npm run smoke:codex。测试覆盖合法/非法 YAML、批准的开发四插件/公开候选三插件索引及独立版本、版本原子更新与失败回滚、A6 防绕过、无资产发布状态机和 Python 校验器真实执行。
 
-隔离安装使用独立 HOME、CODEX_HOME、cache、consumer cwd 和仓库镜像，验证 consumer 不发现 mp-*，repo 正确发现全部 20 个技能。开发元数据应解析四插件/六公开技能；独立 8.2.0 公开候选三插件/五技能；普通 prompt 含 arch-diagram、glossary 和 concept，pop-quiz、learning-record-check 与 guide 三个开发显式入口另查 app-server 元数据和实际加载。新包使用待测 branch/精确 SHA，不使用公开 v8.1.1 代替候选；公开main/v8.2.0为已发布三插件/五技能；#235后开发marketplace为未发布8.2.1，插件为Diagram 0.3.1 / Learning Evidence 0.1.0 / Explain 0.1.1 / HTML 0.1.10修正候选。HTML 保留在 develop，另行公开发行。
+隔离安装使用独立 HOME、CODEX_HOME、cache、consumer cwd 和仓库镜像，验证 consumer 不发现 mp-*，repo 正确发现全部 20 个技能。开发元数据应解析四插件/六公开技能；独立 8.2.0 公开候选三插件/五技能；普通 prompt 含 arch-diagram、glossary 和 concept，pop-quiz、learning-record-check 与 guide 三个开发显式入口另查 app-server 元数据和实际加载。新包使用待测 branch/精确 SHA，不使用公开 v8.1.1 代替候选；公开main/v8.2.0为已发布三插件/五技能；#235后开发marketplace为未发布8.2.1，插件为Diagram 0.3.1 / Learning Evidence 0.1.0 / Explain 0.1.1 / HTML 0.1.11修正候选。HTML 保留在 develop，另行公开发行。
 
 静态结构和发现只证明安装/加载。使用已安装技能执行独立合成角色验收：Pop Quiz 的职责、来源、2+1、预算、无答待答与只读；明确移交保存后保留实际状态；Learning Record Check 两阶段结论及缺材料手动恢复。所有保存测试显式隔离证据库，GitHub 写入用受控替身；完整基线、身份归属、重试/冲突/恢复、导入导出、分段共享及增量进度都以实际运行输出验证。共用脚本必须在安装缓存、无关 cwd 执行，证明仓库脚本区已删除且不是依赖。
 

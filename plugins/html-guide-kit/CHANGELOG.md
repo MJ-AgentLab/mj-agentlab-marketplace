@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [0.1.11] - 2026-10-13
+
+### Fixed
+
+- HTML Guide Kit 0.1.11 preserves complete operation conditions in every overview, visible conclusion, retry prompt and detailed result, using explicitly scoped common rules where appropriate.
+- Attribute source reset fields and additional display or feedback clearing separately at each item; a shared source citation cannot authorize new interface behavior.
+- Preserve all actual0.1.10 reviews, including the initialB6.1PASS and the same-attempt supplementalFAIL. Require fresh installed acceptance with unchanged inputs, criteria and model defaults. Refs #217, #220.
+
 ## [0.1.10] - 2026-10-13
 
 ### Fixed
