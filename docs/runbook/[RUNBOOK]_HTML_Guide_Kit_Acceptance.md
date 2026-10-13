@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.20
+version: v1.21
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -420,3 +420,9 @@ B6.1 UUID01a134bd-4ecd-7150-86db-f7f8c1e45ead / attempt8f80afcb-f8dd-4948-a7da-8
 仅HTML0.1.11→0.1.12，marketplace未发布8.2.1/其他插件/已选图标不变，无Release、tag或main PR。先整理完整源操作规则，固定当前状态和单个直接操作匹配允许/禁止/未覆盖，再与改状态后的路径分开。全篇概览、情境例子、图示与提示只由完整规则组织，就地保留前提或明确引用覆盖本处的完整共同规则；短句写不全则引导完整规则，不自由缩写结果。没有操作规则的材料不强造目录/格式；源恢复与新增UI分项归因及全部旧边界保持。独立静态审查无阻断，不是行为PASS；外部6238/6171预算失败script/log保留，最终6144/17722/18602字节，严格6144上限不改，无fixture答案/Owner路径。
 
 新12模型/安装NOT_RUN，须准确canonical八安装/四Python、新缓存六组14/30、受影响E6/12、重复1/2、连续S2/9及其余E23/47；不继承旧PASS，不改冻结输入/判准/default模型。原生/双客户端与空返回/超时/关闭仍NOT_RUN，现实效果NOT_MEASURED，Owner最终接受独立。合格核心可分段交付，延期不当通过，#220/Epic开放；最终head非作者批准/CI/threads/最新base/actualmerge复验仍须实际完成。
+
+## 29. 0.1.12同步Communication前置契约
+
+2026-10-13本地修正checkpoint dbd57d8d22658636d3248a1236b878747091c008（tree92b1978ef1cd200f035e6a816e6e20d888da0ab2）后，观察到origin/develop实际#223 merge bca7b5c903c611d698e59eef5268b7e45cfe2b96。普通merge保留双方AGENTS/INDEX内容、Communication ADR/SPEC/GUIDE/RUNBOOK、已批准plan及原始证据。#223仅前置契约，没有新运行包、索引或版本变更；本任务未新建实施plans。公开main/tag/Release仍v8.2.0三插件，开发8.2.1四插件六技能，HTML0.1.12未发行，其他插件版本保持。
+
+上游三个隔离测试fixture已加入plan复制；本任务HTML仓库fixture同步加入相同目录，以满足真实文档链接，不放宽严格校验。七项HTML运行资源须与dbd57d8 Git原字节相同；其他插件、索引/VERSION及非本任务修改脚本保持bca7b5c的Git内容，本PR既有validate-portable入口6144预算强化保持dbd57d8不变。普通文本checkout的CRLF和Git LF分别记录，不伪称全部原字节相同；冻结plan及已标记-text的证据保持Git原字节，其他传入证据保留原Git内容。合成npm test319/319零skip、65文档/A6、validate/check通过，新的合成head仍须八种canonical安装/四缓存Python及冻结连续模型复验。同步不修改运行内容、不额外bump，不继承源11模型PASS。当前合成安装/模型NOT_RUN，当前head CI/非作者批准/线程与actualmerge待实际核验；原生客户端延期、效果NOT_MEASURED、#220/Epic开放。初始冲突日志与合成检查保存在独立reviewer目录，后续按准确提交身份补证。

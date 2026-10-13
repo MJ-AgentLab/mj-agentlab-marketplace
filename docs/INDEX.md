@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.35
+version: v2.36
 ---
 
 # 文档索引
@@ -47,9 +47,17 @@ Marketplace v8.2.0已通过#232/main ebc4bdc3公开；#234同步和#235未发布
 
 0.1.10评审与0.1.11准备时的快照：PR3候选为0.1.11。0.1.10源7c1f230b与纯文档同步6a919166各八安装/四缓存Python通过；12UUID/23实际COMPLETE独立结果6PASS/3FAIL/3UNEXERCISED，374原字节文件封存并独立复原。局部动态guard通过不抵消概览条件遗漏和混合UI重置来源归因FAIL；B6.1原PASS与同attempt补充FAIL都保留。新候选对每处操作结论保留完整条件，源重置字段与新增界面清理逐项分开归因；须新安装与冻结行为复验，不以静态修正追认模型通过。marketplace8.2.1及其他插件不变，双客户端/原生窗口延期、现实效果另测、GitHub当前head批准和实际merge仍待各自证据，#220/Epic开放；见HTML RUNBOOK §27。
 
-HTML当前PR3修正候选为0.1.12。源11 e3a4daec准确八安装/四缓存Python/CI通过，实际8UUID/16COMPLETE最终5PASS/2FAIL/1UNEXERCISED，六无attempt与全部E/S/重复未跑，281原文件封存复原通过。B6.1遗漏局部当前态、B1.1把已禁止直接操作与未知路径合并，原局部PASS不抵消。新方法先整理完整源规则，逐个直接操作匹配，再由完整规则组织概览/例子/图示及提示；无操作材料不强造目录。须新canonical安装及冻结行为矩阵，不继承旧PASS。市场8.2.1与其他插件保持，原生/双客户端延期、效果另测、当前head非作者批准和actualmerge仍分别待证，#220/Epic开放；见HTML RUNBOOK §28。
+HTML当前PR3修正候选为0.1.12。源11 e3a4daec准确八安装/四缓存Python/CI通过，实际8UUID/16COMPLETE最终5PASS/2FAIL/1UNEXERCISED，六无attempt与全部E/S/重复未跑，281原文件封存复原通过。B6.1遗漏局部当前态、B1.1把已禁止直接操作与未知路径合并，原局部PASS不抵消。新方法先整理完整源规则，逐个直接操作匹配，再由完整规则组织概览/例子/图示及提示；无操作材料不强造目录。须新canonical安装及冻结行为矩阵，不继承旧PASS。市场8.2.1与其他插件保持，原生/双客户端延期、效果另测、当前head非作者批准和actualmerge仍分别待证，#220/Epic开放；见HTML RUNBOOK §28–29。
 
 ## 入口
+
+Communication的Learning迁移基线与正式发行范围见[ADR](adr/[ADR]_Communication_Kit_Addition.md)：开发保留HTML并形成五包七技能，Owner确认正式只发行Learning三包＋Communication四包六技能，HTML另发；本契约阶段不注册新包。
+
+- [Communication 完整实施计划](../plan/communication-kit-implementation-plan.md)与[原稿捕获](../plan/communication-kit-plan-provenance.json)
+- [Communication Kit 新增决定](adr/[ADR]_Communication_Kit_Addition.md)
+- [Communicate 行为契约](spec/[SPEC]_Communication_Communicate.md)
+- [沟通助手使用指南](guide/[GUIDE]_Communication_Communicate.md)
+- [Communication 基础验收与发布检查](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)
 
 - [项目说明](../README.md)
 - [贡献流程](../CONTRIBUTING.md)
@@ -162,3 +170,7 @@ HTML当前PR3修正候选为0.1.12。源11 e3a4daec准确八安装/四缓存Pyth
 - [[DEPRECATED]_[STANDARD]_GitHub_Markdown_v1.0.md](archive/[DEPRECATED]_[STANDARD]_GitHub_Markdown_v1.0.md)
 
 0.1.5 基线 CLI 原生入口截断，部分会话补读全文才取得完整技能；未补读的拒绝样本为 UNKNOWN/INVALID_RUN。当前0.1.6精简入口并增加保守字节预算，详细方法仍用两份参考；新安装与完整原生加载/行为须实际复验，不能继承旧 PASS。事实与分段缺项见 RUNBOOK §19。
+
+Communication前置阶段较早同步快照（当前develop已含#235/#236/#223）：Communication 前置阶段已普通同步 #234 的实际 develop 2c0a831：运行仍四开发包六技能，正式 main/v8.2.0为ebc4bdc3三包五技能，HTML留develop。未合入8.2.1预升不带入，未注册Communication、未实际bump，Refs #222。
+
+HTML候选已普通同步#223实际develop bca7b5c，保留Communication契约、计划及原始证据；前置阶段未新增运行包。HTML隔离仓库fixture同步复制上游plan，严格校验未放宽，运行资源与dbd57d8逐字节不变；新合成候选仍须精确安装及冻结行为复验，见HTML RUNBOOK §29。

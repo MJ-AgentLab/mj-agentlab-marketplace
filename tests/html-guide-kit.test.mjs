@@ -32,7 +32,7 @@ function installedFixture(t,plugin=PLUGIN){
 }
 function repositoryFixture(t){
  const root=temporary(t,"guide-repository-");
- for(const rel of ["assets",".agents",".codex",".github","scripts","tests","plugins","docs","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])fs.cpSync(path.join(REPO,rel),path.join(root,rel),{recursive:true});
+ for(const rel of ["assets",".agents",".codex",".github","scripts","tests","plugins","docs","plan","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])fs.cpSync(path.join(REPO,rel),path.join(root,rel),{recursive:true});
  return root;
 }
 
