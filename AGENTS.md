@@ -2,7 +2,7 @@
 
 ## 项目上下文
 
-当前候选注册 diagram-kit / arch-diagram、learning-evidence-kit / pop-quiz、learning-record-check 、explain-kit / glossary、concept 与 html-guide-kit / guide，共四插件、六公开技能、三个显式入口；目标客户端为 ChatGPT 桌面端和 Codex 本地环境，CLI 验收基线 0.147.0。PR5 已准备未发布 marketplace 8.2.0，Learning Evidence 0.1.0、Diagram 0.3.1 / Explain 0.1.1 / HTML 0.1.0 保持。运行信息以索引、manifest 和 VERSION 为准；公开 v8.1.1 仍包含旧 Understanding，候选须从待测 branch/SHA 安装。
+当前develop注册 diagram-kit / arch-diagram、learning-evidence-kit / pop-quiz、learning-record-check、explain-kit / glossary、concept 与 html-guide-kit / guide，共四插件、六公开技能、三个显式入口。公开 Marketplace v8.2.0 已经 #232 合入main并自动发布，只有原定Diagram 0.3.1 / Learning Evidence 0.1.0 / Explain 0.1.1三个插件、五技能、两显式学习策略；HTML 0.1.0保留develop另发。目标客户端为ChatGPT桌面端和Codex本地环境，CLI验收基线0.147.0；各运行版本与清单以VERSION、索引和manifest为准。
 
 manifest 的公开示例按[插件契约](docs/spec/[SPEC]_Plugin_Json_Schema.md)保留完整路由，最多三条，各原值不超过 128 个 Unicode scalar values；严格校验防止客户端忽略超长示例而丢失公开入口，不依赖空白归一化。
 
@@ -62,6 +62,6 @@ HTML PR1 当时保持 marketplace 未发布 8.1.2 及其他插件版本，无 Re
 
 第五轮来源 acf3c9d 的六 fresh 会话/八调用已通过限定 CLI 核心判据：七次自然完成、一次执行器超时保留；九条新核验、两次限定离线共享及原件/生成信息均经独立核对。四轮原失败、两次策略拒绝、换行格式差异和幂等重放分别保留，不称所有调用成功。原移交仅按十二项未变资源闭包沿用并限已有本地 Git exclude；原生提问仍延期、桌面/Side Chat 未运行，实际保护合入、发布和 Owner 最终接受待各自证据。完整入口资格与限制见上述 Learning Evidence 验收账本。
 
-三插件发行草稿 #232 已创建，head b7bdd769 / tree 428760eb；该最终 Git 提交的五种 canonical 安装及实际缓存 Python 通过，运行/测试代码与模型源 acf3 一致。develop 的四插件仍保留，main/latest Release 仍 8.1.1；最后依赖 #230、当前 head 非作者批准、main 合入与公开发布仍待完成，详见发行准备账本。
+较早发行准备快照（当前状态见下段）：三插件发行草稿 #232 已创建，head b7bdd769 / tree 428760eb；该最终 Git 提交的五种 canonical 安装及实际缓存 Python 通过，运行/测试代码与模型源 acf3 一致。develop 的四插件仍保留，main/latest Release 仍 8.1.1；最后依赖 #230、当前 head 非作者批准、main 合入与公开发布仍待完成，详见发行准备账本。
 
-Learning Evidence 当前交付：#224/a2090ff8、#227/f958908e、#228/434d053均已实际合入并完成精确安装/Python复验，#211–213关闭；#224有当前head批准，#227/#228当前GitHub reviews为空，缺项不追认。#228的八canonical安装/143资源、四次图表Python/三组保存重放检查通过；#230同步后3d71963技术来源317/八安装通过，全部生产包及十九模型资源等于已交付/限定来源，原始失败/超时证据保持。前序依赖已解除，PR5准备当前head审查，#232仍b7bdd769三插件发行Draft。Owner要求后续不指定人发出审查请求；真实非作者批准/CI/已解决线程继续按实际门禁处理。开发四插件、公开三插件/HTML另发及Epic延期边界保持，完整历史见上述验收和发行账本。
+Learning Evidence 当前交付：#216/#224/#227/#228/#230已实际交付，#210–214关闭；#232于2026-10-13合入main ebc4bdc3并自动公开v8.2.0，tag/Release同SHA，merge与已测6d83c8e同树5c7557fe。发布后五精确canonical/三图表Python/两组记录保存重放检查通过，发布脚本复核noop。#224有实际当前head批准；#216/#227/#228/#230/#232未提供或空reviews缺项保留，不推定豁免。仓库API未提供immutable配置字段，实际Release immutable=false，不声称锁定。完整来源/原始模型失败及发布事实见[发布账本](docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。本同步保留develop全部四插件运行/脚本/测试/版本和HTML证据，只接入实际main ancestry及当前记录；同步与下一8.2.1两文件pre-bump分两个PR执行，实际状态以VERSION/各PR回执为准，不创建8.2.1 Release。Owner要求不指定审查人；当前head批准/CI/线程门禁保持。原生入口延期、桌面/Side Chat未运行、现实效果/Owner最终接受和两个收尾PR分别追踪，#215/Epic保持OPEN。
