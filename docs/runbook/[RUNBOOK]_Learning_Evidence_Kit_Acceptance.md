@@ -152,6 +152,10 @@ The new LRC text executes Stage 1 first: retrieve/check the selected original, e
 
 Three agent-written docs commits incorrectly used the closed-out `acceptance` scope. The [metadata repair](evidence/learning-evidence-commit-scope-repair.json) preserves old remote history, corrects the three draft PR branches under exact old-head leases and proves identical Git trees; no validator bypass or runtime change is used. Current checks/approval still apply to each new head.
 
+### PR5 development integration verification (2026-10-13)
+
+Tested merge `c02ef84111c3c88bae506a0b7bed8d4665a0502d` prepares unpublished 8.2.0 while retaining all four development packages/six skills/three explicit policies. Full regression passes 317/317, zero skips, the same 33/31 actual Python cases, strict validation and all eight actual isolated installation scenarios. The [development receipt](evidence/learning-evidence-development-acceptance-checks.json) records exact tested tree/log hashes and full outputs. Learning package bytes equal separate public fifth-round source `acf3c9d`; Diagram/Explain/HTML remain byte-identical to actual develop `d106e766`. The original public source separately passes 290 tests/five canonical scenarios and is under fresh model acceptance. Different inventory results are not mixed, HTML is not added to public8.2.0, and both overall core acceptance and protected merges/publication remain pending.
+
 ### Entry activation ledger
 
 PR5 fills one row for each actual host/entry combination, retaining method, client version, install source/plugin/head identity, actual call evidence, individual window results, impact and removal condition. No entry is enabled solely by the contract or a static metadata check.
