@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: active
-version: v1.5.3
+version: v1.5.4
 last-verified: 2026-10-13
 verification-scope: contract-common-flow-package-and-partial-model-observations
 ---
@@ -205,7 +205,7 @@ All PRs use `Refs` for the corresponding child and Epic. A merged contract is no
 | 3 GitHub flow/collection | [#212](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/212) | 2 | PREPARED; isolated subprocess checks and independent review; dependency/approval/merge pending | Substitute writes/recovery/coverage evidence, byte equality and merge |
 | 4 Atomic skill/package switch | [#213](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/213) | 2, 3 | PREPARED; exact inventory/cache common execution and independent review; dependency/approval/merge pending | Exact inventory, new package/version identity, staging removal, installed execution and merge |
 | 5 Technical acceptance/preparation | [#214](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/214) | 4 | DRAFT [#230](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/230); 8.2.0 prepared, public-source290/canonical5 and development317/install8 pass; fifth scoped core criteria qualified with retained timeout/errors; approval/merge pending | Per-entry results/deferred list, independent synthesis, tests, 8.2.0 notes and merge |
-| 6 Release and tracking | [#215](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/215) | 5 | NOT_RUN | Approval/checks/threads, release identity, canonical and post-publication results |
+| 6 Release and tracking | [#215](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/215) | 5 | DRAFT #232; final public b7bdd76 canonical5 passed; main merge/publication NOT_RUN | Approval/checks/threads, release identity, canonical and post-publication results |
 | Post-release main → develop sync | Refs #215 / #209 | 6 publication | NOT_RUN | Actual main ancestry and content/installation verification |
 | Post-release 8.2.1 pre-bump | Refs #215 / #209 | Synchronization | NOT_RUN | Version dry-run, VERSION/badge-only diff, checks and merge; no 8.2.1 Release |
 
@@ -224,6 +224,7 @@ Use existing draft-first release controls and record actual remote state before 
 | v1.4.3 | 2026-10-13 | Complete fourth-round failure and static order repair; fifth actual acceptance pending | Retain original commands/metadata positives, stop identity mismatch before application reads, preserve exact-tree commit-scope repair and old sources |
 | v1.5.1 | 2026-10-13 | Complete fourth-round failure and static order repair; fifth actual acceptance pending | Retain original commands/metadata positives, stop identity mismatch before application reads, preserve exact-tree commit-scope repair and old sources |
 | v1.5.2 | 2026-10-13 | Development HTML integration into unpublished 8.2.0; new checks pending | Preserve public acf3 three-plugin source and complete fourth-round failure while synchronizing current four-plugin development runtime |
+| v1.5.4 | 2026-10-13 | Actual release draft and final canonical head | Record #232, exact b7bdd76/tree and five final installations separately from qualified model source and unpublished development head |
 | v1.5.3 | 2026-10-13 | Complete fifth scoped CLI core and source proof; publication pending | Six fresh/eight invocations, seven natural completions/one timeout, full originals/metadata, exact twelve-resource handoff reuse and separate public/development inventories |
 | v1.0 | 2026-10-12 | Source/intake/document structure; new runtime NOT_RUN | Contract acceptance matrix, actual intake facts, strict-window staged-entry policy, six delivery PRs and two closeout PRs; Refs #210 and Epic #209 |
 | v1.1 | 2026-10-12 | Contract merge and isolated local library; clients NOT_RUN | PR2 independent repairs, 33 Python cases, #224 and 253-test latest-develop synchronization; preserve parallel HTML contracts and earlier evidence |

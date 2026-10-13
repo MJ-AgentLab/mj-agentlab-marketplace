@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: active
-version: v1.3
+version: v1.4
 last-verified: 2026-10-13
 verification-scope: scoped-cli-core-and-candidate-engineering
 ---
@@ -29,7 +29,7 @@ verification-scope: scoped-cli-core-and-candidate-engineering
 | 已冻结并安装的 8.2.0 技术来源 | `36ef16cd8798b107e16673e1520f3086964c4e3e` | [技术回执](evidence/learning-evidence-acceptance-checks.json)记录精确 Git tree、290-test 日志、五种 canonical 安装及模型冻结摘要 |
 | 新修复精确技术来源 | `8546aef1143642057693303fd334a09538081efa` / tree `85cf4d0c565d7e5bdd5ecfbc34e76b7e69d5307f` | [新技术回执](evidence/learning-evidence-generator-repair-checks.json)：290/290、零跳过，严格 baseline 和五种 canonical 安装通过；第四轮整体失败与后续修复分别保留 |
 | 第五轮冻结技术/模型来源 | `acf3c9d48a314cab153632bd5c09a141823789c3` / tree `ae61349bd01513f8ac36cd4702c5d440dae550e2` | [当前来源回执](evidence/learning-evidence-fifth-source-checks.json)：290/290、五种 canonical 安装及六场景核心判据通过；七次自然完成/一次超时分开 |
-| 最终交付 head / Git tree | 待发布 PR 当前 head 冻结后复核 | 完整回执及审查记录提交后重新冻结，比较运行资源并复核当前 head 门禁；不把前一候选身份冒充最终交付 |
+| main 发行草稿 head / Git tree | #232 `b7bdd769b4c53d7997b5a43ca8606d860c21b91d` / `428760eb81c0fe4412f69bac18f32d4d40438bcf` | [最终候选回执](evidence/learning-evidence-final-release-candidate-checks.json)：完整文档/证据提交后五种精确 canonical 安装及实际缓存 Python 通过；运行/测试代码与已验收 acf3 一致 |
 | Main 发布 merge / v8.2.0 tag / Release 身份 | NOT_RUN | 尚无本次公开发布身份；不得用候选版本或旧发布结果代填 |
 
 阶段依赖及关闭条件继续按 [验收账本](./[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)追踪：
@@ -41,7 +41,7 @@ verification-scope: scoped-cli-core-and-candidate-engineering
 | GitHub 流转 | [#227](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/227) / [#212](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/212) | Draft，依赖 #224；批准/合入独立待办 |
 | 原子插件切换 | [#228](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/228) / [#213](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/213) | Draft，依赖 #227；批准/合入独立待办 |
 | 技术验收与 8.2.0 准备 | Draft [#230](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/230) / [#214](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/214) | 开发317/八安装与独立公开290/五canonical分别通过；第五轮限定核心通过，最终当前head/批准/merge仍待实际门禁 |
-| 正式发布与跟踪 | [#215](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/215) | 准备三插件发行草稿；main 合入和正式发布 NOT_RUN，PR 只写 Refs，不自动 Closes Epic |
+| 正式发布与跟踪 | [#215](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/215) | Draft [#232](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/232) 已创建并附加；main 合入和正式发布 NOT_RUN，PR 只写 Refs，不自动 Closes Epic |
 
 ## §2 Steps and evidence preparation
 
@@ -134,6 +134,7 @@ Owner 已确认 8.2.0 仍为原定三插件/五技能/两项学习策略。devel
 
 | Version | Date | last-verified | Change |
 | --- | --- | --- | --- |
+| v1.4 | 2026-10-13 | 实际发行草稿及最终 Git 提交安装 | #232/b7bdd76 三插件，五种 canonical 安装及实际 Python 通过；依赖/批准/保护合入/正式发布待实际完成 |
 | v1.3 | 2026-10-13 | 第五轮限定 CLI 核心及两种集合的实际工程结果 | 保存完整回执/独立审查、原超时和错误，核心资格与实际交付/发布/Owner接受分别记录 |
 | v1.2 | 2026-10-13 | 完整第四轮失败和阶段顺序修复 | 保留生成信息的有限正向、未运行 listing 与全部原错误；第五轮核心接受和正式发布仍待完成 |
 | v1.1 | 2026-10-13 | 原精确技术结果、完整第三轮失败及新修复范围 | 保留三插件公开范围与四插件开发集合；第四轮实际验收、保护合入和正式发布仍待完成 |
