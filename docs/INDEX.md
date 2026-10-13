@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.25
+version: v2.26
 ---
 
 # 文档索引
@@ -18,6 +18,8 @@ version: v2.25
 Learning [8.2.0发行](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)已通过#232/main ebc4bdc3公开，发布后canonical/Python与#234同步/#235预升/#236文档收尾见原账本；[验收](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)保留原生延期、桌面/Side Chat未测、历史批准缺项及Owner最终接受限制。#215/Epic #209保持OPEN。本次不补写其他任务通过或关闭。
 
 HTML [ADR](adr/[ADR]_HTML_Guide_Kit_Addition.md)、[验收SPEC](spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)与[RUNBOOK](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)继续维护develop另发范围。历史[8.1.1发行](runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)保留Understanding旧集合，历史版本、失败和批准不由新结果追认；[品牌验收](runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)保存A主标、D图标及实际客户端覆盖。
+
+四阶段文档收尾实际head、生产零差异、限定65项检查及43原始日志/hash见[Closeout sync 01](runbook/evidence/communication-kit-2026-10-13-closeout-sync-01.json)，原字节与失败链保留，AI审查不替代GitHub批准。
 
 ## 入口
 
@@ -160,3 +162,7 @@ Owner Q3已确认Communication正式发行仅为Learning已公开三包加Commun
 | Version | Date | Summary |
 | --- | --- | --- |
 | v2.25 | 2026-10-13 | 四包发行预备来源、开发五包与正式已发布三包分开导航，保存全部历史记录 |
+
+| Version | Date | Summary |
+| --- | --- | --- |
+| v2.26 | 2026-10-13 | 合入PR4实际49036ad文档归档，保留四包预备canonical与五包开发来源；生产保持cd7未变 |

@@ -12,6 +12,12 @@ docs/runbook/evidence/communication-kit-2026-10-13-version-prep-01-*.log whitesp
 docs/runbook/evidence/communication-kit-2026-10-13-version-prep-01-audit.json whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # Preserve the two indented blank lines in the original README regression failure.
 docs/runbook/evidence/communication-kit-2026-10-13-release-projection-doc-01-doc-02.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Exact Git diff receipts contain intentional space-only context lines.
+docs/runbook/evidence/communication-kit-2026-10-13-closeout-sync-01-raw-pr[1-4]-conflicts.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# PR3's original diff receipt also ends with one intentional empty line.
+docs/runbook/evidence/communication-kit-2026-10-13-closeout-sync-01-raw-pr3-conflicts.log whitespace=-blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+docs/runbook/evidence/communication-kit-2026-10-13-closeout-sync-01-archive-whitespace-initial.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 plugins/html-guide-kit/** text eol=lf
 plugins/html-guide-kit/**/*.png -text
 assets/brand/html-guide-kit/candidates/revision-2/*.svg text eol=lf

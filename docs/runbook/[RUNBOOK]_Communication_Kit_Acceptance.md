@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.13
+version: v1.14
 ---
 
 # [RUNBOOK] Communication Kit acceptance
@@ -246,6 +246,7 @@ PR4当前仅准备上述账本。完成PR3合并身份比较后，核对未发�
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.13 | 2026-10-13 | 精确归档四阶段收尾审计与43原始日志，绑定实际head/零生产差异及限定检查 |
 | v1.12 | 2026-10-13 | 普通合入PR3最新980文档收尾，保留8.3准备及全部旧验收，仅限定文档/A6复验 |
 | v1.11 | 2026-10-13 | 实际继承8.2.1预升基线、保持已匹配8.3.0目标，原工具操作身份不改写 |
 | v1.10 | 2026-10-13 | 固定8.3开发候选canonical与发布后基线同步工程证据，实际阶段合并/正式四包/上线后复查仍未执行 |
@@ -312,3 +313,15 @@ Refs #222。[预备工程01](evidence/communication-kit-2026-10-13-release-proje
 | v1.13 | 2026-10-13 | 记录Owner Q3四包独立预备工程；正式阶段merge/PR5/上线后检查保持未完成 |
 
 Refs #222。固定cd7a9fbd/tree129cc599的[四包canonical01](evidence/communication-kit-2026-10-13-release-projection-canonical-01.json)实际执行detached strict和九组CLI0.147.0安装，四图表Python/四Learning保存重放回读通过，Python3.12.14；普通3/原生6/显式3/开发20。本批是发布前预备验证，R04上线后复查仍NOT RUN，正式PR5须从实际PR4 merge另派生并刷新main。
+
+### 文档收尾原始证据归档
+
+Refs #222。[Closeout sync 01](evidence/communication-kit-2026-10-13-closeout-sync-01.json)绑定PR1 `6c0d609`、PR2 `c198f5c`、PR3 `c6d40a8`、PR4 `86a364e`实际head/tree、来源develop `98068a8`、各阶段生产零新增差异及65项受影响文档/A6范围，按raw manifest保存外部审计与43份原始日志。此前20份日志、两次只读审计helper失败及修复复验原字节保留，不覆盖旧record。当前归档基于86a364e，仅文档与evidence变化；五包开发、8.3.0及根/Comm正式CHANGELOG保持，不导入独立四包preview。AI独立核验和本地正常A6不替代GitHub当前head非作者批准、required checks或线程门禁，不补填正式PR5/Release/R01–R05，历史CLI PARTIAL、限定客户端及现实效果延期保持。
+
+本批归档首轮whitespace exit2由四份原始Git diff日志的空白上下文触发；只为本批对应证据和失败回执设置精确属性，保留其原字节及其余空白检查。失败回执/hash与修复说明随主record保存，不修改生产规则或分支门禁。
+
+第二次whitespace exit2进一步识别PR3原diff回执的末尾空行；只为该精确证据文件保留EOF字节，第二失败回执及修复说明同样追加，不改写原日志。
+
+| Version | Date | Summary |
+| --- | --- | --- |
+| v1.14 | 2026-10-13 | 合入PR4实际49036ad文档归档，保留四包预备canonical与五包开发来源；生产保持cd7未变 |
