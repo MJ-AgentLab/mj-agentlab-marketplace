@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.21
+version: v2.22
 ---
 
 # 文档索引
@@ -25,9 +25,7 @@ PR3开发候选增加Communication0.1.0并保留HTML0.1.0，当前五包七技�
 
 Learning #224的当前head批准及交付、#227/#228的交付与空reviews事实均见[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)，历史缺项不追认。
 
-Learning Evidence #227 已实际合入并通过七种精确 canonical 安装/缓存 Python，#212 已关闭；其当前 GitHub 审查记录为空，按原事实保留。PR4 同步后通过317项回归/八安装并保持已验收模型资源，仍待本阶段当前head批准与合入；后续不指定审查人，门禁不变，详见[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。
-
-Learning Evidence #228已实际合入并通过八种精确canonical安装/143资源/缓存Python，#213关闭；空reviews缺项保留。PR5最新8.2.0开发源完整317/八安装及未变模型资源通过，准备当前head审查；公开候选仍原三插件，详见[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)与[发行准备](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。
+Marketplace v8.2.0已通过#232/main ebc4bdc3公开，原三插件/五技能/两学习策略，发布后五精确安装/实际Python通过；#210–214关闭，历史reviews缺项/原生延期/桌面未运行/Owner最终接受保留。此前main→develop同步保留HTML四插件集合，随后8.2.1预升尚待实际合并；当前PR3加Comm为五插件；#215/Epic仍OPEN，详见[发行账本](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)与[验收](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。
 
 ## 入口
 
@@ -159,4 +157,5 @@ Owner Q3已确认Communication正式发行仅为Learning已公开三包加Commun
 
 | Version | Date | Summary |
 |---|---|---|
+| v2.22 | 2026-10-13 | 普通同步#234发布后基线及真实学习Release记录，保持Communication五包候选与四包正式范围 |
 | v2.19 | 2026-10-13 | 同步 Learning 原子替代与 Communication 完整集成，按当前集合验收，发行范围另核对 |
