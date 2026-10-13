@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+- Prepare HTML Guide Kit0.1.12 with complete source-rule composition and separate direct-operation versus later-path judgments. Retain eight actual0.1.11 sessions5PASS/2FAIL/1UNEXERCISED and all original evidence; marketplace8.2.1 and other plugins remain unchanged. Refs #217, #220.
+
 - Prepare HTML Guide Kit0.1.11 to retain full conditions across guide summaries and retries and distinguish source reset rules from additional interface design. Preserve actual0.1.10 twelve-session results6PASS/3FAIL/3UNEXERCISED and original evidence; keep marketplace8.2.1 and other plugin versions. Refs #217, #220.
 
 - Prepare HTML Guide Kit0.1.10 with explicit feedback-block state scope and field-specific source fidelity after eleven independent0.1.9 session reviews. Preserve actual5PASS/4FAIL/2UNEXERCISED and every original call; keep marketplace8.2.1 and other plugin versions. Refs #217, #220.

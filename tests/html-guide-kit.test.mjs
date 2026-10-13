@@ -61,7 +61,7 @@ test("HTML Guide Kit has one approved Read-only explicit entry without changing 
  assert.deepEqual(EXPLICIT_ONLY_SKILLS,["learning-evidence-kit:pop-quiz","learning-evidence-kit:learning-record-check",SKILL]);
  assert.deepEqual(PUBLIC_SKILLS.filter(name=>!EXPLICIT_ONLY_SKILLS.includes(name)),["diagram-kit:arch-diagram","explain-kit:glossary","explain-kit:concept"]);
  assert.equal(REPOSITORY_SKILLS.length,20);assert.ok(!REPOSITORY_SKILLS.includes("guide"));
- const m=manifest();assert.equal(m.name,PLUGIN);assert.equal(m.version,"0.1.11");assert.deepEqual(ui(m).capabilities,["Read"]);validateManifest(m,PLUGIN);
+ const m=manifest();assert.equal(m.name,PLUGIN);assert.equal(m.version,"0.1.12");assert.deepEqual(ui(m).capabilities,["Read"]);validateManifest(m,PLUGIN);
 });
 
 test("HTML Guide Kit manifest rejects wrong identity, root versions, capabilities and routes",()=>{
@@ -133,7 +133,10 @@ test("guide references cannot borrow another directory through a junction",t=>{
 for(const resource of RESOURCES)test("installed guide compares actual bytes and rejects missing or drifted resource: "+resource,t=>{
  const f=installedFixture(t),source=path.join(f.source,SKILL_PATH),installed=path.join(f.installed,SKILL_PATH),file=path.join(installed,resource),bytes=fs.readFileSync(file);
  assert.doesNotThrow(()=>assertInstalledSkillResources(source,installed,SKILL));
- fs.writeFileSync(file,Buffer.concat([bytes,Buffer.from("\n")]));
+ // Keep valid text drift independent of the entry budget and YAML structure.
+ const drifted=Buffer.from(bytes),offset=resource.startsWith("references/")
+  ?bytes.findIndex(byte=>(byte>=65&&byte<=90)||(byte>=97&&byte<=122)):bytes.indexOf("HTML");
+ assert.ok(offset>=0);drifted[offset]^=32;fs.writeFileSync(file,drifted);
  assert.throws(()=>assertInstalledSkillResources(source,installed,SKILL),/installed skill resource differs/);
  fs.writeFileSync(file,bytes);fs.unlinkSync(file);
  assert.throws(()=>assertInstalledSkillResources(source,installed,SKILL));

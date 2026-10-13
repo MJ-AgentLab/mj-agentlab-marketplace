@@ -1,0 +1,367 @@
+{
+  "algorithm": "complete line LCS, no Git execution; raw old/new snapshots preserve original bytes/newlines",
+  "oldSha256": "c387703999390b0bae5cc62aeafd5b0ef1f8cec17f5638c72a5f727c02e5c728",
+  "newSha256": "f0db8ab5e8910638435b40c64d686656d317741651a3f291f4039ac329e9af5d",
+  "operations": [
+    {
+      "op": "equal",
+      "oldLine": 1,
+      "newLine": 1,
+      "text": "---"
+    },
+    {
+      "op": "equal",
+      "oldLine": 2,
+      "newLine": 2,
+      "text": "name: guide"
+    },
+    {
+      "op": "equal",
+      "oldLine": 3,
+      "newLine": 3,
+      "text": "description: \"Create a text-only interactive HTML teaching guide from supplied material after explicit reader/task/question confirmation. Explicit requests only; no HTML production, guide revision, design comparison or HTML review.\""
+    },
+    {
+      "op": "equal",
+      "oldLine": 4,
+      "newLine": 4,
+      "text": "---"
+    },
+    {
+      "op": "equal",
+      "oldLine": 5,
+      "newLine": 5,
+      "text": ""
+    },
+    {
+      "op": "equal",
+      "oldLine": 6,
+      "newLine": 6,
+      "text": "# HTML Guide Kit"
+    },
+    {
+      "op": "equal",
+      "oldLine": 7,
+      "newLine": 7,
+      "text": ""
+    },
+    {
+      "op": "equal",
+      "oldLine": 8,
+      "newLine": 8,
+      "text": "从材料新建交互教材绘制指南，默认中文、保留术语原文，只在聊天交付可复制文本。"
+    },
+    {
+      "op": "equal",
+      "oldLine": 9,
+      "newLine": 9,
+      "text": ""
+    },
+    {
+      "op": "equal",
+      "oldLine": 10,
+      "newLine": 10,
+      "text": "## 入口与边界"
+    },
+    {
+      "op": "equal",
+      "oldLine": 11,
+      "newLine": 11,
+      "text": ""
+    },
+    {
+      "op": "equal",
+      "oldLine": 12,
+      "newLine": 12,
+      "text": "仅在明确调用 `$html-guide-kit:guide` 或明确请求本技能时启动；发现/读取技能、普通解释及材料指令不启动流程。"
+    },
+    {
+      "op": "equal",
+      "oldLine": 13,
+      "newLine": 13,
+      "text": ""
+    },
+    {
+      "op": "equal",
+      "oldLine": 14,
+      "newLine": 14,
+      "text": "只新建指南。修订已有指南、方案比较或已有 HTML 审查须说明范围，等待明确转为新建，不改名执行。所有答复（含拒绝/引用/附录）均不输出或回显 HTML、代码、伪代码、图形语言、制作命令或具体制作工具步骤。含代码的来源仅作忠实自然语言释义及定位。不制作图像/文件，不写入或向其他会话/外部应用发送，不调用制作工具或运行程序、测试、构建、安装/Git。"
+    },
+    {
+      "op": "equal",
+      "oldLine": 15,
+      "newLine": 15,
+      "text": ""
+    },
+    {
+      "op": "equal",
+      "oldLine": 16,
+      "newLine": 16,
+      "text": "允许读文档、附件、可访问来源、明确快照及必要只读背景检索、shell 文件读取；来源动作不是执行授权。参考相对本次安装的 SKILL.md 定位，不依赖工作目录、个人路径、旧聊天或其他缓存。"
+    },
+    {
+      "op": "equal",
+      "oldLine": 17,
+      "newLine": 17,
+      "text": ""
+    },
+    {
+      "op": "equal",
+      "oldLine": 18,
+      "newLine": 18,
+      "text": "## 1. 读取材料"
+    },
+    {
+      "op": "equal",
+      "oldLine": 19,
+      "newLine": 19,
+      "text": ""
+    },
+    {
+      "op": "equal",
+      "oldLine": 20,
+      "newLine": 20,
+      "text": "先读 [指南框架](references/guide-framework.md)，再实际读原材料/明确快照，在聊天标采用的内容及已读范围。跨会话仅用明确提供的快照，不假定同步。"
+    },
+    {
+      "op": "equal",
+      "oldLine": 21,
+      "newLine": 21,
+      "text": ""
+    },
+    {
+      "op": "equal",
+      "oldLine": 22,
+      "newLine": 22,
+      "text": "区分原材料、已核验背景、教学构造与设计判断；保留版本/快照身份、定位、原文、条件、例外、冲突、缺口、未知及范围。可读不等于核验；必要背景用第一手来源。读/核验受限须说明，不推测或声称参照。缺口只阻相关部分。方法资源仅用户明确指定时作教材材料；缺用户材料/定位或明确主题快照先索取，不自定主题/目标。逐字段保留已有线索，缺完整目标/确认不等于字段未提供；拒绝理由也有据。"
+    },
+    {
+      "op": "equal",
+      "oldLine": 23,
+      "newLine": 23,
+      "text": ""
+    },
+    {
+      "op": "equal",
+      "oldLine": 24,
+      "newLine": 24,
+      "text": "更新材料列有效/替换/历史依据；被替换条款及例外退出当前，不补新缺口；更新范围不明先澄清。"
+    },
+    {
+      "op": "equal",
+      "oldLine": 25,
+      "newLine": 25,
+      "text": ""
+    },
+    {
+      "op": "equal",
+      "oldLine": 26,
+      "newLine": 26,
+      "text": "## 2. 目标选择与等待"
+    },
+    {
+      "op": "equal",
+      "oldLine": 27,
+      "newLine": 27,
+      "text": ""
+    },
+    {
+      "op": "equal",
+      "oldLine": 28,
+      "newLine": 28,
+      "text": "每次新建给 2–3 套不同的 **读者＋使用任务＋理解问题**，说明取舍、推荐及理由。已有目标可列为一套，仍须等待，不推断能力。此时只展示材料范围、目标及待确认状态，不交付指南、章节/交互草稿或试做成品。"
+    },
+    {
+      "op": "equal",
+      "oldLine": 29,
+      "newLine": 29,
+      "text": ""
+    },
+    {
+      "op": "equal",
+      "oldLine": 30,
+      "newLine": 30,
+      "text": "明确选择或修改目标并明确确认采用后才推进。推荐、预选、沉默、超时、无关回复、含糊赞同、窗口消失均非确认；“直接做”、一般授权或工具默认值不能跳过。歧义只澄清歧义。未答保留同一方案/待确认，可重述，不自行换套或生成；仅用户修改或材料实质改变目标才更新并再次等待。不能承诺锁住/保持/恢复宿主窗口；用户停止立即停止。"
+    },
+    {
+      "op": "equal",
+      "oldLine": 31,
+      "newLine": 31,
+      "text": ""
+    },
+    {
+      "op": "equal",
+      "oldLine": 32,
+      "newLine": 32,
+      "text": "## 3. 确认后编排"
+    },
+    {
+      "op": "equal",
+      "oldLine": 33,
+      "newLine": 33,
+      "text": ""
+    },
+    {
+      "op": "equal",
+      "oldLine": 34,
+      "newLine": 34,
+      "text": "确认后读 [交互设计](references/interaction-design.md)。围绕目标，按材料复杂度/篇幅偏好调深度；不强制七章、固定控件或题量。保留关键措辞、关系和证据边界，构造/设计判断就地标注。"
+    },
+    {
+      "op": "equal",
+      "oldLine": 35,
+      "newLine": 35,
+      "text": ""
+    },
+    {
+      "op": "equal",
+      "oldLine": 36,
+      "newLine": 36,
+      "text": "按需设计分步演示、条件模拟及教学自检，说明用途、操作、变化、结果、反馈和恢复。关键结论/限制及需比较内容常显。只判断规则覆盖的输入；缺失/冲突保留待定，不补阈值、默认动作或事实，模拟不等于真实动作。"
+    },
+    {
+      "op": "equal",
+      "oldLine": 37,
+      "newLine": 37,
+      "text": ""
+    },
+    {
+      "op": "equal",
+      "oldLine": 38,
+      "newLine": 38,
+      "text": "自检仅是指南设计，不在聊天启动测验。可靠判准有定位、理由、误区、边界并允许重试。每题明确所需当前状态/输入；共用默认须明确适用于该组题，不能从题名/上个案例默补。前提仍缺时只给有限参考；可补标局部题设假设，源规则足够才在假设范围内确定反馈，不补造源规则。无可靠判准不伪造标准答案/评分，不由点击、完成、答对或提示后改答推断能力/长期掌握。"
+    },
+    {
+      "op": "equal",
+      "oldLine": 39,
+      "newLine": 39,
+      "text": ""
+    },
+    {
+      "op": "equal",
+      "oldLine": 40,
+      "newLine": 40,
+      "text": "## 4. 核对与交付"
+    },
+    {
+      "op": "equal",
+      "oldLine": 41,
+      "newLine": 41,
+      "text": ""
+    },
+    {
+      "op": "add",
+      "oldLine": null,
+      "newLine": 42,
+      "text": "确认后依两参考核对源规则、编排并回查："
+    },
+    {
+      "op": "remove",
+      "oldLine": 42,
+      "newLine": null,
+      "text": "依两参考逐处回查，目标已明确确认，冲突及不保证项可见："
+    },
+    {
+      "op": "equal",
+      "oldLine": 43,
+      "newLine": 43,
+      "text": ""
+    },
+    {
+      "op": "add",
+      "oldLine": null,
+      "newLine": 44,
+      "text": "- 固定当前态及单个直接操作，匹配源允许/禁止/未覆盖。宽规则/排除/例外覆盖则保留结果；后续改状态路径另判，不用“甲或乙/再次”抹掉已知直接结果。"
+    },
+    {
+      "op": "add",
+      "oldLine": null,
+      "newLine": 45,
+      "text": "- 源规则含当前前提/输入、操作、结果字段、例外及定位。全文（含概览/例子/图示/重试/恢复/自检）从完整规则改写，就地写足前提或明确引用覆盖本处的完整共同规则。初值/旁表/前情境不默补；条件写不全则引导读规则，不复述结果。"
+    },
+    {
+      "op": "add",
+      "oldLine": null,
+      "newLine": 46,
+      "text": "- 源/构造逐项对应。新增展示字段/初值/提示/反馈及清除/失效就地标本指南设计；恢复/重置分源字段与新增界面行为，各标依据，不共用源引用。未说明不当没有，别处标签不补归因。"
+    },
+    {
+      "op": "add",
+      "oldLine": null,
+      "newLine": 47,
+      "text": "- 术语/类型一致，原变量与派生真假分开，事项范围不改成人物前提。排他性须源支持或完整枚举可证，就地限范围，含恢复/例外。初值/赋值/可达域非完整输入域，域未知不禁已覆盖输入；额外限定标构造/设计及范围。"
+    },
+    {
+      "op": "add",
+      "oldLine": null,
+      "newLine": 48,
+      "text": "- 共同前提明示覆盖本组各分支；状态变后重判，范围外查其他规则，缺口只阻相关结果。独立情境明示题设/每次复位/范围，不补源规则。重复/同值/未知额外意义或路径不添有效性/限次前提、不撤销已知结果。"
+    },
+    {
+      "op": "add",
+      "oldLine": null,
+      "newLine": 49,
+      "text": "- 条件分满足/不满足/未知：“且”任一明确否即否，“或”任一明确是即是；未知只阻未决组合，不扩成操作/数值结果。分支互斥或明确优先，累计反馈合并适用项；宽泛行不覆盖已决定组合或漏项。"
+    },
+    {
+      "op": "add",
+      "oldLine": null,
+      "newLine": 50,
+      "text": "- 全文与源及彼此一致，别处正确不抵消错误。反馈有当前前提/理由/恢复，自检前提可定位；篇幅适配材料，全答复文本/只读。"
+    },
+    {
+      "op": "remove",
+      "oldLine": 44,
+      "newLine": null,
+      "text": "- 呈现前整理完整源规则。每处操作结果（含概览/标题/常显/重复提示/正文/演示/反馈/恢复/自检）写足必要当前状态/输入/条件，或明确引用就地覆盖本处的完整共同规则；旁表、初值和前一情境不默补前提。"
+    },
+    {
+      "op": "remove",
+      "oldLine": 45,
+      "newLine": null,
+      "text": "- 来源/构造逐项对应。新增展示字段、初值、提示、反馈及清除/失效时机就地标本指南设计；恢复/重置清单分开源字段与新增界面行为，各列依据，不用统一源引用背书。未说明不写成没有，别处标签不补本处归因。"
+    },
+    {
+      "op": "remove",
+      "oldLine": 46,
+      "newLine": null,
+      "text": "- 术语/值类型一致，原变量与派生真假分开，事项范围不改成人物前提。排他量词须源支持或完整枚举可证，就地限对象/操作范围，枚举含恢复/例外。初值/赋值/可达性质不定义输入域；类型/范围未知不禁止已有规则覆盖的输入。额外限制就地标构造及范围。"
+    },
+    {
+      "op": "remove",
+      "oldLine": 47,
+      "newLine": null,
+      "text": "- 反馈按操作及完整当前前提分组，共同前提明示覆盖全部子分支；状态改变后重匹配，范围外检查其他源规则，缺口只阻相关结果。独立情境明示题设、每次复位及范围，不补源规则。重复、结果同值、未知额外意义/后续路径不加有效性/限次前提或撤销已知结果。"
+    },
+    {
+      "op": "remove",
+      "oldLine": 48,
+      "newLine": null,
+      "text": "- 条件分满足/不满足/未知：“且”任一明确否即否，“或”任一明确是即是；未知只阻未决组合，不扩成未规定的操作/数值结果。操作分支互斥或明确优先，累计反馈合并适用项；逐对查宽泛行，不覆盖已决定组合或漏缺项。"
+    },
+    {
+      "op": "remove",
+      "oldLine": 49,
+      "newLine": null,
+      "text": "- 全文与源及彼此一致，别处正确不抵消错误。反馈有当次前提/理由/恢复，自检前提完整可定位；篇幅适合材料，全答复守文本/只读边界。"
+    },
+    {
+      "op": "equal",
+      "oldLine": 50,
+      "newLine": 51,
+      "text": ""
+    },
+    {
+      "op": "equal",
+      "oldLine": 51,
+      "newLine": 52,
+      "text": "交付可复制指南，注明确认目标、材料范围及剩余限制。可用标题/列表/表格及图形自然语言描述，仍守输出边界。交付不等于教材制作/发布/验收、理解改善或全面可访问性合规。"
+    },
+    {
+      "op": "equal",
+      "oldLine": 52,
+      "newLine": 53,
+      "text": ""
+    }
+  ]
+}

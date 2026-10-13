@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.34
+version: v2.35
 ---
 
 # 文档索引
@@ -45,7 +45,9 @@ Marketplace v8.2.0已通过#232/main ebc4bdc3公开；#234同步和#235未发布
 
 0.1.9评审与0.1.10准备时的快照：PR3 #231仍草稿；0.1.9源880fc8cc的八安装/四缓存Python及CI通过，新11UUID/22轮独立评审5PASS/4FAIL/2UNEXERCISED，原字节与局部PASS/未跑保留。0.1.10修正候选明确反馈组当前状态范围并保留来源已有字段线索；须新canonical安装和冻结行为矩阵，静态修正不等于新模型通过。开发市场保持上游未发布8.2.1、其他插件不变；已发布v8.2.0三插件不含HTML。原生入口/双客户端延期、现实效果另测、当前head非作者批准及实际merge复验仍单列，#220/Epic开放；见HTML RUNBOOK §25。
 
-HTML当前PR3候选为0.1.11。0.1.10源7c1f230b与纯文档同步6a919166各八安装/四缓存Python通过；12UUID/23实际COMPLETE独立结果6PASS/3FAIL/3UNEXERCISED，374原字节文件封存并独立复原。局部动态guard通过不抵消概览条件遗漏和混合UI重置来源归因FAIL；B6.1原PASS与同attempt补充FAIL都保留。新候选对每处操作结论保留完整条件，源重置字段与新增界面清理逐项分开归因；须新安装与冻结行为复验，不以静态修正追认模型通过。marketplace8.2.1及其他插件不变，双客户端/原生窗口延期、现实效果另测、GitHub当前head批准和实际merge仍待各自证据，#220/Epic开放；见HTML RUNBOOK §27。
+0.1.10评审与0.1.11准备时的快照：PR3候选为0.1.11。0.1.10源7c1f230b与纯文档同步6a919166各八安装/四缓存Python通过；12UUID/23实际COMPLETE独立结果6PASS/3FAIL/3UNEXERCISED，374原字节文件封存并独立复原。局部动态guard通过不抵消概览条件遗漏和混合UI重置来源归因FAIL；B6.1原PASS与同attempt补充FAIL都保留。新候选对每处操作结论保留完整条件，源重置字段与新增界面清理逐项分开归因；须新安装与冻结行为复验，不以静态修正追认模型通过。marketplace8.2.1及其他插件不变，双客户端/原生窗口延期、现实效果另测、GitHub当前head批准和实际merge仍待各自证据，#220/Epic开放；见HTML RUNBOOK §27。
+
+HTML当前PR3修正候选为0.1.12。源11 e3a4daec准确八安装/四缓存Python/CI通过，实际8UUID/16COMPLETE最终5PASS/2FAIL/1UNEXERCISED，六无attempt与全部E/S/重复未跑，281原文件封存复原通过。B6.1遗漏局部当前态、B1.1把已禁止直接操作与未知路径合并，原局部PASS不抵消。新方法先整理完整源规则，逐个直接操作匹配，再由完整规则组织概览/例子/图示及提示；无操作材料不强造目录。须新canonical安装及冻结行为矩阵，不继承旧PASS。市场8.2.1与其他插件保持，原生/双客户端延期、效果另测、当前head非作者批准和actualmerge仍分别待证，#220/Epic开放；见HTML RUNBOOK §28。
 
 ## 入口
 

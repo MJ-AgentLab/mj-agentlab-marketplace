@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.19
+version: v1.20
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -404,3 +404,19 @@ B3.2疑点经独立读取原输入/SPEC/全输出后澄清：没有实际补造�
 仅推进HTML0.1.10→0.1.11，marketplace保持未发布8.2.1，其他插件、已选图标及公开main/v8.2.0三插件不变。先整理完整源规则，再组织呈现；任何操作结果，包括概览/标题/常显/重试/恢复，须就地保留必要前提，或明确引用覆盖本处的完整共同规则。源字段的恢复按源保留，新增界面状态/默认/提示/反馈清理分别就地标设计，不以统一源章节归因。未增加领域答案、固定格式或Owner路径。入口6133字节，6144严格预算不改；6192字节的仅外部draft准备失败原script/log保留。新模型NOT_RUN，工作/静态检查不能替代新canonical八安装/四Python及冻结六组14/30、受影响E6/12、重复1/2、连续S2/9和其余扩展23/47。
 
 原生UI、ChatGPT桌面、空返回/超时/关闭事件继续NOT_RUN，现实效果NOT_MEASURED。合格核心可分段交付，延期入口不视为通过；#220/Epic仍开放。当前最终head非作者批准、CI、已解决线程、准确merge复验和Owner最终接受各自记录，本任务不创建Release、tag或main发布PR。
+
+## 28. 0.1.11已执行评审与0.1.12规则编排修正
+
+源11准确e3a4daecf4bd637d77d43329f0956ac06dac0cc5 / tree97cb45959692bcb63d9f05f556ad35c0298c22cc已推送PR #231，[八严格安装/四缓存Python](evidence/html-guide-kit/pr3-post-merge/engineering-e3a4daec/archive-index.json)与全部资源字节比较通过；四插件/六公开/三自然/三显式/20repo-only保持。当前e3的A6、Structure和Ubuntu/Windows baseline全SUCCESS，reviews为空/REVIEW_REQUIRED，不追认非作者批准。工作319/319零skip、validate/check通过；归档后的[65项文档/A6及七暂存资源](evidence/html-guide-kit/pr3-post-merge/candidate011-staging-checks/archive-index.json)通过。普通whitespace检查将原CRLF识为尾空格；识别CRLF后仅剩旧CHANGELOG快照空白及真实版本日志末空行，原日志保存，全部新编写文件检查通过。数据原字节不格式化，repo配置/required validators不改，不计模型或运行FAIL。
+
+全部writer正常停止，三批共8fresh UUID/16实际输入全部COMPLETE，最终独立5PASS/2FAIL/1UNEXERCISED。RootB1.1四轮FAIL（原待选/明确确认PASS），delayed仅首轮UNEXERCISED；A B3.1/B3.2各三轮PASS；B6.1两轮FAIL，B6.2-revise/compare/review各单轮PASS。六prepared无attempt NOT_RUN，E/S/repeat全未prepare或调用。A暂停标志后原scheduler完成同variant的自动第三轮，准确启动/完成时间及正常return保留；B最后拒绝轮早于marker完成，Root在人工边界未继续选择。没有kill、重试、重采样、追加输入或事后追认PASS。
+
+B6.1 UUID01a134bd-4ecd-7150-86db-f7f8c1e45ead / attempt8f80afcb-f8dd-4948-a7da-8d9622391910在T2:230状态更新例子、421图示补充中，写零输入操作后的状态与字段结果，却没有必要当前状态或就地完整共同规则。正确125–127表不补本处。源/UI恢复167–183及311–318本次分项归因已局部通过，不能抵消新遗漏。RootB1.1 UUID01a134bc-51de-74b2-9994-4263a631cb45 / attempt71e04453-e349-4044-ba28-db7c44d2ca68的T4:110把当前已归还时直接核验和直接领取并称“未规定该路径”：前者未规定，后者已由源其他状态不可领取明确禁止；不能借路径标签、或句或别处正确表撤销已知直接结果。
+
+部分outer工具回包框架确实截断，原CLI汇总stdout完整不等于模型接收完整。B6-revise/compare在同真实会话分段补读，依原tool return逐段重建全文，实际最终读取true；非空77行不当物理127行，未补采样。Root裸文件名读取的早期helper false、真实workdir/全文返回澄清、所有declined与模型自述分别保留。原摘要错写同段材料路径，主评审一直准确；原摘要及另份纠正摘要均留档，不改语义结果。
+
+技术grade8成功零失败、三summary，原279文件仅三batch metadata更新；原inputs/outputs/events/session/控制/评审及helper稳定，8原final字段/criteria/理由/真实读取及N/A逐项等价，21 Git e3/镜像/cache资源哈希稳定。完整[281文件封存](evidence/html-guide-kit/pr3-reviewer/patch-021-stopped/index.json)与[独立Node/.NET复原](evidence/html-guide-kit/pr3-post-merge/candidate021-final-seal/archive-index.json)通过，7,091,413原字节、五packet、sourceInventorySHA27d66972fa32c37571f4c19c3c502d02c15bfb1ab16bc7c5684e5fcb47e6b10b；旧封包不覆盖，排除reviewer的镜像不要求同完整仓库tree。
+
+仅HTML0.1.11→0.1.12，marketplace未发布8.2.1/其他插件/已选图标不变，无Release、tag或main PR。先整理完整源操作规则，固定当前状态和单个直接操作匹配允许/禁止/未覆盖，再与改状态后的路径分开。全篇概览、情境例子、图示与提示只由完整规则组织，就地保留前提或明确引用覆盖本处的完整共同规则；短句写不全则引导完整规则，不自由缩写结果。没有操作规则的材料不强造目录/格式；源恢复与新增UI分项归因及全部旧边界保持。独立静态审查无阻断，不是行为PASS；外部6238/6171预算失败script/log保留，最终6144/17722/18602字节，严格6144上限不改，无fixture答案/Owner路径。
+
+新12模型/安装NOT_RUN，须准确canonical八安装/四Python、新缓存六组14/30、受影响E6/12、重复1/2、连续S2/9及其余E23/47；不继承旧PASS，不改冻结输入/判准/default模型。原生/双客户端与空返回/超时/关闭仍NOT_RUN，现实效果NOT_MEASURED，Owner最终接受独立。合格核心可分段交付，延期不当通过，#220/Epic开放；最终head非作者批准/CI/threads/最新base/actualmerge复验仍须实际完成。

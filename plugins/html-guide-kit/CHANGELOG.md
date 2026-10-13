@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [0.1.12] - 2026-10-13
+
+### Fixed
+
+- HTML Guide Kit 0.1.12 derives each operation statement from a complete source rule, retaining local premises in examples, diagrams and summaries rather than freely shortening results.
+- Judge one direct operation in its current state at a time; unknown later paths do not override source-covered allowed or prohibited direct results.
+- Preserve every actual0.1.11 call, localPASS and finalFAIL. Require fresh installed acceptance with unchanged inputs, criteria and model defaults. Refs #217, #220.
+
 ## [0.1.11] - 2026-10-13
 
 ### Fixed
