@@ -6,9 +6,9 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-12
 state: active
-version: v1.0
+version: v1.1.1
 last-verified: 2026-10-12
-verification-scope: source-intake-and-document-structure
+verification-scope: contract-and-isolated-local-library
 ---
 
 # [RUNBOOK] Learning Evidence Kit acceptance
@@ -17,7 +17,7 @@ verification-scope: source-intake-and-document-structure
 
 Follow the [migration ADR](../adr/[ADR]_Learning_Evidence_Kit_Migration.md) and [record/API SPEC](../spec/[SPEC]_Learning_Evidence_Record_And_API.md). Epic [#209](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/209) targets marketplace 8.2.0 / learning-evidence-kit 0.1.0, directly replacing Understanding Kit with two explicit public skills. At PR1, current runtime remains develop 8.1.2 with Diagram 0.3.1, Understanding 0.1.2 and Explain 0.1.1; no new version or package is installed by this document.
 
-`last-verified` and `verification-scope` describe source, read-only intake and document-structure verification only. No new-package runtime, native-window or client acceptance is established by that date. Existing releases' evidence stays historical and is not reused as a PASS for 8.2.0.
+`last-verified` and `verification-scope` describe source, contract and isolated local-library verification. No new-package installation, native-window or client acceptance is established by that date. Existing releases' evidence stays historical and is not reused as a PASS for 8.2.0.
 
 Owner authorized technical execution and conditional formal publication, then accepted staged delivery: preserve both public skills/common interfaces; defer native entries unable to meet strict-window conditions, and keep the Epic incomplete. PR5 records actual enabled entries individually. Synthetic role checks provide reproducible engineering evidence and remain distinct from real human learning, actual desktop interaction, GitHub nonauthor approval and Owner final product acceptance.
 
@@ -39,10 +39,10 @@ Use `PASS` only for the observed criterion and tested version. `FAIL` records an
 
 | Area | Required reproducible observations | Current new-package result |
 | --- | --- | --- |
-| Contract and migration | Source revision/hash, two skills, direct replacement, staged code placement, preserved runtime/version, INDEX/A6 and history consistency | Source/intake and local document-structure checks below; contract root review passed; nonauthor approval pending |
-| Local save and identity | Explicit/reused identity confirmation; person/source author/operator separation; stable IDs without Issue; atomic save, idempotent retry, changed-input conflict and concurrent/interrupted recovery | NOT_RUN; PR2 |
-| Baseline and association | Complete recoverable requirement content survives source edits/worktree deletion; reference-only locally excluded manifest; new-worktree restore and distinct PR applications with stable learning ID | NOT_RUN; PR2 |
-| Export/import/archive | Complete linked export and digest manifest; import retains identity/history; malicious member paths, corrupt content and conflicting existing IDs fail safely; retained archive remains exportable | NOT_RUN; PR2 |
+| Contract and migration | Source revision/hash, two skills, direct replacement, staged code placement, preserved runtime/version, INDEX/A6 and history consistency | PASS for contract delivery: #216 merged f64fc957; reviews empty, no retroactive approval claim |
+| Local save and identity | Explicit/reused identity confirmation; person/source author/operator separation; stable IDs without Issue; atomic save, idempotent retry, changed-input conflict and concurrent/interrupted recovery | PASS for PR2 isolated implementation below; merge pending |
+| Baseline and association | Complete recoverable requirement content survives source edits/worktree deletion; reference-only locally excluded manifest; new-worktree restore and distinct PR applications with stable learning ID | PASS for PR2 isolated implementation below; merge pending |
+| Export/import/archive | Complete linked export and digest manifest; import retains identity/history; malicious member paths, corrupt content and conflicting existing IDs fail safely; retained archive remains exportable | PASS for PR2 isolated implementation below; merge pending |
 | Ordinary PR sharing | Complete JSON/reading content and actual receipts; explicit scope; all segments read back; unknown result reconciliation, duplicate prevention and missing-parts-only recovery | NOT_RUN; PR3 fake-gh tests and separately scoped actual evidence |
 | Incremental acquisition | Visible open/closed/merged PR coverage; all pages; comment update time; five-minute overlap, equal-time deduplication and edited versions; failure retains snapshots and complete cursor; unavailability exposed as a gap | NOT_RUN; PR3 |
 | Pop Quiz behavior | Explicit start; one default KU, explicit second KU, two-KU/five-question budget; withheld diagnostic feedback; no recommended answer; unanswered/default/timeout/close does not progress; explicit save handoff retains actual status | NOT_RUN; PR4/5 independent synthetic-role runs |
@@ -74,6 +74,21 @@ PR1 root review compared all contracts with the accepted scope and source revisi
 
 These facts do not prove the new library, publication, collection, skill behavior, clients or release. No new runtime results are available at PR1. There are no new-package failure runs to report yet; later failures retain original input/output alongside repaired reruns.
 
+
+### PR2 local implementation and independent review (2026-10-12)
+
+PR2 stages only Python standard-library common/storage/JSON entry scripts in `scripts/learning-evidence/`; current packages, VERSION and registration remain byte-identical to develop. All storage operations use explicitly isolated synthetic libraries. The source authority is schema 1 JSON; Markdown is derived.
+
+Standards axis: no unresolved documented violations or maintenance findings after request digest calculation was centralized. Spec axis: independently reproduced duplicate-original import and contradictory-save-receipt import failures; both were fixed before submission. Independent actual Python reruns now return `import_conflict` / `invalid_import` without invalid writes, and valid export/import/get restores exact records, baselines and associations. Earlier independent review found recovery dry-run conflict misreporting, also fixed through shared no-write preflight.
+
+Final checks: 241/241 Node tests, zero skipped, including 33 actual Python 3.12.13 storage cases; strict validation; Codex 0.147.0 four-scenario isolated installations; actual cached diagram Python result `FAIL 0 / WARN 0`. [Structured receipt](evidence/learning-evidence-store-checks.json) captures methods, inputs, tested source digests and limitations. The prior 31-case snapshot passed but was not treated as final acceptance after two later import fixes.
+
+#216 merged as `f64fc957b9fa595ac483724e2f60c1314b276574`; its Git tree equals tested `b83db6a`, all remote checks succeeded, review threads are absent, and GitHub reviews remain empty. #210 was explicitly closed on its contract delivery criteria; this does not retroactively establish a GitHub nonauthor approval. PR2 uses that current develop ancestry. No new-package installation, native question window, actual desktop route, formal publication, learning benefit or Owner final acceptance is established by these local-library results.
+
+PR2 is [#224](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/224). Before its merge, parallel HTML contract PR #221 advanced develop to `70267a5b91d759af09a8f1281a33e2d5a90fdbc9`. Synchronization preserves both projects' A6/Unreleased content, HTML version/scope support and all upstream assets. The runtime remains byte-identical to that base. Reverification passed 253/253 Node tests, zero skips, the same 33 actual Python storage cases, strict validation, exact Codex baseline and all four isolated installations with actual cached Python diagram checks. The initial receipt remains intact; its `upstream_sync` section records this broader rerun. GitHub approval and final merge remain pending.
+
+Parallel HTML package PR #226 then merged as develop `d106e76651d53cdf3f0cef2bb33ce47e8d7fda38`. PR2 synchronizes that ancestry while keeping all four registered runtime packages, index and VERSION byte-identical to this new base. The staged storage modules remain unchanged. Reverification passed 280/280, zero skips, the same 33 actual Python 3.12.13 storage cases, strict validation and exact Codex 0.147.0. All seven actual isolated installation scenarios pass, including HTML alone/with Explain and all four packages, with actual installed Diagram Python checks. The receipt appends `upstream_sync_after_html` and retains prior snapshots. Owner explicitly decided to retain HTML in develop while preparing a separate 8.2.0 release candidate containing only Diagram, Learning Evidence and Explain, with five public skills; HTML will be released separately. This synchronization does not expand that approved public release scope. PR2 approval/merge and child #211 remain pending.
+
 ### Entry activation ledger
 
 PR5 fills one row for each actual host/entry combination, retaining method, client version, install source/plugin/head identity, actual call evidence, individual window results, impact and removal condition. No entry is enabled solely by the contract or a static metadata check.
@@ -92,10 +107,10 @@ Real-task learning benefits, long-term retention, transfer and management judgme
 
 All PRs use `Refs` for the corresponding child and Epic. A merged contract is not a passing implementation; each child closes only after its own merged delivery and agreed acceptance. The release PR must not use `Closes #209`.
 
-| PR stage | Child | Depends on | State at PR1 | Completion evidence to record |
+| PR stage | Child | Depends on | Current state | Completion evidence to record |
 | --- | --- | --- | --- | --- |
-| 1 Contract and migration | [#210](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/210) | Intake | IN_PROGRESS; files prepared, local structure passed, broader validation/contract root review passed; nonauthor approval pending | Actual PR, tested head/tree, checks, merge and contract review |
-| 2 Local evidence library | [#211](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/211) | 1 | NOT_RUN | Isolated Python runs, runtime-byte equality, merge and scoped receipts |
+| 1 Contract and migration | [#210](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/210) | Intake | MERGED #216; child closed, contract tree equality verified; reviews empty | Actual merge f64fc957 and tested b83db6a tree equality; no retroactive independent approval claim |
+| 2 Local evidence library | [#211](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/211) | 1 | PR #224; 33 isolated cases, latest 280-test/four-package upstream rerun and independent review passed; earlier 253-test receipt retained; approval/merge pending | Isolated Python runs, runtime-byte equality, merge and scoped receipts |
 | 3 GitHub flow/collection | [#212](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/212) | 2 | NOT_RUN | Substitute writes/recovery/coverage evidence, byte equality and merge |
 | 4 Atomic skill/package switch | [#213](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/213) | 2, 3 | NOT_RUN | Exact inventory, new package/version identity, staging removal, installed execution and merge |
 | 5 Technical acceptance/preparation | [#214](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/214) | 4 | NOT_RUN | Per-entry results/deferred list, independent synthesis, tests, 8.2.0 notes and merge |
@@ -116,3 +131,5 @@ Use existing draft-first release controls and record actual remote state before 
 | Version | Date | Verification scope | Summary |
 | --- | --- | --- | --- |
 | v1.0 | 2026-10-12 | Source/intake/document structure; new runtime NOT_RUN | Contract acceptance matrix, actual intake facts, strict-window staged-entry policy, six delivery PRs and two closeout PRs; Refs #210 and Epic #209 |
+| v1.1 | 2026-10-12 | Contract merge and isolated local library; clients NOT_RUN | PR2 independent repairs, 33 Python cases, #224 and 253-test latest-develop synchronization; preserve parallel HTML contracts and earlier evidence |
+| v1.1.1 | 2026-10-12 | Current four-package runtime preservation and seven isolated installations; separate three-plugin 8.2.0 release scope confirmed | Synchronize actual #226 runtime merge, 280-test/33-Python rerun and unchanged staged storage; keep earlier receipts, retain HTML in develop and record Owner's separate-release decision |
