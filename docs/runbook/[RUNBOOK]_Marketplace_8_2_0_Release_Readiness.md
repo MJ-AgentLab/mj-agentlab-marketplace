@@ -6,9 +6,9 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: active
-version: v1.2
+version: v1.3
 last-verified: 2026-10-13
-verification-scope: preparation-version-and-existing-evidence-only
+verification-scope: scoped-cli-core-and-candidate-engineering
 ---
 
 # [RUNBOOK] Marketplace 8.2.0 release readiness
@@ -24,11 +24,12 @@ verification-scope: preparation-version-and-existing-evidence-only
 | Marketplace 候选 | 8.2.0，未发布 | PR5 对 8.1.2 → 8.2.0 执行 dry-run 后 apply；版本工具仅更新 VERSION / README badge 两文件 |
 | Learning Evidence Kit | 0.1.0 | 直接替换 Understanding 注册，pop-quiz / learning-record-check 均显式启动；共用能力不是第三技能 |
 | Diagram / Explain | 0.3.1 / 0.1.1 | 本 Epic 保持其版本；批准图标复用和包归属见技术验收账本 |
-| 候选集合 | 三插件、五公开技能、两项显式学习策略 | 安装/发现通过不能代替实际模型、桌面调用或原生窗口验收 |
-| 最新运行修复来源 | PR4 新核验生成信息修复已正常继承至 PR5 | 新作者/LRC 来源/操作/实际事件时间使用当前事实，保留原件；第四轮新源码实际验收待完成 |
+| 独立公开候选集合 | 三插件、五公开技能、两项显式学习策略 | 安装/发现通过不能代替实际模型、桌面调用或原生窗口验收 |
+| 最新运行修复来源 | PR4 新核验生成信息修复已正常继承至 PR5 | Stage1 先确立适用性再读取应用材料；第五轮限定核心通过，保留实际生成信息、原件、错误与超时 |
 | 已冻结并安装的 8.2.0 技术来源 | `36ef16cd8798b107e16673e1520f3086964c4e3e` | [技术回执](evidence/learning-evidence-acceptance-checks.json)记录精确 Git tree、290-test 日志、五种 canonical 安装及模型冻结摘要 |
-| 新修复精确技术来源 | `8546aef1143642057693303fd334a09538081efa` / tree `85cf4d0c565d7e5bdd5ecfbc34e76b7e69d5307f` | [新技术回执](evidence/learning-evidence-generator-repair-checks.json)：290/290、零跳过，严格 baseline 和五种 canonical 安装通过；第四轮仍在实际执行 |
-| 最终交付 head / Git tree | PENDING | 完整回执及审查记录提交后重新冻结，比较运行资源并复核当前 head 门禁；不把前一候选身份冒充最终交付 |
+| 新修复精确技术来源 | `8546aef1143642057693303fd334a09538081efa` / tree `85cf4d0c565d7e5bdd5ecfbc34e76b7e69d5307f` | [新技术回执](evidence/learning-evidence-generator-repair-checks.json)：290/290、零跳过，严格 baseline 和五种 canonical 安装通过；第四轮整体失败与后续修复分别保留 |
+| 第五轮冻结技术/模型来源 | `acf3c9d48a314cab153632bd5c09a141823789c3` / tree `ae61349bd01513f8ac36cd4702c5d440dae550e2` | [当前来源回执](evidence/learning-evidence-fifth-source-checks.json)：290/290、五种 canonical 安装及六场景核心判据通过；七次自然完成/一次超时分开 |
+| 最终交付 head / Git tree | 待发布 PR 当前 head 冻结后复核 | 完整回执及审查记录提交后重新冻结，比较运行资源并复核当前 head 门禁；不把前一候选身份冒充最终交付 |
 | Main 发布 merge / v8.2.0 tag / Release 身份 | NOT_RUN | 尚无本次公开发布身份；不得用候选版本或旧发布结果代填 |
 
 阶段依赖及关闭条件继续按 [验收账本](./[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)追踪：
@@ -39,8 +40,8 @@ verification-scope: preparation-version-and-existing-evidence-only
 | 本机证据库 | [#224](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/224) / [#211](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/211) | 等待实际当前 head 的独立批准及合入 |
 | GitHub 流转 | [#227](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/227) / [#212](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/212) | Draft，依赖 #224；批准/合入独立待办 |
 | 原子插件切换 | [#228](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/228) / [#213](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/213) | Draft，依赖 #227；批准/合入独立待办 |
-| 技术验收与 8.2.0 准备 | Draft [#230](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/230) / [#214](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/214) | 技术来源 36ef16cd 已冻结/安装；完整模型接受、最终交付 head 及 merge 仍 PENDING |
-| 正式发布与跟踪 | [#215](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/215) | NOT_RUN；发布 PR 只写 Refs，不自动 Closes Epic |
+| 技术验收与 8.2.0 准备 | Draft [#230](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/230) / [#214](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/214) | 开发317/八安装与独立公开290/五canonical分别通过；第五轮限定核心通过，最终当前head/批准/merge仍待实际门禁 |
+| 正式发布与跟踪 | [#215](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/215) | 准备三插件发行草稿；main 合入和正式发布 NOT_RUN，PR 只写 Refs，不自动 Closes Epic |
 
 ## §2 Steps and evidence preparation
 
@@ -79,13 +80,15 @@ verification-scope: preparation-version-and-existing-evidence-only
 
 Owner 已确认 8.2.0 仍为原定三插件/五技能/两项学习策略。develop 保留 #226 的 HTML，Learning Evidence 替换后开发集合为四插件/六技能；独立公开候选只含 Diagram、Learning Evidence、Explain，HTML 另行发行。不得以原公开集合校验删除 develop 的已合并 HTML。
 
+第五轮完整限定核心结果见[原始回执](evidence/learning-evidence-fifth-model-round.json)和[独立最终审查](evidence/learning-evidence-fifth-model-independent-review.json)。六 fresh/八实际调用、86 命令尝试、九条新核验；七次自然完成与一次输运超时分开，所有历史失败和错误保留。材料到达等待新手动请求后再核验，身份不适用停止在应用读取前；十二资源闭包只限定沿用第四轮移交。真实原件字节保留，最后作者场景的说明/校验材料仅换行格式差异明确列出，不宣称全材料字节相同。独立审查通过核心行为判据不替代保护合入、正式发布或 Owner 签收。
+
 ### §2.3 Classify entries before enabling publication scope
 
 | 实际入口/能力 | 当前状态 | 影响、条件及解除要求 |
 | --- | --- | --- |
-| Codex CLI 完整输入的非交互核心操作与显式技能调用 | ACCEPTANCE_PENDING | 第二轮实际保存/指定记录有效性有有限通过，材料门槛失败已修复；最终来源完整实际模型接受前不启用应用路线 |
+| Codex CLI 完整输入的非交互核心操作与显式技能调用 | QUALIFIED_SCOPED_CLI_CORE | 第五轮 acf3 六 fresh/八调用通过限定核心判据；七次自然完成/一次超时及原错误保留。仅明确选择、可访问库、适用版本与完整材料的手动路线；实际账号权限不由离线 gh 推定 |
 | 新建 worktree 本地 Git exclude | BLOCKED_IN_RESTRICTED_ROUTE | native sandbox 限制首次 Git 元数据写入；不宣称该受限模型入口自动创建 exclude。PR2 隔离实际 Python 的自动 exclude 证据保留其原范围 |
-| 已有本地 exclude 的完整记录移交 | CONDITIONAL / FINAL_SOURCE_PENDING | 第二轮实际保存、关联、引用清单和回执通过，原件精确保留；只限已有排除配置，准备配置不算模型创建 exclude，通过范围须与最终来源绑定 |
+| 已有本地 exclude 的完整记录移交 | QUALIFIED_CONDITIONAL | 第四轮实际保存/关联/引用清单由十二项未变资源闭包限定沿用至 acf3；原件精确保留，只限已有本地排除配置，不能推定自动创建 exclude |
 | `codex-native-questions` | DEFERRED | 未取得提交前连续显示的实际窗口证据；未答、默认、超时、关闭均不算答案。须以可操作的实际客户端/版本/入口逐项验证后解除 |
 | `chatgpt-desktop-native-questions` | DEFERRED | 当前缺可执行桌面安装/调用/窗口验收入口；须取得同来源的实际安装、调用及严格窗口证据后解除 |
 | Codex 桌面实际调用 / Side Chat | NOT_RUN | CLI 安装、共用脚本或模型输出不能替代真实桌面入口结果；实际控制和可复现调用证据待补 |
@@ -105,11 +108,11 @@ Owner 已确认 8.2.0 仍为原定三插件/五技能/两项学习策略。devel
 | --- | --- | --- |
 | 条件发布授权与分段边界 | AUTHORIZED / ACCEPTED | 本记录 §1 与已接受 ADR；边界未实质变化时复用 |
 | 8.1.2 → 8.2.0 版本准备 | APPLIED，未发布 | VERSION / README badge 两锚点；最终冻结提交及对应检查 PENDING |
-| 8.2.0 技术来源完整工程及 canonical 安装 | PASS_FOR_36EF16CD | 290/290、零跳过，严格校验/精确 baseline、五种精确 Git 安装和实际图表/共用 Python 通过；未来最终交付另核当前身份 |
-| 修复后完整核心实际模型验收 | FOURTH_ROUND_FAIL / FIFTH_ROUND_PENDING | 各场景输入/source/模型版本、实际操作与独立审查；不得合并不同轮次为无失败 PASS |
+| 8.2.0 技术来源完整工程及 canonical 安装 | PASS_FOR_ACF3C9D | 290/290、零跳过，严格校验/精确 baseline、五种精确 Git 安装和实际图表/共用 Python 通过；未来最终交付另核当前身份 |
+| 修复后完整核心实际模型验收 | FIFTH_SCOPED_CORE_CRITERIA_PASS_WITH_RETAINED_ERRORS | 各场景输入/source/模型版本、实际操作与独立审查；不得合并不同轮次为无失败 PASS |
 | 当前 head 的真实非作者 APPROVED review | PENDING | 合格非作者、review 状态及绑定 head；Agent 自检不替代 |
 | Required checks / resolved threads | PENDING FOR_FINAL_HEAD | 实际远端检查结论及审查线程；既有绿色 CI 不覆盖未来最终 head |
-| 正式发布 PR / main merge | NOT_RUN | PR 号、head、批准/检查/线程事实、实际 merge SHA/tree |
+| main 发布 merge | NOT_RUN | PR 号、head、批准/检查/线程事实、实际 merge SHA/tree |
 | v8.2.0 标签 / Release | NOT_RUN | tag peel、Release ID/URL/target、正文版本、实际 publish 状态；不覆盖历史标签或资产 |
 | 发布后安装、资源和实际 Python 复查 | NOT_RUN | 实际公开来源及五场景结果；与发布前工作源/canonical 运行分别记录 |
 | 核心交付 | NOT_COMPLETE | 完整核心验收、保护合入及发布/复查证据完成后据实更新 |
@@ -131,6 +134,7 @@ Owner 已确认 8.2.0 仍为原定三插件/五技能/两项学习策略。devel
 
 | Version | Date | last-verified | Change |
 | --- | --- | --- | --- |
+| v1.3 | 2026-10-13 | 第五轮限定 CLI 核心及两种集合的实际工程结果 | 保存完整回执/独立审查、原超时和错误，核心资格与实际交付/发布/Owner接受分别记录 |
 | v1.2 | 2026-10-13 | 完整第四轮失败和阶段顺序修复 | 保留生成信息的有限正向、未运行 listing 与全部原错误；第五轮核心接受和正式发布仍待完成 |
 | v1.1 | 2026-10-13 | 原精确技术结果、完整第三轮失败及新修复范围 | 保留三插件公开范围与四插件开发集合；第四轮实际验收、保护合入和正式发布仍待完成 |
 | v1.0 | 2026-10-12 | 2026-10-12，准备/已有证据范围 | 建立 8.2.0 未发布准备账本，保留两轮模型与 CI 原失败、入口条件/延期、当前 head 门禁及发布后待办；Refs #214 / #215 / #209 |

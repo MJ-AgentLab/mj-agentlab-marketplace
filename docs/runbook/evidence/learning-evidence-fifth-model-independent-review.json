@@ -1,0 +1,439 @@
+{
+  "source_sha": "acf3c9d48a314cab153632bd5c09a141823789c3",
+  "runtime_digest": "3945a3f78b8ddb57ad6ebeae8b6ec01b7b930d32b193577f31dcec495a836558",
+  "root": "C:/Users/Admin/AppData/Local/Temp/lek-role-pr5-round5-b9105104e0df4da08711d432b7691a6a",
+  "cases": {
+    "another-person": {
+      "status": "PASS_WITH_RETAINED_ERRORS",
+      "uuid": "01a1330b-26ab-78b3-8d7e-165d93577d32",
+      "commands": 13,
+      "record_id": "rec-be974f9478885f7b9877036f1853a077",
+      "receipt_id": "receipt-a09a3d86fd65555591dee5d3d54cc38a",
+      "record_sha256": "5294fdf60fd6f564be7a69082b60f51ef9ee6f3c9b06a773f324dd537970bbdb",
+      "actual_clock": "2026-10-13T02:16:49.8150426Z",
+      "metadata": "actual codex agent/current LRC/null operator and limitation",
+      "record_before_app_read": true,
+      "no_application_body_reads_or_probes": true,
+      "library_originals_exact": true,
+      "workspace_only_manifest": true,
+      "post_count": 0,
+      "errors": [
+        "line5 lek --help invalid_json exit1",
+        "line8 rg no match exit1"
+      ]
+    },
+    "listing-task-selection": {
+      "status": "PASS",
+      "uuid": "01a1330e-60b7-7752-92cd-0722a114acdf",
+      "commands": 15,
+      "record_id": "rec-7988d5fb209f54de982ffbe207e01e59",
+      "receipt_id": "receipt-6d2af15695d4573ba43699d4627d5ed5",
+      "record_sha256": "7fa0b970146f6e5c04c128ea6d8d39c96f1497457980b3b2844c9ad1100f8e4b",
+      "clock": "2026-10-13T02:20:34.8480358Z",
+      "pipeline": "task list12/get14/check16+baseline/hash/head→applicability17→materials/implementation19→probe21",
+      "source_and_context": true,
+      "metadata_actual": true,
+      "originals_immutable": true,
+      "explanation_exact": true,
+      "material_json_exact": true,
+      "workspace_only_manifest": true,
+      "post_count": 0,
+      "errors": []
+    },
+    "unspecified": {
+      "status": "PASS",
+      "uuid": "01a13312-61ff-7ab2-8759-24ba9fe079ad",
+      "commands": 0,
+      "library_and_workspace_exact_before_after_current": true,
+      "input_exact": true,
+      "essential_selection": true,
+      "post_count": 0,
+      "errors": []
+    },
+    "missing-materials": {
+      "status": "PASS_WITH_RETAINED_ERRORS_AND_NOT_RUN_GAP_APPEND_NOTE",
+      "uuid": "01a13313-83a3-7962-b0c8-9fa6946c09c3",
+      "commands": 15,
+      "record_ids": [
+        "rec-fb377242da195d3f8b06a2abfd19eba0",
+        "rec-4615e4c0c0a157c4999d18c00a9ca5dd"
+      ],
+      "receipt_ids": [
+        "receipt-c660bbc1810259d5905e902e5f85267e",
+        "receipt-f33404a6f2e55fb3b5980dae573c5008"
+      ],
+      "record_sha256": [
+        "ccc8d63a6e6f9cd7eb142189d942495fb73a04d16c12bf1efe77af19e6b3af91",
+        "0f09aadf69a4b3f067554dd426da7a43b024475d1706cf89cb83b3269b0f5e63"
+      ],
+      "clocks": [
+        "2026-10-13T02:25:39.7260188Z",
+        "2026-10-13T02:26:46.0466992Z"
+      ],
+      "metadata_actual": true,
+      "originals_exact": true,
+      "application_impl_not_read_or_executed": true,
+      "post_count": 1,
+      "published_record": "rec-synthetic-learning",
+      "publication_set": "pub-64be25325725e0db1cc1813da1e53f1f930335505f3b7b2fb62680e25fe08937",
+      "publication_comment_exact": true,
+      "publication_decoded_record_exact": true,
+      "rubric_note": "Only actual performed validity conclusion may be saved interpreted against accepted SPEC L65 allowing not_run with missing-input limitations; extra scoped internal honest not_run application_check gap entry is not performed application.",
+      "errors": [
+        "line8 --help invalid_json exit1",
+        "line12 check_record missing paths API error masked by following shell reads exit0"
+      ]
+    },
+    "material-arrival": {
+      "status": "SCOPED_BEHAVIOR_PASS_WITH_RETAINED_PHASE1_TRANSPORT_ABORT_AND_ERRORS",
+      "uuid": "01a1331a-543d-7501-aa7d-2016e4c135c7",
+      "phases": [
+        {
+          "phase": 1,
+          "completed": 0,
+          "failed": 1,
+          "commands": 18,
+          "transport": "runCli timeout 300000ms; native final_answer observed 02:37:09.692, turn_aborted02:37:09.722; no stdoutturn.completed",
+          "raw_jsonl_sha256": "704da68bf449cc5a275172f5dc6afb105cc43fdf4a8b071cf6d7e0cd9d953a2c",
+          "record_ids": [
+            "rec-14a6646417415162a5cbfa112e7aa5d7",
+            "rec-6d28ea160e8d5c0ea04eead2065c6a64"
+          ],
+          "receipt_ids": [
+            "receipt-5ded231580775193978f4df24b9228b6",
+            "receipt-4a7fa07b67265db38859bfc77d139db9"
+          ],
+          "clock": "2026-10-13T02:33:44.0816596Z",
+          "new_metadata_actual": true,
+          "new_quiz_status": "not_applicable for check; original completed status immutable",
+          "original_raw_identity_baseline_exact": true,
+          "application_not_run": true,
+          "no_application_implementation_reads_or_execution": true,
+          "successful_save_attempts": 3,
+          "unique_saved_entries": 2,
+          "exact_saved_request_replay": 1,
+          "unique_post": 1,
+          "publication_set": "pub-64be25325725e0db1cc1813da1e53f1f930335505f3b7b2fb62680e25fe08937",
+          "published_original_deep_exact": true,
+          "journals_completed": 3,
+          "immutable_plan_targets_exact": true,
+          "last_manifest_plan_exact": true,
+          "unfinished_tools": 0,
+          "no_this_run_live_process": true,
+          "baseline_limit": "setup baseline persisted before first invocation; turn-start in-memory snapshot lost by timeout",
+          "errors": [
+            "line8 --help invalid_json APIerror masked by following rg shell exit0",
+            "line14 check_record missing code_version.paths APIerror exit1",
+            "line32 application save missing application.respondent_id error exit1",
+            "transport timeout300000ms / native turn_aborted interrupted"
+          ]
+        },
+        {
+          "phase": 2,
+          "status": "PASS",
+          "completed": 1,
+          "failed": 0,
+          "commands": 0,
+          "uuid_same": true,
+          "exact_original_input": true,
+          "argv_resume_exact_uuid": true,
+          "library_and_workspace_before_after_exact": true,
+          "only_harness_added_materials_between_phases": true,
+          "no_auto_application_or_implementation_reads_or_save_or_post_or_quiz": true,
+          "actual_context_unchanged": true
+        },
+        {
+          "phase": 3,
+          "status": "PASS",
+          "completed": 1,
+          "failed": 0,
+          "commands": 8,
+          "source_clock": "2026-10-13T02:47:11.6601592Z",
+          "clock_basis": "actual inline Get-Date -AsUTC -Format o before JSON/save",
+          "receipt_time": "2026-10-13T02:47:11.894191Z",
+          "record_id": "rec-c54c386d6dbf5951b20408629aaf53d6",
+          "receipt_id": "receipt-60f6e5e36e295f74be0a99b804d2c328",
+          "record_sha256": "92118150ffb7b9367e7ad8025eaef459f9acbb2aa69725155c4e717bcca4d500",
+          "metadata_actual": true,
+          "stage1_before_app_reads": true,
+          "get_line": 9,
+          "check_line": 11,
+          "app_body_read_lines": [
+            15,
+            16
+          ],
+          "probe_line": 18,
+          "save_line": 21,
+          "input_exact": true,
+          "explanation_and_material_content_exact": true,
+          "source_baseline_equal_task_bytes": true,
+          "originals_unchanged": true,
+          "p2_after_equals_p3_before": true,
+          "workspace_only_manifest": true,
+          "total_post_count_still_p1_one": true,
+          "errors": []
+        }
+      ],
+      "reconciliation": {
+        "helper_sha256": "e79b7c130ccf5480d495994bdaa53b869b31351b05c0cea6476d4fedab03221c",
+        "plan_sha256": "9519b2d237368e9f603e3f4cb77ddcd780c6b1ab40f7fe7b3c9bed05464e635a",
+        "applied_by_executor": true,
+        "new_model_calls": 0,
+        "source_input_runner_rubric_unchanged": true,
+        "private_native_tail_not_for_public_copy": true,
+        "completed": 0,
+        "failed": 1,
+        "public_supplement_sha256": "977179b8ea98821147a199aecd8987ddab3e658623a5e0e61372a4f99d9024ec",
+        "scope": "No new model/API call, no P1 replay; TEMP state reconciliation registers actual same UUID with completed0/failed1 after independently confirming raw final+abort, completed tools/journals and complete original-only offline publication."
+      }
+    },
+    "different-source-author": {
+      "status": "PASS_WITH_RETAINED_ERRORS_AND_FORMAT_NOTES",
+      "uuid": "01a13329-7ab0-7310-94b6-a5fa7dde22c7",
+      "completed": 1,
+      "failed": 0,
+      "commands": 17,
+      "record_ids": [
+        "rec-c89d871dc4875eae92ff7d0f033bd17e",
+        "rec-7b89eedab2e95cac8050cf7b8d840a1b"
+      ],
+      "receipt_ids": [
+        "receipt-e5980b1a8c33586c84cb0cd306a548d0",
+        "receipt-8ea0b70329465bf381e07a8e520eb716"
+      ],
+      "record_sha256": [
+        "0bc8b48ae41a8216db177772d84a61d93b6c0b7faddb0c5bb0e4f3851f124323",
+        "ab42b4beca085add7fc96851650db3f9db631484637a7f7b2cd88441e0e146c5"
+      ],
+      "clocks": [
+        "2026-10-13T02:49:28.4214160Z",
+        "2026-10-13T02:50:24.0153727Z"
+      ],
+      "metadata_actual": true,
+      "stage1_get_line": 8,
+      "stage1_check_line": 12,
+      "stage1_save_line": 25,
+      "application_body_read_line": 28,
+      "application_probe_line": 30,
+      "application_save_line": 33,
+      "originals_unchanged": true,
+      "workspace_only_manifest": true,
+      "post_count": 0,
+      "explanation_format_note": "Only final newline omitted; supplied person statement retained faithfully.",
+      "material_format_note": "Supplied verification JSON content, all fields and limits are exact after JSON parsing; saved text adds one final newline. Person explanation omits one final newline. Relevant recoverable content is faithful; byte-exact copying is not claimed.",
+      "errors": [
+        "line10 code_version.paths API error masked by following shell reads exit0",
+        "line35 combined get/recursive cache cleanup policy rejection exit-1; no command executed",
+        "line40 explicit cache cleanup policy rejection exit-1"
+      ],
+      "cleanup_actual": "line42 Python deletes only exact generated restore_baseline.cpython-312.pyc with resolved containment; current pyc0 and original engineering sources unchanged."
+    }
+  },
+  "handoff_reuse": {
+    "scope": "Round4 actual preconfigured exclusion only; no new invocation, no native display",
+    "old_source": "8546aef1143642057693303fd334a09538081efa",
+    "actual_attached_skill": "pop-quiz",
+    "actual_attached_text_sha256": "2106950d27ad60865f3b3069b2e07ce948ce7ddbf9785d08cf4460ff1bf9f597",
+    "commands": 9,
+    "lrc_body_read": false,
+    "closure_count": 12,
+    "all_raw_bytes_exact": true,
+    "supplement_sha256": "289181d0189e0f672e64e51d55914af7203e37e04f41da8621ebae99d222143e",
+    "resource_paths": [
+      "plugin.json",
+      "skills/pop-quiz/SKILL.md",
+      "skills/pop-quiz/agents/openai.yaml",
+      "skills/pop-quiz/references/ku-selection.md",
+      "skills/pop-quiz/references/quiz-policy.md",
+      "references/client-entries.json",
+      "references/record-contract.md",
+      "references/record-template.json",
+      "scripts/common.py",
+      "scripts/github_flow.py",
+      "scripts/lek.py",
+      "scripts/storage.py"
+    ],
+    "original_receipt_sha256": "27c7c5a914869d7ffb9c505b72ddd64c1c5206daeb27431676215b3868cd5239",
+    "actual_template_read": {
+      "jsonl_line": 8,
+      "item": "item_3",
+      "raw_sha256": "9ad775c4cf94a70f79f157bdf330d66171e0ab20550cf8559459bc1551a87d53"
+    },
+    "original_approval_and_preparation_closure_lists_preserved": true,
+    "complete_union_verified_against_new_acf3_source": true
+  },
+  "unexercised": [
+    "Non-null operator.account provenance for a newly generated local check; all nine actual new checks use unknown null with an explicit limitation",
+    "Model recovery of a save interrupted during a durable transaction; successful exact request replay is covered separately",
+    "Unknown publication outcome recovery, missing-part restoration or interrupted remote posting through an actual model",
+    "Automatic model-created Git exclusion; Fourth handoff uses an explicitly harness-preconfigured local exclusion",
+    "Strict native question display persistence, silence, default, timeout, close and explicit submission on either target client",
+    "Actual new-package ChatGPT desktop or Side Chat invocation and new learning diagnosis",
+    "Real human answers, learning benefit, long-term retention, transfer or Owner learning acceptance",
+    "Real GitHub permissions, writes, reviews/non-author approval and protected release/merge authorization",
+    "Reviewer-management, personnel or Space execution; outside this package scope"
+  ],
+  "native": "DEFERRED; no textual or pending substitute counted as window acceptance",
+  "final_review": "COMPLETE_FOR_STATED_BOUNDED_SCOPE_WITH_TRANSPORT_FAILURE_AND_UNEXERCISED_BRANCHES_DISCLOSED",
+  "integration": {
+    "head": "1b73ccc201d2eb10b1a7f5e319933053091948f6",
+    "tested_merge": "c02ef84111c3c88bae506a0b7bed8d4665a0502d",
+    "status": "NO_UNRESOLVED_MATERIAL_DEFECTS",
+    "lek_raw_source_exact": true,
+    "other_three_diff_d106_empty": true,
+    "strict_helpers_unchanged_from_be7": true,
+    "dev_inventory": [
+      4,
+      6,
+      3
+    ],
+    "public_inventory": [
+      3,
+      5,
+      2
+    ],
+    "node": [
+      317,
+      0,
+      0
+    ],
+    "smokes": 8,
+    "resource_graph_instances": 143,
+    "resource_source_mismatches": 0,
+    "cached_resources_remaining": 0,
+    "diagram_actual": 4,
+    "lek_save_replay_check_actual": 3,
+    "log_sha": {
+      "regression": "c368e715e32bbd439428197b254f365984ee64568bdfd9a5a02a2caff3d5a527",
+      "smoke": "04bf8798a8e79a045dfd9eb115ad374a5334cb634cd484996829f8b27310211d"
+    },
+    "limit": "Read-only code/log/digest review; did not rerun tests or inspect deleted smoke caches. No overall client/publish PASS."
+  },
+  "covered_new_branch": "MaterialP1 actual identical successful save request replay returned same record/receipt/time and produced no new record; no crash-interrupted save reconstruction or publication unknown-outcome recovery tested.",
+  "schema_version": 1,
+  "kind": "Independent read-only spec and actual synthetic role evidence review",
+  "reviewer": "store_spec_review",
+  "review_finished": true,
+  "overall": {
+    "bounded_core_behavior": "PASS_SCOPED_WITH_RETAINED_ERRORS_AND_MATERIAL_PHASE1_TRANSPORT_ABORT",
+    "all_invocations_completed_successfully": false,
+    "unresolved_material_spec_violations_within_reviewed_scope": 0,
+    "release_or_full_client_acceptance": "NOT_CLAIMED",
+    "original_failures_remain_failures": true
+  },
+  "actual_counts": {
+    "fresh_cases": 6,
+    "distinct_session_uuids": 6,
+    "prescribed_cli_invocations": 8,
+    "extra_recovery_model_invocations": 0,
+    "actual_model_turn_contexts": 8,
+    "stdout_turn_completed": 7,
+    "transport_timeout_aborted": 1,
+    "cli_exit0": 7,
+    "terminal_command_attempts": 86,
+    "policy_declined_commands": 2,
+    "executed_terminal_commands": 84,
+    "unique_new_check_entries": 9,
+    "successful_save_attempts": 10,
+    "identical_successful_save_replays": 1,
+    "offline_publication_posts": 2
+  },
+  "runtime": {
+    "cli": "0.147.0",
+    "python": "3.12.13",
+    "actual_model": "gpt-5.6-sol",
+    "actual_provider": "openai",
+    "sandbox": "workspace-write",
+    "network_access": false,
+    "approval_policy": "never",
+    "no_model_or_provider_override": true,
+    "source_method": "Canonical GitHub --ref exact SHA installed separately into six TEMP cases",
+    "all_six_cached_and_mirror_19_file_digests_equal_frozen_source": true,
+    "inputs_exact_for_all_eight_prescribed_invocations": true,
+    "fixtures_and_probes_are_preparation_only": true
+  },
+  "frozen_review_hashes": {
+    "inputs_raw": "e56d124e690fa963ec9f61e1b037c03b7570109059fde53c1626caf3950caa70",
+    "inputs_canonical": "7db5f69afb1e858690f5272420df77cd00da64c76c8578ca59bd9403092ee122",
+    "rubric_raw": "9dedb8af442e81166a71bc8922d435ac94732e74bafaa43851800b7954f3946d",
+    "rubric_canonical": "fdca88cfb90de931853e678ea1f98b3c89d0d2526aad011bebad6a93a7b90604",
+    "runner_raw": "bd6afa4f31752bcef16e24de49798d51850eb3d0cd69c16b0b789508ff32da5d"
+  },
+  "completed_receipt_review": {
+    "path": "reviewer/round5-completed-receipt.json",
+    "raw_sha256": "f97ef18db16de9e05ade8ad408553624e2ca7c7ed8b05ae25a93a9f90b4afde4",
+    "sidecar_matches": true,
+    "all_86_commands_exits_outputs_and_all_eight_before_after_objects_equal_original_evidence": true,
+    "all_31_referenced_reader_artifact_hashes_and_bytes_verified": true,
+    "all_six_current_libraries_equal_last_actual_after_snapshots": true,
+    "private_engine_reasoning_or_rate_telemetry_fields_absent": true,
+    "original_receipt_header_and_bytes_not_modified_by_this_reviewer": true
+  },
+  "auth_cleanup": {
+    "finished_at": "2026-10-13T02:53:45.919Z",
+    "reported_removed": true,
+    "actual_remaining_isolated_auth_json_files": 0,
+    "credential_contents_not_read_or_exposed": true
+  },
+  "not_run_rubric_interpretation": {
+    "frozen_rubric_text": "Only actual performed validity conclusion may be saved; original is immutable",
+    "accepted_contract_basis": [
+      {
+        "path": "docs/spec/[SPEC]_Learning_Evidence_Record_And_API.md",
+        "line": 55,
+        "meaning": "knowledge_application remains not_run until the second stage actually occurs"
+      },
+      {
+        "path": "docs/spec/[SPEC]_Learning_Evidence_Record_And_API.md",
+        "line": 65,
+        "meaning": "not_run may retain missing-input limits; absence of explanation or materials remains not_run/blocked and reports missing inputs"
+      },
+      {
+        "path": "plugins/learning-evidence-kit/references/record-contract.md",
+        "line": 39,
+        "meaning": "not_run may retain the missing-input limitation"
+      }
+    ],
+    "independent_decision": "The explicit scoped request to save this round's conclusions permits an honest local linked not_run gap entry. Its null explanation, empty materials and not_run status do not assert an application investigation, comparison or support result. No implementation body was read or executed in missing-materials or material Phase1.",
+    "task_only_append_basis": "Accepted PR-001 section7 functionality includes appending learning/check outcomes; manual application in the selected task/record/library scope does not require an additional save keyword or confirmation. Explicit read-only/no-save constraints still control, and publication needs a separate explicit target.",
+    "narrower_rubric_wording_is_disclosed": true,
+    "frozen_rubric_and_inputs_unchanged": true,
+    "no_fabricated_materials_or_person_answers": true
+  },
+  "retained_previous_rounds": [
+    {
+      "round": 1,
+      "status": "RETAINED_FAIL",
+      "finding": "Unselected unique library record auto-selection and failed handoff/environment behavior retained"
+    },
+    {
+      "round": 2,
+      "status": "RETAINED_FAIL_PARTIAL_6_SESSIONS_7_TURNS",
+      "finding": "Premature application investigation, material-arrival auto-resumption and runtime failures retained; no unrun Phase3 counted"
+    },
+    {
+      "round": 3,
+      "status": "RETAINED_FAIL_9_SESSIONS_11_TURNS",
+      "finding": "New-check author/provenance misattribution and future occurrence-time failures retained"
+    },
+    {
+      "round": 4,
+      "status": "RETAINED_FAIL_PARTIAL_6_CASES_8_TURNS",
+      "finding": "Another-person application/material/implementation bodies read before actual record applicability; correct later metadata and not_run did not erase it; listing NOT_RUN"
+    }
+  ],
+  "evidence": {
+    "root": "C:/Users/Admin/AppData/Local/Temp/lek-role-pr5-round5-b9105104e0df4da08711d432b7691a6a",
+    "raw_jsonl_sha256": {
+      "unspecified/turn-1": "8de178725be6fd8f84097462e4bc698bc140cfcac4aceb1431ed7f427e42197c",
+      "missing-materials/turn-1": "e3b81193b93ba941793479a82501f1d9fc529267374254a9f5684483856cc780",
+      "material-arrival/turn-1": "704da68bf449cc5a275172f5dc6afb105cc43fdf4a8b071cf6d7e0cd9d953a2c",
+      "material-arrival/turn-2": "7c4d0a71875b4f0b61b84f06ed3548001b78f78a3e3b3d19a1860ded4ab5c1c9",
+      "material-arrival/turn-3": "e0e4396707ed662c323ccfe4d0e2ce6a16d70e3d5427b364bdfc289ad0e17e69",
+      "different-source-author/turn-1": "2bbf353bd36a9423174624b4f760ef92bf0b8ebc04de3f26867d21db2acf8fba",
+      "another-person/turn-1": "92a6cf2d76251842e26a791117d02d457d7429b0495084445a0253b15f0f6a33",
+      "listing-task-selection/turn-1": "c1f87021bb8ae770fc6ec29e616bf57c5dbc67aeb8ba280d076d0af73bc509b0"
+    },
+    "private_native_rollout_and_reconciliation_plan_not_embedded": true
+  }
+}

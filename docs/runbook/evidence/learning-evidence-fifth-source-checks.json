@@ -1,0 +1,1362 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-13",
+  "scope": "Frozen original-three-plugin public8.2.0 candidate; technical execution independent of full fifth-round model review",
+  "source_sha": "acf3c9d48a314cab153632bd5c09a141823789c3",
+  "source_tree": "ae61349bd01513f8ac36cd4702c5d440dae550e2",
+  "versions": {
+    "marketplace": "8.2.0",
+    "learning_evidence": "0.1.0",
+    "diagram": "0.3.1",
+    "explain": "0.1.1"
+  },
+  "inventory": {
+    "plugins": 3,
+    "public_skills": 5,
+    "explicit_learning_policies": 2,
+    "repository_skills": 20,
+    "html": "Retained in develop; separately released"
+  },
+  "node_tests": {
+    "pass": 290,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "duration_ms": 57843.6044
+  },
+  "python": {
+    "version": "3.12.13",
+    "storage_cases": 33,
+    "github_cases": 31,
+    "controlled_offline_gh": true
+  },
+  "strict_validation": true,
+  "baseline": {
+    "actual": "0.147.0",
+    "exact": true
+  },
+  "canonical_installation": {
+    "method": "Actual verifyReleaseInstall from exact detached Git SHA; five isolated CLI/cache scenarios and actual cached Python",
+    "result": {
+      "ok": true,
+      "version": "codex-cli 0.147.0",
+      "marketplaces": [
+        "mj-agentlab-marketplace"
+      ],
+      "installed": [
+        "diagram-kit",
+        "learning-evidence-kit",
+        "explain-kit"
+      ],
+      "installedIcons": {
+        "diagram-kit": {
+          "logo": {
+            "reference": "./assets/icon.png",
+            "width": 1024,
+            "height": 1024,
+            "bytes": 121492,
+            "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f"
+          },
+          "composerIcon": {
+            "reference": "./assets/icon.png",
+            "width": 1024,
+            "height": 1024,
+            "bytes": 121492,
+            "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f"
+          }
+        },
+        "learning-evidence-kit": {
+          "logo": {
+            "reference": "./assets/icon.png",
+            "width": 1024,
+            "height": 1024,
+            "bytes": 111262,
+            "sha256": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad"
+          },
+          "composerIcon": {
+            "reference": "./assets/icon.png",
+            "width": 1024,
+            "height": 1024,
+            "bytes": 111262,
+            "sha256": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad"
+          }
+        },
+        "explain-kit": {
+          "logo": {
+            "reference": "./assets/icon.png",
+            "width": 1024,
+            "height": 1024,
+            "bytes": 100032,
+            "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95"
+          },
+          "composerIcon": {
+            "reference": "./assets/icon.png",
+            "width": 1024,
+            "height": 1024,
+            "bytes": 100032,
+            "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95"
+          }
+        }
+      },
+      "outside": {
+        "publicSkills": 3,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 3,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 5,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 5,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [
+        "learning-evidence-kit:pop-quiz",
+        "learning-evidence-kit:learning-record-check"
+      ],
+      "skillPaths": {
+        "diagram-kit:arch-diagram": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\SKILL.md",
+        "explain-kit:concept": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\concept\\SKILL.md",
+        "explain-kit:glossary": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\glossary\\SKILL.md",
+        "learning-evidence-kit:learning-record-check": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\skills\\learning-record-check\\SKILL.md",
+        "learning-evidence-kit:pop-quiz": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\skills\\pop-quiz\\SKILL.md"
+      },
+      "publicSkillPaths": {
+        "diagram-kit:arch-diagram": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\SKILL.md",
+        "explain-kit:concept": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\concept\\SKILL.md",
+        "explain-kit:glossary": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\glossary\\SKILL.md",
+        "learning-evidence-kit:learning-record-check": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\skills\\learning-record-check\\SKILL.md",
+        "learning-evidence-kit:pop-quiz": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\skills\\pop-quiz\\SKILL.md"
+      },
+      "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-lD1h8S/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+      "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+      "diagramValidation": {
+        "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-lD1h8S/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+        "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+        "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+      },
+      "learningEvidenceValidation": {
+        "entry": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py",
+        "interpreter": "3.12.13 (main, Jun 11 2026, 04:05:29) [MSC v.1944 64 bit (AMD64)]",
+        "resources": [
+          "scripts/lek.py",
+          "scripts/common.py",
+          "scripts/storage.py",
+          "scripts/github_flow.py",
+          "references/record-contract.md",
+          "references/record-template.json",
+          "references/client-entries.json"
+        ],
+        "recordId": "rec-f96537a6b3315a598cc871fdc3fdd9a5",
+        "evidenceId": "ev-24ba6d35d47e55769ea9f3df896fd9b2",
+        "saveStatus": "ok",
+        "replayIdentical": true,
+        "structurallyValid": true
+      },
+      "commands": [
+        {
+          "command": "git",
+          "args": [
+            "init",
+            "-q"
+          ],
+          "status": 0
+        },
+        {
+          "command": "codex",
+          "args": [
+            "--version"
+          ],
+          "status": 0
+        },
+        {
+          "command": "codex",
+          "args": [
+            "plugin",
+            "marketplace",
+            "add",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\src",
+            "--json"
+          ],
+          "status": 0
+        },
+        {
+          "command": "codex",
+          "args": [
+            "plugin",
+            "marketplace",
+            "list",
+            "--json"
+          ],
+          "status": 0
+        },
+        {
+          "command": "codex",
+          "args": [
+            "plugin",
+            "add",
+            "diagram-kit",
+            "--marketplace",
+            "mj-agentlab-marketplace",
+            "--json"
+          ],
+          "status": 0
+        },
+        {
+          "command": "codex",
+          "args": [
+            "plugin",
+            "add",
+            "learning-evidence-kit",
+            "--marketplace",
+            "mj-agentlab-marketplace",
+            "--json"
+          ],
+          "status": 0
+        },
+        {
+          "command": "codex",
+          "args": [
+            "plugin",
+            "add",
+            "explain-kit",
+            "--marketplace",
+            "mj-agentlab-marketplace",
+            "--json"
+          ],
+          "status": 0
+        },
+        {
+          "command": "codex",
+          "args": [
+            "plugin",
+            "list",
+            "--json"
+          ],
+          "status": 0
+        },
+        {
+          "command": "codex",
+          "args": [
+            "debug",
+            "prompt-input",
+            "ordinary task discovery check"
+          ],
+          "status": 0
+        },
+        {
+          "command": "codex",
+          "args": [
+            "debug",
+            "prompt-input",
+            "repository skill discovery check"
+          ],
+          "status": 0
+        },
+        {
+          "command": "codex",
+          "args": [
+            "app-server",
+            "--stdio"
+          ],
+          "method": "skills/list",
+          "status": 0
+        },
+        {
+          "command": "codex",
+          "args": [
+            "mcp",
+            "list",
+            "--json"
+          ],
+          "status": 0
+        },
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "-B",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+          ],
+          "status": 0
+        },
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "-B",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+          ],
+          "status": 0
+        },
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "-B",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+          ],
+          "status": 0
+        },
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\consumer\\installed context 中文 diagram.md"
+          ],
+          "status": 0
+        }
+      ],
+      "scenarios": [
+        {
+          "ok": true,
+          "version": "codex-cli 0.147.0",
+          "marketplaces": [
+            "mj-agentlab-marketplace"
+          ],
+          "installed": [
+            "diagram-kit"
+          ],
+          "installedIcons": {
+            "diagram-kit": {
+              "logo": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 121492,
+                "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f"
+              },
+              "composerIcon": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 121492,
+                "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f"
+              }
+            }
+          },
+          "outside": {
+            "publicSkills": 1,
+            "repositorySkills": 0
+          },
+          "repository": {
+            "publicSkills": 1,
+            "repositorySkills": 20
+          },
+          "nativeOutside": {
+            "publicSkills": 1,
+            "repositorySkills": 0
+          },
+          "nativeRepository": {
+            "publicSkills": 1,
+            "repositorySkills": 20
+          },
+          "explicitOnly": [],
+          "skillPaths": {
+            "diagram-kit:arch-diagram": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-TmNEkH\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\SKILL.md"
+          },
+          "publicSkillPaths": {
+            "diagram-kit:arch-diagram": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-TmNEkH\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\SKILL.md"
+          },
+          "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-TmNEkH/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+          "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-TmNEkH\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+          "diagramValidation": {
+            "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-TmNEkH/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+            "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-TmNEkH\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+            "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          "commands": [
+            {
+              "command": "git",
+              "args": [
+                "init",
+                "-q"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "--version"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "marketplace",
+                "add",
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-TmNEkH\\src",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "marketplace",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "add",
+                "diagram-kit",
+                "--marketplace",
+                "mj-agentlab-marketplace",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "debug",
+                "prompt-input",
+                "ordinary task discovery check"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "debug",
+                "prompt-input",
+                "repository skill discovery check"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "app-server",
+                "--stdio"
+              ],
+              "method": "skills/list",
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "mcp",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+              "args": [
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-TmNEkH\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-TmNEkH\\consumer\\installed context 中文 diagram.md"
+              ],
+              "status": 0
+            }
+          ]
+        },
+        {
+          "ok": true,
+          "version": "codex-cli 0.147.0",
+          "marketplaces": [
+            "mj-agentlab-marketplace"
+          ],
+          "installed": [
+            "explain-kit"
+          ],
+          "installedIcons": {
+            "explain-kit": {
+              "logo": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 100032,
+                "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95"
+              },
+              "composerIcon": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 100032,
+                "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95"
+              }
+            }
+          },
+          "outside": {
+            "publicSkills": 2,
+            "repositorySkills": 0
+          },
+          "repository": {
+            "publicSkills": 2,
+            "repositorySkills": 20
+          },
+          "nativeOutside": {
+            "publicSkills": 2,
+            "repositorySkills": 0
+          },
+          "nativeRepository": {
+            "publicSkills": 2,
+            "repositorySkills": 20
+          },
+          "explicitOnly": [],
+          "skillPaths": {
+            "explain-kit:concept": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-tqyag6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\concept\\SKILL.md",
+            "explain-kit:glossary": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-tqyag6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\glossary\\SKILL.md"
+          },
+          "publicSkillPaths": {
+            "explain-kit:concept": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-tqyag6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\concept\\SKILL.md",
+            "explain-kit:glossary": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-tqyag6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\glossary\\SKILL.md"
+          },
+          "commands": [
+            {
+              "command": "git",
+              "args": [
+                "init",
+                "-q"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "--version"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "marketplace",
+                "add",
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-tqyag6\\src",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "marketplace",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "add",
+                "explain-kit",
+                "--marketplace",
+                "mj-agentlab-marketplace",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "debug",
+                "prompt-input",
+                "ordinary task discovery check"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "debug",
+                "prompt-input",
+                "repository skill discovery check"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "app-server",
+                "--stdio"
+              ],
+              "method": "skills/list",
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "mcp",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            }
+          ]
+        },
+        {
+          "ok": true,
+          "version": "codex-cli 0.147.0",
+          "marketplaces": [
+            "mj-agentlab-marketplace"
+          ],
+          "installed": [
+            "learning-evidence-kit"
+          ],
+          "installedIcons": {
+            "learning-evidence-kit": {
+              "logo": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 111262,
+                "sha256": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad"
+              },
+              "composerIcon": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 111262,
+                "sha256": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad"
+              }
+            }
+          },
+          "outside": {
+            "publicSkills": 0,
+            "repositorySkills": 0
+          },
+          "repository": {
+            "publicSkills": 0,
+            "repositorySkills": 20
+          },
+          "nativeOutside": {
+            "publicSkills": 2,
+            "repositorySkills": 0
+          },
+          "nativeRepository": {
+            "publicSkills": 2,
+            "repositorySkills": 20
+          },
+          "explicitOnly": [
+            "learning-evidence-kit:pop-quiz",
+            "learning-evidence-kit:learning-record-check"
+          ],
+          "skillPaths": {
+            "learning-evidence-kit:learning-record-check": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-HIOPe1\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\skills\\learning-record-check\\SKILL.md",
+            "learning-evidence-kit:pop-quiz": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-HIOPe1\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\skills\\pop-quiz\\SKILL.md"
+          },
+          "publicSkillPaths": {
+            "learning-evidence-kit:learning-record-check": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-HIOPe1\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\skills\\learning-record-check\\SKILL.md",
+            "learning-evidence-kit:pop-quiz": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-HIOPe1\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\skills\\pop-quiz\\SKILL.md"
+          },
+          "learningEvidenceValidation": {
+            "entry": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-HIOPe1\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py",
+            "interpreter": "3.12.13 (main, Jun 11 2026, 04:05:29) [MSC v.1944 64 bit (AMD64)]",
+            "resources": [
+              "scripts/lek.py",
+              "scripts/common.py",
+              "scripts/storage.py",
+              "scripts/github_flow.py",
+              "references/record-contract.md",
+              "references/record-template.json",
+              "references/client-entries.json"
+            ],
+            "recordId": "rec-f96537a6b3315a598cc871fdc3fdd9a5",
+            "evidenceId": "ev-24ba6d35d47e55769ea9f3df896fd9b2",
+            "saveStatus": "ok",
+            "replayIdentical": true,
+            "structurallyValid": true
+          },
+          "commands": [
+            {
+              "command": "git",
+              "args": [
+                "init",
+                "-q"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "--version"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "marketplace",
+                "add",
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-HIOPe1\\src",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "marketplace",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "add",
+                "learning-evidence-kit",
+                "--marketplace",
+                "mj-agentlab-marketplace",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "debug",
+                "prompt-input",
+                "ordinary task discovery check"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "debug",
+                "prompt-input",
+                "repository skill discovery check"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "app-server",
+                "--stdio"
+              ],
+              "method": "skills/list",
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "mcp",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+              "args": [
+                "-B",
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-HIOPe1\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+              ],
+              "status": 0
+            },
+            {
+              "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+              "args": [
+                "-B",
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-HIOPe1\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+              ],
+              "status": 0
+            },
+            {
+              "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+              "args": [
+                "-B",
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-HIOPe1\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+              ],
+              "status": 0
+            }
+          ]
+        },
+        {
+          "ok": true,
+          "version": "codex-cli 0.147.0",
+          "marketplaces": [
+            "mj-agentlab-marketplace"
+          ],
+          "installed": [
+            "diagram-kit",
+            "explain-kit"
+          ],
+          "installedIcons": {
+            "diagram-kit": {
+              "logo": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 121492,
+                "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f"
+              },
+              "composerIcon": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 121492,
+                "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f"
+              }
+            },
+            "explain-kit": {
+              "logo": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 100032,
+                "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95"
+              },
+              "composerIcon": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 100032,
+                "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95"
+              }
+            }
+          },
+          "outside": {
+            "publicSkills": 3,
+            "repositorySkills": 0
+          },
+          "repository": {
+            "publicSkills": 3,
+            "repositorySkills": 20
+          },
+          "nativeOutside": {
+            "publicSkills": 3,
+            "repositorySkills": 0
+          },
+          "nativeRepository": {
+            "publicSkills": 3,
+            "repositorySkills": 20
+          },
+          "explicitOnly": [],
+          "skillPaths": {
+            "diagram-kit:arch-diagram": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-45Nwzs\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\SKILL.md",
+            "explain-kit:concept": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-45Nwzs\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\concept\\SKILL.md",
+            "explain-kit:glossary": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-45Nwzs\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\glossary\\SKILL.md"
+          },
+          "publicSkillPaths": {
+            "diagram-kit:arch-diagram": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-45Nwzs\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\SKILL.md",
+            "explain-kit:concept": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-45Nwzs\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\concept\\SKILL.md",
+            "explain-kit:glossary": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-45Nwzs\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\glossary\\SKILL.md"
+          },
+          "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-45Nwzs/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+          "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-45Nwzs\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+          "diagramValidation": {
+            "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-45Nwzs/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+            "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-45Nwzs\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+            "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          "commands": [
+            {
+              "command": "git",
+              "args": [
+                "init",
+                "-q"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "--version"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "marketplace",
+                "add",
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-45Nwzs\\src",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "marketplace",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "add",
+                "diagram-kit",
+                "--marketplace",
+                "mj-agentlab-marketplace",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "add",
+                "explain-kit",
+                "--marketplace",
+                "mj-agentlab-marketplace",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "debug",
+                "prompt-input",
+                "ordinary task discovery check"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "debug",
+                "prompt-input",
+                "repository skill discovery check"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "app-server",
+                "--stdio"
+              ],
+              "method": "skills/list",
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "mcp",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+              "args": [
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-45Nwzs\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-45Nwzs\\consumer\\installed context 中文 diagram.md"
+              ],
+              "status": 0
+            }
+          ]
+        },
+        {
+          "ok": true,
+          "version": "codex-cli 0.147.0",
+          "marketplaces": [
+            "mj-agentlab-marketplace"
+          ],
+          "installed": [
+            "diagram-kit",
+            "learning-evidence-kit",
+            "explain-kit"
+          ],
+          "installedIcons": {
+            "diagram-kit": {
+              "logo": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 121492,
+                "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f"
+              },
+              "composerIcon": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 121492,
+                "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f"
+              }
+            },
+            "learning-evidence-kit": {
+              "logo": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 111262,
+                "sha256": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad"
+              },
+              "composerIcon": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 111262,
+                "sha256": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad"
+              }
+            },
+            "explain-kit": {
+              "logo": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 100032,
+                "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95"
+              },
+              "composerIcon": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 100032,
+                "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95"
+              }
+            }
+          },
+          "outside": {
+            "publicSkills": 3,
+            "repositorySkills": 0
+          },
+          "repository": {
+            "publicSkills": 3,
+            "repositorySkills": 20
+          },
+          "nativeOutside": {
+            "publicSkills": 5,
+            "repositorySkills": 0
+          },
+          "nativeRepository": {
+            "publicSkills": 5,
+            "repositorySkills": 20
+          },
+          "explicitOnly": [
+            "learning-evidence-kit:pop-quiz",
+            "learning-evidence-kit:learning-record-check"
+          ],
+          "skillPaths": {
+            "diagram-kit:arch-diagram": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\SKILL.md",
+            "explain-kit:concept": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\concept\\SKILL.md",
+            "explain-kit:glossary": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\glossary\\SKILL.md",
+            "learning-evidence-kit:learning-record-check": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\skills\\learning-record-check\\SKILL.md",
+            "learning-evidence-kit:pop-quiz": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\skills\\pop-quiz\\SKILL.md"
+          },
+          "publicSkillPaths": {
+            "diagram-kit:arch-diagram": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\SKILL.md",
+            "explain-kit:concept": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\concept\\SKILL.md",
+            "explain-kit:glossary": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\glossary\\SKILL.md",
+            "learning-evidence-kit:learning-record-check": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\skills\\learning-record-check\\SKILL.md",
+            "learning-evidence-kit:pop-quiz": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\skills\\pop-quiz\\SKILL.md"
+          },
+          "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-lD1h8S/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+          "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+          "diagramValidation": {
+            "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-lD1h8S/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+            "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+            "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          "learningEvidenceValidation": {
+            "entry": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py",
+            "interpreter": "3.12.13 (main, Jun 11 2026, 04:05:29) [MSC v.1944 64 bit (AMD64)]",
+            "resources": [
+              "scripts/lek.py",
+              "scripts/common.py",
+              "scripts/storage.py",
+              "scripts/github_flow.py",
+              "references/record-contract.md",
+              "references/record-template.json",
+              "references/client-entries.json"
+            ],
+            "recordId": "rec-f96537a6b3315a598cc871fdc3fdd9a5",
+            "evidenceId": "ev-24ba6d35d47e55769ea9f3df896fd9b2",
+            "saveStatus": "ok",
+            "replayIdentical": true,
+            "structurallyValid": true
+          },
+          "commands": [
+            {
+              "command": "git",
+              "args": [
+                "init",
+                "-q"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "--version"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "marketplace",
+                "add",
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\src",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "marketplace",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "add",
+                "diagram-kit",
+                "--marketplace",
+                "mj-agentlab-marketplace",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "add",
+                "learning-evidence-kit",
+                "--marketplace",
+                "mj-agentlab-marketplace",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "add",
+                "explain-kit",
+                "--marketplace",
+                "mj-agentlab-marketplace",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "debug",
+                "prompt-input",
+                "ordinary task discovery check"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "debug",
+                "prompt-input",
+                "repository skill discovery check"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "app-server",
+                "--stdio"
+              ],
+              "method": "skills/list",
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "mcp",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+              "args": [
+                "-B",
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+              ],
+              "status": 0
+            },
+            {
+              "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+              "args": [
+                "-B",
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+              ],
+              "status": 0
+            },
+            {
+              "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+              "args": [
+                "-B",
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+              ],
+              "status": 0
+            },
+            {
+              "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+              "args": [
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lD1h8S\\consumer\\installed context 中文 diagram.md"
+              ],
+              "status": 0
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "learning_runtime": {
+    "file_count": 19,
+    "raw_windows_checkout_digest": "3945a3f78b8ddb57ad6ebeae8b6ec01b7b930d32b193577f31dcec495a836558",
+    "raw_windows_checkout_matrix": {
+      "CHANGELOG.md": "16af361ecd7088b5e404305f051cff8700c5395ae014d77d6939926ad784cb2a",
+      "LICENSE": "592eb7380e87ac4d835a7f0e95236d485bc12e1133b2d371c38b73e3a049f31f",
+      "README.md": "375ddfb8977c148cf7a2c63c2f36a75c912a87502bceeb1b5eae083527f07416",
+      "assets/icon.png": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad",
+      "assets/icon.svg": "fbd451eb605921ebb03c700777a359358e2e7fa20c5ecb4034595d4a90263b08",
+      "plugin.json": "c3b49b6428d25c6598bc6b9f2ce41339c78e32e538e905ecbd6ced483836ed46",
+      "references/client-entries.json": "0c6489b1fe2825cc39dbb899432f53025cebf0da88120ca7d6c65fefe22ca148",
+      "references/record-contract.md": "a7f431baaeee1d0ea905d1f946945c754122ca91a3f02634666fc24df31cd646",
+      "references/record-template.json": "9ad775c4cf94a70f79f157bdf330d66171e0ab20550cf8559459bc1551a87d53",
+      "scripts/common.py": "c41c6509ce3e52da78bebd694c23965307c2b869041d4bcf5978241bc6f1c00b",
+      "scripts/github_flow.py": "04d7c49101b994ab7ff8c562d3f77a62e3ed0d5f8874aae21c0262c62281077e",
+      "scripts/lek.py": "0dc1c4b7728aa65f47a555dcecab78c86b0b2290974947873c01ceaf59b658a7",
+      "scripts/storage.py": "3ac03569b251ad774b035cb8ba67bfeb417957b107e3823beb70b566eb12b9a4",
+      "skills/learning-record-check/SKILL.md": "520d1af47e7098246a31565e4322d3d67a55e180cda4d01bb72399ed7ebf1e49",
+      "skills/learning-record-check/agents/openai.yaml": "dcac046ed1ddb1b8ebf0ca09ea80544b7be11b733272e1dd6cbec64bfbaa928f",
+      "skills/pop-quiz/SKILL.md": "72b2c8185234971041ac3f9de989cff93517870d3280b7b020eb305da69d92a6",
+      "skills/pop-quiz/agents/openai.yaml": "decebdd57d750e9ef3d88da43ba458f3e8c622acf4e534a19681236bee8aee21",
+      "skills/pop-quiz/references/ku-selection.md": "6d78cdd36367eceeba8e3682782acf11f1d1fa124df8879e26960461c4c4aa29",
+      "skills/pop-quiz/references/quiz-policy.md": "8d94713293e5dbcaee09aeb4681b6e6d25d3380e182e6d3cdb47a8f365406794"
+    },
+    "canonical_git_digest": "d9d43924287894a663f229d0a328055eb1dbc4a8988a7ad080f61bbc70909201",
+    "canonical_git_matrix": {
+      "CHANGELOG.md": "a929cae16dd33193375a2f88586e49ef8c18d68d5825f531425c8dae858310c4",
+      "LICENSE": "cfd483b2cc03452033bbc34d6ceabcc46d9917539070f6721d671705926a2a8d",
+      "README.md": "c768063b954a22d4459da648f234787ca7b6743448ec7a0d2f15ed15f3db4df9",
+      "assets/icon.png": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad",
+      "assets/icon.svg": "b84c94cebb4a183fcad3f75abd9e7c2da66dc97b486d19fb84c46d22d6dc715e",
+      "plugin.json": "0f79acfcbdd38d4abe8a6f2d30b426e0bf9616321b3ba3d774a2e484a25fcef8",
+      "references/client-entries.json": "f939e490619cbd9865d278802fcd583b6d74586d973bf59f205f29f4119ded5d",
+      "references/record-contract.md": "a541548cc0e483cd86610f48cf25e45c690dfa69246bb48c28124e61e23c5c88",
+      "references/record-template.json": "88cb3637e18eaf8d3024281fc5803e2713bf5192473457f8f97ee9cc5e0a06c9",
+      "scripts/common.py": "939e092bfaa5dbaef85641cdb4452938192cce544213e23d334cff92f2827446",
+      "scripts/github_flow.py": "0542ff20ac4af7912e67b2b9fbba187629fc8b28b17f11648d0ea38ad5910d1e",
+      "scripts/lek.py": "b1da7a7716bdecd3a2315c315531a67bb30c56c3bc1230bf1a98d18c77ef0c27",
+      "scripts/storage.py": "06135056aca5d6bf0b65b108f131b5aceac87cefd80b84d9d1cf6255a6bf0c37",
+      "skills/learning-record-check/SKILL.md": "cd8aa97d625b46b9717625b56d28d955882182db2fb3f2fea3e40e91146193e0",
+      "skills/learning-record-check/agents/openai.yaml": "1b22e5375130a0328e1528d16cb3813cf843b5a67057832e8cb4db1e181c5c84",
+      "skills/pop-quiz/SKILL.md": "6ae2fa36fe181f3cd3c7dea8821396778747afaa961e137348061c5de565fd3f",
+      "skills/pop-quiz/agents/openai.yaml": "c353f07b974e2530dd5ebaedca5df9f1766caa5d609c83174efddb0cb67035c2",
+      "skills/pop-quiz/references/ku-selection.md": "d441c4795d3199c5ef19722940746bb19d4cb0bba61b2810a959abdf0b8891e8",
+      "skills/pop-quiz/references/quiz-policy.md": "c968e55509c708fb089d409806b22677113b72380908cfd8b8c5720423454a20"
+    }
+  },
+  "logs": {
+    "tests": {
+      "original_locator": "C:/Users/Admin/AppData/Local/Temp/lek-release-order-repair-tests.log",
+      "durable_relative_path": "learning-evidence-fifth-source-tests.log",
+      "sha256": "c2c6d642344a9c9bff6099d16168d0611ebc5b2e40a2f6dd7d47b6e610d34136",
+      "bytes": 64884
+    },
+    "canonical": {
+      "original_locator": "C:/Users/Admin/AppData/Local/Temp/lek-release-canonical-acf3c9d.log",
+      "durable_relative_path": "learning-evidence-fifth-source-canonical.json",
+      "sha256": "0ce85eea0094f61765807f40c2b4c7c9cc8de5187622d9ecb696f42eff3bdbb7",
+      "bytes": 43326
+    }
+  },
+  "model_evidence": {
+    "round": 5,
+    "receipt": "learning-evidence-fifth-model-round.json",
+    "independent_review": "learning-evidence-fifth-model-independent-review.json",
+    "status": "Recorded separately only after actual complete review; technical proof does not claim behavior PASS",
+    "receipt_sha256": "f97ef18db16de9e05ade8ad408553624e2ca7c7ed8b05ae25a93a9f90b4afde4",
+    "independent_review_sha256": "a13e0ea69ec2db7ce76046f5228d711f649994ae5e5b8bce8dfedcd2ee9eabb5",
+    "scoped_status": "CORE_CRITERIA_PASS_WITH_RETAINED_ERRORS_AND_TRANSPORT_TIMEOUT",
+    "cli_successful_invocations": 7,
+    "transport_aborted_invocations": 1,
+    "all_invocations_successful": false
+  },
+  "limits": [
+    "Native quiz/window entries remain DEFERRED; desktop and Side Chat actual calls NOT_RUN",
+    "Role behavior uses synthetic people and offline gh, not real learning or account permissions",
+    "Protected dependent merges and current-head nonauthor approval required before publication",
+    "No new8.2.0 main merge/tag/Release or Owner final acceptance"
+  ]
+}
