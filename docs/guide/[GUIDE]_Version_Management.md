@@ -4,9 +4,9 @@ scope: marketplace
 summary: "Marketplace and per-plugin authorities with transactional version preparation"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-12
+updated: 2026-10-13
 state: active
-version: v2.12
+version: v2.13
 ---
 
 # [GUIDE] Version management
@@ -29,4 +29,8 @@ Explain Kit 初始版本已批准为 0.1.0 并通过 #196 合入 develop；其�
 
 Epic #222 的 PR2 只让工具接受 `communication-kit` scope；实际插件尚未注册，也没有创建空插件目录。缺少 `plugins/communication-kit/plugin.json` 时，实际运行和 `-DryRun` 都在预检阶段零写入失败。合成夹具验证独立更新、零写入 DryRun 及失败后原字节回滚。真实 From/To 仍须按权威文件与 Owner 版本决定在后续阶段执行；工具支持不等于版本转换或发布。
 
+上述为 PR2 工具准备阶段的状态。Communication PR3 已原子接入初始 0.1.0 候选，并同步 HTML 0.1.0 开发基线；本次集成同步不改变两包运行内容或版本，不执行实际 bump。Learning 先 8.2.0、Communication 随后独立 minor 的已选顺序继续有效；PR4 按实际 main/develop、tag/Release 和新增范围重新核对 From/To。
+
 HTML Guide Kit 的 [新增 ADR](../adr/[ADR]_HTML_Guide_Kit_Addition.md) 预留独立版本工具 scope，但 PR1 不创建 manifest：对缺失包的 dry-run 与实际调用均须失败且零写入。PR2 原子接入初始 0.1.0；首次修改已合并的技能、参考、行为 metadata 或分发资源推进至 0.1.1，其后同范围修正补丁递增。PR3 只修改评审资料或验收记录时保持插件版本，以运行资源哈希证明可复用证据。市场与其他插件版本保持，任务没有正式发布授权。
+
+PR1 #221 实际合入 develop；PR2 创建 HTML Guide Kit 初始根版本 0.1.0，无其它插件或市场版本转换。首次合并前同范围修正仍是初始候选；合并后首次运行变更按既定合同推进0.1.1，再按补丁递增。纯评审或记录变更通过运行哈希证明等价；独立版本工具范围和缺manifest失败合同继续有效。

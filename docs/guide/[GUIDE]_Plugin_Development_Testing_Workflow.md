@@ -4,18 +4,18 @@ scope: marketplace
 summary: "Portable plugin development and isolated testing workflow"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-12
+updated: 2026-10-13
 state: active
-version: v2.5
+version: v2.6
 ---
 
 # [GUIDE] Plugin development and testing
 
-在独立 worktree 修改各插件根 manifest、skills 和资源。运行 npm ci、npm run validate、npm test、npm run check:baseline-tools 与 npm run smoke:codex。测试覆盖合法/非法 YAML、四插件候选索引及独立版本、版本原子更新与失败回滚、A6 防绕过、无资产发布状态机和 Python 校验器真实执行。新增插件、注册、严格校验、冻结资源、图标与安装预期同 PR 原子接入；main / 最新 Release v8.1.1 的三插件范围另记。
+在独立 worktree 修改各插件根 manifest、skills 和资源。运行 npm ci、npm run validate、npm test、npm run check:baseline-tools 与 npm run smoke:codex。测试覆盖合法/非法 YAML、五插件候选索引及独立版本、版本原子更新与失败回滚、A6 防绕过、无资产发布状态机和 Python 校验器真实执行。新增插件、注册、严格校验、冻结资源、图标与安装预期同 PR 原子接入；main / 最新 Release v8.1.1 的三插件范围另记。
 
-隔离安装使用独立 HOME、CODEX_HOME、cache、consumer cwd 和仓库镜像，验证 consumer 不发现 mp-*，repo 正确发现全部20个技能。全量候选安装原生元数据应解析五公开技能；普通 prompt 含 arch-diagram、glossary、concept 共三个，pop-quiz 与 communicate 显式加载另查 app-server 元数据与实际调用。Communication 独装普通发现0、原生1。用已安装的 arch-diagram 实际生成图与证据表，实际执行 Python 并记录返回码，确认 mcp list 为空。在两个目标客户端另行完成市场、安装、图标、入口与实际调用；无原生 UI 控制能力时明确记录限制，不能以 CLI 发现代替。
+隔离安装使用独立 HOME、CODEX_HOME、cache、consumer cwd 和仓库镜像，验证 consumer 不发现 mp-*，repo 正确发现全部20个技能。全量候选安装原生元数据应解析六公开技能；普通 prompt 含 arch-diagram、glossary、concept 共三个，pop-quiz、guide 与 communicate 显式加载另查 app-server 元数据与实际调用。Communication 独装普通发现0、原生1。用已安装的 arch-diagram 实际生成图与证据表，实际执行 Python 并记录返回码，确认 mcp list 为空。在两个目标客户端另行完成市场、安装、图标、入口与实际调用；无原生 UI 控制能力时明确记录限制，不能以 CLI 发现代替。
 
-Communication 候选的九组合为 Diagram、Understanding、Explain、Diagram＋Explain、原三插件、Communication、Communication＋Explain、Communication＋Understanding、全四插件；每组独立 cache，核对技能、原生元数据、三份参考摘要、冻结记录与图标的源/缓存字节。安装矩阵和真实 Python 执行结果按候选 SHA/tree 与包内容绑定。
+并发接入后的十三组合为 Diagram、Understanding、Explain、Diagram＋Explain、原三插件、Communication、Communication＋Explain、Communication＋Understanding、原三插件＋Communication、HTML、HTML＋Explain、原三插件＋HTML、全五插件；每组独立 cache，核对技能、原生元数据、三份参考摘要、冻结记录与图标的源/缓存字节。安装矩阵和真实 Python 执行结果按候选 SHA/tree 与包内容绑定。
 
 pop-quiz 的静态结构和 CLI 发现只证明可安装和加载；使用已安装技能进行职责差异、可信答案、2+1 分支、无答不推进、题量边界与只读行为回放，再独立检查 Codex Side Chat 和 ChatGPT 桌面端快照分支。按 [Understanding Kit 验收记录](../runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md) 分层登记实际结果。工程开发代理可执行仓库测试；pop-quiz 在学习会话只读取已有证据，不运行项目代码或测试。
 
@@ -23,7 +23,7 @@ Explain Kit 单独安装及与 Diagram Kit、全部现有插件组合的隔离�
 
 Communication 按[固定验收契约](../runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)执行 S01–S12、C01–C18、必要双客户端基本可用性及后续 R01–R05。先核对冻结来源与提炼映射、实际脏状态及三份摘要哈希，再执行合成案例的保真、等待、授权、保存/回读/真实失败边界。两端分别记录候选来源/版本、安装、显式 communicate、图标、三类写作、关键等待、聊天交付与文件边界；缺项保持 PR3 draft。失败批次保留，修复产生新身份、新批次复验。
 
-实际行为、UI 交互和安装验证分别记结果，当前候选尚未完成行为与双客户端验收。现实场景效果、九例个人试用、三稿对照、读者反馈、采用度和效率评价本轮延期；基础通过不代表现实收益。Learning 先8.2.0，Communication 随后独立 minor；PR4 重查 From/To 与完整基线，PR3 市场保持未发布8.1.2，新包0.1.0。
+实际行为、UI 交互和安装验证分别记结果；当前 Communication 已有 CLI 行为与限定工具角色结果，双客户端验收仍缺项，具体见验收记录。现实场景效果、九例个人试用、三稿对照、读者反馈、采用度和效率评价本轮延期；基础通过不代表现实收益。Learning 先8.2.0，Communication 随后独立 minor；PR4 重查 From/To 与完整基线，PR3 市场保持未发布8.1.2，新包0.1.0。
 
 ## Brand design and assets
 
@@ -42,3 +42,9 @@ PR2 保留原安装组合，增加 HTML Guide 单独、与 Explain 和全部插�
 | Version | Date | Summary |
 |---|---|---|
 | v2.5 | 2026-10-12 | 保留 HTML 分段验收并接入 Communication 九组合、冻结资源、两个显式入口及基础验收范围 |
+
+PR2 已原子加入 HTML Guide Kit 0.1.0 与 Owner 选定的第二轮 A。保留原四组安装并新增 HTML 单独、HTML+Explain、全四插件，共七组；原生公开技能依次1/2/3/4/1/3/5，自然启用依次1/2/3/3/0/2/3。source/cache 必需资源按 SKILL_RESOURCES 比对 raw bytes、metadata 和路径归属；新guide恰有SKILL/native config/两参考，不允许missing或extra。连续行为测评与完整canonical安装分开，真实模型必须读取本次缓存，评审镜像剔除控制/答案。
+
+| Version | Date | Summary |
+|---|---|---|
+| v2.6 | 2026-10-13 | 同步 HTML 开发基线，保留 Communication 合同并更新五插件集合与十三组合预期 |

@@ -4,9 +4,9 @@ scope: marketplace
 summary: "当前 ChatGPT/Codex 文档、历史决策与退役资料导航"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-12
+updated: 2026-10-13
 state: active
-version: v2.15
+version: v2.16
 ---
 
 # 文档索引
@@ -17,11 +17,11 @@ version: v2.15
 
 8.1.1 的实际 tag、Release、正文身份、发布后安装及保留缺项见 [发布记录](runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。
 
-HTML Guide Kit 正按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 分阶段实施：PR1 仅合同与工具前置，不改变运行集合。阶段门槛见 [ADR](adr/[ADR]_HTML_Guide_Kit_Addition.md)，判准见 [SPEC](spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，实际结果及未覆盖项见 [RUNBOOK](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。现实场景理解效果另测，本次仍保留工程行为与双客户端交互验收。
+HTML Guide Kit 正按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 分阶段实施：PR1 #221 已合入并复验；PR2 原子接入完整 0.1.0 插件、已选 A 图标与严格合同，开发集合增至四插件五技能，仍保持 draft 验收门槛。阶段门槛见 [ADR](adr/[ADR]_HTML_Guide_Kit_Addition.md)，判准见 [SPEC](spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，实际结果及未覆盖项见 [RUNBOOK](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。现实场景理解效果另测，本次仍保留工程行为与双客户端交互验收。
 
 Epic #209 开始 Learning Evidence Kit / marketplace 8.2.0 实施。PR1 固定已接受的双技能、七机制与共用接口，不修改当前 8.1.2 运行包；[迁移 ADR](adr/[ADR]_Learning_Evidence_Kit_Migration.md)、[记录/API 契约](spec/[SPEC]_Learning_Evidence_Record_And_API.md)及[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)分别维护决定、数据与实际证据。Owner 接受核心独立验收后分段交付，严格窗口不合格入口延期，Epic 保持未完成；契约交付不表示运行、客户端或学习效果通过。
 
-PR3 开发候选增加 Communication 0.1.0，共四插件五公开技能、20 开发技能；市场仍未发布8.1.2，main / 最新 Release 8.1.1 仍为三插件四技能。实际行为与必要双客户端可用性尚未验收，现实场景效果测试本轮延期。Owner 已选择 Learning 先8.2.0，Communication 随后独立 minor（预计8.3.0），PR4 重查版本和基线；实施使用 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。
+PR3 开发候选增加 Communication 0.1.0，并同步 HTML 0.1.0 开发基线，共五插件六公开技能、20 开发技能；市场仍未发布8.1.2，main / 最新 Release 8.1.1 仍为三插件四技能。Communication 既有 CLI 行为与限定工具角色结果、缺失的真实双客户端证据分别见验收记录，现实场景效果测试本轮延期。Owner 已选择 Learning 先8.2.0，Communication 随后独立 minor（预计8.3.0），PR4 重查版本和基线；实施使用 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。
 
 ## 入口
 
@@ -45,6 +45,7 @@ PR3 开发候选增加 Communication 0.1.0，共四插件五公开技能、20 �
 - [HTML Guide Kit 新增决定](adr/[ADR]_HTML_Guide_Kit_Addition.md)
 - [HTML Guide Kit 验收判准](spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)
 - [HTML Guide Kit 阶段验收](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)
+- [HTML Guide Kit 使用指南](guide/[GUIDE]_HTML_Guide_Kit.md)
 
 - [Communication 未发布候选包](../plugins/communication-kit/README.md)
 - [Communicate 显式公开技能](../plugins/communication-kit/skills/communicate/SKILL.md)

@@ -4,14 +4,14 @@ scope: marketplace
 summary: "Maintained portable manifest and OpenAI presentation contract"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-12
+updated: 2026-10-13
 state: active
-version: v2.5
+version: v2.6
 ---
 
 # [SPEC] Plugin manifest
 
-plugins/diagram-kit/plugin.json、plugins/understanding-kit/plugin.json、plugins/explain-kit/plugin.json 与 plugins/communication-kit/plugin.json 各声明 https://agent-plugins.org/schemas/1.0.0/plugin.schema.json。根字段为 name、version、description、author、repository、license、keywords、extensions。根 version 是对应插件的权威版本；前三包已随 main / v8.1.1 发布，Communication 0.1.0 为 PR3 未发布候选。已发布历史版本记录保持。技能由根 skills/ 自动发现，无 skills 字段、兼容包装或空 MCP 文件。
+plugins/diagram-kit/plugin.json、plugins/understanding-kit/plugin.json、plugins/explain-kit/plugin.json 、plugins/html-guide-kit/plugin.json 与 plugins/communication-kit/plugin.json 各声明 https://agent-plugins.org/schemas/1.0.0/plugin.schema.json。根字段为 name、version、description、author、repository、license、keywords、extensions。根 version 是对应插件的权威版本；前三包已随 main / v8.1.1 发布，Communication 0.1.0 为 PR3 未发布候选。已发布历史版本记录保持。技能由根 skills/ 自动发现，无 skills 字段、兼容包装或空 MCP 文件。
 
 extensions.com.openai.interface 提供 displayName、shortDescription、longDescription、developerName、category、capabilities、defaultPrompt。diagram-kit 的 defaultPrompt 使用 $diagram-kit:arch-diagram，capabilities 为 Read/Write；understanding-kit 使用 $understanding-kit:pop-quiz，capabilities 仅 Read。SKILL.md 的 name/description 使用严格 YAML；本仓描述预算 1024 字符。显式调用的 pop-quiz 在 agents/openai.yaml 设置 allow_implicit_invocation: false。验证实现见 scripts/validate-portable.mjs；[官方格式](https://developers.openai.com/plugins/build/plugins)。
 
@@ -19,11 +19,11 @@ plugins/explain-kit/plugin.json 使用相同 portable 格式，独立初始版�
 
 ## Communication candidate
 
-Communication 的根 identity 为 communication-kit，唯一技能 communicate，展示“沟通助手”，候选根 version 为0.1.0。capabilities 精确为 Read/Write；manifest 的 defaultPrompt 与技能 agents/openai.yaml 只调用 $communication-kit:communicate，short_description 为25–64字符，allow_implicit_invocation 为布尔 false。pop-quiz 与 communicate 是两个显式入口；当前全量普通发现为三个技能，原生清单为五个，Communication 独装普通发现为零、原生清单为一个。
+Communication 的根 identity 为 communication-kit，唯一技能 communicate，展示“沟通助手”，候选根 version 为0.1.0。capabilities 精确为 Read/Write；manifest 的 defaultPrompt 与技能 agents/openai.yaml 只调用 $communication-kit:communicate，short_description 为25–64字符，allow_implicit_invocation 为布尔 false。pop-quiz、guide 与 communicate 是三个显式入口；当前全量普通发现为三个技能，原生清单为六个，Communication 独装普通发现为零、原生清单为一个。
 
 communicate 使用包内 aics-policy.md、task-patterns.md、source-provenance.md 与 aics-snapshot.json。冻结记录 schemaVersion 1，状态 Lab Proposal / Informative，记录实际捕获日期、来源章节/日期、源字节 SHA-256 与 Git 状态（包括 modified/untracked，不能由 HEAD 推断 clean），以及三份 Markdown 摘要的实际 SHA-256 和提炼/改编/排除映射。源路径仅追溯，消费者运行不访问研究目录。包内摘要改字节未更新哈希、资源缺失、包外路径或链接组件均须失败；哈希完整性不替代语义对照。
 
-新增插件与注册、严格集合、图标、必需资源及安装预期原子落地。运行边界见 [Communication SPEC](./[SPEC]_Communication_Communicate.md)，基础验收见 [RUNBOOK](../runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)；实际行为与必要客户端尚未验收，现实效果测试本轮延期。
+新增插件与注册、严格集合、图标、必需资源及安装预期原子落地。运行边界见 [Communication SPEC](./[SPEC]_Communication_Communicate.md)，基础验收见 [RUNBOOK](../runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)；实际行为与必要客户端验收按记录逐项登记，现实效果测试本轮延期。
 
 ## Packaged icons
 
@@ -31,8 +31,19 @@ communicate 使用包内 aics-policy.md、task-patterns.md、source-provenance.m
 
 PNG 须为方形、48–4096 像素、最大 5 MiB，本次导出固定 1024×1024。先检查大小与头部尺寸，再用 pngjs 完整解码并检查 CRC。通用资源函数 validatePluginIcons 不检查插件名称；市场注册白名单继续由原验证器管理，未来获准插件进入相同资源检查。隔离安装比较源与安装包的全部图标字段及内容 SHA-256；自动通过不代表客户端实际显示或视觉验收。品牌规则见 [STANDARD](../rule/[STANDARD]_Brand_Identity.md)。
 
-当前候选集合为 Diagram 0.3.1 / Understanding 0.1.2 / Explain 0.1.1 / Communication 0.1.0；marketplace 保持未发布8.1.2，main / 最新 Release 保持8.1.1及前三插件。PR4 核对实际版本转换与发布范围，此处不执行 bump。
+当前候选集合为 Diagram 0.3.1 / Understanding 0.1.2 / Explain 0.1.1 / HTML Guide 0.1.0 / Communication 0.1.0；marketplace 保持未发布8.1.2，main / 最新 Release 保持8.1.1及前三插件。PR4 核对实际版本转换与发布范围，此处不执行 bump。
 
 | Version | Date | Summary |
 |---|---|---|
 | v2.5 | 2026-10-12 | 显式 Communication 单入口、精确能力、冻结摘要和原子资源契约 |
+
+## HTML Guide Kit development contract
+
+新增 plugins/html-guide-kit/plugin.json 0.1.0，唯一 guide，Read；defaultPrompt 仅指向 $html-guide-kit:guide，每项最多128字符，避免 CLI0.147.0忽略示例入口。原生配置明确 allow_implicit_invocation: false，short_description 为 25–64 字符且 default_prompt 只有一次自身调用。技能目录精确包含 SKILL.md、agents/openai.yaml 与 references/guide-framework.md、references/interaction-design.md；不存在多余运行文件，也不得通过移除 Markdown 指针让缺失资源通过。
+
+SKILL_RESOURCES 定义必需包内资源；安装比较严格验证源/缓存 manifest 身份、版本、能力，逐字节比较 manifest、SVG/PNG 和全部必需技能资源，拒绝符号/junction 借用。源、镜像和缓存逐文件 SHA-256 独立记录，reviewer-only 文件从行为镜像排除。只读显式技能为 pop-quiz 和 guide，Communication 的 communicate 则为 Read/Write 显式入口，普通提示自然发现仍仅 arch-diagram/glossary/concept。产品合同见 [HTML Guide ADR](../adr/[ADR]_HTML_Guide_Kit_Addition.md)。
+
+
+| Version | Date | Summary |
+|---|---|---|
+| v2.6 | 2026-10-13 | 同步 HTML 开发基线，保留 Communication 合同并更新五插件集合与十三组合预期 |

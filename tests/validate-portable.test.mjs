@@ -20,7 +20,7 @@ test("communication listing and native prompts stay within the actual client bud
  }
 });
 const manifest=()=>JSON.parse(read("plugins/diagram-kit/plugin.json"));
-test("four approved portable plugins and all 20 repository skills satisfy contracts",()=>{
+test("five approved portable plugins, six public skills and all 20 repository skills satisfy contracts",()=>{
  const r=validateRepository(root);assert.equal(r.ok,true,r.errors.join("\n"));assert.equal(r.repositorySkills,20);assert.deepEqual(r.publicSkills,[...PUBLIC_SKILLS]);
 });
 test("strict repository validation rejects every retired instruction surface",t=>{
@@ -55,7 +55,7 @@ test("manifest identity and default prompts cannot route into another plugin",()
  m.name=["diagram-kit"];assert.throws(()=>validateManifest(m));
 });
 test("each plugin advertises its exact approved capabilities without duplicates",()=>{
- for(const [plugin,skill,approved] of [["diagram-kit","arch-diagram",["Read","Write"]],["understanding-kit","pop-quiz",["Read"]],["communication-kit","communicate",["Read","Write"]]]){
+ for(const [plugin,skill,approved] of [["diagram-kit","arch-diagram",["Read","Write"]],["understanding-kit","pop-quiz",["Read"]],["communication-kit","communicate",["Read","Write"]],["html-guide-kit","guide",["Read"]]]){
   const m=manifest();m.name=plugin;const ui=m.extensions["com.openai"].interface;ui.defaultPrompt=[`Use $${plugin}:${skill}`];
   ui.capabilities=[...approved];assert.doesNotThrow(()=>validateManifest(m,plugin));
   ui.capabilities=[...approved].reverse();assert.doesNotThrow(()=>validateManifest(m,plugin));
@@ -110,12 +110,16 @@ test("archive origins are reproducible Git blobs and preserve source versions",(
 });
 
 test("each plugin rejects extra skills, missing files and swapped manifest identities",t=>{
- const dir=repositoryFixture(t),plugin=path.join(dir,"plugins/explain-kit"),extra=path.join(plugin,"skills/extra");
- fs.mkdirSync(extra);assert.equal(validateRepository(dir).ok,false);fs.rmdirSync(extra);
- const skill=path.join(plugin,"skills/concept/SKILL.md"),text=fs.readFileSync(skill);fs.unlinkSync(skill);assert.equal(validateRepository(dir).ok,false);fs.writeFileSync(skill,text);
- const file=path.join(plugin,"plugin.json"),original=fs.readFileSync(file);fs.writeFileSync(file,read("plugins/diagram-kit/plugin.json"));
- assert.ok(validateRepository(dir).errors.some(e=>e.includes("identity/version")));fs.writeFileSync(file,original);
- assert.equal(validateRepository(dir).ok,true);
+ const dir=repositoryFixture(t);
+ for(const [name,entry] of [["diagram-kit","arch-diagram"],["understanding-kit","pop-quiz"],["explain-kit","concept"],["communication-kit","communicate"],["html-guide-kit","guide"]]){
+  const plugin=path.join(dir,"plugins",name),extra=path.join(plugin,"skills/extra");
+  fs.mkdirSync(extra);assert.equal(validateRepository(dir).ok,false);fs.rmdirSync(extra);
+  const skill=path.join(plugin,"skills",entry,"SKILL.md"),text=fs.readFileSync(skill);fs.unlinkSync(skill);assert.equal(validateRepository(dir).ok,false);fs.writeFileSync(skill,text);
+  const file=path.join(plugin,"plugin.json"),original=fs.readFileSync(file),foreign=name==="diagram-kit"?"explain-kit":"diagram-kit";
+  fs.writeFileSync(file,read(`plugins/${foreign}/plugin.json`));
+  assert.ok(validateRepository(dir).errors.some(e=>e.includes("identity/version")));fs.writeFileSync(file,original);
+  assert.equal(validateRepository(dir).ok,true);
+ }
 });
 
 test("manifest discovery prompts cover only the package's complete public skill set",()=>{

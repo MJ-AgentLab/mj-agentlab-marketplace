@@ -4,9 +4,9 @@ scope: marketplace
 summary: "Upgrade, retirement and uninstall steps for existing users"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-12
+updated: 2026-10-13
 state: active
-version: v1.7
+version: v1.8
 ---
 
 # [GUIDE] ChatGPT / Codex upgrade
@@ -31,7 +31,7 @@ codex debug prompt-input '$diagram-kit:arch-diagram'
 
 main / v8.1.1 的索引还包含 Understanding Kit 与 Explain Kit。使用 `codex plugin add understanding-kit@mj-agentlab-marketplace` 安装并按 [使用指南](./[GUIDE]_Understanding_Pop_Quiz.md) 显式调用 `$understanding-kit:pop-quiz`；使用 `codex plugin add explain-kit@mj-agentlab-marketplace` 单独安装，调用 `$explain-kit:glossary` 或 `$explain-kit:concept`。本地候选验证可将 marketplace source 替换为当前 worktree 的绝对根路径，由代理运行 npm run smoke:codex；本地试用与正式发布分别记录。插件资源从已安装 SKILL.md locator 定位。
 
-Communication 仅从隔离候选来源验证，不从 main / v8.1.1 安装。候选来源安装后以 `$communication-kit:communicate` 显式调用，使用[包说明](../../plugins/communication-kit/README.md)和[技能](../../plugins/communication-kit/skills/communicate/SKILL.md)。独装预期普通发现0、原生1；四插件全量普通3、原生5，pop-quiz 与 communicate 均显式调用。安装包只依赖冻结参考资源，研究路径不是运行前提。候选实际功能与客户端可用性仍 NOT RUN，按[验收记录](../runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)独立登记。
+Communication 仅从隔离候选来源验证，不从 main / v8.1.1 安装。候选来源安装后以 `$communication-kit:communicate` 显式调用，使用[包说明](../../plugins/communication-kit/README.md)和[技能](../../plugins/communication-kit/skills/communicate/SKILL.md)。独装预期普通发现0、原生1；五插件全量普通3、原生6，pop-quiz、guide 与 communicate 均显式调用。安装包只依赖冻结参考资源，研究路径不是运行前提。候选实际功能与客户端可用性按实际结果分别登记，按[验收记录](../runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)独立登记。
 
 ## ChatGPT desktop
 
@@ -50,3 +50,7 @@ codex plugin remove learn-kit@mj-agentlab-marketplace
 | Version | Date | Summary |
 |---|---|---|
 | v1.7 | 2026-10-12 | 区分正式三插件安装与 Communication 未发布候选、显式入口和证据边界 |
+
+| Version | Date | Summary |
+|---|---|---|
+| v1.8 | 2026-10-13 | 同步 HTML 开发基线，保留 Communication 合同并更新五插件集合与十三组合预期 |

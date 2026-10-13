@@ -6,14 +6,17 @@ import crypto from "node:crypto";
 import { pathToFileURL } from "node:url";
 import { runCli, spawnCli } from "./run-cli.mjs";
 import { assertInstalledIcons } from "./plugin-icons.mjs";
-import { REPOSITORY_SKILLS, RUNTIME_PLUGINS, PUBLIC_SKILLS, EXPLICIT_ONLY_SKILLS, validateOpenAIConfig, validateCommunicationSnapshot, resolveOwnedResource, validateRepository } from "./validate-portable.mjs";
+import { REPOSITORY_SKILLS, RUNTIME_PLUGINS, PUBLIC_SKILLS, EXPLICIT_ONLY_SKILLS, validateOpenAIConfig, validateCommunicationSnapshot, resolveOwnedResource, validateRepository, assertInstalledPluginResources } from "./validate-portable.mjs";
 
 export const MARKETPLACE_NAME = "mj-agentlab-marketplace";
 export const BASELINE_VERSION = "0.147.0";
 export const INSTALL_SCENARIOS = Object.freeze([
   ["diagram-kit"], ["understanding-kit"], ["explain-kit"], ["diagram-kit", "explain-kit"],
   ["diagram-kit", "understanding-kit", "explain-kit"], ["communication-kit"],
-  ["communication-kit", "explain-kit"], ["communication-kit", "understanding-kit"], Object.keys(RUNTIME_PLUGINS),
+  ["communication-kit", "explain-kit"], ["communication-kit", "understanding-kit"],
+  ["diagram-kit", "understanding-kit", "explain-kit", "communication-kit"],
+  ["html-guide-kit"], ["html-guide-kit", "explain-kit"],
+  ["diagram-kit", "understanding-kit", "explain-kit", "html-guide-kit"], Object.keys(RUNTIME_PLUGINS),
 ].map(plugins => Object.freeze(plugins)));
 const norm = p => String(p).replaceAll("\\", "/");
 // Native realpath expands Windows 8.3 aliases used by hosted runner temp paths.
@@ -213,6 +216,7 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
     const cacheRoot = path.join(codexHome, "plugins/cache", MARKETPLACE_NAME);
     const installedPackageMetadata = Object.fromEntries(plugins.map(plugin => [plugin, assertInstalledPackageMetadata(path.join(src, "plugins", plugin), path.join(cacheRoot, plugin, pluginVersions[plugin]))]));
     const installedIcons = Object.fromEntries(plugins.map(plugin => [plugin, assertInstalledIcons(path.join(src, "plugins", plugin), path.join(cacheRoot, plugin, pluginVersions[plugin]))]));
+    const installedPluginResources = Object.fromEntries(plugins.map(plugin => [plugin, assertInstalledPluginResources(path.join(src, "plugins", plugin), path.join(cacheRoot, plugin, pluginVersions[plugin]), plugin)]));
     const outside = assertDiscovery(external, { cacheRoot, repositoryRoot: src, inRepository: false, expectedSkills: implicitSkills, pluginVersions });
     const entries = parsePromptInputSkills(await execute(codexCommand, ["debug", "prompt-input", "repository skill discovery check"], src));
     const repository = assertDiscovery(entries, { cacheRoot, repositoryRoot: src, inRepository: true, expectedSkills: implicitSkills, pluginVersions });
@@ -260,7 +264,7 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
       diagramValidation = { skillPath: diagram.file, validatorPath, output: output.trim() };
     }
     complete = true;
-    return { ok: true, version, marketplaces: names, installed: plugins, installedPackageMetadata, installedIcons, installedResources, outside, repository, nativeOutside: nativeInventories.outside, nativeRepository: nativeInventories.repository, explicitOnly: expectedSkills.filter(name => EXPLICIT_ONLY_SKILLS.includes(name)), skillPaths, publicSkillPaths: skillPaths, ...(diagramValidation ? { skillPath: diagram.file, validatorPath: diagramValidation.validatorPath, diagramValidation } : {}), ...(keepRoot ? { root, codexHome, repositoryRoot: src, consumerRoot: cwd } : {}), commands };
+    return { ok: true, version, marketplaces: names, installed: plugins, installedPackageMetadata, installedIcons, installedResources, installedPluginResources, outside, repository, nativeOutside: nativeInventories.outside, nativeRepository: nativeInventories.repository, explicitOnly: expectedSkills.filter(name => EXPLICIT_ONLY_SKILLS.includes(name)), skillPaths, publicSkillPaths: skillPaths, ...(diagramValidation ? { skillPath: diagram.file, validatorPath: diagramValidation.validatorPath, diagramValidation } : {}), ...(keepRoot ? { root, codexHome, repositoryRoot: src, consumerRoot: cwd } : {}), commands };
   } finally {
     if (!keepRoot || !complete) cleanupIsolatedRoot(root);
   }

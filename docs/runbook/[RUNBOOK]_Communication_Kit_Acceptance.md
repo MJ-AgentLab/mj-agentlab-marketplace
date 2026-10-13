@@ -4,9 +4,9 @@ scope: marketplace
 summary: "Communication acceptance procedures, evidence identity and release gates"
 owner: marketplace-maintainers
 created: 2026-10-12
-updated: 2026-10-12
+updated: 2026-10-13
 state: draft
-version: v1.2
+version: v1.3
 ---
 
 # [RUNBOOK] Communication Kit acceptance
@@ -17,7 +17,7 @@ PR3已实现并原子接入完整Communication 0.1.0候选、注册、严格集�
 
 PR1 当时仅定义验收、没有运行包，全部新包用例从 NOT RUN 开始；该历史及失败批次保留，当前状态不覆盖原记录。
 
-PR1 起始基线 origin/develop b2e5a741 / marketplace 8.1.2，main 0c681a8f / 已发布 8.1.1。当前 PR3 候选四插件五公开技能、20开发技能、两显式入口；marketplace 保持未发布8.1.2，main / 最新 Release 8.1.1仍只有前三插件。Owner 选择 Learning 先 8.2.0，Communication 随后独立 minor（预计 8.3.0）；PR4 重查实际版本和基线范围，本文不执行转换。
+PR1 起始基线 origin/develop b2e5a741 / marketplace 8.1.2，main 0c681a8f / 已发布 8.1.1。2026-10-13 PR3 同步 HTML 开发基线后，当前候选五插件六公开技能、20开发技能、三显式入口；Communication 的既有四插件批次按原身份保留，不能改写为五插件结果。marketplace 保持未发布8.1.2，main / 最新 Release 8.1.1仍只有前三插件。Owner 选择 Learning 先 8.2.0，Communication 随后独立 minor（预计 8.3.0）；PR4 重查实际版本和基线范围，本文不执行转换。
 
 固定输入：[cases.json](../../tests/fixtures/communication-kit/cases.json)；判定：[rubric](../../tests/fixtures/communication-kit/rubric.md)；行为：[SPEC](../spec/[SPEC]_Communication_Communicate.md)。
 
@@ -69,6 +69,8 @@ npm run smoke:codex
 S01按原计划候选四插件五技能、20仓库技能检查；若先发布的Learning改变基线，实施者须呈现差异并取得必要范围决定，不能凭本表豁免。S05哈希不证明语义忠实；逐节来源对照另记。S10须实际尺寸人工检查和明确新图标选择。S11以strict canonical验证器测试资源变异阻止安装。
 
 九个隔离安装组合：Diagram；Understanding；Explain；Diagram＋Explain；原三插件；Communication；Communication＋Explain；Communication＋Understanding；全四插件。每组合独立cache，逐资源字节对照。全量普通发现3、原生5；Communication独装普通0、原生1；仓库开发技能20，消费者0。新基线引起矩阵变化须明确处理。
+
+2026-10-13 的 HTML 基线同步保留上述九组合，并纳入 HTML 单独、HTML＋Explain、原三插件＋HTML，另加全五插件，共十三组合。全五插件普通发现3、原生6、显式3、仓库开发20；消费者开发0。包含 Diagram 的六组合均需实际执行安装缓存中的 Python 校验器。本次仅同步共享集成，两包运行字节与版本保持；当前工作树检查与后续固定提交 canonical 复验分批记录，不由旧九组合实证推出新矩阵通过。
 
 ## §3 Behavioral cases
 
@@ -201,6 +203,7 @@ PR1契约结果、PR3实证、PR4回归、PR5发布及后续复查逐阶段追�
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.3 | 2026-10-13 | 保留旧身份结果，记录HTML新基线、五插件六技能与十三组合；真实客户端及发布仍待实际证据 |
 | v1.2 | 2026-10-12 | 追加原行为失败、通用修复及94新批；CLI15PASS/3PARTIAL与补充工具3项有限PASS分开，保留双客户端/发布缺项 |
 | v1.1 | 2026-10-12 | 记录PR3已实现候选、部分工程/九组合实证与S08缺口，增加必要客户端执行清单；行为及发布仍未判定 |
 | v1.0 | 2026-10-12 | 固定基础用例与证据状态；全部新包用例尚未执行 |
