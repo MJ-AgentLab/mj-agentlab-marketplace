@@ -6,12 +6,12 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.27
+version: v2.27.1
 ---
 
 # 文档索引
 
-本Communication发行预备投影按Owner Q3限定Diagram0.3.1、Learning Evidence0.1.0、Explain0.1.1、Communication0.1.0四包六技能/三显式/开发20，VERSION未发布8.3.0。develop的Communication PR3保留HTML五包七技能，当前上游98068a8为未发布8.2.1；已发布main/v8.2.0仍为前三包五技能。正式PR5只从PR4实际验收merge派生，本分支工程准备不解除阶段依赖。
+本Communication发行预备投影按Owner Q3限定Diagram0.3.1、Learning Evidence0.1.0、Explain0.1.1、Communication0.1.0四包六技能/三显式/开发20，VERSION未发布8.3.0。develop的Communication PR3保留HTML五包七技能，当前上游#223/bca7b5c为未发布8.2.1；已发布main/v8.2.0仍为前三包五技能。正式PR5只从PR4实际验收merge派生，本分支工程准备不解除阶段依赖。
 
 [Communication验收](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)保留S01–S12、C01–C18、原失败/修复和同应用Codex本地与ChatGPT/Work本机两个入口的限定实测身份；[8.3.0发行账本](runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)分开记录版本准备、预备投影与R01–R05。现实沟通效果本轮另测，不由基础功能通过推断。Refs [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。
 
@@ -22,6 +22,10 @@ HTML [ADR](adr/[ADR]_HTML_Guide_Kit_Addition.md)、[验收SPEC](spec/[SPEC]_HTML
 四阶段文档收尾实际head、生产零差异、限定65项检查及43原始日志/hash见[Closeout sync 01](runbook/evidence/communication-kit-2026-10-13-closeout-sync-01.json)，原字节与失败链保留，AI审查不替代GitHub批准。
 
 继承空白失败、窄修复、四实际head完整PR范围复验及原字节manifest见[Inherited whitespace 01](runbook/evidence/communication-kit-2026-10-13-inherited-whitespace-01.json)。
+
+PR1 #223实际合入bca、head同tree与限定M1 postmerge原始证据见[M1 postmerge 01](runbook/evidence/communication-kit-2026-10-13-pr1-merge-01.json)；空reviews不追认独立批准。
+
+实际M1 merge后的普通下游继承与限定最终检查来源见[PR1 merge sync 01](runbook/evidence/communication-kit-2026-10-13-pr1-merge-sync-01.json)，独立批准/后续正式合并仍分别核对。
 
 ## 入口
 

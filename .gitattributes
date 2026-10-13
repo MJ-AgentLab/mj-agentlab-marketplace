@@ -20,6 +20,10 @@ docs/runbook/evidence/communication-kit-2026-10-13-closeout-sync-01-raw-pr[1-4]-
 # PR3's original diff receipt also ends with one intentional empty line.
 docs/runbook/evidence/communication-kit-2026-10-13-closeout-sync-01-raw-pr3-conflicts.log whitespace=-blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
 docs/runbook/evidence/communication-kit-2026-10-13-closeout-sync-01-archive-whitespace-initial.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve the two original M1 JSON receipts' CRLF without ignoring other whitespace.
+docs/runbook/evidence/communication-kit-2026-10-13-pr1-merge-01-raw-github-facts.json whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/runbook/evidence/communication-kit-2026-10-13-pr1-merge-01-raw-launcher-failure.json whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 plugins/html-guide-kit/** text eol=lf
 plugins/html-guide-kit/**/*.png -text
 assets/brand/html-guide-kit/candidates/revision-2/*.svg text eol=lf
@@ -40,3 +44,8 @@ docs/runbook/evidence/communication-kit-2026-10-13-inherited-whitespace-01-raw-p
 docs/runbook/evidence/communication-kit-2026-10-13-inherited-whitespace-01-raw-pr3-initial.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/runbook/evidence/communication-kit-2026-10-13-inherited-whitespace-01-raw-pr4-conflicts.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/runbook/evidence/communication-kit-2026-10-13-inherited-whitespace-01-raw-pr4-initial.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/runbook/evidence/communication-kit-2026-10-13-pr1-merge-sync-01-raw-pr3-conflicts.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/runbook/evidence/communication-kit-2026-10-13-pr1-merge-sync-01-raw-pr4-conflicts.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Exact Windows identity receipt retains CRLF without disabling whitespace checks.
+docs/runbook/evidence/communication-kit-2026-10-13-pr1-merge-preparation-01-raw-identity.json whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

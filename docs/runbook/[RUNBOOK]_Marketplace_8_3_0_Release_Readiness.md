@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-13
 updated: 2026-10-13
 state: draft
-version: v1.6
+version: v1.6.1
 ---
 
 # [RUNBOOK] Marketplace 8.3.0 release readiness
@@ -17,7 +17,7 @@ Refs [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/2
 
 Owner已授权实施至正式上线、Release及上线后安装复查；Q1选定Learning先8.2.0、Communication随后独立minor，Q3选定正式只公开Learning三包＋Communication，HTML保留develop另发。已确认产品和上线目标继续复用，不新增发布范围。
 
-当前最新develop为实际#236 merge98068a8（文档/evidence收尾）、未发布8.2.1；PR4普通继承PR3 c6d40a8并保留已准备8.3.0。此前Lookup/版本操作和各原始源身份按当时事实保留，较早预升同步见[pre-bump sync 01](evidence/communication-kit-2026-10-13-prebump-sync-01.json)，本轮来源与检查记录见本文末节。README分别标明上游develop8.2.1与本PR4已准备badge8.3.0。
+当前develop已实际合入PR1 #223 / bca7b5c、未发布8.2.1；PR4普通继承PR3 10674c6并保留已准备8.3.0。此前Lookup/版本操作和各原始源身份按当时事实保留，较早预升同步见[pre-bump sync 01](evidence/communication-kit-2026-10-13-prebump-sync-01.json)，本轮来源与检查记录见本文末节。README分别标明上游develop8.2.1与本PR4已准备badge8.3.0。
 
 Learning v8.2.0已于2026-10-13T05:00:19Z由`github-actions[bot]`公开，main/tag/Release目标均为`ebc4bdc3abc62c36348d9ba28de7161b04b3b466`。正式三包为Diagram0.3.1、Learning Evidence0.1.0、Explain0.1.1；此Release不是Communication交付。发布后同步#234实际develop为`2c0a83172507bcb77d105d9f9294fec2e6672ac1`，VERSION8.2.0；8.2.1预升#235当时未合并，不作为已生效基线。应用版本工具前查询v8.3.0 tag与Release均404，不覆写既有身份。
 
@@ -35,7 +35,7 @@ PR4从`7cfb59d35072a210c96973a0d0fd06b6da719d14`的8.2.0工作源准备8.3.0。�
 
 实际CLI0.147.0行为批次15 PASS/3 PARTIAL；C16–C18由不同工具身份提供三项限定功能结果，CLI被宿主阻断的子路径仍PARTIAL。同一26.1007.2314.0桌面应用内的Codex本地及ChatGPT/Work本机两个实际入口已验证安装、图标/communicate、沟通/编写/改写、文字问题未答等待、聊天交付和明确新MD/TXT保存/回读。两个路线的线程、安装源及字节证据分别保留；独立classic ChatGPT/cloud、原生问题窗口关闭/预选/超时及全部Office编辑没有通过证据。这些基础结果不证明现实沟通效果。
 
-当前四PR仍draft。PR1 [#223](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/223)→PR2 [#225](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/225)→PR3 [#229](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/229)→PR4 [#233](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/233)必须依次满足最新develop、当前head required CI、非作者最新推送批准及已解决线程。此前reviews为空且A6因冲突未执行，不能把仅push Structure成功写成全部门禁通过；每次刷新后重新核对。聊天批准仅执行授权，Agent自检和独立AI审查不替代GitHub review。
+此前四PR均draft；PR1现已实际合入，reviews缺项保留，后续阶段仍须当前head门禁。PR1 [#223](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/223)→PR2 [#225](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/225)→PR3 [#229](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/229)→PR4 [#233](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/233)必须依次满足最新develop、当前head required CI、非作者最新推送批准及已解决线程。此前reviews为空且A6因冲突未执行，不能把仅push Structure成功写成全部门禁通过；每次刷新后重新核对。聊天批准仅执行授权，Agent自检和独立AI审查不替代GitHub review。
 
 PR3实际merge尚无，故PR4与该merge的tree/运行包比较NOT RUN；并行版本准备不解除依赖。PR4实际merge、正式发布候选SHA/tree与主分支差异均NOT RUN。PR5只从PR4经门禁合入的实际merge派生；main还须实际代码所有者与独立批准，不绕过保护。
 
@@ -110,3 +110,11 @@ Refs #222。[Inherited whitespace 01](evidence/communication-kit-2026-10-13-inhe
 | Version | Date | Summary |
 | --- | --- | --- |
 | v1.6 | 2026-10-13 | 导入实际8a841a7完整范围空白修复及原日志，冻结原稿/运行包保持，正式发布门禁未完成 |
+
+### 实际PR1合并后的下游同步
+
+Refs #222。[PR1 merge sync 01](evidence/communication-kit-2026-10-13-pr1-merge-sync-01.json)绑定实际M1 merge `bca7b5c`/head `5a9d845`同tree、PR2 `7040dca`和PR3 `10674c6`的普通继承及PR4源输入，保留新的merge/检查/CRLF归档失败与窄修复原日志。M1固定postmerge六份完整原件由PR2先归档并原字节向后继承；不以摘要代替canonical result或GHfacts。此同步只更改文档/证据与精确原字节属性，运行/版本/正式CH保持，最终当前head检查与PR身份另记，不把M1reviews=[]推定批准，不计Communication或R04/R05；旧draft/NOT RUN及客户端/效果限制按原时间保留。
+
+### 四包预备继承实际M1后续来源
+
+Refs #222。本预备普通合入PR4 `a5dd8252b3bc9f3230aaf798b4dfe7b1fead7841`，继承实际M1 merge与完整原始证据；三处文档冲突保留双方历史/新M1记录，并保持更高文档版本。运行包/脚本/JS测试/注册/图标/版本相对预备23ab577保持，未重新执行旧全量/canonical/Python/UI。四包/六技能/三显式/九组合继续限定Owner Q3，源development仍五包；本分支不是实际M4 merge或正式PR5，R01–R05未执行。原合并冲突及指令预算修复、最终检查在[本轮追加记录](evidence/communication-kit-2026-10-13-pr1-merge-preparation-01.json)中保留。
