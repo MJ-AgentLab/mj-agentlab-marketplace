@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "record_id": null,
+  "evidence_id": null,
+  "kind": "learning",
+  "record_version": 1,
+  "related_record_ids": [],
+  "occurred_at": "2026-10-12T04:00:00Z",
+  "identity": {
+    "responsible_person_id": "synthetic-person-1",
+    "respondent_id": "synthetic-person-1",
+    "confirmation": {
+      "kind": "synthetic",
+      "reference": "isolated-technical-fixture",
+      "statement": "Synthetic role for technical validation; no Owner learning observation.",
+      "confirmed_at": "2026-10-12T03:00:00Z"
+    },
+    "account_mappings": [{"provider": "synthetic", "account": "synthetic-responsible"}]
+  },
+  "source_author": {"id": "synthetic-author", "kind": "synthetic"},
+  "operator": {"account": "synthetic-operation-account", "tool": "isolated-stdlib-test"},
+  "task": {
+    "task_id": null,
+    "repository": "synthetic-owner/example",
+    "issue": null,
+    "intent_locator": "fixture:intention",
+    "responsibility": "Synthetic storage task",
+    "worktree_reference": null,
+    "pull_requests": []
+  },
+  "knowledge_units": [{
+    "id": "KU-1",
+    "goal": "Explain immutable evidence and recoverable baselines",
+    "sources": [{
+      "locator": "fixture:knowledge-source",
+      "version": "fixture-v1",
+      "content_or_excerpt": "Preserve original observations; derived reading copies are rebuildable.",
+      "authority": "synthetic technical fixture",
+      "limitations": ["This fixture supplies no real-world learning evidence."]
+    }]
+  }],
+  "observations": [{
+    "id": "observation-1",
+    "ku_id": "KU-1",
+    "stage": "initial",
+    "question": "What is retained after the worktree is removed?",
+    "respondent_id": "synthetic-person-1",
+    "response": "The complete original entry remains in the independent library.",
+    "answer_status": "answered",
+    "support": [],
+    "feedback": "Synthetic expected response.",
+    "observed_at": "2026-10-12T04:00:00Z"
+  }],
+  "requirement_baseline": {
+    "baseline_id": "synthetic-baseline-1",
+    "origin": {"kind": "synthetic", "locator": "fixture:intention", "version": "fixture-v1"},
+    "captured_at": "2026-10-12T03:30:00Z",
+    "content": "Synthetic task intention: preserve immutable learning evidence.\nRequirement R1: retain original responses and recoverable task context.\n",
+    "sha256": "3f5fa3975837e71d5331a3e4a53227143b50613ec25710bae49b4bddb2523c23",
+    "requirements": [{"id": "R1", "text": "Retain originals and recoverable context", "ku_ids": ["KU-1"], "acceptance_refs": ["fixture:storage-check"]}]
+  },
+  "code_version": {"repository": "synthetic-owner/example", "base": "synthetic-base", "head": "synthetic-head", "paths": ["example.py"]},
+  "quiz_status": "completed",
+  "conclusions": {
+    "record_validity": {"status": "not_run", "rationale": null, "evidence_refs": [], "limitations": ["Not semantically checked"]},
+    "knowledge_application": {"status": "not_run", "rationale": null, "evidence_refs": [], "limitations": ["No application check has occurred"]}
+  },
+  "application": null,
+  "provenance": {"plugin": "learning-evidence-kit", "plugin_version": "0.1.0", "skill": "pop-quiz", "skill_version": "0.1.0", "context_source": "explicit synthetic fixture", "synthetic": true},
+  "limitations": ["Synthetic fixture; no real person, Issue, or worktree is asserted."]
+}

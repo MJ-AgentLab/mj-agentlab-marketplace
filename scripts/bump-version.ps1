@@ -13,7 +13,7 @@ param(
     [string]$To,
 
     [Parameter(Mandatory = $false)]
-    [ValidateSet("marketplace", "diagram-kit", "understanding-kit", "explain-kit", "html-guide-kit")]
+    [ValidateSet("marketplace", "diagram-kit", "learning-evidence-kit", "explain-kit", "html-guide-kit")]
     [string]$Scope = "marketplace",
 
     [switch]$DryRun,

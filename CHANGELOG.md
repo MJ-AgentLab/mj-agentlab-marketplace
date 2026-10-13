@@ -9,11 +9,16 @@
 
 ### Added
 
+- Define the unpublished Learning Evidence Kit 0.1.0 candidate's dual explicit skill interfaces and package-owned common Python capabilities. Candidate inventory becomes three plugins/five public skills/two explicit policies; marketplace stays 8.1.2 until PR5, with Diagram 0.3.1 and Explain 0.1.1 unchanged. Archive the former Understanding SPEC/GUIDE with exact Git source hashes, and use fixed historical links for removed runtime/evaluation evidence.
+- Update candidate-only installation and development guidance. Published v8.1.1 retains Understanding Kit; enabled native/question entries require actual strict-wait/window evidence, unsupported entries remain deferred, and no desktop/window or learning-effect success is inferred from the migration.
+
+- Stage manual Learning Evidence GitHub publication/collection through the authenticated gh interface: complete segmented JSON and reading text, digest/read-back receipts, missing-only recovery and updated-time acquisition. Confirm scope before persisting filtered bodies, require bounded stable page inventories, and retain prior progress on failures; writes in engineering acceptance use a controlled substitute.
+- Stage Python 3.12 local Learning Evidence storage with immutable records, confirmed attribution, full baselines, idempotent transactions, reference-only worktree association, complete export/import and retained archive. Old runtime packages remain byte-identical; installation switch is deferred to PR4.
 - Atomically add the HTML Guide Kit 0.1.0 development candidate: one explicit Read skill, guide, two packaged references, the Owner-selected round-2 A HTML textbook icon, strict registration and source/cache byte checks. Preserve the four original installation scenarios and add HTML alone, HTML + Explain and all four plugins; natural discovery remains three skills. This candidate is not a formal release or a claim of client/learning-effect acceptance. Refs #217, #219.
 
 - HTML Guide Kit 合同与前置治理（Refs #217、#218）：新增 ADR、验收 SPEC/RUNBOOK，预留提交 scope 与独立版本工具支持；缺失 manifest 继续失败，运行集合与 marketplace 8.1.2 / 现有插件版本保持。提供 npm run check / smoke 兼容入口；Owner 已选择第二轮 A「HTML 教材」图标，完整插件在后续 PR 原子接入。现实场景效果按 Owner 调整另测，不宣称理解改善。
 
-- Record the accepted Learning Evidence Kit migration and immutable record/common JSON API contracts for Epic #209, with six dependent implementation PRs and two post-release closeout PRs. PR1 preserves current runtime packages and versions; target marketplace 8.2.0 / plugin 0.1.0 remains unimplemented and unpublished.
+- Record the accepted Learning Evidence Kit migration and immutable record/common JSON API contracts for Epic #209, with six dependent implementation PRs and two post-release closeout PRs. The contract-only PR1 preserved then-current runtime packages and versions; it did not establish new functionality, acceptance or publication for target marketplace 8.2.0 / plugin 0.1.0.
 - Add a scoped technical acceptance ledger for independent synthetic roles, persistence/recovery, manual GitHub flow and actual client entries. Preserve both explicit public skills/common interfaces; defer entries unable to meet strict native-window acceptance. Core delivery, full Epic completion and Owner final acceptance remain separate; contracts do not establish runtime or learning-effect success.
 
 ### Changed
@@ -29,6 +34,14 @@
 - Seal 788 original HTML Guide Kit historical control/session/review files with lossless packet mappings and independent byte restoration. Verify the 0.1.2 canonical seven installations and four actual cache Python runs; ongoing model and unavailable native-client paths retain their actual status. Refs #217, #220.
 
 - Preserve the stopped 0.1.2 candidate's 506 original evidence files, failed semantics and operator interruption with lossless restoration. Verify the 0.1.3 canonical seven installations and four actual cache Python runs; fresh model reviews and coverage supplements remain separate from unavailable native-client evidence. Refs #217, #220.
+
+- Record the actual GitHub-flow merge #227 and child #212 delivery, canonical installation/Python checks and the observed missing GitHub reviews. Prepare the unchanged qualified package stage with 317 tests/eight installs and exact common/model resource closure; honor the Owner preference to leave later review requests unassigned.
+
+- Correct new Learning Record Check generation metadata after actual role acceptance exposed inherited learning authors/skills and an invented future event time. Use the actual check author, current installed checker context and observed event clock; preserve original metadata through immutable originals and lineage. Original failures remain recorded; repaired behavior requires a fresh-source rerun.
+
+- Repair unpublished Learning Evidence candidate entry handling: keep listing examples within the Codex 0.147.0 character/count limits, and require all application prerequisites before implementation investigation or probes. Preserve the actual ignored-example and premature-application failures; repaired model behavior remains subject to a fresh-source rerun.
+
+- Record the protected Learning Evidence local-store merge #224, exact-tree canonical installation/Python verification and child #211 completion; synchronize PR3 ancestry with unchanged production modules and a fresh 311-test/seven-install rerun. Preserve the separately approved three-plugin 8.2.0 release scope and deferred entries.
 
 - Prepare the unpublished develop 8.1.2 pre-bump after #206 synchronized the published main. Update only marketplace VERSION and its derived README badge; keep all plugin versions, published version sections, tags and assets unchanged. Include the parallel publication-record documentation and synchronize its main merge ancestry when available.
 

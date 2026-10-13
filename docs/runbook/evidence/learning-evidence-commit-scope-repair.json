@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-13",
+  "kind": "Prepare exact-tree commit metadata repair; no active or remote ref replaced",
+  "reason": "CI rejected unapproved acceptance scope in three agent-authored documentation commits",
+  "old_heads": {
+    "github": "aa5c55816148cc1dcf1f73cfe6169379b9fcadb5",
+    "switch": "be7aa7cf016c3df2ce98704aa1767629b037be66",
+    "acceptance": "8546aef1143642057693303fd334a09538081efa"
+  },
+  "corrected": {
+    "github": {
+      "old_sha": "aa5c55816148cc1dcf1f73cfe6169379b9fcadb5",
+      "new_sha": "ceaab82099f37b73250a4c8ac55d48c910cf539c",
+      "tree": "aed5f7b1f06306e580dc3b8bb63defd59f8210db",
+      "parents": [
+        "f9fd898e621a34f0b7cbb00d3e62258ed31b1d06"
+      ],
+      "subject": "docs(docs-runbook): record GitHub and HTML checks"
+    },
+    "integration": {
+      "old_sha": "f32143f87891c7c1669bb46faa76b96ac13369e1",
+      "new_sha": "b28ec23b373ebc7aa3b1bfccb2c7a39581c92b4d",
+      "tree": "589591f2360b4a4575430e79eef86fcc39b0f6fb",
+      "parents": [
+        "be86d303ba4ada68eeaeee441f56e1cbbcbeecef",
+        "ceaab82099f37b73250a4c8ac55d48c910cf539c"
+      ],
+      "subject": "infra(marketplace): retain HTML with Learning Evidence migration"
+    },
+    "switch": {
+      "old_sha": "be7aa7cf016c3df2ce98704aa1767629b037be66",
+      "new_sha": "4fd013943a4c280bf1ab2465b5fdb7d0530b278c",
+      "tree": "337fd47cee24b50c6527e76b9e1ae0d55c86f791",
+      "parents": [
+        "b28ec23b373ebc7aa3b1bfccb2c7a39581c92b4d"
+      ],
+      "subject": "docs(docs-runbook): record Learning and HTML checks"
+    },
+    "acceptance": {
+      "old_sha": "8546aef1143642057693303fd334a09538081efa",
+      "new_sha": "8809acb476c02da59bfdf4319f884327dd130580",
+      "tree": "85cf4d0c565d7e5bdd5ecfbc34e76b7e69d5307f",
+      "parents": [
+        "02e460dc9a16b26895771ce1008c58e931af91b7"
+      ],
+      "subject": "docs(docs-runbook): record model failures and release scope"
+    }
+  },
+  "preserved_local_history": true,
+  "github_reviews_at_original_heads": [],
+  "active_model_source_untouched": true,
+  "remote_ref_changes": false,
+  "active_refs_replaced": true,
+  "remote_history_refs_preserved": true,
+  "remote_refs_replaced": true,
+  "remote_update_method": "Atomic exact old-head force-with-lease on three agent-owned draft PR branches, after complete model finish; full original history refs retained"
+}

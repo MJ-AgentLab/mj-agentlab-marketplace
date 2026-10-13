@@ -2,13 +2,15 @@
 
 ## 项目上下文
 
-当前开发版本注册 diagram-kit / arch-diagram 、understanding-kit / pop-quiz 、explain-kit / glossary、concept 与 html-guide-kit / guide，目标客户端为 ChatGPT 桌面端和 Codex 本地环境，Codex CLI 验收基线 0.147.0。运行信息以市场索引、各插件 manifest 和 VERSION 为准；已发布 main 的范围与开发分支分别记录。
+当前候选注册 diagram-kit / arch-diagram、learning-evidence-kit / pop-quiz、learning-record-check 、explain-kit / glossary、concept 与 html-guide-kit / guide，共四插件、六公开技能、三个显式入口；目标客户端为 ChatGPT 桌面端和 Codex 本地环境，CLI 验收基线 0.147.0。marketplace 暂为未发布 8.1.2，Learning Evidence 0.1.0、Diagram 0.3.1 / Explain 0.1.1；PR5 才准备 8.2.0。运行信息以索引、manifest 和 VERSION 为准；公开 v8.1.1 仍包含旧 Understanding，候选须从待测 branch/SHA 安装。
 
-understanding-kit 是显式调用的只读理解测验，Codex 优先 Side Chat；其他会话使用明确的上下文快照，不假定持续同步。插件边界及对旧单插件约束的局部替代见 [新增决定](docs/adr/[ADR]_Understanding_Kit_Addition.md)，真实客户端证据见 [验收记录](docs/runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)。learn-kit、NotebookLM 与 Claude 退役规则继续有效。
+manifest 的公开示例按[插件契约](docs/spec/[SPEC]_Plugin_Json_Schema.md)保留完整路由，最多三条，各原值不超过 128 个 Unicode scalar values；严格校验防止客户端忽略超长示例而丢失公开入口，不依赖空白归一化。
 
-实施 Learning Evidence Kit 时读取 [迁移 ADR](docs/adr/[ADR]_Learning_Evidence_Kit_Migration.md)、[记录/API 契约](docs/spec/[SPEC]_Learning_Evidence_Record_And_API.md)与[验收账本](docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。Epic #209 已获集中实施及条件发布授权，目标 8.2.0 / 0.1.0；PR1 不改当前注册、运行包或版本。Owner 接受保留双技能/接口、核心独立验收后交付，原生严格窗口不合格入口延期；PR5 按实际入口列证据，文字重述或 pending 状态不算持续显示通过。核心交付、原计划完成及 Owner 最终接受分别记录，Epic 保留延期项。
+Learning Evidence Kit 的 Pop Quiz 诊断只读，明确移交后结束诊断，由包内共用能力保存和关联；Learning Record Check 分开核验指定记录有效性与任务应用。两个技能显式启动，不假定持续同步；共用能力不是第三技能。learn-kit、NotebookLM 与 Claude 退役规则继续有效，旧 [Understanding 决定](docs/adr/[ADR]_Understanding_Kit_Addition.md)与[验收](docs/runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)保留历史范围。
 
-Marketplace v8.1.1 已通过 #205 合入 main 并于 2026-10-10 自动发布，包含 diagram-kit 0.3.1 / understanding-kit 0.1.2 / explain-kit 0.1.1。已发布 merge 与已测 head 的 Git tree 相同，发布后四种 canonical 安装、图标内容比较与实际 Python 校验通过。Owner 截图支持详情页图标和版本，两端完整客户端记录及 #205 GitHub 独立批准未提供；事实见 [8.1.1 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。#206 已将实际发布 main 同步回 develop；本分支应用未发布的 8.1.2 pre-bump，只更新 VERSION / README badge，插件版本保持，不创建同号 Release。同期 main 文档 PR #207 的实际 merge ancestry 在收尾时继续纳入。
+实施或验收 Learning Evidence Kit 时读取 [迁移 ADR](docs/adr/[ADR]_Learning_Evidence_Kit_Migration.md)、[记录/API 契约](docs/spec/[SPEC]_Learning_Evidence_Record_And_API.md)、[使用指南](docs/guide/[GUIDE]_Learning_Evidence_Kit.md)与[验收账本](docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。Epic #209 已获集中实施及条件发布授权；PR4 原子切换包及精确校验，安装脚本归属新插件，不依赖仓库过渡路径。Owner 接受双技能/接口不变、核心独立验收后交付；所有启用提问入口严格待答，未提交/默认/超时/关闭不算答复，原生持续显示须实证，文字重述或 pending 不算窗口通过。PR5 列实际可启用与延期入口；核心交付、原计划完成及 Owner 最终接受分别记录，Epic 保留延期。
+
+Marketplace v8.1.1 已通过 #205 合入 main 并于 2026-10-10 自动发布，包含 diagram-kit 0.3.1 / understanding-kit 0.1.2 / explain-kit 0.1.1。已发布 merge 与已测 head 的 Git tree 相同，发布后四种 canonical 安装、图标内容比较与实际 Python 校验通过。Owner 截图支持详情页图标和版本，两端完整客户端记录及 #205 GitHub 独立批准未提供；事实见 [8.1.1 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。#206 已将实际发布 main 同步回 develop；此前 #208 应用未发布的 8.1.2 pre-bump，当时只更新 VERSION / README badge，保持旧插件版本，不创建同号 Release。同期 main 文档 PR #207 的实际 merge ancestry 在收尾时继续纳入。
 
 历史 v8.1.0 通过 #198 发布，#199 完成 main → develop 同步，#200 修正发布记录，#201 将 develop 预升为当时未发布的 8.1.1。历史验收失败、回放、未覆盖客户端结果与缺失批准分别保留，见 [8.1.0 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)。
 
@@ -38,30 +40,34 @@ v8.0.0 已经 #190 合入 main 并自动发布，实际状态和未完成的桌�
 
 ## 品牌与图标
 
-仓库主标使用 Owner 选定的 A（MJ＋斜向模块连接），三个插件采用已批准的 D 风格；品牌与图标修改读取 [品牌规范](docs/rule/[STANDARD]_Brand_Identity.md) 并使用 [.agents/skills/mp-design-icon](.agents/skills/mp-design-icon/SKILL.md)。开发技能现为 20 项，当前 develop 为四个公开插件和五个公开技能；main/v8.1.1 保持三插件四技能。新增候选先选择后接入，已有批准直接复用。#203/#204 已完成品牌实现和验收记录，并随 v8.1.1 发布；资源、隔离安装、独立技能演练及当时未完成项见 [品牌验收](docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。后续发布不追认历史验收或批准。
+仓库主标使用 Owner 选定的 A（MJ＋斜向模块连接），三个插件采用已批准的 D 风格；品牌与图标修改读取 [品牌规范](docs/rule/[STANDARD]_Brand_Identity.md) 并使用 [.agents/skills/mp-design-icon](.agents/skills/mp-design-icon/SKILL.md)。开发技能为 20 项，开发候选四插件/六公开技能；Learning Evidence 复用旧 Understanding 批准图标并迁移资源归属。新增候选先选择后接入，已有批准直接复用。#203/#204 已完成品牌实现和验收记录，并随 v8.1.1 发布；[品牌验收](docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)保留当时范围。后续发布不追认历史验收或批准。
 
 Owner 于 2026-10-10 明确要求发布 8.1.1，发布授权已提供，不重复确认。候选从 develop 9bd54d7 派生，运行版本已匹配目标，无额外 bump。Owner 补充三张桌面截图，显示三插件详情页图标与候选版本，Diagram/Explain 示例提示区亦显示小图标；客户端版本、来源及实际输入框结果按已提供的具体证据记录，截图不补写未展示项。当前 main ruleset 要求当前 head 的非作者批准与 Validate Structure；门禁和后续发布事实见 [8.1.1 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。
 
+Learning Evidence PR2 的本机能力和 PR3 的手动 GitHub 流转曾暂存于 scripts/learning-evidence，保持旧运行包字节；PR4 候选原子迁入 plugins/learning-evidence-kit/scripts 并删除暂存位置。保存、完整基线、身份、关联、恢复、导入导出和保留归档按记录契约执行，测试显式隔离库；实际分阶段测试、独立审查及合并状态见验收账本。
+
+Learning Evidence PR3 的同一共用接口提供显式范围的完整 PR 评论发布、未知结果回读和缺段恢复，以及手动增量收集。收集先判定人/任务/时间范围再保存正文，翻页须观察连续稳定清单；失败保留已确认范围的快照与旧完成游标。工程验收使用独立临时库及替身 gh，真实账号权限、客户端和 GitHub 非作者批准另记，PR4 迁移只改变包归属，冻结共用模块内容保持。
+
+Learning Record Check 先确认本会话已选定的记录或任务范围；已有选择可复用，命名任务/PR或明确移交记录足够，不强求 ID。仅库路径、身份或 cwd 不算选定，缺选择时停止，不枚举并擅选唯一/最新原件。先获取选定原件并完成本人/任务/KU/版本适用性判断，再读取应用说明、校验材料和实现；身份不适用立即停止，不把 Stage2 读取混入 Stage1 命令批次。应用检查须在实现调查或运行探针前确认手动请求、适用记录、当前版本、本人解释及既有验证材料齐备；缺前提立即停止应用阶段，不制造替代材料或先验证实现再记 not_run。材料到达不自动恢复，须新手动触发。新增核验条目使用实际生成代理、当前 LRC 技能/上下文、实际操作与真实时钟时间；原学习作者/技能/时间保留在不可改写原件及关联历史，不复制成新条目的生成信息。未知操作账号可 null 并说明，不能据 Git/PR 猜测或反复要求确认。真实模型各轮失败、修复、环境阻断及后续重跑按验收账本分别保留。
+
+PR2 已同步 #226 合入的 HTML Guide Kit 0.1.0，当时基准为四插件、五技能；PR4 替换 Learning Evidence 后开发集合为四插件、六公开技能、三项显式策略，marketplace 保持未发布 8.1.2。HTML 包/其他插件/版本相对当前 develop 基准保持，旧 Understanding 只按已批准迁移替换。Owner 已决定 develop 保留已合入 HTML 内容；8.2.0 从独立发行候选交付 Diagram、Learning Evidence、Explain 三插件与五公开技能，HTML 另行发行，不因并行合入扩大本次公开发行范围。
+
+第五轮来源 acf3c9d 的六 fresh 会话/八调用已通过限定 CLI 核心判据：七次自然完成、一次执行器超时保留；九条新核验、两次限定离线共享及原件/生成信息均经独立核对。四轮原失败、两次策略拒绝、换行格式差异和幂等重放分别保留，不称所有调用成功。原移交仅按十二项未变资源闭包沿用并限已有本地 Git exclude；原生提问仍延期、桌面/Side Chat 未运行，实际保护合入、发布和 Owner 最终接受待各自证据。完整入口资格与限制见上述 Learning Evidence 验收账本。
+
+Learning Evidence #224 已于 2026-10-13 获 yrk666 对当前 c1d7bab 的非作者批准并合入 a2090ff8；merge 与已验收 head 的 Git tree 相同，七种精确 canonical 安装和四次已安装 Python 校验通过，#211 显式关闭。PR3 同步实际 merge 后运行内容不变，311/311、33 存储/31 离线 GitHub 实际 Python、严格校验、精确 CLI 基线与七隔离安装通过；当前最终 head 的独立批准和合入另核对。旧 pending 文字按原时点保留，完整合并回执见验收账本。Owner 再次确认按 #227 → #228 → #230 → #232 推进并条件发布三插件 8.2.0，HTML 留 develop 另发，Epic 延期项继续开放。
+
+PR4 为准备后续依赖合入，普通同步 PR3 当前 bcccb38 的合并回执与文档；全部运行包、测试、脚本、版本及已冻结第五轮证据保持。#227 尚待其当前 head 的真实非作者批准与保护合入，PR4 继续 Draft，不把前序审查请求算作本阶段批准。
+
+Learning Evidence #227 已合入 f958908e，与已验收 bcccb38 同树；精确 merge 的七 canonical 安装/四次缓存 Python 通过，#212 显式关闭。GitHub 当前 reviews 为空，缺项原样保留，不补记批准或豁免。PR4 按实际 merge 同步后运行内容不变，317/317、八隔离安装、143资源实例及四次图表/三组证据保存重放检查实际通过，Learning十九资源仍等于限定模型源acf3。Owner 最新要求后续不指定人发出审查请求；准备可审查 PR 时不指派个人或团队，当前 head 的真实非作者批准/CI/线程门禁继续按实际核对。8.2.0 仍条件发布原三插件，HTML留develop另发，原生延期/桌面未运行/Owner最终接受及历史审查缺项独立保留。
+
 ## HTML Guide Kit 阶段实施
 
-Owner 已授权按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 与三个子 Issue 推进 HTML Guide Kit，分阶段顺序合并 develop；[ADR](docs/adr/[ADR]_HTML_Guide_Kit_Addition.md) 记录已确定合同。PR1 #221 已合并并复验，#218 已显式关闭。PR2 [#226](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/226) 已于 2026-10-12 合入 develop，实际 merge d106e766 与已测 head 72cdd08 tree 相同，接入完整 HTML Guide Kit 0.1.0 包、Owner 选定的第二轮 A 图标与严格登记。开发运行集合为四插件、五公开技能、三个自然启用技能和 20 项仓库开发技能；版本工具缺 manifest 仍失败。候选 1cd0f1c 的 279 测试、严格七安装及四次缓存 Python、六组14指定变体30连续轮次独立评审通过；最初无效调用、工具拒绝、额外重试和 B5.2 来源措辞 note 保留。#221/#226 GitHub reviews 未提供独立批准记录，不追认历史门禁通过。
+Owner 已授权 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 的三个阶段、独立 worktree 和 codex/ 分支。PR1 #221 实际 merge 70267a5 已复验，#218 已关闭；PR2 [#226](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/226) 于2026-10-12接入完整0.1.0包、第二轮已选A图标与严格合同，merge d106e766 与已测head72cdd08 tree相同，七安装/四缓存Python通过，#219已显式关闭。历史GitHub reviews缺少独立批准如实保留，不追认门禁。PR3 #231 继续扩展工程、双客户端及最终merge复验；当前head非作者批准、required checks和已解决审查线程仍须满足，不bypass。
 
-PR3 从实际 merge 后的最新 develop 派生 codex/html-guide-acceptance，继续扩展行为、双客户端和最终 merge 复验；纯证据更新保持 0.1.0 并核对运行字节。当前操作工具仅提供浏览器，原生应用控制被禁用，Codex 应用 UI、ChatGPT 桌面与原生空返回/超时/关闭事件尚未执行；CLI 不替代这些证据，#220 与 Epic 保持开放。每阶段实际合并后复验并显式关闭相应子 Issue，后续合并仍必须当前 head 非作者批准、CI 与线程门禁。判准与事实见 [SPEC](docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md) 和 [RUNBOOK](docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+当前分支 HTML Guide Kit 0.1.6 是未合并修正候选；marketplace仍未发布8.1.2。已同步并发origin/develop434d053的Learning Evidence迁移，保留四插件、六公开技能、三个自然启用技能、三个显式策略和20项仓库开发技能，本任务不修改其他插件版本。公开8.2.0三插件发行范围按并行任务决定，HTML保留develop、另行发行；本任务无Release、tag或main发布授权。版本工具缺manifest仍失败。
 
-PR3 的 0.1.0 受众扩展实际发现工作人员指南内同一操作的不可用反馈与源规则冲突，独立记 FAIL 并保留。首次运行修正候选为 0.1.1，只推进本插件：SKILL 与两参考强化操作前置状态/允许范围在正文、演示、反馈、自检中的一致性和新增设计轴的来源归属；需新 canonical 安装、受影响扩展及全部六组阻断复验，不能以修正意图或旧 PASS 宣称新候选通过。
+唯一入口 $html-guide-kit:guide，显式调用、Read、默认中文/原术语，聊天文本新建指南。每次实际读材料/快照并区分证据、保留冲突缺口；给2–3套不同读者/任务/理解问题，推荐及理由。明确选择或修改确认后才生成；推荐、预选、沉默、超时、无关回复或窗口消失不算确认，未答保留同一待确认，不承诺锁宿主窗口。深度按材料调整；保留来源、条件、例外与未知；需要的演示/模拟/自检含反馈及恢复，无可靠判准仅有限参考，不评分或推断长期掌握。只新建，不修订/比较/审查，不输出HTML/代码/文件/具体制作工具步骤或越权执行。运行资源仅SKILL及两份参考，无Owner路径/研究治理/历史聊天依赖。
 
-0.1.1 在新缓存上通过旧 staff/attribution 失败路径，但 B4.2 将合取中一项明确不满足、另一项未知统判未知，并给出重叠反馈分支，独立 FAIL 保留。后续修正候选为 0.1.2，按原文组合条件逐项核对已知/未知，明确局部可判定结论和分支优先范围；仍须新安装、受影响扩展及全部六组复验，未测试部分不外推通过。
+0.1.0–0.1.3真实失败、修正调用、回放、控制INVALID_RUN、未覆盖及操作中断分别保留；788历史文件及506个0.1.2文件已lossless封存并经Node/.NET复原，不能追认PASS。0.1.3独立评审发现重复操作整体未知、拒绝回显HTML及重叠反馈；中间0.1.4安装通过但模型NOT_RUN。0.1.5原生SKILL注入截断，B6 revise无补读为UNKNOWN/INVALID_RUN，其他三项有工具全文补读的局部PASS不消除缺陷。0.1.6精简入口、保留两参考，仓库/安装共用6144 UTF-8字节保守预算；须新canonical安装、完整实际加载及全部六组/受影响行为复验，不能继承旧PASS。
 
-2026-10-13：0.1.2 canonical 59c7aea / tree 1bb4b828 的七种严格安装、四次实际缓存 Python 通过；工作候选279/279零skip、validate/check与当前CI通过。历史0.1.0/0.1.1控制、会话及独立评审788文件已lossless封存并复原验证，旧失败及未触发路径保留。新六组、扩展和两条连续流程补证仍逐项进行，不据安装或静态审查宣称完整行为通过，原生入口及最终merge缺项继续保留。
-
-0.1.2 完整六组为13 PASS、B4.1 FAIL，另E13两变体存在源表排他量词及术语值类型改写，均独立保留。已停止的506文件lossless封存并经Node/.NET复原：28 UUID / 61输入，23 PASS、3 FAIL、2 UNKNOWN，一轮原传输RUNNING叠加操作中断，不补写COMPLETE或PASS。当前修正候选0.1.3区分直接操作与未知后续路径并保留原术语含义；279测试零skip通过，canonical ffaa68f / tree d97ea04 的严格七安装和四次缓存Python通过，新模型矩阵继续独立评审。窄目标未覆盖和操作选择出处缺陷保留后另补证，后续调度在变体边界正常暂停；原生入口、最终head/merge及独立GitHub批准仍需实际证据。详见RUNBOOK §15–§16。
-
-HTML Guide Kit 初始 0.1.0，仅显式 $html-guide-kit:guide，Read、聊天文本新建指南；读者/任务/理解问题须明确确认后生成。未答、推荐、预选、沉默、超时、无关回复或窗口消失不是确认，不能承诺锁宿主窗口。研究项目及指南聊天只作只读设计参考，运行包无本机路径或研究治理依赖。Owner 2026-10-12 调整：本次不做现实场景效果测试，实际效果另测，未测量不得写 PASS；安装、模型行为、客户端交互和工程门禁继续有效。
-
-0.1.3 E13 将仍符合源条件的重复操作及字段结果判为未知，独立FAIL。当期0.1.4修正重复操作的条件重匹配及反馈缺口范围，须新canonical安装、受影响与六组复验。八项自动选择嵌套题号的旧调用保留控制INVALID_RUN，不计有效PASS或运行FAIL；新调度人工读实际目标标题与摘录。人工B1/B2及确认后更新/停止后重启六条流程已独立通过，其余历史评审及正常暂停后的未执行分别保存，详见RUNBOOK §17。
-
-旧0.1.3原E19/38全部独立评审为15 PASS、4 FAIL：E13/E15重复操作、E14-review回显HTML、E9推荐的分支反馈重叠；有效维护者补证也有重复操作FAIL。中间0.1.4 canonical 1e715560的七安装/四缓存Python通过但模型NOT_RUN。后续0.1.5完整修正重复结果、拒绝/引用代码回显和分支/累计反馈范围，静态审查无阻断不代替行为；新canonical安装、六组及受影响真实会话仍须执行，详见RUNBOOK §18。其他版本与发布状态保持。
-
-本任务保持 marketplace 未发布 8.1.2 及其他插件版本，无 Release、发布 tag 或 main 发布 PR。首次修改已合并的新插件运行内容时推进 0.1.1，其后补丁递增；纯评审资料/记录保持版本，以哈希核对运行内容。npm run check / smoke 为既有基线检查/隔离安装入口。每阶段满足当前 head 非作者批准、CI 与线程门禁后合并，不 bypass；合并复验后才关闭子 Issue，最终行为和双客户端及 merge 验收完整后才关闭 Epic。
-
-0.1.5 实际基线 CLI 原生 SKILL 注入截断，B6 revise 无补读为 UNKNOWN/INVALID_RUN，其他三项有工具全文补读的局部 PASS 不消除缺陷。当前0.1.6精简入口、保留两份参考，仓库/安装共用6144 UTF-8字节保守预算；须新安装验证全文加载与六组/受影响行为，现实效果 NOT_MEASURED，原生桌面及批准/merge门禁仍按实际缺项记录。详见RUNBOOK §19，Issue #220与Epic #217开放。
+Owner调整现实场景效果另测，本次NOT_MEASURED。当前操作工具仅浏览器，原生应用API禁用；Codex应用UI、ChatGPT桌面及空返回/超时/关闭事件未执行，CLI不替代。合格核心可分段交付，延期入口不视为通过；Issue #220与Epic保持开放，Owner最终接受独立记录。决定见[ADR](docs/adr/[ADR]_HTML_Guide_Kit_Addition.md)，判准见[SPEC](docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，完整历史/实际证据/当前候选见[RUNBOOK](docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)§11–19。研究项目只读，不整理或提交其沉淀。
