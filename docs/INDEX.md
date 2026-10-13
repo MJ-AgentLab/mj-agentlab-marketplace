@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.15.2
+version: v2.17.3
 ---
 
 # 文档索引
@@ -17,15 +17,15 @@ version: v2.15.2
 
 8.1.1 的实际 tag、Release、正文身份、发布后安装及保留缺项见 [发布记录](runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。
 
-Epic #209 的 PR4 原子迁移当前候选为 Diagram 0.3.1 / Learning Evidence 0.1.0 / Explain 0.1.1，四插件、六公开技能、三个显式策略；marketplace 暂保持未发布 8.1.2，PR5 才准备 8.2.0。新包安装使用候选 branch/精确 SHA，公开 v8.1.1 仍是旧 Understanding 集合。[迁移 ADR](adr/[ADR]_Learning_Evidence_Kit_Migration.md)、[记录/API 契约](spec/[SPEC]_Learning_Evidence_Record_And_API.md)、[新指南](guide/[GUIDE]_Learning_Evidence_Kit.md)及[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)分别维护决定、数据、使用边界与实际证据。Owner 接受核心独立验收后分段交付，所有启用提问入口严格待答；原生窗口不合格入口延期，文字重述不算窗口通过。Epic 与 Owner 最终接受独立追踪，新候选不追认历史或学习效果验收。
+Epic #209 的 PR4 原子迁移当前候选为 Diagram 0.3.1 / Learning Evidence 0.1.0 / Explain 0.1.1 / HTML 0.1.0，四插件、六公开技能、三个显式策略；PR5 已准备未发布 marketplace 8.2.0。新包安装使用候选 branch/精确 SHA，公开 v8.1.1 仍是旧 Understanding 集合。[迁移 ADR](adr/[ADR]_Learning_Evidence_Kit_Migration.md)、[记录/API 契约](spec/[SPEC]_Learning_Evidence_Record_And_API.md)、[新指南](guide/[GUIDE]_Learning_Evidence_Kit.md)及[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)分别维护决定、数据、使用边界与实际证据；[8.2.0 发布准备](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)维护逐入口资格和剩余门槛。Owner 接受核心独立验收后分段交付，所有启用提问入口严格待答；原生窗口不合格入口延期，文字重述不算窗口通过。Epic 与 Owner 最终接受独立追踪，新候选不追认历史或学习效果验收。
 
 HTML Guide Kit 正按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 分阶段实施：PR1 #221 已合入并复验；PR2 原子接入完整 0.1.0 插件、已选 A 图标与严格合同，当时开发集合增至四插件五技能；Learning Evidence 替换后四插件六技能，公开 8.2.0 仍原三插件五技能，HTML 另行发行。阶段门槛见 [ADR](adr/[ADR]_HTML_Guide_Kit_Addition.md)，判准见 [SPEC](spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，实际结果及未覆盖项见 [RUNBOOK](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。现实场景理解效果另测，本次仍保留工程行为与双客户端交互验收。
-
-HTML Guide Kit 正按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 分阶段实施：PR1 仅合同与工具前置，不改变运行集合。阶段门槛见 [ADR](adr/[ADR]_HTML_Guide_Kit_Addition.md)，判准见 [SPEC](spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，实际结果及未覆盖项见 [RUNBOOK](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。现实场景理解效果另测，本次仍保留工程行为与双客户端交互验收。
 
 Learning Evidence #224 已获当前 head 非作者批准并合入；实际 merge 的七种 canonical 安装和缓存 Python 通过，#211 已关闭。PR3 已按实际 merge 同步并通过 311 项回归与七隔离安装，其当前 head 独立批准与合入仍待完成，详见[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。公开 8.2.0 保持原三插件，HTML 另行发行。
 
 Learning Evidence #227 已实际合入并通过七种精确 canonical 安装/缓存 Python，#212 已关闭；其当前 GitHub 审查记录为空，按原事实保留。PR4 同步后通过317项回归/八安装并保持已验收模型资源，仍待本阶段当前head批准与合入；后续不指定审查人，门禁不变，详见[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。
+
+Learning Evidence #228已实际合入并通过八种精确canonical安装/143资源/缓存Python，#213关闭；空reviews缺项保留。PR5最新8.2.0开发源完整317/八安装及未变模型资源通过，准备当前head审查；公开候选仍原三插件，详见[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)与[发行准备](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。
 
 ## 入口
 
@@ -73,6 +73,7 @@ Learning Evidence #227 已实际合入并通过七种精确 canonical 安装/缓
 - [Marketplace 8.1.0 发布事实、复查与未完成验收](runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)
 - [Understanding Kit 合并后安装、行为及客户端验收](runbook/[RUNBOOK]_Understanding_Kit_Acceptance.md)
 - [Learning Evidence Kit 分段验收、发行与 Epic 追踪](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)
+- [Marketplace 8.2.0 候选、入口限制与发布门槛](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)
 
 ## 决策与故障历史
 

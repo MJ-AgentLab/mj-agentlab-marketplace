@@ -39,7 +39,7 @@ async function bump(d,scope="marketplace",extra=[],env={}){
 }
 test("marketplace updates VERSION and derived badge only",opts,async()=>{
  const d=fixture(),before=bytes(d),r=await bump(d);assert.equal(r.status,0,r.stdout+r.stderr);
- assert.equal(read(d,"VERSION").trim(),"8.0.0");assert.match(read(d,"README.md"),/badge\/version-8\.0\.0-blue/);
+ assert.equal(read(d,"VERSION").trim(),"8.0.0",JSON.stringify({status:r.status,stdout:r.stdout,stderr:r.stderr,fixture:d}));assert.match(read(d,"README.md"),/badge\/version-8\.0\.0-blue/);
  assert.match(read(d,"README.md"),/v7\.0\.2 historical/);
  for(const p of files.slice(2)) assert.deepEqual(fs.readFileSync(path.join(d,p)),before[p]);noBackups(d);
 });
