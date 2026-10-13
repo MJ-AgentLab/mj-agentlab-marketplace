@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [0.1.8] - 2026-10-13
+
+### Fixed
+
+- HTML Guide Kit 0.1.8 keeps added display defaults separate from source facts, removes superseded clauses and exceptions from current evidence, and limits exclusivity to its stated operation scope.
+- Make every reliable self-check premise explicit; source-supported feedback can remain determinate within a locally marked scenario assumption. Preserve decisive known AND/OR conditions in all prose and feedback.
+- Keep the actual0.1.6 failures and the intermediate0.1.7 installation with model behavior NOT_RUN; verify the complete correction in fresh installed sessions. Refs #217, #220.
+
 ## [0.1.7] - 2026-10-13
 
 ### Fixed

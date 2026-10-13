@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.12
+version: v1.13
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -326,3 +326,13 @@ E14-review UUID `01a13331-3167-70d3-840e-13bb519e13ed` / attempt `25e727ff-7118-
 0.1.6连续补证在已启动轮次正常结束后停止：E7四轮COMPLETE；暂停标志晚于下一E12启动29.195秒，新增E12 T1真实UUID01a133b0-b346-7233-b2ba-da590300a3fd，原重连OS10054 error后虽有turn.completed，冻结transport仍FAILED_OR_INVALID，余四轮NOT_RUN。无kill/重试，不追写前序全未跑或COMPLETE。重复操作补证尚未prepare/调用，NOT_RUN。0.1.6其他独立结果随后继续封存，不因下一补丁覆盖历史。
 
 0.1.7须新canonical严格八安装/四Python，全部六组14/30、受影响E6/12、重复操作1/2及连续流程S2/9重新独立验收；原有效失败、控制无效、partial/未跑与新修正调用分别记录。现实效果NOT_MEASURED，原生桌面延期、最终head批准/CI/threads及actualmerge门禁不据此取消，#220/Epic开放。
+
+## 22. 停止0.1.6完整评审与0.1.8完整修正
+
+停止0.1.6的22UUID/47实际输入全部独立评审，46COMPLETE和1重连运输无效分开。六组14/30为10PASS/4FAIL：B6.1未标数值域、B1.2-combined独立自检缺当前状态、B4.1取消自检缺领取前条件、B5.1无范围排他库存断言漏源重置。原目标确认/范围/主模拟/六可靠题等相应criterion PASS保留，不抵消补充源忠实与可靠判准FAIL。受影响E6/12为4PASS/2FAIL：E1-maintainer把新增UI反馈初值归§1，E9-recommended用任一未知宽泛句抹去AND中已否的局部结果。S2/5实际输入为E7完整四轮更新源FAIL（旧资格例外回流）、E12仅首轮UNKNOWN/INVALID_RUN，余四未跑；不虚构尚未调用的输入场景。每份精确独立JSON/源/上下文/工具/实际读取及正确局部结论保留，后续metadata导入和完整封存另存。
+
+中间0.1.7 canonical af87bd99db17a0feb6c972ad70db03ce0e0189ae / tree5c4a9bf02c0b19194248c02ea69ee0397c68135b的八严格安装/四缓存Python通过，319/319零skip/validate/check通过；旧6余下评审收齐前没有发起0.1.7模型，MODEL_NOT_RUN。不能称其行为通过或失败。已封存13的919文件原字节在Git暂存再次核对，147个新raw证据文件及七运行资源均逐字等于工作候选，修正意图不代替新行为证据。
+
+只推进本插件0.1.7→0.1.8，保留marketplace8.2.0（上游准备）和其他批准集合/版本。通用方法按行/字段归因新增展示默认，明确被替换源及其例外退出active；每处排他量词就地scope并回查恢复例外；未知仅阻未决组合，所有文字/表格/反馈一致；逐题明确必要状态/输入，共用默认仅在已明确范围有效。题设假设明确补齐且源规则足够时可给该假设范围内可靠反馈，不能补造源规则或事实。初值/可达值/完整输入域继续分开，主入口仍低于6144字节，没有测试领域答案/个人来源依赖。
+
+完整候选须新canonical八安装/四Python、六组14/30、E6/12、重复操作1/2和S2/9全新真实cache会话；控制/判准/原用户输入不变，实际顶层目标/单triplet及sourceTurn3/history人工核对。运行资源与旧版本分别哈希，任何FAIL/无效/partial/未跑不追认。原生桌面/窗口延期、现实效果NOT_MEASURED、当前head非作者批准/CI/threads/最新base与实际merge门禁不变；Issue220/Epic开放。

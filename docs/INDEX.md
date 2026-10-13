@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.27
+version: v2.28
 ---
 
 # 文档索引
@@ -33,7 +33,7 @@ PR3 的真实受众扩展发现 0.1.0 操作反馈前置状态冲突，保存 FA
 
 旧 0.1.3 剩余 E19/38 独立评审为15 PASS / 4 FAIL；另有效维护者补证同类重复操作 FAIL。中间0.1.4七安装/四缓存Python通过，未启动模型。后续完整修正候选0.1.5一并限制拒绝/引用的代码回显并核对分支反馈覆盖，静态审查无阻断但行为未执行；实际身份和新复验范围见 RUNBOOK §18。
 
-Epic #209 的 PR4 原子迁移当前候选为 Diagram 0.3.1 / Learning Evidence 0.1.0 / Explain 0.1.1 / HTML 0.1.7，四插件、六公开技能、三个显式策略；PR5 已准备未发布 marketplace 8.2.0。新包安装使用候选 branch/精确 SHA，公开 v8.1.1 仍是旧 Understanding 集合。[迁移 ADR](adr/[ADR]_Learning_Evidence_Kit_Migration.md)、[记录/API 契约](spec/[SPEC]_Learning_Evidence_Record_And_API.md)、[新指南](guide/[GUIDE]_Learning_Evidence_Kit.md)及[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)分别维护决定、数据、使用边界与实际证据；[8.2.0 发布准备](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)维护逐入口资格和剩余门槛。Owner 接受核心独立验收后分段交付，所有启用提问入口严格待答；原生窗口不合格入口延期，文字重述不算窗口通过。Epic 与 Owner 最终接受独立追踪，新候选不追认历史或学习效果验收。
+Epic #209 的 PR4 原子迁移当前候选为 Diagram 0.3.1 / Learning Evidence 0.1.0 / Explain 0.1.1 / HTML 0.1.8，四插件、六公开技能、三个显式策略；PR5 已准备未发布 marketplace 8.2.0。新包安装使用候选 branch/精确 SHA，公开 v8.1.1 仍是旧 Understanding 集合。[迁移 ADR](adr/[ADR]_Learning_Evidence_Kit_Migration.md)、[记录/API 契约](spec/[SPEC]_Learning_Evidence_Record_And_API.md)、[新指南](guide/[GUIDE]_Learning_Evidence_Kit.md)及[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)分别维护决定、数据、使用边界与实际证据；[8.2.0 发布准备](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)维护逐入口资格和剩余门槛。Owner 接受核心独立验收后分段交付，所有启用提问入口严格待答；原生窗口不合格入口延期，文字重述不算窗口通过。Epic 与 Owner 最终接受独立追踪，新候选不追认历史或学习效果验收。
 
 Learning Evidence #224 已获当前 head 非作者批准并合入；实际 merge 的七种 canonical 安装和缓存 Python 通过，#211 已关闭。PR3 已按实际 merge 同步并通过 311 项回归与七隔离安装，其当前 head 独立批准与合入仍待完成，详见[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。公开 8.2.0 保持原三插件，HTML 另行发行。
 
