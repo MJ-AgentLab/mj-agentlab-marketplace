@@ -8,8 +8,10 @@ import {spawnSync} from "node:child_process";
 import {validateManifest,validateSkill,validateSkillInterface,validateRepository,validateOpenAIConfig,parseFrontmatter,validateLinks,REPOSITORY_SKILLS,PUBLIC_SKILLS} from "../scripts/validate-portable.mjs";
 const root=path.resolve(import.meta.dirname,".."), read=p=>fs.readFileSync(path.join(root,p),"utf8");
 const manifest=()=>JSON.parse(read("plugins/diagram-kit/plugin.json"));
-test("three approved portable plugins and all 20 repository skills satisfy contracts",()=>{
- const r=validateRepository(root);assert.equal(r.ok,true,r.errors.join("\n"));assert.equal(r.repositorySkills,20);assert.deepEqual(r.publicSkills,[...PUBLIC_SKILLS]);
+test("four approved portable plugins, six public skills and all 20 repository skills satisfy contracts",()=>{
+ const r=validateRepository(root);assert.equal(r.ok,true,r.errors.join("\n"));assert.equal(r.repositorySkills,20);
+ assert.deepEqual(r.publicSkills,["diagram-kit:arch-diagram","learning-evidence-kit:pop-quiz","learning-evidence-kit:learning-record-check","explain-kit:glossary","explain-kit:concept","html-guide-kit:guide"]);
+ assert.deepEqual(r.publicSkills,[...PUBLIC_SKILLS]);
 });
 test("strict repository validation rejects every retired instruction surface",t=>{
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),"retired-instructions-"));
@@ -43,7 +45,7 @@ test("manifest identity and default prompts cannot route into another plugin",()
  m.name=["diagram-kit"];assert.throws(()=>validateManifest(m));
 });
 test("each plugin advertises its exact approved capabilities without duplicates",()=>{
- for(const [plugin,approved] of [["diagram-kit",["Read","Write"]],["learning-evidence-kit",["Read","Write"]]]){
+ for(const [plugin,approved] of [["diagram-kit",["Read","Write"]],["learning-evidence-kit",["Read","Write"]],["explain-kit",["Read"]],["html-guide-kit",["Read"]]]){
   const m=JSON.parse(read(`plugins/${plugin}/plugin.json`));const ui=m.extensions["com.openai"].interface;
   ui.capabilities=[...approved];assert.doesNotThrow(()=>validateManifest(m,plugin));
   ui.capabilities=[...approved].reverse();assert.doesNotThrow(()=>validateManifest(m,plugin));
@@ -98,12 +100,16 @@ test("archive origins are reproducible Git blobs and preserve source versions",(
 });
 
 test("each plugin rejects extra skills, missing files and swapped manifest identities",t=>{
- const dir=repositoryFixture(t),plugin=path.join(dir,"plugins/explain-kit"),extra=path.join(plugin,"skills/extra");
- fs.mkdirSync(extra);assert.equal(validateRepository(dir).ok,false);fs.rmdirSync(extra);
- const skill=path.join(plugin,"skills/concept/SKILL.md"),text=fs.readFileSync(skill);fs.unlinkSync(skill);assert.equal(validateRepository(dir).ok,false);fs.writeFileSync(skill,text);
- const file=path.join(plugin,"plugin.json"),original=fs.readFileSync(file);fs.writeFileSync(file,read("plugins/diagram-kit/plugin.json"));
- assert.ok(validateRepository(dir).errors.some(e=>e.includes("identity/version")));fs.writeFileSync(file,original);
- assert.equal(validateRepository(dir).ok,true);
+ const dir=repositoryFixture(t);
+ for(const [name,entry] of [["diagram-kit","arch-diagram"],["learning-evidence-kit","pop-quiz"],["learning-evidence-kit","learning-record-check"],["explain-kit","concept"],["html-guide-kit","guide"]]){
+  const plugin=path.join(dir,"plugins",name),extra=path.join(plugin,"skills/extra");
+  fs.mkdirSync(extra);assert.equal(validateRepository(dir).ok,false);fs.rmdirSync(extra);
+  const skill=path.join(plugin,"skills",entry,"SKILL.md"),text=fs.readFileSync(skill);fs.unlinkSync(skill);assert.equal(validateRepository(dir).ok,false);fs.writeFileSync(skill,text);
+  const file=path.join(plugin,"plugin.json"),original=fs.readFileSync(file),foreign=name==="diagram-kit"?"explain-kit":"diagram-kit";
+  fs.writeFileSync(file,read(`plugins/${foreign}/plugin.json`));
+  assert.ok(validateRepository(dir).errors.some(e=>e.includes("identity/version")));fs.writeFileSync(file,original);
+  assert.equal(validateRepository(dir).ok,true);
+ }
 });
 
 test("manifest discovery prompts cover only the package's complete public skill set",()=>{

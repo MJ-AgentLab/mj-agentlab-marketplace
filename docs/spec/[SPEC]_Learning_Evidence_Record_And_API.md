@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: active
-version: v1.3
+version: v1.3.1
 ---
 
 # [SPEC] Learning Evidence records and common API
@@ -145,7 +145,7 @@ Collectors may group by person/task/KU and evidence ID, but counts distinguish l
 
 ## 7. Validation and change history
 
-PR2 and PR3 stage the common package under `scripts/learning-evidence/`, keeping old runtime plugin bytes unchanged. PR4 moves it atomically to `plugins/learning-evidence-kit/scripts/`, removes the staging location, updates strict registration to exactly three plugins/five public skills/two explicit policies, and proves installed-cache execution from an unrelated cwd. No compatibility loosening accepts a half-switched package. Other plugin versions remain unchanged.
+PR2 and PR3 stage the common package under `scripts/learning-evidence/`, keeping old runtime plugin bytes unchanged. PR4 moves it atomically to `plugins/learning-evidence-kit/scripts/`, removes the staging location, updates strict development registration to exactly four plugins/six public skills/three explicit policies after preserving the merged HTML package; the independently approved public 8.2.0 candidate remains exactly three plugins/five public skills/two learning policies, and proves installed-cache execution from an unrelated cwd. No compatibility loosening accepts a half-switched package. Other plugin versions remain unchanged.
 
 Run the repository checks and actual Python regression. New save/recovery/export/import tests isolate the library; GitHub write tests use a controlled fake `gh` process. Independent role synthesis records method, input, interpreter/client/package version, result and limits. Native windows, actual client entry, GitHub nonauthor approval, release and Owner final acceptance remain separately evidenced in the acceptance ledger.
 

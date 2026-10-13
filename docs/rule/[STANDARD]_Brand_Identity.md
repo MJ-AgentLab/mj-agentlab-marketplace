@@ -32,3 +32,5 @@ version: v1.1
 ## Acceptance
 
 自动验证证明字段、资源、安全路径、解码与安装一致性；小尺寸辨识及视觉统一由审阅确认。真实客户端显示独立记录，不能用 CLI 元数据代替。实际结果见 [品牌验收](../runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。
+
+HTML Guide Kit 已由 Owner 明确选择第二轮 A「HTML教材」：开放书页与 HTML 尖括号，继承 D 风格。准确来源/会话依据见 [选择记录](../../assets/brand/html-guide-kit/candidates/revision-2/selection.json)。正式包内SVG只替换候选标题，几何和PNG像素不变；exports/previews/provenance随PR2原子接入，PNG1024、小尺寸32/48/64均保留。四插件family预览自动按行展开，避免新增图标被裁切。新包文本与候选SVG用限定作用域的LF规则保证跨平台运行hash，PNG明确binary；不改变既有插件资源。

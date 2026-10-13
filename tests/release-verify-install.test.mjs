@@ -19,14 +19,19 @@ function fixture(){const d=fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir())
  for(const p of ["assets",".agents",".codex",".github","scripts","tests","plugins","docs","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])
  fs.cpSync(path.join(REPO,p),path.join(d,p),{recursive:true});
  git(d,"init","--quiet");git(d,"config","user.name","Fixture");git(d,"config","user.email","fixture@example.invalid");
+ // Canonical byte assertions use fixture-local settings, independent of system checkout conversion.
+ git(d,"config","--local","core.autocrlf","false");
  // Fixture commits must not leave asynchronous maintenance writing into .git during teardown.
  git(d,"config","gc.auto","0");git(d,"config","maintenance.auto","false");
  git(d,"add",".");git(d,"commit","--quiet","-m","fixture");return {d,sha:git(d,"rev-parse","HEAD"),version:fs.readFileSync(path.join(d,"VERSION"),"utf8").trim()};}
 test("release install uses the exact canonical tree rather than a dirty checkout",async()=>{
- const {d,sha,version}=fixture();fs.writeFileSync(path.join(d,"VERSION"),"9.9.9\n");let temporary;
+ const {d,sha,version}=fixture(),guide="plugins/html-guide-kit/skills/guide/references/guide-framework.md",guideBytes=fs.readFileSync(path.join(d,guide));
+ fs.writeFileSync(path.join(d,"VERSION"),"9.9.9\n");fs.writeFileSync(path.join(d,guide),"dirty untested guide\n");let temporary;
  const r=await verifyReleaseInstall({repoRoot:d,canonicalSha:sha,install:async({repoRoot})=>{
  temporary=repoRoot;assert.equal(git(repoRoot,"rev-parse","HEAD"),sha);
- assert.equal(fs.readFileSync(path.join(repoRoot,"VERSION"),"utf8").trim(),version);return {ok:true};}});
+ assert.equal(fs.readFileSync(path.join(repoRoot,"VERSION"),"utf8").trim(),version);
+ assert.deepEqual(fs.readFileSync(path.join(repoRoot,guide)),guideBytes);
+ assert.equal(JSON.parse(fs.readFileSync(path.join(repoRoot,"plugins/html-guide-kit/plugin.json"),"utf8")).version,"0.1.0");return {ok:true};}});
  assert.equal(r.ok,true);assert.ok(!fs.existsSync(temporary));assert.equal(git(d,"worktree","list","--porcelain").match(/^worktree /gm).length,1);
 });
 test("invalid canonical source never calls the installer",async()=>{
@@ -54,4 +59,22 @@ test("canonical release validation includes explain-kit before invoking installa
  git(d,"add",".");git(d,"commit","--quiet","-m","missing-public-skill");let calls=0;
  await assert.rejects(verifyReleaseInstall({repoRoot:d,canonicalSha:git(d,"rev-parse","HEAD"),install:async()=>{calls++;return {ok:true};}}),/explain-kit:concept/);
  assert.equal(calls,0);assert.equal(git(d,"worktree","list","--porcelain").match(/^worktree /gm).length,1);
+});
+
+test("canonical installation rejects missing HTML Guide Kit runtime files and contract drift before calling installer",async()=>{
+ const {d}=fixture(),plugin=path.join(d,"plugins/html-guide-kit");
+ const runtime=["plugin.json","skills/guide/SKILL.md","skills/guide/agents/openai.yaml","skills/guide/references/guide-framework.md","skills/guide/references/interaction-design.md"];
+ const original=Object.fromEntries(runtime.map(rel=>[rel,fs.readFileSync(path.join(plugin,rel))]));
+ const mutations=[
+  ...runtime.map(rel=>({name:`missing ${rel}`,apply:()=>fs.unlinkSync(path.join(plugin,rel)),reason:new RegExp(rel.endsWith("SKILL.md")?"html-guide-kit:guide":path.basename(rel).replaceAll(".","\\."))})),
+  {name:"implicit policy",apply:()=>fs.writeFileSync(path.join(plugin,"skills/guide/agents/openai.yaml"),original["skills/guide/agents/openai.yaml"].toString().replace("allow_implicit_invocation: false","allow_implicit_invocation: true")),reason:/html-guide-kit:guide/},
+  {name:"malformed root version",apply:()=>{const m=JSON.parse(original["plugin.json"]);m.version="00.1.0";fs.writeFileSync(path.join(plugin,"plugin.json"),JSON.stringify(m));},reason:/html-guide-kit manifest/},
+ ];
+ let calls=0;
+ for(const item of mutations){
+  for(const [rel,bytes] of Object.entries(original))fs.writeFileSync(path.join(plugin,rel),bytes);
+  item.apply();git(d,"add",".");git(d,"commit","--quiet","-m",item.name);
+  await assert.rejects(verifyReleaseInstall({repoRoot:d,canonicalSha:git(d,"rev-parse","HEAD"),install:async()=>{calls++;return {ok:true};}}),item.reason,item.name);
+  assert.equal(calls,0);assert.equal(git(d,"worktree","list","--porcelain").match(/^worktree /gm).length,1);
+ }
 });
