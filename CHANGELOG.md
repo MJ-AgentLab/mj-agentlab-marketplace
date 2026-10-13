@@ -16,6 +16,8 @@
 
 ### Changed
 
+- Prepare HTML Guide Kit 0.1.4 after an actual repeated-operation fidelity failure: match source preconditions to the current state again and separate known field results from unspecified extra feedback. Preserve invalid operator selection provenance and require actual target-heading selections in fresh verification. Refs #217, #220.
+
 - Record HTML Guide Kit PR2's actual develop merge d106e766 and PR3 expanded acceptance. Preserve missing independent GitHub approval, historical failures and unavailable native client events; real-world effectiveness remains NOT_MEASURED. Refs #217, #220.
 
 - Prepare HTML Guide Kit 0.1.3 after actual source-fidelity and simulation failures across 0.1.0–0.1.2. Preserve decisive known conditions, distinguish direct operations from undefined later paths, and retain source terms, value types and quantifiers. Cross-check assertions across all guide sections. Preserve each failed version and require new canonical installation and affected/six-group behavior verification. Refs #217, #220.

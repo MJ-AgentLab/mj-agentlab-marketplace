@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.7
+version: v1.8
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -273,3 +273,15 @@ dry-run 后只将 HTML Guide Kit 推进 0.1.2→0.1.3，市场和其他插件版
 0.1.3 canonical `ffaa68f8998d3d0344b760492dd7169c13bee0a5` / tree `d97ea04a46b804588bdcd98efb94171e628aa6f9` 的[完整严格安装](evidence/html-guide-kit/pr3-post-merge/engineering-ffaa68f8/installation.json)及[汇总](evidence/html-guide-kit/pr3-post-merge/engineering-ffaa68f8/summary.json)通过：保留原四场景并加入 HTML、HTML + Explain、全部四插件，共七场景；四个含 Diagram 场景实际缓存 Python 均 PASS。源/cache 资源字节、manifest、版本、图标、引用及调用策略均严格校验，consumer 开发技能 0 / repository 20。原始命令、detached head/tree、依赖准备和各资源身份见[24 文件索引](evidence/html-guide-kit/pr3-post-merge/engineering-ffaa68f8/archive-index.json)。评审镜像排除 reviewer-only，不宣称与完整 canonical tree 相等。
 
 新模型六组、29 个扩展变体及两条连续流程补证正在该 canonical 的独立中性路径/cache 上执行；仅完整真实输出及独立语义评审允许 PASS。首个 B4.1 选择了较窄理解目标，未触发归还/取消等全分支，独立 UNEXERCISED 保留；另以同候选和冻结原输入新增完整目标会话补覆盖。E7 操作侧自动选择误取嵌套问题编号的原调用保留选择出处缺陷，新会话从实际更新目标标题人工选择；这不是运行语义 FAIL，也不能作为有效选择来源证明。未完成的独立评审、原生客户端与实际窗口事件、最终 PR head/merge 和 GitHub 当前提交非作者批准继续保留，不以工程通过代替。
+
+## §17 Repeated-operation correction and control provenance
+
+0.1.3 的 E13 真实 session UUID `01a1331c-6de9-7633-af64-ca8cb6a7c01f` / attempt `16a88680-7f07-44b0-a5bb-9b833abc7b4b` 第二轮第 142 行将预约已无效时再次取消整体列为“材料未规定”。源 §6 的领取前允许条件没有当前预约有效或只能取消一次的限制；当前未核验、预约无效且仍在领取前时，操作及预约/状态赋值、导览/库存不变仍由原规则确定。额外重复提示文案可能未规定，不能因此把已知字段结果改为未知。第 80、120 行的正确一般规则不抵消第 142 行的矛盾，[独立 FAIL](evidence/html-guide-kit/pr3-post-merge/candidate013-e13-failure.json)保留；实际顶层 A、原输入、工具回传与七资源字节核验均有效，这不是操作控制无效。原始评审字节的来源与 SHA 见[索引](evidence/html-guide-kit/pr3-post-merge/candidate013-e13-failure-index.json)，完整历史会话封存待其余独立评审完成。
+
+自动操作选择器的回退匹配接受嵌套理解题编号，原 A/B/C 目标可能被记录为 `1`。精确审计保存原 selector SHA `72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1`、代码第 12–14、18 行与实际输出定位。八个旧 B/E 调用存在选择出处缺口，原语义记录保留，控制有效性另记 INVALID_RUN，不能计入有效验收 PASS，也不能当成运行语义 FAIL。后续操作只人工读取实际目标标题和三元组摘录；不修改冻结 harness、原输入或旧结果。
+
+人工 B1/B2 四变体 11 轮与 E7 确认后材料更新、E12 停止后重启两变体 9 轮已独立 PASS。完整 B4.1 新两轮 PASS；旧窄目标与选择缺口仍保存。E7 原输入补证合法要求材料范围澄清、仅两轮完成；另新增自然澄清的四轮完整真实会话，等待独立评审。发现 E13 语义失败后正常暂停后续调度：四项 E 补证只有前三项六轮及 E3 首轮，共七轮 COMPLETE，E3 第二轮未调用；准备的 B3.1 补证 attempts=0。没有杀进程或将未执行补写 PASS。
+
+dry-run 后仅将本插件推进 0.1.3→0.1.4。通用方法按本次当前状态重新匹配重复操作的源条件，保留仍适用的字段结果，将未规定的额外提示限制在提示本身；不新增有效性、限次条件或验收领域答案。市场和其他插件版本、图标、显式 Read 与确认等待边界不变。新候选须完成严格 canonical 安装、受影响 E13/术语路径与重复操作补证，以及全部六组阻断项；未测试的新版本不能继承旧 PASS。0.1.3 其余独立评审继续保存历史实际结果，原生入口及最终 head/merge 门禁仍未完成。
+
+0.1.4 工作修正的[完整测试](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-4/npm-test.log)279/279、零 skip，[validate](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-4/npm-validate.log)及[基线 check](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-4/npm-check.log)通过；[原始索引](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-4/archive-index.json)保留 dry-run/apply 唯一 manifest 目标。此处是工作候选工程检查，不是 committed canonical 安装或 0.1.4 模型行为通过。

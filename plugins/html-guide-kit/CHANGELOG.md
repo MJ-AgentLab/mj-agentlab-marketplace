@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+## [0.1.4] - 2026-10-13
+
+### Fixed
+
+- HTML Guide Kit 0.1.4 rechecks source preconditions against the current state on repeated operations. Existing field results remain known when the rule still applies; unspecified extra feedback does not erase them.
+- Preserve the actual 0.1.3 repeated-operation failure and invalid operator selections separately. Require new canonical installation, affected cases and all six blocking groups with actual target-heading selections.
+
 ## [0.1.3] - 2026-10-13
 
 ### Fixed
