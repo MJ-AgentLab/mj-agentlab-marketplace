@@ -49,7 +49,7 @@ npm run smoke:codex
 
 ### §2.3 Model behavior replay
 
-使用已安装 pop-quiz 与可信合成快照执行下表场景。consumer/cwd/source path 均用中性随机身份，安装镜像排除全部 evals；保留必要实际输出、原始失败、未覆盖项及执行层级，不提交认证数据。测试夹具中的答案只用于检查行为，不作为真实 owner 的能力证据。下表为当前 0.1.1 实际路径；完整计数、版本和逐题摘录见 [最终矩阵](../../plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-post-merge-matrix.md)。
+使用已安装 pop-quiz 与可信合成快照执行下表场景。consumer/cwd/source path 均用中性随机身份，安装镜像排除全部 evals；保留必要实际输出、原始失败、未覆盖项及执行层级，不提交认证数据。测试夹具中的答案只用于检查行为，不作为真实 owner 的能力证据。下表为当前 0.1.1 实际路径；完整计数、版本和逐题摘录见 [最终矩阵](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/b2e5a74109f47ecee7471ba741fb4c1348457f3b/plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-post-merge-matrix.md)。
 
 | Case | Expected behavior | Result / evidence |
 | --- | --- | --- |
@@ -81,8 +81,8 @@ npm run smoke:codex
 | baseline / strict validation | PASS | codex-cli 0.147.0；初始双插件树为两个公开技能，同步 #196 后 npm run validate 返回 ok:true、19 个开发技能、四个公开技能 |
 | 完整工程测试与真实 Python 校验 | PASS | 初始候选 npm test：212/212；同步路径修复后、精确 #195 合并树和双插件 0.1.1 候选均为 215/215；同步 #196 与版本夹具修正后 230/230，0 fail、0 skipped。REQUIRE_PYTHON=1 / REQUIRE_PWSH=1；Python 3.12.14，真实图表执行测试通过。初始及 0.1.1 skill-creator quick_validate 均通过 |
 | 两插件隔离安装、内外作用域和参考资源 | PASS | npm run smoke:codex：两插件已安装，0.1.1 候选再次通过；普通 prompt 为 consumer 1/0、repo 1/19；原生 skills/list 为 2/0、2/19；pop-quiz false 策略和缓存 SKILL/YAML/两 refs 与来源一致，MCP=[]；临时安装根清理成功。canonical Git worktree 分别复验合并 SHA b76def7 与修正 SHA 6d79318，均通过 |
-| 初始实际模型 forward 样本 | LIMITED PILOT | CLI 0.147.0 / 默认 gpt-5.6-sol / openai；三个会话、共 8 turn。完整主链 5 turn / 1 KU / 3 题；缺职责 1 turn / 0 题；冲突 2 turn / 1 道未答的独立依据题。样本覆盖与摘录见 [记录](../../plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-forward-sample.md)。后续方法审计发现 consumer 路径带语义标签，保留为有限 pilot，不计最终中性路径矩阵 |
-| 0.1.1 中性路径实际 forward 矩阵 | PARTIAL COVERAGE | 19 fresh 变体 / 78 turn / 44 展示题：18 scoped PASS、明确同源错误分支 1 UNEXERCISED；额外 fresh forward 重试 4 turn / 3 题仍 UNEXERCISED。合计 20 forward 会话 / 82 turn / 47 题；版本、输入隔离、逐题输出、工具与清理见 [矩阵](../../plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-post-merge-matrix.md) |
+| 初始实际模型 forward 样本 | LIMITED PILOT | CLI 0.147.0 / 默认 gpt-5.6-sol / openai；三个会话、共 8 turn。完整主链 5 turn / 1 KU / 3 题；缺职责 1 turn / 0 题；冲突 2 turn / 1 道未答的独立依据题。样本覆盖与摘录见 [记录](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/b2e5a74109f47ecee7471ba741fb4c1348457f3b/plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-forward-sample.md)。后续方法审计发现 consumer 路径带语义标签，保留为有限 pilot，不计最终中性路径矩阵 |
+| 0.1.1 中性路径实际 forward 矩阵 | PARTIAL COVERAGE | 19 fresh 变体 / 78 turn / 44 展示题：18 scoped PASS、明确同源错误分支 1 UNEXERCISED；额外 fresh forward 重试 4 turn / 3 题仍 UNEXERCISED。合计 20 forward 会话 / 82 turn / 47 题；版本、输入隔离、逐题输出、工具与清理见 [矩阵](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/b2e5a74109f47ecee7471ba741fb4c1348457f3b/plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-post-merge-matrix.md) |
 | 明确同源错误历史状态回放 | PASS（STATE_REPLAY） | 独立构造的历史两题与两次兼容错选，真实继续 3 turn / 1 道新 Q3；定向纠错、新操作练习及 IMMEDIATE_APPLICATION 通过。历史两题计回放预算，不计新 forward 题；不能补记该 forward 分支 PASS |
 | #196 三插件集成安装 | PASS | 四种隔离安装场景：diagram 单独、explain 单独、两者组合、全部三插件；普通 public 数依次 1/2/3/3，原生 1/2/3/4，仓库外开发技能 0、内 19。包身份/版本、完整原生提示、缓存资源字节与显式策略通过，MCP=[]；安装缓存 Python 图表实际扫描 1 张图，FAIL 0、WARN 0 |
 | Codex Side Chat 真实交互 | NOT RUN | 本会话无可操作的原生 Side Chat 控制；CLI 样本不证明 Side Chat 或窗口行为 |

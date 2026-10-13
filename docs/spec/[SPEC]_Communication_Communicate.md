@@ -6,16 +6,18 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.3
+version: v1.4
 ---
 
 # [SPEC] Communication Communicate
 
 ## §1 Purpose and identity
 
-本契约指导 `communication-kit / communicate` 首版。PR1 当时只建立契约、保持三插件四技能；PR3 已实现完整0.1.0候选并原子接入插件、注册、严格集合、冻结资源、图标及安装预期，同步 HTML 开发基线后的候选五插件六技能、20开发技能。唯一入口 `$communication-kit:communicate`，原生展示“沟通助手”，`allow_implicit_invocation: false`，manifest 能力准确为 `["Read", "Write"]`，manifest 与原生默认提示仅调用本入口。实际文件见[manifest](../../plugins/communication-kit/plugin.json)、[主技能](../../plugins/communication-kit/skills/communicate/SKILL.md)及[原生配置](../../plugins/communication-kit/skills/communicate/agents/openai.yaml)。
+本契约指导 `communication-kit / communicate` 首版。PR1 当时只建立契约、保持三插件四技能；PR3 已实现完整0.1.0候选并原子接入插件、注册、严格集合、冻结资源、图标及安装预期，同步 Learning 替代与 HTML 开发基线后的候选五插件七技能、20开发技能。唯一入口 `$communication-kit:communicate`，原生展示“沟通助手”，`allow_implicit_invocation: false`，manifest 能力准确为 `["Read", "Write"]`，manifest 与原生默认提示仅调用本入口。实际文件见[manifest](../../plugins/communication-kit/plugin.json)、[主技能](../../plugins/communication-kit/skills/communicate/SKILL.md)及[原生配置](../../plugins/communication-kit/skills/communicate/agents/openai.yaml)。
 
-候选实现不等于契约已全部验收。固定b2d47ce的S01–S12客观范围已有实测，完整资源比对缺口已补；初轮实际行为的交付和无据事实问题保留。通用修复后的94c170d实际CLI批次为15 PASS、3 PARTIAL；补充工具角色三项限定功能PASS，不能替代CLI未覆盖子路径或真实双客户端。同步HTML不改变Communication包内容，新增矩阵另做工程复验。真实双客户端及R01–R05仍NOT RUN，PR3保持draft。当前市场未发布8.1.2、main / 最新Release 8.1.1的前三插件范围和当前候选分别记录。
+候选实现不等于契约已全部验收。固定b2d47ce的S01–S12客观范围已有实测，完整资源比对缺口已补；初轮实际行为的交付和无据事实问题保留。通用修复后的94c170d实际CLI批次为15 PASS、3 PARTIAL；补充工具角色三项限定功能PASS，不能替代CLI未覆盖子路径或真实双客户端。同步HTML不改变Communication包内容，新增矩阵另做工程复验。同应用Codex本地与ChatGPT/Work本机入口的必要基本范围已有实际限定证据，身份及原生窗口等未覆盖项见RUNBOOK；R01–R05仍NOT RUN，PR3保持draft。当前市场未发布8.1.2、main / 最新Release 8.1.1的前三插件范围和当前候选分别记录。
+
+Owner Q3已确认正式发行仅在Learning已公开三包上加入Communication（四包六技能），HTML保留develop另发；开发五包七技能的安装结果不能代替正式四包源的验收。原单入口、保义与显式文件操作合同不变。
 
 ## §2 Ordered behavior
 
@@ -72,6 +74,7 @@ version: v1.3
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.4 | 2026-10-13 | 合并PR1范围澄清、Learning开发集合与已执行本机入口限定状态，原行为合同不变 |
 | v1.3 | 2026-10-13 | 保留产品与行为合同，更新HTML基线后的实际集合并明确既有行为证据限制 |
 | v1.2 | 2026-10-12 | 明确每次有效成稿后必有简短提示，以及原因等事实内容的依据边界；保留失败待复验 |
 | v1.1 | 2026-10-12 | 对齐已实现0.1.0候选、精确冻结记录及部分工程实证；保留未完成验收 |

@@ -6,14 +6,14 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.7
+version: v1.8
 ---
 
 # [RUNBOOK] Communication Kit acceptance
 
 ## §1 Preconditions and status
 
-PR3已实现并原子接入完整Communication 0.1.0候选、注册、严格集合、冻结资源、正式D图标与安装预期。修复候选94c170d的278测试/九组合保留；HTML基线同步后工程源通过307/307，固定000e803的十三组canonical与六次缓存Python通过。S01–S12客观范围逐项核对。实际CLI批次C01–C15 PASS，C16–C18文件子路径PARTIAL；补充工具角色另有三项限定功能PASS，身份和覆盖分开。2026-10-13代理亲自完成统一桌面应用内Codex本地和ChatGPT/Work本机两个实际入口的必要基本功能，限定范围PASS，详见§4。原行为FAIL、CLI限制与原生选择窗口NOT RUN保留；R01–R05未执行，依赖和GitHub批准未满足，PR3保持draft。[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)保持开放，完整计划与[来源捕获](../../plan/communication-kit-plan-provenance.json)在plan/。
+PR3已实现并原子接入完整Communication 0.1.0候选、注册、严格集合、冻结资源、正式D图标与安装预期。修复候选94c170d的278测试/九组合保留；HTML基线同步后工程源通过307/307，固定000e803的十三组canonical与六次缓存Python通过。S01–S12客观范围逐项核对。实际CLI批次C01–C15 PASS，C16–C18文件子路径PARTIAL；补充工具角色另有三项限定功能PASS，身份和覆盖分开。2026-10-13代理亲自完成统一桌面应用内Codex本地和ChatGPT/Work本机两个实际入口的必要基本功能，限定范围PASS，详见§4。原行为FAIL、CLI限制与原生选择窗口NOT RUN保留；R01–R05未执行，Learning8.2已published，但GitHub批准和阶段实际合并未满足，PR3保持draft。[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)保持开放，完整计划与[来源捕获](../../plan/communication-kit-plan-provenance.json)在plan/。
 
 PR1 当时仅定义验收、没有运行包，全部新包用例从 NOT RUN 开始；该历史及失败批次保留，当前状态不覆盖原记录。
 
@@ -67,7 +67,7 @@ npm run smoke:codex
 | S11 | canonical候选资源缺失或篡改阻止安装 | PASS — 八项资源缺失/篡改在安装前阻断 |
 | S12 | 旧插件、实际Python图表校验、无MCP保持 | PASS — 九组合及四次缓存Python实际执行 |
 
-S01按原计划候选四插件五技能、20仓库技能检查；若先发布的Learning改变基线，实施者须呈现差异并取得必要范围决定，不能凭本表豁免。S05哈希不证明语义忠实；逐节来源对照另记。S10须实际尺寸人工检查和明确新图标选择。S11以strict canonical验证器测试资源变异阻止安装。
+S01原四插件五技能仅为起始历史；Learning替换后当前开发五包七技能、20仓库技能，Owner Q3正式四包六技能/HTML另发。各集合均精确验证，不按旧数豁免。S05哈希不证明语义忠实；逐节来源对照另记。S10须实际尺寸人工检查和明确新图标选择。S11以strict canonical验证器测试资源变异阻止安装。
 
 九个隔离安装组合：Diagram；Understanding；Explain；Diagram＋Explain；原三插件；Communication；Communication＋Explain；Communication＋Understanding；全四插件。每组合独立cache，逐资源字节对照。全量普通发现3、原生5；Communication独装普通0、原生1；仓库开发技能20，消费者0。新基线引起矩阵变化须明确处理。
 
@@ -246,6 +246,7 @@ PR4当前仅准备上述账本。完成PR3合并身份比较后，核对未发�
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.8 | 2026-10-13 | 整合Learning原子替代、Owner Q3四包公开范围与三轮工程记录；Learning正式先发已完成，Communication门禁和发布未完成 |
 | v1.7 | 2026-10-13 | 继承实际Learning GitHub流转基线#227，保留并行目录/变更记录与旧身份，追加新工程批次；正式版本和发布门禁未解除 |
 | v1.6 | 2026-10-13 | 普通merge继承实际Learning存储基线#224；追加四阶段新身份、冲突保留与工程复验，不替换既有UI身份或预填正式发布 |
 | v1.5 | 2026-10-13 | PR4并行准备验收汇总和远端门禁事实；保留Learning先发/非作者批准阻塞，不转换版本，不预填R01–R05 |
@@ -255,3 +256,12 @@ PR4当前仅准备上述账本。完成PR3合并身份比较后，核对未发�
 | v1.1 | 2026-10-12 | 记录PR3已实现候选、部分工程/九组合实证与S08缺口，增加必要客户端执行清单；行为及发布仍未判定 |
 | v1.0 | 2026-10-12 | 固定基础用例与证据状态；全部新包用例尚未执行 |
 
+## Learning 原子迁移后的 PR3 开发集成
+
+Refs #222。2026-10-13 普通合入 #228 精确来源 `434d053ae3bcc35706fc52f0d8774c3aa61c6c57`；当前磁盘/注册/白名单为 Diagram、Learning Evidence、Explain、HTML、Communication 五插件，七公开技能、四显式入口，普通发现三，开发20。Understanding 已退出当前候选；原计划405行及旧批次按原身份保留。十三组合将原 Understanding 替换为 Learning 双技能，包含6组实际缓存图表Python及6组Learning包内保存/重放/回读；新工作树工程结果及后续固定提交canonical分批记录。两套验收规则都保持，Communication 包tree仍 `14a3896c7ad50597bfc83996bcfec25180a720f9`，不改变任何运行包或VERSION。旧失败、CLI PARTIAL、已执行UI的限定范围和未覆盖项不由本次合并追认；实际发行From/To与新增范围留PR4。
+
+Owner 后续已明确 Q3：Communication 正式发行采用 Learning 三包基准＋Communication，共四包六技能、三显式入口，HTML 保留 develop 另发。当前五包开发安装通过不代表正式四包发行已验证；实际 From/To、main/tag/Release 身份及正式候选回归在 PR4 执行。该决定不改405行保存计划及其哈希，不重问已确认产品和上线目标。
+
+当前工作树工程首轮344项为343 PASS/1 FAIL：HTML 的旧专用128字符错误遮住上游统一Unicode诊断。保留原始失败日志后，统一采用全插件1–3条/128 Unicode scalar values/合法Unicode规则，Communication原生提示预算保持；完整复验344/344、0跳过通过。首次严格检查的根指令预算和仅pyc残存过渡目录失败亦保留；按历史账本指针收敛根指令、核验后清理缓存，未提高预算。uv3.12.13 与 bundled3.12.14分别完成13组合隔离安装、6次缓存Diagram和6组Learning保存/重放/回读；两解释器下33存储/31受控GitHub Python用例通过，GitHub测试无真实远端写入。它们都是未提交工作树批次，固定提交canonical尚未执行；源码、包身份与原始日志待最终固定提交分别归档。
+
+Learning8.2.0已于2026-10-13T05:00:19Z正式published，tag和Release目标均为`ebc4bdc3abc62c36348d9ba28de7161b04b3b466`、github-actions[bot]、非draft/非prerelease。该事实满足先发依赖，不计Communication的R01–R05；其实际版本转换仍在本阶段按已确认后续minor目标执行并记录。

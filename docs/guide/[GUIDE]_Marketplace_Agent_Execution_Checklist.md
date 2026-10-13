@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.5
+version: v2.6
 ---
 
 # [GUIDE] Agent execution checklist
@@ -17,13 +17,15 @@ version: v2.5
 
 Communication 阶段逐项确认以下条件：
 
-- 候选为五插件六公开技能、20开发技能；新包/索引/严格集合/冻结资源/图标/安装预期同 PR 接入，已发布 main / v8.1.1 三插件范围另记。
+- 候选为五插件七公开技能、20开发技能；新包/索引/严格集合/冻结资源/图标/安装预期同 PR 接入，已发布 main / v8.1.1 三插件范围另记。
 - manifest 与原生 defaultPrompt 仅自身 communicate，Read/Write、布尔 false 显式策略；运行只读包内精选摘要，三份摘要哈希与真实来源状态可追溯。
-- 十三组合独立安装，源/缓存资源字节一致；全量普通3/原生6、Communication普通0/原生1、消费者无开发技能；Python 实际执行且无MCP。
+- 十三组合独立安装，源/缓存资源字节一致；全量普通3/原生7、Communication普通0/原生1、消费者无开发技能；Python 实际执行且无MCP。
 - 固定案例记录多轮等待、保义、来源归属、完成范围、真实保存/回读与失败；两客户端记录候选身份、安装、图标/入口及必要交互。当前行为与客户端尚未验收，保持 NOT RUN 和 draft；失败不覆盖，以新批次复验。
 - Refs #222 与依赖顺序明确，当前 head 的检查、非作者批准及解决线程满足实际门禁；Release published、身份一致及发布后 canonical 复查完成才关闭 Epic。
 
 市场当前未发布8.1.2、新包0.1.0；Learning 先8.2.0，Communication 随后独立 minor（预计8.3.0），PR4 重查实际 From/To、基线及范围。现实场景效果测试本轮延期，不作基础上线门槛，也不由功能通过宣称效果已验证。
+
+代理记录结果并修复可独立处理的问题；owner 只决定未决事项或必要外部身份，不承担例行手工执行。旧 Diagram/Explain 四场景见 [历史验收](../runbook/[RUNBOOK]_Explain_Kit_Acceptance.md)；新开发候选检查精确四插件/六技能/三显式策略，独立公开 8.2.0 候选仍三插件/五技能/两学习策略、包内共用 Python、保存库隔离和替身 GitHub 写入。按 [Learning Evidence 账本](../runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)独立记录合成角色、客户端和窗口证据，所有启用提问入口严格待答，原生持续显示不合格则延期；不把文字/pending 或未执行项打勾。Owner 已接受分段核心交付和双技能/接口不变，条件发布授权复用；GitHub 当前 head 非作者批准与 required checks 保留，Epic/延期和 Owner 最终接受分别追踪。
 
 图标变更检查批准记录、可编辑源、实际小尺寸预览、字段/路径/解码、安装引用和内容一致性；新设计先选择再接入。品牌规则与实际限制见 [验收记录](../runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。
 
@@ -34,3 +36,7 @@ Communication 阶段逐项确认以下条件：
 | Version | Date | Summary |
 |---|---|---|
 | v2.5 | 2026-10-13 | 同步 HTML 开发基线，保留 Communication 合同并更新五插件集合与十三组合预期 |
+
+| Version | Date | Summary |
+|---|---|---|
+| v2.6 | 2026-10-13 | 同步 Learning 原子替代与 Communication 完整集成，按当前集合验收，发行范围另核对 |

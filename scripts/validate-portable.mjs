@@ -18,17 +18,18 @@ export const REPOSITORY_SKILLS = [
 export const PORTABLE_SCHEMA = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json";
 export const RUNTIME_PLUGINS = Object.freeze({
   "diagram-kit": Object.freeze(["arch-diagram"]),
-  "understanding-kit": Object.freeze(["pop-quiz"]),
+  "learning-evidence-kit": Object.freeze(["pop-quiz", "learning-record-check"]),
   "explain-kit": Object.freeze(["glossary", "concept"]),
   "communication-kit": Object.freeze(["communicate"]),
   "html-guide-kit": Object.freeze(["guide"]),
 });
 export const PUBLIC_SKILLS = Object.freeze(Object.entries(RUNTIME_PLUGINS).flatMap(([plugin, skills]) => skills.map(skill => `${plugin}:${skill}`)));
-export const EXPLICIT_ONLY_SKILLS = Object.freeze(["understanding-kit:pop-quiz", "communication-kit:communicate", "html-guide-kit:guide"]);
+export const EXPLICIT_ONLY_SKILLS = Object.freeze(["learning-evidence-kit:pop-quiz", "learning-evidence-kit:learning-record-check", "communication-kit:communicate", "html-guide-kit:guide"]);
 export const COMMUNICATION_REFERENCES = Object.freeze(["references/aics-policy.md", "references/task-patterns.md", "references/source-provenance.md", "references/aics-snapshot.json"]);
 export const SKILL_RESOURCES = Object.freeze({
   "diagram-kit:arch-diagram": Object.freeze(["SKILL.md", "agents/openai.yaml", "scripts/validate_diagram.py", "references/architecture-methodology.md", "references/domain-acquisition.md", ...["context", "container", "component", "code", "sequence", "state-machine", "deployment"].map(t => `references/${t}-diagram.md`)]),
-  "understanding-kit:pop-quiz": Object.freeze(["SKILL.md", "agents/openai.yaml", "references/ku-selection.md", "references/quiz-policy.md"]),
+  "learning-evidence-kit:pop-quiz": Object.freeze(["SKILL.md", "agents/openai.yaml", "references/ku-selection.md", "references/quiz-policy.md"]),
+  "learning-evidence-kit:learning-record-check": Object.freeze(["SKILL.md", "agents/openai.yaml"]),
   "explain-kit:glossary": Object.freeze(["SKILL.md", "agents/openai.yaml"]),
   "explain-kit:concept": Object.freeze(["SKILL.md", "agents/openai.yaml"]),
   "communication-kit:communicate": Object.freeze(["SKILL.md", "agents/openai.yaml", ...COMMUNICATION_REFERENCES]),
@@ -36,7 +37,7 @@ export const SKILL_RESOURCES = Object.freeze({
 });
 const PLUGIN_CAPABILITIES = Object.freeze({
   "diagram-kit": Object.freeze(["Read", "Write"]),
-  "understanding-kit": Object.freeze(["Read"]),
+  "learning-evidence-kit": Object.freeze(["Read", "Write"]),
   "explain-kit": Object.freeze(["Read"]),
   "communication-kit": Object.freeze(["Read", "Write"]),
   "html-guide-kit": Object.freeze(["Read"]),
@@ -95,8 +96,13 @@ export function validateManifest(manifest, expectedName) {
   const capabilities = PLUGIN_CAPABILITIES[manifest.name];
   if (!Array.isArray(ui.capabilities) || ui.capabilities.length !== capabilities.length || new Set(ui.capabilities).size !== ui.capabilities.length || ui.capabilities.some(value => !capabilities.includes(value))) throw new Error("interface.capabilities must match the plugin's approved capabilities");
   if (ui.category !== "Developer Tools" || !Array.isArray(ui.defaultPrompt) || !ui.defaultPrompt.length || ui.defaultPrompt.some(p => !routesToOwnedSkill(p, manifest.name))) throw new Error("invalid OpenAI listing/routing metadata");
-  if (manifest.name === "communication-kit" && ui.defaultPrompt.some(prompt => [...prompt].length > 128)) throw new Error("communication listing prompt exceeds the 128-character client budget");
-  if (manifest.name === "html-guide-kit" && ui.defaultPrompt.some(prompt => [...prompt].length > 128)) throw new Error("html-guide-kit interface.defaultPrompt entries must be at most 128 characters");
+  if (ui.defaultPrompt.length > 3) throw new Error("interface.defaultPrompt supports at most 3 prompts");
+  for (const [index, prompt] of ui.defaultPrompt.entries()) {
+    if (!prompt.isWellFormed()) throw new Error(`interface.defaultPrompt[${index}] must contain well-formed Unicode scalar values`);
+    // Codex 0.147.0 counts Unicode scalars after whitespace normalization. Keep the
+    // repository's raw listing text within that budget so no normalization is needed.
+    if ([...prompt].length > 128) throw new Error(`interface.defaultPrompt[${index}] must be at most 128 Unicode scalar values before normalization`);
+  }
   for (const skill of RUNTIME_PLUGINS[manifest.name]) {
     if (!ui.defaultPrompt.some(prompt => [...prompt.matchAll(/\$([a-z0-9-]+):([a-z0-9-]+)(?![A-Za-z0-9_-])/g)].some(([, plugin, name]) => plugin === manifest.name && name === skill))) throw new Error("listing must expose every public skill");
   }
@@ -353,6 +359,7 @@ export function validateRepository(repoRoot) {
     for (const [plugin, expectedSkills] of Object.entries(RUNTIME_PLUGINS)) {
       const pluginRoot = path.join(root, "plugins", plugin);
       if (!inside(root, pluginRoot)) throw new Error(`plugin escapes repository: ${plugin}`);
+      validateResourceTree(pluginRoot);
       const skills = fs.readdirSync(path.join(pluginRoot, "skills")).sort();
       if (JSON.stringify(skills) !== JSON.stringify([...expectedSkills].sort())) throw new Error(`unexpected public skill set: ${plugin}`);
       for (const rel of ["plugin.json", "README.md", "LICENSE", "CHANGELOG.md", ...expectedSkills.flatMap(skill => [`skills/${skill}/SKILL.md`, `skills/${skill}/agents/openai.yaml`])]) {
@@ -398,12 +405,27 @@ export function validateRepository(repoRoot) {
     }
   });
   check("quiz resources", () => {
-    const skillRoot = path.join(root, "plugins/understanding-kit/skills/pop-quiz");
+    const skillRoot = path.join(root, "plugins/learning-evidence-kit/skills/pop-quiz");
     for (const rel of ["references/ku-selection.md", "references/quiz-policy.md"]) {
       if (!inside(skillRoot, path.join(skillRoot, rel)) || !fs.statSync(path.join(skillRoot, rel)).isFile()) throw new Error(`resource is not an owned skill file: ${rel}`);
     }
   });
   check("communication resources", () => validateCommunicationSnapshot(path.join(root, "plugins/communication-kit/skills/communicate")));
+  check("learning evidence common resources", () => {
+    const pluginRoot = path.join(root, "plugins/learning-evidence-kit");
+    for (const rel of ["scripts/lek.py", "scripts/common.py", "scripts/storage.py", "scripts/github_flow.py", "references/record-contract.md", "references/record-template.json", "references/client-entries.json"]) {
+      const file = path.join(pluginRoot, rel);
+      if (!inside(pluginRoot, file) || !fs.statSync(file).isFile()) throw new Error(`common resource is not package-owned: ${rel}`);
+    }
+    if (fs.existsSync(path.join(root, "scripts/learning-evidence"))) throw new Error("transitional learning evidence scripts must be removed atomically");
+    const entries = JSON.parse(read(pluginRoot, "references/client-entries.json"));
+    if (entries.schema_version !== 1 || entries.plugin_version !== JSON.parse(read(pluginRoot, "plugin.json")).version || !Array.isArray(entries.entries)) throw new Error("invalid client entry ledger");
+    const expectedEntries = ["chatgpt-desktop-native-questions", "codex-native-questions"];
+    if (JSON.stringify(entries.entries.map(e => e?.id).sort()) !== JSON.stringify(expectedEntries)) throw new Error("client ledger must preserve both known deferred entries");
+    for (const entry of entries.entries) {
+      if (!entry || typeof entry !== "object" || Object.keys(entry).sort().join(",") !== "id,reason,removal_condition,status" || entry.status !== "deferred" || typeof entry.reason !== "string" || !entry.reason.trim() || typeof entry.removal_condition !== "string" || !entry.removal_condition.trim()) throw new Error("0.1.0 native entries require explicit deferral and removal conditions");
+    }
+  });
   for (const file of files(path.join(root, "docs")).filter(p => p.endsWith(".md") && !p.includes(`${path.sep}archive${path.sep}`) && !p.includes(`${path.sep}_templates${path.sep}`))) {
     check(path.relative(root, file), () => {
       const { metadata } = parseFrontmatter(fs.readFileSync(file, "utf8"));
