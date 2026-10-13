@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "stage": "PR1",
+  "batch": "baseline-05",
+  "recordedAt": "2026-10-13T01:32:24.629Z",
+  "timezone": "Asia/Taipei",
+  "refs": "#222",
+  "baseline": "d106e76651d53cdf3f0cef2bb33ce47e8d7fda38",
+  "candidate": {
+    "sha": "40b2957146416700803b1d00e8c33da80d6c8d40",
+    "tree": "a62e144febd54b27d00bea3325e9c9e388ad0ebe"
+  },
+  "tests": {
+    "tests": 279,
+    "pass": 279,
+    "fail": 0,
+    "skipped": 0,
+    "result": "PASS",
+    "log": "communication-kit-2026-10-13-pr1-baseline-05-tests.log",
+    "sha256": "b36458aad05f724ef4121114747adc3e4b04d04273ec9d8d4083a0b9267ee701",
+    "logModifiedAt": "2026-10-12T13:00:13.914Z",
+    "method": "actual npm test on resolved merge working tree; unchanged files subsequently committed"
+  },
+  "validate": {
+    "result": "PASS",
+    "publicSkills": [
+      "diagram-kit:arch-diagram",
+      "understanding-kit:pop-quiz",
+      "explain-kit:glossary",
+      "explain-kit:concept",
+      "html-guide-kit:guide"
+    ],
+    "repositorySkills": 20,
+    "log": "communication-kit-2026-10-13-pr1-baseline-05-validate.log",
+    "sha256": "30df367edd1a61ce1fcb50e16cab153a6b94083a9654f909d9259adc58b15f17"
+  },
+  "canonical": {
+    "result": "PASS",
+    "scenarios": 7,
+    "actualPythonRuns": 4,
+    "evidence": "communication-kit-2026-10-13-pr1-baseline-05-canonical.json",
+    "sha256": "6618a40d45db7ac6ebf373c7b7161f06491aa24a9d58bc570a3377a9a3c23aa9"
+  },
+  "scope": "Preserve newly merged HTML baseline and Communication stage changes; runtime4/public5/repository20, marketplace8.1.2 unchanged",
+  "originalPlan": {
+    "sourcePath": "C:/Users/Admin/.codex/worktrees/communication-plan/develop/plan/communication-kit-implementation-plan.md",
+    "sourceAvailableAtRecheck": false,
+    "registeredWorktreeAtRecheck": false,
+    "recheckedOn": "2026-10-13",
+    "capturedCopy": "plan/communication-kit-implementation-plan.md",
+    "capturedCopySha256": "6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3",
+    "capturedSourceReadOn": "2026-10-12",
+    "action": "Preserve captured exact bytes; do not reconstruct from chat or recreate missing source worktree"
+  },
+  "notCovered": [
+    "Communication runtime acceptance in this stage",
+    "real dual-client UI",
+    "independent current-head GitHub approval",
+    "R01-R05",
+    "real-world effects"
+  ]
+}

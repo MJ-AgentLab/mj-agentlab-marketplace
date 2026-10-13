@@ -7,6 +7,8 @@
 
 ### Added
 
+- Define the explicit Communication Kit / communicate contract, source-freeze schema and S01–S12 / C01–C18 fixtures under Refs #222; retain the exact saved plan and preserve all failure evidence.
+- Keep real-world effects deferred; the authorized delivery ends at a published Communication Release and post-publication installation verification.
 - Record both completed 8.2.0 closeouts: #234 synchronized actual main ancestry, and #235 pre-bumped develop to unpublished 8.2.1 with preserved plugin versions. Each actual merge passed eight canonical installations/installed Python. Preserve the original A6 exception failure, substantive normal-path root-summary repair and empty review evidence; update current installation to published v8.2.0 while keeping the public three-plugin/development four-plugin scopes and open deferred Epic entries.
 
 - Record actual PR5 scoped technical delivery and unchanged three-plugin release dependencies. Exact merged-source installation/Python evidence, missing historical reviews and deferred client entries remain separate from publication and full Epic acceptance.

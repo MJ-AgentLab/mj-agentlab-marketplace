@@ -16,7 +16,7 @@ test("four approved portable plugins, six public skills and all 20 repository sk
 test("strict repository validation rejects every retired instruction surface",t=>{
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),"retired-instructions-"));
  t.after(()=>fs.rmSync(dir,{recursive:true,force:true}));
- for(const p of ["assets",".agents",".codex",".github","scripts","tests","plugins","docs","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])
+ for(const p of ["assets",".agents",".codex",".github","scripts","tests","plugins","docs","plan","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])
  fs.cpSync(path.join(root,p),path.join(dir,p),{recursive:true});
  assert.equal(validateRepository(dir).ok,true);
  for(const rel of ["CLAUDE.md",".claude",".claude-plugin"]){
@@ -60,7 +60,7 @@ test("native pop-quiz metadata requires a boolean explicit-only policy",()=>{
 });
 function repositoryFixture(t){
  const dir=fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()),"portable-inventory-"));t.after(()=>fs.rmSync(dir,{recursive:true,force:true}));
- for(const p of ["assets",".agents",".codex",".github","scripts","tests","plugins","docs","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])fs.cpSync(path.join(root,p),path.join(dir,p),{recursive:true});
+ for(const p of ["assets",".agents",".codex",".github","scripts","tests","plugins","docs","plan","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])fs.cpSync(path.join(root,p),path.join(dir,p),{recursive:true});
  return dir;
 }
 test("catalog rejects missing, duplicate, unknown, versioned and escaped plugin entries",t=>{

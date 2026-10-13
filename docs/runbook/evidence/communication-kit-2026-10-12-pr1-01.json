@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "stage": "PR1",
+  "batch": "01",
+  "recordedAt": "2026-10-12T09:46:09.918Z",
+  "timezone": "Asia/Taipei",
+  "scope": "Existing runtime regressions and design-contract checks; Communication S/C/client/R cases remain NOT RUN",
+  "baseline": "b2e5a74109f47ecee7471ba741fb4c1348457f3b",
+  "candidate": {
+    "kind": "uncommitted contract working copy",
+    "limitation": "Exact dirty tree was not captured before the initial failure; logs preserve failures. Root cause reproduced by repository fixtures omitting plan/."
+  },
+  "command": "npm test",
+  "exitCode": 1,
+  "tests": 240,
+  "pass": 234,
+  "fail": 6,
+  "skipped": 0,
+  "result": "FAIL",
+  "failures": [
+    "repository validation fails when a registered plugin loses its icon resource",
+    "release install uses the exact canonical tree rather than a dirty checkout",
+    "failed installation cleans up the canonical worktree and fails closed",
+    "strict repository validation rejects every retired instruction surface",
+    "catalog rejects missing, duplicate, unknown, versioned and escaped plugin entries",
+    "each plugin rejects extra skills, missing files and swapped manifest identities"
+  ],
+  "log": "communication-kit-2026-10-12-pr1-01.log",
+  "logSha256": "74bba2a723190c2e41cf968266895b255cf128e4bde1acd50dae67262511dc25",
+  "repair": "Copy plan/ along with linked documentation in all isolated repository fixtures. Retain original failure batch."
+}

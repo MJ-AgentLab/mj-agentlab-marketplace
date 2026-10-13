@@ -1,0 +1,737 @@
+{
+  "schemaVersion": 1,
+  "stage": "PR1",
+  "batch": "04",
+  "recordedAt": "2026-10-12T09:46:10.013Z",
+  "timezone": "Asia/Taipei",
+  "scope": "Existing runtime regressions and design-contract checks; Communication S/C/client/R cases remain NOT RUN",
+  "baseline": "b2e5a74109f47ecee7471ba741fb4c1348457f3b",
+  "candidate": {
+    "sha": "60548a256aa26eade4da7c419c85c83e3a20e922",
+    "tree": "88b81384571620a12cda7365f3e42464081c98d1"
+  },
+  "command": "npm test",
+  "exitCode": 0,
+  "tests": 252,
+  "pass": 252,
+  "fail": 0,
+  "skipped": 0,
+  "result": "PASS",
+  "failures": [],
+  "log": "communication-kit-2026-10-12-pr1-04.log",
+  "logSha256": "4144333bd9ff6e4b2f22f7f8dd3a3decca86eb1389073a94ce2ebb3d7b1be4e3",
+  "repair": null,
+  "extra": {
+    "validate": {
+      "ok": true,
+      "publicSkills": [
+        "diagram-kit:arch-diagram",
+        "understanding-kit:pop-quiz",
+        "explain-kit:glossary",
+        "explain-kit:concept"
+      ],
+      "repositorySkills": 20
+    },
+    "baselineTools": {
+      "codex": "0.147.0",
+      "result": "PASS"
+    },
+    "priorSmoke": {
+      "candidate": "Pre-sync contract working copy, unchanged existing plugin package bytes; not current synced canonical install",
+      "scenarios": [
+        {
+          "installed": [
+            "diagram-kit"
+          ],
+          "version": "codex-cli 0.147.0",
+          "outside": {
+            "publicSkills": 1,
+            "repositorySkills": 0
+          },
+          "repository": {
+            "publicSkills": 1,
+            "repositorySkills": 20
+          },
+          "nativeOutside": {
+            "publicSkills": 1,
+            "repositorySkills": 0
+          },
+          "nativeRepository": {
+            "publicSkills": 1,
+            "repositorySkills": 20
+          },
+          "installedIcons": {
+            "diagram-kit": {
+              "logo": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 121492,
+                "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f"
+              },
+              "composerIcon": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 121492,
+                "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f"
+              }
+            }
+          },
+          "diagramValidation": {
+            "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-hIGDjJ/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+            "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-hIGDjJ\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+            "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          "commands": [
+            {
+              "command": "git",
+              "args": [
+                "init",
+                "-q"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "--version"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "marketplace",
+                "add",
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-hIGDjJ\\src",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "marketplace",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "add",
+                "diagram-kit",
+                "--marketplace",
+                "mj-agentlab-marketplace",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "debug",
+                "prompt-input",
+                "ordinary task discovery check"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "debug",
+                "prompt-input",
+                "repository skill discovery check"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "app-server",
+                "--stdio"
+              ],
+              "method": "skills/list",
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "mcp",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+              "args": [
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-hIGDjJ\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-hIGDjJ\\consumer\\installed context 中文 diagram.md"
+              ],
+              "status": 0
+            }
+          ]
+        },
+        {
+          "installed": [
+            "explain-kit"
+          ],
+          "version": "codex-cli 0.147.0",
+          "outside": {
+            "publicSkills": 2,
+            "repositorySkills": 0
+          },
+          "repository": {
+            "publicSkills": 2,
+            "repositorySkills": 20
+          },
+          "nativeOutside": {
+            "publicSkills": 2,
+            "repositorySkills": 0
+          },
+          "nativeRepository": {
+            "publicSkills": 2,
+            "repositorySkills": 20
+          },
+          "installedIcons": {
+            "explain-kit": {
+              "logo": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 100032,
+                "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95"
+              },
+              "composerIcon": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 100032,
+                "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95"
+              }
+            }
+          },
+          "commands": [
+            {
+              "command": "git",
+              "args": [
+                "init",
+                "-q"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "--version"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "marketplace",
+                "add",
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-vlKWZF\\src",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "marketplace",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "add",
+                "explain-kit",
+                "--marketplace",
+                "mj-agentlab-marketplace",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "debug",
+                "prompt-input",
+                "ordinary task discovery check"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "debug",
+                "prompt-input",
+                "repository skill discovery check"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "app-server",
+                "--stdio"
+              ],
+              "method": "skills/list",
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "mcp",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            }
+          ]
+        },
+        {
+          "installed": [
+            "diagram-kit",
+            "explain-kit"
+          ],
+          "version": "codex-cli 0.147.0",
+          "outside": {
+            "publicSkills": 3,
+            "repositorySkills": 0
+          },
+          "repository": {
+            "publicSkills": 3,
+            "repositorySkills": 20
+          },
+          "nativeOutside": {
+            "publicSkills": 3,
+            "repositorySkills": 0
+          },
+          "nativeRepository": {
+            "publicSkills": 3,
+            "repositorySkills": 20
+          },
+          "installedIcons": {
+            "diagram-kit": {
+              "logo": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 121492,
+                "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f"
+              },
+              "composerIcon": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 121492,
+                "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f"
+              }
+            },
+            "explain-kit": {
+              "logo": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 100032,
+                "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95"
+              },
+              "composerIcon": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 100032,
+                "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95"
+              }
+            }
+          },
+          "diagramValidation": {
+            "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-dDaPQH/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+            "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-dDaPQH\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+            "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          "commands": [
+            {
+              "command": "git",
+              "args": [
+                "init",
+                "-q"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "--version"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "marketplace",
+                "add",
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-dDaPQH\\src",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "marketplace",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "add",
+                "diagram-kit",
+                "--marketplace",
+                "mj-agentlab-marketplace",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "add",
+                "explain-kit",
+                "--marketplace",
+                "mj-agentlab-marketplace",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "debug",
+                "prompt-input",
+                "ordinary task discovery check"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "debug",
+                "prompt-input",
+                "repository skill discovery check"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "app-server",
+                "--stdio"
+              ],
+              "method": "skills/list",
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "mcp",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+              "args": [
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-dDaPQH\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-dDaPQH\\consumer\\installed context 中文 diagram.md"
+              ],
+              "status": 0
+            }
+          ]
+        },
+        {
+          "installed": [
+            "diagram-kit",
+            "understanding-kit",
+            "explain-kit"
+          ],
+          "version": "codex-cli 0.147.0",
+          "outside": {
+            "publicSkills": 3,
+            "repositorySkills": 0
+          },
+          "repository": {
+            "publicSkills": 3,
+            "repositorySkills": 20
+          },
+          "nativeOutside": {
+            "publicSkills": 4,
+            "repositorySkills": 0
+          },
+          "nativeRepository": {
+            "publicSkills": 4,
+            "repositorySkills": 20
+          },
+          "installedIcons": {
+            "diagram-kit": {
+              "logo": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 121492,
+                "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f"
+              },
+              "composerIcon": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 121492,
+                "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f"
+              }
+            },
+            "understanding-kit": {
+              "logo": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 111262,
+                "sha256": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad"
+              },
+              "composerIcon": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 111262,
+                "sha256": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad"
+              }
+            },
+            "explain-kit": {
+              "logo": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 100032,
+                "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95"
+              },
+              "composerIcon": {
+                "reference": "./assets/icon.png",
+                "width": 1024,
+                "height": 1024,
+                "bytes": 100032,
+                "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95"
+              }
+            }
+          },
+          "diagramValidation": {
+            "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-gkNo9S/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+            "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-gkNo9S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+            "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          "commands": [
+            {
+              "command": "git",
+              "args": [
+                "init",
+                "-q"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "--version"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "marketplace",
+                "add",
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-gkNo9S\\src",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "marketplace",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "add",
+                "diagram-kit",
+                "--marketplace",
+                "mj-agentlab-marketplace",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "add",
+                "understanding-kit",
+                "--marketplace",
+                "mj-agentlab-marketplace",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "add",
+                "explain-kit",
+                "--marketplace",
+                "mj-agentlab-marketplace",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "plugin",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "debug",
+                "prompt-input",
+                "ordinary task discovery check"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "debug",
+                "prompt-input",
+                "repository skill discovery check"
+              ],
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "app-server",
+                "--stdio"
+              ],
+              "method": "skills/list",
+              "status": 0
+            },
+            {
+              "command": "codex",
+              "args": [
+                "mcp",
+                "list",
+                "--json"
+              ],
+              "status": 0
+            },
+            {
+              "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+              "args": [
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-gkNo9S\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+                "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-gkNo9S\\consumer\\installed context 中文 diagram.md"
+              ],
+              "status": 0
+            }
+          ]
+        }
+      ]
+    },
+    "review": {
+      "standards": {
+        "findings": 1,
+        "resolution": "Split infra/docs/test commits before first push; no independent GitHub approval supplied"
+      },
+      "spec": {
+        "findings": 3,
+        "resolution": "Pin exact snapshot fields; add existing-file edit to C16; separate setup/environment events from user inputs C03/C17/C18"
+      }
+    },
+    "uncovered": [
+      "Communication plugin installation",
+      "C01-C18 actual model execution",
+      "real ChatGPT desktop interaction",
+      "real Codex desktop icon interaction",
+      "current-head non-author GitHub approval",
+      "release R01-R05"
+    ],
+    "deferred": [
+      "real-world effects",
+      "nine personal trials",
+      "three-draft comparisons",
+      "reader feedback",
+      "adoption",
+      "efficiency"
+    ]
+  }
+}
