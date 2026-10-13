@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-12
 state: draft
-version: v1.2
+version: v1.3
 ---
 
 # [ADR] Communication Kit addition
@@ -25,7 +25,9 @@ Owner 要求按[完整实施计划](../../plan/communication-kit-implementation-
 
 PR1 实施起始基线为 origin/develop `b2e5a74109f47ecee7471ba741fb4c1348457f3b`，marketplace 8.1.2；main `0c681a8f8b7520134a86a70934fc46288c627d8d` 为已发布 8.1.1。当时运行集合三插件、四公开技能、20 个仓库技能。计划旧基线与 PR1 状态保留为历史，不用于当前转换。
 
-PR3 已实现完整 Communication 0.1.0 候选并原子接入插件、注册、严格校验、冻结资源、正式图标与安装预期，候选四插件五公开技能、20 开发技能，pop-quiz / communicate 为两个显式入口。marketplace 仍为未发布8.1.2；main / 最新 Release 8.1.1 仍仅包含前三插件。已执行工程与 canonical 安装检查，实际行为、双客户端及发布验收未完成；当前身份、覆盖及缺口见[验收账本](../runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。
+PR3已实现完整Communication0.1.0候选并原子接入插件、注册、严格校验、冻结资源、正式图标与安装预期；先行Learning迁移#228及HTML开发基线下为五插件七公开技能、20开发技能、四显式入口。marketplace仍未发布8.1.2；旧工程、行为及同应用两个本机入口必要范围的实证分别保留，发布未执行，详见[验收账本](../runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。
+
+Owner通过grilling Q3明确正式公开仅为Learning已公开三包加Communication（四包六技能、三显式），HTML留develop另发。PR4/5各自核实集合与实际From/To，不从开发全量推断公开范围；现有单入口与行为契约不变。
 
 ## §2 Decision
 
@@ -75,6 +77,7 @@ Owner 明确将九例真实场景、三稿对照、读者效果反馈、采用�
 
 | 日期 | 依据 | 状态 |
 |---|---|---|
+| 2026-10-13 | Learning原子迁移434d053及Owner答复grilling Q3 | 开发五包七技能、正式四包六技能；HTML保留开发另发，旧来源和行为证据保留 |
 | 2026-10-12 | Owner 要求完整实施与正式上线，保留已确认产品契约与缩减效果测试范围 | PR1 时接受产品方向和执行授权；当时尚未实现 |
 | 2026-10-12 | Owner 答复版本顺序 grilling Q1 | Learning 先 8.2.0；Communication 随后独立 minor，PR4 重查版本和基线 |
 | 2026-10-12 | Owner 明确选择第二轮 D 地球＋清晰文字 | 已接入原创 MJ D 正式资源；不补记客户端显示 |
@@ -82,6 +85,7 @@ Owner 明确将九例真实场景、三稿对照、读者效果反馈、采用�
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.3 | 2026-10-13 | 合并PR1范围澄清与已实现候选事实，区分开发/正式集合，保留历史与未解除门禁 |
 | v1.2 | 2026-10-12 | 记录通用缺陷修复、CLI新批与独立工具补充；独立批准/双客户端/发布仍未完成 |
 | v1.1 | 2026-10-12 | 更新 PR3 已实现候选及部分工程实证，保留 PR1 历史与未完成门禁 |
 | v1.0 | 2026-10-12 | 产品方向及实施、验收与发布契约；PR1 当时尚无运行包 |

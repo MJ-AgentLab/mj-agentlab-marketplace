@@ -20,6 +20,8 @@ Communication实施与发布使用[Epic #222](https://github.com/MJ-AgentLab/mj-
 
 ## 执行与决策
 
+Owner Q3：Communication正式只发行Learning三包＋Communication四包六技能，HTML留develop另发；开发保持五包七技能，实际门禁见[验收记录](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。
+
 communication-kit 首版按已保存的[完整计划](plan/communication-kit-implementation-plan.md)实施，来源与授权见[捕获记录](plan/communication-kit-plan-provenance.json)，由 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222) 管理 PR1–PR5 与正式上线。产品方向、显式 communicate 单入口、保义改写和文件边界已确认；设计与验收契约见[新增 ADR](docs/adr/[ADR]_Communication_Kit_Addition.md)及[验收 RUNBOOK](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。PR1/PR2 保持现有运行集合，PR3 原子接入新包。Owner 选择 Learning 先发布 8.2.0，Communication 随后独立 minor（预计 8.3.0），PR4 重查实际版本和基线；现实效果测试本次延期，基础通过不代表效果已验证。
 
 代理负责在已有授权范围内执行文件修改、环境检查、测试、隔离安装验证、提交、推送及 PR 准备。owner 作出决定后，由代理执行，不要求 owner 复制命令，不重复确认已授权的操作。CI、分支保护、独立审查及外部身份验证按实际约束处理；无法完成时说明具体原因，只请求最小必要参与。
@@ -46,7 +48,7 @@ v8.0.0 已经 #190 合入 main 并自动发布，实际状态和未完成的桌�
 
 仓库主标使用 Owner 选定的 A（MJ＋斜向模块连接），插件采用已批准的 D 风格；Communication 复用 Owner 选定的第二轮 D“地球＋清晰文字”，为 ASD-STE100 意象的原创 MJ 图标。品牌与图标修改读取 [品牌规范](docs/rule/[STANDARD]_Brand_Identity.md) 并使用 [.agents/skills/mp-design-icon](.agents/skills/mp-design-icon/SKILL.md)。开发技能保持 20 项，PR3 候选为五插件七公开技能，其中 pop-quiz / learning-record-check / guide / communicate 显式调用。新增候选先选择后接入，已有批准直接复用。#203/#204 已完成前三插件品牌实现和验收记录，并随 v8.1.1 发布；资源、隔离安装、独立技能演练及当时未完成项见 [品牌验收](docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。后续发布不追认历史验收或批准。
 
-Owner 于 2026-10-10 明确要求发布 8.1.1，发布授权已提供，不重复确认。候选从 develop 9bd54d7 派生，运行版本已匹配目标，无额外 bump。Owner 补充三张桌面截图，显示三插件详情页图标与候选版本，Diagram/Explain 示例提示区亦显示小图标；客户端版本、来源及实际输入框结果按已提供的具体证据记录，截图不补写未展示项。当前 main ruleset 要求当前 head 的非作者批准与 Validate Structure；门禁和后续发布事实见 [8.1.1 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。
+8.1.1的发布授权、Owner三张图标截图及实际门禁见[发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)；截图不补写未展示项，历史独立批准缺项不追认。
 
 Learning Evidence PR2 的本机能力和 PR3 的手动 GitHub 流转曾暂存于 scripts/learning-evidence，保持旧运行包字节；PR4 候选原子迁入 plugins/learning-evidence-kit/scripts 并删除暂存位置。保存、完整基线、身份、关联、恢复、导入导出和保留归档按记录契约执行，测试显式隔离库；实际分阶段测试、独立审查及合并状态见验收账本。
 
@@ -58,7 +60,7 @@ PR2 已同步 #226 合入的 HTML Guide Kit 0.1.0，当时基准为四插件、�
 
 ## Communication 工具准备
 
-Epic #222 的 PR2 扩展提交和版本工具的 `communication-kit` 候选 scope，并让品牌预览按行容纳第四张图。当前同步基线的运行集合为四个插件、五个公开技能；缺少实际 manifest 时版本工具应零写入失败，未执行真实 bump。Owner 已选择第二轮 D 地球＋清晰文字候选；初轮未选和导出失败保留，正式资源与注册等待 PR3 原子接入；候选、实测及未覆盖项见 [品牌验收](docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。本阶段仍依赖 PR1 实际合并和当前 head 独立批准，不把准备工作写成上线完成。
+Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基线为Diagram、Learning、Explain、HTML四包六技能。缺Communication manifest时apply/DryRun必须零写入失败。D地球＋文字图标已获Owner选择，正式资源等待PR3原子接入；旧失败见[品牌验收](docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。Q3已确认正式只公开Learning三包＋Communication四包六技能，HTML留develop另发。未转换版本、未发布；当前head批准及阶段依赖仍须满足。
 
 ## HTML Guide Kit 阶段实施
 
@@ -72,7 +74,7 @@ HTML Guide Kit 初始 0.1.0，仅显式 $html-guide-kit:guide，Read、聊天文
 
 Learning Evidence #224 的实际批准、merge、七组合/Python复验和 #211 关闭按[验收账本](docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)保留，后续同步不追认其未覆盖项。Owner 已确认三插件 8.2.0 范围及 HTML 留 develop 另发。
 
-PR4 为准备后续依赖合入，普通同步 PR3 当前 bcccb38 的合并回执与文档；全部运行包、测试、脚本、版本及已冻结第五轮证据保持。#227 尚待其当前 head 的真实非作者批准与保护合入，PR4 继续 Draft，不把前序审查请求算作本阶段批准。
+Learning前序PR4依赖快照、#224/#227实际交付、旧pending/批准缺项与回执保留于[验收账本](docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)，历史快照不追认为当前门禁通过。
 
 Learning Evidence #227 已合入 f958908e，与已验收 bcccb38 同树；精确 merge 的七 canonical 安装/四次缓存 Python 通过，#212 显式关闭。GitHub 当前 reviews 为空，缺项原样保留，不补记批准或豁免。PR4 按实际 merge 同步后运行内容不变，317/317、八隔离安装、143资源实例及四次图表/三组证据保存重放检查实际通过，Learning十九资源仍等于限定模型源acf3。Owner 最新要求后续不指定人发出审查请求；准备可审查 PR 时不指派个人或团队，当前 head 的真实非作者批准/CI/线程门禁继续按实际核对。8.2.0 仍条件发布原三插件，HTML留develop另发，原生延期/桌面未运行/Owner最终接受及历史审查缺项独立保留。
 

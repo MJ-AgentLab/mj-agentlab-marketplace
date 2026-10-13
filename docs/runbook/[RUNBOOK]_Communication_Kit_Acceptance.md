@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.5
+version: v1.6
 ---
 
 # [RUNBOOK] Communication Kit acceptance
@@ -67,7 +67,7 @@ npm run smoke:codex
 | S11 | canonical候选资源缺失或篡改阻止安装 | PASS — 八项资源缺失/篡改在安装前阻断 |
 | S12 | 旧插件、实际Python图表校验、无MCP保持 | PASS — 九组合及四次缓存Python实际执行 |
 
-S01按原计划候选四插件五技能、20仓库技能检查；若先发布的Learning改变基线，实施者须呈现差异并取得必要范围决定，不能凭本表豁免。S05哈希不证明语义忠实；逐节来源对照另记。S10须实际尺寸人工检查和明确新图标选择。S11以strict canonical验证器测试资源变异阻止安装。
+S01原四插件五技能仅为起始候选历史。先行Learning替换后开发五包七技能、20仓库技能；Owner Q3正式四包六技能、HTML另发，两个集合均精确检查，不按历史数量豁免。S05哈希不证明语义忠实；逐节来源对照另记。S10须实际尺寸人工检查和明确新图标选择。S11以strict canonical验证器测试资源变异阻止安装。
 
 九个隔离安装组合：Diagram；Understanding；Explain；Diagram＋Explain；原三插件；Communication；Communication＋Explain；Communication＋Understanding；全四插件。每组合独立cache，逐资源字节对照。全量普通发现3、原生5；Communication独装普通0、原生1；仓库开发技能20，消费者0。新基线引起矩阵变化须明确处理。
 
@@ -222,6 +222,8 @@ PR1契约结果、PR3实证、PR4回归、PR5发布及后续复查逐阶段追�
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.6 | 2026-10-13 | 合并PR1已确认范围与原子迁移工程事实，历史分阶段结果及限定客户端身份分别保留 |
+| v1.5 | 2026-10-13 | Learning原子替代与两解释器工程复验，开发/正式范围分开 |
 | v1.4 | 2026-10-13 | 追加代理亲自执行的同应用Codex/ChatGPT Work两个本机入口实证及独立核验；保留CLI限制、窗口与发布未测、批准和版本依赖 |
 | v1.3 | 2026-10-13 | 保留旧身份结果，整合PR1/2新实证和原路径缺失记录；HTML新基线五插件六技能/十三组合，客户端及发布仍待实际证据 |
 | v1.2 | 2026-10-12 | 追加原行为失败、通用修复及94新批；CLI15PASS/3PARTIAL与补充工具3项有限PASS分开，保留双客户端/发布缺项 |
@@ -236,5 +238,3 @@ Refs #222。2026-10-13 普通合入 #228 精确来源 `434d053ae3bcc35706fc52f0d
 Owner 后续已明确 Q3：Communication 正式发行采用 Learning 三包基准＋Communication，共四包六技能、三显式入口，HTML 保留 develop 另发。当前五包开发安装通过不代表正式四包发行已验证；实际 From/To、main/tag/Release 身份及正式候选回归在 PR4 执行。该决定不改405行保存计划及其哈希，不重问已确认产品和上线目标。
 
 当前工作树工程首轮344项为343 PASS/1 FAIL：HTML 的旧专用128字符错误遮住上游统一Unicode诊断。保留原始失败日志后，统一采用全插件1–3条/128 Unicode scalar values/合法Unicode规则，Communication原生提示预算保持；完整复验344/344、0跳过通过。首次严格检查的根指令预算和仅pyc残存过渡目录失败亦保留；按历史账本指针收敛根指令、核验后清理缓存，未提高预算。uv3.12.13 与 bundled3.12.14分别完成13组合隔离安装、6次缓存Diagram和6组Learning保存/重放/回读；两解释器下33存储/31受控GitHub Python用例通过，GitHub测试无真实远端写入。它们都是未提交工作树批次，固定提交canonical尚未执行；源码、包身份与原始日志待最终固定提交分别归档。
-
-| v1.5 | 2026-10-13 | Learning 原子替代、两解释器工程复验与失败链；开发与已选正式范围分开 |

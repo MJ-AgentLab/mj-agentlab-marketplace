@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.19
+version: v2.20
 ---
 
 # 文档索引
@@ -30,6 +30,8 @@ Learning Evidence #224 已获当前 head 非作者批准并合入；实际 merge
 Learning Evidence #227 已实际合入并通过七种精确 canonical 安装/缓存 Python，#212 已关闭；其当前 GitHub 审查记录为空，按原事实保留。PR4 同步后通过317项回归/八安装并保持已验收模型资源，仍待本阶段当前head批准与合入；后续不指定审查人，门禁不变，详见[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)。
 
 ## 入口
+
+Owner Q3已确认Communication正式发行仅为Learning已公开三包加Communication（四包六技能），HTML保留develop另发；开发集成五包七技能，两个集合各自精确验证。
 
 - [Communication 完整实施计划](../plan/communication-kit-implementation-plan.md)与[原稿捕获](../plan/communication-kit-plan-provenance.json)
 - [Communication Kit 新增决定](adr/[ADR]_Communication_Kit_Addition.md)
