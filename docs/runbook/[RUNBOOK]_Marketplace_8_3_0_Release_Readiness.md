@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-13
 updated: 2026-10-13
 state: draft
-version: v1.0
+version: v1.1
 ---
 
 # [RUNBOOK] Marketplace 8.3.0 release readiness
@@ -59,4 +59,9 @@ PR3实际merge尚无，故PR4与该merge的tree/运行包比较NOT RUN；并行�
 
 | Version | Date | Summary |
 | --- | --- | --- |
+| v1.1 | 2026-10-13 | 纳入真实发布后基线及固定08cc开发canonical证据；正式四包与R01–R05不预填 |
 | v1.0 | 2026-10-13 | 绑定已授权8.3.0准备；Learning已公开、四包正式范围、阶段批准和R01–R05待真实完成 |
+
+### 已固定开发候选的canonical与同步复查
+
+Refs #222。[Post-release sync 01](evidence/communication-kit-2026-10-13-postrelease-sync-01.json)保留四分支普通导入真实develop2c0a831的来源、20原始日志/审计和135/148/65/65受影响回归；PR3/4后续只改文档，生产/测试保持。PR4实际固定08cc006、tree859066f、VERSION8.3.0的[canonical 01](evidence/communication-kit-2026-10-13-pr4-canonical-01.json)通过严格校验、十三安装、六次图表Python/六组Learning保存重放回读，CLI0.147.0、Learning解释器3.12.14。Communication主技能/refs/manifest/icons与原000e803实际UI来源一致，完整Comm包仅首版CHANGELOG改变tree；Learning替换及其他包集合按新基线独立验证。该批为发布前五包开发候选，不能填正式四包验收、阶段保护合并或R04上线后复查；原模型/UI失败与PARTIAL继续保留。

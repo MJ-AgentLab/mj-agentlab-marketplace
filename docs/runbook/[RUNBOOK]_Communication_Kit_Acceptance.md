@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.9
+version: v1.10
 ---
 
 # [RUNBOOK] Communication Kit acceptance
@@ -246,6 +246,7 @@ PR4当前仅准备上述账本。完成PR3合并身份比较后，核对未发�
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.10 | 2026-10-13 | 固定8.3开发候选canonical与发布后基线同步工程证据，实际阶段合并/正式四包/上线后复查仍未执行 |
 | v1.9 | 2026-10-13 | 原字节归档Learning三轮工程与真实失败；准备8.3.0身份，保留受保护合并/正式候选/上线后未执行状态 |
 | v1.8 | 2026-10-13 | 整合Learning原子替代、Owner Q3四包公开范围与三轮工程记录；Learning正式先发已完成，Communication门禁和发布未完成 |
 | v1.7 | 2026-10-13 | 继承实际Learning GitHub流转基线#227，保留并行目录/变更记录与旧身份，追加新工程批次；正式版本和发布门禁未解除 |
@@ -274,3 +275,7 @@ Learning8.2.0已于2026-10-13T05:00:19Z正式published，tag和Release目标均�
 Learning v8.2.0实际发布依赖已满足，tag/Release/main merge均为ebc4bdc3，bot于2026-10-13T05:00:19Z公开。PR4根据Owner Q1/Q3，以真实8.2.0先DryRun零写入再准备8.3.0，Comm0.1.0及既有包版本保持；首版CHANGELOG正式段改变包tree，仅文档，不改技能/参考/图标。正式范围D/L/E/Comm四包六技能，HTML留develop；实际PR3 merge比较及PR5正式四包投影/canonical/当前head批准仍待完成，R01–R05继续NOT RUN，见[8.3.0账本](./[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。
 
 [Version preparation 01](evidence/communication-kit-2026-10-13-version-prep-01.json)实测8.3.0候选344/344、0skip、strict与baseline0.147.0通过，十三snapshot安装/六次图表Python/六组Learning保存重放回读，Learning解释器3.12.14。实际版本操作、首次包装失败、原始空白属性修复及文档旧事实/表格修复分别保留；尚未执行正式四包源或发布后canonical。
+
+### 已固定开发候选的canonical与同步复查
+
+Refs #222。[Post-release sync 01](evidence/communication-kit-2026-10-13-postrelease-sync-01.json)保留四分支普通导入真实develop2c0a831的来源、20原始日志/审计和135/148/65/65受影响回归；PR3/4后续只改文档，生产/测试保持。PR4实际固定08cc006、tree859066f、VERSION8.3.0的[canonical 01](evidence/communication-kit-2026-10-13-pr4-canonical-01.json)通过严格校验、十三安装、六次图表Python/六组Learning保存重放回读，CLI0.147.0、Learning解释器3.12.14。Communication主技能/refs/manifest/icons与原000e803实际UI来源一致，完整Comm包仅首版CHANGELOG改变tree；Learning替换及其他包集合按新基线独立验证。该批为发布前五包开发候选，不能填正式四包验收、阶段保护合并或R04上线后复查；原模型/UI失败与PARTIAL继续保留。
