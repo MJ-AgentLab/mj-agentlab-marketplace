@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-13T06:24:26.039Z",
+  "mode": "DRY_RUN_ONLY",
+  "sourceAllowlist": {
+    "rootFiles": [
+      "archive-015-016-control.json"
+    ],
+    "rootDirectories": [
+      "corrections/0-1-5",
+      "corrections/0-1-6",
+      "corrections/grade-import-015-016-20261013"
+    ],
+    "scopedRootsOrdinaryFiles": 1008,
+    "controlFileAdded": 1,
+    "actualHomeCacheAuthConfigFilesIncluded": 0,
+    "sourcePathStringsAllowed": true
+  },
+  "finalInventorySha256": "15dd9534a116b0b8a6f4c8e8f5fe78bf0310eb46c07f072c81142599008235d9",
+  "expectedPackTarget": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\candidate-015-016",
+  "targetWritten": false,
+  "targetExists": false,
+  "files": 1009,
+  "originalBytes": 31051481,
+  "packetCount": 18,
+  "packetBytes": 33397067,
+  "largestPacketBytes": 2094346,
+  "packetLimitBytes": 2097152,
+  "oversizedPackets": [],
+  "exactRestoredBuffers": 1009,
+  "secretPatternScan": {
+    "status": "NO_PATTERN_FINDINGS",
+    "scannedFiles": 1009,
+    "findings": [],
+    "secretValuesPrinted": false
+  },
+  "closedHistoricalCounts": {
+    "phases": [
+      {
+        "version": "0-1-5",
+        "batches": 4,
+        "scopedVariants": 20,
+        "actualAttempts": 13,
+        "realDistinctUUIDs": 13,
+        "actualInputFiles": 25,
+        "transportStatuses": {
+          "COMPLETE": 24,
+          "FAILED_OR_INVALID": 1
+        },
+        "caseSemanticStatuses": {
+          "PASS": 8,
+          "UNKNOWN": 9,
+          "INVALID_RUN": 2,
+          "UNEXERCISED": 1
+        },
+        "attemptSemanticStatuses": {
+          "PASS": 8,
+          "UNKNOWN": 2,
+          "INVALID_RUN": 2,
+          "UNEXERCISED": 1
+        },
+        "noAttemptVariants": [
+          "B1.2-combined",
+          "B2.1",
+          "B4.2",
+          "B5.1",
+          "B5.2",
+          "E14-review",
+          "E15"
+        ]
+      },
+      {
+        "version": "0-1-6",
+        "batches": 5,
+        "scopedVariants": 22,
+        "actualAttempts": 22,
+        "realDistinctUUIDs": 22,
+        "actualInputFiles": 47,
+        "transportStatuses": {
+          "COMPLETE": 46,
+          "FAILED_OR_INVALID": 1
+        },
+        "caseSemanticStatuses": {
+          "FAIL": 7,
+          "PASS": 14,
+          "UNKNOWN": 1
+        },
+        "attemptSemanticStatuses": {
+          "FAIL": 7,
+          "PASS": 14,
+          "UNKNOWN": 1
+        },
+        "noAttemptVariants": []
+      }
+    ],
+    "UUID": 35,
+    "inputs": 72,
+    "originalReviews": 40,
+    "actualAttemptGradeImports": 35,
+    "technicalProjectionImports": 10,
+    "originalSchemaFailuresRetained": 10,
+    "scopeNoAttemptReviewsRetained": 5
+  },
+  "mechanismProvenance": {
+    "readOnlyReference": {
+      "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/packer-provenance/0-1-5-and-0-1-6/pack-013-mechanism-read-only-reference.mjs",
+      "sha256": "f4081d0c02a63d2c4fe16f575793310c559ec8f7112521c89a4583773507abad",
+      "bytes": 21911
+    },
+    "old13OriginalPackerStillSame": {
+      "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/pack-013-evidence.mjs",
+      "sha256": "f4081d0c02a63d2c4fe16f575793310c559ec8f7112521c89a4583773507abad",
+      "unchanged": true
+    },
+    "newHelper": {
+      "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/pack-015-016-evidence.mjs",
+      "sha256": "3f437469361ab9edbe4c2673c7a3317fc4b6cae5a4635a1e93617a98b3a5a061",
+      "bytes": 32206
+    },
+    "diff": {
+      "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/packer-provenance/0-1-5-and-0-1-6/new-helper-against-reference.diff",
+      "sha256": "0519497ed28e058b0c95d596e5c3ab76e7ca712c054793e606306ffd89660eca"
+    },
+    "changes": [
+      "New exact old5/6/gradeclosure allowlist",
+      "79 frozen raw-byte SHA pins",
+      "Accurate metadata exclusion descriptions for nested allowlist roots; selected scope not relaxed",
+      "Historical scope/index descriptions"
+    ],
+    "unchangedControls": [
+      "Secret patterns and value suppression",
+      "Strict owned path/symlink containment",
+      "UTF8/BOM/invalidUTF8 exact Buffer restoration",
+      "Packet bounds",
+      "Gate final-reviewed=true and exact inventory SHA",
+      "No preexisting target overwrite",
+      "verify complete mapping and optionally compare original bytes"
+    ],
+    "selfTest": {
+      "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/packer-provenance/0-1-5-and-0-1-6/self-test.stdout.json",
+      "sha256": "99fd7821b49ba78b28be89454c4bbc552070e9bb877eefdb69bfbb09bc425f29",
+      "exitCode": 0,
+      "inMemoryOnly": true
+    },
+    "dryRun": {
+      "stdoutFile": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/packer-provenance/0-1-5-and-0-1-6/dry-run.stdout.json",
+      "stdoutSha256": "8e254ad5a2e2440e21ba25f877c3b400daa95dc0ee5ec03106c6a9621d17441e",
+      "stderrFile": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/packer-provenance/0-1-5-and-0-1-6/dry-run.stderr.txt",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exitCode": 0
+    },
+    "closure": {
+      "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/archive-015-016-control.json",
+      "sha256": "543be9289ff91ba93cc62c0d8e538bcffea856b397969c0240e98ae8ec43d990"
+    },
+    "independentSelectedInventory": {
+      "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/packer-provenance/0-1-5-and-0-1-6/selected-source-inventory.json",
+      "sha256": "af6ab20b4264b0f6fc4ed95d6f57c6505a256ee93573f33e2edbec26f170138d"
+    }
+  },
+  "reviewerActions": {
+    "old5RootsModified": false,
+    "old6RootsModified": false,
+    "gradeOriginalsModified": false,
+    "old13RootsOrSealedRepoModified": false,
+    "repositoryWritten": false,
+    "modelInvoked": false,
+    "gradeInvoked": false,
+    "harnessInvoked": false,
+    "actualPackInvoked": false
+  },
+  "currentVersionState": {
+    "version": "0.1.8",
+    "parentReportedModelsActuallyStarted": true,
+    "notPartOfThisArchive": true
+  },
+  "limitations": [
+    "Secret scan reports pattern findings only; NO_PATTERN_FINDINGS does not claim universal secret absence.",
+    "Node in-memory selftest and packet Buffer verification completed; independent .NET verification awaits Root after authorized actual pack.",
+    "Failures/partial runs/invalid transport/no-attempt remain original evidence, not accepted product behavior."
+  ]
+}

@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.14
+version: v1.15
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -342,3 +342,9 @@ E14-review UUID `01a13331-3167-70d3-840e-13bb519e13ed` / attempt `25e727ff-7118-
 并发 #234 的 origin/develop 2c0a83172507bcb77d105d9f9294fec2e6672ac1 已接入实际 v8.2.0 发布 ancestry 与记录。相对前次上游6b5a19e，插件、scripts、tests及VERSION无差异；本任务普通merge解决根AGENTS和INDEX的文字冲突，保留上游发布事实及HTML阶段账本，不重写历史或修改其他运行包。HTML三份运行文本仍逐字等于0.1.8修正提交61cf52dc2da2e81d9d6f1389ecd65cabf9b1f6da。
 
 实际main与latest Release为v8.2.0的三插件/五技能，HTML不在该发行集合；本分支四插件/六技能为develop候选。marketplace版本保持上游8.2.0，后续pre-bump如有实际合入再同步，不自行准备发行。0.1.8新的canonical安装、缓存实际加载与独立行为结果随后追加，尚未完成项不能由纯文档同步推定通过。
+
+随后#235已于2026-10-13实际合入develop3af6837338478ef49a7cea6bb935c07c5c19400c，将VERSION和README badge预升为未发布8.2.1并同步A6摘要；插件、scripts及tests相对2c0a831完全不变。本分支正常merge接入，HTML版本仍0.1.8，正在运行的44703886源/cache会话保持原身份，不重新归为新版本。根摘要首次合成超预算被阻止，保留实际失败检查；缩短本任务历史摘要后15973字节，详细旧账本不删，文档/A6/pre-bump与validate再通过。当前市场开发版本为8.2.1，已发布main/latest Release仍8.2.0，本任务无发布动作。
+
+0.1.8准确canonical44703886c3c409f5e748c6c4a0b0c310b9358635/tree a54c4c7fcdff09310fc799df00d6fbd8549b06bc的[八严格安装/四缓存Python](evidence/html-guide-kit/pr3-post-merge/engineering-44703886/archive-index.json)已通过。新B1–B6、受影响E、重复操作与连续流程仍在独立新cache实际调用；当前全文加载观察不代表整体语义通过，也不代原生UI。
+
+停止的0.1.5/0.1.6共35UUID/72输入、原40评审与10schema失败及技术metadata投影完整封存：[1009文件lossless索引](evidence/html-guide-kit/pr3-reviewer/candidate-015-016/index.json)、[独立Node/.NET复原](evidence/html-guide-kit/pr3-post-merge/candidate015-016-final-seal/archive-index.json)。原字节31,051,481、18packet、sourceInventorySha25615dd9534a116b0b8a6f4c8e8f5fe78bf0310eb46c07f072c81142599008235d9。0.1.5为8PASS/2UNKNOWN/2INVALID_RUN/1UNEXERCISED；0.1.6为14PASS/7FAIL/1UNKNOWN，实际运输无效/未跑另列。全部原评审/模型/判准不改，技术投影只导入同一结果；0.1.3封存字节仍未变，任何旧PASS不自动覆盖0.1.8。
