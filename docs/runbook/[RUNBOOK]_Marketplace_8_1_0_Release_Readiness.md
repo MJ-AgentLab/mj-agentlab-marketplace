@@ -71,7 +71,7 @@ npm run smoke:codex
 | 插件 | 已有实际证据 | 证据限制 |
 | --- | --- | --- |
 | diagram-kit 0.3.0 | CLI 0.147.0 读取安装缓存的技能及 refs，生成 Container 图和节点/边证据；已安装 Python 校验器实际扫描图表，FAIL 0、WARN 0。详见 [迁移验收](./[RUNBOOK]_ChatGPT_Codex_Migration_Acceptance.md)及 [Explain Kit 绘图回归](./[RUNBOOK]_Explain_Kit_Acceptance.md) | CLI 的生成、保存及 Python 执行按实际权限分开记录；不代表 ChatGPT 桌面行为 |
-| understanding-kit 0.1.1 | 19 个中性路径 fresh forward 变体：78 turn / 44 展示题，18 scoped PASS、1 UNEXERCISED；额外 fresh forward 重试 4 turn / 3 题仍未覆盖明确同源错误分支。独立历史状态回放另为 PASS，3 turn / 1 道新 Q3。详见 [验收记录](./[RUNBOOK]_Understanding_Kit_Acceptance.md)和 [矩阵](../../plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-post-merge-matrix.md) | 状态回放不计为该 forward 分支通过；明确未答回复不证明原生空返回、窗口持续显示或关闭恢复；历史带标签路径 pilot 不计最终中性矩阵 |
+| understanding-kit 0.1.1 | 19 个中性路径 fresh forward 变体：78 turn / 44 展示题，18 scoped PASS、1 UNEXERCISED；额外 fresh forward 重试 4 turn / 3 题仍未覆盖明确同源错误分支。独立历史状态回放另为 PASS，3 turn / 1 道新 Q3。详见 [验收记录](./[RUNBOOK]_Understanding_Kit_Acceptance.md)和 [矩阵](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/b2e5a74109f47ecee7471ba741fb4c1348457f3b/plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-post-merge-matrix.md) | 状态回放不计为该 forward 分支通过；明确未答回复不证明原生空返回、窗口持续显示或关闭恢复；历史带标签路径 pilot 不计最终中性矩阵 |
 | explain-kit 0.1.0 | CLI 0.147.0 / 默认 gpt-5.6-sol：11 个解释案例及 1 个绘图回归；三插件重新安装后另补 U2 / R2 / N1，保持解释路由、主要调试任务与 pop-quiz 显式策略。详见 [验收记录](./[RUNBOOK]_Explain_Kit_Acceptance.md) | 有限模型样本；不证明全部输入、所有模型或桌面 composer 发现 |
 
 ### §2.4 Real clients and release gates

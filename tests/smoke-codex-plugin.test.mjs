@@ -11,17 +11,17 @@ function fixture(){const root=fs.mkdtempSync(path.join(fs.realpathSync.native(os
  const manifests=Object.fromEntries(Object.keys(RUNTIME_PLUGINS).map(plugin=>{const manifest=JSON.parse(fs.readFileSync(path.resolve(import.meta.dirname,"..","plugins",plugin,"plugin.json"),"utf8"));if(plugin==="diagram-kit")manifest.version="0.2.0";return [plugin,manifest];}));
  const pluginVersions=Object.fromEntries(Object.entries(manifests).map(([plugin,manifest])=>[plugin,manifest.version]));
  const skillFile=(plugin,skill)=>{const file=path.join(cache,plugin,pluginVersions[plugin],"skills",skill,"SKILL.md");fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,skill);return file;};
- const file=skillFile("diagram-kit","arch-diagram"),quizFile=skillFile("understanding-kit","pop-quiz");
+ const file=skillFile("diagram-kit","arch-diagram"),quizFile=skillFile("learning-evidence-kit","pop-quiz");
  const explainEntries=["glossary","concept"].map(skill=>({name:"explain-kit:"+skill,file:skillFile("explain-kit",skill)}));
  const guideFile=skillFile("html-guide-kit","guide");
  for(const [plugin,manifest] of Object.entries(manifests))for(const base of [path.join(repo,"plugins",plugin),path.join(cache,plugin,pluginVersions[plugin])]){fs.mkdirSync(base,{recursive:true});fs.writeFileSync(path.join(base,"plugin.json"),JSON.stringify(manifest));}
- const entries=[{name:"diagram-kit:arch-diagram",file},{name:"understanding-kit:pop-quiz",file:quizFile},...explainEntries,{name:"html-guide-kit:guide",file:guideFile}];
+ const entries=[{name:"diagram-kit:arch-diagram",file},{name:"learning-evidence-kit:pop-quiz",file:quizFile},{name:"learning-evidence-kit:learning-record-check",file:skillFile("learning-evidence-kit","learning-record-check")},...explainEntries,{name:"html-guide-kit:guide",file:guideFile}];
  const dev=REPOSITORY_SKILLS.map(name=>{const file=path.join(repo,".agents/skills",name,"SKILL.md");fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,name);return {name,file};});
  return {root,cache,repo,file,quizFile,guideFile,entries,dev,pluginVersions};}
 test("consumer and repository inventories are scoped to real installed files",()=>{
  const f=fixture();try{
- assert.deepEqual(assertDiscovery(f.entries,{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false}),{publicSkills:5,repositorySkills:0});
- assert.deepEqual(assertDiscovery([...f.entries,...f.dev],{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:true}),{publicSkills:5,repositorySkills:20});
+ assert.deepEqual(assertDiscovery(f.entries,{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false}),{publicSkills:6,repositorySkills:0});
+ assert.deepEqual(assertDiscovery([...f.entries,...f.dev],{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:true}),{publicSkills:6,repositorySkills:20});
  assert.throws(()=>assertDiscovery([...f.entries,...f.dev],{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false}));
  }finally{cleanupIsolatedRoot(f.root);}});
 test("duplicate, missing and escaped public locators fail closed",()=>{
@@ -44,7 +44,7 @@ test("ordinary prompt metadata contains three natural skills and excludes the ex
 });
 test("a plugin cache junction cannot claim files outside its marketplace directory",t=>{
  const f=fixture();t.after(()=>cleanupIsolatedRoot(f.root));
- const cache=path.join(f.cache,'understanding-kit'),foreign=path.join(f.root,'foreign'),target=path.join(foreign,f.pluginVersions['understanding-kit'],'skills/pop-quiz/SKILL.md');
+ const cache=path.join(f.cache,'learning-evidence-kit'),foreign=path.join(f.root,'foreign'),target=path.join(foreign,f.pluginVersions['learning-evidence-kit'],'skills/pop-quiz/SKILL.md');
  fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,'foreign');fs.rmSync(cache,{recursive:true});
  try{fs.symlinkSync(foreign,cache,process.platform==='win32'?'junction':'dir');}catch(e){if(['EPERM','EACCES','ENOSYS'].includes(e.code)){t.skip('symbolic links unavailable');return;}throw e;}
  assert.throws(()=>assertDiscovery(f.entries,{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false}),/plugin cache escapes/);
@@ -57,9 +57,9 @@ test("prompt parser retains spaces and closing parentheses in a locator",()=>{
 const fakeServer = source => (_name,_args,options) => spawnCli(process.execPath,["-e",source],options);
 test("native skills/list completes the handshake and preserves explicitly available metadata",async()=>{
  const cwds=[path.resolve("consumer"),path.resolve("repository")];
- const source=`let b='',initialized=false;process.stdin.on('data',c=>{b+=c;let n;while((n=b.indexOf('\\n'))>=0){const q=JSON.parse(b.slice(0,n));b=b.slice(n+1);if(q.method==='initialize')process.stdout.write(JSON.stringify({id:q.id,result:{}})+'\\n');else if(q.method==='initialized')initialized=true;else if(q.method==='skills/list'){if(!initialized||!q.params.forceReload)throw Error('missing handshake');process.stdout.write(JSON.stringify({method:'skills/changed'})+'\\n');process.stdout.write(JSON.stringify({id:q.id,result:{data:q.params.cwds.map(cwd=>({cwd,errors:[],skills:[{name:'understanding-kit:pop-quiz',enabled:true,interface:{defaultPrompt:'Use $understanding-kit:pop-quiz'},path:'installed/SKILL.md'}]}))}})+'\\n');}}});`;
+ const source=`let b='',initialized=false;process.stdin.on('data',c=>{b+=c;let n;while((n=b.indexOf('\\n'))>=0){const q=JSON.parse(b.slice(0,n));b=b.slice(n+1);if(q.method==='initialize')process.stdout.write(JSON.stringify({id:q.id,result:{}})+'\\n');else if(q.method==='initialized')initialized=true;else if(q.method==='skills/list'){if(!initialized||!q.params.forceReload)throw Error('missing handshake');process.stdout.write(JSON.stringify({method:'skills/changed'})+'\\n');process.stdout.write(JSON.stringify({id:q.id,result:{data:q.params.cwds.map(cwd=>({cwd,errors:[],skills:[{name:'learning-evidence-kit:pop-quiz',enabled:true,interface:{defaultPrompt:'Use $learning-evidence-kit:pop-quiz'},path:'installed/SKILL.md'}]}))}})+'\\n');}}});`;
  const result=await listNativeSkills({cwds,spawn:fakeServer(source),timeoutMs:2000});
- assert.deepEqual(result.map(e=>e.cwd),cwds);assert.equal(result[0].skills[0].name,"understanding-kit:pop-quiz");assert.equal(result[0].skills[0].enabled,true);
+ assert.deepEqual(result.map(e=>e.cwd),cwds);assert.equal(result[0].skills[0].name,"learning-evidence-kit:pop-quiz");assert.equal(result[0].skills[0].enabled,true);
 });
 
 test("native protocol retains guide availability and its own route in consumer and repository snapshots",async()=>{
@@ -117,7 +117,7 @@ test("root mappings are local to their prompt text block",()=>{
  }finally{cleanupIsolatedRoot(f.root);}
 });
 
-for(const installed of [["diagram-kit"],["explain-kit"],["diagram-kit","explain-kit"],["diagram-kit","understanding-kit","explain-kit"],["html-guide-kit"],["html-guide-kit","explain-kit"],Object.keys(RUNTIME_PLUGINS)])test("standalone and combined discovery: "+installed.join(" + "),()=>{
+for(const installed of [["diagram-kit"], ["explain-kit"], ["learning-evidence-kit"], ["diagram-kit", "explain-kit"], ["diagram-kit", "learning-evidence-kit", "explain-kit"], ["html-guide-kit"], ["html-guide-kit", "explain-kit"], Object.keys(RUNTIME_PLUGINS)])test("standalone and combined discovery: "+installed.join(" + "),()=>{
  const f=fixture();try{
   const entries=f.entries.filter(e=>installed.includes(e.name.split(":")[0])),expectedSkills=entries.map(e=>e.name);
   const opts={cacheRoot:f.cache,repositoryRoot:f.repo,expectedSkills};
@@ -133,7 +133,7 @@ test("complete installed inventory rejects swapped skills and package identity/v
   const wrong=f.entries.map(e=>({...e}));wrong[2].file=wrong[3].file;assert.throws(()=>assertDiscovery(wrong,opts));
   const file=path.resolve(path.dirname(f.entries[2].file),"../../plugin.json"),original=fs.readFileSync(file),manifest=JSON.parse(original);
   for(const change of [{name:"diagram-kit"},{version:"9.9.9"}]){fs.writeFileSync(file,JSON.stringify({...manifest,...change}));assert.throws(()=>assertDiscovery(f.entries,opts),/identity\/version/);}
-  fs.writeFileSync(file,original);assert.equal(assertDiscovery(f.entries,opts).publicSkills,5);
+  fs.writeFileSync(file,original);assert.equal(assertDiscovery(f.entries,opts).publicSkills,6);
  }finally{cleanupIsolatedRoot(f.root);}
 });
 
@@ -146,6 +146,6 @@ test("guide discovery rejects borrowed skill locations, wrong version cache and 
   for(const change of [{name:"explain-kit"},{version:"0.1.1"}]){
    fs.writeFileSync(file,JSON.stringify({...manifest,...change}));assert.throws(()=>assertDiscovery(f.entries,opts),/identity\/version/);
   }
-  fs.writeFileSync(file,original);assert.equal(assertDiscovery(f.entries,opts).publicSkills,5);
+  fs.writeFileSync(file,original);assert.equal(assertDiscovery(f.entries,opts).publicSkills,6);
  }finally{cleanupIsolatedRoot(f.root);}
 });
