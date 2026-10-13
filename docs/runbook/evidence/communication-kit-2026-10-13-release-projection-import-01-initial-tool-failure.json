@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "refs": ["#222"],
+  "kind": "Original local tool output from failed import capture; successful verification is separate",
+  "chunkId": "dc638d",
+  "outerCommandExitCode": 0,
+  "output": "Traceback (most recent call last):\r\n  File \"C:\\Users\\Admin\\.codex\\worktrees\\communication-preview-import-capture.py\", line 11, in <module>\r\n    assert len(raw_record['artifacts'])==46\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nAssertionError\r\n[codex/communication-release-preparation 4576be9] docs(marketplace): import phase synchronization receipts into preparation\n4576be9401171dd89af331ec62b2e617abc4d768\n",
+  "meaning": "The capture failed before writing its result. The shell did not stop the later authorized documentation merge commit. That commit had the already-passing strict/doc/whitespace source, changed no runtime and did not touch protected branches or publish. No capture PASS is assigned to this output."
+}
