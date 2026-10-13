@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "refs": [
+    "#222"
+  ],
+  "capturedAt": "2026-10-13T06:08:44.825902+00:00",
+  "method": "Actual verifyReleaseInstall invocation: attach exact detached Git commit, strict validation, 13 independent installation snapshots and actual cache Python, then normal cleanup; development candidate only, not formal four-package source or post-publication R04.",
+  "source": {
+    "sha": "08cc00673db43c01e2f691121daee9d38758084f",
+    "tree": "859066fdf1375244581864743ff2ed7614c61a1a",
+    "version": "8.3.0",
+    "packageTrees": {
+      "diagram-kit": "e217c41be2cd4c3653aa17aa7b28c8312be06268",
+      "learning-evidence-kit": "c88818fac37e937a245436f0f999f3488babfe1f",
+      "explain-kit": "ef6a90bc60e9af45915c30ecf4668559978e29e5",
+      "communication-kit": "170fcad82f33548c8d91b62984df4ff38635e69f",
+      "html-guide-kit": "67e468c944bd9da076994667eef378367a012b14"
+    },
+    "aicsSnapshotSha256": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332",
+    "communicationRuntimeDifferenceFromNative000e803": [],
+    "packageDifferenceFromNative000e803": [
+      "plugins/communication-kit/CHANGELOG.md"
+    ]
+  },
+  "actual": {
+    "exitCode": 0,
+    "ok": true,
+    "cli": "codex-cli 0.147.0",
+    "scenarioCount": 13,
+    "diagramPython": 6,
+    "learningPython": 6,
+    "learningInterpreters": [
+      "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]"
+    ],
+    "ordinary": {
+      "publicSkills": 3,
+      "repositorySkills": 0
+    },
+    "nativePublic": 7,
+    "explicit": [
+      "learning-evidence-kit:pop-quiz",
+      "learning-evidence-kit:learning-record-check",
+      "communication-kit:communicate",
+      "html-guide-kit:guide"
+    ],
+    "allResultsAndResourceByteComparisons": "communication-kit-2026-10-13-pr4-canonical-01-result.json"
+  },
+  "formalScopeStatus": "NOT RUN: formal D/L/E/Comm four packages/six skills/nine combinations must be projected and verified from actual accepted merge before PR5; this develop tree retains HTML.",
+  "releaseCases": {
+    "R01": "NOT RUN",
+    "R02": "NOT RUN",
+    "R03": "NOT RUN",
+    "R04": "NOT RUN",
+    "R05": "NOT RUN"
+  },
+  "limits": [
+    "No Communication protected merge or non-author approval; no tag/Release.",
+    "No new client or model behavior run; older exact identities and limitations retained.",
+    "This pre-publication candidate canonical batch must not be reused as post-publication R04."
+  ],
+  "artifacts": [
+    {
+      "rawLog": "communication-kit-2026-10-13-pr4-canonical-01-result.json",
+      "rawBytes": 327653,
+      "sha256": "4dc6983e644b313d36bd1bf0bca43930f0895113865b5e2cb7100792f267f47c"
+    },
+    {
+      "rawLog": "communication-kit-2026-10-13-pr4-canonical-01-execution.log",
+      "rawBytes": 515,
+      "sha256": "b0184c625cf9fa34a5d9c9d6e5bed63d4f069345a680269d5f81da5b8a4528fd"
+    }
+  ]
+}

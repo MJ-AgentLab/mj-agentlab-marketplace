@@ -6,18 +6,18 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.7.2
+version: v1.13.3
 ---
 
 # [RUNBOOK] Communication Kit acceptance
 
 ## §1 Preconditions and status
 
-PR3已实现并原子接入完整Communication 0.1.0候选、注册、严格集合、冻结资源、正式D图标与安装预期。修复候选94c170d的278测试/九组合保留；HTML基线同步后工程源通过307/307，固定000e803的十三组canonical与六次缓存Python通过。S01–S12客观范围逐项核对。实际CLI批次C01–C15 PASS，C16–C18文件子路径PARTIAL；补充工具角色另有三项限定功能PASS，身份和覆盖分开。2026-10-13代理亲自完成统一桌面应用内Codex本地和ChatGPT/Work本机两个实际入口的必要基本功能，限定范围PASS，详见§4。原行为FAIL、CLI限制与原生选择窗口NOT RUN保留；R01–R05未执行，依赖和GitHub批准未满足，PR3保持draft。[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)保持开放，完整计划与[来源捕获](../../plan/communication-kit-plan-provenance.json)在plan/。
+PR3已实现并原子接入完整Communication 0.1.0候选、注册、严格集合、冻结资源、正式D图标与安装预期。修复候选94c170d的278测试/九组合保留；HTML基线同步后工程源通过307/307，固定000e803的十三组canonical与六次缓存Python通过。S01–S12客观范围逐项核对。实际CLI批次C01–C15 PASS，C16–C18文件子路径PARTIAL；补充工具角色另有三项限定功能PASS，身份和覆盖分开。2026-10-13代理亲自完成统一桌面应用内Codex本地和ChatGPT/Work本机两个实际入口的必要基本功能，限定范围PASS，详见§4。原行为FAIL、CLI限制与原生选择窗口NOT RUN保留；R01–R05未执行，Learning8.2已published，但GitHub批准和阶段实际合并未满足，PR3保持draft。[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)保持开放，完整计划与[来源捕获](../../plan/communication-kit-plan-provenance.json)在plan/。
 
 PR1 当时仅定义验收、没有运行包，全部新包用例从 NOT RUN 开始；该历史及失败批次保留，当前状态不覆盖原记录。
 
-PR1 起始基线 origin/develop b2e5a741 / marketplace 8.1.2，main 0c681a8f / 已发布 8.1.1。2026-10-13 PR3 同步 HTML 后当时为五插件六公开技能、20开发技能、三显式入口；后续 Learning 替代后的当前开发集合为五插件七公开技能、四显式入口，普通三、开发20。既有四插件及 HTML 五插件批次按原身份保留，不能改写为新集合结果。Owner Q3 明确 Communication 正式发行只含 Diagram/Learning Evidence/Explain/Communication 四包六技能、三显式策略，HTML 留 develop 另发。实际 main/Release 身份、From/To 与先发顺序在 PR4 复核，本文不执行转换。
+PR1 起始基线 origin/develop b2e5a741 / marketplace 8.1.2，main 0c681a8f / 已发布 8.1.1。2026-10-13 PR3同步HTML时的历史候选五插件六公开技能、20开发技能、三显式入口；Communication 的既有四插件批次按原身份保留，不能改写为五插件结果。该批marketplace为未发布8.1.2、main/latest为8.1.1；后续Learning已公开8.2.0，当前PR4准备8.3.0，以追加批次为准。Owner 选择 Learning 先 8.2.0，Communication 随后独立 minor（预计 8.3.0）；PR4 重查实际版本和基线范围，本文不执行转换。
 
 固定输入：[cases.json](../../tests/fixtures/communication-kit/cases.json)；判定：[rubric](../../tests/fixtures/communication-kit/rubric.md)；行为：[SPEC](../spec/[SPEC]_Communication_Communicate.md)。
 
@@ -54,7 +54,7 @@ npm run smoke:codex
 
 | ID | 标准 | 状态 |
 |---|---|---|
-| S01 | catalog、磁盘和注册精确一致：开发五插件、七公开技能、20开发技能；正式范围四插件、六技能另验 | PASS — Learning 工作树strict/十三组合；正式发行候选未执行，旧canonical按原身份保留 |
+| S01 | catalog、磁盘和注册精确一致：当前开发五插件、七公开技能、20开发技能 | PASS — 新基线strict/十三组合；原四插件结果保留 |
 | S02 | manifest与原生提示只调用本包communicate | PASS — 自身入口及128字符预算，实际行为另验 |
 | S03 | 显式策略准确；缺失、错类型、重复YAML key失败 | PASS — 严格正负用例 |
 | S04 | 能力准确为Read/Write；漏项或额外能力失败 | PASS — 严格能力集合变异 |
@@ -67,7 +67,7 @@ npm run smoke:codex
 | S11 | canonical候选资源缺失或篡改阻止安装 | PASS — 八项资源缺失/篡改在安装前阻断 |
 | S12 | 旧插件、实际Python图表校验、无MCP保持 | PASS — 九组合及四次缓存Python实际执行 |
 
-S01原四插件五技能仅为起始候选历史。先行Learning替换后开发五包七技能、20仓库技能；Owner Q3正式四包六技能、HTML另发，两个集合均精确检查，不按历史数量豁免。S05哈希不证明语义忠实；逐节来源对照另记。S10须实际尺寸人工检查和明确新图标选择。S11以strict canonical验证器测试资源变异阻止安装。
+S01原四插件五技能仅为起始历史；Learning替换后当前开发五包七技能、20仓库技能，Owner Q3正式四包六技能/HTML另发。各集合均精确验证，不按旧数豁免。S05哈希不证明语义忠实；逐节来源对照另记。S10须实际尺寸人工检查和明确新图标选择。S11以strict canonical验证器测试资源变异阻止安装。
 
 九个隔离安装组合：Diagram；Understanding；Explain；Diagram＋Explain；原三插件；Communication；Communication＋Explain；Communication＋Understanding；全四插件。每组合独立cache，逐资源字节对照。全量普通发现3、原生5；Communication独装普通0、原生1；仓库开发技能20，消费者0。新基线引起矩阵变化须明确处理。
 
@@ -202,6 +202,30 @@ PR1契约结果、PR3实证、PR4回归、PR5发布及后续复查逐阶段追�
 
 ## §6 Release verification
 
+### PR4并行准备：验收汇总与实际门禁核查
+
+[PR4 preflight 01](evidence/communication-kit-2026-10-13-pr4-preflight-01.json)从PR3 `82ee85b446c1aa74dce652975fe967f1f3d55b13`独立派生，只汇总已有实证与实际远端门禁；不是PR3合并后验收、正式版本转换或发布。Owner已再次授权按原顺序推进，并答复不指定审查人；聊天批准继续作为执行授权，不能补作GitHub非作者review。
+
+| 检查面 | preflight 01捕获时事实 | 后续解除条件 |
+|---|---|---|
+| S01–S12工程/安装 | 已有客观PASS；当前五插件/六公开技能、十三canonical及六次实际缓存Python，包tree14a3896c保持 | Learning先发及PR3实际合并后重算集合与身份，复验受影响安装范围 |
+| C01–C18行为 | CLI0.147批次15PASS/3PARTIAL保留；不同工具身份C16–C18三项限定PASS，旧FAIL不覆盖 | 保留每批身份及覆盖，不将有限子路径填成基线全PASS |
+| 必要桌面入口 | 同一26.1007.2314.0应用中的Codex本地与ChatGPT/Work本机基本范围PASS，见§4 | 正式来源和运行包变化时执行受影响实际客户端复验；原生窗口等未测状态保留 |
+| PR1–PR3 | 当前head分别4f23adb/0a9f7b3/82ee85b，CI成功；reviews为空、REVIEW_REQUIRED；无未解决线程 | 取得实际非作者最新head批准，按依赖合并并刷新后续base/CI/批准 |
+| Learning8.2.0 | #230仍draft、未合并，未发现8.2.0发布tag或Release | 先完成已确认的Learning8.2正式发布；不把本包注册带入先发范围 |
+| 实际版本 | origin/main 0c681a8f为8.1.1；origin/develop d106e76为未发布8.1.2；Communication0.1.0 | PR3合并及Learning先发后重查实际From/To和完整范围；预计独立minor8.3.0，不在本预备批次转换 |
+| 最新Release | v8.1.1已published，bot身份，tag目标8f0e044a，mutable/no assets | 本包正式发布后另核R01–R05；现有旧Release不计本包完成 |
+
+2026-10-13后续实际develop推进到`a2090ff89bb4a4135bfcf8fefc0f1a554fbe9302`，合入Learning本地存储PR #224；该PR具有其实际head的非作者APPROVED记录，但不提供Communication各PR的批准。PR1→PR2→PR3→PR4按普通merge继承该基线，保留两方CHANGELOG与AGENTS内容，修正PR2旧运行数量说明。PR1 CHANGELOG及PR2 AGENTS合并冲突、解决与实际复验分开保存在[storage baseline 01](evidence/communication-kit-2026-10-13-storage-baseline-01.json)及原始日志；不覆盖preflight 01快照或以前的失败。
+
+此批PR1/2/3实际全量测试分别280/289/308项，严格校验通过；前两阶段七组隔离smoke安装/四次缓存Python、PR3十三组/六次缓存Python实际通过，Codex保持0.147.0。本批方法是工作树快照的`npm run smoke:codex`，未执行`verifyReleaseInstall`固定提交的detached canonical批次；旧固定000e803 canonical证据按原身份保留。原子接入的Communication包tree仍为`14a3896c7ad50597bfc83996bcfec25180a720f9`，运行包、版本及安装校验器相对82ee85b不变。PR4本批完整工程复验与精确日志身份见上述新记录；行为和真实UI结果按原候选保留，不冒充新客户端批次或正式发布后验收。新head仍需实际CI、非作者最新推送批准、最新base和线程门禁；Learning #232的8.2.0 Release依赖未因#224合入而完成。
+
+PR4当前仅准备上述账本。完成PR3合并身份比较后，核对未发布且获准的实际版本/范围，先DryRun再应用版本工具、正式CHANGELOG及绑定实际版本的发布RUNBOOK；未经实际转换不预造版本段或发布身份。只补证据时不重跑全部行为，运行内容变化则复验相应案例和必要客户端路径。PR5仍须从PR4已验收的实际merge派生，核查main代码所有者批准、CI和线程，沿既有draft-first状态机发布，再从真实tag解析SHA另做上线后canonical/资源/Python复查。main→develop同步、下一patch预升和证据入库均使用受保护PR；Release published且安装复查完成后才关闭Epic。
+
+### 正式发布用例状态
+
+后续develop再次推进到`f958908eacaaeab8708eb0557be38be59641cad1`（Learning GitHub流转#227）。四实施分支以普通merge继承新模块及其受控离线测试，保留两方CHANGELOG、INDEX入口和历史证据；PR3/4 INDEX元数据分别推进，未改公开运行集合、Communication包tree或任何实际版本。最新批次方法和实际结果见[GitHub baseline 01](evidence/communication-kit-2026-10-13-github-baseline-01.json)，所有新head重新运行strict/test/smoke并重新等待CI。该批仅检验受控替身，未发布真实GitHub评论；#227已合入不等于Learning8.2 Release已发布，也不能替代Communication当前head批准。
+
 | ID | 通过标准 | 状态 |
 |---|---|---|
 | R01 | main merge SHA/tree与已测候选对应，差异已说明并完成受影响复验 | NOT RUN |
@@ -222,15 +246,23 @@ PR1契约结果、PR3实证、PR4回归、PR5发布及后续复查逐阶段追�
 
 | Version | Date | Summary |
 |---|---|---|
-| v1.7 | 2026-10-13 | 普通继承最新980文档收尾，生产零差异与既有基础实证身份保留，限定本轮文档/A6检查 |
-| v1.6 | 2026-10-13 | 合并PR1已确认范围与原子迁移工程事实，历史分阶段结果及限定客户端身份分别保留 |
-| v1.5 | 2026-10-13 | Learning原子替代与两解释器工程复验，开发/正式范围分开 |
+| v1.13 | 2026-10-13 | 精确归档四阶段收尾审计与43原始日志，绑定实际head/零生产差异及限定检查 |
+| v1.12 | 2026-10-13 | 普通合入PR3最新980文档收尾，保留8.3准备及全部旧验收，仅限定文档/A6复验 |
+| v1.11 | 2026-10-13 | 实际继承8.2.1预升基线、保持已匹配8.3.0目标，原工具操作身份不改写 |
+| v1.10 | 2026-10-13 | 固定8.3开发候选canonical与发布后基线同步工程证据，实际阶段合并/正式四包/上线后复查仍未执行 |
+| v1.9 | 2026-10-13 | 原字节归档Learning三轮工程与真实失败；准备8.3.0身份，保留受保护合并/正式候选/上线后未执行状态 |
+| v1.8 | 2026-10-13 | 整合Learning原子替代、Owner Q3四包公开范围与三轮工程记录；Learning正式先发已完成，Communication门禁和发布未完成 |
+| v1.7 | 2026-10-13 | 继承实际Learning GitHub流转基线#227，保留并行目录/变更记录与旧身份，追加新工程批次；正式版本和发布门禁未解除 |
+| v1.6 | 2026-10-13 | 普通merge继承实际Learning存储基线#224；追加四阶段新身份、冲突保留与工程复验，不替换既有UI身份或预填正式发布 |
+| v1.5 | 2026-10-13 | PR4并行准备验收汇总和远端门禁事实；保留Learning先发/非作者批准阻塞，不转换版本，不预填R01–R05 |
+| PR3 v1.7 | 2026-10-13 | 普通继承最新980文档收尾，生产零差异与既有基础实证身份保留，限定本轮文档/A6检查 |
+| PR3 v1.6 | 2026-10-13 | 合并PR1已确认范围与原子迁移工程事实，历史分阶段结果及限定客户端身份分别保留 |
+| PR3 v1.5 | 2026-10-13 | Learning原子替代与两解释器工程复验，开发/正式范围分开 |
 | v1.4 | 2026-10-13 | 追加代理亲自执行的同应用Codex/ChatGPT Work两个本机入口实证及独立核验；保留CLI限制、窗口与发布未测、批准和版本依赖 |
 | v1.3 | 2026-10-13 | 保留旧身份结果，整合PR1/2新实证和原路径缺失记录；HTML新基线五插件六技能/十三组合，客户端及发布仍待实际证据 |
 | v1.2 | 2026-10-12 | 追加原行为失败、通用修复及94新批；CLI15PASS/3PARTIAL与补充工具3项有限PASS分开，保留双客户端/发布缺项 |
 | v1.1 | 2026-10-12 | 记录PR3已实现候选、部分工程/九组合实证与S08缺口，增加必要客户端执行清单；行为及发布仍未判定 |
 | v1.0 | 2026-10-12 | 固定基础用例与证据状态；全部新包用例尚未执行 |
-
 
 ## Learning 原子迁移后的 PR3 开发集成
 
@@ -240,12 +272,52 @@ Owner 后续已明确 Q3：Communication 正式发行采用 Learning 三包基�
 
 当前工作树工程首轮344项为343 PASS/1 FAIL：HTML 的旧专用128字符错误遮住上游统一Unicode诊断。保留原始失败日志后，统一采用全插件1–3条/128 Unicode scalar values/合法Unicode规则，Communication原生提示预算保持；完整复验344/344、0跳过通过。首次严格检查的根指令预算和仅pyc残存过渡目录失败亦保留；按历史账本指针收敛根指令、核验后清理缓存，未提高预算。uv3.12.13 与 bundled3.12.14分别完成13组合隔离安装、6次缓存Diagram和6组Learning保存/重放/回读；两解释器下33存储/31受控GitHub Python用例通过，GitHub测试无真实远端写入。它们都是未提交工作树批次，固定提交canonical尚未执行；源码、包身份与原始日志待最终固定提交分别归档。
 
+Learning8.2.0已于2026-10-13T05:00:19Z正式published，tag和Release目标均为`ebc4bdc3abc62c36348d9ba28de7161b04b3b466`、github-actions[bot]、非draft/非prerelease。该事实满足先发依赖，不计Communication的R01–R05；其实际版本转换仍在本阶段按已确认后续minor目标执行并记录。
+
+### Learning迁移与8.3.0并行准备的新批次
+
+[Learning baseline 01](evidence/communication-kit-2026-10-13-learning-baseline-01.json)按原字节保留25份原始日志/审计及各自SHA-256。迁移全量PR1/2/3为317/326/344通过，PR3首轮343通过/1失败及指令预算/过渡缓存失败保留；修复仅收敛通用Unicode诊断与文档/缓存，不改运行包。PR3两解释器的十三snapshot组、各六次图表Python/六组Learning保存重放回读及限定3.12.13/3.12.14身份见原审计；不把工作树smoke写为detached canonical。发布准备上游6b5的纯文档/VERSION和一条断言诊断经受影响回归PR1 96/PR2 102、PR3 37版本＋65文档/A6、PR4 102通过；一次猜测测试名只跑37项的记录保留，显式65项补跑。
+
+Learning v8.2.0实际发布依赖已满足，tag/Release/main merge均为ebc4bdc3，bot于2026-10-13T05:00:19Z公开。PR4根据Owner Q1/Q3，以真实8.2.0先DryRun零写入再准备8.3.0，Comm0.1.0及既有包版本保持；首版CHANGELOG正式段改变包tree，仅文档，不改技能/参考/图标。正式范围D/L/E/Comm四包六技能，HTML留develop；实际PR3 merge比较及PR5正式四包投影/canonical/当前head批准仍待完成，R01–R05继续NOT RUN，见[8.3.0账本](./[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。
+
+[Version preparation 01](evidence/communication-kit-2026-10-13-version-prep-01.json)实测8.3.0候选344/344、0skip、strict与baseline0.147.0通过，十三snapshot安装/六次图表Python/六组Learning保存重放回读，Learning解释器3.12.14。实际版本操作、首次包装失败、原始空白属性修复及文档旧事实/表格修复分别保留；尚未执行正式四包源或发布后canonical。
+
+### 已固定开发候选的canonical与同步复查
+
+Refs #222。[Post-release sync 01](evidence/communication-kit-2026-10-13-postrelease-sync-01.json)保留四分支普通导入真实develop2c0a831的来源、20原始日志/审计和135/148/65/65受影响回归；PR3/4后续只改文档，生产/测试保持。PR4实际固定08cc006、tree859066f、VERSION8.3.0的[canonical 01](evidence/communication-kit-2026-10-13-pr4-canonical-01.json)通过严格校验、十三安装、六次图表Python/六组Learning保存重放回读，CLI0.147.0、Learning解释器3.12.14。Communication主技能/refs/manifest/icons与原000e803实际UI来源一致，完整Comm包仅首版CHANGELOG改变tree；Learning替换及其他包集合按新基线独立验证。该批为发布前五包开发候选，不能填正式四包验收、阶段保护合并或R04上线后复查；原模型/UI失败与PARTIAL继续保留。
+
+### 实际8.2.1开发预升导入
+
+Refs #222。#235于2026-10-13T06:10:55Z实际合入3af6837，仅AGENTS、VERSION与README badge变化，当前develop8.2.1；其reviews为空，历史缺项不追认。PR1/2/3普通继承8.2.1；PR4普通继承真实ancestry并保留已匹配目标8.3.0及根badge，不重复版本工具转换。原8.2.0→8.3.0的真实DryRun/apply与时间/源保持原记录。当前运行包/脚本/测试及8.3正式CH相对已测源保持；只做受影响文档/A6与strict复验，不将旧全量/canonical写为新执行。实际phase merge、非作者批准、正式四包和R仍未完成。
+
 ### #236文档收尾基线的PR3同步
 
 Refs #222。2026-10-13从原head `cf63337b8efccc5d56c4df02ab3aebd165c0c6bf`普通merge PR2 `c198f5c769950e693d194c878f9c72d9a1cded20`，包含实际develop `98068a8bd7060585b9915be9490a02a733fcb1a6`（#236）。保留五包七技能/四显式/普通三/开发20，VERSION与badge8.2.1；main/tag/published v8.2.0仍为 `ebc4bdc3` 的Learning三包。最新发行收尾与原A6失败/修复、空reviews以[Learning账本](./[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)及[收尾回执](evidence/learning-evidence-8-2-0-closeout.json)为准，不能追认为Communication批准或发布。
 
 本轮相对原head的plugins、scripts、tests与市场注册零差异；Communication包tree仍 `14a3896c7ad50597bfc83996bcfec25180a720f9`，其他包与原head及980来源相同，原计划405行/hash、旧公开CHANGELOG、模型失败/CLI PARTIAL与限定UI批次保持。AGENTS/README/INDEX冲突逐块保留双方意图，收敛阶段摘要并更新INDEX元数据；只执行严格校验、65项documentation/A6、whitespace、实际base正常A6与提交规范，不重复full、安装、Python或UI。原始日志保存在worktrees外部 `C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr3-*.log`；结果/hash与本轮确切head/tree见同目录追加审计 `communication-closeout-sync-audit.json`。正式四包范围、PR4已准备目标及阶段保护合并/R01–R05由各阶段记录，当前仍未宣称完成。
 
+### #236文档收尾基线的PR4同步
+
+Refs #222。2026-10-13从PR4原head `48437bef655c7ce8aed8452db01dac9dd638af1c`普通merge PR3 `c6d40a8a79943bae64ab19b418c8a7cdd7fa82eb`，包含实际develop `98068a8bd7060585b9915be9490a02a733fcb1a6`的文档收尾。相对原head生产包、scripts、tests、catalog及品牌资源零新增差异；已准备VERSION/badge8.3.0、根8.3.0和Comm0.1.0正式CHANGELOG段保持，不重复转换。Comm包tree `170fcad82f33548c8d91b62984df4ff38635e69f`保持，仅CHANGELOG区别于原native UI源 `000e8033ce2f639c974c3953aadc06b9be21878c`，其余manifest/技能/refs/icons相同；其他四包与实际980来源逐字节一致。
+
+AGENTS、INDEX及本账本冲突逐块整合：保留PR4版本准备/canonical和旧失败/PARTIAL，PR3分支的同号文档版本单独标记来源，不覆盖本分支历史。当前开发仍五包七技能/四显式，正式四包六技能/三显式、HTML留develop另发；最新Learning收尾与原A6失败/修复、空reviews见[8.2.0账本](./[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)及[回执](evidence/learning-evidence-8-2-0-closeout.json)。原计划405行/hash与全部原始实证保持，仅执行strict、65项documentation/A6、whitespace、真实base正常A6及提交规范；原始日志保存在外部 `C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr4-*.log`，结果/hash及本轮head/tree追加到同目录 `communication-closeout-sync-audit.json`。不重跑full、安装、Python或客户端，不将预备四包projection算正式PR5/保护合并/R01–R05。
+
+### 文档收尾原始证据归档
+
+Refs #222。[Closeout sync 01](evidence/communication-kit-2026-10-13-closeout-sync-01.json)绑定PR1 `6c0d609`、PR2 `c198f5c`、PR3 `c6d40a8`、PR4 `86a364e`实际head/tree、来源develop `98068a8`、各阶段生产零新增差异及65项受影响文档/A6范围，按raw manifest保存外部审计与43份原始日志。此前20份日志、两次只读审计helper失败及修复复验原字节保留，不覆盖旧record。当前归档基于86a364e，仅文档与evidence变化；五包开发、8.3.0及根/Comm正式CHANGELOG保持，不导入独立四包preview。AI独立核验和本地正常A6不替代GitHub当前head非作者批准、required checks或线程门禁，不补填正式PR5/Release/R01–R05，历史CLI PARTIAL、限定客户端及现实效果延期保持。
+
+本批归档首轮whitespace exit2由四份原始Git diff日志的空白上下文触发；只为本批对应证据和失败回执设置精确属性，保留其原字节及其余空白检查。失败回执/hash与修复说明随主record保存，不修改生产规则或分支门禁。
+
+第二次whitespace exit2进一步识别PR3原diff回执的末尾空行；只为该精确证据文件保留EOF字节，第二失败回执及修复说明同样追加，不改写原日志。
+
+### 继承空白问题的完整范围复验
+
+Refs #222。[Inherited whitespace 01](evidence/communication-kit-2026-10-13-inherited-whitespace-01.json)保留四阶段首轮真实full-range exit2、普通来源继承与最小修复；各固定实际head的`git diff --check origin/develop...HEAD`、staged、strict及65项documentation/A6均通过，未用parent/staged结果代替完整PR检查。非冻结guide/fixture和当时ADR/SPEC/验收仅收敛EOF，文档正文/案例解析值不变；计划405行/hash、来源记录和原Node失败日志各自磁盘/Git blob身份保持，只设置精确冻结属性。原日志、源身份、全部hash和证据文件的窄空白属性见manifest/audit。当前C4归档只补文档证据并保留开发五包/8.3.0及正式CH；不导入预备四包代码，不宣称GitHub批准、正式发布或新增full/install/Python/UI执行。
+
 ### PR1实际合并与固定来源复验
 
 Refs #222。[M1 postmerge 01](evidence/communication-kit-2026-10-13-pr1-merge-01.json)记录#223于2026-10-13T10:42:13Z实际合入develop `bca7b5c`，与已测head `5a9d845`同tree `b3d1f5b`。Root对该固定merge执行doc/A6 65/65、strict四开发包六技能和八组detached canonical，原summary列CLI0.147.0、四次Diagram/三组Learning实际Python3.12.14。初始python PATH launcher失效令三个尝试均未执行，绝对路径修复成功的完整原件分开保留。六份外部原件（含完整canonical result与GHfacts）按byte/hash归档，不摘取代替原始数据；reviews=[]/REVIEW_REQUIRED不能补作独立批准。M1复验不是Communication或R04/R05，后续来源/运行/安装范围变化须按record失效边界复验。
+
+### 实际PR1合并后的下游同步
+
+Refs #222。[PR1 merge sync 01](evidence/communication-kit-2026-10-13-pr1-merge-sync-01.json)绑定实际M1 merge `bca7b5c`/head `5a9d845`同tree、PR2 `7040dca`和PR3 `10674c6`的普通继承及PR4源输入，保留新的merge/检查/CRLF归档失败与窄修复原日志。M1固定postmerge六份完整原件由PR2先归档并原字节向后继承；不以摘要代替canonical result或GHfacts。此同步只更改文档/证据与精确原字节属性，运行/版本/正式CH保持，最终当前head检查与PR身份另记，不把M1reviews=[]推定批准，不计Communication或R04/R05；旧draft/NOT RUN及客户端/效果限制按原时间保留。

@@ -42,5 +42,4 @@ PR1 #221 实际合入 develop；PR2 创建 HTML Guide Kit 初始根版本 0.1.0�
 | Version | Date | Summary |
 |---|---|---|
 | v2.14 | 2026-10-13 | 同步 Learning 原子替代与 Communication 完整集成，按当前集合验收，发行范围另核对 |
-
 | v2.15 | 2026-10-13 | 同步已公开Learning8.2.0基线，保留Communication开发五包与正式四包范围及历史限制 |

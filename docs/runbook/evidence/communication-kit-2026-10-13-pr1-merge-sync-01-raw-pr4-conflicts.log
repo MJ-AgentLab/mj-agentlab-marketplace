@@ -1,0 +1,150 @@
+UU .gitattributes
+UU AGENTS.md
+UU docs/INDEX.md
+UU docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md
+A  docs/runbook/evidence/communication-kit-2026-10-13-pr1-merge-01-raw-canonical-result.json
+A  docs/runbook/evidence/communication-kit-2026-10-13-pr1-merge-01-raw-canonical.log
+A  docs/runbook/evidence/communication-kit-2026-10-13-pr1-merge-01-raw-doc.log
+A  docs/runbook/evidence/communication-kit-2026-10-13-pr1-merge-01-raw-github-facts.json
+A  docs/runbook/evidence/communication-kit-2026-10-13-pr1-merge-01-raw-launcher-failure.json
+A  docs/runbook/evidence/communication-kit-2026-10-13-pr1-merge-01-raw-validate.log
+A  docs/runbook/evidence/communication-kit-2026-10-13-pr1-merge-01.json
+diff --cc .gitattributes
+index 03601d5,dd01c95..0000000
+--- a/.gitattributes
++++ b/.gitattributes
+@@@ -5,16 -5,9 +5,22 @@@ plugins/communication-kit/skills/commun
+  # Preserve actual evidence bytes for the archived SHA-256 values.
+  docs/runbook/evidence/communication-kit-2026-10-13-* -text
+  docs/runbook/evidence/communication-kit-2026-10-13-*.log whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+++<<<<<<< HEAD
+ +# The original Node failure receipt contains two indented blank lines; keep its bytes.
+ +docs/runbook/evidence/communication-kit-2026-10-13-learning-baseline-01-pr3-learning-sync-tests-2026-10-13.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+ +# Version-tool console receipts retain their original final blank line and CRLF JSON.
+ +docs/runbook/evidence/communication-kit-2026-10-13-version-prep-01-*.log whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+ +docs/runbook/evidence/communication-kit-2026-10-13-version-prep-01-audit.json whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+ +# Exact Git diff receipts contain intentional space-only context lines.
+ +docs/runbook/evidence/communication-kit-2026-10-13-closeout-sync-01-raw-pr[1-4]-conflicts.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+ +# PR3's original diff receipt also ends with one intentional empty line.
+ +docs/runbook/evidence/communication-kit-2026-10-13-closeout-sync-01-raw-pr3-conflicts.log whitespace=-blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+ +docs/runbook/evidence/communication-kit-2026-10-13-closeout-sync-01-archive-whitespace-initial.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+++=======
++ # Preserve the two original M1 JSON receipts' CRLF without ignoring other whitespace.
++ docs/runbook/evidence/communication-kit-2026-10-13-pr1-merge-01-raw-github-facts.json whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
++ docs/runbook/evidence/communication-kit-2026-10-13-pr1-merge-01-raw-launcher-failure.json whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+++>>>>>>> 10674c6eb96a9a7b502fa4b3fe7143741bab69c2
+  plugins/html-guide-kit/** text eol=lf
+  plugins/html-guide-kit/**/*.png -text
+  assets/brand/html-guide-kit/candidates/revision-2/*.svg text eol=lf
+diff --cc AGENTS.md
+index 2b64b63,b267259..0000000
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@@ -16,7 -16,7 +16,11 @@@ Learning Evidence Kit 的 Pop Quiz 诊�
+  
+  explain-kit 0.1.0 提供速解和深讲，默认中文、保留术语原文，按深度路由并适应用户格式。新增解释能力的 [ADR](docs/adr/[ADR]_Explain_Kit_Addition.md) 与 [验收记录](docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md) 不改变测验策略。
+  
+++<<<<<<< HEAD
+ +Communication实施与发布使用[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。候选[包说明](plugins/communication-kit/README.md)和[communicate](plugins/communication-kit/skills/communicate/SKILL.md)定义显式单入口、沟通/编写/保义改写、关键缺口等待、成稿＋关键提示及明确请求才保存编辑。冻结AICS保持Lab Proposal / Informative，运行只依赖包内摘要。工程307测试、十三组canonical及六次缓存Python通过；旧行为失败与CLI C16–C18 PARTIAL保留。2026-10-13代理亲自执行同一26.1007.2314.0桌面应用内Codex本地和ChatGPT/Work本机两个入口，安装、图标、三任务、聊天等待及新MD/TXT保存回读限定范围PASS；身份、原生窗口/其他客户端未覆盖项见[验收记录§4](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。Communication发布未执行，PR1–4保持draft；Learning先发已完成，当前阶段独立批准与合并仍缺；现实效果测试本轮延期。
+++=======
++ Communication实施与发布使用[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。候选[包说明](plugins/communication-kit/README.md)和[communicate](plugins/communication-kit/skills/communicate/SKILL.md)定义显式单入口、沟通/编写/保义改写、关键缺口等待、成稿＋关键提示及明确请求才保存编辑。冻结AICS保持Lab Proposal / Informative，运行只依赖包内摘要。工程307测试、十三组canonical及六次缓存Python通过；旧行为失败与CLI C16–C18 PARTIAL保留。2026-10-13代理亲自执行同一26.1007.2314.0桌面应用内Codex本地和ChatGPT/Work本机两个入口，安装、图标、三任务、聊天等待及新MD/TXT保存回读限定范围PASS；身份、原生窗口/其他客户端未覆盖项见[验收记录§4](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。发布未执行，此前PR1–3保持draft，Learning先发已完成，当前阶段独立批准与合并仍缺；现实效果测试本轮延期。
+++>>>>>>> 10674c6eb96a9a7b502fa4b3fe7143741bab69c2
+  
+  ## 执行与决策
+  
+@@@ -76,8 -76,6 +80,14 @@@ Learning当前收尾：main/tag/publish
+  
+  Communication PR3已普通继承PR2 c198f5c及最新#236/develop98068a8的文档收尾，VERSION/badge8.2.1保持；生产包、脚本/测试/注册与cf63337零新差异，仍五包七技能/四显式/普通三/开发20。正式仅D/L/E/Comm四包六技能，HTML留develop；旧失败、CLI PARTIAL及限定UI身份保持，未重跑安装或客户端。当前head批准、CI/线程及保护合并另核对，Refs #222。
+  
+++<<<<<<< HEAD
+ +Communication PR4普通合入PR3 c6d40a8与最新develop98068a8，仅同步文档/evidence；VERSION/badge8.3.0、根8.3及Comm0.1正式CH保持，不重复bump。当前仍五包七技能/四显式，正式仅四包六技能、HTML另发；生产与48437be零新差异，Comm170fcad除CH外与实际UI源000e803一致。历史失败/PARTIAL与限定客户端身份保留，实际phase merge、批准、正式四包及R未完成，见[8.3账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)，Refs #222。
+ +
+ +收尾原日志见[证据](docs/runbook/evidence/communication-kit-2026-10-13-closeout-sync-01.json)；原字节保留，AI审查不替代GitHub批准。
+ +
+ +PR4继承空白修复检查完整PR范围；冻结计划、来源及原失败证据保留原字节。
+++=======
++ PR3继承空白修复检查完整PR范围；冻结计划、来源及原失败证据保留原字节。
++ 
++ PR1 #223已实际合入develop bca7b5c（2026-10-13，源5a9d845同树）；reviews=[]不追认独立批准。本分支普通同步，Refs #222。
+++>>>>>>> 10674c6eb96a9a7b502fa4b3fe7143741bab69c2
+diff --cc docs/INDEX.md
+index 743212c,86c2553..0000000
+--- a/docs/INDEX.md
++++ b/docs/INDEX.md
+@@@ -6,7 -6,7 +6,11 @@@ owner: marketplace-maintainer
+  created: 2026-10-09
+  updated: 2026-10-13
+  state: active
+++<<<<<<< HEAD
+ +version: v2.25.2
+++=======
++ version: v2.23.2
+++>>>>>>> 10674c6eb96a9a7b502fa4b3fe7143741bab69c2
+  ---
+  
+  # 文档索引
+@@@ -27,18 -27,12 +31,20 @@@ Learning #224的当前head批准及交�
+  
+  Marketplace v8.2.0已通过#232/main ebc4bdc3公开；#234同步和#235未发布8.2.1预升已依序实际合入，两次精确merge各八安装/实际Python通过。Learning公开三插件、上游develop四插件范围保持；原A6例外失败、正常摘要修复及空reviews见[收尾回执](runbook/evidence/learning-evidence-8-2-0-closeout.json)。#210–214关闭；#215/Epic保留原生延期、真实客户端/效果与Owner接受，继续OPEN。
+  
+ -Communication PR3普通继承PR2 `c198f5c` / develop `98068a8`最新文档收尾，五包七技能/四显式及未发布8.2.1保持；运行包与既有证据身份分别核对，记录见[验收账本](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)，Refs #222。
+ +Communication PR3已在8.2.1普通继承PR2 `c198f5c` / develop `98068a8`文档收尾；PR4继续普通合入PR3 `c6d40a8`并保留已准备8.3.0、五包七技能/四显式及正式四包六技能范围。运行与历史实证身份核对、最新同步见[验收账本](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)和[8.3.0账本](runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)，Refs #222。
+ +
+ +四阶段文档收尾实际head、生产零差异、限定65项检查及43原始日志/hash见[Closeout sync 01](runbook/evidence/communication-kit-2026-10-13-closeout-sync-01.json)，原字节与失败链保留，AI审查不替代GitHub批准。
+ +
+ +继承空白失败、窄修复、四实际head完整PR范围复验及原字节manifest见[Inherited whitespace 01](runbook/evidence/communication-kit-2026-10-13-inherited-whitespace-01.json)。
+  
++ PR1 #223实际合入bca、head同tree与限定M1 postmerge原始证据见[M1 postmerge 01](runbook/evidence/communication-kit-2026-10-13-pr1-merge-01.json)；空reviews不追认独立批准。
++ 
+  ## 入口
+  
+ +- [Communication Marketplace 8.3.0 发布准备](runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)：已授权四包六技能，版本准备与实际合并/发布/安装复查分开记录。
+ +
+ +Communication PR4同步验收证据和实际发布基线，见[验收记录§6](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。Learning8.2已published，正式Communication范围为四包六技能、HTML另发；当前head独立批准和阶段实际合入仍未满足。
+ +
+  Owner Q3已确认Communication正式发行仅为Learning已公开三包加Communication（四包六技能），HTML保留develop另发；开发集成五包七技能，两个集合各自精确验证。
+  
+  - [Communication 完整实施计划](../plan/communication-kit-implementation-plan.md)与[原稿捕获](../plan/communication-kit-plan-provenance.json)
+diff --cc docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md
+index 5217725,da0832c..0000000
+--- a/docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md
++++ b/docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md
+@@@ -6,7 -6,7 +6,11 @@@ owner: marketplace-maintainer
+  created: 2026-10-12
+  updated: 2026-10-13
+  state: draft
+++<<<<<<< HEAD
+ +version: v1.13.2
+++=======
++ version: v1.7.2
+++>>>>>>> 10674c6eb96a9a7b502fa4b3fe7143741bab69c2
+  ---
+  
+  # [RUNBOOK] Communication Kit acceptance
+@@@ -296,20 -246,6 +300,26 @@@ Refs #222。2026-10-13从原head `cf633
+  
+  本轮相对原head的plugins、scripts、tests与市场注册零差异；Communication包tree仍 `14a3896c7ad50597bfc83996bcfec25180a720f9`，其他包与原head及980来源相同，原计划405行/hash、旧公开CHANGELOG、模型失败/CLI PARTIAL与限定UI批次保持。AGENTS/README/INDEX冲突逐块保留双方意图，收敛阶段摘要并更新INDEX元数据；只执行严格校验、65项documentation/A6、whitespace、实际base正常A6与提交规范，不重复full、安装、Python或UI。原始日志保存在worktrees外部 `C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr3-*.log`；结果/hash与本轮确切head/tree见同目录追加审计 `communication-closeout-sync-audit.json`。正式四包范围、PR4已准备目标及阶段保护合并/R01–R05由各阶段记录，当前仍未宣称完成。
+  
+++<<<<<<< HEAD
+ +### #236文档收尾基线的PR4同步
+ +
+ +Refs #222。2026-10-13从PR4原head `48437bef655c7ce8aed8452db01dac9dd638af1c`普通merge PR3 `c6d40a8a79943bae64ab19b418c8a7cdd7fa82eb`，包含实际develop `98068a8bd7060585b9915be9490a02a733fcb1a6`的文档收尾。相对原head生产包、scripts、tests、catalog及品牌资源零新增差异；已准备VERSION/badge8.3.0、根8.3.0和Comm0.1.0正式CHANGELOG段保持，不重复转换。Comm包tree `170fcad82f33548c8d91b62984df4ff38635e69f`保持，仅CHANGELOG区别于原native UI源 `000e8033ce2f639c974c3953aadc06b9be21878c`，其余manifest/技能/refs/icons相同；其他四包与实际980来源逐字节一致。
+ +
+ +AGENTS、INDEX及本账本冲突逐块整合：保留PR4版本准备/canonical和旧失败/PARTIAL，PR3分支的同号文档版本单独标记来源，不覆盖本分支历史。当前开发仍五包七技能/四显式，正式四包六技能/三显式、HTML留develop另发；最新Learning收尾与原A6失败/修复、空reviews见[8.2.0账本](./[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)及[回执](evidence/learning-evidence-8-2-0-closeout.json)。原计划405行/hash与全部原始实证保持，仅执行strict、65项documentation/A6、whitespace、真实base正常A6及提交规范；原始日志保存在外部 `C:/Users/Admin/.codex/worktrees/communication-closeout-sync-pr4-*.log`，结果/hash及本轮head/tree追加到同目录 `communication-closeout-sync-audit.json`。不重跑full、安装、Python或客户端，不将预备四包projection算正式PR5/保护合并/R01–R05。
+ +
+ +### 文档收尾原始证据归档
+ +
+ +Refs #222。[Closeout sync 01](evidence/communication-kit-2026-10-13-closeout-sync-01.json)绑定PR1 `6c0d609`、PR2 `c198f5c`、PR3 `c6d40a8`、PR4 `86a364e`实际head/tree、来源develop `98068a8`、各阶段生产零新增差异及65项受影响文档/A6范围，按raw manifest保存外部审计与43份原始日志。此前20份日志、两次只读审计helper失败及修复复验原字节保留，不覆盖旧record。当前归档基于86a364e，仅文档与evidence变化；五包开发、8.3.0及根/Comm正式CHANGELOG保持，不导入独立四包preview。AI独立核验和本地正常A6不替代GitHub当前head非作者批准、required checks或线程门禁，不补填正式PR5/Release/R01–R05，历史CLI PARTIAL、限定客户端及现实效果延期保持。
+ +
+ +本批归档首轮whitespace exit2由四份原始Git diff日志的空白上下文触发；只为本批对应证据和失败回执设置精确属性，保留其原字节及其余空白检查。失败回执/hash与修复说明随主record保存，不修改生产规则或分支门禁。
+ +
+ +第二次whitespace exit2进一步识别PR3原diff回执的末尾空行；只为该精确证据文件保留EOF字节，第二失败回执及修复说明同样追加，不改写原日志。
+ +
+ +### 继承空白问题的完整范围复验
+ +
+ +Refs #222。[Inherited whitespace 01](evidence/communication-kit-2026-10-13-inherited-whitespace-01.json)保留四阶段首轮真实full-range exit2、普通来源继承与最小修复；各固定实际head的`git diff --check origin/develop...HEAD`、staged、strict及65项documentation/A6均通过，未用parent/staged结果代替完整PR检查。非冻结guide/fixture和当时ADR/SPEC/验收仅收敛EOF，文档正文/案例解析值不变；计划405行/hash、来源记录和原Node失败日志各自磁盘/Git blob身份保持，只设置精确冻结属性。原日志、源身份、全部hash和证据文件的窄空白属性见manifest/audit。当前C4归档只补文档证据并保留开发五包/8.3.0及正式CH；不导入预备四包代码，不宣称GitHub批准、正式发布或新增full/install/Python/UI执行。
+++=======
++ ### PR1实际合并与固定来源复验
++ 
++ Refs #222。[M1 postmerge 01](evidence/communication-kit-2026-10-13-pr1-merge-01.json)记录#223于2026-10-13T10:42:13Z实际合入develop `bca7b5c`，与已测head `5a9d845`同tree `b3d1f5b`。Root对该固定merge执行doc/A6 65/65、strict四开发包六技能和八组detached canonical，原summary列CLI0.147.0、四次Diagram/三组Learning实际Python3.12.14。初始python PATH launcher失效令三个尝试均未执行，绝对路径修复成功的完整原件分开保留。六份外部原件（含完整canonical result与GHfacts）按byte/hash归档，不摘取代替原始数据；reviews=[]/REVIEW_REQUIRED不能补作独立批准。M1复验不是Communication或R04/R05，后续来源/运行/安装范围变化须按record失效边界复验。
+++>>>>>>> 10674c6eb96a9a7b502fa4b3fe7143741bab69c2

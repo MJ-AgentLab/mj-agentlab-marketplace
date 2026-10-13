@@ -1,0 +1,323 @@
+{
+  "schemaVersion": 1,
+  "refs": 222,
+  "capturedAt": "2026-10-13T05:57:36.482Z",
+  "timezone": "Asia/Taipei",
+  "base": "2c0a83172507bcb77d105d9f9294fec2e6672ac1",
+  "publishedMain": "ebc4bdc3abc62c36348d9ba28de7161b04b3b466",
+  "unmergedPreBump235Imported": false,
+  "records": [
+    {
+      "stage": "PR1",
+      "root": "C:/Users/Admin/.codex/worktrees/communication-contract/develop",
+      "branch": "codex/communication-contract",
+      "head": "e5db2ca4fdb7b1e1883994b11deb6392f9488659",
+      "tree": "450813e5834c1c7ebd95ba48d2672af85dde3b13",
+      "parents": [
+        "4ce55d2da526a8a8392ec2352d59966b811a0379",
+        "2c0a83172507bcb77d105d9f9294fec2e6672ac1"
+      ],
+      "clean": true,
+      "remoteHead": "e5db2ca4fdb7b1e1883994b11deb6392f9488659",
+      "baseIncluded": true,
+      "runtimeSourceEquivalence": true,
+      "relativeChanges": [
+        ".gitattributes",
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "docs/INDEX.md",
+        "docs/adr/[ADR]_Communication_Kit_Addition.md",
+        "docs/guide/[GUIDE]_Communication_Communicate.md",
+        "docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md",
+        "docs/runbook/evidence/communication-kit-2026-10-12-pr1-01.json",
+        "docs/runbook/evidence/communication-kit-2026-10-12-pr1-01.log",
+        "docs/runbook/evidence/communication-kit-2026-10-12-pr1-02.json",
+        "docs/runbook/evidence/communication-kit-2026-10-12-pr1-02.log",
+        "docs/runbook/evidence/communication-kit-2026-10-12-pr1-03.json",
+        "docs/runbook/evidence/communication-kit-2026-10-12-pr1-03.log",
+        "docs/runbook/evidence/communication-kit-2026-10-12-pr1-04.json",
+        "docs/runbook/evidence/communication-kit-2026-10-12-pr1-04.log",
+        "docs/runbook/evidence/communication-kit-2026-10-12-pr1-canonical-01.json",
+        "docs/runbook/evidence/communication-kit-2026-10-12-pr1-canonical-attempt.json",
+        "docs/runbook/evidence/communication-kit-2026-10-13-pr1-baseline-05-byte-capture-fix.json",
+        "docs/runbook/evidence/communication-kit-2026-10-13-pr1-baseline-05-canonical.json",
+        "docs/runbook/evidence/communication-kit-2026-10-13-pr1-baseline-05-tests.log",
+        "docs/runbook/evidence/communication-kit-2026-10-13-pr1-baseline-05-validate.log",
+        "docs/runbook/evidence/communication-kit-2026-10-13-pr1-baseline-05.json",
+        "docs/spec/[SPEC]_Communication_Communicate.md",
+        "plan/communication-kit-implementation-plan.md",
+        "plan/communication-kit-plan-provenance.json",
+        "tests/fixtures/communication-kit/cases.json",
+        "tests/fixtures/communication-kit/rubric.md",
+        "tests/plugin-icons.test.mjs",
+        "tests/release-verify-install.test.mjs",
+        "tests/validate-portable.test.mjs"
+      ],
+      "packageTrees": {
+        "diagram-kit": "e217c41be2cd4c3653aa17aa7b28c8312be06268",
+        "learning-evidence-kit": "c88818fac37e937a245436f0f999f3488babfe1f",
+        "explain-kit": "ef6a90bc60e9af45915c30ecf4668559978e29e5",
+        "html-guide-kit": "67e468c944bd9da076994667eef378367a012b14"
+      },
+      "marketplaceVersion": "8.2.0",
+      "communicationRegistered": false,
+      "publishedChangelogSha256": "30768f1e63db40765852d168520230d7407f1ac7c23cca7885ad0e3953d1cbd8",
+      "plan": {
+        "lines": 405,
+        "sha256": "6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3"
+      },
+      "agents": {
+        "bytes": 14659,
+        "crlfBytes": 14665,
+        "limit": 16384
+      },
+      "testCount": 135,
+      "validation": "PASS",
+      "baseline": "0.147.0 exact-match PASS",
+      "localA6": "PASS, no-trigger",
+      "commitValidation": 7,
+      "message": "infra(marketplace): sync published develop into contracts\n\nMerge actual develop 2c0a831 after #234 while retaining the Communication\ncontracts and exact saved plan. Keep the four-package development runtime,\npublished three-package v8.2.0 baseline and Owner-selected Communication\nrelease scope distinct. Do not import the unmerged 8.2.1 pre-bump.\nStrict validation and 135 affected regression tests pass; published version\nsections and upstream runtime contents remain unchanged.\n\nRefs #222\nCo-Authored-By: OpenAI Codex <noreply@openai.com>"
+    },
+    {
+      "stage": "PR2",
+      "root": "C:/Users/Admin/.codex/worktrees/communication-foundation/develop",
+      "branch": "codex/communication-foundation",
+      "head": "569f0ddb31931b43ab9fe4ff2050e16d99b745ad",
+      "tree": "fa8b9c21f1a90bb4da57ef73152203ca7425355c",
+      "parents": [
+        "14a9af6eb710c79dd457f0909c75b43d60af2349",
+        "e5db2ca4fdb7b1e1883994b11deb6392f9488659"
+      ],
+      "clean": true,
+      "remoteHead": "569f0ddb31931b43ab9fe4ff2050e16d99b745ad",
+      "baseIncluded": true,
+      "runtimeSourceEquivalence": true,
+      "relativeChanges": [
+        ".agents/skills/mp-doc-bump-version/SKILL.md",
+        ".gitattributes",
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "assets/brand/communication-kit/candidates/README.md",
+        "assets/brand/communication-kit/candidates/a-32.png",
+        "assets/brand/communication-kit/candidates/a-48.png",
+        "assets/brand/communication-kit/candidates/a-64.png",
+        "assets/brand/communication-kit/candidates/a-previews.png",
+        "assets/brand/communication-kit/candidates/a.png",
+        "assets/brand/communication-kit/candidates/a.svg",
+        "assets/brand/communication-kit/candidates/b-32.png",
+        "assets/brand/communication-kit/candidates/b-48.png",
+        "assets/brand/communication-kit/candidates/b-64.png",
+        "assets/brand/communication-kit/candidates/b-previews.png",
+        "assets/brand/communication-kit/candidates/b.png",
+        "assets/brand/communication-kit/candidates/b.svg",
+        "assets/brand/communication-kit/candidates/c-32.png",
+        "assets/brand/communication-kit/candidates/c-48.png",
+        "assets/brand/communication-kit/candidates/c-64.png",
+        "assets/brand/communication-kit/candidates/c-previews.png",
+        "assets/brand/communication-kit/candidates/c.png",
+        "assets/brand/communication-kit/candidates/c.svg",
+        "assets/brand/communication-kit/candidates/comparison.png",
+        "assets/brand/communication-kit/candidates/render.mjs",
+        "assets/brand/communication-kit/candidates/revision-2/README.md",
+        "assets/brand/communication-kit/candidates/revision-2/comparison.png",
+        "assets/brand/communication-kit/candidates/revision-2/d-32.png",
+        "assets/brand/communication-kit/candidates/revision-2/d-48.png",
+        "assets/brand/communication-kit/candidates/revision-2/d-64.png",
+        "assets/brand/communication-kit/candidates/revision-2/d-previews.png",
+        "assets/brand/communication-kit/candidates/revision-2/d.png",
+        "assets/brand/communication-kit/candidates/revision-2/d.svg",
+        "assets/brand/communication-kit/candidates/revision-2/e-32.png",
+        "assets/brand/communication-kit/candidates/revision-2/e-48.png",
+        "assets/brand/communication-kit/candidates/revision-2/e-64.png",
+        "assets/brand/communication-kit/candidates/revision-2/e-previews.png",
+        "assets/brand/communication-kit/candidates/revision-2/e.png",
+        "assets/brand/communication-kit/candidates/revision-2/e.svg",
+        "assets/brand/communication-kit/candidates/revision-2/f-32.png",
+        "assets/brand/communication-kit/candidates/revision-2/f-48.png",
+        "assets/brand/communication-kit/candidates/revision-2/f-64.png",
+        "assets/brand/communication-kit/candidates/revision-2/f-previews.png",
+        "assets/brand/communication-kit/candidates/revision-2/f.png",
+        "assets/brand/communication-kit/candidates/revision-2/f.svg",
+        "assets/brand/communication-kit/candidates/revision-2/failed-first-export/README.md",
+        "assets/brand/communication-kit/candidates/revision-2/failed-first-export/comparison.png",
+        "assets/brand/communication-kit/candidates/revision-2/failed-first-export/d-32.png",
+        "assets/brand/communication-kit/candidates/revision-2/failed-first-export/d-48.png",
+        "assets/brand/communication-kit/candidates/revision-2/failed-first-export/d-64.png",
+        "assets/brand/communication-kit/candidates/revision-2/failed-first-export/d-previews.png",
+        "assets/brand/communication-kit/candidates/revision-2/failed-first-export/d.png",
+        "assets/brand/communication-kit/candidates/revision-2/failed-first-export/d.svg",
+        "assets/brand/communication-kit/candidates/revision-2/render.mjs",
+        "assets/brand/communication-kit/candidates/revision-2/selection.json",
+        "assets/brand/communication-kit/candidates/revision-2/source-record.json",
+        "assets/brand/communication-kit/candidates/selection.json",
+        "docs/INDEX.md",
+        "docs/adr/[ADR]_Communication_Kit_Addition.md",
+        "docs/guide/[GUIDE]_Communication_Communicate.md",
+        "docs/guide/[GUIDE]_Version_Management.md",
+        "docs/rule/[STANDARD]_Commit_Message_Convention.md",
+        "docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md",
+        "docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md",
+        "docs/runbook/evidence/communication-kit-2026-10-12-foundation-01.json",
+        "docs/runbook/evidence/communication-kit-2026-10-12-foundation-02.json",
+        "docs/runbook/evidence/communication-kit-2026-10-12-foundation-03.json",
+        "docs/runbook/evidence/communication-kit-2026-10-12-foundation-canonical-01.json",
+        "docs/runbook/evidence/communication-kit-2026-10-12-pr1-01.json",
+        "docs/runbook/evidence/communication-kit-2026-10-12-pr1-01.log",
+        "docs/runbook/evidence/communication-kit-2026-10-12-pr1-02.json",
+        "docs/runbook/evidence/communication-kit-2026-10-12-pr1-02.log",
+        "docs/runbook/evidence/communication-kit-2026-10-12-pr1-03.json",
+        "docs/runbook/evidence/communication-kit-2026-10-12-pr1-03.log",
+        "docs/runbook/evidence/communication-kit-2026-10-12-pr1-04.json",
+        "docs/runbook/evidence/communication-kit-2026-10-12-pr1-04.log",
+        "docs/runbook/evidence/communication-kit-2026-10-12-pr1-canonical-01.json",
+        "docs/runbook/evidence/communication-kit-2026-10-12-pr1-canonical-attempt.json",
+        "docs/runbook/evidence/communication-kit-2026-10-13-pr1-baseline-05-byte-capture-fix.json",
+        "docs/runbook/evidence/communication-kit-2026-10-13-pr1-baseline-05-canonical.json",
+        "docs/runbook/evidence/communication-kit-2026-10-13-pr1-baseline-05-tests.log",
+        "docs/runbook/evidence/communication-kit-2026-10-13-pr1-baseline-05-validate.log",
+        "docs/runbook/evidence/communication-kit-2026-10-13-pr1-baseline-05.json",
+        "docs/runbook/evidence/communication-kit-2026-10-13-pr2-baseline-05-canonical.json",
+        "docs/runbook/evidence/communication-kit-2026-10-13-pr2-baseline-05-tests.log",
+        "docs/runbook/evidence/communication-kit-2026-10-13-pr2-baseline-05-validate.log",
+        "docs/runbook/evidence/communication-kit-2026-10-13-pr2-baseline-05.json",
+        "docs/spec/[SPEC]_Communication_Communicate.md",
+        "plan/communication-kit-implementation-plan.md",
+        "plan/communication-kit-plan-provenance.json",
+        "scripts/bump-version.ps1",
+        "scripts/install-hooks.ps1",
+        "scripts/render-brand-previews.mjs",
+        "scripts/validate-commits.ps1",
+        "scripts/validate-commits.sh",
+        "tests/bump-version.test.mjs",
+        "tests/commit-convention.test.mjs",
+        "tests/communication-foundation.test.mjs",
+        "tests/fixtures/communication-kit/cases.json",
+        "tests/fixtures/communication-kit/rubric.md",
+        "tests/plugin-icons.test.mjs",
+        "tests/release-verify-install.test.mjs",
+        "tests/validate-portable.test.mjs"
+      ],
+      "packageTrees": {
+        "diagram-kit": "e217c41be2cd4c3653aa17aa7b28c8312be06268",
+        "learning-evidence-kit": "c88818fac37e937a245436f0f999f3488babfe1f",
+        "explain-kit": "ef6a90bc60e9af45915c30ecf4668559978e29e5",
+        "html-guide-kit": "67e468c944bd9da076994667eef378367a012b14"
+      },
+      "marketplaceVersion": "8.2.0",
+      "communicationRegistered": false,
+      "publishedChangelogSha256": "30768f1e63db40765852d168520230d7407f1ac7c23cca7885ad0e3953d1cbd8",
+      "plan": {
+        "lines": 405,
+        "sha256": "6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3"
+      },
+      "agents": {
+        "bytes": 15192,
+        "crlfBytes": 15194,
+        "limit": 16384
+      },
+      "testCount": 148,
+      "validation": "PASS",
+      "baseline": "0.147.0 exact-match PASS",
+      "localA6": "PASS, root AGENTS synchronized",
+      "commitValidation": 13,
+      "message": "infra(marketplace): sync published contracts into foundation\n\nMerge Communication PR1 e5db2ca with actual develop 2c0a831 ancestry.\nPreserve Communication commit/version tooling and selected icon candidates,\nthe unchanged four-package development runtime, and exact saved plan.\nKeep published v8.2.0 identity and Owner-selected four-package Communication\nrelease scope distinct. Do not import the unmerged 8.2.1 pre-bump.\nStrict validation, 146 affected regressions and two foundation tests pass.\nPublished version sections and upstream runtime contents remain unchanged.\n\nRefs #222\nCo-Authored-By: OpenAI Codex <noreply@openai.com>"
+    }
+  ],
+  "logs": [
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr1-postrelease-sync-regression.log",
+      "bytes": 27500,
+      "sha256": "bfcb4b44da765df54a64ead8318e53d3445e1dcf14b4d1e0e4b2892b0fada433"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr1-postrelease-sync-validate.log",
+      "bytes": 354,
+      "sha256": "10dcad75d29a73396e2a3003d7c619a4d5b030e325667d9f8c56811ea564d37e"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr1-postrelease-sync-baseline.log",
+      "bytes": 165,
+      "sha256": "68ad909418d8afbe4cffa1f080ea0ab54359beecfa396b562e10c2ff0ad79704"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr1-postrelease-sync-commits.log",
+      "bytes": 72,
+      "sha256": "2418493d2dc949f2af91bd1ccf486527fb6041d2064f3d3c19822eada304712d"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr1-postrelease-sync-a6.log",
+      "bytes": 900,
+      "sha256": "68de9ab55dc2d91f616a60e01e895a3fe3ce674aaaead059ae5a9d714e2c901f"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr1-postrelease-sync-a6-r2.log",
+      "bytes": 565,
+      "sha256": "f63c5f22944fb4f2cfd436919b345a33609d627e6377de47e361ac4457ad39e1"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr1-postrelease-sync-a6-r3.log",
+      "bytes": 56,
+      "sha256": "1d3428e88ffa6a038f4cb5ff905e218002bbadaafdcbdef2fcb09098630a7f8b"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr2-postrelease-sync-regression.log",
+      "bytes": 30064,
+      "sha256": "98f1f8a195058f84f0634b874d1e7184e251b2df8dcfea7a3af4da7f2eb6d686"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr2-postrelease-sync-foundation.log",
+      "bytes": 573,
+      "sha256": "55047eae38413173ac5faea93358242c04069c046809eba286ffbde11eab08f7"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr2-postrelease-sync-validate.log",
+      "bytes": 354,
+      "sha256": "10dcad75d29a73396e2a3003d7c619a4d5b030e325667d9f8c56811ea564d37e"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr2-postrelease-sync-baseline.log",
+      "bytes": 165,
+      "sha256": "68ad909418d8afbe4cffa1f080ea0ab54359beecfa396b562e10c2ff0ad79704"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr2-postrelease-sync-commits.log",
+      "bytes": 73,
+      "sha256": "c48814b2a40eca0db902213c18f1606c109476449997e5192cde3ffe8e02c5af"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-pr2-postrelease-sync-a6.log",
+      "bytes": 186,
+      "sha256": "02aedf43af34bd8d386b194319f8b4e894738b7348243f1eda98c1134467445b"
+    }
+  ],
+  "failures": [
+    {
+      "step": "external sync helper parse",
+      "error": "Invalid or unexpected token in escaped-backtick template string",
+      "repositoryChanged": false,
+      "repair": "plain string construction; rerun succeeds"
+    },
+    {
+      "step": "local base A6 runner attempt 1",
+      "error": "ERR_UNSUPPORTED_ESM_URL_SCHEME for Windows absolute import",
+      "log": "C:/Users/Admin/.codex/worktrees/communication-pr1-postrelease-sync-a6.log"
+    },
+    {
+      "step": "local base A6 runner attempt 2",
+      "error": "main is not a function: checker main is private",
+      "log": "C:/Users/Admin/.codex/worktrees/communication-pr1-postrelease-sync-a6-r2.log"
+    },
+    {
+      "step": "local base A6 runner attempt 3",
+      "status": "PASS",
+      "repair": "execute the unmodified base checker with its expected filename suffix",
+      "log": "C:/Users/Admin/.codex/worktrees/communication-pr1-postrelease-sync-a6-r3.log"
+    }
+  ],
+  "limits": [
+    "No PR state or reviewer assignment changed.",
+    "No protected branch merged; local A6 success does not establish independent approval or current GitHub CI success.",
+    "This documentation-only refresh did not rerun model behavior, desktop UI or canonical installation; runtime/source identity is unchanged.",
+    "Communication remains unregistered in both prerequisite stages."
+  ]
+}

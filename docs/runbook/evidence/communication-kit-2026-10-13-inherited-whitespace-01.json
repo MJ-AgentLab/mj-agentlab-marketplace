@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "refs": [
+    "#222"
+  ],
+  "capturedAt": "2026-10-13T09:48:16.911Z",
+  "kind": "inherited full-range whitespace failure, minimal repairs and four exact-source reruns",
+  "sourceDevelop": "98068a8bd7060585b9915be9490a02a733fcb1a6",
+  "archiveSourceHead": "0e512bea2594f9c6edd7b16fd528a113ec090cd6",
+  "archiveSourceTree": "4ec562df410fbaaabf598771ffc7a06d5745f496",
+  "phases": [
+    {
+      "phase": 1,
+      "previous": "6c0d609b593b7325654774270628d860e1a2f557",
+      "head": "5a9d8453dbafd4b54272336ceb61ec3eb5fac974",
+      "tree": "b3d1f5bb060c87d963c94405639818221e1ddb6d",
+      "productionZeroDiff": true,
+      "casesValuesUnchanged": true,
+      "nonFrozenDocumentBodiesUnchanged": true,
+      "checks": {
+        "strict": "PASS",
+        "documentationA6": 65,
+        "fail": 0,
+        "skip": 0,
+        "actualCommitFullRangeWhitespace": "PASS",
+        "stagedWhitespace": "PASS",
+        "realBaseNormalA6": "PASS",
+        "commitCount": 8
+      }
+    },
+    {
+      "phase": 2,
+      "previous": "c198f5c769950e693d194c878f9c72d9a1cded20",
+      "head": "e3fea3018955da6c9c117bec20bd316625697e3d",
+      "tree": "f5f8a4fd4750d49080d6b99ddf70094557cc39e8",
+      "productionZeroDiff": true,
+      "casesValuesUnchanged": true,
+      "nonFrozenDocumentBodiesUnchanged": true,
+      "checks": {
+        "strict": "PASS",
+        "documentationA6": 65,
+        "fail": 0,
+        "skip": 0,
+        "actualCommitFullRangeWhitespace": "PASS",
+        "stagedWhitespace": "PASS",
+        "realBaseNormalA6": "PASS",
+        "commitCount": 14
+      }
+    },
+    {
+      "phase": 3,
+      "previous": "c6d40a8a79943bae64ab19b418c8a7cdd7fa82eb",
+      "head": "df19ce37db58448132ac1cec8cce52d9608260bf",
+      "tree": "d8f0c3e4fad97cc277f233398ff9ff18f7ab4fd1",
+      "productionZeroDiff": true,
+      "casesValuesUnchanged": true,
+      "nonFrozenDocumentBodiesUnchanged": true,
+      "checks": {
+        "strict": "PASS",
+        "documentationA6": 65,
+        "fail": 0,
+        "skip": 0,
+        "actualCommitFullRangeWhitespace": "PASS",
+        "stagedWhitespace": "PASS",
+        "realBaseNormalA6": "PASS",
+        "commitCount": 27
+      }
+    },
+    {
+      "phase": 4,
+      "previous": "49036ad9af9bef6795aa3b6d93218ca225921451",
+      "head": "0e512bea2594f9c6edd7b16fd528a113ec090cd6",
+      "tree": "4ec562df410fbaaabf598771ffc7a06d5745f496",
+      "productionZeroDiff": true,
+      "casesValuesUnchanged": true,
+      "nonFrozenDocumentBodiesUnchanged": true,
+      "checks": {
+        "strict": "PASS",
+        "documentationA6": 65,
+        "fail": 0,
+        "skip": 0,
+        "actualCommitFullRangeWhitespace": "PASS",
+        "stagedWhitespace": "PASS",
+        "realBaseNormalA6": "PASS",
+        "commitCount": 31
+      }
+    }
+  ],
+  "audit": {
+    "rawPath": "communication-kit-2026-10-13-inherited-whitespace-01-raw-audit.json",
+    "sha256": "38124dcbb11564472c613b7e46c3d66da257d2d085ffbb7d203c92f9d61c2c9d"
+  },
+  "manifest": "communication-kit-2026-10-13-inherited-whitespace-01-manifest.json",
+  "rawLogCount": 56,
+  "rawArtifactCount": 58,
+  "preservation": {
+    "planSHA256": "6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3",
+    "planLines": 405,
+    "provenanceAndOriginalNodeLog": "All prior disk and Git blob hashes retained separately; historical CRLF/LF distinction remains in raw audit.",
+    "casesValues": "unchanged",
+    "production": "plugins/scripts/test code/catalog/VERSION/formal CHANGELOG unchanged; only fixture EOF bytes and document metadata differ."
+  },
+  "failureAndRepair": {
+    "phaseInitialFullRangeExitCodes": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "paths": "Initial PR1/2 included extra non-frozen ADR/SPEC/RUNBOOK EOF lines, later branches retain the then-current smaller set; original initial logs preserve exact locations.",
+    "preCommitOldHeadCheck": "PR1 oldhead-attributes still exit2 because HEAD had not yet acquired the EOF edits; candidate index and actual new HEAD full ranges passed."
+  },
+  "method": {
+    "nonFrozen": "Trim only extra EOF blank lines, retaining one final LF; patch document metadata and short root/A6 statement.",
+    "frozen": "Exact per-file whitespace attributes preserve plan hardbreaks, provenance EOF and original Node indentation; all prior disk/Git blob identities retained separately.",
+    "scope": "No global whitespace disable, product contract/runtime/version/formal CH changes, full/install/Python/UI rerun, independent approval claim or preview/GitHub mutation."
+  },
+  "independentAiReviewIsNotGithubApproval": true,
+  "limits": [
+    "Actual phase approval/threads and protected merge remain separate from local full-range validation.",
+    "Formal four-package preview is independent and not imported here; development five packages remain.",
+    "No new full, installation, Python or client execution; real-world effects deferred."
+  ]
+}

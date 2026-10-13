@@ -1,0 +1,271 @@
+{
+  "schemaVersion": 1,
+  "refs": [
+    "#222"
+  ],
+  "capturedAt": "2026-10-13T06:07:25.563446+00:00",
+  "kind": "actual published-main ancestry synchronization and documentation regression",
+  "base": "2c0a83172507bcb77d105d9f9294fec2e6672ac1",
+  "publishedDependency": "ebc4bdc3abc62c36348d9ba28de7161b04b3b466",
+  "phases": [
+    {
+      "phase": 1,
+      "head": "e5db2ca4fdb7b1e1883994b11deb6392f9488659",
+      "tree": "450813e5834c1c7ebd95ba48d2672af85dde3b13",
+      "baseIncluded": true
+    },
+    {
+      "phase": 2,
+      "head": "569f0ddb31931b43ab9fe4ff2050e16d99b745ad",
+      "tree": "fa8b9c21f1a90bb4da57ef73152203ca7425355c",
+      "baseIncluded": true
+    },
+    {
+      "phase": 3,
+      "head": "718122f6558b7b7f015cd1cd44ed70a52dc8b339",
+      "tree": "3516d93f2f3c5cbadbe49144b5a9fc3e1b032a97",
+      "baseIncluded": true
+    },
+    {
+      "phase": 4,
+      "head": "08cc00673db43c01e2f691121daee9d38758084f",
+      "tree": "859066fdf1375244581864743ff2ed7614c61a1a",
+      "baseIncluded": true
+    }
+  ],
+  "actualRegressions": {
+    "pr1": 135,
+    "pr2": {
+      "main": 146,
+      "foundation": 2
+    },
+    "pr3": 65,
+    "pr4": 65,
+    "pr4AfterReviewDocs": 65
+  },
+  "version": "PR1–3 retain actual 8.2.0; PR4 preserves prepared unpublished 8.3.0 and initial Comm0.1.0 section. No unmerged #235/8.2.1 source imported.",
+  "equivalence": {
+    "pr1And2RuntimeEqualsBase": true,
+    "pr3ProductionDiffFrom1388": [],
+    "pr4ProductionDiffFrom7c1": [],
+    "communicationPackageTreePr3": "14a3896c7ad50597bfc83996bcfec25180a720f9",
+    "communicationPackageTreePr4": "170fcad82f33548c8d91b62984df4ff38635e69f",
+    "difference": "PR4 initial CHANGELOG only; skills/frozen references/manifest/icons unchanged"
+  },
+  "conflictsAndRepairs": [
+    {
+      "phase": 1,
+      "paths": [
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "phase": 2,
+      "paths": [
+        "AGENTS.md"
+      ]
+    },
+    {
+      "phase": 3,
+      "paths": [
+        "AGENTS.md",
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "phase": 4,
+      "paths": [
+        "AGENTS.md",
+        "docs/INDEX.md"
+      ]
+    }
+  ],
+  "method": "Ordinary merges, preserve both stage/development/formal-scope intentions and higher metadata, exact published version sections, original failures and actual main ancestry; strict plus affected regressions, not a new model/client batch.",
+  "upstreamPostReleaseResults": "Learning #234 imports actual v8.2.0 post-publication five-canonical receipts; #234 own development merge verification uses eight combinations. Dependency facts are not Communication R01–R05.",
+  "independentAiReview": {
+    "earlierPreparedHead": "7c1f451d79e32e1d9a14444ffcce239c866bcd97",
+    "tree": "06fd01f44cf0b0b9ff45772be8fed8912eaf42b1",
+    "spec": "PASS after fixes",
+    "standards": "PASS after fixes",
+    "findingsRepaired": [
+      "stale AGENTS pending/version statements",
+      "orphan version-table rows"
+    ],
+    "doesNotSupplyGithubApproval": true,
+    "newMergeReview": "separate subsequent read-only review; do not extrapolate old report to new head"
+  },
+  "gitHubGateAtLatestRead": "All four draft, actual reviews empty, REVIEW_REQUIRED. PR1 e5db all technical CI/A6 PASS, no threads; latest-base conflict repaired. Later phase checks and current exact head rechecked separately.",
+  "releaseCases": {
+    "R01": "NOT RUN",
+    "R02": "NOT RUN",
+    "R03": "NOT RUN",
+    "R04": "NOT RUN",
+    "R05": "NOT RUN"
+  },
+  "canonical": "Fixed 08cc development-source run is separate, not these documentation logs or formal four-package/R04 result.",
+  "limits": [
+    "No protected Communication phase merged, no non-author approval, no Release or tag.",
+    "Worktree documentation tests do not supply actual client or real-world effect proof.",
+    "Raw agent audit preserves earlier helper/A6 wrapper failures; no modified judge or bypass."
+  ],
+  "artifacts": [
+    {
+      "original": "communication-pr1-postrelease-sync-regression.log",
+      "rawLog": "communication-kit-2026-10-13-postrelease-sync-01-pr1-postrelease-sync-regression.log",
+      "rawBytes": 27500,
+      "sha256": "bfcb4b44da765df54a64ead8318e53d3445e1dcf14b4d1e0e4b2892b0fada433",
+      "actualNodeCounts": {
+        "tests": 135,
+        "pass": 135,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "original": "communication-pr1-postrelease-sync-validate.log",
+      "rawLog": "communication-kit-2026-10-13-postrelease-sync-01-pr1-postrelease-sync-validate.log",
+      "rawBytes": 354,
+      "sha256": "10dcad75d29a73396e2a3003d7c619a4d5b030e325667d9f8c56811ea564d37e"
+    },
+    {
+      "original": "communication-pr1-postrelease-sync-baseline.log",
+      "rawLog": "communication-kit-2026-10-13-postrelease-sync-01-pr1-postrelease-sync-baseline.log",
+      "rawBytes": 165,
+      "sha256": "68ad909418d8afbe4cffa1f080ea0ab54359beecfa396b562e10c2ff0ad79704"
+    },
+    {
+      "original": "communication-pr1-postrelease-sync-commits.log",
+      "rawLog": "communication-kit-2026-10-13-postrelease-sync-01-pr1-postrelease-sync-commits.log",
+      "rawBytes": 72,
+      "sha256": "2418493d2dc949f2af91bd1ccf486527fb6041d2064f3d3c19822eada304712d"
+    },
+    {
+      "original": "communication-pr1-postrelease-sync-a6.log",
+      "rawLog": "communication-kit-2026-10-13-postrelease-sync-01-pr1-postrelease-sync-a6.log",
+      "rawBytes": 900,
+      "sha256": "68de9ab55dc2d91f616a60e01e895a3fe3ce674aaaead059ae5a9d714e2c901f"
+    },
+    {
+      "original": "communication-pr1-postrelease-sync-a6-r2.log",
+      "rawLog": "communication-kit-2026-10-13-postrelease-sync-01-pr1-postrelease-sync-a6-r2.log",
+      "rawBytes": 565,
+      "sha256": "f63c5f22944fb4f2cfd436919b345a33609d627e6377de47e361ac4457ad39e1"
+    },
+    {
+      "original": "communication-pr1-postrelease-sync-a6-r3.log",
+      "rawLog": "communication-kit-2026-10-13-postrelease-sync-01-pr1-postrelease-sync-a6-r3.log",
+      "rawBytes": 56,
+      "sha256": "1d3428e88ffa6a038f4cb5ff905e218002bbadaafdcbdef2fcb09098630a7f8b"
+    },
+    {
+      "original": "communication-pr2-postrelease-sync-regression.log",
+      "rawLog": "communication-kit-2026-10-13-postrelease-sync-01-pr2-postrelease-sync-regression.log",
+      "rawBytes": 30064,
+      "sha256": "98f1f8a195058f84f0634b874d1e7184e251b2df8dcfea7a3af4da7f2eb6d686",
+      "actualNodeCounts": {
+        "tests": 146,
+        "pass": 146,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "original": "communication-pr2-postrelease-sync-foundation.log",
+      "rawLog": "communication-kit-2026-10-13-postrelease-sync-01-pr2-postrelease-sync-foundation.log",
+      "rawBytes": 573,
+      "sha256": "55047eae38413173ac5faea93358242c04069c046809eba286ffbde11eab08f7",
+      "actualNodeCounts": {
+        "tests": 2,
+        "pass": 2,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "original": "communication-pr2-postrelease-sync-validate.log",
+      "rawLog": "communication-kit-2026-10-13-postrelease-sync-01-pr2-postrelease-sync-validate.log",
+      "rawBytes": 354,
+      "sha256": "10dcad75d29a73396e2a3003d7c619a4d5b030e325667d9f8c56811ea564d37e"
+    },
+    {
+      "original": "communication-pr2-postrelease-sync-baseline.log",
+      "rawLog": "communication-kit-2026-10-13-postrelease-sync-01-pr2-postrelease-sync-baseline.log",
+      "rawBytes": 165,
+      "sha256": "68ad909418d8afbe4cffa1f080ea0ab54359beecfa396b562e10c2ff0ad79704"
+    },
+    {
+      "original": "communication-pr2-postrelease-sync-commits.log",
+      "rawLog": "communication-kit-2026-10-13-postrelease-sync-01-pr2-postrelease-sync-commits.log",
+      "rawBytes": 73,
+      "sha256": "c48814b2a40eca0db902213c18f1606c109476449997e5192cde3ffe8e02c5af"
+    },
+    {
+      "original": "communication-pr2-postrelease-sync-a6.log",
+      "rawLog": "communication-kit-2026-10-13-postrelease-sync-01-pr2-postrelease-sync-a6.log",
+      "rawBytes": 186,
+      "sha256": "02aedf43af34bd8d386b194319f8b4e894738b7348243f1eda98c1134467445b"
+    },
+    {
+      "original": "communication-postrelease-sync-audit.json",
+      "rawLog": "communication-kit-2026-10-13-postrelease-sync-01-postrelease-sync-audit.json",
+      "rawBytes": 17552,
+      "sha256": "ea417405d9bcbea5580b18b7b979c085829b4275938ff98a4a98f1244bcd3439"
+    },
+    {
+      "original": "communication-pr3-postrelease-sync-validate.log",
+      "rawLog": "communication-kit-2026-10-13-postrelease-sync-01-pr3-postrelease-sync-validate.log",
+      "rawBytes": 392,
+      "sha256": "e3bedb0233222e468a1e207cfbcbaf1c3138a8827fde2769e9e2ede3a85eb3d8"
+    },
+    {
+      "original": "communication-pr3-postrelease-sync-tests.log",
+      "rawLog": "communication-kit-2026-10-13-postrelease-sync-01-pr3-postrelease-sync-tests.log",
+      "rawBytes": 12634,
+      "sha256": "a92b85cf163740e6a1578dddc4a1bae38af5ccccb60560f82c432e6b741a7326",
+      "actualNodeCounts": {
+        "tests": 65,
+        "pass": 65,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "original": "communication-pr4-postrelease-sync-validate.log",
+      "rawLog": "communication-kit-2026-10-13-postrelease-sync-01-pr4-postrelease-sync-validate.log",
+      "rawBytes": 392,
+      "sha256": "e3bedb0233222e468a1e207cfbcbaf1c3138a8827fde2769e9e2ede3a85eb3d8"
+    },
+    {
+      "original": "communication-pr4-postrelease-sync-tests.log",
+      "rawLog": "communication-kit-2026-10-13-postrelease-sync-01-pr4-postrelease-sync-tests.log",
+      "rawBytes": 12629,
+      "sha256": "64e4f22ae45b6e949403bf2a7dfb9838f2623878d420ab7f765b13a149eee760",
+      "actualNodeCounts": {
+        "tests": 65,
+        "pass": 65,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "original": "communication-pr4-version-8-3-0-validate-r3.log",
+      "rawLog": "communication-kit-2026-10-13-postrelease-sync-01-pr4-version-8-3-0-validate-r3.log",
+      "rawBytes": 392,
+      "sha256": "e3bedb0233222e468a1e207cfbcbaf1c3138a8827fde2769e9e2ede3a85eb3d8"
+    },
+    {
+      "original": "communication-pr4-version-8-3-0-docs-r3.log",
+      "rawLog": "communication-kit-2026-10-13-postrelease-sync-01-pr4-version-8-3-0-docs-r3.log",
+      "rawBytes": 12632,
+      "sha256": "0c9389e864ac6b82df0d6accdda19e6fbeb2bb196874d851260089eb11e43b15",
+      "actualNodeCounts": {
+        "tests": 65,
+        "pass": 65,
+        "fail": 0,
+        "skipped": 0
+      }
+    }
+  ]
+}
