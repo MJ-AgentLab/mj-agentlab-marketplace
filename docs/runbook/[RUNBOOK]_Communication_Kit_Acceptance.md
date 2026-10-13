@@ -13,7 +13,7 @@ version: v1.3
 
 ## §1 Preconditions and status
 
-PR3已实现并原子接入完整Communication 0.1.0候选、注册、严格集合、冻结资源、正式D图标与安装预期。修复候选94c170d再次通过278/278工程测试、九组合canonical及四次缓存Python；S01–S12客观范围逐项核对。新实际CLI批次C01–C15 PASS，C16–C18文件子路径PARTIAL；当前工具角色另有三项限定功能PASS，身份和覆盖分开。原行为FAIL保留；真实双客户端、原生窗口及R01–R05仍NOT RUN，PR3保持draft。[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)保持开放，完整计划与[来源捕获](../../plan/communication-kit-plan-provenance.json)在plan/。
+PR3已实现并原子接入完整Communication 0.1.0候选、注册、严格集合、冻结资源、正式D图标与安装预期。修复候选94c170d的278测试/九组合保留；HTML基线同步后工程源通过307/307，固定000e803的十三组canonical与六次缓存Python通过。S01–S12客观范围逐项核对。实际CLI批次C01–C15 PASS，C16–C18文件子路径PARTIAL；补充工具角色另有三项限定功能PASS，身份和覆盖分开。原行为FAIL保留；Owner已答复可安排真实界面验收，实际双客户端、原生窗口及R01–R05结果仍NOT RUN，PR3保持draft。[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)保持开放，完整计划与[来源捕获](../../plan/communication-kit-plan-provenance.json)在plan/。
 
 PR1 当时仅定义验收、没有运行包，全部新包用例从 NOT RUN 开始；该历史及失败批次保留，当前状态不覆盖原记录。
 
@@ -47,13 +47,14 @@ npm run smoke:codex
 | [PR3 engineering 02](evidence/communication-kit-2026-10-12-pr3-engineering-02.json) | 固定b2d47ce：278/278 PASS、strict PASS、基线0.147.0 | 提示预算与完整元数据变异回归已修复；行为仍独立判定 |
 | [PR3 canonical 02](evidence/communication-kit-2026-10-12-pr3-canonical-02.json) | 固定b2d47ce：9/9安装通过；四次缓存Python PASS | 全部manifest、SVG/PNG、技能及递归参考资料源缓存字节对照；不是桌面UI验收或发布后R04 |
 | [PR3 engineering 03](evidence/communication-kit-2026-10-12-pr3-engineering-03.json) | 固定94c170d：278/278 PASS、strict及0.147.0基线PASS | 通用交付/事实约束修复，冻结摘要r2与研究源保持对应；不是客户端UI或效果结论 |
+| [PR3 baseline 04](evidence/communication-kit-2026-10-13-pr3-baseline-04.json) | 工程树da63ab5d：最终307/307、53相关测试、strict PASS；固定000e803的十三组canonical与六次缓存Python PASS | 五插件/六公开/显式三/普通三/开发20，原两包tree保持；同名资源API/证据格式保留，独立AI两轴PASS；后续差异仅文档/证据/字节属性 |
 | [PR3 canonical 03](evidence/communication-kit-2026-10-12-pr3-canonical-03.json) | 固定94c170d：9/9安装通过；四次缓存Python PASS | 完整元数据、图标、技能及参考字节比较；不是发布后R04 |
 
 下表对应固定b2d47ce客观范围，由[逐项审计](evidence/communication-kit-2026-10-12-pr3-objective-01.json)逐项对照，不能由总测试数推断。S07在Windows的file symlink尝试EPERM保留为NOT RUN；同运行内容的Ubuntu实际symlink变异测试通过，补足所需覆盖。Ubuntu共278项中277通过、1项Windows大小写专用测试跳过，链接用例未跳过。后续[通用指令修复](evidence/communication-kit-2026-10-12-pr3-instruction-fix-01.json)不覆盖旧记录，当前候选另批复验。
 
 | ID | 标准 | 状态 |
 |---|---|---|
-| S01 | catalog、磁盘和注册精确一致：四插件、五公开技能、20开发技能 | PASS — 固定b2d47ce客观范围 |
+| S01 | catalog、磁盘和注册精确一致：当前五插件、六公开技能、20开发技能 | PASS — 新基线strict/十三组合；原四插件结果保留 |
 | S02 | manifest与原生提示只调用本包communicate | PASS — 自身入口及128字符预算，实际行为另验 |
 | S03 | 显式策略准确；缺失、错类型、重复YAML key失败 | PASS — 严格正负用例 |
 | S04 | 能力准确为Read/Write；漏项或额外能力失败 | PASS — 严格能力集合变异 |
@@ -162,6 +163,8 @@ C03实际等待5.002秒无新用户输入，没有依赖未答问题推进；明
 ### 可直接使用的客户端合成输入
 
 当前可安装候选来源为[PR3 #229](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/229)的codex/communication-plugin；行为固定94c170d、插件0.1.0、冻结r2。main仍不含Communication。安装通道若不能选择该候选，不把main旧包当本轮来源，记录实际限制。后续head只有文档/证据变化时，代理核对包内容身份后复用输入；客户端安装/图标/入口记录仍需实际执行。
+
+2026-10-13固定新基线安装来源为`000e8033ce2f639c974c3953aadc06b9be21878c`，Git tree `d545dafe7643bbe4eca1bc3656c8ced714bb3c8e`；Communication包tree仍`14a3896c7ad50597bfc83996bcfec25180a720f9`，版本0.1.0、冻结r2保持。该提交支持十三组canonical工程结果。Owner“可以安排实际界面验收”只表示可参与，尚无实际界面结果；通道若不能指定该候选，记录无法执行的具体入口，不用main旧版替代。
 
 两个客户端分别选择真实communicate入口，再发送以下三条自然语言请求并保留输出：
 

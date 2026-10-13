@@ -1,0 +1,328 @@
+TAP version 13
+# Subtest: consumer and repository inventories are scoped to real installed files
+ok 1 - consumer and repository inventories are scoped to real installed files
+  ---
+  duration_ms: 37.5589
+  type: 'test'
+  ...
+# Subtest: duplicate, missing and escaped public locators fail closed
+ok 2 - duplicate, missing and escaped public locators fail closed
+  ---
+  duration_ms: 30.8536
+  type: 'test'
+  ...
+# Subtest: Windows equivalent file casing still passes containment
+ok 3 - Windows equivalent file casing still passes containment
+  ---
+  duration_ms: 26.768
+  type: 'test'
+  ...
+# Subtest: ordinary prompt metadata contains three natural skills and excludes the explicit-only quiz, guide and communication
+ok 4 - ordinary prompt metadata contains three natural skills and excludes the explicit-only quiz, guide and communication
+  ---
+  duration_ms: 28.8336
+  type: 'test'
+  ...
+# Subtest: a plugin cache junction cannot claim files outside its marketplace directory
+ok 5 - a plugin cache junction cannot claim files outside its marketplace directory
+  ---
+  duration_ms: 32.915
+  type: 'test'
+  ...
+# Subtest: prompt parser retains spaces and closing parentheses in a locator
+ok 6 - prompt parser retains spaces and closing parentheses in a locator
+  ---
+  duration_ms: 0.437
+  type: 'test'
+  ...
+# Subtest: native skills/list completes the handshake and preserves explicitly available metadata
+ok 7 - native skills/list completes the handshake and preserves explicitly available metadata
+  ---
+  duration_ms: 47.7583
+  type: 'test'
+  ...
+# Subtest: native protocol retains guide availability and its own route in consumer and repository snapshots
+ok 8 - native protocol retains guide availability and its own route in consumer and repository snapshots
+  ---
+  duration_ms: 41.2745
+  type: 'test'
+  ...
+# Subtest: native inventory fails closed on protocol errors and a stalled server
+ok 9 - native inventory fails closed on protocol errors and a stalled server
+  ---
+  duration_ms: 465.3823
+  type: 'test'
+  ...
+# Subtest: root aliases resolve installed and all 20 repository skills before scope checks
+ok 10 - root aliases resolve installed and all 20 repository skills before scope checks
+  ---
+  duration_ms: 30.3907
+  type: 'test'
+  ...
+# Subtest: missing, relative, conflicting and escaped root mappings fail closed
+ok 11 - missing, relative, conflicting and escaped root mappings fail closed
+  ---
+  duration_ms: 25.7258
+  type: 'test'
+  ...
+# Subtest: root mappings are local to their prompt text block
+ok 12 - root mappings are local to their prompt text block
+  ---
+  duration_ms: 26.2755
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: diagram-kit
+ok 13 - standalone and combined discovery: diagram-kit
+  ---
+  duration_ms: 28.5134
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: understanding-kit
+ok 14 - standalone and combined discovery: understanding-kit
+  ---
+  duration_ms: 30.1667
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: explain-kit
+ok 15 - standalone and combined discovery: explain-kit
+  ---
+  duration_ms: 30.5788
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: diagram-kit + explain-kit
+ok 16 - standalone and combined discovery: diagram-kit + explain-kit
+  ---
+  duration_ms: 33.2361
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: diagram-kit + understanding-kit + explain-kit
+ok 17 - standalone and combined discovery: diagram-kit + understanding-kit + explain-kit
+  ---
+  duration_ms: 31.89
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: communication-kit
+ok 18 - standalone and combined discovery: communication-kit
+  ---
+  duration_ms: 27.578
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: communication-kit + explain-kit
+ok 19 - standalone and combined discovery: communication-kit + explain-kit
+  ---
+  duration_ms: 28.5568
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: communication-kit + understanding-kit
+ok 20 - standalone and combined discovery: communication-kit + understanding-kit
+  ---
+  duration_ms: 30.0713
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: diagram-kit + understanding-kit + explain-kit + communication-kit
+ok 21 - standalone and combined discovery: diagram-kit + understanding-kit + explain-kit + communication-kit
+  ---
+  duration_ms: 51.7032
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: html-guide-kit
+ok 22 - standalone and combined discovery: html-guide-kit
+  ---
+  duration_ms: 27.811
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: html-guide-kit + explain-kit
+ok 23 - standalone and combined discovery: html-guide-kit + explain-kit
+  ---
+  duration_ms: 30.1819
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: diagram-kit + understanding-kit + explain-kit + html-guide-kit
+ok 24 - standalone and combined discovery: diagram-kit + understanding-kit + explain-kit + html-guide-kit
+  ---
+  duration_ms: 30.529
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: diagram-kit + understanding-kit + explain-kit + communication-kit + html-guide-kit
+ok 25 - standalone and combined discovery: diagram-kit + understanding-kit + explain-kit + communication-kit + html-guide-kit
+  ---
+  duration_ms: 31.9273
+  type: 'test'
+  ...
+# Subtest: complete installed inventory rejects swapped skills and package identity/version drift
+ok 26 - complete installed inventory rejects swapped skills and package identity/version drift
+  ---
+  duration_ms: 39.1575
+  type: 'test'
+  ...
+# Subtest: complete installed manifest rejects metadata drift despite unchanged name and version
+ok 27 - complete installed manifest rejects metadata drift despite unchanged name and version
+  ---
+  duration_ms: 293.1866
+  type: 'test'
+  ...
+# Subtest: thirteen install combinations preserve implicit and native inventories including explicit standalone zero
+ok 28 - thirteen install combinations preserve implicit and native inventories including explicit standalone zero
+  ---
+  duration_ms: 40.945
+  type: 'test'
+  ...
+# Subtest: installed communication compares every reference byte, metadata and resource ownership
+ok 29 - installed communication compares every reference byte, metadata and resource ownership
+  ---
+  duration_ms: 286.8044
+  type: 'test'
+  ...
+# Subtest: guide discovery rejects borrowed skill locations, wrong version cache and swapped installed manifest
+ok 30 - guide discovery rejects borrowed skill locations, wrong version cache and swapped installed manifest
+  ---
+  duration_ms: 46.0226
+  type: 'test'
+  ...
+# Subtest: communication listing and native prompts stay within the actual client budget
+ok 31 - communication listing and native prompts stay within the actual client budget
+  ---
+  duration_ms: 6.8895
+  type: 'test'
+  ...
+# Subtest: five approved portable plugins, six public skills and all 20 repository skills satisfy contracts
+ok 32 - five approved portable plugins, six public skills and all 20 repository skills satisfy contracts
+  ---
+  duration_ms: 407.2757
+  type: 'test'
+  ...
+# Subtest: strict repository validation rejects every retired instruction surface
+ok 33 - strict repository validation rejects every retired instruction surface
+  ---
+  duration_ms: 2739.1701
+  type: 'test'
+  ...
+# Subtest: manifest version is a root semver string
+ok 34 - manifest version is a root semver string
+  ---
+  duration_ms: 0.6201
+  type: 'test'
+  ...
+# Subtest: portable manifest refuses compatibility fields and missing routing metadata
+ok 35 - portable manifest refuses compatibility fields and missing routing metadata
+  ---
+  duration_ms: 0.271
+  type: 'test'
+  ...
+# Subtest: manifest identity and default prompts cannot route into another plugin
+ok 36 - manifest identity and default prompts cannot route into another plugin
+  ---
+  duration_ms: 0.3901
+  type: 'test'
+  ...
+# Subtest: each plugin advertises its exact approved capabilities without duplicates
+ok 37 - each plugin advertises its exact approved capabilities without duplicates
+  ---
+  duration_ms: 0.8694
+  type: 'test'
+  ...
+# Subtest: native pop-quiz metadata requires a boolean explicit-only policy
+ok 38 - native pop-quiz metadata requires a boolean explicit-only policy
+  ---
+  duration_ms: 0.9557
+  type: 'test'
+  ...
+# Subtest: catalog rejects missing, duplicate, unknown, versioned and escaped plugin entries
+ok 39 - catalog rejects missing, duplicate, unknown, versioned and escaped plugin entries
+  ---
+  duration_ms: 3169.113
+  type: 'test'
+  ...
+# Subtest: quiz references must exist within their own installed skill
+ok 40 - quiz references must exist within their own installed skill
+  ---
+  duration_ms: 1072.6058
+  type: 'test'
+  ...
+# Subtest: quiz resources cannot borrow another plugin directory through a junction
+ok 41 - quiz resources cannot borrow another plugin directory through a junction
+  ---
+  duration_ms: 1031.512
+  type: 'test'
+  ...
+# Subtest: skill YAML cannot duplicate keys or use retired tools/placeholders
+ok 42 - skill YAML cannot duplicate keys or use retired tools/placeholders
+  ---
+  duration_ms: 0.7323
+  type: 'test'
+  ...
+# Subtest: all repository workflows use current authority paths and execution principle
+ok 43 - all repository workflows use current authority paths and execution principle
+  ---
+  duration_ms: 3.4294
+  type: 'test'
+  ...
+# Subtest: archive origins are reproducible Git blobs and preserve source versions
+ok 44 - archive origins are reproducible Git blobs and preserve source versions
+  ---
+  duration_ms: 651.4902
+  type: 'test'
+  ...
+# Subtest: each plugin rejects extra skills, missing files and swapped manifest identities
+ok 45 - each plugin rejects extra skills, missing files and swapped manifest identities
+  ---
+  duration_ms: 8552.9409
+  type: 'test'
+  ...
+# Subtest: manifest discovery prompts cover only the package's complete public skill set
+ok 46 - manifest discovery prompts cover only the package's complete public skill set
+  ---
+  duration_ms: 0.7149
+  type: 'test'
+  ...
+# Subtest: skill UI resources cannot resolve outside their plugin package
+ok 47 - skill UI resources cannot resolve outside their plugin package
+  ---
+  duration_ms: 1180.9617
+  type: 'test'
+  ...
+# Subtest: skill display configuration rejects wrong entry points and implicit-policy drift
+ok 48 - skill display configuration rejects wrong entry points and implicit-policy drift
+  ---
+  duration_ms: 0.9796
+  type: 'test'
+  ...
+# Subtest: communication manifest and native metadata require the owned explicit entry
+ok 49 - communication manifest and native metadata require the owned explicit entry
+  ---
+  duration_ms: 1.9071
+  type: 'test'
+  ...
+# Subtest: frozen snapshot validates entirely from owned bytes without accessing research paths
+ok 50 - frozen snapshot validates entirely from owned bytes without accessing research paths
+  ---
+  duration_ms: 23.8434
+  type: 'test'
+  ...
+# Subtest: frozen snapshot rejects malicious fields, dates, references and inconsistent Git states
+ok 51 - frozen snapshot rejects malicious fields, dates, references and inconsistent Git states
+  ---
+  duration_ms: 488.0582
+  type: 'test'
+  ...
+# Subtest: frozen snapshot detects every missing or altered reference and ignores fenced fake headings
+ok 52 - frozen snapshot detects every missing or altered reference and ignores fenced fake headings
+  ---
+  duration_ms: 71.3341
+  type: 'test'
+  ...
+# Subtest: frozen references reject traversal, non-files and internal or external junction components
+ok 53 - frozen references reject traversal, non-files and internal or external junction components
+  ---
+  duration_ms: 32.5884
+  type: 'test'
+  ...
+1..53
+# tests 53
+# suites 0
+# pass 53
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 19561.1238
