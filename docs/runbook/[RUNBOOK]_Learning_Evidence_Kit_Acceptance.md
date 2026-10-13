@@ -4,10 +4,10 @@ scope: marketplace
 summary: "Learning Evidence Kit technical acceptance, staged entries and release evidence ledger"
 owner: marketplace-maintainers
 created: 2026-10-12
-updated: 2026-10-12
+updated: 2026-10-13
 state: active
-version: v1.4
-last-verified: 2026-10-12
+version: v1.4.1
+last-verified: 2026-10-13
 verification-scope: contract-common-flow-package-and-partial-model-observations
 ---
 
@@ -123,7 +123,15 @@ The unpublished candidate shortens that example to 89 Unicode scalar values and 
 
 Repair checks passed 290/290, zero skips, including the same 33 storage and 31 actual-Python GitHub cases, plus 32 targeted document/portable cases and strict validation. The final small repairs reject unpaired surrogate listing strings and explicitly reject quiz answers/task text as application explanation; 32 targeted cases pass after those additions. The [repair receipt](evidence/learning-evidence-entry-gates-checks.json) preserves both tested-byte snapshots and the second round's premature application/material-arrival failures. Final frozen-source full regression/model/canonical criteria remain pending; green structural tests do not establish repaired model behavior.
 
-### Entry activation ledger
+### Third actual model round and generator repair
+
+The [complete third-round receipt](evidence/learning-evidence-third-model-round.json) retains all nine actual scenarios/eleven turns/nine UUIDs from frozen 8.2.0 source `36ef16cd8798b107e16673e1520f3086964c4e3e`, model/client/interpreter identity, 81 terminal commands/API errors, cache bytes, original comparisons and scoped offline publications. Auth copies are zero. Required waiting, original-preserving handoff, selected-task handling and application comparisons have positive observed subsets; the round is overall FAIL for newly generated metadata. Several new checks retain the learning source author; material checks retain Pop Quiz provenance; the other-person check invents an event timestamp 139.869379 seconds after its actual save. Successful operations do not erase these inaccurate facts.
+
+The unmerged repair uses actual check authors, installed LRC versions/context, actual operation and observed clock values for new immutable entries, freezing request bytes for retry. It keeps the original learning metadata and answers in originals/linked history. No schema, common Python module or original input is rewritten. A scoped manual application request authorizes its internal local linked application entry, while an explicit read-only/no-save constraint is honored and publication requires its own target; the ninth case is not required to save merely to satisfy a grader. Original grader revisions remain retained separately. Fresh affected LRC scenarios and a handoff preserving original metadata remain pending before core qualification.
+
+On 2026-10-12 Owner explicitly chose the original public 8.2.0 scope after parallel HTML package #226 merged: develop retains HTML, while the independent 8.2.0 release candidate contains the original three plugins/five skills/two learning policies. HTML is separately released. Development synchronization and public candidate inventory must be described separately; no already merged HTML runtime is deleted to enforce the release inventory.
+
+### Entry activation ledger (continued)
 
 PR5 fills one row for each actual host/entry combination, retaining method, client version, install source/plugin/head identity, actual call evidence, individual window results, impact and removal condition. No entry is enabled solely by the contract or a static metadata check.
 
@@ -169,3 +177,4 @@ Use existing draft-first release controls and record actual remote state before 
 | v1.2 | 2026-10-12 | Isolated manual GitHub flow with controlled remote substitute; clients NOT_RUN | Scope-before-persistence, stable pagination, partial recovery, source receipts and independent original-case reruns; Refs #212 |
 | v1.3 | 2026-10-12 | Atomic candidate and installed-cache common capabilities; model/native desktop NOT_RUN | PR4 replacement, unchanged shared modules/other plugin versions, historical preservation and five installation combinations; Refs #213 |
 | v1.4 | 2026-10-12 | Actual second-round defects and candidate repairs; repair-model acceptance pending | Preserve ignored listing example and premature application probes; enforce listing budgets and Stage 2 prerequisites before investigation; Refs #213 / #214 |
+| v1.4.1 | 2026-10-13 | Complete third-round actual failures and generation-field repair; new acceptance pending | Actual author/LRC provenance/event time for new checks, unchanged originals/lineage, scoped internal application saving and Owner's separate HTML/public-release boundary |
