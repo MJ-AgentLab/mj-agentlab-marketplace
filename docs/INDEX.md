@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.17
+version: v2.18
 ---
 
 # 文档索引
@@ -24,6 +24,8 @@ Epic #209 开始 Learning Evidence Kit / marketplace 8.2.0 实施。PR1 固定�
 PR3 开发候选增加 Communication 0.1.0，并同步 HTML 0.1.0 开发基线，共五插件六公开技能、20 开发技能；市场仍未发布8.1.2，main / 最新 Release 8.1.1 仍为三插件四技能。Communication实际CLI行为、限定工具角色及代理亲自执行的同应用Codex/ChatGPT Work本机两个入口证据见[验收记录](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)，客户端身份、历史限制与未覆盖项分别保留；现实场景效果测试本轮延期。Owner 已选择 Learning 先8.2.0，Communication 随后独立 minor（预计8.3.0），PR4 重查版本和基线；实施使用 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。
 
 ## 入口
+
+Communication PR4正并行准备验收汇总与远端发布门禁核查，见[验收记录§6](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)；独立批准和Learning8.2先发仍未满足，未执行实际版本转换、PR5或Release，不预造正式版本身份。
 
 - [Communication 完整实施计划](../plan/communication-kit-implementation-plan.md)与[原稿捕获](../plan/communication-kit-plan-provenance.json)
 - [Communication Kit 新增决定](adr/[ADR]_Communication_Kit_Addition.md)

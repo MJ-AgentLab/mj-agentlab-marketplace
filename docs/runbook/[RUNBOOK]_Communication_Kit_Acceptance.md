@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.4
+version: v1.5
 ---
 
 # [RUNBOOK] Communication Kit acceptance
@@ -202,6 +202,24 @@ PR1契约结果、PR3实证、PR4回归、PR5发布及后续复查逐阶段追�
 
 ## §6 Release verification
 
+### PR4并行准备：验收汇总与实际门禁核查
+
+[PR4 preflight 01](evidence/communication-kit-2026-10-13-pr4-preflight-01.json)从PR3 `82ee85b446c1aa74dce652975fe967f1f3d55b13`独立派生，只汇总已有实证与实际远端门禁；不是PR3合并后验收、正式版本转换或发布。Owner已再次授权按原顺序推进，并答复不指定审查人；聊天批准继续作为执行授权，不能补作GitHub非作者review。
+
+| 检查面 | 当前事实 | 后续解除条件 |
+|---|---|---|
+| S01–S12工程/安装 | 已有客观PASS；当前五插件/六公开技能、十三canonical及六次实际缓存Python，包tree14a3896c保持 | Learning先发及PR3实际合并后重算集合与身份，复验受影响安装范围 |
+| C01–C18行为 | CLI0.147批次15PASS/3PARTIAL保留；不同工具身份C16–C18三项限定PASS，旧FAIL不覆盖 | 保留每批身份及覆盖，不将有限子路径填成基线全PASS |
+| 必要桌面入口 | 同一26.1007.2314.0应用中的Codex本地与ChatGPT/Work本机基本范围PASS，见§4 | 正式来源和运行包变化时执行受影响实际客户端复验；原生窗口等未测状态保留 |
+| PR1–PR3 | 当前head分别4f23adb/0a9f7b3/82ee85b，CI成功；reviews为空、REVIEW_REQUIRED；无未解决线程 | 取得实际非作者最新head批准，按依赖合并并刷新后续base/CI/批准 |
+| Learning8.2.0 | #230仍draft、未合并，未发现8.2.0发布tag或Release | 先完成已确认的Learning8.2正式发布；不把本包注册带入先发范围 |
+| 实际版本 | origin/main 0c681a8f为8.1.1；origin/develop d106e76为未发布8.1.2；Communication0.1.0 | PR3合并及Learning先发后重查实际From/To和完整范围；预计独立minor8.3.0，不在本预备批次转换 |
+| 最新Release | v8.1.1已published，bot身份，tag目标8f0e044a，mutable/no assets | 本包正式发布后另核R01–R05；现有旧Release不计本包完成 |
+
+PR4当前仅准备上述账本。完成PR3合并身份比较后，核对未发布且获准的实际版本/范围，先DryRun再应用版本工具、正式CHANGELOG及绑定实际版本的发布RUNBOOK；未经实际转换不预造版本段或发布身份。只补证据时不重跑全部行为，运行内容变化则复验相应案例和必要客户端路径。PR5仍须从PR4已验收的实际merge派生，核查main代码所有者批准、CI和线程，沿既有draft-first状态机发布，再从真实tag解析SHA另做上线后canonical/资源/Python复查。main→develop同步、下一patch预升和证据入库均使用受保护PR；Release published且安装复查完成后才关闭Epic。
+
+### 正式发布用例状态
+
 | ID | 通过标准 | 状态 |
 |---|---|---|
 | R01 | main merge SHA/tree与已测候选对应，差异已说明并完成受影响复验 | NOT RUN |
@@ -222,6 +240,7 @@ PR1契约结果、PR3实证、PR4回归、PR5发布及后续复查逐阶段追�
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.5 | 2026-10-13 | PR4并行准备验收汇总和远端门禁事实；保留Learning先发/非作者批准阻塞，不转换版本，不预填R01–R05 |
 | v1.4 | 2026-10-13 | 追加代理亲自执行的同应用Codex/ChatGPT Work两个本机入口实证及独立核验；保留CLI限制、窗口与发布未测、批准和版本依赖 |
 | v1.3 | 2026-10-13 | 保留旧身份结果，整合PR1/2新实证和原路径缺失记录；HTML新基线五插件六技能/十三组合，客户端及发布仍待实际证据 |
 | v1.2 | 2026-10-12 | 追加原行为失败、通用修复及94新批；CLI15PASS/3PARTIAL与补充工具3项有限PASS分开，保留双客户端/发布缺项 |

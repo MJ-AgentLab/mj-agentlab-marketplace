@@ -17,6 +17,8 @@
 
 ### Changed
 
+- Prepare the Communication PR4 acceptance and release-gate ledger under Refs #222. Keep synthetic/CLI/native UI evidence identities and limitations separate; current GitHub independent approvals and the Learning 8.2.0 prerequisite remain missing. This preparation changes no runtime package, version, formal release section, tag or Release.
+
 - Prepare communication-kit commit/version tooling and three D-style icon candidates for Epic #222. Render plugin comparison sheets across rows so a fourth icon and its native previews remain visible. Runtime registration, formal icon exports and all real versions remain unchanged; the new icon awaits Owner selection.
 
 - Atomically integrate the unpublished Communication Kit 0.1.0 candidate and synchronize the four-plugin/five-skill contract, explicit-only invocation, frozen AICS resources and nine-combination installation expectations under Refs #222. Keep marketplace 8.1.2 and existing plugin versions unchanged; main / latest Release remain v8.1.1. Actual behavior and necessary client usability are NOT RUN; real-world effects are deferred this round.
