@@ -18,6 +18,8 @@ Communication实施与发布使用[Epic #222](https://github.com/MJ-AgentLab/mj-
 
 ## 执行与决策
 
+后续Learning GitHub流转#227合入develop `f958908`；四个Communication实施分支普通merge继承新增共用模块、受控替身测试与文档，保留并行INDEX/CHANGELOG。上游生产字节、Communication包tree14a3896c和版本保持，实际复验与新head门禁见[验收记录§6](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)；未执行真实GitHub评论发布或Communication正式版本转换。
+
 Communication四阶段实施分支已普通merge继承实际develop `a2090ff`（Learning本地存储#224），上游存储源码保持字节，Communication包tree14a3896c及全部运行版本不变。PR1/2/3新工程批次为280/289/308测试，严格及各自隔离安装通过；PR4新批证据、冲突与原始日志见[验收记录§6](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。实施分支同步不等于各PR已合并，Learning8.2发布与Communication新head非作者批准仍须实际满足。
 
 communication-kit 首版按已保存的[完整计划](plan/communication-kit-implementation-plan.md)实施，来源与授权见[捕获记录](plan/communication-kit-plan-provenance.json)，由 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222) 管理 PR1–PR5 与正式上线。产品方向、显式 communicate 单入口、保义改写和文件边界已确认；设计与验收契约见[新增 ADR](docs/adr/[ADR]_Communication_Kit_Addition.md)及[验收 RUNBOOK](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。PR1/PR2 保持现有运行集合，PR3 原子接入新包。Owner 选择 Learning 先发布 8.2.0，Communication 随后独立 minor（预计 8.3.0），PR4 重查实际版本和基线；现实效果测试本次延期，基础通过不代表效果已验证。
@@ -50,6 +52,8 @@ Owner 于 2026-10-10 明确要求发布 8.1.1，发布授权已提供，不重�
 
 Learning Evidence PR2 的共用本机能力暂存于 scripts/learning-evidence，旧运行包保持字节；保存、完整基线、身份、关联、恢复、导入导出和保留归档按新记录契约执行。测试显式隔离库；PR3 加入手动 GitHub 流转，PR4 才原子移入新包，当前公开注册不提前切换。实际测试、独立审查及未合并状态见验收账本。
 
+Learning Evidence PR3 同一暂存接口提供显式范围的完整 PR 评论发布、未知结果回读和缺段恢复，以及手动增量收集。收集先判定人/任务/时间范围再保存正文，翻页须观察连续稳定清单；失败保留已确认范围的快照与旧完成游标。工程验收使用独立临时库及替身 gh，真实账号权限、客户端和 GitHub 非作者批准另记，PR2/3 合入后才进入 PR4 原子迁移。
+
 PR2 已同步 #226 合入的 HTML Guide Kit 0.1.0，当前 develop 基准四插件、五公开技能、两项显式策略，marketplace 保持未发布 8.1.2；本阶段全部运行包、登记及 VERSION 相对该基准不变。Owner 已决定 develop 保留已合入 HTML 内容；8.2.0 从独立发行候选交付 Diagram、Learning Evidence、Explain 三插件与五公开技能，HTML 另行发行，不因并行合入扩大本次公开发行范围。
 
 ## Communication 工具准备
@@ -63,3 +67,5 @@ Owner 已授权按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-market
 HTML Guide Kit 初始 0.1.0，仅显式 $html-guide-kit:guide，Read、聊天文本新建指南；读者/任务/理解问题须明确确认后生成。未答、推荐、预选、沉默、超时、无关回复或窗口消失不是确认，不能承诺锁宿主窗口。研究项目及指南聊天只作只读设计参考，运行包无本机路径或研究治理依赖。Owner 2026-10-12 调整：本次不做现实场景效果测试，实际效果另测，未测量不得写 PASS；安装、模型行为、客户端交互和工程门禁继续有效。
 
 本任务保持 marketplace 未发布 8.1.2 及其他插件版本，无 Release、发布 tag 或 main 发布 PR。首次修改已合并的新插件运行内容时推进 0.1.1，其后补丁递增；纯评审资料/记录保持版本，以哈希核对运行内容。npm run check / smoke 为既有基线检查/隔离安装入口。每阶段满足当前 head 非作者批准、CI 与线程门禁后合并，不 bypass；合并复验后才关闭子 Issue，最终行为和双客户端及 merge 验收完整后才关闭 Epic。
+
+Learning Evidence #224 已于 2026-10-13 获 yrk666 对当前 c1d7bab 的非作者批准并合入 a2090ff8；merge 与已验收 head 的 Git tree 相同，七种精确 canonical 安装和四次已安装 Python 校验通过，#211 显式关闭。PR3 同步实际 merge 后运行内容不变，311/311、33 存储/31 离线 GitHub 实际 Python、严格校验、精确 CLI 基线与七隔离安装通过；当前最终 head 的独立批准和合入另核对。旧 pending 文字按原时点保留，完整合并回执见验收账本。Owner 再次确认按 #227 → #228 → #230 → #232 推进并条件发布三插件 8.2.0，HTML 留 develop 另发，Epic 延期项继续开放。

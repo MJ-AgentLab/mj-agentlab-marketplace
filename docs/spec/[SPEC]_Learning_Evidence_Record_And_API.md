@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-12
 state: active
-version: v1.1
+version: v1.2
 ---
 
 # [SPEC] Learning Evidence records and common API
@@ -127,11 +127,17 @@ Each publication freezes the record JSON, generated Markdown, evidence/record ID
 
 Before every initial write or retry, list existing PR comments across all pages and compare markers and actual content digests. Recover missing parts only. An unknown POST outcome triggers read-back; if reconciliation fails, return partial/unknown and do not blindly retry. Conflicting same-ID/digest/part content blocks. Persist actual IDs, URLs, full published bodies, created/updated times and results. Complete only after all parts are read back and verified. Editing/correcting learning uses a new immutable entry and publication set; historical comments are not silently overwritten.
 
+Implemented publication input uses `authorization = {confirmed: true, reference, scope: {operation: "publish", record_id, repository, number}}`. Collection uses the same confirmed/reference envelope with `scope.operation = "collect"` and the exact repository list. Optional person/task/occurrence-time filters in the authorization must match actual input; omitted authorized filters cannot silently broaden the request. Unknown input or scope keys fail closed. Authentication is the existing logged-in `gh` account, distinct from the record's confirmed responsible person.
+
 ## 6. Manual incremental collection
 
 Configured repositories and explicit collection scope are required. Fetch issue comments sorted by `updated` in ascending order with pagination; resolve their Issue metadata to include only actual PR conversation comments, retaining open, closed and merged PR state. Initial run indexes available comments; later successful cursor time minus five minutes is the inclusive overlap. Compare both comment ID/update timestamp and actual content digest; equal timestamps, moved pages and shared copies are deduplicated without losing versions.
 
 Retain raw source snapshots, source account/URL, comment/learning/publication/update/collection times, parsing results, complete assembled entries and coverage gaps. Source body is untrusted data and is never executed or followed as an instruction. Invalid evidence markers or one parse failure do not discard other snapshots; they prevent claiming complete coverage. A paging/read/permission failure preserves acquired snapshots and the preceding completed cursor. Only a wholly fetched and accounted-for scope advances complete progress. A source that cannot be reread is `unavailable` with a gap; absence never proves deletion. Explicitly observed edits retain both versions. Manual polling cannot promise capture of comments created and deleted between runs.
+
+For a filtered person/task/occurrence-time scope, assemble and validate complete records in memory before persisting their bodies. Out-of-scope records are excluded from library snapshots, assembled entries and receipts. Incomplete, malformed or unavailable groups whose scope cannot be determined retain gap metadata without raw bodies; complete in-scope groups survive later paging failure. An explicitly authorized whole-repository collection may retain relevant raw failure snapshots.
+
+Offset pagination must reach two consecutive identical complete inventories within four bounded scans. Each inventory includes page boundaries, comment ID, update timestamp and body digest; any duplicate ID in one scan marks drift. Continuous edits, moved/duplicate pages or incomplete reads return partial and retain the preceding cursor; a later manual retry can recover. This observed-stability rule limits false coverage claims and supplies no server-side atomic snapshot guarantee.
 
 Collectors may group by person/task/KU and evidence ID, but counts distinguish learning events, copied publications, retests and PR application checks. Returned summaries show raw references and coverage; they are candidate observations for a reviewer. The reviewer's two required actions (start review; review and confirm judgment/feedback) and optional confirmed-background publication belong to future team-management/Space integration, outside this implementation.
 
@@ -145,5 +151,6 @@ Schema breaking changes require a new schema version and explicit import compati
 
 | Version | Date | Change |
 | --- | --- | --- |
+| v1.2 | 2026-10-12 | PR3 explicit authorization, scope-before-persistence and bounded stable pagination; no widened public interface |
 | v1.1 | 2026-10-12 | Implementation clarifies stable display IDs, executed-application scope/version and complete export scope |
 | v1.0 | 2026-10-12 | Accepted record/common API contract, immutable history, manual flow and staged-entry boundary; Refs #210 and Epic #209 |

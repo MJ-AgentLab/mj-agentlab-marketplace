@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: draft
-version: v1.6
+version: v1.7
 ---
 
 # [RUNBOOK] Communication Kit acceptance
@@ -224,6 +224,8 @@ PR4当前仅准备上述账本。完成PR3合并身份比较后，核对未发�
 
 ### 正式发布用例状态
 
+后续develop再次推进到`f958908eacaaeab8708eb0557be38be59641cad1`（Learning GitHub流转#227）。四实施分支以普通merge继承新模块及其受控离线测试，保留两方CHANGELOG、INDEX入口和历史证据；PR3/4 INDEX元数据分别推进，未改公开运行集合、Communication包tree或任何实际版本。最新批次方法和实际结果见[GitHub baseline 01](evidence/communication-kit-2026-10-13-github-baseline-01.json)，所有新head重新运行strict/test/smoke并重新等待CI。该批仅检验受控替身，未发布真实GitHub评论；#227已合入不等于Learning8.2 Release已发布，也不能替代Communication当前head批准。
+
 | ID | 通过标准 | 状态 |
 |---|---|---|
 | R01 | main merge SHA/tree与已测候选对应，差异已说明并完成受影响复验 | NOT RUN |
@@ -244,6 +246,7 @@ PR4当前仅准备上述账本。完成PR3合并身份比较后，核对未发�
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.7 | 2026-10-13 | 继承实际Learning GitHub流转基线#227，保留并行目录/变更记录与旧身份，追加新工程批次；正式版本和发布门禁未解除 |
 | v1.6 | 2026-10-13 | 普通merge继承实际Learning存储基线#224；追加四阶段新身份、冲突保留与工程复验，不替换既有UI身份或预填正式发布 |
 | v1.5 | 2026-10-13 | PR4并行准备验收汇总和远端门禁事实；保留Learning先发/非作者批准阻塞，不转换版本，不预填R01–R05 |
 | v1.4 | 2026-10-13 | 追加代理亲自执行的同应用Codex/ChatGPT Work两个本机入口实证及独立核验；保留CLI限制、窗口与发布未测、批准和版本依赖 |

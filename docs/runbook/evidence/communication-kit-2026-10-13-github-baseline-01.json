@@ -1,0 +1,663 @@
+{
+  "refs": [
+    "#222"
+  ],
+  "capturedAt": "2026-10-13T04:25:05.732096+00:00",
+  "method": "Ordinary merge of actual develop, strict npm validation, full node tests and worktree-snapshot isolated npm smoke:codex. No detached canonical or new client batch.",
+  "upstream": {
+    "sha": "f958908eacaaeab8708eb0557be38be59641cad1",
+    "pr": 227,
+    "mergedAt": "2026-10-13T04:07:34Z",
+    "reviewsObserved": [],
+    "doesNotApproveCommunication": true
+  },
+  "conflictsAndRepairs": [
+    {
+      "phases": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "path": "CHANGELOG.md",
+      "observed": "CONFLICT (content)",
+      "repair": "Keep both independent Added/Changed entries."
+    },
+    {
+      "phases": [
+        3,
+        4
+      ],
+      "path": "docs/INDEX.md",
+      "observed": "CONFLICT (content)",
+      "repair": "Keep both Communication and Learning entries; advance local metadata and qualify the old Learning pending snapshot with the actual #227 merge without inventing a review."
+    }
+  ],
+  "formalVersionPreparation": "NOT RUN",
+  "releaseCases": {
+    "R01": "NOT RUN",
+    "R02": "NOT RUN",
+    "R03": "NOT RUN",
+    "R04": "NOT RUN",
+    "R05": "NOT RUN"
+  },
+  "realGithubCommentsPublished": false,
+  "clientEvidence": "Existing fixed 000e803 native evidence and limitations retained with original identities.",
+  "phases": [
+    {
+      "phase": 1,
+      "branch": "codex/communication-contract",
+      "headBeforeMergeCommit": "8b12b00aba6416920bee7c61476f7b17a600e8d9",
+      "headAtCapture": "8b12b00aba6416920bee7c61476f7b17a600e8d9",
+      "mergeHead": "f958908eacaaeab8708eb0557be38be59641cad1",
+      "trackedChangedPaths": [
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "docs/INDEX.md",
+        "docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md",
+        "docs/runbook/evidence/learning-evidence-github-checks.json",
+        "docs/runbook/evidence/learning-evidence-pr224-post-merge.json",
+        "docs/spec/[SPEC]_Learning_Evidence_Record_And_API.md",
+        "scripts/learning-evidence/github_flow.py",
+        "tests/fixtures/learning-evidence-github/driver.py",
+        "tests/fixtures/learning-evidence-github/fake_gh.py",
+        "tests/learning-evidence-github.test.mjs"
+      ],
+      "upstreamProductionDiff": [],
+      "runtimeDiffFromParent": [],
+      "validate": {
+        "result": "PASS",
+        "exitCode": 0,
+        "rawLog": "communication-kit-2026-10-13-github-baseline-01-pr1-validate.log",
+        "encoding": "utf-8-sig",
+        "rawBytes": 298,
+        "sha256": "30df367edd1a61ce1fcb50e16cab153a6b94083a9654f909d9259adc58b15f17",
+        "publicSkills": [
+          "diagram-kit:arch-diagram",
+          "understanding-kit:pop-quiz",
+          "explain-kit:glossary",
+          "explain-kit:concept",
+          "html-guide-kit:guide"
+        ]
+      },
+      "test": {
+        "result": "PASS",
+        "exitCode": 0,
+        "rawLog": "communication-kit-2026-10-13-github-baseline-01-pr1-test.log",
+        "encoding": "utf-8-sig",
+        "rawBytes": 70749,
+        "sha256": "0ea964508e8ffa09b15e9dcb4cb99ed0ef2edb83f978fdb1723e7f1dc1190741",
+        "counts": {
+          "tests": 311,
+          "pass": 311,
+          "fail": 0,
+          "skipped": 0
+        },
+        "actualStorePythonCases": 33,
+        "storeInterpreter": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+        "newActualGithubNodeCases": 31,
+        "githubInterpreter": "3.12.13 (main, Jun 11 2026, 04:05:29) [MSC v.1944 64 bit (AMD64)]; executable=C:\\\\Users\\\\Admin\\\\AppData\\\\Roaming\\\\uv\\\\python\\\\cpython-3.12-windows-x86_64-none\\\\python.exe",
+        "githubCasePassLines": [
+          "ok 162 - GitHub acceptance actually uses an exact Python 3.12 interpreter"
+        ]
+      },
+      "smoke": {
+        "result": "PASS",
+        "exitCode": 0,
+        "rawLog": "communication-kit-2026-10-13-github-baseline-01-pr1-smoke.log",
+        "encoding": "utf-8-sig",
+        "rawBytes": 141638,
+        "sha256": "8aa447d344e3888fbb71526d04dc0cd8f5c9888374d9b60dd3e845103e72e400",
+        "actualCliVersion": "codex-cli 0.147.0",
+        "scenarioCount": 7,
+        "actualCachedPythonValidationCount": 4,
+        "scenarios": [
+          {
+            "installed": [
+              "diagram-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "html-guide-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "html-guide-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit",
+              "html-guide-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          }
+        ]
+      }
+    },
+    {
+      "phase": 2,
+      "branch": "codex/communication-foundation",
+      "headBeforeMergeCommit": "50be36671590b2002a5e61a8fb0928e0264ff81f",
+      "headAtCapture": "50be36671590b2002a5e61a8fb0928e0264ff81f",
+      "mergeHead": "f958908eacaaeab8708eb0557be38be59641cad1",
+      "trackedChangedPaths": [
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "docs/INDEX.md",
+        "docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md",
+        "docs/runbook/evidence/learning-evidence-github-checks.json",
+        "docs/runbook/evidence/learning-evidence-pr224-post-merge.json",
+        "docs/spec/[SPEC]_Learning_Evidence_Record_And_API.md",
+        "scripts/learning-evidence/github_flow.py",
+        "tests/fixtures/learning-evidence-github/driver.py",
+        "tests/fixtures/learning-evidence-github/fake_gh.py",
+        "tests/learning-evidence-github.test.mjs"
+      ],
+      "upstreamProductionDiff": [],
+      "runtimeDiffFromParent": [],
+      "validate": {
+        "result": "PASS",
+        "exitCode": 0,
+        "rawLog": "communication-kit-2026-10-13-github-baseline-01-pr2-validate.log",
+        "encoding": "utf-8-sig",
+        "rawBytes": 298,
+        "sha256": "30df367edd1a61ce1fcb50e16cab153a6b94083a9654f909d9259adc58b15f17",
+        "publicSkills": [
+          "diagram-kit:arch-diagram",
+          "understanding-kit:pop-quiz",
+          "explain-kit:glossary",
+          "explain-kit:concept",
+          "html-guide-kit:guide"
+        ]
+      },
+      "test": {
+        "result": "PASS",
+        "exitCode": 0,
+        "rawLog": "communication-kit-2026-10-13-github-baseline-01-pr2-test.log",
+        "encoding": "utf-8-sig",
+        "rawBytes": 72716,
+        "sha256": "60f3a1a567ff00ed6f11d1ec170d58dfbdc08efa711dece202c239993f252aa9",
+        "counts": {
+          "tests": 320,
+          "pass": 320,
+          "fail": 0,
+          "skipped": 0
+        },
+        "actualStorePythonCases": 33,
+        "storeInterpreter": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+        "newActualGithubNodeCases": 31,
+        "githubInterpreter": "3.12.13 (main, Jun 11 2026, 04:05:29) [MSC v.1944 64 bit (AMD64)]; executable=C:\\\\Users\\\\Admin\\\\AppData\\\\Roaming\\\\uv\\\\python\\\\cpython-3.12-windows-x86_64-none\\\\python.exe",
+        "githubCasePassLines": [
+          "ok 170 - GitHub acceptance actually uses an exact Python 3.12 interpreter"
+        ]
+      },
+      "smoke": {
+        "result": "PASS",
+        "exitCode": 0,
+        "rawLog": "communication-kit-2026-10-13-github-baseline-01-pr2-smoke.log",
+        "encoding": "utf-8-sig",
+        "rawBytes": 141638,
+        "sha256": "9346c3b5d416aa946eced16bc10e0c0cc120bb6ce3d3a4b09dfa6d988d8f0f0c",
+        "actualCliVersion": "codex-cli 0.147.0",
+        "scenarioCount": 7,
+        "actualCachedPythonValidationCount": 4,
+        "scenarios": [
+          {
+            "installed": [
+              "diagram-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "html-guide-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "html-guide-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit",
+              "html-guide-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          }
+        ]
+      }
+    },
+    {
+      "phase": 3,
+      "branch": "codex/communication-plugin",
+      "headBeforeMergeCommit": "c991fffa4b98567eded412bcf0c25d2f203c040a",
+      "headAtCapture": "c991fffa4b98567eded412bcf0c25d2f203c040a",
+      "mergeHead": "f958908eacaaeab8708eb0557be38be59641cad1",
+      "trackedChangedPaths": [
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "docs/INDEX.md",
+        "docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md",
+        "docs/runbook/evidence/learning-evidence-github-checks.json",
+        "docs/runbook/evidence/learning-evidence-pr224-post-merge.json",
+        "docs/spec/[SPEC]_Learning_Evidence_Record_And_API.md",
+        "scripts/learning-evidence/github_flow.py",
+        "tests/fixtures/learning-evidence-github/driver.py",
+        "tests/fixtures/learning-evidence-github/fake_gh.py",
+        "tests/learning-evidence-github.test.mjs"
+      ],
+      "upstreamProductionDiff": [],
+      "runtimeDiffFromParent": [],
+      "communicationPackageTree": "14a3896c7ad50597bfc83996bcfec25180a720f9",
+      "validate": {
+        "result": "PASS",
+        "exitCode": 0,
+        "rawLog": "communication-kit-2026-10-13-github-baseline-01-pr3-validate.log",
+        "encoding": "utf-8-sig",
+        "rawBytes": 336,
+        "sha256": "8e9010947bee288f65b74c692a5d6b9288df3f96e362af3917680185c0841d3b",
+        "publicSkills": [
+          "diagram-kit:arch-diagram",
+          "understanding-kit:pop-quiz",
+          "explain-kit:glossary",
+          "explain-kit:concept",
+          "communication-kit:communicate",
+          "html-guide-kit:guide"
+        ]
+      },
+      "test": {
+        "result": "PASS",
+        "exitCode": 0,
+        "rawLog": "communication-kit-2026-10-13-github-baseline-01-pr3-test.log",
+        "encoding": "utf-8-sig",
+        "rawBytes": 77477,
+        "sha256": "ff8ca2093a667e367ab7451b8e80119713ce47bf876d9b37cc17bc2433857a2c",
+        "counts": {
+          "tests": 339,
+          "pass": 339,
+          "fail": 0,
+          "skipped": 0
+        },
+        "actualStorePythonCases": 33,
+        "storeInterpreter": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+        "newActualGithubNodeCases": 31,
+        "githubInterpreter": "3.12.13 (main, Jun 11 2026, 04:05:29) [MSC v.1944 64 bit (AMD64)]; executable=C:\\\\Users\\\\Admin\\\\AppData\\\\Roaming\\\\uv\\\\python\\\\cpython-3.12-windows-x86_64-none\\\\python.exe",
+        "githubCasePassLines": [
+          "ok 171 - GitHub acceptance actually uses an exact Python 3.12 interpreter"
+        ]
+      },
+      "smoke": {
+        "result": "PASS",
+        "exitCode": 0,
+        "rawLog": "communication-kit-2026-10-13-github-baseline-01-pr3-smoke.log",
+        "encoding": "utf-8-sig",
+        "rawBytes": 306688,
+        "sha256": "854c6a473ae5d4e3906d73abd59eac49b178502d74f82755d75c03ca128923e4",
+        "actualCliVersion": "codex-cli 0.147.0",
+        "scenarioCount": 13,
+        "actualCachedPythonValidationCount": 6,
+        "scenarios": [
+          {
+            "installed": [
+              "diagram-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "understanding-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "communication-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "communication-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "communication-kit",
+              "understanding-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit",
+              "communication-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "html-guide-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "html-guide-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit",
+              "html-guide-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit",
+              "communication-kit",
+              "html-guide-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          }
+        ]
+      }
+    },
+    {
+      "phase": 4,
+      "branch": "codex/communication-readiness",
+      "headBeforeMergeCommit": "fc204f0a3e582f22ffe1eedc52549e02ad42eb22",
+      "headAtCapture": "fc204f0a3e582f22ffe1eedc52549e02ad42eb22",
+      "mergeHead": "f958908eacaaeab8708eb0557be38be59641cad1",
+      "trackedChangedPaths": [
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "docs/INDEX.md",
+        "docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md",
+        "docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md",
+        "docs/runbook/evidence/learning-evidence-github-checks.json",
+        "docs/runbook/evidence/learning-evidence-pr224-post-merge.json",
+        "docs/spec/[SPEC]_Learning_Evidence_Record_And_API.md",
+        "scripts/learning-evidence/github_flow.py",
+        "tests/fixtures/learning-evidence-github/driver.py",
+        "tests/fixtures/learning-evidence-github/fake_gh.py",
+        "tests/learning-evidence-github.test.mjs"
+      ],
+      "upstreamProductionDiff": [],
+      "runtimeDiffFromParent": [],
+      "communicationPackageTree": "14a3896c7ad50597bfc83996bcfec25180a720f9",
+      "validate": {
+        "result": "PASS",
+        "exitCode": 0,
+        "rawLog": "communication-kit-2026-10-13-github-baseline-01-pr4-validate.log",
+        "encoding": "utf-8-sig",
+        "rawBytes": 336,
+        "sha256": "8e9010947bee288f65b74c692a5d6b9288df3f96e362af3917680185c0841d3b",
+        "publicSkills": [
+          "diagram-kit:arch-diagram",
+          "understanding-kit:pop-quiz",
+          "explain-kit:glossary",
+          "explain-kit:concept",
+          "communication-kit:communicate",
+          "html-guide-kit:guide"
+        ]
+      },
+      "test": {
+        "result": "PASS",
+        "exitCode": 0,
+        "rawLog": "communication-kit-2026-10-13-github-baseline-01-pr4-test.log",
+        "encoding": "utf-8-sig",
+        "rawBytes": 77468,
+        "sha256": "846506416b8b07bd7566df6994bf615dddac73011dcc5142f2f9f934e95d8283",
+        "counts": {
+          "tests": 339,
+          "pass": 339,
+          "fail": 0,
+          "skipped": 0
+        },
+        "actualStorePythonCases": 33,
+        "storeInterpreter": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+        "newActualGithubNodeCases": 31,
+        "githubInterpreter": "3.12.13 (main, Jun 11 2026, 04:05:29) [MSC v.1944 64 bit (AMD64)]; executable=C:\\\\Users\\\\Admin\\\\AppData\\\\Roaming\\\\uv\\\\python\\\\cpython-3.12-windows-x86_64-none\\\\python.exe",
+        "githubCasePassLines": [
+          "ok 171 - GitHub acceptance actually uses an exact Python 3.12 interpreter"
+        ]
+      },
+      "smoke": {
+        "result": "PASS",
+        "exitCode": 0,
+        "rawLog": "communication-kit-2026-10-13-github-baseline-01-pr4-smoke.log",
+        "encoding": "utf-8-sig",
+        "rawBytes": 306688,
+        "sha256": "b7cd49130055d033475365e0c3d3558e6b1b843b8d1ffec15e0d0d4a3eaafd5d",
+        "actualCliVersion": "codex-cli 0.147.0",
+        "scenarioCount": 13,
+        "actualCachedPythonValidationCount": 6,
+        "scenarios": [
+          {
+            "installed": [
+              "diagram-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "understanding-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "communication-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "communication-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "communication-kit",
+              "understanding-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit",
+              "communication-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "html-guide-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "html-guide-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit",
+              "html-guide-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit",
+              "communication-kit",
+              "html-guide-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          }
+        ]
+      }
+    }
+  ]
+}
