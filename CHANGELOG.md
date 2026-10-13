@@ -7,6 +7,8 @@
 
 ### Added
 
+- Record actual PR5 scoped technical delivery and unchanged three-plugin release dependencies. Exact merged-source installation/Python evidence, missing historical reviews and deferred client entries remain separate from publication and full Epic acceptance.
+
 - HTML Guide Kit 合同与前置治理（Refs #217、#218）：新增 ADR、验收 SPEC/RUNBOOK，预留提交 scope 与独立版本工具支持；缺失 manifest 继续失败，运行集合与 marketplace 8.1.2 / 现有插件版本保持。提供 npm run check / smoke 兼容入口；Owner 已选择第二轮 A「HTML 教材」图标，完整插件在后续 PR 原子接入。现实场景效果按 Owner 调整另测，不宣称理解改善。
 
 - Record the accepted Learning Evidence Kit migration and immutable record/common JSON API contracts for Epic #209, with six dependent implementation PRs and two post-release closeout PRs. The contract-only PR1 preserved then-current runtime packages and versions; it did not establish new functionality, acceptance or publication for target marketplace 8.2.0 / plugin 0.1.0.

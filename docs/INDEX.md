@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-13
 state: active
-version: v2.16.1
+version: v2.16.2
 ---
 
 # 文档索引
@@ -21,7 +21,7 @@ Epic #209 的 PR4 原子迁移当前候选为 Diagram 0.3.1 / Learning Evidence 
 
 HTML Guide Kit 正按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 分阶段实施：PR1 仅合同与工具前置，不改变运行集合。阶段门槛见 [ADR](adr/[ADR]_HTML_Guide_Kit_Addition.md)，判准见 [SPEC](spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，实际结果及未覆盖项见 [RUNBOOK](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。现实场景理解效果另测，本次仍保留工程行为与双客户端交互验收。
 
-Learning Evidence #224/#227/#228已在develop实际交付并完成精确安装复验，#211–213关闭，历史空reviews缺项保留。#230当前f1fe48b可审查，正式main发行候选仍原三插件；本次仅同步当前依赖与回执，新发行head须另验canonical及保护门禁，详见[发行准备](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。
+Learning Evidence #224/#227/#228/#230已在develop实际交付并完成精确安装复验，#211–214关闭；历史空reviews缺项保留。#232原三插件发行依赖已交付，文档提交后精确安装及当前head批准/CI/线程另验，正式发布未执行，详见[发行准备](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。
 
 ## 入口
 

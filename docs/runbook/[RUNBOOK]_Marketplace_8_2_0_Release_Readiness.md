@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: active
-version: v1.7
+version: v1.8
 last-verified: 2026-10-13
 verification-scope: scoped-cli-core-and-candidate-engineering
 ---
@@ -40,16 +40,18 @@ verification-scope: scoped-cli-core-and-candidate-engineering
 | 本机证据库 | [#224](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/224) / [#211](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/211) | 已获当前head非作者批准并合入a2090ff8；同树七canonical安装/缓存Python通过，#211关闭 |
 | GitHub 流转 | [#227](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/227) / [#212](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/212) | 已实际合入f958908e；同树七canonical安装/缓存Python通过，#212关闭；当前reviews为空，不补记批准 |
 | 原子插件切换 | [#228](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/228) / [#213](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/213) | 已实际合入434d053；八精确canonical安装/143资源/实际Python通过，#213关闭；当前reviews为空不补记批准 |
-| 技术验收与 8.2.0 准备 | [#230](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/230) / [#214](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/214) | 前序已交付；3d71963最新8.2.0开发源317/八安装通过，生产/模型资源与证据不变；准备最终head独立审查，批准/CI/merge实际另核对 |
-| 正式发布与跟踪 | [#215](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/215) | Draft [#232](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/232) 已创建并附加；main 合入和正式发布 NOT_RUN，PR 只写 Refs，不自动 Closes Epic |
+| 技术验收与 8.2.0 准备 | [#230](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/230) / [#214](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/214) | 已实际合入6b5a19e，与已测f1fe48b同树2084d6e3；八精确canonical/143资源/实际Python通过，#214分段完成关闭；当前reviews为空，不追认批准 |
+| 正式发布与跟踪 | [#215](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/215) | [#232](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/232)前序全部交付；仅文档同步后冻结新head并精确安装/门禁，准备解除Draft；main合入/正式发布NOT_RUN，Epic保持OPEN |
 
 2026-10-13 较早依赖快照：#224 的实际批准/merge/关闭见[PR2合并回执](evidence/learning-evidence-pr224-post-merge.json)，#227 的真实merge、空reviews/关闭及#228同树317/八安装/四共用模块和十九模型资源闭包见[PR3合并回执](evidence/learning-evidence-pr227-post-merge.json)。#228未合入，#230/#232继续Draft；公开候选b7bdd769未因开发侧新账本改变，main/latest Release仍8.1.1。Owner再次确认三插件8.2.0条件发布和依赖顺序，并要求后续不指定人发出请求审查。此偏好不解除当前head非作者批准、CI及已解决线程门禁，也不追认历史#216/#227缺失批准。
 
 本次PR5文档同步初次严格校验发现根AGENTS摘要为16413字节，超过既有16384字节预算；生产代码未变。已将五段重复/过时阶段摘要合并为当前状态与账本指针，完整修复前文本、原错误及变更边界保留在[指令预算修复回执](evidence/learning-evidence-pr5-instruction-budget-repair.json)。不提高预算、不修改校验器；修复后摘要14704字节，实际严格校验及65/65文档/A6检查通过；原失败与成功输出的来源和hash分别保留。
 
-2026-10-13 当前更新：#228已实际合入并完成八canonical/实际缓存Python复验，#213关闭，空reviews历史保留；#230同步后的8.2.0开发候选完整317/八安装及不变十九资源/原始模型证据核对通过，详见[PR4合并回执](evidence/learning-evidence-pr228-post-merge.json)。本阶段不指定审查人，当前head批准/CI/线程和实际合入仍按门禁；#232继续三插件Draft，尚未公开8.2.0。
+2026-10-13 较早PR4交付快照：#228已实际合入并完成八canonical/实际缓存Python复验，#213关闭，空reviews历史保留；#230同步后的8.2.0开发候选完整317/八安装及不变十九资源/原始模型证据核对通过，详见[PR4合并回执](evidence/learning-evidence-pr228-post-merge.json)。本阶段不指定审查人，当前head批准/CI/线程和实际合入仍按门禁；#232继续三插件Draft，尚未公开8.2.0。
 
-独立公开发行文档同步：本 worktree 在此前三插件b7bdd769上仅保存实际开发交付/失败回执与当前依赖账本，未合并develop运行集合，所有生产/脚本/测试/版本保持原三插件来源。#230当前f1fe48b可审查，其独立批准和实际合入仍待；#232继续Draft。新发行head在本次提交后冻结并执行精确canonical安装，不能把此前b7身份当作新的当前head通过。历史空reviews缺项保留，后续不指定审查人；main/latest Release仍8.1.1，正式8.2.0未公开。
+此前独立公开发行文档同步快照：本 worktree 在此前三插件b7bdd769上仅保存实际开发交付/失败回执与当前依赖账本，未合并develop运行集合，所有生产/脚本/测试/版本保持原三插件来源。#230当前f1fe48b可审查，其独立批准和实际合入仍待；#232继续Draft。新发行head在本次提交后冻结并执行精确canonical安装，不能把此前b7身份当作新的当前head通过。历史空reviews缺项保留，后续不指定审查人；main/latest Release仍8.1.1，正式8.2.0未公开。
+
+2026-10-13 最新交付：#230已实际合入6b5a19e，完整[合并回执](evidence/learning-evidence-pr230-post-merge.json)记录同树身份、八精确canonical/143资源/四图表Python/三保存重放检查与清理，#214按已接受分段技术边界关闭。GitHub reviews为空，历史缺项不补造。#232前序依赖全部交付；此前7341481五种安装实际通过，本次仅文档更新，运行/脚本/测试/版本及原模型证据与已验收acf3相同。提交后冻结新的当前head，精确canonical通过后转为可审查；当前head非作者批准/CI/线程满足后执行已有三插件8.2.0发布授权，不指定审查人。HTML保留develop另发，main/latest Release仍8.1.1；原生/桌面/效果/Owner接受及两个收尾PR仍未完成。
 
 ## §2 Steps and evidence preparation
 
@@ -142,6 +144,7 @@ Owner 已确认 8.2.0 仍为原定三插件/五技能/两项学习策略。devel
 
 | Version | Date | last-verified | Change |
 | --- | --- | --- | --- |
+| v1.8 | 2026-10-13 | PR5实际合并同树精确验收及分段关闭 | #230/6b5a19e八canonical与实际Python通过；#214关闭并保留reviews缺项/全部延期；公开依赖已交付，新发行head仍需精确安装及保护门禁 |
 | v1.7 | 2026-10-13 | 三插件公开文档同步；新head待精确canonical/保护门禁 | 保持全部运行/测试/版本及原模型证据，复制实际依赖回执与历史缺项；P5/发行当前head批准/合入/正式发布另核对 |
 | v1.6 | 2026-10-13 | PR4实际合并和PR5最新完整工程验收 | 保留空reviews历史，#213交付关闭，317/八安装及资源/原模型证据闭包通过；PR5/正式发行当前head门禁仍待完成 |
 | v1.5 | 2026-10-13 | 前序实际交付与PR4当前可审查来源 | #224/#227合并复验及#211/#212关闭，保留空reviews历史与不指定审查人偏好；后续依赖/当前head门禁和正式发布仍待完成 |
