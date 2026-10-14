@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-15
 state: draft
-version: v1.53
+version: v1.54
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -885,3 +885,14 @@ source28五UUID十次COMPLETE/0INVALID，2PASS/1FAIL/2UNEXERCISED/9NOT_RUN及真
 29实际完整初39f1d8/session12110→ac5ddd EXIT1（336P10F）及7275dc strict失败保留；Root9ed5e0仅将三历史草稿归档名改为.md.snapshot.txt、索引保originalRelative及原hash，payload等于bf34 Git旧blob，validator未改。正确f8a4f7/session20454→d7ced4 EXIT0完整346P0F0cancel0skip/261959.1427ms，7c5dd7 strict P、d447c3文档/A6 65P/7433.8522ms，ec63eb baseline0.147、两quick及正常diff P。实际PowerShell5首次DryRun零写入失败和7.6.5兼容DryRun/Apply单manifest推进分别保留，[准确原工程与修复收据](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-29/archive-index.json)。
 
 Root实际runtime bf37743、纯原件补证d25dc63fb81b57859757769c239dbacfd4983492/tree1da998101bcb3738f31a275ad4fb17d97ba5eba8正常提交；16dce7十二commit检查及b50261普通push P。唯一c7bc6d/session57320→86c471 EXIT0[准确十三canonical安装/六缓存Python](evidence/html-guide-kit/pr3-post-merge/engineering-d25dc63f/archive-index.json)已P：全五包七技能/显式四/自然三/repo-only20，逐资源hash/manifest/图标/参考/版本与源对应。原controller清临时缓存，不称事后重读。29核心已获授权fresh14UUID30轮，实际defaultlow与selectedhigh及SDK分列，尚无整体结论；旧28的2P1F2U9N不追认。Computer Use只取得返回196630可读状态，无29输入或客户端P；现实效果NOT_MEASURED，#220/Epic OPEN，正式发布未执行。
+
+
+## 58. 29真实核心停止与下一修正准备
+
+准确d25dc63fb81b57859757769c239dbacfd4983492/tree1da998101bcb3738f31a275ad4fb17d97ba5eba8运行0.1.29，新核心实际8UUID14COMPLETE/0INVALID，整体5PASS/1FAIL/2UNEXERCISED/6NOT_RUN、16输入未发。Root3bc904重核全部十四保存SDK、actual CLI0.147/OpenAI/gpt-5.6-sol/high、V2真实exit/close0在240000deadline内、三批七源/镜像/cache对应及70原modelraw，默认low/proof保持。[最终聚合与原失败/客户端限制](evidence/html-guide-kit/pr3-post-merge/source029-stopped/index.json)聚合SHA3b3bec8aa16eee227dee0e09b26be93b737e108e6cb7efc577b441955e5b3fc4。完整其他原件待独立归档，不据摘要声称已入库。
+
+C B1.1 UUID01a13bb7-8ef8-77c2-a6b1-7d25d8cf9acb四轮等待/非推荐B明确确认主判PASS，但T4源规则S6及边界两处将预约已无效时能否再次取消列未知。源§6领取前可以取消且仅排除已领取/已归还，未设预约有效/首次前提；未述额外细节不能撤销已覆盖许可。Rootbb0ead/ee2ce3/3c142d全文及da90c9实际SDK/完整entry/refs/material重核，effa40原wholeFAIL；A8feb6a独立同结论，初值/宽规则适用按真实范围而非词漏判断。A B3.1三轮P，B3.2仅T1U；B四案例五轮P，早拒绝修订的refs/material实际未读按N_A，不填true。Cdelayed仅T1U，其他六案例N，首次正确不升整体P。
+
+Root1a8646首次confirmed标记2026-10-14T18:46:16.746Z，SHA8209c8e454ca3d963984776db0f13a69213797a47c4d23d2c5d63e3ac514b203；全部十四输入开始及结束均在marker前，0post/0cross，普通entry消费后未新输，无kill/retry/resampling。独立helper新原件audit331033、operator A/B/C普通闭包另保，解析/目录误读/早审程序错误属于reviewer辅助错误，非模型INVALID；原模型记录不改。
+
+ComputerUse本轮重新实际选择返回window196630，取得可读accessibility及截图，未导出含私有侧栏的整窗；新29十准确包文件UI-only单包中性镜像已准备。一次fresh32 Plugins点击后原文档仍可见，插件页导航未确认，未把click回包称成功；零新会话、零本版材料输入、未安装或改用户配置，client仍NOT_RUN，旧22有限双端不移用。30通用方法和版本guard/SDK helper仅外部准备，暂未接入/安装/API/模型；旧失败及判准保持。现实效果NOT_MEASURED，#220/Epic OPEN，当前head非作者GitHub批准/CI/线程及最终merge复验仍须满足，无正式发布。

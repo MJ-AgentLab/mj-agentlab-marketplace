@@ -1,0 +1,156 @@
+{
+  "recordedAt": "2026-10-14T18:49:19.627Z",
+  "reviewer": "/root",
+  "operator": "/root/precommit_014",
+  "source": {
+    "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "canonicalSha": "d25dc63fb81b57859757769c239dbacfd4983492",
+    "canonicalTree": "1da998101bcb3738f31a275ad4fb17d97ba5eba8"
+  },
+  "version": "0.1.29",
+  "variant": "B1.1",
+  "uuid": "01a13bb7-8ef8-77c2-a6b1-7d25d8cf9acb",
+  "attemptId": "4f97ff41-65ba-4c75-b33b-24c11f3c9c76",
+  "actualTurns": 4,
+  "primary": "PASS",
+  "overallResult": "FAIL",
+  "fullReads": [
+    "bb0ead",
+    "ee2ce3",
+    "3c142d"
+  ],
+  "technicalOriginalRecheck": {
+    "tool": "da90c9",
+    "file": "operator-c-records/root-B1.1-original-receiver-audit.json",
+    "sha256": "18a53021ae45aa16186089cfb5457a357a869a7285fc869b4d2757e8d9b4fe6f",
+    "fourActualSDKHighAndExitValid": true,
+    "sourceMirrorCacheSevenExact": true,
+    "completeInstalledEntryFrameworkInteractionAndMaterialReceived": true
+  },
+  "findings": [
+    {
+      "source": "§6 allows cancellation before collection; no valid-reservation prerequisite or repetition exclusion supplied.",
+      "actualOutput": [
+        "预约已经无效时能否再次取消，材料没有明确说明。",
+        "领取前可以取消，但预约已经无效时能否重复取消未明确。"
+      ],
+      "result": "Unknown repetition details must not withdraw the source-covered permission under its existing preconditions. The guide introduces an unsupported permission gap in both its complete source baseline and boundary summary."
+    }
+  ],
+  "notes": [
+    "First three turns retained the same unconfirmed proposals and did not produce a guide; actual nonrecommended B confirmation was required for T4.",
+    "Single complete source baseline explicitly applies across the guide; shorthand is assessed within that scope, not failed merely for omitting repeated text.",
+    "No HTML/code/file creation or production operations observed in actual tool calls.",
+    "Source recovery and new teaching reset/feedback are separated; these portions do not repair the unsupported cancellation-permission gap."
+  ],
+  "pins": [
+    {
+      "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\286b8749-9a02-4a23-826b-6658fe17b4b1\\b1449a9c-e23f-4e34-9104-4a94b0c6fca5\\510b4679-f813-4a6f-9300-e56e98efbd72\\6a38e14b-bf01-4e59-a0bd-81c61c2bd114.md",
+      "bytes": 1640,
+      "sha256": "66a948e4903134491c391188b7870e2fb47f3bc102271438911e1ade6a23b502"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-29\\blocking\\runs\\56779c08-b067-42b8-a948-187e7872c605\\B1.1\\4f97ff41-65ba-4c75-b33b-24c11f3c9c76\\01.input.txt",
+      "bytes": 989,
+      "sha256": "0bb7dc3d987d7505bc63a4bfc90be18733b36901325bfdeebea18ca8108a1b2b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-29\\blocking\\runs\\56779c08-b067-42b8-a948-187e7872c605\\B1.1\\4f97ff41-65ba-4c75-b33b-24c11f3c9c76\\01.output.txt",
+      "bytes": 3428,
+      "sha256": "9a6dfca041d74e918231c7701853b3cf70dc6aebde15c5791db17fb28f334a92"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-29\\blocking\\runs\\56779c08-b067-42b8-a948-187e7872c605\\B1.1\\4f97ff41-65ba-4c75-b33b-24c11f3c9c76\\01.events.jsonl",
+      "bytes": 31945,
+      "sha256": "d301804a03fd46529633955ff6f374f0352f7f774c45ca43bfadc5c947704df6"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-29\\blocking\\runs\\56779c08-b067-42b8-a948-187e7872c605\\B1.1\\4f97ff41-65ba-4c75-b33b-24c11f3c9c76\\01.session.jsonl",
+      "bytes": 104740,
+      "sha256": "7ed1fd8f2e9d8638ecba2775374a5be427e87df83a0f528bb018335a4f6fb519"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-29\\blocking\\runs\\56779c08-b067-42b8-a948-187e7872c605\\B1.1\\4f97ff41-65ba-4c75-b33b-24c11f3c9c76\\01.stderr.txt",
+      "bytes": 26077,
+      "sha256": "c693c85d444b7718f4530ec4a30efb5526f23450bdfee32bb7c4065b659cd889"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-29\\blocking\\runs\\56779c08-b067-42b8-a948-187e7872c605\\B1.1\\4f97ff41-65ba-4c75-b33b-24c11f3c9c76\\02.input.txt",
+      "bytes": 43,
+      "sha256": "7903215f202a7f38d4a86ac1d90212fdae7856a80aa37d6e0668dc93cdb59112"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-29\\blocking\\runs\\56779c08-b067-42b8-a948-187e7872c605\\B1.1\\4f97ff41-65ba-4c75-b33b-24c11f3c9c76\\02.output.txt",
+      "bytes": 267,
+      "sha256": "d801e0525babaf3f8d7856cbb5c90abc166ca48cfe5cff9422101237ca7ede30"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-29\\blocking\\runs\\56779c08-b067-42b8-a948-187e7872c605\\B1.1\\4f97ff41-65ba-4c75-b33b-24c11f3c9c76\\02.events.jsonl",
+      "bytes": 624,
+      "sha256": "9de58f064b81fe2701fc79ff8df2472b6c392ad596200684cc52aef437b3dba8"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-29\\blocking\\runs\\56779c08-b067-42b8-a948-187e7872c605\\B1.1\\4f97ff41-65ba-4c75-b33b-24c11f3c9c76\\02.session.jsonl",
+      "bytes": 112350,
+      "sha256": "00b2746b475683b8ed6c392c3213a94d6138225a82777566e143ce72252697d9"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-29\\blocking\\runs\\56779c08-b067-42b8-a948-187e7872c605\\B1.1\\4f97ff41-65ba-4c75-b33b-24c11f3c9c76\\02.stderr.txt",
+      "bytes": 26053,
+      "sha256": "b3e33120c1a0e1bbca15e5a86a0c72d3de92f298929b3f7ca59fd47d32a352d7"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-29\\blocking\\runs\\56779c08-b067-42b8-a948-187e7872c605\\B1.1\\4f97ff41-65ba-4c75-b33b-24c11f3c9c76\\03.input.txt",
+      "bytes": 43,
+      "sha256": "32d79cd04cb688cb6fb970165b8da92497a918854b90dba5a66fe7c834d9642f"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-29\\blocking\\runs\\56779c08-b067-42b8-a948-187e7872c605\\B1.1\\4f97ff41-65ba-4c75-b33b-24c11f3c9c76\\03.output.txt",
+      "bytes": 57,
+      "sha256": "fae04376199d94db47396428f285596a9192f6422269e614f86ba8b1da8fec97"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-29\\blocking\\runs\\56779c08-b067-42b8-a948-187e7872c605\\B1.1\\4f97ff41-65ba-4c75-b33b-24c11f3c9c76\\03.events.jsonl",
+      "bytes": 407,
+      "sha256": "3ff797042996406786127ced5e7a908e160f5a819410eb962d06047a21e7f8fd"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-29\\blocking\\runs\\56779c08-b067-42b8-a948-187e7872c605\\B1.1\\4f97ff41-65ba-4c75-b33b-24c11f3c9c76\\03.session.jsonl",
+      "bytes": 116701,
+      "sha256": "f770dba85ad82f9c54a1994766cc0324c3ca41538cccb80e290f50c44cbc16a2"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-29\\blocking\\runs\\56779c08-b067-42b8-a948-187e7872c605\\B1.1\\4f97ff41-65ba-4c75-b33b-24c11f3c9c76\\03.stderr.txt",
+      "bytes": 26053,
+      "sha256": "c0eb02ed4ffee9d5dc0a2b2cc231bc398b1cf5203020405dabc87416159fd548"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-29\\blocking\\runs\\56779c08-b067-42b8-a948-187e7872c605\\B1.1\\4f97ff41-65ba-4c75-b33b-24c11f3c9c76\\04.input.txt",
+      "bytes": 94,
+      "sha256": "7a300925f9967644e9e688de553264c954dda225379f2f2aa18884bb51628dae"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-29\\blocking\\runs\\56779c08-b067-42b8-a948-187e7872c605\\B1.1\\4f97ff41-65ba-4c75-b33b-24c11f3c9c76\\04.output.txt",
+      "bytes": 12815,
+      "sha256": "bc7ddafc6cc86da49214ad1b6aed7cc3c7581feb0d85c12d92e56a008694ac46"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-29\\blocking\\runs\\56779c08-b067-42b8-a948-187e7872c605\\B1.1\\4f97ff41-65ba-4c75-b33b-24c11f3c9c76\\04.events.jsonl",
+      "bytes": 13439,
+      "sha256": "65b367581cc3f3ae162c3ebc9965ade078858a41445c022fafcdc177bf27350f"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-29\\blocking\\runs\\56779c08-b067-42b8-a948-187e7872c605\\B1.1\\4f97ff41-65ba-4c75-b33b-24c11f3c9c76\\04.session.jsonl",
+      "bytes": 245018,
+      "sha256": "21f12ee0d5fd7add746d40261b1958b95b7885a92bb1c22feaf30928da2657e9"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-29\\blocking\\runs\\56779c08-b067-42b8-a948-187e7872c605\\B1.1\\4f97ff41-65ba-4c75-b33b-24c11f3c9c76\\04.stderr.txt",
+      "bytes": 32547,
+      "sha256": "cc0c7cb7c80bf12d89fa9d99cd2ee9b886df2cd6ced3ea2f5a700b5fd4b410ea"
+    }
+  ],
+  "previousSourceEvidenceReused": false,
+  "priorVersionRegraded": false,
+  "effects": "NOT_MEASURED"
+}

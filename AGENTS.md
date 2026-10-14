@@ -68,7 +68,7 @@ Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基
 
 合同见[ADR](docs/adr/[ADR]_HTML_Guide_Kit_Addition.md)及[SPEC](docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)：仅显式$html-guide-kit:guide，Read、中文/原术语、聊天文本新建。实际读材料/明确快照，分原料/核验背景/构造，保原文、定位、冲突/缺口。每次2–3不同读者/任务/问题及推荐理由，明确选择或修改确认才编排；默认/推荐/预选/沉默/超时/无关/消失非确认，未答保同一待确认，不锁宿主。深度随材料；按需演示/模拟/自检含操作、变化、结果、反馈、恢复、理由/误区和重试；无可靠判准给有界参考，不评分/长期掌握。不修订/比较/审查，不输出HTML/代码/文件/制作步骤或越权；仅SKILL及两参考，无Owner路径/研究治理依赖。
 
-HTML22/71e2已合并，同树/十三安装六PythonP，reviews空留缺项；五包七技能/四显式/三自然/20repo-only，市场8.3/其他包保持。旧22双端有限P及核心F、23–26停止见RUNBOOK§44–52，不追认。27/00d59工程CIP、9UUID18C为5P3F1U5N停止；28/83b3完整346/十三安装六PythonP，实际high核心5UUID10C为2P1F2U9N停止。29/0.1.29已接入entry/FW两处拒因纪律修正，ID保持；工程346/13安装6PythonP，defaultlow/旧失败保留，新核心执行/双端待证，见§53–57。
+HTML22/71e2已合并并严格安装复验，reviews空缺保留；开发5包7技能/4显式/3自然/20repo-only，市场8.3/其他包保持。旧22有限双端及23–28失败/停止见RUNBOOK§44–56，不追认。29/d25dc63f工程346/13安装6PythonP，实际high核心8UUID14C为5P1F2U6N停止；取消宽许可被错误列未知，defaultlow/原失败保留。30仅外部方法/控制草稿，未接入/安装/模型/双端；见§57–58。
 
 现实效果另测NOT_MEASURED；原生接口已可用，源20 Work三轮有限路径独立通过、Codex应用另三轮有限路径独立通过；普通Chat入口不可用。原生空返回/超时/关闭未执行，CLI不替代。核心可分段交付，延期不当通过，#220/Epic开放、Owner接受独立。控制修正/来源/准确会话及历史见[RUNBOOK](docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)§11–42；不继承旧PASS。研究项目只读。
 
