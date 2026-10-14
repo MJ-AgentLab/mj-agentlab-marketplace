@@ -1,0 +1,135 @@
+{
+  "recordedAt": "2026-10-14T06:39:22.690Z",
+  "phase": "PREP_ONLY_COPIER_TEMPLATE_PREPARATION",
+  "sourceFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\build-controls-prep-only-behavior-a.mjs",
+  "sourceSha256": "dc1a5de54d7690fdcc4ea3433e978d424d89122c78c11852a177b49986408205",
+  "sourceFileAfterSha256": "dc1a5de54d7690fdcc4ea3433e978d424d89122c78c11852a177b49986408205",
+  "targetFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\build-controls-prep-only-behavior-a.mjs",
+  "targetSha256": "58c59ac082736bffeebf8ea4503ae6bfca19c01b2c1d4359979fe981a9669ec4",
+  "mechanicalEdits": [
+    {
+      "before": "0.1.18",
+      "after": "__SOURCE_VERSION_LITERAL__",
+      "occurrences": 5
+    },
+    {
+      "before": "0.1.19",
+      "after": "__CANDIDATE_VERSION_LITERAL__",
+      "occurrences": 7
+    },
+    {
+      "before": "0-1-18",
+      "after": "0-1-19",
+      "occurrences": 1
+    },
+    {
+      "before": "source18",
+      "after": "source19",
+      "occurrences": 11
+    },
+    {
+      "before": "Source18",
+      "after": "Source19",
+      "occurrences": 3
+    },
+    {
+      "before": "SOURCE18",
+      "after": "SOURCE19",
+      "occurrences": 1
+    },
+    {
+      "before": "COMMITTED19",
+      "after": "COMMITTED20",
+      "occurrences": 1
+    },
+    {
+      "before": "__SOURCE_VERSION_LITERAL__",
+      "after": "0.1.19",
+      "occurrences": 5
+    },
+    {
+      "before": "__CANDIDATE_VERSION_LITERAL__",
+      "after": "0.1.20",
+      "occurrences": 7
+    },
+    {
+      "before": "a748e7499b2d67c589a0cd3b6a471ed8fddba29c737a8777786324aae99893cd",
+      "after": "2dedefccb624d5cad08f45d331c5f947cefb2f89906ee23c9b82be5cf9412bb3",
+      "occurrences": 1
+    },
+    {
+      "before": "5d40c9d06217dff3aeef3a74db38d5935a558e9b83cbff5705ed00ab1a0488ac",
+      "after": "f89c2e08da507222b4a8a86f061f756f56316594d8b4e607594eed06abddce15",
+      "occurrences": 1
+    },
+    {
+      "before": "0a6c48c2b3d782cbffb86355060d65986383eeea",
+      "after": "2fb20957d5c082aead7c8f3a8136d44c574487ee",
+      "occurrences": 1
+    },
+    {
+      "before": "b09e7772bc34e37d6fe9206fa263f827895549af",
+      "after": "906333383ba731f90d3c495e4b645708aaf1d815",
+      "occurrences": 1
+    },
+    {
+      "before": "PREP_ONLY_SOURCE19_FINAL_CLOSED_WAITING_ROOT_EXACT_COMMITTED20_CANONICAL_THIRTEEN_STRICT_INSTALLS_SIX_ACTUAL_CACHE_PYTHON",
+      "after": "PREP_ONLY_SOURCE19_FIXED_CONTROL_SET_ROOT_FINAL_PACK_AND_STATIC_PENDING_BEFORE_SOURCE20_RUNTIME",
+      "occurrences": 1
+    },
+    {
+      "before": "  const before=Buffer.from('0.1.19'),after=Buffer.from('0.1.20'),offsets=[],chunks=[];let cursor=0;\n  for(let at=r.bytes.indexOf(before,cursor);at>=0;at=r.bytes.indexOf(before,cursor)){chunks.push(r.bytes.subarray(cursor,at),after);cursor=at+before.length;offsets.push({versionOffsetZeroBased:at,differingByteOffsetZeroBased:at+5,beforeHex:'38',afterHex:'39',byteDelta:0,line:r.bytes.subarray(0,at).toString('utf8').split('\\n').length});}\n  if(!offsets.length)fail('Missing current18 version guard: '+r.relative);chunks.push(r.bytes.subarray(cursor));output=Buffer.concat(chunks);\n  if(output.length!==r.bytes.length||!Buffer.from(output.toString('utf8').replaceAll('0.1.20','0.1.19')).equals(r.bytes))fail('Version-only restoration failure');\n  const actualChanges=[];for(let i=0;i<r.bytes.length;i++)if(r.bytes[i]!==output[i])actualChanges.push(i);\n  if(JSON.stringify(actualChanges)!==JSON.stringify(offsets.map(o=>o.differingByteOffsetZeroBased)))fail('Non-version byte difference');\n  const originalCopy=write('originals/'+r.relative,r.bytes);\n  guardDiffs.push({relative:r.relative,originalCopy,originalSha256:r.actualSha256,newSha256:sha(output),beforeBytes:r.bytes.length,afterBytes:output.length,versionOccurrences:offsets.length,offsets,actualDifferingByteOffsets:actualChanges,change:'Only literal0.1.19 ->0.1.20; each last byte38 ->39',collectionCountsUnchanged:{strictInstalls:13,actualCachePython:6},allOutsideVersionSegmentsOriginalBytes:true});",
+      "after": "  const before=Buffer.from('0.1.19'),after=Buffer.from('0.1.20'),offsets=[],chunks=[];let cursor=0;\n  for(let at=r.bytes.indexOf(before,cursor);at>=0;at=r.bytes.indexOf(before,cursor)){\n   chunks.push(r.bytes.subarray(cursor,at),after);cursor=at+before.length;\n   const differingBytes=[];for(let j=0;j<Math.max(before.length,after.length);j++)if(before[j]!==after[j])differingBytes.push({relativeByteOffset:j,absoluteByteOffset:at+j,beforeHex:before[j]?.toString(16).padStart(2,'0')??null,afterHex:after[j]?.toString(16).padStart(2,'0')??null});\n   offsets.push({versionOffsetZeroBased:at,beforeLiteral:before.toString(),afterLiteral:after.toString(),beforeSegmentBytes:before.length,afterSegmentBytes:after.length,byteDelta:after.length-before.length,line:r.bytes.subarray(0,at).toString('utf8').split('\\n').length,differingBytes});\n  }\n  if(!offsets.length)fail('Missing current19 version guard: '+r.relative);chunks.push(r.bytes.subarray(cursor));output=Buffer.concat(chunks);\n  if(!Buffer.from(output.toString('utf8').replaceAll('0.1.20','0.1.19')).equals(r.bytes))fail('Version-only restoration failure');\n  const actualChanges=[];for(let i=0;i<Math.max(r.bytes.length,output.length);i++)if(r.bytes[i]!==output[i])actualChanges.push(i);\n  const expectedChanges=offsets.flatMap(o=>o.differingBytes.map(d=>d.absoluteByteOffset));\n  if(JSON.stringify(actualChanges)!==JSON.stringify(expectedChanges))fail('Non-version byte difference');\n  const originalCopy=write('originals/'+r.relative,r.bytes);\n  guardDiffs.push({relative:r.relative,originalCopy,originalSha256:r.actualSha256,newSha256:sha(output),beforeBytes:r.bytes.length,afterBytes:output.length,byteLengthDelta:output.length-r.bytes.length,versionOccurrences:offsets.length,offsets,actualDifferingByteOffsets:actualChanges,actualDifferingByteCount:actualChanges.length,change:'Only literal0.1.19 ->0.1.20; every actual segment and byte difference computed',collectionCountsUnchanged:{strictInstalls:13,actualCachePython:6},allOutsideVersionSegmentsOriginalBytes:true});",
+      "occurrences": 1
+    },
+    {
+      "before": "if(guardDiffs.reduce((n,r)=>n+r.versionOccurrences,0)!==9)fail('Expected nine last-byte-only changes');",
+      "after": "const versionLiteralOccurrences=guardDiffs.reduce((n,r)=>n+r.versionOccurrences,0),actualDifferingBytes=guardDiffs.reduce((n,r)=>n+r.actualDifferingByteCount,0);if(versionLiteralOccurrences!==9)fail('Expected nine actual version-literal occurrences');",
+      "occurrences": 1
+    },
+    {
+      "before": "versionLastByteChanges:9",
+      "after": "versionLiteralOccurrences,actualDifferingBytes",
+      "occurrences": 1
+    },
+    {
+      "before": "lastByteChanges:9",
+      "after": "versionLiteralOccurrences,actualDifferingBytes",
+      "occurrences": 1
+    },
+    {
+      "before": "nine last-byte38→39 differences, no size change",
+      "after": "nine literal occurrences; exact per-segment byte differences are computed and recorded, no prior nine-byte assumption",
+      "occurrences": 1
+    },
+    {
+      "before": "Source19 final closure is verified by Root; Root must commit an exact19 canonical and pass actual13/6 engineering before new model execution.",
+      "after": "Source19 whole-directory metadata may still be finalized by Root; only the fixed38 control set is inherited. Root must confirm Source19 final pack and Source20 static review, commit an exact20 canonical, and pass actual13/6 engineering before new model execution.",
+      "occurrences": 1
+    },
+    {
+      "before": "sourceOldDirectoriesModified:false",
+      "after": "sourceOldDirectoriesModified:null,sourceWritesPerformedByThisCopier:false,sourceFixedControlsUnchanged:true,sourceWholeDirectoryUnchangedClaim:false,sourceWholeDirectoryObservation",
+      "occurrences": 1
+    },
+    {
+      "before": "const fail=s=>{throw new Error(s);};",
+      "after": "const fail=s=>{throw new Error(s);};\nconst sourceWholeBefore=[];\nfunction inventoryAll(dir,base,rows){for(const entry of fs.readdirSync(dir,{withFileTypes:true})){const f=path.join(dir,entry.name);if(entry.isDirectory())inventoryAll(f,base,rows);else{const b=fs.readFileSync(f);rows.push({relative:path.relative(base,f).replaceAll('\\\\','/'),bytes:b.length,sha256:sha(b)});}}}\ninventoryAll(sourceRoot,sourceRoot,sourceWholeBefore);sourceWholeBefore.sort((a,b)=>a.relative.localeCompare(b.relative));\nfs.writeFileSync(path.join(root,'source19-whole-before-preparation-inventory.json'),JSON.stringify({recordedAt:new Date().toISOString(),method:'ACTUAL_WHOLE_SOURCE19_BEFORE_FIXED_CONTROL_COPY_NO_FULL_STATIC_CLAIM',root:sourceRoot,files:sourceWholeBefore,filesCount:sourceWholeBefore.length,totalBytes:sourceWholeBefore.reduce((n,r)=>n+r.bytes,0)},null,2)+'\\n',{flag:'wx'});\n",
+      "occurrences": 1
+    },
+    {
+      "before": "const report={recordedAt:new Date().toISOString()",
+      "after": "\nconst sourceWholeAfter=[];inventoryAll(sourceRoot,sourceRoot,sourceWholeAfter);sourceWholeAfter.sort((a,b)=>a.relative.localeCompare(b.relative));\nsave('source19-whole-after-preparation-inventory.json',{recordedAt:new Date().toISOString(),method:'ACTUAL_SOURCE19_AFTER_FIXED_CONTROL_COPY_NO_FULL_STATIC_CLAIM',root:sourceRoot,files:sourceWholeAfter,filesCount:sourceWholeAfter.length,totalBytes:sourceWholeAfter.reduce((n,r)=>n+r.bytes,0)});\nconst beforeMap=new Map(sourceWholeBefore.map(r=>[r.relative,r])),afterMap=new Map(sourceWholeAfter.map(r=>[r.relative,r]));\nconst observedSourceWholeChanges=[...new Set([...beforeMap.keys(),...afterMap.keys()])].sort().flatMap(relative=>{const b=beforeMap.get(relative),a=afterMap.get(relative);return !b||!a||b.sha256!==a.sha256?[{relative,before:b??null,after:a??null}]:[];});\nconst fixedPaths=new Set([...core.map(r=>r.relative),...extra.map(r=>r.name)]);if(observedSourceWholeChanges.some(r=>fixedPaths.has(r.relative)))fail('Fixed Source19 control changed');\nconst sourceWholeDirectoryObservation={beforeFile:path.join(root,'source19-whole-before-preparation-inventory.json'),afterFile:path.join(root,'source19-whole-after-preparation-inventory.json'),beforeFileCount:sourceWholeBefore.length,afterFileCount:sourceWholeAfter.length,observedWholeChanges:observedSourceWholeChanges,wholeDirectoryKnownFrozen:false,liveProvenanceChangesPermittedOutsideFixedControls:true,sourceWritesPerformedByThisCopier:false};\nsave('source19-whole-during-preparation-diff.json',sourceWholeDirectoryObservation);\nsave('source19-fixed-controls-before-after.json',{recordedAt:new Date().toISOString(),files:[...core.map(r=>({relative:r.relative,expectedSha256:r.actualSha256,actualAfterSha256:sha(fs.readFileSync(r.source)),bytes:r.bytes.length})),...extra.map(r=>({relative:r.name,expectedSha256:r.actualSha256,actualAfterSha256:sha(fs.readFileSync(r.source)),bytes:r.bytes.length}))],all38SourceControlsExact:true,sourceInventorySha256:sha(inventoryBytes),sourceInventoryAfterSha256:sha(fs.readFileSync(inventoryFile)),wholeDirectoryUnchangedClaim:false});\n\nconst report={recordedAt:new Date().toISOString()",
+      "occurrences": 1
+    }
+  ],
+  "source19ModifiedByThisPreparation": false,
+  "wholeSource19StaticNotAssumed": true,
+  "newCopierNotExecutedYet": true,
+  "noConsumerPreparation": true,
+  "noModel": true,
+  "noInstall": true,
+  "noMirror": true,
+  "noCache": true,
+  "noRepositoryMutation": true
+}

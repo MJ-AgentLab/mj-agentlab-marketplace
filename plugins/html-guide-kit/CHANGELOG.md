@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [0.1.20] - 2026-10-14
+
+- HTML Guide Kit 0.1.20 matches the complete source-rule range before marking a permission or field unknown, and budgets headings, labels, prompts and text against explicit user limits with room for review.
+- Preserve the complete public contract, source0.1.19 core passes, three actual extended failures and unexecuted paths. Fresh installation and frozen behavior verification remain required. Refs #217, #220.
+
 ## [0.1.19] - 2026-10-14
 
 - HTML Guide Kit 0.1.19 arranges each operation and result dimension separately, preserving known prohibitions beside unspecified fields. Bind source recovery and each added teaching action/result to their own identity, basis or design reason and scope; check the complete guide before delivery.
