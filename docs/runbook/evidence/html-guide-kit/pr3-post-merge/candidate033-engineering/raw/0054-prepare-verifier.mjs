@@ -1,0 +1,4 @@
+import fs from 'node:fs';import path from 'node:path';import {fileURLToPath} from 'node:url';
+const dir=path.dirname(fileURLToPath(import.meta.url));let s=fs.readFileSync(path.resolve(dir,'../../0-1-32/engineering-checks-fc0ec408-r2/verify-application.mjs'),'utf8');
+for(const [before,after] of [['fc0ec408c911dc776d38733c8f156c7ab0726488','4725121b05239c886bc8a9dc39cf81ec6cd35cec'],['e2c4463f55dd33a6d24b0080a46b478bc4d6974a','081f71540f8664e556e864aed7b7c91f1f4924c9'],['preview-fc0ec408','preview-4725121b'],['5e49c1b42e7e3b48353286b2ce272dc9b9cd917a20bb32c8d8c03d1b1fd8da07','754def6656393fc3d92272da41bd6901a33904290360157ec2b20a19a82ddd52'],["[['31',inv.sourceProtectedPins,472],","[['32',inv.sourceProtectedPins,677],['31',inv.source31ProtectedPins,472],"]]){if(s.split(before).length!==2)throw Error('Exact one verifier anchor required');s=s.replace(before,after);}
+fs.writeFileSync(path.join(dir,'verify-application.mjs'),s,{flag:'wx'});
