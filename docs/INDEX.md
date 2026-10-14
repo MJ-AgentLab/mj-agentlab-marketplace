@@ -4,9 +4,9 @@ scope: marketplace
 summary: "当前 ChatGPT/Codex 文档、历史决策与退役资料导航"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-14
+updated: 2026-10-15
 state: active
-version: v2.59
+version: v2.60
 ---
 
 # 文档索引
@@ -225,3 +225,5 @@ HTML0.1.25重排入口和两参考为有序证据/确认/源规则/逐例反馈�
 HTML25准确ba74安装十三/六PythonP，六UUID十五C因源缺口误判停止；原hold与另件F、合法比较P和未覆盖分列。26外部准备，见[RUNBOOK§50](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
 
 HTML26两既有span按具体对象/态/单操作/结果维度逐规则匹配，再仅保实际缺失维度未知；双静态审接入，新准确安装/模型/客户端待跑，见[RUNBOOK§51](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+HTML26准确工程/十三安装六缓存Python及七CI通过，真实9UUID17C独立5P2F2U5N停止；[§52](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)及[原判据](runbook/evidence/html-guide-kit/pr3-post-merge/source026-stopped/index.json)保留所有失败/未测。源25完整038及26canonical安装证据已经收口，新27仅外部准备，旧客户端PASS不继承。

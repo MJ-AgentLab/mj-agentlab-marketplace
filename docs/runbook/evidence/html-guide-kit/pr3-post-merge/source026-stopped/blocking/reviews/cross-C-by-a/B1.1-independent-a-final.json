@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "recordedUtc": "2026-10-14T16:10:41.2388313Z",
+  "reviewer": "/root/behavior_014_a",
+  "operator": "/root/precommit_014",
+  "rootRole": "independent whole reviewer/coordination",
+  "source": {
+    "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "canonicalSha": "40346364dc577440af6d63457e830aaaddff38e9",
+    "canonicalTree": "0eb06652c3dcd57eb545fae666e29e67fee49178"
+  },
+  "uuid": "01a13b21-59e7-7800-891d-25f59adc23a7",
+  "attemptId": "787680ff-7ad4-4f01-8dd1-20281807b5cb",
+  "actualTurns": 4,
+  "primaryBehavior": "PASS",
+  "overallFidelity": "FAIL",
+  "scope": "Full four original outputs, actual confirmation/wait inputs and source semantic review; no new technical capture or UI certification",
+  "sourcePin": {
+    "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\74dbe528-2b38-45db-bec9-847c48896a85\\8c3882d0-98db-449f-ba99-ca25e91d1808\\0c7cd49e-16f7-4a40-b549-fb6efa683b0d\\273abe31-d531-49f9-bd35-218cd8eb0659.md",
+    "bytes": 1640,
+    "sha256": "66a948e4903134491c391188b7870e2fb47f3bc102271438911e1ade6a23b502"
+  },
+  "rawInputOutputPins": [
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-26\\blocking\\runs\\d51556a0-1f53-41ae-84db-d00533c43c66\\B1.1\\787680ff-7ad4-4f01-8dd1-20281807b5cb\\01.input.txt",
+      "bytes": 989,
+      "sha256": "a6b0112b32fb8809290762a9004c8ddcd62811807655a0e0828895039f84ac2b"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-26\\blocking\\runs\\d51556a0-1f53-41ae-84db-d00533c43c66\\B1.1\\787680ff-7ad4-4f01-8dd1-20281807b5cb\\01.output.txt",
+      "bytes": 3130,
+      "sha256": "2ab04984179c186a546eee5b1b04322df8e5744f1ee6accc3a17a8d3cbd3fe84"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-26\\blocking\\runs\\d51556a0-1f53-41ae-84db-d00533c43c66\\B1.1\\787680ff-7ad4-4f01-8dd1-20281807b5cb\\02.input.txt",
+      "bytes": 43,
+      "sha256": "7903215f202a7f38d4a86ac1d90212fdae7856a80aa37d6e0668dc93cdb59112"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-26\\blocking\\runs\\d51556a0-1f53-41ae-84db-d00533c43c66\\B1.1\\787680ff-7ad4-4f01-8dd1-20281807b5cb\\02.output.txt",
+      "bytes": 360,
+      "sha256": "0cb47ad002b8285da52ac926949309c6b69fbe4ae9ae9f504c5df5e7302a5a6c"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-26\\blocking\\runs\\d51556a0-1f53-41ae-84db-d00533c43c66\\B1.1\\787680ff-7ad4-4f01-8dd1-20281807b5cb\\03.input.txt",
+      "bytes": 43,
+      "sha256": "32d79cd04cb688cb6fb970165b8da92497a918854b90dba5a66fe7c834d9642f"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-26\\blocking\\runs\\d51556a0-1f53-41ae-84db-d00533c43c66\\B1.1\\787680ff-7ad4-4f01-8dd1-20281807b5cb\\03.output.txt",
+      "bytes": 112,
+      "sha256": "7e37890dc994df502fcdaed107320397c8a05a397dd61e7c1eafd89319237038"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-26\\blocking\\runs\\d51556a0-1f53-41ae-84db-d00533c43c66\\B1.1\\787680ff-7ad4-4f01-8dd1-20281807b5cb\\04.input.txt",
+      "bytes": 57,
+      "sha256": "f016c5e8934ed8bb687dbb1c7079ca7b972692afeb3ccea5c27515ad0e001351"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-26\\blocking\\runs\\d51556a0-1f53-41ae-84db-d00533c43c66\\B1.1\\787680ff-7ad4-4f01-8dd1-20281807b5cb\\04.output.txt",
+      "bytes": 12011,
+      "sha256": "507ad320625a79518389aebf0bca6db5ac8dd17991cf723a9fb6ee8208eefea0"
+    }
+  ],
+  "fullReads": [
+    "3f4873",
+    "f9589d",
+    "3e5a1d",
+    "528633"
+  ],
+  "primaryReason": "T1三目标有实际任务/问题差异及推荐，T2未决/T3暂停保待选同组；T4实际明确确认2后编排所选状态库存联动目标。",
+  "finding": {
+    "location": "T4 §十待补信息",
+    "quote": "以下内容不能由现有材料确定：“已归还”之后能否再次核验或领取。",
+    "source": "§4其他状态不可领取已有明确否定；§7重开方式也已有源规定。",
+    "reason": "此处谓词转为能否操作，未建立只指完整新增流转而排除已知直接操作的实际范围。§四的路径句不是此题问的完整定义；不能用另一正确段补本处未知断言。至少已归还当前执行领取不能标未知。"
+  },
+  "notes": [
+    "T1同类路径句紧邻缺口不撤已知，并先列既有恢复，可合理限未提供附加完整流转：该首次有限歧义note保持，不因T4新位置发现F改写历史T1判断。",
+    "完整源单元、AND缺项、领取许可与库存结果、取消字段、未述字段与界面设计恢复多数正确；不抵消§十具体错误。",
+    "§四5在本处将UI反馈清除明确为教学设计并源恢复独立归§7，和B6.1统一复合引用的F不同。"
+  ],
+  "noNewModel": true,
+  "effectStatus": "NOT_MEASURED"
+}

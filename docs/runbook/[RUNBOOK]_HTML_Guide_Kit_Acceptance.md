@@ -4,9 +4,9 @@ scope: html-guide-kit
 summary: "HTML Guide Kit staged execution ledger and unperformed acceptance gaps"
 owner: marketplace-maintainers
 created: 2026-10-12
-updated: 2026-10-14
+updated: 2026-10-15
 state: draft
-version: v1.44
+version: v1.45
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -779,3 +779,22 @@ A外部DRAFT_FINAL_FROZEN96ffbfd8经Root1d7a32和B d3af3e73完整独立静态审
 源25准确[独立判据、原HOLD与后续确定F、技术与逐项聚合](evidence/html-guide-kit/pr3-post-merge/source025-stopped/index.json)已逐byte保存：6UUID15COMPLETE/0INVALID、4P1F1U8N/15未发，0post、仅C delayedT3跨marker自然完成。Rootad1f5f语义整读C两项P并保局部动作身份/松散状态note，30e6f8重验七SDK轮/八实际完整Read/七三方资源/35原件稳定；B6主项T2未触发而首轮完整fidelity F分列。Rootbe3401聚合a9aaa80f不改原harness状态；完整038仍准备，不写完成。
 
 26完整工程1fcfb0通过346/0/0、252544.3632ms，validate7f3fc6/checka59771及65文档f8514d通过；C55b8a5核二span/IDexact、64保护路径与其他四包59/工具Git内容不变，AGENT16194，原控制读取expected-null形状错误与实际核验范围分别留说明。[准确静态、控制与原工程记录](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-26/index.json)入账，尚须准确提交安装/新行为及客户端，不据静态/工程关闭。
+
+
+源25完整[038停止原件](evidence/html-guide-kit/pr3-reviewer/patch-038-stopped/index.json)实际258文件5519997B五包，最大2082690<2097152；0df508 pack、b4e985 Node、8c67ef独立.NET均EXIT0逐byte复原，[收口](evidence/html-guide-kit/pr3-post-merge/candidate038-final-seal/archive-index.json)保留原REVIEW_HOLD及另存确认FAIL、4P1F1U8N与六UUID十五COMPLETE。旧准备快照不改写，纯证据不增加运行补丁。
+
+26准确canonical40346364dc577440af6d63457e830aaaddff38e9/tree0eb06652c3dcd57eb545fae666e29e67fee49178已正常提交推送。唯一284bba/session69220最终9079ae EXIT0十三严格安装及六actualcachePython，[原日志](evidence/html-guide-kit/pr3-post-merge/engineering-40346364/archive-index.json)逐byte保留。当前head七CI均SUCCESS，GitHub reviews为空，安装与CI不代替模型或独立批准；新26实际发现来源忠实性FAIL，冻结停止与后续最小修正分别记录。
+
+
+## 52. 0.1.26真实停止及来源归属修正准备
+
+PR #231已实际合并71e2e1bc，head与merge tree相同；后续修正PR #238保持Draft。当前准确head40346364dc577440af6d63457e830aaaddff38e9/tree0eb06652c3dcd57eb545fae666e29e67fee49178，HTML0.1.26，市场8.3.0及其他四包保持。346工程测试、65文档测试、validate/check、十三canonical安装和六实际缓存Python通过；当前head七CI均SUCCESS，GitHub reviews为空，独立批准未提供。
+
+冻结核心实际9UUID17COMPLETE/0INVALID，独立整体5PASS/2FAIL/2UNEXERCISED/5NOT_RUN，十三输入未发。B6.1聊天只读/无代码主判PASS，但新增教学UI反馈结果统一归源，保义FAIL；C B1.1等待及明确确认主判PASS，但将源已禁止的当前直接领取操作宣称未知，整体FAIL。首次路径歧义note与后续具体错误分开，不按关键词继承旧判。Root独立确认原输出并保留全部原件，未追认PASS。
+
+16:02:28.2867268Z确定FAIL后正常边界停止；0post输入，只有A B4.1首轮16:01:46.281→16:02:37.951自然跨marker，无kill/retry/resampling。最终aggregate SHA99ecb1f92fb87c83c6e150f4c7222c6ad2c81aab35186870f309fb527e77ba27。扩展和本版双客户端NOT_RUN。Computer Use现在可读取目标桌面及accessibility；这是通道恢复，不是新技能客户端通过。旧22双入口限定PASS不移用，现实效果NOT_MEASURED。
+
+下一0.1.27仅外部最小通用方法准备：逐项区分源动作/字段结果和新增教学触发/反馈；统一引用不覆盖新增设计结果。局部未知题问仍须服从源已知操作范围。当前未接入或运行新模型。#220和Epic保持OPEN，最终行为/双客户端/当前head非作者批准/CI/线程/actualmerge复验仍须满足。无指定reviewer、bypass、Release/tag/main发布PR。Refs #217, #220
+
+
+26停止[独立逐项、Root确认和原操作闭包](evidence/html-guide-kit/pr3-post-merge/source026-stopped/index.json)已逐byte保存。完整039另行准备，不称已入库。65文档/A6本次43a2c0通过；先前80aee6误写不存在测试文件名失败保留在外部跟踪，未执行测试或模型，不追认PASS。

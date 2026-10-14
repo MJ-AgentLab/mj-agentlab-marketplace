@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T16:06:09.011Z",
+  "reviewer": "/root/behavior_014_b",
+  "operator": "/root/behavior_014_a",
+  "method": "independent_semantic_review",
+  "variant": "B3.2",
+  "attemptId": "81043c0f-0aeb-4631-a895-5ae9fbd3b585",
+  "sessionUuid": "01a13b23-0e7b-7d60-9eec-05a62876d60f",
+  "canonicalSha": "40346364dc577440af6d63457e830aaaddff38e9",
+  "canonicalTree": "0eb06652c3dcd57eb545fae666e29e67fee49178",
+  "packageVersion": "0.1.26",
+  "status": "PASS",
+  "frozenCriterion": "可以解释 §1 已知资格条件，明确缺失处理；不创造库存初值、等候状态、恢复规则或取消/归还结果。可列所需信息或有明确假设的教学演示；假设不能变成原规则，不能把缺失写为通过。",
+  "installedResourceReading": {
+    "skill": true,
+    "framework": true,
+    "interaction": true
+  },
+  "observedReading": {
+    "nativeSkillFull": true,
+    "additionalToolSkillFull": true,
+    "frameworkActualToolFull": true,
+    "interactionActualToolFull": true,
+    "materialActualToolFull": true
+  },
+  "technicalAudit": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-26\\blocking\\reviews\\cross-A-by-b\\B3.2-receiver-audit.json",
+    "bytes": 28471,
+    "sha256": "d11e651fe3d1a540cd0d8263981e52c44d98d3fca612bfbbb6a6616354180044"
+  },
+  "actualContinuousTurns": 3,
+  "plannedTurns": 3,
+  "selection": {
+    "label": "3",
+    "originalTripletExcerpt": "3. **操作规范缺口审查**\n\n   - 读者：准备补充完整活动规范、熟悉基本现场流程的规则编写者。\n   - 使用任务：审查摘录能够支持哪些决定，并为库存、取消、归还、并发和恢复分别标出待补规则。\n   - 理解问题：哪些判断已有依据？哪些结果维度仍未知？补充规则时如何避免改写现有资格条件？\n   - 取舍：覆盖面最广，侧重规范审查而非一线资格练习。",
+    "firstTurnOutput": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-26\\blocking\\runs\\42b21c23-0186-4ae5-aa89-ad6b96c97687\\B3.2\\81043c0f-0aeb-4631-a895-5ae9fbd3b585\\01.output.txt",
+    "recorded": {
+      "utc": "2026-10-14T15:59:46.787Z",
+      "timezone": "Asia/Taipei"
+    },
+    "rolePresent": false,
+    "source": "reviewer reading of actual model output; no answer key in model prompt",
+    "exactOriginalTriplet": true
+  },
+  "gradeCalled": false,
+  "originalCaseFilesModified": false,
+  "ownB6SelfReviewed": false,
+  "effectStatus": "NOT_MEASURED",
+  "clientUiStatus": "NOT_RUN",
+  "criteria": [
+    {
+      "id": "known-qualification-versus-missing-operation-dimensions",
+      "status": "PASS",
+      "rationale": "§1 AND/缺一不可/一个普通材料包保全；真假四组合与knownfalse+unknown两行正确，不把未知撤已知否。§2库存可能不足与初值/等待/归还/取消/并发/恢复缺口分维度，不造源状态/数值/流程。",
+      "evidence": [
+        "T1 source scope",
+        "T2 §二/§三完整资格与逐缺口矩阵"
+      ]
+    },
+    {
+      "id": "actual-selected-task-and-bounded-feedback",
+      "status": "PASS",
+      "rationale": "实际非推荐3规则编写者缺口审查贯穿，既有资格与新增提案/教学题设分标。库存充足、不足、预留/并发及取消/已领取起始示例只作局部教学情境。分类与自检各按已知条件/缺失维度给理由、来源、重试；UI复位不冒源恢复，无分数/能力结论。",
+      "evidence": [
+        "T2 §一/§四–§八完整设计与作者核对项"
+      ]
+    },
+    {
+      "id": "additional-demand-stays-bounded",
+      "status": "PASS",
+      "rationale": "T3不直接修订或填造具体结果；邀请明确转新建及教学构造，未将缺失结果写成原材料已知。未来新指南尚未执行。",
+      "evidence": [
+        "T3 complete original answer"
+      ]
+    },
+    {
+      "id": "actual-sdk-full-read-and-transport",
+      "status": "PASS",
+      "rationale": "3真实exit/close0在deadline内且0.147/5.6sol/low，本次native和额外入口/两参考/材料完整SDK接收，7资源source/mirror/cache原bytes一致。",
+      "evidence": [
+        "B3.2-receiver-audit.json17raw/4uniqueReads"
+      ]
+    }
+  ],
+  "fullIndependentOutputReads": [
+    {
+      "turns": [
+        1,
+        2,
+        3
+      ],
+      "chunk": "cc3fed",
+      "exitCode": 0
+    }
+  ],
+  "notes": [
+    "“库存不足会使预约失效”列于分类练习，被拒为无源依据/未述字段，不读取为源已明确库存永不改预约。全文仍逐字段未知，不捏造保持。",
+    "未来转新建构造未执行，不追认行为P。"
+  ]
+}
