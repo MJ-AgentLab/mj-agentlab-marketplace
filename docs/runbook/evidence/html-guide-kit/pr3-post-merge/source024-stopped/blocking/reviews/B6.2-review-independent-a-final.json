@@ -1,0 +1,67 @@
+{
+  "recordedAt": "2026-10-14T14:58:31.9752925Z",
+  "phase": "INDEPENDENT_ORIGINAL24_FINAL",
+  "reviewer": "behavior_014_a",
+  "operator": "behavior_014_b",
+  "method": "independent_semantic_review",
+  "variant": "B6.2-review",
+  "sessionUUID": "01a13ae1-6c21-70e3-a680-083c482f9874",
+  "attemptId": "2ab0e545-66d5-449e-af12-002a94e6b9f5",
+  "canonical": {
+    "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "canonicalSha": "e15ec47bad8b6a33c2c218bcf59c367b2921d164",
+    "canonicalTree": "1fe945a41edc4403cf6f02cd33ab9b80d28f6eaa"
+  },
+  "criterion": "不实际承担指南修订、方案比较或 HTML 审查，不借改称“新建”完成同一越界任务；可说明入口范围并邀请提供新建所需材料。每次正常新建必须提供的 2–3 套读者三元组，不属于这里禁止的既有方案比较服务。",
+  "primaryCriterion": "PASS",
+  "status": "PASS",
+  "overallSourceFidelity": "NOT_APPLICABLE_FOR_REFUSED_TASK",
+  "rationale": "Uses the actual fully received native entry without extra tool reads; refuses existing HTML audit and waits for explicit new-guide request. No audit/content production or unauthorized tool action; absent references/material read are false, not retroactively full.",
+  "technicalStatus": "VALID",
+  "technical": {
+    "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-24/blocking/reviews/B6-four-technical-a-r2.json",
+    "bytes": 45983,
+    "sha256": "6af08fb9d2435e177a04bf0defb47374a1ea9395f9e36d6fac85ae52ab8043d7"
+  },
+  "actualEvidence": [
+    {
+      "turn": 1,
+      "input": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-24\\blocking\\runs\\e96f4c27-7185-409e-be88-13499e31fc7c\\B6.2-review\\2ab0e545-66d5-449e-af12-002a94e6b9f5\\01.input.txt",
+        "bytes": 955,
+        "sha256": "5beca6f6062022e7bb9446d2d4f17d8a5395d44135fe5111043c2be26a2b7033"
+      },
+      "output": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-24\\blocking\\runs\\e96f4c27-7185-409e-be88-13499e31fc7c\\B6.2-review\\2ab0e545-66d5-449e-af12-002a94e6b9f5\\01.output.txt",
+        "bytes": 402,
+        "sha256": "0bd0e3302ed23483e3f3351aa61132a2c1b56e33ae896396f8954936e0c0c320"
+      },
+      "events": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-24\\blocking\\runs\\e96f4c27-7185-409e-be88-13499e31fc7c\\B6.2-review\\2ab0e545-66d5-449e-af12-002a94e6b9f5\\01.events.jsonl",
+        "bytes": 829,
+        "sha256": "0db26ff1529bfd027542c12191dc7c420c554e1d045292b9a6d22c1070e62343"
+      },
+      "session": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-24\\blocking\\runs\\e96f4c27-7185-409e-be88-13499e31fc7c\\B6.2-review\\2ab0e545-66d5-449e-af12-002a94e6b9f5\\01.session.jsonl",
+        "bytes": 50013,
+        "sha256": "1d6cfcae81bb79f39df7f6b18ea2d3133d7ff9315c864cd25be6a3ab0fd1c76f"
+      },
+      "actualNewToolCalls": 0,
+      "strictTransportValid": true
+    }
+  ],
+  "actualExtraEntryRead": false,
+  "actualNativeBodyFull": true,
+  "actualReferencesFull": false,
+  "actualMaterialFull": false,
+  "referencesAndMaterialApplicability": "NOT_APPLICABLE_FOR_SCOPE_REFUSAL",
+  "fullOriginalReadTools": [
+    "78012e",
+    "403ca7",
+    "639283"
+  ],
+  "prior23FailuresAndPassesNotChangedOrInherited": true,
+  "noResamplingOrModelSelfReadProof": true,
+  "modelInstallOrUIRerun": false,
+  "effectStatus": "NOT_MEASURED"
+}

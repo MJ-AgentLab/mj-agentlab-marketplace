@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [0.1.25] - 2026-10-14
+
+- HTML Guide Kit 0.1.25 reorganizes SKILL.md and both references into an ordered method. Check known rules before gaps, then compute each example’s actual missing conditions and compare the feedback with its inputs.
+- Preserve the explicit Read-only new-guide contract, source fidelity, confirmation, simulation, self-check and text boundaries. No fixed guide structure or fixture answers. Preserve actual0.1.24 failures; fresh installed behavior and client checks remain required. Refs #217, #220.
+
 ## [0.1.24] - 2026-10-14
 
 - HTML Guide Kit 0.1.24 checks exclusive claims against the same result dimension and separates operation permission from achieving a target result. Incomplete local relationships can use faithful text or complete rule units without a fixed format.

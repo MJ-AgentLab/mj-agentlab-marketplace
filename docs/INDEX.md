@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-14
 state: active
-version: v2.57
+version: v2.58
 ---
 
 # 文档索引
@@ -220,3 +220,5 @@ HTML23核心新FAIL已普通停止：恢复终值排他及操作许可/取得结
 HTML0.1.24两参考三span通用修正经双独立静态审接入，区分许可/结果、恢复动作/同终值与局部完整表示；原23十二UUID/24C两失败保持，新准确安装/模型/客户端NOT_RUN，见[RUNBOOK§47](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
 
 HTML23补充复审另件更正有效7P/3F/2U/2未跑，原8P/2F快照和PASS报告保留，12UUID/24C无新调用，见[停止证据](runbook/evidence/html-guide-kit/pr3-post-merge/source023-stopped/index.json)。
+
+HTML0.1.25重排入口和两参考为有序证据/确认/源规则/逐例反馈反查；保留24真实7P1F1U5N与完整源23封存，不追认新安装/模型/客户端，见[RUNBOOK§48](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。

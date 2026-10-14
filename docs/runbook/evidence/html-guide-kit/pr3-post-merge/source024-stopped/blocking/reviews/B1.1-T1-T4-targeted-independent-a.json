@@ -1,0 +1,75 @@
+{
+  "recordedAt": "2026-10-14T14:56:53.2231818Z",
+  "phase": "INDEPENDENT_TARGETED_ORIGINAL_SOURCE24_REVIEW",
+  "reviewer": "behavior_014_a",
+  "operator": "precommit_014",
+  "rootRole": "independent whole reviewer and normal-pause coordinator",
+  "canonical": {
+    "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "canonicalSha": "e15ec47bad8b6a33c2c218bcf59c367b2921d164",
+    "canonicalTree": "1fe945a41edc4403cf6f02cd33ab9b80d28f6eaa"
+  },
+  "variant": "B1.1",
+  "uuid": "01a13adc-86ca-7862-8ce2-afdc4c8479f0",
+  "attemptId": "42bf4f9b-4c3a-4ac5-8f98-f6c2eef598bc",
+  "material": {
+    "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\b01604f9-601b-4e51-975d-b7b3c26e1aa4\\e87c5967-36ac-4700-9592-875d18269774\\2cbac051-9cfa-4ef9-9bbf-e515ce4e4b57\\cbb8a3ff-2a8b-42d4-9bfc-bcdda8ad2712.md",
+    "bytes": 1640,
+    "sha256": "66a948e4903134491c391188b7870e2fb47f3bc102271438911e1ade6a23b502"
+  },
+  "T1": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-24\\blocking\\runs\\abf4235d-a844-4428-88d8-f2fdfcbbb6c4\\B1.1\\42bf4f9b-4c3a-4ac5-8f98-f6c2eef598bc\\01.output.txt",
+    "bytes": 4084,
+    "sha256": "5d12d01a510d0bfb92c7de4283caa3ea3240f96e4ce33daf678169ed70f6c927"
+  },
+  "T4": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-24\\blocking\\runs\\abf4235d-a844-4428-88d8-f2fdfcbbb6c4\\B1.1\\42bf4f9b-4c3a-4ac5-8f98-f6c2eef598bc\\04.output.txt",
+    "bytes": 17203,
+    "sha256": "96830beeae58876eb24c3673dad5ed1b7e08b38c2c2c84b76494354a9893caf0"
+  },
+  "actualCompleteReadTools": [
+    "ea1215",
+    "fc02e7"
+  ],
+  "noTruncationInTheseFullOutputReads": true,
+  "T1Evidence": [
+    {
+      "line": 19,
+      "text": "- 材料没有说明补充库存如何发生、状态是否还能从“已归还”继续变化，以及范围外情形的处理规则；这些不能自行补造。"
+    }
+  ],
+  "T4Evidence": [
+    {
+      "line": 185,
+      "text": "归还后不要继续推断能否再次核验、领取或取消；材料只明确规定此时取消不可用，没有给出其他后续操作规则。【原材料 §6；其余为材料缺口】"
+    },
+    {
+      "line": 214,
+      "text": "- 题设 1：缺少有效预约；"
+    },
+    {
+      "line": 215,
+      "text": "- 题设 2：缺少导览完成；"
+    },
+    {
+      "line": 424,
+      "text": "- “已归还”后的再次核验或领取规则；"
+    }
+  ],
+  "status": "FAIL",
+  "sourceFidelity": "FAIL",
+  "primaryChoiceWaitCriterion": "NOT_GRADED_IN_THIS_TARGETED_REVIEW",
+  "findings": [
+    "T1 unqualified whole-material boundary treats any further change from returned state as unspecified despite source7 known reset restoring unverified; no actual local restriction to ordinary nonreset transitions.",
+    "T4 two distinct one-missing-condition scenario explanations swap the missing condition. Source3 requires identifying actual absent conditions; later correct self-check does not repair the local feedback.",
+    "T4 returned-state receive is classified as unspecified in the path note and final gaps, while source4 expressly prohibits receive in other states. Unknown repeated verification must be separated from known receive prohibition."
+  ],
+  "marker": {
+    "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-24/normal-execution-pause.flag",
+    "bytes": 1003,
+    "sha256": "dcb30542d9e04a88663993d22ac007a7ac9a62d3d36dacfc25b37da2d5a2d4e7"
+  },
+  "markerRootActual": "d4e805/2026-10-14T14:48:12.825Z",
+  "noNewModelFlagOrOriginalWrite": true,
+  "earlierT2T3OrWholeTransport": "NOT_GRADED_IN_THIS_TARGETED_REVIEW"
+}

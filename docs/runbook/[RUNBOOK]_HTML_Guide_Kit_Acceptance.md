@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-14
 state: draft
-version: v1.42
+version: v1.43
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -716,3 +716,33 @@ PR238继续Draft，须准确工程安装、六组核心及受影响扩展、两�
 
 
 补充独立复核后，原23 B4.2 PASS的局部范围解释不足：取消模拟允许给定导览状态而未限定为真，却泛称预约unknown时资格均待定，撤销导览false时源AND已足以判否的已知结果。B原PASS/closure/Root原8P2F快照保留，新4f7d7ff8补充和Root901774a1聚合另件更正为有效7PASS/3FAIL/2UNEXERCISED/2NOT_RUN（12UUID24C不变）。Rooted1d42完整重读确认；没有新模型输入或修改判准、24运行资源。准确[原独立报告与更正](evidence/html-guide-kit/pr3-post-merge/source023-stopped/index.json)已逐字节封存，完整原输入/输出/SDK封包仍并行准备，不提前声称完成。
+
+
+24准确canonical e15ec47bad8b6a33c2c218bcf59c367b2921d164/tree1fe945a41edc4403cf6f02cd33ab9b80d28f6eaa已正常提交c02630、范围ac141a两提交通过、fca581普通push；PR238实际head4151f3对应。Root唯一原控制374c40/session75642最终8a2435 EXIT0通过十三严格安装/六次actualcachePython，summary b9d90566bc841894587bbe576ff1cea3b5b39f01dee2d465b0d58fc3f0608bd9、installation29bdd0ce1a10769a7af42c74f97338a0d436c01f51a872ace94690cff21606cf，完整[原工程日志](evidence/html-guide-kit/pr3-post-merge/engineering-e15ec47b/archive-index.json)逐byte封存。Root接手唯一安装前确认out不存在，C未启动安装，不重复；新核心三真实批开始，尚待实际完整独立结论。
+
+源23完整[036停止封包](evidence/html-guide-kit/pr3-reviewer/patch-036-stopped/index.json)及[Root实际pack、Node和独立.NET逐byte复原](evidence/html-guide-kit/pr3-post-merge/candidate036-final-seal/archive-index.json)已完成：395原文件8508438字节、八packet、inventory79830625bc39ba67a1043a45da65aa1bac5dac79bd0595adf301ce39c37870fb，最大2096059B小于2097152；6080c1/b4bdeb/3872ed全EXIT0。原8P2F快照与有效7P3F更正、正常停止/身份修正/四次准备映射错误保留；source24与旧私有native/authcache排除，不要求评审镜像等于完整Git tree。这是历史完整证据补证，不增加运行补丁或新模型PASS。
+
+
+## 48. 0.1.24真实停止与方法重排准备
+
+PR #231实际merge71e2e1bc已复验；补充Draft #238当前准确head e15ec47bad8b6a33c2c218bcf59c367b2921d164/tree1fe945a41edc4403cf6f02cd33ab9b80d28f6eaa，HTML0.1.24。346测试、65文档/A6、validate/check、十三严格安装与六次实际缓存Python通过；当前八CI SUCCESS，reviews=[]，不追认独立批准。市场8.3.0、其他四包、图标、登记及调用合同保持。
+
+冻结真实核心9UUID/18COMPLETE/0INVALID，独立最终7PASS/1FAIL/1UNEXERCISED/5NOT_RUN，尚12输入未发。B1.1等待/确认主要判据PASS，但T1把源重启后的状态变化写为未知，T4两缺项反馈交换，并把已归还领取禁用写为缺口，整体FAIL。B6.1全文作用域复审PASS＋措辞note，原pending与补审分别保留；不更改判准。14:48:12.825Z普通global marker后无新输入，仅此前启动B4.1T2自然跨marker完成；无kill/重采样。delayed非推荐C选择已经发生，但修改/确认未发送，保留原选择，不算通过。
+
+源23完整395文件/8508438字节/八包已实际封存并经Node与独立.NET逐byte复原，原8P2F及有效7P3F更正分别保留。源24完整原件继续封存。24扩展/新客户端NOT_RUN；22两个入口有限PASS不沿用。现实效果NOT_MEASURED另测。
+
+下一补丁0.1.25在外部重排SKILL与两参考为连贯方法，逐例依据实际条件核对结果及反馈，保留完整规则、已知/未知区分和全部产品边界；尚未接入/安装/调用，不称完成。完成双独立静态审后推进新补丁，并在准确新缓存重跑原冻结核心/受影响扩展及两个目标客户端。最终head实际非作者批准/CI/线程门禁与merge差异复验仍须满足，#220/Epic保持OPEN；不指定审查人、不bypass，无Release/tag/main发布PR。
+
+Refs #217, #220
+
+
+[源24独立原判据、准确聚合与技术补件](evidence/html-guide-kit/pr3-post-merge/source024-stopped/index.json)逐byte保存；Root223b5d重验C两UUID/五SDK轮、六单份Read实际完整回包与七source/mirror/cache exact。C原作者技术汇总不代独立语义；Root原技术pending及新VALID补件、B6原pending及新整体P＋note均保留，未更改原件或追认旧版本。完整037原记录仍准备，未写完成。
+
+
+## 49. 0.1.25有序方法接入与工程检查
+
+三运行资源按证据/确认/完整源单元/表达/逐例反馈/全篇反查重排，实际题设先算缺项再写反馈；源已知规则先于缺口判断。仅SKILL和两参考，保原合同、局部范围/完整恢复/许可结果/真假未知/共享与独立生命周期及判准边界，无固定教材章数、fixture答案或Owner路径。入口5833LF/5889CRLF，参考8715/9667B；Root/B独立全文静态审及A控制独审通过，均非行为PASS。
+
+A初稿6140LF/6196CRLF预算失败、首次PS记录器resources=null且shellEXIT0原件保留；只有r2 c688b7af的实际三pins经独立核对后c1b16f接入。版本工具04275e DryRun/ fc14fd apply仅manifest24→25一锚点，metadata同步市场8.3/其他四包/登记/图标/policy保持；RootAGENT Windows16165。346完整测试及65文档/A6、validate/check通过，准确[草稿、独立审、控制与原工程记录](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-25/index.json)逐byte保存。
+
+Computer Use已再次实际读到唯一目标窗口及accessibility，尚未新输入或25客户端验收。下一步须准确提交的十三安装/六缓存Python、新冻结六组及受影响扩展、新双入口；旧原生有限P不继承。PR238保持Draft，#220/Epic开放，当前最终head非作者批准/CI/线程及merge复验独立；现实效果另测，无Release/tag/main发布。

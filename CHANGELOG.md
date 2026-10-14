@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+- Prepare HTML Guide Kit 0.1.25: organize the entry and two references into ordered evidence, target confirmation, complete source rules, expression and per-example feedback verification. Preserve source0.1.24 real failures and require fresh installation, frozen behavior and client acceptance. Refs #217, #220.
+
 - Prepare HTML Guide Kit 0.1.24: separate operation permission from target outcomes and restoration actions from equal terminal values; use faithful text when local result relationships cannot retain complete rules. Preserve real0.1.23 failures and require fresh installation, frozen behavior and client acceptance. Refs #217, #220.
 
 - Prepare HTML Guide Kit 0.1.23: preserve complete source-rule units in local relations and distinguish source input limits from teaching choices. Retain actual #231 merge, source0.1.22 failures and limited fresh client results; require fresh cache and frozen behavior acceptance. Refs #217, #220.

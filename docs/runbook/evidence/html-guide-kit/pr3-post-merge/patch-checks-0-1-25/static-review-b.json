@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T15:11:36.261Z",
+  "reviewer": "/root/behavior_014_b",
+  "status": "STATIC_ONLY",
+  "result": "NO_STATIC_BLOCKERS",
+  "sourceCanonical": "e15ec47bad8b6a33c2c218bcf59c367b2921d164",
+  "sourceTree": "1fe945a41edc4403cf6f02cd33ab9b80d28f6eaa",
+  "proposedVersion": "0.1.25",
+  "freeze": {
+    "file": "../reviewer/corrections/0-1-25/DRAFT_FINAL_FROZEN.r2.json",
+    "bytes": 3929,
+    "sha256": "c688b7afaa1911557bfcb931c3b6437166f5b354a73c734e390afc040347d171"
+  },
+  "resources": [
+    {
+      "relative": "skills/guide/SKILL.md",
+      "draftBytes": 5833,
+      "draftSha256": "b7a36111f943a96a69a033c19b5ed3edbb7eb90e9cf0d96cc071179f614c789a",
+      "windowsCRLFBytes": 5889
+    },
+    {
+      "relative": "skills/guide/references/guide-framework.md",
+      "draftBytes": 8715,
+      "draftSha256": "12dffe8c67938c9788d89bfc75fe443ab97bdb466a43064db9a75c755836185b",
+      "windowsCRLFBytes": 8769
+    },
+    {
+      "relative": "skills/guide/references/interaction-design.md",
+      "draftBytes": 9667,
+      "draftSha256": "46e41cfb58b17fda52d845469f4c61a189c19e18b608cc3ffad33b3539aad47d",
+      "windowsCRLFBytes": 9731
+    }
+  ],
+  "fullSource24Reads": [
+    "462345",
+    "ae4dde",
+    "885188"
+  ],
+  "fullFrozen25Reads": {
+    "entry": "007b00",
+    "framework": "163308",
+    "interaction": "67eda0"
+  },
+  "findings": [
+    {
+      "area": "Public contract and confirmation",
+      "result": "PRESERVED",
+      "basis": "Single explicit new-guide Read/chat-text contract, Chinese and terms, source/background/construct/design classes, three genuinely different targets, all explicit-selection and pending/stop/window boundaries retained. No HTML/code/files/tools or existing revision/comparison/review execution."
+    },
+    {
+      "area": "Faithfulness and incomplete rules",
+      "result": "PRESERVED",
+      "basis": "Source full units, known-before-gap coverage including broad prohibitions/recovery, current state/direct operation, all domain/unknown-field boundaries, ANDOR unknown logic, operation permission versus desired branch result, conditional assumptions/conflict/history/primary background verification remain in framework1–5 and interaction2–3."
+    },
+    {
+      "area": "Representation and recovery",
+      "result": "PRESERVED",
+      "basis": "All relationship modes retain meaning; result connections require complete premises or actual local full-source scope, incomplete connections fall back to faithful prose. Complete source restore actions/objects/fields distinct from terminal values, exclusive claims locally proved, source versus new UI trigger/result identities preserved."
+    },
+    {
+      "area": "Actual feedback consistency and lifecycle",
+      "result": "PRESERVED_AND_CLEARER_ORDER",
+      "basis": "Per-example current input and missing factors are calculated before feedback; fulfilled factors are not called missing. Source-to-representation, representation-to-source and feedback-to-input checks cover summary/table/diagram/check/author items, including known prohibited operations rather than blanket unknown. Shared/latest state, independent reset, repeat/cumulative and unresolved dependency bounds remain."
+    },
+    {
+      "area": "Depth, self-check, usability and output",
+      "result": "PRESERVED",
+      "basis": "Internal six stages do not force textbook chapters/controls/question count. Source proportionate length, all-visible text budget, explained reliable feedback/bounded unreliable reference/retry without mastery scores, planned accessibility and effects not measured remain."
+    }
+  ],
+  "structuralChecks": {
+    "nameGuideFrontmatter": true,
+    "relativeMarkdownLinksResolve": true,
+    "entryWindowsCRLFBytes": 5889,
+    "entryLimit": 6144,
+    "spareBytes": 255,
+    "noOwnerResearchPathOrFrozenFixtureDependencyInRuntime": true
+  },
+  "preservedPreparationErrors": {
+    "initialBudget": {
+      "file": "../reviewer/corrections/0-1-25/draft-initial/SKILL.md.6140-LF.snapshot.txt",
+      "bytes": 6140,
+      "sha256": "ef6daec9273442f4e5c22ea4b8289ca8458afad30e483102a9a5278fd3f61439",
+      "observedTool": "25dfce",
+      "lfBytes": 6140,
+      "windowsCRLFBytes": 6196,
+      "status": "FAILED_INITIAL_BUDGET_NOT_CURRENT_DRAFT"
+    },
+    "invalidPriorFreeze": {
+      "file": "DRAFT_FINAL_FROZEN.json",
+      "sha256": "a402aa0bf11bebf446218fe43a020ac559f823e3e684a23ddb08fa2037c4bd36",
+      "outer": "df8d72",
+      "actualShellExit": 0,
+      "nonTerminatingPowerShellErrors": true,
+      "resourcesWasNull": true,
+      "notValidFreeze": true,
+      "originalPreserved": true
+    },
+    "source24BehaviorFailuresUnchanged": true
+  },
+  "limits": [
+    "Static semantic and byte review only. No new model/install/UI/test/grade or runtime/repository/draft mutation.",
+    "Author preservation map is context, not independent PASS evidence. Original24 whole-core FAIL remains; current25 behavior is NOT_RUN.",
+    "This is not GitHub approval or real-world teaching-effect evidence."
+  ],
+  "modelInvoked": false,
+  "installationInvoked": false,
+  "repoMutated": false,
+  "draftMutated": false,
+  "effects": "NOT_MEASURED"
+}
