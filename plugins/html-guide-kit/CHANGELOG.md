@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.1.34] - 2026-10-15
+
+- HTML Guide Kit 0.1.34 establishes necessary shared example inputs, actual coverage and local overrides before giving results; independent examples receive their required starting inputs.
+- Audit complete local source/design action attribution, including source non-field effects; do not restrict source restoration to terminal values. Keep explicit full-unit reuse and dimension-bound properties.
+- Apply only three reviewed entry/framework spans and keep interaction-design exact. Preserve Source33 whole failures and unrun inputs, all original criteria, broad permissions, conditional dependencies and public contract. Fresh engineering, installation and independent behavior/client evidence remain required. Refs #217, #220.
+
 ## [0.1.33] - 2026-10-15
 
 - HTML Guide Kit 0.1.33 preserves all parallel source actions, objects and non-field effects before terminal field values; field-only summaries cannot replace a complete operation or recovery unit.

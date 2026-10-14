@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-15
 state: draft
-version: v1.66
+version: v1.67
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -1024,3 +1024,14 @@ B6.1 UUID01a13c74-112a-73f0-810e-b55f9769872a：独立三条件情境未实际�
 原生新alias mj-html-guide-ui-33-1191f6d7，Root12088d/9fa036实际准备与安装，4eece6实际十资源Git/镜像/cache字节一致；Appx26.1007.9446.0/backend0.162.0-alpha.17.2与核心0.147分开。UI实际找到0.1.33、批准图标、Read、单技能，Try now打开Work composer。初次检查旧22/20不当新证；尚未typed/send，0模型输入、无UUID，未测等待/指南交付/本地Codex或原生生命周期，因此完整双端INCOMPLETE。Root067e6f在正常停旗下精确恢复六旧owned插件/目录片段、新33disabled、nonowned原字节保持；不删除缓存/目录、不保存整份配置。
 
 Source34目前仅两资源三span外部冻结，entry6007LF/6043Windows≤6144、FW11279、ID7773不变：先明示必要共同题设/实际范围/覆写，独立例另给所需输入；逐处完整核源动作/对象/非字段效果的来源归属，不只保终值。Root/B双静态与quick通过，控制Root/A双静态；尚未接入/version/install/model/UI，静态不当修复行为P。现实效果NOT_MEASURED，#220/Epic开放、Owner接受及当前head非作者批准/CI/线程/实际merge各自待证，不指定审查人、不bypass、无正式发布。Refs #217, #220。
+
+
+## §69 Source34 共同题设与局部归属窄修准备
+
+从本次明确clean pure-proof基线a00efc768652891768d0cb43bea8a4cb06616d5e准备0.1.33→0.1.34。Source33运行仍b66cafb5c48b49ec8c0042ae637cb92990112ff9/tree78ff591aeab3806f2bc596a1131a7b0eff37fe0b：工程346、65文档、strict/check/quick及十三准确安装/六实际缓存Python通过；6UUID10COMPLETE/0INVALID，whole3P2F1U8N、20输入未发/0post/1自然cross。B6.1读/聊天边界主P，但独立情境只给部分条件便断需要当前态的结果，wholeF；C B1.1等待/确认主P，但本处恢复来源划分将并列源动作排除为只剩初值终值，wholeF。原失败、未覆盖、工具与停止记录保留，不重采样或追认。Source33原生安装及同一应用0.1.33详情有证，自有/非自有配置已复原；本地Codex入口未运行，未typed/send或产生模型UUID；不当显式调用/交付通过，也不迁移为34行为P。
+
+Source34资源freeze81932e1c经Root/B独静态，三资源准确pins见本次integration-plan及原freeze：入口6007LF/6043CRLF≤6144、SHA9f2febe6d0d368ab0ea5eb0e570a050a557f3d80983ea70b1138b4e60e0dc58e；FW11279B/SHA56e55aecdc7bd574eb51a6fa203c47e22fb6933c90a0153513d8d6d8b16ad400；ID7773B/SHAb3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a保持。仅entry step4/FW§3实际输入段/FW§5归属段三个既有span：在交付中先明示必需共同题设、覆盖与局部覆写，独立例子另给所需输入后才写结果；逐处核完整源动作、对象、非字段效果和终值，源已明确的非字段动作仍归源，不在本处排他地缩成终值。允许明确完整复用、维度裁减和仅必需输入，不增加固定模板、章节、字段或领域判准；宽许可、未知边界、且/或决定依赖、纯必要性质、篇幅与Read/目标确认等原方法保持。
+
+权威bundled PowerShell7.6.5独立进程先DryRun单manifest再Apply，保存实际stdout/stderr/exit；当前Source34工程、准确canonical十三安装/六Python、连续模型及双端全部NOT_RUN，静态不当行为PASS。CLI0.147/OpenAI5.6-sol，112d原defaultlow与显式selectedhigh分记、fresh支持及实际SDK核对、V2真实exit/close/240000ms保持。历史schedule内仍原28绝对路径；34所有prepare/manualquote/choose/turn使用同34global正常边界标记，不称原子停止或锁宿主。
+
+市场8.3.0、其他59包文件、登记/图标/调用策略、ID、28工程工具及Source33/32/31/30/29全部证据保持。现实效果NOT_MEASURED，#220/Epic开放；Owner接受、当前head非作者批准/CI/线程/实际merge各自待证，无Release/tag/main发布PR。Refs #217, #220。
