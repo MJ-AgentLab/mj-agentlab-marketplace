@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-15
 state: draft
-version: v1.61
+version: v1.62
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -968,3 +968,10 @@ Source32资源freeze28e4a140经Root/B独静态；entry5813LF/5849CRLF≤6144、S
 权威PowerShell7.6.5独立进程先DryRun单manifest锚点再Apply，保存实际stdout/stderr/exit；当前Source32工程、准确canonical十三安装/六Python、连续模型及双端全部NOT_RUN，静态不当行为PASS。CLI0.147/OpenAI5.6-sol，112d原defaultlow与显式selectedhigh分记、fresh支持及实际SDK核对、V2真实exit/close/240000ms保持。Source31沿用的schedule文件内仍历史28绝对路径，仅作历史；32所有prepare/manualquote/choose/turn明确使用同32global正常边界标记，不承诺原子停止或锁宿主。
 
 市场8.3.0、其他59包文件、登记/图标/调用策略、ID和原Source31/30/29全部证据保持。现实效果NOT_MEASURED，#220/Epic开放，Owner接受、当前head非作者批准/CI/线程/实际merge各自待证，无Release/tag/main发布PR。Refs #217, #220。
+
+
+## §64 Source32 准确候选工程与安装
+
+0.1.32准确canonical 081f71540f8664e556e864aed7b7c91f1f4924c9/tree39ac7db50cf6b52d632488ad267bc28e2702561b已正常提交e87921并推送2531d5。Root334de2逐13实际文件核对审稿与65保护，C9dd6ac独静态核59其他包及28工具、旧472/451/362原件稳定；权威pwsh7.6.5 DryRun/Apply实际0。唯一完整测试20e6e1→6f079f、346P0F/281868.4144ms，stdout76858B SHA7a59c006836bec56bb39c218d7f3b2159a64166e8578da6d72d8a42f9622ebad；fast77c81b/Root238aaf的65文档、quick、strict及actualCLI0.147检查通过。辅助工具集合误设21/28原失败保留，按实际工具集合修正后通过，未更改产品或追认原结果。
+
+该准确Git提交的十三严格安装与六次实际缓存Python通过，所有分发资源/调用策略/图标/版本从实际安装核对；候选、剔除reviewer-only的镜像与缓存分别保存身份，不声称完整tree相同。工程、安装与原失败原日志见[准确工程/安装证据](evidence/html-guide-kit/pr3-post-merge/candidate032-engineering/archive-index.json)。后续纯记录提交须核71分发mode/blob不变，避免重复完整测试或安装。当前Source32模型连续行为/扩展/双端尚未运行，不继承Source31失败或旧有限客户端的通过；ComputerUse窗口连接可用仅证明连接。效果NOT_MEASURED、#220/Epic开放，当前head批准/CI/线程及实际merge另核，Refs #217, #220。

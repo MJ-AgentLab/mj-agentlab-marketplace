@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-15
 state: active
-version: v2.76
+version: v2.77
 ---
 
 # 文档索引
@@ -264,3 +264,6 @@ HTML31真实核心8UUID14C：whole5P1F2U6N，16未发/0post/1自然cross；B3.1�
 
 
 HTML32仅entry/FW三span按完整条件判准逐结论核实际且/或依赖，保决定性已知、只限依赖未知，交互参考保持。源31/e2c工程346/十三安装六Python通过，8UUID14C整体5P1F2U6N及16未发/0post/1自然cross原保；不移用旧双端证据，新工程/canonical安装/模型/双端NOT_RUN，见[§63](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+
+HTML32/081f715准确工程346/65/quick/strict/CLI0.147及十三安装六缓存Python通过；原辅助失败保留，模型/双端尚待实证，见[§64](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。

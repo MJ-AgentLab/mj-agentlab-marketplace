@@ -1,0 +1,90 @@
+{
+  "recordedAt": "2026-10-14T20:38:27.717Z",
+  "status": "FINAL_FROZEN_DRAFT_ONLY_PENDING_INDEPENDENT_STATIC",
+  "author": "behavior_014_a",
+  "sourceCanonical": "e2c4463f55dd33a6d24b0080a46b478bc4d6974a",
+  "sourceVersion": "0.1.31",
+  "candidateVersion": "0.1.32",
+  "resources": [
+    {
+      "relative": "SKILL.md",
+      "sourceFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-32\\source31-originals\\SKILL.md.snapshot.txt",
+      "sourceBytes": 5677,
+      "sourceSha256": "65abdd374784d054f9c3d65d52c32c74cf32ac281ad6388e927831c6d7c9e46c",
+      "draftFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-32\\draft\\SKILL.md",
+      "draftBytes": 5813,
+      "draftSha256": "b7c320e01731513b350548f64d40a60767cd619267d26bf680f27c6d073a434d",
+      "changed": true
+    },
+    {
+      "relative": "references/guide-framework.md",
+      "sourceFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-32\\source31-originals\\references\\guide-framework.md.snapshot.txt",
+      "sourceBytes": 9759,
+      "sourceSha256": "b6de10fb7ed3a3f2dfc5cda046e1317243876c5cee2aab2c46760fd37341e654",
+      "draftFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-32\\draft\\references\\guide-framework.md",
+      "draftBytes": 10372,
+      "draftSha256": "ed2a364a2fb916dca36cc0bfc17375ceb0f6f35ff929a40bd850292bbd212016",
+      "changed": true
+    },
+    {
+      "relative": "references/interaction-design.md",
+      "sourceFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-32\\source31-originals\\references\\interaction-design.md.snapshot.txt",
+      "sourceBytes": 7773,
+      "sourceSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "draftFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-32\\draft\\references\\interaction-design.md",
+      "draftBytes": 7773,
+      "draftSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "changed": false
+    }
+  ],
+  "edits": [
+    {
+      "relative": "SKILL.md",
+      "name": "step5_actual_condition_dependency",
+      "offsetUtf8Bytes": 4667,
+      "oldText": "无需逐例重复无关字段。再匹配基准，",
+      "newText": "无需逐例重复无关字段。完整且/或判准按各结论的实际依赖求值，未知不撤已被已知项决定的结论；纯必要条件不当充分判准。再匹配基准，",
+      "oldSpanSha256": "c8c05588923bbc971ec1c1175ce1729f6414987918e6d3bd512bad8a178b657f",
+      "newSpanSha256": "2a786a67468eb2edb65f1c4a2c1a74a13461bff60d3a77453288cec45c0f0150"
+    },
+    {
+      "relative": "references/guide-framework.md",
+      "name": "section3_known_operand_decides_condition",
+      "offsetUtf8Bytes": 6513,
+      "oldText": "无需每例重复全部规则/字段，不收紧已知宽许可或不依赖缺项的结论。初值、赋值/运算、",
+      "newText": "无需每例重复全部规则/字段，不收紧已知宽许可或不依赖缺项的结论。源给完整条件判准时，按实际且/或关系逐结论求值：且中任一明确假已决定该条件结论为假，或中任一明确真已决定为真，另一项未知不撤结果；其余情况按剩余依赖判断，只有仍需未给信息才保未知。纯必要条件不作充分判准，条件真假不推出未述操作或字段，源范围与适用前提仍须成立。初值、赋值/运算、",
+      "oldSpanSha256": "aafd52ade3114ccde3a94a39c46ac744d5dc8141e2d5b1a992ea1224488ba29e",
+      "newSpanSha256": "31adc05c224104a3e6cb4d12a12b9f6d753f362123975ae1da51dc21b224f8ce"
+    },
+    {
+      "relative": "references/guide-framework.md",
+      "name": "section5_audit_general_unknown_feedback",
+      "offsetUtf8Bytes": 9431,
+      "oldText": "旁处正确不补本处，拟写要求不是已有范围。无条件结果不加条件；",
+      "newText": "旁处正确不补本处，拟写要求不是已有范围。反查每个泛未知反馈的实际依赖，含另设未知输入的教学说明：不能因任一输入未知就把整组判定改为无法确定；已知项已决定的结论须保留，缺项只阻仍依赖它的部分。无条件结果不加条件；",
+      "oldSpanSha256": "3cbd1351482293de8b07d47c7bf1582475865e1fd5a208199fda0179fe1ec54c",
+      "newSpanSha256": "52cd54d0fc96098dbf6ddabbac1795c0c377d7eaf2b05fa70959ecb4f71060a9"
+    }
+  ],
+  "exactForwardAndInverse": true,
+  "changedFiles": 2,
+  "changedSpans": 3,
+  "windowsEntryBytes": 5849,
+  "windowsLimit": 6144,
+  "interactionExactUnchanged": true,
+  "preservation": {
+    "existingSource31Methods": "All other UTF-8 bytes unchanged, including prior actual-example inputs and candidate-question presupposition checks.",
+    "publicContract": "Unchanged explicit invocation/Read/new-guide/chat-only/2–3 targets plus explicit confirmation and no host-lock guarantee.",
+    "sourceBoundary": "Complete source criterion and actual scope required; necessary conditions are not promoted to sufficient criteria.",
+    "unknownBoundary": "Only conclusions actually dependent on missing information remain unknown; unknown is not false, and known decisive operands are retained.",
+    "formatBoundary": "No mandatory unknown simulation, matrix, chapter, widget, question count, new resource, or domain/fixture answer."
+  },
+  "runtimeApplied": false,
+  "gitMutation": false,
+  "controlsCopied": false,
+  "installation": "NOT_RUN",
+  "consumer": "NOT_RUN",
+  "model": "NOT_RUN",
+  "client": "NOT_RUN",
+  "staticReview": "NOT_RUN_BY_AUTHOR"
+}
