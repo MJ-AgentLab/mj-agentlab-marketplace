@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+- Prepare HTML Guide Kit 0.1.14: publish complete shared source rules and their applicability before summaries, feedback or checklist results; distinguish UI design rationale and verified read-failure causes from source facts. Retain source0.1.13 independent12 sessions/24 inputs6PASS/4FAIL/2UNEXERCISED and original evidence. Preserve approved marketplace8.3.0 and other plugin versions. Refs #217, #220.
+
 - Prepare HTML Guide Kit 0.1.13: retain every source recovery action/object/result and recovery exceptions in exclusive relations; define current-state and retry/reset lifecycle before feedback. Retain 0.1.12 actual 15 sessions/31 inputs, 9PASS/4FAIL/2UNEXERCISED without inheriting PASS. Synchronize approved upstream Communication runtime and marketplace 8.3.0; preserve other plugin versions. Refs #217, #220.
 
 - Prepare HTML Guide Kit0.1.12 with complete source-rule composition and separate direct-operation versus later-path judgments. Retain eight actual0.1.11 sessions5PASS/2FAIL/1UNEXERCISED and all original evidence; marketplace8.2.1 and other plugins remain unchanged. Refs #217, #220.

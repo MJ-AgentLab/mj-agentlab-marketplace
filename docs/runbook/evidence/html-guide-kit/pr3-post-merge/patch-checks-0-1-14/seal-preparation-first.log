@@ -1,0 +1,11 @@
+file:///C:/Users/Admin/.codex/worktrees/html-guide-acceptance/tracking/seal-014-preparation.mjs:7
+const review=JSON.parse(fs.readFileSync(r+'/static-review-014.json')),a=JSON.parse(fs.readFileSync(r+'/static-review-a-corrected.json'));if(review.conclusion!=='NO_STATIC_BLOCKERS')throw Error('Independent static blocker');
+                                                                                                                                                                                           ^
+
+Error: Independent static blocker
+    at file:///C:/Users/Admin/.codex/worktrees/html-guide-acceptance/tracking/seal-014-preparation.mjs:7:188
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:647:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+
+Node.js v22.18.0

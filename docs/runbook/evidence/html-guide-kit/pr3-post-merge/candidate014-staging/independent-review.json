@@ -1,0 +1,112 @@
+{
+  "recordedAt": "2026-10-14T01:31:16.082Z",
+  "reviewer": "/root/precommit_014",
+  "status": "STATIC_ONLY",
+  "verdict": "NO_STATIC_BLOCKERS",
+  "scope": "0.1.14 staged diff before canonical installation; no model, grade, repository modification or test rerun",
+  "head": "0fe3fbd055a83ed75d0cfe3ce3ff98ca320fe8ad",
+  "base": "c1fa458df1b531d7c38436908b750ba810b0b116",
+  "stagedFiles": 168,
+  "modifiedPaths": [
+    "AGENTS.md",
+    "CHANGELOG.md",
+    "README.md",
+    "docs/INDEX.md",
+    "docs/guide/[GUIDE]_HTML_Guide_Kit.md",
+    "docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md",
+    "docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md",
+    "plugins/html-guide-kit/CHANGELOG.md",
+    "plugins/html-guide-kit/README.md",
+    "plugins/html-guide-kit/plugin.json",
+    "plugins/html-guide-kit/skills/guide/SKILL.md",
+    "plugins/html-guide-kit/skills/guide/references/guide-framework.md",
+    "plugins/html-guide-kit/skills/guide/references/interaction-design.md",
+    "tests/html-guide-kit.test.mjs"
+  ],
+  "addedEvidence": 154,
+  "pins": [
+    {
+      "path": "plugins/html-guide-kit/skills/guide/SKILL.md",
+      "bytes": 6144,
+      "sha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239",
+      "workingEqual": true
+    },
+    {
+      "path": "plugins/html-guide-kit/skills/guide/references/guide-framework.md",
+      "bytes": 22615,
+      "sha256": "74e47bb75ad8f82d86260211e3b6966f6bc79ee3dc7fa73c3d95deec491cd36c",
+      "workingEqual": true
+    },
+    {
+      "path": "plugins/html-guide-kit/skills/guide/references/interaction-design.md",
+      "bytes": 23495,
+      "sha256": "0d06a5b2f066f58b86456f8f9fa460834079cf96d78e619fa4d0d9cc3a9a98f8",
+      "workingEqual": true
+    }
+  ],
+  "otherPluginFiles": 59,
+  "otherDeltas": [],
+  "fixedResults": [
+    {
+      "path": "VERSION",
+      "equal": true
+    },
+    {
+      "path": ".agents/plugins/marketplace.json",
+      "equal": true
+    }
+  ],
+  "archiveChecks": [
+    {
+      "root": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/candidate023-final-seal",
+      "rows": 7,
+      "errors": []
+    },
+    {
+      "root": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-0fe3fbd0",
+      "rows": 24,
+      "errors": []
+    },
+    {
+      "root": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-14",
+      "rows": 109,
+      "errors": []
+    }
+  ],
+  "checkedRows": 140,
+  "agentBytes": 16173,
+  "agentCRLFBytes": 16260,
+  "maxPaths": [
+    {
+      "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-14/static-review-logic/candidate14-interaction-design.snapshot.txt",
+      "relative": 135,
+      "absolute": 197
+    },
+    {
+      "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-14/static-review-logic/candidate14-guide-framework.snapshot.txt",
+      "relative": 132,
+      "absolute": 194
+    },
+    {
+      "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-14/static-review-logic/source13-interaction-design.snapshot.txt",
+      "relative": 132,
+      "absolute": 194
+    }
+  ],
+  "unstagedDiff": "",
+  "blockers": [],
+  "observations": [
+    "Only HTML plugin patch version changes 0.1.13 to 0.1.14. Read-only, explicit invocation, new text-guide scope and confirmation gate retained.",
+    "Both reference diffs are additive generic method rules; all previous paragraphs remain. Entry compaction preserves contract and old rule references.",
+    "All 154 added evidence paths are new archives, no pre-existing raw evidence path is changed or removed. Archive-index rows checked against staged bytes and existing external originals.",
+    "New evidence paths remain below 260 characters in this worktree; max introduced absolute path shown.",
+    "Source13 final 6PASS/4FAIL/2UNEXERCISED, source14 installation/model NOT_RUN, native clients/window NOT_RUN, effect NOT_MEASURED and independent GitHub approval/merge pending are stated accurately.",
+    "Sealed actual Node and independent .NET logs report 428 original files / 11852065 bytes and exact source-byte comparisons; these are archive restoration proof, not model acceptance."
+  ],
+  "limits": [
+    "This is an independent AI static review and does not constitute GitHub non-author approval.",
+    "346 tests, final 65 docs/A6 and validate/check supplied actual Root logs inspected but not rerun by this reviewer.",
+    "Source14 exact canonical installation and fresh frozen behavior remain required; no earlier PASS inherited."
+  ],
+  "reviewerToolCorrection": "Initial read-only audit referenced a non-existent .claude-plugin/marketplace.json and exited without writes; discovered actual .agents/plugins/marketplace.json via Git tree and reran successfully."
+}

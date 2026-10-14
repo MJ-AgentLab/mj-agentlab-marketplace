@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.1.14] - 2026-10-13
+
+- HTML Guide Kit 0.1.14 presents complete source rules and an explicit shared applicability convention before rewritten operation results, including summaries and author checklists. Completion words do not supply missing source premises.
+- Separate UI design rationale from source normative support; state actual received read coverage and verified failures without inventing path-policy causes. Explicit early reference-reading requests preserve the target-confirmation gate.
+- Retain0.1.13 actual12 sessions/24 inputs and6PASS/4FAIL/2UNEXERCISED; native/window/effect limits remain separate. Fresh canonical installation and behavior remain required. Refs #217, #220.
+
 ## [0.1.13] - 2026-10-13
 
 - HTML Guide Kit 0.1.13 composes source rules with all explicit actions, objects, field results and exceptions; full recovery and exclusive relations preserve recovery rules. Define each attempt’s entry, current state, retry, continuation and reset before feedback.

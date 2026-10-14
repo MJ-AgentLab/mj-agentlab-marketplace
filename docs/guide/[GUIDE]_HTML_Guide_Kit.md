@@ -6,12 +6,12 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: active
-version: v1.13
+version: v1.14
 ---
 
 # [GUIDE] HTML Guide Kit
 
-HTML Guide Kit 从文档或明确对话快照，新建可复制的交互教材绘制指南。初始 0.1.0 已合入 develop；本分支 0.1.13 修正候选保留重复操作、源术语、量词和组合条件的语义，并在拒绝和引用时保持无 HTML/代码的文本边界。入口精简避免基线 CLI 原生加载截断，详细规则保留在两份参考；完整源恢复、关系例外和每轮当前态/重试/复位按源逐项保留，新增界面反馈分别标明设计依据；当前新候选仍须完整加载及行为复验。main / v8.2.0 已发布Diagram、Learning Evidence、Explain三插件；HTML仍是develop修正候选，另行发行。实际登记、安装和客户端状态见当前市场与 [验收记录](../runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+HTML Guide Kit 从文档或明确对话快照，新建可复制的交互教材绘制指南。初始 0.1.0 已合入 develop；本分支 0.1.14 修正候选保留重复操作、源术语、量词和组合条件的语义，并在拒绝和引用时保持无 HTML/代码的文本边界。入口精简避免基线 CLI 原生加载截断，详细规则保留在两份参考；先呈现完整源规则并明确全篇缩写的适用范围，新增UI设计理由与源依据分开，读取仅陈述实际范围及已证原因；完整源恢复、关系例外和每轮当前态/重试/复位按源逐项保留，新增界面反馈分别标明设计依据；当前新候选仍须完整加载及行为复验。main / v8.2.0 已发布Diagram、Learning Evidence、Explain三插件；HTML仍是develop修正候选，另行发行。实际登记、安装和客户端状态见当前市场与 [验收记录](../runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
 
 ## Start and confirm
 
