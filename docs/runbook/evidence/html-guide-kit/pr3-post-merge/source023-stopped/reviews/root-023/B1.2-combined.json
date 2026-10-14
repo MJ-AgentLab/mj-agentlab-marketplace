@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T14:06:38.941Z",
+  "reviewer": "/root",
+  "operator": "/root/precommit_014",
+  "version": "0.1.23",
+  "canonicalSha": "b46069e3979136e70d64b9873b799b5bd069ca95",
+  "uuid": "01a13ab0-b4a1-74d1-b7c4-aa9f5c47b327",
+  "variant": "B1.2-combined",
+  "actualTurns": 1,
+  "plannedTurns": 2,
+  "primaryCriterion": "UNEXERCISED",
+  "overallResult": "UNEXERCISED",
+  "reason": "The actual T1 contains distinct pending targets and no guide. Global stop arrived before selection and the combined amendment/confirmation T2. Its required behavior did not occur and is not a PASS.",
+  "fullRead": "10d5ef original whole input and output",
+  "technicalClosure": "operator-c-records/stopped-original-operator-closure.json retains actual COMPLETE transport/identity and 40 raw-file pins across all three C sessions",
+  "rawPins": [
+    {
+      "file": "../reviewer/corrections/0-1-23/blocking/runs/a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1/B1.2-combined/9cfc6c01-f04e-48d8-bbc6-d417c61ca0ee/01.input.txt",
+      "bytes": 989,
+      "sha256": "b84a0ef8f77d550bda2d47085b9f1c75f369865a8e8dfce1410ed3e63ff01680"
+    },
+    {
+      "file": "../reviewer/corrections/0-1-23/blocking/runs/a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1/B1.2-combined/9cfc6c01-f04e-48d8-bbc6-d417c61ca0ee/01.output.txt",
+      "bytes": 3624,
+      "sha256": "de595af2e52c9cdc22ed0f229b274dbd2eedad7402848d6dadc0093cc618a9bc"
+    },
+    {
+      "file": "../reviewer/corrections/0-1-23/blocking/runs/a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1/B1.2-combined/9cfc6c01-f04e-48d8-bbc6-d417c61ca0ee/01.events.jsonl",
+      "bytes": 36834,
+      "sha256": "030f8fe27bc8a1d9c1d5ed8d4548147f40a949024a9abee729589ac6d292389d"
+    },
+    {
+      "file": "../reviewer/corrections/0-1-23/blocking/runs/a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1/B1.2-combined/9cfc6c01-f04e-48d8-bbc6-d417c61ca0ee/01.session.jsonl",
+      "bytes": 99828,
+      "sha256": "ed24509afde377874d6dc61f64037c39c2d1ba3a28d73b91f21bf5e44d72e9e3"
+    },
+    {
+      "file": "../reviewer/corrections/0-1-23/blocking/runs/a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1/B1.2-combined/9cfc6c01-f04e-48d8-bbc6-d417c61ca0ee/01.stderr.txt",
+      "bytes": 35071,
+      "sha256": "8c33e94250abfd30b0af2b67f246bc015e169dbc2b9a8ac4be30105f148f01a1"
+    }
+  ],
+  "selection": null,
+  "secondInputAbsent": true,
+  "noResampling": true,
+  "effectStatus": "NOT_MEASURED",
+  "clientUi": "NOT_RUN"
+}

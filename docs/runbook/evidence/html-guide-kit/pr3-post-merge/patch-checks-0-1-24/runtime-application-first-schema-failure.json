@@ -1,0 +1,16 @@
+{
+  "method": "Record of the actual tool output; not a model test",
+  "toolChunk": "8a706b",
+  "command": "node ../tracking/apply-024-reviewed-runtime.mjs",
+  "actualExitCode": 1,
+  "actualError": "TypeError: Cannot read properties of undefined (reading 'sha256')",
+  "failedExpression": "b.freeze.sha256",
+  "actualReportField": "b.freezeSha256",
+  "failureBeforeReferenceWrites": true,
+  "nextActualAction": "4a5b60 version tool applied only manifest 0.1.23 to 0.1.24",
+  "readOnlyIntermediateVerification": "008657 confirmed reference hashes still match source23 and manifest0.1.24",
+  "correction": "Use the actual report field, retain all exact-byte assertions, then apply the reviewed references",
+  "correctedActualToolChunk": "f2ec1d",
+  "installationOrModelDuringIntermediateState": false,
+  "noStaticOrBehaviorPassAttributedToFailedHelper": true
+}

@@ -1,0 +1,59 @@
+{
+  "recordedAt": "2026-10-14T13:52:27.6066746Z",
+  "phase": "INDEPENDENT_TARGETED_SEMANTIC_REVIEW_ONLY",
+  "reviewer": "behavior_014_a",
+  "operator": "root",
+  "candidateVersion": "0.1.23",
+  "canonical": {
+    "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "canonicalSha": "b46069e3979136e70d64b9873b799b5bd069ca95",
+    "canonicalTree": "d8a2ffb8646065dff8f7a46fe741b1f93b5873ad"
+  },
+  "uuid": "01a13aa6-6af2-7a52-ad54-5f0c4f236f2a",
+  "attemptId": "43ff66fe-76e9-4fe1-9bf6-1934720d7b79",
+  "output": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\04.output.txt",
+  "outputBytes": 14126,
+  "outputSha256": "9065453620a9bc818e7d565710c08bb7bbd2f1e58f4db131b109a108d4c5062b",
+  "fullRead": "5a9be3: actual source material, T4 input, complete T4 output; no tool truncation",
+  "actualLinePins": [
+    {
+      "line": 60,
+      "text": "| 重新开始 | 本轮教学演示执行该恢复操作 | 清除本轮操作，恢复 §1 的全部初始值：库存 2、访客“未核验”、预约无效、导览未完成 | §1、§7 |"
+    },
+    {
+      "line": 88,
+      "text": "前四项来自材料中的明确字段；“本轮已演示的操作”是教学设计字段，只用于说明“重新开始”会清除本轮操作，不得描述成现实业务记录。"
+    },
+    {
+      "line": 148,
+      "text": "重新进入本独立情境时恢复本情境题设。这是教学设计行为，不是材料中的“重新开始”。若执行材料规定的“重新开始”，则必须恢复 §1 的全部初始值，而不是恢复本情境题设。"
+    },
+    {
+      "line": 210,
+      "text": "- 清除本轮操作。"
+    },
+    {
+      "line": 252,
+      "text": "- “重新开始”执行 §7 的源规则，恢复 §1 的全部初始值并清除本轮操作。"
+    },
+    {
+      "line": 325,
+      "text": "- 是否包含清除本轮操作？"
+    }
+  ],
+  "targetedConclusion": "NOT_A_DETERMINATE_FIDELITY_FAILURE_FOR_THIS_COMPARISON",
+  "rationale": [
+    "The paragraph contrasts the destination of two kinds of reset: independent teaching scenario settings versus all source initial settings. It states a necessary property of a source restart, not an exhaustive sufficient description of the entire source operation.",
+    "The actual worded comparison does not assert that restoring initial values completes restart or that no other action occurs. Requiring every source action in this property comparison would confuse its stated dimension with a full operation definition.",
+    "No full source-rule scope is inferred from other sections to repair this sentence. Complete clearing is independently preserved in the whole guide, but those distant statements are not used as a substitute for this local comparison.",
+    "If presented separately as complete restart instructions it would be incomplete; retain that readability note. Here the preceding explicitly designed scenario retry and contrast target make the limited dimension identifiable."
+  ],
+  "notes": [
+    "No blanket full-guide PASS. T1/T2/T3 behavior, raw SDK transport and other source claims are outside this targeted review.",
+    "Source22 prior failure remains unchanged and is not retroactively reinterpreted."
+  ],
+  "wholeGuideStatus": "NOT_GRADED_BY_THIS_TARGETED_REPORT",
+  "globalFlagCreated": false,
+  "modelInvoked": false,
+  "originalRecordsModified": false
+}

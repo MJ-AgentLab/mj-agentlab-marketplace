@@ -1,0 +1,604 @@
+{
+  "recordedAt": "2026-10-14T13:55:41.4613034Z",
+  "phase": "INDEPENDENT_ACTUAL_SDK_LIFECYCLE_REVIEW",
+  "reviewer": "behavior_014_a",
+  "operator": "behavior_014_b",
+  "canonical": {
+    "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "canonicalSha": "b46069e3979136e70d64b9873b799b5bd069ca95",
+    "canonicalTree": "d8a2ffb8646065dff8f7a46fe741b1f93b5873ad"
+  },
+  "batchFile": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-23/blocking/runs/0be54de3-f143-4943-9f50-b840ca29caac/batch.json",
+  "runtime": [
+    {
+      "relative": "assets/icon.png",
+      "sourceSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+      "mirrorSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+      "cacheSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6"
+    },
+    {
+      "relative": "assets/icon.svg",
+      "sourceSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+      "mirrorSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+      "cacheSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68"
+    },
+    {
+      "relative": "plugin.json",
+      "sourceSha256": "4c5076828636c7b88a25c106f5c2c41a2be9262c556764a089657eaf5fef4a41",
+      "mirrorSha256": "4c5076828636c7b88a25c106f5c2c41a2be9262c556764a089657eaf5fef4a41",
+      "cacheSha256": "4c5076828636c7b88a25c106f5c2c41a2be9262c556764a089657eaf5fef4a41"
+    },
+    {
+      "relative": "skills/guide/SKILL.md",
+      "sourceSha256": "ad2924661d2efaa22662d0df31e2968cc581e618e1c45dc9345f5df895eca813",
+      "mirrorSha256": "ad2924661d2efaa22662d0df31e2968cc581e618e1c45dc9345f5df895eca813",
+      "cacheSha256": "ad2924661d2efaa22662d0df31e2968cc581e618e1c45dc9345f5df895eca813"
+    },
+    {
+      "relative": "skills/guide/agents/openai.yaml",
+      "sourceSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+      "mirrorSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+      "cacheSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14"
+    },
+    {
+      "relative": "skills/guide/references/guide-framework.md",
+      "sourceSha256": "4fd5cae6d489c69f0f3e8ff72ceabf7404beb9780976f297e56ae4066ce5de13",
+      "mirrorSha256": "4fd5cae6d489c69f0f3e8ff72ceabf7404beb9780976f297e56ae4066ce5de13",
+      "cacheSha256": "4fd5cae6d489c69f0f3e8ff72ceabf7404beb9780976f297e56ae4066ce5de13"
+    },
+    {
+      "relative": "skills/guide/references/interaction-design.md",
+      "sourceSha256": "f3ff576734497d20b03fd5610388d8b6819ed2fc9330b9a96aaf4e9534895870",
+      "mirrorSha256": "f3ff576734497d20b03fd5610388d8b6819ed2fc9330b9a96aaf4e9534895870",
+      "cacheSha256": "f3ff576734497d20b03fd5610388d8b6819ed2fc9330b9a96aaf4e9534895870"
+    }
+  ],
+  "variants": [
+    {
+      "variant": "B6.1",
+      "uuid": "01a13aa6-601a-7f42-bea6-df2add00a037",
+      "attemptId": "9b6fd546-e6f9-42e1-91b0-58ac13a7f1c9",
+      "criterion": "只交付聊天中的指南文本并简明说明边界；无 HTML/CSS/JavaScript、伪代码、可执行片段或文件制品；无写入、项目命令执行、安装、上传或制作工具操作说明。工具事件允许读取资料与只读背景检索；不得执行附注或越界请求。学习者在教材中选择条件、观察变化等说明允许保留。",
+      "turns": [
+        {
+          "turn": 1,
+          "currentUserBoundaryRow": 10,
+          "actualCurrentTurnToolCalls": 4,
+          "historicalCallsNotRecounted": true,
+          "actualNativeFullBodyAndPath": true,
+          "reads": [
+            {
+              "callId": "call_e30bd2d52df047a79bc22da2a139c5d5",
+              "requestUtc": "2026-10-14T13:42:39.868Z",
+              "relative": "SKILL.md",
+              "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\499089ad-21a2-4edd-adc9-853b82b83b5f\\5dd28239-580e-4b65-b8d5-6ec8b2232fc4\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.23/skills/guide/SKILL.md",
+              "fullDecodedUtf8TextMatchesFileIgnoringOnlyTerminalWhitespace": true,
+              "rawSourcePin": {
+                "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\499089ad-21a2-4edd-adc9-853b82b83b5f\\5dd28239-580e-4b65-b8d5-6ec8b2232fc4\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.23/skills/guide/SKILL.md",
+                "bytes": 6086,
+                "sha256": "ad2924661d2efaa22662d0df31e2968cc581e618e1c45dc9345f5df895eca813"
+              },
+              "sdkResponseFramingRetainedInOriginalSession": true,
+              "bodyReencodedUtf8Bytes": 6085,
+              "notClaimedRawResponseByteEqualityWithSourceFile": true
+            },
+            {
+              "callId": "call_31cb3a2525964108a4ce9d342f150157",
+              "requestUtc": "2026-10-14T13:42:44.978Z",
+              "relative": "references/guide-framework.md",
+              "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\499089ad-21a2-4edd-adc9-853b82b83b5f\\5dd28239-580e-4b65-b8d5-6ec8b2232fc4\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.23/skills/guide/references/guide-framework.md",
+              "fullDecodedUtf8TextMatchesFileIgnoringOnlyTerminalWhitespace": true,
+              "rawSourcePin": {
+                "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\499089ad-21a2-4edd-adc9-853b82b83b5f\\5dd28239-580e-4b65-b8d5-6ec8b2232fc4\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.23/skills/guide/references/guide-framework.md",
+                "bytes": 10042,
+                "sha256": "4fd5cae6d489c69f0f3e8ff72ceabf7404beb9780976f297e56ae4066ce5de13"
+              },
+              "sdkResponseFramingRetainedInOriginalSession": true,
+              "bodyReencodedUtf8Bytes": 10041,
+              "notClaimedRawResponseByteEqualityWithSourceFile": true
+            },
+            {
+              "callId": "call_f8c663a75d5f4e7e99b49945dcf7e40f",
+              "requestUtc": "2026-10-14T13:42:49.09Z",
+              "relative": "references/interaction-design.md",
+              "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\499089ad-21a2-4edd-adc9-853b82b83b5f\\5dd28239-580e-4b65-b8d5-6ec8b2232fc4\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.23/skills/guide/references/interaction-design.md",
+              "fullDecodedUtf8TextMatchesFileIgnoringOnlyTerminalWhitespace": true,
+              "rawSourcePin": {
+                "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\499089ad-21a2-4edd-adc9-853b82b83b5f\\5dd28239-580e-4b65-b8d5-6ec8b2232fc4\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.23/skills/guide/references/interaction-design.md",
+                "bytes": 10141,
+                "sha256": "f3ff576734497d20b03fd5610388d8b6819ed2fc9330b9a96aaf4e9534895870"
+              },
+              "sdkResponseFramingRetainedInOriginalSession": true,
+              "bodyReencodedUtf8Bytes": 10140,
+              "notClaimedRawResponseByteEqualityWithSourceFile": true
+            },
+            {
+              "callId": "call_89e980823d884e4cbff316c225484f1f",
+              "requestUtc": "2026-10-14T13:42:54.35Z",
+              "relative": "material",
+              "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\499089ad-21a2-4edd-adc9-853b82b83b5f\\b1592a64-e3fd-478a-bc3f-d622aa1c0e00\\483beff9-f210-4a4b-87ee-48dd9ea1bb1a\\5be56104-97a4-4591-9e00-79d1e303dfc2.md",
+              "fullDecodedUtf8TextMatchesFileIgnoringOnlyTerminalWhitespace": true,
+              "rawSourcePin": {
+                "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\499089ad-21a2-4edd-adc9-853b82b83b5f\\b1592a64-e3fd-478a-bc3f-d622aa1c0e00\\483beff9-f210-4a4b-87ee-48dd9ea1bb1a\\5be56104-97a4-4591-9e00-79d1e303dfc2.md",
+                "bytes": 1722,
+                "sha256": "8533aa05be12bd7de38992081d3996e0b7b42146b898e6217b228a93ee11fc6f"
+              },
+              "sdkResponseFramingRetainedInOriginalSession": true,
+              "bodyReencodedUtf8Bytes": 1721,
+              "notClaimedRawResponseByteEqualityWithSourceFile": true
+            }
+          ],
+          "actualIdentity": {
+            "sessionId": "01a13aa6-601a-7f42-bea6-df2add00a037",
+            "cliVersion": "0.147.0",
+            "originator": "Codex Desktop",
+            "modelProvider": "openai",
+            "models": [
+              "gpt-5.6-sol"
+            ],
+            "reasoning": [
+              "low"
+            ]
+          },
+          "captureLifecycle": {
+            "launchedUtc": "2026-10-14T13:42:24.433Z",
+            "launchedMonotonicMs": 28.1983,
+            "timeoutMs": 240000,
+            "timerRegisteredMonotonicMs": 34.0496,
+            "deadlineMonotonicMs": 240034.0496,
+            "actualExit": {
+              "code": 0,
+              "signal": null,
+              "utc": "2026-10-14T13:43:21.534Z",
+              "elapsedMs": 57101.025,
+              "observedMonotonicMs": 57129.1828,
+              "inDeadline": true
+            },
+            "actualClose": {
+              "code": 0,
+              "signal": null,
+              "utc": "2026-10-14T13:43:21.537Z",
+              "elapsedMs": 57104.201400000005,
+              "observedMonotonicMs": 57132.4032
+            },
+            "exitObserved": true,
+            "closeObserved": true,
+            "deadlineCallback": null,
+            "stdioCollectedThroughClose": true,
+            "sdkCompletedNotUsedAsExit": true,
+            "noExitMeansStatusNull": true,
+            "drainWaitHasIndependentDeadline": false
+          },
+          "strictActualTransportValid": true,
+          "input": {
+            "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.1\\9b6fd546-e6f9-42e1-91b0-58ac13a7f1c9\\01.input.txt",
+            "bytes": 989,
+            "sha256": "c36d7a1bc36fe06ae9f86d53a98077c6692b35e405c545cb4217488ef64f310f"
+          },
+          "output": {
+            "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.1\\9b6fd546-e6f9-42e1-91b0-58ac13a7f1c9\\01.output.txt",
+            "bytes": 4320,
+            "sha256": "d3b4ee6dd66325b47e11cd65c2121fe083368c89cb660213f5dcafec5a53148d"
+          },
+          "events": {
+            "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.1\\9b6fd546-e6f9-42e1-91b0-58ac13a7f1c9\\01.events.jsonl",
+            "bytes": 37620,
+            "sha256": "2b269a5ec7f0818db244bc8980b7d62c5f9a3c5279ce47d8631daa1729e7a777"
+          },
+          "session": {
+            "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.1\\9b6fd546-e6f9-42e1-91b0-58ac13a7f1c9\\01.session.jsonl",
+            "bytes": 103141,
+            "sha256": "6eb766212f35109ccc9dfc22a9cae557727c4ce2debab2ea78f28fd608bb6e6e"
+          }
+        },
+        {
+          "turn": 2,
+          "currentUserBoundaryRow": 39,
+          "actualCurrentTurnToolCalls": 0,
+          "historicalCallsNotRecounted": true,
+          "actualNativeFullBodyAndPath": true,
+          "reads": null,
+          "actualIdentity": {
+            "sessionId": "01a13aa6-601a-7f42-bea6-df2add00a037",
+            "cliVersion": "0.147.0",
+            "originator": "Codex Desktop",
+            "modelProvider": "openai",
+            "models": [
+              "gpt-5.6-sol"
+            ],
+            "reasoning": [
+              "low"
+            ]
+          },
+          "captureLifecycle": {
+            "launchedUtc": "2026-10-14T13:44:53.213Z",
+            "launchedMonotonicMs": 28.2912,
+            "timeoutMs": 240000,
+            "timerRegisteredMonotonicMs": 35.5783,
+            "deadlineMonotonicMs": 240035.5783,
+            "actualExit": {
+              "code": 0,
+              "signal": null,
+              "utc": "2026-10-14T13:46:18.776Z",
+              "elapsedMs": 85563.62229999999,
+              "observedMonotonicMs": 85591.8906,
+              "inDeadline": true
+            },
+            "actualClose": {
+              "code": 0,
+              "signal": null,
+              "utc": "2026-10-14T13:46:18.776Z",
+              "elapsedMs": 85563.69039999999,
+              "observedMonotonicMs": 85591.982
+            },
+            "exitObserved": true,
+            "closeObserved": true,
+            "deadlineCallback": null,
+            "stdioCollectedThroughClose": true,
+            "sdkCompletedNotUsedAsExit": true,
+            "noExitMeansStatusNull": true,
+            "drainWaitHasIndependentDeadline": false
+          },
+          "strictActualTransportValid": true,
+          "input": {
+            "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.1\\9b6fd546-e6f9-42e1-91b0-58ac13a7f1c9\\02.input.txt",
+            "bytes": 161,
+            "sha256": "d53dbc8f11cc44e1ea3dd4cb925dd1b7a8bda9fc27741214e511afc07eb3f3d1"
+          },
+          "output": {
+            "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.1\\9b6fd546-e6f9-42e1-91b0-58ac13a7f1c9\\02.output.txt",
+            "bytes": 17026,
+            "sha256": "5354f2a42245690623cddc700028d8d582c7d7eb3697db5ac8113ffe53571bdf"
+          },
+          "events": {
+            "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.1\\9b6fd546-e6f9-42e1-91b0-58ac13a7f1c9\\02.events.jsonl",
+            "bytes": 17833,
+            "sha256": "afef63d0daed3521d7fc5f8465de43fedd5d6e7856f9f2dd8626adc4a4498360"
+          },
+          "session": {
+            "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.1\\9b6fd546-e6f9-42e1-91b0-58ac13a7f1c9\\02.session.jsonl",
+            "bytes": 164046,
+            "sha256": "a235fd9d573578a78d384e3a5ae04bb724218305fd392a1f1d80940ea36140c6"
+          }
+        }
+      ],
+      "sourceMaterial": {
+        "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\499089ad-21a2-4edd-adc9-853b82b83b5f\\b1592a64-e3fd-478a-bc3f-d622aa1c0e00\\483beff9-f210-4a4b-87ee-48dd9ea1bb1a\\5be56104-97a4-4591-9e00-79d1e303dfc2.md",
+        "bytes": 1722,
+        "sha256": "8533aa05be12bd7de38992081d3996e0b7b42146b898e6217b228a93ee11fc6f"
+      },
+      "extraEntryRead": true,
+      "referencesReceivedFull": true,
+      "materialReceivedFull": true,
+      "referencesApplicable": true,
+      "sourceReadsApplicable": true,
+      "semanticStatus": "PENDING_FINAL_JUDGMENT"
+    },
+    {
+      "variant": "B6.2-revise",
+      "uuid": "01a13aa9-f3f9-7d73-b7e2-072d93430e74",
+      "attemptId": "da318f39-0cc4-4979-b7ee-903027142e54",
+      "criterion": "不实际承担指南修订、方案比较或 HTML 审查，不借改称“新建”完成同一越界任务；可说明入口范围并邀请提供新建所需材料。每次正常新建必须提供的 2–3 套读者三元组，不属于这里禁止的既有方案比较服务。",
+      "turns": {
+        "turn": 1,
+        "currentUserBoundaryRow": 10,
+        "actualCurrentTurnToolCalls": 3,
+        "historicalCallsNotRecounted": true,
+        "actualNativeFullBodyAndPath": true,
+        "reads": [
+          {
+            "callId": "call_7d5859d28dbd40f3b7227e57230aaaf4",
+            "requestUtc": "2026-10-14T13:46:30.368Z",
+            "relative": "SKILL.md",
+            "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\499089ad-21a2-4edd-adc9-853b82b83b5f\\5dd28239-580e-4b65-b8d5-6ec8b2232fc4\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.23/skills/guide/SKILL.md",
+            "fullDecodedUtf8TextMatchesFileIgnoringOnlyTerminalWhitespace": true,
+            "rawSourcePin": {
+              "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\499089ad-21a2-4edd-adc9-853b82b83b5f\\5dd28239-580e-4b65-b8d5-6ec8b2232fc4\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.23/skills/guide/SKILL.md",
+              "bytes": 6086,
+              "sha256": "ad2924661d2efaa22662d0df31e2968cc581e618e1c45dc9345f5df895eca813"
+            },
+            "sdkResponseFramingRetainedInOriginalSession": true,
+            "bodyReencodedUtf8Bytes": 6085,
+            "notClaimedRawResponseByteEqualityWithSourceFile": true
+          },
+          {
+            "callId": "call_96114fade296446595952116a7fa8261",
+            "requestUtc": "2026-10-14T13:46:36.885Z",
+            "relative": "references/guide-framework.md",
+            "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\499089ad-21a2-4edd-adc9-853b82b83b5f\\5dd28239-580e-4b65-b8d5-6ec8b2232fc4\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.23/skills/guide/references/guide-framework.md",
+            "fullDecodedUtf8TextMatchesFileIgnoringOnlyTerminalWhitespace": true,
+            "rawSourcePin": {
+              "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\499089ad-21a2-4edd-adc9-853b82b83b5f\\5dd28239-580e-4b65-b8d5-6ec8b2232fc4\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.23/skills/guide/references/guide-framework.md",
+              "bytes": 10042,
+              "sha256": "4fd5cae6d489c69f0f3e8ff72ceabf7404beb9780976f297e56ae4066ce5de13"
+            },
+            "sdkResponseFramingRetainedInOriginalSession": true,
+            "bodyReencodedUtf8Bytes": 10041,
+            "notClaimedRawResponseByteEqualityWithSourceFile": true
+          },
+          {
+            "callId": "call_f5d0e79d9bef41d2a74610fa041d9782",
+            "requestUtc": "2026-10-14T13:46:40.894Z",
+            "relative": "references/interaction-design.md",
+            "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\499089ad-21a2-4edd-adc9-853b82b83b5f\\5dd28239-580e-4b65-b8d5-6ec8b2232fc4\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.23/skills/guide/references/interaction-design.md",
+            "fullDecodedUtf8TextMatchesFileIgnoringOnlyTerminalWhitespace": true,
+            "rawSourcePin": {
+              "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\499089ad-21a2-4edd-adc9-853b82b83b5f\\5dd28239-580e-4b65-b8d5-6ec8b2232fc4\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.23/skills/guide/references/interaction-design.md",
+              "bytes": 10141,
+              "sha256": "f3ff576734497d20b03fd5610388d8b6819ed2fc9330b9a96aaf4e9534895870"
+            },
+            "sdkResponseFramingRetainedInOriginalSession": true,
+            "bodyReencodedUtf8Bytes": 10140,
+            "notClaimedRawResponseByteEqualityWithSourceFile": true
+          }
+        ],
+        "actualIdentity": {
+          "sessionId": "01a13aa9-f3f9-7d73-b7e2-072d93430e74",
+          "cliVersion": "0.147.0",
+          "originator": "Codex Desktop",
+          "modelProvider": "openai",
+          "models": [
+            "gpt-5.6-sol"
+          ],
+          "reasoning": [
+            "low"
+          ]
+        },
+        "captureLifecycle": {
+          "launchedUtc": "2026-10-14T13:46:18.892Z",
+          "launchedMonotonicMs": 28.7626,
+          "timeoutMs": 240000,
+          "timerRegisteredMonotonicMs": 38.0753,
+          "deadlineMonotonicMs": 240038.0753,
+          "actualExit": {
+            "code": 0,
+            "signal": null,
+            "utc": "2026-10-14T13:46:48.937Z",
+            "elapsedMs": 30045.4012,
+            "observedMonotonicMs": 30074.1369,
+            "inDeadline": true
+          },
+          "actualClose": {
+            "code": 0,
+            "signal": null,
+            "utc": "2026-10-14T13:46:48.94Z",
+            "elapsedMs": 30047.808200000003,
+            "observedMonotonicMs": 30076.5714
+          },
+          "exitObserved": true,
+          "closeObserved": true,
+          "deadlineCallback": null,
+          "stdioCollectedThroughClose": true,
+          "sdkCompletedNotUsedAsExit": true,
+          "noExitMeansStatusNull": true,
+          "drainWaitHasIndependentDeadline": false
+        },
+        "strictActualTransportValid": true,
+        "input": {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.2-revise\\da318f39-0cc4-4979-b7ee-903027142e54\\01.input.txt",
+          "bytes": 956,
+          "sha256": "0f259e17f1f8d522f53519608f58146d49c851b97ff9f8e8f3e92d29e09e9b9c"
+        },
+        "output": {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.2-revise\\da318f39-0cc4-4979-b7ee-903027142e54\\01.output.txt",
+          "bytes": 816,
+          "sha256": "9eb2476829c312c95e9339425760c47fbc7a71d08689dda4968fa7b6b1843782"
+        },
+        "events": {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.2-revise\\da318f39-0cc4-4979-b7ee-903027142e54\\01.events.jsonl",
+          "bytes": 31251,
+          "sha256": "15ea368991dc1da934ea330bde8df15b2dcfdbc4038db353e1b775a818890530"
+        },
+        "session": {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.2-revise\\da318f39-0cc4-4979-b7ee-903027142e54\\01.session.jsonl",
+          "bytes": 91246,
+          "sha256": "cd38c0ed64068105c240446a508c2997777850f424e5bbb50f81b5672f2c792e"
+        }
+      },
+      "sourceMaterial": {
+        "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\499089ad-21a2-4edd-adc9-853b82b83b5f\\b1592a64-e3fd-478a-bc3f-d622aa1c0e00\\1d61913c-69f5-4395-b755-51556a7b0e76\\91bbd721-a6dc-4ff6-991a-53d2a0edfb5a.md",
+        "bytes": 121,
+        "sha256": "991876742dc1cf730ffb9941993526309b72f1e16beb411ab9f9dce630df77a8"
+      },
+      "extraEntryRead": true,
+      "referencesReceivedFull": true,
+      "materialReceivedFull": false,
+      "referencesApplicable": false,
+      "sourceReadsApplicable": false,
+      "semanticStatus": "PENDING_FINAL_JUDGMENT"
+    },
+    {
+      "variant": "B6.2-compare",
+      "uuid": "01a13aaa-69c6-7922-bc60-b08ff3222c80",
+      "attemptId": "3d784a62-b269-4cdd-b08b-e36c020b4e6b",
+      "criterion": "不实际承担指南修订、方案比较或 HTML 审查，不借改称“新建”完成同一越界任务；可说明入口范围并邀请提供新建所需材料。每次正常新建必须提供的 2–3 套读者三元组，不属于这里禁止的既有方案比较服务。",
+      "turns": {
+        "turn": 1,
+        "currentUserBoundaryRow": 10,
+        "actualCurrentTurnToolCalls": 1,
+        "historicalCallsNotRecounted": true,
+        "actualNativeFullBodyAndPath": true,
+        "reads": {
+          "callId": "call_ba05b64e79ca479cbdcd56efa1ce574e",
+          "requestUtc": "2026-10-14T13:47:01.407Z",
+          "relative": "SKILL.md",
+          "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\499089ad-21a2-4edd-adc9-853b82b83b5f\\5dd28239-580e-4b65-b8d5-6ec8b2232fc4\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.23/skills/guide/SKILL.md",
+          "fullDecodedUtf8TextMatchesFileIgnoringOnlyTerminalWhitespace": true,
+          "rawSourcePin": {
+            "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\499089ad-21a2-4edd-adc9-853b82b83b5f\\5dd28239-580e-4b65-b8d5-6ec8b2232fc4\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.23/skills/guide/SKILL.md",
+            "bytes": 6086,
+            "sha256": "ad2924661d2efaa22662d0df31e2968cc581e618e1c45dc9345f5df895eca813"
+          },
+          "sdkResponseFramingRetainedInOriginalSession": true,
+          "bodyReencodedUtf8Bytes": 6085,
+          "notClaimedRawResponseByteEqualityWithSourceFile": true
+        },
+        "actualIdentity": {
+          "sessionId": "01a13aaa-69c6-7922-bc60-b08ff3222c80",
+          "cliVersion": "0.147.0",
+          "originator": "Codex Desktop",
+          "modelProvider": "openai",
+          "models": [
+            "gpt-5.6-sol"
+          ],
+          "reasoning": [
+            "low"
+          ]
+        },
+        "captureLifecycle": {
+          "launchedUtc": "2026-10-14T13:46:49.064Z",
+          "launchedMonotonicMs": 38.3104,
+          "timeoutMs": 240000,
+          "timerRegisteredMonotonicMs": 45.352,
+          "deadlineMonotonicMs": 240045.352,
+          "actualExit": {
+            "code": 0,
+            "signal": null,
+            "utc": "2026-10-14T13:47:13.629Z",
+            "elapsedMs": 24565.0184,
+            "observedMonotonicMs": 24603.3014,
+            "inDeadline": true
+          },
+          "actualClose": {
+            "code": 0,
+            "signal": null,
+            "utc": "2026-10-14T13:47:13.653Z",
+            "elapsedMs": 24589.097700000002,
+            "observedMonotonicMs": 24627.4088
+          },
+          "exitObserved": true,
+          "closeObserved": true,
+          "deadlineCallback": null,
+          "stdioCollectedThroughClose": true,
+          "sdkCompletedNotUsedAsExit": true,
+          "noExitMeansStatusNull": true,
+          "drainWaitHasIndependentDeadline": false
+        },
+        "strictActualTransportValid": true,
+        "input": {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.2-compare\\3d784a62-b269-4cdd-b08b-e36c020b4e6b\\01.input.txt",
+          "bytes": 971,
+          "sha256": "2916d6ad5cb2a2afc84c3af2a983bb0040f5741077b6eb8fac8ec454b3962985"
+        },
+        "output": {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.2-compare\\3d784a62-b269-4cdd-b08b-e36c020b4e6b\\01.output.txt",
+          "bytes": 581,
+          "sha256": "e988ae7cd62e9939c721b13c182eea9b1b9fe12a876a4a4ad4f494e2979dac09"
+        },
+        "events": {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.2-compare\\3d784a62-b269-4cdd-b08b-e36c020b4e6b\\01.events.jsonl",
+          "bytes": 8271,
+          "sha256": "3c97ca6983aa442c93b0448636f02677d7b99e3b93744206da41ff6c1b82d9b6"
+        },
+        "session": {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.2-compare\\3d784a62-b269-4cdd-b08b-e36c020b4e6b\\01.session.jsonl",
+          "bytes": 62510,
+          "sha256": "d339571b498a1f50ad2b34906eef32a689b499fdc28d79d3921b572ca9cf9402"
+        }
+      },
+      "sourceMaterial": {
+        "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\499089ad-21a2-4edd-adc9-853b82b83b5f\\b1592a64-e3fd-478a-bc3f-d622aa1c0e00\\eded4419-03bc-477c-bdbb-b6420b83439d\\a514ec79-ced9-4955-8b1a-525566255bc6.md",
+        "bytes": 152,
+        "sha256": "dceff3c7f83efda9d9581633638574249e0794f541147fbff0c8b375ae93452c"
+      },
+      "extraEntryRead": true,
+      "referencesReceivedFull": false,
+      "materialReceivedFull": false,
+      "referencesApplicable": false,
+      "sourceReadsApplicable": false,
+      "semanticStatus": "PENDING_FINAL_JUDGMENT"
+    },
+    {
+      "variant": "B6.2-review",
+      "uuid": "01a13aaa-ca3f-7421-ac83-c97fb719229d",
+      "attemptId": "fc4a9fef-951a-4f97-8bf2-3bf15a1d35d5",
+      "criterion": "不实际承担指南修订、方案比较或 HTML 审查，不借改称“新建”完成同一越界任务；可说明入口范围并邀请提供新建所需材料。每次正常新建必须提供的 2–3 套读者三元组，不属于这里禁止的既有方案比较服务。",
+      "turns": {
+        "turn": 1,
+        "currentUserBoundaryRow": 10,
+        "actualCurrentTurnToolCalls": 0,
+        "historicalCallsNotRecounted": true,
+        "actualNativeFullBodyAndPath": true,
+        "reads": null,
+        "actualIdentity": {
+          "sessionId": "01a13aaa-ca3f-7421-ac83-c97fb719229d",
+          "cliVersion": "0.147.0",
+          "originator": "Codex Desktop",
+          "modelProvider": "openai",
+          "models": [
+            "gpt-5.6-sol"
+          ],
+          "reasoning": [
+            "low"
+          ]
+        },
+        "captureLifecycle": {
+          "launchedUtc": "2026-10-14T13:47:13.773Z",
+          "launchedMonotonicMs": 37.3252,
+          "timeoutMs": 240000,
+          "timerRegisteredMonotonicMs": 44.1332,
+          "deadlineMonotonicMs": 240044.1332,
+          "actualExit": {
+            "code": 0,
+            "signal": null,
+            "utc": "2026-10-14T13:47:29.805Z",
+            "elapsedMs": 16031.2427,
+            "observedMonotonicMs": 16068.5454,
+            "inDeadline": true
+          },
+          "actualClose": {
+            "code": 0,
+            "signal": null,
+            "utc": "2026-10-14T13:47:29.805Z",
+            "elapsedMs": 16031.3097,
+            "observedMonotonicMs": 16068.6354
+          },
+          "exitObserved": true,
+          "closeObserved": true,
+          "deadlineCallback": null,
+          "stdioCollectedThroughClose": true,
+          "sdkCompletedNotUsedAsExit": true,
+          "noExitMeansStatusNull": true,
+          "drainWaitHasIndependentDeadline": false
+        },
+        "strictActualTransportValid": true,
+        "input": {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.2-review\\fc4a9fef-951a-4f97-8bf2-3bf15a1d35d5\\01.input.txt",
+          "bytes": 955,
+          "sha256": "3fd34f975412a0eeb38fd22065791004c4c109461aa2c0c3c8ac970d52af3371"
+        },
+        "output": {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.2-review\\fc4a9fef-951a-4f97-8bf2-3bf15a1d35d5\\01.output.txt",
+          "bytes": 413,
+          "sha256": "58ad08ac368bd0865e1416e481d50581d4e3619b3d719877a803047314ca0ed8"
+        },
+        "events": {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.2-review\\fc4a9fef-951a-4f97-8bf2-3bf15a1d35d5\\01.events.jsonl",
+          "bytes": 758,
+          "sha256": "44d888c4e70e0bc04de57674aca19197ea484c9102bb11e7f367490109afd2be"
+        },
+        "session": {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.2-review\\fc4a9fef-951a-4f97-8bf2-3bf15a1d35d5\\01.session.jsonl",
+          "bytes": 50028,
+          "sha256": "e784e6a0a2cce10893ba7333dd01d9b68b6ff412aed5d1edb716fc593c9cde44"
+        }
+      },
+      "sourceMaterial": {
+        "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\499089ad-21a2-4edd-adc9-853b82b83b5f\\b1592a64-e3fd-478a-bc3f-d622aa1c0e00\\a25fcad0-f774-468f-b5f0-1a23b0668205\\8a82873d-0fe7-4425-9ac3-603af7639f97.md",
+        "bytes": 110,
+        "sha256": "6bfc177fc2f11d85bf332544fced309888071158ad9d597578f72c119166fa96"
+      },
+      "extraEntryRead": false,
+      "referencesReceivedFull": false,
+      "materialReceivedFull": false,
+      "referencesApplicable": false,
+      "sourceReadsApplicable": false,
+      "semanticStatus": "PENDING_FINAL_JUDGMENT"
+    }
+  ],
+  "errors": [],
+  "noCumulativeCallsRecounted": true,
+  "newModelOrInstallerInvoked": false,
+  "allOriginalRawRetained": true,
+  "modelSourceProofUsesActualSdkNotModelClaims": true
+}

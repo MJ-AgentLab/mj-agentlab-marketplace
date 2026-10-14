@@ -1,0 +1,16 @@
+{
+  "recordedAt": "2026-10-14T13:55:31.634Z",
+  "reviewer": "/root",
+  "method": "NORMAL_BOUNDARY_STOP_NEW_INPUTS",
+  "version": "0.1.23",
+  "canonicalSha": "b46069e3979136e70d64b9873b799b5bd069ca95",
+  "variant": "B1.2-delayed",
+  "uuid": "01a13aab-2fe2-7621-b2d5-98dc7016c10e",
+  "turn": 3,
+  "finding": "The shared-state lifecycle says only 重新开始 restores all §1 initial values. Source §6 cancel can restore these same fields after a teaching reservation change while other initial fields remain. Source specifies no such exclusivity. Primary amended-goal confirmation is separate.",
+  "fullReadingTool": "dc500a",
+  "noKillInFlight": true,
+  "noRetryOrResampling": true,
+  "markerNeverSentToModel": true,
+  "independentCrossReview": "REQUESTED; Root observed semantic violation and stops new inputs now"
+}

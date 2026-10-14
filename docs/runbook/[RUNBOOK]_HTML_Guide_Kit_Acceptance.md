@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-14
 state: draft
-version: v1.40
+version: v1.42
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -681,3 +681,38 @@ Codex本地项目外UUID01a13a72-ab05-7b81-b2f1-3873011c4288亲自UI提交：T1�
 新23准确canonical安装/模型/客户端尚NOT_RUN；须新安装缓存、原冻结关键六组及受影响扩展、新客户端复验，不能沿用22客户端P。实际CI/最终head非作者批准、线程、后续merge差异复验及Owner接受各自满足；#220/Epic开放。现实效果NOT_MEASURED，无Release/tag/main发布动作。
 
 提交前独立审查发现两张原整窗截图仍含父工程任务toast/pet/chrome，原“ownTaskTitleOnly”说明并不完整。原图/private proof保持；未提交的两整窗副本已从公开目录移除，仅入两个x920/y95/780×1280确定性原像素提取，998400像素逐项逆对相同，542060真实成功，截图仍只显示指南开头。首次提取null proof/错误不称成功，B新privacy-review另件更正并保原记录，模型P不因此扩大。
+
+
+## 46. 0.1.23准确工程候选与冻结复验
+
+补充草稿[PR #238](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/238)已建立并附加当前任务，准确canonical b46069e3979136e70d64b9873b799b5bd069ca95/tree d8a2ffb8646065dff8f7a46fe741b1f93b5873ad，base为#231实际merge71e2。HTML0.1.23，marketplace8.3.0与其他四插件保持；入口、图标及登记未改。346完整测试、65文档/A6、validate/check通过，原静态评审只称STATIC_ONLY。
+
+唯一canonical控制2957e6/session55486最终79ca0d EXIT0，十三严格安装和六次实际安装缓存Python完成；[完整原安装记录](evidence/html-guide-kit/pr3-post-merge/engineering-b46069e3/archive-index.json)逐文件保留。summary SHA7690a189f1af795089ec5692174d22b60e3539b8a550a29d13642393fad31bbb，installation SHA5bbf871e61d5907af8dcefb4e9938835176bd87b42a78e32166078ec2bdc02ea。临时安装根已由原控制正常清理，不声称后续重新读取已清缓存；模型使用另行准备的新评审镜像/缓存及实际读取事件。
+
+C冻结控制、A独立静态审保原输入/判准和0.147.0/OpenAI/gpt-5.6-sol/low，四十控制文件中三十七字节不变，仅三个guard作版本替换；controller亦仅guard更名，不改严格校验。全角色同一23普通暂停文件，在准备、人工选择、每个后续输入前显式核对；检查与启动非原子，不承诺立即停止在途。十四fresh UUID/三十连续输入按A六组十四轮、B四变体五轮、C四变体十一轮调度，语义独立交叉审；尚不宣称整体PASS。首个FAIL/INVALID保原件并停新增输入，在途自然完成，未覆盖单列。
+
+两个23客户端尚未运行。已准备包内十资源的随机单包UI镜像，canonical/mirror exact、reviewer资料排除，安装与行为NOT_RUN；不要求该镜像等于完整仓库tree。源22限定双入口结果不转移。当前head CI、真实非作者批准与线程另核；#220/Epic开放、现实效果NOT_MEASURED，无正式发布动作。
+
+
+23核心实际出现新FAIL，Root58894e于2026-10-14T13:55:31.634Z写普通global标记，禁止新输入、在途自然完成，无kill或重采样。C delayed UUID01a13aab-2fe2-7621-b2d5-98dc7016c10e T3:181在共享态写“执行重新开始才恢复§1全部初始值”；源§6取消在允许题设下亦可回同全部初值，未给排他依据。T3:93仅正库存才显示“当前可以操作领取”又把操作许可和领取获得结果混淆：源§4已核验/库存0可操作而等待。Root完整读dc500a、328870独立机械核对真实SDK/三方缓存后给主要修改确认PASS、整体FAIL；A完整交叉审67856b确认两处局部违例，旁处正确不补。B1.1四轮整体PASS及局部恢复对象比较note分列，不修改原源22失败。
+
+准确停止清单与完整原件封存收集中；已知C为三个UUID八COMPLETE（4/3/1），组合仅T1/B2未开始；B四UUID五轮已自然完成。A停止消费记录及在途准备起止按实际另记。扩展第一批仅安装准备、零模型，第二批未准备。新23客户端未调用。后续0.1.24仅在外部准备通用草稿/冻结控制，未接入或测试；PR238保持Draft、#220/Epic开放。
+
+
+## 47. 0.1.24同维度判断与表达回退修正
+
+源23实际十二fresh UUID/二十四COMPLETE，零INVALID；A五/十一、B四/五、C三/八。13:55:31.634Z普通marker后没有新启动；仅A B5.1T1从13:54:47.554至13:55:32.781跨marker自然结束，C组合T1此前已完成。两确定FAIL变体：C delayed局部终值排他与操作许可/目标结果混淆；A B4.1局部恢复图缺源清除动作。主要确认/模拟P与整体F分开。组合和B5.1仅T1，B2/B5.2无attempt；扩展仅一安装准备批零模型，第二未准备。准确独立报告、原件清单及停止闭包继续按实际封存，不借其他P。
+
+24两参考仅改三个既有span：framework§4先明确排他对象/谓词/维度，区分恢复动作与相同终值；§5本处表示难保完整时改用忠实文字/完整单元，不给残缺结果边；interaction§4先分别判操作许可、结果分支、字段已知，不把目标结果的条件加为许可门槛。无固定图/章节/控件/题量、fixture答案或Owner依赖，纯条件/非操作材料与合法实际共同范围缩写保留。入口6086LF/6140CRLF不变；framework10684B SHA49faecae1cdb5ef470a261e9bb3b3cfe71c1d1914761bc2ab3e3fcfa2cbb79c2，interaction10579B SHAc363f4df04c82c256bcff803b633d756e9a8d1617f4c0736da37f0e42f6fcc9f。
+
+A外部草稿、Root/B独立完整STATIC_ONLY审，freeze SHA94a2faccbe31c9eb45c096a285b0a0dd5858dcc59db25b52976f04699d033603。首次Root接入helper8a706b读错B报告字段，在参考写入前失败；38643c DryRun后4a5b60版本工具仅manifest一锚点23→24，Root按实际freezeSha256字段修正并f2ec1d应用两份准确参考。该中间工作状态没有安装/模型，失败和实际顺序保留，不追写理想顺序；市场8.3.0/其他四包/图标/入口/登记不变。
+
+C准备24控制、A独立静态审：四十active中37exact/3guard九处ASCII23→24，controller仅一guard，正逆核对与28Node语法通过。V2/candidate/defaults/原输入判准/正常边界停机制保持，全部kind显式24普通pause，人工选择前/choose前/next前核对；不原子、不杀在途或承诺锁窗。原描述占位符fresh23batch遗留另记，实际调用须传真实fresh24batch，不改冻结判准。尚无准确24canonical/cache/model/UI结果，不称通过。
+
+PR238继续Draft，须准确工程安装、六组核心及受影响扩展、两端新客户端、当前head GitHub批准/CI/线程及实际merge差异复验；#220/Epic开放，现实效果NOT_MEASURED，无正式发布动作。
+
+
+24完整工程检查已实际a17b17/session29146最终9c5c30 EXIT0：346PASS/0FAIL/0skip、230155.6918ms；validate/check d36400通过，65文档/A6最终3b0d3c全PASS。准确[原草稿、独立静态审、控制和工程记录](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-24/index.json)保留上述首次helper失败及实际接入顺序。仍无准确24canonical安装/模型/客户端结果，不能以这些检查通过关闭Epic。
+
+
+补充独立复核后，原23 B4.2 PASS的局部范围解释不足：取消模拟允许给定导览状态而未限定为真，却泛称预约unknown时资格均待定，撤销导览false时源AND已足以判否的已知结果。B原PASS/closure/Root原8P2F快照保留，新4f7d7ff8补充和Root901774a1聚合另件更正为有效7PASS/3FAIL/2UNEXERCISED/2NOT_RUN（12UUID24C不变）。Rooted1d42完整重读确认；没有新模型输入或修改判准、24运行资源。准确[原独立报告与更正](evidence/html-guide-kit/pr3-post-merge/source023-stopped/index.json)已逐字节封存，完整原输入/输出/SDK封包仍并行准备，不提前声称完成。

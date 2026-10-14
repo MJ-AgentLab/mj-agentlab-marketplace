@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-14
 state: active
-version: v2.55
+version: v2.57
 ---
 
 # 文档索引
@@ -212,3 +212,11 @@ HTML 0.1.22实际10新会话/20COMPLETE已停止，来源限制误归及局部�
 HTML #231实际merge71e2与head同树，十三安装/六缓存Python复验通过；034原395文件完整复原，旧FAIL和reviews空保留。ComputerUse已恢复，22项目外Codex会话正在连续验证，完整客户端未通过；后续补丁另测，见[HTML RUNBOOK §44](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
 
 HTML合并版0.1.22两个原生入口各三轮限定P，完整私有SDK/他会话排除，原两F/待审不变；0.1.23两参考通用修正已双静态审接入，新缓存/模型/客户端NOT_RUN，见[RUNBOOK§45](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+HTML后续草稿#238准确b46069e3/0.1.23通过十三严格安装及六缓存Python，冻结14新会话/30输入核心已调度；23客户端尚未运行、旧22两FAIL保留，见[RUNBOOK§46](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+HTML23核心新FAIL已普通停止：恢复终值排他及操作许可/取得结果混淆，主要确认P不抵消，24草稿准备中；源23客户端未调用，PR238 Draft保持，见[RUNBOOK§46](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+HTML0.1.24两参考三span通用修正经双独立静态审接入，区分许可/结果、恢复动作/同终值与局部完整表示；原23十二UUID/24C两失败保持，新准确安装/模型/客户端NOT_RUN，见[RUNBOOK§47](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+HTML23补充复审另件更正有效7P/3F/2U/2未跑，原8P/2F快照和PASS报告保留，12UUID/24C无新调用，见[停止证据](runbook/evidence/html-guide-kit/pr3-post-merge/source023-stopped/index.json)。

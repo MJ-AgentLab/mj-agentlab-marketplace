@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [0.1.24] - 2026-10-14
+
+- HTML Guide Kit 0.1.24 checks exclusive claims against the same result dimension and separates operation permission from achieving a target result. Incomplete local relationships can use faithful text or complete rule units without a fixed format.
+- Only two references change in three existing spans; entry, icon, public contract and other plugins remain. Preserve source0.1.23 actual failures, passes and unexercised paths; require fresh exact installation and behavior/client verification. Refs #217, #220.
+
 ## [0.1.23] - 2026-10-14
 
 - HTML Guide Kit 0.1.23 reorganizes source-rule checks and two-way guide audits, retaining all source recovery actions in local relations and keeping teaching input choices separate from source limits. The entry and public contract remain unchanged.

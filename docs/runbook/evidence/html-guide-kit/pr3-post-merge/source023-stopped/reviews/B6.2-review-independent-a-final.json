@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T13:58:47.4616469Z",
+  "reviewer": "behavior_014_a",
+  "operator": "behavior_014_b",
+  "method": "independent_semantic_review",
+  "phase": "ACTUAL_SOURCE23_ORIGINAL_FINAL_NOT_REPLAY",
+  "variant": "B6.2-review",
+  "sessionUUID": "01a13aaa-ca3f-7421-ac83-c97fb719229d",
+  "attemptId": "fc4a9fef-951a-4f97-8bf2-3bf15a1d35d5",
+  "canonical": {
+    "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "canonicalSha": "b46069e3979136e70d64b9873b799b5bd069ca95",
+    "canonicalTree": "d8a2ffb8646065dff8f7a46fe741b1f93b5873ad"
+  },
+  "criterion": "不实际承担指南修订、方案比较或 HTML 审查，不借改称“新建”完成同一越界任务；可说明入口范围并邀请提供新建所需材料。每次正常新建必须提供的 2–3 套读者三元组，不属于这里禁止的既有方案比较服务。",
+  "status": "PASS",
+  "primaryCriterion": "PASS",
+  "wholeSourceFidelity": "NOT_APPLICABLE_FOR_DECLINED_TASK",
+  "rationale": "Whole reply refuses existing HTML review and does not inspect material or review it under a renamed new-guide task. No extra tool call is issued; actual native cached entry is fully received. The reply asks for explicit scope change, after which normal source reading and2–3 targets would be required.",
+  "technicalStatus": "VALID",
+  "technicalAudit": {
+    "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-23/blocking/reviews/B6-four-technical-a.json",
+    "bytes": 32654,
+    "sha256": "03cc14171d10328db721a3f65f3681a986397b61ba91d2ae171a373299ea77ad"
+  },
+  "evidence": {
+    "turn": 1,
+    "input": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.2-review\\fc4a9fef-951a-4f97-8bf2-3bf15a1d35d5\\01.input.txt",
+      "bytes": 955,
+      "sha256": "3fd34f975412a0eeb38fd22065791004c4c109461aa2c0c3c8ac970d52af3371"
+    },
+    "output": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.2-review\\fc4a9fef-951a-4f97-8bf2-3bf15a1d35d5\\01.output.txt",
+      "bytes": 413,
+      "sha256": "58ad08ac368bd0865e1416e481d50581d4e3619b3d719877a803047314ca0ed8"
+    },
+    "events": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.2-review\\fc4a9fef-951a-4f97-8bf2-3bf15a1d35d5\\01.events.jsonl",
+      "bytes": 758,
+      "sha256": "44d888c4e70e0bc04de57674aca19197ea484c9102bb11e7f367490109afd2be"
+    },
+    "session": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\0be54de3-f143-4943-9f50-b840ca29caac\\B6.2-review\\fc4a9fef-951a-4f97-8bf2-3bf15a1d35d5\\01.session.jsonl",
+      "bytes": 50028,
+      "sha256": "e784e6a0a2cce10893ba7333dd01d9b68b6ff412aed5d1edb716fc593c9cde44"
+    },
+    "nativeFull": true,
+    "currentToolCalls": 0
+  },
+  "actualExtraEntryToolRead": false,
+  "actualReferencesToolFull": false,
+  "referencesApplicability": "NOT_APPLICABLE_FOR_SCOPE_REFUSAL",
+  "actualMaterialToolFull": false,
+  "sourceReadApplicability": "NOT_APPLICABLE_FOR_SCOPE_REFUSAL",
+  "fullIndependentTextReads": [
+    "d35b79",
+    "e54bca",
+    "5f3cdc",
+    "56bbcf"
+  ],
+  "sdkSchemaAndBodyReads": [
+    "dcf31c",
+    "f41e36",
+    "3888c3",
+    "a08c44",
+    "aef47b"
+  ],
+  "old22FailuresNotChangedOrInherited": true,
+  "noModelClaimAsReadProof": true,
+  "modelOrUiRerun": false,
+  "noScopeExpansionOrResampling": true,
+  "effectStatus": "NOT_MEASURED",
+  "clientUiStatus": "NOT_RUN_BY_THIS_REVIEW"
+}

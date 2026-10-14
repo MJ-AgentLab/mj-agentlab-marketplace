@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T14:08:28.0669039Z",
+  "phase": "STATIC_ONLY",
+  "reviewer": "behavior_014_a",
+  "controlsAuthor": "precommit_014",
+  "candidateVersion": "0.1.24",
+  "result": "NO_STATIC_BLOCKERS",
+  "freeze": {
+    "bytes": 8114,
+    "sha256": "7206461e61870e705ce011680c21849641cfcf97bda2f4ed67b8afe491c985c6"
+  },
+  "source23FreezeSha256": "cbcba7bd55d952caab556f860e51223e7c0e9bbd900a41fbf4fd725aa0d627a0",
+  "recordPins": {
+    "inventory": {
+      "relative": "frozen-copy-inventory.json",
+      "bytes": 33413,
+      "sha256": "3a8861629249fe340320151cc862182485b491dec99f3b2e552289a121fde027"
+    },
+    "guardDiff": {
+      "relative": "version-guard-exactdiff.json",
+      "bytes": 3168,
+      "sha256": "221ac4ddd9bdad519e30f19d10813a12dda9e4b7ae65e6fbf9d4fb5c230f856c"
+    },
+    "scheduling": {
+      "relative": "scheduling-contract.json",
+      "bytes": 1907,
+      "sha256": "79bb0ed9f8b68525ef557cec682cd6e12be69c0dde223ddd620b8b05bdf9e7c4"
+    }
+  },
+  "actualActiveCount": 40,
+  "actualExactCount": 37,
+  "guardAndController": [
+    {
+      "relative": "prepare-correction.mjs",
+      "changedBytes": 4,
+      "forwardReverseAndOffsetsExact": true,
+      "offsets": [
+        63,
+        535,
+        813,
+        876
+      ]
+    },
+    {
+      "relative": "prepare-coverage.mjs",
+      "changedBytes": 4,
+      "forwardReverseAndOffsetsExact": true,
+      "offsets": [
+        96,
+        1205,
+        1506,
+        1569
+      ]
+    },
+    {
+      "relative": "verify-canonical.mjs",
+      "changedBytes": 1,
+      "forwardReverseAndOffsetsExact": true,
+      "offsets": 3924
+    },
+    {
+      "relative": "controller.mjs",
+      "changedBytes": 1,
+      "forwardReverseAndOffsetsExact": true,
+      "offsets": 3950
+    }
+  ],
+  "captureModule": {
+    "relative": "capture-lifecycle-control.mjs",
+    "bytes": 2825,
+    "sha256": "947cb0a958932d8007b7d3d6efb62c0969ba792272f0c7eaf00c118857fbd6eb"
+  },
+  "candidateOperator": {
+    "relative": "operator-sequential.manual.candidate.mjs",
+    "bytes": 5028,
+    "sha256": "fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42"
+  },
+  "syntaxReceipts28ActualExit0": true,
+  "syntaxRerun": false,
+  "defaultProof": {
+    "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\diagnostics\\inherited-pr2-6ee40474\\metadata-relocated.json",
+    "bytes": 3891,
+    "sha256": "112d6f63191c781df9d2ca6d99a2f228f299aae82e056e3bf1869ee70d50bb49",
+    "unchanged": true,
+    "copiedIntoModelEnvironment": false,
+    "copiedIntoConsumer": false,
+    "copiedToConsumer": false
+  },
+  "baseline": "codex-cli0.147.0/openai/gpt-5.6-sol/low",
+  "protected23": [
+    {
+      "relative": "operator-c-records/stopped-original-operator-closure.json",
+      "sha256": "8cb9c7791e82d07d26aec19a683716645f2596de6185f9c2143fdf31f8dd75d0",
+      "byteStable": true
+    },
+    {
+      "relative": "operator-c-records/B1.1-complete-handoff.json",
+      "sha256": "b7077cc03779b7b67730c5d975691d66f3a74a76d813c73508cf3f95e6acbae3",
+      "byteStable": true
+    },
+    {
+      "relative": "operator-c-records/B1.2-delayed-complete-handoff.json",
+      "sha256": "a09177618513247337915b14083130d97c4d5037f08fa85c6c2e91695f0c3ffb",
+      "byteStable": true
+    },
+    {
+      "relative": "blocking/reviews/root-023/B1.1.json",
+      "sha256": "a45fa6a946353de2263aab68f1b67fc4249cb79472251ddaeb9e55c1ddea760d",
+      "byteStable": true
+    },
+    {
+      "relative": "blocking/reviews/root-023/B1.2-delayed.json",
+      "sha256": "ec11828d83377a622f412a3f7d608a2af18fb02d0160474a881ff5ec2022f8c0",
+      "byteStable": true
+    },
+    {
+      "relative": "normal-execution-pause.flag",
+      "sha256": "e3d50a1c5dc444abb86d147d3739cb3400d8fd58c063a3357c246592c465fb14",
+      "byteStable": true
+    }
+  ],
+  "draftPins": [
+    {
+      "relative": "SKILL.md",
+      "pin": {
+        "bytes": 6086,
+        "sha256": "ad2924661d2efaa22662d0df31e2968cc581e618e1c45dc9345f5df895eca813"
+      }
+    },
+    {
+      "relative": "references/guide-framework.md",
+      "pin": {
+        "bytes": 10684,
+        "sha256": "49faecae1cdb5ef470a261e9bb3b3cfe71c1d1914761bc2ab3e3fcfa2cbb79c2"
+      }
+    },
+    {
+      "relative": "references/interaction-design.md",
+      "pin": {
+        "bytes": 10579,
+        "sha256": "c363f4df04c82c256bcff803b633d756e9a8d1617f4c0736da37f0e42f6fcc9f"
+      }
+    }
+  ],
+  "requiredGlobalPauseFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-24\\normal-execution-pause.flag",
+  "observations": [
+    "Actual40 active/source/provenance pins individually read and checked;37 exact,3versionhelpers9ASCII plus controller1. Plans/materials/prompts/criteria/SPEC/default are unchanged.",
+    "Actual candidate entry/variant/COMPLETE-turn normal boundaries and scheduling contract read. Every kind requires explicit new24 --pause-file; caller also checks before quote/choose/next. Checks are not atomic; no window-lock or kill promise.",
+    "Non-blocking inherited scheduling args[2] still describes {fresh23batch}; actual paths are24. Every invocation must supply an actual fresh24 batch; this label is not a runtime input or object to reuse. Original frozen record is preserved.",
+    "V2 strict actual exit/close/deadline/identity/SDK event gate retained; no SDK-completion substitute or deadline relaxation. Module technical-origin label remains20 correctly.",
+    "Mirror whitelist and prompt construction unchanged: random neutral runtime-only mirror excludes reviewer/tests/evals/evidence/control/docs; frozen input and selected label/runtime source paths only. Actual24 mirror/cache not created or checked.",
+    "Scope-only cases retain observed actual read booleans and conditional N_A applicability; this static review changes no behavior grading or requires unnecessary source reads.",
+    "Source21 fixture proof only reused for exact unchanged mechanism, not new24 execution/model/client result. Existing source23 failures, raw and shared marker remain pinned."
+  ],
+  "actualReads": [
+    "a220b8",
+    "41f013",
+    "1e932c"
+  ],
+  "errors": [],
+  "newWrapperOrControlExecuted": false,
+  "modelInvoked": false,
+  "installationInvoked": false,
+  "uiInvoked": false,
+  "repositoryModified": false,
+  "source23OrDraftModified": false,
+  "notBehaviorPass": true
+}
