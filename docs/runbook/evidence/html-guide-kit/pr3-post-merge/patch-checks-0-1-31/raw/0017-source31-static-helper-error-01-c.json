@@ -1,0 +1,14 @@
+{
+  "recordedAt": "2026-10-14T20:18:06.959Z",
+  "actualTool": "08df3b",
+  "exitCode": 1,
+  "kind": "REVIEW_PROGRAM_TRANSCRIPTION_ERROR",
+  "message": "Original AGENTS proposed digest was copied from chat with an adjacent byte-count digit, producing a65-character expected digest. Actual JSON before/proposed digest is64 characters.",
+  "actualPlanDigest": "e5c55db3fa615beff9b8162dc20bc71993445331e35d682cde967b65e893afac",
+  "source": "plan and AGENTS-eof-correction JSON inspected by8e6d70",
+  "failedAssertion": "original AGENTS plan shape",
+  "productBlocker": false,
+  "modelInvalid": false,
+  "noFinalReportOrRepoWriteBeforeFailure": true,
+  "fix": "Read authoritative plan and correction JSON fields; compare exact bytes and sole last LF deletion."
+}

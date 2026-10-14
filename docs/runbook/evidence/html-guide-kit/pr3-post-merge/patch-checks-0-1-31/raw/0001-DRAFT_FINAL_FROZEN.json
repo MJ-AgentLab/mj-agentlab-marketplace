@@ -1,0 +1,105 @@
+{
+  "status": "FINAL_FROZEN_DRAFT_ONLY",
+  "recordedAt": "2026-10-14T19:51:17.611Z",
+  "author": "/root/behavior_014_a",
+  "sourceCanonical": "696da5df4faedd239783764e59b6832b5884f5e1",
+  "sourceTree": "5202e43ba36ee3f8b231fe28d48293e1b265f990",
+  "sourceVersion": "0.1.30",
+  "proposedVersion": "0.1.31",
+  "resources": [
+    {
+      "relative": "SKILL.md",
+      "sourceSnapshot": "source30-originals/SKILL.md.snapshot.txt",
+      "sourceBytes": 5409,
+      "sourceSha256": "e9dddb6c3699e3aa4af9235247b490529982c882b55c0bd7e9d8e7405fd319bf",
+      "draftPath": "draft/SKILL.md",
+      "draftBytes": 5677,
+      "draftSha256": "65abdd374784d054f9c3d65d52c32c74cf32ac281ad6388e927831c6d7c9e46c",
+      "windowsCrlfBytes": 5713,
+      "changed": true,
+      "exactDeltas": [
+        {
+          "sourceOffsetBytes": 4389,
+          "oldBytes": 58,
+          "newBytes": 326,
+          "oldText": "依交互设计读本例实际状态/输入，匹配基准",
+          "newText": "依交互设计读本例实际状态/输入；源条件规则、源初值不自动给另设本例赋值，仅继承实际明确覆盖的共同题设/默认情境。判定必需信息仍缺时，明标教学构造补足或只对依赖结果保无法确定，不从别例擅选；无需逐例重复无关字段。再匹配基准"
+        }
+      ],
+      "forwardInverseExact": true
+    },
+    {
+      "relative": "references/guide-framework.md",
+      "sourceSnapshot": "source30-originals/references/guide-framework.md.snapshot.txt",
+      "sourceBytes": 9117,
+      "sourceSha256": "8a76449f64e07e61ae9b200111970e5643f7a0e6c181c8e7fef4186237b165f1",
+      "draftPath": "draft/references/guide-framework.md",
+      "draftBytes": 9759,
+      "draftSha256": "b6de10fb7ed3a3f2dfc5cda046e1317243876c5cee2aab2c46760fd37341e654",
+      "windowsCrlfBytes": 9830,
+      "changed": true,
+      "exactDeltas": [
+        {
+          "sourceOffsetBytes": 2795,
+          "oldBytes": 43,
+          "newBytes": 181,
+          "oldText": "问题可观察并标材料支持/缺口。",
+          "newText": "问题可观察并标材料支持/缺口；候选疑问句的预设事实也须核源，尤其区分操作许可与成功结果，不能把相矛盾或未知的前提嵌成已知。"
+        },
+        {
+          "sourceOffsetBytes": 5968,
+          "oldBytes": 88,
+          "newBytes": 592,
+          "oldText": "初值、赋值/运算、源可达值、允许域、值型分开，可达不证全域。",
+          "newText": "源条件规则与源初值描述源规则或指定情境，不替另设本例的实际输入。共同题设/默认情境只有实际说明覆盖本例及覆写方式才继承；引源、章节号或要求“每题明确”不等于已赋值。先核判定所必需信息；仍缺时不从别例或源初值擅选，可就地明标教学构造给必要值/假设，或只把依赖结果保为无法确定。无需每例重复全部规则/字段，不收紧已知宽许可或不依赖缺项的结论。初值、赋值/运算、源可达值、允许域、值型仍分开，可达不证全域。"
+        }
+      ],
+      "forwardInverseExact": true
+    },
+    {
+      "relative": "references/interaction-design.md",
+      "sourceSnapshot": "source30-originals/references/interaction-design.md.snapshot.txt",
+      "sourceBytes": 7773,
+      "sourceSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "draftPath": "draft/references/interaction-design.md",
+      "draftBytes": 7773,
+      "draftSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "windowsCrlfBytes": 7836,
+      "changed": false,
+      "exactDeltas": [],
+      "forwardInverseExact": true
+    }
+  ],
+  "changedResources": 2,
+  "unchangedResources": 1,
+  "changedSpans": 3,
+  "entryWindowsHardLimitBytes": 6144,
+  "preservationMap": [
+    {
+      "source": "Entry step5 + framework source-value paragraph",
+      "proposed": "Separate source rule/initial-value evidence from actual independent example input; inherit only an actually stated shared setup/default and overrides, or clearly mark necessary teaching assumptions or dependent indeterminacy.",
+      "preserved": "Only necessary inputs are required, full source rules/local scope remain reusable, known broad permission and results not depending on missing information remain unchanged."
+    },
+    {
+      "source": "Framework target-question sentence",
+      "proposed": "Audit actual candidate-question presuppositions against source; distinguish operation permission from successful result, without treating false/unknown premise as known.",
+      "preserved": "Three-dimensional target differences, recommendation, explicit choice/update wait and allowance for explicitly identified hypothetical/error statements remain intact."
+    },
+    {
+      "source": "All other Source30 resources/methods",
+      "proposed": "Exact byte preservation outside three spans; entire interaction reference unchanged.",
+      "preserved": "Read/text-only/new-guide contract, evidence discipline/background, conflict/gap/three-value logic, complete source actions/local scope/field attribution, simulation/feedback/retry/no score, output adaptation and all existing boundaries."
+    }
+  ],
+  "independentStatic": "NOT_RUN",
+  "runtimeApplied": false,
+  "repositoryChanged": false,
+  "versionApplied": false,
+  "controlsChanged": false,
+  "old30EvidenceChanged": false,
+  "installation": "NOT_RUN",
+  "consumer": "NOT_RUN",
+  "model": "NOT_RUN",
+  "client": "NOT_RUN",
+  "effects": "NOT_MEASURED"
+}

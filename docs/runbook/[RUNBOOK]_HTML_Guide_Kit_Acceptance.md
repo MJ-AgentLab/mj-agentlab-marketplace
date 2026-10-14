@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-15
 state: draft
-version: v1.58
+version: v1.59
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -936,3 +936,8 @@ Computer Use实际确认新UI-only十文件mirror/缓存与696精确、Read/图�
 权威版本必须用独立PowerShell7.6.5进程先DryRun一manifest锚点、再Apply；原stdout/stderr/exit单列。当前新工程、准确31canonical十三安装/六Python、fresh行为与双端全部NOT_RUN，不把静态或配置写PASS。控制保持CLI0.147/OpenAI5.6-sol、defaultlow与显式selectedhigh分记、实际SDK和完整Read独核、V2真实exit/close/240000ms与同31global普通边界；历史schedule不作未来路径。
 
 市场8.3.0、其他59包文件、登记/图标/调用策略与ID保持；旧30的451和29的362外部原件不修改，历史正文不重写。现实效果NOT_MEASURED，#220/Epic开放，Owner接受、当前head非作者批准/CI/线程/实际merge各自待证；无Release/tag/main发布PR。Refs #217, #220。
+
+
+31工程补证：canonical e2c4463f55dd33a6d24b0080a46b478bc4d6974a/tree a2f4a82074a207fc0a113d5f590548ae9c83ea50。技能quick、65文档/A6、npm validate与实际CLI0.147 check通过；唯一完整npm test为346PASS/0FAIL，实际exit与close均0，原stdout/stderr和命令时间见[工程索引](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-31/archive-index.json)。独立PowerShell7.6.5的DryRun和Apply仅一manifest锚点；初始AGENTS末尾空行check2、删除单LF后的check0均保留，运行内容未变。新三资源与已冻结SHA一致，其他59包文件、65保护资源和旧30/29原件保持；当前市场8.3.0，不改发布范围。
+
+[准确canonical十三安装/六实际缓存Python索引](evidence/html-guide-kit/pr3-post-merge/engineering-e2c4463f/archive-index.json)保存实际结果，五包七技能/四显式/三自然/仓库20逐资源字节验证通过；评审镜像排除reviewer-only资料，不要求与完整Git tree相同。此次工程不推定模型或客户端通过，新连续模型与客户端结果分别记录。现实效果NOT_MEASURED，#220/Epic OPEN；当前head非作者GitHub批准、CI/线程与实际merge另核，无Release/tag/main发布PR。Refs #217, #220。
