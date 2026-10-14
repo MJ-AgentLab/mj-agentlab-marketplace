@@ -1,0 +1,90 @@
+{
+  "recordedAt": "2026-10-14T09:15:49.139Z",
+  "canonicalSha": "7e3deb8fb1d9960ede37ea96a714b1e34652a751",
+  "canonicalTree": "5c7de4743a1b4426b9fb11ce237bcb85e334ffe7",
+  "version": "0.1.20",
+  "snapshot": "../../pr3-reviewer/patch-030-stopped/index.json",
+  "sourceInventorySha256": "643b9c26b64fb1ae9a0b3288c6eb814a448337a189a45bf411e2683a3a2c84f6",
+  "rawFiles": 550,
+  "originalBytes": 13704980,
+  "packets": 10,
+  "actualAccounting": {
+    "uuids": 13,
+    "inputs": 26,
+    "complete": 24,
+    "invalid": 2,
+    "PASS": 10,
+    "UNEXERCISED": 1,
+    "INVALID_RUN": 2
+  },
+  "actualOuterReceipts": [
+    {
+      "action": "pack",
+      "chunk": "804baf",
+      "exitCode": 0
+    },
+    {
+      "action": "node-verify",
+      "chunk": "92f6bb",
+      "exitCode": 0
+    },
+    {
+      "action": "dotnet-verify",
+      "chunk": "d5f79e",
+      "exitCode": 0
+    }
+  ],
+  "newRecoveryAndNativeUiExcluded": true,
+  "originalBytesPreserved": true,
+  "runtimeModified": false,
+  "entries": [
+    {
+      "name": "node-pack.json",
+      "source": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/tracking/030-actual-pack.log",
+      "bytes": 486,
+      "sha256": "3e5789bffae1abcea43cf7a5c062012fce82c5689eb088e4b7bfd4466bef4150"
+    },
+    {
+      "name": "node-restoration.json",
+      "source": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/tracking/030-actual-node-verify.log",
+      "bytes": 372,
+      "sha256": "3b2d66567f19cf8ca00964fc0eff17639335b56d811f7e312e94680bfb9d182e"
+    },
+    {
+      "name": "dotnet-restoration.json",
+      "source": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/tracking/030-actual-dotnet-verify.log",
+      "bytes": 541,
+      "sha256": "5b484a79a6ec5db8f0efffaa7078192840e5cc700f7f369f8af7c37ce37dcf22"
+    },
+    {
+      "name": "pack-030-evidence.mjs",
+      "source": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/pack-030-evidence.mjs",
+      "bytes": 34697,
+      "sha256": "8fb14244fee3c26ba3d609314476687d6012c214bbba000cb3341ff2e9f5fff0"
+    },
+    {
+      "name": "verify-lossless-030-dotnet.ps1",
+      "source": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/verify-lossless-030-dotnet.ps1",
+      "bytes": 6085,
+      "sha256": "9a8938731ab42c9e2ae53a2b4b53b6aa640a3dff728180332bc4cdf75895f9f3"
+    },
+    {
+      "name": "archive-control.json",
+      "source": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/archive-030-control.json",
+      "bytes": 102727,
+      "sha256": "6e8438ce1fcec8ba1e850c8c4ea390a78f19776c00575124e2c4d3679a0d0b01"
+    },
+    {
+      "name": "preparation-control.json",
+      "source": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/packer-provenance/0-1-20/preparation-control.json",
+      "bytes": 10317,
+      "sha256": "ca1d2cc04bea6dcbb8f0e266351f24867ecbfdc24cc6573ef0c9a7943220e166"
+    },
+    {
+      "name": "final-dry-run.json",
+      "source": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/packer-provenance/0-1-20/final-dry-run.stdout.log",
+      "bytes": 32565,
+      "sha256": "b8fc35282f41ac527d70a104925cff43ab881352c52ce25b76124ce181a31151"
+    }
+  ]
+}

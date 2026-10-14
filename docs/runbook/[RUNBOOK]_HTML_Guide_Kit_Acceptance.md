@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-14
 state: draft
-version: v1.30
+version: v1.32
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -570,3 +570,31 @@ Root B1.1 UUID01a138cd-25dc-7463-9de8-ab1b2378b749/attempt43251706 T4:322未限�
 新20仅HTML0.1.19→0.1.20；SKILL6084LF/6138CRLF≤原6144、framework9122B、interaction9247B与19exact。四既有通用段改动/82段exact、无新增删除：先展开源许可/排他/禁止/例外与实际题问/维度，未专名状态不自动未知；明确篇幅上限含标题/标签/提示/附注，按用户单位留约20%余量并核对全稿，压重复保条件/例外/来源、不拆交付越限。所有Read聊天新建、逐份全文读取、不同目标与明确确认、完整演示模拟反馈自检边界不变，无领域答案/Owner路径；两独立静态只STATIC_ONLY。38冻结controls仅三guard九字串19→20、实际18字节差异且文件长度不变；inputs/criteria/default/SPEC/plans/manual/13+6工程方法不变。
 
 新20本记录阶段安装/模型NOT_RUN，须新准确canonical十三安装/六缓存Python及相同冻结真实行为，不继承19PASS。原生Codex应用UI/ChatGPT桌面、空返回/超时/关闭NOT_RUN，现实效果NOT_MEASURED，Owner最终接受独立；合格核心可分段，延期不当通过，#220/Epic OPEN。最终head实际非作者批准、CI、线程、最新base及actualmerge/差异复验分别满足，不指定reviewer、不bypass。
+
+## 39. 0.1.20准确安装与捕获异常的阶段事实
+
+2026-10-14准确运行候选7e3deb8fb1d9960ede37ea96a714b1e34652a751/tree5c7de4743a1b4426b9fb11ce237bcb85e334ffe7，HTML0.1.20。[十三严格安装和六次实际缓存Python](evidence/html-guide-kit/pr3-post-merge/engineering-7e3deb8f/archive-index.json)通过，outer63151/final6cbb3e真实exit0；24原文件按字节保存。346工程测试、65文档/A6及validate/check已通过，当前七项CI全部SUCCESS；reviews=[]/REVIEW_REQUIRED不推定独立批准。其他插件、市场8.3.0及公开main8.2.0范围保持。
+
+本次真实会话在07:58:16.954Z停止新增输入。七个已准备批次共13真实UUID、26实际输入，24COMPLETE、2FAILED_OR_INVALID；未完成的核心、扩展、重复和补充不记PASS。只有Root combined T1及B E14-code T1的捕获跨该marker，输入均早于marker；没有在marker后选择或发送新输入。安装完成但零attempt的七扩展项和一个重复项仍NOT_RUN。
+
+A B4.1 T2的UUID01a13963-bc67-7890-b027-486f6c74fe55，实际SDK task_complete为07:53:54.724Z，距task_started约106秒；B E14-code T1的UUID01a13967-4528-7f23-9b25-07ffc806a30f，实际SDK task_complete为07:54:44.362Z，约53秒。两原stdout均有turn.completed，原捕获分别结束于07:57:15.307Z和07:58:28.587Z，actualexit0但timedOut=true，保持INVALID，不用完整输出追认通过，也不称模型推理未完成。
+
+旧捕获函数只在child.close清执行timer，原件未记录child.exit时间及timer调用child.kill的返回值，具体滞留原因尚未确定。普通操作代理没有主动终止调用；执行器timer确实包含kill调用，因此不能笼统宣称这两个INVALID没有进程终止路径。独立生命周期试验与新的补测控制另记，旧控制、原结果和运行资源不改，技术异常本身不作为运行技能补丁依据。
+
+本段是安装及停止时的阶段记录，独立语义闭包与补测尚未完成；核心14/30、扩展29/59、重复1/2及补充2/9没有整体通过声明。原生双客户端仍NOT_RUN，现实效果NOT_MEASURED；PR3保持draft、#220/Epic开放，当前head真实非作者批准、线程与实际merge复验仍各自待完成。
+
+## 40. 0.1.20原会话闭包、技术补测及桌面实际路径
+
+源20原停止批次的13唯一原final和七summary已实际导入，分别为10PASS、1UNEXERCISED、2INVALID_RUN，26输入中24COMPLETE、2INVALID。第一次wrapper在首项grade实际exit0后误将评审生成时间对象要求为string而exit1；原错误保留，仅修技术验证器，首项不重复，余十二grade及七summary实际exit0。[原550文件/13704980字节/十packet封存](evidence/html-guide-kit/pr3-reviewer/patch-030-stopped/index.json)及[Root实际Node和独立.NET精确复原](evidence/html-guide-kit/pr3-post-merge/candidate030-final-seal/archive-index.json)通过，inventorySHA643b9c26b64fb1ae9a0b3288c6eb814a448337a189a45bf411e2683a3a2c84f6。封存摘要helper初误要求Node verify不存在的inventory字段而exit1，归档未动；原helper/错误保留，新wrapper按实际schema成功，不重复pack或底层验证。最终独立等价检查证明837不可变文件稳定、七batch可逆回原metadata、两个零attempt批次bytes完全相同；不投影false为true、不重判原final，也不把INVALID完整输出追认为PASS。
+
+旧二INVALID SDK完成与执行器超时分开记录。新独立生命周期试验及静态审查支持V2捕获：分别记录实际exit、close、截止时间、timer和kill返回；以实际观察exit严格早于截止作为条件，等待close收全stdio，不把SDK完成当进程退出，也不声称close有独立时间上限。原子差异可逆恢复，输入/判准/default/运行资源不变，仅工程捕获控制更新；新的技术补测使用新batch/UUID，不删除原marker/INVALID，不因此推进运行补丁。原24COMPLETE捕获全部在240秒内结束，最大206221ms；同源已通过有限样本可按资源闭包复用，不重采样原PASS。
+
+原先“本任务原生接口不可用”的阶段限制已被本次实际操作更新：Computer Use 原生接口可用，Owner在聊天明确提供操作窗口。客户端为OpenAI.Codex26.1007.9446.0，独立marketplace别名mj-html-guide-ui-20-05f42de1仅供验收；实际UI添加来源并安装HTML0.1.20，Read、版本、批准图标和启用状态可见。十个canonical包文件与只含该插件的别名镜像、实际安装cache逐byte对应；不要求镜像与完整仓库tree相同，其他用户插件未修改。
+
+普通Chat模式会话6acf3d18-6a3c-83ee-a0ca-529a710117d4（设计教学指南方案）实际报告“当前未获得 $html-guide-kit:guide 的可调用入口”，随后通用提案不计本插件行为；CLIENT_ENTRY_UNAVAILABLE，模型ID未曝露，不从CLI推断。原截图和有限UI正文保留，read_thread正文返回content-reference占位的限制另记。
+
+ChatGPT Work本地路径会话01a1398f-c7f4-7633-a702-a1965dca1a7a（规划共享设备借用教学指南）三轮自然完成：首轮全文读取本次cache入口和框架、给三个不同三元组；第二轮明确尚未选择，仍保留A/B/C并等待，不生成；第三轮明确B后全文读取交互参考并交付聊天指南。该UUID SDK身份为codex_work_desktop/0.162.0-alpha.17.2/openai/gpt-6.1-sol/high，UI为GPT-6.1 Sol High，不等于0.147.0合成基线。独立审查七个有限判据PASS，十文件源/镜/cache及三工具全文接收逐项核对；仅称已执行Work路径通过，不追认普通Chat入口或原生弹窗生命周期。
+
+Codex本地应用入口另建会话01a139a5-f208-7392-9b45-572f3195675c（设计说明读者与理解方案），实际三轮均完成：显式调用、未选保持三方案、明确方案三后读取交互参考并交付。准确输入输出、工具事件和目标窗口截图已保存，独立评审尚待完成，不提前写PASS。宿主空返回、自动超时及窗口关闭/消失仍未执行，聊天文字未选不替这些事件；现实效果NOT_MEASURED，Owner最终接受独立。
+
+新core/expanded技术补测已因确定语义FAIL暂停新增：Root combined T2:463将预约有效且导览完成写成“可以核验”，漏源§3必要当前未核验；主目标确认/真实完整读取的局部PASS保留，不能用远处正确规则补反馈本处前提。Root两fresh/四输入全部COMPLETE、三ordinary outer均exit0，独立最终报告继续冻结，不先写整体PASS。global普通marker为09:18:52.961Z；A在途B5.1T2跨marker自然完成，原controller仅检查batch marker，故09:19:06.118Z自动启动B5.2T1（global后13.157秒、batch marker写入前），真实race与原receipt另件更正均保留，不能称新波次没有marker后输入，不kill在途进程。部分prepare曾长期等待metadata普通返回，原观察保留，最终自然完成，不把等待推断为孤儿进程或telemetry原因，不绕过身份校验。新0.1.21三既有段反馈草稿仅外部静态准备，区分实际共同scope与拟写要求，并保许可短句的全部必要前提；尚未接入运行或执行新模型。PR3保持draft，#220/Epic开放；最终运行候选、全部适用行为、实际当前head非作者批准/CI/线程及merge复验仍须分别完成。
