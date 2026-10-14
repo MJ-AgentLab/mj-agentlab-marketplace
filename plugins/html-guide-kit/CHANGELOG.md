@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.1.28] - 2026-10-15
+
+- HTML Guide Kit 0.1.28 condenses the entry and two references into shared ordered evidence, target confirmation, complete source rules, example computation and whole-guide checking.
+- Preserve the explicit Read-only chat-text contract, adaptive depth, conditions, restoration, bounded unknowns and teaching feedback/retry without scores or production steps; no fixture answers or fixed guide structure.
+- Original0.1.27 failures remain separate. Require fresh canonical installation, behavior and client checks; external explicit reasoning selection stays separate from the real default. Refs #217, #220.
+
 ## [0.1.27] - 2026-10-15
 
 - HTML Guide Kit 0.1.27 classifies each source action or field result and added instructional result before composing sentences or lists; a grouped source citation cannot cover added design items.

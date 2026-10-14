@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-15
 state: active
-version: v2.62
+version: v2.64
 ---
 
 # 文档索引
@@ -231,3 +231,8 @@ HTML26准确工程/十三安装六缓存Python及七CI通过，真实9UUID17C独
 HTML27三既有span先逐项区分source/新增教学结果再编句和引用，额外路径缺口不替代已知直接操作判断；双静态审已接入，准确工程/安装/新会话/双端待跑，见[§53](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
 
 HTML27准确00d59提交：修正后的完整346测试、十三canonical安装/六缓存Python、严格结构/版本及独立静态控制审通过；[§53实际补件](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)保存初始345P1F和修正后原日志。新核心已fresh启动，模型/双端结论待实际独评；源26完整039已lossless收口，纯证据版本仍0.1.27。
+
+HTML27真实核心9UUID18C为5P3F1U5N停止，原源码输出与独立原判据见[§54](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)和[停止账本](runbook/evidence/html-guide-kit/pr3-post-merge/source027-stopped/index.json)。28仅通用资源精简与受支持显式推理配置准备，原defaultlow/失败不改、尚无high实际调用；完整040另准备，版本仍0.1.27。
+
+
+HTML28候选已从27单独推进0.1.28、精确接入三冻结资源；原27停止/完整040保持。工程检查正在执行，十三canonical/六缓存Python、新显式high模型与本版双端尚未运行；defaultlow/旧失败不改，结果见[§55](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。

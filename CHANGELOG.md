@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+- Prepare HTML Guide Kit 0.1.28: condense shared methods while retaining complete source rules, local attribution and the explicit Read-only text contract. Preserve actual0.1.27 failures; fresh installation and behavior remain required. Supported explicit high reasoning is an external acceptance configuration, not a behavioral pass. Refs #217, #220.
+
 - Prepare HTML Guide Kit 0.1.27: classify each source or instructional result before composing mixed citations, and bound missing additional paths without replacing known direct-operation rules. Preserve actual0.1.26 failures; require fresh installed acceptance. Refs #217, #220.
 
 - Prepare HTML Guide Kit 0.1.26: define the exact object, current state, operation and result dimension before a source-gap claim, preserving known broad rules and restoration paths. Keep actual0.1.25 failures and require fresh installed acceptance. Refs #217, #220.

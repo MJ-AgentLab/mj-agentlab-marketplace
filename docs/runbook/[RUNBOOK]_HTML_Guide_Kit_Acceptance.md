@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-15
 state: draft
-version: v1.47
+version: v1.49
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -813,3 +813,33 @@ A冻结38742555ae64030f72523b7328d5fe3740f99fa2152129c01b03804c38b37152经Root66
 27准确canonical00d59da3099113ccbf3db73b84787c526eedd713/treeedc69b137e5473c6e7307120a81c9e091764d673已a2c87e commit、060382六commit范围/普通push通过。原完整128b89为345P1F，shipping CHANGELOG正文未命名本版；同项79504d64P1F，补齐真实版本正文后2ce61565P及重新完整4fad6f346P0F0skip/259172.4907ms。所有原失败日志与修正后独立日志[逐byte保存](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-27/archive-index.json)，不追认初跑。validate90be6a/check14c5a7/技能validate及C63c4de静态集成通过；64保护路径、59其他包和28工具Git未变，entry6095/AGENT16259。控制A8bcdf6审准确40active及37source26保护pin，非旧47项。
 
 唯一c48db2/session88638最终f8f42d EXIT0[十三严格安装及六缓存Python](evidence/html-guide-kit/pr3-post-merge/engineering-00d59da3/archive-index.json)，summary715a6c6798b6904cdc2109282efda2f7d695751efec44b1f0d77f724979e2632、installation89a4a9ac53a277b6969782b3ba19635ea12d22808d1dbb67905faff885d509d6。实际缓存由原控制清理，不声称以后重读已清缓存。门禁完成后Root明确授权三组新fresh核心，原0.147/OpenAI/gpt-5.6-sol/low及输入/判准保持，结论待实际whole独评。27 native f258c3仅十准确文件镜像准备，未backend安装/配置写入/模型输入；旧22P不移用。
+
+
+## 54. 0.1.27实际停止与通用说明精简准备
+
+源27准确00d59da/treeedc69b，HTML0.1.27，346修正后完整工程/十三安装六缓存Python通过。纯补证head365535a39bcc31d97e30da04af18741547a17910/tree d7727bb3与模型/安装源的全部插件、登记及VERSION71文件逐byte相同，不称完整tree同一。当前365七CI均SUCCESS，GitHub reviews为空。
+
+27真实核心最终9UUID18COMPLETE/0INVALID，独立整体5PASS/3FAIL/1UNEXERCISED/5NOT_RUN，12输入未发。B四主与整体P；C三主选择等待/修改确认P，但整体分别存在许可/通过混同、已知禁止被说未知、恢复源对象与新增教学UI结果混归F。合法必要性质、有限新增路径缺口、未来题目待细化note分留，不按关键词裁决。A B3.1 P、B3.2仅首轮U，其余四零；不重抽旧输出。
+
+Root16:39:16.711Z首次confirmed marker后0post，仅C combinedT2 16:38:52.987→16:40:06.251自然跨marker，未kill/retry/resample。最终Rootaggregate08de0a22d7d74ce8617751bf84e6e095e35e4c374932d50bc777f67eb3a1029c。Root再次实际验证C9SDK/12有序完整Read正文/9outer calls/7Git镜像cache/45raw，组合首轮一outer四单文件回包不伪算四outer。独立程序首次schema/拼接解析错误与修正后的机械检查保留，不属于模型INVALID。完整040原件另行准备，尚未入库。
+
+下一28只外部准备通用说明精简：源单元先核一次、必要本地范围明确复用，减少重复改写，保持完整合同/原规则/未知边界。验收CLI0.147与OpenAI实际默认模型gpt5.6-sol保持，将显式选择其实际API支持的high推理配置；旧真实defaultlow和所有失败不改。产品SPEC/ADR没有固定low；新控制必须保原defaultproof、freshmodel/list匹配模型/原default并验证selected支持，记录实际default与selectedIdentity分别。新可选适配仅外部草稿，已双静态及65无模型guard检查，尚未接入、consumer/API/model未运行，不称highPASS。素材/轮次/判准不变。
+
+扩展/本版双端未运行，27 UI只有十准确文件镜像准备。Computer Use已经恢复只读窗口及accessibility，旧22有限双端P不移用；现实效果NOT_MEASURED。PR238保持Draft，#220/EpicOPEN，最终候选行为/双端/当前head非作者批准/CI/线程和实际merge复验仍需完成；无Release/tag/main发布PR或bypass。Refs #217, #220
+
+
+27[全部独立判据、Root语义确认/技术重验、原marker/操作闭包](evidence/html-guide-kit/pr3-post-merge/source027-stopped/index.json)逐byte保留，040完整原件另准备。B[模型/配置事实核查](evidence/html-guide-kit/pr3-post-merge/model-effort-027-fact-check.json)确认SPEC固定CLI0.147与实际身份，不固定low；现执行器原本硬取真实default。28可选适配先Root/B静态和65无模型guard通过，再r2准确派生；actual默认与显式选择分记，proof112d不改，不据语法/元数据称high模型P。未改运行资源，当前仍0.1.27。
+
+
+源27完整[040停止原件](evidence/html-guide-kit/pr3-reviewer/patch-040-stopped/index.json)实际320文件6630926B七包，最大2093996<2097152；Rootc789b6 pack/d492bf Node/97bf45独立.NET均EXIT0逐byte复原，[收口](evidence/html-guide-kit/pr3-post-merge/candidate040-final-seal/archive-index.json)保原9UUID18C、5P3F1U5N、0post与仅C combinedT2 cross。Root4391f5再次实际核九SDK/十二单文件Raw正文/九outer、七Git镜像cache逐byte/45raw；组合首轮一outer四有序body，初次拼接/字段schema审计错误分留。未来28/私有native/auth排除，纯证据保持0.1.27。Root初seal脚本shell引用d98bb1解析失败未写文件/未封原件，改用独立文件后实执行，不追认初跑P。
+
+
+## 55. 0.1.28方法精简接入与显式推理准备
+
+2026-10-15在source27停止/040纯证据修改上接入候选。权威HTMLmanifest先DryRun唯一27→28锚点、再Apply；随后精确复制freeze6f4c58da三资源：入口4348B（Windows4378≤6144）、框架8373B、交互7773B。Root/B独立全文静态无阻断，作者映射不代批准。方法按证据、目标确认、完整源单元、表达、逐例计算及全篇反查分工，减少重复并保合同、来源、许可/结果、恢复和教学反馈边界。
+
+原27核心9UUID18COMPLETE、5PASS/3FAIL/1UNEXERCISED/5NOT_RUN与全部失败保持。82既有STOP/040证据原字节不整理或改写，历史范围见§54。市场VERSION8.3.0、其他四包59资源、登记、图标/UIpolicy和28工具/workflows不变。工作树接入不等于新canonical安装或行为通过。
+
+外部标准freeze e34ec6d保留；五文件十三span经Root/B静态及65无模型guard后派生r2 3d693eed。capture V2、pause、素材/输入/判准保持；实际defaultlow和proof112d不改。下一轮须显式--reasoning-effort high，准备时核旧proof支持及fresh公开默认模型/原default/chosen支持，分记actualDefault与selectedIdentity。真实SDK仍须核CLI0.147/OpenAI/gpt-5.6-sol/high；支持/guard/配置不证实际高推理调用或行为PASS。
+
+首次接入时draft quick_validate通过，应用后工程结果按integration-records实际日志补录。尚无新canonical提交、十三安装/六缓存Python、新模型或本版双端；现实效果NOT_MEASURED，旧有限双端P不移用。#220/Epic开放，当前head非作者批准、CI/线程及actualmerge复验仍须满足，无Release/tag/main发布PR。Refs #217, #220
