@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-15
 state: active
-version: v2.64
+version: v2.65
 ---
 
 # 文档索引
@@ -236,3 +236,5 @@ HTML27真实核心9UUID18C为5P3F1U5N停止，原源码输出与独立原判据�
 
 
 HTML28候选已从27单独推进0.1.28、精确接入三冻结资源；原27停止/完整040保持。工程检查正在执行，十三canonical/六缓存Python、新显式high模型与本版双端尚未运行；defaultlow/旧失败不改，结果见[§55](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+HTML28准确83b3/treeb5be：346完整测试、65文档/A6、严格结构/技能/CLI及十三安装六缓存Python通过，见[§55](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。原失败与准确工程日志逐byte保留；新high核心获授权，实际模型/本版双端结论待独评，不继承旧PASS。

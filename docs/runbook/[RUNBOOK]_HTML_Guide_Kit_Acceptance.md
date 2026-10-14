@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-15
 state: draft
-version: v1.49
+version: v1.50
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -843,3 +843,10 @@ Root16:39:16.711Z首次confirmed marker后0post，仅C combinedT2 16:38:52.987�
 外部标准freeze e34ec6d保留；五文件十三span经Root/B静态及65无模型guard后派生r2 3d693eed。capture V2、pause、素材/输入/判准保持；实际defaultlow和proof112d不改。下一轮须显式--reasoning-effort high，准备时核旧proof支持及fresh公开默认模型/原default/chosen支持，分记actualDefault与selectedIdentity。真实SDK仍须核CLI0.147/OpenAI/gpt-5.6-sol/high；支持/guard/配置不证实际高推理调用或行为PASS。
 
 首次接入时draft quick_validate通过，应用后工程结果按integration-records实际日志补录。尚无新canonical提交、十三安装/六缓存Python、新模型或本版双端；现实效果NOT_MEASURED，旧有限双端P不移用。#220/Epic开放，当前head非作者批准、CI/线程及actualmerge复验仍须满足，无Release/tag/main发布PR。Refs #217, #220
+
+
+28实际900671应用后唯一完整session71302最终575bc1 EXIT0，346P0F0cancel0skip/263456.9584ms；121b6f文档/A6 65P0F/6045.1462ms，d27e9f严格结构、534e8f实际CLI0.147、9f87d1/384eaf隔离quick_validate均P。Root cd3ad8再次机械3资源/59其他包/VERSION登记/工具未变、entry4378/AGENT16299，1c855c实际完整14diff和正常空白检查P。[原工程及静态证据](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-28/archive-index.json)保首次6e104d根CH混LF/CRLF标题预计算失败（零资源/docs写入）、af183e不存在版本log错误及修正后receipt；version工具a31456 DryRun/ec56d6 Apply真实0，但exit导致Tee日志未创建，派生console receipt明确不是原log或重执行。
+
+Root a7afff正常提交runtime5f9eebef及82旧STOP/040纯证据83b3f50ba6c41f923a2b48bba10ca176102be18d/treeb5bea864f5fefba2d964a158e077225cae82d987；65df4d九commit范围及普通pushP。唯一9e5960/session21627最终09742b EXIT0[准确canonical十三严格安装及六缓存Python](evidence/html-guide-kit/pr3-post-merge/engineering-83b3f50b/archive-index.json)，summaryb7f79c85cadbff4fd4bd4eedf0128dcf5ee5d2821f2f864df1a29e3746113be7、installation391152bc364fe61139ad53bac57f05d785f5a9cc228b140826b4a0c1a7584492。原controller已清实际临时缓存，不称随后重读。新模型使用另外fresh安装且必须实际读其缓存。
+
+全门禁后Root明确授权A/B/C14fresh30连续轮次，显式high但原defaultlow/proof112d保持。新技术审查helper由Root a24e3c完整读、10精确span前向/逆向及3syntax核对，分别核默认/selected/fresh支持/actualSDK，不改冻结40控制或旧low报告；配置不证行为。Computer Use本轮已实际取得同一返回窗口196630的可读accessibility及截图，零输入；尚无本版客户端P。旧22限定双端不移用，现实效果NOT_MEASURED，#220/Epic仍OPEN。
