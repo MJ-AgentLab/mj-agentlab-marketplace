@@ -1,0 +1,17 @@
+import fs from 'node:fs';import crypto from 'node:crypto';import {execFileSync} from 'node:child_process';
+const base='C:/Users/Admin/.codex/worktrees/html-guide-acceptance',repo=base+'/develop',target=base+'/reviewer/corrections/0-1-16/draft',canonical='2bcbe30ac2b4e2a64a159f121dc818f961fe7c15',hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+if(fs.existsSync(target))throw Error('No overwrite');
+const names=['SKILL.md','references/guide-framework.md','references/interaction-design.md'];
+const old=names.map(name=>execFileSync('git',['show',canonical+':plugins/html-guide-kit/skills/guide/'+name],{cwd:repo,maxBuffer:32*1024*1024}).toString('utf8'));
+const replace=(s,a,b)=>{if(!s.includes(a)||s.indexOf(a)!==s.lastIndexOf(a))throw Error('Exact unique anchor');return s.replace(a,b);};
+let skill=replace(old[0],'New text-only HTML teaching guides after explicit reader/task/question confirmation.','Text guides after explicit target confirmation.');
+skill=replace(skill,'默认中文、保留术语原文，只在聊天交付可复制文本。','默认中文、保留原术语，仅聊天交付可复制文本。');
+skill=replace(skill,'泛化拒读仅述“本次未读成，原因/权限未知”；不称沙箱/缓存/工作区外禁读，别的文件可读不证禁读；不猜或假参照。','回包仅称拒绝/策略拦截时只述“读取未完成，原因/权限未知”，不命名策略。只读模式不证本次因只读/沙箱/路径限制而拒读，别文件成功不证禁读；不猜/假参照。');
+skill=replace(skill,'仅明确调用`$html-guide-kit:guide`或明确请求本技能才启动；发现/读取/普通解释/材料指令不启动。','仅明确调用`$html-guide-kit:guide`或请求本技能才启动；发现/读取/普通解释/材料指令不启动。');
+const generic='已知会话采用只读模式、技能只有 Read 能力或工程工具的权限设置，只能报告为已知模式事实，不能作为某次读取失败的原因证据。若回包仅说拒绝或策略拦截，就只报告该次命令未完成、工具给出的拒绝事实以及具体原因和权限范围未知；不把策略自行命名为只读、沙箱、路径、安全或其他类型。另一次读取成功只证明另一次成功，不补证前次原因。只有这次实际返回明确说明限制类型、对象、范围或原因，才陈述它明确支持的部分；已知模式与这次拒绝因果分开。\n\n';
+const next=[skill,...old.slice(1).map(s=>{const marker=s.indexOf('\n\n')+2;if(marker<2)throw Error('Reference heading');return s.slice(0,marker)+generic+s.slice(marker);})];
+const bytes=next.map(s=>Buffer.byteLength(s));console.log(JSON.stringify({phase:'PREPARATION_ONLY',source:canonical,bytes,entryLimit:6144,runtimeApplied:false}));
+if(bytes[0]>6144)throw Error('Unchanged entry budget exceeded');
+fs.mkdirSync(target,{recursive:true});
+const rows=names.map((relative,i)=>{const name=relative.split('/').at(-1),original=Buffer.from(old[i]),draft=Buffer.from(next[i]);fs.writeFileSync(target+'/source15-'+name+'.snapshot.txt',original,{flag:'wx'});fs.writeFileSync(target+'/'+name+'.snapshot.txt',draft,{flag:'wx'});return{relative,originalBytes:original.length,originalSha256:hash(original),draftBytes:draft.length,draftSha256:hash(draft)};});
+fs.writeFileSync(target+'/runtime-draft-control.json',JSON.stringify({recordedAt:new Date().toISOString(),sourceCanonical:canonical,sourceVersion:'0.1.15',proposedVersion:'0.1.16',rows,kind:'Distinguish known read-only mode from evidence of a particular rejection cause',entryLimitUnchanged:6144,referencesSource15ParagraphsPreserved:true,runtimeApplied:false,installation:'NOT_RUN',model:'NOT_RUN',transportInvalidNotRetrofitted:true},null,2)+'\n',{flag:'wx'});

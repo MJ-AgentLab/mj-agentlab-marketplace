@@ -1,0 +1,799 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T03:14:00.268Z",
+  "status": "STATIC_ONLY",
+  "verdict": "NO_STATIC_BLOCKERS",
+  "reviewer": "/root/precommit_014",
+  "sourceCanonical": "2bcbe30ac2b4e2a64a159f121dc818f961fe7c15",
+  "sourceTree": "329f0f2e5946194895aca2ee2fbb5bc0d7b1c6aa",
+  "sourceVersion": "0.1.15",
+  "proposedVersion": "0.1.16",
+  "scope": {
+    "candidateDirectory": "../reviewer/corrections/0-1-16/draft-ready",
+    "soleReviewerWrittenFile": "../reviewer/corrections/0-1-16/static-review-016-logic.json",
+    "productionRepository": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/develop",
+    "repositoryWrites": false,
+    "modelInvocations": false,
+    "installationRuns": false,
+    "gradeWrites": false,
+    "inputOrRubricChanges": false,
+    "reviewKind": "Independent full-resource static semantic comparison with Source15 canonical Git bytes and Owner original contract",
+    "excluded": [
+      "transitional 6144/24980/25860 draft",
+      "earlier clarified-entry-only draft",
+      "old behavior final reports or grades",
+      "author self-evaluation",
+      "GitHub approval or merge gating"
+    ]
+  },
+  "control": {
+    "relative": "draft-ready/runtime-draft-control.json",
+    "bytes": 1953,
+    "sha256": "ac95e378de08455d11c8399f6314ef1c83edd129b680c1e843af9df7390ee96d",
+    "phase": "FROZEN_RESOURCE_CANDIDATE_FOR_INDEPENDENT_STATIC_REVIEW",
+    "runtimeApplied": false,
+    "installation": "NOT_RUN",
+    "model": "NOT_RUN"
+  },
+  "resources": [
+    {
+      "relative": "SKILL.md",
+      "draftBytes": 6143,
+      "draftSha256": "9856e1aa7196c50673304a0b566cd5d2b4fbc4a84761c999f895a3ecdf2c5df5",
+      "draftSnapshot": "../reviewer/corrections/0-1-16/draft-ready/SKILL.md.snapshot.txt",
+      "sourceSnapshot": "../reviewer/corrections/0-1-16/draft-ready/source15-SKILL.md.snapshot.txt",
+      "sourceBytes": 6135,
+      "sourceSha256": "845ac963f60e0f39fbff5a5b1b87f1df1a72da056192ec50951a8d8e22637be2",
+      "sourceExactGit": true,
+      "productionStillExactSource15": true,
+      "lines": 53,
+      "encoding": "UTF-8",
+      "carriageReturnCount": 0
+    },
+    {
+      "relative": "references/guide-framework.md",
+      "draftBytes": 8240,
+      "draftSha256": "3d6f2ec4764b48c97b80dae69efa470c3e13620242b2050d90f687ed1c452ea3",
+      "draftSnapshot": "../reviewer/corrections/0-1-16/draft-ready/guide-framework.md.snapshot.txt",
+      "sourceSnapshot": "../reviewer/corrections/0-1-16/draft-ready/source15-guide-framework.md.snapshot.txt",
+      "sourceBytes": 24354,
+      "sourceSha256": "adcf3f8ab83572b8b11b5eacd17134145cbec122ab29da1be70b30845cce11fd",
+      "sourceExactGit": true,
+      "productionStillExactSource15": true,
+      "lines": 61,
+      "encoding": "UTF-8",
+      "carriageReturnCount": 0
+    },
+    {
+      "relative": "references/interaction-design.md",
+      "draftBytes": 8345,
+      "draftSha256": "bd7032f3484c60e2142519a4409e9c156dcec34755701818997526ac52ff71b6",
+      "draftSnapshot": "../reviewer/corrections/0-1-16/draft-ready/interaction-design.md.snapshot.txt",
+      "sourceSnapshot": "../reviewer/corrections/0-1-16/draft-ready/source15-interaction-design.md.snapshot.txt",
+      "sourceBytes": 25234,
+      "sourceSha256": "263eb12c923c9df38cf72bf87ad5201a67cad5cc544d9e7054eb2c1e25ddce43",
+      "sourceExactGit": true,
+      "productionStillExactSource15": true,
+      "lines": 72,
+      "encoding": "UTF-8",
+      "carriageReturnCount": 0
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "EXACT_CANONICAL_SOURCE_CHECK",
+      "canonical": "2bcbe30ac2b4e2a64a159f121dc818f961fe7c15",
+      "tree": "329f0f2e5946194895aca2ee2fbb5bc0d7b1c6aa",
+      "allThreeSnapshotBytesEqualGit": true,
+      "allThreeProductionBytesEqualSource15": true,
+      "observedHead": "2bcbe30ac2b4e2a64a159f121dc818f961fe7c15"
+    },
+    {
+      "kind": "FULL_INDEPENDENT_TEXT_COMPARISON",
+      "candidateAllThreeRead": true,
+      "sourceReferencesReadInFull": true,
+      "entryComparison": "Full frozen candidate plus complete canonical entry diff and identical unchanged bytes",
+      "lineNotation": "SKILL is SKILL.md; FW is references/guide-framework.md; ID is references/interaction-design.md. Source line numbers refer to source15-*.snapshot.txt; draft line numbers refer only to draft-ready/*.snapshot.txt.",
+      "authorCrosswalk": "Available supplemental author mapping was not used as the basis for this verdict; no author semantic PASS imported."
+    },
+    {
+      "kind": "EXISTING_BEHAVIOR_METADATA_READONLY_CHECK",
+      "relative": "plugins/html-guide-kit/skills/guide/agents/openai.yaml",
+      "bytes": 444,
+      "sha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+      "allowImplicitInvocation": false,
+      "candidateContainsNoNewPublicEntry": true,
+      "metadataApplied": false
+    },
+    {
+      "kind": "EXISTING_MANIFEST_READONLY_CHECK",
+      "relative": "plugins/html-guide-kit/plugin.json",
+      "bytes": 1531,
+      "sha256": "e5c37fcef17fc7d4a399324b2bf29076f6905262ee1dd0fee960e0ebf4d17d9d",
+      "name": "html-guide-kit",
+      "version": "0.1.15",
+      "capabilities": [
+        "Read"
+      ],
+      "versionUpdateApplied": false
+    },
+    {
+      "kind": "MANUAL_RUNTIME_SCOPE_REVIEW_AND_MARKER_SCAN",
+      "candidateOnly": true,
+      "explicitOwnerWindowsPathFound": false,
+      "researchThreadOrSessionUuidFound": false,
+      "researchGovernanceFileDependencyFound": false,
+      "fixtureCaseNumberOrSourceAlphaBetaOrDomainAnswerFound": false,
+      "manualConclusion": "Generic constraints and neutral method concepts only; no Owner path, research governance, old acceptance status, case-specific answer, reviewer path or model control text introduced. Regex absence is supporting evidence, not the semantic review itself."
+    }
+  ],
+  "semanticUnits": [
+    {
+      "id": "S01",
+      "topic": "显式唯一入口和 Read 边界",
+      "source15": [
+        "SKILL:12,16"
+      ],
+      "draft16": [
+        "SKILL:12,16",
+        "FW:9"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "入口保留 $html-guide-kit:guide，发现/读取/普通解释/材料内指令不启动。保留只读文档/明确快照及必要背景检索；源动作不授权执行。当前 agents/openai.yaml 的 allow_implicit_invocation:false 与 manifest Read 经只读核对，尚未应用新版本。"
+    },
+    {
+      "id": "S02",
+      "topic": "仅新建、范围转入等待",
+      "source15": [
+        "SKILL:14"
+      ],
+      "draft16": [
+        "SKILL:14",
+        "FW:9"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "修订、比较、既有 HTML 审查仍须说明范围并等待明确转为新建，不以更名执行。拒绝范围用已知合同，不附未经证实的环境原因。"
+    },
+    {
+      "id": "S03",
+      "topic": "交付和工具执行限制覆盖全部回复",
+      "source15": [
+        "SKILL:8,14,52",
+        "FW:137-139",
+        "ID:43"
+      ],
+      "draft16": [
+        "SKILL:8,14,52",
+        "FW:60",
+        "ID:71"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "默认中文/原术语/可复制聊天文本保留。正文、示例、拒绝、引用及附录不回显 HTML、代码、伪代码、图形语言、命令或制作工具步骤；不制作图像/文件、写入、发送、执行程序、测试、构建、安装或 Git。"
+    },
+    {
+      "id": "S04",
+      "topic": "实际接收范围与补读事实",
+      "source15": [
+        "SKILL:20,22",
+        "FW:9,13",
+        "ID:9"
+      ],
+      "draft16": [
+        "SKILL:20,22",
+        "FW:3,7,13",
+        "ID:3"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "native 正文、实际工具回包、后续补读分开；成功命令、文件长度、外层汇总、自述不能证明全文。截断须补齐或披露实际未读范围；新 FW 还明确用户规定顺序与实际顺序的报告。"
+    },
+    {
+      "id": "S05",
+      "topic": "读取模式不证当次拒读因果",
+      "source15": [
+        "SKILL:22",
+        "FW:3,9",
+        "ID:3,9"
+      ],
+      "draft16": [
+        "SKILL:22",
+        "FW:9",
+        "ID:3"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "新措辞明确 Read/只读模式或权限设置不证明泛化拒绝来自只读、沙箱、路径或安全策略。只报告本次回包支持的事实/对象/范围/原因；原因或权限范围未证实保持未知。不是要求固定词汇，而是约束因果证据。"
+    },
+    {
+      "id": "S06",
+      "topic": "合法分段补读和有限缺口",
+      "source15": [
+        "SKILL:22",
+        "FW:5,9",
+        "ID:5,9"
+      ],
+      "draft16": [
+        "SKILL:22",
+        "FW:7,9,22",
+        "ID:3"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "保留已授权逐文件/分段补读，不绕过已知权限；未尝试不称禁止，别文件成功/缓存位置/工作目录不推出路径禁令，不承诺换客户端可读。不能补齐索取必要缺失内容，缺口只阻相关部分。"
+    },
+    {
+      "id": "S07",
+      "topic": "执行方法不自动成为教材对象",
+      "source15": [
+        "SKILL:22",
+        "FW:15,38"
+      ],
+      "draft16": [
+        "SKILL:22",
+        "FW:3,26",
+        "ID:3"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "仅用户明定才以入口或参考作教材；缺可定位材料且无明确主题快照索取最小材料，不自定主题或目标。保留已有角色/任务线索，目标未齐不等于所有字段未提供，后来材料不追认自选目标。"
+    },
+    {
+      "id": "S08",
+      "topic": "四类证据与逐项归因",
+      "source15": [
+        "SKILL:22",
+        "FW:17-24,32,34",
+        "ID:121"
+      ],
+      "draft16": [
+        "SKILL:22,34,46",
+        "FW:15-20,36,50,52",
+        "ID:27,37,55"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "原材料、已核验背景、教学构造、设计判断身份及边界保留；新增检查轴/推论/界面行为需逐项标理由、范围，与源结果分列，相邻原文和总标签不提供来源背书。"
+    },
+    {
+      "id": "S09",
+      "topic": "来源身份、定位、版本和快照",
+      "source15": [
+        "SKILL:20,22",
+        "FW:13,30"
+      ],
+      "draft16": [
+        "SKILL:16,20,22",
+        "FW:13,36"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "材料名称、来源章/行/页面/本次明确快照、已读范围、支持和缺口保留；不造定位或版本。跨会话不假定同步，参考相对当前安装入口定位，无工作目录/旧缓存依赖。"
+    },
+    {
+      "id": "S10",
+      "topic": "背景核验的实际命题范围",
+      "source15": [
+        "SKILL:22",
+        "FW:21-24,28"
+      ],
+      "draft16": [
+        "SKILL:22",
+        "FW:17-20"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "必要时效/影响判断的背景读取第一手来源，实际核验命题及范围负责；可读、记忆、提案非已实现/验证，不能将未核验背景写为事实。"
+    },
+    {
+      "id": "S11",
+      "topic": "冲突和优先规则不擅裁决",
+      "source15": [
+        "SKILL:22,36",
+        "FW:26,28",
+        "ID:76,121"
+      ],
+      "draft16": [
+        "SKILL:22,36",
+        "FW:22",
+        "ID:33-37"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "并列冲突主张、来源与条件；只有已取得且适用的明确优先规则可决定使用，仍保留冲突。缺口不靠术语、常识或版式补齐；有依据部分继续保留。"
+    },
+    {
+      "id": "S12",
+      "topic": "材料更新和历史条款退出",
+      "source15": [
+        "SKILL:24",
+        "FW:36"
+      ],
+      "draft16": [
+        "SKILL:24",
+        "FW:24"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "当前保留/替换/历史/冲突依据分列；被替换条款及条件、例外、附注退出当前，不从旧版回填新缺口。更新范围不明先澄清，历史不参与当前模拟或判准。"
+    },
+    {
+      "id": "S13",
+      "topic": "2–3 套实质不同的目标",
+      "source15": [
+        "SKILL:28",
+        "FW:42-50"
+      ],
+      "draft16": [
+        "SKILL:28",
+        "FW:30,32"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "每次新建提供读者、任务、可观察理解问题完整 triplet，差异来自信息/判断任务/深度，非角色改名。推荐给材料/任务依据、理由与取舍；已有目标可为一套但仍等待，不推能力/人格。"
+    },
+    {
+      "id": "S14",
+      "topic": "目标选择阶段不编排指南",
+      "source15": [
+        "SKILL:28,30",
+        "FW:50"
+      ],
+      "draft16": [
+        "SKILL:28,30",
+        "FW:32"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "选择前仅材料范围、目标、待确认，不给指南/章节/交互草稿/成品。歧义澄清、未答保留同一方案，只有用户修改或材料实质改变才更新再等；用户停止即停。"
+    },
+    {
+      "id": "S15",
+      "topic": "明确选定与修改采用两个分支",
+      "source15": [
+        "SKILL:30",
+        "FW:50",
+        "Owner original contract:明确选择或修改确认"
+      ],
+      "draft16": [
+        "SKILL:30",
+        "FW:32",
+        "ID:3"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "明确选定已有方案本身足够，不要求某个确认词或第二批准。修改目标须确认采用修改后目标。现入口和两参考一致，移除了上一版并列/连词造成的双重确认歧义，没有放宽目标必须明确选定的前提。"
+    },
+    {
+      "id": "S16",
+      "topic": "推荐、沉默及宿主窗口边界",
+      "source15": [
+        "SKILL:30",
+        "FW:50"
+      ],
+      "draft16": [
+        "SKILL:30",
+        "FW:32",
+        "ID:3"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "推荐/预选/默认/沉默/超时/无关含糊回复/窗口消失不算选择，一般授权或不指目标的直接做不跳过。不得承诺锁住/保持/恢复宿主窗口；无答继续同一 pending。"
+    },
+    {
+      "id": "S17",
+      "topic": "术语、值型及限定保义",
+      "source15": [
+        "SKILL:34,47",
+        "FW:30,103,125"
+      ],
+      "draft16": [
+        "SKILL:34,47",
+        "FW:36"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "术语、中译、原变量/派生真假和类型在全文一致，派生给依据；且/或、可能/保证、未说明/没有、可以/必然、本例/所有区分。短引或忠实转述紧邻定位与条件，摘要/案例/索引不继承全部原文权威。"
+    },
+    {
+      "id": "S18",
+      "topic": "七类关系的正向表达与误读防护",
+      "source15": [
+        "FW:115-125,131"
+      ],
+      "draft16": [
+        "FW:38"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "分类清单/表、层级树/嵌套及多归属表、过程时间线/步骤/分支、状态表/转移、依赖表/矩阵、有限有据因果说明、带单位尺度来源的数值表达全部保留。步骤/因果/穷尽/运行顺序/多对多压缩/面积夸差等误读保留；图连接起终、含义、方向、依据、条件与视觉辅助边界保留。"
+    },
+    {
+      "id": "S19",
+      "topic": "事项与持有人范围不互换",
+      "source15": [
+        "SKILL:47",
+        "FW:107",
+        "ID:109"
+      ],
+      "draft16": [
+        "SKILL:47",
+        "FW:40",
+        "ID:3,41"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "保留源对象与谓词，某事项不在范围不推其持有人其他已覆盖事项不适用；新增读者子集标设计，不能成为新源资格。"
+    },
+    {
+      "id": "S20",
+      "topic": "排他断言需要完整局部证明",
+      "source15": [
+        "SKILL:47",
+        "FW:57,105,109",
+        "ID:96,107"
+      ],
+      "draft16": [
+        "SKILL:47",
+        "FW:40",
+        "ID:3,51"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "只/仅/始终/必然须源明示或完整局部枚举支持，包含恢复、重置、例外及同字段常规动作；不确定完整则不给排他，每处就地限范围，引用/远处正确说明不替限定。"
+    },
+    {
+      "id": "S21",
+      "topic": "首个结果前完整呈现源规则",
+      "source15": [
+        "SKILL:45",
+        "FW:62,65",
+        "ID:45,48"
+      ],
+      "draft16": [
+        "SKILL:45",
+        "FW:44,46",
+        "ID:3,25"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "完整规则包括必要当前态/输入/单个直接操作/全部源动作及对象/字段结果/条件/例外/范围/定位，恢复撤销清除不可只剩初值。规则先于首个改写结果。未定义对象保留原称呼与未知，不扩成业务记录/永久删除/外部行为；非操作材料不强造目录。"
+    },
+    {
+      "id": "S22",
+      "topic": "完整共同规则的显式全文覆盖",
+      "source15": [
+        "SKILL:45,50",
+        "FW:65-69",
+        "ID:48-52"
+      ],
+      "draft16": [
+        "SKILL:45,50",
+        "FW:46",
+        "ID:3,25,69"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "完整共同规则明确适用哪些情境与概览、正文、图示及补充、例子、模拟、反馈、恢复、自检、编写者清单。仅范围内才缩写，范围外写足或引完整规则；初值、旁表、前例、章节号、后置表不暗补前提。完成/成功/有效仅源完整定义且本处适用时可缩写。"
+    },
+    {
+      "id": "S23",
+      "topic": "明确字段结果与未知字段分离",
+      "source15": [
+        "SKILL:48",
+        "FW:97-99",
+        "ID:29-31"
+      ],
+      "draft16": [
+        "SKILL:48",
+        "FW:50",
+        "ID:27,49"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "源结果仅明确动作/对象/字段，未述字段不补变化、保持或恢复，条件被读取不证操作保持。已有确定局部结果继续保留。新增输入保留或展示行为须就地标设计、理由、范围并分列，总构造/进入/重试标签不能替具体结果标签。"
+    },
+    {
+      "id": "S24",
+      "topic": "完整恢复与 UI 设计归因分开",
+      "source15": [
+        "SKILL:46",
+        "FW:71,73",
+        "ID:54,56,65"
+      ],
+      "draft16": [
+        "SKILL:46",
+        "FW:52",
+        "ID:25,27"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "完整恢复保留所有源动作/对象/字段及现实保证边界，非初值或清教学反馈替代。局部图引全规则，共同恢复明确覆盖本处。源结果给源依据，新增展示/提示/反馈/选择/高亮清理给设计理由；设计标签不抵消后句错归因，源启发设计须标推理非规范依据。"
+    },
+    {
+      "id": "S25",
+      "topic": "固定当前态的直接操作与改变状态路径分判",
+      "source15": [
+        "SKILL:44",
+        "FW:62,93",
+        "ID:45,87,89,101,103"
+      ],
+      "draft16": [
+        "SKILL:44",
+        "FW:48",
+        "ID:41,49,69"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "每个当前态/单个直接操作匹配全部宽规则、排除与例外，分允许/禁止/未覆盖。重复、同值、额外意义或提示未规定不抹已知操作及字段结果；先改态路径未知不撤销当前态直接结果，不合并不同操作统判。"
+    },
+    {
+      "id": "S26",
+      "topic": "初值、可达性质与完整输入域分离",
+      "source15": [
+        "SKILL:47",
+        "FW:111,113",
+        "ID:79-85"
+      ],
+      "draft16": [
+        "SKILL:47",
+        "FW:56",
+        "ID:39"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "初值/单次运算或赋值/源可达值/全输入域/值型区分；未知上下界、整数性、单位、有效性不禁止已命中源规则及全部前提的输入。额外有限集合/类型/范围限制在起始、选项、反馈就地标构造/设计，未覆盖才待补，不用领域常识补域。"
+    },
+    {
+      "id": "S27",
+      "topic": "灵活编排与篇幅、比较维度",
+      "source15": [
+        "SKILL:34,36",
+        "FW:78-91,135"
+      ],
+      "draft16": [
+        "SKILL:34,36",
+        "FW:58,60",
+        "ID:7,9-19"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "按确认问题找原文，内容删减不改核心结论、比较维度一致、阅读/源/演示顺序区分。深度随关系/分支/依赖/冲突/例外/目标，短版删装饰不删关键边界；概览与比较/条件/例外/来源常显，无固定章数/格式/控件/题量，静态足够可不用互动。"
+    },
+    {
+      "id": "S28",
+      "topic": "七种可选交互与等价文字",
+      "source15": [
+        "ID:13-25,33-41"
+      ],
+      "draft16": [
+        "ID:7,9-19"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "用途、起始态、操作、变化、结果、反馈、恢复七项保留。Disclosure/View switching/Linked highlighting/Filtering/Step-through/Condition simulation/Learning check 为可选模式，各自具体用途与比较/取消/范围/回退/暂停边界保留；必要信息不只靠颜色、悬停、动画，键盘/焦点/缩放/窄屏仅设计待查。"
+    },
+    {
+      "id": "S29",
+      "topic": "同材料的完整演示和真实动作区分",
+      "source15": [
+        "ID:61-65"
+      ],
+      "draft16": [
+        "ID:23,25,55"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "同组明确材料贯穿步骤，当前事实/单个触发/变化/局部结果/定位有据，分支循环暂停退出例外保留。源需人为触发时条件满足只更新可执行判断，非已发生/成功/业务通过，提交确认恢复仅模拟、不外部执行。回退说明返回态与保留/清除，不保证现实系统回到成功态。"
+    },
+    {
+      "id": "S30",
+      "topic": "规则完整、部分、缺失、冲突和假设边界",
+      "source15": [
+        "SKILL:36",
+        "ID:69-77,121,123"
+      ],
+      "draft16": [
+        "SKILL:36",
+        "ID:31-43,55"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "核对变量/域/当前态/前提/触发/结果/优先/例外/范围/定位。完整覆盖可判组合/边界/例外；部分已覆盖可判，缺阈值/域/触发者/结果不补默认；冲突无优先不造唯一规则；假设分列范围，不抹冲突或源未知。源域越界是超模拟范围，非正常分支。"
+    },
+    {
+      "id": "S31",
+      "topic": "先设计生命周期再反馈",
+      "source15": [
+        "SKILL:48",
+        "FW:54-55,60",
+        "ID:93-94,99"
+      ],
+      "draft16": [
+        "SKILL:48",
+        "ID:47,49,53"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "进入、当前态/输入来源、继续、改条件、重试、退出、复位先写；共享首步初值、以后最新态重匹配，改条件非复位。独立情境每次进入/重试明示复位题设、依据与范围，不暗继承。可用独立固定情境降覆盖复杂度但不填源规则。"
+    },
+    {
+      "id": "S32",
+      "topic": "共同前提必须覆盖本反馈块",
+      "source15": [
+        "SKILL:48",
+        "FW:52,54-55",
+        "ID:91-94"
+      ],
+      "draft16": [
+        "SKILL:48",
+        "ID:49"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "标题、表首或紧邻处声明共同前提及覆盖分支，否则每支写足态/输入/操作。不能借前行/旁表/前例/初始面板。范围外查其他源规则，不满足本块前提不等于自动禁止/保持/全未知；保留已有局部结果。"
+    },
+    {
+      "id": "S33",
+      "topic": "未知后续态不默作完成或未发生",
+      "source15": [
+        "SKILL:48",
+        "FW:55",
+        "ID:94"
+      ],
+      "draft16": [
+        "SKILL:48",
+        "ID:49"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "依赖未决状态的后续待定，可返回明确题设或有据恢复继续；不编造变化/保持/清除，也不把未知操作默当已完成或未发生。"
+    },
+    {
+      "id": "S34",
+      "topic": "重复与同值结果不新增有效或限次条件",
+      "source15": [
+        "SKILL:48",
+        "FW:93,127",
+        "ID:103,105"
+      ],
+      "draft16": [
+        "SKILL:48",
+        "FW:48",
+        "ID:51"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "取最新当前态重匹配，仍符合允许条件且无明确限次/重复例外沿用源结果；赋值与当前值相同仍说明已知结果/变化量。额外提示或意义未知仅限该缺口，不新增值有效/只能一次前提。"
+    },
+    {
+      "id": "S35",
+      "topic": "且/或的局部可判真值与操作结果区分",
+      "source15": [
+        "SKILL:49",
+        "FW:52,57",
+        "ID:113-117"
+      ],
+      "draft16": [
+        "SKILL:49",
+        "ID:43"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "纯条件真假可独立判不强加业务态；附操作/字段结果才需完整当前态及操作前提。且任一明确否即否，或任一明确是即是，另一未知不撤销；其余未决才待定，未知非新增业务值，组合成立不证执行/已发生或他字段。"
+    },
+    {
+      "id": "S36",
+      "topic": "互斥/优先与累计反馈不能混淆",
+      "source15": [
+        "SKILL:49",
+        "FW:129",
+        "ID:115,117,119"
+      ],
+      "draft16": [
+        "SKILL:49",
+        "ID:53,69"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "操作分支互斥或明确优先，累计原因另列并合并所有适用项。逐对核对任意/其他/任一未知宽行不盖已决定组合、不首匹配漏缺项和未知；同规则覆盖全文边界、自检及恢复。"
+    },
+    {
+      "id": "S37",
+      "topic": "自检必要题设与局部假设",
+      "source15": [
+        "SKILL:38",
+        "ID:127,129"
+      ],
+      "draft16": [
+        "SKILL:38",
+        "ID:59,63"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "每题对应确认问题和来源，列反馈所需当前态/输入/假设/范围，仅相关字段；共享默认明示题目范围/覆盖方式，题名/面板/前例/别题不提供隐含前提。可局部假设，源足才限假设给反馈，必要前提缺只给条件化参考/待补，不造唯一答案。"
+    },
+    {
+      "id": "S38",
+      "topic": "可靠判准的多答案和反馈理由",
+      "source15": [
+        "SKILL:38",
+        "ID:131"
+      ],
+      "draft16": [
+        "SKILL:38",
+        "ID:61"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "可靠答案有明确适用材料和可核对结果；多答案成立容纳，不为单选造唯一。局部判断、理由、误区、定位与限制保留，允许改答/重试/重做/回看。"
+    },
+    {
+      "id": "S39",
+      "topic": "不可靠判准的有限参考",
+      "source15": [
+        "SKILL:38",
+        "ID:133"
+      ],
+      "draft16": [
+        "SKILL:38",
+        "ID:61"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "缺定义/规则/情境、冲突、开放取舍只给有界参考，列假设、可成立思路、待核验和不能判断；不造标准答案/自动对错/评分，不称未评自由文本已核验。"
+    },
+    {
+      "id": "S40",
+      "topic": "自检待答及旧反馈失效、重做恢复",
+      "source15": [
+        "ID:135,137"
+      ],
+      "draft16": [
+        "ID:63"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "题不预选/推荐正确答案，目标推荐非题提示。空/无效答/沉默/超时/关闭保持待答，非知识错误。改答清旧判断或明确失效，新提交用当前答；重做说明选择/反馈清除、题设复位、回材料，题干判准理由误区重试前提一致。"
+    },
+    {
+      "id": "S41",
+      "topic": "局部观察不推能力或长期掌握",
+      "source15": [
+        "SKILL:38,52",
+        "FW:150",
+        "ID:137-139,145"
+      ],
+      "draft16": [
+        "SKILL:38,52",
+        "FW:60",
+        "ID:65,71"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "已核对/提交仅局部事实，无总分、能力等级、绩效或长期掌握结论。一次答对、全操作完成、信心、点击意愿、提示后改答不证先前或稳定掌握；本技能不在聊天开测验。设计/模型/静态不证效果或全面可访问性合规。"
+    },
+    {
+      "id": "S42",
+      "topic": "全篇一致性和拟检查不是已验收",
+      "source15": [
+        "SKILL:50,52",
+        "FW:141-150",
+        "ID:111,143-145"
+      ],
+      "draft16": [
+        "SKILL:50,52",
+        "FW:60",
+        "ID:69,71"
+      ],
+      "result": "STATIC_PRESERVED_OR_CLARIFIED",
+      "finding": "概览、文字、图表及补充、反馈、恢复、自检、附录、作者清单逐处回查目标/依据/全部源动作对象字段/必要前提/数量/允许不可只能未规定与生命周期；旁处正确不抵消本处错误。交付含确认目标/材料范围限制/源定位/必要演示自检/待补，拟检查与已执行分开。"
+    }
+  ],
+  "conclusions": {
+    "entryHardLimit": {
+      "actualBytes": 6143,
+      "limitBytes": 6144,
+      "remainingBytes": 1,
+      "limitRelaxed": false,
+      "encoding": "UTF-8 exact frozen LF bytes",
+      "result": "WITHIN_EXISTING_LIMIT"
+    },
+    "references": {
+      "sourceCombinedBytes": 49588,
+      "draftCombinedBytes": 16585,
+      "method": "Duplicate methods consolidated and reordered; all source semantic units checked across explicit inheritance and final locations.",
+      "literalParagraphIdentityAsserted": false,
+      "hardEightKilobyteLimitAsserted": false,
+      "smallerBytesProveFullModelRead": false
+    },
+    "confirmation": {
+      "existingPlan": "Explicitly selecting the actual offered plan is sufficient.",
+      "modifiedTarget": "Clear adoption of the modified target is required.",
+      "secondApprovalRequired": false,
+      "specificConfirmationKeywordRequired": false,
+      "pendingAndHostWindowBoundariesPreserved": true
+    },
+    "readCausality": {
+      "newRule": "Known read-only mode is not evidence of the cause of this generic tool denial.",
+      "unknownCausePreserved": true,
+      "allowedNarrowReadsRetained": true,
+      "knownPermissionBypassPermitted": false
+    },
+    "sourceFields": {
+      "onlyExplicitSourceResults": true,
+      "unstatedFieldInvariantNotInvented": true,
+      "localTeachingPersistenceMayBeDesignedWithLocalLabelAndScope": true
+    },
+    "staticBlockers": [],
+    "productionStillSource15": true
+  },
+  "limitations": [
+    "STATIC_ONLY: no Source16 runtime, model, installation, client or effect result is established by this report.",
+    "Reference consolidation and stronger causal wording require fresh installation/cache identity and actual model receipt/behavior checks; size reduction alone does not prove full reads.",
+    "Source15 failures, transport INVALID_RUN, partial recovery uncertainty and NOT_RUN cases remain unchanged; old PASS is not inherited by Source16.",
+    "No real-client/native-window behavior, real-world teaching effect, non-author GitHub approval, CI/current-head merge gate, actual merge result or Owner final acceptance is inferred.",
+    "Only exact draft-ready pins above are reviewed. Earlier drafts are historical and are not interchangeable with this verdict."
+  ]
+}

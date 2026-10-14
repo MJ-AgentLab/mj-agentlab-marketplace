@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+## [0.1.16] - 2026-10-14
+
+- HTML Guide Kit 0.1.16 reports known read-only mode separately from the cause of a particular denied read. A generic policy response does not identify the policy type or permission range.
+- An explicit selection of an existing target is sufficient; a modified target needs confirmation of its adoption.
+- Consolidate duplicated reference rules; preserve the source, confirmation, simulation, teaching feedback, recovery and text-only boundaries.
+- Retain source0.1.15 nine real sessions/sixteen inputs5PASS/3FAIL/1INVALID_RUN, actual missing reference lines and the unknown capture cause. Fresh installation and behavior remain required. Refs #217, #220.
+
 ## [0.1.15] - 2026-10-14
 
 - HTML Guide Kit 0.1.15 reports only evidenced denied-read facts and keeps unverified causes or permission ranges unknown; scope refusal does not need an extra environment diagnosis.
