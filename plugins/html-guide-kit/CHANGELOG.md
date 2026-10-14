@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.1.17] - 2026-10-14
+
+- HTML Guide Kit 0.1.17 reads one source or fragment at a time without bundling unrelated file inspection or encoded scripts. Respect explicit access denials; generic tool rejection does not establish a permission cause.
+- Explain unsupported tasks using the known Read/chat/new-guide contract. Preserve necessary source conditions throughout summaries and author checklists, and bind each source or teaching claim explicitly.
+- Keep both references byte-identical to0.1.16; preserve the original failed behavior and require fresh installation and frozen behavior checks. Refs #217, #220.
+
 ## [0.1.16] - 2026-10-14
 
 - HTML Guide Kit 0.1.16 reports known read-only mode separately from the cause of a particular denied read. A generic policy response does not identify the policy type or permission range.

@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+- Prepare HTML Guide Kit 0.1.17: read sources individually, use the known contract for scope refusals, and carry source conditions and explicit attribution through summaries and author checklists. Preserve source0.1.16 ten actual sessions/nineteen complete inputs and all independent failures. Refs #217, #220.
+
 - Prepare HTML Guide Kit 0.1.16: distinguish known read-only mode from the evidenced cause of a particular denial; consolidate repeated reference rules while retaining the teaching and source contracts. Preserve source0.1.15 nine real sessions/sixteen inputs, original5PASS/3FAIL/1INVALID_RUN, partial reads and unknown capture cause. Refs #217, #220.
 
 - Prepare HTML Guide Kit 0.1.15: describe generic denied reads without guessing sandbox/path permissions and retain unknown field results instead of inventing unchanged values. Preserve source0.1.14 independent10 sessions/21 inputs6PASS/3FAIL/1UNEXERCISED and complete raw evidence; marketplace8.3.0 and other plugin versions remain. Refs #217, #220.

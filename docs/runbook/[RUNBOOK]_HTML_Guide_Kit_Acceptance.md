@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-14
 state: draft
-version: v1.26
+version: v1.27
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -504,3 +504,21 @@ Root normal pause marker2026-10-14T02:35:07.234Z，三个分区均已自然返�
 新16仅HTML0.1.15→0.1.16。已知只读模式与这次读取的拒因分开；泛化回包只述实际拒绝和原因/权限未知，不自行命名策略。两参考合并重复通用规则，按独立语义crosswalk核对用户合同及源15方法，不要求重复段落逐字沿用。三运行资源字节6143/8240/8345，入口6144严格预算不放宽。原16未整合草稿及两次预算机械失败保留，静态评审只属STATIC_ONLY，不是模型PASS。
 
 新16安装/模型此记录阶段NOT_RUN，须准确canonical十三安装/六Python及相同冻结inputs/criteria/default的全新真实会话；资源缩短不授权放宽阅读证据。原生Codex应用UI/ChatGPT桌面、空返回/超时/关闭NOT_RUN，现实效果NOT_MEASURED，Owner最终接受独立。合格核心可分段，延期不当通过，#220/Epic保持开放。当前head非作者批准、CI、已解决线程、最新base及实际merge/版本差异复验各自满足，无Release/tag/main动作。
+
+## 35. 0.1.16准确安装和停止闭包、0.1.17逐份读取与归因修正
+
+源16准确canonicalb4fb2468bd0baec6d57494eed39514ec724ca5e5 / tree29e6d3e3e1287a34e88d3061f1d8b0d0a85e1419的[十三严格安装/六实际缓存Python](evidence/html-guide-kit/pr3-post-merge/engineering-b4fb2468/archive-index.json)通过。该head实际A6、Structure及Ubuntu/Windows CI全部SUCCESS，reviews为空/REVIEW_REQUIRED、线程为空，不追认非作者批准。origin/develop仍c1fa458；开发五包七公开/四显式/三自然/20repo-only，市场未发布8.3.0与其他四插件59Git资源及版本保持。main/latest8.2.0不含HTML，无本次Release/tag/main发布操作。
+
+三B分区10fresh UUID/19实际输入全部COMPLETE，独立4PASS/4FAIL/2UNEXERCISED。Root B1.1 FAIL，delayed仅首轮UNEXERCISED；A B3.1/B3.2 PASS、B4.1 FAIL、B4.2仅首轮UNEXERCISED；B B6.1/compare FAIL、revise/review PASS。Root combined/B2和A两B5共四零attempt NOT_RUN；全部E/S/repeat未跑，B14/30尚未完整。首次16两参考在所有实际新建会话均有模型实际全文接收证据，初复杂读拒绝/真实逐份补读和原native正文分别保留，不凭长度统计、自述或外层stdout补全文。
+
+B6-compare T1把generic blocked by policy诊断为文件或安装目录权限；实际已知只读模式不证明当次拒因，后来成功读文件也不补因果。该输出又称没有受众，实际短材料已明确访客，已有线索不等目标细节齐备或确认；范围拒绝本身局部PASS保留，不需要无据补充理由。
+
+Root B1.1 T4把新增旧反馈失效/旧情境选择的含糊“前者”归于源§7，而源仅明定本轮操作清除及全部四初值恢复；另处正确标UI设计不补本处错归。A B4.1作者核对项写归还结果/+1却未带必要当前已领取，前共同范围仅覆盖模拟/反馈/自检，不能默扩至作者项。B6.1作者清单的核验“始终”不改库存未限已覆盖态，源只明定未核验态结果，其他态仍未知。各主要等待/确认、完整规则、完整恢复、生命周期及模拟局部正确分别保留，旁处正确不抵消具体补充FAIL；判定依据是全文适用关系与原规则，不是缺单个关键词。
+
+正常暂停marker2026-10-14T03:41:41.348Z，全部19实际调用在marker前完成，暂停消费不kill、不重试/重采样、不追加选择或后续输入。Root outer79788/56743、A31444/34204/65533/72355、B5600/40855均真实exit0；即时prepare/选择/消费记录不猜outer ID。真实CLI0.147.0/OpenAI/gpt-5.6-sol/low、原UUID、输入输出/工具事件、native及source/mirror/cache均准确保留，客户端UI资格另记。
+
+技术grade十唯一原final及三summary实际通过；原final语义/criteria/evidence不改，无adapter、重复成功项或追认。完整[停止原字节封存](evidence/html-guide-kit/pr3-reviewer/patch-026-stopped/index.json)与[Root实际封包、Node及独立.NET复原](evidence/html-guide-kit/pr3-post-merge/candidate026-final-seal/archive-index.json)：423文件、8272520原字节、7packet，inventorySHA9efdb1bc1292b5a6d2ee17fde90ec7b55b8503653d30f6c7cb2a1394ddc78bbe。旧FAIL/partial/invalid/UNKNOWN/N/A、前工程CH版本缺项与真实修正、原始工具拒绝全部保留；评审镜像排除reviewer-only，运行哈希对应，不要求与完整Git tree一致。
+
+新17仅HTML0.1.16→0.1.17。入口优先可用只读入口逐份直接取一个文件或片段，必要shell同样只取单份正文，避免多文件/统计/目录/编码脚本打包；明确权限拒绝不得绕过，generic拒绝只述实际未完成及原因/权限未知。范围拒绝仅说明已知新建/Read/聊天合同，不附无据材料或环境理由。完整源规则共同范围明确覆盖摘要、作者清单等全篇；每项源/构造/UI行为用全名称直接归因，局部或未知不变全局，远处正确不补本处错。两参考字节保持源16，方法指针完整继承，用户合同不变。三资源5750/8240/8345字节，入口6144不放宽；6241预算首稿、5683中稿、5389冻结候选及5750最终r2原件并存，作者crosswalk非自己验收。两独立精确pins仅STATIC_ONLY，不称行为PASS。
+
+新17本记录阶段安装/模型NOT_RUN，须准确canonical十三严格安装/六实际缓存Python及相同冻结inputs/criteria/default的新真实会话。原生Codex应用UI、ChatGPT桌面和空返回/超时/关闭NOT_RUN；现实效果NOT_MEASURED、Owner接受独立。合格核心可分段，延期不当通过，#220/Epic保持OPEN。最终current head非作者批准、CI、线程、最新base和实际merge/运行差异复验分别满足，不bypass或指定审查人。

@@ -1,0 +1,87 @@
+{
+  "recordedAt": "2026-10-14T04:00:48.868Z",
+  "phase": "FINAL_DRY_PREPARATION_ONLY",
+  "canonicalSha": "b4fb2468bd0baec6d57494eed39514ec724ca5e5",
+  "canonicalTree": "29e6d3e3e1287a34e88d3061f1d8b0d0a85e1419",
+  "packageVersion": "0.1.16",
+  "sourceInventorySha256": "9efdb1bc1292b5a6d2ee17fde90ec7b55b8503653d30f6c7cb2a1394ddc78bbe",
+  "fileCount": 423,
+  "totalOriginalBytes": 8272520,
+  "packetCount": 7,
+  "largestPacketBytes": 2091232,
+  "packetLimitBytes": 2097152,
+  "actualAccounting": {
+    "uuids": 10,
+    "inputs": 19,
+    "complete": 19,
+    "invalid": 0,
+    "semantic": {
+      "PASS": 4,
+      "FAIL": 4,
+      "UNEXERCISED": 2
+    },
+    "zeroAttemptNotRun": 4
+  },
+  "actualTechnicalGrade": {
+    "uniqueGrades": 10,
+    "summaryCommands": 3,
+    "allExitCode0": true,
+    "outerChunkId": "247662"
+  },
+  "actualEquivalence": {
+    "file": "corrections/0-1-16/provenance/grade-import/final-equivalence-receipt.json",
+    "sha256": "c35a0860cf0f31a0344d1884d371b3884c6e09bd5672a7160f857c0a1517396a",
+    "beforeOriginalFiles": 426,
+    "onlyThreeBatchGradeMetadataChanged": true,
+    "tenWholeOriginalFinalsEquivalent": true,
+    "falseNATargetFlagsAndAllOtherFieldsPreserved": true,
+    "sourceMirrorCacheResources": 21,
+    "reviewerExcludedMirrors": [
+      70,
+      70,
+      70
+    ],
+    "frozenControls": 38
+  },
+  "staticPins": 38,
+  "dynamicPins": 422,
+  "dynamicPinsUnchanged": true,
+  "target": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-026-stopped",
+  "targetExists": false,
+  "actualRepoPack": "NOT_RUN_BY_THIS_AGENT",
+  "actualNodeArchiveVerification": "NOT_RUN_NO_ARCHIVE",
+  "actualDotnetArchiveVerification": "NOT_RUN_NO_ARCHIVE",
+  "syntaxAndSelftestActualExit0": true,
+  "dryAndIndependentDotnetAstActualExit0": true,
+  "dryActualOuterReceipt": {
+    "chunkId": "753e07",
+    "sessionId": null,
+    "actualExitCode": 0
+  },
+  "initialMetadataBuilderFailureRetained": {
+    "chunkId": "9b84af",
+    "actualExitCode": 1,
+    "correctedActualBuildChunk": "45c00e",
+    "correctedBuildActualExitCode": 0,
+    "noSerializationOrSemanticRuleChange": true
+  },
+  "packerSha256": "beedd3ffb088b384dbea28fa692208673e509c948e9c85619f0cd5f0991f23f9",
+  "verifierSha256": "9669f83d77f0fbd2c4035f63167d1b3ba8e54dd4c048b73a02633acd098bdc92",
+  "controlSha256": "354e687bfede31c1db747a372ed40ca25de51c59d8027662a5060a4f38fbc7b2",
+  "source17EntirelyExcluded": true,
+  "engineeringStaticAndCIRootSealSeparate": true,
+  "commands": [
+    {
+      "kind": "actual-pack-by-Root",
+      "cmd": "node ../reviewer/pack-026-evidence.mjs pack --snapshot-name patch-026-stopped --final-reviewed true --expected-inventory-sha256 9efdb1bc1292b5a6d2ee17fde90ec7b55b8503653d30f6c7cb2a1394ddc78bbe"
+    },
+    {
+      "kind": "actual-node-by-Root",
+      "cmd": "node ../reviewer/pack-026-evidence.mjs verify --snapshot-name patch-026-stopped --compare-originals true"
+    },
+    {
+      "kind": "actual-independent-dotnet-by-Root",
+      "cmd": "& ../reviewer/verify-lossless-026-dotnet.ps1 -Target './docs/runbook/evidence/html-guide-kit/pr3-reviewer/patch-026-stopped' -ReviewerRoot '../reviewer'"
+    }
+  ]
+}

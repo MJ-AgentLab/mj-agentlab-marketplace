@@ -1,0 +1,10 @@
+import fs from 'node:fs';import {execFileSync} from 'node:child_process';
+const base='C:/Users/Admin/.codex/worktrees/html-guide-acceptance',repo=base+'/develop';
+const raw=execFileSync('gh',['pr','view','231','--json','number,state,isDraft,headRefOid,baseRefName,reviewDecision,reviews,statusCheckRollup,mergeStateStatus'],{cwd:repo,encoding:'utf8'});
+const data=JSON.parse(raw);if(data.headRefOid!=='b4fb2468bd0baec6d57494eed39514ec724ca5e5')throw Error('Changed current head');
+fs.writeFileSync(base+'/tracking/016-ci-final-snapshot.json',raw,{flag:'wx'});
+const query='query { repository(owner:"MJ-AgentLab", name:"mj-agentlab-marketplace") { pullRequest(number:231) { headRefOid reviewThreads(first:100) { nodes { isResolved isOutdated } pageInfo { hasNextPage endCursor } } } } }';
+const threads=execFileSync('gh',['api','graphql','-f','query='+query],{cwd:repo,encoding:'utf8'}),parsed=JSON.parse(threads).data.repository.pullRequest;
+if(parsed.headRefOid!==data.headRefOid||parsed.reviewThreads.pageInfo.hasNextPage)throw Error('Changed head or paginated threads');
+fs.writeFileSync(base+'/tracking/016-review-threads.json',threads,{flag:'wx'});
+console.log(JSON.stringify({head:data.headRefOid,allChecksSuccess:data.statusCheckRollup.every(row=>row.status==='COMPLETED'&&row.conclusion==='SUCCESS'),checks:data.statusCheckRollup.length,reviews:data.reviews.length,threads:parsed.reviewThreads.nodes.length,draft:data.isDraft,mergeState:data.mergeStateStatus}));
