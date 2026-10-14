@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T15:37:29.443Z",
+  "reviewer": "/root",
+  "operator": "/root/precommit_014",
+  "version": "0.1.25",
+  "canonicalSha": "ba74bbe3d1b64b59ccc7e92d58a66a011126215e",
+  "canonicalTree": "28e0fca836c31dce00e491b269323dc79e8739da",
+  "uuid": "01a13b05-31d3-70d0-adfb-983708d2f7a9",
+  "attemptId": "2d7d9aa1-b5c2-4f5e-b40b-20c80393e760",
+  "variant": "B1.2-delayed",
+  "criterion": "未确认修改变体 T2 只更新待确认三元组；T3 采用更新后版本。合并修改确认变体可以当轮生成，不遗漏修改，也不重复要求已经给出的明确确认。",
+  "actualTurns": 3,
+  "primaryCriterion": "PASS",
+  "overallSourceFidelity": "PASS",
+  "overallResult": "PASS",
+  "actualFullOutputReads": [
+    "ec59ca",
+    "eb0573"
+  ],
+  "rawPins": [
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\01.input.txt",
+      "bytes": 989,
+      "sha256": "b2fdd5bfa9dc239d48e4a033903f887a9340c678de684c6ad888e3ba6d3563c0"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\01.output.txt",
+      "bytes": 3690,
+      "sha256": "9d6252e076fb7397ea3d79fd17b5ac6e76cde011cf039d930e431a5d939e80e3"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\02.input.txt",
+      "bytes": 133,
+      "sha256": "3961b1ba9c09ccf3adbc732aaf19965fe0dbc0503bba5b810ee5162317ce0388"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\02.output.txt",
+      "bytes": 923,
+      "sha256": "64b788ef627db0a9c2208b8ebeaf6ab3bb6382ad5b365c2bc9f89f5be1a89ae7"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\03.input.txt",
+      "bytes": 43,
+      "sha256": "6b89a74c6d035fb6440da4cb0320de40d5d57390ce797f9c847362b8c4697fb1"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\03.output.txt",
+      "bytes": 11388,
+      "sha256": "f26f8e920fb718d411e04985a29ada2988eb7ca473afecba27c06c130f68f83f"
+    }
+  ],
+  "independentAdditionalReview": {
+    "file": "../reviewer/corrections/0-1-25/blocking/reviews/cross-by-a/B1.2-delayed-independent-a-whole.json",
+    "bytes": 4359,
+    "sha256": "99c9233f2cf401d73408578228cb203c45b6f59e0958328c0c62e27f9423f166"
+  },
+  "notes": [
+    "T2只修改实际3目标并待确认，理解问题保持；T3采用更新后的首次访客/何时领取任务和四原理解问题，不要求第二确认。",
+    "完整领取许可与正/零库存分支分开；四资格组合真实缺项一致；所有其他状态禁止领取，源归还取消与全恢复完整。§五4明确源恢复动作不证明同值唯一入口。",
+    "§四4把等待补充称作状态属于松散措辞note；全文§三/§四2/§五3反复明确其访客主状态仍已核验，未创造独立新状态或规则。"
+  ],
+  "technicalStatus": "PENDING_SEPARATE_SDK_HASH_VERIFICATION",
+  "reviewHoldOriginalPreserved": true,
+  "clarification": "Amendment without confirmation only updates pending; explicit confirmation adopts actual amended target. Loose waiting-state wording has no separate state or contradictory operation result in complete actual guide.",
+  "noModelResampling": true,
+  "effects": "NOT_MEASURED"
+}

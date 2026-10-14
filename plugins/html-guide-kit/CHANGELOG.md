@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [0.1.26] - 2026-10-14
+
+- HTML Guide Kit 0.1.26 matches the actual object, state, direct operation and result dimension against permissions, prohibitions, restoration and exceptions before identifying a specific missing dimension, including proposal summaries.
+- Only two existing spans in SKILL.md and guide-framework.md change; interaction-design.md, contract, icon, policy and other packages remain. Preserve source0.1.25 actual fidelity failure, legitimate comparison notes and unexercised paths; require fresh installation and frozen behavior/client checks. Refs #217, #220.
+
 ## [0.1.25] - 2026-10-14
 
 - HTML Guide Kit 0.1.25 reorganizes SKILL.md and both references into an ordered method. Check known rules before gaps, then compute each example’s actual missing conditions and compare the feedback with its inputs.

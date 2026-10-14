@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-14
 state: draft
-version: v1.43
+version: v1.44
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -725,6 +725,8 @@ PR238继续Draft，须准确工程安装、六组核心及受影响扩展、两�
 
 ## 48. 0.1.24真实停止与方法重排准备
 
+本节是源24停止时的前置快照；新25实际接入与门禁见§49及下方记录。
+
 PR #231实际merge71e2e1bc已复验；补充Draft #238当前准确head e15ec47bad8b6a33c2c218bcf59c367b2921d164/tree1fe945a41edc4403cf6f02cd33ab9b80d28f6eaa，HTML0.1.24。346测试、65文档/A6、validate/check、十三严格安装与六次实际缓存Python通过；当前八CI SUCCESS，reviews=[]，不追认独立批准。市场8.3.0、其他四包、图标、登记及调用合同保持。
 
 冻结真实核心9UUID/18COMPLETE/0INVALID，独立最终7PASS/1FAIL/1UNEXERCISED/5NOT_RUN，尚12输入未发。B1.1等待/确认主要判据PASS，但T1把源重启后的状态变化写为未知，T4两缺项反馈交换，并把已归还领取禁用写为缺口，整体FAIL。B6.1全文作用域复审PASS＋措辞note，原pending与补审分别保留；不更改判准。14:48:12.825Z普通global marker后无新输入，仅此前启动B4.1T2自然跨marker完成；无kill/重采样。delayed非推荐C选择已经发生，但修改/确认未发送，保留原选择，不算通过。
@@ -746,3 +748,34 @@ Refs #217, #220
 A初稿6140LF/6196CRLF预算失败、首次PS记录器resources=null且shellEXIT0原件保留；只有r2 c688b7af的实际三pins经独立核对后c1b16f接入。版本工具04275e DryRun/ fc14fd apply仅manifest24→25一锚点，metadata同步市场8.3/其他四包/登记/图标/policy保持；RootAGENT Windows16165。346完整测试及65文档/A6、validate/check通过，准确[草稿、独立审、控制与原工程记录](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-25/index.json)逐byte保存。
 
 Computer Use已再次实际读到唯一目标窗口及accessibility，尚未新输入或25客户端验收。下一步须准确提交的十三安装/六缓存Python、新冻结六组及受影响扩展、新双入口；旧原生有限P不继承。PR238保持Draft，#220/Epic开放，当前最终head非作者批准/CI/线程及merge复验独立；现实效果另测，无Release/tag/main发布。
+
+
+25准确canonical ba74bbe3d1b64b59ccc7e92d58a66a011126215e/tree28e0fca836c31dce00e491b269323dc79e8739da普通commit08e2b1/push及三commit范围a19276通过。唯一963f13/session3371最终fc9b7d EXIT0完成十三严格安装和六actualcachePython，summary239b7900410bbe0af830d9439fb1b410ebdd96e93fe6d3d4a717dcf2cbfc2329、installationfefd694d4fcf98421b3ca7a9bc97981918f6e2e7e60b30416ba52275e16fcde2，[完整原日志](evidence/html-guide-kit/pr3-post-merge/engineering-ba74bbe3/archive-index.json)逐byte保存；原控制清理临时根，不声称后来重读已清缓存。冻结三真实批已授权fresh准备/启动，模型结论仍待实际独立审。
+
+C集成只读审确认三freeze字节/manifest仅补丁/测试版本和64保护路径（其他四包59）一致；另查到validate-portable工作文件有单个末尾EOL差异，Git内容未变，a19276已从HEAD恢复该文件，不改校验逻辑。RUNBOOK前置未接入文字已明确历史范围，§49/current准确接入和安装事实各自列出。实际346完整测试03da71与新增索引后65文档9aadb2全P；未将部分测试输出或安装当新模型/client通过。
+
+
+源24完整[037停止原件](evidence/html-guide-kit/pr3-reviewer/patch-037-stopped/index.json)已实际入库，298文件7102088B六包，inventory316b6a2b5d9371b35b445eb84b892336a28cebdc2f2eaf46a4b2817882e593bf，最大2096575<2097152；Rootd2dbeb pack、b0f921 Node、28ac02独立.NET均EXIT0逐byte复原，[实际收口](evidence/html-guide-kit/pr3-post-merge/candidate037-final-seal/archive-index.json)保准确九UUID十八COMPLETE和7P1F1U5N、原pending及补充结论、全部真实手选/工具/三方资源。旧source23/新25、私有native及authcache排除，镜像非完整canonical tree。纯历史证据，不增加运行补丁或追认模型PASS。
+
+
+## 50. 0.1.25评审暂停与明确缺口误判
+
+ba74bbe3/tree28e0fca准确十三安装/六缓存Python通过，原工程346/65/validate/checkP保持。真实三批目前已在普通边界停止：A3UUID7COMPLETE、C2UUID7COMPLETE、B1UUID1COMPLETE，合6UUID15COMPLETE、0INVALID；最终逐项聚合待原技术闭包和独立审完成，不提前写全部PASS。
+
+Root15:28:51.944Z先写REVIEW_HOLD，完整语义复核后C B1.1恢复比较句属于实际动作/目标比较，判PASS＋措辞note，原hold保留；C delayed修改待答/确认后采用及完整指南亦独立PASS＋松散状态措辞note。另确认B6.1首轮泛称已归还后领取规则未给，撤销§4已知禁止及§7有据重开路径，整体保义FAIL；越界请求T2未发，主判UNEXERCISED、T1Read/拒绝附注片段P分别保留。Root新confirmedF补件7108af12与原hold分别存，不覆写或重抽。
+
+A两个完整变体独立评继续，B4.1只有待选首轮；C combined/B2及B三scope均未发。无新输入、在途自然完成；当前已知C delayed T3在hold前启动后结束，其余实际时序按闭包记录，不提前称不存在其他cross。25扩展/客户端NOT_RUN，专用UI十文件镜像仅准备且未安装/输入；不继承22有限两端PASS。现实效果NOT_MEASURED。
+
+下一0.1.26只外部准备缺口判断步骤的最小通用修正：固定对象/当前态/单操作/结果维度，匹配许可/禁止/恢复/例外，再保具体未给项；无用例答案、运行接入或测试结论。PR238保持Draft、#220/EpicOPEN，最终行为/双端/当前head批准/CI/线程/merge复验仍须满足；无指定reviewer、bypass或发布。Refs #217, #220
+
+
+## 51. 0.1.26具体缺口匹配修正
+
+只重写入口§1与framework§2两既有span，先固定对象/当前态/单个直接操作/结果维度，匹配全部许可/禁止/恢复/例外；改态路径另判，具体缺失维度才未知，不笼统说某态全部后续无规则。非操作材料仍按概念关系，不强造状态。ID全文及其他方法保持，无fixture答案/Owner依赖/硬教材结构；入口5954LF/6010CRLF余134B。
+
+A外部DRAFT_FINAL_FROZEN96ffbfd8经Root1d7a32和B d3af3e73完整独立静态审，Root准确接入两资源；版本工具仅HTML25→26单manifest锚点，市场8.3/其他四包/登记/图标/调用合同保持。源25原hold、另件确定F、合法恢复比较P及措辞note、未覆盖/技术身份分留；没有修改原输出或冻结判准。新准确工程/安装/模型/客户端尚未完成，旧PASS不继承。PR238继续Draft，#220/EpicOPEN，最终head批准/CI/线程/merge复验分别满足；效果另测，无正式发布。
+
+
+源25准确[独立判据、原HOLD与后续确定F、技术与逐项聚合](evidence/html-guide-kit/pr3-post-merge/source025-stopped/index.json)已逐byte保存：6UUID15COMPLETE/0INVALID、4P1F1U8N/15未发，0post、仅C delayedT3跨marker自然完成。Rootad1f5f语义整读C两项P并保局部动作身份/松散状态note，30e6f8重验七SDK轮/八实际完整Read/七三方资源/35原件稳定；B6主项T2未触发而首轮完整fidelity F分列。Rootbe3401聚合a9aaa80f不改原harness状态；完整038仍准备，不写完成。
+
+26完整工程1fcfb0通过346/0/0、252544.3632ms，validate7f3fc6/checka59771及65文档f8514d通过；C55b8a5核二span/IDexact、64保护路径与其他四包59/工具Git内容不变，AGENT16194，原控制读取expected-null形状错误与实际核验范围分别留说明。[准确静态、控制与原工程记录](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-26/index.json)入账，尚须准确提交安装/新行为及客户端，不据静态/工程关闭。

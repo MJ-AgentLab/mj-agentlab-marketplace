@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "status": "STATIC_ONLY",
+  "conclusion": "NO_STATIC_BLOCKERS",
+  "reviewer": "/root/behavior_014_b",
+  "recordedUtc": "2026-10-14T15:41:23.397Z",
+  "sourceCanonical": "ba74bbe3d1b64b59ccc7e92d58a66a011126215e",
+  "sourceTree": "28e0fca836c31dce00e491b269323dc79e8739da",
+  "proposedVersion": "0.1.26",
+  "freeze": {
+    "relative": "DRAFT_FINAL_FROZEN.json",
+    "bytes": 5892,
+    "sha256": "96ffbfd80572c888a9d94ccaa3c56871b2ef8f2d93f254a18531b1624cf18525"
+  },
+  "resources": [
+    {
+      "relative": "skills/guide/SKILL.md",
+      "sourceBytes": 5833,
+      "sourceSha256": "b7a36111f943a96a69a033c19b5ed3edbb7eb90e9cf0d96cc071179f614c789a",
+      "draftBytes": 5954,
+      "draftSha256": "3b3f4558e66329c6385f155ee04e2020fe0d5d046fe5b48d71ce1c84023fb02b",
+      "exactSourceGit": true,
+      "onlyFrozenReplacement": true,
+      "unchanged": false
+    },
+    {
+      "relative": "skills/guide/references/guide-framework.md",
+      "sourceBytes": 8715,
+      "sourceSha256": "12dffe8c67938c9788d89bfc75fe443ab97bdb466a43064db9a75c755836185b",
+      "draftBytes": 8980,
+      "draftSha256": "81eb1ab4e30f0f750a316a4575e050df27bc19e35c684a2621638fc72ef6bc11",
+      "exactSourceGit": true,
+      "onlyFrozenReplacement": true,
+      "unchanged": false
+    },
+    {
+      "relative": "skills/guide/references/interaction-design.md",
+      "sourceBytes": 9667,
+      "sourceSha256": "46e41cfb58b17fda52d845469f4c61a189c19e18b608cc3ffad33b3539aad47d",
+      "draftBytes": 9667,
+      "draftSha256": "46e41cfb58b17fda52d845469f4c61a189c19e18b608cc3ffad33b3539aad47d",
+      "exactSourceGit": true,
+      "onlyFrozenReplacement": false,
+      "unchanged": true
+    }
+  ],
+  "entryBudget": {
+    "lfBytes": 5954,
+    "windowsCRLFBytes": 6010,
+    "limit": 6144,
+    "margin": 134
+  },
+  "checks": {
+    "fullThreeResourceRead": true,
+    "twoExistingSpansOnly": true,
+    "exactByteReconstruction": true,
+    "interactionUnchanged": true,
+    "relativeLinksRetained": true,
+    "publicContractRetained": true,
+    "nonOperationalMaterialsNotForcedToStateOperation": true,
+    "knownPermissionAndProhibitionPreservedBeforeGapJudgment": true,
+    "stateChangingPathsCheckedSeparately": true,
+    "onlyActuallyMissingDimensionsUnknown": true,
+    "noNewDomainExamplesFixturesOrOwnerDependency": true,
+    "noFixedGuideStructureOrProductionSteps": true
+  },
+  "rationale": [
+    "The two replacements require an exact object/current state/direct operation/result dimension before a gap claim. Broad permissions, prohibitions, exclusions, restoration and exceptions remain applicable; a missing field cannot erase a known decision.",
+    "The framework explicitly limits operation-state decomposition to operation materials, preserving concepts and relationships for other materials. No permission, source rule, target confirmation or output boundary is changed."
+  ],
+  "limitations": [
+    "Static resource review only. No installation, model execution, behavioral PASS, GitHub approval or runtime modification."
+  ],
+  "readObservation": {
+    "fullReads": [
+      "ddfa99",
+      "57309a"
+    ],
+    "secondCallExit": 1,
+    "secondCallLimitation": "The interaction resource was returned in full; a separate guessed criteria.json path did not exist. That missing path is not treated as a successful read and did not modify files."
+  }
+}

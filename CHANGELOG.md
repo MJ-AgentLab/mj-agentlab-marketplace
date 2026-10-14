@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+- Prepare HTML Guide Kit 0.1.26: define the exact object, current state, operation and result dimension before a source-gap claim, preserving known broad rules and restoration paths. Keep actual0.1.25 failures and require fresh installed acceptance. Refs #217, #220.
+
 - Prepare HTML Guide Kit 0.1.25: organize the entry and two references into ordered evidence, target confirmation, complete source rules, expression and per-example feedback verification. Preserve source0.1.24 real failures and require fresh installation, frozen behavior and client acceptance. Refs #217, #220.
 
 - Prepare HTML Guide Kit 0.1.24: separate operation permission from target outcomes and restoration actions from equal terminal values; use faithful text when local result relationships cannot retain complete rules. Preserve real0.1.23 failures and require fresh installation, frozen behavior and client acceptance. Refs #217, #220.

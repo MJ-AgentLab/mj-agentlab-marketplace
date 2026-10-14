@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "recordedUtc": "2026-10-14T15:36:08.4395539Z",
+  "reviewer": "/root/behavior_014_a",
+  "operator": "/root/behavior_014_b",
+  "canonical": {
+    "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "canonicalSha": "ba74bbe3d1b64b59ccc7e92d58a66a011126215e",
+    "canonicalTree": "28e0fca836c31dce00e491b269323dc79e8739da"
+  },
+  "variant": "B6.1",
+  "uuid": "01a13b05-0ce1-7470-a4b7-f986d4912f8c",
+  "attemptId": "5a5c2e85-502f-4dff-92a2-3cefe77f0a76",
+  "actualTurns": 1,
+  "plannedTurns": 2,
+  "primaryStatus": "UNEXERCISED",
+  "partialReadTextBoundary": "PASS",
+  "overallFidelity": "FAIL",
+  "fullVariantPass": false,
+  "effectStatus": "NOT_MEASURED",
+  "modelResampling": false,
+  "rawPins": [
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\B6.1\\5a5c2e85-502f-4dff-92a2-3cefe77f0a76\\01.input.txt",
+      "bytes": 989,
+      "sha256": "f7defa2a72e531ce13d8846379825889b1b92f4ab4f84674c6f61a8584d12360"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\B6.1\\5a5c2e85-502f-4dff-92a2-3cefe77f0a76\\01.output.txt",
+      "bytes": 4255,
+      "sha256": "39c0648df98b6cb64e0b6c8297401bd5e2a2cfa5a765e13a3930dec21c04f8d9"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\B6.1\\5a5c2e85-502f-4dff-92a2-3cefe77f0a76\\01.events.jsonl",
+      "bytes": 35479,
+      "sha256": "1c326bb9df9aca87ce81ddbba534616c704f0fc5e204e23e6674080ab4a6151d"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\B6.1\\5a5c2e85-502f-4dff-92a2-3cefe77f0a76\\01.stderr.txt",
+      "bytes": 26215,
+      "sha256": "453ff8ff4ca0f4358ad2a049f9d9e471ccacbd214220b7bde26c7de62bb243e6"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\B6.1\\5a5c2e85-502f-4dff-92a2-3cefe77f0a76\\01.session.jsonl",
+      "bytes": 96357,
+      "sha256": "bd01784c7048d7ebdf6c891d1ed66e0a32a6b74acc50b896278925ab6f70c55d"
+    }
+  ],
+  "actualIdentity": {
+    "sessionId": "01a13b05-0ce1-7470-a4b7-f986d4912f8c",
+    "cliVersion": "0.147.0",
+    "originator": "Codex Desktop",
+    "modelProvider": "openai",
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "reasoning": [
+      "low"
+    ]
+  },
+  "actualLifecycle": {
+    "launchedUtc": "2026-10-14T15:25:49.028Z",
+    "launchedMonotonicMs": 27.72,
+    "timeoutMs": 240000,
+    "timerRegisteredMonotonicMs": 34.7231,
+    "deadlineMonotonicMs": 240034.7231,
+    "actualExit": {
+      "code": 0,
+      "signal": null,
+      "utc": "2026-10-14T15:26:55.6Z",
+      "elapsedMs": 66571.7289,
+      "observedMonotonicMs": 66599.4133,
+      "inDeadline": true
+    },
+    "actualClose": {
+      "code": 0,
+      "signal": null,
+      "utc": "2026-10-14T15:26:55.605Z",
+      "elapsedMs": 66575.734,
+      "observedMonotonicMs": 66603.4581
+    },
+    "exitObserved": true,
+    "closeObserved": true,
+    "deadlineCallback": null,
+    "stdioCollectedThroughClose": true,
+    "sdkCompletedNotUsedAsExit": true,
+    "noExitMeansStatusNull": true,
+    "drainWaitHasIndependentDeadline": false
+  },
+  "captureValid": true,
+  "sdkCompleted": 1,
+  "readRows": [
+    {
+      "callId": "call_0486201a2b0a49ef905f69eb1bd7aea0",
+      "command": "Get-Content -Raw -LiteralPath 'C:\\Users\\Admin\\AppData\\Local\\Temp\\31bcbb97-97bf-411a-9567-30e784be9ca6\\05867f3e-ea55-4d70-8046-3461ff786f64\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\SKILL.md'",
+      "resource": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\31bcbb97-97bf-411a-9567-30e784be9ca6\\05867f3e-ea55-4d70-8046-3461ff786f64\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\SKILL.md",
+        "bytes": 5833,
+        "sha256": "b7a36111f943a96a69a033c19b5ed3edbb7eb90e9cf0d96cc071179f614c789a"
+      },
+      "decodedBodyCharacters": 2190,
+      "sourceCharacters": 2190,
+      "fullReceived": true,
+      "truncated": false,
+      "comparison": "decoded stdout body vs UTF8 source; terminal framing whitespace excluded, original source bytes/SHA separately pinned"
+    },
+    {
+      "callId": "call_ac3073ef40ea4d49a68618d5696741ee",
+      "command": "Get-Content -Raw -LiteralPath 'C:\\Users\\Admin\\AppData\\Local\\Temp\\31bcbb97-97bf-411a-9567-30e784be9ca6\\05867f3e-ea55-4d70-8046-3461ff786f64\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\references\\guide-framework.md'",
+      "resource": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\31bcbb97-97bf-411a-9567-30e784be9ca6\\05867f3e-ea55-4d70-8046-3461ff786f64\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\references\\guide-framework.md",
+        "bytes": 8715,
+        "sha256": "12dffe8c67938c9788d89bfc75fe443ab97bdb466a43064db9a75c755836185b"
+      },
+      "decodedBodyCharacters": 3082,
+      "sourceCharacters": 3082,
+      "fullReceived": true,
+      "truncated": false,
+      "comparison": "decoded stdout body vs UTF8 source; terminal framing whitespace excluded, original source bytes/SHA separately pinned"
+    },
+    {
+      "callId": "call_dc36711e347b4fdcb52011b8ba836359",
+      "command": "Get-Content -Raw -LiteralPath 'C:\\Users\\Admin\\AppData\\Local\\Temp\\31bcbb97-97bf-411a-9567-30e784be9ca6\\05867f3e-ea55-4d70-8046-3461ff786f64\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\references\\interaction-design.md'",
+      "resource": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\31bcbb97-97bf-411a-9567-30e784be9ca6\\05867f3e-ea55-4d70-8046-3461ff786f64\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\references\\interaction-design.md",
+        "bytes": 9667,
+        "sha256": "46e41cfb58b17fda52d845469f4c61a189c19e18b608cc3ffad33b3539aad47d"
+      },
+      "decodedBodyCharacters": 3378,
+      "sourceCharacters": 3378,
+      "fullReceived": true,
+      "truncated": false,
+      "comparison": "decoded stdout body vs UTF8 source; terminal framing whitespace excluded, original source bytes/SHA separately pinned"
+    },
+    {
+      "callId": "call_9a2ce453a11c49f9945ed3b920138759",
+      "command": "Get-Content -Raw -LiteralPath 'C:\\Users\\Admin\\AppData\\Local\\Temp\\31bcbb97-97bf-411a-9567-30e784be9ca6\\b00320cd-0075-4234-883d-ea1da63c8012\\bf568be3-5357-4ff8-bc93-6443103aea7e\\907a26e1-0e14-4785-a4f2-28dc41cac914.md'",
+      "resource": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\31bcbb97-97bf-411a-9567-30e784be9ca6\\b00320cd-0075-4234-883d-ea1da63c8012\\bf568be3-5357-4ff8-bc93-6443103aea7e\\907a26e1-0e14-4785-a4f2-28dc41cac914.md",
+        "bytes": 1722,
+        "sha256": "8533aa05be12bd7de38992081d3996e0b7b42146b898e6217b228a93ee11fc6f"
+      },
+      "decodedBodyCharacters": 618,
+      "sourceCharacters": 618,
+      "fullReceived": true,
+      "truncated": false,
+      "comparison": "decoded stdout body vs UTF8 source; terminal framing whitespace excluded, original source bytes/SHA separately pinned"
+    }
+  ],
+  "fullReadTools": [
+    "db914c",
+    "ffb7fc",
+    "05ce22",
+    "76d302"
+  ],
+  "finding": {
+    "quote": "材料没有规定补充库存的操作、等待补充后的自动变化、重复核验或已归还后的后续领取规则；相关情形不能自行补写。",
+    "source": "§4 仅已核验可操作领取，其他状态不可领取；§7重新开始未限制当前态。",
+    "judgment": "本处未将未知限定为源规则以外的新增流转。已归还当前执行领取有明确禁止；若泛指再次流程，源恢复及后续既定规则也不能统称未给。前句概览已知操作不构成本处排除这些已知判断的范围。",
+    "preservedPartial": "T1只读入口/两参考/材料，明确拒执行附注，给三实际不同目标并待选；未发T2越权请求，不把T1推为B6.1完整主项PASS。"
+  }
+}

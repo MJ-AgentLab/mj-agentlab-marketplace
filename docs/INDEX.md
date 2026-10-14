@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-14
 state: active
-version: v2.58
+version: v2.59
 ---
 
 # 文档索引
@@ -222,3 +222,6 @@ HTML0.1.24两参考三span通用修正经双独立静态审接入，区分许可
 HTML23补充复审另件更正有效7P/3F/2U/2未跑，原8P/2F快照和PASS报告保留，12UUID/24C无新调用，见[停止证据](runbook/evidence/html-guide-kit/pr3-post-merge/source023-stopped/index.json)。
 
 HTML0.1.25重排入口和两参考为有序证据/确认/源规则/逐例反馈反查；保留24真实7P1F1U5N与完整源23封存，不追认新安装/模型/客户端，见[RUNBOOK§48](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+HTML25准确ba74安装十三/六PythonP，六UUID十五C因源缺口误判停止；原hold与另件F、合法比较P和未覆盖分列。26外部准备，见[RUNBOOK§50](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+HTML26两既有span按具体对象/态/单操作/结果维度逐规则匹配，再仅保实际缺失维度未知；双静态审接入，新准确安装/模型/客户端待跑，见[RUNBOOK§51](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
