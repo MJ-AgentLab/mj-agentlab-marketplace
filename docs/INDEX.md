@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-15
 state: active
-version: v2.71
+version: v2.72
 ---
 
 # 文档索引
@@ -252,3 +252,5 @@ HTML29真实停止8UUID14C：5P1F2U6N，16输入未发，0post/0cross；30只外
 HTML30从29停止源单独推进0.1.30，精确接入entry/framework两span，先核实际范围与全部前提、保宽许可覆盖的当前操作及明确结果；交互参考保持。29的8UUID14C为5P1F2U6N/16未发及完整042原封存不追认；本版工程检查正在执行，新canonical安装、fresh模型和双端待证，见[§59](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
 
 HTML30准确696da5df：346测试/65文档/严格校验/十三安装六缓存Python通过；fresh核心与双端分别验收，见[§59补证](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+HTML30实际停止13UUID27C：whole9P4F1N，B5反馈primaryU、3输入未发、0post/2自然cross；Work两实际轮P/完整双端未齐，见[§60](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。

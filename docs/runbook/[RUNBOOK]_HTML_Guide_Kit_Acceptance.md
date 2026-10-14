@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-15
 state: draft
-version: v1.56
+version: v1.57
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -912,3 +912,16 @@ Root32a9c0与B62202a独立全文静态无阻断，freeze5e5e1eeb精确两span：
 30工程补证：准确canonical 696da5df4faedd239783764e59b6832b5884f5e1/tree5202e43ba36ee3f8b231fe28d48293e1b265f990，正常2d648c提交/6f17ad推送。唯一完整a81648/session45853→0b6344 EXIT0：346PASS0FAIL0cancel0skip/278167.1416ms；db947e文档/A6 65PASS0FAIL，4a12cb strict与483f51基线0.147检查、两quick及PowerShell7.6.5实际DryRun/Apply均通过。三运行资源与冻结精确一致，其他59包文件、64保护资源与28工具保持，362旧29原件不变。[工程/静态原件索引](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-30/archive-index.json)。
 
 Root唯一a59094/session23823→5ab65a EXIT0[十三canonical安装/六真实缓存Python](evidence/html-guide-kit/pr3-post-merge/engineering-696da5df/archive-index.json)通过：实际五插件七公开/四显式/三自然/仓库20，manifest、调用策略、图标、参考、版本与缓存来源逐字节对应。原controller已清临时缓存，不称事后读取。fresh核心三个实际批次分别执行独立原SDK与全篇语义评审，未据工程或历史行为追认当前整体PASS；双客户端仍须新30实际调用，现实效果NOT_MEASURED，#220/Epic OPEN，无正式发布。Refs #217, #220。
+
+
+## §60 Source30 真实停止与客户端限定证据
+
+准确运行仍696da5df/tree5202e43b，0.1.30；工程完整346、十三安装/六缓存Python已P，纯工程补证8f759400/tree7ebe4414的71分发Git blob与准确运行相同，非整树相同。正常推送e3665f，当前CI与批准不沿用运行源结论。[Root原评审与停止回执](evidence/html-guide-kit/pr3-post-merge/source30-root-stop/archive-index.json)。
+
+真实三批13UUID/27COMPLETE/0INVALID，逐原SDK0.147/OpenAI/gpt-5.6-sol/high及V2真实exit/close通过，三份mirror/cache七运行资源逐源精确。whole9PASS/4FAIL/1NOT_RUN：combined、B2、B4.1的独立案例或自检没有给必需当前状态，却断定核验状态结果；源条件规则/初值及“每题应显示状态”的未来要求不能充当本例赋值。Root10c7a9/30cb16/73e49f与A/B独立全文均确认，主确认/关系/完整模拟局部P保留。B5.1第一候选问题把初值不能核验写成前提，混淆许可与核验未通过，Rootdda974与B61d750确认wholeFAIL；其自检反馈T2未发，primaryUNEXERCISED分别记录。B5.2未运行，不从前缀追认。
+
+唯一e44132普通marker为2026-10-14T19:42:11.897Z/f6e5137650ba66493b9364ea9e4bd9c1365a6b538dd53eb0259010429d979578。准确3输入未发、0marker后开始、2在途自然跨marker（A B5.1T1、C B2T2），所有outer自然返回；无kill/retry/resample。Root唯一bb8d17汇总66d7cf018e5c487f2e64375337a0e90eeb51a838e732b3bd8e7780af393bc195及135模型raw pins保留，A/B/C独立评审与正常闭包另封。扩大验收NOT_RUN，不迁移旧PASS。
+
+Computer Use实际确认新UI-only十文件mirror/缓存与696精确、Read/图标/入口/0.1.30详情可见。Work实际UUID01a13bec-c13d-7e22-8eab-671d7c8c520e，app26.1007.9446.0/backend0.162.0-alpha.17.2、OpenAI/gpt-6-astra/xhigh，与CLI基线分列。UI首轮及未选择T2连续输入真实完成，方案三选且只待答、保留原候选均限定PASS；实际native完整入口和三个独立工具回包完整缓存正文经f36408/0a2b3c核对，不用自述作读取证据。确认交付第三轮、Codex本地入口及原生窗口生命周期NOT_RUN；同一组合应用不证明其他客户端。源SDK私密前缀只外部保留，公开只选本测试输入输出/准确identity/工具定位和hash，不导出整窗pixels。
+
+19544f安装后比较误漏自有marketplace段、Root9f2f45/b2a933 receiver路径定位和95b722/5f0e43 shell观察辅助失败分别保；实际两安装子命令EXIT0、十缓存字节独立ba1c27通过，无重新安装或模型重试，错误不计模型INVALID。b2a933只还原自有旧20/22插件段并停用自有30，当前root界面已返回；无其他插件操作。下一修正只针对本例前提/候选问题预设事实，继续原Read/明确确认/文本合同。现实效果NOT_MEASURED，#220/Epic开放，Draft #238、当前head批准/CI/线程及最终merge与双端尚未齐；无正式发布。Refs #217, #220。

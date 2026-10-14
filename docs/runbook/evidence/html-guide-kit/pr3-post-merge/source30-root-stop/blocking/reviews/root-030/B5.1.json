@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T19:48:32.112Z",
+  "reviewer": "/root",
+  "operator": "/root/behavior_014_a",
+  "version": "0.1.30",
+  "source": {
+    "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "canonicalSha": "696da5df4faedd239783764e59b6832b5884f5e1",
+    "canonicalTree": "5202e43ba36ee3f8b231fe28d48293e1b265f990"
+  },
+  "variant": "B5.1",
+  "uuid": "01a13bef-50a3-72a1-9cac-ef5a0f9d2cea",
+  "primary": "UNEXERCISED",
+  "overall": "FAIL",
+  "originalWholeReadTool": "dda974",
+  "reason": "First target question falsely presupposes initial state cannot perform verification. Source allows verification in unverified state; missing qualifications prevent success, not the operation. Confirmed feedback turn was not sent, separately UNEXERCISED.",
+  "technicalAudit": {
+    "file": "operator-a-records/root-B5.1-prefix-original-receiver-audit.json",
+    "sha256": "2fcc8c1f2e2fae0f90004ccb45c75981996c817c502c76ab5acbb59623c8968b"
+  },
+  "rawPins": [
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-30\\blocking\\runs\\a32aa192-72bc-4a6b-a866-2a6216971591\\B5.1\\0660e1f8-0b34-44a3-9b0e-ae7189b2945e\\01.events.jsonl",
+      "bytes": 32012,
+      "sha256": "7d6f311a503c418e5a282d2759baedd61197de93b3b359729d1255fd4402f606"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-30\\blocking\\runs\\a32aa192-72bc-4a6b-a866-2a6216971591\\B5.1\\0660e1f8-0b34-44a3-9b0e-ae7189b2945e\\01.input.txt",
+      "bytes": 989,
+      "sha256": "4799a4b2ed695500663116c8dcc9d4420e98464e3fc20cb34ad41c47bf421e54"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-30\\blocking\\runs\\a32aa192-72bc-4a6b-a866-2a6216971591\\B5.1\\0660e1f8-0b34-44a3-9b0e-ae7189b2945e\\01.output.txt",
+      "bytes": 2818,
+      "sha256": "71dda90bd4df61ab4f92ee6733bd5f0f762b89b2fc7a92e2d945120b51044628"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-30\\blocking\\runs\\a32aa192-72bc-4a6b-a866-2a6216971591\\B5.1\\0660e1f8-0b34-44a3-9b0e-ae7189b2945e\\01.session.jsonl",
+      "bytes": 103848,
+      "sha256": "817e47d746c7aa10b1e46de7721dedb074a6204126f117f1425d4c6ca4c867d4"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-30\\blocking\\runs\\a32aa192-72bc-4a6b-a866-2a6216971591\\B5.1\\0660e1f8-0b34-44a3-9b0e-ae7189b2945e\\01.stderr.txt",
+      "bytes": 35347,
+      "sha256": "c13cbd6909670b9042bb722e1205632154f447cf230819957c259b0ae9de5ad5"
+    }
+  ],
+  "originalModelOrControlModified": false,
+  "source30Only": true,
+  "notes": [
+    "Local correct relations, strict target waiting and actual transport remain separately recorded; no recovery failure inferred merely from a missing repeated keyword.",
+    "Source initial values can be inherited only where an actual declared common scenario covers the case; source predicates do not supply an unstated case premise."
+  ]
+}
