@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-15
 state: draft
-version: v1.50
+version: v1.52
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -850,3 +850,33 @@ Root16:39:16.711Z首次confirmed marker后0post，仅C combinedT2 16:38:52.987�
 Root a7afff正常提交runtime5f9eebef及82旧STOP/040纯证据83b3f50ba6c41f923a2b48bba10ca176102be18d/treeb5bea864f5fefba2d964a158e077225cae82d987；65df4d九commit范围及普通pushP。唯一9e5960/session21627最终09742b EXIT0[准确canonical十三严格安装及六缓存Python](evidence/html-guide-kit/pr3-post-merge/engineering-83b3f50b/archive-index.json)，summaryb7f79c85cadbff4fd4bd4eedf0128dcf5ee5d2821f2f864df1a29e3746113be7、installation391152bc364fe61139ad53bac57f05d785f5a9cc228b140826b4a0c1a7584492。原controller已清实际临时缓存，不称随后重读。新模型使用另外fresh安装且必须实际读其缓存。
 
 全门禁后Root明确授权A/B/C14fresh30连续轮次，显式high但原defaultlow/proof112d保持。新技术审查helper由Root a24e3c完整读、10精确span前向/逆向及3syntax核对，分别核默认/selected/fresh支持/actualSDK，不改冻结40控制或旧low报告；配置不证行为。Computer Use本轮已实际取得同一返回窗口196630的可读accessibility及截图，零输入；尚无本版客户端P。旧22限定双端不移用，现实效果NOT_MEASURED，#220/Epic仍OPEN。
+
+
+## 56. 0.1.28真实high批次停止与拒因纪律窄修准备
+
+准确模型/安装源83b3f50/treeb5bea864，当前纯工程补证bf34c512/tree dc65d8e0与其全部插件/登记/VERSION71文件逐byte相同，不称完整树相同。实际新SDK0.147/OpenAI/gpt-5.6-sol/high和旧真实defaultlow/proof112d分别保留；支持元数据不代实际SDK。Root 48bc90最终[停止原判及闭包](evidence/html-guide-kit/pr3-post-merge/source028-stopped/index.json)为5UUID10COMPLETE/0INVALID、2PASS/1FAIL/2UNEXERCISED/9NOT_RUN，20输入未发。A B3.1全3P、B3.2仅T1U；C B1.1全4primary/wholeP、delayed仅T1U；B B6.1仅T1primaryU/wholeF，其余九零。
+
+B6.1T1原回包只generic rejected: blocked by policy，模型却断言“读取被沙箱策略拦截了”；Root完整0f1e14及A966a0b同确证F。后读取成功不证明先前拒因、安装目录/权限范围。Root 0d970a首marker17:47:41.605Z，0post；A B3.2T1 17:47:08.018→17:47:56.841及C delayedT1 17:46:57.951→17:47:48.250在途自然跨marker，不kill/retry/resample。A prefix的泛“环境策略”只记其实际generic返回，不按字词追加具体沙箱F；未触发后续指南仍U。
+
+C本版实际明示完整源基准用于全篇，保义缩写合法；完整规则、宽禁止、许可/成功、全部源恢复与独立教学选择/反馈区分均保。四核验情境可在已明示未核验演示基准内解释，建议未来每例更明示初态仅note，不能按未重复state词单独判F。真实自检判准与将来作者反馈细化分记，不称已实施或效测。Root 0a9d4f独立再核C5实际SDK、8独立outer单文件全文回包、7Git镜像cache及25raw；不是旧27组合一outer四body，旧状态不重评。A/B独评与原控制报告、firstfailed工具及读取顺序均保留。
+
+Root初状态枚举7f8453索引未来零attempt错误及f3e1d5对实际{utc,timezone}用Date.parse得到NaN错误分留；初aggregate未写，828dcd核真实字段后48bc90成功，不能当实际post输入或模型INVALID。aggregate2cf29e057e99902cdd3f6470c0adb29a5423436a6ca58061df4590104b988dff；完整041原件另准备。
+
+29只在外部准备entry/FW两span：前置读取和拒因证据纪律；回包未述原因/权限则未知，读取形式/目录身份/后成功不证先前拒因，明确禁止不绕过，原Read范围内逐份直读不称因果诊断。两处之外方法字节不改、ID7773 exact；freeze d07c46d2，Root38fa61及B146ce6独静态无阻断，不称安装/模型P。当前runtime仍0.1.28，待实际授权应用、工程、准确canonical及fresh复验；本版UI/扩展未运行，Computer Use仅访问预检，现实效果NOT_MEASURED，#220/Epic仍OPEN，无发布/bypass。Refs #217, #220
+
+
+源28完整[041原件](evidence/html-guide-kit/pr3-reviewer/patch-041-stopped/index.json)已Root d0fad2真实封包、8a0f0d Node与d21852独立.NET均EXIT0，351文件6692597B七包逐byte复原，inventoryd8dee405cd1a45eac1edb8682042484938e48202cd4c3e0825cef732c6fe8d48、max2086716<2097152/secret0。[实际收口](evidence/html-guide-kit/pr3-post-merge/candidate041-final-seal/archive-index.json)保5UUID10C、2P1F2U9N、2cross/0post、原high/defaultlow身份、原工具拒绝/失败及全部评审parser错误，future29与实际auth/Home/原生私有窗口排除。已封准确engineering24files仅精确pin引用，无重新安装或模型；原P/F/U/N不变。
+
+
+## 57. 0.1.29拒因证据纪律接入与工程准备
+
+2026-10-15在source28停止及完整041纯证据上推进HTML候选。权威版本工具以独立子进程DryRun28→29仅一manifest锚点，再Apply仅此版本。首次Windows PowerShell5子进程解析既有脚本失败，stdout/stderr/exit与前后manifest相同证明零写入；原失败保留，随后使用实际宿主PowerShell7.6.5分别DryRun/Apply，原日志完整捕获，不将兼容修正追认首次成功。
+
+精确接入freeze d07c46d2的两个span：入口4948B（Windows4982≤6144），SHA dbff8b0f1b829a0b560520d1ae988a87dd9a4142fc6c73ce3e7c25ca3f3096bc；框架8739B，SHA fe70ec7005dd564a1cef1e84691c85d4cac278c6b8de1578e87b348742fe7c9b。交互参考7773B/SHA b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a保持。Root38fa61与B146ce6全文静态无阻断，仅STATIC_ONLY。方法要求首次读取前逐份直读，拒绝仅按回包明确事实报告；未述原因/权限仍未知，不以读取形式、目录身份/位置或后成功推先前拒因，不作路径权限因果排查；原Read内单份续读不称因果证明。其他合同、目标确认和方法保持。
+
+source28五UUID十次COMPLETE/0INVALID，2PASS/1FAIL/2UNEXERCISED/9NOT_RUN及真实high错误保持；17:47:41.605Z普通停止、两个在途跨marker和零post输入分别记录，详见§56。实际041完整351文件/6692597B/七包、Node与.NET复原通过，原封存不重复处理。64保护路径、其他四包59资源、市场8.3.0/登记/图标/UIpolicy、28工具Git内容以及341外部原件保持。
+
+工作树工程检查正在执行，实际日志存integration-records；尚无本版准确canonical安装、fresh模型或双端验收，不继承旧通过。外部29控制保持原输入/判准、CLI0.147/OpenAI/gpt-5.6-sol、240000ms捕获及普通边界pause；实际defaultlow与显式high分别记，支持配置不证真实调用。现实效果NOT_MEASURED，#220/Epic开放，当前head非作者批准、CI/线程及actualmerge复验分别待满足；无Release/tag/main发布PR或bypass。Refs #217, #220
+
+
+29首次工程7275dc严格校验F；完整39f1d8/session12110最终ac5ddd EXIT1，336P10F0skip/170513.8227ms，原log6c0164ae33ec85776b3fe7c83c2bb7583ff8c7e56ba5e2af183b670f42960127分留。原因是Root封存28初稿时保留三个draft-initial/*.md原文件名，被正式docs解析而缺type/frontmatter；不是新两span运行字节错误。初run自然结束后仅将三归档名加.snapshot.txt、索引保originalRelative及相同原内容hash；不修改原341外部28文件/041原包或validator，版本仍0.1.29。正确工程须另完整执行，不追认初F。

@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-15
 state: active
-version: v2.65
+version: v2.67
 ---
 
 # 文档索引
@@ -238,3 +238,8 @@ HTML27真实核心9UUID18C为5P3F1U5N停止，原源码输出与独立原判据�
 HTML28候选已从27单独推进0.1.28、精确接入三冻结资源；原27停止/完整040保持。工程检查正在执行，十三canonical/六缓存Python、新显式high模型与本版双端尚未运行；defaultlow/旧失败不改，结果见[§55](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
 
 HTML28准确83b3/treeb5be：346完整测试、65文档/A6、严格结构/技能/CLI及十三安装六缓存Python通过，见[§55](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。原失败与准确工程日志逐byte保留；新high核心获授权，实际模型/本版双端结论待独评，不继承旧PASS。
+
+HTML28真实high核心5UUID10COMPLETE为2PASS/1FAIL/2UNEXERCISED/9NOT_RUN，20输入未发，0post、A与C各一在途跨marker。失败是generic拒绝被称沙箱原因，旧P不追认；[§56](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)及[停止原判](runbook/evidence/html-guide-kit/pr3-post-merge/source028-stopped/index.json)保存actual SDK/独评。29仅两span外部窄稿，尚未应用或新调用。
+
+
+HTML29从28停止批次单独推进0.1.29，精确接入entry/framework两处拒因纪律修正，交互参考保持；28五UUID十次COMPLETE为2P1F2U9N与完整041封存不变。新工程检查正在执行，准确canonical安装、fresh显式high模型与本版双端尚未运行；defaultlow及旧失败不改，见[§57](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。

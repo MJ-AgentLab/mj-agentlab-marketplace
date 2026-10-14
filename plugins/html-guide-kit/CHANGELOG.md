@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.1.29] - 2026-10-15
+
+- HTML Guide Kit 0.1.29 puts single-file reading and evidence-based refusal reporting before the first read, and aligns the framework: unspecified causes and permission scope stay unknown; later successful reads do not prove earlier refusal causes.
+- Apply only the approved entry/framework spans; interaction-design remains byte-exact. Preserve the explicit Read-only chat-text contract and all target confirmation, source fidelity, simulation, recovery and teaching feedback boundaries.
+- Preserve original0.1.28 failures. Fresh canonical installation, independent behavior and this version’s client checks remain required; explicit high stays separate from the actual low default. Refs #217, #220.
+
 ## [0.1.28] - 2026-10-15
 
 - HTML Guide Kit 0.1.28 condenses the entry and two references into shared ordered evidence, target confirmation, complete source rules, example computation and whole-guide checking.
