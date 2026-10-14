@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-14
 state: draft
-version: v1.34
+version: v1.35
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -618,3 +618,5 @@ Codex本地应用入口另建会话01a139a5-f208-7392-9b45-572f3195675c（设计
 新恢复的[580原文件/11230064字节/九packet封存](evidence/html-guide-kit/pr3-reviewer/patch-031-recovery-stopped/index.json)及[Root实际Node/独立.NET复原](evidence/html-guide-kit/pr3-post-merge/candidate031-final-seal/archive-index.json)均通过，inventorySHA297b3adf4c4041532d4a6f2417039651c438970d02da6023a57e2e53e432422d。七原final唯一grade与六summary实际exit0；637不可变文件、六batch逆恢复及三零attempt原bytes保持。handoff console错将原文件bytes与总库存bytes混印，原10318B JSON及另件更正保留，未重dry/pack。21工作内容346测试/0失败/0skip、validate/check实际通过；仅安装控制版本guard20→21，13/6方法相同；新canonical安装及模型/客户端仍未执行。停止调度经双独立静态核对，无模型试验或GitHub批准替代。
 
 准确21首canonical2c776f57765983be9fca8808e77fa7ff8d50c2f3/tree96b1ca49997695d8f98b248e822f349febac2fe8已提交推送，但严格安装控制在调用installer前以exit1阻断：准备快照的十二个原.md名称被正式文档检查识别，出现ADR相对链接/缺frontmatter问题。346工作测试在该快照加入前通过，不能据此追认完整canonical结构或安装成功；本次实际失败保留。仅将仓库归档中的十二快照别名改为.md.snapshot.txt，原159文件bytes/哈希保持，原index另存和alias映射齐全，外部控制/运行资源/validator/判准不改；保持0.1.21。新纯归档提交须新canonical严格安装，旧2c仍失败。
+
+第二准确canonical627e8e6ae38140af3a19b47e7ca8645b02e5050f/tree8f7ec48941d7c9a0f288738957193b63298d1b6f仍安装前exit1：根说明LF16356字节在Windows准确检出成为CRLF16443，超过既有16384预算。保留完整原失败，仅收敛HTML阶段摘要并保留判准/历史定位，使CRLF留余量；validator及运行资源不变、版本仍0.1.21。新提交再次严格验收，不追认两次失败。原生源20公开范围47原文件/三包已实际封存及Node/.NET复原，排除无关整窗/HOME；只适用于原两个有限路径，不继承到21。

@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-14
 state: active
-version: v2.49
+version: v2.50
 ---
 
 # 文档索引
@@ -200,3 +200,5 @@ HTML候选已普通同步#223实际develop bca7b5c，保留Communication契约�
 | v2.23 | 2026-10-13 | 加入Communication8.3.0版本准备入口与Learning迁移原始工程证据，保留实际未解除门禁 |
 | v2.22 | 2026-10-13 | 普通同步#234发布后基线及真实学习Release记录，保持Communication五包候选与四包正式范围 |
 | v2.19 | 2026-10-13 | 同步 Learning 原子替代与 Communication 完整集成，按当前集合验收，发行范围另核对 |
+
+HTML第二准确候选627e8e6安装前因根说明Windows换行超预算失败；仅摘要收敛，原失败保留，运行仍0.1.21，须新canonical验收。源20有限原生记录已按公开范围封存，不能代表21或普通Chat通过。
