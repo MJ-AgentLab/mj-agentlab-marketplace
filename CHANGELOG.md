@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+- Prepare HTML Guide Kit 0.1.19: separate source recovery from added teaching results, retain known judgments beside unknown fields, and check each claim before delivery. Preserve source0.1.18 ten real sessions/twenty-one complete inputs and original failures; require fresh cache acceptance. Refs #217, #220.
+
 - Prepare HTML Guide Kit 0.1.18: distinguish the provenance of a teaching trigger from the source operation and recovery results it reuses. Preserve source0.1.17 eight actual sessions/sixteen complete inputs and the original failure; require fresh cache acceptance. Refs #217, #220.
 
 - Prepare HTML Guide Kit 0.1.17: read sources individually, use the known contract for scope refusals, and carry source conditions and explicit attribution through summaries and author checklists. Preserve source0.1.16 ten actual sessions/nineteen complete inputs and all independent failures. Refs #217, #220.

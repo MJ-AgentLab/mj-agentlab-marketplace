@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [0.1.19] - 2026-10-14
+
+- HTML Guide Kit 0.1.19 arranges each operation and result dimension separately, preserving known prohibitions beside unspecified fields. Bind source recovery and each added teaching action/result to their own identity, basis or design reason and scope; check the complete guide before delivery.
+- Preserve the complete contract and valid shared-rule abbreviations through four existing paragraph changes, retaining original source0.1.18 failures and requiring fresh installation and frozen behavior checks. Refs #217, #220.
+
 ## [0.1.18] - 2026-10-14
 
 - HTML Guide Kit 0.1.18 identifies the source of each trigger, operation, action, object, field and result. A new teaching trigger is explicitly marked as design beside the trigger; reused source recovery actions and results retain their own source citation. Equal results do not establish equal triggers.

@@ -1,0 +1,19 @@
+{
+  "classification": "REVIEWER_ONLY_PATH_LOOKUP_ERRORS",
+  "requested": [
+    "draft/skills/guide/SKILL.md",
+    "draft/skills/guide/references/guide-framework.md",
+    "draft/skills/guide/references/interaction-design.md"
+  ],
+  "actualError": "Cannot find path because it does not exist.",
+  "actualSources": [
+    "draft/SKILL.md.snapshot.txt",
+    "draft/guide-framework.md.snapshot.txt",
+    "draft/interaction-design.md.snapshot.txt"
+  ],
+  "resolution": "Read the three source snapshots named by the frozen author control fully and verify their current canonical source/delta hashes independently.",
+  "shellBehavior": "The combined read-only command emitted nonterminating errors for the three guessed directory paths; these reads were not successful. Actual source snapshot reads were separate and complete.",
+  "modelInstallationOrBehaviorFailure": false,
+  "originalRuntimeControlsDraftAndSource18EvidenceChanged": false,
+  "staticVerdictUsesActualSnapshots": true
+}

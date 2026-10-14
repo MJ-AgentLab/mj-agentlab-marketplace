@@ -68,9 +68,9 @@ Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基
 
 合同见[ADR](docs/adr/[ADR]_HTML_Guide_Kit_Addition.md)及[SPEC](docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)：仅显式$html-guide-kit:guide、Read、中文/原术语、聊天文本新建指南。实际读材料/明确快照，分原料/核验背景/构造，保留定位/冲突/缺口。每次2–3不同读者/任务/问题＋推荐理由，明确选择/修改确认才编排；默认/推荐/预选/沉默/超时/无关回复/消失非确认，未答保留同一待确认，不承诺锁宿主。深度随材料，演示/模拟/自检含反馈/恢复、理由/误区、重试及判准边界；不评分/长期掌握。不修订/比较/审查，不输出HTML/代码/文件/制作工具步骤或越权执行；仅SKILL及两参考，无Owner路径/研究治理依赖。
 
-本分支HTML0.1.18未合并；普通同步c1fa458（#225/#229/#233），五包七公开/四显式/三自然/20repo-only，保留他插件版本及上游未发布8.3.0。main公开8.2.0三包，HTML另发；本任务无Release/tag/main发布授权，缺manifest仍失败。源17固定5bf十三安装/六Python通过，8UUID/16COMPLETE独立6PASS/1FAIL/1UNEXERCISED；新增教学触发混归源恢复FAIL。历史原件保留；新18区分触发/原操作/动作对象字段结果身份，须新cache和冻结行为。
+本分支HTML0.1.19未合并；普通同步c1fa458（#225/#229/#233），五包七公开/四显式/三自然/20repo-only，保留他插件版本及上游未发布8.3.0。main公开8.2.0三包，HTML另发；本任务无Release/tag/main发布授权，缺manifest仍失败。源18固定0a6十三安装/六Python与CI通过，10UUID/21COMPLETE独立6PASS/3FAIL/1UNEXERCISED；UI结果混归、未知吞已知FAIL。历史原件保留；新19分项编排/审校，须新cache和冻结行为。
 
-现实效果另测NOT_MEASURED；本任务原生接口不可用，Codex应用UI/ChatGPT桌面及空返回/超时/关闭未执行，其他插件/CLI证据不替代。核心可分段交付，延期不当通过，#220/Epic开放、Owner接受独立。控制修正/来源/准确会话及历史见[RUNBOOK](docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)§11–36；不继承旧PASS。研究项目只读。
+现实效果另测NOT_MEASURED；本任务原生接口不可用，Codex应用UI/ChatGPT桌面及空返回/超时/关闭未执行，其他插件/CLI证据不替代。核心可分段交付，延期不当通过，#220/Epic开放、Owner接受独立。控制修正/来源/准确会话及历史见[RUNBOOK](docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)§11–37；不继承旧PASS。研究项目只读。
 
 第五轮来源 acf3c9d 的六 fresh 会话/八调用已通过限定 CLI 核心判据：七次自然完成、一次执行器超时保留；九条新核验、两次限定离线共享及原件/生成信息均经独立核对。四轮原失败、两次策略拒绝、换行格式差异和幂等重放分别保留，不称所有调用成功。原移交仅按十二项未变资源闭包沿用并限已有本地 Git exclude；原生提问仍延期、桌面/Side Chat 未运行，实际保护合入、发布和 Owner 最终接受待各自证据。完整入口资格与限制见上述 Learning Evidence 验收账本。
 

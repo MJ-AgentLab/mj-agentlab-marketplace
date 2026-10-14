@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-14
 state: active
-version: v2.44
+version: v2.45
 ---
 
 # 文档索引
@@ -55,7 +55,7 @@ PR1 #223实际合入bca、head同tree与限定M1 postmerge原始证据见[M1 pos
 
 0.1.10评审与0.1.11准备时的快照：PR3候选为0.1.11。0.1.10源7c1f230b与纯文档同步6a919166各八安装/四缓存Python通过；12UUID/23实际COMPLETE独立结果6PASS/3FAIL/3UNEXERCISED，374原字节文件封存并独立复原。局部动态guard通过不抵消概览条件遗漏和混合UI重置来源归因FAIL；B6.1原PASS与同attempt补充FAIL都保留。新候选对每处操作结论保留完整条件，源重置字段与新增界面清理逐项分开归因；须新安装与冻结行为复验，不以静态修正追认模型通过。marketplace8.2.1及其他插件不变，双客户端/原生窗口延期、现实效果另测、GitHub当前head批准和实际merge仍待各自证据，#220/Epic开放；见HTML RUNBOOK §27。
 
-HTML当前PR3修正候选为0.1.18。源12固定5bce8341八安装/四缓存Python/CI通过，15fresh UUID/31COMPLETE独立9PASS/4FAIL/2UNEXERCISED；456文件原字节封存与Node/.NET复原通过。局部PASS不抵消完整源恢复遗漏、排他关系遗漏恢复例外及重试当前态缺口。新方法逐项保留源动作/对象/字段，先定每轮尝试生命周期，再写反馈。已普通同步c1fa458上游Communication运行与未发布8.3.0，开发五包七技能/四显式/三自然/20repo-only，其他批准版本保持；HTML仍另行发行。源13的09c173a9及纯归档同步0fe3fbd各十三精确安装/六缓存Python通过；12UUID/24COMPLETE独立6PASS/4FAIL/2UNEXERCISED，概览/核对清单当前态遗漏、UI源归因与未经证实的读取原因仍FAIL。源0fe实际CI全SUCCESS不替代语义。源14准确24ae678十三安装/六缓存Python及CI全通过；10UUID/21COMPLETE独立6PASS/3FAIL/1UNEXERCISED，未证读取原因与未述字段补不变仍FAIL，完整原字节封存。源15准确2bc十三严格安装/六缓存Python与CI通过，9UUID/16输入含1捕获无效，独立5PASS/3FAIL/1INVALID_RUN；只读模式误当拒因和参考实际缺行FAIL，原字节封存。源16准确b4fb十三安装/六缓存Python及CI通过，10UUID/19COMPLETE独立4PASS/4FAIL/2UNEXERCISED；generic拒读原因推断、源/UI错归和作者项缺必要当前态/范围的FAIL保留，完整原字节封存。源17准确5bf十三安装/六实际缓存Python通过；8UUID/16COMPLETE独立6PASS/1FAIL/1UNEXERCISED，主要等待/完整源规则及范围拒绝等新PASS保留，新增教学触发混归Source恢复FAIL。新18三通用段小delta分清触发与有据动作/字段/结果来源，保持合同与冻结判准，须新cache复验；Windows归档长路径的七单元失败、窄修正和本地七项复验原样保留，最终CI另核验，不继承旧PASS。原生/双客户端延期、现实效果另测、当前head非作者批准与actualmerge仍分别待证，#220/Epic开放；见HTML RUNBOOK §30–36。
+HTML当前PR3修正候选为0.1.19。源12固定5bce8341八安装/四缓存Python/CI通过，15fresh UUID/31COMPLETE独立9PASS/4FAIL/2UNEXERCISED；456文件原字节封存与Node/.NET复原通过。局部PASS不抵消完整源恢复遗漏、排他关系遗漏恢复例外及重试当前态缺口。新方法逐项保留源动作/对象/字段，先定每轮尝试生命周期，再写反馈。已普通同步c1fa458上游Communication运行与未发布8.3.0，开发五包七技能/四显式/三自然/20repo-only，其他批准版本保持；HTML仍另行发行。源13的09c173a9及纯归档同步0fe3fbd各十三精确安装/六缓存Python通过；12UUID/24COMPLETE独立6PASS/4FAIL/2UNEXERCISED，概览/核对清单当前态遗漏、UI源归因与未经证实的读取原因仍FAIL。源0fe实际CI全SUCCESS不替代语义。源14准确24ae678十三安装/六缓存Python及CI全通过；10UUID/21COMPLETE独立6PASS/3FAIL/1UNEXERCISED，未证读取原因与未述字段补不变仍FAIL，完整原字节封存。源15准确2bc十三严格安装/六缓存Python与CI通过，9UUID/16输入含1捕获无效，独立5PASS/3FAIL/1INVALID_RUN；只读模式误当拒因和参考实际缺行FAIL，原字节封存。源16准确b4fb十三安装/六缓存Python及CI通过，10UUID/19COMPLETE独立4PASS/4FAIL/2UNEXERCISED；generic拒读原因推断、源/UI错归和作者项缺必要当前态/范围的FAIL保留，完整原字节封存。源17准确5bf十三安装/六实际缓存Python通过；8UUID/16COMPLETE独立6PASS/1FAIL/1UNEXERCISED，主要等待/完整源规则及范围拒绝等新PASS保留，新增教学触发混归Source恢复FAIL。源18准确0a6十三安装/六缓存Python及9项CI通过，10UUID/21COMPLETE独立6PASS/3FAIL/1UNEXERCISED，三处guide局部来源/已知判断混淆FAIL与主要合同及其他局部正确分别保留。新19四既有段改为逐操作/维度编排与全篇逐项审校，保持合同与冻结判准，须新cache复验；Windows归档长路径的七单元失败、窄修正和本地七项复验原样保留，最终CI另核验，不继承旧PASS。原生/双客户端延期、现实效果另测、当前head非作者批准与actualmerge仍分别待证，#220/Epic开放；见HTML RUNBOOK §30–37。
 
 ## 入口
 
