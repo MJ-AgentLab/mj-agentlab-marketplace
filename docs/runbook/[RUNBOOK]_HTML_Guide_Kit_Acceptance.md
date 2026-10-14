@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-15
 state: draft
-version: v1.52
+version: v1.53
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -880,3 +880,8 @@ source28五UUID十次COMPLETE/0INVALID，2PASS/1FAIL/2UNEXERCISED/9NOT_RUN及真
 
 
 29首次工程7275dc严格校验F；完整39f1d8/session12110最终ac5ddd EXIT1，336P10F0skip/170513.8227ms，原log6c0164ae33ec85776b3fe7c83c2bb7583ff8c7e56ba5e2af183b670f42960127分留。原因是Root封存28初稿时保留三个draft-initial/*.md原文件名，被正式docs解析而缺type/frontmatter；不是新两span运行字节错误。初run自然结束后仅将三归档名加.snapshot.txt、索引保originalRelative及相同原内容hash；不修改原341外部28文件/041原包或validator，版本仍0.1.29。正确工程须另完整执行，不追认初F。
+
+
+29实际完整初39f1d8/session12110→ac5ddd EXIT1（336P10F）及7275dc strict失败保留；Root9ed5e0仅将三历史草稿归档名改为.md.snapshot.txt、索引保originalRelative及原hash，payload等于bf34 Git旧blob，validator未改。正确f8a4f7/session20454→d7ced4 EXIT0完整346P0F0cancel0skip/261959.1427ms，7c5dd7 strict P、d447c3文档/A6 65P/7433.8522ms，ec63eb baseline0.147、两quick及正常diff P。实际PowerShell5首次DryRun零写入失败和7.6.5兼容DryRun/Apply单manifest推进分别保留，[准确原工程与修复收据](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-29/archive-index.json)。
+
+Root实际runtime bf37743、纯原件补证d25dc63fb81b57859757769c239dbacfd4983492/tree1da998101bcb3738f31a275ad4fb17d97ba5eba8正常提交；16dce7十二commit检查及b50261普通push P。唯一c7bc6d/session57320→86c471 EXIT0[准确十三canonical安装/六缓存Python](evidence/html-guide-kit/pr3-post-merge/engineering-d25dc63f/archive-index.json)已P：全五包七技能/显式四/自然三/repo-only20，逐资源hash/manifest/图标/参考/版本与源对应。原controller清临时缓存，不称事后重读。29核心已获授权fresh14UUID30轮，实际defaultlow与selectedhigh及SDK分列，尚无整体结论；旧28的2P1F2U9N不追认。Computer Use只取得返回196630可读状态，无29输入或客户端P；现实效果NOT_MEASURED，#220/Epic OPEN，正式发布未执行。

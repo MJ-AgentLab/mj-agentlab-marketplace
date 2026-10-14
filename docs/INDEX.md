@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-15
 state: active
-version: v2.67
+version: v2.68
 ---
 
 # 文档索引
@@ -243,3 +243,5 @@ HTML28真实high核心5UUID10COMPLETE为2PASS/1FAIL/2UNEXERCISED/9NOT_RUN，20�
 
 
 HTML29从28停止批次单独推进0.1.29，精确接入entry/framework两处拒因纪律修正，交互参考保持；28五UUID十次COMPLETE为2P1F2U9N与完整041封存不变。新工程检查正在执行，准确canonical安装、fresh显式high模型与本版双端尚未运行；defaultlow及旧失败不改，见[§57](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+HTML29准确d25dc63f：修封存名后346测试/65文档/strict validate/十三安装六真实缓存PythonP，初336P10F保留；新模型与双端另证，见[§57](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。

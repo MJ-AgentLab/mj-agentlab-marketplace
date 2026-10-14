@@ -1,0 +1,2573 @@
+{
+  "recordedAt": "2026-10-14T18:17:39.576Z",
+  "status": "PRE_APPLICATION_ONLY",
+  "head": "bf34c512040c0ebd4459af47e8774246d4e4c4e8",
+  "tree": "dc65d8e072c0828b41514666b0b5b4460b5b0ba4",
+  "dirtyStatus": " M AGENTS.md\n M docs/INDEX.md\n M docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md\n?? docs/runbook/evidence/html-guide-kit/pr3-post-merge/candidate041-final-seal/\n?? docs/runbook/evidence/html-guide-kit/pr3-post-merge/source028-stopped/\n?? docs/runbook/evidence/html-guide-kit/pr3-reviewer/patch-041-stopped/\n",
+  "approvedFreeze": {
+    "path": "../reviewer/corrections/0-1-29/DRAFT_FINAL_FROZEN.json",
+    "bytes": 5266,
+    "sha256": "d07c46d2db7edbd931c9169b5729a54e701e958ab75045fa61a1a48f89cf23ad"
+  },
+  "protectedFiles": [
+    {
+      "path": "plugins/communication-kit/CHANGELOG.md",
+      "bytes": 1493,
+      "sha256": "747f6fffa17c3d932cba5eb1fb5ebc39764bf7a6eb6aff7155c4b255279f2f96"
+    },
+    {
+      "path": "plugins/communication-kit/LICENSE",
+      "bytes": 1089,
+      "sha256": "592eb7380e87ac4d835a7f0e95236d485bc12e1133b2d371c38b73e3a049f31f"
+    },
+    {
+      "path": "plugins/communication-kit/README.md",
+      "bytes": 1923,
+      "sha256": "55af52185c5c2882cd9e01331af4c9ddbed6ad78fe90fe3a4fa5c790c8486c20"
+    },
+    {
+      "path": "plugins/communication-kit/assets/icon.png",
+      "bytes": 79377,
+      "sha256": "07f8a9ad4d04f20bc0551f3e72ed8c9e1b14368a743b392d4feee3aaec314ddf"
+    },
+    {
+      "path": "plugins/communication-kit/assets/icon.svg",
+      "bytes": 1168,
+      "sha256": "7a0a594df6ff9b622e5900771731fe63f97ebfb873e3874881e3a1a1764ec5ea"
+    },
+    {
+      "path": "plugins/communication-kit/plugin.json",
+      "bytes": 1439,
+      "sha256": "7eead6be18358eb3925f283a9d2b2a149adeae2cfcb8e42bda6d859bf78e28c8"
+    },
+    {
+      "path": "plugins/communication-kit/skills/communicate/SKILL.md",
+      "bytes": 5803,
+      "sha256": "7a5644c9e2f156acd98286d36ac5b869fd921e23704fa98030d792faadaf630f"
+    },
+    {
+      "path": "plugins/communication-kit/skills/communicate/agents/openai.yaml",
+      "bytes": 320,
+      "sha256": "c89a7134a1dd2fffa3e99d38bdcedb2bdaf46fb03de9b69ff1b19ad667c01d2d"
+    },
+    {
+      "path": "plugins/communication-kit/skills/communicate/references/aics-policy.md",
+      "bytes": 4423,
+      "sha256": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae"
+    },
+    {
+      "path": "plugins/communication-kit/skills/communicate/references/aics-snapshot.json",
+      "bytes": 10361,
+      "sha256": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332"
+    },
+    {
+      "path": "plugins/communication-kit/skills/communicate/references/source-provenance.md",
+      "bytes": 5621,
+      "sha256": "53272cc56dba8cfe32203543d9f3d6aee8ec55ebc3602f4dc5652be90b9ed725"
+    },
+    {
+      "path": "plugins/communication-kit/skills/communicate/references/task-patterns.md",
+      "bytes": 4178,
+      "sha256": "190c47c125759de5dbdca218417a418b76ba555df44923dc2cf48b86d60d0cff"
+    },
+    {
+      "path": "plugins/diagram-kit/CHANGELOG.md",
+      "bytes": 6166,
+      "sha256": "4239f18a45c80b3667e025d2690e4329d35bdf988b1a13a511f40ef3d1dc414c"
+    },
+    {
+      "path": "plugins/diagram-kit/LICENSE",
+      "bytes": 1089,
+      "sha256": "592eb7380e87ac4d835a7f0e95236d485bc12e1133b2d371c38b73e3a049f31f"
+    },
+    {
+      "path": "plugins/diagram-kit/README.md",
+      "bytes": 1043,
+      "sha256": "3244f39d70eb0d199ddc210e6ea0dd09a1af51f416aa9911a7033183eedc4f96"
+    },
+    {
+      "path": "plugins/diagram-kit/assets/icon.png",
+      "bytes": 121492,
+      "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f"
+    },
+    {
+      "path": "plugins/diagram-kit/assets/icon.svg",
+      "bytes": 1210,
+      "sha256": "3b77a72c2012f934397e4b32b483f7cb4b0d87375a8de5a3f65fc231da147a5e"
+    },
+    {
+      "path": "plugins/diagram-kit/plugin.json",
+      "bytes": 1285,
+      "sha256": "8c51243d90e61764724bdb56256e603bdcf4414723111986685d5b70255097ed"
+    },
+    {
+      "path": "plugins/diagram-kit/skills/arch-diagram/SKILL.md",
+      "bytes": 14711,
+      "sha256": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b"
+    },
+    {
+      "path": "plugins/diagram-kit/skills/arch-diagram/agents/openai.yaml",
+      "bytes": 305,
+      "sha256": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428"
+    },
+    {
+      "path": "plugins/diagram-kit/skills/arch-diagram/references/architecture-methodology.md",
+      "bytes": 22664,
+      "sha256": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f"
+    },
+    {
+      "path": "plugins/diagram-kit/skills/arch-diagram/references/code-diagram.md",
+      "bytes": 6549,
+      "sha256": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75"
+    },
+    {
+      "path": "plugins/diagram-kit/skills/arch-diagram/references/component-diagram.md",
+      "bytes": 9660,
+      "sha256": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37"
+    },
+    {
+      "path": "plugins/diagram-kit/skills/arch-diagram/references/container-diagram.md",
+      "bytes": 9677,
+      "sha256": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3"
+    },
+    {
+      "path": "plugins/diagram-kit/skills/arch-diagram/references/context-diagram.md",
+      "bytes": 6675,
+      "sha256": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a"
+    },
+    {
+      "path": "plugins/diagram-kit/skills/arch-diagram/references/deployment-diagram.md",
+      "bytes": 9795,
+      "sha256": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d"
+    },
+    {
+      "path": "plugins/diagram-kit/skills/arch-diagram/references/domain-acquisition.md",
+      "bytes": 15459,
+      "sha256": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9"
+    },
+    {
+      "path": "plugins/diagram-kit/skills/arch-diagram/references/sequence-diagram.md",
+      "bytes": 7122,
+      "sha256": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb"
+    },
+    {
+      "path": "plugins/diagram-kit/skills/arch-diagram/references/state-machine-diagram.md",
+      "bytes": 18392,
+      "sha256": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb"
+    },
+    {
+      "path": "plugins/diagram-kit/skills/arch-diagram/scripts/validate_diagram.py",
+      "bytes": 14808,
+      "sha256": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33"
+    },
+    {
+      "path": "plugins/explain-kit/CHANGELOG.md",
+      "bytes": 1364,
+      "sha256": "4c610113b2fd1efd144f8b1cd4c305156b027d7a6b7fdaf5bc9deff64ae6953a"
+    },
+    {
+      "path": "plugins/explain-kit/LICENSE",
+      "bytes": 1089,
+      "sha256": "592eb7380e87ac4d835a7f0e95236d485bc12e1133b2d371c38b73e3a049f31f"
+    },
+    {
+      "path": "plugins/explain-kit/README.md",
+      "bytes": 1655,
+      "sha256": "455f1dadc50c06e8b8a82e06bd6da28ea489487d2823158e7a7ee9ade237a355"
+    },
+    {
+      "path": "plugins/explain-kit/assets/icon.png",
+      "bytes": 100032,
+      "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95"
+    },
+    {
+      "path": "plugins/explain-kit/assets/icon.svg",
+      "bytes": 1069,
+      "sha256": "8d5cf6c5a1eb48f273378da8715a16d276da0b95ff28c79a142080ee715b5874"
+    },
+    {
+      "path": "plugins/explain-kit/plugin.json",
+      "bytes": 1450,
+      "sha256": "62c24bc96f812e707f5f425dbea2e06433880707678cb591929586255e5c5b91"
+    },
+    {
+      "path": "plugins/explain-kit/skills/concept/SKILL.md",
+      "bytes": 4887,
+      "sha256": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715"
+    },
+    {
+      "path": "plugins/explain-kit/skills/concept/agents/openai.yaml",
+      "bytes": 281,
+      "sha256": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf"
+    },
+    {
+      "path": "plugins/explain-kit/skills/glossary/SKILL.md",
+      "bytes": 4401,
+      "sha256": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74"
+    },
+    {
+      "path": "plugins/explain-kit/skills/glossary/agents/openai.yaml",
+      "bytes": 253,
+      "sha256": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619"
+    },
+    {
+      "path": "plugins/learning-evidence-kit/CHANGELOG.md",
+      "bytes": 1399,
+      "sha256": "16af361ecd7088b5e404305f051cff8700c5395ae014d77d6939926ad784cb2a"
+    },
+    {
+      "path": "plugins/learning-evidence-kit/LICENSE",
+      "bytes": 1089,
+      "sha256": "592eb7380e87ac4d835a7f0e95236d485bc12e1133b2d371c38b73e3a049f31f"
+    },
+    {
+      "path": "plugins/learning-evidence-kit/README.md",
+      "bytes": 2663,
+      "sha256": "375ddfb8977c148cf7a2c63c2f36a75c912a87502bceeb1b5eae083527f07416"
+    },
+    {
+      "path": "plugins/learning-evidence-kit/assets/icon.png",
+      "bytes": 111262,
+      "sha256": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad"
+    },
+    {
+      "path": "plugins/learning-evidence-kit/assets/icon.svg",
+      "bytes": 1173,
+      "sha256": "fbd451eb605921ebb03c700777a359358e2e7fa20c5ecb4034595d4a90263b08"
+    },
+    {
+      "path": "plugins/learning-evidence-kit/plugin.json",
+      "bytes": 1703,
+      "sha256": "c3b49b6428d25c6598bc6b9f2ce41339c78e32e538e905ecbd6ced483836ed46"
+    },
+    {
+      "path": "plugins/learning-evidence-kit/references/client-entries.json",
+      "bytes": 768,
+      "sha256": "0c6489b1fe2825cc39dbb899432f53025cebf0da88120ca7d6c65fefe22ca148"
+    },
+    {
+      "path": "plugins/learning-evidence-kit/references/record-contract.md",
+      "bytes": 7261,
+      "sha256": "a7f431baaeee1d0ea905d1f946945c754122ca91a3f02634666fc24df31cd646"
+    },
+    {
+      "path": "plugins/learning-evidence-kit/references/record-template.json",
+      "bytes": 1766,
+      "sha256": "9ad775c4cf94a70f79f157bdf330d66171e0ab20550cf8559459bc1551a87d53"
+    },
+    {
+      "path": "plugins/learning-evidence-kit/scripts/common.py",
+      "bytes": 22864,
+      "sha256": "c41c6509ce3e52da78bebd694c23965307c2b869041d4bcf5978241bc6f1c00b"
+    },
+    {
+      "path": "plugins/learning-evidence-kit/scripts/github_flow.py",
+      "bytes": 47433,
+      "sha256": "04d7c49101b994ab7ff8c562d3f77a62e3ed0d5f8874aae21c0262c62281077e"
+    },
+    {
+      "path": "plugins/learning-evidence-kit/scripts/lek.py",
+      "bytes": 1888,
+      "sha256": "0dc1c4b7728aa65f47a555dcecab78c86b0b2290974947873c01ceaf59b658a7"
+    },
+    {
+      "path": "plugins/learning-evidence-kit/scripts/storage.py",
+      "bytes": 57995,
+      "sha256": "3ac03569b251ad774b035cb8ba67bfeb417957b107e3823beb70b566eb12b9a4"
+    },
+    {
+      "path": "plugins/learning-evidence-kit/skills/learning-record-check/SKILL.md",
+      "bytes": 7699,
+      "sha256": "520d1af47e7098246a31565e4322d3d67a55e180cda4d01bb72399ed7ebf1e49"
+    },
+    {
+      "path": "plugins/learning-evidence-kit/skills/learning-record-check/agents/openai.yaml",
+      "bytes": 384,
+      "sha256": "dcac046ed1ddb1b8ebf0ca09ea80544b7be11b733272e1dd6cbec64bfbaa928f"
+    },
+    {
+      "path": "plugins/learning-evidence-kit/skills/pop-quiz/SKILL.md",
+      "bytes": 4783,
+      "sha256": "72b2c8185234971041ac3f9de989cff93517870d3280b7b020eb305da69d92a6"
+    },
+    {
+      "path": "plugins/learning-evidence-kit/skills/pop-quiz/agents/openai.yaml",
+      "bytes": 338,
+      "sha256": "decebdd57d750e9ef3d88da43ba458f3e8c622acf4e534a19681236bee8aee21"
+    },
+    {
+      "path": "plugins/learning-evidence-kit/skills/pop-quiz/references/ku-selection.md",
+      "bytes": 7074,
+      "sha256": "6d78cdd36367eceeba8e3682782acf11f1d1fa124df8879e26960461c4c4aa29"
+    },
+    {
+      "path": "plugins/learning-evidence-kit/skills/pop-quiz/references/quiz-policy.md",
+      "bytes": 9097,
+      "sha256": "8d94713293e5dbcaee09aeb4681b6e6d25d3380e182e6d3cdb47a8f365406794"
+    },
+    {
+      "path": "VERSION",
+      "bytes": 7,
+      "sha256": "041d677aa2a916df2f28abebcc5bdfa4d982674a25819003ec98b3f89f032fd6"
+    },
+    {
+      "path": ".agents/plugins/marketplace.json",
+      "bytes": 1607,
+      "sha256": "bcda363ba2834e77771943188e1616f2419574a2b15098fffd341e3b40679343"
+    },
+    {
+      "path": "plugins/html-guide-kit/skills/guide/agents/openai.yaml",
+      "bytes": 444,
+      "sha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14"
+    },
+    {
+      "path": "plugins/html-guide-kit/assets/icon.svg",
+      "bytes": 1261,
+      "sha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68"
+    },
+    {
+      "path": "plugins/html-guide-kit/assets/icon.png",
+      "bytes": 119566,
+      "sha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6"
+    }
+  ],
+  "tools": [
+    {
+      "relative": ".github/workflows/a6.yml",
+      "gitBlob": "029f4f0429b93299b9cf336be8996d0370975973",
+      "cleanBlob": "029f4f0429b93299b9cf336be8996d0370975973"
+    },
+    {
+      "relative": ".github/workflows/ci.yml",
+      "gitBlob": "5b7a1292fc4af772750449672617f409f5bef37e",
+      "cleanBlob": "5b7a1292fc4af772750449672617f409f5bef37e"
+    },
+    {
+      "relative": ".github/workflows/codex-canary.yml",
+      "gitBlob": "7fdf9cc50fb757f4e14fa85a89b94186cc9ac847",
+      "cleanBlob": "7fdf9cc50fb757f4e14fa85a89b94186cc9ac847"
+    },
+    {
+      "relative": ".github/workflows/comment-on-pr.yml",
+      "gitBlob": "7c2708f7d9f2d1b5feb31d274df47f40172536c0",
+      "cleanBlob": "7c2708f7d9f2d1b5feb31d274df47f40172536c0"
+    },
+    {
+      "relative": ".github/workflows/readme-badge-suggest.yml",
+      "gitBlob": "f188b2c4ba9a130251e46b5d5c9412e24eae7868",
+      "cleanBlob": "f188b2c4ba9a130251e46b5d5c9412e24eae7868"
+    },
+    {
+      "relative": ".github/workflows/release.yml",
+      "gitBlob": "e92611b52582f3ab65abd4138a52576e8d5f80ce",
+      "cleanBlob": "e92611b52582f3ab65abd4138a52576e8d5f80ce"
+    },
+    {
+      "relative": ".github/workflows/verify-develop-prebumped.yml",
+      "gitBlob": "a863ed5a9821d96371fdd6da18715ee1078f7c2f",
+      "cleanBlob": "a863ed5a9821d96371fdd6da18715ee1078f7c2f"
+    },
+    {
+      "relative": "package-lock.json",
+      "gitBlob": "22ddb77808004ce51496671a83e2722193348678",
+      "cleanBlob": "22ddb77808004ce51496671a83e2722193348678"
+    },
+    {
+      "relative": "package.json",
+      "gitBlob": "4c73d048452897ac9fecdc522dda987a909470eb",
+      "cleanBlob": "4c73d048452897ac9fecdc522dda987a909470eb"
+    },
+    {
+      "relative": "scripts/brand-assets.mjs",
+      "gitBlob": "28e33a6e5e663cb46d4d20f86b9da7076e4761b9",
+      "cleanBlob": "28e33a6e5e663cb46d4d20f86b9da7076e4761b9"
+    },
+    {
+      "relative": "scripts/bump-version.ps1",
+      "gitBlob": "4e3f56eee8c7764fb6123fca95adf2832ced0d04",
+      "cleanBlob": "4e3f56eee8c7764fb6123fca95adf2832ced0d04"
+    },
+    {
+      "relative": "scripts/check-a6.mjs",
+      "gitBlob": "3a15d8313bb5b481c3ff764191c0c0c4f747d69d",
+      "cleanBlob": "3a15d8313bb5b481c3ff764191c0c0c4f747d69d"
+    },
+    {
+      "relative": "scripts/check-prebump.mjs",
+      "gitBlob": "0dd1c921896eedfb3b49b23a97078ea2b2bebd52",
+      "cleanBlob": "0dd1c921896eedfb3b49b23a97078ea2b2bebd52"
+    },
+    {
+      "relative": "scripts/check-tool-versions.mjs",
+      "gitBlob": "7eef885787472c4e6e6fd7978ad09edd674fde77",
+      "cleanBlob": "7eef885787472c4e6e6fd7978ad09edd674fde77"
+    },
+    {
+      "relative": "scripts/clone-bare.ps1",
+      "gitBlob": "40e32a4e21b64681c56ee8a9ab098ba4ffc274ab",
+      "cleanBlob": "40e32a4e21b64681c56ee8a9ab098ba4ffc274ab"
+    },
+    {
+      "relative": "scripts/export-icons.mjs",
+      "gitBlob": "f5ccdf1a124f3de46ac788cba160bae5e05c5094",
+      "cleanBlob": "f5ccdf1a124f3de46ac788cba160bae5e05c5094"
+    },
+    {
+      "relative": "scripts/install-hooks.ps1",
+      "gitBlob": "670ed71936071badd96470bc7183bbebf839b9bb",
+      "cleanBlob": "670ed71936071badd96470bc7183bbebf839b9bb"
+    },
+    {
+      "relative": "scripts/plugin-icons.mjs",
+      "gitBlob": "371815720a18667c08594dbb4d4455e345b6babf",
+      "cleanBlob": "371815720a18667c08594dbb4d4455e345b6babf"
+    },
+    {
+      "relative": "scripts/release-verify-install.mjs",
+      "gitBlob": "c8f39130822e48be68df5e998935700b4898c496",
+      "cleanBlob": "c8f39130822e48be68df5e998935700b4898c496"
+    },
+    {
+      "relative": "scripts/render-brand-previews.mjs",
+      "gitBlob": "dd804e1bd33b07a9c32026dd4ddeb1563f16f7fa",
+      "cleanBlob": "dd804e1bd33b07a9c32026dd4ddeb1563f16f7fa"
+    },
+    {
+      "relative": "scripts/resolve-release-state.mjs",
+      "gitBlob": "9c51b64c427841206138517e0f776ca5a0c2fb8c",
+      "cleanBlob": "9c51b64c427841206138517e0f776ca5a0c2fb8c"
+    },
+    {
+      "relative": "scripts/run-cli.mjs",
+      "gitBlob": "f97e6f7c76dc7cf11780fec3e8de65f2d1b2b9e0",
+      "cleanBlob": "f97e6f7c76dc7cf11780fec3e8de65f2d1b2b9e0"
+    },
+    {
+      "relative": "scripts/run-release.mjs",
+      "gitBlob": "5604806d0f50850b5ffa8e1abd41502ce421cadd",
+      "cleanBlob": "5604806d0f50850b5ffa8e1abd41502ce421cadd"
+    },
+    {
+      "relative": "scripts/safe-bulk-cleanup.ps1",
+      "gitBlob": "285e9bc42a2ce8561a12624127f53c96376c5967",
+      "cleanBlob": "285e9bc42a2ce8561a12624127f53c96376c5967"
+    },
+    {
+      "relative": "scripts/smoke-codex-plugin.mjs",
+      "gitBlob": "0b54e444065a431fd45b019dccf88c3253c0eddf",
+      "cleanBlob": "0b54e444065a431fd45b019dccf88c3253c0eddf"
+    },
+    {
+      "relative": "scripts/validate-commits.ps1",
+      "gitBlob": "e1c542a02df686dacff4f0dfeb85d00875be43f4",
+      "cleanBlob": "e1c542a02df686dacff4f0dfeb85d00875be43f4"
+    },
+    {
+      "relative": "scripts/validate-commits.sh",
+      "gitBlob": "da3c5b0151cd9d337f7bb06dd8e3ce2c5700d0af",
+      "cleanBlob": "da3c5b0151cd9d337f7bb06dd8e3ce2c5700d0af"
+    },
+    {
+      "relative": "scripts/validate-portable.mjs",
+      "gitBlob": "713e99abf3b05953166bf21fefc975de9df93e6a",
+      "cleanBlob": "713e99abf3b05953166bf21fefc975de9df93e6a"
+    }
+  ],
+  "old28ProtectedPins": [
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\CONTROLS_FINAL_FROZEN.json",
+      "bytes": 8114,
+      "sha256": "e34ec6db9984f70610bfffdf77fb25abe2434ad6fb3ab56318b895a2987efb4b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\CONTROLS_FINAL_FROZEN.r2.json",
+      "bytes": 12496,
+      "sha256": "3d693eed9d6008903e6bcfd6e4e039dd775dbdc7443b1c58e96acc9a4e1ca309"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\DRAFT_FINAL_FROZEN.json",
+      "bytes": 3458,
+      "sha256": "6f4c58daa32aa5afc679cedbc0a096b4a257f58d79b27c70ec80f1defce90d46"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\behavior-b-helper-copy-control.json",
+      "bytes": 1265,
+      "sha256": "778feaf2416459570b2fe270a57b30f7cc74a917f1b4aa8a44f21455eac54620"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\harness.mjs",
+      "bytes": 46403,
+      "sha256": "7f1af6c1f6d68497587e4568e55ccaa5164b0d07c7c53f8b254bc7ac2f13730b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\plan.json",
+      "bytes": 13618,
+      "sha256": "58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\reviews\\cross-A-by-b\\B3.1.json",
+      "bytes": 9863,
+      "sha256": "48514b9c7199e9b524f29fee2d969d181eeffeeed86ba3c544401a83fb4ef9c1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\reviews\\cross-A-by-b\\B3.2.json",
+      "bytes": 5603,
+      "sha256": "ddfbd65254a4eb83d4e544a3eadb761cbe9140203423d427ecd9a63431cf7d70"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\reviews\\cross-B-C-by-a\\B1.1-actual-sdk-a.json",
+      "bytes": 38160,
+      "sha256": "8ba81011fd2671a23caa73676324357c4848b79fe2be0abd6b9967ceecdba2ee"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\reviews\\cross-B-C-by-a\\B1.1-independent-a-final.json",
+      "bytes": 6989,
+      "sha256": "8f180073e43c6dd1f513999623fb19ebd880c40da55369d7e18dde0cf0e2c50f"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\reviews\\cross-B-C-by-a\\B1.2-combined-independent-a-final.json",
+      "bytes": 1375,
+      "sha256": "2e7a030242056dc002f5bf8706f17e6d808ded044ec21db17a8cf361dfdfb7ea"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\reviews\\cross-B-C-by-a\\B1.2-delayed-T1-actual-sdk-a.json",
+      "bytes": 18008,
+      "sha256": "8ba3258f8ab31b9ec025d6c46c50e577fdf4428bb39b06fe9c21042bf030d973"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\reviews\\cross-B-C-by-a\\B1.2-delayed-independent-a-final.json",
+      "bytes": 4224,
+      "sha256": "fd2ebe7e4bd8fa483af7fccd260d5d3fb3334b9db2ca571934393c38bf076c27"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\reviews\\cross-B-C-by-a\\B2.1-independent-a-final.json",
+      "bytes": 1366,
+      "sha256": "0a86213c01b69d41af57ca58da078c1f3fffde3e0a7d4ee60ff61122b7731590"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\reviews\\cross-B-C-by-a\\B6.1-T1-actual-sdk-a.json",
+      "bytes": 19042,
+      "sha256": "5ca0b07b5ddef4973abc9559d9bbc7e49f11e1a4a483b5340b79f04d69deb5c2"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\reviews\\cross-B-C-by-a\\B6.1-independent-a-final.json",
+      "bytes": 5098,
+      "sha256": "ff04b5e3767da614773d12903d6626cd4226d02c759330d54da026830d66f302"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\reviews\\cross-B-C-by-a\\B6.2-compare-independent-a-final.json",
+      "bytes": 1388,
+      "sha256": "37471bc03f4dfebcd3e693cfb36930a3675ff8b2dbc75994e9165be9fd63bb27"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\reviews\\cross-B-C-by-a\\B6.2-review-independent-a-final.json",
+      "bytes": 1387,
+      "sha256": "dc1078badd7e9263ce453eacc94193639a887245ef25a60a5c34f79bc2a4ed3c"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\reviews\\cross-B-C-by-a\\B6.2-revise-independent-a-final.json",
+      "bytes": 1387,
+      "sha256": "61018d5f1ee44e91bcd5a203998d7d29717892035a72bc3504a2de807b9d344c"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\reviews\\independent-A-executed-closure-b.json",
+      "bytes": 11025,
+      "sha256": "a75cc38cbde0da34b17325f1cec9ee1d675254589dbbcc8ac9943c46d40585dd"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\reviews\\independent-B-C-closure-a-scope-note.json",
+      "bytes": 441,
+      "sha256": "9bda06ec3d3ae90c772e600c046f333e6653da85210b6e16e2726c5dbcaff95b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\reviews\\independent-B-C-closure-a.json",
+      "bytes": 14936,
+      "sha256": "de1e90c4943fd20a4e5debbfa022bc4685fe5fe0b8b007ec254ceb841250cefa"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\reviews\\root-028\\B1.1.json",
+      "bytes": 3916,
+      "sha256": "bc3649dddd87c099d55502e453c8bd8840bcb88d314fc5c034d25eda39bf7918"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\reviews\\root-028\\B1.2-delayed.json",
+      "bytes": 1548,
+      "sha256": "c29958060e14c12c66e75ef9cb02250f4a295301eab024e1429af047a43ab102"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\reviews\\root-028\\B6.1.json",
+      "bytes": 1225,
+      "sha256": "983d935ac0204baf928dc355b8d7912e0cab2bb7438809f28769a5978f30a818"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\reviews\\root-028\\C-technical-supplement.json",
+      "bytes": 11343,
+      "sha256": "e4f1d1f09965b816d0945726d63e5d5d53bd71472bb70753453674bc0be0756d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\B6.1\\920d8656-ee32-482d-8308-c8ee5a6213d8\\01.events.jsonl",
+      "bytes": 34752,
+      "sha256": "f78cacd142e674c5599c838dd6c79a102f9c9816af7d5b527c272d9e2c7ee7b1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\B6.1\\920d8656-ee32-482d-8308-c8ee5a6213d8\\01.input.txt",
+      "bytes": 989,
+      "sha256": "8029111104f67a1c156536b319366f032730358a61ce3086c16a1a36a9913fb7"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\B6.1\\920d8656-ee32-482d-8308-c8ee5a6213d8\\01.output.txt",
+      "bytes": 2761,
+      "sha256": "3f77dae70841a6aa63b2c01ab53656f96b7b00484bdb3d1fad44d233a26e56e3"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\B6.1\\920d8656-ee32-482d-8308-c8ee5a6213d8\\01.session.jsonl",
+      "bytes": 103599,
+      "sha256": "41805e0057357e0cbdf6fbb69595bd4e61dbbcc8d3911db5b1467ed16b319507"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\B6.1\\920d8656-ee32-482d-8308-c8ee5a6213d8\\01.stderr.txt",
+      "bytes": 26789,
+      "sha256": "f06f2d82e58a189f0d09bdc916121408ca15ee2577fb0b9b132a34fd18bc6b6d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\batch.json",
+      "bytes": 467745,
+      "sha256": "1c093edfed7dd9d35fb86bb23430951f6eba087de342992b5c42bd37bdc385ab"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\inspection.json",
+      "bytes": 6552,
+      "sha256": "7fc4da3d38580b89e13d235dae141323f3e6324978c267b1a6fa617e4e71a5b5"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\installation.json",
+      "bytes": 6226,
+      "sha256": "39a830362f4036d5fe16c9e5df13c7e9652756526a539bc132144435811b0eee"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\metadata-events.jsonl",
+      "bytes": 13965,
+      "sha256": "d30f48a6eb67c8cb5525af0d314a7ece90d013b74e9b5773eb69ceb9f7a931a1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\metadata-requests.json",
+      "bytes": 555,
+      "sha256": "6c3ce35dda368dc6287e2907dfd85dd4761e2ec98981ba53f8636d61b277f9d6"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\metadata-stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\models.json",
+      "bytes": 8051,
+      "sha256": "5bc4e657a9551880e076de47d3a7ce5da9a284a1a7d43019de77cdc700a96518"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\native-loading-observations.json",
+      "bytes": 8556,
+      "sha256": "9128fdd3bb78008f32210292c31d092318618322ce374a5b105e770164911d8f"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\native-skills.json",
+      "bytes": 10220,
+      "sha256": "b43af5eb1d9dc43adf71714f0022b7f367d90bebcb3ae69a6196a166a0ad0318"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\operator-handoff.json",
+      "bytes": 6213,
+      "sha256": "70fc30b84bb3c15e5dfffedb258e6e852a8015e20365f3e3a4f37c46fff7ed8a"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\operator-observations.json",
+      "bytes": 7643,
+      "sha256": "2f47cc80c1b78fd8e94f873f53d3542dcf61271b7389d61f98ed400a8f24fbe1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\operator-pauses\\9362fb67-0725-4b4a-a5b8-3c7e853f0405.json",
+      "bytes": 1670,
+      "sha256": "91abe12011195273dcaf70c7c12cc4e3cd98d6ed47dba839b4b383408c22f0fe"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\preparation.json",
+      "bytes": 1547,
+      "sha256": "fd6da6769e67098a7d49acbee3948127e16b9202690cd4d3e916810a888699e3"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.1\\82020ec8-24b6-496e-ac4e-0954e6faef08\\01.events.jsonl",
+      "bytes": 29985,
+      "sha256": "030fcbf16f96f585d1c7f55c0bb9fa70d2d0b61323ad5161cc0af81da3c2dfae"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.1\\82020ec8-24b6-496e-ac4e-0954e6faef08\\01.input.txt",
+      "bytes": 989,
+      "sha256": "ccdddaf1a1e77ac0fd0dff83986e9d96b5b4c8b4a4714a8babcb606758ebd376"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.1\\82020ec8-24b6-496e-ac4e-0954e6faef08\\01.output.txt",
+      "bytes": 2607,
+      "sha256": "c711133b86da0e1759586e1bc8c9937331396747e83f1b897529116380fe8730"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.1\\82020ec8-24b6-496e-ac4e-0954e6faef08\\01.session.jsonl",
+      "bytes": 98007,
+      "sha256": "72b359935375889804ae98203b76748563922f17ff40867f5632cf3db036b017"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.1\\82020ec8-24b6-496e-ac4e-0954e6faef08\\01.stderr.txt",
+      "bytes": 26077,
+      "sha256": "24556560393698aee1d3b7338c18cb0938b2258ccd78325438777ae0eacb40e5"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.1\\82020ec8-24b6-496e-ac4e-0954e6faef08\\02.events.jsonl",
+      "bytes": 659,
+      "sha256": "a6e145b6b0721da9371c63139910ace0716dc39fc78f2e428aa0a7809f024a35"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.1\\82020ec8-24b6-496e-ac4e-0954e6faef08\\02.input.txt",
+      "bytes": 43,
+      "sha256": "7903215f202a7f38d4a86ac1d90212fdae7856a80aa37d6e0668dc93cdb59112"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.1\\82020ec8-24b6-496e-ac4e-0954e6faef08\\02.output.txt",
+      "bytes": 302,
+      "sha256": "e4e8a4b8d9288efef5c868ebf05f344e45c9a5081be4d01776b3cb3bdd129eb4"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.1\\82020ec8-24b6-496e-ac4e-0954e6faef08\\02.session.jsonl",
+      "bytes": 106002,
+      "sha256": "c88ed91eab18380f25eac97a1ba0fe2da73232df3872aeeb03d24bdc89dae02b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.1\\82020ec8-24b6-496e-ac4e-0954e6faef08\\02.stderr.txt",
+      "bytes": 26053,
+      "sha256": "7424eadcf71005906dbf94036d3e349b13f37462ba438bd026ef5e1dc14c2c18"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.1\\82020ec8-24b6-496e-ac4e-0954e6faef08\\03.events.jsonl",
+      "bytes": 439,
+      "sha256": "9181c64bc07d24f5fb0b8231492fbb6b020a0e5f6c34161d91dc7e1754866fa8"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.1\\82020ec8-24b6-496e-ac4e-0954e6faef08\\03.input.txt",
+      "bytes": 43,
+      "sha256": "32d79cd04cb688cb6fb970165b8da92497a918854b90dba5a66fe7c834d9642f"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.1\\82020ec8-24b6-496e-ac4e-0954e6faef08\\03.output.txt",
+      "bytes": 89,
+      "sha256": "e92b6ecce23036437abded2876d55b3657ba5687f17da0bffb9f230eed6230ec"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.1\\82020ec8-24b6-496e-ac4e-0954e6faef08\\03.session.jsonl",
+      "bytes": 110449,
+      "sha256": "b37452e4874744dc709dcec423737b68bf711c8bbb65199095b3b242eb9ba9ce"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.1\\82020ec8-24b6-496e-ac4e-0954e6faef08\\03.stderr.txt",
+      "bytes": 26053,
+      "sha256": "c4b19e840d7c211d719b9b13956b8fdd4754ceaa95c9fd6079e54c604ab7e51b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.1\\82020ec8-24b6-496e-ac4e-0954e6faef08\\04.events.jsonl",
+      "bytes": 10067,
+      "sha256": "fff28ee3321a31fd0e5f04c4bf7a527e98e34f7041a50ad97887d5978f70ffb5"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.1\\82020ec8-24b6-496e-ac4e-0954e6faef08\\04.input.txt",
+      "bytes": 57,
+      "sha256": "89d9494a97bdf0173a3469f64feda0bf464adffc47d7709c180aa043a176e765"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.1\\82020ec8-24b6-496e-ac4e-0954e6faef08\\04.output.txt",
+      "bytes": 9480,
+      "sha256": "bff054d651b856d07373fb8748a68e53ba45a1f5502aa92038e40a6b95ab12fd"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.1\\82020ec8-24b6-496e-ac4e-0954e6faef08\\04.session.jsonl",
+      "bytes": 193547,
+      "sha256": "52049419200fcbd03a4c640e1207599211e1db851dfd2b90f40b3ba515ed736c"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.1\\82020ec8-24b6-496e-ac4e-0954e6faef08\\04.stderr.txt",
+      "bytes": 32547,
+      "sha256": "a1ea3705c6c1919805db84c23dc1e03a4109019caaf93bf9260ed629bd490747"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.2-delayed\\b0a974f2-b393-41ad-a0b4-70d3a3cde835\\01.events.jsonl",
+      "bytes": 30332,
+      "sha256": "9a3c909b741ed7fada4583098e5f880d3917c8574d37a1f3e91815791d9b5573"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.2-delayed\\b0a974f2-b393-41ad-a0b4-70d3a3cde835\\01.input.txt",
+      "bytes": 989,
+      "sha256": "69d3dc3a53990388e5e0e06122a62b81a4b98f2bbcef388635fdd08e45c12246"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.2-delayed\\b0a974f2-b393-41ad-a0b4-70d3a3cde835\\01.output.txt",
+      "bytes": 2945,
+      "sha256": "3fbb0fd5834c09ae265e93386d7ad7b1175478168c242e2d979404ad00fa63e3"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.2-delayed\\b0a974f2-b393-41ad-a0b4-70d3a3cde835\\01.session.jsonl",
+      "bytes": 95351,
+      "sha256": "469c50e8f256308ead4fe6c1b5fba88c48f51c5d790de01ec8e1f92d819fc064"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.2-delayed\\b0a974f2-b393-41ad-a0b4-70d3a3cde835\\01.stderr.txt",
+      "bytes": 35071,
+      "sha256": "4b8474ab9cd0633fb0aff6ba7d312b76bd70de77e1fdbceda1059552a07f1054"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\batch.json",
+      "bytes": 485367,
+      "sha256": "93bb16724806489a7bba4743233518430655cc7ee6969ca04586d28a83cb27fd"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\inspection.json",
+      "bytes": 9037,
+      "sha256": "b9d1551241ccc73ceef57be58f180a7fd6fac502028b2fda84db835b4423c35f"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\installation.json",
+      "bytes": 6232,
+      "sha256": "22c2e387a9827bddcc5195335f1849427c4ef01dc9c7f729722539552d9a604e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\metadata-events.jsonl",
+      "bytes": 13965,
+      "sha256": "6e833f6f4d13951977a558357fd6995e825e8c6f8b3c562552f03101fa636df9"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\metadata-requests.json",
+      "bytes": 555,
+      "sha256": "c5df127a67fce50f10750ad9635a822078254ccf137d6cfc46b005b38d67f907"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\metadata-stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\models.json",
+      "bytes": 8051,
+      "sha256": "5bc4e657a9551880e076de47d3a7ce5da9a284a1a7d43019de77cdc700a96518"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\native-loading-observations.json",
+      "bytes": 13852,
+      "sha256": "2ccb34cc4ea93f21879e541b216b523932712230b04a795a5f47466da89d7d9e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\native-skills.json",
+      "bytes": 10220,
+      "sha256": "3cf1ec816fd4f113bb224843c2e5599240e68b5df4d7190924db840052dc1f99"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\operator-c-manual-selection\\B1.1.audit.json",
+      "bytes": 1699,
+      "sha256": "50b6fcc23e0d9ebd1fa065c2af68d9853f3e8b9f74b043769e735791f5b24bf4"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\operator-c-manual-selection\\B1.1.quote.txt",
+      "bytes": 543,
+      "sha256": "a890654c507fbb96091b2df1ecdaaaf3fb9956f5b69fa86f308c07677e961c50"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\operator-observations.json",
+      "bytes": 11977,
+      "sha256": "4901fdf6e1e17c4292fa2286607e1aa6794741b89294047dfe68295e899bad60"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\operator-pauses\\a9e747b6-24e5-457c-b805-a9a57531d12c.json",
+      "bytes": 2263,
+      "sha256": "84b4c4077e294ba580513aa2606750dbe0e0e04e05769fad47cca4427293eb33"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\preparation.json",
+      "bytes": 1547,
+      "sha256": "700c0035ec7fed6bda7de352e26c2fee7ccaadd1c6ed7886d11bb9b000d28301"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\B3.1\\6e208942-81d4-4c22-8992-a2a29bfb7870\\01.events.jsonl",
+      "bytes": 29038,
+      "sha256": "594dcc2afcc274fcb85a9a3e3d84d57a5cd3c221dd67960d584784849378ce58"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\B3.1\\6e208942-81d4-4c22-8992-a2a29bfb7870\\01.input.txt",
+      "bytes": 989,
+      "sha256": "7530eca2386b15051d9955606298b73fc6723bad0eb93c05979d0a5a88371709"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\B3.1\\6e208942-81d4-4c22-8992-a2a29bfb7870\\01.output.txt",
+      "bytes": 2695,
+      "sha256": "a8dd959d980b1006b0fc7cda6177ffdbe1ad8e4f9fa7b3ff86c0a07fbc7230f8"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\B3.1\\6e208942-81d4-4c22-8992-a2a29bfb7870\\01.session.jsonl",
+      "bytes": 97594,
+      "sha256": "00a1889dee063183517012cfe8d1af61666643252c652d4d7c594d4fbe682144"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\B3.1\\6e208942-81d4-4c22-8992-a2a29bfb7870\\01.stderr.txt",
+      "bytes": 22456,
+      "sha256": "f85fd2d857e003d65e2736d9830564bf6945e61b3d5dc27733dc8f3130c09d67"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\B3.1\\6e208942-81d4-4c22-8992-a2a29bfb7870\\02.events.jsonl",
+      "bytes": 9519,
+      "sha256": "6301fed36cf6b00638411606522683c9b3855dab73edddc775fc74bfc3a724de"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\B3.1\\6e208942-81d4-4c22-8992-a2a29bfb7870\\02.input.txt",
+      "bytes": 57,
+      "sha256": "89d9494a97bdf0173a3469f64feda0bf464adffc47d7709c180aa043a176e765"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\B3.1\\6e208942-81d4-4c22-8992-a2a29bfb7870\\02.output.txt",
+      "bytes": 8924,
+      "sha256": "b37de0d1f1f104ff1342d95090665a18b8bf059dc5047588525c3ab42b4effeb"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\B3.1\\6e208942-81d4-4c22-8992-a2a29bfb7870\\02.session.jsonl",
+      "bytes": 173679,
+      "sha256": "781f7f9a5b9ac68a3e53b799611d25594406beb5ef6e02600fd6d50ece5340a4"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\B3.1\\6e208942-81d4-4c22-8992-a2a29bfb7870\\02.stderr.txt",
+      "bytes": 32547,
+      "sha256": "966f426e4b4259801d05a246cb8ec3c5940f261e4f63bd2e6ce69b95ef27f784"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\B3.1\\6e208942-81d4-4c22-8992-a2a29bfb7870\\03.events.jsonl",
+      "bytes": 725,
+      "sha256": "25a6c246f6fc117971aae3d7a96119f7a9a421cf51c5cd30259b163934f16cb5"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\B3.1\\6e208942-81d4-4c22-8992-a2a29bfb7870\\03.input.txt",
+      "bytes": 64,
+      "sha256": "30f2cab18e0d7dcdedce9a9d7748e905a1397909aebe11f40310f7bbe73095d5"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\B3.1\\6e208942-81d4-4c22-8992-a2a29bfb7870\\03.output.txt",
+      "bytes": 372,
+      "sha256": "d9bdbca6564de036601841ec232c7cecbf8b16a2ce6bdda9b904bd281586fe7e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\B3.1\\6e208942-81d4-4c22-8992-a2a29bfb7870\\03.session.jsonl",
+      "bytes": 187393,
+      "sha256": "e5906bbe247d38f1c5bf7b4d48c9fabfb2ec5767d7109e1e2c9893d3ac03f60c"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\B3.1\\6e208942-81d4-4c22-8992-a2a29bfb7870\\03.stderr.txt",
+      "bytes": 32547,
+      "sha256": "f7cff44d6a082730074a2a8dff22e02a6f50d7e94014da56a31af653732396c5"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\B3.1\\6e208942-81d4-4c22-8992-a2a29bfb7870\\manual-selection-turn-1.txt",
+      "bytes": 523,
+      "sha256": "66a065379bb883cb77eca2bc405dd128e07b8bc74d05c734c1afb86a728e7039"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\B3.1\\6e208942-81d4-4c22-8992-a2a29bfb7870\\manual-title-audit.json",
+      "bytes": 1761,
+      "sha256": "f0b431a82636f3a311d5e57bcf16bf293e3d428dff2bf93bddfea7d41bfbbcfb"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\B3.2\\6d82e9bd-0039-49a0-a1f1-e3de4ab43f1a\\01.events.jsonl",
+      "bytes": 33042,
+      "sha256": "5845038ab041f2566454f18d3dfcdb3eb8d7479fada1e987516c7b11bc55ccf4"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\B3.2\\6d82e9bd-0039-49a0-a1f1-e3de4ab43f1a\\01.input.txt",
+      "bytes": 989,
+      "sha256": "1780a0fc0b9897e78ed5deb4bd1b06ea47af152bf4475e4a5a28e1735019f1d0"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\B3.2\\6d82e9bd-0039-49a0-a1f1-e3de4ab43f1a\\01.output.txt",
+      "bytes": 2656,
+      "sha256": "4ff9ae0f65a24da3e57c0dbf68f049fb3524d8fa9b830e9fe1a7147ea5678cfd"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\B3.2\\6d82e9bd-0039-49a0-a1f1-e3de4ab43f1a\\01.session.jsonl",
+      "bytes": 103263,
+      "sha256": "778665f5fd5b7da6800b2af301679a35f01c57b40730ee65661e05af1a458b83"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\B3.2\\6d82e9bd-0039-49a0-a1f1-e3de4ab43f1a\\01.stderr.txt",
+      "bytes": 36947,
+      "sha256": "fdf22c82e3b0055d3fa67cb0753dd30706b54c55d1a759b59acb9d17a5730dca"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\batch.json",
+      "bytes": 482612,
+      "sha256": "ec5d0fb352d78249f12108ee5b72c980c70b61becca383eced595d9b9f73d14c"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\inspection.json",
+      "bytes": 11003,
+      "sha256": "64db070ade6d5c03fb80d5ef51e71fc899928c4a1a9b944fce9c1d675a48d525"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\installation.json",
+      "bytes": 6224,
+      "sha256": "70fee017c491e3861905c2da58fbd34d02c10245d2775fdf7e9d0aa1bc67f3e7"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\metadata-events.jsonl",
+      "bytes": 13965,
+      "sha256": "5cc3e67dcad6a670381ca05d5fba6c49e5ad4916e3d6f8b4aa75fe62cd403425"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\metadata-requests.json",
+      "bytes": 555,
+      "sha256": "ca460b49ed135b2347f5a4babd563b12d08484cbc8d42fea9ab95ee40bab796e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\metadata-stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\models.json",
+      "bytes": 8051,
+      "sha256": "5bc4e657a9551880e076de47d3a7ce5da9a284a1a7d43019de77cdc700a96518"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\native-loading-observations.json",
+      "bytes": 14212,
+      "sha256": "6123dfe90cf0716ef7418889ace066c079b98d6834d05c7481d2a471d4b6af2f"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\native-skills.json",
+      "bytes": 10220,
+      "sha256": "d5c45e4281cba0cc76196c6a24222b2974718c1fdd276fdc7c0f3b22e7cd06b1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\operator-handoff-behavior-a.json",
+      "bytes": 30751,
+      "sha256": "7b89614eb4c9214bde80ad1de8046c2eae3ef3d7c528897bf846f7a48f338604"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\operator-observations.json",
+      "bytes": 12708,
+      "sha256": "0be77303e5703585fe230c40f0e1692c909a7da5a16c4c249e5f0e56249429b7"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\operator-pauses\\453f4bfe-39d3-4b54-9693-b26ac623c167.json",
+      "bytes": 2440,
+      "sha256": "932ea2373cc2f7c82bbf5171ab7eaca0a0927b198d88de20158d24827270c887"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\fb13a31d-a87f-452f-a4dc-bcb54d9bbeb4\\preparation.json",
+      "bytes": 1547,
+      "sha256": "8d5086dbf0d9dfcdd7b0c656daa231411fbb3a849541f7a8231853e599268b6e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\capture-lifecycle-control.mjs",
+      "bytes": 2825,
+      "sha256": "947cb0a958932d8007b7d3d6efb62c0969ba792272f0c7eaf00c118857fbd6eb"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\client-access-preflight-only.json",
+      "bytes": 508,
+      "sha256": "37c69a6d5aa146e55e5f04752b558520ffda710682266c5aaf2d2da104cbf28f"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\continuous-supplement\\choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\continuous-supplement\\expanded-plan.mjs",
+      "bytes": 10495,
+      "sha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\continuous-supplement\\frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\continuous-supplement\\harness.mjs",
+      "bytes": 45367,
+      "sha256": "a7c47d34b4e57b3782fb0db450a3e83e39db22038c31d4ae87ed9b667fe86214"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\continuous-supplement\\operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\continuous-supplement\\plan.json",
+      "bytes": 17314,
+      "sha256": "af18c35badde6b55ba3134781823565f9688e14e3e51505ffb8760b05fb57cd9"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\continuous-supplement\\record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\controller.mjs",
+      "bytes": 5228,
+      "sha256": "ae86937c54d81ceef318b97e3d8d5f4ab2bf9c40b99797c77339c9eb69fffb25"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\core-final-root-summary.json",
+      "bytes": 12739,
+      "sha256": "2cf29e057e99902cdd3f6470c0adb29a5423436a6ca58061df4590104b988dff"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\draft\\SKILL.md",
+      "bytes": 4348,
+      "sha256": "4aed371e92241aa8ff9db57e8b6fc0f1d261b273b2f90f9e84faaf86bdfa95a7"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\draft\\references\\guide-framework.md",
+      "bytes": 8373,
+      "sha256": "f1d374844ed9c89028f3dd63cc63a9c0e087ebffd7826688af815185d72db068"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\draft\\references\\interaction-design.md",
+      "bytes": 7773,
+      "sha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\draft-initial\\SKILL.md",
+      "bytes": 5332,
+      "sha256": "cab57cd59b5e6ecad6f5cdb0d6554286bf5482cbcab0ce108eec545f551122e4"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\draft-initial\\references\\guide-framework.md",
+      "bytes": 9620,
+      "sha256": "9760fce912a3c1ffe6399bc6c2b2c60c24e6ca6d5d4b0e58d3a01b481531cc73"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\draft-initial\\references\\interaction-design.md",
+      "bytes": 9730,
+      "sha256": "7d6cf7a193f7b11386cb04ffacf12fcc0ffc0ef0fcb30b951a23c0f6f52c9143"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\canonical-status.command.json",
+      "bytes": 507,
+      "sha256": "ebbf9d0afc136b25e25c2b9ec7de8737f652fca910724dfed3c7072768062e60"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\canonical-status.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\canonical-status.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\canonical-tree.command.json",
+      "bytes": 538,
+      "sha256": "e1886a4d7b4c27c8435e9127edfeda527007ef528f9899e559b3d6451bc72333"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\canonical-tree.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\canonical-tree.stdout.log",
+      "bytes": 41,
+      "sha256": "53d398776ab0fd9b9b3ceac50c3469fdaea69543afc170aa23745c25d6deb6a4"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\control.json",
+      "bytes": 335,
+      "sha256": "5241a2cb360286ae09ba073f1c36060510b1df99c18f9be1a458b9d29230145a"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\controller.mjs",
+      "bytes": 5202,
+      "sha256": "2940c12d5ff1484f4656e45e197efebd4f9d10b569165b2255e04d28cffe1b9a"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\detached-head.command.json",
+      "bytes": 501,
+      "sha256": "9a930322e970075ade306e8d101187309c67e98d81f12429ad752be511d30c55"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\detached-head.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\detached-head.stdout.log",
+      "bytes": 41,
+      "sha256": "8f443e926e5a131b647d585c889d7d050b2103021390502839e21f3d02236da7"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\detached-tree.command.json",
+      "bytes": 508,
+      "sha256": "0d7b992b5b4fee7aef71fb2cde13e78d7917ffa6715876f8a9f5b3e4ec1c2f72"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\detached-tree.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\detached-tree.stdout.log",
+      "bytes": 41,
+      "sha256": "53d398776ab0fd9b9b3ceac50c3469fdaea69543afc170aa23745c25d6deb6a4"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\installation.json",
+      "bytes": 316058,
+      "sha256": "391152bc364fe61139ad53bac57f05d785f5a9cc228b140826b4a0c1a7584492"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\npm-ci.command.json",
+      "bytes": 507,
+      "sha256": "c5d3eed0396d8ec0edaf11fd98427b81698dd83d1648d9276d5bdfd927d869e5"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\npm-ci.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\npm-ci.stdout.log",
+      "bytes": 141,
+      "sha256": "6261ef59f9b00c5091cf6785093b0c3998969c4886e3abd0ff058199af086cd8"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\npm-smoke.command.json",
+      "bytes": 500,
+      "sha256": "00c140863979c39d7feceb970aefb6f3a3f9e755d23a03237de2a68f4d960fcd"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\npm-smoke.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\npm-smoke.stdout.log",
+      "bytes": 316022,
+      "sha256": "98bb9c25a0b71d4ced39df18167aaf99ac50f7346931c15e77b9211b2e770ee4"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\summary.json",
+      "bytes": 10862,
+      "sha256": "b7f79c85cadbff4fd4bd4eedf0128dcf5ee5d2821f2f864df1a29e3746113be7"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\validation.json",
+      "bytes": 449,
+      "sha256": "8b9e468b5cc9066d651976d7da9206b38bf0814928c3e6295b8314632aed779d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\engineering-83b3f50b\\versions.json",
+      "bytes": 208,
+      "sha256": "8fe17c4f9e7e1dd9e2bf4128cb62a14191ed73438f6b358918ea508a59286dd6"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\expanded\\choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\expanded\\criterion-citation-erratum.json",
+      "bytes": 672,
+      "sha256": "8a1e7e3a4305b076e9069c39dd5f605ff21dca5a5ade59ada17afba60ed63969"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\expanded\\expanded-plan.mjs",
+      "bytes": 10495,
+      "sha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\expanded\\frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\expanded\\harness.mjs",
+      "bytes": 45367,
+      "sha256": "a7c47d34b4e57b3782fb0db450a3e83e39db22038c31d4ae87ed9b667fe86214"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\expanded\\operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\expanded\\plan.json",
+      "bytes": 28082,
+      "sha256": "bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\expanded\\record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\expanded\\repeated-plan.json",
+      "bytes": 16222,
+      "sha256": "0b97085cdf412893e267bda912776d371a36f58e6fec7cb15bc086989c081d23"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\exact-span-delta.json",
+      "bytes": 17736,
+      "sha256": "872feba4df3bc5d52a64d2c90cb67c47ca2ebf62b5478adf9a7a59afde4cfe1f"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\explicit-effort-draft-control.json",
+      "bytes": 4199,
+      "sha256": "b22af13a11f789dbe2298102bcac4d67224da634cf509101315d83f60cdd7ec4"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\initial-root-static-syntax-error.json",
+      "bytes": 222,
+      "sha256": "7171a52d272aa2a18ddaadd1a96970276fa9a5cae7137df7f0127a7843967cda"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\non-model-guards-by-b\\execution-receipt.json",
+      "bytes": 978,
+      "sha256": "41e7da0d814caaa409e54941c738d528b4b4c84de253d40e4929f5f5e1309774"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\non-model-guards-by-b\\execution.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\non-model-guards-by-b\\execution.stdout.log",
+      "bytes": 335,
+      "sha256": "c1645e8743df515264a7a8ee0fa2ee0475c62bd1a04d48658b0802bf613cdc41"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\non-model-guards-by-b\\guard-tests.cjs",
+      "bytes": 8696,
+      "sha256": "ae0a6193c798386bdc5cad5523b6e281edaf5abdb6af8361d39bd775af2a5c8b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\non-model-guards-by-b\\independent-guard-review-b.json",
+      "bytes": 3403,
+      "sha256": "2256a7d320e8bbe048c1adb785869b40523d181c6c737be35de25081a478e527"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\non-model-guards-by-b\\independent-guard-review-b.r2.json",
+      "bytes": 4080,
+      "sha256": "5b8c580ee802b0a37de43898ef6fc81d17dc142ca07c6fa010c9d9fc7cd7ee31"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\non-model-guards-by-b\\protected-after.json",
+      "bytes": 23924,
+      "sha256": "e5167165e8e6b90af73579500c742ff9e9db5ccbe85c867b216307562d5fd9a5"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\non-model-guards-by-b\\protected-before.json",
+      "bytes": 23924,
+      "sha256": "e5167165e8e6b90af73579500c742ff9e9db5ccbe85c867b216307562d5fd9a5"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\non-model-guards-by-b\\results.json",
+      "bytes": 93960,
+      "sha256": "c29c2297af94b72881c1a1b1d8be4ca99b90d1337ce512d4fa62a8277fdcf00c"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\proposed\\blocking\\harness.mjs",
+      "bytes": 46403,
+      "sha256": "7f1af6c1f6d68497587e4568e55ccaa5164b0d07c7c53f8b254bc7ac2f13730b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\proposed\\continuous-supplement\\harness.mjs",
+      "bytes": 45367,
+      "sha256": "a7c47d34b4e57b3782fb0db450a3e83e39db22038c31d4ae87ed9b667fe86214"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\proposed\\expanded\\harness.mjs",
+      "bytes": 45367,
+      "sha256": "a7c47d34b4e57b3782fb0db450a3e83e39db22038c31d4ae87ed9b667fe86214"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\proposed\\prepare-correction.mjs",
+      "bytes": 2324,
+      "sha256": "37ab9b6b39de27b0a3728d9bbdccb7aa599f4b20f0a03820e0c1e4ebb5be5221"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\proposed\\prepare-coverage.mjs",
+      "bytes": 2790,
+      "sha256": "2b35e589087ee6b0788961536749afbaebaab405e531ed45029475d26aa07b37"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\static-review-b.json",
+      "bytes": 8374,
+      "sha256": "2c70bede6db0c370c2b1c8503837f4ba2077d1f8aa5dbad653bc1ef54e7ca9bc"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\static-review-root.json",
+      "bytes": 3992,
+      "sha256": "fcaf22e6c04d41a91a83b6d63b7fc86e252c8030e6750e84a1c66e42164027d9"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\std-snapshots\\blocking\\harness.mjs",
+      "bytes": 44751,
+      "sha256": "916bd929785c366559647bcbb2c62a74c8e531485f2f8fe99d1ac5add12e077a"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\std-snapshots\\continuous-supplement\\harness.mjs",
+      "bytes": 43715,
+      "sha256": "910b412ddbd3a2032435342d5d3b194709240724a3a40a027ae02acc3d7bdf9f"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\std-snapshots\\expanded\\harness.mjs",
+      "bytes": 43715,
+      "sha256": "910b412ddbd3a2032435342d5d3b194709240724a3a40a027ae02acc3d7bdf9f"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\std-snapshots\\prepare-correction.mjs",
+      "bytes": 1937,
+      "sha256": "39e20564bb958770d0448bd5dcfcecf3472ae1c42f07259eb802216afc0d1adb"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\std-snapshots\\prepare-coverage.mjs",
+      "bytes": 2403,
+      "sha256": "95fd7d86d2941712da449920bbaea4e8a3a4b748da0a6a3b605aa107fd177dd3"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-draft\\syntax-checks.json",
+      "bytes": 1569,
+      "sha256": "becc31a54dc85304d2aa4e8b239077fa72758977ad7833206704bd1a494265ca"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\explicit-effort-std-to-r2-application.json",
+      "bytes": 21613,
+      "sha256": "16ed49a02339c4fcfcbfe781860cdd29acf8f9a05ea8da078b67cf26dbc094f0"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\frozen-copy-inventory.json",
+      "bytes": 47087,
+      "sha256": "259f6fcca8f189e46c822954660c6d4924a06adec943a070bb03ed1802ec1419"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\frozen-copy-inventory.r2.json",
+      "bytes": 39493,
+      "sha256": "ca8b4ba871171a78aa304d56c60b5dcd48f6c8ee407c2d00a94d3d09aeb02ef0"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\identity-r2-readiness-a.json",
+      "bytes": 5750,
+      "sha256": "014bf5843587d8494c81e967cab83a0379fb892a6dc51077db2d254cf73fbc4b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\initial-root-aggregate-schema-error.json",
+      "bytes": 428,
+      "sha256": "be8384eec4f0d68d7068ffd8f65d4717364031050536a05bd135fd4865a372c3"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\initial-root-aggregate-schema-error.mjs.snapshot.txt",
+      "bytes": 4743,
+      "sha256": "26a7b7eeadd35bdbad10f921e7d16624e574eb508bcac77ceb9aeb124307a0b5"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\integration-records\\apply-resources-docs-r2.mjs",
+      "bytes": 7890,
+      "sha256": "08ae888446a27213c41c10d55b8ff847adca1f4b07cb6af4773afdcf760adacf"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\integration-records\\baseline.json",
+      "bytes": 40290,
+      "sha256": "efab7d6b7a9544cf7dc2594fecca45ba644c4b949b16f376bcbad1f53cb1c743"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\integration-records\\before-AGENTS.md.snapshot.txt",
+      "bytes": 16219,
+      "sha256": "5065968b535fdc69082265d1bee0955d530db3bf5b1fcdb3cfcf762403543238"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\integration-records\\before-INDEX.md.snapshot.txt",
+      "bytes": 29514,
+      "sha256": "e09594772fa1bdf5013bde877b434a47f25f0ce9e0eca5eb4c9139b01ad3c1c9"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\integration-records\\before-[RUNBOOK]_HTML_Guide_Kit_Acceptance.md.snapshot.txt",
+      "bytes": 182005,
+      "sha256": "b00fc181f5ecbdbea0e86f5b3aeb9fc308878962f9a95e0b228428e07cbb76ed"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\integration-records\\check.log",
+      "bytes": 213,
+      "sha256": "6c194d3cab975bfcaadd9ef894adc247ca34e53e06af305b0c215099eb27add3"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\integration-records\\document-a6.log",
+      "bytes": 12634,
+      "sha256": "b73255362be3abbcba5d8b653e89c62854efef004827709970972523492cc2e7"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\integration-records\\final-engineering-receipts.json",
+      "bytes": 4376,
+      "sha256": "827f29e2101e421e1f0454a3cf91188f24489ed8594364a840d6503e3f82b7ce"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\integration-records\\npm-test.log",
+      "bytes": 78943,
+      "sha256": "a8c201a698117fb2144e0ada5a2ca03a4ee82db842f82fddf378d5796930bf17"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\integration-records\\pre-fulltest-engineering-receipts.json",
+      "bytes": 1734,
+      "sha256": "f6ad526f82348015d579e8fddcb0dd02647c7d8bb59a268d6b7756bce92fc55e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\integration-records\\pre-receipt-initial-failure.json",
+      "bytes": 596,
+      "sha256": "d42bc839682175a2591e68773c32722e0a55afc72fc909916736ad498de77b58"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\integration-records\\quick-validate-applied.log",
+      "bytes": 17,
+      "sha256": "6cf9e7f0d34ccd36dbd28f270cd28dd04277b2e1516bd4333ce7bb501d7b18d4"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\integration-records\\quick-validate-draft.log",
+      "bytes": 17,
+      "sha256": "6cf9e7f0d34ccd36dbd28f270cd28dd04277b2e1516bd4333ce7bb501d7b18d4"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\integration-records\\resource-doc-application-initial-failure.json",
+      "bytes": 543,
+      "sha256": "95fc88a2192581562811a3bfdfd4baac15f868dc84b82fb39bcde3200ac86f41"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\integration-records\\runtime-application.json",
+      "bytes": 6483,
+      "sha256": "93782913933ed38d87d6be4e492f8b50de48e41176fbe35df16df65962baebcf"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\integration-records\\validate.log",
+      "bytes": 392,
+      "sha256": "e3bedb0233222e468a1e207cfbcbaf1c3138a8827fde2769e9e2ede3a85eb3d8"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\integration-records\\version-tool-console-receipts.json",
+      "bytes": 1278,
+      "sha256": "99c34272911bdd7c8cf18d61390b23de0f697eca19b941aed1effaeaa71e3f4d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\manual-selection-behavior-a.mjs",
+      "bytes": 3264,
+      "sha256": "eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\manual-selection-behavior-b.mjs",
+      "bytes": 3267,
+      "sha256": "c2d3f2ce80a6919aecb27892fe2790dce901981efa72c2aef2b773f9b1d1f394"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\manual-selection-continuous-behavior-a.mjs",
+      "bytes": 3370,
+      "sha256": "7fcf3c78437f33f8d146684e7e6173324a996b65c6722d58fec17dcfba643ecc"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\manual-selection-continuous-control.final.json",
+      "bytes": 1424,
+      "sha256": "f958efe94dc9475a32703e57885c069e7f95f884cd6b259471a490b085b57039"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\manual-selection-continuous-control.json",
+      "bytes": 1085,
+      "sha256": "b84e79d9c799413461c708b9fde47860acf1be57887dcd50f2f7a34c25750eea"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\method-preservation-map.json",
+      "bytes": 6593,
+      "sha256": "4396392a201606ee31abe8e04e96a059e573a979e710e1e155c4ed404f5a8611"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\normal-execution-pause.flag",
+      "bytes": 1337,
+      "sha256": "3f6cafa809ce85a323c39a4d93f7cbf0d99aacfa5f6ca92dd4f83568bfeb239d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-a-records\\B3.1-independent-receiver-audit-b.json",
+      "bytes": 32352,
+      "sha256": "e6c7a8ea9611a6eaecd02fa0049aa565d439288950f52bfae22f87edbd85cc7f"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-a-records\\B3.2-independent-receiver-audit-b.json",
+      "bytes": 18770,
+      "sha256": "5ff9abfeaab6fd56f0d0ef546df1d2f811c267cbac14be5658b82d219e657c96"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-a-records\\core-stage01.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-a-records\\core-stage01.stdout.txt",
+      "bytes": 815,
+      "sha256": "ce17bf0833c1a1e7c8af55434aac335b9209857ec238398d261b59598a6f2f4c"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-a-records\\core-stage02.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-a-records\\core-stage02.stdout.txt",
+      "bytes": 3333,
+      "sha256": "d14d650bcc7884a914c33fc6bb4dbbebba481b0e30bbdfef894efe3be35cb09d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-a-records\\core-stopped-report.json",
+      "bytes": 33219,
+      "sha256": "7270d4d8f6fda70d27913de2112e1cef26eea9b62b1ad7bf59b8dfb60260b1ce"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-a-records\\preparation-resources-receipt.json",
+      "bytes": 5375,
+      "sha256": "47c9aa24d9a3c46e79bdf4effa6ebaf09842fed4f3904167f12d81aa992b64d9"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-a-records\\prepare.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-a-records\\prepare.stdout.txt",
+      "bytes": 398,
+      "sha256": "e9f6780667984c758dea58876333e6551410b2004089b3c6fa3ecb874658a0f2"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\B6.1-T1-actual-receiver-audit.json",
+      "bytes": 19042,
+      "sha256": "a71c95378587c990bc6c1282cbcf6d69407200cbc82df81fe8cfebf1d486e9df"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\closure-preparation-error01.json",
+      "bytes": 761,
+      "sha256": "51fdb89b7eeb77e88f0750711d79f5b6a1fa531224df509894779446a08b106b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\core-stopped-report.json",
+      "bytes": 13313,
+      "sha256": "a7c35a3eb55c9328060e4d02b039488e5c7e2566d4e976acce64d89f537e4245"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\handoff.receipt.json",
+      "bytes": 553,
+      "sha256": "c2ee1c11401015c73197b76ed4716aeb2dac96f93abe4f8020c05530eea1058d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\handoff.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\handoff.stdout.log",
+      "bytes": 312,
+      "sha256": "5e9e9422abbafed91a7b020cdc9317c6f7b8f764ac9b5ea0045b9afae87e38e5"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\normal-pause-tool-receipt-clarification.json",
+      "bytes": 1085,
+      "sha256": "e09c81c6f66e353795af68bd3798328a23458fae1193036e5b024d2ca33bb525"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\normal-pause-tool-receipt.json",
+      "bytes": 1559,
+      "sha256": "199083a5a6bd19fdbaf9a4965a81e9770551598bd4db5201b7fd63579f3dbd41"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\pre-pause-observation-snapshots\\batch.json",
+      "bytes": 467745,
+      "sha256": "1c093edfed7dd9d35fb86bb23430951f6eba087de342992b5c42bd37bdc385ab"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\pre-pause-original-pins.json",
+      "bytes": 2309,
+      "sha256": "15e46ebdd258f4b2f7fdcf25d5a34fc9b48ebaf473098b552ae6735856d22c1d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\preparation-reviewer-scope-diagnostic-correction.json",
+      "bytes": 1876,
+      "sha256": "5bf15d4a6f457c0f2268ba80ec80912e2e9644659fdb53fbdabd3e8d7368a9f8"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\prepare.completion.json",
+      "bytes": 486,
+      "sha256": "cbc485490a1e0af43500ae27020192b49c97bb90690bc29ac9059d6e48ea0332"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\prepare.started.json",
+      "bytes": 568,
+      "sha256": "eec7cec74a6f0e715f16c1da171057a28b680a9e47f73bd0d3cb747cf5fa4cec"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\prepare.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\prepare.stdout.log",
+      "bytes": 395,
+      "sha256": "d907525ece6c0ecbb991ac50bfa876f300efd782862ad049ac491501ebf60476"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\runtime-installation-pins.json",
+      "bytes": 4904,
+      "sha256": "476363e996af0c26873c1fefb143cd038a90f0a3addbe7d82b818bd9e392cf4a"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\stage-01.completion.json",
+      "bytes": 487,
+      "sha256": "f18d9563036cc2311c920509cb6f1f680b860717c2266a6e87fa47af3f86907d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\stage-01.started.json",
+      "bytes": 711,
+      "sha256": "469c3f3a02074f43e0d4b9e2e6d62767ed585bee825ce834075c81b46efb9d59"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\stage-01.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\stage-01.stdout.log",
+      "bytes": 815,
+      "sha256": "18eb8e05ab5a207e5bcd846e45d4bc9f051adcc04ec653b34ea77e34734211d6"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-c-records\\audit-C-mechanical-r1.mjs",
+      "bytes": 8491,
+      "sha256": "b6f892ea072f23b32d1de62e5a134495dcad3faded96178e2edaf464c565fe64"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-c-records\\fresh-parent-preparation.json",
+      "bytes": 4623,
+      "sha256": "c9ce4707eb7a4c110af6bf1ac5d090148ac8af9cdd84d4004b5f555405bf24bd"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-c-records\\stopped-original-operator-closure.json",
+      "bytes": 24171,
+      "sha256": "6c0054802e09dc246779b1ef3b3bd1fc845289ecb066372615e4c51a4ad9e231"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-c-records\\technical-C-r1-actual-receivers.json",
+      "bytes": 52769,
+      "sha256": "30d0ab78c8dce85836ff22d28e5a910f9a68d91e0e8d0419fdde43936a588506"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-c-records\\technical-C-r1-full-input-output.json",
+      "bytes": 18646,
+      "sha256": "563a3f5cccdfe044918f07381fb1789c66682fce47ed6eef098d3c0ce97b2635"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-c-records\\technical-C-r1.json",
+      "bytes": 29271,
+      "sha256": "3b99153cb9f996c8231644eb70863a735b8865f1a4cf1bcc24b4d7bf8b662776"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-sequential.manual.candidate.mjs",
+      "bytes": 5028,
+      "sha256": "fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-sequential.manual.mjs",
+      "bytes": 4977,
+      "sha256": "8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\prepare-controls-028-logic.mjs",
+      "bytes": 12056,
+      "sha256": "50179ca4de2861840f30f1d21cd8bc43470854801c23bf8410c7dc596ec45760"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\prepare-correction.mjs",
+      "bytes": 2324,
+      "sha256": "37ab9b6b39de27b0a3728d9bbdccb7aa599f4b20f0a03820e0c1e4ebb5be5221"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\prepare-coverage.mjs",
+      "bytes": 2790,
+      "sha256": "2b35e589087ee6b0788961536749afbaebaab405e531ed45029475d26aa07b37"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-CONTROLS_FINAL_FROZEN.json",
+      "bytes": 8114,
+      "sha256": "df4c28e836b268d459bf62d51e375386e42212c93f4ee08d6855ce224bf0305b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-controller.mjs",
+      "bytes": 5228,
+      "sha256": "3131dd6d19cb5301c496ba7927402360a43e8af64fc87d1926f28f86a0af6152"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\behavior-b-helper-copy-control.json",
+      "bytes": 1265,
+      "sha256": "778feaf2416459570b2fe270a57b30f7cc74a917f1b4aa8a44f21455eac54620"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\blocking\\choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\blocking\\frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\blocking\\harness.mjs",
+      "bytes": 44751,
+      "sha256": "916bd929785c366559647bcbb2c62a74c8e531485f2f8fe99d1ac5add12e077a"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\blocking\\operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\blocking\\plan.json",
+      "bytes": 13618,
+      "sha256": "58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\blocking\\record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\capture-lifecycle-control.mjs",
+      "bytes": 2825,
+      "sha256": "947cb0a958932d8007b7d3d6efb62c0969ba792272f0c7eaf00c118857fbd6eb"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\continuous-supplement\\choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\continuous-supplement\\expanded-plan.mjs",
+      "bytes": 10495,
+      "sha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\continuous-supplement\\frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\continuous-supplement\\harness.mjs",
+      "bytes": 43715,
+      "sha256": "910b412ddbd3a2032435342d5d3b194709240724a3a40a027ae02acc3d7bdf9f"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\continuous-supplement\\operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\continuous-supplement\\plan.json",
+      "bytes": 17314,
+      "sha256": "af18c35badde6b55ba3134781823565f9688e14e3e51505ffb8760b05fb57cd9"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\continuous-supplement\\record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\expanded\\choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\expanded\\criterion-citation-erratum.json",
+      "bytes": 672,
+      "sha256": "8a1e7e3a4305b076e9069c39dd5f605ff21dca5a5ade59ada17afba60ed63969"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\expanded\\expanded-plan.mjs",
+      "bytes": 10495,
+      "sha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\expanded\\frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\expanded\\harness.mjs",
+      "bytes": 43715,
+      "sha256": "910b412ddbd3a2032435342d5d3b194709240724a3a40a027ae02acc3d7bdf9f"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\expanded\\operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\expanded\\plan.json",
+      "bytes": 28082,
+      "sha256": "bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\expanded\\record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\expanded\\repeated-plan.json",
+      "bytes": 16222,
+      "sha256": "0b97085cdf412893e267bda912776d371a36f58e6fec7cb15bc086989c081d23"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\manual-selection-behavior-a.mjs",
+      "bytes": 3264,
+      "sha256": "eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\manual-selection-behavior-b.mjs",
+      "bytes": 3267,
+      "sha256": "c2d3f2ce80a6919aecb27892fe2790dce901981efa72c2aef2b773f9b1d1f394"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\manual-selection-continuous-behavior-a.mjs",
+      "bytes": 3370,
+      "sha256": "7fcf3c78437f33f8d146684e7e6173324a996b65c6722d58fec17dcfba643ecc"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\manual-selection-continuous-control.final.json",
+      "bytes": 1424,
+      "sha256": "f958efe94dc9475a32703e57885c069e7f95f884cd6b259471a490b085b57039"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\manual-selection-continuous-control.json",
+      "bytes": 1085,
+      "sha256": "b84e79d9c799413461c708b9fde47860acf1be57887dcd50f2f7a34c25750eea"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\operator-sequential.manual.candidate.mjs",
+      "bytes": 5028,
+      "sha256": "fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\operator-sequential.manual.mjs",
+      "bytes": 4977,
+      "sha256": "8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\prepare-correction.mjs",
+      "bytes": 1937,
+      "sha256": "6960eadef02141a7907d3471cb85653eb734eb47c5164abc10984cfa475f741c"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\prepare-coverage.mjs",
+      "bytes": 2403,
+      "sha256": "21a335cf3fa6b897598757104b7f4eda6413041b476d006933df34693fae2b88"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\record-operator-handoff-behavior-a.mjs",
+      "bytes": 6816,
+      "sha256": "c9e93fb47caee212c3b5eb2322e963fa89fbe10008db469d9dd4dc6a47546d82"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\record-operator-handoff.mjs",
+      "bytes": 4632,
+      "sha256": "553c482e3977ed600b0846051ee1de9fa983e3a656867a3aa4c05cda393339bf"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\record-recommended-observation-behavior-b.mjs",
+      "bytes": 2258,
+      "sha256": "834624a2b2f6da8db78f9b5e86a7e029b2c77051764b38b5260849c92f0e5bd9"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\repeated-plan-control.json",
+      "bytes": 1050,
+      "sha256": "47a66a9d5148b301f1fbff721670de92c8986467d590030159adcfd239c69c79"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\root-manual-helper-copy-control.json",
+      "bytes": 608,
+      "sha256": "0cfa34d02f5db39ab8937c51345b6bc1b9c8a7e6cd150a724433c4f350b05c12"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\root-manual-select.mjs",
+      "bytes": 1708,
+      "sha256": "e6cc6c7cd00ecc86fcca45f43fbbcafef34bea6d375123aa1622f5eedbcfefc6"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-frozen-controls\\verify-canonical.mjs",
+      "bytes": 5202,
+      "sha256": "d71803d82e2ba52fa909b7d7fe70ca6ca610de0706d877d950e88f6ba85ef679"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\provenance\\source27-scheduling-fixture-reuse-control.json",
+      "bytes": 10388,
+      "sha256": "d95f54e9e8c39af9198838d87c52d148b12f2b2971e6d4d11f02f1156caa138f"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\record-operator-handoff-behavior-a.mjs",
+      "bytes": 6816,
+      "sha256": "c9e93fb47caee212c3b5eb2322e963fa89fbe10008db469d9dd4dc6a47546d82"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\record-operator-handoff.mjs",
+      "bytes": 4632,
+      "sha256": "553c482e3977ed600b0846051ee1de9fa983e3a656867a3aa4c05cda393339bf"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\record-recommended-observation-behavior-b.mjs",
+      "bytes": 2258,
+      "sha256": "834624a2b2f6da8db78f9b5e86a7e029b2c77051764b38b5260849c92f0e5bd9"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\repeated-plan-control.json",
+      "bytes": 1050,
+      "sha256": "47a66a9d5148b301f1fbff721670de92c8986467d590030159adcfd239c69c79"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\reviewed-draft\\SKILL.md.snapshot.txt",
+      "bytes": 4348,
+      "sha256": "4aed371e92241aa8ff9db57e8b6fc0f1d261b273b2f90f9e84faaf86bdfa95a7"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\reviewed-draft\\references\\guide-framework.md.snapshot.txt",
+      "bytes": 8373,
+      "sha256": "f1d374844ed9c89028f3dd63cc63a9c0e087ebffd7826688af815185d72db068"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\reviewed-draft\\references\\interaction-design.md.snapshot.txt",
+      "bytes": 7773,
+      "sha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\root-manual-helper-copy-control.json",
+      "bytes": 608,
+      "sha256": "0cfa34d02f5db39ab8937c51345b6bc1b9c8a7e6cd150a724433c4f350b05c12"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\root-manual-select.mjs",
+      "bytes": 1708,
+      "sha256": "e6cc6c7cd00ecc86fcca45f43fbbcafef34bea6d375123aa1622f5eedbcfefc6"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\root-status-enumeration-error.json",
+      "bytes": 369,
+      "sha256": "b1a2039125cf9de872dda50303b6647d152deb05c2fd030f0ff0a868a8a2e7f5"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\scheduling-contract.json",
+      "bytes": 1907,
+      "sha256": "10cb76d0b6097976d0a6f860ae2a8e44353b57db8203e602e9a8da4851671887"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\source27-originals\\SKILL.md.snapshot.txt",
+      "bytes": 6039,
+      "sha256": "0b942e1d8cf633ec0badbf605786c0a006f7845e7fb01cb19f164b69aa06ad00"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\source27-originals\\references\\guide-framework.md.snapshot.txt",
+      "bytes": 8980,
+      "sha256": "81eb1ab4e30f0f750a316a4575e050df27bc19e35c684a2621638fc72ef6bc11"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\source27-originals\\references\\interaction-design.md.snapshot.txt",
+      "bytes": 9910,
+      "sha256": "5c7ade14797417ba6a8b3fe9cb0c35e660a9467bd69f10ac244dcc64eeafa26d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\static-application-root.json",
+      "bytes": 2109,
+      "sha256": "e681465a2d8137bd3a406e17a9e2b5b1910d338974dded0469c743456732bcef"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\static-r2-control-review-b.json",
+      "bytes": 4075,
+      "sha256": "7e1f270b37b5a5ca052e731bdc354c509f653aa10feaa1111d46c9e8e90fa2e7"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\static-r2-control-review-root.json",
+      "bytes": 809,
+      "sha256": "d428ca018067eafbf5ae40b29f0efde76b87b2988f8b03a92715d0622b1eb788"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\static-review-b.json",
+      "bytes": 7141,
+      "sha256": "9cc4af77a7b51a1da97ce755d241e65d63ce5e2cddb7f19973f6ef0880c31949"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\static-review-root.json",
+      "bytes": 1566,
+      "sha256": "1d99b2d1090623eebc7488856a40907d72e60e15bed230266f134273c7a2e6a0"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\static-standard-control-review-b.json",
+      "bytes": 27543,
+      "sha256": "88970eea347886577d2b2f0bfcf935afc1726252bd1a422dc4b0425552496ae2"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\technical-review-helper-draft\\draft-control.json",
+      "bytes": 8675,
+      "sha256": "6538f6fc7693d135168ec8f4fe6dd116d2e32812946cce7d60576dc578dd0bd2"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\technical-review-helper-draft\\proposed\\audit-source28-a-prefix-receiver-b.mjs",
+      "bytes": 7357,
+      "sha256": "1bdd47ff6bbd495940a82932299fa13cfaef00031c9849a99bc6d4b47798362f"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\technical-review-helper-draft\\proposed\\audit-source28-a-receiver-b.mjs",
+      "bytes": 7284,
+      "sha256": "7f831a92b9875e868663c26029b285941ef62b5353f5ef71813792a69b192058"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\technical-review-helper-draft\\proposed\\review-selected-identity.mjs",
+      "bytes": 5882,
+      "sha256": "ddfc796ae9b5ae642181f6bdbd686d338c87afc98940da07fd020dcb82480885"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\technical-review-helper-draft\\source-snapshots\\audit-source27-a-prefix-receiver-b.mjs",
+      "bytes": 7138,
+      "sha256": "94e579660b96445405707feaeb2d4b7b1b66097db79bdded13e2febea02c5c54"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\technical-review-helper-draft\\source-snapshots\\audit-source27-a-receiver-b.mjs",
+      "bytes": 7065,
+      "sha256": "84ac6b51b20af16d1572a11a84e3da7c93990dd6a79b85959512545185f4d3fa"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\technical-review-helper-draft\\static-review-root.json",
+      "bytes": 1087,
+      "sha256": "a636e38cd34f730cc3bc83e87dc0ad5a8fa7f99e10abb6709c937dbea920f64e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\technical-review-helper-draft\\syntax-and-unchanged-source-check.json",
+      "bytes": 927,
+      "sha256": "1bc76dd8834ba6f07d38e7252e02e1c61c20f520ce6f60abf0c0e82158d58dc1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\verify-canonical.mjs",
+      "bytes": 5202,
+      "sha256": "2940c12d5ff1484f4656e45e197efebd4f9d10b569165b2255e04d28cffe1b9a"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\version-guard-exactdiff.json",
+      "bytes": 3168,
+      "sha256": "821cf2f2cec611190c4bdc9d5e578e8d16bf40ff085368e46fd5e8bcd8355319"
+    }
+  ],
+  "old28ProtectedCount": 341,
+  "oldRepoProofPins": [
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\041-dotnetVerify-actual.receipt.json",
+      "bytes": 834,
+      "sha256": "623450025123d61664a015726e413e6fe97a4589dd40f0e8abc4a1c7a6d67861"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\041-dotnetVerify-actual.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\041-dotnetVerify-actual.stdout.log",
+      "bytes": 540,
+      "sha256": "76d4f4907c36526aab371434e4725b8f44474ae8b6fc611fd4afb84c6b3a97a3"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\041-nodeVerify-actual.receipt.json",
+      "bytes": 797,
+      "sha256": "ffaf8adfe1da9521e943919b680941cf5361d394b30fbb139eaa9d6866454086"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\041-nodeVerify-actual.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\041-nodeVerify-actual.stdout.log",
+      "bytes": 371,
+      "sha256": "f12a4d2ca54832b949e7ec405b540150ce297a5ce3e640adeb42ea6f7b00a386"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\041-pack-actual.receipt.json",
+      "bytes": 948,
+      "sha256": "e7c5651e87c863952bb4514bea3d0e355df8cf00c0f23efe6705925898ffe02a"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\041-pack-actual.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\041-pack-actual.stdout.log",
+      "bytes": 484,
+      "sha256": "ac15d695e1fbaa83cb3a04bcef19a69b1654fe8962e4fe4b105b0f624e4e46b9"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\archive-041-control.json",
+      "bytes": 59689,
+      "sha256": "67d6713ec9118b000a9a781ac9c0b66999ee509b50f120c129b8b0b5c1b76eeb"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\archive-index.json",
+      "bytes": 5460,
+      "sha256": "f627f7e0e769cc884365c070b8c29140b6b8f4226c1481eae5f84d1744ac2b87"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\build-pack-041-behavior-b.mjs",
+      "bytes": 19502,
+      "sha256": "1ec3f37bd7a5a23a30959aa085cd3b2f7eb63541599f664207b9bd81d3ed3bfe"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\dry-source-041-dotnet-b.ps1",
+      "bytes": 3827,
+      "sha256": "73d8f7b44117ee68e32d1925365a221ee5e78e3f44a07e0a8ba603b53a02ea03"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\final-dotnet-dry-run.command.json",
+      "bytes": 316,
+      "sha256": "1e9126db00dc215816133b0cdc54cfa6d185ce822075d6987b7ec6192040e5ca"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\final-dotnet-dry-run.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\final-dotnet-dry-run.stdout.log",
+      "bytes": 670,
+      "sha256": "e6a99f6199177e097d863b19396928685b7cc60623c844062d30be1ca176bf3c"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\final-dry-run.command.json",
+      "bytes": 579,
+      "sha256": "2c0fcb9de2a788361866bc8253bce388a822fb449968f6c7945626c5f18bbe74"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\final-dry-run.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\final-dry-run.stdout.log",
+      "bytes": 51328,
+      "sha256": "bfb7015ee3231714f91657616358df3ddcd5708f3319ce3a3e0af38a89cd1857"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\final-handoff.json",
+      "bytes": 14728,
+      "sha256": "4693e36ac05fc639807e7bc05401349f60032db4f004fb118fc257880c87653f"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\pack-041-evidence.mjs",
+      "bytes": 33733,
+      "sha256": "ac93a182702d5515a9c433a78d3be79f7a3ac89a07e37f96eef31ec17d12ec19"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\preparation-control.json",
+      "bytes": 8082,
+      "sha256": "3e24f291de3da332c4a557dbcf5e2dac363feae93e629c66ba4cc9e2f705ee16"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\root-actual-runner.mjs",
+      "bytes": 1498,
+      "sha256": "82d3e163f714b662e97d8d2f077bd2efe0a6a1c7f4b6fd993372993c132c177d"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\self-test.command.json",
+      "bytes": 259,
+      "sha256": "ed68ca0a0faa8c252a26357f1a3352d9ce2adab80cb6beed9366634bf3a872fd"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\self-test.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\self-test.stdout.log",
+      "bytes": 160,
+      "sha256": "99fd7821b49ba78b28be89454c4bbc552070e9bb877eefdb69bfbb09bc425f29"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\syntax.command.json",
+      "bytes": 257,
+      "sha256": "0f4fb142b4e78d6b2ed8e9d10d716a3634501c6598077d20617d501750c6cb76"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\syntax.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\syntax.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate041-final-seal\\verify-lossless-041-dotnet.ps1",
+      "bytes": 6096,
+      "sha256": "4ec1ebee214baa15b4dffe575458791cf217cad29a277d78982a0ec7a9d4f702"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\blocking\\reviews\\cross-A-by-b\\B3.1.json",
+      "bytes": 9863,
+      "sha256": "48514b9c7199e9b524f29fee2d969d181eeffeeed86ba3c544401a83fb4ef9c1"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\blocking\\reviews\\cross-A-by-b\\B3.2.json",
+      "bytes": 5603,
+      "sha256": "ddfbd65254a4eb83d4e544a3eadb761cbe9140203423d427ecd9a63431cf7d70"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\blocking\\reviews\\cross-B-C-by-a\\B1.1-actual-sdk-a.json",
+      "bytes": 38160,
+      "sha256": "8ba81011fd2671a23caa73676324357c4848b79fe2be0abd6b9967ceecdba2ee"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\blocking\\reviews\\cross-B-C-by-a\\B1.1-independent-a-final.json",
+      "bytes": 6989,
+      "sha256": "8f180073e43c6dd1f513999623fb19ebd880c40da55369d7e18dde0cf0e2c50f"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\blocking\\reviews\\cross-B-C-by-a\\B1.2-combined-independent-a-final.json",
+      "bytes": 1375,
+      "sha256": "2e7a030242056dc002f5bf8706f17e6d808ded044ec21db17a8cf361dfdfb7ea"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\blocking\\reviews\\cross-B-C-by-a\\B1.2-delayed-independent-a-final.json",
+      "bytes": 4224,
+      "sha256": "fd2ebe7e4bd8fa483af7fccd260d5d3fb3334b9db2ca571934393c38bf076c27"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\blocking\\reviews\\cross-B-C-by-a\\B1.2-delayed-T1-actual-sdk-a.json",
+      "bytes": 18008,
+      "sha256": "8ba3258f8ab31b9ec025d6c46c50e577fdf4428bb39b06fe9c21042bf030d973"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\blocking\\reviews\\cross-B-C-by-a\\B2.1-independent-a-final.json",
+      "bytes": 1366,
+      "sha256": "0a86213c01b69d41af57ca58da078c1f3fffde3e0a7d4ee60ff61122b7731590"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\blocking\\reviews\\cross-B-C-by-a\\B6.1-independent-a-final.json",
+      "bytes": 5098,
+      "sha256": "ff04b5e3767da614773d12903d6626cd4226d02c759330d54da026830d66f302"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\blocking\\reviews\\cross-B-C-by-a\\B6.1-T1-actual-sdk-a.json",
+      "bytes": 19042,
+      "sha256": "5ca0b07b5ddef4973abc9559d9bbc7e49f11e1a4a483b5340b79f04d69deb5c2"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\blocking\\reviews\\cross-B-C-by-a\\B6.2-compare-independent-a-final.json",
+      "bytes": 1388,
+      "sha256": "37471bc03f4dfebcd3e693cfb36930a3675ff8b2dbc75994e9165be9fd63bb27"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\blocking\\reviews\\cross-B-C-by-a\\B6.2-review-independent-a-final.json",
+      "bytes": 1387,
+      "sha256": "dc1078badd7e9263ce453eacc94193639a887245ef25a60a5c34f79bc2a4ed3c"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\blocking\\reviews\\cross-B-C-by-a\\B6.2-revise-independent-a-final.json",
+      "bytes": 1387,
+      "sha256": "61018d5f1ee44e91bcd5a203998d7d29717892035a72bc3504a2de807b9d344c"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\blocking\\reviews\\independent-A-executed-closure-b.json",
+      "bytes": 11025,
+      "sha256": "a75cc38cbde0da34b17325f1cec9ee1d675254589dbbcc8ac9943c46d40585dd"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\blocking\\reviews\\independent-B-C-closure-a-scope-note.json",
+      "bytes": 441,
+      "sha256": "9bda06ec3d3ae90c772e600c046f333e6653da85210b6e16e2726c5dbcaff95b"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\blocking\\reviews\\independent-B-C-closure-a.json",
+      "bytes": 14936,
+      "sha256": "de1e90c4943fd20a4e5debbfa022bc4685fe5fe0b8b007ec254ceb841250cefa"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\blocking\\reviews\\root-028\\B1.1.json",
+      "bytes": 3916,
+      "sha256": "bc3649dddd87c099d55502e453c8bd8840bcb88d314fc5c034d25eda39bf7918"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\blocking\\reviews\\root-028\\B1.2-delayed.json",
+      "bytes": 1548,
+      "sha256": "c29958060e14c12c66e75ef9cb02250f4a295301eab024e1429af047a43ab102"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\blocking\\reviews\\root-028\\B6.1.json",
+      "bytes": 1225,
+      "sha256": "983d935ac0204baf928dc355b8d7912e0cab2bb7438809f28769a5978f30a818"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\blocking\\reviews\\root-028\\C-technical-supplement.json",
+      "bytes": 11343,
+      "sha256": "e4f1d1f09965b816d0945726d63e5d5d53bd71472bb70753453674bc0be0756d"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\core-final-root-summary.json",
+      "bytes": 12739,
+      "sha256": "2cf29e057e99902cdd3f6470c0adb29a5423436a6ca58061df4590104b988dff"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\index.json",
+      "bytes": 6784,
+      "sha256": "ef8ef33e38719f798321b843a7fd5c972dd9318102d17c189ca2e62e7c39ed51"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\initial-root-aggregate-schema-error.json",
+      "bytes": 428,
+      "sha256": "be8384eec4f0d68d7068ffd8f65d4717364031050536a05bd135fd4865a372c3"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\initial-root-aggregate-schema-error.mjs.snapshot.txt",
+      "bytes": 4743,
+      "sha256": "26a7b7eeadd35bdbad10f921e7d16624e574eb508bcac77ceb9aeb124307a0b5"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\normal-execution-pause.flag",
+      "bytes": 1337,
+      "sha256": "3f6cafa809ce85a323c39a4d93f7cbf0d99aacfa5f6ca92dd4f83568bfeb239d"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\operator-a-records\\core-stopped-report.json",
+      "bytes": 33219,
+      "sha256": "7270d4d8f6fda70d27913de2112e1cef26eea9b62b1ad7bf59b8dfb60260b1ce"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\operator-b-records\\core-stopped-report.json",
+      "bytes": 13313,
+      "sha256": "a7c35a3eb55c9328060e4d02b039488e5c7e2566d4e976acce64d89f537e4245"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\operator-c-records\\stopped-original-operator-closure.json",
+      "bytes": 24171,
+      "sha256": "6c0054802e09dc246779b1ef3b3bd1fc845289ecb066372615e4c51a4ad9e231"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\operator-c-records\\technical-C-r1.json",
+      "bytes": 29271,
+      "sha256": "3b99153cb9f996c8231644eb70863a735b8865f1a4cf1bcc24b4d7bf8b662776"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\source028-stopped\\root-status-enumeration-error.json",
+      "bytes": 369,
+      "sha256": "b1a2039125cf9de872dda50303b6647d152deb05c2fd030f0ff0a868a8a2e7f5"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-041-stopped\\identities.json",
+      "bytes": 11846,
+      "sha256": "0302869b174d24e329d121cac08f2dbc12fb9a7fb67a02738f8b17201e72ec8d"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-041-stopped\\index.json",
+      "bytes": 287620,
+      "sha256": "33e2c2847f1db415b7c68273f2779f14128637768ab9861a8889eb439b29ca2c"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-041-stopped\\packets\\corrections-001.json",
+      "bytes": 1937393,
+      "sha256": "a37cecddd8599c682df2f2717400b971813f5dc1c4f21c88b486a8a996bae691"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-041-stopped\\packets\\corrections-002.json",
+      "bytes": 2086716,
+      "sha256": "65ddfe65609e00e84a6d2937be4c123e8f79469eca5a92f6c3c0adf530a96f6a"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-041-stopped\\packets\\corrections-003.json",
+      "bytes": 2051127,
+      "sha256": "b08459e35492a21ee917df7d5cb7f122eee87f75275c3ee8f37c960c174e201d"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-041-stopped\\packets\\corrections-004.json",
+      "bytes": 762770,
+      "sha256": "d1f6c795feec0c1bb9bc3129a1e733f1441784eb2085cbf7733897a8bb798797"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-041-stopped\\packets\\diagnostics-inherited-pr2-6ee40474-001.json",
+      "bytes": 4921,
+      "sha256": "24b86c1ff7dd9336297bc7c0d159ca3bcaca7a3fd8089d5ebaddc0781bff465a"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-041-stopped\\packets\\packer-provenance-001.json",
+      "bytes": 179095,
+      "sha256": "103c912822bebc87e61ac341748ef0773701b168844dd712bbc0082c3d28eeed"
+    },
+    {
+      "path": "docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-041-stopped\\packets\\root-control-001.json",
+      "bytes": 118645,
+      "sha256": "9e0c2c3fce3937fa167def276c346ec55505445308aedb647400ac9d84eabcf1"
+    }
+  ],
+  "originalDirtyDocs": [
+    {
+      "original": {
+        "path": "AGENTS.md",
+        "bytes": 16210,
+        "sha256": "abdcd1266ec857a328f2c73f69af89e514653556cd9d3ad1e41d41a1dcb694cd"
+      },
+      "snapshot": {
+        "path": "../reviewer/corrections/0-1-29/integration-records/before-AGENTS.md.snapshot.txt",
+        "bytes": 16210,
+        "sha256": "abdcd1266ec857a328f2c73f69af89e514653556cd9d3ad1e41d41a1dcb694cd"
+      }
+    },
+    {
+      "original": {
+        "path": "docs/INDEX.md",
+        "bytes": 30559,
+        "sha256": "fc072cd8c58f0c90265b80549764730f497ad7582a2aee70f36f7e8c6d000365"
+      },
+      "snapshot": {
+        "path": "../reviewer/corrections/0-1-29/integration-records/before-INDEX.md.snapshot.txt",
+        "bytes": 30559,
+        "sha256": "fc072cd8c58f0c90265b80549764730f497ad7582a2aee70f36f7e8c6d000365"
+      }
+    },
+    {
+      "original": {
+        "path": "docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md",
+        "bytes": 189025,
+        "sha256": "fd60a943b2e58bcc7b7dc60207f3dc44780ec226a131aa11e481801c00178959"
+      },
+      "snapshot": {
+        "path": "../reviewer/corrections/0-1-29/integration-records/before-[RUNBOOK]_HTML_Guide_Kit_Acceptance.md.snapshot.txt",
+        "bytes": 189025,
+        "sha256": "fd60a943b2e58bcc7b7dc60207f3dc44780ec226a131aa11e481801c00178959"
+      }
+    }
+  ],
+  "manifestFrom": "0.1.28",
+  "authorizedTo": "0.1.29",
+  "noRepoMutationYet": true,
+  "noVersionInstallModelAPIUI": true
+}

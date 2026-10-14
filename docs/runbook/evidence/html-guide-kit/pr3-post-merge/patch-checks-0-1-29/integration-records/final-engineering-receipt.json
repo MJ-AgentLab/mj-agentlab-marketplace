@@ -1,0 +1,222 @@
+{
+  "recordedAt": "2026-10-14T18:37:32.626Z",
+  "status": "ENGINEERING_CHECKS_PASS_AFTER_ARCHIVE_NAME_REPAIR",
+  "version": "0.1.29",
+  "gitIdentityAtReceipt": "d25dc63fb81b57859757769c239dbacfd4983492",
+  "testedScope": "WORKING_RUNTIME_AND_DOCUMENTS; CANONICAL_INSTALL_SEPARATE",
+  "application": {
+    "relative": "integration-records/runtime-application.json",
+    "sha256": "69b6deea249d9a7d490ead70db301b3a2c9c76a67cb392a038d3936ef1b5eb20",
+    "chunk": "4190bf",
+    "productPaths": 13
+  },
+  "resources": [
+    {
+      "file": "plugins/html-guide-kit/skills/guide/SKILL.md",
+      "bytes": 4948,
+      "sha256": "dbff8b0f1b829a0b560520d1ae988a87dd9a4142fc6c73ce3e7c25ca3f3096bc",
+      "windowsBytes": 4982,
+      "changed": true
+    },
+    {
+      "file": "plugins/html-guide-kit/skills/guide/references/guide-framework.md",
+      "bytes": 8739,
+      "sha256": "fe70ec7005dd564a1cef1e84691c85d4cac278c6b8de1578e87b348742fe7c9b",
+      "windowsBytes": 8810,
+      "changed": true
+    },
+    {
+      "file": "plugins/html-guide-kit/skills/guide/references/interaction-design.md",
+      "bytes": 7773,
+      "sha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "windowsBytes": 7836,
+      "changed": false
+    }
+  ],
+  "AGENTSWindowsBytes": 16343,
+  "checks": {
+    "initialFull": {
+      "startChunk": "39f1d8",
+      "session": 12110,
+      "finalChunk": "ac5ddd",
+      "exitCode": 1,
+      "tests": 346,
+      "pass": 336,
+      "fail": 10,
+      "durationMs": 170513.8227
+    },
+    "correctedFull": {
+      "startChunk": "f8a4f7",
+      "session": 20454,
+      "finalChunk": "d7ced4",
+      "exitCode": 0,
+      "tests": 346,
+      "pass": 346,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "durationMs": 261959.1427
+    },
+    "initialValidate": {
+      "chunk": "7275dc",
+      "exitCode": 1
+    },
+    "correctedValidate": {
+      "chunk": "7c5dd7",
+      "exitCode": 0
+    },
+    "initialDocumentA6": {
+      "chunk": "af240f",
+      "exitCode": 0,
+      "tests": 65,
+      "pass": 65
+    },
+    "correctedDocumentA6": {
+      "chunk": "d447c3",
+      "exitCode": 0,
+      "tests": 65,
+      "pass": 65,
+      "durationMs": 7433.8522
+    },
+    "check": {
+      "chunk": "ec63eb",
+      "exitCode": 0
+    },
+    "quickDraft": {
+      "chunk": "ac218f",
+      "exitCode": 0
+    },
+    "quickApplied": {
+      "chunk": "35da8c",
+      "exitCode": 0
+    },
+    "strictProductDiff": {
+      "chunk": "9875f6",
+      "exitCode": 0
+    }
+  },
+  "protection": {
+    "paths": 64,
+    "otherPluginResources": 59,
+    "toolsGitContents": 28,
+    "oldSource28Originals": 341,
+    "oldRepoProofs": 69,
+    "byteStable": true
+  },
+  "archiveRepair": {
+    "actor": "Root",
+    "chunk": "9ed5e0",
+    "independentByteCheckChunk": "55756d",
+    "onlyNamesAndIndex": 3,
+    "payloadGitOldEqualsNew": true,
+    "originalRelativePreserved": true,
+    "extraScopeOutside13ProductPaths": true,
+    "proofRelative": "proof-snapshot-name-repair/repair.json",
+    "proofSha256": "df6d4fef825e764643014999fa6f915ebccda5b0099136667121456feb636838"
+  },
+  "initialPS5FailurePreserved": true,
+  "correctedActualHost": "PowerShell 7.6.5",
+  "logs": [
+    {
+      "relative": "npm-test.log",
+      "bytes": 90828,
+      "sha256": "6c0164ae33ec85776b3fe7c83c2bb7583ff8c7e56ba5e2af183b670f42960127"
+    },
+    {
+      "relative": "npm-test-corrected.log",
+      "bytes": 78944,
+      "sha256": "0040367c5aa30ededcab0baa9798838df2ccc11ce55c47511c1a2be110facd08"
+    },
+    {
+      "relative": "validate.log",
+      "bytes": 854,
+      "sha256": "760e4e017d579f64ddf1ac7481aae35632cfa69b8ff7c1cc7f3855b797cc1412"
+    },
+    {
+      "relative": "validate-corrected.log",
+      "bytes": 392,
+      "sha256": "e3bedb0233222e468a1e207cfbcbaf1c3138a8827fde2769e9e2ede3a85eb3d8"
+    },
+    {
+      "relative": "document-a6.log",
+      "bytes": 12632,
+      "sha256": "00b030e67b20ab8a61880ae8a486ab15920ef71a48d67605bc7ec112f2b8d9ff"
+    },
+    {
+      "relative": "document-a6-corrected.log",
+      "bytes": 12635,
+      "sha256": "5c07516af50cfb7fd6996a863f6254fc9b4c6bbd22a05cb3704ff76c483ab37b"
+    },
+    {
+      "relative": "check.log",
+      "bytes": 213,
+      "sha256": "6c194d3cab975bfcaadd9ef894adc247ca34e53e06af305b0c215099eb27add3"
+    },
+    {
+      "relative": "quick-validate-draft.log",
+      "bytes": 17,
+      "sha256": "6cf9e7f0d34ccd36dbd28f270cd28dd04277b2e1516bd4333ce7bb501d7b18d4"
+    },
+    {
+      "relative": "quick-validate-applied.log",
+      "bytes": 17,
+      "sha256": "6cf9e7f0d34ccd36dbd28f270cd28dd04277b2e1516bd4333ce7bb501d7b18d4"
+    },
+    {
+      "relative": "version-dry-run.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "version-dry-run.stderr.log",
+      "bytes": 1101,
+      "sha256": "11d0f7c6957faad94a0f47b1fae4cc6fd37ebbed2b123789a3422e8859e82451"
+    },
+    {
+      "relative": "version-dry-run.command.json",
+      "bytes": 1032,
+      "sha256": "17c46370aca4597b06769163aeb5bc416de7f590147763c6d72b09843490b23e"
+    },
+    {
+      "relative": "version-compatible-dry-run.stdout.log",
+      "bytes": 344,
+      "sha256": "e2c68109b01fc27e3edf4754823a49bd19ec4edb883b9c629aee53775e3318e8"
+    },
+    {
+      "relative": "version-compatible-dry-run.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "version-compatible-dry-run.command.json",
+      "bytes": 1114,
+      "sha256": "0abaf8b533fb1373b29aaa238ec50321201136d44308d9dc1bfa60be7fb38cf4"
+    },
+    {
+      "relative": "version-compatible-apply.stdout.log",
+      "bytes": 324,
+      "sha256": "fd68f13440f81bc49a4fbb540331b5546068f935d65a25680bf973cc7f1088d9"
+    },
+    {
+      "relative": "version-compatible-apply.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "version-compatible-apply.command.json",
+      "bytes": 1097,
+      "sha256": "2ae4f1f6fdbf3e185c6e3187c9127cb1350a98be1f43482ff57910d4798beccc"
+    },
+    {
+      "relative": "initial-engineering-result.json",
+      "bytes": 2021,
+      "sha256": "7280c49b63f061cc16f1ab62c346b678da90a176f2ff9b45375c0e45f59b8c45"
+    }
+  ],
+  "initialFailuresNotRegraded": true,
+  "canonicalInstallation": "NOT_RUN_BY_THIS_AGENT",
+  "model": "NOT_RUN",
+  "client": "NOT_RUN",
+  "effect": "NOT_MEASURED",
+  "noCommitPush": true
+}
