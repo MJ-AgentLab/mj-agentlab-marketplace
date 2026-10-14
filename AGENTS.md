@@ -2,7 +2,7 @@
 
 ## 项目上下文
 
-当前PR3候选注册Diagram、Learning Evidence、Explain、HTML、Communication五包七技能/四显式，PR4准备未发布VERSION8.3.0；main/latest Release8.2.0仅前三包五技能，tag/发布目标ebc4bdc3。Communication正式范围按Owner Q3为前三包加Communication四包六技能，HTML留develop另发；后续独立minor目标8.3.0，PR4核对实际From/To。目标为ChatGPT桌面和Codex本地，CLI基线0.147.0；版本与来源以权威文件为准。
+当前develop注册Diagram、Learning Evidence、Explain、HTML、Communication五包七技能/四显式，VERSION8.3.0为Communication PR4未发布版本准备；main/latest Release8.2.0仅前三包五技能，tag/发布目标ebc4bdc3。Communication正式范围按Owner Q3为前三包加Communication四包六技能，HTML留develop另发；后续独立minor目标8.3.0，PR4核对实际From/To。目标为ChatGPT桌面和Codex本地，CLI基线0.147.0；版本与来源以权威文件为准。
 
 manifest 的公开示例按[插件契约](docs/spec/[SPEC]_Plugin_Json_Schema.md)保留完整路由，最多三条，各原值不超过 128 个 Unicode scalar values；严格校验防止客户端忽略超长示例而丢失公开入口，不依赖空白归一化。
 
@@ -12,9 +12,9 @@ Learning Evidence Kit 的 Pop Quiz 诊断只读，明确移交后结束诊断，
 
 历史v8.1.1的main/merge/tag、四种canonical与真实Python、Owner截图、两端完整客户端及独立批准缺项见[发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。#206回同步、#208当时8.1.2预升及同期文档历史保留，公开历史和未覆盖项不由后续发布追认。
 
-历史 v8.1.0 通过 #198 发布，#199 完成 main → develop 同步，#200 修正发布记录，#201 将 develop 预升为当时未发布的 8.1.1。历史验收失败、回放、未覆盖客户端结果与缺失批准分别保留，见 [8.1.0 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)。
+历史#198公开8.1.0，#199回同步/#200记录修正/#201预升8.1.1；失败/回放/客户端未覆盖/批准缺项见[8.1.0记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_0_Release_Readiness.md)，不追认。
 
-explain-kit 0.1.0 提供速解和深讲，默认中文、保留术语原文，按深度路由并适应用户格式。新增解释能力的 [ADR](docs/adr/[ADR]_Explain_Kit_Addition.md) 与 [验收记录](docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md) 不改变测验策略。
+Explain初始0.1.0速解/深讲、中文/原术语、深度/格式适应见[ADR](docs/adr/[ADR]_Explain_Kit_Addition.md)及[验收](docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md)，不改测验策略。
 
 Communication实施与发布使用[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。候选[包说明](plugins/communication-kit/README.md)和[communicate](plugins/communication-kit/skills/communicate/SKILL.md)定义显式单入口、沟通/编写/保义改写、关键缺口等待、成稿＋关键提示及明确请求才保存编辑。冻结AICS保持Lab Proposal / Informative，运行只依赖包内摘要。工程307测试、十三组canonical及六次缓存Python通过；旧行为失败与CLI C16–C18 PARTIAL保留。2026-10-13代理亲自执行同一26.1007.2314.0桌面应用内Codex本地和ChatGPT/Work本机两个入口，安装、图标、三任务、聊天等待及新MD/TXT保存回读限定范围PASS；身份、原生窗口/其他客户端未覆盖项见[验收记录§4](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。Communication发布未执行，此前PR1–4保持draft；Learning先发已完成，当前阶段独立批准与合并仍缺；现实效果测试本轮延期。
 
@@ -38,7 +38,7 @@ Codex latest canary 的技能路径须按同一提示文本的 Skill roots 表�
 
 develop 与 main 已完成治理迁移；结构校验与发布安装复查使用相同的严格校验，项目指令只从根 AGENTS.md 加载。
 
-v8.0.0 已经 #190 合入 main 并自动发布，实际状态和未完成的桌面验收见 [发布记录](docs/runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md)。发布后按 [发布操作](docs/runbook/[RUNBOOK]_Release_Operations.md) 同步 main 到 develop 并准备下一补丁 pre-bump；只更新 marketplace VERSION 与派生 README badge，插件版本按自身变更推进。
+历史#190公开v8.0.0与桌面缺项见[记录](docs/runbook/[RUNBOOK]_Portable_Migration_Release_Readiness.md)；发布后按[操作](docs/runbook/[RUNBOOK]_Release_Operations.md)回同步main并只预升市场VERSION/badge，插件独立推进。
 
 ## Codex 会话维护
 
@@ -64,11 +64,13 @@ Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基
 
 ## HTML Guide Kit 阶段实施
 
-HTML Guide Kit 按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 分阶段实施，[ADR](docs/adr/[ADR]_HTML_Guide_Kit_Addition.md)固定合同。#221 / #226 的实际 merge、当时集合、测试、连续行为、缓存安装、失败和批准缺项按[RUNBOOK](docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)保留；[SPEC](docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)定义扩展工程、双客户端和 merge 验收。新基线不追认旧 UI、现实效果或批准；当前 head 门禁和本阶段验收仍逐项核对。
+[Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217)授权三阶段/worktree/codex。#221 merge70267a5复验/#218关闭；#226 d106e766同72cdd08树，0.1.0/第二轮A/七安装四Python复验/#219关闭。旧批准缺项保留。#231须当前head非作者批准、CI/线程/merge复验，不bypass或指定审查人。
 
-HTML Guide Kit 初始 0.1.0，仅显式 $html-guide-kit:guide，Read、聊天文本新建指南；读者/任务/理解问题须明确确认后生成。未答、推荐、预选、沉默、超时、无关回复或窗口消失不是确认，不能承诺锁宿主窗口。研究项目及指南聊天只作只读设计参考，运行包无本机路径或研究治理依赖。Owner 2026-10-12 调整：本次不做现实场景效果测试，实际效果另测，未测量不得写 PASS；安装、模型行为、客户端交互和工程门禁继续有效。
+合同见[ADR](docs/adr/[ADR]_HTML_Guide_Kit_Addition.md)及[SPEC](docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)：仅显式$html-guide-kit:guide、Read、中文/原术语、聊天文本新建指南。实际读材料/明确快照，分原料/核验背景/构造，保留定位/冲突/缺口。每次2–3不同读者/任务/问题＋推荐理由，明确选择/修改确认才编排；默认/推荐/预选/沉默/超时/无关回复/消失非确认，未答保留同一待确认，不承诺锁宿主。深度随材料，演示/模拟/自检含反馈/恢复、理由/误区、重试及判准边界；不评分/长期掌握。不修订/比较/审查，不输出HTML/代码/文件/制作工具步骤或越权执行；仅SKILL及两参考，无Owner路径/研究治理依赖。
 
-HTML PR1 当时保持 marketplace 未发布 8.1.2 及其他插件版本，无 Release、发布 tag 或 main 发布 PR；Learning Evidence PR5 后续单独准备未发布 8.2.0，不据此注册 HTML 包或改变其阶段边界。首次修改已合并的新插件运行内容时推进 0.1.1，其后补丁递增；纯评审资料/记录保持版本，以哈希核对运行内容。npm run check / smoke 为既有基线检查/隔离安装入口。每阶段满足当前 head 非作者批准、CI 与线程门禁后合并，不 bypass；合并复验后才关闭子 Issue，最终行为和双客户端及 merge 验收完整后才关闭 Epic。
+HTML0.1.22候选未合并；同步c1fa458，五包七技能/四显式/三自然/20repo-only，市场8.3.0/他包版本保持，main8.2.0三包，HTML另发。21准确1799十三安装/六Python/九CI通过，14UUID30C独立13P1F；B2具体关系图漏必要当前态，原F保留。22三段修正接入；aac6十三安装/六PythonP；22实际10UUID20C，来源范围/恢复图两F保留，部分未跑/待审，客户端工具停止；见RUNBOOK§43。2c归档名及627e CRLF预算原失败保留，不放宽校验。
+
+现实效果另测NOT_MEASURED；原生接口已可用，源20 Work三轮有限路径独立通过、Codex应用另三轮有限路径独立通过；普通Chat入口不可用。原生空返回/超时/关闭未执行，CLI不替代。核心可分段交付，延期不当通过，#220/Epic开放、Owner接受独立。控制修正/来源/准确会话及历史见[RUNBOOK](docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)§11–42；不继承旧PASS。研究项目只读。
 
 第五轮来源 acf3c9d 的六 fresh 会话/八调用已通过限定 CLI 核心判据：七次自然完成、一次执行器超时保留；九条新核验、两次限定离线共享及原件/生成信息均经独立核对。四轮原失败、两次策略拒绝、换行格式差异和幂等重放分别保留，不称所有调用成功。原移交仅按十二项未变资源闭包沿用并限已有本地 Git exclude；原生提问仍延期、桌面/Side Chat 未运行，实际保护合入、发布和 Owner 最终接受待各自证据。完整入口资格与限制见上述 Learning Evidence 验收账本。
 

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "kind": "lossless-reviewer-packet",
+  "scope": "packer-preparation-errors",
+  "entries": [
+    {
+      "relativeOriginalPath": "packer-preparation-errors/033/first-helper-syntax-and-schema-observation.json",
+      "originalAbsolutePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-preparation-errors\\033\\first-helper-syntax-and-schema-observation.json",
+      "sha256": "91fbcf75ce4af662b7da9cedca792cd44ccbe8ec63eae78f0cb48dffa4d8f46c",
+      "bytes": 1708,
+      "encoding": "utf8",
+      "content": "{\n  \"recordedAt\": \"2026-10-14T11:23:54.585Z\",\n  \"actualToolChunk\": \"1878a9\",\n  \"actualExitCode\": 1,\n  \"command\": \"Read original native-ui-source21-stopped.json, then node --check build-pack-033-behavior-b.mjs\",\n  \"syntaxError\": \"Unexpected end of input\",\n  \"syntaxLocation\": \"build-pack-033-behavior-b.mjs:70\",\n  \"firstHelper\": {\n    \"file\": \"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\reviewer\\\\build-pack-033-behavior-b.mjs\",\n    \"bytes\": 23008,\n    \"sha256\": \"685609b7d2eff8db8ca7cd51f9516c3b24d0f5a2410dae23346ff3108b867924\"\n  },\n  \"firstHelperExecuted\": false,\n  \"firstHelperProducedNoArchiveControlOrPack\": true,\n  \"readOnlyUIObservation\": {\n    \"installationField\": \"installation\",\n    \"interactionField\": \"interaction\",\n    \"values\": \"NOT_RUN\"\n  },\n  \"correctionScope\": \"NEW r2 helper closes the existing outer loop, uses actual original UI field names, and includes this error/first helper in033 allowlist. Original Source21 reports, batch metadata and verdicts remain untouched.\",\n  \"changes\": [\n    [\n      \"captureLifecycle:t.captureLifecycle});}}\",\n      \"captureLifecycle:t.captureLifecycle});}}}\"\n    ],\n    [\n      \"us.installationStatus==='NOT_RUN'&&us.interactionStatus==='NOT_RUN'\",\n      \"us.installation==='NOT_RUN'&&us.interaction==='NOT_RUN'\"\n    ],\n    [\n      \"'build-pack-033-behavior-b.mjs','verify-lossless-033-dotnet.ps1'\",\n      \"'build-pack-033-behavior-b.mjs','build-pack-033-behavior-b-r2.mjs','verify-lossless-033-dotnet.ps1'\"\n    ],\n    [\n      \"'control-preparations/source21-v2','packer-provenance/0-1-21-stopped/closure'\",\n      \"'control-preparations/source21-v2','packer-preparation-errors/033','packer-provenance/0-1-21-stopped/closure'\"\n    ]\n  ]\n}\n"
+    }
+  ]
+}

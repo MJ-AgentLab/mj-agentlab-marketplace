@@ -1,0 +1,73 @@
+{
+  "canonicalSha": "d106e76651d53cdf3f0cef2bb33ce47e8d7fda38",
+  "canonicalTree": "238d428b740d66069705a6208c17619cf97e338d",
+  "probes": [
+    {
+      "command": "node",
+      "status": 0,
+      "stdout": "v22.18.0",
+      "stderr": ""
+    },
+    {
+      "command": "npm",
+      "status": 0,
+      "stdout": "10.9.3",
+      "stderr": ""
+    },
+    {
+      "command": "codex",
+      "status": 0,
+      "stdout": "codex-cli 0.147.0",
+      "stderr": ""
+    },
+    {
+      "command": "pwsh",
+      "status": 0,
+      "stdout": "7.6.5",
+      "stderr": ""
+    },
+    {
+      "command": "python",
+      "status": 0,
+      "stdout": "Python 3.12.13",
+      "stderr": ""
+    }
+  ],
+  "forcedGates": {
+    "REQUIRE_PYTHON": "1",
+    "REQUIRE_PWSH": "1"
+  },
+  "results": [
+    {
+      "stage": "npm-test",
+      "status": 0,
+      "error": null,
+      "timedOut": false,
+      "totals": {
+        "tests": 279,
+        "pass": 279,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "stage": "npm-validate",
+      "status": 0,
+      "error": null,
+      "timedOut": false
+    },
+    {
+      "stage": "npm-check",
+      "status": 0,
+      "error": null,
+      "timedOut": false
+    }
+  ],
+  "canonical": {
+    "ok": false,
+    "error": "Command failed: npm, status=1, error=null",
+    "scenarios": []
+  },
+  "workingStateUnchanged": true,
+  "sourceReviewerEvidenceNotRegraded": true
+}

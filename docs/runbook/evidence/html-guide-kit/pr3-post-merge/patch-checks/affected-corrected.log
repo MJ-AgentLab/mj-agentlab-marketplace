@@ -1,0 +1,352 @@
+TAP version 13
+# Subtest: parseChangelog: section boundaries, heading-free bodies, fence blindness fixed
+ok 1 - parseChangelog: section boundaries, heading-free bodies, fence blindness fixed
+  ---
+  duration_ms: 1.483
+  type: 'test'
+  ...
+# Subtest: parseChangelog: flags heading lookalikes, leaves ordinary prose alone
+ok 2 - parseChangelog: flags heading lookalikes, leaves ordinary prose alone
+  ---
+  duration_ms: 0.2113
+  type: 'test'
+  ...
+# Subtest: no CHANGELOG has a heading that only looks like a section heading
+ok 3 - no CHANGELOG has a heading that only looks like a section heading
+  ---
+  duration_ms: 2.1556
+  type: 'test'
+  ...
+# Subtest: every CHANGELOG section heading has the exact shape run-release.mjs greps for
+ok 4 - every CHANGELOG section heading has the exact shape run-release.mjs greps for
+  ---
+  duration_ms: 1.8377
+  type: 'test'
+  ...
+# Subtest: the newest shipping CHANGELOG section is substantive and names its own version
+ok 5 - the newest shipping CHANGELOG section is substantive and names its own version
+  ---
+  duration_ms: 1.6002
+  type: 'test'
+  ...
+# Subtest: root CHANGELOG permanently carries the NLM-only BREAKING disclosures in one section
+ok 6 - root CHANGELOG permanently carries the NLM-only BREAKING disclosures in one section
+  ---
+  duration_ms: 1.0074
+  type: 'test'
+  ...
+# Subtest: learn-kit CHANGELOG permanently marks the 4.0.0 NLM break in one section
+ok 7 - learn-kit CHANGELOG permanently marks the 4.0.0 NLM break in one section
+  ---
+  duration_ms: 0.3887
+  type: 'test'
+  ...
+# Subtest: diagram-kit CHANGELOG permanently marks the 0.2.0 Codex bump in one section
+ok 8 - diagram-kit CHANGELOG permanently marks the 0.2.0 Codex bump in one section
+  ---
+  duration_ms: 0.2112
+  type: 'test'
+  ...
+# Subtest: README covers both clients and every maintained qualified public skill
+ok 9 - README covers both clients and every maintained qualified public skill
+  ---
+  duration_ms: 0.4567
+  type: 'test'
+  ...
+# Subtest: upgrade guide preserves old data and explains explicit uninstall
+ok 10 - upgrade guide preserves old data and explains explicit uninstall
+  ---
+  duration_ms: 0.3772
+  type: 'test'
+  ...
+# Subtest: HTML Guide Kit has one approved Read-only explicit entry without changing repository skill count
+ok 11 - HTML Guide Kit has one approved Read-only explicit entry without changing repository skill count
+  ---
+  duration_ms: 1.4548
+  type: 'test'
+  ...
+# Subtest: HTML Guide Kit manifest rejects wrong identity, root versions, capabilities and routes
+ok 12 - HTML Guide Kit manifest rejects wrong identity, root versions, capabilities and routes
+  ---
+  duration_ms: 1.6045
+  type: 'test'
+  ...
+# Subtest: HTML Guide Kit marketplace default prompts remain discoverable within the runtime length limit
+ok 13 - HTML Guide Kit marketplace default prompts remain discoverable within the runtime length limit
+  ---
+  duration_ms: 0.3812
+  type: 'test'
+  ...
+# Subtest: HTML Guide Kit marketplace default prompts accept 128 characters and reject any oversized entry
+ok 14 - HTML Guide Kit marketplace default prompts accept 128 characters and reject any oversized entry
+  ---
+  duration_ms: 0.6656
+  type: 'test'
+  ...
+# Subtest: guide native metadata requires its own route and a boolean false invocation policy
+ok 15 - guide native metadata requires its own route and a boolean false invocation policy
+  ---
+  duration_ms: 8.2579
+  type: 'test'
+  ...
+# Subtest: guide has exactly its four approved package-owned runtime resources
+ok 16 - guide has exactly its four approved package-owned runtime resources
+  ---
+  duration_ms: 0.5705
+  type: 'test'
+  ...
+# Subtest: repository refuses missing mandatory guide reference even without a Markdown pointer: references/guide-framework.md
+ok 17 - repository refuses missing mandatory guide reference even without a Markdown pointer: references/guide-framework.md
+  ---
+  duration_ms: 1116.5132
+  type: 'test'
+  ...
+# Subtest: repository refuses missing mandatory guide reference even without a Markdown pointer: references/interaction-design.md
+ok 18 - repository refuses missing mandatory guide reference even without a Markdown pointer: references/interaction-design.md
+  ---
+  duration_ms: 875.7747
+  type: 'test'
+  ...
+# Subtest: repository rejects an extra guide runtime file
+ok 19 - repository rejects an extra guide runtime file
+  ---
+  duration_ms: 854.9494
+  type: 'test'
+  ...
+# Subtest: guide references cannot borrow another directory through a junction
+ok 20 - guide references cannot borrow another directory through a junction
+  ---
+  duration_ms: 818.9076
+  type: 'test'
+  ...
+# Subtest: installed guide compares actual bytes and rejects missing or drifted resource: SKILL.md
+ok 21 - installed guide compares actual bytes and rejects missing or drifted resource: SKILL.md
+  ---
+  duration_ms: 59.3364
+  type: 'test'
+  ...
+# Subtest: installed guide compares actual bytes and rejects missing or drifted resource: agents/openai.yaml
+ok 22 - installed guide compares actual bytes and rejects missing or drifted resource: agents/openai.yaml
+  ---
+  duration_ms: 58.4486
+  type: 'test'
+  ...
+# Subtest: installed guide compares actual bytes and rejects missing or drifted resource: references/guide-framework.md
+ok 23 - installed guide compares actual bytes and rejects missing or drifted resource: references/guide-framework.md
+  ---
+  duration_ms: 60.119
+  type: 'test'
+  ...
+# Subtest: installed guide compares actual bytes and rejects missing or drifted resource: references/interaction-design.md
+ok 24 - installed guide compares actual bytes and rejects missing or drifted resource: references/interaction-design.md
+  ---
+  duration_ms: 62.4958
+  type: 'test'
+  ...
+# Subtest: installed guide byte equality cannot legitimize a resource junction or extra file
+ok 25 - installed guide byte equality cannot legitimize a resource junction or extra file
+  ---
+  duration_ms: 30.7833
+  type: 'test'
+  ...
+# Subtest: complete installed plugin preserves manifest, icons and approved skill resources: diagram-kit
+ok 26 - complete installed plugin preserves manifest, icons and approved skill resources: diagram-kit
+  ---
+  duration_ms: 216.3109
+  type: 'test'
+  ...
+# Subtest: complete installed plugin preserves manifest, icons and approved skill resources: understanding-kit
+ok 27 - complete installed plugin preserves manifest, icons and approved skill resources: understanding-kit
+  ---
+  duration_ms: 146.0107
+  type: 'test'
+  ...
+# Subtest: complete installed plugin preserves manifest, icons and approved skill resources: explain-kit
+ok 28 - complete installed plugin preserves manifest, icons and approved skill resources: explain-kit
+  ---
+  duration_ms: 109.0483
+  type: 'test'
+  ...
+# Subtest: complete installed plugin preserves manifest, icons and approved skill resources: html-guide-kit
+ok 29 - complete installed plugin preserves manifest, icons and approved skill resources: html-guide-kit
+  ---
+  duration_ms: 129.5573
+  type: 'test'
+  ...
+# Subtest: installed HTML Guide Kit rejects Read capability drift and SVG source byte drift
+ok 30 - installed HTML Guide Kit rejects Read capability drift and SVG source byte drift
+  ---
+  duration_ms: 19.9553
+  type: 'test'
+  ...
+# Subtest: release install uses the exact canonical tree rather than a dirty checkout
+ok 31 - release install uses the exact canonical tree rather than a dirty checkout
+  ---
+  duration_ms: 3233.2684
+  type: 'test'
+  ...
+# Subtest: invalid canonical source never calls the installer
+ok 32 - invalid canonical source never calls the installer
+  ---
+  duration_ms: 3079.8607
+  type: 'test'
+  ...
+# Subtest: a retired instruction entry blocks canonical release installation
+ok 33 - a retired instruction entry blocks canonical release installation
+  ---
+  duration_ms: 3373.4142
+  type: 'test'
+  ...
+# Subtest: failed installation cleans up the canonical worktree and fails closed
+ok 34 - failed installation cleans up the canonical worktree and fails closed
+  ---
+  duration_ms: 2848.7615
+  type: 'test'
+  ...
+# Subtest: canonical release validation includes explain-kit before invoking installation
+ok 35 - canonical release validation includes explain-kit before invoking installation
+  ---
+  duration_ms: 3001.2257
+  type: 'test'
+  ...
+# Subtest: canonical installation rejects missing HTML Guide Kit runtime files and contract drift before calling installer
+ok 36 - canonical installation rejects missing HTML Guide Kit runtime files and contract drift before calling installer
+  ---
+  duration_ms: 10164.761
+  type: 'test'
+  ...
+# Subtest: consumer and repository inventories are scoped to real installed files
+ok 37 - consumer and repository inventories are scoped to real installed files
+  ---
+  duration_ms: 54.5742
+  type: 'test'
+  ...
+# Subtest: duplicate, missing and escaped public locators fail closed
+ok 38 - duplicate, missing and escaped public locators fail closed
+  ---
+  duration_ms: 36.9379
+  type: 'test'
+  ...
+# Subtest: Windows equivalent file casing still passes containment
+ok 39 - Windows equivalent file casing still passes containment
+  ---
+  duration_ms: 36.3758
+  type: 'test'
+  ...
+# Subtest: ordinary prompt metadata contains three natural skills and excludes the explicit-only quiz and guide
+ok 40 - ordinary prompt metadata contains three natural skills and excludes the explicit-only quiz and guide
+  ---
+  duration_ms: 33.1939
+  type: 'test'
+  ...
+# Subtest: a plugin cache junction cannot claim files outside its marketplace directory
+ok 41 - a plugin cache junction cannot claim files outside its marketplace directory
+  ---
+  duration_ms: 35.6478
+  type: 'test'
+  ...
+# Subtest: prompt parser retains spaces and closing parentheses in a locator
+ok 42 - prompt parser retains spaces and closing parentheses in a locator
+  ---
+  duration_ms: 0.5026
+  type: 'test'
+  ...
+# Subtest: native skills/list completes the handshake and preserves explicitly available metadata
+ok 43 - native skills/list completes the handshake and preserves explicitly available metadata
+  ---
+  duration_ms: 45.377
+  type: 'test'
+  ...
+# Subtest: native protocol retains guide availability and its own route in consumer and repository snapshots
+ok 44 - native protocol retains guide availability and its own route in consumer and repository snapshots
+  ---
+  duration_ms: 41.1607
+  type: 'test'
+  ...
+# Subtest: native inventory fails closed on protocol errors and a stalled server
+ok 45 - native inventory fails closed on protocol errors and a stalled server
+  ---
+  duration_ms: 478.2787
+  type: 'test'
+  ...
+# Subtest: root aliases resolve installed and all 20 repository skills before scope checks
+ok 46 - root aliases resolve installed and all 20 repository skills before scope checks
+  ---
+  duration_ms: 28.2989
+  type: 'test'
+  ...
+# Subtest: missing, relative, conflicting and escaped root mappings fail closed
+ok 47 - missing, relative, conflicting and escaped root mappings fail closed
+  ---
+  duration_ms: 23.2112
+  type: 'test'
+  ...
+# Subtest: root mappings are local to their prompt text block
+ok 48 - root mappings are local to their prompt text block
+  ---
+  duration_ms: 26.7401
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: diagram-kit
+ok 49 - standalone and combined discovery: diagram-kit
+  ---
+  duration_ms: 27.9757
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: explain-kit
+ok 50 - standalone and combined discovery: explain-kit
+  ---
+  duration_ms: 28.8911
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: diagram-kit + explain-kit
+ok 51 - standalone and combined discovery: diagram-kit + explain-kit
+  ---
+  duration_ms: 29.7152
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: diagram-kit + understanding-kit + explain-kit
+ok 52 - standalone and combined discovery: diagram-kit + understanding-kit + explain-kit
+  ---
+  duration_ms: 29.4049
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: html-guide-kit
+ok 53 - standalone and combined discovery: html-guide-kit
+  ---
+  duration_ms: 30.4068
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: html-guide-kit + explain-kit
+ok 54 - standalone and combined discovery: html-guide-kit + explain-kit
+  ---
+  duration_ms: 33.4606
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: diagram-kit + understanding-kit + explain-kit + html-guide-kit
+ok 55 - standalone and combined discovery: diagram-kit + understanding-kit + explain-kit + html-guide-kit
+  ---
+  duration_ms: 67.8485
+  type: 'test'
+  ...
+# Subtest: complete installed inventory rejects swapped skills and package identity/version drift
+ok 56 - complete installed inventory rejects swapped skills and package identity/version drift
+  ---
+  duration_ms: 34.5083
+  type: 'test'
+  ...
+# Subtest: guide discovery rejects borrowed skill locations, wrong version cache and swapped installed manifest
+ok 57 - guide discovery rejects borrowed skill locations, wrong version cache and swapped installed manifest
+  ---
+  duration_ms: 46.919
+  type: 'test'
+  ...
+1..57
+# tests 57
+# suites 0
+# pass 57
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 26977.2982

@@ -11,4 +11,6 @@ description: "Use for marketplace or plugin version preparation / 版本更新: 
 
 Explain Kit 初始 0.1.0 已获授权；后续版本转换依据权威文件、当前会话授权与 [Explain Kit ADR](../../../docs/adr/[ADR]_Explain_Kit_Addition.md)，不连带更新其他插件版本。
 
+HTML Guide Kit 的阶段接入与后续运行修正按 [新增 ADR](../../../docs/adr/[ADR]_HTML_Guide_Kit_Addition.md) 和本次授权处理。只推进其根 manifest；缺失 manifest 仍失败，不代替正式发布授权。
+
 Communication 工具准备阶段只扩展候选 scope，尚未注册运行包。目标 manifest 缺失时，实际运行和 DryRun 都应零写入失败；不得为让工具通过而创建空插件。插件原子接入后才读取其真实版本，并按 Owner 已明确的转换执行。阶段及实测见 [品牌验收](../../../docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)，Refs #222。

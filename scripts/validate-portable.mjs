@@ -26,6 +26,9 @@ export const RUNTIME_PLUGINS = Object.freeze({
 export const PUBLIC_SKILLS = Object.freeze(Object.entries(RUNTIME_PLUGINS).flatMap(([plugin, skills]) => skills.map(skill => `${plugin}:${skill}`)));
 export const EXPLICIT_ONLY_SKILLS = Object.freeze(["learning-evidence-kit:pop-quiz", "learning-evidence-kit:learning-record-check", "communication-kit:communicate", "html-guide-kit:guide"]);
 export const COMMUNICATION_REFERENCES = Object.freeze(["references/aics-policy.md", "references/task-patterns.md", "references/source-provenance.md", "references/aics-snapshot.json"]);
+// Conservative package budget following observed native truncation on CLI 0.147.0;
+// this is not a claim about a universal client token/byte limit.
+export const GUIDE_ENTRY_MAX_BYTES = 6144;
 export const SKILL_RESOURCES = Object.freeze({
   "diagram-kit:arch-diagram": Object.freeze(["SKILL.md", "agents/openai.yaml", "scripts/validate_diagram.py", "references/architecture-methodology.md", "references/domain-acquisition.md", ...["context", "container", "component", "code", "sequence", "state-machine", "deployment"].map(t => `references/${t}-diagram.md`)]),
   "learning-evidence-kit:pop-quiz": Object.freeze(["SKILL.md", "agents/openai.yaml", "references/ku-selection.md", "references/quiz-policy.md"]),
@@ -66,6 +69,10 @@ export function validateSkill(text, expectedName) {
   if (!body.trim()) throw new Error("skill body is empty");
   if (/CLAUDE_SKILL_DIR|CLAUDE_PLUGIN_ROOT|AskUserQuestion|plugin-dev:|superpowers:|learn-kit:/.test(body)) throw new Error("skill body depends on a retired host or workflow");
   return metadata;
+}
+
+export function validateGuideEntryBudget(text) {
+  if (Buffer.byteLength(text, "utf8") > GUIDE_ENTRY_MAX_BYTES) throw new Error(`guide SKILL.md exceeds the ${GUIDE_ENTRY_MAX_BYTES}-byte entry budget`);
 }
 
 function inside(root, candidate) {
@@ -272,6 +279,7 @@ export function assertInstalledSkillResources(sourceSkillRoot, installedSkillRoo
   const [plugin, skill] = qualifiedName.split(":");
   for (const root of [sourceSkillRoot, installedSkillRoot]) {
     validateSkill(fs.readFileSync(ownedResource(root, "SKILL.md"), "utf8"), skill);
+    if (qualifiedName === "html-guide-kit:guide") validateGuideEntryBudget(fs.readFileSync(ownedResource(root, "SKILL.md"), "utf8"));
     validateOpenAIConfig(fs.readFileSync(ownedResource(root, "agents/openai.yaml"), "utf8"), plugin, skill);
   }
   if (qualifiedName === "html-guide-kit:guide") {
@@ -382,6 +390,7 @@ export function validateRepository(repoRoot) {
       validateOpenAIConfig(read(skillRoot, "agents/openai.yaml"), plugin, skill);
       for (const rel of SKILL_RESOURCES[`${plugin}:${skill}`]) ownedResource(skillRoot, rel);
       if (plugin === "html-guide-kit") {
+        validateGuideEntryBudget(read(skillRoot, "SKILL.md"));
         const actual = files(skillRoot).map(file => path.relative(skillRoot, file).replaceAll("\\", "/")).sort();
         if (JSON.stringify(actual) !== JSON.stringify([...SKILL_RESOURCES[`${plugin}:${skill}`]].sort())) throw new Error("guide must contain exactly its approved skill resources");
       }

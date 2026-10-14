@@ -1,0 +1,217 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T09:57:28.804Z",
+  "status": "STATIC_ONLY",
+  "conclusion": "NO_STATIC_BLOCKERS",
+  "reviewer": "/root/behavior_014_b",
+  "author": "/root/behavior_014_a",
+  "candidateVersion": "0.1.21",
+  "candidateCanonical": null,
+  "sourceCanonical": "7e3deb8fb1d9960ede37ea96a714b1e34652a751",
+  "sourceTree": "5c7de4743a1b4426b9fb11ce237bcb85e334ffe7",
+  "sourceRuntimeVersion": "0.1.20",
+  "captureControlProvenanceLabelPreserved": "technical-recovery-0.1.20-capture-lifecycle-v2",
+  "exactPins": {
+    "freeze": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\CONTROLS_FINAL_FROZEN.json",
+      "bytes": 7920,
+      "sha256": "85bce00fe95f1ae2add1e2d36a9bb65799aaec4267f467316de663f133b29403"
+    },
+    "inventory": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\frozen-copy-inventory.json",
+      "bytes": 59683,
+      "sha256": "d574fcdbf3211bc2b6d3dc89693523c8895b2a0cab51b0eb8ec117e0c1e97083"
+    },
+    "guardDiff": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\version-guard-exactdiff.json",
+      "bytes": 4029,
+      "sha256": "15ae34632f1fc7882c1279cc3ce3937fdcccc62aee6993db62461cfe1287de75"
+    },
+    "operatorDraft": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-draft-control.json",
+      "bytes": 3181,
+      "sha256": "79bbe07e0126aaccee42c5b37b222099a9259257b0ef5ff6a21390049353a2c5"
+    },
+    "candidate": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-sequential.manual.candidate.mjs",
+      "bytes": 5028,
+      "sha256": "fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42"
+    },
+    "originalOperator": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-draft-provenance\\source-operator.mjs",
+      "bytes": 4977,
+      "sha256": "8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b"
+    },
+    "captureV2": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\capture-lifecycle-control.mjs",
+      "bytes": 2825,
+      "sha256": "947cb0a958932d8007b7d3d6efb62c0969ba792272f0c7eaf00c118857fbd6eb"
+    },
+    "scheduling": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\scheduling-contract.json",
+      "bytes": 2460,
+      "sha256": "814643a2e4e095295a49dd46c284be380e979785535762e30f9ec69c22ca7d9a"
+    },
+    "fixtures": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-fixture-results\\summary.json",
+      "bytes": 20240,
+      "sha256": "5e4f0d1427fa81eb42a7b32861ef4518d1eb01f351b4badde125c15c2905d795"
+    },
+    "syntax": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\syntax-only.json",
+      "bytes": 17954,
+      "sha256": "1c3deaae3dd680f6687108ea0c454a2d588994e9cfd24eaf4de56bf486862ca9"
+    }
+  },
+  "independentMechanicalProof": {
+    "fixedFiles": 38,
+    "exact35": true,
+    "onlyThreePrepareVersionGuardHelpersChanged": true,
+    "guardLiteralOccurrences": 9,
+    "actualAsciiDifferingBytes": 9,
+    "allThreeHarnessesAndV2ModuleExact": true,
+    "operatorFourStageForwardAndInverseExact": true,
+    "oldOperatorOriginalBytesUnchanged": true,
+    "defaultInputsCriteriaSpecManualsNotChanged": true
+  },
+  "independentActualNonModelFixtureAudit": {
+    "actualExecutionToolReported": "667456 EXIT0",
+    "actualRows": [
+      {
+        "name": "original-after-start",
+        "actualExit": {
+          "code": 0,
+          "signal": null,
+          "utc": "2026-10-14T09:40:11.031Z"
+        },
+        "actualClose": {
+          "code": 0,
+          "signal": null,
+          "utc": "2026-10-14T09:40:11.031Z"
+        },
+        "postFlagMutations": 2,
+        "finalCounts": {
+          "X": 3,
+          "Y": 0
+        },
+        "commands": {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-fixture-results\\original-after-start.commands.jsonl",
+          "bytes": 849,
+          "sha256": "9d3b0af87d81561fed6e4836ff9b706ede5561f63e4634de0f203b23db69a844"
+        }
+      },
+      {
+        "name": "candidate-after-start",
+        "actualExit": {
+          "code": 0,
+          "signal": null,
+          "utc": "2026-10-14T09:40:11.270Z"
+        },
+        "actualClose": {
+          "code": 0,
+          "signal": null,
+          "utc": "2026-10-14T09:40:11.270Z"
+        },
+        "postFlagMutations": 0,
+        "finalCounts": {
+          "X": 1,
+          "Y": 0
+        },
+        "commands": {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-fixture-results\\candidate-after-start.commands.jsonl",
+          "bytes": 525,
+          "sha256": "8e967802704f603295196da60cf65e035b8ec2b259392496f377a0744cbabb1c"
+        }
+      },
+      {
+        "name": "original-after-next",
+        "actualExit": {
+          "code": 0,
+          "signal": null,
+          "utc": "2026-10-14T09:40:11.628Z"
+        },
+        "actualClose": {
+          "code": 0,
+          "signal": null,
+          "utc": "2026-10-14T09:40:11.628Z"
+        },
+        "postFlagMutations": 1,
+        "finalCounts": {
+          "X": 3,
+          "Y": 0
+        },
+        "commands": {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-fixture-results\\original-after-next.commands.jsonl",
+          "bytes": 849,
+          "sha256": "6bf742c3d602c88e9ac7b937ebd93f5dfaf101f6fb668c1c6d3f62c335cf4f3a"
+        }
+      },
+      {
+        "name": "candidate-after-next",
+        "actualExit": {
+          "code": 0,
+          "signal": null,
+          "utc": "2026-10-14T09:40:11.897Z"
+        },
+        "actualClose": {
+          "code": 0,
+          "signal": null,
+          "utc": "2026-10-14T09:40:11.897Z"
+        },
+        "postFlagMutations": 0,
+        "finalCounts": {
+          "X": 2,
+          "Y": 0
+        },
+        "commands": {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-fixture-results\\candidate-after-next.commands.jsonl",
+          "bytes": 639,
+          "sha256": "65e68b3432f0ba236826686bdb4f41acffb6f76e0be90aa2d314f170315bf31d"
+        }
+      }
+    ],
+    "allSevenAssertionsSupportedByRawCommandsAndReceipts": true,
+    "oldOperatorStartThenTwoAdditionalNexts": 2,
+    "oldOperatorNextThenOneAdditionalNext": 1,
+    "candidatePostFlagMutationsInBothFixtures": 0,
+    "actual27SyntaxCheckExitsZero": true,
+    "newFixturesOrChecksRunByThisReviewer": false
+  },
+  "findings": [
+    {
+      "id": "global-flag-consistency",
+      "status": "PASS",
+      "rationale": "Scheduling contract requires every future candidate invocation explicitly supply the same Source21 global reviewer-only pause file; source-copied38 keep original operator bytes separately, preventing history rewrite. This bypasses no permission and sends no marker/criteria to the model."
+    },
+    {
+      "id": "natural-return-check-before-next-or-selection",
+      "status": "PASS",
+      "rationale": "The added while-boundary check executes after actual COMPLETE return and before looking up another frozen turn, manual-choice return or invoking next. Initial and prevariant checks remain, as does aftervariant check. Last planned turn can break before the added check, but it executes no new model input; native metadata work occurs before the existing postvariant pause check. An in-flight model is never killed or retried."
+    },
+    {
+      "id": "actual-source-race-vs-supported-fixture",
+      "status": "PASS",
+      "rationale": "Four real non-model Node subprocess fixtures write marker in child exit callback so it is present before parent close return. Original next-after-flag defect is reproduced; exact candidate bytes stop at both first-start and next-turn returns, with accurate turn-or-variant records. These controlled boundaries support the actual fix, not SDK/runtime/client behavior or actual Codex stall explanations."
+    },
+    {
+      "id": "capture-and-identity-gates-preserved",
+      "status": "PASS",
+      "rationale": "All three real harnesses and V2 capture module are exact copies of independently reviewed Source20 V2 identity/completion/error gates, in-deadline observed actualexit0/fullclose requirements and lifecycle preservation.9 one-byte version guards occur only in prepare-correction/prepare-coverage/verify-canonical. No original calls or semantic criteria change."
+    }
+  ],
+  "limits": {
+    "requiresNewCanonical21AndStrict13SixPythonGateBeforePrepareModels": true,
+    "frozenCandidateUsageWithExplicitGlobalPauseFileMandatory": true,
+    "concurrentMarkerCanStillArriveBetweenLastCheckAndDispatch": "No atomic stop or host window lock is promised; observed timing must be recorded rather than inferred from a later receipt.",
+    "modelRuntimeOrUiPass": "NOT_RUN",
+    "actualOriginal20InvalidCause": "UNKNOWN",
+    "old20AndRecoveryVerdictsNotRepairedOrRegraded": true,
+    "source31DynamicEvidenceNotChanged": true,
+    "noSharedRepoWritesInstallConsumerModelOrGrade": true
+  },
+  "actualReadingToolChunks": [
+    "66c710",
+    "f4dec4",
+    "ac912b"
+  ]
+}

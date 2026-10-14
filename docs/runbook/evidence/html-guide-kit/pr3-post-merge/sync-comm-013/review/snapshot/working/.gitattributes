@@ -1,0 +1,46 @@
+# Preserve the saved owner plan's original bytes for its recorded SHA-256.
+plan/communication-kit-implementation-plan.md -text whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Frozen runtime references retain exactly the bytes covered by the snapshot hashes.
+plugins/communication-kit/skills/communicate/references/* -text
+# Preserve actual evidence bytes for the archived SHA-256 values.
+docs/runbook/evidence/communication-kit-2026-10-13-* -text
+docs/runbook/evidence/communication-kit-2026-10-13-*.log whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# The original Node failure receipt contains two indented blank lines; keep its bytes.
+docs/runbook/evidence/communication-kit-2026-10-13-learning-baseline-01-pr3-learning-sync-tests-2026-10-13.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Version-tool console receipts retain their original final blank line and CRLF JSON.
+docs/runbook/evidence/communication-kit-2026-10-13-version-prep-01-*.log whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+docs/runbook/evidence/communication-kit-2026-10-13-version-prep-01-audit.json whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Exact Git diff receipts contain intentional space-only context lines.
+docs/runbook/evidence/communication-kit-2026-10-13-closeout-sync-01-raw-pr[1-4]-conflicts.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# PR3's original diff receipt also ends with one intentional empty line.
+docs/runbook/evidence/communication-kit-2026-10-13-closeout-sync-01-raw-pr3-conflicts.log whitespace=-blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+docs/runbook/evidence/communication-kit-2026-10-13-closeout-sync-01-archive-whitespace-initial.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve the two original M1 JSON receipts' CRLF without ignoring other whitespace.
+docs/runbook/evidence/communication-kit-2026-10-13-pr1-merge-01-raw-github-facts.json whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/runbook/evidence/communication-kit-2026-10-13-pr1-merge-01-raw-launcher-failure.json whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+plugins/html-guide-kit/** text eol=lf
+plugins/html-guide-kit/**/*.png -text
+assets/brand/html-guide-kit/candidates/revision-2/*.svg text eol=lf
+docs/runbook/evidence/html-guide-kit/pr3-post-merge/** -text
+docs/runbook/evidence/html-guide-kit/pr3-reviewer/** -text
+
+
+# Preserve frozen model receipts and exact log digests across platform checkouts.
+docs/runbook/evidence/learning-evidence-fifth-* -text whitespace=cr-at-eol
+docs/runbook/evidence/learning-evidence-handoff-reuse-closure.json -text whitespace=cr-at-eol
+docs/runbook/evidence/learning-evidence-8-2-0-post-release.json -text whitespace=cr-at-eol
+docs/runbook/evidence/learning-evidence-8-2-0-auto-release.log -text whitespace=-blank-at-eol,cr-at-eol
+
+# Preserve exact source-provenance EOF and original Node failure indentation.
+plan/communication-kit-plan-provenance.json whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+docs/runbook/evidence/communication-kit-2026-10-12-pr1-01.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/runbook/evidence/communication-kit-2026-10-13-inherited-whitespace-01-raw-pr1-initial.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/runbook/evidence/communication-kit-2026-10-13-inherited-whitespace-01-raw-pr2-conflicts.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/runbook/evidence/communication-kit-2026-10-13-inherited-whitespace-01-raw-pr2-initial.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/runbook/evidence/communication-kit-2026-10-13-inherited-whitespace-01-raw-pr3-conflicts.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/runbook/evidence/communication-kit-2026-10-13-inherited-whitespace-01-raw-pr3-initial.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/runbook/evidence/communication-kit-2026-10-13-inherited-whitespace-01-raw-pr4-conflicts.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/runbook/evidence/communication-kit-2026-10-13-inherited-whitespace-01-raw-pr4-initial.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/runbook/evidence/communication-kit-2026-10-13-pr1-merge-sync-01-raw-pr3-conflicts.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/runbook/evidence/communication-kit-2026-10-13-pr1-merge-sync-01-raw-pr4-conflicts.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

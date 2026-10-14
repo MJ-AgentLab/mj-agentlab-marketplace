@@ -1,0 +1,1510 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T08:55:24.029Z",
+  "status": "STATIC_ONLY",
+  "conclusion": "NO_STATIC_BLOCKERS",
+  "reviewer": "/root/behavior_014_b",
+  "author": "/root/behavior_014_a",
+  "controlVersion": "technical-recovery-0.1.20-capture-lifecycle-v2",
+  "canonical": "7e3deb8fb1d9960ede37ea96a714b1e34652a751",
+  "canonicalTree": "5c7de4743a1b4426b9fb11ce237bcb85e334ffe7",
+  "runtimeVersion": "0.1.20",
+  "freeze": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\FINAL_FROZEN.json",
+    "bytes": 18489,
+    "sha256": "f26e94bde97ce6565039ec5ddef4638415c9138789841fee33a543a6cb83882c"
+  },
+  "receipt": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\integration-receipt.json",
+    "bytes": 37745,
+    "sha256": "e74ac1ec8a71804500c9e76737505f159f46377277b6743c856323c4384cec7c"
+  },
+  "exactdiff": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\harness-exactdiff.json",
+    "bytes": 15653,
+    "sha256": "3f80a883a22c5274ee3a4289fc318614714cd0473877268346cdc2710c2ed510"
+  },
+  "authorSyntax": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\node-check.json",
+    "bytes": 17591,
+    "sha256": "b68306ed50385d5d32409740699ca2306ed4be64c7f50958a638c0e9248096cd"
+  },
+  "approvedCaptureModule": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\capture-lifecycle-control.mjs",
+    "bytes": 2825,
+    "sha256": "947cb0a958932d8007b7d3d6efb62c0969ba792272f0c7eaf00c118857fbd6eb"
+  },
+  "candidateFiles": [
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\behavior-b-helper-copy-control.json",
+      "bytes": 1265,
+      "sha256": "778feaf2416459570b2fe270a57b30f7cc74a917f1b4aa8a44f21455eac54620"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\blocking\\choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\blocking\\frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\blocking\\harness.mjs",
+      "bytes": 44751,
+      "sha256": "916bd929785c366559647bcbb2c62a74c8e531485f2f8fe99d1ac5add12e077a"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\blocking\\operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\blocking\\plan.json",
+      "bytes": 13618,
+      "sha256": "58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\blocking\\record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\capture-lifecycle-control.mjs",
+      "bytes": 2825,
+      "sha256": "947cb0a958932d8007b7d3d6efb62c0969ba792272f0c7eaf00c118857fbd6eb"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\continuous-supplement\\choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\continuous-supplement\\expanded-plan.mjs",
+      "bytes": 10495,
+      "sha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\continuous-supplement\\frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\continuous-supplement\\harness.mjs",
+      "bytes": 43715,
+      "sha256": "910b412ddbd3a2032435342d5d3b194709240724a3a40a027ae02acc3d7bdf9f"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\continuous-supplement\\operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\continuous-supplement\\plan.json",
+      "bytes": 17314,
+      "sha256": "af18c35badde6b55ba3134781823565f9688e14e3e51505ffb8760b05fb57cd9"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\continuous-supplement\\record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\expanded\\choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\expanded\\criterion-citation-erratum.json",
+      "bytes": 672,
+      "sha256": "8a1e7e3a4305b076e9069c39dd5f605ff21dca5a5ade59ada17afba60ed63969"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\expanded\\expanded-plan.mjs",
+      "bytes": 10495,
+      "sha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\expanded\\frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\expanded\\harness.mjs",
+      "bytes": 43715,
+      "sha256": "910b412ddbd3a2032435342d5d3b194709240724a3a40a027ae02acc3d7bdf9f"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\expanded\\operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\expanded\\plan.json",
+      "bytes": 28082,
+      "sha256": "bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\expanded\\record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\expanded\\repeated-plan.json",
+      "bytes": 16222,
+      "sha256": "0b97085cdf412893e267bda912776d371a36f58e6fec7cb15bc086989c081d23"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\harness-exactdiff.json",
+      "bytes": 15653,
+      "sha256": "3f80a883a22c5274ee3a4289fc318614714cd0473877268346cdc2710c2ed510"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\integration-receipt.json",
+      "bytes": 37745,
+      "sha256": "e74ac1ec8a71804500c9e76737505f159f46377277b6743c856323c4384cec7c"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\manual-selection-behavior-a.mjs",
+      "bytes": 3264,
+      "sha256": "eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\manual-selection-behavior-b.mjs",
+      "bytes": 3267,
+      "sha256": "c2d3f2ce80a6919aecb27892fe2790dce901981efa72c2aef2b773f9b1d1f394"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\manual-selection-continuous-behavior-a.mjs",
+      "bytes": 3370,
+      "sha256": "7fcf3c78437f33f8d146684e7e6173324a996b65c6722d58fec17dcfba643ecc"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\manual-selection-continuous-control.final.json",
+      "bytes": 1424,
+      "sha256": "f958efe94dc9475a32703e57885c069e7f95f884cd6b259471a490b085b57039"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\manual-selection-continuous-control.json",
+      "bytes": 1085,
+      "sha256": "b84e79d9c799413461c708b9fde47860acf1be57887dcd50f2f7a34c25750eea"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\node-check.json",
+      "bytes": 17591,
+      "sha256": "b68306ed50385d5d32409740699ca2306ed4be64c7f50958a638c0e9248096cd"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\operator-sequential.manual.mjs",
+      "bytes": 4977,
+      "sha256": "8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\prepare-correction.mjs",
+      "bytes": 1937,
+      "sha256": "1e789dc6145e5825748eb8eff6a84f9bc86f5f366d52c1d3cbec35849d1bb240"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\prepare-coverage.mjs",
+      "bytes": 2403,
+      "sha256": "d6223208bc1efc6dd363bab798086ca45fadecd678c11b0fc3b443bfbb7c8950"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\prepare-integration-only-r2.mjs",
+      "bytes": 17694,
+      "sha256": "d37644953cd40776c48c5b0e508f739f79df792f27a26c6a86abdb1914949b46"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\prepare-integration-only.mjs",
+      "bytes": 16780,
+      "sha256": "3bc6bdcd4d4973015d0e261721bbb4fe341a8a7cb11af4555730fc8c287bb6b4"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\capture-v2-FINAL_FROZEN.json",
+      "bytes": 15263,
+      "sha256": "d4b3591ecf35247689d2adeae51dc6b006bc6073d5a5e304783729edda50ca86"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\preparation-attempt-r2-before.json",
+      "bytes": 8624,
+      "sha256": "8edf0f4ee760764ce3a21ce4f63fe877885343d4189d3a7e4f51231215096830"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\runtime-after-r2.json",
+      "bytes": 1087,
+      "sha256": "52241bc4b9751f60f8e79a09465ba727a378b41ebed6f7b0c73839407e63a9ed"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\runtime-before-r2.json",
+      "bytes": 1087,
+      "sha256": "52241bc4b9751f60f8e79a09465ba727a378b41ebed6f7b0c73839407e63a9ed"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\runtime-before.json",
+      "bytes": 1087,
+      "sha256": "52241bc4b9751f60f8e79a09465ba727a378b41ebed6f7b0c73839407e63a9ed"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\behavior-b-helper-copy-control.json",
+      "bytes": 1265,
+      "sha256": "778feaf2416459570b2fe270a57b30f7cc74a917f1b4aa8a44f21455eac54620"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\blocking\\choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\blocking\\frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\blocking\\harness.mjs",
+      "bytes": 44549,
+      "sha256": "a2a7089587831fffbd74f9af773c144a5fec7d23fef42c617d28a26123b42304"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\blocking\\operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\blocking\\plan.json",
+      "bytes": 13618,
+      "sha256": "58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\blocking\\record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\continuous-supplement\\choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\continuous-supplement\\expanded-plan.mjs",
+      "bytes": 10495,
+      "sha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\continuous-supplement\\frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\continuous-supplement\\harness.mjs",
+      "bytes": 43513,
+      "sha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\continuous-supplement\\operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\continuous-supplement\\plan.json",
+      "bytes": 17314,
+      "sha256": "af18c35badde6b55ba3134781823565f9688e14e3e51505ffb8760b05fb57cd9"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\continuous-supplement\\record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\expanded\\choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\expanded\\criterion-citation-erratum.json",
+      "bytes": 672,
+      "sha256": "8a1e7e3a4305b076e9069c39dd5f605ff21dca5a5ade59ada17afba60ed63969"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\expanded\\expanded-plan.mjs",
+      "bytes": 10495,
+      "sha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\expanded\\frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\expanded\\harness.mjs",
+      "bytes": 43513,
+      "sha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\expanded\\operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\expanded\\plan.json",
+      "bytes": 28082,
+      "sha256": "bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\expanded\\record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\expanded\\repeated-plan.json",
+      "bytes": 16222,
+      "sha256": "0b97085cdf412893e267bda912776d371a36f58e6fec7cb15bc086989c081d23"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\manual-selection-behavior-a.mjs",
+      "bytes": 3264,
+      "sha256": "eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\manual-selection-behavior-b.mjs",
+      "bytes": 3267,
+      "sha256": "c2d3f2ce80a6919aecb27892fe2790dce901981efa72c2aef2b773f9b1d1f394"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\manual-selection-continuous-behavior-a.mjs",
+      "bytes": 3370,
+      "sha256": "7fcf3c78437f33f8d146684e7e6173324a996b65c6722d58fec17dcfba643ecc"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\manual-selection-continuous-control.final.json",
+      "bytes": 1424,
+      "sha256": "f958efe94dc9475a32703e57885c069e7f95f884cd6b259471a490b085b57039"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\manual-selection-continuous-control.json",
+      "bytes": 1085,
+      "sha256": "b84e79d9c799413461c708b9fde47860acf1be57887dcd50f2f7a34c25750eea"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\operator-sequential.manual.mjs",
+      "bytes": 4977,
+      "sha256": "8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\prepare-correction.mjs",
+      "bytes": 1937,
+      "sha256": "1e789dc6145e5825748eb8eff6a84f9bc86f5f366d52c1d3cbec35849d1bb240"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\prepare-coverage.mjs",
+      "bytes": 2403,
+      "sha256": "d6223208bc1efc6dd363bab798086ca45fadecd678c11b0fc3b443bfbb7c8950"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\record-operator-handoff-behavior-a.mjs",
+      "bytes": 6816,
+      "sha256": "c9e93fb47caee212c3b5eb2322e963fa89fbe10008db469d9dd4dc6a47546d82"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\record-operator-handoff.mjs",
+      "bytes": 4632,
+      "sha256": "553c482e3977ed600b0846051ee1de9fa983e3a656867a3aa4c05cda393339bf"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\record-recommended-observation-behavior-b.mjs",
+      "bytes": 2258,
+      "sha256": "834624a2b2f6da8db78f9b5e86a7e029b2c77051764b38b5260849c92f0e5bd9"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\repeated-plan-control.json",
+      "bytes": 1050,
+      "sha256": "47a66a9d5148b301f1fbff721670de92c8986467d590030159adcfd239c69c79"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\root-manual-helper-copy-control.json",
+      "bytes": 608,
+      "sha256": "0cfa34d02f5db39ab8937c51345b6bc1b9c8a7e6cd150a724433c4f350b05c12"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\root-manual-select.mjs",
+      "bytes": 1708,
+      "sha256": "e6cc6c7cd00ecc86fcca45f43fbbcafef34bea6d375123aa1622f5eedbcfefc6"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source-controls\\verify-canonical.mjs",
+      "bytes": 5202,
+      "sha256": "ecf3574499b7d3c808171455959519ae82540615935f2633fd6720c3ee02fc87"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source20-batches-after-r2.json",
+      "bytes": 72388,
+      "sha256": "73e6558396d915d5f286707bc65dcaa684a10a77fc13f3b474e11a9a4a2c1506"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source20-batches-before-r2.json",
+      "bytes": 72388,
+      "sha256": "73e6558396d915d5f286707bc65dcaa684a10a77fc13f3b474e11a9a4a2c1506"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source20-batches-before.json",
+      "bytes": 72388,
+      "sha256": "73e6558396d915d5f286707bc65dcaa684a10a77fc13f3b474e11a9a4a2c1506"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source20-frozen-copy-inventory.json",
+      "bytes": 59606,
+      "sha256": "df7b882675b0417cf9190e67a2abda54ac170fc7076e49161d6bfc9554e65197"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source20-whole-after-r2.json",
+      "bytes": 117705,
+      "sha256": "f38ca45fccf8f8813995d34ae8a6745f8fd75bb9c0e5e64c0de94e8f4d619ace"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source20-whole-before-r2.json",
+      "bytes": 117705,
+      "sha256": "f38ca45fccf8f8813995d34ae8a6745f8fd75bb9c0e5e64c0de94e8f4d619ace"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source20-whole-before.json",
+      "bytes": 117705,
+      "sha256": "f38ca45fccf8f8813995d34ae8a6745f8fd75bb9c0e5e64c0de94e8f4d619ace"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\static-review-capture-lifecycle-v2-b.json",
+      "bytes": 28072,
+      "sha256": "e9bfac53d6770d5473e2af922e49c6e3d5f1fbce8f615189693380ced3ed9fde"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\record-operator-handoff-behavior-a.mjs",
+      "bytes": 6816,
+      "sha256": "c9e93fb47caee212c3b5eb2322e963fa89fbe10008db469d9dd4dc6a47546d82"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\record-operator-handoff.mjs",
+      "bytes": 4632,
+      "sha256": "553c482e3977ed600b0846051ee1de9fa983e3a656867a3aa4c05cda393339bf"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\record-recommended-observation-behavior-b.mjs",
+      "bytes": 2258,
+      "sha256": "834624a2b2f6da8db78f9b5e86a7e029b2c77051764b38b5260849c92f0e5bd9"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\repeated-plan-control.json",
+      "bytes": 1050,
+      "sha256": "47a66a9d5148b301f1fbff721670de92c8986467d590030159adcfd239c69c79"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\root-manual-helper-copy-control.json",
+      "bytes": 608,
+      "sha256": "0cfa34d02f5db39ab8937c51345b6bc1b9c8a7e6cd150a724433c4f350b05c12"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\root-manual-select.mjs",
+      "bytes": 1708,
+      "sha256": "e6cc6c7cd00ecc86fcca45f43fbbcafef34bea6d375123aa1622f5eedbcfefc6"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\verify-canonical.mjs",
+      "bytes": 5202,
+      "sha256": "ecf3574499b7d3c808171455959519ae82540615935f2633fd6720c3ee02fc87"
+    }
+  ],
+  "sourceControls": [
+    {
+      "relative": "blocking/harness.mjs",
+      "bytes": 44549,
+      "sha256": "a2a7089587831fffbd74f9af773c144a5fec7d23fef42c617d28a26123b42304",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "blocking/plan.json",
+      "bytes": 13618,
+      "sha256": "58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "blocking/frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "blocking/choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "blocking/record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "blocking/operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "expanded/harness.mjs",
+      "bytes": 43513,
+      "sha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "expanded/plan.json",
+      "bytes": 28082,
+      "sha256": "bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "expanded/frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "expanded/choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "expanded/record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "expanded/operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "expanded/expanded-plan.mjs",
+      "bytes": 10495,
+      "sha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "continuous-supplement/harness.mjs",
+      "bytes": 43513,
+      "sha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "continuous-supplement/plan.json",
+      "bytes": 17314,
+      "sha256": "af18c35badde6b55ba3134781823565f9688e14e3e51505ffb8760b05fb57cd9",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "continuous-supplement/frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "continuous-supplement/choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "continuous-supplement/record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "continuous-supplement/operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "continuous-supplement/expanded-plan.mjs",
+      "bytes": 10495,
+      "sha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "expanded/criterion-citation-erratum.json",
+      "bytes": 672,
+      "sha256": "8a1e7e3a4305b076e9069c39dd5f605ff21dca5a5ade59ada17afba60ed63969",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "expanded/repeated-plan.json",
+      "bytes": 16222,
+      "sha256": "0b97085cdf412893e267bda912776d371a36f58e6fec7cb15bc086989c081d23",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "operator-sequential.manual.mjs",
+      "bytes": 4977,
+      "sha256": "8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "repeated-plan-control.json",
+      "bytes": 1050,
+      "sha256": "47a66a9d5148b301f1fbff721670de92c8986467d590030159adcfd239c69c79",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "record-operator-handoff.mjs",
+      "bytes": 4632,
+      "sha256": "553c482e3977ed600b0846051ee1de9fa983e3a656867a3aa4c05cda393339bf",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "manual-selection-behavior-a.mjs",
+      "bytes": 3264,
+      "sha256": "eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "manual-selection-continuous-behavior-a.mjs",
+      "bytes": 3370,
+      "sha256": "7fcf3c78437f33f8d146684e7e6173324a996b65c6722d58fec17dcfba643ecc",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "manual-selection-continuous-control.json",
+      "bytes": 1085,
+      "sha256": "b84e79d9c799413461c708b9fde47860acf1be57887dcd50f2f7a34c25750eea",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "manual-selection-continuous-control.final.json",
+      "bytes": 1424,
+      "sha256": "f958efe94dc9475a32703e57885c069e7f95f884cd6b259471a490b085b57039",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "record-operator-handoff-behavior-a.mjs",
+      "bytes": 6816,
+      "sha256": "c9e93fb47caee212c3b5eb2322e963fa89fbe10008db469d9dd4dc6a47546d82",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "prepare-correction.mjs",
+      "bytes": 1937,
+      "sha256": "1e789dc6145e5825748eb8eff6a84f9bc86f5f366d52c1d3cbec35849d1bb240",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "prepare-coverage.mjs",
+      "bytes": 2403,
+      "sha256": "d6223208bc1efc6dd363bab798086ca45fadecd678c11b0fc3b443bfbb7c8950",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "verify-canonical.mjs",
+      "bytes": 5202,
+      "sha256": "ecf3574499b7d3c808171455959519ae82540615935f2633fd6720c3ee02fc87",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "root-manual-select.mjs",
+      "bytes": 1708,
+      "sha256": "e6cc6c7cd00ecc86fcca45f43fbbcafef34bea6d375123aa1622f5eedbcfefc6",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "root-manual-helper-copy-control.json",
+      "bytes": 608,
+      "sha256": "0cfa34d02f5db39ab8937c51345b6bc1b9c8a7e6cd150a724433c4f350b05c12",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "manual-selection-behavior-b.mjs",
+      "bytes": 3267,
+      "sha256": "c2d3f2ce80a6919aecb27892fe2790dce901981efa72c2aef2b773f9b1d1f394",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "record-recommended-observation-behavior-b.mjs",
+      "bytes": 2258,
+      "sha256": "834624a2b2f6da8db78f9b5e86a7e029b2c77051764b38b5260849c92f0e5bd9",
+      "sourceAndProvenanceSame": true
+    },
+    {
+      "relative": "behavior-b-helper-copy-control.json",
+      "bytes": 1265,
+      "sha256": "778feaf2416459570b2fe270a57b30f7cc74a917f1b4aa8a44f21455eac54620",
+      "sourceAndProvenanceSame": true
+    }
+  ],
+  "activeControls": [
+    {
+      "relative": "blocking/harness.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\blocking\\harness.mjs",
+      "bytes": 44751,
+      "sha256": "916bd929785c366559647bcbb2c62a74c8e531485f2f8fe99d1ac5add12e077a",
+      "operation": "FOUR_CAPTURE_ONLY_DELTAS"
+    },
+    {
+      "relative": "blocking/plan.json",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\blocking\\plan.json",
+      "bytes": 13618,
+      "sha256": "58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "blocking/frozen-spec.md",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\blocking\\frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "blocking/choose-first.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\blocking\\choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "blocking/record-native-loading.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\blocking\\record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "blocking/operator-observations.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\blocking\\operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "expanded/harness.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\expanded\\harness.mjs",
+      "bytes": 43715,
+      "sha256": "910b412ddbd3a2032435342d5d3b194709240724a3a40a027ae02acc3d7bdf9f",
+      "operation": "FOUR_CAPTURE_ONLY_DELTAS"
+    },
+    {
+      "relative": "expanded/plan.json",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\expanded\\plan.json",
+      "bytes": 28082,
+      "sha256": "bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "expanded/frozen-spec.md",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\expanded\\frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "expanded/choose-first.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\expanded\\choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "expanded/record-native-loading.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\expanded\\record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "expanded/operator-observations.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\expanded\\operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "expanded/expanded-plan.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\expanded\\expanded-plan.mjs",
+      "bytes": 10495,
+      "sha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "continuous-supplement/harness.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\continuous-supplement\\harness.mjs",
+      "bytes": 43715,
+      "sha256": "910b412ddbd3a2032435342d5d3b194709240724a3a40a027ae02acc3d7bdf9f",
+      "operation": "FOUR_CAPTURE_ONLY_DELTAS"
+    },
+    {
+      "relative": "continuous-supplement/plan.json",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\continuous-supplement\\plan.json",
+      "bytes": 17314,
+      "sha256": "af18c35badde6b55ba3134781823565f9688e14e3e51505ffb8760b05fb57cd9",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "continuous-supplement/frozen-spec.md",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\continuous-supplement\\frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "continuous-supplement/choose-first.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\continuous-supplement\\choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "continuous-supplement/record-native-loading.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\continuous-supplement\\record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "continuous-supplement/operator-observations.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\continuous-supplement\\operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "continuous-supplement/expanded-plan.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\continuous-supplement\\expanded-plan.mjs",
+      "bytes": 10495,
+      "sha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "expanded/criterion-citation-erratum.json",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\expanded\\criterion-citation-erratum.json",
+      "bytes": 672,
+      "sha256": "8a1e7e3a4305b076e9069c39dd5f605ff21dca5a5ade59ada17afba60ed63969",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "expanded/repeated-plan.json",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\expanded\\repeated-plan.json",
+      "bytes": 16222,
+      "sha256": "0b97085cdf412893e267bda912776d371a36f58e6fec7cb15bc086989c081d23",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "operator-sequential.manual.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\operator-sequential.manual.mjs",
+      "bytes": 4977,
+      "sha256": "8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "repeated-plan-control.json",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\repeated-plan-control.json",
+      "bytes": 1050,
+      "sha256": "47a66a9d5148b301f1fbff721670de92c8986467d590030159adcfd239c69c79",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "record-operator-handoff.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\record-operator-handoff.mjs",
+      "bytes": 4632,
+      "sha256": "553c482e3977ed600b0846051ee1de9fa983e3a656867a3aa4c05cda393339bf",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "manual-selection-behavior-a.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\manual-selection-behavior-a.mjs",
+      "bytes": 3264,
+      "sha256": "eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "manual-selection-continuous-behavior-a.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\manual-selection-continuous-behavior-a.mjs",
+      "bytes": 3370,
+      "sha256": "7fcf3c78437f33f8d146684e7e6173324a996b65c6722d58fec17dcfba643ecc",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "manual-selection-continuous-control.json",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\manual-selection-continuous-control.json",
+      "bytes": 1085,
+      "sha256": "b84e79d9c799413461c708b9fde47860acf1be57887dcd50f2f7a34c25750eea",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "manual-selection-continuous-control.final.json",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\manual-selection-continuous-control.final.json",
+      "bytes": 1424,
+      "sha256": "f958efe94dc9475a32703e57885c069e7f95f884cd6b259471a490b085b57039",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "record-operator-handoff-behavior-a.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\record-operator-handoff-behavior-a.mjs",
+      "bytes": 6816,
+      "sha256": "c9e93fb47caee212c3b5eb2322e963fa89fbe10008db469d9dd4dc6a47546d82",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "prepare-correction.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\prepare-correction.mjs",
+      "bytes": 1937,
+      "sha256": "1e789dc6145e5825748eb8eff6a84f9bc86f5f366d52c1d3cbec35849d1bb240",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "prepare-coverage.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\prepare-coverage.mjs",
+      "bytes": 2403,
+      "sha256": "d6223208bc1efc6dd363bab798086ca45fadecd678c11b0fc3b443bfbb7c8950",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "verify-canonical.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\verify-canonical.mjs",
+      "bytes": 5202,
+      "sha256": "ecf3574499b7d3c808171455959519ae82540615935f2633fd6720c3ee02fc87",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "root-manual-select.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\root-manual-select.mjs",
+      "bytes": 1708,
+      "sha256": "e6cc6c7cd00ecc86fcca45f43fbbcafef34bea6d375123aa1622f5eedbcfefc6",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "root-manual-helper-copy-control.json",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\root-manual-helper-copy-control.json",
+      "bytes": 608,
+      "sha256": "0cfa34d02f5db39ab8937c51345b6bc1b9c8a7e6cd150a724433c4f350b05c12",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "manual-selection-behavior-b.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\manual-selection-behavior-b.mjs",
+      "bytes": 3267,
+      "sha256": "c2d3f2ce80a6919aecb27892fe2790dce901981efa72c2aef2b773f9b1d1f394",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "record-recommended-observation-behavior-b.mjs",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\record-recommended-observation-behavior-b.mjs",
+      "bytes": 2258,
+      "sha256": "834624a2b2f6da8db78f9b5e86a7e029b2c77051764b38b5260849c92f0e5bd9",
+      "operation": "EXACT_COPY"
+    },
+    {
+      "relative": "behavior-b-helper-copy-control.json",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\behavior-b-helper-copy-control.json",
+      "bytes": 1265,
+      "sha256": "778feaf2416459570b2fe270a57b30f7cc74a917f1b4aa8a44f21455eac54620",
+      "operation": "EXACT_COPY"
+    }
+  ],
+  "inverse": [
+    {
+      "relative": "blocking/harness.mjs",
+      "sourceBytes": 44549,
+      "sourceSha256": "a2a7089587831fffbd74f9af773c144a5fec7d23fef42c617d28a26123b42304",
+      "destinationBytes": 44751,
+      "destinationSha256": "916bd929785c366559647bcbb2c62a74c8e531485f2f8fe99d1ac5add12e077a",
+      "exactFourStageForward": true,
+      "exactInverseRestoresOldBytes": true,
+      "outsideEditsByteIdentical": true,
+      "stages": [
+        "IMPORT_REVIEWED_CAPTURE_MODULE",
+        "REMOVE_OLD_CLOSE_ONLY_CAPTURE",
+        "RECORD_COMPLETE_OBSERVED_LIFECYCLE",
+        "STRICT_ACTUAL_EXIT_CLOSE_DEADLINE_GATE"
+      ]
+    },
+    {
+      "relative": "expanded/harness.mjs",
+      "sourceBytes": 43513,
+      "sourceSha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645",
+      "destinationBytes": 43715,
+      "destinationSha256": "910b412ddbd3a2032435342d5d3b194709240724a3a40a027ae02acc3d7bdf9f",
+      "exactFourStageForward": true,
+      "exactInverseRestoresOldBytes": true,
+      "outsideEditsByteIdentical": true,
+      "stages": [
+        "IMPORT_REVIEWED_CAPTURE_MODULE",
+        "REMOVE_OLD_CLOSE_ONLY_CAPTURE",
+        "RECORD_COMPLETE_OBSERVED_LIFECYCLE",
+        "STRICT_ACTUAL_EXIT_CLOSE_DEADLINE_GATE"
+      ]
+    },
+    {
+      "relative": "continuous-supplement/harness.mjs",
+      "sourceBytes": 43513,
+      "sourceSha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645",
+      "destinationBytes": 43715,
+      "destinationSha256": "910b412ddbd3a2032435342d5d3b194709240724a3a40a027ae02acc3d7bdf9f",
+      "exactFourStageForward": true,
+      "exactInverseRestoresOldBytes": true,
+      "outsideEditsByteIdentical": true,
+      "stages": [
+        "IMPORT_REVIEWED_CAPTURE_MODULE",
+        "REMOVE_OLD_CLOSE_ONLY_CAPTURE",
+        "RECORD_COMPLETE_OBSERVED_LIFECYCLE",
+        "STRICT_ACTUAL_EXIT_CLOSE_DEADLINE_GATE"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "strict-original-model-and-identity-gates-preserved",
+      "result": "PASS",
+      "rationale": "The existing turn.completed requirement, model error/turn.failed rejection, actual identity validation and timeout rejection remain literal parts of all three gates. New validCapture is a conjunction, never a substitute or fallback."
+    },
+    {
+      "id": "strict-observed-exit-and-close",
+      "result": "PASS",
+      "rationale": "All three gates require actual status/code0, null error and signals, observed exit/close, inDeadline true, finite monotonic timestamps and exit strictly before deadline, no timer callback, no timeout/late flag and complete stdio through close. Missing lifecycle or partial capture fails closed; optional-chain short circuit prevents missing-state dereferences."
+    },
+    {
+      "id": "full-lifecycle-preserved-with-new-control-identity",
+      "result": "PASS",
+      "rationale": "New turns append the entire result.lifecycle object plus lateExitInvalid and exact module/control identity. Original completed/exit/timedOut/processError/nonJSON/identity fields remain unchanged; actual lifecycle time is distinct from later recorder completed time."
+    },
+    {
+      "id": "only-four-capture-edits",
+      "result": "PASS",
+      "rationale": "Every forward stage is independently applied by exact byte offset/text/hash and every inverse stage reconstructs the whole original harness. All35 other active controls, all38 original provenance controls, source plans/materials/criteria/manual/defaults and runtime pins remain unchanged."
+    },
+    {
+      "id": "syntax-and-original-closure-evidence",
+      "result": "PASS",
+      "rationale": "Author26 parse-only receipts match frozen code and exit0. Four changed code units were independently node --check tested, all actual tool exits0, with no module execution. Original7 batches and2 INVALID turns/raw remain exact after independently reversing only the later authorized grading metadata to the preparation snapshot; initial copier failure remains a separate original error, not a successful preparation."
+    }
+  ],
+  "syntaxActualToolReceipts": [
+    {
+      "relative": "capture-lifecycle-control.mjs",
+      "result": {
+        "chunk_id": "42a7e7",
+        "wall_time_seconds": 0.0962372,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "relative": "blocking/harness.mjs",
+      "result": {
+        "chunk_id": "1ec742",
+        "wall_time_seconds": 0.0918008,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "relative": "expanded/harness.mjs",
+      "result": {
+        "chunk_id": "c6b675",
+        "wall_time_seconds": 0.0794947,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "relative": "continuous-supplement/harness.mjs",
+      "result": {
+        "chunk_id": "d0da59",
+        "wall_time_seconds": 0.0618291,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    }
+  ],
+  "authorSyntaxCount": 26,
+  "secondReviewerFailure": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\independent-review-r2-error.json",
+    "bytes": 898,
+    "sha256": "b9d50d759ac872b818a6ac881acaf16f810f280859961858d7393a9db5056840"
+  },
+  "original24CompleteTiming": {
+    "rows": [
+      {
+        "variant": "B3.1",
+        "uuid": "01a1395c-1f2b-78a1-9e97-14702c96fc24",
+        "turn": 1,
+        "startedUtc": "2026-10-14T07:41:40.905Z",
+        "recordedCompletedUtc": "2026-10-14T07:42:45.200Z",
+        "elapsedMs": 64295
+      },
+      {
+        "variant": "B3.1",
+        "uuid": "01a1395c-1f2b-78a1-9e97-14702c96fc24",
+        "turn": 2,
+        "startedUtc": "2026-10-14T07:44:04.138Z",
+        "recordedCompletedUtc": "2026-10-14T07:45:31.868Z",
+        "elapsedMs": 87730
+      },
+      {
+        "variant": "B3.1",
+        "uuid": "01a1395c-1f2b-78a1-9e97-14702c96fc24",
+        "turn": 3,
+        "startedUtc": "2026-10-14T07:45:31.918Z",
+        "recordedCompletedUtc": "2026-10-14T07:46:07.761Z",
+        "elapsedMs": 35843
+      },
+      {
+        "variant": "B3.2",
+        "uuid": "01a13960-31d3-78f0-8e54-d1ccba453d14",
+        "turn": 1,
+        "startedUtc": "2026-10-14T07:46:07.870Z",
+        "recordedCompletedUtc": "2026-10-14T07:47:03.099Z",
+        "elapsedMs": 55229
+      },
+      {
+        "variant": "B3.2",
+        "uuid": "01a13960-31d3-78f0-8e54-d1ccba453d14",
+        "turn": 2,
+        "startedUtc": "2026-10-14T07:48:01.403Z",
+        "recordedCompletedUtc": "2026-10-14T07:49:43.049Z",
+        "elapsedMs": 101646
+      },
+      {
+        "variant": "B3.2",
+        "uuid": "01a13960-31d3-78f0-8e54-d1ccba453d14",
+        "turn": 3,
+        "startedUtc": "2026-10-14T07:49:43.101Z",
+        "recordedCompletedUtc": "2026-10-14T07:49:59.836Z",
+        "elapsedMs": 16735
+      },
+      {
+        "variant": "B4.1",
+        "uuid": "01a13963-bc67-7890-b027-486f6c74fe55",
+        "turn": 1,
+        "startedUtc": "2026-10-14T07:49:59.938Z",
+        "recordedCompletedUtc": "2026-10-14T07:51:03.399Z",
+        "elapsedMs": 63461
+      },
+      {
+        "variant": "B6.1",
+        "uuid": "01a1395c-f0a6-7861-9787-fe7bdf4a7750",
+        "turn": 1,
+        "startedUtc": "2026-10-14T07:42:34.530Z",
+        "recordedCompletedUtc": "2026-10-14T07:43:33.095Z",
+        "elapsedMs": 58565
+      },
+      {
+        "variant": "B6.1",
+        "uuid": "01a1395c-f0a6-7861-9787-fe7bdf4a7750",
+        "turn": 2,
+        "startedUtc": "2026-10-14T07:46:05.882Z",
+        "recordedCompletedUtc": "2026-10-14T07:47:33.346Z",
+        "elapsedMs": 87464
+      },
+      {
+        "variant": "B6.2-revise",
+        "uuid": "01a13961-8059-7e92-9a15-1a0ceb4b2e57",
+        "turn": 1,
+        "startedUtc": "2026-10-14T07:47:33.492Z",
+        "recordedCompletedUtc": "2026-10-14T07:48:17.531Z",
+        "elapsedMs": 44039
+      },
+      {
+        "variant": "B6.2-compare",
+        "uuid": "01a13962-2cb8-7091-bce1-2c8fe8ad0b85",
+        "turn": 1,
+        "startedUtc": "2026-10-14T07:48:17.631Z",
+        "recordedCompletedUtc": "2026-10-14T07:48:53.042Z",
+        "elapsedMs": 35411
+      },
+      {
+        "variant": "B6.2-review",
+        "uuid": "01a13962-b775-7811-b07c-16504278254d",
+        "turn": 1,
+        "startedUtc": "2026-10-14T07:48:53.144Z",
+        "recordedCompletedUtc": "2026-10-14T07:49:06.357Z",
+        "elapsedMs": 13213
+      },
+      {
+        "variant": "B1.1",
+        "uuid": "01a1395f-c71b-7853-9cf3-8c10565ef5df",
+        "turn": 1,
+        "startedUtc": "2026-10-14T07:45:40.518Z",
+        "recordedCompletedUtc": "2026-10-14T07:46:43.321Z",
+        "elapsedMs": 62803
+      },
+      {
+        "variant": "B1.1",
+        "uuid": "01a1395f-c71b-7853-9cf3-8c10565ef5df",
+        "turn": 2,
+        "startedUtc": "2026-10-14T07:46:43.417Z",
+        "recordedCompletedUtc": "2026-10-14T07:47:25.068Z",
+        "elapsedMs": 41651
+      },
+      {
+        "variant": "B1.1",
+        "uuid": "01a1395f-c71b-7853-9cf3-8c10565ef5df",
+        "turn": 3,
+        "startedUtc": "2026-10-14T07:47:25.115Z",
+        "recordedCompletedUtc": "2026-10-14T07:47:40.489Z",
+        "elapsedMs": 15374
+      },
+      {
+        "variant": "B1.1",
+        "uuid": "01a1395f-c71b-7853-9cf3-8c10565ef5df",
+        "turn": 4,
+        "startedUtc": "2026-10-14T07:52:14.357Z",
+        "recordedCompletedUtc": "2026-10-14T07:54:07.851Z",
+        "elapsedMs": 113494
+      },
+      {
+        "variant": "B1.2-delayed",
+        "uuid": "01a13967-8533-7022-874c-f9c9a07f540c",
+        "turn": 1,
+        "startedUtc": "2026-10-14T07:54:07.963Z",
+        "recordedCompletedUtc": "2026-10-14T07:55:04.069Z",
+        "elapsedMs": 56106
+      },
+      {
+        "variant": "B1.2-delayed",
+        "uuid": "01a13967-8533-7022-874c-f9c9a07f540c",
+        "turn": 2,
+        "startedUtc": "2026-10-14T07:55:43.239Z",
+        "recordedCompletedUtc": "2026-10-14T07:56:03.947Z",
+        "elapsedMs": 20708
+      },
+      {
+        "variant": "B1.2-delayed",
+        "uuid": "01a13967-8533-7022-874c-f9c9a07f540c",
+        "turn": 3,
+        "startedUtc": "2026-10-14T07:56:03.997Z",
+        "recordedCompletedUtc": "2026-10-14T07:57:41.112Z",
+        "elapsedMs": 97115
+      },
+      {
+        "variant": "B1.2-combined",
+        "uuid": "01a1396a-c640-74d0-8985-92e9f63c76c0",
+        "turn": 1,
+        "startedUtc": "2026-10-14T07:57:41.215Z",
+        "recordedCompletedUtc": "2026-10-14T07:58:43.074Z",
+        "elapsedMs": 61859
+      },
+      {
+        "variant": "E1-staff",
+        "uuid": "01a1395f-c7f6-78e0-a3be-40d87a4d67ab",
+        "turn": 1,
+        "startedUtc": "2026-10-14T07:45:40.744Z",
+        "recordedCompletedUtc": "2026-10-14T07:46:40.484Z",
+        "elapsedMs": 59740
+      },
+      {
+        "variant": "E1-staff",
+        "uuid": "01a1395f-c7f6-78e0-a3be-40d87a4d67ab",
+        "turn": 2,
+        "startedUtc": "2026-10-14T07:52:03.926Z",
+        "recordedCompletedUtc": "2026-10-14T07:55:30.147Z",
+        "elapsedMs": 206221
+      },
+      {
+        "variant": "E2",
+        "uuid": "01a13968-c6b5-75a3-9d1f-3f372e634f28",
+        "turn": 1,
+        "startedUtc": "2026-10-14T07:55:30.259Z",
+        "recordedCompletedUtc": "2026-10-14T07:56:15.808Z",
+        "elapsedMs": 45549
+      },
+      {
+        "variant": "E2",
+        "uuid": "01a13968-c6b5-75a3-9d1f-3f372e634f28",
+        "turn": 2,
+        "startedUtc": "2026-10-14T07:57:10.648Z",
+        "recordedCompletedUtc": "2026-10-14T07:57:49.503Z",
+        "elapsedMs": 38855
+      }
+    ],
+    "maxRecordedElapsedMs": 206221,
+    "allBelow240000": true,
+    "qualification": "recorded turn.started precedes timer registration and recorded completed follows call close and harvesting; this bounds original completed captures but does not invent exact old exit/close timestamps or reclassify2INVALID. Supports retaining old actual PASS evidence without resampling."
+  },
+  "gradingRecovery": [
+    {
+      "relative": "blocking/runs/3d496616-1479-470c-924e-c1f574c57a4e/batch.json",
+      "currentBytes": 499067,
+      "currentSha256": "e8b446423c88338801198b883e63544f169b48ef7d506d6fae006fb1ad8265f8",
+      "recoveredPreparationBytes": 419233,
+      "recoveredPreparationSha256": "24aff01ce9a437eaffdf7ff3c8c3c18dbe83cffb9591fc12f1b8ea6c4436df33",
+      "remainingImportPrefix": 1,
+      "changedSincePreparation": true,
+      "declaredImportCount": 3,
+      "onlyGradingFields": true
+    },
+    {
+      "relative": "blocking/runs/7250ca76-4051-4e75-8add-375a13ad4d72/batch.json",
+      "currentBytes": 460757,
+      "currentSha256": "dfbda95951bcdd58491d84e37e14f4f3d9dc7e19527547453a260d34821e4a24",
+      "recoveredPreparationBytes": 358768,
+      "recoveredPreparationSha256": "e1fc7876982c82ea32f54d9d5ac879b94aca0d2244e47f42b7e5c9bf03fa9f95",
+      "remainingImportPrefix": 0,
+      "changedSincePreparation": true,
+      "declaredImportCount": 4,
+      "onlyGradingFields": true
+    },
+    {
+      "relative": "blocking/runs/78fccc4a-3cf9-4c49-b442-e05227943a4a/batch.json",
+      "currentBytes": 508211,
+      "currentSha256": "63c2e5766eecbe54dbda9f6fbea24e41e53134d06513fcb588cfc47689585ba7",
+      "recoveredPreparationBytes": 367826,
+      "recoveredPreparationSha256": "fcf78a96d529b4b3ed998b630b44909edc1ba2173dd3a6fe64cd303b28489aa6",
+      "remainingImportPrefix": 0,
+      "changedSincePreparation": true,
+      "declaredImportCount": 3,
+      "onlyGradingFields": true
+    },
+    {
+      "relative": "expanded/runs/77c6c1cc-00a7-4d24-b2f2-a656b34f0538/batch.json",
+      "currentBytes": 379108,
+      "currentSha256": "0bb08b25dde382f1699f712dca4e11c13c3faaa05aaed4636d17515e5a76ed4d",
+      "recoveredPreparationBytes": 343968,
+      "recoveredPreparationSha256": "5f2a650858cc9908087fc9ef6180afff85a69f43ab033f6b103b91b5d884ec07",
+      "remainingImportPrefix": 0,
+      "changedSincePreparation": true,
+      "declaredImportCount": 1,
+      "onlyGradingFields": true
+    },
+    {
+      "relative": "expanded/runs/8a0770ea-53f9-40eb-bde7-6cf47dcc6ca8/batch.json",
+      "currentBytes": 443134,
+      "currentSha256": "c088123f5acbec77ef88b400ebb85d55f92688af9c0f165147f5d2071d28bac8",
+      "recoveredPreparationBytes": 355915,
+      "recoveredPreparationSha256": "5e5e700a1fdf89f40058a61464e7a221abce63dc71b7c50d043b2a0d8a3af03d",
+      "remainingImportPrefix": 0,
+      "changedSincePreparation": true,
+      "declaredImportCount": 2,
+      "onlyGradingFields": true
+    },
+    {
+      "relative": "expanded/runs/b5e6ff15-a0c6-414e-82e7-28e6d7ef0458/batch.json",
+      "currentBytes": 340910,
+      "currentSha256": "16d48d7aee7a1bd92fc58fff62b90213da3acb93c7498ddadc184dcb50ce07da",
+      "recoveredPreparationBytes": 340910,
+      "recoveredPreparationSha256": "16d48d7aee7a1bd92fc58fff62b90213da3acb93c7498ddadc184dcb50ce07da",
+      "remainingImportPrefix": 0,
+      "changedSincePreparation": false,
+      "declaredImportCount": 0,
+      "onlyGradingFields": true
+    },
+    {
+      "relative": "expanded/runs/e3bcc9fc-fe81-442e-8bb1-1765e53a65a0/batch.json",
+      "currentBytes": 345614,
+      "currentSha256": "7c9ffac74b566802055f3adf7810a9f5b70c9b0b52334188bf880cb25f2a678f",
+      "recoveredPreparationBytes": 345614,
+      "recoveredPreparationSha256": "7c9ffac74b566802055f3adf7810a9f5b70c9b0b52334188bf880cb25f2a678f",
+      "remainingImportPrefix": 0,
+      "changedSincePreparation": false,
+      "declaredImportCount": 0,
+      "onlyGradingFields": true
+    }
+  ],
+  "rootGradingProof": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\provenance\\grade-import\\post-import-equivalence-r2.json",
+    "bytes": 3130,
+    "sha256": "b804dbd0ef83281522a6954941a631cb27657cbeaf1c09eafade66fdcbc8069d"
+  },
+  "initialReviewFailure": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\independent-review-first-error.json",
+    "bytes": 855,
+    "sha256": "6cdda40eec4e3219b88f844b0e3e84cb91c1673aab6b822eb8ac92054993278b"
+  },
+  "originalBatchInventory": {
+    "before": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source20-batches-before-r2.json",
+      "bytes": 72388,
+      "sha256": "73e6558396d915d5f286707bc65dcaa684a10a77fc13f3b474e11a9a4a2c1506"
+    },
+    "after": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\source20-batches-after-r2.json",
+      "bytes": 72388,
+      "sha256": "73e6558396d915d5f286707bc65dcaa684a10a77fc13f3b474e11a9a4a2c1506"
+    },
+    "actualBatches": 7,
+    "actualInvalidTurns": 2,
+    "verifiedOriginalRawFiles": 252,
+    "originalStatusesPreserved": true
+  },
+  "runtime": [
+    {
+      "relative": "plugin.json",
+      "bytes": 1531,
+      "sha256": "57e3777e8332e9fda22c7c6df33bd7c27ed2157b5c6c78c090901f8a16c21917",
+      "sameCanonicalAndWorkingTree": true
+    },
+    {
+      "relative": "skills/guide/SKILL.md",
+      "bytes": 6084,
+      "sha256": "65b279cdaed154c421d1a674c0ac052ca98a98c5aeda7fe6fdf89bc907369251",
+      "sameCanonicalAndWorkingTree": true
+    },
+    {
+      "relative": "skills/guide/references/guide-framework.md",
+      "bytes": 9122,
+      "sha256": "4a91f73f4f16a7f6cd89f473b3b25ee950987dc917f516232fc84d65fe4e8118",
+      "sameCanonicalAndWorkingTree": true
+    },
+    {
+      "relative": "skills/guide/references/interaction-design.md",
+      "bytes": 9247,
+      "sha256": "af14c904e4b37f728aaaacb4356972c4fc0bc590872f271361fbc7d24d8430a1",
+      "sameCanonicalAndWorkingTree": true
+    },
+    {
+      "relative": "skills/guide/agents/openai.yaml",
+      "bytes": 444,
+      "sha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+      "sameCanonicalAndWorkingTree": true
+    },
+    {
+      "relative": "assets/icon.svg",
+      "bytes": 1261,
+      "sha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+      "sameCanonicalAndWorkingTree": true
+    },
+    {
+      "relative": "assets/icon.png",
+      "bytes": 119566,
+      "sha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+      "sameCanonicalAndWorkingTree": true
+    }
+  ],
+  "limitations": [
+    "No independent stdio-drain timeout is added;240000ms bounds observed exit only, not close.",
+    "Specific original Codex delay cause remains UNKNOWN; neither V2 fixtures nor this static integration review recover missing old exit/kill timestamps.",
+    "This review is technical readiness only. Fresh separately recorded model calls and independent semantic review are still required; existing true PASS cases should not be resampled."
+  ],
+  "initialPreparationFailure": {
+    "receiptFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\preparation-records\\source20-integration.actual-execution.json",
+    "receiptPin": {
+      "bytes": 1468,
+      "sha256": "515ff61a0e90716f5c9f7e005bb3d4f72d536083230188623386fd79b208ea78"
+    },
+    "status": 1,
+    "chunk": "6bb33a",
+    "reason": "Wrong CRLF anchor; all three actual source harnesses are LF (bd3383). Original copier and failure stdout/stderr preserved, no active harness/model/install written."
+  },
+  "readErrors": [
+    {
+      "description": "One PowerShell preview assumed node-check.rows instead of actual checks and returned a null-array error; subsequent full programmatic parsing of all26 checks supplied evidence. Some broad previews were truncated; exact bytes and JSON objects were read directly by this independent verifier, not inferred from displays."
+    }
+  ],
+  "noModelNoInstallNoCacheNoGradeNoArchiveNoRuntimeOrOriginalMutation": true,
+  "oldInvalidNotPromoted": true,
+  "githubApprovalReplacement": false,
+  "clientUiStatus": "NOT_RUN",
+  "effectStatus": "NOT_MEASURED"
+}

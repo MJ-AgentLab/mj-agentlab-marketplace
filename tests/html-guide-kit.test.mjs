@@ -5,7 +5,7 @@ import os from "node:os";
 import path from "node:path";
 import crypto from "node:crypto";
 import {parseDocument} from "yaml";
-import {RUNTIME_PLUGINS,PUBLIC_SKILLS,EXPLICIT_ONLY_SKILLS,REPOSITORY_SKILLS,SKILL_RESOURCES,validateManifest,validateOpenAIConfig,validateRepository,assertInstalledSkillResources,assertInstalledPluginResources} from "../scripts/validate-portable.mjs";
+import {RUNTIME_PLUGINS,PUBLIC_SKILLS,EXPLICIT_ONLY_SKILLS,REPOSITORY_SKILLS,SKILL_RESOURCES,GUIDE_ENTRY_MAX_BYTES,validateGuideEntryBudget,validateManifest,validateOpenAIConfig,validateRepository,assertInstalledSkillResources,assertInstalledPluginResources} from "../scripts/validate-portable.mjs";
 
 const REPO=path.resolve(import.meta.dirname,".."),TEMP_ROOT=fs.realpathSync.native(os.tmpdir());
 const PLUGIN="html-guide-kit",SKILL="html-guide-kit:guide",SKILL_PATH="skills/guide";
@@ -37,13 +37,31 @@ function repositoryFixture(t){
 }
 
 // These are distribution and metadata checks. Model behavior is validated separately.
+test("guide entry budget counts UTF-8 bytes at the exact boundary",()=>{
+ assert.doesNotThrow(()=>validateGuideEntryBudget("a".repeat(GUIDE_ENTRY_MAX_BYTES)));
+ assert.throws(()=>validateGuideEntryBudget("a".repeat(GUIDE_ENTRY_MAX_BYTES+1)),/entry budget/);
+ assert.doesNotThrow(()=>validateGuideEntryBudget("教".repeat(GUIDE_ENTRY_MAX_BYTES/3)));
+ assert.throws(()=>validateGuideEntryBudget("教".repeat(GUIDE_ENTRY_MAX_BYTES/3)+"a"),/entry budget/);
+ assert.doesNotThrow(()=>validateGuideEntryBudget(read(`${SKILL_PATH}/SKILL.md`)));
+});
+
+test("repository and byte-identical installation reject an oversized guide entry",t=>{
+ const root=repositoryFixture(t),file=path.join(root,"plugins",PLUGIN,SKILL_PATH,"SKILL.md");
+ fs.appendFileSync(file,"教".repeat(GUIDE_ENTRY_MAX_BYTES/3));
+ const result=validateRepository(root);assert.equal(result.ok,false);
+ assert.ok(result.errors.some(error=>error.includes("guide SKILL.md")&&error.includes("entry budget")),result.errors.join("\n"));
+ const f=installedFixture(t),source=path.join(f.source,SKILL_PATH),installed=path.join(f.installed,SKILL_PATH);
+ for(const dir of [source,installed])fs.appendFileSync(path.join(dir,"SKILL.md"),"教".repeat(GUIDE_ENTRY_MAX_BYTES/3));
+ assert.throws(()=>assertInstalledSkillResources(source,installed,SKILL),/entry budget/);
+});
+
 test("HTML Guide Kit has one approved Read-only explicit entry without changing repository skill count",()=>{
  assert.deepEqual(RUNTIME_PLUGINS[PLUGIN],["guide"]);
  assert.deepEqual(PUBLIC_SKILLS,["diagram-kit:arch-diagram","learning-evidence-kit:pop-quiz","learning-evidence-kit:learning-record-check","explain-kit:glossary","explain-kit:concept","communication-kit:communicate",SKILL]);
  assert.deepEqual(EXPLICIT_ONLY_SKILLS,["learning-evidence-kit:pop-quiz","learning-evidence-kit:learning-record-check","communication-kit:communicate",SKILL]);
  assert.deepEqual(PUBLIC_SKILLS.filter(name=>!EXPLICIT_ONLY_SKILLS.includes(name)),["diagram-kit:arch-diagram","explain-kit:glossary","explain-kit:concept"]);
  assert.equal(REPOSITORY_SKILLS.length,20);assert.ok(!REPOSITORY_SKILLS.includes("guide"));
- const m=manifest();assert.equal(m.name,PLUGIN);assert.equal(m.version,"0.1.0");assert.deepEqual(ui(m).capabilities,["Read"]);validateManifest(m,PLUGIN);
+ const m=manifest();assert.equal(m.name,PLUGIN);assert.equal(m.version,"0.1.22");assert.deepEqual(ui(m).capabilities,["Read"]);validateManifest(m,PLUGIN);
 });
 
 test("HTML Guide Kit manifest rejects wrong identity, root versions, capabilities and routes",()=>{
@@ -115,7 +133,10 @@ test("guide references cannot borrow another directory through a junction",t=>{
 for(const resource of RESOURCES)test("installed guide compares actual bytes and rejects missing or drifted resource: "+resource,t=>{
  const f=installedFixture(t),source=path.join(f.source,SKILL_PATH),installed=path.join(f.installed,SKILL_PATH),file=path.join(installed,resource),bytes=fs.readFileSync(file);
  assert.doesNotThrow(()=>assertInstalledSkillResources(source,installed,SKILL));
- fs.writeFileSync(file,Buffer.concat([bytes,Buffer.from("\n")]));
+ // Keep valid text drift independent of the entry budget and YAML structure.
+ const drifted=Buffer.from(bytes),offset=resource.startsWith("references/")
+  ?bytes.findIndex(byte=>(byte>=65&&byte<=90)||(byte>=97&&byte<=122)):bytes.indexOf("HTML");
+ assert.ok(offset>=0);drifted[offset]^=32;fs.writeFileSync(file,drifted);
  assert.throws(()=>assertInstalledSkillResources(source,installed,SKILL),/installed skill resource differs/);
  fs.writeFileSync(file,bytes);fs.unlinkSync(file);
  assert.throws(()=>assertInstalledSkillResources(source,installed,SKILL));

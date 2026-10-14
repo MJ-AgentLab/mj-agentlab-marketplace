@@ -1,0 +1,92 @@
+{
+  "canonicalSha": "d106e76651d53cdf3f0cef2bb33ce47e8d7fda38",
+  "correction": "facts-summary.json optional capabilities field inspected the absent top-level property; actual capabilities are nested under extensions.com.openai.interface and recorded here. Versions/identity/hash results are unchanged.",
+  "manifests": [
+    {
+      "path": "plugins/diagram-kit/plugin.json",
+      "gitCommand": {
+        "command": "git",
+        "args": [
+          "show",
+          "d106e76651d53cdf3f0cef2bb33ce47e8d7fda38:plugins/diagram-kit/plugin.json"
+        ],
+        "status": 0
+      },
+      "rawBlobSha256": "73187e59a99b5a292efd23cf288cecbe5d67110c767044c01f8e76ecbc5162c1",
+      "name": "diagram-kit",
+      "version": "0.3.1",
+      "interfaceProperty": "extensions.com.openai.interface",
+      "capabilities": [
+        "Read",
+        "Write"
+      ],
+      "defaultPrompt": [
+        "Use $diagram-kit:arch-diagram to draw evidence-backed Mermaid architecture diagrams for this repository."
+      ]
+    },
+    {
+      "path": "plugins/understanding-kit/plugin.json",
+      "gitCommand": {
+        "command": "git",
+        "args": [
+          "show",
+          "d106e76651d53cdf3f0cef2bb33ce47e8d7fda38:plugins/understanding-kit/plugin.json"
+        ],
+        "status": 0
+      },
+      "rawBlobSha256": "e5fe1b128035914e662d33582ca841dc490c33390eeade1ae7fb29559614424a",
+      "name": "understanding-kit",
+      "version": "0.1.2",
+      "interfaceProperty": "extensions.com.openai.interface",
+      "capabilities": [
+        "Read"
+      ],
+      "defaultPrompt": [
+        "Use $understanding-kit:pop-quiz to check the minimum understanding I need for my responsibilities in this task, using the available context snapshot."
+      ]
+    },
+    {
+      "path": "plugins/explain-kit/plugin.json",
+      "gitCommand": {
+        "command": "git",
+        "args": [
+          "show",
+          "d106e76651d53cdf3f0cef2bb33ce47e8d7fda38:plugins/explain-kit/plugin.json"
+        ],
+        "status": 0
+      },
+      "rawBlobSha256": "a946b7c7fe8c2fe69c87c0cd41884b7a3276d60986db1beb6ec6b60a9f212433",
+      "name": "explain-kit",
+      "version": "0.1.1",
+      "interfaceProperty": "extensions.com.openai.interface",
+      "capabilities": [
+        "Read"
+      ],
+      "defaultPrompt": [
+        "Use $explain-kit:glossary to briefly explain an unfamiliar term in Chinese.",
+        "Use $explain-kit:concept to explain a concept's mechanism, examples and boundaries."
+      ]
+    },
+    {
+      "path": "plugins/html-guide-kit/plugin.json",
+      "gitCommand": {
+        "command": "git",
+        "args": [
+          "show",
+          "d106e76651d53cdf3f0cef2bb33ce47e8d7fda38:plugins/html-guide-kit/plugin.json"
+        ],
+        "status": 0
+      },
+      "rawBlobSha256": "ca653936ef2e38e0ae6d69b8d2d6ca515cc42c145331e500bd948fc78cfad3fa",
+      "name": "html-guide-kit",
+      "version": "0.1.0",
+      "interfaceProperty": "extensions.com.openai.interface",
+      "capabilities": [
+        "Read"
+      ],
+      "defaultPrompt": [
+        "Use $html-guide-kit:guide for a new teaching guide; offer reader, task and question options, then wait for my confirmation."
+      ]
+    }
+  ]
+}

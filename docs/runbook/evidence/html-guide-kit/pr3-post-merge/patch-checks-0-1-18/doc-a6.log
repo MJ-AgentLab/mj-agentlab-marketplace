@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: parseChangelog: section boundaries, heading-free bodies, fence blindness fixed
+ok 1 - parseChangelog: section boundaries, heading-free bodies, fence blindness fixed
+  ---
+  duration_ms: 1.2672
+  type: 'test'
+  ...
+# Subtest: parseChangelog: flags heading lookalikes, leaves ordinary prose alone
+ok 2 - parseChangelog: flags heading lookalikes, leaves ordinary prose alone
+  ---
+  duration_ms: 0.2071
+  type: 'test'
+  ...
+# Subtest: no CHANGELOG has a heading that only looks like a section heading
+ok 3 - no CHANGELOG has a heading that only looks like a section heading
+  ---
+  duration_ms: 2.2448
+  type: 'test'
+  ...
+# Subtest: every CHANGELOG section heading has the exact shape run-release.mjs greps for
+ok 4 - every CHANGELOG section heading has the exact shape run-release.mjs greps for
+  ---
+  duration_ms: 2.2829
+  type: 'test'
+  ...
+# Subtest: the newest shipping CHANGELOG section is substantive and names its own version
+ok 5 - the newest shipping CHANGELOG section is substantive and names its own version
+  ---
+  duration_ms: 1.6462
+  type: 'test'
+  ...
+# Subtest: root CHANGELOG permanently carries the NLM-only BREAKING disclosures in one section
+ok 6 - root CHANGELOG permanently carries the NLM-only BREAKING disclosures in one section
+  ---
+  duration_ms: 1.0429
+  type: 'test'
+  ...
+# Subtest: learn-kit CHANGELOG permanently marks the 4.0.0 NLM break in one section
+ok 7 - learn-kit CHANGELOG permanently marks the 4.0.0 NLM break in one section
+  ---
+  duration_ms: 0.4348
+  type: 'test'
+  ...
+# Subtest: diagram-kit CHANGELOG permanently marks the 0.2.0 Codex bump in one section
+ok 8 - diagram-kit CHANGELOG permanently marks the 0.2.0 Codex bump in one section
+  ---
+  duration_ms: 0.2704
+  type: 'test'
+  ...
+# Subtest: README covers both clients and every maintained qualified public skill
+ok 9 - README covers both clients and every maintained qualified public skill
+  ---
+  duration_ms: 0.5015
+  type: 'test'
+  ...
+# Subtest: upgrade guide preserves old data and explains explicit uninstall
+ok 10 - upgrade guide preserves old data and explains explicit uninstall
+  ---
+  duration_ms: 0.4506
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 125.8787

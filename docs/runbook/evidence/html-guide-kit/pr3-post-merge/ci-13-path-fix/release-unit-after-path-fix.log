@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: release install uses the exact canonical tree rather than a dirty checkout
+ok 1 - release install uses the exact canonical tree rather than a dirty checkout
+  ---
+  duration_ms: 10618.2149
+  type: 'test'
+  ...
+# Subtest: invalid canonical source never calls the installer
+ok 2 - invalid canonical source never calls the installer
+  ---
+  duration_ms: 10910.7496
+  type: 'test'
+  ...
+# Subtest: a retired instruction entry blocks canonical release installation
+ok 3 - a retired instruction entry blocks canonical release installation
+  ---
+  duration_ms: 10617.1643
+  type: 'test'
+  ...
+# Subtest: failed installation cleans up the canonical worktree and fails closed
+ok 4 - failed installation cleans up the canonical worktree and fails closed
+  ---
+  duration_ms: 9746.5053
+  type: 'test'
+  ...
+# Subtest: canonical release validation includes explain-kit before invoking installation
+ok 5 - canonical release validation includes explain-kit before invoking installation
+  ---
+  duration_ms: 10264.2551
+  type: 'test'
+  ...
+# Subtest: canonical communication resource loss or tampering blocks installation before any installer call
+ok 6 - canonical communication resource loss or tampering blocks installation before any installer call
+  ---
+  duration_ms: 61383.829
+  type: 'test'
+  ...
+# Subtest: canonical installation rejects missing HTML Guide Kit runtime files and contract drift before calling installer
+ok 7 - canonical installation rejects missing HTML Guide Kit runtime files and contract drift before calling installer
+  ---
+  duration_ms: 28430.3791
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 146562.3771

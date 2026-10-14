@@ -1,0 +1,692 @@
+{
+  "recordedAt": "2026-10-14T07:05:47.598Z",
+  "runtimeVersion": "0.1.20",
+  "kind": "Source-rule coverage before gaps and whole-visible-guide length budgeting",
+  "entryBytes": 6084,
+  "entryCrLfBytes": 6138,
+  "frameworkBytes": 9122,
+  "interactionBytes": 9247,
+  "entryLimitUnchanged": 6144,
+  "fourReviewedGenericParagraphChanges": true,
+  "actualWorkingChecks": {
+    "recordedAt": "2026-10-14T06:59:02.254Z",
+    "runtimeApply": {
+      "chunk": "82514a",
+      "exitCode": 0
+    },
+    "versionDryRun": {
+      "chunk": "089e90",
+      "exitCode": 0,
+      "anchors": 1
+    },
+    "versionApply": {
+      "chunk": "877e45",
+      "exitCode": 0,
+      "anchors": 1
+    },
+    "documentationUpdate": {
+      "chunk": "3f23c2",
+      "exitCode": 0
+    },
+    "initialDocumentationSubset": {
+      "chunk": "00008e",
+      "exitCode": 0,
+      "actualTests": 10,
+      "command": "node --test tests/documentation-contract.test.mjs tests/a6.test.mjs",
+      "coverageLimitation": "Wrong A6 filename; only documentation-contract subset executed. Original log and observation preserved."
+    },
+    "documentationAndA6": {
+      "chunk": "ab418e",
+      "exitCode": 0,
+      "actualTests": 65,
+      "pass": 65,
+      "fail": 0,
+      "command": "node --test tests/documentation-contract.test.mjs tests/check-a6.test.mjs"
+    },
+    "validate": {
+      "chunk": "bb6e59",
+      "exitCode": 0
+    },
+    "baselineCheck": {
+      "chunk": "8e7703",
+      "exitCode": 0,
+      "actualCli": "0.147.0"
+    },
+    "fullTests": {
+      "outerUnifiedExecSessionId": 28096,
+      "initialChunk": "69d565",
+      "finalChunk": "2630a3",
+      "exitCode": 0,
+      "pass": 346,
+      "fail": 0,
+      "skip": 0,
+      "durationMs": 205194.3675
+    },
+    "whitespace": {
+      "chunk": "400347",
+      "exitCode": 0,
+      "immutableEvidenceExcluded": true
+    },
+    "installationStatus": "NOT_RUN",
+    "modelStatus": "NOT_RUN"
+  },
+  "rows": [
+    {
+      "relative": "applied-reviewed-runtime.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\applied-reviewed-runtime.json",
+      "bytes": 1244,
+      "sha256": "4c6a0036b5a939504ac8f4d6e26240d3c68b4b281c104b9a8b7d838877b48cc3"
+    },
+    {
+      "relative": "baseline-check.log",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\baseline-check.log",
+      "bytes": 213,
+      "sha256": "6c194d3cab975bfcaadd9ef894adc247ca34e53e06af305b0c215099eb27add3"
+    },
+    {
+      "relative": "behavior-b-helper-copy-control.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\behavior-b-helper-copy-control.json",
+      "bytes": 1265,
+      "sha256": "778feaf2416459570b2fe270a57b30f7cc74a917f1b4aa8a44f21455eac54620"
+    },
+    {
+      "relative": "blocking/choose-first.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\blocking\\choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1"
+    },
+    {
+      "relative": "blocking/frozen-spec.md.snapshot.txt",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\blocking\\frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d"
+    },
+    {
+      "relative": "blocking/harness.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\blocking\\harness.mjs",
+      "bytes": 44549,
+      "sha256": "a2a7089587831fffbd74f9af773c144a5fec7d23fef42c617d28a26123b42304"
+    },
+    {
+      "relative": "blocking/operator-observations.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\blocking\\operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871"
+    },
+    {
+      "relative": "blocking/plan.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\blocking\\plan.json",
+      "bytes": 13618,
+      "sha256": "58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2"
+    },
+    {
+      "relative": "blocking/record-native-loading.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\blocking\\record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253"
+    },
+    {
+      "relative": "build-controls-prep-only-behavior-a.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\build-controls-prep-only-behavior-a.mjs",
+      "bytes": 16774,
+      "sha256": "58c59ac082736bffeebf8ea4503ae6bfca19c01b2c1d4359979fe981a9669ec4"
+    },
+    {
+      "relative": "continuous-supplement/choose-first.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\continuous-supplement\\choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1"
+    },
+    {
+      "relative": "continuous-supplement/expanded-plan.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\continuous-supplement\\expanded-plan.mjs",
+      "bytes": 10495,
+      "sha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e"
+    },
+    {
+      "relative": "continuous-supplement/frozen-spec.md.snapshot.txt",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\continuous-supplement\\frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d"
+    },
+    {
+      "relative": "continuous-supplement/harness.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\continuous-supplement\\harness.mjs",
+      "bytes": 43513,
+      "sha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645"
+    },
+    {
+      "relative": "continuous-supplement/operator-observations.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\continuous-supplement\\operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871"
+    },
+    {
+      "relative": "continuous-supplement/plan.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\continuous-supplement\\plan.json",
+      "bytes": 17314,
+      "sha256": "af18c35badde6b55ba3134781823565f9688e14e3e51505ffb8760b05fb57cd9"
+    },
+    {
+      "relative": "continuous-supplement/record-native-loading.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\continuous-supplement\\record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253"
+    },
+    {
+      "relative": "controller.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\controller.mjs",
+      "bytes": 5228,
+      "sha256": "7da952339a88dea758b0822abdf1263d7c3bf68fb20e416c300c19678e8b62b8"
+    },
+    {
+      "relative": "copier-provenance.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\copier-provenance.json",
+      "bytes": 2612,
+      "sha256": "220ab8809e3b08cc91a9dca82889e9c6d3be444eb811f4caa987b4501f115889"
+    },
+    {
+      "relative": "copier-source-control.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\copier-source-control.json",
+      "bytes": 11429,
+      "sha256": "309b66a3457d3bb2a920543148f96d207a8c2cced1488688efc8ad616a6f0ac6"
+    },
+    {
+      "relative": "correction-context/E1-staff-T2.snapshot.txt",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\correction-context\\E1-staff-T2.snapshot.txt",
+      "bytes": 18546,
+      "sha256": "ea864a3dad18e3a4b00230992da30c8cf07a262e7d2031fc7b839169a8719a3b"
+    },
+    {
+      "relative": "correction-context/E14-code-T2.snapshot.txt",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\correction-context\\E14-code-T2.snapshot.txt",
+      "bytes": 20420,
+      "sha256": "b7c297aba5c2f268267426a787ecaacdbffbd2e71accb0a833e92b44dc22d28a"
+    },
+    {
+      "relative": "correction-context/E2-input.snapshot.txt",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\correction-context\\E2-input.snapshot.txt",
+      "bytes": 125,
+      "sha256": "a7d0365502e93519d9b923251140e07fd676684d0ef11db5bd7585a9da2ed3b5"
+    },
+    {
+      "relative": "correction-context/E2-T2.snapshot.txt",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\correction-context\\E2-T2.snapshot.txt",
+      "bytes": 2197,
+      "sha256": "ad2e38110cbc737207cdc6322dcc1b6731d66c5ce1df3c02941f676dc498f873"
+    },
+    {
+      "relative": "correction-context/read-receipts.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\correction-context\\read-receipts.json",
+      "bytes": 1404,
+      "sha256": "eb901324ede78cc3efd3e73ada9596baa7e233f09941c7729b08da192de6a330"
+    },
+    {
+      "relative": "correction-context/source-material.snapshot.txt",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\correction-context\\source-material.snapshot.txt",
+      "bytes": 1640,
+      "sha256": "66a948e4903134491c391188b7870e2fb47f3bc102271438911e1ade6a23b502"
+    },
+    {
+      "relative": "doc-a6-corrected.log",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\doc-a6-corrected.log",
+      "bytes": 12630,
+      "sha256": "9bd8ef0b9d40d31c98a4fa009034819e0a9cf7188bd74bd4f2fa1aa6723f9517"
+    },
+    {
+      "relative": "doc-a6-full.log",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\doc-a6-full.log",
+      "bytes": 2343,
+      "sha256": "4e9dd466f20b1a02f0e74f7e87dfc53b3cdbec941d3df13dc9da42dbc2290a49"
+    },
+    {
+      "relative": "draft/guide-framework.md.snapshot.txt",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\draft\\guide-framework.md.snapshot.txt",
+      "bytes": 9122,
+      "sha256": "4a91f73f4f16a7f6cd89f473b3b25ee950987dc917f516232fc84d65fe4e8118"
+    },
+    {
+      "relative": "draft/interaction-design.md.snapshot.txt",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\draft\\interaction-design.md.snapshot.txt",
+      "bytes": 9247,
+      "sha256": "af14c904e4b37f728aaaacb4356972c4fc0bc590872f271361fbc7d24d8430a1"
+    },
+    {
+      "relative": "draft/runtime-draft-control.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\draft\\runtime-draft-control.json",
+      "bytes": 7070,
+      "sha256": "1205c51378f7a05fe419a786122cf4154608ec5a47f4553f8dcc484f07e08942"
+    },
+    {
+      "relative": "draft/semantic-crosswalk.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\draft\\semantic-crosswalk.json",
+      "bytes": 9416,
+      "sha256": "f23dd62f8af1232f1f7385bae3806d00d97e713ff557a19bfbb7569902ebfe2d"
+    },
+    {
+      "relative": "draft/SKILL.md.snapshot.txt",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\draft\\SKILL.md.snapshot.txt",
+      "bytes": 6084,
+      "sha256": "65b279cdaed154c421d1a674c0ac052ca98a98c5aeda7fe6fdf89bc907369251"
+    },
+    {
+      "relative": "draft/source19-guide-framework.md.snapshot.txt",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\draft\\source19-guide-framework.md.snapshot.txt",
+      "bytes": 8547,
+      "sha256": "d0f88efdb46a28691af897c9df7f2e9f0154a5223924175d9fdc1c4120dc4a75"
+    },
+    {
+      "relative": "draft/source19-interaction-design.md.snapshot.txt",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\draft\\source19-interaction-design.md.snapshot.txt",
+      "bytes": 9247,
+      "sha256": "af14c904e4b37f728aaaacb4356972c4fc0bc590872f271361fbc7d24d8430a1"
+    },
+    {
+      "relative": "draft/source19-SKILL.md.snapshot.txt",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\draft\\source19-SKILL.md.snapshot.txt",
+      "bytes": 6061,
+      "sha256": "62bca7f777c7d77644f8378358cdb104bb2e51c285722d57e432237024dd4bd3"
+    },
+    {
+      "relative": "engineering-controller-preparation.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\engineering-controller-preparation.json",
+      "bytes": 540,
+      "sha256": "1d172593c5d02240a40e56276f473a64912cd3a703efb094f112c036b4515575"
+    },
+    {
+      "relative": "expanded/choose-first.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\expanded\\choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1"
+    },
+    {
+      "relative": "expanded/criterion-citation-erratum.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\expanded\\criterion-citation-erratum.json",
+      "bytes": 672,
+      "sha256": "8a1e7e3a4305b076e9069c39dd5f605ff21dca5a5ade59ada17afba60ed63969"
+    },
+    {
+      "relative": "expanded/expanded-plan.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\expanded\\expanded-plan.mjs",
+      "bytes": 10495,
+      "sha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e"
+    },
+    {
+      "relative": "expanded/frozen-spec.md.snapshot.txt",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\expanded\\frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d"
+    },
+    {
+      "relative": "expanded/harness.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\expanded\\harness.mjs",
+      "bytes": 43513,
+      "sha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645"
+    },
+    {
+      "relative": "expanded/operator-observations.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\expanded\\operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871"
+    },
+    {
+      "relative": "expanded/plan.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\expanded\\plan.json",
+      "bytes": 28082,
+      "sha256": "bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04"
+    },
+    {
+      "relative": "expanded/record-native-loading.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\expanded\\record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253"
+    },
+    {
+      "relative": "expanded/repeated-plan.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\expanded\\repeated-plan.json",
+      "bytes": 16222,
+      "sha256": "0b97085cdf412893e267bda912776d371a36f58e6fec7cb15bc086989c081d23"
+    },
+    {
+      "relative": "final-precommit-review-b.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\final-precommit-review-b.json",
+      "bytes": 22905,
+      "sha256": "67d9a6cfa00ea6255f9987eea3d7295000fd443bbaab98ca5c5de490718ecdce"
+    },
+    {
+      "relative": "finalize-preparation-only.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\finalize-preparation-only.mjs",
+      "bytes": 5073,
+      "sha256": "02468d27852c163fbbd2afd4c00528dede5d928c6b899c097d5df491976a6953"
+    },
+    {
+      "relative": "frozen-copy-inventory.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\frozen-copy-inventory.json",
+      "bytes": 59606,
+      "sha256": "df7b882675b0417cf9190e67a2abda54ac170fc7076e49161d6bfc9554e65197"
+    },
+    {
+      "relative": "guard-version-diff.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\guard-version-diff.json",
+      "bytes": 8007,
+      "sha256": "636a999df2091e2f705239191322588a1922e69a00ff322e9834c3f3a46501cb"
+    },
+    {
+      "relative": "manual-extra-helper-copy-control.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\manual-extra-helper-copy-control.json",
+      "bytes": 4383,
+      "sha256": "d67fa27a4f0fddf4a2fea3e92b0d52a4bf8a5213f1349c47d94e8fc6986b6539"
+    },
+    {
+      "relative": "manual-selection-behavior-a.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\manual-selection-behavior-a.mjs",
+      "bytes": 3264,
+      "sha256": "eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559"
+    },
+    {
+      "relative": "manual-selection-behavior-b.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\manual-selection-behavior-b.mjs",
+      "bytes": 3267,
+      "sha256": "c2d3f2ce80a6919aecb27892fe2790dce901981efa72c2aef2b773f9b1d1f394"
+    },
+    {
+      "relative": "manual-selection-continuous-behavior-a.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\manual-selection-continuous-behavior-a.mjs",
+      "bytes": 3370,
+      "sha256": "7fcf3c78437f33f8d146684e7e6173324a996b65c6722d58fec17dcfba643ecc"
+    },
+    {
+      "relative": "manual-selection-continuous-control.final.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\manual-selection-continuous-control.final.json",
+      "bytes": 1424,
+      "sha256": "f958efe94dc9475a32703e57885c069e7f95f884cd6b259471a490b085b57039"
+    },
+    {
+      "relative": "manual-selection-continuous-control.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\manual-selection-continuous-control.json",
+      "bytes": 1085,
+      "sha256": "b84e79d9c799413461c708b9fde47860acf1be57887dcd50f2f7a34c25750eea"
+    },
+    {
+      "relative": "npm-test.log",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\npm-test.log",
+      "bytes": 78945,
+      "sha256": "0e4125325abd974e93cc912433f087fe8915854ddc4674f09ac4b6819f98175b"
+    },
+    {
+      "relative": "operator-sequential.manual.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\operator-sequential.manual.mjs",
+      "bytes": 4977,
+      "sha256": "8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b"
+    },
+    {
+      "relative": "originals/prepare-correction.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\originals\\prepare-correction.mjs",
+      "bytes": 1937,
+      "sha256": "22900eae8473756b30ce86d4f9ab5a9d744ce35f72b485b7f8ce10fa3fcf8d4f"
+    },
+    {
+      "relative": "originals/prepare-coverage.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\originals\\prepare-coverage.mjs",
+      "bytes": 2403,
+      "sha256": "1228e537d49e326442bb4e1075b11aaab0963bf35e62ea780024405e250bdbee"
+    },
+    {
+      "relative": "originals/verify-canonical.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\originals\\verify-canonical.mjs",
+      "bytes": 5202,
+      "sha256": "f89c2e08da507222b4a8a86f061f756f56316594d8b4e607594eed06abddce15"
+    },
+    {
+      "relative": "precommit-reviewer-read-errors.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\precommit-reviewer-read-errors.json",
+      "bytes": 658,
+      "sha256": "2bef9eedf5d35dfda606abedd87de14eb1c52043d7b328517134a5c40680709f"
+    },
+    {
+      "relative": "preparation-execution.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\preparation-execution.json",
+      "bytes": 1155,
+      "sha256": "8e1daf32625c2d4ebef6dea6224e028bfaa660213e8d829b304715ce02656b81"
+    },
+    {
+      "relative": "preparation-execution.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\preparation-execution.mjs",
+      "bytes": 1817,
+      "sha256": "95a1f43e98154bc780447a3003fc7406c1c4e21ac164eb575df0940788c7986f"
+    },
+    {
+      "relative": "preparation-final-receipt.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\preparation-final-receipt.json",
+      "bytes": 35070,
+      "sha256": "16d344ad1d051b972d1e12c54a6cb5bc3f15244b5906025986fdcdda4b596fe3"
+    },
+    {
+      "relative": "preparation-read-observation.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\preparation-read-observation.json",
+      "bytes": 590,
+      "sha256": "9be15903ef2a9e6d974b0aa1377e0f4a367ef494033604e1d30d3450b85bc58b"
+    },
+    {
+      "relative": "preparation-verification.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\preparation-verification.json",
+      "bytes": 580,
+      "sha256": "93abf9c95d3339c4487af9670f9abb0f35a03a8ac2bc038baa8de09a5b9d6bc7"
+    },
+    {
+      "relative": "preparation.stderr.log",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\preparation.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "preparation.stdout.log",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\preparation.stdout.log",
+      "bytes": 1529,
+      "sha256": "c4aaed13887a87fd0a599ed492ef263ce66058d7664da18e9a30425b3c2f7276"
+    },
+    {
+      "relative": "prepare-copier-template.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\prepare-copier-template.mjs",
+      "bytes": 11127,
+      "sha256": "ff94a5a68a1f649aa7a06b7fb9f06efa4ba322c584eb58b96651fc703ac91561"
+    },
+    {
+      "relative": "prepare-correction.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\prepare-correction.mjs",
+      "bytes": 1937,
+      "sha256": "1e789dc6145e5825748eb8eff6a84f9bc86f5f366d52c1d3cbec35849d1bb240"
+    },
+    {
+      "relative": "prepare-coverage.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\prepare-coverage.mjs",
+      "bytes": 2403,
+      "sha256": "d6223208bc1efc6dd363bab798086ca45fadecd678c11b0fc3b443bfbb7c8950"
+    },
+    {
+      "relative": "prepare-draft-only.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\prepare-draft-only.mjs",
+      "bytes": 12125,
+      "sha256": "1b7192daac98873f0476b7e6f7549bc3b28a2f475e8268b7c4c960aac5bc4e3c"
+    },
+    {
+      "relative": "provenance/source19-build-controls-prep-only-behavior-a.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\provenance\\source19-build-controls-prep-only-behavior-a.mjs",
+      "bytes": 12769,
+      "sha256": "dc1a5de54d7690fdcc4ea3433e978d424d89122c78c11852a177b49986408205"
+    },
+    {
+      "relative": "provenance/source19-copier-original.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\provenance\\source19-copier-original.mjs",
+      "bytes": 12769,
+      "sha256": "dc1a5de54d7690fdcc4ea3433e978d424d89122c78c11852a177b49986408205"
+    },
+    {
+      "relative": "provenance/source19-copier-provenance.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\provenance\\source19-copier-provenance.json",
+      "bytes": 2612,
+      "sha256": "fea3d9531c391f2af5b2e94fb2284e765e5dad9babeddfa9a47e58567241e421"
+    },
+    {
+      "relative": "provenance/source19-guard-version-diff.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\provenance\\source19-guard-version-diff.json",
+      "bytes": 4073,
+      "sha256": "f5aa2a176b3c9e4ee37cdd04c52c0e5b48892b0eeec8427199db81e14187fa05"
+    },
+    {
+      "relative": "provenance/source19-inventory.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\provenance\\source19-inventory.json",
+      "bytes": 55400,
+      "sha256": "2dedefccb624d5cad08f45d331c5f947cefb2f89906ee23c9b82be5cf9412bb3"
+    },
+    {
+      "relative": "provenance/source19-manual-extra-helper-copy-control.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\provenance\\source19-manual-extra-helper-copy-control.json",
+      "bytes": 4383,
+      "sha256": "9a1b68c6b5cb9858f049da8cb029570359f81ed0004618c65ca8f7db6d4aad6b"
+    },
+    {
+      "relative": "README.md.snapshot.txt",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\README.md",
+      "bytes": 1466,
+      "sha256": "d6f9c7f515e62c5549a63b1b8a3d375c715ad4fdd17b253887cf1133544eadf4"
+    },
+    {
+      "relative": "record-operator-handoff-behavior-a.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\record-operator-handoff-behavior-a.mjs",
+      "bytes": 6816,
+      "sha256": "c9e93fb47caee212c3b5eb2322e963fa89fbe10008db469d9dd4dc6a47546d82"
+    },
+    {
+      "relative": "record-operator-handoff.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\record-operator-handoff.mjs",
+      "bytes": 4632,
+      "sha256": "553c482e3977ed600b0846051ee1de9fa983e3a656867a3aa4c05cda393339bf"
+    },
+    {
+      "relative": "record-recommended-observation-behavior-b.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\record-recommended-observation-behavior-b.mjs",
+      "bytes": 2258,
+      "sha256": "834624a2b2f6da8db78f9b5e86a7e029b2c77051764b38b5260849c92f0e5bd9"
+    },
+    {
+      "relative": "repeated-plan-control.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\repeated-plan-control.json",
+      "bytes": 1050,
+      "sha256": "47a66a9d5148b301f1fbff721670de92c8986467d590030159adcfd239c69c79"
+    },
+    {
+      "relative": "root-manual-helper-copy-control.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\root-manual-helper-copy-control.json",
+      "bytes": 608,
+      "sha256": "0cfa34d02f5db39ab8937c51345b6bc1b9c8a7e6cd150a724433c4f350b05c12"
+    },
+    {
+      "relative": "root-manual-select.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\root-manual-select.mjs",
+      "bytes": 1708,
+      "sha256": "e6cc6c7cd00ecc86fcca45f43fbbcafef34bea6d375123aa1622f5eedbcfefc6"
+    },
+    {
+      "relative": "source19-fixed-controls-before-after.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\source19-fixed-controls-before-after.json",
+      "bytes": 10725,
+      "sha256": "c94ebba1215a43b57f8f7705ed2ac4e7c7ebde515039a3e166c702eda812b23b"
+    },
+    {
+      "relative": "source19-whole-after-preparation-inventory.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\source19-whole-after-preparation-inventory.json",
+      "bytes": 200161,
+      "sha256": "9d410397c028cfc2d5eebd5fa4d1b11c16048422a1b2b65d695838d694b2ac27"
+    },
+    {
+      "relative": "source19-whole-before-preparation-inventory.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\source19-whole-before-preparation-inventory.json",
+      "bytes": 200168,
+      "sha256": "6e81d485703f0f03ddb4a16ca7bf5b43509c6c2d0749c8a118ac601a697b0278"
+    },
+    {
+      "relative": "source19-whole-during-preparation-diff.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\source19-whole-during-preparation-diff.json",
+      "bytes": 546,
+      "sha256": "5b851688b9071f94224b06c2461e484a4099909d144ab3a74b76b213ce47a887"
+    },
+    {
+      "relative": "static-review-020-b.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\static-review-020-b.json",
+      "bytes": 7941,
+      "sha256": "f90cb17c2a69338861683d72000cc3052291554b18fdfbebfb8022481f7119f1"
+    },
+    {
+      "relative": "static-review-020-logic.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\static-review-020-logic.json",
+      "bytes": 12771,
+      "sha256": "9841b59c72a633b1b475a7009b81fc780eedf3a5176f16100ab3660f01c25eb1"
+    },
+    {
+      "relative": "validate.log",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\validate.log",
+      "bytes": 392,
+      "sha256": "e3bedb0233222e468a1e207cfbcbaf1c3138a8827fde2769e9e2ede3a85eb3d8"
+    },
+    {
+      "relative": "verify-canonical.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\verify-canonical.mjs",
+      "bytes": 5202,
+      "sha256": "ecf3574499b7d3c808171455959519ae82540615935f2633fd6720c3ee02fc87"
+    },
+    {
+      "relative": "working-check-execution.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\working-check-execution.json",
+      "bytes": 1434,
+      "sha256": "7cf9e7f8ae5629f1244e88b7e528f8d3027c28304f301f3cccc6851d2cd4d828"
+    },
+    {
+      "relative": "working-check-running-observation.json",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\working-check-running-observation.json",
+      "bytes": 1612,
+      "sha256": "5e168fdd5c4b9e7d0ada8837e7e64c03f2ff4ff16174553f0e25abb3fedd29ae"
+    },
+    {
+      "relative": "write-final-precommit-review-b.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\write-final-precommit-review-b.mjs",
+      "bytes": 10122,
+      "sha256": "a13710ff1729c1be7e7f66bf30d156cd55dd8f80f31bff158d4e4d295b73f729"
+    },
+    {
+      "relative": "write-static-review-020-b.mjs",
+      "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\write-static-review-020-b.mjs",
+      "bytes": 7426,
+      "sha256": "e4011d1fe763f68c74f0000ebe5d9396fece48a96d15518a9a7029eeb0d6ab83"
+    },
+    {
+      "relative": "root-controls/apply-020-reviewed-runtime.mjs",
+      "sourcePath": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/tracking/apply-020-reviewed-runtime.mjs",
+      "bytes": 3688,
+      "sha256": "4502163f05102709eb4b82957e37142d9e1dc887cdc40cfde9dd13ba6102ddf3"
+    },
+    {
+      "relative": "root-controls/update-020-docs.mjs",
+      "sourcePath": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/tracking/update-020-docs.mjs",
+      "bytes": 9089,
+      "sha256": "13663c5a1b04eb2f96ae7a2b8b5ea99dc56fa8b1a188a35986e4da1876c7b09a"
+    },
+    {
+      "relative": "root-controls/prepare-020-engineering.mjs",
+      "sourcePath": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/tracking/prepare-020-engineering.mjs",
+      "bytes": 1176,
+      "sha256": "d057571f51b09c2c38353418c714de94684cf2bdcd7f7789c7e1a6189b017439"
+    },
+    {
+      "relative": "root-controls/seal-020-preparation.mjs",
+      "sourcePath": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/tracking/seal-020-preparation.mjs",
+      "bytes": 3421,
+      "sha256": "d4a360a9e05a0dfab7ec55f534449a74fff022c3d18224ef6a470d63d99608e7"
+    }
+  ],
+  "rawBytesPreserved": true,
+  "model": "NOT_RUN",
+  "canonicalInstallation": "NOT_RUN",
+  "staticOnly": true,
+  "source19PackAndGradesUntouched": true
+}

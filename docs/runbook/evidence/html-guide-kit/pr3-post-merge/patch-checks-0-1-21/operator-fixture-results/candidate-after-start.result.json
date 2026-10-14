@@ -1,0 +1,108 @@
+{
+  "name": "candidate-after-start",
+  "phase": "NON_MODEL_CONTROLLED_SCHEDULER_FIXTURE",
+  "operatorSource": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-sequential.manual.candidate.mjs",
+  "operatorSourcePin": {
+    "bytes": 5028,
+    "sha256": "fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42"
+  },
+  "operatorScratchPin": {
+    "bytes": 5028,
+    "sha256": "fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42"
+  },
+  "scratch": "C:\\Users\\Admin\\AppData\\Local\\Temp\\815aa2d0-18b8-419b-98c5-947654732b34",
+  "argv": [
+    "D:\\Development\\nodejs\\node.exe",
+    "C:\\Users\\Admin\\AppData\\Local\\Temp\\815aa2d0-18b8-419b-98c5-947654732b34\\operator.mjs",
+    "blocking",
+    "C:\\Users\\Admin\\AppData\\Local\\Temp\\815aa2d0-18b8-419b-98c5-947654732b34\\blocking\\runs\\bbfa5b26-75c4-4440-aa07-3101e418d059\\batch.json",
+    "--pause-file",
+    "C:\\Users\\Admin\\AppData\\Local\\Temp\\815aa2d0-18b8-419b-98c5-947654732b34\\normal-execution-pause.flag"
+  ],
+  "startedUtc": "2026-10-14T09:40:11.037Z",
+  "finishedUtc": "2026-10-14T09:40:11.271Z",
+  "actualExit": {
+    "code": 0,
+    "signal": null,
+    "utc": "2026-10-14T09:40:11.270Z"
+  },
+  "actualClose": {
+    "code": 0,
+    "signal": null,
+    "utc": "2026-10-14T09:40:11.270Z"
+  },
+  "error": null,
+  "stdoutBytes": 517,
+  "stdoutSha256": "6cc05b9ec61f12d4a6a6ae0cd0088e01466135a96479f97a0ce71f160e196f85",
+  "stderrBytes": 0,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "commandsPin": {
+    "bytes": 525,
+    "sha256": "8e967802704f603295196da60cf65e035b8ec2b259392496f377a0744cbabb1c"
+  },
+  "mutationCommands": [
+    {
+      "utc": "2026-10-14T09:40:11.127Z",
+      "pid": 10844,
+      "fixtureOnly": true,
+      "command": "start",
+      "variant": "X",
+      "completedTurn": 1
+    }
+  ],
+  "postFlagMutations": [],
+  "pauses": [
+    {
+      "recordedAt": "2026-10-14T09:40:11.260Z",
+      "method": "NORMAL_RETURN_AT_TURN_OR_VARIANT_BOUNDARY",
+      "boundaryVariant": "X",
+      "canonicalSha": "FIXTURE_NOT_A_CANONICAL",
+      "packageVersion": "FIXTURE_NOT_A_RUNTIME",
+      "operatorSha256": "fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42",
+      "pauseFile": "C:\\Users\\Admin\\AppData\\Local\\Temp\\815aa2d0-18b8-419b-98c5-947654732b34\\normal-execution-pause.flag",
+      "pauseMarkerBytes": 134,
+      "pauseMarkerSha256": "df934807eba5b598cf27ce008f428cae0afdde73ce7da14814d6ae174c7bc9f9",
+      "markerNeverSentToModel": true,
+      "processTerminationUsed": false,
+      "modelOrHarnessInterrupted": false,
+      "noSemanticGrade": true,
+      "effectStatus": "NOT_MEASURED",
+      "cases": [
+        {
+          "id": "X",
+          "plannedTurns": 3,
+          "executionStatus": "FIXTURE_PARTIAL",
+          "semanticStatus": "NO_MODEL",
+          "attempts": [
+            {
+              "attemptId": "fixture-attempt",
+              "uuid": null,
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "Y",
+          "plannedTurns": 1,
+          "executionStatus": "NOT_RUN",
+          "semanticStatus": "NO_MODEL",
+          "attempts": []
+        }
+      ]
+    }
+  ],
+  "flagPresentAtNormalChildReturn": true,
+  "flagTiming": "Fixture writes marker in real fake-child exit callback, before the scheduling parent observes close; it is present on normal return. Not a Codex/SDK completion event.",
+  "finalCounts": {
+    "X": 1,
+    "Y": 0
+  },
+  "modelInvoked": false,
+  "installationInvoked": false,
+  "killOrTimeoutAdded": false
+}

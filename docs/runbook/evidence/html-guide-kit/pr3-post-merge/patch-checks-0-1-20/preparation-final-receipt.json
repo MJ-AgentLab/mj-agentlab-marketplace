@@ -1,0 +1,553 @@
+{
+  "recordedAt": "2026-10-14T06:42:16.711Z",
+  "status": "PREP_ONLY_FINAL_RECEIPT",
+  "candidateVersion": "0.1.20",
+  "candidateCanonical": null,
+  "outerResult": {
+    "sessionId": null,
+    "chunk": "417c9d",
+    "exitCode": 0
+  },
+  "sourceCopierSha256": "dc1a5de54d7690fdcc4ea3433e978d424d89122c78c11852a177b49986408205",
+  "newCopierSha256": "58c59ac082736bffeebf8ea4503ae6bfca19c01b2c1d4359979fe981a9669ec4",
+  "inventoryFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\frozen-copy-inventory.json",
+  "inventorySha256": "df7b882675b0417cf9190e67a2abda54ac170fc7076e49161d6bfc9554e65197",
+  "guardDiffFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\guard-version-diff.json",
+  "guardDiffSha256": "636a999df2091e2f705239191322588a1922e69a00ff322e9834c3f3a46501cb",
+  "copyProvenanceSha256": "220ab8809e3b08cc91a9dca82889e9c6d3be444eb811f4caa987b4501f115889",
+  "copierSourceControlSha256": "309b66a3457d3bb2a920543148f96d207a8c2cced1488688efc8ad616a6f0ac6",
+  "executionFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\preparation-execution.json",
+  "executionSha256": "8e1daf32625c2d4ebef6dea6224e028bfaa660213e8d829b304715ce02656b81",
+  "counts": {
+    "coreExact": 30,
+    "guards": 3,
+    "extrasExact": 5,
+    "totalControls": 38,
+    "literalOccurrences": 9,
+    "actualDifferingBytes": 18,
+    "coreSyntax": 22,
+    "extraSyntax": 3
+  },
+  "guardRows": [
+    {
+      "relative": "prepare-correction.mjs",
+      "originalSha256": "22900eae8473756b30ce86d4f9ab5a9d744ce35f72b485b7f8ce10fa3fcf8d4f",
+      "newSha256": "1e789dc6145e5825748eb8eff6a84f9bc86f5f366d52c1d3cbec35849d1bb240",
+      "beforeBytes": 1937,
+      "afterBytes": 1937,
+      "byteLengthDelta": 0,
+      "versionOccurrences": 4,
+      "actualDifferingByteCount": 8,
+      "actualDifferingByteOffsets": [
+        62,
+        63,
+        534,
+        535,
+        812,
+        813,
+        875,
+        876
+      ]
+    },
+    {
+      "relative": "prepare-coverage.mjs",
+      "originalSha256": "1228e537d49e326442bb4e1075b11aaab0963bf35e62ea780024405e250bdbee",
+      "newSha256": "d6223208bc1efc6dd363bab798086ca45fadecd678c11b0fc3b443bfbb7c8950",
+      "beforeBytes": 2403,
+      "afterBytes": 2403,
+      "byteLengthDelta": 0,
+      "versionOccurrences": 4,
+      "actualDifferingByteCount": 8,
+      "actualDifferingByteOffsets": [
+        95,
+        96,
+        1204,
+        1205,
+        1505,
+        1506,
+        1568,
+        1569
+      ]
+    },
+    {
+      "relative": "verify-canonical.mjs",
+      "originalSha256": "f89c2e08da507222b4a8a86f061f756f56316594d8b4e607594eed06abddce15",
+      "newSha256": "ecf3574499b7d3c808171455959519ae82540615935f2633fd6720c3ee02fc87",
+      "beforeBytes": 5202,
+      "afterBytes": 5202,
+      "byteLengthDelta": 0,
+      "versionOccurrences": 1,
+      "actualDifferingByteCount": 2,
+      "actualDifferingByteOffsets": [
+        3923,
+        3924
+      ]
+    }
+  ],
+  "all35BodiesExact": true,
+  "source19Fixed38ControlsUnchanged": true,
+  "controls": [
+    {
+      "relative": "blocking/harness.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\blocking\\harness.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\blocking\\harness.mjs",
+      "sourceSha256": "a2a7089587831fffbd74f9af773c144a5fec7d23fef42c617d28a26123b42304",
+      "destinationSha256": "a2a7089587831fffbd74f9af773c144a5fec7d23fef42c617d28a26123b42304",
+      "bytes": 44549,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "a2a7089587831fffbd74f9af773c144a5fec7d23fef42c617d28a26123b42304",
+      "actualDestinationSha256": "a2a7089587831fffbd74f9af773c144a5fec7d23fef42c617d28a26123b42304"
+    },
+    {
+      "relative": "blocking/plan.json",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\blocking\\plan.json",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\blocking\\plan.json",
+      "sourceSha256": "58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2",
+      "destinationSha256": "58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2",
+      "bytes": 13618,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2",
+      "actualDestinationSha256": "58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2"
+    },
+    {
+      "relative": "blocking/frozen-spec.md",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\blocking\\frozen-spec.md",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\blocking\\frozen-spec.md",
+      "sourceSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "destinationSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "bytes": 28037,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "actualDestinationSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d"
+    },
+    {
+      "relative": "blocking/choose-first.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\blocking\\choose-first.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\blocking\\choose-first.mjs",
+      "sourceSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "destinationSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "bytes": 1592,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "actualDestinationSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1"
+    },
+    {
+      "relative": "blocking/record-native-loading.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\blocking\\record-native-loading.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\blocking\\record-native-loading.mjs",
+      "sourceSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "destinationSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "bytes": 4232,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "actualDestinationSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253"
+    },
+    {
+      "relative": "blocking/operator-observations.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\blocking\\operator-observations.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\blocking\\operator-observations.mjs",
+      "sourceSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "destinationSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "bytes": 1824,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "actualDestinationSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871"
+    },
+    {
+      "relative": "expanded/harness.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\expanded\\harness.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\expanded\\harness.mjs",
+      "sourceSha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645",
+      "destinationSha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645",
+      "bytes": 43513,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645",
+      "actualDestinationSha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645"
+    },
+    {
+      "relative": "expanded/plan.json",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\expanded\\plan.json",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\expanded\\plan.json",
+      "sourceSha256": "bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04",
+      "destinationSha256": "bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04",
+      "bytes": 28082,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04",
+      "actualDestinationSha256": "bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04"
+    },
+    {
+      "relative": "expanded/frozen-spec.md",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\expanded\\frozen-spec.md",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\expanded\\frozen-spec.md",
+      "sourceSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "destinationSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "bytes": 28037,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "actualDestinationSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d"
+    },
+    {
+      "relative": "expanded/choose-first.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\expanded\\choose-first.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\expanded\\choose-first.mjs",
+      "sourceSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "destinationSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "bytes": 1592,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "actualDestinationSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1"
+    },
+    {
+      "relative": "expanded/record-native-loading.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\expanded\\record-native-loading.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\expanded\\record-native-loading.mjs",
+      "sourceSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "destinationSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "bytes": 4232,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "actualDestinationSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253"
+    },
+    {
+      "relative": "expanded/operator-observations.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\expanded\\operator-observations.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\expanded\\operator-observations.mjs",
+      "sourceSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "destinationSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "bytes": 1824,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "actualDestinationSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871"
+    },
+    {
+      "relative": "expanded/expanded-plan.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\expanded\\expanded-plan.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\expanded\\expanded-plan.mjs",
+      "sourceSha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+      "destinationSha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+      "bytes": 10495,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+      "actualDestinationSha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e"
+    },
+    {
+      "relative": "continuous-supplement/harness.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\continuous-supplement\\harness.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\continuous-supplement\\harness.mjs",
+      "sourceSha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645",
+      "destinationSha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645",
+      "bytes": 43513,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645",
+      "actualDestinationSha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645"
+    },
+    {
+      "relative": "continuous-supplement/plan.json",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\continuous-supplement\\plan.json",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\continuous-supplement\\plan.json",
+      "sourceSha256": "af18c35badde6b55ba3134781823565f9688e14e3e51505ffb8760b05fb57cd9",
+      "destinationSha256": "af18c35badde6b55ba3134781823565f9688e14e3e51505ffb8760b05fb57cd9",
+      "bytes": 17314,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "af18c35badde6b55ba3134781823565f9688e14e3e51505ffb8760b05fb57cd9",
+      "actualDestinationSha256": "af18c35badde6b55ba3134781823565f9688e14e3e51505ffb8760b05fb57cd9"
+    },
+    {
+      "relative": "continuous-supplement/frozen-spec.md",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\continuous-supplement\\frozen-spec.md",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\continuous-supplement\\frozen-spec.md",
+      "sourceSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "destinationSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "bytes": 28037,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "actualDestinationSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d"
+    },
+    {
+      "relative": "continuous-supplement/choose-first.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\continuous-supplement\\choose-first.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\continuous-supplement\\choose-first.mjs",
+      "sourceSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "destinationSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "bytes": 1592,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "actualDestinationSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1"
+    },
+    {
+      "relative": "continuous-supplement/record-native-loading.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\continuous-supplement\\record-native-loading.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\continuous-supplement\\record-native-loading.mjs",
+      "sourceSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "destinationSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "bytes": 4232,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "actualDestinationSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253"
+    },
+    {
+      "relative": "continuous-supplement/operator-observations.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\continuous-supplement\\operator-observations.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\continuous-supplement\\operator-observations.mjs",
+      "sourceSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "destinationSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "bytes": 1824,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "actualDestinationSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871"
+    },
+    {
+      "relative": "continuous-supplement/expanded-plan.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\continuous-supplement\\expanded-plan.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\continuous-supplement\\expanded-plan.mjs",
+      "sourceSha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+      "destinationSha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+      "bytes": 10495,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+      "actualDestinationSha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e"
+    },
+    {
+      "relative": "expanded/criterion-citation-erratum.json",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\expanded\\criterion-citation-erratum.json",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\expanded\\criterion-citation-erratum.json",
+      "sourceSha256": "8a1e7e3a4305b076e9069c39dd5f605ff21dca5a5ade59ada17afba60ed63969",
+      "destinationSha256": "8a1e7e3a4305b076e9069c39dd5f605ff21dca5a5ade59ada17afba60ed63969",
+      "bytes": 672,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "8a1e7e3a4305b076e9069c39dd5f605ff21dca5a5ade59ada17afba60ed63969",
+      "actualDestinationSha256": "8a1e7e3a4305b076e9069c39dd5f605ff21dca5a5ade59ada17afba60ed63969"
+    },
+    {
+      "relative": "expanded/repeated-plan.json",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\expanded\\repeated-plan.json",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\expanded\\repeated-plan.json",
+      "sourceSha256": "0b97085cdf412893e267bda912776d371a36f58e6fec7cb15bc086989c081d23",
+      "destinationSha256": "0b97085cdf412893e267bda912776d371a36f58e6fec7cb15bc086989c081d23",
+      "bytes": 16222,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "0b97085cdf412893e267bda912776d371a36f58e6fec7cb15bc086989c081d23",
+      "actualDestinationSha256": "0b97085cdf412893e267bda912776d371a36f58e6fec7cb15bc086989c081d23"
+    },
+    {
+      "relative": "operator-sequential.manual.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\operator-sequential.manual.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\operator-sequential.manual.mjs",
+      "sourceSha256": "8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b",
+      "destinationSha256": "8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b",
+      "bytes": 4977,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b",
+      "actualDestinationSha256": "8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b"
+    },
+    {
+      "relative": "repeated-plan-control.json",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\repeated-plan-control.json",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\repeated-plan-control.json",
+      "sourceSha256": "47a66a9d5148b301f1fbff721670de92c8986467d590030159adcfd239c69c79",
+      "destinationSha256": "47a66a9d5148b301f1fbff721670de92c8986467d590030159adcfd239c69c79",
+      "bytes": 1050,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "47a66a9d5148b301f1fbff721670de92c8986467d590030159adcfd239c69c79",
+      "actualDestinationSha256": "47a66a9d5148b301f1fbff721670de92c8986467d590030159adcfd239c69c79"
+    },
+    {
+      "relative": "record-operator-handoff.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\record-operator-handoff.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\record-operator-handoff.mjs",
+      "sourceSha256": "553c482e3977ed600b0846051ee1de9fa983e3a656867a3aa4c05cda393339bf",
+      "destinationSha256": "553c482e3977ed600b0846051ee1de9fa983e3a656867a3aa4c05cda393339bf",
+      "bytes": 4632,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "553c482e3977ed600b0846051ee1de9fa983e3a656867a3aa4c05cda393339bf",
+      "actualDestinationSha256": "553c482e3977ed600b0846051ee1de9fa983e3a656867a3aa4c05cda393339bf"
+    },
+    {
+      "relative": "manual-selection-behavior-a.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\manual-selection-behavior-a.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\manual-selection-behavior-a.mjs",
+      "sourceSha256": "eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559",
+      "destinationSha256": "eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559",
+      "bytes": 3264,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559",
+      "actualDestinationSha256": "eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559"
+    },
+    {
+      "relative": "manual-selection-continuous-behavior-a.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\manual-selection-continuous-behavior-a.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\manual-selection-continuous-behavior-a.mjs",
+      "sourceSha256": "7fcf3c78437f33f8d146684e7e6173324a996b65c6722d58fec17dcfba643ecc",
+      "destinationSha256": "7fcf3c78437f33f8d146684e7e6173324a996b65c6722d58fec17dcfba643ecc",
+      "bytes": 3370,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "7fcf3c78437f33f8d146684e7e6173324a996b65c6722d58fec17dcfba643ecc",
+      "actualDestinationSha256": "7fcf3c78437f33f8d146684e7e6173324a996b65c6722d58fec17dcfba643ecc"
+    },
+    {
+      "relative": "manual-selection-continuous-control.json",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\manual-selection-continuous-control.json",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\manual-selection-continuous-control.json",
+      "sourceSha256": "b84e79d9c799413461c708b9fde47860acf1be57887dcd50f2f7a34c25750eea",
+      "destinationSha256": "b84e79d9c799413461c708b9fde47860acf1be57887dcd50f2f7a34c25750eea",
+      "bytes": 1085,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "b84e79d9c799413461c708b9fde47860acf1be57887dcd50f2f7a34c25750eea",
+      "actualDestinationSha256": "b84e79d9c799413461c708b9fde47860acf1be57887dcd50f2f7a34c25750eea"
+    },
+    {
+      "relative": "manual-selection-continuous-control.final.json",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\manual-selection-continuous-control.final.json",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\manual-selection-continuous-control.final.json",
+      "sourceSha256": "f958efe94dc9475a32703e57885c069e7f95f884cd6b259471a490b085b57039",
+      "destinationSha256": "f958efe94dc9475a32703e57885c069e7f95f884cd6b259471a490b085b57039",
+      "bytes": 1424,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "f958efe94dc9475a32703e57885c069e7f95f884cd6b259471a490b085b57039",
+      "actualDestinationSha256": "f958efe94dc9475a32703e57885c069e7f95f884cd6b259471a490b085b57039"
+    },
+    {
+      "relative": "record-operator-handoff-behavior-a.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\record-operator-handoff-behavior-a.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\record-operator-handoff-behavior-a.mjs",
+      "sourceSha256": "c9e93fb47caee212c3b5eb2322e963fa89fbe10008db469d9dd4dc6a47546d82",
+      "destinationSha256": "c9e93fb47caee212c3b5eb2322e963fa89fbe10008db469d9dd4dc6a47546d82",
+      "bytes": 6816,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "c9e93fb47caee212c3b5eb2322e963fa89fbe10008db469d9dd4dc6a47546d82",
+      "actualDestinationSha256": "c9e93fb47caee212c3b5eb2322e963fa89fbe10008db469d9dd4dc6a47546d82"
+    },
+    {
+      "relative": "prepare-correction.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\prepare-correction.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\prepare-correction.mjs",
+      "sourceSha256": "22900eae8473756b30ce86d4f9ab5a9d744ce35f72b485b7f8ce10fa3fcf8d4f",
+      "destinationSha256": "1e789dc6145e5825748eb8eff6a84f9bc86f5f366d52c1d3cbec35849d1bb240",
+      "bytes": 1937,
+      "operation": "VERSION_GUARD_ONLY",
+      "actualSourceSha256": "22900eae8473756b30ce86d4f9ab5a9d744ce35f72b485b7f8ce10fa3fcf8d4f",
+      "actualDestinationSha256": "1e789dc6145e5825748eb8eff6a84f9bc86f5f366d52c1d3cbec35849d1bb240"
+    },
+    {
+      "relative": "prepare-coverage.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\prepare-coverage.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\prepare-coverage.mjs",
+      "sourceSha256": "1228e537d49e326442bb4e1075b11aaab0963bf35e62ea780024405e250bdbee",
+      "destinationSha256": "d6223208bc1efc6dd363bab798086ca45fadecd678c11b0fc3b443bfbb7c8950",
+      "bytes": 2403,
+      "operation": "VERSION_GUARD_ONLY",
+      "actualSourceSha256": "1228e537d49e326442bb4e1075b11aaab0963bf35e62ea780024405e250bdbee",
+      "actualDestinationSha256": "d6223208bc1efc6dd363bab798086ca45fadecd678c11b0fc3b443bfbb7c8950"
+    },
+    {
+      "relative": "verify-canonical.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\verify-canonical.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\verify-canonical.mjs",
+      "sourceSha256": "f89c2e08da507222b4a8a86f061f756f56316594d8b4e607594eed06abddce15",
+      "destinationSha256": "ecf3574499b7d3c808171455959519ae82540615935f2633fd6720c3ee02fc87",
+      "bytes": 5202,
+      "operation": "VERSION_GUARD_ONLY",
+      "actualSourceSha256": "f89c2e08da507222b4a8a86f061f756f56316594d8b4e607594eed06abddce15",
+      "actualDestinationSha256": "ecf3574499b7d3c808171455959519ae82540615935f2633fd6720c3ee02fc87"
+    },
+    {
+      "relative": "root-manual-select.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\root-manual-select.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\root-manual-select.mjs",
+      "sourceSha256": "e6cc6c7cd00ecc86fcca45f43fbbcafef34bea6d375123aa1622f5eedbcfefc6",
+      "destinationSha256": "e6cc6c7cd00ecc86fcca45f43fbbcafef34bea6d375123aa1622f5eedbcfefc6",
+      "bytes": 1708,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "e6cc6c7cd00ecc86fcca45f43fbbcafef34bea6d375123aa1622f5eedbcfefc6",
+      "actualDestinationSha256": "e6cc6c7cd00ecc86fcca45f43fbbcafef34bea6d375123aa1622f5eedbcfefc6"
+    },
+    {
+      "relative": "root-manual-helper-copy-control.json",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\root-manual-helper-copy-control.json",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\root-manual-helper-copy-control.json",
+      "sourceSha256": "0cfa34d02f5db39ab8937c51345b6bc1b9c8a7e6cd150a724433c4f350b05c12",
+      "destinationSha256": "0cfa34d02f5db39ab8937c51345b6bc1b9c8a7e6cd150a724433c4f350b05c12",
+      "bytes": 608,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "0cfa34d02f5db39ab8937c51345b6bc1b9c8a7e6cd150a724433c4f350b05c12",
+      "actualDestinationSha256": "0cfa34d02f5db39ab8937c51345b6bc1b9c8a7e6cd150a724433c4f350b05c12"
+    },
+    {
+      "relative": "manual-selection-behavior-b.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\manual-selection-behavior-b.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\manual-selection-behavior-b.mjs",
+      "sourceSha256": "c2d3f2ce80a6919aecb27892fe2790dce901981efa72c2aef2b773f9b1d1f394",
+      "destinationSha256": "c2d3f2ce80a6919aecb27892fe2790dce901981efa72c2aef2b773f9b1d1f394",
+      "bytes": 3267,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "c2d3f2ce80a6919aecb27892fe2790dce901981efa72c2aef2b773f9b1d1f394",
+      "actualDestinationSha256": "c2d3f2ce80a6919aecb27892fe2790dce901981efa72c2aef2b773f9b1d1f394"
+    },
+    {
+      "relative": "record-recommended-observation-behavior-b.mjs",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\record-recommended-observation-behavior-b.mjs",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\record-recommended-observation-behavior-b.mjs",
+      "sourceSha256": "834624a2b2f6da8db78f9b5e86a7e029b2c77051764b38b5260849c92f0e5bd9",
+      "destinationSha256": "834624a2b2f6da8db78f9b5e86a7e029b2c77051764b38b5260849c92f0e5bd9",
+      "bytes": 2258,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "834624a2b2f6da8db78f9b5e86a7e029b2c77051764b38b5260849c92f0e5bd9",
+      "actualDestinationSha256": "834624a2b2f6da8db78f9b5e86a7e029b2c77051764b38b5260849c92f0e5bd9"
+    },
+    {
+      "relative": "behavior-b-helper-copy-control.json",
+      "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\behavior-b-helper-copy-control.json",
+      "destination": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\behavior-b-helper-copy-control.json",
+      "sourceSha256": "778feaf2416459570b2fe270a57b30f7cc74a917f1b4aa8a44f21455eac54620",
+      "destinationSha256": "778feaf2416459570b2fe270a57b30f7cc74a917f1b4aa8a44f21455eac54620",
+      "bytes": 1265,
+      "operation": "EXACT_COPY",
+      "actualSourceSha256": "778feaf2416459570b2fe270a57b30f7cc74a917f1b4aa8a44f21455eac54620",
+      "actualDestinationSha256": "778feaf2416459570b2fe270a57b30f7cc74a917f1b4aa8a44f21455eac54620"
+    }
+  ],
+  "sourceWholeObservation": {
+    "beforeFileCount": 951,
+    "afterFileCount": 951,
+    "observedDuringCopyChangeCount": 0,
+    "observedChanges": [],
+    "wholeSource19StaticNotAssumed": true,
+    "sourceWritesPerformedByThisPreparer": false
+  },
+  "preexistingDestinationCheckpointDifferences": [
+    {
+      "relative": "preparation.stdout.log",
+      "checkpointBytes": 0,
+      "checkpointSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "finalBytes": 1529,
+      "finalSha256": "c4aaed13887a87fd0a599ed492ef263ce66058d7664da18e9a30425b3c2f7276"
+    }
+  ],
+  "checkpointDifferenceExplanation": "The old copier checkpoint included its newly opened stdout/stderr log while empty. The raw wrapper subsequently wrote the copier result after that checkpoint. These actual logger bytes are retained; all preexisting draft and Root files remain unchanged. No original inventory or log is rewritten.",
+  "collectionUnchanged": {
+    "plugins": 5,
+    "publicSkills": 7,
+    "explicit": 4,
+    "natural": 3,
+    "repoDevelopmentSkills": 20,
+    "strictInstallScenarios": 13,
+    "actualCachePythonRuns": 6
+  },
+  "defaultProof": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\diagnostics\\inherited-pr2-6ee40474\\metadata-relocated.json",
+    "sha256": "112d6f63191c781df9d2ca6d99a2f228f299aae82e056e3bf1869ee70d50bb49",
+    "unchanged": true,
+    "copiedIntoControls": false
+  },
+  "modelStatus": "NOT_RUN",
+  "installationStatus": "NOT_RUN",
+  "mirrorStatus": "NOT_RUN",
+  "cacheStatus": "NOT_RUN",
+  "behaviorGradeStatus": "NOT_RUN",
+  "noRunsDirectoryCreated": true,
+  "repositoryMutation": false,
+  "runtimeApply": false,
+  "inputsCriteriaHelpersPlanSpecDefaultUnchanged": true,
+  "clientUiStatus": "NOT_RUN",
+  "effectStatus": "NOT_MEASURED"
+}

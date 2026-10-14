@@ -1,0 +1,114 @@
+{
+  "recordedAt": "2026-10-14T02:47:36.554Z",
+  "canonicalSha": "2bcbe30ac2b4e2a64a159f121dc818f961fe7c15",
+  "canonicalTree": "329f0f2e5946194895aca2ee2fbb5bc0d7b1c6aa",
+  "version": "0.1.15",
+  "rawFiles": 378,
+  "originalBytes": 9573618,
+  "packets": 7,
+  "sourceInventorySha256": "e015b6c0418aa374e25714ee7e98a56434664583b6b06451956f884a65e441b3",
+  "rows": [
+    {
+      "sourcePath": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/pack-025-evidence.mjs",
+      "relative": "packer.mjs",
+      "bytes": 34379,
+      "sha256": "1ec7ced4a2e9fb30e992d583cf842338d69cd83d3d52b6e157195d0c601d813b"
+    },
+    {
+      "sourcePath": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/archive-025-control.json",
+      "relative": "archive-control.json",
+      "bytes": 67986,
+      "sha256": "2dd4ed2bae4816e2fe9b78e75251ca7f6538a3772e1081f1a13929ede9668498"
+    },
+    {
+      "sourcePath": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/verify-lossless-025-dotnet.ps1",
+      "relative": "independent-dotnet-verifier.ps1",
+      "bytes": 6084,
+      "sha256": "9cf6448bc5593c293106609f1090285c58a0d1f7d4a34ff5c623b4df67ab3103"
+    },
+    {
+      "sourcePath": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/packer-provenance/0-1-15/final-dry-handoff.json",
+      "relative": "final-dry-handoff.json",
+      "bytes": 2803,
+      "sha256": "fd25dd19bdd22a134b1538555d0957af1aa65444197029205e7e7e7ebdedabea"
+    },
+    {
+      "sourcePath": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/tracking/025-pack-actual.log",
+      "relative": "pack-actual.log",
+      "bytes": 496,
+      "sha256": "854c09656124d7087d7a6e8a0b429fe7b3ffa86d04e555d2ad3f1928c529b93e"
+    },
+    {
+      "sourcePath": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/tracking/025-node-verify.log",
+      "relative": "node-verify.log",
+      "bytes": 381,
+      "sha256": "cb7dece78166cf2c159c067d1ad7eb80c96173b2820384c70152380e20892b68"
+    },
+    {
+      "sourcePath": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/tracking/025-dotnet-verify.log",
+      "relative": "dotnet-verify.log",
+      "bytes": 540,
+      "sha256": "a0f7bf1db00eda0fa395c0545c842019b1cdba487b096fd3ffc1a52e2a9dca3e"
+    },
+    {
+      "sourcePath": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/tracking/015-root-pause-consume.log",
+      "relative": "root-pause-consume.log",
+      "bytes": 1052,
+      "sha256": "f4bbaa05df0a9b8d305fb6656d8f0c0f0f423b2aedcc5f71f2ee25c77a33bb6a"
+    },
+    {
+      "sourcePath": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/tracking/015-ci-final-snapshot.json",
+      "relative": "source15-ci.json",
+      "bytes": 3211,
+      "sha256": "6ba435abf226ee192e02a9cca98b2a7735611f98554da7985d7eef609726ce54"
+    },
+    {
+      "sourcePath": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/tracking/015-review-threads.json",
+      "relative": "source15-review-threads.json",
+      "bytes": 103,
+      "sha256": "41aeb6f0b1637a4efc5c37cb0e47797c832b8582b70af2ac844f38a484b3a0b8"
+    },
+    {
+      "sourcePath": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/tracking/pause-015-writers.mjs",
+      "relative": "root-pause-helper.mjs",
+      "bytes": 1412,
+      "sha256": "21ad3f7e16b549c9ad102174632b58e9a5cc6c984f3455adf420fbc07507583f"
+    },
+    {
+      "sourcePath": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/tracking/diagnose-015-capture.mjs",
+      "relative": "root-nonmodel-diagnostic.mjs",
+      "bytes": 3649,
+      "sha256": "2f5fd7071519b3863925d1b34c031d30c429713a298ddd5ead1ba9487077b345"
+    }
+  ],
+  "rawBytesPreserved": true,
+  "actualRootVerification": {
+    "pack": {
+      "chunkId": "31ab1a",
+      "exitCode": 0
+    },
+    "node": {
+      "chunkId": "59397f",
+      "exitCode": 0
+    },
+    "dotnet": {
+      "chunkId": "ab43ed",
+      "exitCode": 0
+    }
+  },
+  "actualAccounting": {
+    "uuids": 9,
+    "inputs": 16,
+    "complete": 15,
+    "invalidTransport": 1,
+    "semantic": {
+      "PASS": 5,
+      "FAIL": 3,
+      "INVALID_RUN": 1
+    }
+  },
+  "verification": "Actual pack, Node and independent .NET exact restoration; no new model acceptance",
+  "captureCause": "UNKNOWN; nonmodel probe did not reproduce",
+  "currentHeadGithubApproval": "NOT_PROVIDED",
+  "handoffSha256": "fd25dd19bdd22a134b1538555d0957af1aa65444197029205e7e7e7ebdedabea"
+}

@@ -4,9 +4,9 @@ scope: marketplace
 summary: "当前 ChatGPT/Codex 文档、历史决策与退役资料导航"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-13
+updated: 2026-10-14
 state: active
-version: v2.25.3
+version: v2.53
 ---
 
 # 文档索引
@@ -17,11 +17,25 @@ version: v2.25.3
 
 8.1.1 的实际 tag、Release、正文身份、发布后安装及保留缺项见 [发布记录](runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。
 
-Epic #209 的 PR4/PR5历史候选曾为未发布8.2.0；当前公开v8.2.0包含Diagram0.3.1 / LearningEvidence0.1.0 / Explain0.1.1三插件五技能，当前develop为未发布8.2.1并保留HTML0.1.0四插件六技能。[迁移 ADR](adr/[ADR]_Learning_Evidence_Kit_Migration.md)、[记录/API 契约](spec/[SPEC]_Learning_Evidence_Record_And_API.md)、[指南](guide/[GUIDE]_Learning_Evidence_Kit.md)及[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)分别维护决定、数据、使用边界与实际证据；[8.2.0发行账本](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)维护实际公开、收尾与入口资格。Owner接受核心独立验收后分段交付；所有启用提问入口严格待答，原生窗口不合格入口延期，文字重述不算窗口通过。Epic与Owner最终接受独立追踪，公开发布不证明现实学习效果。
+HTML Guide Kit 正按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 分阶段实施：PR1 #221 已合入并复验；PR2 #226 已将完整 0.1.0 插件、已选 A 图标与严格合同原子合入 develop，当时开发集合为四插件五技能。实际 merge d106e76 与已测 head tree 相同，GitHub 独立批准缺项如实保留；PR3 从该 merge 派生，扩展行为与原生客户端验收逐项记录，不据 CLI 结果关闭 Epic。阶段门槛见 [ADR](adr/[ADR]_HTML_Guide_Kit_Addition.md)，判准见 [SPEC](spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，实际结果及未覆盖项见 [RUNBOOK](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。现实场景理解效果另测，本次仍保留工程行为与双客户端交互验收。
 
-HTML Guide Kit 正按 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217) 分阶段实施：PR1 #221 已合入并复验；PR2 原子接入完整 0.1.0 插件、已选 A 图标与严格合同，当时开发集合增至四插件五技能；Learning Evidence 替换后四插件六技能，公开 8.2.0 仍原三插件五技能，HTML 另行发行。阶段门槛见 [ADR](adr/[ADR]_HTML_Guide_Kit_Addition.md)，判准见 [SPEC](spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)，实际结果及未覆盖项见 [RUNBOOK](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。现实场景理解效果另测，本次仍保留工程行为与双客户端交互验收。
+PR3 的真实受众扩展发现 0.1.0 操作反馈前置状态冲突，保存 FAIL 后准备 0.1.1 修正候选。运行改变须重新安装并复验受影响扩展及全部六组；旧运行证据只保留其原版本身份，不外推新候选通过。
 
-PR3开发候选增加Communication0.1.0并保留HTML0.1.0，当前五包七技能/20开发技能。Learning8.2.0已于2026-10-13公开，main三包五技能；Communication PR4已准备未发布8.3.0，尚未公开。实际CLI、限定工具角色及代理亲自执行的同应用Codex/ChatGPT Work本机两个入口证据见[验收记录](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)，身份、失败及未覆盖项分别保留，现实效果另测。Owner已确认Communication正式四包六技能，HTML另发；后续独立minor目标8.3.0，PR4重查实际版本和基线，Refs [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。
+新 0.1.1 复验发现组合条件中明确不满足被未知覆盖及分支重叠，保存独立 B4.2 FAIL；0.1.2 修正候选重新核对组合判定和局部范围，安装/行为/原生客户端/最终 merge 按各自实际证据记录。
+
+0.1.2 canonical 59c7aea 的七种严格安装、四次缓存 Python 通过，279 测试零 skip 与当前 CI 通过；新模型行为仍逐项核验。788 文件的 0.1.0/0.1.1 历史原始证据已 lossless 封存并独立复原校验，旧失败不追认通过，具体身份及覆盖见 RUNBOOK §14。
+
+0.1.2 B4.2 真实修复通过，但 B4.1 将已禁止的直接操作与未知后续路径混合，E13 两变体亦发现表格排他量词/术语类型改写，分别独立 FAIL。当期 0.1.3 修正上述通用方法，未宣称新候选行为通过；暂停造成的一轮操作中断单独保留，见 RUNBOOK §15。
+
+已停止的 0.1.2 证据 506 文件 lossless 封存、Node/.NET 逐字节复原通过，28 UUID / 61 输入的失败与中断均保留。0.1.3 canonical ffaa68f 的七种严格安装、四次实际缓存 Python 通过；新模型矩阵仍独立评审，窄目标未覆盖与选择出处缺陷另补证，不追认原调用 PASS。实际身份和缺项见 RUNBOOK §16。
+
+0.1.3 E13 又发现重复操作的已知字段结果被整体判未知，独立 FAIL。当期 0.1.4 按本次状态重匹配源条件、分开字段结果与额外提示；选择器误取嵌套题号的旧控制缺口另列 INVALID_RUN，后续仅人工真实目标摘录。新版本须新安装、受影响及全部六组复验，历史实际结果继续保存，见 RUNBOOK §17。
+
+旧 0.1.3 剩余 E19/38 独立评审为15 PASS / 4 FAIL；另有效维护者补证同类重复操作 FAIL。中间0.1.4七安装/四缓存Python通过，未启动模型。后续完整修正候选0.1.5一并限制拒绝/引用的代码回显并核对分支反馈覆盖，静态审查无阻断但行为未执行；实际身份和新复验范围见 RUNBOOK §18。
+
+Epic #209 的 PR4/PR5历史候选曾为未发布8.2.0；当前公开v8.2.0包含Diagram0.3.1 / LearningEvidence0.1.0 / Explain0.1.1三插件五技能，Learning收尾当时develop为未发布8.2.1并保留HTML0.1.0四插件六技能；当前合成候选五包七技能/8.3.0/HTML0.1.13见下文。[迁移 ADR](adr/[ADR]_Learning_Evidence_Kit_Migration.md)、[记录/API 契约](spec/[SPEC]_Learning_Evidence_Record_And_API.md)、[指南](guide/[GUIDE]_Learning_Evidence_Kit.md)及[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)分别维护决定、数据、使用边界与实际证据；[8.2.0发行账本](runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)维护实际公开、收尾与入口资格。Owner接受核心独立验收后分段交付；所有启用提问入口严格待答，原生窗口不合格入口延期，文字重述不算窗口通过。Epic与Owner最终接受独立追踪，公开发布不证明现实学习效果。
+
+Communication PR3当时开发候选增加Communication0.1.0并保留HTML0.1.0，五包七技能/20开发技能；当前HTML修正版本见下文。Learning8.2.0已于2026-10-13公开，main三包五技能；Communication PR4已准备未发布8.3.0，尚未公开。实际CLI、限定工具角色及代理亲自执行的同应用Codex/ChatGPT Work本机两个入口证据见[验收记录](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)，身份、失败及未覆盖项分别保留，现实效果另测。Owner已确认Communication正式四包六技能，HTML另发；后续独立minor目标8.3.0，PR4重查实际版本和基线，Refs [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。
 
 Learning #224的当前head批准及交付、#227/#228的交付与空reviews事实均见[验收账本](runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)，历史缺项不追认。
 
@@ -36,6 +50,12 @@ Communication PR3已在8.2.1普通继承PR2 `c198f5c` / develop `98068a8`文档�
 PR1 #223实际合入bca、head同tree与限定M1 postmerge原始证据见[M1 postmerge 01](runbook/evidence/communication-kit-2026-10-13-pr1-merge-01.json)；空reviews不追认独立批准。
 
 实际M1 merge后的普通下游继承与限定最终检查来源见[PR1 merge sync 01](runbook/evidence/communication-kit-2026-10-13-pr1-merge-sync-01.json)，独立批准/后续正式合并仍分别核对。
+
+0.1.9评审与0.1.10准备时的快照：PR3 #231仍草稿；0.1.9源880fc8cc的八安装/四缓存Python及CI通过，新11UUID/22轮独立评审5PASS/4FAIL/2UNEXERCISED，原字节与局部PASS/未跑保留。0.1.10修正候选明确反馈组当前状态范围并保留来源已有字段线索；须新canonical安装和冻结行为矩阵，静态修正不等于新模型通过。开发市场保持上游未发布8.2.1、其他插件不变；已发布v8.2.0三插件不含HTML。原生入口/双客户端延期、现实效果另测、当前head非作者批准及实际merge复验仍单列，#220/Epic开放；见HTML RUNBOOK §25。
+
+0.1.10评审与0.1.11准备时的快照：PR3候选为0.1.11。0.1.10源7c1f230b与纯文档同步6a919166各八安装/四缓存Python通过；12UUID/23实际COMPLETE独立结果6PASS/3FAIL/3UNEXERCISED，374原字节文件封存并独立复原。局部动态guard通过不抵消概览条件遗漏和混合UI重置来源归因FAIL；B6.1原PASS与同attempt补充FAIL都保留。新候选对每处操作结论保留完整条件，源重置字段与新增界面清理逐项分开归因；须新安装与冻结行为复验，不以静态修正追认模型通过。marketplace8.2.1及其他插件不变，双客户端/原生窗口延期、现实效果另测、GitHub当前head批准和实际merge仍待各自证据，#220/Epic开放；见HTML RUNBOOK §27。
+
+HTML当前PR3修正候选为0.1.22。源12固定5bce8341八安装/四缓存Python/CI通过，15fresh UUID/31COMPLETE独立9PASS/4FAIL/2UNEXERCISED；456文件原字节封存与Node/.NET复原通过。局部PASS不抵消完整源恢复遗漏、排他关系遗漏恢复例外及重试当前态缺口。新方法逐项保留源动作/对象/字段，先定每轮尝试生命周期，再写反馈。已普通同步c1fa458上游Communication运行与未发布8.3.0，开发五包七技能/四显式/三自然/20repo-only，其他批准版本保持；HTML仍另行发行。源13的09c173a9及纯归档同步0fe3fbd各十三精确安装/六缓存Python通过；12UUID/24COMPLETE独立6PASS/4FAIL/2UNEXERCISED，概览/核对清单当前态遗漏、UI源归因与未经证实的读取原因仍FAIL。源0fe实际CI全SUCCESS不替代语义。源14准确24ae678十三安装/六缓存Python及CI全通过；10UUID/21COMPLETE独立6PASS/3FAIL/1UNEXERCISED，未证读取原因与未述字段补不变仍FAIL，完整原字节封存。源15准确2bc十三严格安装/六缓存Python与CI通过，9UUID/16输入含1捕获无效，独立5PASS/3FAIL/1INVALID_RUN；只读模式误当拒因和参考实际缺行FAIL，原字节封存。源16准确b4fb十三安装/六缓存Python及CI通过，10UUID/19COMPLETE独立4PASS/4FAIL/2UNEXERCISED；generic拒读原因推断、源/UI错归和作者项缺必要当前态/范围的FAIL保留，完整原字节封存。源17准确5bf十三安装/六实际缓存Python通过；8UUID/16COMPLETE独立6PASS/1FAIL/1UNEXERCISED，主要等待/完整源规则及范围拒绝等新PASS保留，新增教学触发混归Source恢复FAIL。源18准确0a6十三安装/六缓存Python及9项CI通过，10UUID/21COMPLETE独立6PASS/3FAIL/1UNEXERCISED，三处guide局部来源/已知判断混淆FAIL与主要合同及其他局部正确分别保留。源19准确2fb十三安装/六缓存Python及九项CI通过，核心14UUID30COMPLETE独立全PASS；扩展11UUID21COMPLETE独立6PASS/3FAIL/2UNEXERCISED，已知领取禁用误列未知两处、600中文字上限超18字一处均保留。新20四既有段先展开覆盖再分维度，明确上限按全稿和用户单位预算/核对；准确7e3十三安装/六缓存Python通过，原13UUID26输入独立10PASS/1UNEXERCISED/2INVALID保留，另新身份技术补测确定一处许可反馈漏必要当前态FAIL，正常边界停止并保留A自动发轮的marker race；新补测7UUID13COMPLETE独立5PASS/1FAIL/1UNEXERCISED；21三段草稿经双独立静态核对后接入，许可反馈保所有前提、实际scope非拟写要求，须新缓存冻结复验；准确2c因归档MD命名被前置结构检查阻断，十二别名改为snapshot.txt保原字节，旧失败不追认。原生接口现已实际可用，客户端26.1007.9446.0安装cache与十包文件exact；Work三轮有限路径独立P，Codex另三轮有限路径独立P，普通Chat入口不可用保留，空返回/自动超时/关闭仍未测。合同和冻结判准保持；21仅改本插件三段，其他插件资源保持；Windows归档长路径的七单元失败、窄修正和本地七项复验原样保留，最终CI另核验，不继承旧PASS。原生/双客户端延期、现实效果另测、当前head非作者批准与actualmerge仍分别待证，#220/Epic开放；见HTML RUNBOOK §30–41。
 
 ## 入口
 
@@ -169,8 +189,22 @@ Owner Q3已确认Communication正式发行仅为Learning已公开三包加Commun
 
 - [[DEPRECATED]_[STANDARD]_GitHub_Markdown_v1.0.md](archive/[DEPRECATED]_[STANDARD]_GitHub_Markdown_v1.0.md)
 
+0.1.5 基线 CLI 原生入口截断，部分会话补读全文才取得完整技能；未补读的拒绝样本为 UNKNOWN/INVALID_RUN。当前0.1.6精简入口并增加保守字节预算，详细方法仍用两份参考；新安装与完整原生加载/行为须实际复验，不能继承旧 PASS。事实与分段缺项见 RUNBOOK §19。
+
+Communication前置阶段较早同步快照（当前develop已含#235/#236/#223）：Communication 前置阶段已普通同步 #234 的实际 develop 2c0a831：运行仍四开发包六技能，正式 main/v8.2.0为ebc4bdc3三包五技能，HTML留develop。未合入8.2.1预升不带入，未注册Communication、未实际bump，Refs #222。
+
+HTML候选已普通同步#223实际develop bca7b5c，保留Communication契约、计划及原始证据；前置阶段未新增运行包。HTML隔离仓库fixture同步复制上游plan，严格校验未放宽，运行资源与dbd57d8逐字节不变；新合成候选仍须精确安装及冻结行为复验，见HTML RUNBOOK §29。
+
 | Version | Date | Summary |
 |---|---|---|
 | v2.23 | 2026-10-13 | 加入Communication8.3.0版本准备入口与Learning迁移原始工程证据，保留实际未解除门禁 |
 | v2.22 | 2026-10-13 | 普通同步#234发布后基线及真实学习Release记录，保持Communication五包候选与四包正式范围 |
 | v2.19 | 2026-10-13 | 同步 Learning 原子替代与 Communication 完整集成，按当前集合验收，发行范围另核对 |
+
+HTML第二准确候选627e8e6安装前因根说明Windows换行超预算失败；仅摘要收敛，原失败保留，运行仍0.1.21，须新canonical验收。源20有限原生记录已按公开范围封存，不能代表21或普通Chat通过。
+
+HTML源21准确1799的13安装/6Python/9CI通过；14UUID30C原独立13P1F，关系图漏当前态F保留。22三段通用修正接入，须新安装/模型/客户端，不继承旧P；原生工具在再次授权后仍返回停止状态。见HTML RUNBOOK §42。
+
+HTML22准确aac6fc9十三安装/六缓存Python通过，新核心fresh会话已启动但尚未独立结论；21原13P1F/三十C及零扩展574文件十一包实际封存/两独立复原通过，原失败不追认。见HTML RUNBOOK §42。
+
+HTML 0.1.22实际10新会话/20COMPLETE已停止，来源限制误归及局部恢复关系遗漏两项FAIL；主要选择/边界局部P与未执行/待审分开。准确aac6十三安装/六Python通过，c3a2d06运行闭包71资源不变；当前客户端停止、034原件封包准备及最终门禁待证，见[HTML RUNBOOK §43](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。

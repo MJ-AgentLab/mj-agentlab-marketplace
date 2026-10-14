@@ -1,0 +1,795 @@
+{
+  "priorWriterFailure": {
+    "toolChunk": "d9025e",
+    "exitCode": 1,
+    "originalWriterPreserved": true,
+    "reason": "Raw Git-LF vs working-CRLF comparison for test file incorrectly rejected the otherwise single version assertion delta",
+    "diagnosticToolChunk": "945315",
+    "testGitCrlf": 0,
+    "testWorkingCrlf": 181,
+    "normalizedOnlyVersion": true,
+    "repositoryModified": false,
+    "modelInvoked": false
+  },
+  "recordedUtc": "2026-10-14T10:06:36.542Z",
+  "startedUtc": "2026-10-14T10:06:32.744Z",
+  "reviewer": "behavior_014_a",
+  "authorOfWorkingRuntime": "root",
+  "phase": "INDEPENDENT_STATIC_INTEGRATION_PRECOMMIT_REVIEW",
+  "status": "NO_STATIC_INTEGRATION_BLOCKERS_WITH_ACCEPTANCE_GATES_PENDING",
+  "repo": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/develop",
+  "baseHead": "3627905db6ebe0f8bc3a0d1317ec31335f5b8144",
+  "baseTree": "188e57bb385e39748ebb87fa024b7a9a09a505c9",
+  "runtimeSourceCanonical": "7e3deb8fb1d9960ede37ea96a714b1e34652a751",
+  "currentHead": "3627905db6ebe0f8bc3a0d1317ec31335f5b8144",
+  "trackedChangedFiles": [
+    {
+      "relative": "AGENTS.md",
+      "bytes": 16277,
+      "sha256": "ec2200d58d0f003b499e6f61f5396a4981819cc8e30a57e6cb469e371ece7c22"
+    },
+    {
+      "relative": "CHANGELOG.md",
+      "bytes": 209130,
+      "sha256": "990422298fc18e704ed4c3edddf998310259bf8b849e587725606922d8472923"
+    },
+    {
+      "relative": "README.md",
+      "bytes": 11013,
+      "sha256": "591be4763a4930c5140759d7fe35b7134282264ac902e5476fc1c0fbfb575e9e"
+    },
+    {
+      "relative": "docs/INDEX.md",
+      "bytes": 24534,
+      "sha256": "9924b63e98b26e37c84a4d9720545e7ea40be887294236621eb4f37b50f2457d"
+    },
+    {
+      "relative": "docs/guide/[GUIDE]_HTML_Guide_Kit.md",
+      "bytes": 2774,
+      "sha256": "9dea17e57e4b553ad4fbb4e4402757793c8a9184eaa614c395677373616f9fa0"
+    },
+    {
+      "relative": "docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md",
+      "bytes": 8327,
+      "sha256": "cded993a4b7580e22a4d343304dd45c05ee3db4c0f8eca82c99cfaa0b916bdd9"
+    },
+    {
+      "relative": "docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md",
+      "bytes": 139807,
+      "sha256": "fc33ab734266e10b521401d415a2cb080188d43e551bbf8490ee2c8d9f3d1076"
+    },
+    {
+      "relative": "plugins/html-guide-kit/CHANGELOG.md",
+      "bytes": 12909,
+      "sha256": "3182369064efaa4ecff72466bac8fea095e8060509a52fcfc8a7cc463db573cb"
+    },
+    {
+      "relative": "plugins/html-guide-kit/README.md",
+      "bytes": 2149,
+      "sha256": "f0ad86b4f45aae4405be436c18401c7cf134a5513a863b4b788f6318426362d6"
+    },
+    {
+      "relative": "plugins/html-guide-kit/plugin.json",
+      "bytes": 1531,
+      "sha256": "d5bc6ce80c8f9e6e21940a598c68f9a451c82c71856612dcfad3217cde5459e8"
+    },
+    {
+      "relative": "plugins/html-guide-kit/skills/guide/SKILL.md",
+      "bytes": 6087,
+      "sha256": "6ab842972b50489c99843b855a6f90fc0f12fb91faed47711763a5adc2f21b7d"
+    },
+    {
+      "relative": "plugins/html-guide-kit/skills/guide/references/guide-framework.md",
+      "bytes": 9443,
+      "sha256": "79ce43115c91764ceea8562993a750e0c4e32abadb976061729dbb83bd277d08"
+    },
+    {
+      "relative": "plugins/html-guide-kit/skills/guide/references/interaction-design.md",
+      "bytes": 9475,
+      "sha256": "47c7171e9972f608a373e80099f1a07adbfa368dc1616b5ad2ea78b31134d9df"
+    },
+    {
+      "relative": "tests/html-guide-kit.test.mjs",
+      "bytes": 14111,
+      "sha256": "0a9ea01fa2ee93b262b476e79566239431031109ad0e371afbceca989267ade7"
+    }
+  ],
+  "trackedChangedCount": 14,
+  "gitStatusAtReview": " M AGENTS.md\n M CHANGELOG.md\n M README.md\n M docs/INDEX.md\n M docs/guide/[GUIDE]_HTML_Guide_Kit.md\n M docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md\n M docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md\n M plugins/html-guide-kit/CHANGELOG.md\n M plugins/html-guide-kit/README.md\n M plugins/html-guide-kit/plugin.json\n M plugins/html-guide-kit/skills/guide/SKILL.md\n M plugins/html-guide-kit/skills/guide/references/guide-framework.md\n M plugins/html-guide-kit/skills/guide/references/interaction-design.md\n M tests/html-guide-kit.test.mjs\n?? docs/runbook/evidence/html-guide-kit/pr3-post-merge/candidate031-final-seal/\n?? docs/runbook/evidence/html-guide-kit/pr3-reviewer/patch-031-recovery-stopped/\n",
+  "methodResources": [
+    {
+      "relative": "plugins/html-guide-kit/skills/guide/SKILL.md",
+      "bytes": 6087,
+      "sha256": "6ab842972b50489c99843b855a6f90fc0f12fb91faed47711763a5adc2f21b7d",
+      "crlfBytes": 6141,
+      "sourceSha256": "65b279cdaed154c421d1a674c0ac052ca98a98c5aeda7fe6fdf89bc907369251",
+      "exactApprovedDraft": true,
+      "oneExistingParagraphOnly": true,
+      "outsideApprovedReplacementByteIdentical": true
+    },
+    {
+      "relative": "plugins/html-guide-kit/skills/guide/references/guide-framework.md",
+      "bytes": 9443,
+      "sha256": "79ce43115c91764ceea8562993a750e0c4e32abadb976061729dbb83bd277d08",
+      "crlfBytes": 9503,
+      "sourceSha256": "4a91f73f4f16a7f6cd89f473b3b25ee950987dc917f516232fc84d65fe4e8118",
+      "exactApprovedDraft": true,
+      "oneExistingParagraphOnly": true,
+      "outsideApprovedReplacementByteIdentical": true
+    },
+    {
+      "relative": "plugins/html-guide-kit/skills/guide/references/interaction-design.md",
+      "bytes": 9475,
+      "sha256": "47c7171e9972f608a373e80099f1a07adbfa368dc1616b5ad2ea78b31134d9df",
+      "crlfBytes": 9546,
+      "sourceSha256": "af14c904e4b37f728aaaacb4356972c4fc0bc590872f271361fbc7d24d8430a1",
+      "exactApprovedDraft": true,
+      "oneExistingParagraphOnly": true,
+      "outsideApprovedReplacementByteIdentical": true
+    }
+  ],
+  "approvedMethodStatic": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\static-review-a.json",
+    "bytes": 13617,
+    "sha256": "fb7816546ab2d09af8098356f51d7f9e2b5663357735c363ddfe51b5c0714227",
+    "status": "NO_STATIC_BLOCKERS",
+    "independentRuntimeAuthorReview": true
+  },
+  "manifest": {
+    "file": "plugins/html-guide-kit/plugin.json",
+    "bytes": 1531,
+    "sha256": "d5bc6ce80c8f9e6e21940a598c68f9a451c82c71856612dcfad3217cde5459e8",
+    "onlyVersionChanged": true,
+    "version": "0.1.21",
+    "capabilities": [
+      "Read"
+    ],
+    "defaultPrompt": [
+      "Use $html-guide-kit:guide for a new teaching guide; offer reader, task and question options, then wait for my confirmation."
+    ],
+    "publicEntry": "$html-guide-kit:guide"
+  },
+  "explicitPolicy": {
+    "relative": "plugins/html-guide-kit/skills/guide/agents/openai.yaml",
+    "bytes": 444,
+    "sha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+    "sourceExact": true,
+    "allowImplicitInvocation": false
+  },
+  "approvedIconResources": [
+    {
+      "relative": "plugins/html-guide-kit/assets/icon.png",
+      "bytes": 119566,
+      "sha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+      "sourceExact": true
+    },
+    {
+      "relative": "plugins/html-guide-kit/assets/icon.svg",
+      "bytes": 1261,
+      "sha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+      "sourceExact": true
+    }
+  ],
+  "otherFourPluginGitResources": [
+    {
+      "relative": "plugins/communication-kit/CHANGELOG.md",
+      "sourceBlob": "16ad1f9041f86ed01fcab34771af9ab40c67bcf8",
+      "workingFilteredBlob": "16ad1f9041f86ed01fcab34771af9ab40c67bcf8",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/communication-kit/LICENSE",
+      "sourceBlob": "5ce28e0a42b9f781087df184517daafa2f483602",
+      "workingFilteredBlob": "5ce28e0a42b9f781087df184517daafa2f483602",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/communication-kit/README.md",
+      "sourceBlob": "e48e6a5ee5e783ca93486702330a789989481f84",
+      "workingFilteredBlob": "e48e6a5ee5e783ca93486702330a789989481f84",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/communication-kit/assets/icon.png",
+      "sourceBlob": "39a708ea85835de34a9698d1d431e25205ead387",
+      "workingFilteredBlob": "39a708ea85835de34a9698d1d431e25205ead387",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/communication-kit/assets/icon.svg",
+      "sourceBlob": "6e48cac24e63b6c202d44ecfff89dcb3f3daad6b",
+      "workingFilteredBlob": "6e48cac24e63b6c202d44ecfff89dcb3f3daad6b",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/communication-kit/plugin.json",
+      "sourceBlob": "c43bc6bbff0f9cc6cfcccadf4a07d98017c84791",
+      "workingFilteredBlob": "c43bc6bbff0f9cc6cfcccadf4a07d98017c84791",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/communication-kit/skills/communicate/SKILL.md",
+      "sourceBlob": "f26f93ca7e2d783301bcd98b0cbb5bf1498c39d0",
+      "workingFilteredBlob": "f26f93ca7e2d783301bcd98b0cbb5bf1498c39d0",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/communication-kit/skills/communicate/agents/openai.yaml",
+      "sourceBlob": "d5536a61a8b67ebb1c3f7e81d66b6cc529c2a56c",
+      "workingFilteredBlob": "d5536a61a8b67ebb1c3f7e81d66b6cc529c2a56c",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/communication-kit/skills/communicate/references/aics-policy.md",
+      "sourceBlob": "505bed066b8229177277713c6eae21b17f9a7a70",
+      "workingFilteredBlob": "505bed066b8229177277713c6eae21b17f9a7a70",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/communication-kit/skills/communicate/references/aics-snapshot.json",
+      "sourceBlob": "7f6136ae1f633be56eb194f11a67d1466490990a",
+      "workingFilteredBlob": "7f6136ae1f633be56eb194f11a67d1466490990a",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/communication-kit/skills/communicate/references/source-provenance.md",
+      "sourceBlob": "620db99d40ff20dbba3e8ca818d4737700ee16f9",
+      "workingFilteredBlob": "620db99d40ff20dbba3e8ca818d4737700ee16f9",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/communication-kit/skills/communicate/references/task-patterns.md",
+      "sourceBlob": "3dfd90a1d5a6826f92e9abfddf650e4c8b763e8a",
+      "workingFilteredBlob": "3dfd90a1d5a6826f92e9abfddf650e4c8b763e8a",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/diagram-kit/CHANGELOG.md",
+      "sourceBlob": "41f0f23e2045ccae4c34e37a8bfde0c5f9d036b7",
+      "workingFilteredBlob": "41f0f23e2045ccae4c34e37a8bfde0c5f9d036b7",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/diagram-kit/LICENSE",
+      "sourceBlob": "5ce28e0a42b9f781087df184517daafa2f483602",
+      "workingFilteredBlob": "5ce28e0a42b9f781087df184517daafa2f483602",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/diagram-kit/README.md",
+      "sourceBlob": "9dc5502fd51244891e3c3013e74fbe5e062b4868",
+      "workingFilteredBlob": "9dc5502fd51244891e3c3013e74fbe5e062b4868",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/diagram-kit/assets/icon.png",
+      "sourceBlob": "591707836457e3a8920df1ba7f3f8c9bbab6a3f0",
+      "workingFilteredBlob": "591707836457e3a8920df1ba7f3f8c9bbab6a3f0",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/diagram-kit/assets/icon.svg",
+      "sourceBlob": "817bebb2f6df7397123ce0b5ad18a6bbed24849c",
+      "workingFilteredBlob": "817bebb2f6df7397123ce0b5ad18a6bbed24849c",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/diagram-kit/plugin.json",
+      "sourceBlob": "4a7b56fd85d83d1f30e81f36ad57f87d8ae5594e",
+      "workingFilteredBlob": "4a7b56fd85d83d1f30e81f36ad57f87d8ae5594e",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/diagram-kit/skills/arch-diagram/SKILL.md",
+      "sourceBlob": "6e9564b860d88cbf9aff27446082902d8aa6b516",
+      "workingFilteredBlob": "6e9564b860d88cbf9aff27446082902d8aa6b516",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/diagram-kit/skills/arch-diagram/agents/openai.yaml",
+      "sourceBlob": "d2237408ca20fc0f6b99c6edf288d2f2c8900ec5",
+      "workingFilteredBlob": "d2237408ca20fc0f6b99c6edf288d2f2c8900ec5",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/diagram-kit/skills/arch-diagram/references/architecture-methodology.md",
+      "sourceBlob": "7949e5dcae61b7a9e609b5aaf352e11261475038",
+      "workingFilteredBlob": "7949e5dcae61b7a9e609b5aaf352e11261475038",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/diagram-kit/skills/arch-diagram/references/code-diagram.md",
+      "sourceBlob": "dc3e6688233c9d443f0ec265d5b3b1b8aa15e7f5",
+      "workingFilteredBlob": "dc3e6688233c9d443f0ec265d5b3b1b8aa15e7f5",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/diagram-kit/skills/arch-diagram/references/component-diagram.md",
+      "sourceBlob": "8380ff3799f4dc1f60b949e90568f37e232af3b3",
+      "workingFilteredBlob": "8380ff3799f4dc1f60b949e90568f37e232af3b3",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/diagram-kit/skills/arch-diagram/references/container-diagram.md",
+      "sourceBlob": "e941cfbbccd5fa83179554afa61023fff61c816d",
+      "workingFilteredBlob": "e941cfbbccd5fa83179554afa61023fff61c816d",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/diagram-kit/skills/arch-diagram/references/context-diagram.md",
+      "sourceBlob": "459fefcdc47cc06fd8e27711815081f4f66a663b",
+      "workingFilteredBlob": "459fefcdc47cc06fd8e27711815081f4f66a663b",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/diagram-kit/skills/arch-diagram/references/deployment-diagram.md",
+      "sourceBlob": "f5d1feb3c4634253c03aca859e3bb14be2ad82aa",
+      "workingFilteredBlob": "f5d1feb3c4634253c03aca859e3bb14be2ad82aa",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/diagram-kit/skills/arch-diagram/references/domain-acquisition.md",
+      "sourceBlob": "fc47a2bfe7c5a5e836743174b863e22617693f04",
+      "workingFilteredBlob": "fc47a2bfe7c5a5e836743174b863e22617693f04",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/diagram-kit/skills/arch-diagram/references/sequence-diagram.md",
+      "sourceBlob": "c3b1706442ed00b21675dc9a00a738c16ea5a949",
+      "workingFilteredBlob": "c3b1706442ed00b21675dc9a00a738c16ea5a949",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/diagram-kit/skills/arch-diagram/references/state-machine-diagram.md",
+      "sourceBlob": "916fdbc87df729ae5ab64657849f2bd14a448e80",
+      "workingFilteredBlob": "916fdbc87df729ae5ab64657849f2bd14a448e80",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/diagram-kit/skills/arch-diagram/scripts/validate_diagram.py",
+      "sourceBlob": "67a94c159977529433f9c1b921cba793ecd2ecc0",
+      "workingFilteredBlob": "67a94c159977529433f9c1b921cba793ecd2ecc0",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/explain-kit/CHANGELOG.md",
+      "sourceBlob": "f6cd34cbf301d9d48e5940b69af1c10319588e14",
+      "workingFilteredBlob": "f6cd34cbf301d9d48e5940b69af1c10319588e14",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/explain-kit/LICENSE",
+      "sourceBlob": "5ce28e0a42b9f781087df184517daafa2f483602",
+      "workingFilteredBlob": "5ce28e0a42b9f781087df184517daafa2f483602",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/explain-kit/README.md",
+      "sourceBlob": "d74e148c842299da5a35518500b0507577968c18",
+      "workingFilteredBlob": "d74e148c842299da5a35518500b0507577968c18",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/explain-kit/assets/icon.png",
+      "sourceBlob": "361a8fad21b18b67a1c9e894989ddfd7163fb38f",
+      "workingFilteredBlob": "361a8fad21b18b67a1c9e894989ddfd7163fb38f",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/explain-kit/assets/icon.svg",
+      "sourceBlob": "7b0e9542d1fce10507f13924b749b5547794a435",
+      "workingFilteredBlob": "7b0e9542d1fce10507f13924b749b5547794a435",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/explain-kit/plugin.json",
+      "sourceBlob": "910ff5886cfffba0356c5529b88b35607d567a7d",
+      "workingFilteredBlob": "910ff5886cfffba0356c5529b88b35607d567a7d",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/explain-kit/skills/concept/SKILL.md",
+      "sourceBlob": "16642e5b2ea411dafe47a5ab0853a9a3c1c9f11c",
+      "workingFilteredBlob": "16642e5b2ea411dafe47a5ab0853a9a3c1c9f11c",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/explain-kit/skills/concept/agents/openai.yaml",
+      "sourceBlob": "f1ac2bf315fc6fbe9644ff8306054550f220190e",
+      "workingFilteredBlob": "f1ac2bf315fc6fbe9644ff8306054550f220190e",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/explain-kit/skills/glossary/SKILL.md",
+      "sourceBlob": "9793bb6df0377c3aeb3e2b2bc6b4ec8cffa1e921",
+      "workingFilteredBlob": "9793bb6df0377c3aeb3e2b2bc6b4ec8cffa1e921",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/explain-kit/skills/glossary/agents/openai.yaml",
+      "sourceBlob": "6ee9778d9c85e761e3b0e82c3242eeca449a9b2f",
+      "workingFilteredBlob": "6ee9778d9c85e761e3b0e82c3242eeca449a9b2f",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/learning-evidence-kit/CHANGELOG.md",
+      "sourceBlob": "86da0625b179616e7effb2db44fb0038618fdc4e",
+      "workingFilteredBlob": "86da0625b179616e7effb2db44fb0038618fdc4e",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/learning-evidence-kit/LICENSE",
+      "sourceBlob": "5ce28e0a42b9f781087df184517daafa2f483602",
+      "workingFilteredBlob": "5ce28e0a42b9f781087df184517daafa2f483602",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/learning-evidence-kit/README.md",
+      "sourceBlob": "b0baf50d290b02ef9dfc7425087f5f74f52cdb63",
+      "workingFilteredBlob": "b0baf50d290b02ef9dfc7425087f5f74f52cdb63",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/learning-evidence-kit/assets/icon.png",
+      "sourceBlob": "27240c16a6a80b3b82b369961e790c88b3831944",
+      "workingFilteredBlob": "27240c16a6a80b3b82b369961e790c88b3831944",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/learning-evidence-kit/assets/icon.svg",
+      "sourceBlob": "1ee0fd2c2437f4fde3c24ba3429347870568fada",
+      "workingFilteredBlob": "1ee0fd2c2437f4fde3c24ba3429347870568fada",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/learning-evidence-kit/plugin.json",
+      "sourceBlob": "6b03ce3e5d698bfbce386e5f9cdadb7a2d005775",
+      "workingFilteredBlob": "6b03ce3e5d698bfbce386e5f9cdadb7a2d005775",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/learning-evidence-kit/references/client-entries.json",
+      "sourceBlob": "bc20fb9ac73a9da6d773df9e71e4f5d30232ec2f",
+      "workingFilteredBlob": "bc20fb9ac73a9da6d773df9e71e4f5d30232ec2f",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/learning-evidence-kit/references/record-contract.md",
+      "sourceBlob": "9b47cc35344776c0f256663567842d817d1cbf7e",
+      "workingFilteredBlob": "9b47cc35344776c0f256663567842d817d1cbf7e",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/learning-evidence-kit/references/record-template.json",
+      "sourceBlob": "1dc783a08a0457982b3643637c1537c3a10cde35",
+      "workingFilteredBlob": "1dc783a08a0457982b3643637c1537c3a10cde35",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/learning-evidence-kit/scripts/common.py",
+      "sourceBlob": "a4e633912405d15cb10404744c668dcb86b24e58",
+      "workingFilteredBlob": "a4e633912405d15cb10404744c668dcb86b24e58",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/learning-evidence-kit/scripts/github_flow.py",
+      "sourceBlob": "5f0501548a16705c7959624c5c1e6f072af9130a",
+      "workingFilteredBlob": "5f0501548a16705c7959624c5c1e6f072af9130a",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/learning-evidence-kit/scripts/lek.py",
+      "sourceBlob": "9206610f88e4df412e37e3458702dae5a080be39",
+      "workingFilteredBlob": "9206610f88e4df412e37e3458702dae5a080be39",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/learning-evidence-kit/scripts/storage.py",
+      "sourceBlob": "32e8b0750dbc1d407234bd35979ff68a5abe6290",
+      "workingFilteredBlob": "32e8b0750dbc1d407234bd35979ff68a5abe6290",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/learning-evidence-kit/skills/learning-record-check/SKILL.md",
+      "sourceBlob": "71e10849c94aa844702212c9cdad85a6a64150f6",
+      "workingFilteredBlob": "71e10849c94aa844702212c9cdad85a6a64150f6",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/learning-evidence-kit/skills/learning-record-check/agents/openai.yaml",
+      "sourceBlob": "e1e7df7d704ad583c32c70f058dea2673b865002",
+      "workingFilteredBlob": "e1e7df7d704ad583c32c70f058dea2673b865002",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/learning-evidence-kit/skills/pop-quiz/SKILL.md",
+      "sourceBlob": "8a68fcdab33e07e3de5fe00cfdb89a106b96d1ff",
+      "workingFilteredBlob": "8a68fcdab33e07e3de5fe00cfdb89a106b96d1ff",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/learning-evidence-kit/skills/pop-quiz/agents/openai.yaml",
+      "sourceBlob": "f231e1fb0c1b4dfc60475793c109b9beabc0eb7a",
+      "workingFilteredBlob": "f231e1fb0c1b4dfc60475793c109b9beabc0eb7a",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/learning-evidence-kit/skills/pop-quiz/references/ku-selection.md",
+      "sourceBlob": "863cdc70c34d98a523b330e94f5e78ff8cce1eab",
+      "workingFilteredBlob": "863cdc70c34d98a523b330e94f5e78ff8cce1eab",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": "plugins/learning-evidence-kit/skills/pop-quiz/references/quiz-policy.md",
+      "sourceBlob": "b5b3b37c02cfaf8bb3b6b9ad1144b539a4d4bd3c",
+      "workingFilteredBlob": "b5b3b37c02cfaf8bb3b6b9ad1144b539a4d4bd3c",
+      "gitBytesUnchanged": true
+    }
+  ],
+  "otherResourceCount": 59,
+  "sharedMarketplaceResources": [
+    {
+      "relative": "VERSION",
+      "sourceBlob": "2bf50aaf17a6f89855dce48afd4e6cbb554047d6",
+      "workingFilteredBlob": "2bf50aaf17a6f89855dce48afd4e6cbb554047d6",
+      "gitBytesUnchanged": true
+    },
+    {
+      "relative": ".agents/plugins/marketplace.json",
+      "sourceBlob": "43f083c3678b6da99e66f64ad8a888b7125f153e",
+      "workingFilteredBlob": "43f083c3678b6da99e66f64ad8a888b7125f153e",
+      "gitBytesUnchanged": true
+    }
+  ],
+  "distributionDefinition": {
+    "pluginResources": 69,
+    "htmlResources": 10,
+    "otherPluginResources": 59,
+    "sharedRegistryAndVersion": 2,
+    "total": 71,
+    "unchanged59AndShared2": true
+  },
+  "testDiff": {
+    "relative": "tests/html-guide-kit.test.mjs",
+    "bytes": 14111,
+    "sha256": "0a9ea01fa2ee93b262b476e79566239431031109ad0e371afbceca989267ade7",
+    "onlyExpectedPluginVersionUpdated": true,
+    "gitLfVsWorkingCrlfAccounted": true
+  },
+  "docReview": {
+    "runbookVersion": "v1.33",
+    "indexVersion": "v2.48",
+    "guideVersion": "v1.21",
+    "workflowGuideVersion": "v2.20",
+    "rootAg6SummaryChanged": true,
+    "currentCandidate": "0.1.21",
+    "readmeAndChangelogSynced": true,
+    "newSection41StageAccurate": true,
+    "priorHistoryRetained": true,
+    "recordedLaterDocChanges": {
+      "rootNotice": "Root appended archive031/full test/check records and clarified Source20 native scope in AGENTS/INDEX/RUNBOOK after my first read",
+      "firstReadChunks": [
+        "ee9fae",
+        "576f31",
+        "ef7952"
+      ],
+      "refreshedReadChunk": "5fd33f",
+      "oldThreeDocBytesNotClaimedUnchanged": true
+    },
+    "refsOnly": [
+      "#217",
+      "#220"
+    ],
+    "noPrematureClosingClaims": true,
+    "PR3": "DRAFT",
+    "issue220": "OPEN",
+    "epic217": "OPEN"
+  },
+  "oldRecoveryAccounting": {
+    "A": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\blocking\\reviews\\independent-A-four-recovery-closure.json",
+      "bytes": 6197,
+      "sha256": "fa0dc07cc524dbed49c7a74504b7edba16a2a6b3fff4a49901e2adf7d6d2674f",
+      "actual": {
+        "uuids": 4,
+        "actualInputs": 7,
+        "completeTurns": 7,
+        "invalidTurns": 0,
+        "plannedTurns": 8,
+        "unrunTurns": 1,
+        "semantic": {
+          "PASS": 3,
+          "UNEXERCISED": 1,
+          "FAIL": 0
+        }
+      }
+    },
+    "rootAndCode": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\reviews\\independent-root-code-closure.json",
+      "bytes": 1853,
+      "sha256": "fa6f4884bc42d7d342b9d2b2bc90c0e7f6a79327898623a05baa6e3560625916",
+      "actualUUIDs": 3,
+      "actualInputs": 6,
+      "actualComplete": 6,
+      "counts": {
+        "PASS": 2,
+        "FAIL": 1
+      }
+    },
+    "combined": {
+      "actualUUIDs": 7,
+      "completeTurns": 13,
+      "PASS": 5,
+      "FAIL": 1,
+      "UNEXERCISED": 1
+    },
+    "oldInvalidNotPromoted": true,
+    "markerRace": {
+      "globalUtc": "2026-10-14T09:18:52.961Z",
+      "batchFlagUtc": "2026-10-14T09:19:21.273Z",
+      "crossGlobalTurn": [
+        {
+          "startedUtc": "2026-10-14T09:17:15.324Z",
+          "completedUtc": "2026-10-14T09:19:06.015Z",
+          "startedBeforeGlobalMarker": true,
+          "completedAfterGlobalMarker": true,
+          "transportStatus": "COMPLETE"
+        }
+      ],
+      "postGlobalAutoStart": [
+        {
+          "startedUtc": "2026-10-14T09:19:06.118Z",
+          "secondsAfterGlobalMarker": 13.157,
+          "startedBeforeBatchMarker": true,
+          "startedAutomaticallyByExistingSequentialOperator": true,
+          "startedAfterGlobalMarker": true,
+          "startedByNewExplicitOperatorInvocationAfterPauseMessage": false
+        }
+      ],
+      "zeroPostGlobalInput": false,
+      "originalIncorrectReceiptAndCorrectionPreserved": true
+    }
+  },
+  "source20NativeLimitedPaths": [
+    {
+      "mode": "work",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\native-ui-work\\independent-review.json",
+      "bytes": 45699,
+      "sha256": "223103ee8f571f58216b665eae5c79011a35151b0e617dcd9bf3b1436352d7d6",
+      "status": "PASS_FOR_EXECUTED_NATIVE_WORK_PATH_ONLY",
+      "canonical": "7e3deb8fb1d9960ede37ea96a714b1e34652a751",
+      "version": "0.1.20",
+      "actualUUID": "01a1398f-c7f4-7633-a702-a1965dca1a7a",
+      "completedTurns": 3,
+      "appPackage": "OpenAI.Codex_2p2nqsd0c76g0!App",
+      "appPackageVersion": "26.1007.9446.0",
+      "sdkCliVersion": "0.162.0-alpha.17.2",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "scope": "Only the independently reviewed three-turn local native path; plain Chat unavailable and persistent popup/empty/timeout/close remain untested.",
+      "metadataOnlyReviewed": true,
+      "homeRawSdkOrInitialWholeWindowA11Read": false,
+      "notReusedForVersion21": true
+    },
+    {
+      "mode": "codex",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-20\\native-ui-codex\\independent-review.json",
+      "bytes": 45539,
+      "sha256": "5af0c30e1ab964d00bb247f668f93dc580f7baf73a709452ef5f21db04e6c8ce",
+      "status": "PASS_FOR_EXECUTED_NATIVE_CODEX_PATH_ONLY",
+      "canonical": "7e3deb8fb1d9960ede37ea96a714b1e34652a751",
+      "version": "0.1.20",
+      "actualUUID": "01a139a5-f208-7392-9b45-572f3195675c",
+      "completedTurns": 3,
+      "appPackage": "OpenAI.Codex_2p2nqsd0c76g0!App",
+      "appPackageVersion": "26.1007.9446.0",
+      "sdkCliVersion": "0.162.0-alpha.17.2",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "scope": "Only the independently reviewed three-turn local native path; plain Chat unavailable and persistent popup/empty/timeout/close remain untested.",
+      "metadataOnlyReviewed": true,
+      "homeRawSdkOrInitialWholeWindowA11Read": false,
+      "notReusedForVersion21": true
+    }
+  ],
+  "checks": {
+    "actualRootWorkingReceipt": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\engineering-working-checks.json",
+      "bytes": 1004,
+      "sha256": "09f23d72a399a4d76086461c261ffb47f0e00a19f0968834968677253a5c9316"
+    },
+    "fullNpmTest": {
+      "status": "PASS_ACTUAL_WORKING_CONTENT",
+      "sessionId": 82302,
+      "initialChunk": "b9e1d7",
+      "finalChunk": "9a515b",
+      "exitCode": 0,
+      "tests": 346,
+      "pass": 346,
+      "fail": 0,
+      "skip": 0,
+      "log": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\tracking\\021-npm-test.log",
+        "bytes": 78952,
+        "sha256": "3590348e9d9a4129a231b40e818b328d6c846f10ef1a307e16035bd12068ac97"
+      },
+      "notClaimedBeforeActualCompletion": true,
+      "rerunByReviewer": false
+    },
+    "validate": {
+      "status": "PASS_ACTUAL_ROOT_WORKING_CONTENT",
+      "chunk": "ff6f4f",
+      "exitCode": 0,
+      "log": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\tracking\\021-npm-validate.log",
+        "bytes": 392,
+        "sha256": "e3bedb0233222e468a1e207cfbcbaf1c3138a8827fde2769e9e2ede3a85eb3d8"
+      }
+    },
+    "baselineToolsCheck": {
+      "status": "PASS_ACTUAL_ROOT_WORKING_CONTENT",
+      "chunk": "ff6f4f",
+      "exitCode": 0,
+      "log": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\tracking\\021-npm-check.log",
+        "bytes": 213,
+        "sha256": "6c194d3cab975bfcaadd9ef894adc247ca34e53e06af305b0c215099eb27add3"
+      }
+    },
+    "laterDocsA6": {
+      "status": "ROOT_REPORTED_ACTUAL_PASS",
+      "chunk": "5bcd9c",
+      "exitCode": 0,
+      "docs": 65,
+      "source": "Root actual tool receipt; final report re-read refreshed three docs",
+      "rerunByReviewer": false
+    },
+    "canonicalInstall": "NOT_RUN",
+    "actualCachePythonFor21": "NOT_RUN",
+    "behaviorModelFor21": "NOT_RUN",
+    "nativeClientFor21": "NOT_RUN",
+    "githubCurrentHeadCI": "NOT_RUN_FOR_UNCOMMITTED_21",
+    "nonAuthorGithubApproval": "NOT_VERIFIED",
+    "actualMerge": "NOT_RUN",
+    "ownerFinalAcceptance": "PENDING",
+    "realEffect": "NOT_MEASURED"
+  },
+  "schedulerReviewSeparation": {
+    "operatorCandidateAuthoredByThisReviewer": true,
+    "operatorCandidateNotSelfApprovedInThisReport": true,
+    "authorSevenNonModelFixtureAssertionsNotModelPASS": true,
+    "independentControlsReviewHandledByBAndLogic": true,
+    "captureModuleSourceLabel20IsTechnicalProvenanceNotRuntimeVersion": true,
+    "versionGuardsAreThreeHelpersNotThreeHarnesses": true
+  },
+  "blockingFindings": [],
+  "risksAndLimits": [
+    "This approves only the observed static working integration. Fresh exact committed Source21 13 installs/6 actual cache Python, frozen model acceptance, client interactions, current-head CI/independent GitHub review and merge recheck remain separate required evidence.",
+    "Pure Chat CLIENT_ENTRY_UNAVAILABLE and native popup/empty/timeout/window close gaps remain; two reviewed local paths under one package do not establish complete target-client acceptance.",
+    "Source20 semantic failure, original capture INVALIDs and automatic marker race are retained; no retroactive PASS or whole canonical/mirror tree identity claim."
+  ],
+  "reviewerWritesOnly": [
+    "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\write-independent-integration-review-a.mjs",
+    "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\independent-integration-review-a.json"
+  ],
+  "sharedRepositoryModifiedByReviewer": false,
+  "installationOrModelOrClientInvokedByReviewer": false,
+  "privateWholeWindowA11Read": false,
+  "readObservations": [
+    {
+      "chunk": "576f31",
+      "truncated": true,
+      "scope": "large initial combined diff; missing AGENTS/INDEX supplemented by ef7952 and latest5fd33f"
+    },
+    {
+      "chunk": "d62436",
+      "truncated": true,
+      "scope": "prior controls inventory; does not support a runtime model PASS"
+    },
+    {
+      "chunk": "b8779c",
+      "truncated": false,
+      "scope": "current repository self-review/governance/documentation rules full"
+    }
+  ]
+}

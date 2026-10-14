@@ -1,0 +1,188 @@
+{
+  "recordedAt": "2026-10-14T09:50:13.091Z",
+  "phase": "SOURCE20_NEW_TECHNICAL_RECOVERY_ARCHIVE_PREP_ONLY",
+  "sourceMechanism": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack-030-evidence.mjs",
+    "bytes": 34697,
+    "sha256": "8fb14244fee3c26ba3d609314476687d6012c214bbba000cb3341ff2e9f5fff0"
+  },
+  "packer": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack-031-evidence.mjs",
+    "bytes": 39977,
+    "sha256": "4b17f671a57590beeb90d041fdf69003dca2e4a735fb1ef62a4bc95f91e3e2c7"
+  },
+  "sourceNet": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\verify-lossless-030-dotnet.ps1",
+    "bytes": 6085,
+    "sha256": "9a8938731ab42c9e2ae53a2b4b53b6aa640a3dff728180332bc4cdf75895f9f3"
+  },
+  "dotnet": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\verify-lossless-031-dotnet.ps1",
+    "bytes": 6109,
+    "sha256": "13fa1d819c9333a6bb02324c12b89116b53cd70193a55def914e34c6e7754d0a"
+  },
+  "mechanismSourceUnchanged": true,
+  "sourceAllowlist": {
+    "rootFiles": [
+      "archive-031-control.json",
+      "build-pack-031-behavior-b.mjs",
+      "corrections/0-1-20/invalid-timing-observation-b.json",
+      "corrections/0-1-20/provenance/grade-import/check-continuation-prepared-r2.mjs",
+      "corrections/0-1-20/provenance/grade-import/check-final-equivalence-r2.mjs",
+      "corrections/0-1-20/provenance/grade-import/check-final-equivalence.mjs",
+      "corrections/0-1-20/provenance/grade-import/check-prepared-import.mjs",
+      "corrections/0-1-20/provenance/grade-import/commands-prepared.json",
+      "corrections/0-1-20/provenance/grade-import/execute-authorized-continuation-r2.mjs",
+      "corrections/0-1-20/provenance/grade-import/execute-authorized-import.mjs",
+      "corrections/0-1-20/provenance/grade-import/execution/01-grade-B3.1.json",
+      "corrections/0-1-20/provenance/grade-import/execution/01-grade-B3.1.stderr.txt",
+      "corrections/0-1-20/provenance/grade-import/execution/01-grade-B3.1.stdout.txt",
+      "corrections/0-1-20/provenance/grade-import/execution/failure.json",
+      "corrections/0-1-20/provenance/grade-import/post-import-equivalence-r2.json",
+      "corrections/0-1-20/provenance/grade-import/pre-import-inventory.json",
+      "corrections/0-1-20/provenance/grade-import/preparation-proof.json",
+      "corrections/0-1-20/provenance/grade-import/recorded-object-shape-diagnosis-r2.json",
+      "corrections/0-1-20/provenance/grade-import/verify-import-common-r2.mjs",
+      "corrections/0-1-20/provenance/grade-import/verify-import-common.mjs",
+      "corrections/0-1-20/review-capture-lifecycle-b.mjs",
+      "corrections/0-1-20/review-capture-lifecycle-v2-b.mjs",
+      "corrections/0-1-20/static-review-capture-lifecycle-b.json",
+      "corrections/0-1-20/static-review-capture-lifecycle-v2-b.json",
+      "corrections/0-1-20/write-invalid-timing-observation-b.mjs",
+      "packer-provenance/0-1-20-recovery/preparation-control.json",
+      "verify-lossless-031-dotnet.ps1"
+    ],
+    "rootDirectories": [
+      "corrections/0-1-20/provenance/grade-import/execution-continuation-r2",
+      "corrections/0-1-20/technical-lifecycle-draft",
+      "corrections/0-1-20/technical-lifecycle-draft-v2",
+      "technical-recovery/0-1-20",
+      "technical-recovery/preparation-records"
+    ]
+  },
+  "changes": [
+    {
+      "before": "archive-030-control.json",
+      "after": "archive-031-control.json",
+      "occurrences": 2
+    },
+    {
+      "before": "archive030",
+      "after": "archive031",
+      "occurrences": 1
+    },
+    {
+      "before": "pack030 requires",
+      "after": "pack031 requires",
+      "occurrences": 1
+    },
+    {
+      "before": "0.1.20 original stopped seven CLI batches13UUID26inputs:24COMPLETE2INVALID,10PASS1UNEXERCISED2INVALID_RUN; native UI and technical-recovery are separately sealed and excluded",
+      "after": "0.1.20 NEW V2 technical-recovery six batches7UUID13COMPLETE:5PASS1FAIL1UNEXERCISED; source20 original stopped CLI remains sealed030 and native UI plus Source21 remain separate",
+      "occurrences": 1
+    },
+    {
+      "before": "actualBatches.length===7",
+      "after": "actualBatches.length===6",
+      "occurrences": 1
+    },
+    {
+      "before": "actualUuids.size===13&&actualInputs.length===26",
+      "after": "actualUuids.size===7&&actualInputs.length===13",
+      "occurrences": 1
+    },
+    {
+      "before": "final actual13UUID/26inputs do not match frozen20 source",
+      "after": "final actual7UUID/13inputs do not match frozen20 recovery source",
+      "occurrences": 1
+    },
+    {
+      "before": "control.realDistinctUUIDs===13&&control.actualInputFiles===26",
+      "after": "control.realDistinctUUIDs===7&&control.actualInputFiles===13",
+      "occurrences": 1
+    },
+    {
+      "before": "actual13UUID/26input accounting",
+      "after": "actual7UUID/13input accounting",
+      "occurrences": 1
+    },
+    {
+      "before": "const DEFAULT_PACKET_LIMIT=2*1024*1024;",
+      "after": "const DEFAULT_PACKET_LIMIT=2097151;",
+      "occurrences": 1
+    },
+    {
+      "before": "maximum<=16*1024*1024",
+      "after": "maximum<=2097151",
+      "occurrences": 1
+    },
+    {
+      "before": "packet limit must be 64 KiB through 16 MiB",
+      "after": "packet limit must be 64 KiB through strictly below2MiB",
+      "occurrences": 1
+    }
+  ],
+  "dotnetChanges": [
+    [
+      "patch-030-stopped",
+      "patch-031-recovery-stopped"
+    ],
+    [
+      "distinctRealUuidCount -ne 13",
+      "distinctRealUuidCount -ne 7"
+    ],
+    [
+      "rawInputFileCount -ne 26",
+      "rawInputFileCount -ne 13"
+    ],
+    [
+      "runIdentities.Count -ne 7",
+      "runIdentities.Count -ne 6"
+    ],
+    [
+      "Seven exact source7e3d identities required.",
+      "Six exact source7e3d recovery identities required."
+    ],
+    [
+      "$packetBytes.Length -gt 2097152",
+      "$packetBytes.Length -ge 2097152"
+    ],
+    [
+      "packetLimitBytes=2097152",
+      "packetLimitBytes=2097151"
+    ]
+  ],
+  "securitySerializationPathBomBase64NoOverwriteUnchanged": true,
+  "onlySizeGateStrengthened": true,
+  "strictPacketMaxBytes": 2097151,
+  "exactAccounting": {
+    "uuids": 7,
+    "inputs": 13,
+    "complete": 13,
+    "invalid": 0,
+    "semantic": {
+      "FAIL": 1,
+      "PASS": 5,
+      "UNEXERCISED": 1
+    }
+  },
+  "zeroPostGlobalInputs": false,
+  "selfTest": {
+    "mode": "self-test",
+    "inMemoryOnly": true,
+    "utf8AndBomAndInvalidUtf8Restoration": "PASS",
+    "secretPatternDetection": "PASS",
+    "filesystemCopies": 0
+  },
+  "syntaxActualExit": 0,
+  "actualPackByThisAgent": false,
+  "actualArchiveNodeDotnetRestorationByThisAgent": false,
+  "oldOriginalCallsUiSource21Excluded": true,
+  "explicitExclusions": [
+    "Old sealed030 original model runs/reviewer mirrors/current auth HOME/config/cache/sessions",
+    "corrections/0-1-21 and all later preparations/runtime",
+    "native UI/Work/Chat/Codex observations",
+    "All sources outside exact allowlist; no symlink traversal"
+  ],
+  "failedWrapperScope": "Only old original grade helper/receipt/continuation provenance included as technical failure context, not old model inputs/session/batch mirrors."
+}

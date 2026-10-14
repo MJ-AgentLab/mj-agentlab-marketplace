@@ -1,0 +1,13 @@
+{
+  "startedAt": "2026-10-14T05:26:01.060Z",
+  "completedAt": "2026-10-14T05:26:01.593Z",
+  "executable": "pwsh",
+  "args": [
+    "-NoProfile",
+    "-Command",
+    "$taskTokens=$null; $taskErrors=$null; $taskAst=[System.Management.Automation.Language.Parser]::ParseFile('C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\verify-lossless-028-dotnet.ps1',[ref]$taskTokens,[ref]$taskErrors); if($taskErrors.Count){$taskErrors|ConvertTo-Json -Depth8;exit1}; [pscustomobject]@{syntax='PASS';actualArchiveVerification='NOT_RUN_NO_ARCHIVE';errors=$taskErrors.Count}|ConvertTo-Json"
+  ],
+  "actualExitCode": 0,
+  "error": null,
+  "noRepoPack": true
+}

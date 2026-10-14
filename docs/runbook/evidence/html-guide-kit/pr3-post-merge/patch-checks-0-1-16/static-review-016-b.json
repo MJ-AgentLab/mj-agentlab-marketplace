@@ -1,0 +1,484 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T03:08:10.907Z",
+  "status": "STATIC_ONLY",
+  "result": "NO_STATIC_BLOCKERS",
+  "reviewer": "/root/behavior_014_b",
+  "resourceAuthor": "behavior_014_a; Root entry clarification/freeze",
+  "independentFromAuthor": true,
+  "sourceCanonical": "2bcbe30ac2b4e2a64a159f121dc818f961fe7c15",
+  "sourceVersion": "0.1.15",
+  "proposedVersion": "0.1.16",
+  "candidatePhase": "FROZEN_RESOURCE_CANDIDATE_FOR_INDEPENDENT_STATIC_REVIEW",
+  "candidateControl": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\runtime-draft-control.json",
+    "sha256": "ac95e378de08455d11c8399f6314ef1c83edd129b680c1e843af9df7390ee96d"
+  },
+  "resources": [
+    {
+      "relative": "SKILL.md",
+      "draftFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\SKILL.md.snapshot.txt",
+      "draftBytes": 6143,
+      "draftSha256": "9856e1aa7196c50673304a0b566cd5d2b4fbc4a84761c999f895a3ecdf2c5df5",
+      "sourceGitBytes": 6135,
+      "sourceGitSha256": "845ac963f60e0f39fbff5a5b1b87f1df1a72da056192ec50951a8d8e22637be2",
+      "previousFullReadSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft\\source15-SKILL.md.snapshot.txt",
+      "previousReadSnapshotGitRawEqual": true,
+      "fullCandidateTextRead": true
+    },
+    {
+      "relative": "references/guide-framework.md",
+      "draftFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\guide-framework.md.snapshot.txt",
+      "draftBytes": 8240,
+      "draftSha256": "3d6f2ec4764b48c97b80dae69efa470c3e13620242b2050d90f687ed1c452ea3",
+      "sourceGitBytes": 24354,
+      "sourceGitSha256": "adcf3f8ab83572b8b11b5eacd17134145cbec122ab29da1be70b30845cce11fd",
+      "previousFullReadSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft\\source15-guide-framework.md.snapshot.txt",
+      "previousReadSnapshotGitRawEqual": true,
+      "fullCandidateTextRead": true
+    },
+    {
+      "relative": "references/interaction-design.md",
+      "draftFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\interaction-design.md.snapshot.txt",
+      "draftBytes": 8345,
+      "draftSha256": "bd7032f3484c60e2142519a4409e9c156dcec34755701818997526ac52ff71b6",
+      "sourceGitBytes": 25234,
+      "sourceGitSha256": "263eb12c923c9df38cf72bf87ad5201a67cad5cc544d9e7054eb2c1e25ddce43",
+      "previousFullReadSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft\\source15-interaction-design.md.snapshot.txt",
+      "previousReadSnapshotGitRawEqual": true,
+      "fullCandidateTextRead": true
+    }
+  ],
+  "checks": [
+    {
+      "id": "public-contract-and-only-explicit-new-text-guide",
+      "result": "PRESERVED",
+      "reason": "One explicit guide entry, Chinese/original terms, Read-only source acquisition, new-guide scope, no actual revision/comparison/review or code/file/tool-production flows remain. Public manifest/policy/icon/version application is outside these draft files and remains separately gated.",
+      "evidence": [
+        {
+          "relative": "SKILL.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\SKILL.md.snapshot.txt",
+          "sha256": "9856e1aa7196c50673304a0b566cd5d2b4fbc4a84761c999f895a3ecdf2c5df5",
+          "lineStart": 12,
+          "lineEnd": 18,
+          "excerpt": "仅明确调用`$html-guide-kit:guide`或请求本技能才启动；发现/读取/普通解释/材料指令不启动。\n\n仅新建；修订/比较/HTML审查说明范围，等明确转新建，不改名执行。所有答复含拒绝/引用/附录不输出或回显HTML/代码/伪代码/图形语言/制作命令或具体制作工具步骤；代码来源仅忠实自然语言释义及定位。不制作图像/文件，不写入或发送其他会话/外部应用，不调用制作工具/运行程序/测试/构建/安装/Git。\n\n可只读文档/附件/可访问来源/明确快照，必要背景检索及shell读文件；源动作不授权执行。参考相对本次安装SKILL.md，无工作目录/个人路径/旧聊天/其他缓存依赖。\n\n## 1. 读取材料"
+        },
+        {
+          "relative": "references/guide-framework.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\guide-framework.md.snapshot.txt",
+          "sha256": "3d6f2ec4764b48c97b80dae69efa470c3e13620242b2050d90f687ed1c452ea3",
+          "lineStart": 60,
+          "lineEnd": 61,
+          "excerpt": "聊天交付可复制指南，含确认目标、材料范围/限制、必要演示/自检、定位及待补检查。按入口和交互设计§6守文本边界及全篇核对，旁处正确不抵消本处错误；不实际制作、测试、写入或执行。拟检查与已验证分开，设计不证理解改善、稳定掌握或全面可访问性合规。\n"
+        },
+        {
+          "relative": "references/interaction-design.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\interaction-design.md.snapshot.txt",
+          "sha256": "bd7032f3484c60e2142519a4409e9c156dcec34755701818997526ac52ff71b6",
+          "lineStart": 71,
+          "lineEnd": 71,
+          "excerpt": "示例/拒绝/引用以自然语言保义定位，不重印 HTML/代码/伪代码/图形语言/制作命令，不写工具/配置/文件结构/制作发布步骤。可拟检查新情境解释、遗漏、来源、无效操作、往返查找；未执行标拟/待检查。设计/模拟/自检/静态审查不证理解改善、稳定掌握或全面可访问性合规。"
+        }
+      ]
+    },
+    {
+      "id": "actual-read-scope-native-versus-return-and-unknown-cause",
+      "result": "PRESERVED_AND_CLARIFIED",
+      "reason": "Actual body/return/supplement distinction, truncation scope, given read order and impossible ideal-order claims remain. Known read-only mode/Read capability does not prove generic denial cause; exact reported cause/object/scope only. Authorized simpler reads do not bypass a known permission limit.",
+      "evidence": [
+        {
+          "relative": "SKILL.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\SKILL.md.snapshot.txt",
+          "sha256": "9856e1aa7196c50673304a0b566cd5d2b4fbc4a84761c999f895a3ecdf2c5df5",
+          "lineStart": 22,
+          "lineEnd": 22,
+          "excerpt": "分原材料/已核验背景/教学构造/设计判断，保留版本/快照身份、定位/原文/条件/例外/冲突/缺口/未知/范围。可读不等核验，必要背景用第一手来源。分native正文/回包/补读，截断非全文。回包仅称拒绝/策略拦截时只述“读取未完成，原因/权限未知”，不命名策略。只读模式不证本次因只读/沙箱/路径限制而拒读，别文件成功不证禁读；不猜/假参照。缺口只阻相关部分。方法资源仅用户明定才作教材；缺可定位材料且无明确主题快照则索取，不自定主题/目标。保留已供线索，目标/确认未齐非各字段皆缺；拒绝有据。"
+        },
+        {
+          "relative": "references/guide-framework.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\guide-framework.md.snapshot.txt",
+          "sha256": "3d6f2ec4764b48c97b80dae69efa470c3e13620242b2050d90f687ed1c452ea3",
+          "lineStart": 7,
+          "lineEnd": 9,
+          "excerpt": "阅读报告分宿主入口正文、实际回包及后续补读。命令成功、长度、外层汇总或自述不证全文；截断须补齐或标未读范围，不假参照。遵守用户明定顺序；无法完成报告实际顺序及缺口，不补写理想流程。\n\n已知只读模式、Read 能力或权限设置不证明当次拒读原因。回包仅称拒绝或策略拦截时，只述读取未完成、拒绝事实及原因/权限范围未知，不命名为只读、沙箱、路径、安全等策略。缓存位置、工作目录、缺正文或别文件成功不证禁读，也不保证换客户端能读。仅陈述本次回包明确支持的限制类型、对象、范围或原因。可在已授权入口逐文件/分段补读，不绕过已知权限、不称未尝试已禁止；无法补读索取必要缺失内容。范围拒绝用已知合同，不附未证环境理由。"
+        },
+        {
+          "relative": "references/guide-framework.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\guide-framework.md.snapshot.txt",
+          "sha256": "3d6f2ec4764b48c97b80dae69efa470c3e13620242b2050d90f687ed1c452ea3",
+          "lineStart": 9,
+          "lineEnd": 9,
+          "excerpt": "已知只读模式、Read 能力或权限设置不证明当次拒读原因。回包仅称拒绝或策略拦截时，只述读取未完成、拒绝事实及原因/权限范围未知，不命名为只读、沙箱、路径、安全等策略。缓存位置、工作目录、缺正文或别文件成功不证禁读，也不保证换客户端能读。仅陈述本次回包明确支持的限制类型、对象、范围或原因。可在已授权入口逐文件/分段补读，不绕过已知权限、不称未尝试已禁止；无法补读索取必要缺失内容。范围拒绝用已知合同，不附未证环境理由。"
+        }
+      ]
+    },
+    {
+      "id": "source-identities-four-evidence-classes-conflict-and-background",
+      "result": "PRESERVED",
+      "reason": "Version/snapshot/locator scope, no invented identifiers, original/background/construction/design separation, first-hand temporally relevant background, per-claim attribution and applicable priority only are retained. Missing context limits related parts instead of fabricating or wholly refusing known material.",
+      "evidence": [
+        {
+          "relative": "references/guide-framework.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\guide-framework.md.snapshot.txt",
+          "sha256": "3d6f2ec4764b48c97b80dae69efa470c3e13620242b2050d90f687ed1c452ea3",
+          "lineStart": 13,
+          "lineEnd": 28,
+          "excerpt": "列名称、定位、版本/明确快照、已读范围、支持及缺口。文件用来源身份及章/行，网页用实际页面/章，粘贴标本次快照；不造定位或版本，跨会话仅明确快照、不假定同步。\n\n分清四类内容，逐项归因，不让相邻原文替新增内容背书：\n\n- 原材料：教材对象，保留关键措辞、条件、例外、关系和范围；陈述/提案非已实现或验证。\n- 已核验背景：仅实际核验命题及范围；必要时效或影响判断的背景读第一手来源，可读/记忆非核验。\n- 教学构造：虚构情境、角色、值或假设就地标身份/范围，非记录、原规则或领域证据。\n- 设计判断：组织、交互、新增检查轴及有限推论标理由/边界，不称原文明说或已测效果。\n\n冲突并列保留主张、来源和条件，不选边；仅已取得且适用的明确优先规则可据以使用，仍留原冲突。缺口/未核验只阻相关部分，已有依据继续用，不靠术语、版式或常识补齐。\n\n更新先列保留/替换/历史/冲突待定依据；被替换条款连条件、例外、附注退出当前，不从旧版回填。历史标失效、不参与当前模拟/判准；范围不明先澄清，不默认整份替换或任意保留。\n\n说“未提供”前分已有、线索、缺细节、未确认，不因目标未齐否定已有角色/任务。无可定位教材且无明确主题快照时索取最小材料，不自定主题；后来到达按真实范围重整，不追认自选目标。附加缺口拒绝理由逐项有据。\n\n## 3. 目标与等待"
+        }
+      ]
+    },
+    {
+      "id": "effective-updated-evidence-and-preserve-existing-clues",
+      "result": "PRESERVED",
+      "reason": "Replacement retires old conditions/exception/notes and does not refill new gaps; history cannot enter current simulations/criteria. Existing role/task clues are not rejected wholesale because target confirmation is missing.",
+      "evidence": [
+        {
+          "relative": "references/guide-framework.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\guide-framework.md.snapshot.txt",
+          "sha256": "3d6f2ec4764b48c97b80dae69efa470c3e13620242b2050d90f687ed1c452ea3",
+          "lineStart": 24,
+          "lineEnd": 26,
+          "excerpt": "更新先列保留/替换/历史/冲突待定依据；被替换条款连条件、例外、附注退出当前，不从旧版回填。历史标失效、不参与当前模拟/判准；范围不明先澄清，不默认整份替换或任意保留。\n\n说“未提供”前分已有、线索、缺细节、未确认，不因目标未齐否定已有角色/任务。无可定位教材且无明确主题快照时索取最小材料，不自定主题；后来到达按真实范围重整，不追认自选目标。附加缺口拒绝理由逐项有据。"
+        }
+      ]
+    },
+    {
+      "id": "triplet-differences-strict-wait-and-explicit-choice",
+      "result": "PRESERVED_AND_CLARIFIED",
+      "reason": "2–3 genuinely different triplets, tradeoff/recommendation/reason, user explicit existing choice or modification/adoption confirmation, no magic keyword or second approval, same pending plan, no silent/default/time/window consent, no host locking remain. A clearly selected existing option is the authorized explicit choice required by ADR; clarification does not turn a recommendation or generic proceed into consent.",
+      "evidence": [
+        {
+          "relative": "SKILL.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\SKILL.md.snapshot.txt",
+          "sha256": "9856e1aa7196c50673304a0b566cd5d2b4fbc4a84761c999f895a3ecdf2c5df5",
+          "lineStart": 30,
+          "lineEnd": 30,
+          "excerpt": "明确选定方案，或确认采用修改后目标才推进。推荐/预选/沉默/超时/无关回复/含糊赞同/窗口消失非确认；“直接做”/一般授权/工具默认不跳过。歧义仅澄清；未答保留同一方案/待确认，可重述，不自换套/生成。仅用户修改或材料实质改变目标才更新并再等。不能承诺锁住/保持/恢复宿主窗口；用户停止立即停止。"
+        },
+        {
+          "relative": "references/guide-framework.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\guide-framework.md.snapshot.txt",
+          "sha256": "3d6f2ec4764b48c97b80dae69efa470c3e13620242b2050d90f687ed1c452ea3",
+          "lineStart": 30,
+          "lineEnd": 32,
+          "excerpt": "每次新建给 2–3 套不同的读者 Audience、使用任务 Task、理解问题 Understanding Questions。读者列相关情境/责任/明确前置知识，不推人格、智力或能力；任务是具体判断/说明，不仅了解；问题可观察，标材料支持/缺口。差异来自信息、任务或深度，非角色改名；已有目标可作一套，仍等确认。\n\n给取舍、推荐和材料/任务理由，目标推荐非答案提示。选择前仅材料范围/目标/待选，不给章节/交互草稿/成品。明确选定已有方案即足够，不要求特定关键词或第二批准；修改目标须确认采用修改后目标。默认/推荐/预选/沉默/超时/无关含糊回复/窗口消失不算选定，不指目标的直接做/一般授权/工具默认不跳过。歧义只澄清，未答同一方案可重述不自换；仅用户修改或材料实质改变才更新再等。不承诺锁住/保持/恢复宿主；用户停即停。"
+        },
+        {
+          "relative": "references/guide-framework.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\guide-framework.md.snapshot.txt",
+          "sha256": "3d6f2ec4764b48c97b80dae69efa470c3e13620242b2050d90f687ed1c452ea3",
+          "lineStart": 32,
+          "lineEnd": 32,
+          "excerpt": "给取舍、推荐和材料/任务理由，目标推荐非答案提示。选择前仅材料范围/目标/待选，不给章节/交互草稿/成品。明确选定已有方案即足够，不要求特定关键词或第二批准；修改目标须确认采用修改后目标。默认/推荐/预选/沉默/超时/无关含糊回复/窗口消失不算选定，不指目标的直接做/一般授权/工具默认不跳过。歧义只澄清，未答同一方案可重述不自换；仅用户修改或材料实质改变才更新再等。不承诺锁住/保持/恢复宿主；用户停即停。"
+        },
+        {
+          "relative": "references/interaction-design.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\interaction-design.md.snapshot.txt",
+          "sha256": "bd7032f3484c60e2142519a4409e9c156dcec34755701818997526ac52ff71b6",
+          "lineStart": 3,
+          "lineEnd": 3,
+          "excerpt": "本参考不实现/操作教材。完整读[指南框架](guide-framework.md)，继承证据、源规则、归因和输出边界。目标按框架§3：已有方案明确选定即足够，修改后目标须确认采用，推荐/默认不选定，不要求特定关键词或第二批准。以下补操作/反馈/恢复，非必选控件/课时。"
+        }
+      ]
+    },
+    {
+      "id": "semantic-relations-numeric-variable-types-and-scope",
+      "result": "PRESERVED",
+      "reason": "AND/OR, possible/guarantee, original and derived variables, consistent terms/types, classifications/hierarchies/process/state/dependency/causal/numeric relations, labelled connections and anti-layout-inference rules remain. Object exclusion is not reader identity exclusion; local exclusivity requires complete related rules including resets/exceptions.",
+      "evidence": [
+        {
+          "relative": "references/guide-framework.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\guide-framework.md.snapshot.txt",
+          "sha256": "3d6f2ec4764b48c97b80dae69efa470c3e13620242b2050d90f687ed1c452ea3",
+          "lineStart": 36,
+          "lineEnd": 40,
+          "excerpt": "先定原意再表达；术语/中文对照/值型在正文、标签、表格、自检一致，原变量与派生真假分名给推导。短引/忠实转述紧邻定位/条件/限制，摘要/案例/索引非原文全部权威。且/或、可能/保证保义；未说明非没有、可以非必然、本例非所有。\n\n关系按源选表达，不凭版式添结论：分类用有名清单/分类表，不默示步骤/互斥/穷尽；层级用树/嵌套，多归属用表，页面层级不默示领域包含；过程用时间线/步骤/条件分支，留循环/跳过，先后不证因果；状态表/转移分状态与动作，满足非已发生；依赖表/矩阵写谁需什么，不默示运行顺序、不压多对多；因果文字有条件/范围/依据，不凭相关/相邻/参数变化/演示；数值表/图描述留单位/尺度/来源，不以面积夸差/造数。图连接给起终、含义、方向、依据、条件，标签非证据；颜色/空间/大小/对齐/图标只辅原义，源/阅读/演示顺序分清。\n\n范围保留原对象和谓词：某事项不在范围，不等于其持有者在其他已覆盖事项也不适用；另选读者子集标设计，不新增源资格。每处“只、仅、始终、必然”须原文明确支持，或完整局部枚举证明，含影响同字段的常规动作、恢复、重置及例外；不确定完整就不用排他。就地写范围，引用和远处正确说明不替本处限定。"
+        }
+      ]
+    },
+    {
+      "id": "complete-source-rule-before-rewritten-result-and-shared-scope",
+      "result": "PRESERVED",
+      "reason": "All current-state/input/single-operation/actions/objects/fields/conditions/exceptions/source locators are required before rewritten results. All later overview/text/figure additions/examples/simulation/feedback/recovery/selfcheck/author checks require explicit shared applicability or local full rule. Success/completion words, initial panel, neighboring tables and later complete tables cannot silently supply premises.",
+      "evidence": [
+        {
+          "relative": "references/guide-framework.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\guide-framework.md.snapshot.txt",
+          "sha256": "3d6f2ec4764b48c97b80dae69efa470c3e13620242b2050d90f687ed1c452ea3",
+          "lineStart": 44,
+          "lineEnd": 46,
+          "excerpt": "材料有操作规则时，在首个改写操作结果之前呈现完整源规则单元：必要当前状态、输入、单个直接操作、全部源明定动作及对象、字段结果、条件、例外、局部范围和定位。清除、撤销、恢复也是动作，不能只给最终值或初值。对象未定义保留原称呼及缺口，不扩成业务日志、永久删除或外部行为。非操作材料按概念、关系和证据组织，不强造规则目录。\n\n共同规则完整且明示适用情境、覆盖全文哪些概览/文字/图示及补充/例子/模拟/反馈/恢复/自检/作者核对项；范围内才缩写，范围外写足或指完整规则。初值、旁表、前例、章节号、后置完整表不补前文前提。“完成/成功/有效”仅源完整定义、指南给定义及本处适用关系时可缩写。源无条件结果不增条件，纯条件真假不附操作结果可单谈组合。"
+        },
+        {
+          "relative": "SKILL.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\SKILL.md.snapshot.txt",
+          "sha256": "9856e1aa7196c50673304a0b566cd5d2b4fbc4a84761c999f895a3ecdf2c5df5",
+          "lineStart": 45,
+          "lineEnd": 45,
+          "excerpt": "- 有操作规则先呈现完整源规则及适用约定，再写结果：当前态/输入/单个操作、全部源明定动作/对象/字段结果/条件/例外/定位，含清除/恢复；未定义对象保留原称呼/未知。明示共同规则覆盖全篇概览/例子/图示/反馈/恢复/自检/核对项的范围；范围内才缩写，否则写足或指完整规则。初值/旁表/前例/完成/成功/有效词不默补前提；仅源完整定义且明示适用的术语可缩写。无操作材料不强造目录。"
+        }
+      ]
+    },
+    {
+      "id": "direct-operation-versus-path-and-wide-rule-coverage",
+      "result": "PRESERVED",
+      "reason": "Allowed/forbidden/uncovered split under all wider rules/negative conditions/exceptions; source-covered same-value/repetition results persist without invented limit/validity prerequisites. Unknown alternate paths do not erase a known direct operation result.",
+      "evidence": [
+        {
+          "relative": "references/guide-framework.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\guide-framework.md.snapshot.txt",
+          "sha256": "3d6f2ec4764b48c97b80dae69efa470c3e13620242b2050d90f687ed1c452ea3",
+          "lineStart": 48,
+          "lineEnd": 48,
+          "excerpt": "固定当前状态和单个直接操作，匹配全部相关宽规则、排除和例外，分已允许、已禁止、未覆盖。未单列特例、重复、结果同值、额外意义或提示缺失不撤销已知结果，不添限次或有效性前提；先改状态的路径另判，不以“甲或乙、再次”合并不同操作。缺口只限真正未覆盖部分。"
+        },
+        {
+          "relative": "references/interaction-design.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\interaction-design.md.snapshot.txt",
+          "sha256": "bd7032f3484c60e2142519a4409e9c156dcec34755701818997526ac52ff71b6",
+          "lineStart": 41,
+          "lineEnd": 41,
+          "excerpt": "按框架§5固定当前态/单个直接操作，匹配全部宽规则、排除、恢复、例外。确定否定仅源必要条件/排他/禁止支持；一态结果不默示他态禁止/保持。别操作前提不套、近名状态不代换，反例不误排源允许态；内部冲突回查、不足待定不靠惯例。先改态路径未知不撤销已知直接结果，操作/路径分判。"
+        }
+      ]
+    },
+    {
+      "id": "source-field-fidelity-and-local-design-attribution",
+      "result": "PRESERVED",
+      "reason": "All explicitly defined results remain but unknown fields are not invented as changed/unchanged/restored. Condition reading is not a source unchanged-result rule. Added UI fields/initials/preserved input/prompts/stale feedback are individually labelled design/reason/local scope, not legitimized by page-level labels or neighboring citations.",
+      "evidence": [
+        {
+          "relative": "references/guide-framework.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\guide-framework.md.snapshot.txt",
+          "sha256": "3d6f2ec4764b48c97b80dae69efa470c3e13620242b2050d90f687ed1c452ea3",
+          "lineStart": 50,
+          "lineEnd": 52,
+          "excerpt": "完整结果仅源明定动作、对象、字段，不为每个字段补变化/不变；条件被读取/判断不证保持，源未述字段不补变化/保持/恢复，其他已知结果保留。新增展示行为按交互设计§2就地标设计/范围并分列，整页标签不替本处。\n\n恢复含全部源动作/对象/字段及现实边界，非仅初值或清反馈；引用共同恢复明示覆盖本处，局部图引导全规则。源给源依据，UI 给设计理由，标签不抵消错误归因；源启发设计标推理而非规范依据，未知对象不改新字段/记录，设计不增减源结果。"
+        },
+        {
+          "relative": "references/interaction-design.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\interaction-design.md.snapshot.txt",
+          "sha256": "bd7032f3484c60e2142519a4409e9c156dcec34755701818997526ac52ff71b6",
+          "lineStart": 27,
+          "lineEnd": 27,
+          "excerpt": "新增状态/默认/输入保留/选择/高亮/提示/反馈清除或失效，与源结果分列，就地标设计、理由、范围；源未述不推变化/保持。整页构造或进入/重试说明不替具体结果标签；源启发设计非规范依据，标签不抵消后句错归因，恢复/反馈/答案/作者清单同样回查。"
+        }
+      ]
+    },
+    {
+      "id": "complete-recovery-actions-versus-ui-restoration",
+      "result": "PRESERVED",
+      "reason": "Recovery retains all source actions/objects/field outcomes and real-system limitation, not only initials or UI clearing. A local diagram points to complete rule; new UI needs design rationale and cannot remove a source result or become source-guaranteed merely due labels.",
+      "evidence": [
+        {
+          "relative": "references/guide-framework.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\guide-framework.md.snapshot.txt",
+          "sha256": "3d6f2ec4764b48c97b80dae69efa470c3e13620242b2050d90f687ed1c452ea3",
+          "lineStart": 52,
+          "lineEnd": 52,
+          "excerpt": "恢复含全部源动作/对象/字段及现实边界，非仅初值或清反馈；引用共同恢复明示覆盖本处，局部图引导全规则。源给源依据，UI 给设计理由，标签不抵消错误归因；源启发设计标推理而非规范依据，未知对象不改新字段/记录，设计不增减源结果。"
+        },
+        {
+          "relative": "references/interaction-design.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\interaction-design.md.snapshot.txt",
+          "sha256": "bd7032f3484c60e2142519a4409e9c156dcec34755701818997526ac52ff71b6",
+          "lineStart": 25,
+          "lineEnd": 27,
+          "excerpt": "操作与恢复遵循框架§5完整规则及覆盖范围，所有区域不自由省前提。恢复非仅初值，小图标局部并指完整恢复；回退说返回态及保留/清除，重置说全部恢复/清除对象，不保证现实系统回到最后成功态或有同名控件。\n\n新增状态/默认/输入保留/选择/高亮/提示/反馈清除或失效，与源结果分列，就地标设计、理由、范围；源未述不推变化/保持。整页构造或进入/重试说明不替具体结果标签；源启发设计非规范依据，标签不抵消后句错归因，恢复/反馈/答案/作者清单同样回查。"
+        }
+      ]
+    },
+    {
+      "id": "input-domain-reachable-values-and-design-restrictions",
+      "result": "PRESERVED",
+      "reason": "Initial/assignment/reachable/domain/type remain distinct; absent domain does not prohibit an input already covered by a local rule. Added domain/type/limits must be labelled at entry/options/feedback without source assertion.",
+      "evidence": [
+        {
+          "relative": "references/guide-framework.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\guide-framework.md.snapshot.txt",
+          "sha256": "3d6f2ec4764b48c97b80dae69efa470c3e13620242b2050d90f687ed1c452ea3",
+          "lineStart": 56,
+          "lineEnd": 56,
+          "excerpt": "区分初值、赋值/运算、源可达值、全输入域和值型；可达性质非通用域。未述上下界/整数性/单位/有效性未知，不禁已命中局部规则及全部前提的输入；未覆盖才待补。另选集合/限制在起始信息、选项、反馈就地标局部构造/设计，非源限制。"
+        },
+        {
+          "relative": "references/interaction-design.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\interaction-design.md.snapshot.txt",
+          "sha256": "bd7032f3484c60e2142519a4409e9c156dcec34755701818997526ac52ff71b6",
+          "lineStart": 39,
+          "lineEnd": 39,
+          "excerpt": "规则完整与输入有效分开：源有允许域，越界标超本模拟范围、非正常分支；域未定义不造域/判无效，已命中规则及全部前提仍判已知。可达性质非全域；额外集合/类型/上下界按框架§6在起始、选项、反馈就地标构造/设计及范围，旁处标签不补本处。"
+        }
+      ]
+    },
+    {
+      "id": "content-adaptation-static-benefit-and-accessibility-design",
+      "result": "PRESERVED",
+      "reason": "Confirmed tasks guide selection/ordering/comparison and complexity; shorter versions retain conditions; no forced chapter/control/question counts. Optional patterns and static alternatives retain context/cost/benefit and visible key conditions. Keyboard/focus/scale/narrow-screen considerations remain design pending actual validation.",
+      "evidence": [
+        {
+          "relative": "references/guide-framework.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\guide-framework.md.snapshot.txt",
+          "sha256": "3d6f2ec4764b48c97b80dae69efa470c3e13620242b2050d90f687ed1c452ea3",
+          "lineStart": 58,
+          "lineEnd": 58,
+          "excerpt": "按确认问题找原文再取舍/分组/排序/选表达，删除不改核心结论、比较维度一致。深度看关系/分支/依赖/冲突/例外/目标；短版删冗余装饰不删条件。概览常显结论加细节，条件/例外/来源/比较不藏于主动发现后；交互有收益/代价，静态够就不用，无固定章数/控件/格式/题量。"
+        },
+        {
+          "relative": "references/interaction-design.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\interaction-design.md.snapshot.txt",
+          "sha256": "bd7032f3484c60e2142519a4409e9c156dcec34755701818997526ac52ff71b6",
+          "lineStart": 7,
+          "lineEnd": 20,
+          "excerpt": "每项说明：理解用途/依据；起始信息、当前态、未知/限制；明确操作/触发；变化及仍可见条件；局部结果是模拟/参考/有据判断；反馈理由、缺项、定位/边界；改选、重试、回退、复位及旧反馈失效。短段或表格皆可；交互须帮当前问题、收益值得成本，静态文字/条件表/并列说明也可完整交付。\n\n可选模式按用途选择：\n\n- 展开 Disclosure：低频细节，入口有意义、留上下文；比较可多项同显，结论/限制常显。\n- 切换 View switching：无需并列的独立视图，标当前、范围、返回；比较优先并列，不靠记忆另一屏。\n- 关联高亮 Linked highlighting：已有对应，文字标签/取消/非颜色提示，不造关联。\n- 筛选 Filtering：相关子集，显示条件/范围/隐藏内容/清除，不无声滤关键例外。\n- 分步 Step-through：有据过程/状态，留全局/当前位置/触发及暂停/前进/回退/重置，无依据不造步骤。\n- 条件模拟 Condition simulation：探索源规则在不同输入下的结果，按规则完整性限定，不当真实动作或因果验证。\n- 教学自检 Learning check：练习解释规则、关系和边界，按可靠判准分反馈与参考，不自动评能力。\n\n视觉配等价文字，必要信息不只靠颜色/悬停/动画；名称/状态/反馈清楚，考虑键盘/焦点/缩放/窄屏。只提设计及待检查，不称已通过访问/操作验证。\n"
+        }
+      ]
+    },
+    {
+      "id": "step-demonstration-human-trigger-versus-actual-action",
+      "result": "PRESERVED",
+      "reason": "One coherent context, current facts/trigger/action/result/source/branches/loops/pause/exit and restoration remain. Parameter satisfaction does not imply action performed or causal proof; feedback/simulations never operate an external system.",
+      "evidence": [
+        {
+          "relative": "references/interaction-design.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\interaction-design.md.snapshot.txt",
+          "sha256": "bd7032f3484c60e2142519a4409e9c156dcec34755701818997526ac52ff71b6",
+          "lineStart": 23,
+          "lineEnd": 25,
+          "excerpt": "同组明确材料贯穿步骤，避免频繁换情境。每步给当前事实、单个操作/触发、变化、局部结果/限制/来源，留分支/循环/暂停/退出/例外，非强画单线。源需人为触发时，满足条件/改参数只更新可执行判断，非动作已发生/成功/业务通过。提交/确认/恢复标模拟，不外部执行。\n\n操作与恢复遵循框架§5完整规则及覆盖范围，所有区域不自由省前提。恢复非仅初值，小图标局部并指完整恢复；回退说返回态及保留/清除，重置说全部恢复/清除对象，不保证现实系统回到最后成功态或有同名控件。"
+        }
+      ]
+    },
+    {
+      "id": "simulation-complete-partial-missing-conflicting-hypotheses",
+      "result": "PRESERVED",
+      "reason": "Complete selected inputs, partial known branches, missing threshold/domain/actor/result, conflict without priority and labelled teaching hypotheses remain separately handled; knowledge gaps do not erase covered results or authorize full-material rules in incomplete sources.",
+      "evidence": [
+        {
+          "relative": "references/interaction-design.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\interaction-design.md.snapshot.txt",
+          "sha256": "bd7032f3484c60e2142519a4409e9c156dcec34755701818997526ac52ff71b6",
+          "lineStart": 31,
+          "lineEnd": 42,
+          "excerpt": "先核对变量/域/当前态/前提/触发/结果/优先/例外/范围/定位，再定可判输入：\n\n- 完整覆盖：必要组合/边界/例外，结果有理由/依据/范围。\n- 部分分支：已覆盖可判，其他标未规定及缺项，非全拒。\n- 缺阈值/域/触发者/结果：保缺口及影响，不默认数值/自动动作。\n- 冲突无适用优先：并列来源，不选方便结果/造唯一规则。\n- 教学假设：单列构造/模型及范围，不充原规则/事实或抹源冲突。\n\n规则完整与输入有效分开：源有允许域，越界标超本模拟范围、非正常分支；域未定义不造域/判无效，已命中规则及全部前提仍判已知。可达性质非全域；额外集合/类型/上下界按框架§6在起始、选项、反馈就地标构造/设计及范围，旁处标签不补本处。\n\n按框架§5固定当前态/单个直接操作，匹配全部宽规则、排除、恢复、例外。确定否定仅源必要条件/排他/禁止支持；一态结果不默示他态禁止/保持。别操作前提不套、近名状态不代换，反例不误排源允许态；内部冲突回查、不足待定不靠惯例。先改态路径未知不撤销已知直接结果，操作/路径分判。\n"
+        }
+      ]
+    },
+    {
+      "id": "three-value-AND-OR-and-branch-cumulative-coverage",
+      "result": "PRESERVED",
+      "reason": "Known-false AND / known-true OR decide their combination despite other unknown inputs; unknown is missing information not new business value. Operation premise/result remains distinct. Branches are exclusive/prioritized; cumulative reasons merge every applicable item, broad rows cannot erase a known result or missing reason.",
+      "evidence": [
+        {
+          "relative": "references/interaction-design.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\interaction-design.md.snapshot.txt",
+          "sha256": "bd7032f3484c60e2142519a4409e9c156dcec34755701818997526ac52ff71b6",
+          "lineStart": 43,
+          "lineEnd": 43,
+          "excerpt": "纯条件真假不附操作/字段结果可独立判，不强加业务态；附结果须全当前态/操作前提。且有任一明确否即否，或有任一明确是即是，另一未知不撤销；其余未知才待定，全已知按源。未知是缺信息非新业务值，组合成立非整体可执行/已发生，也不定他字段。"
+        },
+        {
+          "relative": "references/interaction-design.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\interaction-design.md.snapshot.txt",
+          "sha256": "bd7032f3484c60e2142519a4409e9c156dcec34755701818997526ac52ff71b6",
+          "lineStart": 53,
+          "lineEnd": 53,
+          "excerpt": "分支互斥或明示优先，累计原因另列清单合并全部适用项。逐对查任意/其他/任一未知等宽行，不盖已决定组合、不第一匹配丢已知缺项/未知/累计项，全文边界/自检/恢复一致。覆盖难写清可选独立固定情境，明示题设/分支/每次复位/局部假设，不填造源规则或删已知结果。"
+        }
+      ]
+    },
+    {
+      "id": "attempt-lifecycle-latest-state-independent-scenes",
+      "result": "PRESERVED",
+      "reason": "Entry/current-input source/continue/change/retry/exit/reset precede branches; shared state uses latest result and changing conditions is not reset. Independent scenes explicitly restore premises each entry/retry. Missing fields and unresolved-state dependent paths remain bounded, not silently performed or absent.",
+      "evidence": [
+        {
+          "relative": "references/interaction-design.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\interaction-design.md.snapshot.txt",
+          "sha256": "bd7032f3484c60e2142519a4409e9c156dcec34755701818997526ac52ff71b6",
+          "lineStart": 47,
+          "lineEnd": 49,
+          "excerpt": "先定进入、当前态/输入来源、继续、改条件、重试、退出、复位，再写反馈。共享首步初值、以后最新态固定单个操作重匹配，改条件非复位；独立情境每次进入/重试明示恢复必要题设及依据/范围，不靠初次面板或暗示继承前情境。\n\n反馈块在标题/表首/紧邻处明示共同前提及覆盖分支，否则各支写足态/输入/操作，不借前行/旁表/前例/初始面板。范围外查别源规则，不满足本块前提非自动禁止/保持/全未知。未述字段不造变化/保持/清除，保留已知局部结果；依赖未决态的后续待定，可返回明确题设/有据恢复继续，不把未知操作默作完成或未发生。"
+        },
+        {
+          "relative": "references/interaction-design.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\interaction-design.md.snapshot.txt",
+          "sha256": "bd7032f3484c60e2142519a4409e9c156dcec34755701818997526ac52ff71b6",
+          "lineStart": 51,
+          "lineEnd": 51,
+          "excerpt": "重复按最新态及源条件；仍符合允许条件且无明确限次/重复例外则沿用源结果，不添值有效/限一次前提。同值赋值仍有结果/变化量；额外意义/提示缺口不抹已知操作或状态数值。排他按框架§4须源明示或完整局部枚举含恢复/例外，就地限范围。"
+        }
+      ]
+    },
+    {
+      "id": "selfcheck-reliable-versus-unreliable-and-no-ability-scoring",
+      "result": "PRESERVED",
+      "reason": "Question-specific current premises and scoped shared defaults, hypothetical premises only with enough source, reliable multiple valid answers, reasons/misconceptions/locators/retry and bounded open reference are retained. No automatic grade for unreliable/unreviewed text, no preselected answer or silent timeout answer, and no scores/performance/long-term mastery inference.",
+      "evidence": [
+        {
+          "relative": "references/interaction-design.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\interaction-design.md.snapshot.txt",
+          "sha256": "bd7032f3484c60e2142519a4409e9c156dcec34755701818997526ac52ff71b6",
+          "lineStart": 59,
+          "lineEnd": 65,
+          "excerpt": "自检仅指南设计，不在聊天开测验。每题对确认问题列依据、反馈所需态/输入/假设/范围，仅相关字段；共享默认明示覆盖题目及题设覆盖方式，不借题名/面板/前例/别题。可标局部题设假设，源够才限假设判定，不冒充事实/造规则；前提仍缺给条件化参考/待补，不给唯一答案。\n\n可靠判准有适用材料和可核对结果，多答案可成立就容纳、不为单选造唯一；提交给局部判断/理由/误区/定位/限制，允许改答/重试/重做/回看。不可靠如缺定义/规则/情境、冲突或开放取舍，只给有界参考：假设、成立思路、待核验和不能判断；无假标准答案/自动对错，不称未评自由文本已核验。\n\n不预选/推荐正确答案，目标推荐非答题提示；空/无效答、沉默/超时/关闭保持待答，非知识错误。改答使旧判断清除/明确失效，新提交按当前答；重做说清选择/反馈清除、题设复位、回材料。题干/判准/理由/误区/重试同一前提，旁处正确不补本题。\n\n可用已核对、已提交等局部状态，不出总分、能力等级、绩效或长期掌握结论。一次答对、全操作完成、信心、点击意愿或提示后改答，仅支持相应当次事实；反馈后练习不追写此前已掌握。"
+        }
+      ]
+    },
+    {
+      "id": "all-output-contexts-no-code-or-production-and-no-effect-claim",
+      "result": "PRESERVED",
+      "reason": "All guide/refusal/quotation/appendix outcomes remain natural language only, no HTML/code/pseudocode/graphic language/config/file tree/production commands/tool instructions. Full-guide consistency includes final author checklist; planned checks and actual evidence are distinct, and design/synthetic/static/selfcheck does not prove real understanding/accessibility.",
+      "evidence": [
+        {
+          "relative": "references/interaction-design.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\interaction-design.md.snapshot.txt",
+          "sha256": "bd7032f3484c60e2142519a4409e9c156dcec34755701818997526ac52ff71b6",
+          "lineStart": 69,
+          "lineEnd": 71,
+          "excerpt": "全篇包括概览/图示/表/恢复/自检/附录/作者清单，查目标、依据、全部源动作/对象/明确字段、前提/生命周期一致；条件/例外/未知/来源/比较可见，完整/缺失规则与可靠/不可靠判准分清，反馈有理由/误区/恢复。逐处回查允许/不可/只能/未规定及数量，旁处正确不抵消本处错误。\n\n示例/拒绝/引用以自然语言保义定位，不重印 HTML/代码/伪代码/图形语言/制作命令，不写工具/配置/文件结构/制作发布步骤。可拟检查新情境解释、遗漏、来源、无效操作、往返查找；未执行标拟/待检查。设计/模拟/自检/静态审查不证理解改善、稳定掌握或全面可访问性合规。"
+        },
+        {
+          "relative": "SKILL.md",
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-16\\draft-ready\\SKILL.md.snapshot.txt",
+          "sha256": "9856e1aa7196c50673304a0b566cd5d2b4fbc4a84761c999f895a3ecdf2c5df5",
+          "lineStart": 52,
+          "lineEnd": 52,
+          "excerpt": "交付可复制指南，含确认目标/材料范围/限制；可用标题/列表/表格/图形自然语言描述，守输出边界。交付非制作/发布/验收、理解改善或全面可访问性合规。"
+        }
+      ]
+    }
+  ],
+  "blockers": [],
+  "fullCanonicalPreviousSourceAndAllCandidateTextsCompared": true,
+  "semanticPreservationNotParagraphIdentity": true,
+  "compactAuthorCrosswalkNotUsedAsSemanticProof": true,
+  "publicContractBasis": {
+    "adr": "docs/adr/[ADR]_HTML_Guide_Kit_Addition.md",
+    "spec": "corrections/0-1-16/blocking/frozen-spec.md",
+    "ownerExistingChoiceAndModifiedConfirmationContractRetained": true
+  },
+  "scope": {
+    "runtimeEdited": false,
+    "frozenDraftEdited": false,
+    "old15Edited": false,
+    "installation": "NOT_RUN",
+    "modelBehavior": "NOT_RUN",
+    "desktopUi": "NOT_RUN",
+    "realWorldEffectiveness": "NOT_MEASURED",
+    "testsRepeated": false,
+    "GitHubApproval": "NOT_CLAIMED"
+  },
+  "byteAccounting": {
+    "originalThreeResources": 55723,
+    "proposedThreeResources": 22728,
+    "reducedBytes": 32995,
+    "entryHardBudget6144": true,
+    "entryRemainingBytes": 1
+  },
+  "limitations": [
+    "This reviews exact draft bytes and semantic preservation only; shorter references do not prove complete receipt by any actual model. Fresh installation, actual cached native/tool reading and continuous behavior remain required.",
+    "References are 8240/8345 bytes, slightly above 8KiB each; no repository hard reference-size ceiling was supplied. Their reduced size is recorded exactly without claiming a size-based behavior PASS.",
+    "No other plugin/manifest/version/icon/catalog resources are changed by this reviewer; application and engineering checks remain Root responsibilities."
+  ]
+}

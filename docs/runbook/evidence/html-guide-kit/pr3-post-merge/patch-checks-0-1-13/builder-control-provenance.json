@@ -1,0 +1,92 @@
+{
+  "createdAt": "2026-10-13T12:00:55.924Z",
+  "phase": "PREP_ONLY",
+  "method": "EXTERNAL_BUILDER_EXACT_SOURCE_COPY_AND_CURRENT_VERSION_PROVENANCE_DERIVATION",
+  "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-12\\build-controls-prep-only-behavior-a.mjs",
+  "sourceSha256Before": "b1d80a875601e10fb21a197ddcaff6cb10d8bbe7f43614b91fc057e157faec4d",
+  "sourceSha256After": "b1d80a875601e10fb21a197ddcaff6cb10d8bbe7f43614b91fc057e157faec4d",
+  "originalSourceCopy": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\provenance\\source-0-1-12-builder.original.mjs",
+  "originalSourceCopySha256": "b1d80a875601e10fb21a197ddcaff6cb10d8bbe7f43614b91fc057e157faec4d",
+  "target": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-13\\build-controls-prep-only-behavior-a.mjs",
+  "targetSha256": "0bb599938ad4054a8093e09bb11ca9779cceececaba32e68b283e6e20d4f150b",
+  "transforms": [
+    {
+      "id": "mark-old-target",
+      "exactBefore": "0.1.12",
+      "exactAfter": "__NEW_TARGET_VERSION__",
+      "occurrences": 7,
+      "beforeSha256": "b1d80a875601e10fb21a197ddcaff6cb10d8bbe7f43614b91fc057e157faec4d",
+      "afterSha256": "737a8adbcef7e7621d5d5236975ef0452919c10d1e3deefbc7f44ea205008ca5"
+    },
+    {
+      "id": "mark-old-source",
+      "exactBefore": "0.1.11",
+      "exactAfter": "__NEW_SOURCE_VERSION__",
+      "occurrences": 5,
+      "beforeSha256": "737a8adbcef7e7621d5d5236975ef0452919c10d1e3deefbc7f44ea205008ca5",
+      "afterSha256": "940d2aecb098934f3f2fa9d792190f90973b22ae0c554c771aa1ca86a912fdcb"
+    },
+    {
+      "id": "new-target",
+      "exactBefore": "__NEW_TARGET_VERSION__",
+      "exactAfter": "0.1.13",
+      "occurrences": 7,
+      "beforeSha256": "940d2aecb098934f3f2fa9d792190f90973b22ae0c554c771aa1ca86a912fdcb",
+      "afterSha256": "1d65cd0abaadf3ec8a0f791cbe4cf521d4a64f0ca5969e089e3e753cde223b1a"
+    },
+    {
+      "id": "new-source",
+      "exactBefore": "__NEW_SOURCE_VERSION__",
+      "exactAfter": "0.1.12",
+      "occurrences": 5,
+      "beforeSha256": "1d65cd0abaadf3ec8a0f791cbe4cf521d4a64f0ca5969e089e3e753cde223b1a",
+      "afterSha256": "db03709a21901a7cd4d959c07cb9335992ba6f2e5e0d8bce5f86f8e7cd97de09"
+    },
+    {
+      "id": "new-source-directory-and-provenance",
+      "exactBefore": "0-1-11",
+      "exactAfter": "0-1-12",
+      "occurrences": 4,
+      "beforeSha256": "db03709a21901a7cd4d959c07cb9335992ba6f2e5e0d8bce5f86f8e7cd97de09",
+      "afterSha256": "c0d671298c5220b9a36832cc881128810570fa530130b549cf289bfa8ce918ff"
+    },
+    {
+      "id": "exact-current-source-canonical",
+      "exactBefore": "e3a4daecf4bd637d77d43329f0956ac06dac0cc5",
+      "exactAfter": "5bce83410802b04c2d0c7fb0324610f87917a386",
+      "occurrences": 1,
+      "beforeSha256": "c0d671298c5220b9a36832cc881128810570fa530130b549cf289bfa8ce918ff",
+      "afterSha256": "5c33c3c1c3b5b2db3b290948bd08d3b01ce1dd87d802fb94057068db73e6acde"
+    },
+    {
+      "id": "exact-guard-digit-bytes",
+      "exactBefore": "beforeDigitHex:'31',afterDigitsHex:'32'",
+      "exactAfter": "beforeDigitHex:'32',afterDigitsHex:'33'",
+      "occurrences": 1,
+      "beforeSha256": "5c33c3c1c3b5b2db3b290948bd08d3b01ce1dd87d802fb94057068db73e6acde",
+      "afterSha256": "e193365f044fa11fe9e52b2aeae2c9c21048dbf55a4c770d8d42a9b093843306"
+    },
+    {
+      "id": "guard-diff-description",
+      "exactBefore": "last digit1 replaced by2",
+      "exactAfter": "last digit2 replaced by3",
+      "occurrences": 1,
+      "beforeSha256": "e193365f044fa11fe9e52b2aeae2c9c21048dbf55a4c770d8d42a9b093843306",
+      "afterSha256": "b8075e024a88dac52b1162d928c107581412129ff4ae477d1dca782559255c70"
+    },
+    {
+      "id": "collection-source-provenance",
+      "exactBefore": "Current11 guard",
+      "exactAfter": "Current12 guard",
+      "occurrences": 1,
+      "beforeSha256": "b8075e024a88dac52b1162d928c107581412129ff4ae477d1dca782559255c70",
+      "afterSha256": "0bb599938ad4054a8093e09bb11ca9779cceececaba32e68b283e6e20d4f150b"
+    }
+  ],
+  "sourceControlsRawAndPacketsModified": false,
+  "frozenInputsCriteriaOperatorsModelParametersChanged": false,
+  "installationInvocation": false,
+  "modelInvocation": false,
+  "gradeInvocation": false,
+  "repositoryWrites": false
+}

@@ -1,0 +1,211 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T09:53:16.591Z",
+  "phase": "DRY_RUN_ONLY_EXACT_FROZEN_READY_FOR_ROOT_ACTUAL_PACK",
+  "canonicalSha": "7e3deb8fb1d9960ede37ea96a714b1e34652a751",
+  "canonicalTree": "5c7de4743a1b4426b9fb11ce237bcb85e334ffe7",
+  "packageVersion": "0.1.20",
+  "captureControlVersion": "technical-recovery-0.1.20-capture-lifecycle-v2",
+  "actualAccounting": {
+    "uuids": 7,
+    "inputs": 13,
+    "complete": 13,
+    "invalid": 0,
+    "semantic": {
+      "PASS": 5,
+      "FAIL": 1,
+      "UNEXERCISED": 1
+    },
+    "preparedBatches": 6
+  },
+  "gradeStatus": "Root actual e7592b EXIT0 seven unique direct original grades andsix summaries; no repetition/adapter",
+  "gradeEquivalence": {
+    "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\provenance\\grade-import\\post-import-equivalence.json",
+    "sha256": "44845da1d350d9848ff0271145f78b43b21a7bf6742117350905a6dbfdceec25"
+  },
+  "zeroPostGlobalInputs": false,
+  "actualPostGlobalInputs": [
+    {
+      "variant": "B5.2",
+      "turn": 1,
+      "uuid": "01a139b5-4fdc-7fc2-a628-01782f39a973",
+      "startedUtc": "2026-10-14T09:19:06.118Z",
+      "completedUtc": "2026-10-14T09:20:09.028Z",
+      "secondsAfterMarker": 13.157
+    }
+  ],
+  "controllerRace": "Frozen running A sequential operator checked local batch flag. B5.2T1 started13.157s after global flag and before A local flag, then naturally completed; no selection/T2 followed.",
+  "coverage": "Recovery subset only; original stopped13 calls/2INVALID remain sealed030; clients and all remaining core/E/S/repeat not promoted.",
+  "packer": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack-031-evidence.mjs",
+    "bytes": 39977,
+    "sha256": "4b17f671a57590beeb90d041fdf69003dca2e4a735fb1ef62a4bc95f91e3e2c7"
+  },
+  "control": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\archive-031-control.json",
+    "bytes": 104480,
+    "sha256": "e48505f2009313b0dc43f35f7233e06bb857c9c8a2c4c7c1687e90d9246723ba"
+  },
+  "dotnet": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\verify-lossless-031-dotnet.ps1",
+    "bytes": 6109,
+    "sha256": "13fa1d819c9333a6bb02324c12b89116b53cd70193a55def914e34c6e7754d0a"
+  },
+  "target": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-031-recovery-stopped",
+  "targetWritten": false,
+  "files": 580,
+  "totalOriginalBytes": 11230064,
+  "packets": 9,
+  "inventorySha256": "297b3adf4c4041532d4a6f2417039651c438970d02da6023a57e2e53e432422d",
+  "largestPacketBytes": 2096686,
+  "strictPacketMaxBytes": 2097151,
+  "secretPatternScan": "NO_PATTERN_FINDINGS",
+  "nodeDryRoundTrips": 580,
+  "dotnetDrySourceByteRoundTrips": 580,
+  "dotnetDryInventoryMatchesNode": true,
+  "preparedDotnetArchiveVerifierSyntaxErrors": 0,
+  "actualArchivePackAndNodeDotnetPacketRestoration": "NOT_RUN_BY_THIS_AGENT_PENDING_ROOT",
+  "preciseToolReceipts": {
+    "builder": {
+      "toolChunk": "c15d67",
+      "actualExit": 0
+    },
+    "nodeDry": {
+      "toolChunk": "191e3b",
+      "actualExit": 0,
+      "receipt": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-20-recovery\\final-dry-run.command.json",
+        "bytes": 692,
+        "sha256": "68fd426406ec7d0c9e4e613505d3dcd55c1d7f24c2a98160a7c64b4cdbbbbd2d"
+      }
+    },
+    "dotnetDry": {
+      "toolChunk": "1e7883",
+      "actualExit": 0,
+      "receipt": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-20-recovery\\dotnet-dry.command.json",
+        "bytes": 481,
+        "sha256": "7040ad65829ea4697b0e018ec4ed47586cc24112f6f9f6ea5cdc1ecc95bb173a"
+      }
+    }
+  },
+  "sourceAllowlist": {
+    "rootFiles": [
+      "archive-031-control.json",
+      "build-pack-031-behavior-b.mjs",
+      "corrections/0-1-20/invalid-timing-observation-b.json",
+      "corrections/0-1-20/provenance/grade-import/check-continuation-prepared-r2.mjs",
+      "corrections/0-1-20/provenance/grade-import/check-final-equivalence-r2.mjs",
+      "corrections/0-1-20/provenance/grade-import/check-final-equivalence.mjs",
+      "corrections/0-1-20/provenance/grade-import/check-prepared-import.mjs",
+      "corrections/0-1-20/provenance/grade-import/commands-prepared.json",
+      "corrections/0-1-20/provenance/grade-import/execute-authorized-continuation-r2.mjs",
+      "corrections/0-1-20/provenance/grade-import/execute-authorized-import.mjs",
+      "corrections/0-1-20/provenance/grade-import/execution/01-grade-B3.1.json",
+      "corrections/0-1-20/provenance/grade-import/execution/01-grade-B3.1.stderr.txt",
+      "corrections/0-1-20/provenance/grade-import/execution/01-grade-B3.1.stdout.txt",
+      "corrections/0-1-20/provenance/grade-import/execution/failure.json",
+      "corrections/0-1-20/provenance/grade-import/post-import-equivalence-r2.json",
+      "corrections/0-1-20/provenance/grade-import/pre-import-inventory.json",
+      "corrections/0-1-20/provenance/grade-import/preparation-proof.json",
+      "corrections/0-1-20/provenance/grade-import/recorded-object-shape-diagnosis-r2.json",
+      "corrections/0-1-20/provenance/grade-import/verify-import-common-r2.mjs",
+      "corrections/0-1-20/provenance/grade-import/verify-import-common.mjs",
+      "corrections/0-1-20/review-capture-lifecycle-b.mjs",
+      "corrections/0-1-20/review-capture-lifecycle-v2-b.mjs",
+      "corrections/0-1-20/static-review-capture-lifecycle-b.json",
+      "corrections/0-1-20/static-review-capture-lifecycle-v2-b.json",
+      "corrections/0-1-20/write-invalid-timing-observation-b.mjs",
+      "packer-provenance/0-1-20-recovery/preparation-control.json",
+      "verify-lossless-031-dotnet.ps1"
+    ],
+    "rootDirectories": [
+      "corrections/0-1-20/provenance/grade-import/execution-continuation-r2",
+      "corrections/0-1-20/technical-lifecycle-draft",
+      "corrections/0-1-20/technical-lifecycle-draft-v2",
+      "technical-recovery/0-1-20",
+      "technical-recovery/preparation-records"
+    ]
+  },
+  "excluded": [
+    "Original stopped030 model runs/batches/mirrors and old originals/reviews copies",
+    "All actual HOME/auth/config/cache/sessions/reparse links",
+    "corrections/0-1-21 and later runtime/control preparations",
+    "Native UI/Work/Chat/Codex evidence",
+    "All unrelated reviewer directories"
+  ],
+  "includedFailureScope": "Full V1/V2 non-model experiments, first badfixtures, static first V1 blocker and final V2 review; integration firstCRLF failure/r2; original helper errors/source-path/citation range failures; pause receipt and exact A postglobal race correction; explicit old failed grading wrapper plus recorded-object r2 receipts, with no old model inputs.",
+  "mechanismLimits": "Frozen30 serialization/security/owned-path/BOM/base64/nooverwrite and opaque verdict preservation retained. Only identity/allowlist/accounting plus stricter <2MiB default/max/.NET edge exclusion change; exact delta saved preparation-control.",
+  "rootActualCommands": [
+    {
+      "executable": "D:\\Development\\nodejs\\node.exe",
+      "argv": [
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack-031-evidence.mjs",
+        "pack",
+        "--snapshot-name",
+        "patch-031-recovery-stopped",
+        "--target",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-031-recovery-stopped",
+        "--max-packet-bytes",
+        "2097151",
+        "--final-reviewed",
+        "true",
+        "--expected-inventory-sha256",
+        "297b3adf4c4041532d4a6f2417039651c438970d02da6023a57e2e53e432422d"
+      ]
+    },
+    {
+      "executable": "D:\\Development\\nodejs\\node.exe",
+      "argv": [
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack-031-evidence.mjs",
+        "verify",
+        "--snapshot-name",
+        "patch-031-recovery-stopped",
+        "--target",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-031-recovery-stopped",
+        "--compare-originals",
+        "true"
+      ]
+    },
+    {
+      "executable": "pwsh.exe",
+      "argv": [
+        "-NoProfile",
+        "-File",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\verify-lossless-031-dotnet.ps1",
+        "-Target",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-031-recovery-stopped",
+        "-ReviewerRoot",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer"
+      ]
+    }
+  ],
+  "rootFinalSealSuggestedOriginalProofs": [
+    "archive-031-control.json",
+    "build-pack-031-behavior-b.mjs",
+    "pack-031-evidence.mjs",
+    "verify-lossless-031-dotnet.ps1",
+    "run-pack031-dry-behavior-b.mjs",
+    "dry-source-031-dotnet-b.ps1",
+    "run-pack031-dotnet-dry-behavior-b.mjs",
+    "record-pack031-final-handoff-behavior-b.mjs",
+    "packer-provenance/0-1-20-recovery/dotnet-dry.command.json",
+    "packer-provenance/0-1-20-recovery/dotnet-dry.stderr.log",
+    "packer-provenance/0-1-20-recovery/dotnet-dry.stdout.log",
+    "packer-provenance/0-1-20-recovery/final-dry-run.command.json",
+    "packer-provenance/0-1-20-recovery/final-dry-run.stderr.log",
+    "packer-provenance/0-1-20-recovery/final-dry-run.stdout.log",
+    "packer-provenance/0-1-20-recovery/pack-030-read-only-mechanism-reference.mjs",
+    "packer-provenance/0-1-20-recovery/preparation-control.json",
+    "packer-provenance/0-1-20-recovery/self-test.command.json",
+    "packer-provenance/0-1-20-recovery/self-test.stderr.log",
+    "packer-provenance/0-1-20-recovery/self-test.stdout.log",
+    "packer-provenance/0-1-20-recovery/syntax.command.json",
+    "packer-provenance/0-1-20-recovery/syntax.stderr.log",
+    "packer-provenance/0-1-20-recovery/syntax.stdout.log",
+    "packer-provenance/0-1-20-recovery/verify-lossless-030-read-only-reference.ps1"
+  ],
+  "sourceDynamicPinsAllStillExact": 579,
+  "noRepositoryWriteOrModelGradeRepeat": true,
+  "effectStatus": "NOT_MEASURED"
+}

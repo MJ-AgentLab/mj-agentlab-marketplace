@@ -1,0 +1,1091 @@
+{
+  "method": "complete_line_lcs",
+  "displayLineEndingNormalizationOnly": true,
+  "oldLines": 161,
+  "newLines": 182,
+  "operations": [
+    {
+      "kind": "equal",
+      "oldLine": 1,
+      "newLine": 1,
+      "text": "import test from \"node:test\";"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 2,
+      "newLine": 2,
+      "text": "import assert from \"node:assert/strict\";"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 3,
+      "newLine": 3,
+      "text": "import fs from \"node:fs\";"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 4,
+      "newLine": 4,
+      "text": "import os from \"node:os\";"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 5,
+      "newLine": 5,
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 6,
+      "newLine": 6,
+      "text": "import crypto from \"node:crypto\";"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 7,
+      "newLine": 7,
+      "text": "import {parseDocument} from \"yaml\";"
+    },
+    {
+      "kind": "remove",
+      "oldLine": 8,
+      "text": "import {RUNTIME_PLUGINS,PUBLIC_SKILLS,EXPLICIT_ONLY_SKILLS,REPOSITORY_SKILLS,SKILL_RESOURCES,validateManifest,validateOpenAIConfig,validateRepository,assertInstalledSkillResources,assertInstalledPluginResources} from \"../scripts/validate-portable.mjs\";"
+    },
+    {
+      "kind": "add",
+      "newLine": 8,
+      "text": "import {RUNTIME_PLUGINS,PUBLIC_SKILLS,EXPLICIT_ONLY_SKILLS,REPOSITORY_SKILLS,SKILL_RESOURCES,GUIDE_ENTRY_MAX_BYTES,validateGuideEntryBudget,validateManifest,validateOpenAIConfig,validateRepository,assertInstalledSkillResources,assertInstalledPluginResources} from \"../scripts/validate-portable.mjs\";"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 9,
+      "newLine": 9,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 10,
+      "newLine": 10,
+      "text": "const REPO=path.resolve(import.meta.dirname,\"..\"),TEMP_ROOT=fs.realpathSync.native(os.tmpdir());"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 11,
+      "newLine": 11,
+      "text": "const PLUGIN=\"html-guide-kit\",SKILL=\"html-guide-kit:guide\",SKILL_PATH=\"skills/guide\";"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 12,
+      "newLine": 12,
+      "text": "const RESOURCES=[\"SKILL.md\",\"agents/openai.yaml\",\"references/guide-framework.md\",\"references/interaction-design.md\"];"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 13,
+      "newLine": 13,
+      "text": "const sourceRoot=path.join(REPO,\"plugins\",PLUGIN);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 14,
+      "newLine": 14,
+      "text": "const read=rel=>fs.readFileSync(path.join(sourceRoot,rel),\"utf8\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 15,
+      "newLine": 15,
+      "text": "const manifest=()=>JSON.parse(read(\"plugin.json\"));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 16,
+      "newLine": 16,
+      "text": "const ui=m=>m.extensions[\"com.openai\"].interface;"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 17,
+      "newLine": 17,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 18,
+      "newLine": 18,
+      "text": "function temporary(t,prefix){"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 19,
+      "newLine": 19,
+      "text": " const root=fs.mkdtempSync(path.join(TEMP_ROOT,prefix));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 20,
+      "newLine": 20,
+      "text": " t.after(()=>{"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 21,
+      "newLine": 21,
+      "text": "  const resolved=fs.realpathSync.native(root),relative=path.relative(TEMP_ROOT,resolved);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 22,
+      "newLine": 22,
+      "text": "  assert.ok(relative&&!path.isAbsolute(relative)&&relative!==\"..\"&&!relative.startsWith(`..${path.sep}`)&&path.basename(resolved).startsWith(prefix),\"cleanup must stay inside its temporary fixture root\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 23,
+      "newLine": 23,
+      "text": "  fs.rmSync(resolved,{recursive:true,force:true,maxRetries:5,retryDelay:100});"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 24,
+      "newLine": 24,
+      "text": " });"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 25,
+      "newLine": 25,
+      "text": " return root;"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 26,
+      "newLine": 26,
+      "text": "}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 27,
+      "newLine": 27,
+      "text": "function installedFixture(t,plugin=PLUGIN){"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 28,
+      "newLine": 28,
+      "text": " const root=temporary(t,\"guide-package-\"),source=path.join(root,\"source\"),installed=path.join(root,\"cache\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 29,
+      "newLine": 29,
+      "text": " fs.cpSync(path.join(REPO,\"plugins\",plugin),source,{recursive:true});"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 30,
+      "newLine": 30,
+      "text": " fs.cpSync(source,installed,{recursive:true});"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 31,
+      "newLine": 31,
+      "text": " return {root,source,installed};"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 32,
+      "newLine": 32,
+      "text": "}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 33,
+      "newLine": 33,
+      "text": "function repositoryFixture(t){"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 34,
+      "newLine": 34,
+      "text": " const root=temporary(t,\"guide-repository-\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 35,
+      "newLine": 35,
+      "text": " for(const rel of [\"assets\",\".agents\",\".codex\",\".github\",\"scripts\",\"tests\",\"plugins\",\"docs\",\"plan\",\"AGENTS.md\",\"README.md\",\"CONTRIBUTING.md\",\"GLOSSARY.md\",\"CHANGELOG.md\",\"VERSION\"])fs.cpSync(path.join(REPO,rel),path.join(root,rel),{recursive:true});"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 36,
+      "newLine": 36,
+      "text": " return root;"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 37,
+      "newLine": 37,
+      "text": "}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 38,
+      "newLine": 38,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 39,
+      "newLine": 39,
+      "text": "// These are distribution and metadata checks. Model behavior is validated separately."
+    },
+    {
+      "kind": "add",
+      "newLine": 40,
+      "text": "test(\"guide entry budget counts UTF-8 bytes at the exact boundary\",()=>{"
+    },
+    {
+      "kind": "add",
+      "newLine": 41,
+      "text": " assert.doesNotThrow(()=>validateGuideEntryBudget(\"a\".repeat(GUIDE_ENTRY_MAX_BYTES)));"
+    },
+    {
+      "kind": "add",
+      "newLine": 42,
+      "text": " assert.throws(()=>validateGuideEntryBudget(\"a\".repeat(GUIDE_ENTRY_MAX_BYTES+1)),/entry budget/);"
+    },
+    {
+      "kind": "add",
+      "newLine": 43,
+      "text": " assert.doesNotThrow(()=>validateGuideEntryBudget(\"教\".repeat(GUIDE_ENTRY_MAX_BYTES/3)));"
+    },
+    {
+      "kind": "add",
+      "newLine": 44,
+      "text": " assert.throws(()=>validateGuideEntryBudget(\"教\".repeat(GUIDE_ENTRY_MAX_BYTES/3)+\"a\"),/entry budget/);"
+    },
+    {
+      "kind": "add",
+      "newLine": 45,
+      "text": " assert.doesNotThrow(()=>validateGuideEntryBudget(read(`${SKILL_PATH}/SKILL.md`)));"
+    },
+    {
+      "kind": "add",
+      "newLine": 46,
+      "text": "});"
+    },
+    {
+      "kind": "add",
+      "newLine": 47,
+      "text": ""
+    },
+    {
+      "kind": "add",
+      "newLine": 48,
+      "text": "test(\"repository and byte-identical installation reject an oversized guide entry\",t=>{"
+    },
+    {
+      "kind": "add",
+      "newLine": 49,
+      "text": " const root=repositoryFixture(t),file=path.join(root,\"plugins\",PLUGIN,SKILL_PATH,\"SKILL.md\");"
+    },
+    {
+      "kind": "add",
+      "newLine": 50,
+      "text": " fs.appendFileSync(file,\"教\".repeat(GUIDE_ENTRY_MAX_BYTES/3));"
+    },
+    {
+      "kind": "add",
+      "newLine": 51,
+      "text": " const result=validateRepository(root);assert.equal(result.ok,false);"
+    },
+    {
+      "kind": "add",
+      "newLine": 52,
+      "text": " assert.ok(result.errors.some(error=>error.includes(\"guide SKILL.md\")&&error.includes(\"entry budget\")),result.errors.join(\"\\n\"));"
+    },
+    {
+      "kind": "add",
+      "newLine": 53,
+      "text": " const f=installedFixture(t),source=path.join(f.source,SKILL_PATH),installed=path.join(f.installed,SKILL_PATH);"
+    },
+    {
+      "kind": "add",
+      "newLine": 54,
+      "text": " for(const dir of [source,installed])fs.appendFileSync(path.join(dir,\"SKILL.md\"),\"教\".repeat(GUIDE_ENTRY_MAX_BYTES/3));"
+    },
+    {
+      "kind": "add",
+      "newLine": 55,
+      "text": " assert.throws(()=>assertInstalledSkillResources(source,installed,SKILL),/entry budget/);"
+    },
+    {
+      "kind": "add",
+      "newLine": 56,
+      "text": "});"
+    },
+    {
+      "kind": "add",
+      "newLine": 57,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 40,
+      "newLine": 58,
+      "text": "test(\"HTML Guide Kit has one approved Read-only explicit entry without changing repository skill count\",()=>{"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 41,
+      "newLine": 59,
+      "text": " assert.deepEqual(RUNTIME_PLUGINS[PLUGIN],[\"guide\"]);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 42,
+      "newLine": 60,
+      "text": " assert.deepEqual(PUBLIC_SKILLS,[\"diagram-kit:arch-diagram\",\"learning-evidence-kit:pop-quiz\",\"learning-evidence-kit:learning-record-check\",\"explain-kit:glossary\",\"explain-kit:concept\",\"communication-kit:communicate\",SKILL]);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 43,
+      "newLine": 61,
+      "text": " assert.deepEqual(EXPLICIT_ONLY_SKILLS,[\"learning-evidence-kit:pop-quiz\",\"learning-evidence-kit:learning-record-check\",\"communication-kit:communicate\",SKILL]);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 44,
+      "newLine": 62,
+      "text": " assert.deepEqual(PUBLIC_SKILLS.filter(name=>!EXPLICIT_ONLY_SKILLS.includes(name)),[\"diagram-kit:arch-diagram\",\"explain-kit:glossary\",\"explain-kit:concept\"]);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 45,
+      "newLine": 63,
+      "text": " assert.equal(REPOSITORY_SKILLS.length,20);assert.ok(!REPOSITORY_SKILLS.includes(\"guide\"));"
+    },
+    {
+      "kind": "remove",
+      "oldLine": 46,
+      "text": " const m=manifest();assert.equal(m.name,PLUGIN);assert.equal(m.version,\"0.1.0\");assert.deepEqual(ui(m).capabilities,[\"Read\"]);validateManifest(m,PLUGIN);"
+    },
+    {
+      "kind": "add",
+      "newLine": 64,
+      "text": " const m=manifest();assert.equal(m.name,PLUGIN);assert.equal(m.version,\"0.1.13\");assert.deepEqual(ui(m).capabilities,[\"Read\"]);validateManifest(m,PLUGIN);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 47,
+      "newLine": 65,
+      "text": "});"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 48,
+      "newLine": 66,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 49,
+      "newLine": 67,
+      "text": "test(\"HTML Guide Kit manifest rejects wrong identity, root versions, capabilities and routes\",()=>{"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 50,
+      "newLine": 68,
+      "text": " for(const version of [\"00.1.0\",\"v0.1.0\",[\"0.1.0\"],null,1]){const m=manifest();m.version=version;assert.throws(()=>validateManifest(m,PLUGIN));}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 51,
+      "newLine": 69,
+      "text": " assert.throws(()=>validateManifest(manifest(),\"explain-kit\"),/identity/);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 52,
+      "newLine": 70,
+      "text": " for(const value of [[],[\"Write\"],[\"Read\",\"Write\"],[\"Read\",\"Read\"],\"Read\"]){const m=manifest();ui(m).capabilities=value;assert.throws(()=>validateManifest(m,PLUGIN),/approved capabilities/);}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 53,
+      "newLine": 71,
+      "text": " for(const prompt of [\"Create a guide\",\"Use $explain-kit:concept\",\"Use $html-guide-kit:unknown\",\"Use $html-guide-kit:guide-extra\",\"Use $html-guide-kit:guide_extra\",\"Use $html-guide-kit:guide and $explain-kit:concept\"]){"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 54,
+      "newLine": 72,
+      "text": "  const m=manifest();ui(m).defaultPrompt=[prompt];assert.throws(()=>validateManifest(m,PLUGIN));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 55,
+      "newLine": 73,
+      "text": " }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 56,
+      "newLine": 74,
+      "text": "});"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 57,
+      "newLine": 75,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 58,
+      "newLine": 76,
+      "text": "test(\"HTML Guide Kit marketplace default prompts remain discoverable within the runtime length limit\",()=>{"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 59,
+      "newLine": 77,
+      "text": " const m=manifest(),prompts=ui(m).defaultPrompt;assert.equal(prompts.length,1);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 60,
+      "newLine": 78,
+      "text": " assert.ok([...prompts[0]].length<=128,\"runtime ignores marketplace examples longer than 128 characters\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 61,
+      "newLine": 79,
+      "text": " const calls=[...prompts[0].matchAll(/\\$([a-z0-9-]+):([a-z0-9-]+)(?![A-Za-z0-9_-])/g)];"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 62,
+      "newLine": 80,
+      "text": " assert.equal(calls.length,1);assert.equal(calls[0][1],PLUGIN);assert.equal(calls[0][2],\"guide\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 63,
+      "newLine": 81,
+      "text": " assert.match(prompts[0],/new teaching guide/);assert.match(prompts[0],/wait for my confirmation/);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 64,
+      "newLine": 82,
+      "text": " assert.doesNotThrow(()=>validateManifest(m,PLUGIN));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 65,
+      "newLine": 83,
+      "text": "});"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 66,
+      "newLine": 84,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 67,
+      "newLine": 85,
+      "text": "test(\"HTML Guide Kit marketplace default prompts accept 128 characters and reject any oversized entry\",()=>{"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 68,
+      "newLine": 86,
+      "text": " const prefix=\"Use $html-guide-kit:guide \",atLimit=prefix+\"x\".repeat(128-prefix.length),oversized=atLimit+\"x\";"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 69,
+      "newLine": 87,
+      "text": " const m=manifest();ui(m).defaultPrompt=[atLimit];assert.doesNotThrow(()=>validateManifest(m,PLUGIN));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 70,
+      "newLine": 88,
+      "text": " for(const prompts of [[oversized],[atLimit,oversized],[oversized,atLimit]]){"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 71,
+      "newLine": 89,
+      "text": "  ui(m).defaultPrompt=prompts;assert.throws(()=>validateManifest(m,PLUGIN),/defaultPrompt\\[\\d\\] must be at most 128 Unicode scalar values/);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 72,
+      "newLine": 90,
+      "text": " }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 73,
+      "newLine": 91,
+      "text": "});"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 74,
+      "newLine": 92,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 75,
+      "newLine": 93,
+      "text": "test(\"guide native metadata requires its own route and a boolean false invocation policy\",()=>{"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 76,
+      "newLine": 94,
+      "text": " const text=read(`${SKILL_PATH}/agents/openai.yaml`),valid=validateOpenAIConfig(text,PLUGIN,\"guide\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 77,
+      "newLine": 95,
+      "text": " assert.equal(valid.policy.allow_implicit_invocation,false);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 78,
+      "newLine": 96,
+      "text": " assert.match(valid.interface.default_prompt,/\\$html-guide-kit:guide(?![A-Za-z0-9_-])/);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 79,
+      "newLine": 97,
+      "text": " for(const replacement of [\"true\",'\"false\"',\"null\"]){assert.throws(()=>validateOpenAIConfig(text.replace(\"allow_implicit_invocation: false\",`allow_implicit_invocation: ${replacement}`),PLUGIN,\"guide\"));}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 80,
+      "newLine": 98,
+      "text": " assert.throws(()=>validateOpenAIConfig(text.replace(/policy:\\r?\\n\\s+allow_implicit_invocation: false\\r?\\n?/,\"\"),PLUGIN,\"guide\"));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 81,
+      "newLine": 99,
+      "text": " assert.throws(()=>validateOpenAIConfig(text+\"\\npolicy: {}\\n\",PLUGIN,\"guide\"));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 82,
+      "newLine": 100,
+      "text": " for(const route of [\"$explain-kit:concept\",\"$html-guide-kit:guide-extra\",\"$html-guide-kit:unknown\"]){assert.throws(()=>validateOpenAIConfig(text.replace(\"$html-guide-kit:guide\",route),PLUGIN,\"guide\"));}"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 83,
+      "newLine": 101,
+      "text": " assert.throws(()=>validateOpenAIConfig(text,PLUGIN,\"unknown\"));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 84,
+      "newLine": 102,
+      "text": " const doc=parseDocument(text,{uniqueKeys:true});assert.deepEqual(doc.errors,[]);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 85,
+      "newLine": 103,
+      "text": "});"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 86,
+      "newLine": 104,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 87,
+      "newLine": 105,
+      "text": "test(\"guide has exactly its four approved package-owned runtime resources\",()=>{"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 88,
+      "newLine": 106,
+      "text": " assert.deepEqual([...SKILL_RESOURCES[SKILL]].sort(),[...RESOURCES].sort());"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 89,
+      "newLine": 107,
+      "text": " const skillRoot=path.join(sourceRoot,SKILL_PATH);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 90,
+      "newLine": 108,
+      "text": " const files=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(entry=>entry.isDirectory()?files(path.join(dir,entry.name)):[path.relative(skillRoot,path.join(dir,entry.name)).split(path.sep).join(\"/\")]);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 91,
+      "newLine": 109,
+      "text": " assert.deepEqual(files(skillRoot).sort(),[...RESOURCES].sort());"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 92,
+      "newLine": 110,
+      "text": "});"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 93,
+      "newLine": 111,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 94,
+      "newLine": 112,
+      "text": "for(const reference of [\"references/guide-framework.md\",\"references/interaction-design.md\"])test(\"repository refuses missing mandatory guide reference even without a Markdown pointer: \"+reference,t=>{"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 95,
+      "newLine": 113,
+      "text": " const root=repositoryFixture(t),skillRoot=path.join(root,\"plugins\",PLUGIN,SKILL_PATH),skill=path.join(skillRoot,\"SKILL.md\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 96,
+      "newLine": 114,
+      "text": " fs.unlinkSync(path.join(skillRoot,reference));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 97,
+      "newLine": 115,
+      "text": " fs.writeFileSync(skill,fs.readFileSync(skill,\"utf8\").replaceAll(reference,\"#omitted-pointer\"));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 98,
+      "newLine": 116,
+      "text": " const result=validateRepository(root);assert.equal(result.ok,false);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 99,
+      "newLine": 117,
+      "text": " assert.ok(result.errors.some(error=>error.includes(path.basename(reference))),result.errors.join(\"\\n\"));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 100,
+      "newLine": 118,
+      "text": "});"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 101,
+      "newLine": 119,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 102,
+      "newLine": 120,
+      "text": "test(\"repository rejects an extra guide runtime file\",t=>{"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 103,
+      "newLine": 121,
+      "text": " const root=repositoryFixture(t);fs.writeFileSync(path.join(root,\"plugins\",PLUGIN,SKILL_PATH,\"extra.md\"),\"unapproved runtime material\\n\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 104,
+      "newLine": 122,
+      "text": " const result=validateRepository(root);assert.equal(result.ok,false);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 105,
+      "newLine": 123,
+      "text": " assert.ok(result.errors.some(error=>error.includes(SKILL)||error.includes(\"guide resources\")),result.errors.join(\"\\n\"));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 106,
+      "newLine": 124,
+      "text": "});"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 107,
+      "newLine": 125,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 108,
+      "newLine": 126,
+      "text": "test(\"guide references cannot borrow another directory through a junction\",t=>{"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 109,
+      "newLine": 127,
+      "text": " const root=repositoryFixture(t),skillRoot=path.join(root,\"plugins\",PLUGIN,SKILL_PATH),refs=path.join(skillRoot,\"references\"),foreign=path.join(root,\"foreign-references\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 110,
+      "newLine": 128,
+      "text": " fs.renameSync(refs,foreign);fs.symlinkSync(foreign,refs,process.platform===\"win32\"?\"junction\":\"dir\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 111,
+      "newLine": 129,
+      "text": " const result=validateRepository(root);assert.equal(result.ok,false);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 112,
+      "newLine": 130,
+      "text": " assert.ok(result.errors.some(error=>/resource escapes|owned|reparse|symlink/.test(error)),result.errors.join(\"\\n\"));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 113,
+      "newLine": 131,
+      "text": "});"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 114,
+      "newLine": 132,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 115,
+      "newLine": 133,
+      "text": "for(const resource of RESOURCES)test(\"installed guide compares actual bytes and rejects missing or drifted resource: \"+resource,t=>{"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 116,
+      "newLine": 134,
+      "text": " const f=installedFixture(t),source=path.join(f.source,SKILL_PATH),installed=path.join(f.installed,SKILL_PATH),file=path.join(installed,resource),bytes=fs.readFileSync(file);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 117,
+      "newLine": 135,
+      "text": " assert.doesNotThrow(()=>assertInstalledSkillResources(source,installed,SKILL));"
+    },
+    {
+      "kind": "remove",
+      "oldLine": 118,
+      "text": " fs.writeFileSync(file,Buffer.concat([bytes,Buffer.from(\"\\n\")]));"
+    },
+    {
+      "kind": "add",
+      "newLine": 136,
+      "text": " // Keep valid text drift independent of the entry budget and YAML structure."
+    },
+    {
+      "kind": "add",
+      "newLine": 137,
+      "text": " const drifted=Buffer.from(bytes),offset=resource.startsWith(\"references/\")"
+    },
+    {
+      "kind": "add",
+      "newLine": 138,
+      "text": "  ?bytes.findIndex(byte=>(byte>=65&&byte<=90)||(byte>=97&&byte<=122)):bytes.indexOf(\"HTML\");"
+    },
+    {
+      "kind": "add",
+      "newLine": 139,
+      "text": " assert.ok(offset>=0);drifted[offset]^=32;fs.writeFileSync(file,drifted);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 119,
+      "newLine": 140,
+      "text": " assert.throws(()=>assertInstalledSkillResources(source,installed,SKILL),/installed skill resource differs/);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 120,
+      "newLine": 141,
+      "text": " fs.writeFileSync(file,bytes);fs.unlinkSync(file);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 121,
+      "newLine": 142,
+      "text": " assert.throws(()=>assertInstalledSkillResources(source,installed,SKILL));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 122,
+      "newLine": 143,
+      "text": "});"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 123,
+      "newLine": 144,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 124,
+      "newLine": 145,
+      "text": "test(\"installed guide byte equality cannot legitimize a resource junction or extra file\",t=>{"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 125,
+      "newLine": 146,
+      "text": " const f=installedFixture(t),source=path.join(f.source,SKILL_PATH),installed=path.join(f.installed,SKILL_PATH),refs=path.join(installed,\"references\"),foreign=path.join(f.root,\"foreign-references\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 126,
+      "newLine": 147,
+      "text": " fs.renameSync(refs,foreign);fs.symlinkSync(foreign,refs,process.platform===\"win32\"?\"junction\":\"dir\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 127,
+      "newLine": 148,
+      "text": " assert.throws(()=>assertInstalledSkillResources(source,installed,SKILL),/owned|reparse|symlink|escapes/);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 128,
+      "newLine": 149,
+      "text": " fs.unlinkSync(refs);fs.renameSync(foreign,refs);fs.writeFileSync(path.join(installed,\"extra.md\"),\"unapproved\\n\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 129,
+      "newLine": 150,
+      "text": " assert.throws(()=>assertInstalledSkillResources(source,installed,SKILL));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 130,
+      "newLine": 151,
+      "text": "});"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 131,
+      "newLine": 152,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 132,
+      "newLine": 153,
+      "text": "for(const plugin of [\"diagram-kit\",\"learning-evidence-kit\",\"explain-kit\",\"communication-kit\",PLUGIN])test(\"complete installed plugin preserves manifest, icons and approved skill resources: \"+plugin,t=>{"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 133,
+      "newLine": 154,
+      "text": " const f=installedFixture(t,plugin),result=assertInstalledPluginResources(f.source,f.installed,plugin);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 134,
+      "newLine": 155,
+      "text": " assert.equal(result.name,plugin);assert.deepEqual(Object.keys(result.rootFiles).sort(),[\"plugin.json\",\"assets/icon.svg\",\"assets/icon.png\"].sort());"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 135,
+      "newLine": 156,
+      "text": " assert.deepEqual(Object.keys(result.skills).sort(),[...RUNTIME_PLUGINS[plugin]].sort());"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 136,
+      "newLine": 157,
+      "text": " const hash=bytes=>crypto.createHash(\"sha256\").update(bytes).digest(\"hex\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 137,
+      "newLine": 158,
+      "text": " for(const [rel,item] of Object.entries(result.rootFiles)){"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 138,
+      "newLine": 159,
+      "text": "  assert.equal(item.source,path.join(f.source,rel));assert.equal(item.installed,path.join(f.installed,rel));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 139,
+      "newLine": 160,
+      "text": "  assert.equal(item.sha256,hash(fs.readFileSync(item.source)));assert.equal(item.sha256,hash(fs.readFileSync(item.installed)));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 140,
+      "newLine": 161,
+      "text": " }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 141,
+      "newLine": 162,
+      "text": " for(const [skill,resources] of Object.entries(result.skills)){"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 142,
+      "newLine": 163,
+      "text": "  assert.deepEqual(Object.keys(resources).sort(),[...SKILL_RESOURCES[`${plugin}:${skill}`]].sort());"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 143,
+      "newLine": 164,
+      "text": "  for(const [rel,item] of Object.entries(resources)){"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 144,
+      "newLine": 165,
+      "text": "   assert.equal(item.source,path.join(f.source,\"skills\",skill,rel));assert.equal(item.installed,path.join(f.installed,\"skills\",skill,rel));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 145,
+      "newLine": 166,
+      "text": "   assert.equal(item.sha256,hash(fs.readFileSync(item.source)));assert.equal(item.sha256,hash(fs.readFileSync(item.installed)));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 146,
+      "newLine": 167,
+      "text": "  }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 147,
+      "newLine": 168,
+      "text": " }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 148,
+      "newLine": 169,
+      "text": " const file=path.join(f.installed,\"plugin.json\"),bytes=fs.readFileSync(file),m=JSON.parse(bytes);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 149,
+      "newLine": 170,
+      "text": " for(const change of [{name:\"unapproved-kit\"},{version:\"9.9.9\"}]){"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 150,
+      "newLine": 171,
+      "text": "  fs.writeFileSync(file,JSON.stringify({...m,...change},null,2));assert.throws(()=>assertInstalledPluginResources(f.source,f.installed,plugin));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 151,
+      "newLine": 172,
+      "text": " }"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 152,
+      "newLine": 173,
+      "text": " fs.writeFileSync(file,bytes);fs.appendFileSync(file,\"\\n\");assert.throws(()=>assertInstalledPluginResources(f.source,f.installed,plugin),/installed plugin resource differs/);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 153,
+      "newLine": 174,
+      "text": "});"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 154,
+      "newLine": 175,
+      "text": ""
+    },
+    {
+      "kind": "equal",
+      "oldLine": 155,
+      "newLine": 176,
+      "text": "test(\"installed HTML Guide Kit rejects Read capability drift and SVG source byte drift\",t=>{"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 156,
+      "newLine": 177,
+      "text": " const f=installedFixture(t),file=path.join(f.installed,\"plugin.json\"),bytes=fs.readFileSync(file),m=JSON.parse(bytes);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 157,
+      "newLine": 178,
+      "text": " ui(m).capabilities=[\"Read\",\"Write\"];fs.writeFileSync(file,JSON.stringify(m));assert.throws(()=>assertInstalledPluginResources(f.source,f.installed,PLUGIN));"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 158,
+      "newLine": 179,
+      "text": " fs.writeFileSync(file,bytes);fs.appendFileSync(path.join(f.installed,\"assets/icon.svg\"),\"\\n\");"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 159,
+      "newLine": 180,
+      "text": " assert.throws(()=>assertInstalledPluginResources(f.source,f.installed,PLUGIN),/installed plugin resource differs/);"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 160,
+      "newLine": 181,
+      "text": "});"
+    },
+    {
+      "kind": "equal",
+      "oldLine": 161,
+      "newLine": 182,
+      "text": ""
+    }
+  ]
+}

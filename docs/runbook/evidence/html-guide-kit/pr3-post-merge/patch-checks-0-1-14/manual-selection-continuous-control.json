@@ -1,0 +1,25 @@
+{
+  "recordedAt": "2026-10-13T05:12:15.966Z",
+  "originalHelper": "manual-selection-behavior-a.mjs",
+  "originalSha256": "eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559",
+  "originalPreservedSha256": "eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559",
+  "newHelper": "manual-selection-continuous-behavior-a.mjs",
+  "newSha256": "06310c870d57700e99d4b227b6769117d1148144dea25a76ac28e2882bba4b28",
+  "changes": [
+    [
+      "attempt.selection)",
+      "(attempt.selection && sourceTurn <= (attempt.selection.sourceTurn??1)))"
+    ],
+    [
+      "path.join(root,'blocking','harness.mjs')",
+      "path.join(root,'continuous-supplement','harness.mjs')"
+    ],
+    [
+      "'manual-title-audit.json'",
+      "'manual-title-audit-turn-'+sourceTurn+'.json'"
+    ]
+  ],
+  "reason": "Separate S operator helper permits later actual sourceTurn selection and per-turn audits, unchanged frozen choose retains selectionHistory. No harness, input, plan, original helper or previous selection rewritten.",
+  "modelInputsChanged": false,
+  "noSemanticGrade": true
+}

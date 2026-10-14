@@ -1,0 +1,52 @@
+{
+  "recordedAt": "2026-10-14T06:52:45.621Z",
+  "method": "SEPARATE_RECORD_ONLY_CORRECTION_WITH_ORIGINAL_BYTES_PRESERVED",
+  "originals": [
+    {
+      "path": "reviewer/corrections/0-1-19/provenance/closed-source/final-source-accounting.json",
+      "sha256": "dbeec3ab97d4b0f4c2e441748bfb773449606ae9ff03d257679e0941a318eff5",
+      "line": 40,
+      "pointer": "/repeated/fullRepeatedCoverage"
+    },
+    {
+      "path": "reviewer/archive-029-control.json",
+      "sha256": "b36f42adf0a16c43189b6789a4b084a725fee6b68c280f1d222c8744728fb76c",
+      "line": 171,
+      "pointer": "/repeated/fullRepeatedCoverage"
+    },
+    {
+      "path": "reviewer/packer-provenance/0-1-19/final-dry-handoff.json",
+      "sha256": "8e5461eb7633100a976a8fc2f40b84affbdf657bef350934700bedfd0f467c13",
+      "line": 20,
+      "pointer": "/accounting/repeated1UUID2TurnsFullCoverage"
+    },
+    {
+      "path": "reviewer/corrections/0-1-19/close-source19-accounting.mjs",
+      "sha256": "6ebc6b4e4dd89c4fa21ea88eb0c154e0759009ce8682d0537167f170eab833e8",
+      "line": 5,
+      "pointer": "writer literal"
+    },
+    {
+      "path": "reviewer/record-pack029-final-handoff-behavior-b.mjs",
+      "sha256": "3c15a1c71e16a7ca5ac709485d840a0161f12496ef57edd43b2bcf5d26d788c6",
+      "line": 3,
+      "pointer": "writer literal"
+    }
+  ],
+  "originalValue": false,
+  "correctedValue": true,
+  "scope": "Only the one selected E13-repeated variant and its two actual COMPLETE inputs with original independent PASS; all E/S coverage remains incomplete.",
+  "originalsNotModified": true,
+  "noRegradeOrRerun": true,
+  "repeatOriginalFinal": {
+    "variant": "E13-repeated",
+    "status": "PASS",
+    "attemptId": "fdb5fbf0-50cb-49b2-8c83-295706e66422",
+    "sessionUUID": "01a13909-0771-7bb1-ae3f-3199032cad0c",
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\expanded\\reviews\\E13-repeated-fdb5fbf0-independent.json",
+    "bytes": 32535,
+    "sha256": "13fae0ed9c5c5b83e8d2e2ddcd2e3e40be7dd6e27b162ed38d793f561143b0f4",
+    "COMPLETE": 2,
+    "plannedTurns": 2
+  }
+}

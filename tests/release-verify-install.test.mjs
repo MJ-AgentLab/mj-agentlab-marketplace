@@ -41,12 +41,14 @@ function fixture({syntheticCommunication=false}={}){const d=fs.mkdtempSync(path.
  git(d,"add",".");git(d,"commit","--quiet","-m","fixture");return {d,sha:git(d,"rev-parse","HEAD"),version:fs.readFileSync(path.join(d,"VERSION"),"utf8").trim()};}
 test("release install uses the exact canonical tree rather than a dirty checkout",async()=>{
  const {d,sha,version}=fixture(),guide="plugins/html-guide-kit/skills/guide/references/guide-framework.md",guideBytes=fs.readFileSync(path.join(d,guide));
- fs.writeFileSync(path.join(d,"VERSION"),"9.9.9\n");fs.writeFileSync(path.join(d,guide),"dirty untested guide\n");let temporary;
+ const manifest="plugins/html-guide-kit/plugin.json",manifestBytes=fs.readFileSync(path.join(d,manifest));
+ fs.writeFileSync(path.join(d,"VERSION"),"9.9.9\n");fs.writeFileSync(path.join(d,guide),"dirty untested guide\n");
+ const dirtyManifest=JSON.parse(manifestBytes);dirtyManifest.version="9.9.9";fs.writeFileSync(path.join(d,manifest),JSON.stringify(dirtyManifest));let temporary;
  const r=await verifyReleaseInstall({repoRoot:d,canonicalSha:sha,install:async({repoRoot})=>{
  temporary=repoRoot;assert.equal(git(repoRoot,"rev-parse","HEAD"),sha);
  assert.equal(fs.readFileSync(path.join(repoRoot,"VERSION"),"utf8").trim(),version);
  assert.deepEqual(fs.readFileSync(path.join(repoRoot,guide)),guideBytes);
- assert.equal(JSON.parse(fs.readFileSync(path.join(repoRoot,"plugins/html-guide-kit/plugin.json"),"utf8")).version,"0.1.0");return {ok:true};}});
+ assert.deepEqual(fs.readFileSync(path.join(repoRoot,manifest)),manifestBytes);return {ok:true};}});
  assert.equal(r.ok,true);assert.ok(!fs.existsSync(temporary));assert.equal(git(d,"worktree","list","--porcelain").match(/^worktree /gm).length,1);
 });
 test("invalid canonical source never calls the installer",async()=>{

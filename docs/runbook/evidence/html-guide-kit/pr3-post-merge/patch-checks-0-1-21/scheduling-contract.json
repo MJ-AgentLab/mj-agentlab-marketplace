@@ -1,0 +1,43 @@
+{
+  "phase": "SCHEDULING_TECHNICAL_CANDIDATE_CONTRACT_NOT_SEMANTIC_CRITERION",
+  "recordedUtc": "2026-10-14T09:43:42.560Z",
+  "candidateVersion": "0.1.21",
+  "originalOperatorScript": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-sequential.manual.mjs",
+  "originalOperatorSha256": "8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b",
+  "originalOperatorBytesUnchanged": true,
+  "operatorScript": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-sequential.manual.candidate.mjs",
+  "operatorCandidatePin": {
+    "bytes": 5028,
+    "sha256": "fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42"
+  },
+  "operatorDraftPin": {
+    "bytes": 3181,
+    "sha256": "79bbe07e0126aaccee42c5b37b222099a9259257b0ef5ff6a21390049353a2c5"
+  },
+  "operatorFixturePin": {
+    "bytes": 20240,
+    "sha256": "5e4f0d1427fa81eb42a7b32861ef4518d1eb01f351b4badde125c15c2905d795"
+  },
+  "independentReviewRequiredBeforeUse": true,
+  "requiredEveryFutureSequentialInvocation": {
+    "executable": "D:\\Development\\nodejs\\node.exe",
+    "args": [
+      "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-sequential.manual.candidate.mjs",
+      "{blocking|expanded|continuous-supplement}",
+      "{new-batch-file}",
+      "--pause-file",
+      "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\normal-execution-pause.flag"
+    ]
+  },
+  "globalPauseFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\normal-execution-pause.flag",
+  "sharedAcrossAllRolesAndKinds": true,
+  "notCopiedFromOld20": true,
+  "markerCreatedByCopier": false,
+  "reason": "Pass the same global flag directly and check it again after each naturally completed turn before next or manual-selection continuation. Avoid both delayed batch-flag propagation and missing same-variant turn checks.",
+  "candidateBoundaryBehavior": "Initial entry and before/after variants remain; new check occurs after COMPLETE turn return and before an additional next/manual boundary. In-flight processes are allowed to return naturally. Records say turn/variant boundary.",
+  "noImmediateInFlightStopOrHostWindowLockClaim": true,
+  "noInputCriteriaModelDefaultChange": true,
+  "normalReturnNotKill": true,
+  "reviewerOnly": true,
+  "neverSentToModel": true
+}

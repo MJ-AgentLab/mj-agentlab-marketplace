@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T06:45:50.364Z",
+  "operator": "/root/behavior_014_b",
+  "status": "DRY_RUN_ONLY_READY_FOR_ROOT_ACTUAL_ARCHIVE",
+  "canonicalSha": "2fb20957d5c082aead7c8f3a8136d44c574487ee",
+  "canonicalTree": "906333383ba731f90d3c495e4b645708aaf1d815",
+  "packageVersion": "0.1.19",
+  "accounting": {
+    "uuids": 25,
+    "inputs": 51,
+    "complete": 51,
+    "semantic": {
+      "PASS": 20,
+      "FAIL": 3,
+      "UNEXERCISED": 2
+    },
+    "core14P30Separate": true,
+    "expandedOriginal10UUID19TurnsFullCoverage": false,
+    "repeated1UUID2TurnsFullCoverage": false,
+    "supplementNotRun": true
+  },
+  "dry": {
+    "actualToolChunk": "f59834",
+    "actualExitCode": 0,
+    "files": 913,
+    "originalBytes": 21702158,
+    "packets": 14,
+    "largestPacketBytes": 2092920,
+    "packetLimitBytes": 2097152,
+    "inventorySha256": "e8dbfba6630a58161da0962394ea2d76f2c5e89310f09d33a8ea1468add15b16",
+    "secretScan": "NO_PATTERN_FINDINGS",
+    "sourceBytesRestoredInMemory": 913,
+    "targetWritten": false,
+    "stdoutFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-19\\final-dry-run.stdout.log",
+    "stdoutSha256": "f69bb1e7f34235b94b3a99f1f261c4e045cbe7c361065916a164e1a8a7e37746",
+    "stderrFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-19\\final-dry-run.stderr.log",
+    "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "dotnetDry": {
+    "actualToolChunk": "899cec",
+    "actualExitCode": 0,
+    "mode": "AST_PARSE_ONLY",
+    "parseErrors": 0,
+    "actualArchiveVerification": "NOT_RUN",
+    "script": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\verify-lossless-029-dotnet.ps1",
+    "sha256": "012ae413ef7c20b9426fc3b7b9e12df32a4d43c929d39f1ba679e3b772ee86e5"
+  },
+  "control": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\archive-029-control.json",
+    "sha256": "b36f42adf0a16c43189b6789a4b084a725fee6b68c280f1d222c8744728fb76c",
+    "staticFrozenPins": 38,
+    "dynamicEvidencePins": 912
+  },
+  "packer": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack-029-evidence.mjs",
+    "sha256": "738a8497109223b73fae2c630c3ae62305061e56a07820f8ccedc0d32a6f59a4"
+  },
+  "rootActualCommands": {
+    "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "pack": {
+      "executable": "D:\\Development\\nodejs\\node.exe",
+      "args": [
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack-029-evidence.mjs",
+        "pack",
+        "--snapshot-name",
+        "patch-029-stopped",
+        "--target",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-029-stopped",
+        "--final-reviewed",
+        "true",
+        "--expected-inventory-sha256",
+        "e8dbfba6630a58161da0962394ea2d76f2c5e89310f09d33a8ea1468add15b16"
+      ]
+    },
+    "nodeVerify": {
+      "executable": "D:\\Development\\nodejs\\node.exe",
+      "args": [
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack-029-evidence.mjs",
+        "verify",
+        "--snapshot-name",
+        "patch-029-stopped",
+        "--target",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-029-stopped",
+        "--compare-originals",
+        "true"
+      ]
+    },
+    "dotnetVerify": {
+      "script": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\verify-lossless-029-dotnet.ps1",
+      "args": {
+        "Target": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-029-stopped",
+        "ReviewerRoot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer"
+      }
+    },
+    "expectedInventorySha256": "e8dbfba6630a58161da0962394ea2d76f2c5e89310f09d33a8ea1468add15b16"
+  },
+  "source20AndActualPrivateDirsExcluded": true,
+  "originalErrorProofsIncluded": true,
+  "priorPackerAndArchivesUnmodified": true,
+  "actualRepositoryPack": "NOT_RUN_BY_THIS_AGENT",
+  "actualArchiveNodeVerify": "NOT_RUN_BY_THIS_AGENT",
+  "actualArchiveDotnetVerify": "NOT_RUN_BY_THIS_AGENT",
+  "githubApprovalReplacement": false,
+  "clientUiStatus": "NOT_RUN",
+  "effectStatus": "NOT_MEASURED"
+}
