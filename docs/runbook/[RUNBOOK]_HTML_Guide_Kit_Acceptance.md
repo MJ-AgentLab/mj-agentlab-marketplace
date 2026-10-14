@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-15
 state: draft
-version: v1.60
+version: v1.61
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -957,3 +957,14 @@ B1.1完整四轮、B6.1完整两轮及三scope拒绝共五wholePASS；B1.2-delay
 
 
 31完整停止档案已实际cddb15 pack、a6239e Node与540e4d独.NET原字节复原均EXIT0：[044完整档案](evidence/html-guide-kit/pr3-reviewer/patch-044-stopped/index.json)保351原件/7,224,294B/7packets，最大2,051,691<2,097,151B，inventory2f027653dd75019ad0e9078a153676de15591ce3c2c470df14fd17f5b714cab3。全部Source31的472原件为331payload及141当前已封参考，另两tracking布局记录，共143已封工程/安装原件仅引用；模型70raw和全部失败/未覆盖按原字节保，无secret命中、不引入未来32。Root首次c3abae逆核忽略body section限定，在实际pack前拒绝；新r2尊重实际41571a生产代码的section字段正逆exact，原程序和错误保留，不作模型INVALID。[生产/干跑/实际封包及双复原原日志](evidence/html-guide-kit/pr3-post-merge/candidate044-final-seal/archive-index.json)。Refs #217, #220。
+
+
+## §63 Source32 条件依赖窄修准备
+
+从本次明确clean pure-proof基线fc0ec408c911dc776d38733c8f156c7ab0726488准备0.1.31→0.1.32。Source31运行仍e2c4463f55dd33a6d24b0080a46b478bc4d6974a/treea2f4a82074a207fc0a113d5f590548ae9c83ea50：工程346、65文档、strict/check/quick及十三准确安装/六实际缓存Python通过；8UUID14COMPLETE/0INVALID，whole5P1F2U6N、16输入未发/0post/1自然cross。B3.1主冲突处理通过、whole失败：新增未知输入反馈没有实际依赖范围，撤销完整且/或关系中已被已知项决定的结论。原输出/SDK/失败、未覆盖和记录器错误保留，不重新采样或追认。旧有限客户端证据不迁移到32。
+
+Source32资源freeze28e4a140经Root/B独静态；entry5813LF/5849CRLF≤6144、SHAb7c320e01731513b350548f64d40a60767cd619267d26bf680f27c6d073a434d，FW10372B/SHAed2a364a2fb916dca36cc0bfc17375ceb0f6f35ff929a40bd850292bbd212016；ID7773B/SHAb3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a保持。仅entry step5/FW§3/FW§5三个既有span，按完整源判准与实际适用范围计算每个结论的依赖；且的已知false、或的已知true决定该条件结论，另一项未知不撤结果。真正仍依赖缺项的部分保未知；纯必要条件不作充分判准，不推出未述操作/字段，不强制未知模拟、固定矩阵或新增资源。原实际本例输入、共享题设、候选问句预设及全部合同保持。
+
+权威PowerShell7.6.5独立进程先DryRun单manifest锚点再Apply，保存实际stdout/stderr/exit；当前Source32工程、准确canonical十三安装/六Python、连续模型及双端全部NOT_RUN，静态不当行为PASS。CLI0.147/OpenAI5.6-sol，112d原defaultlow与显式selectedhigh分记、fresh支持及实际SDK核对、V2真实exit/close/240000ms保持。Source31沿用的schedule文件内仍历史28绝对路径，仅作历史；32所有prepare/manualquote/choose/turn明确使用同32global正常边界标记，不承诺原子停止或锁宿主。
+
+市场8.3.0、其他59包文件、登记/图标/调用策略、ID和原Source31/30/29全部证据保持。现实效果NOT_MEASURED，#220/Epic开放，Owner接受、当前head非作者批准/CI/线程/实际merge各自待证，无Release/tag/main发布PR。Refs #217, #220。

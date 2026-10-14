@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.1.32] - 2026-10-15
+
+- HTML Guide Kit 0.1.32 preserves condition conclusions decided by known AND/OR operands even when another input is unknown, using the complete source criterion and actual dependencies.
+- Apply only three reviewed entry/framework spans; retain interaction-design bytes, source scope, necessary-versus-sufficient distinctions, actual-example inputs and explicit Read-only new-guide/text boundaries.
+- Preserve original0.1.31 whole failure, partial/unrun cases and prior limited client results. Require fresh engineering, canonical installation and independent behavior/client evidence. Refs #217, #220.
+
 ## [0.1.31] - 2026-10-15
 
 - HTML Guide Kit 0.1.31 separates source prerequisites/initial values from actual example inputs, using only explicitly applicable shared setups or clearly marked teaching assumptions. Candidate questions must preserve source operation permission and result distinctions.
