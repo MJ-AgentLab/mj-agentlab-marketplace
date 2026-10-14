@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-14
 state: draft
-version: v1.37
+version: v1.38
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -640,3 +640,18 @@ PR3仍draft，#220/Epic OPEN；最终head非作者批准/CI/线程及准确merge
 22首次完整npm test实际626d28/session70343最终23793f exit1，345P1F，仅变更日志正文未写自身版本。5377ab补正文版本号、运行资源与测试/validator不变；新完整重跑session63446最终6b7396 exit0，346P0F0skip/215360.1563ms，原失败及两份全stdout分别保留。工作validate/check5d7d70 exit0，共享资源9a3c61 diff0；尚无准确22安装或行为/客户端结果。
 
 22准确canonical aac6fc9cff27dff8b6fb694a1286ff12104332e9/tree66d73d8845ae3013f1b4a3d9637f01d5fdb11fc6已提交推送（f540b9/2be107）；严格十三安装/六实际缓存Python完成，ce5741/session82860最终cde75e exit0。原25日志已另封；新22 core三真实fresh批已准备并启动，尚待原逐项独立结论，不复用21P。源21十四原final/三十C、五批32variant70计划轮零attempt的574原文件13120370字节/十一包，Root e8c83d实际pack、b1e0cd Node复原及c57d03独立.NET复原全exit0；inventory bdf0bdb204e50873b6f56cd70069adaf58cee1efca197c06f474805e40013d52。首次dry因可选旧自测假凭证源码被扫描命中，保原错误并仅排除可选副本、旧机制准确hash另记，不放宽扫描；最终handoff writer曾因Root已actualpack而误要求target仍absent（78aede），新别件准确分dry时absent/当前exists，原状态与原件未改。
+
+
+## 43. 0.1.22真实调用停止与未完成验收
+
+准确源aac6安装十三组合/六缓存Python通过；纯记录c3a2d06的71包资源、VERSION及登记Git字节与源相同（bc800a0），不声称完整tree相同，工程346P0F保持。首次npm日志正文失败及两次完整运行分别保留。
+
+三核心批实际10fresh UUID/20输入/20COMPLETE/0INVALID：A3/7、B4/5、C3/8。Root marker11:48:51.2237684Z后不新增输入；包括C组合T1在内全部调用在marker前自然结束，零跨越/后启调用、无kill/retry/重采样。先前在途估计组合零项已由原start11:47:37.189Z/end11:48:22.260Z更正，原估计及另件实际时间保留。
+
+确定FAIL两项：B1.1 UUID01a13a31-55b7-7db3-bb09-20d9a0572795 T4:332把负库存排除归为源§8，源未定义此全输入域限制，不能撤销§5已领取直接归还的已知结果；其三元组等待/确认采用主要判据PASS分别保留。B6.1 UUID01a13a32-4074-7952-aa61-04c7053a323e T2:274恢复关系仅引§1初值，遗漏§7清除本轮操作，本图未实际声明完整共同范围；其他段正确不能补该局部图。269直接操作措辞存在可推断语义，仅note，不按关键词另加FAIL。原完整SDK接收、资源三方哈希及技术exit/close/deadline与语义分开。
+
+A B3.1/B3.2及B三scope拒绝原独立PASS保持；B4.1仅T1待选，没有T2模拟，主判据UNEXERCISED。C delayed三轮已完整读，修改不确认/明确确认采用修改后目标的主要判据PASS；完整guide保义仍待终审，不据主要P追认整体。C combined仅真实T1待选，未执行合并修改确认；B2及其余核心/扩展未运行。总体仍不通过，不把暂停或待审计PASS。
+
+[当前记录及原独立报告](evidence/html-guide-kit/pr3-post-merge/source022-stopped/index.json)保存精确原件哈希；完整原输入/输出/事件/SDK封包034尚在准备，不写已封存。c3a2d06实际CI快照与reviews=[]/REVIEW_REQUIRED另存，进行中的检查不写SUCCESS，新记录head须另核。当前22双客户端未运行：Owner两次授权现在可用后，工具仍返回Escape停止，无新截图或输入，不推定用户再次按键。旧20限定客户端P不复用；窗口持续/空答/超时/关闭及现实效果分别未验/NOT_MEASURED。
+
+PR#231仍draft、#220/Epic OPEN。下一运行修正须新补丁身份及新安装/相关核心复验，冻结判准不放宽；GitHub当前head非作者批准、CI/线程与实际merge复验均待各自证据，不指定reviewer、不bypass，无Release/tag/main发布。
