@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-15
 state: draft
-version: v1.70
+version: v1.71
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -1072,3 +1072,12 @@ Source35资源freeze4909205ab7e57a94002c4396a70098af452611d72326cb99098713839266
 权威bundled PowerShell7.6.5独立DryRun单manifest再Apply，保实际stdout/stderr/exit。当前35工程、准确canonical十三安装/六Python、连续模型与双端均NOT_RUN；静态不当行为P。CLI0.147/OpenAI5.6-sol的112d原defaultlow与显式selectedhigh分记，fresh支持及实际SDK、V2真实exit/close/240000ms严格保持。历史schedule内28路径仅历史；所有35prepare/quote/choose/turn显式同35global正常边界标记，停止新输入、在途自然结束，无原子锁/kill/重抽。
 
 市场8.3.0、其他59包文件、登记/图标/策略、entry/ID、28工具和全部旧证据保持。现实效果NOT_MEASURED，#220/Epic仍开放；Owner接受、当前head非作者批准/CI/线程与实际merge各自待证，无Release/tag/main发布PR。Refs #217, #220。
+
+
+## §73 Source35 准确候选工程与安装
+
+HTML0.1.35 canonical 0ed26217fc65043622f1ff1b428ff42118f5dd3a/tree427a144f949429623de5af7adc35d3afface2ec3的唯一完整工程测试346P0F0skip通过；65文档/A6、quick、严格结构及真实CLI0.147检查通过。Root核12文件与已审预览一致、66保护资源/59其他包/28工具保持，C独立静态审查无阻断；修正仅FW两个既有span，entry/ID保持。正式bundled PowerShell7.6.5 query/DryRun/Apply原stdout/stderr/exit全部保存；批准预览与实际r2接入12文件逐字节相同，实际版本工具仅修改单manifest一个锚点。
+
+该准确提交十三严格安装与六次实际缓存Python通过，manifest、版本、显式调用策略、图标和每项包资源均从实际缓存比较。canonical、排除reviewer-only的镜像和缓存分别记录，不要求完整tree相同。[工程和安装原件](evidence/html-guide-kit/pr3-post-merge/candidate035-engineering/archive-index.json)保留逐文件长度/哈希；Markdown原件仅物理命名snapshot.txt。Source34一项whole失败、有限Work待答与047实际封存保持，不追认为新候选成功。后续纯文档补证以71分发mode/blob未变证明可复用。
+
+本条封存时新连续行为、扩展和双客户端尚未执行。Computer Use已重新连接，只读观察当前页面，不当调用证据；客户端可在准确安装及Root启动授权后与核心并行，首真实FAIL/INVALID同35global标记停止新输入，在途自然完成并仅恢复自有配置。核心14变体/30输入及所需客户端仍为合并门禁。现实效果NOT_MEASURED，#220/Epic开放；Owner接受、当前head非作者批准/CI/线程、实际merge各自待证，无Release/tag/main发布PR。Refs #217, #220。

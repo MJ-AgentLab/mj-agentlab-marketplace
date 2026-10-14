@@ -1,0 +1,239 @@
+diff --git a/plugins/html-guide-kit/plugin.json b/plugins/html-guide-kit/plugin.json
+index 8a69235..979d8d2 100644
+--- a/plugins/html-guide-kit/plugin.json
++++ b/plugins/html-guide-kit/plugin.json
+@@ -1,7 +1,7 @@
+ {
+   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+   "name": "html-guide-kit",
+-  "version": "0.1.34",
++  "version": "0.1.35",
+   "description": "Create a new interactive HTML teaching guide from supplied material after the user confirms its reader, task and understanding questions. Deliver guide text in chat.",
+   "author": {
+     "name": "MJ-AgentLab",
+
+diff --git a/plugins/html-guide-kit/skills/guide/references/guide-framework.md b/plugins/html-guide-kit/skills/guide/references/guide-framework.md
+index 88b81b4..d5cc127 100644
+--- a/plugins/html-guide-kit/skills/guide/references/guide-framework.md
++++ b/plugins/html-guide-kit/skills/guide/references/guide-framework.md
+@@ -35,7 +35,7 @@
+ 
+ 同一源单元先保全部并列动作、对象和非字段效果，再记字段终值；清除、撤销、恢复等动作不因终值相同而省略。可按目标裁减不需要的单元，但实际呈现某操作/恢复单元时保其全部源动作；只说明字段或必要性质时明示维度，不当完整操作。未定义对象保原称呼/缺口，不扩业务日志、永久删除或外部行为。短引/转述紧邻条件、限制、定位，摘要/案例/索引不替原文权威。术语、中文对照、值型跨正文/标签/表/自检一致，原变量与派生真假分名、给推导。且/或、可能/保证、未说明/没有、可以/必然、本例/所有不互换。
+ 
+-固定所问对象、当前态、单个直接操作、结果维度，匹配全部相关宽许可、禁止、排他、恢复和例外。未专名状态/输入仍可能被“仅/其余/不得”等覆盖；不从一态推他态禁止/保持，不套别操作前提、不代换近名状态。
++固定实际所问对象集合、各项当前态、单个直接操作与判断维度，逐项跨相关源单元匹配宽许可、禁止、排他、恢复和例外，再记已知与剩余未知。未专名状态/输入仍可能被“仅/其余/不得”等覆盖，教材未展示不等于源未规定。未核全集合时只陈述已查条目，不对其余作批量判断；未知只限匹配后仍无依据的维度。不从一态推他态禁止/保持，不套别操作前提、不代换近名状态。
+ 
+ 将以下判断分别保存：
+ 
+@@ -64,7 +64,7 @@
+ 
+ ## 5. 用同一基准完成交付核对
+ 
+-依交互设计逐例核算；源到全文查遗漏，每个结论反查源、输入、范围，含首次摘要、概览、图表、反馈、恢复、自检、附录、作者项。旁处正确不补本处，拟写要求不是已有范围。反查每个泛未知反馈的实际依赖，含另设未知输入的教学说明：不能因任一输入未知就把整组判定改为无法确定；已知项已决定的结论须保留，缺项只阻仍依赖它的部分。无条件结果不加条件；许可短句、推荐反馈、作者项不改谓词。
++依交互设计逐例核算；源到全文查遗漏，每个结论反查源、输入、范围，含首次摘要、概览、图表、反馈、恢复、自检、附录、作者项。对批量许可、否定或未知，明确本句实际涵盖的对象集合和维度，再逐项核对相关源结论；概括不得撤销集合内已知的许可、禁止或结果，未查或未展示不写成源未述。核不全则只陈述已查项与有据未知。旁处正确不补本处，拟写要求不是已有范围。反查每个泛未知反馈的实际依赖，含另设未知输入的教学说明：不能因任一输入未知就把整组判定改为无法确定；已知项已决定的结论须保留，缺项只阻仍依赖它的部分。无条件结果不加条件；许可短句、推荐反馈、作者项不改谓词。
+ 
+ 逐处核源与设计归属：先从源到完整基准查全部并列动作、对象、非字段效果和字段终值；实际呈现完整恢复/操作单元时，再按本处逐项核归源内容是否齐全，或明示复用该已核完整单元及适用范围。源已明确的非字段动作仍归源，不能在本处把源结果排他地缩成终值，或把非字段效果一概归设计；旁处正确不补本处错误归属。仅说明某维度时明示范围，不当全部源结果。恢复保原触发、全部动作/对象/字段及现实边界，新增触发、输入保留、反馈清除另标本处设计、理由和范围；不整组引源，详交互设计。
+ 
+
+diff --git a/tests/html-guide-kit.test.mjs b/tests/html-guide-kit.test.mjs
+index 26cb2ea..e0949a2 100644
+--- a/tests/html-guide-kit.test.mjs
++++ b/tests/html-guide-kit.test.mjs
+@@ -61,7 +61,7 @@ test("HTML Guide Kit has one approved Read-only explicit entry without changing
+  assert.deepEqual(EXPLICIT_ONLY_SKILLS,["learning-evidence-kit:pop-quiz","learning-evidence-kit:learning-record-check","communication-kit:communicate",SKILL]);
+  assert.deepEqual(PUBLIC_SKILLS.filter(name=>!EXPLICIT_ONLY_SKILLS.includes(name)),["diagram-kit:arch-diagram","explain-kit:glossary","explain-kit:concept"]);
+  assert.equal(REPOSITORY_SKILLS.length,20);assert.ok(!REPOSITORY_SKILLS.includes("guide"));
+- const m=manifest();assert.equal(m.name,PLUGIN);assert.equal(m.version,"0.1.34");assert.deepEqual(ui(m).capabilities,["Read"]);validateManifest(m,PLUGIN);
++ const m=manifest();assert.equal(m.name,PLUGIN);assert.equal(m.version,"0.1.35");assert.deepEqual(ui(m).capabilities,["Read"]);validateManifest(m,PLUGIN);
+ });
+ 
+ test("HTML Guide Kit manifest rejects wrong identity, root versions, capabilities and routes",()=>{
+
+diff --git a/README.md b/README.md
+index 578be54..f9f1195 100644
+--- a/README.md
++++ b/README.md
+@@ -11,7 +11,7 @@
+ | **diagram-kit / arch-diagram** | 从源码事实生成七类 Mermaid 架构/UML 图，节点与边追溯到文件行号，实际运行 Python 校验器 | 0.3.1，已随市场 v8.1.1 发布 |
+ | **explain-kit / glossary、concept** | 陌生术语速解与机制、反例、边界深讲，遵从受众、语言和长度要求 | 0.1.1，已随市场 v8.1.1 发布 |
+ | **learning-evidence-kit / pop-quiz、learning-record-check** | 显式诊断并移交完整记录，保留本机原件；分开核验指定记录有效性与任务应用，按授权共享 | 0.1.0，已随市场 v8.2.0 发布 |
+-| **html-guide-kit / guide** | 确认读者、任务和理解问题后，新建可复制的交互教材绘制指南文本 | 0.1.34，develop 修正候选，未正式发布 |
++| **html-guide-kit / guide** | 确认读者、任务和理解问题后，新建可复制的交互教材绘制指南文本 | 0.1.35，develop 修正候选，未正式发布 |
+ | **communication-kit / communicate** | 显式调用，沟通、编写与保义改写；关键缺口先问并等待，交付成稿和关键提示 | 0.1.0，PR3 开发候选，尚未发布 |
+ 
+ 历史 [Marketplace v8.1.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.1) 于 2026-10-10 随 #205 合入 main 自动发布，该历史版本包含 Understanding Kit 0.1.2 / pop-quiz，采用 A 仓库主标和 D 插件图标。该次发布后的四种隔离安装、图标内容比较与实际 Python 校验通过；Owner 截图、两端完整客户端记录缺项及未提供的 GitHub 独立批准见 [8.1.1 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。这些历史结果不证明新候选的客户端或窗口通过。
+@@ -73,7 +73,7 @@ Communication尚未进入main/v8.2.0。在隔离候选安装中显式调用 `$co
+ 
+ ### Development
+ 
+-Learning的[8.2.0 Release](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.2.0)已于2026-10-13发布，实际main merge为ebc4bdc3。Communication PR4以实际8.2.0基线先DryRun零写入再准备8.3.0 VERSION/badge，其阶段五包根版本均保持；正式候选四包范围及发布门禁见[8.3.0账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。Diagram0.3.1、Learning Evidence0.1.0、Explain0.1.1已公开；当前HTML0.1.34修正候选与Communication0.1.0仅属开发候选。共用Learning脚本归属安装包，不依赖仓库过渡路径。
++Learning的[8.2.0 Release](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.2.0)已于2026-10-13发布，实际main merge为ebc4bdc3。Communication PR4以实际8.2.0基线先DryRun零写入再准备8.3.0 VERSION/badge，其阶段五包根版本均保持；正式候选四包范围及发布门禁见[8.3.0账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。Diagram0.3.1、Learning Evidence0.1.0、Explain0.1.1已公开；当前HTML0.1.35修正候选与Communication0.1.0仅属开发候选。共用Learning脚本归属安装包，不依赖仓库过渡路径。
+ 
+ 20 个开发技能位于 .agents/skills，候选公开技能为 arch-diagram、pop-quiz、learning-record-check、glossary、concept、guide 和 communicate。pop-quiz、learning-record-check、guide 与 communicate 为显式入口；全量普通发现预期为三个技能，原生清单为七个；Communication 独装普通发现为零、原生清单为一个。十三组合安装、包内资源字节核对、实际 Python 回归与无 MCP 检查的执行结果单独记录。
+ 
+
+diff --git a/plugins/html-guide-kit/README.md b/plugins/html-guide-kit/README.md
+index 3cd82d7..9a1203d 100644
+--- a/plugins/html-guide-kit/README.md
++++ b/plugins/html-guide-kit/README.md
+@@ -1,6 +1,6 @@
+ # HTML Guide Kit
+ 
+-从文档或明确对话快照，新建可复制的交互教材绘制指南。版本 0.1.34 为 develop 修正候选：先读取材料，提供不同的读者、任务和理解问题，明确确认后才交付聊天文本；逐份只读，保留原条件、来源、未知及教学构造边界，先核源规则覆盖再分列已知判断与未知字段，区分源恢复和新增教学结果，并按明确篇幅上限核对全稿。逐原规则保全前提、动作、对象和字段，分别核对源限制与教学选择；局部恢复关系继承完整恢复单元，从源到表示检查遗漏、从表示回源检查新增判断的依据。操作许可与目标结果、恢复动作与相同终值分别核对，不凭一种路径推出唯一入口；局部关系不完整时采用忠实文字或完整规则单元。源条件与源初值不自动成为另设情境的实际题设；缺判定必需信息时明示教学假设或保留依赖结果未知，候选问题也核对许可与成功结果的预设。完整条件判准按各结论的实际且/或依赖求值，另一项未知不撤已知项已决定的结果；仅仍依赖缺项的结论保未知，不把纯必要条件当充分判准。交付先明示本组必需共同题设、实际覆盖及局部覆写，独立例子另给所需输入后再判结果；逐处核完整源动作及非字段效果的归属，不把源恢复排他地缩成终值。允许明示完整复用和维度裁减，不增加固定格式或收紧源宽许可。正式发布、安装与客户端状态见验收记录。
++从文档或明确对话快照，新建可复制的交互教材绘制指南。版本 0.1.35 为 develop 修正候选：先读取材料，提供不同的读者、任务和理解问题，明确确认后才交付聊天文本；逐份只读，保留原条件、来源、未知及教学构造边界，先核源规则覆盖再分列已知判断与未知字段，区分源恢复和新增教学结果，并按明确篇幅上限核对全稿。逐原规则保全前提、动作、对象和字段，分别核对源限制与教学选择；局部恢复关系继承完整恢复单元，从源到表示检查遗漏、从表示回源检查新增判断的依据。操作许可与目标结果、恢复动作与相同终值分别核对，不凭一种路径推出唯一入口；局部关系不完整时采用忠实文字或完整规则单元。源条件与源初值不自动成为另设情境的实际题设；缺判定必需信息时明示教学假设或保留依赖结果未知，候选问题也核对许可与成功结果的预设。完整条件判准按各结论的实际且/或依赖求值，另一项未知不撤已知项已决定的结果；仅仍依赖缺项的结论保未知，不把纯必要条件当充分判准。逐项跨相关源单元核对本次对象、当前态、直接操作与判断维度，再保已知并列剩余未知；教材未展示不等于源未规定。批量表述明确实际集合与维度，不撤已有许可、禁止或结果；未核全则限于已查条目和有据未知。原共同题设、完整恢复和源设计分归等方法保持，不增加固定模板或收紧源宽许可。正式发布、安装与客户端状态见验收记录。
+ 
+ 唯一公开入口为 **$html-guide-kit:guide**，能力 Read，仅显式调用。默认中文，保留术语原文。
+ 
+
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 4d55f5e..997104d 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -5,6 +5,8 @@
+ 
+ ## [Unreleased]
+ 
++- Prepare HTML Guide Kit 0.1.35: match each actual object and dimension across applicable source rules before bulk permission, prohibition or unknown conclusions. Unshown or unchecked items do not establish source gaps. Keep Source34 failures and partial client evidence; fresh canonical installation and independent behavior/client gates remain required. Refs #217, #220.
++
+ - Prepare HTML Guide Kit 0.1.34: explicitly deliver necessary shared example inputs and local overrides before results; audit complete source/design action attribution at each restoration unit. Preserve Source33 original failures and unrun paths. Fresh canonical installation, behavior and client evidence remain required. Refs #217, #220.
+ 
+ - Prepare HTML Guide Kit 0.1.33: preserve every parallel source action, object and non-field effect before listing terminal field values; audit the complete source baseline and scope-aware delivery. Keep Source32 failures and unrun paths; fresh canonical installation, behavior and client evidence remain required. Refs #217, #220.
+
+diff --git a/plugins/html-guide-kit/CHANGELOG.md b/plugins/html-guide-kit/CHANGELOG.md
+index 3beb3d8..280b6c6 100644
+--- a/plugins/html-guide-kit/CHANGELOG.md
++++ b/plugins/html-guide-kit/CHANGELOG.md
+@@ -2,6 +2,12 @@
+ 
+ ## [Unreleased]
+ 
++## [0.1.35] - 2026-10-15
++
++- HTML Guide Kit 0.1.35 changes only two existing framework spans: identify the actual object set and judgment dimension, cross-check related source units per object, and preserve known permission, prohibition and results before stating remaining unknowns.
++- Unshown or unchecked cases are not unprovided source rules. If the object set was not fully checked, narrow the statement to checked items and evidence-bound unknowns. Entry and interaction-design remain exact Source34 bytes; all prior methods and the public contract stay intact.
++- Preserve Source34 original whole failure, unrun inputs and limited native pending-stage evidence. Fresh engineering, canonical installation and independent behavior/client acceptance remain required. Refs #217, #220.
++
+ ## [0.1.34] - 2026-10-15
+ 
+ - HTML Guide Kit 0.1.34 establishes necessary shared example inputs, actual coverage and local overrides before giving results; independent examples receive their required starting inputs.
+
+diff --git a/docs/guide/[GUIDE]_HTML_Guide_Kit.md b/docs/guide/[GUIDE]_HTML_Guide_Kit.md
+index a08ec91..90f2a1b 100644
+--- a/docs/guide/[GUIDE]_HTML_Guide_Kit.md
++++ b/docs/guide/[GUIDE]_HTML_Guide_Kit.md
+@@ -6,12 +6,12 @@ owner: marketplace-maintainers
+ created: 2026-10-12
+ updated: 2026-10-15
+ state: active
+-version: v1.34
++version: v1.35
+ ---
+ 
+ # [GUIDE] HTML Guide Kit
+ 
+-HTML Guide Kit 从文档或明确对话快照，新建可复制的交互教材绘制指南。初始 0.1.0 已合入 develop；0.1.22已合入develop；本分支0.1.34为后续修正候选，正在验收。main / v8.2.0 已发布 Diagram、Learning Evidence、Explain 三插件，HTML 另行发行。实际登记、安装和客户端状态见当前市场与 [验收记录](../runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
++HTML Guide Kit 从文档或明确对话快照，新建可复制的交互教材绘制指南。初始 0.1.0 已合入 develop；0.1.22已合入develop；本分支0.1.35为后续修正候选，正在验收。main / v8.2.0 已发布 Diagram、Learning Evidence、Explain 三插件，HTML 另行发行。实际登记、安装和客户端状态见当前市场与 [验收记录](../runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+ 
+ ## Start and confirm
+ 
+@@ -35,7 +35,7 @@ HTML Guide Kit 从文档或明确对话快照，新建可复制的交互教材
+ 
+ 完整条件判准按各结论的实际且/或依赖求值，另一项未知不撤已知项已决定的结果；仅仍依赖缺项的结论保未知，不把纯必要条件当充分判准。
+ 
+-交付先明示本组必需共同题设、实际覆盖及局部覆写，独立例子另给所需输入后再判结果；逐处核完整源动作及非字段效果的归属，不把源恢复排他地缩成终值。允许明示完整复用和维度裁减，不增加固定格式或收紧源宽许可。
++逐项跨相关源单元核对本次对象、当前态、直接操作与判断维度，再保已知并列剩余未知；教材未展示不等于源未规定。批量表述明确实际集合与维度，不撤已有许可、禁止或结果；未核全则限于已查条目和有据未知。原共同题设、完整恢复和源设计分归等方法保持，不增加固定模板或收紧源宽许可。
+ 
+ ## Scope and evidence
+ 
+
+diff --git a/docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md b/docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md
+index b4286ea..91869a4 100644
+--- a/docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md
++++ b/docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md
+@@ -6,7 +6,7 @@ owner: marketplace-maintainers
+ created: 2026-10-09
+ updated: 2026-10-15
+ state: active
+-version: v2.33
++version: v2.34
+ ---
+ 
+ # [GUIDE] Plugin development and testing
+@@ -17,9 +17,9 @@ version: v2.33
+ 
+ 同步 Learning 替代后的十三组合为 Diagram、Learning Evidence、Explain、Diagram＋Explain、Diagram＋Learning Evidence＋Explain、Communication、Communication＋Explain、Communication＋Learning Evidence、Diagram＋Learning Evidence＋Explain＋Communication、HTML、HTML＋Explain、Diagram＋Learning Evidence＋Explain＋HTML、全五插件；每组独立 cache，核对技能、原生元数据、三份参考摘要、冻结记录与图标的源/缓存字节。安装矩阵和真实 Python 执行结果按候选 SHA/tree 与包内容绑定。
+ 
+-当前HTML为0.1.34后续修正候选，源12四包证据不继承新五包合成通过；新canonical须十三安装/六缓存Python及冻结行为矩阵，各阶段以准确候选SHA/版本及实际安装、模型和客户端账本为准。
++当前HTML为0.1.35后续修正候选，源12四包证据不继承新五包合成通过；新canonical须十三安装/六缓存Python及冻结行为矩阵，各阶段以准确候选SHA/版本及实际安装、模型和客户端账本为准。
+ 
+-HTML34验收保持CLI0.147/OpenAI/gpt-5.6-sol，下一轮显式选择支持的high推理；原defaultlow和旧失败保留。准备时分记actualDefault与selectedIdentity，核原proof和fresh model/list的模型、原默认及chosen支持。实际SDK身份、完整工具正文、连续UUID及判准仍须独立核验，不据配置或无模型guard宣布通过。
++HTML35验收保持CLI0.147/OpenAI/gpt-5.6-sol，下一轮显式选择支持的high推理；原defaultlow和旧失败保留。准备时分记actualDefault与selectedIdentity，核原proof和fresh model/list的模型、原默认及chosen支持。实际SDK身份、完整工具正文、连续UUID及判准仍须独立核验，不据配置或无模型guard宣布通过。
+ 
+ 静态结构和发现只证明安装/加载。使用已安装技能执行独立合成角色验收：Pop Quiz 的职责、来源、2+1、预算、无答待答与只读；明确移交保存后保留实际状态；Learning Record Check 两阶段结论及缺材料手动恢复。所有保存测试显式隔离证据库，GitHub 写入用受控替身；完整基线、身份归属、重试/冲突/恢复、导入导出、分段共享及增量进度都以实际运行输出验证。共用脚本必须在安装缓存、无关 cwd 执行，证明仓库脚本区已删除且不是依赖。
+ 
+
+diff --git a/docs/INDEX.md b/docs/INDEX.md
+index 2c96f87..a090cf9 100644
+--- a/docs/INDEX.md
++++ b/docs/INDEX.md
+@@ -6,7 +6,7 @@ owner: marketplace-maintainers
+ created: 2026-10-09
+ updated: 2026-10-15
+ state: active
+-version: v2.84
++version: v2.85
+ ---
+ 
+ # 文档索引
+@@ -288,3 +288,6 @@ HTML34/95af299a工程346/65/quick/strict/actualCLI0.147与十三准确安装六
+ 
+ 
+ HTML34/95af真实核心9UUID19C整体7P1F1U5N、11未发/0post2cross；Work1UUID2C/3cacheRead仅方案与待答有限P，指南wholeU及本地Codex/生命周期未测，owned八片段恢复。047实际封包/双逐字节复原P，71运行资源不变，见[§71](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
++
++
++HTML35仅FW两span逐项跨相关源单元核实际对象/维度，批量结论保已有许可、禁止及结果；未展示或未查不当源未述，未核全只陈述已查项和有据未知，entry/ID保持。源34/95af工程346及十三安装六PythonP，9UUID19C全7P1F1U5N、11未发/0post/2自然cross原保；泛未知撤已知禁令F不追认。原生实际1UUID2C及3缓存全文Read仅目标待选/保持pending，未确认交付，本地Codex入口未运行，自有配置已复原；35新工程/安装/模型/双端NOT_RUN，见[§72](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+diff --git a/docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md b/docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md
+index 62ce3c1..c17ca98 100644
+--- a/docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md
++++ b/docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md
+@@ -6,7 +6,7 @@ owner: marketplace-maintainers
+ created: 2026-10-12
+ updated: 2026-10-15
+ state: draft
+-version: v1.69
++version: v1.70
+ last-verified: null
+ related:
+   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
+@@ -1059,3 +1059,16 @@ A首CreateNew同34flag于2026-10-14T22:50:52.045Z、SHA4763f0f7ec649e1267bb87150
+ 原生Work仅一实际UUID01a13c98-566d-7ab3-b936-c5541c0d5909、两连续COMPLETE输入及三份完整缓存正文读取；方案与未选择待答的有限路径独评P，确认交付/指南wholeUNEXERCISED、本地Codex/生命周期NOT_RUN。实际originator codex_work_desktop、backend0.162.0-alpha.17.2、gpt-6-astra/xhigh，与核心0.147/Sol/high分记，不凭同exe判两个客户端。两SDK文件为同一累积两轮快照的原路径/原字节，不冒不同边界；仅本任务用户输入、技能与环境/空page_id上下文经范围核验，未公开整HOME/auth/config或整窗pixels。Root在正常停旗下恢复八旧owned片段、新34disabled，nonowned原字节保持，不删除缓存。
+ 
+ 扩展、重复、完整双客户端、窗口空返回/关闭/超时路径与现实效果未据此通过。现实效果NOT_MEASURED，#220/Epic开放；Owner接受、当前head非作者批准/CI/线程及实际merge各自待证，无bypass、Release/tag/main发布PR。Refs #217, #220。
++
++
++## §72 Source35 批量结论边界窄修准备
++
++从本次明确clean pure-proof基线10dc03720635d95fe06963ed7c854bf97e0be269准备0.1.34→0.1.35。Source34运行95af299ab8786722fd4bb3189535786cd3051aee/treec19c9e77f6dfead71ce33daf52a323631a9d8949：工程346、65文档、strict/check/quick及十三准确安装/六实际缓存Python通过；9UUID19COMPLETE/0INVALID，whole7P1F1U5N、11输入未发/0post/2自然cross。B6.1读/聊天边界主P，但直接操作比较中的泛未知撤销源已明确禁止，wholeF。已知旁段不补本处宽未知，原失败、未覆盖、停止及工具原件均保，不重采样或追认。完整Source34闭集575文件由Root追踪11417dcc冻结，Source33/32/31/30/29旧492/677/472/451/362全保。
++
++Source34原生ChatGPT Work实际1UUID2COMPLETE：显式入口注入同缓存、3单份工具完整收到入口及两参考正文，T1三差异目标、T2非选择保持原pending，未T3/指南，本地Codex入口未运行；仅有限交互P/整体UNEXERCISED。实际native backend0.162.0-alpha.17.2/OpenAI gpt-6-astra/xhigh与CLI验收基线分记，不迁移双端或35资格。8 prior owned复原、新34禁用/非自有不变见原收据；不复制私有配置，不据安装或自述补行为P。
++
++Source35资源freeze4909205ab7e57a94002c4396a70098af452611d72326cb99098713839266e542经Root/B独静态，原三资源与本次integration-plan准确pins：SKILL6007LF/6043CRLF≤6144、9f2febe6d0d368ab0ea5eb0e570a050a557f3d80983ea70b1138b4e60e0dc58e保持；FW11765B/4fc27bb3fb7bc4e2bbe42c724f651d35741b1d19d7625e8afb7cd377184ad5af；ID7773B/b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a保持。仅FW§3匹配段和§5反查段两span：先固定本句实际对象集合、每项当前态、直接操作与判断维度，逐项跨相关源单元匹配许可、禁止、排他、恢复和例外，保每项已知后列剩余未知。未展示或未查不等于源未规定；批量结论不能撤已有许可、禁止或结果，未核全则收窄到已查项与有据未知。不新增固定模板、领域规则或资格，宽许可、真实例题输入/局部覆写、完整恢复/源设计分归、且或依赖、纯必要性质、篇幅与Read/目标确认等原方法保持。
++
++权威bundled PowerShell7.6.5独立DryRun单manifest再Apply，保实际stdout/stderr/exit。当前35工程、准确canonical十三安装/六Python、连续模型与双端均NOT_RUN；静态不当行为P。CLI0.147/OpenAI5.6-sol的112d原defaultlow与显式selectedhigh分记，fresh支持及实际SDK、V2真实exit/close/240000ms严格保持。历史schedule内28路径仅历史；所有35prepare/quote/choose/turn显式同35global正常边界标记，停止新输入、在途自然结束，无原子锁/kill/重抽。
++
++市场8.3.0、其他59包文件、登记/图标/策略、entry/ID、28工具和全部旧证据保持。现实效果NOT_MEASURED，#220/Epic仍开放；Owner接受、当前head非作者批准/CI/线程与实际merge各自待证，无Release/tag/main发布PR。Refs #217, #220。
+
+diff --git a/AGENTS.md b/AGENTS.md
+index 40653e8..f033ec3 100644
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -68,7 +68,7 @@ Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基
+ 
+ 合同见[ADR](docs/adr/[ADR]_HTML_Guide_Kit_Addition.md)及[SPEC](docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)：仅显式$html-guide-kit:guide，Read、中文/原术语、聊天文本新建。实际读材料/明确快照，分原料/核验背景/构造，保原文、定位、冲突/缺口。每次2–3不同读者/任务/问题及推荐理由，明确选择或修改确认才编排；默认/推荐/预选/沉默/超时/无关/消失非确认，未答保同一待确认，不锁宿主。深度随材料；按需演示/模拟/自检含操作、变化、结果、反馈、恢复、理由/误区和重试；无可靠判准给有界参考，不评分/长期掌握。不修订/比较/审查，不输出HTML/代码/文件/制作步骤或越权；仅SKILL及两参考，无Owner路径/研究治理依赖。
+ 
+-HTML22/71e2合并复验/批准缺项保；开发5包7技能/4显式/3自然/20repo-only，市场8.3.0/其他不变。源23–33失败/有限UI原保；34/95af工程346/13安装6PythonP，核心9UUID19C整体7P1F1U5N、11未发/0post2cross。Work1UUID2C/3cacheRead仅方案待答有限P，指南wholeU/本地Codex与生命周期未测；八owned片段恢复，047实际双字节复原P、71资源不变，见§71。Refs #217/#220。
++HTML22/71e2合并复验/批准缺项保；开发5包7技能/4显式/3自然/20repo-only，市场8.3.0/其他不变。源23–33失败/有限UI保。34/95af工程346/13安装6PythonP，9UUID19C全7P1F1U5N、11未发/0post/2cross，泛未知撤禁令F；原生1UUID2C/3cache全文Read只待选未交付，本地Codex入口N，自有复原保。35仅FW两span逐对象/维度跨源核后批量结论，entry/ID保持；新工程/安装/model/双端N，见§72。Refs #217/#220。
+ 
+ 现实效果另测NOT_MEASURED；原生接口已可用，源20 Work三轮有限路径独立通过、Codex应用另三轮有限路径独立通过；普通Chat入口不可用。原生空返回/超时/关闭未执行，CLI不替代。核心可分段交付，延期不当通过，#220/Epic开放、Owner接受独立。控制修正/来源/准确会话及历史见[RUNBOOK](docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)§11–42；不继承旧PASS。研究项目只读。
+ 

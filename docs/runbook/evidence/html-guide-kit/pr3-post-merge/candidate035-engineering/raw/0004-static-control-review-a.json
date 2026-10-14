@@ -1,0 +1,165 @@
+{
+  "recordedAt": "2026-10-14T23:05:26.003Z",
+  "reviewer": "behavior_014_a",
+  "status": "STATIC_ONLY",
+  "conclusion": "NO_STATIC_BLOCKERS",
+  "control": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-35\\CONTROL_DRAFT_ONLY.json",
+    "bytes": 14090,
+    "sha256": "3affe3e7c78c1c7c51b1de374da624e59999d33ff7eb1ac8406b05a31f1b4a87"
+  },
+  "inventory": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-35\\control-copy-inventory.draft.json",
+    "bytes": 1302675,
+    "sha256": "b90694aacf3d2dbdb3a18dad3a248cbf4606db5c02fc48ad61f2dd0b2a86aec8"
+  },
+  "delta": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-35\\version-guard-exactdiff.draft.json",
+    "bytes": 2585,
+    "sha256": "539739a54127aeda7653d080aa10cf3e01d88931153f21122d1a4d742e6cb89f"
+  },
+  "sourceReviewedControl": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-34\\CONTROLS_FINAL_FROZEN.json",
+    "bytes": 19216,
+    "sha256": "9468a4975afb291c24a7ba5d885e4de0e2ebc550ceafb0245b5ee2ce1ff1f984"
+  },
+  "checks": {
+    "active40": {
+      "total": 40,
+      "byteExact": 37,
+      "guardHelpers": 3,
+      "guardVersionLiterals": 9,
+      "guardAsciiByteChanges": 9
+    },
+    "additional": {
+      "controllerVersionLiterals": 1,
+      "sdkModuleVersionLiterals": 1,
+      "totalChangedLiterals": 11,
+      "totalChangedAsciiBytes": 11
+    },
+    "changedFiles": [
+      {
+        "relative": "prepare-correction.mjs",
+        "literalChanges": 4,
+        "changedAsciiBytes": 4,
+        "forwardInverseExact": true
+      },
+      {
+        "relative": "prepare-coverage.mjs",
+        "literalChanges": 4,
+        "changedAsciiBytes": 4,
+        "forwardInverseExact": true
+      },
+      {
+        "relative": "verify-canonical.mjs",
+        "literalChanges": 1,
+        "changedAsciiBytes": 1,
+        "forwardInverseExact": true
+      },
+      {
+        "relative": "controller.mjs",
+        "literalChanges": 1,
+        "changedAsciiBytes": 1,
+        "forwardInverseExact": true
+      },
+      {
+        "relative": "review-selected-identity.mjs",
+        "literalChanges": 1,
+        "changedAsciiBytes": 1,
+        "forwardInverseExact": true
+      }
+    ],
+    "twoReceiverBodiesByteExact": true,
+    "V2AndCandidateByteExact": true,
+    "allFrozenPromptsCriteriaMaterialPlansAndDefaultProofByteExact": true,
+    "syntax": {
+      "source": "Independently verified recorded parse-only author receipts and their exact file hashes; no module execution or repeated fixture",
+      "receipts": 31,
+      "exit0": 31
+    },
+    "protectedSets": [
+      {
+        "source": 34,
+        "fileCount": 575,
+        "exactFileSet": true,
+        "allBytesSha256Exact": true,
+        "privateBodies": "Hash verification only, not decoded, displayed or copied"
+      },
+      {
+        "source": 33,
+        "fileCount": 492,
+        "exactFileSet": true,
+        "allBytesSha256Exact": true,
+        "privateBodies": "Hash verification only, not decoded, displayed or copied"
+      },
+      {
+        "source": 32,
+        "fileCount": 677,
+        "exactFileSet": true,
+        "allBytesSha256Exact": true,
+        "privateBodies": "Hash verification only, not decoded, displayed or copied"
+      },
+      {
+        "source": 31,
+        "fileCount": 472,
+        "exactFileSet": true,
+        "allBytesSha256Exact": true,
+        "privateBodies": "Hash verification only, not decoded, displayed or copied"
+      },
+      {
+        "source": 30,
+        "fileCount": 451,
+        "exactFileSet": true,
+        "allBytesSha256Exact": true,
+        "privateBodies": "Hash verification only, not decoded, displayed or copied"
+      },
+      {
+        "source": 29,
+        "fileCount": 362,
+        "exactFileSet": true,
+        "allBytesSha256Exact": true,
+        "privateBodies": "Hash verification only, not decoded, displayed or copied"
+      }
+    ],
+    "source34FullSetTrackingExact": true,
+    "source34SetDigest": "a7a33786b911ef8ff2f38b5e03af4e1df90453cf4fe4ba0b6dfb8ac4a68a2242",
+    "canonicalResourceBinding": "Future supplied complete SHA must contain manifest0.1.35 and frozen SPEC; runtime7 source blobs/mirror/cache exact bytes are required by unchanged harness. Canonical is null and fresh verification NOT_RUN at this static stage.",
+    "baseline": "Unchanged CLI0.147 actual low proof112d; explicit high must be supported by original and freshly observed model/list, then independently observed SDK model/provider/high. Preparation metadata is not SDK identity evidence.",
+    "strictCapture": "Original completion/no-error/identity gates retained together with timeoutfalse/latefalse, actual exit and close0, exit.inDeadline===true plus independent monotonic exit<deadline, no timer callback. 240000ms bounds observed execution exit; no independent drain bound is claimed.",
+    "reviewerIsolation": "Only frozen control allowlist and raw runtime mirror allowlist; reviewer/spec/root instructions excluded from model mirror. Original private/source SDK payloads hashed only, not copied to new controls/consumers."
+  },
+  "scheduling": {
+    "requiredPauseFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-35\\normal-execution-pause.flag",
+    "operatorCandidate": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-35\\operator-sequential.manual.candidate.mjs",
+      "bytes": 5028,
+      "sha256": "fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42"
+    },
+    "futureUsage": "Every preparation, actual quote/choose and operator invocation must check same source35 flag; operator invocation passes explicit --pause-file and candidate checks normal turn/variant boundaries. Old manual aids do not independently guarantee global stopping. Current inflight calls finish naturally; no atomic host lock or kill/retry claimed.",
+    "historicalSchedule": "Byte-exact inner0.1.28 only; never future pause path"
+  },
+  "notes": [
+    {
+      "kind": "INHERITED_NONEXECUTING_COMMENT",
+      "file": "prepare-coverage.mjs",
+      "detail": "Old header mentions eight/four; actual controller and verify-canonical preserve strict13scenarios/6Python. Header is not evidence or permission to lower actual engineering gate."
+    },
+    {
+      "kind": "RESOURCE_BINDING_PENDING_AT_DRAFT",
+      "detail": "Control authored before source35 resource freeze; pending field is accurate at this stage. FINAL requires separately approved source35 runtime freeze binding and Root authorization."
+    },
+    {
+      "kind": "UI_NOT_READY",
+      "detail": "Five existing owned native aliases are metadata/hash-only proposal; no fresh UI/live config read, client execution or claim of completed source35 consumer."
+    }
+  ],
+  "runtimeResourceAuthorDoesNotSelfApproveRuntime": true,
+  "model": "NOT_RUN",
+  "consumer": "NOT_RUN",
+  "API": "NOT_RUN",
+  "installation": "NOT_RUN",
+  "actualModelSdk": "NOT_OBSERVED",
+  "fixtures": "NOT_REPEATED",
+  "repoGitMutation": false,
+  "oldSourceMutations": false
+}

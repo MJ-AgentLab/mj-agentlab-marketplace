@@ -1,0 +1,175 @@
+{
+  "recordedAt": "2026-10-14T23:04:53.758Z",
+  "reviewer": "/root/behavior_014_b",
+  "independentFromResourceAuthor": true,
+  "status": "STATIC_ONLY",
+  "verdict": "NO_STATIC_BLOCKERS",
+  "sourceCanonical": "95af299ab8786722fd4bb3189535786cd3051aee",
+  "sourceTree": "c19c9e77f6dfead71ce33daf52a323631a9d8949",
+  "proposedVersion": "0.1.35",
+  "authorFreeze": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-35\\DRAFT_FINAL_FROZEN.json",
+    "bytes": 7646,
+    "sha256": "4909205ab7e57a94002c4396a70098af452611d72326cb99098713839266e542"
+  },
+  "preservationMap": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-35\\preservation-map.json",
+    "bytes": 2301,
+    "sha256": "e002a084046f6445feda6a0e1b40558a5424620fb08c07e2d3e92f3aefd43a29"
+  },
+  "resources": [
+    {
+      "relative": "skills/guide/SKILL.md",
+      "draftFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-35\\draft\\SKILL.md",
+      "draftBytes": 6007,
+      "draftSha256": "9f2febe6d0d368ab0ea5eb0e570a050a557f3d80983ea70b1138b4e60e0dc58e",
+      "sourceGitPath": "plugins/html-guide-kit/skills/guide/SKILL.md",
+      "sourceSnapshot": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-35\\source34\\SKILL.md.snapshot.txt",
+        "bytes": 6007,
+        "sha256": "9f2febe6d0d368ab0ea5eb0e570a050a557f3d80983ea70b1138b4e60e0dc58e"
+      },
+      "gitMatchesSnapshot": true,
+      "unchanged": true,
+      "orderedForwardExact": true,
+      "reverseOrderedInverseExact": true,
+      "edits": []
+    },
+    {
+      "relative": "skills/guide/references/guide-framework.md",
+      "draftFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-35\\draft\\references\\guide-framework.md",
+      "draftBytes": 11765,
+      "draftSha256": "4fc27bb3fb7bc4e2bbe42c724f651d35741b1d19d7625e8afb7cd377184ad5af",
+      "sourceGitPath": "plugins/html-guide-kit/skills/guide/references/guide-framework.md",
+      "sourceSnapshot": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-35\\source34\\references\\guide-framework.md.snapshot.txt",
+        "bytes": 11279,
+        "sha256": "56e55aecdc7bd574eb51a6fa203c47e22fb6933c90a0153513d8d6d8b16ad400"
+      },
+      "gitMatchesSnapshot": true,
+      "unchanged": false,
+      "orderedForwardExact": true,
+      "reverseOrderedInverseExact": true,
+      "edits": [
+        {
+          "offsetUtf8BytesInIntermediateBeforeEdit": 4770,
+          "oldBytes": 289,
+          "newBytes": 505,
+          "oldSha256": "397fe3ce05d7aa13e9aa51be9a6de699f7ba1aad15c3ebac2fd944ed0e793139",
+          "newSha256": "343feb130b7b99b4f5da4e32cba66b9d7c513c126850d8dc3dc3c9d75d0368bb"
+        },
+        {
+          "offsetUtf8BytesInIntermediateBeforeEdit": 9890,
+          "oldBytes": 549,
+          "newBytes": 819,
+          "oldSha256": "c33280a7270b94b5934f8776f28c13bc72b46bc1681c57509606a175858ad814",
+          "newSha256": "0a61a853abdfcf1066acc3a8291ddf963972e398fc25783cdfdedf54c2995354"
+        }
+      ]
+    },
+    {
+      "relative": "skills/guide/references/interaction-design.md",
+      "draftFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-35\\draft\\references\\interaction-design.md",
+      "draftBytes": 7773,
+      "draftSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "sourceGitPath": "plugins/html-guide-kit/skills/guide/references/interaction-design.md",
+      "sourceSnapshot": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-35\\source34\\references\\interaction-design.md.snapshot.txt",
+        "bytes": 7773,
+        "sha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a"
+      },
+      "gitMatchesSnapshot": true,
+      "unchanged": true,
+      "orderedForwardExact": true,
+      "reverseOrderedInverseExact": true,
+      "edits": []
+    }
+  ],
+  "entryBudget": {
+    "LF": 6007,
+    "WindowsCRLF": 6043,
+    "limit": 6144,
+    "remainingWindowsBytes": 101
+  },
+  "readEvidence": {
+    "fullReadTools": [
+      "477562",
+      "2c3e28",
+      "1d5399"
+    ],
+    "coverage": "Full frozen entry/framework/interaction and author map; full source34 framework; unchanged entry/interaction matched source Git bytes. No aggregate truncation or length-only reading assertion.",
+    "authorMapIsNotIndependentPass": true
+  },
+  "semanticReview": [
+    {
+      "topic": "Complete original contract",
+      "finding": "Unchanged entry retains explicit-only new-guide Read/chat-text scope, no code/files/tool making/execution, refusal only from contract, relative installed references, explicit 2–3 distinct target choices and waiting, no host lock, modified-target confirmation and no model scoring."
+    },
+    {
+      "topic": "Evidence and source identity",
+      "finding": "Framework §1 and both reference ownership links preserve actual full-body/ordered-read evidence, no unsupported refusal causes, background actual verification, four provenance identities, conflicts without fabricated authority, snapshot/update boundaries."
+    },
+    {
+      "topic": "First change: actual question set matching",
+      "finding": "The actual asked object set and decision dimension are fixed before cross-matching related source units. This refines existing broad-permission/prohibition/recovery matching; it does not require displaying every possible operation or rechecking irrelevant fields. Unexamined/unshown items are distinguished from source-unstated dimensions. Existing outside-scope/missing-required-premise unknown handling remains explicit below; unknown is not replaced with default permission."
+    },
+    {
+      "topic": "Second change: bounded bulk claims",
+      "finding": "Bulk positive, negative and unknown statements are checked against their actual covered objects and dimension. If the set was not checked, assertions narrow to checked items and supported unknowns. This preserves known permissions, prohibitions and results without inventing closed-world assumptions, a fixed table, mandatory template or domain answer."
+    },
+    {
+      "topic": "Other source methods preserved",
+      "finding": "Complete parallel source actions and nonfield effects, actual common/independent inputs and overrides, necessary versus sufficient predicates, decisive full-criterion AND/OR dependencies, domain versus reachability, local reusable scope, exclusivity versus terminal equality, lifecycle and source/design recovery attribution, per-example missing-item calculation and no ability scores remain intact in unchanged text."
+    },
+    {
+      "topic": "Scope and cost",
+      "finding": "The changes are two generic existing framework paragraphs only. They add neither a new workflow/entry/resource/tool nor fixture/material-specific rules. Target-driven concise/static rendering and length/accessibility limitations remain. Entry Windows budget stays101 bytes below6144."
+    }
+  ],
+  "links": "All local Markdown resource links resolved to existing frozen draft resources.",
+  "oldProtectedSources": [
+    {
+      "version": "34",
+      "files": 575,
+      "fileSetAndBytesExact": true
+    },
+    {
+      "version": "33",
+      "files": 492,
+      "fileSetAndBytesExact": true
+    },
+    {
+      "version": "32",
+      "files": 677,
+      "fileSetAndBytesExact": true
+    },
+    {
+      "version": "31",
+      "files": 472,
+      "fileSetAndBytesExact": true
+    },
+    {
+      "version": "30",
+      "files": 451,
+      "fileSetAndBytesExact": true
+    },
+    {
+      "version": "29",
+      "files": 362,
+      "fileSetAndBytesExact": true
+    }
+  ],
+  "blockers": [],
+  "limitations": {
+    "behaviorAcceptance": "NOT_RUN_NO_PASS_INFERRED",
+    "installation": "NOT_RUN",
+    "consumer": "NOT_RUN",
+    "API": "NOT_RUN",
+    "model": "NOT_RUN",
+    "UI": "NOT_RUN",
+    "grade": "NOT_RUN",
+    "realSceneEffects": "NOT_RUN_DEFERRED"
+  },
+  "noDraftControlOldSourceRepoOrRuntimeWrites": true,
+  "privatePayloadHandling": "Protected old private-owned/sdk bodies were only read as binary for hashes; never parsed, copied, decoded or published."
+}
