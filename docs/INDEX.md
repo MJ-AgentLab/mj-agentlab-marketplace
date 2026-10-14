@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-15
 state: active
-version: v2.77
+version: v2.78
 ---
 
 # 文档索引
@@ -267,3 +267,6 @@ HTML32仅entry/FW三span按完整条件判准逐结论核实际且/或依赖，�
 
 
 HTML32/081f715准确工程346/65/quick/strict/CLI0.147及十三安装六缓存Python通过；原辅助失败保留，模型/双端尚待实证，见[§64](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+
+HTML32/081f715原真实核心12UUID26C整体11P1F2N，4未发/0post/1自然cross；恢复字段未替源清操作wholeF原保，双端/扩展N。33仅外部通用窄稿，见[§65](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。

@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-15
 state: draft
-version: v1.62
+version: v1.63
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -975,3 +975,19 @@ Source32资源freeze28e4a140经Root/B独静态；entry5813LF/5849CRLF≤6144、S
 0.1.32准确canonical 081f71540f8664e556e864aed7b7c91f1f4924c9/tree39ac7db50cf6b52d632488ad267bc28e2702561b已正常提交e87921并推送2531d5。Root334de2逐13实际文件核对审稿与65保护，C9dd6ac独静态核59其他包及28工具、旧472/451/362原件稳定；权威pwsh7.6.5 DryRun/Apply实际0。唯一完整测试20e6e1→6f079f、346P0F/281868.4144ms，stdout76858B SHA7a59c006836bec56bb39c218d7f3b2159a64166e8578da6d72d8a42f9622ebad；fast77c81b/Root238aaf的65文档、quick、strict及actualCLI0.147检查通过。辅助工具集合误设21/28原失败保留，按实际工具集合修正后通过，未更改产品或追认原结果。
 
 该准确Git提交的十三严格安装与六次实际缓存Python通过，所有分发资源/调用策略/图标/版本从实际安装核对；候选、剔除reviewer-only的镜像与缓存分别保存身份，不声称完整tree相同。工程、安装与原失败原日志见[准确工程/安装证据](evidence/html-guide-kit/pr3-post-merge/candidate032-engineering/archive-index.json)。后续纯记录提交须核71分发mode/blob不变，避免重复完整测试或安装。当前Source32模型连续行为/扩展/双端尚未运行，不继承Source31失败或旧有限客户端的通过；ComputerUse窗口连接可用仅证明连接。效果NOT_MEASURED、#220/Epic开放，当前head批准/CI/线程及实际merge另核，Refs #217, #220。
+
+
+## §65 Source32 原模型停止与Source33窄修准备
+
+准确源081f71540f8664e556e864aed7b7c91f1f4924c9/tree39ac7db50cf6b52d632488ad267bc28e2702561b/HTML0.1.32的工程346及十三准确安装六缓存Python通过不变。真实核心最终12UUID/26COMPLETE/0INVALID，整体11PASS/1FAIL/0UNEXERCISED/2NOT_RUN，四输入未发/0标记后开始/1自然cross；Rootbf9db5独核26 actualSDKhigh/V2、21三方资源比较与130原raw。A/B跨原SDK和全部实际源/输入输出独评一致；B5可靠/不可靠反馈两变体尚未运行，不能追认。
+
+唯一whole失败为C B2.1，UUID01a13c4f-9c26-7210-8e06-27f7c244fbf3：主资格关系和确认通过，但整个交付的共同源基准、恢复方式和核对只保四初值，未保源§7明确的“清除本轮操作并恢复 §1 的全部初始值”中的清除动作。读工具原文不等于交付保留，清旧答案反馈/切场不继承是独立教学行为，不替源动作。Root413eb6/478c15原完整源/全文核对与833307正式F保留。Root首次记录器ea8300把源连接词转录为逗号，在写报告前assert拒绝；原程序/错误保存，按实际并字更正后只写新报告，源和输出没改，不作模型INVALID。
+
+A cbb2c6真实CreateNew正常暂停2026-10-14T21:30:58.541Z，740B SHA c0359a5918f53130f54a7433e09b69df8953cc118eca6dd395f1a92723593ceb。A4UUID10C、B4UUID5C、C4UUID11C；唯一跨标记是B4.2T2 21:29:15.871→21:31:17.295自然完成并独判P。没有kill、重试、重采样或标记后新输入。全部模型、完成/停止与独评原件关闭写入，Root097999准确677文件全集合/字节封闭，旧31/30/29仍472/451/362原字节保持。
+
+B3.1分类句计数措辞和C delayed局部§4出处漏项按完整实际命题保nonblocking notes，不据孤立数字/词组造语义F；不称文字零缺陷。manual reader字面/两Markdown尾空格的旧辅助sourcegap和原false保留，经真实唯一完整quote/hash与原harness选择审计，无篡改helper/input。B compare一次FW工具“目录名称无效”后同会话只读重读成功，原失败与动作保留，不称所有工具尝试成功。
+
+Source32扩展、重复、原生安装和双端全部NOT_RUN；本次ComputerUse只实际列窗口及只读连接，不算新插件客户端PASS。现实效果NOT_MEASURED。Source33仅外部两资源三span窄稿，完整源基准先列并列动作/对象/非字段效果再字段终值，逐全稿核源到基准及实际覆盖；可裁减未选源单元，但实际呈现的操作单元保全部动作，明示纯字段维度不冒充完整操作。原32方法与ID保，静态/quick只算静态，不代表行为修复。#220/Epic保持开放，当前head非作者批准/CI/线程及实际merge待各自证据，不bypass/不指定审查人，无Release/tag/main发布PR。Refs #217, #220。
+
+
+Source32完整停止归档已实际f15d69封包、fd4270 Node及e07912独.NET逐原字节复原EXIT0：[045档案](evidence/html-guide-kit/pr3-reviewer/patch-045-stopped/index.json)含568原件/14,018,416B/10packets，最大2,078,807<2,097,151B、secret0。677源原件完整分账547payload+130已封源32原件reference，另3tracking原件仅reference，共133；不复制future33或旧31/30/29 raw roots，不继承客户端或把失败转P。[完整生产/干跑/实际执行原日志与独复原证据](evidence/html-guide-kit/pr3-post-merge/candidate045-final-seal/archive-index.json)。Refs #217, #220。
