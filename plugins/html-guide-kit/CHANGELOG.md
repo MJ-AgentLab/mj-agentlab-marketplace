@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.1.27] - 2026-10-15
+
+- HTML Guide Kit 0.1.27 classifies each source action or field result and added instructional result before composing sentences or lists; a grouped source citation cannot cover added design items.
+- Bound additional-path gaps separately from known direct-operation judgments. Only three existing spans in SKILL.md and interaction-design.md change; guide-framework.md and the public contract remain exact.
+- Preserve source0.1.26 actual failures and partial/not-run paths; require fresh installation and frozen behavior/client acceptance. Refs #217, #220.
+
 ## [0.1.26] - 2026-10-14
 
 - HTML Guide Kit 0.1.26 matches the actual object, state, direct operation and result dimension against permissions, prohibitions, restoration and exceptions before identifying a specific missing dimension, including proposal summaries.

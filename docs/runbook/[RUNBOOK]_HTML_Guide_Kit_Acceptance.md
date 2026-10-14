@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-15
 state: draft
-version: v1.45
+version: v1.46
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -798,3 +798,10 @@ PR #231已实际合并71e2e1bc，head与merge tree相同；后续修正PR #238�
 
 
 26停止[独立逐项、Root确认和原操作闭包](evidence/html-guide-kit/pr3-post-merge/source026-stopped/index.json)已逐byte保存。完整039另行准备，不称已入库。65文档/A6本次43a2c0通过；先前80aee6误写不存在测试文件名失败保留在外部跟踪，未执行测试或模型，不追认PASS。
+
+
+## 53. 0.1.27局部来源归属修正
+
+A冻结38742555ae64030f72523b7328d5fe3740f99fa2152129c01b03804c38b37152经Root665e88及B692732完整独立静态审。Root e3b948准确接入入口§1/§4和ID§3三个既有跨度；FW全文8980B SHA81eb1ab4保持，entry6039LF/6095CRLF余49B、ID9910B。先按每项实际结果定原材料/教学设计身份，再组成列表/语句；统一引源只覆盖有据源项，混合难清可分句表达，不强制模板。附加改态路径未给不能把既有当前直接操作改为未知。其余方法、Read/显式/聊天/确认合同、图标、资源数及其他包保持，无fixture/Owner路径依赖。
+
+版本工具DryRun核单manifest26→27并准确应用；市场8.3及其他四包版本保持。静态不是新行为PASS，源26全部实际F/P/U/N和首次有限路径note分留，既有22双入口限定P不移用。新准确工程/安装/核心/扩展/双端尚待，PR238仍Draft，#220/EpicOPEN；当前head非作者批准/CI/线程及实际merge复验分别满足，无正式发布，现实效果NOT_MEASURED。

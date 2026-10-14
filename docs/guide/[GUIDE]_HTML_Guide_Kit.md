@@ -4,14 +4,14 @@ scope: html-guide-kit
 summary: "Use the explicit Read-only guide entry and confirm a teaching goal"
 owner: marketplace-maintainers
 created: 2026-10-12
-updated: 2026-10-14
+updated: 2026-10-15
 state: active
-version: v1.26
+version: v1.27
 ---
 
 # [GUIDE] HTML Guide Kit
 
-HTML Guide Kit 从文档或明确对话快照，新建可复制的交互教材绘制指南。初始 0.1.0 已合入 develop；0.1.22已合入develop；本分支0.1.26为后续修正候选，正在验收。main / v8.2.0 已发布 Diagram、Learning Evidence、Explain 三插件，HTML 另行发行。实际登记、安装和客户端状态见当前市场与 [验收记录](../runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+HTML Guide Kit 从文档或明确对话快照，新建可复制的交互教材绘制指南。初始 0.1.0 已合入 develop；0.1.22已合入develop；本分支0.1.27为后续修正候选，正在验收。main / v8.2.0 已发布 Diagram、Learning Evidence、Explain 三插件，HTML 另行发行。实际登记、安装和客户端状态见当前市场与 [验收记录](../runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
 
 ## Start and confirm
 
