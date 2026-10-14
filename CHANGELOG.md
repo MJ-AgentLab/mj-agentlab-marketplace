@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+- Prepare HTML Guide Kit 0.1.15: describe generic denied reads without guessing sandbox/path permissions and retain unknown field results instead of inventing unchanged values. Preserve source0.1.14 independent10 sessions/21 inputs6PASS/3FAIL/1UNEXERCISED and complete raw evidence; marketplace8.3.0 and other plugin versions remain. Refs #217, #220.
+
 - Prepare HTML Guide Kit 0.1.14: publish complete shared source rules and their applicability before summaries, feedback or checklist results; distinguish UI design rationale and verified read-failure causes from source facts. Retain source0.1.13 independent12 sessions/24 inputs6PASS/4FAIL/2UNEXERCISED and original evidence. Preserve approved marketplace8.3.0 and other plugin versions. Refs #217, #220.
 
 - Prepare HTML Guide Kit 0.1.13: retain every source recovery action/object/result and recovery exceptions in exclusive relations; define current-state and retry/reset lifecycle before feedback. Retain 0.1.12 actual 15 sessions/31 inputs, 9PASS/4FAIL/2UNEXERCISED without inheriting PASS. Synchronize approved upstream Communication runtime and marketplace 8.3.0; preserve other plugin versions. Refs #217, #220.

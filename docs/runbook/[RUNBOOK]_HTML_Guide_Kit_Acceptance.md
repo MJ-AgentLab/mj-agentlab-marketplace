@@ -4,9 +4,9 @@ scope: html-guide-kit
 summary: "HTML Guide Kit staged execution ledger and unperformed acceptance gaps"
 owner: marketplace-maintainers
 created: 2026-10-12
-updated: 2026-10-13
+updated: 2026-10-14
 state: draft
-version: v1.24
+version: v1.25
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -466,3 +466,21 @@ Scope-revise最初全文matcher false观察另有准确JSON-string解析及同�
 仅HTML0.1.13→0.1.14，marketplace仍上游未发布8.3.0/其他插件/已选A图标不变，main公开8.2.0，不发行。已有操作规则时，在第一个改写结果前呈现完整源规则及明确全篇适用范围，后续缩写只有在该范围内继承完整前提/结果；概览、图示、反馈、自检和编写者核对项同样回查。“完成/成功/有效”不默补必要当前态/输入/触发，仅完整定义且明确适用的术语可缩写。源恢复给源依据，新增UI给设计理由，设计标签不抵消源未规定行为的规范归因；仅作素材动机须说非源规范依据。工具拒绝只说明已证动作/范围，不推断未证路径/缓存/工作区禁令，实际接收片段与全文补读分开。显式提前读双参考可照用户要求读，仍不得越过目标明确确认。
 
 两份独立静态最终无阻断仅STATIC_ONLY，不是行为PASS；源14三资源6144/22615/23495字节精确review pins，入口严格6144不改。外部预算失败6563/6394/6286/6164/6158/6152/6146原脚本/日志保留，没有改运行源或放宽预算。新14安装/模型NOT_RUN，须新的准确canonical十三严格安装/六缓存Python及同冻结B/E/S/repeat全新实际会话，旧PASS不继承。原生应用/双客户端/空返回/超时/关闭NOT_RUN，现实效果NOT_MEASURED，合格核心可分段，延期不当通过，#220/Epic开放；最终head非作者批准/CI/threads/最新base/actualmerge及Owner接受分别记录。
+
+## 33. 0.1.14准确安装与完整停止评审、0.1.15实证边界修正
+
+源14准确canonical24ae678ed8580e3e499cdb7496995134346c41c6 / tree5d9d1db0510646b40393e65d82b5f863e5939408的[十三严格安装/六实际缓存Python](evidence/html-guide-kit/pr3-post-merge/engineering-24ae678e/archive-index.json)通过。市场8.3.0及其他四插件59资源与批准c1fa一致；五包七公开/四显式/三自然/20repo-only保持。该head实际A6、Structure和Ubuntu/Windows CI全SUCCESS，批准及线程另核，不追认非作者批准或语义通过。main/latest8.2.0不含HTML，本任务不发行。
+
+三B分区正常停止，共10fresh UUID/21实际输入全部COMPLETE，最终独立6PASS/3FAIL/1UNEXERCISED。Root B1.1与delayed PASS，combined仅首轮UNEX，B2无attempt NOT_RUN；A B3.1/B3.2 PASS、B4.1 FAIL，B4.2/B5.1/B5.2无attempt NOT_RUN；B B6.1/revise PASS、compare/review FAIL。四已准备无attempt及全部E/S/repeat未跑不当通过，原计划B14/30未完整。新14首次完整共同规则及明确全篇适用约定有本次真实局部PASS，其他正确信息不能抵消新的FAIL。
+
+Root暂停marker2026-10-14T01:43:47.998Z，无kill、重试、重采样或后追输入。Root combined T1于01:42:43.283Z启动、01:44:06.093Z完成；A B4.1 T2于01:43:26.316Z启动、01:45:08.536Z完成，均marker前开始、marker后自然COMPLETE并正常返回，不能声称所有调用在暂停前完成。B四variant五轮全在marker前完成。Root outer77859/10534/21391，A35686/49080/63101/20496，B93110/90948均实际exit0；即时prepare/选择/消费入口无session ID分别如实保存，不猜ID。
+
+B6-compare T1:3/9和review T1:3/10把泛化blocked by policy归因缓存/参考位于工作区或沙箱允许范围之外；实际只拒整组复杂命令，没有证明路径或权限范围，后续单读材料成功也不证明外部禁止。首版拒绝范围本身PASS保留，两参考actual false与N/A适用性分别保存，不假称全文。B4.1 T2:234将源未给结果的字段写为核验不变；操作结果中未就地标新教学设计，情境输入/进入或重试的共同构造标签不补本处归因，T2:365–367又要求未述字段不自行填不变。其他操作组合、完整恢复、自检和UI恢复来源边界局部PASS仍保留。
+
+实际分段及多item回包按session原返回重建，两参考初whole/same-call matcher false和后来真实补读证据并存；不能用CLI汇总或旧helper缺陷判全文。原操作者曾只读量表的事实记录，测试模型未接收量表/答案/控制且镜像排除reviewer-only资料。原初审引用/读取helper或机械路径错误及纠正均保存，不计产品FAIL。
+
+技术grade10unique原final一次导入和三summary全部实际exit0，无schema拒绝、adapter或重复成功项；before412文件仅三batch metadata预期变化，十原final全字段/criteria/理由/evidence/actual读取与适用性等价，21源24/镜像/cache运行资源、三70源镜像Gitbyte和38冻结控制稳定。完整[停止原字节封存](evidence/html-guide-kit/pr3-reviewer/patch-024-stopped/index.json)及[Node/独立.NET精确复原](evidence/html-guide-kit/pr3-post-merge/candidate024-final-seal/archive-index.json)实际通过：407文件、11123504原字节、8packet、sourceInventorySHA8fd412bd176708f1ff0a7ad50404ad462a27d542994267fa6e45e619e2450853。旧封包不覆盖，不要求镜像与完整仓库tree相同，未来15资料不混入14记录。
+
+仅HTML0.1.14→0.1.15。泛化拒读只述本次未完成及原因/权限未知；回包明确证明才在对应范围陈述限制，不从路径位置、正文缺失或别的文件读取成功猜沙箱/缓存/工作区禁令。原材料明确规定的全部字段结果须保留，但未述字段不补变化或不变；教学输入保持若另设则在具体操作结果处标设计及范围，与源结果分列。确认/Read/聊天新建、完整共同源规则及全篇适用、恢复动作/对象、源/UI理由、模拟/反馈/自检全部旧边界保持，两参考14旧段落零删除，无领域答案/Owner路径。
+
+新15三资源6135/24354/25234字节，两份独立静态只属STATIC_ONLY，严格6144不放宽。新15安装/模型NOT_RUN，须准确canonical十三安装/六Python和相同冻结B/E/S/repeat全新真实会话，不继承14局部PASS。原生应用/双客户端/空返回/超时/关闭NOT_RUN、现实效果NOT_MEASURED，Owner最终接受独立；合格核心可分段，延期不当通过，#220/Epic开放。最终head非作者批准/CI/threads/最新base/实际merge复验各自满足，无Release/tag/main动作。

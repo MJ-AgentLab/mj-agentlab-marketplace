@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.1.15] - 2026-10-14
+
+- HTML Guide Kit 0.1.15 reports only evidenced denied-read facts and keeps unverified causes or permission ranges unknown; scope refusal does not need an extra environment diagnosis.
+- Complete source results include only explicitly supported field results. Do not infer unchanged values for unmentioned fields; separate any local teaching input persistence as design.
+- Retain0.1.14 actual10 sessions/21 inputs6PASS/3FAIL/1UNEXERCISED, original read facts and pause races. Fresh canonical installation and behavior remain required; native clients and reality effects remain separate. Refs #217, #220.
+
 ## [0.1.14] - 2026-10-13
 
 - HTML Guide Kit 0.1.14 presents complete source rules and an explicit shared applicability convention before rewritten operation results, including summaries and author checklists. Completion words do not supply missing source premises.

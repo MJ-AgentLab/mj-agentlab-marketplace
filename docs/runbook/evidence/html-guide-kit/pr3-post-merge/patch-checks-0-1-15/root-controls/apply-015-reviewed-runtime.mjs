@@ -1,0 +1,12 @@
+import fs from 'node:fs';import crypto from 'node:crypto';
+const base='C:/Users/Admin/.codex/worktrees/html-guide-acceptance',root=base+'/reviewer/corrections/0-1-15',repo=base+'/develop',hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+const seal=JSON.parse(fs.readFileSync(repo+'/docs/runbook/evidence/html-guide-kit/pr3-post-merge/candidate024-final-seal/archive-index.json'));
+if(seal.version!=='0.1.14'||seal.canonicalSha!=='24ae678ed8580e3e499cdb7496995134346c41c6')throw Error('Actual Source14 archive closure required');
+for(const file of ['static-review-015-logic.json','static-review-015-a.json'])if(JSON.parse(fs.readFileSync(root+'/'+file)).verdict!=='NO_STATIC_BLOCKERS')throw Error('Independent static verdict required');
+const control=JSON.parse(fs.readFileSync(root+'/draft/runtime-draft-control.json'));
+if(JSON.parse(fs.readFileSync(repo+'/plugins/html-guide-kit/plugin.json')).version!=='0.1.14')throw Error('Unexpected source version');
+const planned=control.rows.map(row=>{const target=repo+'/plugins/html-guide-kit/skills/guide/'+row.relative,name=row.relative.split('/').at(-1),bytes=fs.readFileSync(root+'/draft/'+name+'.snapshot.txt');if(hash(fs.readFileSync(target))!==row.originalSha256||hash(bytes)!==row.draftSha256||bytes.length!==row.draftBytes)throw Error('Reviewed bytes drift');return{row,target,bytes};});
+for(const item of planned)fs.writeFileSync(item.target,item.bytes);
+const rows=planned.map(({row})=>({relative:row.relative,bytes:row.draftBytes,sha256:row.draftSha256}));
+fs.writeFileSync(root+'/applied-reviewed-runtime.json',JSON.stringify({recordedAt:new Date().toISOString(),rows,version:'0.1.15',marketplace:'8.3.0',appliedExactReviewedBytes:true,model:'NOT_RUN',installation:'NOT_RUN'},null,2)+'\n',{flag:'wx'});
+console.log(JSON.stringify({applied:true,version:'0.1.15',rows}));
