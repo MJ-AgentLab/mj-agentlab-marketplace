@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+- Prepare HTML Guide Kit 0.1.31: distinguish source rules and initial values from actual independent example inputs; inherit only explicitly applicable shared setups and check candidate-question presuppositions against source permission and result facts. Preserve original0.1.30 failures and unrun inputs; require fresh canonical installation, behavior and client evidence. Refs #217, #220.
+
 - Prepare HTML Guide Kit 0.1.30: check actual source scope and all stated prerequisites before listing gaps; preserve covered permissions and explicit results without adding unsupported repetition, prior-value or history restrictions. Preserve real0.1.29 failures; require fresh installation, behavior and client evidence. Refs #217, #220.
 
 - Prepare HTML Guide Kit 0.1.29: place evidence-based reading and refusal-cause discipline before the first read and align the framework. Preserve actual0.1.28 failures and unchanged interaction methods; fresh installation, behavior and client checks remain required. Refs #217, #220.

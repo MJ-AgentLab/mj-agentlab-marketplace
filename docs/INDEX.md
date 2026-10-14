@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-15
 state: active
-version: v2.72
+version: v2.73
 ---
 
 # 文档索引
@@ -254,3 +254,6 @@ HTML30从29停止源单独推进0.1.30，精确接入entry/framework两span，�
 HTML30准确696da5df：346测试/65文档/严格校验/十三安装六缓存Python通过；fresh核心与双端分别验收，见[§59补证](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
 
 HTML30实际停止13UUID27C：whole9P4F1N，B5反馈primaryU、3输入未发、0post/2自然cross；Work两实际轮P/完整双端未齐，见[§60](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+
+HTML31从已停止30源单独准备：entry/FW三span区分源规则/源初值与本例实际给定值，仅继承真实共享题设，候选问题预设也核源；交互参考保持。30原13UUID27C整体9P4F1N、未发3输入和限定Work两轮不追认；新工程/canonical安装、模型及双端均待证，见[§61](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。

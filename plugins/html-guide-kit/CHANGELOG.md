@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.1.31] - 2026-10-15
+
+- HTML Guide Kit 0.1.31 separates source prerequisites/initial values from actual example inputs, using only explicitly applicable shared setups or clearly marked teaching assumptions. Candidate questions must preserve source operation permission and result distinctions.
+- Apply only three reviewed entry/framework spans; retain interaction-design bytes, known broad permissions, relevant unknown dependencies and the explicit Read-only new-guide/text contract.
+- Preserve actual0.1.30 whole failures, partial/unrun paths and limited client results; require fresh engineering, precise installation and independent behavior/client checks. Refs #217, #220.
+
 ## [0.1.30] - 2026-10-15
 
 - HTML Guide Kit 0.1.30 checks the actual source scope and all stated prerequisites before declaring information gaps. Preserve covered operation permissions and explicit results; unmentioned repetition, previous field values or extra history do not create new prerequisites.

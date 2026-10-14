@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-15
 state: draft
-version: v1.57
+version: v1.58
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -925,3 +925,14 @@ Root唯一a59094/session23823→5ab65a EXIT0[十三canonical安装/六真实缓�
 Computer Use实际确认新UI-only十文件mirror/缓存与696精确、Read/图标/入口/0.1.30详情可见。Work实际UUID01a13bec-c13d-7e22-8eab-671d7c8c520e，app26.1007.9446.0/backend0.162.0-alpha.17.2、OpenAI/gpt-6-astra/xhigh，与CLI基线分列。UI首轮及未选择T2连续输入真实完成，方案三选且只待答、保留原候选均限定PASS；实际native完整入口和三个独立工具回包完整缓存正文经f36408/0a2b3c核对，不用自述作读取证据。确认交付第三轮、Codex本地入口及原生窗口生命周期NOT_RUN；同一组合应用不证明其他客户端。源SDK私密前缀只外部保留，公开只选本测试输入输出/准确identity/工具定位和hash，不导出整窗pixels。
 
 19544f安装后比较误漏自有marketplace段、Root9f2f45/b2a933 receiver路径定位和95b722/5f0e43 shell观察辅助失败分别保；实际两安装子命令EXIT0、十缓存字节独立ba1c27通过，无重新安装或模型重试，错误不计模型INVALID。b2a933只还原自有旧20/22插件段并停用自有30，当前root界面已返回；无其他插件操作。下一修正只针对本例前提/候选问题预设事实，继续原Read/明确确认/文本合同。现实效果NOT_MEASURED，#220/Epic开放，Draft #238、当前head批准/CI/线程及最终merge与双端尚未齐；无正式发布。Refs #217, #220。
+
+
+## §61 Source31 窄方法接入准备
+
+从本次明确pure-proof基线70ec2870a5c049f292c7fc4ddaaf185bd5be87cf准备0.1.30→0.1.31。原30运行仍696da5df/tree5202e43b：工程346与十三安装六真实缓存Python通过，13UUID27COMPLETE/0INVALID，whole9P4F1N、3输入未发/0post/2自然cross；四失败及主判/前缀未覆盖分别保留。原Work仅实际提案/未选两轮限定P，确认交付、Codex本地及窗口路径未齐，不移用到31。
+
+资源freeze8c99e9b3经Root/B静态保全，entry5677LF/5713CRLF≤6144、SHA65abdd374784d054f9c3d65d52c32c74cf32ac281ad6388e927831c6d7c9e46c；FW9759B/SHA b6de10fb7ed3a3f2dfc5cda046e1317243876c5cee2aab2c46760fd37341e654，ID7773B/SHA b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a保持。仅两文件三span：源规则和指定初值不替另设例子赋值，实际共同题设/覆写才继承；只核判定必需信息，缺项可明标构造或限依赖结果未知，不收紧宽许可。候选疑问句预设亦区分许可和目标结果，不嵌矛盾或未知前提为已知。
+
+权威版本必须用独立PowerShell7.6.5进程先DryRun一manifest锚点、再Apply；原stdout/stderr/exit单列。当前新工程、准确31canonical十三安装/六Python、fresh行为与双端全部NOT_RUN，不把静态或配置写PASS。控制保持CLI0.147/OpenAI5.6-sol、defaultlow与显式selectedhigh分记、实际SDK和完整Read独核、V2真实exit/close/240000ms与同31global普通边界；历史schedule不作未来路径。
+
+市场8.3.0、其他59包文件、登记/图标/调用策略与ID保持；旧30的451和29的362外部原件不修改，历史正文不重写。现实效果NOT_MEASURED，#220/Epic开放，Owner接受、当前head非作者批准/CI/线程/实际merge各自待证；无Release/tag/main发布PR。Refs #217, #220。

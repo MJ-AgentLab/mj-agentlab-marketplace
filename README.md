@@ -11,7 +11,7 @@
 | **diagram-kit / arch-diagram** | 从源码事实生成七类 Mermaid 架构/UML 图，节点与边追溯到文件行号，实际运行 Python 校验器 | 0.3.1，已随市场 v8.1.1 发布 |
 | **explain-kit / glossary、concept** | 陌生术语速解与机制、反例、边界深讲，遵从受众、语言和长度要求 | 0.1.1，已随市场 v8.1.1 发布 |
 | **learning-evidence-kit / pop-quiz、learning-record-check** | 显式诊断并移交完整记录，保留本机原件；分开核验指定记录有效性与任务应用，按授权共享 | 0.1.0，已随市场 v8.2.0 发布 |
-| **html-guide-kit / guide** | 确认读者、任务和理解问题后，新建可复制的交互教材绘制指南文本 | 0.1.19，develop 修正候选，未正式发布 |
+| **html-guide-kit / guide** | 确认读者、任务和理解问题后，新建可复制的交互教材绘制指南文本 | 0.1.31，develop 修正候选，未正式发布 |
 | **communication-kit / communicate** | 显式调用，沟通、编写与保义改写；关键缺口先问并等待，交付成稿和关键提示 | 0.1.0，PR3 开发候选，尚未发布 |
 
 历史 [Marketplace v8.1.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.1) 于 2026-10-10 随 #205 合入 main 自动发布，该历史版本包含 Understanding Kit 0.1.2 / pop-quiz，采用 A 仓库主标和 D 插件图标。该次发布后的四种隔离安装、图标内容比较与实际 Python 校验通过；Owner 截图、两端完整客户端记录缺项及未提供的 GitHub 独立批准见 [8.1.1 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。这些历史结果不证明新候选的客户端或窗口通过。
@@ -73,7 +73,7 @@ Communication尚未进入main/v8.2.0。在隔离候选安装中显式调用 `$co
 
 ### Development
 
-Learning的[8.2.0 Release](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.2.0)已于2026-10-13发布，实际main merge为ebc4bdc3。Communication PR4以实际8.2.0基线先DryRun零写入再准备8.3.0 VERSION/badge，其阶段五包根版本均保持；正式候选四包范围及发布门禁见[8.3.0账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。Diagram0.3.1、Learning Evidence0.1.0、Explain0.1.1已公开；当前HTML0.1.30修正候选与Communication0.1.0仅属开发候选。共用Learning脚本归属安装包，不依赖仓库过渡路径。
+Learning的[8.2.0 Release](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.2.0)已于2026-10-13发布，实际main merge为ebc4bdc3。Communication PR4以实际8.2.0基线先DryRun零写入再准备8.3.0 VERSION/badge，其阶段五包根版本均保持；正式候选四包范围及发布门禁见[8.3.0账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。Diagram0.3.1、Learning Evidence0.1.0、Explain0.1.1已公开；当前HTML0.1.31修正候选与Communication0.1.0仅属开发候选。共用Learning脚本归属安装包，不依赖仓库过渡路径。
 
 20 个开发技能位于 .agents/skills，候选公开技能为 arch-diagram、pop-quiz、learning-record-check、glossary、concept、guide 和 communicate。pop-quiz、learning-record-check、guide 与 communicate 为显式入口；全量普通发现预期为三个技能，原生清单为七个；Communication 独装普通发现为零、原生清单为一个。十三组合安装、包内资源字节核对、实际 Python 回归与无 MCP 检查的执行结果单独记录。
 
