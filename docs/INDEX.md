@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-15
 state: active
-version: v2.83
+version: v2.84
 ---
 
 # 文档索引
@@ -285,3 +285,6 @@ HTML34仅entry/FW三span先交付必需共同题设/覆盖/覆写再判独立例
 
 
 HTML34/95af299a工程346/65/quick/strict/actualCLI0.147与十三准确安装六缓存Python通过；新行为/双端未完成，源33真实失败与046封存保持，见[§70](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+
+HTML34/95af真实核心9UUID19C整体7P1F1U5N、11未发/0post2cross；Work1UUID2C/3cacheRead仅方案与待答有限P，指南wholeU及本地Codex/生命周期未测，owned八片段恢复。047实际封包/双逐字节复原P，71运行资源不变，见[§71](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
