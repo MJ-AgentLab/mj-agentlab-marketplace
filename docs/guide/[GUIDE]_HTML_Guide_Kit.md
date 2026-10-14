@@ -6,12 +6,12 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-15
 state: active
-version: v1.34
+version: v1.35
 ---
 
 # [GUIDE] HTML Guide Kit
 
-HTML Guide Kit 从文档或明确对话快照，新建可复制的交互教材绘制指南。初始 0.1.0 已合入 develop；0.1.22已合入develop；本分支0.1.34为后续修正候选，正在验收。main / v8.2.0 已发布 Diagram、Learning Evidence、Explain 三插件，HTML 另行发行。实际登记、安装和客户端状态见当前市场与 [验收记录](../runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+HTML Guide Kit 从文档或明确对话快照，新建可复制的交互教材绘制指南。初始 0.1.0 已合入 develop；0.1.22已合入develop；本分支0.1.35为后续修正候选，正在验收。main / v8.2.0 已发布 Diagram、Learning Evidence、Explain 三插件，HTML 另行发行。实际登记、安装和客户端状态见当前市场与 [验收记录](../runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
 
 ## Start and confirm
 
@@ -35,7 +35,7 @@ HTML Guide Kit 从文档或明确对话快照，新建可复制的交互教材�
 
 完整条件判准按各结论的实际且/或依赖求值，另一项未知不撤已知项已决定的结果；仅仍依赖缺项的结论保未知，不把纯必要条件当充分判准。
 
-交付先明示本组必需共同题设、实际覆盖及局部覆写，独立例子另给所需输入后再判结果；逐处核完整源动作及非字段效果的归属，不把源恢复排他地缩成终值。允许明示完整复用和维度裁减，不增加固定格式或收紧源宽许可。
+逐项跨相关源单元核对本次对象、当前态、直接操作与判断维度，再保已知并列剩余未知；教材未展示不等于源未规定。批量表述明确实际集合与维度，不撤已有许可、禁止或结果；未核全则限于已查条目和有据未知。原共同题设、完整恢复和源设计分归等方法保持，不增加固定模板或收紧源宽许可。
 
 ## Scope and evidence
 

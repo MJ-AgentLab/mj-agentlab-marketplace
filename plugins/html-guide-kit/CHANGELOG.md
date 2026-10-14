@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.1.35] - 2026-10-15
+
+- HTML Guide Kit 0.1.35 changes only two existing framework spans: identify the actual object set and judgment dimension, cross-check related source units per object, and preserve known permission, prohibition and results before stating remaining unknowns.
+- Unshown or unchecked cases are not unprovided source rules. If the object set was not fully checked, narrow the statement to checked items and evidence-bound unknowns. Entry and interaction-design remain exact Source34 bytes; all prior methods and the public contract stay intact.
+- Preserve Source34 original whole failure, unrun inputs and limited native pending-stage evidence. Fresh engineering, canonical installation and independent behavior/client acceptance remain required. Refs #217, #220.
+
 ## [0.1.34] - 2026-10-15
 
 - HTML Guide Kit 0.1.34 establishes necessary shared example inputs, actual coverage and local overrides before giving results; independent examples receive their required starting inputs.

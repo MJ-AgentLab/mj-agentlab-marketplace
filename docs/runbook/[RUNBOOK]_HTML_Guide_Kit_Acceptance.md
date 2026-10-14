@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-15
 state: draft
-version: v1.69
+version: v1.70
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -1059,3 +1059,16 @@ A首CreateNew同34flag于2026-10-14T22:50:52.045Z、SHA4763f0f7ec649e1267bb87150
 原生Work仅一实际UUID01a13c98-566d-7ab3-b936-c5541c0d5909、两连续COMPLETE输入及三份完整缓存正文读取；方案与未选择待答的有限路径独评P，确认交付/指南wholeUNEXERCISED、本地Codex/生命周期NOT_RUN。实际originator codex_work_desktop、backend0.162.0-alpha.17.2、gpt-6-astra/xhigh，与核心0.147/Sol/high分记，不凭同exe判两个客户端。两SDK文件为同一累积两轮快照的原路径/原字节，不冒不同边界；仅本任务用户输入、技能与环境/空page_id上下文经范围核验，未公开整HOME/auth/config或整窗pixels。Root在正常停旗下恢复八旧owned片段、新34disabled，nonowned原字节保持，不删除缓存。
 
 扩展、重复、完整双客户端、窗口空返回/关闭/超时路径与现实效果未据此通过。现实效果NOT_MEASURED，#220/Epic开放；Owner接受、当前head非作者批准/CI/线程及实际merge各自待证，无bypass、Release/tag/main发布PR。Refs #217, #220。
+
+
+## §72 Source35 批量结论边界窄修准备
+
+从本次明确clean pure-proof基线10dc03720635d95fe06963ed7c854bf97e0be269准备0.1.34→0.1.35。Source34运行95af299ab8786722fd4bb3189535786cd3051aee/treec19c9e77f6dfead71ce33daf52a323631a9d8949：工程346、65文档、strict/check/quick及十三准确安装/六实际缓存Python通过；9UUID19COMPLETE/0INVALID，whole7P1F1U5N、11输入未发/0post/2自然cross。B6.1读/聊天边界主P，但直接操作比较中的泛未知撤销源已明确禁止，wholeF。已知旁段不补本处宽未知，原失败、未覆盖、停止及工具原件均保，不重采样或追认。完整Source34闭集575文件由Root追踪11417dcc冻结，Source33/32/31/30/29旧492/677/472/451/362全保。
+
+Source34原生ChatGPT Work实际1UUID2COMPLETE：显式入口注入同缓存、3单份工具完整收到入口及两参考正文，T1三差异目标、T2非选择保持原pending，未T3/指南，本地Codex入口未运行；仅有限交互P/整体UNEXERCISED。实际native backend0.162.0-alpha.17.2/OpenAI gpt-6-astra/xhigh与CLI验收基线分记，不迁移双端或35资格。8 prior owned复原、新34禁用/非自有不变见原收据；不复制私有配置，不据安装或自述补行为P。
+
+Source35资源freeze4909205ab7e57a94002c4396a70098af452611d72326cb99098713839266e542经Root/B独静态，原三资源与本次integration-plan准确pins：SKILL6007LF/6043CRLF≤6144、9f2febe6d0d368ab0ea5eb0e570a050a557f3d80983ea70b1138b4e60e0dc58e保持；FW11765B/4fc27bb3fb7bc4e2bbe42c724f651d35741b1d19d7625e8afb7cd377184ad5af；ID7773B/b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a保持。仅FW§3匹配段和§5反查段两span：先固定本句实际对象集合、每项当前态、直接操作与判断维度，逐项跨相关源单元匹配许可、禁止、排他、恢复和例外，保每项已知后列剩余未知。未展示或未查不等于源未规定；批量结论不能撤已有许可、禁止或结果，未核全则收窄到已查项与有据未知。不新增固定模板、领域规则或资格，宽许可、真实例题输入/局部覆写、完整恢复/源设计分归、且或依赖、纯必要性质、篇幅与Read/目标确认等原方法保持。
+
+权威bundled PowerShell7.6.5独立DryRun单manifest再Apply，保实际stdout/stderr/exit。当前35工程、准确canonical十三安装/六Python、连续模型与双端均NOT_RUN；静态不当行为P。CLI0.147/OpenAI5.6-sol的112d原defaultlow与显式selectedhigh分记，fresh支持及实际SDK、V2真实exit/close/240000ms严格保持。历史schedule内28路径仅历史；所有35prepare/quote/choose/turn显式同35global正常边界标记，停止新输入、在途自然结束，无原子锁/kill/重抽。
+
+市场8.3.0、其他59包文件、登记/图标/策略、entry/ID、28工具和全部旧证据保持。现实效果NOT_MEASURED，#220/Epic仍开放；Owner接受、当前head非作者批准/CI/线程与实际merge各自待证，无Release/tag/main发布PR。Refs #217, #220。
