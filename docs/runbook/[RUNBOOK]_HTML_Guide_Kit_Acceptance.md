@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-15
 state: draft
-version: v1.46
+version: v1.47
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -805,3 +805,11 @@ PR #231已实际合并71e2e1bc，head与merge tree相同；后续修正PR #238�
 A冻结38742555ae64030f72523b7328d5fe3740f99fa2152129c01b03804c38b37152经Root665e88及B692732完整独立静态审。Root e3b948准确接入入口§1/§4和ID§3三个既有跨度；FW全文8980B SHA81eb1ab4保持，entry6039LF/6095CRLF余49B、ID9910B。先按每项实际结果定原材料/教学设计身份，再组成列表/语句；统一引源只覆盖有据源项，混合难清可分句表达，不强制模板。附加改态路径未给不能把既有当前直接操作改为未知。其余方法、Read/显式/聊天/确认合同、图标、资源数及其他包保持，无fixture/Owner路径依赖。
 
 版本工具DryRun核单manifest26→27并准确应用；市场8.3及其他四包版本保持。静态不是新行为PASS，源26全部实际F/P/U/N和首次有限路径note分留，既有22双入口限定P不移用。新准确工程/安装/核心/扩展/双端尚待，PR238仍Draft，#220/EpicOPEN；当前head非作者批准/CI/线程及实际merge复验分别满足，无正式发布，现实效果NOT_MEASURED。
+
+
+源26完整[039停止原件](evidence/html-guide-kit/pr3-reviewer/patch-039-stopped/index.json)实际294文件6081450B五包，最大2073991<2097152，inventory84286f9f3f7fba133ec08667619f1acb1ac5fca39fc914280a17fe72b73ab552；Root1b5192 pack/397477 Node/6182c3独立.NET均EXIT0逐byte复原，[准确收口](evidence/html-guide-kit/pr3-post-merge/candidate039-final-seal/archive-index.json)保原9UUID17C、5P2F2U5N、原operator状态与手选、只有A首轮cross。Rootcd5ff8再次实际核五SDK/八完整单文件Raw回包/七Git镜像cache逐byte/25raw、delayed选择null；C最初literal-only解析错误及r2安全常量/模板修正分留，不说模型INVALID。新27/私有native/auth资料排除，纯证据不增加运行补丁。
+
+
+27准确canonical00d59da3099113ccbf3db73b84787c526eedd713/treeedc69b137e5473c6e7307120a81c9e091764d673已a2c87e commit、060382六commit范围/普通push通过。原完整128b89为345P1F，shipping CHANGELOG正文未命名本版；同项79504d64P1F，补齐真实版本正文后2ce61565P及重新完整4fad6f346P0F0skip/259172.4907ms。所有原失败日志与修正后独立日志[逐byte保存](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-27/archive-index.json)，不追认初跑。validate90be6a/check14c5a7/技能validate及C63c4de静态集成通过；64保护路径、59其他包和28工具Git未变，entry6095/AGENT16259。控制A8bcdf6审准确40active及37source26保护pin，非旧47项。
+
+唯一c48db2/session88638最终f8f42d EXIT0[十三严格安装及六缓存Python](evidence/html-guide-kit/pr3-post-merge/engineering-00d59da3/archive-index.json)，summary715a6c6798b6904cdc2109282efda2f7d695751efec44b1f0d77f724979e2632、installation89a4a9ac53a277b6969782b3ba19635ea12d22808d1dbb67905faff885d509d6。实际缓存由原控制清理，不声称以后重读已清缓存。门禁完成后Root明确授权三组新fresh核心，原0.147/OpenAI/gpt-5.6-sol/low及输入/判准保持，结论待实际whole独评。27 native f258c3仅十准确文件镜像准备，未backend安装/配置写入/模型输入；旧22P不移用。

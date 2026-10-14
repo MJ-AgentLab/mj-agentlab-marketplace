@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-15
 state: active
-version: v2.61
+version: v2.62
 ---
 
 # 文档索引
@@ -229,3 +229,5 @@ HTML26两既有span按具体对象/态/单操作/结果维度逐规则匹配，�
 HTML26准确工程/十三安装六缓存Python及七CI通过，真实9UUID17C独立5P2F2U5N停止；[§52](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)及[原判据](runbook/evidence/html-guide-kit/pr3-post-merge/source026-stopped/index.json)保留所有失败/未测。源25完整038及26canonical安装证据已经收口，新27仅外部准备，旧客户端PASS不继承。
 
 HTML27三既有span先逐项区分source/新增教学结果再编句和引用，额外路径缺口不替代已知直接操作判断；双静态审已接入，准确工程/安装/新会话/双端待跑，见[§53](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+HTML27准确00d59提交：修正后的完整346测试、十三canonical安装/六缓存Python、严格结构/版本及独立静态控制审通过；[§53实际补件](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)保存初始345P1F和修正后原日志。新核心已fresh启动，模型/双端结论待实际独评；源26完整039已lossless收口，纯证据版本仍0.1.27。

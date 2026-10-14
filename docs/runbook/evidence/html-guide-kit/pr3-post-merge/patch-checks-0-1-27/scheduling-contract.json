@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T16:23:48.796Z",
+  "candidateVersion": "0.1.27",
+  "phase": "PREP_ONLY_NOT_BEHAVIOR_PASS",
+  "requiredGlobalPauseFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\normal-execution-pause.flag",
+  "operatorScript": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\operator-sequential.manual.candidate.mjs",
+  "operatorPin": {
+    "relative": "operator-sequential.manual.candidate.mjs",
+    "bytes": 5028,
+    "sha256": "fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42"
+  },
+  "requiredEveryFutureSequentialInvocation": {
+    "executable": "D:\\Development\\nodejs\\node.exe",
+    "args": [
+      "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\operator-sequential.manual.candidate.mjs",
+      "{blocking|expanded|continuous-supplement}",
+      "{fresh27batch}",
+      "--pause-file",
+      "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\normal-execution-pause.flag"
+    ]
+  },
+  "explicitSameGlobalAcrossAllRolesAndKinds": true,
+  "manualChooseCallerChecks": [
+    "before reading/recording the selected actual whole triplet",
+    "immediately before harness choose",
+    "before invoking the operator to send the next turn"
+  ],
+  "candidateChecks": [
+    "entry",
+    "before each variant start",
+    "after COMPLETE before next/manual continuation",
+    "after variant completion before another variant"
+  ],
+  "onlyNormalBoundaryStop": true,
+  "noKillRetryResamplingAdded": true,
+  "globalCheckAndSpawnNotAtomic": true,
+  "noHostWindowLockOrImmediateInFlightStopPromise": true,
+  "markerCreated": false,
+  "neverSentToModel": true,
+  "inputsCriteriaModelDefaultsUnchanged": true,
+  "pendingExactCanonicalAndIndependentControlsReviewAnd13Plus6Gate": true
+}

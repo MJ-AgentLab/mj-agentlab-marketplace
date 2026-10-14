@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "recordedUtc": "2026-10-14T16:27:37.3005947Z",
+  "reviewer": "/root/behavior_014_a",
+  "controlAuthor": "/root/precommit_014",
+  "scope": "STATIC_ONLY",
+  "conclusion": "NO_STATIC_BLOCKERS",
+  "finalControl": {
+    "path": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-27/CONTROLS_FINAL_FROZEN.json",
+    "bytes": 8114,
+    "sha256": "df4c28e836b268d459bf62d51e375386e42212c93f4ee08d6855ce224bf0305b"
+  },
+  "source26Control": {
+    "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-26/CONTROLS_FINAL_FROZEN.json",
+    "bytes": 8114,
+    "sha256": "a6baf04cece9ec70f11edd4aa17b13f868cdb465902c8c13a1c0e9d9fa9948d6"
+  },
+  "bindings": [
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-27/frozen-copy-inventory.json",
+      "bytes": 40794,
+      "sha256": "e1fbd03491704901395b8dd694be71fb5b938cf48328abfe42d16ab514e77774"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-27/version-guard-exactdiff.json",
+      "bytes": 3168,
+      "sha256": "e273c5e985b33dd9f9f33b1adb6c2035a208099d7d4f749a7df1fa00ab3d77db"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-27/scheduling-contract.json",
+      "bytes": 1907,
+      "sha256": "27024146793434e1a80b5bbdc0560f0f7353c81848afa8a0e792ebac41e7efc0"
+    }
+  ],
+  "active": 40,
+  "sourcePins": 40,
+  "byteExact": 37,
+  "guardFiles": 3,
+  "actualGuardAsciiChanges": 9,
+  "guardInverse": [
+    {
+      "relative": "prepare-correction.mjs",
+      "actualDiff": [
+        {
+          "offset": 63,
+          "sourceByte": 54,
+          "destinationByte": 55
+        },
+        {
+          "offset": 535,
+          "sourceByte": 54,
+          "destinationByte": 55
+        },
+        {
+          "offset": 813,
+          "sourceByte": 54,
+          "destinationByte": 55
+        },
+        {
+          "offset": 876,
+          "sourceByte": 54,
+          "destinationByte": 55
+        }
+      ],
+      "inverseExact": true
+    },
+    {
+      "relative": "prepare-coverage.mjs",
+      "actualDiff": [
+        {
+          "offset": 96,
+          "sourceByte": 54,
+          "destinationByte": 55
+        },
+        {
+          "offset": 1205,
+          "sourceByte": 54,
+          "destinationByte": 55
+        },
+        {
+          "offset": 1506,
+          "sourceByte": 54,
+          "destinationByte": 55
+        },
+        {
+          "offset": 1569,
+          "sourceByte": 54,
+          "destinationByte": 55
+        }
+      ],
+      "inverseExact": true
+    },
+    {
+      "relative": "verify-canonical.mjs",
+      "actualDiff": [
+        {
+          "offset": 3924,
+          "sourceByte": 54,
+          "destinationByte": 55
+        }
+      ],
+      "inverseExact": true
+    }
+  ],
+  "controllerActualDiff": [
+    {
+      "offset": 3950,
+      "sourceByte": 54,
+      "destinationByte": 55
+    }
+  ],
+  "controllerInverseExact": true,
+  "technicalV2": {
+    "path": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-27/capture-lifecycle-control.mjs",
+    "bytes": 2825,
+    "sha256": "947cb0a958932d8007b7d3d6efb62c0969ba792272f0c7eaf00c118857fbd6eb"
+  },
+  "operatorCandidate": {
+    "path": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-27/operator-sequential.manual.candidate.mjs",
+    "bytes": 5028,
+    "sha256": "fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42"
+  },
+  "syntax": "28 author actual exit0 receipts verified; no new syntax execution",
+  "protected": {
+    "actualSource26Count": 37,
+    "actualRawCount": 25,
+    "otherClosureAuditFlagAggregateHelperCount": 12,
+    "allActualPinsStable": true,
+    "countCorrection": "Parent prior 47 referred to prior Source25 protection size. C actual Source26 frozen schema has 25 raw+12 other=37; no ten missing records inferred or fabricated."
+  },
+  "frozenInputsCriteriaPlansSpecsDefaultsByteExact": true,
+  "defaultProof": {
+    "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\diagnostics\\inherited-pr2-6ee40474\\metadata-relocated.json",
+    "bytes": 3891,
+    "sha256": "112d6f63191c781df9d2ca6d99a2f228f299aae82e056e3bf1869ee70d50bb49"
+  },
+  "baseline": "0.147.0/OpenAI/gpt-5.6-sol/low inherited actual observation; not a new model list query",
+  "scheduling": {
+    "newGlobalPause": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\normal-execution-pause.flag",
+    "explicitEveryKind": true,
+    "manualBeforeReadChooseNext": [
+      "before reading/recording the selected actual whole triplet",
+      "immediately before harness choose",
+      "before invoking the operator to send the next turn"
+    ],
+    "candidateChecks": [
+      "entry",
+      "before each variant start",
+      "after COMPLETE before next/manual continuation",
+      "after variant completion before another variant"
+    ],
+    "nonAtomicCheckSpawn": true,
+    "normalBoundaryOnly": true,
+    "noKillRetryResampling": true
+  },
+  "fixtureReuse": "Existing unchanged Source21 four-process/seven-assertion scheduler mechanism proof; no source27 fixture execution or model/UI claim",
+  "reviewerIsolation": "40 approved control files are exact except version identity guards; original answers/reviews/raw/flag excluded from active controls and future neutral consumer, scope-only false/N_A facts remain unchanged.",
+  "newRuns": [
+    {
+      "kind": "blocking",
+      "exists": false
+    },
+    {
+      "kind": "expanded",
+      "exists": false
+    },
+    {
+      "kind": "continuous-supplement",
+      "exists": false
+    }
+  ],
+  "model": "NOT_RUN",
+  "installation": "NOT_RUN",
+  "consumer": "NOT_RUN",
+  "runtimeAndCI": "NOT_IN_SCOPE; Root reported prior latest-version CHANGELOG test failure and subsequent full check still pending, not converted to PASS",
+  "reads": [
+    "cc397c",
+    "57adfd",
+    "667ebf"
+  ],
+  "noRepoOrOriginalMutation": true
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "status": "STATIC_ONLY",
+  "conclusion": "NO_STATIC_BLOCKERS",
+  "reviewer": "/root/behavior_014_b",
+  "recordedAt": "2026-10-14T16:19:11.451Z",
+  "sourceCanonical": "40346364dc577440af6d63457e830aaaddff38e9",
+  "sourceTree": "0eb06652c3dcd57eb545fae666e29e67fee49178",
+  "proposedVersion": "0.1.27",
+  "freeze": {
+    "relative": "DRAFT_FINAL_FROZEN.json",
+    "bytes": 7248,
+    "sha256": "38742555ae64030f72523b7328d5fe3740f99fa2152129c01b03804c38b37152"
+  },
+  "resources": [
+    {
+      "relative": "skills/guide/SKILL.md",
+      "sourceBytes": 5954,
+      "sourceSha256": "3b3f4558e66329c6385f155ee04e2020fe0d5d046fe5b48d71ce1c84023fb02b",
+      "draftBytes": 6039,
+      "draftSha256": "0b942e1d8cf633ec0badbf605786c0a006f7845e7fb01cb19f164b69aa06ad00",
+      "exactSourceGit": true,
+      "exactFrozenSpanReconstruction": true,
+      "changed": true
+    },
+    {
+      "relative": "skills/guide/references/guide-framework.md",
+      "sourceBytes": 8980,
+      "sourceSha256": "81eb1ab4e30f0f750a316a4575e050df27bc19e35c684a2621638fc72ef6bc11",
+      "draftBytes": 8980,
+      "draftSha256": "81eb1ab4e30f0f750a316a4575e050df27bc19e35c684a2621638fc72ef6bc11",
+      "exactSourceGit": true,
+      "exactFrozenSpanReconstruction": true,
+      "changed": false
+    },
+    {
+      "relative": "skills/guide/references/interaction-design.md",
+      "sourceBytes": 9667,
+      "sourceSha256": "46e41cfb58b17fda52d845469f4c61a189c19e18b608cc3ffad33b3539aad47d",
+      "draftBytes": 9910,
+      "draftSha256": "5c7ade14797417ba6a8b3fe9cb0c35e660a9467bd69f10ac244dcc64eeafa26d",
+      "exactSourceGit": true,
+      "exactFrozenSpanReconstruction": true,
+      "changed": true
+    }
+  ],
+  "entryBudget": {
+    "LFBytes": 6039,
+    "WindowsCRLFBytes": 6095,
+    "limit": 6144,
+    "margin": 49
+  },
+  "checks": {
+    "fullThreeResourcesRead": true,
+    "threeExistingSpansOnly": true,
+    "frameworkByteUnchanged": true,
+    "publicContractRetained": true,
+    "explicitTargetSelectionAndWaitRetained": true,
+    "knownDirectOperationsNotErasedByAdditionalPathGaps": true,
+    "sourceAndNewUiIdentityBeforeComposition": true,
+    "combinedCitationDoesNotBackNewResults": true,
+    "localAttributionAndScopeNotInferredFromWholePage": true,
+    "optionalSplitExpressionNotFixedTemplate": true,
+    "nonOperationalMaterialsAndPureConditionsRemainUnforced": true,
+    "completeSourceActionsAndRestorationRetained": true,
+    "linksBudgetPortableReadTextBoundaryRetained": true,
+    "noFixtureAnswerOrOwnerDependency": true
+  },
+  "rationale": [
+    "Entry gap wording now distinguishes an extra path from an already covered direct operation; broad后续/能否 wording must be limited to the actual missing dimension. Framework still retains every applicable wide permission/prohibition/recovery/exception.",
+    "Entry attribution and interaction paragraph establish source/new teaching identity before composing mixed sentences or lists. Each source-supported item retains its own basis; a common trigger or citation cannot justify new UI clearing. Optional sentence splitting preserves flexible expression rather than forcing a format.",
+    "Remaining exact bytes preserve original evidence/background separation, two to three genuine target triplets and explicit confirmation, complete source units, local scope, permission versus result, recovery versus terminal values, per-input missing-factor feedback, retry/no score and adaptive length."
+  ],
+  "fullReadReceipt": {
+    "toolChunk": "53d25c",
+    "exitCode": 0,
+    "returnedWithoutTruncation": true
+  },
+  "limitations": [
+    "Static resources only; no runtime application, installation, model execution, behavioral PASS or GitHub approval."
+  ],
+  "source26EvidenceModified": false
+}
