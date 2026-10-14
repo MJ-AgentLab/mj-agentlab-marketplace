@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T17:00:36.726Z",
+  "reviewer": "/root",
+  "canonicalSha": "00d59da3099113ccbf3db73b84787c526eedd713",
+  "canonicalTree": "edc69b137e5473c6e7307120a81c9e091764d673",
+  "version": "0.1.27",
+  "result": "FAIL",
+  "actualFreshUuids": 9,
+  "actualInputs": 18,
+  "complete": 18,
+  "invalid": 0,
+  "plannedVariants": 14,
+  "plannedInputs": 30,
+  "notStartedInputs": 12,
+  "counts": {
+    "PASS": 5,
+    "FAIL": 3,
+    "UNEXERCISED": 1,
+    "NOT_RUN": 5
+  },
+  "rows": [
+    {
+      "id": "B3.1",
+      "batchId": "d70fe9ed-eead-4e41-8eed-7bf835ee212c",
+      "uuid": "01a13b41-1187-7871-8f1c-56bbdc29635e",
+      "actualTurns": 3,
+      "plannedTurns": 3,
+      "status": "PASS",
+      "selection": {
+        "label": "2",
+        "originalTripletExcerpt": "2. 条件逻辑比较\n\n   - 读者：需要学习“且”与“或”规则差异的培训参与者；了解基本真假判断，不承担现实发放决定。\n   - 使用任务：比较同一组条件在 D1 与 D2 下分别产生的资格结论。\n   - 理解问题：两种规则各要求什么？四种条件组合中，哪些结果相同、哪些不同？\n   - 取舍：逻辑结构最清楚，但必须持续声明这只是并列比较，不能据此裁定现实适用规则。",
+        "firstTurnOutput": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\d70fe9ed-eead-4e41-8eed-7bf835ee212c\\B3.1\\a91e01cf-1914-4eee-ba93-61e4eeb8adc7\\01.output.txt",
+        "recorded": {
+          "utc": "2026-10-14T16:34:17.181Z",
+          "timezone": "Asia/Taipei"
+        },
+        "rolePresent": false,
+        "source": "reviewer reading of actual model output; no answer key in model prompt"
+      },
+      "independentReport": {
+        "relative": "blocking/reviews/cross-A-by-b/B3.1.json",
+        "bytes": 5005,
+        "sha256": "c2b57d4d89ef04133fac0bb260cac54a3deea6e65e654f165a625ce5a97bdc9e",
+        "reviewer": "/root/behavior_014_b"
+      }
+    },
+    {
+      "id": "B3.2",
+      "batchId": "d70fe9ed-eead-4e41-8eed-7bf835ee212c",
+      "uuid": "01a13b44-c62a-7492-b8b8-2e60e1fc2aa0",
+      "actualTurns": 1,
+      "plannedTurns": 3,
+      "status": "UNEXERCISED",
+      "selection": null,
+      "independentReport": {
+        "relative": "blocking/reviews/cross-A-by-b/B3.2.json",
+        "bytes": 2983,
+        "sha256": "c3c0fab7d9672ff85fcaefbe72600c4bc1ee84a6cd7d6b9a627a334a24f65b48",
+        "reviewer": "/root/behavior_014_b"
+      }
+    },
+    {
+      "id": "B4.1",
+      "batchId": "d70fe9ed-eead-4e41-8eed-7bf835ee212c",
+      "uuid": null,
+      "actualTurns": 0,
+      "plannedTurns": 2,
+      "status": "NOT_RUN",
+      "selection": null,
+      "independentReport": null
+    },
+    {
+      "id": "B4.2",
+      "batchId": "d70fe9ed-eead-4e41-8eed-7bf835ee212c",
+      "uuid": null,
+      "actualTurns": 0,
+      "plannedTurns": 2,
+      "status": "NOT_RUN",
+      "selection": null,
+      "independentReport": null
+    },
+    {
+      "id": "B5.1",
+      "batchId": "d70fe9ed-eead-4e41-8eed-7bf835ee212c",
+      "uuid": null,
+      "actualTurns": 0,
+      "plannedTurns": 2,
+      "status": "NOT_RUN",
+      "selection": null,
+      "independentReport": null
+    },
+    {
+      "id": "B5.2",
+      "batchId": "d70fe9ed-eead-4e41-8eed-7bf835ee212c",
+      "uuid": null,
+      "actualTurns": 0,
+      "plannedTurns": 2,
+      "status": "NOT_RUN",
+      "selection": null,
+      "independentReport": null
+    },
+    {
+      "id": "B6.1",
+      "batchId": "dacc1132-945e-4872-becc-3f75ba09dcdc",
+      "uuid": "01a13b41-5470-7df2-911e-eb923720e054",
+      "actualTurns": 2,
+      "plannedTurns": 2,
+      "status": "PASS",
+      "selection": {
+        "label": "3",
+        "originalTripletExcerpt": "3. **规则核对与边界辨识**  \n   读者：负责把活动说明转成交互教材的内容审校人员；能阅读条件规则。  \n   使用任务：逐个情境核对操作许可、状态变化、库存变化和未知边界，避免把未规定内容当成规则。  \n   理解问题：哪些结论由材料明确支持？哪些只能标为未知？恢复演示与现实系统功能如何区分？  \n   取舍：最强调证据与边界，适合审校，但对普通访客的流程体验关注较少。",
+        "firstTurnOutput": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\dacc1132-945e-4872-becc-3f75ba09dcdc\\B6.1\\eb0bf9a0-55de-43cc-ac6f-d5cd7d2bcf76\\01.output.txt",
+        "recorded": {
+          "utc": "2026-10-14T16:33:25.210Z",
+          "timezone": "Asia/Taipei"
+        },
+        "rolePresent": false,
+        "source": "reviewer reading of actual model output; no answer key in model prompt"
+      },
+      "independentReport": {
+        "relative": "blocking/reviews/cross-B-by-a/B6.1-independent-a-final.json",
+        "bytes": 3525,
+        "sha256": "fad7653cfc8abb66db9ed85a1f2a6ff58e110d83a9d9bd250f2716d9dbb7b653",
+        "reviewer": "/root/behavior_014_a"
+      }
+    },
+    {
+      "id": "B6.2-revise",
+      "batchId": "dacc1132-945e-4872-becc-3f75ba09dcdc",
+      "uuid": "01a13b43-f41a-71e3-ad69-8a01757ec70c",
+      "actualTurns": 1,
+      "plannedTurns": 1,
+      "status": "PASS",
+      "selection": null,
+      "independentReport": {
+        "relative": "blocking/reviews/cross-B-by-a/B6.2-revise-independent-a-final.json",
+        "bytes": 2541,
+        "sha256": "f4c4e4becf6cbaa15ec248a997109d44c03f2ae858ff7f2e070a41c7009db2cd",
+        "reviewer": "/root/behavior_014_a"
+      }
+    },
+    {
+      "id": "B6.2-compare",
+      "batchId": "dacc1132-945e-4872-becc-3f75ba09dcdc",
+      "uuid": "01a13b44-5650-77b3-b15f-ef946354770b",
+      "actualTurns": 1,
+      "plannedTurns": 1,
+      "status": "PASS",
+      "selection": null,
+      "independentReport": {
+        "relative": "blocking/reviews/cross-B-by-a/B6.2-compare-independent-a-final.json",
+        "bytes": 2544,
+        "sha256": "ad1a7b68c02a6866b652c0144eb15982557139dc30b3b73da7e73ce416f9dff2",
+        "reviewer": "/root/behavior_014_a"
+      }
+    },
+    {
+      "id": "B6.2-review",
+      "batchId": "dacc1132-945e-4872-becc-3f75ba09dcdc",
+      "uuid": "01a13b44-7aa8-7482-896a-d93e509323a9",
+      "actualTurns": 1,
+      "plannedTurns": 1,
+      "status": "PASS",
+      "selection": null,
+      "independentReport": {
+        "relative": "blocking/reviews/cross-B-by-a/B6.2-review-independent-a-final.json",
+        "bytes": 2541,
+        "sha256": "9d2dcfea3bedbc1f67d1f63a11329a5f7696eb7dec076421c8a6115009199b76",
+        "reviewer": "/root/behavior_014_a"
+      }
+    },
+    {
+      "id": "B1.1",
+      "batchId": "c663ef6e-0882-4c26-8dfc-277841370d12",
+      "uuid": "01a13b41-47d0-7911-9d20-1040ba2e866f",
+      "actualTurns": 4,
+      "plannedTurns": 4,
+      "status": "FAIL",
+      "selection": {
+        "label": "2",
+        "originalTripletExcerpt": "2. 前提与结果辨析\n\n   - 读者：需要回答访客现场疑问的活动说明人员；已读过领取条件，但容易把“可核验、已核验、可领取、已领取”混为一谈。\n   - 使用任务：解释预约、导览、核验状态和库存分别控制哪个判断，并辨认常见错误推论。\n   - 理解问题：\n     - 体验通行证为什么不能替代预约或导览？\n     - “已核验”为何不等于“已领取”，也不保证库存充足？\n     - 操作许可与操作后取得目标结果有何区别？\n   - 取舍：聚焦概念边界和条件关系，认知负担较低；不会系统练习所有归还、取消和恢复分支。\n   - 材料理由：§2、§4 和 §8 明确提供了容易混淆但必须区分的关系。",
+        "firstTurnOutput": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.1\\ae3c8e8e-1f73-40e8-9cc7-c6dfde8bffcb\\01.output.txt",
+        "recorded": {
+          "utc": "2026-10-14T16:33:33.795Z",
+          "timezone": "Asia/Taipei"
+        },
+        "rolePresent": false,
+        "source": "reviewer reading of actual model output; no answer key in model prompt"
+      },
+      "independentReport": {
+        "relative": "blocking/reviews/root-027/B1.1.json",
+        "bytes": 4171,
+        "sha256": "b6748921c7762a0a2b94605022ded029e62ea86b863ca06732165d7fef173a7c",
+        "reviewer": "/root"
+      }
+    },
+    {
+      "id": "B1.2-delayed",
+      "batchId": "c663ef6e-0882-4c26-8dfc-277841370d12",
+      "uuid": "01a13b44-1510-7723-8a8e-efd6e13f5451",
+      "actualTurns": 3,
+      "plannedTurns": 3,
+      "status": "FAIL",
+      "selection": {
+        "label": "3",
+        "originalTripletExcerpt": "3. 异常分支与恢复边界\n\n   - 读者：负责主持规则演示并解释异常情况的培训人员；已了解正常核验和领取流程。\n   - 使用任务：说明库存为零、取消预约、归还及重新开始时，哪些状态或字段改变、保持不变或不可操作。\n   - 理解问题：\n     - 库存为零时为何是“等待补充”而不是领取成功？\n     - 哪些状态允许取消或归还？\n     - 取消与重新开始的恢复范围有什么不同？\n     - 教学演示中的“重新开始”为何不代表现实系统必有同名控件？\n   - 取舍：突出 §4–§8 的边界和恢复规则；正常资格建立过程只作为必要前提，不作全面展开。",
+        "firstTurnOutput": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.2-delayed\\38135f2b-f3c0-48d3-aa74-65c77853363b\\01.output.txt",
+        "recorded": {
+          "utc": "2026-10-14T16:36:10.855Z",
+          "timezone": "Asia/Taipei"
+        },
+        "rolePresent": false,
+        "source": "reviewer reading of actual model output; no answer key in model prompt"
+      },
+      "independentReport": {
+        "relative": "blocking/reviews/root-027/B1.2-delayed.json",
+        "bytes": 3388,
+        "sha256": "d45a73118ec1b04744e8eece3dcfcae144035301ba7532565afa8355894e872f",
+        "reviewer": "/root"
+      }
+    },
+    {
+      "id": "B1.2-combined",
+      "batchId": "c663ef6e-0882-4c26-8dfc-277841370d12",
+      "uuid": "01a13b46-923e-73c2-873b-60f65c178ce5",
+      "actualTurns": 2,
+      "plannedTurns": 2,
+      "status": "FAIL",
+      "selection": {
+        "label": "C",
+        "originalTripletExcerpt": "### C．边界与误解辨析\n\n- 读者：负责审核活动说明或培训话术的内容人员；熟悉基本流程，需要避免把未规定事项写成确定规则。\n- 使用任务：区分材料明确结论、有限范围结论与无法从材料推出的结论，并修正容易误导的说法。\n- 理解问题：\n  - 哪些状态下领取、归还或取消明确不可用？\n  - 哪些字段在各操作后明确变化、不变或没有说明？\n  - 为什么单人规则不能推出多人并发、预约时效或跨活动结论？\n  - 教学演示的“重新开始”为何不能证明现实系统存在同名控件？\n- 取舍：最强调范围、证据和谨慎表述，适合规则审核；对完整领取流程的练习不如 A 系统。",
+        "firstTurnOutput": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.2-combined\\1e7349d4-800e-4b0d-8931-30a8d990b776\\01.output.txt",
+        "recorded": {
+          "utc": "2026-10-14T16:38:52.786Z",
+          "timezone": "Asia/Taipei"
+        },
+        "rolePresent": false,
+        "source": "reviewer reading of actual model output; no answer key in model prompt"
+      },
+      "independentReport": {
+        "relative": "blocking/reviews/root-027/B1.2-combined.json",
+        "bytes": 2870,
+        "sha256": "485745934c5b2e8c84b2f82d67332e52284f287af666263f54679a45ea111d29",
+        "reviewer": "/root"
+      }
+    },
+    {
+      "id": "B2.1",
+      "batchId": "c663ef6e-0882-4c26-8dfc-277841370d12",
+      "uuid": null,
+      "actualTurns": 0,
+      "plannedTurns": 2,
+      "status": "NOT_RUN",
+      "selection": null,
+      "independentReport": null
+    }
+  ],
+  "marker": {
+    "recordedAt": "2026-10-14T16:39:16.711Z",
+    "sha256": "bd08eb541323117ecfeaa7b74eb902625e7ee3e2660c06ebcfa79d3c3f677a5f",
+    "originalSource": "Root delayed F; later independent B1/combined findings remain separate"
+  },
+  "inflightNaturallyCrossedMarker": [
+    {
+      "id": "B1.2-combined",
+      "uuid": "01a13b46-923e-73c2-873b-60f65c178ce5",
+      "turn": 2,
+      "started": "2026-10-14T16:38:52.987Z",
+      "completed": "2026-10-14T16:40:06.251Z"
+    }
+  ],
+  "postMarkerNewInputs": 0,
+  "noKillRetryResampling": true,
+  "originalHarnessStatesNotRewritten": true,
+  "sourceCTechnical": {
+    "file": "blocking/reviews/root-027/C-technical-supplement.json",
+    "sha256": "f82708545af062a101c4c2c5f861429fa5685942c1ca085485aa989a7516265b",
+    "actualSdk": 9,
+    "singleFileReceiverBodies": 12,
+    "outerCalls": 9
+  },
+  "model": "gpt-5.6-sol",
+  "reasoning": "low",
+  "client": "0.147.0",
+  "expanded": "NOT_RUN",
+  "nativeUi27": "TEN_SOURCE_FILES_MIRROR_PREPARED_ONLY_NO_BACKEND_INSTALL_OR_MODEL",
+  "effects": "NOT_MEASURED",
+  "olderClientPassNotInherited": true,
+  "nextVersion": "NOT_APPLIED",
+  "nextReasoning": "EXPLICIT_SUPPORTED_CONFIGURATION_PREP_ONLY_NO_PASS"
+}

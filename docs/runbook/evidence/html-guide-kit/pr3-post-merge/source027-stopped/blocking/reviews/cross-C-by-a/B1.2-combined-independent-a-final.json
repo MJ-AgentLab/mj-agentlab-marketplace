@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "recordedUtc": "2026-10-14T16:57:24.0251673Z",
+  "reviewer": "/root/behavior_014_a",
+  "operator": "/root/precommit_014",
+  "source": {
+    "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "canonicalSha": "00d59da3099113ccbf3db73b84787c526eedd713",
+    "canonicalTree": "edc69b137e5473c6e7307120a81c9e091764d673"
+  },
+  "variant": "B1.2-combined",
+  "uuid": "01a13b46-923e-73c2-873b-60f65c178ce5",
+  "attemptId": "1e7349d4-800e-4b0d-8931-30a8d990b776",
+  "actualTurns": 2,
+  "primaryCriterion": "PASS",
+  "wholeFidelity": "FAIL",
+  "overall": "FAIL",
+  "method": "Independent whole original outputs/source/actual inputs semantic review plus actual SDK bodies and V2 capture, no inherited prior version results",
+  "rawInputOutputPins": [
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.2-combined\\1e7349d4-800e-4b0d-8931-30a8d990b776\\01.input.txt",
+      "bytes": 989,
+      "sha256": "5eaad3f909dd9c162f9d79b69d55662bf5ca7c590922d3d35b3e505fae025ca7"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.2-combined\\1e7349d4-800e-4b0d-8931-30a8d990b776\\01.output.txt",
+      "bytes": 3777,
+      "sha256": "b4df08bcda06b31ad7375fa62ae3381f33c3087c9e950ea4b0b3a2005f1d4dd8"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.2-combined\\1e7349d4-800e-4b0d-8931-30a8d990b776\\02.input.txt",
+      "bytes": 142,
+      "sha256": "a82a217c579a1314b7bc15c155c5789ee049990ac41ed92a8840c32b189fb4f3"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.2-combined\\1e7349d4-800e-4b0d-8931-30a8d990b776\\02.output.txt",
+      "bytes": 12137,
+      "sha256": "dca1dada578353dbec67d93f29c6f96d2c441b889ee9282744058083c0a07246"
+    }
+  ],
+  "technical": {
+    "path": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-27/blocking/reviews/B-C-actual-sdk-review-a-r2.json",
+    "bytes": 112030,
+    "sha256": "ddb61f94f727f85603e5ee8f5fc5aced824c747af16cf403309e893cfba95cca"
+  },
+  "actualReceiptSummary": [
+    {
+      "turn": 1,
+      "captureValid": true,
+      "nativeEntryFull": true,
+      "newOuterToolCallCount": 1,
+      "actualReadBodyCount": 4,
+      "allBodiesFull": true
+    },
+    {
+      "turn": 2,
+      "captureValid": true,
+      "nativeEntryFull": true,
+      "newOuterToolCallCount": 0,
+      "actualReadBodyCount": 0,
+      "allBodiesFull": true
+    }
+  ],
+  "noNewModelOrFixture": true,
+  "effect": "NOT_MEASURED",
+  "fullReadTools": [
+    "c1c066",
+    "4929dc"
+  ],
+  "primaryReason": "真实T2同时修改非推荐C读者/领取任务并确认，采用更新版，四原理解问题保留，当轮生成无重复审批。",
+  "finding": {
+    "location": "T2 §八重新开始",
+    "quote": "触发后必须一起恢复…清除本轮教学操作产生的选择和反馈。",
+    "reason": "将新增选择/反馈清除和源初值统作source§7恢复，且改写原清本轮操作对象；本处无分项设计身份/理由/范围。§二整页教学标签不补此处复合引用。"
+  },
+  "notes": [
+    "同稿未给再次领取路径位于latest-state过程，可合理限完整额外流转；不按近似词串继承delayed操作能否F。",
+    "自检2操作触发与比较恢复对象属拟设计须细化范围，不把提案当实际运行/评分，不据关键词追加F。",
+    "CcombinedT1实际一个exec循环四个单文件shell read逐份JSON回包；完整源字比已审，外层call与四body差异保留，不冒称四独立outer工具。"
+  ]
+}

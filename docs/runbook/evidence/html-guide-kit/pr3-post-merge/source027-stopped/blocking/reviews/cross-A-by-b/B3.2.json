@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T16:47:29.497Z",
+  "reviewer": "/root/behavior_014_b",
+  "operator": "/root/behavior_014_a",
+  "method": "independent_semantic_review",
+  "variant": "B3.2",
+  "attemptId": "bc555215-4c2d-4801-a14f-42511853ce0c",
+  "sessionUuid": "01a13b44-c62a-7492-b8b8-2e60e1fc2aa0",
+  "canonicalSha": "00d59da3099113ccbf3db73b84787c526eedd713",
+  "canonicalTree": "edc69b137e5473c6e7307120a81c9e091764d673",
+  "packageVersion": "0.1.27",
+  "status": "UNEXERCISED",
+  "frozenCriterion": "可以解释 §1 已知资格条件，明确缺失处理；不创造库存初值、等候状态、恢复规则或取消/归还结果。可列所需信息或有明确假设的教学演示；假设不能变成原规则，不能把缺失写为通过。",
+  "criteria": [
+    {
+      "id": "completed-prefix-known-rule-and-explicit-wait",
+      "status": "PASS",
+      "rationale": "T1正确保§1 AND/缺一不可/一个普通材料包、§2可能库存不足及各缺口。不补状态/初值/流程，不撤已知资格。3实际不同的工作人员资格/运营边界/现场综合目标，未提前指南、等明确选择。",
+      "evidence": [
+        "T1 entire original answer"
+      ]
+    },
+    {
+      "id": "full-guide-and-later-no-invention",
+      "status": "UNEXERCISED",
+      "rationale": "未quote/choose/确认输入/T2/T3。完整指南对取消/归还/库存结果的边界及催促回复未执行，不以首轮承诺补PASS。",
+      "evidence": [
+        "Original attempt only01 files and selection=null",
+        "Original stopped operator receipt"
+      ]
+    },
+    {
+      "id": "valid-prefix-and-actual-sdk-full-read",
+      "status": "PASS",
+      "rationale": "T1实际CLI0.147/OpenAI5.6sol/low、exit/close0且deadline内；native+额外entry/2refs/material实际完整回包，7源镜cacheexact。只证本次首轮有效。",
+      "evidence": [
+        "B3.2-receiver-audit.json5raw/4uniqueReads"
+      ]
+    }
+  ],
+  "installedResourceReading": {
+    "skill": true,
+    "framework": true,
+    "interaction": true
+  },
+  "observedReading": {
+    "nativeSkillFull": true,
+    "additionalToolSkillFull": true,
+    "frameworkActualToolFull": true,
+    "interactionActualToolFull": true,
+    "materialActualToolFull": true
+  },
+  "technicalAudit": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\reviews\\cross-A-by-b\\B3.2-receiver-audit.json",
+    "bytes": 16011,
+    "sha256": "c1612c4b192339d443261a6b19caa13a8ab05488dad3923e6cf5cfcc439f5e36"
+  },
+  "actualContinuousTurns": 1,
+  "plannedTurns": 3,
+  "selection": null,
+  "notRunTurns": [
+    2,
+    3
+  ],
+  "guideDelivered": false,
+  "fullIndependentOutputReads": [
+    {
+      "turn": 1,
+      "chunk": "96af5a",
+      "exitCode": 0
+    }
+  ],
+  "gradeCalled": false,
+  "ownB6SelfReviewed": false,
+  "originalCaseFilesModified": false,
+  "effectStatus": "NOT_MEASURED",
+  "clientUiStatus": "NOT_RUN"
+}
