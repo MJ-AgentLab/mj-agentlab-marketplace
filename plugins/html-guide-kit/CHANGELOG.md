@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [0.1.22] - 2026-10-14
+
+- HTML Guide Kit 0.1.22 preserves every source prerequisite in result-bearing graph connections, including required current state and direct operation, or explicitly establishes the actual diagram scope. Pure condition relations remain distinct from operation results.
+- Preserve source0.1.21 13 PASS / 1 FAIL in 30 complete core turns; static review is not fresh installation, model or client acceptance. Refs #217, #220.
+
 ## [0.1.21] - 2026-10-14
 
 - HTML Guide Kit 0.1.21 retains the current state and all prerequisites in permission labels and short feedback; writing requirements do not establish a local scope. Pure condition judgments retain their own boundary.

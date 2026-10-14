@@ -68,9 +68,9 @@ Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基
 
 合同见[ADR](docs/adr/[ADR]_HTML_Guide_Kit_Addition.md)及[SPEC](docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)：仅显式$html-guide-kit:guide、Read、中文/原术语、聊天文本新建指南。实际读材料/明确快照，分原料/核验背景/构造，保留定位/冲突/缺口。每次2–3不同读者/任务/问题＋推荐理由，明确选择/修改确认才编排；默认/推荐/预选/沉默/超时/无关回复/消失非确认，未答保留同一待确认，不承诺锁宿主。深度随材料，演示/模拟/自检含反馈/恢复、理由/误区、重试及判准边界；不评分/长期掌握。不修订/比较/审查，不输出HTML/代码/文件/制作工具步骤或越权执行；仅SKILL及两参考，无Owner路径/研究治理依赖。
 
-HTML0.1.21未合并；同步c1fa458，五包七技能/四显式/三自然/20repo-only，市场8.3.0未发布/他包版本保持，main8.2.0三包，HTML另发。源19核心14UUID30轮P/扩展3F；源20新补测7UUID13COMPLETE为5P1F1U，旧INVALID保留。21仅三段修正许可反馈全部前提/实际scope，须新缓存验收；2c归档命名及627e根说明CRLF预算均安装前失败，原字节另存，不放宽校验。
+HTML0.1.22候选未合并；同步c1fa458，五包七技能/四显式/三自然/20repo-only，市场8.3.0/他包版本保持，main8.2.0三包，HTML另发。21准确1799十三安装/六Python/九CI通过，14UUID30C独立13P1F；B2具体关系图漏必要当前态，原F保留。22三段通用修正经双静态审接入，须新cache/模型/客户端。2c归档名及627e CRLF预算原失败保留，不放宽校验。
 
-现实效果另测NOT_MEASURED；原生接口已可用，源20 Work三轮有限路径独立通过、Codex应用另三轮有限路径独立通过；普通Chat入口不可用。原生空返回/超时/关闭未执行，CLI不替代。核心可分段交付，延期不当通过，#220/Epic开放、Owner接受独立。控制修正/来源/准确会话及历史见[RUNBOOK](docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)§11–41；不继承旧PASS。研究项目只读。
+现实效果另测NOT_MEASURED；原生接口已可用，源20 Work三轮有限路径独立通过、Codex应用另三轮有限路径独立通过；普通Chat入口不可用。原生空返回/超时/关闭未执行，CLI不替代。核心可分段交付，延期不当通过，#220/Epic开放、Owner接受独立。控制修正/来源/准确会话及历史见[RUNBOOK](docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)§11–42；不继承旧PASS。研究项目只读。
 
 第五轮来源 acf3c9d 的六 fresh 会话/八调用已通过限定 CLI 核心判据：七次自然完成、一次执行器超时保留；九条新核验、两次限定离线共享及原件/生成信息均经独立核对。四轮原失败、两次策略拒绝、换行格式差异和幂等重放分别保留，不称所有调用成功。原移交仅按十二项未变资源闭包沿用并限已有本地 Git exclude；原生提问仍延期、桌面/Side Chat 未运行，实际保护合入、发布和 Owner 最终接受待各自证据。完整入口资格与限制见上述 Learning Evidence 验收账本。
 

@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-14
 state: draft
-version: v1.35
+version: v1.36
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -620,3 +620,21 @@ Codex本地应用入口另建会话01a139a5-f208-7392-9b45-572f3195675c（设计
 准确21首canonical2c776f57765983be9fca8808e77fa7ff8d50c2f3/tree96b1ca49997695d8f98b248e822f349febac2fe8已提交推送，但严格安装控制在调用installer前以exit1阻断：准备快照的十二个原.md名称被正式文档检查识别，出现ADR相对链接/缺frontmatter问题。346工作测试在该快照加入前通过，不能据此追认完整canonical结构或安装成功；本次实际失败保留。仅将仓库归档中的十二快照别名改为.md.snapshot.txt，原159文件bytes/哈希保持，原index另存和alias映射齐全，外部控制/运行资源/validator/判准不改；保持0.1.21。新纯归档提交须新canonical严格安装，旧2c仍失败。
 
 第二准确canonical627e8e6ae38140af3a19b47e7ca8645b02e5050f/tree8f7ec48941d7c9a0f288738957193b63298d1b6f仍安装前exit1：根说明LF16356字节在Windows准确检出成为CRLF16443，超过既有16384预算。保留完整原失败，仅收敛HTML阶段摘要并保留判准/历史定位，使CRLF留余量；validator及运行资源不变、版本仍0.1.21。新提交再次严格验收，不追认两次失败。原生源20公开范围47原文件/三包已实际封存及Node/.NET复原，排除无关整窗/HOME；只适用于原两个有限路径，不继承到21。
+
+## 42. 0.1.21完整核心失败与0.1.22结构关系修正
+
+准确源21 canonical1799c54ab88291c1ead28fbb111b38346c9edecf/tree1eacdf479d2000e9387c66e7a142d05b630cc8fa的十三严格安装/六实际缓存Python通过（774c4d→2ffacb EXIT0），原25日志完整封存；该head九CI全SUCCESS、reviews=[]/REVIEW_REQUIRED（21413c），不与后续head混用。346工作测试与65文档/A6分别通过；两次旧canonical安装前失败独立保留。
+
+原三核心batch共14fresh UUID/30COMPLETE，0INVALID。A六UUID十四轮独立6PASS，C八UUID十六轮独立7PASS/1FAIL，合计13PASS/1FAIL。原native接收与额外tool读取分列；scope拒绝的参考false及条件NOT_APPLICABLE保持，不为投影转成true。旧handoff短label控制缺口及新准确triplet人工证据分别保留，不更改原inputs/criteria/default。独立source/mirror/cache、实际SDK全文和exit/close/inDeadline核对，并非模型自述。
+
+确定FAIL是B2.1 UUID01a13a02-6ea3-7851-b176-c2a951f48e39/attempt3e45be5e-fb31-41eb-98ea-885c6a7810e2的T2:103–131。图中两资格条件共同指向核验后已核验，省略源§3必要当前未核验；本图无明示继承全部前提的范围。正确第四章规则/后区示例不补该具体连接。主要role、AND、库存、等待、源恢复及读取边界局部正确保留，整体关系忠实仍FAIL。B5.1实际规范性共同范围允许有界缩写的独立理由保留；不按关键词机械判F、不称已制作或窗口已显示。
+
+Root6a074d正常globalmarker11:02:35.2451047Z后不新增输入，所有三十轮已在marker前自然完成；五批扩展29/59、重复1/2及补充2/9只准备新缓存，全部0attempt/NOT_RUN，没有kill/retry/重采样。Root70/A94/B39原文件与所有原final/四十控制的稳定核对分别保存，旧原P不抵消新F。
+
+原生源21十文件由1799复制（728ac7，source/mirror exact）但两次读取窗口均返回实体Escape停止，未截图、未输入、未安装或调用；Owner再次“现在可用”后仍为工具停止状态，608825另件不推定用户又按Escape。源20两个限定路径P不沿用。原生空返回/超时/关闭仍未覆盖，现实效果NOT_MEASURED。
+
+新22仅三个既有通用段：入口图/表/反馈统一前提，framework分别对资格关系与操作结果连接保源必要当前态/直接操作/全部前提和实际本图范围，interaction-design逐连接审校。纯条件与非操作结构不强加状态，实际共同范围可保义缩写，无固定图/章节/题量或fixture/Owner依赖。入口6086LF/6140CRLF≤6144、framework9887B、interaction9725B；双独立STATIC_ONLY审1eab0c/6a1c4c，Root4e078a应用三资源，cc059a dry仅manifest一锚点，0a6080推进0.1.21→0.1.22。其他四包/市场/图标/公开合同保持。此阶段新22安装、模型、客户端均NOT_RUN，须新准确canonical复验全部阻断项及受影响扩展，不借源21P。
+
+PR3仍draft，#220/Epic OPEN；最终head非作者批准/CI/线程及准确merge差异复验、双客户端与Owner接受分别满足；无Release/tag/main发布动作。
+
+22首次完整npm test实际626d28/session70343最终23793f exit1，345P1F，仅变更日志正文未写自身版本。5377ab补正文版本号、运行资源与测试/validator不变；新完整重跑session63446最终6b7396 exit0，346P0F0skip/215360.1563ms，原失败及两份全stdout分别保留。工作validate/check5d7d70 exit0，共享资源9a3c61 diff0；尚无准确22安装或行为/客户端结果。

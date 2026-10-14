@@ -1,0 +1,170 @@
+{
+  "recordedUtc": "2026-10-14T11:08:28.225Z",
+  "reviewer": "behavior_014_a",
+  "phase": "SOURCE22_INDEPENDENT_STATIC_RUNTIME_DRAFT_REVIEW",
+  "status": "STATIC_ONLY_NO_STATIC_BLOCKERS",
+  "sourceCanonical": "1799c54ab88291c1ead28fbb111b38346c9edecf",
+  "sourceTree": "1eacdf479d2000e9387c66e7a142d05b630cc8fa",
+  "candidateVersion": "0.1.22",
+  "control": {
+    "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-22/draft/draft-control.json",
+    "bytes": 2748,
+    "sha256": "234fec40be6dc7b587c52798d29a4b1c34144603763876d8b3b683d878f116a9"
+  },
+  "resources": [
+    {
+      "relative": "SKILL.md",
+      "sourceFile": "plugins/html-guide-kit/skills/guide/SKILL.md",
+      "sourceBytes": 6087,
+      "sourceSha256": "6ab842972b50489c99843b855a6f90fc0f12fb91faed47711763a5adc2f21b7d",
+      "draftBytes": 6086,
+      "draftSha256": "ad2924661d2efaa22662d0df31e2968cc581e618e1c45dc9345f5df895eca813",
+      "uniqueDeclaredEdit": true,
+      "forwardInverseExact": true,
+      "allOtherBytesExact": true,
+      "sourceCharacterOffset": 1695,
+      "sourceUtf8ByteOffset": 4456,
+      "sourceLine": 44,
+      "before": "反馈标签也须全部前提",
+      "after": "图/表/反馈须全部前提"
+    },
+    {
+      "relative": "references/guide-framework.md",
+      "sourceFile": "plugins/html-guide-kit/skills/guide/references/guide-framework.md",
+      "sourceBytes": 9443,
+      "sourceSha256": "79ce43115c91764ceea8562993a750e0c4e32abadb976061729dbb83bd277d08",
+      "draftBytes": 9887,
+      "draftSha256": "f80f9f70641ff284e7273af6044466934b5c742594e5f8f17f43daff7333bc3d",
+      "uniqueDeclaredEdit": true,
+      "forwardInverseExact": true,
+      "allOtherBytesExact": true,
+      "sourceCharacterOffset": 1679,
+      "sourceUtf8ByteOffset": 4627,
+      "sourceLine": 38,
+      "before": "图连接给起终、含义、方向、依据、条件，标签非证据；",
+      "after": "图连接给起终、含义、方向、依据、条件，标签非证据；连接若表达可执行、状态转换或字段结果，须在本图写足源必要当前态、直接操作及全部前提，或实际明示本图继承的完整共同规则；资格条件节点不能独自指向操作成功或结果态。“操作后”不代进入该操作的条件，图的分层、前章规则及章节定位不自动建立本图范围。仅条件关系未附操作或字段结果可单独表达，不增源未设前提；"
+    },
+    {
+      "relative": "references/interaction-design.md",
+      "sourceFile": "plugins/html-guide-kit/skills/guide/references/interaction-design.md",
+      "sourceBytes": 9475,
+      "sourceSha256": "47c7171e9972f608a373e80099f1a07adbfa368dc1616b5ad2ea78b31134d9df",
+      "draftBytes": 9725,
+      "draftSha256": "e5f34e53a820ab9b30d3e41d67954456121ef733134e6d1796a09795b3239cef",
+      "uniqueDeclaredEdit": true,
+      "forwardInverseExact": true,
+      "allOtherBytesExact": true,
+      "sourceCharacterOffset": 3212,
+      "sourceUtf8ByteOffset": 8767,
+      "sourceLine": 69,
+      "before": "依据实际语义和对应关系核对，不按关键词判决；",
+      "after": "对图的每条结果连接另核起始态、直接操作、必要条件及终态/字段；对照实际节点、连线标签和本图明示范围，不能用旁处规则补省略的状态转换前提；仅资格关系不擅自升级为操作结果。依据实际语义和对应关系核对，不按关键词判决；"
+    }
+  ],
+  "exactThreeExistingMethodEdits": true,
+  "entryBudget": {
+    "LF": 6086,
+    "CRLF": 6140,
+    "maximum": 6144,
+    "unchangedLimit": true
+  },
+  "independentSemanticReview": [
+    {
+      "group": "Graph execution/result prerequisites",
+      "result": "NO_STATIC_BLOCKER",
+      "note": "A connection expressing permission, an operation result, a state transition, or a field outcome must retain every source-required premise, including current state and direct operation where the source requires them. Qualification truth alone is not an operation outcome."
+    },
+    {
+      "group": "Actually established graph scope",
+      "result": "NO_STATIC_BLOCKER",
+      "note": "An explicitly complete shared rule with actual scope covering the graph permits faithful shortening. Layout levels, another chapter, operation-after wording, or a future author requirement do not establish that scope. The short qualification-node prohibition is read together with this preceding scope condition, not as a ban on lawful shared-scope shorthand."
+    },
+    {
+      "group": "Pure condition relations",
+      "result": "NO_STATIC_BLOCKER",
+      "note": "The framework expressly preserves pure condition relations without operation/field outcomes and does not add a source-absent business state or other prerequisite."
+    },
+    {
+      "group": "Per-connection final audit",
+      "result": "NO_STATIC_BLOCKER",
+      "note": "The interaction reference now audits each result connection by actual start state, direct operation, source conditions, endpoint/field and graph scope; semantic correspondence controls review, not keyword matching."
+    },
+    {
+      "group": "Public invocation and Read/chat boundary",
+      "result": "UNCHANGED_EXACT_BYTES",
+      "note": "Explicit single guide entry, new-guide-only Read/chat text, Chinese/original terms, no HTML/code/files/production-tool execution and scope refusal boundaries remain byte-exact outside the declared edits."
+    },
+    {
+      "group": "Targets and confirmation",
+      "result": "UNCHANGED_EXACT_BYTES",
+      "note": "Every new guide still reads materials, proposes 2–3 meaningfully different complete audience/task/question targets, waits for explicit choice; defaults, recommendation, silence, timeout and window disappearance are not confirmation, and no host-window lock is promised."
+    },
+    {
+      "group": "Sources, uncertainty and results",
+      "result": "UNCHANGED_EXACT_BYTES",
+      "note": "Four evidence identities, faithful terms/relations, conflicts and applicability, independently known/unknown dimensions, source-required actions/fields and direct vs changed-state paths remain preserved."
+    },
+    {
+      "group": "Recovery and UI attribution",
+      "result": "UNCHANGED_EXACT_BYTES",
+      "note": "Source recovery trigger/action/object/fields and new teaching/UI trigger/result identity, reason and local scope remain separate. Whole-page teaching labels and same names/results still cannot launder additions into source rules."
+    },
+    {
+      "group": "Feedback, lifecycle and self-check",
+      "result": "UNCHANGED_EXACT_BYTES",
+      "note": "Necessary premises in permission feedback, actual shared scope vs future writing requirements, fixed/shared states, retry/old feedback invalidation, reliable/source-bounded feedback and unreliable bounded reference remain preserved; no capability score or lasting-mastery inference."
+    },
+    {
+      "group": "Adaptive guide design",
+      "result": "UNCHANGED_EXACT_BYTES",
+      "note": "The references remain methods rather than forced chapters, diagrams, controls, question counts or a production tool. Source complexity, target and length budget drive depth; pure condition truth remains independent where appropriate."
+    },
+    {
+      "group": "Generic runtime method",
+      "result": "NO_STATIC_BLOCKER",
+      "note": "Only existing generic method paragraphs change; added text contains no fixture names, case labels, expected domain answers, Owner paths, research governance or historical acceptance assertions."
+    }
+  ],
+  "source21PauseAudit": {
+    "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-22/../0-1-21/operator-a-records/core-and-expanded-normal-pause-audit.json",
+    "bytes": 4385,
+    "sha256": "08271211ef34d20d096be84a5a21f7a79a54dc8a3a9ff7f5127d2a595530267c",
+    "raw94Stable": true,
+    "controls40Exact": true,
+    "expanded19And38AllZeroAttempts": true,
+    "markerUtc": "2026-10-14T11:02:35.2451047Z",
+    "noModelsAfterMarker": true
+  },
+  "repositoryRuntime": {
+    "version": "0.1.21",
+    "all71CanonicalGitBlobsUnchanged": true,
+    "draftApplied": false
+  },
+  "readEvidence": {
+    "entryFullToolChunk": "ae2de5",
+    "frameworkFullToolChunk": "9bb0a2",
+    "interactionFullToolChunk": "3bacd7",
+    "controlFullToolChunk": "b010be",
+    "noConsoleTruncationOnTheseReads": true,
+    "initialReadError": {
+      "actualChunk": "3b8f62",
+      "exitCode": 1,
+      "requestedNonexistentName": "draft/runtime-draft-control.json",
+      "actualName": "draft/draft-control.json",
+      "preservedNotAResourceChange": true
+    }
+  },
+  "actions": {
+    "runtimeOrSharedRepositoryModified": false,
+    "source21OldReportsModified": false,
+    "controlsModified": false,
+    "installationInvoked": false,
+    "modelInvoked": false,
+    "noBehaviorSelfGrade": true
+  },
+  "findings": [],
+  "limits": [
+    "This is independent static review of exact candidate bytes only, not installation, behavior, client or effect PASS.",
+    "Source21 B2.1 relation FAIL and previous failures remain unchanged. Source22 requires new canonical, strict installation and actual model/client evidence after authorized application."
+  ]
+}
