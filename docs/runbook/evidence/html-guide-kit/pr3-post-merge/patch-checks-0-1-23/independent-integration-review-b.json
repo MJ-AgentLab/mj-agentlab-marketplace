@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T13:30:30.459Z",
+  "reviewer": "/root/behavior_014_b",
+  "status": "STATIC_ONLY",
+  "result": "NO_STATIC_BLOCKERS",
+  "sourceCanonical": "71e2e1bc2bf110b7a3f93ee0db73cb4c8b5c2248",
+  "branch": "codex/html-guide-post-merge",
+  "proposedVersion": "0.1.23",
+  "scope": "Independent read-only review of the 13 tracked post-merge changes and appended stopped/merge-engineering/native public evidence. Root owns repository changes; this reviewer writes only external records and explicitly authorized scoped crops.",
+  "reproducibleByteVerification": {
+    "file": "integration-byte-verification-b.json",
+    "bytes": 61352,
+    "sha256": "78e84700b73eee3b71ca4809b09b732369b22b2a88f9ddb723ad2baf036407ce",
+    "actualChunk": "7908ff",
+    "exitCode": 0,
+    "trackedChangedFiles": 13,
+    "otherPluginGitFiles": 59,
+    "otherFilteredCheckoutFilesExact": 59,
+    "rawGitBlobVersusWindowsCheckoutDifferentFiles": 51,
+    "rawVsCheckoutMeaning": "Git raw bytes and configured checkout-filter bytes remain separate. Every other package working file equals actual git cat-file --filters of base71e2; no blanket newline normalization or false raw-byte equality is used.",
+    "runtime": [
+      {
+        "relative": "skills/guide/SKILL.md",
+        "bytes": 6086,
+        "sha256": "ad2924661d2efaa22662d0df31e2968cc581e618e1c45dc9345f5df895eca813",
+        "unchanged": true
+      },
+      {
+        "relative": "skills/guide/references/guide-framework.md",
+        "bytes": 10042,
+        "sha256": "4fd5cae6d489c69f0f3e8ff72ceabf7404beb9780976f297e56ae4066ce5de13",
+        "frozenDraftExact": true
+      },
+      {
+        "relative": "skills/guide/references/interaction-design.md",
+        "bytes": 10141,
+        "sha256": "f3ff576734497d20b03fd5610388d8b6819ed2fc9330b9a96aaf4e9534895870",
+        "frozenDraftExact": true
+      }
+    ],
+    "budget": [
+      {
+        "file": "AGENTS.md",
+        "lfBytes": 16172,
+        "crlfBytes": 16259,
+        "limit": 16384
+      },
+      {
+        "file": "SKILL.md",
+        "lfBytes": 6086,
+        "crlfBytes": 6140,
+        "limit": 6144
+      }
+    ],
+    "archive034": {
+      "originalFiles": 395,
+      "originalBytes": 7391506,
+      "packets": 6,
+      "physicalArchiveFiles": 8,
+      "allEightOriginalSealBytesAndHashesExact": true,
+      "largestPacketBytes": 2089902,
+      "strictLimit": 2097152,
+      "inventorySha256": "4a975729649961899c496633bc47a13502364947c98a507008325352d829fdc5",
+      "actualEarlierPackAndNodeAndDotnetExitCodes": [
+        0,
+        0,
+        0
+      ],
+      "repackedForThisReview": false
+    },
+    "mergeEngineering": {
+      "canonicalSha": "71e2e1bc2bf110b7a3f93ee0db73cb4c8b5c2248",
+      "sourceVersion": "0.1.22",
+      "originalArchivedFiles": 28,
+      "eachArchiveMatchesSourceBytes": true,
+      "actualStrictInstalls": 13,
+      "actualCachedPythonRuns": 6,
+      "finalSealOriginalFiles": 14,
+      "eachFinalSealMatchesSourceBytes": true,
+      "source23Acceptance": false
+    }
+  },
+  "independentAiReview": [
+    {
+      "id": "bounded-diff",
+      "result": "PASS_STATIC",
+      "evidence": "Exact tracked scope is seven root/user/governance documents, HTML README/CHANGELOG/manifest, two reference resources and one expected-version test. The entry, invocation policy, icons, registration, strict checker/harness and other plugins stay unchanged; marketplace VERSION remains 8.3.0."
+    },
+    {
+      "id": "contract-and-resource-integration",
+      "result": "PASS_STATIC",
+      "evidence": "Both references byte-match the independently reviewed frozen23 draft. Manifest changes exactly one version field 0.1.22→0.1.23; the test only updates its expected HTML version. Existing unique Read/explicit/new-guide/chat-text contract and resource links remain. Static resource correctness does not certify model reception or behavior."
+    },
+    {
+      "id": "current-documents-versus-history",
+      "result": "PASS_STATIC",
+      "evidence": "HTML and root current documents describe the new23 candidate and actual22 merge separately. RUNBOOK §§44–45/INDEX/AGENTS retain old failed cases, absent reviews and current bounded native paths; historical §43 remains as its stopped snapshot. The current user README explains the resource correction without introducing implementation tooling into the public guide workflow."
+    },
+    {
+      "id": "native-public-text-scope",
+      "result": "PASS_STATIC",
+      "evidence": "Current native035 has 42 indexed payload files plus index, all hashes/lengths exact. Actual-own input/answer/Read-derived text and resource identity remain; no whole SDK JSONL, system/base instruction object, creator/account IDs, profile file/diagnostic text or auth export is present. A source-specific secret-pattern scan and nested private-key-field check pass."
+    },
+    {
+      "id": "native-public-image-scope",
+      "result": "PASS_STATIC_AFTER_CORRECTION",
+      "evidence": "Initial two full-window PNGs exposed the parent-task toast; that blocker was reported and accepted. Root replaced uncommitted public copies with original-pixel 780×1280 region x920,y95. Both new images match the externally reviewed crop SHA and per-pixel RGBA inverse proof. Only own waiting, selection, beginning of guide and composer remain visible; sidebar/toast/pet/chrome are excluded."
+    },
+    {
+      "id": "original-proof-errors-preserved",
+      "result": "PASS_STATIC",
+      "evidence": "Work scoped-derivative-proof.json SHA b6fc8196… and clarification SHA78aa685c… remain byte-identical. The new privacy record supplements original ownTaskTitleOnly error for whole-window originals; lower recovery/self-check sections were not visually established. First crop compile failure/null proof is separately retained and never treated as a successful crop."
+    },
+    {
+      "id": "client-source-separation",
+      "result": "PASS_STATIC",
+      "evidence": "native035 remains source merge71e2/version0.1.22, actual SDK0.162-alpha17.2/gpt-6.1-sol/high and forward three-turn paths. runtime023EvidenceReusable=false is mechanically checked. Its bounded P does not overwrite original22 5P2F1U2PENDING or establish frozenCLI0.147/gpt5.6low tests, all-window behavior or current23 behavior."
+    },
+    {
+      "id": "evidence-and-release-boundary",
+      "result": "PASS_STATIC",
+      "evidence": "Stopped034 originals and actual merge13/6 engineering are preserved as historical identity-bound evidence. The changes do not create a Release, tag or main release PR, alter other versions, close Epic/Issue or manufacture GitHub approval."
+    }
+  ],
+  "actualChecks": {
+    "fullTest": {
+      "session": 23495,
+      "finalTool": "4103c2",
+      "rootActualExitCode": 0,
+      "pass": 346,
+      "fail": 0,
+      "skip": 0,
+      "durationMs": 225835.0415,
+      "logSha256": "6342ca0c97e710967602dc2f41833af7f7739c26e39744191d63a5447a5ea104",
+      "independentTailReadChunk": "e5b701"
+    },
+    "documentA6": {
+      "rootTool": "4a6b3a",
+      "rootActualExitCode": 0,
+      "pass": 65,
+      "fail": 0,
+      "logSha256": "e128a9c163c8706c05144720385037d49dcb2cb81b7635dd7cc31cf6bb0dc2d2",
+      "independentTailReadChunk": "e130f9"
+    },
+    "originalObservation": "Full suite was RUNNING at task start; final Root receipt and completed log were checked before this report. No early PASS or rerun by reviewer.",
+    "productionChecksRepeatedByReviewer": false
+  },
+  "limitations": {
+    "source23CanonicalInstall": "NOT_RUN",
+    "source23ModelBehavior": "NOT_RUN",
+    "source23ClientBehavior": "NOT_RUN",
+    "allWindowPaths": "NOT_RUN",
+    "realWorldEffect": "NOT_MEASURED",
+    "githubIndependentCurrentHeadApproval": "NOT_SUPPLIED_BY_THIS_REPORT",
+    "ownerFinalAcceptance": "SEPARATE",
+    "scopeOfScreenshots": "Visible wait/confirmation/guide beginning only; complete answer semantics supported separately by actual SDK text"
+  },
+  "preparationErrors": [
+    {
+      "chunk": "077f90",
+      "actualExitCode": 1,
+      "kind": "INITIAL_READ_ONLY_GIT_RAW_VS_CHECKOUT_ASSERTION",
+      "result": "Preserved as error; actual filter-specific recheck verified all59 without modifying original files or accepting a normalized substitute."
+    },
+    {
+      "chunk": "1866c9",
+      "actualOuterExitCode": 0,
+      "actualStatus": "FAILED_COMPILATION_NO_CROP",
+      "result": "PowerShell nonterminating Add-Type errors and null results preserved in the external first-error receipt; no PNG/model/UI occurred. New r2 Windows .NET extraction actual542060 exit0 supplies pixel evidence."
+    }
+  ],
+  "mutationBoundary": {
+    "repoFilesWrittenByReviewer": false,
+    "modelOrUiInputsByReviewer": 0,
+    "gradesByReviewer": 0,
+    "sharedDocsOrGitHubChangedByReviewer": false,
+    "externalCropExtractionOnlyWasExplicitlyAuthorized": true,
+    "oldOriginalEvidenceRewritten": false
+  },
+  "blockers": []
+}

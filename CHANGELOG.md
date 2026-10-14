@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+- Prepare HTML Guide Kit 0.1.23: preserve complete source-rule units in local relations and distinguish source input limits from teaching choices. Retain actual #231 merge, source0.1.22 failures and limited fresh client results; require fresh cache and frozen behavior acceptance. Refs #217, #220.
+
 - Prepare HTML Guide Kit 0.1.22: preserve required current states and operations in result-bearing graph relations while keeping pure condition relations separate. Preserve source0.1.21 fidelity failure and all original passed cases; require fresh canonical cache and behavior acceptance. Refs #217, #220.
 
 - Prepare HTML Guide Kit 0.1.21: preserve every prerequisite in permission feedback and distinguish an established scope from instructions to write one. Preserve source0.1.20 captures, failure and limited native client passes; require fresh cache verification. Refs #217, #220.

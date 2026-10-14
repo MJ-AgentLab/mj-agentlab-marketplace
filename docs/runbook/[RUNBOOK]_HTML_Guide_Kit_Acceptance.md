@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-14
 state: draft
-version: v1.38
+version: v1.40
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -655,3 +655,29 @@ A B3.1/B3.2及B三scope拒绝原独立PASS保持；B4.1仅T1待选，没有T2模
 [当前记录及原独立报告](evidence/html-guide-kit/pr3-post-merge/source022-stopped/index.json)保存精确原件哈希；完整原输入/输出/事件/SDK封包034尚在准备，不写已封存。c3a2d06实际CI快照与reviews=[]/REVIEW_REQUIRED另存，进行中的检查不写SUCCESS，新记录head须另核。当前22双客户端未运行：Owner两次授权现在可用后，工具仍返回Escape停止，无新截图或输入，不推定用户再次按键。旧20限定客户端P不复用；窗口持续/空答/超时/关闭及现实效果分别未验/NOT_MEASURED。
 
 PR#231仍draft、#220/Epic OPEN。下一运行修正须新补丁身份及新安装/相关核心复验，冻结判准不放宽；GitHub当前head非作者批准、CI/线程与实际merge复验均待各自证据，不指定reviewer、不bypass，无Release/tag/main发布。
+
+
+## 44. #231实际合并复验与客户端恢复
+
+Owner确认#231已合并后，Root实际获取GitHub：2026-10-14T12:37:21Z merge71e2e1bc2bf110b7a3f93ee0db73cb4c8b5c2248，head2bbfc81f066c4158f0c0835b5f98a4e78fde2c9e，两tree均13e7378209624e37f26d65fbc275874b8ec0bb90，全部八CI SUCCESS、reviews=[]。实际合入不证明独立批准或行为失败已修，原缺项保留。Root从最新origin/develop71e2在现有干净隔离目录建立codex/html-guide-post-merge，用户main/develop工作区未改。
+
+该实际merge只运行一次canonical控制（2effac/session48938最终0f9a9f EXIT0），十三严格组合与六实际安装缓存Python通过。47唯一资源/273源镜像缓存比较行按实际安装回执核对；Git raw blob与Windows检出字节分列，Diagram manifest LF1246→CRLF1285经实际filters核对，HTML eol=lf保持Git/cache相同。第一次绑定helper将Git raw blob与CRLF缓存比较失败（c96223），原错误/诊断/新r2保留，没有重装、未放宽校验或虚写字节相同。完整[安装及资源证据](evidence/html-guide-kit/pr3-post-merge/engineering-71e2e1bc/archive-index.json)与[实际merge](evidence/html-guide-kit/pr3-post-merge/merge-71e2e1bc.json)分别保存。
+
+源22停止时的395原文件7391506字节/六packet已经实际034封包，inventory4a975729649961899c496633bc47a13502364947c98a507008325352d829fdc5；pack740457、Node fbfeda、独立.NET cf7621均EXIT0，最大2089902B小于2MiB，原动态pins稳定。原九报告5PASS/2FAIL/1UNEXERCISED/1报告待审，另组合无final待审，harness UNKNOWN不改，原20调用均marker前。[历史封包](evidence/html-guide-kit/pr3-reviewer/patch-034-stopped/index.json)及[实际复原记录](evidence/html-guide-kit/pr3-post-merge/candidate034-final-seal/archive-index.json)不作为新模型PASS。
+
+Owner重新授权尝试ComputerUse，本轮list_apps及目标window196630实际读取/操作恢复。界面应用26.1007.9446.0、实际后端9614f1d9b40d9c4f；从merge精确复制十包文件并仅为UI建立单包随机市场别名mj-html-guide-ui-22-9444ad44，不要求镜像等于整仓tree。后端实际安装0.1.22，十资源源/镜像/cache逐字节相同，新详情页面实际发现；旧本任务0.1.20测试来源暂时停用以隔离双来源，其他用户插件未变，测试结束须恢复原状态。
+
+Codex本地项目外UUID01a13a72-ab05-7b81-b2f1-3873011c4288亲自UI提交：T1已完成并提出三套目标待选，T2实际未选继续待确认，T3明确选择非推荐方案二正在运行。客户端原输入/输出/工具/身份与独立完整接收审查尚在收集，不能提前称三轮或双客户端PASS。普通Chat/Work新版本仍未执行；不以安装、旧截图或模型自述补证。此阶段运行版本仍0.1.22，两原FAIL与延期仍在，#220/Epic保持OPEN；后续通用修正另用0.1.23及新安装/冻结复验。现实效果NOT_MEASURED，无Release/tag/main发布。
+
+
+## 45. 合并版本限定双入口通过与0.1.23后续修正
+
+实际source71e2/0.1.22的两个fresh原生连续会话各三轮独立限定PASS：[公开本会话证据](evidence/html-guide-kit/pr3-post-merge/native035-merge71e2/index.json)。Codex UUID01a13a72-ab05-7b81-b2f1-3873011c4288与Work UUID01a13a7d-5e7c-7220-871d-a5e487402c77，身份分别Codex Desktop / codex_work_desktop，实际SDK0.162.0-alpha.17.2、OpenAI/gpt-6.1-sol/high；不能改写为CLI0.147.0/5.6-low。原三次实际单份工具读取入口/两参考全文且cache与merge十文件exact；T1三套目标待选，T2明确未选仍待答，T3明确选择非推荐二后才交付，完整输入/答案/工具正文和来源哈希保存。
+
+公开派生排除全文system、初始整窗侧栏、无关会话、HOME与PSprofile诊断；首Read的profile警告仅单记身份/哈希和排除，不称没有诊断。两目标截图只保指南交付开头/待选/确认画面，完整恢复与自检由SDK文本支持，Work初proof误述可见完整恢复/自检和私有标志已另件更正，原错不覆写。后台安装/原生输入/实际缓存/模型语义/窗口范围分开；只覆盖当前forward三轮，不覆盖持续锁窗、空答、超时、关闭/消失、普通Chat、所有扩展或现实效果。Root恢复原ChatGPT模式/侧栏/自身会话，旧测试来源恢复enabled、新22测试来源停用保cache，其他配置未改。
+
+0.1.22原5P2F1U2待审保持，不被这些不同材料/客户端的限定P覆盖。新23仅两份参考的三个既有区域重排为逐源规则完整单元和双向审校：对象/情境范围不自动决定字段域，教学集合不撤销已覆盖结果；局部图恢复保源全部动作/对象/字段或实际继承完整恢复单元。表/条列可选，不强加固定章节或操作目录；纯条件、非操作材料、合法范围内简写、原技能合同均保留。SKILL仍6086LF/6140CRLF≤6144；framework10042B SHA4fd5cae6d489c69f0f3e8ff72ceabf7404beb9780976f297e56ae4066ce5de13，interaction10141B SHAf3ff576734497d20b03fd5610388d8b6819ed2fc9330b9a96aaf4e9534895870。A只写外部草稿，Root/B两独立STATIC_ONLY审后3daaa9应用两参考；DryRun及098dc3 apply仅HTML根manifest一锚点0.1.22→0.1.23，不改市场8.3.0/其他四包/图标/登记。作者准备记录器的schema及路径错误原样保留，r3未执行，Root最小freeze绑定实际bytes。
+
+新23准确canonical安装/模型/客户端尚NOT_RUN；须新安装缓存、原冻结关键六组及受影响扩展、新客户端复验，不能沿用22客户端P。实际CI/最终head非作者批准、线程、后续merge差异复验及Owner接受各自满足；#220/Epic开放。现实效果NOT_MEASURED，无Release/tag/main发布动作。
+
+提交前独立审查发现两张原整窗截图仍含父工程任务toast/pet/chrome，原“ownTaskTitleOnly”说明并不完整。原图/private proof保持；未提交的两整窗副本已从公开目录移除，仅入两个x920/y95/780×1280确定性原像素提取，998400像素逐项逆对相同，542060真实成功，截图仍只显示指南开头。首次提取null proof/错误不称成功，B新privacy-review另件更正并保原记录，模型P不因此扩大。

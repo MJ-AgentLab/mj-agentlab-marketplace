@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [0.1.23] - 2026-10-14
+
+- HTML Guide Kit 0.1.23 reorganizes source-rule checks and two-way guide audits, retaining all source recovery actions in local relations and keeping teaching input choices separate from source limits. The entry and public contract remain unchanged.
+- Preserve source0.1.22 original failures and actual merged-version installation/client evidence; require fresh installation and frozen behavior verification. Refs #217, #220.
+
 ## [0.1.22] - 2026-10-14
 
 - HTML Guide Kit 0.1.22 preserves every source prerequisite in result-bearing graph connections, including required current state and direct operation, or explicitly establishes the actual diagram scope. Pure condition relations remain distinct from operation results.

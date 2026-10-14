@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-14
 state: active
-version: v2.53
+version: v2.55
 ---
 
 # 文档索引
@@ -208,3 +208,7 @@ HTML源21准确1799的13安装/6Python/9CI通过；14UUID30C原独立13P1F，关
 HTML22准确aac6fc9十三安装/六缓存Python通过，新核心fresh会话已启动但尚未独立结论；21原13P1F/三十C及零扩展574文件十一包实际封存/两独立复原通过，原失败不追认。见HTML RUNBOOK §42。
 
 HTML 0.1.22实际10新会话/20COMPLETE已停止，来源限制误归及局部恢复关系遗漏两项FAIL；主要选择/边界局部P与未执行/待审分开。准确aac6十三安装/六Python通过，c3a2d06运行闭包71资源不变；当前客户端停止、034原件封包准备及最终门禁待证，见[HTML RUNBOOK §43](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+HTML #231实际merge71e2与head同树，十三安装/六缓存Python复验通过；034原395文件完整复原，旧FAIL和reviews空保留。ComputerUse已恢复，22项目外Codex会话正在连续验证，完整客户端未通过；后续补丁另测，见[HTML RUNBOOK §44](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+HTML合并版0.1.22两个原生入口各三轮限定P，完整私有SDK/他会话排除，原两F/待审不变；0.1.23两参考通用修正已双静态审接入，新缓存/模型/客户端NOT_RUN，见[RUNBOOK§45](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
