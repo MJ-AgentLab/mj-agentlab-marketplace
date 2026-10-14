@@ -1,0 +1,28 @@
+{
+  "recordedAt": "2026-10-14T19:59:17.303Z",
+  "originalFailedTool": "e1a178",
+  "originalExitCode": 1,
+  "failedAt": "line26 inventory/rawbytes mismatch",
+  "source": {
+    "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/dry-source-043-dotnet-c-r2.ps1",
+    "bytes": 3877,
+    "sha256": "e7009f1765e11c78dab1af6d065e4c2eb9f0a72dd277836610c7305b20fe6352"
+  },
+  "corrected": {
+    "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/dry-source-043-dotnet-c-r3.ps1",
+    "bytes": 3880,
+    "sha256": "6e9ed3859af801df35b4bc6ce806c5f97b6715d898111c947a655ed751b59ce7"
+  },
+  "exactDelta": {
+    "old": "$prov=Join-Path $reviewRoot 'packer-provenance/0-1-30-stopped'",
+    "new": "$prov=Join-Path $reviewRoot 'packer-provenance/0-1-30-stopped/r2'"
+  },
+  "inverseExact": true,
+  "provedCause": "r2 383-source control was compared with initial 406-source Node dry JSON due retained initial provenance path",
+  "initialInventory": "c8868e242147dd553c4b802b1d55e3c736e6f10d7bb06708b737514ac04a9e49",
+  "correctedReportInventory": "5c337ea797dc063c7b72806cb408c69d65abff0bdac71ead385050259992c017",
+  "codecAndCoreSourcesUnchanged": true,
+  "modelInvalid": false,
+  "actualArchiveNotCreated": true,
+  "priorFailedScriptAndLogPreserved": true
+}

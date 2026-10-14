@@ -1,0 +1,194 @@
+{
+  "recordedAt": "2026-10-14T20:00:26.626Z",
+  "status": "FINAL_SOURCE30_DRY_ONLY_READY_FOR_ROOT_INDEPENDENT_REVIEW",
+  "canonicalSha": "696da5df4faedd239783764e59b6832b5884f5e1",
+  "canonicalTree": "5202e43ba36ee3f8b231fe28d48293e1b265f990",
+  "version": "0.1.30",
+  "counts": {
+    "coreUUIDs": 13,
+    "coreComplete": 27,
+    "invalid": 0,
+    "whole": {
+      "PASS": 9,
+      "FAIL": 4,
+      "UNEXERCISED": 0,
+      "NOT_RUN": 1
+    },
+    "primaryB5Feedback": "UNEXERCISED_SEPARATE",
+    "notSentInputs": 3,
+    "postMarkerStarts": 0,
+    "naturallyCrossingInputs": 2,
+    "originalModelRawFiles": 135
+  },
+  "codecMechanism": {
+    "source042Actual": {
+      "pack": "e12c99",
+      "node": "420013",
+      "dotnet": "5f75b7"
+    },
+    "nodeNetAndDryCodecInverseExact": true,
+    "control": {
+      "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/packer-provenance/0-1-30-stopped/r2/preparation-control.json",
+      "bytes": 130746,
+      "sha256": "47affe54cb6f586dcb9e180daa304d74c17f9544e140c124c8ae40950b4a7315"
+    },
+    "scopeChangesOnly": "source allowlist, canonical/count metadata, exact pins and source-context/reference accounting; source30 model/runtime/criteria not edited"
+  },
+  "actualDry": {
+    "node": {
+      "tool": "6d7d4d",
+      "exitCode": 0,
+      "receipt": {
+        "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/packer-provenance/0-1-30-stopped/r2/node-dry-execution-receipt.json",
+        "bytes": 735,
+        "sha256": "40651f69b0ba68e60da33a3033989a8ec07672c268f5180ba0902fbb36ccf284"
+      },
+      "stdout": {
+        "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/packer-provenance/0-1-30-stopped/r2/final-dry-run.stdout.log",
+        "bytes": 60297,
+        "sha256": "ac6d6c4d7cc5043f123cbb8593cea4c1bcf30683e7929081838faa733d94327c"
+      }
+    },
+    "dotnetInitialMetadataFailure": {
+      "tool": "e1a178",
+      "exitCode": 1,
+      "stdout": {
+        "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/packer-provenance/0-1-30-stopped/r2/dotnet-dry-roundtrip.stdout.log",
+        "bytes": 347,
+        "sha256": "f2056f23441b669ebc7ecda42ff5e6788d0b69f0d9fd31d986f77db3ed21653b"
+      },
+      "reason": "r2 source control read initial406 Node report due old provenance path",
+      "correction": {
+        "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/packer-provenance/0-1-30-stopped/r2/dotnet-report-path-correction.json",
+        "bytes": 1282,
+        "sha256": "d4a23fdeae7f40b3be64839d2c2c555c197f18c8b544f1964ea17deb4a670f2a"
+      }
+    },
+    "dotnetCorrected": {
+      "tool": "41cf76",
+      "exitCode": 0,
+      "helper": {
+        "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/dry-source-043-dotnet-c-r3.ps1",
+        "bytes": 3880,
+        "sha256": "6e9ed3859af801df35b4bc6ce806c5f97b6715d898111c947a655ed751b59ce7"
+      },
+      "stdout": {
+        "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/packer-provenance/0-1-30-stopped/r2/dotnet-dry-roundtrip-corrected.stdout.log",
+        "bytes": 670,
+        "sha256": "b47cb746820837d37ec8b18202dd37adc7969faf1faf449a2a2e31bc15fb8859"
+      }
+    }
+  },
+  "plannedArchive": {
+    "fileCount": 383,
+    "bytes": 9899514,
+    "packetCount": 8,
+    "largestPacketBytes": 2095936,
+    "packetLimit": 2097151,
+    "strictBelow2MiB": true,
+    "sourceInventorySha256": "5c337ea797dc063c7b72806cb408c69d65abff0bdac71ead385050259992c017",
+    "secretPatternFindings": 0,
+    "target": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-043-stopped"
+  },
+  "artifacts": {
+    "packer": {
+      "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/pack-043-evidence-r2.mjs",
+      "bytes": 67864,
+      "sha256": "0f2493ebd7ef28acdefbf3b24859f2575e071b7d6d5dabf1cf5cd9752f5d19c9"
+    },
+    "verifier": {
+      "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/verify-lossless-043-dotnet-r2.ps1",
+      "bytes": 6096,
+      "sha256": "d94dc35f9160c669548581ad46f56c6f45dcc516f4622fb9f5f0cdfdbcaffac9"
+    },
+    "control": {
+      "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/archive-043-control-r2.json",
+      "bytes": 152052,
+      "sha256": "1d736dea58000e05a85089aa0b41b5761ba1a175e01eca084b1f27e2c799682e"
+    },
+    "sourceAccounting": {
+      "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/packer-provenance/0-1-30-stopped/r2/closure/final-source-accounting.json",
+      "bytes": 151646,
+      "sha256": "9c69dc7f4897d98fdd177984b00e4546a865a2dd405d17c00ec127e915248f9e"
+    },
+    "references": {
+      "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/packer-provenance/0-1-30-stopped/r2/closure/already-sealed-engineering-canonical-reference-only.json",
+      "bytes": 66093,
+      "sha256": "3958e9482a091498ccef928efb23facab832d1dc6e2d2fa6a113f2dc7ea803a2"
+    },
+    "publicUiScope": {
+      "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/packer-provenance/0-1-30-stopped/r2/closure/native-ui-public-scope.json",
+      "bytes": 6188,
+      "sha256": "a471becda448bee164de91fe8d3cab76332a20eeefdded89148700e4c7c943a0"
+    }
+  },
+  "protection": {
+    "payloadSources": 383,
+    "allFinalSourcesByteExact": true,
+    "referenceOnlyRows": 84,
+    "allReferenceSourcesArchivedByteExact": true,
+    "privateSdkPixelsFullConfigExcluded": true,
+    "targetAbsent": true
+  },
+  "workUi": {
+    "uuid": "01a13bec-c13d-7e22-8eab-671d7c8c520e",
+    "actualTurns": 2,
+    "scope": "proposal and unselected waiting only; actual UI distinct from CLI core",
+    "confirmedGuide": "NOT_RUN",
+    "codexLocalEntry": "NOT_RUN",
+    "nativeLifecycle": "NOT_RUN",
+    "effects": "NOT_MEASURED",
+    "originalPublicTaskRecords": "23 already-Gitsealed RootSTOP files referenced only",
+    "privateFullSdk": "EXCLUDED"
+  },
+  "rootExecutionVectors": {
+    "pack": {
+      "executable": "D:/Development/nodejs/node.exe",
+      "args": [
+        "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/pack-043-evidence-r2.mjs",
+        "pack",
+        "--snapshot-name",
+        "patch-043-stopped",
+        "--target",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-043-stopped",
+        "--max-packet-bytes",
+        "2097151",
+        "--final-reviewed",
+        "true",
+        "--expected-inventory-sha256",
+        "5c337ea797dc063c7b72806cb408c69d65abff0bdac71ead385050259992c017"
+      ]
+    },
+    "nodeVerify": {
+      "executable": "D:/Development/nodejs/node.exe",
+      "args": [
+        "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/pack-043-evidence-r2.mjs",
+        "verify",
+        "--snapshot-name",
+        "patch-043-stopped",
+        "--target",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-043-stopped",
+        "--compare-originals",
+        "true"
+      ]
+    },
+    "dotnetVerify": {
+      "executable": "C:/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe",
+      "args": [
+        "-NoProfile",
+        "-NonInteractive",
+        "-File",
+        "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/verify-lossless-043-dotnet-r2.ps1",
+        "-Target",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-043-stopped",
+        "-ReviewerRoot",
+        "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer"
+      ]
+    }
+  },
+  "actualPack": "NOT_RUN_BY_C",
+  "actualNodeArchiveRestore": "NOT_RUN_BY_C",
+  "actualDotnetArchiveRestore": "NOT_RUN_BY_C",
+  "noRepoModelApiUiOrVersionActions": true,
+  "initial406FileDraftAndFailureHistoryRetained": true
+}

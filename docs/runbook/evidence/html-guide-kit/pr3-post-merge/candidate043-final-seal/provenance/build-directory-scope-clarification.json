@@ -1,0 +1,19 @@
+{
+  "recordedAt": "2026-10-14T19:54:11.095Z",
+  "phase": "PRE_EXECUTION_ALLOWLIST_SCOPE_CLARIFICATION",
+  "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/build-pack-043-c.mjs",
+  "oldSha256": "f478f011f056682ed8ecb6c3a7dd0f8b89329346f68b53c5d2f14157b9e71557",
+  "newSha256": "6b3dee6232104faa5ac6661415d96c2833b8353e20f2a74d7d1527f2a0f9d614",
+  "exactDelta": {
+    "old": "rel.startsWith(vr+'/native-ui')||rel.startsWith(vr+'/native-setup')",
+    "new": "(rel===vr+'/native-ui'||rel.startsWith(vr+'/native-ui/'))||(rel===vr+'/native-setup'||rel.startsWith(vr+'/native-setup/'))"
+  },
+  "inverseExact": true,
+  "reason": "Exclude actual native-ui/native-setup directories as whole families before explicitly selecting public files; retain the separately authorized top-level native-ui-source/cache JSON receipts.",
+  "allowedTopLevelReceipts": [
+    "corrections/0-1-30/native-ui-source-696da5df.json",
+    "corrections/0-1-30/native-ui-cache-verification.json"
+  ],
+  "oldSource042Unchanged": true,
+  "noModelApiPackOrRepoWrites": true
+}
