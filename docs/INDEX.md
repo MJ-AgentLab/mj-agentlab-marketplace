@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-15
 state: active
-version: v2.80
+version: v2.81
 ---
 
 # 文档索引
@@ -276,3 +276,6 @@ HTML33仅entry/FW三span先保完整源单元的并列动作/对象/非字段效
 
 
 HTML33/b66cafb5工程346/65/quick/strict/actualCLI0.147与十三准确安装六缓存Python通过；新行为/双端未完成，旧失败原保，见[§67](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+
+HTML33/b66实际核心6UUID10C整体3P2F1U8N、20未发/0post1cross，原生安装/详情有限证据与0modelinput及owned恢复分记；046实际封包/双原字节复原通过，34仅外部双静态草稿未接入，见[§68](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。

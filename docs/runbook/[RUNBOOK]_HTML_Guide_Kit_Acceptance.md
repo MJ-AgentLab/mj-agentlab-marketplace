@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-15
 state: draft
-version: v1.65
+version: v1.66
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -1011,3 +1011,16 @@ HTML0.1.33准确canonical b66cafb5c48b49ec8c0042ae637cb92990112ff9/tree78ff591ae
 该准确提交的十三严格安装与六次实际缓存Python通过，逐资源版本、manifest、显式调用策略和图标从真实缓存比对。canonical、排除reviewer-only的镜像、缓存身份分别记，不要求完整tree相同。[工程和安装原日志](evidence/html-guide-kit/pr3-post-merge/candidate033-engineering/archive-index.json)保留源文件字节与哈希，Markdown原件仅物理命名snapshot.txt；Source32 whole失败不追认。后续纯补证核71分发mode/blob相同可复用本次工程安装证据。
 
 本条封存时新连续行为、扩展和双端仍未执行；ComputerUse仅重连并打开Plugins列表，不能证明新版通过。后续客户端可在准确安装与Root启动授权后与核心并行，首真实FAIL/INVALID同global标记停止新输入、在途自然完成并恢复owned；核心14/30与所需客户端仍为最终合并验收门禁。现实效果NOT_MEASURED，#220/Epic开放、Owner接受及当前head批准/CI/线程/实际merge各自待证，无Release/tag/main发布PR。Refs #217, #220。
+
+
+## §68 Source33 实际停止与有限原生安装
+
+来源0.1.33/b66cafb5c48b49ec8c0042ae637cb92990112ff9/tree78ff591aeab3806f2bc596a1131a7b0eff37fe0b的346工程、65文档、strict/quick/真实CLI0.147及十三准确安装六缓存Python通过保持。纯工程补证ea5a848b与canonical的71分发Gitmode/blob相同，完整tree不同，未重复完整测试或安装。Rootf9cc1b实际独核6UUID/10COMPLETE/0INVALID、10SDK high/V2与21资源三方/50原raw；整体3PASS/2FAIL/1UNEXERCISED/8NOT_RUN，20输入未发、0post、1自然cross。
+
+B6.1 UUID01a13c74-112a-73f0-810e-b55f9769872a：独立三条件情境未实际给当前状态或本组共同题设范围，却确定输出核验后状态；源§3实际必需状态不能由另处初始画面或后独立流程补给。B1.1 UUID01a13c76-2063-7e31-871b-3ed7d84fdb5f：完整源基准虽保清操作，但局部恢复说明把四初值排他当§7规则结果，排除源并列清除动作；旁处正确不补本处来源排他错误。两个主等待/Read边界结果P与wholeF分开，非省关键词判据。A首B3.1仅T1，整体UNEXERCISED；三scope合同拒绝P，但revise/review实际只读入口、参考/材料未读为N_A，compare真实全读；不声称十调用全部收到四份正文。
+
+实际728e3a于2026-10-14T22:11:20.857Z CreateNew同33flag；C T4从22:10:37.962至22:12:41.232自然跨标记。其余已完，未kill/retry/重采样。492源全集已按完整路径集合和每字节hash冻结；旧677/472/451/362保留。停止档案[046](evidence/html-guide-kit/pr3-reviewer/patch-046-stopped/index.json)已118da6实际封包、c4975a Node与8fc887独.NET逐原字节复原通过：337公开原件/8,192,951B/8packets、最大2,092,424<2,097,151、secret0。492源分316payload/174已封引用/2私密owned只hash，另3tracking引用共177；私密正文不公开复制，不把完整源tree相同当验收要求。[生产、干跑和三次实际原日志](evidence/html-guide-kit/pr3-post-merge/candidate046-final-seal/archive-index.json)。
+
+原生新alias mj-html-guide-ui-33-1191f6d7，Root12088d/9fa036实际准备与安装，4eece6实际十资源Git/镜像/cache字节一致；Appx26.1007.9446.0/backend0.162.0-alpha.17.2与核心0.147分开。UI实际找到0.1.33、批准图标、Read、单技能，Try now打开Work composer。初次检查旧22/20不当新证；尚未typed/send，0模型输入、无UUID，未测等待/指南交付/本地Codex或原生生命周期，因此完整双端INCOMPLETE。Root067e6f在正常停旗下精确恢复六旧owned插件/目录片段、新33disabled、nonowned原字节保持；不删除缓存/目录、不保存整份配置。
+
+Source34目前仅两资源三span外部冻结，entry6007LF/6043Windows≤6144、FW11279、ID7773不变：先明示必要共同题设/实际范围/覆写，独立例另给所需输入；逐处完整核源动作/对象/非字段效果的来源归属，不只保终值。Root/B双静态与quick通过，控制Root/A双静态；尚未接入/version/install/model/UI，静态不当修复行为P。现实效果NOT_MEASURED，#220/Epic开放、Owner接受及当前head非作者批准/CI/线程/实际merge各自待证，不指定审查人、不bypass、无正式发布。Refs #217, #220。
