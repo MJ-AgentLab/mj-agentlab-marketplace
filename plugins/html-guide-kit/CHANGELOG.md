@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.1.33] - 2026-10-15
+
+- HTML Guide Kit 0.1.33 preserves all parallel source actions, objects and non-field effects before terminal field values; field-only summaries cannot replace a complete operation or recovery unit.
+- Apply only three reviewed entry/framework spans; keep interaction-design exact, actual local scope reuse, goal-based omitted units and dimension-bound necessary properties.
+- Preserve original0.1.32 whole failure, unrun cases and earlier limited client evidence. Fresh engineering, canonical installation and independent behavior/client evidence remain required. Refs #217, #220.
+
 ## [0.1.32] - 2026-10-15
 
 - HTML Guide Kit 0.1.32 preserves condition conclusions decided by known AND/OR operands even when another input is unknown, using the complete source criterion and actual dependencies.

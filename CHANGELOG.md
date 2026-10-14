@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+- Prepare HTML Guide Kit 0.1.33: preserve every parallel source action, object and non-field effect before listing terminal field values; audit the complete source baseline and scope-aware delivery. Keep Source32 failures and unrun paths; fresh canonical installation, behavior and client evidence remain required. Refs #217, #220.
+
 - Prepare HTML Guide Kit 0.1.32: evaluate each conclusion against the complete source criterion and its actual AND/OR dependencies. Preserve conclusions already decided by known operands; mark only genuinely dependent results unknown and do not promote necessary conditions to sufficient criteria. Preserve Source31 failures and unrun paths; fresh canonical installation, behavior and client evidence remain required. Refs #217, #220.
 
 - Prepare HTML Guide Kit 0.1.31: distinguish source rules and initial values from actual independent example inputs; inherit only explicitly applicable shared setups and check candidate-question presuppositions against source permission and result facts. Preserve original0.1.30 failures and unrun inputs; require fresh canonical installation, behavior and client evidence. Refs #217, #220.

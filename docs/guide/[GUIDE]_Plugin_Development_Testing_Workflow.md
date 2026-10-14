@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-15
 state: active
-version: v2.31
+version: v2.32
 ---
 
 # [GUIDE] Plugin development and testing
@@ -17,9 +17,9 @@ version: v2.31
 
 同步 Learning 替代后的十三组合为 Diagram、Learning Evidence、Explain、Diagram＋Explain、Diagram＋Learning Evidence＋Explain、Communication、Communication＋Explain、Communication＋Learning Evidence、Diagram＋Learning Evidence＋Explain＋Communication、HTML、HTML＋Explain、Diagram＋Learning Evidence＋Explain＋HTML、全五插件；每组独立 cache，核对技能、原生元数据、三份参考摘要、冻结记录与图标的源/缓存字节。安装矩阵和真实 Python 执行结果按候选 SHA/tree 与包内容绑定。
 
-当前HTML为0.1.32后续修正候选，源12四包证据不继承新五包合成通过；新canonical须十三安装/六缓存Python及冻结行为矩阵，各阶段以准确候选SHA/版本及实际安装、模型和客户端账本为准。
+当前HTML为0.1.33后续修正候选，源12四包证据不继承新五包合成通过；新canonical须十三安装/六缓存Python及冻结行为矩阵，各阶段以准确候选SHA/版本及实际安装、模型和客户端账本为准。
 
-HTML32验收保持CLI0.147/OpenAI/gpt-5.6-sol，下一轮显式选择支持的high推理；原defaultlow和旧失败保留。准备时分记actualDefault与selectedIdentity，核原proof和fresh model/list的模型、原默认及chosen支持。实际SDK身份、完整工具正文、连续UUID及判准仍须独立核验，不据配置或无模型guard宣布通过。
+HTML33验收保持CLI0.147/OpenAI/gpt-5.6-sol，下一轮显式选择支持的high推理；原defaultlow和旧失败保留。准备时分记actualDefault与selectedIdentity，核原proof和fresh model/list的模型、原默认及chosen支持。实际SDK身份、完整工具正文、连续UUID及判准仍须独立核验，不据配置或无模型guard宣布通过。
 
 静态结构和发现只证明安装/加载。使用已安装技能执行独立合成角色验收：Pop Quiz 的职责、来源、2+1、预算、无答待答与只读；明确移交保存后保留实际状态；Learning Record Check 两阶段结论及缺材料手动恢复。所有保存测试显式隔离证据库，GitHub 写入用受控替身；完整基线、身份归属、重试/冲突/恢复、导入导出、分段共享及增量进度都以实际运行输出验证。共用脚本必须在安装缓存、无关 cwd 执行，证明仓库脚本区已删除且不是依赖。
 

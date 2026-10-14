@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-15
 state: draft
-version: v1.63
+version: v1.64
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -991,3 +991,14 @@ Source32扩展、重复、原生安装和双端全部NOT_RUN；本次ComputerUse
 
 
 Source32完整停止归档已实际f15d69封包、fd4270 Node及e07912独.NET逐原字节复原EXIT0：[045档案](evidence/html-guide-kit/pr3-reviewer/patch-045-stopped/index.json)含568原件/14,018,416B/10packets，最大2,078,807<2,097,151B、secret0。677源原件完整分账547payload+130已封源32原件reference，另3tracking原件仅reference，共133；不复制future33或旧31/30/29 raw roots，不继承客户端或把失败转P。[完整生产/干跑/实际执行原日志与独复原证据](evidence/html-guide-kit/pr3-post-merge/candidate045-final-seal/archive-index.json)。Refs #217, #220。
+
+
+## §66 Source33 完整源动作窄修准备
+
+从本次明确clean pure-proof基线4725121b05239c886bc8a9dc39cf81ec6cd35cec准备0.1.32→0.1.33。Source32运行仍081f71540f8664e556e864aed7b7c91f1f4924c9/tree39ac7db50cf6b52d632488ad267bc28e2702561b：工程346、65文档、strict/check/quick及十三准确安装/六实际缓存Python通过；12UUID26COMPLETE/0INVALID，whole11P1F2N、4输入未发/0post/1自然cross。B2.1主资格/关系判据局部通过、whole失败：完整源基准及所有实际恢复说明都只列字段初值，遗漏源清除本轮操作；工具读取原文与教学改答清反馈不替交付中保留该源动作。原失败、未覆盖和停止记录保留，不重采样或追认。旧有限客户端证据不迁移到33。
+
+Source33资源freeze47eb0e79经Root/B独静态，三资源准确pins见本次integration-plan及原freeze：入口5888LF/5924CRLF≤6144、SHAebf4b39ab22cb2992a001974f7d04abcba60dca3c9f7b54964ef15025baff8f1；FW10811B/SHA47bcc2bea1b3b6515eb7b83737acfc3d60365e4aa2e6eb35e128b2bacd899ed0；ID7773B/SHAb3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a保持。仅entry step3/FW§3/FW§5三个既有span：完整源单元先保全部并列动作、对象与非字段效果，再列字段终值；从源到完整基准、再按实际本处复用范围反查呈现。允许按目标裁减未选单元和明示维度的纯字段/必要性质，不把它们当完整操作；不新增资源、固定模板或领域判准。原许可/结果、未知覆盖、必要题设、且/或实际依赖、来源/确认/Read聊天边界全部保持。
+
+权威PowerShell7.6.5独立进程先DryRun单manifest再Apply，保存实际stdout/stderr/exit；当前Source33工程、准确canonical十三安装/六Python、连续模型及双端全部NOT_RUN，静态不当行为PASS。CLI0.147/OpenAI5.6-sol，112d原defaultlow与显式selectedhigh分记、fresh支持及实际SDK核对、V2真实exit/close/240000ms保持。历史schedule内仍原28绝对路径；33所有prepare/manualquote/choose/turn使用同33global正常边界标记，不称原子停止或锁宿主。
+
+市场8.3.0、其他59包文件、登记/图标/调用策略、ID、28工程工具及Source32/31/30/29全部证据保持。现实效果NOT_MEASURED，#220/Epic开放；Owner接受、当前head非作者批准/CI/线程/实际merge各自待证，无Release/tag/main发布PR。Refs #217, #220。

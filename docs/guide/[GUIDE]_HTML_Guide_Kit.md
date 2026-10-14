@@ -6,12 +6,12 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-15
 state: active
-version: v1.32
+version: v1.33
 ---
 
 # [GUIDE] HTML Guide Kit
 
-HTML Guide Kit 从文档或明确对话快照，新建可复制的交互教材绘制指南。初始 0.1.0 已合入 develop；0.1.22已合入develop；本分支0.1.32为后续修正候选，正在验收。main / v8.2.0 已发布 Diagram、Learning Evidence、Explain 三插件，HTML 另行发行。实际登记、安装和客户端状态见当前市场与 [验收记录](../runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+HTML Guide Kit 从文档或明确对话快照，新建可复制的交互教材绘制指南。初始 0.1.0 已合入 develop；0.1.22已合入develop；本分支0.1.33为后续修正候选，正在验收。main / v8.2.0 已发布 Diagram、Learning Evidence、Explain 三插件，HTML 另行发行。实际登记、安装和客户端状态见当前市场与 [验收记录](../runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
 
 ## Start and confirm
 
@@ -34,6 +34,8 @@ HTML Guide Kit 从文档或明确对话快照，新建可复制的交互教材�
 独立演示或题目须给出判定必需信息；源条件与初值不自动成为另设情境的题设。仅在已明确覆盖的共同题设下复用，缺必要信息可明示教学假设或保留依赖结果未知。候选问题也不能把许可与成功结果混为已知前提。
 
 完整条件判准按各结论的实际且/或依赖求值，另一项未知不撤已知项已决定的结果；仅仍依赖缺项的结论保未知，不把纯必要条件当充分判准。
+
+先完整保留同一源单元的并列动作、对象和非字段效果，再列字段终值；按实际适用范围复用，字段清单不替完整操作或恢复。可按目标裁减未选单元，纯字段性质须明示维度。
 
 ## Scope and evidence
 
