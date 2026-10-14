@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+- Prepare HTML Guide Kit 0.1.30: check actual source scope and all stated prerequisites before listing gaps; preserve covered permissions and explicit results without adding unsupported repetition, prior-value or history restrictions. Preserve real0.1.29 failures; require fresh installation, behavior and client evidence. Refs #217, #220.
+
 - Prepare HTML Guide Kit 0.1.29: place evidence-based reading and refusal-cause discipline before the first read and align the framework. Preserve actual0.1.28 failures and unchanged interaction methods; fresh installation, behavior and client checks remain required. Refs #217, #220.
 
 - Prepare HTML Guide Kit 0.1.28: condense shared methods while retaining complete source rules, local attribution and the explicit Read-only text contract. Preserve actual0.1.27 failures; fresh installation and behavior remain required. Supported explicit high reasoning is an external acceptance configuration, not a behavioral pass. Refs #217, #220.

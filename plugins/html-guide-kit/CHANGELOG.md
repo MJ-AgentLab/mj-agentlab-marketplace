@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.1.30] - 2026-10-15
+
+- HTML Guide Kit 0.1.30 checks the actual source scope and all stated prerequisites before declaring information gaps. Preserve covered operation permissions and explicit results; unmentioned repetition, previous field values or extra history do not create new prerequisites.
+- Apply only the approved entry/framework spans. Keep interaction-design byte-exact, genuine unknown outcomes and scope boundaries, the explicit Read-only text contract, target confirmation and teaching methods.
+- Preserve the real0.1.29 cancellation-permission failure and all partial/unrun evidence. Fresh engineering, canonical installation, independent behavior and current client checks remain required. Refs #217, #220.
+
 ## [0.1.29] - 2026-10-15
 
 - HTML Guide Kit 0.1.29 puts single-file reading and evidence-based refusal reporting before the first read, and aligns the framework: unspecified causes and permission scope stay unknown; later successful reads do not prove earlier refusal causes.

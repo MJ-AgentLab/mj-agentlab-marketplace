@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-15
 state: draft
-version: v1.54
+version: v1.55
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -896,3 +896,14 @@ C B1.1 UUID01a13bb7-8ef8-77c2-a6b1-7d25d8cf9acb四轮等待/非推荐B明确确�
 Root1a8646首次confirmed标记2026-10-14T18:46:16.746Z，SHA8209c8e454ca3d963984776db0f13a69213797a47c4d23d2c5d63e3ac514b203；全部十四输入开始及结束均在marker前，0post/0cross，普通entry消费后未新输，无kill/retry/resampling。独立helper新原件audit331033、operator A/B/C普通闭包另保，解析/目录误读/早审程序错误属于reviewer辅助错误，非模型INVALID；原模型记录不改。
 
 ComputerUse本轮重新实际选择返回window196630，取得可读accessibility及截图，未导出含私有侧栏的整窗；新29十准确包文件UI-only单包中性镜像已准备。一次fresh32 Plugins点击后原文档仍可见，插件页导航未确认，未把click回包称成功；零新会话、零本版材料输入、未安装或改用户配置，client仍NOT_RUN，旧22有限双端不移用。30通用方法和版本guard/SDK helper仅外部准备，暂未接入/安装/API/模型；旧失败及判准保持。现实效果NOT_MEASURED，#220/Epic OPEN，当前head非作者GitHub批准/CI/线程及最终merge复验仍须满足，无正式发布。
+
+
+## 59. 0.1.30宽许可覆盖核对接入与工程准备
+
+2026-10-15从5855f2d纯证据基线推进候选，原29运行闭包仍对应d25dc63f。权威版本工具使用实际PowerShell7.6.5独立子进程，先DryRun29→30仅一manifest锚点、再Apply仅此版本，原stdout/stderr/exit分留；不再使用已失败的PowerShell5或同进程exit/Tee捕获。
+
+Root32a9c0与B62202a独立全文静态无阻断，freeze5e5e1eeb精确两span：入口5409B（Windows5445≤6144），SHA e9dddb6c3699e3aa4af9235247b490529982c882b55c0bd7e9d8e7405fd319bf；框架9117B，SHA 8a76449f64e07e61ae9b200111970e5643f7a0e6c181c8e7fef4186237b165f1。交互参考7773B/SHA b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a保持。方法要求拟列缺口前确认实际对象/范围和全部源前提，保已命中的宽许可及明确结果；未设次数、字段原值或额外历史时不自添门槛。真正未述结果、提示、额外路径仍未知，范围外对象或必要前提未知不默认许可；其他合同和方法不变。
+
+原29真实8UUID14COMPLETE/0INVALID，5PASS/1FAIL/2UNEXERCISED/6NOT_RUN，16输入未发、0post/0cross；C B1等待确认主判PASS但取消许可wholeFAIL，保其准确来源、实际SDK/high、工具收包、原报告和定位修正，不改旧结果。042实际e12c99 pack、420013 Node与5f75b7独立.NET复原均EXIT0，300文件/7028226B/七包，最大2042456<2MiB、secret0，inventory df85829ffb7821145ad27ea1ba1d0009ea8efbfb87c1cbfa8fb5835dd35d43c3。已有51工程与24canonical只逐字节引用，不重复payload；future30及私密HOME/auth/未导出整窗位图排除。原29及042均保持。
+
+本版工作树工程检查正在执行，实际日志存integration-records；64保护/59其他包、市场8.3.0、登记/图标/UIpolicy、28工具Git及362原29文件不改。当前并无准确30canonical安装、fresh模型或本版双端，不继承旧PASS。外部控制Root3edd31及A38aa19独静态保持原材料/输入/判准、CLI0.147/OpenAI/gpt-5.6-sol、实际defaultlow/显式high分记、240000ms捕获及每轮普通pause；支持与配置不证行为。现实效果NOT_MEASURED，#220/Epic开放，Owner接受、当前head非作者批准、CI/线程及实际merge复验仍分别待证；无Release/tag/main发布PR或bypass。Refs #217, #220
