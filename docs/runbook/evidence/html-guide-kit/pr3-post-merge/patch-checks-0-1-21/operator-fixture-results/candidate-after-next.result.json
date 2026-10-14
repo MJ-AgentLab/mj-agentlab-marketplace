@@ -1,0 +1,120 @@
+{
+  "name": "candidate-after-next",
+  "phase": "NON_MODEL_CONTROLLED_SCHEDULER_FIXTURE",
+  "operatorSource": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-sequential.manual.candidate.mjs",
+  "operatorSourcePin": {
+    "bytes": 5028,
+    "sha256": "fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42"
+  },
+  "operatorScratchPin": {
+    "bytes": 5028,
+    "sha256": "fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42"
+  },
+  "scratch": "C:\\Users\\Admin\\AppData\\Local\\Temp\\f69b1dd2-7ae1-42ac-b797-9f087ca16414",
+  "argv": [
+    "D:\\Development\\nodejs\\node.exe",
+    "C:\\Users\\Admin\\AppData\\Local\\Temp\\f69b1dd2-7ae1-42ac-b797-9f087ca16414\\operator.mjs",
+    "blocking",
+    "C:\\Users\\Admin\\AppData\\Local\\Temp\\f69b1dd2-7ae1-42ac-b797-9f087ca16414\\blocking\\runs\\24d31c8b-d913-43fd-90b1-75f4aff2635b\\batch.json",
+    "--pause-file",
+    "C:\\Users\\Admin\\AppData\\Local\\Temp\\f69b1dd2-7ae1-42ac-b797-9f087ca16414\\normal-execution-pause.flag"
+  ],
+  "startedUtc": "2026-10-14T09:40:11.631Z",
+  "finishedUtc": "2026-10-14T09:40:11.898Z",
+  "actualExit": {
+    "code": 0,
+    "signal": null,
+    "utc": "2026-10-14T09:40:11.897Z"
+  },
+  "actualClose": {
+    "code": 0,
+    "signal": null,
+    "utc": "2026-10-14T09:40:11.897Z"
+  },
+  "error": null,
+  "stdoutBytes": 577,
+  "stdoutSha256": "907adc0da475c35847c7610d51dd14d2b1b4cfd28b1b83f7bb8d9d0d30c10b35",
+  "stderrBytes": 0,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "commandsPin": {
+    "bytes": 639,
+    "sha256": "65e68b3432f0ba236826686bdb4f41acffb6f76e0be90aa2d314f170315bf31d"
+  },
+  "mutationCommands": [
+    {
+      "utc": "2026-10-14T09:40:11.711Z",
+      "pid": 14896,
+      "fixtureOnly": true,
+      "command": "start",
+      "variant": "X",
+      "completedTurn": 1
+    },
+    {
+      "utc": "2026-10-14T09:40:11.755Z",
+      "pid": 36552,
+      "fixtureOnly": true,
+      "command": "next",
+      "variant": "X",
+      "completedTurn": 2
+    }
+  ],
+  "postFlagMutations": [],
+  "pauses": [
+    {
+      "recordedAt": "2026-10-14T09:40:11.891Z",
+      "method": "NORMAL_RETURN_AT_TURN_OR_VARIANT_BOUNDARY",
+      "boundaryVariant": "X",
+      "canonicalSha": "FIXTURE_NOT_A_CANONICAL",
+      "packageVersion": "FIXTURE_NOT_A_RUNTIME",
+      "operatorSha256": "fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42",
+      "pauseFile": "C:\\Users\\Admin\\AppData\\Local\\Temp\\f69b1dd2-7ae1-42ac-b797-9f087ca16414\\normal-execution-pause.flag",
+      "pauseMarkerBytes": 134,
+      "pauseMarkerSha256": "fe151981d9f77ecb8ec4cc77793b5700c709d12df4105486ac0b740e23993558",
+      "markerNeverSentToModel": true,
+      "processTerminationUsed": false,
+      "modelOrHarnessInterrupted": false,
+      "noSemanticGrade": true,
+      "effectStatus": "NOT_MEASURED",
+      "cases": [
+        {
+          "id": "X",
+          "plannedTurns": 3,
+          "executionStatus": "FIXTURE_PARTIAL",
+          "semanticStatus": "NO_MODEL",
+          "attempts": [
+            {
+              "attemptId": "fixture-attempt",
+              "uuid": null,
+              "turns": [
+                {
+                  "turn": 1,
+                  "transportStatus": "COMPLETE"
+                },
+                {
+                  "turn": 2,
+                  "transportStatus": "COMPLETE"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "Y",
+          "plannedTurns": 1,
+          "executionStatus": "NOT_RUN",
+          "semanticStatus": "NO_MODEL",
+          "attempts": []
+        }
+      ]
+    }
+  ],
+  "flagPresentAtNormalChildReturn": true,
+  "flagTiming": "Fixture writes marker in real fake-child exit callback, before the scheduling parent observes close; it is present on normal return. Not a Codex/SDK completion event.",
+  "finalCounts": {
+    "X": 2,
+    "Y": 0
+  },
+  "modelInvoked": false,
+  "installationInvoked": false,
+  "killOrTimeoutAdded": false
+}

@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-14
 state: draft
-version: v1.32
+version: v1.33
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -598,3 +598,21 @@ ChatGPT Work本地路径会话01a1398f-c7f4-7633-a702-a1965dca1a7a（规划共�
 Codex本地应用入口另建会话01a139a5-f208-7392-9b45-572f3195675c（设计说明读者与理解方案），实际三轮均完成：显式调用、未选保持三方案、明确方案三后读取交互参考并交付。准确输入输出、工具事件和目标窗口截图已保存，独立评审尚待完成，不提前写PASS。宿主空返回、自动超时及窗口关闭/消失仍未执行，聊天文字未选不替这些事件；现实效果NOT_MEASURED，Owner最终接受独立。
 
 新core/expanded技术补测已因确定语义FAIL暂停新增：Root combined T2:463将预约有效且导览完成写成“可以核验”，漏源§3必要当前未核验；主目标确认/真实完整读取的局部PASS保留，不能用远处正确规则补反馈本处前提。Root两fresh/四输入全部COMPLETE、三ordinary outer均exit0，独立最终报告继续冻结，不先写整体PASS。global普通marker为09:18:52.961Z；A在途B5.1T2跨marker自然完成，原controller仅检查batch marker，故09:19:06.118Z自动启动B5.2T1（global后13.157秒、batch marker写入前），真实race与原receipt另件更正均保留，不能称新波次没有marker后输入，不kill在途进程。部分prepare曾长期等待metadata普通返回，原观察保留，最终自然完成，不把等待推断为孤儿进程或telemetry原因，不绕过身份校验。新0.1.21三既有段反馈草稿仅外部静态准备，区分实际共同scope与拟写要求，并保许可短句的全部必要前提；尚未接入运行或执行新模型。PR3保持draft，#220/Epic开放；最终运行候选、全部适用行为、实际当前head非作者批准/CI/线程及merge复验仍须分别完成。
+
+## 41. 0.1.20补测与原生有限闭包、0.1.21反馈修正
+
+源20新V2技术补测7fresh UUID/13COMPLETE，独立5PASS/1FAIL/1UNEXERCISED。A四UUID七轮为B4.1/B4.2/B5.1三完整PASS及B5.2仅T1/未选未交付的UNEXERCISED；Root两UUID四轮为combined主目标修改确认PASS但反馈fidelity FAIL，以及B2完整PASS；B的E14-code新UUID两轮PASS。旧13会话24COMPLETE/2INVALID及10P/1U/2I不覆写，不以新code/B4.1 PASS追认旧INVALID。新13实际exit均在截止内，close/stdio另列；code新T1退出约72.945秒而close约251.933秒，只证明该新调用的时序，不诊断旧超时原因。
+
+确定FAIL为combined T2:463许可反馈漏源必要当前态，完整远处规则和拟写要求不建立本处scope；已确认读者/任务修改、全文读取和其他局部正确保留。三方来源/cache、新SDK输入输出/工具、38原控制及V2技术差异均按实际独立核对。新global普通marker09:18:52.961Z与A晚13.157秒自动T1的race及初receipt错误/另件更正保留，不写全波次零marker后输入。
+
+客户端26.1007.9446.0的Work本地与Codex本地两个独立三轮路径各获限定PASS，实际UUID分别01a1398f-c7f4-7633-a702-a1965dca1a7a、01a139a5-f208-7392-9b45-572f3195675c。两者实际缓存三资源全文接收及十包文件source/alias mirror/cache exact，SDK为0.162.0-alpha.17.2/openai/gpt-6.1-sol/high；Work originator为codex_work_desktop，Codex为Codex Desktop，UI均显示GPT-6.1 Sol High。Codex同prompt的r0–r9不含HTML alias，但实际原生skill注入提供该UUID明确绝对cache路径及全文，三直接Read都在该cache内，不虚构别会话alias映射。第四工具事件仅只读筛选工具描述，不调用外部服务；初机械writer误要求只三SDKcalls的失败另件保留，新核对按实际call-id记录。
+
+普通Chat UUID6acf3d18-6a3c-83ee-a0ca-529a710117d4仍CLIENT_ENTRY_UNAVAILABLE，通用fallback不算技能PASS。两路径不追认宿主popup持续显示、空返回、自动超时或关闭/消失，未测仍NOT_RUN；现实效果NOT_MEASURED。初始整窗A11包含无关项目建议，原件私存排除公开封包，仅保存自己的精确输入输出/工具/SDK身份和来源及已核对的目标会话画面，不公开HOME原SDK/无关用户资料。
+
+纯记录3627905db6ebe0f8bc3a0d1317ec31335f5b8144/tree188e57bb385e39748ebb87fa024b7a9a09a505c9已正常提交推送；相对7e3的71分发资源Git bytes全相同，新增50归档文件Git与原文件byte exact，故13安装/6缓存Python适用原运行闭包复用，不要求完整tree相同。原CRLF证据保持，默认diff checker将CR视作尾空白的提示保留，限定cr-at-eol核对通过，不修改治理配置。该纯记录head CI另核，不混旧7e3 SUCCESS；GitHub非作者批准仍待实际。
+
+新21仅三个既有通用段，SKILL6087LF/6141CRLF≤6144，framework9443B、interaction9475B：实际共同scope须明确覆盖本处，拟写要求/章节定位不代前提；许可短句保全部必要前提；纯条件真假未附许可/字段结果时仍可独立判。其余方法字节保持，双独立静态审只STATIC_ONLY，不称模型通过。仅推进HTML0.1.20→0.1.21，市场8.3.0和其他四插件59资源/版本保持，图标与显式Read新建聊天合同不变；无fixture、Owner路径或研究治理依赖。原模型inputs/criteria/default保持，技术捕获V2继续严格exit/deadline/close/fullstdio，停止调度候选另受控核对，不修改语义判准。
+
+新21本段阶段安装/模型/客户端NOT_RUN，须新准确canonical十三安装/六实际缓存Python及冻结核心/扩展复验；运行内容已变，不借源20模型或客户端PASS。PR3 draft、#220/Epic OPEN，最终head非作者批准/CI/线程、实际merge及按差异复验与Owner最终接受分别满足；本任务无Release/tag/main发布动作。
+
+新恢复的[580原文件/11230064字节/九packet封存](evidence/html-guide-kit/pr3-reviewer/patch-031-recovery-stopped/index.json)及[Root实际Node/独立.NET复原](evidence/html-guide-kit/pr3-post-merge/candidate031-final-seal/archive-index.json)均通过，inventorySHA297b3adf4c4041532d4a6f2417039651c438970d02da6023a57e2e53e432422d。七原final唯一grade与六summary实际exit0；637不可变文件、六batch逆恢复及三零attempt原bytes保持。handoff console错将原文件bytes与总库存bytes混印，原10318B JSON及另件更正保留，未重dry/pack。21工作内容346测试/0失败/0skip、validate/check实际通过；仅安装控制版本guard20→21，13/6方法相同；新canonical安装及模型/客户端仍未执行。停止调度经双独立静态核对，无模型试验或GitHub批准替代。

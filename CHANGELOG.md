@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+- Prepare HTML Guide Kit 0.1.21: preserve every prerequisite in permission feedback and distinguish an established scope from instructions to write one. Preserve source0.1.20 captures, failure and limited native client passes; require fresh cache verification. Refs #217, #220.
+
 - Prepare HTML Guide Kit 0.1.20: expand source-rule coverage before classifying gaps and budget the whole visible guide against explicit length limits. Preserve source0.1.19 core passes and extended failures; require fresh cache acceptance. Refs #217, #220.
 
 - Prepare HTML Guide Kit 0.1.19: separate source recovery from added teaching results, retain known judgments beside unknown fields, and check each claim before delivery. Preserve source0.1.18 ten real sessions/twenty-one complete inputs and original failures; require fresh cache acceptance. Refs #217, #220.

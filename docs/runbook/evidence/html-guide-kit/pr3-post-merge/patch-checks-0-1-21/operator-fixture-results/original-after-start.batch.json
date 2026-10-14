@@ -1,0 +1,49 @@
+{
+  "planFile": "C:\\Users\\Admin\\AppData\\Local\\Temp\\f6c39fc1-c01f-481b-bcd3-d0bf53192edc\\fixture-plan.json",
+  "selectedIds": [
+    "X",
+    "Y"
+  ],
+  "source": {
+    "canonicalSha": "FIXTURE_NOT_A_CANONICAL"
+  },
+  "packageVersion": "FIXTURE_NOT_A_RUNTIME",
+  "fixtureGlobalFlag": "C:\\Users\\Admin\\AppData\\Local\\Temp\\f6c39fc1-c01f-481b-bcd3-d0bf53192edc\\normal-execution-pause.flag",
+  "fixtureFlagAfter": "start",
+  "cases": {
+    "X": {
+      "plannedTurns": 3,
+      "attempts": [
+        {
+          "attemptId": "fixture-attempt",
+          "threadId": null,
+          "turns": [
+            {
+              "turn": 1,
+              "transportStatus": "COMPLETE",
+              "fixtureOnly": true
+            },
+            {
+              "turn": 2,
+              "transportStatus": "COMPLETE",
+              "fixtureOnly": true
+            },
+            {
+              "turn": 3,
+              "transportStatus": "COMPLETE",
+              "fixtureOnly": true
+            }
+          ]
+        }
+      ],
+      "executionStatus": "FIXTURE_EXECUTED",
+      "behaviorStatus": "NO_MODEL"
+    },
+    "Y": {
+      "plannedTurns": 1,
+      "attempts": [],
+      "executionStatus": "NOT_RUN",
+      "behaviorStatus": "NO_MODEL"
+    }
+  }
+}

@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [0.1.21] - 2026-10-14
+
+- HTML Guide Kit 0.1.21 retains the current state and all prerequisites in permission labels and short feedback; writing requirements do not establish a local scope. Pure condition judgments retain their own boundary.
+- Preserve the full public contract and actual source0.1.20 failure, invalid captures and limited native paths; require fresh installation and frozen behavior acceptance. Refs #217, #220.
+
 ## [0.1.20] - 2026-10-14
 
 - HTML Guide Kit 0.1.20 matches the complete source-rule range before marking a permission or field unknown, and budgets headings, labels, prompts and text against explicit user limits with room for review.

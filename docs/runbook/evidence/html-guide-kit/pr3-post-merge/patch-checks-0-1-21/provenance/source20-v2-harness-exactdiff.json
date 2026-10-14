@@ -1,0 +1,166 @@
+{
+  "phase": "INTEGRATION_ONLY_NO_MODEL",
+  "controlVersion": "technical-recovery-0.1.20-capture-lifecycle-v2",
+  "moduleSha256": "947cb0a958932d8007b7d3d6efb62c0969ba792272f0c7eaf00c118857fbd6eb",
+  "harnesses": [
+    {
+      "relative": "blocking/harness.mjs",
+      "sourceBytes": 44549,
+      "sourceSha256": "a2a7089587831fffbd74f9af773c144a5fec7d23fef42c617d28a26123b42304",
+      "destinationBytes": 44751,
+      "destinationSha256": "916bd929785c366559647bcbb2c62a74c8e531485f2f8fe99d1ac5add12e077a",
+      "stages": [
+        {
+          "name": "IMPORT_REVIEWED_CAPTURE_MODULE",
+          "byteOffsetInStage": 319,
+          "oldBytes": 45,
+          "newBytes": 118,
+          "oldText": "import { createRequire } from \"node:module\";\n",
+          "newText": "import { createRequire } from \"node:module\";\nimport { callObserved as call } from \"../capture-lifecycle-control.mjs\";\n",
+          "beforeSha256": "a2a7089587831fffbd74f9af773c144a5fec7d23fef42c617d28a26123b42304",
+          "afterSha256": "e25b67c4e324a8ace819cf7863445ef7a2cb2ed0da9e8e7aed0fe244ad5600a7"
+        },
+        {
+          "name": "REMOVE_OLD_CLOSE_ONLY_CAPTURE",
+          "byteOffsetInStage": 9895,
+          "oldBytes": 1006,
+          "newBytes": 0,
+          "oldText": "async function call(vector, argv, { cwd, env, input = \"\", timeoutMs = 240000, clean = s => s, onChunk = null }) {\n  return await new Promise(resolve => {\n    const child = spawn(vector[0], [...vector.slice(1), ...argv], { cwd, env, shell: false, windowsHide: true, stdio: [\"pipe\", \"pipe\", \"pipe\"] });\n    child.stdout.setEncoding(\"utf8\"); child.stderr.setEncoding(\"utf8\");\n    let stdout = \"\", stderr = \"\", timedOut = false, error = null;\n    const timer = setTimeout(() => { timedOut = true; child.kill(); }, timeoutMs);\n    child.stdout.on(\"data\", d => { const s = clean(d.toString()); stdout += s; onChunk?.(\"stdout\", s); });\n    child.stderr.on(\"data\", d => { const s = clean(d.toString()); stderr += s; onChunk?.(\"stderr\", s); });\n    child.on(\"error\", e => { error = e.message; });\n    child.on(\"close\", status => { clearTimeout(timer); resolve({ status, stdout: clean(stdout), stderr: clean(stderr), timedOut, error }); });\n    child.stdin.on(\"error\", () => {});\n    child.stdin.end(input);\n  });\n}\n",
+          "newText": "",
+          "beforeSha256": "e25b67c4e324a8ace819cf7863445ef7a2cb2ed0da9e8e7aed0fe244ad5600a7",
+          "afterSha256": "d73f75192b5b1add3e60f7ac9ea25b9d7c4f41e676962acf431e360f558514f5"
+        },
+        {
+          "name": "RECORD_COMPLETE_OBSERVED_LIFECYCLE",
+          "byteOffsetInStage": 33348,
+          "oldBytes": 196,
+          "newBytes": 472,
+          "oldText": "  turn.completed = now(); turn.exitCode = result.status; turn.timedOut = result.timedOut; turn.processError = result.error; turn.nonJsonLines = parsed.nonJson; turn.identityError = identityError;\n",
+          "newText": "  turn.completed = now(); turn.exitCode = result.status; turn.timedOut = result.timedOut; turn.processError = result.error; turn.nonJsonLines = parsed.nonJson; turn.identityError = identityError;\n  turn.captureLifecycle = result.lifecycle ?? null; turn.lateExitInvalid = result.lateExitInvalid ?? null;\n  turn.captureControl = { version: \"technical-recovery-0.1.20-capture-lifecycle-v2\", moduleSha256: \"947cb0a958932d8007b7d3d6efb62c0969ba792272f0c7eaf00c118857fbd6eb\" };\n",
+          "beforeSha256": "d73f75192b5b1add3e60f7ac9ea25b9d7c4f41e676962acf431e360f558514f5",
+          "afterSha256": "c3dc3ca6908d6a158090a27571c3558657fec0935bf234cb4cfbd7e1fdd62643"
+        },
+        {
+          "name": "STRICT_ACTUAL_EXIT_CLOSE_DEADLINE_GATE",
+          "byteOffsetInStage": 33820,
+          "oldBytes": 143,
+          "newBytes": 1002,
+          "oldText": "  turn.transportStatus = result.status === 0 && completed && !failed && !identityError && !result.timedOut ? \"COMPLETE\" : \"FAILED_OR_INVALID\";\n",
+          "newText": "  const captureLifecycle = result.lifecycle;\n  const validCapture = result.status === 0 && result.error === null && result.timedOut === false && result.lateExitInvalid === false\n    && captureLifecycle?.exitObserved === true && captureLifecycle?.closeObserved === true\n    && captureLifecycle.actualExit?.code === 0 && captureLifecycle.actualExit?.signal === null && captureLifecycle.actualExit?.inDeadline === true\n    && captureLifecycle.actualClose?.code === 0 && captureLifecycle.actualClose?.signal === null\n    && Number.isFinite(captureLifecycle.deadlineMonotonicMs) && Number.isFinite(captureLifecycle.actualExit.observedMonotonicMs)\n    && captureLifecycle.actualExit.observedMonotonicMs < captureLifecycle.deadlineMonotonicMs\n    && captureLifecycle.deadlineCallback === null && captureLifecycle.stdioCollectedThroughClose === true;\n  turn.transportStatus = result.status === 0 && completed && !failed && !identityError && !result.timedOut && validCapture ? \"COMPLETE\" : \"FAILED_OR_INVALID\";\n",
+          "beforeSha256": "c3dc3ca6908d6a158090a27571c3558657fec0935bf234cb4cfbd7e1fdd62643",
+          "afterSha256": "916bd929785c366559647bcbb2c62a74c8e531485f2f8fe99d1ac5add12e077a"
+        }
+      ],
+      "reverseRestoresOriginal": true,
+      "outsideEditsByteIdentical": true,
+      "sourceLineEnding": "LF",
+      "editLineEnding": "LF"
+    },
+    {
+      "relative": "expanded/harness.mjs",
+      "sourceBytes": 43513,
+      "sourceSha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645",
+      "destinationBytes": 43715,
+      "destinationSha256": "910b412ddbd3a2032435342d5d3b194709240724a3a40a027ae02acc3d7bdf9f",
+      "stages": [
+        {
+          "name": "IMPORT_REVIEWED_CAPTURE_MODULE",
+          "byteOffsetInStage": 319,
+          "oldBytes": 45,
+          "newBytes": 118,
+          "oldText": "import { createRequire } from \"node:module\";\n",
+          "newText": "import { createRequire } from \"node:module\";\nimport { callObserved as call } from \"../capture-lifecycle-control.mjs\";\n",
+          "beforeSha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645",
+          "afterSha256": "e000a5d3585d96ceb9612d8560280d5f3c626a60dccbbaf6f5241ceba9dacfcb"
+        },
+        {
+          "name": "REMOVE_OLD_CLOSE_ONLY_CAPTURE",
+          "byteOffsetInStage": 5574,
+          "oldBytes": 1006,
+          "newBytes": 0,
+          "oldText": "async function call(vector, argv, { cwd, env, input = \"\", timeoutMs = 240000, clean = s => s, onChunk = null }) {\n  return await new Promise(resolve => {\n    const child = spawn(vector[0], [...vector.slice(1), ...argv], { cwd, env, shell: false, windowsHide: true, stdio: [\"pipe\", \"pipe\", \"pipe\"] });\n    child.stdout.setEncoding(\"utf8\"); child.stderr.setEncoding(\"utf8\");\n    let stdout = \"\", stderr = \"\", timedOut = false, error = null;\n    const timer = setTimeout(() => { timedOut = true; child.kill(); }, timeoutMs);\n    child.stdout.on(\"data\", d => { const s = clean(d.toString()); stdout += s; onChunk?.(\"stdout\", s); });\n    child.stderr.on(\"data\", d => { const s = clean(d.toString()); stderr += s; onChunk?.(\"stderr\", s); });\n    child.on(\"error\", e => { error = e.message; });\n    child.on(\"close\", status => { clearTimeout(timer); resolve({ status, stdout: clean(stdout), stderr: clean(stderr), timedOut, error }); });\n    child.stdin.on(\"error\", () => {});\n    child.stdin.end(input);\n  });\n}\n",
+          "newText": "",
+          "beforeSha256": "e000a5d3585d96ceb9612d8560280d5f3c626a60dccbbaf6f5241ceba9dacfcb",
+          "afterSha256": "bae669ed3d14958ce3dcd038923e7f56a6d34299b542047ca5bad9d8e5369509"
+        },
+        {
+          "name": "RECORD_COMPLETE_OBSERVED_LIFECYCLE",
+          "byteOffsetInStage": 31255,
+          "oldBytes": 196,
+          "newBytes": 472,
+          "oldText": "  turn.completed = now(); turn.exitCode = result.status; turn.timedOut = result.timedOut; turn.processError = result.error; turn.nonJsonLines = parsed.nonJson; turn.identityError = identityError;\n",
+          "newText": "  turn.completed = now(); turn.exitCode = result.status; turn.timedOut = result.timedOut; turn.processError = result.error; turn.nonJsonLines = parsed.nonJson; turn.identityError = identityError;\n  turn.captureLifecycle = result.lifecycle ?? null; turn.lateExitInvalid = result.lateExitInvalid ?? null;\n  turn.captureControl = { version: \"technical-recovery-0.1.20-capture-lifecycle-v2\", moduleSha256: \"947cb0a958932d8007b7d3d6efb62c0969ba792272f0c7eaf00c118857fbd6eb\" };\n",
+          "beforeSha256": "bae669ed3d14958ce3dcd038923e7f56a6d34299b542047ca5bad9d8e5369509",
+          "afterSha256": "48728942b9a30bef9c6368490bf95f310396a051b8c11cbdf6a5b1b9192c49a5"
+        },
+        {
+          "name": "STRICT_ACTUAL_EXIT_CLOSE_DEADLINE_GATE",
+          "byteOffsetInStage": 31727,
+          "oldBytes": 143,
+          "newBytes": 1002,
+          "oldText": "  turn.transportStatus = result.status === 0 && completed && !failed && !identityError && !result.timedOut ? \"COMPLETE\" : \"FAILED_OR_INVALID\";\n",
+          "newText": "  const captureLifecycle = result.lifecycle;\n  const validCapture = result.status === 0 && result.error === null && result.timedOut === false && result.lateExitInvalid === false\n    && captureLifecycle?.exitObserved === true && captureLifecycle?.closeObserved === true\n    && captureLifecycle.actualExit?.code === 0 && captureLifecycle.actualExit?.signal === null && captureLifecycle.actualExit?.inDeadline === true\n    && captureLifecycle.actualClose?.code === 0 && captureLifecycle.actualClose?.signal === null\n    && Number.isFinite(captureLifecycle.deadlineMonotonicMs) && Number.isFinite(captureLifecycle.actualExit.observedMonotonicMs)\n    && captureLifecycle.actualExit.observedMonotonicMs < captureLifecycle.deadlineMonotonicMs\n    && captureLifecycle.deadlineCallback === null && captureLifecycle.stdioCollectedThroughClose === true;\n  turn.transportStatus = result.status === 0 && completed && !failed && !identityError && !result.timedOut && validCapture ? \"COMPLETE\" : \"FAILED_OR_INVALID\";\n",
+          "beforeSha256": "48728942b9a30bef9c6368490bf95f310396a051b8c11cbdf6a5b1b9192c49a5",
+          "afterSha256": "910b412ddbd3a2032435342d5d3b194709240724a3a40a027ae02acc3d7bdf9f"
+        }
+      ],
+      "reverseRestoresOriginal": true,
+      "outsideEditsByteIdentical": true,
+      "sourceLineEnding": "LF",
+      "editLineEnding": "LF"
+    },
+    {
+      "relative": "continuous-supplement/harness.mjs",
+      "sourceBytes": 43513,
+      "sourceSha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645",
+      "destinationBytes": 43715,
+      "destinationSha256": "910b412ddbd3a2032435342d5d3b194709240724a3a40a027ae02acc3d7bdf9f",
+      "stages": [
+        {
+          "name": "IMPORT_REVIEWED_CAPTURE_MODULE",
+          "byteOffsetInStage": 319,
+          "oldBytes": 45,
+          "newBytes": 118,
+          "oldText": "import { createRequire } from \"node:module\";\n",
+          "newText": "import { createRequire } from \"node:module\";\nimport { callObserved as call } from \"../capture-lifecycle-control.mjs\";\n",
+          "beforeSha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645",
+          "afterSha256": "e000a5d3585d96ceb9612d8560280d5f3c626a60dccbbaf6f5241ceba9dacfcb"
+        },
+        {
+          "name": "REMOVE_OLD_CLOSE_ONLY_CAPTURE",
+          "byteOffsetInStage": 5574,
+          "oldBytes": 1006,
+          "newBytes": 0,
+          "oldText": "async function call(vector, argv, { cwd, env, input = \"\", timeoutMs = 240000, clean = s => s, onChunk = null }) {\n  return await new Promise(resolve => {\n    const child = spawn(vector[0], [...vector.slice(1), ...argv], { cwd, env, shell: false, windowsHide: true, stdio: [\"pipe\", \"pipe\", \"pipe\"] });\n    child.stdout.setEncoding(\"utf8\"); child.stderr.setEncoding(\"utf8\");\n    let stdout = \"\", stderr = \"\", timedOut = false, error = null;\n    const timer = setTimeout(() => { timedOut = true; child.kill(); }, timeoutMs);\n    child.stdout.on(\"data\", d => { const s = clean(d.toString()); stdout += s; onChunk?.(\"stdout\", s); });\n    child.stderr.on(\"data\", d => { const s = clean(d.toString()); stderr += s; onChunk?.(\"stderr\", s); });\n    child.on(\"error\", e => { error = e.message; });\n    child.on(\"close\", status => { clearTimeout(timer); resolve({ status, stdout: clean(stdout), stderr: clean(stderr), timedOut, error }); });\n    child.stdin.on(\"error\", () => {});\n    child.stdin.end(input);\n  });\n}\n",
+          "newText": "",
+          "beforeSha256": "e000a5d3585d96ceb9612d8560280d5f3c626a60dccbbaf6f5241ceba9dacfcb",
+          "afterSha256": "bae669ed3d14958ce3dcd038923e7f56a6d34299b542047ca5bad9d8e5369509"
+        },
+        {
+          "name": "RECORD_COMPLETE_OBSERVED_LIFECYCLE",
+          "byteOffsetInStage": 31255,
+          "oldBytes": 196,
+          "newBytes": 472,
+          "oldText": "  turn.completed = now(); turn.exitCode = result.status; turn.timedOut = result.timedOut; turn.processError = result.error; turn.nonJsonLines = parsed.nonJson; turn.identityError = identityError;\n",
+          "newText": "  turn.completed = now(); turn.exitCode = result.status; turn.timedOut = result.timedOut; turn.processError = result.error; turn.nonJsonLines = parsed.nonJson; turn.identityError = identityError;\n  turn.captureLifecycle = result.lifecycle ?? null; turn.lateExitInvalid = result.lateExitInvalid ?? null;\n  turn.captureControl = { version: \"technical-recovery-0.1.20-capture-lifecycle-v2\", moduleSha256: \"947cb0a958932d8007b7d3d6efb62c0969ba792272f0c7eaf00c118857fbd6eb\" };\n",
+          "beforeSha256": "bae669ed3d14958ce3dcd038923e7f56a6d34299b542047ca5bad9d8e5369509",
+          "afterSha256": "48728942b9a30bef9c6368490bf95f310396a051b8c11cbdf6a5b1b9192c49a5"
+        },
+        {
+          "name": "STRICT_ACTUAL_EXIT_CLOSE_DEADLINE_GATE",
+          "byteOffsetInStage": 31727,
+          "oldBytes": 143,
+          "newBytes": 1002,
+          "oldText": "  turn.transportStatus = result.status === 0 && completed && !failed && !identityError && !result.timedOut ? \"COMPLETE\" : \"FAILED_OR_INVALID\";\n",
+          "newText": "  const captureLifecycle = result.lifecycle;\n  const validCapture = result.status === 0 && result.error === null && result.timedOut === false && result.lateExitInvalid === false\n    && captureLifecycle?.exitObserved === true && captureLifecycle?.closeObserved === true\n    && captureLifecycle.actualExit?.code === 0 && captureLifecycle.actualExit?.signal === null && captureLifecycle.actualExit?.inDeadline === true\n    && captureLifecycle.actualClose?.code === 0 && captureLifecycle.actualClose?.signal === null\n    && Number.isFinite(captureLifecycle.deadlineMonotonicMs) && Number.isFinite(captureLifecycle.actualExit.observedMonotonicMs)\n    && captureLifecycle.actualExit.observedMonotonicMs < captureLifecycle.deadlineMonotonicMs\n    && captureLifecycle.deadlineCallback === null && captureLifecycle.stdioCollectedThroughClose === true;\n  turn.transportStatus = result.status === 0 && completed && !failed && !identityError && !result.timedOut && validCapture ? \"COMPLETE\" : \"FAILED_OR_INVALID\";\n",
+          "beforeSha256": "48728942b9a30bef9c6368490bf95f310396a051b8c11cbdf6a5b1b9192c49a5",
+          "afterSha256": "910b412ddbd3a2032435342d5d3b194709240724a3a40a027ae02acc3d7bdf9f"
+        }
+      ],
+      "reverseRestoresOriginal": true,
+      "outsideEditsByteIdentical": true,
+      "sourceLineEnding": "LF",
+      "editLineEnding": "LF"
+    }
+  ]
+}
