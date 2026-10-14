@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-14
 state: draft
-version: v1.36
+version: v1.37
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -638,3 +638,5 @@ Root6a074d正常globalmarker11:02:35.2451047Z后不新增输入，所有三十�
 PR3仍draft，#220/Epic OPEN；最终head非作者批准/CI/线程及准确merge差异复验、双客户端与Owner接受分别满足；无Release/tag/main发布动作。
 
 22首次完整npm test实际626d28/session70343最终23793f exit1，345P1F，仅变更日志正文未写自身版本。5377ab补正文版本号、运行资源与测试/validator不变；新完整重跑session63446最终6b7396 exit0，346P0F0skip/215360.1563ms，原失败及两份全stdout分别保留。工作validate/check5d7d70 exit0，共享资源9a3c61 diff0；尚无准确22安装或行为/客户端结果。
+
+22准确canonical aac6fc9cff27dff8b6fb694a1286ff12104332e9/tree66d73d8845ae3013f1b4a3d9637f01d5fdb11fc6已提交推送（f540b9/2be107）；严格十三安装/六实际缓存Python完成，ce5741/session82860最终cde75e exit0。原25日志已另封；新22 core三真实fresh批已准备并启动，尚待原逐项独立结论，不复用21P。源21十四原final/三十C、五批32variant70计划轮零attempt的574原文件13120370字节/十一包，Root e8c83d实际pack、b1e0cd Node复原及c57d03独立.NET复原全exit0；inventory bdf0bdb204e50873b6f56cd70069adaf58cee1efca197c06f474805e40013d52。首次dry因可选旧自测假凭证源码被扫描命中，保原错误并仅排除可选副本、旧机制准确hash另记，不放宽扫描；最终handoff writer曾因Root已actualpack而误要求target仍absent（78aede），新别件准确分dry时absent/当前exists，原状态与原件未改。

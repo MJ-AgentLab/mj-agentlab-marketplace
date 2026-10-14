@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-14
 state: active
-version: v2.51
+version: v2.52
 ---
 
 # 文档索引
@@ -204,3 +204,5 @@ HTML候选已普通同步#223实际develop bca7b5c，保留Communication契约�
 HTML第二准确候选627e8e6安装前因根说明Windows换行超预算失败；仅摘要收敛，原失败保留，运行仍0.1.21，须新canonical验收。源20有限原生记录已按公开范围封存，不能代表21或普通Chat通过。
 
 HTML源21准确1799的13安装/6Python/9CI通过；14UUID30C原独立13P1F，关系图漏当前态F保留。22三段通用修正接入，须新安装/模型/客户端，不继承旧P；原生工具在再次授权后仍返回停止状态。见HTML RUNBOOK §42。
+
+HTML22准确aac6fc9十三安装/六缓存Python通过，新核心fresh会话已启动但尚未独立结论；21原13P1F/三十C及零扩展574文件十一包实际封存/两独立复原通过，原失败不追认。见HTML RUNBOOK §42。
