@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [0.1.18] - 2026-10-14
+
+- HTML Guide Kit 0.1.18 identifies the source of each trigger, operation, action, object, field and result. A new teaching trigger is explicitly marked as design beside the trigger; reused source recovery actions and results retain their own source citation. Equal results do not establish equal triggers.
+- Preserve all existing contracts and methods with one small change per runtime resource, retaining source0.1.17 failures and requiring fresh installation and frozen behavior checks. Refs #217, #220.
+
 ## [0.1.17] - 2026-10-14
 
 - HTML Guide Kit 0.1.17 reads one source or fragment at a time without bundling unrelated file inspection or encoded scripts. Respect explicit access denials; generic tool rejection does not establish a permission cause.

@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T04:38:58.033Z",
+  "status": "STATIC_ONLY",
+  "verdict": "NO_STATIC_BLOCKERS",
+  "reviewer": "/root/precommit_014",
+  "sourceCanonical": "5bf3edf7e4c7ded20f9344ecfe4fbcae9104330b",
+  "sourceTree": "67663002e90e6e532f36fbd6377a8cfc09f50ddf",
+  "proposedVersion": "0.1.18",
+  "candidateCanonical": null,
+  "runtimeApplied": false,
+  "resources": [
+    {
+      "relative": "skills/guide/SKILL.md",
+      "sourceBytes": 5750,
+      "sourceSha256": "480307447076827f340cd990f7f8848ab516bd3dc2c66b87ac0a8661ab979516",
+      "draftBytes": 5935,
+      "draftSha256": "1f99fd02ace97f8b86b99b78068c081d8a5520d54214967c9b770948df37b507",
+      "sourceSnapshotMatchesCanonicalGit": true,
+      "exactReconstructionFromOnlyDeclaredReplacements": true,
+      "lineCountUnchanged": true,
+      "changedLines": [
+        46
+      ],
+      "byteDelta": 185,
+      "draftFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-18\\draft\\SKILL.md.snapshot.txt"
+    },
+    {
+      "relative": "skills/guide/references/guide-framework.md",
+      "sourceBytes": 8240,
+      "sourceSha256": "3d6f2ec4764b48c97b80dae69efa470c3e13620242b2050d90f687ed1c452ea3",
+      "draftBytes": 8435,
+      "draftSha256": "405ed0ad108740d643a9b8270910f9efd944faa05cbf16db3a88c9a71cab659d",
+      "sourceSnapshotMatchesCanonicalGit": true,
+      "exactReconstructionFromOnlyDeclaredReplacements": true,
+      "lineCountUnchanged": true,
+      "changedLines": [
+        52
+      ],
+      "byteDelta": 195,
+      "draftFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-18\\draft\\guide-framework.md.snapshot.txt"
+    },
+    {
+      "relative": "skills/guide/references/interaction-design.md",
+      "sourceBytes": 8345,
+      "sourceSha256": "bd7032f3484c60e2142519a4409e9c156dcec34755701818997526ac52ff71b6",
+      "draftBytes": 8564,
+      "draftSha256": "25692a87a1773ec018dd51a71658aed42ef3e05d8e29b4806e09dff52a95df95",
+      "sourceSnapshotMatchesCanonicalGit": true,
+      "exactReconstructionFromOnlyDeclaredReplacements": true,
+      "lineCountUnchanged": true,
+      "changedLines": [
+        27
+      ],
+      "byteDelta": 219,
+      "draftFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-18\\draft\\interaction-design.md.snapshot.txt"
+    }
+  ],
+  "control": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-18\\draft\\runtime-draft-control.json",
+    "bytes": 6772,
+    "sha256": "a0fc5cbf65cf55b9102d306d6bdbda2e5f39bc1a21a92cdc142c8f9ea57e9453"
+  },
+  "scope": "Independently compare the three exact frozen Source18 drafts with canonical Source17; review the three modified generic paragraphs and preservation of the confirmed user contract. Author crosswalk is supplemental and is not a substitute for this judgment.",
+  "findings": [
+    {
+      "area": "Source versus teaching trigger attribution",
+      "evidence": [
+        "skills/guide/SKILL.md:46",
+        "skills/guide/references/guide-framework.md:52",
+        "skills/guide/references/interaction-design.md:27"
+      ],
+      "result": "NO_STATIC_BLOCKER",
+      "rationale": "Each proposed paragraph distinguishes the triggering condition, original action, action/object/field and result. A new teaching entry trigger receives adjacent design attribution, while reused source restoration actions/results retain independent source location. Equal results do not prove equal triggers. This applies generally and permits clearly identified teaching design; it does not invent a source operation or encode a case answer."
+    },
+    {
+      "area": "Preservation of established contract and methods",
+      "evidence": [
+        "SKILL source/draft exact outside line46",
+        "guide-framework source/draft exact outside line52",
+        "interaction-design source/draft exact outside line27"
+      ],
+      "result": "NO_STATIC_BLOCKER",
+      "rationale": "The actual byte reconstruction proves no other proposed resource change. Explicit new-guide/Read/chat-only boundaries, Chinese/original terms, no output HTML/code/files/tool operations, 2–3 distinct audience/task/problem choices, existing-option choice versus modified-target adoption, same pending choice, no inferred confirmation or host lock, source/background/construction distinctions, conflict/unknown and scope retention, full receipt/denial facts, flexible depth, complete conditional rules and full-guide shared scope including summaries/author checks, source-only field results, independent simulation/lifecycle, reliable versus bounded teaching feedback/retry and no ability/mastery conclusion all remain in the unchanged source methods. The changed clauses retain source restoration completeness and existing term/relation/domain/lifecycle cross-references."
+    },
+    {
+      "area": "Budget and portability",
+      "evidence": [
+        "skills/guide/SKILL.md",
+        "skills/guide/references/guide-framework.md",
+        "skills/guide/references/interaction-design.md"
+      ],
+      "result": "NO_STATIC_BLOCKER",
+      "rationale": "Entry5935 is below unchanged6144 limit by209 bytes. References8435/8564 retain their compact organization. The three-resource total22934 grows599 bytes only. Direct review and scan find no Owner filesystem/chat dependency, fixture identifiers or domain-specific expected response in the proposed resources; metadata and invocation contract receive no delta."
+    }
+  ],
+  "byteProof": {
+    "allThreeSourceSnapshotsMatchCanonicalGit": true,
+    "allThreeDraftPinsMatchFrozenControl": true,
+    "onlyChangedExistingParagraphLines": [
+      46,
+      52,
+      27
+    ],
+    "totalByteDelta": 599,
+    "otherParagraphBytesUnchanged": true,
+    "entryHardLimit": 6144,
+    "entryBytes": 5935,
+    "entryHeadroom": 209
+  },
+  "priorEvidenceIntegrity": {
+    "source17ClosureFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-17\\blocking\\reviews\\independent-root-b6-closure.json",
+    "source17ClosureBytes": 6521,
+    "source17ClosureSha256": "5d0c20f5783d504aa17b8c95b65bd3cc9340bc58a8c86e69c24fa6f8bcc2baab",
+    "allSixOriginalFinalsUnchanged": true,
+    "currentRepositoryHeadAtRead": "5bf3edf7e4c7ded20f9344ecfe4fbcae9104330b",
+    "repositoryModifiedByReviewer": false
+  },
+  "blockers": [],
+  "limits": [
+    "STATIC_ONLY: no Source18 model behavior, installation, received-reference completeness, client UI, CI, GitHub approval, merge or real-world effect PASS is established.",
+    "Source17 behavior failures/partial/unrun records remain unchanged and are not inherited as Source18 behavior results.",
+    "The draft is not applied; any later production candidate must exactly match these resource pins and satisfy its own gates."
+  ],
+  "modelInvoked": false,
+  "installationInvoked": false,
+  "gradeWrites": false,
+  "oldEvidenceModified": false
+}

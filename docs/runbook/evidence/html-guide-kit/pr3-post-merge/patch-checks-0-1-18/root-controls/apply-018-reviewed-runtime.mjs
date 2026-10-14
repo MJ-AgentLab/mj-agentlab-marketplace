@@ -1,0 +1,4 @@
+import fs from 'node:fs';
+const base='C:/Users/Admin/.codex/worktrees/html-guide-acceptance',original=fs.readFileSync(base+'/tracking/apply-017-reviewed-runtime.mjs','utf8');
+const adapted=original.replaceAll('0-1-17','0-1-18').replaceAll('candidate026-final-seal','candidate027-final-seal').replaceAll('0.1.17','__NEXT_VERSION__').replaceAll('0.1.16','0.1.17').replaceAll('__NEXT_VERSION__','0.1.18').replaceAll('b4fb2468bd0baec6d57494eed39514ec724ca5e5','5bf3edf7e4c7ded20f9344ecfe4fbcae9104330b').replaceAll('draft-r2','draft').replaceAll('f58734117dd12e29fc12a54d843306f784d3f2fd01ac80b07bec4900463326ed','a0fc5cbf65cf55b9102d306d6bdbda2e5f39bc1a21a92cdc142c8f9ea57e9453').replaceAll('static-review-017','static-review-018').replaceAll('source16','source17');
+await import('data:text/javascript;base64,'+Buffer.from(adapted).toString('base64'));
