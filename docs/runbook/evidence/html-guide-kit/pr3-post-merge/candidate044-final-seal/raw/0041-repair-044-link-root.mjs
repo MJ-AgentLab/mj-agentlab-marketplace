@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const p='docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md';
+const b=fs.readFileSync(p),s=b.toString('utf8');
+const old='patch-044-stopped/index.md',next='patch-044-stopped/index.json';
+assert.equal(s.split(old).length,2);
+assert(fs.existsSync('docs/runbook/evidence/html-guide-kit/pr3-reviewer/'+next));
+fs.writeFileSync(p,s.replace(old,next));
+const script=fs.readFileSync('../tracking/check-031-stop-proof-root.mjs','utf8');
+fs.writeFileSync('../tracking/check-031-stop-proof-root-r2.mjs',script.replace("031-stop-proof-checks/","031-stop-proof-checks-r2/"),{flag:'wx'});
+console.log('Corrected only archive link to existing index.json; original failed logs retained.');
