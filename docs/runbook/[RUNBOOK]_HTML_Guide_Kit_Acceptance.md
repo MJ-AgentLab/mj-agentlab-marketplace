@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-15
 state: draft
-version: v1.55
+version: v1.56
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -907,3 +907,8 @@ Root32a9c0与B62202a独立全文静态无阻断，freeze5e5e1eeb精确两span：
 原29真实8UUID14COMPLETE/0INVALID，5PASS/1FAIL/2UNEXERCISED/6NOT_RUN，16输入未发、0post/0cross；C B1等待确认主判PASS但取消许可wholeFAIL，保其准确来源、实际SDK/high、工具收包、原报告和定位修正，不改旧结果。042实际e12c99 pack、420013 Node与5f75b7独立.NET复原均EXIT0，300文件/7028226B/七包，最大2042456<2MiB、secret0，inventory df85829ffb7821145ad27ea1ba1d0009ea8efbfb87c1cbfa8fb5835dd35d43c3。已有51工程与24canonical只逐字节引用，不重复payload；future30及私密HOME/auth/未导出整窗位图排除。原29及042均保持。
 
 本版工作树工程检查正在执行，实际日志存integration-records；64保护/59其他包、市场8.3.0、登记/图标/UIpolicy、28工具Git及362原29文件不改。当前并无准确30canonical安装、fresh模型或本版双端，不继承旧PASS。外部控制Root3edd31及A38aa19独静态保持原材料/输入/判准、CLI0.147/OpenAI/gpt-5.6-sol、实际defaultlow/显式high分记、240000ms捕获及每轮普通pause；支持与配置不证行为。现实效果NOT_MEASURED，#220/Epic开放，Owner接受、当前head非作者批准、CI/线程及实际merge复验仍分别待证；无Release/tag/main发布PR或bypass。Refs #217, #220
+
+
+30工程补证：准确canonical 696da5df4faedd239783764e59b6832b5884f5e1/tree5202e43ba36ee3f8b231fe28d48293e1b265f990，正常2d648c提交/6f17ad推送。唯一完整a81648/session45853→0b6344 EXIT0：346PASS0FAIL0cancel0skip/278167.1416ms；db947e文档/A6 65PASS0FAIL，4a12cb strict与483f51基线0.147检查、两quick及PowerShell7.6.5实际DryRun/Apply均通过。三运行资源与冻结精确一致，其他59包文件、64保护资源与28工具保持，362旧29原件不变。[工程/静态原件索引](evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-30/archive-index.json)。
+
+Root唯一a59094/session23823→5ab65a EXIT0[十三canonical安装/六真实缓存Python](evidence/html-guide-kit/pr3-post-merge/engineering-696da5df/archive-index.json)通过：实际五插件七公开/四显式/三自然/仓库20，manifest、调用策略、图标、参考、版本与缓存来源逐字节对应。原controller已清临时缓存，不称事后读取。fresh核心三个实际批次分别执行独立原SDK与全篇语义评审，未据工程或历史行为追认当前整体PASS；双客户端仍须新30实际调用，现实效果NOT_MEASURED，#220/Epic OPEN，无正式发布。Refs #217, #220。

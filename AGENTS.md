@@ -85,3 +85,5 @@ Communication PR4普通合入PR3 c6d40a8与最新develop98068a8，仅同步文�
 PR4继承空白修复检查完整PR范围；冻结计划、来源及原失败证据保留原字节。
 
 PR1 #223已实际合入develop bca7b5c（2026-10-13，源5a9d845同树）；reviews=[]不追认独立批准。本分支普通同步，Refs #222。
+
+HTML30工程346/13安装6缓存PythonP，模型与双端另证；Refs #217/#220。
