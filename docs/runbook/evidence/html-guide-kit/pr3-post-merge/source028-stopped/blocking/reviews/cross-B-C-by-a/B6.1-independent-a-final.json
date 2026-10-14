@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "recordedUtc": "2026-10-14T17:54:22.379Z",
+  "reviewer": "/root/behavior_014_a",
+  "operator": "/root/behavior_014_b",
+  "source": {
+    "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "canonicalSha": "83b3f50ba6c41f923a2b48bba10ca176102be18d",
+    "canonicalTree": "b5bea864f5fefba2d964a158e077225cae82d987"
+  },
+  "packageVersion": "0.1.28",
+  "variant": "B6.1",
+  "uuid": "01a13b83-669d-7b01-9000-c8771666f61a",
+  "attemptId": "920d8656-ee32-482d-8308-c8ee5a6213d8",
+  "plannedTurns": 2,
+  "actualTurns": 1,
+  "primaryCriterion": "UNEXERCISED",
+  "wholeFidelity": "FAIL",
+  "overall": "FAIL",
+  "method": "Independent whole original inputs/outputs/material and frozen criterion review; selected-high actual SDK and V2 capture independently inspected in new evidence; no prior PASS inherited",
+  "rawInputOutputPins": [
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\B6.1\\920d8656-ee32-482d-8308-c8ee5a6213d8\\01.input.txt",
+      "bytes": 989,
+      "sha256": "8029111104f67a1c156536b319366f032730358a61ce3086c16a1a36a9913fb7"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\B6.1\\920d8656-ee32-482d-8308-c8ee5a6213d8\\01.output.txt",
+      "bytes": 2761,
+      "sha256": "3f77dae70841a6aa63b2c01ab53656f96b7b00484bdb3d1fad44d233a26e56e3"
+    }
+  ],
+  "technical": {
+    "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\reviews\\cross-B-C-by-a\\B6.1-T1-actual-sdk-a.json",
+    "bytes": 19042,
+    "sha256": "5ca0b07b5ddef4973abc9559d9bbc7e49f11e1a4a483b5340b79f04d69deb5c2"
+  },
+  "actualReceiptSummary": {
+    "selectedPreparation": {
+      "originalDefault": {
+        "model": "gpt-5.6-sol",
+        "model_reasoning_effort": "low"
+      },
+      "selectedIdentity": {
+        "model": "gpt-5.6-sol",
+        "model_reasoning_effort": "high"
+      },
+      "effectiveBaseline": {
+        "model": "gpt-5.6-sol",
+        "model_reasoning_effort": "high"
+      },
+      "expectedClient": "0.147.0",
+      "expectedProvider": "openai",
+      "expectedModel": "gpt-5.6-sol",
+      "expectedEffort": "high",
+      "originalProof": {
+        "sha256": "112d6f63191c781df9d2ca6d99a2f228f299aae82e056e3bf1869ee70d50bb49",
+        "bytes": 3891,
+        "defaultEffort": "low"
+      },
+      "freshModelMetadata": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\models.json",
+        "sha256": "5bc4e657a9551880e076de47d3a7ce5da9a284a1a7d43019de77cdc700a96518",
+        "actualDefaultEffort": "low",
+        "selectedEffortSupported": true
+      },
+      "actualModelEffortObserved": false,
+      "metadataIsNotSdkEvidence": true
+    },
+    "observedReading": {
+      "nativeSkillFull": true,
+      "additionalToolSkillFull": true,
+      "frameworkActualToolFull": true,
+      "interactionActualToolFull": true,
+      "materialActualToolFull": true
+    },
+    "uniqueActualCalls": 4,
+    "actualCompleteBodyReceivers": 4,
+    "allRecordedTurnsActualHighAndV2ExitCloseValidated": true
+  },
+  "frozenSpec": {
+    "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\frozen-spec.md",
+    "bytes": 28037,
+    "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d"
+  },
+  "fullReadTools": [
+    "966a0b",
+    "6bd6e6",
+    "0fc9bf"
+  ],
+  "reason": "T1完整输出将泛化工具拒绝明确归因为沙箱策略。实际call_772d452b865042cc96029213c697439f回包仅rejected: blocked by policy，未述sandbox、安装目录权限或路径范围；已知只读模式和后续成功完整读取均不证明先前拒因。该真实保义错误独立保留。T2越权请求尚未发送，不能把T1文本/Read部分P追为全B6.1主判P。",
+  "findings": [
+    {
+      "kind": "CONFIRMED_FIDELITY_FAILURE",
+      "turn": 1,
+      "outputLine": 3,
+      "quote": "读取被沙箱策略拦截了",
+      "actualToolCallId": "call_772d452b865042cc96029213c697439f",
+      "sdkCallLine": 15,
+      "sdkReceiverLine": 16,
+      "actualReceiverConclusion": "Generic policy rejection; cause and permission scope not specified",
+      "rootConfirmation": "Root actual0f1e14 and flag actual0d970a 17:47:41.605Z"
+    }
+  ],
+  "notes": [
+    "T1没有HTML/代码/文件或执行附注；这一有限Read/文本片段通过，不代T2未运行。",
+    "真实首次foreach多文件+长度包装被拒；后material SDK22、entry26、两refs30，顺序与实际回包保留。完整实收不是理想读取顺序，也不抵因果F。",
+    "初SDK broad read e5db62截断base metadata；6bd6e6明确完整补读15/16，0fc9bf新helper核实际high/V2/full bodies。"
+  ],
+  "noNewModelOrFixture": true,
+  "effect": "NOT_MEASURED",
+  "client": "NOT_RUN"
+}

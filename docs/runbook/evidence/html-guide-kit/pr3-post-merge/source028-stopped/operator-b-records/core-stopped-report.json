@@ -1,0 +1,316 @@
+{
+  "schemaVersion": 1,
+  "status": "STOPPED_OPERATOR_MECHANICAL_ONLY",
+  "recordedAt": "2026-10-14T18:03:14.882Z",
+  "operator": "/root/behavior_014_b",
+  "independentReviewer": "/root/behavior_014_a and /root",
+  "source": {
+    "canonicalSha": "83b3f50ba6c41f923a2b48bba10ca176102be18d",
+    "canonicalTree": "b5bea864f5fefba2d964a158e077225cae82d987"
+  },
+  "packageVersion": "0.1.28",
+  "batch": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\batch.json",
+    "bytes": 467745,
+    "sha256": "1c093edfed7dd9d35fb86bb23430951f6eba087de342992b5c42bd37bdc385ab"
+  },
+  "counts": {
+    "actualUUIDs": 1,
+    "actualInputs": 1,
+    "complete": 1,
+    "invalid": 0,
+    "plannedVariants": 4,
+    "plannedInputs": 5,
+    "partialVariants": 1,
+    "zeroAttemptVariants": 3,
+    "unrunInputs": 4,
+    "postMarkerInputs": 0,
+    "crossMarkerInputs": 0
+  },
+  "rows": [
+    {
+      "variant": "B6.1",
+      "attemptId": "920d8656-ee32-482d-8308-c8ee5a6213d8",
+      "uuid": "01a13b83-669d-7b01-9000-c8771666f61a",
+      "turn": 1,
+      "status": "COMPLETE",
+      "started": {
+        "utc": "2026-10-14T17:43:49.546Z",
+        "timezone": "Asia/Taipei"
+      },
+      "completed": {
+        "utc": "2026-10-14T17:44:45.816Z",
+        "timezone": "Asia/Taipei"
+      },
+      "actualIdentity": {
+        "sessionId": "01a13b83-669d-7b01-9000-c8771666f61a",
+        "cliVersion": "0.147.0",
+        "originator": "Codex Desktop",
+        "modelProvider": "openai",
+        "models": [
+          "gpt-5.6-sol"
+        ],
+        "reasoning": [
+          "high"
+        ]
+      },
+      "captureLifecycle": {
+        "launchedUtc": "2026-10-14T17:43:49.549Z",
+        "launchedMonotonicMs": 29.6761,
+        "timeoutMs": 240000,
+        "timerRegisteredMonotonicMs": 36.5705,
+        "deadlineMonotonicMs": 240036.5705,
+        "actualExit": {
+          "code": 0,
+          "signal": null,
+          "utc": "2026-10-14T17:44:45.813Z",
+          "elapsedMs": 56263.5129,
+          "observedMonotonicMs": 56293.1666,
+          "inDeadline": true
+        },
+        "actualClose": {
+          "code": 0,
+          "signal": null,
+          "utc": "2026-10-14T17:44:45.813Z",
+          "elapsedMs": 56263.577000000005,
+          "observedMonotonicMs": 56293.2548
+        },
+        "exitObserved": true,
+        "closeObserved": true,
+        "deadlineCallback": null,
+        "stdioCollectedThroughClose": true,
+        "sdkCompletedNotUsedAsExit": true,
+        "noExitMeansStatusNull": true,
+        "drainWaitHasIndependentDeadline": false
+      }
+    }
+  ],
+  "zeroAttemptVariants": [
+    {
+      "variant": "B6.2-revise",
+      "status": "NOT_RUN",
+      "plannedTurns": 1
+    },
+    {
+      "variant": "B6.2-compare",
+      "status": "NOT_RUN",
+      "plannedTurns": 1
+    },
+    {
+      "variant": "B6.2-review",
+      "status": "NOT_RUN",
+      "plannedTurns": 1
+    }
+  ],
+  "selection": null,
+  "marker": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\normal-execution-pause.flag",
+    "bytes": 1337,
+    "sha256": "3f6cafa809ce85a323c39a4d93f7cbf0d99aacfa5f6ca92dd4f83568bfeb239d"
+  },
+  "markerUtc": "2026-10-14T17:47:41.605Z",
+  "baselineCompatibility": {
+    "proofPath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\diagnostics\\inherited-pr2-6ee40474\\metadata-relocated.json",
+    "proofSha256": "112d6f63191c781df9d2ca6d99a2f228f299aae82e056e3bf1869ee70d50bb49",
+    "originalDesktop": {
+      "model": "gpt-6-astra",
+      "model_reasoning_effort": "xhigh"
+    },
+    "actualDefault": {
+      "model": "gpt-5.6-sol",
+      "model_reasoning_effort": "low"
+    },
+    "effectiveBaseline": {
+      "model": "gpt-5.6-sol",
+      "model_reasoning_effort": "high"
+    },
+    "selectedIdentity": {
+      "model": "gpt-5.6-sol",
+      "model_reasoning_effort": "high"
+    },
+    "reasoningSelection": {
+      "requested": "high",
+      "explicit": true,
+      "supportedByProof": true,
+      "supportedByFreshModelList": true,
+      "freshActualDefault": {
+        "model": "gpt-5.6-sol",
+        "model_reasoning_effort": "low"
+      },
+      "freshModelsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\models.json",
+      "freshModelsSha256": "5bc4e657a9551880e076de47d3a7ce5da9a284a1a7d43019de77cdc700a96518"
+    },
+    "reason": "explicit prepare reasoning effort; unchanged actual CLI model/default proof and fresh model/list support verified; selected identity is separate from actual default"
+  },
+  "runtime": [
+    {
+      "relative": "assets/icon.png",
+      "sourceSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+      "mirrorSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+      "cacheSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6"
+    },
+    {
+      "relative": "assets/icon.svg",
+      "sourceSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+      "mirrorSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+      "cacheSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68"
+    },
+    {
+      "relative": "plugin.json",
+      "sourceSha256": "5270ec717de4148e6be0f97ac69804d117c48c6371505d96aaf0bad9cfabc52e",
+      "mirrorSha256": "5270ec717de4148e6be0f97ac69804d117c48c6371505d96aaf0bad9cfabc52e",
+      "cacheSha256": "5270ec717de4148e6be0f97ac69804d117c48c6371505d96aaf0bad9cfabc52e"
+    },
+    {
+      "relative": "skills/guide/SKILL.md",
+      "sourceSha256": "4aed371e92241aa8ff9db57e8b6fc0f1d261b273b2f90f9e84faaf86bdfa95a7",
+      "mirrorSha256": "4aed371e92241aa8ff9db57e8b6fc0f1d261b273b2f90f9e84faaf86bdfa95a7",
+      "cacheSha256": "4aed371e92241aa8ff9db57e8b6fc0f1d261b273b2f90f9e84faaf86bdfa95a7"
+    },
+    {
+      "relative": "skills/guide/agents/openai.yaml",
+      "sourceSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+      "mirrorSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+      "cacheSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14"
+    },
+    {
+      "relative": "skills/guide/references/guide-framework.md",
+      "sourceSha256": "f1d374844ed9c89028f3dd63cc63a9c0e087ebffd7826688af815185d72db068",
+      "mirrorSha256": "f1d374844ed9c89028f3dd63cc63a9c0e087ebffd7826688af815185d72db068",
+      "cacheSha256": "f1d374844ed9c89028f3dd63cc63a9c0e087ebffd7826688af815185d72db068"
+    },
+    {
+      "relative": "skills/guide/references/interaction-design.md",
+      "sourceSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "mirrorSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "cacheSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a"
+    }
+  ],
+  "mirrorFiles": 70,
+  "exactMirrorNotClaimedEqualFullCanonicalTree": true,
+  "original5ModelRawPins": [
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\B6.1\\920d8656-ee32-482d-8308-c8ee5a6213d8\\01.input.txt",
+      "bytes": 989,
+      "sha256": "8029111104f67a1c156536b319366f032730358a61ce3086c16a1a36a9913fb7"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\B6.1\\920d8656-ee32-482d-8308-c8ee5a6213d8\\01.output.txt",
+      "bytes": 2761,
+      "sha256": "3f77dae70841a6aa63b2c01ab53656f96b7b00484bdb3d1fad44d233a26e56e3"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\B6.1\\920d8656-ee32-482d-8308-c8ee5a6213d8\\01.events.jsonl",
+      "bytes": 34752,
+      "sha256": "f78cacd142e674c5599c838dd6c79a102f9c9816af7d5b527c272d9e2c7ee7b1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\B6.1\\920d8656-ee32-482d-8308-c8ee5a6213d8\\01.session.jsonl",
+      "bytes": 103599,
+      "sha256": "41805e0057357e0cbdf6fbb69595bd4e61dbbcc8d3911db5b1467ed16b319507"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\B6.1\\920d8656-ee32-482d-8308-c8ee5a6213d8\\01.stderr.txt",
+      "bytes": 26789,
+      "sha256": "f06f2d82e58a189f0d09bdc916121408ca15ee2577fb0b9b132a34fd18bc6b6d"
+    }
+  ],
+  "evidence": [
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\runtime-installation-pins.json",
+      "bytes": 4904,
+      "sha256": "476363e996af0c26873c1fefb143cd038a90f0a3addbe7d82b818bd9e392cf4a"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\preparation-reviewer-scope-diagnostic-correction.json",
+      "bytes": 1876,
+      "sha256": "5bf15d4a6f457c0f2268ba80ec80912e2e9644659fdb53fbdabd3e8d7368a9f8"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\B6.1-T1-actual-receiver-audit.json",
+      "bytes": 19042,
+      "sha256": "a71c95378587c990bc6c1282cbcf6d69407200cbc82df81fe8cfebf1d486e9df"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\pre-pause-original-pins.json",
+      "bytes": 2309,
+      "sha256": "15e46ebdd258f4b2f7fdcf25d5a34fc9b48ebaf473098b552ae6735856d22c1d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\normal-pause-tool-receipt.json",
+      "bytes": 1559,
+      "sha256": "199083a5a6bd19fdbaf9a4965a81e9770551598bd4db5201b7fd63579f3dbd41"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\normal-pause-tool-receipt-clarification.json",
+      "bytes": 1085,
+      "sha256": "e09c81c6f66e353795af68bd3798328a23458fae1193036e5b024d2ca33bb525"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\handoff.stdout.log",
+      "bytes": 312,
+      "sha256": "5e9e9422abbafed91a7b020cdc9317c6f7b8f764ac9b5ea0045b9afae87e38e5"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\handoff.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\operator-b-records\\handoff.receipt.json",
+      "bytes": 553,
+      "sha256": "c2ee1c11401015c73197b76ed4716aeb2dac96f93abe4f8020c05530eea1058d"
+    }
+  ],
+  "ordinaryPauseRecord": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\operator-pauses\\9362fb67-0725-4b4a-a5b8-3c7e853f0405.json",
+    "bytes": 1670,
+    "sha256": "91abe12011195273dcaf70c7c12cc4e3cd98d6ed47dba839b4b383408c22f0fe"
+  },
+  "handoff": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\54b0b8ab-c8b1-43bd-a139-9569bdf10709\\operator-handoff.json",
+    "bytes": 6213,
+    "sha256": "70fc30b84bb3c15e5dfffedb258e6e852a8015e20365f3e3a4f37c46fff7ed8a"
+  },
+  "actualOuterReceipts": [
+    {
+      "step": "prepare",
+      "initialChunk": "92bc16",
+      "exitCode": 0,
+      "sessionId": null
+    },
+    {
+      "step": "first-turn",
+      "initialChunk": "a062cf",
+      "sessionId": 37333,
+      "finalChunk": "f2ba1f",
+      "exitCode": 0
+    },
+    {
+      "step": "ordinary-pause",
+      "chunk": "fcff91",
+      "exitCode": 0,
+      "modelInputAdded": false
+    },
+    {
+      "step": "mechanical-handoff",
+      "chunk": "e8bfa6",
+      "exitCode": 0
+    }
+  ],
+  "recordingClarifications": [
+    "normal-pause-tool-receipt.json is typed transcription with escape mismatch; clarification preserves original and exact tool/pause record as authority.",
+    "initial reviewerIncluded:19 substring diagnostic was overbroad on learning-evidence-kit, exact prohibited-path reviewer count0 in separate correction.",
+    "readonly template lookup chunk6946ae exit1 guessed absent Source27 closure basename; recovered via rg, no model or original write."
+  ],
+  "modelWriterStopped": true,
+  "noProcessTermination": true,
+  "noRetryOrResampling": true,
+  "noLaterModelInputs": true,
+  "semanticAssessment": null,
+  "ownB6SelfReviewed": false,
+  "effectStatus": "NOT_MEASURED",
+  "clientStatus": "NOT_RUN",
+  "originalModelBytesUnmodified": true,
+  "controlAndRuntimeUnmodified": true
+}
