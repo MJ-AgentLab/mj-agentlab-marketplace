@@ -2,7 +2,7 @@
 
 ## 项目上下文
 
-当前develop注册Diagram、Learning Evidence、Explain、HTML、Communication五包七技能/四显式，VERSION8.3.0为Communication PR4未发布版本准备；main/latest Release8.2.0仅前三包五技能，tag/发布目标ebc4bdc3。Communication正式范围按Owner Q3为前三包加Communication四包六技能，HTML留develop另发；后续独立minor目标8.3.0，PR4核对实际From/To。目标为ChatGPT桌面和Codex本地，CLI基线0.147.0；版本与来源以权威文件为准。
+Owner 2026-10-15决定从develop a0a9b138整体发布8.3.0，五包七技能/四显式，取代四包/HTML另发。运行包/版本保持；HTML0.1.36按现状发布，#239已知FAIL/双端未覆盖保留，不重启模型或桌面验收。main仍公开8.2.0；CLI0.147.0。当前决定见[8.3账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)，下文旧记录不覆盖新决定。
 
 manifest 的公开示例按[插件契约](docs/spec/[SPEC]_Plugin_Json_Schema.md)保留完整路由，最多三条，各原值不超过 128 个 Unicode scalar values；严格校验防止客户端忽略超长示例而丢失公开入口，不依赖空白归一化。
 
@@ -20,7 +20,7 @@ Communication实施与发布使用[Epic #222](https://github.com/MJ-AgentLab/mj-
 
 ## 执行与决策
 
-Owner Q3：Communication正式只发行Learning三包＋Communication四包六技能，HTML留develop另发；开发保持五包七技能，实际门禁见[验收记录](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。
+本轮准备PR先入develop，再develop→main；当前head真实非作者批准、CI/代码所有者/线程门禁保持，不指定审查人。公开及必要发布后复查完成即停；回同步、预升、文档收尾、Issue关闭、归档和延期跟踪留后续。
 
 communication-kit 首版按已保存的[完整计划](plan/communication-kit-implementation-plan.md)实施，来源与授权见[捕获记录](plan/communication-kit-plan-provenance.json)，由 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222) 管理 PR1–PR5 与正式上线。产品方向、显式 communicate 单入口、保义改写和文件边界已确认；设计与验收契约见[新增 ADR](docs/adr/[ADR]_Communication_Kit_Addition.md)及[验收 RUNBOOK](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。PR1/PR2 保持现有运行集合，PR3 原子接入新包。Owner 选择 Learning 先发布 8.2.0，Communication 随后独立 minor（预计 8.3.0），PR4 重查实际版本和基线；现实效果测试本次延期，基础通过不代表效果已验证。
 
@@ -32,7 +32,7 @@ communication-kit 首版按已保存的[完整计划](plan/communication-kit-imp
 
 使用独立 worktree 分支实施，保持 main / develop 工作区干净。变更执行前读取受影响的规范：治理用 [AI 工程规范](docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)，文档用 [文档框架](docs/rule/[STANDARD]_Documentation_Framework.md)，提交用 [提交规范](docs/rule/[STANDARD]_Commit_Message_Convention.md)，发布用 [发布操作](docs/runbook/[RUNBOOK]_Release_Operations.md)。
 
-A6 同步目标为根 AGENTS.md；过渡触发器继续识别旧路径，当前技能位于 .agents/skills，插件使用根 plugin.json。运行 npm test、npm run validate、npm run smoke:codex；Python 图表校验必须实际执行。正式发布需独立的发布授权与两个目标客户端的验收证据。
+A6 同步目标为根 AGENTS.md；过渡触发器继续识别旧路径，当前技能位于 .agents/skills，插件使用根 plugin.json。运行 npm test、npm run validate、npm run smoke:codex；Python 图表校验必须实际执行。正式发布须已有授权及当前适用验收边界；本轮 HTML 的已知 FAIL、双端未覆盖和 Owner 接受分项登记，不重启模型或桌面测试。
 
 Codex latest canary 的技能路径须按同一提示文本的 Skill roots 表展开别名，再核对实际缓存与仓库作用域；缺失映射或路径越界须失败。兼容 canary 不改变 0.147.0 验收基线，实际复验见 [迁移验收记录](docs/runbook/[RUNBOOK]_ChatGPT_Codex_Migration_Acceptance.md)。
 
@@ -60,7 +60,7 @@ PR2 已同步 #226 合入的 HTML Guide Kit 0.1.0，当时基准为四插件、�
 
 ## Communication 工具准备
 
-Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基线为Diagram、Learning、Explain、HTML四包六技能。缺Communication manifest时apply/DryRun必须零写入失败。D地球＋文字图标已获Owner选择并在PR3原子接入；旧失败见[品牌验收](docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。Q3已确认正式只公开Learning三包＋Communication四包六技能，HTML留develop另发。PR4已准备未发布8.3.0，Communication尚未正式公开；当前head批准及阶段依赖仍须满足。
+Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基线为Diagram、Learning、Explain、HTML四包六技能。缺Communication manifest时apply/DryRun必须零写入失败。D地球＋文字图标已获Owner选择并在PR3原子接入；旧失败见[品牌验收](docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。Q3当时确认四包、HTML另发；2026-10-15本次整体发布已替代该旧范围。PR4已准备未发布8.3.0，Communication尚未正式公开；当前head批准及阶段依赖仍须满足。
 
 ## HTML Guide Kit 阶段实施
 

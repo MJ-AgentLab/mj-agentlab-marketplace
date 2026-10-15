@@ -1,15 +1,67 @@
 ---
 type: runbook
 scope: marketplace
-summary: "Communication 8.3.0 preparation, protected phase gates and post-publication checks"
+summary: "Whole-develop 8.3.0 publication, accepted limits and exact installation evidence"
 owner: marketplace-maintainers
 created: 2026-10-13
-updated: 2026-10-13
+updated: 2026-10-15
 state: draft
-version: v1.4.2
+version: v2.0
 ---
 
 # [RUNBOOK] Marketplace 8.3.0 release readiness
+
+## Current Owner decision — 2026-10-15
+
+Owner 于 2026-10-15 明确要求将 develop 整体发布为 Marketplace 8.3.0，并选择按当前实现发布 HTML 0.1.36：保留 #239 的已知自检前提缺陷和未覆盖项，只执行发布必需的 CI、安装与 Python 检查，不重启模型或桌面验收，也不继续功能修正。此决定取代此前 Communication 四包发行、HTML 另发的范围；旧失败不改写为 PASS。
+
+Owner subsequently explicitly requested implementation of this complete plan, including the preparation PR, develop-to-main publication, automatic draft-first Release and necessary post-publication verification. Existing authorization covers these operations; GitHub independent approvals and required checks remain external platform gates. No reviewer is designated. Refs #222, #215, #239.
+
+## Complete development source and publication scope
+
+- Starting origin/develop: `a0a9b1383d2b84a147ff67c5ffa656e8133a0554`; Git tree `acbbc8877357623b6d1cec61a77911552d3ab95b`.
+- Published main baseline: `ebc4bdc3abc62c36348d9ba28de7161b04b3b466`, v8.2.0, three plugins. At intake no v8.3.0 tag/Release exists.
+- Marketplace VERSION/badge already 8.3.0: no version-tool apply or repeat bump.
+- Diagram 0.3.1 / Learning Evidence 0.1.0 / Explain 0.1.1 / Communication 0.1.0 / HTML Guide 0.1.36: five complete plugin packages, seven public skills, four explicit entries, three ordinary skills and twenty repository-only development skills. Existing thirteen installation combinations remain exact.
+- This preparation changes documentation only. All plugin package bytes, versions, scripts, tests, catalog, icons, frozen plans and validation/approval rules remain those of the starting develop source; identities are recorded in the actual task receipt.
+
+## Accepted limitations and evidence boundaries
+
+HTML source36's recorded result is 9 UUID / 17 COMPLETE / 0 INVALID; whole 6 PASS / 1 FAIL / 2 UNEXERCISED / 5 NOT_RUN. The known B1.1 independent-self-check omits the current state needed for a definite conclusion. It remains FAIL in [#239](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/239); waiting/confirmation passes do not erase it. Current-version complete desktop/client and extended behavior are unverified; real effects remain NOT_MEASURED. External 0.1.37 is not included. #238 actually merged as the starting develop SHA; the unchanged source's historical engineering/install results are historical, not newly executed merge checks.
+
+Communication keeps its original CLI 15 PASS / 3 PARTIAL and two limited local routes within one desktop application. Existing client results may be matched only to unchanged package resources; no new client interaction is claimed. Learning's deferred strict native entries, prior approval gaps and Owner final acceptance remain separate.
+
+The release permission accepts these limits; it does not make semantic or desktop coverage PASS. This run executes only engineering checks, exact installation/resource checks and actual cached Python.
+
+## Protected preparation and release sequence
+
+1. In an isolated worktree, prepare these current scope/limitation documents and record actual checks. Submit a documentation preparation PR to develop; merge only after its current-head CI, real non-author approval and resolved threads satisfy actual protection.
+2. Open a new release PR with head develop and base main, preserving the complete collection and ancestry. Once it exists, mark old four-package draft #237 superseded and close that draft; do not merge its filtered projection. Use Refs only.
+3. Freeze the release head, compare full main differences and package identities. If either branch moves, reassess and refresh affected checks/approvals before ordinary merge. Require the current non-author latest-push approval, effective main code-owner rules, CI and resolved threads; no bypass.
+4. Track the existing automatic draft-first workflow after main merge. Resolve real main/tag/Release identities, publish status, assets and immutability. Never race another same-version release, overwrite published history or infer immutable configuration from absent API fields.
+
+## Actual verification ledger
+
+| Item | Current status | Required actual evidence |
+| --- | --- | --- |
+| Preparation engineering | NOT RUN in this task | npm test, validate, exact CLI 0.147.0 baseline, documentation/A6 and commit checks |
+| Frozen candidate installation | NOT RUN in this task | Its own strict verifier, thirteen canonical combinations, resources, six Diagram Python and six Learning save/replay/read checks |
+| Protected develop preparation merge | NOT RUN | Actual PR/current head checks, non-author approval, resolved threads and merge SHA |
+| R01 main merge | NOT RUN | Fixed develop head and actual main merge/tree/package correspondence |
+| R02 version identity | NOT RUN | VERSION, badge, CHANGELOG, tag peel and Release target identity |
+| R03 public Release | NOT RUN | Actual workflow and published state; author, assets and immutability observed separately |
+| R04 post-publication installation | NOT RUN | New isolated thirteen-combination installation from the real published tag SHA, matching resources and actual cached Python |
+| R05 client evidence boundary | ACCEPTED LIMITED COVERAGE / no fresh behavior run | Match unchanged resources to existing evidence; retain HTML full-client UNEXERCISED and all other original limitations |
+
+Append real execution results in uniquely identified receipts; do not turn pre-publication installation into R04 or infer a review from a merge. Unknown outcomes require readback before a retry. Published failures use a new protected repair/version when needed.
+
+## Stop boundary
+
+Deliver the public Release URL, actual source/main/tag SHA, version inventory and reviewable result receipt after necessary post-publication checks. This run does not execute main-to-develop back-sync, next-patch pre-bump, closeout documentation PRs, Issue/Epic closure, worktree archival or deferred follow-up. #215 and #239 remain unchanged.
+
+## Historical four-package preparation
+
+The following body is preserved from starting develop a0a9b138 (ledger v1.4.2). Its earlier four-package scope, future-stage statements, dates and old NOT RUN snapshots are historical. The current five-package decision and verification boundary above take precedence; no old failure or raw evidence is rewritten.
 
 Refs [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。本记录属于Communication PR4的并行准备，不是PR3实际合并后的验收或PR5发布成功记录。五份主PR按计划依赖顺序经保护门禁合并；Epic保持开放。
 

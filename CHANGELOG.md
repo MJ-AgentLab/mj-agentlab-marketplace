@@ -5,6 +5,44 @@
 
 ## [Unreleased]
 
+## [8.3.0] - 2026-10-15
+
+**Marketplace 8.3.0 publishes the complete develop collection: Diagram 0.3.1, Learning Evidence 0.1.0, Explain 0.1.1, Communication 0.1.0 and HTML Guide 0.1.36 — five plugins, seven public skills and four explicit entries.** The Owner's 2026-10-15 whole-develop decision supersedes the prior four-package projection. Existing plugin bytes, versions, interfaces and strict installation rules remain unchanged.
+
+### Added
+
+- Publish Communication Kit's explicit communicate entry for communication, writing and meaning-preserving rewriting; retain its critical-question waiting, chat delivery and explicit Markdown/TXT file-operation boundaries.
+- Publish HTML Guide Kit's explicit Read-only guide entry: confirm reader, task and understanding questions before delivering new guide text in chat. Its existing approved icon and package-owned methods remain unchanged.
+
+### Validation and accepted limits
+
+- The Owner explicitly accepts HTML 0.1.36 as implemented, including the known independent-self-check missing-state failure tracked in [#239](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/239). Complete current-version desktop/client and extended behavior coverage remain unverified; no new model, desktop or functional-repair round is part of this release. Failures are not relabeled PASS.
+- Run required engineering checks, all thirteen exact canonical installation combinations and actual installed-cache Python; repeat the installation matrix after publication from the real tag. Record each execution with its source SHA.
+- Preserve Communication CLI PARTIAL results, limited existing client identities, Learning deferred entries and unmeasured real-world effects. Current-head independent approvals, effective code-owner requirements, required CI and resolved threads remain mandatory.
+- This run ends after publication and necessary post-publication verification; branch back-sync, pre-bump, closeout documentation PRs, Issue closure, worktree archival and deferred follow-up are postponed. See the [release-readiness ledger](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md). Refs #222, #215, #239.
+
+### Historical four-package preparation (superseded 2026-10-15)
+
+The following original preparation description records the earlier scope; the five-package decision above is current.
+
+**Marketplace `8.3.0` · Communication Kit `0.1.0` · Diagram `0.3.1` / Learning Evidence `0.1.0` / Explain `0.1.1` unchanged.** This is the Owner-authorized next minor after the published Learning 8.2.0 baseline. The formal release adds only Communication to those three packages (four packages/six public skills); HTML stays on develop for a separate release. Version preparation does not establish a main merge, published Release, complete client coverage or real-world effectiveness. Actual gates and publication identities are recorded in the [8.3.0 release-readiness ledger](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md). Refs #222.
+
+### Added
+
+- Provide one explicit `communication-kit:communicate` entry for everyday communication, document writing and meaning-preserving rewriting, shown as 沟通助手. Ask with options and wait for critical missing information; an unanswered question, closure or timeout does not select an option.
+- Preserve facts, positions, conditions, exceptions, responsibility, numbers, quotations and commitments through revisions. Deliver a draft and brief key notes; save or edit Markdown/TXT only on explicit request, execute the action and read back the target, and report real failures and format limits accurately.
+- Package selected original AICS summaries with frozen provenance and byte hashes, retaining Lab Proposal / Informative status. Use the Owner-selected original MJ D globe-and-clear-text icon. Registration, strict resource checks, presentation, explicit policy and installation expectations are integrated atomically.
+
+### Validation and limits
+
+- Preserve S01–S12 objective checks, actual C01–C18 batches and failures: CLI 0.147.0 has 15 PASS/3 PARTIAL, with three separate limited file/format tool-role results. Actual Codex local and ChatGPT/Work local routes within the same desktop application cover basic installation, icon, invocation, writing, unanswered waiting and explicit file creation/read-back; independent classic ChatGPT/cloud and native question-window events are not verified.
+- Verify development and formal installation inventories separately. A green development five-package matrix does not establish the four-package release candidate, main merge or post-publication canonical install. Current-head independent approval, required checks and resolved threads remain mandatory.
+- Real scenario effectiveness, nine personal trials, three-draft comparisons, reader feedback, adoption and efficiency improvements were deferred by the Owner and are not claimed.
+
+### Historical development preparation
+
+The following original Unreleased entries describe previous development and acceptance requirements at their recorded stages; the release boundary above governs this run.
+
 - Prepare HTML Guide Kit 0.1.36: distinguish current one-step permission/results from actual multistep path assertions. For path claims, check applicable source actions, resets and compatible successors with their stated premises; preserve known paths and bound unresolved dependencies. Keep Source35 failures and limited client evidence; fresh engineering, canonical installation and independent behavior/client gates remain required. Refs #217, #220.
 
 - Prepare HTML Guide Kit 0.1.35: match each actual object and dimension across applicable source rules before bulk permission, prohibition or unknown conclusions. Unshown or unchecked items do not establish source gaps. Keep Source34 failures and partial client evidence; fresh canonical installation and independent behavior/client gates remain required. Refs #217, #220.
@@ -120,22 +158,6 @@
 - Prepare the unpublished develop 8.1.2 pre-bump after #206 synchronized the published main. Update only marketplace VERSION and its derived README badge; keep all plugin versions, published version sections, tags and assets unchanged. Include the parallel publication-record documentation and synchronize its main merge ancestry when available.
 
 - Record the actual Marketplace v8.1.1 release identity and successful post-publication canonical installation/icon/Python checks. Update current installation entry points to v8.1.1 while preserving supplied screenshot evidence, incomplete client details and missing independent approval records; published version sections and release assets remain unchanged.
-
-## [8.3.0] - 2026-10-13
-
-**Marketplace `8.3.0` · Communication Kit `0.1.0` · Diagram `0.3.1` / Learning Evidence `0.1.0` / Explain `0.1.1` unchanged.** This is the Owner-authorized next minor after the published Learning 8.2.0 baseline. The formal release adds only Communication to those three packages (four packages/six public skills); HTML stays on develop for a separate release. Version preparation does not establish a main merge, published Release, complete client coverage or real-world effectiveness. Actual gates and publication identities are recorded in the [8.3.0 release-readiness ledger](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md). Refs #222.
-
-### Added
-
-- Provide one explicit `communication-kit:communicate` entry for everyday communication, document writing and meaning-preserving rewriting, shown as 沟通助手. Ask with options and wait for critical missing information; an unanswered question, closure or timeout does not select an option.
-- Preserve facts, positions, conditions, exceptions, responsibility, numbers, quotations and commitments through revisions. Deliver a draft and brief key notes; save or edit Markdown/TXT only on explicit request, execute the action and read back the target, and report real failures and format limits accurately.
-- Package selected original AICS summaries with frozen provenance and byte hashes, retaining Lab Proposal / Informative status. Use the Owner-selected original MJ D globe-and-clear-text icon. Registration, strict resource checks, presentation, explicit policy and installation expectations are integrated atomically.
-
-### Validation and limits
-
-- Preserve S01–S12 objective checks, actual C01–C18 batches and failures: CLI 0.147.0 has 15 PASS/3 PARTIAL, with three separate limited file/format tool-role results. Actual Codex local and ChatGPT/Work local routes within the same desktop application cover basic installation, icon, invocation, writing, unanswered waiting and explicit file creation/read-back; independent classic ChatGPT/cloud and native question-window events are not verified.
-- Verify development and formal installation inventories separately. A green development five-package matrix does not establish the four-package release candidate, main merge or post-publication canonical install. Current-head independent approval, required checks and resolved threads remain mandatory.
-- Real scenario effectiveness, nine personal trials, three-draft comparisons, reader feedback, adoption and efficiency improvements were deferred by the Owner and are not claimed.
 
 ## [8.2.0] - 2026-10-12
 
