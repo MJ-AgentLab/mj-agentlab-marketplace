@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-15
 updated: 2026-10-16
 state: active
-version: v1.1
+version: v1.2
 last-verified: null
 ---
 
@@ -35,6 +35,8 @@ Stages merge sequentially into develop from separate worktrees. PR1-PR4 referenc
 PR1 implementation base: `b1937b26dfe33ecabc55e9e88d692e9a5f0aa90b`, the actual #244 merge. Its tree matches the tested repair head `ffdc03e8b876b6cf068645901dcca2ab97e6ece9`; this identity match is not a claim that the merge was newly tested. The repair-head Windows evidence has 349 passing tests and thirteen successful smoke scenarios. The older 346-test performance history remains historical evidence.
 
 PR2 implementation base and frozen denominator: actual [#246](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/246) merge `30665998dda2ebbbae1806b946ec63f840bd98e0`, tree `20f540fcabba740e549ecdbf01cf78f2ce3473f5`. It is byte-identical to the tested head `ed94d7fcc030989f647362f143133ca61362ae60` and PR test merge `8a4512ba3c0575f2954e55a305aeb3ef57034b1f`. The merge occurred at 2026-10-16 00:25:46 Asia/Taipei. GitHub returned an empty reviews list; record the actual merge without inferring a missing non-author approval. Subsequent PRs retain normal review and protection gates. A same-tree comparison is not a new full-test run of the actual merge.
+
+PR3 implementation base: actual [#247](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/247) merge `02724de060543ff587d07ac713e3f299a8f91407`, tree `ebf37fd92a63fa67983eff2fc08293d174bbeabc`, merged by ranzuozhou at 2026-10-16 02:12:35 Asia/Taipei. The tested head `7f109a13a52817e09d1d69fa5461083e1d7fc6de` and PR test merge `ef5555aba97ba62a8cd6c3cc2edb39654f7bcbed` have this same tree. GitHub still reports `reviews=[]` and `reviewDecision=REVIEW_REQUIRED`; actual merge does not establish an approval or a waiver. The performance denominator remains the PR1 merge `30665998`, never the PR2 merge.
 
 The expanded inventory is **at least 22 complete-docs copies**: canonical 7, portable validation 8, HTML 5, icons 2. Earlier #245 analysis counted at least 21; one HTML call site expands into two parameterized tests. Smoke separately prepares thirteen full sources. Record call sites and runtime expansion separately.
 
@@ -92,13 +94,23 @@ Current develop service-required contexts are `Validate Structure` and `A6 / Che
 | PR1 hosted benchmark entry | PASS, BASELINE ONLY | Run 38751596782 completed all nine samples. Full-test rounds each 368/368, canonical each 7/7, smoke each 13/13. No timeout or harness failure; final owned-worktree cleanup passed. |
 | Frozen performance baseline | FROZEN | config/ci-performance-baseline.json pins actual merge 30665998 and tree 20f540fc. Future acceptance reruns it beside the candidate in the same environment. |
 | PR1 actual-merge installation | PASS | Fresh exact 30665998 canonical verification on 2026-10-16 00:29:01–00:31:24 Asia/Taipei: full-source strict validation and thirteen actual installations, six installed Diagram checks and six Learning groups. Log SHA-256 a281d227c9ef536cd9b45d9cac5e68629955b76f92e4f2f79f760481393ee108. |
-| PR2 fixture implementation | IN_PROGRESS | Isolated codex/issue-245-fixtures from actual PR1 merge; shared test-only builder, original assertion mapping and nine new boundary cases. Local and hosted results below remain distinct. |
+| PR2 fixture implementation | MERGED, SAME TREE | #247 actual merge 02724de0; shared test-only builder, original assertion mapping and nine new boundary cases. Tested head and PR test merge share tree ebf37fd9. Empty reviews remain recorded separately. |
 | PR2 local fixture checks | PASS, WORKING SNAPSHOT | Latest nine boundaries plus four original suites: 81/81, zero failures/skips, 64.814 seconds; original assertion lines 25/80/59/54 unchanged and 29 canonical worktree create/remove pairs retained. Full-suite and hosted checks remain separate. |
 | PR2 full local engineering | PASS, WORKING SNAPSHOT | npm test 382/382, zero failures/skips, Node TAP duration 65674.828 ms; profiling enabled, REQUIRE_PYTHON/PWSH=1. Real profile aggregation confirms 22 roots and all counters. Harness 19/19, documentation 10/10, validate and exact Codex 0.147.0 check pass. This is the local Node 22.18.0 / Python 3.12.13 environment, not hosted paired acceptance. |
 | PR2 independent Agent review | NO BLOCKING FINDINGS | Separate Spec/correctness and Standards reviews of the complete diff; original assertions, counters, fixture/core stage separation and scope verified. This is not a GitHub non-author approval. |
-| PR2 exact candidate installation / hosted CI | NOT_RUN | Requires the final committed candidate and actual hosted execution. |
-| PR2 staged copy acceptance | NOT_RUN | Six same-runner samples required; actual candidate copied bytes and exactly 22 fixture roots. |
-| PR3-PR5 / final Issue closure | NOT_STARTED | Full speed/concurrency acceptance and main-CI scheduling remain separate stages; Issue stays open. |
+| PR2 exact candidate installation | PASS | Exact head 7f109a13 on 2026-10-16 00:42:16–00:44:35 Asia/Taipei: 13/13 canonical real installations, six installed Diagram checks and six Learning groups, zero command failures. Log SHA-256 a3e5e46d61aab7e356fe55bdf9d65b40134779c54e27788f6363068b26b14ce6. |
+| PR2 hosted engineering | PASS | PR 38771466668 and push 38771457469 both successful: Windows 382/382, Ubuntu 381 pass plus one existing Windows-only skip; all four jobs 13/13 actual smoke scenarios, six installed Diagram checks and six Learning groups each. See §5.3 and compact receipt. |
+| PR2 staged copy acceptance | PASS, FIXTURES ONLY | Run 38771487907 completed six same-runner samples; every candidate has 22 roots and 69,933,534 actual copied bytes. Conservative reduction 99.447896% exceeds 95%; independent raw-profile audit passed. Core speed/concurrency remain deferred. |
+| PR2 actual-merge installation | PASS | Fresh exact 02724de0 verification on 2026-10-16 02:17:32–02:19:50 Asia/Taipei: 13/13 actual canonical installations, six installed Diagram checks and six Learning groups with valid replay/structure, zero command errors, Codex 0.147.0. Log SHA-256 f58e627a767c3cabbe87b2b7e2c4eae882b3aafdd4f8ad10038eece768e43de0. This is not a new full-test run of the actual merge. |
+| PR3 smoke source implementation | IN_PROGRESS | Isolated codex/issue-245-smoke from actual PR2 merge; real-source template, thirteen independent contexts, original validation and Python contracts retained. Initial two static coverage gaps, the 23-case supplement and actual rerun are recorded in §5.4. |
+| PR3 first targeted regression | 18 PASS / 5 PRECONDITION FAIL / 0 SKIP | First 23-case attempt took TAP 45143.6767 ms. A concurrent documentation write added the compact receipt link before its file existed, so five cases (19–23) failed full-source validation before fault injection. Their intended paths were NOT_RUN in that attempt; original failed log is retained. The subsequent complete rerun is separate. |
+| PR3 complete targeted rerun | PASS, WORKING SNAPSHOT | Stable-source rerun on 2026-10-16 02:24:12.925–02:25:02.843 Asia/Taipei: 23/23, zero failures/skips, exit zero; process wall 49917.452 ms and TAP 49881.2414 ms. All five previously blocked intended paths executed and passed. No implementation/test repair was needed. Operation doubles do not establish actual Codex/Python acceptance. |
+| PR3 complete local suite | PASS, WORKING SNAPSHOT | 405/405, zero failures/skips/cancellations, TAP 70328.4381 ms; 3,396 profile events, approved 22 original fixture roots and unchanged valid copied/synthetic/overlay/total counters. Node 22.18.0 / Python 3.12.13; not the pinned hosted benchmark. |
+| PR3 real local CLI smoke | PASS, WORKING SNAPSHOT | Fresh npm run smoke:codex on 2026-10-16 02:28:58.816–02:29:53.396 Asia/Taipei: 13/13, actual Codex 0.147.0, six installed Diagram checks and six valid Learning groups; zero command/phase errors, all fourteen cleanups successful. Process wall 54575.2803 ms; no hosted speed acceptance inferred. |
+| PR3 independent Agent review | NO BLOCKING FINDINGS | Separate Spec/correctness and Standards reviews cover the complete eight-file change. This does not establish a GitHub non-author approval. |
+| PR3 exact committed candidate / hosted CI | NOT_RUN | Working-snapshot suite and CLI evidence are recorded separately. Requires final committed candidate installation and actual hosted checks; no exact-head or hosted PASS is inferred. |
+| PR3 full core acceptance | NOT_RUN | Requires all 24 serial samples: full tests B/default plus O/default/1/2, whole canonical and thirteen-scenario smoke commands, three rounds each. Adopt Windows concurrency only after valid measurements; Linux default stays. |
+| PR4-PR5 / final Issue closure | NOT_STARTED | Main-CI scheduling remains separate; Issue stays open. |
 
 Local logs remain outside the checkout. Initial full-test log SHA-256: `d8a58e6d748bbcb6d42227afc625c09121934aace7aa30b4f54faa028f0caf5d` (80,933 bytes); profiling-enabled smoke stdout SHA-256: `d6ddbd9eb4fea874c5f75471a4589abc5fea8d4f16e630d549098f7f5a7a9688` (324,246 bytes). These working-snapshot checks are not a substitute for the final commit's required CI.
 
@@ -130,11 +142,54 @@ Local profiled preparation of the 22 original fixtures reports 69,933,534 verifi
 
 Full local test-log SHA-256: `44e95440715eaa1c102ecfff6120dc8148f4b5177b69cc6e98410b7754c160c8`. Its measured 3,036 copied files plus 396 synthetic files give 3,432 prepared files across the 22 original fixtures. Additional boundary-test fixtures are excluded from this approved 22-fixture copy criterion and remain included in whole-command elapsed time. No local timing ratio is presented as a hosted speed-gate PASS.
 
+### 5.3 PR2 hosted acceptance and actual merge
+
+[PR CI](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38771466668), [push CI](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38771457469), and [six-sample copy acceptance](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38771487907) succeeded. The [compact receipt](evidence/ci-performance-245-pr2-hosted.json) preserves exact sources, per-sample numbers, environment, hashes and actual merge/review facts. Raw NDJSON, logs and ZIP remain outside Git.
+
+| Complete default npm test | Baseline wall seconds | Candidate wall seconds |
+|---|---:|---:|
+| Round 1 | 1411.639 | 173.969 |
+| Round 2 | 1186.446 | 158.265 |
+| Round 3 | 1285.769 | 186.923 |
+| Median | 1285.769 | 173.969 |
+| Range | 1186.446–1411.639 | 158.265–186.923 |
+
+All six commands completed in serial order B1/O1/O2/B2/B3/O3, without timeout, cancellation, skip or failed test. Baseline rounds pass 368/368 and candidate rounds 382/382. Each baseline tagged-copy lower bound is 12,666,735,598 content bytes; each candidate independently reconstructed profile reports 22 roots (canonical 7, portable 8, HTML 5, icons 2), 69,933,534 actual copied bytes, 119,020 synthetic-write bytes, +41,741 overlay delta and 70,094,295 prepared bytes. Copy reduction has conservative lower bound **99.447896%**, passing the 95% gate. Status is only `fixtures_pass`, `coreAcceptance=deferred`, `selectedConcurrency=null`.
+
+The observed whole-command median reduction is 86.469684%; this is not formal core speed acceptance. No independent canonical/smoke command timing or 1/2/default comparison was performed in this stage. Timing includes internal preparation and cleanup through process exit; outer benchmark worktree setup, npm ci and inventory are separately recorded overheads. Input-content bytes do not measure physical disk I/O; baseline copied bytes remain a controlled-checkout lower bound.
+
+The paired runner reports Windows image `20261007.264.1`, Node 22.23.3, Python 3.12.10, Codex 0.147.0, Git 2.56.0.windows.2, npm 10.9.9, Xeon Platinum 8573C, four available logical processors and resolved default concurrency three. OS file caching is uncontrolled. Hardware identities are runner-reported, not independently sampled telemetry. Every full sample retains two expected injected cleanup errors from passing persistent-lock/EACCES regressions; all three related cleanup tests pass, and both final owned worktrees are successfully removed. Do not call all phase operations error-free.
+
+The ordinary PR/push Windows test steps take 114/218 seconds (TAP 113343.8402/216351.5107 ms) and smoke steps 122/275 seconds. Each Windows job actually executes six installed Diagram checks and six Learning groups. Ubuntu uses Python 3.12.15 in ordinary CI, distinct from the fixed benchmark 3.12.10; its one skip is the existing Windows-equivalent file-casing test. Windows log SHA-256 values are `bc4d6a49dea39735ce29d4bb1a635adbe4f92a8a266ad4c541701b1c81418fe5` (PR) and `5924aaa8b92d2873356c7dd1ec24625abcf173592b6090c97b91e2537544092a` (push).
+
+Artifact [11995448259](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38771487907/artifacts/11995448259) expires `2026-11-14T17:59:27Z`. Report SHA-256: `088d566898ee6d24f43af566464a6e99ffeab7639a6d56d881e7bee117c2857e`; ZIP: `c33ad2710f11860a1dddac7f3413cc632f1c6885a996d92b005886ff77ac8767` (matches the GitHub API digest); job log: `5d0c781e2ebae9c02044b9aca5bf25db70bfd393ece63314aa1dbb3b537a9139`. Independent raw-profile audit receipt SHA-256: `86228895c03639255ad5261578b470eea9d9dd39def0241d29eb32b89bc92af9`. The auditor reconstructed counters and root multiplicities from raw NDJSON; removed temporary targets cannot be rehashed from the artifact. Actual merge and empty reviews are separate facts from technical acceptance; subsequent review/protection gates remain unchanged.
+
+### 5.4 PR3 source preparation and pending coverage
+
+Formal implementation begins from actual PR2 merge `02724de0`. Complete original-repository validation remains before preparation. One immutable inventory of real source bytes covers `.agents`, `plugins`, `AGENTS.md`, `.codex`, `VERSION` and `.gitattributes`; no PR2 synthetic document fixture enters the installation source. The Learning record JSON is read once from the original source with basic shape validation, followed by the unchanged installed Python checks. Only ordinary generated caches directly in the two explicit Python roots are excluded; links/cache junctions fail, other extra files remain visible.
+
+The single template is never initialized as a Git repository or passed to Codex. All thirteen scenarios retain separate source Git repositories, homes, Codex homes/caches, consumer directories and temporary/environment paths. Success removes contexts unless `keepRoot` requests retention; only complete success and successful template cleanup permit retaining all thirteen. Failures remove prior retained/current contexts and the template; combined operation and cleanup failures preserve both errors.
+
+Initial independent static draft review recorded two material coverage gaps: the separate source helper lacked direct link/cache-boundary, destination ownership/type and source-during-copy regressions; the smoke lifecycle lacked context/materialize-before-runner, `ok:false` and post-success integrity-failure cleanup cases. Fifteen supplemental cases retain the original eight and bring the suite to **23**. They were all NOT_RUN in the draft; the complete formal rerun now passes 23/23. Source projection and lifecycle regressions remain separate from actual Codex/Git/Python acceptance. A static review and operation doubles do not establish executed installation or Windows performance acceptance.
+
+The first targeted attempt passed eighteen cases and failed five full-source preconditions before their intended fault injections because a concurrent documentation update temporarily referenced the not-yet-written compact receipt. Its TAP duration is 45143.6767 ms; filesystem log-envelope timestamps are 2026-10-15T18:20:29.802Z–18:21:14.977Z, not separately instrumented process start/end. Original log SHA-256: `d0335d0b8c4664ee06b6e0c9963a3d46ac8eee04f0e2f7b1f7076dd69a9a3e80`. No source-helper behavior failure is inferred, and validation was not relaxed.
+
+After completing and validating the documentation set, all 23 cases reran without concurrent writes. Exact orchestrating-process timestamps are 2026-10-15T18:24:12.925Z–18:25:02.843Z, wall 49917.452 ms, TAP 49881.2414 ms; 23 pass, zero fail/skip, exit zero. All five previously blocked injections now executed and passed. No implementation/test repair was needed between attempts. Final log SHA-256: `6cdd16fb4d5929f8462aec1ce59965454558192e90675ed5fc1b7e3806c62a06`. Both original logs and summaries remain outside Git; targeted lifecycle evidence is separate from the subsequent actual installation checks.
+
+The complete local working-snapshot suite then passes **405/405**, zero failures/skips/cancellations, TAP 70328.4381 ms. Its 3,396 profiling events preserve all 22 original fixture roots (7/8/5/2), 69,933,534 copied bytes, 119,020 synthetic-write bytes, +41,741 overlay delta and 70,094,295 prepared bytes. Full-test log SHA-256: `8c8e0d77a10ff3dfd156460c8c47e085178b9d4feb881d67f9a5f9069309c221`.
+
+Fresh real npm run smoke:codex completes **13/13** with Codex 0.147.0, six installed Diagram Python checks and six Learning groups with replay/structure valid, zero command errors and zero phase errors. All fourteen cleanups succeed. Exact process timestamps are 2026-10-15T18:28:58.8164413Z–18:29:53.3961914Z; npm wall duration is 54575.2803 ms. The fourteen source-copy events cover one template and thirteen independent scenario sources, each 97 files / 1,027,296 content bytes, total 14,382,144 copied content bytes. This does not measure physical disk I/O. Smoke log SHA-256: `60d69461ebf65294b692291157e2b7e086305ad6db732c6c5b4b5a222f705cb9`.
+
+These local checks use Node 22.18.0 / Python 3.12.13 and the same implementation throughout. They are working-snapshot evidence; final committed-candidate installation, hosted engineering and the pinned complete core comparison remain NOT_RUN. Separate complete-diff Spec/correctness and Standards reviews report no blocking findings; Agent reviews do not replace GitHub approval.
+
+No concurrency adoption or core speed PASS is claimed. The upcoming complete 24-sample comparison keeps the PR1 frozen denominator and all four thresholds; any source-integrity, timeout, cleanup or incomplete-round failure remains visible. If the exact candidate selects default, retain main CI's existing npm test command. A selection of one or two wires only Windows to the existing corresponding concurrency script; Linux default and event scope stay unchanged. Any resulting new Git tree requires ordinary CI and a fresh complete 24-sample run for that final exact candidate. Preserve the initial selection run under its real source identity; accept core delivery only when the adopted configuration matches the final selection and all four gates pass. Main-CI cancellation/deduplication, runtime/versions, public entries, production validation and release behavior remain outside PR3 changes.
+
 On regression, retain failure evidence and fix within the authorized stage or revert that stage through a normal protected PR. Never delete historical evidence or weaken acceptance to achieve a lower time.
 
 ## 6. Change history
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.2 | 2026-10-16 | Record PR2 hosted copy acceptance, audit, actual merge and fresh installation with empty reviews; preserve PR3's first precondition failures, complete 23/23 rerun, local 405/405 and real 13-scenario smoke. Final committed/hosted/core-speed acceptance remains pending. |
 | v1.1 | 2026-10-16 | Freeze actual PR1 merge, retain complete hosted observations and review limitations, and begin isolated minimal-fixture implementation and staged copy acceptance. |
 | v1.0 | 2026-10-15 | Establish authorized stages, expanded inventory, performance gates and an initially unexecuted ledger. |

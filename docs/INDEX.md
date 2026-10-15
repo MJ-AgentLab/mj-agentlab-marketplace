@@ -6,14 +6,14 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-16
 state: active
-version: v2.91.4
+version: v2.91.5
 ---
 
 # 文档索引
 
 ## 当前性能维护
 
-[#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)按五个顺序PR优化Windows测试与安装冒烟；PR1 #246实际合入30665998并冻结同树基线，PR2接入22份最小契约夹具。授权、覆盖映射、性能门槛和实际结果见[性能验收账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。核心交付与整个Issue完成分别记录，历史证据原件保留。
+[#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)按五个顺序PR优化Windows测试与安装冒烟；PR1 #246基线固定30665998，PR2 #247实际合入02724de0，22份夹具复制下降保守下界99.447896%已独立核验。PR3开始真实源码冒烟模板与并发对照，完整核心速度验收待执行。授权、覆盖映射、紧凑回执与实际结果见[性能验收账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。核心交付与整个Issue完成分别记录，空reviews和历史证据原件保留。
 
 ## 当前整体发布
 
