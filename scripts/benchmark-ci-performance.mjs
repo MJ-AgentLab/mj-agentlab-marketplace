@@ -12,6 +12,7 @@ const ROOT = path.resolve(import.meta.dirname, "..");
 const COMMAND_TIMEOUT = 60 * MINUTE;
 const RUN_BUDGET = 320 * MINUTE; // Leave time for finally and artifact upload in the 330-minute job.
 export const THRESHOLDS = Object.freeze({ fixtureBytes: .95, test: .50, canonical: .80, smoke: .30 });
+export const COPY_MEASUREMENT_DOMAIN = "controlled checkout content copied by tagged repository inputs; lower bound, excluding generated/untracked files and physical I/O";
 export const RUNTIME_PATHS = Object.freeze(["plugins", "assets", ".agents", ".codex", ".gitattributes", "VERSION"]);
 
 export function validateBaselineConfig(config) {
@@ -148,6 +149,7 @@ export function summarize(samples, { repetitions = 3, baselineOnly = false, froz
   const stats = Object.fromEntries(Object.entries(groups).map(([name, records]) => [name, {
     wallMs: statistics(records.map(record => record.durationMs)),
     fixtureCopiedBytes: statistics(records.map(record => record.fixtureCopiedBytes)),
+    fixtureActualCopiedBytes: statistics(records.map(record => record.fixtureActualCopiedBytes)),
     valid: records.length === repetitions && records.every(record => record.ok && (record.command !== "test" || Number.isFinite(record.fixtureCopiedBytes))),
   }]));
   const improvement = (baseline, candidate) => baseline > 0 && Number.isFinite(candidate) ? 1 - candidate / baseline : null;
@@ -160,9 +162,11 @@ export function summarize(samples, { repetitions = 3, baselineOnly = false, froz
   const fastest = [...pool].sort((a, b) => a.wallMs.median - b.wallMs.median)[0];
   const chosen = fastest && pool.filter(candidate => candidate.wallMs.median <= fastest.wallMs.median * 1.05).sort((a, b) => a.resolvedConcurrency - b.resolvedConcurrency || a.wallMs.median - b.wallMs.median)[0];
   const compared = command => improvement(stats[`baseline/${command}/default`]?.wallMs?.median, stats[`candidate/${command}/default`]?.wallMs?.median);
-  const completeCopyMeasurements = ["baseline/test/default", "candidate/test/default", "candidate/test/1", "candidate/test/2"].every(name => stats[name]?.fixtureCopiedBytes?.count === repetitions);
+  // Baseline controlled bytes are a lower bound. Only actual candidate copies
+  // can conservatively establish the approved reduction in all copied bytes.
+  const completeCopyMeasurements = baselineTest?.fixtureCopiedBytes?.count === repetitions && ["candidate/test/default", "candidate/test/1", "candidate/test/2"].every(name => stats[name]?.fixtureActualCopiedBytes?.count === repetitions);
   const gates = {
-    fixtureBytes: gate(completeCopyMeasurements ? improvement(baselineTest?.fixtureCopiedBytes?.median, chosen?.fixtureCopiedBytes?.median) : null, THRESHOLDS.fixtureBytes),
+    fixtureBytes: { ...gate(completeCopyMeasurements ? improvement(baselineTest?.fixtureCopiedBytes?.median, chosen?.fixtureActualCopiedBytes?.median) : null, THRESHOLDS.fixtureBytes), method: "actual candidate copied bytes / controlled baseline lower bound; reduction lower bound" },
     test: gate(improvement(baselineTest?.wallMs?.median, chosen?.wallMs?.median), THRESHOLDS.test),
     canonical: gate(compared("canonical"), THRESHOLDS.canonical), smoke: gate(compared("smoke"), THRESHOLDS.smoke),
   };
@@ -285,7 +289,7 @@ export async function benchmark(options, repoRoot = ROOT) {
   const reportDir = path.resolve(options.reportDir);
   fs.mkdirSync(reportDir, { recursive: true });
   if (fs.existsSync(path.join(reportDir, "report.json"))) throw new Error("report directory already contains a run; use a fresh directory");
-  const report = { schemaVersion: 1, startedAt: new Date().toISOString(), options: { ...options, reportDir }, sources: {}, samples: [], preparation: [], cleanup: [], failures: [], summary: null };
+  const report = { schemaVersion: 1, copyMeasurementDomain: COPY_MEASUREMENT_DOMAIN, startedAt: new Date().toISOString(), options: { ...options, reportDir }, sources: {}, samples: [], preparation: [], cleanup: [], failures: [], summary: null };
   const started = performance.now(), temporary = fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()), "mj-ci-benchmark-")), attempted = [];
   let baselineOnly = options.baselineOnly;
   const inventories = {};

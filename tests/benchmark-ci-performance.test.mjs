@@ -138,7 +138,7 @@ test("command success requires complete Windows TAP or all thirteen real smoke r
 });
 
 function measured({ baselineOnly = false, mutate = record => record } = {}) {
-  return makePlan(3, baselineOnly).map(sample => mutate({ ...sample, durationMs: sample.source === "baseline" ? 1000 : sample.command === "test" ? ({ default: 400, 1: 410, 2: 390 })[sample.concurrency] : sample.command === "canonical" ? 100 : 500, fixtureCopiedBytes: sample.source === "baseline" ? 10_000 : 100, ok: true }));
+  return makePlan(3, baselineOnly).map(sample => mutate({ ...sample, durationMs: sample.source === "baseline" ? 1000 : sample.command === "test" ? ({ default: 400, 1: 410, 2: 390 })[sample.concurrency] : sample.command === "canonical" ? 100 : 500, fixtureCopiedBytes: sample.source === "baseline" ? 10_000 : 100, fixtureActualCopiedBytes: sample.source === "candidate" ? 120 : null, ok: true }));
 }
 
 test("baseline-only measurements never become a frozen baseline or speed PASS", () => {
@@ -157,6 +157,18 @@ test("one selected configuration meets all gates; five-percent tie chooses actua
   assert.equal(tied.selectedConcurrency.configured, 1);
 });
 
+test("actual copy reduction uses a conservative baseline lower bound and rejects missing or oversized candidate totals", () => {
+  const options = { defaultConcurrency: 4, eligibleEnvironment: true };
+  const valid = summarize(measured(), options);
+  assert.equal(valid.gates.fixtureBytes.improvement, 1 - 120 / 10_000);
+  const missing = summarize(measured({ mutate: item => ({ ...item, fixtureActualCopiedBytes: null }) }), options);
+  assert.equal(missing.status, "not_accepted");
+  assert.equal(missing.gates.fixtureBytes.status, "not_measured");
+  const generated = summarize(measured({ mutate: item => item.source === "candidate" ? { ...item, fixtureActualCopiedBytes: 600 } : item }), options);
+  assert.equal(generated.gates.fixtureBytes.status, "fail");
+  assert.equal(generated.status, "not_accepted");
+});
+
 test("failed, partial, non-Windows and unmeasured-copy runs cannot pass by replacement or zero filling", () => {
   const full = measured();
   assert.equal(summarize(full.slice(1), { eligibleEnvironment: true }).status, "not_accepted");
@@ -166,7 +178,7 @@ test("failed, partial, non-Windows and unmeasured-copy runs cannot pass by repla
   const noCopies = summarize(full.map(item => ({ ...item, fixtureCopiedBytes: null })), { eligibleEnvironment: true });
   assert.equal(noCopies.status, "not_accepted");
   assert.equal(noCopies.gates.fixtureBytes.improvement, null);
-  const oneMissing = summarize(full.map((item, i) => i === 1 ? { ...item, fixtureCopiedBytes: null } : item), { eligibleEnvironment: true });
+  const oneMissing = summarize(full.map((item, i) => i === 1 ? { ...item, fixtureActualCopiedBytes: null } : item), { eligibleEnvironment: true });
   assert.equal(oneMissing.status, "not_accepted");
   assert.equal(oneMissing.gates.fixtureBytes.improvement, null);
 });
