@@ -29,7 +29,7 @@ codex plugin list --json
 codex debug prompt-input '$diagram-kit:arch-diagram'
 ~~~
 
-上面固定已发布的五插件集合，各插件可按需独立安装。调用 `$diagram-kit:arch-diagram` 或请求“给这个仓库画架构图”；Communication 和 HTML 使用下文的显式入口。开发测试使用独立候选目录或精确 SHA；远端 develop 在 #241 合并后已不存在，恢复与受保护同步状态见[8.3.0 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。
+上面固定已发布的五插件集合，各插件可按需独立安装。调用 `$diagram-kit:arch-diagram` 或请求“给这个仓库画架构图”；Communication 和 HTML 使用下文的显式入口。开发测试使用独立候选目录或精确 SHA；远端 develop 已在 #241 合并后恢复原 head32e32c5；后续受保护同步状态见[8.3.0 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。
 
 ~~~text
 codex plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace --ref ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64

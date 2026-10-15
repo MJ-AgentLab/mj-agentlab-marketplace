@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-13
 updated: 2026-10-15
 state: active
-version: v2.0.2
+version: v2.0.3
 ---
 
 # [RUNBOOK] Marketplace 8.3.0 release readiness
@@ -87,7 +87,7 @@ The prior actual CLI remains 15 PASS / 3 PARTIAL; supplementary tool-role file r
 
 The Owner asked why develop disappeared. A subsequent primary rule-suite readback adds stronger evidence than the earlier reviews=[] snapshots; those original receipts and reports remain unchanged:
 
-- Deletion suite `4536526312`, `2026-10-15T15:50:36+08:00`, actor `ranzuozhou`: `before_sha=32e32c5b8ecc843435fe9643398135dd22ee8c9b`, `after_sha=0000000000000000000000000000000000000000`, final result **bypass**. Active protect-develop deletion evaluation **fail**, details **Cannot delete this branch**. PR #241 timeline independently records `HeadRefDeletedEvent` for develop four seconds after merge. Repository automatic branch deletion was enabled; event data does not distinguish automatic cleanup from a manual click.
+- Deletion suite `4536526312`, `2026-10-15T15:50:36+08:00`, actor `ranzuozhou`: `before_sha=32e32c5b8ecc843435fe9643398135dd22ee8c9b`, `after_sha=0000000000000000000000000000000000000000`, final result **bypass**. Active protect-develop deletion evaluation **fail**, details **Cannot delete this branch**. PR #241 filtered GraphQL timeline independently records `HeadRefDeletedEvent` for develop four seconds after merge; its full response is in the subsequent [restoration receipt](evidence/communication-8-3-0-postrelease-restore-20261015-01.json). The prior REST audit included only the first30 historical entries and is not the source of that event. Repository automatic branch deletion was enabled; event data does not distinguish automatic cleanup from a manual click.
 - #240's develop merge suite `4533552767` is **bypass**, with pull_request evaluation **fail**: **New changes require approval from someone other than the last pusher.**
 - #241's main merge suite `4536525058` is **bypass**; its detailed evaluations are preserved in the [primary audit receipt](evidence/communication-8-3-0-postrelease-rules-audit-20261015-01.json). Actual publication and installation still occurred, but protected approval gates are not relabeled PASS. These are historical observed operations; this follow-up has performed no protected merge, ref restoration, deletion or rule change.
 
@@ -97,7 +97,15 @@ This audit explains how a deletion-protected branch could disappear: the recorde
 
 README was still a pre-publication snapshot pointing installations to v8.2.0; this follow-up updates it to the real five-package v8.3.0 tag and synchronizes current root instructions, INDEX and this ledger without changing published runtime/version/Release/tag history.
 
-The remote `develop` ref and branch API both returned 404; `git ls-remote --heads origin develop` was empty. Repository `delete_branch_on_merge=true` is observed; deletion causation is not inferred from that setting alone. The last actual head is #241's `32e32c5b8ecc843435fe9643398135dd22ee8c9b`. The active protect-develop ruleset remains; the current actor has an always-bypass role. No protected-ref creation, direct update, force, rule change or bypass has been attempted. Without a non-bypass execution guarantee, restoration is deferred to a write-capable actor without bypass at that exact prior head. Only after safe restoration can the agent prepare normal protected main-to-develop synchronization and then a separate dry-run-first 8.3.1 development pre-bump; plugin versions remain fixed, no 8.3.1 tag/Release. This documentation PR itself is subject to current-head independent approval and CI. Epic #222 remains open while maintenance and its actual gates are pending; #215/#239 are not closed or expanded by this work.
+At initial follow-up, the remote `develop` ref/branch returned404 and ls-remote was empty; exact prior head32e32c5 and the active protection were preserved. The initial always-bypass safety assessment deferred restoration rather than probing a protected ref; that historical assessment and read-only reports are retained. The Owner then explicitly requested disabling automatic deletion and restoring develop. The ordinary recovery operation and its actual PASS audit below supersede the earlier pending-restoration status; no external restore is now needed. Main-to-develop sync and 8.3.1 apply/PR remain unperformed, with current-head independent approval and CI still mandatory. Epic #222 remains open; #215/#239 are not closed or expanded.
+
+### Actual safe restoration — Owner request 2026-10-15
+
+Repository `delete_branch_on_merge` is now **false**. `refs/heads/develop` was restored via ordinary create-ref at exactly `32e32c5b8ecc843435fe9643398135dd22ee8c9b`, without new commits or advancing it to main. Preflight confirmed no restrict-creation rule, successful required checks on32e32 and its ancestry within actual published main. The recovery used no force, admin-override flag, merge or rule modification.
+
+Crucially, the new primary rule-suite `4536963592` at `2026-10-15T16:20:00+08:00` records before_sha allzero → after_sha32e32, final **pass**, with every applicable rule evaluation **pass**. Protection readback equals the original develop ruleset and main effective rules. Thus this recovery did not bypass the rules; it does not erase the earlier deletion and merge bypass events. [New recovery/settings/rules/timeline receipt](evidence/communication-8-3-0-postrelease-restore-20261015-01.json) and the updated manifest preserve the original nine receipts plus this tenth file unchanged.
+
+The nine-receipt candidate review found that the original REST timeline's first30 entries did not contain the later deletion event. This evidence-closure finding is retained and repaired by archiving the real filtered GraphQL response in the new receipt; no old raw response was overwritten. Normal synchronization and next-patch development preparation follow only through separate protected PRs. The provisional zero-write8.3.1 DryRun on earlier docs headcbdd984 matched only VERSION/badge; it is not an apply or a final synchronized-develop result, and no8.3.1 tag/Release exists.
 
 ## Prior release task stop boundary
 
