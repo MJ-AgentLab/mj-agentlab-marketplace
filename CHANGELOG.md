@@ -5,6 +5,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Retry transient filesystem locks during canonical release-verification cleanup using awaited asynchronous removal with a finite retry limit. Preserve path-containment checks and propagate persistent or unrelated errors. Add deterministic regressions for the captured Windows EBUSY, retry exhaustion and unrelated cleanup errors; retain the original PR #244 CI failure. Plugin bytes/versions and published release history remain unchanged. Refs #244.
+
 ### Documentation
 
 - Record actual #241 / v8.3.0 publication identities and fresh post-publication thirteen-combination installation/Python evidence; update canonical README installation to the published five-package tag. Preserve supplemental actual rule-suite bypass findings, empty reviews, limited client coverage and HTML #239. Record the Owner-requested automatic-deletion disablement and exact develop restoration with actual rule-suite PASS; follow-up sync/pre-bump remain separate protected work. Refs #222.
