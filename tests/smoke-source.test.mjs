@@ -8,7 +8,7 @@ import { prepareSmokeSource, materializeSmokeSource, assertSmokeSource, removeSm
 import { runSmoke, cleanupIsolatedRoot, INSTALL_SCENARIOS } from "../scripts/smoke-codex-plugin.mjs";
 import { assertInstalledSkillResources as assertProductionSkillResources } from "../scripts/validate-portable.mjs";
 
-const REPO = path.resolve(import.meta.dirname, ".."), hash = bytes => crypto.createHash("sha256").update(bytes).digest("hex");
+const REPO = fs.realpathSync.native(path.resolve(import.meta.dirname, "..")), hash = bytes => crypto.createHash("sha256").update(bytes).digest("hex");
 function temporary(t) {
   const root = fs.mkdtempSync(path.join(fs.realpathSync.native(os.tmpdir()), "smoke-source-test-"));
   t.after(() => { if (fs.existsSync(root)) cleanupIsolatedRoot(root); });
