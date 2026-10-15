@@ -1,0 +1,153 @@
+{
+  "issue": 245,
+  "scope": "Existing 22 broad repository fixture preparations, not package-only or brand-only temporary copies",
+  "fixtures": [
+    {
+      "suite": "release-verify-install",
+      "count": 7,
+      "builders": [
+        "fixture()"
+      ],
+      "cases": [
+        "exact canonical tree despite dirty VERSION, guide reference and manifest",
+        "invalid canonical version rejects before installer; non-40-character SHA remains rejected",
+        "retired root instruction entry blocks installation",
+        "failed installation cleans the canonical worktree and fails closed",
+        "missing Explain concept SKILL blocks installation",
+        "Communication eight owned resources each missing/tampered, valid baseline and restored state",
+        "HTML five mandatory runtime resources, implicit policy and malformed manifest version"
+      ]
+    },
+    {
+      "suite": "validate-portable",
+      "count": 8,
+      "builders": [
+        "retired-instructions inline fixture",
+        "repositoryFixture(t), seven invocations"
+      ],
+      "cases": [
+        "all three retired instruction surfaces",
+        "missing/duplicate/unknown/versioned/escaped catalog entries and unapproved plugin directory",
+        "missing package-owned quiz reference",
+        "quiz reference junction escapes package",
+        "each plugin rejects extra skills, missing SKILL and swapped manifest identities",
+        "skill presentation agents junction escapes package",
+        "deferred native-entry ledger cannot erase or enable unverified entries",
+        "common entry missing, forbidden transitional script directory, package scripts junction"
+      ]
+    },
+    {
+      "suite": "html-guide-kit",
+      "count": 5,
+      "builders": [
+        "repositoryFixture(t)"
+      ],
+      "cases": [
+        "oversized guide entry",
+        "missing guide-framework.md even with its Markdown pointer removed",
+        "missing interaction-design.md even with its Markdown pointer removed",
+        "extra guide runtime file",
+        "guide reference directory junction"
+      ]
+    },
+    {
+      "suite": "plugin-icons",
+      "count": 2,
+      "builders": [
+        "two inline isolated repository fixtures"
+      ],
+      "cases": [
+        "registered Explain/HTML plugin loses packaged icon",
+        "Communication brand export deleted/borrowed/duplicated"
+      ]
+    }
+  ],
+  "unchanged": [
+    "All original assertions and negative mutations",
+    "canonical syntheticCommunication local registration/icon/export/.gitattributes overlay",
+    "Git initializations, commit mutations, 29 canonical worktree checks and cleanup assertions",
+    "Package-only installed resource byte tests",
+    "Brand-only assets/plugins copy tests",
+    "Full real repository validation and smoke execution",
+    "VERSION, plugin versions, running packages, source historical evidence and production validator"
+  ],
+  "newBoundaryTests": [
+    "exact real file bytes, strict fixture validation, 44-asset closure and total-vs-generated accounting",
+    "copy independence and historical/unrelated source documents excluded",
+    "preexisting caches in the two known Python script roots excluded without modifying source",
+    "a separate process generates caches after frozen manifest creation, with identical copied/total accounting",
+    "HTML bytecode-looking files/directories and empty illegal skill directories remain copied and strictly rejected",
+    "missing real metadata/runtime/common capability/version/brand dependencies fail without synthesis",
+    "path traversal, ordinary resource junctions and known-root __pycache__ junctions rejected (unavailable junction capability reported as skip)",
+    "missing synthetic link target and malformed metadata still rejected",
+    "nonempty/overlapping destinations preserved and final overlay delta counted before Git initialization"
+  ],
+  "cachePolicy": {
+    "roots": [
+      "plugins/learning-evidence-kit/scripts",
+      "plugins/diagram-kit/skills/arch-diagram/scripts"
+    ],
+    "excluded": [
+      "ordinary __pycache__ directories directly under the two roots",
+      "ordinary *.pyc files directly under the two roots"
+    ],
+    "notExcluded": [
+      "HTML or other roots with *.pyc/__pycache__ names",
+      "all other non-cache real files",
+      "empty directories, including illegal extra plugin/skill directories"
+    ],
+    "mechanism": "Freeze an explicit owned file-and-directory manifest, copy entries individually, verify actual target types/sizes outside copy timing, recheck non-cache source manifest. Do not use unfiltered cpSync or Git-tracked filtering.",
+    "finalInventory": "Enumerate all actual fixture files without cache exclusions; accidental leaks remain visible in fixtureTotalBytes/preparationDeltaBytes.",
+    "links": "Reject symlinks/junctions before considering cache exclusions, including __pycache__ links in known Python roots."
+  },
+  "schemaVersion": 1,
+  "stage": "PR2 implementation, hosted acceptance pending",
+  "implementationBase": "30665998dda2ebbbae1806b946ec63f840bd98e0",
+  "baselineTree": "20f540fcabba740e549ecdbf01cf78f2ce3473f5",
+  "originalSources": [
+    {
+      "path": "tests/release-verify-install.test.mjs",
+      "normalizedLfSha256": "b99f8523cb9084c9361311fabec2debfdfc29ae0d52b95322ec99b1a55c66cd9"
+    },
+    {
+      "path": "tests/validate-portable.test.mjs",
+      "normalizedLfSha256": "74a17f3cecb3c854a7b7bbd2292e8d4853a64a671bc7b3df763162c128f8d0a9"
+    },
+    {
+      "path": "tests/html-guide-kit.test.mjs",
+      "normalizedLfSha256": "8c94a1e32a1ad656a49d5c44b109634303752b4f72d740ccb7618624a75ed190"
+    },
+    {
+      "path": "tests/plugin-icons.test.mjs",
+      "normalizedLfSha256": "2629e4685380e65696318354246f988bf01c72a854d4f966af0f26c2e35e6d86"
+    }
+  ],
+  "verification": {
+    "originalAssertions": "All original assert-bearing lines are identical to the actual PR1 merge: release25 / portable80 / HTML59 / icons54; independently checked",
+    "localSuites": "81/81 passed, zero failures/skips, 64814.1403 ms; working snapshot, full suite and hosted remain separate",
+    "hostedCopyGate": "Not run",
+    "fullCoreAcceptance": "Deferred to PR3",
+    "fullLocalSuite": "382/382 passed, zero failures/skips, Node TAP 65674.828 ms; local profiled working snapshot",
+    "independentAgentReview": "Spec/correctness and Standards: zero blocking findings; not a GitHub approval"
+  },
+  "localObservation": {
+    "fixtureRoots": 22,
+    "bySuite": {
+      "release-verify-install": 7,
+      "validate-portable": 8,
+      "html-guide-kit": 5,
+      "plugin-icons": 2
+    },
+    "copiedBytes": 69933534,
+    "syntheticBytes": 119020,
+    "fixtureTotalBytes": 70094295,
+    "preparationDeltaBytes": 41741,
+    "canonicalWorktreeCreates": 29,
+    "canonicalWorktreeRemoves": 29,
+    "formalGate": "Not run; these local observations do not substitute for same-runner acceptance",
+    "fullLocalLogSha256": "44e95440715eaa1c102ecfff6120dc8148f4b5177b69cc6e98410b7754c160c8",
+    "copiedFiles": 3036,
+    "syntheticFiles": 396,
+    "fixtureTotalFiles": 3432
+  }
+}

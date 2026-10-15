@@ -7,9 +7,9 @@ import crypto from "node:crypto";
 import {parseDocument} from "yaml";
 import {RUNTIME_PLUGINS,PUBLIC_SKILLS,EXPLICIT_ONLY_SKILLS,REPOSITORY_SKILLS,SKILL_RESOURCES,GUIDE_ENTRY_MAX_BYTES,validateGuideEntryBudget,validateManifest,validateOpenAIConfig,validateRepository as validateRepositorySource,assertInstalledSkillResources,assertInstalledPluginResources} from "../scripts/validate-portable.mjs";
 import {measureSync} from "../scripts/perf-metrics.mjs";
+import {populateRepositoryFixture} from "./helpers/repository-fixture.mjs";
 const perf=(phase,operation,details={})=>measureSync(phase,operation,{scope:"fixture",suite:"html-guide-kit",...details});
 const copy=(...args)=>perf("copy",()=>fs.cpSync(...args),{path:args[0]});
-const copyRepository=(...args)=>perf("copy",()=>fs.cpSync(...args),{path:args[0],repositoryFixture:true});
 const validateRepository=repo=>perf("validate",()=>validateRepositorySource(repo));
 
 const REPO=path.resolve(import.meta.dirname,".."),TEMP_ROOT=fs.realpathSync.native(os.tmpdir());
@@ -37,7 +37,7 @@ function installedFixture(t,plugin=PLUGIN){
 }
 function repositoryFixture(t){
  const root=temporary(t,"guide-repository-");
- for(const rel of ["assets",".agents",".codex",".github","scripts","tests","plugins","docs","plan","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])copyRepository(path.join(REPO,rel),path.join(root,rel),{recursive:true});
+ populateRepositoryFixture(root,{sourceRoot:REPO,suite:"html-guide-kit"});
  return root;
 }
 

@@ -4,7 +4,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import spawn from "cross-spawn";
-import { parseOptions, validateBaselineConfig, makePlan, commandFor, statistics, parseTreeListing, copiedInventory, inspectOutput, summarize, phaseSummary, canonicalPath, addOwnedWorktree, removeOwnedWorktrees } from "../scripts/benchmark-ci-performance.mjs";
+import { parseOptions, validateBaselineConfig, makePlan, commandFor, statistics, parseTreeListing, copiedInventory, actualFixtureInventory, FIXTURE_COUNTS, inspectOutput, summarize, phaseSummary, canonicalPath, addOwnedWorktree, removeOwnedWorktrees } from "../scripts/benchmark-ci-performance.mjs";
 
 function temporary(t) {
   const root = fs.mkdtempSync(path.join(fs.realpathSync.native(os.tmpdir()), "ci-benchmark-unit-"));
@@ -19,6 +19,10 @@ function temporary(t) {
 test("benchmark arguments require exact sources, a fresh report location and at least three rounds", () => {
   const args = ["--candidate-sha", "a".repeat(40), "--report-dir", path.resolve("report")];
   assert.equal(parseOptions(args).repetitions, 3);
+  assert.equal(parseOptions(args).stage, "core");
+  assert.equal(parseOptions([...args, "--stage", "fixtures"]).stage, "fixtures");
+  assert.throws(() => parseOptions([...args, "--stage", "injected; command"]), /stage must/);
+  assert.throws(() => parseOptions([...args, "--stage", "fixtures", "--baseline-only"]), /frozen comparison/);
   assert.throws(() => parseOptions([...args, "--repetitions", "2"]), /at least 3/);
   assert.throws(() => parseOptions(["--candidate-sha", "main", "--report-dir", path.resolve("report")]), /full lowercase/);
   assert.throws(() => parseOptions(["--candidate-sha", "a".repeat(40), "--report-dir", "relative"]), /absolute/);
@@ -38,6 +42,17 @@ test("serial plan has B3 and O3 per concurrency, alternates order and measures w
   assert.equal(plan.find(item => item.round === 2).source, "candidate");
   assert.equal(makePlan(3, true).length, 9);
   assert.ok(makePlan(3, true).every(item => item.source === "baseline"));
+  const fixtures = makePlan(3, false, "fixtures");
+  assert.equal(fixtures.length, 6);
+  assert.ok(fixtures.every(item => item.command === "test" && item.concurrency === "default"));
+  assert.deepEqual(fixtures.map(item => item.source), ["baseline", "candidate", "candidate", "baseline", "baseline", "candidate"]);
+  assert.throws(() => makePlan(3, true, "fixtures"), /invalid benchmark stage/);
+});
+
+test("frozen performance reference is the actual PR1 merge and tree", () => {
+  const config = validateBaselineConfig(JSON.parse(fs.readFileSync(new URL("../config/ci-performance-baseline.json", import.meta.url), "utf8")));
+  assert.equal(config.baselineSha, "30665998dda2ebbbae1806b946ec63f840bd98e0");
+  assert.equal(config.baselineTree, "20f540fcabba740e549ecdbf01cf78f2ce3473f5");
 });
 
 test("benchmark selects fixed npm scripts with Node flags before the test glob", () => {
@@ -137,8 +152,8 @@ test("command success requires complete Windows TAP or all thirteen real smoke r
   assert.equal(inspectOutput("smoke", "{}\n").ok, false);
 });
 
-function measured({ baselineOnly = false, mutate = record => record } = {}) {
-  return makePlan(3, baselineOnly).map(sample => mutate({ ...sample, durationMs: sample.source === "baseline" ? 1000 : sample.command === "test" ? ({ default: 400, 1: 410, 2: 390 })[sample.concurrency] : sample.command === "canonical" ? 100 : 500, fixtureCopiedBytes: sample.source === "baseline" ? 10_000 : 100, fixtureActualCopiedBytes: sample.source === "candidate" ? 120 : null, ok: true }));
+function measured({ baselineOnly = false, stage = "core", mutate = record => record } = {}) {
+  return makePlan(3, baselineOnly, stage).map(sample => mutate({ ...sample, durationMs: sample.source === "baseline" ? 1000 : sample.command === "test" ? ({ default: 400, 1: 410, 2: 390 })[sample.concurrency] : sample.command === "canonical" ? 100 : 500, fixtureCopiedBytes: sample.source === "baseline" ? 10_000 : null, fixtureActualCopiedBytes: sample.source === "candidate" ? 120 : null, fixtureSyntheticBytes: sample.source === "candidate" ? 10 : null, fixturePreparationDeltaBytes: sample.source === "candidate" ? -5 : null, fixtureTotalBytes: sample.source === "candidate" ? 125 : null, fixtureTotals: sample.source === "candidate" ? { valid: true, fixtureCount: 22, bySuite: FIXTURE_COUNTS, copiedBytes: 120 } : null, ok: true }));
 }
 
 test("baseline-only measurements never become a frozen baseline or speed PASS", () => {
@@ -164,7 +179,7 @@ test("actual copy reduction uses a conservative baseline lower bound and rejects
   const missing = summarize(measured({ mutate: item => ({ ...item, fixtureActualCopiedBytes: null }) }), options);
   assert.equal(missing.status, "not_accepted");
   assert.equal(missing.gates.fixtureBytes.status, "not_measured");
-  const generated = summarize(measured({ mutate: item => item.source === "candidate" ? { ...item, fixtureActualCopiedBytes: 600 } : item }), options);
+  const generated = summarize(measured({ mutate: item => item.source === "candidate" ? { ...item, fixtureActualCopiedBytes: 600, fixtureTotals: { ...item.fixtureTotals, copiedBytes: 600 } } : item }), options);
   assert.equal(generated.gates.fixtureBytes.status, "fail");
   assert.equal(generated.status, "not_accepted");
 });
@@ -185,4 +200,80 @@ test("failed, partial, non-Windows and unmeasured-copy runs cannot pass by repla
 
 test("phase sums preserve expected negative operations without treating them as command failures", () => {
   assert.deepEqual(phaseSummary([{ phase: "validate", durationMs: 10, status: "error", details: { scope: "canonical" } }, { phase: "validate", durationMs: 5, status: "ok", details: { scope: "canonical" } }]), { "canonical/validate": { count: 2, durationSumMs: 15, operationErrors: 1 } });
+});
+
+const protocolSource = path.resolve("benchmark-source");
+function fixtureEvents() {
+  const result = [];
+  for (const [suite, count] of Object.entries(FIXTURE_COUNTS)) for (let index = 0; index < count; index++) {
+    const root = path.join(os.tmpdir(), `benchmark-counter-${suite}-${index}`);
+    const common = { scope: "fixture", suite, repositoryFixture: true, sourceRoot: protocolSource };
+    result.push({ phase: "copy", status: "ok", durationMs: 1, details: { ...common, fixtureRoot: root, copiedBytes: 100, copiedFiles: 2, inventoryMode: "explicit-entries-verified" } });
+    result.push({ phase: "fixture.total", status: "ok", durationMs: 1, details: { ...common, root, stage: "prepared", copiedBytes: 100, copiedFiles: 2, syntheticBytes: 10, syntheticFiles: 1, preparationDeltaBytes: 0, fixtureTotalBytes: 110, fixtureTotalFiles: 3 } });
+  }
+  return result;
+}
+
+test("actual fixture totals use final suite/root snapshots, preserve signed overlays and exclude boundary/local copies", () => {
+  const events = fixtureEvents();
+  events.push({ ...events[1], details: { ...events[1].details, stage: "syntheticCommunication", preparationDeltaBytes: -5, fixtureTotalBytes: 105 } });
+  events.push({ phase: "copy", status: "error", details: { scope: "fixture", suite: "repository-fixture-boundary", repositoryFixture: true } });
+  events.push({ phase: "copy", status: "ok", details: { scope: "fixture", suite: "plugin-icons", repositoryFixture: false } });
+  const actual = actualFixtureInventory(events, protocolSource);
+  assert.equal(actual.valid, true, actual.errors.join("\n"));
+  assert.equal(actual.fixtureCount, 22);
+  assert.deepEqual(actual.bySuite, FIXTURE_COUNTS);
+  assert.equal(actual.copiedBytes, 2200);
+  assert.equal(actual.syntheticBytes, 220);
+  assert.equal(actual.preparationDeltaBytes, -5);
+  assert.equal(actual.fixtureTotalBytes, 2415);
+});
+
+test("missing prepared/copy segments and failed operations cannot be hidden by a later successful total", () => {
+  const base = fixtureEvents();
+  const variants = [base.slice(1), base.filter((_, index) => index !== 1)];
+  variants.push(base.map((event, index) => index === 0 ? { ...event, status: "error" } : event));
+  variants.push([...base.map((event, index) => index === 1 ? { ...event, status: "error" } : event), { ...base[1], details: { ...base[1].details, stage: "overlay" } }]);
+  variants.push([...base, base[1]]);
+  for (const events of variants) {
+    const actual = actualFixtureInventory(events, protocolSource);
+    assert.equal(actual.valid, false);
+    assert.equal(actual.copiedBytes, null);
+  }
+});
+
+test("counter types, source/root consistency, exact suite counts and duplicate cross-suite identities fail closed", () => {
+  for (const [field, value] of [["copiedBytes", -1], ["copiedFiles", .5], ["syntheticBytes", NaN], ["fixtureTotalFiles", null], ["preparationDeltaBytes", Infinity], ["fixtureTotalBytes", 109]]) {
+    const events = fixtureEvents(); events[1].details[field] = value;
+    assert.equal(actualFixtureInventory(events, protocolSource).valid, false, field);
+  }
+  for (const change of [
+    events => { events[0].details.copiedBytes++; },
+    events => { events[0].details.sourceRoot = path.resolve("other-source"); },
+    events => { events[0].details.fixtureRoot = path.join(os.tmpdir(), "different-root"); },
+    events => { events[0].details.inventoryMode = "planned-only"; },
+    events => { events[0].details.copiedBytes = 0; events[1].details.copiedBytes = 0; events[1].details.fixtureTotalBytes = 10; },
+    events => { events.splice(0, 2); },
+    events => { const target = events.find(event => event.details.suite === "plugin-icons" && event.phase === "fixture.total").details.root; events[0].details.fixtureRoot = target; events[1].details.root = target; },
+  ]) {
+    const events = fixtureEvents(); change(events);
+    assert.equal(actualFixtureInventory(events, protocolSource).valid, false);
+  }
+});
+
+test("fixtures stage accepts copy reduction only and keeps core timing/concurrency acceptance deferred", () => {
+  const samples = measured({ stage: "fixtures", mutate: record => record.source === "candidate" ? { ...record, durationMs: 2000 } : record });
+  const options = { stage: "fixtures", frozenBaseline: true, eligibleEnvironment: true };
+  const summary = summarize(samples, options);
+  assert.equal(summary.status, "fixtures_pass");
+  assert.equal(summary.coreAcceptance, "deferred");
+  assert.equal(summary.selectedConcurrency, null);
+  assert.deepEqual(Object.keys(summary.gates), ["fixtureBytes"]);
+  assert.deepEqual(summary.deferredGates, ["test", "canonical", "smoke"]);
+  assert.equal(summary.groups["candidate/test/default"].fixtureCopiedBytes, null);
+  assert.equal(summary.groups["candidate/test/default"].fixturePreparationDeltaBytes.median, -5);
+  for (const override of [{ eligibleEnvironment: false }, { frozenBaseline: false }, { complete: false }, { baselineOnly: true }]) assert.equal(summarize(samples, { ...options, ...override }).status, "not_accepted");
+  for (const invalid of [samples.slice(1), samples.map((record, index) => index === 1 ? { ...record, fixtureTotals: { ...record.fixtureTotals, fixtureCount: 21 } } : record), samples.map((record, index) => index === 1 ? { ...record, round: 3 } : record)]) assert.equal(summarize(invalid, options).status, "not_accepted");
+  const tooLarge = samples.map(record => record.source === "candidate" ? { ...record, fixtureActualCopiedBytes: 600, fixtureTotals: { ...record.fixtureTotals, copiedBytes: 600 } } : record);
+  assert.equal(summarize(tooLarge, options).gates.fixtureBytes.status, "fail");
 });

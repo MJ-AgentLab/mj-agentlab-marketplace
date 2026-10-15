@@ -4,9 +4,9 @@ scope: marketplace
 summary: "Issue 245 staged Windows CI performance acceptance and evidence"
 owner: marketplace-maintainers
 created: 2026-10-15
-updated: 2026-10-15
+updated: 2026-10-16
 state: active
-version: v1.0
+version: v1.1
 last-verified: null
 ---
 
@@ -32,7 +32,9 @@ Native unanswered-window requirements remain strict: defaults, preselection, sil
 
 Stages merge sequentially into develop from separate worktrees. PR1-PR4 reference #245 without closing it. Close #245 only after the complete acceptance set and post-merge verification; otherwise retain an explicit unfinished/deferred state. Core delivery after PR3 is separate from whole-Issue completion.
 
-Current implementation base: `b1937b26dfe33ecabc55e9e88d692e9a5f0aa90b`, the actual #244 merge. Its tree matches the tested repair head `ffdc03e8b876b6cf068645901dcca2ab97e6ece9`; this identity match is not a claim that the merge was newly tested. The repair-head Windows evidence has 349 passing tests and thirteen successful smoke scenarios. The older 346-test performance history remains historical evidence.
+PR1 implementation base: `b1937b26dfe33ecabc55e9e88d692e9a5f0aa90b`, the actual #244 merge. Its tree matches the tested repair head `ffdc03e8b876b6cf068645901dcca2ab97e6ece9`; this identity match is not a claim that the merge was newly tested. The repair-head Windows evidence has 349 passing tests and thirteen successful smoke scenarios. The older 346-test performance history remains historical evidence.
+
+PR2 implementation base and frozen denominator: actual [#246](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/246) merge `30665998dda2ebbbae1806b946ec63f840bd98e0`, tree `20f540fcabba740e549ecdbf01cf78f2ce3473f5`. It is byte-identical to the tested head `ed94d7fcc030989f647362f143133ca61362ae60` and PR test merge `8a4512ba3c0575f2954e55a305aeb3ef57034b1f`. The merge occurred at 2026-10-16 00:25:46 Asia/Taipei. GitHub returned an empty reviews list; record the actual merge without inferring a missing non-author approval. Subsequent PRs retain normal review and protection gates. A same-tree comparison is not a new full-test run of the actual merge.
 
 The expanded inventory is **at least 22 complete-docs copies**: canonical 7, portable validation 8, HTML 5, icons 2. Earlier #245 analysis counted at least 21; one HTML call site expands into two parameterized tests. Smoke separately prepares thirteen full sources. Record call sites and runtime expansion separately.
 
@@ -51,6 +53,8 @@ Run baseline and candidate serially on the same Windows runner, with the same to
 At least three rounds compare baseline default with candidate default/1/2. Run baseline only once per round, not once for each candidate configuration. Measure canonical as its whole isolated test-file process, and smoke as its whole thirteen-scenario process. Outer wall time includes internal source validation/preparation, all installation and finally/after cleanup through process exit. Benchmark worktree checkout, dependency installation and external inventory collection are separate overheads, not deductions from measured commands.
 
 The existing `npm test` stays unchanged. Explicit concurrency uses `npm run test:concurrency-1` and `npm run test:concurrency-2`, with Node's option before the test-file glob. Actual isolated runner probes verify the effective option; merely observing a successful command or inspecting an argument array is insufficient. Runtime-equivalence checks include the complete `.agents` input, so unrelated development-skill contract changes also invalidate comparison.
+
+PR2 uses `--stage fixtures`: three alternating baseline/candidate pairs of the unchanged default full-test command, six samples on the same pinned Windows runner. Only the 95% copy gate may yield `fixtures_pass`; core acceptance remains deferred, with no concurrency selection or speed-gate PASS. Other stage branches keep the default core plan, which requires all four gates and the complete concurrency comparison. This stage split does not lower any core threshold.
 
 Retain every attempted round. Failure or interruption cannot be filled in by silently selecting successful samples; repair and obtain a fresh complete comparison. Budget below the hosted-job limit, report incomplete rounds as incomplete, and retain diagnostics on failure. Detailed logs/reports are Actions artifacts with 30-day retention. Keep per-round numbers, environment, source identities, report hashes and links here so artifact expiration does not erase the numerical evidence. Do not commit repeated source snapshots or full logs.
 
@@ -77,18 +81,54 @@ Current develop service-required contexts are `Validate Structure` and `A6 / Che
 |---|---|---|
 | Owner scope and thresholds | CONFIRMED | Conversation: minimum fixtures; two broad phases/five PRs; 95/50/80/30 reductions; queued/running/success PR deduplication |
 | Historical analysis | VERIFIED | #245 preserves actual Actions samples and limitations |
-| PR1 implementation | IN_PROGRESS | Isolated branch `codex/issue-245-metrics`, base b1937b26 |
+| PR1 implementation | MERGED, SAME TREE | #246 actual merge 30665998, tree 20f540fc; original implementation base b1937b26. Empty reviews remain separately recorded. |
 | PR1 initial local instrumentation checks | PASS, WORKING SNAPSHOT | Full `npm test`: 354/354, zero failures/skips, 451206.4497 ms; original 349 plus five metrics tests. This run preceded final harness fixes and copy-accounting tags; final committed-head CI remains required. |
 | PR1 local regression checks | PASS, WORKING SNAPSHOT | Final benchmark 13 + metrics 5 + release-cleanup 3 + documentation 10 = 31/31; earlier run-cli 16/16. Node 22.18.0, Python 3.12.13, Codex 0.147.0; this is not the pinned hosted benchmark environment. |
 | PR1 real local smoke with profiling enabled | PASS, WORKING SNAPSHOT | 13/13 scenarios, six installed diagram Python validations and six installed Learning Evidence Python validations; 303 phase records, zero operation errors, thirteen cleanup records. Final committed-head hosted verification remains separate. |
 | PR1 independent review round 1 | FINDINGS, REPAIRED | P1: trailing concurrency options did not establish effective scheduling. P2: interrupted worktree-add registration cleanup. P2: repository-copy accounting included a separate partial-brand fixture. Original findings retained; fixed scripts, registered-worktree cleanup and explicit repository-copy tags now have regressions. |
 | PR1 independent review round 2 | NO BLOCKING FINDINGS | Independent Agent re-read the complete diff and ran final benchmark regressions: 13/13, zero failures/skips. This does not replace hosted CI or a GitHub non-author approval. |
 | PR1 copy-domain follow-up | REPAIRED, LOCAL 32/32 | PR2 draft review exposed generated Python caches outside the controlled inventory. Explicitly identify PR1 counts as a lower bound; actual candidate copy totals are now required for the 95% gate. The first independent 13/14 run exposed an obsolete missing-value assertion; corrected to the actual-byte field, then benchmark 14 + metrics 5 + cleanup 3 + docs 10 passed 32/32. The first hosted attempt on head 53f7f5c remains an earlier source, not final-head evidence. |
-| PR1 hosted benchmark entry | NOT_RUN | No native/Actions entry pass inferred from local simulation |
-| Frozen performance baseline | NOT_ESTABLISHED | Requires actual PR1 merge SHA |
-| PR2-PR5 / final Issue closure | NOT_STARTED | Sequential dependency and normal gates retained |
+| PR1 hosted engineering | PASS | PR/push Windows each 368/368, zero fail/skip; Ubuntu each 368 total, 367 pass, one existing Windows-only skip; all thirteen real smoke scenarios per job. PR/push Windows test steps 19m24s/18m22s, smoke 3m11s/3m9s. Each Windows job executes six installed Diagram checks and six Learning groups (18 lek.py calls), all exit zero. |
+| PR1 hosted benchmark entry | PASS, BASELINE ONLY | Run 38751596782 completed all nine samples. Full-test rounds each 368/368, canonical each 7/7, smoke each 13/13. No timeout or harness failure; final owned-worktree cleanup passed. |
+| Frozen performance baseline | FROZEN | config/ci-performance-baseline.json pins actual merge 30665998 and tree 20f540fc. Future acceptance reruns it beside the candidate in the same environment. |
+| PR1 actual-merge installation | PASS | Fresh exact 30665998 canonical verification on 2026-10-16 00:29:01–00:31:24 Asia/Taipei: full-source strict validation and thirteen actual installations, six installed Diagram checks and six Learning groups. Log SHA-256 a281d227c9ef536cd9b45d9cac5e68629955b76f92e4f2f79f760481393ee108. |
+| PR2 fixture implementation | IN_PROGRESS | Isolated codex/issue-245-fixtures from actual PR1 merge; shared test-only builder, original assertion mapping and nine new boundary cases. Local and hosted results below remain distinct. |
+| PR2 local fixture checks | PASS, WORKING SNAPSHOT | Latest nine boundaries plus four original suites: 81/81, zero failures/skips, 64.814 seconds; original assertion lines 25/80/59/54 unchanged and 29 canonical worktree create/remove pairs retained. Full-suite and hosted checks remain separate. |
+| PR2 full local engineering | PASS, WORKING SNAPSHOT | npm test 382/382, zero failures/skips, Node TAP duration 65674.828 ms; profiling enabled, REQUIRE_PYTHON/PWSH=1. Real profile aggregation confirms 22 roots and all counters. Harness 19/19, documentation 10/10, validate and exact Codex 0.147.0 check pass. This is the local Node 22.18.0 / Python 3.12.13 environment, not hosted paired acceptance. |
+| PR2 independent Agent review | NO BLOCKING FINDINGS | Separate Spec/correctness and Standards reviews of the complete diff; original assertions, counters, fixture/core stage separation and scope verified. This is not a GitHub non-author approval. |
+| PR2 exact candidate installation / hosted CI | NOT_RUN | Requires the final committed candidate and actual hosted execution. |
+| PR2 staged copy acceptance | NOT_RUN | Six same-runner samples required; actual candidate copied bytes and exactly 22 fixture roots. |
+| PR3-PR5 / final Issue closure | NOT_STARTED | Full speed/concurrency acceptance and main-CI scheduling remain separate stages; Issue stays open. |
 
 Local logs remain outside the checkout. Initial full-test log SHA-256: `d8a58e6d748bbcb6d42227afc625c09121934aace7aa30b4f54faa028f0caf5d` (80,933 bytes); profiling-enabled smoke stdout SHA-256: `d6ddbd9eb4fea874c5f75471a4589abc5fea8d4f16e630d549098f7f5a7a9688` (324,246 bytes). These working-snapshot checks are not a substitute for the final commit's required CI.
+
+### 5.1 PR1 measured observations
+
+[PR CI](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38751562174), [push CI](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38751552478), and [three-round observation](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38751596782) all succeeded on the stated final source. The performance report is `baseline_only`, `frozenBaseline=false`; its historical observations do not establish a speed improvement or replace a new paired comparison.
+
+| Complete command | Three wall times, seconds | Median | Range |
+|---|---|---:|---|
+| npm test | 1053.087 / 873.900 / 871.425 | 873.900 | 871.425–1053.087 |
+| Canonical test file | 882.137 / 739.054 / 675.090 | 739.054 | 675.090–882.137 |
+| Thirteen-scenario smoke | 156.510 / 139.170 / 149.457 | 149.457 | 139.170–156.510 |
+
+Environment: Windows image `20260925.250.1`, Node 22.23.3, Python 3.12.10, Codex 0.147.0, Git 2.55.0.windows.5, npm 10.9.9, Intel Xeon Platinum 8370C, four available logical processors, default file concurrency three. Source: 6,065 controlled files, 575,546,324 content bytes; checkout 575,777,560 bytes. Each full round's tagged repository-input lower bound is 12,666,735,598 bytes; canonical is 4,030,348,588 bytes. Each raw profile expands docs inputs 7/8/5/2 = 22; PR2 additionally records explicit fixture-root identities. OS file caching is uncontrolled.
+
+Each full-test profile contains two expected injected cleanup errors from passing persistent-lock/EACCES regressions. Independent canonical/smoke and final owned cleanup succeed; do not call all raw cleanup events error-free. The old head 53f7f5c attempt was superseded and manually cancelled with nine planned/zero complete samples, not silently substituted as a successful round. Its report SHA-256 is `51d005e8d4a11ad7bbb3ea87e62df65e99bd3b863a4b8c725d0b3f118f8c162f`.
+
+Complete artifact 11989850027 expires 2026-11-14T16:01:09Z. Report SHA-256: `d6645c961903237abc01e1ead328b14101d00317aa06809b49214757f24aabe7`; ZIP: `bbc183a83cf26269df9a3894834a9db1efbe5a14a07d09b139eeed8c9f61019f`; independent numerical receipt: `a5e6177bc9c1719ed5f612aa1837d4e70163694e12a340dcf1528f793d6a8e6d`. Engineering receipt: `db295ac8eb0228fbd507a74ae81d6dfdd3a07a1d10832af66a5163a38f2894aa`. Raw logs stay outside Git; these compact numbers and identities remain after artifact expiry.
+
+### 5.2 PR2 coverage and preparation
+
+The shared test-only builder copies real plugins, repository skills/catalog, VERSION, .gitattributes and the exact 44-file brand closure. It generates four clearly synthetic root documents and fourteen explicit contract link targets, then calls the unchanged production validator. It excludes historical evidence and unrelated repository trees. Complete real-source validation and thirteen real-source installations remain separate; smoke preparation is unchanged until PR3.
+
+Only ordinary generated caches directly beneath the two known Python script roots are omitted. Symlinks/junctions are rejected before cache exclusions; HTML extra files, cache-looking directories and empty illegal skill directories remain visible. Actual copied bytes, synthetic write bytes, signed overlay delta and complete prepared fixture bytes are distinct. Final metrics use the last successful total for each suite/root after the canonical local overlay, before Git initialization.
+
+The [coverage map](evidence/ci-performance-245-fixture-coverage.json) records all 22 existing fixture preparations, original destructive cases, preserved assertions and new boundary cases. Local fixture numbers do not substitute for hosted three-round acceptance. The helper never fabricates missing real runtime/brand resources or arbitrary new documentation targets.
+
+Local profiled preparation of the 22 original fixtures reports 69,933,534 verified input-copy bytes, 119,020 synthetic-write bytes and 70,094,295 final fixture bytes. The signed canonical-overlay delta is +41,741 bytes. A normal fixture contains 3,178,797 copied plus 5,410 synthetic bytes, total 3,184,207. These are actual checkout measurements, not the earlier 3,172,762-byte controlled-source estimate. They are working-snapshot observations, not the hosted paired 95% gate. The new growth boundary adds at least 1 MiB of synthetic evidence to an isolated source and confirms prepared copy/synthetic/total counts remain constant; it does not write original historical evidence.
+
+Full local test-log SHA-256: `44e95440715eaa1c102ecfff6120dc8148f4b5177b69cc6e98410b7754c160c8`. Its measured 3,036 copied files plus 396 synthetic files give 3,432 prepared files across the 22 original fixtures. Additional boundary-test fixtures are excluded from this approved 22-fixture copy criterion and remain included in whole-command elapsed time. No local timing ratio is presented as a hosted speed-gate PASS.
 
 On regression, retain failure evidence and fix within the authorized stage or revert that stage through a normal protected PR. Never delete historical evidence or weaken acceptance to achieve a lower time.
 
@@ -96,4 +136,5 @@ On regression, retain failure evidence and fix within the authorized stage or re
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.1 | 2026-10-16 | Freeze actual PR1 merge, retain complete hosted observations and review limitations, and begin isolated minimal-fixture implementation and staged copy acceptance. |
 | v1.0 | 2026-10-15 | Establish authorized stages, expanded inventory, performance gates and an initially unexecuted ledger. |
