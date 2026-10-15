@@ -7,7 +7,7 @@
 
 ### Documentation
 
-- Record actual #241 / v8.3.0 publication identities and fresh post-publication thirteen-combination installation/Python evidence; update canonical README installation to the published five-package tag. Preserve missing reviews, limited client coverage and HTML #239. Follow-up sync/pre-bump remain separate protected work. Refs #222.
+- Record actual #241 / v8.3.0 publication identities and fresh post-publication thirteen-combination installation/Python evidence; update canonical README installation to the published five-package tag. Preserve supplemental actual rule-suite bypass findings, empty reviews, limited client coverage and HTML #239. Follow-up sync/pre-bump remain separate protected work. Refs #222.
 
 ## [8.3.0] - 2026-10-15
 

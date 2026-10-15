@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-15
 state: active
-version: v2.9.5
+version: v2.9.6
 ---
 
 # [RUNBOOK] Release operations
@@ -29,7 +29,7 @@ scripts/run-release.mjs 从指定 SHA 读取 VERSION 与 CHANGELOG，要求 SHA 
 
 ## Post-release
 
-v8.3.0 已由 #241 于 2026-10-15 合入 main，实际 merge/tag/Release target 为 `ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64`；github-actions[bot] 07:51:33Z published，workflow 38701485705 success，assets=[]、immutable=false 为实际观察。发布后 07:55:29–07:56:54Z 十三 canonical、6 Diagram + 6 Learning 实际缓存 Python 通过；R05只对应已有有限客户端证据，不新增界面/模型/效果结论。#240/#241 reviews=[]，不因已合并推定批准或豁免。用户续办的文档收尾与常规维护按原授权处理；远端 develop 已不存在，恢复与后续 PR 门禁另记，不直接推进保护分支。完整回执见[8.3.0 账本](./[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。
+v8.3.0 已由 #241 于 2026-10-15 合入 main，实际 merge/tag/Release target 为 `ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64`；github-actions[bot] 07:51:33Z published，workflow 38701485705 success，assets=[]、immutable=false 为实际观察。发布后 07:55:29–07:56:54Z 十三 canonical、6 Diagram + 6 Learning 实际缓存 Python 通过；R05只对应已有有限客户端证据，不新增界面/模型/效果结论。#240/#241 reviews=[]；后续规则审计确认两次合并与develop删除的最终结果为bypass，详见账本，不写保护批准通过。用户续办的文档收尾与常规维护按原授权处理；远端 develop 已不存在，恢复与后续 PR 门禁另记，不直接推进保护分支。完整回执见[8.3.0 账本](./[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。
 
 Marketplace v8.2.0已通过#232/main ebc4bdc3于2026-10-13自动公开，原三插件/五技能/两显式学习策略，发布后五精确canonical安装与实际Python通过；空reviews及immutable配置未提供/Release immutable=false保留，见[发行账本](./[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)。#234实际合入2c0a8317同步main ancestry并保留HTML四插件开发集合，#235实际合入3af68373完成未发布8.2.1预升；两次merge各八精确安装/实际Python通过，见[收尾回执](evidence/learning-evidence-8-2-0-closeout.json)。版本工具先dry-run再只更新VERSION/README badge，插件版本保持，无同号tag/Release。原两文件预升的[skip a6]缺当前head签核失败如实保留；Owner要求修复后补充真实根AGENTS摘要、移除跳过标记，最终三路径走正常A6，通过且不修改门禁。纯两文件例外仍须既有精确非作者签核，正常摘要同步不需专用N/A正文；普通当前head非作者批准要求保持。两PR的空reviews不追认批准/豁免，原生/桌面/效果/Owner接受仍在OPEN Epic独立追踪。
 

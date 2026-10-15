@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-13
 updated: 2026-10-15
 state: active
-version: v2.0.1
+version: v2.0.2
 ---
 
 # [RUNBOOK] Marketplace 8.3.0 release readiness
@@ -46,8 +46,8 @@ The release permission accepts these limits; it does not make semantic or deskto
 | --- | --- | --- |
 | Preparation engineering | Prior CI successful, observed on #241; not re-executed here | npm test, validate, exact CLI 0.147.0 baseline, documentation/A6 and commit checks |
 | Frozen candidate installation | Prior pre-publication run in #241; distinct from fresh R04 below | Its own strict verifier, thirteen canonical combinations, resources, six Diagram Python and six Learning save/replay/read checks |
-| Protected develop preparation merge | #240 MERGED; reviews=[] remains an approval-evidence gap | Actual PR/current head checks, non-author approval, resolved threads and merge SHA |
-| R01 main merge | PASS identity/tree; independent-review evidence missing | Fixed develop head and actual main merge/tree/package correspondence |
+| Protected develop preparation merge | #240 MERGED; actual rule-suite BYPASS, reviews=[] | Actual PR/current head checks, non-author approval, resolved threads and merge SHA |
+| R01 main merge | PASS identity/tree; actual rule-suite BYPASS, review gate not PASS | Fixed develop head and actual main merge/tree/package correspondence |
 | R02 version identity | PASS | VERSION, badge, CHANGELOG, tag peel and Release target identity |
 | R03 public Release | PASS published identity; immutability only observed | Actual workflow and published state; author, assets and immutability observed separately |
 | R04 post-publication installation | PASS fresh tag run, 13/13 | New isolated thirteen-combination installation from the real published tag SHA, matching resources and actual cached Python |
@@ -82,6 +82,16 @@ The real `v8.3.0^{commit}` was resolved and required to equal `ae2754dbae2a9acae
 **ACCEPTED LIMITED COVERAGE / no fresh behavior run.** Communication's eleven non-CHANGELOG runtime/resource files match the earlier actual client source `000e8033ce2f639c974c3953aadc06b9be21878c`; the full published package tree `170fcad82f33548c8d91b62984df4ff38635e69f` differs only in CHANGELOG from that earlier package. Raw installed-cache comparisons retain their own checkout/line-ending identities. No fresh GUI result or blanket raw-byte equivalence is inferred from Git identity.
 
 The prior actual CLI remains 15 PASS / 3 PARTIAL; supplementary tool-role file results remain separately limited. The two actual UI routes are local Codex-backed routes inside the same `OpenAI.Codex 26.1007.2314.0` desktop application, not proof of two independent client implementations. Existing synthetic communication/writing/rewrite, chat waiting and explicit new MD/TXT save/readback results retain that source and identity. Existing-file UI edits, strict native-window lifetime/close/preselection/timeout, other classic/cloud routes and complete Office coverage remain unverified. HTML full-client/extended coverage remains unverified and #239 remains FAIL; Learning deferred entries remain separate. Real-world effects remain NOT_MEASURED.
+
+### Supplemental rule audit: actual bypass, not merely absent reviews
+
+The Owner asked why develop disappeared. A subsequent primary rule-suite readback adds stronger evidence than the earlier reviews=[] snapshots; those original receipts and reports remain unchanged:
+
+- Deletion suite `4536526312`, `2026-10-15T15:50:36+08:00`, actor `ranzuozhou`: `before_sha=32e32c5b8ecc843435fe9643398135dd22ee8c9b`, `after_sha=0000000000000000000000000000000000000000`, final result **bypass**. Active protect-develop deletion evaluation **fail**, details **Cannot delete this branch**. PR #241 timeline independently records `HeadRefDeletedEvent` for develop four seconds after merge. Repository automatic branch deletion was enabled; event data does not distinguish automatic cleanup from a manual click.
+- #240's develop merge suite `4533552767` is **bypass**, with pull_request evaluation **fail**: **New changes require approval from someone other than the last pusher.**
+- #241's main merge suite `4536525058` is **bypass**; its detailed evaluations are preserved in the [primary audit receipt](evidence/communication-8-3-0-postrelease-rules-audit-20261015-01.json). Actual publication and installation still occurred, but protected approval gates are not relabeled PASS. These are historical observed operations; this follow-up has performed no protected merge, ref restoration, deletion or rule change.
+
+This audit explains how a deletion-protected branch could disappear: the recorded operation bypassed the failed deletion rule. It does not attribute intent or automation mode. Future maintenance retains the no-bypass constraint and requires real current-head approvals; the task's unchanged publication and installation facts do not erase this governance exception.
 
 ### Maintenance status and safe next dependency
 

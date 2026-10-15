@@ -1,0 +1,1288 @@
+{
+  "observedAt": "2026-10-15T08:17:06.973136+00:00",
+  "refs": [
+    "#222",
+    "#240",
+    "#241"
+  ],
+  "method": "Primary GitHub rule-suite and PR timeline readback. Records actual pass/fail/bypass, not inferred from reviews or merges. No protected ref or rule changed.",
+  "observations": {
+    "developDeletion": {
+      "id": 4536526312,
+      "actor_id": 35538471,
+      "actor_name": "ranzuozhou",
+      "before_sha": "32e32c5b8ecc843435fe9643398135dd22ee8c9b",
+      "after_sha": "0000000000000000000000000000000000000000",
+      "ref": "refs/heads/develop",
+      "repository_id": 1183002256,
+      "repository_name": "mj-agentlab-marketplace",
+      "pushed_at": "2026-10-15T15:50:36+08:00",
+      "result": "bypass",
+      "rule_evaluations": [
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008221,
+            "name": "protect-develop"
+          },
+          "enforcement": "active",
+          "result": "fail",
+          "rule_type": "deletion",
+          "details": "Cannot delete this branch"
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008221,
+            "name": "protect-develop"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "non_fast_forward"
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008221,
+            "name": "protect-develop"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "required_status_checks"
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008221,
+            "name": "protect-develop"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "pull_request"
+        }
+      ]
+    },
+    "pr240DevelopMerge": {
+      "id": 4533552767,
+      "actor_id": 35538471,
+      "actor_name": "ranzuozhou",
+      "before_sha": "a0a9b1383d2b84a147ff67c5ffa656e8133a0554",
+      "after_sha": "32e32c5b8ecc843435fe9643398135dd22ee8c9b",
+      "ref": "refs/heads/develop",
+      "repository_id": 1183002256,
+      "repository_name": "mj-agentlab-marketplace",
+      "pushed_at": "2026-10-15T11:40:10+08:00",
+      "result": "bypass",
+      "rule_evaluations": [
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008221,
+            "name": "protect-develop"
+          },
+          "enforcement": "active",
+          "result": "fail",
+          "rule_type": "pull_request",
+          "details": "New changes require approval from someone other than the last pusher."
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008221,
+            "name": "protect-develop"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "non_fast_forward"
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008221,
+            "name": "protect-develop"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "required_status_checks"
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008221,
+            "name": "protect-develop"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "deletion"
+        }
+      ]
+    },
+    "pr241MainMerge": {
+      "id": 4536525058,
+      "actor_id": 35538471,
+      "actor_name": "ranzuozhou",
+      "before_sha": "ebc4bdc3abc62c36348d9ba28de7161b04b3b466",
+      "after_sha": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64",
+      "ref": "refs/heads/main",
+      "repository_id": 1183002256,
+      "repository_name": "mj-agentlab-marketplace",
+      "pushed_at": "2026-10-15T15:50:31+08:00",
+      "result": "bypass",
+      "rule_evaluations": [
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008213,
+            "name": "protect-main"
+          },
+          "enforcement": "active",
+          "result": "fail",
+          "rule_type": "pull_request",
+          "details": "New changes require approval from someone other than the last pusher."
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008213,
+            "name": "protect-main"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "required_status_checks"
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008213,
+            "name": "protect-main"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "creation"
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008213,
+            "name": "protect-main"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "non_fast_forward"
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008213,
+            "name": "protect-main"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "deletion"
+        }
+      ]
+    },
+    "timeline241": [
+      {
+        "sha": "5fc8443fed4ab643167dfb646b461b831f8b3faa",
+        "node_id": "C_kwDORoMukNoAKDVmYzg0NDNmZWQ0YWI2NDMxNjdkZmI2NDZiNDYxYjgzMWY4YjNmYWE",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/5fc8443fed4ab643167dfb646b461b831f8b3faa",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/5fc8443fed4ab643167dfb646b461b831f8b3faa",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T09:38:17Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T09:38:17Z"
+        },
+        "tree": {
+          "sha": "906c915d8c4fcb623096002109533ec42e31dd98",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/906c915d8c4fcb623096002109533ec42e31dd98"
+        },
+        "message": "infra(marketplace): preserve communication plan source bytes\n\nRefs: #222\n\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "b2e5a74109f47ecee7471ba741fb4c1348457f3b",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/b2e5a74109f47ecee7471ba741fb4c1348457f3b",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/b2e5a74109f47ecee7471ba741fb4c1348457f3b"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "12a4c08118b2deb74ef2136065bdfb06731e5aa0",
+        "node_id": "C_kwDORoMukNoAKDEyYTRjMDgxMThiMmRlYjc0ZWYyMTM2MDY1YmRmYjA2NzMxZTVhYTA",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/12a4c08118b2deb74ef2136065bdfb06731e5aa0",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/12a4c08118b2deb74ef2136065bdfb06731e5aa0",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T09:38:17Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T09:38:17Z"
+        },
+        "tree": {
+          "sha": "c9c84061e2629a1a1f51f0ac370da36ab177590e",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/c9c84061e2629a1a1f51f0ac370da36ab177590e"
+        },
+        "message": "docs(marketplace): define communication kit acceptance contract\n\nRefs: #222\n\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "5fc8443fed4ab643167dfb646b461b831f8b3faa",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/5fc8443fed4ab643167dfb646b461b831f8b3faa",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/5fc8443fed4ab643167dfb646b461b831f8b3faa"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "19690b84a341d115531213a2b5756467c90b4802",
+        "node_id": "C_kwDORoMukNoAKDE5NjkwYjg0YTM0MWQxMTU1MzEyMTNhMmI1NzU2NDY3YzkwYjQ4MDI",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/19690b84a341d115531213a2b5756467c90b4802",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/19690b84a341d115531213a2b5756467c90b4802",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T09:38:17Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T09:38:17Z"
+        },
+        "tree": {
+          "sha": "a9e9629b483f1edc4ef9d9f7e237177254ec2277",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/a9e9629b483f1edc4ef9d9f7e237177254ec2277"
+        },
+        "message": "test(marketplace): retain saved plans in repository fixtures\n\nRefs: #222\n\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "12a4c08118b2deb74ef2136065bdfb06731e5aa0",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/12a4c08118b2deb74ef2136065bdfb06731e5aa0",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/12a4c08118b2deb74ef2136065bdfb06731e5aa0"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "60548a256aa26eade4da7c419c85c83e3a20e922",
+        "node_id": "C_kwDORoMukNoAKDYwNTQ4YTI1NmFhMjZlYWRlNGRhN2M0MTljODVjODNlM2EyMGU5MjI",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/60548a256aa26eade4da7c419c85c83e3a20e922",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/60548a256aa26eade4da7c419c85c83e3a20e922",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T09:42:59Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T09:42:59Z"
+        },
+        "tree": {
+          "sha": "88b81384571620a12cda7365f3e42464081c98d1",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/88b81384571620a12cda7365f3e42464081c98d1"
+        },
+        "message": "docs(marketplace): synchronize current develop contracts\n\nRefs: #222\n\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "19690b84a341d115531213a2b5756467c90b4802",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/19690b84a341d115531213a2b5756467c90b4802",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/19690b84a341d115531213a2b5756467c90b4802"
+          },
+          {
+            "sha": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/70267a5b91d759af09a8f1281a33e2d5a90fdbc9"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "3d6648dda07dc79ec591439eb5a78f9ca7813dc5",
+        "node_id": "C_kwDORoMukNoAKDNkNjY0OGRkYTA3ZGM3OWVjNTkxNDM5ZWI1YTc4ZjljYTc4MTNkYzU",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/3d6648dda07dc79ec591439eb5a78f9ca7813dc5",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/3d6648dda07dc79ec591439eb5a78f9ca7813dc5",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T09:44:42Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T09:44:42Z"
+        },
+        "tree": {
+          "sha": "90d66922b6077efb80b3fa1ed0238b7b000893d1",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/90d66922b6077efb80b3fa1ed0238b7b000893d1"
+        },
+        "message": "infra(scripts): prepare communication version and commit scopes\n\nRefs: #222\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "b2e5a74109f47ecee7471ba741fb4c1348457f3b",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/b2e5a74109f47ecee7471ba741fb4c1348457f3b",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/b2e5a74109f47ecee7471ba741fb4c1348457f3b"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "4e4fa8546ae8a2779cd0a71fa2e0e745d947af57",
+        "node_id": "C_kwDORoMukNoAKDRlNGZhODU0NmFlOGEyNzc5Y2QwYTcxZmEyZTBlNzQ1ZDk0N2FmNTc",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/4e4fa8546ae8a2779cd0a71fa2e0e745d947af57",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/4e4fa8546ae8a2779cd0a71fa2e0e745d947af57",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T09:44:42Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T09:44:42Z"
+        },
+        "tree": {
+          "sha": "17d3d65a90f3d8e4c34d67a88a74f9cfb9b41a07",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/17d3d65a90f3d8e4c34d67a88a74f9cfb9b41a07"
+        },
+        "message": "infra(scripts): wrap brand comparison rows without cropping\n\nRefs: #222\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "3d6648dda07dc79ec591439eb5a78f9ca7813dc5",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/3d6648dda07dc79ec591439eb5a78f9ca7813dc5",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/3d6648dda07dc79ec591439eb5a78f9ca7813dc5"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "23d8666a156156726be7f112f869255c6494aa31",
+        "node_id": "C_kwDORoMukNoAKDIzZDg2NjZhMTU2MTU2NzI2YmU3ZjExMmY4NjkyNTVjNjQ5NGFhMzE",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/23d8666a156156726be7f112f869255c6494aa31",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/23d8666a156156726be7f112f869255c6494aa31",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T09:44:42Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T09:44:42Z"
+        },
+        "tree": {
+          "sha": "0ee261953de728b03d9a0c6c8b230fe2bf7ffc04",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/0ee261953de728b03d9a0c6c8b230fe2bf7ffc04"
+        },
+        "message": "feat(marketplace): add communication globe icon candidates\n\nRefs: #222\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "4e4fa8546ae8a2779cd0a71fa2e0e745d947af57",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/4e4fa8546ae8a2779cd0a71fa2e0e745d947af57",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/4e4fa8546ae8a2779cd0a71fa2e0e745d947af57"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "ba649f2dd71aa279fe5114c5ac762717f694a191",
+        "node_id": "C_kwDORoMukNoAKGJhNjQ5ZjJkZDcxYWEyNzlmZTUxMTRjNWFjNzYyNzE3ZjY5NGExOTE",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/ba649f2dd71aa279fe5114c5ac762717f694a191",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/ba649f2dd71aa279fe5114c5ac762717f694a191",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T09:44:42Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T09:44:42Z"
+        },
+        "tree": {
+          "sha": "ef475e36d1e80a8889dc06a38bc6c656dec99176",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/ef475e36d1e80a8889dc06a38bc6c656dec99176"
+        },
+        "message": "docs(marketplace): record communication foundation validation\n\nRefs: #222\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "23d8666a156156726be7f112f869255c6494aa31",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/23d8666a156156726be7f112f869255c6494aa31",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/23d8666a156156726be7f112f869255c6494aa31"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "870e0c8524a57680eab9f4ba2dcb94bc9ba91bcb",
+        "node_id": "C_kwDORoMukNoAKDg3MGUwYzg1MjRhNTc2ODBlYWI5ZjRiYTJkY2I5NGJjOWJhOTFiY2I",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/870e0c8524a57680eab9f4ba2dcb94bc9ba91bcb",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/870e0c8524a57680eab9f4ba2dcb94bc9ba91bcb",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T09:49:46Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T09:49:46Z"
+        },
+        "tree": {
+          "sha": "543c5f289f79691aa414b823e106f71008cc1716",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/543c5f289f79691aa414b823e106f71008cc1716"
+        },
+        "message": "docs(docs-runbook): preserve communication contract check batches\n\nRefs: #222\n\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "60548a256aa26eade4da7c419c85c83e3a20e922",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/60548a256aa26eade4da7c419c85c83e3a20e922",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/60548a256aa26eade4da7c419c85c83e3a20e922"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "9b46cba17da6e3dd9565c256616aef212b6b9b9e",
+        "node_id": "C_kwDORoMukNoAKDliNDZjYmExN2RhNmUzZGQ5NTY1YzI1NjYxNmFlZjIxMmI2YjliOWU",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/9b46cba17da6e3dd9565c256616aef212b6b9b9e",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/9b46cba17da6e3dd9565c256616aef212b6b9b9e",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T09:53:43Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T09:53:43Z"
+        },
+        "tree": {
+          "sha": "ecad9333b475c455c53458439dff8e3262e1832b",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/ecad9333b475c455c53458439dff8e3262e1832b"
+        },
+        "message": "docs(marketplace): integrate current communication preparation base\n\nPreserve merged HTML scope, tests and contracts alongside Communication.\n\nRefs: #222\n\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "ba649f2dd71aa279fe5114c5ac762717f694a191",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/ba649f2dd71aa279fe5114c5ac762717f694a191",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/ba649f2dd71aa279fe5114c5ac762717f694a191"
+          },
+          {
+            "sha": "60548a256aa26eade4da7c419c85c83e3a20e922",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/60548a256aa26eade4da7c419c85c83e3a20e922",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/60548a256aa26eade4da7c419c85c83e3a20e922"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "04b664dcbf33afa5835fa379c8f94d87eb37d187",
+        "node_id": "C_kwDORoMukNoAKDA0YjY2NGRjYmYzM2FmYTU4MzVmYTM3OWM4Zjk0ZDg3ZWIzN2QxODc",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/04b664dcbf33afa5835fa379c8f94d87eb37d187",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/04b664dcbf33afa5835fa379c8f94d87eb37d187",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T09:56:44Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T09:58:07Z"
+        },
+        "tree": {
+          "sha": "61a7099bf37047f224e42055ad656d063703e78e",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/61a7099bf37047f224e42055ad656d063703e78e"
+        },
+        "message": "docs(marketplace): sync communication contract evidence\n\nRefs: #222\n\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "9b46cba17da6e3dd9565c256616aef212b6b9b9e",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/9b46cba17da6e3dd9565c256616aef212b6b9b9e",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/9b46cba17da6e3dd9565c256616aef212b6b9b9e"
+          },
+          {
+            "sha": "870e0c8524a57680eab9f4ba2dcb94bc9ba91bcb",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/870e0c8524a57680eab9f4ba2dcb94bc9ba91bcb",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/870e0c8524a57680eab9f4ba2dcb94bc9ba91bcb"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "e8f8a52e0efb04ca9612cc33ad87fb88383498f6",
+        "node_id": "C_kwDORoMukNoAKGU4ZjhhNTJlMGVmYjA0Y2E5NjEyY2MzM2FkODdmYjg4MzgzNDk4ZjY",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/e8f8a52e0efb04ca9612cc33ad87fb88383498f6",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/e8f8a52e0efb04ca9612cc33ad87fb88383498f6",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:04:41Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:04:41Z"
+        },
+        "tree": {
+          "sha": "229438b3b24ea059a188cc05667844059b9976a7",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/229438b3b24ea059a188cc05667844059b9976a7"
+        },
+        "message": "feat(marketplace): add complete HTML Guide Kit package\n\nRefs: #217, #219\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/70267a5b91d759af09a8f1281a33e2d5a90fdbc9"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "f899a7f5b86442cbdec59cfc6cfc4e4f01dfa645",
+        "node_id": "C_kwDORoMukNoAKGY4OTlhN2Y1Yjg2NDQyY2JkZWM1OWNmYzZjZmM0ZTRmMDFkZmE2NDU",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/f899a7f5b86442cbdec59cfc6cfc4e4f01dfa645",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/f899a7f5b86442cbdec59cfc6cfc4e4f01dfa645",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:04:41Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:04:41Z"
+        },
+        "tree": {
+          "sha": "cce9b5dc372b9bdb64a14aa337444e0ff828f6c6",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/cce9b5dc372b9bdb64a14aa337444e0ff828f6c6"
+        },
+        "message": "infra(scripts): enforce guide resources and installed byte identity\n\nRefs: #217, #219\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "e8f8a52e0efb04ca9612cc33ad87fb88383498f6",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/e8f8a52e0efb04ca9612cc33ad87fb88383498f6",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/e8f8a52e0efb04ca9612cc33ad87fb88383498f6"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "2021b80d2eb93ba705dfd115f65ce6a36779e810",
+        "node_id": "C_kwDORoMukNoAKDIwMjFiODBkMmViOTNiYTcwNWRmZDExNWY2NWNlNmEzNjc3OWU4MTA",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/2021b80d2eb93ba705dfd115f65ce6a36779e810",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/2021b80d2eb93ba705dfd115f65ce6a36779e810",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:04:41Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:04:41Z"
+        },
+        "tree": {
+          "sha": "4f6d9ac49d30e1488ed11f338fa5ba205ae01974",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/4f6d9ac49d30e1488ed11f338fa5ba205ae01974"
+        },
+        "message": "test(scripts): cover atomic guide package and seven installations\n\nRefs: #217, #219\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "f899a7f5b86442cbdec59cfc6cfc4e4f01dfa645",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/f899a7f5b86442cbdec59cfc6cfc4e4f01dfa645",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/f899a7f5b86442cbdec59cfc6cfc4e4f01dfa645"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "4992d751d3a9e66a22c95a95ff08a351e75331a4",
+        "node_id": "C_kwDORoMukNoAKDQ5OTJkNzUxZDNhOWU2NmEyMmM5NWE5NWZmMDhhMzUxZTc1MzMxYTQ",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/4992d751d3a9e66a22c95a95ff08a351e75331a4",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/4992d751d3a9e66a22c95a95ff08a351e75331a4",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:05:25Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:05:46Z"
+        },
+        "tree": {
+          "sha": "19fd1db76f85131fc5d4c75eb127f5f38ad5534d",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/19fd1db76f85131fc5d4c75eb127f5f38ad5534d"
+        },
+        "message": "docs(marketplace): document guide entry and engineering evidence\n\nRefs: #217, #219\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "2021b80d2eb93ba705dfd115f65ce6a36779e810",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/2021b80d2eb93ba705dfd115f65ce6a36779e810",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/2021b80d2eb93ba705dfd115f65ce6a36779e810"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "8653e6d1e9892141b237aafba7a7fe3de521068a",
+        "node_id": "C_kwDORoMukNoAKDg2NTNlNmQxZTk4OTIxNDFiMjM3YWFmYmE3YTdmZTNkZTUyMTA2OGE",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/8653e6d1e9892141b237aafba7a7fe3de521068a",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/8653e6d1e9892141b237aafba7a7fe3de521068a",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:06:44Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:06:44Z"
+        },
+        "tree": {
+          "sha": "98c76c166a7a50dc46fb7a21cd0d569959da033e",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/98c76c166a7a50dc46fb7a21cd0d569959da033e"
+        },
+        "message": "docs(docs-runbook): record canonical communication foundation checks\n\nRefs: #222\n\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "04b664dcbf33afa5835fa379c8f94d87eb37d187",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/04b664dcbf33afa5835fa379c8f94d87eb37d187",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/04b664dcbf33afa5835fa379c8f94d87eb37d187"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "58cc36c4d782d201ce5e20c465c491d73b89bae0",
+        "node_id": "C_kwDORoMukNoAKDU4Y2MzNmM0ZDc4MmQyMDFjZTVlMjBjNDY1YzQ5MWQ3M2I4OWJhZTA",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/58cc36c4d782d201ce5e20c465c491d73b89bae0",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/58cc36c4d782d201ce5e20c465c491d73b89bae0",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:13:34Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:13:34Z"
+        },
+        "tree": {
+          "sha": "2480158c0c1b7eeb9e362d6ffaad18cee03700b1",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/2480158c0c1b7eeb9e362d6ffaad18cee03700b1"
+        },
+        "message": "feat(communication-kit): add explicit faithful writing assistant\n\nRefs: #222\n\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "8653e6d1e9892141b237aafba7a7fe3de521068a",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/8653e6d1e9892141b237aafba7a7fe3de521068a",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/8653e6d1e9892141b237aafba7a7fe3de521068a"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "8af606a492e3dade136961e143e7202e17afd2d9",
+        "node_id": "C_kwDORoMukNoAKDhhZjYwNmE0OTJlM2RhZGUxMzY5NjFlMTQzZTcyMDJlMTdhZmQyZDk",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/8af606a492e3dade136961e143e7202e17afd2d9",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/8af606a492e3dade136961e143e7202e17afd2d9",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:13:34Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:13:34Z"
+        },
+        "tree": {
+          "sha": "9d3fc7032569eee8baf6918363f6c3ef536fcb63",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/9d3fc7032569eee8baf6918363f6c3ef536fcb63"
+        },
+        "message": "infra(marketplace): integrate communication validation and installs\n\nRefs: #222\n\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "58cc36c4d782d201ce5e20c465c491d73b89bae0",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/58cc36c4d782d201ce5e20c465c491d73b89bae0",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/58cc36c4d782d201ce5e20c465c491d73b89bae0"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "d576905037f893be45c8a1665be0452991ed719e",
+        "node_id": "C_kwDORoMukNoAKGQ1NzY5MDUwMzdmODkzYmU0NWM4YTE2NjViZTA0NTI5OTFlZDcxOWU",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/d576905037f893be45c8a1665be0452991ed719e",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/d576905037f893be45c8a1665be0452991ed719e",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:13:34Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:13:34Z"
+        },
+        "tree": {
+          "sha": "9d1f94818ee49f963203c3a981dbc3eb8089019f",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/9d1f94818ee49f963203c3a981dbc3eb8089019f"
+        },
+        "message": "docs(marketplace): describe communication candidate and boundaries\n\nRefs: #222\n\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "8af606a492e3dade136961e143e7202e17afd2d9",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/8af606a492e3dade136961e143e7202e17afd2d9",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/8af606a492e3dade136961e143e7202e17afd2d9"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "a046058b7a0aa0741082f8a8ce6ae377a482c428",
+        "node_id": "C_kwDORoMukNoAKGEwNDYwNThiN2EwYWEwNzQxMDgyZjhhOGNlNmFlMzc3YTQ4MmM0Mjg",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/a046058b7a0aa0741082f8a8ce6ae377a482c428",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/a046058b7a0aa0741082f8a8ce6ae377a482c428",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:13:34Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:13:34Z"
+        },
+        "tree": {
+          "sha": "37648de2fadd2603b2dbd867640bbc98276d1863",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/37648de2fadd2603b2dbd867640bbc98276d1863"
+        },
+        "message": "infra(ci): synchronize communication review and release templates\n\nRefs: #222\n\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "d576905037f893be45c8a1665be0452991ed719e",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/d576905037f893be45c8a1665be0452991ed719e",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/d576905037f893be45c8a1665be0452991ed719e"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "1cd0f1c2a9395fd192260d06778e8489182516a8",
+        "node_id": "C_kwDORoMukNoAKDFjZDBmMWMyYTkzOTVmZDE5MjI2MGQwNjc3OGU4NDg5MTgyNTE2YTg",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/1cd0f1c2a9395fd192260d06778e8489182516a8",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/1cd0f1c2a9395fd192260d06778e8489182516a8",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:14:43Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:14:43Z"
+        },
+        "tree": {
+          "sha": "696e6a8403251c7a2df90742772dd3c3a20e197a",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/696e6a8403251c7a2df90742772dd3c3a20e197a"
+        },
+        "message": "fix(marketplace): fit guide prompts within baseline client limit\n\nReject overlong guide listing prompts instead of letting the\nbaseline client silently discard the explicit example entry.\n\nRefs: #217, #219\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "4992d751d3a9e66a22c95a95ff08a351e75331a4",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/4992d751d3a9e66a22c95a95ff08a351e75331a4",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/4992d751d3a9e66a22c95a95ff08a351e75331a4"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "756f1f160cba656633f99dc1f03940ad0e305497",
+        "node_id": "C_kwDORoMukNoAKDc1NmYxZjE2MGNiYTY1NjYzM2Y5OWRjMWYwMzk0MGFkMGUzMDU0OTc",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/756f1f160cba656633f99dc1f03940ad0e305497",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/756f1f160cba656633f99dc1f03940ad0e305497",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:27:48Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:27:48Z"
+        },
+        "tree": {
+          "sha": "e33a0f6b99a7fda63646a4c3152b5bd41837a21d",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/e33a0f6b99a7fda63646a4c3152b5bd41837a21d"
+        },
+        "message": "fix(communication-kit): keep client prompts within accepted budget\n\nRefs: #222\n\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "a046058b7a0aa0741082f8a8ce6ae377a482c428",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/a046058b7a0aa0741082f8a8ce6ae377a482c428",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/a046058b7a0aa0741082f8a8ce6ae377a482c428"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "15fe1f4ec7aa3e53172209f7bcec203d741efd9d",
+        "node_id": "C_kwDORoMukNoAKDE1ZmUxZjRlYzdhYTNlNTMxNzIyMDlmN2JjZWMyMDNkNzQxZWZkOWQ",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/15fe1f4ec7aa3e53172209f7bcec203d741efd9d",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/15fe1f4ec7aa3e53172209f7bcec203d741efd9d",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:27:48Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:27:48Z"
+        },
+        "tree": {
+          "sha": "d6c7894534380b8fb39d63cdc0b5f9064dd68dbc",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/d6c7894534380b8fb39d63cdc0b5f9064dd68dbc"
+        },
+        "message": "fix(scripts): verify complete cached metadata and prompt budgets\n\nRefs: #222\n\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "756f1f160cba656633f99dc1f03940ad0e305497",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/756f1f160cba656633f99dc1f03940ad0e305497",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/756f1f160cba656633f99dc1f03940ad0e305497"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "b2d47ce779e32741af8cea604ac4b1ea8bb787f2",
+        "node_id": "C_kwDORoMukNoAKGIyZDQ3Y2U3NzllMzI3NDFhZjhjZWE2MDRhYzRiMWVhOGJiNzg3ZjI",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/b2d47ce779e32741af8cea604ac4b1ea8bb787f2",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/b2d47ce779e32741af8cea604ac4b1ea8bb787f2",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:27:48Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:27:48Z"
+        },
+        "tree": {
+          "sha": "d4c59b67c0fa55b15f565845b5717e304fb0c370",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/d4c59b67c0fa55b15f565845b5717e304fb0c370"
+        },
+        "message": "docs(marketplace): record implemented communication candidate checks\n\nRefs: #222\n\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "15fe1f4ec7aa3e53172209f7bcec203d741efd9d",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/15fe1f4ec7aa3e53172209f7bcec203d741efd9d",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/15fe1f4ec7aa3e53172209f7bcec203d741efd9d"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "14f9c5df18e1eafec46b6d50a63d8a3f1a96b7af",
+        "node_id": "C_kwDORoMukNoAKDE0ZjljNWRmMThlMWVhZmVjNDZiNmQ1MGE2M2Q4YTNmMWE5NmI3YWY",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/14f9c5df18e1eafec46b6d50a63d8a3f1a96b7af",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/14f9c5df18e1eafec46b6d50a63d8a3f1a96b7af",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:41:16Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T10:41:16Z"
+        },
+        "tree": {
+          "sha": "5185269a6ab9b9a2ec3db9d7f7483979777862f8",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/5185269a6ab9b9a2ec3db9d7f7483979777862f8"
+        },
+        "message": "docs(docs-runbook): preserve canonical metadata and prompt fix retest\n\nRefs: #222\n\nCo-Authored-By: Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "b2d47ce779e32741af8cea604ac4b1ea8bb787f2",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/b2d47ce779e32741af8cea604ac4b1ea8bb787f2",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/b2d47ce779e32741af8cea604ac4b1ea8bb787f2"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "cbf3b31dd2d686ad5118c7ce33d2b0a52dc9eb12",
+        "node_id": "C_kwDORoMukNoAKGNiZjNiMzFkZDJkNjg2YWQ1MTE4YzdjZTMzZDJiMGE1MmRjOWViMTI",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/cbf3b31dd2d686ad5118c7ce33d2b0a52dc9eb12",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/cbf3b31dd2d686ad5118c7ce33d2b0a52dc9eb12",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T11:08:34Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T11:08:34Z"
+        },
+        "tree": {
+          "sha": "4efca8609a956582d9f7d94a5445c3974ddbeae8",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/4efca8609a956582d9f7d94a5445c3974ddbeae8"
+        },
+        "message": "fix(communication-kit): preserve factual grounds and draft delivery notes\n\nRefs: #222\n\nCo-Authored-By: Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "14f9c5df18e1eafec46b6d50a63d8a3f1a96b7af",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/14f9c5df18e1eafec46b6d50a63d8a3f1a96b7af",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/14f9c5df18e1eafec46b6d50a63d8a3f1a96b7af"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "72cdd08ed8d5a6665e2cedd5f3f2ed5c6dd06ab8",
+        "node_id": "C_kwDORoMukNoAKDcyY2RkMDhlZDhkNWE2NjY1ZTJjZWRkNWYzZjJlZDVjNmRkMDZhYjg",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/72cdd08ed8d5a6665e2cedd5f3f2ed5c6dd06ab8",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/72cdd08ed8d5a6665e2cedd5f3f2ed5c6dd06ab8",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T11:12:40Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T11:12:40Z"
+        },
+        "tree": {
+          "sha": "238d428b740d66069705a6208c17619cf97e338d",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/238d428b740d66069705a6208c17619cf97e338d"
+        },
+        "message": "docs(marketplace): preserve guide behavior and canonical evidence\n\nRecord fourteen frozen variants and thirty qualifying real turns.\nKeep invalid calls, unknown retries and tool errors distinct.\nRuntime remains the tested 0.1.0 candidate.\n\nRefs: #217, #219\nCo-Authored-By: OpenAI Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "1cd0f1c2a9395fd192260d06778e8489182516a8",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/1cd0f1c2a9395fd192260d06778e8489182516a8",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/1cd0f1c2a9395fd192260d06778e8489182516a8"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "94c170dcc7ede164d88e62611eb7351cc5d69f2c",
+        "node_id": "C_kwDORoMukNoAKDk0YzE3MGRjYzdlZGUxNjRkODhlNjI2MTFlYjczNTFjYzVkNjlmMmM",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/94c170dcc7ede164d88e62611eb7351cc5d69f2c",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/94c170dcc7ede164d88e62611eb7351cc5d69f2c",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T11:15:54Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T11:15:54Z"
+        },
+        "tree": {
+          "sha": "ae2c9b9c922b019e0a2d3d3a89d1b0d6179ec01b",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/ae2c9b9c922b019e0a2d3d3a89d1b0d6179ec01b"
+        },
+        "message": "docs(marketplace): retain communication behavior failures and fix contract\n\nRefs: #222\n\nCo-Authored-By: Codex <noreply@openai.com>",
+        "parents": [
+          {
+            "sha": "cbf3b31dd2d686ad5118c7ce33d2b0a52dc9eb12",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/cbf3b31dd2d686ad5118c7ce33d2b0a52dc9eb12",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/cbf3b31dd2d686ad5118c7ce33d2b0a52dc9eb12"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "d106e76651d53cdf3f0cef2bb33ce47e8d7fda38",
+        "node_id": "C_kwDORoMukNoAKGQxMDZlNzY2NTFkNTNjZGYzZjBjZWYyYmIzM2NlNDdlOGQ3ZmRhMzg",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/d106e76651d53cdf3f0cef2bb33ce47e8d7fda38",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/d106e76651d53cdf3f0cef2bb33ce47e8d7fda38",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "35538471+ranzuozhou@users.noreply.github.com",
+          "date": "2026-10-12T11:25:49Z"
+        },
+        "committer": {
+          "name": "GitHub",
+          "email": "noreply@github.com",
+          "date": "2026-10-12T11:25:49Z"
+        },
+        "tree": {
+          "sha": "238d428b740d66069705a6208c17619cf97e338d",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/238d428b740d66069705a6208c17619cf97e338d"
+        },
+        "message": "Merge pull request #226 from MJ-AgentLab/codex/html-guide-package\n\nfeat(marketplace): add complete HTML Guide Kit (PR2)",
+        "parents": [
+          {
+            "sha": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/70267a5b91d759af09a8f1281a33e2d5a90fdbc9"
+          },
+          {
+            "sha": "72cdd08ed8d5a6665e2cedd5f3f2ed5c6dd06ab8",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/72cdd08ed8d5a6665e2cedd5f3f2ed5c6dd06ab8",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/72cdd08ed8d5a6665e2cedd5f3f2ed5c6dd06ab8"
+          }
+        ],
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqzMO9CRC1aQ7uu5UhlAAAEaMQABfUqzuBe0UhfiVu6GmneP60\nEJfQfiFUYldxgrvb7ro9cuetmQ/a9qNhroWdfsHVs73punDWdxKc+m1n1+QrSce8\nMxkHF2EuF4W4O5WEnSUjxRAgPP8InyoX0EjjwwCPmEZzm2QXb+hyiK/SYwSlR77q\nR9pc42i/5QxpjVKB9xnCFwDxxfgqOSIo5cMjg4abR8p98VOQqH8qRyj+1GWxFkTv\nQTOUTlmcmq8DFKKTh6JoY/2WeCX0R2TV6Pzs48fU59YBQOAbpNPbnDCZQJ3IvBsn\n2Yksbe0C4vK6CuHHju8cwHVqFMrSeiw0wRdnOGWlAOlSL95/CroG6vgu9QjX7lp4\nmI3sDoMMoVISB5m5Khmff+4rd014xCD3B9+293qp9hrDmPPLZTmyXq9FlvCdW/Kk\nSvUEzRrMKF5Att3QLIVb+fLK9fVDtyaeZlMYs/GeMKcM9E9gx1B+kdqq0GO9ZqJx\nF6h4a+6kE1Ge5KUhUlXAN4GKJMsriv4Yin1sTQNkv75n0nwIvSm+qMuIF+ouAeBE\nVh/7iR45HZedWBpKHFq45GrcSI2amyu2DleahCmMmO3dwNgwPTvHPSdtQf3loyAu\n02oBKlkzREq4sw1jivVVgFp/zR8UmALYKCSe0lkwe8Jpiaf8ywhlIDCeJKXRScUg\nfICai47MeReCvt+d6vA5\n=dMJP\n-----END PGP SIGNATURE-----\n",
+          "payload": "tree 238d428b740d66069705a6208c17619cf97e338d\nparent 70267a5b91d759af09a8f1281a33e2d5a90fdbc9\nparent 72cdd08ed8d5a6665e2cedd5f3f2ed5c6dd06ab8\nauthor ranzuozhou <35538471+ranzuozhou@users.noreply.github.com> 1791804349 +0800\ncommitter GitHub <noreply@github.com> 1791804349 +0800\n\nMerge pull request #226 from MJ-AgentLab/codex/html-guide-package\n\nfeat(marketplace): add complete HTML Guide Kit (PR2)",
+          "verified_at": "2026-10-12T11:25:49Z"
+        },
+        "event": "committed"
+      },
+      {
+        "sha": "d59be789e562dbe802fe0660006a56d6f1b23f56",
+        "node_id": "C_kwDORoMukNoAKGQ1OWJlNzg5ZTU2MmRiZTgwMmZlMDY2MDAwNmE1NmQ2ZjFiMjNmNTY",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/d59be789e562dbe802fe0660006a56d6f1b23f56",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/d59be789e562dbe802fe0660006a56d6f1b23f56",
+        "author": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T11:53:27Z"
+        },
+        "committer": {
+          "name": "ranzuozhou",
+          "email": "ranzuozhou@gmail.com",
+          "date": "2026-10-12T11:53:27Z"
+        },
+        "tree": {
+          "sha": "1f7b31eb8f82baadc6a6e8559d98955e45728a9e",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/trees/1f7b31eb8f82baadc6a6e8559d98955e45728a9e"
+        },
+        "message": "infra(infra): preserve HTML Guide acceptance evidence bytes\n\nKeep captured output and its raw SHA correspondence across Git clients.\nLimit the attribute to reviewer evidence; runtime resources are unchanged.\n\nRefs: #217, #220\nCo-Authored-By: OpenAI Codex <codex@openai.com>",
+        "parents": [
+          {
+            "sha": "d106e76651d53cdf3f0cef2bb33ce47e8d7fda38",
+            "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/d106e76651d53cdf3f0cef2bb33ce47e8d7fda38",
+            "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/commit/d106e76651d53cdf3f0cef2bb33ce47e8d7fda38"
+          }
+        ],
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "event": "committed"
+      }
+    ]
+  }
+}

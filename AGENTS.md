@@ -2,7 +2,7 @@
 
 ## 项目上下文
 
-Marketplace v8.3.0已由#241/main ae2754db于2026-10-15公开，tag/Release同SHA，五包七技能/四显式：Diagram0.3.1、Learning Evidence0.1.0、Explain0.1.1、Communication0.1.0、HTML0.1.36。发布后十三canonical及6+6实际Python通过；CLI0.147.0。HTML#239已知FAIL/双端未覆盖、Communication限定覆盖及空reviews均保留，见[8.3账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。
+Marketplace v8.3.0已由#241/main ae2754db于2026-10-15公开，tag/Release同SHA，五包七技能/四显式：Diagram0.3.1、Learning Evidence0.1.0、Explain0.1.1、Communication0.1.0、HTML0.1.36。发布后十三canonical及6+6实际Python通过；CLI0.147.0。HTML#239已知FAIL/双端未覆盖、Communication限定覆盖及审计bypass/空reviews均保留，见[8.3账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。
 
 manifest 的公开示例按[插件契约](docs/spec/[SPEC]_Plugin_Json_Schema.md)保留完整路由，最多三条，各原值不超过 128 个 Unicode scalar values；严格校验防止客户端忽略超长示例而丢失公开入口，不依赖空白归一化。
 
