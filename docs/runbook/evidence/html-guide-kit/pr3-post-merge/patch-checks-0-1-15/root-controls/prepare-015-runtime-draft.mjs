@@ -1,0 +1,18 @@
+import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';import {execFileSync} from 'node:child_process';
+const base='C:/Users/Admin/.codex/worktrees/html-guide-acceptance',repo=base+'/develop',target=base+'/reviewer/corrections/0-1-15/draft',canonical='24ae678ed8580e3e499cdb7496995134346c41c6',hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+if(fs.existsSync(target))throw Error('No draft overwrite');
+const names=['SKILL.md','references/guide-framework.md','references/interaction-design.md'];
+const old=names.map(name=>execFileSync('git',['show',canonical+':plugins/html-guide-kit/skills/guide/'+name],{cwd:repo,maxBuffer:32*1024*1024}).toString('utf8'));
+const replace=(s,a,b)=>{if(!s.includes(a)||s.indexOf(a)!==s.lastIndexOf(a))throw Error('Exact unique anchor required');return s.replace(a,b);};
+let skill=replace(old[0],'Make text-only guides for interactive HTML learning after confirmed reader/task/question selection. Explicit requests; new guides only.','New text-only HTML teaching guides after explicit reader/task/question confirmation.');
+skill=replace(skill,'分native正文/实际回包/补读，截断非全文；受限仅实证动作/范围，未知原因不推路径/缓存/工作区禁令，不猜或假参照。','分native正文/回包/补读，截断非全文。泛化拒读仅述“本次未读成，原因/权限未知”；不称沙箱/缓存/工作区外禁读，别的文件可读不证禁读；不猜或假参照。');
+skill=replace(skill,'全部源动作/对象/字段结果/条件/例外/定位','全部源明定动作/对象/字段结果/条件/例外/定位');
+skill=replace(skill,'缺口仅阻相关结果，不造变化/保持/恢复。','未述字段不补变化/保持/恢复。');
+const readRule='读取失败先区分实际尝试的动作、工具明确返回的事实、仍未知的原因或权限范围。泛化拒绝时可表述“本次读取命令未完成，原因与允许读取范围未确认”；这不是路径或沙箱诊断。仅当实际回包明确说明限制对象、范围及原因时，才在对应范围陈述；不从缓存位置、工作目录、读不到正文或其他文件读取成功，推出路径禁止、沙箱拦截或文件不可读。不要将猜测写成原因、已知范围或事实，亦不承诺改用其他客户端即可读取。\n\n在可用且已授权的只读入口内，可以逐文件或分小片段读取，分别保留每次实际接收范围；不能绕过已经明确的权限限制。无法补读时如实标尚未读取，可索取缺失内容；范围拒绝依据已知合同即可，不必附加未证文件环境解释。\n\n';
+const fieldRule='完整源结果指原材料明确规定的全部动作、对象与字段结果，不是为每个出现的字段补齐变化或不变。只有源明确支持保持，才把保持列入源结果；没有写某字段如何变化，不等于源规定该字段不变。先区分操作条件、源明定结果和未说明字段；条件被读取、展示或用于判断，不自动成为该操作保持的源结果。\n\n教学界面可以另定输入值在一次演示中保留，须在相应交互的此项就地标为设计判断及适用范围，并与源结果分列；整页教学构造、情境进入规则或重试恢复说明不足以标注具体操作结果。引用源段落的结果表、过程反馈、演示说明、自检答案和核对项同样回查。未说明的源结果只保留缺口，不编造变化或保持，不遮掉其他已有结果。\n\n';
+const frame=replace(replace(old[1],'# 指南框架\n\n','# 指南框架\n\n'+readRule),'## 关系与语义忠实 Semantic Fidelity\n\n','## 关系与语义忠实 Semantic Fidelity\n\n'+fieldRule);
+const interaction=replace(replace(old[2],'# 交互设计\n\n','# 交互设计\n\n'+readRule),'## 选择模式\n\n','## 选择模式\n\n'+fieldRule);
+const next=[skill,frame,interaction];const bytes=next.map(s=>Buffer.byteLength(s));console.log(JSON.stringify({phase:'PREPARATION_ONLY',source:canonical,bytes,entryLimit:6144,applied:false}));
+if(bytes[0]>6144)throw Error('Draft exceeds unchanged entry budget');
+fs.mkdirSync(target);const rows=names.map((relative,i)=>{const name=path.basename(relative),original=Buffer.from(old[i]),draft=Buffer.from(next[i]);fs.writeFileSync(target+'/source14-'+name+'.snapshot.txt',original,{flag:'wx'});fs.writeFileSync(target+'/'+name+'.snapshot.txt',draft,{flag:'wx'});return{relative,originalBytes:original.length,originalSha256:hash(original),draftBytes:draft.length,draftSha256:hash(draft)};});
+fs.writeFileSync(target+'/runtime-draft-control.json',JSON.stringify({recordedAt:new Date().toISOString(),sourceCanonical:canonical,sourceVersion:'0.1.14',proposedVersion:'0.1.15',rows,kind:'Generic unsupported read-cause and unmentioned field-result repair',entryLimitUnchanged:6144,referencesSource14ParagraphsPreserved:true,runtimeApplied:false,installation:'NOT_RUN',model:'NOT_RUN'},null,2)+'\n',{flag:'wx'});

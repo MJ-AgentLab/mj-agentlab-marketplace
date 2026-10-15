@@ -1,0 +1,156 @@
+{
+  "recordedAt": "2026-10-14T18:25:59.383Z",
+  "status": "APPLIED_ENGINEERING_PENDING",
+  "sourceHead": "bf34c512040c0ebd4459af47e8774246d4e4c4e8",
+  "from": "0.1.28",
+  "to": "0.1.29",
+  "approvedFreezeSha256": "d07c46d2db7edbd931c9169b5729a54e701e958ab75045fa61a1a48f89cf23ad",
+  "actualSequence": [
+    "first Windows PowerShell5 DryRun failed before writes, original logs preserved",
+    "compatible actual host pwsh7 DryRun8e4fd4",
+    "compatible actual host pwsh7 Apply881ee3 one manifest anchor",
+    "two exact frozen runtime spans and current docs/test applied"
+  ],
+  "resources": [
+    {
+      "relative": "SKILL.md",
+      "sourceSnapshot": "source28-originals/SKILL.md.snapshot.txt",
+      "sourceBytes": 4348,
+      "sourceSha256": "4aed371e92241aa8ff9db57e8b6fc0f1d261b273b2f90f9e84faaf86bdfa95a7",
+      "draftPath": "draft/SKILL.md",
+      "draftBytes": 4948,
+      "draftSha256": "dbff8b0f1b829a0b560520d1ae988a87dd9a4142fc6c73ce3e7c25ca3f3096bc",
+      "lfBytes": 4948,
+      "windowsCrlfBytes": 4982,
+      "changed": true,
+      "exactByteDelta": {
+        "offsetBytes": 1152,
+        "oldBytes": 0,
+        "newBytes": 600,
+        "oldText": "",
+        "newText": "读取与拒因证据纪律\n\n逐份直读单文件或片段正文，不打包多文件、统计、扫描或编码脚本。工具拒绝时，先只报告本次未完成及回包明确的拒绝事实；原因或权限范围未说明就标未知。读取形式、只读模式、目录身份/位置或后续成功，都不能诊断先前拒因；不为判定路径权限作因果排查。明确权限拒绝不绕过；泛化拒绝且未给具体禁止时，可在原 Read 授权内继续单份读取，但不称其验证了先前拒因。完整读取、实际顺序和截断补读依框架第1节。\n\n## ",
+        "forwardAndInverseByteReconstruction": true
+      }
+    },
+    {
+      "relative": "references/guide-framework.md",
+      "sourceSnapshot": "source28-originals/references/guide-framework.md.snapshot.txt",
+      "sourceBytes": 8373,
+      "sourceSha256": "f1d374844ed9c89028f3dd63cc63a9c0e087ebffd7826688af815185d72db068",
+      "draftPath": "draft/references/guide-framework.md",
+      "draftBytes": 8739,
+      "draftSha256": "fe70ec7005dd564a1cef1e84691c85d4cac278c6b8de1578e87b348742fe7c9b",
+      "lfBytes": 8739,
+      "windowsCrlfBytes": 8810,
+      "changed": true,
+      "exactByteDelta": {
+        "offsetBytes": 423,
+        "oldBytes": 329,
+        "newBytes": 695,
+        "oldText": "接读单文件/片段，不打包多份正文、统计、扫描或编码脚本。明确权限拒绝不绕过；泛化拒绝只证明未完成、原因/权限未知，模式、位置、缺正文或别文件成功不证拒因，也不保证换客户端可读。仅报告回包明确支持的限制类型、对象、范围和原因",
+        "newText": "读单文件/片段正文，不打包多份正文、统计、扫描或编码脚本。\n\n每次报告拒因前，先核回包实际明示的限制类型、对象、范围和原因。泛化拒绝只证明本次未完成及拒绝事实，未述原因/权限范围仍未知；读取形式、只读模式、目录身份/位置、缺正文或后续成功，不证明先前拒因，也不保证换客户端可读。不作路径权限的因果排查。明确权限拒绝不绕过；泛化拒绝且无具体禁止时，允许在原 Read 授权内继续逐份直读，但它只提供当次读取结果，不验证先前拒因。随后按实际读取顺序核全文，不将后续成功补写成最初成功",
+        "forwardAndInverseByteReconstruction": true
+      }
+    },
+    {
+      "relative": "references/interaction-design.md",
+      "sourceSnapshot": "source28-originals/references/interaction-design.md.snapshot.txt",
+      "sourceBytes": 7773,
+      "sourceSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "draftPath": "draft/references/interaction-design.md",
+      "draftBytes": 7773,
+      "draftSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "lfBytes": 7773,
+      "windowsCrlfBytes": 7836,
+      "changed": false
+    }
+  ],
+  "files": [
+    {
+      "path": "plugins/html-guide-kit/skills/guide/SKILL.md",
+      "beforeSha256": "4aed371e92241aa8ff9db57e8b6fc0f1d261b273b2f90f9e84faaf86bdfa95a7",
+      "afterSha256": "dbff8b0f1b829a0b560520d1ae988a87dd9a4142fc6c73ce3e7c25ca3f3096bc",
+      "bytes": 4948
+    },
+    {
+      "path": "plugins/html-guide-kit/skills/guide/references/guide-framework.md",
+      "beforeSha256": "f1d374844ed9c89028f3dd63cc63a9c0e087ebffd7826688af815185d72db068",
+      "afterSha256": "fe70ec7005dd564a1cef1e84691c85d4cac278c6b8de1578e87b348742fe7c9b",
+      "bytes": 8739
+    },
+    {
+      "path": "tests/html-guide-kit.test.mjs",
+      "beforeSha256": "a66b5823b066a8a433341f9455c7c17af2900ce750e44f9a8b24a7573dc72c95",
+      "afterSha256": "fbdb8fb3a45fa1475dd3c6202c69c7702127004d05cfe8781e3331f5eae34961",
+      "bytes": 14111
+    },
+    {
+      "path": "README.md",
+      "beforeSha256": "369248a88d45603e2b967716cb1fb0d3320c20d11de67745015895785e7e2ab5",
+      "afterSha256": "393af9883eb19d99db2914fa938da18d6d1d55b8bd0f3efaf9e4027afd256ef8",
+      "bytes": 11013
+    },
+    {
+      "path": "CHANGELOG.md",
+      "beforeSha256": "074304c130685c816b221372430e278734c5e4fea16f35451693751cae76e243",
+      "afterSha256": "86c1499c7d59096ea75f3ea7e1bfa8aa9b522b296f2f47c0985658ca4e8a0fc5",
+      "bytes": 211571
+    },
+    {
+      "path": "plugins/html-guide-kit/README.md",
+      "beforeSha256": "9a213dc5c340b490eaed4c48e573fbd9b074ecc9a2fd97eef78407007681c308",
+      "afterSha256": "ce0e37240780916920a018fe103ee91bfe97e5541e8d81105fc33923339be847",
+      "bytes": 2443
+    },
+    {
+      "path": "plugins/html-guide-kit/CHANGELOG.md",
+      "beforeSha256": "905592e7c25d973ab5a4f2ddc96c062021dd9595f27329902720d7b256e2fe66",
+      "afterSha256": "4dfc67f71310c8a10496eabc987d1eb72a976e234e1053bb1692b320181476cb",
+      "bytes": 17406
+    },
+    {
+      "path": "docs/guide/[GUIDE]_HTML_Guide_Kit.md",
+      "beforeSha256": "8a2d80263f95fd8c04b4d3d42697ace778798a24b4ba7bcfafdee0e79fc1b377",
+      "afterSha256": "b88d35f36269e1249f81ceff8736693142c9a4c3eeb83c445bb78d62fa36f8ca",
+      "bytes": 2803
+    },
+    {
+      "path": "docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md",
+      "beforeSha256": "f62af307573e2a34c5e4c2449b23bd4779fc2c5728dd202525f04d021591d943",
+      "afterSha256": "a5eeb7caad54b603fe478105eefa016c07bbee6a9093f19c70599ef8888fea4a",
+      "bytes": 8702
+    },
+    {
+      "path": "docs/INDEX.md",
+      "beforeSha256": "fc072cd8c58f0c90265b80549764730f497ad7582a2aee70f36f7e8c6d000365",
+      "afterSha256": "3c28f28315fbacc65ee19b54eabee3d10f026daa0cd4bbb54846884e220e0e82",
+      "bytes": 30938
+    },
+    {
+      "path": "docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md",
+      "beforeSha256": "fd60a943b2e58bcc7b7dc60207f3dc44780ec226a131aa11e481801c00178959",
+      "afterSha256": "3e2e4577e7742a00d695a63c35d25605efd6b6f44dffe8a41131ffab36b5dacd",
+      "bytes": 191138
+    },
+    {
+      "path": "AGENTS.md",
+      "beforeSha256": "abdcd1266ec857a328f2c73f69af89e514653556cd9d3ad1e41d41a1dcb694cd",
+      "afterSha256": "2fa735846036bdae891fa223279bb0de284c4820d07b5b1f46bda3ab57650ffc",
+      "bytes": 16256
+    }
+  ],
+  "productChangedPaths": 13,
+  "AGENTSWindowsBytes": 16343,
+  "entryWindowsBytes": 4982,
+  "protectedPaths": 64,
+  "otherPluginResources": 59,
+  "toolGitContents": 28,
+  "old28ProtectedStable": 341,
+  "oldRepoProofsStable": 69,
+  "fullTest": "NOT_STARTED_AT_APPLICATION",
+  "installation": "NOT_RUN",
+  "model": "NOT_RUN",
+  "UI": "NOT_RUN",
+  "effect": "NOT_MEASURED",
+  "noCommitPush": true
+}

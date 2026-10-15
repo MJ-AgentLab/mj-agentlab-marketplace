@@ -1,0 +1,139 @@
+{
+  "recordedAt": "2026-10-14T23:50:52.886Z",
+  "reviewer": "/root/behavior_014_b",
+  "independentFromResourceAuthor": true,
+  "status": "STATIC_ONLY",
+  "verdict": "NO_STATIC_BLOCKERS",
+  "sourceCanonical": "0ed26217fc65043622f1ff1b428ff42118f5dd3a",
+  "sourceTree": "427a144f949429623de5af7adc35d3afface2ec3",
+  "proposedVersion": "0.1.36",
+  "authorDraft": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-36\\AUTHOR_DRAFT.json",
+    "bytes": 5895,
+    "sha256": "f4952b53d10871184359253b17844c94101ae42c5e1f30602dd3d828aacecda4"
+  },
+  "preservationMap": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-36\\preservation-map.json",
+    "bytes": 2282,
+    "sha256": "a2c42e6cb671fa5959955d7aa7527619c70aa9e04f93cae8fdc40061ffcb1c98"
+  },
+  "resources": [
+    {
+      "relative": "skills/guide/SKILL.md",
+      "draftFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-36\\draft\\SKILL.md",
+      "draftBytes": 6007,
+      "draftSha256": "9f2febe6d0d368ab0ea5eb0e570a050a557f3d80983ea70b1138b4e60e0dc58e",
+      "sourceGitPath": "plugins/html-guide-kit/skills/guide/SKILL.md",
+      "sourceSnapshot": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-36\\source35\\SKILL.md.snapshot.txt",
+        "bytes": 6007,
+        "sha256": "9f2febe6d0d368ab0ea5eb0e570a050a557f3d80983ea70b1138b4e60e0dc58e"
+      },
+      "gitMatchesSnapshot": true,
+      "unchanged": true,
+      "orderedForwardExact": true,
+      "reverseOrderedInverseExact": true,
+      "edits": []
+    },
+    {
+      "relative": "skills/guide/references/guide-framework.md",
+      "draftFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-36\\draft\\references\\guide-framework.md",
+      "draftBytes": 12320,
+      "draftSha256": "09db2c2a67d6b61ac0d6500a70c6a01cc858651a4d5b9015472a4021111ac196",
+      "sourceGitPath": "plugins/html-guide-kit/skills/guide/references/guide-framework.md",
+      "sourceSnapshot": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-36\\source35\\references\\guide-framework.md.snapshot.txt",
+        "bytes": 11765,
+        "sha256": "4fc27bb3fb7bc4e2bbe42c724f651d35741b1d19d7625e8afb7cd377184ad5af"
+      },
+      "gitMatchesSnapshot": true,
+      "unchanged": false,
+      "orderedForwardExact": true,
+      "reverseOrderedInverseExact": true,
+      "edits": [
+        {
+          "offsetUtf8BytesInIntermediateBeforeEdit": 4770,
+          "oldBytes": 505,
+          "newBytes": 1060,
+          "oldSha256": "343feb130b7b99b4f5da4e32cba66b9d7c513c126850d8dc3dc3c9d75d0368bb",
+          "newSha256": "e3a4c4483388b59dc89fff68532d17348ef482484ec807c707ebb7cfb60db628"
+        }
+      ]
+    },
+    {
+      "relative": "skills/guide/references/interaction-design.md",
+      "draftFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-36\\draft\\references\\interaction-design.md",
+      "draftBytes": 7773,
+      "draftSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "sourceGitPath": "plugins/html-guide-kit/skills/guide/references/interaction-design.md",
+      "sourceSnapshot": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-36\\source35\\references\\interaction-design.md.snapshot.txt",
+        "bytes": 7773,
+        "sha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a"
+      },
+      "gitMatchesSnapshot": true,
+      "unchanged": true,
+      "orderedForwardExact": true,
+      "reverseOrderedInverseExact": true,
+      "edits": []
+    }
+  ],
+  "entryBudget": {
+    "LF": 6007,
+    "WindowsCRLF": 6043,
+    "limit": 6144,
+    "remainingWindowsBytes": 101
+  },
+  "readEvidence": {
+    "fullReadTools": [
+      "bcdb5d",
+      "e0307a",
+      "bde85d"
+    ],
+    "coverage": "Full current entry/framework/interaction and preservation map; full original changed paragraph in AUTHOR_DRAFT. All other original resource text is identical to the fully read draft by independent Git/snapshot equality and ordered forward/reverse byte reconstruction.",
+    "authorMapIsNotIndependentPass": true
+  },
+  "semanticReview": [
+    {
+      "topic": "Original public contract and ownership",
+      "finding": "Entry and interaction are exactly Source35 Git bytes. Explicit-only new-guide/Read/chat-text-only behavior, no production tools/code/files/execution, actual single-file read and refusal-evidence discipline, 2–3 distinct confirmed targets and waiting, no host-window claim, and original limitations remain. Relative reference links resolve; interaction explicitly inherits framework evidence, complete source baseline and local scope."
+    },
+    {
+      "topic": "Actual claim type before path reasoning",
+      "finding": "Framework §3 line38 distinguishes a current direct-operation permission/result from an actually asserted multistep existence/unreachability claim. Additional path checking is conditional on making that claim, within its actual same scope. It does not require graph enumeration, a new matrix, every possible path, all source operations in every target, or a new delivery template."
+    },
+    {
+      "topic": "Composition preserves source prerequisites",
+      "finding": "The new paragraph composes only source-established complete actions, restoration and successors with each applicable premise; it does not invent a condition change or target success. Existing §3 lines34–36/49/51 and interaction §1–3 retain complete actions/nonfield effects, actual shared or independent example inputs, unknown required premises, broad permission versus successful result and teaching versus real-system scope."
+    },
+    {
+      "topic": "Partial knowledge and bounded negation",
+      "finding": "No direct transition is not proof of no multistep path. A missing prerequisite blocks only the dependent conclusion, preserving other established paths. Unsupported whole-path negation narrows to checked sequences and evidence-based unknowns. Untaught, undrawn or unshown does not mean source-unstated. This does not default unknown/out-of-scope cases to allowed or successful; unchanged neighboring rules explicitly preserve those boundaries."
+    },
+    {
+      "topic": "Preserved general methods",
+      "finding": "The old current-state/direct-operation cross-matching discipline remains in the replacement. Complete source units, parallel actions and restoration, source/design attribution, local actual scope, decisive full-criterion AND/OR dependencies, necessary versus sufficient conditions, domain versus reachable values, per-example missing-item calculation, lifecycle/repetition, reliable versus bounded feedback, length adaptation and whole-delivery reverse audit all remain. No adjacent conflict or new domain answer was found."
+    },
+    {
+      "topic": "Exact scope and budget",
+      "finding": "One existing generic framework paragraph only,505→1060 UTF8 bytes at intermediate offset4770. Entry and interaction unchanged; all other framework bytes inverse-exact to source Git. No fixture/material answer, owner path, new runtime file, skill entry, tool, fixed chapter or question count is added. Entry remains6043 Windows bytes,101 below6144."
+    }
+  ],
+  "links": "All draft Markdown relative resource links resolved to existing draft resources.",
+  "blockers": [],
+  "originalAuthorMapSnapshotsAndDraftBytesUnchanged": true,
+  "limitations": {
+    "behaviorAcceptance": "NOT_RUN_NO_PASS_INFERRED",
+    "tests": "NOT_RUN",
+    "installation": "NOT_RUN",
+    "consumer": "NOT_RUN",
+    "API": "NOT_RUN",
+    "model": "NOT_RUN",
+    "UI": "NOT_RUN",
+    "grade": "NOT_RUN",
+    "runtimeApply": "NOT_RUN",
+    "formalFinalFreeze": "NOT_AUTHORIZED_BY_THIS_REVIEW"
+  },
+  "noDraftControlOldSourceRepoOrRuntimeWrites": true,
+  "protectedScope": "This static review hashes the specified Source35 Git snapshots and current Source36 draft/map/author record only; it does not claim a new full Source35 closed-set inventory or parse/copy private native SDK or config."
+}

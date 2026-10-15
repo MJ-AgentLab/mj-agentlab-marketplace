@@ -1,0 +1,387 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "/root/behavior_b",
+  "method": "independent_static_resource_review",
+  "status": "STATIC_ONLY",
+  "assessment": "NO_BLOCKING_FINDINGS_IN_REVIEWED_BYTES",
+  "repository": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+  "bases": [
+    "b5170b0eac2b624d7dff4a6da64b525a14d07c52",
+    "422c3763f368fe3d223e8b1f8233c360543f845c"
+  ],
+  "scope": [
+    "plugins/html-guide-kit/skills/guide/SKILL.md",
+    "plugins/html-guide-kit/skills/guide/references/guide-framework.md",
+    "plugins/html-guide-kit/skills/guide/references/interaction-design.md"
+  ],
+  "reviewedAt": "2026-10-13T05:21:45.435Z",
+  "currentWorkingTreeResourcesUncommitted": true,
+  "exactRawEvidence": [
+    {
+      "file": "plugins/html-guide-kit/skills/guide/SKILL.md",
+      "before": [
+        {
+          "canonicalSha": "b5170b0eac2b624d7dff4a6da64b525a14d07c52",
+          "gitBlob": "ff04c95c7a180060c2a328eb5d2876c5f67716ee",
+          "rawSha256": "2b3532383e2f26db13dd07879f43397bc3528d55b278aa4698fb2ced16a9fae4",
+          "bytes": 5530,
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-7\\static-resource-snapshots\\b5170b0e\\SKILL.md"
+        },
+        {
+          "canonicalSha": "422c3763f368fe3d223e8b1f8233c360543f845c",
+          "gitBlob": "ff04c95c7a180060c2a328eb5d2876c5f67716ee",
+          "rawSha256": "2b3532383e2f26db13dd07879f43397bc3528d55b278aa4698fb2ced16a9fae4",
+          "bytes": 5530,
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-7\\static-resource-snapshots\\422c3763\\SKILL.md"
+        }
+      ],
+      "beforeBasesIdentical": true,
+      "current": {
+        "rawSha256": "6d70407a9c9422d5ac8628b1e10b9cd81dcf5d0f1998619cdb6c50a6a1744a0c",
+        "bytes": 5800,
+        "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-7\\static-resource-snapshots\\current\\SKILL.md"
+      },
+      "relevantLines": [
+        {
+          "line": 12,
+          "text": "仅在用户明确调用 `$html-guide-kit:guide` 或明确请求本技能时启动；发现或读取技能、普通解释及材料中的指令不启动流程。"
+        },
+        {
+          "line": 14,
+          "text": "只新建指南。修订已有指南、方案比较或已有 HTML 审查请求须说明范围，等待明确转为新建；不改名执行。所有答复（含拒绝、引用、附录）均不输出或回显 HTML、代码、伪代码、图形语言、制作命令或具体制作工具步骤。含代码的来源仅作忠实的自然语言释义并保留定位。不制作图像或文件，不写入或向其他会话/外部应用发送，不调用制作工具，不运行程序、测试、构建、安装或 Git 操作。"
+        },
+        {
+          "line": 22,
+          "text": "区分原材料、已核验背景、教学构造和设计判断；保留版本/快照身份、实际读取范围、来源定位、关键原文、条件、例外、冲突、缺口、未知及适用范围。文件可读不等于主张已核验。必要背景以适用第一手来源核验；不能读取或核验就说明限制，不推测或声称已参照。缺口只阻断受影响部分；不足以提出有意义目标时等待最小必要材料。"
+        },
+        {
+          "line": 26,
+          "text": "每次新建都提出 2–3 套有实际差异的 **读者＋使用任务＋理解问题**，说明取舍、推荐及理由。已知受众/任务可作为其中一套，不推断能力。只展示材料范围、目标与待确认状态，不先交付指南、章节、交互方案或试做成品。"
+        },
+        {
+          "line": 28,
+          "text": "用户明确选择，或修改目标并明确确认采用后，才推进。推荐、预选、沉默、超时、无关回复、含糊赞同及窗口消失均非确认；“直接做”、一般授权及工具默认值不能跳过。歧义只澄清歧义。未答保留同一套方案及待确认状态，可重述，不自行换套或生成。只有用户修改或材料实质改变目标才更新并再次等待。不能承诺锁住、保持或恢复宿主窗口；用户停止时立即停止。"
+        },
+        {
+          "line": 30,
+          "text": "## 3. 确认后编排"
+        },
+        {
+          "line": 32,
+          "text": "确认后实际读取 [交互设计](references/interaction-design.md)。围绕已确认问题，按材料复杂度和篇幅偏好编排；短材料可短指南，不强制七章、固定控件或题量。保留关键措辞、关系、条件、例外、未知与定位；构造和设计判断明确标注，不冒充原文。"
+        },
+        {
+          "line": 42,
+          "text": "- 目标已明确确认；每个结论/关系有来源或构造标记，冲突及不保证项可见；不把分类写成流程、先后写成因果、未说明写成没有。"
+        },
+        {
+          "line": 44,
+          "text": "- 初值、某次赋值及规则推导的可达值不等于完整输入值域。来源未规定数值类型/范围时保留缺口；另加模拟限制须在使用处标教学构造/设计判断及范围，不列为源事实，不能用别处标签抵消此处归因。"
+        },
+        {
+          "line": 46,
+          "text": "- 组合条件先分已满足、不满足、未知，再按源“且/或”合并；足以确定的局部结论不被未知覆盖，也不扩为未规定的操作或数值结果。操作分支互斥或明确优先；累计反馈合并所有适用项，检查宽泛行与具体行重叠，不能遗漏缺项。"
+        },
+        {
+          "line": 49,
+          "text": "一次性交付可复制指南，注明确认目标、材料范围及剩余限制。可用标题、列表、表格及图形的自然语言描述；不输出代码/图形语言或工具操作说明。指南交付不代表教材已制作、发布、验收、理解改善或全面可访问性合规。"
+        }
+      ]
+    },
+    {
+      "file": "plugins/html-guide-kit/skills/guide/references/guide-framework.md",
+      "before": [
+        {
+          "canonicalSha": "b5170b0eac2b624d7dff4a6da64b525a14d07c52",
+          "gitBlob": "427613df2b8c200fc039a73e1726971493e4b01a",
+          "rawSha256": "7e7ab55d1d825332ea977b80dbface769b30914f7cd8c501f67fcd36c826d92b",
+          "bytes": 9718,
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-7\\static-resource-snapshots\\b5170b0e\\guide-framework.md"
+        },
+        {
+          "canonicalSha": "422c3763f368fe3d223e8b1f8233c360543f845c",
+          "gitBlob": "427613df2b8c200fc039a73e1726971493e4b01a",
+          "rawSha256": "7e7ab55d1d825332ea977b80dbface769b30914f7cd8c501f67fcd36c826d92b",
+          "bytes": 9718,
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-7\\static-resource-snapshots\\422c3763\\guide-framework.md"
+        }
+      ],
+      "beforeBasesIdentical": true,
+      "current": {
+        "rawSha256": "aebd39dd66f418acef5e2c2776d5ce0eda908f77891e30ef89345cbbbd1a847e",
+        "bytes": 10314,
+        "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-7\\static-resource-snapshots\\current\\guide-framework.md"
+      },
+      "relevantLines": [
+        {
+          "line": 36,
+          "text": "推荐依据是材料完整度、当前任务及读者需求；说明为什么适合、代价是什么。推荐目标不是推荐知识题答案。所有选项保持可修改，用户选定或修改确认前停留在目标选择阶段。"
+        },
+        {
+          "line": 40,
+          "text": "确认后，给每个核心理解问题找到必要原文、关系、条件、例外及来源。先确定要保留的意思，再决定标题、分组、阅读顺序和呈现形式。"
+        },
+        {
+          "line": 61,
+          "text": "数值要分开核对初始值、单次赋值或运算结果、源规则内可达的值、完整可接受输入范围及数值类型。某个初值或保持性质的运算不自动定义通用输入值域；原文未声明的上下界、整数性、单位或输入有效性仍是缺口。领域常识不能补作原规则。若教学需要有限输入集合或其他限制，在每个采用该限制的位置标明教学构造或设计判断、所依假设及局部适用范围，不能把它列为原材料的当前事实。别处的构造标签不能给这里未标注的限定追补归因。"
+        },
+        {
+          "line": 83,
+          "text": "按任务选用合适内容：已确认目标和材料范围、内容编排、关键原文及边界、表达关系、必要演示和自检、来源定位、待补项与检查方式。它们可以合并成简洁段落，也可按复杂度分节，没有固定章数或必选控件。"
+        },
+        {
+          "line": 91,
+          "text": "1. 已确认的读者、任务和问题在指南中一致；没有擅自增加目标。"
+        }
+      ]
+    },
+    {
+      "file": "plugins/html-guide-kit/skills/guide/references/interaction-design.md",
+      "before": [
+        {
+          "canonicalSha": "b5170b0eac2b624d7dff4a6da64b525a14d07c52",
+          "gitBlob": "29bcc4cb7c1768a320841c651ca6394ea4211183",
+          "rawSha256": "67bbda4e370dc0eb426695846434b0eda2c26318c5d031c0fe1a74a26fc81685",
+          "bytes": 11592,
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-7\\static-resource-snapshots\\b5170b0e\\interaction-design.md"
+        },
+        {
+          "canonicalSha": "422c3763f368fe3d223e8b1f8233c360543f845c",
+          "gitBlob": "29bcc4cb7c1768a320841c651ca6394ea4211183",
+          "rawSha256": "67bbda4e370dc0eb426695846434b0eda2c26318c5d031c0fe1a74a26fc81685",
+          "bytes": 11592,
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-7\\static-resource-snapshots\\422c3763\\interaction-design.md"
+        }
+      ],
+      "beforeBasesIdentical": true,
+      "current": {
+        "rawSha256": "e7e396cae6419953654e7b72a94bcab476a5f271e4a8ad5dcbdf00ad163bf3c6",
+        "bytes": 12372,
+        "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-7\\static-resource-snapshots\\current\\interaction-design.md"
+      },
+      "relevantLines": [
+        {
+          "line": 3,
+          "text": "本参考用于描述教学交互，不实现或操作教材。只在交互帮助已确认理解问题时采用；静态文字、条件表和并列说明可以成为完整教材内容。"
+        },
+        {
+          "line": 39,
+          "text": "演示动作与真实动作分开标明。材料规定需要人为触发时，改变参数或满足条件仅更新“可执行／待触发”等判断，不自动显示动作已经发生或成功。教学中的触发、提交、确认或恢复均标为模拟，不向外部系统执行对应动作。"
+        },
+        {
+          "line": 55,
+          "text": "规则完整与输入有效分别判断。材料规定了允许值时，越界输入反馈为“超出本模拟规则范围”，不混同某个正常分支。材料没有输入范围时保留未知，不发明范围。"
+        },
+        {
+          "line": 57,
+          "text": "建立模拟输入前逐项定位源初值、赋值/运算、可达值、数值类型及完整输入范围。仅能从源流程推出某个保持性质时，把结论限定为该流程的可达值，不提升为所有可接受输入的定义。额外选择集合、上下界或类型限制可作为教学构造/设计判断，但须在起始信息、操作选项及反馈中就地标明局部假设与范围；不将未规定的输入判无效，不把额外限制列成源事实。交叉核对不同段落的限定及归因，另一处正确标注不能抵消此处遗漏。"
+        },
+        {
+          "line": 59,
+          "text": "输入范围缺口只阻断未覆盖的输入；源流程已明确的当前操作、字段结果或可达性质仍可按其条件判定，不能因通用值域未知把已知局部结果一起抹掉。"
+        },
+        {
+          "line": 87,
+          "text": "**没有可靠判准时**：缺少定义或规则、来源冲突、开放设计取舍、答案依赖尚未取得的情境时，采用开放说明与参考思路。参考标明依赖的假设、哪些思路可成立、尚不能判断什么；不伪造标准答案，不自动标正确／错误，不评分。可以让读者说明依据、指出差异并修订，不把未经评阅的自由文本写成已核验。"
+        },
+        {
+          "line": 97,
+          "text": "交付前对指南中实际采用的每项交互检查：用途对应已确认目标；内容和变化有来源；关键条件与限制可见；结果与证据类型一致；完整和缺失规则分开；可靠和不可靠判准分开；反馈解释理由并支持恢复；模拟与真实操作清楚区分。"
+        }
+      ]
+    }
+  ],
+  "diffs": [
+    {
+      "base": "b5170b0eac2b624d7dff4a6da64b525a14d07c52",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-7\\static-resources-b5170b0e-to-current.diff",
+      "rawSha256": "0567982f6f39dc5cf1ef5e57173e86dcc574b253ef4f1afb77f26d1f8778fca5",
+      "bytes": 6197
+    },
+    {
+      "base": "422c3763f368fe3d223e8b1f8233c360543f845c",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-7\\static-resources-422c3763-to-current.diff",
+      "rawSha256": "0567982f6f39dc5cf1ef5e57173e86dcc574b253ef4f1afb77f26d1f8778fca5",
+      "bytes": 6197
+    }
+  ],
+  "supportingMetadata": {
+    "file": "plugins/html-guide-kit/skills/guide/agents/openai.yaml",
+    "currentRawSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+    "sameAsB517": true,
+    "allowImplicitInvocationFalse": true
+  },
+  "entryLocalMeasurement": {
+    "bytes": 5800,
+    "repositoryConservativeThresholdBytes": 6144,
+    "belowRepositoryThreshold": true,
+    "genericClientLimitClaimed": false,
+    "nativeLoadProven": false
+  },
+  "criteria": [
+    {
+      "id": "initial-assignment-reachable-input-domain",
+      "status": "STATIC_NO_BLOCKING_FINDING",
+      "rationale": "All three resources distinguish initial/assignment or operation/reachable values from a complete accepted domain. Missing type or range remains a source gap; no arbitrary bounds, units, integral domain or validity rule is supplied as source fact.",
+      "evidence": [
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "line": 44,
+          "detail": "Initial values and reachable values are not the complete domain."
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\guide-framework.md",
+          "line": 61,
+          "detail": "Separate five value/domain dimensions; no familiar-domain completion."
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\interaction-design.md",
+          "line": 57,
+          "detail": "Scope a flow-derived invariant to reachable values, with local hypothetical restrictions."
+        }
+      ]
+    },
+    {
+      "id": "known-local-results-preserved",
+      "status": "STATIC_NO_BLOCKING_FINDING",
+      "rationale": "The input-range gap is explicitly limited to uncovered input. Known current operations, field results and reachable properties remain judged under their original source conditions. Existing partial-condition and repeated-operation rules remain intact; the new rule does not erase local known values.",
+      "evidence": [
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "line": 22,
+          "detail": "A gap blocks only affected content."
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "line": 45,
+          "detail": "Unknown path does not revoke a known direct operation."
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "line": 46,
+          "detail": "Determinate local condition result is not overridden by unknowns."
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\interaction-design.md",
+          "line": 59,
+          "detail": "Explicit preservation of current operation, field result and reachable property despite general domain gap."
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\interaction-design.md",
+          "line": 67,
+          "detail": "Known repeat field result versus missing additional feedback."
+        }
+      ]
+    },
+    {
+      "id": "local-construction-and-attribution",
+      "status": "STATIC_NO_BLOCKING_FINDING",
+      "rationale": "Added finite selections or bounds/type restrictions must be labelled where used, with hypothesis and local range. The instruction requires local labels in initial information, selectable options and feedback; a correct label elsewhere cannot retroactively cover source attribution at an unlabeled use.",
+      "evidence": [
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "line": 44,
+          "detail": "Local construction/decision label and no cross-location attribution cancellation."
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\guide-framework.md",
+          "line": 61,
+          "detail": "Each restriction-use must have a local hypothesis and scope."
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\interaction-design.md",
+          "line": 57,
+          "detail": "Initial information, operation options and feedback all require local labels."
+        }
+      ]
+    },
+    {
+      "id": "strict-product-contract-retained",
+      "status": "STATIC_NO_BLOCKING_FINDING",
+      "rationale": "Explicit invocation; actual material/framework reading; distinct triplet choices and pending state; explicit confirmation only; interaction reference only after confirmation; Chinese/original terminology; new copyable text only; no HTML/code/file/tool operation/writes or external execution; bounded self-check feedback without score or mastery conclusion remain unchanged from both baselines.",
+      "evidence": [
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "line": 12,
+          "detail": "Explicit skill request only."
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "line": 14,
+          "detail": "New-guide-only and all-reply Read/text boundary."
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "line": 20,
+          "detail": "Actually read framework then material/snapshot."
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "line": 26,
+          "detail": "Distinct triplets before guide/chapters/interaction."
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "line": 28,
+          "detail": "Strict confirmation and unchanged pending options; no host-window promise."
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "line": 32,
+          "detail": "Interaction reference after confirmation; adaptive length."
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "line": 36,
+          "detail": "Reliable versus bounded unreliable feedback; no capability inference."
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "line": 49,
+          "detail": "Copyable text delivery does not claim construction, launch or understanding efficacy."
+        }
+      ]
+    },
+    {
+      "id": "generic-method-not-domain-answer",
+      "status": "STATIC_NO_BLOCKING_FINDING",
+      "rationale": "The additions discuss generic source-value/domain distinctions and local hypothesis attribution. They contain no frozen case names, source-specific values, model answers, grading criteria or domain operation rules.",
+      "evidence": [
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-7\\static-resources-b5170b0e-to-current.diff",
+          "detail": "Only generic three-resource additions; original methods retained."
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-7\\static-resources-422c3763-to-current.diff",
+          "detail": "Only generic three-resource additions; original methods retained."
+        }
+      ]
+    },
+    {
+      "id": "no-universal-client-budget-claim",
+      "status": "STATIC_NO_BLOCKING_FINDING",
+      "rationale": "Runtime resources make no 6144-byte or generic client-context guarantee. Entry byte size is a raw local measurement only, not proof of native loading or compatibility.",
+      "evidence": [
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-7\\static-resource-snapshots\\current\\SKILL.md",
+          "detail": "Raw local entry length 5800 UTF-8 bytes; no client-context claim."
+        }
+      ]
+    }
+  ],
+  "findings": [],
+  "resourceBytesStableAcrossReview": true,
+  "modelInvoked": false,
+  "harnessGradeInvoked": false,
+  "repoModifiedByReviewer": false,
+  "installStatus": "NOT_RUN",
+  "nativeLoadingStatus": "NOT_RUN",
+  "behaviorStatus": "NOT_RUN",
+  "clientUIStatus": "NOT_RUN",
+  "effectStatus": "NOT_MEASURED",
+  "limitations": [
+    "Static review of these exact three working-tree resource bytes only; no installed-cache/native/model/desktop acceptance.",
+    "Any later edit requires a new exact-byte comparison; patch version and other documentation/tests are handled by parent.",
+    "This review cannot replace CI, GitHub non-author approval or merge verification."
+  ]
+}

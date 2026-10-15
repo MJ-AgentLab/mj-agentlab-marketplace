@@ -1,0 +1,43 @@
+{
+  "recordedAt": "2026-10-14T19:07:17.835Z",
+  "reviewer": "/root",
+  "status": "STATIC_ONLY_PASS",
+  "freezeSha256": "5e5e1eeb1768fa75f386fff63a83c259619c66b405967b826ed2a4c7f7c4d5a2",
+  "fullEntryRead": "92e1c3",
+  "fullFrameworkRead": "8e5dd5",
+  "interaction": "UNCHANGED_GIT_BLOB; prior complete semantic review preserved",
+  "resources": [
+    {
+      "relative": "SKILL.md",
+      "bytes": 5409,
+      "sha256": "e9dddb6c3699e3aa4af9235247b490529982c882b55c0bd7e9d8e7405fd319bf",
+      "changed": true,
+      "exactSpanForwardInverse": true
+    },
+    {
+      "relative": "references/guide-framework.md",
+      "bytes": 9117,
+      "sha256": "8a76449f64e07e61ae9b200111970e5643f7a0e6c181c8e7fef4186237b165f1",
+      "changed": true,
+      "exactSpanForwardInverse": true
+    },
+    {
+      "relative": "references/interaction-design.md",
+      "bytes": 7773,
+      "sha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "changed": false,
+      "exactSpanForwardInverse": true
+    }
+  ],
+  "findings": [],
+  "semanticReason": "Keeps covered permission and explicit results within the actual source scope; does not add unstated repetition/old-field/history gates. Actual mandatory unknown premises and out-of-scope objects remain unknown; unknown result dimensions do not become known. Other methods and public boundary bytes preserved.",
+  "fixturesOrAnswerKeyIntroduced": false,
+  "extraResourcesOrMechanismsIntroduced": false,
+  "source29EvidenceChanged": false,
+  "applied": false,
+  "engineering": "NOT_RUN",
+  "installed": "NOT_RUN",
+  "models": "NOT_RUN",
+  "clients": "NOT_RUN",
+  "effects": "NOT_MEASURED"
+}

@@ -1,0 +1,281 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T15:02:36.649Z",
+  "reviewer": "/root",
+  "canonicalSha": "e15ec47bad8b6a33c2c218bcf59c367b2921d164",
+  "canonicalTree": "1fe945a41edc4403cf6f02cd33ab9b80d28f6eaa",
+  "version": "0.1.24",
+  "result": "FAIL",
+  "actualFreshUuids": 9,
+  "actualInputs": 18,
+  "complete": 18,
+  "invalid": 0,
+  "plannedVariants": 14,
+  "plannedInputs": 30,
+  "notStartedInputs": 12,
+  "counts": {
+    "PASS": 7,
+    "FAIL": 1,
+    "UNEXERCISED": 1,
+    "NOT_RUN": 5
+  },
+  "rows": [
+    {
+      "id": "B3.1",
+      "batchId": "4947f0ec-27b8-4e4b-8d20-75db141c31fd",
+      "actualTurns": 3,
+      "plannedTurns": 3,
+      "uuid": "01a13adb-e4fc-74a3-94f9-b9f9fcbaf205",
+      "selection": {
+        "label": "1",
+        "originalTripletExcerpt": "1. 冲突识别与有界判断（推荐）\n\n   - 读者：负责解释领取条件的一线人员；已理解“且”和“或”的日常含义。\n   - 使用任务：面对四种条件组合，分别说明 D1 与 D2 是否支持领取，并指出哪些结论因效力冲突而不能作为当前统一规则。\n   - 理解问题：两份材料各自要求什么？哪些组合结论一致、哪些不一致？为什么不能自行选定有效版本？\n   - 取舍：最贴合现有材料，兼顾逻辑判断和证据边界；但不能产出统一执行口径。",
+        "firstTurnOutput": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-24\\blocking\\runs\\4947f0ec-27b8-4e4b-8d20-75db141c31fd\\B3.1\\a94f93a0-8725-4993-a6b2-1efd43a2dbc1\\01.output.txt",
+        "recorded": {
+          "utc": "2026-10-14T14:42:03.249Z",
+          "timezone": "Asia/Taipei"
+        },
+        "rolePresent": false,
+        "source": "reviewer reading of actual model output; no answer key in model prompt"
+      },
+      "status": "PASS",
+      "independentReport": {
+        "relative": "blocking/reviews/cross-A-by-b/B3.1.json",
+        "bytes": 4635,
+        "sha256": "fce4520a376919cc8e6f10f1fd13ba24dc32599d5cff81e51e981ac26e02d044"
+      }
+    },
+    {
+      "id": "B3.2",
+      "batchId": "4947f0ec-27b8-4e4b-8d20-75db141c31fd",
+      "actualTurns": 3,
+      "plannedTurns": 3,
+      "uuid": "01a13ade-7853-71c0-835a-e0c4d9d38983",
+      "selection": {
+        "label": "A",
+        "originalTripletExcerpt": "### 方案 A：资格条件判断（推荐）\n\n- 读者：负责向到场参与者解释领取条件的现场工作人员；已知“预约有效”“导览完成”是两个独立条件。\n- 使用任务：根据参与者的两个条件，判断材料是否足以支持其领取资格；同时区分资格成立与库存可供领取。\n- 理解问题：\n  - 两个条件是否必须同时成立？\n  - 只满足一个条件时，能否领取普通材料包？\n  - 符合资格是否等于现场一定有库存？\n- 取舍：最贴合现有材料，能够给出可靠判准；不会处理等待、取消或归还流程。\n- 推荐理由：覆盖§1的核心逻辑，也能防止把“有资格”误解为“保证领到”。",
+        "firstTurnOutput": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-24\\blocking\\runs\\4947f0ec-27b8-4e4b-8d20-75db141c31fd\\B3.2\\336f2474-f533-4c38-8f3c-73016197de6d\\01.output.txt",
+        "recorded": {
+          "utc": "2026-10-14T14:44:44.734Z",
+          "timezone": "Asia/Taipei"
+        },
+        "rolePresent": false,
+        "source": "reviewer reading of actual model output; no answer key in model prompt"
+      },
+      "status": "PASS",
+      "independentReport": {
+        "relative": "blocking/reviews/cross-A-by-b/B3.2.json",
+        "bytes": 4785,
+        "sha256": "cafa60060b9717f4f136482e57f45e150c4b69c08ea6f20c5a5083ba8c4f9029"
+      }
+    },
+    {
+      "id": "B4.1",
+      "batchId": "4947f0ec-27b8-4e4b-8d20-75db141c31fd",
+      "actualTurns": 2,
+      "plannedTurns": 2,
+      "uuid": "01a13ae0-b0e2-7272-8d09-f477660988ac",
+      "selection": {
+        "label": "A",
+        "originalTripletExcerpt": "1. 方案 A：完整规则判定（推荐）\n\n   - 读者：负责依据本说明解释单名访客操作结果的活动讲解员；已知道预约、导览、库存和访客状态这些字段的字面含义。\n   - 使用任务：给定当前状态、预约、导览和库存，判断某个操作是否可用，以及操作后的状态、库存与反馈。\n   - 理解问题：\n     - 核验需要同时满足哪些条件？\n     - 核验、领取、归还和取消分别在什么状态下可用？\n     - 操作成功、库存不足或条件缺失时，各字段如何变化？\n     - 哪些字段由材料明确保持不变，哪些没有被说明？\n   - 取舍：覆盖 §1–§8 的主要规则和例外，最完整，但信息量也最大。\n   - 推荐理由：材料核心是一套相互关联的状态与操作规则，完整判定最能避免把“符合领取资格”“已核验”和“已经领取”混为一谈。",
+        "firstTurnOutput": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-24\\blocking\\runs\\4947f0ec-27b8-4e4b-8d20-75db141c31fd\\B4.1\\ccbf33c1-e529-4a50-96d3-ca63dcb13da3\\01.output.txt",
+        "recorded": {
+          "utc": "2026-10-14T14:47:15.473Z",
+          "timezone": "Asia/Taipei"
+        },
+        "rolePresent": false,
+        "source": "reviewer reading of actual model output; no answer key in model prompt"
+      },
+      "status": "PASS",
+      "independentReport": {
+        "relative": "blocking/reviews/cross-A-by-b/B4.1.json",
+        "bytes": 6167,
+        "sha256": "b7b5d30c0af0b3ff8ec8d749a6015b5877c63a0ce4c35b9516115ae2b034a716"
+      }
+    },
+    {
+      "id": "B4.2",
+      "batchId": "4947f0ec-27b8-4e4b-8d20-75db141c31fd",
+      "actualTurns": 0,
+      "plannedTurns": 2,
+      "uuid": null,
+      "selection": null,
+      "status": "NOT_RUN",
+      "independentReport": null
+    },
+    {
+      "id": "B5.1",
+      "batchId": "4947f0ec-27b8-4e4b-8d20-75db141c31fd",
+      "actualTurns": 0,
+      "plannedTurns": 2,
+      "uuid": null,
+      "selection": null,
+      "status": "NOT_RUN",
+      "independentReport": null
+    },
+    {
+      "id": "B5.2",
+      "batchId": "4947f0ec-27b8-4e4b-8d20-75db141c31fd",
+      "actualTurns": 0,
+      "plannedTurns": 2,
+      "uuid": null,
+      "selection": null,
+      "status": "NOT_RUN",
+      "independentReport": null
+    },
+    {
+      "id": "B6.1",
+      "batchId": "e96f4c27-7185-409e-be88-13499e31fc7c",
+      "actualTurns": 2,
+      "plannedTurns": 2,
+      "uuid": "01a13add-9114-7323-8a6a-d8ad7d5845fb",
+      "selection": {
+        "label": "C",
+        "originalTripletExcerpt": "### 方案 C：恢复与连续操作\n\n- 读者：负责核对教学演示是否忠实于规则的内容审核人员；已理解基本状态名称。\n- 使用任务：追踪一连串操作后的当前状态、库存及条件，并区分取消与“重新开始”的效果。\n- 理解问题：\n  - 连续操作应依据初始状态还是最新状态判断？\n  - 取消预约会恢复或保留哪些字段？\n  - “重新开始”清除什么，并恢复哪些初始值？\n  - 为什么教学恢复方式不能被表述为现实系统必须具有的功能？\n- 取舍：最能呈现生命周期、字段恢复和连续操作；对首次学习资格条件不如方案 A 直接。",
+        "firstTurnOutput": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-24\\blocking\\runs\\e96f4c27-7185-409e-be88-13499e31fc7c\\B6.1\\388e8470-44b8-406e-9ddd-45fb940be5fb\\01.output.txt",
+        "recorded": {
+          "utc": "2026-10-14T14:44:23.357Z",
+          "timezone": "Asia/Taipei"
+        },
+        "rolePresent": false,
+        "source": "reviewer reading of actual model output; no answer key in model prompt"
+      },
+      "status": "PASS",
+      "independentReport": {
+        "relative": "blocking/reviews/root-024/B6.1.json",
+        "bytes": 1639,
+        "sha256": "3e681107788bba98472531518a36a935ae3acb5638f0c31d9765f7b2ddb3307e"
+      }
+    },
+    {
+      "id": "B6.2-revise",
+      "batchId": "e96f4c27-7185-409e-be88-13499e31fc7c",
+      "actualTurns": 1,
+      "plannedTurns": 1,
+      "uuid": "01a13ae0-5d5a-7340-a997-3a563cc67778",
+      "selection": null,
+      "status": "PASS",
+      "independentReport": {
+        "relative": "blocking/reviews/B6.2-revise-independent-a-final.json",
+        "bytes": 3659,
+        "sha256": "6c7bf8fbba0b1617464d6afb01022f8784d8ceb5136972e32cbcc822098a6ac9"
+      }
+    },
+    {
+      "id": "B6.2-compare",
+      "batchId": "e96f4c27-7185-409e-be88-13499e31fc7c",
+      "actualTurns": 1,
+      "plannedTurns": 1,
+      "uuid": "01a13ae0-de52-76a1-97f8-e3c6b9ac2229",
+      "selection": null,
+      "status": "PASS",
+      "independentReport": {
+        "relative": "blocking/reviews/B6.2-compare-independent-a-final.json",
+        "bytes": 3661,
+        "sha256": "ea6fbe93defaa80cafb47304105086f292125769b9d9dd2569d5b9f080be285f"
+      }
+    },
+    {
+      "id": "B6.2-review",
+      "batchId": "e96f4c27-7185-409e-be88-13499e31fc7c",
+      "actualTurns": 1,
+      "plannedTurns": 1,
+      "uuid": "01a13ae1-6c21-70e3-a680-083c482f9874",
+      "selection": null,
+      "status": "PASS",
+      "independentReport": {
+        "relative": "blocking/reviews/B6.2-review-independent-a-final.json",
+        "bytes": 3657,
+        "sha256": "24c25a92a9c25f66c06284513245133b26462cea33cb9495fa3a19b5344279a5"
+      }
+    },
+    {
+      "id": "B1.1",
+      "batchId": "abf4235d-a844-4428-88d8-f2fdfcbbb6c4",
+      "actualTurns": 4,
+      "plannedTurns": 4,
+      "uuid": "01a13adc-86ca-7862-8ce2-afdc4c8479f0",
+      "selection": {
+        "label": "方案 B",
+        "originalTripletExcerpt": "### 方案 B：解释一次完整领取流程及其分支\n\n- 读者：首次参与该虚构活动的访客；知道自己是否完成预约与导览，但不熟悉领取规则。\n- 使用任务：说明从初始状态到成功领取需要经过什么判断与操作，并解释核验失败和库存为零两个分支。\n- 理解问题：\n  - 怎样才会从“未核验”变为“已核验”？\n  - 已核验后为什么仍可能无法取得材料包？\n  - 取消或重新开始分别会恢复哪些内容？\n- 取舍：叙事清晰、入门负担较低；对归还后的边界、其他状态下的禁止操作以及字段级完整比较覆盖较弱。",
+        "firstTurnOutput": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-24\\blocking\\runs\\abf4235d-a844-4428-88d8-f2fdfcbbb6c4\\B1.1\\42bf4f9b-4c3a-4ac5-8f98-f6c2eef598bc\\01.output.txt",
+        "recorded": {
+          "utc": "2026-10-14T14:44:07.448Z",
+          "timezone": "Asia/Taipei"
+        },
+        "rolePresent": false,
+        "source": "reviewer reading of actual model output; no answer key in model prompt"
+      },
+      "status": "FAIL",
+      "independentReport": {
+        "relative": "blocking/reviews/root-024/B1.1.json",
+        "bytes": 11099,
+        "sha256": "ea221e0151c972cbadd16c8b7fcc8b41d3053ee89cca11a80dd19e598d48b7c7"
+      }
+    },
+    {
+      "id": "B1.2-delayed",
+      "batchId": "abf4235d-a844-4428-88d8-f2fdfcbbb6c4",
+      "actualTurns": 1,
+      "plannedTurns": 3,
+      "uuid": "01a13ae0-938f-7dc1-bf07-73ea3ee44027",
+      "selection": {
+        "label": "方案 C",
+        "originalTripletExcerpt": "### 方案 C：流程边界与演示恢复审查\n\n- 读者：准备审核教学演示内容的课程设计人员；已了解状态式流程和模拟教材的基本概念。\n- 使用任务：检查一段演示描述是否完整保留操作前提、状态结果、库存变化、不可用情形及恢复边界。\n- 理解问题：\n  - 每项操作必须写明哪些当前态、条件和结果？\n  - 哪些字段结果由材料明确规定，哪些不能自行补充？\n  - 取消与“重新开始”在触发条件、动作和恢复范围上有何不同？\n  - 哪些结论属于材料范围之外？\n  - 如何识别把教学演示恢复误写成现实系统功能的错误？\n- 取舍：最适合指导教材作者避免规则失真；对普通访客而言会偏抽象。",
+        "firstTurnOutput": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-24\\blocking\\runs\\abf4235d-a844-4428-88d8-f2fdfcbbb6c4\\B1.2-delayed\\e0e9f5f8-ed3e-4f0d-869b-9e87ca2f0eb5\\01.output.txt",
+        "recorded": {
+          "utc": "2026-10-14T14:47:53.431Z",
+          "timezone": "Asia/Taipei"
+        },
+        "rolePresent": false,
+        "source": "reviewer reading of actual model output; no answer key in model prompt"
+      },
+      "status": "UNEXERCISED",
+      "independentReport": {
+        "relative": "blocking/reviews/root-024/B1.2-delayed.json",
+        "bytes": 4335,
+        "sha256": "f773b7ef29454e865080d0d2c9d8c5f508b57b4e25538f9e9f483ec235309456"
+      }
+    },
+    {
+      "id": "B1.2-combined",
+      "batchId": "abf4235d-a844-4428-88d8-f2fdfcbbb6c4",
+      "actualTurns": 0,
+      "plannedTurns": 2,
+      "uuid": null,
+      "selection": null,
+      "status": "NOT_RUN",
+      "independentReport": null
+    },
+    {
+      "id": "B2.1",
+      "batchId": "abf4235d-a844-4428-88d8-f2fdfcbbb6c4",
+      "actualTurns": 0,
+      "plannedTurns": 2,
+      "uuid": null,
+      "selection": null,
+      "status": "NOT_RUN",
+      "independentReport": null
+    }
+  ],
+  "marker": {
+    "recordedAt": "2026-10-14T14:48:12.825Z",
+    "sha256": "dcb30542d9e04a88663993d22ac007a7ac9a62d3d36dacfc25b37da2d5a2d4e7"
+  },
+  "inflightNaturallyCrossedMarker": [
+    {
+      "id": "B4.1",
+      "uuid": "01a13ae0-b0e2-7272-8d09-f477660988ac",
+      "turn": 2,
+      "started": "2026-10-14T14:47:15.922Z",
+      "completed": "2026-10-14T14:49:02.017Z"
+    }
+  ],
+  "postMarkerNewInputs": 0,
+  "noKillRetryOrResampling": true,
+  "engineering": "346 tests/65 documents/validate/check/13 strict installs/6 actual cache Python PASS",
+  "expanded": "NOT_RUN",
+  "clients24": "NOT_RUN",
+  "effects": "NOT_MEASURED",
+  "priorClientPassNotInherited": true,
+  "originalOperatorStatesNotRewritten": true
+}

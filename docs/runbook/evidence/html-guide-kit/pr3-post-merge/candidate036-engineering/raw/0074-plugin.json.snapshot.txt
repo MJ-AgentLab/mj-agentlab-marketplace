@@ -1,0 +1,30 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "html-guide-kit",
+  "version": "0.1.35",
+  "description": "Create a new interactive HTML teaching guide from supplied material after the user confirms its reader, task and understanding questions. Deliver guide text in chat.",
+  "author": {
+    "name": "MJ-AgentLab",
+    "url": "https://github.com/MJ-AgentLab"
+  },
+  "repository": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace",
+  "license": "MIT",
+  "keywords": ["html", "teaching", "guide", "information-design"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "HTML Guide Kit",
+        "shortDescription": "Plan a teaching guide after confirming its reader and task",
+        "longDescription": "Read supplied material or an explicit conversation snapshot, offer distinct reader/task/understanding-question options and wait for confirmation. Create copyable guide text with faithful sources, conditions, interactions and teaching feedback. The skill only creates new guides and does not produce HTML, code or files or explain production-tool operations.",
+        "developerName": "MJ-AgentLab",
+        "category": "Developer Tools",
+        "capabilities": ["Read"],
+        "defaultPrompt": [
+          "Use $html-guide-kit:guide for a new teaching guide; offer reader, task and question options, then wait for my confirmation."
+        ],
+        "logo": "./assets/icon.png",
+        "composerIcon": "./assets/icon.png"
+      }
+    }
+  }
+}

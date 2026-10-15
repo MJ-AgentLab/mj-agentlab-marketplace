@@ -1,0 +1,10 @@
+import fs from 'node:fs';import crypto from 'node:crypto';import path from 'node:path';
+const [group,stage,id,status,exitArgument,chunk]=process.argv.slice(2),base='C:/Users/Admin/.codex/worktrees/html-guide-acceptance',root=base+'/reviewer/corrections/0-1-19';
+if(!['main','repeat'].includes(group)||!/^\d\d$/.test(stage)||!/^\d+$/.test(id)||!['RUNNING','COMPLETE'].includes(status))throw Error('Actual outer observation required');
+const prepared=JSON.parse(fs.readFileSync(root+'/root-expanded-'+group+'-prepared.json')),batch=JSON.parse(fs.readFileSync(prepared.batchFile));
+const log=base+'/tracking/019-root-expanded-'+group+'-'+stage+'.log',bytes=fs.readFileSync(log),hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+const record={recordedAt:new Date().toISOString(),group,stage,outerUnifiedExecSessionId:Number(id),actualOuterStatus:status,actualOuterExitCode:status==='COMPLETE'?Number(exitArgument):null,actualToolChunk:chunk??null,logSource:log,logBytesAtObservation:bytes.length,logSha256AtObservation:hash(bytes),canonicalSha:batch.source.canonicalSha,operatorSha256:hash(fs.readFileSync(root+'/operator-sequential.manual.mjs')),actualExitNotInferredFromModelOutput:true,noModelOrInputMutation:true};
+const dir=path.dirname(prepared.batchFile);
+fs.writeFileSync(path.join(dir,'root-outer-'+stage+'-'+status.toLowerCase()+'.json'),JSON.stringify(record,null,2)+'\n',{flag:'wx'});
+if(status==='COMPLETE')fs.writeFileSync(path.join(dir,'root-outer-'+stage+'.log'),bytes,{flag:'wx'});
+console.log(JSON.stringify(record));

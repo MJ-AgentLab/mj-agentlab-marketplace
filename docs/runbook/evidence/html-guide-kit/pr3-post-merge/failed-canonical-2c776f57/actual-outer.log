@@ -1,0 +1,21 @@
+file:///C:/Users/Admin/.codex/worktrees/html-guide-acceptance/develop/scripts/release-verify-install.mjs:25
+    if (!validation.ok) throw new Error(validation.errors.join("\n"));
+                              ^
+
+Error: docs\runbook\evidence\html-guide-kit\pr3-post-merge\patch-checks-0-1-21\blocking\frozen-spec.md: missing linked file: ../adr/[ADR]_HTML_Guide_Kit_Addition.md
+docs\runbook\evidence\html-guide-kit\pr3-post-merge\patch-checks-0-1-21\continuous-supplement\frozen-spec.md: missing linked file: ../adr/[ADR]_HTML_Guide_Kit_Addition.md
+docs\runbook\evidence\html-guide-kit\pr3-post-merge\patch-checks-0-1-21\draft\references\guide-framework.md: missing YAML frontmatter
+docs\runbook\evidence\html-guide-kit\pr3-post-merge\patch-checks-0-1-21\draft\references\interaction-design.md: missing YAML frontmatter
+docs\runbook\evidence\html-guide-kit\pr3-post-merge\patch-checks-0-1-21\draft\SKILL.md: missing document field type
+docs\runbook\evidence\html-guide-kit\pr3-post-merge\patch-checks-0-1-21\expanded\frozen-spec.md: missing linked file: ../adr/[ADR]_HTML_Guide_Kit_Addition.md
+docs\runbook\evidence\html-guide-kit\pr3-post-merge\patch-checks-0-1-21\provenance\source20-runtime\plugins\html-guide-kit\skills\guide\references\guide-framework.md: missing YAML frontmatter
+docs\runbook\evidence\html-guide-kit\pr3-post-merge\patch-checks-0-1-21\provenance\source20-runtime\plugins\html-guide-kit\skills\guide\references\interaction-design.md: missing YAML frontmatter
+docs\runbook\evidence\html-guide-kit\pr3-post-merge\patch-checks-0-1-21\provenance\source20-runtime\plugins\html-guide-kit\skills\guide\SKILL.md: missing document field type
+docs\runbook\evidence\html-guide-kit\pr3-post-merge\patch-checks-0-1-21\provenance\source20-v2-controls\blocking\frozen-spec.md: missing linked file: ../adr/[ADR]_HTML_Guide_Kit_Addition.md
+docs\runbook\evidence\html-guide-kit\pr3-post-merge\patch-checks-0-1-21\provenance\source20-v2-controls\continuous-supplement\frozen-spec.md: missing linked file: ../adr/[ADR]_HTML_Guide_Kit_Addition.md
+docs\runbook\evidence\html-guide-kit\pr3-post-merge\patch-checks-0-1-21\provenance\source20-v2-controls\expanded\frozen-spec.md: missing linked file: ../adr/[ADR]_HTML_Guide_Kit_Addition.md
+    at verifyReleaseInstall (file:///C:/Users/Admin/.codex/worktrees/html-guide-acceptance/develop/scripts/release-verify-install.mjs:25:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async file:///C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-21/controller.mjs:25:9
+
+Node.js v22.18.0

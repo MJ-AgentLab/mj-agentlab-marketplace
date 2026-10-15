@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T14:54:44.563Z",
+  "reviewer": "/root/behavior_014_b",
+  "operator": "/root/behavior_014_a",
+  "method": "independent_semantic_review",
+  "variant": "B4.1",
+  "attemptId": "ccbf33c1-e529-4a50-96d3-ca63dcb13da3",
+  "sessionUuid": "01a13ae0-b0e2-7272-8d09-f477660988ac",
+  "canonicalSha": "e15ec47bad8b6a33c2c218bcf59c367b2921d164",
+  "canonicalTree": "1fe945a41edc4403cf6f02cd33ab9b80d28f6eaa",
+  "packageVersion": "0.1.24",
+  "status": "PASS",
+  "criteria": [
+    {
+      "id": "four-verification-combinations",
+      "status": "PASS",
+      "rationale": "Each N1–N4 fixes current未核验 and direct核验. True/true becomes已核验, other cases remain未核验 with the correct specific or both missing factors; inventory unchanged. Other-state verification is source-uncovered, not an invented prohibition or unchanged result.",
+      "evidence": [
+        "T2 §三.2 full verification rule",
+        "T2 §五.3 N1–N4 and uncovered-state case",
+        "T2 §九.1 source-correct missing-tour feedback"
+      ]
+    },
+    {
+      "id": "receipt-return-cancel-branches",
+      "status": "PASS",
+      "rationale": "已核验 gates领取; positive inventory produces已领取/−1, zero gives等待补充 while keeping已核验/inventory0 and still permits source operation judgment. Other states cannot receive. Only已领取 permits归还/+1, other states prohibited. Cancel-before-receipt changes reservation/state and leaves tour/inventory as source specified;已领取/已归还 cancel unavailable. No invented field result is added to forbidden attempts.",
+      "evidence": [
+        "T2 §三.3–5 complete source units",
+        "T2 §五 L1–L3/R1–R2/C1–C2",
+        "T2 §七 comparison view",
+        "T2 §八 allowed-without-desired-result versus prohibited/uncovered"
+      ]
+    },
+    {
+      "id": "complete-recovery-and-continuous-demonstration",
+      "status": "PASS",
+      "rationale": "Restart explicitly clears current round operations and restores all source initial fields, separately attributing optional UI feedback/selection clearing to teaching design. Continuous demonstration starts from source initial values, labels new reservation/tour values as teaching construction, verifies before receipt, produces inventory2→1 then return1→2, and ends with complete source recovery. It is not the sole possible path and does not claim restart is the sole route to identical final values.",
+      "evidence": [
+        "T2 §三.6 complete source recovery and UI availability identity",
+        "T2 §五.7 complete clear+initials and separate UI result",
+        "T2 §六 eight-step example",
+        "T2 §七 restart table includes清除本轮操作 and all initial values",
+        "T2 §九.4 distinct source operations/results"
+      ]
+    },
+    {
+      "id": "bounded-input-and-source-field-identity",
+      "status": "PASS",
+      "rationale": "No invented inventory integer/min/max domain excludes known source operations. Complete source-defined result fields are kept separate from unmentioned reservation/tour values and illegal-attempt fields. Source material/single-person/pass exception and current-state/operation restrictions remain located; teaching setup/UI fields are labeled separately.",
+      "evidence": [
+        "T2 §二 scope and teaching/design identity",
+        "T2 §三 inventory-domain limit and unmentioned fields",
+        "T2 §四 local teaching operation/input model",
+        "T2 §五 explicit unknown-field boundaries"
+      ]
+    },
+    {
+      "id": "explained-self-check-and-actual-sdk",
+      "status": "PASS",
+      "rationale": "Four self-checks show fixed input, correct source-local judgments, reasons/misconceptions and retry without ability score/mastery. Native and extra entry/full reference/material SDK reception and seven exact runtime resources verified; two actualV2 exits/closes0 inside deadline. T2 naturally crosses marker, with no later input.",
+      "evidence": [
+        "T2 §九–§十 self-checks and planned checks",
+        "B4.1-receiver-audit.json four actual calls/12raw pins and lifecycle"
+      ]
+    }
+  ],
+  "installedResourceReading": {
+    "skill": true,
+    "framework": true,
+    "interaction": true
+  },
+  "observedReading": {
+    "nativeSkillFull": true,
+    "additionalToolSkillFull": true,
+    "frameworkActualToolFull": true,
+    "interactionActualToolFull": true,
+    "materialActualToolFull": true
+  },
+  "actualContinuousTurns": 2,
+  "plannedTurns": 2,
+  "technicalAudit": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-24\\blocking\\reviews\\cross-A-by-b\\B4.1-receiver-audit.json",
+    "bytes": 22832,
+    "sha256": "a6865f05a12f484089e2c82151c5f875af7781bc9095a3f324e3037eb14a3564"
+  },
+  "fullIndependentOutputReads": [
+    {
+      "turn": 1,
+      "actualToolChunk": "400352",
+      "exit": 0
+    },
+    {
+      "turn": 2,
+      "actualToolChunk": "f54a00",
+      "exit": 0
+    }
+  ],
+  "notes": [
+    "The comparison table explicitly requires current未核验 for the verification row. Its following sentence distinguishes qualification factors from an already performed action; it does not label two factors alone as permission to verify in arbitrary states. Source-complete current-state rules and all actual feedback examples remain fixed.",
+    "The demonstration separately fixes source/current operation conditions; no new field outcome is asserted for unavailable-operation attempts.",
+    "T2 UI feedback clearing is locally under design judgment, not silently added to source restart results.",
+    "No Source23 PASS/F or prior client success is inherited; effects/usability/accessibility remain unmeasured."
+  ],
+  "timing": {
+    "globalMarkerUtc": "2026-10-14T14:48:12.825Z",
+    "turn2StartedUtc": "2026-10-14T14:47:15.922Z",
+    "turn2CompletedUtc": "2026-10-14T14:49:02.017Z",
+    "naturallyCrossedMarker": true,
+    "postMarkerInput": false
+  },
+  "ownB6SelfReviewed": false,
+  "originalCaseFilesModified": false,
+  "gradeCalled": false,
+  "effectStatus": "NOT_MEASURED",
+  "clientUiStatus": "NOT_RUN"
+}

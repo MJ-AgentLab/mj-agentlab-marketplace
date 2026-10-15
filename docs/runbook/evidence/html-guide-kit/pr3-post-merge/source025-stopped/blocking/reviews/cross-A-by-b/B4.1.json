@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T15:45:55.175Z",
+  "reviewer": "/root/behavior_014_b",
+  "operator": "/root/behavior_014_a",
+  "method": "independent_semantic_review",
+  "variant": "B4.1",
+  "attemptId": "ca282244-8112-46bf-b629-dd33c73b33a3",
+  "sessionUuid": "01a13b06-fb45-7500-82f8-2560c74fbc6a",
+  "canonicalSha": "ba74bbe3d1b64b59ccc7e92d58a66a011126215e",
+  "canonicalTree": "28e0fca836c31dce00e491b269323dc79e8739da",
+  "packageVersion": "0.1.25",
+  "status": "UNEXERCISED",
+  "frozenCriterion": "模拟符合四种预约/导览组合：仅真/真核验成功，其他组合失败且指出缺项；核验不减库存；已核验且库存正数才领取并减 1，库存 0 等待且不变；归还仅对已领取可用并加 1；取消和重新开始符合 §6/§7。至少设计可区分正确关系的操作序列，说明前后状态、可观察结果、反馈和恢复，不只列控件名称。用设置库存 0 演示时标明演示构造及与初值 2 的区别。",
+  "installedResourceReading": {
+    "skill": true,
+    "framework": true,
+    "interaction": true
+  },
+  "observedReading": {
+    "nativeSkillFull": true,
+    "additionalToolSkillFull": true,
+    "frameworkActualToolFull": true,
+    "interactionActualToolFull": true,
+    "materialActualToolFull": true
+  },
+  "technicalAudit": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\reviews\\cross-A-by-b\\B4.1-receiver-audit.json",
+    "bytes": 15912,
+    "sha256": "898f724e34c78fedabccaef756e5a8c3967a6aa455c78ba0dc4eef670802df21"
+  },
+  "actualContinuousTurns": 1,
+  "plannedTurns": 2,
+  "selection": null,
+  "gradeCalled": false,
+  "originalCaseFilesModified": false,
+  "ownB6SelfReviewed": false,
+  "effectStatus": "NOT_MEASURED",
+  "clientUiStatus": "NOT_RUN",
+  "criteria": [
+    {
+      "id": "completed-prefix-source-scope-and-choice-wait",
+      "status": "PASS",
+      "rationale": "T1只提供§1–§8材料范围、来源/适用边界和3实际不同目标，不展开指南，等待明确选择。初值恢复作为材料范围的真实子结果摘要，不声称穷尽恢复动作或排他唯一终值入口。",
+      "evidence": [
+        "T1 entire original answer"
+      ]
+    },
+    {
+      "id": "complete-simulation-and-feedback",
+      "status": "UNEXERCISED",
+      "rationale": "Root HOLD前T1自然完成；无quote/choose/确认输入/T2。完整条件模拟、序列、结果、反馈和恢复尚未交付，不能凭T1能力承诺判通过。",
+      "evidence": [
+        "Original attempt selection=null and only01 files",
+        "Global marker and operator stopped report"
+      ]
+    },
+    {
+      "id": "prefix-sdk-full-read-valid-transport",
+      "status": "PASS",
+      "rationale": "T1本次入口原生/额外shell、两参考、材料全部实际完整SDK接收；7源镜cache exact，actualexit/close0在deadline内。只证首轮技术有效。",
+      "evidence": [
+        "B4.1-receiver-audit.json"
+      ]
+    }
+  ],
+  "fullIndependentOutputReads": [
+    {
+      "turn": 1,
+      "actualToolChunk": "b8ff6c",
+      "exit": 0
+    }
+  ],
+  "notRunTurns": [
+    2
+  ],
+  "guideDelivered": false
+}

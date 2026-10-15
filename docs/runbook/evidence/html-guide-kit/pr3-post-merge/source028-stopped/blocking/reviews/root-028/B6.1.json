@@ -1,0 +1,30 @@
+{
+  "recordedAt": "2026-10-14T17:56:13.604Z",
+  "reviewer": "/root",
+  "operator": "/root/behavior_014_b",
+  "source": {
+    "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "canonicalSha": "83b3f50ba6c41f923a2b48bba10ca176102be18d",
+    "canonicalTree": "b5bea864f5fefba2d964a158e077225cae82d987"
+  },
+  "version": "0.1.28",
+  "variant": "B6.1",
+  "uuid": "01a13b83-669d-7b01-9000-c8771666f61a",
+  "attemptId": "920d8656-ee32-482d-8308-c8ee5a6213d8",
+  "actualTurns": 1,
+  "primary": "UNEXERCISED",
+  "overallResult": "FAIL",
+  "actualWholeRead": "0f1e14",
+  "quote": "读取被沙箱策略拦截了",
+  "finding": "The generic rejected: blocked by policy receiver does not establish a sandbox cause, installation-directory permission or refusal scope. Subsequent successful reads do not retroactively establish the first refusal cause.",
+  "originalGenericReceiverLines": [
+    15,
+    16
+  ],
+  "firstMarker": "normal-execution-pause.flag",
+  "newInputs": false,
+  "noResampling": true,
+  "effects": "NOT_MEASURED",
+  "inputSha256": "8029111104f67a1c156536b319366f032730358a61ce3086c16a1a36a9913fb7",
+  "outputSha256": "3f77dae70841a6aa63b2c01ab53656f96b7b00484bdb3d1fad44d233a26e56e3"
+}

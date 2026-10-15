@@ -1,0 +1,17 @@
+// NEW scheduling candidate only; no Codex/model/runtime invocation.
+import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';import {fileURLToPath} from 'node:url';
+const root=path.dirname(fileURLToPath(import.meta.url)),source=path.resolve(root,'../../technical-recovery/0-1-20/operator-sequential.manual.mjs');
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex'),original=fs.readFileSync(source);
+if(sha(original)!=='8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b')throw Error('approved source operator changed');
+const provenance=path.join(root,'operator-draft-provenance');fs.mkdirSync(provenance);fs.writeFileSync(path.join(provenance,'source-operator.mjs'),original,{flag:'wx'});
+let text=original.toString('utf8');const stages=[];
+function edit(name,oldText,newText,all=false){const before=text,count=before.split(oldText).length-1;if(count<1||!all&&count!==1)throw Error('exact operator edit anchor mismatch: '+name);text=all?before.replaceAll(oldText,newText):before.replace(oldText,newText);stages.push({name,occurrences:count,oldText,newText,beforeBytes:Buffer.byteLength(before),beforeSha256:sha(Buffer.from(before)),afterBytes:Buffer.byteLength(text),afterSha256:sha(Buffer.from(text))});}
+edit('USE_ACCURATE_BOUNDARY_VARIANT_NAME','completedVariant','boundaryVariant',true);
+edit('NAME_TURN_OR_VARIANT_NORMAL_RETURN','NORMAL_RETURN_AT_VARIANT_BOUNDARY','NORMAL_RETURN_AT_TURN_OR_VARIANT_BOUNDARY');
+edit('NAME_PAUSE_OUTPUT_ACCURATELY','pausedAtVariantBoundary:true','pausedAtTurnOrVariantBoundary:true');
+edit('CHECK_GLOBAL_PAUSE_AFTER_COMPLETE_TURN_BEFORE_NEXT_OR_SELECTION','if(count===state.plannedTurns)break;\n   const upcoming=','if(count===state.plannedTurns)break;\n   if(await pauseAtBoundary(id))return;\n   const upcoming=');
+let inverse=text;for(const s of [...stages].reverse()){inverse=inverse.split(s.newText).join(s.oldText);if(sha(Buffer.from(inverse))!==s.beforeSha256)throw Error('operator inverse stage mismatch');}
+if(!Buffer.from(inverse).equals(original))throw Error('operator diff inverse not exact');
+const candidate=path.join(root,'operator-sequential.manual.candidate.mjs');fs.writeFileSync(candidate,text,{flag:'wx'});
+const report={phase:'DRAFT_ONLY_SCHEDULING_TECHNICAL_CHANGE_PENDING_INDEPENDENT_REVIEW',recordedUtc:new Date().toISOString(),source,sourceBytes:original.length,sourceSha256:sha(original),originalSnapshot:'operator-draft-provenance/source-operator.mjs',candidate,candidateBytes:Buffer.byteLength(text),candidateSha256:sha(Buffer.from(text)),stages,sourceRestoredByInverse:true,unchangedModelInputsCriteriaSpecDefault:true,captureModuleUnchanged:true,originalSourceOperatorUnchanged:fs.readFileSync(source).equals(original),candidateLocationKeepsOriginalReviewerRootResolution:true,onlyNaturalCompleteTurnBoundary:true,noKillOrInterruptAdded:true,behavior:'After a naturally returned COMPLETE turn, check the same global flag before next or a manual choice boundary; existing start and variant checks remain. This does not lock or promise to preserve a host UI window.',modelInvoked:false,installationInvoked:false,operatorExecuted:false,authorDoesNotSelfApprove:true};
+const out=path.join(root,'operator-draft-control.json');fs.writeFileSync(out,JSON.stringify(report,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify({candidate,bytes:Buffer.byteLength(text),sha256:sha(Buffer.from(text)),control:out,controlSha256:sha(fs.readFileSync(out)),modelInvoked:false}));

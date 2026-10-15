@@ -1,0 +1,10 @@
+import fs from 'node:fs';import crypto from 'node:crypto';
+const root='C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-16',original=root+'/draft/SKILL.md.snapshot.txt',dir=root+'/draft-entry-clarified',hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+const bytes=fs.readFileSync(original),text=bytes.toString('utf8');
+const old='明确选择/修改目标并明确确认采用才推进。',next='明确选定方案，或确认采用修改目标才推进。';
+if(!text.includes(old)||!text.includes('Text guides after explicit target confirmation'))throw Error('Exact original draft anchors');
+const result=Buffer.from(text.replace(old,next).replace('Text guides after explicit target confirmation','Text guides after explicit target choice'));
+if(result.length>6144)throw Error('Unchanged entry budget');
+fs.mkdirSync(dir);fs.writeFileSync(dir+'/SKILL.md.snapshot.txt',result,{flag:'wx'});
+fs.writeFileSync(dir+'/entry-clarification-control.json',JSON.stringify({recordedAt:new Date().toISOString(),source:{file:original,bytes:bytes.length,sha256:hash(bytes)},target:{file:dir+'/SKILL.md.snapshot.txt',bytes:result.length,sha256:hash(result)},basis:'User original contract and independent precommit_014 static clarification: explicit choice is sufficient; modified target needs adoption confirmation; recommendation or default is not choice.',changes:[{before:old,after:next},'Shorter metadata description with identical scope to stay within existing6144 budget'],originalDraftUntouched:true,runtimeApplied:false,model:'NOT_RUN'},null,2)+'\n',{flag:'wx'});
+console.log(JSON.stringify({file:dir+'/SKILL.md.snapshot.txt',bytes:result.length,sha256:hash(result),runtimeApplied:false}));

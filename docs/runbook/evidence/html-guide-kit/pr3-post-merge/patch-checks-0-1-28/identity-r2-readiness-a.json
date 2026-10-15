@@ -1,0 +1,70 @@
+{
+  "status": "STATIC_READINESS_ONLY",
+  "reviewer": "/root/behavior_014_a",
+  "canonical": null,
+  "engineeringGate": "PENDING_ROOT_EXACT_CANONICAL_13_INSTALLS_6_CACHE_PYTHON",
+  "control": {
+    "relative": "CONTROLS_FINAL_FROZEN.r2.json",
+    "sha256": "3d693eed9d6008903e6bcfd6e4e039dd775dbdc7443b1c58e96acc9a4e1ca309",
+    "activePinRowsVerified": 41,
+    "pinMismatches": 0,
+    "historicalDefaultProofSha256": "112d6f63191c781df9d2ca6d99a2f228f299aae82e056e3bf1869ee70d50bb49",
+    "historicalActualDefault": {"cli":"0.147.0","model":"gpt-5.6-sol","effort":"low"},
+    "historicalProofStillListsSupportedHigh": true,
+    "historicalModelListHashMatches": true,
+    "requiredExplicitSelectedEffort": "high"
+  },
+  "operatorAssignment": {
+    "prepareKind": "blocking",
+    "prepareRole": "runtime_resources",
+    "variants": {"B3.1":3,"B3.2":3,"B4.1":2,"B4.2":2,"B5.1":2,"B5.2":2},
+    "freshSessions": 6,
+    "plannedContinuousInputs": 14,
+    "allSixManualSelectionSourceTurns": 1,
+    "explicitPrepareArgumentsAfterRootGate": ["blocking","runtime_resources","{ROOT_FULL_CANONICAL}","--reasoning-effort","high"],
+    "pauseFile": "normal-execution-pause.flag",
+    "requiredOperator": "operator-sequential.manual.candidate.mjs",
+    "requiredEveryOperatorArguments": ["blocking","{FRESH_BATCH_JSON}","--pause-file","{ROOT28_ABSOLUTE}/normal-execution-pause.flag"],
+    "manualRule": "Only after full actual T1 reading and checking the shared flag: identify an actual non-recommended top-level heading and one complete reader/task/questions triplet, record its exact quote and boundaries with unchanged manual-selection-behavior-a.mjs. No preselected target or nested-number inference.",
+    "stopRule": "Check the same global flag before prepare, actual target read/quote/choose, and every candidate invocation. Candidate also checks each normal turn/variant boundary. First confirmed semantic failure or technical INVALID stops new input; preserve inflight natural completion, original marker/timestamps, partial and NOT_RUN. No kill/retry/resampling and no claim of atomic stopping or host window lock."
+  },
+  "identityFindings": [
+    {
+      "helper": "prepare-correction.mjs",
+      "sha256": "37ab9b6b39de27b0a3728d9bbdccb7aa599f4b20f0a03820e0c1e4ebb5be5221",
+      "finding": "Explicit effort is forwarded. Baseline proof remains low; prepare stores actualDefault separately from selectedIdentity/effectiveBaseline, verifies support both in unchanged proof and a fresh models/list. Omitting the optional flag would retain low; this wave must always supply high."
+    },
+    {
+      "helper": "blocking/harness.mjs",
+      "sha256": "7f1af6c1f6d68497587e4568e55ccaa5164b0d07c7c53f8b254bc7ac2f13730b",
+      "finding": "harvestSession reads actual session_meta and turn_context model/effort without hardcoding low. identityError enforces UUID continuity; transport COMPLETE alone does not independently establish selected high or exact CLI/provider, so reviewer must additionally verify the actual SDK fields."
+    },
+    {
+      "helper": "record-operator-handoff-behavior-a.mjs",
+      "sha256": "c9e93fb47caee212c3b5eb2322e963fa89fbe10008db469d9dd4dc6a47546d82",
+      "finding": "Copies turn.actualIdentity and raw hashes, contains no expected-low assertion and no semantic grade. Same is true of record-operator-handoff.mjs and blocking/operator-observations.mjs. Frozen helpers need no identity edit."
+    }
+  ],
+  "futureActualReviewRequirements": [
+    "Fresh batch canonical/tree/version and seven source/mirror/cache runtime resources must be exact; reviewer/control/criteria/answers remain excluded from neutral mirror and model prompts.",
+    "Before the first model call, inspect fresh models/list support for high, batch selectedIdentity/effectiveBaseline effort high, explicit reasoningSelection.requested high and config.toml selected model/effort; keep actualDefault and source desktop profile separate.",
+    "For every actual turn, check session_meta UUID, cli_version 0.147.0 and model_provider openai, and actual turn_context model gpt-5.6-sol/effort high. Check continuous UUID. Do not reuse an old reviewer assertion requiring low, or rewrite old low/default records as high.",
+    "Independently verify actual SDK input/output, native installed entry full body, both reference receipts and material receipts with truncation/补读 separately. Cut resumed cumulative SDK at the current actual user turn; do not count old tool receipts again. Preserve scope-only false/N_A when applicable.",
+    "V2 capture remains byte-exact: actual exit/close observed, real code zero and signals null, execution exit strictly before monotonic deadline, no error/timeout/late/deadline callback, full stdio through close, one actual turn.completed and no error/turn.failed. SDK completion does not substitute for process exit.",
+    "Default execution timeout remains 240000ms. Deadline/transport INVALID is preserved without resampling. The timer bounds execution-to-exit, not a guaranteed close/drain deadline. No runtime change follows merely from a timeout."
+  ],
+  "observations": {
+    "tools": ["e7cd55","692e62","321d6a","9fc339","0bc165","0073ad","a71be1","2b3bd3"],
+    "initialBroadReadsTruncated": "cef804 and combined broad tracking search were partial; later narrow actual-field/code reads above supplied the needed facts. Not claimed as complete metadata/repository reads.",
+    "rootPauseExistsAtAudit": false,
+    "blockingRunsExistsAtAudit": false,
+    "consumerPrepared": false,
+    "installation": "NOT_RUN",
+    "model": "NOT_RUN",
+    "actualHighSdkIdentity": "NOT_RUN",
+    "controlsChanged": false,
+    "runtimeOrRepositoryChanged": false,
+    "oldRecordsChanged": false,
+    "newFixtureRun": false
+  }
+}

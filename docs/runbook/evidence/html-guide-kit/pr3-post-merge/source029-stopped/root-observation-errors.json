@@ -1,0 +1,36 @@
+{
+  "recordedAt": "2026-10-14T18:52:06.563Z",
+  "actor": "/root",
+  "kind": "DERIVED_TOOL_HISTORY_RECEIPT_NOT_ORIGINAL_LOG",
+  "events": [
+    {
+      "toolChunk": "044c83",
+      "exitCode": 1,
+      "error": "TypeError: (b.cases ?? []).map is not a function",
+      "scope": "Read-only reviewer status enumeration assumed cases array; actual schema is object. No report written, no model invocation, no raw files altered.",
+      "correctionToolChunks": [
+        "20c817",
+        "496d38",
+        "54366d"
+      ],
+      "correctedReader": "tracking/status-029-core.mjs"
+    },
+    {
+      "toolChunk": "911ddb",
+      "error": "runtime-application.json queried at wrong directory; actual integration-records path read in085571",
+      "scope": "Read-only missing file"
+    },
+    {
+      "toolChunk": "085571",
+      "error": "PowerShell wildcard path for [STANDARD] commit convention; corrected LiteralPath in591b86",
+      "scope": "Read-only missing path"
+    },
+    {
+      "toolChunk": "720bfc",
+      "error": "stage02.command.json guessed; inventory showed stage02.started.json and completion; no model changes",
+      "scope": "Read-only missing file"
+    }
+  ],
+  "modelTransportStatusesUnchanged": true,
+  "originalToolReturnsRemainInTaskHistory": true
+}

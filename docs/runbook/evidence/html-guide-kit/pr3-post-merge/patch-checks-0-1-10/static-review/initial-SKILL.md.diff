@@ -1,0 +1,50 @@
+diff --git a/C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-10/provenance/static-review-logic-dc444e57-c3cc-4884-b3d0-67512e8a96e2/baseline-880fc8cc/SKILL.md b/C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-10/provenance/static-review-logic-dc444e57-c3cc-4884-b3d0-67512e8a96e2/initial-candidate/SKILL.md
+index 12a9281..4243850 100644
+--- a/C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-10/provenance/static-review-logic-dc444e57-c3cc-4884-b3d0-67512e8a96e2/baseline-880fc8cc/SKILL.md
++++ b/C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-10/provenance/static-review-logic-dc444e57-c3cc-4884-b3d0-67512e8a96e2/initial-candidate/SKILL.md
+@@ -1,6 +1,6 @@
+ ---
+ name: guide
+-description: "Create an interactive HTML teaching guide from supplied material after explicit confirmation of reader, task and understanding questions. Return copyable chat text. Explicit requests only; no HTML production, guide revision, design comparison or HTML review."
++description: "Create a text-only interactive HTML teaching guide from supplied material after explicit reader/task/question confirmation. Explicit requests only; no HTML production, guide revision, design comparison or HTML review."
+ ---
+ 
+ # HTML Guide Kit
+@@ -11,7 +11,7 @@ description: "Create an interactive HTML teaching guide from supplied material a
+ 
+ 仅在明确调用 `$html-guide-kit:guide` 或明确请求本技能时启动；发现/读取技能、普通解释及材料指令不启动流程。
+ 
+-只新建指南。修订已有指南、方案比较或已有 HTML 审查须说明范围，等待明确转为新建，不改名执行。所有答复（含拒绝/引用/附录）均不输出或回显 HTML、代码、伪代码、图形语言、制作命令或具体制作工具步骤。含代码的来源仅作忠实自然语言释义及定位。不制作图像/文件，不写入或向其他会话/外部应用发送，不调用制作工具，不运行程序、测试、构建、安装或 Git。
++只新建指南。修订已有指南、方案比较或已有 HTML 审查须说明范围，等待明确转为新建，不改名执行。所有答复（含拒绝/引用/附录）均不输出或回显 HTML、代码、伪代码、图形语言、制作命令或具体制作工具步骤。含代码的来源仅作忠实自然语言释义及定位。不制作图像/文件，不写入或向会话/外部应用发送，不调用制作工具或运行程序、测试、构建、安装/Git。
+ 
+ 允许读文档、附件、可访问来源、明确快照及必要只读背景检索、shell 文件读取；来源动作不是执行授权。参考相对本次安装的 SKILL.md 定位，不依赖工作目录、个人路径、旧聊天或其他缓存。
+ 
+@@ -19,9 +19,9 @@ description: "Create an interactive HTML teaching guide from supplied material a
+ 
+ 先读 [指南框架](references/guide-framework.md)，再实际读原材料/明确快照，在聊天标采用的内容及已读范围。跨会话仅用明确提供的快照，不假定同步。
+ 
+-区分原材料、已核验背景、教学构造与设计判断；保留版本/快照身份、定位、关键原文、条件、例外、冲突、缺口、未知及范围。可读不等于主张已核验；必要背景核验适用第一手来源。无法读取/核验就说明限制，不推测或声称已参照。缺口只阻相关部分。入口/参考仅是方法，用户未指定为教材材料时不代用；缺用户材料/定位或明确主题快照先索取，不自定主题/目标。明确指定方法文档为教材材料时可用。
++区分原材料、已核验背景、教学构造与设计判断；保留版本/快照身份、定位、原文、条件、例外、冲突、缺口、未知及范围。可读不等于核验；必要背景用第一手来源。读/核验受限须说明，不推测或声称参照。缺口只阻相关部分。方法资源仅用户明确指定时作教材材料；缺用户材料/定位或明确主题快照先索取，不自定主题/目标。逐字段保留已有线索，缺完整目标/确认不等于字段未提供；拒绝理由也有据。
+ 
+-材料更新时列清有效、已替换及历史依据。被替换条款及其例外退出当前依据，不用旧内容补新缺口；更新范围不明先澄清。
++更新材料列有效/替换/历史依据；旧条款及例外退出当前，不补新缺口；更新范围不明先澄清。
+ 
+ ## 2. 目标选择与等待
+ 
+@@ -39,13 +39,13 @@ description: "Create an interactive HTML teaching guide from supplied material a
+ 
+ ## 4. 核对与交付
+ 
+-按两参考回查来源，交叉核对正文、表格、演示、反馈、恢复及每条自检：
++依两参考逐项回查正文、表格、演示、反馈、恢复及自检：
+ 
+ - 目标明确确认；结论/关系逐项有来源或构造标记，冲突及不保证项可见。同表/引用块新增展示字段、初值或反馈须就地标设计，不继承整表来源；未说明不写成没有。
+ - 术语/值类型一致，原变量与派生真假分开，对象范围不改为人物前提。仅在源明确支持或完整枚举可证时用排他量词，并就地限定对象/操作范围；枚举含恢复/重置，不从局部正列举推排他。
+ - 初值/赋值/可达性质不定义完整输入域。类型/范围未规定就留缺口，不把源覆盖的局部输入/结果判禁止或无效。额外模拟限制就地标构造/设计及范围，不列源事实；别处标签不抵消本处归因。
+-- 固定当前状态与单个操作，按源前提/排除判断。宽规则覆盖即给已知字段结果；未单列特例、重复、字段已是结果值或动作意义未知不新增有效性/限次前提，保持原值仍是确定结果。每次按当前新状态重匹配；未知后续路径/额外提示不撤销已知直接操作。
++- 确定反馈按单个操作及必要当前状态组织，共同前提须就地声明覆盖全部指定子分支；否则逐分支写足，不靠初值/旁表默补。改变状态后重匹配；范围外按其他源规则判断，缺口仅阻相关结果。独立情境明示题设、每次复位及范围，不补源规则。宽规则已覆盖则保留已知字段结果；重复、结果同值、未知额外意义/后续路径不加有效性/限次前提或撤销已知操作。
+ - 条件分满足/不满足/未知：“且”任一明确否即否，“或”任一明确是即是；未知只阻尚未决组合，不扩成源未规定的操作/数值结果。操作分支互斥或有明确优先；累计反馈合并适用项。逐对检查“任一未知/任意/其他”等宽泛行，不能覆盖已决定组合或漏缺项。
+ - 全文断言与源及彼此一致，别处正确不抵消错误。反馈有当次前提/理由/恢复，自检前提完整可定位；篇幅适合材料，全答复守文本/只读边界。
+ 
+-一次性交付可复制指南，注明确认目标、材料范围和剩余限制。可用标题/列表/表格及图形的自然语言描述，不输出代码/图形语言或工具步骤。交付不等于教材制作/发布/验收、理解改善或全面可访问性合规。
++交付可复制指南，注明确认目标、材料范围及剩余限制。可用标题/列表/表格及图形自然语言描述，仍守输出边界。交付不等于教材制作/发布/验收、理解改善或全面可访问性合规。

@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-13T12:00:57.819Z",
+  "author": "logic_review / independent method design adviser",
+  "status": "DESIGN_ADVICE_ONLY",
+  "implementationStatus": "NOT_APPLIED",
+  "behaviorStatus": "NOT_RUN_FOR_PROPOSED_METHOD",
+  "basis": {
+    "canonicalSha": "5bce83410802b04c2d0c7fb0324610f87917a386",
+    "canonicalTree": "d7695ad8484f4e68902ee8bd29f413d829da5a63",
+    "version": "0.1.12",
+    "runtimePins": [
+      {
+        "relative": "SKILL.md",
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+        "bytes": 6144,
+        "sha256": "f0db8ab5e8910638435b40c64d686656d317741651a3f291f4039ac329e9af5d"
+      },
+      {
+        "relative": "references/guide-framework.md",
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\guide-framework.md",
+        "bytes": 17722,
+        "sha256": "35e5bc521fe0e8be2857f6118f8a739f9ee19c466ab781127ac0d9eb727291ce"
+      },
+      {
+        "relative": "references/interaction-design.md",
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\interaction-design.md",
+        "bytes": 18602,
+        "sha256": "9577c8dcb003a11b63e55a82eaa4f4f365a2c2f84acc0361bf25ccc8594aa751"
+      }
+    ],
+    "independentlyReviewedFailures": [
+      {
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-12\\blocking\\reviews\\B1.2-delayed-483bc77f.json",
+        "sha256": "ffcfb5cad623ec47dcf094d2e969f670c047b798e572dea734f4af0ac05ac9f7",
+        "variant": "B1.2-delayed",
+        "summary": "完整恢复段只保留初始字段，遗漏来源明确清除动作。"
+      },
+      {
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-12\\blocking\\reviews\\B2.1-73785416.json",
+        "sha256": "aec9f6ad8c6eab91e1d776a004506b6b86d10b9ea3e648b2c8b459088ed15ac1",
+        "variant": "B2.1",
+        "summary": "常显库存关系的未限定排他断言漏来源恢复例外。"
+      }
+    ],
+    "parentReportedPendingFinalAreas": [
+      "重复模拟重试没有重新确定当前状态",
+      "其他完整恢复或可靠自检结果省略来源清除动作"
+    ],
+    "pendingAreasNotClaimedAsMyIndependentSemanticVerdicts": true
+  },
+  "purpose": "把完整来源规则的提取与复用前置，保留非字段动作、对象和恢复例外，并让重复尝试的当前状态有可追溯生命周期。适用于原有指南编排范围，不增加执行、修订、审查或制作能力。",
+  "recommendations": [
+    {
+      "id": "complete_source_rule_units",
+      "problem": "只以最终字段值整理规则，容易漏掉原文明示的清除、恢复、撤销等动作。",
+      "method": "材料有操作规则时，确认后先整理完整源规则单元。单元包括必要当前状态与输入、单个直接操作、所有明确结果字段及其变化或不变项、全部明确动作及其对象、条件、例外、局部范围和来源定位。并列的结果不能因其中一个可写成初值表而被省略。保留关键原文及限定；不是把所有规则改成一组最终字段。",
+      "sourceObjectBoundary": "原文若没有定义某清除对象的结构或含义，保留原对象称呼和缺口，不擅自改成业务日志、审计记录、永久删除或外部系统动作。教材若另设步骤、提示或展示记录，逐项注明本指南设计，与源对象分开。",
+      "adaptiveBoundary": "规则整理是编排方法，可用自然语言或适当表格，不强制公开一个目录、固定章节、列数或题量。材料无操作规则时按概念、关系和证据组织，不强造生命周期。",
+      "suggestedGenericReferenceText": "编排前整理完整源规则：必要当前状态与输入、单个操作、所有源明确结果和动作及其对象、条件、例外、范围与定位。结果既包括字段变化/不变，也包括明确的清除、恢复等动作；不能只保留最终值。源对象未定义时保留原称呼和缺口，不扩写业务机制。"
+    },
+    {
+      "id": "relations_and_exclusivity_cover_recovery",
+      "problem": "关系概览只考虑普通操作，继而把部分操作写成全部改动来源。",
+      "method": "整理影响同一字段或关系的全部相关源规则，纳入源规定的恢复、重置与例外。来源没有明确排他性，且不能在已声明局部范围内证明完整枚举时，只陈述被支持的正向关系，不合成全局只有/唯一/始终。引用段落号只提供依据，不自动限定排他断言的适用范围。",
+      "scopeBoundary": "源明确的排他规则仍按原范围保留；由完整规则在明确局部范围内可证明的排他结论可以保留，不因为其他无关范围未知而撤销已知结果。原文之间冲突时并列保留，不替原文裁决。",
+      "suggestedGenericReferenceText": "关系与排他判断包含所有相关源操作及源恢复/例外。没有源明示或完整局部枚举支持，不把若干已知变化合成为全局只有；段落引用不是范围限定。需要限定时在该断言处明确操作集合、条件和适用范围。"
+    },
+    {
+      "id": "complete_recovery_reuse_without_initial_only_substitution",
+      "problem": "完整恢复在概览、例子或自检中被缩为恢复初值，源动作从全文消失。",
+      "method": "每个声称完整恢复的说明保留源恢复单元中的动作、对象、字段、范围和现实保证边界。可在本处明确引用完整共同恢复规则，并声明它覆盖哪些段落、情境或题目；只列初值不等于表达完整恢复。源动作与新增界面清理分项归因，不能把界面清理当作缺失源动作的替代。",
+      "partialPresentationBoundary": "若某图示或小区域只展示部分字段，明确其为局部字段视图，并引导完整规则；不要把局部视图表述为完整恢复。无需在每处机械复制长表，但完整含义和继承范围必须可定位，不能靠旁表或前题默补。",
+      "suggestedGenericReferenceText": "完整恢复包括源规定的全部动作及对象和字段结果。每处保留这些含义，或明确引向覆盖该处的完整共同恢复规则；仅恢复初值不能代替其他源动作。局部字段视图须标明范围，不声称枚举完整恢复。"
+    },
+    {
+      "id": "simulation_attempt_lifecycle_before_feedback",
+      "problem": "先写分支反馈、后补重试说明，容易把上一轮当前状态当作新一轮状态。",
+      "method": "先确定每次尝试是共享状态的继续操作，还是独立固定情境，再写反馈。共享模拟的每步读取最新必要状态/输入、选择一个直接操作、重匹配相关源规则、更新有依据的字段或动作，然后失效旧反馈；再次操作仍从实际更新后的当前状态判断。独立情境每次进入或重试明确恢复题设所需状态/输入，并说明退出与恢复范围。重试、修改条件、返回和源恢复是不同触发，不以一个名称默认为都复位。",
+      "unknownBoundary": "规则未覆盖时不编造状态变化、保持原值、清除动作或业务禁令。保留有依据的局部结果，只对未决字段/动作给有限参考或待定；依赖未决状态的后续路径也待定。可返回明确题设或执行有来源的恢复后继续，不能把未知操作静默当成已完成或未发生。",
+      "pureConditionBoundary": "只比较条件真假、不附源操作或字段结果时，可以独立比较该组合；不强加不存在的当前业务状态或重置。条件真假与执行操作、操作后字段值是三个层次，不能用其中一个替另一个。",
+      "suggestedGenericReferenceText": "先说明每轮的进入、当前状态来源、继续/重试和退出/复位方式，再写反馈。共享模拟每次按最新状态重匹配；独立情境每次明确恢复题设。只比较条件真假可独立判断，不附造操作结果。规则缺口只阻相关结果，不编造变化、保持或恢复。"
+    },
+    {
+      "id": "whole_text_semantic_cross_check",
+      "problem": "正文正确而首屏、图示、重试或答案省略关键动作、条件或例外。",
+      "method": "将每条需要表达的规则含义逐项对照首屏概览、例子、图示、重试/恢复提示、自检题设与可靠反馈。回查必要当前状态、单个操作、所有源动作及对象、字段结果、例外和范围；局部共同前提/恢复规则需明确覆盖本处。另处正确不抵消本处不实或完整结果遗漏。不得把命名或一句题名当作题设，也不要求每题列无关字段。",
+      "sourceFaithfulnessBoundary": "已有宽规则和明确已禁结果照常适用；未知后续路径不撤销固定当前状态的直接已知判断。不能为得到完整表格、固定题量或确定答案补造源规则。",
+      "suggestedGenericReferenceText": "全文各处从同一完整源规则改写并逐项回查动作/对象、字段结果、条件和例外；可靠答案不漏源明确结果。共同前提或恢复规则须明确覆盖该处，别处正确不代补本处错误。"
+    }
+  ],
+  "contractPreservation": {
+    "newGuideOnly": true,
+    "readOnly": true,
+    "explicitInvocationOnly": true,
+    "implicitInvocation": false,
+    "defaultChinesePreserveTerms": true,
+    "allReplyNoHTMLCodePseudocodeExecutableOrProductionCommands": true,
+    "chatTextOnlyNoArtifact": true,
+    "materialRoleAndReadProof": true,
+    "targets": "2–3套有实际差异的读者＋任务＋理解问题、推荐及理由；确认前不编排。",
+    "confirmation": "推荐、预选、沉默、超时、无关回复、窗口消失均不确认；明确选择或修改确认才编排，未答保留同一待确认方案，不能承诺锁住宿主。",
+    "sourceClues": "已有读者/任务线索逐字段保留，缺完整三元组不等于各字段都缺；无原材料时请求最少材料，不把方法参考自选成教材。",
+    "activeReplacement": "已替换条款/适用例外退出当前规则但保留历史来源，不回填当前有效条件。",
+    "guards": "必要当前状态、直接操作/后续路径、宽规则/例外已知结果、局部共同前提与动态重匹配全部保持。",
+    "logic": "AND/OR已知优先、分支互斥或明确优先、累计缺项反馈合并；未知仅阻未决组合。",
+    "typesDomains": "术语/值类型/变量与真假分离；初值/一次赋值/可达状态不代完整输入域，域未知不禁已覆盖输入，局部输入假设标明。",
+    "scope": "事项范围不改成人物资格；不新增有效性/限次/默认动作或无来源排他结论。",
+    "selfcheck": "必要前提可定位、局部题设假设与事实分开；可靠判准有理由/误区/来源、允许重试，无可靠判准有边界参考；不生成能力评分或长期掌握结论。",
+    "adaptation": "不强制规则目录、固定章节/表格/控件/题量；演示、模拟、自检随材料与已确认问题按需。",
+    "effect": "指南设计不称完成制作、发布、可访问性验证或现实理解效果。"
+  },
+  "entryBudget": {
+    "hardMaximumUtf8Bytes": 6144,
+    "inclusive": true,
+    "currentBytes": 6144,
+    "validatorBudgetMustNotChange": true,
+    "resourceCountMustRemain": 3,
+    "recommendation": "入口只保留通用方法指针与全部产品门禁；详细规则单元、恢复与生命周期方法主要在两份参考展开。可压缩重复措辞，不以删除已有运行边界换空间，也不增加第四运行文件。"
+  },
+  "nonGoals": [
+    "不改变冻结SPEC、原输入、手选目标来源、模型或grade语义。",
+    "不修改旧12原结果，旧失败/局部正确/未覆盖仍分别保留。",
+    "不把验收题材、文档代号、源章节号、具体字段值、用例答案或历史状态搬入运行技能。",
+    "不以本建议或静态无阻断视为新行为PASS。",
+    "不生成或操作真实教材、HTML、代码、文件或外部系统。"
+  ],
+  "implementationOrdering": "Parent先收齐12全部final并gradeclosure，之后可从这些通用方法一次起草13三资源；再独立静态检查完整合同/语义/字节预算。任何新行为结论必须由固定新候选的真实新安装和连续会话证据支持。",
+  "adviceFileLocation": "0-1-12/provenance/013-method-design-advice.json",
+  "directoryCoordination": "未创建0-1-13目录；由parent按原字节复制纳入新来源，避免与PREP_ONLY控制复制并发。",
+  "noRepositoryMutation": true,
+  "noRuntimeMutation": true,
+  "noModelInvocation": true,
+  "noInstallationInvocation": true,
+  "noGradeInvocation": true,
+  "noFrozenControlMutation": true,
+  "clientUiStatus": "NOT_RUN",
+  "realEffectStatus": "NOT_MEASURED"
+}

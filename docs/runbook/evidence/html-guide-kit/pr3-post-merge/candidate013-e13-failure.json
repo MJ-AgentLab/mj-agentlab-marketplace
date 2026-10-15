@@ -1,0 +1,583 @@
+{
+  "schemaVersion": 1,
+  "canonicalSha": "ffaa68f8998d3d0344b760492dd7169c13bee0a5",
+  "canonicalTree": "d97ea04a46b804588bdcd98efb94171e628aa6f9",
+  "variant": "E13",
+  "base": "E13",
+  "runId": "eee300c6-c40b-4527-a3ed-63c86805a68a",
+  "attemptId": "16a88680-7f07-44b0-a5bb-9b833abc7b4b",
+  "sessionUUID": "01a1331c-6de9-7633-af64-ca8cb6a7c01f",
+  "reviewer": "logic_review / independent semantic reviewer",
+  "method": "independent_semantic_review",
+  "executionMethod": "FRESH_FORWARD",
+  "status": "FAIL",
+  "recordedAt": "2026-10-13T03:23:38.827Z",
+  "timezone": "Asia/Taipei",
+  "frozenPlan": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\plan.json",
+    "sha256": "bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04",
+    "specSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+    "criterion": "适应用户格式、默认中文及原文术语；不得因自有模板拒绝合理格式或虚构固定章数。格式要求与来源边界冲突时保留关键条件。",
+    "supplementalCriterion": null
+  },
+  "criteria": [
+    {
+      "id": "E13_requested_format_chinese_original_terms_and_confirmation",
+      "status": "PASS",
+      "rationale": "实际T1 A/B/C不同目标与推荐等待，人工选择的顶层A出自T1第17行完整规则判断，原选择引用与输入逐字匹配；T2明确确认后采用六节“目的/材料依据/学习路径/交互/自检/边界”，中文段落/清单为主，原中文术语保留，没有固定七章或拒绝合理格式。原材料本身没有Eligibility等英文术语，此样本不能证明英文源术语保留路径。",
+      "evidence": [
+        {
+          "turn": 1,
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.output.txt",
+          "line": 17,
+          "excerpt": "### A．完整规则判断（推荐）"
+        },
+        {
+          "turn": 1,
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.output.txt",
+          "line": 28,
+          "excerpt": "### B．资格与领取边界"
+        },
+        {
+          "turn": 1,
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.output.txt",
+          "line": 39,
+          "excerpt": "### C．规则审查与证据边界"
+        },
+        {
+          "turn": 1,
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.output.txt",
+          "line": 52,
+          "excerpt": "请明确回复：**确认 A**、**确认 B**、**确认 C**，或写出修改后的“读者＋使用任务＋理解问题”并明确确认采用。在你确认前，我会停留在目标选择阶段。"
+        },
+        {
+          "turn": 2,
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\02.input.txt",
+          "line": 1,
+          "excerpt": "我明确选择并确认 A，按该方案编排指南。请采用‘目的—材料依据—学习路径—交互—自检—边界’的紧凑段落或清单格式，默认中文，术语保留原文并附中文，不要固定七章。"
+        },
+        {
+          "turn": 2,
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\02.output.txt",
+          "line": 5,
+          "excerpt": "## 目的"
+        },
+        {
+          "turn": 2,
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\02.output.txt",
+          "line": 15,
+          "excerpt": "原文术语统一保留为：“未核验”“已核验”“已领取”“已归还”“等待补充”“核验”“领取”“归还”“取消”“重新开始”。其中“等待补充”是库存为零时显示的反馈，不是新的访客状态。"
+        },
+        {
+          "turn": 2,
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\02.output.txt",
+          "line": 17,
+          "excerpt": "## 材料依据"
+        },
+        {
+          "turn": 2,
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\02.output.txt",
+          "line": 32,
+          "excerpt": "## 学习路径"
+        },
+        {
+          "turn": 2,
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\02.output.txt",
+          "line": 48,
+          "excerpt": "## 交互"
+        },
+        {
+          "turn": 2,
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\02.output.txt",
+          "line": 104,
+          "excerpt": "## 自检"
+        },
+        {
+          "turn": 2,
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\02.output.txt",
+          "line": 135,
+          "excerpt": "## 边界"
+        }
+      ]
+    },
+    {
+      "id": "source_cancellation_rule_must_not_become_unknown_on_repeat",
+      "status": "FAIL",
+      "rationale": "原§6在领取前允许取消，规定预约→无效、状态→未核验、导览/库存不变，并只排除已领取/已归还。没有“预约必须当前有效”或“一次性”前提。因此例如未核验、预约无效、尚未领取，重复执行取消仍被一般§6覆盖：预约/状态赋值和保留字段可确定。T2行142把整个重复取消情形归“材料未规定”，禁止判断成功/失败/无变化，而非仅标独立UI提示未说明。这将原已有允许及字段结果错误撤回成未知，也与同文80/120的领取前通则冲突。缺单列幂等/重复专节不取消一般规则适用；未知可以限于额外消息/界面特例，不能覆盖已知操作结果。正确的其他正文/自检不抵消这处违例。",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e413301f-5142-42e0-8265-7f92b07abeea\\95503ed9-d757-404b-8351-7256872b925b\\d7363989-b2d4-468a-9a29-290ee090b697\\8dda6bb0-2fb1-4aa9-bac0-5fb8911b64e8.md",
+          "line": 13,
+          "excerpt": "§6 取消：领取前可以取消预约；预约改为无效，访客状态回到“未核验”，导览完成情况和库存不变。处于“已领取”或“已归还”时取消不可用。"
+        },
+        {
+          "turn": 1,
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.events.jsonl",
+          "line": 12,
+          "excerpt": "Original whole material including §6 successfully returned, exact raw SHA 66a948e4903134491c391188b7870e2fb47f3bc102271438911e1ade6a23b502"
+        },
+        {
+          "turn": 2,
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\02.output.txt",
+          "line": 26,
+          "excerpt": "| 取消 | 领取前 | 预约变为无效，状态回到“未核验”；导览完成情况和库存不变 | §6 |"
+        },
+        {
+          "turn": 2,
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\02.output.txt",
+          "line": 80,
+          "excerpt": "- 领取前取消：显示预约变为无效、状态回到“未核验”，导览和库存不变。"
+        },
+        {
+          "turn": 2,
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\02.output.txt",
+          "line": 120,
+          "excerpt": "   判准：预约变为无效，状态回到“未核验”；导览完成情况和库存不变（§6）。  "
+        },
+        {
+          "turn": 2,
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\02.output.txt",
+          "line": 142,
+          "excerpt": "- §6没有明确说明预约已经无效时再次执行“取消”的独立处理方式。若教材允许构造该情形，应显示“材料未规定该重复取消情形”，不得自行判为成功、失败或无变化。"
+        }
+      ]
+    },
+    {
+      "id": "actual_native_cache_source_hash_identity_and_read_proof",
+      "status": "PASS",
+      "rationale": "两轮实际UUID01a1331c-6de9-7633-af64-ca8cb6a7c01f，CLI0.147.0/gpt-5.6-sol/low/openai身份/输入SHA/原始session和events核对。nativeT1 session11与本次0.1.3缓存SKILL全文/路径精确一致，T1 tool10/11/12真正读SKILL/framework/alpha，T2tool5确认后读interaction；T1tool5的拒绝不是成功读取。canonicalffaa68f/tree d97、source/mirror/cache7运行资源原字节独立相符，人工目标audit第17行同实际头部，operator没有语义grade；模型工具仅只读，未写入/制作代码或文件。",
+      "evidence": [
+        {
+          "turn": 1,
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.session.jsonl",
+          "line": 11,
+          "excerpt": "native_skill_attachment: skills/guide/SKILL.md"
+        },
+        {
+          "turn": 1,
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.events.jsonl",
+          "line": 10,
+          "excerpt": "model_tool_read: skills/guide/SKILL.md"
+        },
+        {
+          "turn": 1,
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.events.jsonl",
+          "line": 11,
+          "excerpt": "model_tool_read: skills/guide/references/guide-framework.md"
+        },
+        {
+          "turn": 2,
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\02.events.jsonl",
+          "line": 5,
+          "excerpt": "model_tool_read: skills/guide/references/interaction-design.md"
+        }
+      ]
+    }
+  ],
+  "installedResourceReading": {
+    "skill": true,
+    "framework": true,
+    "interaction": true,
+    "evidence": [
+      {
+        "resource": "skills/guide/SKILL.md",
+        "method": "native_skill_attachment",
+        "turn": 1,
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.session.jsonl",
+        "line": 11,
+        "cachedPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e413301f-5142-42e0-8265-7f92b07abeea\\26407dd0-95d4-46ac-91c3-8e3dfd31cd6c\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.3\\skills\\guide\\SKILL.md",
+        "wholeCachedUtf8TrimExact": true,
+        "stdinLacksSkillBody": true,
+        "notShellRead": true
+      },
+      {
+        "turn": 1,
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.events.jsonl",
+        "line": 10,
+        "type": "command_execution",
+        "status": "completed",
+        "exitCode": 0,
+        "command": "\"C:\\\\Users\\\\Admin\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e413301f-5142-42e0-8265-7f92b07abeea\\\\26407dd0-95d4-46ac-91c3-8e3dfd31cd6c\\\\plugins\\\\cache\\\\mj-agentlab-marketplace\\\\html-guide-kit\\\\0.1.3\\\\skills\\\\guide\\\\SKILL.md' -Raw -Encoding UTF8\"",
+        "returnedOutputSha256": "800e99b8714e39dba467f3c9e22ce6cd383220d2bfd1347237930545c521cc15",
+        "resource": "skills/guide/SKILL.md",
+        "method": "model_tool_read",
+        "resolvedPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e413301f-5142-42e0-8265-7f92b07abeea\\26407dd0-95d4-46ac-91c3-8e3dfd31cd6c\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.3\\skills\\guide\\SKILL.md",
+        "wholeCachedBodyMatched": true
+      },
+      {
+        "turn": 1,
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.events.jsonl",
+        "line": 11,
+        "type": "command_execution",
+        "status": "completed",
+        "exitCode": 0,
+        "command": "\"C:\\\\Users\\\\Admin\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e413301f-5142-42e0-8265-7f92b07abeea\\\\26407dd0-95d4-46ac-91c3-8e3dfd31cd6c\\\\plugins\\\\cache\\\\mj-agentlab-marketplace\\\\html-guide-kit\\\\0.1.3\\\\skills\\\\guide\\\\references\\\\guide-framework.md' -Raw -Encoding UTF8\"",
+        "returnedOutputSha256": "c73c1d3b97443dbf2e8b974b06d0da0ae41a6f4c32740b189561f7000ff850be",
+        "resource": "skills/guide/references/guide-framework.md",
+        "method": "model_tool_read",
+        "resolvedPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e413301f-5142-42e0-8265-7f92b07abeea\\26407dd0-95d4-46ac-91c3-8e3dfd31cd6c\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.3\\skills\\guide\\references\\guide-framework.md",
+        "wholeCachedBodyMatched": true
+      },
+      {
+        "turn": 2,
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\02.events.jsonl",
+        "line": 5,
+        "type": "command_execution",
+        "status": "completed",
+        "exitCode": 0,
+        "command": "\"C:\\\\Users\\\\Admin\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e413301f-5142-42e0-8265-7f92b07abeea\\\\26407dd0-95d4-46ac-91c3-8e3dfd31cd6c\\\\plugins\\\\cache\\\\mj-agentlab-marketplace\\\\html-guide-kit\\\\0.1.3\\\\skills\\\\guide\\\\references\\\\interaction-design.md' -Raw -Encoding UTF8\"",
+        "returnedOutputSha256": "3d389f35707f7dd6cd7eb31773542c1f4813f3c2e3aaa05beb522b2e9d5e1968",
+        "resource": "skills/guide/references/interaction-design.md",
+        "method": "model_tool_read",
+        "resolvedPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e413301f-5142-42e0-8265-7f92b07abeea\\26407dd0-95d4-46ac-91c3-8e3dfd31cd6c\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.3\\skills\\guide\\references\\interaction-design.md",
+        "wholeCachedBodyMatched": true
+      }
+    ]
+  },
+  "protocol": {
+    "specHashMatches": true,
+    "canonical": {
+      "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+      "canonicalSha": "ffaa68f8998d3d0344b760492dd7169c13bee0a5",
+      "canonicalTree": "d97ea04a46b804588bdcd98efb94171e628aa6f9"
+    },
+    "installedVersion": "0.1.3",
+    "frozenControllerSha256": "712e77f9850241893ac25d86a5bd8a4d558c725c4dd2a271614098461af69645",
+    "frozenPlanSha256": "bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04",
+    "material": {
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e413301f-5142-42e0-8265-7f92b07abeea\\95503ed9-d757-404b-8351-7256872b925b\\d7363989-b2d4-468a-9a29-290ee090b697\\8dda6bb0-2fb1-4aa9-bac0-5fb8911b64e8.md",
+      "sha256": "66a948e4903134491c391188b7870e2fb47f3bc102271438911e1ade6a23b502",
+      "rawHashVerified": true,
+      "exactFrozenPlanMaterialVerified": true,
+      "modelRead": true,
+      "evidence": [
+        {
+          "turn": 1,
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.events.jsonl",
+          "line": 12,
+          "type": "command_execution",
+          "status": "completed",
+          "exitCode": 0,
+          "command": "\"C:\\\\Users\\\\Admin\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e413301f-5142-42e0-8265-7f92b07abeea\\\\95503ed9-d757-404b-8351-7256872b925b\\\\d7363989-b2d4-468a-9a29-290ee090b697\\\\8dda6bb0-2fb1-4aa9-bac0-5fb8911b64e8.md' -Raw -Encoding UTF8\"",
+          "returnedOutputSha256": "c40cb66cfc2716b7a0726394a5afed20c1e2320fb86e14c98b4ee9477e537e83",
+          "wholeMaterialBodyMatched": true,
+          "resolvedPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e413301f-5142-42e0-8265-7f92b07abeea\\95503ed9-d757-404b-8351-7256872b925b\\d7363989-b2d4-468a-9a29-290ee090b697\\8dda6bb0-2fb1-4aa9-bac0-5fb8911b64e8.md"
+        }
+      ]
+    },
+    "updateMaterial": null,
+    "continuity": [
+      {
+        "turn": 1,
+        "sessionUUID": "01a1331c-6de9-7633-af64-ca8cb6a7c01f",
+        "actualIdentity": {
+          "sessionId": "01a1331c-6de9-7633-af64-ca8cb6a7c01f",
+          "cliVersion": "0.147.0",
+          "originator": "Codex Desktop",
+          "modelProvider": "openai",
+          "models": [
+            "gpt-5.6-sol"
+          ],
+          "reasoning": [
+            "low"
+          ]
+        },
+        "transportStatus": "COMPLETE",
+        "sessionSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.session.jsonl"
+      },
+      {
+        "turn": 2,
+        "sessionUUID": "01a1331c-6de9-7633-af64-ca8cb6a7c01f",
+        "actualIdentity": {
+          "sessionId": "01a1331c-6de9-7633-af64-ca8cb6a7c01f",
+          "cliVersion": "0.147.0",
+          "originator": "Codex Desktop",
+          "modelProvider": "openai",
+          "models": [
+            "gpt-5.6-sol"
+          ],
+          "reasoning": [
+            "low"
+          ]
+        },
+        "transportStatus": "COMPLETE",
+        "sessionSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\02.session.jsonl"
+      }
+    ],
+    "resources": [
+      {
+        "resource": "skills/guide/SKILL.md",
+        "method": "native_skill_attachment",
+        "turn": 1,
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.session.jsonl",
+        "line": 11,
+        "cachedPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e413301f-5142-42e0-8265-7f92b07abeea\\26407dd0-95d4-46ac-91c3-8e3dfd31cd6c\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.3\\skills\\guide\\SKILL.md",
+        "wholeCachedUtf8TrimExact": true,
+        "stdinLacksSkillBody": true,
+        "notShellRead": true
+      },
+      {
+        "turn": 1,
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.events.jsonl",
+        "line": 10,
+        "type": "command_execution",
+        "status": "completed",
+        "exitCode": 0,
+        "command": "\"C:\\\\Users\\\\Admin\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e413301f-5142-42e0-8265-7f92b07abeea\\\\26407dd0-95d4-46ac-91c3-8e3dfd31cd6c\\\\plugins\\\\cache\\\\mj-agentlab-marketplace\\\\html-guide-kit\\\\0.1.3\\\\skills\\\\guide\\\\SKILL.md' -Raw -Encoding UTF8\"",
+        "returnedOutputSha256": "800e99b8714e39dba467f3c9e22ce6cd383220d2bfd1347237930545c521cc15",
+        "resource": "skills/guide/SKILL.md",
+        "method": "model_tool_read",
+        "resolvedPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e413301f-5142-42e0-8265-7f92b07abeea\\26407dd0-95d4-46ac-91c3-8e3dfd31cd6c\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.3\\skills\\guide\\SKILL.md",
+        "wholeCachedBodyMatched": true
+      },
+      {
+        "turn": 1,
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.events.jsonl",
+        "line": 11,
+        "type": "command_execution",
+        "status": "completed",
+        "exitCode": 0,
+        "command": "\"C:\\\\Users\\\\Admin\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e413301f-5142-42e0-8265-7f92b07abeea\\\\26407dd0-95d4-46ac-91c3-8e3dfd31cd6c\\\\plugins\\\\cache\\\\mj-agentlab-marketplace\\\\html-guide-kit\\\\0.1.3\\\\skills\\\\guide\\\\references\\\\guide-framework.md' -Raw -Encoding UTF8\"",
+        "returnedOutputSha256": "c73c1d3b97443dbf2e8b974b06d0da0ae41a6f4c32740b189561f7000ff850be",
+        "resource": "skills/guide/references/guide-framework.md",
+        "method": "model_tool_read",
+        "resolvedPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e413301f-5142-42e0-8265-7f92b07abeea\\26407dd0-95d4-46ac-91c3-8e3dfd31cd6c\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.3\\skills\\guide\\references\\guide-framework.md",
+        "wholeCachedBodyMatched": true
+      },
+      {
+        "turn": 2,
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\02.events.jsonl",
+        "line": 5,
+        "type": "command_execution",
+        "status": "completed",
+        "exitCode": 0,
+        "command": "\"C:\\\\Users\\\\Admin\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e413301f-5142-42e0-8265-7f92b07abeea\\\\26407dd0-95d4-46ac-91c3-8e3dfd31cd6c\\\\plugins\\\\cache\\\\mj-agentlab-marketplace\\\\html-guide-kit\\\\0.1.3\\\\skills\\\\guide\\\\references\\\\interaction-design.md' -Raw -Encoding UTF8\"",
+        "returnedOutputSha256": "3d389f35707f7dd6cd7eb31773542c1f4813f3c2e3aaa05beb522b2e9d5e1968",
+        "resource": "skills/guide/references/interaction-design.md",
+        "method": "model_tool_read",
+        "resolvedPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e413301f-5142-42e0-8265-7f92b07abeea\\26407dd0-95d4-46ac-91c3-8e3dfd31cd6c\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.3\\skills\\guide\\references\\interaction-design.md",
+        "wholeCachedBodyMatched": true
+      }
+    ],
+    "runtime": [
+      {
+        "relative": "assets/icon.png",
+        "sourceSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+        "mirrorSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+        "cacheSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+        "sourceGitVerified": true,
+        "mirrorCurrentlyVerified": true,
+        "cacheCurrentlyVerified": true
+      },
+      {
+        "relative": "assets/icon.svg",
+        "sourceSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+        "mirrorSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+        "cacheSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+        "sourceGitVerified": true,
+        "mirrorCurrentlyVerified": true,
+        "cacheCurrentlyVerified": true
+      },
+      {
+        "relative": "plugin.json",
+        "sourceSha256": "0444f355c126f46523c218a74c90eeac71d22bc1bdbcb73597739959d0f7676e",
+        "mirrorSha256": "0444f355c126f46523c218a74c90eeac71d22bc1bdbcb73597739959d0f7676e",
+        "cacheSha256": "0444f355c126f46523c218a74c90eeac71d22bc1bdbcb73597739959d0f7676e",
+        "sourceGitVerified": true,
+        "mirrorCurrentlyVerified": true,
+        "cacheCurrentlyVerified": true
+      },
+      {
+        "relative": "skills/guide/SKILL.md",
+        "sourceSha256": "71e55b7065cccfce0075ebb2fbf6dc6f1b648e1a4c32107c3e2fa092ce0c717b",
+        "mirrorSha256": "71e55b7065cccfce0075ebb2fbf6dc6f1b648e1a4c32107c3e2fa092ce0c717b",
+        "cacheSha256": "71e55b7065cccfce0075ebb2fbf6dc6f1b648e1a4c32107c3e2fa092ce0c717b",
+        "sourceGitVerified": true,
+        "mirrorCurrentlyVerified": true,
+        "cacheCurrentlyVerified": true
+      },
+      {
+        "relative": "skills/guide/agents/openai.yaml",
+        "sourceSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+        "mirrorSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+        "cacheSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+        "sourceGitVerified": true,
+        "mirrorCurrentlyVerified": true,
+        "cacheCurrentlyVerified": true
+      },
+      {
+        "relative": "skills/guide/references/guide-framework.md",
+        "sourceSha256": "44d9faa0bc6ca63cc89663583460da1bffa476c1ae2b011f2165753c43e5b54f",
+        "mirrorSha256": "44d9faa0bc6ca63cc89663583460da1bffa476c1ae2b011f2165753c43e5b54f",
+        "cacheSha256": "44d9faa0bc6ca63cc89663583460da1bffa476c1ae2b011f2165753c43e5b54f",
+        "sourceGitVerified": true,
+        "mirrorCurrentlyVerified": true,
+        "cacheCurrentlyVerified": true
+      },
+      {
+        "relative": "skills/guide/references/interaction-design.md",
+        "sourceSha256": "90cdc65d1241512b3424dbecabcecad34346cbc9f1d202b933ac56ac1ccea6d8",
+        "mirrorSha256": "90cdc65d1241512b3424dbecabcecad34346cbc9f1d202b933ac56ac1ccea6d8",
+        "cacheSha256": "90cdc65d1241512b3424dbecabcecad34346cbc9f1d202b933ac56ac1ccea6d8",
+        "sourceGitVerified": true,
+        "mirrorCurrentlyVerified": true,
+        "cacheCurrentlyVerified": true
+      }
+    ],
+    "tools": [
+      {
+        "turn": 1,
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.events.jsonl",
+        "line": 5,
+        "type": "command_execution",
+        "status": "declined",
+        "exitCode": -1,
+        "command": "\"C:\\\\Users\\\\Admin\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command '$files = @('\"'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e413301f-5142-42e0-8265-7f92b07abeea\\\\26407dd0-95d4-46ac-91c3-8e3dfd31cd6c\\\\plugins\\\\cache\\\\mj-agentlab-marketplace\\\\html-guide-kit\\\\0.1.3\\\\skills\\\\guide\\\\SKILL.md','C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e413301f-5142-42e0-8265-7f92b07abeea\\\\26407dd0-95d4-46ac-91c3-8e3dfd31cd6c\\\\plugins\\\\cache\\\\mj-agentlab-marketplace\\\\html-guide-kit\\\\0.1.3\\\\skills\\\\guide\\\\references\\\\guide-framework.md','C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e413301f-5142-42e0-8265-7f92b07abeea\\\\95503ed9-d757-404b-8351-7256872b925b\\\\d7363989-b2d4-468a-9a29-290ee090b697\\\\8dda6bb0-2fb1-4aa9-bac0-5fb8911b64e8.md'); foreach (\"'$f in $files) { Write-Output \"FILE: $f\"; Get-Content -LiteralPath $f -Raw -Encoding UTF8 }'",
+        "returnedOutputSha256": "de71e6cb41847eb4674222460829fa2f655c8aba4240b07326c5014caa0cf235"
+      },
+      {
+        "turn": 1,
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.events.jsonl",
+        "line": 10,
+        "type": "command_execution",
+        "status": "completed",
+        "exitCode": 0,
+        "command": "\"C:\\\\Users\\\\Admin\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e413301f-5142-42e0-8265-7f92b07abeea\\\\26407dd0-95d4-46ac-91c3-8e3dfd31cd6c\\\\plugins\\\\cache\\\\mj-agentlab-marketplace\\\\html-guide-kit\\\\0.1.3\\\\skills\\\\guide\\\\SKILL.md' -Raw -Encoding UTF8\"",
+        "returnedOutputSha256": "800e99b8714e39dba467f3c9e22ce6cd383220d2bfd1347237930545c521cc15"
+      },
+      {
+        "turn": 1,
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.events.jsonl",
+        "line": 11,
+        "type": "command_execution",
+        "status": "completed",
+        "exitCode": 0,
+        "command": "\"C:\\\\Users\\\\Admin\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e413301f-5142-42e0-8265-7f92b07abeea\\\\26407dd0-95d4-46ac-91c3-8e3dfd31cd6c\\\\plugins\\\\cache\\\\mj-agentlab-marketplace\\\\html-guide-kit\\\\0.1.3\\\\skills\\\\guide\\\\references\\\\guide-framework.md' -Raw -Encoding UTF8\"",
+        "returnedOutputSha256": "c73c1d3b97443dbf2e8b974b06d0da0ae41a6f4c32740b189561f7000ff850be"
+      },
+      {
+        "turn": 1,
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.events.jsonl",
+        "line": 12,
+        "type": "command_execution",
+        "status": "completed",
+        "exitCode": 0,
+        "command": "\"C:\\\\Users\\\\Admin\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e413301f-5142-42e0-8265-7f92b07abeea\\\\95503ed9-d757-404b-8351-7256872b925b\\\\d7363989-b2d4-468a-9a29-290ee090b697\\\\8dda6bb0-2fb1-4aa9-bac0-5fb8911b64e8.md' -Raw -Encoding UTF8\"",
+        "returnedOutputSha256": "c40cb66cfc2716b7a0726394a5afed20c1e2320fb86e14c98b4ee9477e537e83"
+      },
+      {
+        "turn": 2,
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\02.events.jsonl",
+        "line": 5,
+        "type": "command_execution",
+        "status": "completed",
+        "exitCode": 0,
+        "command": "\"C:\\\\Users\\\\Admin\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\e413301f-5142-42e0-8265-7f92b07abeea\\\\26407dd0-95d4-46ac-91c3-8e3dfd31cd6c\\\\plugins\\\\cache\\\\mj-agentlab-marketplace\\\\html-guide-kit\\\\0.1.3\\\\skills\\\\guide\\\\references\\\\interaction-design.md' -Raw -Encoding UTF8\"",
+        "returnedOutputSha256": "3d389f35707f7dd6cd7eb31773542c1f4813f3c2e3aaa05beb522b2e9d5e1968"
+      }
+    ],
+    "artifacts": [
+      {
+        "turn": 1,
+        "files": {
+          "inputFile": {
+            "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.input.txt",
+            "sha256": "837fb9f78c104ae15e59f6fa06f5eada1bd62884c2ee205944517092e6fed074"
+          },
+          "outputFile": {
+            "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.output.txt",
+            "sha256": "5523239829b74a5d122cdb83cd57585240789881751488eb4435014892489699"
+          },
+          "eventsFile": {
+            "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.events.jsonl",
+            "sha256": "6519e97334238006ff495c0c00197966bd736244a1bcd16ceb02fef9342e7192"
+          },
+          "stderrFile": {
+            "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.stderr.txt",
+            "sha256": "de0572774f535e500fc72aebf6441c6f728faaaba43d0fea459d2315f48b46d4"
+          },
+          "sessionSnapshot": {
+            "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\01.session.jsonl",
+            "sha256": "0331f2ab77da3d3e8dd523751e59094fc1e450a7547deb915ecd7deb2b881f32"
+          }
+        }
+      },
+      {
+        "turn": 2,
+        "files": {
+          "inputFile": {
+            "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\02.input.txt",
+            "sha256": "d495c301fe937b7312e9215f1717700d9825a8b3b743948e473076ddfe1bafbb"
+          },
+          "outputFile": {
+            "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\02.output.txt",
+            "sha256": "10bce894a72d172a47a4248bf9b0913321e9285a055df1c502460d41cb5a6b83"
+          },
+          "eventsFile": {
+            "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\02.events.jsonl",
+            "sha256": "bc1322e60780d0c36140afec06c38cf42f9ef86c750cf180e32cfd2ab59e908c"
+          },
+          "stderrFile": {
+            "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\02.stderr.txt",
+            "sha256": "b3531ec86c13de53479aa6aadd953bba161aecb1b0c0383f271f21b1dd6bf9c1"
+          },
+          "sessionSnapshot": {
+            "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\E13\\16a88680-7f07-44b0-a5bb-9b833abc7b4b\\02.session.jsonl",
+            "sha256": "06e2dec40f9dc5fad9b76213b2a6f7fae062405a6395e4b37e4377baa34a8b9a"
+          }
+        }
+      }
+    ],
+    "batchAtReview": {
+      "path": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-3/expanded/runs/eee300c6-c40b-4527-a3ed-63c86805a68a/batch.json",
+      "sha256": "44f4f102b412ecf3991973dece1a41783aafec06ac5b7b3e460336fc0ea62a23"
+    },
+    "canonicalTreeVerified": true,
+    "selectionVerification": {
+      "label": "A",
+      "sourceTurn": 1,
+      "topLevelActualHeaderLine": 17,
+      "originalOutputTrimExact": true,
+      "actualAuditVerified": true
+    },
+    "reviewedOperatorArtifacts": [
+      {
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\actual-target-source-audit.json",
+        "sha256": "47257ee3e9e90634b47ab67957df2ef98594e1224bc6f7a700962bcfafbd069b"
+      },
+      {
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\operator-observations.json",
+        "sha256": "e9f8ad94d266163e34666d921f7a46a1bda8eac929168f4c5dbcb5fc5690386b"
+      },
+      {
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\inspection.json",
+        "sha256": "1c70948d3332de31f00daa3e2728a98a0d616914977e362c5144a09199ba09ed"
+      },
+      {
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\operator-handoff.json",
+        "sha256": "d5a6457b495c39291c1ef09d97c30c91f6fa8048470826c7eba33dad5e62b952"
+      },
+      {
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-3\\expanded\\runs\\eee300c6-c40b-4527-a3ed-63c86805a68a\\native-loading-observations.json",
+        "sha256": "81506f9e2be42633234e94cf845972693a07696747d01b07b04c45f35fa32904"
+      }
+    ]
+  },
+  "coverage": {
+    "chineseRequestedFormat": "PASS",
+    "sourceBilingualPreservation": "UNEXERCISED",
+    "repeatCancellationSourceFidelity": "FAIL"
+  },
+  "notes": [
+    "这是新的重复取消已知结果被误归未知的实际失败；旧0.1.2 E13“仅未核验可核验”的原失败仍保留，不据本版本修正追认旧PASS。",
+    "全中文原料未触发英汉源术语映射；E13-bilingual是另一次真实样本，独立评审不能补写本样本双语PASS。",
+    "失败是当前指南的源语义违例，不是模型访问、安装、工具、operator中断或选择控制失败。"
+  ],
+  "limitations": [
+    "此状态仅对应当前版本的本次实际样本，不代表其他变体、客户端 UI、宿主生命周期或现实学习效果。",
+    "独立代理评审不替代 GitHub 当前 head 的批准、CI 或实际 merge 复验。",
+    "没有运行模型、重试或 grade，没有修改 batch／原始输入输出；旧评审仅作格式参考。"
+  ],
+  "effectStatus": "NOT_MEASURED",
+  "batchModified": false
+}

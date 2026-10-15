@@ -1,0 +1,709 @@
+{
+  "schemaVersion": 1,
+  "recordedUtc": "2026-10-14T15:37:23.4014573Z",
+  "operator": "/root/behavior_014_a",
+  "reviewer": "/root/behavior_014_b",
+  "canonical": {
+    "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "canonicalSha": "ba74bbe3d1b64b59ccc7e92d58a66a011126215e",
+    "canonicalTree": "28e0fca836c31dce00e491b269323dc79e8739da"
+  },
+  "kind": "blocking",
+  "batchIdentity": "19ef154e-3252-48ac-bd29-3e40202aac5e",
+  "marker": {
+    "path": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-25/normal-execution-pause.flag",
+    "bytes": 767,
+    "sha256": "f9f6f000b20d39f104a6528c00c64770d0a40b1cd8e9a99811db745cb40e08ec"
+  },
+  "markerTime": "2026-10-14T15:28:51.944Z",
+  "counts": {
+    "freshUUIDs": 3,
+    "completeTurns": 7,
+    "plannedTurns": 14,
+    "remainingUnrun": 7,
+    "crossMarker": 0,
+    "startedAfterMarker": 0,
+    "semanticPassAssignedByOperator": 0,
+    "extendedModels": 0
+  },
+  "pauseConsumed": {
+    "actualTool": "7c454f",
+    "exitCode": 0,
+    "pause": {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e/operator-pauses/ab0d0287-fd09-43b9-a8e8-188975b6c682.json",
+      "bytes": 2927,
+      "sha256": "b17b49afeeecfe330806fb1422b121d89adb7cdc67153b83168ff3c169e73f88"
+    }
+  },
+  "handoff": {
+    "actualTool": "8243c9",
+    "exitCode": 0,
+    "pin": {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e/operator-handoff-behavior-a.json",
+      "bytes": 43468,
+      "sha256": "06eaf455a47002a1778f4e2f85dd56ba0547232ae96ff99690079b309648a39c"
+    }
+  },
+  "outerStage03": {
+    "sessionId": 21090,
+    "initialTool": "112900",
+    "pollTools": [
+      "25dbda",
+      "4113a9"
+    ],
+    "exitCode": 0,
+    "endedAt": "B4.1T1 COMPLETE manual-selection boundary; no quote or choose"
+  },
+  "variants": [
+    {
+      "id": "B3.1",
+      "plannedTurns": 3,
+      "actualAttempts": 1,
+      "executionStatus": "EXECUTED_PENDING_REVIEW",
+      "semanticAssessment": null,
+      "attempts": [
+        {
+          "uuid": "01a13b01-65bb-7c92-b939-10744b7d748c",
+          "attemptId": "7a999e73-5768-44d4-92e8-73287c339c23",
+          "selection": {
+            "label": "2",
+            "originalTripletExcerpt": "2. **布尔条件对照**\n\n   - 读者：正在学习条件逻辑的学员；已了解真假值，但需要把自然语言转换为“且/或”判断。\n   - 使用任务：比较两项条件的四种组合，判断每份文档下是否具备领取资格。\n   - 理解问题：“缺一不可”和“满足一项即可”如何改变判断结果？哪些输入能区分两条规则？\n   - 取舍：逻辑结构最清晰、适合交互演示，但对版本冲突的治理与沟通处理较浅。",
+            "firstTurnOutput": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.1\\7a999e73-5768-44d4-92e8-73287c339c23\\01.output.txt",
+            "recorded": {
+              "utc": "2026-10-14T15:23:16.108Z",
+              "timezone": "Asia/Taipei"
+            },
+            "rolePresent": false,
+            "source": "reviewer reading of actual model output; no answer key in model prompt"
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "start": "2026-10-14T15:21:47.796Z",
+              "end": "2026-10-14T15:22:46.617Z",
+              "transport": "COMPLETE",
+              "actualIdentity": {
+                "sessionId": "01a13b01-65bb-7c92-b939-10744b7d748c",
+                "cliVersion": "0.147.0",
+                "originator": "Codex Desktop",
+                "modelProvider": "openai",
+                "models": [
+                  "gpt-5.6-sol"
+                ],
+                "reasoning": [
+                  "low"
+                ]
+              },
+              "exitCode": 0,
+              "timedOut": false,
+              "lateExitInvalid": false,
+              "lifecycle": {
+                "launchedUtc": "2026-10-14T15:21:47.801Z",
+                "launchedMonotonicMs": 38.734,
+                "timeoutMs": 240000,
+                "timerRegisteredMonotonicMs": 45.5971,
+                "deadlineMonotonicMs": 240045.5971,
+                "actualExit": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T15:22:46.61Z",
+                  "elapsedMs": 58808.3142,
+                  "observedMonotonicMs": 58847.0061,
+                  "inDeadline": true
+                },
+                "actualClose": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T15:22:46.612Z",
+                  "elapsedMs": 58811.2283,
+                  "observedMonotonicMs": 58849.9674
+                },
+                "exitObserved": true,
+                "closeObserved": true,
+                "deadlineCallback": null,
+                "stdioCollectedThroughClose": true,
+                "sdkCompletedNotUsedAsExit": true,
+                "noExitMeansStatusNull": true,
+                "drainWaitHasIndependentDeadline": false
+              },
+              "startedAfterMarker": false,
+              "crossMarker": false,
+              "rawPins": [
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.1\\7a999e73-5768-44d4-92e8-73287c339c23\\01.input.txt",
+                  "bytes": 989,
+                  "sha256": "223bad35156eba64b67de522f4d742f280c79b29a001c6f7866cba07f6ad4883"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.1\\7a999e73-5768-44d4-92e8-73287c339c23\\01.output.txt",
+                  "bytes": 3562,
+                  "sha256": "430ff27f1077630c17eebf55962863ab3e62fcb8bdf4151f77aa5812ec19e675"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.1\\7a999e73-5768-44d4-92e8-73287c339c23\\01.events.jsonl",
+                  "bytes": 33731,
+                  "sha256": "43dd6fd8b7fd934b3186878c13e12ff5cf160dbd3b67cb728f24b83f9b8a3606"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.1\\7a999e73-5768-44d4-92e8-73287c339c23\\01.stderr.txt",
+                  "bytes": 24815,
+                  "sha256": "fe482426182fc24350390cae04d20320ed03a11bf76c47dcf50dd622d0ec5c63"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.1\\7a999e73-5768-44d4-92e8-73287c339c23\\01.session.jsonl",
+                  "bytes": 97018,
+                  "sha256": "6173d9d1d4e3c614b850c9e01fbf9db8b02d6aa22e9f27b122b2b3c070388555"
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "start": "2026-10-14T15:23:16.437Z",
+              "end": "2026-10-14T15:24:28.464Z",
+              "transport": "COMPLETE",
+              "actualIdentity": {
+                "sessionId": "01a13b01-65bb-7c92-b939-10744b7d748c",
+                "cliVersion": "0.147.0",
+                "originator": "Codex Desktop",
+                "modelProvider": "openai",
+                "models": [
+                  "gpt-5.6-sol"
+                ],
+                "reasoning": [
+                  "low"
+                ]
+              },
+              "exitCode": 0,
+              "timedOut": false,
+              "lateExitInvalid": false,
+              "lifecycle": {
+                "launchedUtc": "2026-10-14T15:23:16.441Z",
+                "launchedMonotonicMs": 29.7018,
+                "timeoutMs": 240000,
+                "timerRegisteredMonotonicMs": 38.111,
+                "deadlineMonotonicMs": 240038.111,
+                "actualExit": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T15:24:28.461Z",
+                  "elapsedMs": 72019.5954,
+                  "observedMonotonicMs": 72049.2732,
+                  "inDeadline": true
+                },
+                "actualClose": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T15:24:28.461Z",
+                  "elapsedMs": 72019.8246,
+                  "observedMonotonicMs": 72049.5274
+                },
+                "exitObserved": true,
+                "closeObserved": true,
+                "deadlineCallback": null,
+                "stdioCollectedThroughClose": true,
+                "sdkCompletedNotUsedAsExit": true,
+                "noExitMeansStatusNull": true,
+                "drainWaitHasIndependentDeadline": false
+              },
+              "startedAfterMarker": false,
+              "crossMarker": false,
+              "rawPins": [
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.1\\7a999e73-5768-44d4-92e8-73287c339c23\\02.input.txt",
+                  "bytes": 57,
+                  "sha256": "f016c5e8934ed8bb687dbb1c7079ca7b972692afeb3ccea5c27515ad0e001351"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.1\\7a999e73-5768-44d4-92e8-73287c339c23\\02.output.txt",
+                  "bytes": 11583,
+                  "sha256": "8f94d3ceaedb1564872f93e3eae0bd6c4dfe2fb82d29ec44988c47f96058f871"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.1\\7a999e73-5768-44d4-92e8-73287c339c23\\02.events.jsonl",
+                  "bytes": 12179,
+                  "sha256": "3e2dedcaab6fc1c5eb17b5715dc82f2b8effe68cc03fd82c72e7b8ac1bc5ccab"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.1\\7a999e73-5768-44d4-92e8-73287c339c23\\02.stderr.txt",
+                  "bytes": 32547,
+                  "sha256": "cb551e36b217cbe62f0848213827bc8a9bbaa91b4fcf45560c6c4ea000884b72"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.1\\7a999e73-5768-44d4-92e8-73287c339c23\\02.session.jsonl",
+                  "bytes": 145334,
+                  "sha256": "c1de6515ed75a711f8945d379d6cef314c6925533ca1465b1ac354ee5e295c07"
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "start": "2026-10-14T15:24:28.517Z",
+              "end": "2026-10-14T15:24:47.007Z",
+              "transport": "COMPLETE",
+              "actualIdentity": {
+                "sessionId": "01a13b01-65bb-7c92-b939-10744b7d748c",
+                "cliVersion": "0.147.0",
+                "originator": "Codex Desktop",
+                "modelProvider": "openai",
+                "models": [
+                  "gpt-5.6-sol"
+                ],
+                "reasoning": [
+                  "low"
+                ]
+              },
+              "exitCode": 0,
+              "timedOut": false,
+              "lateExitInvalid": false,
+              "lifecycle": {
+                "launchedUtc": "2026-10-14T15:24:28.521Z",
+                "launchedMonotonicMs": 28.1807,
+                "timeoutMs": 240000,
+                "timerRegisteredMonotonicMs": 38.7553,
+                "deadlineMonotonicMs": 240038.7553,
+                "actualExit": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T15:24:47.003Z",
+                  "elapsedMs": 18481.8906,
+                  "observedMonotonicMs": 18510.0434,
+                  "inDeadline": true
+                },
+                "actualClose": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T15:24:47.003Z",
+                  "elapsedMs": 18481.9655,
+                  "observedMonotonicMs": 18510.1466
+                },
+                "exitObserved": true,
+                "closeObserved": true,
+                "deadlineCallback": null,
+                "stdioCollectedThroughClose": true,
+                "sdkCompletedNotUsedAsExit": true,
+                "noExitMeansStatusNull": true,
+                "drainWaitHasIndependentDeadline": false
+              },
+              "startedAfterMarker": false,
+              "crossMarker": false,
+              "rawPins": [
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.1\\7a999e73-5768-44d4-92e8-73287c339c23\\03.input.txt",
+                  "bytes": 64,
+                  "sha256": "30f2cab18e0d7dcdedce9a9d7748e905a1397909aebe11f40310f7bbe73095d5"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.1\\7a999e73-5768-44d4-92e8-73287c339c23\\03.output.txt",
+                  "bytes": 452,
+                  "sha256": "173d1f09b1d89601fe07b73c90d8c2ffc487fd2349e66cc3d09efb8d215c3df0"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.1\\7a999e73-5768-44d4-92e8-73287c339c23\\03.events.jsonl",
+                  "bytes": 808,
+                  "sha256": "ef7a65e56a2b1afa11094e7b41aaaac180e1a5426244defc47cf3a27ccdf6b4a"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.1\\7a999e73-5768-44d4-92e8-73287c339c23\\03.stderr.txt",
+                  "bytes": 32547,
+                  "sha256": "3d5fa6f21a9a771084d07f16f0b7db94e5294a7802821beca2dd9baa6f1aee9c"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.1\\7a999e73-5768-44d4-92e8-73287c339c23\\03.session.jsonl",
+                  "bytes": 157270,
+                  "sha256": "5a8212536e397b5c52c7a683ce8a2cd0fd6550dc647dc2dbc2343588242f6417"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B3.2",
+      "plannedTurns": 3,
+      "actualAttempts": 1,
+      "executionStatus": "EXECUTED_PENDING_REVIEW",
+      "semanticAssessment": null,
+      "attempts": [
+        {
+          "uuid": "01a13b04-1af4-7f93-a75a-cf07671f7c33",
+          "attemptId": "6d9b94ec-e789-40d5-8363-5ff3be1b2aa6",
+          "selection": {
+            "label": "2",
+            "originalTripletExcerpt": "2. 资格与执行边界辨析\n\n   - 读者：负责答复领取咨询或整理活动说明的工作人员；需区分资格规则、现场事实与尚未规定的流程。\n   - 使用任务：把咨询中的问题分别归为“可由摘录判断”“只能作有限说明”或“材料不足，不能判断”，并说明依据。\n   - 理解问题：哪些信息足以判断领取资格？库存不足本身能推出哪些结论、不能推出哪些结论？为什么不能自行补写等待、归还、取消、并发或恢复规则？\n   - 取舍：更强调证据边界和谨慎表达；对基础条件组合的练习会少于方案1。",
+            "firstTurnOutput": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.2\\6d9b94ec-e789-40d5-8363-5ff3be1b2aa6\\01.output.txt",
+            "recorded": {
+              "utc": "2026-10-14T15:26:23.984Z",
+              "timezone": "Asia/Taipei"
+            },
+            "rolePresent": false,
+            "source": "reviewer reading of actual model output; no answer key in model prompt"
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "start": "2026-10-14T15:24:47.118Z",
+              "end": "2026-10-14T15:25:35.447Z",
+              "transport": "COMPLETE",
+              "actualIdentity": {
+                "sessionId": "01a13b04-1af4-7f93-a75a-cf07671f7c33",
+                "cliVersion": "0.147.0",
+                "originator": "Codex Desktop",
+                "modelProvider": "openai",
+                "models": [
+                  "gpt-5.6-sol"
+                ],
+                "reasoning": [
+                  "low"
+                ]
+              },
+              "exitCode": 0,
+              "timedOut": false,
+              "lateExitInvalid": false,
+              "lifecycle": {
+                "launchedUtc": "2026-10-14T15:24:47.132Z",
+                "launchedMonotonicMs": 39.1746,
+                "timeoutMs": 240000,
+                "timerRegisteredMonotonicMs": 45.4061,
+                "deadlineMonotonicMs": 240045.4061,
+                "actualExit": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T15:25:35.44Z",
+                  "elapsedMs": 48308.625400000004,
+                  "observedMonotonicMs": 48347.7713,
+                  "inDeadline": true
+                },
+                "actualClose": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T15:25:35.443Z",
+                  "elapsedMs": 48311.2568,
+                  "observedMonotonicMs": 48350.4321
+                },
+                "exitObserved": true,
+                "closeObserved": true,
+                "deadlineCallback": null,
+                "stdioCollectedThroughClose": true,
+                "sdkCompletedNotUsedAsExit": true,
+                "noExitMeansStatusNull": true,
+                "drainWaitHasIndependentDeadline": false
+              },
+              "startedAfterMarker": false,
+              "crossMarker": false,
+              "rawPins": [
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.2\\6d9b94ec-e789-40d5-8363-5ff3be1b2aa6\\01.input.txt",
+                  "bytes": 989,
+                  "sha256": "0c50c7bcde81cfd5fc11b561a6eef7f544554648718540394d90e7b2166e8881"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.2\\6d9b94ec-e789-40d5-8363-5ff3be1b2aa6\\01.output.txt",
+                  "bytes": 3398,
+                  "sha256": "89d8a355a5596551c341b5c8b851a5678e1f9e0b80977561d92288610dba40b4"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.2\\6d9b94ec-e789-40d5-8363-5ff3be1b2aa6\\01.events.jsonl",
+                  "bytes": 33193,
+                  "sha256": "02daa8e4eab98f730a0d64a10bb12f70f416fa187ee111480a3fb9e979304612"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.2\\6d9b94ec-e789-40d5-8363-5ff3be1b2aa6\\01.stderr.txt",
+                  "bytes": 35214,
+                  "sha256": "333745bbab4e90d0db706b32835bdf6f0b66fa1b915305c6e0bbce40a8ba3812"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.2\\6d9b94ec-e789-40d5-8363-5ff3be1b2aa6\\01.session.jsonl",
+                  "bytes": 91550,
+                  "sha256": "ab4b1aede12a8debb0122c33f3b5722aa44ee5bb3aabf44981911768b10d9cd4"
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "start": "2026-10-14T15:26:24.389Z",
+              "end": "2026-10-14T15:27:42.119Z",
+              "transport": "COMPLETE",
+              "actualIdentity": {
+                "sessionId": "01a13b04-1af4-7f93-a75a-cf07671f7c33",
+                "cliVersion": "0.147.0",
+                "originator": "Codex Desktop",
+                "modelProvider": "openai",
+                "models": [
+                  "gpt-5.6-sol"
+                ],
+                "reasoning": [
+                  "low"
+                ]
+              },
+              "exitCode": 0,
+              "timedOut": false,
+              "lateExitInvalid": false,
+              "lifecycle": {
+                "launchedUtc": "2026-10-14T15:26:24.393Z",
+                "launchedMonotonicMs": 29.1001,
+                "timeoutMs": 240000,
+                "timerRegisteredMonotonicMs": 36.1799,
+                "deadlineMonotonicMs": 240036.1799,
+                "actualExit": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T15:27:42.116Z",
+                  "elapsedMs": 77723.1575,
+                  "observedMonotonicMs": 77752.2324,
+                  "inDeadline": true
+                },
+                "actualClose": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T15:27:42.116Z",
+                  "elapsedMs": 77723.2307,
+                  "observedMonotonicMs": 77752.3312
+                },
+                "exitObserved": true,
+                "closeObserved": true,
+                "deadlineCallback": null,
+                "stdioCollectedThroughClose": true,
+                "sdkCompletedNotUsedAsExit": true,
+                "noExitMeansStatusNull": true,
+                "drainWaitHasIndependentDeadline": false
+              },
+              "startedAfterMarker": false,
+              "crossMarker": false,
+              "rawPins": [
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.2\\6d9b94ec-e789-40d5-8363-5ff3be1b2aa6\\02.input.txt",
+                  "bytes": 57,
+                  "sha256": "f016c5e8934ed8bb687dbb1c7079ca7b972692afeb3ccea5c27515ad0e001351"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.2\\6d9b94ec-e789-40d5-8363-5ff3be1b2aa6\\02.output.txt",
+                  "bytes": 12371,
+                  "sha256": "f2a27d11b265145ef27d91ed63531948e9ab63a9025becba1b65b224c09c6e4f"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.2\\6d9b94ec-e789-40d5-8363-5ff3be1b2aa6\\02.events.jsonl",
+                  "bytes": 12979,
+                  "sha256": "845cf8a4a2bcf87814184a73aa36f3c4cbdf2be9e5d4491eb52dd3426a0493cb"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.2\\6d9b94ec-e789-40d5-8363-5ff3be1b2aa6\\02.stderr.txt",
+                  "bytes": 32823,
+                  "sha256": "186cc607952b02e81160f7bb44a72abbcf4e296bcac7a8320c506007d5a94d33"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.2\\6d9b94ec-e789-40d5-8363-5ff3be1b2aa6\\02.session.jsonl",
+                  "bytes": 141204,
+                  "sha256": "b6a3246056edd50d2cfd9edf9a33ee32a05d170c19a76e0fa06ef320f114693c"
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "start": "2026-10-14T15:27:42.174Z",
+              "end": "2026-10-14T15:27:55.529Z",
+              "transport": "COMPLETE",
+              "actualIdentity": {
+                "sessionId": "01a13b04-1af4-7f93-a75a-cf07671f7c33",
+                "cliVersion": "0.147.0",
+                "originator": "Codex Desktop",
+                "modelProvider": "openai",
+                "models": [
+                  "gpt-5.6-sol"
+                ],
+                "reasoning": [
+                  "low"
+                ]
+              },
+              "exitCode": 0,
+              "timedOut": false,
+              "lateExitInvalid": false,
+              "lifecycle": {
+                "launchedUtc": "2026-10-14T15:27:42.179Z",
+                "launchedMonotonicMs": 29.0525,
+                "timeoutMs": 240000,
+                "timerRegisteredMonotonicMs": 34.7809,
+                "deadlineMonotonicMs": 240034.7809,
+                "actualExit": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T15:27:55.526Z",
+                  "elapsedMs": 13347.3115,
+                  "observedMonotonicMs": 13376.3309,
+                  "inDeadline": true
+                },
+                "actualClose": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T15:27:55.526Z",
+                  "elapsedMs": 13347.3882,
+                  "observedMonotonicMs": 13376.4411
+                },
+                "exitObserved": true,
+                "closeObserved": true,
+                "deadlineCallback": null,
+                "stdioCollectedThroughClose": true,
+                "sdkCompletedNotUsedAsExit": true,
+                "noExitMeansStatusNull": true,
+                "drainWaitHasIndependentDeadline": false
+              },
+              "startedAfterMarker": false,
+              "crossMarker": false,
+              "rawPins": [
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.2\\6d9b94ec-e789-40d5-8363-5ff3be1b2aa6\\03.input.txt",
+                  "bytes": 82,
+                  "sha256": "aa1d7b41e10ccf1dea76a5f7fb3a714836414c4a1f74c31c84f0aee8b8c908b7"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.2\\6d9b94ec-e789-40d5-8363-5ff3be1b2aa6\\03.output.txt",
+                  "bytes": 330,
+                  "sha256": "ef7bdc7d152c7b97d6eb391137da863d14f2f3476371cee23ea242a56a9366f7"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.2\\6d9b94ec-e789-40d5-8363-5ff3be1b2aa6\\03.events.jsonl",
+                  "bytes": 686,
+                  "sha256": "8f8d59ff81774526149464cb720c15cf0ec8593c9deeb0435028632fcac27b9f"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.2\\6d9b94ec-e789-40d5-8363-5ff3be1b2aa6\\03.stderr.txt",
+                  "bytes": 32823,
+                  "sha256": "1fb58826600c389f46bfa5922bddc9298d3b293cc0f4613c3d1718056ce9e6c9"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B3.2\\6d9b94ec-e789-40d5-8363-5ff3be1b2aa6\\03.session.jsonl",
+                  "bytes": 151658,
+                  "sha256": "3b0579b31153cfb93bf33a77770ed120615f486a907d261d488a67c6d7ab70c5"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B4.1",
+      "plannedTurns": 2,
+      "actualAttempts": 1,
+      "executionStatus": "PARTIAL_PENDING_NEXT_TURN",
+      "semanticAssessment": null,
+      "attempts": [
+        {
+          "uuid": "01a13b06-fb45-7500-82f8-2560c74fbc6a",
+          "attemptId": "ca282244-8112-46bf-b629-dd33c73b33a3",
+          "selection": null,
+          "turns": [
+            {
+              "turn": 1,
+              "start": "2026-10-14T15:27:55.635Z",
+              "end": "2026-10-14T15:28:39.809Z",
+              "transport": "COMPLETE",
+              "actualIdentity": {
+                "sessionId": "01a13b06-fb45-7500-82f8-2560c74fbc6a",
+                "cliVersion": "0.147.0",
+                "originator": "Codex Desktop",
+                "modelProvider": "openai",
+                "models": [
+                  "gpt-5.6-sol"
+                ],
+                "reasoning": [
+                  "low"
+                ]
+              },
+              "exitCode": 0,
+              "timedOut": false,
+              "lateExitInvalid": false,
+              "lifecycle": {
+                "launchedUtc": "2026-10-14T15:27:55.64Z",
+                "launchedMonotonicMs": 29.1744,
+                "timeoutMs": 240000,
+                "timerRegisteredMonotonicMs": 34.9275,
+                "deadlineMonotonicMs": 240034.9275,
+                "actualExit": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T15:28:39.801Z",
+                  "elapsedMs": 44161.35999999999,
+                  "observedMonotonicMs": 44190.5078,
+                  "inDeadline": true
+                },
+                "actualClose": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T15:28:39.805Z",
+                  "elapsedMs": 44165.7705,
+                  "observedMonotonicMs": 44194.9456
+                },
+                "exitObserved": true,
+                "closeObserved": true,
+                "deadlineCallback": null,
+                "stdioCollectedThroughClose": true,
+                "sdkCompletedNotUsedAsExit": true,
+                "noExitMeansStatusNull": true,
+                "drainWaitHasIndependentDeadline": false
+              },
+              "startedAfterMarker": false,
+              "crossMarker": false,
+              "rawPins": [
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B4.1\\ca282244-8112-46bf-b629-dd33c73b33a3\\01.input.txt",
+                  "bytes": 989,
+                  "sha256": "12f130be47b48069699cc2d8fa83aad186f14720f4a59eb53aebea9e389f4c28"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B4.1\\ca282244-8112-46bf-b629-dd33c73b33a3\\01.output.txt",
+                  "bytes": 3746,
+                  "sha256": "e1f226073e38d0fd02c664df355b671125544f30696aec90a735d6ff89a4d22f"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B4.1\\ca282244-8112-46bf-b629-dd33c73b33a3\\01.events.jsonl",
+                  "bytes": 34868,
+                  "sha256": "194cb517602f185f5c2addb6011800113922ed0faf931d44e1b33c6e0525ed68"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B4.1\\ca282244-8112-46bf-b629-dd33c73b33a3\\01.stderr.txt",
+                  "bytes": 35490,
+                  "sha256": "f202c711c31fa19d8a0866632dbcb038e2983c08db525203a4de7c9c97d3ec94"
+                },
+                {
+                  "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\19ef154e-3252-48ac-bd29-3e40202aac5e\\B4.1\\ca282244-8112-46bf-b629-dd33c73b33a3\\01.session.jsonl",
+                  "bytes": 94085,
+                  "sha256": "7397a4e4389dedb0c1e1abfe692a28f6c06c180a687d5ae7708223423d37edb8"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B4.2",
+      "plannedTurns": 2,
+      "actualAttempts": 0,
+      "executionStatus": "NOT_RUN",
+      "semanticAssessment": null,
+      "attempts": []
+    },
+    {
+      "id": "B5.1",
+      "plannedTurns": 2,
+      "actualAttempts": 0,
+      "executionStatus": "NOT_RUN",
+      "semanticAssessment": null,
+      "attempts": []
+    },
+    {
+      "id": "B5.2",
+      "plannedTurns": 2,
+      "actualAttempts": 0,
+      "executionStatus": "NOT_RUN",
+      "semanticAssessment": null,
+      "attempts": []
+    }
+  ],
+  "noKill": true,
+  "noRetry": true,
+  "writerStopped": true,
+  "effectStatus": "NOT_MEASURED",
+  "observations": "54a5f9 combined batch/control output was truncated; no new full-read claim based on it. Authoritative per-turn original files and frozen operator already retained."
+}

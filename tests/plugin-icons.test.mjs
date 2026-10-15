@@ -6,8 +6,9 @@ import path from "node:path";
 import { PNG } from "pngjs";
 import { validatePluginIcons, assertInstalledIcons, resolveIconPath, inspectPng, ICON_LIMITS } from "../scripts/plugin-icons.mjs";
 import { exportSvg } from "../scripts/export-icons.mjs";
-import { validateManifest, validateRepository } from "../scripts/validate-portable.mjs";
+import { validateManifest, validateRepository, RUNTIME_PLUGINS } from "../scripts/validate-portable.mjs";
 import { validateBrandAssets } from "../scripts/brand-assets.mjs";
+import { renderBrandPreviews } from "../scripts/render-brand-previews.mjs";
 
 const repo = path.resolve(import.meta.dirname, "..");
 const manifest = () => ({ name: "future-workflow-kit", extensions: { "com.openai": { interface: { logo: "./assets/icon.png", composerIcon: "./assets/icon.png" } } } });
@@ -104,6 +105,21 @@ test("installed comparison rejects missing resources, content drift, reference d
   assert.throws(() => assertInstalledIcons(source.root, installed.root), /differs/);
 });
 
+test("approved HTML Guide Kit icon is 1024 pixels and installed PNG drift is rejected", t => {
+  const source = path.join(repo, "plugins/html-guide-kit"), installed = fixture(t);
+  fs.cpSync(source, installed.root, { recursive: true });
+  const m = JSON.parse(fs.readFileSync(path.join(source, "plugin.json"), "utf8")), result = validatePluginIcons(m, source);
+  assert.equal(result.logo.width, 1024); assert.equal(result.composerIcon.width, 1024);
+  assert.equal(result.logo.sha256, result.composerIcon.sha256);
+  const selected = JSON.parse(fs.readFileSync(path.join(repo, "assets/brand/html-guide-kit/candidates/revision-2/selection.json"), "utf8"));
+  assert.equal(selected.plugin, "html-guide-kit"); assert.equal(selected.selection, "a"); assert.equal(selected.revision, 2);
+  assert.equal(result.logo.sha256, selected.selectedSource.pngSha256);
+  assert.deepEqual(fs.readFileSync(path.join(source, "assets/icon.png")), fs.readFileSync(path.join(repo, "assets/brand/html-guide-kit/candidates/revision-2", selected.selectedSource.png)));
+  assert.doesNotThrow(() => assertInstalledIcons(source, installed.root));
+  fs.writeFileSync(path.join(installed.root, "assets/icon.png"), png(1024, 1024, [1, 2, 3, 255]));
+  assert.throws(() => assertInstalledIcons(source, installed.root), /differs/);
+});
+
 test("SVG export renders real pixel colors and native size rather than only a valid header", t => {
   const { root } = fixture(t), input = path.join(root, "source.svg"), output = path.join(root, "render.png");
   fs.writeFileSync(input, '<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128"><rect width="128" height="128" fill="#223D66"/><rect x="32" y="32" width="64" height="64" fill="#37C3D2"/></svg>');
@@ -122,21 +138,83 @@ test("SVG export renders real pixel colors and native size rather than only a va
 
 test("repository validation fails when a registered plugin loses its icon resource", t => {
   const { root } = fixture(t), isolated = path.join(root, "repo"); fs.mkdirSync(isolated);
-  for (const rel of ["assets", ".agents", ".codex", ".github", "scripts", "tests", "plugins", "docs", "AGENTS.md", "README.md", "CONTRIBUTING.md", "GLOSSARY.md", "CHANGELOG.md", "VERSION"]) fs.cpSync(path.join(repo, rel), path.join(isolated, rel), { recursive: true });
+  for (const rel of ["assets", ".agents", ".codex", ".github", "scripts", "tests", "plugins", "docs", "plan", "AGENTS.md", "README.md", "CONTRIBUTING.md", "GLOSSARY.md", "CHANGELOG.md", "VERSION"]) fs.cpSync(path.join(repo, rel), path.join(isolated, rel), { recursive: true });
   assert.equal(validateRepository(isolated).ok, true);
-  fs.unlinkSync(path.join(isolated, "plugins/explain-kit/assets/icon.png"));
-  const result = validateRepository(isolated); assert.equal(result.ok, false); assert.ok(result.errors.some(e => e.includes("explain-kit icons")));
+  for (const plugin of ["explain-kit", "html-guide-kit"]) {
+    const file = path.join(isolated, "plugins", plugin, "assets/icon.png"), bytes = fs.readFileSync(file);
+    fs.unlinkSync(file);
+    const result = validateRepository(isolated); assert.equal(result.ok, false); assert.ok(result.errors.some(e => e.includes(`${plugin} icons`)));
+    fs.writeFileSync(file, bytes); assert.equal(validateRepository(isolated).ok, true);
+  }
 });
 
 test("brand verification detects original-reference drift, theme drift and wrong native-preview size", t => {
   const { root } = fixture(t), isolated = path.join(root, "repo"); fs.mkdirSync(isolated);
   fs.cpSync(path.join(repo, "assets"), path.join(isolated, "assets"), { recursive: true });
   fs.cpSync(path.join(repo, "plugins"), path.join(isolated, "plugins"), { recursive: true });
-  assert.equal(validateBrandAssets(isolated).icons, 7);
+  assert.equal(validateBrandAssets(isolated).icons, Object.keys(RUNTIME_PLUGINS).length + 4);
   const original = path.join(isolated, "assets/brand/references/team-logo-original.png"), bytes = fs.readFileSync(original);
   fs.writeFileSync(original, png()); assert.throws(() => validateBrandAssets(isolated), /recorded original/); fs.writeFileSync(original, bytes);
   const source = path.join(isolated, "plugins/diagram-kit/assets/icon.svg"), svg = fs.readFileSync(source, "utf8");
   fs.writeFileSync(source, svg.replaceAll("#223D66", "#FF0000")); assert.throws(() => validateBrandAssets(isolated), /palette drift/);
   fs.writeFileSync(source, svg.replaceAll('x2="100%"', 'x2="0%"')); assert.throws(() => validateBrandAssets(isolated), /gradient drift/); fs.writeFileSync(source, svg);
   fs.writeFileSync(path.join(isolated, "assets/brand/previews/diagram-kit-32.png"), png(48)); assert.throws(() => validateBrandAssets(isolated), /dimensions/);
+});
+
+test("four-icon comparison renders every large icon and both native-size rows without cropping", t => {
+  const { root } = fixture(t), previews = path.join(root, "assets/brand/previews");
+  fs.mkdirSync(previews, { recursive: true });
+  const colors = [[210,30,40,255], [20,180,70,255], [40,90,210,255], [150,40,190,255]];
+  const icons = colors.map((color, i) => ({ id: `fixture-${i}-kit`, output: `assets/icon-${i}.png` }));
+  const logos = ["a", "b", "c"].map(id => ({ id: `marketplace-${id}`, output: "assets/icon-0.png" }));
+  fs.writeFileSync(path.join(root,"assets/brand/exports.json"),JSON.stringify({icons:[...icons,...logos]}));
+  for (const [i, icon] of icons.entries()) {
+    fs.writeFileSync(path.join(root, icon.output), png(1024,1024,colors[i]));
+    for (const size of [32,48,64]) fs.writeFileSync(path.join(previews,`${icon.id}-${size}.png`),png(size,size,colors[i]));
+  }
+  for (const icon of logos) for (const size of [32,48,64]) fs.writeFileSync(path.join(previews,`${icon.id}-${size}.png`),png(size,size,colors[0]));
+  const [familyFile, candidateFile] = renderBrandPreviews(root);
+  const sheet = PNG.sync.read(fs.readFileSync(familyFile)), candidates = PNG.sync.read(fs.readFileSync(candidateFile));
+  assert.equal(sheet.width,1200);assert.equal(sheet.height,1170);assert.equal(candidates.height,650);
+  const pixel = (x,y) => [...sheet.data.subarray((y*sheet.width+x)*4,(y*sheet.width+x)*4+4)];
+  for (const [i,color] of colors.entries()) {
+    const x=36+(i%3)*388,y=Math.floor(i/3)*520;
+    assert.deepEqual(pixel(x+174,y+260),color,`large icon ${i} is visible`);
+    for (const [column,size] of [32,48,64].entries()) for (const py of [420,536]) {
+      const px=x+26+column*112;
+      assert.deepEqual(pixel(px+size-1,y+py+size-1),color,`icon ${i}, ${size}px, row ${py} is complete`);
+      assert.notDeepEqual(pixel(px+size,y+py+size-1),color,`icon ${i}, ${size}px is rendered at native width`);
+    }
+  }
+});
+
+test("each registered plugin has its own formal brand export and packaged icon", () => {
+  const config = JSON.parse(fs.readFileSync(path.join(repo, "assets/brand/exports.json"), "utf8"));
+  for (const plugin of Object.keys(RUNTIME_PLUGINS)) {
+    const entries = config.icons.filter(icon => icon.id === plugin);
+    assert.equal(entries.length, 1, plugin);
+    assert.equal(entries[0].source, `plugins/${plugin}/assets/icon.svg`);
+    assert.equal(entries[0].output, `plugins/${plugin}/assets/icon.png`);
+    const manifest = JSON.parse(fs.readFileSync(path.join(repo, "plugins", plugin, "plugin.json"), "utf8"));
+    const icons = validatePluginIcons(manifest, path.join(repo, "plugins", plugin));
+    assert.equal(icons.logo.sha256, icons.composerIcon.sha256);
+  }
+});
+
+test("strict repository validation rejects deleted, duplicated or borrowed Communication brand exports", t => {
+  const { root } = fixture(t), isolated = path.join(root, "repo"); fs.mkdirSync(isolated);
+  for (const rel of ["assets", ".agents", ".codex", ".github", "scripts", "tests", "plugins", "docs", "AGENTS.md", "README.md", "CONTRIBUTING.md", "GLOSSARY.md", "CHANGELOG.md", "VERSION", ...(fs.existsSync(path.join(repo, "plan")) ? ["plan"] : [])]) fs.cpSync(path.join(repo, rel), path.join(isolated, rel), { recursive: true });
+  const baseline = validateRepository(isolated); assert.equal(baseline.ok, true, baseline.errors.join("\n"));
+  const file = path.join(isolated, "assets/brand/exports.json"), original = JSON.parse(fs.readFileSync(file, "utf8"));
+  for (const mutate of [
+    config => { config.icons = config.icons.filter(icon => icon.id !== "communication-kit"); },
+    config => { config.icons.find(icon => icon.id === "communication-kit").source = "plugins/diagram-kit/assets/icon.svg"; },
+    config => { config.icons.find(icon => icon.id === "communication-kit").output = "plugins/diagram-kit/assets/icon.png"; },
+    config => { config.icons.push(config.icons.find(icon => icon.id === "communication-kit")); },
+  ]) {
+    const config = structuredClone(original); mutate(config); fs.writeFileSync(file, JSON.stringify(config));
+    const result = validateRepository(isolated); assert.equal(result.ok, false);
+    assert.ok(result.errors.some(error => error.startsWith("brand resources:")), result.errors.join("\n"));
+  }
+  fs.writeFileSync(file, JSON.stringify(original)); assert.equal(validateRepository(isolated).ok, true);
 });

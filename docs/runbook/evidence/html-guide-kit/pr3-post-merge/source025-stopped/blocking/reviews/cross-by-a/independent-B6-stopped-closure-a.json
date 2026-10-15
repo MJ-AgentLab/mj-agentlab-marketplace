@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "recordedUtc": "2026-10-14T15:46:30.5837610Z",
+  "reviewer": "/root/behavior_014_a",
+  "operator": "/root/behavior_014_b",
+  "canonical": {
+    "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "canonicalSha": "ba74bbe3d1b64b59ccc7e92d58a66a011126215e",
+    "canonicalTree": "28e0fca836c31dce00e491b269323dc79e8739da"
+  },
+  "sourceFinal": {
+    "path": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-25/blocking/reviews/cross-by-a/B6.1-T1-independent-a-final.json",
+    "bytes": 8499,
+    "sha256": "65cc6771aba069b5b9a8618875544ce9cd6b149ea20d8c76a630aab79d752a72"
+  },
+  "operatorStop": {
+    "path": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-25/operator-b-records/core-stopped-report.json",
+    "bytes": 11736,
+    "sha256": "c97377ac0d06da6192e3312b08e776db10628a746b204f1cd39c1f740619c5e0"
+  },
+  "operatorHandoff": {
+    "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df/operator-handoff.json",
+    "bytes": 6212,
+    "sha256": "f58070ba7da9e725c242b03ab4270f54b67227ff2105c23f7938c02da207b028"
+  },
+  "counts": {
+    "freshUUIDs": 1,
+    "completeTurns": 1,
+    "plannedTurns": 5,
+    "unrunTurns": 4,
+    "fullPrimaryPASS": 0,
+    "overallFidelityFAIL": 1,
+    "zeroVariants": 3
+  },
+  "cases": [
+    {
+      "id": "B6.1",
+      "attempts": 1,
+      "actualTurns": 1,
+      "primary": "UNEXERCISED",
+      "overallFidelity": "FAIL"
+    },
+    {
+      "id": "B6.2-revise",
+      "attempts": 0,
+      "actualTurns": 0,
+      "primary": "NOT_RUN",
+      "overallFidelity": "NOT_RUN"
+    },
+    {
+      "id": "B6.2-compare",
+      "attempts": 0,
+      "actualTurns": 0,
+      "primary": "NOT_RUN",
+      "overallFidelity": "NOT_RUN"
+    },
+    {
+      "id": "B6.2-review",
+      "attempts": 0,
+      "actualTurns": 0,
+      "primary": "NOT_RUN",
+      "overallFidelity": "NOT_RUN"
+    }
+  ],
+  "rawSnapshotStable": true,
+  "partial": "T1 actual Read and text boundary PASS; B6.1 T2 requested execution not sent, primary UNEXERCISED; three B6.2 variants zero NOT_RUN.",
+  "sameHoldOriginalPreserved": true,
+  "independentFindingNotSentToModel": true,
+  "newModelOrFixture": false,
+  "effectStatus": "NOT_MEASURED"
+}

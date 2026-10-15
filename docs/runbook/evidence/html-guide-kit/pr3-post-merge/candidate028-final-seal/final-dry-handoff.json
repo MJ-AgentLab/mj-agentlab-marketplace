@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T05:27:38.416Z",
+  "phase": "FINAL_DRY_PREPARATION_ONLY",
+  "canonicalSha": "0a6c48c2b3d782cbffb86355060d65986383eeea",
+  "canonicalTree": "b09e7772bc34e37d6fe9206fa263f827895549af",
+  "packageVersion": "0.1.18",
+  "sourceInventorySha256": "6a07e2bb30ce101d709006d27df4c6909c295d05cd38a4f4e4dd2f4c7ab6dea4",
+  "fileCount": 413,
+  "totalOriginalBytes": 9015728,
+  "packetCount": 7,
+  "largestPacketBytes": 2089913,
+  "packetLimitBytes": 2097152,
+  "actualAccounting": {
+    "uuids": 10,
+    "inputs": 21,
+    "complete": 21,
+    "invalid": 0,
+    "semantic": {
+      "PASS": 6,
+      "FAIL": 3,
+      "UNEXERCISED": 1
+    },
+    "zeroAttemptNotRun": 4,
+    "plannedRemainingNotRunTurns": 9
+  },
+  "actualTechnicalGrade": {
+    "uniqueSuccessfulGrades": 10,
+    "summaryCommands": 3,
+    "allSuccessfulUniqueGradeAndSummaryExit0": true,
+    "outer": {
+      "method": "FACTUAL_ACTUAL_OUTER_TOOL_COMPLETION",
+      "operator": "/root/behavior_014_b",
+      "tool": "exec_command",
+      "sessionId": null,
+      "initialRunningChunk": null,
+      "finalChunk": "66c4cb",
+      "actualExitCode": 0,
+      "returnedSynchronously": true,
+      "actualCommands": "Ten distinct original final grade commands and three summary commands all returned actual exit0. Each stdout, stderr, exit, signal and timing is saved separately.",
+      "successfulGrades": 10,
+      "successfulSummaries": 3,
+      "repeatedSuccessfulGrades": 0,
+      "adapterProjectionOrSemanticMutation": false,
+      "noModelOrInstallInvocation": true
+    },
+    "noProjectionOrAdapter": true,
+    "originalFailuresAndPartialPreserved": true
+  },
+  "equivalence": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-18\\provenance\\grade-import\\final-equivalence-receipt.json",
+    "sha256": "6125214de4f4b932f59ac3a22fe3e788b9ad951915598ddf8cbd366ce08f52cb",
+    "actualOuterChunk": "8be8c6",
+    "actualExitCode": 0,
+    "onlyThreeBatchReviewMetadataChanges": true,
+    "allTenOriginalFieldsBytesAndHashesExact": true,
+    "sourceMirrorCacheRows": 21,
+    "reviewerExcludedMirrorRows": [
+      70,
+      70,
+      70
+    ],
+    "frozenControls": 38,
+    "allActualFalseAndNATokensPreserved": true
+  },
+  "staticPins": 38,
+  "dynamicPins": 412,
+  "dynamicPinsUnchanged": true,
+  "target": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-028-stopped",
+  "targetExists": false,
+  "actualRepoPack": "NOT_RUN_BY_THIS_AGENT",
+  "actualNodeArchiveVerification": "NOT_RUN_NO_ARCHIVE",
+  "actualDotnetArchiveVerification": "NOT_RUN_NO_ARCHIVE",
+  "syntaxAndSelftestActualExit0": true,
+  "dryAndIndependentDotnetAstActualExit0": true,
+  "dryActualOuterReceipt": {
+    "chunkId": "1727a9",
+    "sessionId": null,
+    "actualExitCode": 0
+  },
+  "additionalAstReceipt": {
+    "chunkId": "5c4ef1",
+    "actualExitCode": 0,
+    "actualErrors": 0,
+    "initialHelperErrorBranchTypoPreserved": true,
+    "nodeDryRepeated": false
+  },
+  "packerSha256": "fccb80e6041d792f92cf39aded5105c6cf6bbdbd632049e4cab962d533ac8ae5",
+  "verifierSha256": "61e448eed4768b86446e81a0e83c213097529d43ea785a46f6c415f150212649",
+  "controlSha256": "66f7cc6ec2a4fb21e517ecd480284e5535ce5990d1daef116a130e9051e38962",
+  "source19EntirelyExcluded": true,
+  "realHomeAuthConfigCacheDirectoriesExcluded": true,
+  "ordinaryRawCapturedSessionsPreserved": true,
+  "rootOriginalMistakenMetadataAndCorrectionsPreserved": true,
+  "onlyA_B4_1_T2CrossedMarker": "Started05:12:57.067Z before05:13:15.262Z marker, naturally completed05:14:21.897Z after; no new input after marker.",
+  "engineeringStaticAndCIRootSealSeparate": true,
+  "commands": [
+    {
+      "kind": "actual-pack-by-Root",
+      "cmd": "node ../reviewer/pack-028-evidence.mjs pack --snapshot-name patch-028-stopped --final-reviewed true --expected-inventory-sha256 6a07e2bb30ce101d709006d27df4c6909c295d05cd38a4f4e4dd2f4c7ab6dea4"
+    },
+    {
+      "kind": "actual-node-by-Root",
+      "cmd": "node ../reviewer/pack-028-evidence.mjs verify --snapshot-name patch-028-stopped --compare-originals true"
+    },
+    {
+      "kind": "actual-independent-dotnet-by-Root",
+      "cmd": "& ../reviewer/verify-lossless-028-dotnet.ps1 -Target './docs/runbook/evidence/html-guide-kit/pr3-reviewer/patch-028-stopped' -ReviewerRoot '../reviewer'"
+    }
+  ],
+  "noSourceReportOrRuntimeMutation": true,
+  "clientUiStatus": "NOT_RUN",
+  "effectStatus": "NOT_MEASURED"
+}

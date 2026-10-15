@@ -1,0 +1,100 @@
+{
+  "recordedAt": "2026-10-14T12:44:25.233Z",
+  "authority": "Root explicit historical034 actualpack/Node/.NET authorization after actual #231 merge",
+  "pre": {
+    "status": {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "4ced48",
+        "wall_time_seconds": 0.0604239,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    "head": {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "587210",
+        "wall_time_seconds": 0.068458,
+        "exit_code": 0,
+        "original_token_count": 11,
+        "output": "71e2e1bc2bf110b7a3f93ee0db73cb4c8b5c2248\n"
+      }
+    },
+    "branch": {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "f44286",
+        "wall_time_seconds": 0.0630321,
+        "exit_code": 0,
+        "original_token_count": 7,
+        "output": "codex/html-guide-post-merge\n"
+      }
+    },
+    "handoffCommands": {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "ef39e3",
+        "wall_time_seconds": 0.0838141,
+        "exit_code": 0,
+        "original_token_count": 435,
+        "output": "{\"handoff\":\"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\reviewer\\\\packer-provenance\\\\0-1-22-stopped\\\\final-handoff.json\",\"commands\":[{\"executable\":\"D:\\\\Development\\\\nodejs\\\\node.exe\",\"argv\":[\"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\reviewer\\\\pack-034-evidence.mjs\",\"pack\",\"--snapshot-name\",\"patch-034-stopped\",\"--target\",\"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\develop\\\\docs\\\\runbook\\\\evidence\\\\html-guide-kit\\\\pr3-reviewer\\\\patch-034-stopped\",\"--max-packet-bytes\",\"2097151\",\"--final-reviewed\",\"true\",\"--expected-inventory-sha256\",\"4a975729649961899c496633bc47a13502364947c98a507008325352d829fdc5\"]},{\"executable\":\"D:\\\\Development\\\\nodejs\\\\node.exe\",\"argv\":[\"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\reviewer\\\\pack-034-evidence.mjs\",\"verify\",\"--snapshot-name\",\"patch-034-stopped\",\"--target\",\"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\develop\\\\docs\\\\runbook\\\\evidence\\\\html-guide-kit\\\\pr3-reviewer\\\\patch-034-stopped\",\"--compare-originals\",\"true\"]},{\"executable\":\"pwsh.exe\",\"argv\":[\"-NoProfile\",\"-File\",\"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\reviewer\\\\verify-lossless-034-dotnet.ps1\",\"-Target\",\"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\develop\\\\docs\\\\runbook\\\\evidence\\\\html-guide-kit\\\\pr3-reviewer\\\\patch-034-stopped\",\"-ReviewerRoot\",\"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\reviewer\"]}],\"inventory\":\"4a975729649961899c496633bc47a13502364947c98a507008325352d829fdc5\",\"files\":395,\"bytes\":7391506,\"packets\":6,\"target\":\"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\develop\\\\docs\\\\runbook\\\\evidence\\\\html-guide-kit\\\\pr3-reviewer\\\\patch-034-stopped\",\"targetExists\":false}\n"
+      }
+    }
+  },
+  "actualPack": {
+    "chunk_id": "740457",
+    "wall_time_seconds": 2.0518125,
+    "exit_code": 0,
+    "original_token_count": 169,
+    "output": "{\n  \"mode\": \"pack\",\n  \"target\": \"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\develop\\\\docs\\\\runbook\\\\evidence\\\\html-guide-kit\\\\pr3-reviewer\\\\patch-034-stopped\",\n  \"files\": 395,\n  \"originalBytes\": 7391506,\n  \"allPacketHashesVerified\": true,\n  \"allOriginalFileHashesVerified\": true,\n  \"identityEvidenceHashVerified\": true,\n  \"sourceBytesCompared\": true,\n  \"sourceInventorySha256\": \"4a975729649961899c496633bc47a13502364947c98a507008325352d829fdc5\",\n  \"packetCount\": 6\n}\n{\"actualReceipt\":\"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\reviewer\\\\packer-provenance\\\\0-1-22-stopped\\\\actual-034-b\\\\01-actual-pack.completion.json\",\"actualExitCode\":0}\n"
+  },
+  "actualNodeVerify": {
+    "chunk_id": "fbfeda",
+    "wall_time_seconds": 0.2687536,
+    "exit_code": 0,
+    "original_token_count": 140,
+    "output": "{\n  \"mode\": \"verify\",\n  \"target\": \"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\develop\\\\docs\\\\runbook\\\\evidence\\\\html-guide-kit\\\\pr3-reviewer\\\\patch-034-stopped\",\n  \"files\": 395,\n  \"originalBytes\": 7391506,\n  \"allPacketHashesVerified\": true,\n  \"allOriginalFileHashesVerified\": true,\n  \"identityEvidenceHashVerified\": true,\n  \"sourceBytesCompared\": true\n}\n{\"actualReceipt\":\"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\reviewer\\\\packer-provenance\\\\0-1-22-stopped\\\\actual-034-b\\\\02-node-verify.completion.json\",\"actualExitCode\":0}\n"
+  },
+  "actualIndependentDotnetVerify": {
+    "chunk_id": "cf7621",
+    "wall_time_seconds": 4.2460324,
+    "exit_code": 0,
+    "original_token_count": 183,
+    "output": "{\r\n  \"method\": \".NET exact raw byte restoration\",\r\n  \"target\": \"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\develop\\\\docs\\\\runbook\\\\evidence\\\\html-guide-kit\\\\pr3-reviewer\\\\patch-034-stopped\",\r\n  \"files\": 395,\r\n  \"originalBytes\": 7391506,\r\n  \"sourceInventorySha256\": \"4a975729649961899c496633bc47a13502364947c98a507008325352d829fdc5\",\r\n  \"allPacketHashesVerified\": true,\r\n  \"allOriginalFilesComparedByteForByte\": true,\r\n  \"identityHashVerified\": true,\r\n  \"packetLimitBytes\": 2097151,\r\n  \"noSourceOrRepositoryWrite\": true\r\n}\r\n{\"actualReceipt\":\"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\reviewer\\\\packer-provenance\\\\0-1-22-stopped\\\\actual-034-b\\\\03-dotnet-verify.completion.json\",\"actualExitCode\":0}\n"
+  },
+  "post": {
+    "status": {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "586459",
+        "wall_time_seconds": 0.0685934,
+        "exit_code": 0,
+        "original_token_count": 18,
+        "output": "?? docs/runbook/evidence/html-guide-kit/pr3-reviewer/patch-034-stopped/\n"
+      }
+    },
+    "trackedDiff": {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "2eed22",
+        "wall_time_seconds": 0.0719158,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    "head": {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "fb5bbb",
+        "wall_time_seconds": 0.0723368,
+        "exit_code": 0,
+        "original_token_count": 11,
+        "output": "71e2e1bc2bf110b7a3f93ee0db73cb4c8b5c2248\n"
+      }
+    }
+  },
+  "noModelNativeUiOrGrade": true
+}

@@ -1,0 +1,95 @@
+{
+  "status": "FINAL_FROZEN_DRAFT_ONLY",
+  "recordedAt": "2026-10-14T17:57:14.204Z",
+  "author": "/root/behavior_014_a",
+  "sourceCanonical": "83b3f50ba6c41f923a2b48bba10ca176102be18d",
+  "sourceTree": "b5bea864f5fefba2d964a158e077225cae82d987",
+  "sourceVersion": "0.1.28",
+  "proposedVersion": "0.1.29",
+  "sourceSnapshotCopyTool": "2fcb0c",
+  "resources": [
+    {
+      "relative": "SKILL.md",
+      "sourceSnapshot": "source28-originals/SKILL.md.snapshot.txt",
+      "sourceBytes": 4348,
+      "sourceSha256": "4aed371e92241aa8ff9db57e8b6fc0f1d261b273b2f90f9e84faaf86bdfa95a7",
+      "draftPath": "draft/SKILL.md",
+      "draftBytes": 4948,
+      "draftSha256": "dbff8b0f1b829a0b560520d1ae988a87dd9a4142fc6c73ce3e7c25ca3f3096bc",
+      "lfBytes": 4948,
+      "windowsCrlfBytes": 4982,
+      "changed": true,
+      "exactByteDelta": {
+        "offsetBytes": 1152,
+        "oldBytes": 0,
+        "newBytes": 600,
+        "oldText": "",
+        "newText": "读取与拒因证据纪律\n\n逐份直读单文件或片段正文，不打包多文件、统计、扫描或编码脚本。工具拒绝时，先只报告本次未完成及回包明确的拒绝事实；原因或权限范围未说明就标未知。读取形式、只读模式、目录身份/位置或后续成功，都不能诊断先前拒因；不为判定路径权限作因果排查。明确权限拒绝不绕过；泛化拒绝且未给具体禁止时，可在原 Read 授权内继续单份读取，但不称其验证了先前拒因。完整读取、实际顺序和截断补读依框架第1节。\n\n## ",
+        "forwardAndInverseByteReconstruction": true
+      }
+    },
+    {
+      "relative": "references/guide-framework.md",
+      "sourceSnapshot": "source28-originals/references/guide-framework.md.snapshot.txt",
+      "sourceBytes": 8373,
+      "sourceSha256": "f1d374844ed9c89028f3dd63cc63a9c0e087ebffd7826688af815185d72db068",
+      "draftPath": "draft/references/guide-framework.md",
+      "draftBytes": 8739,
+      "draftSha256": "fe70ec7005dd564a1cef1e84691c85d4cac278c6b8de1578e87b348742fe7c9b",
+      "lfBytes": 8739,
+      "windowsCrlfBytes": 8810,
+      "changed": true,
+      "exactByteDelta": {
+        "offsetBytes": 423,
+        "oldBytes": 329,
+        "newBytes": 695,
+        "oldText": "接读单文件/片段，不打包多份正文、统计、扫描或编码脚本。明确权限拒绝不绕过；泛化拒绝只证明未完成、原因/权限未知，模式、位置、缺正文或别文件成功不证拒因，也不保证换客户端可读。仅报告回包明确支持的限制类型、对象、范围和原因",
+        "newText": "读单文件/片段正文，不打包多份正文、统计、扫描或编码脚本。\n\n每次报告拒因前，先核回包实际明示的限制类型、对象、范围和原因。泛化拒绝只证明本次未完成及拒绝事实，未述原因/权限范围仍未知；读取形式、只读模式、目录身份/位置、缺正文或后续成功，不证明先前拒因，也不保证换客户端可读。不作路径权限的因果排查。明确权限拒绝不绕过；泛化拒绝且无具体禁止时，允许在原 Read 授权内继续逐份直读，但它只提供当次读取结果，不验证先前拒因。随后按实际读取顺序核全文，不将后续成功补写成最初成功",
+        "forwardAndInverseByteReconstruction": true
+      }
+    },
+    {
+      "relative": "references/interaction-design.md",
+      "sourceSnapshot": "source28-originals/references/interaction-design.md.snapshot.txt",
+      "sourceBytes": 7773,
+      "sourceSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "draftPath": "draft/references/interaction-design.md",
+      "draftBytes": 7773,
+      "draftSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "lfBytes": 7773,
+      "windowsCrlfBytes": 7836,
+      "changed": false
+    }
+  ],
+  "changedResources": 2,
+  "unchangedResources": 1,
+  "entryHardLimitBytes": 6144,
+  "preservationMap": [
+    {
+      "old": "SKILL 合同及内部执行顺序1的逐份读取/泛拒未知约束",
+      "new": "独立前置读取与拒因证据纪律；原合同及六步骤全部字节保留",
+      "reason": "在首次读取和归因答复前明确约束，而非等到框架读后才依赖重复口号。"
+    },
+    {
+      "old": "FW1第一段实际顺序/单份直读/拒因证据范围",
+      "new": "原顺序规则保留，拒因输出前先核回包；未知拒因可在原Read授权内单份读取，但不作路径权限因果排查",
+      "reason": "区分当前工具结果与拒因诊断，后成功不补先前因果或理想顺序。"
+    },
+    {
+      "old": "目标确认、完整源单元、模拟/反馈/自检与全部保义方法",
+      "new": "两span之外源28字节完整保留，ID7773B byte-exact",
+      "reason": "不新增工具、资源、目标或案例答案，不改变服务边界及语义判准。"
+    }
+  ],
+  "scope": {
+    "runtimeApplied": false,
+    "repositoryChanged": false,
+    "controlsChanged": false,
+    "old28EvidenceChanged": false,
+    "model": "NOT_RUN",
+    "installation": "NOT_RUN",
+    "client": "NOT_RUN",
+    "independentStatic": "NOT_RUN",
+    "effect": "NOT_MEASURED"
+  }
+}

@@ -1,0 +1,321 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T16:27:52.047Z",
+  "phase": "EXTERNAL_DRY_RUN_ONLY_SOURCE26_STOPPED_READY_FOR_ROOT",
+  "sourceCanonical": "40346364dc577440af6d63457e830aaaddff38e9",
+  "sourceTree": "0eb06652c3dcd57eb545fae666e29e67fee49178",
+  "packageVersion": "0.1.26",
+  "actualAccounting": {
+    "uuids": 9,
+    "inputs": 17,
+    "complete": 17,
+    "invalid": 0,
+    "semantic": {
+      "PASS": 5,
+      "FAIL": 2,
+      "UNEXERCISED": 2,
+      "NOT_RUN": 5
+    },
+    "plannedVariants": 14,
+    "plannedInputs": 30,
+    "unrunInputs": 13,
+    "B6Primary": "FOUR_PASS",
+    "B6WholeFidelity": "THREE_PASS_ONE_FAIL",
+    "CWhole": "B1.1_FAIL_AND_DELAYED_T1_UNEX",
+    "AWhole": "TWO_PASS_ONE_UNEX",
+    "postGlobalInputs": 0,
+    "naturalCrossMarker": "A B4.1 T1 only 16:01:46.281 to16:02:37.951; shared marker16:02:28.2867268Z",
+    "expandedSupplementRepeat": "NOT_PREPARED_NOT_RUN",
+    "nativeUi": "NOT_PREPARED_NOT_RUN"
+  },
+  "originalBytes": 6081450,
+  "fileCount": 294,
+  "packetCount": 5,
+  "sourceInventorySha256": "84286f9f3f7fba133ec08667619f1acb1ac5fca39fc914280a17fe72b73ab552",
+  "largestPacketBytes": 2073991,
+  "packetLimitBytes": 2097151,
+  "secretPatternFindings": 0,
+  "nodeExactRoundTrips": 294,
+  "independentDotnetExactRawRoundTrips": 294,
+  "actualToolReceipts": {
+    "initialDerivationModuleError": {
+      "toolChunk": "dacc92",
+      "exitCode": 1,
+      "notModelOrPacketFailure": true
+    },
+    "correctedDerivationAndBuild": {
+      "toolChunk": "683608",
+      "exitCode": 0
+    },
+    "nodeDry": {
+      "toolChunk": "d51da5",
+      "exitCode": 0
+    },
+    "dotnetDry": {
+      "toolChunk": "fc36a3",
+      "exitCode": 0
+    }
+  },
+  "sourceOriginalPinsAllStable": true,
+  "originalMarkerAndSeparateConfirmedFailBothPreserved": true,
+  "originalReportStatusesAndRawBytesOpaqueUnchanged": true,
+  "all38FrozenControlsExact": true,
+  "RootFinalCTechnicalSupplement": {
+    "sha256": "9c3ebadc5f249efc54beb0082889bfa8877afca96b8f9531f6928ca1d7ff4dcd",
+    "included": true
+  },
+  "BMechanicalObservationRefresh": "Original completed pre-marker report and separate final current snapshot both retained; two ordinary pause metadata refreshes accurately identified, model raw unchanged.",
+  "runtimeProof": "21 actual source/mirror/cache raw resource matches,70 files per reviewer-excluded mirror; no full canonical tree equality claim",
+  "taskContextPrivacy": "All17 own SDK snapshots checked current UUID/native/current inputs/environment; no unexpected task/user surface",
+  "sourceAllowlist": {
+    "rootFiles": [
+      "archive-039-control.json",
+      "audit-source26-a-prefix-receiver-b.mjs",
+      "audit-source26-a-receiver-b.mjs",
+      "build-pack-039-behavior-b.mjs",
+      "corrections/0-1-26/026-check.log",
+      "corrections/0-1-26/026-document-a6.log",
+      "corrections/0-1-26/026-npm-test.log",
+      "corrections/0-1-26/026-validate.log",
+      "corrections/0-1-26/026-version-apply.log",
+      "corrections/0-1-26/026-version-dry-run.log",
+      "corrections/0-1-26/CONTROLS_FINAL_FROZEN.json",
+      "corrections/0-1-26/DRAFT_FINAL_FROZEN.json",
+      "corrections/0-1-26/behavior-b-helper-copy-control.json",
+      "corrections/0-1-26/capture-lifecycle-control.mjs",
+      "corrections/0-1-26/confirmed-fail-root-supplement.json",
+      "corrections/0-1-26/controller.mjs",
+      "corrections/0-1-26/core-final-root-summary.json",
+      "corrections/0-1-26/frozen-copy-inventory.json",
+      "corrections/0-1-26/manual-selection-behavior-a.mjs",
+      "corrections/0-1-26/manual-selection-behavior-b.mjs",
+      "corrections/0-1-26/manual-selection-continuous-behavior-a.mjs",
+      "corrections/0-1-26/manual-selection-continuous-control.final.json",
+      "corrections/0-1-26/manual-selection-continuous-control.json",
+      "corrections/0-1-26/normal-execution-pause.flag",
+      "corrections/0-1-26/operator-sequential.manual.candidate.mjs",
+      "corrections/0-1-26/operator-sequential.manual.mjs",
+      "corrections/0-1-26/prepare-controls-026-logic.mjs",
+      "corrections/0-1-26/prepare-correction.mjs",
+      "corrections/0-1-26/prepare-coverage.mjs",
+      "corrections/0-1-26/provenance/source25-CONTROLS_FINAL_FROZEN.json",
+      "corrections/0-1-26/provenance/source25-controller.mjs",
+      "corrections/0-1-26/provenance/source25-scheduling-fixture-reuse-control.json",
+      "corrections/0-1-26/record-operator-handoff-behavior-a.mjs",
+      "corrections/0-1-26/record-operator-handoff.mjs",
+      "corrections/0-1-26/record-recommended-observation-behavior-b.mjs",
+      "corrections/0-1-26/repeated-plan-control.json",
+      "corrections/0-1-26/root-manual-helper-copy-control.json",
+      "corrections/0-1-26/root-manual-select.mjs",
+      "corrections/0-1-26/runtime-application.json",
+      "corrections/0-1-26/scheduling-contract.json",
+      "corrections/0-1-26/static-control-review-a.json",
+      "corrections/0-1-26/static-review-b.json",
+      "corrections/0-1-26/static-review-root.json",
+      "corrections/0-1-26/verify-canonical.mjs",
+      "corrections/0-1-26/version-guard-exactdiff.json",
+      "derive-pack039-from038-b.mjs",
+      "derive-pack039-from038-b.r2.cjs",
+      "execute-source26-operator-b.mjs",
+      "pack039-derivation-first-module-error.json",
+      "packer-provenance/0-1-26-stopped/preparation-control.json",
+      "record-source26-b-runtime-pins.mjs",
+      "verify-lossless-039-dotnet.ps1"
+    ],
+    "rootDirectories": [
+      "corrections/0-1-26/blocking",
+      "corrections/0-1-26/continuous-supplement",
+      "corrections/0-1-26/draft",
+      "corrections/0-1-26/expanded",
+      "corrections/0-1-26/operator-a-records",
+      "corrections/0-1-26/operator-b-records",
+      "corrections/0-1-26/operator-c-records",
+      "corrections/0-1-26/reviewed-draft",
+      "corrections/0-1-26/source25-originals",
+      "packer-provenance/0-1-26-stopped/closure"
+    ]
+  },
+  "exclusions": [
+    "Source27 and future drafts/runs",
+    "Old native private SDK/whole windows and unrelated chats",
+    "Actual HOME/auth/cache/config/session directories",
+    "Temporary source/mirror/cache directories",
+    "Old copied self-test source trees",
+    "Already separately archived24 exact engineering files (pin reference retained)"
+  ],
+  "actualArchiveExistsAtThisObservation": false,
+  "actualPackAndPacketVerification": "NOT_RUN_PENDING_ROOT",
+  "technicalGrade": "NOT_RUN_NOT_REQUIRED_FOR_OPAQUE_ARCHIVE",
+  "rootCommands": {
+    "pack": {
+      "executable": "node",
+      "args": [
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack-039-evidence.mjs",
+        "pack",
+        "--snapshot-name",
+        "patch-039-stopped",
+        "--target",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-039-stopped",
+        "--max-packet-bytes",
+        "2097151",
+        "--final-reviewed",
+        "true",
+        "--expected-inventory-sha256",
+        "84286f9f3f7fba133ec08667619f1acb1ac5fca39fc914280a17fe72b73ab552"
+      ]
+    },
+    "nodeVerify": {
+      "executable": "node",
+      "args": [
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack-039-evidence.mjs",
+        "verify",
+        "--snapshot-name",
+        "patch-039-stopped",
+        "--target",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-039-stopped",
+        "--compare-originals",
+        "true"
+      ]
+    },
+    "dotnetVerify": {
+      "executable": "pwsh.exe",
+      "args": [
+        "-NoProfile",
+        "-File",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\verify-lossless-039-dotnet.ps1",
+        "-Target",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-039-stopped",
+        "-ReviewerRoot",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer"
+      ]
+    }
+  },
+  "proofs": [
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\archive-039-control.json",
+      "bytes": 52144,
+      "sha256": "370221410b9903c480260add078ae52227adf737569ab42c88c31b40aa177b4e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack-039-evidence.mjs",
+      "bytes": 32755,
+      "sha256": "7432b35c49c22722c02bdd9dfc45b41b4ad0dbbc2fafd6dacaac7f67b1bce595"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\verify-lossless-039-dotnet.ps1",
+      "bytes": 6096,
+      "sha256": "fcae077b5a0eb63de72da75989d8ca19404718ef3fb91387db9ed2ec2344830b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\build-pack-039-behavior-b.mjs",
+      "bytes": 19792,
+      "sha256": "bcaa15bbc36766c6e4716c251326550c8b2a547bd6873600ff940a539864c447"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\derive-pack039-from038-b.mjs",
+      "bytes": 9567,
+      "sha256": "9a88895ef73316deb9e543f955fc1536b850233e1bcc8381acfb059b4d79c0ae"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\derive-pack039-from038-b.r2.cjs",
+      "bytes": 10172,
+      "sha256": "5d379d82c5b8756989c751ef5400fd28384ab1c366b9b856be54b7abb8a47e6a"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack039-derivation-first-module-error.json",
+      "bytes": 877,
+      "sha256": "46938113d319e194c2b7d0b89552ebc553680b9282751cedd912c1f425d4e6f2"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-26-stopped\\syntax.command.json",
+      "bytes": 308,
+      "sha256": "7f59818ee08f2ecff851ecb95f0d898fcbb03848029874527d9c6cfa75bbcce6"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-26-stopped\\syntax.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-26-stopped\\syntax.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-26-stopped\\self-test.command.json",
+      "bytes": 310,
+      "sha256": "8cd00e93450f3aa091523d01008a9f39591611160a39abe91de3434c9cadaf99"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-26-stopped\\self-test.stdout.log",
+      "bytes": 160,
+      "sha256": "99fd7821b49ba78b28be89454c4bbc552070e9bb877eefdb69bfbb09bc425f29"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-26-stopped\\self-test.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-26-stopped\\final-dry-run.command.json",
+      "bytes": 674,
+      "sha256": "36dc40d038a20a0ac9b0b38155874cf32b2fc948054952be4af5a99833ee2ee1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-26-stopped\\final-dry-run.stdout.log",
+      "bytes": 43974,
+      "sha256": "9f268c74af1e7f3b38cb8da59d59121c36472c46467fcd5e57ac4301cbdb9752"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-26-stopped\\final-dry-run.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-26-stopped\\dotnet-dry.command.json",
+      "bytes": 481,
+      "sha256": "cff5840c8185d21ba9889b7263f7dcd8c44157264a8b6a0db186eb35c171bcbe"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-26-stopped\\dotnet-dry.stdout.log",
+      "bytes": 670,
+      "sha256": "9a981bc0ba08268887d66e04ac3be2166b1273c1cde8f41ae8ff23abe1016985"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-26-stopped\\dotnet-dry.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack039-build-attempt1.stdout.log",
+      "bytes": 1015,
+      "sha256": "ce6400ae070e192419a946202c5cf65af0e5017f2d6265b0f592346b33758a5d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack039-build-attempt1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack039-build-attempt1.command.json",
+      "bytes": 335,
+      "sha256": "1d7a12b3b009db583dea804b3490541b1b0b2d88dcbe9ae7c8e1ce8a121d2bdc"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\run-pack039-dry-behavior-b.mjs",
+      "bytes": 1905,
+      "sha256": "bcc8e473a5faec61a2d7c39904cf96a67bba0fb7f1c913e2af681e9b63adb587"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\run-pack039-dotnet-dry-behavior-b.mjs",
+      "bytes": 1058,
+      "sha256": "077cd8f7d633c9f39dae46bd74635eb3a53850705649054b42bba61a6cbeadef"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\dry-source-039-dotnet-b.ps1",
+      "bytes": 3827,
+      "sha256": "564b54daaa8387be0dc4c6ef4b4fa8d092eca8f929fb6efc18a36a4394f41d70"
+    }
+  ],
+  "noModelUiGradeOrRepositoryWrites": true
+}

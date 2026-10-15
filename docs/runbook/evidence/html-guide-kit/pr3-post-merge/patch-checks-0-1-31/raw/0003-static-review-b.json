@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T19:52:54.460Z",
+  "reviewer": "/root/behavior_014_b",
+  "author": "/root/behavior_014_a",
+  "status": "STATIC_ONLY",
+  "verdict": "NO_STATIC_BLOCKERS",
+  "sourceCanonical": "696da5df4faedd239783764e59b6832b5884f5e1",
+  "sourceTree": "5202e43ba36ee3f8b231fe28d48293e1b265f990",
+  "sourceVersion": "0.1.30",
+  "proposedVersion": "0.1.31",
+  "authorFreeze": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-31\\DRAFT_FINAL_FROZEN.json",
+    "bytes": 5570,
+    "sha256": "8c99e9b3b670c72cb4be6a215285a71fceb8d6b62d0cc315094cb3fa6fdd1dcf"
+  },
+  "fullIndependentRead": {
+    "chunk": "31a946",
+    "exitCode": 0,
+    "scope": "Entire three frozen resources, exact old/new spans and author preservation map; no truncation"
+  },
+  "resources": [
+    {
+      "relative": "skills/guide/SKILL.md",
+      "draftBytes": 5677,
+      "draftSha256": "65abdd374784d054f9c3d65d52c32c74cf32ac281ad6388e927831c6d7c9e46c",
+      "windowsCrlfBytes": 5713,
+      "sourceBytes": 5409,
+      "sourceSha256": "e9dddb6c3699e3aa4af9235247b490529982c882b55c0bd7e9d8e7405fd319bf",
+      "gitSourceExact": true,
+      "sourceSnapshotExact": true,
+      "forwardInverseExact": true,
+      "outsideSpansByteExact": true,
+      "changedSpans": 1,
+      "linksResolve": true
+    },
+    {
+      "relative": "skills/guide/references/guide-framework.md",
+      "draftBytes": 9759,
+      "draftSha256": "b6de10fb7ed3a3f2dfc5cda046e1317243876c5cee2aab2c46760fd37341e654",
+      "windowsCrlfBytes": 9830,
+      "sourceBytes": 9117,
+      "sourceSha256": "8a76449f64e07e61ae9b200111970e5643f7a0e6c181c8e7fef4186237b165f1",
+      "gitSourceExact": true,
+      "sourceSnapshotExact": true,
+      "forwardInverseExact": true,
+      "outsideSpansByteExact": true,
+      "changedSpans": 2,
+      "linksResolve": true
+    },
+    {
+      "relative": "skills/guide/references/interaction-design.md",
+      "draftBytes": 7773,
+      "draftSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "windowsCrlfBytes": 7836,
+      "sourceBytes": 7773,
+      "sourceSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "gitSourceExact": true,
+      "sourceSnapshotExact": true,
+      "forwardInverseExact": true,
+      "outsideSpansByteExact": true,
+      "changedSpans": 0,
+      "linksResolve": true
+    }
+  ],
+  "totalChangedSpans": 3,
+  "entryWindowsLimit": 6144,
+  "entryWindowsMargin": 431,
+  "checks": [
+    {
+      "id": "public-contract-preserved",
+      "status": "PASS",
+      "reason": "只显式新建/Read/中文自然语言聊天交付、每次2–3差异目标推荐及明确选择、待答不代选/不锁宿主、无代码文件或制作操作、无修订比较审查均保；确认等待和许可边界未改。"
+    },
+    {
+      "id": "necessary-input-vs-source-rule",
+      "status": "PASS",
+      "reason": "新增段区分规则/源初值和另设本例事实，只有实际共同题设覆盖及覆写才继承。仅需判定必需信息；缺项只阻依赖结果，允许就地明标教学构造补值，不要求无关字段重述，不收紧宽许可或已知不依赖结论。"
+    },
+    {
+      "id": "target-question-presupposition",
+      "status": "PASS",
+      "reason": "候选疑问句预设也核源，许可与成功分开，不把相反或未知前提当已知；不禁止明确标注误区/假设或有边界的未知问题，不要求固定问题模板。"
+    },
+    {
+      "id": "general-method-and-local-scope",
+      "status": "PASS",
+      "reason": "三span外字节不变，完整源基准、局部实际继承、未知/三值逻辑/字段域、源动作与新增UI逐项归属、恢复动作、逐例缺项计算/理由/重试/无评分和篇幅适应保留。interaction全文原样；非操作材料不强造动作。"
+    },
+    {
+      "id": "portable-and-budget",
+      "status": "PASS",
+      "reason": "无Owner/研究目录、具体教材规则/答案/案例补丁或客户端因果推断；引用均存在，Windows入口5713B余431B。无固定教材章/控件/题量及不必要字段表。"
+    }
+  ],
+  "blockers": [],
+  "limitedEvidence": "Static semantic and byte review only; no fresh SDK/model/client/installation observed. Cannot grant Source31 behavior PASS or repair Source30 original failures.",
+  "runtimeApplied": false,
+  "repositoryModified": false,
+  "oldSource30Modified": false,
+  "controlsModified": false,
+  "consumer": "NOT_RUN",
+  "API": "NOT_RUN",
+  "model": "NOT_RUN",
+  "installation": "NOT_RUN",
+  "effects": "NOT_MEASURED",
+  "GitHubApproval": "NOT_PROVIDED_BY_THIS_REVIEW"
+}

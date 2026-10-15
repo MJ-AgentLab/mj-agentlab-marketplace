@@ -1,0 +1,117 @@
+{
+  "status": "STATIC_ONLY",
+  "verdict": "NO_STATIC_BLOCKERS",
+  "recordedAt": "2026-10-14T19:07:47.538Z",
+  "reviewer": "/root/behavior_014_b",
+  "author": "/root/behavior_014_a",
+  "sourceCanonical": "d25dc63fb81b57859757769c239dbacfd4983492",
+  "sourceTree": "1da998101bcb3738f31a275ad4fb17d97ba5eba8",
+  "proposedVersion": "0.1.30",
+  "freeze": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-30\\DRAFT_FINAL_FROZEN.json",
+    "bytes": 5298,
+    "sha256": "5e5e1eeb1768fa75f386fff63a83c259619c66b405967b826ed2a4c7f7c4d5a2"
+  },
+  "resources": [
+    {
+      "relative": "skills/guide/SKILL.md",
+      "draftBytes": 5409,
+      "draftSha256": "e9dddb6c3699e3aa4af9235247b490529982c882b55c0bd7e9d8e7405fd319bf",
+      "sourceBytes": 4948,
+      "sourceSha256": "dbff8b0f1b829a0b560520d1ae988a87dd9a4142fc6c73ce3e7c25ca3f3096bc",
+      "windowsCrlfBytes": 5445,
+      "gitSourceSnapshotExact": true,
+      "forwardAndInverseByteExact": true,
+      "changed": true
+    },
+    {
+      "relative": "skills/guide/references/guide-framework.md",
+      "draftBytes": 9117,
+      "draftSha256": "8a76449f64e07e61ae9b200111970e5643f7a0e6c181c8e7fef4186237b165f1",
+      "sourceBytes": 8739,
+      "sourceSha256": "fe70ec7005dd564a1cef1e84691c85d4cac278c6b8de1578e87b348742fe7c9b",
+      "windowsCrlfBytes": 9188,
+      "gitSourceSnapshotExact": true,
+      "forwardAndInverseByteExact": true,
+      "changed": true
+    },
+    {
+      "relative": "skills/guide/references/interaction-design.md",
+      "draftBytes": 7773,
+      "draftSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "sourceBytes": 7773,
+      "sourceSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "windowsCrlfBytes": 7836,
+      "gitSourceSnapshotExact": true,
+      "forwardAndInverseByteExact": true,
+      "changed": false
+    }
+  ],
+  "links": [
+    {
+      "from": "SKILL.md",
+      "target": "references/guide-framework.md",
+      "exists": true
+    },
+    {
+      "from": "SKILL.md",
+      "target": "references/interaction-design.md",
+      "exists": true
+    },
+    {
+      "from": "references/guide-framework.md",
+      "target": "interaction-design.md",
+      "exists": true
+    },
+    {
+      "from": "references/interaction-design.md",
+      "target": "guide-framework.md",
+      "exists": true
+    }
+  ],
+  "fullIndependentRead": {
+    "chunk": "d6108e",
+    "exitCode": 0,
+    "scope": "freeze/preservation map and all three proposed resources fully read"
+  },
+  "mechanicalScope": "All three saved source snapshots independently matched exact d25 Git bytes; two changed spans reconstructed forward/inverse, other resource bytes untouched.",
+  "entryWindowsLimit": 6144,
+  "entryWindowsMargin": 699,
+  "checks": [
+    {
+      "id": "source-cover-before-unknown",
+      "result": "NO_STATIC_BLOCKERS",
+      "basis": "两span先确认源对象/实际适用范围、代入全部前提、匹配宽许可，再保当前许可和源明确结果。次数/字段原值/历史非源前提不自增门槛，未另述重复细节不撤已覆盖规则；没有将未述结果写成已知。"
+    },
+    {
+      "id": "unknown-prerequisites-and-outside-scope-remain-unknown",
+      "result": "NO_STATIC_BLOCKERS",
+      "basis": "新增段明确范围外对象或真正必需前提未知不默认许可，未命中先检查其他有关许可/禁止/例外，不自动全禁/全保持/全未知；先定谓词和局部范围、许可与目标结果/字段分开的方法保留，不能凭缺次数条件泛化任意操作。"
+    },
+    {
+      "id": "complete-contract-and-teaching-methods-preserved",
+      "result": "NO_STATIC_BLOCKERS",
+      "basis": "原29两span外全byte保留：显式Read文本新建/不修订比较审查；3种材料身份加设计判断、关键源条件例外冲突定位、2–3目标真实差异并严格确认；适应复杂度、非操作材料不造动作、纯条件逻辑、局部scope/源与新增UI分归、恢复动作/终值、反馈理由误区/重试与不评分全保。"
+    },
+    {
+      "id": "no-case-or-production-overreach",
+      "result": "NO_STATIC_BLOCKERS",
+      "basis": "新增为一般缺口判断顺序，没有领域案例答案、Owner路径、评审脚本或固定展示模板/题量；没有工具权限或制作步骤，无实际行为效果/客户端通过声称。ID全文7773B源exact。"
+    }
+  ],
+  "notes": [
+    "保已知的要求限定在完整适用源单元和全部实际前提之内，不是给所有未定义对象/操作默认许可。",
+    "同值赋值仍保源动作，额外历史/提示意义未知仍可分列，未述字段结果不被补造。",
+    "静态与byte重构不代模型、安装、客户端或现实效果验收；原29失败永久保留。"
+  ],
+  "runtimeApplied": false,
+  "repositoryChanged": false,
+  "oldSourceEvidenceChanged": false,
+  "controlsChanged": false,
+  "APIStatus": "NOT_RUN",
+  "consumerStatus": "NOT_RUN",
+  "modelStatus": "NOT_RUN",
+  "installationStatus": "NOT_RUN",
+  "clientStatus": "NOT_RUN",
+  "effectStatus": "NOT_MEASURED"
+}

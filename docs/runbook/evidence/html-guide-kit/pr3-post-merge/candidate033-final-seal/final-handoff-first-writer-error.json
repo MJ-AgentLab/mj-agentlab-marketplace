@@ -1,0 +1,24 @@
+{
+  "recordedAt": "2026-10-14T11:32:13.309Z",
+  "actualToolReceipt": {
+    "chunk_id": "78aede",
+    "wall_time_seconds": 0.0897635,
+    "exit_code": 1,
+    "original_token_count": 333,
+    "output": "file:///C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/record-pack033-final-handoff-behavior-b.mjs:2\r\nconst root=path.dirname(fileURLToPath(import.meta.url)),prov=path.join(root,'packer-provenance/0-1-21-stopped'),sha=b=>crypto.createHash('sha256').update(b).digest('hex'),pin=file=>({file,bytes:fs.statSync(file).size,sha256:sha(fs.readFileSync(file))}),j=f=>JSON.parse(fs.readFileSync(f)),assert=(v,m)=>{if(!v)throw Error(m)};\r\n                                                                                                                                                                                                                                                                                                                            ^\r\n\r\nError: Exact actual new dry proofs\r\n    at assert (file:///C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/record-pack033-final-handoff-behavior-b.mjs:2:317)\r\n    at file:///C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/record-pack033-final-handoff-behavior-b.mjs:4:1\r\n    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)\r\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:647:26)\r\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)\r\n\r\nNode.js v22.18.0\r\n"
+  },
+  "readOnlyDiagnosisChunk": "8b3d30",
+  "cause": "Only final handoff's stale current-target-absence assertion failed: both successful dry receipts observed target absent, but target exists after Root proceeded independently. No original or packed source changed.",
+  "diagnosis": {
+    "nodeDryExit": 0,
+    "dotnetDryExit": 0,
+    "files": 574,
+    "totalOriginalBytes": 13120370,
+    "packets": 11,
+    "sourceInventorySha256": "bdf0bdb204e50873b6f56cd70069adaf58cee1efca197c06f474805e40013d52",
+    "targetAbsentAtBothActualDry": true,
+    "targetExistsAtFinalHandoffObservation": true
+  },
+  "correctiveScope": "NEW final-handoff writer distinguishes prior dry state from later Root archive existence, without re-pack/re-grade/byte changes.",
+  "firstWriterCreatedNoHandoff": true
+}

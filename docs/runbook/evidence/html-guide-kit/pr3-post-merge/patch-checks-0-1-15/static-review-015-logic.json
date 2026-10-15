@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T01:52:54.212Z",
+  "timezone": "Asia/Taipei",
+  "reviewer": "/root/precommit_014 / independent source15 static logic reviewer",
+  "status": "STATIC_ONLY",
+  "verdict": "NO_STATIC_BLOCKERS",
+  "sourceCanonical": "24ae678ed8580e3e499cdb7496995134346c41c6",
+  "sourceVersion": "0.1.14",
+  "proposedVersion": "0.1.15",
+  "scope": "Only three external draft resource snapshots. No runtime/repository/control/grade mutation, install or model.",
+  "control": {
+    "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-15\\draft\\runtime-draft-control.json",
+    "sha256": "f56d10769bd188335d550380847c19e5da1d71ff3f53eee34563a25ea4474326"
+  },
+  "pins": [
+    {
+      "relative": "SKILL.md",
+      "sourceSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-15\\draft\\source14-SKILL.md.snapshot.txt",
+      "sourceBytes": 6144,
+      "sourceSha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239",
+      "draftSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-15\\draft\\SKILL.md.snapshot.txt",
+      "draftBytes": 6135,
+      "draftSha256": "845ac963f60e0f39fbff5a5b1b87f1df1a72da056192ec50951a8d8e22637be2",
+      "sourceExactGit": true,
+      "originalParagraphs": 22,
+      "originalParagraphsMissing": null,
+      "runtimeStillSource14": true,
+      "newGenericTextsContainFixtureTerms": false
+    },
+    {
+      "relative": "references/guide-framework.md",
+      "sourceSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-15\\draft\\source14-guide-framework.md.snapshot.txt",
+      "sourceBytes": 22615,
+      "sourceSha256": "74e47bb75ad8f82d86260211e3b6966f6bc79ee3dc7fa73c3d95deec491cd36c",
+      "draftSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-15\\draft\\guide-framework.md.snapshot.txt",
+      "draftBytes": 24354,
+      "draftSha256": "adcf3f8ab83572b8b11b5eacd17134145cbec122ab29da1be70b30845cce11fd",
+      "sourceExactGit": true,
+      "originalParagraphs": 56,
+      "originalParagraphsMissing": [],
+      "runtimeStillSource14": true,
+      "newGenericTextsContainFixtureTerms": false
+    },
+    {
+      "relative": "references/interaction-design.md",
+      "sourceSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-15\\draft\\source14-interaction-design.md.snapshot.txt",
+      "sourceBytes": 23495,
+      "sourceSha256": "0d06a5b2f066f58b86456f8f9fa460834079cf96d78e619fa4d0d9cc3a9a98f8",
+      "draftSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-15\\draft\\interaction-design.md.snapshot.txt",
+      "draftBytes": 25234,
+      "draftSha256": "263eb12c923c9df38cf72bf87ad5201a67cad5cc544d9e7054eb2c1e25ddce43",
+      "sourceExactGit": true,
+      "originalParagraphs": 57,
+      "originalParagraphsMissing": [],
+      "runtimeStillSource14": true,
+      "newGenericTextsContainFixtureTerms": false
+    }
+  ],
+  "entryStrictLimit": {
+    "limitBytes": 6144,
+    "draftBytes": 6135,
+    "unchanged": true,
+    "withinLimit": true
+  },
+  "checks": [
+    {
+      "id": "limited-verified-read-failure-causes",
+      "status": "PASS",
+      "rationale": "Generic denial only reports actual read action failed with cause/permission range unconfirmed. Reference rules allow specific cause only when actual return proves object/range/reason. Other-file success, cache/workdir/path location, no body or generic denial cannot imply sandbox/path ban. Permitted narrower read retains every receipt and cannot bypass explicit permission limit. Scope refusal uses known contract without fabricated environment cause.",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-15\\draft\\SKILL.md.snapshot.txt",
+          "sha256": "845ac963f60e0f39fbff5a5b1b87f1df1a72da056192ec50951a8d8e22637be2",
+          "lineStart": 20,
+          "lineEnd": 22,
+          "text": "先读[指南框架](references/guide-framework.md)，实际读材料/明确快照，标采用及已读范围。用户明定先读两参考可提前读交互参考，仍等目标确认。跨会话仅明确快照，不假定同步。\n\n分原材料/已核验背景/教学构造/设计判断，保留版本/快照身份、定位/原文/条件/例外/冲突/缺口/未知/范围。可读不等核验，必要背景用第一手来源。分native正文/回包/补读，截断非全文。泛化拒读仅述“本次未读成，原因/权限未知”；不称沙箱/缓存/工作区外禁读，别的文件可读不证禁读；不猜或假参照。缺口只阻相关部分。方法资源仅用户明定才作教材；缺可定位材料且无明确主题快照则索取，不自定主题/目标。保留已供线索，目标/确认未齐非各字段皆缺；拒绝有据。"
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-15\\draft\\guide-framework.md.snapshot.txt",
+          "sha256": "adcf3f8ab83572b8b11b5eacd17134145cbec122ab29da1be70b30845cce11fd",
+          "lineStart": 3,
+          "lineEnd": 9,
+          "text": "读取失败先区分实际尝试的动作、工具明确返回的事实、仍未知的原因或权限范围。泛化拒绝时可表述“本次读取命令未完成，原因与允许读取范围未确认”；这不是路径或沙箱诊断。仅当实际回包明确说明限制对象、范围及原因时，才在对应范围陈述；不从缓存位置、工作目录、读不到正文或其他文件读取成功，推出路径禁止、沙箱拦截或文件不可读。不要将猜测写成原因、已知范围或事实，亦不承诺改用其他客户端即可读取。\n\n在可用且已授权的只读入口内，可以逐文件或分小片段读取，分别保留每次实际接收范围；不能绕过已经明确的权限限制。无法补读时如实标尚未读取，可索取缺失内容；范围拒绝依据已知合同即可，不必附加未证文件环境解释。\n\n本参考用于选择理解目标、编排内容和核对文本交付。结构随材料调整；下面是设计判断维度，不是固定章节模板。\n\n阅读报告以实际接收正文为据，区分宿主加载的入口正文、工具返回的已读片段、以及同一读取过程后来实际接收的完整补读；命令成功、文件长度、外层汇总输出或模型自述不能证明模型收到了全文。截断未补齐时保留已读范围和限制，不称全文。工具报错只说明已观察到的失败命令或内容范围；通用策略拒绝不证明其原因为文件在工作区外、缓存位置或路径禁令，也不证明所有形式的读取均不可用。原因未证实就保持未知，不以推测理由要求用户复制文件。确有必要且权限允许时可简化为逐文件只读或分段读取；不能越权、承诺必读成功，或把未尝试的读取说成已被禁止。范围拒绝只报告实际据以判断的入口/材料，不虚构参考全文已读。"
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-15\\draft\\interaction-design.md.snapshot.txt",
+          "sha256": "263eb12c923c9df38cf72bf87ad5201a67cad5cc544d9e7054eb2c1e25ddce43",
+          "lineStart": 3,
+          "lineEnd": 9,
+          "text": "读取失败先区分实际尝试的动作、工具明确返回的事实、仍未知的原因或权限范围。泛化拒绝时可表述“本次读取命令未完成，原因与允许读取范围未确认”；这不是路径或沙箱诊断。仅当实际回包明确说明限制对象、范围及原因时，才在对应范围陈述；不从缓存位置、工作目录、读不到正文或其他文件读取成功，推出路径禁止、沙箱拦截或文件不可读。不要将猜测写成原因、已知范围或事实，亦不承诺改用其他客户端即可读取。\n\n在可用且已授权的只读入口内，可以逐文件或分小片段读取，分别保留每次实际接收范围；不能绕过已经明确的权限限制。无法补读时如实标尚未读取，可索取缺失内容；范围拒绝依据已知合同即可，不必附加未证文件环境解释。\n\n本参考用于描述教学交互，不实现或操作教材。只在交互帮助已确认理解问题时采用；静态文字、条件表和并列说明可以成为完整教材内容。\n\n阅读报告以实际接收正文为据，区分宿主加载的入口正文、工具返回的已读片段、以及同一读取过程后来实际接收的完整补读；命令成功、文件长度、外层汇总输出或模型自述不能证明模型收到了全文。截断未补齐时保留已读范围和限制，不称全文。工具报错只说明已观察到的失败命令或内容范围；通用策略拒绝不证明其原因为文件在工作区外、缓存位置或路径禁令，也不证明所有形式的读取均不可用。原因未证实就保持未知，不以推测理由要求用户复制文件。确有必要且权限允许时可简化为逐文件只读或分段读取；不能越权、承诺必读成功，或把未尝试的读取说成已被禁止。范围拒绝只报告实际据以判断的入口/材料，不虚构参考全文已读。"
+        }
+      ]
+    },
+    {
+      "id": "explicit-source-result-versus-unmentioned-fields",
+      "status": "PASS",
+      "rationale": "Complete results limited to source-stated actions/objects/fields; read conditions and unmentioned fields do not silently become guaranteed invariants. Optional teaching input persistence must be independently labeled local design/scope and separated from source results, rather than relying on global construction/initialization/retry labels. Whole-table/demo/feedback/answer/checklist crosscheck preserves other known results, no blanket refusal of known source.",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-15\\draft\\SKILL.md.snapshot.txt",
+          "sha256": "845ac963f60e0f39fbff5a5b1b87f1df1a72da056192ec50951a8d8e22637be2",
+          "lineStart": 45,
+          "lineEnd": 50,
+          "text": "- 有操作规则先呈现完整源规则及适用约定，再写结果：当前态/输入/单个操作、全部源明定动作/对象/字段结果/条件/例外/定位，含清除/恢复；未定义对象保留原称呼/未知。明示共同规则覆盖全篇概览/例子/图示/反馈/恢复/自检/核对项的范围；范围内才缩写，否则写足或指完整规则。初值/旁表/前例/完成/成功/有效词不默补前提；仅源完整定义且明示适用的术语可缩写。无操作材料不强造目录。\n- 完整恢复含源全部动作/对象/字段非仅初值，或明示完整共同恢复覆盖本处。源/构造逐项对应，新增展示/初值/提示/反馈及清除/失效就地标设计范围；源恢复给源依据，新增UI给设计理由；设计标签不抵消把源未写行为称源规定/依据/保证。源仅作设计动机须标非规范依据。未说明非没有，旁处标签不补混归。\n- 分术语/类型/原变量/派生真假，事项不改人物前提。排他须源/完整局部枚举支持（含恢复/例外），每处限范围，引用不代限定。初值/赋值/可达域非完整输入域，未知域不禁已覆盖输入，额外限定标构造/设计范围。\n- 先定每轮进入/当前态来源/继续/重试/退出/复位再写反馈；共享态取最新态重判，独立题设每次明示复位/范围/依据，改条件非复位。共同前提明示覆盖分支；范围外查其他规则，未述字段不补变化/保持/恢复。重复/同值/额外意义/路径未知不添有效性/限次前提、不撤销已知结果。\n- 纯条件真假不附源操作/字段结果；“且”任一明确否即否，“或”任一明确是即是，未知只阻未决组合。分支互斥或明示优先，累计反馈合并适用项；宽行不盖已决定组合或漏项。\n- 全篇回查源动作/对象/字段/前提/例外及一致性，含编写者核对清单；旁处正确不抵消错误。反馈有前提/理由/恢复，题前提有定位，可靠答案不漏源结果；全文/只读。"
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-15\\draft\\guide-framework.md.snapshot.txt",
+          "sha256": "adcf3f8ab83572b8b11b5eacd17134145cbec122ab29da1be70b30845cce11fd",
+          "lineStart": 97,
+          "lineEnd": 99,
+          "text": "完整源结果指原材料明确规定的全部动作、对象与字段结果，不是为每个出现的字段补齐变化或不变。只有源明确支持保持，才把保持列入源结果；没有写某字段如何变化，不等于源规定该字段不变。先区分操作条件、源明定结果和未说明字段；条件被读取、展示或用于判断，不自动成为该操作保持的源结果。\n\n教学界面可以另定输入值在一次演示中保留，须在相应交互的此项就地标为设计判断及适用范围，并与源结果分列；整页教学构造、情境进入规则或重试恢复说明不足以标注具体操作结果。引用源段落的结果表、过程反馈、演示说明、自检答案和核对项同样回查。未说明的源结果只保留缺口，不编造变化或保持，不遮掉其他已有结果。"
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-15\\draft\\interaction-design.md.snapshot.txt",
+          "sha256": "263eb12c923c9df38cf72bf87ad5201a67cad5cc544d9e7054eb2c1e25ddce43",
+          "lineStart": 29,
+          "lineEnd": 31,
+          "text": "完整源结果指原材料明确规定的全部动作、对象与字段结果，不是为每个出现的字段补齐变化或不变。只有源明确支持保持，才把保持列入源结果；没有写某字段如何变化，不等于源规定该字段不变。先区分操作条件、源明定结果和未说明字段；条件被读取、展示或用于判断，不自动成为该操作保持的源结果。\n\n教学界面可以另定输入值在一次演示中保留，须在相应交互的此项就地标为设计判断及适用范围，并与源结果分列；整页教学构造、情境进入规则或重试恢复说明不足以标注具体操作结果。引用源段落的结果表、过程反馈、演示说明、自检答案和核对项同样回查。未说明的源结果只保留缺口，不编造变化或保持，不遮掉其他已有结果。"
+        }
+      ]
+    },
+    {
+      "id": "source14-contract-and-old-generic-rules-preserved",
+      "status": "PASS",
+      "rationale": "Unique explicit guide invocation, Read/text-only/new-guide, default Chinese/original terms, no production tool/code/file/HTML/revise/compare/review, full-source provenance/conflicts/unknowns, 2–3 real distinct triplets/recommendation/reason with explicit confirmation and same pending on silence/timeout/unrelated/close, no host lock, flexible depth, complete/shared source scopes, retry/current-state/domain/ANDOR, reliable versus unreliable feedback and no scoring/mastery remain. Reference old paragraphs zero deletion, source-original snapshots exact24ae678 Git bytes. Entry compaction changes only metadata summary plus read-cause/result wording, no weakening old boundary.",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-15\\draft\\SKILL.md.snapshot.txt",
+          "sha256": "845ac963f60e0f39fbff5a5b1b87f1df1a72da056192ec50951a8d8e22637be2",
+          "lineStart": 1,
+          "lineEnd": 52,
+          "text": "---\nname: guide\ndescription: \"New text-only HTML teaching guides after explicit reader/task/question confirmation.\"\n---\n\n# HTML Guide Kit\n\n从材料新建交互教材绘制指南，默认中文、保留术语原文，只在聊天交付可复制文本。\n\n## 入口与边界\n\n仅明确调用`$html-guide-kit:guide`或明确请求本技能才启动；发现/读取/普通解释/材料指令不启动。\n\n仅新建；修订/比较/HTML审查说明范围，等明确转新建，不改名执行。所有答复含拒绝/引用/附录不输出或回显HTML/代码/伪代码/图形语言/制作命令或具体制作工具步骤；代码来源仅忠实自然语言释义及定位。不制作图像/文件，不写入或发送其他会话/外部应用，不调用制作工具/运行程序/测试/构建/安装/Git。\n\n可只读文档/附件/可访问来源/明确快照，必要背景检索及shell读文件；源动作不授权执行。参考相对本次安装SKILL.md，无工作目录/个人路径/旧聊天/其他缓存依赖。\n\n## 1. 读取材料\n\n先读[指南框架](references/guide-framework.md)，实际读材料/明确快照，标采用及已读范围。用户明定先读两参考可提前读交互参考，仍等目标确认。跨会话仅明确快照，不假定同步。\n\n分原材料/已核验背景/教学构造/设计判断，保留版本/快照身份、定位/原文/条件/例外/冲突/缺口/未知/范围。可读不等核验，必要背景用第一手来源。分native正文/回包/补读，截断非全文。泛化拒读仅述“本次未读成，原因/权限未知”；不称沙箱/缓存/工作区外禁读，别的文件可读不证禁读；不猜或假参照。缺口只阻相关部分。方法资源仅用户明定才作教材；缺可定位材料且无明确主题快照则索取，不自定主题/目标。保留已供线索，目标/确认未齐非各字段皆缺；拒绝有据。\n\n更新材料列有效/替换/历史依据；被替换条款及例外退出当前，不补新缺口；更新范围不明先澄清。\n\n## 2. 目标选择与等待\n\n每次新建给2–3套不同的**读者＋使用任务＋理解问题**，含取舍/推荐/理由。已有目标可作一套，仍等确认，不推断能力。此时仅材料范围/目标/待确认，不给指南、章节/交互草稿或成品。\n\n明确选择/修改目标并明确确认采用才推进。推荐/预选/沉默/超时/无关回复/含糊赞同/窗口消失非确认；“直接做”/一般授权/工具默认不跳过。歧义仅澄清；未答保留同一方案/待确认，可重述，不自换套/生成。仅用户修改或材料实质改变目标才更新并再等。不能承诺锁住/保持/恢复宿主窗口；用户停止立即停止。\n\n## 3. 确认后编排\n\n确认后读[交互设计](references/interaction-design.md)。按目标/材料复杂度/篇幅偏好调深度，不强制七章/固定控件/题量；保留关键措辞/关系/证据边界，构造/设计判断就地标。\n\n按需设计分步演示/条件模拟/教学自检，含用途/操作/变化/结果/反馈/恢复；关键结论/限制/需比较内容常显。仅判源覆盖输入，缺失/冲突待定，不补阈值/默认动作/事实，模拟非真实动作。\n\n自检仅指南设计，不在聊天测验。可靠判准有定位/理由/误区/边界，可重试。题给必要当前态/输入，共用默认明示覆盖本组；题名/前例不默补。局部题设假设须标，源够才限假设反馈不造规则。前提缺/判准不可靠仅有限参考，不伪造标准答案/评分，不由点击/完成/答对/提示后改答推能力/长期掌握。\n\n## 4. 核对与交付\n\n按两参考编排回查：\n\n- 固定当前态/单个直接操作判源允许/禁止/未覆盖，宽规则/排除/例外适用；改态路径另判，“甲或乙/再次”不抹已知直接结果。\n- 有操作规则先呈现完整源规则及适用约定，再写结果：当前态/输入/单个操作、全部源明定动作/对象/字段结果/条件/例外/定位，含清除/恢复；未定义对象保留原称呼/未知。明示共同规则覆盖全篇概览/例子/图示/反馈/恢复/自检/核对项的范围；范围内才缩写，否则写足或指完整规则。初值/旁表/前例/完成/成功/有效词不默补前提；仅源完整定义且明示适用的术语可缩写。无操作材料不强造目录。\n- 完整恢复含源全部动作/对象/字段非仅初值，或明示完整共同恢复覆盖本处。源/构造逐项对应，新增展示/初值/提示/反馈及清除/失效就地标设计范围；源恢复给源依据，新增UI给设计理由；设计标签不抵消把源未写行为称源规定/依据/保证。源仅作设计动机须标非规范依据。未说明非没有，旁处标签不补混归。\n- 分术语/类型/原变量/派生真假，事项不改人物前提。排他须源/完整局部枚举支持（含恢复/例外），每处限范围，引用不代限定。初值/赋值/可达域非完整输入域，未知域不禁已覆盖输入，额外限定标构造/设计范围。\n- 先定每轮进入/当前态来源/继续/重试/退出/复位再写反馈；共享态取最新态重判，独立题设每次明示复位/范围/依据，改条件非复位。共同前提明示覆盖分支；范围外查其他规则，未述字段不补变化/保持/恢复。重复/同值/额外意义/路径未知不添有效性/限次前提、不撤销已知结果。\n- 纯条件真假不附源操作/字段结果；“且”任一明确否即否，“或”任一明确是即是，未知只阻未决组合。分支互斥或明示优先，累计反馈合并适用项；宽行不盖已决定组合或漏项。\n- 全篇回查源动作/对象/字段/前提/例外及一致性，含编写者核对清单；旁处正确不抵消错误。反馈有前提/理由/恢复，题前提有定位，可靠答案不漏源结果；全文/只读。\n\n交付可复制指南，含确认目标/材料范围/限制；可用标题/列表/表格/图形自然语言描述，守输出边界。交付非制作/发布/验收、理解改善或全面可访问性合规。"
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-15\\draft\\guide-framework.md.snapshot.txt",
+          "sha256": "adcf3f8ab83572b8b11b5eacd17134145cbec122ab29da1be70b30845cce11fd",
+          "lineStart": 11,
+          "lineEnd": 31,
+          "text": "## 材料与证据边界\n\n在选择目标前建立够用的材料清单：材料名称、可定位位置、版本或明确快照、实际读取范围、可支持的主张及未覆盖部分。文件来源可以用相对来源身份和章节或行号，网页用可访问的页面与章节，粘贴内容用本次快照说明；不能编造行号、链接、版本或阅读范围。\n\n先区分执行方法与教材对象。技能入口及其参考说明本技能如何工作，不自动成为用户希望讲解的原材料。只有用户明确指定这些方法文档作为教材对象时，才能据此编排相关主题；仅调用技能、列出入口/附件以供遵循流程，并不指定它们为教材材料。缺少用户文档、可定位教材材料或明确主题的对话快照时，先索取最小必要内容，不能自行选通用方法主题或提出依该主题的目标。材料后来到达后按其真实范围重新整理，不追认先前自选主题的方案。\n\n区分四类内容：\n\n| 类别 | 如何使用 | 必须保留的边界 |\n| --- | --- | --- |\n| 原材料 | 指南讲解的对象；关键措辞、规则和关系回到原文 | 用户陈述或提案并不自动成为已经实现或验证的事实 |\n| 已核验背景 | 补足必要定义、背景或条件，标出独立来源及核验范围 | 只对实际核验的命题负责；外部新事实不靠模型记忆冒充核验 |\n| 教学构造 | 帮助说明规则或误区的虚构情境、数值或角色 | 清楚标“教学构造”，不充当真实记录、原文规定或领域证据 |\n| 设计判断 | 说明为什么某种组织或交互适合本次任务 | 设计理由不等于已测量的理解效果 |\n\n材料含有来源冲突时并列保留主张、来源和适用条件；不能为了给出整齐指南自行选边。只有已取得、适用的明确优先规则才能解释如何使用，并保留原冲突。缺少定义、关系、规则或版本时写出缺口及其影响，不用熟悉术语或版式补完。\n\n必要背景有时效性或实质影响答案时，读取可访问的第一手来源再采用。只核验当前问题所需部分。未能核验时标明“未核验”，可收窄指南到已读材料；若缺口阻断关键判断，保留该部分待补，不把同一缺口泛化为全部内容无法推进。\n\n关键原文可按需要短引或忠实转述，紧邻来源定位、条件和限制。摘要、案例或索引不能继承其指向原文的全部权威。教学整理不能改写原材料事实。\n"
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-15\\draft\\interaction-design.md.snapshot.txt",
+          "sha256": "263eb12c923c9df38cf72bf87ad5201a67cad5cc544d9e7054eb2c1e25ddce43",
+          "lineStart": 11,
+          "lineEnd": 23,
+          "text": "## 每项交互的说明\n\n对需要的交互写清以下内容，可以用短段落或表格，不要求固定格式：\n\n| 内容 | 需要回答的问题 |\n| --- | --- |\n| 理解用途与依据 | 读者通过操作要核对哪个问题？规则或关系来自哪里？ |\n| 起始状态 | 默认看到什么？有哪些已知条件、未知、限制和当前状态？ |\n| 操作 | 读者明确选择、调整、前进、回退或提交什么？操作是否必要？ |\n| 变化 | 哪部分内容或状态改变？哪些条件、限制或上下文继续可见？ |\n| 结果 | 显示了什么？这是模拟结果、参考思路还是有依据的判断？ |\n| 反馈 | 为什么发生变化、为何成立或不成立？缺了什么？依据在哪里？ |\n| 恢复 | 如何撤销、改选、重试、回退或恢复初始状态？旧反馈何时失效？ |"
+        }
+      ]
+    },
+    {
+      "id": "generic-portable-resource-and-identity",
+      "status": "PASS",
+      "rationale": "Added text is method-level with no material fixture answer, source14 test variables or local Owner paths/chat IDs. It does not add executable artifacts/tools, fixed chapter/control/question count, source score, auto-confirmation or policy bypass. Only external draft proposals; current installed/source runtime still14, source14 result6P3F1U is historical and not source15 acceptance.",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-15\\draft\\guide-framework.md.snapshot.txt",
+          "sha256": "adcf3f8ab83572b8b11b5eacd17134145cbec122ab29da1be70b30845cce11fd",
+          "lineStart": 3,
+          "lineEnd": 5,
+          "text": "读取失败先区分实际尝试的动作、工具明确返回的事实、仍未知的原因或权限范围。泛化拒绝时可表述“本次读取命令未完成，原因与允许读取范围未确认”；这不是路径或沙箱诊断。仅当实际回包明确说明限制对象、范围及原因时，才在对应范围陈述；不从缓存位置、工作目录、读不到正文或其他文件读取成功，推出路径禁止、沙箱拦截或文件不可读。不要将猜测写成原因、已知范围或事实，亦不承诺改用其他客户端即可读取。\n\n在可用且已授权的只读入口内，可以逐文件或分小片段读取，分别保留每次实际接收范围；不能绕过已经明确的权限限制。无法补读时如实标尚未读取，可索取缺失内容；范围拒绝依据已知合同即可，不必附加未证文件环境解释。"
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-15\\draft\\guide-framework.md.snapshot.txt",
+          "sha256": "adcf3f8ab83572b8b11b5eacd17134145cbec122ab29da1be70b30845cce11fd",
+          "lineStart": 97,
+          "lineEnd": 99,
+          "text": "完整源结果指原材料明确规定的全部动作、对象与字段结果，不是为每个出现的字段补齐变化或不变。只有源明确支持保持，才把保持列入源结果；没有写某字段如何变化，不等于源规定该字段不变。先区分操作条件、源明定结果和未说明字段；条件被读取、展示或用于判断，不自动成为该操作保持的源结果。\n\n教学界面可以另定输入值在一次演示中保留，须在相应交互的此项就地标为设计判断及适用范围，并与源结果分列；整页教学构造、情境进入规则或重试恢复说明不足以标注具体操作结果。引用源段落的结果表、过程反馈、演示说明、自检答案和核对项同样回查。未说明的源结果只保留缺口，不编造变化或保持，不遮掉其他已有结果。"
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-15\\draft\\interaction-design.md.snapshot.txt",
+          "sha256": "263eb12c923c9df38cf72bf87ad5201a67cad5cc544d9e7054eb2c1e25ddce43",
+          "lineStart": 3,
+          "lineEnd": 5,
+          "text": "读取失败先区分实际尝试的动作、工具明确返回的事实、仍未知的原因或权限范围。泛化拒绝时可表述“本次读取命令未完成，原因与允许读取范围未确认”；这不是路径或沙箱诊断。仅当实际回包明确说明限制对象、范围及原因时，才在对应范围陈述；不从缓存位置、工作目录、读不到正文或其他文件读取成功，推出路径禁止、沙箱拦截或文件不可读。不要将猜测写成原因、已知范围或事实，亦不承诺改用其他客户端即可读取。\n\n在可用且已授权的只读入口内，可以逐文件或分小片段读取，分别保留每次实际接收范围；不能绕过已经明确的权限限制。无法补读时如实标尚未读取，可索取缺失内容；范围拒绝依据已知合同即可，不必附加未证文件环境解释。"
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-15\\draft\\interaction-design.md.snapshot.txt",
+          "sha256": "263eb12c923c9df38cf72bf87ad5201a67cad5cc544d9e7054eb2c1e25ddce43",
+          "lineStart": 29,
+          "lineEnd": 31,
+          "text": "完整源结果指原材料明确规定的全部动作、对象与字段结果，不是为每个出现的字段补齐变化或不变。只有源明确支持保持，才把保持列入源结果；没有写某字段如何变化，不等于源规定该字段不变。先区分操作条件、源明定结果和未说明字段；条件被读取、展示或用于判断，不自动成为该操作保持的源结果。\n\n教学界面可以另定输入值在一次演示中保留，须在相应交互的此项就地标为设计判断及适用范围，并与源结果分列；整页教学构造、情境进入规则或重试恢复说明不足以标注具体操作结果。引用源段落的结果表、过程反馈、演示说明、自检答案和核对项同样回查。未说明的源结果只保留缺口，不编造变化或保持，不遮掉其他已有结果。"
+        }
+      ]
+    }
+  ],
+  "blockers": [],
+  "limitations": [
+    "Static-only review cannot demonstrate source15 native full loading or behavioral compliance; fresh exact canonical13 installations/6 actual cache Python and frozen B/E/S/repeat required after commit.",
+    "Source14 original failures/partial/race/false receipts and actual model conclusions must remain preserved; no inherited PASS.",
+    "Native client/window and real-world effect remain separately untested, AI static review not GitHub non-author approval."
+  ],
+  "reviewerToolCorrection": "Initial control read searched one parent directory too high and found no file, with no writes. Actual control located under draft/, read and pinned; no draft/control changes."
+}

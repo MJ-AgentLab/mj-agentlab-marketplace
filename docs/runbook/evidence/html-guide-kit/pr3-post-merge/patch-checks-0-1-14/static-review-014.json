@@ -1,0 +1,848 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-13T14:09:30.307Z",
+  "reviewer": "logic_review / independent readonly static reviewer",
+  "status": "STATIC_ONLY",
+  "verdict": "NO_STATIC_BLOCKERS",
+  "proposedVersion": "0.1.14",
+  "source": {
+    "canonicalSha": "09c173a91e19c688a79420673ecc76ccd35c51f0",
+    "canonicalTree": "31db830c87f3839e239c9f1e9dcdcc84074c4b5f",
+    "sourceVersion": "0.1.13",
+    "currentHeadAtReview": "0fe3fbd055a83ed75d0cfe3ce3ff98ca320fe8ad",
+    "workingRuntimeStillSource13Exact": true,
+    "ownGitMutation": false
+  },
+  "draftControl": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\draft-control.json",
+    "sha256": "ed47b42bbad93fe64558453be6b3db09ddca5881f78b8c613fc498456c962305",
+    "data": {
+      "recordedAt": "2026-10-13T13:54:27.984Z",
+      "sourceCanonical": "09c173a91e19c688a79420673ecc76ccd35c51f0",
+      "sourceVersion": "0.1.13",
+      "proposedVersion": "0.1.14",
+      "sourceUnmodified": true,
+      "entryBudget": 6144,
+      "rows": [
+        {
+          "relative": "SKILL.md",
+          "oldBytes": 6144,
+          "oldSha256": "57cd9dcc469b55cbed015c4e5efb6d900b556493dec96420ca0bdce9ce9b4ac8",
+          "newBytes": 6144,
+          "newSha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239"
+        },
+        {
+          "relative": "references/guide-framework.md",
+          "oldBytes": 19793,
+          "oldSha256": "75fa5588ebf057077d4067c066e3de33397fbbdbf1f7acac9b95f038114575ed",
+          "newBytes": 22615,
+          "newSha256": "74e47bb75ad8f82d86260211e3b6966f6bc79ee3dc7fa73c3d95deec491cd36c"
+        },
+        {
+          "relative": "references/interaction-design.md",
+          "oldBytes": 20673,
+          "oldSha256": "65073f861d11a7b76e3d6d8667d8e2b72bd3480836c95ca53e6b5d725a679498",
+          "newBytes": 23495,
+          "newSha256": "0d06a5b2f066f58b86456f8f9fa460834079cf96d78e619fa4d0d9cc3a9a98f8"
+        }
+      ],
+      "applied": false,
+      "model": "NOT_RUN"
+    },
+    "pinsIndependentlyVerified": true
+  },
+  "method": {
+    "scope": "Full three texts and true line-LCS comparison against Source13 runtime; no implementation, test, native load or new behavior evaluation.",
+    "skillUsed": "mp-flow-self-review",
+    "sourceContext": [
+      {
+        "relative": "AGENTS.md",
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\AGENTS.md",
+        "bytes": 16165,
+        "sha256": "438fbc6456d5c54f543fc887dfbfeebb3126d691391313b40ae86289d09fa1cf"
+      },
+      {
+        "relative": ".agents/skills/mp-flow-self-review/SKILL.md",
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\.agents\\skills\\mp-flow-self-review\\SKILL.md",
+        "bytes": 1197,
+        "sha256": "1aa1ec753228e8ecd915d512e80b72115af0e213837eba3b0bee3c472fa23095"
+      },
+      {
+        "relative": "docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md",
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\rule\\[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md",
+        "bytes": 2256,
+        "sha256": "ab0ec42cd3207c48163aadc29403fd718fc61d4beaebc5728617d23620144fd6"
+      },
+      {
+        "relative": "docs/rule/[STANDARD]_Commit_Message_Convention.md",
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\rule\\[STANDARD]_Commit_Message_Convention.md",
+        "bytes": 18675,
+        "sha256": "1ab9203af78d9e6de203cb6dd520cc4a96350ad18dab095f842c03e188c1e40f"
+      }
+    ],
+    "source7Resources": [
+      {
+        "relative": "assets/icon.png",
+        "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\assets\\icon.png",
+        "bytes": 119566,
+        "rawSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+        "canonicalSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+        "source13Exact": true
+      },
+      {
+        "relative": "assets/icon.svg",
+        "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\assets\\icon.svg",
+        "bytes": 1261,
+        "rawSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+        "canonicalSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+        "source13Exact": true
+      },
+      {
+        "relative": "plugin.json",
+        "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\plugin.json",
+        "bytes": 1531,
+        "rawSha256": "0035e0c36dbaecb33cd10da1857f4f08b01074161174e6411ebfd16bdef46e56",
+        "canonicalSha256": "0035e0c36dbaecb33cd10da1857f4f08b01074161174e6411ebfd16bdef46e56",
+        "source13Exact": true
+      },
+      {
+        "relative": "skills/guide/SKILL.md",
+        "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+        "bytes": 6144,
+        "rawSha256": "57cd9dcc469b55cbed015c4e5efb6d900b556493dec96420ca0bdce9ce9b4ac8",
+        "canonicalSha256": "57cd9dcc469b55cbed015c4e5efb6d900b556493dec96420ca0bdce9ce9b4ac8",
+        "source13Exact": true
+      },
+      {
+        "relative": "skills/guide/agents/openai.yaml",
+        "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\agents\\openai.yaml",
+        "bytes": 444,
+        "rawSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+        "canonicalSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+        "source13Exact": true
+      },
+      {
+        "relative": "skills/guide/references/guide-framework.md",
+        "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\guide-framework.md",
+        "bytes": 19793,
+        "rawSha256": "75fa5588ebf057077d4067c066e3de33397fbbdbf1f7acac9b95f038114575ed",
+        "canonicalSha256": "75fa5588ebf057077d4067c066e3de33397fbbdbf1f7acac9b95f038114575ed",
+        "source13Exact": true
+      },
+      {
+        "relative": "skills/guide/references/interaction-design.md",
+        "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\interaction-design.md",
+        "bytes": 20673,
+        "rawSha256": "65073f861d11a7b76e3d6d8667d8e2b72bd3480836c95ca53e6b5d725a679498",
+        "canonicalSha256": "65073f861d11a7b76e3d6d8667d8e2b72bd3480836c95ca53e6b5d725a679498",
+        "source13Exact": true
+      }
+    ],
+    "readOnlyGit": true,
+    "fullSnapshotBytesAndDiffs": [
+      {
+        "relative": "SKILL.md",
+        "oldSourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+        "newDraftPath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\SKILL.md",
+        "oldSnapshot": {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\static-review-logic\\source13-SKILL.snapshot.txt",
+          "bytes": 6144,
+          "sha256": "57cd9dcc469b55cbed015c4e5efb6d900b556493dec96420ca0bdce9ce9b4ac8",
+          "rawEqualsSource": true
+        },
+        "newSnapshot": {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\static-review-logic\\candidate14-SKILL.snapshot.txt",
+          "bytes": 6144,
+          "sha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239",
+          "rawEqualsDraft": true
+        },
+        "fullLcsDiff": {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\static-review-logic\\SKILL.lcs-diff.json",
+          "bytes": 16943,
+          "sha256": "9dbffb81e7837dc50de99ca8067d88e5c052e33b0e3005ce38e44af704c32a00",
+          "oldLines": 53,
+          "newLines": 53,
+          "oldReconstructedExactlyAfterDisplayEolNormalization": true,
+          "newReconstructedExactlyAfterDisplayEolNormalization": true,
+          "removals": 17,
+          "additions": 17
+        }
+      },
+      {
+        "relative": "references/guide-framework.md",
+        "oldSourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\guide-framework.md",
+        "newDraftPath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\guide-framework.md",
+        "oldSnapshot": {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\static-review-logic\\source13-guide-framework.snapshot.txt",
+          "bytes": 19793,
+          "sha256": "75fa5588ebf057077d4067c066e3de33397fbbdbf1f7acac9b95f038114575ed",
+          "rawEqualsSource": true
+        },
+        "newSnapshot": {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\static-review-logic\\candidate14-guide-framework.snapshot.txt",
+          "bytes": 22615,
+          "sha256": "74e47bb75ad8f82d86260211e3b6966f6bc79ee3dc7fa73c3d95deec491cd36c",
+          "rawEqualsDraft": true
+        },
+        "fullLcsDiff": {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\static-review-logic\\guide-framework.lcs-diff.json",
+          "bytes": 36030,
+          "sha256": "db80a52ea6c97dc45bba4a4d7150ed1bae355da7227da66fbc904b69b0d41f61",
+          "oldLines": 133,
+          "newLines": 143,
+          "oldReconstructedExactlyAfterDisplayEolNormalization": true,
+          "newReconstructedExactlyAfterDisplayEolNormalization": true,
+          "removals": 0,
+          "additions": 10
+        }
+      },
+      {
+        "relative": "references/interaction-design.md",
+        "oldSourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\interaction-design.md",
+        "newDraftPath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\interaction-design.md",
+        "oldSnapshot": {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\static-review-logic\\source13-interaction-design.snapshot.txt",
+          "bytes": 20673,
+          "sha256": "65073f861d11a7b76e3d6d8667d8e2b72bd3480836c95ca53e6b5d725a679498",
+          "rawEqualsSource": true
+        },
+        "newSnapshot": {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\static-review-logic\\candidate14-interaction-design.snapshot.txt",
+          "bytes": 23495,
+          "sha256": "0d06a5b2f066f58b86456f8f9fa460834079cf96d78e619fa4d0d9cc3a9a98f8",
+          "rawEqualsDraft": true
+        },
+        "fullLcsDiff": {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\static-review-logic\\interaction-design.lcs-diff.json",
+          "bytes": 36430,
+          "sha256": "a7c36278ba4333a2a33911ff359f398fc273421b9f4db816bda34505387083af",
+          "oldLines": 128,
+          "newLines": 138,
+          "oldReconstructedExactlyAfterDisplayEolNormalization": true,
+          "newReconstructedExactlyAfterDisplayEolNormalization": true,
+          "removals": 0,
+          "additions": 10
+        }
+      }
+    ],
+    "referenceBaselineLinesRemoved": false,
+    "fixtureOrOwnerDependencyScanHits": []
+  },
+  "criteria": [
+    {
+      "id": "public-scope-read-and-all-replies",
+      "rationale": "入口仍仅明确启动、仅从材料新建、默认中文保留原术语、聊天可复制文本；压缩描述未授权修订/方案比较/HTML审查。拒绝、来源引用与附录均保留 noHTML/code/pseudocode/productionsteps/artifact/write/external-message/execution 边界，只读材料/背景检索及shell文件读取为明确允许。",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\SKILL.md",
+          "sha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239",
+          "lineStart": 3,
+          "lineEnd": 16
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\interaction-design.md",
+          "sha256": "0d06a5b2f066f58b86456f8f9fa460834079cf96d78e619fa4d0d9cc3a9a98f8",
+          "lineStart": 35,
+          "lineEnd": 35
+        }
+      ],
+      "status": "NO_STATIC_BLOCKER"
+    },
+    {
+      "id": "material-role-and-existing-clues",
+      "rationale": "方法文档不自动变教材原材料；没有可定位教材材料且无明确主题快照才索取，不自行定主题或目标。保留已有线索，缺完整目标/未确认不抹掉已给字段，来源冲突/未核验背景/教学构造/设计判断仍逐项分层。",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\SKILL.md",
+          "sha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239",
+          "lineStart": 20,
+          "lineEnd": 24
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\guide-framework.md",
+          "sha256": "74e47bb75ad8f82d86260211e3b6966f6bc79ee3dc7fa73c3d95deec491cd36c",
+          "lineStart": 9,
+          "lineEnd": 31
+        }
+      ],
+      "status": "NO_STATIC_BLOCKER"
+    },
+    {
+      "id": "truthful-model-reception-and-policy-causes",
+      "rationale": "新增通用读据方法区分native正文、实际工具接收和补读，成功/长度/外层汇总不冒充全文；真实截断/错误保留。generic policy拒绝不能推出缓存、路径或工作区原因，也不保证所有读取形式失败；可授权只读简化补读但不越权或保证成功。未增加具体客户端/命令或测试领域规则。",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\SKILL.md",
+          "sha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239",
+          "lineStart": 22,
+          "lineEnd": 22
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\guide-framework.md",
+          "sha256": "74e47bb75ad8f82d86260211e3b6966f6bc79ee3dc7fa73c3d95deec491cd36c",
+          "lineStart": 5,
+          "lineEnd": 5
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\interaction-design.md",
+          "sha256": "0d06a5b2f066f58b86456f8f9fa460834079cf96d78e619fa4d0d9cc3a9a98f8",
+          "lineStart": 5,
+          "lineEnd": 5
+        }
+      ],
+      "status": "NO_STATIC_BLOCKER"
+    },
+    {
+      "id": "early-reference-read-still-strict-confirmation",
+      "rationale": "用户明确要求两参考先读时允许提前interaction，只有读取时机被明确覆盖；目标仍必须提供真实2–3三元组、等待明确选择或修改确认。提前读取不允许指南/章节/交互草稿，也不把安装、一般授权、工具默认视为确认。",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\SKILL.md",
+          "sha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239",
+          "lineStart": 20,
+          "lineEnd": 34
+        }
+      ],
+      "status": "NO_STATIC_BLOCKER"
+    },
+    {
+      "id": "same-pending-stop-and-window-bounds",
+      "rationale": "未答/推荐/预选/沉默/超时/无关/含糊/窗口消失仍不确认，同一pending保持，仅用户修改或材料实质改变才更新再等；不承诺窗口锁定/保持/恢复，明确停止立即停止。该整段与Source13 exact。",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\SKILL.md",
+          "sha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239",
+          "lineStart": 28,
+          "lineEnd": 30
+        }
+      ],
+      "status": "NO_STATIC_BLOCKER"
+    },
+    {
+      "id": "complete-rule-unit-before-summary-and-explicit-coverage",
+      "rationale": "完整源规则包含必要当前态/输入/单直接操作/全部动作对象与字段结果/条件例外范围定位。新增呈现顺序及共同适用约定覆盖哪些后文情境、概览/图示/反馈/恢复/自检/核对项，明确覆盖后才缩写；不让后放正确表自动补前文。共享规则是按规则映射情境，不将全部操作套同一初值前提。没有操作材料不强造规则目录，源无条件结果不加条件。",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\SKILL.md",
+          "sha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239",
+          "lineStart": 44,
+          "lineEnd": 45
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\guide-framework.md",
+          "sha256": "74e47bb75ad8f82d86260211e3b6966f6bc79ee3dc7fa73c3d95deec491cd36c",
+          "lineStart": 57,
+          "lineEnd": 65
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\interaction-design.md",
+          "sha256": "0d06a5b2f066f58b86456f8f9fa460834079cf96d78e619fa4d0d9cc3a9a98f8",
+          "lineStart": 37,
+          "lineEnd": 44
+        }
+      ],
+      "status": "NO_STATIC_BLOCKER"
+    },
+    {
+      "id": "completion-success-validity-words-not-missing-premise",
+      "rationale": "完成/有效/成功词本身不补当前态/输入/触发。缩写仅在源已完整定义术语且本指南明确其适用关系时可用；抽象详略不扩大关系范围，不能借单词隐含状态。此约束仍允许来源确实定义的局部已知结果，未把所有源成功结果改未知。",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\SKILL.md",
+          "sha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239",
+          "lineStart": 45,
+          "lineEnd": 45
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\guide-framework.md",
+          "sha256": "74e47bb75ad8f82d86260211e3b6966f6bc79ee3dc7fa73c3d95deec491cd36c",
+          "lineStart": 63,
+          "lineEnd": 63
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\interaction-design.md",
+          "sha256": "0d06a5b2f066f58b86456f8f9fa460834079cf96d78e619fa4d0d9cc3a9a98f8",
+          "lineStart": 42,
+          "lineEnd": 42
+        }
+      ],
+      "status": "NO_STATIC_BLOCKER"
+    },
+    {
+      "id": "direct-operations-wide-coverage-and-paths",
+      "rationale": "旧固定当前态/单直接操作匹配允许禁止未知完整保留；源宽规则/排除/例外覆盖重复或同值场景，路径未知不撤销当前已知直接结果，也不合并不同操作统一unknown。全部refs旧原文保留，新增没有改变此方法。",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\SKILL.md",
+          "sha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239",
+          "lineStart": 44,
+          "lineEnd": 48
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\interaction-design.md",
+          "sha256": "0d06a5b2f066f58b86456f8f9fa460834079cf96d78e619fa4d0d9cc3a9a98f8",
+          "lineStart": 79,
+          "lineEnd": 103
+        }
+      ],
+      "status": "NO_STATIC_BLOCKER"
+    },
+    {
+      "id": "complete-restore-actions-objects-fields-and-local-views",
+      "rationale": "完整恢复不是仅初值或清教学反馈：源动作/对象/字段/范围/现实边界保留，可明确继承完整共同恢复覆盖本处；局部视图须明示范围并引完整规则，不能声称完整枚举。源未定义对象保留原称呼与未知，不发明业务日志/审计/永久删除。",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\SKILL.md",
+          "sha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239",
+          "lineStart": 45,
+          "lineEnd": 46
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\guide-framework.md",
+          "sha256": "74e47bb75ad8f82d86260211e3b6966f6bc79ee3dc7fa73c3d95deec491cd36c",
+          "lineStart": 57,
+          "lineEnd": 69
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\interaction-design.md",
+          "sha256": "0d06a5b2f066f58b86456f8f9fa460834079cf96d78e619fa4d0d9cc3a9a98f8",
+          "lineStart": 46,
+          "lineEnd": 48
+        }
+      ],
+      "status": "NO_STATIC_BLOCKER"
+    },
+    {
+      "id": "source-normative-basis-versus-ui-design-reason",
+      "rationale": "新增UI清理/反馈失效/选中高亮的教学理由与源规则规范依据分别标明；设计标签不能抵消同处把未写行为归源。源能启发设计但要注明推理而非源规范依据。原材料明示教学恢复继续保留，另设UI展示行为仍可设计，不将两者一概否定。",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\SKILL.md",
+          "sha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239",
+          "lineStart": 46,
+          "lineEnd": 46
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\guide-framework.md",
+          "sha256": "74e47bb75ad8f82d86260211e3b6966f6bc79ee3dc7fa73c3d95deec491cd36c",
+          "lineStart": 67,
+          "lineEnd": 69
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\interaction-design.md",
+          "sha256": "0d06a5b2f066f58b86456f8f9fa460834079cf96d78e619fa4d0d9cc3a9a98f8",
+          "lineStart": 46,
+          "lineEnd": 48
+        }
+      ],
+      "status": "NO_STATIC_BLOCKER"
+    },
+    {
+      "id": "shared-independent-pure-conditions-lifecycle",
+      "rationale": "旧共享最新态每步重匹配、修改条件不自动复位；独立固定情境每次进入/重试明示题设复位/依据/范围；未知结果不静默完成或不发生。纯条件真值可不带业务状态，一旦附源操作或字段结果才需完整操作条件。",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\SKILL.md",
+          "sha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239",
+          "lineStart": 48,
+          "lineEnd": 49
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\guide-framework.md",
+          "sha256": "74e47bb75ad8f82d86260211e3b6966f6bc79ee3dc7fa73c3d95deec491cd36c",
+          "lineStart": 45,
+          "lineEnd": 55
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\interaction-design.md",
+          "sha256": "0d06a5b2f066f58b86456f8f9fa460834079cf96d78e619fa4d0d9cc3a9a98f8",
+          "lineStart": 83,
+          "lineEnd": 91
+        }
+      ],
+      "status": "NO_STATIC_BLOCKER"
+    },
+    {
+      "id": "AND-OR-known-priority-and-cumulative-feedback",
+      "rationale": "旧AND任一明确否、OR任一明确是的局部已知优先保留；未知仅阻尚未决定部分。操作分支互斥/明示优先，累计原因反馈明确合并所有适用项；宽行不能盖掉已决定组合或丢缺项。",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\SKILL.md",
+          "sha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239",
+          "lineStart": 49,
+          "lineEnd": 49
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\interaction-design.md",
+          "sha256": "0d06a5b2f066f58b86456f8f9fa460834079cf96d78e619fa4d0d9cc3a9a98f8",
+          "lineStart": 105,
+          "lineEnd": 113
+        }
+      ],
+      "status": "NO_STATIC_BLOCKER"
+    },
+    {
+      "id": "initial-reachable-value-domain-and-types",
+      "rationale": "初值/单次赋值/可达值不提升完整输入域/类型；未知值域不使源局部已覆盖输入无效。额外有限输入集合或边界为局部教学构造/设计限制，当处标明；不能通过其他地方正确标签补未标限定。",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\SKILL.md",
+          "sha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239",
+          "lineStart": 47,
+          "lineEnd": 47
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\guide-framework.md",
+          "sha256": "74e47bb75ad8f82d86260211e3b6966f6bc79ee3dc7fa73c3d95deec491cd36c",
+          "lineStart": 103,
+          "lineEnd": 105
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\interaction-design.md",
+          "sha256": "0d06a5b2f066f58b86456f8f9fa460834079cf96d78e619fa4d0d9cc3a9a98f8",
+          "lineStart": 61,
+          "lineEnd": 77
+        }
+      ],
+      "status": "NO_STATIC_BLOCKER"
+    },
+    {
+      "id": "quantifier-exclusivity-and-object-person-scope",
+      "rationale": "排他量词须源明确或完整局部枚举可证，枚举包括恢复重置/例外，范围就地限定；章节引用不是范围限定。源排除某事项/物件不排除持有者全部资格，原变量/派生真假/术语类型分开。",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\SKILL.md",
+          "sha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239",
+          "lineStart": 47,
+          "lineEnd": 47
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\guide-framework.md",
+          "sha256": "74e47bb75ad8f82d86260211e3b6966f6bc79ee3dc7fa73c3d95deec491cd36c",
+          "lineStart": 95,
+          "lineEnd": 105
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\interaction-design.md",
+          "sha256": "0d06a5b2f066f58b86456f8f9fa460834079cf96d78e619fa4d0d9cc3a9a98f8",
+          "lineStart": 99,
+          "lineEnd": 101
+        }
+      ],
+      "status": "NO_STATIC_BLOCKER"
+    },
+    {
+      "id": "selfcheck-necessary-premises-retry-no-scores",
+      "rationale": "旧必要当前态/输入/局部题设假设与明确共享默认保留；可靠才给对应理由误区/源定位，不可靠只有限参考、不强标准答案。允许改答重试、旧反馈失效及固定题设重建；不在聊天自动测验、不生能力等级/分数或长期掌握。",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\SKILL.md",
+          "sha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239",
+          "lineStart": 38,
+          "lineEnd": 38
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\interaction-design.md",
+          "sha256": "0d06a5b2f066f58b86456f8f9fa460834079cf96d78e619fa4d0d9cc3a9a98f8",
+          "lineStart": 119,
+          "lineEnd": 131
+        }
+      ],
+      "status": "NO_STATIC_BLOCKER"
+    },
+    {
+      "id": "adaptive-depth-and-format-no-fixed-control-chapter",
+      "rationale": "主入口与两参考仍明确围绕已确认问题、复杂度/篇幅偏好，不强固定七章、控件/题量。新完整规则与适用约定可自然语言或表格；用于保持所采用规则的语义完整，不强造无操作材料目录或额外读者/目标。",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\SKILL.md",
+          "sha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239",
+          "lineStart": 34,
+          "lineEnd": 36
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\guide-framework.md",
+          "sha256": "74e47bb75ad8f82d86260211e3b6966f6bc79ee3dc7fa73c3d95deec491cd36c",
+          "lineStart": 3,
+          "lineEnd": 3
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\guide-framework.md",
+          "sha256": "74e47bb75ad8f82d86260211e3b6966f6bc79ee3dc7fa73c3d95deec491cd36c",
+          "lineStart": 61,
+          "lineEnd": 61
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\guide-framework.md",
+          "sha256": "74e47bb75ad8f82d86260211e3b6966f6bc79ee3dc7fa73c3d95deec491cd36c",
+          "lineStart": 75,
+          "lineEnd": 91
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\interaction-design.md",
+          "sha256": "0d06a5b2f066f58b86456f8f9fa460834079cf96d78e619fa4d0d9cc3a9a98f8",
+          "lineStart": 3,
+          "lineEnd": 33
+        }
+      ],
+      "status": "NO_STATIC_BLOCKER"
+    },
+    {
+      "id": "source-updates-with-retired-exceptions-and-no-sync-assumptions",
+      "rationale": "旧更新材料有效/替换/历史清单与被替换条款/例外退出当前保留；不回填新来源缺口，不自动跨会话同步，更新范围不明先澄清。不能沿用旧确认覆盖实质变化目标。",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\SKILL.md",
+          "sha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239",
+          "lineStart": 20,
+          "lineEnd": 30
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\guide-framework.md",
+          "sha256": "74e47bb75ad8f82d86260211e3b6966f6bc79ee3dc7fa73c3d95deec491cd36c",
+          "lineStart": 29,
+          "lineEnd": 31
+        }
+      ],
+      "status": "NO_STATIC_BLOCKER"
+    },
+    {
+      "id": "no-domain-fixture-owner-path-or-reviewer-dependency",
+      "rationale": "三资源全文人工审阅与字符串检查均未见验收领域、规则数值、case ID、答案、reviewer路径、Owner盘路径/聊天ID或旧缓存依赖。新增均为通用 source-rule/premise/read-evidence/UI归因方法，未新增运行文件或分发入口。",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\SKILL.md",
+          "sha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239",
+          "bytes": 6144
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\guide-framework.md",
+          "sha256": "74e47bb75ad8f82d86260211e3b6966f6bc79ee3dc7fa73c3d95deec491cd36c",
+          "bytes": 22615
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\interaction-design.md",
+          "sha256": "0d06a5b2f066f58b86456f8f9fa460834079cf96d78e619fa4d0d9cc3a9a98f8",
+          "bytes": 23495
+        }
+      ],
+      "status": "NO_STATIC_BLOCKER"
+    },
+    {
+      "id": "entry-budget-native-distribution-and-source-integrity",
+      "rationale": "14入口6144 UTF8 bytes满足原inclusive6144，预算不放宽；两refs22615/23495。源七运行资源与Source09 Git bytes逐项exact，版本仍13、仅外部draft提出14，policy allow_implicit_invocation:false未动，图标/manifest/metadata不动。七次草稿预算超限是静态脚本失败而非真实模型行为，原脚本/log保持。",
+      "evidence": [
+        {
+          "source7": [
+            {
+              "relative": "assets/icon.png",
+              "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\assets\\icon.png",
+              "bytes": 119566,
+              "rawSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+              "canonicalSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+              "source13Exact": true
+            },
+            {
+              "relative": "assets/icon.svg",
+              "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\assets\\icon.svg",
+              "bytes": 1261,
+              "rawSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+              "canonicalSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+              "source13Exact": true
+            },
+            {
+              "relative": "plugin.json",
+              "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\plugin.json",
+              "bytes": 1531,
+              "rawSha256": "0035e0c36dbaecb33cd10da1857f4f08b01074161174e6411ebfd16bdef46e56",
+              "canonicalSha256": "0035e0c36dbaecb33cd10da1857f4f08b01074161174e6411ebfd16bdef46e56",
+              "source13Exact": true
+            },
+            {
+              "relative": "skills/guide/SKILL.md",
+              "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+              "bytes": 6144,
+              "rawSha256": "57cd9dcc469b55cbed015c4e5efb6d900b556493dec96420ca0bdce9ce9b4ac8",
+              "canonicalSha256": "57cd9dcc469b55cbed015c4e5efb6d900b556493dec96420ca0bdce9ce9b4ac8",
+              "source13Exact": true
+            },
+            {
+              "relative": "skills/guide/agents/openai.yaml",
+              "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\agents\\openai.yaml",
+              "bytes": 444,
+              "rawSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+              "canonicalSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+              "source13Exact": true
+            },
+            {
+              "relative": "skills/guide/references/guide-framework.md",
+              "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\guide-framework.md",
+              "bytes": 19793,
+              "rawSha256": "75fa5588ebf057077d4067c066e3de33397fbbdbf1f7acac9b95f038114575ed",
+              "canonicalSha256": "75fa5588ebf057077d4067c066e3de33397fbbdbf1f7acac9b95f038114575ed",
+              "source13Exact": true
+            },
+            {
+              "relative": "skills/guide/references/interaction-design.md",
+              "sourcePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\interaction-design.md",
+              "bytes": 20673,
+              "rawSha256": "65073f861d11a7b76e3d6d8667d8e2b72bd3480836c95ca53e6b5d725a679498",
+              "canonicalSha256": "65073f861d11a7b76e3d6d8667d8e2b72bd3480836c95ca53e6b5d725a679498",
+              "source13Exact": true
+            }
+          ]
+        },
+        {
+          "relative": "SKILL.md",
+          "oldBytes": 6144,
+          "oldSha256": "57cd9dcc469b55cbed015c4e5efb6d900b556493dec96420ca0bdce9ce9b4ac8",
+          "newBytes": 6144,
+          "newSha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239"
+        },
+        {
+          "relative": "references/guide-framework.md",
+          "oldBytes": 19793,
+          "oldSha256": "75fa5588ebf057077d4067c066e3de33397fbbdbf1f7acac9b95f038114575ed",
+          "newBytes": 22615,
+          "newSha256": "74e47bb75ad8f82d86260211e3b6966f6bc79ee3dc7fa73c3d95deec491cd36c"
+        },
+        {
+          "relative": "references/interaction-design.md",
+          "oldBytes": 20673,
+          "oldSha256": "65073f861d11a7b76e3d6d8667d8e2b72bd3480836c95ca53e6b5d725a679498",
+          "newBytes": 23495,
+          "newSha256": "0d06a5b2f066f58b86456f8f9fa460834079cf96d78e619fa4d0d9cc3a9a98f8"
+        }
+      ],
+      "status": "NO_STATIC_BLOCKER"
+    },
+    {
+      "id": "no-effect-or-behavior-pass-by-static",
+      "rationale": "保留设计/模拟非真实动作、拟检查非已测可用/全面可访问/理解改善；外部control.appliedfalse/modelNOT_RUN在本审查时成立，不能由文本无阻断推安装或模型PASS；Source13旧FAIL与schema投影状态均不改。",
+      "evidence": [
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\SKILL.md",
+          "sha256": "0e8f92324c31e9a5ee07295ef1f7e7b34c324c33104278939dc89494bbf32239",
+          "lineStart": 52,
+          "lineEnd": 52
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\guide-framework.md",
+          "sha256": "74e47bb75ad8f82d86260211e3b6966f6bc79ee3dc7fa73c3d95deec491cd36c",
+          "lineStart": 142,
+          "lineEnd": 142
+        },
+        {
+          "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\references\\interaction-design.md",
+          "sha256": "0d06a5b2f066f58b86456f8f9fa460834079cf96d78e619fa4d0d9cc3a9a98f8",
+          "lineStart": 131,
+          "lineEnd": 138
+        },
+        {
+          "draftControl": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft\\draft-control.json",
+          "sha256": "ed47b42bbad93fe64558453be6b3db09ddca5881f78b8c613fc498456c962305",
+          "applied": false,
+          "model": "NOT_RUN"
+        }
+      ],
+      "status": "NO_STATIC_BLOCKER"
+    }
+  ],
+  "blockers": [],
+  "observations": [
+    "先呈现完整源规则及适用约定是语义适用约束，允许自然语言/表格及所采用内容范围；不等于固定章数/控件或改变教材需要常显概览的设计要求。",
+    "原生入口和工具回包真实完整接收仍须在14安装与fresh会话核对；静态6144预算只能证明字节门槛，不能证明宿主加载或两参考成功全文。",
+    "两份refs旧段落零删除，本轮通用补充一致；入口压缩由上述旧边界逐项核对，不以metadata描述缩短解除正文约束。"
+  ],
+  "budgetFailureHistory": [
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft-budget-6146.log",
+      "bytes": 686,
+      "sha256": "c8924ebbf98ca3337851a06f6a6d35a5378cb3a515cc62269741024e22563552"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft-budget-6146.mjs",
+      "bytes": 15121,
+      "sha256": "beca4c643e968b818d8dfd02a3e0d17d900f697bdc0865b8a28b817f701942e2"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft-budget-6152.log",
+      "bytes": 686,
+      "sha256": "723d6c5aea332ac9b9702727b4ebb1ad702e55ef0f2554744f51777e5dcc5971"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft-budget-6152.mjs",
+      "bytes": 15127,
+      "sha256": "4fc28d73819b3c609d55259f23b57d06bb804ca7046d6dee8b25d5951ddd3401"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft-budget-6158.log",
+      "bytes": 686,
+      "sha256": "e29c16416a2f190ecee40a56db05ed619d503a771ba5e00c442ef2a5009b8ad8"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft-budget-6158.mjs",
+      "bytes": 15133,
+      "sha256": "1b86cc118711fea1a0c2127fcff036608590996f1621e4d06bc36fbd3fb94020"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft-budget-6164.log",
+      "bytes": 686,
+      "sha256": "11c339711a9605d8abec3b08adc3bd53b868719a901c3826e8dd856702e0fa9a"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft-budget-6164.mjs",
+      "bytes": 14517,
+      "sha256": "0626a9a29bb9ab28ff8ecadb36a9ef1540691f58fe74a8c70ece424a3f5becbc"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft-budget-6286.log",
+      "bytes": 686,
+      "sha256": "c60ea10b67a9147804a126dfa1605ecee703f70d7da16eb9b6bbcd6612a3fc6b"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft-budget-6286.mjs",
+      "bytes": 12485,
+      "sha256": "dc2200d813e120ce6c8bc00935bd4e601de84bfb0d60f2a961a251c9b947f909"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft-budget-6394.log",
+      "bytes": 686,
+      "sha256": "7ae7df2b2df8873240e7998fa6ef16a6053ab41c7192121dedd94fa629fdd63b"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft-budget-6394.mjs",
+      "bytes": 11671,
+      "sha256": "c23eb738592271cf0f257ad15264fc9e9f037017941bede99feab18abe7441d1"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft-budget-6563.log",
+      "bytes": 686,
+      "sha256": "2bc22ab726f9a3dc7a03b2e750f072ef25d287e76d7ba0bf06058fe2b8f203d6"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\draft-budget-6563.mjs",
+      "bytes": 8678,
+      "sha256": "a7947b0f779c1f2a0dc6ded41521a3524277f52ae38d822dac6b63c50d0e6cba"
+    }
+  ],
+  "newModelStatus": "NOT_RUN",
+  "newInstallationStatus": "NOT_RUN",
+  "uiStatus": "NOT_RUN",
+  "effectStatus": "NOT_MEASURED",
+  "notExecuted": [
+    "npm tests/validate/check/smoke",
+    "任何新模型/语义验收",
+    "新版本安装/cachePython/native接收",
+    "Git写入/版本应用/共享repo修改/GitHub批准",
+    "grade/import"
+  ],
+  "sourceOrControlsChangedByReviewer": false,
+  "reviewReportCitationCorrection": {
+    "initialReportPreserved": {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-14\\static-review-logic\\static-review-014.initial-citation.json",
+      "sha256": "919bb365cc5914de3fc128cff6446dd73782342d4eec5667acc9fa7dd243ef7e"
+    },
+    "change": "Only final framework paragraph citation corrected from blank line143 to actual paragraph142 before final handoff; no source/draft/status/rationale or behavior judgment change."
+  }
+}

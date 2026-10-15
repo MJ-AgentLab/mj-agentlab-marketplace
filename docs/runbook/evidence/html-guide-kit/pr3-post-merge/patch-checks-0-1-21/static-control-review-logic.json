@@ -1,0 +1,416 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T09:50:14.958Z",
+  "reviewer": "/root/precommit_014",
+  "status": "STATIC_ONLY",
+  "result": "NO_STATIC_BLOCKERS",
+  "sourceCanonical": "7e3deb8fb1d9960ede37ea96a714b1e34652a751",
+  "proposedVersion": "0.1.21",
+  "candidateOperator": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-sequential.manual.candidate.mjs",
+    "bytes": 5028,
+    "sha256": "fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42"
+  },
+  "originalOperator": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-sequential.manual.mjs",
+    "bytes": 4977,
+    "sha256": "8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b"
+  },
+  "globalSchedulingContract": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\scheduling-contract.json",
+    "bytes": 2460,
+    "sha256": "814643a2e4e095295a49dd46c284be380e979785535762e30f9ec69c22ca7d9a"
+  },
+  "controlFreeze": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\CONTROLS_FINAL_FROZEN.json",
+    "bytes": 7920,
+    "sha256": "85bce00fe95f1ae2add1e2d36a9bb65799aaec4267f467316de663f133b29403"
+  },
+  "versionGuardDiff": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\version-guard-exactdiff.json",
+    "bytes": 4029,
+    "sha256": "15ae34632f1fc7882c1279cc3ce3937fdcccc62aee6993db62461cfe1287de75"
+  },
+  "fixtureSummary": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-fixture-results\\summary.json",
+    "bytes": 20240,
+    "sha256": "5e4f0d1427fa81eb42a7b32861ef4518d1eb01f351b4badde125c15c2905d795"
+  },
+  "fixtureScript": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-scheduling-fixture.mjs",
+    "bytes": 8814,
+    "sha256": "6d055d6f303432c323fe1bddf3de1c7d84cf7a4645f4d2023e19647e298ddcb4"
+  },
+  "actualActivePins": [
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\blocking\\harness.mjs",
+      "bytes": 44751,
+      "sha256": "916bd929785c366559647bcbb2c62a74c8e531485f2f8fe99d1ac5add12e077a",
+      "relative": "blocking/harness.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\blocking\\plan.json",
+      "bytes": 13618,
+      "sha256": "58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2",
+      "relative": "blocking/plan.json"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\blocking\\frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "relative": "blocking/frozen-spec.md"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\blocking\\choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "relative": "blocking/choose-first.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\blocking\\record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "relative": "blocking/record-native-loading.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\blocking\\operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "relative": "blocking/operator-observations.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\expanded\\harness.mjs",
+      "bytes": 43715,
+      "sha256": "910b412ddbd3a2032435342d5d3b194709240724a3a40a027ae02acc3d7bdf9f",
+      "relative": "expanded/harness.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\expanded\\plan.json",
+      "bytes": 28082,
+      "sha256": "bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04",
+      "relative": "expanded/plan.json"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\expanded\\frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "relative": "expanded/frozen-spec.md"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\expanded\\choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "relative": "expanded/choose-first.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\expanded\\record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "relative": "expanded/record-native-loading.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\expanded\\operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "relative": "expanded/operator-observations.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\expanded\\expanded-plan.mjs",
+      "bytes": 10495,
+      "sha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+      "relative": "expanded/expanded-plan.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\continuous-supplement\\harness.mjs",
+      "bytes": 43715,
+      "sha256": "910b412ddbd3a2032435342d5d3b194709240724a3a40a027ae02acc3d7bdf9f",
+      "relative": "continuous-supplement/harness.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\continuous-supplement\\plan.json",
+      "bytes": 17314,
+      "sha256": "af18c35badde6b55ba3134781823565f9688e14e3e51505ffb8760b05fb57cd9",
+      "relative": "continuous-supplement/plan.json"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\continuous-supplement\\frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "relative": "continuous-supplement/frozen-spec.md"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\continuous-supplement\\choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "relative": "continuous-supplement/choose-first.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\continuous-supplement\\record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "relative": "continuous-supplement/record-native-loading.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\continuous-supplement\\operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "relative": "continuous-supplement/operator-observations.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\continuous-supplement\\expanded-plan.mjs",
+      "bytes": 10495,
+      "sha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+      "relative": "continuous-supplement/expanded-plan.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\expanded\\criterion-citation-erratum.json",
+      "bytes": 672,
+      "sha256": "8a1e7e3a4305b076e9069c39dd5f605ff21dca5a5ade59ada17afba60ed63969",
+      "relative": "expanded/criterion-citation-erratum.json"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\expanded\\repeated-plan.json",
+      "bytes": 16222,
+      "sha256": "0b97085cdf412893e267bda912776d371a36f58e6fec7cb15bc086989c081d23",
+      "relative": "expanded/repeated-plan.json"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-sequential.manual.mjs",
+      "bytes": 4977,
+      "sha256": "8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b",
+      "relative": "operator-sequential.manual.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\repeated-plan-control.json",
+      "bytes": 1050,
+      "sha256": "47a66a9d5148b301f1fbff721670de92c8986467d590030159adcfd239c69c79",
+      "relative": "repeated-plan-control.json"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\record-operator-handoff.mjs",
+      "bytes": 4632,
+      "sha256": "553c482e3977ed600b0846051ee1de9fa983e3a656867a3aa4c05cda393339bf",
+      "relative": "record-operator-handoff.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\manual-selection-behavior-a.mjs",
+      "bytes": 3264,
+      "sha256": "eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559",
+      "relative": "manual-selection-behavior-a.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\manual-selection-continuous-behavior-a.mjs",
+      "bytes": 3370,
+      "sha256": "7fcf3c78437f33f8d146684e7e6173324a996b65c6722d58fec17dcfba643ecc",
+      "relative": "manual-selection-continuous-behavior-a.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\manual-selection-continuous-control.json",
+      "bytes": 1085,
+      "sha256": "b84e79d9c799413461c708b9fde47860acf1be57887dcd50f2f7a34c25750eea",
+      "relative": "manual-selection-continuous-control.json"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\manual-selection-continuous-control.final.json",
+      "bytes": 1424,
+      "sha256": "f958efe94dc9475a32703e57885c069e7f95f884cd6b259471a490b085b57039",
+      "relative": "manual-selection-continuous-control.final.json"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\record-operator-handoff-behavior-a.mjs",
+      "bytes": 6816,
+      "sha256": "c9e93fb47caee212c3b5eb2322e963fa89fbe10008db469d9dd4dc6a47546d82",
+      "relative": "record-operator-handoff-behavior-a.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\prepare-correction.mjs",
+      "bytes": 1937,
+      "sha256": "d100806450c1d71325a7a3e1285323a2f7a586eabc966b0342fca878ea52e767",
+      "relative": "prepare-correction.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\prepare-coverage.mjs",
+      "bytes": 2403,
+      "sha256": "e4e2704f416b5010164250bf7e5134acf21cc16d246b89dfc0ece372e7dfb0c8",
+      "relative": "prepare-coverage.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\verify-canonical.mjs",
+      "bytes": 5202,
+      "sha256": "793f429e8139b3c7f89d2525c829d1e657dd0aef645fc1fed0e32d56afba3daa",
+      "relative": "verify-canonical.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\root-manual-select.mjs",
+      "bytes": 1708,
+      "sha256": "e6cc6c7cd00ecc86fcca45f43fbbcafef34bea6d375123aa1622f5eedbcfefc6",
+      "relative": "root-manual-select.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\root-manual-helper-copy-control.json",
+      "bytes": 608,
+      "sha256": "0cfa34d02f5db39ab8937c51345b6bc1b9c8a7e6cd150a724433c4f350b05c12",
+      "relative": "root-manual-helper-copy-control.json"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\manual-selection-behavior-b.mjs",
+      "bytes": 3267,
+      "sha256": "c2d3f2ce80a6919aecb27892fe2790dce901981efa72c2aef2b773f9b1d1f394",
+      "relative": "manual-selection-behavior-b.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\record-recommended-observation-behavior-b.mjs",
+      "bytes": 2258,
+      "sha256": "834624a2b2f6da8db78f9b5e86a7e029b2c77051764b38b5260849c92f0e5bd9",
+      "relative": "record-recommended-observation-behavior-b.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\behavior-b-helper-copy-control.json",
+      "bytes": 1265,
+      "sha256": "778feaf2416459570b2fe270a57b30f7cc74a917f1b4aa8a44f21455eac54620",
+      "relative": "behavior-b-helper-copy-control.json"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\capture-lifecycle-control.mjs",
+      "bytes": 2825,
+      "sha256": "947cb0a958932d8007b7d3d6efb62c0969ba792272f0c7eaf00c118857fbd6eb",
+      "relative": "capture-lifecycle-control.mjs"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-sequential.manual.candidate.mjs",
+      "bytes": 5028,
+      "sha256": "fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42",
+      "relative": "operator-sequential.manual.candidate.mjs"
+    }
+  ],
+  "findings": [
+    {
+      "status": "PASS_STATIC",
+      "item": "Natural completed turn gate before next or manual-selection boundary",
+      "rationale": "The new check occurs after actual last transport COMPLETE and before reading upcoming command/selection conditions or invoking next. Existing initial entry, before each variant and after finished variant checks remain. User selection is still real manual pending; no autochoice, reply default or retry introduced. Only naming clarifies turn/variant boundaries and one additional check is added; staged forward/inverse restores original4977 bytes exactly."
+    },
+    {
+      "status": "PASS_STATIC",
+      "item": "One shared global marker explicitly passed by all kinds",
+      "rationale": "Scheduling contract requires exact root21/normal-execution-pause.flag through --pause-file for every future sequential invocation, covering blocking/expanded/continuous-supplement. This avoids waiting for batch flag propagation. Candidate validates marker remains reviewer-only, records bytes/hash privately and never passes marker to model. The script retains batch-local default for backwards compatibility; the reviewed guarantee relies on callers supplying the contracted global argument."
+    },
+    {
+      "status": "PASS_STATIC",
+      "item": "No in-flight termination or host popup guarantee",
+      "rationale": "Pause code executes only after awaited child natural close and readonly metadata inspections; no kill/signal/interruption added. COMPLETE process proof continues using unchangedV2capture module947cb. No lock/persistence/restore claim for native UI or reason for old process stall is introduced."
+    },
+    {
+      "status": "PASS_STATIC",
+      "item": "Inputs, criteria, material, model/default and controllers retained",
+      "rationale": "35active source20 controls byte-identical to private source snapshots; only3preparation/version helpers have9ASCII0.1.20→0.1.21 edits, inverse exact. Three real harnesses/plan/spec plus module unchanged. Original operator remains4977 and only separately namedcandidate5028 changes scheduling. No frozen answer/rubric/semantic input or package/runtime body is edited by this review."
+    },
+    {
+      "status": "PASS_STATIC_EVIDENCE_READ_ONLY_NOT_OWN_FIXTURE_RUN",
+      "item": "Inspected actual non-model fixture source and raw records",
+      "rationale": "Fixture source creates only temporary Node fake commands. Original raw command logs show2or1next after marker and candidate logs show none after marker, with X1/X2 and noY attempt. Stored actual exit/close0, source copy SHA and stdout/stderr/log hashes match; all seven author assertions are corroborated by this independent read. Reviewer did not execute fixture, model, consumer or installation; this is not a real runtime/UI behavior PASS."
+    }
+  ],
+  "actualInspectedFixtureResults": [
+    {
+      "name": "original-after-start",
+      "resultPin": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-fixture-results\\original-after-start.result.json",
+        "bytes": 4656,
+        "sha256": "a5b9d540a258bf7db06a439d4c2acabf4aa7ead91f4170b850e2c0e98f7c739b"
+      },
+      "commandPin": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-fixture-results\\original-after-start.commands.jsonl",
+        "bytes": 849,
+        "sha256": "9d3b0af87d81561fed6e4836ff9b706ede5561f63e4634de0f203b23db69a844"
+      },
+      "exitCode": 0,
+      "closeCode": 0,
+      "startNextAfterMarker": [
+        "next",
+        "next"
+      ],
+      "actualXTurns": 3,
+      "actualYAttempts": 0,
+      "candidateSourceUsedExactly": true
+    },
+    {
+      "name": "candidate-after-start",
+      "resultPin": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-fixture-results\\candidate-after-start.result.json",
+        "bytes": 3735,
+        "sha256": "bfcb7937b3e5f9a91ad91b1fbbf526cef90d92e492d1c8872c6e37aa37dbd7c3"
+      },
+      "commandPin": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-fixture-results\\candidate-after-start.commands.jsonl",
+        "bytes": 525,
+        "sha256": "8e967802704f603295196da60cf65e035b8ec2b259392496f377a0744cbabb1c"
+      },
+      "exitCode": 0,
+      "closeCode": 0,
+      "startNextAfterMarker": [],
+      "actualXTurns": 1,
+      "actualYAttempts": 0,
+      "candidateSourceUsedExactly": true
+    },
+    {
+      "name": "original-after-next",
+      "resultPin": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-fixture-results\\original-after-next.result.json",
+        "bytes": 4482,
+        "sha256": "495365ae936bedf98e1dd9ce4cbf4312a2d7fb1e573cbadde9c9737379712c1c"
+      },
+      "commandPin": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-fixture-results\\original-after-next.commands.jsonl",
+        "bytes": 849,
+        "sha256": "6bf742c3d602c88e9ac7b937ebd93f5dfaf101f6fb668c1c6d3f62c335cf4f3a"
+      },
+      "exitCode": 0,
+      "closeCode": 0,
+      "startNextAfterMarker": [
+        "next"
+      ],
+      "actualXTurns": 3,
+      "actualYAttempts": 0,
+      "candidateSourceUsedExactly": true
+    },
+    {
+      "name": "candidate-after-next",
+      "resultPin": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-fixture-results\\candidate-after-next.result.json",
+        "bytes": 4021,
+        "sha256": "24f03643925440241ef757c189734eb808a2c865d738fc6b6f76fc5d814c53f1"
+      },
+      "commandPin": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-fixture-results\\candidate-after-next.commands.jsonl",
+        "bytes": 639,
+        "sha256": "65e68b3432f0ba236826686bdb4f41acffb6f76e0be90aa2d314f170315bf31d"
+      },
+      "exitCode": 0,
+      "closeCode": 0,
+      "startNextAfterMarker": [],
+      "actualXTurns": 2,
+      "actualYAttempts": 0,
+      "candidateSourceUsedExactly": true
+    }
+  ],
+  "limitations": [
+    "Exact check/spawn is not an atomic interprocess lock: a marker appearing after the check cannot retrospectively prevent an already dispatched operation. In-flight calls naturally return; no immediate-stop guarantee.",
+    "Candidate guards the transition to manual pending and subsequent sequencing. An external manual selection helper/caller must independently respect the same global marker before choosing after a later pause; no host-lock or independent helper atomic guard is claimed.",
+    "Use candidate path with explicit global --pause-file, not retained original operator or default batch marker; enforce recorded actual args in real21operator evidence.",
+    "Source21 canonical engineering/13strict/6cachePython gates and actual new sessions are still required. Current review does not create a consumer or claimSource21behaviorP.",
+    "Old20 post-global13.157s automatic call and original INVALID/fidelity failures remain unchanged; this technical candidate does not retroactively repair them."
+  ],
+  "readNameErrorsRetained": {
+    "toolCallRecord": "Earlier readonly Get-Content guessed SCHEDULING_CONTRACT.json and guard-version-diff.json names, emitted missing-file errors; actual scheduling-contract.json/version-guard-exactdiff.json subsequently discovered and read. No control changed or missing artifact silently passed."
+  },
+  "reviewerExecution": {
+    "fixtureExecuted": false,
+    "modelInvoked": false,
+    "installationInvoked": false,
+    "consumerPrepared": false,
+    "cacheCopied": false,
+    "repositoryModified": false,
+    "originalControlModified": false,
+    "originalReportModified": false
+  }
+}

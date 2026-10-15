@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T16:14:53.138Z",
+  "reviewer": "/root",
+  "canonicalSha": "40346364dc577440af6d63457e830aaaddff38e9",
+  "version": "0.1.26",
+  "overall": "FAIL",
+  "findings": [
+    {
+      "variant": "B6.1",
+      "actualFullRead": "4cc817",
+      "location": "T2 §六情境五",
+      "reason": "Source §7 clears round operations and restores source initial fields; the local composite result also clears old feedback and cites §1/§7 without distinguishing that new instructional UI result. Source attribution is unsupported.",
+      "primaryReadTextBoundary": "PASS"
+    },
+    {
+      "variant": "B1.1",
+      "actualFullReads": [
+        "94a755",
+        "3234c2"
+      ],
+      "location": "T4 §十",
+      "reason": "The local unanswered question asks whether direct checking or collecting is possible after return. Existing broad source prohibition already determines direct collection is unavailable. An incomplete additional transition path elsewhere does not scope this local direct-operation assertion.",
+      "primarySelectionWait": "PASS",
+      "firstTurnPathAmbiguityNotePreserved": true
+    }
+  ],
+  "originalMarkerNotOverwritten": true,
+  "noNewModelOrRegradingPriorVersions": true,
+  "effects": "NOT_MEASURED"
+}

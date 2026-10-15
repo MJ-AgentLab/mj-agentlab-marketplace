@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T13:53:49.514Z",
+  "variant": "B3.1",
+  "attemptId": "d883e4e6-b06a-4f76-a459-6dbbbba58112",
+  "canonicalSha": "b46069e3979136e70d64b9873b799b5bd069ca95",
+  "canonicalTree": "d8a2ffb8646065dff8f7a46fe741b1f93b5873ad",
+  "packageVersion": "0.1.23",
+  "sessionUuid": "01a13aa5-88e0-7680-9db2-27dd09f74d1b",
+  "reviewer": "/root/behavior_014_b",
+  "operator": "/root/behavior_014_a",
+  "method": "independent_semantic_review",
+  "status": "PASS",
+  "criteria": [
+    {
+      "id": "conflicting-originals-preserved",
+      "status": "PASS",
+      "rationale": "Both D1 AND/missing-one and D2 OR/one-sufficient retain their source names and §2. No approval record/effective date/priority is invented; common object and two conditions remain distinct from conflict.",
+      "evidence": [
+        "01.output.txt material range",
+        "02.output.txt §二 material/source table and §五 complete source units"
+      ]
+    },
+    {
+      "id": "separate-condition-relations",
+      "status": "PASS",
+      "rationale": "All four binary constructions give each document's own support judgment. Mixed truth inputs expose the difference; same truth inputs do not prove validity. Material-relative non-support is not asserted as a universal ban or a physical inventory/status result.",
+      "evidence": [
+        "02.output.txt §六 four combinations and following non-support scope",
+        "02.output.txt §七 support-set relation with binary construction boundary"
+      ]
+    },
+    {
+      "id": "no-current-rule-arbitration",
+      "status": "PASS",
+      "rationale": "T2 never elects either source as currently authoritative. T3 directly rejects the unsupported 'only correct' demand, retains the required authority evidence, and proposes only expressly labeled teaching assumptions pending a new-guide request.",
+      "evidence": [
+        "02.output.txt §五 conflict handling / §九 exercise one and two",
+        "03.output.txt entire response"
+      ]
+    },
+    {
+      "id": "bounded-self-check-and-design",
+      "status": "PASS",
+      "rationale": "Exercises test source-relative reasoning/conflict/validity boundaries, not the truth of one selected real rule. Retry/display/highlight are pedagogical additions, no real action or domain rule; there is no score/mastery or automatic unreviewed free-text validation claim.",
+      "evidence": [
+        "02.output.txt §八–§十一 source/feedback/lifecycle",
+        "02.output.txt §十二–§十四 planned accessibility and author checks"
+      ]
+    },
+    {
+      "id": "actual-installed-resource-use",
+      "status": "PASS",
+      "rationale": "This exact native entry and both references were actually received, with complete source material, before the target response. T1 performs four awaited individual shell reads in entry/framework/interaction/material order. Actual cache/source hashes and actual SDK return part match support full reading rather than self-report.",
+      "evidence": [
+        "B3.1-receiver-audit.json actualUniqueCalls and actualReceivers",
+        "01.session.jsonl actual custom_tool_call14/output15 parts1–4"
+      ]
+    }
+  ],
+  "installedResourceReading": {
+    "skill": true,
+    "framework": true,
+    "interaction": true,
+    "evidence": [
+      "B3.1-receiver-audit.json SHA96362f50860ce4384cf1d7e9a1d480572b69840bd81baec7a346f46c6cf42f0c: actual native entry and successful complete reference receiver bodies checked against this installed cache/source; original SDK line/part/call IDs and payload hashes included"
+    ]
+  },
+  "actualContinuousTurns": 3,
+  "plannedTurns": 3,
+  "defaultIdentity": {
+    "cli": "0.147.0",
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "effort": "low"
+  },
+  "technicalAudit": {
+    "file": "B3.1-receiver-audit.json",
+    "sha256": "96362f50860ce4384cf1d7e9a1d480572b69840bd81baec7a346f46c6cf42f0c",
+    "sourceMirrorCacheResources": 7,
+    "rawFiles": 17,
+    "actualExitAndCloseWithinDeadlineAll": true
+  },
+  "notes": [
+    "The new suggested T3 D1/D2 assumption flow was not run and receives no future PASS credit.",
+    "T2 organizational reading order is labeled pedagogical construction and explicitly denies source temporal/authority meaning; judged by actual attribution and scope, not a mandatory identity keyword."
+  ],
+  "previousSourcePassInherited": false,
+  "ownB6SelfReviewed": false,
+  "noModelInputOrCriteriaMutation": true,
+  "originalCaseFilesModified": false,
+  "gradeCalled": false,
+  "effectStatus": "NOT_MEASURED",
+  "clientUiStatus": "NOT_RUN",
+  "scope": "This exact three-turn fresh Source23 variant only; future proposed flows and other variants not passed by this record"
+}

@@ -1,0 +1,64 @@
+{
+  "recordedAt": "2026-10-14T06:54:59.502Z",
+  "sourceCanonical": "2fb20957d5c082aead7c8f3a8136d44c574487ee",
+  "workingVersion": "0.1.20",
+  "checks": [
+    {
+      "cmd": "npm test",
+      "actualInitialToolResult": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "69d565",
+          "wall_time_seconds": 10.0071179,
+          "session_id": 28096,
+          "original_token_count": 0,
+          "output": ""
+        }
+      }
+    },
+    {
+      "cmd": "npm run validate",
+      "actualInitialToolResult": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "bb6e59",
+          "wall_time_seconds": 0.9891343,
+          "exit_code": 0,
+          "original_token_count": 0,
+          "output": ""
+        }
+      }
+    },
+    {
+      "cmd": "npm run check",
+      "actualInitialToolResult": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "8e7703",
+          "wall_time_seconds": 1.1126792,
+          "exit_code": 0,
+          "original_token_count": 0,
+          "output": ""
+        }
+      }
+    },
+    {
+      "cmd": "node --test tests/documentation-contract.test.mjs tests/a6.test.mjs",
+      "actualInitialToolResult": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "00008e",
+          "wall_time_seconds": 0.5266714,
+          "exit_code": 0,
+          "original_token_count": 0,
+          "output": ""
+        }
+      }
+    }
+  ],
+  "fullTestStatus": "RUNNING",
+  "fullTestFinalExitCode": null,
+  "installationStatus": "NOT_RUN",
+  "modelStatus": "NOT_RUN",
+  "noExitInferredFromPartialOutput": true
+}

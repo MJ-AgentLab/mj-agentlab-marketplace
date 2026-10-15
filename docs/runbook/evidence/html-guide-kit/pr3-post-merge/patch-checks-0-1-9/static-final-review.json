@@ -1,0 +1,293 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-13T07:34:20.682Z",
+  "reviewer": "/root/behavior_a",
+  "method": "independent_static_review",
+  "assessment": "NO_NEW_STATIC_BLOCKER_OBSERVED",
+  "findings": [],
+  "checks": [
+    {
+      "name": "Teaching source distinguished from execution method",
+      "covers": "Old8 E15 material-role failure",
+      "status": "STATIC_SATISFIED",
+      "rationale": "Method SKILL/references are not substituted for user-designated teaching material, no self-selected topic/goals when material absent. Minimal real source or explicit topic snapshot is requested; only explicit designation permits a method-document teaching topic. Later material is reassessed without retroactively approving old goals.",
+      "evidence": [
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\SKILL.md",
+          "line": 22,
+          "quote": "区分原材料、已核验背景、教学构造与设计判断；保留版本/快照身份、定位、关键原文、条件、例外、冲突、缺口、未知及范围。可读不等于主张已核验；必要背景核验适用第一手来源。无法读取/核验就说明限制，不推测或声称已参照。缺口只阻相关部分。入口/参考仅是方法，用户未指定为教材材料时不代用；缺用户材料/定位或明确主题快照先索取，不自定主题/目标。明确指定方法文档为教材材料时可用。",
+          "rawSha256": "2fad3a6f4fe3ee2f0965437ee45274228ab621806a8669cfcdc689d30034c01f"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\guide-framework.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\references\\guide-framework.md",
+          "line": 9,
+          "quote": "先区分执行方法与教材对象。技能入口及其参考说明本技能如何工作，不自动成为用户希望讲解的原材料。只有用户明确指定这些方法文档作为教材对象时，才能据此编排相关主题；仅调用技能、列出入口/附件以供遵循流程，并不指定它们为教材材料。缺少用户文档、可定位教材材料或明确主题的对话快照时，先索取最小必要内容，不能自行选通用方法主题或提出依该主题的目标。材料后来到达后按其真实范围重新整理，不追认先前自选主题的方案。",
+          "rawSha256": "6a64cc9637d4fb6b9337a07652947cbb6812b3d395152e4125487a30bddd2f99"
+        }
+      ]
+    },
+    {
+      "name": "Broad coverage, repeat and existing result value",
+      "covers": "Old8 E1-maintainer broad-rule failure",
+      "status": "STATIC_SATISFIED",
+      "rationale": "Source coverage is checked before inventing unknown branches. Unlisted repeat, already-assigned result or unknown extra purpose cannot add a validity/one-use predicate. Known direct assignments remain determined; extra prompt or path gaps stay separately unknown. The same text explicitly preserves a genuine broad-predicate ambiguity or conflict, so it does not expand source coverage.",
+      "evidence": [
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\SKILL.md",
+          "line": 47,
+          "quote": "- 固定当前状态与单个操作，按源前提/排除判断。宽规则覆盖即给已知字段结果；未单列特例、重复、字段已是结果值或动作意义未知不新增有效性/限次前提，保持原值仍是确定结果。每次按当前新状态重匹配；未知后续路径/额外提示不撤销已知直接操作。",
+          "rawSha256": "2fad3a6f4fe3ee2f0965437ee45274228ab621806a8669cfcdc689d30034c01f"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\guide-framework.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\references\\guide-framework.md",
+          "line": 63,
+          "quote": "每一条“未规定/待补规则”先固定当前输入和单个操作，再逐条检查原材料是否已有更宽规则覆盖它。源规则不必逐一列出所有特例；已有覆盖不能因为未单列重复、某字段已是结果值、动作看似无意义或没有额外提示而变成缺口。只有原文明确的前提、排除和例外才能改变允许范围。仍符合源条件时给出规则确定的字段结果，即使结果等于当前值；操作的额外意义或展示提示若未规定，单独保留该缺口。若宽规则本身条件不够明确或与适用规则冲突，保留真正缺口，不擅自扩大覆盖。",
+          "rawSha256": "6a64cc9637d4fb6b9337a07652947cbb6812b3d395152e4125487a30bddd2f99"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\interaction-design.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\references\\interaction-design.md",
+          "line": 73,
+          "quote": "对重复尝试，先取上一步后的当前状态，再重新匹配源规则。仍满足同一允许条件且没有明确限次或重复例外时，沿用该规则规定的结果；不擅自加入“当前值必须有效”“只能执行一次”等新前提。赋值后的值与当前值相同，仍可说明确定的字段结果和变化量。额外重复提示或特殊界面反馈未规定时，只标该反馈缺口，不能将已确定的操作、状态和数值一并判为未知。",
+          "rawSha256": "16e170129921203c061e999bd4836630fb44a6a6abf28a24a16b2fba81ff4182"
+        }
+      ]
+    },
+    {
+      "name": "Current-state gate per dynamic feedback branch",
+      "covers": "Old8 B1.2-delayed/B1.2-combined/B5.1 dynamic-state failures",
+      "status": "STATIC_SATISFIED",
+      "rationale": "Every feedback branch names the current operation-relevant state and complete prerequisites. Initial panel or a separate rule table cannot silently provide that state after an operation. Post-action state is freshly matched; alternatively an independent fixed-scene design must explicitly reset each scene and state its local premises.",
+      "evidence": [
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\SKILL.md",
+          "line": 49,
+          "quote": "- 全文断言与源及彼此一致，别处正确不抵消错误。反馈有当次前提/理由/恢复，自检前提完整可定位；篇幅适合材料，全答复守文本/只读边界。",
+          "rawSha256": "2fad3a6f4fe3ee2f0965437ee45274228ab621806a8669cfcdc689d30034c01f"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\guide-framework.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\references\\guide-framework.md",
+          "line": 44,
+          "quote": "同一互动能切换操作、更新状态并继续或重试时，每个反馈分支写清该次操作的完整当前状态前提，不能只列其余条件。初始值只约束首步，操作后按真实新状态重新匹配源规则；别处的初始面板或独立规则表不为已改变状态提供默认前提。未覆盖的新状态组合必须保持待补，不能继续套首步的确定结果。若采用互相独立的固定情境，则明确每次操作使用的题设、如何复位及局部范围，不暗示共享前一情境的状态。只能将这些约束标为设计选择，不能声称已经实现或测试。",
+          "rawSha256": "6a64cc9637d4fb6b9337a07652947cbb6812b3d395152e4125487a30bddd2f99"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\interaction-design.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\references\\interaction-design.md",
+          "line": 67,
+          "quote": "同一互动能切换操作、更新状态并继续或重试时，每个反馈分支写清该次操作的完整当前状态前提，不能只列其余条件。初始值只约束首步，操作后按真实新状态重新匹配源规则；别处的初始面板或独立规则表不为已改变状态提供默认前提。未覆盖的新状态组合必须保持待补，不能继续套首步的确定结果。若采用互相独立的固定情境，则明确每次操作使用的题设、如何复位及局部范围，不暗示共享前一情境的状态。只能将这些约束标为设计选择，不能声称已经实现或测试。",
+          "rawSha256": "16e170129921203c061e999bd4836630fb44a6a6abf28a24a16b2fba81ff4182"
+        }
+      ]
+    },
+    {
+      "name": "Unknown full input range does not prohibit source-covered input",
+      "covers": "Old8 B1.2-combined numerical-input failure",
+      "status": "STATIC_SATISFIED",
+      "rationale": "Initial, assignment, reachable properties, type and full input range remain distinct. A fixed input covered by a local source rule retains its supported result despite unknown general domain; uncovered input remains pending rather than invalid. A smaller teaching input set or prohibition is allowed only with local design labeling, never as an invented source constraint.",
+      "evidence": [
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\SKILL.md",
+          "line": 46,
+          "quote": "- 初值/赋值/可达性质不定义完整输入域。类型/范围未规定就留缺口，不把源覆盖的局部输入/结果判禁止或无效。额外模拟限制就地标构造/设计及范围，不列源事实；别处标签不抵消本处归因。",
+          "rawSha256": "2fad3a6f4fe3ee2f0965437ee45274228ab621806a8669cfcdc689d30034c01f"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\guide-framework.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\references\\guide-framework.md",
+          "line": 77,
+          "quote": "完整输入值域未知不构成禁止具体输入的依据。先检查该固定输入是否已命中某条局部规则及其全部必要前提；已覆盖的输入和结果继续按源判断。未被任何规则覆盖时才保留待补，不自行宣布无效。教材可选择较小的输入集合或禁止某些演示值，但须就地标为本互动的额外设计限制，不能用“材料未给完整范围”冒充源禁止理由。",
+          "rawSha256": "6a64cc9637d4fb6b9337a07652947cbb6812b3d395152e4125487a30bddd2f99"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\interaction-design.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\references\\interaction-design.md",
+          "line": 59,
+          "quote": "完整输入值域未知不构成禁止具体输入的依据。先检查该固定输入是否已命中某条局部规则及其全部必要前提；已覆盖的输入和结果继续按源判断。未被任何规则覆盖时才保留待补，不自行宣布无效。教材可选择较小的输入集合或禁止某些演示值，但须就地标为本互动的额外设计限制，不能用“材料未给完整范围”冒充源禁止理由。",
+          "rawSha256": "16e170129921203c061e999bd4836630fb44a6a6abf28a24a16b2fba81ff4182"
+        }
+      ]
+    },
+    {
+      "name": "Exclusive claims include restoration and scope",
+      "covers": "Old8 B2.1 exclusive-claim omission of restore",
+      "status": "STATIC_SATISFIED",
+      "rationale": "New only/sole/exclusive wording requires explicit source support or a provably complete enumeration in the stated scope, including recovery/reset and exceptions affecting the same field. Incomplete enumeration keeps the nonexclusive source conclusion. The restriction applies locally to each title/boundary/checklist, not repaired by a distant correct restore statement.",
+      "evidence": [
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\SKILL.md",
+          "line": 45,
+          "quote": "- 术语/值类型一致，原变量与派生真假分开，对象范围不改为人物前提。仅在源明确支持或完整枚举可证时用排他量词，并就地限定对象/操作范围；枚举含恢复/重置，不从局部正列举推排他。",
+          "rawSha256": "2fad3a6f4fe3ee2f0965437ee45274228ab621806a8669cfcdc689d30034c01f"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\guide-framework.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\references\\guide-framework.md",
+          "line": 71,
+          "quote": "新增排他量词只有两种依据：原文明确支持该局部范围的排他性，或完整枚举该范围全部相关规则后确能证明。枚举包含常规动作、恢复、重置和例外对同一字段的影响；不确定是否完整时沿用非排他的源结论，不能新增“只/仅/其他不可”。每处排他断言就地给范围，标题、关键边界、核对清单和附录同样要求；远处正确提到恢复不能替本处补限定。",
+          "rawSha256": "6a64cc9637d4fb6b9337a07652947cbb6812b3d395152e4125487a30bddd2f99"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\interaction-design.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\references\\interaction-design.md",
+          "line": 75,
+          "quote": "新增排他量词只有两种依据：原文明确支持该局部范围的排他性，或完整枚举该范围全部相关规则后确能证明。枚举包含常规动作、恢复、重置和例外对同一字段的影响；不确定是否完整时沿用非排他的源结论，不能新增“只/仅/其他不可”。每处排他断言就地给范围，标题、关键边界、核对清单和附录同样要求；远处正确提到恢复不能替本处补限定。",
+          "rawSha256": "16e170129921203c061e999bd4836630fb44a6a6abf28a24a16b2fba81ff4182"
+        }
+      ]
+    },
+    {
+      "name": "Excluded object/activity does not become a person prerequisite",
+      "covers": "Old8 B2.1 scope-object conversion failure",
+      "status": "STATIC_SATISFIED",
+      "rationale": "Original object and predicate remain intact. Excluding an item or activity does not automatically exclude its holder/actor from other covered activities. An optional narrower audience is a marked design choice, not source eligibility or identity restriction.",
+      "evidence": [
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\SKILL.md",
+          "line": 45,
+          "quote": "- 术语/值类型一致，原变量与派生真假分开，对象范围不改为人物前提。仅在源明确支持或完整枚举可证时用排他量词，并就地限定对象/操作范围；枚举含恢复/重置，不从局部正列举推排他。",
+          "rawSha256": "2fad3a6f4fe3ee2f0965437ee45274228ab621806a8669cfcdc689d30034c01f"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\guide-framework.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\references\\guide-framework.md",
+          "line": 73,
+          "quote": "范围必须保留原对象与谓词。某物件、规则或事项不在说明范围，不等于其持有者或执行者在其他已覆盖事项上也不适用。不能将对事项的排除改为新读者身份前提或资格条件；若教材另设读者子集，标为设计选择，不归因于原材料。",
+          "rawSha256": "6a64cc9637d4fb6b9337a07652947cbb6812b3d395152e4125487a30bddd2f99"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\interaction-design.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\references\\interaction-design.md",
+          "line": 77,
+          "quote": "范围必须保留原对象与谓词。某物件、规则或事项不在说明范围，不等于其持有者或执行者在其他已覆盖事项上也不适用。不能将对事项的排除改为新读者身份前提或资格条件；若教材另设读者子集，标为设计选择，不归因于原材料。",
+          "rawSha256": "16e170129921203c061e999bd4836630fb44a6a6abf28a24a16b2fba81ff4182"
+        }
+      ]
+    },
+    {
+      "name": "Prior source and public behavior constraints retained",
+      "status": "STATIC_SATISFIED",
+      "rationale": "Explicit invocation, two/three materially different reader/task/questions options and wait for actual confirmation, pending option continuity and immediate stopping remain. Chinese/original terminology, source/provenance and updates, uncertainty/AND/OR bounded local conclusions, source exclusions and cumulative feedback, no code echo/write/production tooling, current-premise self-checks/retry/no score or lasting mastery remain coherent. No domain-case answer or old failure rubric is embedded in runtime.",
+      "evidence": [
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\SKILL.md",
+          "line": 28,
+          "quote": "每次新建给 2–3 套不同的 **读者＋使用任务＋理解问题**，说明取舍、推荐及理由。已有目标可列为一套，仍须等待，不推断能力。此时只展示材料范围、目标及待确认状态，不交付指南、章节/交互草稿或试做成品。",
+          "rawSha256": "2fad3a6f4fe3ee2f0965437ee45274228ab621806a8669cfcdc689d30034c01f"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\SKILL.md",
+          "line": 30,
+          "quote": "明确选择或修改目标并明确确认采用后才推进。推荐、预选、沉默、超时、无关回复、含糊赞同、窗口消失均非确认；“直接做”、一般授权或工具默认值不能跳过。歧义只澄清歧义。未答保留同一方案/待确认，可重述，不自行换套或生成；仅用户修改或材料实质改变目标才更新并再次等待。不能承诺锁住/保持/恢复宿主窗口；用户停止立即停止。",
+          "rawSha256": "2fad3a6f4fe3ee2f0965437ee45274228ab621806a8669cfcdc689d30034c01f"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\SKILL.md",
+          "line": 14,
+          "quote": "只新建指南。修订已有指南、方案比较或已有 HTML 审查须说明范围，等待明确转为新建，不改名执行。所有答复（含拒绝/引用/附录）均不输出或回显 HTML、代码、伪代码、图形语言、制作命令或具体制作工具步骤。含代码的来源仅作忠实自然语言释义及定位。不制作图像/文件，不写入或向其他会话/外部应用发送，不调用制作工具，不运行程序、测试、构建、安装或 Git。",
+          "rawSha256": "2fad3a6f4fe3ee2f0965437ee45274228ab621806a8669cfcdc689d30034c01f"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\SKILL.md",
+          "line": 38,
+          "quote": "自检仅是指南设计，不在聊天启动测验。可靠判准有定位、理由、误区、边界并允许重试。每题明确所需当前状态/输入；共用默认须明确适用于该组题，不能从题名/上个案例默补。前提仍缺时只给有限参考；可补标局部题设假设，源规则足够才在假设范围内确定反馈，不补造源规则。无可靠判准不伪造标准答案/评分，不由点击、完成、答对或提示后改答推断能力/长期掌握。",
+          "rawSha256": "2fad3a6f4fe3ee2f0965437ee45274228ab621806a8669cfcdc689d30034c01f"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\SKILL.md",
+          "line": 48,
+          "quote": "- 条件分满足/不满足/未知：“且”任一明确否即否，“或”任一明确是即是；未知只阻尚未决组合，不扩成源未规定的操作/数值结果。操作分支互斥或有明确优先；累计反馈合并适用项。逐对检查“任一未知/任意/其他”等宽泛行，不能覆盖已决定组合或漏缺项。",
+          "rawSha256": "2fad3a6f4fe3ee2f0965437ee45274228ab621806a8669cfcdc689d30034c01f"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\interaction-design.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\references\\interaction-design.md",
+          "line": 97,
+          "quote": "逐题列清确定反馈所需的当前状态、输入和假设，只列有关字段；共享默认须明确说明适用于哪些题及如何被题中条件覆盖。题名、教材初始面板、上一案例或另一题不自动提供本题前提。可明确补齐局部题设的状态/输入假设并标注；已有源规则足够覆盖时，只在该假设范围内给确定反馈，不把假设冒充事实或补造源规则。必要前提仍缺或判准不可靠时，给条件化参考/待补信息，不给唯一确定答案。题干、判准、理由、误区和重试都用同一前提集合；只在别处写对源条件不能补救本题遗漏。",
+          "rawSha256": "16e170129921203c061e999bd4836630fb44a6a6abf28a24a16b2fba81ff4182"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\interaction-design.md",
+          "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\references\\interaction-design.md",
+          "line": 87,
+          "quote": "逐对检查模拟表的条件覆盖关系：含“任意／其他”的宽泛行是否同时命中更具体的组合？若作为操作分支，拆成互斥条件或明确优先；若要累积多项原因，另列反馈清单并注明同时合并适用项。不能按第一条宽泛匹配就丢掉其他已知缺项或未知项说明，也不能用表格排版暗示未声明的匹配规则。",
+          "rawSha256": "16e170129921203c061e999bd4836630fb44a6a6abf28a24a16b2fba81ff4182"
+        }
+      ]
+    }
+  ],
+  "candidateIdentity": {
+    "repo": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/develop",
+    "observedHead": "a3b02996ef9db9d3643afb471e5608c527b203f9",
+    "headIsCandidateCanonical": false,
+    "sourceState": "Parent-applied uncommitted0.1.9 candidate; these three exact bytes independently read and copied. No committed canonical or installation identity inferred.",
+    "manifest": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\plugin.json",
+      "sha256": "fa876b2033b66d66e1f7b5bbc6ca784e1c3f174ab3a0a04cf517f96bd3f19479",
+      "actualVersion": "0.1.9"
+    }
+  },
+  "files": [
+    {
+      "relative": "SKILL.md",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+      "sha256": "2fad3a6f4fe3ee2f0965437ee45274228ab621806a8669cfcdc689d30034c01f",
+      "byteLength": 6143,
+      "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\SKILL.md",
+      "snapshotSha256": "2fad3a6f4fe3ee2f0965437ee45274228ab621806a8669cfcdc689d30034c01f",
+      "snapshotExact": true
+    },
+    {
+      "relative": "references/guide-framework.md",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\guide-framework.md",
+      "sha256": "6a64cc9637d4fb6b9337a07652947cbb6812b3d395152e4125487a30bddd2f99",
+      "byteLength": 14551,
+      "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\references\\guide-framework.md",
+      "snapshotSha256": "6a64cc9637d4fb6b9337a07652947cbb6812b3d395152e4125487a30bddd2f99",
+      "snapshotExact": true
+    },
+    {
+      "relative": "references/interaction-design.md",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\interaction-design.md",
+      "sha256": "16e170129921203c061e999bd4836630fb44a6a6abf28a24a16b2fba81ff4182",
+      "byteLength": 15925,
+      "snapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-final-behavior-a\\references\\interaction-design.md",
+      "snapshotSha256": "16e170129921203c061e999bd4836630fb44a6a6abf28a24a16b2fba81ff4182",
+      "snapshotExact": true
+    }
+  ],
+  "priorStaticSnapshot": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-9\\static-review-behavior-a.json",
+    "sha256Before": "28724384a731729fa99568df2ded6f606b87c30b13a4c98442ca77217ef5b3a9",
+    "sha256After": "28724384a731729fa99568df2ded6f606b87c30b13a4c98442ca77217ef5b3a9",
+    "unchanged": true,
+    "identity": "Earlier6136-byte SKILL static snapshot is historical and not overwritten or retroactively extended."
+  },
+  "limitation": "Static instruction sufficiency only, no actual behavior PASS. Fresh exact canonical installation and real cached-resource/full-native reading, all blocking cases and affected behavior must be independently rerun. File byte length does not prove native full loading. UI paths NOT_RUN and reality effectiveness NOT_MEASURED. Independent AI static review does not replace GitHub non-author approval.",
+  "execution": {
+    "repoWritten": false,
+    "sourceWritten": false,
+    "testsRun": false,
+    "installationInvoked": false,
+    "modelInvoked": false,
+    "gradeInvoked": false
+  },
+  "engineeringStatus": "Parent reports319/validate/check passed with initial stale8 version-test failure retained; this static reviewer did not run or independently certify those checks.",
+  "behaviorStatus": "NOT_RUN_ON_FINAL9",
+  "clientUiStatus": "NOT_RUN",
+  "effectStatus": "NOT_MEASURED"
+}

@@ -1,0 +1,205 @@
+TAP version 13
+# Subtest: collection person scope excludes remote body bytes before any persistent write
+ok 1 - collection person scope excludes remote body bytes before any persistent write
+  ---
+  duration_ms: 848.0714
+  type: 'test'
+  ...
+# Subtest: collection task scope excludes remote body bytes before any persistent write
+ok 2 - collection task scope excludes remote body bytes before any persistent write
+  ---
+  duration_ms: 787.4477
+  type: 'test'
+  ...
+# Subtest: collection occurrence time scope excludes remote body bytes before any persistent write
+ok 3 - collection occurrence time scope excludes remote body bytes before any persistent write
+  ---
+  duration_ms: 755.2141
+  type: 'test'
+  ...
+# Subtest: filtered paging failure retains confirmed allowed snapshots; recovery never persists excluded bodies
+ok 4 - filtered paging failure retains confirmed allowed snapshots; recovery never persists excluded bodies
+  ---
+  duration_ms: 1671.744
+  type: 'test'
+  ...
+# Subtest: partial segmented sources need a verified record before filtered persistence; whole scope retains recoverable raw parts
+ok 5 - partial segmented sources need a verified record before filtered persistence; whole scope retains recoverable raw parts
+  ---
+  duration_ms: 2727.6624
+  type: 'test'
+  ...
+# Subtest: a moved-page comment is recovered by consecutive stable inventory scans before advancing the cursor
+ok 6 - a moved-page comment is recovered by consecutive stable inventory scans before advancing the cursor
+  ---
+  duration_ms: 866.9608
+  type: 'test'
+  ...
+# Subtest: continuous pagination churn is partial and holds the cursor while retaining only confirmed in-scope snapshots
+ok 7 - continuous pagination churn is partial and holds the cursor while retaining only confirmed in-scope snapshots
+  ---
+  duration_ms: 806.2596
+  type: 'test'
+  ...
+# Subtest: actual Python publishes complete JSON and Markdown, records account/visibility, and replays without duplicate writes
+ok 8 - actual Python publishes complete JSON and Markdown, records account/visibility, and replays without duplicate writes
+  ---
+  duration_ms: 1818.8723
+  type: 'test'
+  ...
+# Subtest: GitHub acceptance actually uses an exact Python 3.12 interpreter
+ok 9 - GitHub acceptance actually uses an exact Python 3.12 interpreter
+  ---
+  duration_ms: 0.2944
+  type: 'test'
+  ...
+# Python 3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]; executable=C:\\Users\\Admin\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe
+# Subtest: unknown POST success is read back; unknown reconciliation failure stays partial and a retry reads before writing
+ok 10 - unknown POST success is read back; unknown reconciliation failure stays partial and a retry reads before writing
+  ---
+  duration_ms: 1348.6574
+  type: 'test'
+  ...
+# Subtest: unknown successful POST with a readable response reconciles to one complete comment
+ok 11 - unknown successful POST with a readable response reconciles to one complete comment
+  ---
+  duration_ms: 805.866
+  type: 'test'
+  ...
+# Subtest: segmented failure preserves partial state and resumes only missing parts; every body stays below its budget
+ok 12 - segmented failure preserves partial state and resumes only missing parts; every body stays below its budget
+  ---
+  duration_ms: 3687.0763
+  type: 'test'
+  ...
+# Subtest: same request ID with changed input and remote conflicting same-set content fail closed
+ok 13 - same request ID with changed input and remote conflicting same-set content fail closed
+  ---
+  duration_ms: 1397.0932
+  type: 'test'
+  ...
+# Subtest: publication checks all comment pages, including a preexisting part on a later page
+ok 14 - publication checks all comment pages, including a preexisting part on a later page
+  ---
+  duration_ms: 1705.8104
+  type: 'test'
+  ...
+# Subtest: collection includes open, closed and merged PRs; copied learning retains one evidence identity and source bodies stay data
+ok 15 - collection includes open, closed and merged PRs; copied learning retains one evidence identity and source bodies stay data
+  ---
+  duration_ms: 2782.1715
+  type: 'test'
+  ...
+# Subtest: collection uses updated-ascending pagination and five-minute overlap, deduplicates repeated windows and retains edits
+ok 16 - collection uses updated-ascending pagination and five-minute overlap, deduplicates repeated windows and retains edits
+  ---
+  duration_ms: 2478.3084
+  type: 'test'
+  ...
+# Subtest: one malformed formal comment preserves other records and snapshots while preventing cursor advancement
+ok 17 - one malformed formal comment preserves other records and snapshots while preventing cursor advancement
+  ---
+  duration_ms: 1044.4387
+  type: 'test'
+  ...
+# Subtest: page failure retains acquired snapshots and preceding cursor; retry recovers the missing page
+ok 18 - page failure retains acquired snapshots and preceding cursor; retry recovers the missing page
+  ---
+  duration_ms: 1756.1094
+  type: 'test'
+  ...
+# Subtest: inaccessible old source is a gap, not an asserted deletion; complete progress and history remain
+ok 19 - inaccessible old source is a gap, not an asserted deletion; complete progress and history remain
+  ---
+  duration_ms: 1471.6084
+  type: 'test'
+  ...
+# Subtest: authorization and repository scope reject missing or different targets before any remote action
+ok 20 - authorization and repository scope reject missing or different targets before any remote action
+  ---
+  duration_ms: 293.2082
+  type: 'test'
+  ...
+# Subtest: request IDs are shared with local mutations and cannot be reused for another operation
+ok 21 - request IDs are shared with local mutations and cannot be reused for another operation
+  ---
+  duration_ms: 1204.28
+  type: 'test'
+  ...
+# Subtest: record filters apply explicitly; selected-record export/import preserves flow dependencies without another person body
+ok 22 - record filters apply explicitly; selected-record export/import preserves flow dependencies without another person body
+  ---
+  duration_ms: 3625.1864
+  type: 'test'
+  ...
+# Subtest: a rewritten immutable record ID preserves source versions, reports conflict and holds the completed cursor
+ok 23 - a rewritten immutable record ID preserves source versions, reports conflict and holds the completed cursor
+  ---
+  duration_ms: 1698.0593
+  type: 'test'
+  ...
+# Subtest: a source metadata permission failure retains raw evidence and unsupported scope fields cannot be silently ignored
+ok 24 - a source metadata permission failure retains raw evidence and unsupported scope fields cannot be silently ignored
+  ---
+  duration_ms: 905.9328
+  type: 'test'
+  ...
+# Subtest: the direct JSON entry rejects duplicate keys and scalar inputs with one failure envelope before any gh request
+ok 25 - the direct JSON entry rejects duplicate keys and scalar inputs with one failure envelope before any gh request
+  ---
+  duration_ms: 200.7169
+  type: 'test'
+  ...
+# Subtest: explicit person, task and time authorization restrictions cannot be broadened by collection inputs
+ok 26 - explicit person, task and time authorization restrictions cannot be broadened by collection inputs
+  ---
+  duration_ms: 470.9514
+  type: 'test'
+  ...
+# Subtest: restored publication plans are verified against complete content and this authorized target before posting
+ok 27 - restored publication plans are verified against complete content and this authorized target before posting
+  ---
+  duration_ms: 960.0857
+  type: 'test'
+  ...
+# Subtest: a concurrent duplicate after POST returns a conflict while preserving the actual POST result and observed bodies
+ok 28 - a concurrent duplicate after POST returns a conflict while preserving the actual POST result and observed bodies
+  ---
+  duration_ms: 566.8647
+  type: 'test'
+  ...
+# Subtest: filters and source times require complete second-level RFC3339 UTC; invalid source bytes remain in a snapshot
+ok 29 - filters and source times require complete second-level RFC3339 UTC; invalid source bytes remain in a snapshot
+  ---
+  duration_ms: 1124.279
+  type: 'test'
+  ...
+# Subtest: UTF-8 gh JSON transport remains exact when the Python console encoding is Windows cp1252
+ok 30 - UTF-8 gh JSON transport remains exact when the Python console encoding is Windows cp1252
+  ---
+  duration_ms: 1135.4099
+  type: 'test'
+  ...
+# Subtest: repeated IDs across pages cannot establish full coverage even when bodies are unchanged; stable retry deduplicates retained snapshots
+ok 31 - repeated IDs across pages cannot establish full coverage even when bodies are unchanged; stable retry deduplicates retained snapshots
+  ---
+  duration_ms: 1316.5137
+  type: 'test'
+  ...
+# Subtest: Learning evidence storage: actual Python 3.12 isolated recovery/import/attribution cases
+ok 32 - Learning evidence storage: actual Python 3.12 isolated recovery/import/attribution cases
+  ---
+  duration_ms: 21132
+  type: 'test'
+  ...
+# Interpreter: 3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]
+# test_application_requires_actual_explanation_and_existing_materials (__main__.StoreCases.test_application_requires_actual_explanation_and_existing_materials) ... ok\\r\\ntest_application_version_mismatch_or_unknown_head_cannot_be_supported (__main__.StoreCases.test_application_version_mismatch_or_unknown_head_cannot_be_supported) ... ok\\r\\ntest_archive_retains_history_and_full_export_import (__main__.StoreCases.test_archive_retains_history_and_full_export_import) ... ok\\r\\ntest_check_record_applicability_is_separate_from_learning_verdict (__main__.StoreCases.test_check_record_applicability_is_separate_from_learning_verdict) ... ok\\r\\ntest_complete_save_replay_and_identity_separation (__main__.StoreCases.test_complete_save_replay_and_identity_separation) ... ok\\r\\ntest_concurrent_mutation_lock_and_automatic_release (__main__.StoreCases.test_concurrent_mutation_lock_and_automatic_release) ... ok\\r\\ntest_correction_retest_and_cross_pr_reuse_are_one_learning (__main__.StoreCases.test_correction_retest_and_cross_pr_reuse_are_one_learning) ... ok\\r\\ntest_explicit_ids_and_immutable_conflict (__main__.StoreCases.test_explicit_ids_and_immutable_conflict) ... ok\\r\\ntest_export_related_history_and_malicious_types_with_matching_digest (__main__.StoreCases.test_export_related_history_and_malicious_types_with_matching_digest) ... ok\\r\\ntest_global_request_key_conflicts_across_local_and_remote_operations (__main__.StoreCases.test_global_request_key_conflicts_across_local_and_remote_operations) ... ok\\r\\ntest_identity_confirmation_reuse_and_conflict (__main__.StoreCases.test_identity_confirmation_reuse_and_conflict) ... ok\\r\\ntest_import_rejects_save_receipt_digest_even_with_valid_zip_member_digest (__main__.StoreCases.test_import_rejects_save_receipt_digest_even_with_valid_zip_member_digest) ... ok\\r\\ntest_import_rejects_second_original_learning_root_from_another_library (__main__.StoreCases.test_import_rejects_second_original_learning_root_from_another_library) ... ok\\r\\ntest_import_rejects_traversal_symlink_digest_schema_and_conflict_before_writes (__main__.StoreCases.test_import_rejects_traversal_symlink_digest_schema_and_conflict_before_writes) ... ok\\r\\ntest_misplaced_input_library_root_cannot_write_default_or_requested_library (__main__.StoreCases.test_misplaced_input_library_root_cannot_write_default_or_requested_library) ... ok\\r\\ntest_missing_or_changed_mutation_key_fails_closed (__main__.StoreCases.test_missing_or_changed_mutation_key_fails_closed) ... ok\\r\\ntest_no_relabeling_other_respondents_or_synthetic_as_real (__main__.StoreCases.test_no_relabeling_other_respondents_or_synthetic_as_real) ... ok\\r\\ntest_one_json_contract_duplicate_keys_and_unavailable_github (__main__.StoreCases.test_one_json_contract_duplicate_keys_and_unavailable_github) ... ok\\r\\ntest_pending_and_question_limits_do_not_manufacture_completion (__main__.StoreCases.test_pending_and_question_limits_do_not_manufacture_completion) ... ok\\r\\ntest_process_interruption_recovers_same_allocated_ids (__main__.StoreCases.test_process_interruption_recovers_same_allocated_ids) ... ok\\r\\ntest_record_export_includes_flow_dependencies_without_other_scope_records (__main__.StoreCases.test_record_export_includes_flow_dependencies_without_other_scope_records) ... ok\\r\\ntest_recover_regenerates_only_derived_files_and_receipts (__main__.StoreCases.test_recover_regenerates_only_derived_files_and_receipts) ... ok\\r\\ntest_recovery_dry_run_preflights_changed_prepared_targets_without_writing (__main__.StoreCases.test_recovery_dry_run_preflights_changed_prepared_targets_without_writing) ... ok\\r\\ntest_recovery_dry_run_rejects_damaged_prepared_plan_without_writing (__main__.StoreCases.test_recovery_dry_run_rejects_damaged_prepared_plan_without_writing) ... ok\\r\\ntest_recovery_reports_corruption_without_rewriting_original (__main__.StoreCases.test_recovery_reports_corruption_without_rewriting_original) ... ok\\r\\ntest_repeated_question_text_counts_new_ids_but_supported_repeat_reuses_id (__main__.StoreCases.test_repeated_question_text_counts_new_ids_but_supported_repeat_reuses_id) ... ok\\r\\ntest_reusing_learning_event_cannot_create_another_original (__main__.StoreCases.test_reusing_learning_event_cannot_create_another_original) ... ok\\r\\ntest_second_ku_requires_explicit_continue (__main__.StoreCases.test_second_ku_requires_explicit_continue) ... ok\\r\\ntest_selected_record_export_restores_without_leaking_other_record_or_batch_receipt (__main__.StoreCases.test_selected_record_export_restores_without_leaking_other_record_or_batch_receipt) ... ok\\r\\ntest_structural_types_unknown_schema_and_incomplete_baseline_fail (__main__.StoreCases.test_structural_types_unknown_schema_and_incomplete_baseline_fail) ... ok\\r\\ntest_tracked_or_unexpected_manifest_and_relative_paths_are_rejected (__main__.StoreCases.test_tracked_or_unexpected_manifest_and_relative_paths_are_rejected) ... ok\\r\\ntest_unknown_operation_or_envelope_fields_cannot_imply_authorization (__main__.StoreCases.test_unknown_operation_or_envelope_fields_cannot_imply_authorization) ... ok\\r\\ntest_worktree_only_contains_references_and_restores_after_removal (__main__.StoreCases.test_worktree_only_contains_references_and_restores_after_removal) ... ok\\r\\n\\r\\n----------------------------------------------------------------------\\r\\nRan 33 tests in 20.875s\\r\\n\\r\\nOK
+1..32
+# tests 32
+# suites 0
+# pass 32
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 42377.0138

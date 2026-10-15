@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T15:02:36.640Z",
+  "reviewer": "/root",
+  "version": "0.1.24",
+  "canonicalSha": "e15ec47bad8b6a33c2c218bcf59c367b2921d164",
+  "canonicalTree": "1fe945a41edc4403cf6f02cd33ab9b80d28f6eaa",
+  "criterion": "未确认修改变体 T2 只更新待确认三元组；T3 采用更新后版本。合并修改确认变体可以当轮生成，不遗漏修改，也不重复要求已经给出的明确确认。",
+  "uuid": "01a13ae0-938f-7dc1-bf07-73ea3ee44027",
+  "attemptId": "e0e9f5f8-ed3e-4f0d-869b-9e87ca2f0eb5",
+  "overallResult": "UNEXERCISED",
+  "actualTurns": 1,
+  "plannedTurns": 3,
+  "fullOriginalReads": [
+    "176036"
+  ],
+  "actualSelection": {
+    "label": "方案 C",
+    "originalTripletExcerpt": "### 方案 C：流程边界与演示恢复审查\n\n- 读者：准备审核教学演示内容的课程设计人员；已了解状态式流程和模拟教材的基本概念。\n- 使用任务：检查一段演示描述是否完整保留操作前提、状态结果、库存变化、不可用情形及恢复边界。\n- 理解问题：\n  - 每项操作必须写明哪些当前态、条件和结果？\n  - 哪些字段结果由材料明确规定，哪些不能自行补充？\n  - 取消与“重新开始”在触发条件、动作和恢复范围上有何不同？\n  - 哪些结论属于材料范围之外？\n  - 如何识别把教学演示恢复误写成现实系统功能的错误？\n- 取舍：最适合指导教材作者避免规则失真；对普通访客而言会偏抽象。",
+    "firstTurnOutput": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-24\\blocking\\runs\\abf4235d-a844-4428-88d8-f2fdfcbbb6c4\\B1.2-delayed\\e0e9f5f8-ed3e-4f0d-869b-9e87ca2f0eb5\\01.output.txt",
+    "recorded": {
+      "utc": "2026-10-14T14:47:53.431Z",
+      "timezone": "Asia/Taipei"
+    },
+    "rolePresent": false,
+    "source": "reviewer reading of actual model output; no answer key in model prompt"
+  },
+  "selectionPreserved": true,
+  "reason": "Distinct first-turn proposals and wait observed. Nonrecommended C manually selected before marker, but amendment and confirmation inputs never sent; required criterion not exercised.",
+  "rawPins": [
+    {
+      "id": "B1.2-delayed",
+      "turn": 1,
+      "key": "inputFile",
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-24\\blocking\\runs\\abf4235d-a844-4428-88d8-f2fdfcbbb6c4\\B1.2-delayed\\e0e9f5f8-ed3e-4f0d-869b-9e87ca2f0eb5\\01.input.txt",
+      "bytes": 989,
+      "sha256": "458834ce367d71de62bca7caaa3d594ee6f96fdd8d028038f9a658073734d235"
+    },
+    {
+      "id": "B1.2-delayed",
+      "turn": 1,
+      "key": "eventsFile",
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-24\\blocking\\runs\\abf4235d-a844-4428-88d8-f2fdfcbbb6c4\\B1.2-delayed\\e0e9f5f8-ed3e-4f0d-869b-9e87ca2f0eb5\\01.events.jsonl",
+      "bytes": 30726,
+      "sha256": "0180d9f770f9a5dc87ae0d4b6c9359f1723c48455063ab1b322e99c90586bb38"
+    },
+    {
+      "id": "B1.2-delayed",
+      "turn": 1,
+      "key": "stderrFile",
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-24\\blocking\\runs\\abf4235d-a844-4428-88d8-f2fdfcbbb6c4\\B1.2-delayed\\e0e9f5f8-ed3e-4f0d-869b-9e87ca2f0eb5\\01.stderr.txt",
+      "bytes": 34716,
+      "sha256": "c4d5df4e6769b9523daee3397cb9403bbabda507785133527d90e509f9d848a3"
+    },
+    {
+      "id": "B1.2-delayed",
+      "turn": 1,
+      "key": "outputFile",
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-24\\blocking\\runs\\abf4235d-a844-4428-88d8-f2fdfcbbb6c4\\B1.2-delayed\\e0e9f5f8-ed3e-4f0d-869b-9e87ca2f0eb5\\01.output.txt",
+      "bytes": 3695,
+      "sha256": "4427b52a11881a6f5297c676195dd4a49f480a6525e75c31af8cde292539511e"
+    },
+    {
+      "id": "B1.2-delayed",
+      "turn": 1,
+      "key": "sessionSnapshot",
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-24\\blocking\\runs\\abf4235d-a844-4428-88d8-f2fdfcbbb6c4\\B1.2-delayed\\e0e9f5f8-ed3e-4f0d-869b-9e87ca2f0eb5\\01.session.jsonl",
+      "bytes": 92214,
+      "sha256": "3395757dd47f30124a8b0b796f505412c5d3e602199060d1f0543d7092e84d3f"
+    }
+  ]
+}

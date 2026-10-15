@@ -1,0 +1,592 @@
+{
+  "refs": [
+    "#222"
+  ],
+  "capturedAt": "2026-10-13T04:02:09.817327+00:00",
+  "method": "Actual ordinary Git merge, npm validate/test and isolated npm smoke:codex; raw command outputs copied unchanged.",
+  "upstream": {
+    "sha": "a2090ff89bb4a4135bfcf8fefc0f1a554fbe9302",
+    "pr": 224,
+    "review": {
+      "login": "yrk666",
+      "state": "APPROVED",
+      "head": "c1d7bab01d9c355a491d41c7b43dc45b2830ff46",
+      "submittedAt": "2026-10-13T03:46:09Z"
+    },
+    "reviewDoesNotApproveCommunication": true
+  },
+  "failuresAndRepairs": [
+    {
+      "phase": 1,
+      "path": "CHANGELOG.md",
+      "observed": "CONFLICT (content)",
+      "repair": "Keep both Communication entries and the upstream Learning storage entry."
+    },
+    {
+      "phase": 2,
+      "path": "AGENTS.md",
+      "observed": "CONFLICT (content)",
+      "repair": "Keep upstream Learning paragraphs outside the Communication section; preserve Communication tooling and correct its base to four plugins/five skills."
+    },
+    {
+      "method": "read-only diagnostics",
+      "observed": "Windows rg wildcard/nonexistent guessed helper path and unquoted PowerShell ^{tree} revision parsing failed.",
+      "repair": "Read the real smoke/release-verify-install paths and quote Git tree revisions; no runtime/file mutation occurred from these failed reads."
+    },
+    {
+      "method": "evidence capture",
+      "observed": "Initial counts parser treated completed CRLF test logs as RUNNING.",
+      "repair": "Normalize decoded line endings for parsing only; preserve raw log bytes unchanged and capture all completed counts again."
+    },
+    {
+      "method": "independent documentation review",
+      "observed": "New RUNBOOK batch initially called npm smoke:codex installs canonical.",
+      "repair": "Narrow new batch wording to worktree-snapshot isolated smoke install/resource checks. Retain old fixed-commit canonical evidence under its original identity; no functional results changed."
+    }
+  ],
+  "communicationPackageTree": "14a3896c7ad50597bfc83996bcfec25180a720f9",
+  "formalVersionPreparation": "NOT RUN",
+  "releaseCases": {
+    "R01": "NOT RUN",
+    "R02": "NOT RUN",
+    "R03": "NOT RUN",
+    "R04": "NOT RUN",
+    "R05": "NOT RUN"
+  },
+  "clientEvidence": "Existing fixed 000e803 actual native local routes retained with original identities; no new client or post-publication batch executed.",
+  "phases": [
+    {
+      "phase": 1,
+      "branch": "codex/communication-contract",
+      "headBeforeEvidenceCommit": "8b12b00aba6416920bee7c61476f7b17a600e8d9",
+      "indexTreeAtCapture": "213e94ce5905fc105dc332432f35ffa3799f6194",
+      "strictValidate": {
+        "exitCode": 0,
+        "result": "PASS"
+      },
+      "upstreamStorageDiff": [],
+      "test": {
+        "result": "PASS",
+        "exitCode": 0,
+        "rawLog": "communication-kit-2026-10-13-storage-baseline-01-pr1-test.log",
+        "rawBytes": 61777,
+        "encoding": "utf-8-sig",
+        "sha256": "002b234b52910a309c4cc28bed3f3af45e132a0cd749c13cbc344c41c57df33b",
+        "counts": {
+          "tests": 280,
+          "pass": 280,
+          "fail": 0,
+          "skipped": 0
+        },
+        "actualPythonStoreCases": 33,
+        "interpreter": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]"
+      },
+      "smoke": {
+        "result": "PASS",
+        "exitCode": 0,
+        "rawLog": "communication-kit-2026-10-13-storage-baseline-01-pr1-smoke.log",
+        "rawBytes": 141638,
+        "encoding": "utf-8-sig",
+        "sha256": "b22d5dbe19a7f84386016c81716fa0b23d6a4e44692b2a67469f718d7bfabb5e",
+        "actualCliVersion": "codex-cli 0.147.0",
+        "scenarioCount": 7,
+        "actualCachedPythonValidationCount": 4,
+        "scenarios": [
+          {
+            "installed": [
+              "diagram-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "html-guide-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "html-guide-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit",
+              "html-guide-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          }
+        ]
+      }
+    },
+    {
+      "phase": 2,
+      "branch": "codex/communication-foundation",
+      "headBeforeEvidenceCommit": "50be36671590b2002a5e61a8fb0928e0264ff81f",
+      "indexTreeAtCapture": "9e0522aa026b184b30472c595f5a35a12a42a185",
+      "strictValidate": {
+        "exitCode": 0,
+        "result": "PASS"
+      },
+      "upstreamStorageDiff": [],
+      "test": {
+        "result": "PASS",
+        "exitCode": 0,
+        "rawLog": "communication-kit-2026-10-13-storage-baseline-01-pr2-test.log",
+        "rawBytes": 63746,
+        "encoding": "utf-8-sig",
+        "sha256": "0e9c4c70813ec2173514dc961e75d4d120796e30327c4fc3a3a2a43fe8738cf0",
+        "counts": {
+          "tests": 289,
+          "pass": 289,
+          "fail": 0,
+          "skipped": 0
+        },
+        "actualPythonStoreCases": 33,
+        "interpreter": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]"
+      },
+      "smoke": {
+        "result": "PASS",
+        "exitCode": 0,
+        "rawLog": "communication-kit-2026-10-13-storage-baseline-01-pr2-smoke.log",
+        "rawBytes": 141638,
+        "encoding": "utf-8-sig",
+        "sha256": "6a54dda2e2f62833fe7190c7310ba0fef218bab2f9699404a732d5590380fcd5",
+        "actualCliVersion": "codex-cli 0.147.0",
+        "scenarioCount": 7,
+        "actualCachedPythonValidationCount": 4,
+        "scenarios": [
+          {
+            "installed": [
+              "diagram-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "html-guide-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "html-guide-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit",
+              "html-guide-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          }
+        ]
+      }
+    },
+    {
+      "phase": 3,
+      "branch": "codex/communication-plugin",
+      "headBeforeEvidenceCommit": "c991fffa4b98567eded412bcf0c25d2f203c040a",
+      "indexTreeAtCapture": "118c2bb6135c7312b4a5674fb9a154699a17b281",
+      "strictValidate": {
+        "exitCode": 0,
+        "result": "PASS"
+      },
+      "upstreamStorageDiff": [],
+      "test": {
+        "result": "PASS",
+        "exitCode": 0,
+        "rawLog": "communication-kit-2026-10-13-storage-baseline-01-pr3-test.log",
+        "rawBytes": 68474,
+        "encoding": "utf-8-sig",
+        "sha256": "d19777cfde88d08d9751f165e489e352e914dc12f7c5afad69c4328629085ff6",
+        "counts": {
+          "tests": 308,
+          "pass": 308,
+          "fail": 0,
+          "skipped": 0
+        },
+        "actualPythonStoreCases": 33,
+        "interpreter": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]"
+      },
+      "smoke": {
+        "result": "PASS",
+        "exitCode": 0,
+        "rawLog": "communication-kit-2026-10-13-storage-baseline-01-pr3-smoke.log",
+        "rawBytes": 306688,
+        "encoding": "utf-8-sig",
+        "sha256": "7dfde7adc7ea4cde6815669d85028616098311acc29e3fdd086c7846f0194223",
+        "actualCliVersion": "codex-cli 0.147.0",
+        "scenarioCount": 13,
+        "actualCachedPythonValidationCount": 6,
+        "scenarios": [
+          {
+            "installed": [
+              "diagram-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "understanding-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "communication-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "communication-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "communication-kit",
+              "understanding-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit",
+              "communication-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "html-guide-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "html-guide-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit",
+              "html-guide-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit",
+              "communication-kit",
+              "html-guide-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          }
+        ]
+      }
+    },
+    {
+      "phase": 4,
+      "branch": "codex/communication-readiness",
+      "headBeforeEvidenceCommit": "08ca139cf670ff1b8048edf413265c5372bb5f7f",
+      "indexTreeAtCapture": "ff1b9eb0091452b19e2c55da7508cd9d591c9ad7",
+      "strictValidate": {
+        "exitCode": 0,
+        "result": "PASS",
+        "publicSkills": [
+          "diagram-kit:arch-diagram",
+          "understanding-kit:pop-quiz",
+          "explain-kit:glossary",
+          "explain-kit:concept",
+          "communication-kit:communicate",
+          "html-guide-kit:guide"
+        ],
+        "rawLog": "communication-kit-2026-10-13-storage-baseline-01-pr4-validate.log",
+        "encoding": "utf-8-sig",
+        "sha256": "8e9010947bee288f65b74c692a5d6b9288df3f96e362af3917680185c0841d3b",
+        "rawBytes": 336
+      },
+      "upstreamStorageDiff": [],
+      "test": {
+        "result": "PASS",
+        "exitCode": 0,
+        "rawLog": "communication-kit-2026-10-13-storage-baseline-01-pr4-test.log",
+        "rawBytes": 68455,
+        "encoding": "utf-8-sig",
+        "sha256": "ccdb617315ea1805b6f963d382fecf951e0b14a01eeac9c3b84ed6b3a6befe29",
+        "counts": {
+          "tests": 308,
+          "pass": 308,
+          "fail": 0,
+          "skipped": 0
+        },
+        "actualPythonStoreCases": 33,
+        "interpreter": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]"
+      },
+      "smoke": {
+        "result": "PASS",
+        "exitCode": 0,
+        "rawLog": "communication-kit-2026-10-13-storage-baseline-01-pr4-smoke.log",
+        "rawBytes": 306688,
+        "encoding": "utf-8-sig",
+        "sha256": "5172a6befa2b4cdf8daa4015efcad0d1e096199b45f8c8f92abe03475d44ade5",
+        "actualCliVersion": "codex-cli 0.147.0",
+        "scenarioCount": 13,
+        "actualCachedPythonValidationCount": 6,
+        "scenarios": [
+          {
+            "installed": [
+              "diagram-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "understanding-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "communication-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "communication-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "communication-kit",
+              "understanding-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit",
+              "communication-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "html-guide-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "html-guide-kit",
+              "explain-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": null
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit",
+              "html-guide-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "understanding-kit",
+              "explain-kit",
+              "communication-kit",
+              "html-guide-kit"
+            ],
+            "ok": true,
+            "actualPythonOutput": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+          }
+        ]
+      }
+    }
+  ],
+  "phase4WorkingCandidate": {
+    "head": "08ca139cf670ff1b8048edf413265c5372bb5f7f",
+    "mergeHead": "c991fffa4b98567eded412bcf0c25d2f203c040a",
+    "trackedChangedPathsFromHead": [
+      "AGENTS.md",
+      "CHANGELOG.md",
+      "docs/INDEX.md",
+      "docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md",
+      "docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md",
+      "docs/runbook/evidence/communication-kit-2026-10-13-storage-baseline-01-pr1-smoke.log",
+      "docs/runbook/evidence/communication-kit-2026-10-13-storage-baseline-01-pr1-test.log",
+      "docs/runbook/evidence/communication-kit-2026-10-13-storage-baseline-01-pr2-smoke.log",
+      "docs/runbook/evidence/communication-kit-2026-10-13-storage-baseline-01-pr2-test.log",
+      "docs/runbook/evidence/communication-kit-2026-10-13-storage-baseline-01-pr3-smoke.log",
+      "docs/runbook/evidence/communication-kit-2026-10-13-storage-baseline-01-pr3-test.log",
+      "docs/runbook/evidence/communication-kit-2026-10-13-storage-baseline-01-pr4-smoke.log",
+      "docs/runbook/evidence/communication-kit-2026-10-13-storage-baseline-01-pr4-test.log",
+      "docs/runbook/evidence/communication-kit-2026-10-13-storage-baseline-01-pr4-validate.log",
+      "docs/runbook/evidence/communication-kit-2026-10-13-storage-baseline-01.json",
+      "docs/runbook/evidence/learning-evidence-store-checks.json",
+      "docs/spec/[SPEC]_Learning_Evidence_Record_And_API.md",
+      "scripts/learning-evidence/common.py",
+      "scripts/learning-evidence/lek.py",
+      "scripts/learning-evidence/storage.py",
+      "tests/fixtures/learning-evidence/learning-record.json",
+      "tests/fixtures/learning-evidence/store_cases.py",
+      "tests/learning-evidence-store.test.mjs"
+    ],
+    "untrackedEvidencePaths": [],
+    "runtimeDiffFromPr3": []
+  },
+  "preservedPlan": {
+    "originalCurrentlyReadable": false,
+    "byteCopySha256": "6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3"
+  }
+}

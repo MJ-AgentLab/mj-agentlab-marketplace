@@ -1,0 +1,24 @@
+{
+  "recordedAt": "2026-10-14T09:53:54.6982661Z",
+  "kind": "Supplemental correction of final handoff console metadata only",
+  "originalToolChunk": "8cdc51",
+  "originalToolExit": 0,
+  "originalHelper": "record-pack031-final-handoff-behavior-b.mjs",
+  "originalHelperSha256": "57208b5585bb124e2169b4538d32ffaf5bd57bc2415a26d87c0acd3f59a89e08",
+  "incorrectConsoleField": "bytes=11230064",
+  "cause": "console object spread pin(out) followed by bytes:totalOriginalBytes overrides the handoff file byte count",
+  "correctHandoffFile": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-20-recovery\\final-handoff.json",
+    "bytes": 10318,
+    "sha256": "f2373943fdcf91c71dda7c4a423e3159a54a294a5dab36cc9681e7e2eaf214f8"
+  },
+  "correctInventory": {
+    "files": 580,
+    "totalOriginalBytes": 11230064,
+    "packets": 9,
+    "inventorySha256": "297b3adf4c4041532d4a6f2417039651c438970d02da6023a57e2e53e432422d"
+  },
+  "originalHandoffJsonAndPackerControlUnmodified": true,
+  "originalConsoleAndHelperNotRewritten": true,
+  "packOrModelOrGradeRun": false
+}

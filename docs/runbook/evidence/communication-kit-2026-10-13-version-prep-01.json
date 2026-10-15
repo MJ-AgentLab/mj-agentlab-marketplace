@@ -1,0 +1,206 @@
+{
+  "schemaVersion": 1,
+  "refs": [
+    "#222"
+  ],
+  "capturedAt": "2026-10-13T05:57:20.370723+00:00",
+  "kind": "actual PR4 parallel version preparation and development-source regression",
+  "authorization": "Owner Q1: Learning 8.2.0 first, Communication next independent minor expected 8.3.0, resolved by actual 8.2.0 publication; Q3 four-package formal scope. No new product or scope decision inferred.",
+  "source": {
+    "beforeHead": "7cfb59d35072a210c96973a0d0fd06b6da719d14",
+    "testedIndexTree": "ce2a67a30e74d5e0924cd480f81047c785d7ddcc",
+    "followingIndexTree": "304068df212cf048989789dd76055142ca1d17c3",
+    "followingChanges": [
+      ".gitattributes",
+      "AGENTS.md"
+    ],
+    "canonical": false,
+    "actualPr3ProtectedMerge": "NOT RUN",
+    "main": "ebc4bdc3abc62c36348d9ba28de7161b04b3b466",
+    "developAtLookup": "2c0a83172507bcb77d105d9f9294fec2e6672ac1",
+    "develop235": "unmerged 8.2.1 pre-bump; not used as active authority"
+  },
+  "actualVersionTool": {
+    "capturedAt": "2026-10-13T05:49:47.8112249Z",
+    "beforeHead": "7cfb59d35072a210c96973a0d0fd06b6da719d14",
+    "from": "8.2.0",
+    "to": "8.3.0",
+    "scope": "marketplace",
+    "dryRunExit": 0,
+    "dryRunZeroWrite": true,
+    "applyExit": 0,
+    "before": {
+      "plugins/explain-kit/plugin.json": "62C24BC96F812E707F5F425DBEA2E06433880707678CB591929586255E5C5B91",
+      "README.md": "2A4EC2995F0027220FE7EDC90C099203DF2C615DD0943434715D3C9143D1C430",
+      "plugins/learning-evidence-kit/plugin.json": "C3B49B6428D25C6598BC6B9F2CE41339C78E32E538E905ECBD6CED483836ED46",
+      "plugins/diagram-kit/plugin.json": "8C51243D90E61764724BDB56256E603BDCF4414723111986685D5B70255097ED",
+      "plugins/communication-kit/plugin.json": "7EEAD6BE18358EB3925F283A9D2B2A149ADEAE2CFCB8E42BDA6D859BF78E28C8",
+      "VERSION": "5C8260D6B99E48534C1F6B65DF237CF3D3BD81666A7B2312980E363BE040BF43",
+      "plugins/html-guide-kit/plugin.json": "CA653936EF2E38E0AE6D69B8D2D6CA515CC42C145331E500BD948FC78CFAD3FA"
+    },
+    "after": {
+      "plugins/explain-kit/plugin.json": "62C24BC96F812E707F5F425DBEA2E06433880707678CB591929586255E5C5B91",
+      "README.md": "EE3805A73AC78244F2D7A341EF073A99E63534D9CDD11997A28761F9E60A024D",
+      "plugins/learning-evidence-kit/plugin.json": "C3B49B6428D25C6598BC6B9F2CE41339C78E32E538E905ECBD6CED483836ED46",
+      "plugins/diagram-kit/plugin.json": "8C51243D90E61764724BDB56256E603BDCF4414723111986685D5B70255097ED",
+      "plugins/communication-kit/plugin.json": "7EEAD6BE18358EB3925F283A9D2B2A149ADEAE2CFCB8E42BDA6D859BF78E28C8",
+      "VERSION": "041D677AA2A916DF2F28ABEBCC5BDFA4D982674A25819003EC98B3F89F032FD6",
+      "plugins/html-guide-kit/plugin.json": "CA653936EF2E38E0AE6D69B8D2D6CA515CC42C145331E500BD948FC78CFAD3FA"
+    }
+  },
+  "changelogs": {
+    "marketplace": "8.3.0 formal candidate section plus Unreleased; earlier published sections unchanged",
+    "plugin": "0.1.0 initial version section plus Unreleased; this is a documentation-only package tree change"
+  },
+  "runtime": {
+    "changedProductionOrPackagePaths": [
+      "plugins/communication-kit/CHANGELOG.md"
+    ],
+    "communicationPackageBefore": "14a3896c7ad50597bfc83996bcfec25180a720f9",
+    "communicationPackageAfter": "170fcad82f33548c8d91b62984df4ff38635e69f",
+    "unchangedCommSkillReferencesIcons": true
+  },
+  "actualChecks": {
+    "fullTest": {
+      "tests": 344,
+      "pass": 344,
+      "fail": 0,
+      "skip": 0
+    },
+    "strict": "PASS",
+    "whitespace": "PASS after exact original receipt attribute repair",
+    "baseline": "0.147.0 PASS",
+    "snapshotSmoke": {
+      "scenarioCount": 13,
+      "cli": "codex-cli 0.147.0",
+      "diagramPython": 6,
+      "learningPython": 6,
+      "learningInterpreters": [
+        "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]"
+      ],
+      "implicit": {
+        "publicSkills": 3,
+        "repositorySkills": 0
+      },
+      "nativePublic": 7,
+      "explicit": [
+        "learning-evidence-kit:pop-quiz",
+        "learning-evidence-kit:learning-record-check",
+        "communication-kit:communicate",
+        "html-guide-kit:guide"
+      ]
+    }
+  },
+  "failuresAndRepairs": [
+    {
+      "failure": "Direct in-process PowerShell script did not set LASTEXITCODE; wrapper saw null and stopped before apply",
+      "preserved": "Original dryrun output; VERSION/README stayed at 8.2.0",
+      "repair": "Independent pwsh process produced actual exit 0; seven before/after hashes proved DryRun zero-write; apply changed only two anchors and five manifests retained exact bytes"
+    },
+    {
+      "failure": "git diff --cached --check flagged two indented blank lines in the original first failing Node receipt",
+      "repair": "Keep all original raw bytes and hashes; allow blank-at-eol only for that single named failure receipt in .gitattributes. All production/default whitespace rules stay enforced."
+    },
+    {
+      "failure": "Independent review found stale AGENTS statements saying Learning still pending and version unconverted",
+      "repair": "Correct current status to actual Learning published and PR4 8.3.0 prepared; strict rerun PASS. Runtime files unchanged; original full/smoke logs retain tested index identity"
+    }
+  ],
+  "formalScope": {
+    "plugins": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "communication-kit"
+    ],
+    "publicSkills": 6,
+    "explicit": 3,
+    "ordinary": 3,
+    "installationScenarios": 9,
+    "status": "NOT RUN for formal four-package projection/canonical source; development 13-scenario PASS cannot substitute"
+  },
+  "releaseCases": {
+    "R01": "NOT RUN",
+    "R02": "NOT RUN",
+    "R03": "NOT RUN",
+    "R04": "NOT RUN",
+    "R05": "NOT RUN"
+  },
+  "limits": [
+    "No protected phase merge, independent GitHub approval, formal four-package candidate or published Communication Release.",
+    "No new client/model/real-world effects run; original native same-app two-route scope, CLI partials and failures remain separately bound.",
+    "Later actual merged source/base/head and post-release source must be rechecked."
+  ],
+  "artifacts": [
+    {
+      "kind": "dryrun",
+      "rawLog": "communication-kit-2026-10-13-version-prep-01-dryrun.log",
+      "rawBytes": 483,
+      "sha256": "10f96912de24a21782600a74c7d6e86f325ffa14f2f76e1eedb6985f055a5ac5"
+    },
+    {
+      "kind": "dryrun-r2",
+      "rawLog": "communication-kit-2026-10-13-version-prep-01-dryrun-r2.log",
+      "rawBytes": 483,
+      "sha256": "10f96912de24a21782600a74c7d6e86f325ffa14f2f76e1eedb6985f055a5ac5"
+    },
+    {
+      "kind": "apply",
+      "rawLog": "communication-kit-2026-10-13-version-prep-01-apply.log",
+      "rawBytes": 466,
+      "sha256": "f2dbffd8d28483679aada7f8c5e9706742b9a17c1e452e8da68597dd35f7a47d"
+    },
+    {
+      "kind": "audit",
+      "rawLog": "communication-kit-2026-10-13-version-prep-01-audit.json",
+      "rawBytes": 1744,
+      "sha256": "55a3db5d5bcfff92b7bead9bf1c13d1f920868ed0ebb3b144dcc8a8a839fc566"
+    },
+    {
+      "kind": "validate",
+      "rawLog": "communication-kit-2026-10-13-version-prep-01-validate.log",
+      "rawBytes": 392,
+      "sha256": "e3bedb0233222e468a1e207cfbcbaf1c3138a8827fde2769e9e2ede3a85eb3d8"
+    },
+    {
+      "kind": "validate-r2",
+      "rawLog": "communication-kit-2026-10-13-version-prep-01-validate-r2.log",
+      "rawBytes": 392,
+      "sha256": "e3bedb0233222e468a1e207cfbcbaf1c3138a8827fde2769e9e2ede3a85eb3d8"
+    },
+    {
+      "kind": "test",
+      "rawLog": "communication-kit-2026-10-13-version-prep-01-test.log",
+      "rawBytes": 78516,
+      "sha256": "3b2135606777abce2cf4a0ad1735296bd0b0904fe285a95f2470649ea2d23c0c",
+      "actualNodeCounts": {
+        "tests": 344,
+        "pass": 344,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "kind": "baseline",
+      "rawLog": "communication-kit-2026-10-13-version-prep-01-baseline.log",
+      "rawBytes": 165,
+      "sha256": "68ad909418d8afbe4cffa1f080ea0ab54359beecfa396b562e10c2ff0ad79704"
+    },
+    {
+      "kind": "smoke",
+      "rawLog": "communication-kit-2026-10-13-version-prep-01-smoke.log",
+      "rawBytes": 321788,
+      "sha256": "59bfbfe3f4342a463a94b00785fe3dfb70781b1cbaa4dd2053f0075eede02176"
+    }
+  ],
+  "postArchiveRepairs": [
+    {
+      "failure": "After raw receipts were archived, whitespace check also flagged original version-tool final blank lines and raw Windows audit CRLF",
+      "repair": "Narrow attributes for this version-prep raw log prefix disable only blank-at-eof; its single original JSON audit accepts cr-at-eol. Raw bytes/hashes preserved, production/default rules unchanged."
+    },
+    {
+      "failure": "New revision rows separated from existing Version tables rendered as orphan pipe text",
+      "repair": "Place INDEX/ADR/SPEC/RUNBOOK rows into their existing history tables and join adjacent guide history rows; documentation-only follow-up."
+    }
+  ]
+}

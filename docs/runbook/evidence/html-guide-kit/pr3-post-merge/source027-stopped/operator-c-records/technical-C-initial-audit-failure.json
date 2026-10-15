@@ -1,0 +1,17 @@
+{
+  "recordedAt": "2026-10-14T16:49:44.636Z",
+  "toolChunk": "47ab07",
+  "exitCode": 1,
+  "error": "actual answer/event correspondence B1.1/1",
+  "phase": "read-only audit before artifact writes",
+  "diagnosticChunk": "1fa5d3",
+  "diagnosticExitCode": 0,
+  "verifiedCause": "Audit joined multiple agent_message bodies with one newline; frozen harness finalText joins with two newlines. Actual model messages/raw are unchanged.",
+  "actualHarnessLocation": "blocking/harness.mjs:174",
+  "originalScriptAndErrorRetainedInToolCall": true,
+  "originalClosureAndRawUnchanged": true,
+  "modelRerun": false,
+  "harnessChanged": false,
+  "reportWrittenBeforeFailure": false,
+  "correction": "Only mirror actual frozen separator in new r2 audit; no model or evidence mutation."
+}

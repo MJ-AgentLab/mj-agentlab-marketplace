@@ -1,0 +1,79 @@
+{
+  "recordedAt": "2026-10-14T13:58:47.5092453Z",
+  "phase": "INDEPENDENT_TARGETED_ORIGINAL_SEMANTIC_REVIEW",
+  "reviewer": "behavior_014_a",
+  "operator": "root",
+  "canonical": {
+    "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "canonicalSha": "b46069e3979136e70d64b9873b799b5bd069ca95",
+    "canonicalTree": "d8a2ffb8646065dff8f7a46fe741b1f93b5873ad"
+  },
+  "variant": "B1.2-delayed",
+  "uuid": "01a13aab-2fe2-7621-b2d5-98dc7016c10e",
+  "attemptId": "7799c951-bde7-4821-b81d-59f362c05bf6",
+  "turn": 3,
+  "sourceMaterial": {
+    "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\3a615deb-0697-4b2a-a88e-f3fbb859279d\\0d5b0940-77e1-49a3-a949-03c4340b3d21\\e501e017-9ed9-45c2-9c74-4c8e8a549ff5\\2706e4ee-d143-4563-bc61-2d3d2b61c93a.md",
+    "bytes": 1640,
+    "sha256": "66a948e4903134491c391188b7870e2fb47f3bc102271438911e1ade6a23b502"
+  },
+  "input": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\03.input.txt",
+    "bytes": 43,
+    "sha256": "6b89a74c6d035fb6440da4cb0320de40d5d57390ce797f9c847362b8c4697fb1"
+  },
+  "output": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\03.output.txt",
+    "bytes": 12579,
+    "sha256": "0c260027b54802ec9d4c90d6b109d4de83dac6a50ebeeb76a04897e85b0db4cb"
+  },
+  "fullRead": "67856b: entire actual T3 output and marker, no truncation",
+  "evidence": [
+    {
+      "line": 60,
+      "text": "| 无库存时领取 | 访客状态为“已核验”；库存为 0 | 领取 | 显示“等待补充”；保留“已核验”；库存不变 | 原材料 §4 |"
+    },
+    {
+      "line": 93,
+      "text": "只有同时出现“已核验”和“库存大于 0”时，才显示“当前可以操作领取”。依据为原材料 §4。  "
+    },
+    {
+      "line": 140,
+      "text": "- “已核验”且库存为 0：显示“等待补充”，继续保持“已核验”，库存不变。依据为原材料 §4。"
+    },
+    {
+      "line": 176,
+      "text": "本教材采用单轮共享状态："
+    },
+    {
+      "line": 181,
+      "text": "- 执行“重新开始”才恢复 §1 的全部初始值。"
+    },
+    {
+      "line": 211,
+      "text": "- 库存为 0。"
+    }
+  ],
+  "status": "FAIL",
+  "sourceFidelity": "FAIL",
+  "primaryAmendedTargetConfirmation": "NOT_REVIEWED_IN_THIS_TARGETED_FINAL",
+  "findings": [
+    {
+      "dimension": "INITIAL_VALUE_END_STATE_EXCLUSIVITY",
+      "rationale": "The actual shared-state lifecycle says source restart alone restores all initial values. Source cancellation also gives the initial field values when only reservation was changed by its permitted teaching input, while current state is unverified, tour unfinished and stock2. Source prescribes no exclusive initial-value result path. The guide states exclusion in this field-result dimension and attributes it to source1/7; it does not restrict the statement to the full clearing/restoration action identity."
+    },
+    {
+      "dimension": "OPERATION_PERMISSION_VERSUS_OBTAINING_RESULT",
+      "rationale": "The overview allows displaying current permission to operate receive only in verified state plus positive stock. Source4 permits the receive operation in verified state at stock0 and specifies waiting/retaining state/no stock change. The asserted necessary positive-stock permission condition excludes that known permitted branch; successful obtaining and operation permission are different dimensions. Correct zero-stock results elsewhere do not repair this local overview."
+    }
+  ],
+  "marker": {
+    "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-23/normal-execution-pause.flag",
+    "bytes": 819,
+    "sha256": "e3d50a1c5dc444abb86d147d3739cb3400d8fd58c063a3357c246592c465fb14"
+  },
+  "markerAlreadyCreatedByRoot": "58894e/2026-10-14T13:55:31.634Z",
+  "noSecondMarkerOrModelInvoked": true,
+  "old23Or22RawUnmodified": true,
+  "wholeRootTransportAndEarlierTurns": "NOT_GRADED_BY_THIS_TARGETED_REVIEW"
+}

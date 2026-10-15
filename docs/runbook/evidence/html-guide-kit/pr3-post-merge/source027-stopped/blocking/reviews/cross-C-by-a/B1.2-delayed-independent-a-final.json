@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "recordedUtc": "2026-10-14T16:57:24.0146028Z",
+  "reviewer": "/root/behavior_014_a",
+  "operator": "/root/precommit_014",
+  "source": {
+    "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "canonicalSha": "00d59da3099113ccbf3db73b84787c526eedd713",
+    "canonicalTree": "edc69b137e5473c6e7307120a81c9e091764d673"
+  },
+  "variant": "B1.2-delayed",
+  "uuid": "01a13b44-1510-7723-8a8e-efd6e13f5451",
+  "attemptId": "38135f2b-f3c0-48d3-aa74-65c77853363b",
+  "actualTurns": 3,
+  "primaryCriterion": "PASS",
+  "wholeFidelity": "FAIL",
+  "overall": "FAIL",
+  "method": "Independent whole original outputs/source/actual inputs semantic review plus actual SDK bodies and V2 capture, no inherited prior version results",
+  "rawInputOutputPins": [
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.2-delayed\\38135f2b-f3c0-48d3-aa74-65c77853363b\\01.input.txt",
+      "bytes": 989,
+      "sha256": "09b7ff73839eec700685f72c5ae82cabe8bcdbf91416e157e48c6cae8944e6ed"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.2-delayed\\38135f2b-f3c0-48d3-aa74-65c77853363b\\01.output.txt",
+      "bytes": 3379,
+      "sha256": "f8f835008b7222082b27e784ce84c1baeb01b0ccf3ad289fe4011daa1e32a01c"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.2-delayed\\38135f2b-f3c0-48d3-aa74-65c77853363b\\02.input.txt",
+      "bytes": 133,
+      "sha256": "3961b1ba9c09ccf3adbc732aaf19965fe0dbc0503bba5b810ee5162317ce0388"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.2-delayed\\38135f2b-f3c0-48d3-aa74-65c77853363b\\02.output.txt",
+      "bytes": 856,
+      "sha256": "f5c5be40c0dcd40f7971f6bbe3330aa40a25fdef80f72788a91081714a170f74"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.2-delayed\\38135f2b-f3c0-48d3-aa74-65c77853363b\\03.input.txt",
+      "bytes": 43,
+      "sha256": "6b89a74c6d035fb6440da4cb0320de40d5d57390ce797f9c847362b8c4697fb1"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.2-delayed\\38135f2b-f3c0-48d3-aa74-65c77853363b\\03.output.txt",
+      "bytes": 8729,
+      "sha256": "05baf45267ea5c68ebb4c76e5c6c0a1cc84fdd6adedfb234a71e5f54c625de3c"
+    }
+  ],
+  "technical": {
+    "path": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-27/blocking/reviews/B-C-actual-sdk-review-a-r2.json",
+    "bytes": 112030,
+    "sha256": "ddb61f94f727f85603e5ee8f5fc5aced824c747af16cf403309e893cfba95cca"
+  },
+  "actualReceiptSummary": [
+    {
+      "turn": 1,
+      "captureValid": true,
+      "nativeEntryFull": true,
+      "newOuterToolCallCount": 4,
+      "actualReadBodyCount": 4,
+      "allBodiesFull": true
+    },
+    {
+      "turn": 2,
+      "captureValid": true,
+      "nativeEntryFull": true,
+      "newOuterToolCallCount": 0,
+      "actualReadBodyCount": 0,
+      "allBodiesFull": true
+    },
+    {
+      "turn": 3,
+      "captureValid": true,
+      "nativeEntryFull": true,
+      "newOuterToolCallCount": 0,
+      "actualReadBodyCount": 0,
+      "allBodiesFull": true
+    }
+  ],
+  "noNewModelOrFixture": true,
+  "effect": "NOT_MEASURED",
+  "fullReadTools": [
+    "2f87ce",
+    "4929dc"
+  ],
+  "primaryReason": "T2仅更新实际3读者/领取任务并保原四理解问题、明确暂不确认；T3真实确认后采用修改版，不索第二批准。",
+  "finding": {
+    "location": "T3 §三归还",
+    "quote": "材料未规定“已归还”后能否重新核验或再次领取，不得自行补充。",
+    "reason": "本处能否是当前态/直接操作的许可谓词，未限源规定以外额外完整路径。源§4其他态不可领取已有否定，未知再次核验不把领取亦抹未知；旁段正确禁止不能补此局部。"
+  },
+  "notes": [
+    "四字段值比较的局部性质可按所示维度理解，不据未穷尽清除对象机械再造F。",
+    "条件模拟/自检是教学设计，实际效果未测。"
+  ]
+}

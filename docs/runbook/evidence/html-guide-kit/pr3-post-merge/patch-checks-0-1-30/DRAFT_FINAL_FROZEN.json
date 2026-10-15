@@ -1,0 +1,95 @@
+{
+  "status": "FINAL_FROZEN_DRAFT_ONLY",
+  "recordedAt": "2026-10-14T19:02:39.692Z",
+  "author": "/root/behavior_014_a",
+  "sourceCanonical": "d25dc63fb81b57859757769c239dbacfd4983492",
+  "sourceTree": "1da998101bcb3738f31a275ad4fb17d97ba5eba8",
+  "sourceVersion": "0.1.29",
+  "proposedVersion": "0.1.30",
+  "sourceCopyTool": "4c2c60",
+  "scopeAuthorization": "Root approved proposed two spans after independent Source29 permission failure; author does not self-approve.",
+  "resources": [
+    {
+      "relative": "SKILL.md",
+      "sourceSnapshot": "source29-originals/SKILL.md.snapshot.txt",
+      "sourceBytes": 4948,
+      "sourceSha256": "dbff8b0f1b829a0b560520d1ae988a87dd9a4142fc6c73ce3e7c25ca3f3096bc",
+      "draftPath": "draft/SKILL.md",
+      "draftBytes": 5409,
+      "draftSha256": "e9dddb6c3699e3aa4af9235247b490529982c882b55c0bd7e9d8e7405fd319bf",
+      "lfBytes": 5409,
+      "windowsCrlfBytes": 5445,
+      "changed": true,
+      "exactByteDelta": {
+        "offsetBytes": 1749,
+        "oldBytes": 0,
+        "newBytes": 461,
+        "oldText": "",
+        "newText": "拟列材料缺口前，先确认源规则实际适用范围，再代入全部实际前提。宽许可已覆盖的当前操作许可及明确结果不能改为未知。源未设次数、字段原值或额外历史条件时，不因这些事项未专述就新增门槛。未知只限真正未述结果、提示或额外路径；范围外对象或必需前提仍未知时，按既有方法保未知，不默认可操作。不得为谨慎添加无依据缺口。\n\n",
+        "forwardInverseExact": true
+      }
+    },
+    {
+      "relative": "references/guide-framework.md",
+      "sourceSnapshot": "source29-originals/references/guide-framework.md.snapshot.txt",
+      "sourceBytes": 8739,
+      "sourceSha256": "fe70ec7005dd564a1cef1e84691c85d4cac278c6b8de1578e87b348742fe7c9b",
+      "draftPath": "draft/references/guide-framework.md",
+      "draftBytes": 9117,
+      "draftSha256": "8a76449f64e07e61ae9b200111970e5643f7a0e6c181c8e7fef4186237b165f1",
+      "lfBytes": 9117,
+      "windowsCrlfBytes": 9188,
+      "changed": true,
+      "exactByteDelta": {
+        "offsetBytes": 5258,
+        "oldBytes": 327,
+        "newBytes": 705,
+        "oldText": "逐项保已知，只对剩余维度说未知；未知字段、额外意义、提示/重复细节不撤整个操作。非法尝试的许可与未述后果分记。宽“后续/能否”限定具体操作、维度、范围，不盖已知允许/禁止。前提未满仍匹配其他规则，不自动全禁、全保持或全未知",
+        "newText": "拟列缺口时，先确认源规则的实际对象/范围，再固定当前操作并代入全部实际前提。宽许可命中时保当前许可及明确结果；源未设次数、字段原值或额外历史要求时，不能因这些事项未再次单述而收窄为未知。只有真正剩余维度才未知：未知字段、额外意义、提示/重复细节不撤已知，非法尝试许可与未述后果分记。宽“后续/能否”仍限具体操作、维度、范围。当前单元未命中须匹配其他有关规则，不自动全禁、全保持或全未知；范围外或实际必需前提仍未知时，照原方法保未知，不默认可操作。不为谨慎自增前提或无依据缺口",
+        "forwardInverseExact": true
+      }
+    },
+    {
+      "relative": "references/interaction-design.md",
+      "sourceSnapshot": "source29-originals/references/interaction-design.md.snapshot.txt",
+      "sourceBytes": 7773,
+      "sourceSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "draftPath": "draft/references/interaction-design.md",
+      "draftBytes": 7773,
+      "draftSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "lfBytes": 7773,
+      "windowsCrlfBytes": 7836,
+      "changed": false
+    }
+  ],
+  "changedResources": 2,
+  "unchangedResources": 1,
+  "entryHardLimitBytes": 6144,
+  "preservationMap": [
+    {
+      "old": "entry读取与拒因证据纪律及顺序1先保已知",
+      "new": "原段全保，前置短段先确认实际范围/全部前提，再保宽许可已覆盖的当前许可与明确结果；次数/字段原值/额外历史非源前提不增门槛",
+      "boundary": "范围外对象或源实际必需前提未知不默认许可。"
+    },
+    {
+      "old": "FW3逐项保已知/未知维度/非法尝试许可与后果/宽后续问法/遍其他规则",
+      "new": "同一段先实际代入全部源前提和宽许可，再限剩余未知，保原所有边界",
+      "boundary": "不为谨慎添加无据缺口，不将未述字段结果改为已知。"
+    },
+    {
+      "old": "source29全部其他执行与语义方法",
+      "new": "两span之外字节完全保留，ID全部7773B原样",
+      "boundary": "不改合同/目标待选/非操作材料/纯条件逻辑/来源归属/模拟/反馈/恢复/篇幅/Read；无fixture答案、领域名、Ownerpaths、新模板或资源。"
+    }
+  ],
+  "independentStatic": "NOT_RUN",
+  "runtimeApplied": false,
+  "versionApplied": false,
+  "repositoryChanged": false,
+  "controlsChanged": false,
+  "old29EvidenceChanged": false,
+  "model": "NOT_RUN",
+  "installation": "NOT_RUN",
+  "client": "NOT_RUN",
+  "effects": "NOT_MEASURED"
+}

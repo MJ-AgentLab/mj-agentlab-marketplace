@@ -1,0 +1,630 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T05:31:37.722Z",
+  "status": "STATIC_ONLY",
+  "result": "NO_STATIC_BLOCKERS",
+  "reviewer": "/root/behavior_014_b",
+  "sourceCanonical": "0a6c48c2b3d782cbffb86355060d65986383eeea",
+  "sourceTree": "b09e7772bc34e37d6fe9206fa263f827895549af",
+  "proposedVersion": "0.1.19",
+  "candidateCanonical": null,
+  "currentWorkingHead": "0a6c48c2b3d782cbffb86355060d65986383eeea",
+  "originDevelop": "c1fa458df1b531d7c38436908b750ba810b0b116",
+  "observedModifiedTrackedFiles": [
+    "AGENTS.md",
+    "CHANGELOG.md",
+    "README.md",
+    "docs/INDEX.md",
+    "docs/guide/[GUIDE]_HTML_Guide_Kit.md",
+    "docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md",
+    "docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md",
+    "plugins/html-guide-kit/CHANGELOG.md",
+    "plugins/html-guide-kit/README.md",
+    "plugins/html-guide-kit/plugin.json",
+    "plugins/html-guide-kit/skills/guide/SKILL.md",
+    "plugins/html-guide-kit/skills/guide/references/guide-framework.md",
+    "plugins/html-guide-kit/skills/guide/references/interaction-design.md",
+    "tests/html-guide-kit.test.mjs"
+  ],
+  "scope": {
+    "existingTrackedChanges": 14,
+    "newEvidenceOnly": [
+      "docs/runbook/evidence/html-guide-kit/pr3-post-merge/candidate028-final-seal",
+      "docs/runbook/evidence/html-guide-kit/pr3-post-merge/engineering-0a6c48c2",
+      "docs/runbook/evidence/html-guide-kit/pr3-reviewer/patch-028-stopped"
+    ],
+    "oldTrackedEvidenceChanges": 0
+  },
+  "resources": [
+    {
+      "relative": "skills/guide/SKILL.md",
+      "draftBytes": 6061,
+      "draftSha256": "62bca7f777c7d77644f8378358cdb104bb2e51c285722d57e432237024dd4bd3",
+      "crlfBytes": 6115,
+      "crlfSha256": "7bd2a0ad6daeaff4ca2e5fa2139bae9b86eaf932a72dad726d1eb98df8ec1276",
+      "productionByteExact": true
+    },
+    {
+      "relative": "skills/guide/references/guide-framework.md",
+      "draftBytes": 8547,
+      "draftSha256": "d0f88efdb46a28691af897c9df7f2e9f0154a5223924175d9fdc1c4120dc4a75",
+      "crlfBytes": 8607,
+      "crlfSha256": "8d09194baca251fe3ee8bf75864f66e3a75bf11efc0210afe3a9cb3ed415f9bd",
+      "productionByteExact": true
+    },
+    {
+      "relative": "skills/guide/references/interaction-design.md",
+      "draftBytes": 9247,
+      "draftSha256": "af14c904e4b37f728aaaacb4356972c4fc0bc590872f271361fbc7d24d8430a1",
+      "crlfBytes": 9318,
+      "crlfSha256": "0484acc90e2a467b70b52d425431f875d05bcf956e803ed74c15879256468b9b",
+      "productionByteExact": true
+    }
+  ],
+  "manifestOnlyVersionAnchorChanged": true,
+  "otherFourPluginGitResources": {
+    "count": 59,
+    "allSourceBaseAndWorkingBlobsIdentical": true,
+    "rows": [
+      {
+        "relative": "plugins/communication-kit/CHANGELOG.md",
+        "baseBlob": "16ad1f9041f86ed01fcab34771af9ab40c67bcf8",
+        "sourceBlob": "16ad1f9041f86ed01fcab34771af9ab40c67bcf8",
+        "workingBlob": "16ad1f9041f86ed01fcab34771af9ab40c67bcf8",
+        "same": true
+      },
+      {
+        "relative": "plugins/communication-kit/LICENSE",
+        "baseBlob": "5ce28e0a42b9f781087df184517daafa2f483602",
+        "sourceBlob": "5ce28e0a42b9f781087df184517daafa2f483602",
+        "workingBlob": "5ce28e0a42b9f781087df184517daafa2f483602",
+        "same": true
+      },
+      {
+        "relative": "plugins/communication-kit/README.md",
+        "baseBlob": "e48e6a5ee5e783ca93486702330a789989481f84",
+        "sourceBlob": "e48e6a5ee5e783ca93486702330a789989481f84",
+        "workingBlob": "e48e6a5ee5e783ca93486702330a789989481f84",
+        "same": true
+      },
+      {
+        "relative": "plugins/communication-kit/assets/icon.png",
+        "baseBlob": "39a708ea85835de34a9698d1d431e25205ead387",
+        "sourceBlob": "39a708ea85835de34a9698d1d431e25205ead387",
+        "workingBlob": "39a708ea85835de34a9698d1d431e25205ead387",
+        "same": true
+      },
+      {
+        "relative": "plugins/communication-kit/assets/icon.svg",
+        "baseBlob": "6e48cac24e63b6c202d44ecfff89dcb3f3daad6b",
+        "sourceBlob": "6e48cac24e63b6c202d44ecfff89dcb3f3daad6b",
+        "workingBlob": "6e48cac24e63b6c202d44ecfff89dcb3f3daad6b",
+        "same": true
+      },
+      {
+        "relative": "plugins/communication-kit/plugin.json",
+        "baseBlob": "c43bc6bbff0f9cc6cfcccadf4a07d98017c84791",
+        "sourceBlob": "c43bc6bbff0f9cc6cfcccadf4a07d98017c84791",
+        "workingBlob": "c43bc6bbff0f9cc6cfcccadf4a07d98017c84791",
+        "same": true
+      },
+      {
+        "relative": "plugins/communication-kit/skills/communicate/SKILL.md",
+        "baseBlob": "f26f93ca7e2d783301bcd98b0cbb5bf1498c39d0",
+        "sourceBlob": "f26f93ca7e2d783301bcd98b0cbb5bf1498c39d0",
+        "workingBlob": "f26f93ca7e2d783301bcd98b0cbb5bf1498c39d0",
+        "same": true
+      },
+      {
+        "relative": "plugins/communication-kit/skills/communicate/agents/openai.yaml",
+        "baseBlob": "d5536a61a8b67ebb1c3f7e81d66b6cc529c2a56c",
+        "sourceBlob": "d5536a61a8b67ebb1c3f7e81d66b6cc529c2a56c",
+        "workingBlob": "d5536a61a8b67ebb1c3f7e81d66b6cc529c2a56c",
+        "same": true
+      },
+      {
+        "relative": "plugins/communication-kit/skills/communicate/references/aics-policy.md",
+        "baseBlob": "505bed066b8229177277713c6eae21b17f9a7a70",
+        "sourceBlob": "505bed066b8229177277713c6eae21b17f9a7a70",
+        "workingBlob": "505bed066b8229177277713c6eae21b17f9a7a70",
+        "same": true
+      },
+      {
+        "relative": "plugins/communication-kit/skills/communicate/references/aics-snapshot.json",
+        "baseBlob": "7f6136ae1f633be56eb194f11a67d1466490990a",
+        "sourceBlob": "7f6136ae1f633be56eb194f11a67d1466490990a",
+        "workingBlob": "7f6136ae1f633be56eb194f11a67d1466490990a",
+        "same": true
+      },
+      {
+        "relative": "plugins/communication-kit/skills/communicate/references/source-provenance.md",
+        "baseBlob": "620db99d40ff20dbba3e8ca818d4737700ee16f9",
+        "sourceBlob": "620db99d40ff20dbba3e8ca818d4737700ee16f9",
+        "workingBlob": "620db99d40ff20dbba3e8ca818d4737700ee16f9",
+        "same": true
+      },
+      {
+        "relative": "plugins/communication-kit/skills/communicate/references/task-patterns.md",
+        "baseBlob": "3dfd90a1d5a6826f92e9abfddf650e4c8b763e8a",
+        "sourceBlob": "3dfd90a1d5a6826f92e9abfddf650e4c8b763e8a",
+        "workingBlob": "3dfd90a1d5a6826f92e9abfddf650e4c8b763e8a",
+        "same": true
+      },
+      {
+        "relative": "plugins/diagram-kit/CHANGELOG.md",
+        "baseBlob": "41f0f23e2045ccae4c34e37a8bfde0c5f9d036b7",
+        "sourceBlob": "41f0f23e2045ccae4c34e37a8bfde0c5f9d036b7",
+        "workingBlob": "41f0f23e2045ccae4c34e37a8bfde0c5f9d036b7",
+        "same": true
+      },
+      {
+        "relative": "plugins/diagram-kit/LICENSE",
+        "baseBlob": "5ce28e0a42b9f781087df184517daafa2f483602",
+        "sourceBlob": "5ce28e0a42b9f781087df184517daafa2f483602",
+        "workingBlob": "5ce28e0a42b9f781087df184517daafa2f483602",
+        "same": true
+      },
+      {
+        "relative": "plugins/diagram-kit/README.md",
+        "baseBlob": "9dc5502fd51244891e3c3013e74fbe5e062b4868",
+        "sourceBlob": "9dc5502fd51244891e3c3013e74fbe5e062b4868",
+        "workingBlob": "9dc5502fd51244891e3c3013e74fbe5e062b4868",
+        "same": true
+      },
+      {
+        "relative": "plugins/diagram-kit/assets/icon.png",
+        "baseBlob": "591707836457e3a8920df1ba7f3f8c9bbab6a3f0",
+        "sourceBlob": "591707836457e3a8920df1ba7f3f8c9bbab6a3f0",
+        "workingBlob": "591707836457e3a8920df1ba7f3f8c9bbab6a3f0",
+        "same": true
+      },
+      {
+        "relative": "plugins/diagram-kit/assets/icon.svg",
+        "baseBlob": "817bebb2f6df7397123ce0b5ad18a6bbed24849c",
+        "sourceBlob": "817bebb2f6df7397123ce0b5ad18a6bbed24849c",
+        "workingBlob": "817bebb2f6df7397123ce0b5ad18a6bbed24849c",
+        "same": true
+      },
+      {
+        "relative": "plugins/diagram-kit/plugin.json",
+        "baseBlob": "4a7b56fd85d83d1f30e81f36ad57f87d8ae5594e",
+        "sourceBlob": "4a7b56fd85d83d1f30e81f36ad57f87d8ae5594e",
+        "workingBlob": "4a7b56fd85d83d1f30e81f36ad57f87d8ae5594e",
+        "same": true
+      },
+      {
+        "relative": "plugins/diagram-kit/skills/arch-diagram/SKILL.md",
+        "baseBlob": "6e9564b860d88cbf9aff27446082902d8aa6b516",
+        "sourceBlob": "6e9564b860d88cbf9aff27446082902d8aa6b516",
+        "workingBlob": "6e9564b860d88cbf9aff27446082902d8aa6b516",
+        "same": true
+      },
+      {
+        "relative": "plugins/diagram-kit/skills/arch-diagram/agents/openai.yaml",
+        "baseBlob": "d2237408ca20fc0f6b99c6edf288d2f2c8900ec5",
+        "sourceBlob": "d2237408ca20fc0f6b99c6edf288d2f2c8900ec5",
+        "workingBlob": "d2237408ca20fc0f6b99c6edf288d2f2c8900ec5",
+        "same": true
+      },
+      {
+        "relative": "plugins/diagram-kit/skills/arch-diagram/references/architecture-methodology.md",
+        "baseBlob": "7949e5dcae61b7a9e609b5aaf352e11261475038",
+        "sourceBlob": "7949e5dcae61b7a9e609b5aaf352e11261475038",
+        "workingBlob": "7949e5dcae61b7a9e609b5aaf352e11261475038",
+        "same": true
+      },
+      {
+        "relative": "plugins/diagram-kit/skills/arch-diagram/references/code-diagram.md",
+        "baseBlob": "dc3e6688233c9d443f0ec265d5b3b1b8aa15e7f5",
+        "sourceBlob": "dc3e6688233c9d443f0ec265d5b3b1b8aa15e7f5",
+        "workingBlob": "dc3e6688233c9d443f0ec265d5b3b1b8aa15e7f5",
+        "same": true
+      },
+      {
+        "relative": "plugins/diagram-kit/skills/arch-diagram/references/component-diagram.md",
+        "baseBlob": "8380ff3799f4dc1f60b949e90568f37e232af3b3",
+        "sourceBlob": "8380ff3799f4dc1f60b949e90568f37e232af3b3",
+        "workingBlob": "8380ff3799f4dc1f60b949e90568f37e232af3b3",
+        "same": true
+      },
+      {
+        "relative": "plugins/diagram-kit/skills/arch-diagram/references/container-diagram.md",
+        "baseBlob": "e941cfbbccd5fa83179554afa61023fff61c816d",
+        "sourceBlob": "e941cfbbccd5fa83179554afa61023fff61c816d",
+        "workingBlob": "e941cfbbccd5fa83179554afa61023fff61c816d",
+        "same": true
+      },
+      {
+        "relative": "plugins/diagram-kit/skills/arch-diagram/references/context-diagram.md",
+        "baseBlob": "459fefcdc47cc06fd8e27711815081f4f66a663b",
+        "sourceBlob": "459fefcdc47cc06fd8e27711815081f4f66a663b",
+        "workingBlob": "459fefcdc47cc06fd8e27711815081f4f66a663b",
+        "same": true
+      },
+      {
+        "relative": "plugins/diagram-kit/skills/arch-diagram/references/deployment-diagram.md",
+        "baseBlob": "f5d1feb3c4634253c03aca859e3bb14be2ad82aa",
+        "sourceBlob": "f5d1feb3c4634253c03aca859e3bb14be2ad82aa",
+        "workingBlob": "f5d1feb3c4634253c03aca859e3bb14be2ad82aa",
+        "same": true
+      },
+      {
+        "relative": "plugins/diagram-kit/skills/arch-diagram/references/domain-acquisition.md",
+        "baseBlob": "fc47a2bfe7c5a5e836743174b863e22617693f04",
+        "sourceBlob": "fc47a2bfe7c5a5e836743174b863e22617693f04",
+        "workingBlob": "fc47a2bfe7c5a5e836743174b863e22617693f04",
+        "same": true
+      },
+      {
+        "relative": "plugins/diagram-kit/skills/arch-diagram/references/sequence-diagram.md",
+        "baseBlob": "c3b1706442ed00b21675dc9a00a738c16ea5a949",
+        "sourceBlob": "c3b1706442ed00b21675dc9a00a738c16ea5a949",
+        "workingBlob": "c3b1706442ed00b21675dc9a00a738c16ea5a949",
+        "same": true
+      },
+      {
+        "relative": "plugins/diagram-kit/skills/arch-diagram/references/state-machine-diagram.md",
+        "baseBlob": "916fdbc87df729ae5ab64657849f2bd14a448e80",
+        "sourceBlob": "916fdbc87df729ae5ab64657849f2bd14a448e80",
+        "workingBlob": "916fdbc87df729ae5ab64657849f2bd14a448e80",
+        "same": true
+      },
+      {
+        "relative": "plugins/diagram-kit/skills/arch-diagram/scripts/validate_diagram.py",
+        "baseBlob": "67a94c159977529433f9c1b921cba793ecd2ecc0",
+        "sourceBlob": "67a94c159977529433f9c1b921cba793ecd2ecc0",
+        "workingBlob": "67a94c159977529433f9c1b921cba793ecd2ecc0",
+        "same": true
+      },
+      {
+        "relative": "plugins/explain-kit/CHANGELOG.md",
+        "baseBlob": "f6cd34cbf301d9d48e5940b69af1c10319588e14",
+        "sourceBlob": "f6cd34cbf301d9d48e5940b69af1c10319588e14",
+        "workingBlob": "f6cd34cbf301d9d48e5940b69af1c10319588e14",
+        "same": true
+      },
+      {
+        "relative": "plugins/explain-kit/LICENSE",
+        "baseBlob": "5ce28e0a42b9f781087df184517daafa2f483602",
+        "sourceBlob": "5ce28e0a42b9f781087df184517daafa2f483602",
+        "workingBlob": "5ce28e0a42b9f781087df184517daafa2f483602",
+        "same": true
+      },
+      {
+        "relative": "plugins/explain-kit/README.md",
+        "baseBlob": "d74e148c842299da5a35518500b0507577968c18",
+        "sourceBlob": "d74e148c842299da5a35518500b0507577968c18",
+        "workingBlob": "d74e148c842299da5a35518500b0507577968c18",
+        "same": true
+      },
+      {
+        "relative": "plugins/explain-kit/assets/icon.png",
+        "baseBlob": "361a8fad21b18b67a1c9e894989ddfd7163fb38f",
+        "sourceBlob": "361a8fad21b18b67a1c9e894989ddfd7163fb38f",
+        "workingBlob": "361a8fad21b18b67a1c9e894989ddfd7163fb38f",
+        "same": true
+      },
+      {
+        "relative": "plugins/explain-kit/assets/icon.svg",
+        "baseBlob": "7b0e9542d1fce10507f13924b749b5547794a435",
+        "sourceBlob": "7b0e9542d1fce10507f13924b749b5547794a435",
+        "workingBlob": "7b0e9542d1fce10507f13924b749b5547794a435",
+        "same": true
+      },
+      {
+        "relative": "plugins/explain-kit/plugin.json",
+        "baseBlob": "910ff5886cfffba0356c5529b88b35607d567a7d",
+        "sourceBlob": "910ff5886cfffba0356c5529b88b35607d567a7d",
+        "workingBlob": "910ff5886cfffba0356c5529b88b35607d567a7d",
+        "same": true
+      },
+      {
+        "relative": "plugins/explain-kit/skills/concept/SKILL.md",
+        "baseBlob": "16642e5b2ea411dafe47a5ab0853a9a3c1c9f11c",
+        "sourceBlob": "16642e5b2ea411dafe47a5ab0853a9a3c1c9f11c",
+        "workingBlob": "16642e5b2ea411dafe47a5ab0853a9a3c1c9f11c",
+        "same": true
+      },
+      {
+        "relative": "plugins/explain-kit/skills/concept/agents/openai.yaml",
+        "baseBlob": "f1ac2bf315fc6fbe9644ff8306054550f220190e",
+        "sourceBlob": "f1ac2bf315fc6fbe9644ff8306054550f220190e",
+        "workingBlob": "f1ac2bf315fc6fbe9644ff8306054550f220190e",
+        "same": true
+      },
+      {
+        "relative": "plugins/explain-kit/skills/glossary/SKILL.md",
+        "baseBlob": "9793bb6df0377c3aeb3e2b2bc6b4ec8cffa1e921",
+        "sourceBlob": "9793bb6df0377c3aeb3e2b2bc6b4ec8cffa1e921",
+        "workingBlob": "9793bb6df0377c3aeb3e2b2bc6b4ec8cffa1e921",
+        "same": true
+      },
+      {
+        "relative": "plugins/explain-kit/skills/glossary/agents/openai.yaml",
+        "baseBlob": "6ee9778d9c85e761e3b0e82c3242eeca449a9b2f",
+        "sourceBlob": "6ee9778d9c85e761e3b0e82c3242eeca449a9b2f",
+        "workingBlob": "6ee9778d9c85e761e3b0e82c3242eeca449a9b2f",
+        "same": true
+      },
+      {
+        "relative": "plugins/learning-evidence-kit/CHANGELOG.md",
+        "baseBlob": "86da0625b179616e7effb2db44fb0038618fdc4e",
+        "sourceBlob": "86da0625b179616e7effb2db44fb0038618fdc4e",
+        "workingBlob": "86da0625b179616e7effb2db44fb0038618fdc4e",
+        "same": true
+      },
+      {
+        "relative": "plugins/learning-evidence-kit/LICENSE",
+        "baseBlob": "5ce28e0a42b9f781087df184517daafa2f483602",
+        "sourceBlob": "5ce28e0a42b9f781087df184517daafa2f483602",
+        "workingBlob": "5ce28e0a42b9f781087df184517daafa2f483602",
+        "same": true
+      },
+      {
+        "relative": "plugins/learning-evidence-kit/README.md",
+        "baseBlob": "b0baf50d290b02ef9dfc7425087f5f74f52cdb63",
+        "sourceBlob": "b0baf50d290b02ef9dfc7425087f5f74f52cdb63",
+        "workingBlob": "b0baf50d290b02ef9dfc7425087f5f74f52cdb63",
+        "same": true
+      },
+      {
+        "relative": "plugins/learning-evidence-kit/assets/icon.png",
+        "baseBlob": "27240c16a6a80b3b82b369961e790c88b3831944",
+        "sourceBlob": "27240c16a6a80b3b82b369961e790c88b3831944",
+        "workingBlob": "27240c16a6a80b3b82b369961e790c88b3831944",
+        "same": true
+      },
+      {
+        "relative": "plugins/learning-evidence-kit/assets/icon.svg",
+        "baseBlob": "1ee0fd2c2437f4fde3c24ba3429347870568fada",
+        "sourceBlob": "1ee0fd2c2437f4fde3c24ba3429347870568fada",
+        "workingBlob": "1ee0fd2c2437f4fde3c24ba3429347870568fada",
+        "same": true
+      },
+      {
+        "relative": "plugins/learning-evidence-kit/plugin.json",
+        "baseBlob": "6b03ce3e5d698bfbce386e5f9cdadb7a2d005775",
+        "sourceBlob": "6b03ce3e5d698bfbce386e5f9cdadb7a2d005775",
+        "workingBlob": "6b03ce3e5d698bfbce386e5f9cdadb7a2d005775",
+        "same": true
+      },
+      {
+        "relative": "plugins/learning-evidence-kit/references/client-entries.json",
+        "baseBlob": "bc20fb9ac73a9da6d773df9e71e4f5d30232ec2f",
+        "sourceBlob": "bc20fb9ac73a9da6d773df9e71e4f5d30232ec2f",
+        "workingBlob": "bc20fb9ac73a9da6d773df9e71e4f5d30232ec2f",
+        "same": true
+      },
+      {
+        "relative": "plugins/learning-evidence-kit/references/record-contract.md",
+        "baseBlob": "9b47cc35344776c0f256663567842d817d1cbf7e",
+        "sourceBlob": "9b47cc35344776c0f256663567842d817d1cbf7e",
+        "workingBlob": "9b47cc35344776c0f256663567842d817d1cbf7e",
+        "same": true
+      },
+      {
+        "relative": "plugins/learning-evidence-kit/references/record-template.json",
+        "baseBlob": "1dc783a08a0457982b3643637c1537c3a10cde35",
+        "sourceBlob": "1dc783a08a0457982b3643637c1537c3a10cde35",
+        "workingBlob": "1dc783a08a0457982b3643637c1537c3a10cde35",
+        "same": true
+      },
+      {
+        "relative": "plugins/learning-evidence-kit/scripts/common.py",
+        "baseBlob": "a4e633912405d15cb10404744c668dcb86b24e58",
+        "sourceBlob": "a4e633912405d15cb10404744c668dcb86b24e58",
+        "workingBlob": "a4e633912405d15cb10404744c668dcb86b24e58",
+        "same": true
+      },
+      {
+        "relative": "plugins/learning-evidence-kit/scripts/github_flow.py",
+        "baseBlob": "5f0501548a16705c7959624c5c1e6f072af9130a",
+        "sourceBlob": "5f0501548a16705c7959624c5c1e6f072af9130a",
+        "workingBlob": "5f0501548a16705c7959624c5c1e6f072af9130a",
+        "same": true
+      },
+      {
+        "relative": "plugins/learning-evidence-kit/scripts/lek.py",
+        "baseBlob": "9206610f88e4df412e37e3458702dae5a080be39",
+        "sourceBlob": "9206610f88e4df412e37e3458702dae5a080be39",
+        "workingBlob": "9206610f88e4df412e37e3458702dae5a080be39",
+        "same": true
+      },
+      {
+        "relative": "plugins/learning-evidence-kit/scripts/storage.py",
+        "baseBlob": "32e8b0750dbc1d407234bd35979ff68a5abe6290",
+        "sourceBlob": "32e8b0750dbc1d407234bd35979ff68a5abe6290",
+        "workingBlob": "32e8b0750dbc1d407234bd35979ff68a5abe6290",
+        "same": true
+      },
+      {
+        "relative": "plugins/learning-evidence-kit/skills/learning-record-check/SKILL.md",
+        "baseBlob": "71e10849c94aa844702212c9cdad85a6a64150f6",
+        "sourceBlob": "71e10849c94aa844702212c9cdad85a6a64150f6",
+        "workingBlob": "71e10849c94aa844702212c9cdad85a6a64150f6",
+        "same": true
+      },
+      {
+        "relative": "plugins/learning-evidence-kit/skills/learning-record-check/agents/openai.yaml",
+        "baseBlob": "e1e7df7d704ad583c32c70f058dea2673b865002",
+        "sourceBlob": "e1e7df7d704ad583c32c70f058dea2673b865002",
+        "workingBlob": "e1e7df7d704ad583c32c70f058dea2673b865002",
+        "same": true
+      },
+      {
+        "relative": "plugins/learning-evidence-kit/skills/pop-quiz/SKILL.md",
+        "baseBlob": "8a68fcdab33e07e3de5fe00cfdb89a106b96d1ff",
+        "sourceBlob": "8a68fcdab33e07e3de5fe00cfdb89a106b96d1ff",
+        "workingBlob": "8a68fcdab33e07e3de5fe00cfdb89a106b96d1ff",
+        "same": true
+      },
+      {
+        "relative": "plugins/learning-evidence-kit/skills/pop-quiz/agents/openai.yaml",
+        "baseBlob": "f231e1fb0c1b4dfc60475793c109b9beabc0eb7a",
+        "sourceBlob": "f231e1fb0c1b4dfc60475793c109b9beabc0eb7a",
+        "workingBlob": "f231e1fb0c1b4dfc60475793c109b9beabc0eb7a",
+        "same": true
+      },
+      {
+        "relative": "plugins/learning-evidence-kit/skills/pop-quiz/references/ku-selection.md",
+        "baseBlob": "863cdc70c34d98a523b330e94f5e78ff8cce1eab",
+        "sourceBlob": "863cdc70c34d98a523b330e94f5e78ff8cce1eab",
+        "workingBlob": "863cdc70c34d98a523b330e94f5e78ff8cce1eab",
+        "same": true
+      },
+      {
+        "relative": "plugins/learning-evidence-kit/skills/pop-quiz/references/quiz-policy.md",
+        "baseBlob": "b5b3b37c02cfaf8bb3b6b9ad1144b539a4d4bd3c",
+        "sourceBlob": "b5b3b37c02cfaf8bb3b6b9ad1144b539a4d4bd3c",
+        "workingBlob": "b5b3b37c02cfaf8bb3b6b9ad1144b539a4d4bd3c",
+        "same": true
+      }
+    ]
+  },
+  "protectedRows": [
+    {
+      "relative": "VERSION",
+      "sourceBlob": "2bf50aaf17a6f89855dce48afd4e6cbb554047d6",
+      "workingBlob": "2bf50aaf17a6f89855dce48afd4e6cbb554047d6",
+      "same": true
+    },
+    {
+      "relative": ".agents/plugins/marketplace.json",
+      "sourceBlob": "43f083c3678b6da99e66f64ad8a888b7125f153e",
+      "workingBlob": "43f083c3678b6da99e66f64ad8a888b7125f153e",
+      "same": true
+    },
+    {
+      "relative": "scripts/validate-portable.mjs",
+      "sourceBlob": "713e99abf3b05953166bf21fefc975de9df93e6a",
+      "workingBlob": "713e99abf3b05953166bf21fefc975de9df93e6a",
+      "same": true
+    },
+    {
+      "relative": "plugins/html-guide-kit/assets/icon.svg",
+      "sourceBlob": "5903efa143961d3a44950275e0c274b6f1436628",
+      "workingBlob": "5903efa143961d3a44950275e0c274b6f1436628",
+      "same": true
+    },
+    {
+      "relative": "plugins/html-guide-kit/assets/icon.png",
+      "sourceBlob": "a9d01f606349e02fea07995c51be830448613826",
+      "workingBlob": "a9d01f606349e02fea07995c51be830448613826",
+      "same": true
+    }
+  ],
+  "versions": {
+    "marketplace": "8.3.0",
+    "htmlSource": "0.1.18",
+    "htmlWorking": "0.1.19",
+    "otherPluginVersionsUnchanged": true,
+    "releaseOrMainOperation": false
+  },
+  "staticBasis": {
+    "controlFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\draft\\runtime-draft-control.json",
+    "controlSha256": "f0c2a168ed2d16e0669283e7791b40bd9a998f6f32151358374c3a2c66153b48",
+    "bReport": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\static-review-019-b.json",
+    "bReportSha256": "f61fe09623a06fe873004d4cfae7853b094ffe847b4f850a74c9b4764bc41630",
+    "logicReport": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\static-review-019-logic.json",
+    "logicReportSha256": "bba10ffa82644c68e03a0bc1847b136bea29e98a8ab6c387d8bb933e2143223f",
+    "noStaticReviewRepeated": true
+  },
+  "documentation": {
+    "files": [
+      {
+        "relative": "AGENTS.md",
+        "bytes": 16104,
+        "sha256": "be9c0b6ddade68c3c321677fd58fceeca12fa801f818ff1e7b9edbaf4661a95a"
+      },
+      {
+        "relative": "CHANGELOG.md",
+        "bytes": 208592,
+        "sha256": "b8f79f6ae7cb98eea398a38a51ca524cd8eee364e6033da5b2d86b1cf05688ed"
+      },
+      {
+        "relative": "README.md",
+        "bytes": 11013,
+        "sha256": "172fa0971b94694482ca70afe3b4ed5e15771bc39028f4d23f1d12eae671b348"
+      },
+      {
+        "relative": "docs/INDEX.md",
+        "bytes": 23571,
+        "sha256": "a39acb94457fa1cc5a5d4b442f9ff2b9a3bd5190174d9b84c5f15bd6cd7e898d"
+      },
+      {
+        "relative": "docs/guide/[GUIDE]_HTML_Guide_Kit.md",
+        "bytes": 2774,
+        "sha256": "5cc570cd1a30291a4e89ae6e56752e7595b7734b2edcc86e8cc8cc8a0e80675f"
+      },
+      {
+        "relative": "docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md",
+        "bytes": 8327,
+        "sha256": "55e34dd80591401f3eb7ab08a37190ca54fa8f370dd3e013ea231eb7aad6cd87"
+      },
+      {
+        "relative": "docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md",
+        "bytes": 122953,
+        "sha256": "6927f883a471a581fcab6ccc64de1a8f47cda969360fb40efc4277a8f7dda410"
+      },
+      {
+        "relative": "plugins/html-guide-kit/CHANGELOG.md",
+        "bytes": 12036,
+        "sha256": "a9c0a7308e96720edf15406618db2e2271ece387d8146a9a2839dd0a2471fe00"
+      },
+      {
+        "relative": "plugins/html-guide-kit/README.md",
+        "bytes": 2020,
+        "sha256": "e4b31ac93f5580cfd6e83378fa4fccce9ee01c6acf7fa11d040ad88585d5d6fd"
+      }
+    ],
+    "rootAgBytes": 16104,
+    "rootAgMaxBytes": 16384,
+    "indexVersion": "v2.45",
+    "guideVersion": "v1.19",
+    "runbookVersion": "v1.29",
+    "testingGuideVersion": "v2.18",
+    "publicGuideFlow": "Same explicit new-guide reader/task/question selection and chat-only delivery; only candidate version updated.",
+    "source18Facts": "10UUID21COMPLETE6P3F1U;4zeroNOT_RUN/9remainingplannedturns;native/tool/reference actuals distinct, original failures/record errors/cross-marker preserved.",
+    "source19Behavior": "NOT_RUN",
+    "clientUi": "NOT_RUN",
+    "effect": "NOT_MEASURED",
+    "githubApproval": "REQUIRED_NOT_REPLACED",
+    "noPlansDirectory": true
+  },
+  "newSource18Evidence": {
+    "sealFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\candidate028-final-seal\\archive-index.json",
+    "sealSha256": "d4347a7947b36993eb0922792a0a07a7809f05bbcf6b3d74392e9ff98c8c1e00",
+    "rawFiles": 413,
+    "originalBytes": 9015728,
+    "packets": 7,
+    "proofRows": 42,
+    "engineeringIndex": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-post-merge\\engineering-0a6c48c2\\archive-index.json",
+    "engineeringIndexSha256": "f1c05d852bc37c040371ea1e9d8afe6222f49ce66e207b862e29238cc41d0a89",
+    "strictInstalls": 13,
+    "actualCachePython": 6,
+    "noFullOldArchiveRereadOrRetest": true
+  },
+  "engineeringObservation": {
+    "fullNpmTest": {
+      "status": "RUNNING",
+      "source": "Root73fd52 outer6603 and observed current log, no final exit receipt at this read",
+      "actualExitCode": null,
+      "log": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\npm-test.log",
+      "observedTail": "# Subtest: failed installation cleans up the canonical worktree and fails closed\nok 214 - failed installation cleans up the canonical worktree and fails closed\n  ---\n  duration_ms: 14301.3156\n  type: 'test'\n  ...\n# Subtest: canonical release validation includes explain-kit before invoking installation\nok 215 - canonical release validation includes explain-kit before invoking installation\n  ---\n  duration_ms: 13763.4216\n  type: 'test'\n  ..."
+    },
+    "rootCompletionReceipt": null,
+    "checksNotRerun": true,
+    "remainingEngineering": [
+      "Root actual final npm exit and any failed checks resolution",
+      "Committed canonical19 strict13 installation/six cachePython and fresh behavior before any claim of acceptance"
+    ]
+  },
+  "blockers": [],
+  "notAcceptanceOrGithubApprove": true,
+  "noModelInstallTestOrRepositoryWrite": true,
+  "noSource18ReportGradeControlOrArchiveMutation": true,
+  "lookupObservations": [
+    "Initial working-check-execution.json read before it existed is not an execution failure or successful receipt.",
+    "Initial engineering index.json lookup was corrected to the actual archive-index.json; no old evidence was changed."
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "kind": "lossless-reviewer-packet",
+  "scope": "control-preparations",
+  "entries": [
+    {
+      "relativeOriginalPath": "control-preparations/source21-v2/controls-prepare.child-completion.json",
+      "originalAbsolutePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\control-preparations\\source21-v2\\controls-prepare.child-completion.json",
+      "sha256": "79fcd8deb3beffd7e26d465dc8350bbeff8c534aa20b9fddc64a225674ba96b5",
+      "bytes": 825,
+      "encoding": "utf8",
+      "content": "{\n  \"startedAt\": \"2026-10-14T09:43:42.131Z\",\n  \"finishedAt\": \"2026-10-14T09:43:43.704Z\",\n  \"executable\": \"D:\\\\Development\\\\nodejs\\\\node.exe\",\n  \"script\": \"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\reviewer\\\\corrections\\\\0-1-21\\\\prepare-frozen-v2-controls-only.mjs\",\n  \"args\": [],\n  \"cwd\": \"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\develop\",\n  \"exitCode\": 0,\n  \"signal\": null,\n  \"stdoutFile\": \"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\reviewer\\\\control-preparations\\\\source21-v2\\\\controls-prepare.stdout.log\",\n  \"stderrFile\": \"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\reviewer\\\\control-preparations\\\\source21-v2\\\\controls-prepare.stderr.log\",\n  \"method\": \"RAW_BYTES_TO_DISTINCT_WX_LOGS\",\n  \"automaticRetry\": false,\n  \"processTerminationUsed\": false\n}\n"
+    },
+    {
+      "relativeOriginalPath": "control-preparations/source21-v2/controls-prepare.stderr.log",
+      "originalAbsolutePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\control-preparations\\source21-v2\\controls-prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "encoding": "utf8",
+      "content": ""
+    },
+    {
+      "relativeOriginalPath": "control-preparations/source21-v2/controls-prepare.stdout.log",
+      "originalAbsolutePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\control-preparations\\source21-v2\\controls-prepare.stdout.log",
+      "sha256": "3abce640abb447458643978b3158f33d3b7e01b58dfe4a6a3a4467b775311a4a",
+      "bytes": 984,
+      "encoding": "utf8",
+      "content": "{\n  \"phase\": \"CONTROLS_FINAL_FROZEN_PREP_ONLY\",\n  \"root\": \"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\reviewer\\\\corrections\\\\0-1-21\",\n  \"inventory\": {\n    \"bytes\": 59683,\n    \"sha256\": \"d574fcdbf3211bc2b6d3dc89693523c8895b2a0cab51b0eb8ec117e0c1e97083\"\n  },\n  \"freeze\": {\n    \"bytes\": 7920,\n    \"sha256\": \"85bce00fe95f1ae2add1e2d36a9bb65799aaec4267f467316de663f133b29403\"\n  },\n  \"guardDiff\": {\n    \"bytes\": 4029,\n    \"sha256\": \"15ae34632f1fc7882c1279cc3ce3937fdcccc62aee6993db62461cfe1287de75\"\n  },\n  \"schedule\": {\n    \"bytes\": 2460,\n    \"sha256\": \"814643a2e4e095295a49dd46c284be380e979785535762e30f9ec69c22ca7d9a\"\n  },\n  \"exact35\": true,\n  \"guardLiteralChanges\": 9,\n  \"actualAsciiBytes\": 9,\n  \"moduleExact\": true,\n  \"syntax27\": true,\n  \"operatorCandidatePin\": {\n    \"bytes\": 5028,\n    \"sha256\": \"fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42\"\n  },\n  \"sourceWritesPerformed\": false,\n  \"previousDestinationUnchanged\": true,\n  \"modelInvoked\": false\n}\n"
+    },
+    {
+      "relativeOriginalPath": "control-preparations/source21-v2/run-outer.mjs",
+      "originalAbsolutePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\control-preparations\\source21-v2\\run-outer.mjs",
+      "sha256": "c33c378ccb0f8e239d6678241d11bb08e92b112136cfc31aa98678a731d34adc",
+      "bytes": 1474,
+      "encoding": "utf8",
+      "content": "import fs from 'node:fs';\nimport path from 'node:path';\nimport {spawn} from 'node:child_process';\nimport {fileURLToPath} from 'node:url';\nconst dir=path.dirname(fileURLToPath(import.meta.url));\nconst [name,script,...args]=process.argv.slice(2);\nif(!/^[a-z0-9-]+$/.test(name??'')||!script)throw new Error('Explicit unique record name and script required');\nconst stdoutFile=path.join(dir,name+'.stdout.log'),stderrFile=path.join(dir,name+'.stderr.log');\nconst out=fs.openSync(stdoutFile,'wx'),err=fs.openSync(stderrFile,'wx');\nconst startedAt=new Date().toISOString();\nlet exitCode=null,signal=null;\nawait new Promise((resolve,reject)=>{\n const child=spawn(process.execPath,[script,...args],{cwd:process.cwd(),shell:false,windowsHide:true,stdio:['ignore','pipe','pipe']});\n child.stdout.on('data',bytes=>{fs.writeSync(out,bytes);process.stdout.write(bytes);});\n child.stderr.on('data',bytes=>{fs.writeSync(err,bytes);process.stderr.write(bytes);});\n child.on('error',reject);\n child.on('close',(code,sig)=>{exitCode=code;signal=sig;resolve();});\n});\nfs.closeSync(out);fs.closeSync(err);\nfs.writeFileSync(path.join(dir,name+'.child-completion.json'),JSON.stringify({startedAt,finishedAt:new Date().toISOString(),executable:process.execPath,script:path.resolve(script),args,cwd:process.cwd(),exitCode,signal,stdoutFile,stderrFile,method:'RAW_BYTES_TO_DISTINCT_WX_LOGS',automaticRetry:false,processTerminationUsed:false},null,2)+'\\n',{flag:'wx'});\nprocess.exitCode=exitCode??1;\n"
+    }
+  ]
+}

@@ -1,0 +1,416 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T17:15:48.101Z",
+  "phase": "EXTERNAL_DRY_RUN_ONLY_SOURCE27_STOPPED_READY_FOR_ROOT",
+  "sourceCanonical": "00d59da3099113ccbf3db73b84787c526eedd713",
+  "sourceTree": "edc69b137e5473c6e7307120a81c9e091764d673",
+  "packageVersion": "0.1.27",
+  "actualAccounting": {
+    "uuids": 9,
+    "inputs": 18,
+    "complete": 18,
+    "invalid": 0,
+    "semantic": {
+      "PASS": 5,
+      "FAIL": 3,
+      "UNEXERCISED": 1,
+      "NOT_RUN": 5
+    },
+    "plannedVariants": 14,
+    "plannedInputs": 30,
+    "unrunInputs": 12,
+    "A": "ONE_PASS_ONE_T1_UNEX_FOUR_ZERO_NOTRUN",
+    "B": "FOUR_WHOLE_PASS_FIVE_COMPLETE_INPUTS",
+    "C": "THREE_PRIMARY_PASS_THREE_WHOLE_FAIL_NINE_COMPLETE_INPUTS_B2_ZERO",
+    "postGlobalInputs": 0,
+    "naturalCrossMarker": [
+      {
+        "variant": "B1.2-combined",
+        "uuid": "01a13b46-923e-73c2-873b-60f65c178ce5",
+        "turn": 2,
+        "started": "2026-10-14T16:38:52.987Z",
+        "completed": "2026-10-14T16:40:06.251Z"
+      }
+    ],
+    "markerUtc": "2026-10-14T16:39:16.711Z",
+    "expandedSupplementRepeat": "NOT_PREPARED_NOT_RUN",
+    "nativeUi": "TEN_SOURCE_FILES_MIRROR_PREPARED_ONLY_NO_BACKEND_INSTALL_OR_MODEL"
+  },
+  "originalBytes": 6630926,
+  "fileCount": 320,
+  "packetCount": 7,
+  "sourceInventorySha256": "713eadb8f35ea08596037e85cb7ac7f5495542ab61aa0fe2714c41be22d4935a",
+  "largestPacketBytes": 2093996,
+  "packetLimitBytes": 2097151,
+  "secretPatternFindings": 0,
+  "nodeExactRoundTrips": 320,
+  "independentDotnetExactRawRoundTrips": 320,
+  "actualToolReceipts": {
+    "firstNodeWriterParseError": {
+      "chunk": "2e4fc2",
+      "exit": 1,
+      "beforeOutput": true
+    },
+    "PythonPathLookupError": {
+      "chunk": "7805f1",
+      "exit": 1,
+      "beforeBuild": true
+    },
+    "cosmeticAnchorError": {
+      "chunk": "7d3ed2",
+      "exit": 1,
+      "beforeOutput": true
+    },
+    "broadNumericAnchorError": {
+      "chunk": "992ff1",
+      "exit": 1,
+      "beforeOutput": true
+    },
+    "correctedExactTokenDerivation": {
+      "chunk": "1fb96d",
+      "exit": 0
+    },
+    "actualBuildAndCodecSelfTest": {
+      "chunk": "ff9e2f",
+      "exit": 0
+    },
+    "nodeDry": {
+      "chunk": "0ba028",
+      "exit": 0
+    },
+    "independentDotnetDry": {
+      "chunk": "e3a62b",
+      "exit": 0
+    }
+  },
+  "preparationErrorLimits": "Original failed writer variants and actual r4 stdout/stderr/command preserved; earlier parse/lookup tool receipts identified by exact tool chunks and retained descriptive records, not claimed to be model or packet failures. Read-only9d27ea missing old node-dry.command.json is a path lookup limitation, actual correct final-dry-run files subsequently read.",
+  "sourceOriginalPinsAllStable": true,
+  "originalReportStatusesAndRawBytesOpaqueUnchanged": true,
+  "all40FrozenControlsAndControllerExact": true,
+  "RootFinalCTechnicalSupplement": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\reviews\\root-027\\C-technical-supplement.json",
+    "bytes": 10421,
+    "sha256": "f82708545af062a101c4c2c5f861429fa5685942c1ca085485aa989a7516265b"
+  },
+  "aggregate": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\core-final-root-summary.json",
+    "bytes": 13441,
+    "sha256": "08de0a22d7d74ce8617751bf84e6e095e35e4c374932d50bc777f67eb3a1029c"
+  },
+  "sourceAllowlist": {
+    "rootFiles": [
+      "archive-040-control.json",
+      "audit-source27-a-prefix-receiver-b.mjs",
+      "audit-source27-a-receiver-b.mjs",
+      "build-pack-040-behavior-b.mjs",
+      "corrections/0-1-27/027-check.log",
+      "corrections/0-1-27/027-document-a6-corrected.log",
+      "corrections/0-1-27/027-document-a6.log",
+      "corrections/0-1-27/027-npm-test-corrected.log",
+      "corrections/0-1-27/027-npm-test.log",
+      "corrections/0-1-27/027-validate.log",
+      "corrections/0-1-27/027-version-apply.log",
+      "corrections/0-1-27/027-version-dry-run.log",
+      "corrections/0-1-27/CONTROLS_FINAL_FROZEN.json",
+      "corrections/0-1-27/DRAFT_FINAL_FROZEN.json",
+      "corrections/0-1-27/behavior-b-helper-copy-control.json",
+      "corrections/0-1-27/capture-lifecycle-control.mjs",
+      "corrections/0-1-27/controller.mjs",
+      "corrections/0-1-27/core-final-root-summary.json",
+      "corrections/0-1-27/frozen-copy-inventory.json",
+      "corrections/0-1-27/manual-selection-behavior-a.mjs",
+      "corrections/0-1-27/manual-selection-behavior-b.mjs",
+      "corrections/0-1-27/manual-selection-continuous-behavior-a.mjs",
+      "corrections/0-1-27/manual-selection-continuous-control.final.json",
+      "corrections/0-1-27/manual-selection-continuous-control.json",
+      "corrections/0-1-27/native-ui-source-00d59da.json",
+      "corrections/0-1-27/normal-execution-pause.flag",
+      "corrections/0-1-27/operator-sequential.manual.candidate.mjs",
+      "corrections/0-1-27/operator-sequential.manual.mjs",
+      "corrections/0-1-27/prepare-controls-027-logic.mjs",
+      "corrections/0-1-27/prepare-correction.mjs",
+      "corrections/0-1-27/prepare-coverage.mjs",
+      "corrections/0-1-27/provenance/source26-CONTROLS_FINAL_FROZEN.json",
+      "corrections/0-1-27/provenance/source26-controller.mjs",
+      "corrections/0-1-27/provenance/source26-scheduling-fixture-reuse-control.json",
+      "corrections/0-1-27/record-operator-handoff-behavior-a.mjs",
+      "corrections/0-1-27/record-operator-handoff.mjs",
+      "corrections/0-1-27/record-recommended-observation-behavior-b.mjs",
+      "corrections/0-1-27/repeated-plan-control.json",
+      "corrections/0-1-27/root-manual-helper-copy-control.json",
+      "corrections/0-1-27/root-manual-select.mjs",
+      "corrections/0-1-27/runtime-application.json",
+      "corrections/0-1-27/scheduling-contract.json",
+      "corrections/0-1-27/static-control-review-a.json",
+      "corrections/0-1-27/static-review-b.json",
+      "corrections/0-1-27/static-review-root.json",
+      "corrections/0-1-27/verify-canonical.mjs",
+      "corrections/0-1-27/version-guard-exactdiff.json",
+      "derive-pack040-from039-b.r2.py",
+      "derive-pack040-from039-b.r3.py",
+      "derive-pack040-from039-b.r4.py",
+      "derive-pack040-from039-b.r5.py",
+      "execute-source27-operator-b.mjs",
+      "fact-checks/html-guide-model-effort-027.json",
+      "pack040-derivation-r4.command.json",
+      "pack040-derivation-r4.stderr.log",
+      "pack040-derivation-r4.stdout.log",
+      "pack040-preparation-error-01.json",
+      "pack040-preparation-error-02.json",
+      "pack040-preparation-error-03.json",
+      "pack040-preparation-error-04.json",
+      "packer-provenance/0-1-27-stopped/preparation-control.json",
+      "record-source27-b-runtime-pins.mjs",
+      "verify-lossless-040-dotnet.ps1"
+    ],
+    "rootDirectories": [
+      "corrections/0-1-27/blocking",
+      "corrections/0-1-27/continuous-supplement",
+      "corrections/0-1-27/draft",
+      "corrections/0-1-27/expanded",
+      "corrections/0-1-27/operator-a-records",
+      "corrections/0-1-27/operator-b-records",
+      "corrections/0-1-27/operator-c-records",
+      "corrections/0-1-27/reviewed-draft",
+      "corrections/0-1-27/source26-originals",
+      "packer-provenance/0-1-27-stopped/closure"
+    ]
+  },
+  "codec": "Reuses pinned Root-restored039 codec/security/BOM/base64/ownedpaths/nooverwrite; only allowlist/pins/source identity/accounting/history literal fields differ.",
+  "runtimeProof": "21 actual source/mirror/cache raw resource matches;70 reviewer-excluded mirror files each; no full canonical tree equality claim",
+  "taskContextPrivacy": "All18 own fresh CLI SDK snapshots checked current UUID/input/native/environment user surfaces, no unrelated task/user surface; actual native private UI/session windows and HOME/auth/cache excluded.",
+  "backgroundFactCheck": {
+    "relative": "fact-checks/html-guide-model-effort-027.json",
+    "sha256": "c27cce9d49893a0b3ecc66e7eb25c24796c5821833b5b639b22d74fe0ded4541",
+    "readOnlyIncluded": true,
+    "futureHighControlNotIncluded": true,
+    "oldLowFailuresUnchanged": true
+  },
+  "exclusions": [
+    "Source28 drafts/active controls/guards/API/model/consumer/any future version",
+    "Actual HOME/auth/cache/config/session and temporary mirror/cache directories",
+    "Old native private SDK/whole windows/unrelated chats",
+    "Already separately sealed039 original archive and old self-test source copies",
+    "Already archived exact source00d engineering24 raw; pin reference retained"
+  ],
+  "actualArchiveExistsAtThisObservation": false,
+  "actualPackAndPacketVerification": "NOT_RUN_PENDING_ROOT",
+  "technicalGrade": "NOT_RUN_NOT_REQUIRED_FOR_OPAQUE_ARCHIVE",
+  "rootCommands": {
+    "pack": {
+      "executable": "node",
+      "args": [
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack-040-evidence.mjs",
+        "pack",
+        "--snapshot-name",
+        "patch-040-stopped",
+        "--target",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-040-stopped",
+        "--max-packet-bytes",
+        "2097151",
+        "--final-reviewed",
+        "true",
+        "--expected-inventory-sha256",
+        "713eadb8f35ea08596037e85cb7ac7f5495542ab61aa0fe2714c41be22d4935a"
+      ]
+    },
+    "nodeVerify": {
+      "executable": "node",
+      "args": [
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack-040-evidence.mjs",
+        "verify",
+        "--snapshot-name",
+        "patch-040-stopped",
+        "--target",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-040-stopped",
+        "--compare-originals",
+        "true"
+      ]
+    },
+    "dotnetVerify": {
+      "executable": "pwsh.exe",
+      "args": [
+        "-NoProfile",
+        "-File",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\verify-lossless-040-dotnet.ps1",
+        "-Target",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-040-stopped",
+        "-ReviewerRoot",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer"
+      ]
+    }
+  },
+  "proofs": [
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\archive-040-control.json",
+      "bytes": 56657,
+      "sha256": "9cbc84817dfe3f2d5ed1ddeb542c5967eae0064b15dc89ab8956d104bb999558"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack-040-evidence.mjs",
+      "bytes": 33311,
+      "sha256": "39f6e2dbe9b1c196ae6b8a42573fded8b1a4de34f8caeb7802ad66fb8d446937"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\verify-lossless-040-dotnet.ps1",
+      "bytes": 6096,
+      "sha256": "bff9c1f374c3ab0ca895c5b84d1a38b8992bbee9298a81d31874cc21349b2fb7"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\dry-source-040-dotnet-b.ps1",
+      "bytes": 3827,
+      "sha256": "ee8256e198ec7887936d637aafc0c86602b807c47e7711d541cbd44ccc8bfe83"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\build-pack-040-behavior-b.mjs",
+      "bytes": 20497,
+      "sha256": "9965654cee3d44b8e6c76f8dcf4b686b899a3a92997ce1fe983d0fb88042a819"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\derive-pack040-from039-b.r2.py",
+      "bytes": 7990,
+      "sha256": "6ea2ddde20ada7b7e4700f53cfb33c244ec37316040fbf64ac1abb87f3bfef3e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\derive-pack040-from039-b.r3.py",
+      "bytes": 8059,
+      "sha256": "84998e0096dcf704c998e377368bfdf82fe4913afd7257f3cb7ac704d102e8c3"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\derive-pack040-from039-b.r4.py",
+      "bytes": 8216,
+      "sha256": "27d97c660401247f9f318aa2ccb83a82253005e387c2bd83953e64769f36e96e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\derive-pack040-from039-b.r5.py",
+      "bytes": 8702,
+      "sha256": "874b0512dc8136689e32059ccf7ed60f4bd36f9cb17e4c0859330c7fa25c5b1b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack040-preparation-error-01.json",
+      "bytes": 493,
+      "sha256": "239f592e56858b7325790ed5091ec91d979501b25f3ecdc41e651441f0c89602"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack040-preparation-error-02.json",
+      "bytes": 468,
+      "sha256": "ecc01b116c85cca0c021adfd4d85cfbad4e98830facf01f6ecb1cd1622f2cc28"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack040-preparation-error-03.json",
+      "bytes": 546,
+      "sha256": "b6b6de94f827d4df0eb60c8ea852a6fc87b8fcf219abb23dd0f146dd337f8bc2"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack040-preparation-error-04.json",
+      "bytes": 620,
+      "sha256": "d2dc92c9b2fd8fbc0e82c8d11c9d7303fe2ab0cc4cccda853ddedf5b9ce4e705"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack040-build-attempt1.stdout.log",
+      "bytes": 1015,
+      "sha256": "c90a97957e7d828b7a977065b691545f6f3c26dac972e48e0ed732e13f6f60f1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack040-build-attempt1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack040-build-attempt1.command.json",
+      "bytes": 354,
+      "sha256": "803c6290013c8f364c2320cf49865254907d66b30bbf3c5d0efd5bd7ad1d4794"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack040-derivation-r4.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack040-derivation-r4.stderr.log",
+      "bytes": 5926,
+      "sha256": "2ccfbaa3ec6152f9c6bb5228dbafbcb8e7e6945ffb82e239576d981f74c00a5a"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack040-derivation-r4.command.json",
+      "bytes": 172,
+      "sha256": "2d58bc4c08873c0a075e8372ad4144dc3d12ad0d83f5b3ae110c96839a5c9b84"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack040-derivation-r5.stdout.log",
+      "bytes": 129,
+      "sha256": "89762530dce259e0682b4470ba9c5462eac3a1e03129accd2b635e6c66246378"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack040-derivation-r5.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack040-derivation-r5.command.json",
+      "bytes": 172,
+      "sha256": "06aa78caea61fa90f85a5c69c93a17871906f9125588441e19752b388863e8ed"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-27-stopped\\final-dry-run.stdout.log",
+      "bytes": 46743,
+      "sha256": "24b7cebf400493c33fcf14ed9a029abcddf62d456e105f8fe4400e9e13fc557b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-27-stopped\\final-dry-run.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-27-stopped\\final-dry-run.command.json",
+      "bytes": 609,
+      "sha256": "a63f9c6dc5bd8c7676bd4b7ad560cf545105d2fad17b49a5f33233968a1dada2"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-27-stopped\\dotnet-dry.stdout.log",
+      "bytes": 670,
+      "sha256": "9dece6a0c165e3c10d3977c23ee9979bf939361ddb6521bf870d2d3debe74792"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-27-stopped\\dotnet-dry.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-27-stopped\\dotnet-dry.command.json",
+      "bytes": 481,
+      "sha256": "503c08649774c384fa48bc3210e91e5c6eb2ad9430a3b933b860097332c8e6ce"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-27-stopped\\preparation-control.json",
+      "bytes": 7330,
+      "sha256": "8f6c5382617fe3d9af119d9244e6c799d0c0a30c9c0c732c2014776b4bc0f4c9"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-27-stopped\\closure\\final-source-accounting.json",
+      "bytes": 75576,
+      "sha256": "e04391f7530e9f9203ada6ed18ffafcd55862d1a657bc16aa96d8801df98b07a"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-27-stopped\\closure\\task-context-scope-screen.json",
+      "bytes": 26990,
+      "sha256": "f615360a3b9cdbee72066d2d1daf33f64d5c4f22a32fb45e234e96d89dc4ff7b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-27-stopped\\closure\\engineering-00d59da3-reference-only.json",
+      "bytes": 15383,
+      "sha256": "0949da4df8d0bfa7129bfc390c19ff5edc2e85414148f1ff1428778650370d79"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-27-stopped\\closure\\native-ui-preparation-only.json",
+      "bytes": 3284,
+      "sha256": "daea67f3a8d8b8093987a935244bbfcd12572fb9672c4f1a792bfb6002a05d9b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-27-stopped\\closure\\root-tracking-originals-index.json",
+      "bytes": 13889,
+      "sha256": "b6a53ee2710290934fb38dbcbfece3faafcf72d151c5c5a8edc5fc8ac40f08e0"
+    }
+  ],
+  "noModelUiGradeOrRepositoryMutation": true
+}

@@ -6,31 +6,31 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-13
 state: active
-version: v1.8
+version: v1.10
 last-verified: 2026-10-13
-verification-scope: scoped-cli-core-and-candidate-engineering
+verification-scope: scoped-cli-core-publication-and-two-actual-post-release-merges
 ---
 
 # [RUNBOOK] Marketplace 8.2.0 release readiness
 
 ## §1 Preconditions and current state
 
-本账本记录 **8.2.0 发布准备**，没有记录正式发布成功。Owner 已授权 Epic [#209](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/209) 的集中实施及条件发布，并接受保留两个公开技能和共用接口、核心独立验收后分段交付；不能满足严格原生窗口的入口延期，Epic 保留未完成事项。遵循 [迁移 ADR](../adr/[ADR]_Learning_Evidence_Kit_Migration.md)、[记录/API 契约](../spec/[SPEC]_Learning_Evidence_Record_And_API.md)和[发布操作](./[RUNBOOK]_Release_Operations.md)，不重复索取已提供的授权。
+本账本记录 **8.2.0 实际公开发布与复查**，保留所有较早候选/失败快照及未完成项。Owner 已授权 Epic [#209](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/209) 的集中实施及条件发布，并接受保留两个公开技能和共用接口、核心独立验收后分段交付；不能满足严格原生窗口的入口延期，Epic 保留未完成事项。遵循 [迁移 ADR](../adr/[ADR]_Learning_Evidence_Kit_Migration.md)、[记录/API 契约](../spec/[SPEC]_Learning_Evidence_Record_And_API.md)和[发布操作](./[RUNBOOK]_Release_Operations.md)，不重复索取已提供的授权。
 
-当前 main 和公开 Release 仍为 **8.1.1**。8.2.0 尚未合入 main，发布标签和 Release 尚未创建。`last-verified` 仅描述本次准备、版本文件及已有证据核对，不表示最终候选、客户端或发布验证完成。实时远端状态、最终 head/tree、批准和检查须在合入/发布前重新读取。
+当前main与公开Release为 **8.2.0**。#232实际merge `ebc4bdc3abc62c36348d9ba28de7161b04b3b466` 与已测6d83c8e同树5c7557fe；v8.2.0 tag/Release 411293170 target均绑定该merge，2026-10-13 05:00:19 UTC已公开，非draft/prerelease、无资产。发布后五种精确canonical安装及实际Python通过，发布脚本再运行仅验证并noop。#232 reviews为空、独立批准NOT_OBSERVED，不能因发布补记批准/豁免；repo API未提供immutable配置字段、流程使用false默认值；实际Release immutable=false，不声称已锁定。完整原始事实和输出见[发布回执](evidence/learning-evidence-8-2-0-post-release.json)。较早段落的8.1.1/未发布描述均为相应时点历史，不代表当前公开状态。
 
 | 对象 | 当前身份或状态 | 本记录的证据边界 |
 | --- | --- | --- |
-| Marketplace 候选 | 8.2.0，未发布 | PR5 对 8.1.2 → 8.2.0 执行 dry-run 后 apply；版本工具仅更新 VERSION / README badge 两文件 |
+| Marketplace已发布 | 8.2.0；develop未发布8.2.1 | #232/main/tag/Release同SHA；#234同步实际main ancestry、#235预升均已合入并精确复验，HTML仍仅在开发集合 |
 | Learning Evidence Kit | 0.1.0 | 直接替换 Understanding 注册，pop-quiz / learning-record-check 均显式启动；共用能力不是第三技能 |
 | Diagram / Explain | 0.3.1 / 0.1.1 | 本 Epic 保持其版本；批准图标复用和包归属见技术验收账本 |
-| 独立公开候选集合 | 三插件、五公开技能、两项显式学习策略 | 安装/发现通过不能代替实际模型、桌面调用或原生窗口验收 |
+| 已发布公开集合 | 三插件、五公开技能、两项显式学习策略 | 安装/发现通过不能代替实际模型、桌面调用或原生窗口验收 |
 | 最新运行修复来源 | PR4 新核验生成信息修复已正常继承至 PR5 | Stage1 先确立适用性再读取应用材料；第五轮限定核心通过，保留实际生成信息、原件、错误与超时 |
 | 已冻结并安装的 8.2.0 技术来源 | `36ef16cd8798b107e16673e1520f3086964c4e3e` | [技术回执](evidence/learning-evidence-acceptance-checks.json)记录精确 Git tree、290-test 日志、五种 canonical 安装及模型冻结摘要 |
 | 新修复精确技术来源 | `8546aef1143642057693303fd334a09538081efa` / tree `85cf4d0c565d7e5bdd5ecfbc34e76b7e69d5307f` | [新技术回执](evidence/learning-evidence-generator-repair-checks.json)：290/290、零跳过，严格 baseline 和五种 canonical 安装通过；第四轮整体失败与后续修复分别保留 |
 | 第五轮冻结技术/模型来源 | `acf3c9d48a314cab153632bd5c09a141823789c3` / tree `ae61349bd01513f8ac36cd4702c5d440dae550e2` | [当前来源回执](evidence/learning-evidence-fifth-source-checks.json)：290/290、五种 canonical 安装及六场景核心判据通过；七次自然完成/一次超时分开 |
-| 此前三插件发行候选 head / Git tree | #232 `b7bdd769b4c53d7997b5a43ca8606d860c21b91d` / `428760eb81c0fe4412f69bac18f32d4d40438bcf` | [最终候选回执](evidence/learning-evidence-final-release-candidate-checks.json)：此前 b7bdd769 的五种精确 canonical 安装及实际缓存 Python 通过；本次文档同步后须冻结新的当前head并单独验证，运行/测试代码与已验收acf3保持 |
-| Main 发布 merge / v8.2.0 tag / Release 身份 | NOT_RUN | 尚无本次公开发布身份；不得用候选版本或旧发布结果代填 |
+| 最终已测发行head / Git tree | #232 `6d83c8ec995de209acba782b578b9cb94539693e` / `5c7557fe42a01cc4ada243ebdde64a20562f8881` | 精确最终head五种安装/Python及全部CI通过；Windows290零跳过、Ubuntu289和一项Windows专属跳过分别记录；实际merge同树 |
+| Main merge / tag / Release | `ebc4bdc3abc62c36348d9ba28de7161b04b3b466` / v8.2.0 / 411293170 | 自动draft-first发布成功，发布后canonical5/Python通过；原正文/tag/资产不改写，immutable=false如实记录 |
 
 阶段依赖及关闭条件继续按 [验收账本](./[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)追踪：
 
@@ -41,7 +41,7 @@ verification-scope: scoped-cli-core-and-candidate-engineering
 | GitHub 流转 | [#227](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/227) / [#212](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/212) | 已实际合入f958908e；同树七canonical安装/缓存Python通过，#212关闭；当前reviews为空，不补记批准 |
 | 原子插件切换 | [#228](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/228) / [#213](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/213) | 已实际合入434d053；八精确canonical安装/143资源/实际Python通过，#213关闭；当前reviews为空不补记批准 |
 | 技术验收与 8.2.0 准备 | [#230](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/230) / [#214](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/214) | 已实际合入6b5a19e，与已测f1fe48b同树2084d6e3；八精确canonical/143资源/实际Python通过，#214分段完成关闭；当前reviews为空，不追认批准 |
-| 正式发布与跟踪 | [#215](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/215) | [#232](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/232)前序全部交付；仅文档同步后冻结新head并精确安装/门禁，准备解除Draft；main合入/正式发布NOT_RUN，Epic保持OPEN |
+| 正式发布与跟踪 | [#215](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/215) | #232公开三插件v8.2.0；#234同步与#235预升已依序合入/精确复验。原生/客户端/效果/Owner接受仍待，#215/Epic继续OPEN |
 
 2026-10-13 较早依赖快照：#224 的实际批准/merge/关闭见[PR2合并回执](evidence/learning-evidence-pr224-post-merge.json)，#227 的真实merge、空reviews/关闭及#228同树317/八安装/四共用模块和十九模型资源闭包见[PR3合并回执](evidence/learning-evidence-pr227-post-merge.json)。#228未合入，#230/#232继续Draft；公开候选b7bdd769未因开发侧新账本改变，main/latest Release仍8.1.1。Owner再次确认三插件8.2.0条件发布和依赖顺序，并要求后续不指定人发出请求审查。此偏好不解除当前head非作者批准、CI及已解决线程门禁，也不追认历史#216/#227缺失批准。
 
@@ -51,7 +51,9 @@ verification-scope: scoped-cli-core-and-candidate-engineering
 
 此前独立公开发行文档同步快照：本 worktree 在此前三插件b7bdd769上仅保存实际开发交付/失败回执与当前依赖账本，未合并develop运行集合，所有生产/脚本/测试/版本保持原三插件来源。#230当前f1fe48b可审查，其独立批准和实际合入仍待；#232继续Draft。新发行head在本次提交后冻结并执行精确canonical安装，不能把此前b7身份当作新的当前head通过。历史空reviews缺项保留，后续不指定审查人；main/latest Release仍8.1.1，正式8.2.0未公开。
 
-2026-10-13 最新交付：#230已实际合入6b5a19e，完整[合并回执](evidence/learning-evidence-pr230-post-merge.json)记录同树身份、八精确canonical/143资源/四图表Python/三保存重放检查与清理，#214按已接受分段技术边界关闭。GitHub reviews为空，历史缺项不补造。#232前序依赖全部交付；此前7341481五种安装实际通过，本次仅文档更新，运行/脚本/测试/版本及原模型证据与已验收acf3相同。提交后冻结新的当前head，精确canonical通过后转为可审查；当前head非作者批准/CI/线程满足后执行已有三插件8.2.0发布授权，不指定审查人。HTML保留develop另发，main/latest Release仍8.1.1；原生/桌面/效果/Owner接受及两个收尾PR仍未完成。
+2026-10-13 较早PR5交付/发行准备快照：#230已实际合入6b5a19e，完整[合并回执](evidence/learning-evidence-pr230-post-merge.json)记录同树身份、八精确canonical/143资源/四图表Python/三保存重放检查与清理，#214按已接受分段技术边界关闭。GitHub reviews为空，历史缺项不补造。#232前序依赖全部交付；此前7341481五种安装实际通过，本次仅文档更新，运行/脚本/测试/版本及原模型证据与已验收acf3相同。提交后冻结新的当前head，精确canonical通过后转为可审查；当前head非作者批准/CI/线程满足后执行已有三插件8.2.0发布授权，不指定审查人。HTML保留develop另发，main/latest Release仍8.1.1；原生/桌面/效果/Owner接受及两个收尾PR仍未完成。
+
+2026-10-13 发布复查快照（两项收尾的实际交付见§3）：自动Release run38349173340实际create-draft→canonical安装→紧邻publish回读→published→状态复查成功；代理未重复publish、改正文、覆盖tag或资产。精确发布merge五安装/三图表Python/两Learning保存重放检查及清理通过，原模型资源和证据不变，实际published-noop核查通过。一次网络读取连接重置的失败与后续有界重读分别保留；未将错误当发布失败或执行重复写入。同步保留develop四插件/六技能/三个显式策略及HTML证据。
 
 ## §2 Steps and evidence preparation
 
@@ -117,20 +119,20 @@ Owner 已确认 8.2.0 仍为原定三插件/五技能/两项学习策略。devel
 | 核验对象 | 当前结果 | 最终须记录的事实 |
 | --- | --- | --- |
 | 条件发布授权与分段边界 | AUTHORIZED / ACCEPTED | 本记录 §1 与已接受 ADR；边界未实质变化时复用 |
-| 8.1.2 → 8.2.0 版本准备 | APPLIED，未发布 | VERSION / README badge 两锚点；最终冻结提交及对应检查 PENDING |
+| 8.1.2 → 8.2.0 版本准备 | APPLIED_AND_PUBLISHED | 当时VERSION / README badge两锚点；最终6d83c8e、main ebc4bdc3同树且正式公开 |
 | 8.2.0 技术来源完整工程及 canonical 安装 | PASS_FOR_ACF3C9D | 290/290、零跳过，严格校验/精确 baseline、五种精确 Git 安装和实际图表/共用 Python 通过；未来最终交付另核当前身份 |
 | 修复后完整核心实际模型验收 | FIFTH_SCOPED_CORE_CRITERIA_PASS_WITH_RETAINED_ERRORS | 各场景输入/source/模型版本、实际操作与独立审查；不得合并不同轮次为无失败 PASS |
-| 当前 head 的真实非作者 APPROVED review | PENDING | 合格非作者、review 状态及绑定 head；Agent 自检不替代 |
-| Required checks / resolved threads | PENDING FOR_FINAL_HEAD | 实际远端检查结论及审查线程；既有绿色 CI 不覆盖未来最终 head |
-| main 发布 merge | NOT_RUN | PR 号、head、批准/检查/线程事实、实际 merge SHA/tree |
-| v8.2.0 标签 / Release | NOT_RUN | tag peel、Release ID/URL/target、正文版本、实际 publish 状态；不覆盖历史标签或资产 |
-| 发布后安装、资源和实际 Python 复查 | NOT_RUN | 实际公开来源及五场景结果；与发布前工作源/canonical 运行分别记录 |
-| 核心交付 | NOT_COMPLETE | 完整核心验收、保护合入及发布/复查证据完成后据实更新 |
-| 原计划全部完成 / Epic #209 | INCOMPLETE | 原生入口、实际客户端及两个发布后收尾 PR 持续追踪；部分发布不能自动关闭 |
+| #232最终head真实非作者APPROVED review | NOT_OBSERVED | 实际reviews为空；已发布不补造批准或推断豁免，后续各PR当前head门禁保持 |
+| #232 Required checks / threads | PASS / ZERO_UNRESOLVED | 最终6d83c8e全部CI成功，Windows290零跳过/Ubuntu平台跳过分别保留；线程为空 |
+| main 发布merge | ACTUAL #232/ebc4bdc3 | 与已测6d83c8e同树5c7557fe；空reviews缺项保留 |
+| v8.2.0标签 / Release | PUBLISHED | tag/target ebc4bdc3，Release411293170，05:00:19UTC公开，正文与canonical CHANGELOG一致，无资产、immutable=false |
+| 发布后安装/资源/实际Python | PASS_SCOPED | 实际ebc4bdc3五canonical、三Diagram Python/两Learning保存重放检查通过并清理；未代替桌面验收 |
+| 核心交付 | PUBLISHED_SCOPED_WITH_REVIEW_GAP | 已接受限定CLI核心公开/复查完成；历史外部批准缺项保留，不称全部治理/客户端通过 |
+| 原计划全部完成 / Epic #209 | INCOMPLETE | 发布、安装复查及两个发布后PR已完成；原生入口、真实客户端/效果和Owner接受继续追踪，部分发布不关闭Epic |
 | Owner 最终成品接受 | NOT_ACCEPTED | 等待 Owner 基于实际交付作出最终接受；Agent 不代签 |
 | 现实学习收益、长期保持/迁移、管理判断效果 | DEFERRED / NOT_MEASURED | 后续独立授权和真实使用评估；技术运行或发布成功不证明这些效果 |
 
-发布后另做两个短期 PR，当前均 **NOT_RUN**：先同步实际 main → develop，再对完成同步后的 develop 执行 dry-run/实际 8.2.0 → 8.2.1 pre-bump，版本工具只更新 VERSION / README badge，插件版本保持，不创建 v8.2.1 Release。填写实际 PR、SHA/tree、合入与验收后才算相应收尾完成。
+发布后两个短期PR已依序合入并复验：[#234](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/234) merge `2c0a83172507bcb77d105d9f9294fec2e6672ac1` 与已测756e3b8同树 `6f67589b7b277eb0aef39fdc2a1e6fa5b5df0f2a`，纳入实际main ancestry并保留HTML开发集合；[#235](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/235) merge `3af6837338478ef49a7cea6bb935c07c5c19400c` 与已测796b510同树 `e3769e0f5bcb9c5af69956245dc198ab1a220e06`。两次实际merge各八canonical安装、四图表Python/三Learning保存重放检查及清理通过。版本工具先dry-run再只更新VERSION/README badge为8.2.1，各插件manifest版本保持；#235原两文件/[skip a6]缺签核的真实失败保留，Owner要求修复后补根AGENTS真实摘要并移除跳过标记，最终三路径按正常A6通过，未改checker/workflow/批准规则。#234/#235 reviews均为空，批准NOT_OBSERVED，不追认豁免。当前develop是未发布8.2.1，main/public是原三插件8.2.0，无8.2.1 tag/Release。完整原失败、修复、远端CI、实际merge与安装见[收尾回执](evidence/learning-evidence-8-2-0-closeout.json)。
 
 子 Issue 1–5 仅在各自交付已合入且约定验收通过后显式关闭。#215 和 Epic 不能因核心发布而关闭；若仍有原计划延期项，保持其解除条件与责任追踪。只有 Owner 明确调整完成范围且后续责任有明确归属，才可按调整后的标准关闭。
 
@@ -144,6 +146,9 @@ Owner 已确认 8.2.0 仍为原定三插件/五技能/两项学习策略。devel
 
 | Version | Date | last-verified | Change |
 | --- | --- | --- | --- |
+| v1.10 | 2026-10-13 | #234/#235实际合并和精确复验 | 完成main同步及未发布8.2.1预升；保存原A6失败/正常摘要修复/空reviews，保持三插件公开范围与全部延期 |
+| v1.9.1 | 2026-10-13 | immutable配置字段未提供/Release flag=false | 保留原脚本false默认值及原输出，明确配置unknown与实际未锁定发布；不推断已关闭配置 |
+| v1.9 | 2026-10-13 | 实际公开/tag/Release/精确安装复查 | 保存自动draft-first与published-noop、same-tree身份、empty reviews、immutable=false；同步保留四插件开发范围，后续两文件pre-bump独立 |
 | v1.8 | 2026-10-13 | PR5实际合并同树精确验收及分段关闭 | #230/6b5a19e八canonical与实际Python通过；#214关闭并保留reviews缺项/全部延期；公开依赖已交付，新发行head仍需精确安装及保护门禁 |
 | v1.7 | 2026-10-13 | 三插件公开文档同步；新head待精确canonical/保护门禁 | 保持全部运行/测试/版本及原模型证据，复制实际依赖回执与历史缺项；P5/发行当前head批准/合入/正式发布另核对 |
 | v1.6 | 2026-10-13 | PR4实际合并和PR5最新完整工程验收 | 保留空reviews历史，#213交付关闭，317/八安装及资源/原模型证据闭包通过；PR5/正式发行当前head门禁仍待完成 |

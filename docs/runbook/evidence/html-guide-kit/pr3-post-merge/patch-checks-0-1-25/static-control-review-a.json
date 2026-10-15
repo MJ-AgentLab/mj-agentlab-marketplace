@@ -1,0 +1,103 @@
+{
+  "recordedAt": "2026-10-14T15:12:16.1377026Z",
+  "phase": "STATIC_ONLY",
+  "candidateVersion": "0.1.25",
+  "reviewer": "behavior_014_a",
+  "controlsAuthor": "precommit_014",
+  "result": "NO_STATIC_BLOCKERS",
+  "freeze": {
+    "bytes": 8114,
+    "sha256": "b699aadd08f53b134e67655312de44cd3ca20263f4d7ed593991ae9967af9076"
+  },
+  "sourceControlSha256": "7206461e61870e705ce011680c21849641cfcf97bda2f4ed67b8afe491c985c6",
+  "linkedPins": {
+    "inventory": {
+      "relative": "frozen-copy-inventory.json",
+      "bytes": 40354,
+      "sha256": "c480b7d3c8db47491785ce80943117aae80cadc0beab1f206cee276ca6a36ac4"
+    },
+    "guardDiff": {
+      "relative": "version-guard-exactdiff.json",
+      "bytes": 3168,
+      "sha256": "552dd88b1b0aca76a8dc16dc7a6229a09db4b127439d4aab970ff4131a7101b1"
+    },
+    "scheduling": {
+      "relative": "scheduling-contract.json",
+      "bytes": 1907,
+      "sha256": "a6eee25312decea37cdec70e4166764c4db2607eafdb9ab6964010916aea8efb"
+    }
+  },
+  "actualActiveCount": 40,
+  "actualByteExactCount": 37,
+  "guardAndController": [
+    {
+      "relative": "prepare-correction.mjs",
+      "changedBytes": 4,
+      "offsets": [
+        63,
+        535,
+        813,
+        876
+      ],
+      "exact": true
+    },
+    {
+      "relative": "prepare-coverage.mjs",
+      "changedBytes": 4,
+      "offsets": [
+        96,
+        1205,
+        1506,
+        1569
+      ],
+      "exact": true
+    },
+    {
+      "relative": "verify-canonical.mjs",
+      "changedBytes": 1,
+      "offsets": 3924,
+      "exact": true
+    },
+    {
+      "relative": "controller.mjs",
+      "changedBytes": 1,
+      "offsets": 3950,
+      "exact": true
+    }
+  ],
+  "capture": {
+    "relative": "capture-lifecycle-control.mjs",
+    "bytes": 2825,
+    "sha256": "947cb0a958932d8007b7d3d6efb62c0969ba792272f0c7eaf00c118857fbd6eb"
+  },
+  "candidate": {
+    "relative": "operator-sequential.manual.candidate.mjs",
+    "bytes": 5028,
+    "sha256": "fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42"
+  },
+  "original28SyntaxExit0Verified": true,
+  "independentSyntaxOrFixtureRerun": false,
+  "defaultProof": {
+    "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\diagnostics\\inherited-pr2-6ee40474\\metadata-relocated.json",
+    "bytes": 3891,
+    "sha256": "112d6f63191c781df9d2ca6d99a2f228f299aae82e056e3bf1869ee70d50bb49",
+    "unchanged": true,
+    "copiedIntoModelEnvironment": false,
+    "copiedIntoConsumer": false,
+    "copiedToConsumer": false
+  },
+  "protectedSource24FileCount": 34,
+  "actual25SharedPauseFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\normal-execution-pause.flag",
+  "observations": [
+    "All40 active and source24 frozen/provenance bytes independently pinned;37 exact. Three versionhelpers9ASCII plus independent controller1, forward/inverse/offsets exact. Inputs/materials/plans/criteria/SPEC/default unchanged.",
+    "Source25 scheduling uses actual fresh25 placeholder and all paths25; future every-kind candidate invocation must pass explicit same global pause, with caller checks before quote/choose/next. Normal after-COMPLETE/variant boundaries, no immediate kill or atomic check/spawn claim.",
+    "Source21 fixture mechanism remains exact947cb/fa4d and reusable without new fake-process/model execution. Technical origin label20 remains correct.",
+    "Byte-unchanged strict harness requires actual in-deadline exit/close and SDK completion/identity, preserving false/N_A read applicability for scope refusals. Random runtime-only mirror/input isolation remains unchanged; actual25 runtime consumers have not been prepared.",
+    "Reviewer tested-data and source24 raw/audits/quote/flag are preserved, not copied into active model controls or new consumer."
+  ],
+  "actualSchemaRead": "79b08b",
+  "errors": [],
+  "authorRuntimeDraftNotSelfReviewed": true,
+  "noWrapperModelInstallerUIOrRepositoryMutation": true,
+  "notActualBehaviorPass": true
+}

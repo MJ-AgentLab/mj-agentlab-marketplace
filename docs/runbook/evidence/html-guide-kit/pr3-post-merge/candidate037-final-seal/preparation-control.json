@@ -1,0 +1,143 @@
+{
+  "recordedAt": "2026-10-14T15:20:29.453Z",
+  "phase": "EXTERNAL_SOURCE24_STOPPED037_PREP_ONLY",
+  "sourcePacker": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack-036-evidence.mjs",
+    "bytes": 33221,
+    "sha256": "1b029c8671472cc8193a3970ba521b29dd3c5ed6775d1bf530524aaa5432f090"
+  },
+  "sourceDotnet": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\verify-lossless-036-dotnet.ps1",
+    "bytes": 6110,
+    "sha256": "cb89e884614f26ab010c8050a2feee3f32b4f881f0fb8747394310299f9acdd0"
+  },
+  "packer": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack-037-evidence.mjs",
+    "bytes": 32225,
+    "sha256": "eed3497ae82a72f1583ce508b1b393c57fe43f4d7c402be97f07b88301c19abe"
+  },
+  "dotnet": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\verify-lossless-037-dotnet.ps1",
+    "bytes": 6096,
+    "sha256": "54956eda33e828a6539ddeb54833d59abfa31a78dbd09c7a863f2fefe9a9d02e"
+  },
+  "sourceAllowlist": {
+    "rootFiles": [
+      "archive-037-control.json",
+      "audit-source24-a-receiver-b.mjs",
+      "build-pack-037-behavior-b.mjs",
+      "close-source24-b-operator.mjs",
+      "corrections/0-1-24/CONTROLS_FINAL_FROZEN.json",
+      "corrections/0-1-24/behavior-b-helper-copy-control.json",
+      "corrections/0-1-24/capture-lifecycle-control.mjs",
+      "corrections/0-1-24/controller.mjs",
+      "corrections/0-1-24/core-final-root-summary.json",
+      "corrections/0-1-24/frozen-copy-inventory.json",
+      "corrections/0-1-24/manual-selection-behavior-a.mjs",
+      "corrections/0-1-24/manual-selection-behavior-b.mjs",
+      "corrections/0-1-24/manual-selection-continuous-behavior-a.mjs",
+      "corrections/0-1-24/manual-selection-continuous-control.final.json",
+      "corrections/0-1-24/manual-selection-continuous-control.json",
+      "corrections/0-1-24/normal-execution-pause.flag",
+      "corrections/0-1-24/operator-sequential.manual.candidate.mjs",
+      "corrections/0-1-24/operator-sequential.manual.mjs",
+      "corrections/0-1-24/prepare-controls-024-logic.mjs",
+      "corrections/0-1-24/prepare-correction.mjs",
+      "corrections/0-1-24/prepare-coverage.mjs",
+      "corrections/0-1-24/provenance/source23-CONTROLS_FINAL_FROZEN.json",
+      "corrections/0-1-24/provenance/source23-controller.mjs",
+      "corrections/0-1-24/provenance/source23-scheduling-fixture-reuse-control.json",
+      "corrections/0-1-24/record-operator-handoff-behavior-a.mjs",
+      "corrections/0-1-24/record-operator-handoff.mjs",
+      "corrections/0-1-24/record-recommended-observation-behavior-b.mjs",
+      "corrections/0-1-24/repeated-plan-control.json",
+      "corrections/0-1-24/root-draft-freeze.json",
+      "corrections/0-1-24/root-manual-helper-copy-control.json",
+      "corrections/0-1-24/root-manual-select.mjs",
+      "corrections/0-1-24/runtime-application-first-schema-failure.json",
+      "corrections/0-1-24/runtime-application.json",
+      "corrections/0-1-24/scheduling-contract.json",
+      "corrections/0-1-24/static-control-review-a.json",
+      "corrections/0-1-24/static-review-b.json",
+      "corrections/0-1-24/static-review-root.json",
+      "corrections/0-1-24/verify-canonical.mjs",
+      "corrections/0-1-24/version-guard-exactdiff.json",
+      "execute-source24-operator-b.mjs",
+      "packer-provenance/0-1-24-stopped/preparation-control.json",
+      "record-source24-b-runtime-pins.mjs",
+      "verify-lossless-037-dotnet.ps1",
+      "write-source24-A-B3-1-final-b.mjs",
+      "write-source24-A-B3-2-final-b.mjs",
+      "write-source24-A-B4-1-final-b.mjs",
+      "write-source24-A-independent-closure-b.mjs"
+    ],
+    "rootDirectories": [
+      "corrections/0-1-24/blocking",
+      "corrections/0-1-24/continuous-supplement",
+      "corrections/0-1-24/draft",
+      "corrections/0-1-24/expanded",
+      "corrections/0-1-24/operator-a-records",
+      "corrections/0-1-24/operator-b-records",
+      "corrections/0-1-24/operator-c-records",
+      "corrections/0-1-24/source23-originals",
+      "packer-provenance/0-1-24-stopped/closure"
+    ]
+  },
+  "changes": [
+    [
+      "archive-036-control.json",
+      "archive-037-control.json"
+    ],
+    [
+      "archive036",
+      "archive037"
+    ],
+    [
+      "pack036",
+      "pack037"
+    ],
+    [
+      "actualBatches.length===4",
+      "actualBatches.length===3"
+    ],
+    [
+      "b46069e3979136e70d64b9873b799b5bd069ca95",
+      "e15ec47bad8b6a33c2c218bcf59c367b2921d164"
+    ],
+    [
+      "frozen23 batch/source identity mismatch",
+      "frozen24 batch/source identity mismatch"
+    ],
+    [
+      "actualUuids.size===12&&actualInputs.length===24",
+      "actualUuids.size===9&&actualInputs.length===18"
+    ],
+    [
+      "final actual12UUID/24inputs do not match frozen23 stopped source",
+      "final actual9UUID/18inputs do not match frozen24 stopped source"
+    ],
+    [
+      "control.realDistinctUUIDs===12&&control.actualInputFiles===24",
+      "control.realDistinctUUIDs===9&&control.actualInputFiles===18"
+    ],
+    [
+      "0.1.23 archival requires actual12UUID/24input accounting",
+      "0.1.24 archival requires actual9UUID/18input accounting"
+    ],
+    [
+      "immutable original reports and separate correction are verified",
+      "immutable original reports and separate technical confirmation are verified"
+    ],
+    [
+      "0.1.23 stopped12UUID24COMPLETE0invalid: original8PASS2FAIL2UNEX2NOTRUN aggregate preserved; separate B4.2 correction gives7PASS3FAIL2UNEX2NOTRUN. Three core and one prepare-only expanded10/21 batches. Runtime_resources19/38 unprepared; UI source/input prep only NOT_RUN. Source24 and all native-private/actual HOMEauthcache excluded.",
+      "0.1.24 stopped9UUID18COMPLETE0invalid7PASS1FAIL1UNEX5NOTRUN. Three core batches; delayed1/3 retains actualC selection. Twelve core inputs unrun; expanded/S/repeat/UI not prepared or run. Source25 and all actual HOME/auth/cache/native-private excluded."
+    ],
+    [
+      "archive-037-control.json verifies original reports and later separate B4.2 correction without overwriting either. No grade/status conversion; failures, unrun, original review error and controls retained.",
+      "archive-037-control.json verifies original final reports and separate technical supplements without overwriting original pending wording/inspector errors. No grade/status conversion; failures, partial selection, unrun and exact controls retained."
+    ]
+  ],
+  "codecSecurityBomBase64OwnedPathNoOverwriteBelow2MiBUnchanged": true,
+  "oldCopiedControlSelfTestRawExcluded": true,
+  "actualGradeModelsUiRepositoryPack": 0
+}

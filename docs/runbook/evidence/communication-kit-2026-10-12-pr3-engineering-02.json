@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "stage": "PR3",
+  "batch": "engineering-02",
+  "recordedAt": "2026-10-12T10:39:43.525Z",
+  "candidateSha": "b2d47ce779e32741af8cea604ac4b1ea8bb787f2",
+  "candidateTree": "d4c59b67c0fa55b15f565845b5717e304fb0c370",
+  "identityNote": "All checks in this batch ran on fixed b2d47ce. Subsequent evidence-only changes require their own content comparison; no future head is automatically covered.",
+  "checks": {
+    "npmTest": {
+      "exitCode": 0,
+      "pass": 278,
+      "fail": 0,
+      "skipped": 0,
+      "file": "communication-kit-2026-10-12-pr3-test-02.log",
+      "sha256": "b5b452e01d35e2f934e304057571d612aab94a8dde0f3b3d8d3c55df1e2a7562"
+    },
+    "strict": {
+      "exitCode": 0,
+      "ok": true,
+      "plugins": 4,
+      "publicSkills": 5,
+      "repositorySkills": 20,
+      "explicitOnly": 2,
+      "file": "communication-kit-2026-10-12-pr3-strict-02.log",
+      "sha256": "23f2ca82e1190f4bc0ddeabd6436bfa2a96fa8da1cbf52383b7c7cf4b1f66c66"
+    },
+    "baseline": {
+      "exitCode": 0,
+      "codex": "0.147.0",
+      "file": "communication-kit-2026-10-12-pr3-baseline-02.log",
+      "sha256": "68ad909418d8afbe4cffa1f080ea0ab54359beecfa396b562e10c2ff0ad79704"
+    },
+    "canonical": {
+      "result": "PASS",
+      "scenarios": 9,
+      "pythonRuns": 4,
+      "evidence": "communication-kit-2026-10-12-pr3-canonical-02.json",
+      "scope": "Actual canonical install with complete plugin.json/icon.svg/PNG and complete recursive skill-resource byte comparisons; no release R04 or desktop usability claim"
+    }
+  },
+  "fixes": [
+    {
+      "finding": "Communication listing prompt 181 characters and native prompt 134 exceeded 128-character baseline budget; listing prompt ignored in first actual model attempt",
+      "resolution": "Both prompts shortened to explicit same-package invocation; 128/129 boundary tests and actual canonical install rerun",
+      "unrelatedExistingLimitation": "Understanding listing prompt exceeds same limit; old plugin unchanged within authorized atomic addition scope"
+    },
+    {
+      "finding": "Previously installed metadata compared only name/version and omitted SVG",
+      "resolution": "Full manifest and SVG byte comparison; mutation regressions and canonical nine scenarios rerun"
+    },
+    {
+      "finding": "Dedicated Communication docs still described PR1-only unimplemented stage",
+      "resolution": "Updated ADR/SPEC/GUIDE/RUNBOOK to implemented draft with honest pending client and behavioral status"
+    }
+  ],
+  "behavior": "Actual baseline execution and independent judgement in progress; environment failures preserved separately",
+  "clients": {
+    "codexCLI": "Actual isolated calls in progress; installation verified",
+    "chatgptDesktop": "NOT RUN",
+    "codexDesktopUI": "NOT RUN"
+  },
+  "release": "R01-R05 NOT RUN",
+  "deferred": [
+    "real-world effects",
+    "nine personal trials",
+    "three-draft comparison",
+    "reader feedback",
+    "adoption",
+    "efficiency"
+  ]
+}

@@ -1,0 +1,773 @@
+{
+  "recordedAt": "2026-10-14T19:57:34.258Z",
+  "phase": "FINAL_SOURCE29_EXTERNAL_DRY_ONLY",
+  "sourcePacker": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack-042-evidence.mjs",
+    "bytes": 56497,
+    "sha256": "3c96fbcee3b32eec4a46597c9953cb5a57f0be7961abf7af020ffe3dd5bbdec8"
+  },
+  "sourceDotnet": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\verify-lossless-042-dotnet.ps1",
+    "bytes": 6095,
+    "sha256": "8400efbb2c66c45a72d7ef4fc520ef9100462cad887fa3d20ddb6053ca17c2f5"
+  },
+  "sourceDryDotnet": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\dry-source-042-dotnet-c.ps1",
+    "bytes": 3827,
+    "sha256": "dbbde9365ccf909de0c9aacb2a13b6701e473f3e7a9719e41d9a508243b5f7f3"
+  },
+  "packer": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack-043-evidence-r2.mjs",
+    "bytes": 67864,
+    "sha256": "0f2493ebd7ef28acdefbf3b24859f2575e071b7d6d5dabf1cf5cd9752f5d19c9"
+  },
+  "dotnet": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\verify-lossless-043-dotnet-r2.ps1",
+    "bytes": 6096,
+    "sha256": "d94dc35f9160c669548581ad46f56c6f45dcc516f4622fb9f5f0cdfdbcaffac9"
+  },
+  "dryDotnet": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\dry-source-043-dotnet-c-r2.ps1",
+    "bytes": 3877,
+    "sha256": "e7009f1765e11c78dab1af6d065e4c2eb9f0a72dd277836610c7305b20fe6352"
+  },
+  "exactNodeChanges": [
+    {
+      "old": "const ROOT_FILES=[\"archive-042-control.json\",\"build-pack-042-c.mjs\",\"corrections/0-1-29/behavior-b-helper-copy-control.json\",\"corrections/0-1-29/blocking/choose-first.mjs\",\"corrections/0-1-29/blocking/frozen-spec.md\",\"corrections/0-1-29/blocking/harness.mjs\",\"corrections/0-1-29/blocking/operator-observations.mjs\",\"corrections/0-1-29/blocking/plan.json\",\"corrections/0-1-29/blocking/record-native-loading.mjs\",\"corrections/0-1-29/blocking/reviews/cross-A-by-b/B3.1.json\",\"corrections/0-1-29/blocking/reviews/cross-A-by-b/B3.2.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B1.1-actual-sdk-a.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B1.1-independent-a-final.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B1.2-combined-independent-a-final.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B1.2-delayed-T1-actual-sdk-a.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B1.2-delayed-independent-a-final.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B2.1-independent-a-final.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B6.1-actual-sdk-a.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B6.1-independent-a-final.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B6.2-compare-independent-a-final.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B6.2-native-locator-correction-a.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B6.2-review-independent-a-final.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B6.2-revise-independent-a-final.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B6.2-three-actual-sdk-a.json\",\"corrections/0-1-29/blocking/reviews/independent-A-executed-closure-b.json\",\"corrections/0-1-29/blocking/reviews/independent-B-C-closure-a.json\",\"corrections/0-1-29/blocking/reviews/root-029/B1.1.json\",\"corrections/0-1-29/blocking/reviews/root-029/technical/B1.2-delayed.json\",\"corrections/0-1-29/blocking/reviews/root-029/technical/B3.1.json\",\"corrections/0-1-29/blocking/reviews/root-029/technical/B3.2.json\",\"corrections/0-1-29/blocking/reviews/root-029/technical/B6.1.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/01.events.jsonl\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/01.input.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/01.output.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/01.session.jsonl\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/01.stderr.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/02.events.jsonl\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/02.input.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/02.output.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/02.session.jsonl\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/02.stderr.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/manual-selection-turn-1.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/manual-title-audit.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-compare/005366b3-0abf-4232-90f9-c5bcc4f34bc7/01.events.jsonl\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-compare/005366b3-0abf-4232-90f9-c5bcc4f34bc7/01.input.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-compare/005366b3-0abf-4232-90f9-c5bcc4f34bc7/01.output.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-compare/005366b3-0abf-4232-90f9-c5bcc4f34bc7/01.session.jsonl\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-compare/005366b3-0abf-4232-90f9-c5bcc4f34bc7/01.stderr.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-review/c24e1d25-8ee4-4adc-ae4d-91db46e33438/01.events.jsonl\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-review/c24e1d25-8ee4-4adc-ae4d-91db46e33438/01.input.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-review/c24e1d25-8ee4-4adc-ae4d-91db46e33438/01.output.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-review/c24e1d25-8ee4-4adc-ae4d-91db46e33438/01.session.jsonl\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-review/c24e1d25-8ee4-4adc-ae4d-91db46e33438/01.stderr.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-revise/37904687-9d18-4f9d-ab3a-21cbcc7a7b97/01.events.jsonl\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-revise/37904687-9d18-4f9d-ab3a-21cbcc7a7b97/01.input.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-revise/37904687-9d18-4f9d-ab3a-21cbcc7a7b97/01.output.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-revise/37904687-9d18-4f9d-ab3a-21cbcc7a7b97/01.session.jsonl\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-revise/37904687-9d18-4f9d-ab3a-21cbcc7a7b97/01.stderr.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/batch.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/inspection.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/installation.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/metadata-events.jsonl\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/metadata-requests.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/metadata-stderr.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/models.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/native-loading-observations.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/native-skills.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/operator-handoff.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/operator-observations.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/operator-pauses/2a4f216f-f1b4-4716-a1c3-5e498b014705.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/preparation.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/01.events.jsonl\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/01.input.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/01.output.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/01.session.jsonl\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/01.stderr.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/02.events.jsonl\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/02.input.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/02.output.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/02.session.jsonl\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/02.stderr.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/03.events.jsonl\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/03.input.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/03.output.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/03.session.jsonl\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/03.stderr.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/manual-selection-turn-1.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/manual-title-audit.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.2/1dbc8aa7-a584-46ee-a9f4-db33db6f1d8c/01.events.jsonl\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.2/1dbc8aa7-a584-46ee-a9f4-db33db6f1d8c/01.input.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.2/1dbc8aa7-a584-46ee-a9f4-db33db6f1d8c/01.output.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.2/1dbc8aa7-a584-46ee-a9f4-db33db6f1d8c/01.session.jsonl\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.2/1dbc8aa7-a584-46ee-a9f4-db33db6f1d8c/01.stderr.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/batch.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/inspection.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/installation.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/metadata-events.jsonl\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/metadata-requests.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/metadata-stderr.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/models.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/native-loading-observations.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/native-skills.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/operator-handoff-behavior-a.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/operator-observations.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/operator-pauses/2a8da8b8-3884-4365-8090-289037fc546c.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/preparation.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/01.events.jsonl\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/01.input.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/01.output.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/01.session.jsonl\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/01.stderr.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/02.events.jsonl\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/02.input.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/02.output.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/02.session.jsonl\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/02.stderr.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/03.events.jsonl\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/03.input.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/03.output.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/03.session.jsonl\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/03.stderr.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/04.events.jsonl\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/04.input.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/04.output.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/04.session.jsonl\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/04.stderr.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.2-delayed/b4156edd-4207-4c16-8d66-2de7d07f6d82/01.events.jsonl\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.2-delayed/b4156edd-4207-4c16-8d66-2de7d07f6d82/01.input.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.2-delayed/b4156edd-4207-4c16-8d66-2de7d07f6d82/01.output.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.2-delayed/b4156edd-4207-4c16-8d66-2de7d07f6d82/01.session.jsonl\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.2-delayed/b4156edd-4207-4c16-8d66-2de7d07f6d82/01.stderr.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/batch.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/inspection.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/installation.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/metadata-events.jsonl\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/metadata-requests.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/metadata-stderr.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/models.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/native-loading-observations.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/native-skills.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/operator-observations.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/operator-pauses/33e58635-eb55-4e18-985a-016fff4b5a07.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/preparation.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/root-manual-selection/B1.1.audit.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/root-manual-selection/B1.1.quote.txt\",\"corrections/0-1-29/capture-lifecycle-control.mjs\",\"corrections/0-1-29/client-access-preflight-only.json\",\"corrections/0-1-29/continuous-supplement/choose-first.mjs\",\"corrections/0-1-29/continuous-supplement/expanded-plan.mjs\",\"corrections/0-1-29/continuous-supplement/frozen-spec.md\",\"corrections/0-1-29/continuous-supplement/harness.mjs\",\"corrections/0-1-29/continuous-supplement/operator-observations.mjs\",\"corrections/0-1-29/continuous-supplement/plan.json\",\"corrections/0-1-29/continuous-supplement/record-native-loading.mjs\",\"corrections/0-1-29/controller.mjs\",\"corrections/0-1-29/core-final-root-summary.json\",\"corrections/0-1-29/expanded/choose-first.mjs\",\"corrections/0-1-29/expanded/criterion-citation-erratum.json\",\"corrections/0-1-29/expanded/expanded-plan.mjs\",\"corrections/0-1-29/expanded/frozen-spec.md\",\"corrections/0-1-29/expanded/harness.mjs\",\"corrections/0-1-29/expanded/operator-observations.mjs\",\"corrections/0-1-29/expanded/plan.json\",\"corrections/0-1-29/expanded/record-native-loading.mjs\",\"corrections/0-1-29/expanded/repeated-plan.json\",\"corrections/0-1-29/frozen-copy-inventory.json\",\"corrections/0-1-29/integration-preparation/prepare-integration-baseline.mjs\",\"corrections/0-1-29/integration-preparation/read-only-application-plan.json\",\"corrections/0-1-29/integration-preparation/run-version-compatible-capture.mjs\",\"corrections/0-1-29/integration-preparation/run-version-original-capture.mjs\",\"corrections/0-1-29/manual-selection-behavior-a.mjs\",\"corrections/0-1-29/manual-selection-behavior-b.mjs\",\"corrections/0-1-29/manual-selection-continuous-behavior-a.mjs\",\"corrections/0-1-29/manual-selection-continuous-control.final.json\",\"corrections/0-1-29/manual-selection-continuous-control.json\",\"corrections/0-1-29/native-ui-source-d25dc63.json\",\"corrections/0-1-29/normal-execution-pause.flag\",\"corrections/0-1-29/operator-a-records/B3.1-independent-receiver-audit-b.json\",\"corrections/0-1-29/operator-a-records/B3.2-independent-receiver-audit-b.json\",\"corrections/0-1-29/operator-a-records/core-pause-consumption.stderr.txt\",\"corrections/0-1-29/operator-a-records/core-pause-consumption.stdout.txt\",\"corrections/0-1-29/operator-a-records/core-stage01.stderr.txt\",\"corrections/0-1-29/operator-a-records/core-stage01.stdout.txt\",\"corrections/0-1-29/operator-a-records/core-stage02.stderr.txt\",\"corrections/0-1-29/operator-a-records/core-stage02.stdout.txt\",\"corrections/0-1-29/operator-a-records/core-stopped-report.json\",\"corrections/0-1-29/operator-a-records/pre-pause-observation-snapshots/native-loading-observations.json\",\"corrections/0-1-29/operator-a-records/preparation-resources-receipt.json\",\"corrections/0-1-29/operator-a-records/prepare.stderr.txt\",\"corrections/0-1-29/operator-a-records/prepare.stdout.txt\",\"corrections/0-1-29/operator-b-records/B6.1-complete-actual-receiver-audit.json\",\"corrections/0-1-29/operator-b-records/core-stopped-report.json\",\"corrections/0-1-29/operator-b-records/handoff.receipt.json\",\"corrections/0-1-29/operator-b-records/handoff.stderr.log\",\"corrections/0-1-29/operator-b-records/handoff.stdout.log\",\"corrections/0-1-29/operator-b-records/manual-selection.completion.json\",\"corrections/0-1-29/operator-b-records/manual-selection.started.json\",\"corrections/0-1-29/operator-b-records/manual-selection.stderr.log\",\"corrections/0-1-29/operator-b-records/manual-selection.stdout.log\",\"corrections/0-1-29/operator-b-records/normal-pause-consume.receipt.json\",\"corrections/0-1-29/operator-b-records/normal-pause-consume.stderr.log\",\"corrections/0-1-29/operator-b-records/normal-pause-consume.stdout.log\",\"corrections/0-1-29/operator-b-records/pre-pause-observation-snapshots/batch.json\",\"corrections/0-1-29/operator-b-records/pre-pause-observation-snapshots/inspection.json\",\"corrections/0-1-29/operator-b-records/pre-pause-observation-snapshots/native-loading-observations.json\",\"corrections/0-1-29/operator-b-records/pre-pause-observation-snapshots/operator-observations.json\",\"corrections/0-1-29/operator-b-records/pre-pause-original-pins.json\",\"corrections/0-1-29/operator-b-records/prepare.completion.json\",\"corrections/0-1-29/operator-b-records/prepare.started.json\",\"corrections/0-1-29/operator-b-records/prepare.stderr.log\",\"corrections/0-1-29/operator-b-records/prepare.stdout.log\",\"corrections/0-1-29/operator-b-records/receiver-audit-before-complete-error01.json\",\"corrections/0-1-29/operator-b-records/runtime-installation-pins.json\",\"corrections/0-1-29/operator-b-records/stage01.completion.json\",\"corrections/0-1-29/operator-b-records/stage01.started.json\",\"corrections/0-1-29/operator-b-records/stage01.stderr.log\",\"corrections/0-1-29/operator-b-records/stage01.stdout.log\",\"corrections/0-1-29/operator-b-records/stage02.completion.json\",\"corrections/0-1-29/operator-b-records/stage02.started.json\",\"corrections/0-1-29/operator-b-records/stage02.stderr.log\",\"corrections/0-1-29/operator-b-records/stage02.stdout.log\",\"corrections/0-1-29/operator-c-records/consume-pause-original.log\",\"corrections/0-1-29/operator-c-records/fresh-parent-preparation.json\",\"corrections/0-1-29/operator-c-records/observational-program-errors.json\",\"corrections/0-1-29/operator-c-records/prepare-original.log\",\"corrections/0-1-29/operator-c-records/root-B1.1-original-receiver-audit.json\",\"corrections/0-1-29/operator-c-records/stage01-original.log\",\"corrections/0-1-29/operator-c-records/stage02-original.log\",\"corrections/0-1-29/operator-c-records/stopped-original-operator-closure.json\",\"corrections/0-1-29/operator-c-records/technical-B1.1-r1-command.log\",\"corrections/0-1-29/operator-c-records/technical-B1.1-r1.json\",\"corrections/0-1-29/operator-c-records/technical-delayed-prefix-r1-command.log\",\"corrections/0-1-29/operator-c-records/technical-delayed-prefix-r1.json\",\"corrections/0-1-29/operator-sequential.manual.candidate.mjs\",\"corrections/0-1-29/operator-sequential.manual.mjs\",\"corrections/0-1-29/prepare-correction.mjs\",\"corrections/0-1-29/prepare-coverage.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/behavior-b-helper-copy-control.json\",\"corrections/0-1-29/provenance/source28-r2-active-controls/blocking/choose-first.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/blocking/frozen-spec.md\",\"corrections/0-1-29/provenance/source28-r2-active-controls/blocking/harness.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/blocking/operator-observations.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/blocking/plan.json\",\"corrections/0-1-29/provenance/source28-r2-active-controls/blocking/record-native-loading.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/capture-lifecycle-control.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/continuous-supplement/choose-first.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/continuous-supplement/expanded-plan.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/continuous-supplement/frozen-spec.md\",\"corrections/0-1-29/provenance/source28-r2-active-controls/continuous-supplement/harness.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/continuous-supplement/operator-observations.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/continuous-supplement/plan.json\",\"corrections/0-1-29/provenance/source28-r2-active-controls/continuous-supplement/record-native-loading.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/expanded/choose-first.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/expanded/criterion-citation-erratum.json\",\"corrections/0-1-29/provenance/source28-r2-active-controls/expanded/expanded-plan.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/expanded/frozen-spec.md\",\"corrections/0-1-29/provenance/source28-r2-active-controls/expanded/harness.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/expanded/operator-observations.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/expanded/plan.json\",\"corrections/0-1-29/provenance/source28-r2-active-controls/expanded/record-native-loading.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/expanded/repeated-plan.json\",\"corrections/0-1-29/provenance/source28-r2-active-controls/manual-selection-behavior-a.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/manual-selection-behavior-b.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/manual-selection-continuous-behavior-a.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/manual-selection-continuous-control.final.json\",\"corrections/0-1-29/provenance/source28-r2-active-controls/manual-selection-continuous-control.json\",\"corrections/0-1-29/provenance/source28-r2-active-controls/operator-sequential.manual.candidate.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/operator-sequential.manual.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/prepare-correction.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/prepare-coverage.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/record-operator-handoff-behavior-a.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/record-operator-handoff.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/record-recommended-observation-behavior-b.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/repeated-plan-control.json\",\"corrections/0-1-29/provenance/source28-r2-active-controls/root-manual-helper-copy-control.json\",\"corrections/0-1-29/provenance/source28-r2-active-controls/root-manual-select.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/verify-canonical.mjs\",\"corrections/0-1-29/record-operator-handoff-behavior-a.mjs\",\"corrections/0-1-29/record-operator-handoff.mjs\",\"corrections/0-1-29/record-recommended-observation-behavior-b.mjs\",\"corrections/0-1-29/repeated-plan-control.json\",\"corrections/0-1-29/root-manual-helper-copy-control.json\",\"corrections/0-1-29/root-manual-select.mjs\",\"corrections/0-1-29/root-observation-errors.json\",\"corrections/0-1-29/scheduling-contract.json\",\"corrections/0-1-29/static-control-review-a-initial-error.json\",\"corrections/0-1-29/syntax-check-only.json\",\"corrections/0-1-29/verify-canonical.mjs\",\"corrections/0-1-29/version-guard-exactdiff.json\",\"diagnostics/inherited-pr2-6ee40474/metadata-relocated.json\",\"execute-source29-operator-b.mjs\",\"packer-provenance/0-1-29-stopped/preparation-control.json\",\"prepare-source29-controls-b.mjs\",\"prepare-source29-review-helper-b.mjs\",\"record-source29-b-runtime-pins.mjs\",\"verify-lossless-042-dotnet.ps1\"];\nconst ROOT_DIRS=[\"packer-provenance/0-1-29-stopped/closure\"];\nconst PINNED_SHA256={\"corrections/0-1-29/blocking/harness.mjs\":\"7f1af6c1f6d68497587e4568e55ccaa5164b0d07c7c53f8b254bc7ac2f13730b\",\"corrections/0-1-29/blocking/plan.json\":\"58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2\",\"corrections/0-1-29/blocking/frozen-spec.md\":\"4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d\",\"corrections/0-1-29/blocking/choose-first.mjs\":\"72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1\",\"corrections/0-1-29/blocking/record-native-loading.mjs\":\"12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253\",\"corrections/0-1-29/blocking/operator-observations.mjs\":\"610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871\",\"corrections/0-1-29/expanded/harness.mjs\":\"a7c47d34b4e57b3782fb0db450a3e83e39db22038c31d4ae87ed9b667fe86214\",\"corrections/0-1-29/expanded/plan.json\":\"bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04\",\"corrections/0-1-29/expanded/frozen-spec.md\":\"4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d\",\"corrections/0-1-29/expanded/choose-first.mjs\":\"72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1\",\"corrections/0-1-29/expanded/record-native-loading.mjs\":\"12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253\",\"corrections/0-1-29/expanded/operator-observations.mjs\":\"610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871\",\"corrections/0-1-29/expanded/expanded-plan.mjs\":\"5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e\",\"corrections/0-1-29/continuous-supplement/harness.mjs\":\"a7c47d34b4e57b3782fb0db450a3e83e39db22038c31d4ae87ed9b667fe86214\",\"corrections/0-1-29/continuous-supplement/plan.json\":\"af18c35badde6b55ba3134781823565f9688e14e3e51505ffb8760b05fb57cd9\",\"corrections/0-1-29/continuous-supplement/frozen-spec.md\":\"4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d\",\"corrections/0-1-29/continuous-supplement/choose-first.mjs\":\"72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1\",\"corrections/0-1-29/continuous-supplement/record-native-loading.mjs\":\"12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253\",\"corrections/0-1-29/continuous-supplement/operator-observations.mjs\":\"610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871\",\"corrections/0-1-29/continuous-supplement/expanded-plan.mjs\":\"5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e\",\"corrections/0-1-29/expanded/criterion-citation-erratum.json\":\"8a1e7e3a4305b076e9069c39dd5f605ff21dca5a5ade59ada17afba60ed63969\",\"corrections/0-1-29/expanded/repeated-plan.json\":\"0b97085cdf412893e267bda912776d371a36f58e6fec7cb15bc086989c081d23\",\"corrections/0-1-29/operator-sequential.manual.mjs\":\"8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b\",\"corrections/0-1-29/repeated-plan-control.json\":\"47a66a9d5148b301f1fbff721670de92c8986467d590030159adcfd239c69c79\",\"corrections/0-1-29/record-operator-handoff.mjs\":\"553c482e3977ed600b0846051ee1de9fa983e3a656867a3aa4c05cda393339bf\",\"corrections/0-1-29/manual-selection-behavior-a.mjs\":\"eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559\",\"corrections/0-1-29/manual-selection-continuous-behavior-a.mjs\":\"7fcf3c78437f33f8d146684e7e6173324a996b65c6722d58fec17dcfba643ecc\",\"corrections/0-1-29/manual-selection-continuous-control.json\":\"b84e79d9c799413461c708b9fde47860acf1be57887dcd50f2f7a34c25750eea\",\"corrections/0-1-29/manual-selection-continuous-control.final.json\":\"f958efe94dc9475a32703e57885c069e7f95f884cd6b259471a490b085b57039\",\"corrections/0-1-29/record-operator-handoff-behavior-a.mjs\":\"c9e93fb47caee212c3b5eb2322e963fa89fbe10008db469d9dd4dc6a47546d82\",\"corrections/0-1-29/prepare-correction.mjs\":\"43d01d777bb1960d60aa655d6be3e43a142585af651f435ebf91fc0c6a552e4c\",\"corrections/0-1-29/prepare-coverage.mjs\":\"091976cb8c27d43758e44ea0f433bbfb9b65cf7446f96b55ec883f9ea92a8efd\",\"corrections/0-1-29/verify-canonical.mjs\":\"839ce44f6002c4a6c3eedbcd06d31738049627182e03bf33dde93a4c11eba685\",\"corrections/0-1-29/root-manual-select.mjs\":\"e6cc6c7cd00ecc86fcca45f43fbbcafef34bea6d375123aa1622f5eedbcfefc6\",\"corrections/0-1-29/root-manual-helper-copy-control.json\":\"0cfa34d02f5db39ab8937c51345b6bc1b9c8a7e6cd150a724433c4f350b05c12\",\"corrections/0-1-29/manual-selection-behavior-b.mjs\":\"c2d3f2ce80a6919aecb27892fe2790dce901981efa72c2aef2b773f9b1d1f394\",\"corrections/0-1-29/record-recommended-observation-behavior-b.mjs\":\"834624a2b2f6da8db78f9b5e86a7e029b2c77051764b38b5260849c92f0e5bd9\",\"corrections/0-1-29/behavior-b-helper-copy-control.json\":\"778feaf2416459570b2fe270a57b30f7cc74a917f1b4aa8a44f21455eac54620\",\"corrections/0-1-29/capture-lifecycle-control.mjs\":\"947cb0a958932d8007b7d3d6efb62c0969ba792272f0c7eaf00c118857fbd6eb\",\"corrections/0-1-29/operator-sequential.manual.candidate.mjs\":\"fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42\"};\n",
+      "new": "const ROOT_FILES=[\"archive-043-control-r2.json\",\"build-pack-043-c-r2.mjs\",\"close-source30-a-review-b.mjs\",\"consume-source30-b-pause.mjs\",\"corrections/0-1-30/CONTROL_DRAFT_ONLY.json\",\"corrections/0-1-30/behavior-b-helper-copy-control.json\",\"corrections/0-1-30/blocking/choose-first.mjs\",\"corrections/0-1-30/blocking/frozen-spec.md\",\"corrections/0-1-30/blocking/harness.mjs\",\"corrections/0-1-30/blocking/operator-observations.mjs\",\"corrections/0-1-30/blocking/plan.json\",\"corrections/0-1-30/blocking/record-native-loading.mjs\",\"corrections/0-1-30/blocking/reviews/cross-A-by-b/B3.1.json\",\"corrections/0-1-30/blocking/reviews/cross-A-by-b/B3.2.json\",\"corrections/0-1-30/blocking/reviews/cross-A-by-b/B4.1.json\",\"corrections/0-1-30/blocking/reviews/cross-A-by-b/B4.2.json\",\"corrections/0-1-30/blocking/reviews/cross-A-by-b/B5.1.json\",\"corrections/0-1-30/blocking/reviews/cross-A-by-b/B5.2-NOT_RUN.json\",\"corrections/0-1-30/blocking/reviews/cross-A-by-b/independent-A-six-closure-b.json\",\"corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B1.1-actual-sdk-a.json\",\"corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B1.1-independent-a-final.json\",\"corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B1.2-combined-actual-sdk-a.json\",\"corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B1.2-combined-independent-a-final.json\",\"corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B1.2-delayed-actual-sdk-a.json\",\"corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B1.2-delayed-independent-a-final.json\",\"corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B2.1-actual-sdk-a.json\",\"corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B2.1-independent-a-final.json\",\"corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B6.1-actual-sdk-a.json\",\"corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B6.1-independent-a-final.json\",\"corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B6.2-compare-independent-a-final.json\",\"corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B6.2-review-independent-a-final.json\",\"corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B6.2-revise-independent-a-final.json\",\"corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B6.2-three-actual-sdk-a.json\",\"corrections/0-1-30/blocking/reviews/independent-B-C-closure-a.json\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/01.events.jsonl\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/01.input.txt\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/01.output.txt\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/01.session.jsonl\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/01.stderr.txt\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/02.events.jsonl\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/02.input.txt\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/02.output.txt\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/02.session.jsonl\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/02.stderr.txt\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/manual-selection-turn-1.txt\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/manual-title-audit.json\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-compare/b9238a7f-0c1b-40f5-938a-68bf63aa3a91/01.events.jsonl\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-compare/b9238a7f-0c1b-40f5-938a-68bf63aa3a91/01.input.txt\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-compare/b9238a7f-0c1b-40f5-938a-68bf63aa3a91/01.output.txt\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-compare/b9238a7f-0c1b-40f5-938a-68bf63aa3a91/01.session.jsonl\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-compare/b9238a7f-0c1b-40f5-938a-68bf63aa3a91/01.stderr.txt\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-review/a6c84d4e-27fe-4d91-bcba-d84cb748f854/01.events.jsonl\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-review/a6c84d4e-27fe-4d91-bcba-d84cb748f854/01.input.txt\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-review/a6c84d4e-27fe-4d91-bcba-d84cb748f854/01.output.txt\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-review/a6c84d4e-27fe-4d91-bcba-d84cb748f854/01.session.jsonl\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-review/a6c84d4e-27fe-4d91-bcba-d84cb748f854/01.stderr.txt\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-revise/43a1751f-39c4-4a35-ad1b-f7def69ef2d3/01.events.jsonl\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-revise/43a1751f-39c4-4a35-ad1b-f7def69ef2d3/01.input.txt\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-revise/43a1751f-39c4-4a35-ad1b-f7def69ef2d3/01.output.txt\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-revise/43a1751f-39c4-4a35-ad1b-f7def69ef2d3/01.session.jsonl\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-revise/43a1751f-39c4-4a35-ad1b-f7def69ef2d3/01.stderr.txt\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/batch.json\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/inspection.json\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/installation.json\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/metadata-events.jsonl\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/metadata-requests.json\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/metadata-stderr.txt\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/models.json\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/native-loading-observations.json\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/native-skills.json\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/operator-handoff.json\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/operator-observations.json\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/operator-pauses/e49854e0-0626-4c7d-b331-02635242df20.json\",\"corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/preparation.json\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/01.events.jsonl\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/01.input.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/01.output.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/01.session.jsonl\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/01.stderr.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/02.events.jsonl\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/02.input.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/02.output.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/02.session.jsonl\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/02.stderr.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/03.events.jsonl\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/03.input.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/03.output.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/03.session.jsonl\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/03.stderr.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/manual-selection-turn-1.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/manual-title-audit.json\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/01.events.jsonl\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/01.input.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/01.output.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/01.session.jsonl\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/01.stderr.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/02.events.jsonl\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/02.input.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/02.output.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/02.session.jsonl\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/02.stderr.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/03.events.jsonl\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/03.input.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/03.output.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/03.session.jsonl\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/03.stderr.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/manual-selection-turn-1.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/manual-title-audit.json\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/01.events.jsonl\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/01.input.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/01.output.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/01.session.jsonl\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/01.stderr.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/02.events.jsonl\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/02.input.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/02.output.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/02.session.jsonl\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/02.stderr.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/manual-selection-turn-1.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/manual-title-audit.json\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/01.events.jsonl\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/01.input.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/01.output.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/01.session.jsonl\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/01.stderr.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/02.events.jsonl\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/02.input.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/02.output.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/02.session.jsonl\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/02.stderr.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/manual-selection-turn-1.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/manual-title-audit.json\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B5.1/0660e1f8-0b34-44a3-9b0e-ae7189b2945e/01.events.jsonl\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B5.1/0660e1f8-0b34-44a3-9b0e-ae7189b2945e/01.input.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B5.1/0660e1f8-0b34-44a3-9b0e-ae7189b2945e/01.output.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B5.1/0660e1f8-0b34-44a3-9b0e-ae7189b2945e/01.session.jsonl\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B5.1/0660e1f8-0b34-44a3-9b0e-ae7189b2945e/01.stderr.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/batch.json\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/inspection.json\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/installation.json\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/metadata-events.jsonl\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/metadata-requests.json\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/metadata-stderr.txt\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/models.json\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/native-loading-observations.json\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/native-skills.json\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/operator-handoff-behavior-a.json\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/operator-observations.json\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/operator-pauses/71989b73-f9d3-4c21-b9cf-adb9f04fdba1.json\",\"corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/preparation.json\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/01.events.jsonl\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/01.input.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/01.output.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/01.session.jsonl\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/01.stderr.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/02.events.jsonl\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/02.input.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/02.output.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/02.session.jsonl\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/02.stderr.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/03.events.jsonl\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/03.input.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/03.output.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/03.session.jsonl\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/03.stderr.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/04.events.jsonl\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/04.input.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/04.output.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/04.session.jsonl\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/04.stderr.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/manual-selection-turn-1.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/manual-title-audit.json\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/01.events.jsonl\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/01.input.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/01.output.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/01.session.jsonl\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/01.stderr.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/02.events.jsonl\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/02.input.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/02.output.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/02.session.jsonl\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/02.stderr.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/manual-selection-turn-1.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/manual-title-audit.json\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/01.events.jsonl\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/01.input.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/01.output.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/01.session.jsonl\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/01.stderr.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/02.events.jsonl\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/02.input.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/02.output.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/02.session.jsonl\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/02.stderr.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/03.events.jsonl\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/03.input.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/03.output.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/03.session.jsonl\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/03.stderr.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/manual-selection-turn-1.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/manual-title-audit.json\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/01.events.jsonl\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/01.input.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/01.output.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/01.session.jsonl\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/01.stderr.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/02.events.jsonl\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/02.input.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/02.output.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/02.session.jsonl\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/02.stderr.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/manual-selection-turn-1.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/manual-title-audit.json\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/batch.json\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/inspection.json\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/installation.json\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/metadata-events.jsonl\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/metadata-requests.json\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/metadata-stderr.txt\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/models.json\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/native-loading-observations.json\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/native-skills.json\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/operator-observations.json\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/operator-pauses/8dd7fcb2-8327-4d46-bc0f-e05508b0b004.json\",\"corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/preparation.json\",\"corrections/0-1-30/capture-lifecycle-control.mjs\",\"corrections/0-1-30/continuous-supplement/choose-first.mjs\",\"corrections/0-1-30/continuous-supplement/expanded-plan.mjs\",\"corrections/0-1-30/continuous-supplement/frozen-spec.md\",\"corrections/0-1-30/continuous-supplement/harness.mjs\",\"corrections/0-1-30/continuous-supplement/operator-observations.mjs\",\"corrections/0-1-30/continuous-supplement/plan.json\",\"corrections/0-1-30/continuous-supplement/record-native-loading.mjs\",\"corrections/0-1-30/control-copy-inventory.draft.json\",\"corrections/0-1-30/controller.mjs\",\"corrections/0-1-30/expanded/choose-first.mjs\",\"corrections/0-1-30/expanded/criterion-citation-erratum.json\",\"corrections/0-1-30/expanded/expanded-plan.mjs\",\"corrections/0-1-30/expanded/frozen-spec.md\",\"corrections/0-1-30/expanded/harness.mjs\",\"corrections/0-1-30/expanded/operator-observations.mjs\",\"corrections/0-1-30/expanded/plan.json\",\"corrections/0-1-30/expanded/record-native-loading.mjs\",\"corrections/0-1-30/expanded/repeated-plan.json\",\"corrections/0-1-30/final-freeze-receipt.json\",\"corrections/0-1-30/frozen-copy-inventory.json\",\"corrections/0-1-30/manual-selection-behavior-a.mjs\",\"corrections/0-1-30/manual-selection-behavior-b.mjs\",\"corrections/0-1-30/manual-selection-continuous-behavior-a.mjs\",\"corrections/0-1-30/manual-selection-continuous-control.final.json\",\"corrections/0-1-30/manual-selection-continuous-control.json\",\"corrections/0-1-30/native-setup/marketplace-add.command.json\",\"corrections/0-1-30/native-setup/marketplace-add.stderr.log\",\"corrections/0-1-30/native-setup/marketplace-add.stdout.log\",\"corrections/0-1-30/native-setup/own-prior-sections.json\",\"corrections/0-1-30/native-setup/plugin-add.command.json\",\"corrections/0-1-30/native-setup/plugin-add.stderr.log\",\"corrections/0-1-30/native-setup/plugin-add.stdout.log\",\"corrections/0-1-30/operator-a-records/B3.1-independent-receiver-audit-b.json\",\"corrections/0-1-30/operator-a-records/B3.2-independent-receiver-audit-b.json\",\"corrections/0-1-30/operator-a-records/B4.1-independent-receiver-audit-b.json\",\"corrections/0-1-30/operator-a-records/B4.2-independent-receiver-audit-b.json\",\"corrections/0-1-30/operator-a-records/B5.1-independent-receiver-audit-b.json\",\"corrections/0-1-30/operator-a-records/core-stopped-report.json\",\"corrections/0-1-30/operator-a-records/preparation-resources-receipt.json\",\"corrections/0-1-30/operator-a-records/preparation-reviewer-import-error01.json\",\"corrections/0-1-30/operator-a-records/preparation-reviewer-mirror-count-error02.json\",\"corrections/0-1-30/operator-a-records/readonly-peer-null-status-peek-error03.json\",\"corrections/0-1-30/operator-a-records/root-B4.1-original-receiver-audit.json\",\"corrections/0-1-30/operator-a-records/root-B5.1-prefix-original-receiver-audit.json\",\"corrections/0-1-30/operator-b-records/B6.1-complete-actual-receiver-audit.json\",\"corrections/0-1-30/operator-b-records/core-completed-report.json\",\"corrections/0-1-30/operator-b-records/core-stopped-report.json\",\"corrections/0-1-30/operator-b-records/handoff.receipt.json\",\"corrections/0-1-30/operator-b-records/handoff.stderr.log\",\"corrections/0-1-30/operator-b-records/handoff.stdout.log\",\"corrections/0-1-30/operator-b-records/manual-selection.completion.json\",\"corrections/0-1-30/operator-b-records/manual-selection.started.json\",\"corrections/0-1-30/operator-b-records/manual-selection.stderr.log\",\"corrections/0-1-30/operator-b-records/manual-selection.stdout.log\",\"corrections/0-1-30/operator-b-records/normal-pause-consume.stderr.log\",\"corrections/0-1-30/operator-b-records/normal-pause-consume.stdout.log\",\"corrections/0-1-30/operator-b-records/prepare.completion.json\",\"corrections/0-1-30/operator-b-records/prepare.started.json\",\"corrections/0-1-30/operator-b-records/prepare.stderr.log\",\"corrections/0-1-30/operator-b-records/prepare.stdout.log\",\"corrections/0-1-30/operator-b-records/runtime-installation-pins.json\",\"corrections/0-1-30/operator-b-records/stage01.completion.json\",\"corrections/0-1-30/operator-b-records/stage01.started.json\",\"corrections/0-1-30/operator-b-records/stage01.stderr.log\",\"corrections/0-1-30/operator-b-records/stage01.stdout.log\",\"corrections/0-1-30/operator-b-records/stage02.completion.json\",\"corrections/0-1-30/operator-b-records/stage02.started.json\",\"corrections/0-1-30/operator-b-records/stage02.stderr.log\",\"corrections/0-1-30/operator-b-records/stage02.stdout.log\",\"corrections/0-1-30/operator-c-records/fresh-parent-preparation.json\",\"corrections/0-1-30/operator-c-records/prepare.log\",\"corrections/0-1-30/operator-c-records/root-B1.1-original-receiver-audit.json\",\"corrections/0-1-30/operator-c-records/root-B1.2-combined-original-receiver-audit.json\",\"corrections/0-1-30/operator-c-records/root-B1.2-delayed-original-receiver-audit.json\",\"corrections/0-1-30/operator-c-records/root-B2.1-original-receiver-audit.json\",\"corrections/0-1-30/operator-c-records/stage01.log\",\"corrections/0-1-30/operator-c-records/stage02.log\",\"corrections/0-1-30/operator-c-records/stage03.log\",\"corrections/0-1-30/operator-c-records/stage04.log\",\"corrections/0-1-30/operator-c-records/stage05.log\",\"corrections/0-1-30/operator-c-records/stopped-original-operator-closure.json\",\"corrections/0-1-30/operator-c-records/technical-B1.1-r1.json\",\"corrections/0-1-30/operator-c-records/technical-B1.1-r1.log\",\"corrections/0-1-30/operator-c-records/technical-B1.2-combined-r1.json\",\"corrections/0-1-30/operator-c-records/technical-B1.2-combined-r1.log\",\"corrections/0-1-30/operator-c-records/technical-B1.2-delayed-r1.json\",\"corrections/0-1-30/operator-c-records/technical-B1.2-delayed-r1.log\",\"corrections/0-1-30/operator-c-records/technical-B2.1-r1.json\",\"corrections/0-1-30/operator-c-records/technical-B2.1-r1.log\",\"corrections/0-1-30/operator-sequential.manual.candidate.mjs\",\"corrections/0-1-30/operator-sequential.manual.mjs\",\"corrections/0-1-30/prepare-correction.mjs\",\"corrections/0-1-30/prepare-coverage.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/behavior-b-helper-copy-control.json\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/blocking/choose-first.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/blocking/frozen-spec.md\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/blocking/harness.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/blocking/operator-observations.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/blocking/plan.json\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/blocking/record-native-loading.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/capture-lifecycle-control.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/continuous-supplement/choose-first.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/continuous-supplement/expanded-plan.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/continuous-supplement/frozen-spec.md\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/continuous-supplement/harness.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/continuous-supplement/operator-observations.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/continuous-supplement/plan.json\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/continuous-supplement/record-native-loading.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/controller.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/expanded/choose-first.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/expanded/criterion-citation-erratum.json\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/expanded/expanded-plan.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/expanded/frozen-spec.md\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/expanded/harness.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/expanded/operator-observations.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/expanded/plan.json\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/expanded/record-native-loading.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/expanded/repeated-plan.json\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/manual-selection-behavior-a.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/manual-selection-behavior-b.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/manual-selection-continuous-behavior-a.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/manual-selection-continuous-control.final.json\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/manual-selection-continuous-control.json\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/operator-sequential.manual.candidate.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/operator-sequential.manual.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/prepare-correction.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/prepare-coverage.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/record-operator-handoff-behavior-a.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/record-operator-handoff.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/record-recommended-observation-behavior-b.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/repeated-plan-control.json\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/root-manual-helper-copy-control.json\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/root-manual-select.mjs\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/scheduling-contract.json\",\"corrections/0-1-30/provenance/source29-reviewed-active-controls/verify-canonical.mjs\",\"corrections/0-1-30/record-operator-handoff-behavior-a.mjs\",\"corrections/0-1-30/record-operator-handoff.mjs\",\"corrections/0-1-30/record-recommended-observation-behavior-b.mjs\",\"corrections/0-1-30/repeated-plan-control.json\",\"corrections/0-1-30/root-manual-helper-copy-control.json\",\"corrections/0-1-30/root-manual-select.mjs\",\"corrections/0-1-30/scheduling-contract.json\",\"corrections/0-1-30/verify-canonical.mjs\",\"corrections/0-1-30/version-guard-exactdiff.draft.json\",\"diagnostics/inherited-pr2-6ee40474/metadata-relocated.json\",\"execute-source30-operator-b.mjs\",\"finalize-source30-controls-b.mjs\",\"freeze-source30-a-finals-b.mjs\",\"packer-provenance/0-1-30-stopped/r2/preparation-control.json\",\"prepare-source30-control-draft-b.mjs\",\"record-source30-b-runtime-pins.mjs\",\"verify-lossless-043-dotnet-r2.ps1\"];\nconst ROOT_DIRS=[\"packer-provenance/0-1-30-stopped/r2/closure\"];\nconst PINNED_SHA256={\"corrections/0-1-30/blocking/harness.mjs\":\"7f1af6c1f6d68497587e4568e55ccaa5164b0d07c7c53f8b254bc7ac2f13730b\",\"corrections/0-1-30/blocking/plan.json\":\"58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2\",\"corrections/0-1-30/blocking/frozen-spec.md\":\"4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d\",\"corrections/0-1-30/blocking/choose-first.mjs\":\"72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1\",\"corrections/0-1-30/blocking/record-native-loading.mjs\":\"12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253\",\"corrections/0-1-30/blocking/operator-observations.mjs\":\"610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871\",\"corrections/0-1-30/expanded/harness.mjs\":\"a7c47d34b4e57b3782fb0db450a3e83e39db22038c31d4ae87ed9b667fe86214\",\"corrections/0-1-30/expanded/plan.json\":\"bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04\",\"corrections/0-1-30/expanded/frozen-spec.md\":\"4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d\",\"corrections/0-1-30/expanded/choose-first.mjs\":\"72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1\",\"corrections/0-1-30/expanded/record-native-loading.mjs\":\"12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253\",\"corrections/0-1-30/expanded/operator-observations.mjs\":\"610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871\",\"corrections/0-1-30/expanded/expanded-plan.mjs\":\"5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e\",\"corrections/0-1-30/continuous-supplement/harness.mjs\":\"a7c47d34b4e57b3782fb0db450a3e83e39db22038c31d4ae87ed9b667fe86214\",\"corrections/0-1-30/continuous-supplement/plan.json\":\"af18c35badde6b55ba3134781823565f9688e14e3e51505ffb8760b05fb57cd9\",\"corrections/0-1-30/continuous-supplement/frozen-spec.md\":\"4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d\",\"corrections/0-1-30/continuous-supplement/choose-first.mjs\":\"72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1\",\"corrections/0-1-30/continuous-supplement/record-native-loading.mjs\":\"12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253\",\"corrections/0-1-30/continuous-supplement/operator-observations.mjs\":\"610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871\",\"corrections/0-1-30/continuous-supplement/expanded-plan.mjs\":\"5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e\",\"corrections/0-1-30/expanded/criterion-citation-erratum.json\":\"8a1e7e3a4305b076e9069c39dd5f605ff21dca5a5ade59ada17afba60ed63969\",\"corrections/0-1-30/expanded/repeated-plan.json\":\"0b97085cdf412893e267bda912776d371a36f58e6fec7cb15bc086989c081d23\",\"corrections/0-1-30/operator-sequential.manual.mjs\":\"8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b\",\"corrections/0-1-30/repeated-plan-control.json\":\"47a66a9d5148b301f1fbff721670de92c8986467d590030159adcfd239c69c79\",\"corrections/0-1-30/record-operator-handoff.mjs\":\"553c482e3977ed600b0846051ee1de9fa983e3a656867a3aa4c05cda393339bf\",\"corrections/0-1-30/manual-selection-behavior-a.mjs\":\"eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559\",\"corrections/0-1-30/manual-selection-continuous-behavior-a.mjs\":\"7fcf3c78437f33f8d146684e7e6173324a996b65c6722d58fec17dcfba643ecc\",\"corrections/0-1-30/manual-selection-continuous-control.json\":\"b84e79d9c799413461c708b9fde47860acf1be57887dcd50f2f7a34c25750eea\",\"corrections/0-1-30/manual-selection-continuous-control.final.json\":\"f958efe94dc9475a32703e57885c069e7f95f884cd6b259471a490b085b57039\",\"corrections/0-1-30/record-operator-handoff-behavior-a.mjs\":\"c9e93fb47caee212c3b5eb2322e963fa89fbe10008db469d9dd4dc6a47546d82\",\"corrections/0-1-30/prepare-correction.mjs\":\"de85c5b4a4ff1e904901917ed3448a83474f7fcbd60bf58dfd75f2836c88827a\",\"corrections/0-1-30/prepare-coverage.mjs\":\"a9d82fe34177df29d1c1e9fffa7d818e5536308cdab66a5b2f4ff315e1b0b604\",\"corrections/0-1-30/verify-canonical.mjs\":\"b6b5dd55765249daf3c2971fce1a4fb7ad0f36dda6fd614916beff7532b348f9\",\"corrections/0-1-30/root-manual-select.mjs\":\"e6cc6c7cd00ecc86fcca45f43fbbcafef34bea6d375123aa1622f5eedbcfefc6\",\"corrections/0-1-30/root-manual-helper-copy-control.json\":\"0cfa34d02f5db39ab8937c51345b6bc1b9c8a7e6cd150a724433c4f350b05c12\",\"corrections/0-1-30/manual-selection-behavior-b.mjs\":\"c2d3f2ce80a6919aecb27892fe2790dce901981efa72c2aef2b773f9b1d1f394\",\"corrections/0-1-30/record-recommended-observation-behavior-b.mjs\":\"834624a2b2f6da8db78f9b5e86a7e029b2c77051764b38b5260849c92f0e5bd9\",\"corrections/0-1-30/behavior-b-helper-copy-control.json\":\"778feaf2416459570b2fe270a57b30f7cc74a917f1b4aa8a44f21455eac54620\",\"corrections/0-1-30/capture-lifecycle-control.mjs\":\"947cb0a958932d8007b7d3d6efb62c0969ba792272f0c7eaf00c118857fbd6eb\",\"corrections/0-1-30/operator-sequential.manual.candidate.mjs\":\"fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42\"};\n"
+    },
+    {
+      "old": "archive-042-control.json",
+      "new": "archive-043-control-r2.json",
+      "section": "body"
+    },
+    {
+      "old": "archive042",
+      "new": "archive043",
+      "section": "body"
+    },
+    {
+      "old": "pack042",
+      "new": "pack043",
+      "section": "body"
+    },
+    {
+      "old": "d25dc63fb81b57859757769c239dbacfd4983492",
+      "new": "696da5df4faedd239783764e59b6832b5884f5e1",
+      "section": "body"
+    },
+    {
+      "old": "frozen29",
+      "new": "frozen30",
+      "section": "body"
+    },
+    {
+      "old": "actualUuids.size===8&&actualInputs.length===14",
+      "new": "actualUuids.size===13&&actualInputs.length===27",
+      "section": "body"
+    },
+    {
+      "old": "actual8UUID/14inputs",
+      "new": "actual13UUID/27inputs",
+      "section": "body"
+    },
+    {
+      "old": "control.realDistinctUUIDs===8&&control.actualInputFiles===14",
+      "new": "control.realDistinctUUIDs===13&&control.actualInputFiles===27",
+      "section": "body"
+    },
+    {
+      "old": "0.1.29 archival requires actual8UUID/14input",
+      "new": "0.1.30 archival requires actual13UUID/27input",
+      "section": "body"
+    },
+    {
+      "old": "Source29 canonicald25dc stopped8UUID14COMPLETE0INVALID5PASS1FAIL2UNEX6NOTRUN/16inputs not sent; actual low default distinct from explicit SDK high. C B1 waiting/confirmation primary PASS but cancellation-permission fidelity FAIL, delayed prefix UNEX; all independent original reports and locator/schema corrections retained. Zero postmarker and zero crossing inputs. Original70raw,14SDK and actual received cached resources kept. Already-Gitsealed51 engineering and24 canonical logs referenced byte-exact, not duplicated. No future30, private HOME/auth/cache, unexported whole-window screenshots, new client/effect PASS or grade conversion.",
+      "new": "Source30 canonical696da5 stopped13UUID27COMPLETE0INVALID whole9PASS4FAIL0UNEX1NOTRUN/3inputs not sent; default low distinct from explicit actual SDK high. B5.1 primary unexercised remains separate from its whole failure. Four independent source fidelity failures, correct primary paths, all original scopes/errors and reports retained. Zero postmarker starts and two natural crossing inputs recorded. Original135modelraw/27SDK/core received resources kept. Already-Gitsealed37 engineering plus24 canonical plus23 RootSTOP/UI public byte-exact references only, without duplicate payload. Separate desktop Work UUID01a13bec-c13d-7e22-8eab-671d7c8c520e two real UI turns cover proposal and unselected waiting only; app26.1007.9446.0/CLI0.162.0-alpha.17.2/Astraxhigh identity is distinct from core CLI0.147/5.6-sol/high. Work public receipt/addendum/actual inputs/two full answers/three actual resource snapshots/observer failures and task source-cache receipts already preserved in the23 Git-sealed RootSTOP records are referenced only; remaining own plugin sections are the explicit public payload. Entire native-ui/private-sdk, fullconfig, whole-window pixels, HOME/auth/cache/unrelated tasks and future31 excluded. No confirmed-guide/local/native-lifecycle/effects PASS or grade conversion.",
+      "section": "body"
+    }
+  ],
+  "exactDotnetChanges": [
+    [
+      "patch-042-stopped",
+      "patch-043-stopped"
+    ],
+    [
+      "distinctRealUuidCount -ne 8",
+      "distinctRealUuidCount -ne 13"
+    ],
+    [
+      "rawInputFileCount -ne 14",
+      "rawInputFileCount -ne 27"
+    ],
+    [
+      "d25dc63fb81b57859757769c239dbacfd4983492",
+      "696da5df4faedd239783764e59b6832b5884f5e1"
+    ],
+    [
+      "Three exact source29 stopped/core identities required.",
+      "Three exact source30 stopped/core identities required."
+    ]
+  ],
+  "exactDryDotnetChanges": [
+    [
+      "0-1-29-stopped",
+      "0-1-30-stopped"
+    ],
+    [
+      "archive-042-control.json",
+      "archive-043-control-r2.json"
+    ],
+    [
+      "verify-lossless-042-dotnet.ps1",
+      "verify-lossless-043-dotnet-r2.ps1"
+    ],
+    [
+      "0-1-30|native-ui-private",
+      "0-1-31|native-ui-private|private-sdk|whole-window|whole_window"
+    ]
+  ],
+  "inverseAllExact": true,
+  "sourceAllowlist": {
+    "rootFiles": [
+      "archive-043-control-r2.json",
+      "build-pack-043-c-r2.mjs",
+      "close-source30-a-review-b.mjs",
+      "consume-source30-b-pause.mjs",
+      "corrections/0-1-30/CONTROL_DRAFT_ONLY.json",
+      "corrections/0-1-30/behavior-b-helper-copy-control.json",
+      "corrections/0-1-30/blocking/choose-first.mjs",
+      "corrections/0-1-30/blocking/frozen-spec.md",
+      "corrections/0-1-30/blocking/harness.mjs",
+      "corrections/0-1-30/blocking/operator-observations.mjs",
+      "corrections/0-1-30/blocking/plan.json",
+      "corrections/0-1-30/blocking/record-native-loading.mjs",
+      "corrections/0-1-30/blocking/reviews/cross-A-by-b/B3.1.json",
+      "corrections/0-1-30/blocking/reviews/cross-A-by-b/B3.2.json",
+      "corrections/0-1-30/blocking/reviews/cross-A-by-b/B4.1.json",
+      "corrections/0-1-30/blocking/reviews/cross-A-by-b/B4.2.json",
+      "corrections/0-1-30/blocking/reviews/cross-A-by-b/B5.1.json",
+      "corrections/0-1-30/blocking/reviews/cross-A-by-b/B5.2-NOT_RUN.json",
+      "corrections/0-1-30/blocking/reviews/cross-A-by-b/independent-A-six-closure-b.json",
+      "corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B1.1-actual-sdk-a.json",
+      "corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B1.1-independent-a-final.json",
+      "corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B1.2-combined-actual-sdk-a.json",
+      "corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B1.2-combined-independent-a-final.json",
+      "corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B1.2-delayed-actual-sdk-a.json",
+      "corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B1.2-delayed-independent-a-final.json",
+      "corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B2.1-actual-sdk-a.json",
+      "corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B2.1-independent-a-final.json",
+      "corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B6.1-actual-sdk-a.json",
+      "corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B6.1-independent-a-final.json",
+      "corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B6.2-compare-independent-a-final.json",
+      "corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B6.2-review-independent-a-final.json",
+      "corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B6.2-revise-independent-a-final.json",
+      "corrections/0-1-30/blocking/reviews/cross-B-C-by-a/B6.2-three-actual-sdk-a.json",
+      "corrections/0-1-30/blocking/reviews/independent-B-C-closure-a.json",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/01.events.jsonl",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/01.input.txt",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/01.output.txt",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/01.session.jsonl",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/01.stderr.txt",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/02.events.jsonl",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/02.input.txt",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/02.output.txt",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/02.session.jsonl",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/02.stderr.txt",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/manual-selection-turn-1.txt",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.1/414d7919-e96c-4c0b-9212-1f1356cffa3c/manual-title-audit.json",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-compare/b9238a7f-0c1b-40f5-938a-68bf63aa3a91/01.events.jsonl",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-compare/b9238a7f-0c1b-40f5-938a-68bf63aa3a91/01.input.txt",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-compare/b9238a7f-0c1b-40f5-938a-68bf63aa3a91/01.output.txt",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-compare/b9238a7f-0c1b-40f5-938a-68bf63aa3a91/01.session.jsonl",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-compare/b9238a7f-0c1b-40f5-938a-68bf63aa3a91/01.stderr.txt",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-review/a6c84d4e-27fe-4d91-bcba-d84cb748f854/01.events.jsonl",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-review/a6c84d4e-27fe-4d91-bcba-d84cb748f854/01.input.txt",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-review/a6c84d4e-27fe-4d91-bcba-d84cb748f854/01.output.txt",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-review/a6c84d4e-27fe-4d91-bcba-d84cb748f854/01.session.jsonl",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-review/a6c84d4e-27fe-4d91-bcba-d84cb748f854/01.stderr.txt",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-revise/43a1751f-39c4-4a35-ad1b-f7def69ef2d3/01.events.jsonl",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-revise/43a1751f-39c4-4a35-ad1b-f7def69ef2d3/01.input.txt",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-revise/43a1751f-39c4-4a35-ad1b-f7def69ef2d3/01.output.txt",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-revise/43a1751f-39c4-4a35-ad1b-f7def69ef2d3/01.session.jsonl",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/B6.2-revise/43a1751f-39c4-4a35-ad1b-f7def69ef2d3/01.stderr.txt",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/batch.json",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/inspection.json",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/installation.json",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/metadata-events.jsonl",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/metadata-requests.json",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/metadata-stderr.txt",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/models.json",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/native-loading-observations.json",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/native-skills.json",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/operator-handoff.json",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/operator-observations.json",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/operator-pauses/e49854e0-0626-4c7d-b331-02635242df20.json",
+      "corrections/0-1-30/blocking/runs/7e72c017-aaa0-4914-b1ab-c2779fb586e8/preparation.json",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/01.events.jsonl",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/01.input.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/01.output.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/01.session.jsonl",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/01.stderr.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/02.events.jsonl",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/02.input.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/02.output.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/02.session.jsonl",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/02.stderr.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/03.events.jsonl",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/03.input.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/03.output.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/03.session.jsonl",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/03.stderr.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/manual-selection-turn-1.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.1/ef0ba181-e936-41ee-b765-6cd283f8abd9/manual-title-audit.json",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/01.events.jsonl",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/01.input.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/01.output.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/01.session.jsonl",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/01.stderr.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/02.events.jsonl",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/02.input.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/02.output.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/02.session.jsonl",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/02.stderr.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/03.events.jsonl",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/03.input.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/03.output.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/03.session.jsonl",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/03.stderr.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/manual-selection-turn-1.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B3.2/30c870ab-41ce-47b0-936c-acb4feae1787/manual-title-audit.json",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/01.events.jsonl",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/01.input.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/01.output.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/01.session.jsonl",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/01.stderr.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/02.events.jsonl",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/02.input.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/02.output.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/02.session.jsonl",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/02.stderr.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/manual-selection-turn-1.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.1/da5a69fd-e7f3-4a99-9f4a-690f46956c0a/manual-title-audit.json",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/01.events.jsonl",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/01.input.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/01.output.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/01.session.jsonl",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/01.stderr.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/02.events.jsonl",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/02.input.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/02.output.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/02.session.jsonl",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/02.stderr.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/manual-selection-turn-1.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B4.2/6b8d7627-2a71-4a50-835f-028e26d40376/manual-title-audit.json",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B5.1/0660e1f8-0b34-44a3-9b0e-ae7189b2945e/01.events.jsonl",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B5.1/0660e1f8-0b34-44a3-9b0e-ae7189b2945e/01.input.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B5.1/0660e1f8-0b34-44a3-9b0e-ae7189b2945e/01.output.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B5.1/0660e1f8-0b34-44a3-9b0e-ae7189b2945e/01.session.jsonl",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/B5.1/0660e1f8-0b34-44a3-9b0e-ae7189b2945e/01.stderr.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/batch.json",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/inspection.json",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/installation.json",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/metadata-events.jsonl",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/metadata-requests.json",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/metadata-stderr.txt",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/models.json",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/native-loading-observations.json",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/native-skills.json",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/operator-handoff-behavior-a.json",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/operator-observations.json",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/operator-pauses/71989b73-f9d3-4c21-b9cf-adb9f04fdba1.json",
+      "corrections/0-1-30/blocking/runs/a32aa192-72bc-4a6b-a866-2a6216971591/preparation.json",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/01.events.jsonl",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/01.input.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/01.output.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/01.session.jsonl",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/01.stderr.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/02.events.jsonl",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/02.input.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/02.output.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/02.session.jsonl",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/02.stderr.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/03.events.jsonl",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/03.input.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/03.output.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/03.session.jsonl",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/03.stderr.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/04.events.jsonl",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/04.input.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/04.output.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/04.session.jsonl",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/04.stderr.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/manual-selection-turn-1.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.1/394e3f48-b2db-480a-8eac-a90f824b38b9/manual-title-audit.json",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/01.events.jsonl",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/01.input.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/01.output.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/01.session.jsonl",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/01.stderr.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/02.events.jsonl",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/02.input.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/02.output.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/02.session.jsonl",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/02.stderr.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/manual-selection-turn-1.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-combined/f62e3ec0-0e5f-4f21-abd2-72e3cf68f5b5/manual-title-audit.json",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/01.events.jsonl",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/01.input.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/01.output.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/01.session.jsonl",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/01.stderr.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/02.events.jsonl",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/02.input.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/02.output.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/02.session.jsonl",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/02.stderr.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/03.events.jsonl",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/03.input.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/03.output.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/03.session.jsonl",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/03.stderr.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/manual-selection-turn-1.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B1.2-delayed/1704430f-c9f4-47ee-af1a-ff47e52663c4/manual-title-audit.json",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/01.events.jsonl",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/01.input.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/01.output.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/01.session.jsonl",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/01.stderr.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/02.events.jsonl",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/02.input.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/02.output.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/02.session.jsonl",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/02.stderr.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/manual-selection-turn-1.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/B2.1/4e35b087-efae-4dba-b84d-b4eb2c302923/manual-title-audit.json",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/batch.json",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/inspection.json",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/installation.json",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/metadata-events.jsonl",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/metadata-requests.json",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/metadata-stderr.txt",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/models.json",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/native-loading-observations.json",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/native-skills.json",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/operator-observations.json",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/operator-pauses/8dd7fcb2-8327-4d46-bc0f-e05508b0b004.json",
+      "corrections/0-1-30/blocking/runs/ec583184-8194-4009-9565-8a39da43dafc/preparation.json",
+      "corrections/0-1-30/capture-lifecycle-control.mjs",
+      "corrections/0-1-30/continuous-supplement/choose-first.mjs",
+      "corrections/0-1-30/continuous-supplement/expanded-plan.mjs",
+      "corrections/0-1-30/continuous-supplement/frozen-spec.md",
+      "corrections/0-1-30/continuous-supplement/harness.mjs",
+      "corrections/0-1-30/continuous-supplement/operator-observations.mjs",
+      "corrections/0-1-30/continuous-supplement/plan.json",
+      "corrections/0-1-30/continuous-supplement/record-native-loading.mjs",
+      "corrections/0-1-30/control-copy-inventory.draft.json",
+      "corrections/0-1-30/controller.mjs",
+      "corrections/0-1-30/expanded/choose-first.mjs",
+      "corrections/0-1-30/expanded/criterion-citation-erratum.json",
+      "corrections/0-1-30/expanded/expanded-plan.mjs",
+      "corrections/0-1-30/expanded/frozen-spec.md",
+      "corrections/0-1-30/expanded/harness.mjs",
+      "corrections/0-1-30/expanded/operator-observations.mjs",
+      "corrections/0-1-30/expanded/plan.json",
+      "corrections/0-1-30/expanded/record-native-loading.mjs",
+      "corrections/0-1-30/expanded/repeated-plan.json",
+      "corrections/0-1-30/final-freeze-receipt.json",
+      "corrections/0-1-30/frozen-copy-inventory.json",
+      "corrections/0-1-30/manual-selection-behavior-a.mjs",
+      "corrections/0-1-30/manual-selection-behavior-b.mjs",
+      "corrections/0-1-30/manual-selection-continuous-behavior-a.mjs",
+      "corrections/0-1-30/manual-selection-continuous-control.final.json",
+      "corrections/0-1-30/manual-selection-continuous-control.json",
+      "corrections/0-1-30/native-setup/marketplace-add.command.json",
+      "corrections/0-1-30/native-setup/marketplace-add.stderr.log",
+      "corrections/0-1-30/native-setup/marketplace-add.stdout.log",
+      "corrections/0-1-30/native-setup/own-prior-sections.json",
+      "corrections/0-1-30/native-setup/plugin-add.command.json",
+      "corrections/0-1-30/native-setup/plugin-add.stderr.log",
+      "corrections/0-1-30/native-setup/plugin-add.stdout.log",
+      "corrections/0-1-30/operator-a-records/B3.1-independent-receiver-audit-b.json",
+      "corrections/0-1-30/operator-a-records/B3.2-independent-receiver-audit-b.json",
+      "corrections/0-1-30/operator-a-records/B4.1-independent-receiver-audit-b.json",
+      "corrections/0-1-30/operator-a-records/B4.2-independent-receiver-audit-b.json",
+      "corrections/0-1-30/operator-a-records/B5.1-independent-receiver-audit-b.json",
+      "corrections/0-1-30/operator-a-records/core-stopped-report.json",
+      "corrections/0-1-30/operator-a-records/preparation-resources-receipt.json",
+      "corrections/0-1-30/operator-a-records/preparation-reviewer-import-error01.json",
+      "corrections/0-1-30/operator-a-records/preparation-reviewer-mirror-count-error02.json",
+      "corrections/0-1-30/operator-a-records/readonly-peer-null-status-peek-error03.json",
+      "corrections/0-1-30/operator-a-records/root-B4.1-original-receiver-audit.json",
+      "corrections/0-1-30/operator-a-records/root-B5.1-prefix-original-receiver-audit.json",
+      "corrections/0-1-30/operator-b-records/B6.1-complete-actual-receiver-audit.json",
+      "corrections/0-1-30/operator-b-records/core-completed-report.json",
+      "corrections/0-1-30/operator-b-records/core-stopped-report.json",
+      "corrections/0-1-30/operator-b-records/handoff.receipt.json",
+      "corrections/0-1-30/operator-b-records/handoff.stderr.log",
+      "corrections/0-1-30/operator-b-records/handoff.stdout.log",
+      "corrections/0-1-30/operator-b-records/manual-selection.completion.json",
+      "corrections/0-1-30/operator-b-records/manual-selection.started.json",
+      "corrections/0-1-30/operator-b-records/manual-selection.stderr.log",
+      "corrections/0-1-30/operator-b-records/manual-selection.stdout.log",
+      "corrections/0-1-30/operator-b-records/normal-pause-consume.stderr.log",
+      "corrections/0-1-30/operator-b-records/normal-pause-consume.stdout.log",
+      "corrections/0-1-30/operator-b-records/prepare.completion.json",
+      "corrections/0-1-30/operator-b-records/prepare.started.json",
+      "corrections/0-1-30/operator-b-records/prepare.stderr.log",
+      "corrections/0-1-30/operator-b-records/prepare.stdout.log",
+      "corrections/0-1-30/operator-b-records/runtime-installation-pins.json",
+      "corrections/0-1-30/operator-b-records/stage01.completion.json",
+      "corrections/0-1-30/operator-b-records/stage01.started.json",
+      "corrections/0-1-30/operator-b-records/stage01.stderr.log",
+      "corrections/0-1-30/operator-b-records/stage01.stdout.log",
+      "corrections/0-1-30/operator-b-records/stage02.completion.json",
+      "corrections/0-1-30/operator-b-records/stage02.started.json",
+      "corrections/0-1-30/operator-b-records/stage02.stderr.log",
+      "corrections/0-1-30/operator-b-records/stage02.stdout.log",
+      "corrections/0-1-30/operator-c-records/fresh-parent-preparation.json",
+      "corrections/0-1-30/operator-c-records/prepare.log",
+      "corrections/0-1-30/operator-c-records/root-B1.1-original-receiver-audit.json",
+      "corrections/0-1-30/operator-c-records/root-B1.2-combined-original-receiver-audit.json",
+      "corrections/0-1-30/operator-c-records/root-B1.2-delayed-original-receiver-audit.json",
+      "corrections/0-1-30/operator-c-records/root-B2.1-original-receiver-audit.json",
+      "corrections/0-1-30/operator-c-records/stage01.log",
+      "corrections/0-1-30/operator-c-records/stage02.log",
+      "corrections/0-1-30/operator-c-records/stage03.log",
+      "corrections/0-1-30/operator-c-records/stage04.log",
+      "corrections/0-1-30/operator-c-records/stage05.log",
+      "corrections/0-1-30/operator-c-records/stopped-original-operator-closure.json",
+      "corrections/0-1-30/operator-c-records/technical-B1.1-r1.json",
+      "corrections/0-1-30/operator-c-records/technical-B1.1-r1.log",
+      "corrections/0-1-30/operator-c-records/technical-B1.2-combined-r1.json",
+      "corrections/0-1-30/operator-c-records/technical-B1.2-combined-r1.log",
+      "corrections/0-1-30/operator-c-records/technical-B1.2-delayed-r1.json",
+      "corrections/0-1-30/operator-c-records/technical-B1.2-delayed-r1.log",
+      "corrections/0-1-30/operator-c-records/technical-B2.1-r1.json",
+      "corrections/0-1-30/operator-c-records/technical-B2.1-r1.log",
+      "corrections/0-1-30/operator-sequential.manual.candidate.mjs",
+      "corrections/0-1-30/operator-sequential.manual.mjs",
+      "corrections/0-1-30/prepare-correction.mjs",
+      "corrections/0-1-30/prepare-coverage.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/behavior-b-helper-copy-control.json",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/blocking/choose-first.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/blocking/frozen-spec.md",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/blocking/harness.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/blocking/operator-observations.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/blocking/plan.json",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/blocking/record-native-loading.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/capture-lifecycle-control.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/continuous-supplement/choose-first.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/continuous-supplement/expanded-plan.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/continuous-supplement/frozen-spec.md",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/continuous-supplement/harness.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/continuous-supplement/operator-observations.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/continuous-supplement/plan.json",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/continuous-supplement/record-native-loading.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/controller.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/expanded/choose-first.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/expanded/criterion-citation-erratum.json",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/expanded/expanded-plan.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/expanded/frozen-spec.md",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/expanded/harness.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/expanded/operator-observations.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/expanded/plan.json",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/expanded/record-native-loading.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/expanded/repeated-plan.json",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/manual-selection-behavior-a.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/manual-selection-behavior-b.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/manual-selection-continuous-behavior-a.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/manual-selection-continuous-control.final.json",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/manual-selection-continuous-control.json",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/operator-sequential.manual.candidate.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/operator-sequential.manual.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/prepare-correction.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/prepare-coverage.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/record-operator-handoff-behavior-a.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/record-operator-handoff.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/record-recommended-observation-behavior-b.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/repeated-plan-control.json",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/root-manual-helper-copy-control.json",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/root-manual-select.mjs",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/scheduling-contract.json",
+      "corrections/0-1-30/provenance/source29-reviewed-active-controls/verify-canonical.mjs",
+      "corrections/0-1-30/record-operator-handoff-behavior-a.mjs",
+      "corrections/0-1-30/record-operator-handoff.mjs",
+      "corrections/0-1-30/record-recommended-observation-behavior-b.mjs",
+      "corrections/0-1-30/repeated-plan-control.json",
+      "corrections/0-1-30/root-manual-helper-copy-control.json",
+      "corrections/0-1-30/root-manual-select.mjs",
+      "corrections/0-1-30/scheduling-contract.json",
+      "corrections/0-1-30/verify-canonical.mjs",
+      "corrections/0-1-30/version-guard-exactdiff.draft.json",
+      "diagnostics/inherited-pr2-6ee40474/metadata-relocated.json",
+      "execute-source30-operator-b.mjs",
+      "finalize-source30-controls-b.mjs",
+      "freeze-source30-a-finals-b.mjs",
+      "packer-provenance/0-1-30-stopped/r2/preparation-control.json",
+      "prepare-source30-control-draft-b.mjs",
+      "record-source30-b-runtime-pins.mjs",
+      "verify-lossless-043-dotnet-r2.ps1"
+    ],
+    "rootDirectories": [
+      "packer-provenance/0-1-30-stopped/r2/closure"
+    ]
+  },
+  "exclusions": [
+    {
+      "relative": "corrections/0-1-30/CONTROLS_FINAL_FROZEN.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/DRAFT_FINAL_FROZEN.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/blocking/reviews/root-030/B1.1.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/blocking/reviews/root-030/B1.2-combined.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/blocking/reviews/root-030/B1.2-delayed.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/blocking/reviews/root-030/B2.1.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/blocking/reviews/root-030/B4.1.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/blocking/reviews/root-030/B5.1.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/core-final-root-summary.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/draft/SKILL.md",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/draft/references/guide-framework.md",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/draft/references/interaction-design.md",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/engineering-696da5df",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/integration-preparation/quick-validate-draft.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/integration-preparation/read-only-engineering-plan.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/integration-preparation/run-version-compatible-capture.mjs",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/integration-records/apply-resources-docs.mjs",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/integration-records/baseline.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/integration-records/check.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/integration-records/document-a6.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/integration-records/final-engineering-receipt.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/integration-records/npm-test.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/integration-records/quick-validate-applied.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/integration-records/runtime-application.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/integration-records/validate.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/integration-records/version-compatible-apply.command.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/integration-records/version-compatible-apply.stderr.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/integration-records/version-compatible-apply.stdout.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/integration-records/version-compatible-dry-run.command.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/integration-records/version-compatible-dry-run.stderr.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/integration-records/version-compatible-dry-run.stdout.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/native-setup",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/native-ui",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/native-ui-cache-verification.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/native-ui-source-696da5df.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/normal-execution-pause.flag",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/source29-originals/SKILL.md.snapshot.txt",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/source29-originals/references/guide-framework.md.snapshot.txt",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/source29-originals/references/interaction-design.md.snapshot.txt",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/static-application-root.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/static-control-review-a.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/static-control-review-root.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/static-review-b.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/static-review-root.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/technical-review-helper-draft/proposed/audit-source30-a-prefix-receiver-b.mjs",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/technical-review-helper-draft/proposed/audit-source30-a-receiver-b.mjs",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/technical-review-helper-draft/proposed/review-selected-identity.mjs",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/technical-review-helper-draft/source29-snapshots/audit-source29-a-prefix-receiver-b.mjs",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/technical-review-helper-draft/source29-snapshots/audit-source29-a-receiver-b.mjs",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/technical-review-helper-draft/source29-snapshots/review-selected-identity.mjs",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/native-ui/work-two-turn-scoped-receipt.json",
+      "reason": "exact public task source already-Gitsealed reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/native-ui/work-native-and-version-addendum.json",
+      "reason": "exact public task source already-Gitsealed reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/native-ui/01-input.txt",
+      "reason": "exact public task source already-Gitsealed reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/native-ui/02-input.txt",
+      "reason": "exact public task source already-Gitsealed reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/native-ui/work-turn-1-actual-input.txt",
+      "reason": "exact public task source already-Gitsealed reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/native-ui/work-turn-2-actual-input.txt",
+      "reason": "exact public task source already-Gitsealed reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/native-ui/work-turn-1-full-answer.txt",
+      "reason": "exact public task source already-Gitsealed reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/native-ui/work-turn-2-full-answer.txt",
+      "reason": "exact public task source already-Gitsealed reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/native-ui/work-SKILL.md.actual-body.snapshot.txt",
+      "reason": "exact public task source already-Gitsealed reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/native-ui/work-guide-framework.md.actual-body.snapshot.txt",
+      "reason": "exact public task source already-Gitsealed reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/native-ui/work-interaction-design.md.actual-body.snapshot.txt",
+      "reason": "exact public task source already-Gitsealed reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/native-ui/observer-errors.json",
+      "reason": "exact public task source already-Gitsealed reference-only"
+    },
+    {
+      "relative": "corrections/0-1-30/native-setup/restored-own-sections.json",
+      "reason": "exact public task source already-Gitsealed reference-only"
+    }
+  ],
+  "alreadySealedRawOnlyReferenced": 84,
+  "actualPack": false,
+  "noRepositoryWrites": true
+}

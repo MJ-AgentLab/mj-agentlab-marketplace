@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T05:32:32.979Z",
+  "status": "STATIC_ONLY",
+  "result": "NO_STATIC_BLOCKERS",
+  "sourceCanonical": "0a6c48c2b3d782cbffb86355060d65986383eeea",
+  "proposedVersion": "0.1.19",
+  "reviewer": "/root/behavior_014_b",
+  "originalReport": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\final-precommit-review-b.json",
+    "sha256": "538257dba1cd938d77c8cb0885ab8b9121868c06d2042e9f926c0fe07cf701c6",
+    "unmodified": true
+  },
+  "currentChangelog": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\CHANGELOG.md",
+    "bytes": 12036,
+    "sha256": "a9c0a7308e96720edf15406618db2e2271ece387d8146a9a2839dd0a2471fe00",
+    "ownVersionInBody": true,
+    "sameByteHashAsOriginalReview": true
+  },
+  "initialDoc": {
+    "chunkId": "574fbc",
+    "actualExitCode": 1,
+    "pass": 64,
+    "fail": 1,
+    "reason": "Newest plugin CHANGELOG body omitted its own 0.1.19 version",
+    "log": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\doc-a6-full.log",
+    "sha256": "817f2f142c4be8e231f646fd59dd8d2c44651f83977ea73653739a90dd982cb1",
+    "originalFailureRetained": true
+  },
+  "repair": {
+    "chunkId": "421f63",
+    "actualExitCode": 0,
+    "sourceObservation": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\check-repair\\repair-observation.json",
+    "sourceObservationSha256": "294b8e568750e03d4a55fc093812cc27117692549ce55a20cd8268e5735d42b1",
+    "runtimeAndTestsUnchanged": true
+  },
+  "correctedDoc": {
+    "chunkId": "14d483",
+    "actualExitCode": 0,
+    "pass": 65,
+    "fail": 0,
+    "log": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\doc-a6-corrected.log",
+    "sha256": "bcbc3ccfc0d9d96df6b40160f701dd2a28ddc94d451f00f9cb0103728b2e9672",
+    "actualExitSource": "Root actual tool receipt; independently read corrected raw65/0 summary"
+  },
+  "otherChecks": {
+    "validate": {
+      "chunkId": "20c62d",
+      "actualExitCode": 0,
+      "log": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\validate.log",
+      "logSha256": "e3bedb0233222e468a1e207cfbcbaf1c3138a8827fde2769e9e2ede3a85eb3d8"
+    },
+    "check": {
+      "chunkId": "6d28d2",
+      "actualExitCode": 0,
+      "log": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\baseline-check.log",
+      "logSha256": "6c194d3cab975bfcaadd9ef894adc247ca34e53e06af305b0c215099eb27add3"
+    }
+  },
+  "fullNpmTest": {
+    "outerSessionId": 6603,
+    "initialChunk": "73fd52",
+    "observedStatus": "RUNNING_WITH_ORIGINAL_DOC_FAILURE_ALREADY_CAPTURED",
+    "actualFinalExitCode": null,
+    "originalLog": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-19\\npm-test.log",
+    "rootMustPreserveOriginalFinalThenRunFinalDocuments": true,
+    "noPassClaim": true
+  },
+  "scope": {
+    "noRepeatedTestsModelOrInstallationByReviewer": true,
+    "threeRuntimePinsStillExact": true,
+    "publicContractOtherVersionsAndOldEvidenceUnchanged": true,
+    "noOriginalReportOrFailureLogRewrite": true,
+    "doesNotReplaceGithubApproval": true
+  }
+}

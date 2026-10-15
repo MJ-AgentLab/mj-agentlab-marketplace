@@ -1,0 +1,9 @@
+{
+  "stage": "PR1",
+  "result": "NOT RUN",
+  "attempt": "Invoked release-verify-install.mjs directly with arguments, but the module has no CLI entry point.",
+  "exitCode": 0,
+  "verificationPerformed": false,
+  "limitation": "A zero exit code with no invoked installer is not PASS.",
+  "recovery": "Actually invoked verifyReleaseInstall in a separate runner; its canonical result is preserved separately."
+}

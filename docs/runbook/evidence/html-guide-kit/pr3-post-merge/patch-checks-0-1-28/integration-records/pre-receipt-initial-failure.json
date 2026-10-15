@@ -1,0 +1,15 @@
+{
+  "recordedAt": "2026-10-14T17:39:29.633Z",
+  "toolChunk": "af183e",
+  "exitCode": 1,
+  "error": "ENOENT version-dry-run.log",
+  "phase": "read-only receipt construction before writes",
+  "actualVersionToolsSucceeded": [
+    "a31456",
+    "ec56d6"
+  ],
+  "cause": "The PowerShell version script exit terminated the calling invocation before Tee wrote version logs. Original stdout/exit remain captured by the tool.",
+  "noCommandRerun": true,
+  "noRepoOrRuntimeMutation": true,
+  "correctedEvidence": "separately labeled derived console receipt from actual tool outputs, not an original log"
+}

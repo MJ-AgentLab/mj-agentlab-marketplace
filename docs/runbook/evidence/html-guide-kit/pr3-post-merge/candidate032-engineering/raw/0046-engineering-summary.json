@@ -1,0 +1,305 @@
+{
+  "recordedAt": "2026-10-14T21:07:55.981Z",
+  "status": "WORKING_CANDIDATE_ENGINEERING_PASS",
+  "version": "0.1.32",
+  "baseline": "fc0ec408c911dc776d38733c8f156c7ab0726488",
+  "application": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-32\\engineering-integration-draft\\apply-fc0ec408\\APPLIED_RECEIPT.json",
+    "bytes": 800,
+    "sha256": "2fd2bdfc8fb8fa0e2afb5ac268ddb6c86fb4be7984347cf10a22e31d0976bd74"
+  },
+  "invariants": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-32\\engineering-checks-fc0ec408-r2\\application-invariants.json",
+    "bytes": 1374,
+    "sha256": "f38a0e64b0bc8ff777f5317c0d476fdca63c9fd6a5228b24ec282e461bc8328c"
+  },
+  "checks": {
+    "invariants": {
+      "name": "invariants",
+      "command": "D:\\Development\\nodejs\\node.exe",
+      "args": [
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-32\\engineering-checks-fc0ec408-r2\\verify-application.mjs"
+      ],
+      "cwd": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/develop",
+      "startedAt": "2026-10-14T21:02:29.899Z",
+      "exit": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T21:02:33.637Z"
+      },
+      "close": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T21:02:33.643Z"
+      },
+      "error": null,
+      "logs": {
+        "stdout": {
+          "bytes": 535,
+          "sha256": "7e4d424c2dfe21cbb7f303b9b4f3415ef73b39e47fa43e49b9bdc7b6dadb49c5"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "validCompleted": true
+    },
+    "diff-check": {
+      "name": "diff-check",
+      "command": "git",
+      "args": [
+        "diff",
+        "--check"
+      ],
+      "cwd": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/develop",
+      "startedAt": "2026-10-14T21:02:33.643Z",
+      "exit": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T21:02:33.691Z"
+      },
+      "close": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T21:02:33.695Z"
+      },
+      "error": null,
+      "logs": {
+        "stdout": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "bytes": 736,
+          "sha256": "fa04108b733f0a449cbc3814dbce2690c674fd6059efcd9649026e9d53d9a9b8"
+        }
+      },
+      "validCompleted": true
+    },
+    "quick": {
+      "name": "quick",
+      "command": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/tracking/html-guide-validator-025/Scripts/python.exe",
+      "args": [
+        "C:/Users/Admin/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide"
+      ],
+      "cwd": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/develop",
+      "startedAt": "2026-10-14T21:02:33.696Z",
+      "exit": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T21:02:33.776Z"
+      },
+      "close": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T21:02:33.781Z"
+      },
+      "error": null,
+      "logs": {
+        "stdout": {
+          "bytes": 17,
+          "sha256": "6cf9e7f0d34ccd36dbd28f270cd28dd04277b2e1516bd4333ce7bb501d7b18d4"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "validCompleted": true
+    },
+    "docs65": {
+      "name": "docs65",
+      "command": "D:\\Development\\nodejs\\node.exe",
+      "args": [
+        "--test",
+        "tests/documentation-contract.test.mjs",
+        "tests/check-a6.test.mjs"
+      ],
+      "cwd": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/develop",
+      "startedAt": "2026-10-14T21:02:33.781Z",
+      "exit": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T21:02:38.462Z"
+      },
+      "close": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T21:02:38.468Z"
+      },
+      "error": null,
+      "logs": {
+        "stdout": {
+          "bytes": 12227,
+          "sha256": "827c0e3a2033dc1f4f1bd47762a4e64254bab51f8240346eb5125fa9316d8f6a"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "validCompleted": true,
+      "reported": {
+        "tests": 65,
+        "pass": 65,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "duration_ms": 4645.1902
+      }
+    },
+    "strict": {
+      "name": "strict",
+      "command": "npm",
+      "args": [
+        "run",
+        "validate"
+      ],
+      "cwd": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/develop",
+      "startedAt": "2026-10-14T21:02:38.469Z",
+      "exit": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T21:02:39.250Z"
+      },
+      "close": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T21:02:39.255Z"
+      },
+      "error": null,
+      "logs": {
+        "stdout": {
+          "bytes": 374,
+          "sha256": "0c48e6b1cd323cfef6242f00872cd456afa471a8e0829a496dcdb8878e060976"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "validCompleted": true
+    },
+    "check147": {
+      "name": "check147",
+      "command": "npm",
+      "args": [
+        "run",
+        "check"
+      ],
+      "cwd": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/develop",
+      "startedAt": "2026-10-14T21:02:39.255Z",
+      "exit": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T21:02:39.810Z"
+      },
+      "close": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T21:02:39.811Z"
+      },
+      "error": null,
+      "logs": {
+        "stdout": {
+          "bytes": 202,
+          "sha256": "d177b26a977d85cff6e18426a8ee0df23a62ed71904ad5e49ed94c86ab7f2cb8"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "validCompleted": true
+    },
+    "full346": {
+      "name": "full346",
+      "command": "npm",
+      "args": [
+        "test"
+      ],
+      "cwd": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/develop",
+      "startedAt": "2026-10-14T21:02:42.951Z",
+      "exit": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T21:07:25.087Z"
+      },
+      "close": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T21:07:25.093Z"
+      },
+      "error": null,
+      "logs": {
+        "stdout": {
+          "bytes": 76858,
+          "sha256": "7a59c006836bec56bb39c218d7f3b2159a64166e8578da6d72d8a42f9622ebad"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "validCompleted": true,
+      "reported": {
+        "tests": 346,
+        "pass": 346,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "duration_ms": 281868.4144
+      }
+    }
+  },
+  "outerTools": {
+    "apply": "c7c361",
+    "receiptRead": "1aec93",
+    "initialAuxiliaryVerifier": "ea8e38",
+    "originalAuxiliaryStderrRead": "43eb3a",
+    "correctedAuxiliaryPreparation": "4ff83a",
+    "fast": "77c81b",
+    "full": {
+      "initial": "20e6e1",
+      "sessionId": 1832,
+      "polls": [
+        "ab5f49",
+        "0fe3ae",
+        "53dbe7"
+      ],
+      "final": "6f079f"
+    }
+  },
+  "originalAuxiliaryFailure": {
+    "result": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-32\\engineering-checks-fc0ec408\\invariants.result.json",
+      "bytes": 822,
+      "sha256": "84ff2d160c6964f9e9c9b54a6811a57a832ab6a562e98c9fc88a13de7d9abdd1"
+    },
+    "stderr": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-32\\engineering-checks-fc0ec408\\invariants.stderr.txt",
+      "bytes": 694,
+      "sha256": "42c10e14a050a189bb177f46c15ffe7a93d998e8c0fa4336e17b2a2ced3abdef"
+    },
+    "correction": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-32\\engineering-checks-fc0ec408-r2\\initial-invariants-helper-error.json",
+      "bytes": 614,
+      "sha256": "b347185d2b6198a033c0f5e3b21a4080268afd75e71a41be03c66c97daf07d1c"
+    },
+    "productChanged": false,
+    "originalFailureNotPromotedToPass": true,
+    "productChecksWereNotRepeated": true
+  },
+  "notRun": {
+    "canonicalInstallation": true,
+    "model": true,
+    "client": true,
+    "effect": true,
+    "gitMutation": true
+  },
+  "fullTestsStartedOnce": true
+}

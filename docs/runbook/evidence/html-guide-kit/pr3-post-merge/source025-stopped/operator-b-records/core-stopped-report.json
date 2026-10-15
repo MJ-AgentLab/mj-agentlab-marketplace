@@ -1,0 +1,258 @@
+{
+  "schemaVersion": 1,
+  "status": "OPERATOR_STOPPED_TECHNICAL_ONLY",
+  "operator": "/root/behavior_014_b",
+  "recordedAt": "2026-10-14T15:44:23.133Z",
+  "source": {
+    "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "canonicalSha": "ba74bbe3d1b64b59ccc7e92d58a66a011126215e",
+    "canonicalTree": "28e0fca836c31dce00e491b269323dc79e8739da"
+  },
+  "packageVersion": "0.1.25",
+  "batchFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\batch.json",
+  "actualUUIDs": 1,
+  "actualInputs": 1,
+  "actualComplete": 1,
+  "actualInvalid": 0,
+  "plannedVariants": 4,
+  "plannedInputs": 5,
+  "notRunInputs": 4,
+  "zeroAttemptVariants": [
+    "B6.2-revise",
+    "B6.2-compare",
+    "B6.2-review"
+  ],
+  "marker": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\normal-execution-pause.flag",
+    "bytes": 767,
+    "sha256": "f9f6f000b20d39f104a6528c00c64770d0a40b1cd8e9a99811db745cb40e08ec"
+  },
+  "markerUtc": "2026-10-14T15:28:51.944Z",
+  "temporaryHoldReceipt": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\operator-b-records\\review-hold-1-receipt.json",
+    "bytes": 3391,
+    "sha256": "18b1b3f3e43727d5442ef96beeb43629d7560a3bd31f2cec9374fe617918eb25"
+  },
+  "temporaryHoldPreserved": true,
+  "postGlobalInputs": 0,
+  "crossMarkerInputs": 0,
+  "selectionPresent": false,
+  "finalHandoff": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\operator-handoff.json",
+    "bytes": 6212,
+    "sha256": "f58070ba7da9e725c242b03ab4270f54b67227ff2105c23f7938c02da207b028"
+  },
+  "actualHandoffReceipt": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\operator-b-records\\final-handoff-receipt.json",
+    "bytes": 1067,
+    "sha256": "39e93297ccd5a70f375504a2b178550cdc09390190b5e200c4a9ff4ebeccdefd"
+  },
+  "stage01": {
+    "outerSessionId": 27036,
+    "initialToolChunk": "774170",
+    "finalToolChunk": "4e9c01",
+    "exitCode": 0
+  },
+  "originalT1PinsStable": true,
+  "sdkReceiverAudit": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\operator-b-records\\B6.1-actual-receiver-audit.json",
+    "bytes": 15986,
+    "sha256": "233795a53233d6d30f3c4a1742e22b0d15b14026df74dd3ec73ab3fe8b9467e3"
+  },
+  "independentReviewOnlyReference": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\reviews\\cross-by-a\\B6.1-T1-independent-a-final.json",
+    "bytes": 8499,
+    "sha256": "65cc6771aba069b5b9a8618875544ce9cd6b149ea20d8c76a630aab79d752a72"
+  },
+  "ownSemanticAssessment": null,
+  "originalHarnessStatusesNotUpgraded": true,
+  "noRetryResamplingExtraInputOrTermination": true,
+  "rows": [
+    {
+      "variant": "B6.1",
+      "plannedTurns": 2,
+      "attempts": [
+        {
+          "attemptId": "5a5c2e85-502f-4dff-92a2-3cefe77f0a76",
+          "uuid": "01a13b05-0ce1-7470-a4b7-f986d4912f8c",
+          "selection": null,
+          "turns": [
+            {
+              "turn": 1,
+              "transportStatus": "COMPLETE",
+              "started": {
+                "utc": "2026-10-14T15:25:49.025Z",
+                "timezone": "Asia/Taipei"
+              },
+              "completed": {
+                "utc": "2026-10-14T15:26:55.607Z",
+                "timezone": "Asia/Taipei"
+              },
+              "actualIdentity": {
+                "sessionId": "01a13b05-0ce1-7470-a4b7-f986d4912f8c",
+                "cliVersion": "0.147.0",
+                "originator": "Codex Desktop",
+                "modelProvider": "openai",
+                "models": [
+                  "gpt-5.6-sol"
+                ],
+                "reasoning": [
+                  "low"
+                ]
+              },
+              "captureLifecycle": {
+                "launchedUtc": "2026-10-14T15:25:49.028Z",
+                "launchedMonotonicMs": 27.72,
+                "timeoutMs": 240000,
+                "timerRegisteredMonotonicMs": 34.7231,
+                "deadlineMonotonicMs": 240034.7231,
+                "actualExit": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T15:26:55.600Z",
+                  "elapsedMs": 66571.7289,
+                  "observedMonotonicMs": 66599.4133,
+                  "inDeadline": true
+                },
+                "actualClose": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T15:26:55.605Z",
+                  "elapsedMs": 66575.734,
+                  "observedMonotonicMs": 66603.4581
+                },
+                "exitObserved": true,
+                "closeObserved": true,
+                "deadlineCallback": null,
+                "stdioCollectedThroughClose": true,
+                "sdkCompletedNotUsedAsExit": true,
+                "noExitMeansStatusNull": true,
+                "drainWaitHasIndependentDeadline": false
+              },
+              "actualExitCode": 0,
+              "timedOut": false,
+              "lateExitInvalid": false
+            }
+          ]
+        }
+      ],
+      "executionStatus": "PARTIAL_PENDING_NEXT_TURN",
+      "mutableHarnessBehaviorStatus": "UNKNOWN"
+    },
+    {
+      "variant": "B6.2-revise",
+      "plannedTurns": 1,
+      "attempts": [],
+      "executionStatus": "NOT_RUN",
+      "mutableHarnessBehaviorStatus": "UNKNOWN"
+    },
+    {
+      "variant": "B6.2-compare",
+      "plannedTurns": 1,
+      "attempts": [],
+      "executionStatus": "NOT_RUN",
+      "mutableHarnessBehaviorStatus": "UNKNOWN"
+    },
+    {
+      "variant": "B6.2-review",
+      "plannedTurns": 1,
+      "attempts": [],
+      "executionStatus": "NOT_RUN",
+      "mutableHarnessBehaviorStatus": "UNKNOWN"
+    }
+  ],
+  "rawSnapshot": [
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\B6.1\\5a5c2e85-502f-4dff-92a2-3cefe77f0a76\\01.events.jsonl",
+      "bytes": 35479,
+      "sha256": "1c326bb9df9aca87ce81ddbba534616c704f0fc5e204e23e6674080ab4a6151d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\B6.1\\5a5c2e85-502f-4dff-92a2-3cefe77f0a76\\01.input.txt",
+      "bytes": 989,
+      "sha256": "f7defa2a72e531ce13d8846379825889b1b92f4ab4f84674c6f61a8584d12360"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\B6.1\\5a5c2e85-502f-4dff-92a2-3cefe77f0a76\\01.output.txt",
+      "bytes": 4255,
+      "sha256": "39c0648df98b6cb64e0b6c8297401bd5e2a2cfa5a765e13a3930dec21c04f8d9"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\B6.1\\5a5c2e85-502f-4dff-92a2-3cefe77f0a76\\01.session.jsonl",
+      "bytes": 96357,
+      "sha256": "bd01784c7048d7ebdf6c891d1ed66e0a32a6b74acc50b896278925ab6f70c55d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\B6.1\\5a5c2e85-502f-4dff-92a2-3cefe77f0a76\\01.stderr.txt",
+      "bytes": 26215,
+      "sha256": "453ff8ff4ca0f4358ad2a049f9d9e471ccacbd214220b7bde26c7de62bb243e6"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\batch.json",
+      "bytes": 426300,
+      "sha256": "4c609e9b405b5b8edbcddc571c829ce995347c518623abee88a6bc18be468352"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\inspection.json",
+      "bytes": 4501,
+      "sha256": "c28760cd48445ddb82ef32ea91025df7de151905e446db37edc63b3d244a521c"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\installation.json",
+      "bytes": 6223,
+      "sha256": "89c12abdc61ebdc04dcea098d3630c02f068600215097666cc76231dc93009d9"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\metadata-events.jsonl",
+      "bytes": 13965,
+      "sha256": "c7e6abe09507dff354abbe5be23278e8df7ff7dc5282dd61e53be1a77bfbfea4"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\metadata-requests.json",
+      "bytes": 555,
+      "sha256": "3d4bda344a974d61388322583662c23c6482ee80fed5bc9168659d617ff2d866"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\metadata-stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\models.json",
+      "bytes": 8051,
+      "sha256": "5bc4e657a9551880e076de47d3a7ce5da9a284a1a7d43019de77cdc700a96518"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\native-loading-observations.json",
+      "bytes": 8125,
+      "sha256": "a91b1a4e472393b35cee3f1e82a18816c9436df5ed66020507f8d715ddda8279"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\native-skills.json",
+      "bytes": 10220,
+      "sha256": "50c468b12370a0f6d0dc3a9f247c30c06793463ff04b47d4a28830c0e7ff4bf2"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\operator-handoff.json",
+      "bytes": 6212,
+      "sha256": "f58070ba7da9e725c242b03ab4270f54b67227ff2105c23f7938c02da207b028"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\operator-observations.json",
+      "bytes": 6047,
+      "sha256": "f530dfc084f8e823d861a1833bf2b936199e7aa6ad3f25636cef4eebf5250624"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\operator-pauses\\253d1ca6-c9f7-48ea-96da-661dffb4fb00.json",
+      "bytes": 1669,
+      "sha256": "43b87df105d889874ef56fb4712e5770d86a66633c2ca3b4423efec8084d938c"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\58fbd4ef-214c-43b6-9071-77c69acd49df\\preparation.json",
+      "bytes": 1547,
+      "sha256": "4aa440d7acce4a6d0577e1062150c2f90d9b13777959a6550edacdc97266970e"
+    }
+  ],
+  "effectStatus": "NOT_MEASURED",
+  "clientUiStatus": "NOT_RUN"
+}

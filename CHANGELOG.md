@@ -5,9 +5,120 @@
 
 ## [Unreleased]
 
+## [8.3.0] - 2026-10-15
+
+**Marketplace 8.3.0 publishes the complete develop collection: Diagram 0.3.1, Learning Evidence 0.1.0, Explain 0.1.1, Communication 0.1.0 and HTML Guide 0.1.36 — five plugins, seven public skills and four explicit entries.** The Owner's 2026-10-15 whole-develop decision supersedes the prior four-package projection. Existing plugin bytes, versions, interfaces and strict installation rules remain unchanged.
+
 ### Added
 
+- Publish Communication Kit's explicit communicate entry for communication, writing and meaning-preserving rewriting; retain its critical-question waiting, chat delivery and explicit Markdown/TXT file-operation boundaries.
+- Publish HTML Guide Kit's explicit Read-only guide entry: confirm reader, task and understanding questions before delivering new guide text in chat. Its existing approved icon and package-owned methods remain unchanged.
+
+### Validation and accepted limits
+
+- The Owner explicitly accepts HTML 0.1.36 as implemented, including the known independent-self-check missing-state failure tracked in [#239](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/239). Complete current-version desktop/client and extended behavior coverage remain unverified; no new model, desktop or functional-repair round is part of this release. Failures are not relabeled PASS.
+- Run required engineering checks, all thirteen exact canonical installation combinations and actual installed-cache Python; repeat the installation matrix after publication from the real tag. Record each execution with its source SHA.
+- Preserve Communication CLI PARTIAL results, limited existing client identities, Learning deferred entries and unmeasured real-world effects. Current-head independent approvals, effective code-owner requirements, required CI and resolved threads remain mandatory.
+- This run ends after publication and necessary post-publication verification; branch back-sync, pre-bump, closeout documentation PRs, Issue closure, worktree archival and deferred follow-up are postponed. See the [release-readiness ledger](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md). Refs #222, #215, #239.
+
+### Historical four-package preparation (superseded 2026-10-15)
+
+The following original preparation description records the earlier scope; the five-package decision above is current.
+
+**Marketplace `8.3.0` · Communication Kit `0.1.0` · Diagram `0.3.1` / Learning Evidence `0.1.0` / Explain `0.1.1` unchanged.** This is the Owner-authorized next minor after the published Learning 8.2.0 baseline. The formal release adds only Communication to those three packages (four packages/six public skills); HTML stays on develop for a separate release. Version preparation does not establish a main merge, published Release, complete client coverage or real-world effectiveness. Actual gates and publication identities are recorded in the [8.3.0 release-readiness ledger](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md). Refs #222.
+
+### Added
+
+- Provide one explicit `communication-kit:communicate` entry for everyday communication, document writing and meaning-preserving rewriting, shown as 沟通助手. Ask with options and wait for critical missing information; an unanswered question, closure or timeout does not select an option.
+- Preserve facts, positions, conditions, exceptions, responsibility, numbers, quotations and commitments through revisions. Deliver a draft and brief key notes; save or edit Markdown/TXT only on explicit request, execute the action and read back the target, and report real failures and format limits accurately.
+- Package selected original AICS summaries with frozen provenance and byte hashes, retaining Lab Proposal / Informative status. Use the Owner-selected original MJ D globe-and-clear-text icon. Registration, strict resource checks, presentation, explicit policy and installation expectations are integrated atomically.
+
+### Validation and limits
+
+- Preserve S01–S12 objective checks, actual C01–C18 batches and failures: CLI 0.147.0 has 15 PASS/3 PARTIAL, with three separate limited file/format tool-role results. Actual Codex local and ChatGPT/Work local routes within the same desktop application cover basic installation, icon, invocation, writing, unanswered waiting and explicit file creation/read-back; independent classic ChatGPT/cloud and native question-window events are not verified.
+- Verify development and formal installation inventories separately. A green development five-package matrix does not establish the four-package release candidate, main merge or post-publication canonical install. Current-head independent approval, required checks and resolved threads remain mandatory.
+- Real scenario effectiveness, nine personal trials, three-draft comparisons, reader feedback, adoption and efficiency improvements were deferred by the Owner and are not claimed.
+
+### Historical development preparation
+
+The following original Unreleased entries describe previous development and acceptance requirements at their recorded stages; the release boundary above governs this run.
+
+- Prepare HTML Guide Kit 0.1.36: distinguish current one-step permission/results from actual multistep path assertions. For path claims, check applicable source actions, resets and compatible successors with their stated premises; preserve known paths and bound unresolved dependencies. Keep Source35 failures and limited client evidence; fresh engineering, canonical installation and independent behavior/client gates remain required. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.35: match each actual object and dimension across applicable source rules before bulk permission, prohibition or unknown conclusions. Unshown or unchecked items do not establish source gaps. Keep Source34 failures and partial client evidence; fresh canonical installation and independent behavior/client gates remain required. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.34: explicitly deliver necessary shared example inputs and local overrides before results; audit complete source/design action attribution at each restoration unit. Preserve Source33 original failures and unrun paths. Fresh canonical installation, behavior and client evidence remain required. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.33: preserve every parallel source action, object and non-field effect before listing terminal field values; audit the complete source baseline and scope-aware delivery. Keep Source32 failures and unrun paths; fresh canonical installation, behavior and client evidence remain required. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.32: evaluate each conclusion against the complete source criterion and its actual AND/OR dependencies. Preserve conclusions already decided by known operands; mark only genuinely dependent results unknown and do not promote necessary conditions to sufficient criteria. Preserve Source31 failures and unrun paths; fresh canonical installation, behavior and client evidence remain required. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.31: distinguish source rules and initial values from actual independent example inputs; inherit only explicitly applicable shared setups and check candidate-question presuppositions against source permission and result facts. Preserve original0.1.30 failures and unrun inputs; require fresh canonical installation, behavior and client evidence. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.30: check actual source scope and all stated prerequisites before listing gaps; preserve covered permissions and explicit results without adding unsupported repetition, prior-value or history restrictions. Preserve real0.1.29 failures; require fresh installation, behavior and client evidence. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.29: place evidence-based reading and refusal-cause discipline before the first read and align the framework. Preserve actual0.1.28 failures and unchanged interaction methods; fresh installation, behavior and client checks remain required. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.28: condense shared methods while retaining complete source rules, local attribution and the explicit Read-only text contract. Preserve actual0.1.27 failures; fresh installation and behavior remain required. Supported explicit high reasoning is an external acceptance configuration, not a behavioral pass. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.27: classify each source or instructional result before composing mixed citations, and bound missing additional paths without replacing known direct-operation rules. Preserve actual0.1.26 failures; require fresh installed acceptance. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.26: define the exact object, current state, operation and result dimension before a source-gap claim, preserving known broad rules and restoration paths. Keep actual0.1.25 failures and require fresh installed acceptance. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.25: organize the entry and two references into ordered evidence, target confirmation, complete source rules, expression and per-example feedback verification. Preserve source0.1.24 real failures and require fresh installation, frozen behavior and client acceptance. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.24: separate operation permission from target outcomes and restoration actions from equal terminal values; use faithful text when local result relationships cannot retain complete rules. Preserve real0.1.23 failures and require fresh installation, frozen behavior and client acceptance. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.23: preserve complete source-rule units in local relations and distinguish source input limits from teaching choices. Retain actual #231 merge, source0.1.22 failures and limited fresh client results; require fresh cache and frozen behavior acceptance. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.22: preserve required current states and operations in result-bearing graph relations while keeping pure condition relations separate. Preserve source0.1.21 fidelity failure and all original passed cases; require fresh canonical cache and behavior acceptance. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.21: preserve every prerequisite in permission feedback and distinguish an established scope from instructions to write one. Preserve source0.1.20 captures, failure and limited native client passes; require fresh cache verification. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.20: expand source-rule coverage before classifying gaps and budget the whole visible guide against explicit length limits. Preserve source0.1.19 core passes and extended failures; require fresh cache acceptance. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.19: separate source recovery from added teaching results, retain known judgments beside unknown fields, and check each claim before delivery. Preserve source0.1.18 ten real sessions/twenty-one complete inputs and original failures; require fresh cache acceptance. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.18: distinguish the provenance of a teaching trigger from the source operation and recovery results it reuses. Preserve source0.1.17 eight actual sessions/sixteen complete inputs and the original failure; require fresh cache acceptance. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.17: read sources individually, use the known contract for scope refusals, and carry source conditions and explicit attribution through summaries and author checklists. Preserve source0.1.16 ten actual sessions/nineteen complete inputs and all independent failures. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.16: distinguish known read-only mode from the evidenced cause of a particular denial; consolidate repeated reference rules while retaining the teaching and source contracts. Preserve source0.1.15 nine real sessions/sixteen inputs, original5PASS/3FAIL/1INVALID_RUN, partial reads and unknown capture cause. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.15: describe generic denied reads without guessing sandbox/path permissions and retain unknown field results instead of inventing unchanged values. Preserve source0.1.14 independent10 sessions/21 inputs6PASS/3FAIL/1UNEXERCISED and complete raw evidence; marketplace8.3.0 and other plugin versions remain. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.14: publish complete shared source rules and their applicability before summaries, feedback or checklist results; distinguish UI design rationale and verified read-failure causes from source facts. Retain source0.1.13 independent12 sessions/24 inputs6PASS/4FAIL/2UNEXERCISED and original evidence. Preserve approved marketplace8.3.0 and other plugin versions. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.13: retain every source recovery action/object/result and recovery exceptions in exclusive relations; define current-state and retry/reset lifecycle before feedback. Retain 0.1.12 actual 15 sessions/31 inputs, 9PASS/4FAIL/2UNEXERCISED without inheriting PASS. Synchronize approved upstream Communication runtime and marketplace 8.3.0; preserve other plugin versions. Refs #217, #220.
+
+- Prepare HTML Guide Kit0.1.12 with complete source-rule composition and separate direct-operation versus later-path judgments. Retain eight actual0.1.11 sessions5PASS/2FAIL/1UNEXERCISED and all original evidence; marketplace8.2.1 and other plugins remain unchanged. Refs #217, #220.
+
+- Prepare HTML Guide Kit0.1.11 to retain full conditions across guide summaries and retries and distinguish source reset rules from additional interface design. Preserve actual0.1.10 twelve-session results6PASS/3FAIL/3UNEXERCISED and original evidence; keep marketplace8.2.1 and other plugin versions. Refs #217, #220.
+
+- Prepare HTML Guide Kit0.1.10 with explicit feedback-block state scope and field-specific source fidelity after eleven independent0.1.9 session reviews. Preserve actual5PASS/4FAIL/2UNEXERCISED and every original call; keep marketplace8.2.1 and other plugin versions. Refs #217, #220.
+
+- Prepare HTML Guide Kit0.1.9 after actual0.1.8 source and dynamic-feedback failures. Distinguish method resources from teaching materials; preserve broad rule coverage, current state premises, local input results, exclusivity scope and source subjects. Keep raw failures and partial/unrun paths, then reinstall and verify fresh sessions. Refs #217, #220.
+
+- Prepare HTML Guide Kit0.1.8 with complete source-attribution, replacement, exclusivity, known-condition and reliable-feedback corrections after independent0.1.6 reviews. Preserve every actual failure and intermediate0.1.7 model NOT_RUN. Refs #217, #220.
+
+- Prepare HTML Guide Kit0.1.7 after independent review found a source initial value expanded into an unmarked general input domain. Separate values, reachability and complete input range; attribute extra teaching constraints locally and preserve known results. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.6 after observed baseline native skill truncation: compact the entry, preserve reference methods and reject oversized entries in repository and installation validation. Fresh native full-body and behavioral verification remain required. Refs #217, #220.
+
+### Added
+
+- Archive Communication baseline synchronization, exact raw engineering/install logs and resolved parallel conflicts under Refs #222; preserve package hashes and Owner Q3 four-package formal scope.
+
+- Define the explicit Communication Kit / communicate contract, source-freeze schema and S01–S12 / C01–C18 fixtures under Refs #222; retain the exact saved plan and preserve all failure evidence.
+- Keep real-world effects deferred; the authorized delivery ends at a published Communication Release and post-publication installation verification.
+- Record both completed 8.2.0 closeouts: #234 synchronized actual main ancestry, and #235 pre-bumped develop to unpublished 8.2.1 with preserved plugin versions. Each actual merge passed eight canonical installations/installed Python. Preserve the original A6 exception failure, substantive normal-path root-summary repair and empty review evidence; update current installation to published v8.2.0 while keeping the public three-plugin/development four-plugin scopes and open deferred Epic entries.
+
 - Record actual PR5 scoped technical delivery and unchanged three-plugin release dependencies. Exact merged-source installation/Python evidence, missing historical reviews and deferred client entries remain separate from publication and full Epic acceptance.
+- Record Marketplace v8.2.0 publication at the actual main merge, exact post-publication three-plugin installations/Python, retained review gaps and unreported repository immutability configuration and the observed mutable Release flag. Synchronize main ancestry into the four-plugin development tree before the separate VERSION/badge-only 8.2.1 pre-bump.
+
+- Stage manual Learning Evidence GitHub publication/collection through the authenticated gh interface: complete segmented JSON and reading text, digest/read-back receipts, missing-only recovery and updated-time acquisition. Confirm scope before persisting filtered bodies, require bounded stable page inventories, and retain prior progress on failures; writes in engineering acceptance use a controlled substitute.
+- Stage Python 3.12 local Learning Evidence storage with immutable records, confirmed attribution, full baselines, idempotent transactions, reference-only worktree association, complete export/import and retained archive. Old runtime packages remain byte-identical; installation switch is deferred to PR4.
+- Atomically add the HTML Guide Kit 0.1.0 development candidate: one explicit Read skill, guide, two packaged references, the Owner-selected round-2 A HTML textbook icon, strict registration and source/cache byte checks. Preserve the four original installation scenarios and add HTML alone, HTML + Explain and all four plugins; natural discovery remains three skills. This candidate is not a formal release or a claim of client/learning-effect acceptance. Refs #217, #219.
 
 - HTML Guide Kit 合同与前置治理（Refs #217、#218）：新增 ADR、验收 SPEC/RUNBOOK，预留提交 scope 与独立版本工具支持；缺失 manifest 继续失败，运行集合与 marketplace 8.1.2 / 现有插件版本保持。提供 npm run check / smoke 兼容入口；Owner 已选择第二轮 A「HTML 教材」图标，完整插件在后续 PR 原子接入。现实场景效果按 Owner 调整另测，不宣称理解改善。
 
@@ -16,9 +127,33 @@
 
 ### Changed
 
+- Prepare HTML Guide Kit 0.1.5 after remaining historical reviews found HTML echoed in a refusal, overlapping branch feedback and further repeated-operation errors. Preserve the intermediate 0.1.4 installation with behavior NOT_RUN; verify the complete correction on fresh caches. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.4 after an actual repeated-operation fidelity failure: match source preconditions to the current state again and separate known field results from unspecified extra feedback. Preserve invalid operator selection provenance and require actual target-heading selections in fresh verification. Refs #217, #220.
+
+- Record HTML Guide Kit PR2's actual develop merge d106e766 and PR3 expanded acceptance. Preserve missing independent GitHub approval, historical failures and unavailable native client events; real-world effectiveness remains NOT_MEASURED. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.3 after actual source-fidelity and simulation failures across 0.1.0–0.1.2. Preserve decisive known conditions, distinguish direct operations from undefined later paths, and retain source terms, value types and quantifiers. Cross-check assertions across all guide sections. Preserve each failed version and require new canonical installation and affected/six-group behavior verification. Refs #217, #220.
+
+- Seal 788 original HTML Guide Kit historical control/session/review files with lossless packet mappings and independent byte restoration. Verify the 0.1.2 canonical seven installations and four actual cache Python runs; ongoing model and unavailable native-client paths retain their actual status. Refs #217, #220.
+
+- Preserve the stopped 0.1.2 candidate's 506 original evidence files, failed semantics and operator interruption with lossless restoration. Verify the 0.1.3 canonical seven installations and four actual cache Python runs; fresh model reviews and coverage supplements remain separate from unavailable native-client evidence. Refs #217, #220.
+
+- Prepare the Communication PR4 gate ledger; actual version preparation, protected phase merges and release/post-publication cases remain incomplete. Learning 8.2.0 publication is a satisfied prerequisite, not this package's release.
+
+- Prepare communication-kit commit/version tooling and three D-style icon candidates for Epic #222. Render plugin comparison sheets across rows so a fourth icon and its native previews remain visible. Runtime registration, formal icon exports and all real versions remain unchanged; the new icon awaits Owner selection.
+
+- Atomically integrate the unpublished Communication Kit 0.1.0 with explicit invocation, frozen AICS resources and synchronized registration, strict checks and installation expectations under Refs #222. Learning replacement and retained development-only HTML form five packages/seven skills; the Owner-approved Communication release contains only Diagram, Learning Evidence, Explain and Communication (four packages/six skills). CLI behavior, limited tool roles and two actual local app routes are recorded with their limitations; real-world effects are deferred.
+
+- Record actual atomic package delivery #228 and #213 completion, exact-merge canonical cache/Python checks and the unchanged 8.2.0 development candidate rerun. Preserve original model/failure evidence, missing historical reviews and the separate three-plugin public release scope.
+
+- Record the actual GitHub-flow merge #227 and child #212 delivery, canonical installation/Python checks and the observed missing GitHub reviews. Prepare the unchanged qualified package stage with 317 tests/eight installs and exact common/model resource closure; honor the Owner preference to leave later review requests unassigned.
+
 - Correct new Learning Record Check generation metadata after actual role acceptance exposed inherited learning authors/skills and an invented future event time. Use the actual check author, current installed checker context and observed event clock; preserve original metadata through immutable originals and lineage. Original failures remain recorded; repaired behavior requires a fresh-source rerun.
 
 - Repair unpublished Learning Evidence candidate entry handling: keep listing examples within the Codex 0.147.0 character/count limits, and require all application prerequisites before implementation investigation or probes. Preserve the actual ignored-example and premature-application failures; repaired model behavior remains subject to a fresh-source rerun.
+
+- Record the protected Learning Evidence local-store merge #224, exact-tree canonical installation/Python verification and child #211 completion; synchronize PR3 ancestry with unchanged production modules and a fresh 311-test/seven-install rerun. Preserve the separately approved three-plugin 8.2.0 release scope and deferred entries.
 
 - Prepare the unpublished develop 8.1.2 pre-bump after #206 synchronized the published main. Update only marketplace VERSION and its derived README badge; keep all plugin versions, published version sections, tags and assets unchanged. Include the parallel publication-record documentation and synchronize its main merge ancestry when available.
 

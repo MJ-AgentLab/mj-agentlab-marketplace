@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "stage": "PR3",
+  "batch": "baseline-04",
+  "recordedAt": "2026-10-13T01:48:45.321Z",
+  "timezone": "Asia/Taipei",
+  "refs": "#222",
+  "baseline": "d106e76651d53cdf3f0cef2bb33ce47e8d7fda38",
+  "candidate": {
+    "sha": "000e8033ce2f639c974c3953aadc06b9be21878c",
+    "tree": "d545dafe7643bbe4eca1bc3656c8ced714bb3c8e",
+    "communicationPackageTree": "14a3896c7ad50597bfc83996bcfec25180a720f9",
+    "htmlPackageTree": "67e468c944bd9da076994667eef378367a012b14"
+  },
+  "testedAndReviewedTree": "da63ab5d84289012f582517e27517bf1cb9142d1",
+  "postReviewDifferences": [
+    ".gitattributes",
+    "README.md",
+    "docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md",
+    "docs/runbook/evidence/communication-kit-2026-10-13-pr1-baseline-05-byte-capture-fix.json",
+    "docs/runbook/evidence/communication-kit-2026-10-13-pr1-baseline-05-canonical.json",
+    "docs/runbook/evidence/communication-kit-2026-10-13-pr1-baseline-05-tests.log",
+    "docs/runbook/evidence/communication-kit-2026-10-13-pr1-baseline-05-validate.log",
+    "docs/runbook/evidence/communication-kit-2026-10-13-pr1-baseline-05.json",
+    "docs/runbook/evidence/communication-kit-2026-10-13-pr2-baseline-05-canonical.json",
+    "docs/runbook/evidence/communication-kit-2026-10-13-pr2-baseline-05-tests.log",
+    "docs/runbook/evidence/communication-kit-2026-10-13-pr2-baseline-05-validate.log",
+    "docs/runbook/evidence/communication-kit-2026-10-13-pr2-baseline-05.json",
+    "docs/spec/[SPEC]_Communication_Communicate.md",
+    "plan/communication-kit-plan-provenance.json"
+  ],
+  "postReviewDifferenceScope": "README/SPEC/RUNBOOK clarity, prior stage evidence/source-availability capture and raw evidence byte attributes only; scripts/tests/plugins/assets/skills/workflows unchanged",
+  "engineering": {
+    "initialFull": {
+      "tests": 307,
+      "pass": 307,
+      "fail": 0,
+      "skipped": 0
+    },
+    "finalTargeted": {
+      "tests": 53,
+      "pass": 53,
+      "fail": 0,
+      "skipped": 0
+    },
+    "finalFull": {
+      "tests": 307,
+      "pass": 307,
+      "fail": 0,
+      "skipped": 0
+    },
+    "strict": {
+      "ok": true,
+      "errors": [],
+      "repositorySkills": 20,
+      "publicSkills": [
+        "diagram-kit:arch-diagram",
+        "understanding-kit:pop-quiz",
+        "explain-kit:glossary",
+        "explain-kit:concept",
+        "communication-kit:communicate",
+        "html-guide-kit:guide"
+      ]
+    },
+    "baseline": "0.147.0",
+    "workingSmoke": {
+      "scenarios": 13,
+      "actualPythonRuns": 6,
+      "result": "PASS"
+    },
+    "canonical": {
+      "scenarios": 13,
+      "actualPythonRuns": 6,
+      "result": "PASS",
+      "source": "exact detached canonical Git tree; isolated consumer/Codex homes; full manifest, SVG/PNG and recursive skill resources compared"
+    }
+  },
+  "independentReview": {
+    "agent": "communication_sync_review",
+    "standards": "PASS",
+    "spec": "PASS",
+    "sourceTree": "da63ab5d84289012f582517e27517bf1cb9142d1",
+    "observed": "13 actual scenarios/6 cached Python; namespace resource APIs/record shapes preserved; both frozen packages and old three packages unchanged",
+    "notEquivalentTo": "GitHub non-author approval, real client UI or new behavior execution"
+  },
+  "behavior": {
+    "source": "94c170dcc7ede164d88e62611eb7351cc5d69f2c",
+    "sourcePackageTree": "14a3896c7ad50597bfc83996bcfec25180a720f9",
+    "baselineCases": {
+      "pass": 15,
+      "fail": 0,
+      "partial": 3
+    },
+    "supplementaryToolCases": "3 limited function PASS, separate runtime identity; no desktop installation or native entry acceptance",
+    "freshBehaviorRunThisBatch": false
+  },
+  "ownerParticipation": {
+    "acceptedOn": "2026-10-13",
+    "response": "可以安排实际界面验收（推荐）",
+    "status": "arrangement accepted; actual client results NOT RUN"
+  },
+  "originalPlan": {
+    "capturedCopyHash": "6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3",
+    "originalPathAvailable": false,
+    "sourceAvailabilityEvidence": "communication-kit-2026-10-13-pr1-baseline-05.json",
+    "reconstructedFromChat": false
+  },
+  "artifacts": {
+    "tests-initial.log": {
+      "file": "communication-kit-2026-10-13-pr3-baseline-04-tests-initial.log",
+      "sha256": "fa27ebbd8edbc237d9eb3381235e770eec36a3dc9fcc6c1ae6db66fb43ba6aeb",
+      "logModifiedAt": "2026-10-13T01:35:32.337Z"
+    },
+    "targeted-final.log": {
+      "file": "communication-kit-2026-10-13-pr3-baseline-04-targeted-final.log",
+      "sha256": "e6b148bc9e60e45c27cdb4dd76ff4868cdbb171c3f99b872e26cd958ac3c6211",
+      "logModifiedAt": "2026-10-13T01:39:40.571Z"
+    },
+    "tests-final.log": {
+      "file": "communication-kit-2026-10-13-pr3-baseline-04-tests-final.log",
+      "sha256": "94615d18eeecb29c9c76c2812b22fe4fc7d2ed12366546bd07f2489234e17c50",
+      "logModifiedAt": "2026-10-13T01:42:55.685Z"
+    },
+    "validate.log": {
+      "file": "communication-kit-2026-10-13-pr3-baseline-04-validate.log",
+      "sha256": "8e9010947bee288f65b74c692a5d6b9288df3f96e362af3917680185c0841d3b",
+      "logModifiedAt": "2026-10-13T01:45:26.345Z"
+    },
+    "smoke.log": {
+      "file": "communication-kit-2026-10-13-pr3-baseline-04-smoke.log",
+      "sha256": "88997c420189ffa68cba94191974dc14d8a693db9e45ed780ea719d85ec61cff",
+      "logModifiedAt": "2026-10-13T01:36:46.252Z"
+    },
+    "smoke-summary.json": {
+      "file": "communication-kit-2026-10-13-pr3-baseline-04-smoke-summary.json",
+      "sha256": "ce7a448c9d8c007d7d4a0ea8fd46081c50b008f8f0a89a731d1f240c687799c0",
+      "logModifiedAt": "2026-10-13T01:37:48.853Z"
+    },
+    "canonical.json": {
+      "file": "communication-kit-2026-10-13-pr3-baseline-04-canonical.json",
+      "sha256": "731dda87eb160a7665c94cc8fab10f5de0cb081b3e916ac2f2995e2adb06584a",
+      "logModifiedAt": "2026-10-13T01:46:10.483Z"
+    }
+  },
+  "notCovered": [
+    "real ChatGPT desktop interaction",
+    "real Codex desktop entry/icon/window interaction",
+    "baseline C16-C18 blocked subpaths",
+    "current-head non-author GitHub approval",
+    "Learning8.2 release dependency",
+    "PR4/PR5 and R01-R05",
+    "real-world communication effects"
+  ]
+}

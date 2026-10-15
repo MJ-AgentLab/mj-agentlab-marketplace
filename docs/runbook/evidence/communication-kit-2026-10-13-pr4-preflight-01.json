@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "epic": 222,
+  "capturedAt": "2026-10-13T03:29:47Z",
+  "timezone": "Asia/Taipei",
+  "phase": "PR4 parallel preparation, not completed PR4 release readiness",
+  "candidate": {
+    "baseSha": "82ee85b446c1aa74dce652975fe967f1f3d55b13",
+    "packageGitTree": "14a3896c7ad50597bfc83996bcfec25180a720f9",
+    "communicationVersion": "0.1.0",
+    "snapshotId": "communication-kit-aics-2026-10-12-r2",
+    "snapshotSha256": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332",
+    "runtimeChanges": false
+  },
+  "sourcePlan": {
+    "originalAvailable": false,
+    "copySha256": "6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3",
+    "method": "Actual filesystem Test-Path and Get-FileHash; previously captured byte-identical plan preserved, no reconstruction"
+  },
+  "authorization": {
+    "owner": "Continue communication-kit through actual gates to Release and post-install",
+    "reviewerReply": "不指定",
+    "interpretation": "Execution authorization retained, no GitHub review supplied or approval bypass"
+  },
+  "observedBranches": {
+    "main": {
+      "sha": "0c681a8f8b7520134a86a70934fc46288c627d8d",
+      "version": "8.1.1"
+    },
+    "develop": {
+      "sha": "d106e76651d53cdf3f0cef2bb33ce47e8d7fda38",
+      "version": "8.1.2"
+    }
+  },
+  "pullRequests": [
+    {
+      "number": 223,
+      "head": "4f23adbd6bc7d01cac9893404fbcd2dec7a750ed",
+      "draft": true,
+      "reviews": [],
+      "reviewDecision": "REVIEW_REQUIRED",
+      "unresolvedThreads": 0,
+      "threadPaginationComplete": true,
+      "ci": "SUCCESS"
+    },
+    {
+      "number": 225,
+      "head": "0a9f7b3f4046a9c2113972b1e17377de6e4d8846",
+      "draft": true,
+      "reviews": [],
+      "reviewDecision": "REVIEW_REQUIRED",
+      "unresolvedThreads": 0,
+      "threadPaginationComplete": true,
+      "ci": "SUCCESS"
+    },
+    {
+      "number": 229,
+      "head": "82ee85b446c1aa74dce652975fe967f1f3d55b13",
+      "draft": true,
+      "reviews": [],
+      "reviewDecision": "REVIEW_REQUIRED",
+      "unresolvedThreads": 0,
+      "threadPaginationComplete": true,
+      "ci": "SUCCESS",
+      "pushCi": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38340676125",
+      "prCi": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38340679966"
+    },
+    {
+      "number": 230,
+      "head": "c93b432ad6090a73c50209da7ff41cbe290bdeea",
+      "draft": true,
+      "state": "OPEN",
+      "mergedAt": null,
+      "mergeCommit": null
+    }
+  ],
+  "protection": {
+    "develop": {
+      "ruleset": 14008221,
+      "active": true,
+      "requiredApprovals": 1,
+      "lastPushIndependentApproval": true,
+      "dismissStale": true,
+      "resolvedThreads": true,
+      "strictBase": true,
+      "checks": [
+        "Validate Structure",
+        "A6 / Check"
+      ]
+    },
+    "main": {
+      "ruleset": 14008213,
+      "active": true,
+      "requiredApprovals": 1,
+      "lastPushIndependentApproval": true,
+      "codeOwnerReview": true,
+      "resolvedThreads": true,
+      "strictBase": true,
+      "checks": [
+        "Validate Structure"
+      ]
+    },
+    "bypass": false
+  },
+  "release": {
+    "latest": "v8.1.1",
+    "publishedAt": "2026-10-10T02:49:18Z",
+    "draft": false,
+    "prerelease": false,
+    "author": "github-actions[bot]",
+    "targetSha": "8f0e044a593408fadc90565f326ef4cb5906e840",
+    "immutable": false,
+    "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.1",
+    "learning820TagObserved": false,
+    "learning820ReleaseObserved": false,
+    "methods": [
+      "gh api releases and latest",
+      "git ls-remote --tags origin refs/tags/v8.2.0*"
+    ]
+  },
+  "acceptance": {
+    "objective": "S01-S12 PASS within recorded scope",
+    "cli": "C01-C15 PASS / C16-C18 PARTIAL retained at CLI 0.147.0",
+    "supplement": "Three limited actual tool-role C16-C18 PASS, different identity; does not rewrite baseline",
+    "native": "Two actual local routes in same OpenAI.Codex 26.1007.2314.0 app necessary scope PASS; no separate ChatGPT app/cloud/native-question close claim",
+    "releaseCases": {
+      "R01": "NOT RUN",
+      "R02": "NOT RUN",
+      "R03": "NOT RUN",
+      "R04": "NOT RUN",
+      "R05": "NOT RUN"
+    },
+    "effects": "Deferred, not a release gate and no efficacy claim"
+  },
+  "versionPreparation": {
+    "expected": "Learning8.2 first, Communication subsequent independent minor expected8.3",
+    "actualFrom": null,
+    "actualTo": null,
+    "dryRun": "NOT RUN pending actual post-Learning baseline",
+    "applied": false,
+    "formalVersionChangelog": "NOT RUN",
+    "versionBoundReleaseRunbook": "NOT CREATED"
+  },
+  "next": [
+    "Current-head non-author GitHub review for PR1, then actual sequential merge and fresh downstream base/CI/review gates",
+    "Learning8.2 actual published identity first; re-integrate only after dependency completes",
+    "Compare actual PR3 merge/package identity; approve any truly new version/scope decision through requested grilling",
+    "Authorized actual From/To dry-run/apply, version/changelog and necessary regression in PR4",
+    "PR5 from actual accepted PR4 merge; main protections and release state machine",
+    "R01-R05 post-publication tag-resolved canonical matrix/resources/Python and relevant actual UI source check; protected maintenance PRs; Epic close only after success"
+  ],
+  "workingDocumentation": [
+    {
+      "path": "AGENTS.md",
+      "worktreeSha256": "d70bc4d65d82b32db6733ca2f46cb5e60855a145217b3e8f0aeaea15ecd71878"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "worktreeSha256": "31e7de3aaef46c5a22f02520f7ecccc9f24f383afae4f95f2fe163e693afd1ec"
+    },
+    {
+      "path": "docs/INDEX.md",
+      "worktreeSha256": "d333e90e28d5fa977aefaef7f93ceead70a67ada17d2c9aee292b3907f1d2517"
+    },
+    {
+      "path": "docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md",
+      "worktreeSha256": "977afe1b62c992f062d1089a453c32025b471dc6bf4b940ce0b1f83d153918c9"
+    }
+  ],
+  "checks": {
+    "npmCi": {
+      "exitCode": 0,
+      "lockfileChanged": false
+    },
+    "test": {
+      "command": "npm test",
+      "exitCode": 0,
+      "tests": 307,
+      "pass": 307,
+      "fail": 0,
+      "skipped": 0,
+      "durationMs": 69209.0058,
+      "log": "communication-kit-2026-10-13-pr4-preflight-01.log",
+      "rawLogSha256": "72b22320a2577669893abb84213002475ed5d8f3c2a27ffb638d81cdba0f2dd6"
+    },
+    "strict": {
+      "command": "npm run validate",
+      "exitCode": 0,
+      "plugins": 5,
+      "publicSkills": 6,
+      "repositorySkills": 20
+    },
+    "runtimeDiffVsBase82ee85b": "empty",
+    "caseRepetition": "No behavioral or canonical batch repeated for documentation-only preparation; existing fixed-source evidence remains separately bound."
+  },
+  "independentReview": {
+    "agent": "communication_sync_review",
+    "method": "Read-only Spec/Standards incremental review plus independent GitHub facts and Git runtime/tree checks",
+    "initialResult": "No blocking finding; agrees with draft/approval/release limitations",
+    "githubApproval": false,
+    "scope": "Only this preparation increment, not actual PR4 merge/version readiness"
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T15:08:08.202Z",
+  "reviewer": "/root",
+  "operator": "/root/precommit_014",
+  "status": "VALID_TECHNICAL_ONLY",
+  "canonical": {
+    "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "canonicalSha": "e15ec47bad8b6a33c2c218bcf59c367b2921d164",
+    "canonicalTree": "1fe945a41edc4403cf6f02cd33ab9b80d28f6eaa"
+  },
+  "version": "0.1.24",
+  "operatorAudit": {
+    "file": "operator-c-records/technical-C-r1.json",
+    "sha256": "71ee40c96c16df3b370e595cbe7af1975d800578783839c41000f4b0a9d33fba"
+  },
+  "identities": [
+    {
+      "variant": "B1.1",
+      "turn": 1,
+      "uuid": "01a13adc-86ca-7862-8ce2-afdc4c8479f0",
+      "cli": "0.147.0",
+      "provider": "openai",
+      "originator": "Codex Desktop",
+      "model": "gpt-5.6-sol",
+      "reasoning": "low"
+    },
+    {
+      "variant": "B1.1",
+      "turn": 2,
+      "uuid": "01a13adc-86ca-7862-8ce2-afdc4c8479f0",
+      "cli": "0.147.0",
+      "provider": "openai",
+      "originator": "Codex Desktop",
+      "model": "gpt-5.6-sol",
+      "reasoning": "low"
+    },
+    {
+      "variant": "B1.1",
+      "turn": 3,
+      "uuid": "01a13adc-86ca-7862-8ce2-afdc4c8479f0",
+      "cli": "0.147.0",
+      "provider": "openai",
+      "originator": "Codex Desktop",
+      "model": "gpt-5.6-sol",
+      "reasoning": "low"
+    },
+    {
+      "variant": "B1.1",
+      "turn": 4,
+      "uuid": "01a13adc-86ca-7862-8ce2-afdc4c8479f0",
+      "cli": "0.147.0",
+      "provider": "openai",
+      "originator": "Codex Desktop",
+      "model": "gpt-5.6-sol",
+      "reasoning": "low"
+    },
+    {
+      "variant": "B1.2-delayed",
+      "turn": 1,
+      "uuid": "01a13ae0-938f-7dc1-bf07-73ea3ee44027",
+      "cli": "0.147.0",
+      "provider": "openai",
+      "originator": "Codex Desktop",
+      "model": "gpt-5.6-sol",
+      "reasoning": "low"
+    }
+  ],
+  "receivers": [
+    {
+      "variant": "B1.1",
+      "turn": 1,
+      "callId": "call_e0a56a46445c48d3b944b7002af2374f",
+      "resource": "skills/guide/references/guide-framework.md",
+      "bytes": 10684,
+      "sha256": "49faecae1cdb5ef470a261e9bb3b3cfe71c1d1914761bc2ab3e3fcfa2cbb79c2",
+      "actualFullReceiverVerified": true
+    },
+    {
+      "variant": "B1.1",
+      "turn": 1,
+      "callId": "call_75b789b222544a01bc8f0d5b33a96089",
+      "resource": "skills/guide/references/interaction-design.md",
+      "bytes": 10579,
+      "sha256": "c363f4df04c82c256bcff803b633d756e9a8d1617f4c0736da37f0e42f6fcc9f",
+      "actualFullReceiverVerified": true
+    },
+    {
+      "variant": "B1.1",
+      "turn": 1,
+      "callId": "call_e163f97450be4d7cac4a47111ae3db8e",
+      "resource": "supplied_material",
+      "bytes": 1640,
+      "sha256": "66a948e4903134491c391188b7870e2fb47f3bc102271438911e1ade6a23b502",
+      "actualFullReceiverVerified": true
+    },
+    {
+      "variant": "B1.2-delayed",
+      "turn": 1,
+      "callId": "call_1e95f683147a439097a1d09e84c185ee",
+      "resource": "skills/guide/references/guide-framework.md",
+      "bytes": 10684,
+      "sha256": "49faecae1cdb5ef470a261e9bb3b3cfe71c1d1914761bc2ab3e3fcfa2cbb79c2",
+      "actualFullReceiverVerified": true
+    },
+    {
+      "variant": "B1.2-delayed",
+      "turn": 1,
+      "callId": "call_c3d9c4abca9f417eb5c644ffac87b553",
+      "resource": "skills/guide/references/interaction-design.md",
+      "bytes": 10579,
+      "sha256": "c363f4df04c82c256bcff803b633d756e9a8d1617f4c0736da37f0e42f6fcc9f",
+      "actualFullReceiverVerified": true
+    },
+    {
+      "variant": "B1.2-delayed",
+      "turn": 1,
+      "callId": "call_d2bd3d088eaa4c33a7d284c3ba31c373",
+      "resource": "supplied_material",
+      "bytes": 1640,
+      "sha256": "66a948e4903134491c391188b7870e2fb47f3bc102271438911e1ade6a23b502",
+      "actualFullReceiverVerified": true
+    }
+  ],
+  "all7RuntimeSourceMirrorCacheExact": true,
+  "all25RawPinsStable": true,
+  "semanticFullReads": [
+    "176036",
+    "65a140"
+  ],
+  "semanticFinal": "blocking/reviews/root-024/B1.1.json",
+  "semanticResultStillFAIL": true,
+  "delayedActualSelectionPreservedAndRequiredTurnsNotSent": true
+}

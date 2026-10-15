@@ -1,0 +1,11 @@
+file:///C:/Users/Admin/.codex/worktrees/html-guide-acceptance/tracking/verify-012-sync-223.mjs:7
+for(const p of paths){const ref=p==='scripts/validate-portable.mjs'?checkpoint:base,expected=git(['rev-parse',ref+':'+p]).toString().trim(),actual=git(['hash-object','--path='+p,p]).toString().trim();if(actual!==expected)throw Error('protected Git blob drift '+p);if(!git(['show',ref+':'+p]).equals(fs.readFileSync(path.join(repo,p))))normalized.push({path:p,reference:ref,gitBlobEqual:true,checkoutNormalization:true});}
+                                                                                                                                                                                                                                   ^
+
+Error: protected Git blob drift .agents/skills/mp-doc-bump-version/SKILL.md
+    at file:///C:/Users/Admin/.codex/worktrees/html-guide-acceptance/tracking/verify-012-sync-223.mjs:7:228
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:647:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+
+Node.js v22.18.0

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 import { pathToFileURL } from "node:url";
 import { parseDocument } from "yaml";
 import { ICON_FIELDS, validateIconReference, validatePluginIcons } from "./plugin-icons.mjs";
@@ -19,13 +20,30 @@ export const RUNTIME_PLUGINS = Object.freeze({
   "diagram-kit": Object.freeze(["arch-diagram"]),
   "learning-evidence-kit": Object.freeze(["pop-quiz", "learning-record-check"]),
   "explain-kit": Object.freeze(["glossary", "concept"]),
+  "communication-kit": Object.freeze(["communicate"]),
+  "html-guide-kit": Object.freeze(["guide"]),
 });
 export const PUBLIC_SKILLS = Object.freeze(Object.entries(RUNTIME_PLUGINS).flatMap(([plugin, skills]) => skills.map(skill => `${plugin}:${skill}`)));
-export const EXPLICIT_ONLY_SKILLS = Object.freeze(["learning-evidence-kit:pop-quiz", "learning-evidence-kit:learning-record-check"]);
+export const EXPLICIT_ONLY_SKILLS = Object.freeze(["learning-evidence-kit:pop-quiz", "learning-evidence-kit:learning-record-check", "communication-kit:communicate", "html-guide-kit:guide"]);
+export const COMMUNICATION_REFERENCES = Object.freeze(["references/aics-policy.md", "references/task-patterns.md", "references/source-provenance.md", "references/aics-snapshot.json"]);
+// Conservative package budget following observed native truncation on CLI 0.147.0;
+// this is not a claim about a universal client token/byte limit.
+export const GUIDE_ENTRY_MAX_BYTES = 6144;
+export const SKILL_RESOURCES = Object.freeze({
+  "diagram-kit:arch-diagram": Object.freeze(["SKILL.md", "agents/openai.yaml", "scripts/validate_diagram.py", "references/architecture-methodology.md", "references/domain-acquisition.md", ...["context", "container", "component", "code", "sequence", "state-machine", "deployment"].map(t => `references/${t}-diagram.md`)]),
+  "learning-evidence-kit:pop-quiz": Object.freeze(["SKILL.md", "agents/openai.yaml", "references/ku-selection.md", "references/quiz-policy.md"]),
+  "learning-evidence-kit:learning-record-check": Object.freeze(["SKILL.md", "agents/openai.yaml"]),
+  "explain-kit:glossary": Object.freeze(["SKILL.md", "agents/openai.yaml"]),
+  "explain-kit:concept": Object.freeze(["SKILL.md", "agents/openai.yaml"]),
+  "communication-kit:communicate": Object.freeze(["SKILL.md", "agents/openai.yaml", ...COMMUNICATION_REFERENCES]),
+  "html-guide-kit:guide": Object.freeze(["SKILL.md", "agents/openai.yaml", "references/guide-framework.md", "references/interaction-design.md"]),
+});
 const PLUGIN_CAPABILITIES = Object.freeze({
   "diagram-kit": Object.freeze(["Read", "Write"]),
   "learning-evidence-kit": Object.freeze(["Read", "Write"]),
   "explain-kit": Object.freeze(["Read"]),
+  "communication-kit": Object.freeze(["Read", "Write"]),
+  "html-guide-kit": Object.freeze(["Read"]),
 });
 const SEMVER = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/;
 const NAME = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -47,9 +65,14 @@ export function validateSkill(text, expectedName) {
   if (typeof metadata.description !== "string" || !metadata.description.trim() || [...metadata.description].length > 1024) throw new Error("description must be a nonempty string within the 1024-character repository budget");
   if (/<[^>]+>|\{\{[^}]+\}\}|\b(?:TODO|TBD)\b/.test(metadata.description)) throw new Error("description contains a placeholder");
   if (Object.keys(metadata).some(k => !["name", "description", "metadata", "license", "compatibility"].includes(k))) throw new Error("unsupported skill frontmatter field");
+  if (expectedName === "communicate") exactKeys(metadata, ["name", "description"], "communicate frontmatter");
   if (!body.trim()) throw new Error("skill body is empty");
   if (/CLAUDE_SKILL_DIR|CLAUDE_PLUGIN_ROOT|AskUserQuestion|plugin-dev:|superpowers:|learn-kit:/.test(body)) throw new Error("skill body depends on a retired host or workflow");
   return metadata;
+}
+
+export function validateGuideEntryBudget(text) {
+  if (Buffer.byteLength(text, "utf8") > GUIDE_ENTRY_MAX_BYTES) throw new Error(`guide SKILL.md exceeds the ${GUIDE_ENTRY_MAX_BYTES}-byte entry budget`);
 }
 
 function inside(root, candidate) {
@@ -98,7 +121,7 @@ function routesToOwnedSkill(prompt, plugin, skill) {
   return invocations.length > 0 && invocations.every(([, p, s]) => p === plugin && RUNTIME_PLUGINS[plugin]?.includes(s) && (!skill || s === skill));
 }
 
-/** Validate native skill presentation and the explicit-only quiz policy. */
+/** Validate native presentation and each skill's approved invocation policy. */
 export function validateOpenAIConfig(text, plugin, skill) {
   const doc = parseDocument(text, { uniqueKeys: true });
   if (doc.errors.length) throw new Error(doc.errors.map(e => e.message).join("; "));
@@ -108,12 +131,19 @@ export function validateOpenAIConfig(text, plugin, skill) {
     if (typeof config.interface?.[key] !== "string" || !config.interface[key].trim()) throw new Error(`interface.${key} is required`);
   }
   if (!routesToOwnedSkill(config.interface.default_prompt, plugin, skill)) throw new Error("native default_prompt must invoke its own skill");
+  if (plugin === "communication-kit" && [...config.interface.default_prompt].length > 128) throw new Error("communication native prompt exceeds the 128-character client budget");
   if (typeof config.policy?.allow_implicit_invocation !== "boolean") throw new Error("native invocation policy must be an explicit boolean");
-  if (EXPLICIT_ONLY_SKILLS.includes(`${plugin}:${skill}`) && config.policy.allow_implicit_invocation !== false) throw new Error("learning evidence skills must require explicit invocation");
+  if (EXPLICIT_ONLY_SKILLS.includes(`${plugin}:${skill}`) && config.policy.allow_implicit_invocation !== false) throw new Error(`${skill} must require explicit invocation`);
+  if (plugin === "communication-kit" && ([...config.interface.short_description].length < 25 || [...config.interface.short_description].length > 64)) throw new Error("invalid communication skill presentation");
   if (plugin === "explain-kit") {
     const length = [...config.interface.short_description].length;
     const calls = [...config.interface.default_prompt.matchAll(/\$([a-z0-9-]+):([a-z0-9-]+)(?![A-Za-z0-9_-])/g)];
     if (length < 25 || length > 64 || calls.length !== 1 || config.policy.allow_implicit_invocation !== true) throw new Error("invalid explanation skill presentation or implicit policy");
+  }
+  if (plugin === "html-guide-kit") {
+    const length = [...config.interface.short_description].length;
+    const calls = [...config.interface.default_prompt.matchAll(/\$([a-z0-9-]+):([a-z0-9-]+)(?![A-Za-z0-9_-])/g)];
+    if (length < 25 || length > 64 || calls.length !== 1) throw new Error("invalid guide skill presentation");
   }
   return config;
 }
@@ -121,6 +151,99 @@ export function validateOpenAIConfig(text, plugin, skill) {
 export function validateSkillInterface(text, qualifiedName) {
   const [plugin, skill] = qualifiedName.split(":");
   return validateOpenAIConfig(text, plugin, skill);
+}
+
+/** Resolve an ordinary owned resource, checking every link/junction component. */
+export function resolveOwnedResource(resourceRoot, reference) {
+  if (typeof reference !== "string" || !reference.startsWith("./") || /[\\:\0]/.test(reference)) throw new Error("resource path must be ./-prefixed and package-owned");
+  const parts = reference.slice(2).split("/");
+  if (parts.some(part => !part || part === "." || part === "..")) throw new Error("resource path must not contain traversal");
+  if (fs.lstatSync(resourceRoot).isSymbolicLink()) throw new Error("resource root must not be a symlink or junction/reparse link");
+  const root = fs.realpathSync.native(resourceRoot);
+  let file = root;
+  for (const [index, part] of parts.entries()) {
+    file = path.join(file, part);
+    const stat = fs.lstatSync(file);
+    if (stat.isSymbolicLink()) throw new Error("resource must not contain a symlink or junction/reparse link");
+    if (!inside(root, file) || (index < parts.length - 1 ? !stat.isDirectory() : !stat.isFile())) throw new Error("resource must be an ordinary owned file");
+  }
+  return file;
+}
+
+const SHA256 = /^[0-9a-f]{64}$/;
+const nonempty = value => typeof value === "string" && !!value.trim();
+function exactKeys(value, keys, label) {
+  if (!value || typeof value !== "object" || Array.isArray(value) || JSON.stringify(Object.keys(value).sort()) !== JSON.stringify([...keys].sort())) throw new Error(`${label} must have exactly its approved fields`);
+}
+function uniqueStrings(value, label, allowEmpty = false) {
+  if (!Array.isArray(value) || (!allowEmpty && !value.length) || value.some(item => !nonempty(item)) || new Set(value).size !== value.length) throw new Error(`${label} must be a distinct string array`);
+}
+function validDate(value) {
+  return typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value) && Number.isFinite(Date.parse(`${value}T00:00:00Z`)) && new Date(`${value}T00:00:00Z`).toISOString().slice(0, 10) === value;
+}
+
+/** Validate captured identities and owned summary bytes; never read source paths. */
+export function validateCommunicationSnapshot(skillRoot) {
+  const file = resolveOwnedResource(skillRoot, "./references/aics-snapshot.json");
+  const text = fs.readFileSync(file, "utf8"), snapshot = JSON.parse(text);
+  const json = parseDocument(text, { uniqueKeys: true });
+  if (json.errors.length) throw new Error(`snapshot JSON has duplicate/invalid keys: ${json.errors.map(error => error.message).join("; ")}`);
+  exactKeys(snapshot, ["schemaVersion", "snapshotId", "status", "capturedAt", "captureDate", "timezone", "sources", "summaries", "mapping"], "snapshot");
+  if (snapshot.schemaVersion !== 1 || !nonempty(snapshot.snapshotId) || snapshot.status !== "Lab Proposal / Informative" || snapshot.timezone !== "Asia/Taipei") throw new Error("invalid frozen snapshot identity/status/timezone");
+  if (typeof snapshot.capturedAt !== "string" || !/^\d{4}-\d{2}-\d{2}T(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d(?:\.\d{1,3})?Z$/.test(snapshot.capturedAt) || !validDate(snapshot.capturedAt.slice(0, 10)) || !Number.isFinite(Date.parse(snapshot.capturedAt)) || !validDate(snapshot.captureDate)) throw new Error("invalid snapshot capture date/time");
+  const parts = Object.fromEntries(new Intl.DateTimeFormat("en-US", { timeZone: snapshot.timezone, year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(new Date(snapshot.capturedAt)).map(part => [part.type, part.value]));
+  if (snapshot.captureDate !== `${parts.year}-${parts.month}-${parts.day}`) throw new Error("captureDate must match capturedAt in Asia/Taipei");
+  if (!Array.isArray(snapshot.sources) || snapshot.sources.length !== 2 || JSON.stringify(snapshot.sources.map(source => source?.id).sort()) !== JSON.stringify(["PROJECT-current-learning", "RN-02"].sort())) throw new Error("snapshot must contain the two approved source identities");
+  for (const source of snapshot.sources) {
+    exactKeys(source, ["id", "title", "path", "sections", "updated", "sha256", "git"], "source");
+    if (!nonempty(source.title) || !nonempty(source.path) || !validDate(source.updated) || typeof source.sha256 !== "string" || !SHA256.test(source.sha256)) throw new Error("invalid source title/path/date/hash");
+    uniqueStrings(source.sections, "source.sections");
+    exactKeys(source.git, ["repo", "head", "dirty", "status", "fileState"], "source.git");
+    const git = source.git;
+    if (!nonempty(git.repo) || typeof git.head !== "string" || !/^[0-9a-f]{40}$/.test(git.head) || typeof git.dirty !== "boolean" || !["clean", "modified", "untracked"].includes(git.fileState)) throw new Error("invalid source Git identity/state");
+    uniqueStrings(git.status, "source.git.status", true);
+    if (git.dirty !== (git.status.length > 0) || (git.fileState !== "clean" && !git.dirty) || git.status.some(line => !/^(?:\?\?|[ MARCUD][ MARCUD]) [^\r\n\0]+$/.test(line) || line.startsWith("  "))) throw new Error("source Git dirty/fileState/status are inconsistent");
+    const repo = git.repo.replaceAll("\\", "/").replace(/\/$/, ""), sourcePath = source.path.replaceAll("\\", "/");
+    if (sourcePath.startsWith(`${repo}/`)) {
+      const relative = sourcePath.slice(repo.length + 1);
+      const statuses = git.status.filter(line => {
+        const target = line.slice(3).split(" -> ").at(-1);
+        return target === relative || (target.endsWith("/") && relative.startsWith(target));
+      });
+      if (git.fileState === "clean" ? statuses.length > 0 : !statuses.some(line => git.fileState === "untracked" ? line.startsWith("?? ") : !line.startsWith("?? "))) throw new Error("source fileState does not match recorded porcelain status");
+    }
+  }
+  const expectedSummaries = COMMUNICATION_REFERENCES.filter(reference => reference.endsWith(".md")).map(reference => `./${path.posix.basename(reference)}`);
+  if (!Array.isArray(snapshot.summaries) || snapshot.summaries.length !== 3 || JSON.stringify(snapshot.summaries.map(summary => summary?.path).sort()) !== JSON.stringify(expectedSummaries.sort())) throw new Error("snapshot must contain exactly the three owned summaries");
+  const sourceIds = new Set(snapshot.sources.map(source => source.id)), headings = new Map();
+  for (const summary of snapshot.summaries) {
+    exactKeys(summary, ["path", "sha256", "sourceIds"], "summary");
+    uniqueStrings(summary.sourceIds, "summary.sourceIds");
+    if (summary.sourceIds.some(id => !sourceIds.has(id)) || typeof summary.sha256 !== "string" || !SHA256.test(summary.sha256)) throw new Error("invalid summary source reference/hash");
+    const summaryFile = resolveOwnedResource(skillRoot, `./references/${summary.path.slice(2)}`), bytes = fs.readFileSync(summaryFile);
+    if (crypto.createHash("sha256").update(bytes).digest("hex") !== summary.sha256) throw new Error(`summary SHA-256 differs from frozen bytes: ${summary.path}`);
+    const prose = bytes.toString("utf8").replace(/^ {0,3}(`{3,}|~{3,})[^\n]*\n[\s\S]*?^ {0,3}\1\s*$/gm, "");
+    headings.set(summary.path, new Set([...prose.matchAll(/^ {0,3}#{1,6}\s+(.+)$/gm)].map(match => match[1].trim().replace(/\s+#+$/, ""))));
+  }
+  if (!Array.isArray(snapshot.mapping) || !snapshot.mapping.length) throw new Error("snapshot mapping must be nonempty");
+  const mappedSources = new Set(), mappedSummaries = new Set(), mappingIds = new Set();
+  for (const mapping of snapshot.mapping) {
+    exactKeys(mapping, ["sourceId", "section", "summaryPath", "summarySection", "disposition", "reason"], "mapping");
+    const source = snapshot.sources.find(candidate => candidate.id === mapping.sourceId);
+    if (!source || !source.sections.includes(mapping.section) || !nonempty(mapping.reason) || !["extract", "adapt", "exclude"].includes(mapping.disposition)) throw new Error("invalid mapping source/section/disposition/reason");
+    const identity = JSON.stringify([mapping.sourceId, mapping.section, mapping.summaryPath, mapping.summarySection, mapping.disposition]);
+    if (mappingIds.has(identity)) throw new Error("duplicate source mapping");
+    mappingIds.add(identity); mappedSources.add(source.id);
+    if (mapping.disposition === "exclude") {
+      if (mapping.summaryPath !== null || mapping.summarySection !== null) throw new Error("excluded mapping must have null summary locators");
+    } else {
+      const summary = snapshot.summaries.find(candidate => candidate.path === mapping.summaryPath);
+      if (!summary || !summary.sourceIds.includes(mapping.sourceId) || !nonempty(mapping.summarySection) || !headings.get(mapping.summaryPath).has(mapping.summarySection)) throw new Error("mapping must locate an owned summary heading and source reference");
+      mappedSummaries.add(summary.path);
+    }
+  }
+  if (mappedSources.size !== 2 || mappedSummaries.size !== 3) throw new Error("each source and summary must have a locatable mapping");
+  return snapshot;
 }
 
 function validateResourceTree(skillRoot) {
@@ -134,6 +257,64 @@ function validateResourceTree(skillRoot) {
 
 function files(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? files(path.join(dir, e.name)) : [path.join(dir, e.name)]);
+}
+
+function ownedResource(root, rel) {
+  if (fs.lstatSync(root).isSymbolicLink() || path.isAbsolute(rel) || rel.includes("\\") || rel.split("/").some(p => !p || p === "." || p === "..")) throw new Error(`resource must be an owned file: ${rel}`);
+  let file = root;
+  for (const part of rel.split("/")) {
+    file = path.join(file, part);
+    if (fs.lstatSync(file).isSymbolicLink()) throw new Error(`resource must not be a symlink or reparse link: ${rel}`);
+  }
+  if (!inside(root, file) || !fs.statSync(file).isFile()) throw new Error(`resource is not an owned file: ${rel}`);
+  return file;
+}
+
+/** Match package-owned raw bytes, including references not mentioned by a Markdown link. */
+export function assertInstalledSkillResources(sourceSkillRoot, installedSkillRoot, qualifiedName) {
+  const required = SKILL_RESOURCES[qualifiedName];
+  if (!required) throw new Error("unapproved installed skill identity");
+  validateResourceTree(sourceSkillRoot);
+  validateResourceTree(installedSkillRoot);
+  const [plugin, skill] = qualifiedName.split(":");
+  for (const root of [sourceSkillRoot, installedSkillRoot]) {
+    validateSkill(fs.readFileSync(ownedResource(root, "SKILL.md"), "utf8"), skill);
+    if (qualifiedName === "html-guide-kit:guide") validateGuideEntryBudget(fs.readFileSync(ownedResource(root, "SKILL.md"), "utf8"));
+    validateOpenAIConfig(fs.readFileSync(ownedResource(root, "agents/openai.yaml"), "utf8"), plugin, skill);
+  }
+  if (qualifiedName === "html-guide-kit:guide") {
+    for (const root of [sourceSkillRoot, installedSkillRoot]) {
+      const actual = files(root).map(file => path.relative(root, file).replaceAll("\\", "/")).sort();
+      if (JSON.stringify(actual) !== JSON.stringify([...required].sort())) throw new Error("guide must contain exactly its approved skill resources");
+    }
+  }
+  return Object.fromEntries(required.map(rel => {
+    const source = ownedResource(sourceSkillRoot, rel), installed = ownedResource(installedSkillRoot, rel);
+    const bytes = fs.readFileSync(source);
+    if (!bytes.equals(fs.readFileSync(installed))) throw new Error(`installed skill resource differs: ${qualifiedName}/${rel}`);
+    return [rel, { sha256: crypto.createHash("sha256").update(bytes).digest("hex"), source, installed }];
+  }));
+}
+
+/** Validate both identities and compare distributed manifest, icons and approved skill files. */
+export function assertInstalledPluginResources(sourcePluginRoot, installedPluginRoot, expectedName) {
+  const source = JSON.parse(fs.readFileSync(ownedResource(sourcePluginRoot, "plugin.json"), "utf8"));
+  const installed = JSON.parse(fs.readFileSync(ownedResource(installedPluginRoot, "plugin.json"), "utf8"));
+  validateManifest(source, expectedName); validateManifest(installed, expectedName);
+  if (source.name !== installed.name || source.version !== installed.version) throw new Error("installed plugin identity/version differs");
+  const rootFiles = Object.fromEntries(["plugin.json", "assets/icon.svg", "assets/icon.png"].map(rel => {
+    const a = ownedResource(sourcePluginRoot, rel), b = ownedResource(installedPluginRoot, rel), bytes = fs.readFileSync(a);
+    if (!bytes.equals(fs.readFileSync(b))) throw new Error(`installed plugin resource differs: ${expectedName}/${rel}`);
+    return [rel, { sha256: crypto.createHash("sha256").update(bytes).digest("hex"), source: a, installed: b }];
+  }));
+  validatePluginIcons(source, sourcePluginRoot); validatePluginIcons(installed, installedPluginRoot);
+  for (const root of [sourcePluginRoot, installedPluginRoot]) {
+    const skillsRoot = path.join(root, "skills");
+    if (fs.lstatSync(skillsRoot).isSymbolicLink()) throw new Error("installed skills must not borrow a symlink or reparse directory");
+    if (JSON.stringify(fs.readdirSync(skillsRoot).sort()) !== JSON.stringify([...RUNTIME_PLUGINS[source.name]].sort())) throw new Error("installed public skill set differs");
+  }
+  const skills = Object.fromEntries(RUNTIME_PLUGINS[source.name].map(skill => [skill, assertInstalledSkillResources(path.join(sourcePluginRoot, "skills", skill), path.join(installedPluginRoot, "skills", skill), `${source.name}:${skill}`)]));
+  return { name: source.name, version: source.version, rootFiles, skills };
 }
 
 /** Check local file destinations, ignoring fenced examples and remote/anchor links. */
@@ -161,7 +342,7 @@ export function validateRepository(repoRoot) {
   check("marketplace", () => {
     const m = JSON.parse(read(root, ".agents/plugins/marketplace.json"));
     if (m.name !== "mj-agentlab-marketplace" || typeof m.interface?.displayName !== "string") throw new Error("invalid marketplace identity");
-    if (!Array.isArray(m.plugins) || JSON.stringify(m.plugins.map(p => p?.name).sort()) !== JSON.stringify(Object.keys(RUNTIME_PLUGINS).sort())) throw new Error("marketplace must contain exactly the three approved plugins");
+    if (!Array.isArray(m.plugins) || JSON.stringify(m.plugins.map(p => p?.name).sort()) !== JSON.stringify(Object.keys(RUNTIME_PLUGINS).sort())) throw new Error("marketplace must contain exactly the approved plugins");
     if ("version" in m) throw new Error("catalog must not become a version authority");
     for (const p of m.plugins) {
       if (p.source?.source !== "local" || p.source?.path !== `./plugins/${p.name}`) throw new Error("only approved local plugin sources are supported");
@@ -172,7 +353,14 @@ export function validateRepository(repoRoot) {
   });
   for (const name of Object.keys(RUNTIME_PLUGINS)) check(`${name} manifest`, () => validateManifest(JSON.parse(read(root, `plugins/${name}/plugin.json`)), name));
   for (const name of Object.keys(RUNTIME_PLUGINS)) check(`${name} icons`, () => validatePluginIcons(JSON.parse(read(root, `plugins/${name}/plugin.json`)), path.join(root, "plugins", name)));
-  check("brand resources", () => validateBrandAssets(root));
+  check("brand resources", () => {
+    validateBrandAssets(root);
+    const config = JSON.parse(read(root, "assets/brand/exports.json"));
+    for (const plugin of Object.keys(RUNTIME_PLUGINS)) {
+      const icons = config.icons.filter(candidate => candidate.id === plugin);
+      if (icons.length !== 1 || icons[0].source !== `plugins/${plugin}/assets/icon.svg` || icons[0].output !== `plugins/${plugin}/assets/icon.png`) throw new Error(`registered plugin requires its own brand export: ${plugin}`);
+    }
+  });
   check("plugin inventory", () => {
     const plugins = fs.readdirSync(path.join(root, "plugins")).sort();
     if (JSON.stringify(plugins) !== JSON.stringify(Object.keys(RUNTIME_PLUGINS).sort())) throw new Error("unexpected runtime plugin directory");
@@ -183,7 +371,7 @@ export function validateRepository(repoRoot) {
       const skills = fs.readdirSync(path.join(pluginRoot, "skills")).sort();
       if (JSON.stringify(skills) !== JSON.stringify([...expectedSkills].sort())) throw new Error(`unexpected public skill set: ${plugin}`);
       for (const rel of ["plugin.json", "README.md", "LICENSE", "CHANGELOG.md", ...expectedSkills.flatMap(skill => [`skills/${skill}/SKILL.md`, `skills/${skill}/agents/openai.yaml`])]) {
-        if (!inside(pluginRoot, path.join(pluginRoot, rel)) || !fs.statSync(path.join(pluginRoot, rel)).isFile()) throw new Error(`invalid package resource: ${rel}`);
+        try { resolveOwnedResource(root, `./plugins/${plugin}/${rel}`); } catch (error) { throw new Error(`invalid package resource: ${rel}: ${error.message}`); }
       }
       for (const rel of ["mcp.json", ".mcp.json", ".claude-plugin", ".codex-plugin", "CLAUDE.md"]) if (fs.existsSync(path.join(pluginRoot, rel))) throw new Error(`unneeded compatibility/config surface: ${plugin}/${rel}`);
     }
@@ -200,6 +388,12 @@ export function validateRepository(repoRoot) {
       validateResourceTree(skillRoot);
       validateSkill(read(skillRoot, "SKILL.md"), skill);
       validateOpenAIConfig(read(skillRoot, "agents/openai.yaml"), plugin, skill);
+      for (const rel of SKILL_RESOURCES[`${plugin}:${skill}`]) ownedResource(skillRoot, rel);
+      if (plugin === "html-guide-kit") {
+        validateGuideEntryBudget(read(skillRoot, "SKILL.md"));
+        const actual = files(skillRoot).map(file => path.relative(skillRoot, file).replaceAll("\\", "/")).sort();
+        if (JSON.stringify(actual) !== JSON.stringify([...SKILL_RESOURCES[`${plugin}:${skill}`]].sort())) throw new Error("guide must contain exactly its approved skill resources");
+      }
     });
   }
   check("project instruction budget", () => {
@@ -225,6 +419,7 @@ export function validateRepository(repoRoot) {
       if (!inside(skillRoot, path.join(skillRoot, rel)) || !fs.statSync(path.join(skillRoot, rel)).isFile()) throw new Error(`resource is not an owned skill file: ${rel}`);
     }
   });
+  check("communication resources", () => validateCommunicationSnapshot(path.join(root, "plugins/communication-kit/skills/communicate")));
   check("learning evidence common resources", () => {
     const pluginRoot = path.join(root, "plugins/learning-evidence-kit");
     for (const rel of ["scripts/lek.py", "scripts/common.py", "scripts/storage.py", "scripts/github_flow.py", "references/record-contract.md", "references/record-template.json", "references/client-entries.json"]) {

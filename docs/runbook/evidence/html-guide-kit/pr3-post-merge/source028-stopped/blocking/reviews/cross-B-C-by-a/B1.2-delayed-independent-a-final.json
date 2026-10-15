@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "recordedUtc": "2026-10-14T17:54:22.394Z",
+  "reviewer": "/root/behavior_014_a",
+  "operator": "/root/precommit_014",
+  "source": {
+    "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "canonicalSha": "83b3f50ba6c41f923a2b48bba10ca176102be18d",
+    "canonicalTree": "b5bea864f5fefba2d964a158e077225cae82d987"
+  },
+  "packageVersion": "0.1.28",
+  "variant": "B1.2-delayed",
+  "uuid": "01a13b86-4682-7311-a3f7-473f0caa4661",
+  "attemptId": "b0a974f2-b393-41ad-a0b4-70d3a3cde835",
+  "plannedTurns": 3,
+  "actualTurns": 1,
+  "primaryCriterion": "UNEXERCISED",
+  "wholeFidelity": "UNEXERCISED",
+  "overall": "UNEXERCISED",
+  "method": "Independent whole original inputs/outputs/material and frozen criterion review; selected-high actual SDK and V2 capture independently inspected in new evidence; no prior PASS inherited",
+  "rawInputOutputPins": [
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.2-delayed\\b0a974f2-b393-41ad-a0b4-70d3a3cde835\\01.input.txt",
+      "bytes": 989,
+      "sha256": "69d3dc3a53990388e5e0e06122a62b81a4b98f2bbcef388635fdd08e45c12246"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\B1.2-delayed\\b0a974f2-b393-41ad-a0b4-70d3a3cde835\\01.output.txt",
+      "bytes": 2945,
+      "sha256": "3fbb0fd5834c09ae265e93386d7ad7b1175478168c242e2d979404ad00fa63e3"
+    }
+  ],
+  "technical": {
+    "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\reviews\\cross-B-C-by-a\\B1.2-delayed-T1-actual-sdk-a.json",
+    "bytes": 18008,
+    "sha256": "8ba3258f8ab31b9ec025d6c46c50e577fdf4428bb39b06fe9c21042bf030d973"
+  },
+  "actualReceiptSummary": {
+    "selectedPreparation": {
+      "originalDefault": {
+        "model": "gpt-5.6-sol",
+        "model_reasoning_effort": "low"
+      },
+      "selectedIdentity": {
+        "model": "gpt-5.6-sol",
+        "model_reasoning_effort": "high"
+      },
+      "effectiveBaseline": {
+        "model": "gpt-5.6-sol",
+        "model_reasoning_effort": "high"
+      },
+      "expectedClient": "0.147.0",
+      "expectedProvider": "openai",
+      "expectedModel": "gpt-5.6-sol",
+      "expectedEffort": "high",
+      "originalProof": {
+        "sha256": "112d6f63191c781df9d2ca6d99a2f228f299aae82e056e3bf1869ee70d50bb49",
+        "bytes": 3891,
+        "defaultEffort": "low"
+      },
+      "freshModelMetadata": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\runs\\b33fd3b7-2922-4839-9373-f58a9849212d\\models.json",
+        "sha256": "5bc4e657a9551880e076de47d3a7ce5da9a284a1a7d43019de77cdc700a96518",
+        "actualDefaultEffort": "low",
+        "selectedEffortSupported": true
+      },
+      "actualModelEffortObserved": false,
+      "metadataIsNotSdkEvidence": true
+    },
+    "observedReading": {
+      "nativeSkillFull": true,
+      "additionalToolSkillFull": true,
+      "frameworkActualToolFull": true,
+      "interactionActualToolFull": true,
+      "materialActualToolFull": true
+    },
+    "uniqueActualCalls": 4,
+    "actualCompleteBodyReceivers": 4,
+    "allRecordedTurnsActualHighAndV2ExitCloseValidated": true
+  },
+  "frozenSpec": {
+    "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\blocking\\frozen-spec.md",
+    "bytes": 28037,
+    "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d"
+  },
+  "fullReadTools": [
+    "dd4d28"
+  ],
+  "reason": "仅T1：完整阅读、三套目标及明确等待有效，未出指南。修改T2与确认T3未发送，故主修改/确认和完整指南未触发；不得继承前源结果或未来承诺。",
+  "findings": [],
+  "notes": [
+    "T1材料范围和已知许可/恢复保留，没有发现具体前缀保义F。",
+    "此T1在Root marker前启动、后自然完成；操作者未作选择，未发送后两轮。"
+  ],
+  "noNewModelOrFixture": true,
+  "effect": "NOT_MEASURED",
+  "client": "NOT_RUN"
+}

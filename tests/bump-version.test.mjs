@@ -26,15 +26,17 @@ function fixture(){
  fs.writeFileSync(path.join(d,"plugins/explain-kit/plugin.json"),JSON.stringify({name:"explain-kit",version:"0.1.0",description:"history 0.1.0",extensions:{history:{version:"0.1.0"}}},null,2)+"\n");
  fs.mkdirSync(path.join(d,"plugins/html-guide-kit"),{recursive:true});
  fs.writeFileSync(path.join(d,"plugins/html-guide-kit/plugin.json"),JSON.stringify({name:"html-guide-kit",version:"0.1.0",description:"history 0.1.0",extensions:{history:{version:"0.1.0"}}},null,2)+"\n");
+ fs.mkdirSync(path.join(d,"plugins/communication-kit"),{recursive:true});
+ fs.writeFileSync(path.join(d,"plugins/communication-kit/plugin.json"),JSON.stringify({name:"communication-kit",version:"0.1.0",description:"history 0.1.0",extensions:{history:{version:"0.1.0"}}},null,2)+"\n");
  fs.copyFileSync(path.join(REPO,".agents/plugins/marketplace.json"),path.join(d,".agents/plugins/marketplace.json"));return d;
 }
-const files=["VERSION","README.md","plugins/diagram-kit/plugin.json","plugins/learning-evidence-kit/plugin.json","plugins/explain-kit/plugin.json","plugins/html-guide-kit/plugin.json",".agents/plugins/marketplace.json"];
+const files=["VERSION","README.md","plugins/diagram-kit/plugin.json","plugins/learning-evidence-kit/plugin.json","plugins/explain-kit/plugin.json","plugins/html-guide-kit/plugin.json","plugins/communication-kit/plugin.json",".agents/plugins/marketplace.json"];
 const bytes=d=>Object.fromEntries(files.map(p=>[p,fs.existsSync(path.join(d,p))?fs.readFileSync(path.join(d,p)):null]));
 const read=(d,p)=>fs.readFileSync(path.join(d,p),"utf8");
 function noBackups(d){for(const p of files) assert.ok(!fs.existsSync(path.join(d,p+".bump-backup")));}
 const opts={skip:!HAVE&&"PowerShell unavailable"};
 async function bump(d,scope="marketplace",extra=[],env={}){
- const versions={marketplace:["7.0.2","8.0.0"],"diagram-kit":["0.2.0","0.3.0"],"learning-evidence-kit":["0.1.0","0.2.0"],"explain-kit":["0.1.0","0.2.0"],"html-guide-kit":["0.1.0","0.1.1"]};
+ const versions={marketplace:["7.0.2","8.0.0"],"diagram-kit":["0.2.0","0.3.0"],"learning-evidence-kit":["0.1.0","0.2.0"],"explain-kit":["0.1.0","0.2.0"],"html-guide-kit":["0.1.0","0.1.1"],"communication-kit":["0.1.0","0.2.0"]};
  return runCli("pwsh",["-NoProfile","-File","./scripts/bump-version.ps1","-From",versions[scope][0],"-To",versions[scope][1],"-Scope",scope,...extra],{cwd:d,env:{...process.env,...env},timeoutMs:60000});
 }
 test("marketplace updates VERSION and derived badge only",opts,async()=>{
@@ -53,7 +55,7 @@ test("learning-evidence-kit bumps independently from marketplace and diagram-kit
  const m=JSON.parse(read(d,"plugins/learning-evidence-kit/plugin.json"));assert.equal(m.version,"0.2.0");assert.equal(m.description,"design v0.3");assert.equal(m.extensions.history.version,"0.1.0");
  for(const p of files.filter(p=>p!=="plugins/learning-evidence-kit/plugin.json")) assert.deepEqual(fs.readFileSync(path.join(d,p)),before[p]);noBackups(d);
 });
-for(const scope of ["marketplace","diagram-kit","learning-evidence-kit","explain-kit","html-guide-kit"])test("DryRun writes nothing: "+scope,opts,async()=>{
+for(const scope of ["marketplace","diagram-kit","learning-evidence-kit","explain-kit","html-guide-kit","communication-kit"])test("DryRun writes nothing: "+scope,opts,async()=>{
  const d=fixture(),before=bytes(d),r=await bump(d,scope,["-DryRun"]);assert.equal(r.status,0,r.stdout+r.stderr);
  assert.match(r.stdout,/No files were modified/);assert.deepEqual(bytes(d),before);noBackups(d);
 });
@@ -110,7 +112,7 @@ test("explain-kit version changes preserve the other plugin and marketplace",opt
 });
 
 
-for(const scope of ["diagram-kit","explain-kit","html-guide-kit"])test("plugin write failure restores original bytes: "+scope,opts,async()=>{
+for(const scope of ["diagram-kit","explain-kit","html-guide-kit","communication-kit"])test("plugin write failure restores original bytes: "+scope,opts,async()=>{
  const d=fixture(),before=bytes(d),r=await bump(d,scope,["-TestFailAfterReplace","1"],{MP_BUMP_TESTING:"1"});
  assert.notEqual(r.status,0);assert.deepEqual(bytes(d),before);noBackups(d);
 });
@@ -151,4 +153,32 @@ test("html-guide-kit post-write validation failure restores exact bytes and othe
  const d=fixture(),before=bytes(d),r=await bump(d,"html-guide-kit",["-TestCorruptAfterWrite","1"],{MP_BUMP_TESTING:"1"});
  assert.equal(r.status,1,r.stdout+r.stderr);assert.match(r.stdout+r.stderr,/post-write validation failed/);
  assert.match(r.stdout+r.stderr,/restored to their original bytes/);assert.deepEqual(bytes(d),before);noBackups(d);
+});
+
+test("communication-kit synthetic candidate updates only its root version",opts,async()=>{
+ const d=fixture(),before=bytes(d),r=await bump(d,"communication-kit");assert.equal(r.status,0,r.stdout+r.stderr);
+ const m=JSON.parse(read(d,"plugins/communication-kit/plugin.json"));assert.equal(m.version,"0.2.0");assert.equal(m.description,"history 0.1.0");assert.equal(m.extensions.history.version,"0.1.0");
+ for(const p of files.filter(p=>p!=="plugins/communication-kit/plugin.json"))assert.deepEqual(fs.readFileSync(path.join(d,p)),before[p]);noBackups(d);
+});
+
+test("communication-kit post-write corruption restores every original byte",opts,async()=>{
+ const d=fixture(),before=bytes(d),r=await bump(d,"communication-kit",["-TestCorruptAfterWrite","1"],{MP_BUMP_TESTING:"1"});
+ assert.notEqual(r.status,0);assert.match(r.stdout+r.stderr,/post-write validation failed/);assert.deepEqual(bytes(d),before);noBackups(d);
+});
+
+test("communication-kit identity and From mismatches fail without writes",opts,async()=>{
+ for(const change of [{name:"explain-kit"},{version:"0.9.0"}]){
+ const d=fixture(),p=path.join(d,"plugins/communication-kit/plugin.json"),m=JSON.parse(read(d,"plugins/communication-kit/plugin.json"));
+ fs.writeFileSync(p,JSON.stringify({...m,...change},null,2)+"\n");const before=bytes(d),r=await bump(d,"communication-kit");
+ assert.notEqual(r.status,0);assert.deepEqual(bytes(d),before);noBackups(d);
+ }
+});
+
+test("absent communication-kit target fails before writes in apply and DryRun",opts,async()=>{
+ const d=fixture(),p=path.join(d,"plugins/communication-kit/plugin.json");fs.unlinkSync(p);
+ const existing=files.filter(rel=>rel!=="plugins/communication-kit/plugin.json"),before=Object.fromEntries(existing.map(rel=>[rel,fs.readFileSync(path.join(d,rel))]));
+ for(const extra of [[],["-DryRun"]]){
+ const r=await bump(d,"communication-kit",extra);assert.notEqual(r.status,0);assert.match(r.stdout+r.stderr,/required file missing/);assert.match(r.stdout+r.stderr,/NOTHING was written/);
+ assert.ok(!fs.existsSync(p));assert.deepEqual(Object.fromEntries(existing.map(rel=>[rel,fs.readFileSync(path.join(d,rel))])),before);noBackups(d);
+ }
 });

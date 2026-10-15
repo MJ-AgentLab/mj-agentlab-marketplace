@@ -1,0 +1,154 @@
+{
+  "recordedAt": "2026-10-14T19:19:15.302Z",
+  "status": "APPLIED_ENGINEERING_PENDING",
+  "sourceHead": "5855f2d52e2f34ee1da443d5128c7e4f27cc3fda",
+  "sourceTree": "f37057a5a54f1831abdc9bb4e22d12becb54f5a8",
+  "from": "0.1.29",
+  "to": "0.1.30",
+  "actualVersionDryRunChunk": "249d97",
+  "actualVersionApplyChunk": "04c0c7",
+  "approvedFreezeSha256": "5e5e1eeb1768fa75f386fff63a83c259619c66b405967b826ed2a4c7f7c4d5a2",
+  "resources": [
+    {
+      "relative": "SKILL.md",
+      "sourceSnapshot": "source29-originals/SKILL.md.snapshot.txt",
+      "sourceBytes": 4948,
+      "sourceSha256": "dbff8b0f1b829a0b560520d1ae988a87dd9a4142fc6c73ce3e7c25ca3f3096bc",
+      "draftPath": "draft/SKILL.md",
+      "draftBytes": 5409,
+      "draftSha256": "e9dddb6c3699e3aa4af9235247b490529982c882b55c0bd7e9d8e7405fd319bf",
+      "lfBytes": 5409,
+      "windowsCrlfBytes": 5445,
+      "changed": true,
+      "exactByteDelta": {
+        "offsetBytes": 1749,
+        "oldBytes": 0,
+        "newBytes": 461,
+        "oldText": "",
+        "newText": "拟列材料缺口前，先确认源规则实际适用范围，再代入全部实际前提。宽许可已覆盖的当前操作许可及明确结果不能改为未知。源未设次数、字段原值或额外历史条件时，不因这些事项未专述就新增门槛。未知只限真正未述结果、提示或额外路径；范围外对象或必需前提仍未知时，按既有方法保未知，不默认可操作。不得为谨慎添加无依据缺口。\n\n",
+        "forwardInverseExact": true
+      }
+    },
+    {
+      "relative": "references/guide-framework.md",
+      "sourceSnapshot": "source29-originals/references/guide-framework.md.snapshot.txt",
+      "sourceBytes": 8739,
+      "sourceSha256": "fe70ec7005dd564a1cef1e84691c85d4cac278c6b8de1578e87b348742fe7c9b",
+      "draftPath": "draft/references/guide-framework.md",
+      "draftBytes": 9117,
+      "draftSha256": "8a76449f64e07e61ae9b200111970e5643f7a0e6c181c8e7fef4186237b165f1",
+      "lfBytes": 9117,
+      "windowsCrlfBytes": 9188,
+      "changed": true,
+      "exactByteDelta": {
+        "offsetBytes": 5258,
+        "oldBytes": 327,
+        "newBytes": 705,
+        "oldText": "逐项保已知，只对剩余维度说未知；未知字段、额外意义、提示/重复细节不撤整个操作。非法尝试的许可与未述后果分记。宽“后续/能否”限定具体操作、维度、范围，不盖已知允许/禁止。前提未满仍匹配其他规则，不自动全禁、全保持或全未知",
+        "newText": "拟列缺口时，先确认源规则的实际对象/范围，再固定当前操作并代入全部实际前提。宽许可命中时保当前许可及明确结果；源未设次数、字段原值或额外历史要求时，不能因这些事项未再次单述而收窄为未知。只有真正剩余维度才未知：未知字段、额外意义、提示/重复细节不撤已知，非法尝试许可与未述后果分记。宽“后续/能否”仍限具体操作、维度、范围。当前单元未命中须匹配其他有关规则，不自动全禁、全保持或全未知；范围外或实际必需前提仍未知时，照原方法保未知，不默认可操作。不为谨慎自增前提或无依据缺口",
+        "forwardInverseExact": true
+      }
+    },
+    {
+      "relative": "references/interaction-design.md",
+      "sourceSnapshot": "source29-originals/references/interaction-design.md.snapshot.txt",
+      "sourceBytes": 7773,
+      "sourceSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "draftPath": "draft/references/interaction-design.md",
+      "draftBytes": 7773,
+      "draftSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "lfBytes": 7773,
+      "windowsCrlfBytes": 7836,
+      "changed": false
+    }
+  ],
+  "files": [
+    {
+      "path": "plugins/html-guide-kit/skills/guide/SKILL.md",
+      "beforeSha256": "dbff8b0f1b829a0b560520d1ae988a87dd9a4142fc6c73ce3e7c25ca3f3096bc",
+      "afterSha256": "e9dddb6c3699e3aa4af9235247b490529982c882b55c0bd7e9d8e7405fd319bf",
+      "bytes": 5409
+    },
+    {
+      "path": "plugins/html-guide-kit/skills/guide/references/guide-framework.md",
+      "beforeSha256": "fe70ec7005dd564a1cef1e84691c85d4cac278c6b8de1578e87b348742fe7c9b",
+      "afterSha256": "8a76449f64e07e61ae9b200111970e5643f7a0e6c181c8e7fef4186237b165f1",
+      "bytes": 9117
+    },
+    {
+      "path": "tests/html-guide-kit.test.mjs",
+      "beforeSha256": "fbdb8fb3a45fa1475dd3c6202c69c7702127004d05cfe8781e3331f5eae34961",
+      "afterSha256": "0340a20d532690a6a80c31299413154c77cd30b11e31e50880ddd49077330e4c",
+      "bytes": 14111
+    },
+    {
+      "path": "README.md",
+      "beforeSha256": "393af9883eb19d99db2914fa938da18d6d1d55b8bd0f3efaf9e4027afd256ef8",
+      "afterSha256": "df8505c779a8e04fdbd4a4173db09f692f94b75216fd140e8e7485a5614b2bce",
+      "bytes": 11013
+    },
+    {
+      "path": "CHANGELOG.md",
+      "beforeSha256": "86c1499c7d59096ea75f3ea7e1bfa8aa9b522b296f2f47c0985658ca4e8a0fc5",
+      "afterSha256": "caa34fbb74f42a89c467373156a766d8b482faa951ec2beecaea99edf364acfd",
+      "bytes": 211912
+    },
+    {
+      "path": "plugins/html-guide-kit/README.md",
+      "beforeSha256": "ce0e37240780916920a018fe103ee91bfe97e5541e8d81105fc33923339be847",
+      "afterSha256": "8620a5a20f1f8cc158d809bcf43289fff9b2bf5e3c4761bf6746b057ec592bad",
+      "bytes": 2443
+    },
+    {
+      "path": "plugins/html-guide-kit/CHANGELOG.md",
+      "beforeSha256": "4dfc67f71310c8a10496eabc987d1eb72a976e234e1053bb1692b320181476cb",
+      "afterSha256": "e11fa835b91ac91b4ab20c9cfe582749062c6220225a4ce2cdae0b68df921145",
+      "bytes": 18135
+    },
+    {
+      "path": "docs/guide/[GUIDE]_HTML_Guide_Kit.md",
+      "beforeSha256": "b88d35f36269e1249f81ceff8736693142c9a4c3eeb83c445bb78d62fa36f8ca",
+      "afterSha256": "173d21e43e8339c663a1b9ffc6c2d3733f57f5d81e06a5193f43ea00ec9638d5",
+      "bytes": 2803
+    },
+    {
+      "path": "docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md",
+      "beforeSha256": "a5eeb7caad54b603fe478105eefa016c07bbee6a9093f19c70599ef8888fea4a",
+      "afterSha256": "9928645f77e09420916159444f70b36818218575a5e2a5c41605c0c90fd373f9",
+      "bytes": 8702
+    },
+    {
+      "path": "docs/INDEX.md",
+      "beforeSha256": "f834bed6503b12117a659311f722ad04087cdf5f02f8b817d6a37a98a2da092d",
+      "afterSha256": "277da0c9cf0185beb50e58b319ebc70a5b6b7f9054ec611bd0ee323ee4c21452",
+      "bytes": 31768
+    },
+    {
+      "path": "docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md",
+      "beforeSha256": "7c466e75ca423c49b8af3637c5e13879c62b68cc32becf993d039560ea45ab43",
+      "afterSha256": "805acf255a8f41b72d3c01cc9949dc1d629d31cc43ac41c75418a810efa0c2f9",
+      "bytes": 197998
+    },
+    {
+      "path": "AGENTS.md",
+      "beforeSha256": "c5bb54fc06ad4553670c759dfcc6b05d5e4dd7886d7ef41622f554dbc3315360",
+      "afterSha256": "b9f5897054600f4d02a6e63d66fee5ce5326875c8bff2a0171211b3f7ae6239e",
+      "bytes": 16193
+    }
+  ],
+  "productChangedPaths": 13,
+  "AGENTSWindowsBytes": 16280,
+  "entryWindowsBytes": 5445,
+  "protected64": true,
+  "otherPlugin59": true,
+  "toolGit28": true,
+  "old29Protected362Stable": true,
+  "existingPureEvidenceStable": 0,
+  "fullTest": "NOT_STARTED_AT_APPLICATION",
+  "canonical": "NOT_COMMITTED",
+  "installation": "NOT_RUN",
+  "model": "NOT_RUN",
+  "client": "NOT_RUN",
+  "effect": "NOT_MEASURED",
+  "noCommitPush": true
+}

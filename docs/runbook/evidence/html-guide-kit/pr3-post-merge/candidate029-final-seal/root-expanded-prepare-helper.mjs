@@ -1,0 +1,17 @@
+import fs from 'node:fs';
+import {execFileSync} from 'node:child_process';
+const base='C:/Users/Admin/.codex/worktrees/html-guide-acceptance',root=base+'/reviewer/corrections/0-1-19',repo=base+'/develop';
+const [head,group]=process.argv.slice(2);
+if(!/^[a-f0-9]{40}$/.test(head??'')||!['main','repeat'].includes(group))throw Error('Actual canonical and group required');
+const engineering=JSON.parse(fs.readFileSync(root+'/engineering-'+head.slice(0,8)+'/summary.json'));
+if(engineering.canonicalSha!==head||!engineering.ok||engineering.scenarioCount!==13||engineering.actualPythonRuns!==6)throw Error('Actual 13/6 installation required');
+const previous=JSON.parse(fs.readFileSync(root+'/root-prepared-batch.json'));
+const core=JSON.parse(fs.readFileSync(previous.batchFile));
+const ids=group==='main'?'E1-visitor,E1-staff,E1-maintainer,E2,E3,E3-attribution,E4,E5,E15':'E13-repeated';
+const args=[root+'/expanded/harness.mjs','prepare','--repo',repo,'--canonical',head,'--variants',ids,'--baseline-default-proof',core.baselineCompatibility.proofPath,'--codex-command-json',JSON.stringify(core.vector)];
+if(group==='repeat')args.push('--plan',root+'/expanded/repeated-plan.json');
+const raw=execFileSync(process.execPath,args,{cwd:base,maxBuffer:8*1024*1024});
+fs.writeFileSync(base+'/tracking/019-root-expanded-'+group+'-prepare.log',raw,{flag:'wx'});
+const result=JSON.parse(raw);
+fs.writeFileSync(root+'/root-expanded-'+group+'-prepared.json',JSON.stringify({recordedAt:new Date().toISOString(),canonicalSha:head,actualPrepareExit:0,group,args,batchFile:result.batchFile,modelStatus:'NOT_RUN'},null,2)+'\n',{flag:'wx'});
+console.log(raw.toString());

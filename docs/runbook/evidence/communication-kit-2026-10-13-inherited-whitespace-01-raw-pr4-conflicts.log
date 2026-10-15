@@ -1,0 +1,88 @@
+M  .gitattributes
+UU AGENTS.md
+UU docs/INDEX.md
+UU docs/adr/[ADR]_Communication_Kit_Addition.md
+M  docs/guide/[GUIDE]_Communication_Communicate.md
+UU docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md
+UU docs/spec/[SPEC]_Communication_Communicate.md
+M  tests/fixtures/communication-kit/cases.json
+M  tests/fixtures/communication-kit/rubric.md
+diff --cc AGENTS.md
+index d12b879,fdc4f09..0000000
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@@ -76,6 -76,4 +76,10 @@@ Learning当前收尾：main/tag/publish
+  
+  Communication PR3已普通继承PR2 c198f5c及最新#236/develop98068a8的文档收尾，VERSION/badge8.2.1保持；生产包、脚本/测试/注册与cf63337零新差异，仍五包七技能/四显式/普通三/开发20。正式仅D/L/E/Comm四包六技能，HTML留develop；旧失败、CLI PARTIAL及限定UI身份保持，未重跑安装或客户端。当前head批准、CI/线程及保护合并另核对，Refs #222。
+  
+++<<<<<<< HEAD
+ +Communication PR4普通合入PR3 c6d40a8与最新develop98068a8，仅同步文档/evidence；VERSION/badge8.3.0、根8.3及Comm0.1正式CH保持，不重复bump。当前仍五包七技能/四显式，正式仅四包六技能、HTML另发；生产与48437be零新差异，Comm170fcad除CH外与实际UI源000e803一致。历史失败/PARTIAL与限定客户端身份保留，实际phase merge、批准、正式四包及R未完成，见[8.3账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)，Refs #222。
+ +
+ +收尾原日志见[证据](docs/runbook/evidence/communication-kit-2026-10-13-closeout-sync-01.json)；原字节保留，AI审查不替代GitHub批准。
+++=======
++ PR3继承空白修复检查完整PR范围；冻结计划、来源及原失败证据保留原字节。
+++>>>>>>> df19ce37db58448132ac1cec8cce52d9608260bf
+diff --cc docs/INDEX.md
+index d8ebe22,9073868..0000000
+--- a/docs/INDEX.md
++++ b/docs/INDEX.md
+@@@ -6,7 -6,7 +6,11 @@@ owner: marketplace-maintainer
+  created: 2026-10-09
+  updated: 2026-10-13
+  state: active
+++<<<<<<< HEAD
+ +version: v2.25
+++=======
++ version: v2.23.1
+++>>>>>>> df19ce37db58448132ac1cec8cce52d9608260bf
+  ---
+  
+  # 文档索引
+diff --cc docs/adr/[ADR]_Communication_Kit_Addition.md
+index 7373849,4715dcb..0000000
+--- a/docs/adr/[ADR]_Communication_Kit_Addition.md
++++ b/docs/adr/[ADR]_Communication_Kit_Addition.md
+@@@ -6,7 -6,7 +6,11 @@@ owner: marketplace-maintainer
+  created: 2026-10-12
+  updated: 2026-10-13
+  state: draft
+++<<<<<<< HEAD
+ +version: v1.4
+++=======
++ version: v1.3.1
+++>>>>>>> df19ce37db58448132ac1cec8cce52d9608260bf
+  ---
+  
+  # [ADR] Communication Kit addition
+diff --cc docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md
+index 0f3a8e8,d13556f..0000000
+--- a/docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md
++++ b/docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md
+@@@ -6,7 -6,7 +6,11 @@@ owner: marketplace-maintainer
+  created: 2026-10-12
+  updated: 2026-10-13
+  state: draft
+++<<<<<<< HEAD
+ +version: v1.13
+++=======
++ version: v1.7.1
+++>>>>>>> df19ce37db58448132ac1cec8cce52d9608260bf
+  ---
+  
+  # [RUNBOOK] Communication Kit acceptance
+diff --cc docs/spec/[SPEC]_Communication_Communicate.md
+index 6f72a8e,5d47970..0000000
+--- a/docs/spec/[SPEC]_Communication_Communicate.md
++++ b/docs/spec/[SPEC]_Communication_Communicate.md
+@@@ -6,7 -6,7 +6,11 @@@ owner: marketplace-maintainer
+  created: 2026-10-12
+  updated: 2026-10-13
+  state: draft
+++<<<<<<< HEAD
+ +version: v1.5
+++=======
++ version: v1.4.1
+++>>>>>>> df19ce37db58448132ac1cec8cce52d9608260bf
+  ---
+  
+  # [SPEC] Communication Communicate

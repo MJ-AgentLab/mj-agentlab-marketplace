@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T13:24:15.779Z",
+  "reviewer": "/root/behavior_014_b",
+  "status": "STATIC_ONLY",
+  "result": "SCOPED_CROPS_READY_FOR_PUBLICATION",
+  "sourceCanonical": "71e2e1bc2bf110b7a3f93ee0db73cb4c8b5c2248",
+  "sourceVersion": "0.1.22",
+  "actualExtraction": {
+    "chunk": "542060",
+    "exitCode": 0,
+    "method": "Deterministic rectangular original-pixel extraction; decoded RGBA equals the original rectangular region pixel for pixel",
+    "crop": {
+      "x": 920,
+      "y": 95,
+      "width": 780,
+      "height": 1280
+    },
+    "sourceWidth": 2560,
+    "sourceHeight": 1392,
+    "pixelsComparedPerImage": 998400,
+    "noAIOrRedrawing": true,
+    "noResampling": true,
+    "noUiOrModelOperation": true
+  },
+  "files": [
+    {
+      "case": "codex",
+      "originalSha256": "183d712b69da6e9221de3665d2d41985a3fa26e251a1a66ad934005277ebfeb5",
+      "outputFilename": "codex-guide-delivered-scoped-crop.png",
+      "outputBytes": 452938,
+      "outputSha256": "11d748376aa9f644c76706a280d34ac908ff3f2858a16982e2437ac1fc0be658",
+      "sourceRegionAndDecodedOutputRgbaSha256": "5771ab99325fb9ba98c05a18c38986c33049e07dccbd41e5adb640bd0c6f6d1b",
+      "pixelInverseExact": true
+    },
+    {
+      "case": "work",
+      "originalSha256": "cda41613751e99bcc5f911b0b53338c5dd106a252b82d7c98bdc7efeeb899984",
+      "outputFilename": "work-guide-delivered-scoped-crop.png",
+      "outputBytes": 385977,
+      "outputSha256": "304600c3629ceeb0591aa36c301dfe14ec007b545daf034906d428a494b696f7",
+      "sourceRegionAndDecodedOutputRgbaSha256": "9b03b7a7f2515b4e505349d4517f3a4a016917277b660137dd5a3a3c7e82d8e4",
+      "pixelInverseExact": true
+    }
+  ],
+  "independentVisualFindings": {
+    "bothCropsActuallyViewed": true,
+    "onlyMeasuredConversationAndItsComposerVisible": true,
+    "otherTaskToastExcluded": true,
+    "avatarPetAndSidebarExcluded": true,
+    "applicationChromeExcluded": true,
+    "unselectedSecondReplyVisible": true,
+    "nonrecommendedOptionTwoSelectionVisible": true,
+    "deliveredGuideBeginningVisible": true,
+    "completeGuideLowerSectionsVisible": false,
+    "actualModelLabelVisible": "GPT-6.1 Sol High",
+    "workComposerVisible": "Work with ChatGPT",
+    "codexComposerVisible": true
+  },
+  "correction": {
+    "originalWholeWindowImages": "Keep local/private; source pixels unchanged. The originals include the engineering parent task toast and are not strictly own-UUID-only images.",
+    "originalCProofSha256": "b6fc819656441e1a392b3c18900fb9ae688d7cfb5f655956601ed659950212bf",
+    "originalCClarificationSha256": "78aa685cf641e761aaac27b6405b159b11020485873d1ba72611cb863a21c59f",
+    "additionalClarification": "The earlier ownTaskTitleOnly:true applies to the revised crops, not to the original full-window images with a parent-task toast. This supplemental correction does not edit either original proof. Native full-guide semantic reviews rely on actual SDK answers, not unseen lower screenshot sections.",
+    "repositoryReplacementOwnedBy": "/root",
+    "repositoryImagesReplacedByReviewer": false
+  },
+  "priorError": {
+    "chunk": "1866c9",
+    "outerExitCode": 0,
+    "actualStatus": "FAILED_COMPILATION_NO_CROP",
+    "reason": "PowerShell nonterminating Add-Type assembly-reference errors; null result records not a pixel proof",
+    "originalPreservedAt": "../scoped-image-extracts/actual-first-error-receipt.json",
+    "correctedMethod": "New r2 script uses Windows .NET runtime and terminating errors"
+  },
+  "scopeLimits": {
+    "runtime023EvidenceReusable": false,
+    "allWindowPathsPassed": false,
+    "realEffect": "NOT_MEASURED",
+    "githubApproval": false,
+    "existingIndependentSemanticResultsRejudged": false
+  }
+}

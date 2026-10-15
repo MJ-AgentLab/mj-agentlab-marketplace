@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T16:51:26.963Z",
+  "reviewer": "/root",
+  "operator": "/root/precommit_014",
+  "canonicalSha": "00d59da3099113ccbf3db73b84787c526eedd713",
+  "canonicalTree": "edc69b137e5473c6e7307120a81c9e091764d673",
+  "version": "0.1.27",
+  "variant": "B1.2-delayed",
+  "uuid": "01a13b44-1510-7723-8a8e-efd6e13f5451",
+  "attemptId": "38135f2b-f3c0-48d3-aa74-65c77853363b",
+  "actualTurns": 3,
+  "primaryBehavior": "PASS",
+  "overallResult": "FAIL",
+  "finding": {
+    "fullReads": [
+      "5430d4"
+    ],
+    "primary": "PASS",
+    "location": "T3 §三归还",
+    "quote": "材料未规定“已归还”后能否重新核验或再次领取，不得自行补充。",
+    "reason": "The unknown question includes a current direct collection operation already forbidden by source §4 other-state coverage. No local additional-path restriction excludes that known question.",
+    "notes": [
+      "Modified reader/task waits until explicit confirmation, then keeps original understanding questions.",
+      "Local field comparison is not automatically an exhaustive inventory of source restoration actions."
+    ]
+  },
+  "rawInputOutputPins": [
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.2-delayed\\38135f2b-f3c0-48d3-aa74-65c77853363b\\01.input.txt",
+      "bytes": 989,
+      "sha256": "09b7ff73839eec700685f72c5ae82cabe8bcdbf91416e157e48c6cae8944e6ed"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.2-delayed\\38135f2b-f3c0-48d3-aa74-65c77853363b\\01.output.txt",
+      "bytes": 3379,
+      "sha256": "f8f835008b7222082b27e784ce84c1baeb01b0ccf3ad289fe4011daa1e32a01c"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.2-delayed\\38135f2b-f3c0-48d3-aa74-65c77853363b\\02.input.txt",
+      "bytes": 133,
+      "sha256": "3961b1ba9c09ccf3adbc732aaf19965fe0dbc0503bba5b810ee5162317ce0388"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.2-delayed\\38135f2b-f3c0-48d3-aa74-65c77853363b\\02.output.txt",
+      "bytes": 856,
+      "sha256": "f5c5be40c0dcd40f7971f6bbe3330aa40a25fdef80f72788a91081714a170f74"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.2-delayed\\38135f2b-f3c0-48d3-aa74-65c77853363b\\03.input.txt",
+      "bytes": 43,
+      "sha256": "6b89a74c6d035fb6440da4cb0320de40d5d57390ce797f9c847362b8c4697fb1"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.2-delayed\\38135f2b-f3c0-48d3-aa74-65c77853363b\\03.output.txt",
+      "bytes": 8729,
+      "sha256": "05baf45267ea5c68ebb4c76e5c6c0a1cc84fdd6adedfb234a71e5f54c625de3c"
+    }
+  ],
+  "technicalReview": "SEPARATE_ACTUAL_SDK_REVIEW_PENDING",
+  "noNewInputsOrRegradingPriorVersions": true,
+  "effectStatus": "NOT_MEASURED"
+}

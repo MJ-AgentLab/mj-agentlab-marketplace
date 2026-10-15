@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "kind": "lossless-reviewer-packet",
+  "scope": "packer-preparation-errors",
+  "entries": [
+    {
+      "relativeOriginalPath": "packer-preparation-errors/source23-builder-first-failure.json",
+      "originalAbsolutePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-preparation-errors\\source23-builder-first-failure.json",
+      "sha256": "8717df4d18f164a0544b08018609cc0ac3e08437d408ab18787228f1e8aacabc",
+      "bytes": 1102,
+      "encoding": "utf8",
+      "content": "{\n  \"recordedAt\": \"2026-10-14T14:25:35.476Z\",\n  \"actualToolChunk\": \"3a999a\",\n  \"actualOuterExit\": 1,\n  \"command\": [\n    \"node\",\n    \"../reviewer/build-pack-036-behavior-b.mjs\"\n  ],\n  \"originalBuilder\": {\n    \"file\": \"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\reviewer\\\\build-pack-036-behavior-b.mjs\",\n    \"bytes\": 22182,\n    \"sha256\": \"6332cd0df73089de260b8a70aaa0b5238155aa8e9e109d70bde494427e3f4731\"\n  },\n  \"actualError\": \"Error: Original unique attempt mapping at build-pack-036-behavior-b.mjs:46:316\",\n  \"diagnosis\": \"The original Root combined UNEXERCISED report has no attemptId field. It has an exact actual UUID, and that maps uniquely to the actual original batch attempt. The mapper incorrectly required an absent field, before any archive/provenance target write.\",\n  \"repair\": \"NEW r2 reads exact existing report fields without mutation or adapter; when attemptId is absent, separately records actual batch attempt mapping and originalAttemptFieldPresent=false.\",\n  \"originalReportOrRawChanged\": false,\n  \"gradeOrModelUiCalled\": false,\n  \"initialPreparationPass\": false\n}\n"
+    },
+    {
+      "relativeOriginalPath": "packer-preparation-errors/source23-builder-fourth-failure.json",
+      "originalAbsolutePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-preparation-errors\\source23-builder-fourth-failure.json",
+      "sha256": "0acda63171bd08cf92db5064dc36c6c94e12793d28b85a001249205b84a67b1a",
+      "bytes": 1137,
+      "encoding": "utf8",
+      "content": "{\n  \"recordedAt\": \"2026-10-14T14:28:28.575Z\",\n  \"actualToolChunk\": \"aae30d\",\n  \"actualOuterExit\": 1,\n  \"originalBuilder\": {\n    \"file\": \"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\reviewer\\\\build-pack-036-r4-behavior-b.mjs\",\n    \"bytes\": 22813,\n    \"sha256\": \"ea6c1cd045ef0e2daa19832d7b662574cf9ffeb9080caab818c838625327b867\"\n  },\n  \"actualError\": \"Exact marker missing: archive034 is PREP_ONLY until stopped original report snapshot is verified without resolving pending reviews\",\n  \"diagnosis\": \"The earlier archive034→archive036 replacement had already changed a later diagnostic-text anchor. All original runtime, report and engineering checks passed; only the ordered external generated diagnostic marker failed.\",\n  \"repair\": \"NEW r5 anchor refers to the already-transformed archive036 diagnostic. Every ordered identity/text delta was preflighted against the unchanged034 source before invoking r5.\",\n  \"r4PartialWrites\": \"External own closure/accounting/context/reference/tracking records only, original r4 retained. No packer/control/repository target or model/grade created.\",\n  \"r4PreparationPass\": false\n}\n"
+    },
+    {
+      "relativeOriginalPath": "packer-preparation-errors/source23-builder-second-failure.json",
+      "originalAbsolutePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-preparation-errors\\source23-builder-second-failure.json",
+      "sha256": "1670fa2d1739b9e24da955454822055819e4399ff51be5384a82d11dff35059c",
+      "bytes": 1016,
+      "encoding": "utf8",
+      "content": "{\n  \"recordedAt\": \"2026-10-14T14:26:14.520Z\",\n  \"actualToolChunk\": \"ecad25\",\n  \"actualOuterExit\": 1,\n  \"priorNewCopierExecutedSuccessfully\": true,\n  \"r2BuilderFailed\": true,\n  \"originalBuilder\": {\n    \"file\": \"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\reviewer\\\\build-pack-036-r2-behavior-b.mjs\",\n    \"bytes\": 22457,\n    \"sha256\": \"2beeec30e0d049986fd8f99a915178efe8c03d778dd8cc14470397ad34ecff27\"\n  },\n  \"actualError\": \"Error: Original operator raw array at build-pack-036-r2-behavior-b.mjs:50:78\",\n  \"diagnosis\": \"B original completed-report exposes its39 immutable raw pins under rawSnapshot. The preparation-only accessor incorrectly used a previous schema key originalRawSnapshot.\",\n  \"repair\": \"NEW r3 accessor exact original rawSnapshot, no report/schema mutation or adapter. Independently read A rawPins75/B rawSnapshot39/C originalRawPins40 before this repair.\",\n  \"archiveTargetsAbsentAtFailure\": true,\n  \"actualModelsGradesUiOrOriginalWrites\": 0,\n  \"initialOrR2PreparationPass\": false\n}\n"
+    },
+    {
+      "relativeOriginalPath": "packer-preparation-errors/source23-builder-third-failure.json",
+      "originalAbsolutePath": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-preparation-errors\\source23-builder-third-failure.json",
+      "sha256": "56ca0786fa3d5a39073bfc826eadb1dd1c5a815d93c68bf82710982994981ad4",
+      "bytes": 1187,
+      "encoding": "utf8",
+      "content": "{\n  \"recordedAt\": \"2026-10-14T14:27:31.504Z\",\n  \"actualToolChunk\": \"c5d457\",\n  \"actualOuterExit\": 1,\n  \"originalBuilder\": {\n    \"file\": \"C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-guide-acceptance\\\\reviewer\\\\build-pack-036-r3-behavior-b.mjs\",\n    \"bytes\": 22585,\n    \"sha256\": \"4a5d0fdfff62f0838781c4537d41b1b003cc704e684ed35b0fefe13e47d997bb\"\n  },\n  \"actualError\": \"Error: Exact13/6 immutable canonical gate at build-pack-036-r3-behavior-b.mjs:66:59\",\n  \"diagnosis\": \"Source23 canonical engineering has26 files:24 canonical check raw plus2 outer receipts. Its summary has scenarios13 with6 nonnull actualCachePython observations, not the prior scalar scenarioCount/actualPythonRuns schema. The builder had already verified all26 external/repository file bytes equal before its incorrect scalar/count assertion.\",\n  \"repair\": \"NEW r4 exact source schema and new external provenance directory; original r3 partial context/tracking snapshots and error remain. No repacking original reports, no duplicate model or grade.\",\n  \"r3PartialWrites\": \"Only external closure/task-scope/mechanism/tracking snapshots; packer/control and repository target not created.\",\n  \"r3PreparationPass\": false\n}\n"
+    }
+  ]
+}

@@ -5,16 +5,28 @@ import path from "node:path";
 import crypto from "node:crypto";
 import os from "node:os";
 import {spawnSync} from "node:child_process";
-import {validateManifest,validateSkill,validateSkillInterface,validateRepository,validateOpenAIConfig,parseFrontmatter,validateLinks,REPOSITORY_SKILLS,PUBLIC_SKILLS} from "../scripts/validate-portable.mjs";
+import {validateManifest,validateSkill,validateSkillInterface,validateRepository,validateOpenAIConfig,parseFrontmatter,validateLinks,validateCommunicationSnapshot,resolveOwnedResource,COMMUNICATION_REFERENCES,REPOSITORY_SKILLS,PUBLIC_SKILLS} from "../scripts/validate-portable.mjs";
 const root=path.resolve(import.meta.dirname,".."), read=p=>fs.readFileSync(path.join(root,p),"utf8");
+test("communication listing and native prompts stay within the actual client budget",()=>{
+ const source=JSON.parse(read("plugins/communication-kit/plugin.json"));
+ const native=read("plugins/communication-kit/skills/communicate/agents/openai.yaml");
+ const prefix="Use $communication-kit:communicate ";
+ for(const length of [128,129]){
+  const prompt=prefix+"x".repeat(length-prefix.length),m=structuredClone(source);
+  m.extensions["com.openai"].interface.defaultPrompt=[prompt];
+  const yaml=native.replace(/default_prompt: "[^"]+"/,'default_prompt: "'+prompt+'"');
+  if(length===128){assert.doesNotThrow(()=>validateManifest(m));assert.doesNotThrow(()=>validateOpenAIConfig(yaml,"communication-kit","communicate"));}
+  else{assert.throws(()=>validateManifest(m),/at most 128 Unicode scalar values/);assert.throws(()=>validateOpenAIConfig(yaml,"communication-kit","communicate"),/128-character/);}
+ }
+});
 const manifest=()=>JSON.parse(read("plugins/diagram-kit/plugin.json"));
-test("three approved portable plugins and all 20 repository skills satisfy contracts",()=>{
+test("five approved portable plugins, seven public skills and all 20 repository skills satisfy contracts",()=>{
  const r=validateRepository(root);assert.equal(r.ok,true,r.errors.join("\n"));assert.equal(r.repositorySkills,20);assert.deepEqual(r.publicSkills,[...PUBLIC_SKILLS]);
 });
 test("strict repository validation rejects every retired instruction surface",t=>{
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),"retired-instructions-"));
  t.after(()=>fs.rmSync(dir,{recursive:true,force:true}));
- for(const p of ["assets",".agents",".codex",".github","scripts","tests","plugins","docs","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])
+ for(const p of ["assets",".agents",".codex",".github","scripts","tests","plugins","docs","plan","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])
  fs.cpSync(path.join(root,p),path.join(dir,p),{recursive:true});
  assert.equal(validateRepository(dir).ok,true);
  for(const rel of ["CLAUDE.md",".claude",".claude-plugin"]){
@@ -43,7 +55,7 @@ test("manifest identity and default prompts cannot route into another plugin",()
  m.name=["diagram-kit"];assert.throws(()=>validateManifest(m));
 });
 test("each plugin advertises its exact approved capabilities without duplicates",()=>{
- for(const [plugin,approved] of [["diagram-kit",["Read","Write"]],["learning-evidence-kit",["Read","Write"]]]){
+ for(const [plugin,approved] of [["diagram-kit",["Read","Write"]],["learning-evidence-kit",["Read","Write"]],["explain-kit",["Read"]],["html-guide-kit",["Read"]],["communication-kit",["Read","Write"]]]){
   const m=JSON.parse(read(`plugins/${plugin}/plugin.json`));const ui=m.extensions["com.openai"].interface;
   ui.capabilities=[...approved];assert.doesNotThrow(()=>validateManifest(m,plugin));
   ui.capabilities=[...approved].reverse();assert.doesNotThrow(()=>validateManifest(m,plugin));
@@ -58,7 +70,7 @@ test("native pop-quiz metadata requires a boolean explicit-only policy",()=>{
 });
 function repositoryFixture(t){
  const dir=fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()),"portable-inventory-"));t.after(()=>fs.rmSync(dir,{recursive:true,force:true}));
- for(const p of ["assets",".agents",".codex",".github","scripts","tests","plugins","docs","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])fs.cpSync(path.join(root,p),path.join(dir,p),{recursive:true});
+ for(const p of ["assets",".agents",".codex",".github","scripts","tests","plugins","docs","plan","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])fs.cpSync(path.join(root,p),path.join(dir,p),{recursive:true});
  return dir;
 }
 test("catalog rejects missing, duplicate, unknown, versioned and escaped plugin entries",t=>{
@@ -98,12 +110,16 @@ test("archive origins are reproducible Git blobs and preserve source versions",(
 });
 
 test("each plugin rejects extra skills, missing files and swapped manifest identities",t=>{
- const dir=repositoryFixture(t),plugin=path.join(dir,"plugins/explain-kit"),extra=path.join(plugin,"skills/extra");
- fs.mkdirSync(extra);assert.equal(validateRepository(dir).ok,false);fs.rmdirSync(extra);
- const skill=path.join(plugin,"skills/concept/SKILL.md"),text=fs.readFileSync(skill);fs.unlinkSync(skill);assert.equal(validateRepository(dir).ok,false);fs.writeFileSync(skill,text);
- const file=path.join(plugin,"plugin.json"),original=fs.readFileSync(file);fs.writeFileSync(file,read("plugins/diagram-kit/plugin.json"));
- assert.ok(validateRepository(dir).errors.some(e=>e.includes("identity/version")));fs.writeFileSync(file,original);
- assert.equal(validateRepository(dir).ok,true);
+ const dir=repositoryFixture(t);
+ for(const [name,entry] of [["diagram-kit","arch-diagram"],["learning-evidence-kit","pop-quiz"],["learning-evidence-kit","learning-record-check"],["explain-kit","concept"],["communication-kit","communicate"],["html-guide-kit","guide"]]){
+  const plugin=path.join(dir,"plugins",name),extra=path.join(plugin,"skills/extra");
+  fs.mkdirSync(extra);assert.equal(validateRepository(dir).ok,false);fs.rmdirSync(extra);
+  const skill=path.join(plugin,"skills",entry,"SKILL.md"),text=fs.readFileSync(skill);fs.unlinkSync(skill);assert.equal(validateRepository(dir).ok,false);fs.writeFileSync(skill,text);
+  const file=path.join(plugin,"plugin.json"),original=fs.readFileSync(file),foreign=name==="diagram-kit"?"explain-kit":"diagram-kit";
+  fs.writeFileSync(file,read(`plugins/${foreign}/plugin.json`));
+  assert.ok(validateRepository(dir).errors.some(e=>e.includes("identity/version")));fs.writeFileSync(file,original);
+  assert.equal(validateRepository(dir).ok,true);
+ }
 });
 
 test("manifest discovery prompts cover only the package's complete public skill set",()=>{
@@ -161,6 +177,61 @@ test("skill display configuration rejects wrong entry points and implicit-policy
  assert.throws(()=>validateSkillInterface(text,"explain-kit:concept"));
  assert.throws(()=>validateSkillInterface(text.replace("allow_implicit_invocation: true","allow_implicit_invocation: false"),"explain-kit:glossary"));
  assert.throws(()=>validateSkillInterface(text+"policy: {}\n","explain-kit:glossary"));
+});
+
+test("communication manifest and native metadata require the owned explicit entry",()=>{
+ const source=()=>JSON.parse(read("plugins/communication-kit/plugin.json")),text=read("plugins/communication-kit/skills/communicate/agents/openai.yaml");
+ validateManifest(source(),"communication-kit");validateSkillInterface(text,"communication-kit:communicate");
+ for(const prompt of ["Write this message","Use $communication-kit:other","Use $explain-kit:glossary","Use $communication-kit:communicate and $diagram-kit:arch-diagram"]){const m=source();m.extensions["com.openai"].interface.defaultPrompt=[prompt];assert.throws(()=>validateManifest(m));}
+ for(const yaml of [text.replace("allow_implicit_invocation: false","allow_implicit_invocation: true"),text.replace("allow_implicit_invocation: false",'allow_implicit_invocation: "false"'),text.replace(/  allow_implicit_invocation: false\r?\n/,""),text+"policy:\n  allow_implicit_invocation: false\n",text.replace("$communication-kit:communicate","$explain-kit:concept")])assert.throws(()=>validateSkillInterface(yaml,"communication-kit:communicate"));
+ const skill=read("plugins/communication-kit/skills/communicate/SKILL.md");assert.throws(()=>validateSkill(skill.replace(/name: communicate\r?\n/,"name: communicate\nmetadata: {}\n"),"communicate"),/approved fields/);
+});
+
+function communicationFixture(t){
+ const dir=fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()),"communication-freeze-"));
+ t.after(()=>{const rel=path.relative(fs.realpathSync(os.tmpdir()),fs.realpathSync(dir));assert.ok(rel&&!rel.startsWith("..")&&!path.isAbsolute(rel));fs.rmSync(dir,{recursive:true,force:true});});
+ const skill=path.join(dir,"skill");fs.cpSync(path.join(root,"plugins/communication-kit/skills/communicate"),skill,{recursive:true});
+ const file=path.join(skill,"references/aics-snapshot.json"),snapshot=JSON.parse(fs.readFileSync(file,"utf8"));
+ return {dir,skill,file,snapshot,write:s=>fs.writeFileSync(file,JSON.stringify(s))};
+}
+test("frozen snapshot validates entirely from owned bytes without accessing research paths",t=>{
+ const f=communicationFixture(t);
+ for(const source of f.snapshot.sources){source.path="unavailable-source:"+source.id;source.git.repo="unavailable-repository:"+source.id;}
+ f.write(f.snapshot);assert.equal(validateCommunicationSnapshot(f.skill).summaries.length,3);
+});
+test("frozen snapshot rejects malicious fields, dates, references and inconsistent Git states",t=>{
+ const f=communicationFixture(t),valid=f.snapshot;
+ const variants=[
+  s=>{s.extra=true;},s=>{delete s.snapshotId;},s=>{s.schemaVersion="1";},s=>{s.status="adopted";},s=>{s.timezone="UTC";},
+  s=>{s.capturedAt="2026-02-30T01:00:00Z";},s=>{s.capturedAt="2026-10-12T24:00:00Z";},s=>{s.capturedAt="2026-10-12T09:27:33+00:00";},s=>{s.capturedAt=null;},s=>{s.captureDate="2026-10-13";},s=>{s.captureDate="2026-02-30";},
+  s=>{s.sources={};},s=>{s.sources.pop();},s=>{s.sources.push(s.sources[0]);},s=>{s.sources[1].id=s.sources[0].id;},s=>{s.sources[0].id="unknown";},
+  s=>{s.sources[0].extra=true;},s=>{s.sources[0].title=[];},s=>{s.sources[0].path=null;},s=>{s.sources[0].updated="2026-02-30";},s=>{s.sources[0].sha256="A".repeat(64);},s=>{s.sources[0].sections=[];},s=>{s.sources[0].sections.push(s.sources[0].sections[0]);},
+  s=>{s.sources[0].git.dirty="true";},s=>{s.sources[0].git.dirty=false;},s=>{s.sources[0].git.head="bad";},s=>{s.sources[0].git.status={};},s=>{s.sources[0].git.status.push(s.sources[0].git.status[0]);},s=>{s.sources[0].git.status=["not porcelain"];},s=>{s.sources[0].git.status[0]+="\ninjected";},s=>{s.sources[0].git.fileState="clean";},s=>{s.sources[1].git.fileState="modified";},s=>{s.sources[0].git.extra=true;},
+  s=>{s.summaries={};},s=>{s.summaries.pop();},s=>{s.summaries[0].path="../outside.md";},s=>{s.summaries[0].path="D:/outside.md";},s=>{s.summaries[1].path=s.summaries[0].path;},s=>{s.summaries[0].sha256="0".repeat(64);},s=>{s.summaries[0].sourceIds=["unknown"];},s=>{s.summaries[0].sourceIds=[];},s=>{s.summaries[0].extra=true;},
+  s=>{s.mapping=[];},s=>{s.mapping.push(s.mapping[0]);},s=>{s.mapping[0].sourceId="unknown";},s=>{s.mapping[0].section="missing";},s=>{s.mapping[0].summarySection="missing heading";},s=>{s.mapping[0].summaryPath="./outside.md";},s=>{s.mapping[0].reason="";},s=>{s.mapping[0].disposition="adopt";},s=>{s.mapping[0].extra=true;},
+  s=>{s.mapping.find(m=>m.disposition==="exclude").summaryPath="./aics-policy.md";},s=>{s.mapping.find(m=>m.disposition==="exclude").summarySection="AICS 精选运行摘要";},
+  s=>{s.summaries[0].sourceIds=["RN-02"];},s=>{s.mapping=s.mapping.filter(m=>m.summaryPath!=="./task-patterns.md");},s=>{s.mapping=s.mapping.filter(m=>m.sourceId!=="RN-02");},
+ ];
+ for(const mutate of variants){const s=structuredClone(valid);mutate(s);f.write(s);assert.throws(()=>validateCommunicationSnapshot(f.skill),mutate.toString());}
+ f.write(valid);assert.doesNotThrow(()=>validateCommunicationSnapshot(f.skill));
+ fs.writeFileSync(f.file,JSON.stringify(valid).replace('"schemaVersion":1','"schemaVersion":1,"schemaVersion":1'));assert.throws(()=>validateCommunicationSnapshot(f.skill),/duplicate/);
+ const boundary=structuredClone(valid);boundary.capturedAt="2026-10-11T23:59:59.123Z";boundary.captureDate="2026-10-12";f.write(boundary);assert.doesNotThrow(()=>validateCommunicationSnapshot(f.skill));
+});
+test("frozen snapshot detects every missing or altered reference and ignores fenced fake headings",t=>{
+ const f=communicationFixture(t);
+ for(const reference of COMMUNICATION_REFERENCES){const file=path.join(f.skill,reference),bytes=fs.readFileSync(file);fs.unlinkSync(file);assert.throws(()=>validateCommunicationSnapshot(f.skill));fs.writeFileSync(file,bytes);if(reference.endsWith(".md")){fs.appendFileSync(file,"\nchanged\n");assert.throws(()=>validateCommunicationSnapshot(f.skill),/SHA-256/);fs.writeFileSync(file,bytes);}}
+ const file=path.join(f.skill,"references/aics-policy.md");fs.appendFileSync(file,"\n```text\n# Pretend heading\n```\n");
+ f.snapshot.summaries[0].sha256=crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");f.snapshot.mapping[0].summarySection="Pretend heading";f.write(f.snapshot);assert.throws(()=>validateCommunicationSnapshot(f.skill),/heading/);
+});
+test("frozen references reject traversal, non-files and internal or external junction components",t=>{
+ const f=communicationFixture(t);
+ for(const reference of ["../outside","./../outside","/outside","C:/outside","./C:/outside","./references/../aics-policy.md","./references//aics-policy.md","./references\\aics-policy.md","./references/aics-policy.md\0","./references"]){assert.throws(()=>resolveOwnedResource(f.skill,reference));}
+ const refs=path.join(f.skill,"references"),owned=path.join(f.skill,"original-references");fs.renameSync(refs,owned);
+ for(const target of [owned,path.join(f.dir,"outside")]){
+  if(!fs.existsSync(target))fs.cpSync(owned,target,{recursive:true});
+  fs.symlinkSync(target,refs,process.platform==="win32"?"junction":"dir");assert.throws(()=>validateCommunicationSnapshot(f.skill),/symlink|junction|reparse/);fs.unlinkSync(refs);
+ }
+ fs.renameSync(owned,refs);assert.doesNotThrow(()=>validateCommunicationSnapshot(f.skill));
 });
 
 test('both learning evidence skills remain explicitly invoked',()=>{

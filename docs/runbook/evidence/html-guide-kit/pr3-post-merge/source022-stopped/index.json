@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T11:59:44.834Z",
+  "version": "0.1.22",
+  "sourceCanonical": "aac6fc9cff27dff8b6fb694a1286ff12104332e9",
+  "recordsHead": "c3a2d063f2b77b55f5480ee0d1e558e4c82b72de",
+  "actualFreshUuids": 10,
+  "actualInputs": 20,
+  "actualComplete": 20,
+  "actualInvalid": 0,
+  "cohorts": {
+    "A": {
+      "uuids": 3,
+      "complete": 7
+    },
+    "B": {
+      "uuids": 4,
+      "complete": 5
+    },
+    "C": {
+      "uuids": 3,
+      "complete": 8
+    }
+  },
+  "marker": "2026-10-14T11:48:51.2237684Z",
+  "modelCallsCrossingOrAfterMarker": 0,
+  "assessment": "INCOMPLETE_WITH_CONFIRMED_FAILURES",
+  "confirmedFailures": [
+    "B1.1: source8 falsely used to exclude negative stock and suppress covered return result",
+    "B6.1: local reset relation points only to source1 initial values and omits source7 clear-current-operations"
+  ],
+  "partialOrPending": [
+    "B4.1 only T1; no selection/simulation turn",
+    "B1.2-combined only T1; no amended confirmation turn",
+    "B1.2-delayed primary amended selection PASS; whole-guide fidelity assessment pending"
+  ],
+  "notRun": [
+    "B4.2",
+    "B5.1",
+    "B5.2",
+    "B2.1",
+    "extensions",
+    "repeat",
+    "supplementary",
+    "current-version client UI"
+  ],
+  "noResampling": true,
+  "engineering": {
+    "tests": 346,
+    "failures": 0,
+    "strictInstallScenarios": 13,
+    "actualInstalledPython": 6
+  },
+  "runtimeClosure71Unchanged": true,
+  "currentHeadCI": [
+    {
+      "name": "A6 / Check",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38558327126/job/115832899461"
+    },
+    {
+      "name": "Validate Structure",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38558326764/job/115832898884"
+    },
+    {
+      "name": "Validate Structure",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38558317304/job/115832868069"
+    },
+    {
+      "name": "Baseline compat (ubuntu-latest)",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38558326764/job/115832898832"
+    },
+    {
+      "name": "Baseline compat (ubuntu-latest)",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38558317304/job/115832867893"
+    },
+    {
+      "name": "Baseline compat (windows-latest)",
+      "status": "IN_PROGRESS",
+      "conclusion": "",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38558317304/job/115832868286"
+    },
+    {
+      "name": "Baseline compat (windows-latest)",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38558326764/job/115832898529"
+    }
+  ],
+  "independentGithubApprovals": 0,
+  "reviewDecision": "REVIEW_REQUIRED",
+  "effectStatus": "NOT_MEASURED",
+  "fullOriginalSource22Packet": "PENDING_034_ARCHIVE_PREPARATION",
+  "sourcePins": [
+    {
+      "sourceRelative": "normal-execution-pause.flag",
+      "archiveRelative": "normal-execution-pause.flag",
+      "bytes": 534,
+      "sha256": "7d5e91f6bb1fc37302b9d0a75b23ead20d2febae3371489a44e6d689ebde6687"
+    },
+    {
+      "sourceRelative": "operator-c-records/stopped-original-operator-closure.json",
+      "archiveRelative": "operator-c-records--stopped-original-operator-closure.json",
+      "bytes": 80481,
+      "sha256": "49eadf78db5a00ce33cdb9218884ad57e04d4ef427f053df5bce482dbf78aea1"
+    },
+    {
+      "sourceRelative": "operator-c-records/B1.1-complete-handoff.json",
+      "archiveRelative": "operator-c-records--B1.1-complete-handoff.json",
+      "bytes": 30070,
+      "sha256": "7274887b0c17622f22977e135d6d4673acc94508a7a38a29b8bf032eefb2e1ae"
+    },
+    {
+      "sourceRelative": "operator-c-records/B1.2-delayed-complete-handoff.json",
+      "archiveRelative": "operator-c-records--B1.2-delayed-complete-handoff.json",
+      "bytes": 25410,
+      "sha256": "0f4eb0e0f3fec557c5e90bae6526060346ae684591f4438ea7d2e261ab1e7b5a"
+    },
+    {
+      "sourceRelative": "blocking/reviews/root-022/B1.1.json",
+      "archiveRelative": "blocking--reviews--root-022--B1.1.json",
+      "bytes": 16974,
+      "sha256": "2028f56f6c5f9259dabe98aada3a4f93c84f2ad271c10adb8fe8384ef8451562"
+    },
+    {
+      "sourceRelative": "blocking/reviews/root-022/B1.2-delayed.json",
+      "archiveRelative": "blocking--reviews--root-022--B1.2-delayed.json",
+      "bytes": 10394,
+      "sha256": "a21a412077ecd79727ac5b809b4bc22a0c926a26132f798ebdf0693e7c96d4b3"
+    },
+    {
+      "sourceRelative": "blocking/reviews/independent-A-executed-closure-b.json",
+      "archiveRelative": "blocking--reviews--independent-A-executed-closure-b.json",
+      "bytes": 17729,
+      "sha256": "7c8093ad1647a9ea661f5504652d71f008c2f0d0613195fd7b12c378bcb6b8d7"
+    },
+    {
+      "sourceRelative": "blocking/reviews/independent-B6-technical-a-r2.json",
+      "archiveRelative": "blocking--reviews--independent-B6-technical-a-r2.json",
+      "bytes": 46227,
+      "sha256": "791152f2356fe091750c580affba4b3c5241033f1a53f5888578e5fee63364d8"
+    },
+    {
+      "sourceRelative": "blocking/reviews/independent-B6-three-scope-closure-a.json",
+      "archiveRelative": "blocking--reviews--independent-B6-three-scope-closure-a.json",
+      "bytes": 1643,
+      "sha256": "abec57089b790b290674479945098a72038256be2c92de875c6e6889b8fdfe14"
+    },
+    {
+      "sourceRelative": "blocking/reviews/B6.1-independent-a-final.json",
+      "archiveRelative": "B6.1-independent-a-final.json",
+      "bytes": 32520,
+      "sha256": "15330c3555ce3765892bf0d731bb721a8d624dc29b4da43c0ec6877a46f94fb2"
+    },
+    {
+      "sourceRelative": "blocking/reviews/independent-B6-four-closure-a.json",
+      "archiveRelative": "independent-B6-four-closure-a.json",
+      "bytes": 19180,
+      "sha256": "9344a1c17c4e307538841c0319ad042afa4d50b03f54b2f1bf157b096ca73ac1"
+    }
+  ],
+  "recordOnlyValidation": {
+    "validate": true,
+    "baselineCheck": true,
+    "documentationAndA6": {
+      "tests": 65,
+      "failures": 0,
+      "toolChunk": "8da744"
+    }
+  }
+}

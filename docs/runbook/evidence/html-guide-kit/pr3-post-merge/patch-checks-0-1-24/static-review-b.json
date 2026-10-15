@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T14:08:28.298Z",
+  "reviewer": "/root/behavior_014_b",
+  "status": "STATIC_ONLY",
+  "result": "NO_STATIC_BLOCKERS",
+  "sourceCanonical": "b46069e3979136e70d64b9873b799b5bd069ca95",
+  "sourceVersion": "0.1.23",
+  "proposedVersion": "0.1.24",
+  "freezeSha256": "94a2faccbe31c9eb45c096a285b0a0dd5858dcc59db25b52976f04699d033603",
+  "resources": [
+    {
+      "relative": "skills/guide/SKILL.md",
+      "draftBytes": 6086,
+      "draftSha256": "ad2924661d2efaa22662d0df31e2968cc581e618e1c45dc9345f5df895eca813",
+      "sourceSha256": "ad2924661d2efaa22662d0df31e2968cc581e618e1c45dc9345f5df895eca813",
+      "changed": false,
+      "crlfBytes": 6140,
+      "budget": 6144
+    },
+    {
+      "relative": "skills/guide/references/guide-framework.md",
+      "draftBytes": 10684,
+      "draftSha256": "49faecae1cdb5ef470a261e9bb3b3cfe71c1d1914761bc2ab3e3fcfa2cbb79c2",
+      "sourceBytes": 10042,
+      "sourceSha256": "4fd5cae6d489c69f0f3e8ff72ceabf7404beb9780976f297e56ae4066ce5de13",
+      "changed": true,
+      "crlfBytes": 10747
+    },
+    {
+      "relative": "skills/guide/references/interaction-design.md",
+      "draftBytes": 10579,
+      "draftSha256": "c363f4df04c82c256bcff803b633d756e9a8d1617f4c0736da37f0e42f6fcc9f",
+      "sourceBytes": 10141,
+      "sourceSha256": "f3ff576734497d20b03fd5610388d8b6819ed2fc9330b9a96aaf4e9534895870",
+      "changed": true,
+      "crlfBytes": 10657
+    }
+  ],
+  "actualReadEvidence": {
+    "entryAndFreeze": "b9875f EXIT0 full",
+    "framework": "5003c3 EXIT0 full",
+    "interaction": "c7214c EXIT0 full",
+    "gitPinsAndThreeSpanDiff": "3e9130 EXIT0",
+    "relativeLinksResolved": 4,
+    "noOriginalRecorderRerun": true
+  },
+  "judgments": [
+    {
+      "id": "contract",
+      "result": "PASS_STATIC",
+      "rationale": "Entry exact23; one explicit Read/text-only/new-guide entry, Chinese/terminology, 2–3 distinct targets, strict explicit selection, same pending options, no host lock, adaptive depth and self-check boundaries remain. No runtime capabilities or production instructions added."
+    },
+    {
+      "id": "predicate-exclusivity",
+      "result": "PASS_STATIC",
+      "rationale": "FW§4 evaluates the actual object/predicate/local scope, separates executing a recovery action from reaching terminal field values, and checks other source-covered actions and explicitly labeled pedagogical settings. A displayed single path does not establish source exclusivity. Necessary-property comparisons remain legitimate; no keyword-only verdict or mandatory exhaustive new domain knowledge."
+    },
+    {
+      "id": "local-representation-fallback",
+      "result": "PASS_STATIC",
+      "rationale": "FW§5 allows either a complete local result relation or actually declared inheritance of the complete rule unit. When neither is available, complete natural-language/source-unit presentation is an optional fallback. It preserves full source clearing/actions/objects, while allowing diagrams, shared-scope faithful shorthand and non-operation materials without fixed format/chapters."
+    },
+    {
+      "id": "permission-versus-result",
+      "result": "PASS_STATIC",
+      "rationale": "ID§4 separately judges source operation permission, covered outcome branch and known/unknown fields. Conditions for the desired outcome cannot become an extra operation threshold; a permitted unsuccessful/waiting branch cannot become prohibited. All source gate conditions still apply and pure qualification relations remain distinct, without inventing permissions for undefined actions."
+    },
+    {
+      "id": "sources-and-unknown",
+      "result": "PASS_STATIC",
+      "rationale": "Existing source identity, actual full-reading proof, generic-denial-cause uncertainty, conflict preservation, local unknown dimensions, field-domain versus teaching-choice distinction and no invented field preservation remain unchanged. No source exclusivity or behavior result is retrospectively repaired."
+    },
+    {
+      "id": "portability-and-budget",
+      "result": "PASS_STATIC",
+      "rationale": "All four local reference links resolve. New spans contain no Owner path/chat/cache, domain fixture/case answer or fixed chapter/control/test count. Entry remains6086LF/6140CRLF under6144; reference growth needs genuine future reception proof, not static length inference."
+    }
+  ],
+  "limits": {
+    "newModelCalls": 0,
+    "newInstallations": 0,
+    "newGrades": 0,
+    "newUiInputs": 0,
+    "repositoryMutation": false,
+    "draftMutation": false,
+    "source23OriginalFinalsRejudged": false,
+    "behavior": "NOT_RUN_FOR_DRAFT",
+    "client": "NOT_RUN_FOR_DRAFT",
+    "githubApproval": false,
+    "realEffects": "NOT_MEASURED"
+  },
+  "notes": [
+    "Only two references change, in three existing spans. No plan/criteria/default-model/harness relaxation is part of this review.",
+    "Source23 actual failures and passed/partial/unrun cases remain separate original evidence; this static result is not a behavioral or client PASS.",
+    "Root may apply the exact pins under existing authorization; fresh candidate version/cache/behavior acceptance remains necessary."
+  ],
+  "blockers": []
+}

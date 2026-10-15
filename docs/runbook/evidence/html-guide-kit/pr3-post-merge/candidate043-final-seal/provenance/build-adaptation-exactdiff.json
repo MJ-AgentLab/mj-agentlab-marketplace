@@ -1,0 +1,150 @@
+{
+  "recordedAt": "2026-10-14T19:53:06.405Z",
+  "sourceBuilder": {
+    "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/build-pack-042-c.mjs",
+    "bytes": 15792,
+    "sha256": "bd7107da84d94572819d717044a91065aff80828cf6bc42f2d112f87c3cad800"
+  },
+  "proposedBuilder": {
+    "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/build-pack-043-c.mjs",
+    "bytes": 18606,
+    "sha256": "f478f011f056682ed8ecb6c3a7dd0f8b89329346f68b53c5d2f14157b9e71557"
+  },
+  "exactBuilderDeltas": [
+    {
+      "old": "Source29",
+      "new": "Source30"
+    },
+    {
+      "old": "vr='corrections/0-1-29'",
+      "new": "vr='corrections/0-1-30'"
+    },
+    {
+      "old": "packer-provenance/0-1-29-stopped",
+      "new": "packer-provenance/0-1-30-stopped"
+    },
+    {
+      "old": "d25dc63fb81b57859757769c239dbacfd4983492",
+      "new": "696da5df4faedd239783764e59b6832b5884f5e1"
+    },
+    {
+      "old": "1da998101bcb3738f31a275ad4fb17d97ba5eba8",
+      "new": "5202e43ba36ee3f8b231fe28d48293e1b265f990"
+    },
+    {
+      "old": "3b3bec8aa16eee227dee0e09b26be93b737e108e6cb7efc577b441955e5b3fc4",
+      "new": "66d7cf018e5c487f2e64375337a0e90eeb51a838e732b3bd8e7780af393bc195"
+    },
+    {
+      "old": "0.1.29",
+      "new": "0.1.30"
+    },
+    {
+      "old": "summary.actualUUIDs===8&&summary.completeInputs===14",
+      "new": "summary.actualUUIDs===13&&summary.completeInputs===27"
+    },
+    {
+      "old": "const sourcePack=path.join(root,'pack-041-evidence.mjs'),sourceNet=path.join(root,'verify-lossless-041-dotnet.ps1'),sourceDryNet=path.join(root,'dry-source-041-dotnet-b.ps1'),pb=fs.readFileSync(sourcePack),nb=fs.readFileSync(sourceNet),db=fs.readFileSync(sourceDryNet);",
+      "new": "const sourcePack=path.join(root,'pack-042-evidence.mjs'),sourceNet=path.join(root,'verify-lossless-042-dotnet.ps1'),sourceDryNet=path.join(root,'dry-source-042-dotnet-c.ps1'),pb=fs.readFileSync(sourcePack),nb=fs.readFileSync(sourceNet),db=fs.readFileSync(sourceDryNet);"
+    },
+    {
+      "old": "const packer=path.join(root,'pack-042-evidence.mjs'),netFile=path.join(root,'verify-lossless-042-dotnet.ps1'),dryNetFile=path.join(root,'dry-source-042-dotnet-c.ps1'),controlFile=path.join(root,'archive-042-control.json');A(![prov,packer,netFile,dryNetFile,controlFile].some(fs.existsSync),'Only new042 targets');",
+      "new": "const packer=path.join(root,'pack-043-evidence.mjs'),netFile=path.join(root,'verify-lossless-043-dotnet.ps1'),dryNetFile=path.join(root,'dry-source-043-dotnet-c.ps1'),controlFile=path.join(root,'archive-043-control.json');A(![closure,packer,netFile,dryNetFile,controlFile].some(fs.existsSync),'Only new043 final targets; earlier drafts retained');"
+    },
+    {
+      "old": "[['patch-checks-0-1-29',base,51],['engineering-d25dc63f',path.join(base,'engineering-d25dc63f'),24]]",
+      "new": "[['patch-checks-0-1-30',base,37],['engineering-696da5df',path.join(base,'engineering-696da5df'),24]]"
+    },
+    {
+      "old": "A(uuids.size===8&&turns.length===14&&raw.length===70&&zero.length===6,'Actual8UUID14C/70raw/6zero');",
+      "new": "A(uuids.size===13&&turns.length===27&&raw.length===135&&zero.length===1&&partial.length===1,'Actual13UUID27C/135raw/1zero/1partial');"
+    },
+    {
+      "old": "A(turns.every(t=>Date.parse(t.startedUtc)<markerMs)&&turns.every(t=>Date.parse(t.completedUtc)<=markerMs),'Actual zero post/zero cross');",
+      "new": "const crossing=turns.filter(t=>Date.parse(t.startedUtc)<markerMs&&Date.parse(t.completedUtc)>markerMs);A(turns.every(t=>Date.parse(t.startedUtc)<markerMs)&&crossing.length===2,'Actual zero post/two natural crossing inputs');"
+    },
+    {
+      "old": "if(rel.includes('0-1-30')||rel.startsWith(vr+'/engineering-d25dc63f')||excluded.has(rel))",
+      "new": "if(rel.includes('0-1-31')||rel.startsWith(vr+'/engineering-696da5df')||rel.startsWith(vr+'/native-ui')||rel.startsWith(vr+'/native-setup')||excluded.has(rel))"
+    },
+    {
+      "old": ".filter(n=>/source29/.test(n)",
+      "new": ".filter(n=>/source30/.test(n)"
+    },
+    {
+      "old": "fs.mkdirSync(closure,{recursive:true});",
+      "new": "const publicUiAndSetup=[\"native-ui/work-two-turn-scoped-receipt.json\",\"native-ui/work-native-and-version-addendum.json\",\"native-ui/01-input.txt\",\"native-ui/02-input.txt\",\"native-ui/work-turn-1-actual-input.txt\",\"native-ui/work-turn-2-actual-input.txt\",\"native-ui/work-turn-1-full-answer.txt\",\"native-ui/work-turn-2-full-answer.txt\",\"native-ui/work-SKILL.md.actual-body.snapshot.txt\",\"native-ui/work-guide-framework.md.actual-body.snapshot.txt\",\"native-ui/work-interaction-design.md.actual-body.snapshot.txt\",\"native-ui/observer-errors.json\",\"native-setup/own-prior-sections.json\",\"native-setup/restored-own-sections.json\",\"native-setup/plugin-add.command.json\",\"native-setup/plugin-add.stdout.log\",\"native-setup/plugin-add.stderr.log\",\"native-setup/marketplace-add.command.json\",\"native-setup/marketplace-add.stdout.log\",\"native-setup/marketplace-add.stderr.log\"].map(n=>vr+'/'+n);for(const rel of publicUiAndSetup){A(fs.existsSync(path.join(root,rel))&&fs.statSync(path.join(root,rel)).isFile(),'Explicit public scope source missing '+rel);selected.push(rel)}const uiReceipt=J(path.join(base,'native-ui/work-two-turn-scoped-receipt.json')),uiAddendum=J(path.join(base,'native-ui/work-native-and-version-addendum.json'));A(uiReceipt.uuid==='01a13bec-c13d-7e22-8eab-671d7c8c520e'&&uiReceipt.canonicalSha===canonical&&uiReceipt.privacy.privateSdkNotPublic===true&&uiReceipt.privacy.noEntireWindowPixelsExported===true,'Bounded public Work receipt');fs.mkdirSync(closure,{recursive:true});write(path.join(closure,'native-ui-public-scope.json'),{recordedAt:new Date().toISOString(),receipt:pin(path.join(base,'native-ui/work-two-turn-scoped-receipt.json')),addendum:pin(path.join(base,'native-ui/work-native-and-version-addendum.json')),publicFiles:publicUiAndSetup.map(rel=>pin(path.join(root,rel))),actualWorkUuid:uiReceipt.uuid,cliCoreUUIDsNotExpandedByWork:true,privateSdkAndFullConfigAndPixelsExcluded:true,confirmedGuide:'NOT_RUN',localEntry:'NOT_RUN',nativeLifecycle:'NOT_RUN',effects:'NOT_MEASURED'});"
+    },
+    {
+      "old": "totalRawReferences:75",
+      "new": "totalRawReferences:61"
+    },
+    {
+      "old": "actualSDKs:14",
+      "new": "actualSDKs:27"
+    },
+    {
+      "old": "sourceActual041:{pack:'d0fad2',node:'8a0f0d',dotnet:'d21852'}",
+      "new": "sourceActual042:{pack:'e12c99',node:'420013',dotnet:'5f75b7'}"
+    },
+    {
+      "old": "actualUUIDs:8,actualInputs:14,complete:14,invalid:0,notSentInputs:16,originalRawFiles:70",
+      "new": "actualUUIDs:13,actualInputs:27,complete:27,invalid:0,notSentInputs:3,originalRawFiles:135"
+    },
+    {
+      "old": "postMarkerStarts:0,naturallyCrossingInputs:0",
+      "new": "postMarkerStarts:0,naturallyCrossingInputs:2,naturallyCrossingTurns:crossing"
+    },
+    {
+      "old": "client:'ACCESS_PREFLIGHT_ONLY_NOT_RUN'",
+      "new": "client:'TWO_WORK_UI_TURNS_ONLY; CONFIRMED_GUIDE_AND_LOCAL_NOT_RUN'"
+    },
+    {
+      "old": "'archive-042-control.json','build-pack-042-c.mjs','verify-lossless-042-dotnet.ps1'",
+      "new": "'archive-043-control.json','build-pack-043-c.mjs','verify-lossless-043-dotnet.ps1'"
+    },
+    {
+      "old": "for(const [old,n] of [['archive-041-control.json','archive-042-control.json'],['archive041','archive042'],['pack041','pack042'],['83b3f50ba6c41f923a2b48bba10ca176102be18d',canonical],['frozen28','frozen29'],['actualUuids.size===5&&actualInputs.length===10','actualUuids.size===8&&actualInputs.length===14'],['actual5UUID/10inputs','actual8UUID/14inputs'],['control.realDistinctUUIDs===5&&control.actualInputFiles===10','control.realDistinctUUIDs===8&&control.actualInputFiles===14'],['0.1.28 archival requires actual5UUID/10input','0.1.30 archival requires actual8UUID/14input']])replace(old,n);",
+      "new": "for(const [old,n] of [['archive-042-control.json','archive-043-control.json'],['archive042','archive043'],['pack042','pack043'],['d25dc63fb81b57859757769c239dbacfd4983492',canonical],['frozen29','frozen30'],['actualUuids.size===8&&actualInputs.length===14','actualUuids.size===13&&actualInputs.length===27'],['actual8UUID/14inputs','actual13UUID/27inputs'],['control.realDistinctUUIDs===8&&control.actualInputFiles===14','control.realDistinctUUIDs===13&&control.actualInputFiles===27'],['0.1.29 archival requires actual8UUID/14input','0.1.30 archival requires actual13UUID/27input']])replace(old,n);"
+    },
+    {
+      "old": "const oldHistory=JSON.parse(text.match(/historyIncludes:(\"[^\"]*\")/)[1]);replace(oldHistory,'Source30 canonicald25dc stopped8UUID14COMPLETE0INVALID5PASS1FAIL2UNEX6NOTRUN/16inputs not sent; actual low default distinct from explicit SDK high. C B1 waiting/confirmation primary PASS but cancellation-permission fidelity FAIL, delayed prefix UNEX; all independent original reports and locator/schema corrections retained. Zero postmarker and zero crossing inputs. Original70raw,14SDK and actual received cached resources kept. Already-Gitsealed51 engineering and24 canonical logs referenced byte-exact, not duplicated. No future30, private HOME/auth/cache, unexported whole-window screenshots, new client/effect PASS or grade conversion.');",
+      "new": "const oldHistory=JSON.parse(text.match(/historyIncludes:(\"[^\"]*\")/)[1]);replace(oldHistory,'Source30 canonical696da5 stopped13UUID27COMPLETE0INVALID whole9PASS4FAIL0UNEX1NOTRUN/3inputs not sent; default low distinct from explicit actual SDK high. B5.1 primary unexercised remains separate from its whole failure. Four independent source fidelity failures, correct primary paths, all original scopes/errors and reports retained. Zero postmarker starts and two natural crossing inputs recorded. Original135modelraw/27SDK/core received resources kept. Already-Gitsealed37 engineering plus24 canonical byte-exact references only. Separate desktop Work UUID01a13bec-c13d-7e22-8eab-671d7c8c520e two real UI turns cover proposal and unselected waiting only; app26.1007.9446.0/CLI0.162.0-alpha.17.2/Astraxhigh identity is distinct from core CLI0.147/5.6-sol/high. Only explicit scoped Work receipt/addendum/actual inputs/two full answers/three actual resource body snapshots/observer failures, task source-cache receipts and own plugin sections enter public payload. Entire native-ui/private-sdk, fullconfig, whole-window pixels, HOME/auth/cache/unrelated tasks and future31 excluded. No confirmed-guide/local/native-lifecycle/effects PASS or grade conversion.');"
+    },
+    {
+      "old": "let net=nb.toString();const netChanges=[['patch-041-stopped','patch-042-stopped'],['distinctRealUuidCount -ne 5','distinctRealUuidCount -ne 8'],['rawInputFileCount -ne 10','rawInputFileCount -ne 14'],['83b3f50ba6c41f923a2b48bba10ca176102be18d',canonical],['Three exact source83b stopped/core identities required.','Three exact source29 stopped/core identities required.']];for(const [old,n] of netChanges){A(net.includes(old),'Exact .NET metadata anchor');net=net.split(old).join(n)}let ni=net;for(const [old,n] of [...netChanges].reverse())ni=ni.split(n).join(old);A(ni===nb.toString(),'Exact .NET inverse');",
+      "new": "let net=nb.toString();const netChanges=[['patch-042-stopped','patch-043-stopped'],['distinctRealUuidCount -ne 8','distinctRealUuidCount -ne 13'],['rawInputFileCount -ne 14','rawInputFileCount -ne 27'],['d25dc63fb81b57859757769c239dbacfd4983492',canonical],['Three exact source29 stopped/core identities required.','Three exact source30 stopped/core identities required.']];for(const [old,n] of netChanges){A(net.includes(old),'Exact .NET metadata anchor');net=net.split(old).join(n)}let ni=net;for(const [old,n] of [...netChanges].reverse())ni=ni.split(n).join(old);A(ni===nb.toString(),'Exact .NET inverse');"
+    },
+    {
+      "old": "let dry= db.toString();const dryChanges=[['0-1-28-stopped','0-1-29-stopped'],['archive-041-control.json','archive-042-control.json'],['verify-lossless-041-dotnet.ps1','verify-lossless-042-dotnet.ps1'],['0-1-29|native-ui-private','0-1-30|native-ui-private']];for(const [old,n] of dryChanges){A(dry.includes(old),'Exact dry.NET metadata anchor');dry=dry.split(old).join(n)}let di=dry;for(const [old,n] of [...dryChanges].reverse())di=di.split(n).join(old);A(di===db.toString(),'Exact dry.NET inverse');",
+      "new": "let dry=db.toString();const dryChanges=[['0-1-29-stopped','0-1-30-stopped'],['archive-042-control.json','archive-043-control.json'],['verify-lossless-042-dotnet.ps1','verify-lossless-043-dotnet.ps1'],['0-1-30|native-ui-private','0-1-31|native-ui-private|private-sdk|whole-window|whole_window']];for(const [old,n]of dryChanges){A(dry.includes(old),'Exact dry.NET metadata anchor');dry=dry.split(old).join(n)}let di=dry;for(const [old,n]of [...dryChanges].reverse())di=di.split(n).join(old);A(di===db.toString(),'Exact dry.NET inverse');"
+    },
+    {
+      "old": "alreadySealedRawOnlyReferenced:75",
+      "new": "alreadySealedRawOnlyReferenced:61"
+    },
+    {
+      "old": "actualUUIDs:8,actualInputs:14,originalRawFiles:70",
+      "new": "actualUUIDs:13,actualInputs:27,originalRawFiles:135"
+    },
+    {
+      "old": "alreadySealedReferences:75",
+      "new": "alreadySealedReferences:61"
+    },
+    {
+      "old": "r!=='archive-042-control.json'",
+      "new": "r!=='archive-043-control.json'"
+    },
+    {
+      "old": "realDistinctUUIDs:8,actualInputFiles:14,complete:14",
+      "new": "realDistinctUUIDs:13,actualInputFiles:27,complete:27"
+    },
+    {
+      "old": "originalSeventyRawPins:raw",
+      "new": "original135ModelRawPins:raw"
+    }
+  ],
+  "inverseExact": true,
+  "codecUnchangedViaPackerInverse": true,
+  "actualPack": false
+}

@@ -1,0 +1,65 @@
+{
+  "phase": "DRAFT_ONLY_SCHEDULING_TECHNICAL_CHANGE_PENDING_INDEPENDENT_REVIEW",
+  "recordedUtc": "2026-10-14T09:37:53.000Z",
+  "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\technical-recovery\\0-1-20\\operator-sequential.manual.mjs",
+  "sourceBytes": 4977,
+  "sourceSha256": "8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b",
+  "originalSnapshot": "operator-draft-provenance/source-operator.mjs",
+  "candidate": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-21\\operator-sequential.manual.candidate.mjs",
+  "candidateBytes": 5028,
+  "candidateSha256": "fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42",
+  "stages": [
+    {
+      "name": "USE_ACCURATE_BOUNDARY_VARIANT_NAME",
+      "occurrences": 3,
+      "oldText": "completedVariant",
+      "newText": "boundaryVariant",
+      "beforeBytes": 4977,
+      "beforeSha256": "8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b",
+      "afterBytes": 4974,
+      "afterSha256": "6c761db8f9d5ed722d508e84279570e1451ccd7292e8d2ed791e17e948f58510"
+    },
+    {
+      "name": "NAME_TURN_OR_VARIANT_NORMAL_RETURN",
+      "occurrences": 1,
+      "oldText": "NORMAL_RETURN_AT_VARIANT_BOUNDARY",
+      "newText": "NORMAL_RETURN_AT_TURN_OR_VARIANT_BOUNDARY",
+      "beforeBytes": 4974,
+      "beforeSha256": "6c761db8f9d5ed722d508e84279570e1451ccd7292e8d2ed791e17e948f58510",
+      "afterBytes": 4982,
+      "afterSha256": "c66ae3ade31509b7c80b37adad63500a16f2a865b4b5a818743093aca358efff"
+    },
+    {
+      "name": "NAME_PAUSE_OUTPUT_ACCURATELY",
+      "occurrences": 1,
+      "oldText": "pausedAtVariantBoundary:true",
+      "newText": "pausedAtTurnOrVariantBoundary:true",
+      "beforeBytes": 4982,
+      "beforeSha256": "c66ae3ade31509b7c80b37adad63500a16f2a865b4b5a818743093aca358efff",
+      "afterBytes": 4988,
+      "afterSha256": "646c2b07a62a5280c52a68c57f4de90aca1c88dd347438e784c4b8c9375ae161"
+    },
+    {
+      "name": "CHECK_GLOBAL_PAUSE_AFTER_COMPLETE_TURN_BEFORE_NEXT_OR_SELECTION",
+      "occurrences": 1,
+      "oldText": "if(count===state.plannedTurns)break;\n   const upcoming=",
+      "newText": "if(count===state.plannedTurns)break;\n   if(await pauseAtBoundary(id))return;\n   const upcoming=",
+      "beforeBytes": 4988,
+      "beforeSha256": "646c2b07a62a5280c52a68c57f4de90aca1c88dd347438e784c4b8c9375ae161",
+      "afterBytes": 5028,
+      "afterSha256": "fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42"
+    }
+  ],
+  "sourceRestoredByInverse": true,
+  "unchangedModelInputsCriteriaSpecDefault": true,
+  "captureModuleUnchanged": true,
+  "originalSourceOperatorUnchanged": true,
+  "candidateLocationKeepsOriginalReviewerRootResolution": true,
+  "onlyNaturalCompleteTurnBoundary": true,
+  "noKillOrInterruptAdded": true,
+  "behavior": "After a naturally returned COMPLETE turn, check the same global flag before next or a manual choice boundary; existing start and variant checks remain. This does not lock or promise to preserve a host UI window.",
+  "modelInvoked": false,
+  "installationInvoked": false,
+  "operatorExecuted": false,
+  "authorDoesNotSelfApprove": true
+}

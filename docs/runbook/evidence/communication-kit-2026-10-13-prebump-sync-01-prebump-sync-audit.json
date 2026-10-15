@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "refs": 222,
+  "capturedAt": "2026-10-13T06:20:24.139Z",
+  "timezone": "Asia/Taipei",
+  "base": "3af6837338478ef49a7cea6bb935c07c5c19400c",
+  "main": "ebc4bdc3abc62c36348d9ba28de7161b04b3b466",
+  "release": "published v8.2.0 unchanged",
+  "extraBump": false,
+  "registeredCommunication": false,
+  "stages": [
+    {
+      "stage": "PR1",
+      "root": "C:/Users/Admin/.codex/worktrees/communication-contract/develop",
+      "branch": "codex/communication-contract",
+      "head": "5038a53d675b78f4a77992e660b74696de225c9f",
+      "tree": "179eb7cef8c8db9fedcf98ad33142f7ab7fae17b",
+      "previous": "e5db2ca4fdb7b1e1883994b11deb6392f9488659",
+      "changedPaths": [
+        "AGENTS.md",
+        "README.md",
+        "VERSION"
+      ],
+      "baseIncluded": true,
+      "clean": true,
+      "remoteHead": "5038a53d675b78f4a77992e660b74696de225c9f",
+      "developmentVersion": "8.2.1",
+      "sourcePackageEquivalence": true,
+      "packageTrees": {
+        "diagram-kit": "e217c41be2cd4c3653aa17aa7b28c8312be06268",
+        "learning-evidence-kit": "c88818fac37e937a245436f0f999f3488babfe1f",
+        "explain-kit": "ef6a90bc60e9af45915c30ecf4668559978e29e5",
+        "html-guide-kit": "67e468c944bd9da076994667eef378367a012b14"
+      },
+      "changelogUnchangedFromPrevious": true,
+      "plan": {
+        "lines": 405,
+        "sha256": "6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3"
+      },
+      "agents": {
+        "bytes": 14845,
+        "crlfBytes": 14847,
+        "limit": 16384
+      },
+      "checks": {
+        "strict": "PASS",
+        "documentationA6Tests": 65,
+        "failures": 0,
+        "skips": 0,
+        "whitespace": "PASS",
+        "localA6": "PASS/no-trigger",
+        "commitValidation": 7
+      },
+      "message": "infra(marketplace): sync merged development pre-bump into contracts\n\nMerge actual develop 3af6837 after #235. Preserve the Communication\ncontract and exact saved plan while reflecting development VERSION/badge\n8.2.1. Published main/v8.2.0 and the selected four-package Communication\nrelease scope remain distinct. Runtime and published history do not change.\nStrict validation and 65 affected documentation/A6 tests pass.\n\nRefs #222\nCo-Authored-By: OpenAI Codex <noreply@openai.com>"
+    },
+    {
+      "stage": "PR2",
+      "root": "C:/Users/Admin/.codex/worktrees/communication-foundation/develop",
+      "branch": "codex/communication-foundation",
+      "head": "ae8bbeefc09ca8978848f391ea2afca9c5d8962f",
+      "tree": "07772a493583bd17c778053a933202230cdee608",
+      "previous": "569f0ddb31931b43ab9fe4ff2050e16d99b745ad",
+      "changedPaths": [
+        "AGENTS.md",
+        "README.md",
+        "VERSION"
+      ],
+      "baseIncluded": true,
+      "clean": true,
+      "remoteHead": "ae8bbeefc09ca8978848f391ea2afca9c5d8962f",
+      "developmentVersion": "8.2.1",
+      "sourcePackageEquivalence": true,
+      "packageTrees": {
+        "diagram-kit": "e217c41be2cd4c3653aa17aa7b28c8312be06268",
+        "learning-evidence-kit": "c88818fac37e937a245436f0f999f3488babfe1f",
+        "explain-kit": "ef6a90bc60e9af45915c30ecf4668559978e29e5",
+        "html-guide-kit": "67e468c944bd9da076994667eef378367a012b14"
+      },
+      "changelogUnchangedFromPrevious": true,
+      "plan": {
+        "lines": 405,
+        "sha256": "6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3"
+      },
+      "agents": {
+        "bytes": 15311,
+        "crlfBytes": 15313,
+        "limit": 16384
+      },
+      "checks": {
+        "strict": "PASS",
+        "documentationA6Tests": 65,
+        "failures": 0,
+        "skips": 0,
+        "whitespace": "PASS",
+        "localA6": "PASS/AGENTS synced",
+        "commitValidation": 13
+      },
+      "message": "infra(marketplace): sync development pre-bump into foundation\n\nMerge updated Communication contracts with actual develop 3af6837 ancestry.\nReflect merged development VERSION/badge 8.2.1 while retaining Communication\ntools, icon candidates, runtime package bytes and published changelog history.\nMain/v8.2.0 and Owner-selected Communication release scope stay distinct.\nStrict validation and 65 affected documentation/A6 tests pass.\n\nRefs #222\nCo-Authored-By: OpenAI Codex <noreply@openai.com>"
+    }
+  ],
+  "logs": [
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-prebump-sync-pr1-validate.log",
+      "bytes": 354,
+      "sha256": "10dcad75d29a73396e2a3003d7c619a4d5b030e325667d9f8c56811ea564d37e"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-prebump-sync-pr1-doc-a6.log",
+      "bytes": 12623,
+      "sha256": "6ce485450b4787de0b698466d80654d69aadfad4926bada6892397337aa5f2f9"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-prebump-sync-pr1-commits.log",
+      "bytes": 72,
+      "sha256": "2418493d2dc949f2af91bd1ccf486527fb6041d2064f3d3c19822eada304712d"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-prebump-sync-pr1-a6.log",
+      "bytes": 56,
+      "sha256": "1d3428e88ffa6a038f4cb5ff905e218002bbadaafdcbdef2fcb09098630a7f8b"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-prebump-sync-pr2-validate.log",
+      "bytes": 354,
+      "sha256": "10dcad75d29a73396e2a3003d7c619a4d5b030e325667d9f8c56811ea564d37e"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-prebump-sync-pr2-doc-a6.log",
+      "bytes": 12632,
+      "sha256": "cdc7ebf58363e904aa73c7263c48c7744958b94dbcc1d5078dbe9b18e7123786"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-prebump-sync-pr2-commits.log",
+      "bytes": 73,
+      "sha256": "c48814b2a40eca0db902213c18f1606c109476449997e5192cde3ffe8e02c5af"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/communication-prebump-sync-pr2-a6.log",
+      "bytes": 186,
+      "sha256": "02aedf43af34bd8d386b194319f8b4e894738b7348243f1eda98c1134467445b"
+    }
+  ],
+  "limits": [
+    "No full-suite, installation, model-behavior or UI rerun for this three-file development-version sync.",
+    "No PR status or reviewer changed; local A6 does not establish independent GitHub approval.",
+    "Root PR3/PR4 worktrees untouched."
+  ]
+}

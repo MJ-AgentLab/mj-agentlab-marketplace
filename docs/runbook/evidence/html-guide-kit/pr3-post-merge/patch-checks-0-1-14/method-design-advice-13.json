@@ -1,0 +1,101 @@
+{
+  "recordedAt": "2026-10-13T13:37:21.665Z",
+  "author": "behavior_a",
+  "phase": "DESIGN_ADVICE_ONLY_NOT_RUNTIME_DRAFT",
+  "source": {
+    "canonical": "09c173a91e19c688a79420673ecc76ccd35c51f0",
+    "pluginVersion": "0.1.13",
+    "resources": [
+      {
+        "relative": "SKILL.md",
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\SKILL.md",
+        "bytes": 6144,
+        "sha256": "57cd9dcc469b55cbed015c4e5efb6d900b556493dec96420ca0bdce9ce9b4ac8"
+      },
+      {
+        "relative": "references/guide-framework.md",
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\guide-framework.md",
+        "bytes": 19793,
+        "sha256": "75fa5588ebf057077d4067c066e3de33397fbbdbf1f7acac9b95f038114575ed"
+      },
+      {
+        "relative": "references/interaction-design.md",
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide\\references\\interaction-design.md",
+        "bytes": 20673,
+        "sha256": "65073f861d11a7b76e3d6d8667d8e2b72bd3480836c95ca53e6b5d725a679498"
+      }
+    ],
+    "entryBudget": 6144
+  },
+  "purpose": "Coherent generic method refinements for completeness, applicability, design attribution and truthful reading. This report neither grades model output nor creates a new runtime/control candidate.",
+  "refinements": [
+    {
+      "id": "COMPLETE_COMMON_RULE_BEFORE_ABBREVIATED_RESULTS",
+      "existingAnchors": [
+        "SKILL.md:45",
+        "guide-framework.md:53–57",
+        "interaction-design.md:35–39"
+      ],
+      "advice": "材料包含操作时，先在方法工作中建立完整规则单元：执行前必要态与输入、单个动作、全部源动作/对象/字段结果、条件/例外/范围/定位。交付中在任何抽象操作结果之前就地声明完整共同规则及其覆盖范围，或在该处给足前提；随后概览、图示、提示和自检的缩写明确指向这条适用规则。仅有引用、邻表、初始值或某处已写对，不等于声明覆盖。不能保留前提时只介绍需要理解的关系并指向完整规则，不复述确定操作结果。共同规则的形态可为自然语言、表格或局部说明，不要求固定章节；纯概念、证据或纯条件真假材料不强造操作规则目录。",
+      "localApplicability": "每个结果块明确它覆盖哪些分支/情境/题目及执行前当前态。共享连续模拟每次按最新态重新判断；独立题设明示本次前提和复位。范围外先查其他源规则，缺口只阻相关未决结果。"
+    },
+    {
+      "id": "COMPLETION_WORDS_ARE_NOT_PREMISE_BINDINGS",
+      "existingAnchors": [
+        "SKILL.md:44–45",
+        "SKILL.md:48–50",
+        "interaction-design.md:73–83"
+      ],
+      "advice": "完成、成功、已处理、条件满足等词不能代替未写出的源必要前提或把执行前态与结果态合并。只有来源已明确给出该术语定义，或指南先完整且忠实定义局部简写并明示本处适用时，才可沿该定义缩写；缩写不能引入或撤销源条件。缺定义时保留完整的当前态/输入/动作/结果关系，或只指向规则，不用一个完成动词证明操作合法、结果唯一或字段保持。对标题、概览、反馈短句和题干一并核对。",
+      "avoidOverconstraint": "纯真假组合不附动作或字段结果时独立判断，不强迫增加来源不存在的业务态。源禁止与源未覆盖、单个直接操作与后续改变状态路径仍分别判断。"
+    },
+    {
+      "id": "UI_DESIGN_RATIONALE_IS_DISTINCT_FROM_SOURCE_BASIS",
+      "existingAnchors": [
+        "SKILL.md:46",
+        "guide-framework.md:26–28",
+        "guide-framework.md:57",
+        "interaction-design.md:39"
+      ],
+      "advice": "逐项区分源规定的动作/对象/字段效果、为本指南新增的UI行为，以及解释该设计为何服务确认目标的教学理由。源引用只背书其实际规定的事项；新增UI清除/失效/反馈展示即便合理，也由明确的指南设计选择和局部目的解释，不再把源条款说成它的业务依据。源行为可以是设计参照背景或教学触发，但这种关系不等于来源要求、授权、保证或定义新增UI效应。设计标签不能补救后一分句又声称源依据的混合归因。",
+      "reviewFocus": "逐句核对依据、来自、规定、保证、只有等词的作用对象：源对象与新增界面对象不能共用一个证据结论。恢复仍完整保留源全部动作/对象/字段，不以教学清理或初值表替代；对象未定义保留原称呼和缺口，不扩成日志或外部系统行为。"
+    },
+    {
+      "id": "OBSERVED_TOOL_FAILURE_IS_NOT_CAUSE_OR_FULL_READ_PROOF",
+      "existingAnchors": [
+        "SKILL.md:16",
+        "SKILL.md:22",
+        "guide-framework.md:7–22"
+      ],
+      "advice": "访问限制陈述只到实际证据支持的层级：记录哪个读取调用被拒、失败、未找到或截断，以及哪些文档/范围已读或未读；除非错误或已核验规则明确给出原因，不推断因工作区外、缓存路径、权限或客户端政策而全面禁读。不同位置的复杂调用同样失败，不能证明某一个路径属性是原因。允许范围内可改用更窄的只读方式；仍失败则保留相关缺口，不把全部材料一起判不可用。",
+      "wholeRead": "区分本次对话实际提供的完整原生技能文本、实际成功文件读取，以及仅提供路径/模型自述/截断前缀。原生文本已读不等于声称shell缓存文件读取成功。声称参考全文已读须以实际收到的全文或可核对的连续分段覆盖为依据；长调用的底层CLI stdout完整而实际模型返回截断时，后者不能按全文计。无法读全时说明准确未读范围，不猜补或假称已参照。"
+    }
+  ],
+  "budgetAndResourceStrategy": {
+    "entryCurrentBytes": 6144,
+    "unchangedStrictLimit": 6144,
+    "proposedApproach": "对现有读取真实性、完整共同规则、简写适用及恢复归因区块作等长或更短替换；不要叠加新章节、增加文件或提高预算。入口保留可执行门槛/七项守卫，详细原因和适应方式展开在现有两参考。不得通过删除明确等待、Read/文本、新建或自检边界换空间。",
+    "actualNewRuntimeByteBudget": "NOT_COMPUTED_NO_NEW_CANDIDATE",
+    "noMandatoryChapterControlOrQuestionCount": true
+  },
+  "guardsToPreserve": [
+    "唯一公开guide入口、Read、显式调用、中文及原术语、只新建聊天可复制文本；无HTML/代码回显、写入、制作工具、修订/比较/审查越界",
+    "实际原材料或明确快照与方法资源角色；已核验背景/教学构造/设计判断；字段线索、版本更新及被替换例外、冲突/缺口/范围",
+    "2–3实际不同目标、推荐理由、等待明确选择或修改确认；同一待确认、不把推荐/沉默/超时/窗口/泛授权当确认、停止、不锁宿主窗口",
+    "完整源前提/动作/对象/字段结果、共同规则明确覆盖、宽规则及直接操作/后续路径、源恢复完整与局部UI独立归因",
+    "术语/值类型/量词和主体范围、初值/赋值/可达域不提升为输入域、局部输入覆盖仍保留、额外限制标设计",
+    "共享当前态及每次尝试生命周期/独立情境复位、未知不编造变化保持清除、重复/同值不添有效性或次数前提",
+    "AND/OR及未决组合、分支互斥/明确优先/累计合并、局部可靠自检前提理由误区重试/不可靠有限参考、无评分或长期掌握、全篇一致及无静态验收追认"
+  ],
+  "limitations": {
+    "existingModelOutputsRegraded": false,
+    "behaviorPassClaimed": false,
+    "version14RuntimeOrControlCreated": false,
+    "repositoryOrGitModified": false,
+    "source13Changed": false,
+    "modelCalled": false,
+    "installationCalled": false,
+    "gradeCalled": false,
+    "allExistingInputsAndCriteriaUnchanged": true
+  }
+}
