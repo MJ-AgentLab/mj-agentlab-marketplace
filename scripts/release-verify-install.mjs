@@ -30,6 +30,8 @@ export async function verifyReleaseInstall({ canonicalSha, repoRoot = path.resol
     if (attached) await git(["worktree", "remove", worktree]);
     const relative = path.relative(fs.realpathSync(os.tmpdir()), fs.realpathSync(root));
     if (!relative || relative.startsWith("..") || path.isAbsolute(relative)) throw new Error("unsafe release verification cleanup path");
-    fs.rmSync(root, { recursive: true, force: true });
+    // Windows can briefly retain a directory handle after Git removes the worktree.
+    // Retry transient filesystem errors within a bound; persistent failures still throw.
+    await fs.promises.rm(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
   }
 }
