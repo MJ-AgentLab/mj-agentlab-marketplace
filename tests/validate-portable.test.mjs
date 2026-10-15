@@ -7,9 +7,9 @@ import os from "node:os";
 import {spawnSync} from "node:child_process";
 import {validateManifest,validateSkill,validateSkillInterface,validateRepository as validateRepositorySource,validateOpenAIConfig,parseFrontmatter,validateLinks,validateCommunicationSnapshot,resolveOwnedResource,COMMUNICATION_REFERENCES,REPOSITORY_SKILLS,PUBLIC_SKILLS} from "../scripts/validate-portable.mjs";
 import {measureSync} from "../scripts/perf-metrics.mjs";
+import {populateRepositoryFixture} from "./helpers/repository-fixture.mjs";
 const perf=(phase,operation,details={})=>measureSync(phase,operation,{scope:"fixture",suite:"validate-portable",...details});
 const copy=(...args)=>perf("copy",()=>fs.cpSync(...args),{path:args[0]});
-const copyRepository=(...args)=>perf("copy",()=>fs.cpSync(...args),{path:args[0],repositoryFixture:true});
 const validateRepository=repo=>perf("validate",()=>validateRepositorySource(repo));
 const root=path.resolve(import.meta.dirname,".."), read=p=>fs.readFileSync(path.join(root,p),"utf8");
 test("communication listing and native prompts stay within the actual client budget",()=>{
@@ -31,8 +31,7 @@ test("five approved portable plugins, seven public skills and all 20 repository 
 test("strict repository validation rejects every retired instruction surface",t=>{
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),"retired-instructions-"));
  t.after(()=>perf("cleanup",()=>fs.rmSync(dir,{recursive:true,force:true})));
- for(const p of ["assets",".agents",".codex",".github","scripts","tests","plugins","docs","plan","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])
- copyRepository(path.join(root,p),path.join(dir,p),{recursive:true});
+ populateRepositoryFixture(dir,{sourceRoot:root,suite:"validate-portable"});
  assert.equal(validateRepository(dir).ok,true);
  for(const rel of ["CLAUDE.md",".claude",".claude-plugin"]){
   const target=path.join(dir,rel);
@@ -75,7 +74,7 @@ test("native pop-quiz metadata requires a boolean explicit-only policy",()=>{
 });
 function repositoryFixture(t){
  const dir=fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()),"portable-inventory-"));t.after(()=>perf("cleanup",()=>fs.rmSync(dir,{recursive:true,force:true})));
- for(const p of ["assets",".agents",".codex",".github","scripts","tests","plugins","docs","plan","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])copyRepository(path.join(root,p),path.join(dir,p),{recursive:true});
+ populateRepositoryFixture(dir,{sourceRoot:root,suite:"validate-portable"});
  return dir;
 }
 test("catalog rejects missing, duplicate, unknown, versioned and escaped plugin entries",t=>{

@@ -10,9 +10,9 @@ import { validateManifest, validateRepository as validateRepositorySource, RUNTI
 import { validateBrandAssets } from "../scripts/brand-assets.mjs";
 import { renderBrandPreviews } from "../scripts/render-brand-previews.mjs";
 import { measureSync } from "../scripts/perf-metrics.mjs";
+import { populateRepositoryFixture } from "./helpers/repository-fixture.mjs";
 const perf = (phase, operation, details = {}) => measureSync(phase, operation, { scope: "fixture", suite: "plugin-icons", ...details });
 const copy = (...args) => perf("copy", () => fs.cpSync(...args), { path: args[0] });
-const copyRepository = (...args) => perf("copy", () => fs.cpSync(...args), { path: args[0], repositoryFixture: true });
 const validateRepository = repo => perf("validate", () => validateRepositorySource(repo));
 
 const repo = path.resolve(import.meta.dirname, "..");
@@ -143,7 +143,7 @@ test("SVG export renders real pixel colors and native size rather than only a va
 
 test("repository validation fails when a registered plugin loses its icon resource", t => {
   const { root } = fixture(t), isolated = path.join(root, "repo"); fs.mkdirSync(isolated);
-  for (const rel of ["assets", ".agents", ".codex", ".github", "scripts", "tests", "plugins", "docs", "plan", "AGENTS.md", "README.md", "CONTRIBUTING.md", "GLOSSARY.md", "CHANGELOG.md", "VERSION"]) copyRepository(path.join(repo, rel), path.join(isolated, rel), { recursive: true });
+  populateRepositoryFixture(isolated, { sourceRoot: repo, suite: "plugin-icons" });
   assert.equal(validateRepository(isolated).ok, true);
   for (const plugin of ["explain-kit", "html-guide-kit"]) {
     const file = path.join(isolated, "plugins", plugin, "assets/icon.png"), bytes = fs.readFileSync(file);
@@ -208,7 +208,7 @@ test("each registered plugin has its own formal brand export and packaged icon",
 
 test("strict repository validation rejects deleted, duplicated or borrowed Communication brand exports", t => {
   const { root } = fixture(t), isolated = path.join(root, "repo"); fs.mkdirSync(isolated);
-  for (const rel of ["assets", ".agents", ".codex", ".github", "scripts", "tests", "plugins", "docs", "AGENTS.md", "README.md", "CONTRIBUTING.md", "GLOSSARY.md", "CHANGELOG.md", "VERSION", ...(fs.existsSync(path.join(repo, "plan")) ? ["plan"] : [])]) copyRepository(path.join(repo, rel), path.join(isolated, rel), { recursive: true });
+  populateRepositoryFixture(isolated, { sourceRoot: repo, suite: "plugin-icons" });
   const baseline = validateRepository(isolated); assert.equal(baseline.ok, true, baseline.errors.join("\n"));
   const file = path.join(isolated, "assets/brand/exports.json"), original = JSON.parse(fs.readFileSync(file, "utf8"));
   for (const mutate of [
