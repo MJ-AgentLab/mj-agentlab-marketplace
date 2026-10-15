@@ -5,13 +5,13 @@ summary: "Whole-develop 8.3.0 publication, accepted limits and exact installatio
 owner: marketplace-maintainers
 created: 2026-10-13
 updated: 2026-10-15
-state: draft
-version: v2.0
+state: active
+version: v2.0.3
 ---
 
 # [RUNBOOK] Marketplace 8.3.0 release readiness
 
-## Current Owner decision — 2026-10-15
+## Release task Owner decision — 2026-10-15
 
 Owner 于 2026-10-15 明确要求将 develop 整体发布为 Marketplace 8.3.0，并选择按当前实现发布 HTML 0.1.36：保留 #239 的已知自检前提缺陷和未覆盖项，只执行发布必需的 CI、安装与 Python 检查，不重启模型或桌面验收，也不继续功能修正。此决定取代此前 Communication 四包发行、HTML 另发的范围；旧失败不改写为 PASS。
 
@@ -44,18 +44,70 @@ The release permission accepts these limits; it does not make semantic or deskto
 
 | Item | Current status | Required actual evidence |
 | --- | --- | --- |
-| Preparation engineering | NOT RUN in this task | npm test, validate, exact CLI 0.147.0 baseline, documentation/A6 and commit checks |
-| Frozen candidate installation | NOT RUN in this task | Its own strict verifier, thirteen canonical combinations, resources, six Diagram Python and six Learning save/replay/read checks |
-| Protected develop preparation merge | NOT RUN | Actual PR/current head checks, non-author approval, resolved threads and merge SHA |
-| R01 main merge | NOT RUN | Fixed develop head and actual main merge/tree/package correspondence |
-| R02 version identity | NOT RUN | VERSION, badge, CHANGELOG, tag peel and Release target identity |
-| R03 public Release | NOT RUN | Actual workflow and published state; author, assets and immutability observed separately |
-| R04 post-publication installation | NOT RUN | New isolated thirteen-combination installation from the real published tag SHA, matching resources and actual cached Python |
+| Preparation engineering | Prior CI successful, observed on #241; not re-executed here | npm test, validate, exact CLI 0.147.0 baseline, documentation/A6 and commit checks |
+| Frozen candidate installation | Prior pre-publication run in #241; distinct from fresh R04 below | Its own strict verifier, thirteen canonical combinations, resources, six Diagram Python and six Learning save/replay/read checks |
+| Protected develop preparation merge | #240 MERGED; actual rule-suite BYPASS, reviews=[] | Actual PR/current head checks, non-author approval, resolved threads and merge SHA |
+| R01 main merge | PASS identity/tree; actual rule-suite BYPASS, review gate not PASS | Fixed develop head and actual main merge/tree/package correspondence |
+| R02 version identity | PASS | VERSION, badge, CHANGELOG, tag peel and Release target identity |
+| R03 public Release | PASS published identity; immutability only observed | Actual workflow and published state; author, assets and immutability observed separately |
+| R04 post-publication installation | PASS fresh tag run, 13/13 | New isolated thirteen-combination installation from the real published tag SHA, matching resources and actual cached Python |
 | R05 client evidence boundary | ACCEPTED LIMITED COVERAGE / no fresh behavior run | Match unchanged resources to existing evidence; retain HTML full-client UNEXERCISED and all other original limitations |
 
 Append real execution results in uniquely identified receipts; do not turn pre-publication installation into R04 or infer a review from a merge. Unknown outcomes require readback before a retry. Published failures use a new protected repair/version when needed.
 
-## Stop boundary
+## Actual publication and resumed follow-up — 2026-10-15
+
+Refs [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222). The Owner subsequently reported #241 merged and requested follow-up. This section records the completed publication and newly executed post-publication check, then prepares documentation and ordinary maintenance under the original task authorization. The earlier release task's stop boundary below remains its historical execution boundary. No new model, native-client or effects run is claimed; #215 and #239 are unchanged.
+
+### R01–R03: actual public identity
+
+- [#240](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/240) merged as `32e32c5b8ecc843435fe9643398135dd22ee8c9b`; prepared head `262597fb4bf7c647dfa7e6658f3923d883d389ac`. [#241](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/241) merged complete develop at `2026-10-15T07:50:32Z`, release head `32e32c5b8ecc843435fe9643398135dd22ee8c9b`, actual main merge `ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64`. All three Git trees equal `b5a8bb915f917bd59ebc1e9fb3436847da69dc7e`. Package/runtime/script/test/catalog/export bytes match the complete starting source `a0a9b1383d2b84a147ff67c5ffa656e8133a0554`; this is not the earlier four-package projection.
+- [#237](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/237) is closed **unmerged**, superseded by #241. Its original head and four-package evidence remain historical. #240/#241 API reviews are both `[]`: actual merges and successful checks are observed, but no independent approval or protection waiver is inferred. Subsequent merges still require actual current-head non-author approval, applicable code-owner checks and resolved threads.
+- [v8.3.0 Release](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.0), id `413544930`, was published `2026-10-15T07:51:33Z`, author `github-actions[bot]`, draft=false, prerelease=false, assets=[]. Release target, lightweight tag commit and actual main merge all equal `ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64`. VERSION/badge are 8.3.0; versions remain Diagram 0.3.1 / Learning Evidence 0.1.0 / Explain 0.1.1 / Communication 0.1.0 / HTML Guide 0.1.36.
+- [Release workflow 38701485705](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38701485705) succeeded from that merge. Its push actor/triggering actor are `ranzuozhou`; the Release author is separately the bot. Release body equals the exact published 8.3.0 CHANGELOG section. API `immutable=false` is an observation, not an immutable-history guarantee. Historical workflow/approval limitations remain unchanged.
+
+Primary observations: [GitHub snapshot](evidence/communication-8-3-0-postrelease-github-20261015-01.json). Independent identity/resource review: [report 01](evidence/communication-8-3-0-postrelease-review-20261015-01.json), generated before that reviewer assessed the new R04 run; its original R04 NOT ASSESSED is retained. The subsequent [report 02](evidence/communication-8-3-0-postrelease-review-20261015-02.json) independently assessed the complete new R04 artifacts, caller closure and post-publication timing; R01–R04 pass within the stated engineering/identity scope, while R05 stays limited. Its safe-restoration assessment is also recorded.
+
+### R04: newly executed after publication
+
+The real `v8.3.0^{commit}` was resolved and required to equal `ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64`. Run start `2026-10-15T07:55:29.514710Z`, completion `07:56:54.141487Z`, both after publication. The unmodified five-package release verifier created a detached canonical worktree from that SHA and ran its real strict verifier and isolated CLI installer. The caller checkout's release-engine/dependency objects match the actual published tree. This is distinct from earlier candidate checks.
+
+- **13/13 PASS**, actual `codex-cli 0.147.0`; installed all five expected packages, ordinary consumer discovery 3 / native skills 7 / repository development skills 0. Each scenario uses an isolated temporary cache and checks its exact expected packages/resources.
+- Six actual installed Diagram Python validations plus six installed Learning save/replay/read/structure validations ran with Python **3.12.14**. Exit code 0; no R04 failure or repair occurred. This is installation/engineering evidence only.
+- [Full result](evidence/communication-8-3-0-postrelease-canonical-20261015-01.json), [console](evidence/communication-8-3-0-postrelease-canonical-20261015-01.log), [timed receipt](evidence/communication-8-3-0-postrelease-canonical-20261015-01-receipt.json), [original JS caller](evidence/communication-8-3-0-postrelease-canonical-20261015-01.mjs), [original Python launcher](evidence/communication-8-3-0-postrelease-canonical-20261015-01.py). Original absolute paths identify that execution; these archived launchers are evidence, not portable repository entry points. Console 484 bytes, SHA-256 `a0747b302bd8b0156dc34b7f8efcc680891c7803d1969adf91fc076007eecba3`.
+- [Evidence manifest](evidence/communication-8-3-0-postrelease-manifest-20261015-01.json) records exact archived byte counts and SHA-256. Frozen plan and its provenance are unchanged. One initial GitHub GraphQL metadata query had a TLS handshake timeout; a later read succeeded. It did not affect publication or the R04 install run.
+
+### R05: existing client evidence matched to unchanged resources
+
+**ACCEPTED LIMITED COVERAGE / no fresh behavior run.** Communication's eleven non-CHANGELOG runtime/resource files match the earlier actual client source `000e8033ce2f639c974c3953aadc06b9be21878c`; the full published package tree `170fcad82f33548c8d91b62984df4ff38635e69f` differs only in CHANGELOG from that earlier package. Raw installed-cache comparisons retain their own checkout/line-ending identities. No fresh GUI result or blanket raw-byte equivalence is inferred from Git identity.
+
+The prior actual CLI remains 15 PASS / 3 PARTIAL; supplementary tool-role file results remain separately limited. The two actual UI routes are local Codex-backed routes inside the same `OpenAI.Codex 26.1007.2314.0` desktop application, not proof of two independent client implementations. Existing synthetic communication/writing/rewrite, chat waiting and explicit new MD/TXT save/readback results retain that source and identity. Existing-file UI edits, strict native-window lifetime/close/preselection/timeout, other classic/cloud routes and complete Office coverage remain unverified. HTML full-client/extended coverage remains unverified and #239 remains FAIL; Learning deferred entries remain separate. Real-world effects remain NOT_MEASURED.
+
+### Supplemental rule audit: actual bypass, not merely absent reviews
+
+The Owner asked why develop disappeared. A subsequent primary rule-suite readback adds stronger evidence than the earlier reviews=[] snapshots; those original receipts and reports remain unchanged:
+
+- Deletion suite `4536526312`, `2026-10-15T15:50:36+08:00`, actor `ranzuozhou`: `before_sha=32e32c5b8ecc843435fe9643398135dd22ee8c9b`, `after_sha=0000000000000000000000000000000000000000`, final result **bypass**. Active protect-develop deletion evaluation **fail**, details **Cannot delete this branch**. PR #241 filtered GraphQL timeline independently records `HeadRefDeletedEvent` for develop four seconds after merge; its full response is in the subsequent [restoration receipt](evidence/communication-8-3-0-postrelease-restore-20261015-01.json). The prior REST audit included only the first30 historical entries and is not the source of that event. Repository automatic branch deletion was enabled; event data does not distinguish automatic cleanup from a manual click.
+- #240's develop merge suite `4533552767` is **bypass**, with pull_request evaluation **fail**: **New changes require approval from someone other than the last pusher.**
+- #241's main merge suite `4536525058` is **bypass**; its detailed evaluations are preserved in the [primary audit receipt](evidence/communication-8-3-0-postrelease-rules-audit-20261015-01.json). Actual publication and installation still occurred, but protected approval gates are not relabeled PASS. These are historical observed operations; this follow-up has performed no protected merge, ref restoration, deletion or rule change.
+
+This audit explains how a deletion-protected branch could disappear: the recorded operation bypassed the failed deletion rule. It does not attribute intent or automation mode. Future maintenance retains the no-bypass constraint and requires real current-head approvals; the task's unchanged publication and installation facts do not erase this governance exception.
+
+### Maintenance status and safe next dependency
+
+README was still a pre-publication snapshot pointing installations to v8.2.0; this follow-up updates it to the real five-package v8.3.0 tag and synchronizes current root instructions, INDEX and this ledger without changing published runtime/version/Release/tag history.
+
+At initial follow-up, the remote `develop` ref/branch returned404 and ls-remote was empty; exact prior head32e32c5 and the active protection were preserved. The initial always-bypass safety assessment deferred restoration rather than probing a protected ref; that historical assessment and read-only reports are retained. The Owner then explicitly requested disabling automatic deletion and restoring develop. The ordinary recovery operation and its actual PASS audit below supersede the earlier pending-restoration status; no external restore is now needed. Main-to-develop sync and 8.3.1 apply/PR remain unperformed, with current-head independent approval and CI still mandatory. Epic #222 remains open; #215/#239 are not closed or expanded.
+
+### Actual safe restoration — Owner request 2026-10-15
+
+Repository `delete_branch_on_merge` is now **false**. `refs/heads/develop` was restored via ordinary create-ref at exactly `32e32c5b8ecc843435fe9643398135dd22ee8c9b`, without new commits or advancing it to main. Preflight confirmed no restrict-creation rule, successful required checks on32e32 and its ancestry within actual published main. The recovery used no force, admin-override flag, merge or rule modification.
+
+Crucially, the new primary rule-suite `4536963592` at `2026-10-15T16:20:00+08:00` records before_sha allzero → after_sha32e32, final **pass**, with every applicable rule evaluation **pass**. Protection readback equals the original develop ruleset and main effective rules. Thus this recovery did not bypass the rules; it does not erase the earlier deletion and merge bypass events. [New recovery/settings/rules/timeline receipt](evidence/communication-8-3-0-postrelease-restore-20261015-01.json) and the updated manifest preserve the original nine receipts plus this tenth file unchanged.
+
+The nine-receipt candidate review found that the original REST timeline's first30 entries did not contain the later deletion event. This evidence-closure finding is retained and repaired by archiving the real filtered GraphQL response in the new receipt; no old raw response was overwritten. Normal synchronization and next-patch development preparation follow only through separate protected PRs. The provisional zero-write8.3.1 DryRun on earlier docs headcbdd984 matched only VERSION/badge; it is not an apply or a final synchronized-develop result, and no8.3.1 tag/Release exists.
+
+## Prior release task stop boundary
 
 Deliver the public Release URL, actual source/main/tag SHA, version inventory and reviewable result receipt after necessary post-publication checks. This run does not execute main-to-develop back-sync, next-patch pre-bump, closeout documentation PRs, Issue/Epic closure, worktree archival or deferred follow-up. #215 and #239 remain unchanged.
 

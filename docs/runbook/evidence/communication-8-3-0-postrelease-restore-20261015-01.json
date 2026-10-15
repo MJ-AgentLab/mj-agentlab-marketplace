@@ -1,0 +1,256 @@
+{
+  "observedAt": "2026-10-15T08:22:17.109662+00:00",
+  "refs": [
+    "#222",
+    "#241",
+    "#242"
+  ],
+  "authorization": "Owner explicitly requested disabling automatic deletion after merge and restoring develop in this thread on 2026-10-15.",
+  "method": "PATCH repository delete_branch_on_merge=false; ordinary POST git/refs for exact last develop head. No admin override flag, force update, rule edit, new protected content or merge. Preflight: no restrict-creation rule, all32e32 required checks success and commit already ancestor of published main. Primary rule-suite verifies PASS rather than inferring no bypass from endpoint success.",
+  "repositorySettings": {
+    "full_name": "MJ-AgentLab/mj-agentlab-marketplace",
+    "default_branch": "main",
+    "delete_branch_on_merge": false
+  },
+  "developRef": {
+    "ref": "refs/heads/develop",
+    "node_id": "REF_kwDORoMukLJyZWZzL2hlYWRzL2RldmVsb3A",
+    "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/refs/heads/develop",
+    "object": {
+      "sha": "32e32c5b8ecc843435fe9643398135dd22ee8c9b",
+      "type": "commit",
+      "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/32e32c5b8ecc843435fe9643398135dd22ee8c9b"
+    }
+  },
+  "restoreRuleSuite": {
+    "id": 4536963592,
+    "actor_id": 35538471,
+    "actor_name": "ranzuozhou",
+    "before_sha": "0000000000000000000000000000000000000000",
+    "after_sha": "32e32c5b8ecc843435fe9643398135dd22ee8c9b",
+    "ref": "refs/heads/develop",
+    "repository_id": 1183002256,
+    "repository_name": "mj-agentlab-marketplace",
+    "pushed_at": "2026-10-15T16:20:00+08:00",
+    "result": "pass",
+    "rule_evaluations": [
+      {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008221,
+          "name": "protect-develop"
+        },
+        "enforcement": "active",
+        "result": "pass",
+        "rule_type": "non_fast_forward"
+      },
+      {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008221,
+          "name": "protect-develop"
+        },
+        "enforcement": "active",
+        "result": "pass",
+        "rule_type": "required_status_checks"
+      },
+      {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008221,
+          "name": "protect-develop"
+        },
+        "enforcement": "active",
+        "result": "pass",
+        "rule_type": "pull_request"
+      },
+      {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008221,
+          "name": "protect-develop"
+        },
+        "enforcement": "active",
+        "result": "pass",
+        "rule_type": "deletion"
+      }
+    ]
+  },
+  "developRules": {
+    "id": 14008221,
+    "name": "protect-develop",
+    "target": "branch",
+    "source_type": "Repository",
+    "source": "MJ-AgentLab/mj-agentlab-marketplace",
+    "enforcement": "active",
+    "conditions": {
+      "ref_name": {
+        "exclude": [],
+        "include": [
+          "refs/heads/develop"
+        ]
+      }
+    },
+    "rules": [
+      {
+        "type": "deletion"
+      },
+      {
+        "type": "pull_request",
+        "parameters": {
+          "required_approving_review_count": 1,
+          "dismiss_stale_reviews_on_push": true,
+          "required_reviewers": [],
+          "require_code_owner_review": false,
+          "dismissal_restriction": {
+            "enabled": false,
+            "allowed_actors": []
+          },
+          "require_last_push_approval": true,
+          "required_review_thread_resolution": true,
+          "require_extra_approval_for_unattributed_changes": true,
+          "allowed_merge_methods": [
+            "merge"
+          ]
+        }
+      },
+      {
+        "type": "required_status_checks",
+        "parameters": {
+          "strict_required_status_checks_policy": true,
+          "do_not_enforce_on_create": false,
+          "required_status_checks": [
+            {
+              "context": "Validate Structure"
+            },
+            {
+              "context": "A6 / Check"
+            }
+          ]
+        }
+      },
+      {
+        "type": "non_fast_forward"
+      }
+    ],
+    "node_id": "RRS_lACqUmVwb3NpdG9yec5Ggy6QzgDVv50",
+    "created_at": "2026-03-17T21:24:26.928+08:00",
+    "updated_at": "2026-07-16T17:10:23.460+08:00",
+    "bypass_actors": [
+      {
+        "actor_id": 5,
+        "actor_type": "RepositoryRole",
+        "bypass_mode": "always"
+      }
+    ],
+    "current_user_can_bypass": "always",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/rulesets/14008221"
+      },
+      "html": {
+        "href": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/rules/14008221"
+      }
+    }
+  },
+  "mainEffectiveRules": [
+    {
+      "type": "deletion",
+      "ruleset_source_type": "Repository",
+      "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+      "ruleset_id": 14008213
+    },
+    {
+      "type": "non_fast_forward",
+      "ruleset_source_type": "Repository",
+      "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+      "ruleset_id": 14008213
+    },
+    {
+      "type": "creation",
+      "ruleset_source_type": "Repository",
+      "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+      "ruleset_id": 14008213
+    },
+    {
+      "type": "pull_request",
+      "parameters": {
+        "required_approving_review_count": 1,
+        "dismiss_stale_reviews_on_push": true,
+        "required_reviewers": [],
+        "require_code_owner_review": true,
+        "dismissal_restriction": {
+          "enabled": false,
+          "allowed_actors": []
+        },
+        "require_last_push_approval": true,
+        "required_review_thread_resolution": true,
+        "require_extra_approval_for_unattributed_changes": true,
+        "allowed_merge_methods": [
+          "merge"
+        ]
+      },
+      "ruleset_source_type": "Repository",
+      "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+      "ruleset_id": 14008213
+    },
+    {
+      "type": "required_status_checks",
+      "parameters": {
+        "strict_required_status_checks_policy": true,
+        "do_not_enforce_on_create": false,
+        "required_status_checks": [
+          {
+            "context": "Validate Structure"
+          }
+        ]
+      },
+      "ruleset_source_type": "Repository",
+      "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+      "ruleset_id": 14008213
+    }
+  ],
+  "protectionReadbackMatchesOriginal": true,
+  "pr241ActualTimelineQuery": "query { repository(owner:\"MJ-AgentLab\", name:\"mj-agentlab-marketplace\") { pullRequest(number:241) { headRefName mergedAt timelineItems(last:30,itemTypes:[HEAD_REF_DELETED_EVENT,HEAD_REF_RESTORED_EVENT,MERGED_EVENT]) { nodes { __typename ... on HeadRefDeletedEvent { actor { login } createdAt headRefName } ... on HeadRefRestoredEvent { actor { login } createdAt } ... on MergedEvent { actor { login } createdAt commit { oid } } } } } } }",
+  "pr241ActualTimeline": {
+    "data": {
+      "repository": {
+        "pullRequest": {
+          "headRefName": "develop",
+          "mergedAt": "2026-10-15T07:50:32Z",
+          "timelineItems": {
+            "nodes": [
+              {
+                "__typename": "MergedEvent",
+                "actor": {
+                  "login": "ranzuozhou"
+                },
+                "createdAt": "2026-10-15T07:50:32Z",
+                "commit": {
+                  "oid": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64"
+                }
+              },
+              {
+                "__typename": "HeadRefDeletedEvent",
+                "actor": {
+                  "login": "ranzuozhou"
+                },
+                "createdAt": "2026-10-15T07:50:36Z",
+                "headRefName": "develop"
+              },
+              {
+                "__typename": "HeadRefRestoredEvent",
+                "actor": {
+                  "login": "ranzuozhou"
+                },
+                "createdAt": "2026-10-15T08:20:01Z"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "limits": "Prior raw audit REST timeline captured only first30 entries. This new GraphQL filtered response supplies the actual HeadRefDeletedEvent; old raw bytes are preserved. Restoration PASS does not retroactively erase old deletion/merge BYPASS. No main-to-develop synchronization or pre-bump apply has occurred.",
+  "receiptCollectionFailureAndRepair": "First read-only receipt helper requested the repository endpoint with a trailing slash and received404 before writing any output or document. Corrected URL and reran collection. This was not a restoration failure and no mutation was retried."
+}

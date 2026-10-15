@@ -6,14 +6,14 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-15
 state: active
-version: v2.90
+version: v2.91.2
 ---
 
 # 文档索引
 
 ## 当前整体发布
 
-2026-10-15 Owner 决定以 develop 完整五包七技能/四显式发布未公开的 Marketplace 8.3.0：Diagram 0.3.1 / Learning Evidence 0.1.0 / Explain 0.1.1 / Communication 0.1.0 / HTML 0.1.36；此前四包与 HTML 另发的范围已被替代。当前公开仍为 v8.2.0。发布门禁、原始证据和已接受限制见[8.3.0 发行账本](runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。HTML 已知自检前提失败及完整客户端未覆盖保留，#239 不关闭；本轮只做必要工程/安装/Python，不重启模型或桌面验收，发布后必要复查完成即停止收尾跟踪。
+2026-10-15 #241 已将完整五包七技能/四显式作为 Marketplace v8.3.0 公开，main/tag/Release 同为 ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64。Diagram 0.3.1 / Learning Evidence 0.1.0 / Explain 0.1.1 / Communication 0.1.0 / HTML 0.1.36；原四包 #237 关闭未合并。发布后十三组合 canonical 安装及 6+6 缓存 Python 通过，身份、原始回执和后续维护见[8.3.0 发行账本](runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。自动删分支已关闭、develop原head32e32c5已恢复且规则审计PASS；常规同步/预升仍须受保护PR。R05仅沿用未变资源的有限覆盖；HTML #239 FAIL、完整客户端未覆盖、历史规则审计 bypass、空 reviews 和效果未测均保留，不关闭 #215/#239。
 
 ## 历史阶段导航
 
