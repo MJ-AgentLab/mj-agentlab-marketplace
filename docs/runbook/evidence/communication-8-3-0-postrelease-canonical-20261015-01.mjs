@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import {pathToFileURL} from 'node:url';
+const root='C:/Users/Admin/.codex/worktrees/release-develop-8-3-0/develop';
+const out='C:/Users/Admin/.codex/worktrees/communication-8-3-0-postrelease-canonical-20261015-01.json';
+if(fs.existsSync(out))throw Error('refuse receipt overwrite');
+const {runCli}=await import(pathToFileURL(root+'/scripts/run-cli.mjs').href);
+const {verifyReleaseInstall}=await import(pathToFileURL(root+'/scripts/release-verify-install.mjs').href);
+const tag=await runCli('git',['rev-parse','v8.3.0^{commit}'],{cwd:root,timeoutMs:10000});
+if(tag.status!==0)throw Error(tag.stderr);const sha=tag.stdout.trim();
+if(sha!=='ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64')throw Error('published tag changed from observed identity');
+const result=await verifyReleaseInstall({canonicalSha:sha,repoRoot:root});
+fs.writeFileSync(out,JSON.stringify({phase:'R04',startedAfterObservedPublishedAt:'2026-10-15T07:51:33Z',observedAt:new Date().toISOString(),tag:'v8.3.0',canonicalSha:sha,result},null,2)+'\n');
+console.log(JSON.stringify({canonicalSha:sha,ok:result.ok,scenarios:result.scenarios.length,cli:result.version,diagramPython:result.scenarios.filter(s=>s.diagramValidation).length,learningPython:result.scenarios.filter(s=>s.learningEvidenceValidation).length,python:[...new Set(result.scenarios.filter(s=>s.learningEvidenceValidation).map(s=>s.learningEvidenceValidation.interpreter))],installed:result.installed,native:result.scenarios.at(-1).nativeOutside.publicSkills,ordinary:result.scenarios.at(-1).outside},null,2));

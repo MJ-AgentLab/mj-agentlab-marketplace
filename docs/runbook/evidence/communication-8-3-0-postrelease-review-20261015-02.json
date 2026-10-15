@@ -1,0 +1,844 @@
+{
+  "schemaVersion": 1,
+  "refs": [
+    "#222",
+    "#215",
+    "#239",
+    "#240",
+    "#241"
+  ],
+  "reviewer": "/root/communication_sync_review",
+  "reviewedAt": "2026-10-15T08:05:36.087Z",
+  "method": "Independent read-only primary GitHub/Git and actual post-publication R04 artifact review; no suite/install rerun by this reviewer, no GUI/model/effects or repo/GitHub/ref mutation. This02 report is exclusively created and preserves01.",
+  "scope": "Actually published whole-develop8.3.0: five packages/seven public skills/four explicit; supersedes closed-unmerged four-package PR237.",
+  "primaryObservations": {
+    "observedAt": "2026-10-15T07:56:07.692Z",
+    "pr237": {
+      "state": "closed",
+      "merged": false,
+      "mergedAt": null,
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/237"
+    },
+    "pr240": {
+      "state": "closed",
+      "merged": true,
+      "merge": "32e32c5b8ecc843435fe9643398135dd22ee8c9b",
+      "head": "262597fb4bf7c647dfa7e6658f3923d883d389ac",
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/240"
+    },
+    "pr241": {
+      "state": "closed",
+      "merged": true,
+      "mergedAt": "2026-10-15T07:50:32Z",
+      "merge": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64",
+      "head": "32e32c5b8ecc843435fe9643398135dd22ee8c9b",
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/241"
+    },
+    "reviews241": [],
+    "main": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64",
+    "tag": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64",
+    "release": {
+      "id": 413544930,
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.0",
+      "name": "v8.3.0",
+      "tag": "v8.3.0",
+      "target": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64",
+      "author": "github-actions[bot]",
+      "draft": false,
+      "prerelease": false,
+      "publishedAt": "2026-10-15T07:51:33Z",
+      "immutable": false,
+      "assets": [],
+      "bodySha256": "066ee929b7083d20019c6522cfa89c625da5737170efaaf4ab1d20684db522ce",
+      "bodyExactPublishedChangeLog": true,
+      "bodyComparisonObservedAt": "2026-10-15T07:58:23.407Z"
+    },
+    "workflow": {
+      "id": 38701485705,
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38701485705",
+      "status": "completed",
+      "conclusion": "success",
+      "headSha": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64",
+      "path": ".github/workflows/release.yml",
+      "event": "push"
+    }
+  },
+  "actualSource": {
+    "main": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64",
+    "tag": "v8.3.0",
+    "tagPeeledCommit": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64",
+    "pr241Head": "32e32c5b8ecc843435fe9643398135dd22ee8c9b",
+    "testedHead": "262597fb4bf7c647dfa7e6658f3923d883d389ac",
+    "mainTree": "b5a8bb915f917bd59ebc1e9fb3436847da69dc7e",
+    "prHeadTree": "b5a8bb915f917bd59ebc1e9fb3436847da69dc7e",
+    "testedTree": "b5a8bb915f917bd59ebc1e9fb3436847da69dc7e",
+    "actualMergeParents": [
+      "ebc4bdc3abc62c36348d9ba28de7161b04b3b466",
+      "32e32c5b8ecc843435fe9643398135dd22ee8c9b"
+    ],
+    "packages": [
+      {
+        "name": "diagram-kit",
+        "version": "0.3.1",
+        "tree": "e217c41be2cd4c3653aa17aa7b28c8312be06268"
+      },
+      {
+        "name": "learning-evidence-kit",
+        "version": "0.1.0",
+        "tree": "c88818fac37e937a245436f0f999f3488babfe1f"
+      },
+      {
+        "name": "explain-kit",
+        "version": "0.1.1",
+        "tree": "ef6a90bc60e9af45915c30ecf4668559978e29e5"
+      },
+      {
+        "name": "communication-kit",
+        "version": "0.1.0",
+        "tree": "170fcad82f33548c8d91b62984df4ff38635e69f"
+      },
+      {
+        "name": "html-guide-kit",
+        "version": "0.1.36",
+        "tree": "b18a8a4b2a118149e61456b5b11daec4beb2db8c"
+      }
+    ],
+    "publicSkills": 7,
+    "explicitSkills": 4,
+    "ordinarySkills": 3,
+    "repositorySkills": 20,
+    "canonicalMatrixExpected": 13,
+    "runtimeClosureWithOwnerSelectedDevelop": "a0a9b1383d2b84a147ff67c5ffa656e8133a0554",
+    "runtimeDiff": "",
+    "plan": {
+      "lines": 405,
+      "sha256": "6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3",
+      "limit": "Original path had previously disappeared. Existing405-line captured copy is verified; no reconstruction or recreated original is claimed."
+    }
+  },
+  "results": {
+    "R01": {
+      "status": "PASS for actual merge/source identity",
+      "actualMerge": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64",
+      "headAndTestedTreesEqual": true,
+      "priorPR237": "closed/unmerged/superseded; not used as publication source"
+    },
+    "R02": {
+      "status": "PASS for version identity anchors",
+      "version": "8.3.0",
+      "badge": "8.3.0",
+      "changeLogVersion": "8.3.0 - 2026-10-15",
+      "mainTagReleaseTargetEqual": true,
+      "readmeCurrentInstallationStatus": "Published source retains pre-publication prose and default v8.2.0 installation example; future v8.3.0 instruction is present. This anchor PASS does not declare README closeout complete."
+    },
+    "R03": {
+      "status": "PASS for observed public Release identity and workflow",
+      "id": 413544930,
+      "publishedAt": "2026-10-15T07:51:33Z",
+      "draft": false,
+      "prerelease": false,
+      "author": "github-actions[bot]",
+      "workflow": {
+        "id": 38701485705,
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38701485705",
+        "status": "completed",
+        "conclusion": "success",
+        "headSha": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64",
+        "path": ".github/workflows/release.yml",
+        "event": "push"
+      },
+      "assetsCount": 0,
+      "immutableObserved": false,
+      "repositoryImmutabilityConfiguration": "not established; mutable Release is recorded, not described as immutable",
+      "bodyExactPublishedChangeLog": true,
+      "bodySha256": "066ee929b7083d20019c6522cfa89c625da5737170efaaf4ab1d20684db522ce"
+    },
+    "R04": {
+      "status": "PASS for actual published-tag post-publication canonical installation",
+      "executedBy": "Root; independent artifact/source audit by this reviewer",
+      "canonicalSha": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64",
+      "tag": "v8.3.0",
+      "mainTagAlreadyIndependentlyObservedAs": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64",
+      "receipt": {
+        "startedAt": "2026-10-15T07:55:29.514710+00:00",
+        "completedAt": "2026-10-15T07:56:54.141487+00:00",
+        "exitCode": 0,
+        "phase": "post-publication R04",
+        "sha": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64",
+        "log": "C:\\Users\\Admin\\.codex\\worktrees\\communication-8-3-0-postrelease-canonical-20261015-01.log",
+        "bytes": 484,
+        "sha256": "a0747b302bd8b0156dc34b7f8efcc680891c7803d1969adf91fc076007eecba3"
+      },
+      "actualStartedAfterPublished": true,
+      "summary": {
+        "scenarioCount": 13,
+        "allOkAndCommandsZero": true,
+        "diagramPython": 6,
+        "learningPython": 6,
+        "learningInterpreters": [
+          "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]"
+        ],
+        "uniqueIsolatedCacheRoots": 13
+      },
+      "scenarios": [
+        {
+          "number": 1,
+          "plugins": [
+            "diagram-kit"
+          ],
+          "ok": true,
+          "allCommandStatusesZero": true,
+          "consumerRepositorySkills": 0,
+          "ordinaryPublicSkills": 1,
+          "nativePublicSkills": 1,
+          "explicitOnly": [],
+          "sourceCacheRoots": [
+            "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-LupM8f"
+          ],
+          "installedVersions": {
+            "diagram-kit": "0.3.1"
+          },
+          "diagramPython": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+          "learningPython": null
+        },
+        {
+          "number": 2,
+          "plugins": [
+            "learning-evidence-kit"
+          ],
+          "ok": true,
+          "allCommandStatusesZero": true,
+          "consumerRepositorySkills": 0,
+          "ordinaryPublicSkills": 0,
+          "nativePublicSkills": 2,
+          "explicitOnly": [
+            "learning-evidence-kit:pop-quiz",
+            "learning-evidence-kit:learning-record-check"
+          ],
+          "sourceCacheRoots": [
+            "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-EDoi5c"
+          ],
+          "installedVersions": {
+            "learning-evidence-kit": "0.1.0"
+          },
+          "diagramPython": null,
+          "learningPython": {
+            "interpreter": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+            "saveStatus": "ok",
+            "replayIdentical": true,
+            "structurallyValid": true
+          }
+        },
+        {
+          "number": 3,
+          "plugins": [
+            "explain-kit"
+          ],
+          "ok": true,
+          "allCommandStatusesZero": true,
+          "consumerRepositorySkills": 0,
+          "ordinaryPublicSkills": 2,
+          "nativePublicSkills": 2,
+          "explicitOnly": [],
+          "sourceCacheRoots": [
+            "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-heEdEy"
+          ],
+          "installedVersions": {
+            "explain-kit": "0.1.1"
+          },
+          "diagramPython": null,
+          "learningPython": null
+        },
+        {
+          "number": 4,
+          "plugins": [
+            "diagram-kit",
+            "explain-kit"
+          ],
+          "ok": true,
+          "allCommandStatusesZero": true,
+          "consumerRepositorySkills": 0,
+          "ordinaryPublicSkills": 3,
+          "nativePublicSkills": 3,
+          "explicitOnly": [],
+          "sourceCacheRoots": [
+            "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-GoN064"
+          ],
+          "installedVersions": {
+            "diagram-kit": "0.3.1",
+            "explain-kit": "0.1.1"
+          },
+          "diagramPython": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+          "learningPython": null
+        },
+        {
+          "number": 5,
+          "plugins": [
+            "diagram-kit",
+            "learning-evidence-kit",
+            "explain-kit"
+          ],
+          "ok": true,
+          "allCommandStatusesZero": true,
+          "consumerRepositorySkills": 0,
+          "ordinaryPublicSkills": 3,
+          "nativePublicSkills": 5,
+          "explicitOnly": [
+            "learning-evidence-kit:pop-quiz",
+            "learning-evidence-kit:learning-record-check"
+          ],
+          "sourceCacheRoots": [
+            "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-9x8sFo"
+          ],
+          "installedVersions": {
+            "diagram-kit": "0.3.1",
+            "learning-evidence-kit": "0.1.0",
+            "explain-kit": "0.1.1"
+          },
+          "diagramPython": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+          "learningPython": {
+            "interpreter": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+            "saveStatus": "ok",
+            "replayIdentical": true,
+            "structurallyValid": true
+          }
+        },
+        {
+          "number": 6,
+          "plugins": [
+            "communication-kit"
+          ],
+          "ok": true,
+          "allCommandStatusesZero": true,
+          "consumerRepositorySkills": 0,
+          "ordinaryPublicSkills": 0,
+          "nativePublicSkills": 1,
+          "explicitOnly": [
+            "communication-kit:communicate"
+          ],
+          "sourceCacheRoots": [
+            "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-lRNZo4"
+          ],
+          "installedVersions": {
+            "communication-kit": "0.1.0"
+          },
+          "diagramPython": null,
+          "learningPython": null
+        },
+        {
+          "number": 7,
+          "plugins": [
+            "communication-kit",
+            "explain-kit"
+          ],
+          "ok": true,
+          "allCommandStatusesZero": true,
+          "consumerRepositorySkills": 0,
+          "ordinaryPublicSkills": 2,
+          "nativePublicSkills": 3,
+          "explicitOnly": [
+            "communication-kit:communicate"
+          ],
+          "sourceCacheRoots": [
+            "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-SEDVND"
+          ],
+          "installedVersions": {
+            "communication-kit": "0.1.0",
+            "explain-kit": "0.1.1"
+          },
+          "diagramPython": null,
+          "learningPython": null
+        },
+        {
+          "number": 8,
+          "plugins": [
+            "communication-kit",
+            "learning-evidence-kit"
+          ],
+          "ok": true,
+          "allCommandStatusesZero": true,
+          "consumerRepositorySkills": 0,
+          "ordinaryPublicSkills": 0,
+          "nativePublicSkills": 3,
+          "explicitOnly": [
+            "communication-kit:communicate",
+            "learning-evidence-kit:pop-quiz",
+            "learning-evidence-kit:learning-record-check"
+          ],
+          "sourceCacheRoots": [
+            "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-EgXdN9"
+          ],
+          "installedVersions": {
+            "communication-kit": "0.1.0",
+            "learning-evidence-kit": "0.1.0"
+          },
+          "diagramPython": null,
+          "learningPython": {
+            "interpreter": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+            "saveStatus": "ok",
+            "replayIdentical": true,
+            "structurallyValid": true
+          }
+        },
+        {
+          "number": 9,
+          "plugins": [
+            "diagram-kit",
+            "learning-evidence-kit",
+            "explain-kit",
+            "communication-kit"
+          ],
+          "ok": true,
+          "allCommandStatusesZero": true,
+          "consumerRepositorySkills": 0,
+          "ordinaryPublicSkills": 3,
+          "nativePublicSkills": 6,
+          "explicitOnly": [
+            "learning-evidence-kit:pop-quiz",
+            "learning-evidence-kit:learning-record-check",
+            "communication-kit:communicate"
+          ],
+          "sourceCacheRoots": [
+            "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-oSmqnZ"
+          ],
+          "installedVersions": {
+            "diagram-kit": "0.3.1",
+            "learning-evidence-kit": "0.1.0",
+            "explain-kit": "0.1.1",
+            "communication-kit": "0.1.0"
+          },
+          "diagramPython": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+          "learningPython": {
+            "interpreter": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+            "saveStatus": "ok",
+            "replayIdentical": true,
+            "structurallyValid": true
+          }
+        },
+        {
+          "number": 10,
+          "plugins": [
+            "html-guide-kit"
+          ],
+          "ok": true,
+          "allCommandStatusesZero": true,
+          "consumerRepositorySkills": 0,
+          "ordinaryPublicSkills": 0,
+          "nativePublicSkills": 1,
+          "explicitOnly": [
+            "html-guide-kit:guide"
+          ],
+          "sourceCacheRoots": [
+            "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-4UhCxa"
+          ],
+          "installedVersions": {
+            "html-guide-kit": "0.1.36"
+          },
+          "diagramPython": null,
+          "learningPython": null
+        },
+        {
+          "number": 11,
+          "plugins": [
+            "html-guide-kit",
+            "explain-kit"
+          ],
+          "ok": true,
+          "allCommandStatusesZero": true,
+          "consumerRepositorySkills": 0,
+          "ordinaryPublicSkills": 2,
+          "nativePublicSkills": 3,
+          "explicitOnly": [
+            "html-guide-kit:guide"
+          ],
+          "sourceCacheRoots": [
+            "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-w7ty0v"
+          ],
+          "installedVersions": {
+            "html-guide-kit": "0.1.36",
+            "explain-kit": "0.1.1"
+          },
+          "diagramPython": null,
+          "learningPython": null
+        },
+        {
+          "number": 12,
+          "plugins": [
+            "diagram-kit",
+            "learning-evidence-kit",
+            "explain-kit",
+            "html-guide-kit"
+          ],
+          "ok": true,
+          "allCommandStatusesZero": true,
+          "consumerRepositorySkills": 0,
+          "ordinaryPublicSkills": 3,
+          "nativePublicSkills": 6,
+          "explicitOnly": [
+            "learning-evidence-kit:pop-quiz",
+            "learning-evidence-kit:learning-record-check",
+            "html-guide-kit:guide"
+          ],
+          "sourceCacheRoots": [
+            "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-k6I4Pw"
+          ],
+          "installedVersions": {
+            "diagram-kit": "0.3.1",
+            "learning-evidence-kit": "0.1.0",
+            "explain-kit": "0.1.1",
+            "html-guide-kit": "0.1.36"
+          },
+          "diagramPython": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+          "learningPython": {
+            "interpreter": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+            "saveStatus": "ok",
+            "replayIdentical": true,
+            "structurallyValid": true
+          }
+        },
+        {
+          "number": 13,
+          "plugins": [
+            "diagram-kit",
+            "learning-evidence-kit",
+            "explain-kit",
+            "communication-kit",
+            "html-guide-kit"
+          ],
+          "ok": true,
+          "allCommandStatusesZero": true,
+          "consumerRepositorySkills": 0,
+          "ordinaryPublicSkills": 3,
+          "nativePublicSkills": 7,
+          "explicitOnly": [
+            "learning-evidence-kit:pop-quiz",
+            "learning-evidence-kit:learning-record-check",
+            "communication-kit:communicate",
+            "html-guide-kit:guide"
+          ],
+          "sourceCacheRoots": [
+            "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-2ZtLNz"
+          ],
+          "installedVersions": {
+            "diagram-kit": "0.3.1",
+            "learning-evidence-kit": "0.1.0",
+            "explain-kit": "0.1.1",
+            "communication-kit": "0.1.0",
+            "html-guide-kit": "0.1.36"
+          },
+          "diagramPython": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+          "learningPython": {
+            "interpreter": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+            "saveStatus": "ok",
+            "replayIdentical": true,
+            "structurallyValid": true
+          }
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-8-3-0-postrelease-canonical-20261015-01.json",
+          "bytes": 327845,
+          "sha256": "7239d4338354369b4ee7708c4dbe99e4001425770b037e9cf54d79c6b02d532e"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-8-3-0-postrelease-canonical-20261015-01.log",
+          "bytes": 484,
+          "sha256": "a0747b302bd8b0156dc34b7f8efcc680891c7803d1969adf91fc076007eecba3"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-8-3-0-postrelease-canonical-20261015-01.mjs",
+          "bytes": 1560,
+          "sha256": "444ec651119298eaa6e13901d3dcaaf02287a1a1fa69d9a7e31ea7603b4da2c5"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-8-3-0-postrelease-canonical-20261015-01.py",
+          "bytes": 1215,
+          "sha256": "75a0560a4c460e59fed0edd5ec269f4fb913887c225ff4ab01b8ed0f29544379"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/communication-8-3-0-postrelease-canonical-20261015-01-receipt.json",
+          "bytes": 415,
+          "sha256": "aa20709220026b5d9f4b12d9f8656389e8cf27169ea2bc4cc733ad56e31ee97b"
+        }
+      ],
+      "receiptLogBytesAndShaMatch": true,
+      "callerEngineClosure": [
+        {
+          "path": "scripts/release-verify-install.mjs",
+          "callerGitEqual": true,
+          "callerDiskLfEqual": true
+        },
+        {
+          "path": "scripts/smoke-codex-plugin.mjs",
+          "callerGitEqual": true,
+          "callerDiskLfEqual": true
+        },
+        {
+          "path": "scripts/run-cli.mjs",
+          "callerGitEqual": true,
+          "callerDiskLfEqual": true
+        },
+        {
+          "path": "scripts/validate-portable.mjs",
+          "callerGitEqual": true,
+          "callerDiskLfEqual": true
+        },
+        {
+          "path": "scripts/plugin-icons.mjs",
+          "callerGitEqual": true,
+          "callerDiskLfEqual": true
+        },
+        {
+          "path": "scripts/brand-assets.mjs",
+          "callerGitEqual": true,
+          "callerDiskLfEqual": true
+        },
+        {
+          "path": "package.json",
+          "callerGitEqual": true,
+          "callerDiskLfEqual": true
+        },
+        {
+          "path": "package-lock.json",
+          "callerGitEqual": true,
+          "callerDiskLfEqual": true
+        }
+      ],
+      "realExecutionMethod": "MJS resolves v8.3.0^{commit}, rejects any SHA other than observed actual ae2754, and calls default real verifyReleaseInstall. The reviewed verifier creates a detached exact-SHA worktree, validates HEAD/strict source, and invokes real runSmoke under independent fresh homes. Python wrapper prepends bundled3.12.14 and exact CLI paths; output/receipts are distinct after public Release.",
+      "limits": "This proves engineering installation/discovery/source-cache resource and actual Python paths, not fresh HTML/Communication GUI/model/real-world effects."
+    },
+    "R05": {
+      "status": "ACCEPTED LIMITED COVERAGE / resource-closure verification, no fresh behavior run",
+      "communicationSameNonChangelogFiles": 11,
+      "allNonChangelogBytesSame": true,
+      "changedPackageFile": "CHANGELOG.md only; original native package14a3896 vs published170fcad retained as different full package identities",
+      "nativeCandidate": {
+        "sha": "000e8033ce2f639c974c3953aadc06b9be21878c",
+        "tree": "d545dafe7643bbe4eca1bc3656c8ced714bb3c8e",
+        "packageGitTree": "14a3896c7ad50597bfc83996bcfec25180a720f9",
+        "plugin": "communication-kit",
+        "version": "0.1.0",
+        "snapshot": "communication-kit-aics-2026-10-12-r2",
+        "snapshotSha256": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332"
+      },
+      "nativeDesktop": {
+        "displayName": "ChatGPT",
+        "appId": "OpenAI.Codex_2p2nqsd0c76g0!App",
+        "packageFamily": "OpenAI.Codex_2p2nqsd0c76g0",
+        "packageVersion": "26.1007.2314.0",
+        "windowId": 197142,
+        "windowTitle": "ChatGPT",
+        "modelShown": "GPT-6.1 Sol Extra High",
+        "permissionsShown": "Full access (pre-existing; unchanged)",
+        "identityLimit": "Same desktop package, two distinct native UI routes, both actual threads kind=codex/local. Not a separate ChatGPT installation, classic Chat or cloud execution; not the CLI 0.147.0 batch."
+      },
+      "nativeRoutes": [
+        {
+          "id": "codex",
+          "route": "Codex → plugin Try now → Don't work in a project → This computer",
+          "threadId": "01a13319-72a6-7e93-b8c2-dae52693ea16",
+          "cases": {
+            "communication": "PASS",
+            "writing": "PASS",
+            "faithfulRewrite": "PASS",
+            "criticalQuestionAndChatWait": "PASS",
+            "explicitNewMdTxtAndActualReadback": "PASS",
+            "noFileWritesBeforeExplicitRequest": "PASS: actual complete six-turn execution trace; initial package reads only"
+          }
+        },
+        {
+          "id": "work",
+          "route": "ChatGPT → New chat → Work → no project → On your computer",
+          "threadId": "01a1332a-da34-78b3-addd-473d3f7b3777",
+          "cases": {
+            "communication": "PASS",
+            "writing": "PASS",
+            "faithfulRewrite": "PASS",
+            "criticalQuestionAndChatWait": "PASS",
+            "explicitNewMdTxtAndActualReadback": "PASS",
+            "noFileWritesBeforeExplicitRequest": "PASS: actual complete six-turn execution trace; initial package reads only"
+          }
+        }
+      ],
+      "nativeEvidencePath": "docs/runbook/evidence/communication-kit-2026-10-13-native-ui-01.json",
+      "nativeEvidenceSha256": "4432f2cabb4aa99ce1977ecc41e191fbfba8f455618c56a6bfaaa9d9cd88bb63",
+      "nativeNotCovered": [
+        "Native question selection window close/empty/timeout events (ordinary chat questions used, no such window appeared)",
+        "CLI 0.147.0 host-blocked C16-C18 successful subpaths (historical PARTIAL retained)",
+        "Full C16 existing-file notes edit in these UI routes (separate tools-role batch covers limited edit)",
+        "Separate ChatGPT app installation, classic Chat mode or cloud Work execution",
+        "R01-R05 formal publication and post-release installation",
+        "Real-world efficacy/nine personal trials/three-draft comparisons/reader feedback/adoption/efficiency"
+      ],
+      "resourceComparisons": [
+        {
+          "path": "CHANGELOG.md",
+          "publishedBytes": 1473,
+          "publishedSha256": "0c892c06e3140050fdff8abf6936cc12e1406db2d6b5a9860884dfda44aadfa4",
+          "nativeSourceSha256": "20057c43b875fc67850b73f53a9c9b20e6f51cf9b121804a7b85f9b348fa866a",
+          "same": false,
+          "gitBlob": "16ad1f9041f86ed01fcab34771af9ab40c67bcf8"
+        },
+        {
+          "path": "LICENSE",
+          "publishedBytes": 1068,
+          "publishedSha256": "cfd483b2cc03452033bbc34d6ceabcc46d9917539070f6721d671705926a2a8d",
+          "nativeSourceSha256": "cfd483b2cc03452033bbc34d6ceabcc46d9917539070f6721d671705926a2a8d",
+          "same": true,
+          "gitBlob": "5ce28e0a42b9f781087df184517daafa2f483602"
+        },
+        {
+          "path": "README.md",
+          "publishedBytes": 1906,
+          "publishedSha256": "7f2f21555070e5c9803dd15e6ac30bd156617830bd01e0962cacf74a08b8ed75",
+          "nativeSourceSha256": "7f2f21555070e5c9803dd15e6ac30bd156617830bd01e0962cacf74a08b8ed75",
+          "same": true,
+          "gitBlob": "e48e6a5ee5e783ca93486702330a789989481f84"
+        },
+        {
+          "path": "assets/icon.png",
+          "publishedBytes": 79377,
+          "publishedSha256": "07f8a9ad4d04f20bc0551f3e72ed8c9e1b14368a743b392d4feee3aaec314ddf",
+          "nativeSourceSha256": "07f8a9ad4d04f20bc0551f3e72ed8c9e1b14368a743b392d4feee3aaec314ddf",
+          "same": true,
+          "gitBlob": "39a708ea85835de34a9698d1d431e25205ead387"
+        },
+        {
+          "path": "assets/icon.svg",
+          "publishedBytes": 1153,
+          "publishedSha256": "be2ecb005473fab4e5c79ae9bcfddad58665cb9d322a373a110777fc03753f28",
+          "nativeSourceSha256": "be2ecb005473fab4e5c79ae9bcfddad58665cb9d322a373a110777fc03753f28",
+          "same": true,
+          "gitBlob": "6e48cac24e63b6c202d44ecfff89dcb3f3daad6b"
+        },
+        {
+          "path": "plugin.json",
+          "publishedBytes": 1401,
+          "publishedSha256": "fe255f7ef47f1f7627445ee10b4967412c71b9e2ff1a5b2449bcf6caa2c9fe13",
+          "nativeSourceSha256": "fe255f7ef47f1f7627445ee10b4967412c71b9e2ff1a5b2449bcf6caa2c9fe13",
+          "same": true,
+          "gitBlob": "c43bc6bbff0f9cc6cfcccadf4a07d98017c84791"
+        },
+        {
+          "path": "skills/communicate/SKILL.md",
+          "publishedBytes": 5759,
+          "publishedSha256": "19d773c36748a5843b231c335df71656eb6261caba14066115b33285882c61a6",
+          "nativeSourceSha256": "19d773c36748a5843b231c335df71656eb6261caba14066115b33285882c61a6",
+          "same": true,
+          "gitBlob": "f26f93ca7e2d783301bcd98b0cbb5bf1498c39d0"
+        },
+        {
+          "path": "skills/communicate/agents/openai.yaml",
+          "publishedBytes": 314,
+          "publishedSha256": "1aab91721ebf933aa3d6f52a1581a434bb000bbee2d0f19f9d32fcea5cf627c5",
+          "nativeSourceSha256": "1aab91721ebf933aa3d6f52a1581a434bb000bbee2d0f19f9d32fcea5cf627c5",
+          "same": true,
+          "gitBlob": "d5536a61a8b67ebb1c3f7e81d66b6cc529c2a56c"
+        },
+        {
+          "path": "skills/communicate/references/aics-policy.md",
+          "publishedBytes": 4423,
+          "publishedSha256": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+          "nativeSourceSha256": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+          "same": true,
+          "gitBlob": "505bed066b8229177277713c6eae21b17f9a7a70"
+        },
+        {
+          "path": "skills/communicate/references/aics-snapshot.json",
+          "publishedBytes": 10361,
+          "publishedSha256": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332",
+          "nativeSourceSha256": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332",
+          "same": true,
+          "gitBlob": "7f6136ae1f633be56eb194f11a67d1466490990a"
+        },
+        {
+          "path": "skills/communicate/references/source-provenance.md",
+          "publishedBytes": 5621,
+          "publishedSha256": "53272cc56dba8cfe32203543d9f3d6aee8ec55ebc3602f4dc5652be90b9ed725",
+          "nativeSourceSha256": "53272cc56dba8cfe32203543d9f3d6aee8ec55ebc3602f4dc5652be90b9ed725",
+          "same": true,
+          "gitBlob": "620db99d40ff20dbba3e8ca818d4737700ee16f9"
+        },
+        {
+          "path": "skills/communicate/references/task-patterns.md",
+          "publishedBytes": 4178,
+          "publishedSha256": "190c47c125759de5dbdca218417a418b76ba555df44923dc2cf48b86d60d0cff",
+          "nativeSourceSha256": "190c47c125759de5dbdca218417a418b76ba555df44923dc2cf48b86d60d0cff",
+          "same": true,
+          "gitBlob": "3dfd90a1d5a6826f92e9abfddf650e4c8b763e8a"
+        }
+      ],
+      "limit": "Existing same-app Codex-local and ChatGPT/Work-local basic evidence maps to unchanged Communication resources. No fresh published-tag GUI run or separate classic ChatGPT/cloud/native-question-window acceptance is claimed. HTML0.1.36 complete current clients remain unverified."
+    }
+  },
+  "knownFailuresAndLimits": [
+    {
+      "subject": "HTML0.1.36",
+      "status": "known FAIL and unverified paths retained",
+      "issue": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/239",
+      "detail": "Source36 independent-self-check lacks the current-state prerequisite for a definite conclusion; whole6PASS/1FAIL/2UNEXERCISED/5NOT_RUN is recorded in the current ledger. Owner explicitly selected as-is publication, not a repaired or fully client-accepted result."
+    },
+    {
+      "subject": "GitHub independent review",
+      "status": "NOT OBSERVED",
+      "detail": "PR241 reviews array is empty. Actual merge/publication and the Owner as-is choice do not create nonauthor/latest-push/Code Owner approval or establish a protection waiver. This AI audit is not GitHub approval."
+    },
+    {
+      "subject": "Communication file/window/client scope",
+      "status": "historical PARTIAL/NOT RUN retained",
+      "detail": "CLI C16-C18 host-blocked subpaths, full existing-file C16 on these native routes, native selection close/empty/timeout, independent classic/cloud and complete Office edits are not upgraded."
+    },
+    {
+      "subject": "Effects",
+      "status": "NOT MEASURED/OUT OF SCOPE",
+      "detail": "No real-world communication/learning efficacy, personal trials, three-draft comparisons, reader feedback, adoption or efficiency evaluation."
+    }
+  ],
+  "documentationFollowup": {
+    "status": "observed/deferred; no source edits performed",
+    "path": "README.md",
+    "lines": [
+      7,
+      22,
+      48,
+      66,
+      76
+    ],
+    "detail": "Candidate language and default--ref v8.2.0/three-package example remain in the published snapshot. Line36 instructs switching to--ref v8.3.0 and installing HTML/Communication after publication. Report actual v8.3.0 identity explicitly; do not claim documentation closeout complete."
+  },
+  "scopeAndGovernanceBoundary": {
+    "verdict": "R01-R04 observed source/publication/installation PASS; R05 accepted limited resource closure. Known HTML FAIL/client gaps and missing independent GitHub approval remain, so no full behavioral/approval-compliance or Epic-complete claim.",
+    "currentWholeDevelopDecision": "Owner2026-10-15 decision is in published root instructions/ledger and current Release section; previous four-package projection is explicitly historical.",
+    "maintenance": "Published release operations/ledger says stop after publication and necessary checks; branch sync/pre-bump/docs/Issue closure/archive were deferred in that saved scope. Any Root action under later direct user authorization must preserve its own authorization/source record; this report authorizes or executes none.",
+    "remoteDevelop": "Root reported API404 and no ls-remote branch output. This reviewer did not restore, recreate, delete or change any branch.",
+    "epic": "Not closed by this reviewer; no statement of full Epic acceptance.",
+    "branchRestorationAssessment": {
+      "kind": "read-only feasibility judgment; no action executed",
+      "factsSource": "Root-provided observed rules/settings; no additional network documentation search by reviewer",
+      "observedMissingBranch": "remote develop GET404 and ls-remote no ref",
+      "autoDeleteOnMerge": true,
+      "targetOriginalHead": "32e32c5b8ecc843435fe9643398135dd22ee8c9b",
+      "ruleset": 14008221,
+      "reportedRules": {
+        "creationRule": false,
+        "pullRequestRequired": true,
+        "strictChecks": true,
+        "do_not_enforce_on_create": false,
+        "currentActorBypassMode": "always"
+      },
+      "conclusion": "Cannot guarantee create-ref would execute without bypass from these static observations. No creation rule plus green historical SHA may permit a compliant creation, but checks remain enforced on creation and old merged/reviews=[] does not supply missing approval evidence. Current actor can always bypass; create-ref provides no force-enforce/no-bypass switch or result-level attestation.",
+      "recommendedMinimum": "Keep remote develop absent until an existing write-capable actor without bypass permission restores exactly the original32e32 head. Then Root can prepare the normal protected main-to-develop PR under applicable authorization. Do not create as a probe or relax rules.",
+      "scope": "No branch restoration, protection change, bypass, review request or GitHub mutation performed."
+    }
+  },
+  "findings": [],
+  "reuseInvalidatesIf": "Changed Communication skill/refs/manifest/icons/source or relevant host/installation path requires affected new verification. Actual known HTML failures and absent fresh clients remain separate from successful source/version/publication checks.",
+  "priorReview": {
+    "path": "C:/Users/Admin/.codex/worktrees/communication-8-3-0-postrelease-review-20261015-01.json",
+    "bytes": 17824,
+    "sha256": "55840233d7a3261912e340079526bb2bb5286171e3af7cbc7e26775738f96b65",
+    "preservedUnmodified": true,
+    "change": "This02 adds the now-provided actual R04 evidence and branch-restoration feasibility assessment. The01 NOT ASSESSED observation is retained as its original review state."
+  }
+}

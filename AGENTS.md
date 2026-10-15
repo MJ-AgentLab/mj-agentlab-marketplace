@@ -2,7 +2,7 @@
 
 ## 项目上下文
 
-Owner 2026-10-15决定从develop a0a9b138整体发布8.3.0，五包七技能/四显式，取代四包/HTML另发。运行包/版本保持；HTML0.1.36按现状发布，#239已知FAIL/双端未覆盖保留，不重启模型或桌面验收。main仍公开8.2.0；CLI0.147.0。当前决定见[8.3账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)，下文旧记录不覆盖新决定。
+Marketplace v8.3.0已由#241/main ae2754db于2026-10-15公开，tag/Release同SHA，五包七技能/四显式：Diagram0.3.1、Learning Evidence0.1.0、Explain0.1.1、Communication0.1.0、HTML0.1.36。发布后十三canonical及6+6实际Python通过；CLI0.147.0。HTML#239已知FAIL/双端未覆盖、Communication限定覆盖及空reviews均保留，见[8.3账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。
 
 manifest 的公开示例按[插件契约](docs/spec/[SPEC]_Plugin_Json_Schema.md)保留完整路由，最多三条，各原值不超过 128 个 Unicode scalar values；严格校验防止客户端忽略超长示例而丢失公开入口，不依赖空白归一化。
 
@@ -16,11 +16,11 @@ Learning Evidence Kit 的 Pop Quiz 诊断只读，明确移交后结束诊断，
 
 Explain初始0.1.0速解/深讲、中文/原术语、深度/格式适应见[ADR](docs/adr/[ADR]_Explain_Kit_Addition.md)及[验收](docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md)，不改测验策略。
 
-Communication实施与发布使用[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。候选[包说明](plugins/communication-kit/README.md)和[communicate](plugins/communication-kit/skills/communicate/SKILL.md)定义显式单入口、沟通/编写/保义改写、关键缺口等待、成稿＋关键提示及明确请求才保存编辑。冻结AICS保持Lab Proposal / Informative，运行只依赖包内摘要。工程307测试、十三组canonical及六次缓存Python通过；旧行为失败与CLI C16–C18 PARTIAL保留。2026-10-13代理亲自执行同一26.1007.2314.0桌面应用内Codex本地和ChatGPT/Work本机两个入口，安装、图标、三任务、聊天等待及新MD/TXT保存回读限定范围PASS；身份、原生窗口/其他客户端未覆盖项见[验收记录§4](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。Communication发布未执行，此前PR1–4保持draft；Learning先发已完成，当前阶段独立批准与合并仍缺；现实效果测试本轮延期。
+Communication按[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)交付；PR1–4已合并，四包#237关闭未合并，由完整五包#241发布。显式单入口与保义/等待/文件合同见[包说明](plugins/communication-kit/README.md)及[communicate](plugins/communication-kit/skills/communicate/SKILL.md)，AICS仍Lab Proposal / Informative。旧失败、CLI C16–C18 PARTIAL、同一26.1007.2314.0桌面应用两个本机入口的限定实证及未覆盖项见[验收§4](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。R05只对应未变资源，无新GUI；基础通过不证明现实效果。
 
 ## 执行与决策
 
-本轮准备PR先入develop，再develop→main；当前head真实非作者批准、CI/代码所有者/线程门禁保持，不指定审查人。公开及必要发布后复查完成即停；回同步、预升、文档收尾、Issue关闭、归档和延期跟踪留后续。
+用户要求#241合并后继续工作：按原授权补齐发布记录，再准备受保护同步/补丁预升。远端develop已不存在，须先安全恢复原head32e32c5再走PR，禁止借admin绕过保护；未恢复不推定同步完成。当前head非作者批准、CI/代码所有者/线程门禁保持，不指定审查人。#215/#239延期和效果不在本次扩展。
 
 communication-kit 首版按已保存的[完整计划](plan/communication-kit-implementation-plan.md)实施，来源与授权见[捕获记录](plan/communication-kit-plan-provenance.json)，由 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222) 管理 PR1–PR5 与正式上线。产品方向、显式 communicate 单入口、保义改写和文件边界已确认；设计与验收契约见[新增 ADR](docs/adr/[ADR]_Communication_Kit_Addition.md)及[验收 RUNBOOK](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。PR1/PR2 保持现有运行集合，PR3 原子接入新包。Owner 选择 Learning 先发布 8.2.0，Communication 随后独立 minor（预计 8.3.0），PR4 重查实际版本和基线；现实效果测试本次延期，基础通过不代表效果已验证。
 
