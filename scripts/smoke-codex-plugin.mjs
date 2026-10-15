@@ -7,6 +7,7 @@ import { pathToFileURL } from "node:url";
 import { isDeepStrictEqual } from "node:util";
 import { runCli, spawnCli } from "./run-cli.mjs";
 import { assertInstalledIcons } from "./plugin-icons.mjs";
+import { measureSync, measureAsync } from "./perf-metrics.mjs";
 import { REPOSITORY_SKILLS, RUNTIME_PLUGINS, PUBLIC_SKILLS, EXPLICIT_ONLY_SKILLS, validateOpenAIConfig, validateCommunicationSnapshot, resolveOwnedResource, validateRepository, assertInstalledPluginResources } from "./validate-portable.mjs";
 
 export const MARKETPLACE_NAME = "mj-agentlab-marketplace";
@@ -176,9 +177,11 @@ export function listNativeSkills({ codexCommand = "codex", cwd, cwds, env, timeo
 }
 
 export function cleanupIsolatedRoot(root) {
-  const rel = path.relative(real(os.tmpdir()), real(root));
-  if (!rel || rel.startsWith("..") || path.isAbsolute(rel)) throw new Error("refusing cleanup outside the OS temporary directory");
-  fs.rmSync(root, { recursive: true, force: true });
+  return measureSync("cleanup", () => {
+    const rel = path.relative(real(os.tmpdir()), real(root));
+    if (!rel || rel.startsWith("..") || path.isAbsolute(rel)) throw new Error("refusing cleanup outside the OS temporary directory");
+    fs.rmSync(root, { recursive: true, force: true });
+  }, { scope: "smoke" });
 }
 
 async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVersionDrift, installed }) {
@@ -195,21 +198,21 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
     return r.stdout;
   };
   try {
-    for (const rel of [".agents", "plugins", "assets", "AGENTS.md", ".codex", ".github", "docs", "scripts", "tests", "VERSION", "README.md", "CONTRIBUTING.md", "GLOSSARY.md", "CHANGELOG.md", "package.json", "package-lock.json"]) fs.cpSync(path.join(repoRoot, rel), path.join(src, rel), { recursive: true });
-    if (fs.existsSync(path.join(repoRoot, "plan"))) fs.cpSync(path.join(repoRoot, "plan"), path.join(src, "plan"), { recursive: true });
-    if (fs.existsSync(path.join(repoRoot, ".gitattributes"))) fs.copyFileSync(path.join(repoRoot, ".gitattributes"), path.join(src, ".gitattributes"));
-    await execute("git", ["init", "-q"], src);
+    for (const rel of [".agents", "plugins", "assets", "AGENTS.md", ".codex", ".github", "docs", "scripts", "tests", "VERSION", "README.md", "CONTRIBUTING.md", "GLOSSARY.md", "CHANGELOG.md", "package.json", "package-lock.json"]) measureSync("copy", () => fs.cpSync(path.join(repoRoot, rel), path.join(src, rel), { recursive: true }), { scope: "smoke", installed, path: rel });
+    if (fs.existsSync(path.join(repoRoot, "plan"))) measureSync("copy", () => fs.cpSync(path.join(repoRoot, "plan"), path.join(src, "plan"), { recursive: true }), { scope: "smoke", installed, path: "plan" });
+    if (fs.existsSync(path.join(repoRoot, ".gitattributes"))) measureSync("copy", () => fs.copyFileSync(path.join(repoRoot, ".gitattributes"), path.join(src, ".gitattributes")), { scope: "smoke", installed, path: ".gitattributes" });
+    await measureAsync("git.init", () => execute("git", ["init", "-q"], src), { scope: "smoke", installed });
     fs.writeFileSync(path.join(codexHome, "config.toml"), `[projects.${JSON.stringify(norm(src))}]\ntrust_level = "trusted"\n`);
     const version = (await execute(codexCommand, ["--version"])).trim();
     if (!allowVersionDrift && version !== `codex-cli ${BASELINE_VERSION}`) throw new Error(`expected Codex CLI ${BASELINE_VERSION}, found ${version}`);
-    await execute(codexCommand, ["plugin", "marketplace", "add", src, "--json"]);
+    await measureAsync("install", () => execute(codexCommand, ["plugin", "marketplace", "add", src, "--json"]), { scope: "smoke", installed, target: "marketplace" });
     const m = JSON.parse(await execute(codexCommand, ["plugin", "marketplace", "list", "--json"]));
     const names = m.marketplaces?.map(m => m.name) ?? [];
     if (names.length !== 1 || names[0] !== MARKETPLACE_NAME) throw new Error("isolated marketplace set is incorrect");
     const plugins = installed;
     const expectedSkills = plugins.flatMap(plugin => RUNTIME_PLUGINS[plugin].map(skill => `${plugin}:${skill}`));
     const pluginVersions = Object.fromEntries(plugins.map(name => [name, JSON.parse(fs.readFileSync(path.join(src, "plugins", name, "plugin.json"), "utf8")).version]));
-    for (const plugin of plugins) await execute(codexCommand, ["plugin", "add", plugin, "--marketplace", MARKETPLACE_NAME, "--json"]);
+    for (const plugin of plugins) await measureAsync("install", () => execute(codexCommand, ["plugin", "add", plugin, "--marketplace", MARKETPLACE_NAME, "--json"]), { scope: "smoke", installed, target: plugin });
     const list = JSON.parse(await execute(codexCommand, ["plugin", "list", "--json"]));
     if (!Array.isArray(list.installed) || JSON.stringify(list.installed.map(p => p.name).sort()) !== JSON.stringify([...plugins].sort()) || list.installed.some(p => !p.installed || !p.enabled)) throw new Error("expected plugins must be installed and enabled");
     const implicitSkills = expectedSkills.filter(name => !EXPLICIT_ONLY_SKILLS.includes(name));
@@ -307,8 +310,10 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
 
 /** Exercise each standalone package and the combined install with separate caches. */
 export async function runSmoke({ repoRoot = path.resolve(import.meta.dirname, ".."), codexCommand = "codex", baseEnv = process.env, keepRoot = false, allowVersionDrift = false } = {}) {
-  const validation = validateRepository(repoRoot);
-  if (!validation.ok) throw new Error(`smoke source failed strict validation: ${validation.errors.join("; ")}`);
+  measureSync("validate", () => {
+    const validation = validateRepository(repoRoot);
+    if (!validation.ok) throw new Error(`smoke source failed strict validation: ${validation.errors.join("; ")}`);
+  }, { scope: "smoke" });
   const scenarios = [];
   try {
     for (const installed of INSTALL_SCENARIOS) {
