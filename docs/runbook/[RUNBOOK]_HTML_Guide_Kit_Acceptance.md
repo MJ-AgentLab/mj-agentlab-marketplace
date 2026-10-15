@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-15
 state: draft
-version: v1.71
+version: v1.72
 last-verified: null
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
@@ -1081,3 +1081,20 @@ HTML0.1.35 canonical 0ed26217fc65043622f1ff1b428ff42118f5dd3a/tree427a144f949429
 该准确提交十三严格安装与六次实际缓存Python通过，manifest、版本、显式调用策略、图标和每项包资源均从实际缓存比较。canonical、排除reviewer-only的镜像和缓存分别记录，不要求完整tree相同。[工程和安装原件](evidence/html-guide-kit/pr3-post-merge/candidate035-engineering/archive-index.json)保留逐文件长度/哈希；Markdown原件仅物理命名snapshot.txt。Source34一项whole失败、有限Work待答与047实际封存保持，不追认为新候选成功。后续纯文档补证以71分发mode/blob未变证明可复用。
 
 本条封存时新连续行为、扩展和双客户端尚未执行。Computer Use已重新连接，只读观察当前页面，不当调用证据；客户端可在准确安装及Root启动授权后与核心并行，首真实FAIL/INVALID同35global标记停止新输入，在途自然完成并仅恢复自有配置。核心14变体/30输入及所需客户端仍为合并门禁。现实效果NOT_MEASURED，#220/Epic开放；Owner接受、当前head非作者批准/CI/线程、实际merge各自待证，无Release/tag/main发布PR。Refs #217, #220。
+
+
+## §74 Source35 实际停止与两入口有限原生路径
+
+HTML0.1.35/0ed26217fc65043622f1ff1b428ff42118f5dd3a/tree427a144f949429623de5af7adc35d3afface2ec3的346工程、65文档/A6、quick、strict/check与十三准确安装六实际缓存Python通过保持。本次纯证据封口核71分发Git mode/blob与canonical一致，完整tree不同，不重复完整测试或安装。真实核心10UUID/20COMPLETE/0INVALID、14指定变体30计划输入，whole7PASS/1FAIL/2UNEXERCISED/4NOT_RUN；10输入未发、0标记后开始、0自然cross。实际SDK为CLI0.147/OpenAI/gpt-5.6-sol/high，原defaultlow与显式high分记；V2实际exit/close和240000ms窗口、21资源三方与100原模型文件完整保留。
+
+唯一wholeF为C延迟修改确认指南案例五，宽称“材料没有给出从‘已归还’重新进入核验或领取的路径”，未就地限定只指额外直接流转。源§7不设状态限制，重新开始清除本轮操作并恢复§1未核验，再可执行§3核验；不必证明此后能成功再次领取。旁处正确恢复不缩小本句已有断言。主修改待答与明确确认局部P保留，wholeF不被抵消。A首CreateNew同35flag于2026-10-14T23:39:35.624Z、SHA00b1c29ec844bed6e8bc4378a003e645f433675171fd907a5b5773215c685733；随后停止新输入/选择，不kill、重试或重采样。
+
+Root最终35全集543路径/字节冻结：408公开Source35载荷、125已封Source35原件引用、10私密原文仅本地hash；另44外tracking引用，共169已封工程/准确安装引用。旧575/492/677/472/451/362原件不改、不复制旧rawroot，后续36不进入此包。原生成时核心聚合的原生PENDING_B事实保持，由单独native最终闭包补证，不覆盖原聚合。
+
+[048停止档案](evidence/html-guide-kit/pr3-reviewer/patch-048-stopped/index.json)已由Root三份真实执行收据证实：封包、Node复原与独.NET逐原字节复原均exit0，共449公开原件/12593858B/10packets，最大2086048<2,097,152B、secret0；inventory753bdaa44a3fc324a80e7075d9ed3b2774d05ea2b7532a5f5a9e73db22623bc4。[生产、审查、唯一干跑与三次实际执行原日志及精确正逆差异](evidence/html-guide-kit/pr3-post-merge/candidate048-final-seal/archive-index.json)保留所有实际辅助错误，不改codec/security、不把观察器错误追认为模型INVALID。
+
+原生入口分别核实际originator：Work UUID01a13cc1-d8cc-7e21-ad78-cd6f19dd9c71、3连续COMPLETE的方案/未选择等待/明确确认交付有限路径P；Codex UUID01a13cc6-be25-7a81-aeeb-ce4a44ece713、1COMPLETE仅初始读取与目标呈现P，确认指南wholeUNEXERCISED、2输入未发。两者backend0.162.0-alpha.17.2、gpt-6-astra/xhigh，与核心CLI0.147/Sol/high分记；不凭同exe推断独立客户端。各3份实际缓存正文共6Read body逐字节核源，不能据安装哈希替代模型收包。
+
+四native SDK jsonl、四parsed json及两owned片段原件仅LOCAL_PRIVATE_HASH_ONLY，绝不公开其bootstrap/完整SDK/config正文或整窗pixels。公开仅本任务scoped输入、全部实际答复、身份、调用及package body衍生；两首Read均明确排除626B PSReadLine/profile配置诊断前缀，保其hash/offset及package body，不冒完整首stdout或完整SDK可复原。Root恢复10旧owned片段、新35disabled，nonowned原字节保持，不移除市场或缓存。
+
+完整双客户端/窗口空返回、关闭、超时生命周期及扩展、重复未通过；现实效果NOT_MEASURED。Owner接受、当前head非作者批准/CI/线程及实际merge各依真实证据，#220/Epic保持开放，无bypass/Release/tag/main发布PR。Refs #217, #220。

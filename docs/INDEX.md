@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-15
 state: active
-version: v2.86
+version: v2.87
 ---
 
 # 文档索引
@@ -294,3 +294,6 @@ HTML35仅FW两span逐项跨相关源单元核实际对象/维度，批量结论�
 
 
 HTML35/0ed26217工程346/65/quick/strict/actualCLI0.147与十三准确安装六缓存Python通过；新行为/双端未完成，源34真实失败及有限待答证据与047封存保持，见[§73](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+
+HTML35/0ed真实核心10UUID20C整体7P1F2U4N、10未发/0post0cross；Work3C仅三轮有限P，Codex1C仅初始读取/目标P、确认指南wholeU；6实际缓存正文与10旧owned复原保。048真实封包/双逐字节复原P，71运行资源不变，见[§74](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。

@@ -1,0 +1,22 @@
+{
+  "recordedAt": "2026-10-14T23:46:14.516Z",
+  "actualTool": "81664e",
+  "exit": 1,
+  "operation": "Read-only closure schema inspector; final aggregator was not executed",
+  "error": "Inspector attempted fs.readFileSync(row.file) for explicit zero-attempt B2.1 NOT_RUN inline closure record without a file field.",
+  "originalDraft": {
+    "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/tracking/final-035-root-c-draft.mjs",
+    "bytes": 10603,
+    "sha256": "dc6591cc7b20e689310227f2f248c407619f432198c7d0f550ed6d8f5fde7ab7"
+  },
+  "originalRetained": true,
+  "rootCause": "Source35 independent BC closure explicitly embeds zero-attempt NOT_RUN instead of creating a separate report file.",
+  "correction": {
+    "file": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/tracking/final-035-root-c-draft-r2.mjs",
+    "bytes": 11027,
+    "sha256": "f3f194d842432cb6e982e4fffaa8431650b736d11572134901bd7883fcb22c36",
+    "scope": "Only explicit independently recorded NOT_RUN/NOT_RUN can use inline closure with no final file, verified against actual zero attempts. All non-NOT_RUN missing references remain PENDING; no PASS synthesized."
+  },
+  "modelCall": false,
+  "source35FinalOrOriginalMutated": false
+}
