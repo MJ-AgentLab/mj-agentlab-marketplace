@@ -1,0 +1,124 @@
+{
+  "recordedAt": "2026-10-14T23:57:52.039Z",
+  "status": "STATIC_ONLY_NO_STATIC_BLOCKERS",
+  "reviewer": "/root/behavior_014_a",
+  "controlAuthor": "/root/behavior_014_b",
+  "candidateVersion": "0.1.36",
+  "candidateCanonical": null,
+  "draft": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-36\\CONTROL_DRAFT_ONLY.json",
+    "bytes": 14463,
+    "sha256": "7561149c90966b0eb30b00a4359b15407b07e199cd75cc8d540ecde9c8b4a7bb"
+  },
+  "inventory": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-36\\control-copy-inventory.draft.json",
+    "bytes": 1538339,
+    "sha256": "31a65e38b2e4f5392b968707b10a286c81e58b748840adad551cd163f7f71491"
+  },
+  "delta": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-36\\version-guard-exactdiff.draft.json",
+    "bytes": 2585,
+    "sha256": "85af9a708c353e2f6a80a13e1b0f49d303aa556c94f13413a5c19ca97dfa6327"
+  },
+  "controlSource": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-35\\CONTROLS_FINAL_FROZEN.json",
+    "bytes": 19920,
+    "sha256": "72f3c84f1382bbf6fa2e11fb18527c3497f9ca2c90e4bb4f8318816716acd3c0"
+  },
+  "mechanical": {
+    "controls": 42,
+    "reviewerSdkHelpers": 3,
+    "active40": 40,
+    "activeByteExact": 37,
+    "changedLiterals": 11,
+    "changedAsciiBytes": 11,
+    "changed": [
+      {
+        "relative": "prepare-correction.mjs",
+        "bytesChanged": 4,
+        "forwardAndInverseExact": true
+      },
+      {
+        "relative": "prepare-coverage.mjs",
+        "bytesChanged": 4,
+        "forwardAndInverseExact": true
+      },
+      {
+        "relative": "verify-canonical.mjs",
+        "bytesChanged": 1,
+        "forwardAndInverseExact": true
+      },
+      {
+        "relative": "controller.mjs",
+        "bytesChanged": 1,
+        "forwardAndInverseExact": true
+      },
+      {
+        "relative": "review-selected-identity.mjs",
+        "bytesChanged": 1,
+        "forwardAndInverseExact": true
+      }
+    ],
+    "sourceSnapshotProposedPinsAllExact": true,
+    "twoSdkReceiversBodyByteExact": true,
+    "authorNodeParseOnlyReceipts": 31,
+    "authorNodeParseOnlyExitsAllZero": true,
+    "independentRepeatedSyntaxOrFixtures": "NOT_RUN"
+  },
+  "protectedSources": {
+    "29": {
+      "fileCount": 362,
+      "fullSetAndBytesExact": true,
+      "privateBodiesHashedOnly": true
+    },
+    "30": {
+      "fileCount": 451,
+      "fullSetAndBytesExact": true,
+      "privateBodiesHashedOnly": true
+    },
+    "31": {
+      "fileCount": 472,
+      "fullSetAndBytesExact": true,
+      "privateBodiesHashedOnly": true
+    },
+    "32": {
+      "fileCount": 677,
+      "fullSetAndBytesExact": true,
+      "privateBodiesHashedOnly": true
+    },
+    "33": {
+      "fileCount": 492,
+      "fullSetAndBytesExact": true,
+      "privateBodiesHashedOnly": true
+    },
+    "34": {
+      "fileCount": 575,
+      "fullSetAndBytesExact": true,
+      "privateBodiesHashedOnly": true
+    },
+    "35": {
+      "fileCount": 543,
+      "fullSetAndBytesExact": true,
+      "privateBodiesHashedOnly": true
+    }
+  },
+  "source35RootTracking": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\tracking\\035-final-protected-source-set.json",
+    "bytes": 115111,
+    "sha256": "69e130d813b5c69ce9a1d97d2f83f35e118b9f56b12fcafa48770931170ceecd"
+  },
+  "semantics": {
+    "completeCanonicalVersionGuard": "Exact 40-hex canonical and manifest0.1.36 checked before prepare; actual seven source/mirror/cache hashes and reviewer exclusion required.",
+    "inputsMaterialsRubricPlans": "Byte exact from Source35; no answers or reviewer results copied into consumer.",
+    "identity": "Pinned low default proof retained; explicit high supported by proof and fresh model/list; reviewer requires actual OpenAI/0.147/gpt-5.6-sol/high SDK identity rather than metadata alone.",
+    "lifecycle": "V2 byte exact; timeout/error/late/no actual exit/no close/not-in-deadline reject. Exit deadline240000ms; close drain has no separate deadline.",
+    "scheduling": "Future preparation/quote/manual choose/each turn explicitly checks Source36 shared flag and passes candidate --pause-file. Historical inner28 schedule remains history. Normal turn/variant return; no atomic check/spawn or host-window lock claim.",
+    "scopeReads": "False/N_A early scope reads remain factual; no forced full Read or reinterpretation as PASS.",
+    "private": "Only hash/file metadata checked; private payloads not parsed, decoded, copied, or exposed.",
+    "ui": "Separate NOT_READY hash-only proposal, no active consumer entry or client PASS."
+  },
+  "consumerApiInstallModel": "NOT_RUN",
+  "repositoryOrOldEvidenceMutation": false,
+  "behaviorAcceptance": "NOT_RUN; static approval is not behavioral PASS",
+  "issues": []
+}

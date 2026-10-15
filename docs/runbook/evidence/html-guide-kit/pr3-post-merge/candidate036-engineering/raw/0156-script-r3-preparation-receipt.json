@@ -1,0 +1,65 @@
+{
+  "recordedAt": "2026-10-14T23:59:46.036Z",
+  "status": "EXTERNAL_SCRIPT_READY_PENDING_ACTUAL_CLEAN_BASELINE_AND_PREVIEW_AUTHORIZATION",
+  "sourceR2": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-36\\engineering-integration-draft\\integrate-source36-draft-r2.mjs",
+    "bytes": 23261,
+    "sha256": "582278bc9f9f14d50f3001f1536a886ff46915a42650cf5190cd2dc64378377b"
+  },
+  "candidate": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-36\\engineering-integration-draft\\integrate-source36-r3.mjs",
+    "bytes": 23442,
+    "sha256": "c35ccda6600ae01daa3305cc6ec769f5789e60b09f7ff6924a56cd16cb131bd3"
+  },
+  "edits": [
+    {
+      "old": "const CONTROL_PINS=[['CONTROLS_FINAL_FROZEN.json',null],['frozen-copy-inventory.json',null],['final-freeze-receipt.json',null]]; // Pending actual separately approved Source36 FINAL pins; explicit latest clean baseline is still required.",
+      "new": "const CONTROL_PINS=[[\"CONTROLS_FINAL_FROZEN.json\",\"1326dd996d915240ad9514b775815b354c68cf608e8cc70a7b4003b99a958ae4\"],[\"frozen-copy-inventory.json\",\"cf52954306d22c61166d862ef9e0738c5ce61237ee226e5c472b99c28997ec15\"],[\"final-freeze-receipt.json\",\"51e255f8dd4034b194af915a12ba193b1262298557bcd7c3935a17a6941bc0ce\"]]; // Actual separately approved Source36 FINAL pins; explicit latest clean baseline is still required."
+    },
+    {
+      "old": "path.resolve(ROOT,'../../tracking/035-final-protected-source-set.json')",
+      "new": "path.resolve(ROOT,'../../../tracking/035-final-protected-source-set.json')"
+    }
+  ],
+  "reason": "Root-approved exact FINAL binding; correct tracking path resolves from corrections/0-1-36 through three parents to workspace tracking. R2 preserved and never executed.",
+  "finalControls": [
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-36\\CONTROLS_FINAL_FROZEN.json",
+      "bytes": 20540,
+      "sha256": "1326dd996d915240ad9514b775815b354c68cf608e8cc70a7b4003b99a958ae4"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-36\\frozen-copy-inventory.json",
+      "bytes": 1586544,
+      "sha256": "cf52954306d22c61166d862ef9e0738c5ce61237ee226e5c472b99c28997ec15"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-36\\final-freeze-receipt.json",
+      "bytes": 5634,
+      "sha256": "51e255f8dd4034b194af915a12ba193b1262298557bcd7c3935a17a6941bc0ce"
+    }
+  ],
+  "productPaths": 12,
+  "protectedPaths": 66,
+  "otherPackageFiles": 59,
+  "engineeringToolPaths": 28,
+  "historicalSets": [
+    543,
+    575,
+    492,
+    677,
+    472,
+    451,
+    362
+  ],
+  "sourceRuntime": "0ed26217fc65043622f1ff1b428ff42118f5dd3a",
+  "targetVersion": "0.1.36",
+  "runtimeFreeze": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-36\\DRAFT_FINAL_FROZEN.json",
+    "bytes": 6818,
+    "sha256": "fd3704c12a97075e28f106c66314615ef3cab6ecedb118d5e84b768bf4620737"
+  },
+  "baseline": "WAIT_FOR_ROOT_ACTUAL_048_PURE_PROOF_CLEAN_HEAD",
+  "preview": "NOT_RUN",
+  "versionToolApplyTestsInstallApiModelsGit": "NOT_RUN"
+}
