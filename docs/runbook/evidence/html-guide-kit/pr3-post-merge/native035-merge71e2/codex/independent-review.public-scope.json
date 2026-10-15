@@ -1,0 +1,201 @@
+{
+  "recordedAt": "2026-10-14T13:07:17.044Z",
+  "reviewer": "behavior_014_b (independent reviewer; Root operated the native client)",
+  "status": "LIMITED_NATIVE_CODEX_THREE_TURN_PASS",
+  "scope": "This exact continuous native Codex task and shared-equipment material, three submitted turns and three installed-resource Reads only",
+  "identity": {
+    "sessionUuid": "01a13a72-ab05-7b81-b2f1-3873011c4288",
+    "originator": "Codex Desktop",
+    "cliVersion": "0.162.0-alpha.17.2",
+    "rawSourceField": "vscode",
+    "modelProvider": "openai",
+    "workspaceRelation": "Outside the marketplace repository; projectless native task as operated by Root",
+    "cwdRecordedPublicly": false,
+    "contexts": [
+      {
+        "turn": 1,
+        "sourceLine": 8,
+        "timestamp": "2026-10-14T12:46:38.476Z",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "approvalPolicy": "never",
+        "sandboxType": "danger-full-access"
+      },
+      {
+        "turn": 2,
+        "sourceLine": 41,
+        "timestamp": "2026-10-14T12:48:38.207Z",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "approvalPolicy": "never",
+        "sandboxType": "danger-full-access"
+      },
+      {
+        "turn": 3,
+        "sourceLine": 51,
+        "timestamp": "2026-10-14T12:50:35.880Z",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "approvalPolicy": "never",
+        "sandboxType": "danger-full-access"
+      }
+    ],
+    "canonicalSha": "71e2e1bc2bf110b7a3f93ee0db73cb4c8b5c2248",
+    "version": "0.1.22",
+    "marketplaceAlias": "mj-html-guide-ui-22-9444ad44",
+    "cacheRoot": "C:/Users/Admin/.codex/plugins/cache/mj-html-guide-ui-22-9444ad44/html-guide-kit/0.1.22",
+    "profileEquivalentToFrozenCliBaseline": false,
+    "baselineNotReclassified": "CLI 0.147.0 / gpt-5.6-sol / low original results remain separate",
+    "nativeSkill": {
+      "sourceLine": 14,
+      "name": "html-guide-kit:guide",
+      "path": "C:/Users/Admin/.codex/plugins/cache/mj-html-guide-ui-22-9444ad44/html-guide-kit/0.1.22/skills/guide/SKILL.md",
+      "bodyBytes": 6087,
+      "bodySha256": "76ec79e7b7f398a0517a47df24cc994b3fa7830d23c8abd7d5c3210ff4b34573",
+      "trimEqualsCache": true,
+      "cacheBytes": 6086,
+      "cacheSha256": "ad2924661d2efaa22662d0df31e2968cc581e618e1c45dc9345f5df895eca813"
+    }
+  },
+  "actualAccounting": {
+    "sessionUuids": 1,
+    "submittedUserTurns": 3,
+    "completedNativeTasks": 3,
+    "assistantMessages": 5,
+    "actualToolCalls": 3,
+    "readCalls": 3,
+    "guideFinalUtf8Bytes": 10956,
+    "guideFinalUnicodeScalars": 4040
+  },
+  "checks": [
+    {
+      "id": "source-package",
+      "status": "PASS",
+      "evidence": "resources.json: 10 Git-object/mirror/cache byte comparisons exact; UI catalog alias is a single-plugin adapter, full-repository tree equality is not claimed."
+    },
+    {
+      "id": "explicit-entry-and-full-reads",
+      "status": "PASS",
+      "evidence": "actual input SDK12 explicitly invokes $html-guide-kit:guide; native SDK14 attachment matches the installed entry; SDK17→20,22→25,27→30 return all three current cached resources in full with exit_code=0. Actual call text and returned body are preserved; no UI inspect excerpt or model self-report substitutes for this proof."
+    },
+    {
+      "id": "meaningful-target-options",
+      "status": "PASS",
+      "evidence": "assistant SDK35 gives member/teacher/maintainer targets with different reader responsibilities, tasks, understanding problems and trade-offs; only option one is recommended."
+    },
+    {
+      "id": "unselected-wait",
+      "status": "PASS",
+      "evidence": "SDK35 waits; real input SDK42 says no selection; SDK45 keeps the same pending choice and generates no guide. No recommendation/default/silence is treated as confirmation in these observed turns."
+    },
+    {
+      "id": "explicit-nonrecommended-confirmation",
+      "status": "PASS",
+      "evidence": "SDK52 explicitly adopts all reader/task/problems of option two; SDK55 then confirms adoption and SDK63 delivers that target without a second approval requirement."
+    },
+    {
+      "id": "source-faithfulness-and-known-unknown",
+      "status": "PASS",
+      "evidence": "Complete SDK63 preserves shared equipment snapshot §1–4, single registered member/ordinary device, AND qualification and observer-pass exception, each direct-operation current-state condition, separate state/stock results, known prohibition versus unspecified illegal-attempt fields. It declares actual shared rule coverage for all explanations/examples/feedback/recovery/self-check/final checks. No unrelated external background or source conflict is invented."
+    },
+    {
+      "id": "demonstration-and-feedback",
+      "status": "PASS",
+      "evidence": "SDK63 continuous verify→borrow→return uses latest state, plus independent failure and zero-stock constructions. Conditions do not auto-execute operations. Each feedback states reason and source. Design-only switch/pause/exit and clearing old highlights/feedback are separate from source restart state/stock results. Qualification initial values are explicitly unspecified; a repeated mainline qualification is separately a teaching construction."
+    },
+    {
+      "id": "self-check-boundary",
+      "status": "PASS",
+      "evidence": "SDK63 gives bounded source-supported checks with explanations/misconceptions and retry, no score or long-term mastery claim. It labels task reset as design, not source business reset; unreviewed free-text explanations are not asserted as verified."
+    },
+    {
+      "id": "read-chat-text-boundary",
+      "status": "PASS",
+      "evidence": "All three actual tool calls only Get-Content installed resources; no writer call or other execution after T1. SDK63 is a natural-language guide, no HTML/code/file generation, specific production-tool steps, or execution of the proposed teaching checks."
+    }
+  ],
+  "limitations": [
+    {
+      "item": "Frozen 0.147.0/gpt-5.6-sol/low behavioral benchmark and original Source22 FAIL/PENDING records",
+      "status": "UNCHANGED_SEPARATE_EVIDENCE"
+    },
+    {
+      "item": "Native UI permanent question-window locking, continuity after closing the window, silence/timeouts or all unselected variants",
+      "status": "NOT_RUN",
+      "reason": "Observed text waiting and the limited native screenshot do not establish every window condition or a locking promise."
+    },
+    {
+      "item": "ChatGPT desktop/Work current-merge full three-turn interaction",
+      "status": "NOT_REVIEWED_BY_THIS_REPORT"
+    },
+    {
+      "item": "Full core/expanded test coverage, implicit invocation and general-domain outcomes",
+      "status": "NOT_ESTABLISHED_BY_THIS_CASE"
+    },
+    {
+      "item": "Real-world understanding effects, accessibility implementation and practical production checks",
+      "status": "NOT_MEASURED"
+    },
+    {
+      "item": "Owner final acceptance or GitHub approval",
+      "status": "NOT_PROVIDED_BY_INDEPENDENT_SYNTHETIC_REVIEW"
+    }
+  ],
+  "notes": [
+    "Material arrived inline in actual SDK12 before the native attachment and tool reads; commands read entry, framework, interaction in order before the target answer. This does not assert an idealized material-arrival-after-references sequence.",
+    "Prepared first input includes one terminal newline not present in the actual submitted SDK text; all three actual texts are copied from their own response_item rows, not rewritten from prepared files.",
+    "First successful Read has a local PowerShell profile diagnostic before the exact resource. Full diagnostic and profile contents are not copied publicly; bytes/hash omission metadata preserve the distinction.",
+    "The supplied raw screenshot was visually inspected and shows the native wait/selection/guide section plus out-of-scope UI chrome/toast. It is not copied into this minimum public package and is not used to assert full-guide visual rendering or permanent window behavior.",
+    "Root temporarily disabled its earlier source20 UI installation; reviewer did not operate settings. Restoration and unrelated user-plugin state remain Root-owned tasks.",
+    "Native task_completed events are not a CLI child exit/close/deadline observation. No CLI capture status is manufactured.",
+    "Earlier 3688-character narration is not used: actual SDK63 is 4040 Unicode scalars / 10956 UTF-8 bytes with the recorded exact hash."
+  ],
+  "omissionPolicy": {
+    "excluded": [
+      "All system/developer/base instructions",
+      "Reasoning records",
+      "Creator/account IDs",
+      "Other user/environment/context messages",
+      "Whole HOME/session/auth directories",
+      "Full local PowerShell profile diagnostic",
+      "Unrelated screenshot chrome/toast",
+      "Historical source20 inputs and unsent shell-interpolation error"
+    ],
+    "fullSdkKeptLocalOnly": true,
+    "fullSdkPublicCopy": false
+  },
+  "sourceSnapshotPins": [
+    {
+      "name": "codex-turn1-full.session.jsonl",
+      "bytes": 197388,
+      "sha256": "a9085da4a3638307dfd6915f41b31cd7006cf01404379d991e2345d30c148b84"
+    },
+    {
+      "name": "codex-turn2-full.session.jsonl",
+      "bytes": 207067,
+      "sha256": "702f9369c0bc3073bafb9b10687377c570dc3d4a839e0f25616ef64afff213c3"
+    },
+    {
+      "name": "codex-turn3-full.session.jsonl",
+      "bytes": 277284,
+      "sha256": "c5a88d4ee1b38549cc7fc99ee8208bd99c5354b95901b497255fe99636d68a89"
+    }
+  ],
+  "rootPreparationRecords": [
+    {
+      "relative": "native-ui-source-merge71e2.json",
+      "bytes": 3625,
+      "sha256": "5d3482df4d39b80607bfc4b406954ab58a9c279f80545f52fb47c69676e0363c",
+      "statusUnmodified": true
+    },
+    {
+      "relative": "native-ui-cache-merge71e2-verification.json",
+      "bytes": 3953,
+      "sha256": "5fb424e85bcaa1025cc5930e3af69a4a75e5e8745fe8e434c1d3ea28d0f8450a",
+      "statusUnmodified": true
+    }
+  ],
+  "repoMutationByReviewer": false,
+  "uiOrModelOperationsByReviewer": false,
+  "gradePerformed": false
+}

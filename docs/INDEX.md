@@ -4,9 +4,9 @@ scope: marketplace
 summary: "当前 ChatGPT/Codex 文档、历史决策与退役资料导航"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-14
+updated: 2026-10-15
 state: active
-version: v2.53
+version: v2.89
 ---
 
 # 文档索引
@@ -208,3 +208,98 @@ HTML源21准确1799的13安装/6Python/9CI通过；14UUID30C原独立13P1F，关
 HTML22准确aac6fc9十三安装/六缓存Python通过，新核心fresh会话已启动但尚未独立结论；21原13P1F/三十C及零扩展574文件十一包实际封存/两独立复原通过，原失败不追认。见HTML RUNBOOK §42。
 
 HTML 0.1.22实际10新会话/20COMPLETE已停止，来源限制误归及局部恢复关系遗漏两项FAIL；主要选择/边界局部P与未执行/待审分开。准确aac6十三安装/六Python通过，c3a2d06运行闭包71资源不变；当前客户端停止、034原件封包准备及最终门禁待证，见[HTML RUNBOOK §43](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+HTML #231实际merge71e2与head同树，十三安装/六缓存Python复验通过；034原395文件完整复原，旧FAIL和reviews空保留。ComputerUse已恢复，22项目外Codex会话正在连续验证，完整客户端未通过；后续补丁另测，见[HTML RUNBOOK §44](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+HTML合并版0.1.22两个原生入口各三轮限定P，完整私有SDK/他会话排除，原两F/待审不变；0.1.23两参考通用修正已双静态审接入，新缓存/模型/客户端NOT_RUN，见[RUNBOOK§45](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+HTML后续草稿#238准确b46069e3/0.1.23通过十三严格安装及六缓存Python，冻结14新会话/30输入核心已调度；23客户端尚未运行、旧22两FAIL保留，见[RUNBOOK§46](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+HTML23核心新FAIL已普通停止：恢复终值排他及操作许可/取得结果混淆，主要确认P不抵消，24草稿准备中；源23客户端未调用，PR238 Draft保持，见[RUNBOOK§46](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+HTML0.1.24两参考三span通用修正经双独立静态审接入，区分许可/结果、恢复动作/同终值与局部完整表示；原23十二UUID/24C两失败保持，新准确安装/模型/客户端NOT_RUN，见[RUNBOOK§47](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+HTML23补充复审另件更正有效7P/3F/2U/2未跑，原8P/2F快照和PASS报告保留，12UUID/24C无新调用，见[停止证据](runbook/evidence/html-guide-kit/pr3-post-merge/source023-stopped/index.json)。
+
+HTML0.1.25重排入口和两参考为有序证据/确认/源规则/逐例反馈反查；保留24真实7P1F1U5N与完整源23封存，不追认新安装/模型/客户端，见[RUNBOOK§48](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+HTML25准确ba74安装十三/六PythonP，六UUID十五C因源缺口误判停止；原hold与另件F、合法比较P和未覆盖分列。26外部准备，见[RUNBOOK§50](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+HTML26两既有span按具体对象/态/单操作/结果维度逐规则匹配，再仅保实际缺失维度未知；双静态审接入，新准确安装/模型/客户端待跑，见[RUNBOOK§51](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+HTML26准确工程/十三安装六缓存Python及七CI通过，真实9UUID17C独立5P2F2U5N停止；[§52](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)及[原判据](runbook/evidence/html-guide-kit/pr3-post-merge/source026-stopped/index.json)保留所有失败/未测。源25完整038及26canonical安装证据已经收口，新27仅外部准备，旧客户端PASS不继承。
+
+HTML27三既有span先逐项区分source/新增教学结果再编句和引用，额外路径缺口不替代已知直接操作判断；双静态审已接入，准确工程/安装/新会话/双端待跑，见[§53](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+HTML27准确00d59提交：修正后的完整346测试、十三canonical安装/六缓存Python、严格结构/版本及独立静态控制审通过；[§53实际补件](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)保存初始345P1F和修正后原日志。新核心已fresh启动，模型/双端结论待实际独评；源26完整039已lossless收口，纯证据版本仍0.1.27。
+
+HTML27真实核心9UUID18C为5P3F1U5N停止，原源码输出与独立原判据见[§54](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)和[停止账本](runbook/evidence/html-guide-kit/pr3-post-merge/source027-stopped/index.json)。28仅通用资源精简与受支持显式推理配置准备，原defaultlow/失败不改、尚无high实际调用；完整040另准备，版本仍0.1.27。
+
+
+HTML28候选已从27单独推进0.1.28、精确接入三冻结资源；原27停止/完整040保持。工程检查正在执行，十三canonical/六缓存Python、新显式high模型与本版双端尚未运行；defaultlow/旧失败不改，结果见[§55](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+HTML28准确83b3/treeb5be：346完整测试、65文档/A6、严格结构/技能/CLI及十三安装六缓存Python通过，见[§55](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。原失败与准确工程日志逐byte保留；新high核心获授权，实际模型/本版双端结论待独评，不继承旧PASS。
+
+HTML28真实high核心5UUID10COMPLETE为2PASS/1FAIL/2UNEXERCISED/9NOT_RUN，20输入未发，0post、A与C各一在途跨marker。失败是generic拒绝被称沙箱原因，旧P不追认；[§56](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)及[停止原判](runbook/evidence/html-guide-kit/pr3-post-merge/source028-stopped/index.json)保存actual SDK/独评。29仅两span外部窄稿，尚未应用或新调用。
+
+
+HTML29从28停止批次单独推进0.1.29，精确接入entry/framework两处拒因纪律修正，交互参考保持；28五UUID十次COMPLETE为2P1F2U9N与完整041封存不变。新工程检查正在执行，准确canonical安装、fresh显式high模型与本版双端尚未运行；defaultlow及旧失败不改，见[§57](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+
+HTML29准确d25dc63f：修封存名后346测试/65文档/strict validate/十三安装六真实缓存PythonP，初336P10F保留；新模型与双端另证，见[§57](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+HTML29真实停止8UUID14C：5P1F2U6N，16输入未发，0post/0cross；30只外部修正准备。见[§58](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+
+HTML30从29停止源单独推进0.1.30，精确接入entry/framework两span，先核实际范围与全部前提、保宽许可覆盖的当前操作及明确结果；交互参考保持。29的8UUID14C为5P1F2U6N/16未发及完整042原封存不追认；本版工程检查正在执行，新canonical安装、fresh模型和双端待证，见[§59](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+HTML30准确696da5df：346测试/65文档/严格校验/十三安装六缓存Python通过；fresh核心与双端分别验收，见[§59补证](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+HTML30实际停止13UUID27C：whole9P4F1N，B5反馈primaryU、3输入未发、0post/2自然cross；Work两实际轮P/完整双端未齐，见[§60](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+
+HTML31从已停止30源单独准备：entry/FW三span区分源规则/源初值与本例实际给定值，仅继承真实共享题设，候选问题预设也核源；交互参考保持。30原13UUID27C整体9P4F1N、未发3输入和限定Work两轮不追认；新工程/canonical安装、模型及双端均待证，见[§61](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+HTML31准确e2c4463f工程346/65/严格校验/CLI0.147及十三canonical安装六缓存Python通过；原错误保，行为和新双端另证，见[§61补证](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+HTML31真实核心8UUID14C：whole5P1F2U6N，16未发/0post/1自然cross；B3.1主判P但未知分支撤已决定结论而wholeF，双端/扩展N，见[§62](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+
+HTML32仅entry/FW三span按完整条件判准逐结论核实际且/或依赖，保决定性已知、只限依赖未知，交互参考保持。源31/e2c工程346/十三安装六Python通过，8UUID14C整体5P1F2U6N及16未发/0post/1自然cross原保；不移用旧双端证据，新工程/canonical安装/模型/双端NOT_RUN，见[§63](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+
+HTML32/081f715准确工程346/65/quick/strict/CLI0.147及十三安装六缓存Python通过；原辅助失败保留，模型/双端尚待实证，见[§64](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+
+HTML32/081f715原真实核心12UUID26C整体11P1F2N，4未发/0post/1自然cross；恢复字段未替源清操作wholeF原保，双端/扩展N。33仅外部通用窄稿，见[§65](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+
+HTML33仅entry/FW三span先保完整源单元的并列动作/对象/非字段效果再字段终值，并核完整基准及本处保义复用；ID保持。源32/081f715工程346/十三安装六PythonP，12UUID26C整体11P1F2N、4未发/0post/1自然cross原保，恢复动作遗漏wholeF不追认；新工程/canonical安装/模型/双端NOT_RUN，见[§66](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+
+HTML33/b66cafb5工程346/65/quick/strict/actualCLI0.147与十三准确安装六缓存Python通过；新行为/双端未完成，旧失败原保，见[§67](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+
+HTML33/b66实际核心6UUID10C整体3P2F1U8N、20未发/0post1cross，原生安装/详情有限证据与0modelinput及owned恢复分记；046实际封包/双原字节复原通过，34仅外部双静态草稿未接入，见[§68](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+
+HTML34仅entry/FW三span先交付必需共同题设/覆盖/覆写再判独立例结果，逐处保完整源与设计动作归属；ID保持。源33/b66工程346/十三安装六PythonP，6UUID10C整体3P2F1U8N、20未发/0post/1自然cross原保，两wholeF不追认。原生安装及同一应用0.1.33详情、自有配置复原有证；本地Codex入口未运行，无本轮typed/send/modelUUID；新工程/canonical安装/模型/双端NOT_RUN，见[§69](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+
+HTML34/95af299a工程346/65/quick/strict/actualCLI0.147与十三准确安装六缓存Python通过；新行为/双端未完成，源33真实失败与046封存保持，见[§70](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+
+HTML34/95af真实核心9UUID19C整体7P1F1U5N、11未发/0post2cross；Work1UUID2C/3cacheRead仅方案与待答有限P，指南wholeU及本地Codex/生命周期未测，owned八片段恢复。047实际封包/双逐字节复原P，71运行资源不变，见[§71](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+
+HTML35仅FW两span逐项跨相关源单元核实际对象/维度，批量结论保已有许可、禁止及结果；未展示或未查不当源未述，未核全只陈述已查项和有据未知，entry/ID保持。源34/95af工程346及十三安装六PythonP，9UUID19C全7P1F1U5N、11未发/0post/2自然cross原保；泛未知撤已知禁令F不追认。原生实际1UUID2C及3缓存全文Read仅目标待选/保持pending，未确认交付，本地Codex入口未运行，自有配置已复原；35新工程/安装/模型/双端NOT_RUN，见[§72](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+
+HTML35/0ed26217工程346/65/quick/strict/actualCLI0.147与十三准确安装六缓存Python通过；新行为/双端未完成，源34真实失败及有限待答证据与047封存保持，见[§73](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+
+HTML35/0ed真实核心10UUID20C整体7P1F2U4N、10未发/0post0cross；Work3C仅三轮有限P，Codex1C仅初始读取/目标P、确认指南wholeU；6实际缓存正文与10旧owned复原保。048真实封包/双逐字节复原P，71运行资源不变，见[§74](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+
+HTML36仅FW一span区分当前一步许可/结果与实际多步路径断言；仅后者核同范围源动作/恢复/可串接后继及逐步前提，不以未教未画否定源已给路径，缺项只阻依赖结论，不默认目标成功或强制穷举，entry/ID保持。源35/0ed工程346及十三安装六PythonP，10UUID20C whole7P1F2U4N、10未发/0post/0cross；无路径断言撤有据恢复后继的wholeF原保。Work三轮含指南/本地Codex仅首轮待选各自有限证据，双端整体U，自有配置复原。36新工程/安装/模型/双端NOT_RUN，见[§75](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+
+HTML36/a47d3dff工程346/65/quick/strict/actualCLI0.147与十三准确安装六缓存Python通过；新行为/双端未完成，源35真实失败及两入口有限证据与048封存保持，见[§76](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。

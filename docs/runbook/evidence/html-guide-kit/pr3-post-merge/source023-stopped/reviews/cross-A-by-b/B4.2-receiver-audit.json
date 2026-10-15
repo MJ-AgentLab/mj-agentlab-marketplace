@@ -1,0 +1,431 @@
+{
+  "recordedAt": "2026-10-14T14:06:09.669Z",
+  "variant": "B4.2",
+  "attemptId": "160834e7-a212-45ef-a65d-bb5f9536ad2a",
+  "sessionUuid": "01a13aae-6cb1-70c2-adc3-2c6d0a88987f",
+  "source": {
+    "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "canonicalSha": "b46069e3979136e70d64b9873b799b5bd069ca95",
+    "canonicalTree": "d8a2ffb8646065dff8f7a46fe741b1f93b5873ad"
+  },
+  "packageVersion": "0.1.23",
+  "planPin": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\plan.json",
+    "bytes": 13618,
+    "sha256": "58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2"
+  },
+  "frozenSpecPin": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\frozen-spec.md",
+    "bytes": 28037,
+    "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d"
+  },
+  "resources": [
+    {
+      "relative": "assets/icon.png",
+      "bytes": 119566,
+      "sha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+      "sourceMirrorCacheExact": true
+    },
+    {
+      "relative": "assets/icon.svg",
+      "bytes": 1261,
+      "sha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+      "sourceMirrorCacheExact": true
+    },
+    {
+      "relative": "plugin.json",
+      "bytes": 1531,
+      "sha256": "4c5076828636c7b88a25c106f5c2c41a2be9262c556764a089657eaf5fef4a41",
+      "sourceMirrorCacheExact": true
+    },
+    {
+      "relative": "skills/guide/SKILL.md",
+      "bytes": 6086,
+      "sha256": "ad2924661d2efaa22662d0df31e2968cc581e618e1c45dc9345f5df895eca813",
+      "sourceMirrorCacheExact": true
+    },
+    {
+      "relative": "skills/guide/agents/openai.yaml",
+      "bytes": 444,
+      "sha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+      "sourceMirrorCacheExact": true
+    },
+    {
+      "relative": "skills/guide/references/guide-framework.md",
+      "bytes": 10042,
+      "sha256": "4fd5cae6d489c69f0f3e8ff72ceabf7404beb9780976f297e56ae4066ce5de13",
+      "sourceMirrorCacheExact": true
+    },
+    {
+      "relative": "skills/guide/references/interaction-design.md",
+      "bytes": 10141,
+      "sha256": "f3ff576734497d20b03fd5610388d8b6819ed2fc9330b9a96aaf4e9534895870",
+      "sourceMirrorCacheExact": true
+    }
+  ],
+  "installedResourceReading": {
+    "skill": true,
+    "framework": true,
+    "interaction": true
+  },
+  "observedReading": {
+    "nativeSkillFull": true,
+    "additionalToolSkillFull": true,
+    "frameworkActualToolFull": true,
+    "interactionActualToolFull": true,
+    "materialActualToolFull": true
+  },
+  "nativeEvidence": [
+    {
+      "turn": 1,
+      "session": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.session.jsonl",
+      "line": 11,
+      "fullInstalledEntryBodyReceived": true
+    },
+    {
+      "turn": 2,
+      "session": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\02.session.jsonl",
+      "line": 11,
+      "fullInstalledEntryBodyReceived": true
+    }
+  ],
+  "actualReceivers": [
+    {
+      "key": "skill",
+      "relative": "skills/guide/SKILL.md",
+      "turn": 1,
+      "session": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.session.jsonl",
+      "line": 15,
+      "part": 1,
+      "callId": "call_7e8a47dc0ae34ba795ced4a84002a2ea",
+      "actualCompleteBodyReceived": true,
+      "decodedReceiverUtf8Bytes": 6132,
+      "decodedReceiverSha256": "ee24f13fa2b1d015a08111e4f3a315dc97593a541693cbd531243744cf43ae31",
+      "expectedBodyTrimmedUtf8Bytes": 6085,
+      "expectedBodyTrimmedSha256": "88c48923c61a0adaac0e65d2dce94874138d107f4dde128ed7f2ba432ec1a3ed",
+      "comparison": "Complete UTF-8 body contiguous in actual decoded SDK receiver, CRLF/LF normalized for this comparison and outer whitespace trimmed; original raw SDK bytes retain original line endings",
+      "actualExitZeroObserved": true
+    },
+    {
+      "key": "framework",
+      "relative": "skills/guide/references/guide-framework.md",
+      "turn": 1,
+      "session": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.session.jsonl",
+      "line": 19,
+      "part": 1,
+      "callId": "call_14cbc598d88340f4b65925b32465f957",
+      "actualCompleteBodyReceived": true,
+      "decodedReceiverUtf8Bytes": 10088,
+      "decodedReceiverSha256": "f9af29d8fb6adaabb63dee3710c4f621ffa58b9aa982926cda87d01edc3cc8c1",
+      "expectedBodyTrimmedUtf8Bytes": 10041,
+      "expectedBodyTrimmedSha256": "1d0a81b804e36a8792947015abb896ebb856a56800d252e0861c8e1728522f80",
+      "comparison": "Complete UTF-8 body contiguous in actual decoded SDK receiver, CRLF/LF normalized for this comparison and outer whitespace trimmed; original raw SDK bytes retain original line endings",
+      "actualExitZeroObserved": true
+    },
+    {
+      "key": "interaction",
+      "relative": "skills/guide/references/interaction-design.md",
+      "turn": 1,
+      "session": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.session.jsonl",
+      "line": 22,
+      "part": 1,
+      "callId": "call_d438fd78b24648eda42b93983cc869b2",
+      "actualCompleteBodyReceived": true,
+      "decodedReceiverUtf8Bytes": 10187,
+      "decodedReceiverSha256": "fa12c152095da8501d5800dc12fb9e6bcb6374a3a3fca23c0b6e0ef41f22bd90",
+      "expectedBodyTrimmedUtf8Bytes": 10140,
+      "expectedBodyTrimmedSha256": "af0925c479dfbe19220925f3bf922fda604ce65549a6dc1e92150bac846dc979",
+      "comparison": "Complete UTF-8 body contiguous in actual decoded SDK receiver, CRLF/LF normalized for this comparison and outer whitespace trimmed; original raw SDK bytes retain original line endings",
+      "actualExitZeroObserved": true
+    },
+    {
+      "key": "material",
+      "relative": "neutral material",
+      "turn": 1,
+      "session": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.session.jsonl",
+      "line": 28,
+      "part": 1,
+      "callId": "call_1af9349052eb4142b57ecdce6e73c91f",
+      "actualCompleteBodyReceived": true,
+      "decodedReceiverUtf8Bytes": 372,
+      "decodedReceiverSha256": "fba137f54e968692feacb651856ba1ab51f3f42939ddc97944dae592ae211124",
+      "expectedBodyTrimmedUtf8Bytes": 325,
+      "expectedBodyTrimmedSha256": "72c6718ed1a6959a10c09caa15d5df32a5d3a437cef6230b2e92f416763d2212",
+      "comparison": "Complete UTF-8 body contiguous in actual decoded SDK receiver, CRLF/LF normalized for this comparison and outer whitespace trimmed; original raw SDK bytes retain original line endings",
+      "actualExitZeroObserved": true
+    }
+  ],
+  "actualUniqueCalls": [
+    {
+      "callId": "call_7e8a47dc0ae34ba795ced4a84002a2ea",
+      "name": "exec",
+      "input": "const r = await tools.shell_command({command:\"Get-Content -Raw -LiteralPath 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\a2a04250-b2de-449a-a3a2-5ca8fd82a25c\\\\a0a060d2-c1b3-4003-b2b5-11cf5e5e438a\\\\plugins\\\\cache\\\\mj-agentlab-marketplace\\\\html-guide-kit\\\\0.1.23\\\\skills\\\\guide\\\\SKILL.md'\",\"workdir\":\"C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\a2a04250-b2de-449a-a3a2-5ca8fd82a25c\\\\c8d1cd3a-728e-4640-ad95-f769aef514f5\\\\7686b624-63a6-48e3-8bc6-c111376bc9d7\",\"timeout_ms\":10000});\ntext(r);\n",
+      "turn": 1,
+      "session": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.session.jsonl",
+      "line": 14
+    },
+    {
+      "callId": "call_14cbc598d88340f4b65925b32465f957",
+      "name": "exec",
+      "input": "const r = await tools.shell_command({command:\"Get-Content -Raw -LiteralPath 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\a2a04250-b2de-449a-a3a2-5ca8fd82a25c\\\\a0a060d2-c1b3-4003-b2b5-11cf5e5e438a\\\\plugins\\\\cache\\\\mj-agentlab-marketplace\\\\html-guide-kit\\\\0.1.23\\\\skills\\\\guide\\\\references\\\\guide-framework.md'\",\"workdir\":\"C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\a2a04250-b2de-449a-a3a2-5ca8fd82a25c\\\\c8d1cd3a-728e-4640-ad95-f769aef514f5\\\\7686b624-63a6-48e3-8bc6-c111376bc9d7\",\"timeout_ms\":10000});\ntext(r);\n",
+      "turn": 1,
+      "session": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.session.jsonl",
+      "line": 18
+    },
+    {
+      "callId": "call_d438fd78b24648eda42b93983cc869b2",
+      "name": "exec",
+      "input": "const r = await tools.shell_command({command:\"Get-Content -Raw -LiteralPath 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\a2a04250-b2de-449a-a3a2-5ca8fd82a25c\\\\a0a060d2-c1b3-4003-b2b5-11cf5e5e438a\\\\plugins\\\\cache\\\\mj-agentlab-marketplace\\\\html-guide-kit\\\\0.1.23\\\\skills\\\\guide\\\\references\\\\interaction-design.md'\",\"workdir\":\"C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\a2a04250-b2de-449a-a3a2-5ca8fd82a25c\\\\c8d1cd3a-728e-4640-ad95-f769aef514f5\\\\7686b624-63a6-48e3-8bc6-c111376bc9d7\",\"timeout_ms\":10000});\ntext(r);\n",
+      "turn": 1,
+      "session": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.session.jsonl",
+      "line": 21
+    },
+    {
+      "callId": "call_1af9349052eb4142b57ecdce6e73c91f",
+      "name": "exec",
+      "input": "const r = await tools.shell_command({command:\"Get-Content -Raw -LiteralPath 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\a2a04250-b2de-449a-a3a2-5ca8fd82a25c\\\\c8d1cd3a-728e-4640-ad95-f769aef514f5\\\\7686b624-63a6-48e3-8bc6-c111376bc9d7\\\\3d23c467-42de-4aef-a215-24f5b7d1c909.md'\",\"workdir\":\"C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\a2a04250-b2de-449a-a3a2-5ca8fd82a25c\\\\c8d1cd3a-728e-4640-ad95-f769aef514f5\\\\7686b624-63a6-48e3-8bc6-c111376bc9d7\",\"timeout_ms\":10000});\ntext(r);\n",
+      "turn": 1,
+      "session": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.session.jsonl",
+      "line": 27
+    }
+  ],
+  "turns": [
+    {
+      "turn": 1,
+      "actualIdentity": {
+        "sessionId": "01a13aae-6cb1-70c2-adc3-2c6d0a88987f",
+        "cliVersion": "0.147.0",
+        "originator": "Codex Desktop",
+        "modelProvider": "openai",
+        "models": [
+          "gpt-5.6-sol"
+        ],
+        "reasoning": [
+          "low"
+        ]
+      },
+      "started": {
+        "utc": "2026-10-14T13:51:11.945Z",
+        "timezone": "Asia/Taipei"
+      },
+      "completed": {
+        "utc": "2026-10-14T13:52:06.165Z",
+        "timezone": "Asia/Taipei"
+      },
+      "exitCode": 0,
+      "timedOut": false,
+      "lateExitInvalid": false,
+      "actualLifecycle": {
+        "launchedUtc": "2026-10-14T13:51:11.949Z",
+        "launchedMonotonicMs": 29.9648,
+        "timeoutMs": 240000,
+        "timerRegisteredMonotonicMs": 35.6822,
+        "deadlineMonotonicMs": 240035.6822,
+        "actualExit": {
+          "code": 0,
+          "signal": null,
+          "utc": "2026-10-14T13:52:06.159Z",
+          "elapsedMs": 54209.278699999995,
+          "observedMonotonicMs": 54239.2162,
+          "inDeadline": true
+        },
+        "actualClose": {
+          "code": 0,
+          "signal": null,
+          "utc": "2026-10-14T13:52:06.161Z",
+          "elapsedMs": 54211.8661,
+          "observedMonotonicMs": 54241.8316
+        },
+        "exitObserved": true,
+        "closeObserved": true,
+        "deadlineCallback": null,
+        "stdioCollectedThroughClose": true,
+        "sdkCompletedNotUsedAsExit": true,
+        "noExitMeansStatusNull": true,
+        "drainWaitHasIndependentDeadline": false
+      },
+      "input": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.input.txt",
+        "bytes": 989,
+        "sha256": "7f7abf277276c1818c37066607f9b77d5c9787c889ba937989d7e53ea8cadb2e"
+      },
+      "output": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.output.txt",
+        "bytes": 3422,
+        "sha256": "c57d8c2d47714c342f059091cc9a4eee3e2c014d26c1dab4fb2f7284a04e3377"
+      },
+      "events": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.events.jsonl",
+        "bytes": 35300,
+        "sha256": "676fc5f6f11f9972ff54107685bbbdefbf83adc1dedf99a36084531a33788bba"
+      },
+      "session": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.session.jsonl",
+        "bytes": 98123,
+        "sha256": "3e20950c30bc8a14e222a394975e4693f9459ef9b50f9f753efd054e08c7a4f3"
+      },
+      "stderr": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.stderr.txt",
+        "bytes": 35214,
+        "sha256": "08b57629a5c9d2c7c90025688d93b5658839fd95b96e118b5950938a34e1f0d9"
+      }
+    },
+    {
+      "turn": 2,
+      "actualIdentity": {
+        "sessionId": "01a13aae-6cb1-70c2-adc3-2c6d0a88987f",
+        "cliVersion": "0.147.0",
+        "originator": "Codex Desktop",
+        "modelProvider": "openai",
+        "models": [
+          "gpt-5.6-sol"
+        ],
+        "reasoning": [
+          "low"
+        ]
+      },
+      "started": {
+        "utc": "2026-10-14T13:53:18.428Z",
+        "timezone": "Asia/Taipei"
+      },
+      "completed": {
+        "utc": "2026-10-14T13:54:47.446Z",
+        "timezone": "Asia/Taipei"
+      },
+      "exitCode": 0,
+      "timedOut": false,
+      "lateExitInvalid": false,
+      "actualLifecycle": {
+        "launchedUtc": "2026-10-14T13:53:18.432Z",
+        "launchedMonotonicMs": 28.3729,
+        "timeoutMs": 240000,
+        "timerRegisteredMonotonicMs": 35.725,
+        "deadlineMonotonicMs": 240035.725,
+        "actualExit": {
+          "code": 0,
+          "signal": null,
+          "utc": "2026-10-14T13:54:47.443Z",
+          "elapsedMs": 89010.4454,
+          "observedMonotonicMs": 89038.794,
+          "inDeadline": true
+        },
+        "actualClose": {
+          "code": 0,
+          "signal": null,
+          "utc": "2026-10-14T13:54:47.443Z",
+          "elapsedMs": 89010.5134,
+          "observedMonotonicMs": 89038.8867
+        },
+        "exitObserved": true,
+        "closeObserved": true,
+        "deadlineCallback": null,
+        "stdioCollectedThroughClose": true,
+        "sdkCompletedNotUsedAsExit": true,
+        "noExitMeansStatusNull": true,
+        "drainWaitHasIndependentDeadline": false
+      },
+      "input": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\02.input.txt",
+        "bytes": 111,
+        "sha256": "59d9e4dace8a47910829eee177a26b61fb48db34b5839f262906397927a74050"
+      },
+      "output": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\02.output.txt",
+        "bytes": 15745,
+        "sha256": "d4ae6fd605e502125f4af44aede9aab76ceebada980b2ad12e758744a2cad2a1"
+      },
+      "events": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\02.events.jsonl",
+        "bytes": 16503,
+        "sha256": "053b2fd1e5c9dda30fdfe848def2e160ad42e1ccf48e115a12be8e8e6262e747"
+      },
+      "session": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\02.session.jsonl",
+        "bytes": 157920,
+        "sha256": "72275ef724cd6d00a1f7351229539f97323cdab3bee99c59f1e2cea3ae652e61"
+      },
+      "stderr": {
+        "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\02.stderr.txt",
+        "bytes": 32547,
+        "sha256": "427cf837212b7af6cd30caf95721ab0d39b6a4ab1e6323fe89ceba24fd90c45d"
+      }
+    }
+  ],
+  "selection": {
+    "label": "1",
+    "originalTripletExcerpt": "1. 双条件资格判断（推荐）\n\n   - 读者：负责现场领取核对的工作人员；已知“预约有效”“导览完成”是两个独立待核对条件。\n   - 使用任务：根据给定状态，判断某人是否满足普通材料包的领取资格；同时把资格判断与实际库存情况分开。\n   - 理解问题：\n     - 两项条件必须怎样组合？\n     - 只满足其中一项能否领取？\n     - 满足资格是否等于现场一定能领到？\n   - 取舍：最贴合现有材料，结论依据充分；不会解决库存处置等未提供流程。",
+    "firstTurnOutput": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.output.txt",
+    "recorded": {
+      "utc": "2026-10-14T13:53:17.923Z",
+      "timezone": "Asia/Taipei"
+    },
+    "rolePresent": false,
+    "source": "reviewer reading of actual model output; no answer key in model prompt",
+    "exactOriginalTriplet": true
+  },
+  "rawPins": [
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.events.jsonl",
+      "bytes": 35300,
+      "sha256": "676fc5f6f11f9972ff54107685bbbdefbf83adc1dedf99a36084531a33788bba"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.input.txt",
+      "bytes": 989,
+      "sha256": "7f7abf277276c1818c37066607f9b77d5c9787c889ba937989d7e53ea8cadb2e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.output.txt",
+      "bytes": 3422,
+      "sha256": "c57d8c2d47714c342f059091cc9a4eee3e2c014d26c1dab4fb2f7284a04e3377"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.session.jsonl",
+      "bytes": 98123,
+      "sha256": "3e20950c30bc8a14e222a394975e4693f9459ef9b50f9f753efd054e08c7a4f3"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.stderr.txt",
+      "bytes": 35214,
+      "sha256": "08b57629a5c9d2c7c90025688d93b5658839fd95b96e118b5950938a34e1f0d9"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\02.events.jsonl",
+      "bytes": 16503,
+      "sha256": "053b2fd1e5c9dda30fdfe848def2e160ad42e1ccf48e115a12be8e8e6262e747"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\02.input.txt",
+      "bytes": 111,
+      "sha256": "59d9e4dace8a47910829eee177a26b61fb48db34b5839f262906397927a74050"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\02.output.txt",
+      "bytes": 15745,
+      "sha256": "d4ae6fd605e502125f4af44aede9aab76ceebada980b2ad12e758744a2cad2a1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\02.session.jsonl",
+      "bytes": 157920,
+      "sha256": "72275ef724cd6d00a1f7351229539f97323cdab3bee99c59f1e2cea3ae652e61"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\02.stderr.txt",
+      "bytes": 32547,
+      "sha256": "427cf837212b7af6cd30caf95721ab0d39b6a4ab1e6323fe89ceba24fd90c45d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\manual-selection-turn-1.txt",
+      "bytes": 588,
+      "sha256": "1253ed3bc059710d984aa9f75772f616a6f79e3a50ccfffb6099c2e7b73e2266"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\manual-title-audit.json",
+      "bytes": 1727,
+      "sha256": "a890a5974fc977ee3c97a882853622bddd8c4b3d798931ee68cd7e7e2aa14d8b"
+    }
+  ],
+  "previousSourceEvidenceReused": false,
+  "modelToolSummaryOrSelfReportUsedAsFullReadProof": false,
+  "noSemanticGrade": true
+}

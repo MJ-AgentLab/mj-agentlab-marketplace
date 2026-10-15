@@ -5,6 +5,34 @@
 
 ## [Unreleased]
 
+- Prepare HTML Guide Kit 0.1.36: distinguish current one-step permission/results from actual multistep path assertions. For path claims, check applicable source actions, resets and compatible successors with their stated premises; preserve known paths and bound unresolved dependencies. Keep Source35 failures and limited client evidence; fresh engineering, canonical installation and independent behavior/client gates remain required. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.35: match each actual object and dimension across applicable source rules before bulk permission, prohibition or unknown conclusions. Unshown or unchecked items do not establish source gaps. Keep Source34 failures and partial client evidence; fresh canonical installation and independent behavior/client gates remain required. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.34: explicitly deliver necessary shared example inputs and local overrides before results; audit complete source/design action attribution at each restoration unit. Preserve Source33 original failures and unrun paths. Fresh canonical installation, behavior and client evidence remain required. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.33: preserve every parallel source action, object and non-field effect before listing terminal field values; audit the complete source baseline and scope-aware delivery. Keep Source32 failures and unrun paths; fresh canonical installation, behavior and client evidence remain required. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.32: evaluate each conclusion against the complete source criterion and its actual AND/OR dependencies. Preserve conclusions already decided by known operands; mark only genuinely dependent results unknown and do not promote necessary conditions to sufficient criteria. Preserve Source31 failures and unrun paths; fresh canonical installation, behavior and client evidence remain required. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.31: distinguish source rules and initial values from actual independent example inputs; inherit only explicitly applicable shared setups and check candidate-question presuppositions against source permission and result facts. Preserve original0.1.30 failures and unrun inputs; require fresh canonical installation, behavior and client evidence. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.30: check actual source scope and all stated prerequisites before listing gaps; preserve covered permissions and explicit results without adding unsupported repetition, prior-value or history restrictions. Preserve real0.1.29 failures; require fresh installation, behavior and client evidence. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.29: place evidence-based reading and refusal-cause discipline before the first read and align the framework. Preserve actual0.1.28 failures and unchanged interaction methods; fresh installation, behavior and client checks remain required. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.28: condense shared methods while retaining complete source rules, local attribution and the explicit Read-only text contract. Preserve actual0.1.27 failures; fresh installation and behavior remain required. Supported explicit high reasoning is an external acceptance configuration, not a behavioral pass. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.27: classify each source or instructional result before composing mixed citations, and bound missing additional paths without replacing known direct-operation rules. Preserve actual0.1.26 failures; require fresh installed acceptance. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.26: define the exact object, current state, operation and result dimension before a source-gap claim, preserving known broad rules and restoration paths. Keep actual0.1.25 failures and require fresh installed acceptance. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.25: organize the entry and two references into ordered evidence, target confirmation, complete source rules, expression and per-example feedback verification. Preserve source0.1.24 real failures and require fresh installation, frozen behavior and client acceptance. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.24: separate operation permission from target outcomes and restoration actions from equal terminal values; use faithful text when local result relationships cannot retain complete rules. Preserve real0.1.23 failures and require fresh installation, frozen behavior and client acceptance. Refs #217, #220.
+
+- Prepare HTML Guide Kit 0.1.23: preserve complete source-rule units in local relations and distinguish source input limits from teaching choices. Retain actual #231 merge, source0.1.22 failures and limited fresh client results; require fresh cache and frozen behavior acceptance. Refs #217, #220.
+
 - Prepare HTML Guide Kit 0.1.22: preserve required current states and operations in result-bearing graph relations while keeping pure condition relations separate. Preserve source0.1.21 fidelity failure and all original passed cases; require fresh canonical cache and behavior acceptance. Refs #217, #220.
 
 - Prepare HTML Guide Kit 0.1.21: preserve every prerequisite in permission feedback and distinguish an established scope from instructions to write one. Preserve source0.1.20 captures, failure and limited native client passes; require fresh cache verification. Refs #217, #220.

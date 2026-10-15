@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "status": "DRAFT_ONLY_PENDING_ROOT_REVIEW",
+  "created": "2026-10-14T17:30:50.554Z",
+  "purpose": "Source28 main high actual SDK audit; historical Source27 low helpers and fixed40 controls unchanged",
+  "oldSource": "Source27 canonical00d59da3",
+  "sourceHelpers": [
+    {
+      "relative": "audit-source28-a-receiver-b.mjs",
+      "source": {
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\audit-source27-a-receiver-b.mjs",
+        "relative": "source-snapshots/audit-source27-a-receiver-b.mjs",
+        "bytes": 7065,
+        "sha256": "84ac6b51b20af16d1572a11a84e3da7c93990dd6a79b85959512545185f4d3fa"
+      },
+      "proposed": {
+        "relative": "proposed/audit-source28-a-receiver-b.mjs",
+        "bytes": 7284,
+        "sha256": "7f831a92b9875e868663c26029b285941ef62b5353f5ef71813792a69b192058"
+      },
+      "spans": 5,
+      "inverseExact": true
+    },
+    {
+      "relative": "audit-source28-a-prefix-receiver-b.mjs",
+      "source": {
+        "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\audit-source27-a-prefix-receiver-b.mjs",
+        "relative": "source-snapshots/audit-source27-a-prefix-receiver-b.mjs",
+        "bytes": 7138,
+        "sha256": "94e579660b96445405707feaeb2d4b7b1b66097db79bdded13e2febea02c5c54"
+      },
+      "proposed": {
+        "relative": "proposed/audit-source28-a-prefix-receiver-b.mjs",
+        "bytes": 7357,
+        "sha256": "1bdd47ff6bbd495940a82932299fa13cfaef00031c9849a99bc6d4b47798362f"
+      },
+      "spans": 5,
+      "inverseExact": true
+    }
+  ],
+  "newModule": {
+    "relative": "proposed/review-selected-identity.mjs",
+    "bytes": 5882,
+    "sha256": "ddfc796ae9b5ae642181f6bdbd686d338c87afc98940da07fd020dcb82480885"
+  },
+  "deltas": [
+    {
+      "resource": "audit-source28-a-receiver-b.mjs",
+      "label": "explicit future parent canonical and selected-identity module import",
+      "old": "const [batchFile,id,target]=process.argv.slice(2);if(!target)throw Error('batch, exact variant, new target required');",
+      "new": "import {inspectSelectedPreparation,inspectObservedTurn} from './review-selected-identity.mjs';\nconst [batchFile,id,target,expectedCanonical]=process.argv.slice(2);if(!target||!/^[a-f0-9]{40}$/i.test(expectedCanonical??''))throw Error('batch, exact variant, new target and parent exact Source28 canonical required');",
+      "oldSha256": "e1c9c224fad306f654a99c53642ad572722dcc4d731534861f8f0a31fe97e7e2",
+      "newSha256": "9a755035f3ae1f122097e46bafa17325dc6ba2a84f4f64f564f82ecebcca9966"
+    },
+    {
+      "resource": "audit-source28-a-receiver-b.mjs",
+      "label": "old canonical replaced by mandatory supplied approved candidate; preparation metadata checked separately",
+      "old": "assert.equal(batch.source.canonicalSha,'00d59da3099113ccbf3db73b84787c526eedd713');",
+      "new": "assert.equal(batch.source.canonicalSha,expectedCanonical);const selectedPreparation=inspectSelectedPreparation(batch);",
+      "oldSha256": "3997b75d5eee7ec1d8f92728c673967f880bfc5aca8857ed39d6ab8c7e200fd4",
+      "newSha256": "5806532e4c22ca95c75c4e2b21842905324326823772193bbd2ae73371f210e0"
+    },
+    {
+      "resource": "audit-source28-a-receiver-b.mjs",
+      "label": "actual SDK effort checked against explicit high selection; no default-derived actual value",
+      "old": "const ctx=rows.filter(x=>x.type==='turn_context').map(x=>x.payload);assert(ctx.every(x=>x.model==='gpt-5.6-sol'&&x.effort==='low'));",
+      "new": "const identityAudit=inspectObservedTurn(batch,attempt,turn,rows,selectedPreparation);",
+      "oldSha256": "32f7b3fed34e806c517cf1cba2aab8843408ba6baa34264acc421aebda7b46bc",
+      "newSha256": "0f28146ebd2880877da78e18e8908c3ea2719bc2359241eec3b91f939424f3ee"
+    },
+    {
+      "resource": "audit-source28-a-receiver-b.mjs",
+      "label": "preserve observed identity audit alongside original raw turn facts",
+      "old": "taskFacts.push({turn:turn.turn,actualIdentity:turn.actualIdentity,",
+      "new": "taskFacts.push({turn:turn.turn,actualIdentity:turn.actualIdentity,identityAudit,",
+      "oldSha256": "a39eb39c44148a85a5f2c5225a0ba9dd579fb3a0c877646b82d657981091aeaa",
+      "newSha256": "24cbf4bdf912d689da3f32e1fb19399c5807ccd863ff8092edd1628d0e713c2b"
+    },
+    {
+      "resource": "audit-source28-a-receiver-b.mjs",
+      "label": "default and selected preparation recorded without replacing actual receiver evidence",
+      "old": "source:batch.source,packageVersion:batch.packageVersion,planPin:",
+      "new": "source:batch.source,packageVersion:batch.packageVersion,selectedPreparation,planPin:",
+      "oldSha256": "585357bf0a6315d14cc97875f4cbb721e669273228b170dbc9398ea3dbd327e7",
+      "newSha256": "2fd5b70204b93b77b93f50036b1e162f734d1f7cfbfe99a699c3f520eda9b1e3"
+    },
+    {
+      "resource": "audit-source28-a-prefix-receiver-b.mjs",
+      "label": "explicit future parent canonical and selected-identity module import",
+      "old": "const [batchFile,id,target]=process.argv.slice(2);if(!target)throw Error('batch, exact variant, new target required');",
+      "new": "import {inspectSelectedPreparation,inspectObservedTurn} from './review-selected-identity.mjs';\nconst [batchFile,id,target,expectedCanonical]=process.argv.slice(2);if(!target||!/^[a-f0-9]{40}$/i.test(expectedCanonical??''))throw Error('batch, exact variant, new target and parent exact Source28 canonical required');",
+      "oldSha256": "e1c9c224fad306f654a99c53642ad572722dcc4d731534861f8f0a31fe97e7e2",
+      "newSha256": "9a755035f3ae1f122097e46bafa17325dc6ba2a84f4f64f564f82ecebcca9966"
+    },
+    {
+      "resource": "audit-source28-a-prefix-receiver-b.mjs",
+      "label": "old canonical replaced by mandatory supplied approved candidate; preparation metadata checked separately",
+      "old": "assert.equal(batch.source.canonicalSha,'00d59da3099113ccbf3db73b84787c526eedd713');",
+      "new": "assert.equal(batch.source.canonicalSha,expectedCanonical);const selectedPreparation=inspectSelectedPreparation(batch);",
+      "oldSha256": "3997b75d5eee7ec1d8f92728c673967f880bfc5aca8857ed39d6ab8c7e200fd4",
+      "newSha256": "5806532e4c22ca95c75c4e2b21842905324326823772193bbd2ae73371f210e0"
+    },
+    {
+      "resource": "audit-source28-a-prefix-receiver-b.mjs",
+      "label": "actual SDK effort checked against explicit high selection; no default-derived actual value",
+      "old": "const ctx=rows.filter(x=>x.type==='turn_context').map(x=>x.payload);assert(ctx.every(x=>x.model==='gpt-5.6-sol'&&x.effort==='low'));",
+      "new": "const identityAudit=inspectObservedTurn(batch,attempt,turn,rows,selectedPreparation);",
+      "oldSha256": "32f7b3fed34e806c517cf1cba2aab8843408ba6baa34264acc421aebda7b46bc",
+      "newSha256": "0f28146ebd2880877da78e18e8908c3ea2719bc2359241eec3b91f939424f3ee"
+    },
+    {
+      "resource": "audit-source28-a-prefix-receiver-b.mjs",
+      "label": "preserve observed identity audit alongside original raw turn facts",
+      "old": "taskFacts.push({turn:turn.turn,actualIdentity:turn.actualIdentity,",
+      "new": "taskFacts.push({turn:turn.turn,actualIdentity:turn.actualIdentity,identityAudit,",
+      "oldSha256": "a39eb39c44148a85a5f2c5225a0ba9dd579fb3a0c877646b82d657981091aeaa",
+      "newSha256": "24cbf4bdf912d689da3f32e1fb19399c5807ccd863ff8092edd1628d0e713c2b"
+    },
+    {
+      "resource": "audit-source28-a-prefix-receiver-b.mjs",
+      "label": "default and selected preparation recorded without replacing actual receiver evidence",
+      "old": "source:batch.source,packageVersion:batch.packageVersion,planPin:",
+      "new": "source:batch.source,packageVersion:batch.packageVersion,selectedPreparation,planPin:",
+      "oldSha256": "585357bf0a6315d14cc97875f4cbb721e669273228b170dbc9398ea3dbd327e7",
+      "newSha256": "2fd5b70204b93b77b93f50036b1e162f734d1f7cfbfe99a699c3f520eda9b1e3"
+    }
+  ],
+  "metadataKeyClarification": "Real batch keys are selectedIdentity.model_reasoning_effort and actualDefault.model_reasoning_effort; reasoningEffort is not an alias silently accepted here.",
+  "unchangedReading": "Native/tool actual body detection/decoder/CRLF comparison/call-ID dedupe/source-mirror-cache hashing/selection/false/N_A and semantic criteria are unchanged.",
+  "captureBoundary": "240000ms actual process exit deadline remains, actual close/fullstdio is mandatory; no separate close drain deadline is invented.",
+  "actualModel": "NOT_RUN",
+  "actualSDK": "NOT_RUN",
+  "noConsumer": true,
+  "noAPI": true,
+  "noInstall": true,
+  "noRepoMutation": true,
+  "noFixedControlMutation": true,
+  "noOldHelperMutation": true,
+  "noOldReportMutation": true,
+  "noActualReadStatusChanged": true
+}

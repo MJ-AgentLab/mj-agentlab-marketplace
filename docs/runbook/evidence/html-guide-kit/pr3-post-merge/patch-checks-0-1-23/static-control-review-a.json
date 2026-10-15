@@ -1,0 +1,384 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T13:26:07.8050142Z",
+  "phase": "STATIC_ONLY",
+  "reviewer": "behavior_014_a",
+  "controlsAuthor": "precommit_014",
+  "candidateVersion": "0.1.23",
+  "result": "NO_STATIC_BLOCKERS",
+  "freezeFile": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-23/CONTROLS_FINAL_FROZEN.json",
+  "freeze": {
+    "bytes": 8118,
+    "sha256": "cbcba7bd55d952caab556f860e51223e7c0e9bbd900a41fbf4fd725aa0d627a0"
+  },
+  "sourceFreezeSha256": "7398bdc0414aea4554d2b189cd6d13114fa6f811364658660b5ee3d4f7520eaf",
+  "activeCount": 40,
+  "byteExactCount": 37,
+  "guardResults": [
+    {
+      "relative": "prepare-correction.mjs",
+      "changedBytes": 4,
+      "forwardInverseOffsetsExact": true
+    },
+    {
+      "relative": "prepare-coverage.mjs",
+      "changedBytes": 4,
+      "forwardInverseOffsetsExact": true
+    },
+    {
+      "relative": "verify-canonical.mjs",
+      "changedBytes": 1,
+      "forwardInverseOffsetsExact": true
+    }
+  ],
+  "controllerChanges": [
+    {
+      "offset": 3950,
+      "sourceByte": 50,
+      "destinationByte": 51
+    }
+  ],
+  "technicalModule": {
+    "relative": "capture-lifecycle-control.mjs",
+    "bytes": 2825,
+    "sha256": "947cb0a958932d8007b7d3d6efb62c0969ba792272f0c7eaf00c118857fbd6eb"
+  },
+  "operatorCandidate": {
+    "relative": "operator-sequential.manual.candidate.mjs",
+    "bytes": 5028,
+    "sha256": "fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42"
+  },
+  "defaultProof": {
+    "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\diagnostics\\inherited-pr2-6ee40474\\metadata-relocated.json",
+    "bytes": 3891,
+    "sha256": "112d6f63191c781df9d2ca6d99a2f228f299aae82e056e3bf1869ee70d50bb49",
+    "unchanged": true,
+    "copiedIntoModelEnvironment": false,
+    "copiedIntoConsumer": false,
+    "copiedToConsumer": false
+  },
+  "authorSyntaxRecordsReviewed": 28,
+  "independentSyntaxOrFixtureRerun": false,
+  "activeRows": [
+    {
+      "relative": "blocking/harness.mjs",
+      "bytes": 44751,
+      "sha256": "916bd929785c366559647bcbb2c62a74c8e531485f2f8fe99d1ac5add12e077a",
+      "sourceSha256": "916bd929785c366559647bcbb2c62a74c8e531485f2f8fe99d1ac5add12e077a",
+      "byteExactSource": true
+    },
+    {
+      "relative": "blocking/plan.json",
+      "bytes": 13618,
+      "sha256": "58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2",
+      "sourceSha256": "58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2",
+      "byteExactSource": true
+    },
+    {
+      "relative": "blocking/frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "sourceSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "byteExactSource": true
+    },
+    {
+      "relative": "blocking/choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "sourceSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "byteExactSource": true
+    },
+    {
+      "relative": "blocking/record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "sourceSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "byteExactSource": true
+    },
+    {
+      "relative": "blocking/operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "sourceSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "byteExactSource": true
+    },
+    {
+      "relative": "expanded/harness.mjs",
+      "bytes": 43715,
+      "sha256": "910b412ddbd3a2032435342d5d3b194709240724a3a40a027ae02acc3d7bdf9f",
+      "sourceSha256": "910b412ddbd3a2032435342d5d3b194709240724a3a40a027ae02acc3d7bdf9f",
+      "byteExactSource": true
+    },
+    {
+      "relative": "expanded/plan.json",
+      "bytes": 28082,
+      "sha256": "bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04",
+      "sourceSha256": "bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04",
+      "byteExactSource": true
+    },
+    {
+      "relative": "expanded/frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "sourceSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "byteExactSource": true
+    },
+    {
+      "relative": "expanded/choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "sourceSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "byteExactSource": true
+    },
+    {
+      "relative": "expanded/record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "sourceSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "byteExactSource": true
+    },
+    {
+      "relative": "expanded/operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "sourceSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "byteExactSource": true
+    },
+    {
+      "relative": "expanded/expanded-plan.mjs",
+      "bytes": 10495,
+      "sha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+      "sourceSha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+      "byteExactSource": true
+    },
+    {
+      "relative": "continuous-supplement/harness.mjs",
+      "bytes": 43715,
+      "sha256": "910b412ddbd3a2032435342d5d3b194709240724a3a40a027ae02acc3d7bdf9f",
+      "sourceSha256": "910b412ddbd3a2032435342d5d3b194709240724a3a40a027ae02acc3d7bdf9f",
+      "byteExactSource": true
+    },
+    {
+      "relative": "continuous-supplement/plan.json",
+      "bytes": 17314,
+      "sha256": "af18c35badde6b55ba3134781823565f9688e14e3e51505ffb8760b05fb57cd9",
+      "sourceSha256": "af18c35badde6b55ba3134781823565f9688e14e3e51505ffb8760b05fb57cd9",
+      "byteExactSource": true
+    },
+    {
+      "relative": "continuous-supplement/frozen-spec.md",
+      "bytes": 28037,
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "sourceSha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "byteExactSource": true
+    },
+    {
+      "relative": "continuous-supplement/choose-first.mjs",
+      "bytes": 1592,
+      "sha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "sourceSha256": "72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1",
+      "byteExactSource": true
+    },
+    {
+      "relative": "continuous-supplement/record-native-loading.mjs",
+      "bytes": 4232,
+      "sha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "sourceSha256": "12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253",
+      "byteExactSource": true
+    },
+    {
+      "relative": "continuous-supplement/operator-observations.mjs",
+      "bytes": 1824,
+      "sha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "sourceSha256": "610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871",
+      "byteExactSource": true
+    },
+    {
+      "relative": "continuous-supplement/expanded-plan.mjs",
+      "bytes": 10495,
+      "sha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+      "sourceSha256": "5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e",
+      "byteExactSource": true
+    },
+    {
+      "relative": "expanded/criterion-citation-erratum.json",
+      "bytes": 672,
+      "sha256": "8a1e7e3a4305b076e9069c39dd5f605ff21dca5a5ade59ada17afba60ed63969",
+      "sourceSha256": "8a1e7e3a4305b076e9069c39dd5f605ff21dca5a5ade59ada17afba60ed63969",
+      "byteExactSource": true
+    },
+    {
+      "relative": "expanded/repeated-plan.json",
+      "bytes": 16222,
+      "sha256": "0b97085cdf412893e267bda912776d371a36f58e6fec7cb15bc086989c081d23",
+      "sourceSha256": "0b97085cdf412893e267bda912776d371a36f58e6fec7cb15bc086989c081d23",
+      "byteExactSource": true
+    },
+    {
+      "relative": "operator-sequential.manual.mjs",
+      "bytes": 4977,
+      "sha256": "8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b",
+      "sourceSha256": "8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b",
+      "byteExactSource": true
+    },
+    {
+      "relative": "repeated-plan-control.json",
+      "bytes": 1050,
+      "sha256": "47a66a9d5148b301f1fbff721670de92c8986467d590030159adcfd239c69c79",
+      "sourceSha256": "47a66a9d5148b301f1fbff721670de92c8986467d590030159adcfd239c69c79",
+      "byteExactSource": true
+    },
+    {
+      "relative": "record-operator-handoff.mjs",
+      "bytes": 4632,
+      "sha256": "553c482e3977ed600b0846051ee1de9fa983e3a656867a3aa4c05cda393339bf",
+      "sourceSha256": "553c482e3977ed600b0846051ee1de9fa983e3a656867a3aa4c05cda393339bf",
+      "byteExactSource": true
+    },
+    {
+      "relative": "manual-selection-behavior-a.mjs",
+      "bytes": 3264,
+      "sha256": "eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559",
+      "sourceSha256": "eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559",
+      "byteExactSource": true
+    },
+    {
+      "relative": "manual-selection-continuous-behavior-a.mjs",
+      "bytes": 3370,
+      "sha256": "7fcf3c78437f33f8d146684e7e6173324a996b65c6722d58fec17dcfba643ecc",
+      "sourceSha256": "7fcf3c78437f33f8d146684e7e6173324a996b65c6722d58fec17dcfba643ecc",
+      "byteExactSource": true
+    },
+    {
+      "relative": "manual-selection-continuous-control.json",
+      "bytes": 1085,
+      "sha256": "b84e79d9c799413461c708b9fde47860acf1be57887dcd50f2f7a34c25750eea",
+      "sourceSha256": "b84e79d9c799413461c708b9fde47860acf1be57887dcd50f2f7a34c25750eea",
+      "byteExactSource": true
+    },
+    {
+      "relative": "manual-selection-continuous-control.final.json",
+      "bytes": 1424,
+      "sha256": "f958efe94dc9475a32703e57885c069e7f95f884cd6b259471a490b085b57039",
+      "sourceSha256": "f958efe94dc9475a32703e57885c069e7f95f884cd6b259471a490b085b57039",
+      "byteExactSource": true
+    },
+    {
+      "relative": "record-operator-handoff-behavior-a.mjs",
+      "bytes": 6816,
+      "sha256": "c9e93fb47caee212c3b5eb2322e963fa89fbe10008db469d9dd4dc6a47546d82",
+      "sourceSha256": "c9e93fb47caee212c3b5eb2322e963fa89fbe10008db469d9dd4dc6a47546d82",
+      "byteExactSource": true
+    },
+    {
+      "relative": "prepare-correction.mjs",
+      "bytes": 1937,
+      "sha256": "ce26c53ff4c9de4a8fe817243a9b8073a82c3df1e1c1daccc56747c964be1c14",
+      "sourceSha256": "ec567642a546f3ad6658d5b474a74de216023896c256f7b1b6cad809f3e457b3",
+      "byteExactSource": false
+    },
+    {
+      "relative": "prepare-coverage.mjs",
+      "bytes": 2403,
+      "sha256": "bdad977da06332981c95873498fa3e45a65fce3e2ad9fb25d831d17a501f9d14",
+      "sourceSha256": "f931c3672720711f0da38eaac3da3e40d823a0e65f58e533f757813f4488e512",
+      "byteExactSource": false
+    },
+    {
+      "relative": "verify-canonical.mjs",
+      "bytes": 5202,
+      "sha256": "1a04f6712141ce49bdd36d7dd1fdf6eb1e54d13ab14dfe7b4c48ed57a3df9fcd",
+      "sourceSha256": "03df1dc3ed53c70caa53c4c600e585bd52ae11029e51309d73fc1c34907bce64",
+      "byteExactSource": false
+    },
+    {
+      "relative": "root-manual-select.mjs",
+      "bytes": 1708,
+      "sha256": "e6cc6c7cd00ecc86fcca45f43fbbcafef34bea6d375123aa1622f5eedbcfefc6",
+      "sourceSha256": "e6cc6c7cd00ecc86fcca45f43fbbcafef34bea6d375123aa1622f5eedbcfefc6",
+      "byteExactSource": true
+    },
+    {
+      "relative": "root-manual-helper-copy-control.json",
+      "bytes": 608,
+      "sha256": "0cfa34d02f5db39ab8937c51345b6bc1b9c8a7e6cd150a724433c4f350b05c12",
+      "sourceSha256": "0cfa34d02f5db39ab8937c51345b6bc1b9c8a7e6cd150a724433c4f350b05c12",
+      "byteExactSource": true
+    },
+    {
+      "relative": "manual-selection-behavior-b.mjs",
+      "bytes": 3267,
+      "sha256": "c2d3f2ce80a6919aecb27892fe2790dce901981efa72c2aef2b773f9b1d1f394",
+      "sourceSha256": "c2d3f2ce80a6919aecb27892fe2790dce901981efa72c2aef2b773f9b1d1f394",
+      "byteExactSource": true
+    },
+    {
+      "relative": "record-recommended-observation-behavior-b.mjs",
+      "bytes": 2258,
+      "sha256": "834624a2b2f6da8db78f9b5e86a7e029b2c77051764b38b5260849c92f0e5bd9",
+      "sourceSha256": "834624a2b2f6da8db78f9b5e86a7e029b2c77051764b38b5260849c92f0e5bd9",
+      "byteExactSource": true
+    },
+    {
+      "relative": "behavior-b-helper-copy-control.json",
+      "bytes": 1265,
+      "sha256": "778feaf2416459570b2fe270a57b30f7cc74a917f1b4aa8a44f21455eac54620",
+      "sourceSha256": "778feaf2416459570b2fe270a57b30f7cc74a917f1b4aa8a44f21455eac54620",
+      "byteExactSource": true
+    },
+    {
+      "relative": "capture-lifecycle-control.mjs",
+      "bytes": 2825,
+      "sha256": "947cb0a958932d8007b7d3d6efb62c0969ba792272f0c7eaf00c118857fbd6eb",
+      "sourceSha256": "947cb0a958932d8007b7d3d6efb62c0969ba792272f0c7eaf00c118857fbd6eb",
+      "byteExactSource": true
+    },
+    {
+      "relative": "operator-sequential.manual.candidate.mjs",
+      "bytes": 5028,
+      "sha256": "fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42",
+      "sourceSha256": "fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42",
+      "byteExactSource": true
+    }
+  ],
+  "protectedSource22Pins": [
+    {
+      "relative": "operator-c-records/stopped-original-operator-closure.json",
+      "sha256": "49eadf78db5a00ce33cdb9218884ad57e04d4ef427f053df5bce482dbf78aea1",
+      "unchanged": true
+    },
+    {
+      "relative": "native-ui-merge71e2/work/independent-review.json",
+      "sha256": "9e07e501cc48367b25bb2096ee641fd3e2da2ef0391bcc2628a5830e1a6e7c25",
+      "unchanged": true
+    },
+    {
+      "relative": "native-ui-merge71e2/work/scoped-derivative-proof.json",
+      "sha256": "b6fc819656441e1a392b3c18900fb9ae688d7cfb5f655956601ed659950212bf",
+      "unchanged": true
+    },
+    {
+      "relative": "native-ui-merge71e2/work/scoped-derivative-proof-clarification.json",
+      "sha256": "78aa685cf641e761aaac27b6405b159b11020485873d1ba72611cb863a21c59f",
+      "unchanged": true
+    }
+  ],
+  "requiredGlobalPauseFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\normal-execution-pause.flag",
+  "observations": [
+    "Actual JSON schema read before checking: files=38 baseline controls; technicalModule and operatorCandidate are separate; active total40.",
+    "Actual 40 active/source/provenance hashes match;37 exact. Only3 helpers have9 ASCII literal version changes, controller separate1; inputs/criteria/plans/SPEC/default unchanged.",
+    "Read candidate entry/variant/COMPLETE-turn checks and scheduling contract. Every future invocation must explicitly pass root23 global --pause-file; callers must check it before manual choose. Check/spawn is not atomic; no host-window or immediate in-flight-stop guarantee.",
+    "Read V2 capture and strict harness COMPLETE gate: actual in-deadline exit and close, code0/signalnull, no error/timeout/late/deadline callback, SDK completed and actual identity. SDK completion never replaces actual exit.",
+    "Read mirror allowlist: marketplace registration plus runtime plugin files, excludes test/eval/evidence/results/reviewer/control and repo docs. Random neutral paths; prompt uses frozen user input plus actual selection/runtime/material paths. No actual23 consumer/mirror yet.",
+    "Prior fixture proof keeps its source22 label and points to actual source21 four-process/seven-assertion results, reused only for unchanged operator/module. Not a source23 execution or behavior/client PASS.",
+    "Historical helper comment eight/four is byte-unchanged; actual controller expected counts13/6. No installer/model called by this reviewer.",
+    "Outer read769193/f92d0f; combined e76add/6247e6/bbf26d had inventory output truncation; c8f862 inspected actual needed schema/counts, f2dd90/32c23c/3f84cd read relevant strict/isolation/default code."
+  ],
+  "errors": [],
+  "modelInvoked": false,
+  "installationInvoked": false,
+  "uiInvoked": false,
+  "consumerPrepared": false,
+  "repositoryModified": false,
+  "notBehaviorOrClientPass": true
+}

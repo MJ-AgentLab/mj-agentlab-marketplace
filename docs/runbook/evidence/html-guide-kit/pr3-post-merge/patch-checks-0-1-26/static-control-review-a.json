@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "recordedUtc": "2026-10-14T15:45:30.6179978Z",
+  "reviewer": "/root/behavior_014_a",
+  "controlAuthor": "/root/precommit_014",
+  "scope": "STATIC_ONLY",
+  "conclusion": "NO_STATIC_BLOCKERS",
+  "finalControl": {
+    "path": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-26/CONTROLS_FINAL_FROZEN.json",
+    "bytes": 8114,
+    "sha256": "a6baf04cece9ec70f11edd4aa17b13f868cdb465902c8c13a1c0e9d9fa9948d6"
+  },
+  "bindings": [
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-26/frozen-copy-inventory.json",
+      "bytes": 43450,
+      "sha256": "9d543f6ae60f2d15fddd5609b1807b75da492ffad8be64766914f92d1d2ff2c2"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-26/version-guard-exactdiff.json",
+      "bytes": 3168,
+      "sha256": "a225970bc946f507e3ac0c59359df9e25374865ffc8da439598e0aea1fe2fd38"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-26/scheduling-contract.json",
+      "bytes": 1907,
+      "sha256": "d5d7cd3ca04d3430da5c26d232b0cb15034003eb96d66a1f03d60404ec38b0e2"
+    }
+  ],
+  "counts": {
+    "active": 40,
+    "sourcePins": 40,
+    "byteExact": 37,
+    "guardFiles": 3,
+    "actualGuardChangedAsciiBytes": 9,
+    "controllerSeparateBytes": 1,
+    "syntaxReceipts": 28,
+    "syntaxReceiptExit0": 28,
+    "protectedSource25OriginalPins": 47
+  },
+  "guardInverse": [
+    {
+      "relative": "prepare-correction.mjs",
+      "actualDiff": [
+        {
+          "offset": 63,
+          "sourceByte": 53,
+          "destinationByte": 54
+        },
+        {
+          "offset": 535,
+          "sourceByte": 53,
+          "destinationByte": 54
+        },
+        {
+          "offset": 813,
+          "sourceByte": 53,
+          "destinationByte": 54
+        },
+        {
+          "offset": 876,
+          "sourceByte": 53,
+          "destinationByte": 54
+        }
+      ],
+      "inverseExact": true
+    },
+    {
+      "relative": "prepare-coverage.mjs",
+      "actualDiff": [
+        {
+          "offset": 96,
+          "sourceByte": 53,
+          "destinationByte": 54
+        },
+        {
+          "offset": 1205,
+          "sourceByte": 53,
+          "destinationByte": 54
+        },
+        {
+          "offset": 1506,
+          "sourceByte": 53,
+          "destinationByte": 54
+        },
+        {
+          "offset": 1569,
+          "sourceByte": 53,
+          "destinationByte": 54
+        }
+      ],
+      "inverseExact": true
+    },
+    {
+      "relative": "verify-canonical.mjs",
+      "actualDiff": [
+        {
+          "offset": 3924,
+          "sourceByte": 53,
+          "destinationByte": 54
+        }
+      ],
+      "inverseExact": true
+    }
+  ],
+  "controllerActualDiff": [
+    {
+      "offset": 3950,
+      "sourceByte": 53,
+      "destinationByte": 54
+    }
+  ],
+  "controllerInverseExact": true,
+  "technicalV2": {
+    "path": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-26/capture-lifecycle-control.mjs",
+    "bytes": 2825,
+    "sha256": "947cb0a958932d8007b7d3d6efb62c0969ba792272f0c7eaf00c118857fbd6eb"
+  },
+  "operatorCandidate": {
+    "path": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-26/operator-sequential.manual.candidate.mjs",
+    "bytes": 5028,
+    "sha256": "fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42"
+  },
+  "defaultProof": {
+    "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\diagnostics\\inherited-pr2-6ee40474\\metadata-relocated.json",
+    "bytes": 3891,
+    "sha256": "112d6f63191c781df9d2ca6d99a2f228f299aae82e056e3bf1869ee70d50bb49"
+  },
+  "baseline": "0.147.0/OpenAI/gpt-5.6-sol/low inherited actual default observation; no new model-list query",
+  "unchangedInputsCriteriaPlansSpecsHelpers": true,
+  "sourceProtectedPinsStable": true,
+  "scheduling": {
+    "flag": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-26\\normal-execution-pause.flag",
+    "allKindsExplicit": true,
+    "manualCallerBeforeReadChooseNext": [
+      "before reading/recording the selected actual whole triplet",
+      "immediately before harness choose",
+      "before invoking the operator to send the next turn"
+    ],
+    "candidateChecks": [
+      "entry",
+      "before each variant start",
+      "after COMPLETE before next/manual continuation",
+      "after variant completion before another variant"
+    ],
+    "checkAndSpawnNotAtomic": true,
+    "noKillRetryResampling": true,
+    "onlyNormalBoundary": true
+  },
+  "fixture": "Source21 prior four-process/seven-assertion fixture is unchanged-mechanism reuse only; no source26 fixture invocation or behavior PASS.",
+  "reviewerIsolation": "Active controls are exact prior approved harness/inputs/criteria/default resources, new version guards only; operator/helper review bytes remain outside future neutral model mirror. Scope-only false/N_A handling unchanged, no forced extra reads.",
+  "model": "NOT_RUN",
+  "installation": "NOT_RUN",
+  "consumer": "NOT_RUN",
+  "runtimeApproval": "NOT_IN_SCOPE",
+  "actualReads": [
+    "b55f8a",
+    "260920",
+    "aa7295",
+    "261e0f"
+  ],
+  "inspectionErrorPreserved": "39143c generic inventory shape read emitted a nonterminating GetType on expected null candidateCanonical; this reviewer read was not valid all-field inventory inspection. Subsequent explicit schema reads and direct pins/inverse checks replace that inspection, without changing control/original bytes."
+}

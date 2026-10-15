@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T13:11:22.942Z",
+  "reviewer": "/root/behavior_014_b",
+  "status": "STATIC_ONLY",
+  "result": "NO_STATIC_BLOCKERS",
+  "sourceCanonical": "71e2e1bc2bf110b7a3f93ee0db73cb4c8b5c2248",
+  "sourceVersion": "0.1.22",
+  "proposedVersion": "0.1.23",
+  "freeze": {
+    "relative": "root-draft-freeze.json",
+    "sha256": "c1c069b036cc3fbc5c4050fee962954fd652a12c56cc1f6ac29433d51bf0f52f",
+    "phase": "EXTERNAL_DRAFT_ONLY_NO_RUNTIME_APPLY"
+  },
+  "resources": [
+    {
+      "relative": "skills/guide/SKILL.md",
+      "draftRelative": "draft/SKILL.md",
+      "draftBytes": 6086,
+      "draftSha256": "ad2924661d2efaa22662d0df31e2968cc581e618e1c45dc9345f5df895eca813",
+      "sourceBytes": 6086,
+      "sourceSha256": "ad2924661d2efaa22662d0df31e2968cc581e618e1c45dc9345f5df895eca813",
+      "changed": false,
+      "lfBytes": 6086,
+      "crlfBytes": 6140,
+      "entryBudget": 6144,
+      "crlfRemainingBytes": 4
+    },
+    {
+      "relative": "skills/guide/references/guide-framework.md",
+      "draftRelative": "draft/references/guide-framework.md",
+      "draftBytes": 10042,
+      "draftSha256": "4fd5cae6d489c69f0f3e8ff72ceabf7404beb9780976f297e56ae4066ce5de13",
+      "sourceBytes": 9887,
+      "sourceSha256": "f80f9f70641ff284e7273af6044466934b5c742594e5f8f17f43daff7333bc3d",
+      "changed": true,
+      "lfBytes": 10042,
+      "crlfBytes": 10105
+    },
+    {
+      "relative": "skills/guide/references/interaction-design.md",
+      "draftRelative": "draft/references/interaction-design.md",
+      "draftBytes": 10141,
+      "draftSha256": "f3ff576734497d20b03fd5610388d8b6819ed2fc9330b9a96aaf4e9534895870",
+      "sourceBytes": 9725,
+      "sourceSha256": "e5f34e53a820ab9b30d3e41d67954456121ef733134e6d1796a09795b3239cef",
+      "changed": true,
+      "lfBytes": 10141,
+      "crlfBytes": 10219
+    }
+  ],
+  "reproducibleLocalVerification": {
+    "resourceReadTools": [
+      {
+        "chunk": "ae1656",
+        "resource": "entry",
+        "exitCode": 0,
+        "fullBodyRead": true
+      },
+      {
+        "chunk": "dfd658",
+        "resource": "framework",
+        "exitCode": 0,
+        "fullBodyRead": true
+      },
+      {
+        "chunk": "83cf98",
+        "resource": "interaction",
+        "exitCode": 0,
+        "fullBodyRead": true
+      }
+    ],
+    "factsTool": {
+      "chunk": "b0cf55",
+      "exitCode": 0,
+      "modelOrUiInvoked": false
+    },
+    "originalSnapshotsEqualGitObjects": true,
+    "draftBytesAndHashesEqualFreeze": true,
+    "entryByteExactSource": true,
+    "localLinks": [
+      {
+        "from": "skills/guide/SKILL.md",
+        "to": "references/guide-framework.md",
+        "exists": true
+      },
+      {
+        "from": "skills/guide/SKILL.md",
+        "to": "references/interaction-design.md",
+        "exists": true
+      },
+      {
+        "from": "skills/guide/references/guide-framework.md",
+        "to": "interaction-design.md",
+        "exists": true
+      },
+      {
+        "from": "skills/guide/references/interaction-design.md",
+        "to": "guide-framework.md",
+        "exists": true
+      }
+    ],
+    "diffScope": "Only framework §5 complete-rule checklist, framework §6 first value-domain paragraph, and interaction §6 full-guide audit change. Entry unchanged; remaining sections retain original text.",
+    "diffExitInterpretation": "git diff --no-index status 1 means expected content differences; outer mechanical verification exit 0. LF/CRLF Git warnings are not modifications or semantic failures.",
+    "sourceManifest": {
+      "version": "0.1.22",
+      "capabilities": [
+        "Read"
+      ],
+      "publicEntry": "$html-guide-kit:guide",
+      "allowImplicitInvocation": false,
+      "changedByDraft": false
+    }
+  },
+  "independentAiJudgment": [
+    {
+      "id": "product-contract",
+      "result": "PASS_STATIC",
+      "evidence": "Entry exact source bytes; new-guide-only, explicit invocation, Read/chat text, Chinese/terminology, no HTML/code/files/tool production instructions/execution remain. Source manifest and agents policy match Read and allow_implicit_invocation:false. Draft alone does not apply or bump production."
+    },
+    {
+      "id": "confirmation",
+      "result": "PASS_STATIC",
+      "evidence": "Entry §2/framework §3 unchanged: 2–3 substantially distinct reader/task/questions, rationale/trade-offs and recommendation; explicit existing-option selection suffices, modifications require adoption confirmation; recommendation/default/silence/timeout/unrelated reply/window loss are not confirmation; same pending choice persists. No promised host-window lock."
+    },
+    {
+      "id": "field-domain-versus-object-scope",
+      "result": "PASS_STATIC",
+      "evidence": "Framework §5 ‘输入与身份’ explicitly distinguishes source domain, reachable values and teaching selection; object/situation scope does not define field values. Inputs matching complete source prerequisites retain known results; extra teaching restrictions require local identity/reason/scope and cannot be attributed to source coverage. §6 preserves unknown types/bounds/integer/unit/validity without erasing applicable results."
+    },
+    {
+      "id": "complete-operation-rule",
+      "result": "PASS_STATIC",
+      "evidence": "Framework §5 keeps necessary current state, direct operation, all conditions/exceptions, source actions/objects/fields/range/locator. Allowed/prohibited/unknown remain separate per operation and result dimension; unspecified illegal-attempt fields are not invented as unchanged. Broad ‘only/other/must-not’, repeated and same-value operations, restoration and exceptions still participate."
+    },
+    {
+      "id": "source-recovery-connection",
+      "result": "PASS_STATIC",
+      "evidence": "Framework §5 ‘恢复与新增设计’ and interaction §6 source→representation check preserve every specified clear/revoke/restore action/object/field plus trigger/direct operation/reality boundary. A local relation may expressly inherit the complete recovery unit; a link only to initial values cannot replace omitted source actions."
+    },
+    {
+      "id": "design-attribution",
+      "result": "PASS_STATIC",
+      "evidence": "Source recovery remains separate from added UI trigger/actions/results. Each addition retains adjacent teaching/design identity, reason and range, while reused source effects have independent source locators. Same names/effects and whole-page teaching labels cannot stand in for local attribution."
+    },
+    {
+      "id": "scope-and-shortening",
+      "result": "PASS_STATIC",
+      "evidence": "Actual stated shared-rule coverage permits faithful shorthand within scope; chapter numbers, earlier panels/examples or future-writing requirements do not establish a local premise. The draft allows explicit inheritance, rather than requiring repetitive full-rule text in every cell."
+    },
+    {
+      "id": "no-overconstraint",
+      "result": "PASS_STATIC",
+      "evidence": "Framework §5 explicitly permits list or table and says it is not a fixed guide chapter/format. Non-operation materials remain conceptual/evidence organized. Pure condition relations without permission/effects can be independently judged; source unconditional effects gain no invented conditions. No imposed controls/question counts or new domain assumptions."
+    },
+    {
+      "id": "adaptive-teaching-and-feedback",
+      "result": "PASS_STATIC",
+      "evidence": "Unchanged sections keep task/material-sensitive depth, step demonstration/conditional simulation/self-check only as useful; reliable criteria include reasons/misconceptions/retry and unreliable criteria get bounded reference thinking. No score or long-term mastery inference; constructed simulations do not execute actual operations."
+    },
+    {
+      "id": "two-direction-audit",
+      "result": "PASS_STATIC",
+      "evidence": "Interaction §6 checks both completeness from source→every representation and provenance from each representation→same source object/predicate. It covers summaries/relations/tables/restoration/appendices/author lists, not only displayed fields with citations, and retains actual-semantic judging rather than keyword verdicts."
+    },
+    {
+      "id": "portability-and-links",
+      "result": "PASS_STATIC",
+      "evidence": "Four relative Markdown links resolve within the draft package. No Owner drive/chat/candidate case identifiers, fixture names, fixed domain case or external installation dependency are present in runtime text."
+    }
+  ],
+  "nonblockingNotes": [
+    "Entry has 4 bytes of remaining allowance under CRLF 6144 budget; exact unchanged 6086 LF / 6140 CRLF candidate is within budget. Later edits must remeasure.",
+    "Reference sizes grow to 10042/10141 LF bytes. Static reading does not prove the next model/client will actually receive these installed versions in full; preserve actual SDK reception evidence during new acceptance.",
+    "Author recorder errors f75df7 and 0d09fc remain original failures. completion-r2-execution.json was read as actual exitCode 1 (ENOENT path quoting), not reclassified PASS. Root's separate freeze and independent Git/pin comparisons establish this draft's content identity.",
+    "Original Source22 behavior FAIL/PENDING/UNEX and current-merge native three-turn limited result remain distinct. This report does not rerun or revise them."
+  ],
+  "limits": {
+    "newModelCalls": 0,
+    "newUiInputs": 0,
+    "installations": 0,
+    "gradeCalls": 0,
+    "runtimeApplied": false,
+    "repositorySharedFilesWritten": false,
+    "oldEvidenceModified": false,
+    "authorR3RecorderExecuted": false,
+    "testsRun": false,
+    "behaviorStatus": "NOT_RUN_FOR_DRAFT",
+    "clientReadStatus": "NOT_RUN_FOR_DRAFT",
+    "githubApprovalProvided": false,
+    "ownerAcceptanceProvided": false,
+    "releasesOrTagsCreated": false
+  },
+  "blockers": []
+}

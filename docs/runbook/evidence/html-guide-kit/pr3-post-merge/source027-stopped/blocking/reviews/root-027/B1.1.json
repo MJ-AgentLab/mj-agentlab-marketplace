@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T16:51:26.962Z",
+  "reviewer": "/root",
+  "operator": "/root/precommit_014",
+  "canonicalSha": "00d59da3099113ccbf3db73b84787c526eedd713",
+  "canonicalTree": "edc69b137e5473c6e7307120a81c9e091764d673",
+  "version": "0.1.27",
+  "variant": "B1.1",
+  "uuid": "01a13b41-47d0-7911-9d20-1040ba2e866f",
+  "attemptId": "ae3c8e8e-1f73-40e8-9cc7-c6dfde8bffcb",
+  "actualTurns": 4,
+  "primaryBehavior": "PASS",
+  "overallResult": "FAIL",
+  "finding": {
+    "fullReads": [
+      "106e5a",
+      "7d060c"
+    ],
+    "primary": "PASS",
+    "location": "T4 §八避免表述",
+    "quote": "有体验通行证，缺少预约也可以核验。——与§2冲突。",
+    "reason": "The local disallowed wording treats the possibility of checking as false when a success condition is absent. The source defines a checking action in the unchecked state with failure branches when conditions are absent. This local predicate is not defined as successful checking; other correct successful/failed branches do not repair it.",
+    "notes": [
+      "The necessary-condition statement about positive stock is not forced into a full operation conclusion.",
+      "Future self-check settings need implementation detail; they are not falsely treated as already tested questions."
+    ]
+  },
+  "rawInputOutputPins": [
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.1\\ae3c8e8e-1f73-40e8-9cc7-c6dfde8bffcb\\01.input.txt",
+      "bytes": 989,
+      "sha256": "bab0cf2ac1f4378f3061c4ae161703f9fc8b720559d4b57f229f48006d22844b"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.1\\ae3c8e8e-1f73-40e8-9cc7-c6dfde8bffcb\\01.output.txt",
+      "bytes": 3500,
+      "sha256": "71478c28773f91ee8bfcd01b2d85bb6641657fa0695bcfedeefdbc3bfddb1cc0"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.1\\ae3c8e8e-1f73-40e8-9cc7-c6dfde8bffcb\\02.input.txt",
+      "bytes": 43,
+      "sha256": "7903215f202a7f38d4a86ac1d90212fdae7856a80aa37d6e0668dc93cdb59112"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.1\\ae3c8e8e-1f73-40e8-9cc7-c6dfde8bffcb\\02.output.txt",
+      "bytes": 224,
+      "sha256": "9268ad11a7711ccff5d09c3fa7facb1d811bc4a07ab3887dd2c0f46cf64a3cac"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.1\\ae3c8e8e-1f73-40e8-9cc7-c6dfde8bffcb\\03.input.txt",
+      "bytes": 43,
+      "sha256": "32d79cd04cb688cb6fb970165b8da92497a918854b90dba5a66fe7c834d9642f"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.1\\ae3c8e8e-1f73-40e8-9cc7-c6dfde8bffcb\\03.output.txt",
+      "bytes": 103,
+      "sha256": "09322b0f2b32f7569de464860a40bbde9f866c5971aeb952e397b4c1c6ab8646"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.1\\ae3c8e8e-1f73-40e8-9cc7-c6dfde8bffcb\\04.input.txt",
+      "bytes": 57,
+      "sha256": "f016c5e8934ed8bb687dbb1c7079ca7b972692afeb3ccea5c27515ad0e001351"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-27\\blocking\\runs\\c663ef6e-0882-4c26-8dfc-277841370d12\\B1.1\\ae3c8e8e-1f73-40e8-9cc7-c6dfde8bffcb\\04.output.txt",
+      "bytes": 13460,
+      "sha256": "17d67283d124143c418acee14e99c29c5151d4a72cf020cad08e8fa1a097d2ad"
+    }
+  ],
+  "technicalReview": "SEPARATE_ACTUAL_SDK_REVIEW_PENDING",
+  "noNewInputsOrRegradingPriorVersions": true,
+  "effectStatus": "NOT_MEASURED"
+}

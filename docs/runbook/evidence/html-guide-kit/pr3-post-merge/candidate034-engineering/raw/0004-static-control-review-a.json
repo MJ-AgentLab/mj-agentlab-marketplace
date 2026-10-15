@@ -1,0 +1,158 @@
+{
+  "recordedAt": "2026-10-14T22:24:51.129Z",
+  "status": "STATIC_ONLY",
+  "conclusion": "NO_STATIC_BLOCKERS",
+  "reviewer": "behavior_014_a",
+  "controlAuthor": "behavior_014_b",
+  "candidateVersion": "0.1.34",
+  "control": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-34\\CONTROL_DRAFT_ONLY.json",
+    "bytes": 13860,
+    "sha256": "98205d2188a51189f6f878bb8abc5df3ce3e4ce39192d8e538d0535ad187b01e"
+  },
+  "inventory": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-34\\control-copy-inventory.draft.json",
+    "bytes": 1056882,
+    "sha256": "3fad4c364f74bdb23d3a5928124f50dcb3eef9e8961f816f2b7b74929454565a"
+  },
+  "exactDelta": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-34\\version-guard-exactdiff.draft.json",
+    "bytes": 2585,
+    "sha256": "ed6c0e2cd538dc8d1db44bb02da99bc8ff85959eda92d88f9dc46855a5bcc9d8"
+  },
+  "facts": {
+    "controlRows": 42,
+    "active40": 40,
+    "byteExactActive": 37,
+    "threeVersionHelpersLiterals": 9,
+    "controllerLiterals": 1,
+    "sdkLiterals": 1,
+    "totalLiterals": 11,
+    "totalAsciiChanged": 11,
+    "twoReceiverBodiesByteExact": true,
+    "V2ByteExact": true,
+    "candidateByteExact": true,
+    "originalPlansMaterialsInputsCriteriaByteExact": true,
+    "authorSyntaxReceipts": 31,
+    "allRecordedParseExitZero": true
+  },
+  "deltas": [
+    {
+      "relative": "prepare-correction.mjs",
+      "literals": 4,
+      "asciiBytes": 4
+    },
+    {
+      "relative": "prepare-coverage.mjs",
+      "literals": 4,
+      "asciiBytes": 4
+    },
+    {
+      "relative": "verify-canonical.mjs",
+      "literals": 1,
+      "asciiBytes": 1
+    },
+    {
+      "relative": "controller.mjs",
+      "literals": 1,
+      "asciiBytes": 1
+    },
+    {
+      "relative": "review-selected-identity.mjs",
+      "literals": 1,
+      "asciiBytes": 1
+    }
+  ],
+  "protectedGroups": [
+    {
+      "sourceVersion": "33",
+      "fileCount": 492,
+      "entireFileSetAndByteHashesExact": true,
+      "privatePayloadHashOnlyNotParsedOrCopied": true
+    },
+    {
+      "sourceVersion": "32",
+      "fileCount": 677,
+      "entireFileSetAndByteHashesExact": true,
+      "privatePayloadHashOnlyNotParsedOrCopied": true
+    },
+    {
+      "sourceVersion": "31",
+      "fileCount": 472,
+      "entireFileSetAndByteHashesExact": true,
+      "privatePayloadHashOnlyNotParsedOrCopied": true
+    },
+    {
+      "sourceVersion": "30",
+      "fileCount": 451,
+      "entireFileSetAndByteHashesExact": true,
+      "privatePayloadHashOnlyNotParsedOrCopied": true
+    },
+    {
+      "sourceVersion": "29",
+      "fileCount": 362,
+      "entireFileSetAndByteHashesExact": true,
+      "privatePayloadHashOnlyNotParsedOrCopied": true
+    }
+  ],
+  "source33Tracking": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\tracking\\033-final-protected-source-set.json",
+    "bytes": 101648,
+    "sha256": "17a5f5ff7a284ea595c76ee110011497147b1be4d0912362db77357bfcf6e2e9"
+  },
+  "source33Digest": "244a863e98c15ff6df1e5f08d3c719c44ec223349b1e9af64d544a194cec73f9",
+  "scheduling": {
+    "historicalCandidate": "0.1.28",
+    "historicalPause": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\normal-execution-pause.flag",
+    "historicalBodyByteExact": true,
+    "futureExplicitAbsolutePause": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-34\\normal-execution-pause.flag",
+    "mustCheckBeforePrepareQuoteChoose": true,
+    "mustPassCandidateSameFlagEveryInvocation": true,
+    "turnAndVariantNormalChecksByteExact": true,
+    "checkSpawnNotAtomic": true,
+    "inflightNaturalReturn": true,
+    "hostLockNotPromised": true
+  },
+  "identity": {
+    "proofSha256": "112d6f63191c781df9d2ca6d99a2f228f299aae82e056e3bf1869ee70d50bb49",
+    "defaultLowNotRewritten": true,
+    "selectedHighExplicitRequired": true,
+    "freshApiHighSupportAndActualSdkRequired": true,
+    "deadlineMs": 240000,
+    "closeDrainIndependentBound": false
+  },
+  "canonicalBinding": {
+    "candidate": null,
+    "futureExactFullGitShaAndManifest34Required": true,
+    "sevenGitMirrorCacheRuntimeHashesMustMatch": true,
+    "cacheHashesCheckedEveryTurn": true,
+    "neutralModelEnvironmentReviewerExclusionExact": true,
+    "completeRepositoryTreeEqualityNotRequired": true
+  },
+  "scopeReading": {
+    "actualFalseAndEarlyContractNARemainActual": true
+  },
+  "privacy": {
+    "realConfigAndUiInstallationNotRead": true,
+    "oldPrivateOwnedAndSdkPayloadHashOnlyNotParsedOrCopied": true,
+    "uiProposalNotReadyNotActive": true
+  },
+  "actualReads": [
+    "962354",
+    "fcdb48",
+    "0a480d",
+    "4f1d0e"
+  ],
+  "notRun": {
+    "newControlSyntaxExecution": true,
+    "selfTestFixture": true,
+    "consumer": true,
+    "api": true,
+    "installation": true,
+    "model": true,
+    "repoMutation": true,
+    "gitMutation": true
+  },
+  "staticIsNotBehaviorPass": true,
+  "originalResultsNotReinterpreted": true
+}

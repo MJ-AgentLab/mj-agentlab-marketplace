@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T20:43:03.188Z",
+  "reviewer": "/root/behavior_014_b",
+  "author": "/root/behavior_014_a",
+  "status": "STATIC_ONLY",
+  "verdict": "NO_STATIC_BLOCKERS",
+  "sourceCanonical": "e2c4463f55dd33a6d24b0080a46b478bc4d6974a",
+  "sourceTree": "a2f4a82074a207fc0a113d5f590548ae9c83ea50",
+  "sourceVersion": "0.1.31",
+  "proposedVersion": "0.1.32",
+  "authorFreeze": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-32\\DRAFT_FINAL_FROZEN.json",
+    "bytes": 5712,
+    "sha256": "28e4a140e41bfba9af15a35c36451ea4c065ff628b7ca88c434888eed9d582b2"
+  },
+  "fullIndependentRead": {
+    "tool": "83e7ec",
+    "exitCode": 0,
+    "scope": "Entire3 frozen resources and all3 exact span changes/preservation mapping"
+  },
+  "resources": [
+    {
+      "relative": "skills/guide/SKILL.md",
+      "draftBytes": 5813,
+      "draftSha256": "b7c320e01731513b350548f64d40a60767cd619267d26bf680f27c6d073a434d",
+      "windowsCrlfBytes": 5849,
+      "sourceBytes": 5677,
+      "sourceSha256": "65abdd374784d054f9c3d65d52c32c74cf32ac281ad6388e927831c6d7c9e46c",
+      "gitSourceExact": true,
+      "sourceSnapshotExact": true,
+      "forwardInverseExact": true,
+      "outsideSpansByteExact": true,
+      "changedSpans": 1,
+      "linksResolve": true
+    },
+    {
+      "relative": "skills/guide/references/guide-framework.md",
+      "draftBytes": 10372,
+      "draftSha256": "ed2a364a2fb916dca36cc0bfc17375ceb0f6f35ff929a40bd850292bbd212016",
+      "windowsCrlfBytes": 10443,
+      "sourceBytes": 9759,
+      "sourceSha256": "b6de10fb7ed3a3f2dfc5cda046e1317243876c5cee2aab2c46760fd37341e654",
+      "gitSourceExact": true,
+      "sourceSnapshotExact": true,
+      "forwardInverseExact": true,
+      "outsideSpansByteExact": true,
+      "changedSpans": 2,
+      "linksResolve": true
+    },
+    {
+      "relative": "skills/guide/references/interaction-design.md",
+      "draftBytes": 7773,
+      "draftSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "windowsCrlfBytes": 7836,
+      "sourceBytes": 7773,
+      "sourceSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "gitSourceExact": true,
+      "sourceSnapshotExact": true,
+      "forwardInverseExact": true,
+      "outsideSpansByteExact": true,
+      "changedSpans": 0,
+      "linksResolve": true
+    }
+  ],
+  "changedSpans": 3,
+  "offsetInterpretation": {
+    "method": "Listed sequential-buffer coordinates; inverse applies reverse list",
+    "frameworkThirdSourceOffset": 9043,
+    "precedingGrowthBytes": 388,
+    "declaredIntermediateOffset": 9431,
+    "authorFreezeUnchanged": true,
+    "initialCheckerFailure": "a8a713 preserved with source snapshot"
+  },
+  "entryWindowsLimit": 6144,
+  "entryWindowsMargin": 295,
+  "checks": [
+    {
+      "id": "full-source-criterion-required",
+      "status": "PASS",
+      "reason": "ANDfalse/ORtrue只在源完整条件判准下逐结论求值，必要条件不充充分判准；源范围/当前适用前提仍成立，纯条件真假不推未述操作/字段。"
+    },
+    {
+      "id": "known-vs-dependent-unknown",
+      "status": "PASS",
+      "reason": "已知决定项不被另项未知撤销；只剩仍依赖未给信息的结论保未知。未将未知当false、无效或新源字段域，未从资格逻辑擅推执行或交付。"
+    },
+    {
+      "id": "optional-feedback-audit",
+      "status": "PASS",
+      "reason": "全篇核对明确覆盖另设未知输入的说明，须核实际依赖；不强制创建未知模拟、矩阵/表、题量或新状态。局部已知/未知和完整单元适用范围保持。"
+    },
+    {
+      "id": "existing-method-contract-preserved",
+      "status": "PASS",
+      "reason": "三span外原bytes保持、interaction全文exact。只显式新建/Read/中文聊天自然语言、2–3实际目标和明确等待、源冲突/证据/构造身份、实际本例输入与问句预设、宽许可/局部范围、源动作恢复/新UI归属、理由误区重试/无分/篇幅适应全保。无Owner/fixture答案/工具制作/固定教材格式。"
+    },
+    {
+      "id": "portable-resource-and-byte-budget",
+      "status": "PASS",
+      "reason": "相对links实际存在，三个旧snapshot逐byte等Git e2c；正逆重构精确。入口Windows5849B余295，两个参考之外无新运行资源。"
+    }
+  ],
+  "blockers": [],
+  "limitations": "Static only. No Source32 actual SDK/consumer/installation/model/client behavior verified; does not turn any Source31 original FAIL/UNEXERCISED into PASS.",
+  "runtimeApplied": false,
+  "repositoryOrGitModified": false,
+  "originalSource31Modified": false,
+  "controlsModified": false,
+  "consumer": "NOT_RUN",
+  "API": "NOT_RUN",
+  "model": "NOT_RUN",
+  "installation": "NOT_RUN",
+  "effects": "NOT_MEASURED",
+  "GitHubApproval": "NOT_PROVIDED_BY_THIS_REVIEW"
+}

@@ -1,0 +1,348 @@
+{
+  "recordedAt": "2026-10-14T20:18:52.671Z",
+  "baseline": "70ec2870a5c049f292c7fc4ddaaf185bd5be87cf",
+  "plugin": "html-guide-kit",
+  "version": "0.1.31",
+  "status": "WORKING_CANDIDATE_ENGINEERING_PASS",
+  "checks": {
+    "quick": {
+      "name": "quick",
+      "command": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/tracking/html-guide-validator-025/Scripts/python.exe",
+      "args": [
+        "C:/Users/Admin/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\plugins\\html-guide-kit\\skills\\guide"
+      ],
+      "cwd": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/develop",
+      "startedAt": "2026-10-14T20:14:03.097Z",
+      "exit": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T20:14:03.186Z"
+      },
+      "close": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T20:14:03.191Z"
+      },
+      "error": null,
+      "logs": {
+        "stdout": {
+          "bytes": 17,
+          "sha256": "6cf9e7f0d34ccd36dbd28f270cd28dd04277b2e1516bd4333ce7bb501d7b18d4"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "validCompleted": true
+    },
+    "docs65": {
+      "name": "docs65",
+      "command": "D:/Development/nodejs/node.exe",
+      "args": [
+        "--test",
+        "tests/documentation-contract.test.mjs",
+        "tests/check-a6.test.mjs"
+      ],
+      "cwd": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/develop",
+      "startedAt": "2026-10-14T20:14:03.192Z",
+      "exit": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T20:14:08.007Z"
+      },
+      "close": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T20:14:08.013Z"
+      },
+      "error": null,
+      "logs": {
+        "stdout": {
+          "bytes": 12237,
+          "sha256": "ecba733d4afbbf6ffe7d81e784a290e5a262b4a701d88bacd60508a67b24d3a6"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "validCompleted": true,
+      "reported": {
+        "tests": 65,
+        "pass": 65,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "duration_ms": 4778.7468
+      }
+    },
+    "strict": {
+      "name": "strict",
+      "command": "npm",
+      "args": [
+        "run",
+        "validate"
+      ],
+      "cwd": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/develop",
+      "startedAt": "2026-10-14T20:14:08.013Z",
+      "exit": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T20:14:08.776Z"
+      },
+      "close": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T20:14:08.781Z"
+      },
+      "error": null,
+      "logs": {
+        "stdout": {
+          "bytes": 374,
+          "sha256": "0c48e6b1cd323cfef6242f00872cd456afa471a8e0829a496dcdb8878e060976"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "validCompleted": true
+    },
+    "check147": {
+      "name": "check147",
+      "command": "npm",
+      "args": [
+        "run",
+        "check"
+      ],
+      "cwd": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/develop",
+      "startedAt": "2026-10-14T20:14:08.782Z",
+      "exit": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T20:14:09.335Z"
+      },
+      "close": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T20:14:09.341Z"
+      },
+      "error": null,
+      "logs": {
+        "stdout": {
+          "bytes": 202,
+          "sha256": "d177b26a977d85cff6e18426a8ee0df23a62ed71904ad5e49ed94c86ab7f2cb8"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "validCompleted": true
+    },
+    "full346": {
+      "name": "full346",
+      "command": "npm",
+      "args": [
+        "test"
+      ],
+      "cwd": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/develop",
+      "startedAt": "2026-10-14T20:14:12.292Z",
+      "exit": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T20:18:48.581Z"
+      },
+      "close": {
+        "code": 0,
+        "signal": null,
+        "at": "2026-10-14T20:18:48.587Z"
+      },
+      "error": null,
+      "logs": {
+        "stdout": {
+          "bytes": 76848,
+          "sha256": "d99f2efee1f0a6f11099e75c306ead16caee06ebf181ae4e27f12249404f0249"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "validCompleted": true,
+      "reported": {
+        "tests": 346,
+        "pass": 346,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "duration_ms": 276019.6556
+      }
+    }
+  },
+  "outerTools": {
+    "eof": {
+      "initial": "8f47ed",
+      "exit": 0
+    },
+    "fast": {
+      "initial": "6d1d3e",
+      "exit": 0
+    },
+    "full": {
+      "initial": "f0fee3",
+      "sessionId": 10223,
+      "completion": "b8b961",
+      "polls": [
+        "732a8b",
+        "62b3bb",
+        "941d34",
+        "f89ebf",
+        "b66b43"
+      ]
+    }
+  },
+  "scope": {
+    "installation": "NOT_RUN",
+    "model": "NOT_RUN",
+    "client": "NOT_RUN",
+    "effect": "NOT_RUN",
+    "gitMutation": "NOT_RUN"
+  },
+  "pins": [
+    {
+      "relative": "AGENTS-eof-correction.json",
+      "bytes": 1231,
+      "sha256": "4468db74fc18d74ff07e998c5a79164caaae401f7fc66a6ddcf9ce943b0cefce"
+    },
+    {
+      "relative": "AGENTS.after-eof.snapshot.txt",
+      "bytes": 16166,
+      "sha256": "4dcc592286275e7e624d2f51aaffd9b0b9e7d1ed7ab789abc9b9b8331aacbbe7"
+    },
+    {
+      "relative": "AGENTS.before-eof.snapshot.txt",
+      "bytes": 16167,
+      "sha256": "e5c55db3fa615beff9b8162dc20bc71993445331e35d682cde967b65e893afac"
+    },
+    {
+      "relative": "capture-checks.mjs",
+      "bytes": 3799,
+      "sha256": "af46b0139039580b6b5673c4e809cc614c75e109b7ec02ae72109d177b1eac25"
+    },
+    {
+      "relative": "check-summary.mjs",
+      "bytes": 2332,
+      "sha256": "3f78adc1d150b192ba8bcaeef55966cf7a73f3b4f6cc6eb0b4c24c3e49a3cd63"
+    },
+    {
+      "relative": "check147.result.json",
+      "bytes": 664,
+      "sha256": "6f2ccd793b90ef1b298e009f4af7ecbe6c04f10dc541c776d338b808ce65665b"
+    },
+    {
+      "relative": "check147.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "check147.stdout.txt",
+      "bytes": 202,
+      "sha256": "d177b26a977d85cff6e18426a8ee0df23a62ed71904ad5e49ed94c86ab7f2cb8"
+    },
+    {
+      "relative": "docs65.result.json",
+      "bytes": 757,
+      "sha256": "d7772c8b2a0a0d2b6c9e2df6eb8525db10c9e300b9f532a4db9a73cfedee40e2"
+    },
+    {
+      "relative": "docs65.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "docs65.stdout.txt",
+      "bytes": 12237,
+      "sha256": "ecba733d4afbbf6ffe7d81e784a290e5a262b4a701d88bacd60508a67b24d3a6"
+    },
+    {
+      "relative": "full346.result.json",
+      "bytes": 653,
+      "sha256": "685c45d7f49aa976fac15e2881f8ebc5feb22621ccd97848c23e2ee87613e697"
+    },
+    {
+      "relative": "full346.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "full346.stdout.txt",
+      "bytes": 76848,
+      "sha256": "d99f2efee1f0a6f11099e75c306ead16caee06ebf181ae4e27f12249404f0249"
+    },
+    {
+      "relative": "original-diff-check.result.json",
+      "bytes": 679,
+      "sha256": "39c4df5ae4247eb7bb22a53abf94690e28a4d5f72b5e746a135d7ac195ecf319"
+    },
+    {
+      "relative": "original-diff-check.stderr.txt",
+      "bytes": 736,
+      "sha256": "fa04108b733f0a449cbc3814dbce2690c674fd6059efcd9649026e9d53d9a9b8"
+    },
+    {
+      "relative": "original-diff-check.stdout.txt",
+      "bytes": 37,
+      "sha256": "242853e6956b44d173de43c6abf393f176ea3fbc0d1187ee59d029929da79adc"
+    },
+    {
+      "relative": "quick.result.json",
+      "bytes": 938,
+      "sha256": "56f9ce28939b635c41acc7f63e270c504ccc47d259b9e639576a0730c14dacaf"
+    },
+    {
+      "relative": "quick.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "quick.stdout.txt",
+      "bytes": 17,
+      "sha256": "6cf9e7f0d34ccd36dbd28f270cd28dd04277b2e1516bd4333ce7bb501d7b18d4"
+    },
+    {
+      "relative": "revised-diff-check.result.json",
+      "bytes": 677,
+      "sha256": "ef57570c6cb806256f394165505a0c92c31666d25d445d78f0b9d069b454cf0f"
+    },
+    {
+      "relative": "revised-diff-check.stderr.txt",
+      "bytes": 736,
+      "sha256": "fa04108b733f0a449cbc3814dbce2690c674fd6059efcd9649026e9d53d9a9b8"
+    },
+    {
+      "relative": "revised-diff-check.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "strict.result.json",
+      "bytes": 665,
+      "sha256": "a446a1de43c170fe902cf030f7e9f0a3f8134cecd71011cc226c0a8d5228abc9"
+    },
+    {
+      "relative": "strict.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "strict.stdout.txt",
+      "bytes": 374,
+      "sha256": "0c48e6b1cd323cfef6242f00872cd456afa471a8e0829a496dcdb8878e060976"
+    }
+  ]
+}

@@ -1,0 +1,1662 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T13:59:39.677Z",
+  "producer": "/root/precommit_014",
+  "role": "Operator only; Root performs independent semantic review",
+  "sourceCanonical": "b46069e3979136e70d64b9873b799b5bd069ca95",
+  "sourceTree": "d8a2ffb8646065dff8f7a46fe741b1f93b5873ad",
+  "version": "0.1.23",
+  "batchFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\batch.json",
+  "batchPin": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\batch.json",
+    "bytes": 437452,
+    "sha256": "e1f2fb70066af78f028d54281ab1fbdc2b7509da2b641decdb6bbf46a53f54a9"
+  },
+  "actualUuidCount": 3,
+  "actualInputCount": 8,
+  "actualCompleteCount": 8,
+  "actualInvalidCount": 0,
+  "actualRawFileCount": 40,
+  "plannedVariants": 4,
+  "plannedTurns": 11,
+  "unsentTurns": 3,
+  "semanticAssessment": null,
+  "cases": [
+    {
+      "id": "B1.1",
+      "plannedTurns": 4,
+      "executionStatus": "EXECUTED_PENDING_REVIEW",
+      "actualAttempts": 1,
+      "actualInputs": 4,
+      "remainingUnsentTurns": 0,
+      "operationalCoverage": "FULL_VARIANT_EXECUTED_SEMANTIC_RECORDED_SEPARATELY_BY_ROOT",
+      "attempts": [
+        {
+          "attemptId": "43ff66fe-76e9-4fe1-9bf6-1934720d7b79",
+          "uuid": "01a13aa6-6af2-7a52-ad54-5f0c4f236f2a",
+          "actualTurns": 4,
+          "turns": [
+            {
+              "number": 1,
+              "transportStatus": "COMPLETE",
+              "started": {
+                "utc": "2026-10-14T13:42:27.208Z",
+                "timezone": "Asia/Taipei"
+              },
+              "completed": {
+                "utc": "2026-10-14T13:43:29.971Z",
+                "timezone": "Asia/Taipei"
+              },
+              "exitCode": 0,
+              "timedOut": false,
+              "captureLifecycle": {
+                "launchedUtc": "2026-10-14T13:42:27.211Z",
+                "launchedMonotonicMs": 28.6003,
+                "timeoutMs": 240000,
+                "timerRegisteredMonotonicMs": 35.0219,
+                "deadlineMonotonicMs": 240035.0219,
+                "actualExit": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T13:43:19.508Z",
+                  "elapsedMs": 52297.2464,
+                  "observedMonotonicMs": 52325.8138,
+                  "inDeadline": true
+                },
+                "actualClose": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T13:43:29.968Z",
+                  "elapsedMs": 62756.6183,
+                  "observedMonotonicMs": 62785.2243
+                },
+                "exitObserved": true,
+                "closeObserved": true,
+                "deadlineCallback": null,
+                "stdioCollectedThroughClose": true,
+                "sdkCompletedNotUsedAsExit": true,
+                "noExitMeansStatusNull": true,
+                "drainWaitHasIndependentDeadline": false
+              },
+              "actualIdentity": {
+                "sessionId": "01a13aa6-6af2-7a52-ad54-5f0c4f236f2a",
+                "cliVersion": "0.147.0",
+                "originator": "Codex Desktop",
+                "modelProvider": "openai",
+                "models": [
+                  "gpt-5.6-sol"
+                ],
+                "reasoning": [
+                  "low"
+                ]
+              },
+              "markerRelation": "ENTIRELY_BEFORE_MARKER"
+            },
+            {
+              "number": 2,
+              "transportStatus": "COMPLETE",
+              "started": {
+                "utc": "2026-10-14T13:43:30.024Z",
+                "timezone": "Asia/Taipei"
+              },
+              "completed": {
+                "utc": "2026-10-14T13:43:44.242Z",
+                "timezone": "Asia/Taipei"
+              },
+              "exitCode": 0,
+              "timedOut": false,
+              "captureLifecycle": {
+                "launchedUtc": "2026-10-14T13:43:30.027Z",
+                "launchedMonotonicMs": 26.6432,
+                "timeoutMs": 240000,
+                "timerRegisteredMonotonicMs": 33.0083,
+                "deadlineMonotonicMs": 240033.0083,
+                "actualExit": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T13:43:44.238Z",
+                  "elapsedMs": 14211.357899999999,
+                  "observedMonotonicMs": 14237.9772,
+                  "inDeadline": true
+                },
+                "actualClose": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T13:43:44.239Z",
+                  "elapsedMs": 14211.4439,
+                  "observedMonotonicMs": 14238.0875
+                },
+                "exitObserved": true,
+                "closeObserved": true,
+                "deadlineCallback": null,
+                "stdioCollectedThroughClose": true,
+                "sdkCompletedNotUsedAsExit": true,
+                "noExitMeansStatusNull": true,
+                "drainWaitHasIndependentDeadline": false
+              },
+              "actualIdentity": {
+                "sessionId": "01a13aa6-6af2-7a52-ad54-5f0c4f236f2a",
+                "cliVersion": "0.147.0",
+                "originator": "Codex Desktop",
+                "modelProvider": "openai",
+                "models": [
+                  "gpt-5.6-sol"
+                ],
+                "reasoning": [
+                  "low"
+                ]
+              },
+              "markerRelation": "ENTIRELY_BEFORE_MARKER"
+            },
+            {
+              "number": 3,
+              "transportStatus": "COMPLETE",
+              "started": {
+                "utc": "2026-10-14T13:43:44.300Z",
+                "timezone": "Asia/Taipei"
+              },
+              "completed": {
+                "utc": "2026-10-14T13:43:53.263Z",
+                "timezone": "Asia/Taipei"
+              },
+              "exitCode": 0,
+              "timedOut": false,
+              "captureLifecycle": {
+                "launchedUtc": "2026-10-14T13:43:44.304Z",
+                "launchedMonotonicMs": 27.9747,
+                "timeoutMs": 240000,
+                "timerRegisteredMonotonicMs": 35.6024,
+                "deadlineMonotonicMs": 240035.6024,
+                "actualExit": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T13:43:53.260Z",
+                  "elapsedMs": 8956.2545,
+                  "observedMonotonicMs": 8984.2063,
+                  "inDeadline": true
+                },
+                "actualClose": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T13:43:53.260Z",
+                  "elapsedMs": 8956.3207,
+                  "observedMonotonicMs": 8984.2958
+                },
+                "exitObserved": true,
+                "closeObserved": true,
+                "deadlineCallback": null,
+                "stdioCollectedThroughClose": true,
+                "sdkCompletedNotUsedAsExit": true,
+                "noExitMeansStatusNull": true,
+                "drainWaitHasIndependentDeadline": false
+              },
+              "actualIdentity": {
+                "sessionId": "01a13aa6-6af2-7a52-ad54-5f0c4f236f2a",
+                "cliVersion": "0.147.0",
+                "originator": "Codex Desktop",
+                "modelProvider": "openai",
+                "models": [
+                  "gpt-5.6-sol"
+                ],
+                "reasoning": [
+                  "low"
+                ]
+              },
+              "markerRelation": "ENTIRELY_BEFORE_MARKER"
+            },
+            {
+              "number": 4,
+              "transportStatus": "COMPLETE",
+              "started": {
+                "utc": "2026-10-14T13:46:12.004Z",
+                "timezone": "Asia/Taipei"
+              },
+              "completed": {
+                "utc": "2026-10-14T13:47:39.673Z",
+                "timezone": "Asia/Taipei"
+              },
+              "exitCode": 0,
+              "timedOut": false,
+              "captureLifecycle": {
+                "launchedUtc": "2026-10-14T13:46:12.009Z",
+                "launchedMonotonicMs": 28.5105,
+                "timeoutMs": 240000,
+                "timerRegisteredMonotonicMs": 35.187,
+                "deadlineMonotonicMs": 240035.187,
+                "actualExit": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T13:47:39.669Z",
+                  "elapsedMs": 87659.6698,
+                  "observedMonotonicMs": 87688.1544,
+                  "inDeadline": true
+                },
+                "actualClose": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T13:47:39.670Z",
+                  "elapsedMs": 87659.7379,
+                  "observedMonotonicMs": 87688.2488
+                },
+                "exitObserved": true,
+                "closeObserved": true,
+                "deadlineCallback": null,
+                "stdioCollectedThroughClose": true,
+                "sdkCompletedNotUsedAsExit": true,
+                "noExitMeansStatusNull": true,
+                "drainWaitHasIndependentDeadline": false
+              },
+              "actualIdentity": {
+                "sessionId": "01a13aa6-6af2-7a52-ad54-5f0c4f236f2a",
+                "cliVersion": "0.147.0",
+                "originator": "Codex Desktop",
+                "modelProvider": "openai",
+                "models": [
+                  "gpt-5.6-sol"
+                ],
+                "reasoning": [
+                  "low"
+                ]
+              },
+              "markerRelation": "ENTIRELY_BEFORE_MARKER"
+            }
+          ],
+          "selection": {
+            "label": "C",
+            "originalTripletExcerpt": "### 方案 C：恢复与边界审查\n\n- 读者：负责检查教学演示是否忠实于材料规则的人；已能阅读状态变化说明。\n- 使用任务：检查取消、归还和“重新开始”的表现是否保全了原材料规定的动作、字段与适用范围。\n- 理解问题：\n  - 取消预约时，哪些值改变，哪些值明确不变？何时取消不可用？（§6）\n  - 归还的适用状态及其状态、库存结果是什么？（§5）\n  - “重新开始”恢复哪些初始值？为何不能据此断言现实系统存在同名功能？（§1、§7）\n  - 哪些多人、时效或跨活动结论属于越界推断？（§8）\n- 取舍：特别适合发现恢复遗漏和范围扩张；对首次学习完整领取主流程不如方案 A 直观。",
+            "firstTurnOutput": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\01.output.txt",
+            "recorded": {
+              "utc": "2026-10-14T13:46:11.659Z",
+              "timezone": "Asia/Taipei"
+            },
+            "rolePresent": false,
+            "source": "reviewer reading of actual model output; no answer key in model prompt"
+          },
+          "cachedResourceMechanicalReception": [
+            {
+              "relative": "skills/guide/SKILL.md",
+              "cachePin": {
+                "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\3a615deb-0697-4b2a-a88e-f3fbb859279d\\521ff9c7-c2ce-4946-8e82-79bb8c01b207\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.23\\skills\\guide\\SKILL.md",
+                "bytes": 6086,
+                "sha256": "ad2924661d2efaa22662d0df31e2968cc581e618e1c45dc9345f5df895eca813"
+              },
+              "wholeBodyMatchedInActualToolReceiver": true,
+              "receiverEvidence": [
+                {
+                  "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\01.session.jsonl",
+                  "line": 16,
+                  "callId": "call_16efc653aa4b45e0bbcb15b6dba5a1fc"
+                }
+              ],
+              "nativeWholeSkillBodyWithBoundPath": true,
+              "nativeEvidence": [
+                {
+                  "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\01.session.jsonl",
+                  "line": 11
+                },
+                {
+                  "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\02.session.jsonl",
+                  "line": 11
+                },
+                {
+                  "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\03.session.jsonl",
+                  "line": 11
+                },
+                {
+                  "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\04.session.jsonl",
+                  "line": 11
+                }
+              ]
+            },
+            {
+              "relative": "skills/guide/references/guide-framework.md",
+              "cachePin": {
+                "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\3a615deb-0697-4b2a-a88e-f3fbb859279d\\521ff9c7-c2ce-4946-8e82-79bb8c01b207\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.23\\skills\\guide\\references\\guide-framework.md",
+                "bytes": 10042,
+                "sha256": "4fd5cae6d489c69f0f3e8ff72ceabf7404beb9780976f297e56ae4066ce5de13"
+              },
+              "wholeBodyMatchedInActualToolReceiver": true,
+              "receiverEvidence": [
+                {
+                  "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\01.session.jsonl",
+                  "line": 19,
+                  "callId": "call_4e09a776ccc6402c8823d3b49fadd47f"
+                }
+              ],
+              "nativeWholeSkillBodyWithBoundPath": false,
+              "nativeEvidence": []
+            },
+            {
+              "relative": "skills/guide/references/interaction-design.md",
+              "cachePin": {
+                "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\3a615deb-0697-4b2a-a88e-f3fbb859279d\\521ff9c7-c2ce-4946-8e82-79bb8c01b207\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.23\\skills\\guide\\references\\interaction-design.md",
+                "bytes": 10141,
+                "sha256": "f3ff576734497d20b03fd5610388d8b6819ed2fc9330b9a96aaf4e9534895870"
+              },
+              "wholeBodyMatchedInActualToolReceiver": true,
+              "receiverEvidence": [
+                {
+                  "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\01.session.jsonl",
+                  "line": 22,
+                  "callId": "call_849aa2c1edd249559628697488ae1cf1"
+                }
+              ],
+              "nativeWholeSkillBodyWithBoundPath": false,
+              "nativeEvidence": []
+            }
+          ],
+          "semanticAssessment": null
+        }
+      ],
+      "semanticAssessment": null
+    },
+    {
+      "id": "B1.2-delayed",
+      "plannedTurns": 3,
+      "executionStatus": "EXECUTED_PENDING_REVIEW",
+      "actualAttempts": 1,
+      "actualInputs": 3,
+      "remainingUnsentTurns": 0,
+      "operationalCoverage": "FULL_VARIANT_EXECUTED_SEMANTIC_RECORDED_SEPARATELY_BY_ROOT",
+      "attempts": [
+        {
+          "attemptId": "7799c951-bde7-4821-b81d-59f362c05bf6",
+          "uuid": "01a13aab-2fe2-7621-b2d5-98dc7016c10e",
+          "actualTurns": 3,
+          "turns": [
+            {
+              "number": 1,
+              "transportStatus": "COMPLETE",
+              "started": {
+                "utc": "2026-10-14T13:47:39.781Z",
+                "timezone": "Asia/Taipei"
+              },
+              "completed": {
+                "utc": "2026-10-14T13:48:29.431Z",
+                "timezone": "Asia/Taipei"
+              },
+              "exitCode": 0,
+              "timedOut": false,
+              "captureLifecycle": {
+                "launchedUtc": "2026-10-14T13:47:39.794Z",
+                "launchedMonotonicMs": 37.2614,
+                "timeoutMs": 240000,
+                "timerRegisteredMonotonicMs": 44.0994,
+                "deadlineMonotonicMs": 240044.0994,
+                "actualExit": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T13:48:29.420Z",
+                  "elapsedMs": 49626.331,
+                  "observedMonotonicMs": 49663.5671,
+                  "inDeadline": true
+                },
+                "actualClose": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T13:48:29.426Z",
+                  "elapsedMs": 49632.6683,
+                  "observedMonotonicMs": 49669.9304
+                },
+                "exitObserved": true,
+                "closeObserved": true,
+                "deadlineCallback": null,
+                "stdioCollectedThroughClose": true,
+                "sdkCompletedNotUsedAsExit": true,
+                "noExitMeansStatusNull": true,
+                "drainWaitHasIndependentDeadline": false
+              },
+              "actualIdentity": {
+                "sessionId": "01a13aab-2fe2-7621-b2d5-98dc7016c10e",
+                "cliVersion": "0.147.0",
+                "originator": "Codex Desktop",
+                "modelProvider": "openai",
+                "models": [
+                  "gpt-5.6-sol"
+                ],
+                "reasoning": [
+                  "low"
+                ]
+              },
+              "markerRelation": "ENTIRELY_BEFORE_MARKER"
+            },
+            {
+              "number": 2,
+              "transportStatus": "COMPLETE",
+              "started": {
+                "utc": "2026-10-14T13:51:58.587Z",
+                "timezone": "Asia/Taipei"
+              },
+              "completed": {
+                "utc": "2026-10-14T13:52:17.356Z",
+                "timezone": "Asia/Taipei"
+              },
+              "exitCode": 0,
+              "timedOut": false,
+              "captureLifecycle": {
+                "launchedUtc": "2026-10-14T13:51:58.591Z",
+                "launchedMonotonicMs": 27.7459,
+                "timeoutMs": 240000,
+                "timerRegisteredMonotonicMs": 34.5446,
+                "deadlineMonotonicMs": 240034.5446,
+                "actualExit": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T13:52:17.353Z",
+                  "elapsedMs": 18761.6249,
+                  "observedMonotonicMs": 18789.3449,
+                  "inDeadline": true
+                },
+                "actualClose": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T13:52:17.353Z",
+                  "elapsedMs": 18761.688299999998,
+                  "observedMonotonicMs": 18789.4345
+                },
+                "exitObserved": true,
+                "closeObserved": true,
+                "deadlineCallback": null,
+                "stdioCollectedThroughClose": true,
+                "sdkCompletedNotUsedAsExit": true,
+                "noExitMeansStatusNull": true,
+                "drainWaitHasIndependentDeadline": false
+              },
+              "actualIdentity": {
+                "sessionId": "01a13aab-2fe2-7621-b2d5-98dc7016c10e",
+                "cliVersion": "0.147.0",
+                "originator": "Codex Desktop",
+                "modelProvider": "openai",
+                "models": [
+                  "gpt-5.6-sol"
+                ],
+                "reasoning": [
+                  "low"
+                ]
+              },
+              "markerRelation": "ENTIRELY_BEFORE_MARKER"
+            },
+            {
+              "number": 3,
+              "transportStatus": "COMPLETE",
+              "started": {
+                "utc": "2026-10-14T13:52:17.410Z",
+                "timezone": "Asia/Taipei"
+              },
+              "completed": {
+                "utc": "2026-10-14T13:53:41.321Z",
+                "timezone": "Asia/Taipei"
+              },
+              "exitCode": 0,
+              "timedOut": false,
+              "captureLifecycle": {
+                "launchedUtc": "2026-10-14T13:52:17.414Z",
+                "launchedMonotonicMs": 27.5841,
+                "timeoutMs": 240000,
+                "timerRegisteredMonotonicMs": 35.4881,
+                "deadlineMonotonicMs": 240035.4881,
+                "actualExit": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T13:53:41.318Z",
+                  "elapsedMs": 83902.9832,
+                  "observedMonotonicMs": 83930.539,
+                  "inDeadline": true
+                },
+                "actualClose": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T13:53:41.318Z",
+                  "elapsedMs": 83903.0528,
+                  "observedMonotonicMs": 83930.6373
+                },
+                "exitObserved": true,
+                "closeObserved": true,
+                "deadlineCallback": null,
+                "stdioCollectedThroughClose": true,
+                "sdkCompletedNotUsedAsExit": true,
+                "noExitMeansStatusNull": true,
+                "drainWaitHasIndependentDeadline": false
+              },
+              "actualIdentity": {
+                "sessionId": "01a13aab-2fe2-7621-b2d5-98dc7016c10e",
+                "cliVersion": "0.147.0",
+                "originator": "Codex Desktop",
+                "modelProvider": "openai",
+                "models": [
+                  "gpt-5.6-sol"
+                ],
+                "reasoning": [
+                  "low"
+                ]
+              },
+              "markerRelation": "ENTIRELY_BEFORE_MARKER"
+            }
+          ],
+          "selection": {
+            "label": "2",
+            "originalTripletExcerpt": "2. 演示主持与状态追踪\n\n   - 读者：负责带领教学演示的活动主持者；需要设置条件、执行单次模拟操作并解释反馈；预先理解“当前态—操作—结果”的基本关系。\n   - 使用任务：组织一轮可恢复的演示，逐步追踪预约、导览、访客状态和库存，并准确说明取消或“重新开始”会恢复哪些字段。\n   - 理解问题：\n     - 条件变化与执行“核验”有什么区别？（§2–§3）\n     - 各操作具体改变或明确不改变哪些字段？（§3–§7）\n     - “重新开始”恢复什么，为什么不能据此推断现实系统存在同名控件？（§7）\n   - 取舍：更适合绘制完整状态演示和恢复机制；需要持续呈现多个字段，认知负担较高。",
+            "firstTurnOutput": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\01.output.txt",
+            "recorded": {
+              "utc": "2026-10-14T13:51:58.198Z",
+              "timezone": "Asia/Taipei"
+            },
+            "rolePresent": false,
+            "source": "reviewer reading of actual model output; no answer key in model prompt"
+          },
+          "cachedResourceMechanicalReception": [
+            {
+              "relative": "skills/guide/SKILL.md",
+              "cachePin": {
+                "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\3a615deb-0697-4b2a-a88e-f3fbb859279d\\521ff9c7-c2ce-4946-8e82-79bb8c01b207\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.23\\skills\\guide\\SKILL.md",
+                "bytes": 6086,
+                "sha256": "ad2924661d2efaa22662d0df31e2968cc581e618e1c45dc9345f5df895eca813"
+              },
+              "wholeBodyMatchedInActualToolReceiver": true,
+              "receiverEvidence": [
+                {
+                  "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\01.session.jsonl",
+                  "line": 16,
+                  "callId": "call_63355929ffb642de87b78f596656a1c3"
+                }
+              ],
+              "nativeWholeSkillBodyWithBoundPath": true,
+              "nativeEvidence": [
+                {
+                  "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\01.session.jsonl",
+                  "line": 11
+                },
+                {
+                  "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\02.session.jsonl",
+                  "line": 11
+                },
+                {
+                  "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\03.session.jsonl",
+                  "line": 11
+                }
+              ]
+            },
+            {
+              "relative": "skills/guide/references/guide-framework.md",
+              "cachePin": {
+                "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\3a615deb-0697-4b2a-a88e-f3fbb859279d\\521ff9c7-c2ce-4946-8e82-79bb8c01b207\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.23\\skills\\guide\\references\\guide-framework.md",
+                "bytes": 10042,
+                "sha256": "4fd5cae6d489c69f0f3e8ff72ceabf7404beb9780976f297e56ae4066ce5de13"
+              },
+              "wholeBodyMatchedInActualToolReceiver": true,
+              "receiverEvidence": [
+                {
+                  "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\01.session.jsonl",
+                  "line": 19,
+                  "callId": "call_42b7f892353a4a4db6c416cbefd5deb5"
+                }
+              ],
+              "nativeWholeSkillBodyWithBoundPath": false,
+              "nativeEvidence": []
+            },
+            {
+              "relative": "skills/guide/references/interaction-design.md",
+              "cachePin": {
+                "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\3a615deb-0697-4b2a-a88e-f3fbb859279d\\521ff9c7-c2ce-4946-8e82-79bb8c01b207\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.23\\skills\\guide\\references\\interaction-design.md",
+                "bytes": 10141,
+                "sha256": "f3ff576734497d20b03fd5610388d8b6819ed2fc9330b9a96aaf4e9534895870"
+              },
+              "wholeBodyMatchedInActualToolReceiver": true,
+              "receiverEvidence": [
+                {
+                  "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\01.session.jsonl",
+                  "line": 22,
+                  "callId": "call_73ac4326f51440cf88985e8e05623c3f"
+                }
+              ],
+              "nativeWholeSkillBodyWithBoundPath": false,
+              "nativeEvidence": []
+            }
+          ],
+          "semanticAssessment": null
+        }
+      ],
+      "semanticAssessment": null
+    },
+    {
+      "id": "B1.2-combined",
+      "plannedTurns": 2,
+      "executionStatus": "PARTIAL_PENDING_NEXT_TURN",
+      "actualAttempts": 1,
+      "actualInputs": 1,
+      "remainingUnsentTurns": 1,
+      "operationalCoverage": "PARTIAL_UNEXERCISED_CONFIRMATION_AND_GUIDE",
+      "attempts": [
+        {
+          "attemptId": "9cfc6c01-f04e-48d8-bbc6-d417c61ca0ee",
+          "uuid": "01a13ab0-b4a1-74d1-b7c4-aa9f5c47b327",
+          "actualTurns": 1,
+          "turns": [
+            {
+              "number": 1,
+              "transportStatus": "COMPLETE",
+              "started": {
+                "utc": "2026-10-14T13:53:41.440Z",
+                "timezone": "Asia/Taipei"
+              },
+              "completed": {
+                "utc": "2026-10-14T13:54:29.564Z",
+                "timezone": "Asia/Taipei"
+              },
+              "exitCode": 0,
+              "timedOut": false,
+              "captureLifecycle": {
+                "launchedUtc": "2026-10-14T13:53:41.453Z",
+                "launchedMonotonicMs": 38.3011,
+                "timeoutMs": 240000,
+                "timerRegisteredMonotonicMs": 45.7818,
+                "deadlineMonotonicMs": 240045.7818,
+                "actualExit": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T13:54:29.558Z",
+                  "elapsedMs": 48104.8602,
+                  "observedMonotonicMs": 48143.1359,
+                  "inDeadline": true
+                },
+                "actualClose": {
+                  "code": 0,
+                  "signal": null,
+                  "utc": "2026-10-14T13:54:29.560Z",
+                  "elapsedMs": 48106.9832,
+                  "observedMonotonicMs": 48145.285
+                },
+                "exitObserved": true,
+                "closeObserved": true,
+                "deadlineCallback": null,
+                "stdioCollectedThroughClose": true,
+                "sdkCompletedNotUsedAsExit": true,
+                "noExitMeansStatusNull": true,
+                "drainWaitHasIndependentDeadline": false
+              },
+              "actualIdentity": {
+                "sessionId": "01a13ab0-b4a1-74d1-b7c4-aa9f5c47b327",
+                "cliVersion": "0.147.0",
+                "originator": "Codex Desktop",
+                "modelProvider": "openai",
+                "models": [
+                  "gpt-5.6-sol"
+                ],
+                "reasoning": [
+                  "low"
+                ]
+              },
+              "markerRelation": "ENTIRELY_BEFORE_MARKER"
+            }
+          ],
+          "selection": null,
+          "cachedResourceMechanicalReception": [
+            {
+              "relative": "skills/guide/SKILL.md",
+              "cachePin": {
+                "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\3a615deb-0697-4b2a-a88e-f3fbb859279d\\521ff9c7-c2ce-4946-8e82-79bb8c01b207\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.23\\skills\\guide\\SKILL.md",
+                "bytes": 6086,
+                "sha256": "ad2924661d2efaa22662d0df31e2968cc581e618e1c45dc9345f5df895eca813"
+              },
+              "wholeBodyMatchedInActualToolReceiver": true,
+              "receiverEvidence": [
+                {
+                  "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-combined\\9cfc6c01-f04e-48d8-bbc6-d417c61ca0ee\\01.session.jsonl",
+                  "line": 15,
+                  "callId": "call_5d974d3ec531418d9ef5b2edf6c58102"
+                }
+              ],
+              "nativeWholeSkillBodyWithBoundPath": true,
+              "nativeEvidence": [
+                {
+                  "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-combined\\9cfc6c01-f04e-48d8-bbc6-d417c61ca0ee\\01.session.jsonl",
+                  "line": 11
+                }
+              ]
+            },
+            {
+              "relative": "skills/guide/references/guide-framework.md",
+              "cachePin": {
+                "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\3a615deb-0697-4b2a-a88e-f3fbb859279d\\521ff9c7-c2ce-4946-8e82-79bb8c01b207\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.23\\skills\\guide\\references\\guide-framework.md",
+                "bytes": 10042,
+                "sha256": "4fd5cae6d489c69f0f3e8ff72ceabf7404beb9780976f297e56ae4066ce5de13"
+              },
+              "wholeBodyMatchedInActualToolReceiver": true,
+              "receiverEvidence": [
+                {
+                  "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-combined\\9cfc6c01-f04e-48d8-bbc6-d417c61ca0ee\\01.session.jsonl",
+                  "line": 19,
+                  "callId": "call_15b75afabd2644129d7235a420b49eec"
+                }
+              ],
+              "nativeWholeSkillBodyWithBoundPath": false,
+              "nativeEvidence": []
+            },
+            {
+              "relative": "skills/guide/references/interaction-design.md",
+              "cachePin": {
+                "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\3a615deb-0697-4b2a-a88e-f3fbb859279d\\521ff9c7-c2ce-4946-8e82-79bb8c01b207\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.23\\skills\\guide\\references\\interaction-design.md",
+                "bytes": 10141,
+                "sha256": "f3ff576734497d20b03fd5610388d8b6819ed2fc9330b9a96aaf4e9534895870"
+              },
+              "wholeBodyMatchedInActualToolReceiver": true,
+              "receiverEvidence": [
+                {
+                  "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-combined\\9cfc6c01-f04e-48d8-bbc6-d417c61ca0ee\\01.session.jsonl",
+                  "line": 22,
+                  "callId": "call_d53abf0168a1498185128bb572d3f6f2"
+                }
+              ],
+              "nativeWholeSkillBodyWithBoundPath": false,
+              "nativeEvidence": []
+            }
+          ],
+          "semanticAssessment": null
+        }
+      ],
+      "semanticAssessment": null
+    },
+    {
+      "id": "B2.1",
+      "plannedTurns": 2,
+      "executionStatus": "NOT_RUN",
+      "actualAttempts": 0,
+      "actualInputs": 0,
+      "remainingUnsentTurns": 2,
+      "operationalCoverage": "NOT_RUN",
+      "attempts": [],
+      "semanticAssessment": null
+    }
+  ],
+  "originalRawPins": [
+    {
+      "variant": "B1.1",
+      "attemptId": "43ff66fe-76e9-4fe1-9bf6-1934720d7b79",
+      "turn": 1,
+      "kind": "inputFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\01.input.txt",
+      "bytes": 989,
+      "sha256": "7aa7ab169423fc25c0dd0bb17ca5b0e7b8b2d4d5d137dae66c1f7c7b521a4e25"
+    },
+    {
+      "variant": "B1.1",
+      "attemptId": "43ff66fe-76e9-4fe1-9bf6-1934720d7b79",
+      "turn": 1,
+      "kind": "outputFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\01.output.txt",
+      "bytes": 3681,
+      "sha256": "8254d752300fbdca338dd016c70c320b93f9657a34ec4ae9c2292d50c5e6e816"
+    },
+    {
+      "variant": "B1.1",
+      "attemptId": "43ff66fe-76e9-4fe1-9bf6-1934720d7b79",
+      "turn": 1,
+      "kind": "eventsFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\01.events.jsonl",
+      "bytes": 36888,
+      "sha256": "71af617b8106edbff577e7a0e9e6667ba6999ba8d99a862b235018078cc49a85"
+    },
+    {
+      "variant": "B1.1",
+      "attemptId": "43ff66fe-76e9-4fe1-9bf6-1934720d7b79",
+      "turn": 1,
+      "kind": "sessionSnapshot",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\01.session.jsonl",
+      "bytes": 98694,
+      "sha256": "c725b949c24ee3bf8d36ead58aa38d8dda8e8218f3f614f248c9803dc6b0c132"
+    },
+    {
+      "variant": "B1.1",
+      "attemptId": "43ff66fe-76e9-4fe1-9bf6-1934720d7b79",
+      "turn": 1,
+      "kind": "stderrFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\01.stderr.txt",
+      "bytes": 15702,
+      "sha256": "8b245dca4a0e413cbf1bfd436c230dd634c0884024e4d89aaf4ee0e7ba30ce3a"
+    },
+    {
+      "variant": "B1.1",
+      "attemptId": "43ff66fe-76e9-4fe1-9bf6-1934720d7b79",
+      "turn": 2,
+      "kind": "inputFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\02.input.txt",
+      "bytes": 43,
+      "sha256": "7903215f202a7f38d4a86ac1d90212fdae7856a80aa37d6e0668dc93cdb59112"
+    },
+    {
+      "variant": "B1.1",
+      "attemptId": "43ff66fe-76e9-4fe1-9bf6-1934720d7b79",
+      "turn": 2,
+      "kind": "outputFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\02.output.txt",
+      "bytes": 336,
+      "sha256": "4836908e69a2b159a79de1ae8b5990e9edd645cec0e327035011a4f6e346abda"
+    },
+    {
+      "variant": "B1.1",
+      "attemptId": "43ff66fe-76e9-4fe1-9bf6-1934720d7b79",
+      "turn": 2,
+      "kind": "eventsFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\02.events.jsonl",
+      "bytes": 693,
+      "sha256": "8a9ed8ed4f04b50cf4e65594a4c9303a77e2565d8ec0904af4997d89712a273b"
+    },
+    {
+      "variant": "B1.1",
+      "attemptId": "43ff66fe-76e9-4fe1-9bf6-1934720d7b79",
+      "turn": 2,
+      "kind": "sessionSnapshot",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\02.session.jsonl",
+      "bytes": 106041,
+      "sha256": "1d7dfe5cd3eaa3818ed687729f754ec226d83c1192a545a677b8c4a4e50c7869"
+    },
+    {
+      "variant": "B1.1",
+      "attemptId": "43ff66fe-76e9-4fe1-9bf6-1934720d7b79",
+      "turn": 2,
+      "kind": "stderrFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\02.stderr.txt",
+      "bytes": 22594,
+      "sha256": "dc3329fa285d0f2ea68bd0b5a19675f19e1f0f9af73179881e54314c9da85a0b"
+    },
+    {
+      "variant": "B1.1",
+      "attemptId": "43ff66fe-76e9-4fe1-9bf6-1934720d7b79",
+      "turn": 3,
+      "kind": "inputFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\03.input.txt",
+      "bytes": 43,
+      "sha256": "32d79cd04cb688cb6fb970165b8da92497a918854b90dba5a66fe7c834d9642f"
+    },
+    {
+      "variant": "B1.1",
+      "attemptId": "43ff66fe-76e9-4fe1-9bf6-1934720d7b79",
+      "turn": 3,
+      "kind": "outputFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\03.output.txt",
+      "bytes": 100,
+      "sha256": "0d6332d0faf468a6ee2b9a21a685e7f142b60b7898b20deb699b2ae4bbd1f46f"
+    },
+    {
+      "variant": "B1.1",
+      "attemptId": "43ff66fe-76e9-4fe1-9bf6-1934720d7b79",
+      "turn": 3,
+      "kind": "eventsFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\03.events.jsonl",
+      "bytes": 450,
+      "sha256": "31391d505b251c7f2c0ec5669161e86a661d7acd6075f2de727e1981ba0b11fa"
+    },
+    {
+      "variant": "B1.1",
+      "attemptId": "43ff66fe-76e9-4fe1-9bf6-1934720d7b79",
+      "turn": 3,
+      "kind": "sessionSnapshot",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\03.session.jsonl",
+      "bytes": 110517,
+      "sha256": "406941112574e7462a36c53eb38e7518bc951d938e8a88418bad97253e3032b7"
+    },
+    {
+      "variant": "B1.1",
+      "attemptId": "43ff66fe-76e9-4fe1-9bf6-1934720d7b79",
+      "turn": 3,
+      "kind": "stderrFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\03.stderr.txt",
+      "bytes": 32823,
+      "sha256": "c95a1885bae710d3f020b5b2b1348eb39ec6f7609b59f36ab39b092129415a78"
+    },
+    {
+      "variant": "B1.1",
+      "attemptId": "43ff66fe-76e9-4fe1-9bf6-1934720d7b79",
+      "turn": 4,
+      "kind": "inputFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\04.input.txt",
+      "bytes": 57,
+      "sha256": "699f715a01862526644f00ffc475a1c16d349fcbdc65402b34a648a793b61fc6"
+    },
+    {
+      "variant": "B1.1",
+      "attemptId": "43ff66fe-76e9-4fe1-9bf6-1934720d7b79",
+      "turn": 4,
+      "kind": "outputFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\04.output.txt",
+      "bytes": 14126,
+      "sha256": "9065453620a9bc818e7d565710c08bb7bbd2f1e58f4db131b109a108d4c5062b"
+    },
+    {
+      "variant": "B1.1",
+      "attemptId": "43ff66fe-76e9-4fe1-9bf6-1934720d7b79",
+      "turn": 4,
+      "kind": "eventsFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\04.events.jsonl",
+      "bytes": 14901,
+      "sha256": "98d9f0b1469051c0c31c3252292debf6e328f668fe7cfc4408908a46dbdf250a"
+    },
+    {
+      "variant": "B1.1",
+      "attemptId": "43ff66fe-76e9-4fe1-9bf6-1934720d7b79",
+      "turn": 4,
+      "kind": "sessionSnapshot",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\04.session.jsonl",
+      "bytes": 175315,
+      "sha256": "bfb0633f1fa134a93273dba8adee4f5631690d74de34eef302b031aa081e3523"
+    },
+    {
+      "variant": "B1.1",
+      "attemptId": "43ff66fe-76e9-4fe1-9bf6-1934720d7b79",
+      "turn": 4,
+      "kind": "stderrFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\04.stderr.txt",
+      "bytes": 32823,
+      "sha256": "8f309d06d3fe60cb3a21e79d789ae663a75a2643083cc2f2c4f73c950217d990"
+    },
+    {
+      "variant": "B1.2-delayed",
+      "attemptId": "7799c951-bde7-4821-b81d-59f362c05bf6",
+      "turn": 1,
+      "kind": "inputFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\01.input.txt",
+      "bytes": 989,
+      "sha256": "62609bbf33c1681e772b63563632cd81cfa8a0500983d8878c6569c00bda60f4"
+    },
+    {
+      "variant": "B1.2-delayed",
+      "attemptId": "7799c951-bde7-4821-b81d-59f362c05bf6",
+      "turn": 1,
+      "kind": "outputFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\01.output.txt",
+      "bytes": 3714,
+      "sha256": "74ee46d25dfca169b2d7efa511d4b0229f61ce7d8635f56468fb76948b471c52"
+    },
+    {
+      "variant": "B1.2-delayed",
+      "attemptId": "7799c951-bde7-4821-b81d-59f362c05bf6",
+      "turn": 1,
+      "kind": "eventsFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\01.events.jsonl",
+      "bytes": 36923,
+      "sha256": "5eb3fafe9dec27d6405845bb0fa65b324919f0b8b2a729b0912bc9cd91722783"
+    },
+    {
+      "variant": "B1.2-delayed",
+      "attemptId": "7799c951-bde7-4821-b81d-59f362c05bf6",
+      "turn": 1,
+      "kind": "sessionSnapshot",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\01.session.jsonl",
+      "bytes": 100829,
+      "sha256": "a503c62fa26c85c6e64255076d9dd8b1cdfd797097c46f496eee77c0b8124dab"
+    },
+    {
+      "variant": "B1.2-delayed",
+      "attemptId": "7799c951-bde7-4821-b81d-59f362c05bf6",
+      "turn": 1,
+      "kind": "stderrFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\01.stderr.txt",
+      "bytes": 35347,
+      "sha256": "f110ae5ba36d65fb5dfaccee019f25d0512e1b72dc26a8370578b590b4684bba"
+    },
+    {
+      "variant": "B1.2-delayed",
+      "attemptId": "7799c951-bde7-4821-b81d-59f362c05bf6",
+      "turn": 2,
+      "kind": "inputFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\02.input.txt",
+      "bytes": 133,
+      "sha256": "413204404083bff4525e83e0927af90e8312c5b7e0ec704d740c2f82b705d721"
+    },
+    {
+      "variant": "B1.2-delayed",
+      "attemptId": "7799c951-bde7-4821-b81d-59f362c05bf6",
+      "turn": 2,
+      "kind": "outputFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\02.output.txt",
+      "bytes": 914,
+      "sha256": "5ed4b3d874420ac1273cff585e792d5770998c2ebcf81fc9af44f6e5699e453b"
+    },
+    {
+      "variant": "B1.2-delayed",
+      "attemptId": "7799c951-bde7-4821-b81d-59f362c05bf6",
+      "turn": 2,
+      "kind": "eventsFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\02.events.jsonl",
+      "bytes": 1276,
+      "sha256": "0f3243d113cbff5ceaf8b17e71b1b54cf3952d73f68788459b3b44c426ef1376"
+    },
+    {
+      "variant": "B1.2-delayed",
+      "attemptId": "7799c951-bde7-4821-b81d-59f362c05bf6",
+      "turn": 2,
+      "kind": "sessionSnapshot",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\02.session.jsonl",
+      "bytes": 110167,
+      "sha256": "36fc183ce5ec58af99f290fd8acac8560d03ab3869cdb21fdef3bb9f7db38e25"
+    },
+    {
+      "variant": "B1.2-delayed",
+      "attemptId": "7799c951-bde7-4821-b81d-59f362c05bf6",
+      "turn": 2,
+      "kind": "stderrFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\02.stderr.txt",
+      "bytes": 32547,
+      "sha256": "2d013d307862145b9c4bdaec76b517f0eb5990866523db143777274cabe208e7"
+    },
+    {
+      "variant": "B1.2-delayed",
+      "attemptId": "7799c951-bde7-4821-b81d-59f362c05bf6",
+      "turn": 3,
+      "kind": "inputFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\03.input.txt",
+      "bytes": 43,
+      "sha256": "6b89a74c6d035fb6440da4cb0320de40d5d57390ce797f9c847362b8c4697fb1"
+    },
+    {
+      "variant": "B1.2-delayed",
+      "attemptId": "7799c951-bde7-4821-b81d-59f362c05bf6",
+      "turn": 3,
+      "kind": "outputFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\03.output.txt",
+      "bytes": 12579,
+      "sha256": "0c260027b54802ec9d4c90d6b109d4de83dac6a50ebeeb76a04897e85b0db4cb"
+    },
+    {
+      "variant": "B1.2-delayed",
+      "attemptId": "7799c951-bde7-4821-b81d-59f362c05bf6",
+      "turn": 3,
+      "kind": "eventsFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\03.events.jsonl",
+      "bytes": 13258,
+      "sha256": "0417707cfa3bd3851a3e4f2fb06f0091c27fb6025149cefdeec9b1a7b692dbff"
+    },
+    {
+      "variant": "B1.2-delayed",
+      "attemptId": "7799c951-bde7-4821-b81d-59f362c05bf6",
+      "turn": 3,
+      "kind": "sessionSnapshot",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\03.session.jsonl",
+      "bytes": 166024,
+      "sha256": "5d9bb3f8ff1ce2edb4ea0c07287c4ac45f24da58d0fd417d956f823ac3f3f19d"
+    },
+    {
+      "variant": "B1.2-delayed",
+      "attemptId": "7799c951-bde7-4821-b81d-59f362c05bf6",
+      "turn": 3,
+      "kind": "stderrFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\03.stderr.txt",
+      "bytes": 32547,
+      "sha256": "72f7446f65f3cf82f708366a737fbe948bbae413d1c88a98495e40f10c5b148a"
+    },
+    {
+      "variant": "B1.2-combined",
+      "attemptId": "9cfc6c01-f04e-48d8-bbc6-d417c61ca0ee",
+      "turn": 1,
+      "kind": "inputFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-combined\\9cfc6c01-f04e-48d8-bbc6-d417c61ca0ee\\01.input.txt",
+      "bytes": 989,
+      "sha256": "b84a0ef8f77d550bda2d47085b9f1c75f369865a8e8dfce1410ed3e63ff01680"
+    },
+    {
+      "variant": "B1.2-combined",
+      "attemptId": "9cfc6c01-f04e-48d8-bbc6-d417c61ca0ee",
+      "turn": 1,
+      "kind": "outputFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-combined\\9cfc6c01-f04e-48d8-bbc6-d417c61ca0ee\\01.output.txt",
+      "bytes": 3624,
+      "sha256": "de595af2e52c9cdc22ed0f229b274dbd2eedad7402848d6dadc0093cc618a9bc"
+    },
+    {
+      "variant": "B1.2-combined",
+      "attemptId": "9cfc6c01-f04e-48d8-bbc6-d417c61ca0ee",
+      "turn": 1,
+      "kind": "eventsFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-combined\\9cfc6c01-f04e-48d8-bbc6-d417c61ca0ee\\01.events.jsonl",
+      "bytes": 36834,
+      "sha256": "030f8fe27bc8a1d9c1d5ed8d4548147f40a949024a9abee729589ac6d292389d"
+    },
+    {
+      "variant": "B1.2-combined",
+      "attemptId": "9cfc6c01-f04e-48d8-bbc6-d417c61ca0ee",
+      "turn": 1,
+      "kind": "sessionSnapshot",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-combined\\9cfc6c01-f04e-48d8-bbc6-d417c61ca0ee\\01.session.jsonl",
+      "bytes": 99828,
+      "sha256": "ed24509afde377874d6dc61f64037c39c2d1ba3a28d73b91f21bf5e44d72e9e3"
+    },
+    {
+      "variant": "B1.2-combined",
+      "attemptId": "9cfc6c01-f04e-48d8-bbc6-d417c61ca0ee",
+      "turn": 1,
+      "kind": "stderrFile",
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-combined\\9cfc6c01-f04e-48d8-bbc6-d417c61ca0ee\\01.stderr.txt",
+      "bytes": 35071,
+      "sha256": "8c33e94250abfd30b0af2b67f246bc015e169dbc2b9a8ac4be30105f148f01a1"
+    }
+  ],
+  "rawStableAfterCollection": true,
+  "sdkTaskTimeline": [
+    {
+      "variant": "B1.1",
+      "uuid": "01a13aa6-6af2-7a52-ad54-5f0c4f236f2a",
+      "turn": 1,
+      "events": [
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\01.session.jsonl",
+          "line": 2,
+          "type": "task_started",
+          "timestamp": "2026-10-14T13:42:27.350Z",
+          "turnId": "01a13aa6-6b02-7e73-87ac-d99eab7ba8b9"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\01.session.jsonl",
+          "line": 33,
+          "type": "task_complete",
+          "timestamp": "2026-10-14T13:43:17.083Z",
+          "turnId": "01a13aa6-6b02-7e73-87ac-d99eab7ba8b9"
+        }
+      ]
+    },
+    {
+      "variant": "B1.1",
+      "uuid": "01a13aa6-6af2-7a52-ad54-5f0c4f236f2a",
+      "turn": 2,
+      "events": [
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\02.session.jsonl",
+          "line": 2,
+          "type": "task_started",
+          "timestamp": "2026-10-14T13:42:27.350Z",
+          "turnId": "01a13aa6-6b02-7e73-87ac-d99eab7ba8b9"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\02.session.jsonl",
+          "line": 33,
+          "type": "task_complete",
+          "timestamp": "2026-10-14T13:43:17.083Z",
+          "turnId": "01a13aa6-6b02-7e73-87ac-d99eab7ba8b9"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\02.session.jsonl",
+          "line": 35,
+          "type": "task_started",
+          "timestamp": "2026-10-14T13:43:30.176Z",
+          "turnId": "01a13aa7-6077-7820-bb98-3ee0f3a002d9"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\02.session.jsonl",
+          "line": 43,
+          "type": "task_complete",
+          "timestamp": "2026-10-14T13:43:42.990Z",
+          "turnId": "01a13aa7-6077-7820-bb98-3ee0f3a002d9"
+        }
+      ]
+    },
+    {
+      "variant": "B1.1",
+      "uuid": "01a13aa6-6af2-7a52-ad54-5f0c4f236f2a",
+      "turn": 3,
+      "events": [
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\03.session.jsonl",
+          "line": 2,
+          "type": "task_started",
+          "timestamp": "2026-10-14T13:42:27.350Z",
+          "turnId": "01a13aa6-6b02-7e73-87ac-d99eab7ba8b9"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\03.session.jsonl",
+          "line": 33,
+          "type": "task_complete",
+          "timestamp": "2026-10-14T13:43:17.083Z",
+          "turnId": "01a13aa6-6b02-7e73-87ac-d99eab7ba8b9"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\03.session.jsonl",
+          "line": 35,
+          "type": "task_started",
+          "timestamp": "2026-10-14T13:43:30.176Z",
+          "turnId": "01a13aa7-6077-7820-bb98-3ee0f3a002d9"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\03.session.jsonl",
+          "line": 43,
+          "type": "task_complete",
+          "timestamp": "2026-10-14T13:43:42.990Z",
+          "turnId": "01a13aa7-6077-7820-bb98-3ee0f3a002d9"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\03.session.jsonl",
+          "line": 45,
+          "type": "task_started",
+          "timestamp": "2026-10-14T13:43:44.479Z",
+          "turnId": "01a13aa7-9856-7dd0-8a92-752159a65692"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\03.session.jsonl",
+          "line": 52,
+          "type": "task_complete",
+          "timestamp": "2026-10-14T13:43:51.703Z",
+          "turnId": "01a13aa7-9856-7dd0-8a92-752159a65692"
+        }
+      ]
+    },
+    {
+      "variant": "B1.1",
+      "uuid": "01a13aa6-6af2-7a52-ad54-5f0c4f236f2a",
+      "turn": 4,
+      "events": [
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\04.session.jsonl",
+          "line": 2,
+          "type": "task_started",
+          "timestamp": "2026-10-14T13:42:27.350Z",
+          "turnId": "01a13aa6-6b02-7e73-87ac-d99eab7ba8b9"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\04.session.jsonl",
+          "line": 33,
+          "type": "task_complete",
+          "timestamp": "2026-10-14T13:43:17.083Z",
+          "turnId": "01a13aa6-6b02-7e73-87ac-d99eab7ba8b9"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\04.session.jsonl",
+          "line": 35,
+          "type": "task_started",
+          "timestamp": "2026-10-14T13:43:30.176Z",
+          "turnId": "01a13aa7-6077-7820-bb98-3ee0f3a002d9"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\04.session.jsonl",
+          "line": 43,
+          "type": "task_complete",
+          "timestamp": "2026-10-14T13:43:42.990Z",
+          "turnId": "01a13aa7-6077-7820-bb98-3ee0f3a002d9"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\04.session.jsonl",
+          "line": 45,
+          "type": "task_started",
+          "timestamp": "2026-10-14T13:43:44.479Z",
+          "turnId": "01a13aa7-9856-7dd0-8a92-752159a65692"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\04.session.jsonl",
+          "line": 52,
+          "type": "task_complete",
+          "timestamp": "2026-10-14T13:43:51.703Z",
+          "turnId": "01a13aa7-9856-7dd0-8a92-752159a65692"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\04.session.jsonl",
+          "line": 54,
+          "type": "task_started",
+          "timestamp": "2026-10-14T13:46:12.182Z",
+          "turnId": "01a13aa9-d94b-7a02-b0a3-836e0d184ff3"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.1\\43ff66fe-76e9-4fe1-9bf6-1934720d7b79\\04.session.jsonl",
+          "line": 66,
+          "type": "task_complete",
+          "timestamp": "2026-10-14T13:47:38.831Z",
+          "turnId": "01a13aa9-d94b-7a02-b0a3-836e0d184ff3"
+        }
+      ]
+    },
+    {
+      "variant": "B1.2-delayed",
+      "uuid": "01a13aab-2fe2-7621-b2d5-98dc7016c10e",
+      "turn": 1,
+      "events": [
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\01.session.jsonl",
+          "line": 2,
+          "type": "task_started",
+          "timestamp": "2026-10-14T13:47:39.957Z",
+          "turnId": "01a13aab-3022-77a3-9e1b-247475506856"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\01.session.jsonl",
+          "line": 34,
+          "type": "task_complete",
+          "timestamp": "2026-10-14T13:48:26.975Z",
+          "turnId": "01a13aab-3022-77a3-9e1b-247475506856"
+        }
+      ]
+    },
+    {
+      "variant": "B1.2-delayed",
+      "uuid": "01a13aab-2fe2-7621-b2d5-98dc7016c10e",
+      "turn": 2,
+      "events": [
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\02.session.jsonl",
+          "line": 2,
+          "type": "task_started",
+          "timestamp": "2026-10-14T13:47:39.957Z",
+          "turnId": "01a13aab-3022-77a3-9e1b-247475506856"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\02.session.jsonl",
+          "line": 34,
+          "type": "task_complete",
+          "timestamp": "2026-10-14T13:48:26.975Z",
+          "turnId": "01a13aab-3022-77a3-9e1b-247475506856"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\02.session.jsonl",
+          "line": 36,
+          "type": "task_started",
+          "timestamp": "2026-10-14T13:51:58.764Z",
+          "turnId": "01a13aaf-2323-73c2-ab9b-ef1b7835e0f4"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\02.session.jsonl",
+          "line": 44,
+          "type": "task_complete",
+          "timestamp": "2026-10-14T13:52:15.842Z",
+          "turnId": "01a13aaf-2323-73c2-ab9b-ef1b7835e0f4"
+        }
+      ]
+    },
+    {
+      "variant": "B1.2-delayed",
+      "uuid": "01a13aab-2fe2-7621-b2d5-98dc7016c10e",
+      "turn": 3,
+      "events": [
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\03.session.jsonl",
+          "line": 2,
+          "type": "task_started",
+          "timestamp": "2026-10-14T13:47:39.957Z",
+          "turnId": "01a13aab-3022-77a3-9e1b-247475506856"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\03.session.jsonl",
+          "line": 34,
+          "type": "task_complete",
+          "timestamp": "2026-10-14T13:48:26.975Z",
+          "turnId": "01a13aab-3022-77a3-9e1b-247475506856"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\03.session.jsonl",
+          "line": 36,
+          "type": "task_started",
+          "timestamp": "2026-10-14T13:51:58.764Z",
+          "turnId": "01a13aaf-2323-73c2-ab9b-ef1b7835e0f4"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\03.session.jsonl",
+          "line": 44,
+          "type": "task_complete",
+          "timestamp": "2026-10-14T13:52:15.842Z",
+          "turnId": "01a13aaf-2323-73c2-ab9b-ef1b7835e0f4"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\03.session.jsonl",
+          "line": 46,
+          "type": "task_started",
+          "timestamp": "2026-10-14T13:52:17.553Z",
+          "turnId": "01a13aaf-6c89-75a3-b954-aab6705233e7"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-delayed\\7799c951-bde7-4821-b81d-59f362c05bf6\\03.session.jsonl",
+          "line": 57,
+          "type": "task_complete",
+          "timestamp": "2026-10-14T13:53:40.140Z",
+          "turnId": "01a13aaf-6c89-75a3-b954-aab6705233e7"
+        }
+      ]
+    },
+    {
+      "variant": "B1.2-combined",
+      "uuid": "01a13ab0-b4a1-74d1-b7c4-aa9f5c47b327",
+      "turn": 1,
+      "events": [
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-combined\\9cfc6c01-f04e-48d8-bbc6-d417c61ca0ee\\01.session.jsonl",
+          "line": 2,
+          "type": "task_started",
+          "timestamp": "2026-10-14T13:53:41.611Z",
+          "turnId": "01a13ab0-b4d9-7650-87d2-bbaebf03a7f2"
+        },
+        {
+          "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\B1.2-combined\\9cfc6c01-f04e-48d8-bbc6-d417c61ca0ee\\01.session.jsonl",
+          "line": 34,
+          "type": "task_complete",
+          "timestamp": "2026-10-14T13:54:27.472Z",
+          "turnId": "01a13ab0-b4d9-7650-87d2-bbaebf03a7f2"
+        }
+      ]
+    }
+  ],
+  "sourceMirrorCacheRuntime": [
+    {
+      "relative": "assets/icon.png",
+      "bytes": 119566,
+      "sourceSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+      "mirrorSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+      "cacheSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+      "actualAllEqual": true
+    },
+    {
+      "relative": "assets/icon.svg",
+      "bytes": 1261,
+      "sourceSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+      "mirrorSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+      "cacheSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+      "actualAllEqual": true
+    },
+    {
+      "relative": "plugin.json",
+      "bytes": 1531,
+      "sourceSha256": "4c5076828636c7b88a25c106f5c2c41a2be9262c556764a089657eaf5fef4a41",
+      "mirrorSha256": "4c5076828636c7b88a25c106f5c2c41a2be9262c556764a089657eaf5fef4a41",
+      "cacheSha256": "4c5076828636c7b88a25c106f5c2c41a2be9262c556764a089657eaf5fef4a41",
+      "actualAllEqual": true
+    },
+    {
+      "relative": "skills/guide/SKILL.md",
+      "bytes": 6086,
+      "sourceSha256": "ad2924661d2efaa22662d0df31e2968cc581e618e1c45dc9345f5df895eca813",
+      "mirrorSha256": "ad2924661d2efaa22662d0df31e2968cc581e618e1c45dc9345f5df895eca813",
+      "cacheSha256": "ad2924661d2efaa22662d0df31e2968cc581e618e1c45dc9345f5df895eca813",
+      "actualAllEqual": true
+    },
+    {
+      "relative": "skills/guide/agents/openai.yaml",
+      "bytes": 444,
+      "sourceSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+      "mirrorSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+      "cacheSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+      "actualAllEqual": true
+    },
+    {
+      "relative": "skills/guide/references/guide-framework.md",
+      "bytes": 10042,
+      "sourceSha256": "4fd5cae6d489c69f0f3e8ff72ceabf7404beb9780976f297e56ae4066ce5de13",
+      "mirrorSha256": "4fd5cae6d489c69f0f3e8ff72ceabf7404beb9780976f297e56ae4066ce5de13",
+      "cacheSha256": "4fd5cae6d489c69f0f3e8ff72ceabf7404beb9780976f297e56ae4066ce5de13",
+      "actualAllEqual": true
+    },
+    {
+      "relative": "skills/guide/references/interaction-design.md",
+      "bytes": 10141,
+      "sourceSha256": "f3ff576734497d20b03fd5610388d8b6819ed2fc9330b9a96aaf4e9534895870",
+      "mirrorSha256": "f3ff576734497d20b03fd5610388d8b6819ed2fc9330b9a96aaf4e9534895870",
+      "cacheSha256": "f3ff576734497d20b03fd5610388d8b6819ed2fc9330b9a96aaf4e9534895870",
+      "actualAllEqual": true
+    }
+  ],
+  "marker": {
+    "recordedAt": "2026-10-14T13:55:31.634Z",
+    "reviewer": "/root",
+    "method": "NORMAL_BOUNDARY_STOP_NEW_INPUTS",
+    "version": "0.1.23",
+    "canonicalSha": "b46069e3979136e70d64b9873b799b5bd069ca95",
+    "variant": "B1.2-delayed",
+    "uuid": "01a13aab-2fe2-7621-b2d5-98dc7016c10e",
+    "turn": 3,
+    "finding": "The shared-state lifecycle says only 重新开始 restores all §1 initial values. Source §6 cancel can restore these same fields after a teaching reservation change while other initial fields remain. Source specifies no such exclusivity. Primary amended-goal confirmation is separate.",
+    "fullReadingTool": "dc500a",
+    "noKillInFlight": true,
+    "noRetryOrResampling": true,
+    "markerNeverSentToModel": true,
+    "independentCrossReview": "REQUESTED; Root observed semantic violation and stops new inputs now",
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\normal-execution-pause.flag",
+    "bytes": 819,
+    "sha256": "e3d50a1c5dc444abb86d147d3739cb3400d8fd58c063a3357c246592c465fb14"
+  },
+  "allActualModelTurnsEntirelyBeforeMarker": true,
+  "actualOperatorOuters": [
+    {
+      "stage": 1,
+      "sessionId": 25030,
+      "finalChunk": "6b4472",
+      "exitCode": 0
+    },
+    {
+      "stage": 2,
+      "sessionId": 75677,
+      "finalChunk": "1fe577",
+      "exitCode": 0
+    },
+    {
+      "stage": 3,
+      "sessionId": 27764,
+      "finalChunk": "0e74ba",
+      "exitCode": 0
+    }
+  ],
+  "pauseConsumption": {
+    "actualChunk": "f2e237",
+    "exitCode": 0,
+    "modelInputsSent": 0,
+    "pauseRecord": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\operator-pauses\\deb1d7ce-9740-43f6-9ebb-0396561cb412.json"
+  },
+  "manualChoices": [
+    {
+      "id": "B1.1",
+      "label": "C",
+      "recommendedLabel": "A",
+      "selectedFromRealCompleteTriplet": true
+    },
+    {
+      "id": "B1.2-delayed",
+      "label": "2",
+      "recommendedLabel": "1",
+      "selectedFromRealCompleteTriplet": true
+    }
+  ],
+  "chronologyCorrection": "All eight actual turns had naturally completed before the new Source23 global marker. No combined selection/T2 or B2 input was ever sent; prior Root review-sync hold and resumed delayed inputs are separate from this global stop.",
+  "noRetryOrResampling": true,
+  "noOperatorTermination": true,
+  "captureTimerTerminationTriggered": false,
+  "noOperatorSelfGrade": true,
+  "clientUi": "NOT_RUN_CLI_ONLY",
+  "effectStatus": "NOT_MEASURED",
+  "supplementaryPins": [
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\batch.json",
+      "bytes": 437452,
+      "sha256": "e1f2fb70066af78f028d54281ab1fbdc2b7509da2b641decdb6bbf46a53f54a9"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\inspection.json",
+      "bytes": 13578,
+      "sha256": "4e2f1f79ad1e11f699d752871e3d4d2391caaa0883c60512438b3dfb4841167e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\operator-observations.json",
+      "bytes": 17116,
+      "sha256": "3e5d507a3eeb1b13d85b410e99cf058dcf0c0d393b2ff2bd2a8ac6c5875326c4"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\native-loading-observations.json",
+      "bytes": 19588,
+      "sha256": "565ca867e07a16a801624b0c1e3e48d116438f8ee2e90c4fa7937a2ab16c4a52"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\normal-execution-pause.flag",
+      "bytes": 819,
+      "sha256": "e3d50a1c5dc444abb86d147d3739cb3400d8fd58c063a3357c246592c465fb14"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\root-manual-selection\\B1.1.quote.txt",
+      "bytes": 781,
+      "sha256": "6abac21c005789bb2f2dc940ab4bfa4dd9268e40ad67d24c0445170deb515116"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\root-manual-selection\\B1.1.audit.json",
+      "bytes": 1796,
+      "sha256": "91976c5c5dad613224b87bfa56d5376d8a5d4491af4e9d93f8bc419050b632e9"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\root-manual-selection\\B1.2-delayed.quote.txt",
+      "bytes": 794,
+      "sha256": "53f069d964b4e60f3419f8510d7bf334bc9e094ddb666822df70f263b4cf7f56"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\root-manual-selection\\B1.2-delayed.audit.json",
+      "bytes": 1818,
+      "sha256": "54fa2bfc472d45bfa8fff84f00c5bd0382d130111b90c1f7d8fd340e5b351600"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\a3b25ff5-0cf2-47d2-a0c9-2ee7ed70cad1\\operator-pauses\\deb1d7ce-9740-43f6-9ebb-0396561cb412.json",
+      "bytes": 2742,
+      "sha256": "73e9be64e85f7cd7ea630b97ba28e72d8104e500c58f2c97e9a03dbe61b42fd2"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\operator-c-records\\B1.1-complete-handoff.json",
+      "bytes": 29991,
+      "sha256": "b7077cc03779b7b67730c5d975691d66f3a74a76d813c73508cf3f95e6acbae3"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\operator-c-records\\B1.2-delayed-complete-handoff.json",
+      "bytes": 25570,
+      "sha256": "a09177618513247337915b14083130d97c4d5037f08fa85c6c2e91695f0c3ffb"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\operator-c-records\\manual-producer-metadata-control.json",
+      "bytes": 428,
+      "sha256": "de6b01a8fe21af52ef80dd322f6dfac99de7bcc803be78c929c1c0cbcacb4c5f"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\operator-c-records\\normal-pause-consumption-tool.json",
+      "bytes": 1646,
+      "sha256": "f832e861f083cf0cf2833574aeb610342792129f7276dfb0ca93e2e064e05a00"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\operator-c-records\\preparation-and-runtime-pins.json",
+      "bytes": 4183,
+      "sha256": "4f8c20a5326d56fad365649f4b18a86c144272dd96241bc712ec145f77591b7f"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\operator-c-records\\stage01-final-tool.json",
+      "bytes": 2787,
+      "sha256": "22d16c48c4881e1dbe838cf35c5397499232d23c4de6d13cd3c134729779aaf2"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\operator-c-records\\stage01-initial-tool.json",
+      "bytes": 365,
+      "sha256": "63a97c402a6d834cd5b07e14d1e12298af20ef2ac1f0eb70fe37122ddc455b67"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\operator-c-records\\stage02-final-tool.json",
+      "bytes": 2458,
+      "sha256": "c7e221270419144cb19fceffe36f0532b8beabf80a3e7c4a4639bd11bfdf7c9e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\operator-c-records\\stage02-initial-tool.json",
+      "bytes": 1280,
+      "sha256": "5b7fe897ba17470564d9502850f7cad49376bd6c583a9be09abfe0d8f5b7af26"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\operator-c-records\\stage03-final-tool.json",
+      "bytes": 2494,
+      "sha256": "f2f835aae09dccb35b78e2c44ac56765dbed452dcb82830c9d233ee453cd7355"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\operator-c-records\\stage03-initial-tool.json",
+      "bytes": 1745,
+      "sha256": "6be277e6a70a84c045d7523a7712c09308aac5da25a7f486f157c250a26c943a"
+    }
+  ]
+}

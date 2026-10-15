@@ -1,0 +1,192 @@
+{
+  "recordedAt": "2026-10-14T21:01:30.150Z",
+  "reviewer": "/root/precommit_014",
+  "status": "STATIC_ONLY",
+  "conclusion": "NO_STATIC_BLOCKERS",
+  "baseline": "fc0ec408c911dc776d38733c8f156c7ab0726488",
+  "actualHead": "fc0ec408c911dc776d38733c8f156c7ab0726488",
+  "sourceCanonical": "e2c4463f55dd33a6d24b0080a46b478bc4d6974a",
+  "proposedVersion": "0.1.32",
+  "plan": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-32\\engineering-integration-draft\\preview-fc0ec408\\integration-plan.json",
+    "bytes": 33526,
+    "sha256": "5e49c1b42e7e3b48353286b2ce272dc9b9cd917a20bb32c8d8c03d1b1fd8da07"
+  },
+  "appliedReceipt": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-32\\engineering-integration-draft\\apply-fc0ec408\\APPLIED_RECEIPT.json",
+    "bytes": 800,
+    "sha256": "2fd2bdfc8fb8fa0e2afb5ac268ddb6c86fb4be7984347cf10a22e31d0976bd74"
+  },
+  "runtimeFreeze": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-32\\DRAFT_FINAL_FROZEN.json",
+    "bytes": 5712,
+    "sha256": "28e4a140e41bfba9af15a35c36451ea4c065ff628b7ca88c434888eed9d582b2"
+  },
+  "controlFreeze": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-32\\CONTROLS_FINAL_FROZEN.json",
+    "bytes": 17249,
+    "sha256": "6f37da78e2ed3c8902cee3759d4ca09d9dc03aa5cada0e64151d0622bb9041c6"
+  },
+  "actual13Diff": [
+    {
+      "relative": "plugins/html-guide-kit/plugin.json",
+      "bytes": 1531,
+      "sha256": "7b0b4c9c417aaa0ebe148d7abde7633ac3bb458f7c19718169acb0be5b33c77b"
+    },
+    {
+      "relative": "plugins/html-guide-kit/skills/guide/SKILL.md",
+      "bytes": 5813,
+      "sha256": "b7c320e01731513b350548f64d40a60767cd619267d26bf680f27c6d073a434d"
+    },
+    {
+      "relative": "plugins/html-guide-kit/skills/guide/references/guide-framework.md",
+      "bytes": 10372,
+      "sha256": "ed2a364a2fb916dca36cc0bfc17375ceb0f6f35ff929a40bd850292bbd212016"
+    },
+    {
+      "relative": "tests/html-guide-kit.test.mjs",
+      "bytes": 14111,
+      "sha256": "bbb91daf57983aa2512e6e66c7eaf2abc0739bddc6fbd475e977a3f2e1cdda6d"
+    },
+    {
+      "relative": "README.md",
+      "bytes": 11013,
+      "sha256": "aaa9e54b19f7556724f93b488968b36b2047f926132897acda98cb992e685297"
+    },
+    {
+      "relative": "plugins/html-guide-kit/README.md",
+      "bytes": 2825,
+      "sha256": "402f195e20d22752ed3076aa1154b0298f1b649c1e25e2ddc6505c914b01c6fc"
+    },
+    {
+      "relative": "CHANGELOG.md",
+      "bytes": 212740,
+      "sha256": "50e5cd5ddaa383c5199feb50bcd75bbfd113d9e25383fb862d13020414365002"
+    },
+    {
+      "relative": "plugins/html-guide-kit/CHANGELOG.md",
+      "bytes": 19447,
+      "sha256": "e1e4e90f0a9ef3a5891b6516a45dfc3528740f1cc00a706b85022165484f7bf3"
+    },
+    {
+      "relative": "docs/guide/[GUIDE]_HTML_Guide_Kit.md",
+      "bytes": 3285,
+      "sha256": "350b8784c2201393c333acdeb19bb1812ffef9ad8e17c791db2354e84001736f"
+    },
+    {
+      "relative": "docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md",
+      "bytes": 8702,
+      "sha256": "a6a7d9c3b2049c7e0b84ac72cead4c852f17e44191afcb7b9fcd9a3ce5367a0a"
+    },
+    {
+      "relative": "docs/INDEX.md",
+      "bytes": 33461,
+      "sha256": "f80bcd1c63c00138f00b7fc207e46602bd9bcf19a386b905f2c67224fc884ffb"
+    },
+    {
+      "relative": "docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md",
+      "bytes": 211861,
+      "sha256": "c9f1ff1e32f416302ac166a809bb45d3a5c01738de8ba855e33e4fe8649aee71"
+    },
+    {
+      "relative": "AGENTS.md",
+      "bytes": 16169,
+      "sha256": "920119c619b623d0fd69cb3a3c0a973b0f02db19d3add2c0d7904c8ef54d81ec"
+    }
+  ],
+  "resources": [
+    {
+      "relative": "skills/guide/SKILL.md",
+      "bytes": 5813,
+      "sha256": "b7c320e01731513b350548f64d40a60767cd619267d26bf680f27c6d073a434d",
+      "changed": true
+    },
+    {
+      "relative": "skills/guide/references/guide-framework.md",
+      "bytes": 10372,
+      "sha256": "ed2a364a2fb916dca36cc0bfc17375ceb0f6f35ff929a40bd850292bbd212016",
+      "changed": true
+    },
+    {
+      "relative": "skills/guide/references/interaction-design.md",
+      "bytes": 7773,
+      "sha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "changed": false
+    }
+  ],
+  "protected65Exact": true,
+  "other59Exact": true,
+  "toolGit28Exact": true,
+  "VERSIONSame8_3_0": true,
+  "registryIconsUIpolicyAndInteractionUnchanged": true,
+  "manifestOnlyOneVersionAnchor": true,
+  "testOnlyVersionExpectation": true,
+  "originalEvidence": [
+    {
+      "version": "31",
+      "fileCount": 472,
+      "fileSetAndBytesExact": true,
+      "privateParsedOrCopied": false
+    },
+    {
+      "version": "30",
+      "fileCount": 451,
+      "fileSetAndBytesExact": true,
+      "privateParsedOrCopied": false
+    },
+    {
+      "version": "29",
+      "fileCount": 362,
+      "fileSetAndBytesExact": true,
+      "privateParsedOrCopied": false
+    }
+  ],
+  "protectionInventory": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-32\\frozen-copy-inventory.json",
+    "bytes": 593398,
+    "sha256": "169d1b2fb101e5f4670cb6ed8cfc3aa60fa39b7c8624e36c13ba1e243f7bd999"
+  },
+  "budgets": {
+    "AGENTS_LF": 16169,
+    "AGENTS_Windows": 16256,
+    "entry_LF": 5813,
+    "entry_Windows": 5849,
+    "AGENTS_EOF": "SINGLE_LF_EXACT_PLAN"
+  },
+  "docHeaders": [
+    {
+      "relative": "docs/guide/[GUIDE]_HTML_Guide_Kit.md",
+      "version": "v1.32"
+    },
+    {
+      "relative": "docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.md",
+      "version": "v2.31"
+    },
+    {
+      "relative": "docs/INDEX.md",
+      "version": "v2.76"
+    },
+    {
+      "relative": "docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md",
+      "version": "v1.61"
+    }
+  ],
+  "semanticDiffRead": "4e39ef complete actual13-path diff",
+  "AIJudgment": "Only three reviewed generic runtime spans and synchronized version/docs. Complete source criterion, actual dependency/scope, necessary-versus-sufficient boundary and old contracts preserved; old31 whole failure and unrun paths remain. No current implementation blocker seen.",
+  "finalWhitespace": {
+    "exit": 0,
+    "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderrSha256": "fa04108b733f0a449cbc3814dbce2690c674fd6059efcd9649026e9d53d9a9b8"
+  },
+  "firstReviewerProgramFailure": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-32\\integration-independent-c\\initial-reviewer-program-error.json",
+    "bytes": 575,
+    "sha256": "0055ed3c6d9ff13808e422a5b4e1c712d99b4e3d1c13a343639c1b94cde76e5d"
+  },
+  "errorCorrection": "Preserve exact proposed raw pins; use normalized actual Git content for version-only test delta because existing test file is CRLF and Git stores LF. No product or original correction.",
+  "limits": [
+    "No tests/installation/model/UI performed or repeated by C; A owns actual engineering.",
+    "STATIC_ONLY does not prove behavior, client/effects, CI, independent GitHub approval or merge readiness."
+  ],
+  "noRepositoryMutation": true
+}

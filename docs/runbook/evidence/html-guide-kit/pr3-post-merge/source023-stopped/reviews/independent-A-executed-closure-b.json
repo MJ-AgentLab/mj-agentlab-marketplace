@@ -1,0 +1,574 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T14:12:41.332Z",
+  "phase": "INDEPENDENT_A_ORIGINAL_FINALS_FROZEN",
+  "canonical": {
+    "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "canonicalSha": "b46069e3979136e70d64b9873b799b5bd069ca95",
+    "canonicalTree": "d8a2ffb8646065dff8f7a46fe741b1f93b5873ad"
+  },
+  "packageVersion": "0.1.23",
+  "reviewer": "/root/behavior_014_b",
+  "operator": "/root/behavior_014_a",
+  "actualAccounting": {
+    "uniqueModelUuids": 5,
+    "actualInputs": 11,
+    "complete": 11,
+    "invalid": 0,
+    "semanticPass": 3,
+    "semanticFail": 1,
+    "semanticUnexercised": 1,
+    "zeroAttemptNotRun": 1,
+    "remainingNotRunInputs": 3
+  },
+  "originalFinals": [
+    {
+      "variant": "B3.1",
+      "status": "PASS",
+      "attemptId": "d883e4e6-b06a-4f76-a459-6dbbbba58112",
+      "uuid": "01a13aa5-88e0-7680-9db2-27dd09f74d1b",
+      "file": "../reviewer/corrections/0-1-23/blocking/reviews/cross-A-by-b/B3.1.json",
+      "bytes": 4716,
+      "sha256": "a60c9022107736c7bbaa2e5d9a33b81c1be8a1f113c007370f1705cf2e752d83"
+    },
+    {
+      "variant": "B3.2",
+      "status": "PASS",
+      "attemptId": "82bae4d3-182d-448b-81d1-d4011934d01d",
+      "uuid": "01a13aa8-31ed-75f0-b2c7-8dfdad668fd7",
+      "file": "../reviewer/corrections/0-1-23/blocking/reviews/cross-A-by-b/B3.2.json",
+      "bytes": 4911,
+      "sha256": "d76c57527fffdff50351e9d418698a4aa28cc79ddbfd386990e0c2af30107d73"
+    },
+    {
+      "variant": "B4.1",
+      "status": "FAIL",
+      "attemptId": "a4869b5c-fc71-45ed-97cf-ec073e184839",
+      "uuid": "01a13aaa-e487-7c82-a1a2-0dfec6f9994e",
+      "file": "../reviewer/corrections/0-1-23/blocking/reviews/cross-A-by-b/B4.1.json",
+      "bytes": 6117,
+      "sha256": "1ec0e00f8fd26f5dbe9e2894291ed9c7d4312c97d31424abd6f6ad60a30947b2"
+    },
+    {
+      "variant": "B4.2",
+      "status": "PASS",
+      "attemptId": "160834e7-a212-45ef-a65d-bb5f9536ad2a",
+      "uuid": "01a13aae-6cb1-70c2-adc3-2c6d0a88987f",
+      "file": "../reviewer/corrections/0-1-23/blocking/reviews/cross-A-by-b/B4.2.json",
+      "bytes": 4283,
+      "sha256": "51ae76630dde905b9f0d3b2e8872c611316c37a12f60feec736a436680bb6731"
+    },
+    {
+      "variant": "B5.1",
+      "status": "UNEXERCISED",
+      "attemptId": "d7483e9e-ea6b-4c2a-a28d-dd6cf6d4eab1",
+      "uuid": "01a13ab1-b6e4-79b2-815d-b2a4b2ff46b0",
+      "file": "../reviewer/corrections/0-1-23/blocking/reviews/cross-A-by-b/B5.1.json",
+      "bytes": 2514,
+      "sha256": "be6072f0c69a4a872776f2cf25180639a64bc6b067d7b27e748649500d9163c0"
+    },
+    {
+      "variant": "B5.2",
+      "status": "NOT_RUN",
+      "attemptId": null,
+      "uuid": null,
+      "file": "../reviewer/corrections/0-1-23/blocking/reviews/cross-A-by-b/B5.2.json",
+      "bytes": 855,
+      "sha256": "14ecc188029be29f6996f84e17a4def10954b1b2b106bae85921218956819b97"
+    }
+  ],
+  "zeroAttemptNotRun": [
+    {
+      "variant": "B5.2",
+      "status": "NOT_RUN",
+      "attemptId": null,
+      "uuid": null,
+      "file": "../reviewer/corrections/0-1-23/blocking/reviews/cross-A-by-b/B5.2.json",
+      "bytes": 855,
+      "sha256": "14ecc188029be29f6996f84e17a4def10954b1b2b106bae85921218956819b97"
+    }
+  ],
+  "receiverAudits": [
+    {
+      "variant": "B3.1",
+      "file": "../reviewer/corrections/0-1-23/blocking/reviews/cross-A-by-b/B3.1-receiver-audit.json",
+      "bytes": 26694,
+      "sha256": "96362f50860ce4384cf1d7e9a1d480572b69840bd81baec7a346f46c6cf42f0c"
+    },
+    {
+      "variant": "B3.2",
+      "file": "../reviewer/corrections/0-1-23/blocking/reviews/cross-A-by-b/B3.2-receiver-audit.json",
+      "bytes": 27047,
+      "sha256": "d3597e4a839dc7036ce0421be582e7042c24e7a3040ae9efa78481ba5608d807"
+    },
+    {
+      "variant": "B4.1",
+      "file": "../reviewer/corrections/0-1-23/blocking/reviews/cross-A-by-b/B4.1-receiver-audit.json",
+      "bytes": 23524,
+      "sha256": "6beda3c6e40d87a5a622462ca55b32d1d1e59169b766301b02f3aa8c12cfc3be"
+    },
+    {
+      "variant": "B4.2",
+      "file": "../reviewer/corrections/0-1-23/blocking/reviews/cross-A-by-b/B4.2-receiver-audit.json",
+      "bytes": 23215,
+      "sha256": "66f1044d6e6939a839a1467b25e0f5cfc41fa44e71be806e36d74b7fb6c41a7e"
+    },
+    {
+      "variant": "B5.1",
+      "file": "../reviewer/corrections/0-1-23/blocking/reviews/cross-A-by-b/B5.1-prefix-receiver-audit.json",
+      "bytes": 15264,
+      "sha256": "4ab7fcf87ffba46169122f04c82cd8f3c3d7eb79e3edcaea226de2f9610c333c"
+    }
+  ],
+  "rawPins": [
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.1\\d883e4e6-b06a-4f76-a459-6dbbbba58112\\01.events.jsonl",
+      "bytes": 34820,
+      "sha256": "6d99619ae6c5249308136c71633af3aea83132a62f69adfa517526504357e7f7"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.1\\d883e4e6-b06a-4f76-a459-6dbbbba58112\\01.input.txt",
+      "bytes": 989,
+      "sha256": "8783313662a90009f5ba2cf088eb4a1e1a73536fa7f6d220f85150f185d6f039"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.1\\d883e4e6-b06a-4f76-a459-6dbbbba58112\\01.output.txt",
+      "bytes": 2822,
+      "sha256": "addcd0063b2d8a71984a059e200344a4d388c3cd2f7b4b81d639b1bf7714582e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.1\\d883e4e6-b06a-4f76-a459-6dbbbba58112\\01.session.jsonl",
+      "bytes": 88264,
+      "sha256": "d84e8af4686ffad7f391a86d0930fc72a9b0e1aff3e7e5dfe55629d0c6db3b46"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.1\\d883e4e6-b06a-4f76-a459-6dbbbba58112\\01.stderr.txt",
+      "bytes": 27455,
+      "sha256": "a84c422e58e05790c13894e055b540e0a0b96d168ad5e73d03fd750b9de6c574"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.1\\d883e4e6-b06a-4f76-a459-6dbbbba58112\\02.events.jsonl",
+      "bytes": 16287,
+      "sha256": "ef082fdc371ca7b4c437c134d4077125e4945a0376550c71a3e0bb3a24c7a5d9"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.1\\d883e4e6-b06a-4f76-a459-6dbbbba58112\\02.input.txt",
+      "bytes": 57,
+      "sha256": "2c218d7948c9d2d144ed0c5745c6cf000ee1f76be3bb7bd34f29e50b58532e98"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.1\\d883e4e6-b06a-4f76-a459-6dbbbba58112\\02.output.txt",
+      "bytes": 15620,
+      "sha256": "6deef703721d7320690e82f073b3944490a3122e8f26b984f5ec5790bd6f6b56"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.1\\d883e4e6-b06a-4f76-a459-6dbbbba58112\\02.session.jsonl",
+      "bytes": 143980,
+      "sha256": "79db254cd2068a228c0d3489825a778e6ef43c1a4d0a081f80101fdb6ff99a16"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.1\\d883e4e6-b06a-4f76-a459-6dbbbba58112\\02.stderr.txt",
+      "bytes": 32823,
+      "sha256": "a907e7b5ff5f15efb8a40871fefdb5b287e7ceacab15ecb6461d135c6d6e78f5"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.1\\d883e4e6-b06a-4f76-a459-6dbbbba58112\\03.events.jsonl",
+      "bytes": 888,
+      "sha256": "b3c6909bd6d4ee7068da82e06e3bb9653aba61cca46b822a2177b8e1e0a3e0a2"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.1\\d883e4e6-b06a-4f76-a459-6dbbbba58112\\03.input.txt",
+      "bytes": 64,
+      "sha256": "30f2cab18e0d7dcdedce9a9d7748e905a1397909aebe11f40310f7bbe73095d5"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.1\\d883e4e6-b06a-4f76-a459-6dbbbba58112\\03.output.txt",
+      "bytes": 533,
+      "sha256": "64ac051d4f16f547f2c904876986261eb1f7a588e3db407c6322090e7a1166f8"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.1\\d883e4e6-b06a-4f76-a459-6dbbbba58112\\03.session.jsonl",
+      "bytes": 153639,
+      "sha256": "8d79b4111afc2b61579bc113e392f54f7767a71592d6b415eb5fabe2f036feab"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.1\\d883e4e6-b06a-4f76-a459-6dbbbba58112\\03.stderr.txt",
+      "bytes": 32823,
+      "sha256": "0453472c6788fd33f723d7ca9d28be53761f20158fd001f9b0a38f1bad299609"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.1\\d883e4e6-b06a-4f76-a459-6dbbbba58112\\manual-selection-turn-1.txt",
+      "bytes": 554,
+      "sha256": "c9071f8ffc3f1a17c5be95d647895dcff41b8f5a672465ee7d9065151e585156"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.1\\d883e4e6-b06a-4f76-a459-6dbbbba58112\\manual-title-audit.json",
+      "bytes": 1729,
+      "sha256": "7156017d1ffaa1d2d1e03d2817a500e8a02ffb0b7f6d52ee18e03631d78cb59d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.2\\82bae4d3-182d-448b-81d1-d4011934d01d\\01.events.jsonl",
+      "bytes": 28357,
+      "sha256": "06970d5e40bc93756043d29f5da3c00f505c7772cf4485076b933ebfe30df389"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.2\\82bae4d3-182d-448b-81d1-d4011934d01d\\01.input.txt",
+      "bytes": 989,
+      "sha256": "33fddb76e11ea6effe22157394ba665a449889eebc1e90f659d3d9b14ea8a246"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.2\\82bae4d3-182d-448b-81d1-d4011934d01d\\01.output.txt",
+      "bytes": 3743,
+      "sha256": "ec9a32db1db8f615d15b14153a3e4df503ee8b3338704c8b0d1dda416d3ac9ad"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.2\\82bae4d3-182d-448b-81d1-d4011934d01d\\01.session.jsonl",
+      "bytes": 90689,
+      "sha256": "7616475452b00e59af6edc36980c144a2b275c8585add6942b64d27e26dafbb1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.2\\82bae4d3-182d-448b-81d1-d4011934d01d\\01.stderr.txt",
+      "bytes": 34716,
+      "sha256": "80838f52a3d97f824a9625f944570c2b8add5150baf959717018c9d418e145e1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.2\\82bae4d3-182d-448b-81d1-d4011934d01d\\02.events.jsonl",
+      "bytes": 13786,
+      "sha256": "1a119de5a1b276770be58cae4de0ce27cf8e867de680df25ce3f858142d4c616"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.2\\82bae4d3-182d-448b-81d1-d4011934d01d\\02.input.txt",
+      "bytes": 57,
+      "sha256": "2c218d7948c9d2d144ed0c5745c6cf000ee1f76be3bb7bd34f29e50b58532e98"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.2\\82bae4d3-182d-448b-81d1-d4011934d01d\\02.output.txt",
+      "bytes": 13093,
+      "sha256": "6f7f0c9329211c73754678a65094a944cb2caf738f5d915e3de4cdfcbd44ddc8"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.2\\82bae4d3-182d-448b-81d1-d4011934d01d\\02.session.jsonl",
+      "bytes": 139841,
+      "sha256": "6aec2db26f0e194a2f7d47916f597a3798896314f421897a05708d4541d69052"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.2\\82bae4d3-182d-448b-81d1-d4011934d01d\\02.stderr.txt",
+      "bytes": 32823,
+      "sha256": "10bc2c68b0b965e50ea7089aa3edc8e56a8405f23c14b2f2a85695a5f9aa41ca"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.2\\82bae4d3-182d-448b-81d1-d4011934d01d\\03.events.jsonl",
+      "bytes": 1108,
+      "sha256": "b5b855cef491815951cbe8f4f4ae6b19a7006955965c156c3716f9ae53474f1b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.2\\82bae4d3-182d-448b-81d1-d4011934d01d\\03.input.txt",
+      "bytes": 82,
+      "sha256": "aa1d7b41e10ccf1dea76a5f7fb3a714836414c4a1f74c31c84f0aee8b8c908b7"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.2\\82bae4d3-182d-448b-81d1-d4011934d01d\\03.output.txt",
+      "bytes": 749,
+      "sha256": "52c5593fc4847da5ac11b94141cad547037fcdd9d69a338c08ec7a9dc693cf52"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.2\\82bae4d3-182d-448b-81d1-d4011934d01d\\03.session.jsonl",
+      "bytes": 149425,
+      "sha256": "f47f5f70ef9955163d4db4cb193406caf0e8b9f9547e8157946b4a9d52a0cdb0"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.2\\82bae4d3-182d-448b-81d1-d4011934d01d\\03.stderr.txt",
+      "bytes": 32823,
+      "sha256": "d8e01aafe65cb53672e887b608000566eb0a64cbed036e0049e7bed741fe629c"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.2\\82bae4d3-182d-448b-81d1-d4011934d01d\\manual-selection-turn-1.txt",
+      "bytes": 927,
+      "sha256": "3b1cb2b5aed33aebbd1fdca5d2cfd94e88a6d029012c0cf96830298fa3fee719"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B3.2\\82bae4d3-182d-448b-81d1-d4011934d01d\\manual-title-audit.json",
+      "bytes": 1731,
+      "sha256": "958897e6dfc570bea5c371f33c6bbb1d752a9eec2df8487a3f0e5bb6d9a2107a"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.1\\a4869b5c-fc71-45ed-97cf-ec073e184839\\01.events.jsonl",
+      "bytes": 36806,
+      "sha256": "fac7ed9fdc5e1a3569f03e8d80fc7a408795df52504a61948a53ae2d28868ab5"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.1\\a4869b5c-fc71-45ed-97cf-ec073e184839\\01.input.txt",
+      "bytes": 989,
+      "sha256": "72463301ebd5c15d647530a9ac9986fa1a3b56888d8642816c60681f3faa48fc"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.1\\a4869b5c-fc71-45ed-97cf-ec073e184839\\01.output.txt",
+      "bytes": 3601,
+      "sha256": "16b0ca316a35294ee8c7528cfbd0e143aa588bc74fb98cae5a6d8e7fda648a4a"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.1\\a4869b5c-fc71-45ed-97cf-ec073e184839\\01.session.jsonl",
+      "bytes": 97953,
+      "sha256": "7b3b020510b3b9c114e94183f15883a16a1f2a02f887ac6b2da13ccae5a29c2b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.1\\a4869b5c-fc71-45ed-97cf-ec073e184839\\01.stderr.txt",
+      "bytes": 35347,
+      "sha256": "0b53a4d57213cba51fcdcf7266bf691df328dbb71ee61a3bb8640f7f57662624"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.1\\a4869b5c-fc71-45ed-97cf-ec073e184839\\02.events.jsonl",
+      "bytes": 16363,
+      "sha256": "a82dfa05a3914575764418b516d4c696108007508a2cc5f002e8e35c3c6a1918"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.1\\a4869b5c-fc71-45ed-97cf-ec073e184839\\02.input.txt",
+      "bytes": 129,
+      "sha256": "7b3669407d943e6858da4d128267785558bf7ab48c479151cfa6d0d82f3f3d71"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.1\\a4869b5c-fc71-45ed-97cf-ec073e184839\\02.output.txt",
+      "bytes": 15656,
+      "sha256": "2c31564761335798fe98db71ab641b8f383e6fd7a1b7a39f494ab75bef5de927"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.1\\a4869b5c-fc71-45ed-97cf-ec073e184839\\02.session.jsonl",
+      "bytes": 159222,
+      "sha256": "5fb28c5235547c6ad30aef3722bf6ad779b960a1df29ebd95857e3fc520af2ef"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.1\\a4869b5c-fc71-45ed-97cf-ec073e184839\\02.stderr.txt",
+      "bytes": 31279,
+      "sha256": "c2b7ab35ff2690267e867c2ec811c4f05d8fa2baaa49981df034820d83b9fe88"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.1\\a4869b5c-fc71-45ed-97cf-ec073e184839\\manual-selection-turn-1.txt",
+      "bytes": 898,
+      "sha256": "13809fb1e3a736a340be331962c93f162a252648185baed3b8b6d6e0ae5f24de"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.1\\a4869b5c-fc71-45ed-97cf-ec073e184839\\manual-title-audit.json",
+      "bytes": 1764,
+      "sha256": "03e296ff6078f6e7c46ff42d1db9673d7cfe6e853760fb94bacb7d304f7fdca8"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.events.jsonl",
+      "bytes": 35300,
+      "sha256": "676fc5f6f11f9972ff54107685bbbdefbf83adc1dedf99a36084531a33788bba"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.input.txt",
+      "bytes": 989,
+      "sha256": "7f7abf277276c1818c37066607f9b77d5c9787c889ba937989d7e53ea8cadb2e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.output.txt",
+      "bytes": 3422,
+      "sha256": "c57d8c2d47714c342f059091cc9a4eee3e2c014d26c1dab4fb2f7284a04e3377"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.session.jsonl",
+      "bytes": 98123,
+      "sha256": "3e20950c30bc8a14e222a394975e4693f9459ef9b50f9f753efd054e08c7a4f3"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\01.stderr.txt",
+      "bytes": 35214,
+      "sha256": "08b57629a5c9d2c7c90025688d93b5658839fd95b96e118b5950938a34e1f0d9"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\02.events.jsonl",
+      "bytes": 16503,
+      "sha256": "053b2fd1e5c9dda30fdfe848def2e160ad42e1ccf48e115a12be8e8e6262e747"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\02.input.txt",
+      "bytes": 111,
+      "sha256": "59d9e4dace8a47910829eee177a26b61fb48db34b5839f262906397927a74050"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\02.output.txt",
+      "bytes": 15745,
+      "sha256": "d4ae6fd605e502125f4af44aede9aab76ceebada980b2ad12e758744a2cad2a1"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\02.session.jsonl",
+      "bytes": 157920,
+      "sha256": "72275ef724cd6d00a1f7351229539f97323cdab3bee99c59f1e2cea3ae652e61"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\02.stderr.txt",
+      "bytes": 32547,
+      "sha256": "427cf837212b7af6cd30caf95721ab0d39b6a4ab1e6323fe89ceba24fd90c45d"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\manual-selection-turn-1.txt",
+      "bytes": 588,
+      "sha256": "1253ed3bc059710d984aa9f75772f616a6f79e3a50ccfffb6099c2e7b73e2266"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\manual-title-audit.json",
+      "bytes": 1727,
+      "sha256": "a890a5974fc977ee3c97a882853622bddd8c4b3d798931ee68cd7e7e2aa14d8b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B5.1\\d7483e9e-ea6b-4c2a-a28d-dd6cf6d4eab1\\01.events.jsonl",
+      "bytes": 36718,
+      "sha256": "55b6207e0663cfa71ad8d019449ffb77630fc9256e0da879d032945b668b73f0"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B5.1\\d7483e9e-ea6b-4c2a-a28d-dd6cf6d4eab1\\01.input.txt",
+      "bytes": 989,
+      "sha256": "4f2df584a93a26d2155abfb0e0236d2c3790f6e721a9d732d9c02c116d9cdb41"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B5.1\\d7483e9e-ea6b-4c2a-a28d-dd6cf6d4eab1\\01.output.txt",
+      "bytes": 3510,
+      "sha256": "bdbc1351d9d5188716c9f4e090b8061149436ec2b930b4474118ca11bfe49b04"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B5.1\\d7483e9e-ea6b-4c2a-a28d-dd6cf6d4eab1\\01.session.jsonl",
+      "bytes": 103048,
+      "sha256": "a89b399704859918ee242edf8a8a8cb228b77a3d555ced9054c70f88065e32d4"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B5.1\\d7483e9e-ea6b-4c2a-a28d-dd6cf6d4eab1\\01.stderr.txt",
+      "bytes": 35071,
+      "sha256": "b2f766768e4b99bb9b76cf25de270f95f265ae3bdb1684432d693bac44dec514"
+    }
+  ],
+  "uniqueRawFiles": 63,
+  "rawHashesCheckedStable": true,
+  "globalPause": {
+    "file": "../reviewer/corrections/0-1-23/normal-execution-pause.flag",
+    "bytes": 819,
+    "sha256": "e3d50a1c5dc444abb86d147d3739cb3400d8fd58c063a3357c246592c465fb14"
+  },
+  "globalMarkerUtc": "2026-10-14T13:55:31.634Z",
+  "actualExecutedTurns": [
+    {
+      "variant": "B3.1",
+      "uuid": "01a13aa5-88e0-7680-9db2-27dd09f74d1b",
+      "attemptId": "d883e4e6-b06a-4f76-a459-6dbbbba58112",
+      "turn": 1,
+      "status": "COMPLETE",
+      "started": "2026-10-14T13:41:29.333Z",
+      "completed": "2026-10-14T13:42:11.854Z"
+    },
+    {
+      "variant": "B3.1",
+      "uuid": "01a13aa5-88e0-7680-9db2-27dd09f74d1b",
+      "attemptId": "d883e4e6-b06a-4f76-a459-6dbbbba58112",
+      "turn": 2,
+      "status": "COMPLETE",
+      "started": "2026-10-14T13:42:39.716Z",
+      "completed": "2026-10-14T13:44:10.667Z"
+    },
+    {
+      "variant": "B3.1",
+      "uuid": "01a13aa5-88e0-7680-9db2-27dd09f74d1b",
+      "attemptId": "d883e4e6-b06a-4f76-a459-6dbbbba58112",
+      "turn": 3,
+      "status": "COMPLETE",
+      "started": "2026-10-14T13:44:10.721Z",
+      "completed": "2026-10-14T13:44:23.583Z"
+    },
+    {
+      "variant": "B3.2",
+      "uuid": "01a13aa8-31ed-75f0-b2c7-8dfdad668fd7",
+      "attemptId": "82bae4d3-182d-448b-81d1-d4011934d01d",
+      "turn": 1,
+      "status": "COMPLETE",
+      "started": "2026-10-14T13:44:23.695Z",
+      "completed": "2026-10-14T13:45:14.274Z"
+    },
+    {
+      "variant": "B3.2",
+      "uuid": "01a13aa8-31ed-75f0-b2c7-8dfdad668fd7",
+      "attemptId": "82bae4d3-182d-448b-81d1-d4011934d01d",
+      "turn": 2,
+      "status": "COMPLETE",
+      "started": "2026-10-14T13:45:49.318Z",
+      "completed": "2026-10-14T13:47:02.859Z"
+    },
+    {
+      "variant": "B3.2",
+      "uuid": "01a13aa8-31ed-75f0-b2c7-8dfdad668fd7",
+      "attemptId": "82bae4d3-182d-448b-81d1-d4011934d01d",
+      "turn": 3,
+      "status": "COMPLETE",
+      "started": "2026-10-14T13:47:02.914Z",
+      "completed": "2026-10-14T13:47:20.375Z"
+    },
+    {
+      "variant": "B4.1",
+      "uuid": "01a13aaa-e487-7c82-a1a2-0dfec6f9994e",
+      "attemptId": "a4869b5c-fc71-45ed-97cf-ec073e184839",
+      "turn": 1,
+      "status": "COMPLETE",
+      "started": "2026-10-14T13:47:20.481Z",
+      "completed": "2026-10-14T13:48:08.385Z"
+    },
+    {
+      "variant": "B4.1",
+      "uuid": "01a13aaa-e487-7c82-a1a2-0dfec6f9994e",
+      "attemptId": "a4869b5c-fc71-45ed-97cf-ec073e184839",
+      "turn": 2,
+      "status": "COMPLETE",
+      "started": "2026-10-14T13:49:30.935Z",
+      "completed": "2026-10-14T13:51:11.835Z"
+    },
+    {
+      "variant": "B4.2",
+      "uuid": "01a13aae-6cb1-70c2-adc3-2c6d0a88987f",
+      "attemptId": "160834e7-a212-45ef-a65d-bb5f9536ad2a",
+      "turn": 1,
+      "status": "COMPLETE",
+      "started": "2026-10-14T13:51:11.945Z",
+      "completed": "2026-10-14T13:52:06.165Z"
+    },
+    {
+      "variant": "B4.2",
+      "uuid": "01a13aae-6cb1-70c2-adc3-2c6d0a88987f",
+      "attemptId": "160834e7-a212-45ef-a65d-bb5f9536ad2a",
+      "turn": 2,
+      "status": "COMPLETE",
+      "started": "2026-10-14T13:53:18.428Z",
+      "completed": "2026-10-14T13:54:47.446Z"
+    },
+    {
+      "variant": "B5.1",
+      "uuid": "01a13ab1-b6e4-79b2-815d-b2a4b2ff46b0",
+      "attemptId": "d7483e9e-ea6b-4c2a-a28d-dd6cf6d4eab1",
+      "turn": 1,
+      "status": "COMPLETE",
+      "started": "2026-10-14T13:54:47.554Z",
+      "completed": "2026-10-14T13:55:32.781Z"
+    }
+  ],
+  "crossGlobalMarker": [
+    {
+      "variant": "B5.1",
+      "uuid": "01a13ab1-b6e4-79b2-815d-b2a4b2ff46b0",
+      "attemptId": "d7483e9e-ea6b-4c2a-a28d-dd6cf6d4eab1",
+      "turn": 1,
+      "status": "COMPLETE",
+      "started": "2026-10-14T13:54:47.554Z",
+      "completed": "2026-10-14T13:55:32.781Z"
+    }
+  ],
+  "postGlobalStartedInputs": 0,
+  "operatorClosure": {
+    "file": "../reviewer/corrections/0-1-23/operator-a-records/core-final-operator-closure.json",
+    "bytes": 32535,
+    "sha256": "2cf5636ba2ea42def351e96b2ff9afd0e52354796d23420836e30cc0db53bb56"
+  },
+  "operatorClosureKeptUnmodified": true,
+  "source23InputsCriteriaDefaultsAndRuntimeNotMutated": true,
+  "noPreviousSourcePassInherited": true,
+  "noSelfB6SemanticJudgment": true,
+  "noGradeCalled": true,
+  "noModelOrUiOrRepoWrites": true,
+  "effectStatus": "NOT_MEASURED",
+  "clientUiStatus": "NOT_RUN"
+}

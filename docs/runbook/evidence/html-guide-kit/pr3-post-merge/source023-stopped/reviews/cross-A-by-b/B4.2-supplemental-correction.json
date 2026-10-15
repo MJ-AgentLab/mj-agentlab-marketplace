@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T14:20:34.223Z",
+  "reviewer": "/root/behavior_014_b",
+  "method": "Independent full-output reinspection after a second reviewer supplied a concrete scope objection; no new model input.",
+  "variant": "B4.2",
+  "attemptId": "160834e7-a212-45ef-a65d-bb5f9536ad2a",
+  "sessionUuid": "01a13aae-6cb1-70c2-adc3-2c6d0a88987f",
+  "canonicalSha": "b46069e3979136e70d64b9873b799b5bd069ca95",
+  "canonicalTree": "d8a2ffb8646065dff8f7a46fe741b1f93b5873ad",
+  "packageVersion": "0.1.23",
+  "status": "FAIL",
+  "originalReport": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\reviews\\cross-A-by-b\\B4.2.json",
+    "bytes": 4283,
+    "sha256": "51ae76630dde905b9f0d3b2e8872c611316c37a12f60feec736a436680bb6731"
+  },
+  "originalRecordedStatus": "PASS",
+  "originalReportPreserved": true,
+  "rawOutput": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\runs\\f9ab7d31-90e3-418a-bf71-7ee95130e309\\B4.2\\160834e7-a212-45ef-a65d-bb5f9536ad2a\\02.output.txt",
+    "bytes": 15745,
+    "sha256": "d4ae6fd605e502125f4af44aede9aab76ceebada980b2ad12e758744a2cad2a1"
+  },
+  "sourcePlan": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-23\\blocking\\plan.json",
+    "bytes": 13618,
+    "sha256": "58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2"
+  },
+  "sourceCriterion": "B4.2 known qualification remains judgeable despite unspecified processes; source fidelity applies to each actual local teaching design.",
+  "sourceRule": "文档：《活动说明摘录》，段落 §1：“预约有效且导览完成者可领取一个普通材料包，缺一不可。”\n\n§2 现场可能库存不足。没有提供库存初值、何时等待、归还和取消的处理、多人并发或恢复规则。这里只保留已知摘录，不代表完整操作规范。\n",
+  "finding": {
+    "kind": "specific-local-feedback-fidelity",
+    "evidence": [
+      {
+        "lines": "218–223",
+        "text": "教学构造情境：\n\n- 某人原先有预约；\n- 随后出现“取消”事件；\n- 导览是否完成可以给定；\n- 取消后的预约有效状态没有给定。"
+      },
+      {
+        "lines": "230–235",
+        "text": "\n### 结果与反馈\n\n- 不能仅凭“发生取消”判断预约必然有效或无效。\n- 因为 §1 的资格判断需要“预约有效”这一当前信息，而 §2 说明取消处理未提供，所以资格结论在该信息补齐前待定。\n- 即使情境给出“导览已完成”，预约有效状态仍是必要条件；一项已知不能替代另一项。"
+      }
+    ],
+    "rationale": "The cancellation simulation permits the tour-complete value to be supplied without fixing it true. Its generic qualification feedback says that until unknown reservation validity is supplied the qualification conclusion is pending. For a supplied tour=false, the source AND condition already rules out qualification even if reservation is unknown. The adjacent true-tour example and the separate true-tour self-check do not establish an actual restriction of this generic feedback to true-tour inputs. This evaluates the written local design, not a new execution of a counterfactual model prompt."
+  },
+  "correction": {
+    "previousNoteWasInsufficient": true,
+    "explanation": "The previous report treated true-tour follow-up/self-check as a restriction of the earlier cancellation simulation, although that local section expressly leaves tour completion configurable. Preserve the previous PASS and note as an original review error; do not overwrite or grade it as the corrected result.",
+    "effectiveVariantStatus": "FAIL",
+    "retainedLocalPasses": [
+      "Four complete AND combinations and fixed true-tour unknown-reservation self-check",
+      "No fabricated cancellation/return/stock transitions",
+      "Teaching construction and UI reset identity",
+      "Actual native/reference/material full reception and two V2 COMPLETE calls"
+    ],
+    "effectiveCoreAccountingIfOtherFrozenResultsStaySame": {
+      "PASS": 7,
+      "FAIL": 3,
+      "UNEXERCISED": 2,
+      "NOT_RUN": 2,
+      "realUuids": 12,
+      "completeInputs": 24,
+      "invalidInputs": 0
+    }
+  },
+  "noNewModelInput": true,
+  "noRawOrOriginalReportMutation": true,
+  "noGrade": true,
+  "effectStatus": "NOT_MEASURED"
+}

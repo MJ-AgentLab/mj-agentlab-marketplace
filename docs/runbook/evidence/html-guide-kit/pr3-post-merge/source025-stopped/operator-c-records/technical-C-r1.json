@@ -1,0 +1,678 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T15:38:27.366Z",
+  "status": "TECHNICAL_ONLY",
+  "result": "NO_TECHNICAL_GAPS_OBSERVED",
+  "auditor": "/root/precommit_014",
+  "auditorWasOriginalOperator": true,
+  "independentSemanticReviewByRootStillRequired": true,
+  "source": {
+    "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "canonicalSha": "ba74bbe3d1b64b59ccc7e92d58a66a011126215e",
+    "canonicalTree": "28e0fca836c31dce00e491b269323dc79e8739da"
+  },
+  "packageVersion": "0.1.25",
+  "batchFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\batch.json",
+  "actualUUIDs": 2,
+  "actualInputs": 7,
+  "completeInputs": 7,
+  "invalidInputs": 0,
+  "originalClosure": {
+    "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\operator-c-records\\stopped-original-operator-closure.json",
+    "sha256": "92b1b18056f05b1aafb966c603cdef4f3730398f9d969e49f86251a5b6f88dc3",
+    "all35RawHashesUnchanged": true
+  },
+  "runtime": [
+    {
+      "relative": "assets/icon.png",
+      "sourceSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+      "mirrorSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+      "cacheSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+      "bytes": 119566,
+      "actualThreeWayBytesExact": true
+    },
+    {
+      "relative": "assets/icon.svg",
+      "sourceSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+      "mirrorSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+      "cacheSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+      "bytes": 1261,
+      "actualThreeWayBytesExact": true
+    },
+    {
+      "relative": "plugin.json",
+      "sourceSha256": "b7f68c3a092c5091d333f9f9d4b98dcb9fe3510118ea8205dafc73e8e9b7ed56",
+      "mirrorSha256": "b7f68c3a092c5091d333f9f9d4b98dcb9fe3510118ea8205dafc73e8e9b7ed56",
+      "cacheSha256": "b7f68c3a092c5091d333f9f9d4b98dcb9fe3510118ea8205dafc73e8e9b7ed56",
+      "bytes": 1531,
+      "actualThreeWayBytesExact": true
+    },
+    {
+      "relative": "skills/guide/SKILL.md",
+      "sourceSha256": "b7a36111f943a96a69a033c19b5ed3edbb7eb90e9cf0d96cc071179f614c789a",
+      "mirrorSha256": "b7a36111f943a96a69a033c19b5ed3edbb7eb90e9cf0d96cc071179f614c789a",
+      "cacheSha256": "b7a36111f943a96a69a033c19b5ed3edbb7eb90e9cf0d96cc071179f614c789a",
+      "bytes": 5833,
+      "actualThreeWayBytesExact": true
+    },
+    {
+      "relative": "skills/guide/agents/openai.yaml",
+      "sourceSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+      "mirrorSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+      "cacheSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+      "bytes": 444,
+      "actualThreeWayBytesExact": true
+    },
+    {
+      "relative": "skills/guide/references/guide-framework.md",
+      "sourceSha256": "12dffe8c67938c9788d89bfc75fe443ab97bdb466a43064db9a75c755836185b",
+      "mirrorSha256": "12dffe8c67938c9788d89bfc75fe443ab97bdb466a43064db9a75c755836185b",
+      "cacheSha256": "12dffe8c67938c9788d89bfc75fe443ab97bdb466a43064db9a75c755836185b",
+      "bytes": 8715,
+      "actualThreeWayBytesExact": true
+    },
+    {
+      "relative": "skills/guide/references/interaction-design.md",
+      "sourceSha256": "46e41cfb58b17fda52d845469f4c61a189c19e18b608cc3ffad33b3539aad47d",
+      "mirrorSha256": "46e41cfb58b17fda52d845469f4c61a189c19e18b608cc3ffad33b3539aad47d",
+      "cacheSha256": "46e41cfb58b17fda52d845469f4c61a189c19e18b608cc3ffad33b3539aad47d",
+      "bytes": 9667,
+      "actualThreeWayBytesExact": true
+    }
+  ],
+  "sessions": [
+    {
+      "variant": "B1.1",
+      "uuid": "01a13b02-0f75-7052-966c-ff75f674b2ec",
+      "attemptId": "97c97b5a-dd5e-420e-a253-13e99a1c4218",
+      "method": "FRESH_FORWARD",
+      "plannedTurns": 4,
+      "executedTurns": 4,
+      "selectionRetained": {
+        "label": "2",
+        "originalTripletExcerpt": "2. 资格与常见误判\n\n   - 读者：负责现场答疑的工作人员；知道预约、导览和通行证的名称，需要快速解释访客为何可以或不可以继续。\n   - 使用任务：判断访客是否满足核验与领取条件，并纠正“体验通行证可以替代条件”“已核验就是已领取”“已核验保证有库存”等误解。\n   - 理解问题：预约与导览之间是什么关系？体验通行证具有什么有限作用？已核验、可领取、已领取和库存充足为何不能互相等同？\n   - 取舍：聚焦 §2–§4、§8，便于形成短而清晰的概念教材；对归还、取消和完整恢复过程涉及较少。",
+        "firstTurnOutput": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.1\\97c97b5a-dd5e-420e-a253-13e99a1c4218\\01.output.txt",
+        "recorded": {
+          "utc": "2026-10-14T15:24:34.350Z",
+          "timezone": "Asia/Taipei"
+        },
+        "rolePresent": false,
+        "source": "reviewer reading of actual model output; no answer key in model prompt"
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "transportStatus": "COMPLETE",
+          "inputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.1\\97c97b5a-dd5e-420e-a253-13e99a1c4218\\01.input.txt",
+          "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.1\\97c97b5a-dd5e-420e-a253-13e99a1c4218\\01.output.txt",
+          "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.1\\97c97b5a-dd5e-420e-a253-13e99a1c4218\\01.events.jsonl",
+          "sessionSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.1\\97c97b5a-dd5e-420e-a253-13e99a1c4218\\01.session.jsonl",
+          "sessionSnapshotSha256": "f9c5ad2501b84dc94866e813c91d4fb1792c28a6422ca0e4738e5a78f454933c",
+          "inputSha256": "fe750a0cb5e4c57a63a07e85a9ac112ceb8fd27921918f7e77693d05533bc123",
+          "outputSha256": "9aeb007e7c45a416bf679056ec49f5fa7c00e9b80e6466c410c14c62848455fb",
+          "actualSessionMetadata": {
+            "line": 1,
+            "uuid": "01a13b02-0f75-7052-966c-ff75f674b2ec",
+            "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\04b21e9c-e970-4f56-b88b-442b624894f3",
+            "originatorObserved": "Codex Desktop",
+            "cliVersion": "0.147.0",
+            "provider": "openai"
+          },
+          "actualContext": [
+            {
+              "line": 8,
+              "model": "gpt-5.6-sol",
+              "effort": "low",
+              "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\04b21e9c-e970-4f56-b88b-442b624894f3"
+            }
+          ],
+          "snapshotPrefixSamePrevious": null,
+          "currentInputPresentInSdk": true,
+          "allOutputMessagesMatchOwnEvents": true,
+          "nativeFullSkillInActualContext": [
+            {
+              "line": 11,
+              "role": "user",
+              "cachePath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\7ac5e803-b867-4dbc-9d0b-d6a781bdc3a6\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\SKILL.md",
+              "skillSha256": "b7a36111f943a96a69a033c19b5ed3edbb7eb90e9cf0d96cc071179f614c789a",
+              "wholeFileTextIncluded": true
+            }
+          ],
+          "newToolRequests": [
+            {
+              "callId": "call_803b28e576f34fc8a6aeeaf1e572fcd7",
+              "toolName": "exec",
+              "callSdkLine": 14,
+              "receiverSdkLine": 15,
+              "command": "Get-Content -Raw -LiteralPath 'C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\7ac5e803-b867-4dbc-9d0b-d6a781bdc3a6\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\SKILL.md'",
+              "actualParameterSemantics": {
+                "readOperation": "Get-Content",
+                "rawSwitch": true,
+                "literalPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\7ac5e803-b867-4dbc-9d0b-d6a781bdc3a6\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\SKILL.md",
+                "singleFile": true,
+                "parameterOrderNotUsedAsCriterion": true
+              },
+              "resource": "skills/guide/SKILL.md",
+              "sourceBytes": 5833,
+              "sourceSha256": "b7a36111f943a96a69a033c19b5ed3edbb7eb90e9cf0d96cc071179f614c789a",
+              "actualEventLine": 5,
+              "actualExitCode": 0,
+              "actualEventStatus": "completed",
+              "rawReceiverSha256": "eafbccc7fbab8e3283d652823374557f6eedeb0eb6560cee38d50ed941fba49c",
+              "completeSourceBodyIncluded": true,
+              "actualReceiverTextSha256": "03f256684bd26fc9d2ab4d6244c10ba6560ede9ec6beded19f3aca217b310641",
+              "explicitTruncationMarker": false
+            },
+            {
+              "callId": "call_22e0fd3cccb146ec8be79ce03474cf72",
+              "toolName": "exec",
+              "callSdkLine": 17,
+              "receiverSdkLine": 18,
+              "command": "Get-Content -Raw -LiteralPath 'C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\7ac5e803-b867-4dbc-9d0b-d6a781bdc3a6\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\references\\guide-framework.md'",
+              "actualParameterSemantics": {
+                "readOperation": "Get-Content",
+                "rawSwitch": true,
+                "literalPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\7ac5e803-b867-4dbc-9d0b-d6a781bdc3a6\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\references\\guide-framework.md",
+                "singleFile": true,
+                "parameterOrderNotUsedAsCriterion": true
+              },
+              "resource": "skills/guide/references/guide-framework.md",
+              "sourceBytes": 8715,
+              "sourceSha256": "12dffe8c67938c9788d89bfc75fe443ab97bdb466a43064db9a75c755836185b",
+              "actualEventLine": 7,
+              "actualExitCode": 0,
+              "actualEventStatus": "completed",
+              "rawReceiverSha256": "6c27ff3eaceedbabf1d0491f8958136357a9a38d430c247faad09db8c99fe2f2",
+              "completeSourceBodyIncluded": true,
+              "actualReceiverTextSha256": "228cfc91e6f2336732cd54497dffbea92fc469a7e48c7cd072dff7f61e7f4890",
+              "explicitTruncationMarker": false
+            },
+            {
+              "callId": "call_f292d023555a4cfbb63f7eac8911c93f",
+              "toolName": "exec",
+              "callSdkLine": 20,
+              "receiverSdkLine": 21,
+              "command": "Get-Content -Raw -LiteralPath 'C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\7ac5e803-b867-4dbc-9d0b-d6a781bdc3a6\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\references\\interaction-design.md'",
+              "actualParameterSemantics": {
+                "readOperation": "Get-Content",
+                "rawSwitch": true,
+                "literalPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\7ac5e803-b867-4dbc-9d0b-d6a781bdc3a6\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\references\\interaction-design.md",
+                "singleFile": true,
+                "parameterOrderNotUsedAsCriterion": true
+              },
+              "resource": "skills/guide/references/interaction-design.md",
+              "sourceBytes": 9667,
+              "sourceSha256": "46e41cfb58b17fda52d845469f4c61a189c19e18b608cc3ffad33b3539aad47d",
+              "actualEventLine": 9,
+              "actualExitCode": 0,
+              "actualEventStatus": "completed",
+              "rawReceiverSha256": "02d84be7a5bc9e63af78bce5fbb68cbc30ed5241b108c4cee0fa050a164ec940",
+              "completeSourceBodyIncluded": true,
+              "actualReceiverTextSha256": "c6b775c5da5bf13eedf1dee4cbeece3050ab0049e87feeffd0bb1902bb0cef6e",
+              "explicitTruncationMarker": false
+            },
+            {
+              "callId": "call_1c40e28e7900477bbd083438386628b0",
+              "toolName": "exec",
+              "callSdkLine": 25,
+              "receiverSdkLine": 26,
+              "command": "Get-Content -Raw -LiteralPath 'C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\04b21e9c-e970-4f56-b88b-442b624894f3\\b951fc20-8ea0-45b1-bdba-328c90979504.md'",
+              "actualParameterSemantics": {
+                "readOperation": "Get-Content",
+                "rawSwitch": true,
+                "literalPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\04b21e9c-e970-4f56-b88b-442b624894f3\\b951fc20-8ea0-45b1-bdba-328c90979504.md",
+                "singleFile": true,
+                "parameterOrderNotUsedAsCriterion": true
+              },
+              "resource": "supplied_material",
+              "sourceBytes": 1640,
+              "sourceSha256": "66a948e4903134491c391188b7870e2fb47f3bc102271438911e1ade6a23b502",
+              "actualEventLine": 12,
+              "actualExitCode": 0,
+              "actualEventStatus": "completed",
+              "rawReceiverSha256": "f824cd629508e7877b59018af8ad35993d9888bc45d07a6442ca68fe5e849ac3",
+              "completeSourceBodyIncluded": true,
+              "actualReceiverTextSha256": "c808a5bc4829f2f45fa3527681a6ecc7622e570fde3f214c95cec1b76547137d",
+              "explicitTruncationMarker": false
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "transportStatus": "COMPLETE",
+          "inputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.1\\97c97b5a-dd5e-420e-a253-13e99a1c4218\\02.input.txt",
+          "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.1\\97c97b5a-dd5e-420e-a253-13e99a1c4218\\02.output.txt",
+          "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.1\\97c97b5a-dd5e-420e-a253-13e99a1c4218\\02.events.jsonl",
+          "sessionSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.1\\97c97b5a-dd5e-420e-a253-13e99a1c4218\\02.session.jsonl",
+          "sessionSnapshotSha256": "b63e50c9575a99522ed59c70f6ef33fda1a88f328eafe39c2ad3dc287c80db27",
+          "inputSha256": "7903215f202a7f38d4a86ac1d90212fdae7856a80aa37d6e0668dc93cdb59112",
+          "outputSha256": "c4db80cd6cc661aadc0695c107e482ad480025232cf2380e6ada8c28b1391c0d",
+          "actualSessionMetadata": {
+            "line": 1,
+            "uuid": "01a13b02-0f75-7052-966c-ff75f674b2ec",
+            "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\04b21e9c-e970-4f56-b88b-442b624894f3",
+            "originatorObserved": "Codex Desktop",
+            "cliVersion": "0.147.0",
+            "provider": "openai"
+          },
+          "actualContext": [
+            {
+              "line": 8,
+              "model": "gpt-5.6-sol",
+              "effort": "low",
+              "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\04b21e9c-e970-4f56-b88b-442b624894f3"
+            },
+            {
+              "line": 35,
+              "model": "gpt-5.6-sol",
+              "effort": "low",
+              "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\04b21e9c-e970-4f56-b88b-442b624894f3"
+            }
+          ],
+          "snapshotPrefixSamePrevious": true,
+          "currentInputPresentInSdk": true,
+          "allOutputMessagesMatchOwnEvents": true,
+          "nativeFullSkillInActualContext": [
+            {
+              "line": 11,
+              "role": "user",
+              "cachePath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\7ac5e803-b867-4dbc-9d0b-d6a781bdc3a6\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\SKILL.md",
+              "skillSha256": "b7a36111f943a96a69a033c19b5ed3edbb7eb90e9cf0d96cc071179f614c789a",
+              "wholeFileTextIncluded": true
+            }
+          ],
+          "newToolRequests": []
+        },
+        {
+          "turn": 3,
+          "transportStatus": "COMPLETE",
+          "inputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.1\\97c97b5a-dd5e-420e-a253-13e99a1c4218\\03.input.txt",
+          "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.1\\97c97b5a-dd5e-420e-a253-13e99a1c4218\\03.output.txt",
+          "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.1\\97c97b5a-dd5e-420e-a253-13e99a1c4218\\03.events.jsonl",
+          "sessionSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.1\\97c97b5a-dd5e-420e-a253-13e99a1c4218\\03.session.jsonl",
+          "sessionSnapshotSha256": "e66c99542509652b431b473547f9258db74ef91bc98462817e4ed103a1750748",
+          "inputSha256": "32d79cd04cb688cb6fb970165b8da92497a918854b90dba5a66fe7c834d9642f",
+          "outputSha256": "4b26d146a7765d25f52bcaf14abafd2158eb671981e6601c6a994b793efd71a9",
+          "actualSessionMetadata": {
+            "line": 1,
+            "uuid": "01a13b02-0f75-7052-966c-ff75f674b2ec",
+            "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\04b21e9c-e970-4f56-b88b-442b624894f3",
+            "originatorObserved": "Codex Desktop",
+            "cliVersion": "0.147.0",
+            "provider": "openai"
+          },
+          "actualContext": [
+            {
+              "line": 8,
+              "model": "gpt-5.6-sol",
+              "effort": "low",
+              "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\04b21e9c-e970-4f56-b88b-442b624894f3"
+            },
+            {
+              "line": 35,
+              "model": "gpt-5.6-sol",
+              "effort": "low",
+              "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\04b21e9c-e970-4f56-b88b-442b624894f3"
+            },
+            {
+              "line": 44,
+              "model": "gpt-5.6-sol",
+              "effort": "low",
+              "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\04b21e9c-e970-4f56-b88b-442b624894f3"
+            }
+          ],
+          "snapshotPrefixSamePrevious": true,
+          "currentInputPresentInSdk": true,
+          "allOutputMessagesMatchOwnEvents": true,
+          "nativeFullSkillInActualContext": [
+            {
+              "line": 11,
+              "role": "user",
+              "cachePath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\7ac5e803-b867-4dbc-9d0b-d6a781bdc3a6\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\SKILL.md",
+              "skillSha256": "b7a36111f943a96a69a033c19b5ed3edbb7eb90e9cf0d96cc071179f614c789a",
+              "wholeFileTextIncluded": true
+            }
+          ],
+          "newToolRequests": []
+        },
+        {
+          "turn": 4,
+          "transportStatus": "COMPLETE",
+          "inputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.1\\97c97b5a-dd5e-420e-a253-13e99a1c4218\\04.input.txt",
+          "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.1\\97c97b5a-dd5e-420e-a253-13e99a1c4218\\04.output.txt",
+          "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.1\\97c97b5a-dd5e-420e-a253-13e99a1c4218\\04.events.jsonl",
+          "sessionSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.1\\97c97b5a-dd5e-420e-a253-13e99a1c4218\\04.session.jsonl",
+          "sessionSnapshotSha256": "d7a44f2053c7b9a66eece61a644800f91d10407ec68c2e5e8fcd06271b341e56",
+          "inputSha256": "f016c5e8934ed8bb687dbb1c7079ca7b972692afeb3ccea5c27515ad0e001351",
+          "outputSha256": "34f9027f4b84d8a438beb78b4b918e86a59324cdb6efddcf54a7e45236d9a048",
+          "actualSessionMetadata": {
+            "line": 1,
+            "uuid": "01a13b02-0f75-7052-966c-ff75f674b2ec",
+            "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\04b21e9c-e970-4f56-b88b-442b624894f3",
+            "originatorObserved": "Codex Desktop",
+            "cliVersion": "0.147.0",
+            "provider": "openai"
+          },
+          "actualContext": [
+            {
+              "line": 8,
+              "model": "gpt-5.6-sol",
+              "effort": "low",
+              "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\04b21e9c-e970-4f56-b88b-442b624894f3"
+            },
+            {
+              "line": 35,
+              "model": "gpt-5.6-sol",
+              "effort": "low",
+              "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\04b21e9c-e970-4f56-b88b-442b624894f3"
+            },
+            {
+              "line": 44,
+              "model": "gpt-5.6-sol",
+              "effort": "low",
+              "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\04b21e9c-e970-4f56-b88b-442b624894f3"
+            },
+            {
+              "line": 53,
+              "model": "gpt-5.6-sol",
+              "effort": "low",
+              "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\04b21e9c-e970-4f56-b88b-442b624894f3"
+            }
+          ],
+          "snapshotPrefixSamePrevious": true,
+          "currentInputPresentInSdk": true,
+          "allOutputMessagesMatchOwnEvents": true,
+          "nativeFullSkillInActualContext": [
+            {
+              "line": 11,
+              "role": "user",
+              "cachePath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\7ac5e803-b867-4dbc-9d0b-d6a781bdc3a6\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\SKILL.md",
+              "skillSha256": "b7a36111f943a96a69a033c19b5ed3edbb7eb90e9cf0d96cc071179f614c789a",
+              "wholeFileTextIncluded": true
+            }
+          ],
+          "newToolRequests": []
+        }
+      ]
+    },
+    {
+      "variant": "B1.2-delayed",
+      "uuid": "01a13b05-31d3-70d0-adfb-983708d2f7a9",
+      "attemptId": "2d7d9aa1-b5c2-4f5e-b40b-20c80393e760",
+      "method": "FRESH_FORWARD",
+      "plannedTurns": 3,
+      "executedTurns": 3,
+      "selectionRetained": {
+        "label": "3",
+        "originalTripletExcerpt": "3. 边界、例外与错误推论\n\n   - 读者：负责审核活动说明或答疑口径的规则维护人员；熟悉基本流程，需要识别超出材料证据的结论。\n   - 使用任务：审查关于资格、状态、库存、适用对象和恢复方式的说法，区分材料明确支持、明确禁止与未规定的结论。\n   - 理解问题：\n     - 体验通行证能做什么，不能替代什么？\n     - 哪些状态明确禁止领取、归还或取消？\n     - 哪些多人、时效及跨活动结论无法从材料推出？\n     - “一种明确规定的恢复方式”为什么不等于唯一恢复入口或现实系统实现？\n   - 取舍：最适合纠正常见误读和越界推论，重点覆盖 §2、§4–§8；对完整操作流程的呈现较弱。",
+        "firstTurnOutput": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\01.output.txt",
+        "recorded": {
+          "utc": "2026-10-14T15:27:44.589Z",
+          "timezone": "Asia/Taipei"
+        },
+        "rolePresent": false,
+        "source": "reviewer reading of actual model output; no answer key in model prompt"
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "transportStatus": "COMPLETE",
+          "inputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\01.input.txt",
+          "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\01.output.txt",
+          "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\01.events.jsonl",
+          "sessionSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\01.session.jsonl",
+          "sessionSnapshotSha256": "0f3b2eb4b1a8104bd66993cf3b51cda862dc404c90f0ace2146581a5b506957c",
+          "inputSha256": "b2fdd5bfa9dc239d48e4a033903f887a9340c678de684c6ad888e3ba6d3563c0",
+          "outputSha256": "9d6252e076fb7397ea3d79fd17b5ac6e76cde011cf039d930e431a5d939e80e3",
+          "actualSessionMetadata": {
+            "line": 1,
+            "uuid": "01a13b05-31d3-70d0-adfb-983708d2f7a9",
+            "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\153c9ded-0016-44d5-859f-89a4713db50f",
+            "originatorObserved": "Codex Desktop",
+            "cliVersion": "0.147.0",
+            "provider": "openai"
+          },
+          "actualContext": [
+            {
+              "line": 8,
+              "model": "gpt-5.6-sol",
+              "effort": "low",
+              "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\153c9ded-0016-44d5-859f-89a4713db50f"
+            }
+          ],
+          "snapshotPrefixSamePrevious": null,
+          "currentInputPresentInSdk": true,
+          "allOutputMessagesMatchOwnEvents": true,
+          "nativeFullSkillInActualContext": [
+            {
+              "line": 11,
+              "role": "user",
+              "cachePath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\7ac5e803-b867-4dbc-9d0b-d6a781bdc3a6\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\SKILL.md",
+              "skillSha256": "b7a36111f943a96a69a033c19b5ed3edbb7eb90e9cf0d96cc071179f614c789a",
+              "wholeFileTextIncluded": true
+            }
+          ],
+          "newToolRequests": [
+            {
+              "callId": "call_9198301833a74f80a60a8b29bc04e267",
+              "toolName": "exec",
+              "callSdkLine": 15,
+              "receiverSdkLine": 16,
+              "command": "Get-Content -Raw -LiteralPath 'C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\7ac5e803-b867-4dbc-9d0b-d6a781bdc3a6\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\SKILL.md'",
+              "actualParameterSemantics": {
+                "readOperation": "Get-Content",
+                "rawSwitch": true,
+                "literalPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\7ac5e803-b867-4dbc-9d0b-d6a781bdc3a6\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\SKILL.md",
+                "singleFile": true,
+                "parameterOrderNotUsedAsCriterion": true
+              },
+              "resource": "skills/guide/SKILL.md",
+              "sourceBytes": 5833,
+              "sourceSha256": "b7a36111f943a96a69a033c19b5ed3edbb7eb90e9cf0d96cc071179f614c789a",
+              "actualEventLine": 5,
+              "actualExitCode": 0,
+              "actualEventStatus": "completed",
+              "rawReceiverSha256": "8717cff4d09a16b229b28df755c078cc850ae757f0c9f202db2e89c416a30da3",
+              "completeSourceBodyIncluded": true,
+              "actualReceiverTextSha256": "5e0bdc7ab9f001a88e37c4955827714d868b76b13aa8552937bba8a990154593",
+              "explicitTruncationMarker": false
+            },
+            {
+              "callId": "call_58a7b1c121e6428788dbd8b18dad5587",
+              "toolName": "exec",
+              "callSdkLine": 18,
+              "receiverSdkLine": 19,
+              "command": "Get-Content -Raw -LiteralPath 'C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\7ac5e803-b867-4dbc-9d0b-d6a781bdc3a6\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\references\\guide-framework.md'",
+              "actualParameterSemantics": {
+                "readOperation": "Get-Content",
+                "rawSwitch": true,
+                "literalPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\7ac5e803-b867-4dbc-9d0b-d6a781bdc3a6\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\references\\guide-framework.md",
+                "singleFile": true,
+                "parameterOrderNotUsedAsCriterion": true
+              },
+              "resource": "skills/guide/references/guide-framework.md",
+              "sourceBytes": 8715,
+              "sourceSha256": "12dffe8c67938c9788d89bfc75fe443ab97bdb466a43064db9a75c755836185b",
+              "actualEventLine": 7,
+              "actualExitCode": 0,
+              "actualEventStatus": "completed",
+              "rawReceiverSha256": "1608a9bc3f07e26489349090f8be9547d8168ee0f602d87ae306d8566c874519",
+              "completeSourceBodyIncluded": true,
+              "actualReceiverTextSha256": "2b5f7f3f7de20367a583c27119ce2595b26e4aa6108f5f89958e701115a939d1",
+              "explicitTruncationMarker": false
+            },
+            {
+              "callId": "call_b2d7b8053d4a4cb29b50631fbb23344b",
+              "toolName": "exec",
+              "callSdkLine": 21,
+              "receiverSdkLine": 22,
+              "command": "Get-Content -Raw -LiteralPath 'C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\7ac5e803-b867-4dbc-9d0b-d6a781bdc3a6\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\references\\interaction-design.md'",
+              "actualParameterSemantics": {
+                "readOperation": "Get-Content",
+                "rawSwitch": true,
+                "literalPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\7ac5e803-b867-4dbc-9d0b-d6a781bdc3a6\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\references\\interaction-design.md",
+                "singleFile": true,
+                "parameterOrderNotUsedAsCriterion": true
+              },
+              "resource": "skills/guide/references/interaction-design.md",
+              "sourceBytes": 9667,
+              "sourceSha256": "46e41cfb58b17fda52d845469f4c61a189c19e18b608cc3ffad33b3539aad47d",
+              "actualEventLine": 9,
+              "actualExitCode": 0,
+              "actualEventStatus": "completed",
+              "rawReceiverSha256": "73848e546600125092215d6d488383e873564188f3ef961ff997455847c842b2",
+              "completeSourceBodyIncluded": true,
+              "actualReceiverTextSha256": "e73209504c6b548335e21a2d3532f5914ce20b6941c6f5afb42829044b183a61",
+              "explicitTruncationMarker": false
+            },
+            {
+              "callId": "call_ec8ed0a52ef342d2b279fb47b25746d4",
+              "toolName": "exec",
+              "callSdkLine": 27,
+              "receiverSdkLine": 28,
+              "command": "Get-Content -Raw -LiteralPath 'C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\153c9ded-0016-44d5-859f-89a4713db50f\\4c8da190-3927-43ca-ba30-e98f5b9b75d8.md'",
+              "actualParameterSemantics": {
+                "readOperation": "Get-Content",
+                "rawSwitch": true,
+                "literalPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\153c9ded-0016-44d5-859f-89a4713db50f\\4c8da190-3927-43ca-ba30-e98f5b9b75d8.md",
+                "singleFile": true,
+                "parameterOrderNotUsedAsCriterion": true
+              },
+              "resource": "supplied_material",
+              "sourceBytes": 1640,
+              "sourceSha256": "66a948e4903134491c391188b7870e2fb47f3bc102271438911e1ade6a23b502",
+              "actualEventLine": 12,
+              "actualExitCode": 0,
+              "actualEventStatus": "completed",
+              "rawReceiverSha256": "2972e93e322d15b169e999d083b8d21867e7fea7b9f3491df7574c47bab89cdb",
+              "completeSourceBodyIncluded": true,
+              "actualReceiverTextSha256": "f671b4da5c2d2a735fdc2c5b8fb5b2c1657aa81c104d913380003884164bec60",
+              "explicitTruncationMarker": false
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "transportStatus": "COMPLETE",
+          "inputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\02.input.txt",
+          "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\02.output.txt",
+          "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\02.events.jsonl",
+          "sessionSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\02.session.jsonl",
+          "sessionSnapshotSha256": "f821956b254ba7b953d8db07986f70481021b83d7674a1bbabcebdcadde74f10",
+          "inputSha256": "3961b1ba9c09ccf3adbc732aaf19965fe0dbc0503bba5b810ee5162317ce0388",
+          "outputSha256": "64b788ef627db0a9c2208b8ebeaf6ab3bb6382ad5b365c2bc9f89f5be1a89ae7",
+          "actualSessionMetadata": {
+            "line": 1,
+            "uuid": "01a13b05-31d3-70d0-adfb-983708d2f7a9",
+            "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\153c9ded-0016-44d5-859f-89a4713db50f",
+            "originatorObserved": "Codex Desktop",
+            "cliVersion": "0.147.0",
+            "provider": "openai"
+          },
+          "actualContext": [
+            {
+              "line": 8,
+              "model": "gpt-5.6-sol",
+              "effort": "low",
+              "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\153c9ded-0016-44d5-859f-89a4713db50f"
+            },
+            {
+              "line": 37,
+              "model": "gpt-5.6-sol",
+              "effort": "low",
+              "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\153c9ded-0016-44d5-859f-89a4713db50f"
+            }
+          ],
+          "snapshotPrefixSamePrevious": true,
+          "currentInputPresentInSdk": true,
+          "allOutputMessagesMatchOwnEvents": true,
+          "nativeFullSkillInActualContext": [
+            {
+              "line": 11,
+              "role": "user",
+              "cachePath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\7ac5e803-b867-4dbc-9d0b-d6a781bdc3a6\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\SKILL.md",
+              "skillSha256": "b7a36111f943a96a69a033c19b5ed3edbb7eb90e9cf0d96cc071179f614c789a",
+              "wholeFileTextIncluded": true
+            }
+          ],
+          "newToolRequests": []
+        },
+        {
+          "turn": 3,
+          "transportStatus": "COMPLETE",
+          "inputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\03.input.txt",
+          "outputFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\03.output.txt",
+          "eventsFile": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\03.events.jsonl",
+          "sessionSnapshot": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\03.session.jsonl",
+          "sessionSnapshotSha256": "0a17bf4af06fbf03c5b69ce72a0ca56aaeedca209115a346674f14f8eef5984b",
+          "inputSha256": "6b89a74c6d035fb6440da4cb0320de40d5d57390ce797f9c847362b8c4697fb1",
+          "outputSha256": "f26f8e920fb718d411e04985a29ada2988eb7ca473afecba27c06c130f68f83f",
+          "actualSessionMetadata": {
+            "line": 1,
+            "uuid": "01a13b05-31d3-70d0-adfb-983708d2f7a9",
+            "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\153c9ded-0016-44d5-859f-89a4713db50f",
+            "originatorObserved": "Codex Desktop",
+            "cliVersion": "0.147.0",
+            "provider": "openai"
+          },
+          "actualContext": [
+            {
+              "line": 8,
+              "model": "gpt-5.6-sol",
+              "effort": "low",
+              "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\153c9ded-0016-44d5-859f-89a4713db50f"
+            },
+            {
+              "line": 37,
+              "model": "gpt-5.6-sol",
+              "effort": "low",
+              "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\153c9ded-0016-44d5-859f-89a4713db50f"
+            },
+            {
+              "line": 47,
+              "model": "gpt-5.6-sol",
+              "effort": "low",
+              "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\153c9ded-0016-44d5-859f-89a4713db50f"
+            }
+          ],
+          "snapshotPrefixSamePrevious": true,
+          "currentInputPresentInSdk": true,
+          "allOutputMessagesMatchOwnEvents": true,
+          "nativeFullSkillInActualContext": [
+            {
+              "line": 11,
+              "role": "user",
+              "cachePath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\7ac5e803-b867-4dbc-9d0b-d6a781bdc3a6\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.25\\skills\\guide\\SKILL.md",
+              "skillSha256": "b7a36111f943a96a69a033c19b5ed3edbb7eb90e9cf0d96cc071179f614c789a",
+              "wholeFileTextIncluded": true
+            }
+          ],
+          "newToolRequests": []
+        }
+      ]
+    }
+  ],
+  "actualToolCalls": 8,
+  "actualCacheReferenceReadCalls": 4,
+  "sourceMaterialReads": 2,
+  "artifacts": [
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\operator-c-records\\technical-C-r1-full-input-output.txt",
+      "bytes": 35577,
+      "sha256": "a317af20290357ecdd0cac4e0f24940bdc7d876f9d62cda1c2a16d2a1c93d81a"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\operator-c-records\\technical-C-r1-actual-receivers.json",
+      "bytes": 65687,
+      "sha256": "45a44ab2c12728223f2be6b78f81c0af7934f0fa9b1af788c02601fbf5aff72a"
+    }
+  ],
+  "findings": [],
+  "scopeLimits": [
+    "No semantic PASS or score. Original hold and confirmed source25 failures are unchanged.",
+    "Actual SDK originator is preserved; these are CLI harness calls, not native UI.",
+    "No new inputs, model invocation, installation or repository edit.",
+    "Only own UUID input/output/current tool receivers and metadata; SDK system/other tasks/encrypted reasoning/auth excluded.",
+    "Raw request switches are interpreted by actual parameter semantics, not fixed order."
+  ]
+}

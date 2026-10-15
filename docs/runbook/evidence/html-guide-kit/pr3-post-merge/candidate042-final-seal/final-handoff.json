@@ -1,0 +1,123 @@
+{
+  "recordedAt": "2026-10-14T19:13:02.682Z",
+  "status": "FINAL_EXTERNAL_PREPARATION_ACTUAL_PACK_PENDING_ROOT",
+  "sourceCanonical": "d25dc63fb81b57859757769c239dbacfd4983492",
+  "sourceTree": "1da998101bcb3738f31a275ad4fb17d97ba5eba8",
+  "sourceVersion": "0.1.29",
+  "fileCount": 300,
+  "totalOriginalBytes": 7028226,
+  "packetCount": 7,
+  "largestPacketBytes": 2042456,
+  "sourceInventorySha256": "df85829ffb7821145ad27ea1ba1d0009ea8efbfb87c1cbfa8fb5835dd35d43c3",
+  "counts": {
+    "UUIDs": 8,
+    "inputs": 14,
+    "complete": 14,
+    "invalid": 0,
+    "pass": 5,
+    "fail": 1,
+    "unexercised": 2,
+    "notRun": 6,
+    "rawFiles": 70,
+    "postStarts": 0,
+    "crossInputs": 0
+  },
+  "mechanisms": [
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack-042-evidence.mjs",
+      "bytes": 56497,
+      "sha256": "3c96fbcee3b32eec4a46597c9953cb5a57f0be7961abf7af020ffe3dd5bbdec8"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\verify-lossless-042-dotnet.ps1",
+      "bytes": 6095,
+      "sha256": "8400efbb2c66c45a72d7ef4fc520ef9100462cad887fa3d20ddb6053ca17c2f5"
+    },
+    {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\dry-source-042-dotnet-c.ps1",
+      "bytes": 3827,
+      "sha256": "dbbde9365ccf909de0c9aacb2a13b6701e473f3e7a9719e41d9a508243b5f7f3"
+    }
+  ],
+  "control": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\archive-042-control.json",
+    "bytes": 101766,
+    "sha256": "24d5bf10c0495be295597fe9f1173fd4c60d14345db0de6e598fe01e1d9f03f5"
+  },
+  "preparationControl": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-29-stopped\\preparation-control.json",
+    "bytes": 83051,
+    "sha256": "6fcb3c7c68611261d0aa21c0706376f8cdb0075e9527be21d5e15a220ae98404"
+  },
+  "accounting": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-29-stopped\\closure\\final-source-accounting.json",
+    "bytes": 79741,
+    "sha256": "529a26efe16da18d41efdf98aae9596f4482a805f50af5d16fd8c22bc65230cd"
+  },
+  "nodeDry": {
+    "chunk": "952d9f",
+    "exitCode": 0,
+    "log": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-29-stopped\\final-dry-run.stdout.log",
+      "bytes": 55380,
+      "sha256": "5daf27ac3bc1ce3d79ba62538be5eb1fe748ebdbc37176aada5cdce2fc0fb50a"
+    }
+  },
+  "dotnetDry": {
+    "chunk": "232827",
+    "exitCode": 0,
+    "log": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\packer-provenance\\0-1-29-stopped\\dotnet-dry-roundtrip.stdout.log",
+      "bytes": 670,
+      "sha256": "6787c412f6b0ddb2cf3b28ca42effbe6722054f2fb679bf488dc22b66ca3fbe2"
+    },
+    "sourceRawByteRoundtrip": 300,
+    "actualArchiveRestoration": "NOT_RUN"
+  },
+  "alreadySealedExactReferences": 75,
+  "finalAllPinnedSourcesStable": true,
+  "secretFindings": 0,
+  "oversized": 0,
+  "target": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-042-stopped",
+  "targetExists": false,
+  "packVector": [
+    "D:/Development/nodejs/node.exe",
+    "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack-042-evidence.mjs",
+    "pack",
+    "--snapshot-name",
+    "patch-042-stopped",
+    "--target",
+    "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-042-stopped",
+    "--max-packet-bytes",
+    "2097151",
+    "--final-reviewed",
+    "true",
+    "--expected-inventory-sha256",
+    "df85829ffb7821145ad27ea1ba1d0009ea8efbfb87c1cbfa8fb5835dd35d43c3"
+  ],
+  "nodeVerifyVector": [
+    "D:/Development/nodejs/node.exe",
+    "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack-042-evidence.mjs",
+    "verify",
+    "--snapshot-name",
+    "patch-042-stopped",
+    "--target",
+    "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-042-stopped",
+    "--compare-originals",
+    "true"
+  ],
+  "dotnetVerifyVector": [
+    "C:/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe",
+    "-NoProfile",
+    "-NonInteractive",
+    "-File",
+    "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\verify-lossless-042-dotnet.ps1",
+    "-Target",
+    "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop\\docs\\runbook\\evidence\\html-guide-kit\\pr3-reviewer\\patch-042-stopped",
+    "-ReviewerRoot",
+    "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer"
+  ],
+  "actualPackNotExecutedByThisAgent": true,
+  "noSourceOrGitWrites": true,
+  "noFuture30PrivateHomeAuthCachesOrUnexportedWholeWindow": true
+}

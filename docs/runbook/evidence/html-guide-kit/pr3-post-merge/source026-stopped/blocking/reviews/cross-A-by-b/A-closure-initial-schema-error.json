@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "status": "REVIEWER_RECORDER_ERROR_NOT_MODEL_RESULT",
+  "recordedAt": "2026-10-14T16:08:08.859Z",
+  "originalExecution": {
+    "toolChunk": "ce20a4",
+    "exitCode": 1,
+    "errorType": "AssertionError",
+    "actual": 7,
+    "expected": 35,
+    "operator": "==",
+    "message": "7 == 35",
+    "nodeVersion": "v22.18.0",
+    "assertionLocation": "[stdin]:1:779"
+  },
+  "cause": "Reviewer initially read nonexistent turn.rawPins inherited from previous stopped-report schema. Actual Source26 operator report uses turn.raw, independently inspected in c9121a. Seven undefined flat-map entries are not seven actual raw files.",
+  "originalOutputFilesWrittenByFailedAttempt": 0,
+  "modelInputsOrReportsOrCriteriaChanged": false,
+  "sourceOperatorReportUnmodified": true,
+  "correctedReadPath": "variants/attempts/turns/raw"
+}

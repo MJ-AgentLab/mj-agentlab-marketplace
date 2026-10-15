@@ -1,0 +1,119 @@
+{
+  "status": "STATIC_ONLY",
+  "verdict": "NO_STATIC_BLOCKERS",
+  "recordedAt": "2026-10-14T18:04:23.716Z",
+  "reviewer": "/root/behavior_014_b",
+  "author": "/root/behavior_014_a",
+  "sourceCanonical": "83b3f50ba6c41f923a2b48bba10ca176102be18d",
+  "sourceTree": "b5bea864f5fefba2d964a158e077225cae82d987",
+  "proposedVersion": "0.1.29",
+  "freeze": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-29\\DRAFT_FINAL_FROZEN.json",
+    "bytes": 5266,
+    "sha256": "d07c46d2db7edbd931c9169b5729a54e701e958ab75045fa61a1a48f89cf23ad"
+  },
+  "resources": [
+    {
+      "relative": "skills/guide/SKILL.md",
+      "draftBytes": 4948,
+      "draftSha256": "dbff8b0f1b829a0b560520d1ae988a87dd9a4142fc6c73ce3e7c25ca3f3096bc",
+      "sourceBytes": 4348,
+      "sourceSha256": "4aed371e92241aa8ff9db57e8b6fc0f1d261b273b2f90f9e84faaf86bdfa95a7",
+      "windowsCrlfBytes": 4982,
+      "gitSnapshotExact": true,
+      "forwardByteExact": true,
+      "inverseByteExact": true,
+      "changed": true
+    },
+    {
+      "relative": "skills/guide/references/guide-framework.md",
+      "draftBytes": 8739,
+      "draftSha256": "fe70ec7005dd564a1cef1e84691c85d4cac278c6b8de1578e87b348742fe7c9b",
+      "sourceBytes": 8373,
+      "sourceSha256": "f1d374844ed9c89028f3dd63cc63a9c0e087ebffd7826688af815185d72db068",
+      "windowsCrlfBytes": 8810,
+      "gitSnapshotExact": true,
+      "forwardByteExact": true,
+      "inverseByteExact": true,
+      "changed": true
+    },
+    {
+      "relative": "skills/guide/references/interaction-design.md",
+      "draftBytes": 7773,
+      "draftSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "sourceBytes": 7773,
+      "sourceSha256": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+      "windowsCrlfBytes": 7836,
+      "gitSnapshotExact": true,
+      "forwardByteExact": true,
+      "inverseByteExact": true,
+      "changed": false
+    }
+  ],
+  "links": [
+    {
+      "relative": "SKILL.md",
+      "target": "references/guide-framework.md",
+      "exists": true
+    },
+    {
+      "relative": "SKILL.md",
+      "target": "references/interaction-design.md",
+      "exists": true
+    },
+    {
+      "relative": "references/guide-framework.md",
+      "target": "interaction-design.md",
+      "exists": true
+    },
+    {
+      "relative": "references/interaction-design.md",
+      "target": "guide-framework.md",
+      "exists": true
+    }
+  ],
+  "windowsEntryLimit": 6144,
+  "windowsEntryMargin": 1162,
+  "fullReads": [
+    {
+      "chunk": "fb5247",
+      "exitCode": 0,
+      "scope": "freeze and three draft resources fully read"
+    },
+    {
+      "chunk": "e3ad9b",
+      "exitCode": 0,
+      "scope": "two changed source resources fully read; interaction draft exact source"
+    }
+  ],
+  "checks": [
+    {
+      "id": "contract-and-sequence-preserved",
+      "result": "NO_STATIC_BLOCKERS",
+      "basis": "两span之外全部源28原byte保持，入口完整显式Read文本新建合同、六内部顺序、三元组明确确认和全部无效回复/宿主边界不变。ID source-exact，所有source保义/局部scope/许可vs结果/恢复动作/真假未知及反馈重试方法保留。"
+    },
+    {
+      "id": "evidence-before-cause",
+      "result": "NO_STATIC_BLOCKERS",
+      "basis": "入口新增前置纪律使首次读取与拒因报告不必依赖未读框架。仅回包明示支持限制/原因，generic拒绝未知；读取形式、只读模式、目录身份/位置、后续成功均不能诊断旧拒因。拒绝事实可报告，但不开展路径权限因果排查。"
+    },
+    {
+      "id": "authorized-read-without-bypass",
+      "result": "NO_STATIC_BLOCKERS",
+      "basis": "明确权限拒绝不得绕过；无具体禁止的generic拒绝只允许原Read授权内单份正文读取，取得当次内容不反证旧原因。没有新命令权限、配置/安装/制作工具说明或环境猜测拒绝。截断及实际接收顺序仍按证据保留。"
+    },
+    {
+      "id": "general-and-adaptive",
+      "result": "NO_STATIC_BLOCKERS",
+      "basis": "新增两段是通用读取证据方法，无领域案例、答案/评审控制、Owner路径或旧会话依赖；不强制教材章节、图控件/题量，不改材料判准或指南服务。"
+    }
+  ],
+  "limitations": [
+    "静态保义和byte重构不证明新模型行为、安装、客户端或现实效果通过。",
+    "本次没有consumer/API/model调用；没有修改运行包、草稿、冻结控制、源28报告或GitHub批准。"
+  ],
+  "runtimeApplied": false,
+  "modelStatus": "NOT_RUN",
+  "installationStatus": "NOT_RUN",
+  "effectStatus": "NOT_MEASURED"
+}

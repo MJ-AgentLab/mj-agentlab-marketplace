@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T14:10:59.708Z",
+  "variant": "B4.2",
+  "attemptId": "160834e7-a212-45ef-a65d-bb5f9536ad2a",
+  "canonicalSha": "b46069e3979136e70d64b9873b799b5bd069ca95",
+  "canonicalTree": "d8a2ffb8646065dff8f7a46fe741b1f93b5873ad",
+  "packageVersion": "0.1.23",
+  "sessionUuid": "01a13aae-6cb1-70c2-adc3-2c6d0a88987f",
+  "reviewer": "/root/behavior_014_b",
+  "operator": "/root/behavior_014_a",
+  "method": "independent_semantic_review",
+  "status": "PASS",
+  "criteria": [
+    {
+      "id": "known-qualification-judgeable",
+      "status": "PASS",
+      "rationale": "Gamma §1 complete AND qualification and one ordinary package are maintained in four combinations, independently of unspecified physical distribution. Current positive qualification does not guarantee physical receipt or invent completed action.",
+      "evidence": [
+        "02.output.txt §三 complete qualification rule",
+        "02.output.txt §五 four combinations / §六 three distinct dimensions"
+      ]
+    },
+    {
+      "id": "missing-process-limited",
+      "status": "PASS",
+      "rationale": "Stock shortage, cancellation and return are treated as coverage-boundary simulations, not known state/inventory transitions. No Alpha initial stock/state/wait/return/cancel/reset effect is imported; source-supported qualification remains available when both current values are given.",
+      "evidence": [
+        "02.output.txt §二 rule gaps",
+        "02.output.txt §七–§九 independent bounded simulations"
+      ]
+    },
+    {
+      "id": "local-hypotheses-and-recovery",
+      "status": "PASS",
+      "rationale": "Reported shortage, cancellation event and prior acquisition are labeled pedagogical constructs/assumptions. Given post-cancel qualification values are not attributed to the absent source operation. UI selection/feedback clearing/reset are scoped pedagogical restoration, not a source business reset.",
+      "evidence": [
+        "02.output.txt §七 construction and reset",
+        "02.output.txt §八 bounded supplementation",
+        "02.output.txt §九 prior-acquisition hypothesis and reset",
+        "02.output.txt §十 retry design"
+      ]
+    },
+    {
+      "id": "bounded-judgments-and-feedback",
+      "status": "PASS",
+      "rationale": "Known qualification checks have reasons/source/misconceptions; no unique cancellation/return handling policy or invented field outcome is supplied. The fixed cancellation self-check has tour-complete and unknown reservation and correctly remains pending. No score, mastery or achieved accessibility claim.",
+      "evidence": [
+        "02.output.txt §十 self-check one through four",
+        "02.output.txt §十一–§十三 planned limits"
+      ]
+    },
+    {
+      "id": "real-cache-reception-and-transport",
+      "status": "PASS",
+      "rationale": "Two actual COMPLETE turns, exact source/mirror/cache7 resources and actual native/additional entry/full references/material reception verified; actual child exit/close0 inside deadline, not model self-report.",
+      "evidence": [
+        "B4.2-receiver-audit.json SHA66f1044d6e6939a839a1467b25e0f5cfc41fa44e71be806e36d74b7fb6c41a7e"
+      ]
+    }
+  ],
+  "installedResourceReading": {
+    "skill": true,
+    "framework": true,
+    "interaction": true,
+    "evidence": [
+      "B4.2-receiver-audit.json actual SDK return and native body proof"
+    ]
+  },
+  "actualContinuousTurns": 2,
+  "plannedTurns": 2,
+  "technicalAudit": {
+    "file": "B4.2-receiver-audit.json",
+    "bytes": 23215,
+    "sha256": "66f1044d6e6939a839a1467b25e0f5cfc41fa44e71be806e36d74b7fb6c41a7e"
+  },
+  "notes": [
+    "Cancellation §八 first leaves reservation and tour values unset; its explicit follow-up/self-check uses tour-complete. A counterfactual tour-false + unknown-reservation situation was not actually provided as that local premise and is not retrospectively run or passed here. Do not generalize this pending example to override decisive false AND values in future cases.",
+    "No previous-source PASS is inherited; this record covers this exact new two-turn guide only."
+  ],
+  "ownB6SelfReviewed": false,
+  "originalFilesModified": false,
+  "gradeCalled": false,
+  "effectStatus": "NOT_MEASURED",
+  "clientUiStatus": "NOT_RUN"
+}

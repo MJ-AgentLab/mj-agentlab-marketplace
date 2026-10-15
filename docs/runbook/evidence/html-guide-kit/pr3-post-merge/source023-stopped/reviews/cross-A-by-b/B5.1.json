@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T14:10:59.708Z",
+  "variant": "B5.1",
+  "attemptId": "d7483e9e-ea6b-4c2a-a28d-dd6cf6d4eab1",
+  "canonicalSha": "b46069e3979136e70d64b9873b799b5bd069ca95",
+  "canonicalTree": "d8a2ffb8646065dff8f7a46fe741b1f93b5873ad",
+  "packageVersion": "0.1.23",
+  "sessionUuid": "01a13ab1-b6e4-79b2-815d-b2a4b2ff46b0",
+  "reviewer": "/root/behavior_014_b",
+  "operator": "/root/behavior_014_a",
+  "method": "independent_semantic_review",
+  "status": "UNEXERCISED",
+  "criteria": [
+    {
+      "id": "first-turn-prefix",
+      "status": "PASS",
+      "rationale": "The actual first turn reads current resources/material and gives three meaningful reader/task/question proposals while waiting. No selected target or guide/self-check is delivered. No definite source-fidelity or contract violation in this prefix.",
+      "evidence": [
+        "01.output.txt full response read f749ab",
+        "B5.1-prefix-receiver-audit.json full native/runtime/material reception"
+      ]
+    },
+    {
+      "id": "reliable-feedback-full-variant",
+      "status": "UNEXERCISED",
+      "rationale": "Only T1 was run; the target was never selected and frozen T2 requesting reliable teaching feedback was never sent. The designed self-check criteria, reasons, misconceptions and retry cannot be graded from a pending target proposal.",
+      "evidence": [
+        "Original batch B5.1 one turn/no selection",
+        "Global marker2026-10-14T13:55:31.634Z",
+        "A stopped operator closure"
+      ]
+    }
+  ],
+  "installedResourceReading": {
+    "skill": true,
+    "framework": true,
+    "interaction": true,
+    "evidence": [
+      "B5.1-prefix-receiver-audit.json SHA4ab7fcf87ffba46169122f04c82cd8f3c3d7eb79e3edcaea226de2f9610c333c"
+    ]
+  },
+  "actualContinuousTurns": 1,
+  "plannedTurns": 2,
+  "remainingNotRunTurns": 1,
+  "selection": null,
+  "technicalAudit": {
+    "file": "B5.1-prefix-receiver-audit.json",
+    "bytes": 15264,
+    "sha256": "4ab7fcf87ffba46169122f04c82cd8f3c3d7eb79e3edcaea226de2f9610c333c"
+  },
+  "timing": {
+    "turn1Started": "2026-10-14T13:54:47.554Z",
+    "globalMarker": "2026-10-14T13:55:31.634Z",
+    "turn1Completed": "2026-10-14T13:55:32.781Z",
+    "inflightNaturallyCrossedMarker": true,
+    "postMarkerNewInputs": 0,
+    "operatorKilledOrRetried": false
+  },
+  "ownB6SelfReviewed": false,
+  "previousSourcePassInherited": false,
+  "gradeCalled": false,
+  "originalFilesModified": false,
+  "effectStatus": "NOT_MEASURED",
+  "clientUiStatus": "NOT_RUN"
+}

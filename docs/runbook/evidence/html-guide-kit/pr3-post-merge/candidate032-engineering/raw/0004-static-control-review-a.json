@@ -1,0 +1,138 @@
+{
+  "recordedAt": "2026-10-14T20:50:53.471Z",
+  "status": "STATIC_ONLY",
+  "conclusion": "NO_STATIC_BLOCKERS",
+  "reviewer": "behavior_014_a",
+  "author": "behavior_014_b",
+  "candidateVersion": "0.1.32",
+  "inputs": {
+    "control": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-32\\CONTROL_DRAFT_ONLY.json",
+      "bytes": 13442,
+      "sha256": "6f7fb2a41aba12d63bfdc520393ce9f63397b8c17b41a812ab7a7feedca6b491"
+    },
+    "inventory": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-32\\control-copy-inventory.draft.json",
+      "bytes": 558088,
+      "sha256": "5db742e7c6a1b32e7b62c8a77cca89af95383dff3c97d660ad2739f30151ad2b"
+    },
+    "delta": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-32\\version-guard-exactdiff.draft.json",
+      "bytes": 2494,
+      "sha256": "db3e26ade55e8fdf6aac1569f392ef535a6fc3afabfcb6b78f3689ceb44cf408"
+    }
+  },
+  "schemaFacts": {
+    "active40": 40,
+    "activeByteExact": 37,
+    "activeVersionHelpersChanged": 3,
+    "controlRows": 42,
+    "reviewerHelpers": 3,
+    "existingSyntaxReceipts": 31,
+    "syntaxReceiptZero": true
+  },
+  "observedDeltas": [
+    {
+      "relative": "prepare-correction.mjs",
+      "literals": 4,
+      "asciiBytes": 4
+    },
+    {
+      "relative": "prepare-coverage.mjs",
+      "literals": 4,
+      "asciiBytes": 4
+    },
+    {
+      "relative": "verify-canonical.mjs",
+      "literals": 1,
+      "asciiBytes": 1
+    },
+    {
+      "relative": "controller.mjs",
+      "literals": 1,
+      "asciiBytes": 1
+    },
+    {
+      "relative": "review-selected-identity.mjs",
+      "literals": 1,
+      "asciiBytes": 1
+    }
+  ],
+  "protectedGroups": [
+    {
+      "name": "source31",
+      "count": 472,
+      "exactFileSet": true,
+      "allBytesAndHashesExact": true,
+      "privatePayloadHashedOnly": true
+    },
+    {
+      "name": "source30",
+      "count": 451,
+      "exactFileSet": true,
+      "allBytesAndHashesExact": true,
+      "privatePayloadHashedOnly": true
+    },
+    {
+      "name": "source29",
+      "count": 362,
+      "exactFileSet": true,
+      "allBytesAndHashesExact": true,
+      "privatePayloadHashedOnly": true
+    }
+  ],
+  "configuration": {
+    "proof": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\diagnostics\\inherited-pr2-6ee40474\\metadata-relocated.json",
+      "bytes": 3891,
+      "sha256": "112d6f63191c781df9d2ca6d99a2f228f299aae82e056e3bf1869ee70d50bb49"
+    },
+    "actualDefault": "gpt-5.6-sol/low",
+    "explicitSelected": "gpt-5.6-sol/high",
+    "freshSupportAndActualSdkIdentityMustBeVerified": true,
+    "v2ByteExact": true,
+    "executionDeadlineMs": 240000,
+    "closeDrainNotBoundedByExecutionTimer": true
+  },
+  "scheduling": {
+    "source31HistoricalFileByteExact": true,
+    "actualHistoricalCandidateVersion": "0.1.28",
+    "actualHistoricalPause": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\normal-execution-pause.flag",
+    "futureRequiredAbsolutePause": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-32\\normal-execution-pause.flag",
+    "explicitBeforePrepareQuoteChooseEachTurn": true,
+    "candidateNormalTurnAndVariantBoundaryChecksByteExact": true,
+    "checkAndSpawnNotAtomic": true,
+    "inflightNaturalReturn": true,
+    "noHostWindowLockClaim": true
+  },
+  "scopeResourceFacts": {
+    "actualFalseAndEarlyReturnNAremainAllowed": true,
+    "noReviewerMaterialCopiedToModel": true,
+    "noExistingResultsReinterpreted": true
+  },
+  "readObservations": [
+    {
+      "tool": "88a26c",
+      "controlAndDeltaTextComplete": true,
+      "inventoryKeyPrintFailedAtJsParse": true,
+      "writes": 0,
+      "calls": 0,
+      "actualInventorySchemaReadTool": "5b7ae7"
+    },
+    {
+      "tool": "6d3f1f",
+      "historicalScheduleInsideSource31ActuallyStillVersion28": true
+    }
+  ],
+  "notRun": {
+    "newSyntaxExecution": true,
+    "fixture": true,
+    "consumer": true,
+    "api": true,
+    "installation": true,
+    "model": true,
+    "repoMutation": true,
+    "gitMutation": true
+  },
+  "staticIsNotBehaviorPass": true
+}

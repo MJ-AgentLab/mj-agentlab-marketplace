@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "status": "STATIC_ONLY",
+  "result": "NO_STATIC_BLOCKERS",
+  "reviewer": "/root/behavior_014_a",
+  "reviewedAt": "2026-10-14T19:07:30.078Z",
+  "authorOfControls": "/root/behavior_014_b",
+  "candidateVersion": "0.1.30",
+  "canonical": null,
+  "controlsFinal": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-30\\CONTROLS_FINAL_FROZEN.json",
+    "bytes": 14580,
+    "sha256": "65ffe22783e8ef9f678f09fe18e4e2855eba3ee8154a306a6c816d49bad8daff"
+  },
+  "inventory": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-30\\frozen-copy-inventory.json",
+    "bytes": 160242,
+    "sha256": "a2165b7f3ab843c5b96eb00fdb1197bd29d3e4c6c90cd95f48ea01d48ccfa30b"
+  },
+  "exactDelta": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-30\\version-guard-exactdiff.draft.json",
+    "bytes": 3544,
+    "sha256": "363ed27d57830dbf25afd325a57a44c85aca1548ac917be7a99d4e55941e6f92"
+  },
+  "sourceReviewedControl": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-29\\CONTROLS_FINAL_FROZEN.json",
+    "bytes": 9726,
+    "sha256": "09fe3fa3f84092f344485a5cb5ac7fd89355335e38b14222464b3a3e0674db95"
+  },
+  "mechanicalVerification": {
+    "controlRows": 42,
+    "active40": 40,
+    "activeExact": 37,
+    "helperRows": 3,
+    "sourceSnapshotExactRows": 45,
+    "versionOnlyDeltas": [
+      {
+        "relative": "prepare-correction.mjs",
+        "literals": 4,
+        "changedAsciiBytes": 8,
+        "forwardInverseExact": true,
+        "sourceSha256": "43d01d777bb1960d60aa655d6be3e43a142585af651f435ebf91fc0c6a552e4c",
+        "proposedSha256": "de85c5b4a4ff1e904901917ed3448a83474f7fcbd60bf58dfd75f2836c88827a"
+      },
+      {
+        "relative": "prepare-coverage.mjs",
+        "literals": 4,
+        "changedAsciiBytes": 8,
+        "forwardInverseExact": true,
+        "sourceSha256": "091976cb8c27d43758e44ea0f433bbfb9b65cf7446f96b55ec883f9ea92a8efd",
+        "proposedSha256": "a9d82fe34177df29d1c1e9fffa7d818e5536308cdab66a5b2f4ff315e1b0b604"
+      },
+      {
+        "relative": "verify-canonical.mjs",
+        "literals": 1,
+        "changedAsciiBytes": 2,
+        "forwardInverseExact": true,
+        "sourceSha256": "839ce44f6002c4a6c3eedbcd06d31738049627182e03bf33dde93a4c11eba685",
+        "proposedSha256": "b6b5dd55765249daf3c2971fce1a4fb7ad0f36dda6fd614916beff7532b348f9"
+      },
+      {
+        "relative": "controller.mjs",
+        "literals": 1,
+        "changedAsciiBytes": 2,
+        "forwardInverseExact": true,
+        "sourceSha256": "7fb7326e788a6862304aeabb3b6a9d565a9e847a33768999f30a2c9d50f8c8a1",
+        "proposedSha256": "6fd0a49314fa8e14d6088886240a69b291d22db76420deb00ddb02f23ccd78f2"
+      },
+      {
+        "relative": "review-selected-identity.mjs",
+        "literals": 1,
+        "changedAsciiBytes": 2,
+        "forwardInverseExact": true,
+        "sourceSha256": "626fa455a4772a4cb8ded68c89d4d553f260fe9ce23f4f67dac15a7f8eaa4b0c",
+        "proposedSha256": "8aa0507b57cd0e921a8837a170d56777b3ffc94297e7cf5f77c7fcaa3d8d03d0"
+      }
+    ],
+    "totalVersionLiterals": 11,
+    "totalAsciiBytesChanged": 22,
+    "protectedSource29Files": 362,
+    "actualSource29Files": 362,
+    "protectedDrift": 0,
+    "extraOrMissing": 0,
+    "syntaxReceiptsRead": 31,
+    "syntaxFailed": 0,
+    "syntaxExecution": "AUTHOR_ORIGINAL_NODE_PARSE_ONLY_RECEIPTS; no repeated control or fixture execution",
+    "noRunsConsumerOrSharedFlagAtReview": true
+  },
+  "staticJudgment": {
+    "materialsInputsCriteriaPlansAndThreeHarnesses": "EXACT_SOURCE29",
+    "reviewSdkReceivers": "TWO_BODY_BYTE_EXACT_FILENAME_ONLY",
+    "selectedIdentity": "Explicit high is checked against fresh supported model list and all actual SDK contexts; actual default low proof remains separately pinned.",
+    "capture": "V2 byteexact; real actual exit and close plus monotonic inDeadline required. SDK completed does not substitute exit; no independent close-drain deadline is claimed.",
+    "transport": "Original completion/error/identity checks plus timeout/late/missing actual exit or close are retained fail-closed.",
+    "scheduling": "Historical schedule0.1.28 paths remain byteexact evidence, not future instructions. FINAL mandatory explicit Source30 --pause-file overrides them. Candidate checks normal turn/variant boundaries; manual quote/choose caller must check the same marker. Check/spawn is not atomic and does not stop inflight.",
+    "isolation": "Three unchanged harnesses build plugin-runtime-only neutral mirrors; reviewer controls/rubrics/answers stay external. Scope rejection observed false/N_A read evidence must not be promoted to true.",
+    "oldStatuses": "Source29 5P/1F/2U/6N and initial reviewer errors remain protected; Source30 configuration is not behavior PASS."
+  },
+  "inspectionTools": [
+    "859862",
+    "e52d9f",
+    "afa15f",
+    "ca531a",
+    "1357d6"
+  ],
+  "schemaPeekNote": "bf7a76 output was truncated while previewing inventory. This verification parsed and checked every actual row/file independently; no full-output claim is made for that preview.",
+  "limitations": {
+    "newModelApi": "NOT_RUN",
+    "installation": "NOT_RUN",
+    "consumer": "NOT_RUN",
+    "behavior": "NOT_RUN",
+    "client": "NOT_RUN",
+    "effect": "NOT_MEASURED"
+  },
+  "rootCanonical13And6GateRequiredBeforeFreshPrepare": true
+}

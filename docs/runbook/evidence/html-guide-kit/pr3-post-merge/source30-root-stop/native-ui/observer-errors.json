@@ -1,0 +1,32 @@
+{
+  "recordedAt": "2026-10-14T19:45:45.558Z",
+  "kind": "REVIEWER_HELPER_ERRORS_NOT_MODEL_INVALID",
+  "errors": [
+    {
+      "tool": "9f2f45",
+      "exitCode": 1,
+      "cause": "SDK nested JSON not decoded and escaped path delimiter not normalized",
+      "rawSnapshotSaved": true,
+      "noModelRetry": true
+    },
+    {
+      "tool": "b2a933",
+      "observerChildExit": 1,
+      "restoreChildExit": 0,
+      "cause": "Decoder corrected but repeated escaped path slashes still prevented call match"
+    },
+    {
+      "tool": "95b722",
+      "exitCode": 1,
+      "cause": "Shell parsing failed before observer edit"
+    },
+    {
+      "tool": "5f0e43",
+      "restoreChildDidNotExecute": true,
+      "cause": "Shell parsing failed before config restoration; actual successful owned restoration separately b2a933"
+    }
+  ],
+  "corrected": "f36408 decoded actual three cache bodies and two natural complete turns",
+  "modelTransportInvalid": false,
+  "originalRawSnapshotUnchanged": true
+}

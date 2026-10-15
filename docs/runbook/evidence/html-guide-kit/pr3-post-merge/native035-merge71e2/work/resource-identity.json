@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T13:02:02.566Z",
+  "producer": "/root/precommit_014",
+  "phase": "IDENTITY_AND_RESOURCE_READ_ONLY_NOT_FINAL_BEHAVIOR",
+  "uuid": "01a13a7d-5e7c-7220-871d-a5e487402c77",
+  "sourceCanonical": "71e2e1bc2bf110b7a3f93ee0db73cb4c8b5c2248",
+  "sourceTree": "13e7378209624e37f26d65fbc275874b8ec0bb90",
+  "actualClient": {
+    "originator": "codex_work_desktop",
+    "cliVersion": "0.162.0-alpha.17.2",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "mode": "Work desktop; metadata and actual UI attribution, not a distinct client inferred from shared executable"
+  },
+  "cwd": "C:\\Users\\Admin\\Documents\\Codex\\2026-10-14\\html-guide-kit-guide-c-users-2",
+  "cacheRoot": "C:/Users/Admin/.codex/plugins/cache/mj-html-guide-ui-22-9444ad44/html-guide-kit/0.1.22",
+  "cacheResources": [
+    {
+      "relative": "plugin.json",
+      "bytes": 1531,
+      "canonicalSha256": "7ab6206c2f29ebed2784dea024d8fe1c1389f241ef0a0d26d6c581e9ab19343d",
+      "actualCacheSha256": "7ab6206c2f29ebed2784dea024d8fe1c1389f241ef0a0d26d6c581e9ab19343d",
+      "actualEqual": true
+    },
+    {
+      "relative": "README.md",
+      "bytes": 2200,
+      "canonicalSha256": "70f58e4d0df415ca87751b142309977a16f096d5be992b16d6a0ba8c62621fd0",
+      "actualCacheSha256": "70f58e4d0df415ca87751b142309977a16f096d5be992b16d6a0ba8c62621fd0",
+      "actualEqual": true
+    },
+    {
+      "relative": "CHANGELOG.md",
+      "bytes": 13359,
+      "canonicalSha256": "9c05b3d7bce1b94518f2eb133848473ea8136afee269baadd4cac03c5cda71eb",
+      "actualCacheSha256": "9c05b3d7bce1b94518f2eb133848473ea8136afee269baadd4cac03c5cda71eb",
+      "actualEqual": true
+    },
+    {
+      "relative": "LICENSE",
+      "bytes": 1068,
+      "canonicalSha256": "cfd483b2cc03452033bbc34d6ceabcc46d9917539070f6721d671705926a2a8d",
+      "actualCacheSha256": "cfd483b2cc03452033bbc34d6ceabcc46d9917539070f6721d671705926a2a8d",
+      "actualEqual": true
+    },
+    {
+      "relative": "assets/icon.png",
+      "bytes": 119566,
+      "canonicalSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+      "actualCacheSha256": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+      "actualEqual": true
+    },
+    {
+      "relative": "assets/icon.svg",
+      "bytes": 1261,
+      "canonicalSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+      "actualCacheSha256": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+      "actualEqual": true
+    },
+    {
+      "relative": "skills/guide/SKILL.md",
+      "bytes": 6086,
+      "canonicalSha256": "ad2924661d2efaa22662d0df31e2968cc581e618e1c45dc9345f5df895eca813",
+      "actualCacheSha256": "ad2924661d2efaa22662d0df31e2968cc581e618e1c45dc9345f5df895eca813",
+      "actualEqual": true
+    },
+    {
+      "relative": "skills/guide/agents/openai.yaml",
+      "bytes": 444,
+      "canonicalSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+      "actualCacheSha256": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+      "actualEqual": true
+    },
+    {
+      "relative": "skills/guide/references/guide-framework.md",
+      "bytes": 9887,
+      "canonicalSha256": "f80f9f70641ff284e7273af6044466934b5c742594e5f8f17f43daff7333bc3d",
+      "actualCacheSha256": "f80f9f70641ff284e7273af6044466934b5c742594e5f8f17f43daff7333bc3d",
+      "actualEqual": true
+    },
+    {
+      "relative": "skills/guide/references/interaction-design.md",
+      "bytes": 9725,
+      "canonicalSha256": "e5f34e53a820ab9b30d3e41d67954456121ef733134e6d1796a09795b3239cef",
+      "actualCacheSha256": "e5f34e53a820ab9b30d3e41d67954456121ef733134e6d1796a09795b3239cef",
+      "actualEqual": true
+    }
+  ],
+  "actualFullResourceReceivers": [
+    {
+      "relative": "skills/guide/SKILL.md",
+      "actualFullBodyMatched": true,
+      "callEvidence": [
+        {
+          "line": 17,
+          "timestamp": "2026-10-14T12:58:17.006Z",
+          "callId": "call_7b623decd0d148dc9d39ff535a8f71e3",
+          "input": "const r = await tools.exec_command({cmd:\"Get-Content -LiteralPath 'C:/Users/Admin/.codex/plugins/cache/mj-html-guide-ui-22-9444ad44/html-guide-kit/0.1.22/skills/guide/SKILL.md' -Raw\",max_output_tokens:12000});text(r.output);\n"
+        }
+      ],
+      "receiverEvidence": [
+        {
+          "line": 20,
+          "timestamp": "2026-10-14T12:58:18.398Z",
+          "callId": "call_7b623decd0d148dc9d39ff535a8f71e3",
+          "rawTextSha256": "12c6fd30965ad1667e8256ef01c5fdbf59462fc457a7a71b8521f1bd3c991b80",
+          "completeCacheBodySha256": "88c48923c61a0adaac0e65d2dce94874138d107f4dde128ed7f2ba432ec1a3ed"
+        }
+      ],
+      "nativeFullSkillBodyWithExactAbsoluteCachePath": true,
+      "nativeEvidence": [
+        {
+          "line": 14,
+          "timestamp": "2026-10-14T12:58:11.551Z"
+        }
+      ]
+    },
+    {
+      "relative": "skills/guide/references/guide-framework.md",
+      "actualFullBodyMatched": true,
+      "callEvidence": [
+        {
+          "line": 22,
+          "timestamp": "2026-10-14T12:58:21.571Z",
+          "callId": "call_d014b17feaa64e62acc536ec957e50fd",
+          "input": "const r = await tools.exec_command({cmd:\"Get-Content -LiteralPath 'C:/Users/Admin/.codex/plugins/cache/mj-html-guide-ui-22-9444ad44/html-guide-kit/0.1.22/skills/guide/references/guide-framework.md' -Raw\",login:false,max_output_tokens:24000});text(r.output);\n"
+        }
+      ],
+      "receiverEvidence": [
+        {
+          "line": 25,
+          "timestamp": "2026-10-14T12:58:22.066Z",
+          "callId": "call_d014b17feaa64e62acc536ec957e50fd",
+          "rawTextSha256": "5785b0d19fb821fa0a9f71e5286370c7e624bdc7df6c579538f3105cd2cfe000",
+          "completeCacheBodySha256": "c465c2732ced000e0a703d9dde601697100e0948e1973a09f0c78df260eae3ee"
+        }
+      ],
+      "nativeFullSkillBodyWithExactAbsoluteCachePath": false,
+      "nativeEvidence": []
+    },
+    {
+      "relative": "skills/guide/references/interaction-design.md",
+      "actualFullBodyMatched": true,
+      "callEvidence": [
+        {
+          "line": 27,
+          "timestamp": "2026-10-14T12:58:25.413Z",
+          "callId": "call_5694468f6b214285a1c208a30235e7b7",
+          "input": "const r = await tools.exec_command({cmd:\"Get-Content -LiteralPath 'C:/Users/Admin/.codex/plugins/cache/mj-html-guide-ui-22-9444ad44/html-guide-kit/0.1.22/skills/guide/references/interaction-design.md' -Raw\",login:false,max_output_tokens:24000});text(r.output);\n"
+        }
+      ],
+      "receiverEvidence": [
+        {
+          "line": 30,
+          "timestamp": "2026-10-14T12:58:25.891Z",
+          "callId": "call_5694468f6b214285a1c208a30235e7b7",
+          "rawTextSha256": "291612ba99d18cfc1748057e1d13d041971033d6f6200530a62abed66b39638d",
+          "completeCacheBodySha256": "a172fb5041f6aaf6feb82a577f9c57a255ea6208dfbbd7104dc0331098e8b41f"
+        }
+      ],
+      "nativeFullSkillBodyWithExactAbsoluteCachePath": false,
+      "nativeEvidence": []
+    }
+  ],
+  "modelGrade": null,
+  "privacy": {
+    "onlyGivenUuidRead": true,
+    "sourceFullSdkNotForPublicPackaging": true,
+    "otherConversationRead": false,
+    "unrelatedProfileDiagnosticWillBeOmittedInPublicToolScope": true
+  },
+  "limitations": [
+    "This verifies actual reception and cache identity. It is not final behavior grading and does not prove window persistence, popup-close behavior, real effects or the pure Chat entry.",
+    "The first shell read has an unrelated PowerShell profile warning. Cache body reception is complete; original raw receiver is retained privately, no generic permission or cause is inferred."
+  ]
+}

@@ -2,6 +2,86 @@
 
 ## [Unreleased]
 
+## [0.1.36] - 2026-10-15
+
+- HTML Guide Kit 0.1.36 changes one existing framework paragraph: distinguish current one-step permission or result from actual claims about multistep paths or unreachability. Only for the latter, check complete source actions, resets and compatible successors within the actual scope, applying each step premise.
+- Missing premises block only dependent conclusions and do not erase other known paths. Do not assume changed conditions or successful outcomes; unshown teaching is not absent source information. Narrow unsupported blanket negatives without requiring exhaustive path enumeration. Entry and interaction-design remain exact Source35 bytes; the public contract and other methods stay intact.
+- Preserve Source35 original whole failure, unrun inputs and limited native client evidence. Fresh engineering, canonical installation and independent behavior/client acceptance remain required. Refs #217, #220.
+
+## [0.1.35] - 2026-10-15
+
+- HTML Guide Kit 0.1.35 changes only two existing framework spans: identify the actual object set and judgment dimension, cross-check related source units per object, and preserve known permission, prohibition and results before stating remaining unknowns.
+- Unshown or unchecked cases are not unprovided source rules. If the object set was not fully checked, narrow the statement to checked items and evidence-bound unknowns. Entry and interaction-design remain exact Source34 bytes; all prior methods and the public contract stay intact.
+- Preserve Source34 original whole failure, unrun inputs and limited native pending-stage evidence. Fresh engineering, canonical installation and independent behavior/client acceptance remain required. Refs #217, #220.
+
+## [0.1.34] - 2026-10-15
+
+- HTML Guide Kit 0.1.34 establishes necessary shared example inputs, actual coverage and local overrides before giving results; independent examples receive their required starting inputs.
+- Audit complete local source/design action attribution, including source non-field effects; do not restrict source restoration to terminal values. Keep explicit full-unit reuse and dimension-bound properties.
+- Apply only three reviewed entry/framework spans and keep interaction-design exact. Preserve Source33 whole failures and unrun inputs, all original criteria, broad permissions, conditional dependencies and public contract. Fresh engineering, installation and independent behavior/client evidence remain required. Refs #217, #220.
+
+## [0.1.33] - 2026-10-15
+
+- HTML Guide Kit 0.1.33 preserves all parallel source actions, objects and non-field effects before terminal field values; field-only summaries cannot replace a complete operation or recovery unit.
+- Apply only three reviewed entry/framework spans; keep interaction-design exact, actual local scope reuse, goal-based omitted units and dimension-bound necessary properties.
+- Preserve original0.1.32 whole failure, unrun cases and earlier limited client evidence. Fresh engineering, canonical installation and independent behavior/client evidence remain required. Refs #217, #220.
+
+## [0.1.32] - 2026-10-15
+
+- HTML Guide Kit 0.1.32 preserves condition conclusions decided by known AND/OR operands even when another input is unknown, using the complete source criterion and actual dependencies.
+- Apply only three reviewed entry/framework spans; retain interaction-design bytes, source scope, necessary-versus-sufficient distinctions, actual-example inputs and explicit Read-only new-guide/text boundaries.
+- Preserve original0.1.31 whole failure, partial/unrun cases and prior limited client results. Require fresh engineering, canonical installation and independent behavior/client evidence. Refs #217, #220.
+
+## [0.1.31] - 2026-10-15
+
+- HTML Guide Kit 0.1.31 separates source prerequisites/initial values from actual example inputs, using only explicitly applicable shared setups or clearly marked teaching assumptions. Candidate questions must preserve source operation permission and result distinctions.
+- Apply only three reviewed entry/framework spans; retain interaction-design bytes, known broad permissions, relevant unknown dependencies and the explicit Read-only new-guide/text contract.
+- Preserve actual0.1.30 whole failures, partial/unrun paths and limited client results; require fresh engineering, precise installation and independent behavior/client checks. Refs #217, #220.
+
+## [0.1.30] - 2026-10-15
+
+- HTML Guide Kit 0.1.30 checks the actual source scope and all stated prerequisites before declaring information gaps. Preserve covered operation permissions and explicit results; unmentioned repetition, previous field values or extra history do not create new prerequisites.
+- Apply only the approved entry/framework spans. Keep interaction-design byte-exact, genuine unknown outcomes and scope boundaries, the explicit Read-only text contract, target confirmation and teaching methods.
+- Preserve the real0.1.29 cancellation-permission failure and all partial/unrun evidence. Fresh engineering, canonical installation, independent behavior and current client checks remain required. Refs #217, #220.
+
+## [0.1.29] - 2026-10-15
+
+- HTML Guide Kit 0.1.29 puts single-file reading and evidence-based refusal reporting before the first read, and aligns the framework: unspecified causes and permission scope stay unknown; later successful reads do not prove earlier refusal causes.
+- Apply only the approved entry/framework spans; interaction-design remains byte-exact. Preserve the explicit Read-only chat-text contract and all target confirmation, source fidelity, simulation, recovery and teaching feedback boundaries.
+- Preserve original0.1.28 failures. Fresh canonical installation, independent behavior and this version’s client checks remain required; explicit high stays separate from the actual low default. Refs #217, #220.
+
+## [0.1.28] - 2026-10-15
+
+- HTML Guide Kit 0.1.28 condenses the entry and two references into shared ordered evidence, target confirmation, complete source rules, example computation and whole-guide checking.
+- Preserve the explicit Read-only chat-text contract, adaptive depth, conditions, restoration, bounded unknowns and teaching feedback/retry without scores or production steps; no fixture answers or fixed guide structure.
+- Original0.1.27 failures remain separate. Require fresh canonical installation, behavior and client checks; external explicit reasoning selection stays separate from the real default. Refs #217, #220.
+
+## [0.1.27] - 2026-10-15
+
+- HTML Guide Kit 0.1.27 classifies each source action or field result and added instructional result before composing sentences or lists; a grouped source citation cannot cover added design items.
+- Bound additional-path gaps separately from known direct-operation judgments. Only three existing spans in SKILL.md and interaction-design.md change; guide-framework.md and the public contract remain exact.
+- Preserve source0.1.26 actual failures and partial/not-run paths; require fresh installation and frozen behavior/client acceptance. Refs #217, #220.
+
+## [0.1.26] - 2026-10-14
+
+- HTML Guide Kit 0.1.26 matches the actual object, state, direct operation and result dimension against permissions, prohibitions, restoration and exceptions before identifying a specific missing dimension, including proposal summaries.
+- Only two existing spans in SKILL.md and guide-framework.md change; interaction-design.md, contract, icon, policy and other packages remain. Preserve source0.1.25 actual fidelity failure, legitimate comparison notes and unexercised paths; require fresh installation and frozen behavior/client checks. Refs #217, #220.
+
+## [0.1.25] - 2026-10-14
+
+- HTML Guide Kit 0.1.25 reorganizes SKILL.md and both references into an ordered method. Check known rules before gaps, then compute each example’s actual missing conditions and compare the feedback with its inputs.
+- Preserve the explicit Read-only new-guide contract, source fidelity, confirmation, simulation, self-check and text boundaries. No fixed guide structure or fixture answers. Preserve actual0.1.24 failures; fresh installed behavior and client checks remain required. Refs #217, #220.
+
+## [0.1.24] - 2026-10-14
+
+- HTML Guide Kit 0.1.24 checks exclusive claims against the same result dimension and separates operation permission from achieving a target result. Incomplete local relationships can use faithful text or complete rule units without a fixed format.
+- Only two references change in three existing spans; entry, icon, public contract and other plugins remain. Preserve source0.1.23 actual failures, passes and unexercised paths; require fresh exact installation and behavior/client verification. Refs #217, #220.
+
+## [0.1.23] - 2026-10-14
+
+- HTML Guide Kit 0.1.23 reorganizes source-rule checks and two-way guide audits, retaining all source recovery actions in local relations and keeping teaching input choices separate from source limits. The entry and public contract remain unchanged.
+- Preserve source0.1.22 original failures and actual merged-version installation/client evidence; require fresh installation and frozen behavior verification. Refs #217, #220.
+
 ## [0.1.22] - 2026-10-14
 
 - HTML Guide Kit 0.1.22 preserves every source prerequisite in result-bearing graph connections, including required current state and direct operation, or explicitly establishes the actual diagram scope. Pure condition relations remain distinct from operation results.

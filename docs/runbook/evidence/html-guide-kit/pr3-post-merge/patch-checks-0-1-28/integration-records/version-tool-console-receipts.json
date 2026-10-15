@@ -1,0 +1,20 @@
+{
+  "recordedAt": "2026-10-14T17:39:29.634Z",
+  "method": "DERIVED_TRANSCRIPTION_OF_ACTUAL_TOOL_CONSOLE_OUTPUTS",
+  "originalDiskLogUnavailable": true,
+  "notAnOriginalLogOrReexecution": true,
+  "checks": [
+    {
+      "chunk": "a31456",
+      "exitCode": 0,
+      "command": "scripts/bump-version.ps1 -From 0.1.27 -To 0.1.28 -Scope html-guide-kit -DryRun",
+      "stdout": "\r\n  [MATCH] plugins/html-guide-kit/plugin.json (scoped: authoritative plugin version)\r\n    L4: \"version\": \"0.1.27\",\r\n      -> \"version\": \"0.1.28\",\r\n\r\n------------------------------------------------------------\r\n[DryRun] Found 1 anchored target(s) in scope 'html-guide-kit'\r\n[DryRun] No files were modified. Re-run without -DryRun to apply.\r\n\r\n"
+    },
+    {
+      "chunk": "ec56d6",
+      "exitCode": 0,
+      "command": "scripts/bump-version.ps1 -From 0.1.27 -To 0.1.28 -Scope html-guide-kit",
+      "stdout": "\r\n  [MATCH] plugins/html-guide-kit/plugin.json (scoped: authoritative plugin version)\r\n    L4: \"version\": \"0.1.27\",\r\n      -> \"version\": \"0.1.28\",\r\n\r\n------------------------------------------------------------\r\n[Done] Modified 1 file(s) at 1 anchor(s)\r\nNext: verify with 'npm run validate' and update CHANGELOG entries.\r\n\r\n"
+    }
+  ]
+}

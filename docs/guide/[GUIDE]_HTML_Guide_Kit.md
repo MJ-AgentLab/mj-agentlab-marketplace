@@ -4,14 +4,14 @@ scope: html-guide-kit
 summary: "Use the explicit Read-only guide entry and confirm a teaching goal"
 owner: marketplace-maintainers
 created: 2026-10-12
-updated: 2026-10-14
+updated: 2026-10-15
 state: active
-version: v1.22
+version: v1.36
 ---
 
 # [GUIDE] HTML Guide Kit
 
-HTML Guide Kit 从文档或明确对话快照，新建可复制的交互教材绘制指南。初始 0.1.0 已合入 develop；本分支 0.1.22 为修正候选，正在验收。main / v8.2.0 已发布 Diagram、Learning Evidence、Explain 三插件，HTML 另行发行。实际登记、安装和客户端状态见当前市场与 [验收记录](../runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
+HTML Guide Kit 从文档或明确对话快照，新建可复制的交互教材绘制指南。初始 0.1.0 已合入 develop；0.1.22已合入develop；本分支0.1.36为后续修正候选，正在验收。main / v8.2.0 已发布 Diagram、Learning Evidence、Explain 三插件，HTML 另行发行。实际登记、安装和客户端状态见当前市场与 [验收记录](../runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。
 
 ## Start and confirm
 
@@ -30,6 +30,12 @@ HTML Guide Kit 从文档或明确对话快照，新建可复制的交互教材�
 按需要描述内容顺序、并列比较、分步演示、条件模拟和教学自检。必要交互说明操作、变化、结果、反馈和恢复方式。来源中的关键原文、条件、例外、不确定性与定位继续可见。
 
 完整规则支持可判定模拟；规则缺失或冲突时保留待定范围，不补造唯一结果。可靠判准给出理由和误区，允许重试；没有可靠判准时提供有限参考思路，不给能力评分或长期掌握结论。
+
+独立演示或题目须给出判定必需信息；源条件与初值不自动成为另设情境的题设。仅在已明确覆盖的共同题设下复用，缺必要信息可明示教学假设或保留依赖结果未知。候选问题也不能把许可与成功结果混为已知前提。
+
+完整条件判准按各结论的实际且/或依赖求值，另一项未知不撤已知项已决定的结果；仅仍依赖缺项的结论保未知，不把纯必要条件当充分判准。
+
+判断前先区分当前一步的许可或结果与实际提出的多步路径存在或不可达；仅对后者核同范围内的源完整动作、恢复与可串接后继，逐步代入前提。缺项只阻仍依赖它的结论，不撤已有路径，不虚构条件改变或目标成功；未教未画不当源未给，不能支持整体否定时收窄到已核范围。原逐对象保已知、共同题设与完整恢复归属等方法保持，不增加固定模板或穷举要求。
 
 ## Scope and evidence
 

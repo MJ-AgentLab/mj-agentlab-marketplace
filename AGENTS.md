@@ -64,11 +64,11 @@ Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基
 
 ## HTML Guide Kit 阶段实施
 
-[Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217)授权三阶段/worktree/codex。#221 merge70267a5复验/#218关闭；#226 d106e766同72cdd08树，0.1.0/第二轮A/七安装四Python复验/#219关闭。旧批准缺项保留。#231须当前head非作者批准、CI/线程/merge复验，不bypass或指定审查人。
+[Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217)授权三阶段/worktree/codex。#221 merge70267a5复验/#218关闭；#226 d106e766同72cdd08树，0.1.0/第二轮A/七安装四Python复验/#219关闭。旧批准缺项保留。#231实际merge71e2同head树、CI全P/reviews空；原批准缺项保留，不bypass或指定审查人。
 
-合同见[ADR](docs/adr/[ADR]_HTML_Guide_Kit_Addition.md)及[SPEC](docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)：仅显式$html-guide-kit:guide、Read、中文/原术语、聊天文本新建指南。实际读材料/明确快照，分原料/核验背景/构造，保留定位/冲突/缺口。每次2–3不同读者/任务/问题＋推荐理由，明确选择/修改确认才编排；默认/推荐/预选/沉默/超时/无关回复/消失非确认，未答保留同一待确认，不承诺锁宿主。深度随材料，演示/模拟/自检含反馈/恢复、理由/误区、重试及判准边界；不评分/长期掌握。不修订/比较/审查，不输出HTML/代码/文件/制作工具步骤或越权执行；仅SKILL及两参考，无Owner路径/研究治理依赖。
+合同见[ADR](docs/adr/[ADR]_HTML_Guide_Kit_Addition.md)及[SPEC](docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)：仅显式$html-guide-kit:guide，Read、中文/原术语、聊天文本新建。实际读材料/明确快照，分原料/核验背景/构造，保原文、定位、冲突/缺口。每次2–3不同读者/任务/问题及推荐理由，明确选择或修改确认才编排；默认/推荐/预选/沉默/超时/无关/消失非确认，未答保同一待确认，不锁宿主。深度随材料；按需演示/模拟/自检含操作、变化、结果、反馈、恢复、理由/误区和重试；无可靠判准给有界参考，不评分/长期掌握。不修订/比较/审查，不输出HTML/代码/文件/制作步骤或越权；仅SKILL及两参考，无Owner路径/研究治理依赖。
 
-HTML0.1.22候选未合并；同步c1fa458，五包七技能/四显式/三自然/20repo-only，市场8.3.0/他包版本保持，main8.2.0三包，HTML另发。21准确1799十三安装/六Python/九CI通过，14UUID30C独立13P1F；B2具体关系图漏必要当前态，原F保留。22三段修正接入；aac6十三安装/六PythonP；22实际10UUID20C，来源范围/恢复图两F保留，部分未跑/待审，客户端工具停止；见RUNBOOK§43。2c归档名及627e CRLF预算原失败保留，不放宽校验。
+HTML22/71e2合并复验/批准缺项保；开发5包7技能/4显式/3自然/20repo-only，市场8.3.0/其他不变。源23–34失败/有限UI保。35/0ed工程346/13安装6PythonP，10UUID20C全7P1F2U4N、10未发/0post/0cross，无路径断言F；Work3C含指南/本地Codex1C待选仅有限证据，双端整体U/自有复原。36仅FW一span区分一步与多步断言，entry/ID保持；36/a47d3dff工程346/13安装6PythonP，model/双端N，见§76。Refs #217/#220。
 
 现实效果另测NOT_MEASURED；原生接口已可用，源20 Work三轮有限路径独立通过、Codex应用另三轮有限路径独立通过；普通Chat入口不可用。原生空返回/超时/关闭未执行，CLI不替代。核心可分段交付，延期不当通过，#220/Epic开放、Owner接受独立。控制修正/来源/准确会话及历史见[RUNBOOK](docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)§11–42；不继承旧PASS。研究项目只读。
 

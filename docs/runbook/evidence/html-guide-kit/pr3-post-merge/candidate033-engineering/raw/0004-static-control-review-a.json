@@ -1,0 +1,158 @@
+{
+  "recordedAt": "2026-10-14T21:47:46.676Z",
+  "status": "STATIC_ONLY",
+  "conclusion": "NO_STATIC_BLOCKERS",
+  "reviewer": "behavior_014_a",
+  "controlAuthor": "behavior_014_b",
+  "candidateVersion": "0.1.33",
+  "inputs": {
+    "control": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-33\\CONTROL_DRAFT_ONLY.json",
+      "bytes": 13693,
+      "sha256": "2cb0c456841a9495ecc7d749c75ee26d1dcc18e54ac4994f9ea1feea520fde47"
+    },
+    "inventory": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-33\\control-copy-inventory.draft.json",
+      "bytes": 848768,
+      "sha256": "de22f0361cc452452b64df297a27d2a763df3d53d99dcd45d379b7bb62f833bc"
+    },
+    "delta": {
+      "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-33\\version-guard-exactdiff.draft.json",
+      "bytes": 2582,
+      "sha256": "ff66c2e9935a354e080cf5fb2d7a6ed426d1ca51602bd97294d0ec5ea4ec830f"
+    }
+  },
+  "schemaFacts": {
+    "controlRows": 42,
+    "active40": 40,
+    "activeByteExact": 37,
+    "threeVersionHelpers": 9,
+    "controllerLiteral": 1,
+    "sdkLiteral": 1,
+    "totalLiterals": 11,
+    "totalAsciiBytes": 11,
+    "reviewerHelpers": 3,
+    "authorSyntaxReceipts": 31,
+    "authorSyntaxReceiptsActuallyZero": true
+  },
+  "deltas": [
+    {
+      "relative": "prepare-correction.mjs",
+      "literals": 4,
+      "asciiBytes": 4
+    },
+    {
+      "relative": "prepare-coverage.mjs",
+      "literals": 4,
+      "asciiBytes": 4
+    },
+    {
+      "relative": "verify-canonical.mjs",
+      "literals": 1,
+      "asciiBytes": 1
+    },
+    {
+      "relative": "controller.mjs",
+      "literals": 1,
+      "asciiBytes": 1
+    },
+    {
+      "relative": "review-selected-identity.mjs",
+      "literals": 1,
+      "asciiBytes": 1
+    }
+  ],
+  "protectedGroups": [
+    {
+      "name": "source32",
+      "count": 677,
+      "exactFileSet": true,
+      "allByteHashesExact": true,
+      "privatePayloadOnlyHashedNotParsed": true
+    },
+    {
+      "name": "source31",
+      "count": 472,
+      "exactFileSet": true,
+      "allByteHashesExact": true,
+      "privatePayloadOnlyHashedNotParsed": true
+    },
+    {
+      "name": "source30",
+      "count": 451,
+      "exactFileSet": true,
+      "allByteHashesExact": true,
+      "privatePayloadOnlyHashedNotParsed": true
+    },
+    {
+      "name": "source29",
+      "count": 362,
+      "exactFileSet": true,
+      "allByteHashesExact": true,
+      "privatePayloadOnlyHashedNotParsed": true
+    }
+  ],
+  "source32RootProtectedTracking": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\tracking\\032-final-protected-source-set.json",
+    "bytes": 141291,
+    "sha256": "0ba384c3e25223b0f3287d51a8b165098607233c803001073e23077d55046f6e"
+  },
+  "source32SetDigest": "aa1e0ef6fbe8b5879ade083ebc8d4a955942e419e2681b4879ae28b4cbf7d434",
+  "source32TrackingRowsExact": true,
+  "configuration": {
+    "originalProofSha256": "112d6f63191c781df9d2ca6d99a2f228f299aae82e056e3bf1869ee70d50bb49",
+    "defaultLowUnchanged": true,
+    "explicitSelectedHigh": true,
+    "freshModelApiSupportAndActualSdkHighStillRequired": true,
+    "V2ByteExact": true,
+    "deadlineMs": 240000,
+    "closeDrainHasIndependentDeadline": false,
+    "twoReceiverBodiesByteExact": true,
+    "actualFalseOrScopeEarlyReturnNARemainActual": true
+  },
+  "canonicalBinding": {
+    "candidateCanonical": null,
+    "futureFullShaArgumentRequired": true,
+    "manifest33CheckedFromThatGitCommitBeforePrepare": true,
+    "sourceMirrorCacheSevenRuntimeHashesMustMatchThatCommit": true,
+    "loadEachTurnChecksCacheHashes": true,
+    "neutralPathsAndReviewerExclusionByteExact": true,
+    "fullTreeEqualityNotClaimed": true,
+    "actualFutureRuntimeNotTested": true
+  },
+  "scheduling": {
+    "historicalScheduleBodyByteExact": true,
+    "actualHistoricalVersion": "0.1.28",
+    "actualHistoricalPause": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-28\\normal-execution-pause.flag",
+    "futureMandatoryAbsolutePause": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-33\\normal-execution-pause.flag",
+    "callerMustCheckBeforePrepareManualQuoteChoose": true,
+    "eachCandidateInvocationMustExplicitlyPassSamePause": true,
+    "candidateTurnAndVariantChecksByteExact": true,
+    "checkAndSpawnNotAtomic": true,
+    "inflightNaturalReturn": true,
+    "noHostWindowLockClaim": true
+  },
+  "privacy": {
+    "noRealConfigOrUiInstallationRead": true,
+    "privateSdkPayloadOnlyHashedWhereProtectedNotParsedOrCopied": true,
+    "uiFourProposalNotReadyNotActive": true
+  },
+  "actualSourceReads": [
+    "e33ecf",
+    "15369c",
+    "cf7eda",
+    "440594"
+  ],
+  "notRun": {
+    "newSyntaxExecution": true,
+    "fixture": true,
+    "consumer": true,
+    "api": true,
+    "installation": true,
+    "model": true,
+    "repoMutation": true,
+    "gitMutation": true
+  },
+  "oldResultsNotReinterpreted": true,
+  "staticIsNotBehaviorPass": true
+}

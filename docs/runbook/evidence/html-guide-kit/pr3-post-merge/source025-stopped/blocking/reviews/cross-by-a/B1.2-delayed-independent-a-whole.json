@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "recordedUtc": "2026-10-14T15:36:08.8398445Z",
+  "reviewer": "/root/behavior_014_a",
+  "operator": "/root/precommit_014",
+  "rootRole": "independent whole reviewer/coordination",
+  "canonical": {
+    "repo": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\develop",
+    "canonicalSha": "ba74bbe3d1b64b59ccc7e92d58a66a011126215e",
+    "canonicalTree": "28e0fca836c31dce00e491b269323dc79e8739da"
+  },
+  "variant": "B1.2-delayed",
+  "uuid": "01a13b05-31d3-70d0-adfb-983708d2f7a9",
+  "attemptId": "2d7d9aa1-b5c2-4f5e-b40b-20c80393e760",
+  "actualTurns": 3,
+  "primaryBehavior": "PASS",
+  "wholeFidelity": "PASS",
+  "scope": "Independent full original input/output semantic review, not new technical transport or UI certification",
+  "rawPins": [
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\01.input.txt",
+      "bytes": 989,
+      "sha256": "b2fdd5bfa9dc239d48e4a033903f887a9340c678de684c6ad888e3ba6d3563c0"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\01.output.txt",
+      "bytes": 3690,
+      "sha256": "9d6252e076fb7397ea3d79fd17b5ac6e76cde011cf039d930e431a5d939e80e3"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\02.input.txt",
+      "bytes": 133,
+      "sha256": "3961b1ba9c09ccf3adbc732aaf19965fe0dbc0503bba5b810ee5162317ce0388"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\02.output.txt",
+      "bytes": 923,
+      "sha256": "64b788ef627db0a9c2208b8ebeaf6ab3bb6382ad5b365c2bc9f89f5be1a89ae7"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\03.input.txt",
+      "bytes": 43,
+      "sha256": "6b89a74c6d035fb6440da4cb0320de40d5d57390ce797f9c847362b8c4697fb1"
+    },
+    {
+      "path": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\corrections\\0-1-25\\blocking\\runs\\66e18239-1e9d-4e8b-a3e8-5cb599dd6aec\\B1.2-delayed\\2d7d9aa1-b5c2-4f5e-b40b-20c80393e760\\03.output.txt",
+      "bytes": 11388,
+      "sha256": "f26f8e920fb718d411e04985a29ada2988eb7ca473afecba27c06c130f68f83f"
+    }
+  ],
+  "materialPin": {
+    "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\e51578f2-edaa-402d-831f-9ec8c7185339\\a14c1db4-c575-407a-8ad2-d31381975a8a\\153c9ded-0016-44d5-859f-89a4713db50f\\4c8da190-3927-43ca-ba30-e98f5b9b75d8.md",
+    "bytes": 1640,
+    "sha256": "66a948e4903134491c391188b7870e2fb47f3bc102271438911e1ade6a23b502"
+  },
+  "planPin": {
+    "path": "C:/Users/Admin/.codex/worktrees/html-guide-acceptance/reviewer/corrections/0-1-25/blocking/plan.json",
+    "bytes": 13618,
+    "sha256": "58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2"
+  },
+  "fullReadTools": [
+    "54a7d2",
+    "073fb9",
+    "f5e6ee",
+    "ffb7fc"
+  ],
+  "notes": [
+    "T2只修改实际3目标并待确认，理解问题保持；T3采用更新后的首次访客/何时领取任务和四原理解问题，不要求第二确认。",
+    "完整领取许可与正/零库存分支分开；四资格组合真实缺项一致；所有其他状态禁止领取，源归还取消与全恢复完整。§五4明确源恢复动作不证明同值唯一入口。",
+    "§四4把等待补充称作状态属于松散措辞note；全文§三/§四2/§五3反复明确其访客主状态仍已核验，未创造独立新状态或规则。"
+  ],
+  "preservedHistory": "Original REVIEW_HOLD, pending notes and raw output untouched; this independent later conclusion does not rewrite those bytes.",
+  "effectStatus": "NOT_MEASURED",
+  "noModelCalled": true
+}

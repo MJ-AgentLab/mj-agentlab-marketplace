@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "status": "READ_ONLY_FACT_CHECK",
+  "created": "2026-10-14T16:52:39.907Z",
+  "sourceCanonical": "00d59da3099113ccbf3db73b84787c526eedd713",
+  "packageVersion": "0.1.27",
+  "task": "Audit documented CLI/model/reasoning binding; no configuration change or model execution",
+  "findings": [
+    {
+      "scope": "SPEC",
+      "conclusion": "Contract fixes Codex CLI 0.147.0; requires actual model/provider/reasoning records; does not name gpt-5.6-sol or low as a required model/effort.",
+      "evidence": [
+        {
+          "relative": "docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md",
+          "line": 164
+        },
+        {
+          "relative": "docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md",
+          "line": 192
+        },
+        {
+          "relative": "docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md",
+          "line": 194
+        }
+      ],
+      "searchTerms": [
+        "gpt-5.6-sol",
+        "low",
+        "effort",
+        "reasoning",
+        "0.147.0"
+      ]
+    },
+    {
+      "scope": "ADR",
+      "conclusion": "ADR specifies real continuous behavior sessions and model/client identity recording; it has no gpt-5.6-sol/low gate.",
+      "evidence": [
+        {
+          "relative": "docs/adr/[ADR]_HTML_Guide_Kit_Addition.md",
+          "line": 74
+        },
+        {
+          "relative": "docs/adr/[ADR]_HTML_Guide_Kit_Addition.md",
+          "line": 78
+        }
+      ]
+    },
+    {
+      "scope": "CURRENT_FROZEN_CONTROL",
+      "conclusion": "Preparation enforces actual model/list default model and defaultReasoningEffort. Current wrappers have no explicit model/effort selector. The generic argument parser accepting key/value pairs does not implement unreferenced --model/--effort flags.",
+      "evidence": [
+        {
+          "relative": "blocking/harness.mjs",
+          "lines": [
+            23,
+            29,
+            258,
+            259,
+            263,
+            295,
+            309,
+            336,
+            351
+          ]
+        },
+        {
+          "relative": "prepare-correction.mjs",
+          "lines": [
+            4,
+            14,
+            15
+          ]
+        }
+      ]
+    },
+    {
+      "scope": "ACTUAL_METADATA_ONLY",
+      "conclusion": "The current default model supports high according to the actual pinned CLI model/list response; its actual default remains low. Support metadata is not a high configuration run or behavior PASS.",
+      "actualDefault": {
+        "model": "gpt-5.6-sol",
+        "isDefault": true,
+        "hidden": false,
+        "defaultReasoningEffort": "low",
+        "supportedReasoningEfforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max",
+          "ultra"
+        ]
+      },
+      "models": {
+        "relative": "blocking/runs/dacc1132-945e-4872-becc-3f75ba09dcdc/models.json",
+        "bytes": 12679,
+        "sha256": "a634abaaed15450a15773ad545e8f75f9771915c5183b7b160a4a9f74608312f"
+      },
+      "batch": {
+        "relative": "blocking/runs/dacc1132-945e-4872-becc-3f75ba09dcdc/batch.json",
+        "bytes": 466158,
+        "sha256": "8679a37e62420da7a1ba81893bd1106d4e0ab628a46c8fcefcebb7b31b222b1d",
+        "baselineVersion": "codex-cli 0.147.0",
+        "effectiveBaseline": {
+          "model": "gpt-5.6-sol",
+          "model_reasoning_effort": "low"
+        }
+      }
+    }
+  ],
+  "activeHarnessBindings": [
+    {
+      "relative": "blocking/harness.mjs",
+      "defaultBinding": [
+        {
+          "line": 259,
+          "text": "  const effectiveValues = { model: proof.actualDefault.model, model_reasoning_effort: proof.actualDefault.defaultReasoningEffort, ...(profile.values.model_provider ? { model_provider: profile.values.model_provider } : {}) };"
+        }
+      ],
+      "preparedDefaultGate": [
+        {
+          "line": 295,
+          "text": "  requireThat(metadataProbe.responses[2]?.result?.data?.some(m => m.isDefault && !m.hidden && m.model === effectiveValues.model && m.defaultReasoningEffort === effectiveValues.model_reasoning_effort), \"actual prepared baseline default drifted from proof\");"
+        }
+      ]
+    },
+    {
+      "relative": "expanded/harness.mjs",
+      "defaultBinding": [
+        {
+          "line": 221,
+          "text": "  const effectiveValues = { model: proof.actualDefault.model, model_reasoning_effort: proof.actualDefault.defaultReasoningEffort, ...(profile.values.model_provider ? { model_provider: profile.values.model_provider } : {}) };"
+        }
+      ],
+      "preparedDefaultGate": [
+        {
+          "line": 257,
+          "text": "  requireThat(metadataProbe.responses[2]?.result?.data?.some(m => m.isDefault && !m.hidden && m.model === effectiveValues.model && m.defaultReasoningEffort === effectiveValues.model_reasoning_effort), \"actual prepared baseline default drifted from proof\");"
+        }
+      ]
+    },
+    {
+      "relative": "continuous-supplement/harness.mjs",
+      "defaultBinding": [
+        {
+          "line": 221,
+          "text": "  const effectiveValues = { model: proof.actualDefault.model, model_reasoning_effort: proof.actualDefault.defaultReasoningEffort, ...(profile.values.model_provider ? { model_provider: profile.values.model_provider } : {}) };"
+        }
+      ],
+      "preparedDefaultGate": [
+        {
+          "line": 257,
+          "text": "  requireThat(metadataProbe.responses[2]?.result?.data?.some(m => m.isDefault && !m.hidden && m.model === effectiveValues.model && m.defaultReasoningEffort === effectiveValues.model_reasoning_effort), \"actual prepared baseline default drifted from proof\");"
+        }
+      ]
+    }
+  ],
+  "implementationBoundary": [
+    "No current explicit harness parameter enables high; simply supplying an ignored flag or editing default proof would not establish authorized effective configuration.",
+    "A future explicit supported-effort selection requires a new control identity/delta and independent review; preserve actual default proof as default, and distinguish chosen effective configuration from default metadata.",
+    "Retain provider/model unless separately authorized; require actual session model/effort matching the chosen configuration, cache/runtime/inputs/criteria isolation and continuous UUID evidence.",
+    "Fresh higher-effort evidence is limited to that configuration and finite observed cases. It cannot alter old low FAIL/UNEXERCISED/NOT_RUN or promise future PASS."
+  ],
+  "readObservations": {
+    "initialPathGuessError": {
+      "toolChunk": "86529e",
+      "exitCode": 1,
+      "missing": "corrections/0-1-27/baseline-default-proof.json",
+      "message": "File not found; no such proof was used as evidence."
+    },
+    "secondaryPathGuessError": {
+      "toolChunk": "a028ec",
+      "missing": "corrections/0-1-27/blocking/README.md",
+      "message": "Get-Content file not found; no README interface assertion is based on this absent file."
+    },
+    "truncatedDisplays": [
+      "bb6d7b + 9e0da0 combined output",
+      "a028ec aggregate display"
+    ],
+    "boundedFollowup": "edd123 full targeted harness ranges and e3d092 complete SPEC sections 5/6/7/8; findings use these exact ranges and actual structured model metadata, not a claim that aggregate truncated output was fully displayed."
+  },
+  "sourceFiles": [
+    {
+      "root": "repository",
+      "relative": "docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md",
+      "bytes": 28245,
+      "sha256": "b0dcd605852d3d524bb2aa08256462cbfa43f3d2b48ca1f8850b89c9fa44aacb"
+    },
+    {
+      "root": "repository",
+      "relative": "docs/adr/[ADR]_HTML_Guide_Kit_Addition.md",
+      "bytes": 10159,
+      "sha256": "b75be7ca731228bac81bcd4eff8b50038a016642953eb3649b38d9482bc46552"
+    },
+    {
+      "root": "corrections/0-1-27",
+      "relative": "prepare-correction.mjs",
+      "bytes": 1937,
+      "sha256": "6960eadef02141a7907d3471cb85653eb734eb47c5164abc10984cfa475f741c"
+    },
+    {
+      "root": "corrections/0-1-27",
+      "relative": "blocking/harness.mjs",
+      "bytes": 44751,
+      "sha256": "916bd929785c366559647bcbb2c62a74c8e531485f2f8fe99d1ac5add12e077a"
+    },
+    {
+      "root": "corrections/0-1-27",
+      "relative": "expanded/harness.mjs",
+      "bytes": 43715,
+      "sha256": "910b412ddbd3a2032435342d5d3b194709240724a3a40a027ae02acc3d7bdf9f"
+    },
+    {
+      "root": "corrections/0-1-27",
+      "relative": "continuous-supplement/harness.mjs",
+      "bytes": 43715,
+      "sha256": "910b412ddbd3a2032435342d5d3b194709240724a3a40a027ae02acc3d7bdf9f"
+    }
+  ],
+  "noModel": true,
+  "noInstall": true,
+  "noGrade": true,
+  "noRepoMutation": true,
+  "noControlMutation": true,
+  "noDefaultProofMutation": true,
+  "noBehaviorStatusChange": true
+}

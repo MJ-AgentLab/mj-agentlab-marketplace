@@ -1,0 +1,647 @@
+{
+  "recordedAt": "2026-10-14T19:08:00.994Z",
+  "phase": "FINAL_SOURCE29_EXTERNAL_DRY_ONLY",
+  "sourcePacker": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack-041-evidence.mjs",
+    "bytes": 33733,
+    "sha256": "ac93a182702d5515a9c433a78d3be79f7a3ac89a07e37f96eef31ec17d12ec19"
+  },
+  "sourceDotnet": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\verify-lossless-041-dotnet.ps1",
+    "bytes": 6096,
+    "sha256": "4ec1ebee214baa15b4dffe575458791cf217cad29a277d78982a0ec7a9d4f702"
+  },
+  "sourceDryDotnet": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\dry-source-041-dotnet-b.ps1",
+    "bytes": 3827,
+    "sha256": "73d8f7b44117ee68e32d1925365a221ee5e78e3f44a07e0a8ba603b53a02ea03"
+  },
+  "packer": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\pack-042-evidence.mjs",
+    "bytes": 56497,
+    "sha256": "3c96fbcee3b32eec4a46597c9953cb5a57f0be7961abf7af020ffe3dd5bbdec8"
+  },
+  "dotnet": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\verify-lossless-042-dotnet.ps1",
+    "bytes": 6095,
+    "sha256": "8400efbb2c66c45a72d7ef4fc520ef9100462cad887fa3d20ddb6053ca17c2f5"
+  },
+  "dryDotnet": {
+    "file": "C:\\Users\\Admin\\.codex\\worktrees\\html-guide-acceptance\\reviewer\\dry-source-042-dotnet-c.ps1",
+    "bytes": 3827,
+    "sha256": "dbbde9365ccf909de0c9aacb2a13b6701e473f3e7a9719e41d9a508243b5f7f3"
+  },
+  "exactNodeChanges": [
+    {
+      "old": "const ROOT_FILES=[\"archive-041-control.json\",\"build-pack-041-behavior-b.mjs\",\"close-source28-b-review.mjs\",\"close-source28-b-review.r2.mjs\",\"corrections/0-1-28/CONTROLS_FINAL_FROZEN.json\",\"corrections/0-1-28/CONTROLS_FINAL_FROZEN.r2.json\",\"corrections/0-1-28/DRAFT_FINAL_FROZEN.json\",\"corrections/0-1-28/behavior-b-helper-copy-control.json\",\"corrections/0-1-28/capture-lifecycle-control.mjs\",\"corrections/0-1-28/client-access-preflight-only.json\",\"corrections/0-1-28/controller.mjs\",\"corrections/0-1-28/core-final-root-summary.json\",\"corrections/0-1-28/explicit-effort-std-to-r2-application.json\",\"corrections/0-1-28/frozen-copy-inventory.json\",\"corrections/0-1-28/frozen-copy-inventory.r2.json\",\"corrections/0-1-28/identity-r2-readiness-a.json\",\"corrections/0-1-28/initial-root-aggregate-schema-error.json\",\"corrections/0-1-28/initial-root-aggregate-schema-error.mjs.snapshot.txt\",\"corrections/0-1-28/manual-selection-behavior-a.mjs\",\"corrections/0-1-28/manual-selection-behavior-b.mjs\",\"corrections/0-1-28/manual-selection-continuous-behavior-a.mjs\",\"corrections/0-1-28/manual-selection-continuous-control.final.json\",\"corrections/0-1-28/manual-selection-continuous-control.json\",\"corrections/0-1-28/method-preservation-map.json\",\"corrections/0-1-28/normal-execution-pause.flag\",\"corrections/0-1-28/operator-sequential.manual.candidate.mjs\",\"corrections/0-1-28/operator-sequential.manual.mjs\",\"corrections/0-1-28/prepare-controls-028-logic.mjs\",\"corrections/0-1-28/prepare-correction.mjs\",\"corrections/0-1-28/prepare-coverage.mjs\",\"corrections/0-1-28/provenance/source27-CONTROLS_FINAL_FROZEN.json\",\"corrections/0-1-28/provenance/source27-controller.mjs\",\"corrections/0-1-28/provenance/source27-scheduling-fixture-reuse-control.json\",\"corrections/0-1-28/record-operator-handoff-behavior-a.mjs\",\"corrections/0-1-28/record-operator-handoff.mjs\",\"corrections/0-1-28/record-recommended-observation-behavior-b.mjs\",\"corrections/0-1-28/repeated-plan-control.json\",\"corrections/0-1-28/root-manual-helper-copy-control.json\",\"corrections/0-1-28/root-manual-select.mjs\",\"corrections/0-1-28/root-status-enumeration-error.json\",\"corrections/0-1-28/scheduling-contract.json\",\"corrections/0-1-28/static-application-root.json\",\"corrections/0-1-28/static-r2-control-review-b.json\",\"corrections/0-1-28/static-r2-control-review-root.json\",\"corrections/0-1-28/static-review-b.json\",\"corrections/0-1-28/static-review-root.json\",\"corrections/0-1-28/static-standard-control-review-b.json\",\"corrections/0-1-28/verify-canonical.mjs\",\"corrections/0-1-28/version-guard-exactdiff.json\",\"diagnostics/inherited-pr2-6ee40474/metadata-relocated.json\",\"execute-source28-operator-b.mjs\",\"packer-provenance/0-1-28-stopped/preparation-control.json\",\"record-source28-b-runtime-pins.mjs\",\"verify-lossless-041-dotnet.ps1\"];\nconst ROOT_DIRS=[\"corrections/0-1-28/blocking\",\"corrections/0-1-28/continuous-supplement\",\"corrections/0-1-28/draft\",\"corrections/0-1-28/draft-initial\",\"corrections/0-1-28/expanded\",\"corrections/0-1-28/explicit-effort-draft\",\"corrections/0-1-28/integration-records\",\"corrections/0-1-28/operator-a-records\",\"corrections/0-1-28/operator-b-records\",\"corrections/0-1-28/operator-c-records\",\"corrections/0-1-28/provenance/source27-frozen-controls\",\"corrections/0-1-28/reviewed-draft\",\"corrections/0-1-28/source27-originals\",\"corrections/0-1-28/technical-review-helper-draft\",\"packer-provenance/0-1-28-stopped/closure\"];\nconst PINNED_SHA256={\"corrections/0-1-28/blocking/harness.mjs\":\"7f1af6c1f6d68497587e4568e55ccaa5164b0d07c7c53f8b254bc7ac2f13730b\",\"corrections/0-1-28/blocking/plan.json\":\"58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2\",\"corrections/0-1-28/blocking/frozen-spec.md\":\"4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d\",\"corrections/0-1-28/blocking/choose-first.mjs\":\"72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1\",\"corrections/0-1-28/blocking/record-native-loading.mjs\":\"12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253\",\"corrections/0-1-28/blocking/operator-observations.mjs\":\"610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871\",\"corrections/0-1-28/expanded/harness.mjs\":\"a7c47d34b4e57b3782fb0db450a3e83e39db22038c31d4ae87ed9b667fe86214\",\"corrections/0-1-28/expanded/plan.json\":\"bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04\",\"corrections/0-1-28/expanded/frozen-spec.md\":\"4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d\",\"corrections/0-1-28/expanded/choose-first.mjs\":\"72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1\",\"corrections/0-1-28/expanded/record-native-loading.mjs\":\"12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253\",\"corrections/0-1-28/expanded/operator-observations.mjs\":\"610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871\",\"corrections/0-1-28/expanded/expanded-plan.mjs\":\"5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e\",\"corrections/0-1-28/continuous-supplement/harness.mjs\":\"a7c47d34b4e57b3782fb0db450a3e83e39db22038c31d4ae87ed9b667fe86214\",\"corrections/0-1-28/continuous-supplement/plan.json\":\"af18c35badde6b55ba3134781823565f9688e14e3e51505ffb8760b05fb57cd9\",\"corrections/0-1-28/continuous-supplement/frozen-spec.md\":\"4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d\",\"corrections/0-1-28/continuous-supplement/choose-first.mjs\":\"72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1\",\"corrections/0-1-28/continuous-supplement/record-native-loading.mjs\":\"12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253\",\"corrections/0-1-28/continuous-supplement/operator-observations.mjs\":\"610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871\",\"corrections/0-1-28/continuous-supplement/expanded-plan.mjs\":\"5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e\",\"corrections/0-1-28/expanded/criterion-citation-erratum.json\":\"8a1e7e3a4305b076e9069c39dd5f605ff21dca5a5ade59ada17afba60ed63969\",\"corrections/0-1-28/expanded/repeated-plan.json\":\"0b97085cdf412893e267bda912776d371a36f58e6fec7cb15bc086989c081d23\",\"corrections/0-1-28/operator-sequential.manual.mjs\":\"8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b\",\"corrections/0-1-28/repeated-plan-control.json\":\"47a66a9d5148b301f1fbff721670de92c8986467d590030159adcfd239c69c79\",\"corrections/0-1-28/record-operator-handoff.mjs\":\"553c482e3977ed600b0846051ee1de9fa983e3a656867a3aa4c05cda393339bf\",\"corrections/0-1-28/manual-selection-behavior-a.mjs\":\"eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559\",\"corrections/0-1-28/manual-selection-continuous-behavior-a.mjs\":\"7fcf3c78437f33f8d146684e7e6173324a996b65c6722d58fec17dcfba643ecc\",\"corrections/0-1-28/manual-selection-continuous-control.json\":\"b84e79d9c799413461c708b9fde47860acf1be57887dcd50f2f7a34c25750eea\",\"corrections/0-1-28/manual-selection-continuous-control.final.json\":\"f958efe94dc9475a32703e57885c069e7f95f884cd6b259471a490b085b57039\",\"corrections/0-1-28/record-operator-handoff-behavior-a.mjs\":\"c9e93fb47caee212c3b5eb2322e963fa89fbe10008db469d9dd4dc6a47546d82\",\"corrections/0-1-28/prepare-correction.mjs\":\"37ab9b6b39de27b0a3728d9bbdccb7aa599f4b20f0a03820e0c1e4ebb5be5221\",\"corrections/0-1-28/prepare-coverage.mjs\":\"2b35e589087ee6b0788961536749afbaebaab405e531ed45029475d26aa07b37\",\"corrections/0-1-28/verify-canonical.mjs\":\"2940c12d5ff1484f4656e45e197efebd4f9d10b569165b2255e04d28cffe1b9a\",\"corrections/0-1-28/root-manual-select.mjs\":\"e6cc6c7cd00ecc86fcca45f43fbbcafef34bea6d375123aa1622f5eedbcfefc6\",\"corrections/0-1-28/root-manual-helper-copy-control.json\":\"0cfa34d02f5db39ab8937c51345b6bc1b9c8a7e6cd150a724433c4f350b05c12\",\"corrections/0-1-28/manual-selection-behavior-b.mjs\":\"c2d3f2ce80a6919aecb27892fe2790dce901981efa72c2aef2b773f9b1d1f394\",\"corrections/0-1-28/record-recommended-observation-behavior-b.mjs\":\"834624a2b2f6da8db78f9b5e86a7e029b2c77051764b38b5260849c92f0e5bd9\",\"corrections/0-1-28/behavior-b-helper-copy-control.json\":\"778feaf2416459570b2fe270a57b30f7cc74a917f1b4aa8a44f21455eac54620\",\"corrections/0-1-28/capture-lifecycle-control.mjs\":\"947cb0a958932d8007b7d3d6efb62c0969ba792272f0c7eaf00c118857fbd6eb\",\"corrections/0-1-28/operator-sequential.manual.candidate.mjs\":\"fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42\"};\n",
+      "new": "const ROOT_FILES=[\"archive-042-control.json\",\"build-pack-042-c.mjs\",\"corrections/0-1-29/behavior-b-helper-copy-control.json\",\"corrections/0-1-29/blocking/choose-first.mjs\",\"corrections/0-1-29/blocking/frozen-spec.md\",\"corrections/0-1-29/blocking/harness.mjs\",\"corrections/0-1-29/blocking/operator-observations.mjs\",\"corrections/0-1-29/blocking/plan.json\",\"corrections/0-1-29/blocking/record-native-loading.mjs\",\"corrections/0-1-29/blocking/reviews/cross-A-by-b/B3.1.json\",\"corrections/0-1-29/blocking/reviews/cross-A-by-b/B3.2.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B1.1-actual-sdk-a.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B1.1-independent-a-final.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B1.2-combined-independent-a-final.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B1.2-delayed-T1-actual-sdk-a.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B1.2-delayed-independent-a-final.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B2.1-independent-a-final.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B6.1-actual-sdk-a.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B6.1-independent-a-final.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B6.2-compare-independent-a-final.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B6.2-native-locator-correction-a.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B6.2-review-independent-a-final.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B6.2-revise-independent-a-final.json\",\"corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B6.2-three-actual-sdk-a.json\",\"corrections/0-1-29/blocking/reviews/independent-A-executed-closure-b.json\",\"corrections/0-1-29/blocking/reviews/independent-B-C-closure-a.json\",\"corrections/0-1-29/blocking/reviews/root-029/B1.1.json\",\"corrections/0-1-29/blocking/reviews/root-029/technical/B1.2-delayed.json\",\"corrections/0-1-29/blocking/reviews/root-029/technical/B3.1.json\",\"corrections/0-1-29/blocking/reviews/root-029/technical/B3.2.json\",\"corrections/0-1-29/blocking/reviews/root-029/technical/B6.1.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/01.events.jsonl\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/01.input.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/01.output.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/01.session.jsonl\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/01.stderr.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/02.events.jsonl\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/02.input.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/02.output.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/02.session.jsonl\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/02.stderr.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/manual-selection-turn-1.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/manual-title-audit.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-compare/005366b3-0abf-4232-90f9-c5bcc4f34bc7/01.events.jsonl\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-compare/005366b3-0abf-4232-90f9-c5bcc4f34bc7/01.input.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-compare/005366b3-0abf-4232-90f9-c5bcc4f34bc7/01.output.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-compare/005366b3-0abf-4232-90f9-c5bcc4f34bc7/01.session.jsonl\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-compare/005366b3-0abf-4232-90f9-c5bcc4f34bc7/01.stderr.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-review/c24e1d25-8ee4-4adc-ae4d-91db46e33438/01.events.jsonl\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-review/c24e1d25-8ee4-4adc-ae4d-91db46e33438/01.input.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-review/c24e1d25-8ee4-4adc-ae4d-91db46e33438/01.output.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-review/c24e1d25-8ee4-4adc-ae4d-91db46e33438/01.session.jsonl\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-review/c24e1d25-8ee4-4adc-ae4d-91db46e33438/01.stderr.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-revise/37904687-9d18-4f9d-ab3a-21cbcc7a7b97/01.events.jsonl\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-revise/37904687-9d18-4f9d-ab3a-21cbcc7a7b97/01.input.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-revise/37904687-9d18-4f9d-ab3a-21cbcc7a7b97/01.output.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-revise/37904687-9d18-4f9d-ab3a-21cbcc7a7b97/01.session.jsonl\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-revise/37904687-9d18-4f9d-ab3a-21cbcc7a7b97/01.stderr.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/batch.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/inspection.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/installation.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/metadata-events.jsonl\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/metadata-requests.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/metadata-stderr.txt\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/models.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/native-loading-observations.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/native-skills.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/operator-handoff.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/operator-observations.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/operator-pauses/2a4f216f-f1b4-4716-a1c3-5e498b014705.json\",\"corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/preparation.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/01.events.jsonl\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/01.input.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/01.output.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/01.session.jsonl\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/01.stderr.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/02.events.jsonl\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/02.input.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/02.output.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/02.session.jsonl\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/02.stderr.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/03.events.jsonl\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/03.input.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/03.output.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/03.session.jsonl\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/03.stderr.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/manual-selection-turn-1.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/manual-title-audit.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.2/1dbc8aa7-a584-46ee-a9f4-db33db6f1d8c/01.events.jsonl\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.2/1dbc8aa7-a584-46ee-a9f4-db33db6f1d8c/01.input.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.2/1dbc8aa7-a584-46ee-a9f4-db33db6f1d8c/01.output.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.2/1dbc8aa7-a584-46ee-a9f4-db33db6f1d8c/01.session.jsonl\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.2/1dbc8aa7-a584-46ee-a9f4-db33db6f1d8c/01.stderr.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/batch.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/inspection.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/installation.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/metadata-events.jsonl\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/metadata-requests.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/metadata-stderr.txt\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/models.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/native-loading-observations.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/native-skills.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/operator-handoff-behavior-a.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/operator-observations.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/operator-pauses/2a8da8b8-3884-4365-8090-289037fc546c.json\",\"corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/preparation.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/01.events.jsonl\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/01.input.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/01.output.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/01.session.jsonl\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/01.stderr.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/02.events.jsonl\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/02.input.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/02.output.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/02.session.jsonl\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/02.stderr.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/03.events.jsonl\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/03.input.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/03.output.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/03.session.jsonl\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/03.stderr.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/04.events.jsonl\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/04.input.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/04.output.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/04.session.jsonl\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/04.stderr.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.2-delayed/b4156edd-4207-4c16-8d66-2de7d07f6d82/01.events.jsonl\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.2-delayed/b4156edd-4207-4c16-8d66-2de7d07f6d82/01.input.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.2-delayed/b4156edd-4207-4c16-8d66-2de7d07f6d82/01.output.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.2-delayed/b4156edd-4207-4c16-8d66-2de7d07f6d82/01.session.jsonl\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.2-delayed/b4156edd-4207-4c16-8d66-2de7d07f6d82/01.stderr.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/batch.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/inspection.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/installation.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/metadata-events.jsonl\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/metadata-requests.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/metadata-stderr.txt\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/models.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/native-loading-observations.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/native-skills.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/operator-observations.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/operator-pauses/33e58635-eb55-4e18-985a-016fff4b5a07.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/preparation.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/root-manual-selection/B1.1.audit.json\",\"corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/root-manual-selection/B1.1.quote.txt\",\"corrections/0-1-29/capture-lifecycle-control.mjs\",\"corrections/0-1-29/client-access-preflight-only.json\",\"corrections/0-1-29/continuous-supplement/choose-first.mjs\",\"corrections/0-1-29/continuous-supplement/expanded-plan.mjs\",\"corrections/0-1-29/continuous-supplement/frozen-spec.md\",\"corrections/0-1-29/continuous-supplement/harness.mjs\",\"corrections/0-1-29/continuous-supplement/operator-observations.mjs\",\"corrections/0-1-29/continuous-supplement/plan.json\",\"corrections/0-1-29/continuous-supplement/record-native-loading.mjs\",\"corrections/0-1-29/controller.mjs\",\"corrections/0-1-29/core-final-root-summary.json\",\"corrections/0-1-29/expanded/choose-first.mjs\",\"corrections/0-1-29/expanded/criterion-citation-erratum.json\",\"corrections/0-1-29/expanded/expanded-plan.mjs\",\"corrections/0-1-29/expanded/frozen-spec.md\",\"corrections/0-1-29/expanded/harness.mjs\",\"corrections/0-1-29/expanded/operator-observations.mjs\",\"corrections/0-1-29/expanded/plan.json\",\"corrections/0-1-29/expanded/record-native-loading.mjs\",\"corrections/0-1-29/expanded/repeated-plan.json\",\"corrections/0-1-29/frozen-copy-inventory.json\",\"corrections/0-1-29/integration-preparation/prepare-integration-baseline.mjs\",\"corrections/0-1-29/integration-preparation/read-only-application-plan.json\",\"corrections/0-1-29/integration-preparation/run-version-compatible-capture.mjs\",\"corrections/0-1-29/integration-preparation/run-version-original-capture.mjs\",\"corrections/0-1-29/manual-selection-behavior-a.mjs\",\"corrections/0-1-29/manual-selection-behavior-b.mjs\",\"corrections/0-1-29/manual-selection-continuous-behavior-a.mjs\",\"corrections/0-1-29/manual-selection-continuous-control.final.json\",\"corrections/0-1-29/manual-selection-continuous-control.json\",\"corrections/0-1-29/native-ui-source-d25dc63.json\",\"corrections/0-1-29/normal-execution-pause.flag\",\"corrections/0-1-29/operator-a-records/B3.1-independent-receiver-audit-b.json\",\"corrections/0-1-29/operator-a-records/B3.2-independent-receiver-audit-b.json\",\"corrections/0-1-29/operator-a-records/core-pause-consumption.stderr.txt\",\"corrections/0-1-29/operator-a-records/core-pause-consumption.stdout.txt\",\"corrections/0-1-29/operator-a-records/core-stage01.stderr.txt\",\"corrections/0-1-29/operator-a-records/core-stage01.stdout.txt\",\"corrections/0-1-29/operator-a-records/core-stage02.stderr.txt\",\"corrections/0-1-29/operator-a-records/core-stage02.stdout.txt\",\"corrections/0-1-29/operator-a-records/core-stopped-report.json\",\"corrections/0-1-29/operator-a-records/pre-pause-observation-snapshots/native-loading-observations.json\",\"corrections/0-1-29/operator-a-records/preparation-resources-receipt.json\",\"corrections/0-1-29/operator-a-records/prepare.stderr.txt\",\"corrections/0-1-29/operator-a-records/prepare.stdout.txt\",\"corrections/0-1-29/operator-b-records/B6.1-complete-actual-receiver-audit.json\",\"corrections/0-1-29/operator-b-records/core-stopped-report.json\",\"corrections/0-1-29/operator-b-records/handoff.receipt.json\",\"corrections/0-1-29/operator-b-records/handoff.stderr.log\",\"corrections/0-1-29/operator-b-records/handoff.stdout.log\",\"corrections/0-1-29/operator-b-records/manual-selection.completion.json\",\"corrections/0-1-29/operator-b-records/manual-selection.started.json\",\"corrections/0-1-29/operator-b-records/manual-selection.stderr.log\",\"corrections/0-1-29/operator-b-records/manual-selection.stdout.log\",\"corrections/0-1-29/operator-b-records/normal-pause-consume.receipt.json\",\"corrections/0-1-29/operator-b-records/normal-pause-consume.stderr.log\",\"corrections/0-1-29/operator-b-records/normal-pause-consume.stdout.log\",\"corrections/0-1-29/operator-b-records/pre-pause-observation-snapshots/batch.json\",\"corrections/0-1-29/operator-b-records/pre-pause-observation-snapshots/inspection.json\",\"corrections/0-1-29/operator-b-records/pre-pause-observation-snapshots/native-loading-observations.json\",\"corrections/0-1-29/operator-b-records/pre-pause-observation-snapshots/operator-observations.json\",\"corrections/0-1-29/operator-b-records/pre-pause-original-pins.json\",\"corrections/0-1-29/operator-b-records/prepare.completion.json\",\"corrections/0-1-29/operator-b-records/prepare.started.json\",\"corrections/0-1-29/operator-b-records/prepare.stderr.log\",\"corrections/0-1-29/operator-b-records/prepare.stdout.log\",\"corrections/0-1-29/operator-b-records/receiver-audit-before-complete-error01.json\",\"corrections/0-1-29/operator-b-records/runtime-installation-pins.json\",\"corrections/0-1-29/operator-b-records/stage01.completion.json\",\"corrections/0-1-29/operator-b-records/stage01.started.json\",\"corrections/0-1-29/operator-b-records/stage01.stderr.log\",\"corrections/0-1-29/operator-b-records/stage01.stdout.log\",\"corrections/0-1-29/operator-b-records/stage02.completion.json\",\"corrections/0-1-29/operator-b-records/stage02.started.json\",\"corrections/0-1-29/operator-b-records/stage02.stderr.log\",\"corrections/0-1-29/operator-b-records/stage02.stdout.log\",\"corrections/0-1-29/operator-c-records/consume-pause-original.log\",\"corrections/0-1-29/operator-c-records/fresh-parent-preparation.json\",\"corrections/0-1-29/operator-c-records/observational-program-errors.json\",\"corrections/0-1-29/operator-c-records/prepare-original.log\",\"corrections/0-1-29/operator-c-records/root-B1.1-original-receiver-audit.json\",\"corrections/0-1-29/operator-c-records/stage01-original.log\",\"corrections/0-1-29/operator-c-records/stage02-original.log\",\"corrections/0-1-29/operator-c-records/stopped-original-operator-closure.json\",\"corrections/0-1-29/operator-c-records/technical-B1.1-r1-command.log\",\"corrections/0-1-29/operator-c-records/technical-B1.1-r1.json\",\"corrections/0-1-29/operator-c-records/technical-delayed-prefix-r1-command.log\",\"corrections/0-1-29/operator-c-records/technical-delayed-prefix-r1.json\",\"corrections/0-1-29/operator-sequential.manual.candidate.mjs\",\"corrections/0-1-29/operator-sequential.manual.mjs\",\"corrections/0-1-29/prepare-correction.mjs\",\"corrections/0-1-29/prepare-coverage.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/behavior-b-helper-copy-control.json\",\"corrections/0-1-29/provenance/source28-r2-active-controls/blocking/choose-first.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/blocking/frozen-spec.md\",\"corrections/0-1-29/provenance/source28-r2-active-controls/blocking/harness.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/blocking/operator-observations.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/blocking/plan.json\",\"corrections/0-1-29/provenance/source28-r2-active-controls/blocking/record-native-loading.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/capture-lifecycle-control.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/continuous-supplement/choose-first.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/continuous-supplement/expanded-plan.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/continuous-supplement/frozen-spec.md\",\"corrections/0-1-29/provenance/source28-r2-active-controls/continuous-supplement/harness.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/continuous-supplement/operator-observations.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/continuous-supplement/plan.json\",\"corrections/0-1-29/provenance/source28-r2-active-controls/continuous-supplement/record-native-loading.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/expanded/choose-first.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/expanded/criterion-citation-erratum.json\",\"corrections/0-1-29/provenance/source28-r2-active-controls/expanded/expanded-plan.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/expanded/frozen-spec.md\",\"corrections/0-1-29/provenance/source28-r2-active-controls/expanded/harness.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/expanded/operator-observations.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/expanded/plan.json\",\"corrections/0-1-29/provenance/source28-r2-active-controls/expanded/record-native-loading.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/expanded/repeated-plan.json\",\"corrections/0-1-29/provenance/source28-r2-active-controls/manual-selection-behavior-a.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/manual-selection-behavior-b.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/manual-selection-continuous-behavior-a.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/manual-selection-continuous-control.final.json\",\"corrections/0-1-29/provenance/source28-r2-active-controls/manual-selection-continuous-control.json\",\"corrections/0-1-29/provenance/source28-r2-active-controls/operator-sequential.manual.candidate.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/operator-sequential.manual.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/prepare-correction.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/prepare-coverage.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/record-operator-handoff-behavior-a.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/record-operator-handoff.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/record-recommended-observation-behavior-b.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/repeated-plan-control.json\",\"corrections/0-1-29/provenance/source28-r2-active-controls/root-manual-helper-copy-control.json\",\"corrections/0-1-29/provenance/source28-r2-active-controls/root-manual-select.mjs\",\"corrections/0-1-29/provenance/source28-r2-active-controls/verify-canonical.mjs\",\"corrections/0-1-29/record-operator-handoff-behavior-a.mjs\",\"corrections/0-1-29/record-operator-handoff.mjs\",\"corrections/0-1-29/record-recommended-observation-behavior-b.mjs\",\"corrections/0-1-29/repeated-plan-control.json\",\"corrections/0-1-29/root-manual-helper-copy-control.json\",\"corrections/0-1-29/root-manual-select.mjs\",\"corrections/0-1-29/root-observation-errors.json\",\"corrections/0-1-29/scheduling-contract.json\",\"corrections/0-1-29/static-control-review-a-initial-error.json\",\"corrections/0-1-29/syntax-check-only.json\",\"corrections/0-1-29/verify-canonical.mjs\",\"corrections/0-1-29/version-guard-exactdiff.json\",\"diagnostics/inherited-pr2-6ee40474/metadata-relocated.json\",\"execute-source29-operator-b.mjs\",\"packer-provenance/0-1-29-stopped/preparation-control.json\",\"prepare-source29-controls-b.mjs\",\"prepare-source29-review-helper-b.mjs\",\"record-source29-b-runtime-pins.mjs\",\"verify-lossless-042-dotnet.ps1\"];\nconst ROOT_DIRS=[\"packer-provenance/0-1-29-stopped/closure\"];\nconst PINNED_SHA256={\"corrections/0-1-29/blocking/harness.mjs\":\"7f1af6c1f6d68497587e4568e55ccaa5164b0d07c7c53f8b254bc7ac2f13730b\",\"corrections/0-1-29/blocking/plan.json\":\"58857812c5f48cd3b7bddb58c94679d52f0c97f5b861998d8fd40b0b5cc538d2\",\"corrections/0-1-29/blocking/frozen-spec.md\":\"4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d\",\"corrections/0-1-29/blocking/choose-first.mjs\":\"72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1\",\"corrections/0-1-29/blocking/record-native-loading.mjs\":\"12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253\",\"corrections/0-1-29/blocking/operator-observations.mjs\":\"610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871\",\"corrections/0-1-29/expanded/harness.mjs\":\"a7c47d34b4e57b3782fb0db450a3e83e39db22038c31d4ae87ed9b667fe86214\",\"corrections/0-1-29/expanded/plan.json\":\"bfd65542f1df9ac9a4af1bf45fa5f9a89750c4557e764eb28816f95f94930b04\",\"corrections/0-1-29/expanded/frozen-spec.md\":\"4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d\",\"corrections/0-1-29/expanded/choose-first.mjs\":\"72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1\",\"corrections/0-1-29/expanded/record-native-loading.mjs\":\"12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253\",\"corrections/0-1-29/expanded/operator-observations.mjs\":\"610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871\",\"corrections/0-1-29/expanded/expanded-plan.mjs\":\"5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e\",\"corrections/0-1-29/continuous-supplement/harness.mjs\":\"a7c47d34b4e57b3782fb0db450a3e83e39db22038c31d4ae87ed9b667fe86214\",\"corrections/0-1-29/continuous-supplement/plan.json\":\"af18c35badde6b55ba3134781823565f9688e14e3e51505ffb8760b05fb57cd9\",\"corrections/0-1-29/continuous-supplement/frozen-spec.md\":\"4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d\",\"corrections/0-1-29/continuous-supplement/choose-first.mjs\":\"72aec6c283b98efb8fd5de25245be59757f15f5ebf5e3a65c9b058bd602c29d1\",\"corrections/0-1-29/continuous-supplement/record-native-loading.mjs\":\"12b2cc27107a304e3a966a85b739d5ed4b2426394902934fe478b54ca2949253\",\"corrections/0-1-29/continuous-supplement/operator-observations.mjs\":\"610fcd357060afa9f377de911e27b499ee6db50d9a9ead1c470c9ccc974f5871\",\"corrections/0-1-29/continuous-supplement/expanded-plan.mjs\":\"5465c0cb8b1929a6df616137c3f5a9d0287473d00b61c2ceea3138be5c17631e\",\"corrections/0-1-29/expanded/criterion-citation-erratum.json\":\"8a1e7e3a4305b076e9069c39dd5f605ff21dca5a5ade59ada17afba60ed63969\",\"corrections/0-1-29/expanded/repeated-plan.json\":\"0b97085cdf412893e267bda912776d371a36f58e6fec7cb15bc086989c081d23\",\"corrections/0-1-29/operator-sequential.manual.mjs\":\"8d1860e2f3122867737a76aba14be642dd345d8100f03e1d1a7ffdf21087691b\",\"corrections/0-1-29/repeated-plan-control.json\":\"47a66a9d5148b301f1fbff721670de92c8986467d590030159adcfd239c69c79\",\"corrections/0-1-29/record-operator-handoff.mjs\":\"553c482e3977ed600b0846051ee1de9fa983e3a656867a3aa4c05cda393339bf\",\"corrections/0-1-29/manual-selection-behavior-a.mjs\":\"eee0e08f8295e45e39e9a1193ad084953de55d0471fef15b811c80718650d559\",\"corrections/0-1-29/manual-selection-continuous-behavior-a.mjs\":\"7fcf3c78437f33f8d146684e7e6173324a996b65c6722d58fec17dcfba643ecc\",\"corrections/0-1-29/manual-selection-continuous-control.json\":\"b84e79d9c799413461c708b9fde47860acf1be57887dcd50f2f7a34c25750eea\",\"corrections/0-1-29/manual-selection-continuous-control.final.json\":\"f958efe94dc9475a32703e57885c069e7f95f884cd6b259471a490b085b57039\",\"corrections/0-1-29/record-operator-handoff-behavior-a.mjs\":\"c9e93fb47caee212c3b5eb2322e963fa89fbe10008db469d9dd4dc6a47546d82\",\"corrections/0-1-29/prepare-correction.mjs\":\"43d01d777bb1960d60aa655d6be3e43a142585af651f435ebf91fc0c6a552e4c\",\"corrections/0-1-29/prepare-coverage.mjs\":\"091976cb8c27d43758e44ea0f433bbfb9b65cf7446f96b55ec883f9ea92a8efd\",\"corrections/0-1-29/verify-canonical.mjs\":\"839ce44f6002c4a6c3eedbcd06d31738049627182e03bf33dde93a4c11eba685\",\"corrections/0-1-29/root-manual-select.mjs\":\"e6cc6c7cd00ecc86fcca45f43fbbcafef34bea6d375123aa1622f5eedbcfefc6\",\"corrections/0-1-29/root-manual-helper-copy-control.json\":\"0cfa34d02f5db39ab8937c51345b6bc1b9c8a7e6cd150a724433c4f350b05c12\",\"corrections/0-1-29/manual-selection-behavior-b.mjs\":\"c2d3f2ce80a6919aecb27892fe2790dce901981efa72c2aef2b773f9b1d1f394\",\"corrections/0-1-29/record-recommended-observation-behavior-b.mjs\":\"834624a2b2f6da8db78f9b5e86a7e029b2c77051764b38b5260849c92f0e5bd9\",\"corrections/0-1-29/behavior-b-helper-copy-control.json\":\"778feaf2416459570b2fe270a57b30f7cc74a917f1b4aa8a44f21455eac54620\",\"corrections/0-1-29/capture-lifecycle-control.mjs\":\"947cb0a958932d8007b7d3d6efb62c0969ba792272f0c7eaf00c118857fbd6eb\",\"corrections/0-1-29/operator-sequential.manual.candidate.mjs\":\"fa4d7a493d0d9918d9469e990e16dc5f8e64c9d945c8bc2a5bb1f940e7385a42\"};\n"
+    },
+    {
+      "old": "archive-041-control.json",
+      "new": "archive-042-control.json",
+      "section": "body"
+    },
+    {
+      "old": "archive041",
+      "new": "archive042",
+      "section": "body"
+    },
+    {
+      "old": "pack041",
+      "new": "pack042",
+      "section": "body"
+    },
+    {
+      "old": "83b3f50ba6c41f923a2b48bba10ca176102be18d",
+      "new": "d25dc63fb81b57859757769c239dbacfd4983492",
+      "section": "body"
+    },
+    {
+      "old": "frozen28",
+      "new": "frozen29",
+      "section": "body"
+    },
+    {
+      "old": "actualUuids.size===5&&actualInputs.length===10",
+      "new": "actualUuids.size===8&&actualInputs.length===14",
+      "section": "body"
+    },
+    {
+      "old": "actual5UUID/10inputs",
+      "new": "actual8UUID/14inputs",
+      "section": "body"
+    },
+    {
+      "old": "control.realDistinctUUIDs===5&&control.actualInputFiles===10",
+      "new": "control.realDistinctUUIDs===8&&control.actualInputFiles===14",
+      "section": "body"
+    },
+    {
+      "old": "0.1.28 archival requires actual5UUID/10input",
+      "new": "0.1.29 archival requires actual8UUID/14input",
+      "section": "body"
+    },
+    {
+      "old": "Source28 canonical83b3 stopped5UUID10COMPLETE0INVALID2PASS1FAIL2UNEX9NOTRUN/20inputs not sent. Explicit supported high selected separately from unchanged default low; forty R2 controls and original source/draft/proof/API metadata, exact saved SDK and actual receiver bodies remain distinct. Whole B6T1 failure from unsupported sandbox cause; limited read/text prefix PASS and unrun T2 preserved. A B3.1 PASS/B3.2 prefixUNEX, C B1PASS/delayed prefixUNEX. A B3.2T1 and C delayedT1 natural cross, zero postmarker starts/no operator termination or model retry. Original schema/status/closure helper errors and typed stdout clarification kept. Source28 access preflight only; no native version28 UI calls/effect measurements. NoSource29 or actual HOME/auth/cache/whole private UI.",
+      "new": "Source29 canonicald25dc stopped8UUID14COMPLETE0INVALID5PASS1FAIL2UNEX6NOTRUN/16inputs not sent; actual low default distinct from explicit SDK high. C B1 waiting/confirmation primary PASS but cancellation-permission fidelity FAIL, delayed prefix UNEX; all independent original reports and locator/schema corrections retained. Zero postmarker and zero crossing inputs. Original70raw,14SDK and actual received cached resources kept. Already-Gitsealed51 engineering and24 canonical logs referenced byte-exact, not duplicated. No future30, private HOME/auth/cache, unexported whole-window screenshots, new client/effect PASS or grade conversion.",
+      "section": "body"
+    }
+  ],
+  "exactDotnetChanges": [
+    [
+      "patch-041-stopped",
+      "patch-042-stopped"
+    ],
+    [
+      "distinctRealUuidCount -ne 5",
+      "distinctRealUuidCount -ne 8"
+    ],
+    [
+      "rawInputFileCount -ne 10",
+      "rawInputFileCount -ne 14"
+    ],
+    [
+      "83b3f50ba6c41f923a2b48bba10ca176102be18d",
+      "d25dc63fb81b57859757769c239dbacfd4983492"
+    ],
+    [
+      "Three exact source83b stopped/core identities required.",
+      "Three exact source29 stopped/core identities required."
+    ]
+  ],
+  "exactDryDotnetChanges": [
+    [
+      "0-1-28-stopped",
+      "0-1-29-stopped"
+    ],
+    [
+      "archive-041-control.json",
+      "archive-042-control.json"
+    ],
+    [
+      "verify-lossless-041-dotnet.ps1",
+      "verify-lossless-042-dotnet.ps1"
+    ],
+    [
+      "0-1-29|native-ui-private",
+      "0-1-30|native-ui-private"
+    ]
+  ],
+  "inverseAllExact": true,
+  "sourceAllowlist": {
+    "rootFiles": [
+      "archive-042-control.json",
+      "build-pack-042-c.mjs",
+      "corrections/0-1-29/behavior-b-helper-copy-control.json",
+      "corrections/0-1-29/blocking/choose-first.mjs",
+      "corrections/0-1-29/blocking/frozen-spec.md",
+      "corrections/0-1-29/blocking/harness.mjs",
+      "corrections/0-1-29/blocking/operator-observations.mjs",
+      "corrections/0-1-29/blocking/plan.json",
+      "corrections/0-1-29/blocking/record-native-loading.mjs",
+      "corrections/0-1-29/blocking/reviews/cross-A-by-b/B3.1.json",
+      "corrections/0-1-29/blocking/reviews/cross-A-by-b/B3.2.json",
+      "corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B1.1-actual-sdk-a.json",
+      "corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B1.1-independent-a-final.json",
+      "corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B1.2-combined-independent-a-final.json",
+      "corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B1.2-delayed-T1-actual-sdk-a.json",
+      "corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B1.2-delayed-independent-a-final.json",
+      "corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B2.1-independent-a-final.json",
+      "corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B6.1-actual-sdk-a.json",
+      "corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B6.1-independent-a-final.json",
+      "corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B6.2-compare-independent-a-final.json",
+      "corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B6.2-native-locator-correction-a.json",
+      "corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B6.2-review-independent-a-final.json",
+      "corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B6.2-revise-independent-a-final.json",
+      "corrections/0-1-29/blocking/reviews/cross-B-C-by-a/B6.2-three-actual-sdk-a.json",
+      "corrections/0-1-29/blocking/reviews/independent-A-executed-closure-b.json",
+      "corrections/0-1-29/blocking/reviews/independent-B-C-closure-a.json",
+      "corrections/0-1-29/blocking/reviews/root-029/B1.1.json",
+      "corrections/0-1-29/blocking/reviews/root-029/technical/B1.2-delayed.json",
+      "corrections/0-1-29/blocking/reviews/root-029/technical/B3.1.json",
+      "corrections/0-1-29/blocking/reviews/root-029/technical/B3.2.json",
+      "corrections/0-1-29/blocking/reviews/root-029/technical/B6.1.json",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/01.events.jsonl",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/01.input.txt",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/01.output.txt",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/01.session.jsonl",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/01.stderr.txt",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/02.events.jsonl",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/02.input.txt",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/02.output.txt",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/02.session.jsonl",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/02.stderr.txt",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/manual-selection-turn-1.txt",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.1/e05be4ad-0600-4960-8dfa-b646b561aa82/manual-title-audit.json",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-compare/005366b3-0abf-4232-90f9-c5bcc4f34bc7/01.events.jsonl",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-compare/005366b3-0abf-4232-90f9-c5bcc4f34bc7/01.input.txt",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-compare/005366b3-0abf-4232-90f9-c5bcc4f34bc7/01.output.txt",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-compare/005366b3-0abf-4232-90f9-c5bcc4f34bc7/01.session.jsonl",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-compare/005366b3-0abf-4232-90f9-c5bcc4f34bc7/01.stderr.txt",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-review/c24e1d25-8ee4-4adc-ae4d-91db46e33438/01.events.jsonl",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-review/c24e1d25-8ee4-4adc-ae4d-91db46e33438/01.input.txt",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-review/c24e1d25-8ee4-4adc-ae4d-91db46e33438/01.output.txt",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-review/c24e1d25-8ee4-4adc-ae4d-91db46e33438/01.session.jsonl",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-review/c24e1d25-8ee4-4adc-ae4d-91db46e33438/01.stderr.txt",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-revise/37904687-9d18-4f9d-ab3a-21cbcc7a7b97/01.events.jsonl",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-revise/37904687-9d18-4f9d-ab3a-21cbcc7a7b97/01.input.txt",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-revise/37904687-9d18-4f9d-ab3a-21cbcc7a7b97/01.output.txt",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-revise/37904687-9d18-4f9d-ab3a-21cbcc7a7b97/01.session.jsonl",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/B6.2-revise/37904687-9d18-4f9d-ab3a-21cbcc7a7b97/01.stderr.txt",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/batch.json",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/inspection.json",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/installation.json",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/metadata-events.jsonl",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/metadata-requests.json",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/metadata-stderr.txt",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/models.json",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/native-loading-observations.json",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/native-skills.json",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/operator-handoff.json",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/operator-observations.json",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/operator-pauses/2a4f216f-f1b4-4716-a1c3-5e498b014705.json",
+      "corrections/0-1-29/blocking/runs/20939cf3-33d9-4f28-a153-e2576cf0abb0/preparation.json",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/01.events.jsonl",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/01.input.txt",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/01.output.txt",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/01.session.jsonl",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/01.stderr.txt",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/02.events.jsonl",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/02.input.txt",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/02.output.txt",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/02.session.jsonl",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/02.stderr.txt",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/03.events.jsonl",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/03.input.txt",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/03.output.txt",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/03.session.jsonl",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/03.stderr.txt",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/manual-selection-turn-1.txt",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.1/03d0ecec-37f8-46c1-b024-67ba7ef359b6/manual-title-audit.json",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.2/1dbc8aa7-a584-46ee-a9f4-db33db6f1d8c/01.events.jsonl",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.2/1dbc8aa7-a584-46ee-a9f4-db33db6f1d8c/01.input.txt",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.2/1dbc8aa7-a584-46ee-a9f4-db33db6f1d8c/01.output.txt",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.2/1dbc8aa7-a584-46ee-a9f4-db33db6f1d8c/01.session.jsonl",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/B3.2/1dbc8aa7-a584-46ee-a9f4-db33db6f1d8c/01.stderr.txt",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/batch.json",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/inspection.json",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/installation.json",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/metadata-events.jsonl",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/metadata-requests.json",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/metadata-stderr.txt",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/models.json",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/native-loading-observations.json",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/native-skills.json",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/operator-handoff-behavior-a.json",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/operator-observations.json",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/operator-pauses/2a8da8b8-3884-4365-8090-289037fc546c.json",
+      "corrections/0-1-29/blocking/runs/526cd4e0-2150-4ef7-adea-5e63d0d61def/preparation.json",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/01.events.jsonl",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/01.input.txt",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/01.output.txt",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/01.session.jsonl",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/01.stderr.txt",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/02.events.jsonl",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/02.input.txt",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/02.output.txt",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/02.session.jsonl",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/02.stderr.txt",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/03.events.jsonl",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/03.input.txt",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/03.output.txt",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/03.session.jsonl",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/03.stderr.txt",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/04.events.jsonl",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/04.input.txt",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/04.output.txt",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/04.session.jsonl",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.1/4f97ff41-65ba-4c75-b33b-24c11f3c9c76/04.stderr.txt",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.2-delayed/b4156edd-4207-4c16-8d66-2de7d07f6d82/01.events.jsonl",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.2-delayed/b4156edd-4207-4c16-8d66-2de7d07f6d82/01.input.txt",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.2-delayed/b4156edd-4207-4c16-8d66-2de7d07f6d82/01.output.txt",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.2-delayed/b4156edd-4207-4c16-8d66-2de7d07f6d82/01.session.jsonl",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/B1.2-delayed/b4156edd-4207-4c16-8d66-2de7d07f6d82/01.stderr.txt",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/batch.json",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/inspection.json",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/installation.json",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/metadata-events.jsonl",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/metadata-requests.json",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/metadata-stderr.txt",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/models.json",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/native-loading-observations.json",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/native-skills.json",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/operator-observations.json",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/operator-pauses/33e58635-eb55-4e18-985a-016fff4b5a07.json",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/preparation.json",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/root-manual-selection/B1.1.audit.json",
+      "corrections/0-1-29/blocking/runs/56779c08-b067-42b8-a948-187e7872c605/root-manual-selection/B1.1.quote.txt",
+      "corrections/0-1-29/capture-lifecycle-control.mjs",
+      "corrections/0-1-29/client-access-preflight-only.json",
+      "corrections/0-1-29/continuous-supplement/choose-first.mjs",
+      "corrections/0-1-29/continuous-supplement/expanded-plan.mjs",
+      "corrections/0-1-29/continuous-supplement/frozen-spec.md",
+      "corrections/0-1-29/continuous-supplement/harness.mjs",
+      "corrections/0-1-29/continuous-supplement/operator-observations.mjs",
+      "corrections/0-1-29/continuous-supplement/plan.json",
+      "corrections/0-1-29/continuous-supplement/record-native-loading.mjs",
+      "corrections/0-1-29/controller.mjs",
+      "corrections/0-1-29/core-final-root-summary.json",
+      "corrections/0-1-29/expanded/choose-first.mjs",
+      "corrections/0-1-29/expanded/criterion-citation-erratum.json",
+      "corrections/0-1-29/expanded/expanded-plan.mjs",
+      "corrections/0-1-29/expanded/frozen-spec.md",
+      "corrections/0-1-29/expanded/harness.mjs",
+      "corrections/0-1-29/expanded/operator-observations.mjs",
+      "corrections/0-1-29/expanded/plan.json",
+      "corrections/0-1-29/expanded/record-native-loading.mjs",
+      "corrections/0-1-29/expanded/repeated-plan.json",
+      "corrections/0-1-29/frozen-copy-inventory.json",
+      "corrections/0-1-29/integration-preparation/prepare-integration-baseline.mjs",
+      "corrections/0-1-29/integration-preparation/read-only-application-plan.json",
+      "corrections/0-1-29/integration-preparation/run-version-compatible-capture.mjs",
+      "corrections/0-1-29/integration-preparation/run-version-original-capture.mjs",
+      "corrections/0-1-29/manual-selection-behavior-a.mjs",
+      "corrections/0-1-29/manual-selection-behavior-b.mjs",
+      "corrections/0-1-29/manual-selection-continuous-behavior-a.mjs",
+      "corrections/0-1-29/manual-selection-continuous-control.final.json",
+      "corrections/0-1-29/manual-selection-continuous-control.json",
+      "corrections/0-1-29/native-ui-source-d25dc63.json",
+      "corrections/0-1-29/normal-execution-pause.flag",
+      "corrections/0-1-29/operator-a-records/B3.1-independent-receiver-audit-b.json",
+      "corrections/0-1-29/operator-a-records/B3.2-independent-receiver-audit-b.json",
+      "corrections/0-1-29/operator-a-records/core-pause-consumption.stderr.txt",
+      "corrections/0-1-29/operator-a-records/core-pause-consumption.stdout.txt",
+      "corrections/0-1-29/operator-a-records/core-stage01.stderr.txt",
+      "corrections/0-1-29/operator-a-records/core-stage01.stdout.txt",
+      "corrections/0-1-29/operator-a-records/core-stage02.stderr.txt",
+      "corrections/0-1-29/operator-a-records/core-stage02.stdout.txt",
+      "corrections/0-1-29/operator-a-records/core-stopped-report.json",
+      "corrections/0-1-29/operator-a-records/pre-pause-observation-snapshots/native-loading-observations.json",
+      "corrections/0-1-29/operator-a-records/preparation-resources-receipt.json",
+      "corrections/0-1-29/operator-a-records/prepare.stderr.txt",
+      "corrections/0-1-29/operator-a-records/prepare.stdout.txt",
+      "corrections/0-1-29/operator-b-records/B6.1-complete-actual-receiver-audit.json",
+      "corrections/0-1-29/operator-b-records/core-stopped-report.json",
+      "corrections/0-1-29/operator-b-records/handoff.receipt.json",
+      "corrections/0-1-29/operator-b-records/handoff.stderr.log",
+      "corrections/0-1-29/operator-b-records/handoff.stdout.log",
+      "corrections/0-1-29/operator-b-records/manual-selection.completion.json",
+      "corrections/0-1-29/operator-b-records/manual-selection.started.json",
+      "corrections/0-1-29/operator-b-records/manual-selection.stderr.log",
+      "corrections/0-1-29/operator-b-records/manual-selection.stdout.log",
+      "corrections/0-1-29/operator-b-records/normal-pause-consume.receipt.json",
+      "corrections/0-1-29/operator-b-records/normal-pause-consume.stderr.log",
+      "corrections/0-1-29/operator-b-records/normal-pause-consume.stdout.log",
+      "corrections/0-1-29/operator-b-records/pre-pause-observation-snapshots/batch.json",
+      "corrections/0-1-29/operator-b-records/pre-pause-observation-snapshots/inspection.json",
+      "corrections/0-1-29/operator-b-records/pre-pause-observation-snapshots/native-loading-observations.json",
+      "corrections/0-1-29/operator-b-records/pre-pause-observation-snapshots/operator-observations.json",
+      "corrections/0-1-29/operator-b-records/pre-pause-original-pins.json",
+      "corrections/0-1-29/operator-b-records/prepare.completion.json",
+      "corrections/0-1-29/operator-b-records/prepare.started.json",
+      "corrections/0-1-29/operator-b-records/prepare.stderr.log",
+      "corrections/0-1-29/operator-b-records/prepare.stdout.log",
+      "corrections/0-1-29/operator-b-records/receiver-audit-before-complete-error01.json",
+      "corrections/0-1-29/operator-b-records/runtime-installation-pins.json",
+      "corrections/0-1-29/operator-b-records/stage01.completion.json",
+      "corrections/0-1-29/operator-b-records/stage01.started.json",
+      "corrections/0-1-29/operator-b-records/stage01.stderr.log",
+      "corrections/0-1-29/operator-b-records/stage01.stdout.log",
+      "corrections/0-1-29/operator-b-records/stage02.completion.json",
+      "corrections/0-1-29/operator-b-records/stage02.started.json",
+      "corrections/0-1-29/operator-b-records/stage02.stderr.log",
+      "corrections/0-1-29/operator-b-records/stage02.stdout.log",
+      "corrections/0-1-29/operator-c-records/consume-pause-original.log",
+      "corrections/0-1-29/operator-c-records/fresh-parent-preparation.json",
+      "corrections/0-1-29/operator-c-records/observational-program-errors.json",
+      "corrections/0-1-29/operator-c-records/prepare-original.log",
+      "corrections/0-1-29/operator-c-records/root-B1.1-original-receiver-audit.json",
+      "corrections/0-1-29/operator-c-records/stage01-original.log",
+      "corrections/0-1-29/operator-c-records/stage02-original.log",
+      "corrections/0-1-29/operator-c-records/stopped-original-operator-closure.json",
+      "corrections/0-1-29/operator-c-records/technical-B1.1-r1-command.log",
+      "corrections/0-1-29/operator-c-records/technical-B1.1-r1.json",
+      "corrections/0-1-29/operator-c-records/technical-delayed-prefix-r1-command.log",
+      "corrections/0-1-29/operator-c-records/technical-delayed-prefix-r1.json",
+      "corrections/0-1-29/operator-sequential.manual.candidate.mjs",
+      "corrections/0-1-29/operator-sequential.manual.mjs",
+      "corrections/0-1-29/prepare-correction.mjs",
+      "corrections/0-1-29/prepare-coverage.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/behavior-b-helper-copy-control.json",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/blocking/choose-first.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/blocking/frozen-spec.md",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/blocking/harness.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/blocking/operator-observations.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/blocking/plan.json",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/blocking/record-native-loading.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/capture-lifecycle-control.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/continuous-supplement/choose-first.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/continuous-supplement/expanded-plan.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/continuous-supplement/frozen-spec.md",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/continuous-supplement/harness.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/continuous-supplement/operator-observations.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/continuous-supplement/plan.json",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/continuous-supplement/record-native-loading.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/expanded/choose-first.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/expanded/criterion-citation-erratum.json",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/expanded/expanded-plan.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/expanded/frozen-spec.md",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/expanded/harness.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/expanded/operator-observations.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/expanded/plan.json",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/expanded/record-native-loading.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/expanded/repeated-plan.json",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/manual-selection-behavior-a.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/manual-selection-behavior-b.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/manual-selection-continuous-behavior-a.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/manual-selection-continuous-control.final.json",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/manual-selection-continuous-control.json",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/operator-sequential.manual.candidate.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/operator-sequential.manual.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/prepare-correction.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/prepare-coverage.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/record-operator-handoff-behavior-a.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/record-operator-handoff.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/record-recommended-observation-behavior-b.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/repeated-plan-control.json",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/root-manual-helper-copy-control.json",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/root-manual-select.mjs",
+      "corrections/0-1-29/provenance/source28-r2-active-controls/verify-canonical.mjs",
+      "corrections/0-1-29/record-operator-handoff-behavior-a.mjs",
+      "corrections/0-1-29/record-operator-handoff.mjs",
+      "corrections/0-1-29/record-recommended-observation-behavior-b.mjs",
+      "corrections/0-1-29/repeated-plan-control.json",
+      "corrections/0-1-29/root-manual-helper-copy-control.json",
+      "corrections/0-1-29/root-manual-select.mjs",
+      "corrections/0-1-29/root-observation-errors.json",
+      "corrections/0-1-29/scheduling-contract.json",
+      "corrections/0-1-29/static-control-review-a-initial-error.json",
+      "corrections/0-1-29/syntax-check-only.json",
+      "corrections/0-1-29/verify-canonical.mjs",
+      "corrections/0-1-29/version-guard-exactdiff.json",
+      "diagnostics/inherited-pr2-6ee40474/metadata-relocated.json",
+      "execute-source29-operator-b.mjs",
+      "packer-provenance/0-1-29-stopped/preparation-control.json",
+      "prepare-source29-controls-b.mjs",
+      "prepare-source29-review-helper-b.mjs",
+      "record-source29-b-runtime-pins.mjs",
+      "verify-lossless-042-dotnet.ps1"
+    ],
+    "rootDirectories": [
+      "packer-provenance/0-1-29-stopped/closure"
+    ]
+  },
+  "exclusions": [
+    {
+      "relative": "corrections/0-1-29/CONTROLS_FINAL_FROZEN.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/DRAFT_FINAL_FROZEN.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/draft/SKILL.md",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/draft/references/guide-framework.md",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/draft/references/interaction-design.md",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/engineering-d25dc63f",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/apply-resources-docs.mjs",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/baseline.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/before-AGENTS.md.snapshot.txt",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/before-INDEX.md.snapshot.txt",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/before-[RUNBOOK]_HTML_Guide_Kit_Acceptance.md.snapshot.txt",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/check.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/document-a6-corrected.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/document-a6.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/final-engineering-receipt.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/initial-control-inventory-schema-error.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/initial-engineering-result.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/npm-test-corrected.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/npm-test.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/quick-validate-applied.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/quick-validate-draft.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/runtime-application.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/validate-corrected.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/validate.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/version-compatible-apply.command.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/version-compatible-apply.stderr.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/version-compatible-apply.stdout.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/version-compatible-dry-run.command.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/version-compatible-dry-run.stderr.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/version-compatible-dry-run.stdout.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/version-dry-run.command.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/version-dry-run.stderr.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/integration-records/version-dry-run.stdout.log",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/proof-snapshot-name-repair/original-archive-index.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/proof-snapshot-name-repair/repair.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/source28-originals/SKILL.md.snapshot.txt",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/source28-originals/references/guide-framework.md.snapshot.txt",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/source28-originals/references/interaction-design.md.snapshot.txt",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/static-application-root.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/static-control-review-a.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/static-control-review-root.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/static-review-b.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/static-review-root.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/technical-review-helper-draft/REVIEW_HELPER_FINAL_FROZEN.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/technical-review-helper-draft/exact-span-delta.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/technical-review-helper-draft/proposed/audit-source29-a-prefix-receiver-b.mjs",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/technical-review-helper-draft/proposed/audit-source29-a-receiver-b.mjs",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/technical-review-helper-draft/proposed/review-selected-identity.mjs",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/technical-review-helper-draft/source28-snapshots/audit-source28-a-prefix-receiver-b.mjs",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/technical-review-helper-draft/source28-snapshots/audit-source28-a-receiver-b.mjs",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/technical-review-helper-draft/source28-snapshots/review-selected-identity.mjs",
+      "reason": "future source or already-sealed exact-reference-only"
+    },
+    {
+      "relative": "corrections/0-1-29/technical-review-helper-draft/syntax-and-unchanged-source-check.json",
+      "reason": "future source or already-sealed exact-reference-only"
+    }
+  ],
+  "alreadySealedRawOnlyReferenced": 75,
+  "actualPack": false,
+  "noRepositoryWrites": true
+}
