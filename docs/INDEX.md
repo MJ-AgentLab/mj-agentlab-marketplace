@@ -6,14 +6,14 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-16
 state: active
-version: v2.91.5
+version: v2.91.6
 ---
 
 # 文档索引
 
 ## 当前性能维护
 
-[#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)按五个顺序PR优化Windows测试与安装冒烟；PR1 #246基线固定30665998，PR2 #247实际合入02724de0，22份夹具复制下降保守下界99.447896%已独立核验。PR3开始真实源码冒烟模板与并发对照，完整核心速度验收待执行。授权、覆盖映射、紧凑回执与实际结果见[性能验收账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。核心交付与整个Issue完成分别记录，空reviews和历史证据原件保留。
+[#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)按五个顺序PR优化Windows测试与安装冒烟；PR1 #246基线固定30665998，PR2 #247实际合入02724de0，22份夹具复制下降保守下界99.447896%已独立核验。PR3 #248旧head5faf67f的精确安装及普通CI通过，但[首轮核心对照](runbook/evidence/ci-performance-245-pr3-core-attempt1.json)因Windows短路径读观察器断言失败，只尝试2/24样本、1项成功，四门槛均未测量。仅规范化测试根路径的一行修复已获本机真实8.3路径红/绿复现，新最终提交及全新24样本仍待验收。授权、覆盖映射、紧凑回执与实际结果见[性能验收账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。核心交付与整个Issue完成分别记录，空reviews和历史证据原件保留。
 
 ## 当前整体发布
 
