@@ -4,14 +4,16 @@ scope: marketplace
 summary: "Draft-first Git/tag release with install verification and immutable history"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-13
+updated: 2026-10-15
 state: active
-version: v2.9.3
+version: v2.9.4
 ---
 
 # [RUNBOOK] Release operations
 
 ## Preparation
+
+2026-10-15 本轮按 Owner 已确认计划发布完整 develop 五插件/七技能/四显式的 8.3.0，取代旧 Communication 四包范围。HTML 0.1.36 按当前实现交付，#239 已知 FAIL、双端与扩展未覆盖继续保留；不重启模型/桌面验收，仅执行必要 CI、准确安装及缓存 Python。具体授权与逐项资格以[8.3.0 账本](./[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)为准。当前 head 批准、required checks 和线程门禁保持。完成公开和发布后必要复查即停止；以下既有 Post-release 回同步、预升、文档收尾及 Issue/归档流程留待后续，不在本轮执行。
 
 两个治理 PR 及 portable 迁移 PR 已合并。历史 8.0.0 / 0.3.0 版本准备授权及阶段调整见 [迁移 ADR](../adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)。代理执行已授权 dry-run、更新、测试与 PR 准备，缺项据实记录。VERSION 变化合入 main 会触发发布，正式 release PR 必须满足实际发布范围的客户端验收、发布授权、CI、当前 head 非作者批准及已解决审查线程。
 

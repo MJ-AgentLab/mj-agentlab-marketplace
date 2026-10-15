@@ -6,10 +6,18 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-15
 state: active
-version: v2.89
+version: v2.90
 ---
 
 # 文档索引
+
+## 当前整体发布
+
+2026-10-15 Owner 决定以 develop 完整五包七技能/四显式发布未公开的 Marketplace 8.3.0：Diagram 0.3.1 / Learning Evidence 0.1.0 / Explain 0.1.1 / Communication 0.1.0 / HTML 0.1.36；此前四包与 HTML 另发的范围已被替代。当前公开仍为 v8.2.0。发布门禁、原始证据和已接受限制见[8.3.0 发行账本](runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。HTML 已知自检前提失败及完整客户端未覆盖保留，#239 不关闭；本轮只做必要工程/安装/Python，不重启模型或桌面验收，发布后必要复查完成即停止收尾跟踪。
+
+## 历史阶段导航
+
+以下按原阶段保留范围与结果；当时的“当前”“另发”和未完成门槛不覆盖上面的新决定。
 
 [Marketplace v8.1.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.1) 已通过 #205 合入 main 并自动发布，注册 diagram-kit 0.3.1 / arch-diagram、understanding-kit 0.1.2 / pop-quiz 与 explain-kit 0.1.1 / glossary、concept。实际发布 SHA 的四种 canonical 安装、图标比较及 Python 校验通过；Owner 截图、完整客户端缺项和未提供的 GitHub 独立批准分别保留。#206 回同步发布 main，#207/#208 随后完成 ancestry 同步与当时的 8.1.2 pre-bump；该阶段保持旧插件版本。以下 PR4 候选范围独立说明。
 
