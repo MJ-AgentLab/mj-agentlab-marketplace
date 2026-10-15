@@ -5,6 +5,10 @@
 
 ## [Unreleased]
 
+### Documentation
+
+- Record actual #241 / v8.3.0 publication identities and fresh post-publication thirteen-combination installation/Python evidence; update canonical README installation to the published five-package tag. Preserve supplemental actual rule-suite bypass findings, empty reviews, limited client coverage and HTML #239. Record the Owner-requested automatic-deletion disablement and exact develop restoration with actual rule-suite PASS; follow-up sync/pre-bump remain separate protected work. Refs #222.
+
 ## [8.3.0] - 2026-10-15
 
 **Marketplace 8.3.0 publishes the complete develop collection: Diagram 0.3.1, Learning Evidence 0.1.0, Explain 0.1.1, Communication 0.1.0 and HTML Guide 0.1.36 — five plugins, seven public skills and four explicit entries.** The Owner's 2026-10-15 whole-develop decision supersedes the prior four-package projection. Existing plugin bytes, versions, interfaces and strict installation rules remain unchanged.

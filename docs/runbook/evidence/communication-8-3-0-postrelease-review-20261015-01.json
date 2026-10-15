@@ -1,0 +1,368 @@
+{
+  "schemaVersion": 1,
+  "refs": [
+    "#222",
+    "#215",
+    "#239",
+    "#240",
+    "#241"
+  ],
+  "reviewer": "/root/communication_sync_review",
+  "reviewedAt": "2026-10-15T08:01:34.372Z",
+  "method": "Independent read-only primary GitHub REST and exact Git-object review for R01-R03 and R05 resource closure. No GUI/model/effects run, no test/install rerun, no repository/GitHub/ref changes, no Epic closure. Only this new external report is exclusively created.",
+  "scope": "Actually published whole-develop8.3.0: five packages/seven public skills/four explicit; supersedes closed-unmerged four-package PR237.",
+  "primaryObservations": {
+    "observedAt": "2026-10-15T07:56:07.692Z",
+    "pr237": {
+      "state": "closed",
+      "merged": false,
+      "mergedAt": null,
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/237"
+    },
+    "pr240": {
+      "state": "closed",
+      "merged": true,
+      "merge": "32e32c5b8ecc843435fe9643398135dd22ee8c9b",
+      "head": "262597fb4bf7c647dfa7e6658f3923d883d389ac",
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/240"
+    },
+    "pr241": {
+      "state": "closed",
+      "merged": true,
+      "mergedAt": "2026-10-15T07:50:32Z",
+      "merge": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64",
+      "head": "32e32c5b8ecc843435fe9643398135dd22ee8c9b",
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/241"
+    },
+    "reviews241": [],
+    "main": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64",
+    "tag": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64",
+    "release": {
+      "id": 413544930,
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.0",
+      "name": "v8.3.0",
+      "tag": "v8.3.0",
+      "target": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64",
+      "author": "github-actions[bot]",
+      "draft": false,
+      "prerelease": false,
+      "publishedAt": "2026-10-15T07:51:33Z",
+      "immutable": false,
+      "assets": [],
+      "bodySha256": "066ee929b7083d20019c6522cfa89c625da5737170efaaf4ab1d20684db522ce",
+      "bodyExactPublishedChangeLog": true,
+      "bodyComparisonObservedAt": "2026-10-15T07:58:23.407Z"
+    },
+    "workflow": {
+      "id": 38701485705,
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38701485705",
+      "status": "completed",
+      "conclusion": "success",
+      "headSha": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64",
+      "path": ".github/workflows/release.yml",
+      "event": "push"
+    }
+  },
+  "actualSource": {
+    "main": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64",
+    "tag": "v8.3.0",
+    "tagPeeledCommit": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64",
+    "pr241Head": "32e32c5b8ecc843435fe9643398135dd22ee8c9b",
+    "testedHead": "262597fb4bf7c647dfa7e6658f3923d883d389ac",
+    "mainTree": "b5a8bb915f917bd59ebc1e9fb3436847da69dc7e",
+    "prHeadTree": "b5a8bb915f917bd59ebc1e9fb3436847da69dc7e",
+    "testedTree": "b5a8bb915f917bd59ebc1e9fb3436847da69dc7e",
+    "actualMergeParents": [
+      "ebc4bdc3abc62c36348d9ba28de7161b04b3b466",
+      "32e32c5b8ecc843435fe9643398135dd22ee8c9b"
+    ],
+    "packages": [
+      {
+        "name": "diagram-kit",
+        "version": "0.3.1",
+        "tree": "e217c41be2cd4c3653aa17aa7b28c8312be06268"
+      },
+      {
+        "name": "learning-evidence-kit",
+        "version": "0.1.0",
+        "tree": "c88818fac37e937a245436f0f999f3488babfe1f"
+      },
+      {
+        "name": "explain-kit",
+        "version": "0.1.1",
+        "tree": "ef6a90bc60e9af45915c30ecf4668559978e29e5"
+      },
+      {
+        "name": "communication-kit",
+        "version": "0.1.0",
+        "tree": "170fcad82f33548c8d91b62984df4ff38635e69f"
+      },
+      {
+        "name": "html-guide-kit",
+        "version": "0.1.36",
+        "tree": "b18a8a4b2a118149e61456b5b11daec4beb2db8c"
+      }
+    ],
+    "publicSkills": 7,
+    "explicitSkills": 4,
+    "ordinarySkills": 3,
+    "repositorySkills": 20,
+    "canonicalMatrixExpected": 13,
+    "runtimeClosureWithOwnerSelectedDevelop": "a0a9b1383d2b84a147ff67c5ffa656e8133a0554",
+    "runtimeDiff": "",
+    "plan": {
+      "lines": 405,
+      "sha256": "6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3",
+      "limit": "Original path had previously disappeared. Existing405-line captured copy is verified; no reconstruction or recreated original is claimed."
+    }
+  },
+  "results": {
+    "R01": {
+      "status": "PASS for actual merge/source identity",
+      "actualMerge": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64",
+      "headAndTestedTreesEqual": true,
+      "priorPR237": "closed/unmerged/superseded; not used as publication source"
+    },
+    "R02": {
+      "status": "PASS for version identity anchors",
+      "version": "8.3.0",
+      "badge": "8.3.0",
+      "changeLogVersion": "8.3.0 - 2026-10-15",
+      "mainTagReleaseTargetEqual": true,
+      "readmeCurrentInstallationStatus": "Published source retains pre-publication prose and default v8.2.0 installation example; future v8.3.0 instruction is present. This anchor PASS does not declare README closeout complete."
+    },
+    "R03": {
+      "status": "PASS for observed public Release identity and workflow",
+      "id": 413544930,
+      "publishedAt": "2026-10-15T07:51:33Z",
+      "draft": false,
+      "prerelease": false,
+      "author": "github-actions[bot]",
+      "workflow": {
+        "id": 38701485705,
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38701485705",
+        "status": "completed",
+        "conclusion": "success",
+        "headSha": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64",
+        "path": ".github/workflows/release.yml",
+        "event": "push"
+      },
+      "assetsCount": 0,
+      "immutableObserved": false,
+      "repositoryImmutabilityConfiguration": "not established; mutable Release is recorded, not described as immutable",
+      "bodyExactPublishedChangeLog": true,
+      "bodySha256": "066ee929b7083d20019c6522cfa89c625da5737170efaaf4ab1d20684db522ce"
+    },
+    "R04": {
+      "status": "NOT ASSESSED by this report",
+      "reason": "Root performs separate actual-tag post-publication13-combination canonical. This read-only review does not substitute pre-publication or historical installs for that execution."
+    },
+    "R05": {
+      "status": "ACCEPTED LIMITED COVERAGE / resource-closure verification, no fresh behavior run",
+      "communicationSameNonChangelogFiles": 11,
+      "allNonChangelogBytesSame": true,
+      "changedPackageFile": "CHANGELOG.md only; original native package14a3896 vs published170fcad retained as different full package identities",
+      "nativeCandidate": {
+        "sha": "000e8033ce2f639c974c3953aadc06b9be21878c",
+        "tree": "d545dafe7643bbe4eca1bc3656c8ced714bb3c8e",
+        "packageGitTree": "14a3896c7ad50597bfc83996bcfec25180a720f9",
+        "plugin": "communication-kit",
+        "version": "0.1.0",
+        "snapshot": "communication-kit-aics-2026-10-12-r2",
+        "snapshotSha256": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332"
+      },
+      "nativeDesktop": {
+        "displayName": "ChatGPT",
+        "appId": "OpenAI.Codex_2p2nqsd0c76g0!App",
+        "packageFamily": "OpenAI.Codex_2p2nqsd0c76g0",
+        "packageVersion": "26.1007.2314.0",
+        "windowId": 197142,
+        "windowTitle": "ChatGPT",
+        "modelShown": "GPT-6.1 Sol Extra High",
+        "permissionsShown": "Full access (pre-existing; unchanged)",
+        "identityLimit": "Same desktop package, two distinct native UI routes, both actual threads kind=codex/local. Not a separate ChatGPT installation, classic Chat or cloud execution; not the CLI 0.147.0 batch."
+      },
+      "nativeRoutes": [
+        {
+          "id": "codex",
+          "route": "Codex → plugin Try now → Don't work in a project → This computer",
+          "threadId": "01a13319-72a6-7e93-b8c2-dae52693ea16",
+          "cases": {
+            "communication": "PASS",
+            "writing": "PASS",
+            "faithfulRewrite": "PASS",
+            "criticalQuestionAndChatWait": "PASS",
+            "explicitNewMdTxtAndActualReadback": "PASS",
+            "noFileWritesBeforeExplicitRequest": "PASS: actual complete six-turn execution trace; initial package reads only"
+          }
+        },
+        {
+          "id": "work",
+          "route": "ChatGPT → New chat → Work → no project → On your computer",
+          "threadId": "01a1332a-da34-78b3-addd-473d3f7b3777",
+          "cases": {
+            "communication": "PASS",
+            "writing": "PASS",
+            "faithfulRewrite": "PASS",
+            "criticalQuestionAndChatWait": "PASS",
+            "explicitNewMdTxtAndActualReadback": "PASS",
+            "noFileWritesBeforeExplicitRequest": "PASS: actual complete six-turn execution trace; initial package reads only"
+          }
+        }
+      ],
+      "nativeEvidencePath": "docs/runbook/evidence/communication-kit-2026-10-13-native-ui-01.json",
+      "nativeEvidenceSha256": "4432f2cabb4aa99ce1977ecc41e191fbfba8f455618c56a6bfaaa9d9cd88bb63",
+      "nativeNotCovered": [
+        "Native question selection window close/empty/timeout events (ordinary chat questions used, no such window appeared)",
+        "CLI 0.147.0 host-blocked C16-C18 successful subpaths (historical PARTIAL retained)",
+        "Full C16 existing-file notes edit in these UI routes (separate tools-role batch covers limited edit)",
+        "Separate ChatGPT app installation, classic Chat mode or cloud Work execution",
+        "R01-R05 formal publication and post-release installation",
+        "Real-world efficacy/nine personal trials/three-draft comparisons/reader feedback/adoption/efficiency"
+      ],
+      "resourceComparisons": [
+        {
+          "path": "CHANGELOG.md",
+          "publishedBytes": 1473,
+          "publishedSha256": "0c892c06e3140050fdff8abf6936cc12e1406db2d6b5a9860884dfda44aadfa4",
+          "nativeSourceSha256": "20057c43b875fc67850b73f53a9c9b20e6f51cf9b121804a7b85f9b348fa866a",
+          "same": false,
+          "gitBlob": "16ad1f9041f86ed01fcab34771af9ab40c67bcf8"
+        },
+        {
+          "path": "LICENSE",
+          "publishedBytes": 1068,
+          "publishedSha256": "cfd483b2cc03452033bbc34d6ceabcc46d9917539070f6721d671705926a2a8d",
+          "nativeSourceSha256": "cfd483b2cc03452033bbc34d6ceabcc46d9917539070f6721d671705926a2a8d",
+          "same": true,
+          "gitBlob": "5ce28e0a42b9f781087df184517daafa2f483602"
+        },
+        {
+          "path": "README.md",
+          "publishedBytes": 1906,
+          "publishedSha256": "7f2f21555070e5c9803dd15e6ac30bd156617830bd01e0962cacf74a08b8ed75",
+          "nativeSourceSha256": "7f2f21555070e5c9803dd15e6ac30bd156617830bd01e0962cacf74a08b8ed75",
+          "same": true,
+          "gitBlob": "e48e6a5ee5e783ca93486702330a789989481f84"
+        },
+        {
+          "path": "assets/icon.png",
+          "publishedBytes": 79377,
+          "publishedSha256": "07f8a9ad4d04f20bc0551f3e72ed8c9e1b14368a743b392d4feee3aaec314ddf",
+          "nativeSourceSha256": "07f8a9ad4d04f20bc0551f3e72ed8c9e1b14368a743b392d4feee3aaec314ddf",
+          "same": true,
+          "gitBlob": "39a708ea85835de34a9698d1d431e25205ead387"
+        },
+        {
+          "path": "assets/icon.svg",
+          "publishedBytes": 1153,
+          "publishedSha256": "be2ecb005473fab4e5c79ae9bcfddad58665cb9d322a373a110777fc03753f28",
+          "nativeSourceSha256": "be2ecb005473fab4e5c79ae9bcfddad58665cb9d322a373a110777fc03753f28",
+          "same": true,
+          "gitBlob": "6e48cac24e63b6c202d44ecfff89dcb3f3daad6b"
+        },
+        {
+          "path": "plugin.json",
+          "publishedBytes": 1401,
+          "publishedSha256": "fe255f7ef47f1f7627445ee10b4967412c71b9e2ff1a5b2449bcf6caa2c9fe13",
+          "nativeSourceSha256": "fe255f7ef47f1f7627445ee10b4967412c71b9e2ff1a5b2449bcf6caa2c9fe13",
+          "same": true,
+          "gitBlob": "c43bc6bbff0f9cc6cfcccadf4a07d98017c84791"
+        },
+        {
+          "path": "skills/communicate/SKILL.md",
+          "publishedBytes": 5759,
+          "publishedSha256": "19d773c36748a5843b231c335df71656eb6261caba14066115b33285882c61a6",
+          "nativeSourceSha256": "19d773c36748a5843b231c335df71656eb6261caba14066115b33285882c61a6",
+          "same": true,
+          "gitBlob": "f26f93ca7e2d783301bcd98b0cbb5bf1498c39d0"
+        },
+        {
+          "path": "skills/communicate/agents/openai.yaml",
+          "publishedBytes": 314,
+          "publishedSha256": "1aab91721ebf933aa3d6f52a1581a434bb000bbee2d0f19f9d32fcea5cf627c5",
+          "nativeSourceSha256": "1aab91721ebf933aa3d6f52a1581a434bb000bbee2d0f19f9d32fcea5cf627c5",
+          "same": true,
+          "gitBlob": "d5536a61a8b67ebb1c3f7e81d66b6cc529c2a56c"
+        },
+        {
+          "path": "skills/communicate/references/aics-policy.md",
+          "publishedBytes": 4423,
+          "publishedSha256": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+          "nativeSourceSha256": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+          "same": true,
+          "gitBlob": "505bed066b8229177277713c6eae21b17f9a7a70"
+        },
+        {
+          "path": "skills/communicate/references/aics-snapshot.json",
+          "publishedBytes": 10361,
+          "publishedSha256": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332",
+          "nativeSourceSha256": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332",
+          "same": true,
+          "gitBlob": "7f6136ae1f633be56eb194f11a67d1466490990a"
+        },
+        {
+          "path": "skills/communicate/references/source-provenance.md",
+          "publishedBytes": 5621,
+          "publishedSha256": "53272cc56dba8cfe32203543d9f3d6aee8ec55ebc3602f4dc5652be90b9ed725",
+          "nativeSourceSha256": "53272cc56dba8cfe32203543d9f3d6aee8ec55ebc3602f4dc5652be90b9ed725",
+          "same": true,
+          "gitBlob": "620db99d40ff20dbba3e8ca818d4737700ee16f9"
+        },
+        {
+          "path": "skills/communicate/references/task-patterns.md",
+          "publishedBytes": 4178,
+          "publishedSha256": "190c47c125759de5dbdca218417a418b76ba555df44923dc2cf48b86d60d0cff",
+          "nativeSourceSha256": "190c47c125759de5dbdca218417a418b76ba555df44923dc2cf48b86d60d0cff",
+          "same": true,
+          "gitBlob": "3dfd90a1d5a6826f92e9abfddf650e4c8b763e8a"
+        }
+      ],
+      "limit": "Existing same-app Codex-local and ChatGPT/Work-local basic evidence maps to unchanged Communication resources. No fresh published-tag GUI run or separate classic ChatGPT/cloud/native-question-window acceptance is claimed. HTML0.1.36 complete current clients remain unverified."
+    }
+  },
+  "knownFailuresAndLimits": [
+    {
+      "subject": "HTML0.1.36",
+      "status": "known FAIL and unverified paths retained",
+      "issue": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/239",
+      "detail": "Source36 independent-self-check lacks the current-state prerequisite for a definite conclusion; whole6PASS/1FAIL/2UNEXERCISED/5NOT_RUN is recorded in the current ledger. Owner explicitly selected as-is publication, not a repaired or fully client-accepted result."
+    },
+    {
+      "subject": "GitHub independent review",
+      "status": "NOT OBSERVED",
+      "detail": "PR241 reviews array is empty. Actual merge/publication and the Owner as-is choice do not create nonauthor/latest-push/Code Owner approval or establish a protection waiver. This AI audit is not GitHub approval."
+    },
+    {
+      "subject": "Communication file/window/client scope",
+      "status": "historical PARTIAL/NOT RUN retained",
+      "detail": "CLI C16-C18 host-blocked subpaths, full existing-file C16 on these native routes, native selection close/empty/timeout, independent classic/cloud and complete Office edits are not upgraded."
+    },
+    {
+      "subject": "Effects",
+      "status": "NOT MEASURED/OUT OF SCOPE",
+      "detail": "No real-world communication/learning efficacy, personal trials, three-draft comparisons, reader feedback, adoption or efficiency evaluation."
+    }
+  ],
+  "documentationFollowup": {
+    "status": "observed/deferred; no source edits performed",
+    "path": "README.md",
+    "lines": [
+      7,
+      22,
+      48,
+      66,
+      76
+    ],
+    "detail": "Candidate language and default--ref v8.2.0/three-package example remain in the published snapshot. Line36 instructs switching to--ref v8.3.0 and installing HTML/Communication after publication. Report actual v8.3.0 identity explicitly; do not claim documentation closeout complete."
+  },
+  "scopeAndGovernanceBoundary": {
+    "verdict": "Observed R01-R03 identities PASS; R05 resource closure limited PASS; full behavioral/approval compliance is not established.",
+    "currentWholeDevelopDecision": "Owner2026-10-15 decision is in published root instructions/ledger and current Release section; previous four-package projection is explicitly historical.",
+    "maintenance": "Published release operations/ledger says stop after publication and necessary checks; branch sync/pre-bump/docs/Issue closure/archive were deferred in that saved scope. Any Root action under later direct user authorization must preserve its own authorization/source record; this report authorizes or executes none.",
+    "remoteDevelop": "Root reported API404 and no ls-remote branch output. This reviewer did not restore, recreate, delete or change any branch.",
+    "epic": "Not closed by this reviewer; no statement of full Epic acceptance."
+  },
+  "findings": [],
+  "reuseInvalidatesIf": "Changed Communication skill/refs/manifest/icons/source or relevant host/installation path requires affected new verification. Actual known HTML failures and absent fresh clients remain separate from successful source/version/publication checks."
+}
