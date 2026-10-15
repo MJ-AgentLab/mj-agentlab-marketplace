@@ -2,7 +2,7 @@
 
 <img src="assets/brand/marketplace/logo.svg" width="128" height="128" alt="MJ AgentLab Marketplace — MJ letters with connected modules">
 
-![Version](https://img.shields.io/badge/version-8.3.0-blue)
+![Version](https://img.shields.io/badge/version-8.3.1-blue)
 
 面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场，无需 MCP 服务。[Marketplace v8.3.0](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.0) 已于 2026-10-15 经 #241 合入 main 并自动公开，包含完整五插件、七公开技能、四显式入口。实际发布 SHA 为 `ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64`：
 
@@ -37,7 +37,7 @@ codex plugin add learning-evidence-kit@mj-agentlab-marketplace
 codex plugin list --json
 ~~~
 
-main / VERSION / badge 与公开 tag 均为 8.3.0，五插件版本保持发布清单。发布后的真实 tag 十三种 canonical 安装及六次 Diagram、六次 Learning 缓存 Python 检查通过；不代表完整客户端或现实效果通过。身份与限制见[8.3.0 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)；[8.2.0 记录](docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)保留历史。
+已发布 main/tag 仍为 8.3.0；本页 badge 跟随当前分支 VERSION，develop 的 8.3.1 仅表示预计下一补丁，尚无同号 tag/Release。五插件版本保持发布清单。发布后真实 v8.3.0 tag 的十三种 canonical 安装及六次 Diagram、六次 Learning 缓存 Python 检查通过；不代表完整客户端或现实效果通过。身份与限制见[8.3.0 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)；[8.2.0 记录](docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)保留历史。
 
 ### Explain Kit
 

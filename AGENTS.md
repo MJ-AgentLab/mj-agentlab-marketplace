@@ -20,7 +20,7 @@ Communication按[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketpla
 
 ## 执行与决策
 
-用户明确关闭合并后自动删分支并恢复develop：设置已false，普通创建恢复32e32c5，审计4536963592为PASS，保护规则回读不变。此前删除和#240/#241合并审计bypass单独保留。后续main同步/补丁预升走PR；当前head非作者批准、CI/代码所有者/线程门禁保持，不指定审查人。#215/#239延期和效果不扩展。
+Owner2026-10-15要求先同步main31cb2cb（#242，与已测eb03074同树）再预升develop8.3.1。本分支从同步候选42c4580准备，实际合入按PR门禁另验；只预升VERSION/badge并同步根摘要，插件/运行/冻结计划保持。main/tag/Release仍8.3.0，无8.3.1tag/Release。自动删除false、恢复审计PASS；历史bypass见账本，不追认批准。当前head非作者批准、CI/线程保持，不指定审查人，Refs #222。
 
 communication-kit 首版按已保存的[完整计划](plan/communication-kit-implementation-plan.md)实施，来源与授权见[捕获记录](plan/communication-kit-plan-provenance.json)，由 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222) 管理 PR1–PR5 与正式上线。产品方向、显式 communicate 单入口、保义改写和文件边界已确认；设计与验收契约见[新增 ADR](docs/adr/[ADR]_Communication_Kit_Addition.md)及[验收 RUNBOOK](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。PR1/PR2 保持现有运行集合，PR3 原子接入新包。Owner 选择 Learning 先发布 8.2.0，Communication 随后独立 minor（预计 8.3.0），PR4 重查实际版本和基线；现实效果测试本次延期，基础通过不代表效果已验证。
 
