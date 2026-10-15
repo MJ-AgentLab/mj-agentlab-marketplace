@@ -5,6 +5,10 @@
 
 ## [Unreleased]
 
+### Maintenance
+
+- Add opt-in phase measurements and a controlled Windows baseline harness for the staged CI performance work in #245. Keep full-source copying and all existing correctness, installation and cleanup contracts in PR1; measured optimization and CI scheduling changes follow separately. Runtime plugin bytes and versions remain unchanged.
+
 ### Fixed
 
 - Retry transient filesystem locks during canonical release-verification cleanup using awaited asynchronous removal with a finite retry limit. Preserve path-containment checks and propagate persistent or unrelated errors. Add deterministic regressions for the captured Windows EBUSY, retry exhaustion and unrelated cleanup errors; retain the original PR #244 CI failure. Plugin bytes/versions and published release history remain unchanged. Refs #244.
