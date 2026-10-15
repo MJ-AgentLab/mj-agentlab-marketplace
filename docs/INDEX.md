@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-15
 state: active
-version: v2.87
+version: v2.88
 ---
 
 # 文档索引
@@ -297,3 +297,6 @@ HTML35/0ed26217工程346/65/quick/strict/actualCLI0.147与十三准确安装六�
 
 
 HTML35/0ed真实核心10UUID20C整体7P1F2U4N、10未发/0post0cross；Work3C仅三轮有限P，Codex1C仅初始读取/目标P、确认指南wholeU；6实际缓存正文与10旧owned复原保。048真实封包/双逐字节复原P，71运行资源不变，见[§74](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。
+
+
+HTML36仅FW一span区分当前一步许可/结果与实际多步路径断言；仅后者核同范围源动作/恢复/可串接后继及逐步前提，不以未教未画否定源已给路径，缺项只阻依赖结论，不默认目标成功或强制穷举，entry/ID保持。源35/0ed工程346及十三安装六PythonP，10UUID20C whole7P1F2U4N、10未发/0post/0cross；无路径断言撤有据恢复后继的wholeF原保。Work三轮含指南/本地Codex仅首轮待选各自有限证据，双端整体U，自有配置复原。36新工程/安装/模型/双端NOT_RUN，见[§75](runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)。Refs #217, #220。

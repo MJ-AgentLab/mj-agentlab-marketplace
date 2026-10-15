@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+- Prepare HTML Guide Kit 0.1.36: distinguish current one-step permission/results from actual multistep path assertions. For path claims, check applicable source actions, resets and compatible successors with their stated premises; preserve known paths and bound unresolved dependencies. Keep Source35 failures and limited client evidence; fresh engineering, canonical installation and independent behavior/client gates remain required. Refs #217, #220.
+
 - Prepare HTML Guide Kit 0.1.35: match each actual object and dimension across applicable source rules before bulk permission, prohibition or unknown conclusions. Unshown or unchecked items do not establish source gaps. Keep Source34 failures and partial client evidence; fresh canonical installation and independent behavior/client gates remain required. Refs #217, #220.
 
 - Prepare HTML Guide Kit 0.1.34: explicitly deliver necessary shared example inputs and local overrides before results; audit complete source/design action attribution at each restoration unit. Preserve Source33 original failures and unrun paths. Fresh canonical installation, behavior and client evidence remain required. Refs #217, #220.
