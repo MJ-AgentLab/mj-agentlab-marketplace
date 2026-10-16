@@ -156,6 +156,16 @@ function measured({ baselineOnly = false, stage = "core", mutate = record => rec
   return makePlan(3, baselineOnly, stage).map(sample => mutate({ ...sample, durationMs: sample.source === "baseline" ? 1000 : sample.command === "test" ? ({ default: 400, 1: 410, 2: 390 })[sample.concurrency] : sample.command === "canonical" ? 100 : 500, fixtureCopiedBytes: sample.source === "baseline" ? 10_000 : null, fixtureActualCopiedBytes: sample.source === "candidate" ? 120 : null, fixtureSyntheticBytes: sample.source === "candidate" ? 10 : null, fixturePreparationDeltaBytes: sample.source === "candidate" ? -5 : null, fixtureTotalBytes: sample.source === "candidate" ? 125 : null, fixtureTotals: sample.source === "candidate" ? { valid: true, fixtureCount: 22, bySuite: FIXTURE_COUNTS, copiedBytes: 120 } : null, ok: true }));
 }
 
+function assertUnmeasured(summary, names = ["fixtureBytes", "test", "canonical", "smoke"]) {
+  assert.equal(summary.status, "not_accepted");
+  assert.deepEqual(Object.keys(summary.gates), names);
+  for (const name of names) {
+    const { improvement, status, ok } = summary.gates[name];
+    assert.deepEqual({ improvement, status, ok }, { improvement: null, status: "not_measured", ok: false }, name);
+  }
+  assert.equal(summary.selectedConcurrency, null);
+}
+
 test("baseline-only measurements never become a frozen baseline or speed PASS", () => {
   const summary = summarize(measured({ baselineOnly: true }), { baselineOnly: true });
   assert.equal(summary.status, "baseline_only");
@@ -196,6 +206,101 @@ test("failed, partial, non-Windows and unmeasured-copy runs cannot pass by repla
   const oneMissing = summarize(full.map((item, i) => i === 1 ? { ...item, fixtureActualCopiedBytes: null } : item), { eligibleEnvironment: true });
   assert.equal(oneMissing.status, "not_accepted");
   assert.equal(oneMissing.gates.fixtureBytes.improvement, null);
+});
+
+test("the failed fourteen-sample core prefix preserves observations without admitting any gates", () => {
+  // Real run 38793803097 stopped at baseline canonical round two after thirteen successes.
+  const samples = measured().slice(0, 14);
+  assert.deepEqual([samples[13].source, samples[13].command, samples[13].round], ["baseline", "canonical", 2]);
+  samples[13] = { ...samples[13], ok: false, durationMs: 1400 };
+  const summary = summarize(samples, { eligibleEnvironment: true, complete: false });
+  assertUnmeasured(summary);
+  assert.deepEqual(summary.groups["baseline/canonical/default"].wallMs, { count: 2, median: 1200, min: 1000, max: 1400 });
+  assert.equal(summary.groups["baseline/canonical/default"].valid, false);
+  assert.equal(summary.groups["candidate/canonical/default"].wallMs.count, 2);
+  assert.equal(summary.groups["baseline/smoke/default"].wallMs.count, 1);
+});
+
+test("one-round canonical and smoke pairs remain unmeasured even when their times meet thresholds", () => {
+  const samples = measured().filter(record => record.round === 1 && ["canonical", "smoke"].includes(record.command));
+  const summary = summarize(samples, { eligibleEnvironment: true, complete: false });
+  assertUnmeasured(summary);
+  assert.equal(summary.groups["candidate/canonical/default"].wallMs.median, 100);
+  assert.equal(summary.groups["candidate/smoke/default"].wallMs.median, 500);
+  assert.ok(Object.values(summary.groups).every(group => group.wallMs.count === 1 && !group.valid));
+});
+
+test("an invalid baseline cannot select among otherwise complete candidate test configurations", () => {
+  const full = measured();
+  for (const samples of [full.slice(1), full.map((record, index) => index === 0 ? { ...record, ok: false } : record)]) {
+    const summary = summarize(samples, { eligibleEnvironment: true });
+    assertUnmeasured(summary);
+    for (const concurrency of ["default", 1, 2]) assert.equal(summary.groups[`candidate/test/${concurrency}`].valid, true);
+    assert.equal(summary.groups["baseline/test/default"].valid, false);
+  }
+});
+
+test("an unexpected replacement group cannot admit core gates or concurrency", () => {
+  const samples = measured({ mutate: record => record.source === "candidate" && record.command === "canonical" ? { ...record, command: "unexpected" } : record });
+  const summary = summarize(samples, { eligibleEnvironment: true });
+  assertUnmeasured(summary);
+  assert.equal(Object.keys(summary.groups).length, 8);
+  assert.equal(summary.groups["candidate/unexpected/default"].wallMs.count, 3);
+  assert.ok(Object.values(summary.groups).every(group => group.valid));
+});
+
+test("direct comparison summaries require at least three integer rounds", () => {
+  for (const repetitions of [1, 2, 3.5]) for (const stage of ["core", "fixtures"]) {
+    const samples = measured({ stage }).filter(record => record.round <= repetitions);
+    const summary = summarize(samples, { repetitions, stage, eligibleEnvironment: true });
+    assertUnmeasured(summary, stage === "fixtures" ? ["fixtureBytes"] : undefined);
+    assert.ok(Object.values(summary.groups).every(group => group.wallMs.count > 0));
+  }
+});
+
+test("baseline-only summaries also require three integer rounds and their exact command groups", () => {
+  for (const repetitions of [1, 2, 3.5]) {
+    const samples = measured({ baselineOnly: true }).filter(record => record.round <= repetitions);
+    const summary = summarize(samples, { repetitions, baselineOnly: true });
+    assert.equal(summary.status, "incomplete");
+    assert.equal(summary.gates, null);
+    assert.equal(summary.selectedConcurrency, null);
+  }
+  const samples = measured({ baselineOnly: true, mutate: record => record.command === "smoke" ? { ...record, command: "unexpected" } : record });
+  assert.equal(summarize(samples, { baselineOnly: true }).status, "incomplete");
+});
+
+for (const [reason, override] of [["incomplete cleanup", { complete: false }], ["unfrozen baseline", { frozenBaseline: false }], ["ineligible environment", { eligibleEnvironment: false }]]) {
+  test(`all complete core groups remain unmeasured with ${reason}`, () => {
+    const summary = summarize(measured(), { eligibleEnvironment: true, ...override });
+    assertUnmeasured(summary);
+    assert.equal(Object.keys(summary.groups).length, 8);
+    assert.ok(Object.values(summary.groups).every(group => group.valid && group.wallMs.count === 3));
+  });
+}
+
+test("a complete eligible core comparison still reports a measured threshold failure and concurrency", () => {
+  const samples = measured({ mutate: record => record.source === "candidate" && record.command === "canonical" ? { ...record, durationMs: 250 } : record });
+  const summary = summarize(samples, { defaultConcurrency: 4, eligibleEnvironment: true });
+  assert.equal(summary.status, "not_accepted");
+  assert.deepEqual(summary.gates.canonical, { improvement: .75, required: .80, status: "fail", ok: false });
+  for (const name of ["fixtureBytes", "test", "smoke"]) assert.equal(summary.gates[name].status, "pass");
+  assert.deepEqual(summary.selectedConcurrency, { configured: 2, resolved: 2, withinFivePercentOfFastest: true });
+});
+
+test("fixtures stage suppresses copy PASS until completion, frozen source, environment and shape are eligible", () => {
+  const samples = measured({ stage: "fixtures" }), options = { stage: "fixtures", eligibleEnvironment: true };
+  for (const override of [{ complete: false }, { frozenBaseline: false }, { eligibleEnvironment: false }]) {
+    const summary = summarize(samples, { ...options, ...override });
+    assertUnmeasured(summary, ["fixtureBytes"]);
+    assert.ok(Object.values(summary.groups).every(group => group.valid));
+    assert.equal(summary.coreAcceptance, "deferred");
+  }
+  const extraGroup = measured().filter(record => record.source === "candidate" && record.command === "canonical");
+  const summary = summarize([...samples, ...extraGroup], options);
+  assertUnmeasured(summary, ["fixtureBytes"]);
+  assert.equal(Object.keys(summary.groups).length, 3);
+  assert.equal(summary.groups["candidate/test/default"].fixtureActualCopiedBytes.median, 120);
 });
 
 test("phase sums preserve expected negative operations without treating them as command failures", () => {

@@ -6,14 +6,14 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-16
 state: active
-version: v2.91.4
+version: v2.91.8
 ---
 
 # 文档索引
 
 ## 当前性能维护
 
-[#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)按五个顺序PR优化Windows测试与安装冒烟；PR1 #246实际合入30665998并冻结同树基线，PR2接入22份最小契约夹具。授权、覆盖映射、性能门槛和实际结果见[性能验收账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。核心交付与整个Issue完成分别记录，历史证据原件保留。
+[#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)按五个顺序PR优化Windows测试与安装冒烟；PR1 #246基线固定30665998，PR2 #247实际合入02724de0，22份夹具复制下降保守下界99.447896%已独立核验。PR3 #248的5273490已通过本机416项、精确十三安装/Python与普通双OS CI；报告守卫修复正确维持未测量门槛。[第三轮核心对照](runbook/evidence/ci-performance-245-pr3-core-attempt3.json)尝试21/24、成功20项，冻结基线canonical再遇原60秒Git worktree创建超时；九次候选全量各416/416，但不构成完整性能验收。[首轮](runbook/evidence/ci-performance-245-pr3-core-attempt1.json)与[第二轮](runbook/evidence/ci-performance-245-pr3-core-attempt2.json)失败保留。新增独立标签诊断入口仅选择原资源破坏测试并记录Git Trace2，深层原因与新入口实际执行仍待核验，诊断不计算正式门槛或并发。基线、60秒期限及95/50/80/30门槛保持，全部来源见[性能验收账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。核心交付与整个Issue完成分别记录，空reviews和历史原件保留。
 
 ## 当前整体发布
 

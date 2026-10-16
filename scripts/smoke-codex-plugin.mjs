@@ -8,6 +8,7 @@ import { isDeepStrictEqual } from "node:util";
 import { runCli, spawnCli } from "./run-cli.mjs";
 import { assertInstalledIcons } from "./plugin-icons.mjs";
 import { measureSync, measureAsync } from "./perf-metrics.mjs";
+import { prepareSmokeSource, materializeSmokeSource, assertSmokeSource, removeSmokeSource } from "./smoke-source.mjs";
 import { REPOSITORY_SKILLS, RUNTIME_PLUGINS, PUBLIC_SKILLS, EXPLICIT_ONLY_SKILLS, validateOpenAIConfig, validateCommunicationSnapshot, resolveOwnedResource, validateRepository, assertInstalledPluginResources } from "./validate-portable.mjs";
 
 export const MARKETPLACE_NAME = "mj-agentlab-marketplace";
@@ -184,23 +185,25 @@ export function cleanupIsolatedRoot(root) {
   }, { scope: "smoke" });
 }
 
-async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVersionDrift, installed }) {
+function createScenarioContext(baseEnv, roots) {
   const root = fs.mkdtempSync(path.join(real(os.tmpdir()), "marketplace-smoke-"));
+  roots.push(root);
   const home = path.join(root, "home"), tmp = path.join(root, "tmp"), src = path.join(root, "src"), cwd = path.join(root, "consumer"), codexHome = path.join(home, ".codex");
   for (const dir of [home, tmp, src, cwd, codexHome]) fs.mkdirSync(dir, { recursive: true });
   const env = { ...baseEnv, HOME: home, USERPROFILE: home, CODEX_HOME: codexHome, APPDATA: path.join(home, "Roaming"), LOCALAPPDATA: path.join(home, "Local"), XDG_CONFIG_HOME: path.join(home, "config"), TEMP: tmp, TMP: tmp, TMPDIR: tmp };
+  return { root, home, tmp, src, cwd, codexHome, env };
+}
+
+async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVersionDrift, installed, preparedSource, context }) {
+  const { root, src, cwd, codexHome, env } = context;
   const commands = [];
-  let complete = false;
   const execute = async (name, args, at = cwd, input) => {
     const r = await runCli(name, args, { cwd: at, env, input, timeoutMs: 60000 });
     commands.push({ command: name, args, status: r.status });
     if (r.error || r.status !== 0) throw new Error(`${name} ${args.join(" ")}: ${r.error?.message ?? `${r.stderr}${r.stdout}`}`);
     return r.stdout;
   };
-  try {
-    for (const rel of [".agents", "plugins", "assets", "AGENTS.md", ".codex", ".github", "docs", "scripts", "tests", "VERSION", "README.md", "CONTRIBUTING.md", "GLOSSARY.md", "CHANGELOG.md", "package.json", "package-lock.json"]) measureSync("copy", () => fs.cpSync(path.join(repoRoot, rel), path.join(src, rel), { recursive: true }), { scope: "smoke", installed, path: rel });
-    if (fs.existsSync(path.join(repoRoot, "plan"))) measureSync("copy", () => fs.cpSync(path.join(repoRoot, "plan"), path.join(src, "plan"), { recursive: true }), { scope: "smoke", installed, path: "plan" });
-    if (fs.existsSync(path.join(repoRoot, ".gitattributes"))) measureSync("copy", () => fs.copyFileSync(path.join(repoRoot, ".gitattributes"), path.join(src, ".gitattributes")), { scope: "smoke", installed, path: ".gitattributes" });
+  {
     await measureAsync("git.init", () => execute("git", ["init", "-q"], src), { scope: "smoke", installed });
     fs.writeFileSync(path.join(codexHome, "config.toml"), `[projects.${JSON.stringify(norm(src))}]\ntrust_level = "trusted"\n`);
     const version = (await execute(codexCommand, ["--version"])).trim();
@@ -269,7 +272,7 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
       }
       if (!python) throw new Error("installed common capabilities require an actual Python 3.12 interpreter");
       const entry = path.join(pluginRoot, "scripts/lek.py"), libraryRoot = path.join(cwd, "isolated evidence 中文");
-      const record = JSON.parse(fs.readFileSync(path.join(repoRoot, "tests/fixtures/learning-evidence/learning-record.json"), "utf8"));
+      const record = structuredClone(preparedSource.learningRecord);
       const saveRequest = { schema_version: 1, operation: "save", request_id: "installed-synthetic-save", library_root: libraryRoot, input: { record } };
       const saved = JSON.parse(await execute(python.command, [...python.pre, "-B", entry], cwd, JSON.stringify(saveRequest)));
       if (saved.status !== "ok" || !saved.data.record_id || !saved.data.evidence_id) throw new Error("installed common entry failed an isolated save");
@@ -301,29 +304,45 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
       if (!/共扫描\s*1\s*张图/.test(output) || !/FAIL\s+0/.test(output)) throw new Error("installed Python validator did not validate the one-diagram fixture");
       diagramValidation = { skillPath: diagram.file, validatorPath, output: output.trim() };
     }
-    complete = true;
     return { ok: true, version, marketplaces: names, installed: plugins, installedPackageMetadata, installedIcons, installedResources, installedPluginResources, outside, repository, nativeOutside: nativeInventories.outside, nativeRepository: nativeInventories.repository, explicitOnly: expectedSkills.filter(name => EXPLICIT_ONLY_SKILLS.includes(name)), skillPaths, publicSkillPaths: skillPaths, ...(diagramValidation ? { skillPath: diagram.file, validatorPath: diagramValidation.validatorPath, diagramValidation } : {}), ...(learningEvidenceValidation ? { learningEvidenceValidation } : {}), ...(keepRoot ? { root, codexHome, repositoryRoot: src, consumerRoot: cwd } : {}), commands };
-  } finally {
-    if (!keepRoot || !complete) cleanupIsolatedRoot(root);
   }
 }
 
 /** Exercise each standalone package and the combined install with separate caches. */
-export async function runSmoke({ repoRoot = path.resolve(import.meta.dirname, ".."), codexCommand = "codex", baseEnv = process.env, keepRoot = false, allowVersionDrift = false } = {}) {
+export async function runSmoke({ repoRoot = path.resolve(import.meta.dirname, ".."), codexCommand = "codex", baseEnv = process.env, keepRoot = false, allowVersionDrift = false, scenarioRunner = runScenario } = {}) {
   measureSync("validate", () => {
     const validation = validateRepository(repoRoot);
     if (!validation.ok) throw new Error(`smoke source failed strict validation: ${validation.errors.join("; ")}`);
   }, { scope: "smoke" });
-  const scenarios = [];
+  const scenarios = [], roots = [];
+  let preparedSource, failure, failed = false;
   try {
+    preparedSource = prepareSmokeSource(repoRoot);
     for (const installed of INSTALL_SCENARIOS) {
-      scenarios.push(await runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVersionDrift, installed }));
+      const context = createScenarioContext(baseEnv, roots);
+      materializeSmokeSource(preparedSource, context.src, installed);
+      const result = await scenarioRunner({ repoRoot, codexCommand, baseEnv, keepRoot, allowVersionDrift, installed, preparedSource, context });
+      if (result?.ok !== true) throw new Error("smoke scenario verification failed");
+      assertSmokeSource(preparedSource, context.src, { git: true });
+      scenarios.push(result);
+      if (!keepRoot) cleanupIsolatedRoot(context.root);
     }
-    return { ...scenarios.at(-1), scenarios };
-  } catch (error) {
-    if (keepRoot) for (const result of scenarios) cleanupIsolatedRoot(result.root);
-    throw error;
+    assertSmokeSource(preparedSource, preparedSource.templateRoot);
+  } catch (error) { failure = error; failed = true; }
+  const cleanupErrors = [];
+  if (preparedSource) {
+    try { removeSmokeSource(preparedSource); } catch (error) { cleanupErrors.push(error); }
   }
+  // A template-cleanup failure also makes this an unsuccessful keepRoot run.
+  if (failed || cleanupErrors.length) for (const root of roots) if (fs.existsSync(root)) {
+    try { cleanupIsolatedRoot(root); } catch (error) { cleanupErrors.push(error); }
+  }
+  if (failed) {
+    if (cleanupErrors.length) throw new AggregateError([failure, ...cleanupErrors], `${failure?.message ?? String(failure)}; smoke cleanup failed: ${cleanupErrors.map(error => error?.message ?? String(error)).join("; ")}`, { cause: failure });
+    throw failure;
+  }
+  if (cleanupErrors.length) throw new AggregateError(cleanupErrors, `smoke cleanup failed: ${cleanupErrors.map(error => error?.message ?? String(error)).join("; ")}`, { cause: cleanupErrors[0] });
+  return { ...scenarios.at(-1), scenarios };
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {

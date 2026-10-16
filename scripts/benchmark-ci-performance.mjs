@@ -222,15 +222,27 @@ export function summarize(samples, { repetitions = 3, baselineOnly = false, froz
   }]));
   const improvement = (baseline, candidate) => baseline > 0 && Number.isFinite(candidate) ? 1 - candidate / baseline : null;
   const gate = (value, threshold) => ({ improvement: value, required: threshold, status: value === null ? "not_measured" : value >= threshold ? "pass" : "fail", ok: value !== null && value >= threshold });
-  if (baselineOnly && stage === "core") return { status: complete && Object.keys(stats).length === 3 && Object.values(stats).every(group => group.valid) ? "baseline_only" : "incomplete", frozenBaseline: false, groups: stats, selectedConcurrency: null, gates: null };
+  const expectedGroups = stage === "fixtures" ? ["baseline/test/default", "candidate/test/default"]
+    : baselineOnly ? ["baseline/test/default", "baseline/canonical/default", "baseline/smoke/default"]
+      : ["baseline/test/default", "candidate/test/default", "candidate/test/1", "candidate/test/2", "baseline/canonical/default", "candidate/canonical/default", "baseline/smoke/default", "candidate/smoke/default"];
+  // Keep all raw statistics visible, but admit gates only for the complete stage.
+  const measurementsReady = Number.isInteger(repetitions) && repetitions >= 3 && complete
+    && samples.length === repetitions * expectedGroups.length && Object.keys(stats).length === expectedGroups.length
+    && expectedGroups.every(name => stats[name]?.valid);
+  if (baselineOnly && stage === "core") return { status: measurementsReady ? "baseline_only" : "incomplete", frozenBaseline: false, groups: stats, selectedConcurrency: null, gates: null };
+  const ready = measurementsReady && !baselineOnly && frozenBaseline && eligibleEnvironment;
   const baselineTest = stats["baseline/test/default"];
   const copyGate = candidate => ({ ...gate(baselineTest?.valid && candidate?.valid && baselineTest.fixtureCopiedBytes?.count === repetitions && candidate.fixtureActualCopiedBytes?.count === repetitions ? improvement(baselineTest.fixtureCopiedBytes.median, candidate.fixtureActualCopiedBytes.median) : null, THRESHOLDS.fixtureBytes), method: "actual candidate copied bytes / controlled baseline lower bound; reduction lower bound" });
   if (stage === "fixtures") {
-    const fixtureGate = copyGate(stats["candidate/test/default"]);
-    const valid = complete && !baselineOnly && frozenBaseline && eligibleEnvironment && samples.length === repetitions * 2 && Object.keys(stats).length === 2 && Object.values(stats).every(group => group.valid);
-    return { status: valid && fixtureGate.ok ? "fixtures_pass" : "not_accepted", stage, coreAcceptance: "deferred", frozenBaseline, groups: stats, selectedConcurrency: null, gates: { fixtureBytes: fixtureGate }, deferredGates: ["test", "canonical", "smoke"], eligibleEnvironment, complete };
+    const fixtureGate = copyGate(ready ? stats["candidate/test/default"] : null);
+    return { status: ready && fixtureGate.ok ? "fixtures_pass" : "not_accepted", stage, coreAcceptance: "deferred", frozenBaseline, groups: stats, selectedConcurrency: null, gates: { fixtureBytes: fixtureGate }, deferredGates: ["test", "canonical", "smoke"], eligibleEnvironment, complete };
   }
   if (stage !== "core") throw new Error("unknown acceptance stage");
+  if (!ready) return {
+    status: "not_accepted", frozenBaseline, groups: stats, selectedConcurrency: null,
+    gates: { fixtureBytes: copyGate(null), test: gate(null, THRESHOLDS.test), canonical: gate(null, THRESHOLDS.canonical), smoke: gate(null, THRESHOLDS.smoke) },
+    eligibleEnvironment, complete,
+  };
   const candidates = ["default", 1, 2].map(concurrency => ({ concurrency, resolvedConcurrency: concurrency === "default" ? defaultConcurrency : concurrency, ...stats[`candidate/test/${concurrency}`] })).filter(candidate => candidate.valid);
   const eligible = candidates.filter(candidate => improvement(baselineTest?.wallMs?.median, candidate.wallMs?.median) >= THRESHOLDS.test);
   const pool = eligible.length ? eligible : candidates;
@@ -245,8 +257,7 @@ export function summarize(samples, { repetitions = 3, baselineOnly = false, froz
     test: gate(improvement(baselineTest?.wallMs?.median, chosen?.wallMs?.median), THRESHOLDS.test),
     canonical: gate(compared("canonical"), THRESHOLDS.canonical), smoke: gate(compared("smoke"), THRESHOLDS.smoke),
   };
-  const valid = complete && frozenBaseline && Object.values(stats).length === 8 && Object.values(stats).every(group => group.valid) && eligibleEnvironment;
-  return { status: valid && Object.values(gates).every(result => result.ok) ? "pass" : "not_accepted", frozenBaseline, groups: stats, selectedConcurrency: chosen ? { configured: chosen.concurrency, resolved: chosen.resolvedConcurrency, withinFivePercentOfFastest: true } : null, gates, eligibleEnvironment, complete };
+  return { status: Object.values(gates).every(result => result.ok) ? "pass" : "not_accepted", frozenBaseline, groups: stats, selectedConcurrency: chosen ? { configured: chosen.concurrency, resolved: chosen.resolvedConcurrency, withinFivePercentOfFastest: true } : null, gates, eligibleEnvironment, complete };
 }
 
 export function phaseSummary(events) {

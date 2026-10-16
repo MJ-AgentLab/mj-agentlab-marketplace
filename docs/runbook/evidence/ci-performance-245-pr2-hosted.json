@@ -1,0 +1,348 @@
+{
+  "schemaVersion": 1,
+  "issue": 245,
+  "pullRequest": 247,
+  "recordedAt": "2026-10-15T18:22:57.754Z",
+  "scope": "PR2 hosted fixture-copy acceptance and actual merge; compact numerical evidence, not raw logs or profiles",
+  "status": "independently_verified_fixtures_pass",
+  "coreAcceptance": "DEFERRED_TO_PR3",
+  "baseline": {
+    "sha": "30665998dda2ebbbae1806b946ec63f840bd98e0",
+    "tree": "20f540fcabba740e549ecdbf01cf78f2ce3473f5",
+    "controlledFiles": 6065,
+    "controlledBytes": 575546324,
+    "checkoutBytes": 575777560
+  },
+  "candidate": {
+    "head": "7f109a13a52817e09d1d69fa5461083e1d7fc6de",
+    "testMerge": "ef5555aba97ba62a8cd6c3cc2edb39654f7bcbed",
+    "actualMerge": "02724de060543ff587d07ac713e3f299a8f91407",
+    "tree": "ebf37fd92a63fa67983eff2fc08293d174bbeabc",
+    "controlledFiles": 6069,
+    "controlledBytes": 575608655
+  },
+  "run": {
+    "id": 38771487907,
+    "attempt": 1,
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38771487907",
+    "jobURL": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38771487907/job/116548149384"
+  },
+  "artifact": {
+    "id": 11995448259,
+    "createdAt": "2026-10-15T17:59:29Z",
+    "expiresAt": "2026-11-14T17:59:27Z",
+    "sizeBytes": 639608,
+    "apiDigest": "sha256:c33ad2710f11860a1dddac7f3413cc632f1c6885a996d92b005886ff77ac8767",
+    "apiDigestVerifiedByRoot": true,
+    "downloadedZIPMatchesAPIDigest": true,
+    "zipInnerReportHashMatchesExtractedReport": true,
+    "zipInnerReportSHA256": "088d566898ee6d24f43af566464a6e99ffeab7639a6d56d881e7bee117c2857e"
+  },
+  "environment": {
+    "platform": "win32",
+    "image": "20261007.264.1",
+    "node": "v22.23.3",
+    "python": "3.12.10",
+    "codex": "codex-cli 0.147.0",
+    "git": "git version 2.56.0.windows.2",
+    "npm": "10.9.9",
+    "cpuModel": "INTEL(R) XEON(R) PLATINUM 8573C",
+    "availableParallelism": 4,
+    "defaultConcurrency": 3
+  },
+  "samples": [
+    {
+      "id": "01-baseline-test-default-r1",
+      "source": "baseline",
+      "round": 1,
+      "wallMs": 1411639.2345,
+      "testCount": 368,
+      "passing": 368
+    },
+    {
+      "id": "02-candidate-test-default-r1",
+      "source": "candidate",
+      "round": 1,
+      "wallMs": 173968.5878000001,
+      "testCount": 382,
+      "passing": 382
+    },
+    {
+      "id": "03-candidate-test-default-r2",
+      "source": "candidate",
+      "round": 2,
+      "wallMs": 158264.60349999997,
+      "testCount": 382,
+      "passing": 382
+    },
+    {
+      "id": "04-baseline-test-default-r2",
+      "source": "baseline",
+      "round": 2,
+      "wallMs": 1186446.4531999999,
+      "testCount": 368,
+      "passing": 368
+    },
+    {
+      "id": "05-baseline-test-default-r3",
+      "source": "baseline",
+      "round": 3,
+      "wallMs": 1285768.8400000003,
+      "testCount": 368,
+      "passing": 368
+    },
+    {
+      "id": "06-candidate-test-default-r3",
+      "source": "candidate",
+      "round": 3,
+      "wallMs": 186922.84460000042,
+      "testCount": 382,
+      "passing": 382
+    }
+  ],
+  "copies": {
+    "allThreeBaselineRounds": {
+      "controlledCopyLowerBound": 12666735598
+    },
+    "allThreeCandidateRounds": {
+      "roots": 22,
+      "bySuite": {
+        "release-verify-install": 7,
+        "validate-portable": 8,
+        "html-guide-kit": 5,
+        "plugin-icons": 2
+      },
+      "copiedBytes": 69933534,
+      "syntheticBytes": 119020,
+      "signedOverlayDeltaBytes": 41741,
+      "fixtureTotalBytes": 70094295,
+      "copiedFiles": 3036,
+      "syntheticFiles": 396,
+      "fixtureTotalFiles": 3432
+    },
+    "conservativeReductionPercent": 99.44789615715163,
+    "requiredPercent": 95,
+    "accepted": true
+  },
+  "timingObservation": {
+    "baselineWallMs": [
+      1411639.2345,
+      1186446.4531999999,
+      1285768.8400000003
+    ],
+    "candidateWallMs": [
+      173968.5878000001,
+      158264.60349999997,
+      186922.84460000042
+    ],
+    "baselineMedianMs": 1285768.8400000003,
+    "candidateMedianMs": 173968.5878000001,
+    "observedMedianReductionPercent": 86.46968394412171,
+    "formalSpeedAcceptance": "DEFERRED; canonical/smoke not measured; concurrency selection absent"
+  },
+  "selectedConcurrency": null,
+  "failures": [],
+  "finalOwnedWorktreeCleanup": [
+    {
+      "status": "ok",
+      "durationMs": 2920.6926000006497
+    },
+    {
+      "status": "ok",
+      "durationMs": 4454.516600000672
+    }
+  ],
+  "normalCI": [
+    {
+      "id": 38771466668,
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38771466668",
+      "status": "completed",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 116548076293,
+          "name": "Baseline compat (ubuntu-latest)",
+          "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38771466668/job/116548076293",
+          "conclusion": "success",
+          "testCount": 382,
+          "passing": 381,
+          "failed": 0,
+          "skipped": 1,
+          "tapMs": 107402.395045,
+          "smoke": {
+            "ok": true,
+            "scenarios": 13,
+            "passing": 13,
+            "diagramPython": 6,
+            "learningPythonGroups": 6,
+            "commandErrors": []
+          },
+          "steps": [
+            {
+              "name": "Unit and real Python execution tests",
+              "wallSeconds": 108
+            },
+            {
+              "name": "Run npm run smoke:codex",
+              "wallSeconds": 28
+            }
+          ],
+          "logSha256": "952c343dbd43af215116bafa388b44ac4be6cd4f62a02e3c8c8b1bc5dbfc5de4"
+        },
+        {
+          "id": 116548076853,
+          "name": "Baseline compat (windows-latest)",
+          "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38771466668/job/116548076853",
+          "conclusion": "success",
+          "testCount": 382,
+          "passing": 382,
+          "failed": 0,
+          "skipped": 0,
+          "tapMs": 113343.8402,
+          "smoke": {
+            "ok": true,
+            "scenarios": 13,
+            "passing": 13,
+            "diagramPython": 6,
+            "learningPythonGroups": 6,
+            "commandErrors": []
+          },
+          "steps": [
+            {
+              "name": "Unit and real Python execution tests",
+              "wallSeconds": 114
+            },
+            {
+              "name": "Run npm run smoke:codex",
+              "wallSeconds": 122
+            }
+          ],
+          "logSha256": "bc4d6a49dea39735ce29d4bb1a635adbe4f92a8a266ad4c541701b1c81418fe5"
+        }
+      ]
+    },
+    {
+      "id": 38771457469,
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38771457469",
+      "status": "completed",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 116548045827,
+          "name": "Baseline compat (windows-latest)",
+          "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38771457469/job/116548045827",
+          "conclusion": "success",
+          "testCount": 382,
+          "passing": 382,
+          "failed": 0,
+          "skipped": 0,
+          "tapMs": 216351.5107,
+          "smoke": {
+            "ok": true,
+            "scenarios": 13,
+            "passing": 13,
+            "diagramPython": 6,
+            "learningPythonGroups": 6,
+            "commandErrors": []
+          },
+          "steps": [
+            {
+              "name": "Unit and real Python execution tests",
+              "wallSeconds": 218
+            },
+            {
+              "name": "Run npm run smoke:codex",
+              "wallSeconds": 275
+            }
+          ],
+          "logSha256": "5924aaa8b92d2873356c7dd1ec24625abcf173592b6090c97b91e2537544092a"
+        },
+        {
+          "id": 116548046029,
+          "name": "Baseline compat (ubuntu-latest)",
+          "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38771457469/job/116548046029",
+          "conclusion": "success",
+          "testCount": 382,
+          "passing": 381,
+          "failed": 0,
+          "skipped": 1,
+          "tapMs": 102844.26747,
+          "smoke": {
+            "ok": true,
+            "scenarios": 13,
+            "passing": 13,
+            "diagramPython": 6,
+            "learningPythonGroups": 6,
+            "commandErrors": []
+          },
+          "steps": [
+            {
+              "name": "Unit and real Python execution tests",
+              "wallSeconds": 103
+            },
+            {
+              "name": "Run npm run smoke:codex",
+              "wallSeconds": 26
+            }
+          ],
+          "logSha256": "f9c414d8ae7cf8b2758ce4dce79c5be8a18de157ca85f5dcce2bbd9c3ce09882"
+        }
+      ]
+    }
+  ],
+  "actualMerge": {
+    "sha": "02724de060543ff587d07ac713e3f299a8f91407",
+    "tree": "ebf37fd92a63fa67983eff2fc08293d174bbeabc",
+    "mergedAt": "2026-10-15T18:12:35Z",
+    "mergedBy": "ranzuozhou",
+    "state": "MERGED",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "reviews": [],
+    "approvalInference": "none; actual merge does not establish non-author approval or waiver"
+  },
+  "actualMergeInstallation": {
+    "canonicalSha": "02724de060543ff587d07ac713e3f299a8f91407",
+    "startedAt": "2026-10-15T18:17:32.325Z",
+    "endedAt": "2026-10-15T18:19:50.699Z",
+    "ok": true,
+    "scenarioCount": 13,
+    "scenarioPass": 13,
+    "diagramPython": 6,
+    "learningPython": 6,
+    "learningAllValid": true,
+    "commandErrors": [],
+    "versions": [
+      "codex-cli 0.147.0"
+    ],
+    "logSha256": "f58e627a767c3cabbe87b2b7e2c4eae882b3aafdd4f8ad10038eece768e43de0",
+    "freshFullTestRun": false
+  },
+  "hashes": {
+    "report": "088d566898ee6d24f43af566464a6e99ffeab7639a6d56d881e7bee117c2857e",
+    "zip": "c33ad2710f11860a1dddac7f3413cc632f1c6885a996d92b005886ff77ac8767",
+    "jobLog": "5d0c781e2ebae9c02044b9aca5bf25db70bfd393ece63314aa1dbb3b537a9139",
+    "independentRawProfileAudit": "86228895c03639255ad5261578b470eea9d9dd39def0241d29eb32b89bc92af9",
+    "originalNumericalReceipt": "650aae18ee5958f4b6833aad1bfcc70db1d2ee6eed6010fee60e1b2ff7733556"
+  },
+  "limits": [
+    "Only the 95% fixture-copy gate is accepted; canonical/smoke command speeds and default/1/2 concurrency comparison are deferred.",
+    "Input content bytes do not measure physical disk I/O; baseline counts controlled checkout content as a lower bound.",
+    "Wall times include measured-command preparation and cleanup; outer source checkout, npm ci and inventory are separate overheads. OS file caching is uncontrolled.",
+    "Runner-reported hardware was not independently sampled. Removed temporary targets cannot be rehashed from the artifact; counters and root multiplicities were independently rebuilt from raw NDJSON.",
+    "Each passing full-test sample has two expected injected cleanup-error events; final owned-worktree cleanup succeeded.",
+    "Same-tree hosted engineering results do not constitute a new full-test run of the actual merge. Fresh exact-merge installation/Python execution is recorded separately.",
+    "Issue 245 remains open; PR3 core delivery and PR4/PR5 scheduling changes remain separate stages."
+  ],
+  "allSixSampleChecks": {
+    "exitCode": 0,
+    "timedOut": false,
+    "profileError": null,
+    "failedTests": 0,
+    "cancelledTests": 0,
+    "skippedTests": 0,
+    "expectedInjectedCleanupErrors": 2,
+    "cleanupRegressionsPassed": 3
+  }
+}
