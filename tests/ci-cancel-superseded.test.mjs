@@ -50,13 +50,17 @@ function scenario({ current = run(), candidates = [run(100, 19, A)], liveHead = 
 }
 const cancelled = s => s.calls.filter(([op]) => op === "cancel").map(([, input]) => input.run_id);
 
-test("only the independent cancel job and fixed run-name change the actual merged CI", () => {
+test("the read-only dedup wrapper preserves the independent cancel job and complete merged CI", () => {
   assert.equal(workflow.name, "CI — Validate Plugin Structure");
   assert.equal(hash(JSON.stringify(workflow.on)), "cdd55fa680a07d98cd103c5b193ad9fd3c7e0c4dff66bafcb0b2f14e80f36e98");
   assert.equal(hash(JSON.stringify(workflow.jobs.validate)), "8173b3512724ea21c81ed5607656be141a0d72f520a3854708b047da010eaa12");
-  assert.equal(hash(JSON.stringify(workflow.jobs["codex-compat"])), "fff03f9a2af52569280023e4c4c827ac841b5418de1ae755ee990ed07ab5d77d");
-  assert.equal(hash(source.slice(source.indexOf("  validate:")).replace(/\r\n/g, "\n")), "2fb059b2b536215e6c8015128cfec5ac1765edd7d23c919fc8719ead5d23fa6f");
-  assert.deepEqual(Object.keys(workflow.jobs), ["cancel-superseded", "validate", "codex-compat"]);
+  const { needs, if: matrixIf, ...completeMatrix } = workflow.jobs["codex-compat"];
+  assert.equal(hash(JSON.stringify(completeMatrix)), "fff03f9a2af52569280023e4c4c827ac841b5418de1ae755ee990ed07ab5d77d");
+  assert.equal(needs, "deduplicate-push");
+  const wrapper = "    needs: deduplicate-push\n    if: >-\n      !cancelled() && (github.event_name != 'push' || needs.deduplicate-push.result != 'success' || needs.deduplicate-push.outputs.skip_push != 'true')\n";
+  assert.equal(matrixIf, "!cancelled() && (github.event_name != 'push' || needs.deduplicate-push.result != 'success' || needs.deduplicate-push.outputs.skip_push != 'true')");
+  assert.equal(hash(source.slice(source.indexOf("  validate:")).replace(/\r\n/g, "\n").replace(wrapper, "")), "2fb059b2b536215e6c8015128cfec5ac1765edd7d23c919fc8719ead5d23fa6f");
+  assert.deepEqual(Object.keys(workflow.jobs), ["cancel-superseded", "deduplicate-push", "validate", "codex-compat"]);
   assert.equal(workflow.concurrency, undefined); assert.equal(workflow.permissions, undefined); assert.equal(job.needs, undefined);
   assert.deepEqual(job.permissions, { actions: "write", "pull-requests": "read", contents: "read" });
   assert.equal(job.steps.length, 1); assert.equal(job.steps[0].uses, "actions/github-script@v7"); assert.equal(job.steps[0].with.retries, 0);
