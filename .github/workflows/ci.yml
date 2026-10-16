@@ -164,10 +164,11 @@ jobs:
     outputs:
       skip_push: ${{ steps.prove.outputs.skip_push }}
     steps:
+      - name: Probe-only bounded cancellation window
+        run: sleep 45
       - id: prove
         uses: actions/github-script@v7
         with:
-          github-token: ${{ secrets.MJ_ISSUE245_ABSENT_TOKEN }}
           retries: 0
           script: |
             core.setOutput("skip_push", "false");
