@@ -6,14 +6,14 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-16
 state: active
-version: v2.91.11
+version: v2.91.13
 ---
 
 # 文档索引
 
 ## 当前性能维护
 
-[#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)按五个顺序PR推进。PR3 #248四门槛及实际abca239的13安装/Python通过，保留default；原失败、诊断、空reviews及Owner bypass分别记录。PR4 [#249](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/249)已通过真实旧run取消、旧重跑仅自取消及HTTP403后完整检查保留；权限变体只出现预期配置失败，四份OS日志逐条核验。首轮动态PR关联SHA漏取消、错过窗口、一次隔离重跑及QA归档问题均保留，临时[#250](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/250)不合入。见[核心回执](runbook/evidence/ci-performance-245-pr3-core-attempt4.json)、[合并后回执](runbook/evidence/ci-performance-245-pr3-postmerge.json)及[账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。最终文档提交的当前head工程门禁另核，非作者批准和PR4实际merge/复验完成后才推进PR5；Issue保持开放，冻结基线、60秒及运行版本不变。
+[#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)按五个顺序PR推进。PR3四性能门槛/24样本通过并保留default；PR4 [#249](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/249)实际6bc7c63已完成新13安装/Python，Owner bypass与空reviews分别保留。PR5 [#251](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/251)已完成独立双轴审查、本地492/492与4a精确13安装；真实固定源码五attempt验证active/success/latest承接及最新取消后完整回退，额外缺token初始化失败与whole-push取消图亦已核，临时[#252](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/252)关闭未合入。见[本地回执](runbook/evidence/ci-performance-245-pr5-local.json)、[托管回执](runbook/evidence/ci-performance-245-pr5-hosted.json)及[账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。晚取消不恢复既有skip，取消处理允许gate脚本继续但本次无矩阵执行；未实测平台故障继续按注入覆盖记录。最终文档head的当前CI/精确安装在PR251单列，真实非作者批准/合入/postmerge与Issue关闭仍待各自证据；冻结基线、60秒、运行与发布版本不变。
 
 ## 当前整体发布
 

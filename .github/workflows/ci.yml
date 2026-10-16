@@ -152,6 +152,191 @@ jobs:
             }
             return await cancelSuperseded({ github, context, core, runAttempt: Number(process.env.GITHUB_RUN_ATTEMPT) });
 
+  deduplicate-push:
+    name: Prove equivalent PR matrix for this push (read only)
+    if: "!cancelled() && github.event_name == 'push'"
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      actions: read
+      pull-requests: read
+      contents: read
+    outputs:
+      skip_push: ${{ steps.prove.outputs.skip_push }}
+    steps:
+      - id: prove
+        uses: actions/github-script@v7
+        with:
+          retries: 0
+          script: |
+            core.setOutput("skip_push", "false");
+            const report = { skipPush: false, reason: "not_push", carrier: null, base: null, head: null, sourceProofs: [] };
+            if (context.eventName !== "push") return report;
+            const check = (value, reason) => { if (!value) throw new Error(reason); };
+            const id = value => Number.isSafeInteger(value) && value > 0;
+            const sha = value => typeof value === "string" && /^[a-f0-9]{40}$/.test(value);
+            const owner = "MJ-AgentLab", repo = "mj-agentlab-marketplace", repositoryId = 1183002256;
+            const workflowId = 247197116, workflowPath = ".github/workflows/ci.yml";
+            const matrixNames = ["Baseline compat (ubuntu-latest)", "Baseline compat (windows-latest)"];
+            const gateName = "Prove equivalent PR matrix for this push (read only)";
+            const knownNames = [...matrixNames, gateName, "Validate Structure", "Cancel proved superseded PR runs (best effort)"];
+            const repositoryMatches = value => value?.id === repositoryId && value.full_name === owner + "/" + repo && value.fork === false;
+            const runAttempt = Number(process.env.GITHUB_RUN_ATTEMPT), deadline = Date.now() + 50000;
+            const request = () => { const remaining = deadline - Date.now(); check(remaining > 0, "read_deadline"); return { timeout: Math.min(10000, remaining) }; };
+            const read = async (call, input) => {
+              const response = await call({ owner, repo, ...input, request: request() });
+              check(response?.status === 200, "unexpected_read_response");
+              return response;
+            };
+            const getRun = async runId => (await read(input => github.rest.actions.getWorkflowRun(input), { run_id: runId })).data;
+            const getPr = async number => (await read(input => github.rest.pulls.get(input), { pull_number: number })).data;
+            const pathOf = run => typeof run?.path === "string" ? run.path.split("@")[0] : null;
+            const branch = typeof context.ref === "string" && context.ref.startsWith("refs/heads/") ? context.ref.slice(11) : "";
+            const marker = (event, pr, head, base, target) => `ci-v1|event=${event}|pr=${pr}|repo=${repositoryId}|headrepo=${repositoryId}|head=${head}|baserepo=${repositoryId}|base=${base}|target=${target}`;
+            const samePR = (a, b) => a.number === b.number && a.head.repo.id === b.head.repo.id && a.head.ref === b.head.ref && a.head.sha === b.head.sha && a.base.repo.id === b.base.repo.id && a.base.ref === b.base.ref && a.base.sha === b.base.sha && a.merge_commit_sha === b.merge_commit_sha;
+            const exactPR = pr => id(pr?.number) && pr.state === "open" && repositoryMatches(pr.head?.repo) && repositoryMatches(pr.base?.repo) && pr.head.ref === branch && pr.head.sha === context.sha && ["develop", "main"].includes(pr.base.ref) && sha(pr.base.sha) && sha(pr.merge_commit_sha);
+            const association = (run, live) => Array.isArray(run.pull_requests) && (run.pull_requests.length === 0 || run.pull_requests.length === 1 && run.pull_requests[0]?.number === live.number && run.pull_requests[0].head?.repo?.id === repositoryId && run.pull_requests[0].head.ref === live.head.ref && run.pull_requests[0].head.sha === live.head.sha && run.pull_requests[0].base?.repo?.id === repositoryId && run.pull_requests[0].base.ref === live.base.ref && run.pull_requests[0].base.sha === live.base.sha);
+            const coarseRun = run => id(run?.id) && id(run.run_number) && id(run.run_attempt) && run.workflow_id === workflowId && pathOf(run) === workflowPath && repositoryMatches(run.repository) && repositoryMatches(run.head_repository) && run.head_branch === branch && sha(run.head_sha);
+            const currentPush = (run, live) => coarseRun(run) && run.id === context.runId && run.event === "push" && run.run_attempt === runAttempt && run.head_sha === context.sha && run.display_title === marker("push", 0, context.sha, context.sha, "-") && ["queued", "in_progress"].includes(run.status) && run.conclusion === null && Array.isArray(run.pull_requests) && (!live || association(run, live));
+            const sameRun = (a, b) => a.id === b.id && a.run_number === b.run_number && a.run_attempt === b.run_attempt && a.head_sha === b.head_sha && a.display_title === b.display_title;
+            const eligible = run => ["queued", "in_progress"].includes(run.status) && run.conclusion === null || run.status === "completed" && run.conclusion === "success";
+            // Read numbered pages ourselves, never follow a server URL or accept a partial list.
+            const collect = async (call, input, key) => {
+              const items = [], seen = new Set(); let total;
+              for (let page = 1; page <= 10; page++) {
+                const response = await read(call, { ...input, per_page: 100, page });
+                const data = key ? response.data?.[key] : response.data;
+                check(Array.isArray(data) && data.length <= 100, "malformed_page");
+                if (key) {
+                  const count = response.data.total_count;
+                  check(Number.isSafeInteger(count) && count >= 0 && count < 1000 && (total === undefined || count === total), "unstable_total");
+                  total = count;
+                }
+                for (const item of data) { check(id(item?.id) && !seen.has(item.id), "duplicate_page_identity"); seen.add(item.id); items.push(item); }
+                check(items.length < 1000 && (total === undefined || items.length <= total), "page_bound");
+                const link = response.headers?.link;
+                check(link === undefined || typeof link === "string", "malformed_link");
+                const relations = new Map();
+                for (const part of link ? link.split(",") : []) {
+                  const match = /^\s*<([^>]+)>;\s*rel="(next|prev|first|last)"\s*$/.exec(part);
+                  check(match && !relations.has(match[2]), "malformed_link");
+                  const url = new URL(match[1]), nextPage = Number(url.searchParams.get("page"));
+                  const suffix = key === "workflow_runs" ? "/actions/workflows/" + workflowId + "/runs" : key === "jobs" ? "/actions/runs/" + input.run_id + "/attempts/" + input.attempt_number + "/jobs" : "/pulls";
+                  const paths = ["/repos/" + owner + "/" + repo + suffix, "/repositories/" + repositoryId + suffix];
+                  const query = key === "workflow_runs" ? { event: input.event, branch: input.branch } : key ? {} : { state: input.state, head: input.head };
+                  check(url.origin === "https://api.github.com" && !url.username && !url.password && paths.includes(url.pathname) && id(nextPage) && url.searchParams.get("per_page") === "100", "unproved_link");
+                  check(Object.entries(query).every(([name, value]) => url.searchParams.get(name) === value) && [...url.searchParams.keys()].every(name => ["page", "per_page", ...Object.keys(query)].includes(name) && url.searchParams.getAll(name).length === 1), "changed_page_query");
+                  relations.set(match[2], nextPage);
+                }
+                const next = relations.get("next");
+                if (next === undefined) {
+                  check(!relations.has("last") || relations.get("last") <= page, "incomplete_link");
+                  check(total === undefined || items.length === total, "incomplete_total");
+                  return items;
+                }
+                check(next === page + 1 && data.length === 100 && page < 10 && (total === undefined || items.length < total) && (!relations.has("last") || relations.get("last") >= next), "incomplete_link");
+              }
+              throw new Error("page_bound");
+            };
+            const openPR = async () => {
+              const prs = await collect(input => github.rest.pulls.list(input), { state: "open", head: owner + ":" + branch });
+              check(prs.length === 1 && exactPR(prs[0]), "no_unique_exact_open_pr");
+              return prs[0];
+            };
+            const latest = async live => {
+              const runs = await collect(input => github.rest.actions.listWorkflowRuns(input), { workflow_id: workflowId, event: "pull_request", branch }, "workflow_runs");
+              check(runs.length > 0 && new Set(runs.map(run => run.run_number)).size === runs.length, "ambiguous_run_order");
+              // Never filter status/head/base before selection: a newer bad run blocks old success.
+              for (const run of runs) {
+                check(coarseRun(run) && run.event === "pull_request" && association(run, live), "unproved_same_branch_run");
+                const prefix = marker("pull_request", live.number, run.head_sha, "BASE", live.base.ref).replace("base=BASE", "base=([a-f0-9]{40})");
+                check(new RegExp("^" + prefix.replace(/\|/g, "\\|") + "$").test(run.display_title), "unproved_run_marker");
+              }
+              return runs.reduce((a, b) => a.run_number > b.run_number ? a : b);
+            };
+            const carrierMatches = (run, live) => coarseRun(run) && run.event === "pull_request" && run.id !== context.runId && run.head_sha === context.sha && association(run, live) && run.display_title === marker("pull_request", live.number, context.sha, live.base.sha, live.base.ref) && eligible(run);
+            const proveRef = async (ref, expected) => {
+              const value = (await read(input => github.rest.git.getRef(input), { ref: "heads/" + ref })).data;
+              check(value?.ref === "refs/heads/" + ref && value.object?.type === "commit" && value.object.sha === expected, "git_ref_changed");
+            };
+            const sourceAt = async (ref, role) => {
+              const data = (await read(input => github.rest.repos.getContent(input), { path: workflowPath, ref })).data;
+              check(data?.type === "file" && data.name === "ci.yml" && data.path === workflowPath && data.encoding === "base64" && sha(data.sha) && Number.isSafeInteger(data.size) && data.size > 0 && data.size <= 1000000 && typeof data.content === "string", "unproved_source_metadata");
+              const encoded = data.content.replace(/[\r\n]/g, "");
+              check(encoded.length % 4 === 0 && /^[A-Za-z0-9+/]*={0,2}$/.test(encoded), "invalid_source_base64");
+              const bytes = Buffer.from(encoded, "base64");
+              check(bytes.length === data.size && bytes.toString("base64") === encoded, "inconsistent_source_bytes");
+              const blob = require("node:crypto").createHash("sha1").update(`blob ${bytes.length}\0`).update(bytes).digest("hex");
+              check(blob === data.sha, "inconsistent_source_blob");
+              const expression = value => "$" + "{{ " + value + " }}";
+              const fixed = "ci-v1|event=" + expression("github.event_name") + "|pr=" + expression("github.event.pull_request.number || 0") + "|repo=" + expression("github.repository_id") + "|headrepo=" + expression("github.event.pull_request.head.repo.id || github.repository_id") + "|head=" + expression("github.event.pull_request.head.sha || github.sha") + "|baserepo=" + expression("github.event.pull_request.base.repo.id || github.repository_id") + "|base=" + expression("github.event.pull_request.base.sha || github.sha") + "|target=" + expression("github.event.pull_request.base.ref || '-'");
+              const lines = new TextDecoder("utf-8", { fatal: true }).decode(bytes).replace(/\r\n/g, "\n").split("\n");
+              const index = lines.indexOf("run-name: >-");
+              check(index >= 0 && lines[index + 1] === "  " + fixed && lines.filter(line => /^run-name\s*:/.test(line)).length === 1, "unproved_fixed_run_name");
+              report.sourceProofs.push({ role, ref, blobSha: blob, bytes: bytes.length });
+              return { blob, bytes };
+            };
+            const readJobs = async run => {
+              const jobs = await collect(input => github.rest.actions.listJobsForWorkflowRunAttempt(input), { run_id: run.id, attempt_number: run.run_attempt }, "jobs");
+              check(new Set(jobs.map(job => job.name)).size === jobs.length, "ambiguous_job_names");
+              for (const job of jobs) {
+                check(job.run_id === run.id && job.run_attempt === run.run_attempt && job.head_sha === context.sha && knownNames.includes(job.name), "unproved_job_identity");
+                check(["queued", "in_progress"].includes(job.status) && job.conclusion === null || job.status === "completed" && (job.conclusion === "success" || job.name === gateName && job.conclusion === "skipped"), "job_not_eligible");
+              }
+              const heavy = matrixNames.map(name => jobs.filter(job => job.name === name));
+              check(heavy.every(group => group.length === 1), "matrix_not_instantiated");
+              if (run.status === "completed") check(heavy.every(group => group[0].status === "completed" && group[0].conclusion === "success"), "incomplete_success_matrix");
+              return heavy.map(group => group[0]);
+            };
+            const noPending = async run => {
+              const data = (await read(input => github.rest.actions.getPendingDeploymentsForRun(input), { run_id: run.id })).data;
+              check(Array.isArray(data) && data.length === 0, "pending_approval");
+            };
+            try {
+              check(context.repo?.owner === owner && context.repo.repo === repo && repositoryMatches(context.payload.repository) && sha(context.sha) && branch && context.payload.ref === context.ref && context.payload.after === context.sha && id(context.runId) && id(runAttempt) && String(runAttempt) === process.env.GITHUB_RUN_ATTEMPT && process.env.GITHUB_WORKFLOW_SHA === context.sha, "untrusted_push_context");
+              const workflow = (await read(input => github.rest.actions.getWorkflow(input), { workflow_id: workflowId })).data;
+              check(workflow?.id === workflowId && workflow.path === workflowPath && workflow.state === "active", "unproved_workflow");
+              const push = await getRun(context.runId);
+              check(currentPush(push), "unproved_current_push");
+              const listedPR = await openPR(), live = await getPr(listedPR.number);
+              check(exactPR(live) && samePR(listedPR, live) && currentPush(push, live), "pr_or_push_changed");
+              report.base = live.base.sha; report.head = live.head.sha;
+              await proveRef(branch, context.sha); await proveRef(live.base.ref, live.base.sha);
+              const selected = await latest(live);
+              report.carrier = { id: selected.id, attempt: selected.run_attempt, status: selected.status, conclusion: selected.conclusion };
+              check(carrierMatches(selected, live), "listed_carrier_not_eligible");
+              const carrier = await getRun(selected.id);
+              check(carrierMatches(carrier, live) && sameRun(selected, carrier), "latest_carrier_not_eligible");
+              const exact = (await read(input => github.rest.actions.getWorkflowRunAttempt(input), { run_id: carrier.id, attempt_number: carrier.run_attempt })).data;
+              check(carrierMatches(exact, live) && sameRun(carrier, exact), "attempt_not_proved");
+              const merge = (await read(input => github.rest.git.getCommit(input), { commit_sha: live.merge_commit_sha })).data;
+              check(merge?.sha === live.merge_commit_sha && Array.isArray(merge.parents) && merge.parents.length === 2 && merge.parents[0].sha === live.base.sha && merge.parents[1].sha === live.head.sha, "merge_parents_not_exact");
+              const pushSource = await sourceAt(process.env.GITHUB_WORKFLOW_SHA, "executed_push"), headSource = await sourceAt(carrier.head_sha, "pr_head"), mergeSource = await sourceAt(live.merge_commit_sha, "pr_merge");
+              check(pushSource.blob === headSource.blob && pushSource.blob === mergeSource.blob && pushSource.bytes.equals(headSource.bytes) && pushSource.bytes.equals(mergeSource.bytes), "full_workflow_differs");
+              const jobs = await readJobs(carrier); await noPending(carrier);
+              const finalListedPR = await openPR(), finalPR = await getPr(live.number);
+              check(exactPR(finalPR) && samePR(live, finalPR) && samePR(finalListedPR, finalPR), "fresh_pr_changed");
+              const finalLatest = await latest(finalPR), finalPush = await getRun(context.runId), finalCarrier = await getRun(carrier.id);
+              check(currentPush(finalPush, finalPR) && sameRun(push, finalPush) && carrierMatches(finalCarrier, finalPR) && carrierMatches(finalLatest, finalPR) && sameRun(carrier, finalCarrier) && sameRun(carrier, finalLatest), "fresh_run_or_attempt_changed");
+              const finalExact = (await read(input => github.rest.actions.getWorkflowRunAttempt(input), { run_id: carrier.id, attempt_number: carrier.run_attempt })).data;
+              check(carrierMatches(finalExact, finalPR) && sameRun(carrier, finalExact), "fresh_exact_attempt_changed");
+              const finalJobs = await readJobs(finalCarrier); await noPending(finalCarrier);
+              check(finalJobs.every((job, index) => job.id === jobs[index].id), "matrix_job_identity_changed");
+              await proveRef(branch, context.sha); await proveRef(finalPR.base.ref, finalPR.base.sha);
+              report.pr = live.number; report.runId = carrier.id; report.attempt = carrier.run_attempt;
+              report.carrier = { id: finalCarrier.id, attempt: finalCarrier.run_attempt, status: finalCarrier.status, conclusion: finalCarrier.conclusion };
+              report.base = finalPR.base.sha; report.head = finalPR.head.sha;
+              report.reason = "decision_time_exact_pr_carrier";
+            } catch (error) {
+              report.reason = /^[a-z_]+$/.test(error.message) ? error.message : "read_or_proof_failed";
+              report.errorStatus = Number.isInteger(error.status) ? error.status : null;
+              core.info("MJ_PR5_DEDUP_REPORT " + JSON.stringify(report)); return report;
+            }
+            // Output errors deliberately fail this gate job; the matrix's explicit
+            // status function then runs it even if a partial true write occurred.
+            core.setOutput("skip_push", "true");
+            report.skipPush = true; core.info("MJ_PR5_DEDUP_REPORT " + JSON.stringify(report)); return report;
+
   validate:
     name: Validate Structure
     runs-on: ubuntu-latest
@@ -207,6 +392,9 @@ jobs:
 
   codex-compat:
     name: Baseline compat (${{ matrix.os }})
+    needs: deduplicate-push
+    if: >-
+      !cancelled() && (github.event_name != 'push' || needs.deduplicate-push.result != 'success' || needs.deduplicate-push.outputs.skip_push != 'true')
     strategy:
       fail-fast: false
       matrix:

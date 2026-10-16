@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-16T09:04:00.563Z",
+  "status": "ACTUAL_MERGE_POSTMERGE_EXACT_INSTALL_PASS",
+  "source": {
+    "actualTestedMerge": "6bc7c6372b78ece5de30af81ec622e4bf74afe77",
+    "actualMergeTree": "949eb3b61c72ce7f3dd2af5ef56bb928de7c50bb",
+    "actualMergeParents": [
+      "abca23999586b52a37e64ba9c2324c2cbe5de965",
+      "ce3809b2faf21da1c55b524f7a1543e4e80da8ac"
+    ],
+    "sameTreeAsAcceptedCe": true,
+    "hostWorktreeHead": "ce3809b2faf21da1c55b524f7a1543e4e80da8ac",
+    "hostWorktreeHeadUnchanged": true,
+    "hostWorktreeCleanBefore": true,
+    "hostWorktreeCleanAfter": true,
+    "method": "Existing exact verifier receives ACTUAL MERGE SHA; old PR4 source branch is not checked out or changed.",
+    "providedMergeMetadata": {
+      "mergedAt": "2026-10-16T08:58:55Z",
+      "mergedBy": "ranzuozhou",
+      "reviewsCount": 0,
+      "provenance": "Parent-confirmed GitHub metadata; local Git tree/parents independently verified by this invocation. No fresh remote API calls were made by this verifier."
+    }
+  },
+  "command": {
+    "canonicalShaArgument": "6bc7c6372b78ece5de30af81ec622e4bf74afe77",
+    "verifier": "C:/Users/Admin/.codex/worktrees/issue-245-smoke/qa/diagnostic-exact-da40473/verify-exact.mjs",
+    "verifierSHA256": "1e108876c8d777433ca5bf70d227bfd2189d599c018589f7a8fb358b57e1b572",
+    "startedAt": "2026-10-16T09:00:47.898Z",
+    "endedAt": "2026-10-16T09:01:47.699Z",
+    "wallMs": 59800.0211,
+    "exitCode": 0,
+    "timedOut": false,
+    "spawnError": null,
+    "killError": null,
+    "originalGitTimeoutMs": 60000
+  },
+  "tools": {
+    "node": "v22.18.0",
+    "npm": "10.9.3",
+    "python": "Python 3.12.13",
+    "pythonExecutable": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+    "pwsh": "PowerShell 7.6.5",
+    "codex": "codex-cli 0.147.0",
+    "git": "git version 2.53.0.windows.1"
+  },
+  "actualResults": {
+    "installedCli": "codex-cli 0.147.0",
+    "scenarios": 13,
+    "passed": 13,
+    "totalCommands": 170,
+    "commandErrors": 0,
+    "diagramGroups": 6,
+    "diagramPythonCalls": 6,
+    "diagramAllPass": true,
+    "learningGroups": 6,
+    "learningPythonCalls": 18,
+    "learningSaveReplayStructuralAllPass": true,
+    "phaseFiles": 2,
+    "phaseRecords": 130,
+    "phaseErrors": 0,
+    "phaseCounts": {
+      "validate:ok": 43,
+      "copy:ok": 14,
+      "git.init:ok": 13,
+      "install:ok": 43,
+      "cleanup:ok": 15,
+      "worktree.create:ok": 1,
+      "worktree.remove:ok": 1
+    },
+    "canonicalCreateOk": 1,
+    "canonicalRemoveOk": 1,
+    "cleanupOk": 15,
+    "ownedRootsAbsent": [
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\release-install-ZrvOXa",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-source-oLNfO7",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-UD3FoH",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-GTItvn",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-f3uVIw",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-CQeG76",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-jRcq5a",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-hGEOzv",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-VBSeik",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-kYNsfG",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-FT8Cv6",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-kRFBkl",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-CROoo5",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-KreRqe",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-ILsjOl",
+        "existsAfter": false
+      }
+    ],
+    "copy": {
+      "copies": 14,
+      "template": 1,
+      "scenarios": 13,
+      "eachFiles": 97,
+      "eachBytes": 1027345,
+      "totalBytes": 14382830,
+      "domain": "actual logical copied content bytes, not physical disk I/O"
+    },
+    "canonicalAgents": {
+      "at": "2026-10-16T09:01:06.605Z",
+      "domain": "read_time_snapshot",
+      "canonicalRoot": "C:\\Users\\Admin\\AppData\\Local\\Temp\\release-install-ZrvOXa\\canonical",
+      "status": "MEASURED",
+      "bytes": 16354,
+      "sha256": "787b831d5c344ce3e039c724cfccf776306be90b44f42444d531ef92bc6619c6",
+      "crlfCount": 89,
+      "within16384": true
+    }
+  },
+  "worktreeEvidence": {
+    "registeredRootsBefore": [
+      "c:/users/admin/.codex/worktrees/communication-contract/develop",
+      "c:/users/admin/.codex/worktrees/communication-foundation/develop",
+      "c:/users/admin/.codex/worktrees/communication-plugin/develop",
+      "c:/users/admin/.codex/worktrees/communication-release/develop",
+      "c:/users/admin/.codex/worktrees/fix-pr244-check/develop",
+      "c:/users/admin/.codex/worktrees/html-guide-acceptance/develop",
+      "c:/users/admin/.codex/worktrees/html-guide-contract/develop",
+      "c:/users/admin/.codex/worktrees/html-guide-package/develop",
+      "c:/users/admin/.codex/worktrees/issue-245-cancel/develop",
+      "c:/users/admin/.codex/worktrees/issue-245-ci-probe/develop",
+      "c:/users/admin/.codex/worktrees/issue-245-dedup/develop",
+      "c:/users/admin/.codex/worktrees/issue-245-fixtures/develop",
+      "c:/users/admin/.codex/worktrees/issue-245-metrics/develop",
+      "c:/users/admin/.codex/worktrees/issue-245-smoke/develop",
+      "c:/users/admin/.codex/worktrees/post-8-3-0-docs/develop",
+      "c:/users/admin/.codex/worktrees/prebump-8-3-1/develop",
+      "c:/users/admin/.codex/worktrees/release-develop-8-3-0/develop",
+      "d:/workspace/10-software-project/projects/mj-agentlab-marketplace/.bare",
+      "d:/workspace/10-software-project/projects/mj-agentlab-marketplace/develop"
+    ],
+    "registeredRootsAfter": [
+      "c:/users/admin/.codex/worktrees/communication-contract/develop",
+      "c:/users/admin/.codex/worktrees/communication-foundation/develop",
+      "c:/users/admin/.codex/worktrees/communication-plugin/develop",
+      "c:/users/admin/.codex/worktrees/communication-release/develop",
+      "c:/users/admin/.codex/worktrees/fix-pr244-check/develop",
+      "c:/users/admin/.codex/worktrees/html-guide-acceptance/develop",
+      "c:/users/admin/.codex/worktrees/html-guide-contract/develop",
+      "c:/users/admin/.codex/worktrees/html-guide-package/develop",
+      "c:/users/admin/.codex/worktrees/issue-245-cancel/develop",
+      "c:/users/admin/.codex/worktrees/issue-245-ci-probe/develop",
+      "c:/users/admin/.codex/worktrees/issue-245-dedup/develop",
+      "c:/users/admin/.codex/worktrees/issue-245-fixtures/develop",
+      "c:/users/admin/.codex/worktrees/issue-245-metrics/develop",
+      "c:/users/admin/.codex/worktrees/issue-245-smoke/develop",
+      "c:/users/admin/.codex/worktrees/post-8-3-0-docs/develop",
+      "c:/users/admin/.codex/worktrees/prebump-8-3-1/develop",
+      "c:/users/admin/.codex/worktrees/release-develop-8-3-0/develop",
+      "d:/workspace/10-software-project/projects/mj-agentlab-marketplace/.bare",
+      "d:/workspace/10-software-project/projects/mj-agentlab-marketplace/develop"
+    ],
+    "registeredRootsUnchanged": true,
+    "fullPorcelainTextEqual": true,
+    "canonicalRegistrationRemoved": true,
+    "pr5ManagedRootAlreadyPresentBefore": "c:/users/admin/.codex/worktrees/issue-245-dedup/develop",
+    "note": "The parent created the PR5 managed worktree before this invocation. It is an expected extra registered root compared with earlier ce verification; no pre-existing worktree was removed.",
+    "beforeRaw": "preflight.json before.worktrees",
+    "afterRaw": "process.json after.worktrees"
+  },
+  "limits": [
+    "Fresh actual-merge6bc installation was executed; prior ce output is not reused as merge execution.",
+    "This is not a new local full470 or formal24 benchmark and does not infer GitHub approval/protected-merge PASS from the actual merge or empty reviews.",
+    "Original Git60000ms and plugin/runtime versions were unchanged; old ce source branch was not checked out or edited.",
+    "Only QA files and the existing verifier temporary worktree lifecycle were written; no commit/push/GitHub mutation or old-worktree cleanup."
+  ],
+  "rawFiles": [
+    {
+      "file": "preflight.json",
+      "bytes": 4507,
+      "sha256": "32f8e6ad0077254cedb1ec5fad2694bcaf4a72e5da417211dfe21489ada397b0"
+    },
+    {
+      "file": "process.json",
+      "bytes": 4234,
+      "sha256": "b5cc2c9f85e257d7b3202d21141a14d07424042c1f674ba2cda9e4ff27a24baf"
+    },
+    {
+      "file": "stdout.log",
+      "bytes": 315933,
+      "sha256": "4574b2cedd98c81596cdeaea5b6a9cc8e6eeb17e20cc9597003c071c23fcd24f"
+    },
+    {
+      "file": "stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "canonical-agents-read-time.json",
+      "bytes": 333,
+      "sha256": "7d42dbdb3e0802f2e839f21ba2b9b059bf10c8b9e514699778691ca9b9981c6d"
+    },
+    {
+      "file": "diagnostic-exact-npm-ci.stdout.log",
+      "bytes": 138,
+      "sha256": "53e61fed19389ce1c18d09554b71adb4203caff1f1176ec7bd7527d2a6a2688a"
+    },
+    {
+      "file": "diagnostic-exact-npm-ci.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "diagnostic-exact-npm-smoke.stdout.log",
+      "bytes": 315987,
+      "sha256": "cb7d8010355a8e7047de4037a9dfb9c1f10e686436b8b32e40c6806b0441ba9a"
+    },
+    {
+      "file": "diagnostic-exact-npm-smoke.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "phases/perf-10896-5a923121-74c6-4c90-b5a8-6ac490bd9457.ndjson",
+      "bytes": 31582,
+      "sha256": "916485d6a7fc78c7257c198960babe745d1a3646ddb2d599756379fd0b557ef4"
+    },
+    {
+      "file": "phases/perf-35160-cf2fc0f9-2117-4a0c-abd1-0eefb0800079.ndjson",
+      "bytes": 550,
+      "sha256": "5f2a670fa460f60d60818319b06f92570c1858fa2f000300542c6748c3adf23c"
+    }
+  ]
+}

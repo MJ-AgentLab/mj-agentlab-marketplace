@@ -7,6 +7,8 @@
 
 ### Maintenance
 
+- Deduplicate push compatibility matrices only with exact current PR/source/latest-attempt proof. Preserve every PR merge matrix and push structure checks; uncertain queries, failed gates or missing outputs retain the full push. Verify real active/success/latest-attempt substitution, cancelled-carrier fallback, failed-token initialization and whole-push cancellation on an unmerged probe; retain asynchronous cancellation and original QA failures. Record actual #249 merge and fresh installation/Python verification without inferring missing approval. Refs #245.
+
 - Correct cancellation identity checks for GitHub's live PR association SHAs while preserving immutable run/source/marker verification. Retain the first real scheduling probe's failure; old-run replay and permission-denial acceptance require a fresh corrected-source pair. Refs #245.
 
 - Cancel proved superseded same-PR main-CI runs while keeping complete required checks independent. Verify actual supersession, stale-rerun self-cancellation and HTTP403 fallback on controlled hosted runs; preserve the first failure and expected read-token configuration failures. Record PR3 final24/24 acceptance, retained default, actual #248 Owner-bypass merge and fresh installation/Python verification. Refs #245.
