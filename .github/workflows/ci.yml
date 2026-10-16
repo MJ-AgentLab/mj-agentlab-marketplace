@@ -167,6 +167,7 @@ jobs:
       - id: prove
         uses: actions/github-script@v7
         with:
+          github-token: ${{ secrets.MJ_ISSUE245_ABSENT_TOKEN }}
           retries: 0
           script: |
             core.setOutput("skip_push", "false");
