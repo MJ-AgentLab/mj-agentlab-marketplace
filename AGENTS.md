@@ -22,7 +22,7 @@ Communication按[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketpla
 
 #245五阶段已合并、actual6df新492/13安装/Python复验通过并关闭；Owner仅接受该Issue历史批准/bypass例外，非未来豁免，见[账本](docs/runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。
 
-#254实际main7615ca58与已测候选同树，新13安装/Python复验通过；bypass/空批准保留。当前将完整main同步develop，市场仍8.3.1、插件不变；实际sync合入复验后才DryRun/Apply8.3.2，仅VERSION/badge加根A6，不发同号发行。各新PR保持真实非作者批准/CI/线程门禁；见[8.3.1账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
+#255实际develop3f0b7d12完整继承main761，与已测同树，新13安装/Python复验通过。已DryRun/Apply预升未发布8.3.2，仅VERSION/badge与根A6；插件不变，安装仍v8.3.1，不建同号发行。历史bypass/空批准保留，新PR须真实批准/CI/线程。[8.3.1账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)§3为同步准备快照，当前事实见本预升PR。
 
 communication-kit 首版按已保存的[完整计划](plan/communication-kit-implementation-plan.md)实施，来源与授权见[捕获记录](plan/communication-kit-plan-provenance.json)，由 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222) 管理 PR1–PR5 与正式上线。产品方向、显式 communicate 单入口、保义改写和文件边界已确认；设计与验收契约见[新增 ADR](docs/adr/[ADR]_Communication_Kit_Addition.md)及[验收 RUNBOOK](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。PR1/PR2 保持现有运行集合，PR3 原子接入新包。Owner 选择 Learning 先发布 8.2.0，Communication 随后独立 minor（预计 8.3.0），PR4 重查实际版本和基线；现实效果测试本次延期，基础通过不代表效果已验证。
 

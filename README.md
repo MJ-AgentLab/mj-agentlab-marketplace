@@ -2,7 +2,7 @@
 
 <img src="assets/brand/marketplace/logo.svg" width="128" height="128" alt="MJ AgentLab Marketplace — MJ letters with connected modules">
 
-![Version](https://img.shields.io/badge/version-8.3.1-blue)
+![Version](https://img.shields.io/badge/version-8.3.2-blue)
 
 面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场，无需 MCP 服务。[Marketplace v8.3.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.1) 已于 2026-10-16 经 #253 合入 main 并自动公开，main/tag/Release 同为 4e4d4172fb27c812d3be8847f792dae5313daec8，包含完整五插件、七公开技能、四显式入口。该维护补丁保留 v8.3.0 的全部插件运行内容与版本；发布后真实标签的十三安装、6 次 Diagram＋18 次 LEK 实际 Python 和 15 项清理通过，见[发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
 
@@ -39,7 +39,7 @@ codex plugin add learning-evidence-kit@mj-agentlab-marketplace
 codex plugin list --json
 ~~~
 
-已发布 main/tag 仍为 8.3.0；本页 badge 跟随当前分支 VERSION，develop 的 8.3.1 仅表示预计下一补丁，尚无同号 tag/Release。五插件版本保持发布清单。发布后真实 v8.3.0 tag 的十三种 canonical 安装及六次 Diagram、六次 Learning 缓存 Python 检查通过；不代表完整客户端或现实效果通过。身份与限制见[8.3.0 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)；[8.2.0 记录](docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)保留历史。
+历史 v8.3.0 发布后、v8.3.1 发布前快照：已发布 main/tag 仍为 8.3.0；本页 badge 跟随当前分支 VERSION，develop 的 8.3.1 仅表示预计下一补丁，尚无同号 tag/Release。五插件版本保持发布清单。发布后真实 v8.3.0 tag 的十三种 canonical 安装及六次 Diagram、六次 Learning 缓存 Python 检查通过；不代表完整客户端或现实效果通过。身份与限制见[8.3.0 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)；[8.2.0 记录](docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)保留历史。
 
 ### Explain Kit
 
@@ -77,7 +77,7 @@ Communication 0.1.0 已随 v8.3.0 发布。安装后显式调用 `$communication
 
 ### Development
 
-README badge 跟随当前 checkout 的 VERSION；develop 在实际回同步后预升时，它表示预计下一版本，公开安装仍指向真实 v8.3.1。Owner 已授权本次记录 PR、实际 main 回同步与后续仅 Marketplace 8.3.2 预升，均经正常独立 PR 门禁；当前记录提交仍保持 8.3.1，后续实际状态见[8.3.1 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
+README badge 跟随当前 checkout 的 VERSION；develop 在实际回同步后预升时，它表示预计下一版本，公开安装仍指向真实 v8.3.1。Owner 已授权本次记录 PR、实际 main 回同步与后续仅 Marketplace 8.3.2 预升，均经正常独立 PR 门禁；上述 #254 记录快照当时保持 8.3.1，后续实际状态见[8.3.1 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
 
 历史 Learning [8.2.0 Release](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.2.0) 于 2026-10-13 发布。#241 已将完整五包作为 v8.3.0 公开，Diagram 0.3.1、Learning Evidence 0.1.0、Explain 0.1.1、Communication 0.1.0、HTML 0.1.36 均保持实际版本。后续同步与未发布补丁预升须经独立 PR 和实际门禁，见[8.3.0 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。共用 Learning 脚本归属安装包，不依赖仓库过渡路径。
 
