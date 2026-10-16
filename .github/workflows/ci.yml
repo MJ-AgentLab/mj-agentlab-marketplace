@@ -1,4 +1,6 @@
 name: CI — Validate Plugin Structure
+run-name: >-
+  ci-v1|event=${{ github.event_name }}|pr=${{ github.event.pull_request.number || 0 }}|repo=${{ github.repository_id }}|headrepo=${{ github.event.pull_request.head.repo.id || github.repository_id }}|head=${{ github.event.pull_request.head.sha || github.sha }}|baserepo=${{ github.event.pull_request.base.repo.id || github.repository_id }}|base=${{ github.event.pull_request.base.sha || github.sha }}|target=${{ github.event.pull_request.base.ref || '-' }}
 
 on:
   push:
@@ -13,6 +15,143 @@ on:
     branches: [develop, main]
 
 jobs:
+  cancel-superseded:
+    name: Cancel proved superseded PR runs (best effort)
+    if: >-
+      !cancelled() && github.event_name == 'pull_request'
+      && github.event.pull_request.head.repo.id == github.repository_id
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      actions: write
+      pull-requests: read
+      contents: read
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          retries: 0
+          script: |
+            async function cancelSuperseded({ github, context, core, runAttempt }) {
+              const report = { status: "no_action", cancellationRequests: [], conflicts: [], sourceProofs: [], skipped: [], errors: [] };
+              const owner = context.repo.owner, repo = context.repo.repo;
+              const expectedPath = ".github/workflows/ci.yml";
+              const id = value => Number.isSafeInteger(value) && value > 0;
+              const sha = value => typeof value === "string" && /^[a-f0-9]{40}$/.test(value);
+              const marker = value => {
+                if (typeof value !== "string") return null;
+                const match = /^ci-v1\|event=(pull_request|push)\|pr=(0|[1-9]\d*)\|repo=([1-9]\d*)\|headrepo=([1-9]\d*)\|head=([a-f0-9]{40})\|baserepo=([1-9]\d*)\|base=([a-f0-9]{40})\|target=(develop|main|-)$/.exec(value);
+                if (!match) return null;
+                const named = { event: match[1], pr: Number(match[2]), repositoryId: Number(match[3]), headRepositoryId: Number(match[4]), head: match[5], baseRepositoryId: Number(match[6]), baseSha: match[7], base: match[8] };
+                return id(named.pr) && id(named.repositoryId) && id(named.headRepositoryId) && id(named.baseRepositoryId) ? named : null;
+              };
+              const active = run => ["queued", "in_progress"].includes(run.status) && run.conclusion === null;
+              const pathOf = run => typeof run.path === "string" ? run.path.split("@")[0] : null;
+              const event = context.payload.pull_request, repositoryId = context.payload.repository?.id;
+              if (context.eventName !== "pull_request" || !event || !id(event.number) || !id(repositoryId) || event.head?.repo?.id !== repositoryId || event.base?.repo?.id !== repositoryId) return report;
+              if (!id(context.runId) || !id(runAttempt) || !sha(event.head?.sha) || !sha(event.base?.sha)) return report;
+              const request = { timeout: 10000 };
+              const getRun = async runId => (await github.rest.actions.getWorkflowRun({ owner, repo, run_id: runId, request })).data;
+              const getPr = async () => (await github.rest.pulls.get({ owner, repo, pull_number: event.number, request })).data;
+              const liveIdentity = live => live?.state === "open" && live.number === event.number && live.head?.repo?.id === repositoryId && live.base?.repo?.id === repositoryId && ["develop", "main"].includes(live.base?.ref) && typeof live.head?.ref === "string" && sha(live.head?.sha) && sha(live.base?.sha);
+              const liveMatches = live => liveIdentity(live) && live.base.ref === event.base?.ref && live.base.sha === event.base.sha && live.head.ref === event.head?.ref && live.head.sha === event.head.sha;
+              const identityMatches = (run, live, current) => {
+                const named = marker(run.display_title);
+                if (!id(run.id) || !id(run.run_number) || !id(run.run_attempt) || run.repository?.id !== repositoryId || run.head_repository?.id !== repositoryId || run.event !== "pull_request" || pathOf(run) !== expectedPath || run.workflow_id !== current.workflow_id || run.head_branch !== live.head.ref || !sha(run.head_sha) || named?.repositoryId !== repositoryId || named.headRepositoryId !== repositoryId || named.baseRepositoryId !== repositoryId || named.event !== "pull_request" || named.pr !== live.number || named.base !== live.base.ref || named.head !== run.head_sha || !Array.isArray(run.pull_requests)) return false;
+                // [] occurs on real same-repository PR runs; it requires source proof.
+                // Nonempty PR links carry live head/base SHAs, even on old run attempts.
+                // Match their identity and SHAs to the fresh PR; the immutable run,
+                // marker and exact-SHA source proof remain separate checks.
+                return run.pull_requests.every(pr => pr?.number === named.pr && pr.head?.repo?.id === repositoryId && pr.base?.repo?.id === repositoryId && pr.head?.ref === run.head_branch && pr.head.sha === live.head.sha && pr.base?.ref === named.base && pr.base.sha === live.base.sha);
+              };
+              const sourceMatches = (current, live) => {
+                const named = marker(current.display_title);
+                return current.id === context.runId && id(current.workflow_id) && identityMatches(current, live, current) && current.head_branch === event.head?.ref && named.base === event.base?.ref && current.head_sha === event.head.sha && named.baseSha === event.base.sha && current.run_attempt === runAttempt && active(current);
+              };
+              const provedSources = new Map();
+              const expression = value => "$" + "{{ " + value + " }}";
+              const fixedRunName = "ci-v1|event=" + expression("github.event_name") + "|pr=" + expression("github.event.pull_request.number || 0") + "|repo=" + expression("github.repository_id") + "|headrepo=" + expression("github.event.pull_request.head.repo.id || github.repository_id") + "|head=" + expression("github.event.pull_request.head.sha || github.sha") + "|baserepo=" + expression("github.event.pull_request.base.repo.id || github.repository_id") + "|base=" + expression("github.event.pull_request.base.sha || github.sha") + "|target=" + expression("github.event.pull_request.base.ref || '-'");
+              const proveSource = async headSha => {
+                if (provedSources.has(headSha)) return;
+                if (!sha(headSha)) throw new Error("invalid source SHA");
+                const data = (await github.rest.repos.getContent({ owner, repo, path: expectedPath, ref: headSha, request })).data;
+                if (!data || data.type !== "file" || data.name !== "ci.yml" || data.path !== expectedPath || data.encoding !== "base64" || !sha(data.sha) || !Number.isSafeInteger(data.size) || data.size <= 0 || data.size > 1000000 || typeof data.content !== "string") throw new Error("unproved workflow source metadata");
+                const encoded = data.content.replace(/[\r\n]/g, "");
+                if (encoded.length % 4 !== 0 || !/^[A-Za-z0-9+/]*={0,2}$/.test(encoded)) throw new Error("invalid source base64");
+                const bytes = Buffer.from(encoded, "base64");
+                if (bytes.length !== data.size || bytes.toString("base64") !== encoded) throw new Error("inconsistent source size/base64");
+                const blobSha = require("node:crypto").createHash("sha1").update(`blob ${bytes.length}\0`).update(bytes).digest("hex");
+                if (blobSha !== data.sha) throw new Error("inconsistent source Git blob");
+                const lines = new TextDecoder("utf-8", { fatal: true }).decode(bytes).replace(/\r\n/g, "\n").split("\n");
+                const index = lines.indexOf("run-name: >-");
+                if (index < 0 || lines[index + 1] !== "  " + fixedRunName || lines.filter(line => /^run-name\s*:/.test(line)).length !== 1) throw new Error("explicit fixed root run-name is absent");
+                // Source proof associates runs with the explicit marker. It is not a
+                // signature or protection against same-repository workflow authors.
+                const proof = { headSha, blobSha, bytes: bytes.length };
+                provedSources.set(headSha, proof); report.sourceProofs.push(proof);
+              };
+              const cancel = async run => {
+                try {
+                  const result = await github.rest.actions.cancelWorkflowRun({ owner, repo, run_id: run.id, request });
+                  if (result.status !== 202) throw Object.assign(new Error(`unexpected cancellation response ${result.status}`), { status: result.status });
+                  return true;
+                } catch (error) {
+                  if (error.status !== 409) throw Object.assign(new Error(error.message), { status: error.status, runId: run.id, attempt: run.run_attempt });
+                  report.conflicts.push({ runId: run.id, attempt: run.run_attempt, status: 409 });
+                  return false;
+                }
+              };
+              try {
+                let live = await getPr();
+                let current = await getRun(context.runId);
+                if (!liveIdentity(live) || !sourceMatches(current, live)) { report.status = "stale_or_unproved_current"; return report; }
+                await proveSource(current.head_sha);
+                if (live.head.sha !== event.head.sha) {
+                  // A delayed old event can have a larger run_number than a newer head.
+                  // Its only permitted target is its own exact still-active attempt.
+                  live = await getPr(); current = await getRun(context.runId);
+                  if (!liveIdentity(live) || live.head.sha === event.head.sha || !sourceMatches(current, live)) { report.status = "self_cancel_no_longer_proved"; return report; }
+                  if (await cancel(current)) {
+                    report.cancellationRequests.push({ runId: current.id, attempt: current.run_attempt, runNumber: current.run_number, headSha: current.head_sha, accepted: true, self: true });
+                    report.status = "stale_self_cancellation_requested";
+                  } else report.status = "self_cancellation_conflict";
+                  return report;
+                }
+                if (!liveMatches(live)) { report.status = "base_or_branch_changed"; return report; }
+                // Finish the complete bounded read before issuing any ordinary request.
+                const listed = [], seen = new Set();
+                let total;
+                for (let page = 1; page <= 10; page++) {
+                  const response = await github.rest.actions.listWorkflowRuns({ owner, repo, workflow_id: current.workflow_id, event: "pull_request", branch: live.head.ref, per_page: 100, page, request });
+                  const count = response.data?.total_count, runs = response.data?.workflow_runs;
+                  if (!Number.isSafeInteger(count) || count < 0 || count >= 1000 || !Array.isArray(runs) || runs.length > 100 || (total !== undefined && total !== count)) throw new Error("incomplete or unstable run listing");
+                  total = count;
+                  for (const run of runs) {
+                    if (!id(run.id) || seen.has(run.id)) throw new Error("duplicate or invalid run listing");
+                    seen.add(run.id); listed.push(run);
+                  }
+                  const next = /<[^>]+>;\s*rel="next"/.test(response.headers?.link ?? "");
+                  if (!next) { if (listed.length !== total) throw new Error("incomplete run pagination"); break; }
+                  if (page === 10) throw new Error("run pagination bound reached");
+                }
+                for (const candidate of listed) {
+                  if (candidate.id === current.id || !identityMatches(candidate, live, current) || !active(candidate) || candidate.run_number >= current.run_number || candidate.head_sha === live.head.sha) { report.skipped.push(candidate.id); continue; }
+                  // Blob content at an exact commit is immutable; cache only this run's
+                  // successful proofs, then refresh PR/controller/target immediately.
+                  await proveSource(candidate.head_sha);
+                  live = await getPr(); current = await getRun(context.runId);
+                  const fresh = await getRun(candidate.id);
+                  if (!liveMatches(live) || !sourceMatches(current, live)) { report.status = "head_or_attempt_changed"; return report; }
+                  if (fresh.id !== candidate.id || fresh.run_number !== candidate.run_number || !identityMatches(fresh, live, current) || !active(fresh) || fresh.run_attempt !== candidate.run_attempt || fresh.run_number >= current.run_number || fresh.head_sha !== candidate.head_sha || fresh.display_title !== candidate.display_title || fresh.head_sha === live.head.sha) { report.skipped.push(candidate.id); continue; }
+                  if (await cancel(fresh)) report.cancellationRequests.push({ runId: fresh.id, attempt: fresh.run_attempt, runNumber: fresh.run_number, headSha: fresh.head_sha, accepted: true });
+                  // All non-409 errors escape and stop the loop. Preserve earlier 202s.
+                }
+                report.status = "complete";
+              } catch (error) { report.status = "no_further_cancellation"; report.errors.push({ runId: error.runId ?? null, attempt: error.attempt ?? null, message: error.message, status: error.status ?? null }); }
+              finally { core.info(JSON.stringify(report)); }
+              return report;
+            }
+            return await cancelSuperseded({ github, context, core, runAttempt: Number(process.env.GITHUB_RUN_ATTEMPT) });
+
   validate:
     name: Validate Structure
     runs-on: ubuntu-latest

@@ -7,6 +7,10 @@
 
 ### Maintenance
 
+- Correct cancellation identity checks for GitHub's live PR association SHAs while preserving immutable run/source/marker verification. Retain the first real scheduling probe's failure; old-run replay and permission-denial acceptance require a fresh corrected-source pair. Refs #245.
+
+- Cancel proved superseded same-PR main-CI runs while keeping complete required checks independent. Verify actual supersession, stale-rerun self-cancellation and HTTP403 fallback on controlled hosted runs; preserve the first failure and expected read-token configuration failures. Record PR3 final24/24 acceptance, retained default, actual #248 Owner-bypass merge and fresh installation/Python verification. Refs #245.
+
 - Add a separate opt-in Git Trace2 diagnostic for the unchanged Communication resource-negative test after two frozen-baseline Git timeouts. Retain the third incomplete core attempt, original 60-second deadline and all performance gates; selected-test diagnostics cannot establish full-test or performance acceptance. Refs #245.
 - Guard performance gates and concurrency selection with complete, valid stage data; retain raw observations while incomplete or failed comparisons leave every gate unmeasured and selection null. Preserve both failed PR3 core attempts, the frozen baseline, its 60-second Git deadline, strict assertions and all acceptance thresholds. New-candidate engineering and a fresh complete 24-sample comparison remain pending. Refs #245.
 - Canonicalize only the smoke regression's source root when observing the single learning-record read through Windows 8.3 path aliases. Keep the strict one-read assertion and production behavior unchanged; retain the first incomplete PR3 core run and its authentic local red/green reproduction. All four core gates remain unmeasured, with new-candidate verification and a fresh complete comparison pending. Refs #245.
