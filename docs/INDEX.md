@@ -6,14 +6,14 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-16
 state: active
-version: v2.91.11
+version: v2.91.12
 ---
 
 # 文档索引
 
 ## 当前性能维护
 
-[#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)按五个顺序PR推进。PR3 #248四门槛及实际abca239的13安装/Python通过，保留default；原失败、诊断、空reviews及Owner bypass分别记录。PR4 [#249](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/249)已通过真实旧run取消、旧重跑仅自取消及HTTP403后完整检查保留；权限变体只出现预期配置失败，四份OS日志逐条核验。首轮动态PR关联SHA漏取消、错过窗口、一次隔离重跑及QA归档问题均保留，临时[#250](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/250)不合入。见[核心回执](runbook/evidence/ci-performance-245-pr3-core-attempt4.json)、[合并后回执](runbook/evidence/ci-performance-245-pr3-postmerge.json)及[账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。最终文档提交的当前head工程门禁另核，非作者批准和PR4实际merge/复验完成后才推进PR5；Issue保持开放，冻结基线、60秒及运行版本不变。
+[#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)按五个顺序PR推进。PR3四性能门槛/24样本通过并保留default；PR4 [#249](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/249)实际合入6bc7c63，完成新一轮13安装与真实Python复验，见[PR4合并后回执](runbook/evidence/ci-performance-245-pr4-postmerge.json)。Owner实际bypass、空reviews、首轮动态关联误判及负面/归档原失败分别保留，不推定批准或豁免。PR5从该实际merge实施push矩阵去重：仅精确匹配当前PR/源码/最新attempt才可省略；PR完整矩阵与push结构检查保持，不确定/失败/missing输出完整回退。决策后承接PR失败不会自动恢复已skip的push，合并必须另核实际PR双系统成功。见[账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)，最终托管验收/实际merge后复验及Issue关闭分别追踪；冻结基线、60秒、运行与发布版本不变。
 
 ## 当前整体发布
 

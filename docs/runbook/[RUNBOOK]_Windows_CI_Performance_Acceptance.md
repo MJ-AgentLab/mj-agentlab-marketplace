@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-15
 updated: 2026-10-16
 state: active
-version: v1.8
+version: v1.9
 last-verified: null
 ---
 
@@ -119,8 +119,8 @@ Current develop service-required contexts are `Validate Structure` and `A6 / Che
 | PR3 third core comparison | NOT_ACCEPTED, INCOMPLETE | Run38830059771 attempts21/24, successful20; B canonical round3 test6 fails during Git worktree.add60000ms. Candidate nine full416/416, two isolated7/7 and two real13-scenario smokes pass; no accepted gate or concurrency. |
 | PR3 separate Git diagnostic | COLLECTED, NOT PERFORMANCE ACCEPTANCE | Run38844331433 completes6/6; archived1094 raw files and observed sessions agree. Formal gates stay unmeasured; see §5.8. |
 | PR3 final core / actual merge | TECHNICAL PASS, ACTUAL OWNER BYPASS RECORDED | Run38846509170 completes24/24/all four gates, default retained; actual abca merge and fresh13/Python pass. Empty reviews and rule-suite bypass are not retroactive approval. See §5.8. |
-| PR4 main-CI cancellation | IN_PROGRESS, HOSTED NOT_RUN | Isolated codex/issue-245-cancel from actual abca; source/target proof, conservative API stopping and independent checks; §5.9. |
-| PR5 / final Issue closure | NOT_STARTED | Push deduplication and final acceptance remain separate; Issue stays open. |
+| PR4 main-CI cancellation | ACTUALLY MERGED, POSTMERGE PASS | Corrected-source hosted cancellation/self-cancel/403 accepted, final ce3809b ordinary CI/install pass; actual6bc7c63 Owner-bypass merge and fresh installation/Python pass; §5.12. |
+| PR5 / final Issue closure | IMPLEMENTATION IN_PROGRESS | Isolated codex/issue-245-dedup from actual6bc7c63; push-only decision gate with PR matrices preserved. Final engineering/service/merge/postmerge and Issue closure remain separately pending; §5.13. |
 
 Local logs remain outside the checkout. Initial full-test log SHA-256: `d8a58e6d748bbcb6d42227afc625c09121934aace7aa30b4f54faa028f0caf5d` (80,933 bytes); profiling-enabled smoke stdout SHA-256: `d6ddbd9eb4fea874c5f75471a4589abc5fea8d4f16e630d549098f7f5a7a9688` (324,246 bytes). These working-snapshot checks are not a substitute for the final commit's required CI.
 
@@ -371,10 +371,31 @@ The [hosted receipt](evidence/ci-performance-245-pr4-hosted.json) records exact 
 
 Hosted tests prove the listed observations. Higher-number delayed events, pagination faults, network timeout, fork and conflicting association cases remain injected regression coverage; an atomic final-read/cancel guarantee and future-runner performance are not established. The final evidence-only commit keeps these exact CI/test blobs and runtime/version bytes; its own current-head CI and exact installation are recorded in PR249 after commit. Actual non-author approval, resolved threads, fresh base and protected merge remain separate gates. PR5 starts only after actual PR4 merge and post-merge verification; Issue245 stays OPEN.
 
+### 5.12 PR249 actual merge and fresh post-merge verification
+
+Owner ranzuozhou merges PR249 at UTC2026-10-16T08:58:55Z as6bc7c6372b78ece5de30af81ec622e4bf74afe77, tree949eb3b61c72ce7f3dd2af5ef56bb928de7c50bb, parents abca23999586b52a37e64ba9c2324c2cbe5de965 and ce3809b2faf21da1c55b524f7a1543e4e80da8ac. This is the same tree as the accepted final candidate and its tested PR merge227884a6. Empty reviews remain a fact. Independent GET-only audit of rule-suite4558104367 reports Owner **bypass**: active protect-develop pull_request evaluation fails because approval from someone other than the last pusher is missing; required status/non-fast-forward/deletion pass. Rule-suite raw SHA21a0bade6d06f850e797a3a287fe6382901cd94159fc9bf1ce82e8454597710f. The Agent did not merge, bypass, add approval or infer a waiver.
+
+Fresh actual6bc exact installation runs at UTC09:00:47.898–09:01:47.699, wall59800.0211ms. The verifier receives canonicalSha=6bc explicitly without changing the old ce source branch. All13 installations, six Diagram Python calls, six Learning groups/eighteen LEK calls and170 commands pass;130 phases have no operation errors. All15 owned temporary roots are removed,15 cleanup phases and canonical add/remove succeed. Nineteen registered worktree paths and their full listing stay unchanged, including the newly prepared PR5 worktree. Actual canonical AGENTS is16354 bytes/89CRLF. Local Node22.18.0/Python3.12.13/Codex0.147.0 and original Git60s remain distinct from hosted pins.
+
+The [post-merge receipt](evidence/ci-performance-245-pr4-postmerge.json), SHAb01af82e8f7ffb6799428095958973983e6df596a7d5044017d7d8519bc0d027, retains exact argv/tree/parents, tools, source cleanliness, raw hashes and counters. stdout/result SHA4574b2cedd98c81596cdeaea5b6a9cc8e6eeb17e20cc9597003c071c23fcd24f; process SHAb5cc2c9f85e257d7b3202d21141a14d07424042c1f674ba2cda9e4ff27a24baf. This is a newly executed installation/Python verification, not a new full470 test or24-sample comparison at the actual merge.
+
+### 5.13 PR5 push-only matrix deduplication contract
+
+Implement the remaining approved stage from actual6bc in isolated codex/issue-245-dedup. Only push compatibility work may be omitted. Preserve every PR merge-result matrix, push Validate Structure, PR4 cancellation behavior, both compatibility OSes/commands/tools, package/runtime bytes, original timeout and frozen performance denominator. A separate bounded inline GitHub-script gate uses only job-local Actions/pull-request/content read permissions, without checkout or executing PR modules. Its default is full push; only a complete verified decision may output the skip value. Failed/skipped/timed-out gates or missing/invalid outputs must take the full matrix branch. An explicitly cancelled whole run must not start new matrix work. PR matrix conditions override the default success dependency filter and do not depend on a successful push gate.
+
+At the decision instant, a unique same-repository open PR, current head ref/SHA, current base ref/SHA, workflow ID/path, immutable run marker and latest run/attempt must agree. Complete bounded listings precede selection: a more recent failed, cancelled, malformed, wrong-head or wrong-base run cannot be bypassed by selecting an older success. Nonempty PR associations carry live head/base SHAs and must match fresh PR data, preserving the PR4 repair; an empty association needs the other strict proofs. Exact-attempt job metadata must identify both expected OS jobs in allowed states. Missing jobs, unknown/failed/cancelled/skipped compatibility jobs, waiting/action-required runs, pending deployment approval, forks, incomplete/unstable pagination and API/permission uncertainty retain the full push matrix.
+
+PR4 marker-template proof alone cannot replace a matrix. PR5 additionally proves the complete CI file: push GITHUB_WORKFLOW_SHA equals the exact push head; content API file/path/base64/size and recomputed Git blob are consistent at the push workflow/head and live PR test merge. The merge commit's parents must equal [current base, current head], and the complete workflow blobs/bytes must be equal. REST run.head_sha is the PR head, not the actual merge checkout. Re-read PR, branch refs, carrier, latest attempt and listing before publishing the decision; any observed drift reverts to full push. Final-read/output races and same-repository workflow-author authority remain disclosed.
+
+The Owner-approved queued/in_progress/success rule is a **decision-time** substitution. Queued/running carriers still need the exact identity/source/job proof; the gate does not wait for PR creation or eventual success. A carrier that fails, is cancelled or starts a different attempt later does not automatically revive an already skipped push matrix. That later PR result remains a real failure/cancellation, and Agent merge qualification must inspect the current PR's actual two-OS success, never a skipped push green status or an older/other push. No workflow_run recovery system, auto approval, broad concurrency group or Actions-write retry mechanism is added.
+
+Real hosted acceptance will preserve a no-PR full fallback, an actually matched active/successful carrier with push jobs skipped and PR jobs fully executed, decision-before-failure/cancellation fallback without rescuing an older successful attempt, and the native failed-gate/missing-output job graph. A separately controlled late-carrier cancellation may demonstrate the disclosed boundary, not pretend to restore push. Platform faults/forks/queued windows not actually observed remain injected regression coverage or explicitly unexercised. Probe branches/configuration never merge; no unrelated run is mutated and every wrong/missed/partial attempt remains. Synthetic role acceptance does not supply GitHub approval. At this preparation snapshot new PR5 tests, hosted results and final exact installation are NOT_RUN.
+
 ## 6. Change history
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.9 | 2026-10-16 | Record actual PR249 Owner-bypass merge and fresh exact installation/Python, then specify push-only deduplication with complete workflow proof, conservative fallback and explicit decision-time/later-carrier boundaries. PR5 new implementation acceptance is pending. |
 | v1.8 | 2026-10-16 | Record actual corrected-source cancellation, stale-attempt self-cancel and403 fallback with independent full-check survival; preserve first failure, missed window, deliberate config-test failures and raw archival limits. Final evidence-only head gates remain separately recorded. |
 | v1.7 | 2026-10-16 | Preserve the first real cancellation failure caused by dynamic PR association SHAs, retain exact engineering evidence, and require repaired-source regression and a fresh hosted pair. |
 | v1.6 | 2026-10-16 | Record six-test diagnostics, final independent24/24 core acceptance, retained default, actual Owner-bypass merge and fresh exact installation/Python; begin PR4 main-CI scoped cancellation with service acceptance still pending. |
