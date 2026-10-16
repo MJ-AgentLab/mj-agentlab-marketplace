@@ -4,14 +4,20 @@ scope: marketplace
 summary: "当前 ChatGPT/Codex 文档、历史决策与退役资料导航"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-15
+updated: 2026-10-16
 state: active
-version: v2.91.2
+version: v2.91.14
 ---
 
 # 文档索引
 
+## 当前性能维护
+
+[#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)五阶段#246/#247/#248/#249/#251均已合入develop。四性能门槛/完整24样本通过、保留default；最终actual6df新492/492、13安装、6Diagram+18LEK及15清理通过并独立复核。Owner明确仅对245接受历史批准/bypass缺项后，Issue于2026-10-16T13:09:52Z以Completed关闭；原NOT_MET、历史失败和调度限制保留，例外不外推。见[账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)与[最终收尾回执](runbook/evidence/ci-performance-245-final-closeout.json)。
+
 ## 当前整体发布
+
+2026-10-16 Owner授权发布维护补丁8.3.1；候选完整继承develop6df，基于main31cb/已发布8.3.0，仅维护脚本/CI与文档变化，五包运行字节和插件版本保持。候选新工程/精确安装、当前非作者批准、实际main合入、Release及发布后真实tag复验分别登记，不因245例外跳过发布门禁，见[8.3.1发布账本](runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。以下为当前公开8.3.0的真实基线。
 
 2026-10-15 #241 已将完整五包七技能/四显式作为 Marketplace v8.3.0 公开，main/tag/Release 同为 ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64。Diagram 0.3.1 / Learning Evidence 0.1.0 / Explain 0.1.1 / Communication 0.1.0 / HTML 0.1.36；原四包 #237 关闭未合并。发布后十三组合 canonical 安装及 6+6 缓存 Python 通过，身份、原始回执和后续维护见[8.3.0 发行账本](runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。自动删分支已关闭、develop原head32e32c5已恢复且规则审计PASS；常规同步/预升仍须受保护PR。R05仅沿用未变资源的有限覆盖；HTML #239 FAIL、完整客户端未覆盖、历史规则审计 bypass、空 reviews 和效果未测均保留，不关闭 #215/#239。
 

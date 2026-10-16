@@ -1,0 +1,513 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-16T09:44:24.461Z",
+  "status": "LOCAL_PR5_ENGINEERING_REVIEW_EXACT_INSTALL_PASS_HOSTED_NOT_ASSESSED",
+  "provenancePolicy": "qa/... values are local evidence provenance strings, not portable document links. Full raw files remain indexed in the bound upstream receipts; copying this compact receipt into tracked evidence does not assert those local paths are accessible.",
+  "auditMethod": "Read existing QA files; recompute byte sizes/SHA256, parse actual TAP/installation/phase outputs, bind local Git HEAD/tree/blob identities, and recheck source cleanliness. No tests, installs, benchmark or network were run by this audit.",
+  "source": {
+    "head": "4a98330cbde3dc1b2d1dc88670e2a7082cc01197",
+    "tree": "d7eb2a89c7bf21acd28dee71194234a93a2725b0",
+    "base": "6bc7c6372b78ece5de30af81ec622e4bf74afe77",
+    "diffCommand": "git diff 6bc7c6372b78ece5de30af81ec622e4bf74afe77...HEAD",
+    "trackedChangedFiles": 8,
+    "cleanAtAudit": true,
+    "rawExactBeforeAfterSnapshot": {
+      "provenance": "qa/pr5-exact-4a98330/source-before.json",
+      "bytes": 839,
+      "sha256": "0138f9aa0fc65b1835a8f85243dd9f7dec071016bfc181d0b3d7adb5cd03df45"
+    },
+    "allEightWorkingHashesMatchExactBeforeAfter": true,
+    "files": [
+      {
+        "path": ".github/workflows/ci.yml",
+        "gitBlobSha": "46596d77235549ca2144d365e9463881fe0e9a17",
+        "gitBlobBytes": 36354,
+        "gitBlobSHA256": "cbdbaff0d39c37a2004e71a3e25603f5e86ca74c50c0f7fe454547d3ec5ff8dd",
+        "workingBytes": 36776,
+        "workingSHA256": "96faec14002d5438ed02a98c40dbb01291afbed429f6d8d983007e1afdce4833",
+        "workingNormalizedLFSHA256": "cbdbaff0d39c37a2004e71a3e25603f5e86ca74c50c0f7fe454547d3ec5ff8dd"
+      },
+      {
+        "path": "tests/ci-deduplicate-push.test.mjs",
+        "gitBlobSha": "90ec5deb7124394cb992f06b9407baa83c030526",
+        "gitBlobBytes": 26751,
+        "gitBlobSHA256": "ffcd363c6b1ffebcb2a33ad577261a14303153c31ff8a68c4d371e5367cdf8ba",
+        "workingBytes": 26751,
+        "workingSHA256": "ffcd363c6b1ffebcb2a33ad577261a14303153c31ff8a68c4d371e5367cdf8ba",
+        "workingNormalizedLFSHA256": "ffcd363c6b1ffebcb2a33ad577261a14303153c31ff8a68c4d371e5367cdf8ba"
+      },
+      {
+        "path": "tests/ci-cancel-superseded.test.mjs",
+        "gitBlobSha": "1333cbb1332fea76a0d8bab29777625febc18b69",
+        "gitBlobBytes": 24934,
+        "gitBlobSHA256": "7ae98e561c856ef7c23259537d6533798beaefc5ed2496e78f7cca08fce32639",
+        "workingBytes": 25224,
+        "workingSHA256": "5d5524e2f69a100741fadc6d3b1430bc8f1157c1b0e9ee58566fd0603136061b",
+        "workingNormalizedLFSHA256": "7ae98e561c856ef7c23259537d6533798beaefc5ed2496e78f7cca08fce32639"
+      }
+    ],
+    "hashDomains": "Git blob SHA is Git object identity; gitBlobSHA256 hashes canonical committed bytes. workingSHA256 hashes on-disk checkout bytes; workingNormalizedLFSHA256 replaces CRLF with LF before SHA256. They are explicitly separate; CRLF working bytes need not equal committed bytes.",
+    "pr4Cancellation": {
+      "workingBytesIdenticalToBaseline": true,
+      "workingSHA256": "95ab9d6c915055b3c7f1f79dc837176a1c2f08232ccc4980a49a07a3a396e940",
+      "normalizedLFSHA256": "7c55fe2f6fd778ea8db06728efc2d61aa14ce6c18f77964e486ed648c84d6f95"
+    }
+  },
+  "tdd": {
+    "receipt": {
+      "provenance": "qa/pr5-author/author-receipt.json",
+      "bytes": 10612,
+      "sha256": "1ac6d64096af4fc0c9cf8216dbf4f685e54b6db9916ae647a6ee42cea96bd0d0"
+    },
+    "baselineReceipt": {
+      "provenance": "qa/pr5-author/baseline.json",
+      "bytes": 690,
+      "sha256": "556700aaadb1289d9f48c293016f17136e8047ffc1e79ee7924e2dde02451dc4"
+    },
+    "authorReceiptAt": "2026-10-16T09:19:47.677205+00:00",
+    "realRedStages": 5,
+    "redExitCodeProvenance": "Observed child exit codes recorded by author receipt; TAP failure counts and every listed stdout/stderr hash independently rechecked.",
+    "perStageArgvAndTimestamps": "NOT_RECORDED_IN_AUTHOR_RECEIPT; no per-stage command or wall time is reconstructed.",
+    "stages": [
+      {
+        "stage": "slice1-red",
+        "observedChildExitCode": 1,
+        "tests": 1,
+        "pass": 0,
+        "fail": 1,
+        "skipped": 0,
+        "tapDurationMs": 97.1755,
+        "stdout": {
+          "provenance": "qa/pr5-author/slice1-red.stdout.tap",
+          "bytes": 1020,
+          "sha256": "a40babc79131858230393579198998839bd66d6a0ad85dfb5bd835c625e7cd9f"
+        }
+      },
+      {
+        "stage": "slice1-green",
+        "observedChildExitCode": 0,
+        "tests": 39,
+        "pass": 39,
+        "fail": 0,
+        "skipped": 0,
+        "tapDurationMs": 141.0106,
+        "stdout": {
+          "provenance": "qa/pr5-author/slice1-green.stdout.tap",
+          "bytes": 8553,
+          "sha256": "9856fa3893468c4eba3198cf25ceba6cfa3bcc4a64067ae6863bd51839cf4891"
+        }
+      },
+      {
+        "stage": "slice2-red",
+        "observedChildExitCode": 1,
+        "tests": 2,
+        "pass": 1,
+        "fail": 1,
+        "skipped": 0,
+        "tapDurationMs": 98.9579,
+        "stdout": {
+          "provenance": "qa/pr5-author/slice2-red.stdout.tap",
+          "bytes": 1215,
+          "sha256": "933457f2101e989ef68a885994c00c2e8785742988d99253aa8c89ed20bc0864"
+        }
+      },
+      {
+        "stage": "slice2-green",
+        "observedChildExitCode": 0,
+        "tests": 40,
+        "pass": 40,
+        "fail": 0,
+        "skipped": 0,
+        "tapDurationMs": 157.1208,
+        "stdout": {
+          "provenance": "qa/pr5-author/slice2-green.stdout.tap",
+          "bytes": 8800,
+          "sha256": "75f717f117e5016606967a97be3c07839a22d8e57294e5899257432115602a66"
+        }
+      },
+      {
+        "stage": "slice3-red",
+        "observedChildExitCode": 1,
+        "tests": 3,
+        "pass": 2,
+        "fail": 1,
+        "skipped": 0,
+        "tapDurationMs": 102.2837,
+        "stdout": {
+          "provenance": "qa/pr5-author/slice3-red.stdout.tap",
+          "bytes": 1457,
+          "sha256": "bb20084ebe5f32e37eeda3e8599f21a05cf9210da438b5903cc08af57f8f1df2"
+        }
+      },
+      {
+        "stage": "slice3-green",
+        "observedChildExitCode": 0,
+        "tests": 41,
+        "pass": 41,
+        "fail": 0,
+        "skipped": 0,
+        "tapDurationMs": 150.5576,
+        "stdout": {
+          "provenance": "qa/pr5-author/slice3-green.stdout.tap",
+          "bytes": 9042,
+          "sha256": "30c89808fa245a3df4bfded2693da2c9f1206f2cbddb4ce04bafe6c128283134"
+        }
+      },
+      {
+        "stage": "boundary-green",
+        "observedChildExitCode": 0,
+        "tests": 57,
+        "pass": 57,
+        "fail": 0,
+        "skipped": 0,
+        "tapDurationMs": 195.7247,
+        "stdout": {
+          "provenance": "qa/pr5-author/boundary-green.stdout.tap",
+          "bytes": 12821,
+          "sha256": "655af239c25214edc9a4cf8e84d4cd504bc0e794e1ad1b30ddaff05aaf22df23"
+        }
+      },
+      {
+        "stage": "slice4-red",
+        "observedChildExitCode": 1,
+        "tests": 20,
+        "pass": 19,
+        "fail": 1,
+        "skipped": 0,
+        "tapDurationMs": 189.6679,
+        "stdout": {
+          "provenance": "qa/pr5-author/slice4-red.stdout.tap",
+          "bytes": 5444,
+          "sha256": "afff4e773d60b8be3f33da7894fb936fd99fe5991e962c36f004ec1c1ff8b4e9"
+        }
+      },
+      {
+        "stage": "slice4-green",
+        "observedChildExitCode": 0,
+        "tests": 58,
+        "pass": 58,
+        "fail": 0,
+        "skipped": 0,
+        "tapDurationMs": 200.0317,
+        "stdout": {
+          "provenance": "qa/pr5-author/slice4-green.stdout.tap",
+          "bytes": 13031,
+          "sha256": "0f357695c720d6a4b3484513fa47bd2f67aba8d5e3a253bccc7eac22ee98561e"
+        }
+      },
+      {
+        "stage": "slice5-red",
+        "observedChildExitCode": 1,
+        "tests": 21,
+        "pass": 20,
+        "fail": 1,
+        "skipped": 0,
+        "tapDurationMs": 190.6109,
+        "stdout": {
+          "provenance": "qa/pr5-author/slice5-red.stdout.tap",
+          "bytes": 5640,
+          "sha256": "d785322dcfdad6aa816ee540c40098a94b736c4adda34b1c2fb33f6d3bbe4652"
+        }
+      },
+      {
+        "stage": "final-targeted",
+        "observedChildExitCode": 0,
+        "tests": 60,
+        "pass": 60,
+        "fail": 0,
+        "skipped": 0,
+        "tapDurationMs": 211.7568,
+        "stdout": {
+          "provenance": "qa/pr5-author/final-targeted.stdout.tap",
+          "bytes": 13462,
+          "sha256": "aad913b659ee47792259202f847b2c0ff375999810ff93777132f60533092bd8"
+        }
+      }
+    ],
+    "finalTargeted": {
+      "pass": 60,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "syntaxWhitespace": {
+      "recordedExitCode": 0,
+      "verification": "Six zero-byte stdout/stderr artifacts rehashed; exit result follows author receipt.",
+      "checks": 6
+    },
+    "limit": "Intermediate source snapshots were not separately saved. Preserved baseline, real RED/GREEN TAP and final frozen source hashes do not establish a complete per-slice source archive."
+  },
+  "engineering": {
+    "receipt": {
+      "provenance": "qa/pr5-engineering/summary.json",
+      "bytes": 2649,
+      "sha256": "cb769c53fe4f73816e98e4e41e9703c18aba21ad84f3b6fe7350c3370fbaabf8"
+    },
+    "runs": [
+      {
+        "name": "full",
+        "cmd": "npm",
+        "args": [
+          "test"
+        ],
+        "startedAt": "2026-10-16T09:21:54.562Z",
+        "endedAt": "2026-10-16T09:22:56.055Z",
+        "wallMs": 61491.7547,
+        "exitCode": 0,
+        "stdout": {
+          "provenance": "qa/pr5-engineering/full.stdout.log",
+          "bytes": 111420,
+          "sha256": "7229b95e4d817396ec33b7dd0c5154328eb2f9abe6a169faf0cc93c7eb2eee33"
+        },
+        "stderrEmpty": true
+      },
+      {
+        "name": "validate",
+        "cmd": "npm",
+        "args": [
+          "run",
+          "validate"
+        ],
+        "startedAt": "2026-10-16T09:22:56.057Z",
+        "endedAt": "2026-10-16T09:22:56.841Z",
+        "wallMs": 783.6771000000008,
+        "exitCode": 0,
+        "stdout": {
+          "provenance": "qa/pr5-engineering/validate.stdout.log",
+          "bytes": 374,
+          "sha256": "0c48e6b1cd323cfef6242f00872cd456afa471a8e0829a496dcdb8878e060976"
+        },
+        "stderrEmpty": true
+      },
+      {
+        "name": "tools",
+        "cmd": "npm",
+        "args": [
+          "run",
+          "check:baseline-tools"
+        ],
+        "startedAt": "2026-10-16T09:22:56.841Z",
+        "endedAt": "2026-10-16T09:22:57.251Z",
+        "wallMs": 410.2667000000001,
+        "exitCode": 0,
+        "stdout": {
+          "provenance": "qa/pr5-engineering/tools.stdout.log",
+          "bytes": 158,
+          "sha256": "3fc0424a86101004ace83d91ff21260dd3df9b75d335c7cf1132e9ee9f75fc1b"
+        },
+        "stderrEmpty": true
+      },
+      {
+        "name": "commits",
+        "cmd": "pwsh",
+        "args": [
+          "-NoProfile",
+          "-File",
+          "scripts/validate-commits.ps1",
+          "6bc7c6372b78ece5de30af81ec622e4bf74afe77..HEAD"
+        ],
+        "startedAt": "2026-10-16T09:22:57.252Z",
+        "endedAt": "2026-10-16T09:22:57.625Z",
+        "wallMs": 373.27909999999974,
+        "exitCode": 0,
+        "stdout": {
+          "provenance": "qa/pr5-engineering/commits.stdout.log",
+          "bytes": 98,
+          "sha256": "f5c71f943a1849d7364f741993de64426c454b50821cc11340f9f6614b7b3bfa"
+        },
+        "stderrEmpty": true
+      }
+    ],
+    "allStderrEmpty": true,
+    "emptyStderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fullSuite": {
+      "tests": 492,
+      "pass": 492,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "durationMs": 61173.4588
+    },
+    "structure": {
+      "ok": true,
+      "repositorySkills": 20,
+      "publicSkills": 7
+    },
+    "baselineTools": {
+      "codex": "0.147.0",
+      "failedPins": 0
+    },
+    "commitValidation": {
+      "commits": 2,
+      "failures": 0
+    },
+    "environment": "Parent confirms existing inherited environment with no Python PATH or REQUIRE_* overrides; the complete environment was not recorded.",
+    "pythonVersion": {
+      "status": "NOT_RECORDED_FOR_FULL_SUITE",
+      "reason": "Exact-install Python version is not borrowed for this separate npm test invocation."
+    }
+  },
+  "exactInstallation": {
+    "auditReceipt": {
+      "provenance": "qa/pr5-exact-4a98330-audit/receipt.json",
+      "bytes": 10372,
+      "sha256": "c7c80b203039ecf1bf9fb90ea6d592d06a4d7f413ac1caf8dd49d11c0508f721"
+    },
+    "launcher": {
+      "executable": "D:\\Development\\nodejs\\node.exe",
+      "args": [
+        "C:\\Users\\Admin\\.codex\\worktrees\\issue-245-dedup\\qa\\verify-current.mjs",
+        "C:/Users/Admin/.codex/worktrees/issue-245-dedup/develop",
+        "C:\\Users\\Admin\\.codex\\worktrees\\issue-245-dedup\\qa\\pr5-exact-4a98330",
+        "exact"
+      ],
+      "startedAt": "2026-10-16T09:23:14.989Z",
+      "endedAt": "2026-10-16T09:24:09.803Z",
+      "wallMs": 54814.1146,
+      "exitCode": 0,
+      "timedOut": false
+    },
+    "verifier": {
+      "executable": "D:\\Development\\nodejs\\node.exe",
+      "args": [
+        "C:/Users/Admin/.codex/worktrees/issue-245-smoke/qa/diagnostic-exact-da40473/verify-exact.mjs",
+        "C:/Users/Admin/.codex/worktrees/issue-245-dedup/develop",
+        "4a98330cbde3dc1b2d1dc88670e2a7082cc01197",
+        "C:\\Users\\Admin\\.codex\\worktrees\\issue-245-dedup\\qa\\pr5-exact-4a98330"
+      ],
+      "startedAt": "2026-10-16T09:23:15.116Z",
+      "endedAt": "2026-10-16T09:24:09.784Z",
+      "wallMs": 54667.541,
+      "exitCode": 0,
+      "timedOut": false
+    },
+    "tools": {
+      "node": "v22.18.0",
+      "npm": "10.9.3",
+      "git": "git version 2.53.0.windows.1",
+      "python": "Python 3.12.13",
+      "pythonExecutable": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+      "pwsh": "PowerShell 7.6.5",
+      "codex": "codex-cli 0.147.0"
+    },
+    "environmentMode": "built in; REQUIRE_PWSH=1, REQUIRE_PYTHON=1",
+    "originalGitTimeoutMs": 60000,
+    "actualResults": {
+      "installedCli": "codex-cli 0.147.0",
+      "scenarios": 13,
+      "passed": 13,
+      "commands": 170,
+      "commandErrors": 0,
+      "diagramGroups": 6,
+      "diagramPythonCalls": 6,
+      "diagramAllPass": true,
+      "learningGroups": 6,
+      "learningPythonCalls": 18,
+      "learningSaveReplayStructuralAllPass": true,
+      "phaseFiles": 2,
+      "phaseRecords": 130,
+      "phaseErrors": 0,
+      "phaseCounts": {
+        "cleanup:ok": 15,
+        "copy:ok": 14,
+        "git.init:ok": 13,
+        "install:ok": 43,
+        "validate:ok": 43,
+        "worktree.create:ok": 1,
+        "worktree.remove:ok": 1
+      },
+      "cleanupOk": 15,
+      "ownedTemporaryRootsAbsentAtOriginalAndThisAudit": 15,
+      "registeredRootsBefore": 19,
+      "registeredRootsAfter": 19,
+      "storedFullWorktreeListingUnchanged": true,
+      "sourceUnchangedClean": true,
+      "canonicalAgents": {
+        "status": "NOT_MEASURED",
+        "reason": "No canonical AGENTS read-time snapshot was captured before this completed verifier removed its canonical worktree. Host bytes or a CRLF projection are not substituted for actual canonical bytes."
+      }
+    },
+    "selectedRaw": [
+      {
+        "provenance": "qa/pr5-exact-4a98330/stdout.log",
+        "bytes": 315933,
+        "sha256": "0c1b304f42b7b48984ae7473d6d8979f8d8484566b894c6f60f1815070f7413a"
+      },
+      {
+        "provenance": "qa/pr5-exact-4a98330/launcher-process.json",
+        "bytes": 4091,
+        "sha256": "600370fe5d313b15ed54c118a96900ce6dce3f4f237ed4bf2188e80e7847b376"
+      },
+      {
+        "provenance": "qa/pr5-exact-4a98330/process.json",
+        "bytes": 358989,
+        "sha256": "fa002fa46d9732e9762d4af1735ead688030e9c488013bccfbe46876360921a1"
+      },
+      {
+        "provenance": "qa/pr5-exact-4a98330/phases/perf-3920-dac8e79a-b333-4013-8cae-4848541134bf.ndjson",
+        "bytes": 552,
+        "sha256": "f17bb00937a3c8e47eb88c59d2df10b00aa4c9eb2b857dc531e89a01d0b65dca"
+      },
+      {
+        "provenance": "qa/pr5-exact-4a98330/phases/perf-7676-88b3d03a-2b85-4cba-b77b-2eda7d70b823.ndjson",
+        "bytes": 31446,
+        "sha256": "61947af6764c73e897c817eaf4d58dd00e78687b333ec6791b13bcf79dcdd077"
+      }
+    ],
+    "completeRawIndex": "Bound by auditReceipt.rawFiles; all twelve entries were independently rehashed for this compact audit.",
+    "scope": "All installation/Python/phase/cleanup counts apply only to this local exact-source invocation. They are not counts for full-suite or hosted jobs; outer and inner wall times are separate nested observations."
+  },
+  "reviews": {
+    "standards": {
+      "report": {
+        "provenance": "qa/pr5-standards-review/standards-report.md",
+        "bytes": 1933,
+        "sha256": "e95ef0725dba4c6672b743f48d592437290c8d915045d160981be513ce3d20a9"
+      },
+      "documentedStandardViolations": 0,
+      "actionableHeuristicFindings": 0
+    },
+    "spec": {
+      "report": {
+        "provenance": "qa/pr5-spec-review/spec-report.md",
+        "bytes": 1974,
+        "sha256": "da3a74aa1a963255218fa94038d96c843b2a9ec76d79e2264ca41756ebf90d3c"
+      },
+      "findings": 0,
+      "targetedProcess": {
+        "startedAt": "2026-10-16T09:22:43.1702224Z",
+        "endedAt": "2026-10-16T09:22:43.4491957Z",
+        "wallMs": 274.7381,
+        "exitCode": 0,
+        "scope": "two focused CI policy tests only",
+        "artifact": {
+          "provenance": "qa/pr5-spec-review/targeted-process.json",
+          "bytes": 188,
+          "sha256": "5dc3b5df056ed5ed8fe6872337e081fa278ef63b52bbd89fae1786bd5d5023c3"
+        }
+      },
+      "targetedTap": {
+        "tests": 60,
+        "pass": 60,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "durationMs": 205.3414
+      },
+      "targetedStdout": {
+        "provenance": "qa/pr5-spec-review/targeted.stdout.log",
+        "bytes": 13467,
+        "sha256": "30b8792a2b493b90425f6cbccfb61fb09fce6c376a9b35b850cb7dd05311c7a3"
+      }
+    }
+  },
+  "limits": [
+    "Local engineering, mock API/condition tests, technical role reviews and exact CLI installation do not prove native hosted scheduling/deduplication.",
+    "Hosted service acceptance, native failed-gate/missing-output job graph and later-carrier boundary are NOT_ASSESSED by this local-only audit; no global execution status is asserted.",
+    "No GitHub non-author approval, protected-merge qualification, actual PR5 merge or post-merge validation is supplied by this receipt.",
+    "No new formal 24-sample performance comparison was run; original timeout, runtime package bytes and versions remain outside this change.",
+    "Canonical AGENTS bytes/CRLF at read time were NOT_MEASURED; host bytes and projected line endings are not substituted."
+  ]
+}

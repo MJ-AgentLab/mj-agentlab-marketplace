@@ -5,6 +5,46 @@
 
 ## [Unreleased]
 
+## [8.3.1] - 2026-10-16
+
+Marketplace maintenance patch for Windows CI and canonical installation preparation. The five plugin packages, public entries, catalog and plugin versions are byte-identical to published 8.3.0; no plugin version bump is included. Refs #244, #245.
+
+### Maintenance results
+
+- Replace 22 broad test preparations with independent minimal contract fixtures, retaining real runtime resources, strict validators, missing/tampered-resource rejection, isolation and failure cleanup.
+- Prepare one verified real-source template for all thirteen independently isolated installation combinations. Keep actual installed-cache Python and bounded transient-lock cleanup retries.
+- The complete same-Windows-job 24-sample comparison passed all four gates: copied content reduced by at least 99.447896%, full-test command median by 88.193766%, whole canonical command median by 93.237433%, and whole smoke command median by 76.838616%. These are content-byte and command-wall measurements, not physical disk I/O or general runner guarantees. Keep Node's measured default and the original 60000ms Git deadline.
+- Cancel proved superseded same-PR CI and omit duplicate push compatibility only when exact current-source/latest-PR-attempt proof succeeds. Preserve every PR merge-result matrix and push structure checks; uncertain or failed decisions run the full push. Later carrier failure/cancellation does not automatically restore an already skipped push.
+
+### Verification and retained limits
+
+- Issue245's final actual merge6df7e12 passed fresh492/492, strict validation, thirteen exact installations, six Diagram plus eighteen Learning Python calls and complete cleanup; Issue245 is closed after the Owner explicitly accepted its recorded historical non-author-approval/bypass gaps. That exception applies only to Issue245; this release retains ordinary current-head approval, checks and thread gates.
+- The new release candidate and actual published tag require their own exact-source verification. Release identity, publication and post-publication installation remain separate until observed in the [8.3.1 readiness ledger](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md).
+- Retain all failed benchmark attempts, diagnostics and scheduling-probe failures. Unchanged plugin evidence retains HTML #239 FAIL and incomplete client coverage, Learning deferred entries, Communication PARTIAL/limited local routes and unmeasured effects; installation and CI do not promote them to PASS.
+
+### Historical staged preparation notes
+
+The following original entries record their own preparation stages. Their pending states are historical snapshots; the final measurements and Issue245 decision above supersede those execution statuses while retaining the failures and evidence boundaries.
+
+### Maintenance
+
+- Deduplicate push compatibility matrices only with exact current PR/source/latest-attempt proof. Preserve every PR merge matrix and push structure checks; uncertain queries, failed gates or missing outputs retain the full push. Verify real active/success/latest-attempt substitution, cancelled-carrier fallback, failed-token initialization and whole-push cancellation on an unmerged probe; retain asynchronous cancellation and original QA failures. Record actual #249 merge and fresh installation/Python verification without inferring missing approval. Refs #245.
+
+- Correct cancellation identity checks for GitHub's live PR association SHAs while preserving immutable run/source/marker verification. Retain the first real scheduling probe's failure; old-run replay and permission-denial acceptance require a fresh corrected-source pair. Refs #245.
+
+- Cancel proved superseded same-PR main-CI runs while keeping complete required checks independent. Verify actual supersession, stale-rerun self-cancellation and HTTP403 fallback on controlled hosted runs; preserve the first failure and expected read-token configuration failures. Record PR3 final24/24 acceptance, retained default, actual #248 Owner-bypass merge and fresh installation/Python verification. Refs #245.
+
+- Add a separate opt-in Git Trace2 diagnostic for the unchanged Communication resource-negative test after two frozen-baseline Git timeouts. Retain the third incomplete core attempt, original 60-second deadline and all performance gates; selected-test diagnostics cannot establish full-test or performance acceptance. Refs #245.
+- Guard performance gates and concurrency selection with complete, valid stage data; retain raw observations while incomplete or failed comparisons leave every gate unmeasured and selection null. Preserve both failed PR3 core attempts, the frozen baseline, its 60-second Git deadline, strict assertions and all acceptance thresholds. New-candidate engineering and a fresh complete 24-sample comparison remain pending. Refs #245.
+- Canonicalize only the smoke regression's source root when observing the single learning-record read through Windows 8.3 path aliases. Keep the strict one-read assertion and production behavior unchanged; retain the first incomplete PR3 core run and its authentic local red/green reproduction. All four core gates remain unmeasured, with new-candidate verification and a fresh complete comparison pending. Refs #245.
+- Prepare one verified real-source template for the thirteen isolated installation smoke scenarios while retaining complete original-repository validation, independent installation contexts and actual installed Python checks. Preserve failure and keepRoot cleanup contracts; full Windows speed and concurrency acceptance remain pending. Record PR2's independently verified 99.447896% conservative copy reduction and actual #247 merge without inferring a GitHub approval. Refs #245.
+- Replace the 22 broad repository-test preparations with independent minimal contract fixtures: copy real runtime and brand resources, generate explicit synthetic document targets, and retain the production validator and destructive assertions. Freeze the actual #246 merge as the performance baseline and require verified candidate copy totals for the staged 95% gate. Preserve full-source installation smoke and default test concurrency for PR3. Refs #245.
+- Add opt-in phase measurements and a controlled Windows baseline harness for the staged CI performance work in #245. Keep full-source copying and all existing correctness, installation and cleanup contracts in PR1; measured optimization and CI scheduling changes follow separately. Runtime plugin bytes and versions remain unchanged.
+
+### Fixed
+
+- Retry transient filesystem locks during canonical release-verification cleanup using awaited asynchronous removal with a finite retry limit. Preserve path-containment checks and propagate persistent or unrelated errors. Add deterministic regressions for the captured Windows EBUSY, retry exhaustion and unrelated cleanup errors; retain the original PR #244 CI failure. Plugin bytes/versions and published release history remain unchanged. Refs #244.
+
 ### Documentation
 
 - Record actual #241 / v8.3.0 publication identities and fresh post-publication thirteen-combination installation/Python evidence; update canonical README installation to the published five-package tag. Preserve supplemental actual rule-suite bypass findings, empty reviews, limited client coverage and HTML #239. Record the Owner-requested automatic-deletion disablement and exact develop restoration with actual rule-suite PASS; follow-up sync/pre-bump remain separate protected work. Refs #222.

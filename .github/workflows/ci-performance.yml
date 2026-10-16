@@ -1,0 +1,86 @@
+name: CI Performance — Issue 245
+
+on:
+  pull_request:
+    types: [labeled]
+    branches: [develop]
+
+permissions:
+  contents: read
+
+jobs:
+  benchmark:
+    name: Issue 245 performance measurements (informational)
+    if: >-
+      github.event.label.name == 'perf-245'
+      && github.event.pull_request.head.repo.full_name == github.repository
+      && github.event.pull_request.base.ref == 'develop'
+      && startsWith(github.event.pull_request.head.ref, 'codex/issue-245-')
+    runs-on: windows-latest
+    timeout-minutes: 330
+    env:
+      MJ_BENCHMARK_STAGE: ${{ github.event.pull_request.head.ref == 'codex/issue-245-fixtures' && 'fixtures' || 'core' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.3'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.10'
+      - run: npm ci
+      - run: npm install -g @openai/codex@0.147.0
+      - name: Measure exact sources serially for the selected acceptance stage
+        shell: pwsh
+        run: |
+          $reportRoot = Join-Path $env:RUNNER_TEMP 'ci-performance-${{ github.run_id }}-${{ github.run_attempt }}'
+          node scripts/benchmark-ci-performance.mjs --candidate-sha $env:GITHUB_SHA --repetitions 3 --stage $env:MJ_BENCHMARK_STAGE --report-dir $reportRoot
+          exit $LASTEXITCODE
+      - name: Preserve all measurements and failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-performance-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/ci-performance-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 30
+          if-no-files-found: warn
+
+  diagnose-git:
+    name: Issue 245 Git diagnostics (not performance acceptance)
+    if: >-
+      github.event.label.name == 'perf-245-diagnostic'
+      && github.event.pull_request.head.repo.full_name == github.repository
+      && github.event.pull_request.base.ref == 'develop'
+      && startsWith(github.event.pull_request.head.ref, 'codex/issue-245-')
+    runs-on: windows-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.3'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.10'
+      - run: npm ci
+      - run: npm install -g @openai/codex@0.147.0
+      - name: Diagnose the unchanged resource-negative test with Git Trace2
+        shell: pwsh
+        run: |
+          $reportRoot = Join-Path $env:RUNNER_TEMP 'ci-git-diagnostic-${{ github.run_id }}-${{ github.run_attempt }}'
+          node scripts/diagnose-ci-git.mjs --candidate-sha $env:GITHUB_SHA --report-dir $reportRoot
+          exit $LASTEXITCODE
+      - name: Preserve diagnostic observations and failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-git-diagnostic-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/ci-git-diagnostic-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 30
+          if-no-files-found: warn

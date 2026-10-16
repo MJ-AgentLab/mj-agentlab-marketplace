@@ -1,0 +1,263 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-16T13:09:54.513Z",
+  "mode": "Historical Issue245 closeout; no governance exception for subsequent releases",
+  "issue": {
+    "number": 245,
+    "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245",
+    "state": "CLOSED",
+    "stateReason": "COMPLETED",
+    "closedAt": "2026-10-16T13:09:52Z"
+  },
+  "source": {
+    "pr": 251,
+    "actualMerge": "6df7e12ec700277fa133c63ddaa89c8b32f7bdf6",
+    "actualTree": "378c6cd30db1dd9fa1ba31a476de3f96660423f6",
+    "actualParents": [
+      "6bc7c6372b78ece5de30af81ec622e4bf74afe77",
+      "382ef1b656dd3b6314e7734675dbf5f35456e7b9"
+    ],
+    "hostHeadUnchanged": "382ef1b656dd3b6314e7734675dbf5f35456e7b9",
+    "hostTree": "378c6cd30db1dd9fa1ba31a476de3f96660423f6",
+    "beforeAfterSourceHashCount": 10,
+    "sourceHashesUnchanged": true,
+    "sourceCleanBefore": true,
+    "sourceCleanAfter": true
+  },
+  "technicalStatus": "PASS",
+  "freshFull": {
+    "source": "6df7e12ec700277fa133c63ddaa89c8b32f7bdf6",
+    "tree": "378c6cd30db1dd9fa1ba31a476de3f96660423f6",
+    "tools": {
+      "node": "v22.18.0",
+      "npm": "10.9.3",
+      "python": "Python 3.12.13",
+      "git": "git version 2.53.0.windows.1",
+      "pwsh": "PowerShell 7.6.5",
+      "codex": "codex-cli 0.147.0"
+    },
+    "counts": {
+      "tests": 492,
+      "pass": 492,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 61065.5669
+    },
+    "topLevelOk": 492,
+    "topLevelNotOk": 0,
+    "startedAt": "2026-10-16T12:35:02.369Z",
+    "endedAt": "2026-10-16T12:36:03.721Z",
+    "wallMs": 61351.7797,
+    "commands": [
+      {
+        "name": "npm-ci",
+        "command": "npm",
+        "args": [
+          "ci"
+        ],
+        "exitCode": 0,
+        "startedAt": "2026-10-16T12:35:01.229Z",
+        "endedAt": "2026-10-16T12:35:02.364Z",
+        "wallMs": 1134.5478
+      },
+      {
+        "name": "full",
+        "command": "npm",
+        "args": [
+          "test"
+        ],
+        "exitCode": 0,
+        "startedAt": "2026-10-16T12:35:02.369Z",
+        "endedAt": "2026-10-16T12:36:03.721Z",
+        "wallMs": 61351.7797
+      },
+      {
+        "name": "validate",
+        "command": "npm",
+        "args": [
+          "run",
+          "validate"
+        ],
+        "exitCode": 0,
+        "startedAt": "2026-10-16T12:36:03.729Z",
+        "endedAt": "2026-10-16T12:36:04.520Z",
+        "wallMs": 791.1781000000046
+      },
+      {
+        "name": "tools",
+        "command": "npm",
+        "args": [
+          "run",
+          "check:baseline-tools"
+        ],
+        "exitCode": 0,
+        "startedAt": "2026-10-16T12:36:04.529Z",
+        "endedAt": "2026-10-16T12:36:04.909Z",
+        "wallMs": 380.09040000000095
+      }
+    ],
+    "validateOk": true,
+    "validationErrors": [],
+    "rawHashChecks": [
+      {
+        "file": "npm-ci.stdout.log",
+        "match": true
+      },
+      {
+        "file": "npm-ci.stderr.log",
+        "match": true
+      },
+      {
+        "file": "full.stdout.log",
+        "match": true
+      },
+      {
+        "file": "full.stderr.log",
+        "match": true
+      },
+      {
+        "file": "validate.stdout.log",
+        "match": true
+      },
+      {
+        "file": "validate.stderr.log",
+        "match": true
+      },
+      {
+        "file": "tools.stdout.log",
+        "match": true
+      },
+      {
+        "file": "tools.stderr.log",
+        "match": true
+      }
+    ],
+    "registeredRootsBefore": 17,
+    "registeredRootsAfter": 17,
+    "sameRootSet": true
+  },
+  "exact": {
+    "startedAt": "2026-10-16T12:39:05.380Z",
+    "endedAt": "2026-10-16T12:39:56.211Z",
+    "wallMs": 50830.289,
+    "exitCode": 0,
+    "originalGitTimeoutMs": 60000,
+    "tools": {
+      "node": "v22.18.0",
+      "npm": "10.9.3",
+      "python": "Python 3.12.13",
+      "pythonExecutable": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+      "pwsh": "PowerShell 7.6.5",
+      "codex": "codex-cli 0.147.0",
+      "git": "git version 2.53.0.windows.1"
+    },
+    "installedCli": "codex-cli 0.147.0",
+    "scenarios": 13,
+    "passed": 13,
+    "commands": 170,
+    "commandErrors": 0,
+    "diagramGroups": 6,
+    "diagramPythonCalls": 6,
+    "diagramAllPass": true,
+    "learningGroups": 6,
+    "learningPythonCalls": 18,
+    "learningSaveReplayStructuralAllPass": true,
+    "phaseFiles": 2,
+    "phaseRecords": 130,
+    "phaseErrors": 0,
+    "phaseCounts": {
+      "worktree.create:ok": 1,
+      "validate:ok": 43,
+      "install:ok": 43,
+      "worktree.remove:ok": 1,
+      "cleanup:ok": 15,
+      "copy:ok": 14,
+      "git.init:ok": 13
+    },
+    "copies": {
+      "records": 14,
+      "template": 1,
+      "scenario": 13,
+      "filesEach": [
+        97
+      ],
+      "bytesEach": [
+        1027314
+      ],
+      "totalContentBytes": 14382396,
+      "domain": "actual logical copied content bytes, not physical disk I/O"
+    },
+    "cleanupOk": 15,
+    "ownedRootCount": 15,
+    "registeredRootsBefore": 17,
+    "registeredRootsAfter": 17,
+    "sameRootSet": true,
+    "fullPorcelainTextEqual": true,
+    "canonicalAgents": {
+      "status": "NOT_MEASURED",
+      "reason": "This verifier captured no canonical AGENTS read-time byte snapshot before cleanup; no host count or CRLF projection is substituted."
+    }
+  },
+  "governance": {
+    "originalApproval": "NOT_MET",
+    "originalProtectedMerge": "NOT_MET_HISTORICAL_OWNER_BYPASS",
+    "ruleSuite": 4561109675,
+    "result": "bypass",
+    "reviews": [],
+    "reviewDecision": "REVIEW_REQUIRED",
+    "ruleFailure": "New changes require approval from someone other than the last pusher.",
+    "ownerException": "A（推荐）：接受仅 #245 的历史治理例外；按“技术通过、例外获接受”关闭",
+    "decisionRecordedAt": "2026-10-16T13:08:06.148Z",
+    "scope": "Issue245-only acceptance of already recorded historical non-author approval deficits and Owner bypass merges for closeout after completed technical verification",
+    "futureExceptions": false,
+    "protectionRulesChanged": false,
+    "noApprovalInferred": true
+  },
+  "performance": {
+    "sourceRun": 38846509170,
+    "completeSamples": 24,
+    "baseline": "30665998dda2ebbbae1806b946ec63f840bd98e0",
+    "copyReductionLowerBoundPercent": 99.447896157,
+    "fullCommandMedianReductionPercent": 88.193766413,
+    "canonicalCommandMedianReductionPercent": 93.237433247,
+    "smokeCommandMedianReductionPercent": 76.838615989,
+    "thresholdsPercent": [
+      95,
+      50,
+      80,
+      30
+    ],
+    "selectedConcurrency": "default",
+    "originalGitTimeoutMs": 60000,
+    "historicalFailedAttemptsRetained": true
+  },
+  "frozenQAReferences": [
+    {
+      "file": "postmerge-pr251-6df7e12-audit/receipt.json",
+      "sha256": "222a28bbe023f7010c0552a3c6df9933341f8219cb9f744051d1b797d0a61819"
+    },
+    {
+      "file": "pr251-postmerge-independent-technical-audit/fresh-full-audit.json",
+      "sha256": "c91bfa3e6bbc6755887fdc2cbfdecd91c3e8b54cc37f435fa35dd4038563e7f0"
+    },
+    {
+      "file": "pr251-postmerge-independent-technical-audit/fresh-exact-audit.json",
+      "sha256": "f087ad4768e112e14e056f2ca501eae7ad3a617d3a5faa3044624e48aa2f4d44"
+    },
+    {
+      "file": "pr251-postmerge-independent-technical-audit/final-closure-receipt.json",
+      "sha256": "cdb5f13c79e69ad9f1f03015e43ea9e25a879be811c70c85eb141054c0038cac"
+    },
+    {
+      "file": "issue245-closeout/owner-decision.json",
+      "sha256": "4cfe42207215c0f2721cf1290396cd43742fa389e5c575189e2b1fbb914c6a71"
+    },
+    {
+      "file": "issue245-closeout/summary.json",
+      "sha256": "bb49d4f07440f6b2be8f9bd96263c848076612bc9f780563a715358901c02ae1"
+    }
+  ],
+  "evidenceBoundary": "Actual6df postmerge and Issue245 facts only, not new release-candidate tests, GitHub approval, published8.3.1, native-window persistence, or new model/client/effects coverage. Original raw QA inventories are bound by the independent receipts."
+}

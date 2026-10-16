@@ -5,33 +5,37 @@ import os from "node:os";
 import path from "node:path";
 import {spawnSync} from "node:child_process";
 import {verifyReleaseInstall} from "../scripts/release-verify-install.mjs";
-import {validateRepository,COMMUNICATION_REFERENCES} from "../scripts/validate-portable.mjs";
+import {validateRepository as validateRepositorySource,COMMUNICATION_REFERENCES} from "../scripts/validate-portable.mjs";
+import {measureSync} from "../scripts/perf-metrics.mjs";
+import {populateRepositoryFixture,reportRepositoryFixture} from "./helpers/repository-fixture.mjs";
+const perf=(phase,operation,details={})=>measureSync(phase,operation,{scope:"fixture",suite:"release-verify-install",...details});
+const copyFile=(...args)=>perf("copy",()=>fs.copyFileSync(...args),{path:args[0]});
+const validateRepository=repo=>perf("validate",()=>validateRepositorySource(repo));
 const REPO=path.resolve(import.meta.dirname,".."), dirs=[];
-test.after(()=>dirs.forEach(d=>{
+test.after(()=>dirs.forEach(d=>perf("cleanup",()=>{
  const relative=path.relative(fs.realpathSync(os.tmpdir()),fs.realpathSync(d));
  assert.ok(relative && !relative.startsWith("..") && !path.isAbsolute(relative),"fixture cleanup must stay inside the temporary directory");
  // A transient ENOTEMPTY must not fail the suite after installation assertions pass.
  // Retries are bounded; a persistent cleanup failure still throws.
  fs.rmSync(d,{recursive:true,force:true,maxRetries:5,retryDelay:100});
  assert.ok(!fs.existsSync(d),"fixture cleanup must finish");
-}));
-function git(d,...args){const r=spawnSync("git",args,{cwd:d,encoding:"utf8"});assert.equal(r.status,0,r.stderr);return r.stdout.trim();}
+})));
+function git(d,...args){const operation=()=>{const r=spawnSync("git",args,{cwd:d,encoding:"utf8"});assert.equal(r.status,0,r.stderr);return r.stdout.trim();};return ["init","add","commit"].includes(args[0])?perf(`git.${args[0]}`,operation):operation();}
 function fixture({syntheticCommunication=false}={}){const d=fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()),"canonical-fixture-"));dirs.push(d);
- for(const p of ["assets",".agents",".codex",".github","scripts","tests","plugins","docs","plan","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])
- fs.cpSync(path.join(REPO,p),path.join(d,p),{recursive:true});
- if(fs.existsSync(path.join(REPO,".gitattributes")))fs.copyFileSync(path.join(REPO,".gitattributes"),path.join(d,".gitattributes"));
+ const fixtureInventory=populateRepositoryFixture(d,{sourceRoot:REPO,suite:"release-verify-install"});
  // The mutation suite uses a complete synthetic registration/icon only inside its temporary Git repo.
  // Actual repository/candidate installation is validated separately without this preparation.
  if(syntheticCommunication){
   const catalogFile=path.join(d,".agents/plugins/marketplace.json"),catalog=JSON.parse(fs.readFileSync(catalogFile,"utf8"));
   if(!catalog.plugins.some(plugin=>plugin.name==="communication-kit")){const plugin=structuredClone(catalog.plugins[0]);plugin.name="communication-kit";plugin.source.path="./plugins/communication-kit";catalog.plugins.push(plugin);fs.writeFileSync(catalogFile,JSON.stringify(catalog));}
   const icons=path.join(d,"plugins/communication-kit/assets");fs.mkdirSync(icons,{recursive:true});
-  for(const ext of ["svg","png"])fs.copyFileSync(path.join(d,`plugins/diagram-kit/assets/icon.${ext}`),path.join(icons,`icon.${ext}`));
-  for(const size of [32,48,64])fs.copyFileSync(path.join(d,`assets/brand/previews/diagram-kit-${size}.png`),path.join(d,`assets/brand/previews/communication-kit-${size}.png`));
+  for(const ext of ["svg","png"])copyFile(path.join(d,`plugins/diagram-kit/assets/icon.${ext}`),path.join(icons,`icon.${ext}`));
+  for(const size of [32,48,64])copyFile(path.join(d,`assets/brand/previews/diagram-kit-${size}.png`),path.join(d,`assets/brand/previews/communication-kit-${size}.png`));
   const exportsFile=path.join(d,"assets/brand/exports.json"),exports=JSON.parse(fs.readFileSync(exportsFile,"utf8"));
   exports.icons=exports.icons.filter(icon=>icon.id!=="communication-kit");exports.icons.push({id:"communication-kit",source:"plugins/communication-kit/assets/icon.svg",output:"plugins/communication-kit/assets/icon.png"});fs.writeFileSync(exportsFile,JSON.stringify(exports));
   fs.appendFileSync(path.join(d,".gitattributes"),"\nplugins/communication-kit/skills/communicate/references/* -text\n");
   const result=validateRepository(d);assert.equal(result.ok,true,result.errors.join("\n"));
+  reportRepositoryFixture(fixtureInventory,{suite:"release-verify-install",stage:"syntheticCommunication"});
  }
  git(d,"init","--quiet");git(d,"config","user.name","Fixture");git(d,"config","user.email","fixture@example.invalid");
  // Canonical byte assertions use fixture-local settings, independent of system checkout conversion.

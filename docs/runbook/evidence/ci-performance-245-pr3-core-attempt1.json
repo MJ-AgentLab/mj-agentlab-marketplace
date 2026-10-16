@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "issue": 245,
+  "stage": "PR3",
+  "kind": "incomplete_core_comparison",
+  "recordedAt": "2026-10-15T19:13:35.990Z",
+  "status": "not_accepted",
+  "run": {
+    "id": 38787278684,
+    "job": 116602423217,
+    "attempt": 1,
+    "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38787278684",
+    "conclusion": "failure"
+  },
+  "artifact": {
+    "id": 11999953850,
+    "bytes": 231872,
+    "sha256": "eb904e506928102d9c2d02c520b3fc1f3c4cf7341060f0debcb8fbdb4e85e7dd",
+    "reportSha256": "9a897ace804f0ed6cab2f62aa219a72ba06316b0de263e97e76f4464cdff1b30",
+    "jobLogSha256": "7a406980c256d21f284cd47ad93d948b8dfefb9861b6bb87cbb8b9cc9ff77ab8",
+    "expiresAt": "2026-11-14T19:08:50Z"
+  },
+  "candidateHead": "5faf67fa6550f0f4a8cc9a3004915165807ad260",
+  "sources": {
+    "baseline": {
+      "sha": "30665998dda2ebbbae1806b946ec63f840bd98e0",
+      "tree": "20f540fcabba740e549ecdbf01cf78f2ce3473f5",
+      "controlledFiles": 6065,
+      "controlledBytes": 575546324,
+      "checkoutBytes": 575777560,
+      "checkoutInventory": "controlled files statted outside measured commands",
+      "workspace": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\mj-ci-benchmark-VT2aBq\\baseline"
+    },
+    "candidate": {
+      "sha": "a7e6b1b4227282a78950bba50daf29b8a4f3bb69",
+      "tree": "1c5bc4705e1dfde4ffebef24ad9b7a8d989c4be8",
+      "controlledFiles": 6072,
+      "controlledBytes": 575662053,
+      "checkoutBytes": null,
+      "checkoutInventory": "not_measured; no candidate checkout size scan",
+      "workspace": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\mj-ci-benchmark-VT2aBq\\candidate"
+    }
+  },
+  "environment": {
+    "node": "v22.23.3",
+    "python": {
+      "version": "3.12.10",
+      "executable": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe"
+    },
+    "codex": "codex-cli 0.147.0",
+    "git": "git version 2.56.0.windows.2",
+    "npm": "10.9.9",
+    "nodeOptionsInherited": false,
+    "platform": "win32",
+    "arch": "x64",
+    "release": "10.0.26100",
+    "cpuModel": "AMD EPYC 7763 64-Core Processor                ",
+    "logicalCpus": 4,
+    "availableParallelism": 4,
+    "defaultConcurrency": 3,
+    "totalMemory": 17174360064,
+    "runner": {
+      "RUNNER_OS": "Windows",
+      "RUNNER_ARCH": "X64",
+      "RUNNER_ENVIRONMENT": "github-hosted",
+      "ImageOS": "win25-vs2026",
+      "ImageVersion": "20261007.264.1",
+      "GITHUB_RUN_ID": "38787278684",
+      "GITHUB_RUN_ATTEMPT": "1",
+      "GITHUB_SHA": "a7e6b1b4227282a78950bba50daf29b8a4f3bb69"
+    }
+  },
+  "plannedSamples": 24,
+  "attemptedSamples": 2,
+  "successfulSamples": 1,
+  "complete": false,
+  "selectedConcurrency": null,
+  "gates": {
+    "fixtureBytes": {
+      "improvement": null,
+      "required": 0.95,
+      "status": "not_measured",
+      "ok": false,
+      "method": "actual candidate copied bytes / controlled baseline lower bound; reduction lower bound"
+    },
+    "test": {
+      "improvement": null,
+      "required": 0.5,
+      "status": "not_measured",
+      "ok": false
+    },
+    "canonical": {
+      "improvement": null,
+      "required": 0.8,
+      "status": "not_measured",
+      "ok": false
+    },
+    "smoke": {
+      "improvement": null,
+      "required": 0.3,
+      "status": "not_measured",
+      "ok": false
+    }
+  },
+  "samples": [
+    {
+      "id": "01-baseline-test-default-r1",
+      "source": "baseline",
+      "command": "test",
+      "concurrency": "default",
+      "ok": true,
+      "exitCode": 0,
+      "wallMs": 1512815.6194,
+      "timedOut": false,
+      "profileError": null,
+      "fixtureCopiedBytes": 12666735598,
+      "fixtureActualCopiedBytes": null,
+      "fixtureSyntheticBytes": null,
+      "fixturePreparationDeltaBytes": null,
+      "fixtureTotalBytes": null,
+      "tap": {
+        "tests": 368,
+        "pass": 368,
+        "fail": 0,
+        "skip": 0,
+        "cancelled": 0
+      }
+    },
+    {
+      "id": "02-candidate-test-default-r1",
+      "source": "candidate",
+      "command": "test",
+      "concurrency": "default",
+      "ok": false,
+      "exitCode": 1,
+      "wallMs": 230775.06079999986,
+      "timedOut": false,
+      "profileError": null,
+      "fixtureCopiedBytes": null,
+      "fixtureActualCopiedBytes": 69933534,
+      "fixtureSyntheticBytes": 119020,
+      "fixturePreparationDeltaBytes": 41741,
+      "fixtureTotalBytes": 70094295,
+      "tap": {
+        "tests": 405,
+        "pass": 404,
+        "fail": 1,
+        "skip": 0,
+        "cancelled": 0
+      }
+    }
+  ],
+  "failures": [
+    {
+      "at": "2026-10-15T19:08:41.423Z",
+      "message": "Error: sample 02-candidate-test-default-r1 failed; preserve this run without replacement samples\n    at benchmark (file:///D:/a/mj-agentlab-marketplace/mj-agentlab-marketplace/scripts/benchmark-ci-performance.mjs:432:29)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async file:///D:/a/mj-agentlab-marketplace/mj-agentlab-marketplace/scripts/benchmark-ci-performance.mjs:454:20"
+    }
+  ],
+  "finalCleanup": [
+    {
+      "source": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\mj-ci-benchmark-VT2aBq\\candidate",
+      "status": "ok",
+      "durationMs": 3752.9806000001263
+    },
+    {
+      "source": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\mj-ci-benchmark-VT2aBq\\baseline",
+      "status": "ok",
+      "durationMs": 4499.684200000018
+    }
+  ],
+  "diagnosis": {
+    "failedTest": "real projection copies exact source bytes without synthetic documents and captures the record once",
+    "location": "tests/smoke-source.test.mjs:67",
+    "expectedReads": 1,
+    "observedReads": 0,
+    "cause": "The read observer compared lexical short-root RUNNER~1 with production native realpath runneradmin. It missed the same file read; no sample or command timeout occurred.",
+    "scope": "Canonicalize only test REPO with fs.realpathSync.native; keep reads === 1 and production/runtime bytes unchanged.",
+    "independentReview": "Agent inspected raw failed TAP and profile, confirming path-alias mismatch; not a GitHub approval."
+  },
+  "localShortAliasReproduction": {
+    "red": {
+      "startedAt": "2026-10-15T19:12:22.0356155Z",
+      "endedAt": "2026-10-15T19:12:22.5208487Z",
+      "wallMs": 480.7645,
+      "exitCode": 1,
+      "test": "real projection copies exact source bytes",
+      "invocationPath": "C:/Users/Admin/CODEX~1/WORKTR~1/ISSUE-~4/develop/tests/smoke-source.test.mjs",
+      "sourceHead": "5faf67fa6550f0f4a8cc9a3004915165807ad260",
+      "logSHA256": "5dc8be06a5bda9674853e3b7ea3cb59e4aa74b1f2566d2b86ef0087cdee3313a"
+    },
+    "green": {
+      "startedAt": "2026-10-15T19:12:57.4876961Z",
+      "endedAt": "2026-10-15T19:12:58.5734769Z",
+      "wallMs": 1082.4087,
+      "exitCode": 0,
+      "test": "real projection copies exact source bytes",
+      "invocationPath": "C:/Users/Admin/CODEX~1/WORKTR~1/ISSUE-~4/develop/tests/smoke-source.test.mjs",
+      "sourceState": "working one-line canonical REPO fix on 5faf67f",
+      "logSHA256": "36f88e92a72e50ad72377de1138c88dd18f02a21edd3498841ec43abc7e84150"
+    },
+    "sourceMeaning": "red uses original 5faf67f; green uses one-line working test fix; no final-commit or hosted acceptance claim"
+  },
+  "next": "Fresh complete 24-sample comparison and ordinary CI required for the new exact candidate. Do not replace failed sample or reuse its timings as three-round acceptance."
+}

@@ -5,7 +5,12 @@ import path from "node:path";
 import crypto from "node:crypto";
 import os from "node:os";
 import {spawnSync} from "node:child_process";
-import {validateManifest,validateSkill,validateSkillInterface,validateRepository,validateOpenAIConfig,parseFrontmatter,validateLinks,validateCommunicationSnapshot,resolveOwnedResource,COMMUNICATION_REFERENCES,REPOSITORY_SKILLS,PUBLIC_SKILLS} from "../scripts/validate-portable.mjs";
+import {validateManifest,validateSkill,validateSkillInterface,validateRepository as validateRepositorySource,validateOpenAIConfig,parseFrontmatter,validateLinks,validateCommunicationSnapshot,resolveOwnedResource,COMMUNICATION_REFERENCES,REPOSITORY_SKILLS,PUBLIC_SKILLS} from "../scripts/validate-portable.mjs";
+import {measureSync} from "../scripts/perf-metrics.mjs";
+import {populateRepositoryFixture} from "./helpers/repository-fixture.mjs";
+const perf=(phase,operation,details={})=>measureSync(phase,operation,{scope:"fixture",suite:"validate-portable",...details});
+const copy=(...args)=>perf("copy",()=>fs.cpSync(...args),{path:args[0]});
+const validateRepository=repo=>perf("validate",()=>validateRepositorySource(repo));
 const root=path.resolve(import.meta.dirname,".."), read=p=>fs.readFileSync(path.join(root,p),"utf8");
 test("communication listing and native prompts stay within the actual client budget",()=>{
  const source=JSON.parse(read("plugins/communication-kit/plugin.json"));
@@ -25,9 +30,8 @@ test("five approved portable plugins, seven public skills and all 20 repository 
 });
 test("strict repository validation rejects every retired instruction surface",t=>{
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),"retired-instructions-"));
- t.after(()=>fs.rmSync(dir,{recursive:true,force:true}));
- for(const p of ["assets",".agents",".codex",".github","scripts","tests","plugins","docs","plan","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])
- fs.cpSync(path.join(root,p),path.join(dir,p),{recursive:true});
+ t.after(()=>perf("cleanup",()=>fs.rmSync(dir,{recursive:true,force:true})));
+ populateRepositoryFixture(dir,{sourceRoot:root,suite:"validate-portable"});
  assert.equal(validateRepository(dir).ok,true);
  for(const rel of ["CLAUDE.md",".claude",".claude-plugin"]){
   const target=path.join(dir,rel);
@@ -69,8 +73,8 @@ test("native pop-quiz metadata requires a boolean explicit-only policy",()=>{
  assert.throws(()=>validateOpenAIConfig(quizConfig('policy:\n  allow_implicit_invocation: false\n').replace('$learning-evidence-kit:pop-quiz','$diagram-kit:arch-diagram'),"learning-evidence-kit","pop-quiz"));
 });
 function repositoryFixture(t){
- const dir=fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()),"portable-inventory-"));t.after(()=>fs.rmSync(dir,{recursive:true,force:true}));
- for(const p of ["assets",".agents",".codex",".github","scripts","tests","plugins","docs","plan","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])fs.cpSync(path.join(root,p),path.join(dir,p),{recursive:true});
+ const dir=fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()),"portable-inventory-"));t.after(()=>perf("cleanup",()=>fs.rmSync(dir,{recursive:true,force:true})));
+ populateRepositoryFixture(dir,{sourceRoot:root,suite:"validate-portable"});
  return dir;
 }
 test("catalog rejects missing, duplicate, unknown, versioned and escaped plugin entries",t=>{
@@ -189,8 +193,8 @@ test("communication manifest and native metadata require the owned explicit entr
 
 function communicationFixture(t){
  const dir=fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()),"communication-freeze-"));
- t.after(()=>{const rel=path.relative(fs.realpathSync(os.tmpdir()),fs.realpathSync(dir));assert.ok(rel&&!rel.startsWith("..")&&!path.isAbsolute(rel));fs.rmSync(dir,{recursive:true,force:true});});
- const skill=path.join(dir,"skill");fs.cpSync(path.join(root,"plugins/communication-kit/skills/communicate"),skill,{recursive:true});
+ t.after(()=>perf("cleanup",()=>{const rel=path.relative(fs.realpathSync(os.tmpdir()),fs.realpathSync(dir));assert.ok(rel&&!rel.startsWith("..")&&!path.isAbsolute(rel));fs.rmSync(dir,{recursive:true,force:true});}));
+ const skill=path.join(dir,"skill");copy(path.join(root,"plugins/communication-kit/skills/communicate"),skill,{recursive:true});
  const file=path.join(skill,"references/aics-snapshot.json"),snapshot=JSON.parse(fs.readFileSync(file,"utf8"));
  return {dir,skill,file,snapshot,write:s=>fs.writeFileSync(file,JSON.stringify(s))};
 }
@@ -228,7 +232,7 @@ test("frozen references reject traversal, non-files and internal or external jun
  for(const reference of ["../outside","./../outside","/outside","C:/outside","./C:/outside","./references/../aics-policy.md","./references//aics-policy.md","./references\\aics-policy.md","./references/aics-policy.md\0","./references"]){assert.throws(()=>resolveOwnedResource(f.skill,reference));}
  const refs=path.join(f.skill,"references"),owned=path.join(f.skill,"original-references");fs.renameSync(refs,owned);
  for(const target of [owned,path.join(f.dir,"outside")]){
-  if(!fs.existsSync(target))fs.cpSync(owned,target,{recursive:true});
+  if(!fs.existsSync(target))copy(owned,target,{recursive:true});
   fs.symlinkSync(target,refs,process.platform==="win32"?"junction":"dir");assert.throws(()=>validateCommunicationSnapshot(f.skill),/symlink|junction|reparse/);fs.unlinkSync(refs);
  }
  fs.renameSync(owned,refs);assert.doesNotThrow(()=>validateCommunicationSnapshot(f.skill));

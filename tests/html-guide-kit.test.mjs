@@ -5,7 +5,12 @@ import os from "node:os";
 import path from "node:path";
 import crypto from "node:crypto";
 import {parseDocument} from "yaml";
-import {RUNTIME_PLUGINS,PUBLIC_SKILLS,EXPLICIT_ONLY_SKILLS,REPOSITORY_SKILLS,SKILL_RESOURCES,GUIDE_ENTRY_MAX_BYTES,validateGuideEntryBudget,validateManifest,validateOpenAIConfig,validateRepository,assertInstalledSkillResources,assertInstalledPluginResources} from "../scripts/validate-portable.mjs";
+import {RUNTIME_PLUGINS,PUBLIC_SKILLS,EXPLICIT_ONLY_SKILLS,REPOSITORY_SKILLS,SKILL_RESOURCES,GUIDE_ENTRY_MAX_BYTES,validateGuideEntryBudget,validateManifest,validateOpenAIConfig,validateRepository as validateRepositorySource,assertInstalledSkillResources,assertInstalledPluginResources} from "../scripts/validate-portable.mjs";
+import {measureSync} from "../scripts/perf-metrics.mjs";
+import {populateRepositoryFixture} from "./helpers/repository-fixture.mjs";
+const perf=(phase,operation,details={})=>measureSync(phase,operation,{scope:"fixture",suite:"html-guide-kit",...details});
+const copy=(...args)=>perf("copy",()=>fs.cpSync(...args),{path:args[0]});
+const validateRepository=repo=>perf("validate",()=>validateRepositorySource(repo));
 
 const REPO=path.resolve(import.meta.dirname,".."),TEMP_ROOT=fs.realpathSync.native(os.tmpdir());
 const PLUGIN="html-guide-kit",SKILL="html-guide-kit:guide",SKILL_PATH="skills/guide";
@@ -17,22 +22,22 @@ const ui=m=>m.extensions["com.openai"].interface;
 
 function temporary(t,prefix){
  const root=fs.mkdtempSync(path.join(TEMP_ROOT,prefix));
- t.after(()=>{
+ t.after(()=>perf("cleanup",()=>{
   const resolved=fs.realpathSync.native(root),relative=path.relative(TEMP_ROOT,resolved);
   assert.ok(relative&&!path.isAbsolute(relative)&&relative!==".."&&!relative.startsWith(`..${path.sep}`)&&path.basename(resolved).startsWith(prefix),"cleanup must stay inside its temporary fixture root");
   fs.rmSync(resolved,{recursive:true,force:true,maxRetries:5,retryDelay:100});
- });
+ }));
  return root;
 }
 function installedFixture(t,plugin=PLUGIN){
  const root=temporary(t,"guide-package-"),source=path.join(root,"source"),installed=path.join(root,"cache");
- fs.cpSync(path.join(REPO,"plugins",plugin),source,{recursive:true});
- fs.cpSync(source,installed,{recursive:true});
+ copy(path.join(REPO,"plugins",plugin),source,{recursive:true});
+ copy(source,installed,{recursive:true});
  return {root,source,installed};
 }
 function repositoryFixture(t){
  const root=temporary(t,"guide-repository-");
- for(const rel of ["assets",".agents",".codex",".github","scripts","tests","plugins","docs","plan","AGENTS.md","README.md","CONTRIBUTING.md","GLOSSARY.md","CHANGELOG.md","VERSION"])fs.cpSync(path.join(REPO,rel),path.join(root,rel),{recursive:true});
+ populateRepositoryFixture(root,{sourceRoot:REPO,suite:"html-guide-kit"});
  return root;
 }
 

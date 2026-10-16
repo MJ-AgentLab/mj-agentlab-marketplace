@@ -1,0 +1,1160 @@
+{
+  "schemaVersion": 1,
+  "issue": 245,
+  "pullRequest": 248,
+  "recordedAt": "2026-10-16T02:45:40.847Z",
+  "kind": "authentic_third_core_failure_compact_receipt",
+  "run": {
+    "id": 38830059771,
+    "job": 116746533746,
+    "attempt": 1,
+    "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38830059771",
+    "conclusion": "failure",
+    "artifact": 12021681707,
+    "expiresAt": "2026-11-15T02:38:04Z",
+    "zipSHA256": "ec2f757f3106e729f85ee82e5a74155df98fe178f9b12f230a416424db45c46a",
+    "reportSHA256": "efdbc5d9ceae9ec9affdb4152467028146ef0ffd7133663f7bb7870c2f96127d",
+    "jobLogSHA256": "ef27a4a9261839842f3aaaa5ab01352ea5aa360e3c089f2bb101e8197ba49292"
+  },
+  "source": {
+    "head": "5273490a8e421622dd0ef6cd3d6c8bbeeeadc99b",
+    "actualMeasuredMerge": "11cfbcde9913b48daac52185f65ff7162e6f4606",
+    "tree": "bbf6afd6f07778756dc966ba837b2ad323a20485",
+    "baseline": {
+      "sha": "30665998dda2ebbbae1806b946ec63f840bd98e0",
+      "tree": "20f540fcabba740e549ecdbf01cf78f2ce3473f5",
+      "controlledFiles": 6065,
+      "controlledBytes": 575546324,
+      "checkoutBytes": 575777560,
+      "checkoutInventory": "controlled files statted outside measured commands",
+      "workspace": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\mj-ci-benchmark-Fi0DsI\\baseline"
+    },
+    "runtimeEquivalence": {
+      "ok": true,
+      "paths": [
+        "plugins",
+        "assets",
+        ".agents",
+        ".codex",
+        ".gitattributes",
+        "VERSION"
+      ]
+    }
+  },
+  "environment": {
+    "node": "v22.23.3",
+    "python": {
+      "version": "3.12.10",
+      "executable": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe"
+    },
+    "codex": "codex-cli 0.147.0",
+    "git": "git version 2.56.0.windows.2",
+    "npm": "10.9.9",
+    "nodeOptionsInherited": false,
+    "platform": "win32",
+    "arch": "x64",
+    "release": "10.0.26100",
+    "cpuModel": "AMD EPYC 9V45 96-Core Processor                ",
+    "logicalCpus": 4,
+    "availableParallelism": 4,
+    "defaultConcurrency": 3,
+    "totalMemory": 17174360064,
+    "runner": {
+      "RUNNER_OS": "Windows",
+      "RUNNER_ARCH": "X64",
+      "RUNNER_ENVIRONMENT": "github-hosted",
+      "ImageOS": "win25-vs2026",
+      "ImageVersion": "20261007.264.1",
+      "GITHUB_RUN_ID": "38830059771",
+      "GITHUB_RUN_ATTEMPT": "1",
+      "GITHUB_SHA": "11cfbcde9913b48daac52185f65ff7162e6f4606"
+    }
+  },
+  "measurement": {
+    "startedAt": "2026-10-16T00:33:02.212Z",
+    "endedAt": "2026-10-16T02:38:01.383Z",
+    "durationMs": 7498983.188399999,
+    "planned": 24,
+    "attempted": 21,
+    "successful": 20,
+    "samples": [
+      {
+        "id": "01-baseline-test-default-r1",
+        "round": 1,
+        "source": "baseline",
+        "command": "test",
+        "concurrency": "default",
+        "startedAt": "2026-10-16T00:33:55.740Z",
+        "endedAt": "2026-10-16T00:51:13.610Z",
+        "durationMs": 1037840.7600000001,
+        "exitCode": 0,
+        "timedOut": false,
+        "spawnError": null,
+        "killError": null,
+        "profileError": null,
+        "ok": true,
+        "output": {
+          "tests": 368,
+          "pass": 368,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "ok": true
+        },
+        "fixtureActualCopiedBytes": null,
+        "fixtureSyntheticBytes": null,
+        "fixturePreparationDeltaBytes": null,
+        "fixtureTotalBytes": null,
+        "stdoutSHA256": "785560d576bef10bc41d08f3fa0ed2bcc133dfb0ec2c3d79b7f7e3842e1e6e58",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "id": "02-candidate-test-default-r1",
+        "round": 1,
+        "source": "candidate",
+        "command": "test",
+        "concurrency": "default",
+        "startedAt": "2026-10-16T00:51:14.643Z",
+        "endedAt": "2026-10-16T00:53:42.052Z",
+        "durationMs": 147405.5381,
+        "exitCode": 0,
+        "timedOut": false,
+        "spawnError": null,
+        "killError": null,
+        "profileError": null,
+        "ok": true,
+        "output": {
+          "tests": 416,
+          "pass": 416,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "ok": true
+        },
+        "fixtureActualCopiedBytes": 69933534,
+        "fixtureSyntheticBytes": 119020,
+        "fixturePreparationDeltaBytes": 41741,
+        "fixtureTotalBytes": 70094295,
+        "stdoutSHA256": "91e048dec44ea64475eefd3e5cf7b2403eae9f3e344437dfbd98469937bc355e",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "id": "03-candidate-test-1-r1",
+        "round": 1,
+        "source": "candidate",
+        "command": "test",
+        "concurrency": 1,
+        "startedAt": "2026-10-16T00:53:42.793Z",
+        "endedAt": "2026-10-16T00:58:22.252Z",
+        "durationMs": 279451.99950000015,
+        "exitCode": 0,
+        "timedOut": false,
+        "spawnError": null,
+        "killError": null,
+        "profileError": null,
+        "ok": true,
+        "output": {
+          "tests": 416,
+          "pass": 416,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "ok": true
+        },
+        "fixtureActualCopiedBytes": 69933534,
+        "fixtureSyntheticBytes": 119020,
+        "fixturePreparationDeltaBytes": 41741,
+        "fixtureTotalBytes": 70094295,
+        "stdoutSHA256": "f89120bac2e2975a582f9a1513fc04a12492b10f23f5bdc19cea7778182a5398",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "id": "04-candidate-test-2-r1",
+        "round": 1,
+        "source": "candidate",
+        "command": "test",
+        "concurrency": 2,
+        "startedAt": "2026-10-16T00:58:23.004Z",
+        "endedAt": "2026-10-16T01:01:16.528Z",
+        "durationMs": 173519.2674,
+        "exitCode": 0,
+        "timedOut": false,
+        "spawnError": null,
+        "killError": null,
+        "profileError": null,
+        "ok": true,
+        "output": {
+          "tests": 416,
+          "pass": 416,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "ok": true
+        },
+        "fixtureActualCopiedBytes": 69933534,
+        "fixtureSyntheticBytes": 119020,
+        "fixturePreparationDeltaBytes": 41741,
+        "fixtureTotalBytes": 70094295,
+        "stdoutSHA256": "1833e7656a0a62476c45f55adb2eab143043c0146d71bf4cf40de4bb1cd55711",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "id": "05-baseline-canonical-default-r1",
+        "round": 1,
+        "source": "baseline",
+        "command": "canonical",
+        "concurrency": "default",
+        "startedAt": "2026-10-16T01:01:17.033Z",
+        "endedAt": "2026-10-16T01:14:42.532Z",
+        "durationMs": 805479.7883000001,
+        "exitCode": 0,
+        "timedOut": false,
+        "spawnError": null,
+        "killError": null,
+        "profileError": null,
+        "ok": true,
+        "output": {
+          "tests": 7,
+          "pass": 7,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "ok": true
+        },
+        "fixtureActualCopiedBytes": null,
+        "fixtureSyntheticBytes": null,
+        "fixturePreparationDeltaBytes": null,
+        "fixtureTotalBytes": null,
+        "stdoutSHA256": "97c1f37f82e88bf76d00fb4905452ba5623af40a16d668faa9a8ae0abc9c706a",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "id": "06-candidate-canonical-default-r1",
+        "round": 1,
+        "source": "candidate",
+        "command": "canonical",
+        "concurrency": "default",
+        "startedAt": "2026-10-16T01:14:43.372Z",
+        "endedAt": "2026-10-16T01:15:28.085Z",
+        "durationMs": 44712.714799999725,
+        "exitCode": 0,
+        "timedOut": false,
+        "spawnError": null,
+        "killError": null,
+        "profileError": null,
+        "ok": true,
+        "output": {
+          "tests": 7,
+          "pass": 7,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "ok": true
+        },
+        "fixtureActualCopiedBytes": 22251579,
+        "fixtureSyntheticBytes": 37870,
+        "fixturePreparationDeltaBytes": 41741,
+        "fixtureTotalBytes": 22331190,
+        "stdoutSHA256": "fb75e42dbbd6c2580b059fbd0791d079a4e1f4d69e20d3eab0f0ce38c0c8a762",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "id": "07-baseline-smoke-default-r1",
+        "round": 1,
+        "source": "baseline",
+        "command": "smoke",
+        "concurrency": "default",
+        "startedAt": "2026-10-16T01:15:28.569Z",
+        "endedAt": "2026-10-16T01:17:37.971Z",
+        "durationMs": 129398.62149999989,
+        "exitCode": 0,
+        "timedOut": false,
+        "spawnError": null,
+        "killError": null,
+        "profileError": null,
+        "ok": true,
+        "output": {
+          "ok": true,
+          "scenarios": 13
+        },
+        "actualSmoke": {
+          "scenarios": 13,
+          "diagramGroups": 6,
+          "learningGroups": 6,
+          "learningCalls": 18,
+          "commandErrors": 0
+        },
+        "fixtureActualCopiedBytes": null,
+        "fixtureSyntheticBytes": null,
+        "fixturePreparationDeltaBytes": null,
+        "fixtureTotalBytes": null,
+        "stdoutSHA256": "7d2b7bc611cd8129f3a0ad2bfdeb5a9cfbe07309f3567791035922a1941bf102",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "id": "08-candidate-smoke-default-r1",
+        "round": 1,
+        "source": "candidate",
+        "command": "smoke",
+        "concurrency": "default",
+        "startedAt": "2026-10-16T01:17:38.597Z",
+        "endedAt": "2026-10-16T01:18:13.944Z",
+        "durationMs": 35347.30830000015,
+        "exitCode": 0,
+        "timedOut": false,
+        "spawnError": null,
+        "killError": null,
+        "profileError": null,
+        "ok": true,
+        "output": {
+          "ok": true,
+          "scenarios": 13
+        },
+        "actualSmoke": {
+          "scenarios": 13,
+          "diagramGroups": 6,
+          "learningGroups": 6,
+          "learningCalls": 18,
+          "commandErrors": 0
+        },
+        "fixtureActualCopiedBytes": null,
+        "fixtureSyntheticBytes": null,
+        "fixturePreparationDeltaBytes": null,
+        "fixtureTotalBytes": null,
+        "stdoutSHA256": "d4549bdff2d60ec3cd6145c73f0c8bae859185668927765cc71d28fe788190a5",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "id": "09-candidate-test-1-r2",
+        "round": 2,
+        "source": "candidate",
+        "command": "test",
+        "concurrency": 1,
+        "startedAt": "2026-10-16T01:18:14.582Z",
+        "endedAt": "2026-10-16T01:22:32.922Z",
+        "durationMs": 258331.36269999994,
+        "exitCode": 0,
+        "timedOut": false,
+        "spawnError": null,
+        "killError": null,
+        "profileError": null,
+        "ok": true,
+        "output": {
+          "tests": 416,
+          "pass": 416,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "ok": true
+        },
+        "fixtureActualCopiedBytes": 69933534,
+        "fixtureSyntheticBytes": 119020,
+        "fixturePreparationDeltaBytes": 41741,
+        "fixtureTotalBytes": 70094295,
+        "stdoutSHA256": "68ef719a5033606f3fcf081b1df7087f879ea5e46011bf4e19764c5bd430a76f",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "id": "10-candidate-test-2-r2",
+        "round": 2,
+        "source": "candidate",
+        "command": "test",
+        "concurrency": 2,
+        "startedAt": "2026-10-16T01:22:33.711Z",
+        "endedAt": "2026-10-16T01:25:18.961Z",
+        "durationMs": 165245.81550000003,
+        "exitCode": 0,
+        "timedOut": false,
+        "spawnError": null,
+        "killError": null,
+        "profileError": null,
+        "ok": true,
+        "output": {
+          "tests": 416,
+          "pass": 416,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "ok": true
+        },
+        "fixtureActualCopiedBytes": 69933534,
+        "fixtureSyntheticBytes": 119020,
+        "fixturePreparationDeltaBytes": 41741,
+        "fixtureTotalBytes": 70094295,
+        "stdoutSHA256": "68899ee36a74f244eeecefc2e41d5f74ab91f05c3fa73376c8cf4fcabb7dd486",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "id": "11-candidate-test-default-r2",
+        "round": 2,
+        "source": "candidate",
+        "command": "test",
+        "concurrency": "default",
+        "startedAt": "2026-10-16T01:25:19.831Z",
+        "endedAt": "2026-10-16T01:27:39.722Z",
+        "durationMs": 139887.63049999997,
+        "exitCode": 0,
+        "timedOut": false,
+        "spawnError": null,
+        "killError": null,
+        "profileError": null,
+        "ok": true,
+        "output": {
+          "tests": 416,
+          "pass": 416,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "ok": true
+        },
+        "fixtureActualCopiedBytes": 69933534,
+        "fixtureSyntheticBytes": 119020,
+        "fixturePreparationDeltaBytes": 41741,
+        "fixtureTotalBytes": 70094295,
+        "stdoutSHA256": "8b22153e2956471f7b085c01413494117cf6019f33cfc5af503f960c18590ab8",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "id": "12-baseline-test-default-r2",
+        "round": 2,
+        "source": "baseline",
+        "command": "test",
+        "concurrency": "default",
+        "startedAt": "2026-10-16T01:27:40.288Z",
+        "endedAt": "2026-10-16T01:42:41.912Z",
+        "durationMs": 901602.2927000001,
+        "exitCode": 0,
+        "timedOut": false,
+        "spawnError": null,
+        "killError": null,
+        "profileError": null,
+        "ok": true,
+        "output": {
+          "tests": 368,
+          "pass": 368,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "ok": true
+        },
+        "fixtureActualCopiedBytes": null,
+        "fixtureSyntheticBytes": null,
+        "fixturePreparationDeltaBytes": null,
+        "fixtureTotalBytes": null,
+        "stdoutSHA256": "37ded0b6c730546345851ba54b79d26566a2e94725405a0505da58ea205ad023",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "id": "13-candidate-canonical-default-r2",
+        "round": 2,
+        "source": "candidate",
+        "command": "canonical",
+        "concurrency": "default",
+        "startedAt": "2026-10-16T01:42:48.209Z",
+        "endedAt": "2026-10-16T01:43:34.760Z",
+        "durationMs": 46550.17129999958,
+        "exitCode": 0,
+        "timedOut": false,
+        "spawnError": null,
+        "killError": null,
+        "profileError": null,
+        "ok": true,
+        "output": {
+          "tests": 7,
+          "pass": 7,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "ok": true
+        },
+        "fixtureActualCopiedBytes": 22251579,
+        "fixtureSyntheticBytes": 37870,
+        "fixturePreparationDeltaBytes": 41741,
+        "fixtureTotalBytes": 22331190,
+        "stdoutSHA256": "6dbf2360e75f5bbcf24c96247ff2a4d33eb18436833265b14dfca724104d971b",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "id": "14-baseline-canonical-default-r2",
+        "round": 2,
+        "source": "baseline",
+        "command": "canonical",
+        "concurrency": "default",
+        "startedAt": "2026-10-16T01:43:35.297Z",
+        "endedAt": "2026-10-16T01:55:27.052Z",
+        "durationMs": 711735.4809999997,
+        "exitCode": 0,
+        "timedOut": false,
+        "spawnError": null,
+        "killError": null,
+        "profileError": null,
+        "ok": true,
+        "output": {
+          "tests": 7,
+          "pass": 7,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "ok": true
+        },
+        "fixtureActualCopiedBytes": null,
+        "fixtureSyntheticBytes": null,
+        "fixturePreparationDeltaBytes": null,
+        "fixtureTotalBytes": null,
+        "stdoutSHA256": "f81638e9ce4d755d726774647795871b97fb4c4caa1674b34ea9ec5496cef39e",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "id": "15-candidate-smoke-default-r2",
+        "round": 2,
+        "source": "candidate",
+        "command": "smoke",
+        "concurrency": "default",
+        "startedAt": "2026-10-16T01:55:30.803Z",
+        "endedAt": "2026-10-16T01:56:05.875Z",
+        "durationMs": 35072.27699999977,
+        "exitCode": 0,
+        "timedOut": false,
+        "spawnError": null,
+        "killError": null,
+        "profileError": null,
+        "ok": true,
+        "output": {
+          "ok": true,
+          "scenarios": 13
+        },
+        "actualSmoke": {
+          "scenarios": 13,
+          "diagramGroups": 6,
+          "learningGroups": 6,
+          "learningCalls": 18,
+          "commandErrors": 0
+        },
+        "fixtureActualCopiedBytes": null,
+        "fixtureSyntheticBytes": null,
+        "fixturePreparationDeltaBytes": null,
+        "fixtureTotalBytes": null,
+        "stdoutSHA256": "787757491bc90a8bf7fff9db7be9a451ee9aaa19a6438e75ed7ae13deb0c686e",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "id": "16-baseline-smoke-default-r2",
+        "round": 2,
+        "source": "baseline",
+        "command": "smoke",
+        "concurrency": "default",
+        "startedAt": "2026-10-16T01:56:06.282Z",
+        "endedAt": "2026-10-16T01:57:52.100Z",
+        "durationMs": 105814.07980000041,
+        "exitCode": 0,
+        "timedOut": false,
+        "spawnError": null,
+        "killError": null,
+        "profileError": null,
+        "ok": true,
+        "output": {
+          "ok": true,
+          "scenarios": 13
+        },
+        "actualSmoke": {
+          "scenarios": 13,
+          "diagramGroups": 6,
+          "learningGroups": 6,
+          "learningCalls": 18,
+          "commandErrors": 0
+        },
+        "fixtureActualCopiedBytes": null,
+        "fixtureSyntheticBytes": null,
+        "fixturePreparationDeltaBytes": null,
+        "fixtureTotalBytes": null,
+        "stdoutSHA256": "c399f6e2b43d4921ccb7bd57fbc2c2009a0ea10e18d82d6006deee1049f9857a",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "id": "17-baseline-test-default-r3",
+        "round": 3,
+        "source": "baseline",
+        "command": "test",
+        "concurrency": "default",
+        "startedAt": "2026-10-16T01:57:52.511Z",
+        "endedAt": "2026-10-16T02:12:45.009Z",
+        "durationMs": 892476.9286000002,
+        "exitCode": 0,
+        "timedOut": false,
+        "spawnError": null,
+        "killError": null,
+        "profileError": null,
+        "ok": true,
+        "output": {
+          "tests": 368,
+          "pass": 368,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "ok": true
+        },
+        "fixtureActualCopiedBytes": null,
+        "fixtureSyntheticBytes": null,
+        "fixturePreparationDeltaBytes": null,
+        "fixtureTotalBytes": null,
+        "stdoutSHA256": "c1afb059b5a614a943fda54e3d75d0dc53af40b46ea111347cd82b920c522f7b",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "id": "18-candidate-test-2-r3",
+        "round": 3,
+        "source": "candidate",
+        "command": "test",
+        "concurrency": 2,
+        "startedAt": "2026-10-16T02:12:48.686Z",
+        "endedAt": "2026-10-16T02:15:20.877Z",
+        "durationMs": 152186.12299999967,
+        "exitCode": 0,
+        "timedOut": false,
+        "spawnError": null,
+        "killError": null,
+        "profileError": null,
+        "ok": true,
+        "output": {
+          "tests": 416,
+          "pass": 416,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "ok": true
+        },
+        "fixtureActualCopiedBytes": 69933534,
+        "fixtureSyntheticBytes": 119020,
+        "fixturePreparationDeltaBytes": 41741,
+        "fixtureTotalBytes": 70094295,
+        "stdoutSHA256": "6906c66d4b5fd6bc04c83c9883e0405219fe54018413e4adeeabcbd63edca57a",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "id": "19-candidate-test-default-r3",
+        "round": 3,
+        "source": "candidate",
+        "command": "test",
+        "concurrency": "default",
+        "startedAt": "2026-10-16T02:15:21.681Z",
+        "endedAt": "2026-10-16T02:17:19.766Z",
+        "durationMs": 118081.33839999977,
+        "exitCode": 0,
+        "timedOut": false,
+        "spawnError": null,
+        "killError": null,
+        "profileError": null,
+        "ok": true,
+        "output": {
+          "tests": 416,
+          "pass": 416,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "ok": true
+        },
+        "fixtureActualCopiedBytes": 69933534,
+        "fixtureSyntheticBytes": 119020,
+        "fixturePreparationDeltaBytes": 41741,
+        "fixtureTotalBytes": 70094295,
+        "stdoutSHA256": "15b3f2a95d2adc6584b03251d28854d6c92ef4989a9dd36a443cd3e4572002e7",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "id": "20-candidate-test-1-r3",
+        "round": 3,
+        "source": "candidate",
+        "command": "test",
+        "concurrency": 1,
+        "startedAt": "2026-10-16T02:17:20.579Z",
+        "endedAt": "2026-10-16T02:21:02.115Z",
+        "durationMs": 221532.60210000072,
+        "exitCode": 0,
+        "timedOut": false,
+        "spawnError": null,
+        "killError": null,
+        "profileError": null,
+        "ok": true,
+        "output": {
+          "tests": 416,
+          "pass": 416,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "ok": true
+        },
+        "fixtureActualCopiedBytes": 69933534,
+        "fixtureSyntheticBytes": 119020,
+        "fixturePreparationDeltaBytes": 41741,
+        "fixtureTotalBytes": 70094295,
+        "stdoutSHA256": "f9ed316e64e17dd6be97535423435ecbd2ce755f788d00af511d49f1bf8783eb",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "id": "21-baseline-canonical-default-r3",
+        "round": 3,
+        "source": "baseline",
+        "command": "canonical",
+        "concurrency": "default",
+        "startedAt": "2026-10-16T02:21:02.681Z",
+        "endedAt": "2026-10-16T02:37:52.434Z",
+        "durationMs": 1009728.1878000004,
+        "exitCode": 1,
+        "timedOut": false,
+        "spawnError": null,
+        "killError": null,
+        "profileError": null,
+        "ok": false,
+        "output": {
+          "tests": 7,
+          "pass": 6,
+          "fail": 1,
+          "cancelled": 0,
+          "skipped": 0,
+          "ok": false
+        },
+        "fixtureActualCopiedBytes": null,
+        "fixtureSyntheticBytes": null,
+        "fixturePreparationDeltaBytes": null,
+        "fixtureTotalBytes": null,
+        "stdoutSHA256": "5aed45ff9d2d3a128464b2eb1807be209c184475a32d1e5e809d66d534fb273e",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "originalSummary": {
+      "status": "not_accepted",
+      "frozenBaseline": true,
+      "groups": {
+        "baseline/test/default": {
+          "wallMs": {
+            "count": 3,
+            "median": 901602.2927000001,
+            "min": 892476.9286000002,
+            "max": 1037840.7600000001
+          },
+          "fixtureCopiedBytes": {
+            "count": 3,
+            "median": 12666735598,
+            "min": 12666735598,
+            "max": 12666735598
+          },
+          "fixtureActualCopiedBytes": null,
+          "fixtureSyntheticBytes": null,
+          "fixturePreparationDeltaBytes": null,
+          "fixtureTotalBytes": null,
+          "valid": true
+        },
+        "candidate/test/default": {
+          "wallMs": {
+            "count": 3,
+            "median": 139887.63049999997,
+            "min": 118081.33839999977,
+            "max": 147405.5381
+          },
+          "fixtureCopiedBytes": null,
+          "fixtureActualCopiedBytes": {
+            "count": 3,
+            "median": 69933534,
+            "min": 69933534,
+            "max": 69933534
+          },
+          "fixtureSyntheticBytes": {
+            "count": 3,
+            "median": 119020,
+            "min": 119020,
+            "max": 119020
+          },
+          "fixturePreparationDeltaBytes": {
+            "count": 3,
+            "median": 41741,
+            "min": 41741,
+            "max": 41741
+          },
+          "fixtureTotalBytes": {
+            "count": 3,
+            "median": 70094295,
+            "min": 70094295,
+            "max": 70094295
+          },
+          "valid": true
+        },
+        "candidate/test/1": {
+          "wallMs": {
+            "count": 3,
+            "median": 258331.36269999994,
+            "min": 221532.60210000072,
+            "max": 279451.99950000015
+          },
+          "fixtureCopiedBytes": null,
+          "fixtureActualCopiedBytes": {
+            "count": 3,
+            "median": 69933534,
+            "min": 69933534,
+            "max": 69933534
+          },
+          "fixtureSyntheticBytes": {
+            "count": 3,
+            "median": 119020,
+            "min": 119020,
+            "max": 119020
+          },
+          "fixturePreparationDeltaBytes": {
+            "count": 3,
+            "median": 41741,
+            "min": 41741,
+            "max": 41741
+          },
+          "fixtureTotalBytes": {
+            "count": 3,
+            "median": 70094295,
+            "min": 70094295,
+            "max": 70094295
+          },
+          "valid": true
+        },
+        "candidate/test/2": {
+          "wallMs": {
+            "count": 3,
+            "median": 165245.81550000003,
+            "min": 152186.12299999967,
+            "max": 173519.2674
+          },
+          "fixtureCopiedBytes": null,
+          "fixtureActualCopiedBytes": {
+            "count": 3,
+            "median": 69933534,
+            "min": 69933534,
+            "max": 69933534
+          },
+          "fixtureSyntheticBytes": {
+            "count": 3,
+            "median": 119020,
+            "min": 119020,
+            "max": 119020
+          },
+          "fixturePreparationDeltaBytes": {
+            "count": 3,
+            "median": 41741,
+            "min": 41741,
+            "max": 41741
+          },
+          "fixtureTotalBytes": {
+            "count": 3,
+            "median": 70094295,
+            "min": 70094295,
+            "max": 70094295
+          },
+          "valid": true
+        },
+        "baseline/canonical/default": {
+          "wallMs": {
+            "count": 3,
+            "median": 805479.7883000001,
+            "min": 711735.4809999997,
+            "max": 1009728.1878000004
+          },
+          "fixtureCopiedBytes": {
+            "count": 3,
+            "median": 4030348588,
+            "min": 4030348588,
+            "max": 4030348588
+          },
+          "fixtureActualCopiedBytes": null,
+          "fixtureSyntheticBytes": null,
+          "fixturePreparationDeltaBytes": null,
+          "fixtureTotalBytes": null,
+          "valid": false
+        },
+        "candidate/canonical/default": {
+          "wallMs": {
+            "count": 2,
+            "median": 45631.44304999965,
+            "min": 44712.714799999725,
+            "max": 46550.17129999958
+          },
+          "fixtureCopiedBytes": null,
+          "fixtureActualCopiedBytes": {
+            "count": 2,
+            "median": 22251579,
+            "min": 22251579,
+            "max": 22251579
+          },
+          "fixtureSyntheticBytes": {
+            "count": 2,
+            "median": 37870,
+            "min": 37870,
+            "max": 37870
+          },
+          "fixturePreparationDeltaBytes": {
+            "count": 2,
+            "median": 41741,
+            "min": 41741,
+            "max": 41741
+          },
+          "fixtureTotalBytes": {
+            "count": 2,
+            "median": 22331190,
+            "min": 22331190,
+            "max": 22331190
+          },
+          "valid": false
+        },
+        "baseline/smoke/default": {
+          "wallMs": {
+            "count": 2,
+            "median": 117606.35065000015,
+            "min": 105814.07980000041,
+            "max": 129398.62149999989
+          },
+          "fixtureCopiedBytes": null,
+          "fixtureActualCopiedBytes": null,
+          "fixtureSyntheticBytes": null,
+          "fixturePreparationDeltaBytes": null,
+          "fixtureTotalBytes": null,
+          "valid": false
+        },
+        "candidate/smoke/default": {
+          "wallMs": {
+            "count": 2,
+            "median": 35209.79264999996,
+            "min": 35072.27699999977,
+            "max": 35347.30830000015
+          },
+          "fixtureCopiedBytes": null,
+          "fixtureActualCopiedBytes": null,
+          "fixtureSyntheticBytes": null,
+          "fixturePreparationDeltaBytes": null,
+          "fixtureTotalBytes": null,
+          "valid": false
+        }
+      },
+      "selectedConcurrency": null,
+      "gates": {
+        "fixtureBytes": {
+          "improvement": null,
+          "required": 0.95,
+          "status": "not_measured",
+          "ok": false,
+          "method": "actual candidate copied bytes / controlled baseline lower bound; reduction lower bound"
+        },
+        "test": {
+          "improvement": null,
+          "required": 0.5,
+          "status": "not_measured",
+          "ok": false
+        },
+        "canonical": {
+          "improvement": null,
+          "required": 0.8,
+          "status": "not_measured",
+          "ok": false
+        },
+        "smoke": {
+          "improvement": null,
+          "required": 0.3,
+          "status": "not_measured",
+          "ok": false
+        }
+      },
+      "eligibleEnvironment": true,
+      "complete": false
+    },
+    "coreAccepted": false,
+    "meaning": "All groups remain raw observations. No 24-sample comparison, accepted performance gates or selected concurrency. Do not pool or replace samples."
+  },
+  "diagnosis": {
+    "failedSample": "21-baseline-canonical-default-r3",
+    "testNumber": 6,
+    "test": "canonical communication resource loss or tampering blocks installation before any installer call",
+    "variant": "plugins/communication-kit/skills/communicate/references/source-provenance.md missing",
+    "expected": "resource validation rejection before installer call",
+    "actual": "runCli: timed out after 60000ms during Git worktree add",
+    "failingPhase": [
+      {
+        "phase": "worktree.create",
+        "durationMs": 60259.41830000002,
+        "status": "error",
+        "pid": 7044,
+        "details": {
+          "scope": "canonical"
+        }
+      }
+    ],
+    "outerTimedOut": false,
+    "profileError": null,
+    "deeperCause": "UNKNOWN: artifact has no disk/process/antivirus telemetry",
+    "candidateRegression": "not established; nine full commands416/416, two canonical7/7 and two actual13-scenario smoke commands pass",
+    "comparisonToPrior": "previous core run38793803097 also failed baseline Git worktree.add60000ms in Communication resource-negative test; the failing resource variant and round differ"
+  },
+  "canonicalPhases": [
+    {
+      "id": "05-baseline-canonical-default-r1",
+      "create": {
+        "count": 29,
+        "ok": 29,
+        "error": 0,
+        "maxMs": 16894.7739
+      },
+      "remove": {
+        "count": 29,
+        "ok": 29,
+        "error": 0,
+        "maxMs": 13305.430400000012
+      },
+      "canonicalCleanup": {
+        "count": 29,
+        "ok": 29,
+        "error": 0,
+        "maxMs": 1.6476999999722466
+      },
+      "fixtureCleanup": {
+        "count": 7,
+        "ok": 7,
+        "error": 0,
+        "maxMs": 10262.025900000008
+      },
+      "lifecycleErrors": []
+    },
+    {
+      "id": "06-candidate-canonical-default-r1",
+      "create": {
+        "count": 29,
+        "ok": 29,
+        "error": 0,
+        "maxMs": 345.07770000000164
+      },
+      "remove": {
+        "count": 29,
+        "ok": 29,
+        "error": 0,
+        "maxMs": 99.44709999999941
+      },
+      "canonicalCleanup": {
+        "count": 29,
+        "ok": 29,
+        "error": 0,
+        "maxMs": 1.9556999999995242
+      },
+      "fixtureCleanup": {
+        "count": 7,
+        "ok": 7,
+        "error": 0,
+        "maxMs": 408.12400000000343
+      },
+      "lifecycleErrors": []
+    },
+    {
+      "id": "13-candidate-canonical-default-r2",
+      "create": {
+        "count": 29,
+        "ok": 29,
+        "error": 0,
+        "maxMs": 372.082699999999
+      },
+      "remove": {
+        "count": 29,
+        "ok": 29,
+        "error": 0,
+        "maxMs": 201.84949999999844
+      },
+      "canonicalCleanup": {
+        "count": 29,
+        "ok": 29,
+        "error": 0,
+        "maxMs": 4.400800000003073
+      },
+      "fixtureCleanup": {
+        "count": 7,
+        "ok": 7,
+        "error": 0,
+        "maxMs": 368.348699999995
+      },
+      "lifecycleErrors": []
+    },
+    {
+      "id": "14-baseline-canonical-default-r2",
+      "create": {
+        "count": 29,
+        "ok": 29,
+        "error": 0,
+        "maxMs": 30166.60879999993
+      },
+      "remove": {
+        "count": 29,
+        "ok": 29,
+        "error": 0,
+        "maxMs": 2671.405999999959
+      },
+      "canonicalCleanup": {
+        "count": 29,
+        "ok": 29,
+        "error": 0,
+        "maxMs": 1.486799999998766
+      },
+      "fixtureCleanup": {
+        "count": 7,
+        "ok": 7,
+        "error": 0,
+        "maxMs": 2810.764199999976
+      },
+      "lifecycleErrors": []
+    },
+    {
+      "id": "21-baseline-canonical-default-r3",
+      "create": {
+        "count": 22,
+        "ok": 21,
+        "error": 1,
+        "maxMs": 60259.41830000002
+      },
+      "remove": {
+        "count": 21,
+        "ok": 21,
+        "error": 0,
+        "maxMs": 9617.698399999994
+      },
+      "canonicalCleanup": {
+        "count": 22,
+        "ok": 22,
+        "error": 0,
+        "maxMs": 6623.401700000046
+      },
+      "fixtureCleanup": {
+        "count": 7,
+        "ok": 7,
+        "error": 0,
+        "maxMs": 98406.3565
+      },
+      "lifecycleErrors": [
+        {
+          "phase": "worktree.create",
+          "durationMs": 60259.41830000002,
+          "status": "error",
+          "pid": 7044,
+          "details": {
+            "scope": "canonical"
+          }
+        }
+      ]
+    }
+  ],
+  "finalOwnedSourceCleanup": [
+    {
+      "source": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\mj-ci-benchmark-Fi0DsI\\candidate",
+      "status": "ok",
+      "durationMs": 2241.38560000062
+    },
+    {
+      "source": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\mj-ci-benchmark-Fi0DsI\\baseline",
+      "status": "ok",
+      "durationMs": 6188.930499999784
+    }
+  ],
+  "independentAudit": {
+    "invocation": "qa/core-audit-preparation/invocation-5273490.json",
+    "exitCode": 1,
+    "message": "CORE AUDIT REJECTED: expected all 24 samples",
+    "acceptanceProduced": false
+  },
+  "nextStep": "Retain frozen baseline30665998/tree20f,60000ms deadline and95/50/80/30/24 protocol until a separately reviewed diagnostic or explicit Owner protocol decision; no automatic identical full rerun."
+}
