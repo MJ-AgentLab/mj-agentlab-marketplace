@@ -1,18 +1,20 @@
 ---
 type: runbook
 scope: marketplace
-summary: "8.3.1 maintenance release scope, inherited limits and pending gates"
+summary: "Actual 8.3.1 publication, fresh tag checks and ordered closeout"
 owner: marketplace-maintainers
 created: 2026-10-16
 updated: 2026-10-16
-state: draft
-version: v1.0
-last-verified: null
+state: active
+version: v1.1
+last-verified: 2026-10-16
 ---
 
 # [RUNBOOK] Marketplace 8.3.1 release readiness
 
 ## §1 Owner decision and frozen scope
+
+本节保留 v1.0 发布准备时的范围与来源；实际发布、治理及复验见 §3.1，新授权顺序见 §3.2。
 
 Owner 本次明确要求“进行发布”，授权 Marketplace 8.3.1 补丁发布及必要发布后核验。范围为已合入 develop 的 [#244](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/244) Windows 临时目录清理修复与 [#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245) CI 性能维护；本准备只补文档与证据，不修改插件运行内容、版本、登记、图标或既有验收规则。沿用已接受的有限客户端证据，不新增模型、桌面或真人效果测试。
 
@@ -33,7 +35,9 @@ Owner 本次明确要求“进行发布”，授权 Marketplace 8.3.1 补丁发�
 
 所有插件的原 FAIL、PARTIAL、延期、未覆盖、历史批准缺项及 NOT_MEASURED 不因补丁发布升级。若运行资源实际改变，重新界定受影响证据；本轮不扩展功能或恢复延期入口。
 
-## §3 Normal release procedure and verification ledger
+## §3 Historical release preparation snapshot
+
+以下步骤与准备表保留 v1.0 当时状态；PENDING 只属于该准备快照，当前实际发布结果见 §3.1。
 
 1. 冻结完整隔离发布候选，保留全部 develop ancestry；核对实际 main 差异、VERSION/CHANGELOG 与包资源身份。按当前候选执行必要工程、文档/A6、准确 CLI 0.147.0 与十三 canonical 安装及缓存 Python 检查，记录新 head/tree 和原始结果。
 2. 由 `codex/release-8-3-1` 直接向 main 创建正常 release PR。当前 head 的真实非作者批准、最新推送要求、适用 code-owner 规则、required checks、最新 base 和已解决线程全部满足后才普通合并；不 bypass。任一分支移动，刷新受影响核验与批准。
@@ -52,7 +56,31 @@ Owner 本次明确要求“进行发布”，授权 Marketplace 8.3.1 补丁发�
 | Fresh post-publication installation | PENDING | 从真实 tag SHA 新执行十三 canonical 与实际缓存 Python，不复用旧批次 |
 | Client evidence | ACCEPTED LIMITED COVERAGE | 仅匹配未变资源；保留 §2 原状态，无新模型/桌面/真人结果 |
 
-本账本 `last-verified: null` 表示本次发布闭环尚未完成。已有 6df 检查、#245 闭环和 8.3.0 发布事实不提供本次候选批准、main merge、8.3.1 tag/Release 或发布后验收。
+v1.0 原说明（历史）：本账本 `last-verified: null` 表示本次发布闭环尚未完成。已有 6df 检查、#245 闭环和 8.3.0 发布事实不提供本次候选批准、main merge、8.3.1 tag/Release 或发布后验收。
+
+### §3.1 Actual publication and fresh tag verification — 2026-10-16
+
+[PR #253](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/253) 由 Owner 于 `2026-10-16T14:27:14Z` 实际合入 main：merge `4e4d4172fb27c812d3be8847f792dae5313daec8`，parents 为 main `31cb2cbbefaf1ca55a2d43d7cce74780b40ee31e` 与候选 `b830f5657f00ce80ab1d833a25353e5df5184664`；tree `9824218ac867b84e5c39eb2109c1d1bd1852f01f` 与已测候选相同。五包、插件版本及登记身份保持 §1 的未变范围。
+
+[v8.3.1 Release](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.1) id `415053101` 于 `2026-10-16T14:28:02Z` 由 `github-actions[bot]` 公开；direct tag、Release target 和实际 main merge 均为上述 `4e4d4172`。该次读回 draft=false、prerelease=false、assets=[]、immutable=false、latest=true；immutable=false 是观察值，不是历史不可变保证。[发布工作流 38915888301](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38915888301) attempt1 SUCCESS，流程记录 canonical verified；未取得该内部步骤逐场景/Python raw，不为其补写十三安装或调用计数。
+
+原治理门禁仍为 **NOT_MET**：rule-suite `4563052548` 实际结果 bypass，approval evaluation fail，reviews=[]、REVIEW_REQUIRED。发布身份和技术验收 PASS 不等于原非作者批准 PASS；#245 的限定例外不适用于 #253，也不为后续文档、同步或预升 PR 提供豁免。
+
+发布后新执行从真实 tag SHA `4e4d4172` 开始，UTC `14:30:44.124–14:31:40.255Z`、wall `56131.6758ms`、exit0，开始晚于 publishedAt `162.124s`。本批实际十三安装全部通过、170 命令零错误、6 Diagram + 18 LEK Python 调用及六组 Learning 保存/重放/结构核验通过；130 phases 全部成功、15 cleanup，15 个自有临时根经独立实际 absence 检查。51 项源文件哈希前后保持，完整实际登记列表 `18→18` 一致。宿主保持 `b830` 未切换，目标明确为不同提交 `4e4`，不复用候选安装结果；canonical AGENTS read-time bytes 仍 NOT_MEASURED。此批未重跑 full、24-sample、模型、桌面或效果测试，§2 全部原限制保持。
+
+[发布后汇总回执](evidence/marketplace-8-3-1-postrelease.json)绑定发布身份、工作流、原治理缺项、新 tag 原始输出及独立 raw 重数/路径检查哈希。当前 `last-verified: 2026-10-16` 只覆盖上述实际发布身份与发布后技术复验，不表示原批准满足或后续三步已完成。
+
+### §3.2 Newly authorized ordered closeout
+
+Owner 已明确授权以下三个 PR 顺序推进；每一步使用其实际已交付前序身份，保留正常非作者批准、required checks、最新 base 和已解决线程门禁，不 bypass。
+
+| Step | Current state | Required next identity and boundary |
+| --- | --- | --- |
+| 1. main 发布记录 PR | IN_PREPARATION / MERGE_PENDING | 本隔离 `codex/postrelease-8-3-1` 从实际 main4e4 派生；只汇总发布记录与当前入口，经正常门禁合入 main |
+| 2. 实际新 main → develop 同步 PR | NOT_STARTED / DEPENDENT_ON_STEP1 | 第1步实际合入后，使用包含该记录的真实新 main ancestry；正常门禁合入 develop，再对实际 sync merge 新做精确十三安装与缓存 Python |
+| 3. 实际同步后的 8.3.2 pre-bump PR | NOT_STARTED / DEPENDENT_ON_STEP2 | 从已复验的实际 sync 派生，先 dry-run，仅将 Marketplace VERSION/README badge 从 8.3.1 预升 8.3.2，并正常同步 AGENTS/A6；插件版本与运行内容不动，不创建 8.3.2 tag/Release |
+
+本记录不预填第1步 merge、第2步同步/复验或第3步 apply/merge。各阶段随后分别记录真实 head/tree、批准、CI、merge 与必要复验；8.3.1 已公开状态及历史资产不改写。
 
 ## §4 Failure and recovery
 
@@ -62,4 +90,5 @@ Owner 本次明确要求“进行发布”，授权 Marketplace 8.3.1 补丁发�
 
 | Version | Date | last-verified | Summary |
 | --- | --- | --- | --- |
+| v1.1 | 2026-10-16 | 2026-10-16 | Record actual #253 publication, fresh post-tag installation, original governance NOT_MET and newly authorized ordered three-PR closeout; retain preparation history and all client limits. |
 | v1.0 | 2026-10-16 | null | Prepare authorized 8.3.1 maintenance release from actual6df with unchanged five packages, inherited limits and separate pending candidate/publication gates. |

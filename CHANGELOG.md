@@ -5,6 +5,10 @@
 
 ## [Unreleased]
 
+### Documentation
+
+- Record actual #253 / v8.3.1 publication, exact main/tag/Release identities and the new post-publication thirteen-install/Python/cleanup verification. Update current README installation to the real v8.3.1 tag; retain actual Owner bypass, missing independent approval, QA preflight failures and all limited client results. Stage the newly authorized main-to-develop sync and Marketplace-only 8.3.2 pre-bump after their actual prerequisite merges; plugin versions and published history remain unchanged.
+
 ## [8.3.1] - 2026-10-16
 
 Marketplace maintenance patch for Windows CI and canonical installation preparation. The five plugin packages, public entries, catalog and plugin versions are byte-identical to published 8.3.0; no plugin version bump is included. Refs #244, #245.

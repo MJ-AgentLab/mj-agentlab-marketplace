@@ -4,7 +4,9 @@
 
 ![Version](https://img.shields.io/badge/version-8.3.1-blue)
 
-面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场，无需 MCP 服务。[Marketplace v8.3.0](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.0) 已于 2026-10-15 经 #241 合入 main 并自动公开，包含完整五插件、七公开技能、四显式入口。实际发布 SHA 为 `ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64`：
+面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场，无需 MCP 服务。[Marketplace v8.3.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.1) 已于 2026-10-16 经 #253 合入 main 并自动公开，main/tag/Release 同为 4e4d4172fb27c812d3be8847f792dae5313daec8，包含完整五插件、七公开技能、四显式入口。该维护补丁保留 v8.3.0 的全部插件运行内容与版本；发布后真实标签的十三安装、6 次 Diagram＋18 次 LEK 实际 Python 和 15 项清理通过，见[发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
+
+五包首次整体公开于 v8.3.0 / #241，实际发布源 ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64；既有功能验收与限制保持其原始身份，不由维护补丁升级为新客户端或效果结果。
 
 | 插件 / 公开技能 | 用途 | 版本与分发状态 |
 | --- | --- | --- |
@@ -19,7 +21,7 @@
 ### Codex
 
 ~~~text
-codex plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace --ref v8.3.0
+codex plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace --ref v8.3.1
 codex plugin add diagram-kit@mj-agentlab-marketplace
 codex plugin add learning-evidence-kit@mj-agentlab-marketplace
 codex plugin add explain-kit@mj-agentlab-marketplace
@@ -75,6 +77,8 @@ Communication 0.1.0 已随 v8.3.0 发布。安装后显式调用 `$communication
 
 ### Development
 
+README badge 跟随当前 checkout 的 VERSION；develop 在实际回同步后预升时，它表示预计下一版本，公开安装仍指向真实 v8.3.1。Owner 已授权本次记录 PR、实际 main 回同步与后续仅 Marketplace 8.3.2 预升，均经正常独立 PR 门禁；当前记录提交仍保持 8.3.1，后续实际状态见[8.3.1 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
+
 历史 Learning [8.2.0 Release](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.2.0) 于 2026-10-13 发布。#241 已将完整五包作为 v8.3.0 公开，Diagram 0.3.1、Learning Evidence 0.1.0、Explain 0.1.1、Communication 0.1.0、HTML 0.1.36 均保持实际版本。后续同步与未发布补丁预升须经独立 PR 和实际门禁，见[8.3.0 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。共用 Learning 脚本归属安装包，不依赖仓库过渡路径。
 
 20 个开发技能位于 .agents/skills，公开技能为 arch-diagram、pop-quiz、learning-record-check、glossary、concept、guide 和 communicate。pop-quiz、learning-record-check、guide 与 communicate 为显式入口；全量普通发现预期为三个技能，原生清单为七个；Communication 独装普通发现为零、原生清单为一个。十三组合安装、包内资源字节核对、实际 Python 回归与无 MCP 检查的执行结果单独记录。
@@ -83,10 +87,11 @@ Communication 0.1.0 已随 v8.3.0 发布。安装后显式调用 `$communication
 
 仓库主标与 D 插件图标遵循 [品牌规范](docs/rule/[STANDARD]_Brand_Identity.md)。新插件或图标修改可调用 `$mp-design-icon`，先展示候选再接入；当前批准与实际验收见 [记录](docs/runbook/[RUNBOOK]_Brand_Identity_Acceptance.md)。
 
-### 本次发布的验收边界
+### 沿用的 8.3.0 功能验收边界
 
 Owner 于 2026-10-15 明确要求将 develop 整体发布为 Marketplace 8.3.0，并选择按当前实现发布 HTML 0.1.36：保留 #239 的已知自检前提缺陷和未覆盖项，只执行发布必需的 CI、安装与 Python 检查，不重启模型或桌面验收，也不继续功能修正。此决定取代此前 Communication 四包发行、HTML 另发的范围；旧失败不改写为 PASS。
 
 HTML 已知问题是独立自检题缺少必要当前状态仍给出确定结论，见 [#239](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/239)。本版完整双客户端与扩展行为未完成，现实效果 NOT_MEASURED；既有安装和工程通过不证明这些项目通过。Communication 既有 CLI PARTIAL、限定本机客户端结果及其他插件延期项保留原身份。
 
 发布准备已执行必要工程检查，发布后于 2026-10-15 07:55–07:56 UTC 从真实 v8.3.0 tag 完成十三组合复查与实际缓存 Python。先前整包发布任务在此停止；用户随后明确要求 #241 合并后的后续工作，本次按原授权补齐文档并准备常规维护。未覆盖客户端、HTML #239 与现实效果继续独立保留。
+8.3.1 的新发布后技术复验于 2026-10-16 14:30:44–14:31:40 UTC 从真实标签执行；原客户端 FAIL/PARTIAL/未覆盖与现实效果边界保持。#253 的实际 Owner bypass 和非作者批准缺项仍为 NOT_MET，#245 的限定收尾例外不延伸到发布或后续 PR，见[发布后回执](docs/runbook/evidence/marketplace-8-3-1-postrelease.json)。
