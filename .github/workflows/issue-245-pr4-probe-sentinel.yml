@@ -1,0 +1,22 @@
+name: Issue 245 PR4 isolated probe sentinel
+run-name: issue245-pr4-sentinel|head=${{ github.sha }}
+
+on:
+  push:
+    branches: [codex/issue-245-cancel-probe]
+
+permissions:
+  contents: read
+
+jobs:
+  sentinel:
+    name: Isolated bounded probe sentinel
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Observe the independent scheduling window
+        shell: bash
+        run: |
+          echo "Issue245 PR4 sentinel start: $(date -u +%FT%TZ)"
+          sleep 240
+          echo "Issue245 PR4 sentinel end: $(date -u +%FT%TZ)"
