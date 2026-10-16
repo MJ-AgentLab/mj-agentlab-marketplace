@@ -2,7 +2,7 @@
 
 ## 项目上下文
 
-Marketplace v8.3.0已由#241/main ae2754db于2026-10-15公开，tag/Release同SHA，五包七技能/四显式：Diagram0.3.1、Learning Evidence0.1.0、Explain0.1.1、Communication0.1.0、HTML0.1.36。发布后十三canonical及6+6实际Python通过；CLI0.147.0。HTML#239已知FAIL/双端未覆盖、Communication限定覆盖及审计bypass/空reviews均保留，见[8.3账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。
+Marketplace v8.3.1已由#253/main4e4d4172于2026-10-16自动公开，tag/Release同SHA，五包七技能/四显式，插件版本同8.3.0。发布后十三canonical、6Diagram+18LEK实际Python及15清理通过，CLI0.147.0；Owner bypass/空reviews与旧客户端限制分别保留，见[8.3.1账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
 
 manifest 的公开示例按[插件契约](docs/spec/[SPEC]_Plugin_Json_Schema.md)保留完整路由，最多三条，各原值不超过 128 个 Unicode scalar values；严格校验防止客户端忽略超长示例而丢失公开入口，不依赖空白归一化。
 
@@ -22,7 +22,7 @@ Communication按[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketpla
 
 #245五阶段已合并、actual6df新492/13安装/Python复验通过并关闭；Owner仅接受该Issue历史批准/bypass例外，非未来豁免，见[账本](docs/runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。
 
-Owner于2026-10-16明确要求发布；当前8.3.1候选完整继承develop6df、以main31cb为base，五包七技能/插件版本同已发布8.3.0。准备、限定客户端证据与真实发布状态见[8.3.1账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)；当前head非作者批准/CI/线程及保护门禁保持，不指定审查人。main/tag/Release仍8.3.0，无8.3.1公开发行。
+Owner已授权8.3.1发布记录、main→develop同步及Marketplace8.3.2预升，依次正常PR与实际merge复验；插件保持、安装用公开v8.3.1。实际同步后才运行版本工具DryRun/Apply，仅VERSION/badge预升并补根摘要走正常A6，不发8.3.2标签或Release。当前head真实非作者批准/CI/线程/保护门禁保持；状态见[8.3.1账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
 
 communication-kit 首版按已保存的[完整计划](plan/communication-kit-implementation-plan.md)实施，来源与授权见[捕获记录](plan/communication-kit-plan-provenance.json)，由 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222) 管理 PR1–PR5 与正式上线。产品方向、显式 communicate 单入口、保义改写和文件边界已确认；设计与验收契约见[新增 ADR](docs/adr/[ADR]_Communication_Kit_Addition.md)及[验收 RUNBOOK](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。PR1/PR2 保持现有运行集合，PR3 原子接入新包。Owner 选择 Learning 先发布 8.2.0，Communication 随后独立 minor（预计 8.3.0），PR4 重查实际版本和基线；现实效果测试本次延期，基础通过不代表效果已验证。
 

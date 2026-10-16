@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-16
 state: active
-version: v2.91.14
+version: v2.91.15
 ---
 
 # 文档索引
@@ -17,7 +17,9 @@ version: v2.91.14
 
 ## 当前整体发布
 
-2026-10-16 Owner授权发布维护补丁8.3.1；候选完整继承develop6df，基于main31cb/已发布8.3.0，仅维护脚本/CI与文档变化，五包运行字节和插件版本保持。候选新工程/精确安装、当前非作者批准、实际main合入、Release及发布后真实tag复验分别登记，不因245例外跳过发布门禁，见[8.3.1发布账本](runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。以下为当前公开8.3.0的真实基线。
+2026-10-16 #253 已将 Marketplace v8.3.1 公开，main/tag/Release 同为 4e4d4172，五包版本与 8.3.0 相同。新发布后真实 tag 的十三安装、6Diagram+18LEK、15cleanup及独立原件复核通过；实际main规则suite4563052548为Owner bypass、reviews=[]，批准缺项保留NOT_MET，245例外不外推。见[8.3.1发布账本](runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)与[发布后回执](runbook/evidence/marketplace-8-3-1-postrelease.json)。
+
+Owner另授权本次记录PR→实际main回同步develop→实际同步后Marketplace8.3.2预升，均走正常当前head批准/CI/线程门禁；VERSION/badge之外只同步必要根摘要，插件与公开v8.3.1安装ref保持。后两步仍待前序实际合入，不将准备写成完成。下方保留8.3.0首次五包公开的历史基线。
 
 2026-10-15 #241 已将完整五包七技能/四显式作为 Marketplace v8.3.0 公开，main/tag/Release 同为 ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64。Diagram 0.3.1 / Learning Evidence 0.1.0 / Explain 0.1.1 / Communication 0.1.0 / HTML 0.1.36；原四包 #237 关闭未合并。发布后十三组合 canonical 安装及 6+6 缓存 Python 通过，身份、原始回执和后续维护见[8.3.0 发行账本](runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。自动删分支已关闭、develop原head32e32c5已恢复且规则审计PASS；常规同步/预升仍须受保护PR。R05仅沿用未变资源的有限覆盖；HTML #239 FAIL、完整客户端未覆盖、历史规则审计 bypass、空 reviews 和效果未测均保留，不关闭 #215/#239。
 
