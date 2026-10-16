@@ -6,16 +6,18 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-16
 state: active
-version: v2.91.13
+version: v2.91.14
 ---
 
 # 文档索引
 
 ## 当前性能维护
 
-[#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)按五个顺序PR推进。PR3四性能门槛/24样本通过并保留default；PR4 [#249](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/249)实际6bc7c63已完成新13安装/Python，Owner bypass与空reviews分别保留。PR5 [#251](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/251)已完成独立双轴审查、本地492/492与4a精确13安装；真实固定源码五attempt验证active/success/latest承接及最新取消后完整回退，额外缺token初始化失败与whole-push取消图亦已核，临时[#252](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/252)关闭未合入。见[本地回执](runbook/evidence/ci-performance-245-pr5-local.json)、[托管回执](runbook/evidence/ci-performance-245-pr5-hosted.json)及[账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。晚取消不恢复既有skip，取消处理允许gate脚本继续但本次无矩阵执行；未实测平台故障继续按注入覆盖记录。最终文档head的当前CI/精确安装在PR251单列，真实非作者批准/合入/postmerge与Issue关闭仍待各自证据；冻结基线、60秒、运行与发布版本不变。
+[#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)五阶段#246/#247/#248/#249/#251均已合入develop。四性能门槛/完整24样本通过、保留default；最终actual6df新492/492、13安装、6Diagram+18LEK及15清理通过并独立复核。Owner明确仅对245接受历史批准/bypass缺项后，Issue于2026-10-16T13:09:52Z以Completed关闭；原NOT_MET、历史失败和调度限制保留，例外不外推。见[账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)与[最终收尾回执](runbook/evidence/ci-performance-245-final-closeout.json)。
 
 ## 当前整体发布
+
+2026-10-16 Owner授权发布维护补丁8.3.1；候选完整继承develop6df，基于main31cb/已发布8.3.0，仅维护脚本/CI与文档变化，五包运行字节和插件版本保持。候选新工程/精确安装、当前非作者批准、实际main合入、Release及发布后真实tag复验分别登记，不因245例外跳过发布门禁，见[8.3.1发布账本](runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。以下为当前公开8.3.0的真实基线。
 
 2026-10-15 #241 已将完整五包七技能/四显式作为 Marketplace v8.3.0 公开，main/tag/Release 同为 ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64。Diagram 0.3.1 / Learning Evidence 0.1.0 / Explain 0.1.1 / Communication 0.1.0 / HTML 0.1.36；原四包 #237 关闭未合并。发布后十三组合 canonical 安装及 6+6 缓存 Python 通过，身份、原始回执和后续维护见[8.3.0 发行账本](runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。自动删分支已关闭、develop原head32e32c5已恢复且规则审计PASS；常规同步/预升仍须受保护PR。R05仅沿用未变资源的有限覆盖；HTML #239 FAIL、完整客户端未覆盖、历史规则审计 bypass、空 reviews 和效果未测均保留，不关闭 #215/#239。
 

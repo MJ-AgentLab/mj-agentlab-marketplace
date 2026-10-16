@@ -20,9 +20,9 @@ Communication按[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketpla
 
 ## 执行与决策
 
-#245 PR4合入6bc7c63已验；PR5 #251去重/回退实测通过，合入待验，见[账本](docs/runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。
+#245五阶段已合并、actual6df新492/13安装/Python复验通过并关闭；Owner仅接受该Issue历史批准/bypass例外，非未来豁免，见[账本](docs/runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。
 
-Owner2026-10-15要求同步main31cb2cb后预升8.3.1；#243已合入864ecd5，本分支沿用eeb5e01。版本工具只改VERSION/badge，根摘要正常A6。本次另修#244 Windows验证目录EBUSY：异步清理有限重试，路径检查/持续失败保持；五包/版本/冻结计划不变。main/tag/Release仍8.3.0，无8.3.1发行。自动删除false；历史bypass/批准缺项保留，不指定审查人；当前head非作者批准/CI/线程门禁保持。
+Owner于2026-10-16明确要求发布；当前8.3.1候选完整继承develop6df、以main31cb为base，五包七技能/插件版本同已发布8.3.0。准备、限定客户端证据与真实发布状态见[8.3.1账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)；当前head非作者批准/CI/线程及保护门禁保持，不指定审查人。main/tag/Release仍8.3.0，无8.3.1公开发行。
 
 communication-kit 首版按已保存的[完整计划](plan/communication-kit-implementation-plan.md)实施，来源与授权见[捕获记录](plan/communication-kit-plan-provenance.json)，由 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222) 管理 PR1–PR5 与正式上线。产品方向、显式 communicate 单入口、保义改写和文件边界已确认；设计与验收契约见[新增 ADR](docs/adr/[ADR]_Communication_Kit_Addition.md)及[验收 RUNBOOK](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。PR1/PR2 保持现有运行集合，PR3 原子接入新包。Owner 选择 Learning 先发布 8.2.0，Communication 随后独立 minor（预计 8.3.0），PR4 重查实际版本和基线；现实效果测试本次延期，基础通过不代表效果已验证。
 

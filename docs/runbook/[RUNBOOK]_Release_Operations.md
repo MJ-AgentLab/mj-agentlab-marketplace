@@ -4,14 +4,16 @@ scope: marketplace
 summary: "Draft-first Git/tag release with install verification and immutable history"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-15
+updated: 2026-10-16
 state: active
-version: v2.9.7
+version: v2.9.8
 ---
 
 # [RUNBOOK] Release operations
 
 ## Preparation
+
+当前发布任务（2026-10-16）：Owner 已要求“进行发布”，授权 8.3.1 维护补丁；沿用已预升版本与未变五包、原限定客户端证据及全部失败/延期。完整 develop6df 已含维护内容，本次隔离发布候选直接向 main 提正常 release PR；当前 head 真实非作者批准、CI、最新 base 与线程门禁满足后才普通合并，再由自动 draft-first 发布并从真实 tag 新做十三安装/缓存 Python。#245 历史治理例外不延伸；不重启模型或桌面测试。当前来源、逐项 PENDING 与证据见 [8.3.1 账本](./[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。下段保留已完成的 8.3.0 历史任务快照。
 
 发布前任务快照（已完成，续办状态见 Post-release）：2026-10-15 本轮按 Owner 已确认计划发布完整 develop 五插件/七技能/四显式的 8.3.0，取代旧 Communication 四包范围。HTML 0.1.36 按当前实现交付，#239 已知 FAIL、双端与扩展未覆盖继续保留；不重启模型/桌面验收，仅执行必要 CI、准确安装及缓存 Python。具体授权与逐项资格以[8.3.0 账本](./[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)为准。当前 head 批准、required checks 和线程门禁保持。完成公开和发布后必要复查即停止；以下既有 Post-release 回同步、预升、文档收尾及 Issue/归档流程留待后续，不在本轮执行。
 
