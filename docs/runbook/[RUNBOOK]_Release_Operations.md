@@ -6,14 +6,14 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-16
 state: active
-version: v2.9.9
+version: v2.9.10
 ---
 
 # [RUNBOOK] Release operations
 
 ## Preparation
 
-当前收尾任务（2026-10-16）：8.3.1 已实际公开并完成真实 tag 后新十三安装/Python 复验；原发布批准缺项仍 NOT_MET。Owner 新授权顺序三个 PR：先将本发布记录经正常门禁合入 main，再同步包含该记录的实际新 main 到 develop 并复验实际 sync，最后从真实同步结果仅预升 Marketplace 8.3.2 VERSION/badge 并正常同步 AGENTS/A6。后两步当前 NOT_STARTED/DEPENDENT，不改插件、不创建 8.3.2 tag/Release、不继承 #245 例外；当前证据与逐步状态见 [8.3.1 账本](./[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
+当前同步任务（2026-10-16）：第1步发布记录 #254 已合入 actual main7615ca58/treeb323（同已测6a4），治理仍为suite4563644321 bypass/reviews=[]/批准NOT_MET；actual761 的新精确十三安装与实际缓存 Python 已通过。第2步复用既有隔离工作区，以 codex/sync-main-8-3-1 从真实 main761 派生，准备向 develop6df 提正常同步 PR；新候选 CI/真实批准/线程及实际 sync 后精确十三安装均待完成。第3步仅在 actual sync 交付并复验后，才准备 Marketplace 8.3.1→8.3.2 VERSION/badge 与 AGENTS 正常A6；当前 NOT_STARTED/DEPENDENT，不 apply、不改插件、不创建8.3.2 tag/Release。原8.3.1 tag/Release仍4e4，#245例外不外推。来源、实际结果与顺序见 [8.3.1账本](./[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
 
 历史发布准备快照（2026-10-16，现已发布，原门禁要求与执行结果分开记录）：Owner 已要求“进行发布”，授权 8.3.1 维护补丁；沿用已预升版本与未变五包、原限定客户端证据及全部失败/延期。完整 develop6df 已含维护内容，本次隔离发布候选直接向 main 提正常 release PR；当前 head 真实非作者批准、CI、最新 base 与线程门禁满足后才普通合并，再由自动 draft-first 发布并从真实 tag 新做十三安装/缓存 Python。#245 历史治理例外不延伸；不重启模型或桌面测试。当前来源、逐项 PENDING 与证据见 [8.3.1 账本](./[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。下段保留已完成的 8.3.0 历史任务快照。
 
@@ -32,6 +32,8 @@ scripts/run-release.mjs 从指定 SHA 读取 VERSION 与 CHANGELOG，要求 SHA 
 创建空 draft → 有界等待可见 → 验证 canonical Git tree 的安装/发现 → 紧邻 publish 再取远端身份/状态 → publish → 复查 published/immutability。新发布无附加资产；unexpected assets fail closed，既有公开资产不会上传、覆盖或删除。已发布版本只能验证并 noop；故障通过新修复版本处理。
 
 ## Post-release
+
+发布记录 #254 已实际合入 main7615ca58f410876fc7393b0d93017250fe712091/treeb323da8a764120c23544ef9b65df479d9ca7a20f，与已测6a4同树。actual761 新核验：UTC15:03:12.936–15:04:07.552Z、wall54616.4894ms，十三安装/170命令零错、6Diagram+18LEK、130phases全ok/15cleanup及15自有根absence；52源哈希保持、实际19→19完整列表相同，canonical AGENTS未测，无新full/24/model/UI。宿主保持原6a4，目标为不同的actual761；计数不得借自候选/4e4旧批次。原suite4563644321 bypass、reviews=[]、批准NOT_MET保留；actual merge与技术结果不追认批准，后续sync/pre-bump继续正常门禁。当前第二步同步准备中、实际develop merge及其精确复验待完成，第三步依赖actualsync且未apply；原#253公开身份与限定客户端证据均保持。详见 [8.3.1账本§3.3](./[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)与[汇总回执 recordPRPostMerge 附录](evidence/marketplace-8-3-1-postrelease.json)。
 
 Marketplace v8.3.1 已通过 #253 于 2026-10-16T14:27:14Z 合入 main4e4d4172，tree9824218 与已测 b830 相同；direct tag/Release target 同4e4，bot于14:28:02Z公开，workflow38915888301 attempt1 SUCCESS。发布后14:30:44–14:31:40Z新tag批次十三安装/170命令、6 Diagram+18 LEK Python、130成功phases/15cleanup及15自有根absence通过，51源哈希与实际18→18登记列表保持；宿主b830未切，canonical AGENTS未测。内部发布工作流不补造逐十三/Python raw。原suite4563052548为bypass/approval fail、reviews=[]，治理NOT_MET不因技术PASS改写；HTML FAIL、Learning延期、Communication PARTIAL及所有客户端/效果限制保持。完整原件、独立核验与新授权三PR收尾顺序见 [8.3.1 账本](./[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)及[发布后汇总回执](evidence/marketplace-8-3-1-postrelease.json)。
 
