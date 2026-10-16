@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-15
 updated: 2026-10-16
 state: active
-version: v1.10
+version: v1.11
 last-verified: null
 ---
 
@@ -425,10 +425,21 @@ Preserve the A1 active→completed archive's NOT_PROVED partial read, A2 QA fail
 
 Queued/fork, actual REST403/timeout/pagination drift/pending-approval faults remain injected regression coverage where not observed; strict native unanswered-window/client deferrals stay unchanged. Final-read/output races, same-repository workflow-author authority and decision-after-carrier-failure limitations remain. This evidence-only update preserves the complete proven CI/test blobs; its own current-head PR dual-OS CI and exact13 installation are recorded separately in PR251. Agent role reviews do not provide GitHub non-author approval. Actual current-head approval, threads/base qualification, PR251 merge and fresh postmerge verification must precede whole-Issue closure;245 stays OPEN.
 
+### 5.17 Actual PR251 merge, fresh verification and explicit Issue245 closeout
+
+PR251 actually merged as6df7e12ec700277fa133c63ddaa89c8b32f7bdf6 at2026-10-16T12:31:18Z, parents6bc7c637/382ef1b6, tree378c6cd30db1dd9fa1ba31a476de3f96660423f6. Final head382's PR38886060893 independently passed Windows492/492 and Ubuntu491+one existing Windows-only skip, each13 installation scenarios and actual Python, plus Validate/A6; its push38886051619 actually substituted that exact queued PR carrier and performed no compatibility work. This queued observation updates only final382, not the earlier4a snapshot.
+
+The actual merge then received new local full492/492 with zero failures/skips/cancellations/todo (UTC12:35:02.369–12:36:03.721, wall61351.7797ms, TAP61065.5669ms), npmci/validate/baseline-tools exit0. New exact actual6df verification ranUTC12:39:05.380–12:39:56.211,50830.289ms:13/13,170commands/zeroerrors,6Diagram+18LEK actualPython,130phases allok,15cleanup and15owned roots independently absent. Both complete registered-root lists remained17→17;10source hashes and originalhost382 stayed unchanged. Node22.18.0/Python3.12.13/CLI0.147.0 are this local environment, not a new hosted24-sample comparison. Canonical AGENTS read-time bytes were not measured.
+
+Actual rule-suite4561109675 isOwner bypass, approval rulefail, reviews=[]/REVIEW_REQUIRED; otherrequired checks passed. Preserve those original approval/protection facts asNOT_MET. After all technical verification, the Owner explicitly accepted the Issue245-only historical governance exception and completed closure; the exact submitted answer is in the compact receipt. This is not a fabricated approval or permission for future releases/merges. The Agent recorded the decision at13:08:06.148Z (recording time, not claimed exact submission time), then closed245 asCOMPLETED at13:09:52Z after remote readback. Thus technicalPASS, originalgovernanceNOT_MET and Owneracceptedexception remain distinct; earlierOPEN/pending statements retain their historical context.
+
+The [final compact receipt](evidence/ci-performance-245-final-closeout.json) binds actual postmerge counts, environment, raw-result/independent-audit hashes, Owner decision and remote closure. Original failed performance runs, Trace2 diagnostics, QA failures, client deferrals and asynchronous/later-carrier limitations remain. Publishing8.3.1 is separately authorized and retains ordinary current-head approval/check/thread gates.
+
 ## 6. Change history
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.11 | 2026-10-16 | Record final382 PR/queued evidence, actual6df new full492/exact13, and Owner-explicit Issue245-only governance exception followed by completed closure; retain historical NOT_MET and all raw boundaries. |
 | v1.10 | 2026-10-16 | Record PR5 local492/exact13, real five-attempt substitution/fallback, native failed-gate and whole-push cancellation, independent audits and retained QA limits. Final-head gates/actual merge/postmerge stay separate. |
 | v1.9 | 2026-10-16 | Record actual PR249 Owner-bypass merge and fresh exact installation/Python, then specify push-only deduplication with complete workflow proof, conservative fallback and explicit decision-time/later-carrier boundaries. PR5 new implementation acceptance is pending. |
 | v1.8 | 2026-10-16 | Record actual corrected-source cancellation, stale-attempt self-cancel and403 fallback with independent full-check survival; preserve first failure, missed window, deliberate config-test failures and raw archival limits. Final evidence-only head gates remain separately recorded. |

@@ -2,7 +2,7 @@
 
 ## 项目上下文
 
-Marketplace v8.3.0已由#241/main ae2754db于2026-10-15公开，tag/Release同SHA，五包七技能/四显式：Diagram0.3.1、Learning Evidence0.1.0、Explain0.1.1、Communication0.1.0、HTML0.1.36。发布后十三canonical及6+6实际Python通过；CLI0.147.0。HTML#239已知FAIL/双端未覆盖、Communication限定覆盖及审计bypass/空reviews均保留，见[8.3账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。
+Marketplace v8.3.1已由#253/main4e4d4172于2026-10-16自动公开，tag/Release同SHA，五包七技能/四显式，插件版本同8.3.0。发布后十三canonical、6Diagram+18LEK实际Python及15清理通过，CLI0.147.0；Owner bypass/空reviews与旧客户端限制分别保留，见[8.3.1账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
 
 manifest 的公开示例按[插件契约](docs/spec/[SPEC]_Plugin_Json_Schema.md)保留完整路由，最多三条，各原值不超过 128 个 Unicode scalar values；严格校验防止客户端忽略超长示例而丢失公开入口，不依赖空白归一化。
 
@@ -20,9 +20,9 @@ Communication按[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketpla
 
 ## 执行与决策
 
-#245 PR4合入6bc7c63已验；PR5 #251去重/回退实测通过，合入待验，见[账本](docs/runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。
+#245五阶段已合并、actual6df新492/13安装/Python复验通过并关闭；Owner仅接受该Issue历史批准/bypass例外，非未来豁免，见[账本](docs/runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。
 
-Owner2026-10-15要求同步main31cb2cb后预升8.3.1；#243已合入864ecd5，本分支沿用eeb5e01。版本工具只改VERSION/badge，根摘要正常A6。本次另修#244 Windows验证目录EBUSY：异步清理有限重试，路径检查/持续失败保持；五包/版本/冻结计划不变。main/tag/Release仍8.3.0，无8.3.1发行。自动删除false；历史bypass/批准缺项保留，不指定审查人；当前head非作者批准/CI/线程门禁保持。
+#254实际main7615ca58与已测候选同树，新13安装/Python复验通过；bypass/空批准保留。当前将完整main同步develop，市场仍8.3.1、插件不变；实际sync合入复验后才DryRun/Apply8.3.2，仅VERSION/badge加根A6，不发同号发行。各新PR保持真实非作者批准/CI/线程门禁；见[8.3.1账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
 
 communication-kit 首版按已保存的[完整计划](plan/communication-kit-implementation-plan.md)实施，来源与授权见[捕获记录](plan/communication-kit-plan-provenance.json)，由 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222) 管理 PR1–PR5 与正式上线。产品方向、显式 communicate 单入口、保义改写和文件边界已确认；设计与验收契约见[新增 ADR](docs/adr/[ADR]_Communication_Kit_Addition.md)及[验收 RUNBOOK](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。PR1/PR2 保持现有运行集合，PR3 原子接入新包。Owner 选择 Learning 先发布 8.2.0，Communication 随后独立 minor（预计 8.3.0），PR4 重查实际版本和基线；现实效果测试本次延期，基础通过不代表效果已验证。
 

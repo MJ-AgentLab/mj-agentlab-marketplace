@@ -5,6 +5,33 @@
 
 ## [Unreleased]
 
+### Documentation
+
+- Verify actual #254 merge 7615ca58 with a separate thirteen-install/Python batch and prepare a protected sync of its complete main ancestry to develop. Preserve original missing approval and Owner bypass; keep Marketplace 8.3.2 pending the actual sync merge and a fresh dry-run, with plugin versions unchanged.
+
+- Record actual #253 / v8.3.1 publication, exact main/tag/Release identities and the new post-publication thirteen-install/Python/cleanup verification. Update current README installation to the real v8.3.1 tag; retain actual Owner bypass, missing independent approval, QA preflight failures and all limited client results. Stage the newly authorized main-to-develop sync and Marketplace-only 8.3.2 pre-bump after their actual prerequisite merges; plugin versions and published history remain unchanged.
+
+## [8.3.1] - 2026-10-16
+
+Marketplace maintenance patch for Windows CI and canonical installation preparation. The five plugin packages, public entries, catalog and plugin versions are byte-identical to published 8.3.0; no plugin version bump is included. Refs #244, #245.
+
+### Maintenance results
+
+- Replace 22 broad test preparations with independent minimal contract fixtures, retaining real runtime resources, strict validators, missing/tampered-resource rejection, isolation and failure cleanup.
+- Prepare one verified real-source template for all thirteen independently isolated installation combinations. Keep actual installed-cache Python and bounded transient-lock cleanup retries.
+- The complete same-Windows-job 24-sample comparison passed all four gates: copied content reduced by at least 99.447896%, full-test command median by 88.193766%, whole canonical command median by 93.237433%, and whole smoke command median by 76.838616%. These are content-byte and command-wall measurements, not physical disk I/O or general runner guarantees. Keep Node's measured default and the original 60000ms Git deadline.
+- Cancel proved superseded same-PR CI and omit duplicate push compatibility only when exact current-source/latest-PR-attempt proof succeeds. Preserve every PR merge-result matrix and push structure checks; uncertain or failed decisions run the full push. Later carrier failure/cancellation does not automatically restore an already skipped push.
+
+### Verification and retained limits
+
+- Issue245's final actual merge6df7e12 passed fresh492/492, strict validation, thirteen exact installations, six Diagram plus eighteen Learning Python calls and complete cleanup; Issue245 is closed after the Owner explicitly accepted its recorded historical non-author-approval/bypass gaps. That exception applies only to Issue245; this release retains ordinary current-head approval, checks and thread gates.
+- The new release candidate and actual published tag require their own exact-source verification. Release identity, publication and post-publication installation remain separate until observed in the [8.3.1 readiness ledger](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md).
+- Retain all failed benchmark attempts, diagnostics and scheduling-probe failures. Unchanged plugin evidence retains HTML #239 FAIL and incomplete client coverage, Learning deferred entries, Communication PARTIAL/limited local routes and unmeasured effects; installation and CI do not promote them to PASS.
+
+### Historical staged preparation notes
+
+The following original entries record their own preparation stages. Their pending states are historical snapshots; the final measurements and Issue245 decision above supersede those execution statuses while retaining the failures and evidence boundaries.
+
 ### Maintenance
 
 - Deduplicate push compatibility matrices only with exact current PR/source/latest-attempt proof. Preserve every PR merge matrix and push structure checks; uncertain queries, failed gates or missing outputs retain the full push. Verify real active/success/latest-attempt substitution, cancelled-carrier fallback, failed-token initialization and whole-push cancellation on an unmerged probe; retain asynchronous cancellation and original QA failures. Record actual #249 merge and fresh installation/Python verification without inferring missing approval. Refs #245.
