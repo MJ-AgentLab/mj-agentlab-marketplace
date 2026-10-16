@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-15
 updated: 2026-10-16
 state: active
-version: v1.5
+version: v1.6
 last-verified: null
 ---
 
@@ -102,7 +102,7 @@ Current develop service-required contexts are `Validate Structure` and `A6 / Che
 | PR2 hosted engineering | PASS | PR 38771466668 and push 38771457469 both successful: Windows 382/382, Ubuntu 381 pass plus one existing Windows-only skip; all four jobs 13/13 actual smoke scenarios, six installed Diagram checks and six Learning groups each. See §5.3 and compact receipt. |
 | PR2 staged copy acceptance | PASS, FIXTURES ONLY | Run 38771487907 completed six same-runner samples; every candidate has 22 roots and 69,933,534 actual copied bytes. Conservative reduction 99.447896% exceeds 95%; independent raw-profile audit passed. Core speed/concurrency remain deferred. |
 | PR2 actual-merge installation | PASS | Fresh exact 02724de0 verification on 2026-10-16 02:17:32–02:19:50 Asia/Taipei: 13/13 actual canonical installations, six installed Diagram checks and six Learning groups with valid replay/structure, zero command errors, Codex 0.147.0. Log SHA-256 f58e627a767c3cabbe87b2b7e2c4eae882b3aafdd4f8ad10038eece768e43de0. This is not a new full-test run of the actual merge. |
-| PR3 smoke source implementation | IN_PROGRESS | Isolated codex/issue-245-smoke from actual PR2 merge; real-source template, thirteen independent contexts, original validation and Python contracts retained. Initial two static coverage gaps, the 23-case supplement and actual rerun are recorded in §5.4. |
+| PR3 smoke source implementation | ACTUALLY MERGED, POSTMERGE PASS | Isolated codex/issue-245-smoke from actual PR2 merge; real-source template, thirteen independent contexts, original validation and Python contracts retained. Initial two static coverage gaps, the 23-case supplement and actual rerun are recorded in §5.4. |
 | PR3 first targeted regression | 18 PASS / 5 PRECONDITION FAIL / 0 SKIP | First 23-case attempt took TAP 45143.6767 ms. A concurrent documentation write added the compact receipt link before its file existed, so five cases (19–23) failed full-source validation before fault injection. Their intended paths were NOT_RUN in that attempt; original failed log is retained. The subsequent complete rerun is separate. |
 | PR3 complete targeted rerun | PASS, WORKING SNAPSHOT | Stable-source rerun on 2026-10-16 02:24:12.925–02:25:02.843 Asia/Taipei: 23/23, zero failures/skips, exit zero; process wall 49917.452 ms and TAP 49881.2414 ms. All five previously blocked intended paths executed and passed. No implementation/test repair was needed. Operation doubles do not establish actual Codex/Python acceptance. |
 | PR3 complete local suite | PASS, WORKING SNAPSHOT | 405/405, zero failures/skips/cancellations, TAP 70328.4381 ms; 3,396 profile events, approved 22 original fixture roots and unchanged valid copied/synthetic/overlay/total counters. Node 22.18.0 / Python 3.12.13; not the pinned hosted benchmark. |
@@ -117,8 +117,10 @@ Current develop service-required contexts are `Validate Structure` and `A6 / Che
 | PR3 second core comparison | NOT_ACCEPTED, INCOMPLETE | Run38793803097 attempted14/24, successful13. Sample14 B/canonical round2 records6 pass/1 fail of7 after internal Git worktree-add60000ms timeout; candidate's six full suites, two canonical commands and one real smoke pass. Original individual canonical/smoke PASS labels are retained as reporting defects, not accepted gates. See §5.6. |
 | PR3 report-readiness guard repair | VERIFIED, HEAD5273490 ONLY | Actual red/green30 regression, working416/416, exact13/Python and ordinaryCI pass; third core correctly keeps every gate not_measured and selection null after incomplete baseline failure. This fixes report semantics, not the frozen baseline timeout. See §5.7. |
 | PR3 third core comparison | NOT_ACCEPTED, INCOMPLETE | Run38830059771 attempts21/24, successful20; B canonical round3 test6 fails during Git worktree.add60000ms. Candidate nine full416/416, two isolated7/7 and two real13-scenario smokes pass; no accepted gate or concurrency. |
-| PR3 separate Git diagnostic | IN_PREPARATION, NOT_RUN | The perf-245-diagnostic label selects only the unchanged Communication resource-negative test with per-process Git Trace2. Reduced workload and trace overhead forbid formal acceptance; original core job, frozen source and60s deadline remain unchanged. New-source engineering and actual diagnostic execution are pending. |
-| PR4-PR5 / final Issue closure | NOT_STARTED | Main-CI scheduling remains separate; Issue stays open. |
+| PR3 separate Git diagnostic | COLLECTED, NOT PERFORMANCE ACCEPTANCE | Run38844331433 completes6/6; archived1094 raw files and observed sessions agree. Formal gates stay unmeasured; see §5.8. |
+| PR3 final core / actual merge | TECHNICAL PASS, ACTUAL OWNER BYPASS RECORDED | Run38846509170 completes24/24/all four gates, default retained; actual abca merge and fresh13/Python pass. Empty reviews and rule-suite bypass are not retroactive approval. See §5.8. |
+| PR4 main-CI cancellation | IN_PROGRESS, HOSTED NOT_RUN | Isolated codex/issue-245-cancel from actual abca; source/target proof, conservative API stopping and independent checks; §5.9. |
+| PR5 / final Issue closure | NOT_STARTED | Push deduplication and final acceptance remain separate; Issue stays open. |
 
 Local logs remain outside the checkout. Initial full-test log SHA-256: `d8a58e6d748bbcb6d42227afc625c09121934aace7aa30b4f54faa028f0caf5d` (80,933 bytes); profiling-enabled smoke stdout SHA-256: `d6ddbd9eb4fea874c5f75471a4589abc5fea8d4f16e630d549098f7f5a7a9688` (324,246 bytes). These working-snapshot checks are not a substitute for the final commit's required CI.
 
@@ -276,10 +278,71 @@ Selected-test workload, possible excluded-test skips and tracing overhead make e
 
 On regression, retain failure evidence and fix within the authorized stage or revert that stage through a normal protected PR. Never delete historical evidence or weaken acceptance to achieve a lower time.
 
+### 5.8 PR3 completed diagnostic, formal core and actual merge
+
+The final PR3 head is da4047322bf4757e06e458667f6cd3934f0191bf/tree12a7b8a9e05b5d1c98ea4514fc98ee7eecd7b803. Its working full suite passes432/432; exact candidate installation13/13 and real cached Python pass. Ordinary PR38844276755/push38844272178 both succeed: Windows432/432, Ubuntu431 plus the existing Windows-only skip, each compatibility job13 real installations. Raw ordinary-CI receipt SHA25605572dd111cf412ad98c9f912ceaf0eaff2e42aab4913469a0bb6563b5b25487 is separate from performance acceptance. The earlier NOT_RUN text in §5.7 is the preparation-time snapshot, not the current outcome.
+
+[Directed diagnostic38844331433](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38844331433), job116791303290, collects all six fixed B/O/O/B/B/O targets: each original Communication resource-negative test1/1, no skip or extra executed target. B wall seconds288.076110/308.898235/346.065282; O42.106175/43.487824/34.499424. Independently rehashed1094 raw files plus report agree. All948 observed Trace2 sessions end with exit/atexit and all204 child pairs close;933 phases retain96 expected validate-negative errors.102 creates/removes/canonical cleanups and three final source/root cleanups succeed. No canonical60s timeout is reproduced. The slowest B worktree phase20.708s is dominated by its reset child20.639s/Updating files20.505s. B fixture git add reaches77.953s on a separate spawnSync path without that60s limit. These facts do not establish disk/scanner/scheduler cause, every OS descendant's state, or historical-failure repair. Diagnostic mode remains coreAccepted=false, gates not_measured and selection null; no diagnostic value enters formal acceptance.
+
+Diagnostic artifact12023281412 expires2026-11-15T03:31:23Z: ZIP546c7f592f668371d0d9f1efb3ab37d916f1948f3a66fa90e7221dc632ea8587 matches API digest; report77a4c03686f5b5e3537b4ce836c710f04ae69fef34f22e5eb33a5495e0170def; independent audit44aa13e19290fa75ed33a2cb2540f92114a6880aa762bed2f5491127daebabec. Read-time/archived bytes agree for this collection; retain the live-file limitations for future incomplete diagnostics.
+
+The subsequent original-protocol, untraced [formal run38846509170/job116798156338](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/38846509170/job/116798156338) succeeds with24/24 complete samples, failures=[], no replacement or pooling. Actual candidate checkout is PR mergecc9787c555f45d04630a808ab040bb50ea82de27, same tree12a7b8a9, parents02724de0 and headDA. Frozen B30665998/tree20f540fc, its source/instrumentation and original60000ms deadline remain unchanged. The [compact receipt](evidence/ci-performance-245-pr3-core-attempt4.json), SHA25667e6fc1b6104aa36035d00ad9f3fd2b3de855fb03ce1715f0b78f8268bfc30be, preserves every sample/argv/count,48 output hashes, all original group statistics and limits. Report UTC03:38:59.106–07:00:31.161, wall12092341.0491ms is distinct from the outer job03:38:21–07:00:45.
+
+| Group / command wall seconds | Round1 | Round2 | Round3 | Median |
+|---|---:|---:|---:|---:|
+| baseline/test/default | 1512.940105 | 1368.554094 | 1751.171997 | 1512.940105 |
+| candidate/test/default | 214.280359 | 167.904217 | 178.621243 | 178.621243 |
+| candidate/test/1 | 414.063498 | 369.381193 | 336.540568 | 369.381193 |
+| candidate/test/2 | 232.519638 | 214.505855 | 248.467740 | 232.519638 |
+| baseline/canonical/default | 1069.005346 | 1386.416206 | 1255.227880 | 1255.227880 |
+| candidate/canonical/default | 95.534916 | 82.980748 | 84.885623 | 84.885623 |
+| baseline/smoke/default | 229.039858 | 361.930640 | 256.209383 | 256.209383 |
+| candidate/smoke/default | 75.087863 | 55.952183 | 59.341639 | 59.341639 |
+
+| Gate | Independent reduction | Required | Result |
+|---|---:|---:|---|
+|22 original fixtures copied input content|at least99.447896157%|95%|PASS|
+|Whole default test command|88.193766413%|50%|PASS|
+|Whole isolated canonical file|93.237433247%|80%|PASS|
+|Whole thirteen-scenario smoke|76.838615989%|30%|PASS|
+
+Baseline copied bytes12666735598 are the controlled-checkout lower bound; candidate69933534 are verified actual input content copies. Synthetic119020, signed overlay+41741 and prepared total70094295 remain separate; this does not measure physical disk I/O. Candidate full samples retain22 roots7/8/5/2. Internal preparation/cleanup stays inside command wall; harness checkout/npm ci/inventory is separately excluded overhead.
+
+B full passes368/368 three times; O default/1/2 passes432/432 nine times; six isolated canonical files pass7/7. Six real smoke commands each pass13/13 with six Diagram and six Learning groups/eighteen LEK calls,170 commands and no command/phase errors.126 raw NDJSON files contain37014 phases with654 expected negative-operation errors. B full has two injected canonical cleanup errors per command; O full has those plus two smoke cleanup negatives. These passing regressions are preserved, not a claim of globally error-free phases. Isolated canonical lifecycle and final two owned-source removals succeed.
+
+Same runner: image20261007.264.1, AMD EPYC9V74/four available CPUs, Node22.23.3/Python3.12.10/Codex0.147.0/Git2.56.0.windows.2/npm10.9.9. Default median178.621243s beats fixed2=232.519638s and fixed1=369.381193s; only default is within5% of fastest, resolving3 here. Main CI and package.json already use literal npm test/default for both OSes. Retain this measured configuration; no adoption patch/new tree or Linux change is needed. Default is not hard-coded3.
+
+Artifact12030572053 expires2026-11-15T07:00:37Z. ZIP10f93680d5f684b1616af28f4305e63a1f1fc1f429439e4ebe386e18c2d1b90f matches API digest; reportac272ac95f8ab061f3456d8088c175b0c47950fbeb2773f261ec02a96841b4d3; joblogc39a0709b5aeb2fa108a4393b46bbc0ce927f357783a7fec5f66ca15b8d2c8c2. An independent offline auditor imports no production calculation functions and verifies24 serial samples, eight groups, raw phases, counts/bytes/Python, all gates and selection: audit SHAa1c23f6a22ca9f4e76315a74d4d919f25cbc19db8673cdcb92cdce29c57e5fe5; extra cross-check02f5aac3d5bd405b87524834b4857d955a61661e24d7701859a91c563770f8d3; job/API receipt4f4e0e0d5f70654d320a37f37727820972f27b790ac3f82be28eab4da4eecc97. All176 archive files agree; removed runtime targets are not falsely claimed to have been rehashed. These results do not guarantee every future runner or erase earlier failures.
+
+Owner ranzuozhou actually merges [#248](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/248) at UTC07:26:10 as **abca23999586b52a37e64ba9c2324c2cbe5de965**, tree12a7b8a9, parents02724de0/da404732. GitHub reviews remain empty. Actual rule-suite4556862213 reports **bypass**: pull_request approval evaluation fails, while required status checks/non-fast-forward/deletion pass. Record this actual Owner action separately; it is not protected-merge PASS or a future approval waiver. The Agent neither merged nor bypassed.
+
+Fresh exact abca canonical verification passes13/13 real CLI installations plus six Diagram/six Learning groups/eighteen LEK Python calls at UTC07:29:18.394–07:30:18.360, wall59965.4426ms including npm ci and the outer canonical layer.170 commands,130 phases have zero errors; all15 cleanups succeed and owned temporary roots are absent.14 projections each97 files/1027316 content bytes total14382424. Local Node22.18.0/Python3.12.13 differ from hosted pins; Codex remains0.147.0 and internal Git60s unchanged. Full-source validation is included. This is actual-merge installation/Python evidence, not a new full432 or24-sample run at abca. Same-tree identity and newly executed checks remain separate.
+
+The [post-merge receipt](evidence/ci-performance-245-pr3-postmerge.json) SHAff9b95d096f1e54bda89dd5c63dd2f077530cd8f289b473b60332afa87b26d23 retains exact sources, all counters/hashes, actual bypass, local tools and cleanup. result.json SHAb181da8edcd846d787206bdabe29673c049058ac911bd0ee08bfb9b3227608c6. An initial QA-only metadata URL with a trailing slash returned404 before canonical invocation/npm ci/scenario execution; that preparation failure is separately retained, and only the QA wrapper was corrected. No production source/limit changed.
+
+Core technical performance and actual merge/install delivery are now recorded; whole Issue245 remains OPEN because PR4/PR5 scheduling acceptance is separate. PR4 begins from actual abca, without altering the frozen performance denominator or runtime/plugin versions.
+
+### 5.9 PR4 cancellation implementation and acceptance contract
+
+Implement only main-CI cancellation of older same-PR runs. Keep Validate Structure and the complete two-OS compatibility matrix independent, with unchanged bodies/events and no workflow/job concurrency group or dependency on cancellation success. A separate inline actions/github-script job has job-local Actions write plus pull-request/content read; it performs no checkout/npm/PR-module execution. Repository settings, rulesets, canary, performance, release, runtime and versions stay unchanged. Fixed run-name fields are association metadata, not a security signature against an author able to change same-repository workflow YAML.
+
+Prove the controller's current open PR/source/attempt and the target's same workflow/PR/repository/branch/target association. Inspect exact head-SHA workflow source for the fixed run-name contract, reject contradictory nonempty REST PR metadata, and treat empty PR arrays only with that explicit source proof. Legacy title-shaped markers and missing proof keep heavy work running. Complete bounded pagination before cancellation; re-read controller/live PR/target immediately before normal cancel. Only active lower-run-number, different-head targets qualify. Old reruns cannot cancel higher-number runs; a higher-number delayed stale event may only cancel its own freshly verified active attempt. There is no atomic conditional cancellation endpoint, so residual remote races remain disclosed.
+
+Cancellation403/network/5xx/unexpected results stop further requests while preserving accepted history; an explicitly identified409 conflict may be recorded and skipped. A202 is an accepted request, not an observed cancellation. API/source/paging/permission uncertainty sacrifices savings while the main jobs continue. The job is bounded; no force-cancel/approval/merge operation is part of the policy. Draft review found missing stop-on-cancel-error and insufficient source/association checks; add direct regression feedback before accepting the fixes.
+
+Actual scheduling acceptance uses the formal PR plus one same-Issue temporary draft probe PR. The probe may carry a bounded hold and a branch-only independent sentinel to create controlled overlap; those validation-only differences never merge. Observe an obsolete probe PR run actually cancelled while the latest same-PR run, formal other PR, push runs and sentinel remain intact. Rerun the exact obsolete run to verify stale self-only cancellation; explicitly fail the probe cancel token to verify independent main jobs still start/execute. Preserve expected probe-source assertion failures as such if a deliberate permission change conflicts with production embedding assertions. Synthetic cases cover delayed higher-number delivery, pagination/timeout/data races that cannot be deterministically forced on the service; do not relabel them as hosted observations.
+
+No unrelated run is cancelled, no canary/global concurrency slot is displaced, and no performance/release dispatch is needed. Every accepted request needs actual target readback and source/run/attempt/timing evidence. Close the temporary probe without merging its sentinel/permission changes. Final candidate ordinary engineering, current-head real GitHub approval, resolved threads and fresh strict-base merge gates still apply. Formal PR5 starts only after actual PR4 merge and post-merge verification.
+
+The actual injected-policy feedback starts with33 cases,17 pass/16 fail, covering the previously unsafe cancellation/error/source paths. The repaired34 cases pass34/34; a separate failing-target logging regression first gives33/34, then final34/34 at UTC2026-10-16T07:43:28Z, TAP135.5632ms/wall185.2875ms. Final stdout SHAee8ef1fb67c708efa8e96ca534a18e5937a13889496ca795e19a44ecb3d9b0a5. The [preparation receipt](evidence/ci-performance-245-pr4-preparation.json), SHA5fd4594f1ee29b035c539b18d46567d21b56a9181d965ca9ede4dd5765d5f8ec, preserves code/test hashes, real RED/GREEN and unchanged-heavy-job checks.
+
+At this preparation snapshot, formal PR4 full checks, exact installation and hosted scheduling are NOT_RUN. Pure injected tests and static embedding checks cannot establish service behavior. Subsequent results retain exact identities and failures; update this ledger through normal later-stage changes without rewriting historical snapshots.
+
 ## 6. Change history
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.6 | 2026-10-16 | Record six-test diagnostics, final independent24/24 core acceptance, retained default, actual Owner-bypass merge and fresh exact installation/Python; begin PR4 main-CI scoped cancellation with service acceptance still pending. |
 | v1.5 | 2026-10-16 | Backfill5273490 engineering and verified reporting guard, retain third21/24 core failure and unknown baseline Git-timeout cause, and prepare a separate selected-test Git Trace2 diagnostic that cannot establish performance acceptance. Frozen source,60s deadline and all formal gates remain unchanged. |
 | v1.4 | 2026-10-16 | Backfill b64140f local/exact/ordinary-CI evidence, preserve the second14/24 core failure and baseline internal Git deadline, and distinguish the original misleading partial PASS labels from accepted performance. Report-readiness repair and its new candidate/full comparison remain unverified/NOT_RUN; frozen source, timeout and all thresholds stay unchanged. |
 | v1.3 | 2026-10-16 | Preserve original5faf67f exact-install/ordinary-CI success separately from the failed2/24 core attempt; record the actual Windows8.3 observer red/green reproduction and one-line test-root repair. All four core gates remain unmeasured; repaired-source final and fresh complete acceptance remain NOT_RUN. |

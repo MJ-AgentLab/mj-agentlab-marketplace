@@ -1,0 +1,338 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-16T07:31:51.010Z",
+  "status": "POSTMERGE_EXACT_CANONICAL_INSTALL_PASS",
+  "actualMerge": {
+    "sha": "abca23999586b52a37e64ba9c2324c2cbe5de965",
+    "tree": "12a7b8a9e05b5d1c98ea4514fc98ee7eecd7b803",
+    "parents": [
+      "02724de060543ff587d07ac713e3f299a8f91407",
+      "da4047322bf4757e06e458667f6cd3934f0191bf"
+    ],
+    "mergedAt": "2026-10-16T07:26:10Z",
+    "mergedBy": "ranzuozhou",
+    "sameTreeAsAcceptedHead": true,
+    "githubReviewsCount": 0,
+    "ruleSuite": {
+      "id": 4556862213,
+      "result": "bypass",
+      "actor": "ranzuozhou",
+      "approvalEvaluation": {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008221,
+          "name": "protect-develop"
+        },
+        "enforcement": "active",
+        "result": "fail",
+        "rule_type": "pull_request",
+        "details": "New changes require approval from someone other than the last pusher."
+      },
+      "otherEvaluations": [
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008221,
+            "name": "protect-develop"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "non_fast_forward"
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008221,
+            "name": "protect-develop"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "required_status_checks"
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008221,
+            "name": "protect-develop"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "deletion"
+        }
+      ],
+      "source": {
+        "file": "root-rule-suite/rule-suite-4556862213.json",
+        "bytes": 1003,
+        "sha256": "500737db1d4869e1e4e86720190b9729ed7551ab244ac058604af458faf11d60"
+      }
+    },
+    "interpretation": "Actual merge was an Owner bypass with approval evaluation failed; technical acceptance and post-merge installation pass are independent. This is not protected-merge PASS and grants no future waiver."
+  },
+  "command": {
+    "existingExternalVerifier": {
+      "path": "C:/Users/Admin/.codex/worktrees/issue-245-smoke/qa/diagnostic-exact-da40473/verify-exact.mjs",
+      "sha256": "1e108876c8d777433ca5bf70d227bfd2189d599c018589f7a8fb358b57e1b572"
+    },
+    "args": [
+      "abca23999586b52a37e64ba9c2324c2cbe5de965"
+    ],
+    "method": "existing external verify-exact.mjs; exact canonical checkout, npm ci then literal npm run smoke:codex; original Git 60000ms unchanged",
+    "startedAt": "2026-10-16T07:29:18.394Z",
+    "endedAt": "2026-10-16T07:30:18.360Z",
+    "wallMs": 59965.442599999995,
+    "exitCode": 0,
+    "timedOut": false,
+    "spawnError": null,
+    "killError": null
+  },
+  "tools": {
+    "node": "v22.18.0",
+    "nodeExecutable": "D:\\Development\\nodejs\\node.exe",
+    "npm": "10.9.3",
+    "python": "Python 3.12.13",
+    "pwsh": "PowerShell 7.6.5",
+    "codex": "codex-cli 0.147.0",
+    "git": "git version 2.53.0.windows.1",
+    "pythonExecutable": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+    "platform": "win32"
+  },
+  "actualResults": {
+    "scenarios": 13,
+    "scenarioPassed": 13,
+    "totalCommands": 170,
+    "commandErrors": 0,
+    "diagramGroups": 6,
+    "diagramPythonCalls": 6,
+    "diagramValidationAllPass": true,
+    "learningGroups": 6,
+    "learningPythonCalls": 18,
+    "learningAllSaveReplayStructuralValid": true,
+    "learningPythonVersion": "3.12.13",
+    "phaseFiles": 2,
+    "phaseRecords": 130,
+    "phaseErrors": 0,
+    "phaseCounts": {
+      "worktree.create:ok": 1,
+      "validate:ok": 43,
+      "install:ok": 43,
+      "worktree.remove:ok": 1,
+      "cleanup:ok": 15,
+      "copy:ok": 14,
+      "git.init:ok": 13
+    },
+    "canonicalWorktreeCreateOk": 1,
+    "canonicalWorktreeRemoveOk": 1,
+    "cleanupOk": 15,
+    "cleanupScopes": {
+      "canonical": 1,
+      "smoke": 14
+    },
+    "copyTotals": {
+      "sourceCopies": 14,
+      "templateCopies": 1,
+      "scenarioCopies": 13,
+      "eachFiles": 97,
+      "eachBytes": 1027316,
+      "totalCopiedFiles": 1358,
+      "totalCopiedBytes": 14382424,
+      "domain": "actual logical source file contents copied, not physical I/O"
+    },
+    "ownedRootsAllAbsentAfter": [
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\release-install-LyA9S3",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-source-0hqswQ",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-faaeNa",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-VXKLoU",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-4Dgz2U",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-6VMGYW",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-TWB0sm",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-4Hnj5I",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-CfSvRo",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-ufZqLs",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-ST7jLX",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-DrPkaE",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-3wc98E",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-FSSZTe",
+        "existsAfter": false
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-WhmMTm",
+        "existsAfter": false
+      }
+    ]
+  },
+  "sourceAfter": {
+    "head": "da4047322bf4757e06e458667f6cd3934f0191bf",
+    "clean": true,
+    "canonicalWorktreeRegistrationRemoved": true,
+    "preExistingWorktreeListUnchanged": true
+  },
+  "publicState": {
+    "main": "31cb2cbbefaf1ca55a2d43d7cce74780b40ee31e",
+    "latestRelease": {
+      "tag": "v8.3.0",
+      "target": "ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64",
+      "publishedAt": "2026-10-15T07:51:33Z"
+    },
+    "developVersion": "8.3.1"
+  },
+  "priorPreparationFailure": {
+    "recordedAt": "2026-10-16T07:29:17.414Z",
+    "stage": "QA metadata preparation before canonical invocation",
+    "cause": "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/ returned HTTP 404 because QA-only unused repository endpoint had trailing slash",
+    "exitCode": 1,
+    "canonicalInvoked": false,
+    "npmCiInvoked": false,
+    "scenariosExecuted": 0,
+    "sourceChanged": false,
+    "remedy": "New QA continuation omits unused repository endpoint and reuses six successfully saved raw API responses; existing verification script and production limits unchanged."
+  },
+  "limits": [
+    "Initial QA metadata preparation failed before canonical/npm/scenario execution; it is preserved and does not count as a failed installation attempt.",
+    "This post-merge invocation ran npm ci and the actual 13-scenario smoke command; it did not rerun full432 or the full24 comparison. Existing formal evidence is carried only by exact Git tree equality.",
+    "Original source and Git 60000ms production timeout were unchanged; QA outer command timeout was 12 minutes and did not fire.",
+    "Actual CLI/Python installation verification does not provide native UI or desktop client acceptance.",
+    "No previous worktree was cleaned, no tracked source changed, no release/version change and no GitHub mutation were performed by this audit."
+  ],
+  "rawFiles": [
+    {
+      "file": "diagnostic-exact-npm-ci.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "diagnostic-exact-npm-ci.stdout.log",
+      "bytes": 138,
+      "sha256": "53e61fed19389ce1c18d09554b71adb4203caff1f1176ec7bd7527d2a6a2688a"
+    },
+    {
+      "file": "diagnostic-exact-npm-smoke.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "diagnostic-exact-npm-smoke.stdout.log",
+      "bytes": 315987,
+      "sha256": "e900c391a97c623cc747b9b48cb84d7f6abb4923521eff4a9d919039f9357430"
+    },
+    {
+      "file": "metadata/develop-ref.json",
+      "bytes": 378,
+      "sha256": "aa781c62ec2d0ae17eca34aec0a0a05a70b54c110cb149dff49c3bc964301d50"
+    },
+    {
+      "file": "metadata/latest-release.json",
+      "bytes": 27086,
+      "sha256": "12fed31f4af27382dc20a90aebe5281e8ca66445321377675db51036e1714a73"
+    },
+    {
+      "file": "metadata/main-ref.json",
+      "bytes": 368,
+      "sha256": "30915e8b2206d0f5c145ef489bcfaccebfebe5034c0740dfcd2bc8f4f84e92a7"
+    },
+    {
+      "file": "metadata/merge-commit.json",
+      "bytes": 2842,
+      "sha256": "89be754686875749eb8d89359f3f1677a384fd07085f6f47001494269eb9d0dc"
+    },
+    {
+      "file": "metadata/pr248-reviews.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "file": "metadata/pr248.json",
+      "bytes": 26216,
+      "sha256": "605c320d2edda93be5fececfe4bc1802fb1986eaf15707cc0a2a60383dc647b0"
+    },
+    {
+      "file": "phases/perf-35312-66a6d683-c40b-4a51-ac0d-54d371749b4b.ndjson",
+      "bytes": 549,
+      "sha256": "75b40615644e7eb56c0abb73937e8d4ff13d0953c302818823dbe0ed50e6e618"
+    },
+    {
+      "file": "phases/perf-55088-7eb79595-a7b8-484d-a601-2ec4ede0829c.ndjson",
+      "bytes": 31551,
+      "sha256": "f72bf30b5de557f1da40d5db2432b876be8645a7242a856be4ea3889ca7a5b70"
+    },
+    {
+      "file": "preflight.json",
+      "bytes": 4257,
+      "sha256": "e824a2a84813b8ad851907fde66e50639b8e0d601b965275863b4022e3c771d5"
+    },
+    {
+      "file": "preparation-failure.json",
+      "bytes": 563,
+      "sha256": "ee3e3b46f5b4734fdbb3d91487803072eae7232e958320541c20e2d2f7e21b47"
+    },
+    {
+      "file": "process.json",
+      "bytes": 3866,
+      "sha256": "6b618526e2aa4d2dd9a872c4b9a736aabce5cf5fc664614ba4a4d1430b00cf2d"
+    },
+    {
+      "file": "result.json",
+      "bytes": 315933,
+      "sha256": "b181da8edcd846d787206bdabe29673c049058ac911bd0ee08bfb9b3227608c6"
+    },
+    {
+      "file": "root-rule-suite/rule-suite-4556862213.json",
+      "bytes": 1003,
+      "sha256": "500737db1d4869e1e4e86720190b9729ed7551ab244ac058604af458faf11d60"
+    },
+    {
+      "file": "run-postmerge-prepared.mjs",
+      "bytes": 5552,
+      "sha256": "711294d70636a46ac1e9828268202ca14086e7282442ae54702c5729decdb77d"
+    },
+    {
+      "file": "run-postmerge.mjs",
+      "bytes": 5420,
+      "sha256": "be77f702d5e92d4e20838ed5c0fe227ebc874c6e888e8e871014cd3a08a9fddb"
+    },
+    {
+      "file": "stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

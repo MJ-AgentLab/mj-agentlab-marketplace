@@ -1,0 +1,135 @@
+{
+  "at": "2026-10-16T07:43:28.247Z",
+  "status": "SOURCE_FROZEN_TARGETED_GREEN_HOSTED_NOT_RUN",
+  "base": "abca23999586b52a37e64ba9c2324c2cbe5de965",
+  "ownedFiles": [
+    {
+      "file": ".github/workflows/ci.yml",
+      "bytes": 17277,
+      "sha256": "86e0bee0f61139b31051cd36b5ccf86a76cdbd2ea377544c3fa57a863e7b97c5"
+    },
+    {
+      "file": "tests/ci-cancel-superseded.test.mjs",
+      "bytes": 22068,
+      "sha256": "121189e8c7477306c42a002074cc9c1aa6b2d7185eb1df50c5bf8af5f96773d3"
+    }
+  ],
+  "tests": {
+    "invocation": "node --test tests/ci-cancel-superseded.test.mjs",
+    "red": {
+      "tests": 33,
+      "pass": 17,
+      "fail": 16,
+      "exitCode": 1
+    },
+    "firstGreen": {
+      "tests": 34,
+      "pass": 34,
+      "fail": 0,
+      "exitCode": 0
+    },
+    "failureReportRed": {
+      "tests": 34,
+      "pass": 33,
+      "fail": 1,
+      "exitCode": 1
+    },
+    "finalGreen": {
+      "tests": 34,
+      "pass": 34,
+      "fail": 0,
+      "exitCode": 0,
+      "tapDurationMs": 135.5632,
+      "wallMs": 185.2875
+    }
+  },
+  "sourceProof": "Exact run.head_sha content API file/path/base64/size and recomputed Git SHA1, unique fixed ROOT run-name expression; current and target proved separately and cached by immutable commit SHA only.",
+  "sourceProofBoundary": "Explicit association proof, not a signature or protection against same-repository YAML authors. Distinct verified workflow blobs with the same marker template are eligible; PR5 matrix substitution needs its later stronger equivalence proof.",
+  "cancellation": "Only same-PR/workflow/repositories/ref/marker active obsolete older run_number, or proved stale controller self; fresh PR/current/target reads and stable target attempt/SHA. 202 means request accepted. Only typed HTTP409 continues; every other error stops preserving accepted requests.",
+  "unchanged": "Original workflow name/events/validate/compat JSON hashes and original heavy-job source text are frozen against actual abca baseline. No concurrency groups, needs, event dedup, heavy job permissions/timeouts, production package/version, or frozen performance baseline changes.",
+  "acceptance": {
+    "purePolicyMocks": "PASS",
+    "workflowShape": "PASS",
+    "actualHostedCancellation": "NOT_RUN",
+    "actualHostedSchedulingAndPermissionFailure": "NOT_RUN",
+    "fullSuite": "NOT_RUN_BY_THIS_AGENT",
+    "sourceAndRemoteMutations": "Only the two owned tracked paths were edited; no Git/remote mutation or live API calls occurred in this implementation task."
+  },
+  "qaFiles": [
+    {
+      "file": "baseline.json",
+      "bytes": 434,
+      "sha256": "db9d99248496394d4b45b4e4df2dcf4805ee9c60994c32469d392ea39d763ac9"
+    },
+    {
+      "file": "final-inline.js",
+      "bytes": 11070,
+      "sha256": "e057d2082173309f9d3e325375ea5b57c747cf0bf068551d5b833245fde5d69b"
+    },
+    {
+      "file": "green-final-process.json",
+      "bytes": 605,
+      "sha256": "b73f721e884d6c844c268a2e11f4adee6d85adc7e71343ba70228e5757b4cc58"
+    },
+    {
+      "file": "green-final.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "green-final.stdout.tap",
+      "bytes": 7316,
+      "sha256": "ee8ef1fb67c708efa8e96ca534a18e5937a13889496ca795e19a44ecb3d9b0a5"
+    },
+    {
+      "file": "green-process.json",
+      "bytes": 446,
+      "sha256": "2f6c46f117d27387f541e7b352522e77e6aa386a9939b7f857b2fc05f00501e4"
+    },
+    {
+      "file": "green.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "green.stdout.tap",
+      "bytes": 7319,
+      "sha256": "45683435e1c9ec38bbe1df07204e278309c8b52f10fc67357ef32d64a87cdaee"
+    },
+    {
+      "file": "original-ci.yml",
+      "bytes": 3725,
+      "sha256": "b96cf84d4a29a8908511becc2a43c0a0f78642f8cd8c1fc033b6b019bcb07c6f"
+    },
+    {
+      "file": "red-process.json",
+      "bytes": 446,
+      "sha256": "4a13df43c8426074d5eeaeadf6e9ea8bdd8d1e015bda26ab367cd661ec814d59"
+    },
+    {
+      "file": "red.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "red.stdout.tap",
+      "bytes": 18351,
+      "sha256": "e551a72cd9ca6de2ce9ff79d67ddf225b71a43d6be305376a5fc53f376107009"
+    },
+    {
+      "file": "report-red-process.json",
+      "bytes": 256,
+      "sha256": "97242b26b1996728fc060d3d1487a5929c770f2f308450261b581bfd91e47175"
+    },
+    {
+      "file": "report-red.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "report-red.stdout.tap",
+      "bytes": 7934,
+      "sha256": "426e80f534447b59a68750f1b1cce19844576d85bac2bfc089e82d82fa92d279"
+    }
+  ]
+}
