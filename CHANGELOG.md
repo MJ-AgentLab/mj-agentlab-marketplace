@@ -7,6 +7,8 @@
 
 ### Maintenance
 
+- Correct cancellation identity checks for GitHub's live PR association SHAs while preserving immutable run/source/marker verification. Retain the first real scheduling probe's failure; old-run replay and permission-denial acceptance require a fresh corrected-source pair. Refs #245.
+
 - Begin scoped main-CI cancellation of proved older same-PR runs with independent required checks and both compatibility OSes. Record PR3 final24/24 performance acceptance, retained default, actual #248 Owner-bypass merge and fresh thirteen-installation/Python verification; prior failures/diagnostics remain separate. Runtime and versions stay unchanged. Refs #245.
 
 - Add a separate opt-in Git Trace2 diagnostic for the unchanged Communication resource-negative test after two frozen-baseline Git timeouts. Retain the third incomplete core attempt, original 60-second deadline and all performance gates; selected-test diagnostics cannot establish full-test or performance acceptance. Refs #245.

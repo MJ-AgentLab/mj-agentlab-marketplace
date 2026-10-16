@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-15
 updated: 2026-10-16
 state: active
-version: v1.6
+version: v1.7
 last-verified: null
 ---
 
@@ -338,10 +338,23 @@ The actual injected-policy feedback starts with33 cases,17 pass/16 fail, coverin
 
 At this preparation snapshot, formal PR4 full checks, exact installation and hosted scheduling are NOT_RUN. Pure injected tests and static embedding checks cannot establish service behavior. Subsequent results retain exact identities and failures; update this ledger through normal later-stage changes without rewriting historical snapshots.
 
+### 5.10 PR4 first hosted attempt and dynamic association correction
+
+Formal [PR249](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/249) initially uses a75c441/tree4f2b74d. Its local full466/466, validation, tool checks, independent34/34 and exact13 installation all pass. Exact-install summary SHA3bd1a4a8c4a92f982c7a2fdc12d932984b001a0737260c7158887b0307f238b8; UTC07:52:02.916–07:53:07.450, wall64533.1334ms, six Diagram/six Learning groups/eighteen LEK calls,170 commands/130 phases without error and15 cleanups. This engineering success does not establish hosted cancellation.
+
+Temporary [PR250](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/250) starts from exact a75, adding only a branch-only sentinel and marker. B1=2b03c44ca2ef72789a0a02347e2d7f9f384986a0; B2=ca51f3befd1bd5ba9e7033b887977e0040069938 changes only the marker. At07:59:41.659Z, formal PR38870630317/push38870622762, B1 PR38870667127/push38870659889 and sentinel38870660017 are all in_progress. Fresh run/PR reads immediately precede the B2 push completed08:00:09.514Z. B2 PR38870788850/push38870781526/sentinel38870781528 run independently.
+
+The B2 cancellation job116874132430 completes successfully but logs status=complete, cancellationRequests=[], and skips B1. Actual old-run and exact-attempt REST responses retain run.head_sha/display_title=B1 while pull_requests[0].head.sha has advanced to live B2. The implementation incorrectly treated the mutable PR association SHA as historical run identity. Thus actual cancellation is **NOT_PROVED**, not PASS, even though no wrong run was cancelled and heavy checks continued. Preserve the overlap, failed bounded readback, raw API and policy logs. The initial observer invocation with relative paths was rejected locally before any API call; a log lookup using an incomplete job-name selector was also rejected. Neither is cancellation evidence.
+
+No old-B1 rerun or read-token variant was sent to the service. A B3 permission change was committed only in the local probe checkout; it is not hosted403 evidence. Repair the distinction between immutable run/head/marker/source and live PR association, retain contradictory identity rejection, then use a new corrected-source old/new pair. Rerunning the original B1 would still execute its original YAML and cannot validate the repair. No force update or erased failed attempt is authorized or needed. All new hosted scheduling/403 results remain pending until observed.
+
+The source repair keeps immutable run/event/head/marker/source checks and validates each nonempty association against the fresh live PR head/base. Dynamic head/base and stale-self regressions first give33/38 pass, then38/38 at UTC08:07:01, with independent38/38 and no blocking delta findings. Stable-source full470/470 succeeds UTC08:07:45.401–08:08:47.470, wall62070.7824ms; stdout SHAa2e3c40e83d517297cef5964295cd760ffe711c06c3c7e5316b1fdfa291d9c66. Validation/tool/diff checks pass. Workflow SHAad3c692e500079c815d7d9f8bc38bad4a5781b0938bc8ee26b7a78eee6bbc048 and test SHA82a13ec2d2f5f889297fa5b8e58005476d8d321369cdc0bbcc24771dbd150030 are frozen. A late captured list already shows completed targets; its attempted positive offline replay correctly makes no request and is retained as a QA snapshot-time mismatch, not repaired-source failure or hosted success. The [offline replay receipt](evidence/ci-performance-245-pr4-dynamic-repair.json) uses the untouched active listing/PR at08:00:44.729Z and immutable source responses; old policy rejects and repaired policy requests only B1 in a MOCK cancellation endpoint. It does not mutate the service or prove hosted cancellation. New exact-install and real corrected-source scheduling remain pending at this snapshot.
+
 ## 6. Change history
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.7 | 2026-10-16 | Preserve the first real cancellation failure caused by dynamic PR association SHAs, retain exact engineering evidence, and require repaired-source regression and a fresh hosted pair. |
 | v1.6 | 2026-10-16 | Record six-test diagnostics, final independent24/24 core acceptance, retained default, actual Owner-bypass merge and fresh exact installation/Python; begin PR4 main-CI scoped cancellation with service acceptance still pending. |
 | v1.5 | 2026-10-16 | Backfill5273490 engineering and verified reporting guard, retain third21/24 core failure and unknown baseline Git-timeout cause, and prepare a separate selected-test Git Trace2 diagnostic that cannot establish performance acceptance. Frozen source,60s deadline and all formal gates remain unchanged. |
 | v1.4 | 2026-10-16 | Backfill b64140f local/exact/ordinary-CI evidence, preserve the second14/24 core failure and baseline internal Git deadline, and distinguish the original misleading partial PASS labels from accepted performance. Report-readiness repair and its new candidate/full comparison remain unverified/NOT_RUN; frozen source, timeout and all thresholds stay unchanged. |
