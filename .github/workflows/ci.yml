@@ -57,13 +57,15 @@ jobs:
               const identityMatches = (run, live, current) => {
                 const named = marker(run.display_title);
                 if (!id(run.id) || !id(run.run_number) || !id(run.run_attempt) || run.repository?.id !== repositoryId || run.head_repository?.id !== repositoryId || run.event !== "pull_request" || pathOf(run) !== expectedPath || run.workflow_id !== current.workflow_id || run.head_branch !== live.head.ref || !sha(run.head_sha) || named?.repositoryId !== repositoryId || named.headRepositoryId !== repositoryId || named.baseRepositoryId !== repositoryId || named.event !== "pull_request" || named.pr !== live.number || named.base !== live.base.ref || named.head !== run.head_sha || !Array.isArray(run.pull_requests)) return false;
-                // [] occurs on real same-repository PR runs; it requires the source proof
-                // below. Any nonempty API association must agree with all marker fields.
-                return run.pull_requests.every(pr => pr?.number === named.pr && pr.head?.repo?.id === repositoryId && pr.base?.repo?.id === repositoryId && pr.head?.ref === run.head_branch && pr.head.sha === run.head_sha && pr.base?.ref === named.base && pr.base.sha === named.baseSha);
+                // [] occurs on real same-repository PR runs; it requires source proof.
+                // Nonempty PR links carry live head/base SHAs, even on old run attempts.
+                // Match their identity and SHAs to the fresh PR; the immutable run,
+                // marker and exact-SHA source proof remain separate checks.
+                return run.pull_requests.every(pr => pr?.number === named.pr && pr.head?.repo?.id === repositoryId && pr.base?.repo?.id === repositoryId && pr.head?.ref === run.head_branch && pr.head.sha === live.head.sha && pr.base?.ref === named.base && pr.base.sha === live.base.sha);
               };
-              const sourceMatches = current => {
+              const sourceMatches = (current, live) => {
                 const named = marker(current.display_title);
-                return current.id === context.runId && id(current.workflow_id) && identityMatches(current, event, current) && current.head_sha === event.head.sha && named.baseSha === event.base.sha && current.run_attempt === runAttempt && active(current);
+                return current.id === context.runId && id(current.workflow_id) && identityMatches(current, live, current) && current.head_branch === event.head?.ref && named.base === event.base?.ref && current.head_sha === event.head.sha && named.baseSha === event.base.sha && current.run_attempt === runAttempt && active(current);
               };
               const provedSources = new Map();
               const expression = value => "$" + "{{ " + value + " }}";
@@ -101,13 +103,13 @@ jobs:
               try {
                 let live = await getPr();
                 let current = await getRun(context.runId);
-                if (!liveIdentity(live) || !sourceMatches(current)) { report.status = "stale_or_unproved_current"; return report; }
+                if (!liveIdentity(live) || !sourceMatches(current, live)) { report.status = "stale_or_unproved_current"; return report; }
                 await proveSource(current.head_sha);
                 if (live.head.sha !== event.head.sha) {
                   // A delayed old event can have a larger run_number than a newer head.
                   // Its only permitted target is its own exact still-active attempt.
                   live = await getPr(); current = await getRun(context.runId);
-                  if (!liveIdentity(live) || live.head.sha === event.head.sha || !sourceMatches(current)) { report.status = "self_cancel_no_longer_proved"; return report; }
+                  if (!liveIdentity(live) || live.head.sha === event.head.sha || !sourceMatches(current, live)) { report.status = "self_cancel_no_longer_proved"; return report; }
                   if (await cancel(current)) {
                     report.cancellationRequests.push({ runId: current.id, attempt: current.run_attempt, runNumber: current.run_number, headSha: current.head_sha, accepted: true, self: true });
                     report.status = "stale_self_cancellation_requested";
@@ -138,7 +140,7 @@ jobs:
                   await proveSource(candidate.head_sha);
                   live = await getPr(); current = await getRun(context.runId);
                   const fresh = await getRun(candidate.id);
-                  if (!liveMatches(live) || !sourceMatches(current)) { report.status = "head_or_attempt_changed"; return report; }
+                  if (!liveMatches(live) || !sourceMatches(current, live)) { report.status = "head_or_attempt_changed"; return report; }
                   if (fresh.id !== candidate.id || fresh.run_number !== candidate.run_number || !identityMatches(fresh, live, current) || !active(fresh) || fresh.run_attempt !== candidate.run_attempt || fresh.run_number >= current.run_number || fresh.head_sha !== candidate.head_sha || fresh.display_title !== candidate.display_title || fresh.head_sha === live.head.sha) { report.skipped.push(candidate.id); continue; }
                   if (await cancel(fresh)) report.cancellationRequests.push({ runId: fresh.id, attempt: fresh.run_attempt, runNumber: fresh.run_number, headSha: fresh.head_sha, accepted: true });
                   // All non-409 errors escape and stop the loop. Preserve earlier 202s.

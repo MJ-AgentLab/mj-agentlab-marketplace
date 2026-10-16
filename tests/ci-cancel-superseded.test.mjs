@@ -21,7 +21,7 @@ function content(text = source) {
   return { type: "file", name: "ci.yml", path: ".github/workflows/ci.yml", encoding: "base64", size: bytes.length,
     content: bytes.toString("base64") + "\n", sha: crypto.createHash("sha1").update(`blob ${bytes.length}\0`).update(bytes).digest("hex") };
 }
-function association(head = A, changes = {}) {
+function association(head = B, changes = {}) {
   return { number: 249, head: { ref: branch, sha: head, repo: { id: repoId } }, base: { ref: "develop", sha: C, repo: { id: repoId } }, ...changes };
 }
 function run(id = 200, number = 20, head = B, changes = {}) {
@@ -123,14 +123,14 @@ test("REST pull_requests must be an array on current and target runs", async () 
     const current = scenario({ current: run(200, 20, B, { pull_requests: value }) }); await current.execute(); assert.deepEqual(cancelled(current), []);
   }
 });
-test("a nonempty REST association cannot contradict the marker PR/repositories/refs/SHAs", async () => {
+test("a nonempty REST association cannot contradict marker identity or fresh PR SHAs", async () => {
   const valid = association();
   const contradictory = [{ ...valid, number: 250 }, { ...valid, head: { ...valid.head, ref: "other" } },
     { ...valid, head: { ...valid.head, repo: { id: 2 } } }, { ...valid, head: { ...valid.head, sha: D } },
     { ...valid, base: { ...valid.base, ref: "main" } }, { ...valid, base: { ...valid.base, repo: { id: 2 } } },
     { ...valid, base: { ...valid.base, sha: D } }];
   for (const item of contradictory) { const s = scenario({ candidates: [run(100, 19, A, { pull_requests: [item] })] }); await s.execute(); assert.deepEqual(cancelled(s), []); }
-  const multiple = scenario({ candidates: [run(100, 19, A, { pull_requests: [valid, association(A, { number: 250 })] })] });
+  const multiple = scenario({ candidates: [run(100, 19, A, { pull_requests: [valid, association(B, { number: 250 })] })] });
   await multiple.execute(); assert.deepEqual(cancelled(multiple), []);
 });
 test("real empty REST associations require exact current and target source proofs, cached per SHA", async () => {
@@ -144,6 +144,36 @@ test("real empty REST associations require exact current and target source proof
 test("consistent nonempty REST association is still source-proved", async () => {
   const s = scenario({ candidates: [run(100, 19, A, { pull_requests: [association()] })] });
   await s.execute(); assert.deepEqual(cancelled(s), [100]); assert.equal(s.calls.filter(([op]) => op === "source").length, 2);
+});
+test("historical run SHA stays fixed while its REST association follows the fresh PR head", async () => {
+  // Actual PR250 B1: run/display head 2b03c44, association head ca51f3b after B2.
+  const s = scenario({ candidates: [run(100, 19, A, { pull_requests: [association(B)] })] });
+  const report = await s.execute(); assert.deepEqual(cancelled(s), [100]);
+  assert.equal(report.cancellationRequests[0].headSha, A);
+  assert.ok(report.sourceProofs.some(p => p.headSha === A));
+});
+test("historical marker base stays fixed while association base follows the fresh PR base", async () => {
+  const current = run(200, 20, B, { display_title: run().display_title.replace(`base=${C}`, `base=${D}`) });
+  const linked = association(B, { base: { ref: "develop", sha: D, repo: { id: repoId } } });
+  const s = scenario({ current, candidates: [run(100, 19, A, { pull_requests: [linked] })] });
+  s.live.base.sha = D; s.context.payload.pull_request.base.sha = D;
+  const report = await s.execute(); assert.deepEqual(cancelled(s), [100]); assert.equal(report.cancellationRequests[0].headSha, A);
+});
+test("a stale controller with current dynamic association SHAs can only cancel its own original attempt", async () => {
+  const linked = association(B, { base: { ref: "develop", sha: D, repo: { id: repoId } } });
+  const s = scenario({ current: run(300, 30, A, { pull_requests: [linked] }), liveHead: B });
+  s.live.base.sha = D; // The original event/marker base snapshot remains C.
+  const report = await s.execute(); assert.deepEqual(cancelled(s), [300]);
+  assert.equal(report.status, "stale_self_cancellation_requested");
+  assert.equal(report.cancellationRequests[0].headSha, A); assert.equal(s.calls.some(([op]) => op === "list"), false);
+});
+test("association SHAs different from the fresh PR are rejected even if they match historical snapshots", async () => {
+  for (const linked of [association(A), association(B, { base: { ref: "develop", sha: D, repo: { id: repoId } } })]) {
+    const target = scenario({ candidates: [run(100, 19, A, { pull_requests: [linked] })] });
+    await target.execute(); assert.deepEqual(cancelled(target), []);
+    const controller = scenario({ current: run(200, 20, B, { pull_requests: [linked] }) });
+    await controller.execute(); assert.deepEqual(cancelled(controller), []);
+  }
 });
 test("distinct workflow source blobs with the exact same run-name contract remain eligible", async () => {
   const s = scenario({ override: { source: ({ input }) => content(input.ref === A ? source + "\n# Earlier workflow body/comment revision.\n" : source) } });
