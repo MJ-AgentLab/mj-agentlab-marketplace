@@ -20,7 +20,7 @@ Communication按[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketpla
 
 ## 执行与决策
 
-#245 PR4合入6bc7c63并通过13安装/Python；PR5去重实施中，PR矩阵保持，见[账本](docs/runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。
+#245 PR4合入6bc7c63已验；PR5 #251去重/回退实测通过，合入待验，见[账本](docs/runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。
 
 Owner2026-10-15要求同步main31cb2cb后预升8.3.1；#243已合入864ecd5，本分支沿用eeb5e01。版本工具只改VERSION/badge，根摘要正常A6。本次另修#244 Windows验证目录EBUSY：异步清理有限重试，路径检查/持续失败保持；五包/版本/冻结计划不变。main/tag/Release仍8.3.0，无8.3.1发行。自动删除false；历史bypass/批准缺项保留，不指定审查人；当前head非作者批准/CI/线程门禁保持。
 
