@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-15
 updated: 2026-10-16
 state: active
-version: v1.7
+version: v1.8
 last-verified: null
 ---
 
@@ -350,10 +350,32 @@ No old-B1 rerun or read-token variant was sent to the service. A B3 permission c
 
 The source repair keeps immutable run/event/head/marker/source checks and validates each nonempty association against the fresh live PR head/base. Dynamic head/base and stale-self regressions first give33/38 pass, then38/38 at UTC08:07:01, with independent38/38 and no blocking delta findings. Stable-source full470/470 succeeds UTC08:07:45.401–08:08:47.470, wall62070.7824ms; stdout SHAa2e3c40e83d517297cef5964295cd760ffe711c06c3c7e5316b1fdfa291d9c66. Validation/tool/diff checks pass. Workflow SHAad3c692e500079c815d7d9f8bc38bad4a5781b0938bc8ee26b7a78eee6bbc048 and test SHA82a13ec2d2f5f889297fa5b8e58005476d8d321369cdc0bbcc24771dbd150030 are frozen. A late captured list already shows completed targets; its attempted positive offline replay correctly makes no request and is retained as a QA snapshot-time mismatch, not repaired-source failure or hosted success. The [offline replay receipt](evidence/ci-performance-245-pr4-dynamic-repair.json) uses the untouched active listing/PR at08:00:44.729Z and immutable source responses; old policy rejects and repaired policy requests only B1 in a MOCK cancellation endpoint. It does not mutate the service or prove hosted cancellation. New exact-install and real corrected-source scheduling remain pending at this snapshot.
 
+### 5.11 PR4 observed hosted cancellation and permission fallback
+
+Corrected implementation ba735a40b19426aff3c0d6579dc38da1668097ef/tree6f735130960e9e65af3b7dfbe496d4979f313b2b passes fresh exact13 installation/Python at UTC08:13:00.336–08:14:08.493, wall68163.1706ms. Summary SHA351ea9ede5caf7c518c06939f86fa50900082f7d9d3f46c3812146d3e17b4e2e retains170 commands/130 phases without errors,15 successful cleanups and absent owned roots. All18 registered root paths remain; an existing probe HEAD advances during the run, so the full worktree listing is explicitly different. Canonical AGENTS is actually read at16360 bytes/89CRLF, distinct from prior calculated or unmeasured snapshots. Full470/470 and independent38/38 above remain the code verification.
+
+Formal PR249 uses merge dd835d22cfa2480699ef39628c03921a0d4672ff, same tree6f735130, parents abca/ba735. Its PR38872387828 and push38872381366 complete successfully. The corrected probe C1=90574fa23e31e21e03f97c28f4def1f4f3d25f66 and C2=0913ae81c9c207cdcc79056331f084b250470d87 differ from formal A only by the independent sentinel and marker. Main-CI Git blob cbec4068d993ca553f9e17a2d1db0cebbddf0794 (LF source SHA39bbac04f6faef33f54279f595949f8b1cd0fe9f1adbdb79759f57cb9bb76abd) and tests blob c5212e54b6d027afa974e75eb7d9b221843dee8d are identical. Working-CRLF workflow SHAad3c692e differs only by line-ending representation; do not confuse those byte domains.
+
+| Observed service scenario | Actual evidence and outcome |
+|---|---|
+| Same-PR supersession | Fresh A/C1/sentinel overlap at08:14:58.330Z, then fresh reads precede C2 push08:15:19.281. C2 run38872475997 policy at08:15:33.978 requests only C1 run38872393567/attempt1/run754. Exact attempt1 and both OS jobs actually become cancelled;08:16:39.114 readback retains C2/A/push/sentinels active. |
+| Old-head rerun | Rerun exact C1 once at08:16:50.133. At08:16:58.845 its policy requests only itself, same run/attempt2/run754, self:true. Exact attempt2 is completed/cancelled at08:19:02.812 observation while C2 stays active. All later evidence uses explicit attempt endpoints. |
+| Strict read-token window | First C3 pre-push guard08:19:56 sees C2 already completed/success and stops without push. Preserve this NOT_EXERCISED attempt. An explicitly recorded single C2 rerun opens only the403 window: its attempt2 policy first completes with zero requests/errors while live head=C2 and both OS jobs active. Fresh guard precedes C3 push08:21:41.994. No unlimited retry or force cancel is used. |
+| Actual cancellation403 | C3=f93d73d17dc64360def889914c7890fddf9d06d0 changes only cancel actions:write→read plus marker. PR38873175066/job116881878092 at08:21:54.269 logs no_further_cancellation, zero accepted requests, one HTTP403 for C2 run38872475997/attempt2. Its source proofs are retained. C2 attempt2 reaches completed/success, independently read at08:27:15.704. |
+
+Formal A PR/push and C1/C2 push four main workflows each finish Windows470/470 and Ubuntu469pass/one existing skip; eight OS jobs each execute13 real smoke scenarios,170 commands without error, six Diagram Python and six Learning groups/eighteen LEK calls with save/replay/structure assertions. C1/C2 independent sentinels succeed. C2 PR attempt2 also finishes these complete per-OS tests/smoke/Python checks despite the failed cancellation request.
+
+C3 PR and push workflows finish with the expected failure, not green CI. Their four OS TAP reports each contain exactly one failing test: `only the independent cancel job and fixed run-name change the actual merged CI`. Windows has469pass/one fail; Ubuntu468pass/one fail/one existing skip. Validate succeeds; PR cancel job succeeds after recording403, push cancel job is skipped. Subsequent smoke steps are skipped and their JSON is absent, so C3 smoke is NOT_RUN. C3's separate sentinel succeeds. This bounded negative proves main jobs run independently; it never weakens the production permission assertion or claims C3 installation success.
+
+The [hosted receipt](evidence/ci-performance-245-pr4-hosted.json) records exact run/attempt/source associations, all outcome boundaries and raw-file hashes; independent agents recompute both cancellation provenance and control-group logs. Retain first-pair behavioral failure, original observer argument rejection, late mixed-time replay, missed C3 window, archive marker/parser preparation errors and separate network-partial archives. Successful recollection uses new output directories without rewriting failures. Temporary PR250 is closed without merge at08:30:23Z after all controlled runs terminate; its branch/raw evidence remains. No unrelated run is targeted, no performance samples are pooled, and GitHub non-author approval is not supplied by Agent role reviews.
+
+Hosted tests prove the listed observations. Higher-number delayed events, pagination faults, network timeout, fork and conflicting association cases remain injected regression coverage; an atomic final-read/cancel guarantee and future-runner performance are not established. The final evidence-only commit keeps these exact CI/test blobs and runtime/version bytes; its own current-head CI and exact installation are recorded in PR249 after commit. Actual non-author approval, resolved threads, fresh base and protected merge remain separate gates. PR5 starts only after actual PR4 merge and post-merge verification; Issue245 stays OPEN.
+
 ## 6. Change history
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.8 | 2026-10-16 | Record actual corrected-source cancellation, stale-attempt self-cancel and403 fallback with independent full-check survival; preserve first failure, missed window, deliberate config-test failures and raw archival limits. Final evidence-only head gates remain separately recorded. |
 | v1.7 | 2026-10-16 | Preserve the first real cancellation failure caused by dynamic PR association SHAs, retain exact engineering evidence, and require repaired-source regression and a fresh hosted pair. |
 | v1.6 | 2026-10-16 | Record six-test diagnostics, final independent24/24 core acceptance, retained default, actual Owner-bypass merge and fresh exact installation/Python; begin PR4 main-CI scoped cancellation with service acceptance still pending. |
 | v1.5 | 2026-10-16 | Backfill5273490 engineering and verified reporting guard, retain third21/24 core failure and unknown baseline Git-timeout cause, and prepare a separate selected-test Git Trace2 diagnostic that cannot establish performance acceptance. Frozen source,60s deadline and all formal gates remain unchanged. |

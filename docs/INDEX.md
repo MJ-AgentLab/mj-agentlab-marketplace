@@ -6,14 +6,14 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-16
 state: active
-version: v2.91.10
+version: v2.91.11
 ---
 
 # 文档索引
 
 ## 当前性能维护
 
-[#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)按五个顺序PR推进。PR3 #248的最终24样本与独立复算四门槛通过（复制≥99.447896%、完整测试88.193766%、canonical93.237433%、十三冒烟76.838616%），保留现有default；实际合入abca239并完成13安装/真实Python复验。原三次失败、六样本诊断、空reviews与Owner实际bypass分别保留，见[核心回执](runbook/evidence/ci-performance-245-pr3-core-attempt4.json)、[合并后回执](runbook/evidence/ci-performance-245-pr3-postmerge.json)与[账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。PR4 [#249](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/249)保持独立完整双OS检查；首轮临时探针[#250](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/250)因PR关联SHA动态更新导致旧run被跳过，取消NOT_PROVED，修复和新配对验收中，探针不合入。PR5及整体关闭后续分别完成；冻结30665998、60秒和运行版本不变。
+[#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)按五个顺序PR推进。PR3 #248四门槛及实际abca239的13安装/Python通过，保留default；原失败、诊断、空reviews及Owner bypass分别记录。PR4 [#249](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/249)已通过真实旧run取消、旧重跑仅自取消及HTTP403后完整检查保留；权限变体只出现预期配置失败，四份OS日志逐条核验。首轮动态PR关联SHA漏取消、错过窗口、一次隔离重跑及QA归档问题均保留，临时[#250](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/250)不合入。见[核心回执](runbook/evidence/ci-performance-245-pr3-core-attempt4.json)、[合并后回执](runbook/evidence/ci-performance-245-pr3-postmerge.json)及[账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。最终文档提交的当前head工程门禁另核，非作者批准和PR4实际merge/复验完成后才推进PR5；Issue保持开放，冻结基线、60秒及运行版本不变。
 
 ## 当前整体发布
 

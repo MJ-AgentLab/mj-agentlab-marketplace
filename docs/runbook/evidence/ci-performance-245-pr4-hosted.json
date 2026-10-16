@@ -1,0 +1,1002 @@
+{
+  "schemaVersion": 1,
+  "issue": 245,
+  "stage": "PR4",
+  "repository": "MJ-AgentLab/mj-agentlab-marketplace",
+  "repositoryId": 1183002256,
+  "recordedAt": "2026-10-16T08:30:20.732Z",
+  "role": "Independent Agent read-only service acceptance auditor",
+  "status": "OBSERVED_SERVICE_CASES_ACCEPTED",
+  "issue245Complete": false,
+  "releaseOrMergeAcceptance": false,
+  "sourceClosure": {
+    "measuredFormalHead": "ba735a40b19426aff3c0d6579dc38da1668097ef",
+    "tree": "6f735130960e9e65af3b7dfbe496d4979f313b2b",
+    "base": "abca23999586b52a37e64ba9c2324c2cbe5de965",
+    "ci": {
+      "path": ".github/workflows/ci.yml",
+      "gitBlobSHA1": "cbec4068d993ca553f9e17a2d1db0cebbddf0794",
+      "LFBytes": 17307,
+      "LFSHA256": "39bbac04f6faef33f54279f595949f8b1cd0fe9f1adbdb79759f57cb9bb76abd"
+    },
+    "tests": {
+      "path": "tests/ci-cancel-superseded.test.mjs",
+      "gitBlobSHA1": "c5212e54b6d027afa974e75eb7d9b221843dee8d",
+      "LFBytes": 24381,
+      "LFSHA256": "82a13ec2d2f5f889297fa5b8e58005476d8d321369cdc0bbcc24771dbd150030"
+    },
+    "sourceEquivalentPositiveHeads": [
+      "90574fa23e31e21e03f97c28f4def1f4f3d25f66",
+      "0913ae81c9c207cdcc79056331f084b250470d87"
+    ],
+    "negativeHead": "f93d73d17dc64360def889914c7890fddf9d06d0",
+    "negativeScope": [
+      ".github/issue245-pr4-probe-marker.txt",
+      ".github/workflows/ci.yml"
+    ],
+    "negativeDelta": "Only cancel job actions: write -> read; probe marker changes. Test bytes remain identical."
+  },
+  "aliases": {
+    "round": 2,
+    "actualC1": "observer B1",
+    "actualC2": "observer B2",
+    "actualC3": "observer B3",
+    "formalPR": 249,
+    "isolatedProbePR": 250
+  },
+  "supersededSamePR": {
+    "controllerPolicyAt": "2026-10-16T08:15:33.9780800Z",
+    "apiResponseStatus": 202,
+    "responseEvidence": "Actual inline source appends accepted only after ordinary cancel response.status===202; job log report and exact target outcome separately verified.",
+    "request": {
+      "runId": 38872393567,
+      "attempt": 1,
+      "runNumber": 754,
+      "headSha": "90574fa23e31e21e03f97c28f4def1f4f3d25f66",
+      "accepted": true
+    },
+    "targetObservedAt": "2026-10-16T08:16:39.115Z",
+    "targetStatus": "completed",
+    "targetConclusion": "cancelled",
+    "OSJobs": [
+      {
+        "id": 116879318550,
+        "attempt": 1,
+        "name": "Baseline compat (ubuntu-latest)",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "completed": "2026-10-16T08:16:15Z"
+      },
+      {
+        "id": 116879318612,
+        "attempt": 1,
+        "name": "Baseline compat (windows-latest)",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "completed": "2026-10-16T08:16:04Z"
+      }
+    ],
+    "archive": {
+      "runId": 38872393567,
+      "attempt": 1,
+      "head": "90574fa23e31e21e03f97c28f4def1f4f3d25f66",
+      "readStatus": "completed",
+      "readConclusion": "cancelled",
+      "readStartedAt": "2026-10-16T08:17:54.719Z",
+      "readEndedAt": "2026-10-16T08:18:03.230Z",
+      "source": {
+        "blobSha1": "cbec4068d993ca553f9e17a2d1db0cebbddf0794",
+        "sha256": "39bbac04f6faef33f54279f595949f8b1cd0fe9f1adbdb79759f57cb9bb76abd",
+        "bytes": 17307
+      },
+      "rawSHA256": {
+        "C1-attempt1/repository.json": "dc13fa045c8617cf4bee6b45e8cb772aa70af56f064856f6f4749ce40002902e",
+        "C1-attempt1/latest-run.json": "cd9b240dc3405bdeb6cd72c549d99cf639d18bbfd5e3c65d75d33ea071dd77d4",
+        "C1-attempt1/exact-attempt.json": "daf6ee2494ca8bfd72b379be9346f1c1a262ad666faa2e0f2d112bfff9ca4e2e",
+        "C1-attempt1/current-pr.json": "97ed316a46632b9f31f0265e2d462fe595d9968e090c07be4817f21ff5a8f2b0",
+        "C1-attempt1/jobs-page-1.json": "5e1c5a8fd889e526d72b71bfcba740ab976ca2b364e8c410881739985dfea94f",
+        "C1-attempt1/head-workflow-source.json": "6af19fc47e7a4d67f81369c4242792f2673f0ea41401c540d9daecc26373b2d0",
+        "C1-attempt1/head-workflow.yml": "39bbac04f6faef33f54279f595949f8b1cd0fe9f1adbdb79759f57cb9bb76abd",
+        "C1-attempt1/attempt-logs.zip": "7de9603630264aea6407a4c1f148ba1c74be3a48edd9abb83c2d9b66a4012d35"
+      }
+    }
+  },
+  "oldHeadRerunSelfOnly": {
+    "controllerPolicyAt": "2026-10-16T08:16:58.8452779Z",
+    "apiResponseStatus": 202,
+    "responseEvidence": "Actual inline source appends accepted only after ordinary cancel response.status===202; job log report and exact target outcome separately verified.",
+    "request": {
+      "runId": 38872393567,
+      "attempt": 2,
+      "runNumber": 754,
+      "headSha": "90574fa23e31e21e03f97c28f4def1f4f3d25f66",
+      "accepted": true,
+      "self": true
+    },
+    "targetObservedAt": "2026-10-16T08:19:02.812Z",
+    "targetStatus": "completed",
+    "targetConclusion": "cancelled",
+    "OSJobs": [
+      {
+        "id": 116880104226,
+        "attempt": 2,
+        "name": "Baseline compat (windows-latest)",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "completed": "2026-10-16T08:18:16Z"
+      },
+      {
+        "id": 116880104285,
+        "attempt": 2,
+        "name": "Baseline compat (ubuntu-latest)",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "completed": "2026-10-16T08:18:24Z"
+      }
+    ],
+    "archive": {
+      "runId": 38872393567,
+      "attempt": 2,
+      "head": "90574fa23e31e21e03f97c28f4def1f4f3d25f66",
+      "readStatus": "completed",
+      "readConclusion": "cancelled",
+      "readStartedAt": "2026-10-16T08:19:31.280Z",
+      "readEndedAt": "2026-10-16T08:19:41.548Z",
+      "source": {
+        "blobSha1": "cbec4068d993ca553f9e17a2d1db0cebbddf0794",
+        "sha256": "39bbac04f6faef33f54279f595949f8b1cd0fe9f1adbdb79759f57cb9bb76abd",
+        "bytes": 17307
+      },
+      "rawSHA256": {
+        "C1-attempt2/repository.json": "dc13fa045c8617cf4bee6b45e8cb772aa70af56f064856f6f4749ce40002902e",
+        "C1-attempt2/latest-run.json": "98abe2d8d9fb3335828b012c250eb291f69dc571d46e828f45c94b77c633dad6",
+        "C1-attempt2/exact-attempt.json": "49b2f7ac1afbadf5928dbe5b253086a1812ff42b0f9ae608ec939c20202181c0",
+        "C1-attempt2/current-pr.json": "9e5b0a254ece28b322360bd0354de50a49762b2b59c4b0074bce6190a7bc9b1e",
+        "C1-attempt2/jobs-page-1.json": "ea5939957459c2c33e2e4a8ca5f9e871cefa3accd4f9394232391a58c4bc633a",
+        "C1-attempt2/head-workflow-source.json": "6af19fc47e7a4d67f81369c4242792f2673f0ea41401c540d9daecc26373b2d0",
+        "C1-attempt2/head-workflow.yml": "39bbac04f6faef33f54279f595949f8b1cd0fe9f1adbdb79759f57cb9bb76abd",
+        "C1-attempt2/attempt-logs.zip": "d45f528f5223bd40872f83345e74b25faa10659be41b7191be4f8e7a241dd196"
+      }
+    }
+  },
+  "permissionFailureOpen": {
+    "precondition": {
+      "at": "2026-10-16T08:21:39.2615154Z",
+      "currentHead": "0913ae81c9c207cdcc79056331f084b250470d87",
+      "run": 38872475997,
+      "attempt": 2,
+      "livePRHeadMatched": true,
+      "policyAlreadyCompletedSuccess": true,
+      "policyRequests": [],
+      "policyErrors": [],
+      "bothOSActive": true,
+      "raw": {
+        "file": "pr4-hosted-round2/fresh-pre-C3-push-after-C2-rerun.json",
+        "bytes": 56093,
+        "sha256": "6da5341e3e2060593e667d1420332e1b9a3cdb03962db8c7e5ca20f13d4e1f54"
+      }
+    },
+    "C3PushAt": "2026-10-16T08:21:41.994Z",
+    "actualDenialPolicyAt": "2026-10-16T08:21:54.2697506Z",
+    "actualReport": {
+      "status": "no_further_cancellation",
+      "cancellationRequests": [],
+      "conflicts": [],
+      "sourceProofs": [
+        {
+          "headSha": "f93d73d17dc64360def889914c7890fddf9d06d0",
+          "blobSha": "e89d49572ef30699a48695355d3f34ede25388b7",
+          "bytes": 17306
+        },
+        {
+          "headSha": "0913ae81c9c207cdcc79056331f084b250470d87",
+          "blobSha": "cbec4068d993ca553f9e17a2d1db0cebbddf0794",
+          "bytes": 17307
+        }
+      ],
+      "skipped": [
+        38873175066
+      ],
+      "errors": [
+        {
+          "runId": 38872475997,
+          "attempt": 2,
+          "message": "Resource not accessible by integration",
+          "status": 403
+        }
+      ]
+    },
+    "denialJob": 116881878092,
+    "denialRun": 38873175066,
+    "attempt": 1,
+    "continuedTargetAt": "2026-10-16T08:23:13.002Z",
+    "continuedTarget": [
+      {
+        "id": 116881606048,
+        "name": "Validate Structure",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 116881606231,
+        "name": "Baseline compat (windows-latest)",
+        "status": "in_progress",
+        "conclusion": null
+      },
+      {
+        "id": 116881606385,
+        "name": "Cancel proved superseded PR runs (best effort)",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 116881606412,
+        "name": "Baseline compat (ubuntu-latest)",
+        "status": "in_progress",
+        "conclusion": null
+      }
+    ],
+    "finalRetainedTarget": {
+      "runId": 38872475997,
+      "attempt": 2,
+      "head": "0913ae81c9c207cdcc79056331f084b250470d87",
+      "status": "completed",
+      "conclusion": "success",
+      "finalReadAt": "2026-10-16T08:27:15.704Z",
+      "finalRawSHA256": "29e7b5a6ba8a488eb9987cc5be8839f3eb0e213845343f551c1ecf1f1539b324",
+      "compat": [
+        {
+          "os": "ubuntu-latest",
+          "jobId": 116881606412,
+          "attempt": 2,
+          "checkout": "3abd17d22eace6003d6ec2469e4a13d4b913ac22",
+          "TAP": {
+            "tests": 470,
+            "pass": 469,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 1,
+            "todo": 0
+          },
+          "failedTests": [],
+          "smoke": {
+            "state": "ACTUALLY_EXECUTED",
+            "ok": true,
+            "scenarios": 13,
+            "scenarioErrors": 0,
+            "commands": 170,
+            "commandErrors": 0,
+            "diagramGroups": 6,
+            "diagramCalls": 6,
+            "learningGroups": 6,
+            "learningCalls": 18,
+            "learningResultsValid": true
+          }
+        },
+        {
+          "os": "windows-latest",
+          "jobId": 116881606231,
+          "attempt": 2,
+          "checkout": "3abd17d22eace6003d6ec2469e4a13d4b913ac22",
+          "TAP": {
+            "tests": 470,
+            "pass": 470,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "failedTests": [],
+          "smoke": {
+            "state": "ACTUALLY_EXECUTED",
+            "ok": true,
+            "scenarios": 13,
+            "scenarioErrors": 0,
+            "commands": 170,
+            "commandErrors": 0,
+            "diagramGroups": 6,
+            "diagramCalls": 6,
+            "learningGroups": 6,
+            "learningCalls": 18,
+            "learningResultsValid": true
+          }
+        }
+      ],
+      "archive": {
+        "runId": 38872475997,
+        "attempt": 2,
+        "head": "0913ae81c9c207cdcc79056331f084b250470d87",
+        "readStatus": "in_progress",
+        "readConclusion": null,
+        "readStartedAt": "2026-10-16T08:25:52.712Z",
+        "readEndedAt": "2026-10-16T08:26:06.865Z",
+        "source": {
+          "blobSha1": "cbec4068d993ca553f9e17a2d1db0cebbddf0794",
+          "sha256": "39bbac04f6faef33f54279f595949f8b1cd0fe9f1adbdb79759f57cb9bb76abd",
+          "bytes": 17307
+        },
+        "rawSHA256": {
+          "C2-attempt2/repository.json": "351b891c437bcf7d9b5262d82063c67a21fe612231a1134d8b8694c13a2c8bcb",
+          "C2-attempt2/latest-run.json": "be65b14cf50c7fdd92326d2e2e9635f1571f030296a7f8455938c796379170e6",
+          "C2-attempt2/exact-attempt.json": "dd031d394e407eed1b412b0081fc5854d3de2aa634de9b96bf563485055a9bc8",
+          "C2-attempt2/current-pr.json": "bff37362e24efb770eeaa7cffcc1322530485476bc11bd9427e339d69d816dc1",
+          "C2-attempt2/jobs-page-1.json": "1b447423b9d4fe779471af7a5ee90144afa1e4038e32f69f4d1fb288419b002d",
+          "C2-attempt2/head-workflow-source.json": "5facc53fd1bae975c42628455ccc7ffb12a9b8ed2602dfe2553856fbf10beaf6",
+          "C2-attempt2/head-workflow.yml": "39bbac04f6faef33f54279f595949f8b1cd0fe9f1adbdb79759f57cb9bb76abd",
+          "C2-attempt2/attempt-logs.zip": "dcd93fd13500e7f84c1d10546c8883615f72e04c758d76245735b9924f658662"
+        }
+      },
+      "note": "Archive first GET was still in_progress; later exact run GET is separately preserved as completed/success. All four exact-attempt jobs and full logs are successful."
+    },
+    "negativeFullChecks": [
+      {
+        "runId": 38873175066,
+        "attempt": 1,
+        "head": "f93d73d17dc64360def889914c7890fddf9d06d0",
+        "status": "completed",
+        "conclusion": "failure",
+        "jobs": [
+          {
+            "id": 116881877999,
+            "name": "Validate Structure",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "id": 116881878092,
+            "name": "Cancel proved superseded PR runs (best effort)",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "id": 116881878216,
+            "name": "Baseline compat (windows-latest)",
+            "status": "completed",
+            "conclusion": "failure"
+          },
+          {
+            "id": 116881878397,
+            "name": "Baseline compat (ubuntu-latest)",
+            "status": "completed",
+            "conclusion": "failure"
+          }
+        ],
+        "compat": [
+          {
+            "os": "ubuntu-latest",
+            "jobId": 116881878397,
+            "attempt": 1,
+            "checkout": "3047d3fb38a2ba23e8854b1e59ecfb268e1787e5",
+            "TAP": {
+              "tests": 470,
+              "pass": 468,
+              "fail": 1,
+              "cancelled": 0,
+              "skipped": 1,
+              "todo": 0
+            },
+            "failedTests": [
+              "only the independent cancel job and fixed run-name change the actual merged CI"
+            ],
+            "smoke": {
+              "state": "NOT_RUN",
+              "APIConclusion": "skipped",
+              "logEntries": 0
+            }
+          },
+          {
+            "os": "windows-latest",
+            "jobId": 116881878216,
+            "attempt": 1,
+            "checkout": "3047d3fb38a2ba23e8854b1e59ecfb268e1787e5",
+            "TAP": {
+              "tests": 470,
+              "pass": 469,
+              "fail": 1,
+              "cancelled": 0,
+              "skipped": 0,
+              "todo": 0
+            },
+            "failedTests": [
+              "only the independent cancel job and fixed run-name change the actual merged CI"
+            ],
+            "smoke": {
+              "state": "NOT_RUN",
+              "APIConclusion": "skipped",
+              "logEntries": 0
+            }
+          }
+        ],
+        "archive": {
+          "runId": 38873175066,
+          "attempt": 1,
+          "head": "f93d73d17dc64360def889914c7890fddf9d06d0",
+          "readStatus": "completed",
+          "readConclusion": "failure",
+          "readStartedAt": "2026-10-16T08:26:51.140Z",
+          "readEndedAt": "2026-10-16T08:27:02.630Z",
+          "source": {
+            "blobSha1": "e89d49572ef30699a48695355d3f34ede25388b7",
+            "sha256": "90aaa364351b9aedc94a1525757525c4a0df17ec0fcdd99d9f35773ab6bb7ce1",
+            "bytes": 17306
+          },
+          "rawSHA256": {
+            "C3-attempt1-after-network-failure/repository.json": "39eb97eb966135e3aca6502ce91fc3108fc89cc40e6e6d518307947e13e17a83",
+            "C3-attempt1-after-network-failure/latest-run.json": "d410177bf1a74dae1a4ed14ea29122c351994f943de842c1bec9f68bc2c800d6",
+            "C3-attempt1-after-network-failure/exact-attempt.json": "13329a9e39461578864dd08b0b9a11e6de8a51964dffd76e5e36276b59ae2080",
+            "C3-attempt1-after-network-failure/current-pr.json": "d23aa4643c520278c3f99e9a6f2a32f9baa43d6292dce1c8670f07952f5f7e28",
+            "C3-attempt1-after-network-failure/jobs-page-1.json": "754a242e0792f8b4a9308c003daac1872c67be0357988e6b6e24b3be3472ad30",
+            "C3-attempt1-after-network-failure/head-workflow-source.json": "13f33f8938231e6d140d3a885c7d3bbe39b9056b020a777efee820f9e440f4f1",
+            "C3-attempt1-after-network-failure/head-workflow.yml": "90aaa364351b9aedc94a1525757525c4a0df17ec0fcdd99d9f35773ab6bb7ce1",
+            "C3-attempt1-after-network-failure/attempt-logs.zip": "8b278fb0435dda334d3944e7c829212910d14ea640d5eb127da0128054cebec5"
+          }
+        }
+      },
+      {
+        "runId": 38873169161,
+        "attempt": 1,
+        "head": "f93d73d17dc64360def889914c7890fddf9d06d0",
+        "status": "completed",
+        "conclusion": "failure",
+        "jobs": [
+          {
+            "id": 116881858884,
+            "name": "Validate Structure",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "id": 116881859059,
+            "name": "Baseline compat (windows-latest)",
+            "status": "completed",
+            "conclusion": "failure"
+          },
+          {
+            "id": 116881859213,
+            "name": "Baseline compat (ubuntu-latest)",
+            "status": "completed",
+            "conclusion": "failure"
+          },
+          {
+            "id": 116881860347,
+            "name": "Cancel proved superseded PR runs (best effort)",
+            "status": "completed",
+            "conclusion": "skipped"
+          }
+        ],
+        "compat": [
+          {
+            "os": "ubuntu-latest",
+            "jobId": 116881859213,
+            "attempt": 1,
+            "checkout": "f93d73d17dc64360def889914c7890fddf9d06d0",
+            "TAP": {
+              "tests": 470,
+              "pass": 468,
+              "fail": 1,
+              "cancelled": 0,
+              "skipped": 1,
+              "todo": 0
+            },
+            "failedTests": [
+              "only the independent cancel job and fixed run-name change the actual merged CI"
+            ],
+            "smoke": {
+              "state": "NOT_RUN",
+              "APIConclusion": "skipped",
+              "logEntries": 0
+            }
+          },
+          {
+            "os": "windows-latest",
+            "jobId": 116881859059,
+            "attempt": 1,
+            "checkout": "f93d73d17dc64360def889914c7890fddf9d06d0",
+            "TAP": {
+              "tests": 470,
+              "pass": 469,
+              "fail": 1,
+              "cancelled": 0,
+              "skipped": 0,
+              "todo": 0
+            },
+            "failedTests": [
+              "only the independent cancel job and fixed run-name change the actual merged CI"
+            ],
+            "smoke": {
+              "state": "NOT_RUN",
+              "APIConclusion": "skipped",
+              "logEntries": 0
+            }
+          }
+        ],
+        "archive": {
+          "runId": 38873169161,
+          "attempt": 1,
+          "head": "f93d73d17dc64360def889914c7890fddf9d06d0",
+          "readStatus": "completed",
+          "readConclusion": "failure",
+          "readStartedAt": "2026-10-16T08:26:51.196Z",
+          "readEndedAt": "2026-10-16T08:27:01.062Z",
+          "source": {
+            "blobSha1": "e89d49572ef30699a48695355d3f34ede25388b7",
+            "sha256": "90aaa364351b9aedc94a1525757525c4a0df17ec0fcdd99d9f35773ab6bb7ce1",
+            "bytes": 17306
+          },
+          "rawSHA256": {
+            "C3-push-attempt1/repository.json": "39eb97eb966135e3aca6502ce91fc3108fc89cc40e6e6d518307947e13e17a83",
+            "C3-push-attempt1/latest-run.json": "e49e8aad88c08efd96c708b0537b16ada832c6428b5a2cbb406d6feb7f397a85",
+            "C3-push-attempt1/exact-attempt.json": "37ce8f578dd1025d66bf3b758dc92813d3c628b384ce842eca3466d44855e07e",
+            "C3-push-attempt1/jobs-page-1.json": "7c4493279fd43ebdc945dea16d408ad3194443a5a3faa1d6390ac1ae076ba854",
+            "C3-push-attempt1/head-workflow-source.json": "13f33f8938231e6d140d3a885c7d3bbe39b9056b020a777efee820f9e440f4f1",
+            "C3-push-attempt1/head-workflow.yml": "90aaa364351b9aedc94a1525757525c4a0df17ec0fcdd99d9f35773ab6bb7ce1",
+            "C3-push-attempt1/attempt-logs.zip": "89919fd4b3d24142e104ed4a31e0751a203a14ffc0590c7e9a6b2dcbd224ffb4"
+          }
+        }
+      }
+    ],
+    "additionalSentinel": {
+      "runId": 38873169080,
+      "attempt": 1,
+      "head": "f93d73d17dc64360def889914c7890fddf9d06d0",
+      "status": "completed",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 116881858815,
+          "name": "Isolated bounded probe sentinel",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "compat": [],
+      "archive": {
+        "runId": 38873169080,
+        "attempt": 1,
+        "head": "f93d73d17dc64360def889914c7890fddf9d06d0",
+        "readStatus": "completed",
+        "readConclusion": "success",
+        "readStartedAt": "2026-10-16T08:27:14.892Z",
+        "readEndedAt": "2026-10-16T08:27:21.678Z",
+        "source": {
+          "blobSha1": "a11c1e5906f4f49c239cc897d72744f8d9c7693a",
+          "sha256": "4acc7a188982cdbd2bc937bad8b45e245a32b44780b2c3a95724e20ee55ff921",
+          "bytes": 549
+        },
+        "rawSHA256": {
+          "C3-sentinel-attempt1/repository.json": "39eb97eb966135e3aca6502ce91fc3108fc89cc40e6e6d518307947e13e17a83",
+          "C3-sentinel-attempt1/latest-run.json": "044c8078a47e59f9b3ec641c466c0cf0282dec9646be01196760704677e8a99d",
+          "C3-sentinel-attempt1/exact-attempt.json": "6163ac5485d05cd6c66346c2ee402a186799d2fa03f94ee4cc51dd7b6bcd1e1a",
+          "C3-sentinel-attempt1/jobs-page-1.json": "4c7a1e26a13ff488ef1979c40896a15685c9048245cbc96f840c3fac80941d60",
+          "C3-sentinel-attempt1/head-workflow-source.json": "c5462f3dba40cfa8450f295474fc3189cbe9fc45cba3928cb28bb9901c2688f9",
+          "C3-sentinel-attempt1/head-workflow.yml": "4acc7a188982cdbd2bc937bad8b45e245a32b44780b2c3a95724e20ee55ff921",
+          "C3-sentinel-attempt1/attempt-logs.zip": "d506f7586cb588440a6aa3c91bab774078a389a772e40ae7350385077f594ac3"
+        }
+      }
+    }
+  },
+  "retainedOtherPRPushAndWorkflows": [
+    {
+      "role": "A-pull_request",
+      "runId": 38872387828,
+      "attempt": 1,
+      "head": "ba735a40b19426aff3c0d6579dc38da1668097ef",
+      "conclusion": "success",
+      "source": {
+        "blobSha1": "cbec4068d993ca553f9e17a2d1db0cebbddf0794",
+        "sha256": "39bbac04f6faef33f54279f595949f8b1cd0fe9f1adbdb79759f57cb9bb76abd",
+        "bytes": 17307
+      },
+      "exactAttemptApiSHA256": "07743789b62e9e93fdaa5490eb831c4c15af421feb25930371f132bbe3af50ba",
+      "jobsApiSHA256": "27f950c52ca24b7e90eab34a2981c9ba0f692fa2f4b263832220aeb1e00be557",
+      "zipSHA256": "cc9dfa7d8b510e0f9be37bf3bc5a52a6b6ca5f0c1b82764d1ff578f48da4f896",
+      "archiveReceiptSHA256": "73b4ad7693fd409ffe8e3c7fb6cf45c80d06f06e293aa4b244ca1ed6aec0d69e",
+      "compat": [
+        {
+          "os": "ubuntu-latest",
+          "jobId": 116879299143,
+          "checkout": "dd835d22cfa2480699ef39628c03921a0d4672ff",
+          "TAP": {
+            "tests": 470,
+            "pass": 469,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 1,
+            "todo": 0
+          },
+          "failedTests": [],
+          "smoke": {
+            "scenarios": 13,
+            "commands": 170,
+            "commandErrors": 0,
+            "diagramGroups": 6,
+            "diagramPythonCalls": 6,
+            "learningGroups": 6,
+            "learningPythonCalls": 18,
+            "saveReplayStructuralAllPass": true
+          }
+        },
+        {
+          "os": "windows-latest",
+          "jobId": 116879299171,
+          "checkout": "dd835d22cfa2480699ef39628c03921a0d4672ff",
+          "TAP": {
+            "tests": 470,
+            "pass": 470,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "failedTests": [],
+          "smoke": {
+            "scenarios": 13,
+            "commands": 170,
+            "commandErrors": 0,
+            "diagramGroups": 6,
+            "diagramPythonCalls": 6,
+            "learningGroups": 6,
+            "learningPythonCalls": 18,
+            "saveReplayStructuralAllPass": true
+          }
+        }
+      ]
+    },
+    {
+      "role": "A-push",
+      "runId": 38872381366,
+      "attempt": 1,
+      "head": "ba735a40b19426aff3c0d6579dc38da1668097ef",
+      "conclusion": "success",
+      "source": {
+        "blobSha1": "cbec4068d993ca553f9e17a2d1db0cebbddf0794",
+        "sha256": "39bbac04f6faef33f54279f595949f8b1cd0fe9f1adbdb79759f57cb9bb76abd",
+        "bytes": 17307
+      },
+      "exactAttemptApiSHA256": "bbe1dcabccf2e303ca3a3ff0d1722807af3e202ff0b3578fba157924cbacf06d",
+      "jobsApiSHA256": "b864d2e717fa1bfccabd76054c45d84ba9d078e7eadfb466d1210f769391daf0",
+      "zipSHA256": "9076520c48d474851c7e2f9ab37257a9cfe41e2b11fdc2f22a27f9bf4978ef1f",
+      "archiveReceiptSHA256": "8a8b5c958670d48cbf171c912fbaead7a8a6ec88764a1c9eed6528d312901f03",
+      "compat": [
+        {
+          "os": "ubuntu-latest",
+          "jobId": 116879276694,
+          "checkout": "ba735a40b19426aff3c0d6579dc38da1668097ef",
+          "TAP": {
+            "tests": 470,
+            "pass": 469,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 1,
+            "todo": 0
+          },
+          "failedTests": [],
+          "smoke": {
+            "scenarios": 13,
+            "commands": 170,
+            "commandErrors": 0,
+            "diagramGroups": 6,
+            "diagramPythonCalls": 6,
+            "learningGroups": 6,
+            "learningPythonCalls": 18,
+            "saveReplayStructuralAllPass": true
+          }
+        },
+        {
+          "os": "windows-latest",
+          "jobId": 116879277155,
+          "checkout": "ba735a40b19426aff3c0d6579dc38da1668097ef",
+          "TAP": {
+            "tests": 470,
+            "pass": 470,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "failedTests": [],
+          "smoke": {
+            "scenarios": 13,
+            "commands": 170,
+            "commandErrors": 0,
+            "diagramGroups": 6,
+            "diagramPythonCalls": 6,
+            "learningGroups": 6,
+            "learningPythonCalls": 18,
+            "saveReplayStructuralAllPass": true
+          }
+        }
+      ]
+    },
+    {
+      "role": "C1-push",
+      "runId": 38872387438,
+      "attempt": 1,
+      "head": "90574fa23e31e21e03f97c28f4def1f4f3d25f66",
+      "conclusion": "success",
+      "source": {
+        "blobSha1": "cbec4068d993ca553f9e17a2d1db0cebbddf0794",
+        "sha256": "39bbac04f6faef33f54279f595949f8b1cd0fe9f1adbdb79759f57cb9bb76abd",
+        "bytes": 17307
+      },
+      "exactAttemptApiSHA256": "e14078b9cfee468d414d9e3fbe31bdfc37b9507f19167f4a596826bc7b0ae7db",
+      "jobsApiSHA256": "4ba85446822d6aa775568c9ae7bdb6ad9bc42b19f1ac554bf9982ad849539e72",
+      "zipSHA256": "232046e30fe071749b8010af24a8f5b59b4bfb8b9cb5c1396b4be731c7213eab",
+      "archiveReceiptSHA256": "7af920058eb33d1ac70019b94ec148868ce4915204d917522dc7418d1098d00c",
+      "compat": [
+        {
+          "os": "ubuntu-latest",
+          "jobId": 116879297888,
+          "checkout": "90574fa23e31e21e03f97c28f4def1f4f3d25f66",
+          "TAP": {
+            "tests": 470,
+            "pass": 469,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 1,
+            "todo": 0
+          },
+          "failedTests": [],
+          "smoke": {
+            "scenarios": 13,
+            "commands": 170,
+            "commandErrors": 0,
+            "diagramGroups": 6,
+            "diagramPythonCalls": 6,
+            "learningGroups": 6,
+            "learningPythonCalls": 18,
+            "saveReplayStructuralAllPass": true
+          }
+        },
+        {
+          "os": "windows-latest",
+          "jobId": 116879297977,
+          "checkout": "90574fa23e31e21e03f97c28f4def1f4f3d25f66",
+          "TAP": {
+            "tests": 470,
+            "pass": 470,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "failedTests": [],
+          "smoke": {
+            "scenarios": 13,
+            "commands": 170,
+            "commandErrors": 0,
+            "diagramGroups": 6,
+            "diagramPythonCalls": 6,
+            "learningGroups": 6,
+            "learningPythonCalls": 18,
+            "saveReplayStructuralAllPass": true
+          }
+        }
+      ]
+    },
+    {
+      "role": "C1-sentinel",
+      "runId": 38872387559,
+      "attempt": 1,
+      "head": "90574fa23e31e21e03f97c28f4def1f4f3d25f66",
+      "conclusion": "success",
+      "source": {
+        "blobSha1": "a11c1e5906f4f49c239cc897d72744f8d9c7693a",
+        "sha256": "4acc7a188982cdbd2bc937bad8b45e245a32b44780b2c3a95724e20ee55ff921",
+        "bytes": 549
+      },
+      "exactAttemptApiSHA256": "16561d20c5809c7921087c2ca603a28f2f19c8b7c0571b514d94cf3154fc7790",
+      "jobsApiSHA256": "a4f4a161de71e70854da2a908629b666026ff5b4b2b42e472f69b05d26783377",
+      "zipSHA256": "0a3f785913da516f1517cfb7e0c5a6eaf6c838c02488fb5aeab706b1aa51f2f2",
+      "archiveReceiptSHA256": "9533af000fd17b8e5d4ead1da3c5e7af30b7f3280a4385ab1bc3d26eb81e0c5b",
+      "compat": []
+    },
+    {
+      "role": "C2-push",
+      "runId": 38872468606,
+      "attempt": 1,
+      "head": "0913ae81c9c207cdcc79056331f084b250470d87",
+      "conclusion": "success",
+      "source": {
+        "blobSha1": "cbec4068d993ca553f9e17a2d1db0cebbddf0794",
+        "sha256": "39bbac04f6faef33f54279f595949f8b1cd0fe9f1adbdb79759f57cb9bb76abd",
+        "bytes": 17307
+      },
+      "exactAttemptApiSHA256": "8f51a85b5e9f8c3e4efad01b1a5cece1f639c1b278d2b3b2dcad72b77644c078",
+      "jobsApiSHA256": "5c433c30dd1de69d4026a4a7b176e21fe48839bff1dfc2e2bdd32a9fae9ae291",
+      "zipSHA256": "438d89f59948d867d16ddb69d52e19504b6f931076586032340190308f3a3aee",
+      "archiveReceiptSHA256": "823cdab1ead39973bf2a8278b692cb25ae27d7b7ae06e1658dc227b6328573cd",
+      "compat": [
+        {
+          "os": "ubuntu-latest",
+          "jobId": 116879561741,
+          "checkout": "0913ae81c9c207cdcc79056331f084b250470d87",
+          "TAP": {
+            "tests": 470,
+            "pass": 469,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 1,
+            "todo": 0
+          },
+          "failedTests": [],
+          "smoke": {
+            "scenarios": 13,
+            "commands": 170,
+            "commandErrors": 0,
+            "diagramGroups": 6,
+            "diagramPythonCalls": 6,
+            "learningGroups": 6,
+            "learningPythonCalls": 18,
+            "saveReplayStructuralAllPass": true
+          }
+        },
+        {
+          "os": "windows-latest",
+          "jobId": 116879561617,
+          "checkout": "0913ae81c9c207cdcc79056331f084b250470d87",
+          "TAP": {
+            "tests": 470,
+            "pass": 470,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "failedTests": [],
+          "smoke": {
+            "scenarios": 13,
+            "commands": 170,
+            "commandErrors": 0,
+            "diagramGroups": 6,
+            "diagramPythonCalls": 6,
+            "learningGroups": 6,
+            "learningPythonCalls": 18,
+            "saveReplayStructuralAllPass": true
+          }
+        }
+      ]
+    },
+    {
+      "role": "C2-sentinel",
+      "runId": 38872468569,
+      "attempt": 1,
+      "head": "0913ae81c9c207cdcc79056331f084b250470d87",
+      "conclusion": "success",
+      "source": {
+        "blobSha1": "a11c1e5906f4f49c239cc897d72744f8d9c7693a",
+        "sha256": "4acc7a188982cdbd2bc937bad8b45e245a32b44780b2c3a95724e20ee55ff921",
+        "bytes": 549
+      },
+      "exactAttemptApiSHA256": "1d398eeb359680c0fd5f3170c90cdf6954eb79cbf3bb62cf78d07d9a104be6f4",
+      "jobsApiSHA256": "28d5e809fa56c856aa2fd05f7ac85e084b88bec3215783a59e67750dd252e146",
+      "zipSHA256": "7b70d50983aa18407994b7f79cfa7c30b8b45fe9d6227256f0f37b78deaa8c82",
+      "archiveReceiptSHA256": "f8b5c40c3bc2c2cc132c71d4d30289d0538fb43ee0caee7a2f6a827c4e501940",
+      "compat": []
+    }
+  ],
+  "preservedUnsuccessfulEvidence": [
+    {
+      "case": "First hosted pair",
+      "status": "NOT_PROVED",
+      "reason": "Original policy incorrectly assumed nonempty REST association head.sha was frozen; real association moved to the live PR head. First pair was not reclassified as a pass.",
+      "raw": [
+        {
+          "file": "pr4-dynamic-association-review/facts.json",
+          "bytes": 4500,
+          "sha256": "551112f4f93d84d3bd6a469fb6fd1b5cb8d38b315bb46610f955355f72e9c10e"
+        },
+        {
+          "file": "pr4-dynamic-association-review/review.md",
+          "bytes": 4675,
+          "sha256": "664819ec6f7ab672b6a3a559f512030ed454abc2840b06a9f6e1e8ad77df3c09"
+        }
+      ]
+    },
+    {
+      "case": "First C3 window",
+      "status": "NOT_EXERCISED",
+      "reason": "Fresh C2 attempt1 was already completed/success; no C3 push occurred at that guard.",
+      "raw": {
+        "file": "pr4-hosted-round2/fresh-pre-C3-push.json",
+        "bytes": 56666,
+        "sha256": "9ff2a2928452607a0a0121335e51fc3ee9188c530488768f5db5e8d16f5f574a"
+      }
+    },
+    {
+      "case": "One isolated C2 rerun",
+      "count": 1,
+      "reason": "Create a new real 403 overlap window after first window expired; not a performance sample and not a replay of the prior acceptance.",
+      "raw": {
+        "file": "pr4-hosted-round2/C2-rerun-for-denial-request.json",
+        "bytes": 156,
+        "sha256": "1ccd996c80b8ddaea465b10ab169d4569f6bda4869d8fe361bbcf6c93f524687"
+      }
+    },
+    {
+      "case": "C3 observer GET network interruption",
+      "status": "NOT_PROVED",
+      "raw": {
+        "file": "pr4-hosted-round2/inventory-C3/observer-result.json",
+        "bytes": 2847,
+        "sha256": "4fc52c98107714d5ccf054119407fd1e605579051e77a85186bba25965cd9983"
+      }
+    },
+    {
+      "case": "First independent C3 ZIP download network interruption",
+      "status": "NOT_ARCHIVED",
+      "raw": {
+        "file": "pr4-round2-independent-hosted-review/C3-attempt1/archive-result.json",
+        "bytes": 3118,
+        "sha256": "7e9be08384b7aa032ea0201cd846964011b99f96b9420ee1e155e10f1b7be3dd"
+      },
+      "resolution": "One new bounded GET-only archive in C3-attempt1-after-network-failure; original partial evidence unchanged."
+    },
+    {
+      "case": "Six-archive A-push expected input correction",
+      "status": "Original QA input failure retained",
+      "raw": {
+        "file": "pr4-hosted-round2/independent-six-archives/push-marker-input-correction.md",
+        "bytes": 395,
+        "sha256": "bdfbfc349a9b5b802c15af206aac234e281fd0384d72532e63faa7e46c767673"
+      }
+    }
+  ],
+  "auditEvidence": [
+    {
+      "file": "pr4-round2-independent-hosted-review/ci-performance-245-pr4-service-acceptance.json",
+      "bytes": 54096,
+      "sha256": "a92ae3cf7b37bafa0d844f221b607507a8a846f6372fbd3f35b30e1a1c6f257e"
+    },
+    {
+      "file": "pr4-round2-independent-hosted-review/cancellation-audit.json",
+      "bytes": 12036,
+      "sha256": "254eec1e3ac604230951086e2cda2fec019f1f961729825ae4f717224af47213"
+    },
+    {
+      "file": "pr4-round2-independent-hosted-review/six-archive-crosscheck.json",
+      "bytes": 6346,
+      "sha256": "eb8c2ee5ff60553f0fafa05dcbf5ac89028a217f5b0eaa9b71fb60b069f0f007"
+    },
+    {
+      "file": "pr4-round2-independent-hosted-review/permission-final-crosscheck.json",
+      "bytes": 10956,
+      "sha256": "3d81c1c9ad10f865c6cb24b8200b17ed3d9339e68f32afcae74428d28792b871"
+    },
+    {
+      "file": "pr4-round2-independent-hosted-review/C3-prepared-scope.json",
+      "bytes": 1321,
+      "sha256": "59dfe10286548ad309faeed9492c9f0ca84842c242b632c195e25e6cb06ce8e8"
+    },
+    {
+      "file": "pr4-round2-independent-hosted-review/C2-policy-independent-receipt.json",
+      "bytes": 435,
+      "sha256": "764190d76afc223d6814b8c27aabb1bfc77fb3b6ac4cdf25bcd8676404724f0a"
+    },
+    {
+      "file": "pr4-round2-independent-hosted-review/C1-attempt2-policy-independent-receipt.json",
+      "bytes": 325,
+      "sha256": "52267cd18adb33475fe4db54359068bfb60ff1194f47a01f5fb529f61aec1e11"
+    },
+    {
+      "file": "pr4-round2-independent-hosted-review/C3-initial-independent-capture/receipt.json",
+      "bytes": 4805,
+      "sha256": "b95d10819fcadab58fc23ac6425adaed224e0d27945b10183d916fe5e1ce09e7"
+    },
+    {
+      "file": "pr4-round2-independent-hosted-review/C2-attempt2-final-run-receipt.json",
+      "bytes": 400,
+      "sha256": "b1709a2d95fecfcaf8ee5662a66a2a6455e41f65b34b9b7f308ee9f9cb1a0a11"
+    }
+  ],
+  "boundaries": [
+    "Authentic hosted round2 only. Earlier failed pair, expired window, six Trace2 diagnostics and Issue245 performance runs are not pooled into this service acceptance.",
+    "C3 permission-negative PR and push legitimately finish failure due to the unchanged strict actions:write assertion; smoke is NOT_RUN, never PASS.",
+    "Observed 202 requests and eventual completed/cancelled attempts are distinct facts. Cancellation is not instantaneous.",
+    "No actual delayed old event with higher run_number, fork run, incomplete pagination, 409, arbitrary API failure, restored-head event, or attempt-change race was manufactured on GitHub; these remain synthetic coverage/known bounds.",
+    "There is no atomic conditional cancel endpoint. A head/attempt can change after the final read; observations do not prove universal newest preservation for every distributed event ordering.",
+    "Same-repository PR workflow YAML is privileged mutable source and still requires normal review. The run-name/source proof is an association check, not a security signature.",
+    "Raw archives live in QA and are identified here by full hashes; this compact receipt contains no bulk logs. No source or remote mutation and no tests/benchmarks were performed by this audit.",
+    "Future docs-only heads, their CI, exact installs, required non-author GitHub approval, unresolved threads, actual merge and post-merge verification require their own actual evidence; none is inferred here."
+  ]
+}
