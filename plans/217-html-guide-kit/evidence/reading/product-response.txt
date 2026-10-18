@@ -1,0 +1,45 @@
+实际身份：`OpenAI Codex Agent /root/pilot_product`，本轮角色为独立模拟产品读者；精确模型版本未向我暴露。开始时间为 **2026-10-19 01:01:50 Asia/Taipei**。工作区 HEAD 与指定候选一致：`601ff07a6840653e57687e93fe856c79475de4a0`。
+
+1. **PR1 是合同与前置工程阶段，需求原意是让复杂材料经过读者、任务和理解问题确认后，形成交互教材绘制指南。**
+
+   初始接受的产品范围是 HTML Guide Kit 0.1.0、唯一显式入口 `$html-guide-kit:guide`、Read、聊天中交付可复制的新指南文本。必须先提供有实际差异的方案并等待明确确认；推荐、沉默、超时及窗口消失不算答复。PR1 自身交付 ADR、判准、scope/钩子、独立版本工具等，保持原三个运行插件，不注册空包。
+
+   非目标包括制作 HTML、代码或文件、具体制作工具操作、修订指南、比较既有方案、审查 HTML；现实效果由 Owner 于 2026-10-12 决定另测，正式发布亦不在本阶段范围。
+
+   实际出处：[固定 PR1 ADR](<C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/evidence/sources/pr1-docs/docs/adr/[ADR]_HTML_Guide_Kit_Addition.md>) 的 Context、Decision、Implementation、Acceptance，以及固定 SPEC §1。来源清单 `sources[id=pr1-adr/pr1-spec].commit` 均绑定 **2026-10-12 merge `70267a5…`**，不能拿今天的摘要反推当时约定。
+
+2. **正式产品约定应查维护中的 ADR/SPEC，并结合适用时点的 Owner 决定；本次 PLAN/REPORT 是导航和交接材料。**
+
+   [维护 ADR](<C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/docs/adr/[ADR]_HTML_Guide_Kit_Addition.md>) 的 Decision 与 [维护 SPEC](<C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md>) §1、§7 承载长期约定。历史 PR1 则读上述固定原件。`layer: canonical` 表示维护归属，不能证明全部验收通过。
+
+   [PLAN](<C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/[PLAN]_HTML_Guide_Kit.md>)“本次试行接受基线 P1”证明本轮 **2026-10-19** 文档重建的范围、排除项和执行安排；它明确不是 2026-10-12 的原始执行计划，也不是再次产品接受。
+
+   [REPORT](<C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/[REPORT]_HTML_Guide_Kit.md>)“PR1 历史交付链”“P1”提供事实、原件和缺口的交接定位。资源回执中 `ok=true`、`declaredRuntimeResources=43`、`rawPngMatches=3`、`deterministicCrlfTextMatches=40` 支持本轮资源对应检查；其 `limitations` 明确排除运行、客户端和效果验收。REPORT 当时仍将三角色阅读记为待执行，不能据此声称本轮已经通过。
+
+3. **历史结果必须跟随阶段、运行版本和证据时间，不能迁移成当前 0.1.36 的通过资格。**
+
+   PR1 的 252/252、四安装和缓存 Python 结果属于 **2026-10-12 的原三插件集合**；HTML 当时尚未注册。实际 merge `70267a5…` 与已测 head 同树；合并后回执首次加入 `4992d751…`，不能说它原已存在于 merge 树。出处为 [混合 RUNBOOK](<C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md>) §6–7、REPORT“PR1 历史交付链”和来源清单 `pr1-post-merge-install`。
+
+   当前受控 manifest 的 `version` 是 **0.1.36**，来源绑定限定在 pilot base `3bcd091…`。RUNBOOK §76 的工程与准确安装通过，不能抵消后续行为失败。[#239 快照](<C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/evidence/sources/github/current-issue-239.json>) `body` 明记本版整体语义 FAIL、扩展与完整双客户端未完成、效果 NOT_MEASURED。旧版本有限客户端通过也不能继承给本版。
+
+   [#217 快照](<C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/evidence/sources/github/current-issue-217.json>) `body`“工程交付收尾”“最新 Owner 决定”说明：**2026-10-15** 已按调整后的工程范围交付 0.1.36 并关闭阶段；未完成项不再阻断关闭，原 FAIL/未覆盖仍保留。这与原 SPEC 的初始关闭门槛必须按时间区分。
+
+4. **尚存缺陷和延期由 #239 承载；历史失败留在原账本；最终接受仍需独立证据。**
+
+   #239 的 `state=open`、`body` 记录独立自检题缺少必要当前状态却给出确定结果的缺陷，以及未完成扩展、完整双客户端、现实效果另测；0.1.37 仅是未接入草稿。本轮不自动恢复修复。
+
+   REPORT“结论与待交接”列明责任：维护 Agent 在对应授权后处理，Owner 决定实质范围与成品最终接受。该处明确写着**本次文档成品的 Owner 最终接受尚未提供**。#217 的工程收尾决定不能替代这一接受，也不能把历史失败改为 PASS。GitHub 批准同样缺证：本轮读取的 `current-pr-221-reviews.json` 为 `[]`，不自行补判批准。
+
+实际读取顺序如下；同批文件为并行读取：
+
+1. 实时时钟、候选 HEAD；INDEX。
+2. PLAN、REPORT、source-bindings.json。
+3. 固定 PR1 ADR/SPEC、当前 manifest 快照、GitHub capture-receipt。
+4. 维护 ADR、RUNBOOK 标题导航、#239 的状态与正文。
+5. #217 状态与正文、维护 SPEC §1/§7/§8、RUNBOOK §6–7/§75–76。
+6. 来源清单相关条目、资源回执字段、PR221 reviews、#217 收尾段复读。
+7. 资源回执摘要与限制、完成时钟。
+
+已打开的关联文件没有断链。定位困难主要是混合 RUNBOOK 和 #217 正文保留多个“当前”快照，必须结合日期并优先读取收尾段；大文件首次输出有截断，关键收尾段已单独复读。固定 SPEC 整份读取返回了旧验收材料及判准；未读取本轮评分答案键或其他角色输出。未执行脚本、插件、模型测试或客户端操作，也未访问外部原始绝对路径。
+
+完成时间：**2026-10-19 01:03:31 Asia/Taipei**。GitHub 状态依据受控快照，捕获时间为 **2026-10-18 16:54:59–16:55:08 UTC**，不是本轮实时平台查询。

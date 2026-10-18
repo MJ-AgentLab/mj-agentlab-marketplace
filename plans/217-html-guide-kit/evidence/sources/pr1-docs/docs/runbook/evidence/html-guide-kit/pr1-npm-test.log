@@ -1,0 +1,1526 @@
+
+> test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: marketplace updates VERSION and derived badge only
+ok 1 - marketplace updates VERSION and derived badge only
+  ---
+  duration_ms: 707.2654
+  type: 'test'
+  ...
+# Subtest: plugin bumps root identity without touching prose, nested versions or catalog
+ok 2 - plugin bumps root identity without touching prose, nested versions or catalog
+  ---
+  duration_ms: 666.4302
+  type: 'test'
+  ...
+# Subtest: understanding-kit bumps independently from marketplace and diagram-kit
+ok 3 - understanding-kit bumps independently from marketplace and diagram-kit
+  ---
+  duration_ms: 635.8252
+  type: 'test'
+  ...
+# Subtest: DryRun writes nothing: marketplace
+ok 4 - DryRun writes nothing: marketplace
+  ---
+  duration_ms: 725.6809
+  type: 'test'
+  ...
+# Subtest: DryRun writes nothing: diagram-kit
+ok 5 - DryRun writes nothing: diagram-kit
+  ---
+  duration_ms: 631.3058
+  type: 'test'
+  ...
+# Subtest: DryRun writes nothing: understanding-kit
+ok 6 - DryRun writes nothing: understanding-kit
+  ---
+  duration_ms: 679.7499
+  type: 'test'
+  ...
+# Subtest: DryRun writes nothing: explain-kit
+ok 7 - DryRun writes nothing: explain-kit
+  ---
+  duration_ms: 628.0159
+  type: 'test'
+  ...
+# Subtest: DryRun writes nothing: html-guide-kit
+ok 8 - DryRun writes nothing: html-guide-kit
+  ---
+  duration_ms: 626.3459
+  type: 'test'
+  ...
+# Subtest: fault after write 1 restores exact original bytes
+ok 9 - fault after write 1 restores exact original bytes
+  ---
+  duration_ms: 652.2927
+  type: 'test'
+  ...
+# Subtest: fault after write 2 restores exact original bytes
+ok 10 - fault after write 2 restores exact original bytes
+  ---
+  duration_ms: 670.7578
+  type: 'test'
+  ...
+# Subtest: post-write corruption is caught and rolled back
+ok 11 - post-write corruption is caught and rolled back
+  ---
+  duration_ms: 763.4497
+  type: 'test'
+  ...
+# Subtest: fault injectors are unreachable without test opt-in
+ok 12 - fault injectors are unreachable without test opt-in
+  ---
+  duration_ms: 1391.9227
+  type: 'test'
+  ...
+# Subtest: backup cleanup failure does not undo a committed bump
+ok 13 - backup cleanup failure does not undo a committed bump
+  ---
+  duration_ms: 301.5155
+  type: 'test'
+  ...
+# Subtest: drifted or duplicate badge fails before writes
+ok 14 - drifted or duplicate badge fails before writes
+  ---
+  duration_ms: 282.5607
+  type: 'test'
+  ...
+# Subtest: drifted or duplicate badge fails before writes
+ok 15 - drifted or duplicate badge fails before writes
+  ---
+  duration_ms: 278.3693
+  type: 'test'
+  ...
+# Subtest: wrong From and missing targets fail without writes
+ok 16 - wrong From and missing targets fail without writes
+  ---
+  duration_ms: 550.9773
+  type: 'test'
+  ...
+# Subtest: retired scope and malformed semver are rejected before writes
+ok 17 - retired scope and malformed semver are rejected before writes
+  ---
+  duration_ms: 5061.469
+  type: 'test'
+  ...
+# Subtest: mis-indented nested version cannot stand in for the root version
+ok 18 - mis-indented nested version cannot stand in for the root version
+  ---
+  duration_ms: 288.0024
+  type: 'test'
+  ...
+# Subtest: plugin scope cannot bump a manifest with another plugin identity
+ok 19 - plugin scope cannot bump a manifest with another plugin identity
+  ---
+  duration_ms: 268.1259
+  type: 'test'
+  ...
+# Subtest: understanding-kit failure restores its version without touching the other plugin
+ok 20 - understanding-kit failure restores its version without touching the other plugin
+  ---
+  duration_ms: 615.5852
+  type: 'test'
+  ...
+# Subtest: explain-kit version changes preserve the other plugin and marketplace
+ok 21 - explain-kit version changes preserve the other plugin and marketplace
+  ---
+  duration_ms: 604.1722
+  type: 'test'
+  ...
+# Subtest: plugin write failure restores original bytes: diagram-kit
+ok 22 - plugin write failure restores original bytes: diagram-kit
+  ---
+  duration_ms: 618.1118
+  type: 'test'
+  ...
+# Subtest: plugin write failure restores original bytes: explain-kit
+ok 23 - plugin write failure restores original bytes: explain-kit
+  ---
+  duration_ms: 608.7167
+  type: 'test'
+  ...
+# Subtest: plugin write failure restores original bytes: html-guide-kit
+ok 24 - plugin write failure restores original bytes: html-guide-kit
+  ---
+  duration_ms: 623.7591
+  type: 'test'
+  ...
+# Subtest: plugin scope cannot modify a manifest with another identity or version
+ok 25 - plugin scope cannot modify a manifest with another identity or version
+  ---
+  duration_ms: 541.3152
+  type: 'test'
+  ...
+# Subtest: html-guide-kit patch bump preserves history, nested versions and all other version sources
+ok 26 - html-guide-kit patch bump preserves history, nested versions and all other version sources
+  ---
+  duration_ms: 601.1968
+  type: 'test'
+  ...
+# Subtest: html-guide-kit missing manifest fails with zero writes: dry run
+ok 27 - html-guide-kit missing manifest fails with zero writes: dry run
+  ---
+  duration_ms: 278.1775
+  type: 'test'
+  ...
+# Subtest: html-guide-kit missing manifest fails with zero writes: apply
+ok 28 - html-guide-kit missing manifest fails with zero writes: apply
+  ---
+  duration_ms: 266.2953
+  type: 'test'
+  ...
+# Subtest: html-guide-kit rejects mismatched name before dry-run or apply writes
+ok 29 - html-guide-kit rejects mismatched name before dry-run or apply writes
+  ---
+  duration_ms: 523.036
+  type: 'test'
+  ...
+# Subtest: html-guide-kit rejects mismatched version before dry-run or apply writes
+ok 30 - html-guide-kit rejects mismatched version before dry-run or apply writes
+  ---
+  duration_ms: 526.4083
+  type: 'test'
+  ...
+# Subtest: html-guide-kit post-write validation failure restores exact bytes and other versions
+ok 31 - html-guide-kit post-write validation failure restores exact bytes and other versions
+  ---
+  duration_ms: 664.6745
+  type: 'test'
+  ...
+# Subtest: isA6Trigger matches every §2.7 allowlist category
+ok 32 - isA6Trigger matches every §2.7 allowlist category
+  ---
+  duration_ms: 0.8955
+  type: 'test'
+  ...
+# Subtest: isA6Trigger matches the Codex dual-native additions
+ok 33 - isA6Trigger matches the Codex dual-native additions
+  ---
+  duration_ms: 0.2767
+  type: 'test'
+  ...
+# Subtest: isA6Trigger ignores non-allowlist paths
+ok 34 - isA6Trigger ignores non-allowlist paths
+  ---
+  duration_ms: 0.086
+  type: 'test'
+  ...
+# Subtest: a trigger path containing a newline is still a trigger
+ok 35 - a trigger path containing a newline is still a trigger
+  ---
+  duration_ms: 0.0639
+  type: 'test'
+  ...
+# Subtest: trigger patterns anchor to end of input, not to a trailing newline
+ok 36 - trigger patterns anchor to end of input, not to a trailing newline
+  ---
+  duration_ms: 0.0562
+  type: 'test'
+  ...
+# Subtest: isA6Trigger is anchored — near-miss paths do not match
+ok 37 - isA6Trigger is anchored — near-miss paths do not match
+  ---
+  duration_ms: 0.0626
+  type: 'test'
+  ...
+# Subtest: passes when the diff touches no trigger file
+ok 38 - passes when the diff touches no trigger file
+  ---
+  duration_ms: 0.5197
+  type: 'test'
+  ...
+# Subtest: passes when a trigger file is accompanied by a modified AGENTS.md
+ok 39 - passes when a trigger file is accompanied by a modified AGENTS.md
+  ---
+  duration_ms: 0.1763
+  type: 'test'
+  ...
+# Subtest: passes when AGENTS.md is newly added alongside a trigger
+ok 40 - passes when AGENTS.md is newly added alongside a trigger
+  ---
+  duration_ms: 0.2023
+  type: 'test'
+  ...
+# Subtest: reports every triggered path, not just the first
+ok 41 - reports every triggered path, not just the first
+  ---
+  duration_ms: 0.2389
+  type: 'test'
+  ...
+# Subtest: blocks when a trigger file is touched and AGENTS.md is absent
+ok 42 - blocks when a trigger file is touched and AGENTS.md is absent
+  ---
+  duration_ms: 0.1227
+  type: 'test'
+  ...
+# Subtest: deleting root AGENTS.md does NOT count as syncing it
+ok 43 - deleting root AGENTS.md does NOT count as syncing it
+  ---
+  duration_ms: 0.0754
+  type: 'test'
+  ...
+# Subtest: a AGENTS.md typechange does not count as syncing it
+ok 44 - a AGENTS.md typechange does not count as syncing it
+  ---
+  duration_ms: 0.0465
+  type: 'test'
+  ...
+# Subtest: only ROOT AGENTS.md counts — a plugin AGENTS.md does not
+ok 45 - only ROOT AGENTS.md counts — a plugin AGENTS.md does not
+  ---
+  duration_ms: 0.0446
+  type: 'test'
+  ...
+# Subtest: REGRESSION: [skip a6] alone does not bypass the gate
+ok 46 - REGRESSION: [skip a6] alone does not bypass the gate
+  ---
+  duration_ms: 0.0988
+  type: 'test'
+  ...
+# Subtest: [skip a6] plus a valid reviewer sign-off bypasses the gate
+ok 47 - [skip a6] plus a valid reviewer sign-off bypasses the gate
+  ---
+  duration_ms: 0.0806
+  type: 'test'
+  ...
+# Subtest: the skip token must be the literal string
+ok 48 - the skip token must be the literal string
+  ---
+  duration_ms: 0.0606
+  type: 'test'
+  ...
+# Subtest: a sign-off without the skip token does not bypass the gate
+ok 49 - a sign-off without the skip token does not bypass the gate
+  ---
+  duration_ms: 0.0321
+  type: 'test'
+  ...
+# Subtest: the PR author cannot sign off on their own PR
+ok 50 - the PR author cannot sign off on their own PR
+  ---
+  duration_ms: 0.0446
+  type: 'test'
+  ...
+# Subtest: author self-signoff is rejected case-insensitively
+ok 51 - author self-signoff is rejected case-insensitively
+  ---
+  duration_ms: 0.0358
+  type: 'test'
+  ...
+# Subtest: only OWNER / MEMBER / COLLABORATOR may sign off
+ok 52 - only OWNER / MEMBER / COLLABORATOR may sign off
+  ---
+  duration_ms: 0.1195
+  type: 'test'
+  ...
+# Subtest: a sign-off against a stale head SHA does not count
+ok 53 - a sign-off against a stale head SHA does not count
+  ---
+  duration_ms: 0.0497
+  type: 'test'
+  ...
+# Subtest: the review must be an APPROVAL, not a comment
+ok 54 - the review must be an APPROVAL, not a comment
+  ---
+  duration_ms: 0.0527
+  type: 'test'
+  ...
+# Subtest: the review body must equal the sign-off phrase exactly
+ok 55 - the review body must equal the sign-off phrase exactly
+  ---
+  duration_ms: 0.0656
+  type: 'test'
+  ...
+# Subtest: surrounding whitespace and CRLF in the sign-off body are tolerated
+ok 56 - surrounding whitespace and CRLF in the sign-off body are tolerated
+  ---
+  duration_ms: 0.6394
+  type: 'test'
+  ...
+# Subtest: a later CHANGES_REQUESTED from the same reviewer revokes their sign-off
+ok 57 - a later CHANGES_REQUESTED from the same reviewer revokes their sign-off
+  ---
+  duration_ms: 0.1477
+  type: 'test'
+  ...
+# Subtest: a re-approval after CHANGES_REQUESTED restores the sign-off
+ok 58 - a re-approval after CHANGES_REQUESTED restores the sign-off
+  ---
+  duration_ms: 0.0708
+  type: 'test'
+  ...
+# Subtest: review recency follows submitted_at, not array position or id
+ok 59 - review recency follows submitted_at, not array position or id
+  ---
+  duration_ms: 0.0573
+  type: 'test'
+  ...
+# Subtest: review recency falls back to id when submitted_at ties
+ok 60 - review recency falls back to id when submitted_at ties
+  ---
+  duration_ms: 0.0485
+  type: 'test'
+  ...
+# Subtest: one reviewer's CHANGES_REQUESTED does not void another's valid sign-off
+ok 61 - one reviewer's CHANGES_REQUESTED does not void another's valid sign-off
+  ---
+  duration_ms: 0.0499
+  type: 'test'
+  ...
+# Subtest: a reviewer with no login is ignored rather than crashing
+ok 62 - a reviewer with no login is ignored rather than crashing
+  ---
+  duration_ms: 0.0401
+  type: 'test'
+  ...
+# Subtest: evaluateA6 rejects malformed input rather than guessing
+ok 63 - evaluateA6 rejects malformed input rather than guessing
+  ---
+  duration_ms: 0.3515
+  type: 'test'
+  ...
+# Subtest: flattenReviews accepts both a plain array and --paginate --slurp nesting
+ok 64 - flattenReviews accepts both a plain array and --paginate --slurp nesting
+  ---
+  duration_ms: 0.1969
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ parses git's STATUS\\0PATH\\0 records
+ok 65 - parseNameStatusZ parses git's STATUS\\0PATH\\0 records
+  ---
+  duration_ms: 0.1386
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ handles an empty diff
+ok 66 - parseNameStatusZ handles an empty diff
+  ---
+  duration_ms: 0.0434
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ keeps newlines inside a path intact
+ok 67 - parseNameStatusZ keeps newlines inside a path intact
+  ---
+  duration_ms: 0.0434
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ strips similarity scores from status codes
+ok 68 - parseNameStatusZ strips similarity scores from status codes
+  ---
+  duration_ms: 0.037
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ rejects a rename record instead of misreading it
+ok 69 - parseNameStatusZ rejects a rename record instead of misreading it
+  ---
+  duration_ms: 0.051
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ rejects a trailing status with no path
+ok 70 - parseNameStatusZ rejects a trailing status with no path
+  ---
+  duration_ms: 0.109
+  type: 'test'
+  ...
+# Subtest: CLI exits 2 when a required environment variable is missing
+ok 71 - CLI exits 2 when a required environment variable is missing
+  ---
+  duration_ms: 377.6467
+  type: 'test'
+  ...
+# Subtest: CLI exits 2 on an unreadable reviews file
+ok 72 - CLI exits 2 on an unreadable reviews file
+  ---
+  duration_ms: 330.0723
+  type: 'test'
+  ...
+# Subtest: CLI exits 2 on malformed reviews JSON
+ok 73 - CLI exits 2 on malformed reviews JSON
+  ---
+  duration_ms: 303.2573
+  type: 'test'
+  ...
+# Subtest: CLI exits 2 on an unresolvable SHA rather than treating the diff as empty
+ok 74 - CLI exits 2 on an unresolvable SHA rather than treating the diff as empty
+  ---
+  duration_ms: 348.4923
+  type: 'test'
+  ...
+# Subtest: CLI exits 1 and names the triggers when the gate blocks
+ok 75 - CLI exits 1 and names the triggers when the gate blocks
+  ---
+  duration_ms: 460.0939
+  type: 'test'
+  ...
+# Subtest: CLI exits 0 when AGENTS.md is synced alongside the trigger
+ok 76 - CLI exits 0 when AGENTS.md is synced alongside the trigger
+  ---
+  duration_ms: 399.8814
+  type: 'test'
+  ...
+# Subtest: CLI exits 0 when the PR touches nothing on the allowlist
+ok 77 - CLI exits 0 when the PR touches nothing on the allowlist
+  ---
+  duration_ms: 429.6756
+  type: 'test'
+  ...
+# Subtest: CLI exits 1 for [skip a6] with no sign-off
+ok 78 - CLI exits 1 for [skip a6] with no sign-off
+  ---
+  duration_ms: 489.7038
+  type: 'test'
+  ...
+# Subtest: CLI exits 0 for [skip a6] with a valid sign-off
+ok 79 - CLI exits 0 for [skip a6] with a valid sign-off
+  ---
+  duration_ms: 504.2213
+  type: 'test'
+  ...
+# Subtest: CLI exits 1 when deleting root AGENTS.md is the only 'sync'
+ok 80 - CLI exits 1 when deleting root AGENTS.md is the only 'sync'
+  ---
+  duration_ms: 406.0219
+  type: 'test'
+  ...
+# Subtest: CLI uses a three-dot range: a base-branch AGENTS.md edit cannot satisfy the PR
+ok 81 - CLI uses a three-dot range: a base-branch AGENTS.md edit cannot satisfy the PR
+  ---
+  duration_ms: 778.991
+  type: 'test'
+  ...
+# Subtest: CLI sees a renamed trigger file rather than a rename record
+ok 82 - CLI sees a renamed trigger file rather than a rename record
+  ---
+  duration_ms: 401.9251
+  type: 'test'
+  ...
+# Subtest: CLI treats a shell-metacharacter PR title as inert data
+ok 83 - CLI treats a shell-metacharacter PR title as inert data
+  ---
+  duration_ms: 399.8939
+  type: 'test'
+  ...
+# Subtest: CLI handles a PR title that is exactly the skip token with odd spacing
+ok 84 - CLI handles a PR title that is exactly the skip token with odd spacing
+  ---
+  duration_ms: 415.4688
+  type: 'test'
+  ...
+# Subtest: portable manifest and migrated repository skills trigger A6
+ok 85 - portable manifest and migrated repository skills trigger A6
+  ---
+  duration_ms: 0.1074
+  type: 'test'
+  ...
+# Subtest: legacy CLAUDE.md alone cannot satisfy the new sync target
+ok 86 - legacy CLAUDE.md alone cannot satisfy the new sync target
+  ---
+  duration_ms: 0.0641
+  type: 'test'
+  ...
+# Subtest: parseVersion accepts a plain X.Y.Z
+ok 87 - parseVersion accepts a plain X.Y.Z
+  ---
+  duration_ms: 1.0667
+  type: 'test'
+  ...
+# Subtest: parseVersion rejects anything that is not exactly X.Y.Z
+ok 88 - parseVersion rejects anything that is not exactly X.Y.Z
+  ---
+  duration_ms: 0.1383
+  type: 'test'
+  ...
+# Subtest: parseVersion rejects leading zeros
+ok 89 - parseVersion rejects leading zeros
+  ---
+  duration_ms: 0.0718
+  type: 'test'
+  ...
+# Subtest: compareVersions orders numerically, not lexically
+ok 90 - compareVersions orders numerically, not lexically
+  ---
+  duration_ms: 0.1543
+  type: 'test'
+  ...
+# Subtest: develop ahead of main is prebumped, in either mode
+ok 91 - develop ahead of main is prebumped, in either mode
+  ---
+  duration_ms: 0.2009
+  type: 'test'
+  ...
+# Subtest: a numerically-ahead develop is prebumped even when lexically behind
+ok 92 - a numerically-ahead develop is prebumped even when lexically behind
+  ---
+  duration_ms: 0.0873
+  type: 'test'
+  ...
+# Subtest: develop equal to main inside the grace window is ok, in either mode
+ok 93 - develop equal to main inside the grace window is ok, in either mode
+  ---
+  duration_ms: 0.1368
+  type: 'test'
+  ...
+# Subtest: the grace window is exclusive at its upper bound
+ok 94 - the grace window is exclusive at its upper bound
+  ---
+  duration_ms: 0.0718
+  type: 'test'
+  ...
+# Subtest: develop equal to main past the grace window is overdue
+ok 95 - develop equal to main past the grace window is overdue
+  ---
+  duration_ms: 0.1625
+  type: 'test'
+  ...
+# Subtest: overdue blocks only in enforce mode
+ok 96 - overdue blocks only in enforce mode
+  ---
+  duration_ms: 0.2198
+  type: 'test'
+  ...
+# Subtest: develop behind main is inverted, and blocks only in enforce mode
+ok 97 - develop behind main is inverted, and blocks only in enforce mode
+  ---
+  duration_ms: 0.8154
+  type: 'test'
+  ...
+# Subtest: inverted is independent of the grace window
+ok 98 - inverted is independent of the grace window
+  ---
+  duration_ms: 0.1734
+  type: 'test'
+  ...
+# Subtest: ageSeconds reports the real elapsed time and zero is allowed
+ok 99 - ageSeconds reports the real elapsed time and zero is allowed
+  ---
+  duration_ms: 0.1301
+  type: 'test'
+  ...
+# Subtest: every result carries a non-empty reason
+ok 100 - every result carries a non-empty reason
+  ---
+  duration_ms: 0.1902
+  type: 'test'
+  ...
+# Subtest: evaluatePrebump rejects an unknown mode
+ok 101 - evaluatePrebump rejects an unknown mode
+  ---
+  duration_ms: 0.3113
+  type: 'test'
+  ...
+# Subtest: evaluatePrebump rejects a malformed version on either side
+ok 102 - evaluatePrebump rejects a malformed version on either side
+  ---
+  duration_ms: 0.0834
+  type: 'test'
+  ...
+# Subtest: evaluatePrebump rejects a non-integer or negative epoch
+ok 103 - evaluatePrebump rejects a non-integer or negative epoch
+  ---
+  duration_ms: 0.2361
+  type: 'test'
+  ...
+# Subtest: evaluatePrebump rejects a clock that runs backwards
+ok 104 - evaluatePrebump rejects a clock that runs backwards
+  ---
+  duration_ms: 0.0528
+  type: 'test'
+  ...
+# Subtest: evaluatePrebump rejects a nonsensical grace window
+ok 105 - evaluatePrebump rejects a nonsensical grace window
+  ---
+  duration_ms: 0.1029
+  type: 'test'
+  ...
+# Subtest: a zero-hour grace window is legal and makes equality immediately overdue
+ok 106 - a zero-hour grace window is legal and makes equality immediately overdue
+  ---
+  duration_ms: 0.0444
+  type: 'test'
+  ...
+# Subtest: CLI prints exactly one line of stable JSON and exits 0 when prebumped
+ok 107 - CLI prints exactly one line of stable JSON and exits 0 when prebumped
+  ---
+  duration_ms: 45.2168
+  type: 'test'
+  ...
+# Subtest: CLI exits 1 for overdue under enforce
+ok 108 - CLI exits 1 for overdue under enforce
+  ---
+  duration_ms: 48.6368
+  type: 'test'
+  ...
+# Subtest: CLI exits 0 for overdue under push, and says so on stderr
+ok 109 - CLI exits 0 for overdue under push, and says so on stderr
+  ---
+  duration_ms: 47.562
+  type: 'test'
+  ...
+# Subtest: CLI exits 1 for inverted under enforce and 0 under push
+ok 110 - CLI exits 1 for inverted under enforce and 0 under push
+  ---
+  duration_ms: 90.7423
+  type: 'test'
+  ...
+# Subtest: CLI exits 2 on bad arguments rather than guessing
+ok 111 - CLI exits 2 on bad arguments rather than guessing
+  ---
+  duration_ms: 281.5889
+  type: 'test'
+  ...
+# Subtest: CLI exits 2 on a backwards clock
+ok 112 - CLI exits 2 on a backwards clock
+  ---
+  duration_ms: 44.2277
+  type: 'test'
+  ...
+# Subtest: CLI writes nothing to stdout on an argument error
+ok 113 - CLI writes nothing to stdout on an argument error
+  ---
+  duration_ms: 37.0915
+  type: 'test'
+  ...
+# Subtest: CLI defaults the grace window to the ADR's 72h when not given
+ok 114 - CLI defaults the grace window to the ADR's 72h when not given
+  ---
+  duration_ms: 93.0977
+  type: 'test'
+  ...
+# Subtest: evaluatePrebump refuses to assume a grace window
+ok 115 - evaluatePrebump refuses to assume a grace window
+  ---
+  duration_ms: 0.1341
+  type: 'test'
+  ...
+# Subtest: generated commit-msg hook accepts html-guide-kit and all original scopes, rejects invalid subjects
+ok 116 - generated commit-msg hook accepts html-guide-kit and all original scopes, rejects invalid subjects
+  ---
+  duration_ms: 3265.3667
+  type: 'test'
+  ...
+# Subtest: Shell and PowerShell bulk validators execute the same positive and negative commit cases
+ok 117 - Shell and PowerShell bulk validators execute the same positive and negative commit cases
+  ---
+  duration_ms: 14823.8947
+  type: 'test'
+  ...
+# Subtest: generated pre-push hook validates existing and new-branch ref ranges without remote writes
+ok 118 - generated pre-push hook validates existing and new-branch ref ranges without remote writes
+  ---
+  duration_ms: 8943.8376
+  type: 'test'
+  ...
+# Subtest: generated pre-push hook rejects an invalid ref even alongside a valid html-guide-kit ref
+ok 119 - generated pre-push hook rejects an invalid ref even alongside a valid html-guide-kit ref
+  ---
+  duration_ms: 1133.8552
+  type: 'test'
+  ...
+# Subtest: static: arch-diagram body has no ${CLAUDE_PLUGIN_ROOT} host coupling
+ok 120 - static: arch-diagram body has no ${CLAUDE_PLUGIN_ROOT} host coupling
+  ---
+  duration_ms: 1.3266
+  type: 'test'
+  ...
+# Subtest: static: validator is resolved from the SKILL.md locator, not cwd
+ok 121 - static: validator is resolved from the SKILL.md locator, not cwd
+  ---
+  duration_ms: 0.3878
+  type: 'test'
+  ...
+# Subtest: static: the bundled validator exists and is pure-stdlib python
+ok 122 - static: the bundled validator exists and is pure-stdlib python
+  ---
+  duration_ms: 0.3179
+  type: 'test'
+  ...
+# Subtest: execution: validator accepts a .md path with spaces / Chinese / single-quote (shell:false)
+ok 123 - execution: validator accepts a .md path with spaces / Chinese / single-quote (shell:false)
+  ---
+  duration_ms: 116.2458
+  type: 'test'
+  ...
+# Subtest: parseChangelog: section boundaries, heading-free bodies, fence blindness fixed
+ok 124 - parseChangelog: section boundaries, heading-free bodies, fence blindness fixed
+  ---
+  duration_ms: 2.1119
+  type: 'test'
+  ...
+# Subtest: parseChangelog: flags heading lookalikes, leaves ordinary prose alone
+ok 125 - parseChangelog: flags heading lookalikes, leaves ordinary prose alone
+  ---
+  duration_ms: 0.3813
+  type: 'test'
+  ...
+# Subtest: no CHANGELOG has a heading that only looks like a section heading
+ok 126 - no CHANGELOG has a heading that only looks like a section heading
+  ---
+  duration_ms: 2.9599
+  type: 'test'
+  ...
+# Subtest: every CHANGELOG section heading has the exact shape run-release.mjs greps for
+ok 127 - every CHANGELOG section heading has the exact shape run-release.mjs greps for
+  ---
+  duration_ms: 2.8846
+  type: 'test'
+  ...
+# Subtest: the newest shipping CHANGELOG section is substantive and names its own version
+ok 128 - the newest shipping CHANGELOG section is substantive and names its own version
+  ---
+  duration_ms: 1.9323
+  type: 'test'
+  ...
+# Subtest: root CHANGELOG permanently carries the NLM-only BREAKING disclosures in one section
+ok 129 - root CHANGELOG permanently carries the NLM-only BREAKING disclosures in one section
+  ---
+  duration_ms: 1.1229
+  type: 'test'
+  ...
+# Subtest: learn-kit CHANGELOG permanently marks the 4.0.0 NLM break in one section
+ok 130 - learn-kit CHANGELOG permanently marks the 4.0.0 NLM break in one section
+  ---
+  duration_ms: 0.6283
+  type: 'test'
+  ...
+# Subtest: diagram-kit CHANGELOG permanently marks the 0.2.0 Codex bump in one section
+ok 131 - diagram-kit CHANGELOG permanently marks the 0.2.0 Codex bump in one section
+  ---
+  duration_ms: 0.3434
+  type: 'test'
+  ...
+# Subtest: README covers both clients and every maintained qualified public skill
+ok 132 - README covers both clients and every maintained qualified public skill
+  ---
+  duration_ms: 0.5442
+  type: 'test'
+  ...
+# Subtest: upgrade guide preserves old data and explains explicit uninstall
+ok 133 - upgrade guide preserves old data and explains explicit uninstall
+  ---
+  duration_ms: 0.6272
+  type: 'test'
+  ...
+# Subtest: new plugin name receives full generic icon validation without changing registration authority
+ok 134 - new plugin name receives full generic icon validation without changing registration authority
+  ---
+  duration_ms: 16.0761
+  type: 'test'
+  ...
+# Subtest: required and optional Dark fields validate types and resources
+ok 135 - required and optional Dark fields validate types and resources
+  ---
+  duration_ms: 31.2414
+  type: 'test'
+  ...
+# Subtest: icon paths reject escape, platform paths, URLs, traversal and unsupported extensions
+ok 136 - icon paths reject escape, platform paths, URLs, traversal and unsupported extensions
+  ---
+  duration_ms: 5.4247
+  type: 'test'
+  ...
+# Subtest: PNG decoder rejects corrupted pixels and CRC, wrong content and missing data
+ok 137 - PNG decoder rejects corrupted pixels and CRC, wrong content and missing data
+  ---
+  duration_ms: 14.8651
+  type: 'test'
+  ...
+# Subtest: square, minimum, dimension maximum and byte maximum are checked before decode
+ok 138 - square, minimum, dimension maximum and byte maximum are checked before decode
+  ---
+  duration_ms: 18.3468
+  type: 'test'
+  ...
+# Subtest: symlink and Windows junction components are rejected even when they point inside the package
+ok 139 - symlink and Windows junction components are rejected even when they point inside the package
+  ---
+  duration_ms: 9.7148
+  type: 'test'
+  ...
+# Subtest: installed comparison rejects missing resources, content drift, reference drift and Dark-field loss
+ok 140 - installed comparison rejects missing resources, content drift, reference drift and Dark-field loss
+  ---
+  duration_ms: 25.4095
+  type: 'test'
+  ...
+# Subtest: SVG export renders real pixel colors and native size rather than only a valid header
+ok 141 - SVG export renders real pixel colors and native size rather than only a valid header
+  ---
+  duration_ms: 83.0838
+  type: 'test'
+  ...
+# Subtest: repository validation fails when a registered plugin loses its icon resource
+ok 142 - repository validation fails when a registered plugin loses its icon resource
+  ---
+  duration_ms: 1125.2255
+  type: 'test'
+  ...
+# Subtest: brand verification detects original-reference drift, theme drift and wrong native-preview size
+ok 143 - brand verification detects original-reference drift, theme drift and wrong native-preview size
+  ---
+  duration_ms: 413.6212
+  type: 'test'
+  ...
+# Subtest: release install uses the exact canonical tree rather than a dirty checkout
+ok 144 - release install uses the exact canonical tree rather than a dirty checkout
+  ---
+  duration_ms: 2757.4114
+  type: 'test'
+  ...
+# Subtest: invalid canonical source never calls the installer
+ok 145 - invalid canonical source never calls the installer
+  ---
+  duration_ms: 2846.8419
+  type: 'test'
+  ...
+# Subtest: a retired instruction entry blocks canonical release installation
+ok 146 - a retired instruction entry blocks canonical release installation
+  ---
+  duration_ms: 2627.2308
+  type: 'test'
+  ...
+# Subtest: failed installation cleans up the canonical worktree and fails closed
+ok 147 - failed installation cleans up the canonical worktree and fails closed
+  ---
+  duration_ms: 2271.5537
+  type: 'test'
+  ...
+# Subtest: canonical release validation includes explain-kit before invoking installation
+ok 148 - canonical release validation includes explain-kit before invoking installation
+  ---
+  duration_ms: 2321.6699
+  type: 'test'
+  ...
+# Subtest: resolveReleaseState classifies all four shapes
+ok 149 - resolveReleaseState classifies all four shapes
+  ---
+  duration_ms: 0.8931
+  type: 'test'
+  ...
+# Subtest: resolveReleaseState does not pre-judge release-only
+ok 150 - resolveReleaseState does not pre-judge release-only
+  ---
+  duration_ms: 0.1444
+  type: 'test'
+  ...
+# Subtest: resolveReleaseState demands real booleans
+ok 151 - resolveReleaseState demands real booleans
+  ---
+  duration_ms: 0.3168
+  type: 'test'
+  ...
+# Subtest: normalizeNotes folds CRLF and trims the outside only
+ok 152 - normalizeNotes folds CRLF and trims the outside only
+  ---
+  duration_ms: 0.2466
+  type: 'test'
+  ...
+# Subtest: identity returns the canonical triple and phase=initial with no release
+ok 153 - identity returns the canonical triple and phase=initial with no release
+  ---
+  duration_ms: 1.1455
+  type: 'test'
+  ...
+# Subtest: identity reports draft and published phases
+ok 154 - identity reports draft and published phases
+  ---
+  duration_ms: 0.9128
+  type: 'test'
+  ...
+# Subtest: identity rejects a commit that is not on main
+ok 155 - identity rejects a commit that is not on main
+  ---
+  duration_ms: 0.3101
+  type: 'test'
+  ...
+# Subtest: identity rejects a VERSION that disagrees with the release
+ok 156 - identity rejects a VERSION that disagrees with the release
+  ---
+  duration_ms: 0.2329
+  type: 'test'
+  ...
+# Subtest: identity rejects empty release notes
+ok 157 - identity rejects empty release notes
+  ---
+  duration_ms: 0.4576
+  type: 'test'
+  ...
+# Subtest: identity rejects a tag pointing at an older ancestor
+ok 158 - identity rejects a tag pointing at an older ancestor
+  ---
+  duration_ms: 0.3319
+  type: 'test'
+  ...
+# Subtest: identity accepts a tag that peels to the canonical commit
+ok 159 - identity accepts a tag that peels to the canonical commit
+  ---
+  duration_ms: 0.1348
+  type: 'test'
+  ...
+# Subtest: identity rejects a release aimed at another commit
+ok 160 - identity rejects a release aimed at another commit
+  ---
+  duration_ms: 0.1158
+  type: 'test'
+  ...
+# Subtest: identity validates its input shape
+ok 161 - identity validates its input shape
+  ---
+  duration_ms: 0.1102
+  type: 'test'
+  ...
+# Subtest: integrity re-derives identity and demands the caller's expectation match
+ok 162 - integrity re-derives identity and demands the caller's expectation match
+  ---
+  duration_ms: 0.1855
+  type: 'test'
+  ...
+# Subtest: integrity fails when the canonical commit moved under the run
+ok 163 - integrity fails when the canonical commit moved under the run
+  ---
+  duration_ms: 0.0708
+  type: 'test'
+  ...
+# Subtest: integrity fails when the release notes drift
+ok 164 - integrity fails when the release notes drift
+  ---
+  duration_ms: 0.0544
+  type: 'test'
+  ...
+# Subtest: integrity compares notes after normalisation, so CRLF alone is not drift
+ok 165 - integrity compares notes after normalisation, so CRLF alone is not drift
+  ---
+  duration_ms: 0.0535
+  type: 'test'
+  ...
+# Subtest: phase may stay put or advance one step
+ok 166 - phase may stay put or advance one step
+  ---
+  duration_ms: 0.125
+  type: 'test'
+  ...
+# Subtest: phase must not go backwards
+ok 167 - phase must not go backwards
+  ---
+  duration_ms: 0.1135
+  type: 'test'
+  ...
+# Subtest: phase must not skip initial -> published
+ok 168 - phase must not skip initial -> published
+  ---
+  duration_ms: 0.0745
+  type: 'test'
+  ...
+# Subtest: integrity rejects an unknown priorPhase
+ok 169 - integrity rejects an unknown priorPhase
+  ---
+  duration_ms: 0.0544
+  type: 'test'
+  ...
+# Subtest: none + releaseSha at main's tip creates an empty draft
+ok 170 - none + releaseSha at main's tip creates an empty draft
+  ---
+  duration_ms: 0.0425
+  type: 'test'
+  ...
+# Subtest: none but releaseSha behind main's tip refuses to start
+ok 171 - none but releaseSha behind main's tip refuses to start
+  ---
+  duration_ms: 0.0483
+  type: 'test'
+  ...
+# Subtest: a correct tag-only state recovers by creating the draft
+ok 172 - a correct tag-only state recovers by creating the draft
+  ---
+  duration_ms: 0.0446
+  type: 'test'
+  ...
+# Subtest: an empty canonical draft publishes without attachments
+ok 173 - an empty canonical draft publishes without attachments
+  ---
+  duration_ms: 0.0431
+  type: 'test'
+  ...
+# Subtest: a canonical published Git/tag release is a noop
+ok 174 - a canonical published Git/tag release is a noop
+  ---
+  duration_ms: 0.0579
+  type: 'test'
+  ...
+# Subtest: foreign draft metadata and missing SHA bindings are refused
+ok 175 - foreign draft metadata and missing SHA bindings are refused
+  ---
+  duration_ms: 0.1208
+  type: 'test'
+  ...
+# Subtest: published releases need a canonical tag and exact metadata
+ok 176 - published releases need a canonical tag and exact metadata
+  ---
+  duration_ms: 0.106
+  type: 'test'
+  ...
+# Subtest: existing attachments fail closed and are never repaired
+ok 177 - existing attachments fail closed and are never repaired
+  ---
+  duration_ms: 0.0742
+  type: 'test'
+  ...
+# Subtest: CLI boolean mode prints only the classification
+ok 178 - CLI boolean mode prints only the classification
+  ---
+  duration_ms: 52.7613
+  type: 'test'
+  ...
+# Subtest: CLI identity mode prints one line of JSON
+ok 179 - CLI identity mode prints one line of JSON
+  ---
+  duration_ms: 52.5537
+  type: 'test'
+  ...
+# Subtest: CLI integrity mode prints one line of JSON
+ok 180 - CLI integrity mode prints one line of JSON
+  ---
+  duration_ms: 51.5126
+  type: 'test'
+  ...
+# Subtest: CLI exits 1 for a policy violation and 2 for bad input
+ok 181 - CLI exits 1 for a policy violation and 2 for bad input
+  ---
+  duration_ms: 305.7078
+  type: 'test'
+  ...
+# Subtest: CLI refuses more than one mode at once
+ok 182 - CLI refuses more than one mode at once
+  ---
+  duration_ms: 85.2568
+  type: 'test'
+  ...
+# Subtest: CLI writes nothing to stdout when it fails
+ok 183 - CLI writes nothing to stdout when it fails
+  ---
+  duration_ms: 42.8706
+  type: 'test'
+  ...
+# Subtest: CLI exits 2 on malformed JSON
+ok 184 - CLI exits 2 on malformed JSON
+  ---
+  duration_ms: 49.8677
+  type: 'test'
+  ...
+# Subtest: runCli captures stdout and a zero exit status
+ok 185 - runCli captures stdout and a zero exit status
+  ---
+  duration_ms: 49.9554
+  type: 'test'
+  ...
+# Subtest: runCli reports a non-zero exit status without throwing
+ok 186 - runCli reports a non-zero exit status without throwing
+  ---
+  duration_ms: 41.1205
+  type: 'test'
+  ...
+# Subtest: runCli captures stderr
+ok 187 - runCli captures stderr
+  ---
+  duration_ms: 46.3567
+  type: 'test'
+  ...
+# Subtest: runCli returns an error object for a missing command instead of throwing
+ok 188 - runCli returns an error object for a missing command instead of throwing
+  ---
+  duration_ms: 34.4382
+  type: 'test'
+  ...
+# Subtest: runCli honours timeoutMs
+ok 189 - runCli honours timeoutMs
+  ---
+  duration_ms: 320.6578
+  type: 'test'
+  ...
+# Subtest: args are passed as a real argv array — no shell re-interpretation
+ok 190 - args are passed as a real argv array — no shell re-interpretation
+  ---
+  duration_ms: 40.316
+  type: 'test'
+  ...
+# Subtest: spawnCli rejects options.shell
+ok 191 - spawnCli rejects options.shell
+  ---
+  duration_ms: 0.4029
+  type: 'test'
+  ...
+# Subtest: spawnCli validates its arguments
+ok 192 - spawnCli validates its arguments
+  ---
+  duration_ms: 0.1016
+  type: 'test'
+  ...
+# Subtest: spawnCli returns a live child process
+ok 193 - spawnCli returns a live child process
+  ---
+  duration_ms: 39.8226
+  type: 'test'
+  ...
+# Subtest: parseSemver / compareSemver basics
+ok 194 - parseSemver / compareSemver basics
+  ---
+  duration_ms: 0.8358
+  type: 'test'
+  ...
+# Subtest: extractVersion pulls the version out of real --version output shapes
+ok 195 - extractVersion pulls the version out of real --version output shapes
+  ---
+  duration_ms: 0.1823
+  type: 'test'
+  ...
+# Subtest: exact-pinned tools reject any drift
+ok 196 - exact-pinned tools reject any drift
+  ---
+  duration_ms: 0.1239
+  type: 'test'
+  ...
+# Subtest: evaluateVersion reports the comparison mode it used
+ok 197 - evaluateVersion reports the comparison mode it used
+  ---
+  duration_ms: 0.0421
+  type: 'test'
+  ...
+# Subtest: undetected or unparseable versions fail closed
+ok 198 - undetected or unparseable versions fail closed
+  ---
+  duration_ms: 0.0541
+  type: 'test'
+  ...
+# Subtest: unknown tools fail closed
+ok 199 - unknown tools fail closed
+  ---
+  duration_ms: 0.034
+  type: 'test'
+  ...
+# Subtest: runCli closes stdin when no payload is supplied
+ok 200 - runCli closes stdin when no payload is supplied
+  ---
+  duration_ms: 47.4199
+  type: 'test'
+  ...
+# Subtest: fresh empty draft verifies canonical install then publishes
+ok 201 - fresh empty draft verifies canonical install then publishes
+  ---
+  duration_ms: 2.2612
+  type: 'test'
+  ...
+# Subtest: draft resume does not build or upload attachments
+ok 202 - draft resume does not build or upload attachments
+  ---
+  duration_ms: 0.2364
+  type: 'test'
+  ...
+# Subtest: correct published release is read-only noop
+ok 203 - correct published release is read-only noop
+  ---
+  duration_ms: 0.2388
+  type: 'test'
+  ...
+# Subtest: installation failure never publishes
+ok 204 - installation failure never publishes
+  ---
+  duration_ms: 0.6262
+  type: 'test'
+  ...
+# Subtest: foreign attachment, tag or body on a draft fail before mutations
+ok 205 - foreign attachment, tag or body on a draft fail before mutations
+  ---
+  duration_ms: 0.4687
+  type: 'test'
+  ...
+# Subtest: adjacent-to-publish query blocks changes after install
+ok 206 - adjacent-to-publish query blocks changes after install
+  ---
+  duration_ms: 0.6098
+  type: 'test'
+  ...
+# Subtest: non-main and stale first release commits fail closed
+ok 207 - non-main and stale first release commits fail closed
+  ---
+  duration_ms: 0.2839
+  type: 'test'
+  ...
+# Subtest: draft list lag uses bounded backoff and a single create
+ok 208 - draft list lag uses bounded backoff and a single create
+  ---
+  duration_ms: 0.2513
+  type: 'test'
+  ...
+# Subtest: never-visible draft fails closed without retrying create
+ok 209 - never-visible draft fails closed without retrying create
+  ---
+  duration_ms: 0.4884
+  type: 'test'
+  ...
+# Subtest: foreign draft observed after create is never treated as lag
+ok 210 - foreign draft observed after create is never treated as lag
+  ---
+  duration_ms: 0.4597
+  type: 'test'
+  ...
+# Subtest: extractChangelogSection pulls the body under the version heading only
+ok 211 - extractChangelogSection pulls the body under the version heading only
+  ---
+  duration_ms: 0.4252
+  type: 'test'
+  ...
+# Subtest: extractChangelogSection returns empty for a missing version
+ok 212 - extractChangelogSection returns empty for a missing version
+  ---
+  duration_ms: 0.0691
+  type: 'test'
+  ...
+# Subtest: extractChangelogSection does not confuse 8.0.0 with 8.0.00-style prefixes
+ok 213 - extractChangelogSection does not confuse 8.0.0 with 8.0.00-style prefixes
+  ---
+  duration_ms: 0.0666
+  type: 'test'
+  ...
+# Subtest: parseReleaseFromList finds a draft by tag_name and maps its fields
+ok 214 - parseReleaseFromList finds a draft by tag_name and maps its fields
+  ---
+  duration_ms: 0.1949
+  type: 'test'
+  ...
+# Subtest: parseReleaseFromList reports absence when nothing matches
+ok 215 - parseReleaseFromList reports absence when nothing matches
+  ---
+  duration_ms: 0.0825
+  type: 'test'
+  ...
+# Subtest: parseReleaseFromList refuses to guess between duplicate tags
+ok 216 - parseReleaseFromList refuses to guess between duplicate tags
+  ---
+  duration_ms: 0.1958
+  type: 'test'
+  ...
+# Subtest: parseReleaseFromList treats a branch-name target_commitish as no binding
+ok 217 - parseReleaseFromList treats a branch-name target_commitish as no binding
+  ---
+  duration_ms: 0.0638
+  type: 'test'
+  ...
+# Subtest: parseReleaseFromList rejects a non-array response
+ok 218 - parseReleaseFromList rejects a non-array response
+  ---
+  duration_ms: 0.0916
+  type: 'test'
+  ...
+# Subtest: API parser rejects unknown asset state instead of pretending it is empty
+ok 219 - API parser rejects unknown asset state instead of pretending it is empty
+  ---
+  duration_ms: 0.1553
+  type: 'test'
+  ...
+# Subtest: consumer and repository inventories are scoped to real installed files
+ok 220 - consumer and repository inventories are scoped to real installed files
+  ---
+  duration_ms: 61.4974
+  type: 'test'
+  ...
+# Subtest: duplicate, missing and escaped public locators fail closed
+ok 221 - duplicate, missing and escaped public locators fail closed
+  ---
+  duration_ms: 47.9771
+  type: 'test'
+  ...
+# Subtest: Windows equivalent file casing still passes containment
+ok 222 - Windows equivalent file casing still passes containment
+  ---
+  duration_ms: 42.0468
+  type: 'test'
+  ...
+# Subtest: ordinary prompt metadata excludes the explicit-only quiz
+ok 223 - ordinary prompt metadata excludes the explicit-only quiz
+  ---
+  duration_ms: 35.3652
+  type: 'test'
+  ...
+# Subtest: a plugin cache junction cannot claim files outside its marketplace directory
+ok 224 - a plugin cache junction cannot claim files outside its marketplace directory
+  ---
+  duration_ms: 41.4104
+  type: 'test'
+  ...
+# Subtest: prompt parser retains spaces and closing parentheses in a locator
+ok 225 - prompt parser retains spaces and closing parentheses in a locator
+  ---
+  duration_ms: 0.8061
+  type: 'test'
+  ...
+# Subtest: native skills/list completes the handshake and preserves explicitly available metadata
+ok 226 - native skills/list completes the handshake and preserves explicitly available metadata
+  ---
+  duration_ms: 55.4812
+  type: 'test'
+  ...
+# Subtest: native inventory fails closed on protocol errors and a stalled server
+ok 227 - native inventory fails closed on protocol errors and a stalled server
+  ---
+  duration_ms: 518.5495
+  type: 'test'
+  ...
+# Subtest: root aliases resolve installed and all 20 repository skills before scope checks
+ok 228 - root aliases resolve installed and all 20 repository skills before scope checks
+  ---
+  duration_ms: 35.3952
+  type: 'test'
+  ...
+# Subtest: missing, relative, conflicting and escaped root mappings fail closed
+ok 229 - missing, relative, conflicting and escaped root mappings fail closed
+  ---
+  duration_ms: 31.3837
+  type: 'test'
+  ...
+# Subtest: root mappings are local to their prompt text block
+ok 230 - root mappings are local to their prompt text block
+  ---
+  duration_ms: 26.2244
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: diagram-kit
+ok 231 - standalone and combined discovery: diagram-kit
+  ---
+  duration_ms: 37.8543
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: explain-kit
+ok 232 - standalone and combined discovery: explain-kit
+  ---
+  duration_ms: 32.7647
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: diagram-kit + explain-kit
+ok 233 - standalone and combined discovery: diagram-kit + explain-kit
+  ---
+  duration_ms: 32.4076
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: diagram-kit + understanding-kit + explain-kit
+ok 234 - standalone and combined discovery: diagram-kit + understanding-kit + explain-kit
+  ---
+  duration_ms: 67.2069
+  type: 'test'
+  ...
+# Subtest: complete installed inventory rejects swapped skills and package identity/version drift
+ok 235 - complete installed inventory rejects swapped skills and package identity/version drift
+  ---
+  duration_ms: 38.3513
+  type: 'test'
+  ...
+# Subtest: three approved portable plugins and all 20 repository skills satisfy contracts
+ok 236 - three approved portable plugins and all 20 repository skills satisfy contracts
+  ---
+  duration_ms: 334.9943
+  type: 'test'
+  ...
+# Subtest: strict repository validation rejects every retired instruction surface
+ok 237 - strict repository validation rejects every retired instruction surface
+  ---
+  duration_ms: 1923.0747
+  type: 'test'
+  ...
+# Subtest: manifest version is a root semver string
+ok 238 - manifest version is a root semver string
+  ---
+  duration_ms: 0.6246
+  type: 'test'
+  ...
+# Subtest: portable manifest refuses compatibility fields and missing routing metadata
+ok 239 - portable manifest refuses compatibility fields and missing routing metadata
+  ---
+  duration_ms: 0.2627
+  type: 'test'
+  ...
+# Subtest: manifest identity and default prompts cannot route into another plugin
+ok 240 - manifest identity and default prompts cannot route into another plugin
+  ---
+  duration_ms: 0.399
+  type: 'test'
+  ...
+# Subtest: each plugin advertises its exact approved capabilities without duplicates
+ok 241 - each plugin advertises its exact approved capabilities without duplicates
+  ---
+  duration_ms: 0.5847
+  type: 'test'
+  ...
+# Subtest: native pop-quiz metadata requires a boolean explicit-only policy
+ok 242 - native pop-quiz metadata requires a boolean explicit-only policy
+  ---
+  duration_ms: 0.8901
+  type: 'test'
+  ...
+# Subtest: catalog rejects missing, duplicate, unknown, versioned and escaped plugin entries
+ok 243 - catalog rejects missing, duplicate, unknown, versioned and escaped plugin entries
+  ---
+  duration_ms: 2413.5829
+  type: 'test'
+  ...
+# Subtest: quiz references must exist within their own installed skill
+ok 244 - quiz references must exist within their own installed skill
+  ---
+  duration_ms: 709.4272
+  type: 'test'
+  ...
+# Subtest: quiz resources cannot borrow another plugin directory through a junction
+ok 245 - quiz resources cannot borrow another plugin directory through a junction
+  ---
+  duration_ms: 690.2423
+  type: 'test'
+  ...
+# Subtest: skill YAML cannot duplicate keys or use retired tools/placeholders
+ok 246 - skill YAML cannot duplicate keys or use retired tools/placeholders
+  ---
+  duration_ms: 0.8221
+  type: 'test'
+  ...
+# Subtest: all repository workflows use current authority paths and execution principle
+ok 247 - all repository workflows use current authority paths and execution principle
+  ---
+  duration_ms: 2.9654
+  type: 'test'
+  ...
+# Subtest: archive origins are reproducible Git blobs and preserve source versions
+ok 248 - archive origins are reproducible Git blobs and preserve source versions
+  ---
+  duration_ms: 729.0155
+  type: 'test'
+  ...
+# Subtest: each plugin rejects extra skills, missing files and swapped manifest identities
+ok 249 - each plugin rejects extra skills, missing files and swapped manifest identities
+  ---
+  duration_ms: 1558.5275
+  type: 'test'
+  ...
+# Subtest: manifest discovery prompts cover only the package's complete public skill set
+ok 250 - manifest discovery prompts cover only the package's complete public skill set
+  ---
+  duration_ms: 0.6171
+  type: 'test'
+  ...
+# Subtest: skill UI resources cannot resolve outside their plugin package
+ok 251 - skill UI resources cannot resolve outside their plugin package
+  ---
+  duration_ms: 660.5924
+  type: 'test'
+  ...
+# Subtest: skill display configuration rejects wrong entry points and implicit-policy drift
+ok 252 - skill display configuration rejects wrong entry points and implicit-policy drift
+  ---
+  duration_ms: 1.4619
+  type: 'test'
+  ...
+1..252
+# tests 252
+# suites 0
+# pass 252
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 29036.5232

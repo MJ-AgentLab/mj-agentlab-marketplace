@@ -11,8 +11,11 @@ about: 纯文档变更 (documentation/*) 的 Pull Request
 
 ## 自检结果
 - [ ] 文件命名符合 [`[STANDARD]_Documentation_Framework.md`](../../docs/rule/[STANDARD]_Documentation_Framework.md) §2.4（`[TAG]_<Topic>.md`；无 `_vX.Y` 后缀除非 archived）
-- [ ] frontmatter 含 8 必需字段（type / scope / summary / owner / created / updated / state / version）
-- [ ] 文件位于正确子目录（`docs/rule/` / `docs/adr/` / `docs/guide/` / `docs/runbook/` / `docs/spec/` / `docs/postmortem/`）
+- [ ] 新普通文档含九字段（type / scope / summary / owner / created / updated / state / version / layer）；旧文档实质修订已审定归属并按 layer 严格校验，不再使用原项兼容，外部格式和冻结证据遵循原合同
+- [ ] canonical 保留 docs 领域位置；working 按用途放稳定 plans 任务目录或声明 purpose/owner 的公共领域位置；任务 INDEX、task/tracking、主 PLAN/REPORT、canonical/source 链接一致
+- [ ] 接受原意、真实决定、实施事实、验证结果分别追溯；复用主文件，失败/恢复/延期保留，完成不搬迁
+- [ ] 按实际候选核对来源/完整资源及独立阅读或交接验收，文件校验未冒充完整验收
+- [ ] 标明 Epic、当前活动主 PR 和本 PR 的内部/最终角色；内部 Harness 与受保护 develop 批准分别处理
 - [ ] markdown 风格符合 [`[STANDARD]_GitHub_Markdown.md`](../../docs/rule/[STANDARD]_GitHub_Markdown.md)（ATX headings / GFM tables / native alerts）
 - [ ] 内部链接有效（相对路径，无 broken wikilinks）
 - [ ] `docs/INDEX.md` 已同步更新

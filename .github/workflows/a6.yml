@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     # `pull_request_review` does not honour an `on.<event>.branches` filter, so the base
     # branch is scoped here instead — one condition covering both triggers.
-    if: contains(fromJSON('["develop", "main"]'), github.event.pull_request.base.ref)
+    if: contains(fromJSON('["develop", "main"]'), github.event.pull_request.base.ref) || startsWith(github.event.pull_request.base.ref, 'codex/')
     steps:
       - uses: actions/checkout@v4
         with:

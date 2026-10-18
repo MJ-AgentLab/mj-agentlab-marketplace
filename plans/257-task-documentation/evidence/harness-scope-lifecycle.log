@@ -1,0 +1,148 @@
+TAP version 13
+# Subtest: real projection copies exact source bytes without synthetic documents and captures the record once
+ok 1 - real projection copies exact source bytes without synthetic documents and captures the record once
+  ---
+  duration_ms: 98411.7381
+  type: 'test'
+  ...
+# Subtest: keepRoot retains thirteen independent real source contexts while always removing the template
+ok 2 - keepRoot retains thirteen independent real source contexts while always removing the template
+  ---
+  duration_ms: 5077.461
+  type: 'test'
+  ...
+# Subtest: normal success removes all thirteen scenario contexts and the shared template
+ok 3 - normal success removes all thirteen scenario contexts and the shared template
+  ---
+  duration_ms: 4860.6283
+  type: 'test'
+  ...
+# Subtest: a later rejected operation removes previously retained and current roots without replacing its error
+ok 4 - a later rejected operation removes previously retained and current roots without replacing its error
+  ---
+  duration_ms: 1579.2034
+  type: 'test'
+  ...
+# Subtest: an operation and persistent cleanup failure remain visible together
+ok 5 - an operation and persistent cleanup failure remain visible together
+  ---
+  duration_ms: 1030.6047
+  type: 'test'
+  ...
+# Subtest: template cleanup failure fails an otherwise successful keepRoot run and removes all retained scenarios
+ok 6 - template cleanup failure fails an otherwise successful keepRoot run and removes all retained scenarios
+  ---
+  duration_ms: 4928.6642
+  type: 'test'
+  ...
+# Subtest: invalid complete source fails before template preparation or scenario execution
+ok 7 - invalid complete source fails before template preparation or scenario execution
+  ---
+  duration_ms: 4.6033
+  type: 'test'
+  ...
+# Subtest: template preparation failure removes its partial root and retains the original failure
+ok 8 - template preparation failure removes its partial root and retains the original failure
+  ---
+  duration_ms: 35.2614
+  type: 'test'
+  ...
+# Subtest: source rejects directory links including a cache junction: .agents
+ok 9 - source rejects directory links including a cache junction: .agents
+  ---
+  duration_ms: 624.8748
+  type: 'test'
+  ...
+# Subtest: source rejects directory links including a cache junction: plugins/learning-evidence-kit/scripts/__pycache__
+ok 10 - source rejects directory links including a cache junction: plugins/learning-evidence-kit/scripts/__pycache__
+  ---
+  duration_ms: 599.5562
+  type: 'test'
+  ...
+# Subtest: source rejects directory links including a cache junction: plugins/diagram-kit/skills/arch-diagram/scripts/__pycache__
+ok 11 - source rejects directory links including a cache junction: plugins/diagram-kit/skills/arch-diagram/scripts/__pycache__
+  ---
+  duration_ms: 629.2763
+  type: 'test'
+  ...
+# Subtest: only the two explicit Python roots exclude generated caches; HTML and nested extras remain visible
+ok 12 - only the two explicit Python roots exclude generated caches; HTML and nested extras remain visible
+  ---
+  duration_ms: 1622.8421
+  type: 'test'
+  ...
+# Subtest: scenario destination rejects unsafe ownership or shape: nonempty
+ok 13 - scenario destination rejects unsafe ownership or shape: nonempty
+  ---
+  duration_ms: 992.2068
+  type: 'test'
+  ...
+# Subtest: scenario destination rejects unsafe ownership or shape: file
+ok 14 - scenario destination rejects unsafe ownership or shape: file
+  ---
+  duration_ms: 1033.9898
+  type: 'test'
+  ...
+# Subtest: scenario destination rejects unsafe ownership or shape: directory-link
+ok 15 - scenario destination rejects unsafe ownership or shape: directory-link
+  ---
+  duration_ms: 960.5236
+  type: 'test'
+  ...
+# Subtest: scenario destination rejects unsafe ownership or shape: template-descendant
+ok 16 - scenario destination rejects unsafe ownership or shape: template-descendant
+  ---
+  duration_ms: 987.7235
+  type: 'test'
+  ...
+# Subtest: scenario destination rejects unsafe ownership or shape: source-descendant
+ok 17 - scenario destination rejects unsafe ownership or shape: source-descendant
+  ---
+  duration_ms: 1033.123
+  type: 'test'
+  ...
+# Subtest: source changing during a template copy fails its frozen inventory and cleans the partial template
+ok 18 - source changing during a template copy fails its frozen inventory and cleans the partial template
+  ---
+  duration_ms: 802.4492
+  type: 'test'
+  ...
+# Subtest: a context-creation failure before the second runner cleans prior/current roots and keeps its original error
+ok 19 - a context-creation failure before the second runner cleans prior/current roots and keeps its original error
+  ---
+  duration_ms: 1054.335
+  type: 'test'
+  ...
+# Subtest: a materialize failure before the second runner cleans prior/current roots and keeps its original error
+ok 20 - a materialize failure before the second runner cleans prior/current roots and keeps its original error
+  ---
+  duration_ms: 1027.3044
+  type: 'test'
+  ...
+# Subtest: a second runner returning ok:false fails the run and cleans all retained/current roots and the template
+ok 21 - a second runner returning ok:false fails the run and cleans all retained/current roots and the template
+  ---
+  duration_ms: 1358.4263
+  type: 'test'
+  ...
+# Subtest: post-success source integrity byte-drift cleans retained/current roots and preserves the failure
+ok 22 - post-success source integrity byte-drift cleans retained/current roots and preserves the failure
+  ---
+  duration_ms: 1281.9061
+  type: 'test'
+  ...
+# Subtest: post-success source integrity read-error cleans retained/current roots and preserves the failure
+ok 23 - post-success source integrity read-error cleans retained/current roots and preserves the failure
+  ---
+  duration_ms: 1367.8379
+  type: 'test'
+  ...
+1..23
+# tests 23
+# suites 0
+# pass 23
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 132293.3706

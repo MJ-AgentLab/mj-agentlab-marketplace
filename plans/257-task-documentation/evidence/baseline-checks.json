@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "kind": "actual baseline before governance implementation",
+  "recorded_at": "2026-10-18T16:05:39.773Z",
+  "source_commit": "c0bb8b25b7abb1a39f0e95b1141f3cc089d1129e",
+  "method": "npm test",
+  "environment": {
+    "REQUIRE_PYTHON": "1",
+    "REQUIRE_PWSH": "1"
+  },
+  "result": {
+    "tests": 492,
+    "pass": 492,
+    "fail": 0,
+    "skipped": 0
+  },
+  "log": "baseline-tests.log",
+  "log_sha256": "c7cdf63faff87c6084188022b80592eb285cff89061960aecc1b4c1cf62a6db8",
+  "scope": "existing baseline only; not evidence that the new documentation Harness or reading pilot passed",
+  "additional_baseline_checks": {
+    "portable": "PASS",
+    "codex": "0.147.0 exact PASS",
+    "a6_dedup_cancel_tests": {
+      "tests": 115,
+      "pass": 115,
+      "fail": 0,
+      "skipped": 0
+    }
+  }
+}

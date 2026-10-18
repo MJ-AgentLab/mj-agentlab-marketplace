@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "kind": "synthetic reading and handoff rubric",
+  "scope": "HTML PR1 task-document navigation only",
+  "preparedAt": "2026-10-18 16:48:36 UTC",
+  "inputRule": "Fresh independent agent; role, INDEX, four questions only; no answer key or sibling outputs; follow actual links; do not edit, invoke plugins, rerun historical runtime/model/client/effect tests, or execute archived scripts.",
+  "passRule": "Each answer must state a correct bounded conclusion, cite the actual read location, and distinguish date/version/SHA. 2=complete, 1=partial sourcing or handoff, 0=wrong/unsupported/not found. Each of four answers must score 2; missing material remains INCOMPLETE. No time threshold.",
+  "roles": {
+    "manager": [
+      "此次整理解决什么问题，试行边界是什么？",
+      "HTML PR1 当时交付了什么，目前还有哪些事项需要跟踪？",
+      "哪些结论已有证据，哪些仍有风险或缺证？",
+      "下一操作、责任归属及决定入口分别在哪里？"
+    ],
+    "product": [
+      "PR1 的需求原意、已接受范围和非目标分别是什么？",
+      "应从哪里确认正式产品约定；本次重建的 PLAN/REPORT 各能证明什么？",
+      "历史阶段与当前 HTML 版本的结果应如何区分？",
+      "尚存缺陷、延期和最终接受分别由哪些材料承载？"
+    ],
+    "devops": [
+      "从入口如何抵达 PR1 执行、提交、合并及复验链？",
+      "如何恢复并核对 PR1 的原运行资源集合，旧路径已不存在时怎么办？",
+      "哪些是现行规范，哪些是冻结历史来源？",
+      "后续接手前有哪些证据可复用、哪些检查不能据此宣称完成？无需执行检查。"
+    ]
+  },
+  "reviewerOnly": "Historical PR1 governance and old 3-plugin runtime, same-tree merge70267a5/head385e6919, historical4 installs/3 Diagram Python; currentHTML0.1.36, Epic217closed239open, no final Owner acceptance inferred; reviews=[] not approval; raw43 snapshots vs oldCRLF provenance, Understanding not renamed; retrospective PLAN; no clients/effect rerun.",
+  "frozenCandidate": "601ff07a6840653e57687e93fe856c79475de4a0",
+  "frozenWorktree": "C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop",
+  "actors": [
+    "/root/pilot_manager",
+    "/root/pilot_product",
+    "/root/pilot_devops"
+  ],
+  "forkTurns": "none",
+  "inputContext": "Role; actual worktree/SHA; INDEX start; four ordered questions from roles; read-only/linked materials only; no sibling output/answer key, no archived code/plugin/model/client/effect execution; require clock, identity, sources, read order, limitations.",
+  "recordedAt": "2026-10-18 17:03:37 UTC"
+}
