@@ -7,6 +7,9 @@ created: <YYYY-MM-DD>
 updated: <YYYY-MM-DD>
 state: active
 version: v1.0
+layer: canonical
+# Shared process ledger: choose working and add purpose; owner maintains its scope.
+# purpose: <required non-empty purpose when docs layer is working>
 last-verified: <YYYY-MM-DD>   # REQUIRED for RUNBOOK; date of last successful manual run
 # domain: release | infra | plugin-internal   # optional
 # related:
