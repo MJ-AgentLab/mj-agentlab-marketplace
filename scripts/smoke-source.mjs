@@ -51,7 +51,9 @@ function manifest(root, excludeGenerated, navigationResources = []) {
   });
   const unique = new Map(entries.map(entry => [entry.path, entry]));
   for (const relative of navigationResources) {
-    for (const entry of inventory(root, relative, excludeGenerated)) unique.set(entry.path, entry);
+    const resource = owned(root, relative);
+    if (resource.stat.isDirectory()) unique.set(relative, { path: relative, kind: "directory", bytes: 0 });
+    else for (const entry of inventory(root, relative, excludeGenerated)) unique.set(entry.path, entry);
     let parent = path.posix.dirname(relative);
     while (parent !== ".") {
       const entry = owned(root, parent);
@@ -118,11 +120,12 @@ export function removeSmokeSource(snapshot) {
 export function prepareSmokeSource(repoRoot) {
   const sourceRoot = ordinaryRoot(repoRoot);
   const seeds = ["AGENTS.md", COMPATIBILITY_PATH, ...inventory(sourceRoot, ".agents", true).filter(entry => entry.kind === "file" && entry.path.endsWith(".md")).map(entry => entry.path), ...inventory(sourceRoot, "plans", true).filter(entry => entry.kind === "file" && (entry.path.endsWith(".md") || entry.path.endsWith("/source-bindings.json"))).map(entry => entry.path)];
-  const navigationResources = freeze(collectNavigationResources(sourceRoot, seeds));
+  const navigationEvidence = [];
+  const navigationResources = freeze(collectNavigationResources(sourceRoot, seeds, { onEvidence: record => navigationEvidence.push(record) }));
   const entries = freeze(manifest(sourceRoot, true, navigationResources)), record = readLearningRecord(sourceRoot);
   const inputRoots = freeze([...new Set(entries.map(entry => entry.path.split("/")[0]))].sort());
   const root = fs.mkdtempSync(path.join(fs.realpathSync.native(os.tmpdir()), "marketplace-smoke-source-"));
-  const templateRoot = path.join(root, "template"), snapshot = Object.freeze({ root, sourceRoot, templateRoot, entries, navigationResources, inputRoots, ...record });
+  const templateRoot = path.join(root, "template"), snapshot = Object.freeze({ root, sourceRoot, templateRoot, entries, navigationResources, navigationEvidence: freeze(navigationEvidence), inputRoots, ...record });
   try {
     fs.mkdirSync(templateRoot);
     copyEntries(sourceRoot, templateRoot, entries, { stage: "template" });
