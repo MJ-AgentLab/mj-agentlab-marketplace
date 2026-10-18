@@ -16,15 +16,21 @@ function frontmatter(text) {
   return { source: match[1], document: parseDocument(match[1], { uniqueKeys: true }), body: text.slice(match[0].length) };
 }
 
-/** Both declaration routes are inspected, including malformed archived metadata. */
+/** Filename, type and identity declarations are inspected even in malformed archives. */
 export function declaresIntent(relative, text) {
   if (prefix(relative)) return true;
   const parsed = frontmatter(text);
-  if (!parsed) return false;
+  // A broken opening block is still a declaration. It cannot disappear into
+  // the archive/template exclusions just because its closing delimiter is lost.
+  const source = parsed?.source ?? (/^---\r?\n/.test(text) ? text.slice(text.indexOf("\n") + 1) : "");
+  const rawIdentity = /(?:^|\n)(?:intent-id|["']intent-id["'])\s*:/m.test(source);
+  if (!parsed) return rawIdentity || /(?:^|\n)\s*(?:type|["']type["'])\s*:\s*(?:!!str\s+)?["']?intent["']?(?:\s*(?:#.*)?$)/m.test(source);
   try {
-    if (parsed.document.toJS().type === "intent" || parseDocument(parsed.source, { merge: true }).toJS().type === "intent") return true;
+    for (const value of [parsed.document.toJS(), parseDocument(parsed.source, { merge: true }).toJS()]) {
+      if (value?.type === "intent" || value && Object.hasOwn(value, "intent-id")) return true;
+    }
   } catch { /* inspect raw declaration below */ }
-  return /(?:^|\n)\s*(?:type|["']type["'])\s*:\s*(?:!!str\s+)?["']?intent(?:["']?(?:\s*(?:#.*)?$))/m.test(parsed.source);
+  return rawIdentity || /(?:^|\n)\s*(?:type|["']type["'])\s*:\s*(?:!!str\s+)?["']?intent(?:["']?(?:\s*(?:#.*)?$))/m.test(source);
 }
 
 function parseIntent(text) {

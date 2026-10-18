@@ -279,6 +279,15 @@ export function validateDocumentation(root, { file } = {}) {
     const targets = [...proseLinks(body), ...locatorValues(metadata)].map(target => localTarget(root, relative, target)).filter(Boolean);
     documents.set(relative, { metadata, body, targets, legacy });
   });
+  if (intents.documents.size) check(INTENT_INDEX, () => {
+    const index = documents.get(INTENT_INDEX);
+    if (!index) throw new Error("formal INTENT originals require their guide/canonical INDEX");
+    const registrations = proseLinks(index.body).map(target => localTarget(root, INTENT_INDEX, target)).filter(Boolean);
+    for (const relative of intents.documents.keys()) {
+      const count = registrations.filter(target => target === relative).length;
+      if (count !== 1) throw new Error(`INTENT INDEX must register every formal original exactly once: ${relative} (found ${count})`);
+    }
+  });
   const taskNames = new Set(paths.filter(relative => relative.startsWith("plans/")).map(relative => relative.split("/")[1]));
   for (const task of taskNames) check(`plans/${task}`, () => {
     const directory = `plans/${task}`, index = documents.get(`${directory}/INDEX.md`);

@@ -25,8 +25,10 @@ function fixture(t) {
   const root = temporary(t);
   write(root, COMPATIBILITY_PATH, fs.readFileSync(path.join(REPO, COMPATIBILITY_PATH)));
   write(root, ORIGINAL, intentDocument());
+  indexFor(root);
   return root;
 }
+function indexFor(root, originals = [ORIGINAL]) { write(root, "docs/intent/INDEX.md", ordinaryDocument("guide", {}, `# Intent originals\n\n${originals.map(relative => `[Original](../${relative.slice(5)})`).join("\n")}\n`)); }
 function bad(root, expected) {
   const result = validateDocumentation(root);
   assert.equal(result.ok, false);
@@ -74,11 +76,15 @@ test("changing title/version or updating in a later year preserves its first-all
   const root = fixture(t), renamed = ORIGINAL.replace("Preserve_Intent", "Renamed_Request");
   fs.unlinkSync(path.join(root, ORIGINAL));
   write(root, renamed, intentDocument({ updated: "2027-02-03", version: "v2.0" }));
+  indexFor(root, [renamed]);
   assert.equal(validateDocumentation(root).ok, true);
 });
 
 for (const [relative, text, pattern] of [
   ["docs/archive/unmarked.md", "---\ntype: intent\nowner: [broken\n---\n", /invalid INTENT YAML/],
+  ["docs/archive/unclosed.md", "---\ntype: intent\nowner: fixture\n", /requires YAML frontmatter/],
+  ["docs/archive/identity-only.md", intentDocument({ type: "guide" }), /must declare type intent/],
+  ["docs/archive/unclosed-identity.md", "---\ntype: guide\nintent-id: INT-2026-001\n", /requires YAML frontmatter/],
   ["docs/archive/[INTENT]_malformed.md", "missing metadata", /requires YAML frontmatter/],
   ["docs/guide/[GUIDE]_Hidden.md", intentDocument(), /filename must match/],
   ["docs/guide/[INTENT]_INT-2026-002_Hidden.md", intentDocument({ "intent-id": "INT-2026-002" }), /must use docs\/intent/],
@@ -113,6 +119,7 @@ test("a flat deprecated archive remains the only original and reserves its ID ag
   const root = fixture(t), archive = `docs/archive/[DEPRECATED]_${path.posix.basename(ORIGINAL)}`;
   fs.unlinkSync(path.join(root, ORIGINAL));
   write(root, archive, intentDocument({ state: "archived" }));
+  indexFor(root, [archive]);
   const result = validateDocumentation(root);
   assert.equal(result.ok, true, result.errors.join("\n"));
   assert.equal(result.intents.documents, 1);
@@ -192,6 +199,7 @@ test("portable validation and its existing CLI fail on the actual INTENT error",
 test("real-byte navigation retains the entire identity collection including an unlinked archived original", t => {
   const root = fixture(t), archive = "docs/archive/[DEPRECATED]_[INTENT]_INT-2026-002_Old_Request.md";
   write(root, archive, intentDocument({ "intent-id": "INT-2026-002", state: "deprecated" }));
+  indexFor(root, [ORIGINAL, archive]);
   write(root, "AGENTS.md", `[Original](./${ORIGINAL})\n`);
   const resources = collectNavigationResources(root, ["AGENTS.md"]);
   assert.ok(resources.includes(archive)); assert.ok(resources.includes(ORIGINAL));
@@ -201,4 +209,14 @@ test("real-byte navigation retains the entire identity collection including an u
   assert.deepEqual(fs.readFileSync(path.join(root, archive)), fs.readFileSync(path.join(restored, archive)));
   const result = validateDocumentation(restored);
   assert.equal(result.ok, true, result.errors.join("\n")); assert.equal(result.intents.documents, 2);
+});
+
+test("official INDEX is required only when formal originals exist and registers each exactly once", t => {
+  const root = fixture(t), index = "docs/intent/INDEX.md";
+  fs.unlinkSync(path.join(root, index)); bad(root, /require their guide\/canonical INDEX/);
+  indexFor(root, []); bad(root, /exactly once.*found 0/);
+  indexFor(root, [ORIGINAL, ORIGINAL]); bad(root, /exactly once.*found 2/);
+  indexFor(root); assert.equal(validateDocumentation(root).ok, true);
+  fs.unlinkSync(path.join(root, ORIGINAL)); fs.unlinkSync(path.join(root, index));
+  assert.equal(validateDocumentation(root).ok, true); // Existing repositories need no empty INTENT scaffold.
 });
