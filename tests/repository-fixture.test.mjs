@@ -42,7 +42,7 @@ test("minimal repository fixture preserves real bytes and reports generated and 
   assert.equal(summary.fixtureTotalFiles, all.length);
   assert.equal(summary.fixtureTotalBytes, summary.copiedBytes + summary.syntheticBytes);
   assert.equal(summary.preparationDeltaBytes, 0);
-  assert.equal(summary.syntheticFiles, 18);
+  assert.equal(summary.syntheticFiles, synthetic.size);
   assert.equal(summary.syntheticBytes, all.filter(([relative]) => synthetic.has(relative)).reduce((total, [, bytes]) => total + bytes, 0));
   for (const [relative, , sha] of all) {
     if (synthetic.has(relative)) assert.match(fs.readFileSync(path.join(summary.root, relative), "utf8"), /Synthetic|synthetic/);

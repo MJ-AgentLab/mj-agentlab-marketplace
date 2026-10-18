@@ -37,7 +37,7 @@ supersedes:
 
 任务目录先建一个 INDEX 和恰好一份主 PLAN；出现实际结果后建立最多一份主 REPORT：
 
-- 任务普通文档必填 `task`，精确等于目录 basename；`tracking` 是本仓库真实 Issue/PR 的 HTTPS URL，同目录一致。
+- 任务普通文档必填 `task`，精确等于目录 basename；`tracking` 是真实已知的本仓库 Issue/PR HTTPS URL，或稳定任务入口 `codex://threads/<UUID>` / `https://chatgpt.com/c/<UUID>`，同目录一致。尚无 Issue/PR 可直接使用实际任务入口，不为建目录强建 Issue，不编造身份；定位暂不可得时记录限制并补实际来源。
 - INDEX 使用 `type: guide`、working；`plan` 为本目录主 PLAN 相对链接，REPORT 存在后填写 `report`，未产生则省略；`canonical` 数组至少链接一项适用 docs 正本。
 - PLAN/REPORT 分别使用 `type: plan/report`、working 与 `[PLAN]_<Topic>.md` / `[REPORT]_<Topic>.md` 命名，由 INDEX 绑定。新会话、子 PR、失败恢复及批次切换均复用。
 - 使用具名来源清单时，INDEX 的 `sources` 指向 `./source-bindings.json`，正文提供入口。原件、快照及运行闭包各按实际用途检查。

@@ -9,7 +9,7 @@ state: active
 version: v1.0
 layer: working
 task: <stable directory basename>
-tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/<N>
+tracking: <actual repository Issue/PR URL or stable Codex/ChatGPT task URL>
 plan: "./[PLAN]_<Topic>.md"
 # Add report only after actual results exist; then create exactly one main REPORT.
 # report: "./[REPORT]_<Topic>.md"
