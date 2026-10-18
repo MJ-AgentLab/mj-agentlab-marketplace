@@ -1,0 +1,153 @@
+{
+  "rubric": "INTENT-IA-R1",
+  "scope": "S8 strict public CLI metadata/date/layer/path variants",
+  "implementation": "1093fe7994493e8d621c2a0de1ecd6f3dad37688",
+  "capturedAt": "2026-10-18T18:48:54.481Z",
+  "reviewer": "/root/latest_intent_fit",
+  "independent": true,
+  "correction": "Initial supplemental probe wrongly required uniqueness.checked=false for every structural/link failure. A missing/escaping link can fail overall validation while the complete identity collection is still unique. The first raw result and probe are retained as invalid-expectation-r1; only the probe expectation was corrected, not the candidate.",
+  "pinnedSourceSha256": "6ba0c616058957cf3d76dd9bc6cf8a1ae3a185a76f41d27cc4fce9babdda7a1a",
+  "results": [
+    {
+      "name": "non-scalar-owner",
+      "input": "---\ntype: intent\nscope: marketplace\nsummary: Independent acceptance fixture\nowner: [independent-agent]\ncreated: 2026-10-19\nupdated: 2026-10-19\nstate: draft\nversion: v1.0\nlayer: canonical\nintent-id: INT-2026-001\n---\n\n# Original\n\n| 字段 | 内容 |\n|---|---|\n| 提出者 | Synthetic requester; no real decision |\n| 原始来源 | Complete synthetic input  |\n| 接受责任人 | Unknown; fixture only |\n| 原意核对记录 | Not supplied |\n| 内容接受记录 | Not accepted |\n| 当前内容与适用基线 | Full fixture bytes, not a real accepted baseline |\n| 主跟踪 Issue | None; synthetic fixture |\n\n## 1. 问题与现状\n\nExisting behavior loses a required distinction.\n\n## 2. 期望结果\n\nPreserve the requirement's original meaning.\n\n## 3. 成功判断\n\nUnknown threshold; do not invent one.\n\n## 4. 范围与约束\n\nFixture only.\n\n## 5. 未决项\n\nNo business acceptance supplied.\n",
+      "fixture": "C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-independent-99ec786b8e8a4d29a5b5a10a739ae5a6\\1093fe79\\strict-cli-non-scalar-owner",
+      "argv": [
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-independent-99ec786b8e8a4d29a5b5a10a739ae5a6\\1093fe79\\fixed\\scripts\\document-harness.mjs",
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-independent-99ec786b8e8a4d29a5b5a10a739ae5a6\\1093fe79\\strict-cli-non-scalar-owner",
+        "--file",
+        "docs/intent/[INTENT]_INT-2026-001_Independent.md"
+      ],
+      "status": 1,
+      "stdout": "{\n  \"ok\": false,\n  \"errors\": [\n    \"docs/intent/[INTENT]_INT-2026-001_Independent.md: INTENT requires explicit nonempty scalar field owner\",\n    \"docs/intent/[INTENT]_INT-2026-001_Independent.md: missing or invalid document field owner\"\n  ],\n  \"documents\": 1,\n  \"tasks\": [],\n  \"legacyDocuments\": 0,\n  \"intents\": {\n    \"documents\": 0,\n    \"identities\": 0,\n    \"uniqueness\": {\n      \"checked\": false,\n      \"complete\": true\n    }\n  },\n  \"requestedFile\": \"docs/intent/[INTENT]_INT-2026-001_Independent.md\",\n  \"validationScope\": \"complete-formal-collection\"\n}\n",
+      "stderr": "",
+      "met": true,
+      "output": {
+        "ok": false,
+        "errors": [
+          "docs/intent/[INTENT]_INT-2026-001_Independent.md: INTENT requires explicit nonempty scalar field owner",
+          "docs/intent/[INTENT]_INT-2026-001_Independent.md: missing or invalid document field owner"
+        ],
+        "documents": 1,
+        "tasks": [],
+        "legacyDocuments": 0,
+        "intents": {
+          "documents": 0,
+          "identities": 0,
+          "uniqueness": {
+            "checked": false,
+            "complete": true
+          }
+        },
+        "requestedFile": "docs/intent/[INTENT]_INT-2026-001_Independent.md",
+        "validationScope": "complete-formal-collection"
+      }
+    },
+    {
+      "name": "impossible-date",
+      "input": "---\ntype: intent\nscope: marketplace\nsummary: Independent acceptance fixture\nowner: independent-agent\ncreated: 2026-10-19\nupdated: 2026-02-30\nstate: draft\nversion: v1.0\nlayer: canonical\nintent-id: INT-2026-001\n---\n\n# Original\n\n| 字段 | 内容 |\n|---|---|\n| 提出者 | Synthetic requester; no real decision |\n| 原始来源 | Complete synthetic input  |\n| 接受责任人 | Unknown; fixture only |\n| 原意核对记录 | Not supplied |\n| 内容接受记录 | Not accepted |\n| 当前内容与适用基线 | Full fixture bytes, not a real accepted baseline |\n| 主跟踪 Issue | None; synthetic fixture |\n\n## 1. 问题与现状\n\nExisting behavior loses a required distinction.\n\n## 2. 期望结果\n\nPreserve the requirement's original meaning.\n\n## 3. 成功判断\n\nUnknown threshold; do not invent one.\n\n## 4. 范围与约束\n\nFixture only.\n\n## 5. 未决项\n\nNo business acceptance supplied.\n",
+      "fixture": "C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-independent-99ec786b8e8a4d29a5b5a10a739ae5a6\\1093fe79\\strict-cli-impossible-date",
+      "argv": [
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-independent-99ec786b8e8a4d29a5b5a10a739ae5a6\\1093fe79\\fixed\\scripts\\document-harness.mjs",
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-independent-99ec786b8e8a4d29a5b5a10a739ae5a6\\1093fe79\\strict-cli-impossible-date",
+        "--file",
+        "docs/intent/[INTENT]_INT-2026-001_Independent.md"
+      ],
+      "status": 1,
+      "stdout": "{\n  \"ok\": false,\n  \"errors\": [\n    \"docs/intent/[INTENT]_INT-2026-001_Independent.md: invalid INTENT dates\",\n    \"docs/intent/[INTENT]_INT-2026-001_Independent.md: invalid document dates\"\n  ],\n  \"documents\": 1,\n  \"tasks\": [],\n  \"legacyDocuments\": 0,\n  \"intents\": {\n    \"documents\": 0,\n    \"identities\": 1,\n    \"uniqueness\": {\n      \"checked\": false,\n      \"complete\": true\n    }\n  },\n  \"requestedFile\": \"docs/intent/[INTENT]_INT-2026-001_Independent.md\",\n  \"validationScope\": \"complete-formal-collection\"\n}\n",
+      "stderr": "",
+      "met": true,
+      "output": {
+        "ok": false,
+        "errors": [
+          "docs/intent/[INTENT]_INT-2026-001_Independent.md: invalid INTENT dates",
+          "docs/intent/[INTENT]_INT-2026-001_Independent.md: invalid document dates"
+        ],
+        "documents": 1,
+        "tasks": [],
+        "legacyDocuments": 0,
+        "intents": {
+          "documents": 0,
+          "identities": 1,
+          "uniqueness": {
+            "checked": false,
+            "complete": true
+          }
+        },
+        "requestedFile": "docs/intent/[INTENT]_INT-2026-001_Independent.md",
+        "validationScope": "complete-formal-collection"
+      }
+    },
+    {
+      "name": "working-intent-layer",
+      "input": "---\ntype: intent\nscope: marketplace\nsummary: Independent acceptance fixture\nowner: independent-agent\ncreated: 2026-10-19\nupdated: 2026-10-19\nstate: draft\nversion: v1.0\nlayer: working\nintent-id: INT-2026-001\n---\n\n# Original\n\n| 字段 | 内容 |\n|---|---|\n| 提出者 | Synthetic requester; no real decision |\n| 原始来源 | Complete synthetic input  |\n| 接受责任人 | Unknown; fixture only |\n| 原意核对记录 | Not supplied |\n| 内容接受记录 | Not accepted |\n| 当前内容与适用基线 | Full fixture bytes, not a real accepted baseline |\n| 主跟踪 Issue | None; synthetic fixture |\n\n## 1. 问题与现状\n\nExisting behavior loses a required distinction.\n\n## 2. 期望结果\n\nPreserve the requirement's original meaning.\n\n## 3. 成功判断\n\nUnknown threshold; do not invent one.\n\n## 4. 范围与约束\n\nFixture only.\n\n## 5. 未决项\n\nNo business acceptance supplied.\n",
+      "fixture": "C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-independent-99ec786b8e8a4d29a5b5a10a739ae5a6\\1093fe79\\strict-cli-working-intent-layer",
+      "argv": [
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-independent-99ec786b8e8a4d29a5b5a10a739ae5a6\\1093fe79\\fixed\\scripts\\document-harness.mjs",
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-independent-99ec786b8e8a4d29a5b5a10a739ae5a6\\1093fe79\\strict-cli-working-intent-layer",
+        "--file",
+        "docs/intent/[INTENT]_INT-2026-001_Independent.md"
+      ],
+      "status": 1,
+      "stdout": "{\n  \"ok\": false,\n  \"errors\": [\n    \"docs/intent/[INTENT]_INT-2026-001_Independent.md: INTENT must declare type intent and canonical layer\",\n    \"docs/intent/[INTENT]_INT-2026-001_Independent.md: public/field working document requires purpose and owner\"\n  ],\n  \"documents\": 1,\n  \"tasks\": [],\n  \"legacyDocuments\": 0,\n  \"intents\": {\n    \"documents\": 0,\n    \"identities\": 0,\n    \"uniqueness\": {\n      \"checked\": false,\n      \"complete\": true\n    }\n  },\n  \"requestedFile\": \"docs/intent/[INTENT]_INT-2026-001_Independent.md\",\n  \"validationScope\": \"complete-formal-collection\"\n}\n",
+      "stderr": "",
+      "met": true,
+      "output": {
+        "ok": false,
+        "errors": [
+          "docs/intent/[INTENT]_INT-2026-001_Independent.md: INTENT must declare type intent and canonical layer",
+          "docs/intent/[INTENT]_INT-2026-001_Independent.md: public/field working document requires purpose and owner"
+        ],
+        "documents": 1,
+        "tasks": [],
+        "legacyDocuments": 0,
+        "intents": {
+          "documents": 0,
+          "identities": 0,
+          "uniqueness": {
+            "checked": false,
+            "complete": true
+          }
+        },
+        "requestedFile": "docs/intent/[INTENT]_INT-2026-001_Independent.md",
+        "validationScope": "complete-formal-collection"
+      }
+    },
+    {
+      "name": "owned-path-escape",
+      "input": "---\ntype: intent\nscope: marketplace\nsummary: Independent acceptance fixture\nowner: independent-agent\ncreated: 2026-10-19\nupdated: 2026-10-19\nstate: draft\nversion: v1.0\nlayer: canonical\nintent-id: INT-2026-001\n---\n\n# Original\n\n| 字段 | 内容 |\n|---|---|\n| 提出者 | Synthetic requester; no real decision |\n| 原始来源 | Complete synthetic input [source](../../../outside.md)  |\n| 接受责任人 | Unknown; fixture only |\n| 原意核对记录 | Not supplied |\n| 内容接受记录 | Not accepted |\n| 当前内容与适用基线 | Full fixture bytes, not a real accepted baseline |\n| 主跟踪 Issue | None; synthetic fixture |\n\n## 1. 问题与现状\n\nExisting behavior loses a required distinction.\n\n## 2. 期望结果\n\nPreserve the requirement's original meaning.\n\n## 3. 成功判断\n\nUnknown threshold; do not invent one.\n\n## 4. 范围与约束\n\nFixture only.\n\n## 5. 未决项\n\nNo business acceptance supplied.\n",
+      "fixture": "C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-independent-99ec786b8e8a4d29a5b5a10a739ae5a6\\1093fe79\\strict-cli-owned-path-escape",
+      "argv": [
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-independent-99ec786b8e8a4d29a5b5a10a739ae5a6\\1093fe79\\fixed\\scripts\\document-harness.mjs",
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-independent-99ec786b8e8a4d29a5b5a10a739ae5a6\\1093fe79\\strict-cli-owned-path-escape",
+        "--file",
+        "docs/intent/[INTENT]_INT-2026-001_Independent.md"
+      ],
+      "status": 1,
+      "stdout": "{\n  \"ok\": false,\n  \"errors\": [\n    \"docs/intent/[INTENT]_INT-2026-001_Independent.md: invalid owned path: ../outside.md\"\n  ],\n  \"documents\": 1,\n  \"tasks\": [],\n  \"legacyDocuments\": 0,\n  \"intents\": {\n    \"documents\": 1,\n    \"identities\": 1,\n    \"uniqueness\": {\n      \"checked\": true,\n      \"complete\": true\n    }\n  },\n  \"requestedFile\": \"docs/intent/[INTENT]_INT-2026-001_Independent.md\",\n  \"validationScope\": \"complete-formal-collection\"\n}\n",
+      "stderr": "",
+      "met": true,
+      "output": {
+        "ok": false,
+        "errors": [
+          "docs/intent/[INTENT]_INT-2026-001_Independent.md: invalid owned path: ../outside.md"
+        ],
+        "documents": 1,
+        "tasks": [],
+        "legacyDocuments": 0,
+        "intents": {
+          "documents": 1,
+          "identities": 1,
+          "uniqueness": {
+            "checked": true,
+            "complete": true
+          }
+        },
+        "requestedFile": "docs/intent/[INTENT]_INT-2026-001_Independent.md",
+        "validationScope": "complete-formal-collection"
+      }
+    }
+  ],
+  "met": 4,
+  "total": 4
+}

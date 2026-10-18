@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "rubric": "INTENT-IA-R1",
+  "frozenOn": "2026-10-19",
+  "independentReviewer": "/root/latest_intent_fit",
+  "scope": "Independent Agent synthetic acceptance; no native window, real business effect, GitHub approval or Owner final acceptance claim",
+  "scenarios": [
+    {"id":"S1","title":"State, acceptance and authorization separation","criteria":"active, maintainer identity and validation cannot imply original-meaning confirmation, content acceptance or implementation authorization; reuse genuine same-scope authorization without redundant asking"},
+    {"id":"S2","title":"Recoverable complete baseline and revision","criteria":"recover old full Issue meaning from a complete snapshot or fixed commit; keep identity and old acceptance range; do not apply old acceptance to changed content; URL, summary or hash alone is insufficient"},
+    {"id":"S3","title":"Item coverage and partial delivery","criteria":"distinguish actual delivery, dependency and background; separate engineering completion, original-meaning achievement, full-plan completion and Owner acceptance; retain uncovered items, impact and recovery"},
+    {"id":"S4","title":"Unanswered is not confirmation; strict window","criteria":"recommendation, preselection, unrelated text, silence, timeout and close are not answers; pause dependent decisions and continue independent work; native persistence without evidence remains deferred"},
+    {"id":"S5","title":"Original meaning versus implementation conflict","criteria":"preserve original source and independently established runtime facts, state unknowns, expose gaps without rewriting meaning, recommend engineering tradeoffs while keeping business-meaning questions neutral"},
+    {"id":"S6","title":"Formal identity and historical snapshots","criteria":"full official collection includes deprecated/archive; reject duplicate, mismatched or disguised identity; only verified complete bound source snapshots are exempt; retain compatibility pins"},
+    {"id":"S7","title":"Whole-collection failure closure","criteria":"every public entry scans complete collection; if a single-file entry exists it still checks all identities; unreadable/incomplete/invalid collection must fail; no unsupported single-file claim"},
+    {"id":"S8","title":"Strict CLI results and actual navigation closure","criteria":"invalid metadata/dates/names/index/path/layer yields structured failure and nonzero CLI; isolated projection contains actual required original/baseline/source bytes; removal, tamper and escape fail"}
+  ],
+  "outcomes": ["PASS", "FAIL", "NOT_RUN", "BLOCKED", "DEFERRED"],
+  "failureRetention": "Keep every original attempt and fresh rerun; no rewriting failed evidence as PASS"
+}

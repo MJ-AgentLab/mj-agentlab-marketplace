@@ -1,0 +1,60 @@
+mj-system项目的 INTENT 机制，核心是：**保存需求原意，固定被接受的内容，再把它转成工程范围，并持续核对实现与原意之间的差距。**
+
+它通过以下分工避免需求在实施过程中被悄悄改写：
+
+| 载体 | 负责回答 |
+|---|---|
+| INTENT | 提出者遇到什么问题，希望得到什么结果 |
+| INTAKE | 当前项目如何承接，有哪些差距、范围和风险 |
+| SPEC | 采用什么行为、边界、口径及验收规则 |
+| PLAN | 如何实施和验证 |
+| Issue | 谁承担哪些交付，进度与证据在哪里 |
+| REPORT | 实际完成什么，结果及限制是什么 |
+
+原意由提出者或有职责的代表决定；实现事实从代码、DDL 和运行证据核实。发现差距时保留双方依据，由有职责的人决定如何处理。[来源：INTENT 规范](D:/workspace/10-software-project/projects/mj-system/develop/docs/rule/[STANDARD]_AI_Engineering_Intent.md:31)
+
+可以向其他项目迁移的机制有七项：
+
+1. **同一原意只维护一份正本。**
+   跨任务复用、长期演进的需求使用独立 INTENT；简单明确的单任务，可以直接使用 Issue 的“原意区”。下游引用正本，不复制另一套业务含义。已有明确 Issue，也无需重新补一轮形式访谈。
+
+2. **用固定的内容骨架保存原意。**
+   正文包含五部分：**问题与现状、期望结果、成功判断、范围与约束、未决项**。保留有出处的原话，分清事实、反馈和假设；未知阈值、时间要求及统计范围如实写未知。
+   本项目独立文件另有八项元数据：`type、domain、summary、owner、created、updated、state、intent-id`。正文前列来源、提出者、接受责任人、决定记录和适用基线。[来源：实际模板](D:/workspace/10-software-project/projects/mj-system/develop/docs/_templates/TEMPLATE_INTENT.md:1)
+
+3. **分开记录核对、接受、文档状态和操作授权。**
+
+   | 判断 | 含义 |
+   |---|---|
+   | 原意核对 | 这份整理是否忠实表达提出者的意思 |
+   | 内容接受 | 决定采用哪个完整版本、其中哪些范围 |
+   | 文档状态 | 文档处于 draft、active 或 deprecated |
+   | 操作授权 | 当前允许执行哪些具体动作 |
+
+   同一个人可以在一次表态中明确完成多种决定，已有同范围记录直接复用。维护者身份不自动包含接受权；`active`、校验通过、PR 合并或 Issue 关闭，也不能替代业务接受及操作授权。真实业务含义的提问保持中性，工程取舍可以给出推荐。[来源：决定规则](D:/workspace/10-software-project/projects/mj-system/develop/docs/rule/[STANDARD]_AI_Engineering_Intent.md:108)
+
+4. **每项接受都绑定可恢复的完整基线。**
+   优先引用固定提交中的文件；没有提交时，保存完整快照及准确位置。只写“最新版已批准”、版本号、摘要或一个 hash，都不足以确定接受了什么。
+   决定记录至少包含：性质、实际责任人及职责、时间、完整基线、接受与未覆盖范围、未决项处置和证据位置。记录只维护一处，其他地方链接它。
+
+5. **修订保留身份，旧接受保留原来的边界。**
+   标题调整、跨年维护、拆分任务均保持稳定 ID。实质变化保留旧决定，说明变化来源、原因、旧基线和受影响的工程文档。旧接受只覆盖旧内容；仅补链接或修格式无需机械重走接受。
+   撤销或被替代时保留编号和历史，避免身份被重新使用。缺必要决定时，只暂停依赖它的工作，独立调查继续。[来源：身份与修订规则](D:/workspace/10-software-project/projects/mj-system/develop/docs/rule/[STANDARD]_AI_Engineering_Intent.md:100)
+
+6. **通过逐项覆盖关系连接工程任务。**
+   一个意图可以对应零到多个 Issue；进入待办后指定一个主跟踪入口。一个共享 Issue 也可以支持多个意图，但要分别列出原意依据、接受基线、承担范围、验收标准和依赖。
+   关联要区分“实际交付、依赖支撑、背景参考”。工程进度留在 Issue，INTENT 保留必要关联。任务完成后，工程交付与业务原意是否达成仍分别判断。[来源：工程交接规则](D:/workspace/10-software-project/projects/mj-system/develop/docs/rule/[STANDARD]_AI_Engineering_Intent.md:132)
+
+7. **机器检查、语义审查和真实决定各自提供证据。**
+   机器检查类型、字段、日期、路径、ID 与文件名一致性，以及全仓身份唯一性；单文件检查也需查整个正式集合，包含 deprecated。读取失败或集合不完整时，不能报告唯一性通过。
+   来源是否忠实、未知是否被编造、接受是否真实及其范围，由语义审查和实际决定记录核实。当前校验器已有对应实现，但保留“业务 FAIL 仍可能退出码为 0”的历史兼容行为；其他项目应读取结构化报告，并自行明确失败退出策略。[来源：校验实现](D:/workspace/10-software-project/projects/mj-system/develop/scripts/validate_doc.py:561)
+
+其他项目可以先采用这条最小流程：
+
+**保存原意与来源 → 核对并接受明确版本及范围 → 核实项目事实与差距 → 形成工程范围和验收标准 → 按授权实施 → 对照原意报告结果。**
+
+建议优先吸收**唯一正本、来源分工、完整接受基线、逐项覆盖和增量修订**。目录名称、年度三位编号、领域枚举、技能数量及 Stage 编号可按目标项目调整；无需为每个小任务新增文件或审批流程。
+
+本项目的成熟度也需要保留边界：规范元数据仍标为 `draft`，正式目录目前没有业务 INTENT；规则、模板、校验和核心交接已经接入，多轮澄清入口 `flow-intent` 尚未注册，实施记录仍保留入口及正式启用的未完成项。因此，它适合作为有实现依据的机制参考，尚不能据此宣称已经过正式业务长期使用验证。[正式集合](D:/workspace/10-software-project/projects/mj-system/develop/docs/intent/INDEX.md:12)、[实施与入口边界](D:/workspace/10-software-project/projects/mj-system/develop/plans/[REPORT]_Intent_Core_Implementation_Trace.md:163)
+
+借鉴上述参考，为当前项目设计INTENT 机制，并增加intent文档类型。注意不要改变任何文件。对于不确定的地方使用 [@Matt Pocock Skills](plugin://mattpocock-skills@openai-curated-remote) grilling询问我，提问给出选项并标记推荐，提出窗口在没有点击选项时，不能消失。
