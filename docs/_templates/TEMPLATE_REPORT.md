@@ -14,7 +14,7 @@ tracking: <actual repository Issue/PR URL or stable Codex/ChatGPT task URL>
 
 # [REPORT] <Task title>
 
-[任务入口](./INDEX.md) · [主 PLAN / 接受基线](./[PLAN]_<Topic>.md) · <actual Issue/Epic link>
+[任务入口](./INDEX.md) · [主 PLAN / 接受基线](./[PLAN]_<Topic>.md) · <actual task/Issue/PR link>
 
 ## Current conclusion and remaining gaps
 
