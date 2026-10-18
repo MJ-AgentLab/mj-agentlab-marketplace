@@ -91,6 +91,8 @@ for (const [relative, text, pattern] of [
   ["docs/intent/nested/[INTENT]_INT-2026-002_Hidden.md", intentDocument({ "intent-id": "INT-2026-002" }), /flat docs\/archive directory/],
   ["docs/_templates/OTHER_INTENT.md", intentDocument(), /filename must match/],
   ["docs/archive/unmarked.txt", intentDocument(), /filename must match/],
+  ["docs/archive/unmarked.MD", intentDocument(), /filename must match/],
+  ["docs/archive/unmarked.bin", intentDocument(), /filename must match/],
   ["docs/archive/[INTENT]_unmarked.bin", "missing metadata", /requires YAML frontmatter/],
   ["docs/intent/[GUIDE]_Unregistered.md", ordinaryDocument("guide"), /scalar field intent-id/],
 ]) test(`type and prefix declaration cannot escape at ${relative}`, t => {
@@ -219,4 +221,21 @@ test("official INDEX is required only when formal originals exist and registers 
   indexFor(root); assert.equal(validateDocumentation(root).ok, true);
   fs.unlinkSync(path.join(root, ORIGINAL)); fs.unlinkSync(path.join(root, index));
   assert.equal(validateDocumentation(root).ok, true); // Existing repositories need no empty INTENT scaffold.
+});
+
+test("formal archived INTENT local sources are validated and retained in the portable closure; legacy archive exemption remains", t => {
+  const root = fixture(t), archive = "docs/archive/[DEPRECATED]_[INTENT]_INT-2026-002_History.md", source = "docs/archive/evidence/original.txt";
+  write(root, archive, intentDocument({ "intent-id": "INT-2026-002", state: "archived", sources: "./evidence/original.txt" }));
+  indexFor(root, [ORIGINAL, archive]);
+  bad(root, /ENOENT/);
+  const bytes = Buffer.from("Recoverable original bytes\r\n"); write(root, source, bytes);
+  write(root, "docs/archive/legacy.md", "Legacy raw archive without frontmatter or new INTENT rules.\n[historical](./no-longer-local.md)\n");
+  assert.equal(validateDocumentation(root).ok, true);
+  const resources = collectNavigationResources(root, ["docs/intent/INDEX.md"]);
+  assert.ok(resources.includes(source));
+  const restored = temporary(t);
+  for (const relative of resources) write(restored, relative, fs.readFileSync(path.join(root, relative)));
+  write(restored, COMPATIBILITY_PATH, fs.readFileSync(path.join(root, COMPATIBILITY_PATH)));
+  assert.deepEqual(fs.readFileSync(path.join(restored, source)), bytes);
+  assert.equal(validateDocumentation(restored).ok, true);
 });

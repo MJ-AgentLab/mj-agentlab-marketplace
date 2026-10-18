@@ -64,6 +64,17 @@ function walk(root, relative) {
     return entry.isDirectory() ? walk(root, next) : [next];
   });
 }
+function intentCandidateBytes(root, relative) {
+  const file = documentResource(root, relative);
+  if (/\.md$/i.test(relative) || declaresIntent(relative, "") || relative.startsWith("docs/intent/")) return fs.readFileSync(file);
+  // Every formal file is classified. Only opening frontmatter needs a full
+  // text read, so a renamed .bin original cannot hide among binary evidence.
+  const descriptor = fs.openSync(file, "r"), leading = Buffer.alloc(5);
+  let count;
+  try { count = fs.readSync(descriptor, leading, 0, leading.length, 0); }
+  finally { fs.closeSync(descriptor); }
+  return /^---\r?\n/.test(leading.subarray(0, count).toString("utf8")) ? fs.readFileSync(file) : null;
+}
 function proseLinks(body) {
   const prose = body.replace(/^ {0,3}(`{3,}|~{3,})[^\n]*\n[\s\S]*?^ {0,3}\1\s*$/gm, "").replace(/`[^`\n]+`/g, "");
   return [...prose.matchAll(/\]\(([^)\r\n]+)\)/g)].map(match => match[1]);
@@ -115,8 +126,9 @@ export function collectNavigationResources(root, seeds, { onEvidence = () => {} 
   const pending = [...seeds], collected = new Set();
   // An isolated projection must retain the whole formal identity collection,
   // including an unlinked deprecated original, not just the visible index links.
-  for (const relative of walk(root, "docs").filter(relative => relative.endsWith(".md") || declaresIntent(relative, "") || relative.startsWith("docs/intent/"))) {
-    if (relative === INTENT_INDEX || declaresIntent(relative, fs.readFileSync(documentResource(root, relative), "utf8"))) pending.push(relative);
+  for (const relative of walk(root, "docs")) {
+    const bytes = intentCandidateBytes(root, relative);
+    if (relative === INTENT_INDEX || bytes && declaresIntent(relative, bytes.toString("utf8"))) pending.push(relative);
   }
   while (pending.length) {
     const relative = pending.pop();
@@ -128,7 +140,8 @@ export function collectNavigationResources(root, seeds, { onEvidence = () => {} 
       pending.push(...walk(root, relative));
       continue;
     }
-    if (/^docs\/(?:archive|_templates)\//.test(relative) || /^\.github\/(?:PULL_REQUEST_TEMPLATE|ISSUE_TEMPLATE)\//.test(relative) || /^plans\/[^/]+\/evidence\/sources\//.test(relative) || relative.startsWith("plan/") || path.posix.basename(relative) === "CHANGELOG.md") continue;
+    const archivedIntent = relative.startsWith("docs/archive/") && declaresIntent(relative, fs.readFileSync(file, "utf8"));
+    if (/^docs\/_templates\//.test(relative) || relative.startsWith("docs/archive/") && !archivedIntent || /^\.github\/(?:PULL_REQUEST_TEMPLATE|ISSUE_TEMPLATE)\//.test(relative) || /^plans\/[^/]+\/evidence\/sources\//.test(relative) || relative.startsWith("plan/") || path.posix.basename(relative) === "CHANGELOG.md") continue;
     if (relative.endsWith(".md")) {
       const text = fs.readFileSync(file, "utf8"), parsed = text.startsWith("---") ? parse(text) : { metadata: {}, body: text };
       for (const target of [...proseLinks(parsed.body), ...locatorValues(parsed.metadata)]) {
@@ -248,8 +261,8 @@ export function validateDocumentation(root, { file } = {}) {
     }
   });
   const contents = new Map();
-  const intentFiles = paths.filter(relative => relative.endsWith(".md") || /\.(?:txt|ya?ml)$/i.test(relative) || declaresIntent(relative, "") || relative.startsWith("docs/intent/")).map(relative => {
-    try { const bytes = fs.readFileSync(documentResource(root, relative)); contents.set(relative, bytes); return { relative, text: bytes.toString("utf8") }; }
+  const intentFiles = paths.map(relative => {
+    try { const bytes = intentCandidateBytes(root, relative); if (bytes) contents.set(relative, bytes); return { relative, text: bytes?.toString("utf8") ?? "" }; }
     catch (error) { return { relative, error }; }
   });
   const intents = validateIntentInventory(intentFiles, { complete: inventory !== undefined, excludedSnapshots: rawSources });
@@ -278,6 +291,10 @@ export function validateDocumentation(root, { file } = {}) {
     }
     const targets = [...proseLinks(body), ...locatorValues(metadata)].map(target => localTarget(root, relative, target)).filter(Boolean);
     documents.set(relative, { metadata, body, targets, legacy });
+  });
+  for (const [relative, item] of intents.documents) if (relative.startsWith("docs/archive/")) check(relative, () => {
+    const targets = [...proseLinks(item.body), ...locatorValues(item.metadata)].map(target => localTarget(root, relative, target)).filter(Boolean);
+    documents.set(relative, { ...item, targets, legacy: false });
   });
   if (intents.documents.size) check(INTENT_INDEX, () => {
     const index = documents.get(INTENT_INDEX);
