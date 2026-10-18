@@ -3,6 +3,7 @@ import path from "node:path";
 import crypto from "node:crypto";
 import { spawnSync } from "node:child_process";
 import { parseDocument } from "yaml";
+import { frozenEvidenceResources } from "./frozen-evidence-resources.mjs";
 
 export const COMPATIBILITY_PATH = "docs/_meta/document-layer-compatibility.json";
 export const COMPATIBILITY_SOURCE = "a2a57d11cfb2a43ccc19bf0c54c44a242a3cc9cd";
@@ -86,7 +87,7 @@ function localTarget(root, relative, target) {
   return result;
 }
 function gitBytes(root, commit, relative) {
-  if (!COMMIT.test(commit)) throw new Error("source commit must be a full lowercase Git SHA");
+  if (typeof commit !== "string" || !COMMIT.test(commit)) throw new Error("source commit must be a full lowercase Git SHA string");
   relativePath(relative);
   if (!fs.existsSync(path.join(root, ".git"))) return null; // portable ordinary copy
   const available = spawnSync("git", ["--no-replace-objects", "cat-file", "-t", commit], { cwd: root, env: { ...process.env, LC_ALL: "C" }, encoding: "utf8", windowsHide: true, timeout: 10000 });
@@ -108,7 +109,7 @@ function gitBytes(root, commit, relative) {
 }
 
 /** Real-byte closure for Agent reading in isolated smoke sources. */
-export function collectNavigationResources(root, seeds) {
+export function collectNavigationResources(root, seeds, { onEvidence = () => {} } = {}) {
   const pending = [...seeds], collected = new Set();
   while (pending.length) {
     const relative = pending.pop();
@@ -136,6 +137,9 @@ export function collectNavigationResources(root, seeds) {
         if (snapshot) pending.push(`${directory}/${snapshot}`);
         else throw new Error(`portable source binding requires a controlled snapshot: ${source.id}`);
       }
+    } else if (relative.endsWith(".json")) {
+      const frozen = frozenEvidenceResources(root, relative, documentResource);
+      if (frozen) { pending.push(...frozen.resources); onEvidence(frozen.coverage); }
     }
   }
   return [...collected].sort();
@@ -151,7 +155,7 @@ export function validateCompatibility(root) {
   for (const entry of manifest.documents) {
     exact(entry, ["path", "sha256", "gitBlob"]);
     relativePath(entry.path);
-    if (!entry.path.startsWith("docs/") || /\/(?:archive|_templates|evidence)\//.test(entry.path) || !entry.path.endsWith(".md") || !SHA.test(entry.sha256) || !COMMIT.test(entry.gitBlob) || entries.has(entry.path)) throw new Error("invalid or duplicate compatibility entry");
+    if (!entry.path.startsWith("docs/") || /\/(?:archive|_templates|evidence)\//.test(entry.path) || !entry.path.endsWith(".md") || typeof entry.sha256 !== "string" || !SHA.test(entry.sha256) || typeof entry.gitBlob !== "string" || !COMMIT.test(entry.gitBlob) || entries.has(entry.path)) throw new Error("invalid or duplicate compatibility entry");
     entries.set(entry.path, entry);
   }
   return { manifest, entries };
@@ -198,7 +202,7 @@ export function validateSourceBindings(root, taskDirectory) {
     if (source.kind === "git") exact(source, [...common, "commit"], ["snapshot"]);
     else if (source.kind === "snapshot") exact(source, [...common, "original"]);
     else throw new Error("source kind must be git or snapshot");
-    if (!nonempty(source.id) || ids.has(source.id) || !SHA.test(source.sha256) || !nonempty(source.purpose) || !nonempty(source.scope)) throw new Error("invalid source identity/hash/purpose/scope");
+    if (!nonempty(source.id) || ids.has(source.id) || typeof source.sha256 !== "string" || !SHA.test(source.sha256) || !nonempty(source.purpose) || !nonempty(source.scope)) throw new Error("invalid source identity/hash/purpose/scope");
     ids.add(source.id);
     let bytes;
     if (source.kind === "git") {
@@ -265,6 +269,9 @@ export function validateDocumentation(root) {
     const members = [...documents.entries()].filter(([relative]) => relative.startsWith(`${directory}/`));
     const plans = members.filter(([, item]) => item.metadata.type === "plan"), reports = members.filter(([, item]) => item.metadata.type === "report");
     if (!index || plans.length !== 1 || reports.length > 1) throw new Error("task requires one INDEX, exactly one main PLAN and at most one main REPORT");
+    if (members.some(([, item]) => item.metadata.tracking !== index.metadata.tracking)) throw new Error("task documents must share the same stable tracking URL");
+    if (!Object.hasOwn(index.metadata, "plan")) throw new Error("INDEX plan metadata is required");
+    if (reports.length && !Object.hasOwn(index.metadata, "report")) throw new Error("INDEX report metadata is required when the REPORT exists");
     if (!index.targets.includes(plans[0][0]) || reports.some(([relative]) => !index.targets.includes(relative))) throw new Error("task INDEX must navigate to its main PLAN and REPORT");
     for (const [key, candidates] of [["plan", plans], ["report", reports]]) if (Object.hasOwn(index.metadata, key)) {
       if (!nonempty(index.metadata[key]) || candidates.length !== 1 || localTarget(root, `${directory}/INDEX.md`, index.metadata[key]) !== candidates[0][0]) throw new Error(`INDEX ${key} metadata must identify its main document`);
@@ -276,6 +283,7 @@ export function validateDocumentation(root) {
       return !/^docs\/(?:rule|adr|spec|guide|runbook|postmortem)\/.+\.md$/.test(resolved ?? "") || documents.get(resolved)?.metadata.layer !== "canonical";
     })) throw new Error("task INDEX requires validated explicit canonical domain-document navigation");
     if (paths.includes(`${directory}/source-bindings.json`)) {
+      if (!nonempty(index.metadata.sources) || localTarget(root, `${directory}/INDEX.md`, index.metadata.sources) !== `${directory}/source-bindings.json`) throw new Error("INDEX sources metadata must identify its source-bindings.json");
       if (!index.targets.includes(`${directory}/source-bindings.json`)) throw new Error("task INDEX must navigate to source-bindings.json");
       validateSourceBindings(root, directory);
     }

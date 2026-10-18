@@ -91,16 +91,21 @@ for (const [file, from, to, expected] of [
   const root = fixture(t); replace(root, `${TASK}/${file}`, from, to); bad(root, expected);
 });
 
-test("missing and duplicate main documents fail; real Markdown navigation can supply plan and report", t => {
+test("required main-document metadata cannot be replaced by body links; initial tasks may omit REPORT", t => {
   const root = fixture(t), index = `${TASK}/INDEX.md`;
-  write(root, index, document("guide", { layer: "working", task: "321-document-test", tracking: "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257", canonical: ["../../docs/spec/[SPEC]_Contract.md"] }, "[Plan](./[PLAN]_Execution.md) [Report](./[REPORT]_Execution.md)"));
+  const fields = { layer: "working", task: "321-document-test", tracking: "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257", canonical: ["../../docs/spec/[SPEC]_Contract.md"] };
+  const links = "[Plan](./[PLAN]_Execution.md) [Report](./[REPORT]_Execution.md)";
+  write(root, index, document("guide", fields, links)); bad(root, /INDEX plan metadata is required/);
+  write(root, index, document("guide", { ...fields, plan: "./[PLAN]_Execution.md" }, links)); bad(root, /INDEX report metadata is required/);
+  write(root, index, document("guide", { ...fields, plan: "./[PLAN]_Execution.md", report: "./[REPORT]_Execution.md" }, links));
   assert.equal(validateDocumentation(root).ok, true);
-  replace(root, index, "[Plan](./[PLAN]_Execution.md)", "Plan unavailable");
-  bad(root, /must navigate/);
   write(root, `${TASK}/[PLAN]_Duplicate.md`, fs.readFileSync(path.join(root, `${TASK}/[PLAN]_Execution.md`)));
   bad(root, /exactly one main PLAN/);
   fs.unlinkSync(path.join(root, `${TASK}/[PLAN]_Duplicate.md`));
   fs.unlinkSync(path.join(root, index)); bad(root, /requires one INDEX/);
+  fs.unlinkSync(path.join(root, `${TASK}/[REPORT]_Execution.md`));
+  write(root, index, document("guide", { ...fields, plan: "./[PLAN]_Execution.md" }));
+  assert.equal(validateDocumentation(root).ok, true);
 });
 
 test("a task without an Issue can use a stable existing conversation identity without forced issue creation", t => {
@@ -112,6 +117,8 @@ test("a task without an Issue can use a stable existing conversation identity wi
   for (const filename of ["INDEX.md", "[PLAN]_Execution.md", "[REPORT]_Execution.md"]) replace(root, `${target}/${filename}`, original, codex);
   assert.equal(validateDocumentation(root).ok, true); // format only; no claim this synthetic task exists live
   replace(root, `${target}/INDEX.md`, codex, "https://chatgpt.com/c/123e4567-e89b-12d3-a456-426614174000");
+  bad(root, /must share the same stable tracking/);
+  for (const filename of ["[PLAN]_Execution.md", "[REPORT]_Execution.md"]) replace(root, `${target}/${filename}`, codex, "https://chatgpt.com/c/123e4567-e89b-12d3-a456-426614174000");
   assert.equal(validateDocumentation(root).ok, true);
   const text = fs.readFileSync(path.join(root, `${target}/INDEX.md`), "utf8");
   for (const tracking of ["unknown", "current", "TODO", "../current-task", "codex://threads/current", "https://chatgpt.com/c/TODO", "https://github.com/other/repo/issues/257"]) {
@@ -166,7 +173,8 @@ test("pinned legacy inventory proves original Git bytes, supports deterministic 
 function binding(root, sources) {
   write(root, `${TASK}/source-bindings.json`, JSON.stringify({ schemaVersion: 1, task: "321-document-test", sources }));
   const index = path.join(root, `${TASK}/INDEX.md`), text = fs.readFileSync(index, "utf8");
-  if (!text.includes("source-bindings.json")) fs.appendFileSync(index, "\n[Bound sources](./source-bindings.json)\n");
+  if (!text.includes("sources: ./source-bindings.json")) fs.writeFileSync(index, text.replace("\n---\n", "\nsources: ./source-bindings.json\n---\n"));
+  if (!text.includes("[Bound sources]")) fs.appendFileSync(index, "\n[Bound sources](./source-bindings.json)\n");
 }
 function snapshot(root) {
   const bytes = Buffer.from("# Original unmodified source\r\nNo governance metadata.\r\n");
@@ -187,7 +195,10 @@ test("bound snapshot original bytes remain raw; an unbound Markdown file cannot 
 test("source bindings read actual contents and reject wrong hashes, lost files, traversal and ambiguous schema", t => {
   const root = fixture(t), source = snapshot(root); binding(root, [source]);
   assert.equal(validateSourceBindings(root, TASK).sources.length, 1);
+  replace(root, `${TASK}/INDEX.md`, "sources: ./source-bindings.json\n", ""); bad(root, /INDEX sources metadata/);
+  binding(root, [source]);
   binding(root, [{ ...source, sha256: "0".repeat(64) }]); bad(root, /SHA-256 differs/);
+  binding(root, [{ ...source, sha256: [source.sha256] }]); bad(root, /identity\/hash\/purpose\/scope/);
   binding(root, [{ ...source, path: "evidence/sources/missing.md" }]); bad(root, /ENOENT/);
   binding(root, [{ ...source, path: "evidence/sources/../../INDEX.md" }]); bad(root, /invalid owned path/);
   binding(root, [{ ...source, path: "../../outside.md" }]); bad(root, /invalid owned path/);
@@ -206,6 +217,7 @@ test("Git binding reads pinned version and verifies portable snapshot without co
   assert.equal(validateDocumentation(root).ok, true); // no Git objects in the portable fixture
   assert.throws(() => validateSourceBindings(REPO, TASK)); // no fictitious task in the actual repo
   binding(root, [{ ...source, commit: "main" }]); bad(root, /full lowercase Git SHA/);
+  binding(root, [{ ...source, commit: [source.commit] }]); bad(root, /Git SHA string/);
   binding(root, [{ ...source, snapshot: undefined }]); bad(root, /unavailable without a controlled snapshot/);
   const git = (...args) => execFileSync("git", args, { cwd: root, stdio: ["ignore", "pipe", "pipe"] }).toString().trim();
   git("init", "-q"); git("config", "user.name", "Fixture"); git("config", "user.email", "fixture@example.invalid");
