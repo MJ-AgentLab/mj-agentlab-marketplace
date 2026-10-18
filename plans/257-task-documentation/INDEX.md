@@ -12,6 +12,7 @@ task: 257-task-documentation
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 plan: "./[PLAN]_Task_Documentation.md"
 report: "./[REPORT]_Task_Documentation.md"
+sources: "./source-bindings.json"
 canonical:
   - "../../docs/rule/[STANDARD]_Documentation_Framework.md"
   - "../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md"
@@ -25,6 +26,7 @@ canonical:
 
 - 为什么做、接受范围、执行链：[主 PLAN](./[PLAN]_Task_Documentation.md)。
 - 实际执行、失败恢复、交付缺口：[主 REPORT](./[REPORT]_Task_Documentation.md)。
+- 接受基线与真实授权的版本/快照：[来源绑定](./source-bindings.json)。
 - 现行规则：[文档框架](../../docs/rule/[STANDARD]_Documentation_Framework.md)、[工程执行](../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)。
 
 ## 进展快照

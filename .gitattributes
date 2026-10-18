@@ -1,4 +1,6 @@
 # Preserve the saved owner plan's original bytes for its recorded SHA-256.
+# Task source snapshots retain the exact bytes checked by source-bindings.json.
+plans/*/evidence/sources/** -text
 plan/communication-kit-implementation-plan.md -text whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # Frozen runtime references retain exactly the bytes covered by the snapshot hashes.
 plugins/communication-kit/skills/communicate/references/* -text
