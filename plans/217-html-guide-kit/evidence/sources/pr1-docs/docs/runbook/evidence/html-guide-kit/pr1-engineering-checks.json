@@ -1,0 +1,756 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-12",
+  "timezone": "Asia/Taipei",
+  "sourceBase": "b2e5a74109f47ecee7471ba741fb4c1348457f3b",
+  "branch": "codex/html-guide-contract",
+  "marketplace": "8.1.2",
+  "pluginVersions": {
+    "diagram-kit": "0.3.1",
+    "understanding-kit": "0.1.2",
+    "explain-kit": "0.1.1"
+  },
+  "runtimeDiff": "",
+  "checks": [
+    {
+      "command": "npm test",
+      "env": {
+        "REQUIRE_PWSH": "1",
+        "REQUIRE_PYTHON": "1"
+      },
+      "status": 0,
+      "tests": 252,
+      "pass": 252,
+      "fail": 0,
+      "skipped": 0,
+      "log": "pr1-npm-test.log"
+    },
+    {
+      "command": "npm run validate",
+      "status": 0,
+      "publicSkills": 4,
+      "repositorySkills": 20
+    },
+    {
+      "command": "npm run check",
+      "status": 0,
+      "actualCodex": "0.147.0"
+    },
+    {
+      "command": "npm run smoke -- --keep-root",
+      "status": 0,
+      "scenarios": 4,
+      "pythonExecutedScenarios": 3
+    }
+  ],
+  "negativeChecks": "pr1-missing-manifest.json",
+  "intermediateResults": [
+    {
+      "check": "validate before acceptance SPEC existed",
+      "result": "FAIL",
+      "reason": "four missing links to the in-progress SPEC; no contract relaxed",
+      "correctedResult": "subsequent real validate PASS after SPEC landed"
+    },
+    {
+      "check": "icon test suite before SPEC landed",
+      "result": "9/10",
+      "reason": "same missing document dependency; final full test run passes 252/252"
+    }
+  ],
+  "resources": {
+    "plugins/diagram-kit/assets/icon.png": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f",
+    "plugins/diagram-kit/assets/icon.svg": "3b77a72c2012f934397e4b32b483f7cb4b0d87375a8de5a3f65fc231da147a5e",
+    "plugins/diagram-kit/plugin.json": "8c51243d90e61764724bdb56256e603bdcf4414723111986685d5b70255097ed",
+    "plugins/diagram-kit/skills/arch-diagram/SKILL.md": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b",
+    "plugins/diagram-kit/skills/arch-diagram/agents/openai.yaml": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428",
+    "plugins/diagram-kit/skills/arch-diagram/references/architecture-methodology.md": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f",
+    "plugins/diagram-kit/skills/arch-diagram/references/code-diagram.md": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75",
+    "plugins/diagram-kit/skills/arch-diagram/references/component-diagram.md": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37",
+    "plugins/diagram-kit/skills/arch-diagram/references/container-diagram.md": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3",
+    "plugins/diagram-kit/skills/arch-diagram/references/context-diagram.md": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a",
+    "plugins/diagram-kit/skills/arch-diagram/references/deployment-diagram.md": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d",
+    "plugins/diagram-kit/skills/arch-diagram/references/domain-acquisition.md": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9",
+    "plugins/diagram-kit/skills/arch-diagram/references/sequence-diagram.md": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb",
+    "plugins/diagram-kit/skills/arch-diagram/references/state-machine-diagram.md": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb",
+    "plugins/diagram-kit/skills/arch-diagram/scripts/validate_diagram.py": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33",
+    "plugins/explain-kit/assets/icon.png": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95",
+    "plugins/explain-kit/assets/icon.svg": "8d5cf6c5a1eb48f273378da8715a16d276da0b95ff28c79a142080ee715b5874",
+    "plugins/explain-kit/plugin.json": "62c24bc96f812e707f5f425dbea2e06433880707678cb591929586255e5c5b91",
+    "plugins/explain-kit/skills/concept/SKILL.md": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+    "plugins/explain-kit/skills/concept/agents/openai.yaml": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf",
+    "plugins/explain-kit/skills/glossary/SKILL.md": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+    "plugins/explain-kit/skills/glossary/agents/openai.yaml": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619",
+    "plugins/understanding-kit/assets/icon.png": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad",
+    "plugins/understanding-kit/assets/icon.svg": "fbd451eb605921ebb03c700777a359358e2e7fa20c5ecb4034595d4a90263b08",
+    "plugins/understanding-kit/plugin.json": "9b709584a8fdfff9340e36a5292267fe74ee235a2ce70d209138cc92cb58d404",
+    "plugins/understanding-kit/skills/pop-quiz/SKILL.md": "7504638906dea0273a2eff23f095082393919830d14ff85f86beea1fe565b66e",
+    "plugins/understanding-kit/skills/pop-quiz/agents/openai.yaml": "3b168081fb8c6fc3ad0f0357799a651d6c479c266bac3264225a41ad3c6775fd",
+    "plugins/understanding-kit/skills/pop-quiz/evals/README.md": "f9410b42856d7f4bde021e01e71cf7bc9bbbddbdf6f3d231a03308f75a5509bd",
+    "plugins/understanding-kit/skills/pop-quiz/evals/cases.json": "2ca177e7ecf17e87b4ae19c554a9cfb5a2cf4a88a533f35bd6ea6f1a83645826",
+    "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/conflicting-requirements.md": "76d77932f4debea87263f08d43131b3ce739feb4af5cb16f8f4ee02da093d8bf",
+    "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/owner-evidence.md": "19bda26a113f705f1b22fa5efef39b00a1f985444758f51d571d09aa680a0f15",
+    "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/report-r1.md": "58f993aaa83430fbfe8ac049c4cb11c39b0777d95cf0d3ee90d33aa6352d8d37",
+    "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/report-r2.md": "5bcc65446775ffd61ed363b0e59c8dbfc726ecf16e213a730546b022c05a2030",
+    "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/security-review.md": "2e43daafb4759c80a345c613554fbcc36b3bba8a5d3862ead8de6334ae1d2cb2",
+    "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/untrusted-note.md": "524a4a772d48361476187d2fd0e703feb9bdbbf9d8e6e5c0c4248213b738294d",
+    "plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-cases-01-05.md": "49bf28413e1684c146baef5287618b2ddd10274493da2731832cbded04a1f1f3",
+    "plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-cases-06-09-11.md": "dba1216284269a49dc7c5222a02627a9de5559b3424a9f5c3dbc79c99685cb4e",
+    "plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-cases-10-12.md": "51c914b348ac7292bde70757364d2a489d4c3b9ad7be9f349fd77380fef8f809",
+    "plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-forward-sample.md": "dac90a9ed9b7ecde168bab947ad93383ccc667af484fba1a4f011a79b3aa4e60",
+    "plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-post-merge-matrix.md": "7ab4af673aac17d07ea9d78b88ce61b77f516d73ba54b591b19b66cdbfae45a4",
+    "plugins/understanding-kit/skills/pop-quiz/evals/rubric.md": "0d7376f2da9e9a95b63234b0bf7d53467ca68d0da3ea7c8916c0c72c0d2f6c66",
+    "plugins/understanding-kit/skills/pop-quiz/references/ku-selection.md": "6d78cdd36367eceeba8e3682782acf11f1d1fa124df8879e26960461c4c4aa29",
+    "plugins/understanding-kit/skills/pop-quiz/references/quiz-policy.md": "1f54212029d2dd1d6f2741d8d441d8f2cc0fd2f9f2abe211da8a8de501ba326e"
+  },
+  "scenarios": [
+    {
+      "installed": [
+        "diagram-kit"
+      ],
+      "resources": [
+        {
+          "path": "plugins/diagram-kit/assets/icon.png",
+          "sourceSha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f",
+          "mirrorSha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f",
+          "cacheSha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-QQPOYC\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\assets\\icon.png"
+        },
+        {
+          "path": "plugins/diagram-kit/assets/icon.svg",
+          "sourceSha256": "3b77a72c2012f934397e4b32b483f7cb4b0d87375a8de5a3f65fc231da147a5e",
+          "mirrorSha256": "3b77a72c2012f934397e4b32b483f7cb4b0d87375a8de5a3f65fc231da147a5e",
+          "cacheSha256": "3b77a72c2012f934397e4b32b483f7cb4b0d87375a8de5a3f65fc231da147a5e",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-QQPOYC\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\assets\\icon.svg"
+        },
+        {
+          "path": "plugins/diagram-kit/plugin.json",
+          "sourceSha256": "8c51243d90e61764724bdb56256e603bdcf4414723111986685d5b70255097ed",
+          "mirrorSha256": "8c51243d90e61764724bdb56256e603bdcf4414723111986685d5b70255097ed",
+          "cacheSha256": "8c51243d90e61764724bdb56256e603bdcf4414723111986685d5b70255097ed",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-QQPOYC\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\plugin.json"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/SKILL.md",
+          "sourceSha256": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b",
+          "mirrorSha256": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b",
+          "cacheSha256": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-QQPOYC\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\SKILL.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/agents/openai.yaml",
+          "sourceSha256": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428",
+          "mirrorSha256": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428",
+          "cacheSha256": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-QQPOYC\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\agents\\openai.yaml"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/architecture-methodology.md",
+          "sourceSha256": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f",
+          "mirrorSha256": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f",
+          "cacheSha256": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-QQPOYC\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\architecture-methodology.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/code-diagram.md",
+          "sourceSha256": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75",
+          "mirrorSha256": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75",
+          "cacheSha256": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-QQPOYC\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\code-diagram.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/component-diagram.md",
+          "sourceSha256": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37",
+          "mirrorSha256": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37",
+          "cacheSha256": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-QQPOYC\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\component-diagram.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/container-diagram.md",
+          "sourceSha256": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3",
+          "mirrorSha256": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3",
+          "cacheSha256": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-QQPOYC\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\container-diagram.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/context-diagram.md",
+          "sourceSha256": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a",
+          "mirrorSha256": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a",
+          "cacheSha256": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-QQPOYC\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\context-diagram.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/deployment-diagram.md",
+          "sourceSha256": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d",
+          "mirrorSha256": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d",
+          "cacheSha256": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-QQPOYC\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\deployment-diagram.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/domain-acquisition.md",
+          "sourceSha256": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9",
+          "mirrorSha256": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9",
+          "cacheSha256": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-QQPOYC\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\domain-acquisition.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/sequence-diagram.md",
+          "sourceSha256": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb",
+          "mirrorSha256": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb",
+          "cacheSha256": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-QQPOYC\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\sequence-diagram.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/state-machine-diagram.md",
+          "sourceSha256": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb",
+          "mirrorSha256": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb",
+          "cacheSha256": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-QQPOYC\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\state-machine-diagram.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/scripts/validate_diagram.py",
+          "sourceSha256": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33",
+          "mirrorSha256": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33",
+          "cacheSha256": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-QQPOYC\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py"
+        }
+      ]
+    },
+    {
+      "installed": [
+        "explain-kit"
+      ],
+      "resources": [
+        {
+          "path": "plugins/explain-kit/assets/icon.png",
+          "sourceSha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95",
+          "mirrorSha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95",
+          "cacheSha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-gqdGgm\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\assets\\icon.png"
+        },
+        {
+          "path": "plugins/explain-kit/assets/icon.svg",
+          "sourceSha256": "8d5cf6c5a1eb48f273378da8715a16d276da0b95ff28c79a142080ee715b5874",
+          "mirrorSha256": "8d5cf6c5a1eb48f273378da8715a16d276da0b95ff28c79a142080ee715b5874",
+          "cacheSha256": "8d5cf6c5a1eb48f273378da8715a16d276da0b95ff28c79a142080ee715b5874",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-gqdGgm\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\assets\\icon.svg"
+        },
+        {
+          "path": "plugins/explain-kit/plugin.json",
+          "sourceSha256": "62c24bc96f812e707f5f425dbea2e06433880707678cb591929586255e5c5b91",
+          "mirrorSha256": "62c24bc96f812e707f5f425dbea2e06433880707678cb591929586255e5c5b91",
+          "cacheSha256": "62c24bc96f812e707f5f425dbea2e06433880707678cb591929586255e5c5b91",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-gqdGgm\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\plugin.json"
+        },
+        {
+          "path": "plugins/explain-kit/skills/concept/SKILL.md",
+          "sourceSha256": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+          "mirrorSha256": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+          "cacheSha256": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-gqdGgm\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\concept\\SKILL.md"
+        },
+        {
+          "path": "plugins/explain-kit/skills/concept/agents/openai.yaml",
+          "sourceSha256": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf",
+          "mirrorSha256": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf",
+          "cacheSha256": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-gqdGgm\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\concept\\agents\\openai.yaml"
+        },
+        {
+          "path": "plugins/explain-kit/skills/glossary/SKILL.md",
+          "sourceSha256": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+          "mirrorSha256": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+          "cacheSha256": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-gqdGgm\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\glossary\\SKILL.md"
+        },
+        {
+          "path": "plugins/explain-kit/skills/glossary/agents/openai.yaml",
+          "sourceSha256": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619",
+          "mirrorSha256": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619",
+          "cacheSha256": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-gqdGgm\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\glossary\\agents\\openai.yaml"
+        }
+      ]
+    },
+    {
+      "installed": [
+        "diagram-kit",
+        "explain-kit"
+      ],
+      "resources": [
+        {
+          "path": "plugins/diagram-kit/assets/icon.png",
+          "sourceSha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f",
+          "mirrorSha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f",
+          "cacheSha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-IDFkmM\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\assets\\icon.png"
+        },
+        {
+          "path": "plugins/diagram-kit/assets/icon.svg",
+          "sourceSha256": "3b77a72c2012f934397e4b32b483f7cb4b0d87375a8de5a3f65fc231da147a5e",
+          "mirrorSha256": "3b77a72c2012f934397e4b32b483f7cb4b0d87375a8de5a3f65fc231da147a5e",
+          "cacheSha256": "3b77a72c2012f934397e4b32b483f7cb4b0d87375a8de5a3f65fc231da147a5e",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-IDFkmM\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\assets\\icon.svg"
+        },
+        {
+          "path": "plugins/diagram-kit/plugin.json",
+          "sourceSha256": "8c51243d90e61764724bdb56256e603bdcf4414723111986685d5b70255097ed",
+          "mirrorSha256": "8c51243d90e61764724bdb56256e603bdcf4414723111986685d5b70255097ed",
+          "cacheSha256": "8c51243d90e61764724bdb56256e603bdcf4414723111986685d5b70255097ed",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-IDFkmM\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\plugin.json"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/SKILL.md",
+          "sourceSha256": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b",
+          "mirrorSha256": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b",
+          "cacheSha256": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-IDFkmM\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\SKILL.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/agents/openai.yaml",
+          "sourceSha256": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428",
+          "mirrorSha256": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428",
+          "cacheSha256": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-IDFkmM\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\agents\\openai.yaml"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/architecture-methodology.md",
+          "sourceSha256": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f",
+          "mirrorSha256": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f",
+          "cacheSha256": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-IDFkmM\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\architecture-methodology.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/code-diagram.md",
+          "sourceSha256": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75",
+          "mirrorSha256": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75",
+          "cacheSha256": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-IDFkmM\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\code-diagram.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/component-diagram.md",
+          "sourceSha256": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37",
+          "mirrorSha256": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37",
+          "cacheSha256": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-IDFkmM\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\component-diagram.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/container-diagram.md",
+          "sourceSha256": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3",
+          "mirrorSha256": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3",
+          "cacheSha256": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-IDFkmM\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\container-diagram.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/context-diagram.md",
+          "sourceSha256": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a",
+          "mirrorSha256": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a",
+          "cacheSha256": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-IDFkmM\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\context-diagram.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/deployment-diagram.md",
+          "sourceSha256": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d",
+          "mirrorSha256": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d",
+          "cacheSha256": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-IDFkmM\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\deployment-diagram.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/domain-acquisition.md",
+          "sourceSha256": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9",
+          "mirrorSha256": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9",
+          "cacheSha256": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-IDFkmM\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\domain-acquisition.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/sequence-diagram.md",
+          "sourceSha256": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb",
+          "mirrorSha256": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb",
+          "cacheSha256": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-IDFkmM\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\sequence-diagram.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/state-machine-diagram.md",
+          "sourceSha256": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb",
+          "mirrorSha256": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb",
+          "cacheSha256": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-IDFkmM\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\state-machine-diagram.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/scripts/validate_diagram.py",
+          "sourceSha256": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33",
+          "mirrorSha256": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33",
+          "cacheSha256": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-IDFkmM\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py"
+        },
+        {
+          "path": "plugins/explain-kit/assets/icon.png",
+          "sourceSha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95",
+          "mirrorSha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95",
+          "cacheSha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-IDFkmM\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\assets\\icon.png"
+        },
+        {
+          "path": "plugins/explain-kit/assets/icon.svg",
+          "sourceSha256": "8d5cf6c5a1eb48f273378da8715a16d276da0b95ff28c79a142080ee715b5874",
+          "mirrorSha256": "8d5cf6c5a1eb48f273378da8715a16d276da0b95ff28c79a142080ee715b5874",
+          "cacheSha256": "8d5cf6c5a1eb48f273378da8715a16d276da0b95ff28c79a142080ee715b5874",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-IDFkmM\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\assets\\icon.svg"
+        },
+        {
+          "path": "plugins/explain-kit/plugin.json",
+          "sourceSha256": "62c24bc96f812e707f5f425dbea2e06433880707678cb591929586255e5c5b91",
+          "mirrorSha256": "62c24bc96f812e707f5f425dbea2e06433880707678cb591929586255e5c5b91",
+          "cacheSha256": "62c24bc96f812e707f5f425dbea2e06433880707678cb591929586255e5c5b91",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-IDFkmM\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\plugin.json"
+        },
+        {
+          "path": "plugins/explain-kit/skills/concept/SKILL.md",
+          "sourceSha256": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+          "mirrorSha256": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+          "cacheSha256": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-IDFkmM\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\concept\\SKILL.md"
+        },
+        {
+          "path": "plugins/explain-kit/skills/concept/agents/openai.yaml",
+          "sourceSha256": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf",
+          "mirrorSha256": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf",
+          "cacheSha256": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-IDFkmM\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\concept\\agents\\openai.yaml"
+        },
+        {
+          "path": "plugins/explain-kit/skills/glossary/SKILL.md",
+          "sourceSha256": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+          "mirrorSha256": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+          "cacheSha256": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-IDFkmM\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\glossary\\SKILL.md"
+        },
+        {
+          "path": "plugins/explain-kit/skills/glossary/agents/openai.yaml",
+          "sourceSha256": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619",
+          "mirrorSha256": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619",
+          "cacheSha256": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-IDFkmM\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\glossary\\agents\\openai.yaml"
+        }
+      ]
+    },
+    {
+      "installed": [
+        "diagram-kit",
+        "understanding-kit",
+        "explain-kit"
+      ],
+      "resources": [
+        {
+          "path": "plugins/diagram-kit/assets/icon.png",
+          "sourceSha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f",
+          "mirrorSha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f",
+          "cacheSha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\assets\\icon.png"
+        },
+        {
+          "path": "plugins/diagram-kit/assets/icon.svg",
+          "sourceSha256": "3b77a72c2012f934397e4b32b483f7cb4b0d87375a8de5a3f65fc231da147a5e",
+          "mirrorSha256": "3b77a72c2012f934397e4b32b483f7cb4b0d87375a8de5a3f65fc231da147a5e",
+          "cacheSha256": "3b77a72c2012f934397e4b32b483f7cb4b0d87375a8de5a3f65fc231da147a5e",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\assets\\icon.svg"
+        },
+        {
+          "path": "plugins/diagram-kit/plugin.json",
+          "sourceSha256": "8c51243d90e61764724bdb56256e603bdcf4414723111986685d5b70255097ed",
+          "mirrorSha256": "8c51243d90e61764724bdb56256e603bdcf4414723111986685d5b70255097ed",
+          "cacheSha256": "8c51243d90e61764724bdb56256e603bdcf4414723111986685d5b70255097ed",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\plugin.json"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/SKILL.md",
+          "sourceSha256": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b",
+          "mirrorSha256": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b",
+          "cacheSha256": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\SKILL.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/agents/openai.yaml",
+          "sourceSha256": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428",
+          "mirrorSha256": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428",
+          "cacheSha256": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\agents\\openai.yaml"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/architecture-methodology.md",
+          "sourceSha256": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f",
+          "mirrorSha256": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f",
+          "cacheSha256": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\architecture-methodology.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/code-diagram.md",
+          "sourceSha256": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75",
+          "mirrorSha256": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75",
+          "cacheSha256": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\code-diagram.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/component-diagram.md",
+          "sourceSha256": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37",
+          "mirrorSha256": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37",
+          "cacheSha256": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\component-diagram.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/container-diagram.md",
+          "sourceSha256": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3",
+          "mirrorSha256": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3",
+          "cacheSha256": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\container-diagram.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/context-diagram.md",
+          "sourceSha256": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a",
+          "mirrorSha256": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a",
+          "cacheSha256": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\context-diagram.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/deployment-diagram.md",
+          "sourceSha256": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d",
+          "mirrorSha256": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d",
+          "cacheSha256": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\deployment-diagram.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/domain-acquisition.md",
+          "sourceSha256": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9",
+          "mirrorSha256": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9",
+          "cacheSha256": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\domain-acquisition.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/sequence-diagram.md",
+          "sourceSha256": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb",
+          "mirrorSha256": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb",
+          "cacheSha256": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\sequence-diagram.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/references/state-machine-diagram.md",
+          "sourceSha256": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb",
+          "mirrorSha256": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb",
+          "cacheSha256": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\references\\state-machine-diagram.md"
+        },
+        {
+          "path": "plugins/diagram-kit/skills/arch-diagram/scripts/validate_diagram.py",
+          "sourceSha256": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33",
+          "mirrorSha256": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33",
+          "cacheSha256": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py"
+        },
+        {
+          "path": "plugins/understanding-kit/assets/icon.png",
+          "sourceSha256": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad",
+          "mirrorSha256": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad",
+          "cacheSha256": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\assets\\icon.png"
+        },
+        {
+          "path": "plugins/understanding-kit/assets/icon.svg",
+          "sourceSha256": "fbd451eb605921ebb03c700777a359358e2e7fa20c5ecb4034595d4a90263b08",
+          "mirrorSha256": "fbd451eb605921ebb03c700777a359358e2e7fa20c5ecb4034595d4a90263b08",
+          "cacheSha256": "fbd451eb605921ebb03c700777a359358e2e7fa20c5ecb4034595d4a90263b08",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\assets\\icon.svg"
+        },
+        {
+          "path": "plugins/understanding-kit/plugin.json",
+          "sourceSha256": "9b709584a8fdfff9340e36a5292267fe74ee235a2ce70d209138cc92cb58d404",
+          "mirrorSha256": "9b709584a8fdfff9340e36a5292267fe74ee235a2ce70d209138cc92cb58d404",
+          "cacheSha256": "9b709584a8fdfff9340e36a5292267fe74ee235a2ce70d209138cc92cb58d404",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\plugin.json"
+        },
+        {
+          "path": "plugins/understanding-kit/skills/pop-quiz/SKILL.md",
+          "sourceSha256": "7504638906dea0273a2eff23f095082393919830d14ff85f86beea1fe565b66e",
+          "mirrorSha256": "7504638906dea0273a2eff23f095082393919830d14ff85f86beea1fe565b66e",
+          "cacheSha256": "7504638906dea0273a2eff23f095082393919830d14ff85f86beea1fe565b66e",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\skills\\pop-quiz\\SKILL.md"
+        },
+        {
+          "path": "plugins/understanding-kit/skills/pop-quiz/agents/openai.yaml",
+          "sourceSha256": "3b168081fb8c6fc3ad0f0357799a651d6c479c266bac3264225a41ad3c6775fd",
+          "mirrorSha256": "3b168081fb8c6fc3ad0f0357799a651d6c479c266bac3264225a41ad3c6775fd",
+          "cacheSha256": "3b168081fb8c6fc3ad0f0357799a651d6c479c266bac3264225a41ad3c6775fd",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\skills\\pop-quiz\\agents\\openai.yaml"
+        },
+        {
+          "path": "plugins/understanding-kit/skills/pop-quiz/evals/README.md",
+          "sourceSha256": "f9410b42856d7f4bde021e01e71cf7bc9bbbddbdf6f3d231a03308f75a5509bd",
+          "mirrorSha256": "f9410b42856d7f4bde021e01e71cf7bc9bbbddbdf6f3d231a03308f75a5509bd",
+          "cacheSha256": "f9410b42856d7f4bde021e01e71cf7bc9bbbddbdf6f3d231a03308f75a5509bd",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\skills\\pop-quiz\\evals\\README.md"
+        },
+        {
+          "path": "plugins/understanding-kit/skills/pop-quiz/evals/cases.json",
+          "sourceSha256": "2ca177e7ecf17e87b4ae19c554a9cfb5a2cf4a88a533f35bd6ea6f1a83645826",
+          "mirrorSha256": "2ca177e7ecf17e87b4ae19c554a9cfb5a2cf4a88a533f35bd6ea6f1a83645826",
+          "cacheSha256": "2ca177e7ecf17e87b4ae19c554a9cfb5a2cf4a88a533f35bd6ea6f1a83645826",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\skills\\pop-quiz\\evals\\cases.json"
+        },
+        {
+          "path": "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/conflicting-requirements.md",
+          "sourceSha256": "76d77932f4debea87263f08d43131b3ce739feb4af5cb16f8f4ee02da093d8bf",
+          "mirrorSha256": "76d77932f4debea87263f08d43131b3ce739feb4af5cb16f8f4ee02da093d8bf",
+          "cacheSha256": "76d77932f4debea87263f08d43131b3ce739feb4af5cb16f8f4ee02da093d8bf",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\skills\\pop-quiz\\evals\\fixtures\\conflicting-requirements.md"
+        },
+        {
+          "path": "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/owner-evidence.md",
+          "sourceSha256": "19bda26a113f705f1b22fa5efef39b00a1f985444758f51d571d09aa680a0f15",
+          "mirrorSha256": "19bda26a113f705f1b22fa5efef39b00a1f985444758f51d571d09aa680a0f15",
+          "cacheSha256": "19bda26a113f705f1b22fa5efef39b00a1f985444758f51d571d09aa680a0f15",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\skills\\pop-quiz\\evals\\fixtures\\owner-evidence.md"
+        },
+        {
+          "path": "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/report-r1.md",
+          "sourceSha256": "58f993aaa83430fbfe8ac049c4cb11c39b0777d95cf0d3ee90d33aa6352d8d37",
+          "mirrorSha256": "58f993aaa83430fbfe8ac049c4cb11c39b0777d95cf0d3ee90d33aa6352d8d37",
+          "cacheSha256": "58f993aaa83430fbfe8ac049c4cb11c39b0777d95cf0d3ee90d33aa6352d8d37",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\skills\\pop-quiz\\evals\\fixtures\\report-r1.md"
+        },
+        {
+          "path": "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/report-r2.md",
+          "sourceSha256": "5bcc65446775ffd61ed363b0e59c8dbfc726ecf16e213a730546b022c05a2030",
+          "mirrorSha256": "5bcc65446775ffd61ed363b0e59c8dbfc726ecf16e213a730546b022c05a2030",
+          "cacheSha256": "5bcc65446775ffd61ed363b0e59c8dbfc726ecf16e213a730546b022c05a2030",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\skills\\pop-quiz\\evals\\fixtures\\report-r2.md"
+        },
+        {
+          "path": "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/security-review.md",
+          "sourceSha256": "2e43daafb4759c80a345c613554fbcc36b3bba8a5d3862ead8de6334ae1d2cb2",
+          "mirrorSha256": "2e43daafb4759c80a345c613554fbcc36b3bba8a5d3862ead8de6334ae1d2cb2",
+          "cacheSha256": "2e43daafb4759c80a345c613554fbcc36b3bba8a5d3862ead8de6334ae1d2cb2",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\skills\\pop-quiz\\evals\\fixtures\\security-review.md"
+        },
+        {
+          "path": "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/untrusted-note.md",
+          "sourceSha256": "524a4a772d48361476187d2fd0e703feb9bdbbf9d8e6e5c0c4248213b738294d",
+          "mirrorSha256": "524a4a772d48361476187d2fd0e703feb9bdbbf9d8e6e5c0c4248213b738294d",
+          "cacheSha256": "524a4a772d48361476187d2fd0e703feb9bdbbf9d8e6e5c0c4248213b738294d",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\skills\\pop-quiz\\evals\\fixtures\\untrusted-note.md"
+        },
+        {
+          "path": "plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-cases-01-05.md",
+          "sourceSha256": "49bf28413e1684c146baef5287618b2ddd10274493da2731832cbded04a1f1f3",
+          "mirrorSha256": "49bf28413e1684c146baef5287618b2ddd10274493da2731832cbded04a1f1f3",
+          "cacheSha256": "49bf28413e1684c146baef5287618b2ddd10274493da2731832cbded04a1f1f3",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\skills\\pop-quiz\\evals\\results\\2026-10-09-cases-01-05.md"
+        },
+        {
+          "path": "plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-cases-06-09-11.md",
+          "sourceSha256": "dba1216284269a49dc7c5222a02627a9de5559b3424a9f5c3dbc79c99685cb4e",
+          "mirrorSha256": "dba1216284269a49dc7c5222a02627a9de5559b3424a9f5c3dbc79c99685cb4e",
+          "cacheSha256": "dba1216284269a49dc7c5222a02627a9de5559b3424a9f5c3dbc79c99685cb4e",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\skills\\pop-quiz\\evals\\results\\2026-10-09-cases-06-09-11.md"
+        },
+        {
+          "path": "plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-cases-10-12.md",
+          "sourceSha256": "51c914b348ac7292bde70757364d2a489d4c3b9ad7be9f349fd77380fef8f809",
+          "mirrorSha256": "51c914b348ac7292bde70757364d2a489d4c3b9ad7be9f349fd77380fef8f809",
+          "cacheSha256": "51c914b348ac7292bde70757364d2a489d4c3b9ad7be9f349fd77380fef8f809",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\skills\\pop-quiz\\evals\\results\\2026-10-09-cases-10-12.md"
+        },
+        {
+          "path": "plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-forward-sample.md",
+          "sourceSha256": "dac90a9ed9b7ecde168bab947ad93383ccc667af484fba1a4f011a79b3aa4e60",
+          "mirrorSha256": "dac90a9ed9b7ecde168bab947ad93383ccc667af484fba1a4f011a79b3aa4e60",
+          "cacheSha256": "dac90a9ed9b7ecde168bab947ad93383ccc667af484fba1a4f011a79b3aa4e60",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\skills\\pop-quiz\\evals\\results\\2026-10-09-forward-sample.md"
+        },
+        {
+          "path": "plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-post-merge-matrix.md",
+          "sourceSha256": "7ab4af673aac17d07ea9d78b88ce61b77f516d73ba54b591b19b66cdbfae45a4",
+          "mirrorSha256": "7ab4af673aac17d07ea9d78b88ce61b77f516d73ba54b591b19b66cdbfae45a4",
+          "cacheSha256": "7ab4af673aac17d07ea9d78b88ce61b77f516d73ba54b591b19b66cdbfae45a4",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\skills\\pop-quiz\\evals\\results\\2026-10-09-post-merge-matrix.md"
+        },
+        {
+          "path": "plugins/understanding-kit/skills/pop-quiz/evals/rubric.md",
+          "sourceSha256": "0d7376f2da9e9a95b63234b0bf7d53467ca68d0da3ea7c8916c0c72c0d2f6c66",
+          "mirrorSha256": "0d7376f2da9e9a95b63234b0bf7d53467ca68d0da3ea7c8916c0c72c0d2f6c66",
+          "cacheSha256": "0d7376f2da9e9a95b63234b0bf7d53467ca68d0da3ea7c8916c0c72c0d2f6c66",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\skills\\pop-quiz\\evals\\rubric.md"
+        },
+        {
+          "path": "plugins/understanding-kit/skills/pop-quiz/references/ku-selection.md",
+          "sourceSha256": "6d78cdd36367eceeba8e3682782acf11f1d1fa124df8879e26960461c4c4aa29",
+          "mirrorSha256": "6d78cdd36367eceeba8e3682782acf11f1d1fa124df8879e26960461c4c4aa29",
+          "cacheSha256": "6d78cdd36367eceeba8e3682782acf11f1d1fa124df8879e26960461c4c4aa29",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\skills\\pop-quiz\\references\\ku-selection.md"
+        },
+        {
+          "path": "plugins/understanding-kit/skills/pop-quiz/references/quiz-policy.md",
+          "sourceSha256": "1f54212029d2dd1d6f2741d8d441d8f2cc0fd2f9f2abe211da8a8de501ba326e",
+          "mirrorSha256": "1f54212029d2dd1d6f2741d8d441d8f2cc0fd2f9f2abe211da8a8de501ba326e",
+          "cacheSha256": "1f54212029d2dd1d6f2741d8d441d8f2cc0fd2f9f2abe211da8a8de501ba326e",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\understanding-kit\\0.1.2\\skills\\pop-quiz\\references\\quiz-policy.md"
+        },
+        {
+          "path": "plugins/explain-kit/assets/icon.png",
+          "sourceSha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95",
+          "mirrorSha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95",
+          "cacheSha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\assets\\icon.png"
+        },
+        {
+          "path": "plugins/explain-kit/assets/icon.svg",
+          "sourceSha256": "8d5cf6c5a1eb48f273378da8715a16d276da0b95ff28c79a142080ee715b5874",
+          "mirrorSha256": "8d5cf6c5a1eb48f273378da8715a16d276da0b95ff28c79a142080ee715b5874",
+          "cacheSha256": "8d5cf6c5a1eb48f273378da8715a16d276da0b95ff28c79a142080ee715b5874",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\assets\\icon.svg"
+        },
+        {
+          "path": "plugins/explain-kit/plugin.json",
+          "sourceSha256": "62c24bc96f812e707f5f425dbea2e06433880707678cb591929586255e5c5b91",
+          "mirrorSha256": "62c24bc96f812e707f5f425dbea2e06433880707678cb591929586255e5c5b91",
+          "cacheSha256": "62c24bc96f812e707f5f425dbea2e06433880707678cb591929586255e5c5b91",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\plugin.json"
+        },
+        {
+          "path": "plugins/explain-kit/skills/concept/SKILL.md",
+          "sourceSha256": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+          "mirrorSha256": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+          "cacheSha256": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\concept\\SKILL.md"
+        },
+        {
+          "path": "plugins/explain-kit/skills/concept/agents/openai.yaml",
+          "sourceSha256": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf",
+          "mirrorSha256": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf",
+          "cacheSha256": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\concept\\agents\\openai.yaml"
+        },
+        {
+          "path": "plugins/explain-kit/skills/glossary/SKILL.md",
+          "sourceSha256": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+          "mirrorSha256": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+          "cacheSha256": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\glossary\\SKILL.md"
+        },
+        {
+          "path": "plugins/explain-kit/skills/glossary/agents/openai.yaml",
+          "sourceSha256": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619",
+          "mirrorSha256": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619",
+          "cacheSha256": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619",
+          "cacheLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BCD3S6\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\explain-kit\\0.1.1\\skills\\glossary\\agents\\openai.yaml"
+        }
+      ]
+    }
+  ],
+  "newPluginBehavior": "NOT_RUN",
+  "newPluginCanonicalInstall": "NOT_RUN",
+  "clientInteraction": "NOT_RUN",
+  "effectStatus": "NOT_MEASURED",
+  "independentAgentReview": {
+    "result": "no substantive findings",
+    "scope": "PR1 changes and future staging static review",
+    "githubApproval": false
+  }
+}

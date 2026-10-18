@@ -1,12 +1,13 @@
 ---
 type: adr
+layer: canonical
 scope: marketplace
 summary: "Add an explicit Read-only HTML teaching guide through staged atomic integration"
 owner: marketplace-maintainers
 created: 2026-10-12
-updated: 2026-10-12
+updated: 2026-10-19
 state: active
-version: v1.0
+version: v1.1
 ---
 
 # [ADR] HTML Guide Kit addition

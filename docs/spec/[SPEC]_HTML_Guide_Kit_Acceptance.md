@@ -1,12 +1,13 @@
 ---
 type: spec
+layer: canonical
 scope: html-guide-kit
 summary: "HTML Guide Kit staged acceptance, neutral inputs and evidence boundaries"
 owner: marketplace-maintainers
 created: 2026-10-12
-updated: 2026-10-12
+updated: 2026-10-19
 state: active
-version: v1.0
+version: v1.1
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
   - "../runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md"
