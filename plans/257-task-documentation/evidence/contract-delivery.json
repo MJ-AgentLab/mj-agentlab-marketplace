@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "kind": "actual contract child delivery and recovery",
+  "recorded_at": "2026-10-18T16:27:25.933Z",
+  "pr": 259,
+  "merge": "97c5fb90025b9837c7004ed84018005b5654f62b",
+  "reviewed_head": "abcacf4ddcbea58610c28c1a3b44ef311e601b31",
+  "merge_tree": "e383835cdbb31309a2c36e7c100e091674b27cf9",
+  "head_tree": "e383835cdbb31309a2c36e7c100e091674b27cf9",
+  "same_tree": true,
+  "independent_review": {
+    "agent": "/root/task_examples",
+    "result": "no blockers on abcacf4",
+    "closed_finding": "tracking must support actual task URL without forcing an Issue",
+    "github_approval": false
+  },
+  "runs": [
+    {
+      "head": "afb255d2",
+      "scope": "author targeted only",
+      "receipt": "contract-targeted-checks.json"
+    },
+    {
+      "scope": "after fixture dependency additions, before synthetic count correction",
+      "tests": 492,
+      "pass": 491,
+      "fail": 1,
+      "skipped": 0,
+      "log": "contract-full-tests.log",
+      "log_sha256": "0a705b526c8ece493d504ad5508c698b912c1968e2c8568b2177b8a9a77d5347"
+    },
+    {
+      "head": "1d77d3a3fbdffb93c79f0ab23fb944e9f5bbdfa1",
+      "tests": 492,
+      "pass": 492,
+      "fail": 0,
+      "skipped": 0,
+      "log": "contract-repaired-full-tests.log",
+      "log_sha256": "13902767a46bb766baf319b3954539ebc9f5834cde42627e1ff414e587278c1d",
+      "limit": "subsequent abcacf4 changed three template text entries; current-head dual-platform CI separately passed"
+    }
+  ],
+  "bypass_used": false,
+  "owner_final_acceptance": "NOT_PROVIDED"
+}
