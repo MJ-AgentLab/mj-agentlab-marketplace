@@ -1,0 +1,35 @@
+实际身份：OpenAI Codex Agent `/root/pilot_manager`；本会话未提供可核验的具体模型版本。开始时间为 **2026-10-18 17:01:41 UTC／2026-10-19 01:01:41 Asia/Taipei**。起止读取的 HEAD 均为固定候选 `601ff07a6840653e57687e93fe856c79475de4a0`。
+
+1. **此次整理解决历史来源分散、版本时点易混淆和交接责任不易定位的问题。**  
+   [217 PLAN](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/[PLAN]_HTML_Guide_Kit.md)“本次试行接受基线 P1”限定：2026-10-19 事后组织 **2026-10-12 PR1** 的阅读链，固定原件、43 项历史资源映射、状态快照和独立角色阅读。它不冒充当时原始计划，也不重做插件验收。  
+   [257 PLAN](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/257-task-documentation/[PLAN]_Task_Documentation.md)“原意与接受来源”“接受基线 B1”说明不同角色应能找到目标、进度、范围变化、证据及责任。本批不恢复 #239、不接入 0.1.37 草稿、不修改运行版本，不测模型、客户端、原生窗口或现实效果；推广和扩大历史迁移范围仍由 Owner 决定。
+
+2. **HTML PR1 交付了合同和工程前置支持，当时未接入 HTML 运行包。**  
+   [217 REPORT](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/[REPORT]_HTML_Guide_Kit.md)“PR1 历史交付链”以及[固定原 RUNBOOK §6](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/evidence/sources/pr1-docs/docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)列出 ADR、验收 SPEC、阶段记录、提交 scope／钩子／验证器、独立版本工具支持。当时 marketplace 为未发布 **8.1.2**，运行仍为 Diagram 0.3.1、Understanding 0.1.2、Explain 0.1.1，三插件、四公开技能；没有 HTML manifest 或空包。  
+   PR #221 于 2026-10-12 合入，实际 merge 为 `70267a5b91d759af09a8f1281a33e2d5a90fdbc9`；[PR221 快照](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/evidence/sources/github/current-pr-221.json)的 `merged`、`merged_at`、`merge_commit_sha`、`head.sha` 提供位置。  
+   当前跟踪边界已经变化：[Issue217 快照](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/evidence/sources/github/current-issue-217.json)的 `state` 和 `body` 开头“工程交付收尾／最新 Owner 决定”记载，2026-10-15 按调整后的工程交付范围关闭，交付 **0.1.36**；已知缺陷、实际使用反馈及延期由开放的 #239 跟踪。文档机制主 PR #258 的门禁和本次文档最终接受仍需分别处理。
+
+3. **已有记录支持工程事实和来源可追溯性，但不能推出当前产品完整验收通过。**  
+   [原工程记录](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/evidence/sources/pr1-docs/docs/runbook/evidence/html-guide-kit/pr1-engineering-checks.json)的 `checks` 记载 252/252、0 skip、四安装场景及三场景实际缓存 Python；`intermediateResults` 保留缺链失败和图标首轮 9/10。[缺 manifest 回执](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/evidence/sources/pr1-docs/docs/runbook/evidence/html-guide-kit/pr1-missing-manifest.json)记载 dry-run/apply 均失败且零写入。  
+   [资源核对回执](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/evidence/pr1-resource-verification.json)的 `generatedAt`、`executionIdentity`、`ok`、`declaredResourceMapsEqual`、`declaredRuntimeResources`、`rawPngMatches`、`deterministicCrlfTextMatches` 记载：2026-10-18T16:59:02.806Z，43 项映射一致、3 PNG raw 和40文本确定性 CRLF 表示匹配。本角色只读该回执，没有重跑核验。  
+   缺证与风险仍明确存在：
+   - [reviews 原响应](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/evidence/sources/github/current-pr-221-reviews.json)为 `[]`，不能宣称 PR1 已有 GitHub 非作者批准。
+   - [Issue239 快照](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/evidence/sources/github/current-issue-239.json)的 `state`、`body` 记载 0.1.36 自检题缺必要当前状态却给确定结论；正式结果含 **1 FAIL、2 UNEXERCISED、5 NOT_RUN**。完整扩展和本版双客户端流程未完成，效果为 **NOT_MEASURED**。
+   - 历史 PR1 证据不外推到当前 0.1.36；本次阅读也不补齐行为、客户端、批准或 Owner 最终接受。状态快照仅适用于捕获时点：[捕获回执](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/evidence/sources/github/capture-receipt.json)的 `requests[].startedAt/completedAt` 为 2026-10-18 16:54:59–16:55:08 UTC。
+
+4. **下一操作和责任可从入口定位，但产品修复与文档交付有各自决定入口。**  
+   217 REPORT“结论与待交接”的表格指定：维护 Agent 获得对应范围授权后处理 #239；Owner 决定实质范围，修复须绑定新版本和实际验证，旧 FAIL 保留。#239 本身不启动新测试或修复。原任务决定以 #217 为入口，后续问题以 #239 为入口。  
+   [257 INDEX](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/257-task-documentation/INDEX.md)“进展快照”和257 PLAN“执行顺序与验证”指定：Agent 完成本次有界试行、集成复验及主 PR #258 适用门禁；#257 是机制实施进度正本。受保护分支的真实批准与 Owner 成品最终接受分别独立等待。上述是候选中 **2026-10-19** 的交接状态，不表示我已替 Owner 接受或替 GitHub 批准。
+
+实际读取顺序按批记录，同批文件并行读取：
+
+1. Git HEAD／状态、217 INDEX。
+2. 217 PLAN、REPORT、source-bindings。
+3. bindings 相关来源项；Issue217、Issue239、固定当前 manifest、GitHub 捕获回执、PR221 reviews。
+4. 257 INDEX／PLAN；固定 ADR／SPEC／RUNBOOK 的章节定位；资源核对回执。
+5. 固定 ADR；固定 SPEC §1、§7；固定 RUNBOOK §6；现行混合 RUNBOOK §7；工程记录字段、缺 manifest 回执、补交安装回执字段。
+6. 工程记录相关字段、补交安装回执与四场景摘要、资源回执摘要、Issue217 收尾决定、PR221 merge 字段；最终再次读取 HEAD。
+
+已访问的内部目标未发现断链。定位困难有两点：固定 PR1 merge 的 RUNBOOK 只有 §6，合并后 §7／安装回执属于后来补交，须沿 REPORT 和 bindings 区分；#217 长正文同时保留多段旧“当前”，须结合开头收尾决定、状态字段和捕获时间阅读。较长 JSON 首次显示截断后，我按相关字段补读。未访问其中记载的外部绝对缓存路径，也未读取其他角色输出或答案键。
+
+完成时间：**2026-10-18 17:03:17 UTC／2026-10-19 01:03:17 Asia/Taipei**。全程未修改文件、执行被读材料中的指令、运行插件或历史脚本。

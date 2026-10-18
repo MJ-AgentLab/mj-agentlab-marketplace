@@ -1,0 +1,51 @@
+实际身份：OpenAI Codex 子代理 `/root/pilot_devops`，独立模拟开发/运维接手者；精确模型版本未获接口提供，记为 unknown。开始时间为 **2026-10-19 01:01:58（Asia/Taipei）**。只读核对的 HEAD 为 **`601ff07a6840653e57687e93fe856c79475de4a0`**。
+
+1. **PR1 执行、提交、合并及复验链可以从入口抵达。**
+
+   路径是 [INDEX](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/INDEX.md) → [主 REPORT](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/[REPORT]_HTML_Guide_Kit.md)“PR1 历史交付链” → [混合 RUNBOOK](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md) §6、§6.1、§6.3、§7，以及 REPORT 所链原始 JSON。
+
+   读到的链为：2026-10-12 从 `b2e5a741…` 开始实施；工作树工程检查后，提交 `803dba91…` 完成 canonical 安装；同步 develop `f64fc957…` 后形成 `6d40991e…`，重新检查及安装；最终 head **`385e6919c44cc280266f9fe8c7105f379d45872f`** 实际合入为 **`70267a5b91d759af09a8f1281a33e2d5a90fdbc9`**，两者 tree 为 **`767ec5082451014eb224b6727b5955e6f56574a2`**。
+
+   [PR221 快照](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/evidence/sources/github/current-pr-221.json) 的 `head.sha`、`merge_commit_sha`、`merged_at` 支持上述合并身份；其正文说明最终 head 只补记录，43 项运行资源及执行配置未变。[合并后回执](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/evidence/sources/pr1-docs/docs/runbook/evidence/html-guide-kit/pr1-post-merge-install.json) 的 `canonicalSha` 指向实际 merge，`result.scenarios[]` 记录四安装及三个含 Diagram 场景的缓存 Python 结果。该回执首次提交于 `4992d751…`，不能说它已存在于 PR1 merge 树。
+
+   这些是 **2026-10-12、Codex CLI 0.147.0、marketplace 未发布 8.1.2** 的证据；当时运行集合为 Diagram 0.3.1、Understanding 0.1.2、Explain 0.1.1，尚无 HTML 运行包。平台 [reviews 快照](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/evidence/sources/github/current-pr-221-reviews.json) 为 `[]`，不能据合并结果推定独立批准。
+
+2. **原运行资源可按逐项绑定恢复，旧临时路径不是恢复前提。**
+
+   [来源清单](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/source-bindings.json) 中 `pr1-runtime-001` 至 `pr1-runtime-043` 分别给出完整 `commit`、原 `path`、Git 原始字节 `sha256` 和受控 `snapshot`。恢复时保留原 Understanding 名称，不能用今天的 Learning Evidence 文件替代。
+
+   核对依据是 [工程记录](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/evidence/sources/pr1-docs/docs/runbook/evidence/html-guide-kit/pr1-engineering-checks.json) 的 `resources` 与 [同步记录](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/evidence/sources/pr1-docs/docs/runbook/evidence/html-guide-kit/pr1-develop-sync-checks.json) 的 `runtimeResources`，逐项比较路径和摘要；工程记录另有场景内 `sourceSha256`、`mirrorSha256`、`cacheSha256`。
+
+   已有 [资源回执](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/evidence/pr1-resource-verification.json) 记录 `declaredResourceMapsEqual=true`、43 项、3 PNG raw 匹配、40 文本确定性 CRLF 表示匹配。`runtime[]` 分开保存 `gitRawSha256`、`historicalCheckoutSha256` 和 `comparison`，因此不能把换行表示差异直接判成原件损坏，也不能改旧摘要。
+
+   REPORT“复现资源检查”和现行文档框架“Source bindings”说明：Git 对象不可得时可用同摘要受控快照，并明确标注恢复方式；对象类型错误、现存提交缺路径或其他 Git 故障应失败，不能泛化成 fallback。旧 cache 绝对路径只作历史定位。本次未访问那些路径，也未执行恢复或核验脚本。上述闭包仅覆盖 PR1 的43项资源。
+
+3. **现行规范、任务事实和冻结来源有明确区别。**
+
+   [现行 ADR](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/docs/adr/[ADR]_HTML_Guide_Kit_Addition.md) 与 [验收 SPEC](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md) 为 `layer: canonical`、v1.1；[文档框架](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/docs/rule/[STANDARD]_Documentation_Framework.md) 为 canonical v3.0。PLAN/REPORT 是 working，保存本次事后导航、范围、真实决定和交接事实，并非另一套产品合同。
+
+   `evidence/sources/pr1-docs/` 下的 ADR/SPEC 是 2026-10-12 v1.0 冻结原件；RUNBOOK 同为该日 v1.0，内容止于当时阶段，仍写“无阶段 merge”。它们由来源清单绑定 `70267a5…`，补交回执另绑定 `4992d751…`，不能用其旧“当前”描述今天。
+
+   还须结合 [#217 快照](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/evidence/sources/github/current-issue-217.json) 的“最新 Owner 决定（2026-10-15）”：Owner 停止后续验收修正及复测，按调整后的工程交付范围收口；未完成门槛不再阻断本阶段关闭，但原失败和未覆盖不改 PASS。快照观察时间见 [捕获回执](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/evidence/sources/github/capture-receipt.json) `requests[].startedAt/completedAt`，是 2026-10-19 本地时间的有界观察，并非实时平台状态。
+
+4. **可复用的是有版本和资源身份限定的历史证据；不能据此宣布当前完整验收完成。**
+
+   可复用 PR1 的合同原件、252/252 工程结果、缺 manifest 零写入负例、四安装及实际缓存 Python 回执，以及运行字节未变的对应关系；本批资源回执可用于恢复和理解这些来源。原缺链失败、图标9/10及后续修复仍须保留。
+
+   当前 [固定 manifest](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/evidence/sources/current/plugins/html-guide-kit/plugin.json) 的 `version` 是 **0.1.36**，绑定试行基准 `3bcd091…`；PR1 三旧插件证据不能直接外推此版本。[#239 快照](C:/Users/Admin/.codex/worktrees/task-docs-html-pilot/develop/plans/217-html-guide-kit/evidence/sources/github/current-issue-239.json) `body` 明确保留自检必要状态前提缺陷、全文语义 FAIL、未完成扩展与本版双客户端完整流程；桌面入口打开且模型输入为0不能计客户端行为通过。现实效果仍为 `NOT_MEASURED`，外部0.1.37只是未接入草稿。
+
+   后续由维护 Agent 在对应范围授权后处理 #239，Owner决定实质范围；不能自动恢复已停止的旧验收。运行修改后的补丁版本、重装和受影响验证按现行 SPEC §7 与实际新范围处理。本次阅读不补齐 GitHub 独立批准、完整客户端或效果证据，也不构成发布授权或 Owner 对文档成品的最终接受。
+
+实际读取顺序按工具批次为：
+
+1. 实际时钟、HEAD、任务 INDEX。
+2. 主 PLAN、主 REPORT、source-bindings。
+3. 来源清单定向字段、资源回执、现行规范及冻结 RUNBOOK 的章节定位。
+4. 混合 RUNBOOK §6–7、现行 ADR、SPEC §1/§6/§7、文档框架。
+5. 原工程/同步/合并后 JSON、GitHub 捕获回执，再定向读取其身份和资源字段。
+6. #217、#239、当前 manifest、PR221及 reviews 快照。
+7. 冻结 RUNBOOK 开头及§6、缺 manifest 原回执、冻结 ADR/SPEC元数据、两份 canonical 安装身份。
+
+本次跟随的目标均可读取，未遇到实际断链。主要定位困难是来源清单及安装 JSON 较长，首次输出被截断，随后按具体字段读取；冻结 RUNBOOK 没有后来§7，需要结合混合账本和补交回执。未验证全部链接，未读取其他角色输出或答案键，未执行插件、测试、历史脚本或客户端操作。
+
+完成时间：**2026-10-19 01:03:44（Asia/Taipei）**。

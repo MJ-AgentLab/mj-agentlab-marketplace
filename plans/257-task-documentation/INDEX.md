@@ -7,7 +7,7 @@ owner: marketplace-maintainers
 created: 2026-10-18
 updated: 2026-10-19
 state: active
-version: v1.2
+version: v1.3
 task: 257-task-documentation
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 plan: "./[PLAN]_Task_Documentation.md"
@@ -31,5 +31,5 @@ canonical:
 
 ## 进展快照
 
-2026-10-19，来源为上述 Epic 的阶段更新：规范/模板/技能 #259、Harness #260 已正常内部合入；528完整测试和13实际安装通过。下一步由 Agent 完成[HTML PR1有界试行](../217-html-guide-kit/INDEX.md)及集成复验。主 PR #258 未合 develop，Owner 最终接受待提供。快照过期或冲突时以主 Issue 为准。
+2026-10-19，来源为上述 Epic 的阶段更新：规范/模板/技能 #259、Harness #260 已正常内部合入；[HTML PR1试行](../217-html-guide-kit/INDEX.md)的43资源和三角色阅读通过，固定试行候选528测试通过。下一步由Agent完成试行子PR集成、当前主PR工程门禁与交接；真实保护批准及Owner最终接受各待实际来源。快照过期或冲突时以主Issue为准。
 

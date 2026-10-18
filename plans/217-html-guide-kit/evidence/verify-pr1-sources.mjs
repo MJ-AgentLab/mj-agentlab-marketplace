@@ -107,7 +107,7 @@ const runtime = runtimeSources.map(source => {
 assert.equal(runtime.filter(row => row.comparison === "raw").length, 3);
 assert.equal(runtime.filter(row => row.comparison === "deterministic_CRLF").length, 40);
 
-const historicalDocuments = bindings.sources.filter(source => source.kind === "git" && !source.id.startsWith("pr1-runtime-") && source.id !== "current-html-manifest");
+const historicalDocuments = bindings.sources.filter(source => source.kind === "git" && source.id.startsWith("pr1-") && !source.id.startsWith("pr1-runtime-"));
 assert.equal(historicalDocuments.length, 12);
 for (const source of historicalDocuments) assert.equal(source.commit, source.id === "pr1-post-merge-install" ? postMergeReceiptCommit : merge);
 const identity = { merge, testedHead, tree: historicalTree, status: "FIXED_IDENTITIES_RECORDED" };

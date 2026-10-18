@@ -7,7 +7,7 @@ owner: marketplace-maintainers
 created: 2026-10-18
 updated: 2026-10-19
 state: active
-version: v1.2
+version: v1.3
 task: 257-task-documentation
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 ---
@@ -16,7 +16,7 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 
 ## 结果与缺口
 
-规范/模板/技能 #259 与 Harness #260 已实际合入任务集成分支，HTML PR1 有界试行正在进行。主 PR #258 尚未合入受保护 develop。Owner 已接受设计与实施范围，未作成品最终接受。技术交付、整个计划完成及最终接受分开。
+规范/模板/技能 #259 与 Harness #260 已实际合入任务集成分支，HTML PR1 来源核对和三角色阅读试行已通过，试行子PR的集成门禁尚待完成。主 PR #258 尚未合入受保护 develop。Owner 已接受设计与实施范围，未作成品最终接受。技术交付、整个计划完成及最终接受分开。
 
 ## R1 — 基线与权限核查（2026-10-18）
 
@@ -60,6 +60,15 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 - PR1固定12份历史文档/证据和43运行资源，另绑定当前manifest及当批平台原响应。初轮62项来源后，独立审读修复校验脚本硬编码身份及Git故障泛化fallback，并按初轮摘要恢复其脚本/清单，合计64来源；先后实际回执和修复边界见[HTML REPORT](../217-html-guide-kit/[REPORT]_HTML_Guide_Kit.md)。未执行旧脚本或恢复HTML产品验收。
 - 首轮git whitespace检查失败，原固定快照含Markdown硬换行/缩进空行，PR2恢复审计含CRLF；[原输出](./evidence/pilot-first-whitespace.log)保留。仅对确切历史原件/原始日志声明所需whitespace属性，未改字节/hash，普通文档检查保留；随后实际检查通过。
 - 阅读角色按事先固定的问题/评分独立执行，不能将文件校验或43资源核对替代阅读验收。本段候选冻结时尚未运行角色，结果后续追加，不先标PASS。
+
+## R6 — HTML 实际阅读与候选工程检查（2026-10-19）
+
+- 固定`601ff07a6840653e57687e93fe856c79475de4a0`上三fresh独立角色各四题均满足实际结论/出处/版本边界，每题2分，通过限定阅读与交接；精确模型身份unknown。起止时钟、实际Agent/输入/完整输出和评分均见[HTML REPORT P2](../217-html-guide-kit/[REPORT]_HTML_Guide_Kit.md)及其原始记录，不替代真人体验测量、产品验收或Owner接受。
+- 角色指出长JSON截断、原账本与补交合入记录分散、多段历史“当前”的定位困难；通过REPORT的直接来源表、当批快照和版本边界完成交接。只对实际访问路径称无断链，不称全库语义阅读通过。
+- 后续誊录带实际CRLF/Markdown换行，首次纳入whitespace检查失败；[原检查输出](./evidence/pilot-records-whitespace.log)保留。精确限定原始阅读记录/日志属性后检查通过，誊录原字节及其已记录摘要不变。
+- 该固定候选强制Python/PWSH完整测试528/528、0skip、exit0，见[原日志](./evidence/pilot-full-tests.log)与[实际时间/候选/摘要回执](./evidence/pilot-test-receipt.json)。原计数提取模式未识别TAP行，回执明确记原空结果及后按实际TAP摘要提取，日志未改。
+- 独立代码审查601ff07无阻断，实际当前verifier/validate通过；HTML ADR/SPEC正文精确未变，运行、版本、原账本/封存零diff。阅读后再固定7项实际读本原件，具名来源共71，重新逐项校验通过；校验器仅将历史文档集合限定为pr1来源，防止读本恢复来源混进12项历史计数。
+- 主PR/当前内部子PR的线上实际候选检查、实际合并及Owner最终接受分别继续记录。新任务达到持续维护需要时按机制启用；旧任务仅实质修订/选中迁移，后续另起迁移范围由Owner决定，本批不扩为全库搬迁。
 
 继续复用本 REPORT；按来源版本与批次追加，原失败/缺证保留。
 
