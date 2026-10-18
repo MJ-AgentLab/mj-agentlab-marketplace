@@ -1,0 +1,645 @@
+{
+  "rubric": "INTENT-IA-R1",
+  "scenarioScope": [
+    "S6",
+    "S7",
+    "S8"
+  ],
+  "implementation": "56ad7cd568a2569afae2ad30f4ebbfe6835fda26",
+  "capturedAt": "2026-10-18T18:43:20.836Z",
+  "probeAuthor": "/root/latest_intent_fit",
+  "independent": true,
+  "pinned": {
+    "scripts/document-harness.mjs": "6ba0c616058957cf3d76dd9bc6cf8a1ae3a185a76f41d27cc4fce9babdda7a1a",
+    "scripts/intent-harness.mjs": "bbdd209da8b765f055cde7bc92c737028c58b17c423ca185e7b03d8289d97321",
+    "scripts/frozen-evidence-resources.mjs": "d853e5f42cedee496999abf73dc00fbcf6b5deaf04cf98aaa67f1644b4de672c"
+  },
+  "fixturesRetained": "C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-independent-99ec786b8e8a4d29a5b5a10a739ae5a6\\56ad7cd5",
+  "total": 21,
+  "met": 21,
+  "failed": 0,
+  "results": [
+    {
+      "name": "S6-control-valid-draft",
+      "expected": "r => r.ok === true && r.intents.identities === 1",
+      "met": true,
+      "actual": {
+        "ok": true,
+        "errors": [],
+        "documents": 2,
+        "tasks": [],
+        "legacyDocuments": 0,
+        "intents": {
+          "documents": 1,
+          "identities": 1,
+          "uniqueness": {
+            "checked": true,
+            "complete": true
+          }
+        }
+      }
+    },
+    {
+      "name": "S6-archive-id-reserved",
+      "expected": "value => value.ok === false",
+      "met": true,
+      "actual": {
+        "ok": false,
+        "errors": [
+          "duplicate INTENT identity INT-2026-001: docs/archive/[DEPRECATED]_[INTENT]_INT-2026-001_Independent.md, docs/intent/[INTENT]_INT-2026-001_Independent.md",
+          "docs/intent/INDEX.md: INTENT INDEX must register every formal original exactly once: docs/archive/[DEPRECATED]_[INTENT]_INT-2026-001_Independent.md (found 0)"
+        ],
+        "documents": 3,
+        "tasks": [],
+        "legacyDocuments": 0,
+        "intents": {
+          "documents": 2,
+          "identities": 1,
+          "uniqueness": {
+            "checked": false,
+            "complete": true
+          }
+        }
+      }
+    },
+    {
+      "name": "S6-stable-archive-only",
+      "expected": "r => r.ok === true && r.intents.identities === 1",
+      "met": true,
+      "actual": {
+        "ok": true,
+        "errors": [],
+        "documents": 2,
+        "tasks": [],
+        "legacyDocuments": 0,
+        "intents": {
+          "documents": 1,
+          "identities": 1,
+          "uniqueness": {
+            "checked": true,
+            "complete": true
+          }
+        }
+      }
+    },
+    {
+      "name": "S6-filename-id-mismatch",
+      "expected": "value => value.ok === false",
+      "met": true,
+      "actual": {
+        "ok": false,
+        "errors": [
+          "docs/intent/[INTENT]_INT-2026-001_Independent.md: INTENT filename must match its stable ID and topic"
+        ],
+        "documents": 2,
+        "tasks": [],
+        "legacyDocuments": 0,
+        "intents": {
+          "documents": 0,
+          "identities": 1,
+          "uniqueness": {
+            "checked": false,
+            "complete": true
+          }
+        }
+      }
+    },
+    {
+      "name": "S6-unclosed-frontmatter-unmarked-archive",
+      "expected": "value => value.ok === false",
+      "met": true,
+      "actual": {
+        "ok": false,
+        "errors": [
+          "docs/archive/unmarked.md: INTENT requires YAML frontmatter"
+        ],
+        "documents": 2,
+        "tasks": [],
+        "legacyDocuments": 0,
+        "intents": {
+          "documents": 1,
+          "identities": 1,
+          "uniqueness": {
+            "checked": false,
+            "complete": true
+          }
+        }
+      }
+    },
+    {
+      "name": "S6-uppercase-markdown-declaration",
+      "expected": "value => value.ok === false",
+      "met": true,
+      "actual": {
+        "ok": false,
+        "errors": [
+          "docs/archive/unmarked.MD: INTENT filename must match its stable ID and topic",
+          "duplicate INTENT identity INT-2026-001: docs/archive/unmarked.MD, docs/intent/[INTENT]_INT-2026-001_Independent.md"
+        ],
+        "documents": 2,
+        "tasks": [],
+        "legacyDocuments": 0,
+        "intents": {
+          "documents": 1,
+          "identities": 1,
+          "uniqueness": {
+            "checked": false,
+            "complete": true
+          }
+        }
+      }
+    },
+    {
+      "name": "S6-bin-extension-declaration",
+      "expected": "value => value.ok === false",
+      "met": true,
+      "actual": {
+        "ok": false,
+        "errors": [
+          "docs/archive/unmarked.bin: INTENT filename must match its stable ID and topic",
+          "duplicate INTENT identity INT-2026-001: docs/archive/unmarked.bin, docs/intent/[INTENT]_INT-2026-001_Independent.md"
+        ],
+        "documents": 2,
+        "tasks": [],
+        "legacyDocuments": 0,
+        "intents": {
+          "documents": 1,
+          "identities": 1,
+          "uniqueness": {
+            "checked": false,
+            "complete": true
+          }
+        }
+      }
+    },
+    {
+      "name": "S6-index-omits-existing-original",
+      "expected": "value => value.ok === false",
+      "met": true,
+      "actual": {
+        "ok": false,
+        "errors": [
+          "docs/intent/INDEX.md: INTENT INDEX must register every formal original exactly once: docs/intent/[INTENT]_INT-2026-001_Independent.md (found 0)"
+        ],
+        "documents": 2,
+        "tasks": [],
+        "legacyDocuments": 0,
+        "intents": {
+          "documents": 1,
+          "identities": 1,
+          "uniqueness": {
+            "checked": true,
+            "complete": true
+          }
+        }
+      }
+    },
+    {
+      "name": "S7-single-file-sees-archive-duplicate",
+      "expected": "r => !r.ok && r.validationScope === 'complete-formal-collection' && r.errors.some(e => e.includes('duplicate INTENT identity'))",
+      "met": true,
+      "actual": {
+        "ok": false,
+        "errors": [
+          "duplicate INTENT identity INT-2026-001: docs/archive/[DEPRECATED]_[INTENT]_INT-2026-001_Independent.md, docs/intent/[INTENT]_INT-2026-001_Independent.md",
+          "docs/intent/INDEX.md: INTENT INDEX must register every formal original exactly once: docs/archive/[DEPRECATED]_[INTENT]_INT-2026-001_Independent.md (found 0)"
+        ],
+        "documents": 3,
+        "tasks": [],
+        "legacyDocuments": 0,
+        "intents": {
+          "documents": 2,
+          "identities": 1,
+          "uniqueness": {
+            "checked": false,
+            "complete": true
+          }
+        },
+        "requestedFile": "docs/intent/[INTENT]_INT-2026-001_Independent.md",
+        "validationScope": "complete-formal-collection"
+      }
+    },
+    {
+      "name": "S7-single-file-read-failure-is-incomplete",
+      "expected": "r => !r.ok && r.intents.uniqueness.complete === false && r.intents.uniqueness.checked === false",
+      "met": true,
+      "actual": {
+        "ok": false,
+        "errors": [
+          "docs/archive/[DEPRECATED]_[INTENT]_INT-2026-001_Independent.md: INTENT inventory read failed: independent synthetic EACCES",
+          "INTENT identity uniqueness not established: inventory is incomplete"
+        ],
+        "documents": 2,
+        "tasks": [],
+        "legacyDocuments": 0,
+        "intents": {
+          "documents": 1,
+          "identities": 1,
+          "uniqueness": {
+            "checked": false,
+            "complete": false
+          }
+        },
+        "requestedFile": "docs/intent/[INTENT]_INT-2026-001_Independent.md",
+        "validationScope": "complete-formal-collection"
+      }
+    },
+    {
+      "name": "S7-single-file-scan-failure-is-incomplete",
+      "expected": "r => !r.ok && r.intents.uniqueness.complete === false && r.intents.uniqueness.checked === false",
+      "met": true,
+      "actual": {
+        "ok": false,
+        "errors": [
+          "documentation inventory: independent synthetic scan EACCES",
+          "requested document: requested document is outside the formal collection",
+          "INTENT identity uniqueness not established: inventory is incomplete"
+        ],
+        "documents": 0,
+        "tasks": [],
+        "legacyDocuments": 0,
+        "intents": {
+          "documents": 0,
+          "identities": 0,
+          "uniqueness": {
+            "checked": false,
+            "complete": false
+          }
+        },
+        "requestedFile": "docs/intent/[INTENT]_INT-2026-001_Independent.md",
+        "validationScope": "complete-formal-collection"
+      }
+    },
+    {
+      "name": "S8-cli-structured-invalid-id-exits-one",
+      "expected": "r => r.status === 1 && r.parsed?.ok === false",
+      "met": true,
+      "actual": {
+        "status": 1,
+        "stdout": "{\n  \"ok\": false,\n  \"errors\": [\n    \"docs/intent/[INTENT]_INT-2026-001_Independent.md: invalid INTENT stable ID (INT-YYYY-001 through INT-YYYY-999)\"\n  ],\n  \"documents\": 2,\n  \"tasks\": [],\n  \"legacyDocuments\": 0,\n  \"intents\": {\n    \"documents\": 0,\n    \"identities\": 0,\n    \"uniqueness\": {\n      \"checked\": false,\n      \"complete\": true\n    }\n  },\n  \"requestedFile\": \"docs/intent/[INTENT]_INT-2026-001_Independent.md\",\n  \"validationScope\": \"complete-formal-collection\"\n}\n",
+        "stderr": "",
+        "parsed": {
+          "ok": false,
+          "errors": [
+            "docs/intent/[INTENT]_INT-2026-001_Independent.md: invalid INTENT stable ID (INT-YYYY-001 through INT-YYYY-999)"
+          ],
+          "documents": 2,
+          "tasks": [],
+          "legacyDocuments": 0,
+          "intents": {
+            "documents": 0,
+            "identities": 0,
+            "uniqueness": {
+              "checked": false,
+              "complete": true
+            }
+          },
+          "requestedFile": "docs/intent/[INTENT]_INT-2026-001_Independent.md",
+          "validationScope": "complete-formal-collection"
+        }
+      }
+    },
+    {
+      "name": "S8-cli-valid-exits-zero-with-no-acceptance-claim",
+      "expected": "r => r.status === 0 && r.parsed?.ok === true && !/accepted|approved/i.test(r.stdout)",
+      "met": true,
+      "actual": {
+        "status": 0,
+        "stdout": "{\n  \"ok\": true,\n  \"errors\": [],\n  \"documents\": 2,\n  \"tasks\": [],\n  \"legacyDocuments\": 0,\n  \"intents\": {\n    \"documents\": 1,\n    \"identities\": 1,\n    \"uniqueness\": {\n      \"checked\": true,\n      \"complete\": true\n    }\n  }\n}\n",
+        "stderr": "",
+        "parsed": {
+          "ok": true,
+          "errors": [],
+          "documents": 2,
+          "tasks": [],
+          "legacyDocuments": 0,
+          "intents": {
+            "documents": 1,
+            "identities": 1,
+            "uniqueness": {
+              "checked": true,
+              "complete": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "S8-current-link-missing-fails",
+      "expected": "value => value.ok === false",
+      "met": true,
+      "actual": {
+        "ok": false,
+        "errors": [
+          "docs/intent/[INTENT]_INT-2026-001_Independent.md: ENOENT: no such file or directory, lstat 'C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-independent-99ec786b8e8a4d29a5b5a10a739ae5a6\\56ad7cd5\\fixture-14-current-missing\\docs\\spec'"
+        ],
+        "documents": 1,
+        "tasks": [],
+        "legacyDocuments": 0,
+        "intents": {
+          "documents": 1,
+          "identities": 1,
+          "uniqueness": {
+            "checked": true,
+            "complete": true
+          }
+        }
+      }
+    },
+    {
+      "name": "S8-archived-link-missing-fails",
+      "expected": "value => value.ok === false",
+      "met": true,
+      "actual": {
+        "ok": false,
+        "errors": [
+          "docs/archive/[DEPRECATED]_[INTENT]_INT-2026-001_Independent.md: ENOENT: no such file or directory, lstat 'C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-independent-99ec786b8e8a4d29a5b5a10a739ae5a6\\56ad7cd5\\fixture-15-archive-missing\\docs\\spec'"
+        ],
+        "documents": 1,
+        "tasks": [],
+        "legacyDocuments": 0,
+        "intents": {
+          "documents": 1,
+          "identities": 1,
+          "uniqueness": {
+            "checked": true,
+            "complete": true
+          }
+        }
+      }
+    },
+    {
+      "name": "S8-archive-closure-retains-linked-source-bytes",
+      "expected": "r => r.before.ok && r.resources.includes('docs/spec/[SPEC]_Independent_Source.md') && r.copiedSource",
+      "met": true,
+      "actual": {
+        "before": {
+          "ok": true,
+          "errors": [],
+          "documents": 3,
+          "tasks": [],
+          "legacyDocuments": 0,
+          "intents": {
+            "documents": 1,
+            "identities": 1,
+            "uniqueness": {
+              "checked": true,
+              "complete": true
+            }
+          }
+        },
+        "resources": [
+          "AGENTS.md",
+          "docs/archive/[DEPRECATED]_[INTENT]_INT-2026-001_Independent.md",
+          "docs/intent/INDEX.md",
+          "docs/spec/[SPEC]_Independent_Source.md"
+        ],
+        "copiedSource": true,
+        "after": {
+          "ok": true,
+          "errors": [],
+          "documents": 3,
+          "tasks": [],
+          "legacyDocuments": 0,
+          "intents": {
+            "documents": 1,
+            "identities": 1,
+            "uniqueness": {
+              "checked": true,
+              "complete": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "S8-full-snapshot-recovery-and-tamper",
+      "expected": "r => r.before.ok && !r.after.ok && r.unchanged && r.recovered === r.original",
+      "met": true,
+      "actual": {
+        "before": {
+          "ok": true,
+          "errors": [],
+          "documents": 4,
+          "tasks": [
+            {
+              "task": "263-intent-independent",
+              "plan": "plans/263-intent-independent/[PLAN]_Independent.md",
+              "report": null
+            }
+          ],
+          "legacyDocuments": 0,
+          "intents": {
+            "documents": 1,
+            "identities": 1,
+            "uniqueness": {
+              "checked": true,
+              "complete": true
+            }
+          }
+        },
+        "after": {
+          "ok": false,
+          "errors": [
+            "plans/263-intent-independent/source-bindings.json: source SHA-256 differs: old-issue-original",
+            "plans/263-intent-independent/evidence/sources/accepted-original.txt: INTENT filename must match its stable ID and topic",
+            "duplicate INTENT identity INT-2026-001: docs/intent/[INTENT]_INT-2026-001_Independent.md, plans/263-intent-independent/evidence/sources/accepted-original.txt",
+            "plans/263-intent-independent: source SHA-256 differs: old-issue-original"
+          ],
+          "documents": 4,
+          "tasks": [],
+          "legacyDocuments": 0,
+          "intents": {
+            "documents": 1,
+            "identities": 1,
+            "uniqueness": {
+              "checked": false,
+              "complete": true
+            }
+          }
+        },
+        "original": "---\ntype: intent\nscope: marketplace\nsummary: Independent acceptance fixture\nowner: independent-agent\ncreated: 2026-10-19\nupdated: 2026-10-19\nstate: draft\nversion: v1.0\nlayer: canonical\nintent-id: INT-2026-001\n---\n\n# Original\n\n| 字段 | 内容 |\n|---|---|\n| 提出者 | Synthetic requester; no real decision |\n| 原始来源 | Complete synthetic input  |\n| 接受责任人 | Unknown; fixture only |\n| 原意核对记录 | Not supplied |\n| 内容接受记录 | Not accepted |\n| 当前内容与适用基线 | Full fixture bytes, not a real accepted baseline |\n| 主跟踪 Issue | None; synthetic fixture |\n\n## 1. 问题与现状\n\nExisting behavior loses a required distinction.\n\n## 2. 期望结果\n\nPreserve the requirement's original meaning.\n\n## 3. 成功判断\n\nUnknown threshold; do not invent one.\n\n## 4. 范围与约束\n\nFixture only.\n\n## 5. 未决项\n\nNo business acceptance supplied.\n",
+        "recovered": "---\ntype: intent\nscope: marketplace\nsummary: Independent acceptance fixture\nowner: independent-agent\ncreated: 2026-10-19\nupdated: 2026-10-19\nstate: draft\nversion: v1.0\nlayer: canonical\nintent-id: INT-2026-001\n---\n\n# Original\n\n| 字段 | 内容 |\n|---|---|\n| 提出者 | Synthetic requester; no real decision |\n| 原始来源 | Complete synthetic input  |\n| 接受责任人 | Unknown; fixture only |\n| 原意核对记录 | Not supplied |\n| 内容接受记录 | Not accepted |\n| 当前内容与适用基线 | Full fixture bytes, not a real accepted baseline |\n| 主跟踪 Issue | None; synthetic fixture |\n\n## 1. 问题与现状\n\nExisting behavior loses a required distinction.\n\n## 2. 期望结果\n\nPreserve the requirement's original meaning.\n\n## 3. 成功判断\n\nUnknown threshold; do not invent one.\n\n## 4. 范围与约束\n\nFixture only.\n\n## 5. 未决项\n\nNo business acceptance supplied.\n",
+        "unchanged": true
+      }
+    },
+    {
+      "name": "S6-index-registers-original-exactly-once",
+      "expected": "value => value.ok === false",
+      "met": true,
+      "actual": {
+        "ok": false,
+        "errors": [
+          "docs/intent/INDEX.md: INTENT INDEX must register every formal original exactly once: docs/intent/[INTENT]_INT-2026-001_Independent.md (found 2)"
+        ],
+        "documents": 2,
+        "tasks": [],
+        "legacyDocuments": 0,
+        "intents": {
+          "documents": 1,
+          "identities": 1,
+          "uniqueness": {
+            "checked": true,
+            "complete": true
+          }
+        }
+      }
+    },
+    {
+      "name": "S6-identity-declaration-without-type-cannot-hide",
+      "expected": "value => value.ok === false",
+      "met": true,
+      "actual": {
+        "ok": false,
+        "errors": [
+          "docs/archive/unmarked.dat: INTENT requires explicit nonempty scalar field type"
+        ],
+        "documents": 2,
+        "tasks": [],
+        "legacyDocuments": 0,
+        "intents": {
+          "documents": 1,
+          "identities": 1,
+          "uniqueness": {
+            "checked": false,
+            "complete": true
+          }
+        }
+      }
+    },
+    {
+      "name": "S8-archived-complete-baseline-binding-projects-exact-source",
+      "expected": "r => r.before.ok && r.after.ok && r.resources.includes(r.snapshot) && r.equalBytes",
+      "met": true,
+      "actual": {
+        "before": {
+          "ok": true,
+          "errors": [],
+          "documents": 5,
+          "tasks": [
+            {
+              "task": "263-archive-independent",
+              "plan": "plans/263-archive-independent/[PLAN]_Independent.md",
+              "report": null
+            }
+          ],
+          "legacyDocuments": 0,
+          "intents": {
+            "documents": 1,
+            "identities": 1,
+            "uniqueness": {
+              "checked": true,
+              "complete": true
+            }
+          }
+        },
+        "after": {
+          "ok": true,
+          "errors": [],
+          "documents": 5,
+          "tasks": [
+            {
+              "task": "263-archive-independent",
+              "plan": "plans/263-archive-independent/[PLAN]_Independent.md",
+              "report": null
+            }
+          ],
+          "legacyDocuments": 0,
+          "intents": {
+            "documents": 1,
+            "identities": 1,
+            "uniqueness": {
+              "checked": true,
+              "complete": true
+            }
+          }
+        },
+        "resources": [
+          "AGENTS.md",
+          "docs/_meta/document-layer-compatibility.json",
+          "docs/archive/[DEPRECATED]_[INTENT]_INT-2026-001_Independent.md",
+          "docs/intent/INDEX.md",
+          "docs/rule/[STANDARD]_Independent.md",
+          "plans/263-archive-independent/INDEX.md",
+          "plans/263-archive-independent/[PLAN]_Independent.md",
+          "plans/263-archive-independent/evidence/sources/accepted-issue-body.txt",
+          "plans/263-archive-independent/source-bindings.json"
+        ],
+        "snapshot": "plans/263-archive-independent/evidence/sources/accepted-issue-body.txt",
+        "equalBytes": true
+      }
+    },
+    {
+      "name": "S6-unresolved-unrelated-alias-does-not-hide-type-alias",
+      "expected": "r => r.variants.every(v => !v.result.ok)",
+      "met": true,
+      "actual": {
+        "variants": [
+          {
+            "name": "type-alias",
+            "input": "kind: &kind intent\ntype: *kind\nunrelated: *missing\n",
+            "result": {
+              "ok": false,
+              "errors": [
+                "docs/archive/unmarked.bin: INTENT metadata must not use YAML aliases or merge keys"
+              ],
+              "documents": 2,
+              "tasks": [],
+              "legacyDocuments": 0,
+              "intents": {
+                "documents": 1,
+                "identities": 1,
+                "uniqueness": {
+                  "checked": false,
+                  "complete": true
+                }
+              }
+            }
+          },
+          {
+            "name": "merge-with-broken-alias",
+            "input": "base: &base {type: intent}\n<<: *base\nunrelated: *missing\n",
+            "result": {
+              "ok": false,
+              "errors": [
+                "docs/archive/unmarked.bin: INTENT metadata must not use YAML aliases or merge keys"
+              ],
+              "documents": 2,
+              "tasks": [],
+              "legacyDocuments": 0,
+              "intents": {
+                "documents": 1,
+                "identities": 1,
+                "uniqueness": {
+                  "checked": false,
+                  "complete": true
+                }
+              }
+            }
+          },
+          {
+            "name": "broken-alias-first",
+            "input": "unrelated: *missing\nkind: &kind intent\ntype: *kind\n",
+            "result": {
+              "ok": false,
+              "errors": [
+                "docs/archive/unmarked.bin: INTENT metadata must not use YAML aliases or merge keys"
+              ],
+              "documents": 2,
+              "tasks": [],
+              "legacyDocuments": 0,
+              "intents": {
+                "documents": 1,
+                "identities": 1,
+                "uniqueness": {
+                  "checked": false,
+                  "complete": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

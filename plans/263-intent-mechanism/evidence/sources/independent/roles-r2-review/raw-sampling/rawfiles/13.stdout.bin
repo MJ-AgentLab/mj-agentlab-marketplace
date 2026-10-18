@@ -1,0 +1,46 @@
+Source: send_user_message_question_reply messages visible in this conversation. Each question and answer below is copied from the supplied message text. This is a conversation-visible text capture, not a host message export; actual message timestamps/IDs beyond questionItemId are unavailable.
+
+questionItemId: ["request_user_input_async","call_0f331bf2a46c437dac1ebd85f7a4d946",0]
+question: ❓ Q1 — 哪些需求必须保存 INTENT 正本？
+A：分层采用；跨任务、长期演进或涉及插件对外行为/重要治理变化的需求使用独立 INTENT，简单明确的单任务使用 Issue 原意区，纯格式维护不另建原意记录。
+B：所有任务都使用独立 INTENT 文件，覆盖统一，但增加维护成本。
+C：仅明确指定的需求采用，起步轻，但其他任务仍可能缺少原意依据。
+➡️ 推荐 A：按需求的复用和变化风险保存原意，避免每个小任务增加文件。
+answer: A：分层采用（推荐）
+
+questionItemId: ["request_user_input_async","call_0f331bf2a46c437dac1ebd85f7a4d946",1]
+question: ❓ Q2 — 谁决定本项目接受哪份原意及范围？
+A：提出者或有依据的代表核对原意；项目 Owner 或有明确职责授权的代表决定接受；文档维护者身份不自动包含接受权，同一人可以一次明确完成多种决定。
+B：由原提出者同时决定项目接受范围，链路短，但需要其同时承担项目取舍责任。
+C：每项均由项目 Owner 本人接受，责任集中，但不能委托代表作决定。
+➡️ 推荐 A：兼顾原意忠实与项目承接责任，复用已有同范围决定。
+answer: A：Owner 或明确授权代表接受（推荐）
+
+questionItemId: ["request_user_input_async","call_0f331bf2a46c437dac1ebd85f7a4d946",2]
+question: ❓ Q3 — 如何处理现有需求与历史交付？
+A：增量接入；新需求及后续实质修订应用新规则，直接受影响的旧任务补上来源与覆盖关系；既有有效决定继续引用，缺失证据如实保留，不追认历史接受。
+B：先为所有仍在推进的 Epic/Issue 补齐原意及接受基线，再继续依赖这些决定的实施；历史已完成任务不补。
+C：连同已完成历史任务全面回填，追溯更齐全，但工作量大且部分来源可能无法恢复。
+➡️ 推荐 A：保护现有交付节奏，同时在实际变化处补齐可追溯依据。
+answer: A：增量接入（推荐）
+
+questionItemId: ["request_user_input_async","call_b541ec86a485439eb244ef7a8d8336cf",0]
+question: ❓ Q4 — 日后通过哪些入口使用 INTENT 机制？
+A：先接入现有 mp-flow-intake、mp-doc-author、计划和自检技能；信息充分时直接整理/保存，存在关键含义缺口时按职责澄清，不新增独立访谈技能。
+B：在核心机制之外，再规划专用 mp-flow-intent 多轮访谈技能；它必须单独满足你要求的未答窗口持续显示验收，未通过时延期该入口。
+➡️ 推荐 A：先把原意保存和工程交接贯通，保持现有 20 个开发技能；你本次使用的 grilling 继续承担设计澄清。无论选哪项，本次都不修改文件。
+answer: A：接入现有技能（推荐）
+
+questionItemId: ["request_user_input_async","call_b541ec86a485439eb244ef7a8d8336cf",1]
+question: ❓ Q5 — 未来落地时，INTENT 的结构检查应怎样生效？
+A：首版就接入现有校验与 CI；新建/实质修订范围的类型、必填字段、日期、命名、稳定 ID、全正式集合唯一性及读取完整性不合格就失败；原意忠实、真实接受及覆盖范围仍由语义审查和决定证据判断。不顺带收紧所有历史文档。
+B：先完成规范、模板和人工审查，结构校验暂作提示；积累试用后再成为 CI 门禁。
+➡️ 推荐 A：避免新增文档类型只有名称、没有可执行契约；复用本仓已有非零失败退出策略。
+answer: A：首版纳入严格门禁（推荐）
+
+questionItemId: ["request_user_input_async","call_29a17c0b16d14018996db37b1fb067ab",0]
+question: ❓ Q6 — 上述整体核对稿是否已经准确表达你要为本项目建立的 INTENT 机制？
+A：已达成设计共识；按这份设计交付最终方案，本次继续保持只读，不修改文件，也不启动实施。
+B：仍有分歧；指出需要调整的部分，再继续 grilling，未解决前不定稿。
+➡️ 推荐 A：稿件已落实你确认的五项选择，并补齐完整基线、历史身份、工程覆盖和严格校验的边界；这项确认仅针对设计内容。
+answer: A：设计达成共识，保持只读（推荐）

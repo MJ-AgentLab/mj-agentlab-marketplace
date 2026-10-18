@@ -1,0 +1,87 @@
+{
+  "logs": [
+    {
+      "source": "cd79cc95e81ff82bb8f7e3d241eb6412e8abd94d",
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-harness-full.log",
+      "lastWrittenUtc": "2026-10-18T18:40:43.7850555Z",
+      "sha256": "4c7504bc49ec46c5f912c276bc212ffe81aaf1b65997e8514b45e51f382fdff5",
+      "bytes": 136544,
+      "note": "Earlier full suite; does not cover subsequent review fixes",
+      "scope": "npm test: 592 pass, zero fail/skip"
+    },
+    {
+      "source": "ca512e086533d626f198adda8644db193889266b",
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-harness-final-full.log",
+      "lastWrittenUtc": "2026-10-18T18:44:03.3775864Z",
+      "sha256": "1cd157b9fc45771e4b4c1041277411106b459121bfbd46d063e012455feca316",
+      "bytes": 137313,
+      "note": "Actual Python execution; does not cover later 56ad7cd/1093fe7 classifier refinements",
+      "scope": "REQUIRE_PYTHON=1 npm test: 595 pass, zero fail/skip"
+    },
+    {
+      "source": "56ad7cd568a2569afae2ad30f4ebbfe6835fda26",
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-harness-final-focused.log",
+      "lastWrittenUtc": "2026-10-18T18:43:00.3941499Z",
+      "sha256": "5b6f16264f173dd78c2d4f60a12a89a0102cc451706dab92d812e101d858477e",
+      "bytes": 19720,
+      "note": "Before final unclosed alias/merge combination refinement",
+      "scope": "document-harness plus INTENT: 90 pass"
+    },
+    {
+      "source": "1093fe7994493e8d621c2a0de1ecd6f3dad37688",
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-harness-final-targeted.log",
+      "lastWrittenUtc": "2026-10-18T18:43:54.7496862Z",
+      "sha256": "9ad32bd64f44b958d5438c4ceb4e28857c5e41956a9dce2e9f17e958b039ff0e",
+      "bytes": 14847,
+      "note": "Content tested immediately before commit; committed tree matches tested files",
+      "scope": "Final content INTENT collection suite: 68 pass"
+    },
+    {
+      "source": "56ad7cd568a2569afae2ad30f4ebbfe6835fda26",
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-harness-final-restoration.log",
+      "lastWrittenUtc": "2026-10-18T18:43:03.4722420Z",
+      "sha256": "d9e909d883337f613e745b3e4bb4f60584ebc264269e2b634bb611b16f9421da",
+      "bytes": 424,
+      "note": "Supplemental bound to prior classifier revision",
+      "scope": "Actual source projection/materialization/snapshot restoration: one pass"
+    },
+    {
+      "source": "ca512e086533d626f198adda8644db193889266b",
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-final-validate.log",
+      "lastWrittenUtc": "2026-10-18T18:41:26.9380857Z",
+      "sha256": "e3bedb0233222e468a1e207cfbcbaf1c3138a8827fde2769e9e2ede3a85eb3d8",
+      "bytes": 392,
+      "note": "Prior reviewed candidate",
+      "scope": "npm run validate: PASS"
+    },
+    {
+      "source": "56ad7cd568a2569afae2ad30f4ebbfe6835fda26",
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-harness-final-head-validate.log",
+      "lastWrittenUtc": "2026-10-18T18:43:21.1242924Z",
+      "sha256": "e3bedb0233222e468a1e207cfbcbaf1c3138a8827fde2769e9e2ede3a85eb3d8",
+      "bytes": 392,
+      "note": "Prior final classifier revision",
+      "scope": "npm run validate: PASS"
+    },
+    {
+      "source": "ca512e086533d626f198adda8644db193889266b",
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-harness-review-fixes.log",
+      "lastWrittenUtc": "2026-10-18T18:39:55.8642315Z",
+      "sha256": "f53d1e32183ea0c33e303112308a90b30b2dbbd9a1284ef41e6db02620fbd387",
+      "bytes": 14397,
+      "note": "Review-fix targeted source tree",
+      "scope": "INTENT: 66 pass"
+    },
+    {
+      "source": null,
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-smoke-source.log",
+      "lastWrittenUtc": "2026-10-18T18:39:59.2275160Z",
+      "sha256": "7eecfeef682e49a4d91ec445b9a581758ea6ee3f654ed8106926f45561dff34f",
+      "bytes": 6297,
+      "note": "Working tree before cd79 commit, with new restore test and index/identity fixes; fixture helper stub addition was later. Supplemental only, no exact commit claim",
+      "scope": "smoke-source: 24 pass"
+    }
+  ],
+  "schemaVersion": 1,
+  "currentHead": "1093fe7994493e8d621c2a0de1ecd6f3dad37688"
+}

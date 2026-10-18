@@ -32,6 +32,8 @@ Agent承担授权技术操作，Owner补必要信息、作实质决定/授权及
 
 Harness验文档/来源与封存闭包；镜像补齐依赖，未覆盖项另记。
 
+INTENT 验收、原失败及交付见[任务 REPORT](plans/263-intent-mechanism/[REPORT]_Intent_Mechanism.md)；窗口、保护批准和 Owner 接受分记。
+
 ## 开发流程
 
 使用独立 worktree 分支实施，保持 main / develop 工作区干净。变更执行前读取受影响的规范：治理用 [AI 工程规范](docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)，文档用 [文档框架](docs/rule/[STANDARD]_Documentation_Framework.md)，提交用 [提交规范](docs/rule/[STANDARD]_Commit_Message_Convention.md)，发布用 [发布操作](docs/runbook/[RUNBOOK]_Release_Operations.md)。

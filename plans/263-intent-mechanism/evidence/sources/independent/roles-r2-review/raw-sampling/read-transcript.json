@@ -1,0 +1,461 @@
+{
+  "schemaVersion": 1,
+  "round": "R2",
+  "candidate_commit": "def81915ed5fe70daf9129256b9fd816f0e4a79c",
+  "provenance": "Contemporaneous Process argv, UTC, exit and exact BaseStream bytes captured during the R2 git show reads, not a backfill of R1",
+  "context_delivery": "Each git stdout was decoded as complete stdout_utf8 in its actual tool response before R2 role response generation; exact original bytes remain in rawfiles",
+  "capture_script": {
+    "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1",
+    "sha256": "f93e24ca6155aa97240958d6d18d31e48d8d634f45735a5fe8cc65a3c3e58711"
+  },
+  "input_read": {
+    "source_path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-cases.json",
+    "raw_path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\input.synthetic-cases.bin",
+    "byte_length": 2814,
+    "sha256": "d19daa80745cd0782501eb3e858fe5c7cf18c016552c758c8dbd49aff25a10e6",
+    "started_at_utc": "2026-10-18T18:46:53.4098104Z",
+    "ended_at_utc": "2026-10-18T18:46:53.4145443Z",
+    "method": "System.IO.File.ReadAllBytes; exact bytes copied to TEMP before JSON parse"
+  },
+  "read_count": 16,
+  "reads": [
+    {
+      "sequence": "01",
+      "commit": "def81915ed5fe70daf9129256b9fd816f0e4a79c",
+      "path": ".agents/skills/mp-flow-intake/SKILL.md",
+      "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\intent-contract\\develop",
+      "argv": [
+        "C:\\Program Files\\Git\\cmd\\git.exe",
+        "show",
+        "def81915ed5fe70daf9129256b9fd816f0e4a79c:.agents/skills/mp-flow-intake/SKILL.md"
+      ],
+      "tool_shell_invocation": "& 'C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1' -DocPath '.agents/skills/mp-flow-intake/SKILL.md' -Sequence '01'",
+      "wrapper_script": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1",
+      "started_at_utc": "2026-10-18T18:46:20.2836176Z",
+      "ended_at_utc": "2026-10-18T18:46:20.32989Z",
+      "utc_source": "System.DateTime.UtcNow, sampled immediately before process start and after stream completion",
+      "exit_code": 0,
+      "stdout": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\01.stdout.bin",
+        "byte_length": 1565,
+        "sha256": "8f9b89e622ab6e49e58b9d00c40e831e0437c6fd94f5ba7d02ce20bbe027d0cc"
+      },
+      "stderr": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\01.stderr.bin",
+        "byte_length": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "sequence": "02",
+      "commit": "def81915ed5fe70daf9129256b9fd816f0e4a79c",
+      "path": ".agents/skills/mp-flow-self-review/SKILL.md",
+      "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\intent-contract\\develop",
+      "argv": [
+        "C:\\Program Files\\Git\\cmd\\git.exe",
+        "show",
+        "def81915ed5fe70daf9129256b9fd816f0e4a79c:.agents/skills/mp-flow-self-review/SKILL.md"
+      ],
+      "tool_shell_invocation": "& 'C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1' -DocPath '.agents/skills/mp-flow-self-review/SKILL.md' -Sequence '02'",
+      "wrapper_script": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1",
+      "started_at_utc": "2026-10-18T18:46:20.2900545Z",
+      "ended_at_utc": "2026-10-18T18:46:20.3403742Z",
+      "utc_source": "System.DateTime.UtcNow, sampled immediately before process start and after stream completion",
+      "exit_code": 0,
+      "stdout": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\02.stdout.bin",
+        "byte_length": 1976,
+        "sha256": "46a566d822b637491ac14704fa3a1f2e232edb6ab7bb7195eb50a53d2e900455"
+      },
+      "stderr": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\02.stderr.bin",
+        "byte_length": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "sequence": "03",
+      "commit": "def81915ed5fe70daf9129256b9fd816f0e4a79c",
+      "path": ".agents/skills/mp-doc-author/SKILL.md",
+      "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\intent-contract\\develop",
+      "argv": [
+        "C:\\Program Files\\Git\\cmd\\git.exe",
+        "show",
+        "def81915ed5fe70daf9129256b9fd816f0e4a79c:.agents/skills/mp-doc-author/SKILL.md"
+      ],
+      "tool_shell_invocation": "& 'C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1' -DocPath '.agents/skills/mp-doc-author/SKILL.md' -Sequence '03'",
+      "wrapper_script": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1",
+      "started_at_utc": "2026-10-18T18:46:20.2880451Z",
+      "ended_at_utc": "2026-10-18T18:46:20.33154Z",
+      "utc_source": "System.DateTime.UtcNow, sampled immediately before process start and after stream completion",
+      "exit_code": 0,
+      "stdout": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\03.stdout.bin",
+        "byte_length": 1794,
+        "sha256": "883285cd32f2d0a9a6a63f2c86e101892e692b58d12dc6761a033e50d3998955"
+      },
+      "stderr": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\03.stderr.bin",
+        "byte_length": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "sequence": "04",
+      "commit": "def81915ed5fe70daf9129256b9fd816f0e4a79c",
+      "path": "docs/rule/[STANDARD]_AI_Engineering_Intent.md",
+      "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\intent-contract\\develop",
+      "argv": [
+        "C:\\Program Files\\Git\\cmd\\git.exe",
+        "show",
+        "def81915ed5fe70daf9129256b9fd816f0e4a79c:docs/rule/[STANDARD]_AI_Engineering_Intent.md"
+      ],
+      "tool_shell_invocation": "& 'C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1' -DocPath 'docs/rule/[STANDARD]_AI_Engineering_Intent.md' -Sequence '04'",
+      "wrapper_script": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1",
+      "started_at_utc": "2026-10-18T18:46:20.2902176Z",
+      "ended_at_utc": "2026-10-18T18:46:20.340379Z",
+      "utc_source": "System.DateTime.UtcNow, sampled immediately before process start and after stream completion",
+      "exit_code": 0,
+      "stdout": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\04.stdout.bin",
+        "byte_length": 8032,
+        "sha256": "e39f3e163e18c7695189d77139c6ff1a17639fda4127c547bc98d206b5bc18c9"
+      },
+      "stderr": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\04.stderr.bin",
+        "byte_length": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "sequence": "05",
+      "commit": "def81915ed5fe70daf9129256b9fd816f0e4a79c",
+      "path": "AGENTS.md",
+      "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\intent-contract\\develop",
+      "argv": [
+        "C:\\Program Files\\Git\\cmd\\git.exe",
+        "show",
+        "def81915ed5fe70daf9129256b9fd816f0e4a79c:AGENTS.md"
+      ],
+      "tool_shell_invocation": "& 'C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1' -DocPath 'AGENTS.md' -Sequence '05'",
+      "wrapper_script": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1",
+      "started_at_utc": "2026-10-18T18:46:26.4929403Z",
+      "ended_at_utc": "2026-10-18T18:46:26.539149Z",
+      "utc_source": "System.DateTime.UtcNow, sampled immediately before process start and after stream completion",
+      "exit_code": 0,
+      "stdout": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\05.stdout.bin",
+        "byte_length": 16113,
+        "sha256": "2a3f2fe89c2c311fcb08acc15f4669dd737b3e242dc7ccc3c01e22f43be36a22"
+      },
+      "stderr": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\05.stderr.bin",
+        "byte_length": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "sequence": "06",
+      "commit": "def81915ed5fe70daf9129256b9fd816f0e4a79c",
+      "path": "docs/rule/[STANDARD]_Documentation_Framework.md",
+      "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\intent-contract\\develop",
+      "argv": [
+        "C:\\Program Files\\Git\\cmd\\git.exe",
+        "show",
+        "def81915ed5fe70daf9129256b9fd816f0e4a79c:docs/rule/[STANDARD]_Documentation_Framework.md"
+      ],
+      "tool_shell_invocation": "& 'C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1' -DocPath 'docs/rule/[STANDARD]_Documentation_Framework.md' -Sequence '06'",
+      "wrapper_script": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1",
+      "started_at_utc": "2026-10-18T18:46:26.5051988Z",
+      "ended_at_utc": "2026-10-18T18:46:26.5527538Z",
+      "utc_source": "System.DateTime.UtcNow, sampled immediately before process start and after stream completion",
+      "exit_code": 0,
+      "stdout": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\06.stdout.bin",
+        "byte_length": 9681,
+        "sha256": "8d1ea7b06cbfb8c84e954921338c1bd7f7c21eabe9c3e53e60b5ea1153708ff8"
+      },
+      "stderr": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\06.stderr.bin",
+        "byte_length": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "sequence": "07",
+      "commit": "def81915ed5fe70daf9129256b9fd816f0e4a79c",
+      "path": "docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md",
+      "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\intent-contract\\develop",
+      "argv": [
+        "C:\\Program Files\\Git\\cmd\\git.exe",
+        "show",
+        "def81915ed5fe70daf9129256b9fd816f0e4a79c:docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md"
+      ],
+      "tool_shell_invocation": "& 'C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1' -DocPath 'docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md' -Sequence '07'",
+      "wrapper_script": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1",
+      "started_at_utc": "2026-10-18T18:46:26.5051949Z",
+      "ended_at_utc": "2026-10-18T18:46:26.552724Z",
+      "utc_source": "System.DateTime.UtcNow, sampled immediately before process start and after stream completion",
+      "exit_code": 0,
+      "stdout": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\07.stdout.bin",
+        "byte_length": 6410,
+        "sha256": "ab11422ed52029027c76aa9bb163c8b20d04bd97878fdc537164520f6afc5bae"
+      },
+      "stderr": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\07.stderr.bin",
+        "byte_length": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "sequence": "08",
+      "commit": "def81915ed5fe70daf9129256b9fd816f0e4a79c",
+      "path": "docs/intent/[INTENT]_INT-2026-001_Intent_Mechanism.md",
+      "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\intent-contract\\develop",
+      "argv": [
+        "C:\\Program Files\\Git\\cmd\\git.exe",
+        "show",
+        "def81915ed5fe70daf9129256b9fd816f0e4a79c:docs/intent/[INTENT]_INT-2026-001_Intent_Mechanism.md"
+      ],
+      "tool_shell_invocation": "& 'C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1' -DocPath 'docs/intent/[INTENT]_INT-2026-001_Intent_Mechanism.md' -Sequence '08'",
+      "wrapper_script": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1",
+      "started_at_utc": "2026-10-18T18:46:31.7982368Z",
+      "ended_at_utc": "2026-10-18T18:46:31.8458246Z",
+      "utc_source": "System.DateTime.UtcNow, sampled immediately before process start and after stream completion",
+      "exit_code": 0,
+      "stdout": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\08.stdout.bin",
+        "byte_length": 5277,
+        "sha256": "cbff8ab55ed946559ffb9775a7f298be58ae868a5b6ecf7e932af1dc0d551f1b"
+      },
+      "stderr": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\08.stderr.bin",
+        "byte_length": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "sequence": "09",
+      "commit": "def81915ed5fe70daf9129256b9fd816f0e4a79c",
+      "path": "docs/adr/[ADR]_Intent_Mechanism_Addition.md",
+      "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\intent-contract\\develop",
+      "argv": [
+        "C:\\Program Files\\Git\\cmd\\git.exe",
+        "show",
+        "def81915ed5fe70daf9129256b9fd816f0e4a79c:docs/adr/[ADR]_Intent_Mechanism_Addition.md"
+      ],
+      "tool_shell_invocation": "& 'C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1' -DocPath 'docs/adr/[ADR]_Intent_Mechanism_Addition.md' -Sequence '09'",
+      "wrapper_script": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1",
+      "started_at_utc": "2026-10-18T18:46:31.8376148Z",
+      "ended_at_utc": "2026-10-18T18:46:31.8803897Z",
+      "utc_source": "System.DateTime.UtcNow, sampled immediately before process start and after stream completion",
+      "exit_code": 0,
+      "stdout": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\09.stdout.bin",
+        "byte_length": 4397,
+        "sha256": "fca0aebe2c08e5f2076460db123d88953ff4fc3c5b7fa8329633c69ad2c0cea1"
+      },
+      "stderr": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\09.stderr.bin",
+        "byte_length": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "sequence": "10",
+      "commit": "def81915ed5fe70daf9129256b9fd816f0e4a79c",
+      "path": "plans/263-intent-mechanism/INDEX.md",
+      "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\intent-contract\\develop",
+      "argv": [
+        "C:\\Program Files\\Git\\cmd\\git.exe",
+        "show",
+        "def81915ed5fe70daf9129256b9fd816f0e4a79c:plans/263-intent-mechanism/INDEX.md"
+      ],
+      "tool_shell_invocation": "& 'C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1' -DocPath 'plans/263-intent-mechanism/INDEX.md' -Sequence '10'",
+      "wrapper_script": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1",
+      "started_at_utc": "2026-10-18T18:46:31.8529613Z",
+      "ended_at_utc": "2026-10-18T18:46:31.8972148Z",
+      "utc_source": "System.DateTime.UtcNow, sampled immediately before process start and after stream completion",
+      "exit_code": 0,
+      "stdout": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\10.stdout.bin",
+        "byte_length": 2011,
+        "sha256": "d0336ca0361b7629febc387b3890112ce2820fc2999b547ba482c3ca614e9bb0"
+      },
+      "stderr": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\10.stderr.bin",
+        "byte_length": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "sequence": "11",
+      "commit": "def81915ed5fe70daf9129256b9fd816f0e4a79c",
+      "path": "plans/263-intent-mechanism/source-bindings.json",
+      "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\intent-contract\\develop",
+      "argv": [
+        "C:\\Program Files\\Git\\cmd\\git.exe",
+        "show",
+        "def81915ed5fe70daf9129256b9fd816f0e4a79c:plans/263-intent-mechanism/source-bindings.json"
+      ],
+      "tool_shell_invocation": "& 'C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1' -DocPath 'plans/263-intent-mechanism/source-bindings.json' -Sequence '11'",
+      "wrapper_script": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1",
+      "started_at_utc": "2026-10-18T18:46:31.8347679Z",
+      "ended_at_utc": "2026-10-18T18:46:31.8794945Z",
+      "utc_source": "System.DateTime.UtcNow, sampled immediately before process start and after stream completion",
+      "exit_code": 0,
+      "stdout": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\11.stdout.bin",
+        "byte_length": 2604,
+        "sha256": "e32dca02a7f5c8c23015e6dd9884698b348bb1f264da5643dd434698fe526bf0"
+      },
+      "stderr": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\11.stderr.bin",
+        "byte_length": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "sequence": "12",
+      "commit": "def81915ed5fe70daf9129256b9fd816f0e4a79c",
+      "path": "plans/263-intent-mechanism/evidence/sources/owner-original-request.txt",
+      "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\intent-contract\\develop",
+      "argv": [
+        "C:\\Program Files\\Git\\cmd\\git.exe",
+        "show",
+        "def81915ed5fe70daf9129256b9fd816f0e4a79c:plans/263-intent-mechanism/evidence/sources/owner-original-request.txt"
+      ],
+      "tool_shell_invocation": "& 'C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1' -DocPath 'plans/263-intent-mechanism/evidence/sources/owner-original-request.txt' -Sequence '12'",
+      "wrapper_script": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1",
+      "started_at_utc": "2026-10-18T18:46:37.6786052Z",
+      "ended_at_utc": "2026-10-18T18:46:37.7313777Z",
+      "utc_source": "System.DateTime.UtcNow, sampled immediately before process start and after stream completion",
+      "exit_code": 0,
+      "stdout": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\12.stdout.bin",
+        "byte_length": 6643,
+        "sha256": "6be58f2add7736e58ec304ed07506d0183da5c165489ec651939492c769186c6"
+      },
+      "stderr": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\12.stderr.bin",
+        "byte_length": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "sequence": "13",
+      "commit": "def81915ed5fe70daf9129256b9fd816f0e4a79c",
+      "path": "plans/263-intent-mechanism/evidence/sources/owner-confirmations-q1-q6.txt",
+      "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\intent-contract\\develop",
+      "argv": [
+        "C:\\Program Files\\Git\\cmd\\git.exe",
+        "show",
+        "def81915ed5fe70daf9129256b9fd816f0e4a79c:plans/263-intent-mechanism/evidence/sources/owner-confirmations-q1-q6.txt"
+      ],
+      "tool_shell_invocation": "& 'C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1' -DocPath 'plans/263-intent-mechanism/evidence/sources/owner-confirmations-q1-q6.txt' -Sequence '13'",
+      "wrapper_script": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1",
+      "started_at_utc": "2026-10-18T18:46:37.678399Z",
+      "ended_at_utc": "2026-10-18T18:46:37.7332285Z",
+      "utc_source": "System.DateTime.UtcNow, sampled immediately before process start and after stream completion",
+      "exit_code": 0,
+      "stdout": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\13.stdout.bin",
+        "byte_length": 4626,
+        "sha256": "51199569d6fa514b18d23a8af65772aec7dc53c5c72431b1e144d3cda63ff8ea"
+      },
+      "stderr": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\13.stderr.bin",
+        "byte_length": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "sequence": "14",
+      "commit": "def81915ed5fe70daf9129256b9fd816f0e4a79c",
+      "path": "plans/263-intent-mechanism/evidence/sources/accepted-design-b1.txt",
+      "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\intent-contract\\develop",
+      "argv": [
+        "C:\\Program Files\\Git\\cmd\\git.exe",
+        "show",
+        "def81915ed5fe70daf9129256b9fd816f0e4a79c:plans/263-intent-mechanism/evidence/sources/accepted-design-b1.txt"
+      ],
+      "tool_shell_invocation": "& 'C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1' -DocPath 'plans/263-intent-mechanism/evidence/sources/accepted-design-b1.txt' -Sequence '14'",
+      "wrapper_script": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1",
+      "started_at_utc": "2026-10-18T18:46:37.678682Z",
+      "ended_at_utc": "2026-10-18T18:46:37.7332633Z",
+      "utc_source": "System.DateTime.UtcNow, sampled immediately before process start and after stream completion",
+      "exit_code": 0,
+      "stdout": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\14.stdout.bin",
+        "byte_length": 9329,
+        "sha256": "65333b9528dc97c5fce942990588a33c74d3bde68926a3b63882fedea7b2f763"
+      },
+      "stderr": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\14.stderr.bin",
+        "byte_length": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "sequence": "15",
+      "commit": "def81915ed5fe70daf9129256b9fd816f0e4a79c",
+      "path": "plans/263-intent-mechanism/evidence/sources/owner-principles.txt",
+      "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\intent-contract\\develop",
+      "argv": [
+        "C:\\Program Files\\Git\\cmd\\git.exe",
+        "show",
+        "def81915ed5fe70daf9129256b9fd816f0e4a79c:plans/263-intent-mechanism/evidence/sources/owner-principles.txt"
+      ],
+      "tool_shell_invocation": "& 'C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1' -DocPath 'plans/263-intent-mechanism/evidence/sources/owner-principles.txt' -Sequence '15'",
+      "wrapper_script": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1",
+      "started_at_utc": "2026-10-18T18:46:37.7124579Z",
+      "ended_at_utc": "2026-10-18T18:46:37.7658894Z",
+      "utc_source": "System.DateTime.UtcNow, sampled immediately before process start and after stream completion",
+      "exit_code": 0,
+      "stdout": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\15.stdout.bin",
+        "byte_length": 1312,
+        "sha256": "fa266e2808879478f7ff613a0f1b8bbc7dae09bb0ca7180bb04304cf8f119590"
+      },
+      "stderr": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\15.stderr.bin",
+        "byte_length": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "sequence": "16",
+      "commit": "def81915ed5fe70daf9129256b9fd816f0e4a79c",
+      "path": "plans/263-intent-mechanism/evidence/sources/owner-authorization.txt",
+      "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\intent-contract\\develop",
+      "argv": [
+        "C:\\Program Files\\Git\\cmd\\git.exe",
+        "show",
+        "def81915ed5fe70daf9129256b9fd816f0e4a79c:plans/263-intent-mechanism/evidence/sources/owner-authorization.txt"
+      ],
+      "tool_shell_invocation": "& 'C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1' -DocPath 'plans/263-intent-mechanism/evidence/sources/owner-authorization.txt' -Sequence '16'",
+      "wrapper_script": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\capture-read.ps1",
+      "started_at_utc": "2026-10-18T18:46:37.712698Z",
+      "ended_at_utc": "2026-10-18T18:46:37.7658601Z",
+      "utc_source": "System.DateTime.UtcNow, sampled immediately before process start and after stream completion",
+      "exit_code": 0,
+      "stdout": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\16.stdout.bin",
+        "byte_length": 280,
+        "sha256": "82afdb7d53b0e74b359f25e6623730f181adc8d7961a6438208005df08ef6cbc"
+      },
+      "stderr": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\mj-intent-delivery\\synthetic-agent-r2\\rawfiles\\16.stderr.bin",
+        "byte_length": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "assembled_at_utc": "2026-10-18T18:48:58.6750130Z",
+  "limitations": [
+    "R1 actual-read independent evidence was insufficient; R1 stays unchanged.",
+    "R2 is a continued-context rerun by the same Agent, not five fresh CLI sessions.",
+    "No rubric, implementer answers or Reviewer answer files were read."
+  ]
+}

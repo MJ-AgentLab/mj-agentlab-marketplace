@@ -63,6 +63,8 @@ One Epic and one active main PR from codex/intent-mechanism to protected develop
 2. Harness child: strict schema, identity/full collection checks, tests and navigation-resource compatibility.
 3. Acceptance child: integration repairs, independent simulated-role evidence, final report and delivery.
 
+Actual engineering merge order is Harness [#266](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/266), then contract [#265](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/265), then the acceptance child. Contract and Harness were developed in parallel; the contract branch contains an explicit Harness dependency merge for combined testing. This sequencing keeps the registered type and its strict checker available together at integration, without adding an Owner decision or changing accepted scope. Actual operations/results belong to the [main REPORT](./[REPORT]_Intent_Mechanism.md).
+
 Main PR must satisfy actual develop rules: Validate Structure, A6 / Check, strict current base, current-head non-author approval, last-push approval and resolved threads. Never bypass or self-approve. Child integration is not protected main/develop.
 
 ## Verification, boundaries and recovery
