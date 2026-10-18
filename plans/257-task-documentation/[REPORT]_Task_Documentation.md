@@ -7,7 +7,7 @@ owner: marketplace-maintainers
 created: 2026-10-18
 updated: 2026-10-19
 state: active
-version: v1.6
+version: v1.7
 task: 257-task-documentation
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 ---
@@ -16,7 +16,7 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 
 ## 结果与缺口
 
-#258 已实际合入 develop，合并树与已测 head 一致；实际合并版本的新全量测试、严格校验及隔离安装通过。规则执行记录为 bypass，真实非作者批准 NOT_MET，不能记作保护门禁全部通过。规范/模板/技能/Harness 与 HTML PR1 有界试行已交付；Owner 已选择按需推广 A；成品最终接受仍待来源，整个计划未包装为全部完成。
+#258 已实际合入 develop，合并树与已测 head 一致；实际合并版本的新全量测试、严格校验及隔离安装通过。规则执行记录为 bypass，真实非作者批准 NOT_MET，不能记作保护门禁全部通过。规范/模板/技能/Harness 与 HTML PR1 有界试行已交付；Owner 已选择按需推广 A，并明确接受本批成品、保留已披露历史批准缺口；依据见 R9–R10。收尾 PR #262 的当前 CI、真实批准及实际合入仍须各自满足，未将这些剩余门禁包装为完成。
 
 ## R1 — 基线与权限核查（2026-10-18）
 
@@ -100,6 +100,12 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 | C 限定 Learning Evidence 交接 | 仅 Epic #209 的核心交付/发布收尾及延期入口，原模型轮次留原处 | 开放任务交接收益较大；跨发布/恢复/来源复杂，维护成本最高 |
 
 B/C 选择仅决定文档整理范围，不恢复产品开发、发布或改写当年 PR 拓扑。获准后在本 Epic/PLAN 追加新批接受与来源，迁移对象保留原任务身份；同时一个活动主 PR。三角色试行支持限定定位与交接，长 JSON、混合账本多个“当前”和后补合入记录分散仍是阅读限制，没有真人耗时或整体效率结论。成品最终接受与本题分别记录。
+
+## R10 — Owner 有界成品最终接受（2026-10-19）
+
+Owner 在本聊天 Q12 明确答复：“A｜接受本批成品，保留已披露历史缺口（推荐）”。接受对象为题目中固定 ea3d006 的任务入口/REPORT、已由 #258 交付的文档机制与 HTML PR1 有界阅读试行，采用 Q11 已选按需推广。完整题目/答复、固定成品版本和实际捕获时间 2026-10-18T18:18:50.726Z 见[Q12 捕获](./evidence/sources/owner-final-acceptance-q12.json)及[具名来源](./source-bindings.json)；消息原始发送时间未提供。
+
+本次 Owner 最终接受已提供；R8 原回执中的 NOT_PROVIDED 保留当时事实，由本条后继记录接续。#258 历史批准仍 NOT_MET / bypass，不改写为通过；此接受不代替 #262 当前真实非作者批准，不扩展为 HTML 产品整体验收、发布授权或未来保护豁免。Agent 继续核验当前收尾 PR 的必要 CI、基线、线程、真实批准与实际合入；工程进度及后续实际交付以主 Issue 为正本，满足后才记录收尾完成。
 
 ## 后续记录
 
