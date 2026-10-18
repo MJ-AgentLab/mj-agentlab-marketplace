@@ -85,6 +85,8 @@ for (const [relative, text, pattern] of [
   ["docs/archive/unclosed.md", "---\ntype: intent\nowner: fixture\n", /requires YAML frontmatter/],
   ["docs/archive/identity-only.md", intentDocument({ type: "guide" }), /must declare type intent/],
   ["docs/archive/unclosed-identity.md", "---\ntype: guide\nintent-id: INT-2026-001\n", /requires YAML frontmatter/],
+  ["docs/archive/unclosed-alias.md", "---\nkind: &kind intent\ntype: *kind\n", /requires YAML frontmatter/],
+  ["docs/archive/unclosed-merge.md", "---\nbase: &base {type: intent}\n<<: *base\n", /requires YAML frontmatter/],
   ["docs/archive/[INTENT]_malformed.md", "missing metadata", /requires YAML frontmatter/],
   ["docs/guide/[GUIDE]_Hidden.md", intentDocument(), /filename must match/],
   ["docs/guide/[INTENT]_INT-2026-002_Hidden.md", intentDocument({ "intent-id": "INT-2026-002" }), /must use docs\/intent/],
@@ -104,6 +106,7 @@ test("aliases, merged type declarations and duplicate keys cannot smuggle an arc
   for (const metadata of [
     "kind: &kind intent\ntype: *kind\n",
     "base: &base {type: intent}\n<<: *base\n",
+    "kind: &kind intent\ntype: *kind\nbroken: *missing\n",
     "type: intent\ntype: guide\n",
   ]) {
     write(root, "docs/archive/unmarked.md", `---\n${metadata}---\n`);
