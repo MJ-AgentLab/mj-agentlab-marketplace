@@ -5,14 +5,14 @@ run-name: >-
 on:
   push:
     branches:
-      - 'codex/*'
+      - 'codex/**'
       - 'feature/*'
       - 'bugfix/*'
       - 'documentation/*'
       - 'maintain/*'
       - 'hotfix/*'
   pull_request:
-    branches: [develop, main]
+    branches: [develop, main, 'codex/**']
 
 jobs:
   cancel-superseded:
@@ -39,7 +39,7 @@ jobs:
               const sha = value => typeof value === "string" && /^[a-f0-9]{40}$/.test(value);
               const marker = value => {
                 if (typeof value !== "string") return null;
-                const match = /^ci-v1\|event=(pull_request|push)\|pr=(0|[1-9]\d*)\|repo=([1-9]\d*)\|headrepo=([1-9]\d*)\|head=([a-f0-9]{40})\|baserepo=([1-9]\d*)\|base=([a-f0-9]{40})\|target=(develop|main|-)$/.exec(value);
+                const match = /^ci-v1\|event=(pull_request|push)\|pr=(0|[1-9]\d*)\|repo=([1-9]\d*)\|headrepo=([1-9]\d*)\|head=([a-f0-9]{40})\|baserepo=([1-9]\d*)\|base=([a-f0-9]{40})\|target=(develop|main|codex\/[A-Za-z0-9][A-Za-z0-9._/-]*|-)$/.exec(value);
                 if (!match) return null;
                 const named = { event: match[1], pr: Number(match[2]), repositoryId: Number(match[3]), headRepositoryId: Number(match[4]), head: match[5], baseRepositoryId: Number(match[6]), baseSha: match[7], base: match[8] };
                 return id(named.pr) && id(named.repositoryId) && id(named.headRepositoryId) && id(named.baseRepositoryId) ? named : null;
@@ -52,7 +52,8 @@ jobs:
               const request = { timeout: 10000 };
               const getRun = async runId => (await github.rest.actions.getWorkflowRun({ owner, repo, run_id: runId, request })).data;
               const getPr = async () => (await github.rest.pulls.get({ owner, repo, pull_number: event.number, request })).data;
-              const liveIdentity = live => live?.state === "open" && live.number === event.number && live.head?.repo?.id === repositoryId && live.base?.repo?.id === repositoryId && ["develop", "main"].includes(live.base?.ref) && typeof live.head?.ref === "string" && sha(live.head?.sha) && sha(live.base?.sha);
+              const target = ref => ["develop", "main"].includes(ref) || typeof ref === "string" && /^codex\/[A-Za-z0-9][A-Za-z0-9._/-]*$/.test(ref);
+              const liveIdentity = live => live?.state === "open" && live.number === event.number && live.head?.repo?.id === repositoryId && live.base?.repo?.id === repositoryId && target(live.base?.ref) && typeof live.head?.ref === "string" && sha(live.head?.sha) && sha(live.base?.sha);
               const liveMatches = live => liveIdentity(live) && live.base.ref === event.base?.ref && live.base.sha === event.base.sha && live.head.ref === event.head?.ref && live.head.sha === event.head.sha;
               const identityMatches = (run, live, current) => {
                 const named = marker(run.display_title);
@@ -194,7 +195,8 @@ jobs:
             const branch = typeof context.ref === "string" && context.ref.startsWith("refs/heads/") ? context.ref.slice(11) : "";
             const marker = (event, pr, head, base, target) => `ci-v1|event=${event}|pr=${pr}|repo=${repositoryId}|headrepo=${repositoryId}|head=${head}|baserepo=${repositoryId}|base=${base}|target=${target}`;
             const samePR = (a, b) => a.number === b.number && a.head.repo.id === b.head.repo.id && a.head.ref === b.head.ref && a.head.sha === b.head.sha && a.base.repo.id === b.base.repo.id && a.base.ref === b.base.ref && a.base.sha === b.base.sha && a.merge_commit_sha === b.merge_commit_sha;
-            const exactPR = pr => id(pr?.number) && pr.state === "open" && repositoryMatches(pr.head?.repo) && repositoryMatches(pr.base?.repo) && pr.head.ref === branch && pr.head.sha === context.sha && ["develop", "main"].includes(pr.base.ref) && sha(pr.base.sha) && sha(pr.merge_commit_sha);
+            const target = ref => ["develop", "main"].includes(ref) || typeof ref === "string" && /^codex\/[A-Za-z0-9][A-Za-z0-9._/-]*$/.test(ref);
+            const exactPR = pr => id(pr?.number) && pr.state === "open" && repositoryMatches(pr.head?.repo) && repositoryMatches(pr.base?.repo) && pr.head.ref === branch && pr.head.sha === context.sha && target(pr.base.ref) && sha(pr.base.sha) && sha(pr.merge_commit_sha);
             const association = (run, live) => Array.isArray(run.pull_requests) && (run.pull_requests.length === 0 || run.pull_requests.length === 1 && run.pull_requests[0]?.number === live.number && run.pull_requests[0].head?.repo?.id === repositoryId && run.pull_requests[0].head.ref === live.head.ref && run.pull_requests[0].head.sha === live.head.sha && run.pull_requests[0].base?.repo?.id === repositoryId && run.pull_requests[0].base.ref === live.base.ref && run.pull_requests[0].base.sha === live.base.sha);
             const coarseRun = run => id(run?.id) && id(run.run_number) && id(run.run_attempt) && run.workflow_id === workflowId && pathOf(run) === workflowPath && repositoryMatches(run.repository) && repositoryMatches(run.head_repository) && run.head_branch === branch && sha(run.head_sha);
             const currentPush = (run, live) => coarseRun(run) && run.id === context.runId && run.event === "push" && run.run_attempt === runAttempt && run.head_sha === context.sha && run.display_title === marker("push", 0, context.sha, context.sha, "-") && ["queued", "in_progress"].includes(run.status) && run.conclusion === null && Array.isArray(run.pull_requests) && (!live || association(run, live));
@@ -249,8 +251,8 @@ jobs:
               // Never filter status/head/base before selection: a newer bad run blocks old success.
               for (const run of runs) {
                 check(coarseRun(run) && run.event === "pull_request" && association(run, live), "unproved_same_branch_run");
-                const prefix = marker("pull_request", live.number, run.head_sha, "BASE", live.base.ref).replace("base=BASE", "base=([a-f0-9]{40})");
-                check(new RegExp("^" + prefix.replace(/\|/g, "\\|") + "$").test(run.display_title), "unproved_run_marker");
+                const prefix = marker("pull_request", live.number, run.head_sha, "BASE", live.base.ref).replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace("base=BASE", "base=([a-f0-9]{40})");
+                check(new RegExp("^" + prefix + "$").test(run.display_title), "unproved_run_marker");
               }
               return runs.reduce((a, b) => a.run_number > b.run_number ? a : b);
             };
