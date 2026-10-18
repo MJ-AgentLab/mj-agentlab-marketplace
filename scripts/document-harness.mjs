@@ -2,14 +2,16 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { spawnSync } from "node:child_process";
+import { pathToFileURL } from "node:url";
 import { parseDocument } from "yaml";
 import { frozenEvidenceResources } from "./frozen-evidence-resources.mjs";
+import { validateIntentInventory, declaresIntent, INTENT_INDEX } from "./intent-harness.mjs";
 
 export const COMPATIBILITY_PATH = "docs/_meta/document-layer-compatibility.json";
 export const COMPATIBILITY_SOURCE = "a2a57d11cfb2a43ccc19bf0c54c44a242a3cc9cd";
 // Pins the reviewed inventory, not a signature or a replacement for PR review.
 export const COMPATIBILITY_SHA256 = "88677eef5e88ed1d3e8592d2f3d0d255d37ee96c64302ca98b509fddf2ba3796";
-const TYPES = new Set(["adr", "guide", "runbook", "spec", "standard", "postmortem", "plan", "report"]);
+const TYPES = new Set(["adr", "guide", "runbook", "spec", "standard", "postmortem", "plan", "report", "intent"]);
 const FIELDS = ["type", "scope", "summary", "owner", "created", "updated", "state", "version"];
 const LOCATORS = ["related", "supersedes", "replaced-by", "plan", "report", "canonical", "sources", "requirements", "acceptance", "implementation", "evidence"];
 const SHA = /^[0-9a-f]{64}$/, COMMIT = /^[0-9a-f]{40}$/;
@@ -62,6 +64,17 @@ function walk(root, relative) {
     return entry.isDirectory() ? walk(root, next) : [next];
   });
 }
+function intentCandidateBytes(root, relative) {
+  const file = documentResource(root, relative);
+  if (/\.md$/i.test(relative) || declaresIntent(relative, "") || relative.startsWith("docs/intent/")) return fs.readFileSync(file);
+  // Every formal file is classified. Only opening frontmatter needs a full
+  // text read, so a renamed .bin original cannot hide among binary evidence.
+  const descriptor = fs.openSync(file, "r"), leading = Buffer.alloc(5);
+  let count;
+  try { count = fs.readSync(descriptor, leading, 0, leading.length, 0); }
+  finally { fs.closeSync(descriptor); }
+  return /^---\r?\n/.test(leading.subarray(0, count).toString("utf8")) ? fs.readFileSync(file) : null;
+}
 function proseLinks(body) {
   const prose = body.replace(/^ {0,3}(`{3,}|~{3,})[^\n]*\n[\s\S]*?^ {0,3}\1\s*$/gm, "").replace(/`[^`\n]+`/g, "");
   return [...prose.matchAll(/\]\(([^)\r\n]+)\)/g)].map(match => match[1]);
@@ -111,6 +124,12 @@ function gitBytes(root, commit, relative) {
 /** Real-byte closure for Agent reading in isolated smoke sources. */
 export function collectNavigationResources(root, seeds, { onEvidence = () => {} } = {}) {
   const pending = [...seeds], collected = new Set();
+  // An isolated projection must retain the whole formal identity collection,
+  // including an unlinked deprecated original, not just the visible index links.
+  for (const relative of walk(root, "docs")) {
+    const bytes = intentCandidateBytes(root, relative);
+    if (relative === INTENT_INDEX || bytes && declaresIntent(relative, bytes.toString("utf8"))) pending.push(relative);
+  }
   while (pending.length) {
     const relative = pending.pop();
     if (collected.has(relative)) continue;
@@ -121,7 +140,8 @@ export function collectNavigationResources(root, seeds, { onEvidence = () => {} 
       pending.push(...walk(root, relative));
       continue;
     }
-    if (/^docs\/(?:archive|_templates)\//.test(relative) || /^\.github\/(?:PULL_REQUEST_TEMPLATE|ISSUE_TEMPLATE)\//.test(relative) || /^plans\/[^/]+\/evidence\/sources\//.test(relative) || relative.startsWith("plan/") || path.posix.basename(relative) === "CHANGELOG.md") continue;
+    const archivedIntent = relative.startsWith("docs/archive/") && declaresIntent(relative, fs.readFileSync(file, "utf8"));
+    if (/^docs\/_templates\//.test(relative) || relative.startsWith("docs/archive/") && !archivedIntent || /^\.github\/(?:PULL_REQUEST_TEMPLATE|ISSUE_TEMPLATE)\//.test(relative) || /^plans\/[^/]+\/evidence\/sources\//.test(relative) || relative.startsWith("plan/") || path.posix.basename(relative) === "CHANGELOG.md") continue;
     if (relative.endsWith(".md")) {
       const text = fs.readFileSync(file, "utf8"), parsed = text.startsWith("---") ? parse(text) : { metadata: {}, body: text };
       for (const target of [...proseLinks(parsed.body), ...locatorValues(parsed.metadata)]) {
@@ -223,13 +243,15 @@ export function validateSourceBindings(root, taskDirectory) {
 }
 
 /** Governed documents only; frozen evidence, archive/templates and native formats retain their contracts. */
-export function validateDocumentation(root) {
+export function validateDocumentation(root, { file } = {}) {
   root = path.resolve(root);
   const errors = [], documents = new Map(), tasks = [];
   const check = (label, run) => { try { return run(); } catch (error) { errors.push(`${label}: ${error.message}`); } };
   const compatibility = check(COMPATIBILITY_PATH, () => validateCompatibility(root));
   const entries = compatibility?.entries ?? new Map();
-  const paths = check("documentation inventory", () => [...walk(root, "docs"), ...walk(root, "plans")]) ?? [];
+  const inventory = check("documentation inventory", () => { documentResource(root, "docs", { allowDirectory: true }); return [...walk(root, "docs"), ...walk(root, "plans")]; });
+  const paths = inventory ?? [];
+  if (file !== undefined) check("requested document", () => { relativePath(file); documentResource(root, file); if (!paths.includes(file)) throw new Error("requested document is outside the formal collection"); });
   const rawSources = new Set();
   for (const relative of paths.filter(relative => /^plans\/[^/]+\/source-bindings\.json$/.test(relative))) check(relative, () => {
     const taskDirectory = path.posix.dirname(relative), bindings = validateSourceBindings(root, taskDirectory);
@@ -238,8 +260,15 @@ export function validateDocumentation(root) {
       if (snapshot) rawSources.add(`${taskDirectory}/${snapshot}`);
     }
   });
+  const contents = new Map();
+  const intentFiles = paths.map(relative => {
+    try { const bytes = intentCandidateBytes(root, relative); if (bytes) contents.set(relative, bytes); return { relative, text: bytes?.toString("utf8") ?? "" }; }
+    catch (error) { return { relative, error }; }
+  });
+  const intents = validateIntentInventory(intentFiles, { complete: inventory !== undefined, excludedSnapshots: rawSources });
+  errors.push(...intents.errors);
   for (const relative of paths.filter(relative => relative.endsWith(".md") && !/^docs\/(?:archive|_templates)\//.test(relative) && !rawSources.has(relative))) check(relative, () => {
-    const bytes = fs.readFileSync(documentResource(root, relative)), text = bytes.toString("utf8");
+    const bytes = contents.get(relative) ?? fs.readFileSync(documentResource(root, relative)), text = bytes.toString("utf8");
     const { metadata, body } = parse(text);
     for (const field of FIELDS) if (!nonempty(metadata[field])) throw new Error(`missing or invalid document field ${field}`);
     if (!TYPES.has(metadata.type)) throw new Error("unsupported document type");
@@ -255,13 +284,26 @@ export function validateDocumentation(root) {
       const parts = relative.split("/");
       if (parts.length !== 3 || !/^(?:[1-9]\d*-)?[a-z0-9]+(?:-[a-z0-9]+)*$/.test(parts[1]) || metadata.layer !== "working" || metadata.task !== parts[1] || !trackingUrl(metadata.tracking)) throw new Error("task document requires plans/<stable-task>/, working layer, matching task and stable tracking URL");
     } else {
-      if (relative !== "docs/INDEX.md" && !/^docs\/(?:rule|adr|spec|guide|runbook|postmortem)\//.test(relative)) throw new Error("document must use a maintained docs domain directory");
+      if (relative !== "docs/INDEX.md" && !/^docs\/(?:rule|adr|spec|guide|runbook|postmortem|intent)\//.test(relative)) throw new Error("document must use a maintained docs domain directory");
       if (metadata.layer === "working" && !nonempty(metadata.purpose)) throw new Error("public/field working document requires purpose and owner");
-      const directory = { standard: "rule", adr: "adr", guide: "guide", runbook: "runbook", spec: "spec", postmortem: "postmortem" }[metadata.type];
-      if (metadata.layer === "canonical" && relative !== "docs/INDEX.md" && !relative.startsWith(`docs/${directory}/`)) throw new Error("canonical document directory must match its maintained domain/type");
+      const directory = { standard: "rule", adr: "adr", guide: "guide", runbook: "runbook", spec: "spec", postmortem: "postmortem", intent: "intent" }[metadata.type];
+      if (metadata.layer === "canonical" && relative !== "docs/INDEX.md" && relative !== INTENT_INDEX && !relative.startsWith(`docs/${directory}/`)) throw new Error("canonical document directory must match its maintained domain/type");
     }
     const targets = [...proseLinks(body), ...locatorValues(metadata)].map(target => localTarget(root, relative, target)).filter(Boolean);
     documents.set(relative, { metadata, body, targets, legacy });
+  });
+  for (const [relative, item] of intents.documents) if (relative.startsWith("docs/archive/")) check(relative, () => {
+    const targets = [...proseLinks(item.body), ...locatorValues(item.metadata)].map(target => localTarget(root, relative, target)).filter(Boolean);
+    documents.set(relative, { ...item, targets, legacy: false });
+  });
+  if (intents.documents.size) check(INTENT_INDEX, () => {
+    const index = documents.get(INTENT_INDEX);
+    if (!index) throw new Error("formal INTENT originals require their guide/canonical INDEX");
+    const registrations = proseLinks(index.body).map(target => localTarget(root, INTENT_INDEX, target)).filter(Boolean);
+    for (const relative of intents.documents.keys()) {
+      const count = registrations.filter(target => target === relative).length;
+      if (count !== 1) throw new Error(`INTENT INDEX must register every formal original exactly once: ${relative} (found ${count})`);
+    }
   });
   const taskNames = new Set(paths.filter(relative => relative.startsWith("plans/")).map(relative => relative.split("/")[1]));
   for (const task of taskNames) check(`plans/${task}`, () => {
@@ -280,7 +322,7 @@ export function validateDocumentation(root) {
     if (!Array.isArray(canonical) || !canonical.length || canonical.some(target => {
       if (!nonempty(target)) return true;
       const resolved = localTarget(root, `${directory}/INDEX.md`, target);
-      return !/^docs\/(?:rule|adr|spec|guide|runbook|postmortem)\/.+\.md$/.test(resolved ?? "") || documents.get(resolved)?.metadata.layer !== "canonical";
+      return !/^docs\/(?:rule|adr|spec|guide|runbook|postmortem|intent)\/.+\.md$/.test(resolved ?? "") || documents.get(resolved)?.metadata.layer !== "canonical";
     })) throw new Error("task INDEX requires validated explicit canonical domain-document navigation");
     if (paths.includes(`${directory}/source-bindings.json`)) {
       if (!nonempty(index.metadata.sources) || localTarget(root, `${directory}/INDEX.md`, index.metadata.sources) !== `${directory}/source-bindings.json`) throw new Error("INDEX sources metadata must identify its source-bindings.json");
@@ -289,5 +331,13 @@ export function validateDocumentation(root) {
     }
     tasks.push({ task, plan: plans[0][0], report: reports[0]?.[0] ?? null });
   });
-  return { ok: errors.length === 0, errors, documents: documents.size, tasks, legacyDocuments: [...documents.values()].filter(document => document.legacy).length };
+  return { ok: errors.length === 0, errors, documents: documents.size, tasks, legacyDocuments: [...documents.values()].filter(document => document.legacy).length, intents: { documents: intents.documents.size, identities: intents.identities, uniqueness: intents.uniqueness }, ...(file === undefined ? {} : { requestedFile: file, validationScope: "complete-formal-collection" }) };
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
+  const args = process.argv.slice(2), root = args[0] && !args[0].startsWith("--") ? args.shift() : path.resolve(import.meta.dirname, "..");
+  if (args.length && (args.length !== 2 || args[0] !== "--file")) throw new Error("expected [repository] [--file relative-document]");
+  const result = validateDocumentation(root, args.length ? { file: args[1] } : {});
+  process.stdout.write(JSON.stringify(result, null, 2) + "\n");
+  process.exitCode = result.ok ? 0 : 1;
 }
