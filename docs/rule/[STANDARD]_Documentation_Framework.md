@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-19
 state: active
-version: v3.0
+version: v3.1
 layer: canonical
 supersedes:
   - ../archive/[DEPRECATED]_[STANDARD]_Documentation_Framework_v2.0.md
@@ -22,12 +22,12 @@ supersedes:
 |---|---|---|
 | `layer: canonical` | 按领域长期维护的唯一正本 | 草稿 SPEC 仍为 canonical，接受另由真实决定表明 |
 | `layer: working` | 任务计划、接受基线、真实决定、实施事实 | REPORT 完成后仍为 working，对应决定和事实保持权威性 |
-| `type` | 用途 | adr、guide、runbook、spec、standard、postmortem、plan、report |
+| `type` | 用途 | adr、guide、runbook、spec、standard、postmortem、intent、plan、report |
 | `state` | 生命周期 | draft、active、deprecated、archived，不代替进度、批准或验证结果 |
 
 新纳入治理的普通文档必需 `type/scope/summary/owner/created/updated/state/version/layer` 九字段，使用合法 YAML。layer 只允许 canonical 或 working。目录约束用途，不能由目录、更新时间或文件名推定接受与否。
 
-正式正本保留于 docs/rule、adr、guide、runbook、spec、postmortem，使用 `[TAG]_<Topic>.md`；PLAN/REPORT 是过程用途。docs/INDEX.md 为保留名导航，亦带九字段。跨任务公共台账、长期问题记录可在所属领域保留 working，必填非空 `purpose` 说明用途/维护范围并由 owner 负责；正式复盘按长期用途维护于 postmortem。不能把整个 docs 树自动判为 canonical。
+正式正本保留于 docs/rule、adr、guide、runbook、spec、postmortem，使用 `[TAG]_<Topic>.md`；独立 intent 位于 docs/intent，按[INTENT 规范](./[STANDARD]_AI_Engineering_Intent.md)使用 `[INTENT]_INT-YYYY-NNN_Topic.md`、十字段（九公共字段加 intent-id）及 canonical。PLAN/REPORT 是过程用途。docs/INDEX.md 与 docs/intent/INDEX.md 为保留名导航，亦带九字段。跨任务公共台账、长期问题记录可在所属领域保留 working，必填非空 `purpose` 说明用途/维护范围并由 owner 负责；正式复盘按长期用途维护于 postmortem。不能把整个 docs 树自动判为 canonical。
 
 根 README、CHANGELOG、CONTRIBUTING、GLOSSARY、AGENTS，SKILL.md、manifest、原始证据及冻结来源遵循各自格式，不追加普通九字段。SKILL.md 必须是严格 YAML。模板在 docs/_templates，创建时替换占位并明确分层。
 
@@ -48,6 +48,8 @@ INDEX 只导航，允许极短进展快照：阶段、关键缺口、下一操�
 ## Main documents and acceptance history
 
 PLAN 保存范围/非目标、原意/接受来源、完整接受基线、顺序/依赖、验证安排、风险/恢复、真实决定和待同步 canonical。REPORT 保存实施事实、逐项验证、独立合成验收、失败恢复、缺口/延期、交付及 Owner 接受依据。
+
+涉及新需求或原意实质修订时先按[INTENT 规范](./[STANDARD]_AI_Engineering_Intent.md)选唯一独立正本或 Issue 原意区，PLAN 链接接受基线并逐项映射工程覆盖；REPORT 分别报告工程交付和原意达成。完整历史接受快照按 source-bindings 恢复，不登记为第二正本；正式 INTENT 退役/归档保留唯一身份。小任务不因此强制新增文件或访谈。
 
 准入评估、过程评估、任务决定、接受基线优先作为主文档有界章节；独立维护/评审/访问隔离需要时才拆分并从入口链接。长期技术决定由 ADR 维护。确认、失败、恢复、重跑和批次追加条目，复用两份主文档。
 

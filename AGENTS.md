@@ -28,7 +28,7 @@ communication-kit 首版按已保存的[完整计划](plan/communication-kit-imp
 
 Agent承担授权技术操作，Owner补必要信息、作实质决定/授权及成品最终接受；五授权边界未变复用。独立合成验收须运行证据，Harness自主修复，严格窗口未答不算答复，延期非通过；核心/全计划/接受分记，权限/不可逆/恢复按[执行规范](docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)。决策给2–3选项及有理由推荐，待答不默认。
 
-按[文档框架](docs/rule/[STANDARD]_Documentation_Framework.md)用canonical/working、九字段及稳定任务INDEX/主PLAN/REPORT；公共working声明purpose/owner，旧文件显式兼容。拆分单Epic/同时一个主PR→受保护develop，多子PR→集成分支，内部Harness后Agent合并，最终保护不bypass；旧合同不追溯套用，冻结来源不动。
+按[文档框架](docs/rule/[STANDARD]_Documentation_Framework.md)用canonical/working、九字段及稳定任务INDEX/主PLAN/REPORT；公共working声明purpose/owner，旧文件显式兼容。新需求/实质修订先读[INTENT规范](docs/rule/[STANDARD]_AI_Engineering_Intent.md)：分层唯一原意、独立INTENT十字段、完整接受基线、稳定身份/全集合校验、逐项工程覆盖；旧接受保界，缺决定仅停依赖。拆分单Epic/同时一个主PR→受保护develop，多子PR→集成分支，内部Harness后Agent合并，最终保护不bypass；旧合同不追溯套用，冻结来源不动。
 
 Harness验文档/来源与封存闭包；镜像补齐依赖，未覆盖项另记。
 

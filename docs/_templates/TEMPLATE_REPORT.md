@@ -20,6 +20,14 @@ tracking: <actual repository Issue/PR URL or stable Codex/ChatGPT task URL>
 
 <State actual core delivery, original-plan completion and Owner final acceptance separately. Link evidence; distinguish failed, deferred, not checked and missing evidence. List impact, next operation, accountable role and resumption condition. The Issue remains the progress original.>
 
+## Original meaning outcome
+
+| Original item / unique original | Accepted complete baseline / scope | Engineering evidence | Original-meaning outcome / gap | Disposition / decision source |
+|---|---|---|---|---|
+| <PLAN coverage link, not a second business definition> | <recoverable version and actual decision> | <actual bounded delivery> | <achieved / partial / deferred / uncovered / unknown> | <responsible person, dependency and next action> |
+
+<Apply [INTENT standard](../rule/[STANDARD]_AI_Engineering_Intent.md). Preserve old acceptance after revisions; distinguish engineering completion from original-meaning achievement. Missing real decisions or strict-window evidence remain missing, and synthetic roles cannot make Owner acceptance.>
+
 ## Implementation and verification ledger
 
 | Actual time / batch | Candidate SHA/tree/resources | Action / reproducible input | Result and evidence | Coverage / gap |
