@@ -1,0 +1,620 @@
+{
+  "schemaVersion": 1,
+  "task": "217-html-guide-kit",
+  "sources": [
+    {
+      "id": "pr1-adr",
+      "kind": "git",
+      "path": "docs/adr/[ADR]_HTML_Guide_Kit_Addition.md",
+      "sha256": "b86974d129a68349dff2988f908b2f01060da30c5ef8ca44aaa7cdcace241058",
+      "purpose": "Restore the original PR1 decision, acceptance contract or historical ledger without rewriting it.",
+      "scope": "Historical HTML PR1 only; this raw source does not replace the maintained canonical or current ledger.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-docs/docs/adr/[ADR]_HTML_Guide_Kit_Addition.md"
+    },
+    {
+      "id": "pr1-spec",
+      "kind": "git",
+      "path": "docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md",
+      "sha256": "4e690529dc0866daa9956411336d980b948e53ee2b73a25cea4dbb075614ea9d",
+      "purpose": "Restore the original PR1 decision, acceptance contract or historical ledger without rewriting it.",
+      "scope": "Historical HTML PR1 only; this raw source does not replace the maintained canonical or current ledger.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-docs/docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md"
+    },
+    {
+      "id": "pr1-runbook",
+      "kind": "git",
+      "path": "docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md",
+      "sha256": "fc849ce1fb8f788370fae78c50242312c0c834e884789f2ea239b1801727da18",
+      "purpose": "Restore the original PR1 decision, acceptance contract or historical ledger without rewriting it.",
+      "scope": "Historical HTML PR1 only; this raw source does not replace the maintained canonical or current ledger.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-docs/docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md"
+    },
+    {
+      "id": "pr1-canonical-install",
+      "kind": "git",
+      "path": "docs/runbook/evidence/html-guide-kit/pr1-canonical-install.json",
+      "sha256": "ab5e8e128554025d32cf1c53cff7882376066f8b3a1566c50736d0f1a2289892",
+      "purpose": "Restore the existing PR1 engineering, failure, synchronization and installation evidence.",
+      "scope": "Original PR1 evidence; no historical tests or scripts are executed or regraded by this pilot.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-docs/docs/runbook/evidence/html-guide-kit/pr1-canonical-install.json"
+    },
+    {
+      "id": "pr1-develop-sync-checks",
+      "kind": "git",
+      "path": "docs/runbook/evidence/html-guide-kit/pr1-develop-sync-checks.json",
+      "sha256": "22f161070ce34bd8987eff2fc867d4f36fba4ea9ac0464d5ec08a1b96fb442fa",
+      "purpose": "Restore the existing PR1 engineering, failure, synchronization and installation evidence.",
+      "scope": "Original PR1 evidence; no historical tests or scripts are executed or regraded by this pilot.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-docs/docs/runbook/evidence/html-guide-kit/pr1-develop-sync-checks.json"
+    },
+    {
+      "id": "pr1-engineering-checks",
+      "kind": "git",
+      "path": "docs/runbook/evidence/html-guide-kit/pr1-engineering-checks.json",
+      "sha256": "3fd1c4fc6813e95e006f8f3beb6b6795360e43b95bd686291add63512264b34a",
+      "purpose": "Restore the existing PR1 engineering, failure, synchronization and installation evidence.",
+      "scope": "Original PR1 evidence; no historical tests or scripts are executed or regraded by this pilot.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-docs/docs/runbook/evidence/html-guide-kit/pr1-engineering-checks.json"
+    },
+    {
+      "id": "pr1-missing-manifest",
+      "kind": "git",
+      "path": "docs/runbook/evidence/html-guide-kit/pr1-missing-manifest.json",
+      "sha256": "8b810a0bfbc8306400546a11851867f3a8aea5bd0524b84b1d5d58dd27e77c52",
+      "purpose": "Restore the existing PR1 engineering, failure, synchronization and installation evidence.",
+      "scope": "Original PR1 evidence; no historical tests or scripts are executed or regraded by this pilot.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-docs/docs/runbook/evidence/html-guide-kit/pr1-missing-manifest.json"
+    },
+    {
+      "id": "pr1-npm-test",
+      "kind": "git",
+      "path": "docs/runbook/evidence/html-guide-kit/pr1-npm-test.log",
+      "sha256": "0aa659f2a7c4561e144a1c3b95122da12c62d82e54fe46e99fad4d4ad757667a",
+      "purpose": "Restore the existing PR1 engineering, failure, synchronization and installation evidence.",
+      "scope": "Original PR1 evidence; no historical tests or scripts are executed or regraded by this pilot.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-docs/docs/runbook/evidence/html-guide-kit/pr1-npm-test.log"
+    },
+    {
+      "id": "pr1-sync-canonical-install",
+      "kind": "git",
+      "path": "docs/runbook/evidence/html-guide-kit/pr1-sync-canonical-install.json",
+      "sha256": "3174dbce2bbd2ca5aa6d21c8b89a554b266a21806825a78d1ff83acf58fda855",
+      "purpose": "Restore the existing PR1 engineering, failure, synchronization and installation evidence.",
+      "scope": "Original PR1 evidence; no historical tests or scripts are executed or regraded by this pilot.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-docs/docs/runbook/evidence/html-guide-kit/pr1-sync-canonical-install.json"
+    },
+    {
+      "id": "pr1-sync-npm-test",
+      "kind": "git",
+      "path": "docs/runbook/evidence/html-guide-kit/pr1-sync-npm-test.log",
+      "sha256": "4a619b0cfcffd772ca3c006dae3923cf17aeddd3d58dfcfe1e3c2affbe5a8a9c",
+      "purpose": "Restore the existing PR1 engineering, failure, synchronization and installation evidence.",
+      "scope": "Original PR1 evidence; no historical tests or scripts are executed or regraded by this pilot.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-docs/docs/runbook/evidence/html-guide-kit/pr1-sync-npm-test.log"
+    },
+    {
+      "id": "pr1-working-install",
+      "kind": "git",
+      "path": "docs/runbook/evidence/html-guide-kit/pr1-working-install.json",
+      "sha256": "1118038008f6100d6f33b216a07261589aefabb965a6913f36d732b470e4ffb4",
+      "purpose": "Restore the existing PR1 engineering, failure, synchronization and installation evidence.",
+      "scope": "Original PR1 evidence; no historical tests or scripts are executed or regraded by this pilot.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-docs/docs/runbook/evidence/html-guide-kit/pr1-working-install.json"
+    },
+    {
+      "id": "pr1-post-merge-install",
+      "kind": "git",
+      "path": "docs/runbook/evidence/html-guide-kit/pr1-post-merge-install.json",
+      "sha256": "f18e967770d3632c201d28d300073cd461ef0bb9db7c99c773a9c79f1a20bc74",
+      "purpose": "Restore the actual PR1 post-merge installation receipt added after the PR1 merge.",
+      "scope": "Historical receipt from fixed 4992d751; not a new installation or current-version acceptance.",
+      "commit": "4992d751d3a9e66a22c95a95ff08a351e75331a4",
+      "snapshot": "evidence/sources/pr1-docs/docs/runbook/evidence/html-guide-kit/pr1-post-merge-install.json"
+    },
+    {
+      "id": "pr1-runtime-001",
+      "kind": "git",
+      "path": "plugins/diagram-kit/assets/icon.png",
+      "sha256": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/diagram-kit/assets/icon.png"
+    },
+    {
+      "id": "pr1-runtime-002",
+      "kind": "git",
+      "path": "plugins/diagram-kit/assets/icon.svg",
+      "sha256": "3621f1b52e0de9df39caa40f6e73d64bf4fed0bcfcc5584ad1c5cac051920c20",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/diagram-kit/assets/icon.svg"
+    },
+    {
+      "id": "pr1-runtime-003",
+      "kind": "git",
+      "path": "plugins/diagram-kit/plugin.json",
+      "sha256": "73187e59a99b5a292efd23cf288cecbe5d67110c767044c01f8e76ecbc5162c1",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/diagram-kit/plugin.json"
+    },
+    {
+      "id": "pr1-runtime-004",
+      "kind": "git",
+      "path": "plugins/diagram-kit/skills/arch-diagram/SKILL.md",
+      "sha256": "a4e1e1fd80d43c6d1772f68adb04b52973a24880eadf1bd63fd089cd534a78ae",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/diagram-kit/skills/arch-diagram/SKILL.md"
+    },
+    {
+      "id": "pr1-runtime-005",
+      "kind": "git",
+      "path": "plugins/diagram-kit/skills/arch-diagram/agents/openai.yaml",
+      "sha256": "a6b082a82c5f8eb0096664d6ef52ce5a82c266e57032b97528df095797cd7829",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/diagram-kit/skills/arch-diagram/agents/openai.yaml"
+    },
+    {
+      "id": "pr1-runtime-006",
+      "kind": "git",
+      "path": "plugins/diagram-kit/skills/arch-diagram/references/architecture-methodology.md",
+      "sha256": "c266abc0bcb34cf376ad2f1ffebb8def0d3e8e71793a365555477fde4e5a4d20",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/diagram-kit/skills/arch-diagram/references/architecture-methodology.md"
+    },
+    {
+      "id": "pr1-runtime-007",
+      "kind": "git",
+      "path": "plugins/diagram-kit/skills/arch-diagram/references/code-diagram.md",
+      "sha256": "1cc0e05f9901ef44073cec7c689a974b8756304ccc1cb648378f20c4e54e492d",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/diagram-kit/skills/arch-diagram/references/code-diagram.md"
+    },
+    {
+      "id": "pr1-runtime-008",
+      "kind": "git",
+      "path": "plugins/diagram-kit/skills/arch-diagram/references/component-diagram.md",
+      "sha256": "cd672d0fbf43de49746c87334469e3c699ed68494f3953784ba7891c25568db8",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/diagram-kit/skills/arch-diagram/references/component-diagram.md"
+    },
+    {
+      "id": "pr1-runtime-009",
+      "kind": "git",
+      "path": "plugins/diagram-kit/skills/arch-diagram/references/container-diagram.md",
+      "sha256": "955c6cd83257230bfd33f2508c336405c9c684146ada659aa4c5009984b1aa2f",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/diagram-kit/skills/arch-diagram/references/container-diagram.md"
+    },
+    {
+      "id": "pr1-runtime-010",
+      "kind": "git",
+      "path": "plugins/diagram-kit/skills/arch-diagram/references/context-diagram.md",
+      "sha256": "47c6b8c5019e562895667e397c3981eaba6ca6044aa6464bbdb79c077586d820",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/diagram-kit/skills/arch-diagram/references/context-diagram.md"
+    },
+    {
+      "id": "pr1-runtime-011",
+      "kind": "git",
+      "path": "plugins/diagram-kit/skills/arch-diagram/references/deployment-diagram.md",
+      "sha256": "d6c2afc4e5bdad86676ef90140e12bed6ebeb9c5e2cb5a6e63c4bd5f11d0a9f8",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/diagram-kit/skills/arch-diagram/references/deployment-diagram.md"
+    },
+    {
+      "id": "pr1-runtime-012",
+      "kind": "git",
+      "path": "plugins/diagram-kit/skills/arch-diagram/references/domain-acquisition.md",
+      "sha256": "c9c6e7459dff7eefafac1c46669f2406a1d71a2863ba28ac0372f42eedd738f7",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/diagram-kit/skills/arch-diagram/references/domain-acquisition.md"
+    },
+    {
+      "id": "pr1-runtime-013",
+      "kind": "git",
+      "path": "plugins/diagram-kit/skills/arch-diagram/references/sequence-diagram.md",
+      "sha256": "609a21ac46845a5b51f0919c988ad05ce189505f72534a6ddc18a76d461e1086",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/diagram-kit/skills/arch-diagram/references/sequence-diagram.md"
+    },
+    {
+      "id": "pr1-runtime-014",
+      "kind": "git",
+      "path": "plugins/diagram-kit/skills/arch-diagram/references/state-machine-diagram.md",
+      "sha256": "c6c34f88fc00c3f3f02f43db86bd369997ef1661c21e16d759978d027853cf12",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/diagram-kit/skills/arch-diagram/references/state-machine-diagram.md"
+    },
+    {
+      "id": "pr1-runtime-015",
+      "kind": "git",
+      "path": "plugins/diagram-kit/skills/arch-diagram/scripts/validate_diagram.py",
+      "sha256": "bf8d0d0adbba1b248d03d450cce30866284b55c7cabdcf86c1ad9490a96303fd",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/diagram-kit/skills/arch-diagram/scripts/validate_diagram.py"
+    },
+    {
+      "id": "pr1-runtime-016",
+      "kind": "git",
+      "path": "plugins/explain-kit/assets/icon.png",
+      "sha256": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/explain-kit/assets/icon.png"
+    },
+    {
+      "id": "pr1-runtime-017",
+      "kind": "git",
+      "path": "plugins/explain-kit/assets/icon.svg",
+      "sha256": "93f3a0e7527111cf8d05d62510d72d9f4ddfd343de8af003a5aadf58b5eb0bb1",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/explain-kit/assets/icon.svg"
+    },
+    {
+      "id": "pr1-runtime-018",
+      "kind": "git",
+      "path": "plugins/explain-kit/plugin.json",
+      "sha256": "a946b7c7fe8c2fe69c87c0cd41884b7a3276d60986db1beb6ec6b60a9f212433",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/explain-kit/plugin.json"
+    },
+    {
+      "id": "pr1-runtime-019",
+      "kind": "git",
+      "path": "plugins/explain-kit/skills/concept/SKILL.md",
+      "sha256": "ec06e33b193c93c788c21e76f6d37fb579079857fdfe92f206706f7aa521dce0",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/explain-kit/skills/concept/SKILL.md"
+    },
+    {
+      "id": "pr1-runtime-020",
+      "kind": "git",
+      "path": "plugins/explain-kit/skills/concept/agents/openai.yaml",
+      "sha256": "64de6a795e0c4ee00e817ff6e07e65fdfd031e40ce486be930818ec446c94bc7",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/explain-kit/skills/concept/agents/openai.yaml"
+    },
+    {
+      "id": "pr1-runtime-021",
+      "kind": "git",
+      "path": "plugins/explain-kit/skills/glossary/SKILL.md",
+      "sha256": "3e6eef42db04b78f49c47fbd2c558f31acef41e5b8b5c63d25c484c95ab4ba85",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/explain-kit/skills/glossary/SKILL.md"
+    },
+    {
+      "id": "pr1-runtime-022",
+      "kind": "git",
+      "path": "plugins/explain-kit/skills/glossary/agents/openai.yaml",
+      "sha256": "1e25f20c2c85922a227b4c028ce671d4634679055bafa4830f06646805c7d7c1",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/explain-kit/skills/glossary/agents/openai.yaml"
+    },
+    {
+      "id": "pr1-runtime-023",
+      "kind": "git",
+      "path": "plugins/understanding-kit/assets/icon.png",
+      "sha256": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/understanding-kit/assets/icon.png"
+    },
+    {
+      "id": "pr1-runtime-024",
+      "kind": "git",
+      "path": "plugins/understanding-kit/assets/icon.svg",
+      "sha256": "b84c94cebb4a183fcad3f75abd9e7c2da66dc97b486d19fb84c46d22d6dc715e",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/understanding-kit/assets/icon.svg"
+    },
+    {
+      "id": "pr1-runtime-025",
+      "kind": "git",
+      "path": "plugins/understanding-kit/plugin.json",
+      "sha256": "e5fe1b128035914e662d33582ca841dc490c33390eeade1ae7fb29559614424a",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/understanding-kit/plugin.json"
+    },
+    {
+      "id": "pr1-runtime-026",
+      "kind": "git",
+      "path": "plugins/understanding-kit/skills/pop-quiz/SKILL.md",
+      "sha256": "d34fe62a326e1260a149d9c64dd16aae8115a3e284eb965d455f4890afa900fa",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/understanding-kit/skills/pop-quiz/SKILL.md"
+    },
+    {
+      "id": "pr1-runtime-027",
+      "kind": "git",
+      "path": "plugins/understanding-kit/skills/pop-quiz/agents/openai.yaml",
+      "sha256": "3ad6b185b91a4d1e252506a3502647a4a7e35eee5ea8bcb54f60bbf0321222dd",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/understanding-kit/skills/pop-quiz/agents/openai.yaml"
+    },
+    {
+      "id": "pr1-runtime-028",
+      "kind": "git",
+      "path": "plugins/understanding-kit/skills/pop-quiz/evals/README.md",
+      "sha256": "571d98236bf36460a0cacf72fd0adb920616a44530a8865e9f34d18ddec64364",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/understanding-kit/skills/pop-quiz/evals/README.md"
+    },
+    {
+      "id": "pr1-runtime-029",
+      "kind": "git",
+      "path": "plugins/understanding-kit/skills/pop-quiz/evals/cases.json",
+      "sha256": "d9a58d694eca6fd46a4a67637884c5591b613b4cdfb87d27baf1addeba0a5953",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/understanding-kit/skills/pop-quiz/evals/cases.json"
+    },
+    {
+      "id": "pr1-runtime-030",
+      "kind": "git",
+      "path": "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/conflicting-requirements.md",
+      "sha256": "dfa9aab07b77ce6cbd9316aa280d98e25891072abd0343dd66dff7efd8d7698c",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/understanding-kit/skills/pop-quiz/evals/fixtures/conflicting-requirements.md"
+    },
+    {
+      "id": "pr1-runtime-031",
+      "kind": "git",
+      "path": "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/owner-evidence.md",
+      "sha256": "a27dd18ee2a75d9f44232e2e3b191f4debcebdce11f232a22645974031fc1664",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/understanding-kit/skills/pop-quiz/evals/fixtures/owner-evidence.md"
+    },
+    {
+      "id": "pr1-runtime-032",
+      "kind": "git",
+      "path": "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/report-r1.md",
+      "sha256": "a06fbd00d5b3ce233d96fa80fbf2ae46f565ff39a63dba7dce72f26ee3b5df5f",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/understanding-kit/skills/pop-quiz/evals/fixtures/report-r1.md"
+    },
+    {
+      "id": "pr1-runtime-033",
+      "kind": "git",
+      "path": "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/report-r2.md",
+      "sha256": "184ae8776ff3fc21f17b3794438909929d01a6881e8f566f6c6962249cc8fd5c",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/understanding-kit/skills/pop-quiz/evals/fixtures/report-r2.md"
+    },
+    {
+      "id": "pr1-runtime-034",
+      "kind": "git",
+      "path": "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/security-review.md",
+      "sha256": "635bd4f64de37f78ae88c8bfa019feb742ecac8bf1063a3845014956b106505c",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/understanding-kit/skills/pop-quiz/evals/fixtures/security-review.md"
+    },
+    {
+      "id": "pr1-runtime-035",
+      "kind": "git",
+      "path": "plugins/understanding-kit/skills/pop-quiz/evals/fixtures/untrusted-note.md",
+      "sha256": "c993196e61bdb3ce16fb37a33a0db025ce242ad80ea71b7ad0dd2c05ff4c19a7",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/understanding-kit/skills/pop-quiz/evals/fixtures/untrusted-note.md"
+    },
+    {
+      "id": "pr1-runtime-036",
+      "kind": "git",
+      "path": "plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-cases-01-05.md",
+      "sha256": "90ea22fd472e1f8dc25f86034a8409713d269a8058c4400e53194815fc3f42fe",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-cases-01-05.md"
+    },
+    {
+      "id": "pr1-runtime-037",
+      "kind": "git",
+      "path": "plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-cases-06-09-11.md",
+      "sha256": "1cc8d717c945e0413e63d5a8227c88533bc90b5f42e701659946c3d1276a7e06",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-cases-06-09-11.md"
+    },
+    {
+      "id": "pr1-runtime-038",
+      "kind": "git",
+      "path": "plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-cases-10-12.md",
+      "sha256": "22022456096538efe4ef0b1961d006560ed05d57f509bb25285570690b3a706f",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-cases-10-12.md"
+    },
+    {
+      "id": "pr1-runtime-039",
+      "kind": "git",
+      "path": "plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-forward-sample.md",
+      "sha256": "e309c46feb813c29034ce66a76b0de0b10f9ca2e579695bb789dc27df5ca6d04",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-forward-sample.md"
+    },
+    {
+      "id": "pr1-runtime-040",
+      "kind": "git",
+      "path": "plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-post-merge-matrix.md",
+      "sha256": "120c234ae66e6dbcd6f27ead0d5a8cff3171675dc0f7c4658187bd737d288868",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/understanding-kit/skills/pop-quiz/evals/results/2026-10-09-post-merge-matrix.md"
+    },
+    {
+      "id": "pr1-runtime-041",
+      "kind": "git",
+      "path": "plugins/understanding-kit/skills/pop-quiz/evals/rubric.md",
+      "sha256": "bfc0b9589743147b10238ffb1904d9dec460adc5456d8b4af652ad1ae68d5403",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/understanding-kit/skills/pop-quiz/evals/rubric.md"
+    },
+    {
+      "id": "pr1-runtime-042",
+      "kind": "git",
+      "path": "plugins/understanding-kit/skills/pop-quiz/references/ku-selection.md",
+      "sha256": "d441c4795d3199c5ef19722940746bb19d4cb0bba61b2810a959abdf0b8891e8",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/understanding-kit/skills/pop-quiz/references/ku-selection.md"
+    },
+    {
+      "id": "pr1-runtime-043",
+      "kind": "git",
+      "path": "plugins/understanding-kit/skills/pop-quiz/references/quiz-policy.md",
+      "sha256": "96a7a3ccb8acc1656a231ea5814d388ffcb044d3bd79a02c9a49309b97136536",
+      "purpose": "Recover one original PR1 runtime resource at its original path.",
+      "scope": "One of the declared 43 historical resources; Understanding names remain original and are not renamed to Learning Evidence.",
+      "commit": "70267a5b91d759af09a8f1281a33e2d5a90fdbc9",
+      "snapshot": "evidence/sources/pr1-runtime/plugins/understanding-kit/skills/pop-quiz/references/quiz-policy.md"
+    },
+    {
+      "id": "current-html-manifest",
+      "kind": "git",
+      "path": "plugins/html-guide-kit/plugin.json",
+      "sha256": "f638d34e56101e5aad0a8126fde2860c47965751068c5bc8f2236ee1510fdaca",
+      "purpose": "Distinguish the present HTML plugin version and entry contract from the historical PR1 runtime set.",
+      "scope": "Current at pilot base 3bcd091 only; no plugin content changed or runtime acceptance inferred.",
+      "commit": "3bcd091f5acf9a353763dc68b3df63f40bf42c05",
+      "snapshot": "evidence/sources/current/plugins/html-guide-kit/plugin.json"
+    },
+    {
+      "id": "current-issue-217",
+      "kind": "snapshot",
+      "path": "evidence/sources/github/current-issue-217.json",
+      "sha256": "ce05501d6f5ef6ef4ae54c6ac05583802e0b3670947022ca2aa4e515b75f7420",
+      "purpose": "Preserve a real read-only GitHub observation for the pilot reading and handoff context.",
+      "scope": "Observation only at the captured time; closed issue, merge or CI does not imply independent approval, complete UI acceptance or Owner final acceptance.",
+      "original": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/issues/217"
+    },
+    {
+      "id": "current-issue-218",
+      "kind": "snapshot",
+      "path": "evidence/sources/github/current-issue-218.json",
+      "sha256": "f31ca09359fe22b2b830c2ed34f19d4222e62c94fd0d7321df5d966d6f2b6af8",
+      "purpose": "Preserve a real read-only GitHub observation for the pilot reading and handoff context.",
+      "scope": "Observation only at the captured time; closed issue, merge or CI does not imply independent approval, complete UI acceptance or Owner final acceptance.",
+      "original": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/issues/218"
+    },
+    {
+      "id": "current-issue-239",
+      "kind": "snapshot",
+      "path": "evidence/sources/github/current-issue-239.json",
+      "sha256": "62fbe648b5da985126c8b3c61d6ed2a97d041708df493e91566e9e22fcb30532",
+      "purpose": "Preserve a real read-only GitHub observation for the pilot reading and handoff context.",
+      "scope": "Observation only at the captured time; closed issue, merge or CI does not imply independent approval, complete UI acceptance or Owner final acceptance.",
+      "original": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/issues/239"
+    },
+    {
+      "id": "current-pr-221",
+      "kind": "snapshot",
+      "path": "evidence/sources/github/current-pr-221.json",
+      "sha256": "dce734918473f0e3b332ce1910d596b7277c78ac267ae4a150cf0ec8b9b18647",
+      "purpose": "Preserve a real read-only GitHub observation for the pilot reading and handoff context.",
+      "scope": "Observation only at the captured time; closed issue, merge or CI does not imply independent approval, complete UI acceptance or Owner final acceptance.",
+      "original": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/pulls/221"
+    },
+    {
+      "id": "current-pr-221-reviews",
+      "kind": "snapshot",
+      "path": "evidence/sources/github/current-pr-221-reviews.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "purpose": "Preserve a real read-only GitHub observation for the pilot reading and handoff context.",
+      "scope": "Observation only at the captured time; closed issue, merge or CI does not imply independent approval, complete UI acceptance or Owner final acceptance.",
+      "original": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/pulls/221/reviews?per_page=100"
+    },
+    {
+      "id": "current-github-observation-times",
+      "kind": "snapshot",
+      "path": "evidence/sources/github/capture-receipt.json",
+      "sha256": "000a2bb877565f6e283db7bb7c6cf212da4123d765caebc80f94d08f91d1b619",
+      "purpose": "Record actual API capture times, read-only methods, identities and raw-body digests.",
+      "scope": "This pilot observation batch only; GitHub response updated_at is separate from capture time.",
+      "original": "Agent read-only gh api GET observations recorded in this receipt."
+    }
+  ]
+}

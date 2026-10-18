@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-19
 state: active
-version: v2.92
+version: v2.93
 layer: canonical
 ---
 
@@ -17,6 +17,7 @@ layer: canonical
 [任务入口 #257](../plans/257-task-documentation/INDEX.md)导航本次规范、模板、技能/Harness 适配与 HTML PR1 有界试行；[Epic #257](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257)为进度正本。新任务按[分层与交付 ADR](adr/[ADR]_Task_Documentation_Layers_And_Delivery.md)、[文档框架](rule/[STANDARD]_Documentation_Framework.md)和[执行规范](rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)使用 canonical/working 两层、九字段、稳定任务目录与主 PLAN/REPORT。草稿正本和完成过程材料保持各自层次；旧文档仅按[显式兼容范围](_meta/document-layer-compatibility.json)渐进接入，不能推定全量完成。
 
 - [TASK INDEX 模板](_templates/TEMPLATE_TASK_INDEX.md)、[PLAN 模板](_templates/TEMPLATE_PLAN.md)、[REPORT 模板](_templates/TEMPLATE_REPORT.md)
+- [HTML 任务入口 #217](../plans/217-html-guide-kit/INDEX.md)：仅限定 PR1 历史交付链的有界试行，区分原合同、当时证据和当前 #239 交接；不追认历史缺证或恢复产品复测。
 - 历史 [Documentation Framework v2.0](archive/[DEPRECATED]_[STANDARD]_Documentation_Framework_v2.0.md)、[AI Execution v2.1](archive/[DEPRECATED]_[STANDARD]_AI_Engineering_Execution_HITL_Prompt_v2.1.md)与[Git 来源账本](archive/history-sources.json)
 
 下方历史阶段保持原范围和事实；任务完成不触发再次搬迁。

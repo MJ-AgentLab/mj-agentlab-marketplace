@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "kind": "actual Harness delivery and preserved validation evidence",
+  "recordedAt": "2026-10-18T16:55:20.522Z",
+  "pr": {
+    "headRefOid": "7431013173c67e4c7fd8a07aea92f9a59bfc8411",
+    "mergeCommit": {
+      "oid": "3bcd091f5acf9a353763dc68b3df63f40bf42c05"
+    },
+    "mergedAt": "2026-10-18T16:52:16Z",
+    "number": 260,
+    "state": "MERGED",
+    "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/260"
+  },
+  "mergeTree": "c4212405c98d5f29a66bb4344bbd7caca0dc1d58",
+  "headTree": "c4212405c98d5f29a66bb4344bbd7caca0dc1d58",
+  "sameTree": true,
+  "bypassUsed": false,
+  "logs": [
+    {
+      "original": "task-docs-B-fixed-tests.log",
+      "path": "harness-fixed-tests.log",
+      "bytes": 122655,
+      "sha256": "4c44c0f4f6caf6b66d3e3f82ed2ca0594fa913b9f46bd19d755d7cc097f07054"
+    },
+    {
+      "original": "task-docs-B-fixed-smoke.log",
+      "path": "harness-fixed-smoke.log",
+      "bytes": 324246,
+      "sha256": "76ef7c5e161befe8411d4a88ef3d667c71ad3fdccf6fb66b855fe6a95024ce57"
+    },
+    {
+      "original": "task-docs-B-fixed-receipt.json",
+      "path": "harness-fixed-receipt.json",
+      "bytes": 19657,
+      "sha256": "d354c7080c283e7c88e65f26e724c1cfea406acaba7432c3d1d6857d5bfbe6c0"
+    },
+    {
+      "original": "task-docs-B-fixed-navigation.json",
+      "path": "harness-fixed-navigation.json",
+      "bytes": 44159,
+      "sha256": "6a3a244eae9ce26c7aec902d303b1a09cee6cdb388f15c92a0fc739c151fbff7"
+    },
+    {
+      "original": "task-docs-B-pr2-checkout-restoration.json",
+      "path": "harness-pr2-checkout-restoration.json",
+      "bytes": 11072,
+      "sha256": "97c3c6b11fd4d49cf055648c393bf280276bfc1788724e4f49bcb7a40b3d7b75"
+    },
+    {
+      "original": "task-docs-B-preflight.json",
+      "path": "harness-pr-preflight.json",
+      "bytes": 5713,
+      "sha256": "d574a6152d0a058583d71fcda9f7f04f4c0d9b4b475cbde8d2c66164dfd9376f"
+    },
+    {
+      "original": "task-docs-B-final-tests.log",
+      "path": "harness-before-review-fixes-tests.log",
+      "bytes": 120521,
+      "sha256": "6cb1afaad98e8ef56879aa5da18eb60ab4fb16c1214381897f26e36d74474f2c"
+    },
+    {
+      "original": "task-docs-B-scope-lifecycle.log",
+      "path": "harness-scope-lifecycle.log",
+      "bytes": 5997,
+      "sha256": "8131b4c7017949edd8fd69987e99a3c4e01a3e0302965cb48eec5255177fb1ae"
+    }
+  ],
+  "tests": {
+    "tests": 528,
+    "pass": 528,
+    "fail": 0,
+    "skipped": 0,
+    "environment": {
+      "REQUIRE_PYTHON": "1",
+      "REQUIRE_PWSH": "1"
+    }
+  },
+  "installation": {
+    "scenarios": 13,
+    "actualDiagramPythonRuns": 6,
+    "actualLearningEvidencePythonRuns": 18,
+    "codex": "0.147.0",
+    "python": "3.12.13"
+  },
+  "independentAgentReview": {
+    "agent": "/root/dependency_scan",
+    "head": "7431013173c67e4c7fd8a07aea92f9a59bfc8411",
+    "result": "four P2 findings closed; no further blockers",
+    "githubApproval": false
+  },
+  "coverage": {
+    "knownIndexes": 110,
+    "navigationFiles": 3446,
+    "navigationBytes": 491666152,
+    "aggregateInventoryDigest": "NOT_RECOMPUTED",
+    "historicalSemantics": "NOT_REASSESSED",
+    "externalOriginalPaths": "NOT_READ",
+    "ownerFinalAcceptance": "NOT_PROVIDED"
+  }
+}

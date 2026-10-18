@@ -2,6 +2,19 @@
 # Task source snapshots retain the exact bytes checked by source-bindings.json.
 plans/*/evidence/sources/** -text
 plans/*/evidence/*.log -text whitespace=cr-at-eol
+plans/257-task-documentation/evidence/harness-*.json -text whitespace=cr-at-eol
+plans/217-html-guide-kit/source-bindings.json -text
+plans/217-html-guide-kit/evidence/pr1-resource-verification*.json -text
+plans/217-html-guide-kit/evidence/verify-pr1-sources.mjs text eol=lf
+plans/217-html-guide-kit/evidence/reading/** -text whitespace=cr-at-eol
+plans/217-html-guide-kit/evidence/reading/*-response.txt whitespace=-blank-at-eol,cr-at-eol
+plans/217-html-guide-kit/evidence/sources/reading-candidate/parent-INDEX.md whitespace=-blank-at-eof
+plans/257-task-documentation/evidence/pilot-*.json -text
+# These fixed historical originals contain Markdown hard breaks / indented blanks.
+plans/217-html-guide-kit/evidence/sources/pr1-runtime/plugins/diagram-kit/skills/arch-diagram/references/architecture-methodology.md whitespace=-blank-at-eol
+plans/217-html-guide-kit/evidence/sources/pr1-runtime/plugins/understanding-kit/skills/pop-quiz/evals/results/*.md whitespace=-blank-at-eol
+plans/257-task-documentation/evidence/pilot-first-whitespace.log whitespace=-blank-at-eol,cr-at-eol
+plans/257-task-documentation/evidence/pilot-records-whitespace.log whitespace=-blank-at-eol,cr-at-eol
 # The reviewed legacy inventory has an exact content digest in the document Harness.
 docs/_meta/document-layer-compatibility.json -text
 plan/communication-kit-implementation-plan.md -text whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

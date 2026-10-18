@@ -7,7 +7,7 @@ owner: marketplace-maintainers
 created: 2026-10-18
 updated: 2026-10-19
 state: active
-version: v1.1
+version: v1.3
 task: 257-task-documentation
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 ---
@@ -16,7 +16,7 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 
 ## 结果与缺口
 
-规范/模板/技能子 PR #259 已实际合入任务集成分支；Harness 尚在独立审查修复，HTML试行未开始。主 PR #258 尚未合入受保护 develop。Owner 已接受设计与实施范围，未作成品最终接受。技术交付、整个计划完成及最终接受分开。
+规范/模板/技能 #259 与 Harness #260 已实际合入任务集成分支，HTML PR1 来源核对和三角色阅读试行已通过，试行子PR的集成门禁尚待完成。主 PR #258 尚未合入受保护 develop。Owner 已接受设计与实施范围，未作成品最终接受。技术交付、整个计划完成及最终接受分开。
 
 ## R1 — 基线与权限核查（2026-10-18）
 
@@ -42,7 +42,33 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 - 独立审查cc5b4fd发现四项P2：同目录tracking一致性、INDEX必须plan/report/sources元绑定、Git commit字符串类型、既有封存index声明的packet闭包。修复中，不能将前述初轮通过包装成完整合同/资源通过。
 - A/B均通过后才开始HTML PR1映射和独立合成阅读；目前未开始。Owner最终接受仍未提供。
 
+## R4 — Harness 修复与实际交付（2026-10-19）
+
+- cc5b4fd 的四项P2已修复并独立复核到最终固定 head `7431013173c67e4c7fd8a07aea92f9a59bfc8411`。同目录tracking、INDEX的plan/report/sources显式绑定、commit/digest字符串类型，以及已知封存索引完整packet/原件对应均有实质反例；不让任意JSON原始绝对定位转成资源读取。
+- 修复前组合测试519/519仅代表当时覆盖，保留[原日志](./evidence/harness-before-review-fixes-tests.log)。生命周期故障反例改用明确合成小源，真实完整资源复制及逐字节断言仍在；[23项生命周期日志](./evidence/harness-scope-lifecycle.log)保留，不虚称性能提升。
+- 固定743的完整测试528/528、0skip（强制Python/PWSH），[原日志](./evidence/harness-fixed-tests.log)；同head validate、Codex0.147.0基线及6项提交校验通过。13实际隔离安装全部成功，缓存Python实执行6次Diagram+18次Learning Evidence，解释器3.12.13，见[安装原日志](./evidence/harness-fixed-smoke.log)与[原执行回执](./evidence/harness-fixed-receipt.json)。
+- [真实导航闭包](./evidence/harness-fixed-navigation.json)3446普通文件、491666152字节、110个已知索引，逐项检查已有封存声明资源；历史聚合摘要序列化仍NOT_RECOMPUTED，历史等级/模型/客户端语义NOT_REASSESSED，外部原始绝对路径NOT_READ。
+- Windows旧checkout的PR2 public packet曾与其原声明字节不符；逐项核对原Git blob后，以精确-text声明恢复24个公开文件的原字节，[恢复审计](./evidence/harness-pr2-checkout-restoration.json)保留。历史Git bundle零diff，未改原JSON/hash或普遍归一化。
+- [#260](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/260)当前head A6/Validate与双平台CI实际成功，无未解决线程，内部branch实际无rules；经独立Agent审查后正常合并，未要求额外内部GitHub批准、未bypass。actual merge `3bcd091f5acf9a353763dc68b3df63f40bf42c05`与已测743同tree `c4212405c98d5f29a66bb4344bbd7caca0dc1d58`。见[前置实读](./evidence/harness-pr-preflight.json)与[交付/哈希映射](./evidence/harness-delivery.json)。
+- A/B上述必要门禁通过并实际集成后，才从3bcd091派生HTML PR1试行。运行插件、版本、README badge与既有冻结计划保持；内部交付不代替主PR保护门禁或Owner接受。
+
 ## 后续记录
+
+## R5 — HTML PR1 来源候选与阅读准备（2026-10-19）
+
+- 从实际B合入3bcd091建立独立子分支，复用原Epic#217的[稳定入口](../217-html-guide-kit/INDEX.md)、主PLAN及主REPORT；本次执行仍由#257跟踪。只给HTML ADR/SPEC增加layer/维护元数据，正文不变；原混合RUNBOOK和全部旧封存保持原位置。
+- PR1固定12份历史文档/证据和43运行资源，另绑定当前manifest及当批平台原响应。初轮62项来源后，独立审读修复校验脚本硬编码身份及Git故障泛化fallback，并按初轮摘要恢复其脚本/清单，合计64来源；先后实际回执和修复边界见[HTML REPORT](../217-html-guide-kit/[REPORT]_HTML_Guide_Kit.md)。未执行旧脚本或恢复HTML产品验收。
+- 首轮git whitespace检查失败，原固定快照含Markdown硬换行/缩进空行，PR2恢复审计含CRLF；[原输出](./evidence/pilot-first-whitespace.log)保留。仅对确切历史原件/原始日志声明所需whitespace属性，未改字节/hash，普通文档检查保留；随后实际检查通过。
+- 阅读角色按事先固定的问题/评分独立执行，不能将文件校验或43资源核对替代阅读验收。本段候选冻结时尚未运行角色，结果后续追加，不先标PASS。
+
+## R6 — HTML 实际阅读与候选工程检查（2026-10-19）
+
+- 固定`601ff07a6840653e57687e93fe856c79475de4a0`上三fresh独立角色各四题均满足实际结论/出处/版本边界，每题2分，通过限定阅读与交接；精确模型身份unknown。起止时钟、实际Agent/输入/完整输出和评分均见[HTML REPORT P2](../217-html-guide-kit/[REPORT]_HTML_Guide_Kit.md)及其原始记录，不替代真人体验测量、产品验收或Owner接受。
+- 角色指出长JSON截断、原账本与补交合入记录分散、多段历史“当前”的定位困难；通过REPORT的直接来源表、当批快照和版本边界完成交接。只对实际访问路径称无断链，不称全库语义阅读通过。
+- 后续誊录带实际CRLF/Markdown换行，首次纳入whitespace检查失败；[原检查输出](./evidence/pilot-records-whitespace.log)保留。精确限定原始阅读记录/日志属性后检查通过，誊录原字节及其已记录摘要不变。
+- 该固定候选强制Python/PWSH完整测试528/528、0skip、exit0，见[原日志](./evidence/pilot-full-tests.log)与[实际时间/候选/摘要回执](./evidence/pilot-test-receipt.json)。原计数提取模式未识别TAP行，回执明确记原空结果及后按实际TAP摘要提取，日志未改。
+- 独立代码审查601ff07无阻断，实际当前verifier/validate通过；HTML ADR/SPEC正文精确未变，运行、版本、原账本/封存零diff。阅读后再固定7项实际读本原件，具名来源共71，重新逐项校验通过；校验器仅将历史文档集合限定为pr1来源，防止读本恢复来源混进12项历史计数。
+- 主PR/当前内部子PR的线上实际候选检查、实际合并及Owner最终接受分别继续记录。新任务达到持续维护需要时按机制启用；旧任务仅实质修订/选中迁移，后续另起迁移范围由Owner决定，本批不扩为全库搬迁。
 
 继续复用本 REPORT；按来源版本与批次追加，原失败/缺证保留。
 
