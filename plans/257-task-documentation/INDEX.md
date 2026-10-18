@@ -7,7 +7,7 @@ owner: marketplace-maintainers
 created: 2026-10-18
 updated: 2026-10-19
 state: active
-version: v1.5
+version: v1.6
 task: 257-task-documentation
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 plan: "./[PLAN]_Task_Documentation.md"
@@ -31,5 +31,5 @@ canonical:
 
 ## 进展快照
 
-2026-10-19，来源为上述 Epic 合并后更新：#258 已合入 develop，实际合并版本的 528 项测试、13 种隔离安装及缓存 Python 通过。保护批准缺证保留；下一步由 Agent 提交收尾记录，Owner 决定额外旧任务迁移范围并独立作成品接受。推广提案与逐项事实见主 REPORT R8–R9。快照过期或冲突时以主 Issue 为准。
+2026-10-19，来源为上述 Epic 合并后更新：#258 已合入 develop，实际合并版本的 528 项测试、13 种隔离安装及缓存 Python 通过。保护批准缺证保留；Owner 已选 A：按需推广，暂不增加专项历史迁移。下一步由 Agent 完成收尾 PR 门禁；Owner 成品最终接受独立待提供。推广提案与逐项事实见主 REPORT R8–R9。快照过期或冲突时以主 Issue 为准。
 

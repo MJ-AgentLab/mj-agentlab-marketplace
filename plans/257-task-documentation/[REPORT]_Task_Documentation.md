@@ -7,7 +7,7 @@ owner: marketplace-maintainers
 created: 2026-10-18
 updated: 2026-10-19
 state: active
-version: v1.5
+version: v1.6
 task: 257-task-documentation
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 ---
@@ -16,7 +16,7 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 
 ## 结果与缺口
 
-#258 已实际合入 develop，合并树与已测 head 一致；实际合并版本的新全量测试、严格校验及隔离安装通过。规则执行记录为 bypass，真实非作者批准 NOT_MET，不能记作保护门禁全部通过。规范/模板/技能/Harness 与 HTML PR1 有界试行已交付；后续迁移范围决定及 Owner 成品最终接受仍待来源，整个计划未包装为全部完成。
+#258 已实际合入 develop，合并树与已测 head 一致；实际合并版本的新全量测试、严格校验及隔离安装通过。规则执行记录为 bypass，真实非作者批准 NOT_MET，不能记作保护门禁全部通过。规范/模板/技能/Harness 与 HTML PR1 有界试行已交付；Owner 已选择按需推广 A；成品最终接受仍待来源，整个计划未包装为全部完成。
 
 ## R1 — 基线与权限核查（2026-10-18）
 
@@ -89,9 +89,9 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 - [持久证据映射与结论](./evidence/main-postmerge.json)核对原始日志/响应字节与摘要，原回执的 Temp 定位由该相对路径映射恢复。收尾拼装首轮命令因模板引用语法错误在执行前停止，拆成原件复制与文档补丁后重试；不是工程验证失败。对原 base a2a57d1 的 plugins、VERSION、README、assets、plan、docs/runbook 及登记文件 diff 为空；B1 原 PLAN/来源绑定不改，旧失败/封存不动。原 D 盘工作树 HEAD98068a8 与三处用户改动仍保持。
 - 本批仅收尾记录，复用 Epic #257 与稳定目录；小型记录 PR 作为下一活动主 PR，原 #258 已结束。新 PR 仍走实际 develop 检查/批准/线程门禁；已发生的历史缺口保留，整个计划与 Owner 接受分别待完成。无额外发布或版本转换。
 
-## R9 — 试行后的推广提案（待 Owner 决定）
+## R9 — 试行后的推广提案与 Owner 决定 A
 
-新任务达到跨会话、多 PR、正式交接或独立验收需要时按现行规范启用，轻量修改继续复用 Issue/PR。旧文档实质修订时审定 layer 已属接受范围；兼容清单保留原 53 项来源，当前 5 项显式接入、48 项仍兼容，不能称全库迁移完成。额外专项历史迁移按 B1 第9项交 Owner 决定，Q11 已提出，尚未收到明确答复。
+新任务达到跨会话、多 PR、正式交接或独立验收需要时按现行规范启用，轻量修改继续复用 Issue/PR。旧文档实质修订时审定 layer 已属接受范围；兼容清单保留原 53 项来源，当前 5 项显式接入、48 项仍兼容，不能称全库迁移完成。额外专项历史迁移按 B1 第9项交 Owner 决定；现已明确选择“A｜按需推广，暂不增加专项迁移（推荐）”，完整来源见[PLAN D1](./[PLAN]_Task_Documentation.md)与[Q11 捕获](./evidence/sources/owner-rollout-decision-q11.json)。R8 原回执中的 PENDING_OWNER 保留当时状态，本决定只接续推广范围，不补记历史批准或成品接受。下表保留当时全部选项，B/C 未选。
 
 | 选项 | 后续明确范围 | 收益、限制与成本 |
 |---|---|---|

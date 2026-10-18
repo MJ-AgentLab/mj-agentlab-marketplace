@@ -30,7 +30,7 @@ Agent承担授权技术操作，Owner补必要信息、作实质决定/授权及
 
 按[文档框架](docs/rule/[STANDARD]_Documentation_Framework.md)用canonical/working、九字段及稳定任务INDEX/主PLAN/REPORT；公共working声明purpose/owner，旧文件显式兼容。拆分单Epic/同时一个主PR→受保护develop，多子PR→集成分支，内部Harness后Agent合并，最终保护不bypass；旧合同不追溯套用，冻结来源不动。
 
-Harness验文档/来源与封存闭包；镜像补齐依赖，未覆盖项另记。#258实际合入与复验、批准缺口和推广待决见[任务REPORT](plans/257-task-documentation/[REPORT]_Task_Documentation.md)。
+Harness验文档/来源与封存闭包；镜像补齐依赖，未覆盖项另记。#258实际合入与复验、批准缺口和推广决定见[任务REPORT](plans/257-task-documentation/[REPORT]_Task_Documentation.md)。
 
 ## 开发流程
 
