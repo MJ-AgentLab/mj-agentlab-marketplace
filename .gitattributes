@@ -2,6 +2,8 @@
 # Task source snapshots retain the exact bytes checked by source-bindings.json.
 plans/*/evidence/sources/** -text
 plans/*/evidence/*.log -text whitespace=cr-at-eol
+# The reviewed legacy inventory has an exact content digest in the document Harness.
+docs/_meta/document-layer-compatibility.json -text
 plan/communication-kit-implementation-plan.md -text whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # Frozen runtime references retain exactly the bytes covered by the snapshot hashes.
 plugins/communication-kit/skills/communicate/references/* -text

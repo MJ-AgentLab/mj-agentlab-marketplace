@@ -7,6 +7,7 @@ created: <YYYY-MM-DD>
 updated: <YYYY-MM-DD>
 state: active
 version: v1.0
+layer: canonical
 # severity: P0 | P1 | P2 | P3   # optional but recommended
 # incident-date: <YYYY-MM-DD>   # when incident occurred
 # resolved-at: <YYYY-MM-DDTHH:MM:SSZ>   # ISO 8601 timestamp
