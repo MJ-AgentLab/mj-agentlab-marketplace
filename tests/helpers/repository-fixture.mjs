@@ -1,7 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 import { measureSync } from "../../scripts/perf-metrics.mjs";
 import { validateRepository, RUNTIME_PLUGINS, REPOSITORY_SKILLS, SKILL_RESOURCES } from "../../scripts/validate-portable.mjs";
+import { COMPATIBILITY_PATH } from "../../scripts/document-harness.mjs";
 
 export const SYNTHETIC_DOCUMENTS = Object.freeze([
   "docs/adr/[ADR]_Communication_Kit_Addition.md",
@@ -21,6 +23,7 @@ export const SYNTHETIC_DOCUMENTS = Object.freeze([
   "docs/spec/[SPEC]_Communication_Communicate.md",
   "docs/spec/[SPEC]_Learning_Evidence_Record_And_API.md",
 ]);
+export const SYNTHETIC_TASK_DOCUMENTS = Object.freeze(["plans/321-fixture/INDEX.md", "plans/321-fixture/[PLAN]_Fixture.md", "plans/321-fixture/[REPORT]_Fixture.md", "plans/321-fixture/source-bindings.json", "plans/321-fixture/evidence/sources/original.txt"]);
 export const BRAND_BASE_FILES = Object.freeze([
   "assets/brand/tokens.json",
   "assets/brand/exports.json",
@@ -36,8 +39,8 @@ export const PYTHON_CACHE_ROOTS = Object.freeze([
 ]);
 export const FIXTURE_MANIFEST = Object.freeze({
   schemaVersion: 1,
-  realTrees: Object.freeze(["plugins", ".agents"]),
-  realFiles: Object.freeze(["VERSION", ".gitattributes"]),
+  realTrees: Object.freeze(["plugins", ".agents", "plan", "docs/_templates"]),
+  realFiles: Object.freeze(["VERSION", ".gitattributes", COMPATIBILITY_PATH]),
   syntheticRootDocuments: Object.freeze(["AGENTS.md", "README.md", "CONTRIBUTING.md", "GLOSSARY.md"]),
   syntheticDocuments: SYNTHETIC_DOCUMENTS,
   emptyDirectories: Object.freeze(["scripts"]),
@@ -126,7 +129,11 @@ function syntheticDocuments(version) {
     ["GLOSSARY.md", "# Synthetic glossary fixture\n\nGenerated temporary fixture; not release evidence.\n"],
   ]);
   const types = { adr: "adr", guide: "guide", rule: "standard", runbook: "runbook", spec: "spec" };
-  for (const relative of SYNTHETIC_DOCUMENTS) roots.set(relative, `---\ntype: ${types[relative.split("/")[1]]}\nscope: test-fixture\nsummary: "Synthetic link target for isolated repository contract tests"\nowner: test-fixture\ncreated: 2000-01-01\nupdated: 2000-01-01\nstate: active\nversion: v0.0\n---\n\n# Synthetic repository fixture\n\nGenerated temporary fixture for ${relative}. This contains no historical evidence.\n`);
+  for (const relative of SYNTHETIC_DOCUMENTS) roots.set(relative, `---\ntype: ${types[relative.split("/")[1]]}\nlayer: canonical\nscope: test-fixture\nsummary: "Synthetic link target for isolated repository contract tests"\nowner: test-fixture\ncreated: 2000-01-01\nupdated: 2000-01-01\nstate: active\nversion: v0.0\n---\n\n# Synthetic repository fixture\n\nGenerated temporary fixture for ${relative}. This contains no historical evidence.\n`);
+  for (const [index, relative] of SYNTHETIC_TASK_DOCUMENTS.slice(0, 3).entries()) roots.set(relative, `---\ntype: ${["guide", "plan", "report"][index]}\nlayer: working\nscope: test-fixture\nsummary: "Synthetic task navigation for isolated repository tests"\nowner: test-fixture\ncreated: 2000-01-01\nupdated: 2000-01-01\nstate: active\nversion: v0.0\ntask: 321-fixture\ntracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257\n${index === 0 ? 'plan: "./[PLAN]_Fixture.md"\nreport: "./[REPORT]_Fixture.md"\ncanonical:\n  - "../../docs/adr/[ADR]_Task_Documentation_Layers_And_Delivery.md"\nsources: "./source-bindings.json"\n' : ""}---\n\n# Synthetic task fixture\n\nGenerated temporary task fixture; not acceptance evidence.\n`);
+  const original = "Synthetic frozen source bytes\r\nNot acceptance evidence.\r\n";
+  roots.set(SYNTHETIC_TASK_DOCUMENTS[4], original);
+  roots.set(SYNTHETIC_TASK_DOCUMENTS[3], JSON.stringify({ schemaVersion: 1, task: "321-fixture", sources: [{ id: "synthetic-source", kind: "snapshot", path: "evidence/sources/original.txt", original: "synthetic fixture input", sha256: crypto.createHash("sha256").update(original).digest("hex"), purpose: "Synthetic source binding contract", scope: "Isolated automated tests only" }] }, null, 2) + "\n");
   return roots;
 }
 

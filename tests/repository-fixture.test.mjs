@@ -5,7 +5,7 @@ import os from "node:os";
 import path from "node:path";
 import crypto from "node:crypto";
 import { spawnSync } from "node:child_process";
-import { populateRepositoryFixture, reportRepositoryFixture, FIXTURE_MANIFEST, SYNTHETIC_DOCUMENTS, PYTHON_CACHE_ROOTS } from "./helpers/repository-fixture.mjs";
+import { populateRepositoryFixture, reportRepositoryFixture, FIXTURE_MANIFEST, SYNTHETIC_DOCUMENTS, SYNTHETIC_TASK_DOCUMENTS, PYTHON_CACHE_ROOTS } from "./helpers/repository-fixture.mjs";
 import { validateRepository } from "../scripts/validate-portable.mjs";
 
 const REPO = path.resolve(import.meta.dirname, ".."), suite = "repository-fixture-boundary";
@@ -35,7 +35,7 @@ const inventory = root => files(root).map(relative => [relative, fs.statSync(pat
 
 test("minimal repository fixture preserves real bytes and reports generated and total bytes accurately", t => {
   const summary = build(temporary(t), "fixture"), all = inventory(summary.root);
-  const synthetic = new Set([...FIXTURE_MANIFEST.syntheticRootDocuments, ...SYNTHETIC_DOCUMENTS]);
+  const synthetic = new Set([...FIXTURE_MANIFEST.syntheticRootDocuments, ...SYNTHETIC_DOCUMENTS, ...SYNTHETIC_TASK_DOCUMENTS]);
   const actualBytes = all.reduce((total, [, bytes]) => total + bytes, 0);
   assert.equal(summary.sourceRoot, fs.realpathSync.native(REPO));
   assert.equal(summary.fixtureTotalBytes, actualBytes);
@@ -50,10 +50,12 @@ test("minimal repository fixture preserves real bytes and reports generated and 
   }
   const result = validateRepository(summary.root);
   assert.equal(result.ok, true, result.errors.join("\n"));
-  for (const relative of ["docs/runbook/evidence", "plan", ".github", ".codex", "tests", "package.json", "package-lock.json"]) assert.equal(fs.existsSync(path.join(summary.root, relative)), false, relative);
+  for (const relative of ["docs/runbook/evidence", ".github", ".codex", "tests", "package.json", "package-lock.json"]) assert.equal(fs.existsSync(path.join(summary.root, relative)), false, relative);
   assert.deepEqual(fs.readdirSync(path.join(summary.root, "scripts")), []);
   assert.equal(files(path.join(summary.root, "assets")).length, 44);
-  assert.deepEqual(files(path.join(summary.root, "docs")).map(relative => `docs/${relative}`), [...SYNTHETIC_DOCUMENTS].sort());
+  assert.deepEqual(files(path.join(summary.root, "docs")).map(relative => `docs/${relative}`), [...SYNTHETIC_DOCUMENTS, ...files(path.join(REPO, "docs/_templates")).map(relative => `docs/_templates/${relative}`), "docs/_meta/document-layer-compatibility.json"].sort());
+  assert.ok(fs.existsSync(path.join(summary.root, "plan/communication-kit-implementation-plan.md")));
+  for (const relative of SYNTHETIC_TASK_DOCUMENTS) assert.ok(fs.existsSync(path.join(summary.root, relative)), relative);
 });
 
 test("fixture copies remain independent and ignore historical or unrelated source documents", t => {

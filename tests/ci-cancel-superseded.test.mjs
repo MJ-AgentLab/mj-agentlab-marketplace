@@ -52,7 +52,7 @@ const cancelled = s => s.calls.filter(([op]) => op === "cancel").map(([, input])
 
 test("the read-only dedup wrapper preserves the independent cancel job and complete merged CI", () => {
   assert.equal(workflow.name, "CI — Validate Plugin Structure");
-  assert.equal(hash(JSON.stringify(workflow.on)), "cdd55fa680a07d98cd103c5b193ad9fd3c7e0c4dff66bafcb0b2f14e80f36e98");
+  assert.equal(hash(JSON.stringify(workflow.on)), "fbfd5fce8bbf8dee3a155c68735b005fd8358e4384884b5b361c506765331e68");
   assert.equal(hash(JSON.stringify(workflow.jobs.validate)), "8173b3512724ea21c81ed5607656be141a0d72f520a3854708b047da010eaa12");
   const { needs, if: matrixIf, ...completeMatrix } = workflow.jobs["codex-compat"];
   assert.equal(hash(JSON.stringify(completeMatrix)), "fff03f9a2af52569280023e4c4c827ac841b5418de1ae755ee990ed07ab5d77d");
@@ -68,6 +68,21 @@ test("the read-only dedup wrapper preserves the independent cancel job and compl
   assert.equal(script.includes("${{"), false); assert.doesNotMatch(script, /checkout|forceCancelWorkflowRun|import\(/);
   const expression = value => "$" + "{{ " + value + " }}";
   assert.equal(workflow["run-name"], `ci-v1|event=${expression("github.event_name")}|pr=${expression("github.event.pull_request.number || 0")}|repo=${expression("github.repository_id")}|headrepo=${expression("github.event.pull_request.head.repo.id || github.repository_id")}|head=${expression("github.event.pull_request.head.sha || github.sha")}|baserepo=${expression("github.event.pull_request.base.repo.id || github.repository_id")}|base=${expression("github.event.pull_request.base.sha || github.sha")}|target=${expression("github.event.pull_request.base.ref || '-'")}`);
+});
+
+test("internal integration targets retain exact same-PR superseded-run proofs and fork isolation", async () => {
+  const target = "codex/task.documentation/batch-1", old = run(100, 19, A), current = run();
+  for (const candidate of [old, current]) candidate.display_title = candidate.display_title.replace("target=develop", `target=${target}`);
+  const s = scenario({ current, candidates: [old] });
+  s.live.base.ref = target; s.context.payload.pull_request.base.ref = target;
+  await s.execute(); assert.deepEqual(cancelled(s), [100]);
+  const fork = scenario({ current, candidates: [old] });
+  fork.live.base.ref = target; fork.context.payload.pull_request.base.ref = target;
+  fork.context.payload.pull_request.head.repo.id = 2;
+  await fork.execute(); assert.deepEqual(cancelled(fork), []);
+  const mismatch = scenario({ current, candidates: [{ ...old, display_title: old.display_title.replace("task.documentation", "taskXdocumentation") }] });
+  mismatch.live.base.ref = target; mismatch.context.payload.pull_request.base.ref = target;
+  await mismatch.execute(); assert.deepEqual(cancelled(mismatch), []);
 });
 
 test("only older obsolete same-PR queued/in-progress targets receive requests", async () => {
