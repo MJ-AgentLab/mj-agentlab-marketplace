@@ -7,7 +7,7 @@ owner: marketplace-maintainers
 created: 2026-10-18
 updated: 2026-10-19
 state: active
-version: v1.4
+version: v1.5
 task: 257-task-documentation
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 ---
@@ -16,7 +16,7 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 
 ## 结果与缺口
 
-规范/模板/技能#259、Harness#260和HTML PR1试行#261均已实际正常合入任务集成分支；限定来源/阅读与各阶段工程检查通过。主PR#258尚未合入受保护develop，最新检查/批准以其当前head与主Issue为正本。Owner已接受设计与实施范围，未作成品最终接受。技术交付、整个计划完成及最终接受分开。
+#258 已实际合入 develop，合并树与已测 head 一致；实际合并版本的新全量测试、严格校验及隔离安装通过。规则执行记录为 bypass，真实非作者批准 NOT_MET，不能记作保护门禁全部通过。规范/模板/技能/Harness 与 HTML PR1 有界试行已交付；后续迁移范围决定及 Owner 成品最终接受仍待来源，整个计划未包装为全部完成。
 
 ## R1 — 基线与权限核查（2026-10-18）
 
@@ -77,6 +77,29 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 - [合入前实读](./evidence/pilot-pr-preflight.json)确认当前head/base、候选合并tree、内部protected=false/空rules与零未解决线程。独立增量审查及整体Standards/Spec两轴均无阻断，均非GitHub批准。actual merge`ded7cbad44a989b3c2c96f5b528b55d3f3dc8452`与已审16c同tree`feb7480737c7d680ecf814e92d109537ec4f632b`，正常内部合并无bypass；见[交付回执](./evidence/pilot-delivery.json)。
 - 集成worktree原Windows checkout按同24个公开封存Git blob恢复原字节，[恢复记录](./evidence/integration-checkout-restoration.json)保留。首次读取大packet因默认缓冲上限失败，调至32MiB后24文件逐项核对，重试恢复19项；首轮前缀未单独持久计数，未补造。HEAD/index/raw三方一致，刷新stat后工作区干净，历史Git内容零diff。
 - 受保护路径对原base的插件/版本/登记/README/品牌/旧计划/旧RUNBOOK证据diff为空。最终记录提交只追加上述事实和证据，当前主PR检查、真实非作者批准及线程须重新按实际head核查；本REPORT不复制实时进度表。无正式发布、规则变更或保护绕过，Epic保持开放等待实际最终交付/接受。
+
+## R8 — 主 PR 实际合并与新复验（2026-10-19）
+
+- Owner 续办原话为“PR 258 已经合并，继续后续工作”。实际 [#258](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/258) 于 UTC 2026-10-18T17:48:46Z（本地 2026-10-19 01:48:46）合入 develop，merge `1212514f2cd3588fbcef4f407e6f5e7269e4093e`，与已测 head `287101f4bb419bd5a76cfe8702c80b6e6df69c9c` 同 tree `fcc8a122ae7d25707e31ab147f6ac9a5d6323ee4`。
+- [精确规则审计](./evidence/main-merge-audit-summary.json)匹配 before a2a57d1 / after 1212514 的 suite 4588022220：result=bypass，pull_request 批准规则 fail，required_status_checks pass；reviews=[]、threads=0。API 账号为 ranzuozhou，只证明账号身份。R1–R7 保留当时内部执行与合入前状态；本条补记之后实际发生的主 PR 合入。真实批准 NOT_MET，不推定 Owner 例外授权、未来豁免或成品接受。
+- 已测 287101f 的[最终双平台 CI](./evidence/main-ci-evidence.json)原件补充持久保存：[Linux](./evidence/main-ci-ubuntu.log) 528 总计/527pass/1skip，[Windows](./evidence/main-ci-windows.log) 528pass/0skip；各 13 种实际安装、6Diagram+18LEK 缓存 Python。唯一 skip 为 Windows 专属大小写用例，并已在 Windows 通过；这批 CI 不是 actual merge 的新执行。
+- 从真实 origin/develop 1212514 复用独立工作树，切到 codex/task-docs-closeout 后保持干净执行。新[完整测试](./evidence/main-postmerge-tests.json)绑定 actual merge，528/528、0skip、exit0，原始输出见[测试日志](./evidence/main-postmerge-tests.log)。强制 REQUIRE_PYTHON/REQUIRE_PWSH，Node22.18.0；执行前后 head/tree/状态均核对。
+- 同一 actual merge 的[基线/严格校验/隔离安装紧凑回执](./evidence/main-postmerge-smoke-receipt.json)三命令 exit0；Codex0.147.0、13 种实际隔离场景、170 命令无非零退出，6Diagram+18LEK 缓存 Python 实执行，本机 Python3.12.13。原始[安装日志](./evidence/main-postmerge-smoke-codex.log)、[完整结果](./evidence/main-postmerge-smoke-result.json)、[导航闭包](./evidence/main-postmerge-navigation.json)分别保留；不替代历史模型、客户端、原生窗口、效果或真人阅读验收。
+- 镜像完整并集为 3639 普通文件/497407043 字节/4025 条目；导航 3571 路径含 3570 普通文件、496418860 字节和 1 目录，110 已知索引。[导航子集口径](./evidence/main-postmerge-navigation-subset.json)随后从原逐文件清单在自有 Temp 精确重建提取，hash 均匹配并清理；不是新安装试验。历史聚合摘要未重算，语义未重判；与 R7 比较须使用导航普通文件子集口径。
+- [持久证据映射与结论](./evidence/main-postmerge.json)核对原始日志/响应字节与摘要，原回执的 Temp 定位由该相对路径映射恢复。收尾拼装首轮命令因模板引用语法错误在执行前停止，拆成原件复制与文档补丁后重试；不是工程验证失败。对原 base a2a57d1 的 plugins、VERSION、README、assets、plan、docs/runbook 及登记文件 diff 为空；B1 原 PLAN/来源绑定不改，旧失败/封存不动。原 D 盘工作树 HEAD98068a8 与三处用户改动仍保持。
+- 本批仅收尾记录，复用 Epic #257 与稳定目录；小型记录 PR 作为下一活动主 PR，原 #258 已结束。新 PR 仍走实际 develop 检查/批准/线程门禁；已发生的历史缺口保留，整个计划与 Owner 接受分别待完成。无额外发布或版本转换。
+
+## R9 — 试行后的推广提案（待 Owner 决定）
+
+新任务达到跨会话、多 PR、正式交接或独立验收需要时按现行规范启用，轻量修改继续复用 Issue/PR。旧文档实质修订时审定 layer 已属接受范围；兼容清单保留原 53 项来源，当前 5 项显式接入、48 项仍兼容，不能称全库迁移完成。额外专项历史迁移按 B1 第9项交 Owner 决定，Q11 已提出，尚未收到明确答复。
+
+| 选项 | 后续明确范围 | 收益、限制与成本 |
+|---|---|---|
+| A（推荐）按需推广 | 暂不增加专项历史迁移；新任务按规范、旧任务在实质修订或明确选中时接入 | 复用已验证机制与 HTML 样例，在真实工作中控制材料维护成本 |
+| B 限定 Explain 初始接入 | 只映射 #196 初始交付链，必要时引用 #198；正本与原 RUNBOOK 留原处 | 材料较小，可检验无主 Issue 路径；先盘点真实原件，缺证保留 |
+| C 限定 Learning Evidence 交接 | 仅 Epic #209 的核心交付/发布收尾及延期入口，原模型轮次留原处 | 开放任务交接收益较大；跨发布/恢复/来源复杂，维护成本最高 |
+
+B/C 选择仅决定文档整理范围，不恢复产品开发、发布或改写当年 PR 拓扑。获准后在本 Epic/PLAN 追加新批接受与来源，迁移对象保留原任务身份；同时一个活动主 PR。三角色试行支持限定定位与交接，长 JSON、混合账本多个“当前”和后补合入记录分散仍是阅读限制，没有真人耗时或整体效率结论。成品最终接受与本题分别记录。
 
 ## 后续记录
 

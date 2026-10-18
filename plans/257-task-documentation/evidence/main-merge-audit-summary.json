@@ -1,0 +1,279 @@
+{
+  "schema": "task-documentation-post-merge-audit/v1",
+  "auditedAt": "2026-10-18T17:52:32.433Z",
+  "repository": "MJ-AgentLab/mj-agentlab-marketplace",
+  "pullRequest": 258,
+  "merge": {
+    "actual": true,
+    "sha": "1212514f2cd3588fbcef4f407e6f5e7269e4093e",
+    "head": "287101f4bb419bd5a76cfe8702c80b6e6df69c9c",
+    "base": "a2a57d11cfb2a43ccc19bf0c54c44a242a3cc9cd",
+    "mergedAt": "2026-10-18T17:48:46Z",
+    "mergedBy": "ranzuozhou",
+    "author": "ranzuozhou",
+    "tree": "fcc8a122ae7d25707e31ab147f6ac9a5d6323ee4",
+    "headTree": "fcc8a122ae7d25707e31ab147f6ac9a5d6323ee4",
+    "sameTree": true,
+    "parents": [
+      "a2a57d11cfb2a43ccc19bf0c54c44a242a3cc9cd",
+      "287101f4bb419bd5a76cfe8702c80b6e6df69c9c"
+    ]
+  },
+  "review": {
+    "count": 0,
+    "currentReviewDecision": "REVIEW_REQUIRED",
+    "threadsTotal": 0,
+    "threadsHasNextPage": false
+  },
+  "protection": {
+    "currentBranchProtected": true,
+    "currentBranchSha": "1212514f2cd3588fbcef4f407e6f5e7269e4093e",
+    "currentRulesetId": 14008221,
+    "currentRulesetActive": true,
+    "matchingSuiteId": 4588022220,
+    "suiteBefore": "a2a57d11cfb2a43ccc19bf0c54c44a242a3cc9cd",
+    "suiteAfter": "1212514f2cd3588fbcef4f407e6f5e7269e4093e",
+    "suiteActor": "ranzuozhou",
+    "suitePushedAt": "2026-10-19T01:48:46+08:00",
+    "suiteResult": "bypass",
+    "evaluations": [
+      {
+        "type": "pull_request",
+        "enforcement": "active",
+        "result": "fail",
+        "details": "New changes require approval from someone other than the last pusher."
+      },
+      {
+        "type": "non_fast_forward",
+        "enforcement": "active",
+        "result": "pass",
+        "details": null
+      },
+      {
+        "type": "required_status_checks",
+        "enforcement": "active",
+        "result": "pass",
+        "details": null
+      },
+      {
+        "type": "deletion",
+        "enforcement": "active",
+        "result": "pass",
+        "details": null
+      }
+    ]
+  },
+  "headChecks": {
+    "total": 12,
+    "checks": [
+      {
+        "id": 117744104922,
+        "name": "A6 / Check",
+        "status": "completed",
+        "conclusion": "success",
+        "headSha": "287101f4bb419bd5a76cfe8702c80b6e6df69c9c",
+        "startedAt": "2026-10-18T17:43:22Z",
+        "completedAt": "2026-10-18T17:43:34Z",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39150881748/job/117744104922"
+      },
+      {
+        "id": 117741361458,
+        "name": "A6 / Check",
+        "status": "completed",
+        "conclusion": "success",
+        "headSha": "287101f4bb419bd5a76cfe8702c80b6e6df69c9c",
+        "startedAt": "2026-10-18T17:31:12Z",
+        "completedAt": "2026-10-18T17:31:24Z",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39149953183/job/117741361458"
+      },
+      {
+        "id": 117741012942,
+        "name": "Baseline compat (${{ matrix.os }})",
+        "status": "completed",
+        "conclusion": "skipped",
+        "headSha": "287101f4bb419bd5a76cfe8702c80b6e6df69c9c",
+        "startedAt": "2026-10-18T17:29:40Z",
+        "completedAt": "2026-10-18T17:29:40Z",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39149813920/job/117741012942"
+      },
+      {
+        "id": 117740975646,
+        "name": "Prove equivalent PR matrix for this push (read only)",
+        "status": "completed",
+        "conclusion": "skipped",
+        "headSha": "287101f4bb419bd5a76cfe8702c80b6e6df69c9c",
+        "startedAt": "2026-10-18T17:29:30Z",
+        "completedAt": "2026-10-18T17:29:29Z",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39149817241/job/117740975646"
+      },
+      {
+        "id": 117740975093,
+        "name": "Baseline compat (ubuntu-latest)",
+        "status": "completed",
+        "conclusion": "success",
+        "headSha": "287101f4bb419bd5a76cfe8702c80b6e6df69c9c",
+        "startedAt": "2026-10-18T17:29:32Z",
+        "completedAt": "2026-10-18T17:32:56Z",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39149817241/job/117740975093"
+      },
+      {
+        "id": 117740974947,
+        "name": "Validate Structure",
+        "status": "completed",
+        "conclusion": "success",
+        "headSha": "287101f4bb419bd5a76cfe8702c80b6e6df69c9c",
+        "startedAt": "2026-10-18T17:29:32Z",
+        "completedAt": "2026-10-18T17:29:44Z",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39149817241/job/117740974947"
+      },
+      {
+        "id": 117740974946,
+        "name": "Baseline compat (windows-latest)",
+        "status": "completed",
+        "conclusion": "success",
+        "headSha": "287101f4bb419bd5a76cfe8702c80b6e6df69c9c",
+        "startedAt": "2026-10-18T17:29:32Z",
+        "completedAt": "2026-10-18T17:40:50Z",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39149817241/job/117740974946"
+      },
+      {
+        "id": 117740974897,
+        "name": "A6 / Check",
+        "status": "completed",
+        "conclusion": "success",
+        "headSha": "287101f4bb419bd5a76cfe8702c80b6e6df69c9c",
+        "startedAt": "2026-10-18T17:29:33Z",
+        "completedAt": "2026-10-18T17:29:43Z",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39149817245/job/117740974897"
+      },
+      {
+        "id": 117740974793,
+        "name": "Cancel proved superseded PR runs (best effort)",
+        "status": "completed",
+        "conclusion": "success",
+        "headSha": "287101f4bb419bd5a76cfe8702c80b6e6df69c9c",
+        "startedAt": "2026-10-18T17:29:32Z",
+        "completedAt": "2026-10-18T17:29:41Z",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39149817241/job/117740974793"
+      },
+      {
+        "id": 117740965615,
+        "name": "Cancel proved superseded PR runs (best effort)",
+        "status": "completed",
+        "conclusion": "skipped",
+        "headSha": "287101f4bb419bd5a76cfe8702c80b6e6df69c9c",
+        "startedAt": "2026-10-18T17:29:27Z",
+        "completedAt": "2026-10-18T17:29:26Z",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39149813920/job/117740965615"
+      },
+      {
+        "id": 117740964454,
+        "name": "Validate Structure",
+        "status": "completed",
+        "conclusion": "success",
+        "headSha": "287101f4bb419bd5a76cfe8702c80b6e6df69c9c",
+        "startedAt": "2026-10-18T17:29:29Z",
+        "completedAt": "2026-10-18T17:29:46Z",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39149813920/job/117740964454"
+      },
+      {
+        "id": 117740964254,
+        "name": "Prove equivalent PR matrix for this push (read only)",
+        "status": "completed",
+        "conclusion": "success",
+        "headSha": "287101f4bb419bd5a76cfe8702c80b6e6df69c9c",
+        "startedAt": "2026-10-18T17:29:29Z",
+        "completedAt": "2026-10-18T17:29:39Z",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39149813920/job/117740964254"
+      }
+    ]
+  },
+  "actualMergeChecks": {
+    "total": 0,
+    "checks": []
+  },
+  "limitations": [
+    "GitHub actor identifies the authenticated account, not whether a human or an automated client issued the merge.",
+    "Observed bypass does not demonstrate an Owner exception authorization, does not grant future bypass, and is not Owner final acceptance.",
+    "No non-author approval exists in the full current reviews response; synthetic independent reviews do not substitute for that missing GitHub evidence.",
+    "Ruleset endpoint snapshots describe current configuration; matching suite independently records the actual merge evaluation.",
+    "This audit is read-only API verification; functional post-merge execution is outside this agent audit."
+  ],
+  "evidence": [
+    {
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-merge-audit-branch.json",
+      "bytes": 5486,
+      "sha256": "9f85ed233b6c7a1e305015a88bd6a65e2212cd8676067c97766a962bcb7ce1a9"
+    },
+    {
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-merge-audit-checks.json",
+      "bytes": 37724,
+      "sha256": "a424b65a1062c6ba5edef74432c3599c08cf684b439416b46e3227047988e511"
+    },
+    {
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-merge-audit-headcommit.json",
+      "bytes": 53389,
+      "sha256": "f3e3fcf8332f98f1f0fa2158602a0320eae3d166de1003bc271d13c93afa83eb"
+    },
+    {
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-merge-audit-mergechecks.json",
+      "bytes": 33,
+      "sha256": "e83cfac35507982a40cfeb776ce85aa0367e7646f81fe857df4a6c841ea8a170"
+    },
+    {
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-merge-audit-mergecommit.json",
+      "bytes": 1215747,
+      "sha256": "d0dbb268d58e81ca7db0574a48bac1d25d7c0f9cb05ed9a0ba62bdb1fbea4f96"
+    },
+    {
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-merge-audit-pull.json",
+      "bytes": 22541,
+      "sha256": "82cc6b9e72fd4cb8b574858748f2403516cc0296aefaa81820124d04316a3bfd"
+    },
+    {
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-merge-audit-requests.json",
+      "bytes": 2249,
+      "sha256": "42acdf04ec16e8d08caea40c1b476b51ce565b7c550ff9895fb0739056ff73ba"
+    },
+    {
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-merge-audit-reviews.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-merge-audit-rules.json",
+      "bytes": 1104,
+      "sha256": "2a99f4743ec9450c9c6520cad34008c50111869d1f72f9536a7f8bd3e953fe4b"
+    },
+    {
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-merge-audit-ruleset-14008213.json",
+      "bytes": 1341,
+      "sha256": "9a610568b82bdd8a8432fbe3546c7a6cf3d441a78c9f9d4a1209fde81796358a"
+    },
+    {
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-merge-audit-ruleset-14008221.json",
+      "bytes": 1353,
+      "sha256": "f9bfb1946a09dee8887492fa614c47371287b5fda4be2a5df861896a04d95082"
+    },
+    {
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-merge-audit-rulesets.json",
+      "bytes": 986,
+      "sha256": "8fe99bf37bd630ea1166e919a95d098a57d280d9d0fb5adebb57c21eb2a96e45"
+    },
+    {
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-merge-audit-suite-4588022220.json",
+      "bytes": 1003,
+      "sha256": "557b0e468c106302eef28c0f0dcd97859bcc300eba3eb2912112748fad69333e"
+    },
+    {
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-merge-audit-suites.json",
+      "bytes": 332,
+      "sha256": "4daae2e2ab6527199c7c9858185b03d209e2804f1f66d8491ebaed8ce6237c31"
+    },
+    {
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-merge-audit-threads.json",
+      "bytes": 518,
+      "sha256": "a29bdae65be3a0df4e76f11d0eab534c8ddffe286f141e1330f6836c40be9459"
+    }
+  ]
+}
