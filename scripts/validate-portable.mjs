@@ -6,6 +6,7 @@ import { pathToFileURL } from "node:url";
 import { parseDocument } from "yaml";
 import { ICON_FIELDS, validateIconReference, validatePluginIcons } from "./plugin-icons.mjs";
 import { validateBrandAssets } from "./brand-assets.mjs";
+import { validateDocumentation } from "./document-harness.mjs";
 
 export const REPOSITORY_SKILLS = [
   "mp-design-icon",
@@ -435,13 +436,10 @@ export function validateRepository(repoRoot) {
       if (!entry || typeof entry !== "object" || Object.keys(entry).sort().join(",") !== "id,reason,removal_condition,status" || entry.status !== "deferred" || typeof entry.reason !== "string" || !entry.reason.trim() || typeof entry.removal_condition !== "string" || !entry.removal_condition.trim()) throw new Error("0.1.0 native entries require explicit deferral and removal conditions");
     }
   });
-  for (const file of files(path.join(root, "docs")).filter(p => p.endsWith(".md") && !p.includes(`${path.sep}archive${path.sep}`) && !p.includes(`${path.sep}_templates${path.sep}`))) {
-    check(path.relative(root, file), () => {
-      const { metadata } = parseFrontmatter(fs.readFileSync(file, "utf8"));
-      for (const key of ["type", "scope", "summary", "owner", "created", "updated", "state", "version"]) if (!metadata[key]) throw new Error(`missing document field ${key}`);
-      validateLinks(fs.readFileSync(file, "utf8"), file);
-    });
-  }
+  check("documentation", () => {
+    const result = validateDocumentation(root);
+    if (!result.ok) throw new Error(result.errors.join("; "));
+  });
   for (const rel of ["README.md", "CONTRIBUTING.md", "GLOSSARY.md", "AGENTS.md", ...Object.keys(RUNTIME_PLUGINS).map(n => `plugins/${n}/README.md`), ...REPOSITORY_SKILLS.map(n => `.agents/skills/${n}/SKILL.md`), ...PUBLIC_SKILLS.map(n => { const [plugin, skill] = n.split(":"); return `plugins/${plugin}/skills/${skill}/SKILL.md`; })]) {
     check(`${rel} links`, () => validateLinks(read(root, rel), path.join(root, rel)));
   }
