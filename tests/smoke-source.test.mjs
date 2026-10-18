@@ -98,6 +98,38 @@ test("real projection copies exact source bytes without synthetic documents and 
   assert.deepEqual(fs.readdirSync(third), []);
 });
 
+test("INTENT originals, archived identity and controlled accepted bytes survive real source capture and restoration", t => {
+  const source = isolatedSource(t), current = "docs/intent/[INTENT]_INT-2026-001_Current.md", archive = "docs/archive/[DEPRECATED]_[INTENT]_INT-2026-002_History.md";
+  const fields = id => `type: intent\nlayer: canonical\nscope: fixture\nsummary: Recover the original request\nowner: fixture-maintainer\ncreated: 2026-10-19\nupdated: 2026-10-19\nstate: ${id.endsWith("002") ? "archived" : "draft"}\nversion: v1.0\nintent-id: ${id}\n`;
+  const introduction = ["提出者", "原始来源", "接受责任人", "原意核对记录", "内容接受记录", "当前内容与适用基线", "主跟踪 Issue"].map(label => `| ${label} | 合成角色；未作真实接受 |`).join("\n");
+  const body = `# Original request\n\n| 字段 | 内容 |\n|---|---|\n${introduction}\n\n${["问题与现状", "期望结果", "成功判断", "范围与约束", "未决项"].map(title => `## ${title}\n\n合成运行输入；未知如实保留。\n`).join("\n")}`;
+  const write = (relative, bytes) => { fs.mkdirSync(path.dirname(path.join(source, relative)), { recursive: true }); fs.writeFileSync(path.join(source, relative), bytes); };
+  const accepted = Buffer.from(`---\n${fields("INT-2026-001")}---\n\n${body}`.replaceAll("\n", "\r\n"));
+  write(current, accepted);
+  write(archive, `---\n${fields("INT-2026-002")}---\n\n${body}`);
+  write("docs/intent/INDEX.md", `---\n${fields("INT-2026-001").replace("type: intent", "type: guide").replace("intent-id: INT-2026-001\n", "")}---\n\n# Originals\n\n[Current](./${path.posix.basename(current)})\n[History](../archive/${path.posix.basename(archive)})\n`);
+  const originalSnapshot = "plans/321-fixture/evidence/sources/accepted-intent.md";
+  write(originalSnapshot, accepted);
+  const bindingPath = path.join(source, "plans/321-fixture/source-bindings.json"), bindings = JSON.parse(fs.readFileSync(bindingPath, "utf8"));
+  bindings.sources.push({ id: "accepted-intent", kind: "snapshot", path: "evidence/sources/accepted-intent.md", sha256: hash(accepted), original: "Synthetic complete baseline", purpose: "Recover the previous complete text", scope: "This test only; no real acceptance" });
+  fs.writeFileSync(bindingPath, JSON.stringify(bindings));
+  fs.appendFileSync(path.join(source, current), "\r\nA subsequent revision leaves the accepted source bytes intact.\r\n");
+  const before = validateDocumentation(source); assert.equal(before.ok, true, before.errors.join("\n"));
+  const snapshot = retainSnapshot(t, source), restored = temporary(t);
+  materializeSmokeSource(snapshot, restored, []); assertSmokeSource(snapshot, restored);
+  for (const relative of [current, archive, originalSnapshot, "docs/intent/INDEX.md"]) {
+    assert.deepEqual(fs.readFileSync(path.join(restored, relative)), fs.readFileSync(path.join(source, relative)), relative);
+    assert.ok(snapshot.entries.some(entry => entry.path === relative && entry.sha256 === hash(fs.readFileSync(path.join(source, relative)))), relative);
+  }
+  const result = validateDocumentation(restored);
+  assert.equal(result.ok, true, result.errors.join("\n")); assert.equal(result.intents.documents, 2);
+  assert.deepEqual(fs.readFileSync(path.join(restored, originalSnapshot)), accepted);
+  fs.appendFileSync(path.join(restored, originalSnapshot), "\ntampered\n");
+  assert.throws(() => assertSmokeSource(snapshot, restored), /differ/);
+  assert.match(validateDocumentation(restored).errors.join("\n"), /source snapshot SHA-256 differs|source SHA-256 differs/);
+  fs.writeFileSync(path.join(restored, originalSnapshot), accepted); assertSmokeSource(snapshot, restored);
+});
+
 test("keepRoot retains thirteen independent real source contexts while always removing the template", async t => {
   const seen = observe(t);
   const result = await runSmoke({ repoRoot: LIFECYCLE_SOURCE, keepRoot: true, scenarioRunner: seen.runner });
