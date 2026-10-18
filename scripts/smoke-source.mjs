@@ -3,9 +3,10 @@ import os from "node:os";
 import path from "node:path";
 import crypto from "node:crypto";
 import { measureSync } from "./perf-metrics.mjs";
+import { collectNavigationResources, COMPATIBILITY_PATH } from "./document-harness.mjs";
 
-export const SMOKE_SOURCE_INPUTS = Object.freeze([".agents", "plugins", "AGENTS.md", ".codex", "VERSION", ".gitattributes"]);
-const DIRECTORY_INPUTS = new Set([".agents", "plugins", ".codex"]);
+export const SMOKE_SOURCE_INPUTS = Object.freeze([".agents", "plugins", "AGENTS.md", ".codex", "VERSION", ".gitattributes", "plans", "plan"]);
+const DIRECTORY_INPUTS = new Set([".agents", "plugins", ".codex", "plans", "plan"]);
 const PYTHON_ROOTS = new Set(["plugins/learning-evidence-kit/scripts", "plugins/diagram-kit/skills/arch-diagram/scripts"]);
 const RECORD_PATH = "tests/fixtures/learning-evidence/learning-record.json";
 const hash = bytes => crypto.createHash("sha256").update(bytes).digest("hex");
@@ -42,12 +43,24 @@ function inventory(root, relative, excludeGenerated) {
   });
   return [{ path: relative, kind: "directory", bytes: 0 }, ...children];
 }
-function manifest(root, excludeGenerated) {
-  return SMOKE_SOURCE_INPUTS.flatMap(relative => {
+function manifest(root, excludeGenerated, navigationResources = []) {
+  const entries = SMOKE_SOURCE_INPUTS.flatMap(relative => {
     const entry = owned(root, relative);
     if (entry.stat.isDirectory() !== DIRECTORY_INPUTS.has(relative)) throw new Error(`wrong smoke source input type: ${relative}`);
     return inventory(root, relative, excludeGenerated);
   });
+  const unique = new Map(entries.map(entry => [entry.path, entry]));
+  for (const relative of navigationResources) {
+    for (const entry of inventory(root, relative, excludeGenerated)) unique.set(entry.path, entry);
+    let parent = path.posix.dirname(relative);
+    while (parent !== ".") {
+      const entry = owned(root, parent);
+      if (!entry.stat.isDirectory()) throw new Error(`navigation parent must be an ordinary directory: ${parent}`);
+      unique.set(parent, { path: parent, kind: "directory", bytes: 0 });
+      parent = path.posix.dirname(parent);
+    }
+  }
+  return [...unique.values()].sort((a, b) => a.path.localeCompare(b.path));
 }
 function sameManifest(expected, actual, label) {
   if (JSON.stringify(expected) !== JSON.stringify(actual)) throw new Error(`smoke source bytes or inventory differ: ${label}`);
@@ -84,13 +97,13 @@ function copyEntries(source, destination, entries, details) {
 
 /** Verify the real projection; a prepared template/src must contain no generated extras. */
 export function assertSmokeSource(snapshot, directory, { git = false } = {}) {
-  const root = ordinaryRoot(directory), expected = [...SMOKE_SOURCE_INPUTS, ...(git ? [".git"] : [])].sort();
+  const root = ordinaryRoot(directory), expected = [...snapshot.inputRoots, ...(git ? [".git"] : [])].sort();
   if (JSON.stringify(fs.readdirSync(root).sort()) !== JSON.stringify(expected)) throw new Error("smoke source root inventory differs");
   if (git) {
     const entry = owned(root, ".git");
     if (!entry.stat.isDirectory()) throw new Error("scenario Git metadata must be its own ordinary directory");
   }
-  measureSync("validate", () => sameManifest(snapshot.entries, manifest(root, false), root), { scope: "smoke", stage: "source-integrity", sourceRoot: snapshot.sourceRoot, repositoryRoot: root });
+  measureSync("validate", () => sameManifest(snapshot.entries, manifest(root, false, snapshot.navigationResources), root), { scope: "smoke", stage: "source-integrity", sourceRoot: snapshot.sourceRoot, repositoryRoot: root });
 }
 
 export function removeSmokeSource(snapshot) {
@@ -104,13 +117,16 @@ export function removeSmokeSource(snapshot) {
 /** Called only after complete original-repository validation; creates no synthetic documents. */
 export function prepareSmokeSource(repoRoot) {
   const sourceRoot = ordinaryRoot(repoRoot);
-  const entries = freeze(manifest(sourceRoot, true)), record = readLearningRecord(sourceRoot);
+  const seeds = ["AGENTS.md", COMPATIBILITY_PATH, ...inventory(sourceRoot, ".agents", true).filter(entry => entry.kind === "file" && entry.path.endsWith(".md")).map(entry => entry.path), ...inventory(sourceRoot, "plans", true).filter(entry => entry.kind === "file" && (entry.path.endsWith(".md") || entry.path.endsWith("/source-bindings.json"))).map(entry => entry.path)];
+  const navigationResources = freeze(collectNavigationResources(sourceRoot, seeds));
+  const entries = freeze(manifest(sourceRoot, true, navigationResources)), record = readLearningRecord(sourceRoot);
+  const inputRoots = freeze([...new Set(entries.map(entry => entry.path.split("/")[0]))].sort());
   const root = fs.mkdtempSync(path.join(fs.realpathSync.native(os.tmpdir()), "marketplace-smoke-source-"));
-  const templateRoot = path.join(root, "template"), snapshot = Object.freeze({ root, sourceRoot, templateRoot, entries, ...record });
+  const templateRoot = path.join(root, "template"), snapshot = Object.freeze({ root, sourceRoot, templateRoot, entries, navigationResources, inputRoots, ...record });
   try {
     fs.mkdirSync(templateRoot);
     copyEntries(sourceRoot, templateRoot, entries, { stage: "template" });
-    sameManifest(entries, manifest(sourceRoot, true), sourceRoot);
+    sameManifest(entries, manifest(sourceRoot, true, navigationResources), sourceRoot);
     assertSmokeSource(snapshot, templateRoot);
     return snapshot;
   } catch (error) {

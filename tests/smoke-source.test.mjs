@@ -7,6 +7,7 @@ import crypto from "node:crypto";
 import { prepareSmokeSource, materializeSmokeSource, assertSmokeSource, removeSmokeSource, SMOKE_SOURCE_INPUTS } from "../scripts/smoke-source.mjs";
 import { runSmoke, cleanupIsolatedRoot, INSTALL_SCENARIOS } from "../scripts/smoke-codex-plugin.mjs";
 import { assertInstalledSkillResources as assertProductionSkillResources } from "../scripts/validate-portable.mjs";
+import { validateDocumentation, collectNavigationResources } from "../scripts/document-harness.mjs";
 
 const REPO = fs.realpathSync.native(path.resolve(import.meta.dirname, "..")), hash = bytes => crypto.createHash("sha256").update(bytes).digest("hex");
 function temporary(t) {
@@ -23,7 +24,7 @@ function observe(t) {
   return { roots, sources, runner: async options => {
     const { context, installed, preparedSource, keepRoot } = options;
     roots.push(context.root); sources.set(preparedSource.root, preparedSource);
-    assert.deepEqual(fs.readdirSync(context.src).sort(), [...SMOKE_SOURCE_INPUTS].sort());
+    assert.deepEqual(fs.readdirSync(context.src).sort(), [...preparedSource.inputRoots].sort());
     assert.equal(fs.existsSync(path.join(preparedSource.templateRoot, ".git")), false);
     assert.equal(fs.existsSync(path.join(context.cwd, "prior-scenario.txt")), false);
     assert.equal(context.env.CODEX_HOME, context.codexHome);
@@ -67,7 +68,11 @@ test("real projection copies exact source bytes without synthetic documents and 
   assert.equal(reads, 1);
   assert.ok(Object.isFrozen(snapshot.learningRecord));
   for (const entry of snapshot.entries.filter(entry => entry.kind === "file")) assert.equal(hash(fs.readFileSync(path.join(REPO, entry.path))), entry.sha256, entry.path);
-  for (const relative of ["docs", "assets", "tests", "scripts", "plan", "README.md", ".git"]) assert.equal(fs.existsSync(path.join(snapshot.templateRoot, relative)), false, relative);
+  assert.equal(fs.existsSync(path.join(snapshot.templateRoot, ".git")), false);
+  for (const relative of ["docs/_meta/document-layer-compatibility.json", "plan/communication-kit-implementation-plan.md", "plans/257-task-documentation/INDEX.md"]) assert.equal(fs.existsSync(path.join(snapshot.templateRoot, relative)), true, relative);
+  const docs = validateDocumentation(snapshot.templateRoot);
+  assert.equal(docs.ok, true, docs.errors.join("\n"));
+  assert.deepEqual(collectNavigationResources(snapshot.templateRoot, ["AGENTS.md"]), collectNavigationResources(REPO, ["AGENTS.md"]));
   for (const name of ["first", "second"]) { const root = path.join(parent, name); fs.mkdirSync(root); materializeSmokeSource(snapshot, root, []); assertSmokeSource(snapshot, root); }
   fs.appendFileSync(path.join(parent, "first/AGENTS.md"), "\ndrift\n");
   assert.throws(() => assertSmokeSource(snapshot, path.join(parent, "first")), /differ/);
