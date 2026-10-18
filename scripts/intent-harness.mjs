@@ -1,5 +1,5 @@
 import path from "node:path";
-import { isAlias, isMap, isScalar, isPair, parseDocument, visit } from "yaml";
+import { isAlias, isMap, isScalar, isPair, isSeq, parseDocument, visit } from "yaml";
 
 export const INTENT_TEMPLATE = "docs/_templates/TEMPLATE_INTENT.md";
 export const INTENT_INDEX = "docs/intent/INDEX.md";
@@ -15,6 +15,18 @@ function frontmatter(text) {
   if (!match) return null;
   return { source: match[1], document: parseDocument(match[1], { uniqueKeys: true }), body: text.slice(match[0].length) };
 }
+function declaredMapping(node, document, seen = new Set()) {
+  if (!node || seen.has(node)) return false;
+  seen.add(node);
+  if (isAlias(node)) return declaredMapping(node.resolve(document), document, seen);
+  if (isSeq(node)) return node.items.some(item => declaredMapping(item, document, seen));
+  if (!isMap(node)) return false;
+  const scalarValue = value => isAlias(value) ? value.resolve(document)?.value : value?.value;
+  return node.items.some(pair => {
+    const key = scalarValue(pair.key);
+    return key === "intent-id" || key === "type" && scalarValue(pair.value) === "intent" || key === "<<" && declaredMapping(pair.value, document, seen);
+  });
+}
 
 /** Filename, type and identity declarations are inspected even in malformed archives. */
 export function declaresIntent(relative, text) {
@@ -26,9 +38,9 @@ export function declaresIntent(relative, text) {
   const rawIdentity = /(?:^|\n)(?:intent-id|["']intent-id["'])\s*:/m.test(source);
   if (!parsed) return rawIdentity || /(?:^|\n)\s*(?:type|["']type["'])\s*:\s*(?:!!str\s+)?["']?intent["']?(?:\s*(?:#.*)?$)/m.test(source);
   try {
-    for (const value of [parsed.document.toJS(), parseDocument(parsed.source, { merge: true }).toJS()]) {
-      if (value?.type === "intent" || value && Object.hasOwn(value, "intent-id")) return true;
-    }
+    // Inspect the syntax tree rather than expanding aliases: an unrelated
+    // alias expansion failure must not suppress the actual type declaration.
+    if (declaredMapping(parsed.document.contents, parsed.document)) return true;
   } catch { /* inspect raw declaration below */ }
   return rawIdentity || /(?:^|\n)\s*(?:type|["']type["'])\s*:\s*(?:!!str\s+)?["']?intent(?:["']?(?:\s*(?:#.*)?$))/m.test(source);
 }

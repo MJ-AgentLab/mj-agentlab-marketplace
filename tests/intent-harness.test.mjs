@@ -104,6 +104,7 @@ test("aliases, merged type declarations and duplicate keys cannot smuggle an arc
   for (const metadata of [
     "kind: &kind intent\ntype: *kind\n",
     "base: &base {type: intent}\n<<: *base\n",
+    "kind: &kind intent\ntype: *kind\nbroken: *missing\n",
     "type: intent\ntype: guide\n",
   ]) {
     write(root, "docs/archive/unmarked.md", `---\n${metadata}---\n`);
