@@ -36,11 +36,11 @@ export function declaresIntent(relative, text) {
   // the archive/template exclusions just because its closing delimiter is lost.
   const source = parsed?.source ?? (/^---\r?\n/.test(text) ? text.slice(text.indexOf("\n") + 1) : "");
   const rawIdentity = /(?:^|\n)(?:intent-id|["']intent-id["'])\s*:/m.test(source);
-  if (!parsed) return rawIdentity || /(?:^|\n)\s*(?:type|["']type["'])\s*:\s*(?:!!str\s+)?["']?intent["']?(?:\s*(?:#.*)?$)/m.test(source);
   try {
     // Inspect the syntax tree rather than expanding aliases: an unrelated
     // alias expansion failure must not suppress the actual type declaration.
-    if (declaredMapping(parsed.document.contents, parsed.document)) return true;
+    const document = parsed?.document ?? parseDocument(source, { uniqueKeys: true });
+    if (declaredMapping(document.contents, document)) return true;
   } catch { /* inspect raw declaration below */ }
   return rawIdentity || /(?:^|\n)\s*(?:type|["']type["'])\s*:\s*(?:!!str\s+)?["']?intent(?:["']?(?:\s*(?:#.*)?$))/m.test(source);
 }
