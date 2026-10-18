@@ -7,6 +7,8 @@
 
 ### Documentation
 
+- Add explicit canonical/working layers, reusable task INDEX/PLAN/REPORT and staged Epic delivery governance. Preserve original standards with exact Git-source identities, adapt templates and Agent workflows, and keep legacy documents explicitly compatible without reclassifying frozen sources. Harness adaptation and the bounded HTML PR1 reading trial are tracked separately in Epic #257; plugin runtime and versions remain unchanged.
+
 - Verify actual #254 merge 7615ca58 with a separate thirteen-install/Python batch and prepare a protected sync of its complete main ancestry to develop. Preserve original missing approval and Owner bypass; keep Marketplace 8.3.2 pending the actual sync merge and a fresh dry-run, with plugin versions unchanged.
 
 - Record actual #253 / v8.3.1 publication, exact main/tag/Release identities and the new post-publication thirteen-install/Python/cleanup verification. Update current README installation to the real v8.3.1 tag; retain actual Owner bypass, missing independent approval, QA preflight failures and all limited client results. Stage the newly authorized main-to-develop sync and Marketplace-only 8.3.2 pre-bump after their actual prerequisite merges; plugin versions and published history remain unchanged.
