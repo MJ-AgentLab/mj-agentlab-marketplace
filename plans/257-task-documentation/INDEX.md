@@ -10,11 +10,18 @@ state: active
 version: v1.0
 task: 257-task-documentation
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
+plan: "./[PLAN]_Task_Documentation.md"
+report: "./[REPORT]_Task_Documentation.md"
+canonical:
+  - "../../docs/rule/[STANDARD]_Documentation_Framework.md"
+  - "../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md"
 ---
 
 # 工程任务文档组织
 
 [主 Issue / Epic #257](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257) 是工程进度正本。
+
+当前活动[主 PR #258](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/258) 指向 develop；内部子 PR 指向 codex/task-documentation。
 
 - 为什么做、接受范围、执行链：[主 PLAN](./[PLAN]_Task_Documentation.md)。
 - 实际执行、失败恢复、交付缺口：[主 REPORT](./[REPORT]_Task_Documentation.md)。
