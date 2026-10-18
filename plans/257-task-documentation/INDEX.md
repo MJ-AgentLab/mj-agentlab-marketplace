@@ -5,9 +5,9 @@ scope: marketplace
 summary: "工程任务文档分层实施入口与有日期的进度快照"
 owner: marketplace-maintainers
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-19
 state: active
-version: v1.0
+version: v1.1
 task: 257-task-documentation
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 plan: "./[PLAN]_Task_Documentation.md"
@@ -31,5 +31,5 @@ canonical:
 
 ## 进展快照
 
-2026-10-18，来源为上述 Epic 的启动正文：阶段为基线捕获；主 PR、子 PR 与适配待完成。下一步由 Agent 建立主 PR，完成规范/模板/技能和 Harness，再开展 HTML PR1 有界试行。Owner 负责实质决定与最终接受。快照过期或冲突时以主 Issue 为准。
+2026-10-19，来源为上述 Epic 的阶段更新：规范/模板/技能 #259 已合入集成分支，Harness 正修复独立审查缺口；下一步由 Agent 完成稳定组合验证，再开展 HTML PR1 有界试行。主 PR #258 未合 develop，Owner 最终接受待提供。快照过期或冲突时以主 Issue 为准。
 
