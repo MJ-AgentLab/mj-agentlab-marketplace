@@ -6,13 +6,16 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-19
 state: active
-version: v2.93
+version: v2.94
 layer: canonical
 ---
 
 # 文档索引
 
 ## 工程任务与文档分层
+
+- [INTENT 规范](rule/[STANDARD]_AI_Engineering_Intent.md)、[新增 ADR](adr/[ADR]_Intent_Mechanism_Addition.md)、[正本索引](intent/INDEX.md)与[模板](_templates/TEMPLATE_INTENT.md)：分层唯一原意、完整接受基线、稳定身份及工程覆盖；简单明确任务继续 Issue 原意区。
+- [INTENT 任务入口 #263](../plans/263-intent-mechanism/INDEX.md)：完整来源与实际实施/验收；严格窗口、历史缺证和 Owner 最终接受分别登记，不由文档状态推定通过。
 
 [任务入口 #257](../plans/257-task-documentation/INDEX.md)导航本次规范、模板、技能/Harness 适配与 HTML PR1 有界试行；[Epic #257](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257)为进度正本。新任务按[分层与交付 ADR](adr/[ADR]_Task_Documentation_Layers_And_Delivery.md)、[文档框架](rule/[STANDARD]_Documentation_Framework.md)和[执行规范](rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)使用 canonical/working 两层、九字段、稳定任务目录与主 PLAN/REPORT。草稿正本和完成过程材料保持各自层次；旧文档仅按[显式兼容范围](_meta/document-layer-compatibility.json)渐进接入，不能推定全量完成。
 

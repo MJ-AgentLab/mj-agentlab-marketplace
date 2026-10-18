@@ -20,11 +20,23 @@ tracking: <actual repository Issue/PR URL or stable Codex/ChatGPT task URL>
 
 <Original request/source, accepted scope, non-goals, existing facts, risk and acceptance standards. Link formal product/technical originals rather than duplicating them. State whether a sustained task directory and split PR topology are needed.>
 
+<For new/substantively revised requirements, use the tiered original in [INTENT standard](../rule/[STANDARD]_AI_Engineering_Intent.md). Link the unique INTENT or simple Issue original section; reuse clear existing sources/decisions. Keep facts, original meaning and assumptions distinct.>
+
 ## Accepted baseline and authorization
 
 <Complete accepted content or a recoverable versioned snapshot. Preserve original decision text/source, actual time, decision maker, scope and supersession relation. Keep original intent and actual acceptance distinguishable.>
 
 <Concentrated authorization: target, object, environment, permissions and risk boundary. Agent handles routine operations; identify material decisions only. Explicit acceptance takes effect in scope; list affected canonical and synchronize before the same delivery is completed.>
+
+<Separate original-meaning confirmation, content acceptance, lifecycle and operation authorization. An edited Issue URL, version or hash alone cannot restore accepted content: save the whole fixed version/snapshot. Substantive revision preserves old acceptance boundaries; pending decisions stop only dependent work.>
+
+## Original meaning and engineering coverage
+
+| Original item / source | Complete acceptance baseline / scope | Relationship | Issue/PR responsibility / dependency | Acceptance criterion | Result / remaining gap |
+|---|---|---|---|---|---|
+| <stable item> | <fixed file or complete snapshot and decision> | <delivery / dependency support / background> | <bounded scope> | <observable criterion; unknown stays unknown> | <link actual REPORT evidence when available> |
+
+<One intent may have multiple Issues, and one shared Issue may support multiple intents; map each separately. Once in backlog, choose one main tracking entry. Keep progress in Issue and necessary links in the original.>
 
 ## Execution, dependencies and batches
 
