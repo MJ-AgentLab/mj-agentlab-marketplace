@@ -7,7 +7,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-19
 state: active
-version: v1.1
+version: v1.2
 task: 217-html-guide-kit
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217
 ---
@@ -18,7 +18,7 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217
 
 ## 结论与待交接
 
-本次将 PR1 的规范、工程事实、原件及当前交接集中导航；不搬旧证据，不新增第二套产品约定。43项资源对应核查与三角色独立合成阅读已通过，当前子PR内部合入及最终主PR门禁另行记录；阅读通过不补齐下列历史缺证。
+本次将 PR1 的规范、工程事实、原件及当前交接集中导航；不搬旧证据，不新增第二套产品约定。43项资源对应核查与三角色独立合成阅读已通过；试行子PR[#261](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/261)经当前候选双平台CI和实际安装通过后正常合入任务集成分支，actual merge/tree见[实施REPORT](../257-task-documentation/[REPORT]_Task_Documentation.md)。最终主PR门禁独立；阅读通过不补齐下列历史缺证。
 
 原任务 #217 于 2026-10-15 按 Owner 调整后的工程交付范围关闭；HTML 当前为 0.1.36。该决定停止继续为旧验收修正或复测，旧 FAIL / UNEXERCISED / NOT_RUN 保留。开放的 [#239](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/239)承载已知自检必要状态前提缺陷和实际使用后续；本批不自动恢复该开发。Owner 对本次文档成品的最终接受尚未提供。
 

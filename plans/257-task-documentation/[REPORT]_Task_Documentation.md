@@ -7,7 +7,7 @@ owner: marketplace-maintainers
 created: 2026-10-18
 updated: 2026-10-19
 state: active
-version: v1.3
+version: v1.4
 task: 257-task-documentation
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 ---
@@ -16,7 +16,7 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 
 ## 结果与缺口
 
-规范/模板/技能 #259 与 Harness #260 已实际合入任务集成分支，HTML PR1 来源核对和三角色阅读试行已通过，试行子PR的集成门禁尚待完成。主 PR #258 尚未合入受保护 develop。Owner 已接受设计与实施范围，未作成品最终接受。技术交付、整个计划完成及最终接受分开。
+规范/模板/技能#259、Harness#260和HTML PR1试行#261均已实际正常合入任务集成分支；限定来源/阅读与各阶段工程检查通过。主PR#258尚未合入受保护develop，最新检查/批准以其当前head与主Issue为正本。Owner已接受设计与实施范围，未作成品最终接受。技术交付、整个计划完成及最终接受分开。
 
 ## R1 — 基线与权限核查（2026-10-18）
 
@@ -52,8 +52,6 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 - [#260](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/260)当前head A6/Validate与双平台CI实际成功，无未解决线程，内部branch实际无rules；经独立Agent审查后正常合并，未要求额外内部GitHub批准、未bypass。actual merge `3bcd091f5acf9a353763dc68b3df63f40bf42c05`与已测743同tree `c4212405c98d5f29a66bb4344bbd7caca0dc1d58`。见[前置实读](./evidence/harness-pr-preflight.json)与[交付/哈希映射](./evidence/harness-delivery.json)。
 - A/B上述必要门禁通过并实际集成后，才从3bcd091派生HTML PR1试行。运行插件、版本、README badge与既有冻结计划保持；内部交付不代替主PR保护门禁或Owner接受。
 
-## 后续记录
-
 ## R5 — HTML PR1 来源候选与阅读准备（2026-10-19）
 
 - 从实际B合入3bcd091建立独立子分支，复用原Epic#217的[稳定入口](../217-html-guide-kit/INDEX.md)、主PLAN及主REPORT；本次执行仍由#257跟踪。只给HTML ADR/SPEC增加layer/维护元数据，正文不变；原混合RUNBOOK和全部旧封存保持原位置。
@@ -69,6 +67,18 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 - 该固定候选强制Python/PWSH完整测试528/528、0skip、exit0，见[原日志](./evidence/pilot-full-tests.log)与[实际时间/候选/摘要回执](./evidence/pilot-test-receipt.json)。原计数提取模式未识别TAP行，回执明确记原空结果及后按实际TAP摘要提取，日志未改。
 - 独立代码审查601ff07无阻断，实际当前verifier/validate通过；HTML ADR/SPEC正文精确未变，运行、版本、原账本/封存零diff。阅读后再固定7项实际读本原件，具名来源共71，重新逐项校验通过；校验器仅将历史文档集合限定为pr1来源，防止读本恢复来源混进12项历史计数。
 - 主PR/当前内部子PR的线上实际候选检查、实际合并及Owner最终接受分别继续记录。新任务达到持续维护需要时按机制启用；旧任务仅实质修订/选中迁移，后续另起迁移范围由Owner决定，本批不扩为全库搬迁。
+
+## R7 — 试行实际内部合入与最终交接（2026-10-19）
+
+- [#261](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/261)最终head`16c29dc7b06f1f78937df4b4c3e9a4003cc3ad6c`的真实A6/Validate/双平台CI成功。Windows528/528、0skip；Linux528总计527pass/1skip，唯一跳过为Windows大小写专属用例，已在Windows执行通过。两平台各13个真实隔离安装及6Diagram+18Learning Evidence缓存Python通过；实际解释器分别Linux3.12.15、Windows3.12.10，未冒用本机3.12.13。
+- [原CI回执](./evidence/pilot-ci-evidence.json)、[Linux原日志](./evidence/pilot-ci-ubuntu.log)、[Windows原日志](./evidence/pilot-ci-windows.log)保留实际head/运行/命令结果/摘要。首轮计数提取假定两平台0skip而中止，随后按原始TAP和专属用例归属修正提取；不是CI失败或放宽判准。历史记录与真实平台跳过不隐藏。
+- CI原日志的带时戳空输出行触发whitespace检查，[原输出](./evidence/final-receipts-whitespace.log)保留；只为两份原始CI日志及该检查记录声明所需属性，日志原字节/回执摘要保持，普通源码/文档规则不变。
+- [实际导航闭包](./evidence/pilot-final-navigation.json)绑定16c29dc：3562普通文件、494074055字节、110已知索引，逐项声明内容核查；不代替上述真实安装，也不重判历史模型/等级/聚合摘要。新增原件与输入恢复有明确开销，不称性能改善。
+- [合入前实读](./evidence/pilot-pr-preflight.json)确认当前head/base、候选合并tree、内部protected=false/空rules与零未解决线程。独立增量审查及整体Standards/Spec两轴均无阻断，均非GitHub批准。actual merge`ded7cbad44a989b3c2c96f5b528b55d3f3dc8452`与已审16c同tree`feb7480737c7d680ecf814e92d109537ec4f632b`，正常内部合并无bypass；见[交付回执](./evidence/pilot-delivery.json)。
+- 集成worktree原Windows checkout按同24个公开封存Git blob恢复原字节，[恢复记录](./evidence/integration-checkout-restoration.json)保留。首次读取大packet因默认缓冲上限失败，调至32MiB后24文件逐项核对，重试恢复19项；首轮前缀未单独持久计数，未补造。HEAD/index/raw三方一致，刷新stat后工作区干净，历史Git内容零diff。
+- 受保护路径对原base的插件/版本/登记/README/品牌/旧计划/旧RUNBOOK证据diff为空。最终记录提交只追加上述事实和证据，当前主PR检查、真实非作者批准及线程须重新按实际head核查；本REPORT不复制实时进度表。无正式发布、规则变更或保护绕过，Epic保持开放等待实际最终交付/接受。
+
+## 后续记录
 
 继续复用本 REPORT；按来源版本与批次追加，原失败/缺证保留。
 
