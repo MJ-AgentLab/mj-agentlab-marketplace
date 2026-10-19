@@ -5,9 +5,9 @@ scope: marketplace
 summary: "已接受文档分层机制、七项执行原则与分批实施基线"
 owner: marketplace-maintainers
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-19
 state: active
-version: v1.0
+version: v1.1
 task: 257-task-documentation
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 ---
@@ -56,3 +56,9 @@ Owner 最新明确授权：现在可以修改文件，按最终方案开始实�
 
 旧混合RUNBOOK不自动分类，使用明确兼容范围；已有 plan/communication-kit 冻结内容保留。子 PR 检查目标是实际合并候选树，最终主 PR 不能因内部通过而跳保护。修复在隔离分支进行；必要时通过新提交撤回本次变化，不覆盖发布或删除历史。主 Issue/REPORT记录所有未执行、延期、失败和Owner接受状态。
 
+
+## 后续决定 D1 — Q11 推广范围（2026-10-19）
+
+Owner 在本聊天 Q11 明确答复：“A｜按需推广，暂不增加专项迁移（推荐）”。采用按需推广：新任务执行现行规则，旧任务仅实质修订或明确选中时接入；本批新增专项历史迁移范围为空。B1 原内容及其固定 Git/原件保持。
+
+完整题目、明确答复与实际捕获时间 2026-10-18T18:13:26.367Z 见[Q11 捕获](./evidence/sources/owner-rollout-decision-q11.json)及[具名来源](./source-bindings.json)；消息原始时间未提供，不以捕获时间冒充决定发送时间。该决定采用已交付 canonical 规则，无待同步正本变更；不恢复产品开发/发布，不追认历史批准，也不是 Owner 成品最终接受。

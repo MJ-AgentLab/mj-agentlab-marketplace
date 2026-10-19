@@ -7,7 +7,7 @@ owner: marketplace-maintainers
 created: 2026-10-18
 updated: 2026-10-19
 state: active
-version: v1.4
+version: v1.7
 task: 257-task-documentation
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257
 plan: "./[PLAN]_Task_Documentation.md"
@@ -22,7 +22,7 @@ canonical:
 
 [主 Issue / Epic #257](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257) 是工程进度正本。
 
-当前活动[主 PR #258](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/258) 指向 develop；内部子 PR 指向 codex/task-documentation。
+[主 PR #258](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/258) 已合入 develop；收尾批次的活动 PR 由主 Issue 导航。
 
 - 为什么做、接受范围、执行链：[主 PLAN](./[PLAN]_Task_Documentation.md)。
 - 实际执行、失败恢复、交付缺口：[主 REPORT](./[REPORT]_Task_Documentation.md)。
@@ -31,5 +31,5 @@ canonical:
 
 ## 进展快照
 
-2026-10-19，来源为上述Epic阶段更新：规范/模板/技能#259、Harness#260和[HTML PR1试行](../217-html-guide-kit/INDEX.md)#261已正常内部合入；43资源及三角色阅读通过，当前试行候选双平台工程检查和实际安装通过。下一步由Agent按主PR#258实际检查/保护门禁交接；真实非作者批准及Owner成品最终接受各待来源。快照过期或冲突时以主Issue为准。
+2026-10-19，来源为上述 Epic 合并后更新：#258 已合入 develop，实际合并版本的 528 项测试、13 种隔离安装及缓存 Python 通过。保护批准缺证保留；Owner 已选 A：按需推广，暂不增加专项历史迁移。Owner 已接受本批成品并保留历史缺口；下一步由 Agent 完成收尾 PR 的实际 CI、真实批准及合入核验。推广与接受依据见主 REPORT R8–R10。快照过期或冲突时以主 Issue 为准。
 

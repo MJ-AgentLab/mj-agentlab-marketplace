@@ -7,7 +7,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-19
 state: active
-version: v1.2
+version: v1.4
 task: 217-html-guide-kit
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217
 ---
@@ -18,16 +18,16 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217
 
 ## 结论与待交接
 
-本次将 PR1 的规范、工程事实、原件及当前交接集中导航；不搬旧证据，不新增第二套产品约定。43项资源对应核查与三角色独立合成阅读已通过；试行子PR[#261](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/261)经当前候选双平台CI和实际安装通过后正常合入任务集成分支，actual merge/tree见[实施REPORT](../257-task-documentation/[REPORT]_Task_Documentation.md)。最终主PR门禁独立；阅读通过不补齐下列历史缺证。
+本次将 PR1 的规范、工程事实、原件及当前交接集中导航；不搬旧证据，不新增第二套产品约定。43项资源对应核查与三角色独立合成阅读已通过；试行子PR[#261](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/261)经当前候选双平台CI和实际安装通过后正常合入任务集成分支，actual merge/tree见[实施REPORT](../257-task-documentation/[REPORT]_Task_Documentation.md)。主PR #258 现已合入 develop，actual merge 新复验及真实批准缺口见实施 REPORT R8；阅读通过不补齐下列历史缺证。
 
-原任务 #217 于 2026-10-15 按 Owner 调整后的工程交付范围关闭；HTML 当前为 0.1.36。该决定停止继续为旧验收修正或复测，旧 FAIL / UNEXERCISED / NOT_RUN 保留。开放的 [#239](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/239)承载已知自检必要状态前提缺陷和实际使用后续；本批不自动恢复该开发。Owner 对本次文档成品的最终接受尚未提供。
+原任务 #217 于 2026-10-15 按 Owner 调整后的工程交付范围关闭；HTML 当前为 0.1.36。该决定停止继续为旧验收修正或复测，旧 FAIL / UNEXERCISED / NOT_RUN 保留。开放的 [#239](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/239)承载已知自检必要状态前提缺陷和实际使用后续；本批不自动恢复该开发。Owner 已在 #257 的 Q12 接受本次文档机制与有界阅读试行成品，保留历史缺口；来源见实施 REPORT R10，不扩大为 HTML 产品整体验收。
 
 | 缺口 / 影响 | 下一操作与责任 | 恢复 / 接受条件 |
 |---|---|---|
 | #239 已知缺陷，可能影响自检反馈 | 维护 Agent 在对应范围授权后处理，Owner 决定实质范围 | 新修复绑定新版本及适用验证；旧 FAIL 保留 |
 | PR1 GitHub 非作者批准未观察到 | 保留平台 reviews=[] 的事实；不能由 Agent 审查、合并或 CI 补写 | 如有真实历史来源，追加原时点证据；本批不制造批准 |
 | 完整行为/双客户端/原生窗口未覆盖，现实效果 NOT_MEASURED | 按 #217 收尾决定及 #239 后续范围跟踪 | 需要新范围/实际证据；本批阅读试行不补齐 |
-| 文档机制主 PR #258 尚未合 develop，最终接受未提供 | Agent 完成适用门禁；真实非作者审批及 Owner 成品接受各自独立 | 不绕过保护，不把内部合入当最终接受 |
+| 文档机制主 PR #258 已合 develop，真实批准 NOT_MET；Owner 已接受本批文档成品 | 实施 REPORT R10 保留明确接受来源；Agent 继续 #262 实际门禁 | 不追认历史批准，不扩大为 HTML 产品整体验收 |
 
 ## PR1 历史交付链（2026-10-12）
 

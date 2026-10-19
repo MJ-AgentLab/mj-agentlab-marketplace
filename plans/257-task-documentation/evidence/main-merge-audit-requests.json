@@ -1,0 +1,65 @@
+{
+  "tool": "gh",
+  "readOnly": true,
+  "retrieveAgainChangesSnapshotTime": true,
+  "requests": {
+    "pull": [
+      "api",
+      "repos/MJ-AgentLab/mj-agentlab-marketplace/pulls/258"
+    ],
+    "reviews": [
+      "api",
+      "repos/MJ-AgentLab/mj-agentlab-marketplace/pulls/258/reviews?per_page=100"
+    ],
+    "rulesets": [
+      "api",
+      "repos/MJ-AgentLab/mj-agentlab-marketplace/rulesets?includes_parents=true"
+    ],
+    "suites": [
+      "api",
+      "repos/MJ-AgentLab/mj-agentlab-marketplace/rulesets/rule-suites?ref=refs%2Fheads%2Fdevelop&per_page=100"
+    ],
+    "branch": [
+      "api",
+      "repos/MJ-AgentLab/mj-agentlab-marketplace/branches/develop"
+    ],
+    "rules": [
+      "api",
+      "repos/MJ-AgentLab/mj-agentlab-marketplace/rules/branches/develop"
+    ],
+    "checks": [
+      "api",
+      "repos/MJ-AgentLab/mj-agentlab-marketplace/commits/287101f4bb419bd5a76cfe8702c80b6e6df69c9c/check-runs?per_page=100"
+    ],
+    "threads": [
+      "api",
+      "graphql",
+      "-f",
+      "query=query { repository(owner:\"MJ-AgentLab\", name:\"mj-agentlab-marketplace\") { pullRequest(number:258) { number headRefOid baseRefOid mergedAt mergeCommit { oid tree { oid } } author { login } mergedBy { login } reviewDecision reviewThreads(first:100) { totalCount pageInfo { hasNextPage endCursor } nodes { id isResolved isOutdated comments(first:100) { totalCount nodes { author { login } createdAt body } } } } } } }"
+    ],
+    "suite-4588022220": [
+      "api",
+      "repos/MJ-AgentLab/mj-agentlab-marketplace/rulesets/rule-suites/4588022220"
+    ],
+    "ruleset-14008221": [
+      "api",
+      "repos/MJ-AgentLab/mj-agentlab-marketplace/rulesets/14008221"
+    ],
+    "ruleset-14008213": [
+      "api",
+      "repos/MJ-AgentLab/mj-agentlab-marketplace/rulesets/14008213"
+    ],
+    "mergecommit": [
+      "api",
+      "repos/MJ-AgentLab/mj-agentlab-marketplace/commits/1212514f2cd3588fbcef4f407e6f5e7269e4093e"
+    ],
+    "headcommit": [
+      "api",
+      "repos/MJ-AgentLab/mj-agentlab-marketplace/commits/287101f4bb419bd5a76cfe8702c80b6e6df69c9c"
+    ],
+    "mergechecks": [
+      "api",
+      "repos/MJ-AgentLab/mj-agentlab-marketplace/commits/1212514f2cd3588fbcef4f407e6f5e7269e4093e/check-runs?per_page=100"
+    ]
+  }
+}
