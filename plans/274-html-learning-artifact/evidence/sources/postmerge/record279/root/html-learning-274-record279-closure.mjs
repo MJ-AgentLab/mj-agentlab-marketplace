@@ -1,0 +1,16 @@
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import assert from 'node:assert/strict';
+import {execFileSync} from 'node:child_process';
+const cwd='C:/Users/Admin/.codex/worktrees/html-learning-artifact/develop';
+const git=args=>execFileSync('git',args,{cwd,maxBuffer:40*1024*1024});
+const text=args=>git(args).toString('utf8').trim(),head=text(['rev-parse','HEAD']),task='plans/274-html-learning-artifact';
+assert.equal(head,'315b5942a3a61c6bf7ab17513b8263496bd7a48a');assert.equal(head,text(['rev-parse','origin/codex/record-html-learning-8-3-2']));
+const bindings=JSON.parse(git(['show',head+':'+task+'/source-bindings.json'])),before=JSON.parse(git(['show','f906b100:'+task+'/source-bindings.json']));
+const hashes=bindings.sources.map(entry=>{const actual=crypto.createHash('sha256').update(git(['show',head+':'+task+'/'+entry.path])).digest('hex');assert.equal(actual,entry.sha256,entry.path);return {path:entry.path,sha256:actual};});
+for(const entry of before.sources)assert.deepEqual(bindings.sources.find(e=>e.id===entry.id),entry);
+assert.equal(text(['diff','--name-only','f906b100',head,'--','plugins','VERSION','.agents/plugins','.agents/skills','scripts','tests','.github','package.json','package-lock.json']),'');
+const old=text(['show','f906b100:CHANGELOG.md']),current=text(['show',head+':CHANGELOG.md']);assert.equal(current.slice(current.indexOf('## [8.3.2]')),old.slice(old.indexOf('## [8.3.2]')));
+assert.equal(text(['status','--porcelain']),'');
+const result={capturedAt:new Date().toISOString(),head,tree:text(['rev-parse',head+'^{tree}']),remoteSameHead:true,sourceBindings:hashes.length,oldIdentitiesUnchanged:before.sources.length,hashes,unchangedRuntimeVersionsSkillsHarnessAndPublishedNotes:true,guideTree:text(['rev-parse',head+':plugins/html-guide-kit/skills/guide']),version:text(['show',head+':VERSION']),limits:'Committed-source closure only; not platform CI, protected review, actual record merge, synchronization, next-version preparation or Owner acceptance'};
+fs.writeFileSync('C:/Users/Admin/AppData/Local/Temp/html-learning-274-record279-closure.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({...result,hashes:hashes.length+' committed Git blob SHA256 entries in saved receipt'}));

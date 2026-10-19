@@ -1,0 +1,622 @@
+{
+  "schemaVersion": 1,
+  "runId": 39272665913,
+  "pr": 279,
+  "expectedHead": "315b5942a3a61c6bf7ab17513b8263496bd7a48a",
+  "expectedBase": "f906b1001a86d7b5415451bd973bea26e6cc3a1d",
+  "potentialMerge": "687b70abd58a8556ee566c74c340dd66480fe407",
+  "expectedTree": "ae121f6b256d1a44ea05a06061ba025b605655d9",
+  "platforms": {
+    "linux": {
+      "jobId": 118128777317,
+      "file": "linux-job.log",
+      "bytes": 968428,
+      "sha256": "a42d54396115d2de4f71c535ee7c04c39bc49a147e4cc217822bbac2ae27f663",
+      "tap": {
+        "tests": 642,
+        "suites": 0,
+        "pass": 641,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 1,
+        "todo": 0
+      },
+      "skippedCases": [
+        "Windows equivalent file casing still passes containment"
+      ],
+      "notOkCases": [],
+      "browserCases": [
+        {
+          "name": "browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record",
+          "tapNumber": 326,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        },
+        {
+          "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+          "tapNumber": 327,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        },
+        {
+          "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+          "tapNumber": 328,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        },
+        {
+          "name": "literal percent, Chinese and spaces in local filenames round-trip through browser URLs",
+          "tapNumber": 347,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        }
+      ],
+      "cleanupCases": [
+        {
+          "name": "all complete core groups remain unmeasured with incomplete cleanup",
+          "tapNumber": 21,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "backup cleanup failure does not undo a committed bump",
+          "tapNumber": 44,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "profile evidence preserves intentional rejection errors but rejects partial records and failed cleanup",
+          "tapNumber": 233,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+          "tapNumber": 327,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "release cleanup recovers from a transient canonical-directory lock and preserves the Git failure",
+          "tapNumber": 469,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "release cleanup bounds retries and reports a persistent verification-directory lock",
+          "tapNumber": 470,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "release cleanup reports unrelated cleanup errors without retrying",
+          "tapNumber": 471,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "failed installation cleans up the canonical worktree and fails closed",
+          "tapNumber": 475,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "an operation and persistent cleanup failure remain visible together",
+          "tapNumber": 596,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "template cleanup failure fails an otherwise successful keepRoot run and removes all retained scenarios",
+          "tapNumber": 597,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "source changing during a template copy fails its frozen inventory and cleans the partial template",
+          "tapNumber": 609,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "a context-creation failure before the second runner cleans prior/current roots and keeps its original error",
+          "tapNumber": 610,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "a materialize failure before the second runner cleans prior/current roots and keeps its original error",
+          "tapNumber": 611,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "a second runner returning ok:false fails the run and cleans all retained/current roots and the template",
+          "tapNumber": 612,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "post-success source integrity byte-drift cleans retained/current roots and preserves the failure",
+          "tapNumber": 613,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "post-success source integrity read-error cleans retained/current roots and preserves the failure",
+          "tapNumber": 614,
+          "status": "ok",
+          "skipped": false
+        }
+      ],
+      "cleanupScope": {
+        "defaultKeepRoot": false,
+        "successfulSmokeReturnAfterCleanup": true,
+        "individualRootAbsenceRecords": "NOT_RECORDED in this CI log; do not inherit another batch count"
+      },
+      "sourceToInstalledCacheByteChecks": "PASS within each actual platform checkout; no cross-platform physical byte-equality assertion",
+      "checkedOutSha": "687b70abd58a8556ee566c74c340dd66480fe407",
+      "checkedOutRef": "refs/remotes/pull/279/merge",
+      "checkedOutCommitMetadata": "merge-final.json",
+      "checkedOutMergeShaPresent": true,
+      "smokeOk": true,
+      "smokeScenarios": 13,
+      "allScenarioOk": true,
+      "commands": 178,
+      "executionCounts": {
+        "diagramPython": 6,
+        "lekPython": 18,
+        "siteGeneration": 4,
+        "siteStaticPython": 4
+      },
+      "nonzeroCommands": [],
+      "publicSkills": 8,
+      "siteResources": 20,
+      "allPackageInventory": {
+        "outside": {
+          "publicSkills": 3,
+          "repositorySkills": 0
+        },
+        "repository": {
+          "publicSkills": 3,
+          "repositorySkills": 20
+        },
+        "nativeOutside": {
+          "publicSkills": 8,
+          "repositorySkills": 0
+        },
+        "nativeRepository": {
+          "publicSkills": 8,
+          "repositorySkills": 20
+        },
+        "explicitOnly": [
+          "learning-evidence-kit:pop-quiz",
+          "learning-evidence-kit:learning-record-check",
+          "communication-kit:communicate",
+          "html-guide-kit:guide",
+          "html-guide-kit:site"
+        ]
+      },
+      "siteStaticSummaries": [
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        }
+      ],
+      "siteBrowserScope": [
+        "NOT_RUN in installation smoke; separate representative browser acceptance required",
+        "NOT_RUN in installation smoke; separate representative browser acceptance required",
+        "NOT_RUN in installation smoke; separate representative browser acceptance required",
+        "NOT_RUN in installation smoke; separate representative browser acceptance required"
+      ],
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run npm ci",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run npm install -g @openai/codex@0.147.0",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Unit and real Python execution tests",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run npm run validate",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Run npm run check:baseline-tools",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Run npm run smoke:codex",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "conclusion": "success",
+          "number": 18
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "conclusion": "success",
+          "number": 19
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success",
+          "number": 20
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success",
+          "number": 21
+        }
+      ],
+      "conclusion": "success",
+      "completedAt": "2026-10-19T14:55:19Z",
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39272665913/job/118128777317"
+    },
+    "windows": {
+      "jobId": 118128777137,
+      "file": "windows-job.log",
+      "bytes": 1036482,
+      "sha256": "4970404c1177fcbae03718d8b9e72cb19434aeaa52b64a7919177266440f3f68",
+      "tap": {
+        "tests": 642,
+        "suites": 0,
+        "pass": 642,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      },
+      "skippedCases": [],
+      "notOkCases": [],
+      "browserCases": [
+        {
+          "name": "browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record",
+          "tapNumber": 326,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        },
+        {
+          "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+          "tapNumber": 327,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        },
+        {
+          "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+          "tapNumber": 328,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        },
+        {
+          "name": "literal percent, Chinese and spaces in local filenames round-trip through browser URLs",
+          "tapNumber": 347,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        }
+      ],
+      "cleanupCases": [
+        {
+          "name": "all complete core groups remain unmeasured with incomplete cleanup",
+          "tapNumber": 21,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "backup cleanup failure does not undo a committed bump",
+          "tapNumber": 44,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "profile evidence preserves intentional rejection errors but rejects partial records and failed cleanup",
+          "tapNumber": 233,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+          "tapNumber": 327,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "release cleanup recovers from a transient canonical-directory lock and preserves the Git failure",
+          "tapNumber": 469,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "release cleanup bounds retries and reports a persistent verification-directory lock",
+          "tapNumber": 470,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "release cleanup reports unrelated cleanup errors without retrying",
+          "tapNumber": 471,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "failed installation cleans up the canonical worktree and fails closed",
+          "tapNumber": 475,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "an operation and persistent cleanup failure remain visible together",
+          "tapNumber": 596,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "template cleanup failure fails an otherwise successful keepRoot run and removes all retained scenarios",
+          "tapNumber": 597,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "source changing during a template copy fails its frozen inventory and cleans the partial template",
+          "tapNumber": 609,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "a context-creation failure before the second runner cleans prior/current roots and keeps its original error",
+          "tapNumber": 610,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "a materialize failure before the second runner cleans prior/current roots and keeps its original error",
+          "tapNumber": 611,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "a second runner returning ok:false fails the run and cleans all retained/current roots and the template",
+          "tapNumber": 612,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "post-success source integrity byte-drift cleans retained/current roots and preserves the failure",
+          "tapNumber": 613,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "post-success source integrity read-error cleans retained/current roots and preserves the failure",
+          "tapNumber": 614,
+          "status": "ok",
+          "skipped": false
+        }
+      ],
+      "cleanupScope": {
+        "defaultKeepRoot": false,
+        "successfulSmokeReturnAfterCleanup": true,
+        "individualRootAbsenceRecords": "NOT_RECORDED in this CI log; do not inherit another batch count"
+      },
+      "sourceToInstalledCacheByteChecks": "PASS within each actual platform checkout; no cross-platform physical byte-equality assertion",
+      "checkedOutSha": "687b70abd58a8556ee566c74c340dd66480fe407",
+      "checkedOutRef": "refs/remotes/pull/279/merge",
+      "checkedOutCommitMetadata": "merge-final.json",
+      "checkedOutMergeShaPresent": true,
+      "smokeOk": true,
+      "smokeScenarios": 13,
+      "allScenarioOk": true,
+      "commands": 178,
+      "executionCounts": {
+        "diagramPython": 6,
+        "lekPython": 18,
+        "siteGeneration": 4,
+        "siteStaticPython": 4
+      },
+      "nonzeroCommands": [],
+      "publicSkills": 8,
+      "siteResources": 20,
+      "allPackageInventory": {
+        "outside": {
+          "publicSkills": 3,
+          "repositorySkills": 0
+        },
+        "repository": {
+          "publicSkills": 3,
+          "repositorySkills": 20
+        },
+        "nativeOutside": {
+          "publicSkills": 8,
+          "repositorySkills": 0
+        },
+        "nativeRepository": {
+          "publicSkills": 8,
+          "repositorySkills": 20
+        },
+        "explicitOnly": [
+          "learning-evidence-kit:pop-quiz",
+          "learning-evidence-kit:learning-record-check",
+          "communication-kit:communicate",
+          "html-guide-kit:guide",
+          "html-guide-kit:site"
+        ]
+      },
+      "siteStaticSummaries": [
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        }
+      ],
+      "siteBrowserScope": [
+        "NOT_RUN in installation smoke; separate representative browser acceptance required",
+        "NOT_RUN in installation smoke; separate representative browser acceptance required",
+        "NOT_RUN in installation smoke; separate representative browser acceptance required",
+        "NOT_RUN in installation smoke; separate representative browser acceptance required"
+      ],
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run npm ci",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run npm install -g @openai/codex@0.147.0",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Unit and real Python execution tests",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run npm run validate",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Run npm run check:baseline-tools",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Run npm run smoke:codex",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "conclusion": "success",
+          "number": 18
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "conclusion": "success",
+          "number": 19
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success",
+          "number": 20
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success",
+          "number": 21
+        }
+      ],
+      "conclusion": "success",
+      "completedAt": "2026-10-19T15:04:39Z",
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39272665913/job/118128777137"
+    }
+  },
+  "status": "PASS",
+  "extractedAt": "2026-10-19T15:05:27.088540+00:00",
+  "headAndBaseUnchanged": true,
+  "mergeTreeEqualsHeadTree": true,
+  "runConclusion": "success",
+  "limitations": [
+    "The matrix does not replace protected current-head non-author approval, thread resolution, actual merge, publication, or Owner acceptance.",
+    "The actual browser unit case exercises desktop/mobile layout and induced overflow/clipping/wrapping. Installation smoke browserCheck remains NOT_RUN; no representative consumer, desktop menu, Sites access-scope or learning-effect test is inferred from this matrix."
+  ]
+}

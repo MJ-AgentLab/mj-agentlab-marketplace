@@ -70,7 +70,7 @@ Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基
 
 ## HTML Guide Kit 阶段实施
 
-HTML0.1.37/site已随#278/v8.3.2公开，guide原字节保持；[任务274](plans/274-html-learning-artifact/INDEX.md)承接记录→实际main同步→仅市场8.3.3预升。新PR真实门禁保持；原生/第二客户端延期、Owner接受独立。
+HTML0.1.37/site随#278/v8.3.2公开，guide原字节保持。#279记录已合maine3dc40f7/同已测tree，新13安装/Python/15清理通过；[任务274](plans/274-html-learning-artifact/INDEX.md)现同步完整main→develop，实际sync新验后才仅市场8.3.3预升。原批准NOT_MET/bypass保留，新PR真实门禁保持；延期/Owner接受独立。
 
 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217)授权三阶段/worktree/codex。#221 merge70267a5复验/#218关闭；#226 d106e766同72cdd08树，0.1.0/第二轮A/七安装四Python复验/#219关闭。旧批准缺项保留。#231实际merge71e2同head树、CI全P/reviews空；原批准缺项保留，不bypass或指定审查人。
 

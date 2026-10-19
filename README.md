@@ -81,7 +81,7 @@ Communication 0.1.0 已随 v8.3.0 发布。安装后显式调用 `$communication
 
 ### Development
 
-README badge跟随当前checkout的VERSION，公开安装固定真实v8.3.2。当前记录分支保持8.3.2；包含本记录实际merge的完整main同步并复验后，才准备仅市场8.3.3预升，不创建同号发行。P5授权、当前保护门禁、公开、Owner接受与延期分记于[8.3.2账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)；历史#254/同步/预升见[8.3.1账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
+README badge跟随当前checkout的VERSION，公开安装固定真实v8.3.2。记录PR279已合入main e3dc40f7；当前同步候选完整继承该main，保持8.3.2。实际同步合入并新复验后，才准备仅市场8.3.3预升，不创建同号发行。P5授权、当前保护门禁、公开、Owner接受与延期分记于[8.3.2账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)；历史#254/同步/预升见[8.3.1账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
 
 历史 Learning [8.2.0 Release](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.2.0) 于 2026-10-13 发布。#241 已将完整五包作为 v8.3.0 公开，Diagram 0.3.1、Learning Evidence 0.1.0、Explain 0.1.1、Communication 0.1.0、HTML 0.1.36 均保持实际版本。后续同步与未发布补丁预升须经独立 PR 和实际门禁，见[8.3.0 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。共用 Learning 脚本归属安装包，不依赖仓库过渡路径。
 
