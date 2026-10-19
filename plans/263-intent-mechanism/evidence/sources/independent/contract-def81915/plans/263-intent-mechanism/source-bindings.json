@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "task": "263-intent-mechanism",
+  "sources": [
+    {
+      "id": "owner-original-request",
+      "kind": "snapshot",
+      "path": "evidence/sources/owner-original-request.txt",
+      "original": "conversation:current-chat/owner-original-request",
+      "sha256": "6be58f2add7736e58ec304ed07506d0183da5c165489ec651939492c769186c6",
+      "purpose": "完整原始请求及mj-system参考说明的可见文字捕获，原转义/换行归一为可读文本，非宿主导出",
+      "scope": "参考来源及最初只读/严格窗口约束，不主张外部代码长期成熟度"
+    },
+    {
+      "id": "owner-confirmations-q1-q6",
+      "kind": "snapshot",
+      "path": "evidence/sources/owner-confirmations-q1-q6.txt",
+      "original": "conversation:current-chat/owner-confirmations-q1-q6",
+      "sha256": "51199569d6fa514b18d23a8af65772aec7dc53c5c72431b1e144d3cda63ff8ea",
+      "purpose": "保留真实六项问题、所有选项和Owner实际回答及可见questionItemId",
+      "scope": "设计范围及只读决定，不是当时实施授权"
+    },
+    {
+      "id": "accepted-design-b1",
+      "kind": "snapshot",
+      "path": "evidence/sources/accepted-design-b1.txt",
+      "original": "conversation:current-chat/accepted-design-b1",
+      "sha256": "65333b9528dc97c5fce942990588a33c74d3bde68926a3b63882fedea7b2f763",
+      "purpose": "完整八节设计writing block58317正文，包含七执行原则；移除包装但不以摘要替代",
+      "scope": "后续按上述方案实施请求所指完整基线；9字段按当前layer合同适配10字段"
+    },
+    {
+      "id": "owner-seven-principles",
+      "kind": "snapshot",
+      "path": "evidence/sources/owner-principles.txt",
+      "original": "conversation:current-chat/owner-seven-principles",
+      "sha256": "fa266e2808879478f7ff613a0f1b8bbc7dae09bb0ca7180bb04304cf8f119590",
+      "purpose": "Owner新增七原则原文的可见文字捕获，转义/行布局归一，非宿主导出",
+      "scope": "集中授权/独立合成验收/保护拓扑等明确边界"
+    },
+    {
+      "id": "owner-implementation-authorization",
+      "kind": "snapshot",
+      "path": "evidence/sources/owner-authorization.txt",
+      "original": "conversation:current-chat/owner-implementation-authorization",
+      "sha256": "82afdb7d53b0e74b359f25e6623730f181adc8d7961a6438208005df08ef6cbc",
+      "purpose": "Owner后续开始实施授权原文，非GitHub非作者批准或最终成品接受",
+      "scope": "明确范围的技术执行、Epic和PR创建、内部子PR合并；主PR保护仍有效"
+    }
+  ]
+}
