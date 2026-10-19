@@ -5,9 +5,9 @@
 
 ## [Unreleased]
 
-### Planned extension
+### Added
 
-- Establish INT-2026-003 and the stable #274 task baseline for an explicit HTML Learning Artifact site entry. Preserve the complete input plan, current execution authorization, existing guide runtime and historical acceptance; implementation, real Sites publication and protected approval remain pending evidence.
+- Add the explicit HTML Learning Artifact site entry in HTML Guide Kit 0.1.37: six local production steps, Chinese teaching content with stable English terms, warm-paper assets, a Markdown renderer and actual static/browser checks, plus the current Sites handoff contract. Preserve guide runtime bytes, plugin identity, approved icon and all historical acceptance. INT-2026-003 and #274 retain the complete input, current authorization, staged evidence and remaining publication/Owner acceptance boundaries.
 
 ### Documentation
 

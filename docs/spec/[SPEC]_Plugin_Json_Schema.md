@@ -4,12 +4,17 @@ scope: marketplace
 summary: "Maintained portable manifest and OpenAI presentation contract"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-13
+updated: 2026-10-19
 state: active
-version: v2.8
+version: v2.9
+layer: canonical
 ---
 
 # [SPEC] Plugin manifest
+
+## Current HTML site extension
+
+本次 HTML Guide Kit 0.1.37 候选将包级能力改为 Read/Write，公开 guide 与 site 两个显式入口，manifest 示例分别覆盖二者并保留原始128 Unicode scalar预算。guide 的四份运行资源与只读聊天合同保持；site 的精确资源、行为和四项最小门槛见[扩展SPEC](./[SPEC]_HTML_Learning_Artifact.md)。以下原HTML唯一入口/Read和版本集合保留历史时点范围，新site以扩展SPEC及实际manifest为准。当前开发集合五包八公开/五显式/三自然，20仓库技能不变；正式发布结果另据[任务#274](../../plans/274-html-learning-artifact/INDEX.md)证据。
 
 plugins/diagram-kit/plugin.json、plugins/learning-evidence-kit/plugin.json、plugins/explain-kit/plugin.json 、plugins/html-guide-kit/plugin.json 与 plugins/communication-kit/plugin.json 各声明 https://agent-plugins.org/schemas/1.0.0/plugin.schema.json。根字段为 name、version、description、author、repository、license、keywords、extensions。根 version 是对应插件的权威版本；Diagram0.3.1/Explain0.1.1/Learning Evidence0.1.0已随main/v8.2.0公开；HTML0.1.0与Communication0.1.0为未发布开发候选。已发布历史版本记录保持。技能由根 skills/ 自动发现，无 skills 字段、兼容包装或空 MCP 文件。
 

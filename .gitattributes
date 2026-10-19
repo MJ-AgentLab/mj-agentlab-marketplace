@@ -1,6 +1,9 @@
 # Preserve the saved owner plan's original bytes for its recorded SHA-256.
 # Task source snapshots retain the exact bytes checked by source-bindings.json.
 plans/*/evidence/sources/** -text
+# Frozen #274 source bytes retain Markdown hard breaks and actual CRLF capture.
+plans/274-html-learning-artifact/evidence/sources/HTML-Learning-Artifact-Plugin-Implementation-Plan.md whitespace=-blank-at-eol
+plans/274-html-learning-artifact/evidence/sources/capture-metadata.json whitespace=cr-at-eol
 # Frozen Epic 263 tool transcripts retain their original CRLF bytes and hashes.
 plans/263-intent-mechanism/evidence/sources/engineering/** whitespace=cr-at-eol
 plans/263-intent-mechanism/evidence/sources/independent/** whitespace=cr-at-eol

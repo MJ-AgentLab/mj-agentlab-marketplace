@@ -7,10 +7,12 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-19
 state: active
-version: v1.1
+version: v1.2
 ---
 
 # [ADR] HTML Guide Kit addition
+
+本文件保持原 guide 的决定与历史范围。新增显式 site、包级Read/Write及本次精简上线门槛另见[扩展ADR](./[ADR]_HTML_Learning_Artifact_Extension.md)，不改写下述旧接受或追认旧验收。
 
 | Field | Value |
 | --- | --- |

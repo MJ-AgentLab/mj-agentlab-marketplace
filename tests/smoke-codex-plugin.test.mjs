@@ -13,15 +13,15 @@ function fixture(){const root=fs.mkdtempSync(path.join(fs.realpathSync.native(os
  const skillFile=(plugin,skill)=>{const file=path.join(cache,plugin,pluginVersions[plugin],"skills",skill,"SKILL.md");fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,skill);return file;};
  const file=skillFile("diagram-kit","arch-diagram"),quizFile=skillFile("learning-evidence-kit","pop-quiz");
  const explainEntries=["glossary","concept"].map(skill=>({name:"explain-kit:"+skill,file:skillFile("explain-kit",skill)}));
- const guideFile=skillFile("html-guide-kit","guide");
+ const guideFile=skillFile("html-guide-kit","guide"),siteFile=skillFile("html-guide-kit","site");
  for(const [plugin,manifest] of Object.entries(manifests))for(const base of [path.join(repo,"plugins",plugin),path.join(cache,plugin,pluginVersions[plugin])]){fs.mkdirSync(base,{recursive:true});fs.writeFileSync(path.join(base,"plugin.json"),JSON.stringify(manifest));}
- const entries=[{name:"diagram-kit:arch-diagram",file},{name:"learning-evidence-kit:pop-quiz",file:quizFile},{name:"learning-evidence-kit:learning-record-check",file:skillFile("learning-evidence-kit","learning-record-check")},...explainEntries,{name:"communication-kit:communicate",file:skillFile("communication-kit","communicate")},{name:"html-guide-kit:guide",file:guideFile}];
+ const entries=[{name:"diagram-kit:arch-diagram",file},{name:"learning-evidence-kit:pop-quiz",file:quizFile},{name:"learning-evidence-kit:learning-record-check",file:skillFile("learning-evidence-kit","learning-record-check")},...explainEntries,{name:"communication-kit:communicate",file:skillFile("communication-kit","communicate")},{name:"html-guide-kit:guide",file:guideFile},{name:"html-guide-kit:site",file:siteFile}];
  const dev=REPOSITORY_SKILLS.map(name=>{const file=path.join(repo,".agents/skills",name,"SKILL.md");fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,name);return {name,file};});
- return {root,cache,repo,file,quizFile,guideFile,entries,dev,pluginVersions};}
+ return {root,cache,repo,file,quizFile,guideFile,siteFile,entries,dev,pluginVersions};}
 test("consumer and repository inventories are scoped to real installed files",()=>{
  const f=fixture();try{
- assert.deepEqual(assertDiscovery(f.entries,{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false}),{publicSkills:7,repositorySkills:0});
- assert.deepEqual(assertDiscovery([...f.entries,...f.dev],{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:true}),{publicSkills:7,repositorySkills:20});
+ assert.deepEqual(assertDiscovery(f.entries,{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false}),{publicSkills:8,repositorySkills:0});
+ assert.deepEqual(assertDiscovery([...f.entries,...f.dev],{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:true}),{publicSkills:8,repositorySkills:20});
  assert.throws(()=>assertDiscovery([...f.entries,...f.dev],{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false}));
  }finally{cleanupIsolatedRoot(f.root);}});
 test("duplicate, missing and escaped public locators fail closed",()=>{
@@ -35,7 +35,7 @@ test("duplicate, missing and escaped public locators fail closed",()=>{
  }finally{cleanupIsolatedRoot(f.root);}});
 test("Windows equivalent file casing still passes containment",{skip:process.platform!=="win32"},()=>{
  const f=fixture();try{assertDiscovery(f.entries.map(e=>({...e,file:e.file.toLowerCase()})),{cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false});}finally{cleanupIsolatedRoot(f.root);}});
-test("ordinary prompt metadata contains three natural skills and excludes the explicit-only two learning skills, guide and communication",()=>{
+test("ordinary prompt metadata contains three natural skills and excludes the two learning, guide, site and communication entries",()=>{
  const f=fixture();try{const expectedSkills=["diagram-kit:arch-diagram","explain-kit:glossary","explain-kit:concept"],opts={cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false,expectedSkills};
  const natural=f.entries.filter(e=>expectedSkills.includes(e.name));
  assert.deepEqual(assertDiscovery(natural,opts),{publicSkills:3,repositorySkills:0});assert.throws(()=>assertDiscovery(f.entries,opts));
@@ -62,15 +62,14 @@ test("native skills/list completes the handshake and preserves explicitly availa
  assert.deepEqual(result.map(e=>e.cwd),cwds);assert.equal(result[0].skills[0].name,"learning-evidence-kit:pop-quiz");assert.equal(result[0].skills[0].enabled,true);
 });
 
-test("native protocol retains guide availability and its own route in consumer and repository snapshots",async()=>{
+test("native protocol retains both HTML entries and their own routes in consumer and repository snapshots",async()=>{
  const cwds=[path.resolve("consumer"),path.resolve("repository")];
- const source=`let b='',initialized=false;process.stdin.on('data',c=>{b+=c;let n;while((n=b.indexOf('\\n'))>=0){const q=JSON.parse(b.slice(0,n));b=b.slice(n+1);if(q.method==='initialize')process.stdout.write(JSON.stringify({id:q.id,result:{}})+'\\n');else if(q.method==='initialized')initialized=true;else if(q.method==='skills/list'){if(!initialized||!q.params.forceReload)throw Error('missing handshake');process.stdout.write(JSON.stringify({id:q.id,result:{data:q.params.cwds.map(cwd=>({cwd,errors:[],skills:[{name:'html-guide-kit:guide',enabled:true,interface:{defaultPrompt:'Use $html-guide-kit:guide'},path:'cache/html-guide-kit/0.1.0/skills/guide/SKILL.md'}]}))}})+'\\n');}}});`;
+ const skills=["guide","site"].map(skill=>({name:`html-guide-kit:${skill}`,enabled:true,interface:{defaultPrompt:`Use $html-guide-kit:${skill}`},path:`cache/html-guide-kit/0.1.37/skills/${skill}/SKILL.md`}));
+ const source=`let b='',initialized=false;const skills=${JSON.stringify(skills)};process.stdin.on('data',c=>{b+=c;let n;while((n=b.indexOf('\\n'))>=0){const q=JSON.parse(b.slice(0,n));b=b.slice(n+1);if(q.method==='initialize')process.stdout.write(JSON.stringify({id:q.id,result:{}})+'\\n');else if(q.method==='initialized')initialized=true;else if(q.method==='skills/list'){if(!initialized||!q.params.forceReload)throw Error('missing handshake');process.stdout.write(JSON.stringify({id:q.id,result:{data:q.params.cwds.map(cwd=>({cwd,errors:[],skills}))}})+'\\n');}}});`;
  const result=await listNativeSkills({cwds,spawn:fakeServer(source),timeoutMs:2000});
  assert.deepEqual(result.map(entry=>entry.cwd),cwds);
  for(const entry of result){
-  assert.equal(entry.skills.length,1);assert.equal(entry.skills[0].name,"html-guide-kit:guide");assert.equal(entry.skills[0].enabled,true);
-  assert.equal(entry.skills[0].interface.defaultPrompt,"Use $html-guide-kit:guide");
-  assert.equal(entry.skills[0].path,"cache/html-guide-kit/0.1.0/skills/guide/SKILL.md");
+  assert.deepEqual(entry.skills,skills);
  }
 });
 test("native inventory fails closed on protocol errors and a stalled server",async()=>{
@@ -133,7 +132,7 @@ test("complete installed inventory rejects swapped skills and package identity/v
   const wrong=f.entries.map(e=>({...e}));wrong[2].file=wrong[3].file;assert.throws(()=>assertDiscovery(wrong,opts));
   const file=path.resolve(path.dirname(f.entries[2].file),"../../plugin.json"),original=fs.readFileSync(file),manifest=JSON.parse(original);
   for(const change of [{name:"diagram-kit"},{version:"9.9.9"}]){fs.writeFileSync(file,JSON.stringify({...manifest,...change}));assert.throws(()=>assertDiscovery(f.entries,opts),/identity\/version/);}
-  fs.writeFileSync(file,original);assert.equal(assertDiscovery(f.entries,opts).publicSkills,7);
+  fs.writeFileSync(file,original);assert.equal(assertDiscovery(f.entries,opts).publicSkills,8);
  }finally{cleanupIsolatedRoot(f.root);}
 });
 
@@ -169,8 +168,9 @@ test("thirteen install combinations preserve implicit and native inventories inc
    assert.equal(assertDiscovery(native,{...opts,expectedSkills:native.map(entry=>entry.name)}).publicSkills,native.length);
    assert.equal(assertDiscovery(ordinary,{...opts,expectedSkills:ordinary.map(entry=>entry.name)}).publicSkills,ordinary.length);
    if(installed.length===1&&installed[0]==="communication-kit"){assert.equal(native.length,1);assert.equal(ordinary.length,0);}
-   if(installed.length===4){assert.equal(native.length,6);assert.equal(ordinary.length,3);assert.equal(native.filter(entry=>EXPLICIT_ONLY_SKILLS.includes(entry.name)).length,3);}
-   if(installed.length===5){assert.equal(native.length,7);assert.equal(ordinary.length,3);assert.equal(native.filter(entry=>EXPLICIT_ONLY_SKILLS.includes(entry.name)).length,4);}
+   if(installed.length===1&&installed[0]==="html-guide-kit"){assert.equal(native.length,2);assert.equal(ordinary.length,0);}
+   if(installed.length===4){const hasHtml=installed.includes("html-guide-kit");assert.equal(native.length,hasHtml?7:6);assert.equal(ordinary.length,3);assert.equal(native.filter(entry=>EXPLICIT_ONLY_SKILLS.includes(entry.name)).length,hasHtml?4:3);}
+   if(installed.length===5){assert.equal(native.length,8);assert.equal(ordinary.length,3);assert.equal(native.filter(entry=>EXPLICIT_ONLY_SKILLS.includes(entry.name)).length,5);}
   }
  }finally{cleanupIsolatedRoot(f.root);}
 });
@@ -187,9 +187,9 @@ test("installed communication compares every reference byte, metadata and resour
  assert.doesNotThrow(()=>assertInstalledSkillResources(source,installed,qualified));
 });
 
-test("guide discovery rejects borrowed skill locations, wrong version cache and swapped installed manifest",()=>{
+for(const skill of ["guide","site"])test(`${skill} discovery rejects borrowed skill locations, wrong version cache and swapped installed manifest`,()=>{
  const f=fixture();try{
-  const opts={cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false},guide=f.entries.find(e=>e.name==="html-guide-kit:guide");
+  const opts={cacheRoot:f.cache,repositoryRoot:f.repo,inRepository:false},guide=f.entries.find(e=>e.name===`html-guide-kit:${skill}`);
   const differentParts=f.pluginVersions["html-guide-kit"].split(".").map(Number);differentParts[2]++;const differentVersion=differentParts.join(".");
   assert.throws(()=>assertDiscovery(f.entries.map(e=>e===guide?{...e,file:f.quizFile}:e),opts),/own isolated plugin\/version cache/);
   assert.throws(()=>assertDiscovery(f.entries,{...opts,pluginVersions:{...f.pluginVersions,"html-guide-kit":differentVersion}}),/own isolated plugin\/version cache/);
@@ -197,6 +197,6 @@ test("guide discovery rejects borrowed skill locations, wrong version cache and 
   for(const change of [{name:"explain-kit"},{version:differentVersion}]){
    fs.writeFileSync(file,JSON.stringify({...manifest,...change}));assert.throws(()=>assertDiscovery(f.entries,opts),/identity\/version/);
   }
-  fs.writeFileSync(file,original);assert.equal(assertDiscovery(f.entries,opts).publicSkills,7);
+  fs.writeFileSync(file,original);assert.equal(assertDiscovery(f.entries,opts).publicSkills,8);
  }finally{cleanupIsolatedRoot(f.root);}
 });

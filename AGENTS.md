@@ -70,7 +70,7 @@ Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基
 
 ## HTML Guide Kit 阶段实施
 
-HTML Learning Artifact 的 site 扩展按[任务 #274](plans/274-html-learning-artifact/INDEX.md)实施；保留 guide 历史合同，Sites 核心门槛、非核心延期与 Owner 接受分记。
+HTML Learning Artifact 候选0.1.37新增显式site，开发5包8技能/5显式；按[任务 #274](plans/274-html-learning-artifact/INDEX.md)核验。guide合同保留，Sites核心、延期与Owner接受分记。
 
 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217)授权三阶段/worktree/codex。#221 merge70267a5复验/#218关闭；#226 d106e766同72cdd08树，0.1.0/第二轮A/七安装四Python复验/#219关闭。旧批准缺项保留。#231实际merge71e2同head树、CI全P/reviews空；原批准缺项保留，不bypass或指定审查人。
 
