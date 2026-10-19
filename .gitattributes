@@ -78,3 +78,8 @@ docs/runbook/evidence/html-guide-kit/pr2-reviewer/** -text
 # Preserve exact post-merge API/command receipts and native CI log whitespace.
 plans/257-task-documentation/evidence/main-*.json -text
 plans/257-task-documentation/evidence/main-ci-*.log whitespace=-blank-at-eol,cr-at-eol
+
+# Actual INTENT post-merge receipts preserve their original tool/API bytes.
+plans/263-intent-mechanism/evidence/postmerge-264/** -text whitespace=cr-at-eol
+# Git patch context lines contain significant single-space lines.
+plans/263-intent-mechanism/evidence/postmerge-264/closeout-review-r1.patch whitespace=-blank-at-eol,cr-at-eol
