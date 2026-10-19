@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "status": "PENDING",
+  "executionStatus": "NOT_EXECUTED_AS_OF_CAPTURE",
+  "terminalCI": false,
+  "evidenceSnapshotFrozen": true,
+  "capturedAt": "2026-10-19T15:42:29.786Z",
+  "frozenAt": "2026-10-19T15:43:03.918Z",
+  "pr": 280,
+  "head": "ef85a2de6e39b1981d94d9d4cbc004fbdc71acee",
+  "base": "65d756efd3024ac10d1d0e6ea189055fbe6f1545",
+  "potentialMerge": "535315f035a5b7a8082a263fedaf9a07aa67e9d7",
+  "potentialMergeTree": "db49629fe767d3584f6ce772ef7bf5cdb52094e1",
+  "potentialMergeParents": [
+    "65d756efd3024ac10d1d0e6ea189055fbe6f1545",
+    "ef85a2de6e39b1981d94d9d4cbc004fbdc71acee"
+  ],
+  "run": {
+    "id": 39279114820,
+    "status": "queued",
+    "conclusion": "",
+    "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39279114820",
+    "jobs": [
+      {
+        "id": 118149991193,
+        "name": "Cancel proved superseded PR runs (best effort)",
+        "status": "queued",
+        "conclusion": ""
+      },
+      {
+        "id": 118149991324,
+        "name": "Baseline compat (windows-latest)",
+        "status": "queued",
+        "conclusion": ""
+      },
+      {
+        "id": 118149991325,
+        "name": "Baseline compat (ubuntu-latest)",
+        "status": "queued",
+        "conclusion": ""
+      },
+      {
+        "id": 118149991487,
+        "name": "Validate Structure",
+        "status": "queued",
+        "conclusion": ""
+      }
+    ]
+  },
+  "push": {
+    "id": 39279043416,
+    "status": "queued",
+    "conclusion": "",
+    "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39279043416",
+    "jobs": [
+      {
+        "id": 118149826763,
+        "name": "Validate Structure",
+        "status": "queued",
+        "conclusion": ""
+      },
+      {
+        "id": 118149827282,
+        "name": "Prove equivalent PR matrix for this push (read only)",
+        "status": "queued",
+        "conclusion": ""
+      },
+      {
+        "id": 118149865348,
+        "name": "Baseline compat (windows-latest)",
+        "status": "queued",
+        "conclusion": ""
+      },
+      {
+        "id": 118149865384,
+        "name": "Baseline compat (ubuntu-latest)",
+        "status": "queued",
+        "conclusion": ""
+      }
+    ]
+  },
+  "actualTestCounts": null,
+  "actualInstallationCounts": null,
+  "actualCLI": null,
+  "actualPythonCounts": null,
+  "rawJobLogsDownloaded": false,
+  "priorCandidateCountsReused": false,
+  "queueReason": "NOT_PROVIDED_BY_THESE_RUN_API_RESPONSES",
+  "methodsPreparedButNotExecuted": [
+    "download-job.mjs",
+    "extract-ci.py",
+    "freeze-evidence.mjs"
+  ],
+  "resume": [
+    "Re-read PR280 and both runs; verify exact current head/base and applicable run identities before using results.",
+    "For this run, wait until each platform job has completed before downloading raw logs; parse only the new logs, preserving failures and actual skips.",
+    "Run extraction to completion before hashing any output. Keep push metadata separate; do not count its duplicate matrix as independent acceptance.",
+    "If head/base/run identity changed, capture a new candidate batch. Never borrow earlier 315/e3dc/f906 counts or call this pending snapshot terminal CI."
+  ],
+  "limits": [
+    "No test, CLI, installation, Python, generated-site, browser, or cleanup PASS is established by this queued snapshot.",
+    "CI has not recorded individual temporary-root absence; never borrow the e3dc batch fifteen-root result.",
+    "No GitHub approve, merge, bypass, repository mutation, or 8.3.3 advancement performed by this agent."
+  ]
+}

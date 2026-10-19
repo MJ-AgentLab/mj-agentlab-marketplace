@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-10-19T15:42:38.179Z",
+  "scope": "Read-only queue diagnosis for task 274 synchronization PR280; all output files are confined to this TEMP evidence directory.",
+  "methods": [
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/<39279114820|39279114746|39279043416>",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/<id>/jobs",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/<id>/pending_deployments",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/<id>/approvals",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/actions/permissions",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/actions/workflows/<ci.yml|a6.yml>",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/actions/runners",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/actions/runs?per_page=40",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/actions/runs?status=<in_progress|queued|waiting>&per_page=100",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/pulls/280",
+    "Public unauthenticated GET https://www.githubstatus.com/api/v2/<summary|components|incidents|incidents/unresolved>.json via Invoke-WebRequest, TimeoutSec20; HTTP Date/Age/cache-control and local capture clocks retained.",
+    "Browse official https://www.githubstatus.com/ as an independent human-readable status source; the raw API snapshots provide recoverable primary evidence."
+  ],
+  "authorization": "Existing gh authentication only, never printed or saved. No credentials used for the public status endpoints. No external messages or state-changing API requests.",
+  "timeApplicability": "Run creation 2026-10-19T15:34:28Z to 15:35:01Z. Public status capture 15:39:49Z to 15:39:51Z with server Date 15:39:41Z/15:39:50Z and Age 2–10s; recent history capture separately retained. Old component last-change timestamps and old incidents are not substituted for current observations.",
+  "interpretation": "Observe status/runner IDs/review/environment arrays and actual repository/workflow settings. No claims about org/account concurrency, payment, GitHub-hosted pool capacity, or an unreported incident can be established from these endpoints; do not invent a cause or mutate settings to test guesses.",
+  "reproducibility": "Run summarize-queue-audit.mjs over the saved original JSON to regenerate the bounded observation summary. It performs no API calls or repository operations.",
+  "result": "UNKNOWN cause / queued observations, never PASS."
+}

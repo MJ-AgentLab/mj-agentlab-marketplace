@@ -1,0 +1,87 @@
+{
+  "capturedAt": "2026-10-19T16:52:33.524Z",
+  "actor": "/root",
+  "clientDate": "2026-10-20",
+  "clientTimezone": "Asia/Taipei",
+  "sourceActualSync": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+  "sourceActualSyncFreshSummarySha256": "1c437736dd3137bcf3cc5ec3ea62a2b93f77ee20c77645478cf90e50358d6720",
+  "freshManifestSha256": "93601736e301a05082e7653d41f3f7d576f30a7058ce9462d5b6d4947cf3f117",
+  "sourceActualSyncCompletedAt": "2026-10-19T16:50:02.166Z",
+  "from": "8.3.2",
+  "to": "8.3.3",
+  "scope": "marketplace",
+  "dryStartedAt": "2026-10-19T16:52:31.265Z",
+  "dry": {
+    "command": [
+      "pwsh",
+      "-NoProfile",
+      "-File",
+      "C:\\Users\\Admin\\.codex\\worktrees\\html-learning-artifact\\develop\\scripts\\bump-version.ps1",
+      "-From",
+      "8.3.2",
+      "-To",
+      "8.3.3",
+      "-Scope",
+      "marketplace",
+      "-DryRun"
+    ],
+    "status": 0,
+    "completedAt": "2026-10-19T16:52:31.625Z"
+  },
+  "zeroDryRunWrites": true,
+  "filesChecked": 7252,
+  "applyStartedAt": "2026-10-19T16:52:32.427Z",
+  "applied": {
+    "command": [
+      "pwsh",
+      "-NoProfile",
+      "-File",
+      "C:\\Users\\Admin\\.codex\\worktrees\\html-learning-artifact\\develop\\scripts\\bump-version.ps1",
+      "-From",
+      "8.3.2",
+      "-To",
+      "8.3.3",
+      "-Scope",
+      "marketplace"
+    ],
+    "status": 0,
+    "completedAt": "2026-10-19T16:52:32.762Z"
+  },
+  "changedPaths": [
+    "README.md",
+    "VERSION"
+  ],
+  "hashes": [
+    {
+      "path": "README.md",
+      "before": "c54a48727b354ed09b5679fcd82192a811e714e08d50874563f9bfe8c12af98c",
+      "after": "fbb212ffbbc8a24e709f440275b0a031e7734166feb3432875fbe15a9036c956"
+    },
+    {
+      "path": "VERSION",
+      "before": "07dd3cfa027b66864559eb8c35e4003b46d3c3169ab75e567d4047c81c7151e6",
+      "after": "edeec5ff4fbe8e0c198abda9eed2cc6537c764b875495b3a88d3073d0c395b73"
+    }
+  ],
+  "badgeOnlyReadmeReplacement": true,
+  "noBackupResidues": true,
+  "otherRepositoryBytesUnchanged": true,
+  "fileHashEvidence": [
+    {
+      "phase": "before",
+      "file": "html-learning-274-prebump-files-before.json",
+      "sha256": "a0583d017db2ba2bb35fbfc53eaaa8787c03b7d5d417c5da4bc88e6e00d31f8d"
+    },
+    {
+      "phase": "after-dryrun",
+      "file": "html-learning-274-prebump-files-after-dryrun.json",
+      "sha256": "a0583d017db2ba2bb35fbfc53eaaa8787c03b7d5d417c5da4bc88e6e00d31f8d"
+    },
+    {
+      "phase": "after-apply",
+      "file": "html-learning-274-prebump-files-after-apply.json",
+      "sha256": "6137b21d2ca2c48d2a797982fa4b5a0a054a5c5a43981ab40745b97e337a889b"
+    }
+  ],
+  "limits": "Local version-tool preparation only after actualsync freshPASS; additional normalA6/task records handled separately, not actualprotectedPR merge or officialrelease. Plugins/tag/Release untouched."
+}

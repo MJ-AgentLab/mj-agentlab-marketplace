@@ -1,0 +1,430 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-19T15:42:38.179Z",
+  "result": "OBSERVATION_ONLY_PENDING",
+  "queueCause": "UNKNOWN",
+  "actionableCauseEstablished": false,
+  "captureRangeFromResponseFileMtimeUtc": {
+    "start": "2026-10-19T15:39:20.629Z",
+    "end": "2026-10-19T15:41:39.635Z"
+  },
+  "pr": {
+    "number": 280,
+    "head": "ef85a2de6e39b1981d94d9d4cbc004fbdc71acee",
+    "base": "65d756efd3024ac10d1d0e6ea189055fbe6f1545",
+    "state": "open",
+    "draft": false,
+    "updatedAt": "2026-10-19T15:34:58Z",
+    "bodySha256": "0f478228e2130f1bd1f02c8cc2d4e199255abb3f9b21b0dc0c63cbafe831bae0",
+    "bodyChangedBetweenTwoPrReads": false
+  },
+  "runs": [
+    {
+      "label": "pr-ci",
+      "id": 39279114820,
+      "event": "pull_request",
+      "head": "ef85a2de6e39b1981d94d9d4cbc004fbdc71acee",
+      "createdAt": "2026-10-19T15:35:01Z",
+      "initial": {
+        "status": "queued",
+        "conclusion": null
+      },
+      "terminal": {
+        "status": "queued",
+        "conclusion": null,
+        "updatedAt": "2026-10-19T15:35:01Z",
+        "runStartedAtField": "2026-10-19T15:35:01Z"
+      },
+      "jobs": [
+        {
+          "id": 118149991193,
+          "name": "Cancel proved superseded PR runs (best effort)",
+          "status": "queued",
+          "conclusion": null,
+          "startedAtField": "2026-10-19T15:35:02Z",
+          "completedAt": null,
+          "runnerId": null,
+          "runnerName": null,
+          "runnerGroupId": null,
+          "runnerGroupName": null,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "stepCount": 0
+        },
+        {
+          "id": 118149991324,
+          "name": "Baseline compat (windows-latest)",
+          "status": "queued",
+          "conclusion": null,
+          "startedAtField": "2026-10-19T15:35:02Z",
+          "completedAt": null,
+          "runnerId": null,
+          "runnerName": null,
+          "runnerGroupId": null,
+          "runnerGroupName": null,
+          "labels": [
+            "windows-latest"
+          ],
+          "stepCount": 0
+        },
+        {
+          "id": 118149991325,
+          "name": "Baseline compat (ubuntu-latest)",
+          "status": "queued",
+          "conclusion": null,
+          "startedAtField": "2026-10-19T15:35:02Z",
+          "completedAt": null,
+          "runnerId": null,
+          "runnerName": null,
+          "runnerGroupId": null,
+          "runnerGroupName": null,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "stepCount": 0
+        },
+        {
+          "id": 118149991487,
+          "name": "Validate Structure",
+          "status": "queued",
+          "conclusion": null,
+          "startedAtField": "2026-10-19T15:35:02Z",
+          "completedAt": null,
+          "runnerId": null,
+          "runnerName": null,
+          "runnerGroupId": null,
+          "runnerGroupName": null,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "stepCount": 0
+        }
+      ],
+      "pendingDeployments": [],
+      "approvals": []
+    },
+    {
+      "label": "a6",
+      "id": 39279114746,
+      "event": "pull_request",
+      "head": "ef85a2de6e39b1981d94d9d4cbc004fbdc71acee",
+      "createdAt": "2026-10-19T15:35:01Z",
+      "initial": {
+        "status": "queued",
+        "conclusion": null
+      },
+      "terminal": {
+        "status": "queued",
+        "conclusion": null,
+        "updatedAt": "2026-10-19T15:35:01Z",
+        "runStartedAtField": "2026-10-19T15:35:01Z"
+      },
+      "jobs": [
+        {
+          "id": 118149990726,
+          "name": "A6 / Check",
+          "status": "queued",
+          "conclusion": null,
+          "startedAtField": "2026-10-19T15:35:02Z",
+          "completedAt": null,
+          "runnerId": null,
+          "runnerName": null,
+          "runnerGroupId": null,
+          "runnerGroupName": null,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "stepCount": 0
+        }
+      ],
+      "pendingDeployments": [],
+      "approvals": []
+    },
+    {
+      "label": "push",
+      "id": 39279043416,
+      "event": "push",
+      "head": "ef85a2de6e39b1981d94d9d4cbc004fbdc71acee",
+      "createdAt": "2026-10-19T15:34:28Z",
+      "initial": {
+        "status": "queued",
+        "conclusion": null
+      },
+      "terminal": {
+        "status": "queued",
+        "conclusion": null,
+        "updatedAt": "2026-10-19T15:34:28Z",
+        "runStartedAtField": "2026-10-19T15:34:28Z"
+      },
+      "jobs": [
+        {
+          "id": 118149826763,
+          "name": "Validate Structure",
+          "status": "queued",
+          "conclusion": null,
+          "startedAtField": "2026-10-19T15:34:29Z",
+          "completedAt": null,
+          "runnerId": null,
+          "runnerName": null,
+          "runnerGroupId": null,
+          "runnerGroupName": null,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "stepCount": 0
+        },
+        {
+          "id": 118149827282,
+          "name": "Prove equivalent PR matrix for this push (read only)",
+          "status": "queued",
+          "conclusion": null,
+          "startedAtField": "2026-10-19T15:34:29Z",
+          "completedAt": null,
+          "runnerId": null,
+          "runnerName": null,
+          "runnerGroupId": null,
+          "runnerGroupName": null,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "stepCount": 0
+        },
+        {
+          "id": 118149865348,
+          "name": "Baseline compat (windows-latest)",
+          "status": "queued",
+          "conclusion": null,
+          "startedAtField": "2026-10-19T15:34:36Z",
+          "completedAt": null,
+          "runnerId": null,
+          "runnerName": null,
+          "runnerGroupId": null,
+          "runnerGroupName": null,
+          "labels": [
+            "windows-latest"
+          ],
+          "stepCount": 0
+        },
+        {
+          "id": 118149865384,
+          "name": "Baseline compat (ubuntu-latest)",
+          "status": "queued",
+          "conclusion": null,
+          "startedAtField": "2026-10-19T15:34:36Z",
+          "completedAt": null,
+          "runnerId": null,
+          "runnerName": null,
+          "runnerGroupId": null,
+          "runnerGroupName": null,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "stepCount": 0
+        }
+      ],
+      "pendingDeployments": [],
+      "approvals": []
+    }
+  ],
+  "runnerAssignedInObservedJobs": false,
+  "allObservedRunsAndJobsQueued": true,
+  "permissions": {
+    "enabled": true,
+    "allowed_actions": "all",
+    "sha_pinning_required": false
+  },
+  "workflows": [
+    {
+      "label": "ci",
+      "id": 247197116,
+      "path": ".github/workflows/ci.yml",
+      "state": "active",
+      "updatedAt": "2026-03-17T12:47:16.000+08:00"
+    },
+    {
+      "label": "a6",
+      "id": 316763351,
+      "path": ".github/workflows/a6.yml",
+      "state": "active",
+      "updatedAt": "2026-10-09T11:41:25.000+08:00"
+    }
+  ],
+  "selfHostedRunnerEndpoint": {
+    "totalCount": 0,
+    "limitation": "This endpoint inventories self-hosted runners. It does not reveal GitHub-hosted pool allocation/capacity."
+  },
+  "repositoryRunStates": {
+    "in_progress": {
+      "totalCount": 0,
+      "runs": []
+    },
+    "queued": {
+      "totalCount": 3,
+      "runs": [
+        {
+          "id": 39279114746,
+          "name": "A6 — AGENTS.md Sync Allowlist",
+          "event": "pull_request",
+          "head": "ef85a2de6e39b1981d94d9d4cbc004fbdc71acee",
+          "status": "queued",
+          "createdAt": "2026-10-19T15:35:01Z"
+        },
+        {
+          "id": 39279114820,
+          "name": "ci-v1|event=pull_request|pr=280|repo=1183002256|headrepo=1183002256|head=ef85a2de6e39b1981d94d9d4cbc004fbdc71acee|baserepo=1183002256|base=65d756efd3024ac10d1d0e6ea189055fbe6f1545|target=develop",
+          "event": "pull_request",
+          "head": "ef85a2de6e39b1981d94d9d4cbc004fbdc71acee",
+          "status": "queued",
+          "createdAt": "2026-10-19T15:35:01Z"
+        },
+        {
+          "id": 39279043416,
+          "name": "ci-v1|event=push|pr=0|repo=1183002256|headrepo=1183002256|head=ef85a2de6e39b1981d94d9d4cbc004fbdc71acee|baserepo=1183002256|base=ef85a2de6e39b1981d94d9d4cbc004fbdc71acee|target=-",
+          "event": "push",
+          "head": "ef85a2de6e39b1981d94d9d4cbc004fbdc71acee",
+          "status": "queued",
+          "createdAt": "2026-10-19T15:34:28Z"
+        }
+      ]
+    },
+    "waiting": {
+      "totalCount": 0,
+      "runs": []
+    }
+  },
+  "officialStatus": {
+    "url": "https://www.githubstatus.com/",
+    "summaryEndpoint": "https://www.githubstatus.com/api/v2/summary.json",
+    "status": {
+      "indicator": "none",
+      "description": "All Systems Operational"
+    },
+    "pageUpdatedAt": "2026-10-19T15:29:27.349Z",
+    "actions": {
+      "id": "br0l2tvcx85d",
+      "status": "operational",
+      "lastComponentStatusChangeAt": "2026-10-12T14:36:09.389Z",
+      "secondEndpointStatus": "operational"
+    },
+    "incidentsAtSummary": [],
+    "unresolvedIncidents": [],
+    "scheduledMaintenances": [],
+    "sameDayIncidentsInRecentHistory": [],
+    "actualHttpCapture": [
+      {
+        "url": "https://www.githubstatus.com/api/v2/summary.json",
+        "captureStartedAt": "2026-10-19T15:39:49.3806363Z",
+        "captureCompletedAt": "2026-10-19T15:39:50.3985060Z",
+        "httpStatus": 200,
+        "responseDate": [
+          "Mon, 19 Oct 2026 15:39:41 GMT"
+        ],
+        "age": [
+          "10"
+        ],
+        "lastModified": [
+          null
+        ],
+        "cacheControl": [
+          "public, max-age=10, s-maxage=10, stale-while-revalidate=20, stale-if-error=3600"
+        ]
+      },
+      {
+        "url": "https://www.githubstatus.com/api/v2/components.json",
+        "captureStartedAt": "2026-10-19T15:39:50.4061626Z",
+        "captureCompletedAt": "2026-10-19T15:39:51.0974070Z",
+        "httpStatus": 200,
+        "responseDate": [
+          "Mon, 19 Oct 2026 15:39:50 GMT"
+        ],
+        "age": [
+          "2"
+        ],
+        "lastModified": [
+          null
+        ],
+        "cacheControl": [
+          "public, max-age=10, s-maxage=10, stale-while-revalidate=20, stale-if-error=3600"
+        ]
+      },
+      {
+        "url": "https://www.githubstatus.com/api/v2/incidents/unresolved.json",
+        "captureStartedAt": "2026-10-19T15:39:51.0995230Z",
+        "captureCompletedAt": "2026-10-19T15:39:51.7258940Z",
+        "httpStatus": 200,
+        "responseDate": [
+          "Mon, 19 Oct 2026 15:39:43 GMT"
+        ],
+        "age": [
+          "10"
+        ],
+        "lastModified": [
+          null
+        ],
+        "cacheControl": [
+          "public, max-age=10, s-maxage=10, stale-while-revalidate=10, stale-if-error=3600"
+        ]
+      }
+    ],
+    "historicalNonCauseExamples": [
+      {
+        "id": "vlxrztp88101",
+        "name": "CCA Automations are delayed when starting an Automation",
+        "status": "resolved",
+        "createdAt": "2026-10-15T18:31:49.838Z",
+        "updatedAt": "2026-10-15T19:00:06.028Z",
+        "resolvedAt": "2026-10-15T18:56:04.250Z"
+      },
+      {
+        "id": "6yk962mhlr3h",
+        "name": "[Retroactive] Actions workflow run logs delayed",
+        "status": "resolved",
+        "createdAt": "2026-10-13T20:30:00.000Z",
+        "updatedAt": "2026-10-14T00:13:11.803Z",
+        "resolvedAt": "2026-10-13T20:30:00.000Z"
+      },
+      {
+        "id": "93njd414rpbx",
+        "name": "Incident with Actions, Pull Requests and Issues",
+        "status": "resolved",
+        "createdAt": "2026-10-12T12:21:47.972Z",
+        "updatedAt": "2026-10-15T17:28:05.702Z",
+        "resolvedAt": "2026-10-12T20:16:07.447Z"
+      }
+    ]
+  },
+  "findings": [
+    "No examined API provides a concrete queue-cause explanation or an actionable approval/environment blocker. Queue cause remains UNKNOWN; this is not a successful check result.",
+    "Observed jobs have ubuntu-latest/windows-latest labels but null runner identity/group fields. Non-null run_started_at or job.started_at metadata, while status remains queued and runner identity is null, does not establish runner assignment or actual step execution.",
+    "Repository Actions is enabled and the CI/A6 workflows are active. No repository setting change is justified by these reads.",
+    "Pending-deployment and approval arrays for the three observed runs are empty. No run in waiting status is reported by the sampled repository endpoint.",
+    "Official status was sampled on 2026-10-19 around 15:39 UTC with HTTP Date and Age retained: Actions was operational and no unresolved incident was listed. This neither proves this repository is unaffected nor identifies an external cause.",
+    "Older resolved October 12/13/15 incident entries do not establish the cause of this October 19 queue. Component updated_at is its last status change, not the time this sample was captured.",
+    "No cancellation, rerun, workflow/permission/billing change, repository edit, bypass or message to other people was performed.",
+    "PR body edits can trigger another A6 run. A future final gate must reread latest current-head runs/reviews/base/threads after the last body edit; this snapshot cannot pre-approve all future checks."
+  ],
+  "latestFortyNonterminalRuns": [
+    {
+      "id": 39279114820,
+      "name": "ci-v1|event=pull_request|pr=280|repo=1183002256|headrepo=1183002256|head=ef85a2de6e39b1981d94d9d4cbc004fbdc71acee|baserepo=1183002256|base=65d756efd3024ac10d1d0e6ea189055fbe6f1545|target=develop",
+      "status": "queued",
+      "event": "pull_request",
+      "head": "ef85a2de6e39b1981d94d9d4cbc004fbdc71acee"
+    },
+    {
+      "id": 39279114746,
+      "name": "A6 — AGENTS.md Sync Allowlist",
+      "status": "queued",
+      "event": "pull_request",
+      "head": "ef85a2de6e39b1981d94d9d4cbc004fbdc71acee"
+    },
+    {
+      "id": 39279043416,
+      "name": "ci-v1|event=push|pr=0|repo=1183002256|headrepo=1183002256|head=ef85a2de6e39b1981d94d9d4cbc004fbdc71acee|baserepo=1183002256|base=ef85a2de6e39b1981d94d9d4cbc004fbdc71acee|target=-",
+      "status": "queued",
+      "event": "push",
+      "head": "ef85a2de6e39b1981d94d9d4cbc004fbdc71acee"
+    }
+  ]
+}

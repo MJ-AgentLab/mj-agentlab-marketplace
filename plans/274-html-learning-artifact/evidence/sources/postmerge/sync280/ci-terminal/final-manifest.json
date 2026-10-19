@@ -1,0 +1,660 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "scope": "Bounded extraction of exact #280 completed PR matrix; no new tests, GUI/model execution, repository change, approval, merge or bypass",
+  "frozenAt": "2026-10-19T16:44:12.277Z",
+  "pr": 280,
+  "head": "ef85a2de6e39b1981d94d9d4cbc004fbdc71acee",
+  "base": "65d756efd3024ac10d1d0e6ea189055fbe6f1545",
+  "actualCheckedOutCIMerge": "535315f035a5b7a8082a263fedaf9a07aa67e9d7",
+  "actualMerge": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+  "actualMergeAt": "2026-10-19T16:37:27Z",
+  "tree": "db49629fe767d3584f6ce772ef7bf5cdb52094e1",
+  "ciHeadActualMergeTreesEqual": true,
+  "run": {
+    "id": 39279114820,
+    "event": "pull_request",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "push": {
+    "id": 39279043416,
+    "status": "completed",
+    "conclusion": "success",
+    "event": "push",
+    "head": "ef85a2de6e39b1981d94d9d4cbc004fbdc71acee",
+    "countedAsAdditionalAcceptance": false,
+    "jobs": [
+      {
+        "id": 118149826763,
+        "name": "Validate Structure",
+        "status": "completed",
+        "conclusion": "success",
+        "startedAt": "2026-10-19T15:34:31Z",
+        "completedAt": "2026-10-19T15:34:57Z"
+      },
+      {
+        "id": 118149827282,
+        "name": "Prove equivalent PR matrix for this push (read only)",
+        "status": "completed",
+        "conclusion": "success",
+        "startedAt": "2026-10-19T15:34:32Z",
+        "completedAt": "2026-10-19T15:34:36Z"
+      },
+      {
+        "id": 118149865348,
+        "name": "Baseline compat (windows-latest)",
+        "status": "completed",
+        "conclusion": "success",
+        "startedAt": "2026-10-19T15:34:39Z",
+        "completedAt": "2026-10-19T15:48:04Z"
+      },
+      {
+        "id": 118149865384,
+        "name": "Baseline compat (ubuntu-latest)",
+        "status": "completed",
+        "conclusion": "success",
+        "startedAt": "2026-10-19T15:34:39Z",
+        "completedAt": "2026-10-19T15:43:24Z"
+      },
+      {
+        "id": 118157509731,
+        "name": "Cancel proved superseded PR runs (best effort)",
+        "status": "completed",
+        "conclusion": "skipped",
+        "startedAt": "2026-10-19T15:57:53Z",
+        "completedAt": "2026-10-19T15:34:28Z"
+      }
+    ]
+  },
+  "platforms": {
+    "linux": {
+      "jobId": 118149991325,
+      "conclusion": "success",
+      "tap": {
+        "tests": 642,
+        "suites": 0,
+        "pass": 641,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 1,
+        "todo": 0
+      },
+      "skippedCases": [
+        "Windows equivalent file casing still passes containment"
+      ],
+      "strictValidation": {
+        "ok": true,
+        "errors": [],
+        "repositorySkills": 20,
+        "publicSkills": [
+          "diagram-kit:arch-diagram",
+          "learning-evidence-kit:pop-quiz",
+          "learning-evidence-kit:learning-record-check",
+          "explain-kit:glossary",
+          "explain-kit:concept",
+          "communication-kit:communicate",
+          "html-guide-kit:guide",
+          "html-guide-kit:site"
+        ]
+      },
+      "cliVersions": [
+        "codex-cli 0.147.0"
+      ],
+      "smokeScenarios": 13,
+      "commands": 178,
+      "executionCounts": {
+        "diagramPython": 6,
+        "lekPython": 18,
+        "siteGeneration": 4,
+        "siteStaticPython": 4
+      },
+      "siteStaticSummaries": [
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        }
+      ],
+      "browserCases": [
+        {
+          "name": "browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record",
+          "tapNumber": 326,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        },
+        {
+          "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+          "tapNumber": 327,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        },
+        {
+          "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+          "tapNumber": 328,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        },
+        {
+          "name": "literal percent, Chinese and spaces in local filenames round-trip through browser URLs",
+          "tapNumber": 347,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        }
+      ],
+      "checkedOutSha": "535315f035a5b7a8082a263fedaf9a07aa67e9d7",
+      "rawLogSha256": "3a0c2107201516337ddd5159773a6f88496d968586a23ec76c642f15ead00fe2",
+      "cleanupCases": [
+        {
+          "name": "all complete core groups remain unmeasured with incomplete cleanup",
+          "tapNumber": 21,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "backup cleanup failure does not undo a committed bump",
+          "tapNumber": 44,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "profile evidence preserves intentional rejection errors but rejects partial records and failed cleanup",
+          "tapNumber": 233,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+          "tapNumber": 327,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "release cleanup recovers from a transient canonical-directory lock and preserves the Git failure",
+          "tapNumber": 469,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "release cleanup bounds retries and reports a persistent verification-directory lock",
+          "tapNumber": 470,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "release cleanup reports unrelated cleanup errors without retrying",
+          "tapNumber": 471,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "failed installation cleans up the canonical worktree and fails closed",
+          "tapNumber": 475,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "an operation and persistent cleanup failure remain visible together",
+          "tapNumber": 596,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "template cleanup failure fails an otherwise successful keepRoot run and removes all retained scenarios",
+          "tapNumber": 597,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "source changing during a template copy fails its frozen inventory and cleans the partial template",
+          "tapNumber": 609,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "a context-creation failure before the second runner cleans prior/current roots and keeps its original error",
+          "tapNumber": 610,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "a materialize failure before the second runner cleans prior/current roots and keeps its original error",
+          "tapNumber": 611,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "a second runner returning ok:false fails the run and cleans all retained/current roots and the template",
+          "tapNumber": 612,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "post-success source integrity byte-drift cleans retained/current roots and preserves the failure",
+          "tapNumber": 613,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "post-success source integrity read-error cleans retained/current roots and preserves the failure",
+          "tapNumber": 614,
+          "status": "ok",
+          "skipped": false
+        }
+      ],
+      "cleanupScope": {
+        "invocationWithoutKeepRootFlag": "Run npm run smoke:codex / node scripts/smoke-codex-plugin.mjs without --keep-root in this log",
+        "successfulSmokeReturn": true,
+        "regressionCleanupCases": 16,
+        "individualRootAbsenceRecords": "NOT_RECORDED",
+        "limit": "Regression cleanup cases and successful smoke return do not establish a per-root filesystem-absence inventory. No old fifteen-root count reused."
+      },
+      "sourceToInstalledCacheByteChecks": "PASS within each actual platform checkout; no cross-platform physical byte-equality assertion"
+    },
+    "windows": {
+      "jobId": 118149991324,
+      "conclusion": "success",
+      "tap": {
+        "tests": 642,
+        "suites": 0,
+        "pass": 642,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      },
+      "skippedCases": [],
+      "strictValidation": {
+        "ok": true,
+        "errors": [],
+        "repositorySkills": 20,
+        "publicSkills": [
+          "diagram-kit:arch-diagram",
+          "learning-evidence-kit:pop-quiz",
+          "learning-evidence-kit:learning-record-check",
+          "explain-kit:glossary",
+          "explain-kit:concept",
+          "communication-kit:communicate",
+          "html-guide-kit:guide",
+          "html-guide-kit:site"
+        ]
+      },
+      "cliVersions": [
+        "codex-cli 0.147.0"
+      ],
+      "smokeScenarios": 13,
+      "commands": 178,
+      "executionCounts": {
+        "diagramPython": 6,
+        "lekPython": 18,
+        "siteGeneration": 4,
+        "siteStaticPython": 4
+      },
+      "siteStaticSummaries": [
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        }
+      ],
+      "browserCases": [
+        {
+          "name": "browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record",
+          "tapNumber": 326,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        },
+        {
+          "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+          "tapNumber": 327,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        },
+        {
+          "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+          "tapNumber": 328,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        },
+        {
+          "name": "literal percent, Chinese and spaces in local filenames round-trip through browser URLs",
+          "tapNumber": 347,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        }
+      ],
+      "checkedOutSha": "535315f035a5b7a8082a263fedaf9a07aa67e9d7",
+      "rawLogSha256": "aca22484dbaf528ce38ca3793de4de8a6f7f2dc29aa1bdc210cef39aa92f9d6c",
+      "cleanupCases": [
+        {
+          "name": "all complete core groups remain unmeasured with incomplete cleanup",
+          "tapNumber": 21,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "backup cleanup failure does not undo a committed bump",
+          "tapNumber": 44,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "profile evidence preserves intentional rejection errors but rejects partial records and failed cleanup",
+          "tapNumber": 233,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+          "tapNumber": 327,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "release cleanup recovers from a transient canonical-directory lock and preserves the Git failure",
+          "tapNumber": 469,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "release cleanup bounds retries and reports a persistent verification-directory lock",
+          "tapNumber": 470,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "release cleanup reports unrelated cleanup errors without retrying",
+          "tapNumber": 471,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "failed installation cleans up the canonical worktree and fails closed",
+          "tapNumber": 475,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "an operation and persistent cleanup failure remain visible together",
+          "tapNumber": 596,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "template cleanup failure fails an otherwise successful keepRoot run and removes all retained scenarios",
+          "tapNumber": 597,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "source changing during a template copy fails its frozen inventory and cleans the partial template",
+          "tapNumber": 609,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "a context-creation failure before the second runner cleans prior/current roots and keeps its original error",
+          "tapNumber": 610,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "a materialize failure before the second runner cleans prior/current roots and keeps its original error",
+          "tapNumber": 611,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "a second runner returning ok:false fails the run and cleans all retained/current roots and the template",
+          "tapNumber": 612,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "post-success source integrity byte-drift cleans retained/current roots and preserves the failure",
+          "tapNumber": 613,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "post-success source integrity read-error cleans retained/current roots and preserves the failure",
+          "tapNumber": 614,
+          "status": "ok",
+          "skipped": false
+        }
+      ],
+      "cleanupScope": {
+        "invocationWithoutKeepRootFlag": "Run npm run smoke:codex / node scripts/smoke-codex-plugin.mjs without --keep-root in this log",
+        "successfulSmokeReturn": true,
+        "regressionCleanupCases": 16,
+        "individualRootAbsenceRecords": "NOT_RECORDED",
+        "limit": "Regression cleanup cases and successful smoke return do not establish a per-root filesystem-absence inventory. No old fifteen-root count reused."
+      },
+      "sourceToInstalledCacheByteChecks": "PASS within each actual platform checkout; no cross-platform physical byte-equality assertion"
+    }
+  },
+  "timingStatus": "CONFLICT_RECORDED",
+  "timingConflictCount": 9,
+  "timingEvidence": "timing-conflicts.json",
+  "chronologyConclusion": "UNDETERMINED: do not infer trustworthy queue/start timing or erase prior queued observations from inconsistent backfilled API fields.",
+  "previousFrozenFilesVerifiedUnchanged": 39,
+  "hashingBoundary": "All capture, download and extraction subprocesses exited successfully and their closed stdout files were parsed before this freeze. Final manifest excludes itself; freeze stdout is not written into the manifest directory. No methods or raw logs are being written while files are hashed.",
+  "limits": [
+    "This extraction does not prove current-head non-author approval, thread resolution, publish authorization, Marketplace publication, Owner acceptance or learning effects. Actual merge is separately read from immutable GitHub metadata; no approval, merge or bypass was performed here.",
+    "Installation smoke browserCheck remains NOT_RUN; current-run browser unit cases are separately recorded and do not imply new representative consumer, desktop menu or Sites tests.",
+    "CI did not record individual-root absence: NOT_RECORDED. No old-batch fifteen-root count, physical cross-platform byte equality or reliable queue/start chronology is inferred."
+  ],
+  "files": [
+    {
+      "file": "actual-merge-final.json",
+      "bytes": 2836,
+      "sha256": "3c389a13c79f2c498625c6b01d50790f8d4a0eeb737eedad16204b12aa5a26e4"
+    },
+    {
+      "file": "capture-final-receipt.json",
+      "bytes": 2674,
+      "sha256": "c2ccaa28a40e2e993c364faab001bcff1fdd1f1586a6fbca083a0bc77a548860"
+    },
+    {
+      "file": "capture-final.mjs",
+      "bytes": 3270,
+      "sha256": "e5b17aad237347a782b7a34db5ed61d0684c5e60b0af4f76068c4271da379401"
+    },
+    {
+      "file": "capture-process.log",
+      "bytes": 122,
+      "sha256": "3452a940b82eb035ea366139f8809d78e620dddec5964f1e56f124a2886a54f3"
+    },
+    {
+      "file": "ci-merge-final.json",
+      "bytes": 2776,
+      "sha256": "711fc95fac5c2551381238fca4d8b5c170814a13e02866e814d245b421ef40ca"
+    },
+    {
+      "file": "download-job.mjs",
+      "bytes": 1492,
+      "sha256": "5d19d91ed357116953108ad59ac9184447d69c73d9cba5d06db882a81ffe18a1"
+    },
+    {
+      "file": "extract-final.py",
+      "bytes": 13473,
+      "sha256": "6334cca5686a3484228220145a9ccb08b8878b9ebd136456aaa8aa5aa9f32d45"
+    },
+    {
+      "file": "extraction-process.log",
+      "bytes": 28425,
+      "sha256": "7d3083aad6b399e5ec5d5e7b512165608c4977607c8117dbd0cc04f966961986"
+    },
+    {
+      "file": "freeze-final.mjs",
+      "bytes": 5943,
+      "sha256": "b16c73ebc7a0c4c4e689839716ee363a403ca1357ec00d68081df9a4475e0b9a"
+    },
+    {
+      "file": "head-final.json",
+      "bytes": 1510,
+      "sha256": "8f4a9789a83fb7a69edcb21c3f0ec000a03e42d676feabde5b5f507cc1c0dacf"
+    },
+    {
+      "file": "jobs-final.json",
+      "bytes": 12686,
+      "sha256": "a90c4881127c23d12fd74b23828fd694a25ec189bfbe7661269c1909eebb67c6"
+    },
+    {
+      "file": "linux-download-process.log",
+      "bytes": 79,
+      "sha256": "b864c2eff9a6ab1d1b5fec4eb66d99a2d3f26005ccafa6e0071201a5b2c341d9"
+    },
+    {
+      "file": "linux-download-receipt.json",
+      "bytes": 551,
+      "sha256": "50c36cc0a680afdb2e2eb0e8115fcf096d8306a7e37652339f69fd51ad566aa5"
+    },
+    {
+      "file": "linux-job-completed.json",
+      "bytes": 3498,
+      "sha256": "2b16bb4f564edf8a80e144c9ed8d2c541bc8ed886dbb27fe6f6150810207649f"
+    },
+    {
+      "file": "linux-job.log",
+      "bytes": 968593,
+      "sha256": "3a0c2107201516337ddd5159773a6f88496d968586a23ec76c642f15ead00fe2"
+    },
+    {
+      "file": "linux-smoke.json",
+      "bytes": 427238,
+      "sha256": "af550805c80bf2a897738409562f480c8878270a4cada85bc3ce7f484e8416a5"
+    },
+    {
+      "file": "pr-final.json",
+      "bytes": 22989,
+      "sha256": "197787464ccfe83c9a4931aad198f9ce629fed821fcb3c98961a22847fa90d8f"
+    },
+    {
+      "file": "prior-capture-queue-handoff.json",
+      "bytes": 1366,
+      "sha256": "182da98cc72989a3448844e9ebe49be90cb16cdc2892084af976d890bb3c8059"
+    },
+    {
+      "file": "prior-pr-initial.json",
+      "bytes": 350,
+      "sha256": "9332c332f9c0206e4f4955f8e251bb4eac06c8f97a74cd78ceddbd54852ed242"
+    },
+    {
+      "file": "prior-push-queue-handoff.json",
+      "bytes": 1469,
+      "sha256": "d3d490995002956ff84894bb9fa3932edc3163d50a9c30a2c676b6f80df77df8"
+    },
+    {
+      "file": "prior-queue-handoff.json",
+      "bytes": 3543,
+      "sha256": "5844ae39170f1970daed8cb2d40d2af07ee679c4a34d2242e877b7586691c479"
+    },
+    {
+      "file": "prior-queue-manifest.json",
+      "bytes": 6333,
+      "sha256": "5cfc8f3e452484249ad46ac968e44404c7faadfdd3353732d3ac75a69aed45c9"
+    },
+    {
+      "file": "prior-run-queue-handoff.json",
+      "bytes": 1471,
+      "sha256": "fb2e6fc932cc3f1fdc825c81c2dbb41641bc211adedf6706a58628249781a965"
+    },
+    {
+      "file": "push-final.json",
+      "bytes": 14229,
+      "sha256": "8a070ef1651a9239d5aab85e3ae05a815bd1d7e0d65fae3b49f4923d5d635bf6"
+    },
+    {
+      "file": "push-jobs-final.json",
+      "bytes": 12616,
+      "sha256": "fb6e3c73104d8d2938f45d7fe116d049bfd2f5a77c3665bb9b3622c9550f8369"
+    },
+    {
+      "file": "run-final.json",
+      "bytes": 14269,
+      "sha256": "aa3038a7ba1bf3ae9da1c09f768138e9b408665348c17ba31dae8fd2611440cc"
+    },
+    {
+      "file": "summary.json",
+      "bytes": 28425,
+      "sha256": "7d3083aad6b399e5ec5d5e7b512165608c4977607c8117dbd0cc04f966961986"
+    },
+    {
+      "file": "timing-conflicts.json",
+      "bytes": 4325,
+      "sha256": "081297a5b66634878dff79269e734f7f6fbc25a5687b967140a077ff2a856557"
+    },
+    {
+      "file": "windows-download-process.log",
+      "bytes": 82,
+      "sha256": "564971221ae7ccd273cc9b248008ab9f311f133d159bb3eece0c5adc33e2a719"
+    },
+    {
+      "file": "windows-download-receipt.json",
+      "bytes": 554,
+      "sha256": "fbff4562a527211bdf91403c930594837d24e268352a46f56ccf5efa80df7a01"
+    },
+    {
+      "file": "windows-job-completed.json",
+      "bytes": 3500,
+      "sha256": "ba2e43fb4d95505d016dacdd834c44be69f5a3ba5af5415ae79015f3728b2074"
+    },
+    {
+      "file": "windows-job.log",
+      "bytes": 1035317,
+      "sha256": "aca22484dbaf528ce38ca3793de4de8a6f7f2dc29aa1bdc210cef39aa92f9d6c"
+    },
+    {
+      "file": "windows-smoke.json",
+      "bytes": 481054,
+      "sha256": "e7e3f551f925d841726c62db558b71efb0e9db6d46018c8a3b643c1afa045b0f"
+    }
+  ]
+}

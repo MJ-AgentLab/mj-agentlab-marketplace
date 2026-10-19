@@ -1,0 +1,31 @@
+<!-- HTML274_POSTMERGE_CURRENT -->
+## 当前同步与续办（2026-10-19）
+
+- 实现主PR275、内部276/277、发布278及记录279均已结束。[PR279](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/279)于15:17:09Z实际合入main e3dc40f734fc972e05956da3e908091e09963675/treeae121f6b，parents f906+315；与原已测315和CI merge687同树。默认公开安装v8.3.2/site导航已交付；完整main包含develop65d ancestry。
+- 当前main记录身份e3dc与公开身份分开：[v8.3.2](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.2)仍绑定tag/Release target f906，14:30:16Z公开，assets=[]/immutable=false、仓库配置UNKNOWN，正式正文未变。实际279 suite4602541728匹配beforef906/aftere3dc为Owner bypass，pull_request FAIL缺last-pusher外批准、其他4规则PASS，reviews=[]/批准NOT_MET；275/278/279历史缺口不追认，不提供未来例外。
+- 原279候选CI39272665913终态：Linux641/642仅Windows专用skip1、Windows642/642零skip，各13/178、6Diagram18LEK4生成4静态各89/89；4browser工程case未skip，16清理名TAP不替逐根absence，push只列成功不另计验收。原CI/方法/原失败全部冻结，不改名为actuale3dc新跑。
+- 实际e3dc新复验15:18:57.732–15:29:31.902Z已PASS：13/178全exit0、6/18/4/4实际调用及4次89/89；site20/guide4资源一致，15精确根absence，hostHEAD与完整worktree清单复原。manifest ffa6def13cc8363878c07f96f2d0fb4f53e4e71c1fa372d3be45bbebc78ff77d，不借315/f906计数，未运行新model/desktop/browser或改动私有Site。
+- 当前正常同步PR [#280](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/280) → develop65d，head ef85a2de6e39b1981d94d9d4cbc004fbdc71acee/treedb49629f，candidate merge535315f0同树，完整继承main e3dc。本机准备态642/642、strict/CLI0.147.0/9范围检查PASS；529来源Git原blob一致，旧372保持，独立529终态复核无阻断。新PR服务端CI39279114820、A6run39279114746及push39279043416截至15:43:27Z仍全queued、runner未分配，检查尚未执行，PENDING/NOT_EXECUTED，不借旧结果。只读诊断确认Actions与workflow启用、无环境/审批等待记录；GitHub未给出明确可行动原因，queueCause UNKNOWN，不将无FAIL当PASS。待验原始状态/方法与恢复信息已冻结，尚未取得本PR终态CI；线程完整未解0、reviews=[]/REVIEW_REQUIRED，Agent不bypass。
+- develop真实保护为1个当前head非作者/最新推送批准、dismiss stale、严格Validate Structure+A6、已解决线程、merge only（code-owner=false）。本轮VERSION仍8.3.2，插件/运行/公开tag不变。仅actual280同步合入并新复验后，才DryRun→Apply仅市场8.3.3 VERSION/badge/正常根A6，不建同号发行；当前未执行预升。
+- 继续原#274/P5五边界授权与唯一PLAN/REPORT，不新增三PR强制决定、不转交常规构建审查。同一私有[代表Site](https://html-learning-artifact-274.zuozhouran.chatgpt.site)版本1/身份/受众保持；Owner体检/最终接受NOT_PROVIDED，原生窗口/第二客户端等延期非PASS，理解效果NOT_MEASURED。核心交付、公开、维护闭环、全计划与最终接受分记，Issue保持OPEN。
+<!-- END_HTML274_POSTMERGE_CURRENT -->
+
+## 初始范围与历史进度快照
+
+实施 HTML Learning Artifact 插件计划，在现有 html-guide-kit 中新增显式 site 入口，保留 guide 只读合同及历史验收范围。
+
+本轮采用单 Issue、单活动主 PR → develop、多内部子 PR → codex/html-learning-artifact。按当前 INTENT/PLAN 机制保存完整来源、授权及工程覆盖。Agent 负责构建、独立合成验收、修复与内部合并；Owner 作实质决定和成品接受。严格待答、分段交付、五边界授权复用及不可逆操作控制继续适用。
+
+范围：六步本地方法、英文核心名称/中文教学内容、本地主题/渲染/复制/静态和浏览器检查、Sites 主流程、精确安装与许可来源、最小上线检查。Marketplace 当前预升版本及其他插件不改；html-guide-kit 从实际 0.1.36 准备补丁候选。原计划完整快照和唯一 INTENT/主 PLAN/REPORT 将由本任务链接。
+
+验收：安装资源完整、本地独立、代表性材料语义与术语正确、一个目标客户端实际 Sites 发布、现行工程与最终保护门禁。原生完整窗口/第二客户端/完整可访问性可延期且不算通过；理解效果 NOT_MEASURED，Owner 最终接受单独记录。
+
+进度：准入与远端规则已核对；正在建立独立工作区与完整恢复基线。开发进度以本 Issue 为正本。尚无代码交付、Sites 部署或 Owner 接受。
+## 当前进度 — 2026-10-19
+
+- 唯一主 PR #275 → develop；运行子 PR #276 已正常 merge 552b6e0（tree99837ab，与实测 acaf 候选完全相同）；验收子 PR #277已正常merge1a80bab5（tree d7de559，与已核文档候选同树），200来源hash和独立审查通过。
+- HTML Guide Kit 0.1.37 为未公开候选，原 guide 四资源与图标保持。市场8.3.2及其他插件版本未改。
+- 运行候选run39239107681与最终主PR当前head1a80bab5的run39242165655均两端SUCCESS：Windows642/642零skip，Linux641/642仅一Windows专用skip。两端各13安装、6Diagram＋18LEK实际Python、4site生成与4静态Python；原FAIL/修后回执在唯一REPORT保存。
+- 独立安装消费者12项真实交互通过；同一代表包已私有 Sites 版本1部署：[Library Renewal · 续借判断](https://html-learning-artifact-274.zuozhouran.chatgpt.site)。源码ffaaa359，身份/版本/owner-only受众回读及部署后观察稳定。网页发布与插件公开分别记录。
+- 子PR2仅文档/原证据及限定gitattributes，继承后runtime对象全部与552相同，116项文档/INTENT/契约测试通过。完整来源闭包单例已PASS，200来源在最终集成再核全符。最终主PR当前head两平台矩阵、A6与Structure均SUCCESS，threads=0；11:20UTC实际reviews=[]、REVIEW_REQUIRED。完整原FAIL与本批验收见唯一REPORT，后续事实继续由本Issue/PR记录。
+- 最终develop仍需当前head真实非作者批准、当前CI/线程/基线及合并复验，不bypass。Marketplace未正式发布；Owner体检/最终接受待成品决定。原生菜单派发/窗口、第二客户端及完整视觉无障碍延期，理解效果NOT_MEASURED；延期不算通过，Issue保持开放。

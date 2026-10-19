@@ -1,0 +1,332 @@
+{
+  "schemaVersion": 1,
+  "generatedAtUtc": "2026-10-19T16:41:34.461Z",
+  "generatedAtTaipei": "2026-10-20 00:41:34 GMT+8",
+  "userDate": "2026-10-20",
+  "userTimezone": "Asia/Taipei",
+  "checks": {
+    "actualMerge": true,
+    "exactSourceBase": true,
+    "actualParents": true,
+    "tripleTree": true,
+    "potentialParents": true,
+    "currentRefs": true,
+    "completeCurrentMainAncestry": true,
+    "exactRuleSuite": true,
+    "actualBypass": true,
+    "actualApprovalFailure": true,
+    "actualRequiredChecksPass": true,
+    "actualReviewsEmpty": true,
+    "tagUnchanged": true,
+    "releaseUnchanged": true,
+    "releaseBodyMatches": true,
+    "currentAndPublishedVersion": true,
+    "noReleaseAssets": true,
+    "nextTagNotFound": true,
+    "nextReleaseNotFound": true,
+    "priorQueuePreserved": true,
+    "inconsistentHelperTimesPreserved": true
+  },
+  "actual": {
+    "pr": 280,
+    "merge": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+    "mergedAtUtc": "2026-10-19T16:37:27Z",
+    "mergedAtTaipei": "2026-10-20T00:37:27+08:00",
+    "tree": "db49629fe767d3584f6ce772ef7bf5cdb52094e1",
+    "source": "ef85a2de6e39b1981d94d9d4cbc004fbdc71acee",
+    "potential": "535315f035a5b7a8082a263fedaf9a07aa67e9d7",
+    "parents": [
+      "65d756efd3024ac10d1d0e6ea189055fbe6f1545",
+      "ef85a2de6e39b1981d94d9d4cbc004fbdc71acee"
+    ],
+    "currentMain": "e3dc40f734fc972e05956da3e908091e09963675",
+    "currentDevelop": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+    "version": "8.3.2"
+  },
+  "ancestry": {
+    "mainSha": "e3dc40f734fc972e05956da3e908091e09963675",
+    "status": "ahead",
+    "ahead": 2,
+    "behind": 0,
+    "mergeBase": "e3dc40f734fc972e05956da3e908091e09963675"
+  },
+  "governance": {
+    "status": "NOT_MET_BYPASS_OBSERVED",
+    "suite": 4603805882,
+    "ref": "refs/heads/develop",
+    "before": "65d756efd3024ac10d1d0e6ea189055fbe6f1545",
+    "after": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+    "pushedAt": "2026-10-20T00:37:26+08:00",
+    "actor": "ranzuozhou",
+    "result": "bypass",
+    "reviews": [],
+    "evaluations": [
+      {
+        "type": "pull_request",
+        "result": "fail",
+        "details": "New changes require approval from someone other than the last pusher.",
+        "source": {
+          "type": "ruleset",
+          "id": 14008221,
+          "name": "protect-develop"
+        }
+      },
+      {
+        "type": "non_fast_forward",
+        "result": "pass",
+        "source": {
+          "type": "ruleset",
+          "id": 14008221,
+          "name": "protect-develop"
+        }
+      },
+      {
+        "type": "required_status_checks",
+        "result": "pass",
+        "source": {
+          "type": "ruleset",
+          "id": 14008221,
+          "name": "protect-develop"
+        }
+      },
+      {
+        "type": "deletion",
+        "result": "pass",
+        "source": {
+          "type": "ruleset",
+          "id": 14008221,
+          "name": "protect-develop"
+        }
+      }
+    ],
+    "activeRules": [
+      {
+        "type": "deletion",
+        "ruleset_source_type": "Repository",
+        "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+        "ruleset_id": 14008221
+      },
+      {
+        "type": "pull_request",
+        "parameters": {
+          "required_approving_review_count": 1,
+          "dismiss_stale_reviews_on_push": true,
+          "required_reviewers": [],
+          "require_code_owner_review": false,
+          "dismissal_restriction": {
+            "enabled": false,
+            "allowed_actors": []
+          },
+          "require_last_push_approval": true,
+          "required_review_thread_resolution": true,
+          "require_extra_approval_for_unattributed_changes": true,
+          "allowed_merge_methods": [
+            "merge"
+          ]
+        },
+        "ruleset_source_type": "Repository",
+        "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+        "ruleset_id": 14008221
+      },
+      {
+        "type": "required_status_checks",
+        "parameters": {
+          "strict_required_status_checks_policy": true,
+          "do_not_enforce_on_create": false,
+          "required_status_checks": [
+            {
+              "context": "Validate Structure"
+            },
+            {
+              "context": "A6 / Check"
+            }
+          ]
+        },
+        "ruleset_source_type": "Repository",
+        "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+        "ruleset_id": 14008221
+      },
+      {
+        "type": "non_fast_forward",
+        "ruleset_source_type": "Repository",
+        "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+        "ruleset_id": 14008221
+      }
+    ]
+  },
+  "release": {
+    "id": 417390526,
+    "tag": "v8.3.2",
+    "tagSha": "f906b1001a86d7b5415451bd973bea26e6cc3a1d",
+    "target": "f906b1001a86d7b5415451bd973bea26e6cc3a1d",
+    "publishedAt": "2026-10-19T14:30:16Z",
+    "draft": false,
+    "prerelease": false,
+    "assets": [],
+    "immutable": false,
+    "immutableConfiguration": "UNKNOWN",
+    "bodyMatches": true,
+    "normalizedBodySha256": "c86f0d612d462c66b60e493bd405e6afc0126407567f77edcde01f2f63801aad",
+    "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.2"
+  },
+  "nextVersion": {
+    "version": "8.3.3",
+    "tagStatus": "404",
+    "releaseStatus": "404",
+    "visibleReleaseListMatch": false,
+    "lookupMetadata": {
+      "tagLookupExitCode": 1,
+      "releaseLookupExitCode": 1,
+      "capturedAtUtc": "2026-10-19T16:39:40.9403214Z"
+    },
+    "createdByThisAudit": false
+  },
+  "temporalObservations": {
+    "graphql": [
+      {
+        "name": "Cancel proved superseded PR runs (best effort)",
+        "status": "COMPLETED",
+        "conclusion": "SKIPPED",
+        "startedAt": "2026-10-19T15:57:53Z",
+        "completedAt": "2026-10-19T15:34:28Z",
+        "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39279043416/job/118157509731"
+      },
+      {
+        "name": "Prove equivalent PR matrix for this push (read only)",
+        "status": "COMPLETED",
+        "conclusion": "SKIPPED",
+        "startedAt": "2026-10-19T15:59:21Z",
+        "completedAt": "2026-10-19T15:35:02Z",
+        "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39279114820/job/118157986307"
+      }
+    ],
+    "rest": [
+      {
+        "id": 118157986307,
+        "name": "Prove equivalent PR matrix for this push (read only)",
+        "status": "completed",
+        "conclusion": "skipped",
+        "startedAt": "2026-10-19T15:59:21Z",
+        "completedAt": "2026-10-19T15:35:02Z",
+        "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39279114820/job/118157986307"
+      },
+      {
+        "id": 118157509731,
+        "name": "Cancel proved superseded PR runs (best effort)",
+        "status": "completed",
+        "conclusion": "skipped",
+        "startedAt": "2026-10-19T15:57:53Z",
+        "completedAt": "2026-10-19T15:34:28Z",
+        "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39279043416/job/118157509731"
+      }
+    ],
+    "conclusion": "Original inconsistent temporal fields retained; cause UNKNOWN and no elapsed-time claim."
+  },
+  "currentRollup": [
+    {
+      "name": "Cancel proved superseded PR runs (best effort)",
+      "status": "COMPLETED",
+      "conclusion": "SKIPPED",
+      "startedAt": "2026-10-19T15:57:53Z",
+      "completedAt": "2026-10-19T15:34:28Z",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39279043416/job/118157509731"
+    },
+    {
+      "name": "A6 / Check",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "startedAt": "2026-10-19T15:35:04Z",
+      "completedAt": "2026-10-19T15:35:44Z",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39279114746/job/118149990726"
+    },
+    {
+      "name": "Cancel proved superseded PR runs (best effort)",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "startedAt": "2026-10-19T15:35:10Z",
+      "completedAt": "2026-10-19T15:37:09Z",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39279114820/job/118149991193"
+    },
+    {
+      "name": "Prove equivalent PR matrix for this push (read only)",
+      "status": "COMPLETED",
+      "conclusion": "SKIPPED",
+      "startedAt": "2026-10-19T15:59:21Z",
+      "completedAt": "2026-10-19T15:35:02Z",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39279114820/job/118157986307"
+    },
+    {
+      "name": "Prove equivalent PR matrix for this push (read only)",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "startedAt": "2026-10-19T15:34:32Z",
+      "completedAt": "2026-10-19T15:34:36Z",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39279043416/job/118149827282"
+    },
+    {
+      "name": "Validate Structure",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "startedAt": "2026-10-19T15:35:05Z",
+      "completedAt": "2026-10-19T15:36:57Z",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39279114820/job/118149991487"
+    },
+    {
+      "name": "Validate Structure",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "startedAt": "2026-10-19T15:34:31Z",
+      "completedAt": "2026-10-19T15:34:57Z",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39279043416/job/118149826763"
+    },
+    {
+      "name": "Baseline compat (ubuntu-latest)",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "startedAt": "2026-10-19T15:35:05Z",
+      "completedAt": "2026-10-19T15:39:23Z",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39279114820/job/118149991325"
+    },
+    {
+      "name": "Baseline compat (ubuntu-latest)",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "startedAt": "2026-10-19T15:34:39Z",
+      "completedAt": "2026-10-19T15:43:24Z",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39279043416/job/118149865384"
+    },
+    {
+      "name": "Baseline compat (windows-latest)",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "startedAt": "2026-10-19T15:35:04Z",
+      "completedAt": "2026-10-19T15:44:22Z",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39279114820/job/118149991324"
+    },
+    {
+      "name": "Baseline compat (windows-latest)",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "startedAt": "2026-10-19T15:34:39Z",
+      "completedAt": "2026-10-19T15:48:04Z",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39279043416/job/118149865348"
+    }
+  ],
+  "priorQueueReference": {
+    "manifestPath": "C:/Users/Admin/AppData/Local/Temp/html-learning-274-sync280-queue-audit/evidence-manifest.json",
+    "manifestSha256": "880b79df51aba31dc7140b8eb60656a74ccc1341ab2706c1f1ae5a9eb2ab425c",
+    "summaryPath": "C:/Users/Admin/AppData/Local/Temp/html-learning-274-sync280-queue-audit/summary.json",
+    "summarySha256": "368dda7987d44efe63e5a2c6a945ba1e86b11f1345a4d730de6a3a1df6440ba8",
+    "result": "OBSERVATION_ONLY_PENDING",
+    "cause": "UNKNOWN",
+    "capture": {
+      "start": "2026-10-19T15:39:20.629Z",
+      "end": "2026-10-19T15:41:39.635Z"
+    }
+  },
+  "limitations": [
+    "No fresh actual4d10 installation, Python operation, full test or client run performed by this audit.",
+    "Same-tree linkage to tested source/potential merge is not renamed as a new actual-merge execution.",
+    "Owner acceptance/understanding effect and future protected PR approval remain separate."
+  ]
+}

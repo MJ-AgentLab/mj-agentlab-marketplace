@@ -1,0 +1,43 @@
+{
+  "capturedAt": "2026-10-19T17:08:11.012Z",
+  "clientDate": "2026-10-20",
+  "actor": "/root",
+  "scope": "8.3.3 local preparation; final logs appended only after source-frozen checks finished",
+  "base": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+  "testR1": {
+    "tests": 642,
+    "pass": 641,
+    "fail": 1,
+    "skipped": 0,
+    "exit": 1,
+    "retained": true,
+    "case": 591,
+    "cause": "Concurrent spec_review readiness edit overlapped source projection; expected/actual document digests differ. No runtime fix was applied; source edits paused before freshR2."
+  },
+  "testR2": {
+    "tests": 642,
+    "pass": 642,
+    "fail": 0,
+    "skipped": 0,
+    "exit": 0,
+    "durationMs": 199910.0554
+  },
+  "baseline": {
+    "actual": "0.147.0",
+    "exit": 0
+  },
+  "preFinalValidate": {
+    "ok": true,
+    "exit": 0
+  },
+  "independentReviewPoint": {
+    "sources": 719,
+    "oldSourcesUnchanged": 529,
+    "sha256": "196236a55853ac7fbb84c7a70b1ef6097297a5c4d79fac28b25efc95b41e7ace"
+  },
+  "workingSmokeManifestSha256": "a5f0cbac8fb555fdd723e275d6c201142a44a9641c5018fcdc71a5f9901c5603",
+  "limitations": [
+    "Full test finished before final evidence/status-only append; strict validation and final source closure will be repeated.",
+    "No inference of current-head GitHub approval, protected merge, new release or Owner acceptance."
+  ]
+}
