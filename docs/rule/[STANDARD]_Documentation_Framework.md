@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-19
 state: active
-version: v3.1
+version: v3.2
 layer: canonical
 supersedes:
   - ../archive/[DEPRECATED]_[STANDARD]_Documentation_Framework_v2.0.md
@@ -63,7 +63,7 @@ PLAN 保存范围/非目标、原意/接受来源、完整接受基线、顺序/
 
 旧文档由[兼容清单](../_meta/document-layer-compatibility.json)逐项列明，绑定原 sourceCommit、path/sha256/gitBlob，仅兼容原内容及确定性 CRLF checkout 表示。新增/实质修订文档须接入九字段；审定用途、维护 owner 及 layer 后，显式 layer 走当前严格校验，不再使用原项兼容；清单保留其历史来源登记，无须逐次删除条目或修改固定摘要。缺 layer 不推定 canonical，也不构成第三 layer。
 
-混合 RUNBOOK 先用入口定位章节，按有界范围迁移，不强制整份分类或批量重排。兼容通过不代表改造全部完成。原 plan/communication-kit-implementation-plan.md 与 provenance、冻结 HTML 来源和历史链保持原字节/绑定。
+混合 RUNBOOK 先用入口定位章节，按有界范围迁移，不强制整份分类或批量重排。兼容通过不代表改造全部完成。Communication 原计划与 provenance 现由[任务入口](../../plans/222-communication-kit/INDEX.md)导航，固定 Git 身份和同字节快照保留；根 plan/ 路径及其当前兼容已撤除，不再新增旧路径 alias、回退或豁免。冻结 HTML 来源和其他历史兼容范围保持，不把来源记录中的历史字符串当作当前依赖。
 
 ## Historical preservation
 

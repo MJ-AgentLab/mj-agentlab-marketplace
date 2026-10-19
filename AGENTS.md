@@ -24,7 +24,7 @@ Communication按[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketpla
 
 #255实际develop3f0b7d12完整继承main761，与已测同树，新13安装/Python复验通过。已DryRun/Apply预升未发布8.3.2，仅VERSION/badge与根A6；插件不变，安装仍v8.3.1，不建同号发行。历史bypass/空批准保留，新PR须真实批准/CI/线程。[8.3.1账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)§3为同步准备快照，当前事实见本预升PR。
 
-communication-kit 首版按已保存的[完整计划](plan/communication-kit-implementation-plan.md)实施，来源与授权见[捕获记录](plan/communication-kit-plan-provenance.json)，由 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222) 管理 PR1–PR5 与正式上线。产品方向、显式 communicate 单入口、保义改写和文件边界已确认；设计与验收契约见[新增 ADR](docs/adr/[ADR]_Communication_Kit_Addition.md)及[验收 RUNBOOK](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。PR1/PR2 保持现有运行集合，PR3 原子接入新包。Owner 选择 Learning 先发布 8.2.0，Communication 随后独立 minor（预计 8.3.0），PR4 重查实际版本和基线；现实效果测试本次延期，基础通过不代表效果已验证。
+Communication 任务统一从[入口 #222](plans/222-communication-kit/INDEX.md)读取主 PLAN、交付 REPORT 与固定原件；旧路径已按[整合任务 #269](plans/269-plans-path-unification/INDEX.md)迁入 plans，当前不提供旧路径兼容。历史产品合同、接受/失败和交付版本按原账本保留，后续工作复用真实授权，不因迁移重启插件验收。
 
 Agent承担授权技术操作，Owner补必要信息、作实质决定/授权及成品最终接受；五授权边界未变复用。独立合成验收须运行证据，Harness自主修复，严格窗口未答不算答复，延期非通过；核心/全计划/接受分记，权限/不可逆/恢复按[执行规范](docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)。决策给2–3选项及有理由推荐，待答不默认。
 

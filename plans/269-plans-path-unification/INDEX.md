@@ -11,6 +11,7 @@ layer: working
 task: 269-plans-path-unification
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/269
 plan: "./[PLAN]_Plans_Path_Unification.md"
+report: "./[REPORT]_Plans_Path_Unification.md"
 sources: "./source-bindings.json"
 canonical:
   - "../../docs/intent/[INTENT]_INT-2026-002_Plans_Path_Unification.md"
@@ -24,6 +25,6 @@ canonical:
 
 - [主 PLAN](./[PLAN]_Plans_Path_Unification.md)：接受来源、实施授权、两子 PR 的承担范围、验收及恢复。
 - [来源清单](./source-bindings.json)：完整 B1、七项执行原则原文及 Owner 纠正/授权的可恢复原件。
-- 正式分层和执行门禁见上列 canonical。REPORT 在实际实施结果产生后建立，不提前补写通过。
+- [主 REPORT](./[REPORT]_Plans_Path_Unification.md)：实际修改、首次失败/修复、当前候选验证及仍需完成的门禁。
 
 2026-10-19，按 Issue #269 建立实施入口；Owner 已明确要求执行需求，下一步由 Agent 完成目录/文档整合和校验/测试两个内部子 PR。快照冲突时以 Issue 为准。

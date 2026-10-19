@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-19
 state: active
-version: v2.97
+version: v2.98
 layer: canonical
 ---
 
@@ -97,7 +97,7 @@ Communication PR4同步验收证据和实际发布基线，见[验收记录§6](
 
 Owner Q3已确认Communication正式发行仅为Learning已公开三包加Communication（四包六技能），HTML保留develop另发；开发集成五包七技能，两个集合各自精确验证。
 
-- [Communication 完整实施计划](../plan/communication-kit-implementation-plan.md)与[原稿捕获](../plan/communication-kit-plan-provenance.json)
+- [Communication 任务入口 #222](../plans/222-communication-kit/INDEX.md)：唯一主 PLAN、主 REPORT 和固定原稿/捕获来源；历史原件只供恢复，不作为并行计划入口。
 - [Communication Kit 新增决定](adr/[ADR]_Communication_Kit_Addition.md)
 - [Communicate 行为契约](spec/[SPEC]_Communication_Communicate.md)
 - [沟通助手使用指南](guide/[GUIDE]_Communication_Communicate.md)
