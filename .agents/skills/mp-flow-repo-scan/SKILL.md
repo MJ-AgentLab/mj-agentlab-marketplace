@@ -5,6 +5,8 @@ description: "Use for marketplace repo scan / 事实核查 before implementation
 
 # mp-flow-repo-scan
 
+HTML Learning Artifact site 扩展按[当前合同](../../../docs/spec/[SPEC]_HTML_Learning_Artifact.md)核对：开发候选五包八公开/五显式/三自然，新增 site 及其包内工具、来源许可和真实 Sites 主流程；guide 原四资源及历史验收保留。下文带 PR3/旧版本的七技能数字仅属其历史范围，当前集合以实际 manifest/严格登记及本次证据为准；十三安装组合与20仓库技能保持。
+
 需求承接先读已选原意和接受基线，再按[INTENT 规范](../../../docs/rule/[STANDARD]_AI_Engineering_Intent.md)核实代码/配置/运行事实与差距；来源意思、项目事实和假设分别标记，不以实现现状推定提出者原意。
 
 只读核查当前 worktree、未提交改动、远端和目标分支；扫描 .agents/plugins/marketplace.json、各 plugins/*/plugin.json、公开 arch-diagram / pop-quiz / learning-record-check / glossary / concept / guide 和 .agents/skills 下的 20 个开发技能。核对PR3 开发精确五插件/七技能/四个显式策略、独立公开候选三插件/五技能/两个学习策略，以及安装包共用脚本归属。对照 VERSION、当前文档、历史归档和 CI，区分未发布候选与公开 v8.1.1 的旧 Understanding 集合；候选安装使用待测 branch/SHA。记录事实位置、漂移和受影响文件，不用历史 ADR 或发现成功推断当前集合、运行或原生窗口通过。输出可支持实施的事实与约束。

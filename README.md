@@ -51,6 +51,8 @@ codex plugin list --json
 
 上面的 v8.3.0 安装包含 HTML Guide 0.1.36。已知失败与未覆盖客户端结果仍保留，见下方验收边界；开发候选安装与正式发布结果分别记录。
 
+当前开发候选 HTML 0.1.37 增加显式 `$html-guide-kit:site`：从材料、读者/任务和理解目标出发，用包内方法、主题和工具制作中文学习网页，再按当前 Sites 流程发布。guide 四份运行资源保持原字节；候选安装、真实 Sites 交付、受保护合并、插件公开和 Owner 体检分别记录，见[使用指南](docs/guide/[GUIDE]_HTML_Learning_Artifact.md)及[任务 #274](plans/274-html-learning-artifact/INDEX.md)。上述公开标签尚不含 site。
+
 ### ChatGPT desktop
 
 在 repo marketplace 中核对标签 v8.3.0 与插件版本；索引包含上列五包。既有桌面端安装、发现和实际调用证据按其原来源和客户端身份登记，没有执行新的发布后界面验收。代理执行可用自动化；能力限制和延期入口据实记录，CLI 发现不替代桌面或窗口证据。
@@ -81,7 +83,7 @@ README badge 跟随当前 checkout 的 VERSION；develop 在实际回同步后�
 
 历史 Learning [8.2.0 Release](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.2.0) 于 2026-10-13 发布。#241 已将完整五包作为 v8.3.0 公开，Diagram 0.3.1、Learning Evidence 0.1.0、Explain 0.1.1、Communication 0.1.0、HTML 0.1.36 均保持实际版本。后续同步与未发布补丁预升须经独立 PR 和实际门禁，见[8.3.0 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。共用 Learning 脚本归属安装包，不依赖仓库过渡路径。
 
-20 个开发技能位于 .agents/skills，公开技能为 arch-diagram、pop-quiz、learning-record-check、glossary、concept、guide 和 communicate。pop-quiz、learning-record-check、guide 与 communicate 为显式入口；全量普通发现预期为三个技能，原生清单为七个；Communication 独装普通发现为零、原生清单为一个。十三组合安装、包内资源字节核对、实际 Python 回归与无 MCP 检查的执行结果单独记录。
+20 个开发技能位于 .agents/skills；当前开发候选公开技能为 arch-diagram、pop-quiz、learning-record-check、glossary、concept、guide、site 和 communicate。pop-quiz、learning-record-check、guide、site 与 communicate 为显式入口；全量普通发现预期为三个技能，原生清单为八个；Communication 独装普通发现为零、原生清单为一个。十三组合安装、包内资源字节核对、实际 Python 回归与无 MCP 检查的执行结果单独记录。
 
 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222) 管理 Communication PR1–PR5。PR1–PR4 已交付，原四包 PR5 #237 关闭且未合并，由实际五包发布 #241 替代。发布身份与上线后安装已核实；历史规则审计 bypass 与空 reviews、限定客户端覆盖和后续维护分别记录。项目指令见 [AGENTS.md](AGENTS.md)，规范和历史见 [文档索引](docs/INDEX.md)，贡献见 [CONTRIBUTING.md](CONTRIBUTING.md)。代理运行 npm ci、npm run validate、npm test、npm run check:baseline-tools 和 npm run smoke:codex。后续合并仍要求当前 head 非作者批准、required checks 及已解决审查线程，不补写既有缺项通过。
 
