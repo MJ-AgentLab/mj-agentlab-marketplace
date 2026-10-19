@@ -22,7 +22,7 @@ Communication按[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketpla
 
 #245五阶段已合并、actual6df新492/13安装/Python复验通过并关闭；Owner仅接受该Issue历史批准/bypass例外，非未来豁免，见[账本](docs/runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。
 
-#255实际develop3f0b7d12完整继承main761，与已测同树，新13安装/Python复验通过。已DryRun/Apply预升未发布8.3.2，仅VERSION/badge与根A6；插件不变，安装仍v8.3.1，不建同号发行。历史bypass/空批准保留，新PR须真实批准/CI/线程。[8.3.1账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)§3为同步准备快照，当前事实见本预升PR。
+#255实际3f0b7d12完整继承main761，同已测tree，新13安装/Python通过。随后DryRun/Apply预升8.3.2仅改VERSION/badge/A6，未创建发行；当前正式准备见下文274。历史bypass/空批准保留，新PR须真实批准/CI/线程；旧快照见[8.3.1账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
 
 Communication 任务统一从[入口 #222](plans/222-communication-kit/INDEX.md)读取主 PLAN、交付 REPORT 与固定原件；旧路径已按[整合任务 #269](plans/269-plans-path-unification/INDEX.md)迁入 plans，当前不提供旧路径兼容。历史产品合同、接受/失败和交付版本按原账本保留，后续工作复用真实授权，不因迁移重启插件验收。
 
@@ -70,7 +70,7 @@ Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基
 
 ## HTML Guide Kit 阶段实施
 
-HTML Learning Artifact 候选0.1.37新增显式site，开发5包8技能/5显式；按[任务 #274](plans/274-html-learning-artifact/INDEX.md)核验。guide合同保留，Sites核心、延期与Owner接受分记。
+HTML0.1.37/site已由#275合入65d756ef，同已测tree；5包8技能/5显式。空reviews/实际bypass保留，正式8.3.2准备见[账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)与[任务274](plans/274-html-learning-artifact/INDEX.md)；新main门禁、延期、Owner接受分记。
 
 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217)授权三阶段/worktree/codex。#221 merge70267a5复验/#218关闭；#226 d106e766同72cdd08树，0.1.0/第二轮A/七安装四Python复验/#219关闭。旧批准缺项保留。#231实际merge71e2同head树、CI全P/reviews空；原批准缺项保留，不bypass或指定审查人。
 

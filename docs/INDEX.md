@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-19
 state: active
-version: v2.99
+version: v2.100
 layer: canonical
 ---
 
@@ -35,7 +35,11 @@ layer: canonical
 
 ## 当前整体发布
 
+Marketplace8.3.2正在准备：#275已实际合入develop65d756ef/tree d7de559f，同已测1a80；HTML0.1.37新增site，五包八公开/五显式/三自然，其他插件保持，并继承已交付文档/INTENT/路径统一治理。版本已预升，不重复bump，无v8.3.2 tag/Release，安装仍v8.3.1。actual65d新十三安装/178命令及6Diagram+18LEK/4site生成+4静态Python通过，自有新根无残留；正式main PR当前head真实保护门禁仍待证；#275 reviews=[]记批准NOT_MET，真实suite4599887231匹配该次合入且result=bypass，pull_request fail（缺最新推送者外批准）、required checks pass、不作未来豁免。范围、实际结果与记录→sync→仅市场8.3.3预升顺序见[8.3.2发布账本](runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)；继续复用[#274任务入口](../plans/274-html-learning-artifact/INDEX.md)的唯一PLAN/REPORT，原FAIL/延期、Owner体检/最终接受与NOT_MEASURED分记。
+
 2026-10-16 #253 已将 Marketplace v8.3.1 公开，main/tag/Release 同为 4e4d4172，五包版本与 8.3.0 相同。新发布后真实 tag 的十三安装、6Diagram+18LEK、15cleanup及独立原件复核通过；实际main规则suite4563052548为Owner bypass、reviews=[]，批准缺项保留NOT_MET，245例外不外推。见[8.3.1发布账本](runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)与[发布后回执](runbook/evidence/marketplace-8-3-1-postrelease.json)。
+
+下段保留2026-10-16准备快照；#255同步与#256预升后来已实际合入，当前8.3.2状态以上述新账本为准。
 
 记录 PR #254 已于 2026-10-16 实际合入 main7615ca58，与已测6a4同树；新十三安装、6Diagram+18LEK、130成功phases/15cleanup、52源哈希和实际19→19登记核验通过。该次suite4563644321为Owner bypass、reviews=[]，批准仍NOT_MET。当前正常同步PR包含完整main761 ancestry，目标develop6df，市场/安装ref仍8.3.1、插件不变；实际sync合入复验后再DryRun/Apply Marketplace8.3.2，仅VERSION/badge与必要根A6。新阶段均保持当前head真实批准/CI/线程；pre-bump未应用。下方保留8.3.0首次五包公开的历史基线。
 

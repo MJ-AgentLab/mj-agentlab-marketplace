@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-19
 state: active
-version: v1.4
+version: v1.5
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -17,6 +17,14 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 [任务入口](./INDEX.md) · [主 PLAN/接受来源](./[PLAN]_HTML_Learning_Artifact.md) · [Issue #274](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274) · [INTENT](../../docs/intent/[INTENT]_INT-2026-003_HTML_Learning_Artifact.md)
 
 ## Current conclusion and remaining gaps
+
+2026-10-19，Owner 续办“#275 PR 已合并，继续后续工作”。[#275](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/275) 实际于 `12:56:35Z` 合入 develop `65d756efd3024ac10d1d0e6ea189055fbe6f1545`；tree `d7de559f6563d8208098952f92495c1b7acca9cb` 与已测主 PR head `1a80bab5c85ae9b216f49a5d9c114770117ab2dd` 相同。子 PR276、277及主 PR275均已实际合入，开发目标已交付；[实际 Git/API 原件](./evidence/sources/postmerge/pr275-actual-git.json)与[合入回读](./evidence/sources/postmerge/pr275-merge-api.json)保留真实身份。独立 /root/post_merge_verify 的 [实际65d新验回执](./evidence/sources/postmerge/canonical65d/summary.json)已于13:00:06.401–13:10:12.179Z实际完成：13/13场景、178命令全status0，6 Diagram+18 LEK Python、4次site生成+4次静态Python（各89项零错），源/缓存47资源组及4份site各20资源核对，普通3/原生8/仓库20/显式5符合；自有新临时根无残留、worktree清单完整复原。默认keepRoot=false，宿主未切换到canonical；本次安装未运行browser/model/desktop，不改原消费者/Sites证据身份。
+
+**技术交付与保护批准分开。** [规则执行4599887231](./evidence/sources/postmerge/pr275-rule-suite.json)实际结果为 bypass，pull_request evaluation fail（缺最新推送者之外的批准），required checks pass；[PR275 reviews=[]](./evidence/sources/postmerge/pr275-actual.json)，因此原批准 **NOT_MET**。合入者为 ranzuozhou，不推定新的未来豁免。当前准许复用的 P5 操作授权见唯一主 PLAN；正式 Marketplace 8.3.2 发布准备在[本次账本](../../docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)承接，main 新 PR 仍须当前 head 的真实批准、最新基线检查与线程门禁，Agent 不 bypass。
+
+HTML0.1.37/site 的 A1–A3及A4工程检查已有技术证据，A4中的保护批准仍为 **NOT_MET**；四项门槛未全部通过。私有代表站点仍为下文同一版本1。Marketplace正式公开、原生窗口/第二客户端延期、Owner体检/最终接受各自待证，效果 **NOT_MEASURED**；#274 保持开放。以下“Historical”段落及当时待办保留各批时点，当前状态以本节和新发布账本为准。
+
+## Historical pre-merge acceptance snapshot
 
 本批本地实现、独立合成验收与同包私有Sites已有证据；最新本机完整r4为642/642 PASS、零skip，strict-r4 PASS。HTML0.1.37两显式入口、五包八公开/五显式/三自然、20仓库技能，guide原四资源保持。独立消费者12项及完整13安装r2绑定1a3ac5f5/tree8c579494，原1a全测641/641也保留；这些证据按实际源身份及后续字节对应复用，不改写成新跑。
 
@@ -129,7 +137,7 @@ root在当前Codex桌面聊天中从同一安装locator手动显式执行Sites�
 
 本地输出可由明确输入再生，原材料/缓存保持。Sites未知结果先回读；身份/受众/凭据/非预期材料异常停止新增发布并升级Agent/Owner，采用真实已知良好保存版本或前向修复。插件回退用新受保护PR原子恢复包/严格清单，保留历史tag/Release/原证据。
 
-## Delivery, handoff and acceptance
+## Historical delivery, handoff and acceptance snapshot
 
 原子子PR276已正常合入集成552b6e0，双系统完整CI、规则[]/threads0及实际同树均有原件。主PR275仍需其实际当前head非作者批准/检查/线程与最终merge复验，不能以内部合入替代。子PR2先冻结本文与证据，再正常继承origin集成运行基线并执行strict/doc复验；实际新SHA和结果追加，不删除旧FAIL。
 
@@ -152,3 +160,11 @@ Sites同消费者run02的7文件有界包，manifest SHA256 `c4c445947180f776415
 
 
 2026-10-19，文档子PR [#277](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/277) 已实际创建，目标为同一集成分支。其7138d343/tree31f7fa21正常继承552b6e0，运行Git对象与552相同，197原来源已从Git blob独立逐hash核验。root实际文档/INTENT/契约116项与完整real-source原字节投影1项均PASS/零skip，见[范围检查回执](./evidence/sources/engineering/acceptance-scope-checks.json)。本次只补真实PR链接与这3份检查原件绑定，未改变运行、原197证据或接受判准；子PR完整平台矩阵与最终主PR检查按各自服务器终态记录，不将未完成项写成通过。内部实际merge和受保护275/发布/Owner接受的后续事实由Issue及PR回读，原FAIL保留。
+
+## Release preparation checks and preserved failures
+
+本次只整理发行/任务文档、HTML README/CHANGELOG中性版本介绍及新增postmerge原证据局部空白属性；技能、工具、manifest与guide均未变。[独立复核汇编](./evidence/sources/postmerge/preparation/html-learning-274-release-review.json)记录两个已修维护问题和真实角色，不能替代GitHub批准。新正式候选的完整平台矩阵仍待当前head。
+
+root首轮相关144/144通过；增加README任务链接后隔离套件出现143PASS/1FAIL，删去该仓库依赖后144/144修后PASS，未改fixture或判准。另完整642首轮633PASS/9FAIL/零skip，原因是该测试进程未传已有Python解释器；显式HTML_SITE_PYTHON后site9/9（含真实browser）零skip。各原日志在[来源清单](./source-bindings.json)分别冻结；正确环境的完整重跑另据终态追加，不据定向9项宣称完整PASS。actual65d的原件、15精确不存在目录与核验方法另见[终态独立回执](./evidence/sources/postmerge/canonical65d/terminal-receipt.json)。
+
+正确环境完整重跑已实际结束：**642/642 PASS、零FAIL/skip/cancel**，原始[完整日志](./evidence/sources/postmerge/preparation/html-learning-274-release-full-tests-repaired.log)与[阶段汇总](./evidence/sources/postmerge/preparation/html-learning-274-release-final-checks.json)分开保存；使用已有Python，无产品/fixture/门禁改动。来源与文档补记之后继续strict/原字节闭包检查，最终head平台完整矩阵与保护批准另据事实。

@@ -51,7 +51,7 @@ codex plugin list --json
 
 上面的 v8.3.0 安装包含 HTML Guide 0.1.36。已知失败与未覆盖客户端结果仍保留，见下方验收边界；开发候选安装与正式发布结果分别记录。
 
-当前开发候选 HTML 0.1.37 增加显式 `$html-guide-kit:site`：从材料、读者/任务和理解目标出发，用包内方法、主题和工具制作中文学习网页，再按当前 Sites 流程发布。guide 四份运行资源保持原字节；候选安装、真实 Sites 交付、受保护合并、插件公开和 Owner 体检分别记录，见[使用指南](docs/guide/[GUIDE]_HTML_Learning_Artifact.md)及[任务 #274](plans/274-html-learning-artifact/INDEX.md)。上述公开标签尚不含 site。
+已合入 develop、准备随 Marketplace 8.3.2 发布的 HTML 0.1.37 增加显式 `$html-guide-kit:site`：从材料、读者/任务和理解目标出发，用包内方法、主题和工具制作中文学习网页，再按当前 Sites 流程发布。guide 四份运行资源保持原字节；候选安装、真实 Sites 交付、受保护合并、插件公开和 Owner 体检分别记录，见[使用指南](docs/guide/[GUIDE]_HTML_Learning_Artifact.md)及[任务 #274](plans/274-html-learning-artifact/INDEX.md)。上述公开标签尚不含 site；实际 #275 合入、8.3.2 发布准备及当前保护门禁见[8.3.2 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)。
 
 ### ChatGPT desktop
 
@@ -79,7 +79,7 @@ Communication 0.1.0 已随 v8.3.0 发布。安装后显式调用 `$communication
 
 ### Development
 
-README badge 跟随当前 checkout 的 VERSION；develop 在实际回同步后预升时，它表示预计下一版本，公开安装仍指向真实 v8.3.1。Owner 已授权本次记录 PR、实际 main 回同步与后续仅 Marketplace 8.3.2 预升，均经正常独立 PR 门禁；上述 #254 记录快照当时保持 8.3.1，后续实际状态见[8.3.1 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
+README badge 跟随当前 checkout 的 VERSION。8.3.2 已完成预升，当前准备正式发布；公开安装仍固定真实 v8.3.1，待新 tag/Release 实际公开后更新。#274 的 P5 授权覆盖本次正式发布与必要后续操作，当前 main 保护批准、检查、发布和 Owner 接受分开记录于[8.3.2 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)。历史 #254/同步/预升结果见[8.3.1 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
 
 历史 Learning [8.2.0 Release](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.2.0) 于 2026-10-13 发布。#241 已将完整五包作为 v8.3.0 公开，Diagram 0.3.1、Learning Evidence 0.1.0、Explain 0.1.1、Communication 0.1.0、HTML 0.1.36 均保持实际版本。后续同步与未发布补丁预升须经独立 PR 和实际门禁，见[8.3.0 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。共用 Learning 脚本归属安装包，不依赖仓库过渡路径。
 

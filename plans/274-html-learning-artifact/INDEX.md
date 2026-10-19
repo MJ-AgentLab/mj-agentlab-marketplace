@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-19
 state: active
-version: v1.2
+version: v1.3
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -29,4 +29,4 @@ sources: ./source-bindings.json
 - [来源清单](./source-bindings.json)：原计划完整字节、本轮请求及捕获元数据。冻结来源只用于恢复，不作第二主计划。
 - [唯一主 REPORT](./[REPORT]_HTML_Learning_Artifact.md)：版本化工程/独立消费者/私有Sites与失败恢复；[主PR275](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/275)、[原子子PR276](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/276)、[验收子PR277](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/277)承接本批，进度仍以Issue为准。
 
-2026-10-19：本机642/642、acaf双系统完整CI/各13安装通过，276已正常合入552b6e0同已测tree；私有Sites成功。子PR2记录/最终主保护批准与合并、正式发布/Owner接受仍未完成；旧FAIL及延期保持，详见REPORT/Issue。
+2026-10-19：276/277与主PR275均已合入，actual develop65d756ef同已测1a80/tree d7de559f。独立actual65d十三安装/178命令、6Diagram+18LEK/4site生成+4静态Python新验通过，自有根无残留；275空reviews/规则实际bypass为批准NOT_MET，不作未来豁免。沿用P5授权准备[8.3.2正式发布](../../docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)，新main门禁/公开、延期与Owner接受独立，旧FAIL及效果NOT_MEASURED保持；详见REPORT/Issue。
