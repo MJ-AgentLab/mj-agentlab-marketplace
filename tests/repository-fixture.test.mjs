@@ -54,7 +54,8 @@ test("minimal repository fixture preserves real bytes and reports generated and 
   assert.deepEqual(fs.readdirSync(path.join(summary.root, "scripts")), []);
   assert.equal(files(path.join(summary.root, "assets")).length, 44);
   assert.deepEqual(files(path.join(summary.root, "docs")).map(relative => `docs/${relative}`), [...SYNTHETIC_DOCUMENTS, ...files(path.join(REPO, "docs/_templates")).map(relative => `docs/_templates/${relative}`), "docs/_meta/document-layer-compatibility.json"].sort());
-  assert.ok(fs.existsSync(path.join(summary.root, "plan/communication-kit-implementation-plan.md")));
+  assert.equal(fs.existsSync(path.join(summary.root, "plan")), false);
+  assert.equal(FIXTURE_MANIFEST.realTrees.includes("plan"), false);
   for (const relative of SYNTHETIC_TASK_DOCUMENTS) assert.ok(fs.existsSync(path.join(summary.root, relative)), relative);
 });
 
