@@ -1,0 +1,64 @@
+{
+  "platform": "linux",
+  "python": "3.12.3 (main, Jul 15 2026, 23:46:41) [GCC 13.3.0]",
+  "results": [
+    {
+      "separateGroup": false,
+      "launcher": 11,
+      "writer": {
+        "pid": 12,
+        "group": 11,
+        "session": 11
+      },
+      "trackedBefore": [
+        12
+      ],
+      "trackedAfter": [],
+      "writerAliveAfterClose": false,
+      "rootRecreatedAfterCleanup": false,
+      "foreignUnaffected": true,
+      "lifecycle": [
+        {
+          "phase": "browser-process-exit",
+          "status": "PASS",
+          "returnCode": 0
+        },
+        {
+          "phase": "owned-browser-session-exit",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "separateGroup": true,
+      "launcher": 13,
+      "writer": {
+        "pid": 14,
+        "group": 14,
+        "session": 13
+      },
+      "trackedBefore": [],
+      "trackedAfter": [],
+      "writerAliveAfterClose": true,
+      "rootRecreatedAfterCleanup": true,
+      "foreignUnaffected": true,
+      "lifecycle": [
+        {
+          "phase": "browser-process-exit",
+          "status": "PASS",
+          "returnCode": 0
+        },
+        {
+          "phase": "owned-browser-session-exit",
+          "status": "PASS"
+        },
+        {
+          "phase": "temporary-cleanup",
+          "status": "PASS",
+          "attempts": 1
+        }
+      ]
+    }
+  ],
+  "scope": "isolated Python launcher/writer; not actual Chrome or GitHub CI"
+}

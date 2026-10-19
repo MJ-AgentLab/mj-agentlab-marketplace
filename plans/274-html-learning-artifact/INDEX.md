@@ -6,11 +6,12 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-19
 state: active
-version: v1.0
+version: v1.1
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 plan: "./[PLAN]_HTML_Learning_Artifact.md"
+report: "./[REPORT]_HTML_Learning_Artifact.md"
 canonical:
   - ../../docs/intent/[INTENT]_INT-2026-003_HTML_Learning_Artifact.md
   - ../../docs/adr/[ADR]_HTML_Learning_Artifact_Extension.md
@@ -26,6 +27,6 @@ sources: ./source-bindings.json
 - [主 PLAN](./[PLAN]_HTML_Learning_Artifact.md)：授权、原计划完整覆盖、子 PR 顺序、验收与恢复。
 - [原意 INT-2026-003](../../docs/intent/[INTENT]_INT-2026-003_HTML_Learning_Artifact.md)、[扩展 ADR](../../docs/adr/[ADR]_HTML_Learning_Artifact_Extension.md)、[site SPEC](../../docs/spec/[SPEC]_HTML_Learning_Artifact.md)、[使用指南](../../docs/guide/[GUIDE]_HTML_Learning_Artifact.md)。
 - [来源清单](./source-bindings.json)：原计划完整字节、本轮请求及捕获元数据。冻结来源只用于恢复，不作第二主计划。
-- 主 REPORT 在实际结果出现后创建并由本入口绑定；主 PR/子 PR 由 Issue 与主 PLAN 记录真实链接。
+- [唯一主 REPORT](./[REPORT]_HTML_Learning_Artifact.md)：版本化工程/独立消费者/私有Sites与失败恢复；[主PR275](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/275)、[原子子PR276](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/276)承接本批，进度仍以Issue为准。
 
-2026-10-19：来源与本次合同承接正在建立；工具/安装/真实 Sites/保护批准/Owner 接受均待各自实际证据。此薄快照冲突时以 Issue 为准。
+2026-10-19：本机642/642、acaf双系统完整CI/各13安装通过，276已正常合入552b6e0同已测tree；私有Sites成功。子PR2记录/最终主保护批准与合并、正式发布/Owner接受仍未完成；旧FAIL及延期保持，详见REPORT/Issue。

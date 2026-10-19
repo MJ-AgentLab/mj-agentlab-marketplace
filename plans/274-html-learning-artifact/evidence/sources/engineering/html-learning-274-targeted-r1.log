@@ -1,0 +1,640 @@
+TAP version 13
+# Subtest: guide entry budget counts UTF-8 bytes at the exact boundary
+ok 1 - guide entry budget counts UTF-8 bytes at the exact boundary
+  ---
+  duration_ms: 1.0507
+  type: 'test'
+  ...
+# Subtest: repository and byte-identical installation reject an oversized guide entry
+ok 2 - repository and byte-identical installation reject an oversized guide entry
+  ---
+  duration_ms: 2041.1002
+  type: 'test'
+  ...
+# Subtest: HTML Guide Kit has two explicit entries and exact Read/Write package capabilities without changing repository skill count
+ok 3 - HTML Guide Kit has two explicit entries and exact Read/Write package capabilities without changing repository skill count
+  ---
+  duration_ms: 0.7656
+  type: 'test'
+  ...
+# Subtest: HTML Guide Kit manifest rejects wrong identity, root versions, capabilities and routes
+ok 4 - HTML Guide Kit manifest rejects wrong identity, root versions, capabilities and routes
+  ---
+  duration_ms: 1.1597
+  type: 'test'
+  ...
+# Subtest: HTML Guide Kit marketplace default prompts remain discoverable within the runtime length limit
+ok 5 - HTML Guide Kit marketplace default prompts remain discoverable within the runtime length limit
+  ---
+  duration_ms: 0.3954
+  type: 'test'
+  ...
+# Subtest: HTML Guide Kit marketplace default prompts accept 128 characters and reject any oversized entry
+ok 6 - HTML Guide Kit marketplace default prompts accept 128 characters and reject any oversized entry
+  ---
+  duration_ms: 0.3624
+  type: 'test'
+  ...
+# Subtest: guide native metadata requires its own route and a boolean false invocation policy
+ok 7 - guide native metadata requires its own route and a boolean false invocation policy
+  ---
+  duration_ms: 1.862
+  type: 'test'
+  ...
+# Subtest: guide has exactly its four approved package-owned runtime resources
+ok 8 - guide has exactly its four approved package-owned runtime resources
+  ---
+  duration_ms: 0.6072
+  type: 'test'
+  ...
+# Subtest: repository refuses missing mandatory guide reference even without a Markdown pointer: references/guide-framework.md
+ok 9 - repository refuses missing mandatory guide reference even without a Markdown pointer: references/guide-framework.md
+  ---
+  duration_ms: 2092.4533
+  type: 'test'
+  ...
+# Subtest: repository refuses missing mandatory guide reference even without a Markdown pointer: references/interaction-design.md
+ok 10 - repository refuses missing mandatory guide reference even without a Markdown pointer: references/interaction-design.md
+  ---
+  duration_ms: 2606.5629
+  type: 'test'
+  ...
+# Subtest: repository rejects an extra guide runtime file
+ok 11 - repository rejects an extra guide runtime file
+  ---
+  duration_ms: 2631.5227
+  type: 'test'
+  ...
+# Subtest: guide references cannot borrow another directory through a junction
+ok 12 - guide references cannot borrow another directory through a junction
+  ---
+  duration_ms: 2515.9527
+  type: 'test'
+  ...
+# Subtest: installed guide compares actual bytes and rejects missing or drifted resource: SKILL.md
+ok 13 - installed guide compares actual bytes and rejects missing or drifted resource: SKILL.md
+  ---
+  duration_ms: 165.5014
+  type: 'test'
+  ...
+# Subtest: installed guide compares actual bytes and rejects missing or drifted resource: agents/openai.yaml
+ok 14 - installed guide compares actual bytes and rejects missing or drifted resource: agents/openai.yaml
+  ---
+  duration_ms: 162.7028
+  type: 'test'
+  ...
+# Subtest: installed guide compares actual bytes and rejects missing or drifted resource: references/guide-framework.md
+ok 15 - installed guide compares actual bytes and rejects missing or drifted resource: references/guide-framework.md
+  ---
+  duration_ms: 168.1838
+  type: 'test'
+  ...
+# Subtest: installed guide compares actual bytes and rejects missing or drifted resource: references/interaction-design.md
+ok 16 - installed guide compares actual bytes and rejects missing or drifted resource: references/interaction-design.md
+  ---
+  duration_ms: 163.8223
+  type: 'test'
+  ...
+# Subtest: installed guide byte equality cannot legitimize a resource junction or extra file
+ok 17 - installed guide byte equality cannot legitimize a resource junction or extra file
+  ---
+  duration_ms: 124.6813
+  type: 'test'
+  ...
+# Subtest: complete installed plugin preserves manifest, icons and approved skill resources: diagram-kit
+ok 18 - complete installed plugin preserves manifest, icons and approved skill resources: diagram-kit
+  ---
+  duration_ms: 378.3174
+  type: 'test'
+  ...
+# Subtest: complete installed plugin preserves manifest, icons and approved skill resources: learning-evidence-kit
+ok 19 - complete installed plugin preserves manifest, icons and approved skill resources: learning-evidence-kit
+  ---
+  duration_ms: 289.3488
+  type: 'test'
+  ...
+# Subtest: complete installed plugin preserves manifest, icons and approved skill resources: explain-kit
+ok 20 - complete installed plugin preserves manifest, icons and approved skill resources: explain-kit
+  ---
+  duration_ms: 223.9314
+  type: 'test'
+  ...
+# Subtest: complete installed plugin preserves manifest, icons and approved skill resources: communication-kit
+ok 21 - complete installed plugin preserves manifest, icons and approved skill resources: communication-kit
+  ---
+  duration_ms: 236.1167
+  type: 'test'
+  ...
+# Subtest: complete installed plugin preserves manifest, icons and approved skill resources: html-guide-kit
+ok 22 - complete installed plugin preserves manifest, icons and approved skill resources: html-guide-kit
+  ---
+  duration_ms: 574.9694
+  type: 'test'
+  ...
+# Subtest: installed HTML Guide Kit rejects capability drift and SVG source byte drift
+ok 23 - installed HTML Guide Kit rejects capability drift and SVG source byte drift
+  ---
+  duration_ms: 102.9191
+  type: 'test'
+  ...
+# Subtest: static checker executes Python from unrelated cwd and preserves complete source/hash evidence
+ok 24 - static checker executes Python from unrelated cwd and preserves complete source/hash evidence
+  ---
+  duration_ms: 234.9847
+  type: 'test'
+  ...
+# Subtest: static checker detects stale bytes, unknown files and changed schema/version
+ok 25 - static checker detects stale bytes, unknown files and changed schema/version
+  ---
+  duration_ms: 105.4112
+  type: 'test'
+  ...
+# Subtest: static checker rejects missing anchors, decoded traversal, remote resources and known forbidden terms
+ok 26 - static checker rejects missing anchors, decoded traversal, remote resources and known forbidden terms
+  ---
+  duration_ms: 111.4262
+  type: 'test'
+  ...
+# Subtest: static checker rejects source path escape and invalid answer criteria even with consistent hashes
+ok 27 - static checker rejects source path escape and invalid answer criteria even with consistent hashes
+  ---
+  duration_ms: 95.6075
+  type: 'test'
+  ...
+# Subtest: browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record
+ok 28 - browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record
+  ---
+  duration_ms: 120.6538
+  type: 'test'
+  ...
+# Subtest: actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping
+ok 29 - actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping
+  ---
+  duration_ms: 1334.9544
+  type: 'test'
+  ...
+# Subtest: site installation accounts for every registered resource and checks its actual bytes
+ok 30 - site installation accounts for every registered resource and checks its actual bytes
+  ---
+  duration_ms: 2304.8754
+  type: 'test'
+  ...
+# Subtest: matching source and cache cannot legitimize an unregistered site resource or implicit policy
+ok 31 - matching source and cache cannot legitimize an unregistered site resource or implicit policy
+  ---
+  duration_ms: 88.6328
+  type: 'test'
+  ...
+# Subtest: site native metadata rejects borrowed routes and every non-boolean or implicit policy
+ok 32 - site native metadata rejects borrowed routes and every non-boolean or implicit policy
+  ---
+  duration_ms: 1.4461
+  type: 'test'
+  ...
+# Subtest: site provenance rejects malformed source identities, hashes, targets and pinning
+ok 33 - site provenance rejects malformed source identities, hashes, targets and pinning
+  ---
+  duration_ms: 313.2483
+  type: 'test'
+  ...
+# Subtest: site resources cannot be borrowed through a directory junction
+ok 34 - site resources cannot be borrowed through a directory junction
+  ---
+  duration_ms: 46.8023
+  type: 'test'
+  ...
+# Subtest: site extension preserves the four guide resources from fixed develop baseline without rewriting bytes
+ok 35 - site extension preserves the four guide resources from fixed develop baseline without rewriting bytes
+  ---
+  duration_ms: 0.7558
+  type: 'test'
+  ...
+# Subtest: complete HTML package checks both entries and detects a missing site script
+ok 36 - complete HTML package checks both entries and detects a missing site script
+  ---
+  duration_ms: 807.2278
+  type: 'test'
+  ...
+# Subtest: representative generation preserves selected inputs and independently verifiable hashes
+ok 37 - representative generation preserves selected inputs and independently verifiable hashes
+  ---
+  duration_ms: 43.7215
+  type: 'test'
+  ...
+# Subtest: installed renderer locates its own assets from an unrelated consumer directory
+ok 38 - installed renderer locates its own assets from an unrelated consumer directory
+  ---
+  duration_ms: 104.0846
+  type: 'test'
+  ...
+# Subtest: bounded Markdown retains paragraphs, relations, code, links and heading hierarchy
+ok 39 - bounded Markdown retains paragraphs, relations, code, links and heading hierarchy
+  ---
+  duration_ms: 0.452
+  type: 'test'
+  ...
+# Subtest: unsupported Markdown and broken links fail before creating output
+ok 40 - unsupported Markdown and broken links fail before creating output
+  ---
+  duration_ms: 57.0572
+  type: 'test'
+  ...
+# Subtest: configuration errors cannot silently produce a different activity or source
+ok 41 - configuration errors cannot silently produce a different activity or source
+  ---
+  duration_ms: 10.0365
+  type: 'test'
+  ...
+# Subtest: literal replacement markers and HTML in config remain inert and complete
+ok 42 - literal replacement markers and HTML in config remain inert and complete
+  ---
+  duration_ms: 27.7783
+  type: 'test'
+  ...
+# Subtest: traversal, resource collisions and existing output fail without changing inputs
+ok 43 - traversal, resource collisions and existing output fail without changing inputs
+  ---
+  duration_ms: 31.3311
+  type: 'test'
+  ...
+# Subtest: plugin caches and borrowed input or output ancestors cannot be written
+ok 44 - plugin caches and borrowed input or output ancestors cannot be written
+  ---
+  duration_ms: 12.4886
+  type: 'test'
+  ...
+# Subtest: known terminology mismatches and invalid input bytes remain generation failures
+ok 45 - known terminology mismatches and invalid input bytes remain generation failures
+  ---
+  duration_ms: 13.4592
+  type: 'test'
+  ...
+# Subtest: empty optional activities and terms still provide a static artifact and export
+ok 46 - empty optional activities and terms still provide a static artifact and export
+  ---
+  duration_ms: 14.1494
+  type: 'test'
+  ...
+# Subtest: consumer and repository inventories are scoped to real installed files
+ok 47 - consumer and repository inventories are scoped to real installed files
+  ---
+  duration_ms: 58.6812
+  type: 'test'
+  ...
+# Subtest: duplicate, missing and escaped public locators fail closed
+ok 48 - duplicate, missing and escaped public locators fail closed
+  ---
+  duration_ms: 50.9263
+  type: 'test'
+  ...
+# Subtest: Windows equivalent file casing still passes containment
+ok 49 - Windows equivalent file casing still passes containment
+  ---
+  duration_ms: 61.803
+  type: 'test'
+  ...
+# Subtest: ordinary prompt metadata contains three natural skills and excludes the two learning, guide, site and communication entries
+ok 50 - ordinary prompt metadata contains three natural skills and excludes the two learning, guide, site and communication entries
+  ---
+  duration_ms: 43.3362
+  type: 'test'
+  ...
+# Subtest: a plugin cache junction cannot claim files outside its marketplace directory
+ok 51 - a plugin cache junction cannot claim files outside its marketplace directory
+  ---
+  duration_ms: 43.4229
+  type: 'test'
+  ...
+# Subtest: prompt parser retains spaces and closing parentheses in a locator
+ok 52 - prompt parser retains spaces and closing parentheses in a locator
+  ---
+  duration_ms: 0.532
+  type: 'test'
+  ...
+# Subtest: native skills/list completes the handshake and preserves explicitly available metadata
+ok 53 - native skills/list completes the handshake and preserves explicitly available metadata
+  ---
+  duration_ms: 58.1806
+  type: 'test'
+  ...
+# Subtest: native protocol retains both HTML entries and their own routes in consumer and repository snapshots
+ok 54 - native protocol retains both HTML entries and their own routes in consumer and repository snapshots
+  ---
+  duration_ms: 50.8354
+  type: 'test'
+  ...
+# Subtest: native inventory fails closed on protocol errors and a stalled server
+ok 55 - native inventory fails closed on protocol errors and a stalled server
+  ---
+  duration_ms: 493.3766
+  type: 'test'
+  ...
+# Subtest: root aliases resolve installed and all 20 repository skills before scope checks
+ok 56 - root aliases resolve installed and all 20 repository skills before scope checks
+  ---
+  duration_ms: 54.2137
+  type: 'test'
+  ...
+# Subtest: missing, relative, conflicting and escaped root mappings fail closed
+ok 57 - missing, relative, conflicting and escaped root mappings fail closed
+  ---
+  duration_ms: 60.9824
+  type: 'test'
+  ...
+# Subtest: root mappings are local to their prompt text block
+ok 58 - root mappings are local to their prompt text block
+  ---
+  duration_ms: 45.1179
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: diagram-kit
+ok 59 - standalone and combined discovery: diagram-kit
+  ---
+  duration_ms: 46.5127
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: learning-evidence-kit
+ok 60 - standalone and combined discovery: learning-evidence-kit
+  ---
+  duration_ms: 41.5718
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: explain-kit
+ok 61 - standalone and combined discovery: explain-kit
+  ---
+  duration_ms: 44.4539
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: diagram-kit + explain-kit
+ok 62 - standalone and combined discovery: diagram-kit + explain-kit
+  ---
+  duration_ms: 38.6911
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: diagram-kit + learning-evidence-kit + explain-kit
+ok 63 - standalone and combined discovery: diagram-kit + learning-evidence-kit + explain-kit
+  ---
+  duration_ms: 41.2115
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: communication-kit
+ok 64 - standalone and combined discovery: communication-kit
+  ---
+  duration_ms: 78.878
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: communication-kit + explain-kit
+ok 65 - standalone and combined discovery: communication-kit + explain-kit
+  ---
+  duration_ms: 43.4533
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: communication-kit + learning-evidence-kit
+ok 66 - standalone and combined discovery: communication-kit + learning-evidence-kit
+  ---
+  duration_ms: 41.3681
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: diagram-kit + learning-evidence-kit + explain-kit + communication-kit
+ok 67 - standalone and combined discovery: diagram-kit + learning-evidence-kit + explain-kit + communication-kit
+  ---
+  duration_ms: 41.5371
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: html-guide-kit
+ok 68 - standalone and combined discovery: html-guide-kit
+  ---
+  duration_ms: 40.1125
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: html-guide-kit + explain-kit
+ok 69 - standalone and combined discovery: html-guide-kit + explain-kit
+  ---
+  duration_ms: 40.4341
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: diagram-kit + learning-evidence-kit + explain-kit + html-guide-kit
+ok 70 - standalone and combined discovery: diagram-kit + learning-evidence-kit + explain-kit + html-guide-kit
+  ---
+  duration_ms: 45.5546
+  type: 'test'
+  ...
+# Subtest: standalone and combined discovery: diagram-kit + learning-evidence-kit + explain-kit + communication-kit + html-guide-kit
+ok 71 - standalone and combined discovery: diagram-kit + learning-evidence-kit + explain-kit + communication-kit + html-guide-kit
+  ---
+  duration_ms: 90.359
+  type: 'test'
+  ...
+# Subtest: complete installed inventory rejects swapped skills and package identity/version drift
+ok 72 - complete installed inventory rejects swapped skills and package identity/version drift
+  ---
+  duration_ms: 69.7452
+  type: 'test'
+  ...
+# Subtest: complete installed manifest rejects metadata drift despite unchanged name and version
+ok 73 - complete installed manifest rejects metadata drift despite unchanged name and version
+  ---
+  duration_ms: 368.1942
+  type: 'test'
+  ...
+# Subtest: thirteen install combinations preserve implicit and native inventories including explicit standalone zero
+ok 74 - thirteen install combinations preserve implicit and native inventories including explicit standalone zero
+  ---
+  duration_ms: 58.8303
+  type: 'test'
+  ...
+# Subtest: installed communication compares every reference byte, metadata and resource ownership
+ok 75 - installed communication compares every reference byte, metadata and resource ownership
+  ---
+  duration_ms: 332.3964
+  type: 'test'
+  ...
+# Subtest: guide discovery rejects borrowed skill locations, wrong version cache and swapped installed manifest
+ok 76 - guide discovery rejects borrowed skill locations, wrong version cache and swapped installed manifest
+  ---
+  duration_ms: 52.717
+  type: 'test'
+  ...
+# Subtest: site discovery rejects borrowed skill locations, wrong version cache and swapped installed manifest
+ok 77 - site discovery rejects borrowed skill locations, wrong version cache and swapped installed manifest
+  ---
+  duration_ms: 46.3342
+  type: 'test'
+  ...
+# Subtest: communication listing and native prompts stay within the actual client budget
+ok 78 - communication listing and native prompts stay within the actual client budget
+  ---
+  duration_ms: 7.1779
+  type: 'test'
+  ...
+# Subtest: five approved portable plugins, eight public skills and all 20 repository skills satisfy contracts
+ok 79 - five approved portable plugins, eight public skills and all 20 repository skills satisfy contracts
+  ---
+  duration_ms: 52388.1978
+  type: 'test'
+  ...
+# Subtest: strict repository validation rejects every retired instruction surface
+ok 80 - strict repository validation rejects every retired instruction surface
+  ---
+  duration_ms: 3211.0565
+  type: 'test'
+  ...
+# Subtest: manifest version is a root semver string
+ok 81 - manifest version is a root semver string
+  ---
+  duration_ms: 0.5817
+  type: 'test'
+  ...
+# Subtest: portable manifest refuses compatibility fields and missing routing metadata
+ok 82 - portable manifest refuses compatibility fields and missing routing metadata
+  ---
+  duration_ms: 0.2822
+  type: 'test'
+  ...
+# Subtest: manifest identity and default prompts cannot route into another plugin
+ok 83 - manifest identity and default prompts cannot route into another plugin
+  ---
+  duration_ms: 0.4836
+  type: 'test'
+  ...
+# Subtest: each plugin advertises its exact approved capabilities without duplicates
+ok 84 - each plugin advertises its exact approved capabilities without duplicates
+  ---
+  duration_ms: 1.0671
+  type: 'test'
+  ...
+# Subtest: native pop-quiz metadata requires a boolean explicit-only policy
+ok 85 - native pop-quiz metadata requires a boolean explicit-only policy
+  ---
+  duration_ms: 0.6663
+  type: 'test'
+  ...
+# Subtest: catalog rejects missing, duplicate, unknown, versioned and escaped plugin entries
+ok 86 - catalog rejects missing, duplicate, unknown, versioned and escaped plugin entries
+  ---
+  duration_ms: 3709.8535
+  type: 'test'
+  ...
+# Subtest: quiz references must exist within their own installed skill
+ok 87 - quiz references must exist within their own installed skill
+  ---
+  duration_ms: 1247.6422
+  type: 'test'
+  ...
+# Subtest: quiz resources cannot borrow another plugin directory through a junction
+ok 88 - quiz resources cannot borrow another plugin directory through a junction
+  ---
+  duration_ms: 1185.5643
+  type: 'test'
+  ...
+# Subtest: skill YAML cannot duplicate keys or use retired tools/placeholders
+ok 89 - skill YAML cannot duplicate keys or use retired tools/placeholders
+  ---
+  duration_ms: 0.4578
+  type: 'test'
+  ...
+# Subtest: all repository workflows use current authority paths and execution principle
+ok 90 - all repository workflows use current authority paths and execution principle
+  ---
+  duration_ms: 4.22
+  type: 'test'
+  ...
+# Subtest: archive origins are reproducible Git blobs and preserve source versions
+ok 91 - archive origins are reproducible Git blobs and preserve source versions
+  ---
+  duration_ms: 711.7061
+  type: 'test'
+  ...
+# Subtest: each plugin rejects extra skills, missing files and swapped manifest identities
+ok 92 - each plugin rejects extra skills, missing files and swapped manifest identities
+  ---
+  duration_ms: 11993.8377
+  type: 'test'
+  ...
+# Subtest: manifest discovery prompts cover only the package's complete public skill set
+ok 93 - manifest discovery prompts cover only the package's complete public skill set
+  ---
+  duration_ms: 0.6394
+  type: 'test'
+  ...
+# Subtest: manifest defaultPrompt budget counts raw Unicode scalars at 128 and 129
+ok 94 - manifest defaultPrompt budget counts raw Unicode scalars at 128 and 129
+  ---
+  duration_ms: 1.1048
+  type: 'test'
+  ...
+# Subtest: manifest defaultPrompt lists preserve three prompts and reject a fourth
+ok 95 - manifest defaultPrompt lists preserve three prompts and reject a fourth
+  ---
+  duration_ms: 0.3054
+  type: 'test'
+  ...
+# Subtest: skill UI resources cannot resolve outside their plugin package
+ok 96 - skill UI resources cannot resolve outside their plugin package
+  ---
+  duration_ms: 1139.4257
+  type: 'test'
+  ...
+# Subtest: skill display configuration rejects wrong entry points and implicit-policy drift
+ok 97 - skill display configuration rejects wrong entry points and implicit-policy drift
+  ---
+  duration_ms: 0.7497
+  type: 'test'
+  ...
+# Subtest: communication manifest and native metadata require the owned explicit entry
+ok 98 - communication manifest and native metadata require the owned explicit entry
+  ---
+  duration_ms: 1.7612
+  type: 'test'
+  ...
+# Subtest: frozen snapshot validates entirely from owned bytes without accessing research paths
+ok 99 - frozen snapshot validates entirely from owned bytes without accessing research paths
+  ---
+  duration_ms: 26.5419
+  type: 'test'
+  ...
+# Subtest: frozen snapshot rejects malicious fields, dates, references and inconsistent Git states
+ok 100 - frozen snapshot rejects malicious fields, dates, references and inconsistent Git states
+  ---
+  duration_ms: 535.1663
+  type: 'test'
+  ...
+# Subtest: frozen snapshot detects every missing or altered reference and ignores fenced fake headings
+ok 101 - frozen snapshot detects every missing or altered reference and ignores fenced fake headings
+  ---
+  duration_ms: 71.9187
+  type: 'test'
+  ...
+# Subtest: frozen references reject traversal, non-files and internal or external junction components
+ok 102 - frozen references reject traversal, non-files and internal or external junction components
+  ---
+  duration_ms: 24.0331
+  type: 'test'
+  ...
+# Subtest: both learning evidence skills remain explicitly invoked
+ok 103 - both learning evidence skills remain explicitly invoked
+  ---
+  duration_ms: 0.6118
+  type: 'test'
+  ...
+# Subtest: deferred client ledger cannot erase or enable unverified entries
+ok 104 - deferred client ledger cannot erase or enable unverified entries
+  ---
+  duration_ms: 3963.8736
+  type: 'test'
+  ...
+# Subtest: common entry is package owned and staging scripts are forbidden
+ok 105 - common entry is package owned and staging scripts are forbidden
+  ---
+  duration_ms: 1931.4238
+  type: 'test'
+  ...
+1..105
+# tests 105
+# suites 0
+# pass 105
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 82314.9432

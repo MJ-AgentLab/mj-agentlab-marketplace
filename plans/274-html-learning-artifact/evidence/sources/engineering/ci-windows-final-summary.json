@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "extractedAt": "2026-10-19T10:54:57.486Z",
+  "sourceLogSha256": "6c1ef13ee47e1de7ac9bb79b131e62304a47b2f0ad37729b8f4ddd7ade56981d",
+  "method": "Remove only GitHub line timestamps, parse complete zero-indent JSON objects and exact TAP summary lines; normalize only command path separators for counting, then count actual per-scenario command records without double-counting aggregate aliases",
+  "unit": {
+    "tests": 642,
+    "pass": 642,
+    "fail": 0,
+    "skipped": 0,
+    "skipLines": []
+  },
+  "strict": {
+    "ok": true,
+    "errors": [],
+    "repositorySkills": 20,
+    "publicSkills": 8
+  },
+  "actualBrowserTestPassed": true,
+  "baselineVersion": "codex-cli 0.147.0",
+  "smoke": {
+    "ok": true,
+    "scenarios": 13,
+    "passedScenarios": 13,
+    "commandFailures": [],
+    "diagramPythonCalls": 6,
+    "learningEvidencePythonCalls": 18,
+    "siteRendererCalls": 4,
+    "siteStaticPythonCalls": 4
+  },
+  "limits": [
+    "Derived extraction does not replace the preserved raw job log.",
+    "Installed site renderer/static checks are separate from the actual browser unit testcase.",
+    "Other platform jobs, actual PR merge, protected approval and Owner acceptance are not inferred."
+  ]
+}
