@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-19
 state: active
-version: v1.0
+version: v1.1
 layer: working
 task: 263-intent-mechanism
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/263
@@ -29,4 +29,4 @@ sources: ./source-bindings.json
 - [Source identities and declared scope](./source-bindings.json) bind the actual captured bytes. Exact message times are unavailable; capture time is distinct.
 - [Main REPORT](./[REPORT]_Intent_Mechanism.md): implementation, independent acceptance, original failures, actual child merges and remaining protected/Owner acceptance obligations.
 
-2026-10-19 acceptance batch: contract and Harness children #266/#265 actually merged and functional tree verified. Acceptance-child delivery and protected main merge remain tracked by [Epic #263](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/263); [main PR #264](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/264) targets protected develop.
+2026-10-19 closeout: actual #264 merge be402435 and fresh post-merge verification are recorded in the main REPORT. The platform-observed bypass/approval gap, strict-window deferral, effect NOT_RUN and Owner final acceptance remain separate. Current batch/progress stays in [Epic #263](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/263).

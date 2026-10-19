@@ -7,6 +7,8 @@
 
 ### Documentation
 
+- Record actual INTENT #264 develop delivery and fresh 597-test/thirteen-install/source-recovery verification; retain the platform-observed approval bypass and all deferred, untested and Owner-acceptance boundaries. No runtime, version or original accepted-source changes.
+
 - Add tiered INTENT originals, the intent document type and recoverable acceptance/engineering coverage contracts. Reuse the existing 20 development skills and task PLAN/REPORT layers, preserve the complete accepted chat design and actual authorization, and register the first draft original without claiming its new wording was accepted. Strict Harness and independent synthetic acceptance follow in the child PRs of Epic #263; native-window evidence, protected approval and Owner final acceptance remain separate.
 
 - Record actual #258 develop merge and fresh exact-source verification; retain its observed approval bypass, the Owner-selected on-demand rollout and explicit bounded final acceptance. Reuse task entries and reports without changing runtime or frozen history.
