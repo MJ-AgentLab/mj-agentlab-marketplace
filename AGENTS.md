@@ -70,6 +70,8 @@ Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基
 
 ## HTML Guide Kit 阶段实施
 
+HTML Learning Artifact 候选0.1.37新增显式site，开发5包8技能/5显式；按[任务 #274](plans/274-html-learning-artifact/INDEX.md)核验。guide合同保留，Sites核心、延期与Owner接受分记。
+
 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217)授权三阶段/worktree/codex。#221 merge70267a5复验/#218关闭；#226 d106e766同72cdd08树，0.1.0/第二轮A/七安装四Python复验/#219关闭。旧批准缺项保留。#231实际merge71e2同head树、CI全P/reviews空；原批准缺项保留，不bypass或指定审查人。
 
 合同见[ADR](docs/adr/[ADR]_HTML_Guide_Kit_Addition.md)及[SPEC](docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)：仅显式$html-guide-kit:guide，Read、中文/原术语、聊天文本新建。实际读材料/明确快照，分原料/核验背景/构造，保原文、定位、冲突/缺口。每次2–3不同读者/任务/问题及推荐理由，明确选择或修改确认才编排；默认/推荐/预选/沉默/超时/无关/消失非确认，未答保同一待确认，不锁宿主。深度随材料；按需演示/模拟/自检含操作、变化、结果、反馈、恢复、理由/误区和重试；无可靠判准给有界参考，不评分/长期掌握。不修订/比较/审查，不输出HTML/代码/文件/制作步骤或越权；仅SKILL及两参考，无Owner路径/研究治理依赖。

@@ -6,13 +6,15 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-19
 state: active
-version: v2.98
+version: v2.99
 layer: canonical
 ---
 
 # 文档索引
 
 ## 工程任务与文档分层
+
+- [HTML learning artifact 原意 INT-2026-003](intent/[INTENT]_INT-2026-003_HTML_Learning_Artifact.md)、[#274任务入口](../plans/274-html-learning-artifact/INDEX.md)：同一HTML包新增显式site、包内方法/工具与真实Sites交付；[扩展ADR](adr/[ADR]_HTML_Learning_Artifact_Extension.md)、[site SPEC](spec/[SPEC]_HTML_Learning_Artifact.md)、[使用指南](guide/[GUIDE]_HTML_Learning_Artifact.md)承接本次范围及四项最小门槛。guide原字节/历史合同、旧FAIL和缺证保留；新候选结果、保护批准及Owner最终接受按各自证据判断。
 
 - [计划路径统一原意 INT-2026-002](intent/[INTENT]_INT-2026-002_Plans_Path_Unification.md)：Owner 已接受 B1 并授权实施；[#269 任务入口](../plans/269-plans-path-unification/INDEX.md)承接整合与旧路径兼容撤除，其他历史文档兼容不在范围。
 

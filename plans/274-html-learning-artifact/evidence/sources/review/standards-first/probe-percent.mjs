@@ -1,0 +1,5 @@
+import fs from 'node:fs'; import path from 'node:path'; import {renderSite,renderMarkdown} from 'file:///C:/Users/Admin/.codex/worktrees/html-learning-site/develop/plugins/html-guide-kit/skills/site/scripts/render-site.mjs';
+const root=process.argv[2]; const input=path.join(root,'percent2-input');fs.cpSync(path.join(root,'input'),input,{recursive:true});let c=JSON.parse(fs.readFileSync(path.join(input,'artifact.json'),'utf8')); c.sources[0].path='sources/renewal%20rules.md';fs.renameSync(path.join(input,'sources/renewal-rules.md'),path.join(input,c.sources[0].path));fs.writeFileSync(path.join(input,'artifact.json'),JSON.stringify(c)); fs.writeFileSync(path.join(input,'content.md'),fs.readFileSync(path.join(input,'content.md'),'utf8').replaceAll('sources/renewal-rules.md',c.sources[0].path)); console.log(renderSite({input,output:path.join(root,'percent2-output')}));
+for(const text of ['---\ntitle: Hidden metadata\n---\n\n# Body\nText','| H |\n|---|\n| first |']) { try { console.log(JSON.stringify({text,html:renderMarkdown(text).html})); }catch(e){console.log(e.message);}}
+
+

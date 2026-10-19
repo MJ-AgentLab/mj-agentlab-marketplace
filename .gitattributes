@@ -1,6 +1,9 @@
 # Preserve the saved owner plan's original bytes for its recorded SHA-256.
 # Task source snapshots retain the exact bytes checked by source-bindings.json.
 plans/*/evidence/sources/** -text
+# Frozen #274 source bytes retain Markdown hard breaks and actual CRLF capture.
+plans/274-html-learning-artifact/evidence/sources/HTML-Learning-Artifact-Plugin-Implementation-Plan.md whitespace=-blank-at-eol
+plans/274-html-learning-artifact/evidence/sources/capture-metadata.json whitespace=cr-at-eol
 # Frozen Epic 263 tool transcripts retain their original CRLF bytes and hashes.
 plans/263-intent-mechanism/evidence/sources/engineering/** whitespace=cr-at-eol
 plans/263-intent-mechanism/evidence/sources/independent/** whitespace=cr-at-eol
@@ -83,6 +86,11 @@ plans/257-task-documentation/evidence/main-ci-*.log whitespace=-blank-at-eol,cr-
 plans/263-intent-mechanism/evidence/postmerge-264/** -text whitespace=cr-at-eol
 # Git patch context lines contain significant single-space lines.
 plans/263-intent-mechanism/evidence/postmerge-264/closeout-review-r1.patch whitespace=-blank-at-eol,cr-at-eol
+
+# Issue 274 copied original evidence retains hard breaks, EOF and CRLF bytes.
+plans/274-html-learning-artifact/evidence/sources/engineering/** whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+plans/274-html-learning-artifact/evidence/sources/review/** whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+plans/274-html-learning-artifact/evidence/sources/consumer/** whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
 
 # Raw accepted/source records retain their original EOF and CRLF bytes.
 plans/269-plans-path-unification/evidence/sources/accepted-baseline-b1.json whitespace=-blank-at-eof

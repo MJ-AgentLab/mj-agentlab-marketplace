@@ -1,0 +1,86 @@
+{
+  "cleanup": [
+    {
+      "persistent": false,
+      "lateWrites": 1,
+      "lifecycle": [
+        {
+          "phase": "temporary-cleanup",
+          "status": "PASS",
+          "attempts": 2
+        }
+      ]
+    },
+    {
+      "persistent": true,
+      "lateWrites": 3,
+      "lifecycle": [
+        {
+          "phase": "temporary-cleanup",
+          "status": "FAIL",
+          "attempts": 3,
+          "errno": 39
+        }
+      ]
+    }
+  ],
+  "ownedSession": {
+    "status": "PASS",
+    "variants": [
+      {
+        "separateGroup": false,
+        "writer": {
+          "pid": 12,
+          "group": 11,
+          "session": 11
+        },
+        "foreignUnaffected": true,
+        "rootRecreated": false,
+        "lifecycle": [
+          {
+            "phase": "browser-process-exit",
+            "status": "PASS",
+            "returnCode": 0
+          },
+          {
+            "phase": "owned-browser-session-exit",
+            "status": "PASS",
+            "method": "complete Linux /proc session scan, all owned groups, two consecutive empty scans"
+          },
+          {
+            "phase": "temporary-cleanup",
+            "status": "PASS",
+            "attempts": 1
+          }
+        ]
+      },
+      {
+        "separateGroup": true,
+        "writer": {
+          "pid": 14,
+          "group": 14,
+          "session": 13
+        },
+        "foreignUnaffected": true,
+        "rootRecreated": false,
+        "lifecycle": [
+          {
+            "phase": "browser-process-exit",
+            "status": "PASS",
+            "returnCode": 0
+          },
+          {
+            "phase": "owned-browser-session-exit",
+            "status": "PASS",
+            "method": "complete Linux /proc session scan, all owned groups, two consecutive empty scans"
+          },
+          {
+            "phase": "temporary-cleanup",
+            "status": "PASS",
+            "attempts": 1
+          }
+        ]
+      }
+    ]
+  }
+}

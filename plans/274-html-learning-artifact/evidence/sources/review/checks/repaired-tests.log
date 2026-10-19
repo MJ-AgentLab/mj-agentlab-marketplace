@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: static checker executes Python from unrelated cwd and preserves complete source/hash evidence
+ok 1 - static checker executes Python from unrelated cwd and preserves complete source/hash evidence
+  ---
+  duration_ms: 170.1973
+  type: 'test'
+  ...
+# Subtest: static checker detects stale bytes, unknown files and changed schema/version
+ok 2 - static checker detects stale bytes, unknown files and changed schema/version
+  ---
+  duration_ms: 72.5821
+  type: 'test'
+  ...
+# Subtest: static checker rejects missing anchors, decoded traversal, remote resources and known forbidden terms
+ok 3 - static checker rejects missing anchors, decoded traversal, remote resources and known forbidden terms
+  ---
+  duration_ms: 79.1864
+  type: 'test'
+  ...
+# Subtest: static checker rejects source path escape and invalid answer criteria even with consistent hashes
+ok 4 - static checker rejects source path escape and invalid answer criteria even with consistent hashes
+  ---
+  duration_ms: 73.3306
+  type: 'test'
+  ...
+# Subtest: browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record
+ok 5 - browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record
+  ---
+  duration_ms: 89.1747
+  type: 'test'
+  ...
+# Subtest: actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping
+ok 6 - actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping
+  ---
+  duration_ms: 1132.7882
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1672.2105

@@ -1,0 +1,148 @@
+TAP version 13
+# Subtest: parseChangelog: section boundaries, heading-free bodies, fence blindness fixed
+ok 1 - parseChangelog: section boundaries, heading-free bodies, fence blindness fixed
+  ---
+  duration_ms: 1.2043
+  type: 'test'
+  ...
+# Subtest: parseChangelog: flags heading lookalikes, leaves ordinary prose alone
+ok 2 - parseChangelog: flags heading lookalikes, leaves ordinary prose alone
+  ---
+  duration_ms: 0.2011
+  type: 'test'
+  ...
+# Subtest: no CHANGELOG has a heading that only looks like a section heading
+ok 3 - no CHANGELOG has a heading that only looks like a section heading
+  ---
+  duration_ms: 2.3343
+  type: 'test'
+  ...
+# Subtest: every CHANGELOG section heading has the exact shape run-release.mjs greps for
+ok 4 - every CHANGELOG section heading has the exact shape run-release.mjs greps for
+  ---
+  duration_ms: 2.3184
+  type: 'test'
+  ...
+# Subtest: the newest shipping CHANGELOG section is substantive and names its own version
+ok 5 - the newest shipping CHANGELOG section is substantive and names its own version
+  ---
+  duration_ms: 1.6441
+  type: 'test'
+  ...
+# Subtest: root CHANGELOG permanently carries the NLM-only BREAKING disclosures in one section
+ok 6 - root CHANGELOG permanently carries the NLM-only BREAKING disclosures in one section
+  ---
+  duration_ms: 1.2097
+  type: 'test'
+  ...
+# Subtest: learn-kit CHANGELOG permanently marks the 4.0.0 NLM break in one section
+ok 7 - learn-kit CHANGELOG permanently marks the 4.0.0 NLM break in one section
+  ---
+  duration_ms: 0.4008
+  type: 'test'
+  ...
+# Subtest: diagram-kit CHANGELOG permanently marks the 0.2.0 Codex bump in one section
+ok 8 - diagram-kit CHANGELOG permanently marks the 0.2.0 Codex bump in one section
+  ---
+  duration_ms: 0.2182
+  type: 'test'
+  ...
+# Subtest: README covers both clients and every maintained qualified public skill
+ok 9 - README covers both clients and every maintained qualified public skill
+  ---
+  duration_ms: 0.5337
+  type: 'test'
+  ...
+# Subtest: upgrade guide preserves old data and explains explicit uninstall
+ok 10 - upgrade guide preserves old data and explains explicit uninstall
+  ---
+  duration_ms: 0.3813
+  type: 'test'
+  ...
+# Subtest: representative generation preserves selected inputs and independently verifiable hashes
+ok 11 - representative generation preserves selected inputs and independently verifiable hashes
+  ---
+  duration_ms: 50.6545
+  type: 'test'
+  ...
+# Subtest: installed renderer locates its own assets from an unrelated consumer directory
+ok 12 - installed renderer locates its own assets from an unrelated consumer directory
+  ---
+  duration_ms: 94.9371
+  type: 'test'
+  ...
+# Subtest: bounded Markdown retains paragraphs, relations, code, links and heading hierarchy
+ok 13 - bounded Markdown retains paragraphs, relations, code, links and heading hierarchy
+  ---
+  duration_ms: 0.4431
+  type: 'test'
+  ...
+# Subtest: unsupported Markdown and broken links fail before creating output
+ok 14 - unsupported Markdown and broken links fail before creating output
+  ---
+  duration_ms: 47.4822
+  type: 'test'
+  ...
+# Subtest: configuration errors cannot silently produce a different activity or source
+ok 15 - configuration errors cannot silently produce a different activity or source
+  ---
+  duration_ms: 5.8121
+  type: 'test'
+  ...
+# Subtest: literal replacement markers and HTML in config remain inert and complete
+ok 16 - literal replacement markers and HTML in config remain inert and complete
+  ---
+  duration_ms: 25.9519
+  type: 'test'
+  ...
+# Subtest: traversal, resource collisions and existing output fail without changing inputs
+ok 17 - traversal, resource collisions and existing output fail without changing inputs
+  ---
+  duration_ms: 26.3623
+  type: 'test'
+  ...
+# Subtest: plugin caches and borrowed input or output ancestors cannot be written
+ok 18 - plugin caches and borrowed input or output ancestors cannot be written
+  ---
+  duration_ms: 18.8831
+  type: 'test'
+  ...
+# Subtest: known terminology mismatches and invalid input bytes remain generation failures
+ok 19 - known terminology mismatches and invalid input bytes remain generation failures
+  ---
+  duration_ms: 12.2867
+  type: 'test'
+  ...
+# Subtest: known English terms use case-insensitive word boundaries without rejecting Threshold
+ok 20 - known English terms use case-insensitive word boundaries without rejecting Threshold
+  ---
+  duration_ms: 16.5651
+  type: 'test'
+  ...
+# Subtest: YAML frontmatter and Setext headings are rejected while separated thematic breaks remain valid
+ok 21 - YAML frontmatter and Setext headings are rejected while separated thematic breaks remain valid
+  ---
+  duration_ms: 22.0957
+  type: 'test'
+  ...
+# Subtest: literal percent, Chinese and spaces in local filenames round-trip through browser URLs
+ok 22 - literal percent, Chinese and spaces in local filenames round-trip through browser URLs
+  ---
+  duration_ms: 21.469
+  type: 'test'
+  ...
+# Subtest: empty optional activities and terms still provide a static artifact and export
+ok 23 - empty optional activities and terms still provide a static artifact and export
+  ---
+  duration_ms: 21.1045
+  type: 'test'
+  ...
+1..23
+# tests 23
+# suites 0
+# pass 23
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 481.5393

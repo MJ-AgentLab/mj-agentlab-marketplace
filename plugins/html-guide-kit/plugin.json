@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "html-guide-kit",
-  "version": "0.1.36",
-  "description": "Create a new interactive HTML teaching guide from supplied material after the user confirms its reader, task and understanding questions. Deliver guide text in chat.",
+  "version": "0.1.37",
+  "description": "Explicitly create a teaching guide in chat, or build a sourced Chinese learning website through Sites with local materials and checks.",
   "author": {
     "name": "MJ-AgentLab",
     "url": "https://github.com/MJ-AgentLab"
@@ -14,13 +14,14 @@
     "com.openai": {
       "interface": {
         "displayName": "HTML Guide Kit",
-        "shortDescription": "Plan a teaching guide after confirming its reader and task",
-        "longDescription": "Read supplied material or an explicit conversation snapshot, offer distinct reader/task/understanding-question options and wait for confirmation. Create copyable guide text with faithful sources, conditions, interactions and teaching feedback. The skill only creates new guides and does not produce HTML, code or files or explain production-tool operations.",
+        "shortDescription": "Create teaching guides and learning websites through Sites",
+        "longDescription": "Use guide for new copyable teaching-guide text in chat within its Read-only contract. Use site for the explicit six-step workflow from material and understanding goals to local Markdown, a learning website, checks and actual Sites publication. Reuse confirmed decisions and wait for necessary answers. Preserve sources, conditions and unknowns; report actual verification and learning effects separately.",
         "developerName": "MJ-AgentLab",
         "category": "Developer Tools",
-        "capabilities": ["Read"],
+        "capabilities": ["Read", "Write"],
         "defaultPrompt": [
-          "Use $html-guide-kit:guide for a new teaching guide; offer reader, task and question options, then wait for my confirmation."
+          "Use $html-guide-kit:guide for a new teaching guide; offer reader, task and question options, then wait for my confirmation.",
+          "Use $html-guide-kit:site to build a Chinese learning website through Sites from this material, with sources and checks."
         ],
         "logo": "./assets/icon.png",
         "composerIcon": "./assets/icon.png"

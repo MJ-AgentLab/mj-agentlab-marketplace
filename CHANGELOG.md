@@ -5,6 +5,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Add the explicit HTML Learning Artifact site entry in HTML Guide Kit 0.1.37: six local production steps, Chinese teaching content with stable English terms, warm-paper assets, a Markdown renderer and actual static/browser checks, plus the current Sites handoff contract. Preserve guide runtime bytes, plugin identity, approved icon and all historical acceptance. INT-2026-003 and #274 retain the complete input, current authorization, staged evidence and remaining publication/Owner acceptance boundaries.
+
 ### Documentation
 
 - Unify Communication task planning under plans/222-communication-kit with one current INDEX/PLAN/REPORT and recoverable fixed Git originals. Remove the old root plan/ and migrate current navigation, source inputs and fixtures atomically. Path-reintroduction guards and final delivery gates are tracked by #269; other historical document compatibility and plugin runtime/versions remain unchanged.

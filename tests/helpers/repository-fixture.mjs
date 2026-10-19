@@ -23,6 +23,7 @@ export const SYNTHETIC_DOCUMENTS = Object.freeze([
   "docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md",
   "docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md",
   "docs/spec/[SPEC]_Communication_Communicate.md",
+  "docs/spec/[SPEC]_HTML_Learning_Artifact.md",
   "docs/spec/[SPEC]_Learning_Evidence_Record_And_API.md",
 ]);
 export const SYNTHETIC_TASK_DOCUMENTS = Object.freeze(["plans/321-fixture/INDEX.md", "plans/321-fixture/[PLAN]_Fixture.md", "plans/321-fixture/[REPORT]_Fixture.md", "plans/321-fixture/source-bindings.json", "plans/321-fixture/evidence/sources/original.txt"]);

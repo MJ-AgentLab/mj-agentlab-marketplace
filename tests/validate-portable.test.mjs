@@ -25,7 +25,7 @@ test("communication listing and native prompts stay within the actual client bud
  }
 });
 const manifest=()=>JSON.parse(read("plugins/diagram-kit/plugin.json"));
-test("five approved portable plugins, seven public skills and all 20 repository skills satisfy contracts",()=>{
+test("five approved portable plugins, eight public skills and all 20 repository skills satisfy contracts",()=>{
  const r=validateRepository(root);assert.equal(r.ok,true,r.errors.join("\n"));assert.equal(r.repositorySkills,20);assert.deepEqual(r.publicSkills,[...PUBLIC_SKILLS]);
 });
 test("strict repository validation rejects every retired instruction surface",t=>{
@@ -59,7 +59,7 @@ test("manifest identity and default prompts cannot route into another plugin",()
  m.name=["diagram-kit"];assert.throws(()=>validateManifest(m));
 });
 test("each plugin advertises its exact approved capabilities without duplicates",()=>{
- for(const [plugin,approved] of [["diagram-kit",["Read","Write"]],["learning-evidence-kit",["Read","Write"]],["explain-kit",["Read"]],["html-guide-kit",["Read"]],["communication-kit",["Read","Write"]]]){
+ for(const [plugin,approved] of [["diagram-kit",["Read","Write"]],["learning-evidence-kit",["Read","Write"]],["explain-kit",["Read"]],["html-guide-kit",["Read","Write"]],["communication-kit",["Read","Write"]]]){
   const m=JSON.parse(read(`plugins/${plugin}/plugin.json`));const ui=m.extensions["com.openai"].interface;
   ui.capabilities=[...approved];assert.doesNotThrow(()=>validateManifest(m,plugin));
   ui.capabilities=[...approved].reverse();assert.doesNotThrow(()=>validateManifest(m,plugin));
@@ -115,7 +115,7 @@ test("archive origins are reproducible Git blobs and preserve source versions",(
 
 test("each plugin rejects extra skills, missing files and swapped manifest identities",t=>{
  const dir=repositoryFixture(t);
- for(const [name,entry] of [["diagram-kit","arch-diagram"],["learning-evidence-kit","pop-quiz"],["learning-evidence-kit","learning-record-check"],["explain-kit","concept"],["communication-kit","communicate"],["html-guide-kit","guide"]]){
+ for(const [name,entry] of [["diagram-kit","arch-diagram"],["learning-evidence-kit","pop-quiz"],["learning-evidence-kit","learning-record-check"],["explain-kit","concept"],["communication-kit","communicate"],["html-guide-kit","guide"],["html-guide-kit","site"]]){
   const plugin=path.join(dir,"plugins",name),extra=path.join(plugin,"skills/extra");
   fs.mkdirSync(extra);assert.equal(validateRepository(dir).ok,false);fs.rmdirSync(extra);
   const skill=path.join(plugin,"skills",entry,"SKILL.md"),text=fs.readFileSync(skill);fs.unlinkSync(skill);assert.equal(validateRepository(dir).ok,false);fs.writeFileSync(skill,text);

@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "checker": "artifact-browser-layout",
+  "executedAt": "2026-10-19T10:34:03.635286+00:00",
+  "pythonVersion": "3.12.14",
+  "status": "PASS",
+  "requestedViewports": [
+    {
+      "width": 1366,
+      "height": 900
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "viewports": [
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 900
+      },
+      "document": {
+        "width": 1351,
+        "height": 5729
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+      "issues": [],
+      "status": "PASS",
+      "screenshot": "viewport-1366x900.png",
+      "screenshotSha256": "e851cf610e4abcd9d04a77f67b4bc3de874d175d9fdd83ccb13e2a5eb3a6811b"
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "document": {
+        "width": 375,
+        "height": 7055
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+      "issues": [],
+      "status": "PASS",
+      "screenshot": "viewport-390x844.png",
+      "screenshotSha256": "35d5e2341d313954ea81ebc7da684bf6c31ddececaf4d6733796479b4ef78200"
+    }
+  ],
+  "lifecycle": [
+    {
+      "phase": "Browser.close",
+      "status": "REQUESTED"
+    },
+    {
+      "phase": "browser-process-exit",
+      "status": "PASS",
+      "returnCode": 0
+    },
+    {
+      "phase": "temporary-cleanup",
+      "status": "PASS",
+      "attempts": 1
+    }
+  ],
+  "limitations": [
+    "Bounded geometry heuristics cover document horizontal overflow, overflow:hidden/clip containers with overflowing content, and extreme narrow prose wrapping. They are not a complete visual, responsive or accessibility audit.",
+    "Screenshots show the initial viewport state; visually review them. No copy/export/answer/retry/reset interaction, keyboard/focus, touch, print or learning-effect evaluation was performed.",
+    "Local browser results do not verify deployed Sites identity, access scope, version or remote behavior. Understanding effects remain NOT_MEASURED."
+  ],
+  "browser": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+  "inputHashes": {
+    "artifact.json": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+    "artifact-manifest.json": "c4c445947180f77641512dee1de3732fbc7946fb53fce804f33677e6e037c16e",
+    "index.html": "12101458fb0d6d58bf902b8497feb73b742d3cec4e3409255fd07c7984de3785",
+    "theme.css": "90ee5261f02c44f3fb7f5b3e17662cb232bde07110dd53a2ccf4f2880ac1345f",
+    "learning.js": "1fcc8c6064dd99f00b91103cf76e33d7a4e6dcf50793b4542bd8462f6c91f568"
+  },
+  "screenshotDirectory": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-site-final-checker-03092ce\\screenshots"
+}
