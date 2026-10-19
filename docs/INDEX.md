@@ -6,13 +6,15 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-19
 state: active
-version: v2.94
+version: v2.97
 layer: canonical
 ---
 
 # 文档索引
 
 ## 工程任务与文档分层
+
+- [计划路径统一原意 INT-2026-002](intent/[INTENT]_INT-2026-002_Plans_Path_Unification.md)：Owner 已接受 B1 并授权实施；[#269 任务入口](../plans/269-plans-path-unification/INDEX.md)承接整合与旧路径兼容撤除，其他历史文档兼容不在范围。
 
 - [INTENT 规范](rule/[STANDARD]_AI_Engineering_Intent.md)、[新增 ADR](adr/[ADR]_Intent_Mechanism_Addition.md)、[正本索引](intent/INDEX.md)与[模板](_templates/TEMPLATE_INTENT.md)：分层唯一原意、完整接受基线、稳定身份及工程覆盖；简单明确任务继续 Issue 原意区。
 - [INTENT 任务入口 #263](../plans/263-intent-mechanism/INDEX.md)：完整来源与实际实施/验收；严格窗口、历史缺证和 Owner 最终接受分别登记，不由文档状态推定通过。
