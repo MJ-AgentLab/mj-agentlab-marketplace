@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-19
 state: draft
-version: v1.2
+version: v1.3
 layer: canonical
 intent-id: INT-2026-002
 ---
@@ -20,7 +20,7 @@ intent-id: INT-2026-002
 | 接受责任人 | Owner；本次由提出者本人核对原意并接受需求基线 |
 | 原意核对记录 | [决定正本](../../plans/269-plans-path-unification/evidence/sources/accepted-baseline-b1.json)的 acceptanceDecision：Owner 在 Q2 明确答复“B1 准确”；实际消息时间未知，来源捕获于 2026-10-19T06:49:44Z（Asia/Taipei 为 2026-10-19 14:49:44），捕获时间不代替决定时间 |
 | 内容接受记录 | B1 的 Q1/Q2 核对及接受保持；Owner 最新明确要求执行需求并遵循七原则，已从写作阶段转入实施。完整基线、先前误解及实际授权统一见[任务 PLAN 决定记录](../../plans/269-plans-path-unification/[PLAN]_Plans_Path_Unification.md#accepted-baseline-and-authorization)，不推定工程完成或 Owner 最终接受 |
-| 当前内容与适用基线 | v1.2 保持已接受 B1 的原意与范围，纠正七原则应约束实施而非扩写需求；先前 v1.0/v1.1 可恢复原件由任务来源保存。核查起点 develop 91f982f70552fc0bfdf4015da943e257a22d4c7b，实施刷新实际基线 |
+| 当前内容与适用基线 | v1.3 保持已接受 B1 的原意与范围，纠正七原则应约束实施而非扩写需求，并将工程进度与最终接受交由各自实际证据判断；先前 v1.0/v1.1 可恢复原件由任务来源保存。核查起点 develop 91f982f70552fc0bfdf4015da943e257a22d4c7b，实施刷新实际基线 |
 | 主跟踪 Issue | [#269](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/269)；[任务入口](../../plans/269-plans-path-unification/INDEX.md)连接 PLAN/后续 REPORT，进度留 Issue |
 
 ## 1．问题与现状
@@ -53,7 +53,7 @@ S4．必要历史内容仍可按声明的证据位置或固定 Git 来源追溯�
 
 R1．Q1 接受范围仅为 plan/ 与 plans/ 的任务计划路径统一，以及直接受影响的现行引用与校验。全仓其他历史文档兼容清单和相应逻辑不在范围内，不由“不再与历史兼容”自动扩大。
 
-R2．[文档框架](../rule/[STANDARD]_Documentation_Framework.md)与[任务文档 ADR](../adr/[ADR]_Task_Documentation_Layers_And_Delivery.md)中旧 plan/ 路径保留要求，是未来实施需要同步处理的直接约定；本 INTENT 记录 Owner 的新方向，不表示这些规范已更新。具体文件结构、来源迁移及验证方法由实施阶段按有效规范细化，不重新要求 Owner 决定常规细节。
+R2．核查基线中，[文档框架](../rule/[STANDARD]_Documentation_Framework.md)与[任务文档 ADR](../adr/[ADR]_Task_Documentation_Layers_And_Delivery.md)包含旧 plan/ 路径保留要求，属于本次实施必须同步处理的直接约定；本 INTENT 记录 Owner 的方向，具体修改结果由任务证据判断。具体文件结构、来源迁移及验证方法由实施阶段按有效规范细化，不重新要求 Owner 决定常规细节。
 
 R3．Owner 已明确要求执行解决本需求，七项原则用于实施过程；此前仅写需求的阶段已结束，真实授权和五边界见[任务 PLAN](../../plans/269-plans-path-unification/[PLAN]_Plans_Path_Unification.md#accepted-baseline-and-authorization)。执行遵循[工程执行规范](../rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)，不在本原意正本重复七项过程规则。draft 只表示文档生命周期，不抵消 B1 接受或实际实施授权，也不代表工程交付/最终接受。
 
@@ -66,4 +66,4 @@ R4．澄清采用 Owner 指定的 Matt Pocock grilling，以选项和有理由�
 | 需求范围与 B1/P1 决定 | B1 已由 Owner Q1/Q2 明确核对/接受，P1 是 Owner 直接追加的七项执行约束；完整版本与对应决定分别在[B1](../../plans/269-plans-path-unification/evidence/sources/accepted-baseline-b1.json)和[P1](../../plans/269-plans-path-unification/evidence/sources/execution-principles-p1.json)保存，各自范围不互相扩张；无剩余需求范围选择 |
 | 具体工程承接 | 已由 Owner 最新指令授权进入实施；#269 及[任务入口](../../plans/269-plans-path-unification/INDEX.md)承接目录/文档整合与 Harness/测试子 PR，实际进度不在此复制 |
 | 原生未答窗口持续显示 | 尚无客户端实证，不能记为通过；Agent 在宿主能力允许且有实际验证条件时核实，未提交保持待答，不默认推进依赖决定 |
-| 迁移结果与最终成品接受 | 尚未发生；未来由实际实现、验收证据及 Owner 对成品的真实决定分别判断，不由 B1 接受或本文状态代替 |
+| 工程结果与最终成品接受 | 工程结果由[主 REPORT](../../plans/269-plans-path-unification/[REPORT]_Plans_Path_Unification.md)及主 Issue 的实际证据判断，Owner 最终接受另据真实决定判断；本原意正本不复制迁移进度，也不以 B1 接受或文档状态代替任一结论 |

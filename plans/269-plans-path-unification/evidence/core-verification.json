@@ -1,0 +1,1802 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-19T07:53:39.045Z",
+  "tested": {
+    "head": "16984cc55e261d764a37f16892456cc8c3cc3139",
+    "tree": "60468a954c863e5da3d39c4f692023de78e875a4",
+    "integratedHead": "43048e007a5f4a9124854c9542106c5531579f58",
+    "exactTreeMatch": true
+  },
+  "unit": {
+    "command": "npm test",
+    "tests": 612,
+    "pass": 612,
+    "fail": 0,
+    "skipped": 0,
+    "durationMs": 180850.6034
+  },
+  "validation": {
+    "command": "npm run validate",
+    "ok": true
+  },
+  "canonical": {
+    "command": "npm run smoke:codex",
+    "ok": true,
+    "scenarios": [
+      {
+        "installed": [
+          "diagram-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "diagramPython": true,
+        "learningEvidencePython": false,
+        "commands": [
+          {
+            "command": "git",
+            "args": [
+              "init",
+              "-q"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "--version"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "add",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-WwpE7k\\src",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "diagram-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "ordinary task discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "repository skill discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "app-server",
+              "--stdio"
+            ],
+            "method": "skills/list",
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "mcp",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-WwpE7k\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-WwpE7k\\consumer\\installed context 中文 diagram.md"
+            ],
+            "status": 0
+          }
+        ]
+      },
+      {
+        "installed": [
+          "learning-evidence-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "diagramPython": false,
+        "learningEvidencePython": true,
+        "commands": [
+          {
+            "command": "git",
+            "args": [
+              "init",
+              "-q"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "--version"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "add",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-Eo96zP\\src",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "learning-evidence-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "ordinary task discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "repository skill discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "app-server",
+              "--stdio"
+            ],
+            "method": "skills/list",
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "mcp",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "-B",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-Eo96zP\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "-B",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-Eo96zP\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "-B",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-Eo96zP\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+            ],
+            "status": 0
+          }
+        ]
+      },
+      {
+        "installed": [
+          "explain-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "diagramPython": false,
+        "learningEvidencePython": false,
+        "commands": [
+          {
+            "command": "git",
+            "args": [
+              "init",
+              "-q"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "--version"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "add",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-mgc21l\\src",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "explain-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "ordinary task discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "repository skill discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "app-server",
+              "--stdio"
+            ],
+            "method": "skills/list",
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "mcp",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          }
+        ]
+      },
+      {
+        "installed": [
+          "diagram-kit",
+          "explain-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "diagramPython": true,
+        "learningEvidencePython": false,
+        "commands": [
+          {
+            "command": "git",
+            "args": [
+              "init",
+              "-q"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "--version"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "add",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-d4QlOA\\src",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "diagram-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "explain-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "ordinary task discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "repository skill discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "app-server",
+              "--stdio"
+            ],
+            "method": "skills/list",
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "mcp",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-d4QlOA\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-d4QlOA\\consumer\\installed context 中文 diagram.md"
+            ],
+            "status": 0
+          }
+        ]
+      },
+      {
+        "installed": [
+          "diagram-kit",
+          "learning-evidence-kit",
+          "explain-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "diagramPython": true,
+        "learningEvidencePython": true,
+        "commands": [
+          {
+            "command": "git",
+            "args": [
+              "init",
+              "-q"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "--version"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "add",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-Z3hM6L\\src",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "diagram-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "learning-evidence-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "explain-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "ordinary task discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "repository skill discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "app-server",
+              "--stdio"
+            ],
+            "method": "skills/list",
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "mcp",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "-B",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-Z3hM6L\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "-B",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-Z3hM6L\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "-B",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-Z3hM6L\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-Z3hM6L\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-Z3hM6L\\consumer\\installed context 中文 diagram.md"
+            ],
+            "status": 0
+          }
+        ]
+      },
+      {
+        "installed": [
+          "communication-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "diagramPython": false,
+        "learningEvidencePython": false,
+        "commands": [
+          {
+            "command": "git",
+            "args": [
+              "init",
+              "-q"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "--version"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "add",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-ATZ0xW\\src",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "communication-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "ordinary task discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "repository skill discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "app-server",
+              "--stdio"
+            ],
+            "method": "skills/list",
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "mcp",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          }
+        ]
+      },
+      {
+        "installed": [
+          "communication-kit",
+          "explain-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "diagramPython": false,
+        "learningEvidencePython": false,
+        "commands": [
+          {
+            "command": "git",
+            "args": [
+              "init",
+              "-q"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "--version"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "add",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-fO9hij\\src",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "communication-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "explain-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "ordinary task discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "repository skill discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "app-server",
+              "--stdio"
+            ],
+            "method": "skills/list",
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "mcp",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          }
+        ]
+      },
+      {
+        "installed": [
+          "communication-kit",
+          "learning-evidence-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "diagramPython": false,
+        "learningEvidencePython": true,
+        "commands": [
+          {
+            "command": "git",
+            "args": [
+              "init",
+              "-q"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "--version"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "add",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-SijPpq\\src",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "communication-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "learning-evidence-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "ordinary task discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "repository skill discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "app-server",
+              "--stdio"
+            ],
+            "method": "skills/list",
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "mcp",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "-B",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-SijPpq\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "-B",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-SijPpq\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "-B",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-SijPpq\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+            ],
+            "status": 0
+          }
+        ]
+      },
+      {
+        "installed": [
+          "diagram-kit",
+          "learning-evidence-kit",
+          "explain-kit",
+          "communication-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "diagramPython": true,
+        "learningEvidencePython": true,
+        "commands": [
+          {
+            "command": "git",
+            "args": [
+              "init",
+              "-q"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "--version"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "add",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-qeT2ru\\src",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "diagram-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "learning-evidence-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "explain-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "communication-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "ordinary task discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "repository skill discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "app-server",
+              "--stdio"
+            ],
+            "method": "skills/list",
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "mcp",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "-B",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-qeT2ru\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "-B",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-qeT2ru\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "-B",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-qeT2ru\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-qeT2ru\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-qeT2ru\\consumer\\installed context 中文 diagram.md"
+            ],
+            "status": 0
+          }
+        ]
+      },
+      {
+        "installed": [
+          "html-guide-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "diagramPython": false,
+        "learningEvidencePython": false,
+        "commands": [
+          {
+            "command": "git",
+            "args": [
+              "init",
+              "-q"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "--version"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "add",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-mbRSI0\\src",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "html-guide-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "ordinary task discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "repository skill discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "app-server",
+              "--stdio"
+            ],
+            "method": "skills/list",
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "mcp",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          }
+        ]
+      },
+      {
+        "installed": [
+          "html-guide-kit",
+          "explain-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "diagramPython": false,
+        "learningEvidencePython": false,
+        "commands": [
+          {
+            "command": "git",
+            "args": [
+              "init",
+              "-q"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "--version"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "add",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-bn2Wb4\\src",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "html-guide-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "explain-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "ordinary task discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "repository skill discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "app-server",
+              "--stdio"
+            ],
+            "method": "skills/list",
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "mcp",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          }
+        ]
+      },
+      {
+        "installed": [
+          "diagram-kit",
+          "learning-evidence-kit",
+          "explain-kit",
+          "html-guide-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "diagramPython": true,
+        "learningEvidencePython": true,
+        "commands": [
+          {
+            "command": "git",
+            "args": [
+              "init",
+              "-q"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "--version"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "add",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lzoLKv\\src",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "diagram-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "learning-evidence-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "explain-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "html-guide-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "ordinary task discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "repository skill discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "app-server",
+              "--stdio"
+            ],
+            "method": "skills/list",
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "mcp",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "-B",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lzoLKv\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "-B",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lzoLKv\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "-B",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lzoLKv\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lzoLKv\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-lzoLKv\\consumer\\installed context 中文 diagram.md"
+            ],
+            "status": 0
+          }
+        ]
+      },
+      {
+        "installed": [
+          "diagram-kit",
+          "learning-evidence-kit",
+          "explain-kit",
+          "communication-kit",
+          "html-guide-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "diagramPython": true,
+        "learningEvidencePython": true,
+        "commands": [
+          {
+            "command": "git",
+            "args": [
+              "init",
+              "-q"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "--version"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "add",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-B72SHE\\src",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "marketplace",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "diagram-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "learning-evidence-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "explain-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "communication-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "add",
+              "html-guide-kit",
+              "--marketplace",
+              "mj-agentlab-marketplace",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "plugin",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "ordinary task discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "debug",
+              "prompt-input",
+              "repository skill discovery check"
+            ],
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "app-server",
+              "--stdio"
+            ],
+            "method": "skills/list",
+            "status": 0
+          },
+          {
+            "command": "codex",
+            "args": [
+              "mcp",
+              "list",
+              "--json"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "-B",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-B72SHE\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "-B",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-B72SHE\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "-B",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-B72SHE\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+            ],
+            "status": 0
+          },
+          {
+            "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "args": [
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-B72SHE\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+              "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-B72SHE\\consumer\\installed context 中文 diagram.md"
+            ],
+            "status": 0
+          }
+        ]
+      }
+    ],
+    "diagramPythonScenarios": 6,
+    "learningPythonScenarios": 6
+  },
+  "internal": {
+    "A": {
+      "pr": 271,
+      "head": "09e1bd5a010b338b79d212cc0206682305c7a1e0",
+      "merge": "8327ba990b3c6e43d951bdb8d2650be46844ee39",
+      "mergedAt": "2026-10-19T07:48:24Z"
+    },
+    "B": {
+      "pr": 272,
+      "head": "16984cc55e261d764a37f16892456cc8c3cc3139",
+      "merge": "43048e007a5f4a9124854c9542106c5531579f58",
+      "mergedAt": "2026-10-19T07:51:43Z",
+      "note": "Both OS baseline names had same-head SUCCESS; one duplicate Windows job was still in progress, retained in b-premerge-checks. No actual branch rules, no unresolved threads; no bypass."
+    }
+  },
+  "limits": [
+    "Receipt-only updates after the tested exact tree require fresh document/source checks and actual final-head protected CI.",
+    "No native unanswered-window persistence proof, no new plugin model/client/effect measurement, no formal release.",
+    "Protected develop merge and Owner final acceptance remain separate."
+  ]
+}

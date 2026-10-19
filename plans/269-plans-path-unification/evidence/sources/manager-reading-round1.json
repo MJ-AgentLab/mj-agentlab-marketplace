@@ -1,0 +1,399 @@
+{
+  "schemaVersion": 1,
+  "round": 1,
+  "status": "completed-with-reading-gap",
+  "role": "项目管理阅读者",
+  "task": "Independent synthetic acceptance of plans path unification",
+  "fullInstruction": "执行一次独立合成验收，角色=项目管理阅读者。只读工作区 C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop，从 plans/269-plans-path-unification/INDEX.md 开始，按导航自己定位资料。不要改变仓库，不运行全量测试，不读取其他Agent输出。问题：1）该需求要解决什么理解负担，唯一原意和完整接受/操作授权到哪里找？2）当前进度正本、唯一主计划和实际结果在哪，哪个来源能说明下一操作/责任？3）Communication原任务现行计划、历史原件及实际结果如何区分，旧原件中的“待执行”是否当前状态？4）哪些结果已实证，哪些门禁/延期/最终接受仍不能称完成？每题给结论、实际读取路径/行号、时间/版本范围；缺来源或矛盾判为缺口，不猜。评分每题结论/出处/范围都完整才PASS，四题独立，不平均。记录真实执行时间（clock工具）、当前Git head、实际读取文件SHA256、方法与限制。将完整问题/原始答案/评分写到 C:/Users/Admin/AppData/Local/Temp/plans-unification-manager-acceptance.json，最后向我报告文件和结论。此模拟不能代替Owner或GitHub非作者批准；不创建任何GitHub评审/消息。",
+  "execution": {
+    "workspace": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop",
+    "startedAtUtc": "2026-10-19T07:37:21Z",
+    "finishedReadingAtUtc": "2026-10-19T07:40:16Z",
+    "completedAtUtc": "2026-10-19T07:42:09Z",
+    "timezone": "Asia/Taipei",
+    "clockMethod": "clock__curr_time actual observations; timezone UTC+08",
+    "startHead": "09e1bd5a010b338b79d212cc0206682305c7a1e0",
+    "startTree": "e31d72a9ccddd21b275489c81be13f2023e4e4eb",
+    "endHead": "16984cc55e261d764a37f16892456cc8c3cc3139",
+    "endTree": "60468a954c863e5da3d39c4f692023de78e875a4",
+    "worktreeStatusAtEnd": "clean (git status --porcelain=v1 returned no entries)",
+    "sourceStability": "HEAD moved during reading; all 19 read-file hashes were recaptured and equal to their first observed values. No conclusion is silently rebound to an unobserved later candidate."
+  },
+  "method": [
+    "Started with 269 INDEX and followed its INTENT / PLAN / REPORT / source-bindings and 222 migration navigation.",
+    "Read root AGENTS; no repository mutations, test execution, installation, publication or GitHub writes.",
+    "Used line-numbered literal-path reads; hashed full source file bytes with SHA256.",
+    "Read the full 405-line frozen historical Communication plan and provenance; compared their observed SHA256 to source-bindings (matching). Did not newly perform fixed-Git-blob byte recovery.",
+    "Read 269 test log tail summaries; did not rerun full or focused tests.",
+    "Read actual Issue269 and Issue222 bodies through read-only GitHub fetch_issue, without comments or reviews; their returned updated_at is distinct from read time.",
+    "Four questions scored independently; identified contradiction is a reading gap, not repaired or averaged away in this round."
+  ],
+  "limitations": [
+    "Synthetic management-role reading only; does not replace Owner final acceptance or GitHub non-author approval.",
+    "No other agents' outputs or temp acceptance files were read. Repository documents mentioning historical independent review were treated as source assertions only.",
+    "Opaque base64 predecessor payloads in P1/implementation-authorization were not decoded or semantically reviewed; raw full-file hashes include those bytes.",
+    "External source exact fetch wall clock was not returned; actual clock bracket 07:37:21Z–07:39:10Z is preserved rather than an invented exact read time.",
+    "Local REPORT/ledger assertions of historic engineering/UI/release outcomes were checked for scope and selected log counts, not independently rerun.",
+    "The Issue222 response is retained unchanged in a separate round1 snapshot so a later correction can be retested without replacing this failure.",
+    "A read-only Git tree command initially used unquoted HEAD^{tree}; PowerShell interpreted the braces and produced an ambiguous-argument failure. Quoted rerun returned endTree successfully; no repository mutation occurred."
+  ],
+  "answers": [
+    {
+      "id": "Q1",
+      "question": "该需求要解决什么理解负担，唯一原意和完整接受/操作授权到哪里找？",
+      "originalAnswer": "要消除 plan/ 与 plans/ 并存造成的额外理解与交接成本：读者不应先学习两个目录的历史分工，而应从 plans/ 内唯一任务入口找到主计划、实际结果与必要来源。唯一原意正本是 canonical 的 INT-2026-002 v1.2；完整接受不能只看摘要，应沿 269 source-bindings 读取 B1 的完整五项基线及 Q1/Q2 实际答复。B1 的接受当时只授权写 INTENT，不应单独拿它授权迁移；P1 保留七项执行原则原话，implementation-authorization 保存 Owner 后续明确纠正并要求执行的原话，269 主 PLAN §Accepted baseline and authorization 统一说明三者关系与目标/对象/环境/权限/风险边界。现在有实施授权，Agent 可执行范围内的文件、Harness、验证修复、提交推送、PR 和满足门禁的合并；最终 develop 保护不能 bypass，其他历史兼容清理、插件运行/版本和正式发布均不在本批。B1 接受、实施授权和 Owner 最终成品接受是不同事实。draft 不撤销已接受 B1 或实际实施授权。",
+      "evidence": [
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/269-plans-path-unification/INDEX.md",
+          "lines": "24-28",
+          "note": "索引直接分开 INTENT、主 PLAN、完整来源与 REPORT。"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/docs/intent/[INTENT]_INT-2026-002_Plans_Path_Unification.md",
+          "lines": "19-24,28-50,54-60",
+          "note": "唯一原意、认知负担、S1-S4、范围与阶段边界。"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/269-plans-path-unification/source-bindings.json",
+          "lines": "5-30",
+          "note": "三份完整原件的路径和 SHA-256。"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/269-plans-path-unification/evidence/sources/accepted-baseline-b1.json",
+          "lines": "17-59",
+          "note": "Q1 限范围；完整五项基线；Q2 实际接受及 notCovered。"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/269-plans-path-unification/evidence/sources/execution-principles-p1.json",
+          "lines": "18-23,40-43",
+          "note": "七原则原文、追加关系与原误解；原误解不得作当前操作依据。"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/269-plans-path-unification/evidence/sources/implementation-authorization.json",
+          "lines": "3-18,20-25",
+          "note": "后续纠正、实施授权及前稿身份。"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/269-plans-path-unification/[PLAN]_Plans_Path_Unification.md",
+          "lines": "25-37",
+          "note": "集中决定记录及五边界。"
+        }
+      ],
+      "timeAndVersionScope": "INTENT v1.2 / INDEX、PLAN v1.0，文档日期 2026-10-19；核查起点 develop91f982f70552fc0bfdf4015da943e257a22d4c7b。B1/P1/授权捕获时钟分别为 06:49:44Z、07:07:56Z、07:16:57Z；原消息准确时间、ID、账号与聊天 URL 未提供，捕获时间不代替决定时间。只覆盖本次路径整合和直接依赖。",
+      "gaps": [],
+      "grade": {
+        "conclusionComplete": true,
+        "citationsComplete": true,
+        "scopeComplete": true,
+        "result": "PASS",
+        "rationale": "能从唯一入口恢复完整接受与后续操作授权，并明确其时间和边界。"
+      }
+    },
+    {
+      "id": "Q2",
+      "question": "当前进度正本、唯一主计划和实际结果在哪，哪个来源能说明下一操作/责任？",
+      "originalAnswer": "本次路径整合 #269 的进度正本是 GitHub Issue #269；唯一主 PLAN 和实际 REPORT 均由 plans/269-plans-path-unification/INDEX.md 导航。INDEX 明确快照冲突时以 Issue 为准，因此本地 REPORT L41 的“A 内部 PR 待发生”应读为较早 A 候选快照，不能盖过本轮实际读回的 Issue #269：主 PR #270、A #271、head09e1bd5、597/597与strict已通过但真实CI仍运行，B正准备，A实际内部合入后集成B。PLAN L48-56 给出下一步与责任：Agent 核查 A 的真实CI/线程并内部合入，刷新B的真实基准和候选，完成拒旧根/链接guard负例及最终测试、十三安装/实际Python、独立三角色阅读，再把可审查成品送最终develop保护；Owner负责必要实质决定与最终成品接受，真实非作者GitHub批准仍是独立门禁。可定位下一操作和承担者，不能把计划步骤或旧报告待办当已执行。",
+      "evidence": [
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/269-plans-path-unification/INDEX.md",
+          "lines": "24-30",
+          "note": "Issue 正本、唯一 PLAN、REPORT 和 Issue 优先规则。"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/269-plans-path-unification/[PLAN]_Plans_Path_Unification.md",
+          "lines": "23,37,48-62",
+          "note": "操作责任、A/B依赖、最终门禁、恢复。"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/269-plans-path-unification/[REPORT]_Plans_Path_Unification.md",
+          "lines": "17-23,29-45",
+          "note": "实际 A 候选结果及较早待办快照。"
+        },
+        {
+          "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/269",
+          "location": "body §状态、§执行与验证",
+          "updatedAt": "2026-10-19T07:34:20Z",
+          "note": "本轮只读 fetch 实际响应，完整原始响应附 rawRemoteSources.issue269。"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/AGENTS.md",
+          "lines": "27-31",
+          "note": "Agent/Owner责任、最终接受与技术检查分开。"
+        }
+      ],
+      "timeAndVersionScope": "269 INDEX/PLAN/REPORT v1.0（2026-10-19）；Issue #269 实际读取响应的 updated_at=2026-10-19T07:34:20Z，开放且 comments=0。该响应状态绑定 head09e1bd5，不推定之后实时CI或合入结果。阅读期间本地 HEAD 从09e1bd5变为16984cc，已读19文件哈希复核未变，故本题只描述取证时的正本快照，不把移动后的提交自动视为完成。",
+      "gaps": [
+        {
+          "kind": "superseded-local-snapshot",
+          "severity": "non-blocking-for-navigation",
+          "detail": "269 REPORT L41 尚称 A 内部PR待发生，而实际 Issue已列A#271。INDEX L30已明示冲突裁决来源，读取Issue可解除该局部歧义。"
+        }
+      ],
+      "grade": {
+        "conclusionComplete": true,
+        "citationsComplete": true,
+        "scopeComplete": true,
+        "result": "PASS",
+        "rationale": "269 的正本、计划、结果与下一操作责任均可定位，且显式优先规则能裁决本地较早快照。此PASS不覆盖Q3的222正本陈旧缺口。"
+      }
+    },
+    {
+      "id": "Q3",
+      "question": "Communication原任务现行计划、历史原件及实际结果如何区分，旧原件中的“待执行”是否当前状态？",
+      "originalAnswer": "结构上的区分清楚：plans/222-communication-kit/INDEX.md 是原任务的唯一阅读入口；[PLAN]_Communication_Kit.md 是2026-10-19建立、唯一继续维护的现行主计划；[REPORT]_Communication_Kit.md 导航已存在的实际交付/限制；source-bindings.json 将两份冻结历史原件绑定固定Git91f982f7及同字节快照。原实施计划保存于2026-10-12，L5及L405的“待执行”只陈述当时未实施，不能作为当前状态；其marketplace8.1.1/基线a6e0及建议版本/拓扑也只属于当时。历史provenance记录后续2026-10-12实施授权及源路径2026-10-13消失的事实，保留这些原件不提供旧路径兼容，也不转授旧接受给新PLAN。实际结果应到222 REPORT所指8.3.1发行账本及原验收账本，后者保留CLI PARTIAL/有限UI等各批身份。\n但当前状态导航存在真实缺口：222 INDEX L23仍指定#222为进度正本，L30规定冲突按#222/#269各自范围；我实际只读取得的#222（updated_at=2026-10-15T09:44:43Z）顶部仍写#244未merge、main/public8.3.0且无8.3.1tag/Release，末尾仍将plan/路径写为后续完整计划位置。222 REPORT L21和其发行账本§3.1却记录2026-10-16已公开8.3.1。没有来源授权我把那个“当前”自动降为历史，也不应自行猜测哪份代表当前进度。因此历史原件/现行计划区别可答，原件“待执行”明确不是当前状态，但原任务进度正本与已发生交付不一致，题整体判缺口。",
+      "evidence": [
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/222-communication-kit/INDEX.md",
+          "lines": "23-30",
+          "note": "唯一入口、现行 PLAN、实际 REPORT、原件及正本优先规则。"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/222-communication-kit/[PLAN]_Communication_Kit.md",
+          "lines": "21-37",
+          "note": "新主 PLAN 不冒充旧接受；旧待执行只属当时；后续维护与恢复。"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/222-communication-kit/source-bindings.json",
+          "lines": "6-23",
+          "note": "固定 Git、两快照、SHA及历史用途。"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/222-communication-kit/evidence/sources/communication-kit-implementation-plan.md",
+          "lines": "3-12,29-30,327,403-405",
+          "note": "2026-10-12旧待执行、原基线和范围。"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/222-communication-kit/evidence/sources/communication-kit-plan-provenance.json",
+          "lines": "3-18,26-32",
+          "note": "捕获身份、后续原实施授权与来源失效事实。"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/222-communication-kit/[REPORT]_Communication_Kit.md",
+          "lines": "21-34",
+          "note": "实际公开及迁移追溯边界。"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md",
+          "lines": "61-71",
+          "note": "已发生8.3.1公开及技术/治理分离。"
+        },
+        {
+          "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222",
+          "location": "body §2026-10-15 实际同步完成与最终预升（当前）及末尾计划位置",
+          "updatedAt": "2026-10-15T09:44:43Z",
+          "rawSnapshotPath": "C:/Users/Admin/AppData/Local/Temp/plans-unification-manager-issue-222-round1.json",
+          "note": "保存实际原始响应；未以稍后刷新覆盖本轮。"
+        }
+      ],
+      "timeAndVersionScope": "现行222 INDEX/PLAN/REPORT v1.0建立于2026-10-19；原计划为2026-10-12、405行、sourceHead a6e0e150、原marketplace8.1.1，固定恢复Git91f982f7。原验收账本v1.13.4与8.3.1发行账本v1.2记录不同历史批次。#222响应截至2026-10-15T09:44:43Z的正文不能自动解释为2026-10-19最新事实。",
+      "gaps": [
+        {
+          "kind": "contradictory-progress-source",
+          "severity": "blocking",
+          "detail": "#222作为进度正本仍把实际后续已发生8.3.1发布描述为不存在；当前入口未将其顶部“当前”清楚降格，且末尾保留旧plan/的现行安排。需要刷新#222当前状态与入口，保留原正文为有界历史快照。"
+        }
+      ],
+      "grade": {
+        "conclusionComplete": false,
+        "citationsComplete": true,
+        "scopeComplete": true,
+        "result": "FAIL",
+        "rationale": "现行/历史概念可理解，但指定进度正本与实际交付记录矛盾，无法形成无猜测的原任务当前状态结论；四题独立，不能用其余题抵消。"
+      }
+    },
+    {
+      "id": "Q4",
+      "question": "哪些结果已实证，哪些门禁/延期/最终接受仍不能称完成？",
+      "originalAnswer": "本次路径整合已记录的实证只属于A工作候选：两历史原件从固定Git blob恢复并同字节/同摘要，创建222唯一入口/PLAN/REPORT，当前根plan/删除，直接必需依赖已原子迁移；插件/版本及53项其他历史兼容清单保持。首轮canonical登记错误导致595/597（2 FAIL）真实保留；修复后原始日志尾部确实为597/597、0FAIL、0skip，REPORT另记strict通过及独立来源/语义核验。我的新运行只验证文档可读性、读取内容摘要与日志计数，没有重跑这些测试，也未验证其全部工程断言。\n不能据此称完成B、最终集成或受保护交付：B拒旧根/链接guard与负例、刷新A实际merge基准、全套测试/strict、13 canonical及实际缓存Python、三角色合成与恢复核验尚须绑定最终候选；最终develop当前head真实非作者批准/CI/线程/严格base、实际merge及其复验分别要真实证据。核心工程交付、完整计划完成、受保护实际合入及Owner成品最终接受均独立判断，本批无发布。\nCommunication历史已记录C01–C15 CLI PASS、C16–C18 PARTIAL；不同工具角色三项限定功能PASS不能覆盖CLI或双客户端；2026-10-13同一OpenAI.Codex26.1007.2314.0内两个本机入口在固定000e803/Comm0.1.0/r2上有三任务、10.177/23.943秒聊天等待及新MD/TXT保存回读的有限实证，不能升级为两个独立客户端或原生窗口生命周期通过。8.3.1账本记录2026-10-16真实main/tag/Release4e4、发布后13安装、6Diagram+18LEK Python调用/15cleanup等技术结果，但原治理仍NOT_MET（bypass、空reviews/批准失败）；这不是本次269的新验证。\n原生未答持续显示仍无客户端实证，延期不能称通过；完整已有文件编辑、经典/云端或独立客户端、Office全面覆盖与现实效果都不能由基础或工程结果补填。其他包Learning桌面/Side Chat、严格原生入口和效果、HTML已知FAIL及完整双端等保持原边界。Q3正本矛盾另列缺口，不据“已发布”推定全计划、历史门禁或Owner最终接受。",
+      "evidence": [
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/269-plans-path-unification/[REPORT]_Plans_Path_Unification.md",
+          "lines": "21-45",
+          "note": "A已发生、原失败/修复、适用范围和待交付/接受清单。"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/269-plans-path-unification/evidence/a-initial-tests.log",
+          "lines": "3628-3636",
+          "note": "首轮597中595PASS/2FAIL的原始日志尾部。"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/269-plans-path-unification/evidence/a-fixed-tests.log",
+          "lines": "3591-3599",
+          "note": "修复后597PASS/0FAIL/0skip原始日志尾部。"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/269-plans-path-unification/[PLAN]_Plans_Path_Unification.md",
+          "lines": "43-62",
+          "note": "S1-S4覆盖、A/B职责、最终验证和边界。"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md",
+          "lines": "100-112,133-159",
+          "note": "旧FAIL、CLI新批PARTIAL、工具角色、实际同应用双入口有限身份及未覆盖。"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md",
+          "lines": "28-36,63-71",
+          "note": "所有继承限制、8.3.1真实技术结果与治理NOT_MET。"
+        },
+        {
+          "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/222-communication-kit/[REPORT]_Communication_Kit.md",
+          "lines": "21-27",
+          "note": "本次不重做模型/原生/效果或发布；内部/最终merge仍需证据。"
+        }
+      ],
+      "timeAndVersionScope": "269结果仅A工作候选、日志时长211361.0614ms；准确测试起止墙钟未提供，不补造。Communication行为固定94c170d/CLI0.147.0/5.6-sol，实际UI固定000e803/Communication0.1.0/r2/应用26.1007.2314.0，于2026-10-13执行。8.3.1公开/发布后技术核验属于2026-10-16、4e4d4172以及账本v1.2的有限范围；本次审计不重跑模型/UI/现实效果、不提供新的GitHub批准或Owner接受。",
+      "gaps": [],
+      "grade": {
+        "conclusionComplete": true,
+        "citationsComplete": true,
+        "scopeComplete": true,
+        "result": "PASS",
+        "rationale": "已实证、历史限制、最终门禁与接受均能分项识别；此PASS是阅读辨识通过，不是B/集成/客户端/发布治理通过。"
+      }
+    }
+  ],
+  "independentGrades": {
+    "Q1": "PASS",
+    "Q2": "PASS",
+    "Q3": "FAIL",
+    "Q4": "PASS",
+    "aggregation": "No average. Q3 remains a blocking reading gap."
+  },
+  "readFiles": [
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/AGENTS.md",
+      "sha256": "361cf02bf4ba3597854fa625bf10c1c30385488d7c633a528f674ec8f44bbe17"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/269-plans-path-unification/INDEX.md",
+      "sha256": "705809252b69aacea948c8e45fefca267602f2c97f84d3184df4396847517523"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/docs/intent/[INTENT]_INT-2026-002_Plans_Path_Unification.md",
+      "sha256": "97c41cc76991e1ec92a501f6b7cc6db6bc2313e1760a1121b7af3db29a23713f"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/269-plans-path-unification/[PLAN]_Plans_Path_Unification.md",
+      "sha256": "798a5728a34b4c238c829e7770b08600accac299777f4f3503bf9d70412c41ca"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/269-plans-path-unification/[REPORT]_Plans_Path_Unification.md",
+      "sha256": "53bac9910bb9db85d3d0309cd9cf330e5c2a6c5c60b3a5568e7677381554ef21"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/269-plans-path-unification/source-bindings.json",
+      "sha256": "14d448607ce7a15ba517a64d4339872986a51f3795eb288b165f132d51c8d94f"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/269-plans-path-unification/evidence/sources/accepted-baseline-b1.json",
+      "sha256": "a97431285549ca05ac46deb739dc98efbd48c3c642866d61aecc9e28f294e319"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/269-plans-path-unification/evidence/sources/execution-principles-p1.json",
+      "sha256": "5aa097bef9f9dfd5cb2dafd2db47d5bb5733032306826cb44a281c43841f2b62"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/269-plans-path-unification/evidence/sources/implementation-authorization.json",
+      "sha256": "8c698f33e9795c4fe2fed66240062b638754f7a871affb3ce321ba83fa7e2852"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/222-communication-kit/INDEX.md",
+      "sha256": "584850a85e1ec28fc6de81f85985ed828e00b6cf07939774a3d22862e13bc887"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/222-communication-kit/[PLAN]_Communication_Kit.md",
+      "sha256": "1eb7b336f2948941db80728053910d191c119d34bbedfe12b07720726b4cacb2"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/222-communication-kit/[REPORT]_Communication_Kit.md",
+      "sha256": "6345ce7f342d860e14ceed600fbdefef6f3f4b819ccd43f0000c6a899acb00e7"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/222-communication-kit/source-bindings.json",
+      "sha256": "1b817319764af32af644b1d7394725e7a7411209c5b61ba3f7aad0811297fc6e"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/222-communication-kit/evidence/sources/communication-kit-implementation-plan.md",
+      "sha256": "6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/222-communication-kit/evidence/sources/communication-kit-plan-provenance.json",
+      "sha256": "7d38da72b09311e255bdccd8d1ec7bffa6d4be17e3ff56de4115873658be545e"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md",
+      "sha256": "1419b3693b41790cc8465ba805aa07d69865b4828077e9aafee2643f56ae7cd6"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md",
+      "sha256": "183c7885aa69c4999a2b5b97f978cada1a8e1dcaa64dc988ce2590ca3cf992d7"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/269-plans-path-unification/evidence/a-initial-tests.log",
+      "sha256": "0ce87c6f40906a7ddddb882b3486e0264a2daec0cf440c28102756b7e4af9e38"
+    },
+    {
+      "path": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop/plans/269-plans-path-unification/evidence/a-fixed-tests.log",
+      "sha256": "6db6e3a88cdd59ffa2646eafdfcfca43c48544fec55354ee68d386b557b3f8cf"
+    }
+  ],
+  "externalSnapshots": {
+    "issue222": {
+      "path": "C:/Users/Admin/AppData/Local/Temp/plans-unification-manager-issue-222-round1.json",
+      "sha256": "3d7b69d53da4c0cd48faa9e635f243fb02e01a4da470ff1c473e5be71db7c737",
+      "sourceUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222",
+      "sourceUpdatedAt": "2026-10-15T09:44:43Z",
+      "exactOriginalReadAtUtc": null,
+      "originalReadClockBoundsUtc": [
+        "2026-10-19T07:37:21Z",
+        "2026-10-19T07:39:10Z"
+      ]
+    }
+  },
+  "rawRemoteSources": {
+    "issue269": {
+      "status": "fulfilled",
+      "value": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Action completed."
+          }
+        ],
+        "structuredContent": {
+          "issue": {
+            "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/269",
+            "title": "[Maintain] 统一任务计划到 plans 并撤除旧路径兼容",
+            "issue_number": 269,
+            "body": "# 需求与接受基线\n\nOwner 要求将旧 plan/ 与现行 plans/ 统一进入 plans/，降低计划管理的额外理解负担。本次不保留旧路径别名、回退、重定向或校验豁免；其他历史文档兼容清单不在范围。Q1/Q2 已核对并接受完整 B1，INT-2026-002 为唯一原意正本。\n\nOwner 最新明确要求开始实施，遵循 Agent 执行/Owner 决策、独立合成验收、严格窗口/分段交付、集中授权复用、Harness 证据、风险隔离恢复，以及单 Issue/单主 PR/多子 PR。此前将七项原则仅追加到 INTENT 的处理不构成本次工程交付。\n\n## 承担范围\n\n- 原 plan/ 两文件迁入 plans/222-communication-kit 的必要来源材料；建立唯一任务入口与合规主 PLAN/REPORT，不改写原接受或失败事实。\n- 同步当前规范、导航、资源定位及直接受影响引用，删除旧目录与当前路径豁免。\n- Harness 拒绝重新引入旧根 plan；更新实际 fixture/源码闭包测试并验证历史原件可恢复。\n- 保持其他历史文档兼容、插件运行、版本及分支保护不变，无发布。\n\n## 执行与验证\n\n一个主 PR 指向 develop；两个内部子 PR 指向集成分支，经独立核验及必要 Harness/线程检查后由 Agent 合并。最终主 PR 满足 develop 当前 head 的非作者批准、CI、线程及基线门禁，不 bypass。\n\n验收覆盖：当前仓库不存在 plan/，唯一任务导航与主计划，旧路径无当前运行依赖/回退/豁免，迁移原件逐字节可恢复，完整测试/严格校验/13 组合隔离安装及实际 Python。独立合成阅读分别核对管理入口、产品范围和工程恢复；Owner 最终接受另记。\n\n## 状态\n\n主 PR #270 指向 develop，内部 A #271 指向 codex/plans-unification，最新 head 09e1bd5；本地修复后597/597、strict validate和独立原件/语义复核通过，真实CI仍在运行。首轮canonical登记导致595/597与历史接受误指均保留并已修复。B在独立工作区准备拒旧根/链接guard及负例；A实际内部合入后再集成B。最终完整安装/Python、保护批准、实际合入和Owner最终接受尚未发生，不写完成。\n",
+            "state": "open",
+            "user": {
+              "login": "ranzuozhou",
+              "name": "ranzuozhou",
+              "email": null,
+              "avatar_url": "https://avatars.githubusercontent.com/u/35538471?v=4",
+              "id": 35538471
+            },
+            "assignees": null,
+            "labels": null,
+            "milestone": null,
+            "state_reason": null,
+            "comments": 0,
+            "created_at": "2026-10-19T07:16:58Z",
+            "updated_at": "2026-10-19T07:34:20Z",
+            "closed_at": null,
+            "display_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/269",
+            "display_title": "[Maintain] 统一任务计划到 plans 并撤除旧路径兼容"
+          },
+          "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/269",
+          "title": "[Maintain] 统一任务计划到 plans 并撤除旧路径兼容",
+          "display_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/269",
+          "display_title": "[Maintain] 统一任务计划到 plans 并撤除旧路径兼容"
+        },
+        "isError": false
+      }
+    }
+  },
+  "requestedOutput": "C:/Users/Admin/AppData/Local/Temp/plans-unification-manager-acceptance.json"
+}
