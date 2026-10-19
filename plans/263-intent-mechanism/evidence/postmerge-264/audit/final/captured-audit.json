@@ -1,0 +1,1968 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "/root/latest_intent_fit",
+  "readOnly": true,
+  "capturedAt": "2026-10-19T01:55:55.375Z",
+  "merge": "be4024353155ebaad8301dba8a9949666d376877",
+  "head": "b978b44f10524a42407df2866dff7b4711d14e38",
+  "directory": "C:\\Users\\Admin\\AppData\\Local\\Temp\\intent-independent-99ec786b8e8a4d29a5b5a10a739ae5a6\\postmerge-be402435-final",
+  "pull": {
+    "merged": true,
+    "merged_at": "2026-10-19T01:52:12Z",
+    "merged_by": "ranzuozhou",
+    "author": "ranzuozhou",
+    "actualMerge": "be4024353155ebaad8301dba8a9949666d376877",
+    "sourceHead": "b978b44f10524a42407df2866dff7b4711d14e38"
+  },
+  "mergeCommit": {
+    "sha": "be4024353155ebaad8301dba8a9949666d376877",
+    "tree": "68b2923eadb39c17466a1576bbfdd4995b682b1f",
+    "parents": [
+      "e3ffecf4414f6ff27039a969b2ef670b1b9dc55e",
+      "b978b44f10524a42407df2866dff7b4711d14e38"
+    ]
+  },
+  "headCommit": {
+    "sha": "b978b44f10524a42407df2866dff7b4711d14e38",
+    "tree": "68b2923eadb39c17466a1576bbfdd4995b682b1f"
+  },
+  "actualDevelop": "be4024353155ebaad8301dba8a9949666d376877",
+  "reviews": [],
+  "rules": [
+    {
+      "type": "deletion",
+      "ruleset_source_type": "Repository",
+      "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+      "ruleset_id": 14008221
+    },
+    {
+      "type": "pull_request",
+      "parameters": {
+        "required_approving_review_count": 1,
+        "dismiss_stale_reviews_on_push": true,
+        "required_reviewers": [],
+        "require_code_owner_review": false,
+        "dismissal_restriction": {
+          "enabled": false,
+          "allowed_actors": []
+        },
+        "require_last_push_approval": true,
+        "required_review_thread_resolution": true,
+        "require_extra_approval_for_unattributed_changes": true,
+        "allowed_merge_methods": [
+          "merge"
+        ]
+      },
+      "ruleset_source_type": "Repository",
+      "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+      "ruleset_id": 14008221
+    },
+    {
+      "type": "required_status_checks",
+      "parameters": {
+        "strict_required_status_checks_policy": true,
+        "do_not_enforce_on_create": false,
+        "required_status_checks": [
+          {
+            "context": "Validate Structure"
+          },
+          {
+            "context": "A6 / Check"
+          }
+        ]
+      },
+      "ruleset_source_type": "Repository",
+      "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+      "ruleset_id": 14008221
+    },
+    {
+      "type": "non_fast_forward",
+      "ruleset_source_type": "Repository",
+      "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+      "ruleset_id": 14008221
+    }
+  ],
+  "ruleset": {
+    "id": 14008221,
+    "name": "protect-develop",
+    "target": "branch",
+    "source_type": "Repository",
+    "source": "MJ-AgentLab/mj-agentlab-marketplace",
+    "enforcement": "active",
+    "conditions": {
+      "ref_name": {
+        "exclude": [],
+        "include": [
+          "refs/heads/develop"
+        ]
+      }
+    },
+    "rules": [
+      {
+        "type": "deletion"
+      },
+      {
+        "type": "pull_request",
+        "parameters": {
+          "required_approving_review_count": 1,
+          "dismiss_stale_reviews_on_push": true,
+          "required_reviewers": [],
+          "require_code_owner_review": false,
+          "dismissal_restriction": {
+            "enabled": false,
+            "allowed_actors": []
+          },
+          "require_last_push_approval": true,
+          "required_review_thread_resolution": true,
+          "require_extra_approval_for_unattributed_changes": true,
+          "allowed_merge_methods": [
+            "merge"
+          ]
+        }
+      },
+      {
+        "type": "required_status_checks",
+        "parameters": {
+          "strict_required_status_checks_policy": true,
+          "do_not_enforce_on_create": false,
+          "required_status_checks": [
+            {
+              "context": "Validate Structure"
+            },
+            {
+              "context": "A6 / Check"
+            }
+          ]
+        }
+      },
+      {
+        "type": "non_fast_forward"
+      }
+    ],
+    "node_id": "RRS_lACqUmVwb3NpdG9yec5Ggy6QzgDVv50",
+    "created_at": "2026-03-17T21:24:26.928+08:00",
+    "updated_at": "2026-07-16T17:10:23.460+08:00",
+    "bypass_actors": [
+      {
+        "actor_id": 5,
+        "actor_type": "RepositoryRole",
+        "bypass_mode": "always"
+      }
+    ],
+    "current_user_can_bypass": "always",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/rulesets/14008221"
+      },
+      "html": {
+        "href": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/rules/14008221"
+      }
+    }
+  },
+  "ruleSuitePageCount": 1,
+  "selectedSuites": [
+    {
+      "id": 4591526268,
+      "actor_id": 35538471,
+      "actor_name": "ranzuozhou",
+      "before_sha": "e3ffecf4414f6ff27039a969b2ef670b1b9dc55e",
+      "after_sha": "be4024353155ebaad8301dba8a9949666d376877",
+      "ref": "refs/heads/develop",
+      "repository_id": 1183002256,
+      "repository_name": "mj-agentlab-marketplace",
+      "pushed_at": "2026-10-19T09:52:12+08:00",
+      "result": "bypass"
+    }
+  ],
+  "suiteDetails": [
+    {
+      "id": 4591526268,
+      "data": {
+        "id": 4591526268,
+        "actor_id": 35538471,
+        "actor_name": "ranzuozhou",
+        "before_sha": "e3ffecf4414f6ff27039a969b2ef670b1b9dc55e",
+        "after_sha": "be4024353155ebaad8301dba8a9949666d376877",
+        "ref": "refs/heads/develop",
+        "repository_id": 1183002256,
+        "repository_name": "mj-agentlab-marketplace",
+        "pushed_at": "2026-10-19T09:52:12+08:00",
+        "result": "bypass",
+        "rule_evaluations": [
+          {
+            "rule_source": {
+              "type": "ruleset",
+              "id": 14008221,
+              "name": "protect-develop"
+            },
+            "enforcement": "active",
+            "result": "fail",
+            "rule_type": "pull_request",
+            "details": "New changes require approval from someone other than the last pusher."
+          },
+          {
+            "rule_source": {
+              "type": "ruleset",
+              "id": 14008221,
+              "name": "protect-develop"
+            },
+            "enforcement": "active",
+            "result": "pass",
+            "rule_type": "non_fast_forward"
+          },
+          {
+            "rule_source": {
+              "type": "ruleset",
+              "id": 14008221,
+              "name": "protect-develop"
+            },
+            "enforcement": "active",
+            "result": "pass",
+            "rule_type": "required_status_checks"
+          },
+          {
+            "rule_source": {
+              "type": "ruleset",
+              "id": 14008221,
+              "name": "protect-develop"
+            },
+            "enforcement": "active",
+            "result": "pass",
+            "rule_type": "deletion"
+          }
+        ]
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": 117845671981,
+      "name": "A6 / Check",
+      "node_id": "CR_kwDORoMukM8AAAAbcCZALQ",
+      "head_sha": "b978b44f10524a42407df2866dff7b4711d14e38",
+      "external_id": "949530ba-1b7b-53e8-bf89-2e9ea2a1e6d9",
+      "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117845671981",
+      "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39185072351/job/117845671981",
+      "details_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39185072351/job/117845671981",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-19T01:22:46Z",
+      "completed_at": "2026-10-19T01:22:57Z",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 2,
+        "annotations_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117845671981/annotations"
+      },
+      "check_suite": {
+        "id": 106182845886
+      },
+      "app": {
+        "id": 15368,
+        "client_id": "Iv1.05c79e9ad1f6bdfa",
+        "slug": "github-actions",
+        "node_id": "MDM6QXBwMTUzNjg=",
+        "owner": {
+          "login": "github",
+          "id": 9919,
+          "node_id": "MDEyOk9yZ2FuaXphdGlvbjk5MTk=",
+          "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/github",
+          "html_url": "https://github.com/github",
+          "followers_url": "https://api.github.com/users/github/followers",
+          "following_url": "https://api.github.com/users/github/following{/other_user}",
+          "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+          "organizations_url": "https://api.github.com/users/github/orgs",
+          "repos_url": "https://api.github.com/users/github/repos",
+          "events_url": "https://api.github.com/users/github/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/github/received_events",
+          "type": "Organization",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "name": "GitHub Actions",
+        "description": "Automate your workflow from idea to production",
+        "external_url": "https://help.github.com/en/actions",
+        "html_url": "https://github.com/apps/github-actions",
+        "created_at": "2018-07-30T09:30:17Z",
+        "updated_at": "2026-06-18T16:17:48Z",
+        "permissions": {
+          "actions": "write",
+          "administration": "read",
+          "artifact_metadata": "write",
+          "attestations": "write",
+          "checks": "write",
+          "code_quality": "write",
+          "contents": "write",
+          "copilot_requests": "write",
+          "deployments": "write",
+          "discussions": "write",
+          "drives": "write",
+          "issues": "write",
+          "merge_queues": "write",
+          "metadata": "read",
+          "models": "read",
+          "packages": "write",
+          "pages": "write",
+          "pull_requests": "write",
+          "repository_hooks": "write",
+          "repository_projects": "write",
+          "security_events": "write",
+          "statuses": "write",
+          "vulnerability_alerts": "read"
+        },
+        "events": [
+          "branch_protection_rule",
+          "check_run",
+          "check_suite",
+          "create",
+          "delete",
+          "deployment",
+          "deployment_status",
+          "discussion",
+          "discussion_comment",
+          "fork",
+          "gollum",
+          "issues",
+          "issue_comment",
+          "label",
+          "merge_group",
+          "milestone",
+          "page_build",
+          "public",
+          "pull_request",
+          "pull_request_review",
+          "pull_request_review_comment",
+          "push",
+          "registry_package",
+          "release",
+          "repository",
+          "repository_dispatch",
+          "status",
+          "watch",
+          "workflow_dispatch",
+          "workflow_run"
+        ]
+      },
+      "pull_requests": []
+    },
+    {
+      "id": 117842784724,
+      "name": "A6 / Check",
+      "node_id": "CR_kwDORoMukM8AAAAbb_ox1A",
+      "head_sha": "b978b44f10524a42407df2866dff7b4711d14e38",
+      "external_id": "22b23327-b689-5b06-a8c9-7b95bec93615",
+      "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117842784724",
+      "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184106806/job/117842784724",
+      "details_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184106806/job/117842784724",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-19T01:10:19Z",
+      "completed_at": "2026-10-19T01:10:28Z",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 2,
+        "annotations_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117842784724/annotations"
+      },
+      "check_suite": {
+        "id": 106180371429
+      },
+      "app": {
+        "id": 15368,
+        "client_id": "Iv1.05c79e9ad1f6bdfa",
+        "slug": "github-actions",
+        "node_id": "MDM6QXBwMTUzNjg=",
+        "owner": {
+          "login": "github",
+          "id": 9919,
+          "node_id": "MDEyOk9yZ2FuaXphdGlvbjk5MTk=",
+          "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/github",
+          "html_url": "https://github.com/github",
+          "followers_url": "https://api.github.com/users/github/followers",
+          "following_url": "https://api.github.com/users/github/following{/other_user}",
+          "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+          "organizations_url": "https://api.github.com/users/github/orgs",
+          "repos_url": "https://api.github.com/users/github/repos",
+          "events_url": "https://api.github.com/users/github/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/github/received_events",
+          "type": "Organization",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "name": "GitHub Actions",
+        "description": "Automate your workflow from idea to production",
+        "external_url": "https://help.github.com/en/actions",
+        "html_url": "https://github.com/apps/github-actions",
+        "created_at": "2018-07-30T09:30:17Z",
+        "updated_at": "2026-06-18T16:17:48Z",
+        "permissions": {
+          "actions": "write",
+          "administration": "read",
+          "artifact_metadata": "write",
+          "attestations": "write",
+          "checks": "write",
+          "code_quality": "write",
+          "contents": "write",
+          "copilot_requests": "write",
+          "deployments": "write",
+          "discussions": "write",
+          "drives": "write",
+          "issues": "write",
+          "merge_queues": "write",
+          "metadata": "read",
+          "models": "read",
+          "packages": "write",
+          "pages": "write",
+          "pull_requests": "write",
+          "repository_hooks": "write",
+          "repository_projects": "write",
+          "security_events": "write",
+          "statuses": "write",
+          "vulnerability_alerts": "read"
+        },
+        "events": [
+          "branch_protection_rule",
+          "check_run",
+          "check_suite",
+          "create",
+          "delete",
+          "deployment",
+          "deployment_status",
+          "discussion",
+          "discussion_comment",
+          "fork",
+          "gollum",
+          "issues",
+          "issue_comment",
+          "label",
+          "merge_group",
+          "milestone",
+          "page_build",
+          "public",
+          "pull_request",
+          "pull_request_review",
+          "pull_request_review_comment",
+          "push",
+          "registry_package",
+          "release",
+          "repository",
+          "repository_dispatch",
+          "status",
+          "watch",
+          "workflow_dispatch",
+          "workflow_run"
+        ]
+      },
+      "pull_requests": []
+    },
+    {
+      "id": 117842616380,
+      "name": "Baseline compat (${{ matrix.os }})",
+      "node_id": "CR_kwDORoMukM8AAAAbb_egPA",
+      "head_sha": "b978b44f10524a42407df2866dff7b4711d14e38",
+      "external_id": "aa29e4f9-136f-51a4-9291-25e9a396c7ea",
+      "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117842616380",
+      "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184028820/job/117842616380",
+      "details_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184028820/job/117842616380",
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-10-19T01:09:34Z",
+      "completed_at": "2026-10-19T01:09:33Z",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 0,
+        "annotations_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117842616380/annotations"
+      },
+      "check_suite": {
+        "id": 106180167549
+      },
+      "app": {
+        "id": 15368,
+        "client_id": "Iv1.05c79e9ad1f6bdfa",
+        "slug": "github-actions",
+        "node_id": "MDM6QXBwMTUzNjg=",
+        "owner": {
+          "login": "github",
+          "id": 9919,
+          "node_id": "MDEyOk9yZ2FuaXphdGlvbjk5MTk=",
+          "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/github",
+          "html_url": "https://github.com/github",
+          "followers_url": "https://api.github.com/users/github/followers",
+          "following_url": "https://api.github.com/users/github/following{/other_user}",
+          "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+          "organizations_url": "https://api.github.com/users/github/orgs",
+          "repos_url": "https://api.github.com/users/github/repos",
+          "events_url": "https://api.github.com/users/github/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/github/received_events",
+          "type": "Organization",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "name": "GitHub Actions",
+        "description": "Automate your workflow from idea to production",
+        "external_url": "https://help.github.com/en/actions",
+        "html_url": "https://github.com/apps/github-actions",
+        "created_at": "2018-07-30T09:30:17Z",
+        "updated_at": "2026-06-18T16:17:48Z",
+        "permissions": {
+          "actions": "write",
+          "administration": "read",
+          "artifact_metadata": "write",
+          "attestations": "write",
+          "checks": "write",
+          "code_quality": "write",
+          "contents": "write",
+          "copilot_requests": "write",
+          "deployments": "write",
+          "discussions": "write",
+          "drives": "write",
+          "issues": "write",
+          "merge_queues": "write",
+          "metadata": "read",
+          "models": "read",
+          "packages": "write",
+          "pages": "write",
+          "pull_requests": "write",
+          "repository_hooks": "write",
+          "repository_projects": "write",
+          "security_events": "write",
+          "statuses": "write",
+          "vulnerability_alerts": "read"
+        },
+        "events": [
+          "branch_protection_rule",
+          "check_run",
+          "check_suite",
+          "create",
+          "delete",
+          "deployment",
+          "deployment_status",
+          "discussion",
+          "discussion_comment",
+          "fork",
+          "gollum",
+          "issues",
+          "issue_comment",
+          "label",
+          "merge_group",
+          "milestone",
+          "page_build",
+          "public",
+          "pull_request",
+          "pull_request_review",
+          "pull_request_review_comment",
+          "push",
+          "registry_package",
+          "release",
+          "repository",
+          "repository_dispatch",
+          "status",
+          "watch",
+          "workflow_dispatch",
+          "workflow_run"
+        ]
+      },
+      "pull_requests": []
+    },
+    {
+      "id": 117842573811,
+      "name": "Prove equivalent PR matrix for this push (read only)",
+      "node_id": "CR_kwDORoMukM8AAAAbb_b58w",
+      "head_sha": "b978b44f10524a42407df2866dff7b4711d14e38",
+      "external_id": "2618c465-6193-52c3-93c1-964dc110a2e9",
+      "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117842573811",
+      "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184032186/job/117842573811",
+      "details_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184032186/job/117842573811",
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-10-19T01:09:22Z",
+      "completed_at": "2026-10-19T01:09:22Z",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 0,
+        "annotations_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117842573811/annotations"
+      },
+      "check_suite": {
+        "id": 106180176626
+      },
+      "app": {
+        "id": 15368,
+        "client_id": "Iv1.05c79e9ad1f6bdfa",
+        "slug": "github-actions",
+        "node_id": "MDM6QXBwMTUzNjg=",
+        "owner": {
+          "login": "github",
+          "id": 9919,
+          "node_id": "MDEyOk9yZ2FuaXphdGlvbjk5MTk=",
+          "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/github",
+          "html_url": "https://github.com/github",
+          "followers_url": "https://api.github.com/users/github/followers",
+          "following_url": "https://api.github.com/users/github/following{/other_user}",
+          "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+          "organizations_url": "https://api.github.com/users/github/orgs",
+          "repos_url": "https://api.github.com/users/github/repos",
+          "events_url": "https://api.github.com/users/github/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/github/received_events",
+          "type": "Organization",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "name": "GitHub Actions",
+        "description": "Automate your workflow from idea to production",
+        "external_url": "https://help.github.com/en/actions",
+        "html_url": "https://github.com/apps/github-actions",
+        "created_at": "2018-07-30T09:30:17Z",
+        "updated_at": "2026-06-18T16:17:48Z",
+        "permissions": {
+          "actions": "write",
+          "administration": "read",
+          "artifact_metadata": "write",
+          "attestations": "write",
+          "checks": "write",
+          "code_quality": "write",
+          "contents": "write",
+          "copilot_requests": "write",
+          "deployments": "write",
+          "discussions": "write",
+          "drives": "write",
+          "issues": "write",
+          "merge_queues": "write",
+          "metadata": "read",
+          "models": "read",
+          "packages": "write",
+          "pages": "write",
+          "pull_requests": "write",
+          "repository_hooks": "write",
+          "repository_projects": "write",
+          "security_events": "write",
+          "statuses": "write",
+          "vulnerability_alerts": "read"
+        },
+        "events": [
+          "branch_protection_rule",
+          "check_run",
+          "check_suite",
+          "create",
+          "delete",
+          "deployment",
+          "deployment_status",
+          "discussion",
+          "discussion_comment",
+          "fork",
+          "gollum",
+          "issues",
+          "issue_comment",
+          "label",
+          "merge_group",
+          "milestone",
+          "page_build",
+          "public",
+          "pull_request",
+          "pull_request_review",
+          "pull_request_review_comment",
+          "push",
+          "registry_package",
+          "release",
+          "repository",
+          "repository_dispatch",
+          "status",
+          "watch",
+          "workflow_dispatch",
+          "workflow_run"
+        ]
+      },
+      "pull_requests": []
+    },
+    {
+      "id": 117842572599,
+      "name": "A6 / Check",
+      "node_id": "CR_kwDORoMukM8AAAAbb_b1Nw",
+      "head_sha": "b978b44f10524a42407df2866dff7b4711d14e38",
+      "external_id": "942c7b6f-1c64-59a8-a4f0-59d597660a0e",
+      "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117842572599",
+      "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184032323/job/117842572599",
+      "details_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184032323/job/117842572599",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-19T01:09:25Z",
+      "completed_at": "2026-10-19T01:09:36Z",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 2,
+        "annotations_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117842572599/annotations"
+      },
+      "check_suite": {
+        "id": 106180177004
+      },
+      "app": {
+        "id": 15368,
+        "client_id": "Iv1.05c79e9ad1f6bdfa",
+        "slug": "github-actions",
+        "node_id": "MDM6QXBwMTUzNjg=",
+        "owner": {
+          "login": "github",
+          "id": 9919,
+          "node_id": "MDEyOk9yZ2FuaXphdGlvbjk5MTk=",
+          "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/github",
+          "html_url": "https://github.com/github",
+          "followers_url": "https://api.github.com/users/github/followers",
+          "following_url": "https://api.github.com/users/github/following{/other_user}",
+          "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+          "organizations_url": "https://api.github.com/users/github/orgs",
+          "repos_url": "https://api.github.com/users/github/repos",
+          "events_url": "https://api.github.com/users/github/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/github/received_events",
+          "type": "Organization",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "name": "GitHub Actions",
+        "description": "Automate your workflow from idea to production",
+        "external_url": "https://help.github.com/en/actions",
+        "html_url": "https://github.com/apps/github-actions",
+        "created_at": "2018-07-30T09:30:17Z",
+        "updated_at": "2026-06-18T16:17:48Z",
+        "permissions": {
+          "actions": "write",
+          "administration": "read",
+          "artifact_metadata": "write",
+          "attestations": "write",
+          "checks": "write",
+          "code_quality": "write",
+          "contents": "write",
+          "copilot_requests": "write",
+          "deployments": "write",
+          "discussions": "write",
+          "drives": "write",
+          "issues": "write",
+          "merge_queues": "write",
+          "metadata": "read",
+          "models": "read",
+          "packages": "write",
+          "pages": "write",
+          "pull_requests": "write",
+          "repository_hooks": "write",
+          "repository_projects": "write",
+          "security_events": "write",
+          "statuses": "write",
+          "vulnerability_alerts": "read"
+        },
+        "events": [
+          "branch_protection_rule",
+          "check_run",
+          "check_suite",
+          "create",
+          "delete",
+          "deployment",
+          "deployment_status",
+          "discussion",
+          "discussion_comment",
+          "fork",
+          "gollum",
+          "issues",
+          "issue_comment",
+          "label",
+          "merge_group",
+          "milestone",
+          "page_build",
+          "public",
+          "pull_request",
+          "pull_request_review",
+          "pull_request_review_comment",
+          "push",
+          "registry_package",
+          "release",
+          "repository",
+          "repository_dispatch",
+          "status",
+          "watch",
+          "workflow_dispatch",
+          "workflow_run"
+        ]
+      },
+      "pull_requests": []
+    },
+    {
+      "id": 117842572596,
+      "name": "Baseline compat (windows-latest)",
+      "node_id": "CR_kwDORoMukM8AAAAbb_b1NA",
+      "head_sha": "b978b44f10524a42407df2866dff7b4711d14e38",
+      "external_id": "2c3105e5-728b-5993-95f7-0f491faeea59",
+      "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117842572596",
+      "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184032186/job/117842572596",
+      "details_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184032186/job/117842572596",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-19T01:09:25Z",
+      "completed_at": "2026-10-19T01:21:32Z",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1,
+        "annotations_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117842572596/annotations"
+      },
+      "check_suite": {
+        "id": 106180176626
+      },
+      "app": {
+        "id": 15368,
+        "client_id": "Iv1.05c79e9ad1f6bdfa",
+        "slug": "github-actions",
+        "node_id": "MDM6QXBwMTUzNjg=",
+        "owner": {
+          "login": "github",
+          "id": 9919,
+          "node_id": "MDEyOk9yZ2FuaXphdGlvbjk5MTk=",
+          "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/github",
+          "html_url": "https://github.com/github",
+          "followers_url": "https://api.github.com/users/github/followers",
+          "following_url": "https://api.github.com/users/github/following{/other_user}",
+          "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+          "organizations_url": "https://api.github.com/users/github/orgs",
+          "repos_url": "https://api.github.com/users/github/repos",
+          "events_url": "https://api.github.com/users/github/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/github/received_events",
+          "type": "Organization",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "name": "GitHub Actions",
+        "description": "Automate your workflow from idea to production",
+        "external_url": "https://help.github.com/en/actions",
+        "html_url": "https://github.com/apps/github-actions",
+        "created_at": "2018-07-30T09:30:17Z",
+        "updated_at": "2026-06-18T16:17:48Z",
+        "permissions": {
+          "actions": "write",
+          "administration": "read",
+          "artifact_metadata": "write",
+          "attestations": "write",
+          "checks": "write",
+          "code_quality": "write",
+          "contents": "write",
+          "copilot_requests": "write",
+          "deployments": "write",
+          "discussions": "write",
+          "drives": "write",
+          "issues": "write",
+          "merge_queues": "write",
+          "metadata": "read",
+          "models": "read",
+          "packages": "write",
+          "pages": "write",
+          "pull_requests": "write",
+          "repository_hooks": "write",
+          "repository_projects": "write",
+          "security_events": "write",
+          "statuses": "write",
+          "vulnerability_alerts": "read"
+        },
+        "events": [
+          "branch_protection_rule",
+          "check_run",
+          "check_suite",
+          "create",
+          "delete",
+          "deployment",
+          "deployment_status",
+          "discussion",
+          "discussion_comment",
+          "fork",
+          "gollum",
+          "issues",
+          "issue_comment",
+          "label",
+          "merge_group",
+          "milestone",
+          "page_build",
+          "public",
+          "pull_request",
+          "pull_request_review",
+          "pull_request_review_comment",
+          "push",
+          "registry_package",
+          "release",
+          "repository",
+          "repository_dispatch",
+          "status",
+          "watch",
+          "workflow_dispatch",
+          "workflow_run"
+        ]
+      },
+      "pull_requests": []
+    },
+    {
+      "id": 117842572312,
+      "name": "Cancel proved superseded PR runs (best effort)",
+      "node_id": "CR_kwDORoMukM8AAAAbb_b0GA",
+      "head_sha": "b978b44f10524a42407df2866dff7b4711d14e38",
+      "external_id": "537d622b-43e2-50e0-9a7d-30cb6a2532cd",
+      "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117842572312",
+      "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184032186/job/117842572312",
+      "details_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184032186/job/117842572312",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-19T01:09:25Z",
+      "completed_at": "2026-10-19T01:09:31Z",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 2,
+        "annotations_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117842572312/annotations"
+      },
+      "check_suite": {
+        "id": 106180176626
+      },
+      "app": {
+        "id": 15368,
+        "client_id": "Iv1.05c79e9ad1f6bdfa",
+        "slug": "github-actions",
+        "node_id": "MDM6QXBwMTUzNjg=",
+        "owner": {
+          "login": "github",
+          "id": 9919,
+          "node_id": "MDEyOk9yZ2FuaXphdGlvbjk5MTk=",
+          "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/github",
+          "html_url": "https://github.com/github",
+          "followers_url": "https://api.github.com/users/github/followers",
+          "following_url": "https://api.github.com/users/github/following{/other_user}",
+          "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+          "organizations_url": "https://api.github.com/users/github/orgs",
+          "repos_url": "https://api.github.com/users/github/repos",
+          "events_url": "https://api.github.com/users/github/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/github/received_events",
+          "type": "Organization",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "name": "GitHub Actions",
+        "description": "Automate your workflow from idea to production",
+        "external_url": "https://help.github.com/en/actions",
+        "html_url": "https://github.com/apps/github-actions",
+        "created_at": "2018-07-30T09:30:17Z",
+        "updated_at": "2026-06-18T16:17:48Z",
+        "permissions": {
+          "actions": "write",
+          "administration": "read",
+          "artifact_metadata": "write",
+          "attestations": "write",
+          "checks": "write",
+          "code_quality": "write",
+          "contents": "write",
+          "copilot_requests": "write",
+          "deployments": "write",
+          "discussions": "write",
+          "drives": "write",
+          "issues": "write",
+          "merge_queues": "write",
+          "metadata": "read",
+          "models": "read",
+          "packages": "write",
+          "pages": "write",
+          "pull_requests": "write",
+          "repository_hooks": "write",
+          "repository_projects": "write",
+          "security_events": "write",
+          "statuses": "write",
+          "vulnerability_alerts": "read"
+        },
+        "events": [
+          "branch_protection_rule",
+          "check_run",
+          "check_suite",
+          "create",
+          "delete",
+          "deployment",
+          "deployment_status",
+          "discussion",
+          "discussion_comment",
+          "fork",
+          "gollum",
+          "issues",
+          "issue_comment",
+          "label",
+          "merge_group",
+          "milestone",
+          "page_build",
+          "public",
+          "pull_request",
+          "pull_request_review",
+          "pull_request_review_comment",
+          "push",
+          "registry_package",
+          "release",
+          "repository",
+          "repository_dispatch",
+          "status",
+          "watch",
+          "workflow_dispatch",
+          "workflow_run"
+        ]
+      },
+      "pull_requests": []
+    },
+    {
+      "id": 117842572248,
+      "name": "Baseline compat (ubuntu-latest)",
+      "node_id": "CR_kwDORoMukM8AAAAbb_bz2A",
+      "head_sha": "b978b44f10524a42407df2866dff7b4711d14e38",
+      "external_id": "0d956b7b-1c2d-5063-a2cc-0a6ac030a707",
+      "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117842572248",
+      "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184032186/job/117842572248",
+      "details_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184032186/job/117842572248",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-19T01:09:25Z",
+      "completed_at": "2026-10-19T01:13:38Z",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 2,
+        "annotations_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117842572248/annotations"
+      },
+      "check_suite": {
+        "id": 106180176626
+      },
+      "app": {
+        "id": 15368,
+        "client_id": "Iv1.05c79e9ad1f6bdfa",
+        "slug": "github-actions",
+        "node_id": "MDM6QXBwMTUzNjg=",
+        "owner": {
+          "login": "github",
+          "id": 9919,
+          "node_id": "MDEyOk9yZ2FuaXphdGlvbjk5MTk=",
+          "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/github",
+          "html_url": "https://github.com/github",
+          "followers_url": "https://api.github.com/users/github/followers",
+          "following_url": "https://api.github.com/users/github/following{/other_user}",
+          "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+          "organizations_url": "https://api.github.com/users/github/orgs",
+          "repos_url": "https://api.github.com/users/github/repos",
+          "events_url": "https://api.github.com/users/github/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/github/received_events",
+          "type": "Organization",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "name": "GitHub Actions",
+        "description": "Automate your workflow from idea to production",
+        "external_url": "https://help.github.com/en/actions",
+        "html_url": "https://github.com/apps/github-actions",
+        "created_at": "2018-07-30T09:30:17Z",
+        "updated_at": "2026-06-18T16:17:48Z",
+        "permissions": {
+          "actions": "write",
+          "administration": "read",
+          "artifact_metadata": "write",
+          "attestations": "write",
+          "checks": "write",
+          "code_quality": "write",
+          "contents": "write",
+          "copilot_requests": "write",
+          "deployments": "write",
+          "discussions": "write",
+          "drives": "write",
+          "issues": "write",
+          "merge_queues": "write",
+          "metadata": "read",
+          "models": "read",
+          "packages": "write",
+          "pages": "write",
+          "pull_requests": "write",
+          "repository_hooks": "write",
+          "repository_projects": "write",
+          "security_events": "write",
+          "statuses": "write",
+          "vulnerability_alerts": "read"
+        },
+        "events": [
+          "branch_protection_rule",
+          "check_run",
+          "check_suite",
+          "create",
+          "delete",
+          "deployment",
+          "deployment_status",
+          "discussion",
+          "discussion_comment",
+          "fork",
+          "gollum",
+          "issues",
+          "issue_comment",
+          "label",
+          "merge_group",
+          "milestone",
+          "page_build",
+          "public",
+          "pull_request",
+          "pull_request_review",
+          "pull_request_review_comment",
+          "push",
+          "registry_package",
+          "release",
+          "repository",
+          "repository_dispatch",
+          "status",
+          "watch",
+          "workflow_dispatch",
+          "workflow_run"
+        ]
+      },
+      "pull_requests": []
+    },
+    {
+      "id": 117842572120,
+      "name": "Validate Structure",
+      "node_id": "CR_kwDORoMukM8AAAAbb_bzWA",
+      "head_sha": "b978b44f10524a42407df2866dff7b4711d14e38",
+      "external_id": "4848d2b1-02ac-5975-9503-dde983f29c0f",
+      "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117842572120",
+      "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184032186/job/117842572120",
+      "details_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184032186/job/117842572120",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-19T01:09:25Z",
+      "completed_at": "2026-10-19T01:09:42Z",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 2,
+        "annotations_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117842572120/annotations"
+      },
+      "check_suite": {
+        "id": 106180176626
+      },
+      "app": {
+        "id": 15368,
+        "client_id": "Iv1.05c79e9ad1f6bdfa",
+        "slug": "github-actions",
+        "node_id": "MDM6QXBwMTUzNjg=",
+        "owner": {
+          "login": "github",
+          "id": 9919,
+          "node_id": "MDEyOk9yZ2FuaXphdGlvbjk5MTk=",
+          "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/github",
+          "html_url": "https://github.com/github",
+          "followers_url": "https://api.github.com/users/github/followers",
+          "following_url": "https://api.github.com/users/github/following{/other_user}",
+          "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+          "organizations_url": "https://api.github.com/users/github/orgs",
+          "repos_url": "https://api.github.com/users/github/repos",
+          "events_url": "https://api.github.com/users/github/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/github/received_events",
+          "type": "Organization",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "name": "GitHub Actions",
+        "description": "Automate your workflow from idea to production",
+        "external_url": "https://help.github.com/en/actions",
+        "html_url": "https://github.com/apps/github-actions",
+        "created_at": "2018-07-30T09:30:17Z",
+        "updated_at": "2026-06-18T16:17:48Z",
+        "permissions": {
+          "actions": "write",
+          "administration": "read",
+          "artifact_metadata": "write",
+          "attestations": "write",
+          "checks": "write",
+          "code_quality": "write",
+          "contents": "write",
+          "copilot_requests": "write",
+          "deployments": "write",
+          "discussions": "write",
+          "drives": "write",
+          "issues": "write",
+          "merge_queues": "write",
+          "metadata": "read",
+          "models": "read",
+          "packages": "write",
+          "pages": "write",
+          "pull_requests": "write",
+          "repository_hooks": "write",
+          "repository_projects": "write",
+          "security_events": "write",
+          "statuses": "write",
+          "vulnerability_alerts": "read"
+        },
+        "events": [
+          "branch_protection_rule",
+          "check_run",
+          "check_suite",
+          "create",
+          "delete",
+          "deployment",
+          "deployment_status",
+          "discussion",
+          "discussion_comment",
+          "fork",
+          "gollum",
+          "issues",
+          "issue_comment",
+          "label",
+          "merge_group",
+          "milestone",
+          "page_build",
+          "public",
+          "pull_request",
+          "pull_request_review",
+          "pull_request_review_comment",
+          "push",
+          "registry_package",
+          "release",
+          "repository",
+          "repository_dispatch",
+          "status",
+          "watch",
+          "workflow_dispatch",
+          "workflow_run"
+        ]
+      },
+      "pull_requests": []
+    },
+    {
+      "id": 117842563365,
+      "name": "Cancel proved superseded PR runs (best effort)",
+      "node_id": "CR_kwDORoMukM8AAAAbb_bRJQ",
+      "head_sha": "b978b44f10524a42407df2866dff7b4711d14e38",
+      "external_id": "8600acf4-3898-5f19-b85b-1fab7eca89ca",
+      "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117842563365",
+      "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184028820/job/117842563365",
+      "details_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184028820/job/117842563365",
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-10-19T01:09:20Z",
+      "completed_at": "2026-10-19T01:09:19Z",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 0,
+        "annotations_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117842563365/annotations"
+      },
+      "check_suite": {
+        "id": 106180167549
+      },
+      "app": {
+        "id": 15368,
+        "client_id": "Iv1.05c79e9ad1f6bdfa",
+        "slug": "github-actions",
+        "node_id": "MDM6QXBwMTUzNjg=",
+        "owner": {
+          "login": "github",
+          "id": 9919,
+          "node_id": "MDEyOk9yZ2FuaXphdGlvbjk5MTk=",
+          "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/github",
+          "html_url": "https://github.com/github",
+          "followers_url": "https://api.github.com/users/github/followers",
+          "following_url": "https://api.github.com/users/github/following{/other_user}",
+          "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+          "organizations_url": "https://api.github.com/users/github/orgs",
+          "repos_url": "https://api.github.com/users/github/repos",
+          "events_url": "https://api.github.com/users/github/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/github/received_events",
+          "type": "Organization",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "name": "GitHub Actions",
+        "description": "Automate your workflow from idea to production",
+        "external_url": "https://help.github.com/en/actions",
+        "html_url": "https://github.com/apps/github-actions",
+        "created_at": "2018-07-30T09:30:17Z",
+        "updated_at": "2026-06-18T16:17:48Z",
+        "permissions": {
+          "actions": "write",
+          "administration": "read",
+          "artifact_metadata": "write",
+          "attestations": "write",
+          "checks": "write",
+          "code_quality": "write",
+          "contents": "write",
+          "copilot_requests": "write",
+          "deployments": "write",
+          "discussions": "write",
+          "drives": "write",
+          "issues": "write",
+          "merge_queues": "write",
+          "metadata": "read",
+          "models": "read",
+          "packages": "write",
+          "pages": "write",
+          "pull_requests": "write",
+          "repository_hooks": "write",
+          "repository_projects": "write",
+          "security_events": "write",
+          "statuses": "write",
+          "vulnerability_alerts": "read"
+        },
+        "events": [
+          "branch_protection_rule",
+          "check_run",
+          "check_suite",
+          "create",
+          "delete",
+          "deployment",
+          "deployment_status",
+          "discussion",
+          "discussion_comment",
+          "fork",
+          "gollum",
+          "issues",
+          "issue_comment",
+          "label",
+          "merge_group",
+          "milestone",
+          "page_build",
+          "public",
+          "pull_request",
+          "pull_request_review",
+          "pull_request_review_comment",
+          "push",
+          "registry_package",
+          "release",
+          "repository",
+          "repository_dispatch",
+          "status",
+          "watch",
+          "workflow_dispatch",
+          "workflow_run"
+        ]
+      },
+      "pull_requests": []
+    },
+    {
+      "id": 117842562331,
+      "name": "Prove equivalent PR matrix for this push (read only)",
+      "node_id": "CR_kwDORoMukM8AAAAbb_bNGw",
+      "head_sha": "b978b44f10524a42407df2866dff7b4711d14e38",
+      "external_id": "9fe8a81a-66f4-5df6-b22f-6ec147281eee",
+      "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117842562331",
+      "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184028820/job/117842562331",
+      "details_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184028820/job/117842562331",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-19T01:09:22Z",
+      "completed_at": "2026-10-19T01:09:33Z",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 2,
+        "annotations_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117842562331/annotations"
+      },
+      "check_suite": {
+        "id": 106180167549
+      },
+      "app": {
+        "id": 15368,
+        "client_id": "Iv1.05c79e9ad1f6bdfa",
+        "slug": "github-actions",
+        "node_id": "MDM6QXBwMTUzNjg=",
+        "owner": {
+          "login": "github",
+          "id": 9919,
+          "node_id": "MDEyOk9yZ2FuaXphdGlvbjk5MTk=",
+          "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/github",
+          "html_url": "https://github.com/github",
+          "followers_url": "https://api.github.com/users/github/followers",
+          "following_url": "https://api.github.com/users/github/following{/other_user}",
+          "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+          "organizations_url": "https://api.github.com/users/github/orgs",
+          "repos_url": "https://api.github.com/users/github/repos",
+          "events_url": "https://api.github.com/users/github/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/github/received_events",
+          "type": "Organization",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "name": "GitHub Actions",
+        "description": "Automate your workflow from idea to production",
+        "external_url": "https://help.github.com/en/actions",
+        "html_url": "https://github.com/apps/github-actions",
+        "created_at": "2018-07-30T09:30:17Z",
+        "updated_at": "2026-06-18T16:17:48Z",
+        "permissions": {
+          "actions": "write",
+          "administration": "read",
+          "artifact_metadata": "write",
+          "attestations": "write",
+          "checks": "write",
+          "code_quality": "write",
+          "contents": "write",
+          "copilot_requests": "write",
+          "deployments": "write",
+          "discussions": "write",
+          "drives": "write",
+          "issues": "write",
+          "merge_queues": "write",
+          "metadata": "read",
+          "models": "read",
+          "packages": "write",
+          "pages": "write",
+          "pull_requests": "write",
+          "repository_hooks": "write",
+          "repository_projects": "write",
+          "security_events": "write",
+          "statuses": "write",
+          "vulnerability_alerts": "read"
+        },
+        "events": [
+          "branch_protection_rule",
+          "check_run",
+          "check_suite",
+          "create",
+          "delete",
+          "deployment",
+          "deployment_status",
+          "discussion",
+          "discussion_comment",
+          "fork",
+          "gollum",
+          "issues",
+          "issue_comment",
+          "label",
+          "merge_group",
+          "milestone",
+          "page_build",
+          "public",
+          "pull_request",
+          "pull_request_review",
+          "pull_request_review_comment",
+          "push",
+          "registry_package",
+          "release",
+          "repository",
+          "repository_dispatch",
+          "status",
+          "watch",
+          "workflow_dispatch",
+          "workflow_run"
+        ]
+      },
+      "pull_requests": []
+    },
+    {
+      "id": 117842562010,
+      "name": "Validate Structure",
+      "node_id": "CR_kwDORoMukM8AAAAbb_bL2g",
+      "head_sha": "b978b44f10524a42407df2866dff7b4711d14e38",
+      "external_id": "b6c6f184-0cb6-5e70-b10a-51c25152d1d1",
+      "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117842562010",
+      "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184028820/job/117842562010",
+      "details_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184028820/job/117842562010",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-19T01:09:22Z",
+      "completed_at": "2026-10-19T01:09:37Z",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 2,
+        "annotations_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/117842562010/annotations"
+      },
+      "check_suite": {
+        "id": 106180167549
+      },
+      "app": {
+        "id": 15368,
+        "client_id": "Iv1.05c79e9ad1f6bdfa",
+        "slug": "github-actions",
+        "node_id": "MDM6QXBwMTUzNjg=",
+        "owner": {
+          "login": "github",
+          "id": 9919,
+          "node_id": "MDEyOk9yZ2FuaXphdGlvbjk5MTk=",
+          "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/github",
+          "html_url": "https://github.com/github",
+          "followers_url": "https://api.github.com/users/github/followers",
+          "following_url": "https://api.github.com/users/github/following{/other_user}",
+          "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+          "organizations_url": "https://api.github.com/users/github/orgs",
+          "repos_url": "https://api.github.com/users/github/repos",
+          "events_url": "https://api.github.com/users/github/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/github/received_events",
+          "type": "Organization",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "name": "GitHub Actions",
+        "description": "Automate your workflow from idea to production",
+        "external_url": "https://help.github.com/en/actions",
+        "html_url": "https://github.com/apps/github-actions",
+        "created_at": "2018-07-30T09:30:17Z",
+        "updated_at": "2026-06-18T16:17:48Z",
+        "permissions": {
+          "actions": "write",
+          "administration": "read",
+          "artifact_metadata": "write",
+          "attestations": "write",
+          "checks": "write",
+          "code_quality": "write",
+          "contents": "write",
+          "copilot_requests": "write",
+          "deployments": "write",
+          "discussions": "write",
+          "drives": "write",
+          "issues": "write",
+          "merge_queues": "write",
+          "metadata": "read",
+          "models": "read",
+          "packages": "write",
+          "pages": "write",
+          "pull_requests": "write",
+          "repository_hooks": "write",
+          "repository_projects": "write",
+          "security_events": "write",
+          "statuses": "write",
+          "vulnerability_alerts": "read"
+        },
+        "events": [
+          "branch_protection_rule",
+          "check_run",
+          "check_suite",
+          "create",
+          "delete",
+          "deployment",
+          "deployment_status",
+          "discussion",
+          "discussion_comment",
+          "fork",
+          "gollum",
+          "issues",
+          "issue_comment",
+          "label",
+          "merge_group",
+          "milestone",
+          "page_build",
+          "public",
+          "pull_request",
+          "pull_request_review",
+          "pull_request_review_comment",
+          "push",
+          "registry_package",
+          "release",
+          "repository",
+          "repository_dispatch",
+          "status",
+          "watch",
+          "workflow_dispatch",
+          "workflow_run"
+        ]
+      },
+      "pull_requests": []
+    }
+  ],
+  "mergeChecks": [
+    {
+      "total_count": 0,
+      "check_runs": []
+    }
+  ],
+  "graph": {
+    "data": {
+      "repository": {
+        "pullRequest": {
+          "number": 264,
+          "headRefOid": "b978b44f10524a42407df2866dff7b4711d14e38",
+          "baseRefOid": "e3ffecf4414f6ff27039a969b2ef670b1b9dc55e",
+          "mergedAt": "2026-10-19T01:52:12Z",
+          "mergeCommit": {
+            "oid": "be4024353155ebaad8301dba8a9949666d376877",
+            "tree": {
+              "oid": "68b2923eadb39c17466a1576bbfdd4995b682b1f"
+            }
+          },
+          "author": {
+            "login": "ranzuozhou"
+          },
+          "mergedBy": {
+            "login": "ranzuozhou"
+          },
+          "reviewDecision": "REVIEW_REQUIRED",
+          "reviewThreads": {
+            "totalCount": 0,
+            "pageInfo": {
+              "hasNextPage": false,
+              "endCursor": null
+            },
+            "nodes": []
+          }
+        }
+      }
+    }
+  },
+  "audit": {
+    "message": "Not Found",
+    "documentation_url": "https://docs.github.com/rest/orgs/orgs#get-the-audit-log-for-an-organization",
+    "status": "404"
+  },
+  "requests": [
+    {
+      "name": "pull-264",
+      "argv": [
+        "gh",
+        "api",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/pulls/264"
+      ],
+      "startedAt": "2026-10-19T01:55:43.727Z",
+      "endedAt": "2026-10-19T01:55:44.575Z",
+      "exit": 0,
+      "optional": false,
+      "stdout": {
+        "path": "pull-264.json",
+        "bytes": 24004,
+        "sha256": "c98418ede7aaec9141cdb4158c44c609abe3afaca3fcbe01fdbcfcffc1fff007"
+      },
+      "stderr": {
+        "path": "pull-264.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "merge-commit",
+      "argv": [
+        "gh",
+        "api",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/commits/be4024353155ebaad8301dba8a9949666d376877"
+      ],
+      "startedAt": "2026-10-19T01:55:44.587Z",
+      "endedAt": "2026-10-19T01:55:45.981Z",
+      "exit": 0,
+      "optional": false,
+      "stdout": {
+        "path": "merge-commit.json",
+        "bytes": 1271852,
+        "sha256": "57c58b27a1240637519178db4d11cd355a51703c78cb10c4110d6d93e44acee6"
+      },
+      "stderr": {
+        "path": "merge-commit.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "head-commit",
+      "argv": [
+        "gh",
+        "api",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/commits/b978b44f10524a42407df2866dff7b4711d14e38"
+      ],
+      "startedAt": "2026-10-19T01:55:45.987Z",
+      "endedAt": "2026-10-19T01:55:46.879Z",
+      "exit": 0,
+      "optional": false,
+      "stdout": {
+        "path": "head-commit.json",
+        "bytes": 254624,
+        "sha256": "120b6a5c5478feb7953e4e7ad0291b6c54f61af8eadf3cd933a7e4e8f53177ef"
+      },
+      "stderr": {
+        "path": "head-commit.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "develop-ref",
+      "argv": [
+        "gh",
+        "api",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/git/ref/heads/develop"
+      ],
+      "startedAt": "2026-10-19T01:55:46.881Z",
+      "endedAt": "2026-10-19T01:55:47.623Z",
+      "exit": 0,
+      "optional": false,
+      "stdout": {
+        "path": "develop-ref.json",
+        "bytes": 378,
+        "sha256": "4ac2fad2d1580477a6aa2ed0c2203b35e15aed66ca5d0b80dcac29bbde709ea7"
+      },
+      "stderr": {
+        "path": "develop-ref.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "reviews-paginated",
+      "argv": [
+        "gh",
+        "api",
+        "--paginate",
+        "--slurp",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/pulls/264/reviews?per_page=100"
+      ],
+      "startedAt": "2026-10-19T01:55:47.623Z",
+      "endedAt": "2026-10-19T01:55:48.428Z",
+      "exit": 0,
+      "optional": false,
+      "stdout": {
+        "path": "reviews-paginated.json",
+        "bytes": 4,
+        "sha256": "cf1cbb66a638b4860a516671fb74850e6ccf787fe6c4c8d29e9c04efe880bd05"
+      },
+      "stderr": {
+        "path": "reviews-paginated.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "develop-effective-rules",
+      "argv": [
+        "gh",
+        "api",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/rules/branches/develop"
+      ],
+      "startedAt": "2026-10-19T01:55:48.429Z",
+      "endedAt": "2026-10-19T01:55:49.214Z",
+      "exit": 0,
+      "optional": false,
+      "stdout": {
+        "path": "develop-effective-rules.json",
+        "bytes": 1104,
+        "sha256": "2a99f4743ec9450c9c6520cad34008c50111869d1f72f9536a7f8bd3e953fe4b"
+      },
+      "stderr": {
+        "path": "develop-effective-rules.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "develop-ruleset",
+      "argv": [
+        "gh",
+        "api",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/rulesets/14008221"
+      ],
+      "startedAt": "2026-10-19T01:55:49.215Z",
+      "endedAt": "2026-10-19T01:55:50.016Z",
+      "exit": 0,
+      "optional": false,
+      "stdout": {
+        "path": "develop-ruleset.json",
+        "bytes": 1353,
+        "sha256": "f9bfb1946a09dee8887492fa614c47371287b5fda4be2a5df861896a04d95082"
+      },
+      "stderr": {
+        "path": "develop-ruleset.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "develop-rule-suites",
+      "argv": [
+        "gh",
+        "api",
+        "--paginate",
+        "--slurp",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/rulesets/rule-suites?ref=refs%2Fheads%2Fdevelop&per_page=100"
+      ],
+      "startedAt": "2026-10-19T01:55:50.017Z",
+      "endedAt": "2026-10-19T01:55:51.082Z",
+      "exit": 0,
+      "optional": true,
+      "stdout": {
+        "path": "develop-rule-suites.json",
+        "bytes": 996,
+        "sha256": "f72ff930ae611bc7f6755abab2929f2284bc5e06db05b85bca915983fa51e111"
+      },
+      "stderr": {
+        "path": "develop-rule-suites.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "rule-suite-4591526268",
+      "argv": [
+        "gh",
+        "api",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/rulesets/rule-suites/4591526268"
+      ],
+      "startedAt": "2026-10-19T01:55:51.083Z",
+      "endedAt": "2026-10-19T01:55:51.892Z",
+      "exit": 0,
+      "optional": true,
+      "stdout": {
+        "path": "rule-suite-4591526268.json",
+        "bytes": 1003,
+        "sha256": "2b53c9a0e31e55bc184a1e682a4f2162313366a819cf02ad93a7f6225e012f59"
+      },
+      "stderr": {
+        "path": "rule-suite-4591526268.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "head-checks-paginated",
+      "argv": [
+        "gh",
+        "api",
+        "--paginate",
+        "--slurp",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/commits/b978b44f10524a42407df2866dff7b4711d14e38/check-runs?per_page=100"
+      ],
+      "startedAt": "2026-10-19T01:55:51.893Z",
+      "endedAt": "2026-10-19T01:55:52.869Z",
+      "exit": 0,
+      "optional": false,
+      "stdout": {
+        "path": "head-checks-paginated.json",
+        "bytes": 37726,
+        "sha256": "233463c024bbe2d7ae3729a904e0103896d2323cf276bd95ee9b5b431b950550"
+      },
+      "stderr": {
+        "path": "head-checks-paginated.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "merge-checks-paginated",
+      "argv": [
+        "gh",
+        "api",
+        "--paginate",
+        "--slurp",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/commits/be4024353155ebaad8301dba8a9949666d376877/check-runs?per_page=100"
+      ],
+      "startedAt": "2026-10-19T01:55:52.870Z",
+      "endedAt": "2026-10-19T01:55:53.707Z",
+      "exit": 0,
+      "optional": true,
+      "stdout": {
+        "path": "merge-checks-paginated.json",
+        "bytes": 35,
+        "sha256": "d741eb9403573910e66d899f82e7751a5bb75a4ba98d8f73d81219f8aca0ae9d"
+      },
+      "stderr": {
+        "path": "merge-checks-paginated.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "pull-graphql",
+      "argv": [
+        "gh",
+        "api",
+        "graphql",
+        "-f",
+        "query=query {\n  repository(owner:\"MJ-AgentLab\", name:\"mj-agentlab-marketplace\") {\n    pullRequest(number:264) {\n      number headRefOid baseRefOid mergedAt\n      mergeCommit { oid tree { oid } }\n      author { login } mergedBy { login } reviewDecision\n      reviewThreads(first:100) {\n        totalCount pageInfo { hasNextPage endCursor }\n        nodes { id isResolved isOutdated path line comments(first:1) { nodes { url author { login } } } }\n      }\n    }\n  }\n}"
+      ],
+      "startedAt": "2026-10-19T01:55:53.707Z",
+      "endedAt": "2026-10-19T01:55:54.665Z",
+      "exit": 0,
+      "optional": false,
+      "stdout": {
+        "path": "pull-graphql.json",
+        "bytes": 518,
+        "sha256": "ca1471d8c1e21c5e719fb4e6709fc31d352f58b3c863dca88c74e00b5630047e"
+      },
+      "stderr": {
+        "path": "pull-graphql.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "repository-org-audit-log",
+      "argv": [
+        "gh",
+        "api",
+        "--method",
+        "GET",
+        "orgs/MJ-AgentLab/audit-log",
+        "-f",
+        "phrase=repo:MJ-AgentLab/mj-agentlab-marketplace created:2026-10-19",
+        "-f",
+        "per_page=100"
+      ],
+      "startedAt": "2026-10-19T01:55:54.665Z",
+      "endedAt": "2026-10-19T01:55:55.374Z",
+      "exit": 1,
+      "optional": true,
+      "stdout": {
+        "path": "repository-org-audit-log.json",
+        "bytes": 137,
+        "sha256": "875304a522b4c5c07101c03cd5eab96b2818c9fa2be10733c0cd426613baa6d8"
+      },
+      "stderr": {
+        "path": "repository-org-audit-log.stderr",
+        "bytes": 25,
+        "sha256": "d2c8985c89b29a842ac4946d13bdbc297709f44f20bb968faf9682664b211db6"
+      }
+    }
+  ],
+  "captureCorrection": "The first read-only capture stopped at a GraphQL query with a missing closing brace. Its script and all raw partial responses remain in postmerge-be402435 and query-error-r1.mjs. This final capture is separate, with a balanced multiline query and per-request durable metadata; no repository state was changed."
+}

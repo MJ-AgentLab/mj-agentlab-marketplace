@@ -1,0 +1,13 @@
+{
+  "recordedAt": "2026-10-19T02:06:47.4069687+00:00",
+  "reviewer": "/root/latest_intent_fit",
+  "outcome": "R1 finding corrected before commit",
+  "finding": "Initial global Documentation-heading insertion added the new264 entry both to Unreleased and published8.3.1",
+  "originalDiff": "closeout-review-r1.patch",
+  "correction": "Remove both inserted lines, verify restored Git blob equals actual merge baseline, then insert exactly once under first Unreleased Documentation heading",
+  "restoredBaseBlob": "547d9214d9c8337ae22ad3c05fe5084c5ae645ff",
+  "restoredBlobMatched": true,
+  "publishedHistoryPreserved": true,
+  "candidateRuntimeChanged": false,
+  "earlierStructuralValidate": "PASS only; semantic finding was independently detected and not treated as overall PASS"
+}

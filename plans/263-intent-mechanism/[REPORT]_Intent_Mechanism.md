@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-19
 state: active
-version: v1.1
+version: v1.2
 layer: working
 task: 263-intent-mechanism
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/263
@@ -18,11 +18,11 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/263
 
 ## Current result and limits
 
-INTENT core is implemented in the integration candidate: formal type, stable identity, five-part original meaning, complete acceptance/source binding, existing workflow handoff, strict full-collection checks and actual navigation/source-byte closure. The source/design contract remains the complete accepted B1; the newly rendered INT-2026-001 is truthfully draft, not separately Owner accepted.
+INTENT core is delivered in develop at actual merge `be4024353155ebaad8301dba8a9949666d376877`, tree `68b2923eadb39c17466a1576bbfdd4995b682b1f`: formal type, stable identity, five-part original meaning, complete acceptance/source binding, existing workflow handoff, strict full-collection checks and actual navigation/source-byte closure. The source/design contract remains the complete accepted B1; the newly rendered INT-2026-001 is truthfully draft, not separately Owner accepted.
 
 Bounded independent acceptance is PASS for eight frozen scenarios. This is Agent synthetic policy-response sampling and actual temporary-file probes, not long-term business validation. Functional candidate `59c576d437d213a20476cfda084a9ed6e39a8011`, tree `0d7e201b19bd8b912917fc2ad6b9702d38b2a37e`, completed thirteen exact isolated installations on Codex 0.147.0, six installed Diagram Python executions and eighteen installed Learning Evidence operations. Later evidence/document-only changes have their own closure/CI checks; this receipt does not relabel the earlier run as a later head test.
 
-Children #266 and #265 actually merged; acceptance-child/protected main delivery is recorded by the live Epic and PR operations. Engineering candidate readiness, actual protected merge, whole-plan completion, original-meaning outcome and Owner final acceptance remain separate. Native unanswered-window persistence is unproved/deferred, real long-term effect is NOT_RUN, and protected GitHub approval / Owner final acceptance are not supplied by synthetic roles.
+Children #266, #265 and #267, then main #264 actually merged. Fresh actual-merge verification is recorded below. GitHub rule-suite 4591526268 explicitly records bypass with missing last-push approval; this is not protected-approval PASS or a future waiver. Engineering candidate readiness, actual protected merge, whole-plan completion, original-meaning outcome and Owner final acceptance remain separate. Native unanswered-window persistence is unproved/deferred, real long-term effect is NOT_RUN, and protected GitHub approval / Owner final acceptance are not supplied by synthetic roles.
 
 ## Implementation and repeatable verification
 
@@ -63,7 +63,9 @@ Frozen criterion [INTENT-IA-R1](./evidence/sources/engineering/independent-rubri
 - Raw transcript staging initially reported CRLF as trailing whitespace. Original bytes/hashes are preserved; only the two frozen evidence subtrees receive `cr-at-eol`. Runtime/source whitespace checking elsewhere remains unchanged. The original staging report is retained with the later operation receipts.
 - First acceptance-batch validation rejected an over-budget root instruction pointer (16,500 bytes versus the existing 16,384 limit). The new pointer was shortened; the budget/checker/configuration were kept unchanged. Original failure and fresh validation are separate evidence.
 
-## Actual integration, remaining work and recovery
+## Historical integration snapshots and recovery
+
+The following table preserves the earlier candidate-stage state; the later actual #264 merge and post-merge evidence are recorded in the final section below.
 
 | Child / target | Actual operation | Evidence / remaining condition |
 |---|---|---|
@@ -74,7 +76,7 @@ Frozen criterion [INTENT-IA-R1](./evidence/sources/engineering/independent-rubri
 
 Plugins, VERSION, marketplace registration and pinned compatibility source are unchanged. No main/tag/Release or branch-protection modification is part of this delivery. Original user-workspace local changes remain untouched. Restore through ordinary corrective commits/PRs on isolated task branches, preserve accepted sources and previous failures, and stop only the affected permission/decision-dependent operation.
 
-Epic remains open while protected merge, explicit deferrals or Owner final acceptance remain outstanding. Later recovery resumes the same task directory and decision history.
+Epic remains open for explicit deferrals, the observed historical approval gap and Owner final acceptance. The actual merge does not retrospectively satisfy its missing approval. Later recovery resumes the same task directory and decision history.
 
 ## Reproduction and final-record boundary
 
@@ -88,4 +90,26 @@ The later explicit request authorizes rechecking #264 and merging only after rea
 
 The integration branch uses an ordinary merge of that exact develop commit, without reset/force or protection changes. Root instruction pointers are shortened within the existing byte budget while retaining both task REPORT links and the strict decision/protection rules. Runtime, versions, CI, compatibility pins and the 149 INTENT source snapshots are unchanged. New candidate checks and the actual current-head approval gate must be collected after this synchronization; earlier successful checks remain scoped to their original tree and do not prove the new candidate.
 
-Acceptance-child #267 actually merged as `ae27cf4d90bcd23b4362e7c6aef01876cdcf3328`, tree `92bf20ad0bea00cefe2759ba142744ddb2f0171c`; its final actual CI and post-integration source recovery are in the [canonical operation receipt](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/264#issuecomment-6254091839). Protected #264 merge remains conditional, not completed by this sync. Native unanswered-window persistence stays DEFERRED, long-term effect stays NOT_RUN, and Owner final acceptance is not supplied by an engineering authorization or the other task's acceptance.
+Acceptance-child #267 actually merged as `ae27cf4d90bcd23b4362e7c6aef01876cdcf3328`, tree `92bf20ad0bea00cefe2759ba142744ddb2f0171c`; its final actual CI and post-integration source recovery are in the [canonical operation receipt](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/264#issuecomment-6254091839). At that synchronization snapshot, #264 remained conditional and was not completed by the sync; the later actual merge and its missing approval are recorded below. Native unanswered-window persistence stays DEFERRED, long-term effect stays NOT_RUN, and Owner final acceptance is not supplied by an engineering authorization or the other task's acceptance.
+
+## Actual #264 merge and fresh verification, 2026-10-19
+
+GitHub confirms #264 actually merged at 2026-10-19T01:52:12Z (09:52:12 Asia/Taipei), by ranzuozhou. Actual merge `be4024353155ebaad8301dba8a9949666d376877` has parents `e3ffecf4414f6ff27039a969b2ef670b1b9dc55e` and `b978b44f10524a42407df2866dff7b4711d14e38`; its tree `68b2923eadb39c17466a1576bbfdd4995b682b1f` exactly equals the tested b978 candidate. These are observed operations, not new Owner acceptance.
+
+| Actual-merge verification | Recoverable evidence | Result / boundary |
+|---|---|---|
+| Identity and ancestry | [Identity receipt](./evidence/postmerge-264/actual-merge-identity.json), [independent audit](./evidence/postmerge-264/audit/final/independent-postmerge-audit.json) | PASS: actual merge/tree/parents and develop ancestry, independent of approval result |
+| Fresh full tests | [Execution](./evidence/postmerge-264/tests.json), [complete output](./evidence/postmerge-264/tests.log) | 597/597, zero fail/skip; REQUIRE_PYTHON=1 and REQUIRE_PWSH=1; actual be402 source, not relabeled candidate CI |
+| Strict validation and tools | [Validation output](./evidence/postmerge-264/validate.log), [baseline tools](./evidence/postmerge-264/baseline-tools.log) | PASS; Codex 0.147.0, existing 20 development skills/seven public skills |
+| Actual installations and installed Python | [Execution](./evidence/postmerge-264/smoke-execution.json), [complete output](./evidence/postmerge-264/smoke.log), [result](./evidence/postmerge-264/smoke-result.json), [summary](./evidence/postmerge-264/smoke-summary.json) | 13/13 exact isolated scenarios, six installed Diagram Python executions and eighteen Learning Evidence operations; no failed commands; no fresh model/client-window or real-effect claim |
+| Actual source recovery | [Projection and readback](./evidence/postmerge-264/source-closure.json) | 149 INTENT snapshots restored byte-identically; complete identity uniqueness checked; 3743 navigation resources; 67 source docs /58 projected docs |
+
+The independent audit's [56-original manifest](./evidence/postmerge-264/audit/audit-file-manifest.json) and [archive mapping](./evidence/postmerge-264/audit/archive-receipt.json) retain original API/command bytes, hashes, locations, initial method/read failures and their corrections. Original absolute paths describe execution locations; the grouped relative copies restore their bytes. The [post-merge receipt](./evidence/postmerge-264/postmerge-receipt.json) inventories this task's new verification evidence.
+
+Approval protection is **NOT_MET_BYPASS_OBSERVED**. Rule-suite **4591526268** binds e3ff → be402, develop, actor and merge time; its result is bypass. Its pull_request evaluation fails with “New changes require approval from someone other than the last pusher.” Required-status/non-fast-forward/deletion evaluations pass. Reviews remain empty and reviewDecision remains REVIEW_REQUIRED. The independent audit verifies that b978's A6, structure and both platform checks completed successfully before merge, and threads are zero; those successes do not fill the approval gap. Supplementary organization audit-log access returned 404; the original failure is retained, not interpreted as proof that no audit event exists. No rollback, self-approval, protection edit or later waiver is inferred.
+
+The follow-up batch records facts and evidence in this same INDEX/REPORT directory after the prior main PR ended. It changes no runtime, VERSION, compatibility pin, published main/tag/Release, the complete accepted B1 or any of the 149 original INTENT snapshots. The closeout PR itself still requires normal develop protection; its future actual merge identity belongs to the live Epic/operation receipt, without another self-recording commit cycle.
+
+Core engineering delivery and actual-merge verification are complete within the scope above. Native unanswered-window persistence remains DEFERRED, real long-term effect remains NOT_RUN, the new INTENT rendering remains draft without separate wording acceptance, and Owner final product acceptance remains NOT_PROVIDED. This merge notification and continuation request are not substituted for those decisions. Epic #263 stays open for these retained items and the historical approval gap; recovery reuses this directory and the existing accepted scope.
+
+Closeout review R1 caught an uncommitted CHANGELOG insertion that also touched published 8.3.1. It was corrected before commit by restoring the exact base blob then inserting only under Unreleased; the [original diff and correction](./evidence/postmerge-264/closeout-review-r1.json) remain. Earlier structural validation did not prove semantic history preservation.

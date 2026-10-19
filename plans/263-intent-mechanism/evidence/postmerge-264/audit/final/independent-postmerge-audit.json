@@ -1,0 +1,529 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "/root/latest_intent_fit",
+  "independent": true,
+  "capturedAt": "2026-10-19T01:57:15.947Z",
+  "capturedAtTaipei": "2026-10-19 09:57:15 Asia/Taipei",
+  "scope": "Read-only independent audit of actual #264 merge and available protection execution evidence. TEMP evidence writes only; no repository changes, comments, approvals, review requests, identity changes, merges or rollback.",
+  "merged": {
+    "merged": true,
+    "merged_at": "2026-10-19T01:52:12Z",
+    "merged_by": "ranzuozhou",
+    "author": "ranzuozhou",
+    "actualMerge": "be4024353155ebaad8301dba8a9949666d376877",
+    "sourceHead": "b978b44f10524a42407df2866dff7b4711d14e38"
+  },
+  "mergeCommit": {
+    "sha": "be4024353155ebaad8301dba8a9949666d376877",
+    "tree": "68b2923eadb39c17466a1576bbfdd4995b682b1f",
+    "parents": [
+      "e3ffecf4414f6ff27039a969b2ef670b1b9dc55e",
+      "b978b44f10524a42407df2866dff7b4711d14e38"
+    ]
+  },
+  "sourceHead": {
+    "sha": "b978b44f10524a42407df2866dff7b4711d14e38",
+    "tree": "68b2923eadb39c17466a1576bbfdd4995b682b1f"
+  },
+  "sameTree": true,
+  "actualDevelop": "be4024353155ebaad8301dba8a9949666d376877",
+  "identityOutcome": "PASS",
+  "approvalProtectionOutcome": "NOT_MET_BYPASS_OBSERVED",
+  "observed": {
+    "ruleSuite": {
+      "id": 4591526268,
+      "exactMergeBindingVerified": true,
+      "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/rulesets/rule-suites/4591526268",
+      "actor": "ranzuozhou",
+      "before": "e3ffecf4414f6ff27039a969b2ef670b1b9dc55e",
+      "after": "be4024353155ebaad8301dba8a9949666d376877",
+      "ref": "refs/heads/develop",
+      "pushedAt": "2026-10-19T09:52:12+08:00",
+      "result": "bypass",
+      "ruleEvaluations": [
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008221,
+            "name": "protect-develop"
+          },
+          "enforcement": "active",
+          "result": "fail",
+          "rule_type": "pull_request",
+          "details": "New changes require approval from someone other than the last pusher."
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008221,
+            "name": "protect-develop"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "non_fast_forward"
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008221,
+            "name": "protect-develop"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "required_status_checks"
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008221,
+            "name": "protect-develop"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "deletion"
+        }
+      ]
+    },
+    "decisiveApprovalFailure": {
+      "enforcement": "active",
+      "ruleType": "pull_request",
+      "result": "fail",
+      "exactDetails": "New changes require approval from someone other than the last pusher."
+    },
+    "actualReviews": [],
+    "currentReviewDecision": "REVIEW_REQUIRED",
+    "threadCollection": {
+      "total": 0,
+      "retrieved": 0,
+      "hasNextPage": false,
+      "unresolved": []
+    },
+    "headRequiredChecksCompletedBeforeMerge": {
+      "outcome": "PASS",
+      "results": [
+        {
+          "context": "Validate Structure",
+          "checks": [
+            {
+              "head": "b978b44f10524a42407df2866dff7b4711d14e38",
+              "status": "completed",
+              "conclusion": "success",
+              "completedAt": "2026-10-19T01:09:42Z",
+              "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184032186/job/117842572120"
+            },
+            {
+              "head": "b978b44f10524a42407df2866dff7b4711d14e38",
+              "status": "completed",
+              "conclusion": "success",
+              "completedAt": "2026-10-19T01:09:37Z",
+              "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184028820/job/117842562010"
+            }
+          ]
+        },
+        {
+          "context": "A6 / Check",
+          "checks": [
+            {
+              "head": "b978b44f10524a42407df2866dff7b4711d14e38",
+              "status": "completed",
+              "conclusion": "success",
+              "completedAt": "2026-10-19T01:22:57Z",
+              "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39185072351/job/117845671981"
+            },
+            {
+              "head": "b978b44f10524a42407df2866dff7b4711d14e38",
+              "status": "completed",
+              "conclusion": "success",
+              "completedAt": "2026-10-19T01:10:28Z",
+              "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184106806/job/117842784724"
+            },
+            {
+              "head": "b978b44f10524a42407df2866dff7b4711d14e38",
+              "status": "completed",
+              "conclusion": "success",
+              "completedAt": "2026-10-19T01:09:36Z",
+              "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184032323/job/117842572599"
+            }
+          ]
+        }
+      ]
+    },
+    "headPlatformMatrixCompletedBeforeMerge": [
+      {
+        "name": "Baseline compat (windows-latest)",
+        "head": "b978b44f10524a42407df2866dff7b4711d14e38",
+        "status": "completed",
+        "conclusion": "success",
+        "completedAt": "2026-10-19T01:21:32Z",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184032186/job/117842572596"
+      },
+      {
+        "name": "Baseline compat (ubuntu-latest)",
+        "head": "b978b44f10524a42407df2866dff7b4711d14e38",
+        "status": "completed",
+        "conclusion": "success",
+        "completedAt": "2026-10-19T01:13:38Z",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39184032186/job/117842572248"
+      }
+    ],
+    "currentActiveRules": {
+      "rulesetId": 14008221,
+      "enforcement": "active",
+      "pullRequest": {
+        "required_approving_review_count": 1,
+        "dismiss_stale_reviews_on_push": true,
+        "required_reviewers": [],
+        "require_code_owner_review": false,
+        "dismissal_restriction": {
+          "enabled": false,
+          "allowed_actors": []
+        },
+        "require_last_push_approval": true,
+        "required_review_thread_resolution": true,
+        "require_extra_approval_for_unattributed_changes": true,
+        "allowed_merge_methods": [
+          "merge"
+        ]
+      },
+      "currentUserCanBypass": "always",
+      "bypassActors": [
+        {
+          "actor_id": 5,
+          "actor_type": "RepositoryRole",
+          "bypass_mode": "always"
+        }
+      ]
+    }
+  },
+  "classification": {
+    "directlyObserved": "GitHub suite4591526268 explicitly reports result=bypass for the exact e3ff-to-be402 develop update, with an active pull_request rule failure and its preserved last-push approval message. Bypass is not inferred solely from empty reviews. The same suite reports required_status_checks pass.",
+    "limitedInference": "The observed current bypass permission is consistent with technical capability to bypass. It is not business authorization, proof of intent, a retroactive acceptance or a future exemption. No additional bypass mechanism or motive is inferred.",
+    "notEstablished": [
+      "The organization audit-log endpoint returnedHTTP404. This does not establish that no audit event exists; organization audit evidence is unavailable through this request.",
+      "No real current-head non-author approval is present in the fully paginated review records; approval is not reconstructed from merge completion, checked CI or Agent acceptance.",
+      "Owner final INTENT product acceptance and acceptance of the draft wording remain unprovided; the other task acceptance does not cover Epic263.",
+      "Native unanswered-window persistence and long-term business effect remain outside this audit and unproved.",
+      "Parent Agent post-merge full tests, installations, Python and source recovery are separate work; this audit does not claim those runs completed."
+    ]
+  },
+  "organizationAuditAvailability": {
+    "exit": 1,
+    "response": {
+      "message": "Not Found",
+      "documentation_url": "https://docs.github.com/rest/orgs/orgs#get-the-audit-log-for-an-organization",
+      "status": "404"
+    },
+    "source": "repository-org-audit-log.json"
+  },
+  "conclusions": [
+    "Actual merge identity/tree/parents are verified.",
+    "Head checks and both platform matrices completed successfully before the recorded merge, but that does not repair the failed approval rule.",
+    "Protected approval was not met. Preserve the actual bypass fact and empty reviews without reporting protection PASS or assuming future exemption.",
+    "No rollback was performed or recommended as an autonomous action; retain facts and use normal protection for later corrective/documentation PRs."
+  ],
+  "captureCorrection": "The first read-only capture stopped at a GraphQL query with a missing closing brace. Its script and all raw partial responses remain in postmerge-be402435 and query-error-r1.mjs. This final capture is separate, with a balanced multiline query and per-request durable metadata; no repository state was changed.",
+  "sources": [
+    {
+      "name": "pull-264",
+      "argv": [
+        "gh",
+        "api",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/pulls/264"
+      ],
+      "startedAt": "2026-10-19T01:55:43.727Z",
+      "endedAt": "2026-10-19T01:55:44.575Z",
+      "exit": 0,
+      "optional": false,
+      "stdout": {
+        "path": "pull-264.json",
+        "bytes": 24004,
+        "sha256": "c98418ede7aaec9141cdb4158c44c609abe3afaca3fcbe01fdbcfcffc1fff007"
+      },
+      "stderr": {
+        "path": "pull-264.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "merge-commit",
+      "argv": [
+        "gh",
+        "api",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/commits/be4024353155ebaad8301dba8a9949666d376877"
+      ],
+      "startedAt": "2026-10-19T01:55:44.587Z",
+      "endedAt": "2026-10-19T01:55:45.981Z",
+      "exit": 0,
+      "optional": false,
+      "stdout": {
+        "path": "merge-commit.json",
+        "bytes": 1271852,
+        "sha256": "57c58b27a1240637519178db4d11cd355a51703c78cb10c4110d6d93e44acee6"
+      },
+      "stderr": {
+        "path": "merge-commit.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "head-commit",
+      "argv": [
+        "gh",
+        "api",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/commits/b978b44f10524a42407df2866dff7b4711d14e38"
+      ],
+      "startedAt": "2026-10-19T01:55:45.987Z",
+      "endedAt": "2026-10-19T01:55:46.879Z",
+      "exit": 0,
+      "optional": false,
+      "stdout": {
+        "path": "head-commit.json",
+        "bytes": 254624,
+        "sha256": "120b6a5c5478feb7953e4e7ad0291b6c54f61af8eadf3cd933a7e4e8f53177ef"
+      },
+      "stderr": {
+        "path": "head-commit.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "develop-ref",
+      "argv": [
+        "gh",
+        "api",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/git/ref/heads/develop"
+      ],
+      "startedAt": "2026-10-19T01:55:46.881Z",
+      "endedAt": "2026-10-19T01:55:47.623Z",
+      "exit": 0,
+      "optional": false,
+      "stdout": {
+        "path": "develop-ref.json",
+        "bytes": 378,
+        "sha256": "4ac2fad2d1580477a6aa2ed0c2203b35e15aed66ca5d0b80dcac29bbde709ea7"
+      },
+      "stderr": {
+        "path": "develop-ref.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "reviews-paginated",
+      "argv": [
+        "gh",
+        "api",
+        "--paginate",
+        "--slurp",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/pulls/264/reviews?per_page=100"
+      ],
+      "startedAt": "2026-10-19T01:55:47.623Z",
+      "endedAt": "2026-10-19T01:55:48.428Z",
+      "exit": 0,
+      "optional": false,
+      "stdout": {
+        "path": "reviews-paginated.json",
+        "bytes": 4,
+        "sha256": "cf1cbb66a638b4860a516671fb74850e6ccf787fe6c4c8d29e9c04efe880bd05"
+      },
+      "stderr": {
+        "path": "reviews-paginated.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "develop-effective-rules",
+      "argv": [
+        "gh",
+        "api",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/rules/branches/develop"
+      ],
+      "startedAt": "2026-10-19T01:55:48.429Z",
+      "endedAt": "2026-10-19T01:55:49.214Z",
+      "exit": 0,
+      "optional": false,
+      "stdout": {
+        "path": "develop-effective-rules.json",
+        "bytes": 1104,
+        "sha256": "2a99f4743ec9450c9c6520cad34008c50111869d1f72f9536a7f8bd3e953fe4b"
+      },
+      "stderr": {
+        "path": "develop-effective-rules.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "develop-ruleset",
+      "argv": [
+        "gh",
+        "api",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/rulesets/14008221"
+      ],
+      "startedAt": "2026-10-19T01:55:49.215Z",
+      "endedAt": "2026-10-19T01:55:50.016Z",
+      "exit": 0,
+      "optional": false,
+      "stdout": {
+        "path": "develop-ruleset.json",
+        "bytes": 1353,
+        "sha256": "f9bfb1946a09dee8887492fa614c47371287b5fda4be2a5df861896a04d95082"
+      },
+      "stderr": {
+        "path": "develop-ruleset.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "develop-rule-suites",
+      "argv": [
+        "gh",
+        "api",
+        "--paginate",
+        "--slurp",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/rulesets/rule-suites?ref=refs%2Fheads%2Fdevelop&per_page=100"
+      ],
+      "startedAt": "2026-10-19T01:55:50.017Z",
+      "endedAt": "2026-10-19T01:55:51.082Z",
+      "exit": 0,
+      "optional": true,
+      "stdout": {
+        "path": "develop-rule-suites.json",
+        "bytes": 996,
+        "sha256": "f72ff930ae611bc7f6755abab2929f2284bc5e06db05b85bca915983fa51e111"
+      },
+      "stderr": {
+        "path": "develop-rule-suites.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "rule-suite-4591526268",
+      "argv": [
+        "gh",
+        "api",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/rulesets/rule-suites/4591526268"
+      ],
+      "startedAt": "2026-10-19T01:55:51.083Z",
+      "endedAt": "2026-10-19T01:55:51.892Z",
+      "exit": 0,
+      "optional": true,
+      "stdout": {
+        "path": "rule-suite-4591526268.json",
+        "bytes": 1003,
+        "sha256": "2b53c9a0e31e55bc184a1e682a4f2162313366a819cf02ad93a7f6225e012f59"
+      },
+      "stderr": {
+        "path": "rule-suite-4591526268.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "head-checks-paginated",
+      "argv": [
+        "gh",
+        "api",
+        "--paginate",
+        "--slurp",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/commits/b978b44f10524a42407df2866dff7b4711d14e38/check-runs?per_page=100"
+      ],
+      "startedAt": "2026-10-19T01:55:51.893Z",
+      "endedAt": "2026-10-19T01:55:52.869Z",
+      "exit": 0,
+      "optional": false,
+      "stdout": {
+        "path": "head-checks-paginated.json",
+        "bytes": 37726,
+        "sha256": "233463c024bbe2d7ae3729a904e0103896d2323cf276bd95ee9b5b431b950550"
+      },
+      "stderr": {
+        "path": "head-checks-paginated.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "merge-checks-paginated",
+      "argv": [
+        "gh",
+        "api",
+        "--paginate",
+        "--slurp",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/commits/be4024353155ebaad8301dba8a9949666d376877/check-runs?per_page=100"
+      ],
+      "startedAt": "2026-10-19T01:55:52.870Z",
+      "endedAt": "2026-10-19T01:55:53.707Z",
+      "exit": 0,
+      "optional": true,
+      "stdout": {
+        "path": "merge-checks-paginated.json",
+        "bytes": 35,
+        "sha256": "d741eb9403573910e66d899f82e7751a5bb75a4ba98d8f73d81219f8aca0ae9d"
+      },
+      "stderr": {
+        "path": "merge-checks-paginated.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "pull-graphql",
+      "argv": [
+        "gh",
+        "api",
+        "graphql",
+        "-f",
+        "query=query {\n  repository(owner:\"MJ-AgentLab\", name:\"mj-agentlab-marketplace\") {\n    pullRequest(number:264) {\n      number headRefOid baseRefOid mergedAt\n      mergeCommit { oid tree { oid } }\n      author { login } mergedBy { login } reviewDecision\n      reviewThreads(first:100) {\n        totalCount pageInfo { hasNextPage endCursor }\n        nodes { id isResolved isOutdated path line comments(first:1) { nodes { url author { login } } } }\n      }\n    }\n  }\n}"
+      ],
+      "startedAt": "2026-10-19T01:55:53.707Z",
+      "endedAt": "2026-10-19T01:55:54.665Z",
+      "exit": 0,
+      "optional": false,
+      "stdout": {
+        "path": "pull-graphql.json",
+        "bytes": 518,
+        "sha256": "ca1471d8c1e21c5e719fb4e6709fc31d352f58b3c863dca88c74e00b5630047e"
+      },
+      "stderr": {
+        "path": "pull-graphql.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "repository-org-audit-log",
+      "argv": [
+        "gh",
+        "api",
+        "--method",
+        "GET",
+        "orgs/MJ-AgentLab/audit-log",
+        "-f",
+        "phrase=repo:MJ-AgentLab/mj-agentlab-marketplace created:2026-10-19",
+        "-f",
+        "per_page=100"
+      ],
+      "startedAt": "2026-10-19T01:55:54.665Z",
+      "endedAt": "2026-10-19T01:55:55.374Z",
+      "exit": 1,
+      "optional": true,
+      "stdout": {
+        "path": "repository-org-audit-log.json",
+        "bytes": 137,
+        "sha256": "875304a522b4c5c07101c03cd5eab96b2818c9fa2be10733c0cd426613baa6d8"
+      },
+      "stderr": {
+        "path": "repository-org-audit-log.stderr",
+        "bytes": 25,
+        "sha256": "d2c8985c89b29a842ac4946d13bdbc297709f44f20bb968faf9682664b211db6"
+      }
+    }
+  ]
+}
