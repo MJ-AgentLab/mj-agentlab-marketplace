@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-19
 state: active
-version: v1.1
+version: v1.2
 layer: working
 task: 269-plans-path-unification
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/269
@@ -36,7 +36,7 @@ Owner 明确要求实施后，Agent 建立 #269 与唯一主 PR #270，实际核
 
 实际日志使用来源原字节，字段/时间只报告已观察值；运行未提供准确起止墙钟时不补造，消息捕获时间不替代实际决定时间。
 
-收据批首次暂存后，git diff --cached --check 对两份真实 CRLF 来源报错，命令按非零立即停止、未提交。为 b-premerge-checks / product-reading-round1 两精确路径声明 cr-at-eol 后复验；来源原字节/绑定未改，普通文本和路径 Harness 门禁保持。
+收据批首次暂存后，git diff --cached --check 对两份真实 CRLF 来源报错，命令按非零立即停止、未提交。为 b-premerge-checks / product-reading-round1 两精确路径声明 cr-at-eol 后复验；后续 product-reading-q4-retest 原始 CRLF 同样先被拦截，再对该精确路径声明格式。来源原字节/绑定未改，普通文本和路径 Harness 门禁保持。
 
 ## Integrated core and independent acceptance
 
@@ -47,12 +47,16 @@ Owner 明确要求实施后，Agent 建立 #269 与唯一主 PR #270，实际核
 | 独立角色 / 真实范围 | 原始结果与恢复 | 当前边界 |
 |---|---|---|
 | 管理阅读，/root/manager_reading | [原轮](./evidence/sources/manager-reading-round1.json)：Q1/Q2/Q4 PASS，Q3 FAIL（#222 旧顶部与实际 8.3.1 发行矛盾）；更新当前顶部、旧正文逐字保留在历史区，API[前](./evidence/sources/issue222-before.json)/[后](./evidence/sources/issue222-after.json)回读保存；[Q3 重跑](./evidence/sources/manager-reading-q3-retest.json) PASS | 原 FAIL 不覆盖，不平均抵消；对原未受影响三题沿用原限定结果 |
-| 产品原意阅读，/root/product_acceptance | [原轮](./evidence/sources/product-reading-round1.json)：Q1–Q3 PASS，Q4 FAIL（INTENT 将候选迁移与最终接受合写“尚未发生”，REPORT 尚为 A 阶段） | 本批 INTENT 改为分别链接实际结果/真实接受、不复制进度，并补本节 A/B 实证；受影响题须独立重跑，尚不提前标通过 |
+| 产品原意阅读，/root/product_acceptance | [原轮](./evidence/sources/product-reading-round1.json)：Q1–Q3 PASS，Q4 FAIL（INTENT 将候选迁移与最终接受合写“尚未发生”，REPORT 尚为 A 阶段） | INTENT 改为分别链接实际结果/真实接受、不复制进度，并补本节 A/B 实证；[Q4 单题复验](./evidence/sources/product-reading-q4-retest.json)在 5782807e 上 PASS，原 FAIL 不覆盖，Q1–Q3 沿用原限定结果 |
 | 开发运维，/root/devops_acceptance | [原始答案/探针](./evidence/sources/devops-reading.json)：固定 Git 与无 Git 两原件恢复/篡改拒绝、五种根实体、八相对链接及合法历史正例均 PASS；Q4 NOT_COMPLETE（平台/最终门禁尚未完整） | 取证器首次 EISDIR 及修正重取分别保留，不冒充 Harness 失败；后来核心测试/安装证据由本节补足，保护合入与 Owner 接受仍未发生 |
+
+## Receipt verification and final delivery boundary
+
+收据批实际 [npm run validate](./evidence/receipt-validate.log) PASS；真实 [source projection 定向运行](./evidence/receipt-projection.log) 1/1 PASS、0 skip（149324.9871ms）。独立 /root/inspect_plan_unification 只读复核本收据工作增量，确认七新来源摘要、612/72 日志、13 组合与实际同树吻合，无阻断或真实凭据；没有运行新测试或冒充平台批准。后续只追加本次 Q4 原始复验、其绑定与阅读状态，最终文档校验和真实 head CI 仍各自执行。B 合入时未结束的重复 Windows job 后续 API 回读为 SUCCESS，原合入时 IN_PROGRESS 快照保留。
 
 ## Remaining delivery and acceptance
 
-- 两内部 PR 和旧根/当前链接拒绝已实际完成；产品 Q4 阶段措辞修复后的独立重跑、最终文档/来源闭包及真实最终 head 检查待记录。
+- 两内部 PR、旧根/当前链接拒绝及产品 Q4 阶段措辞修复后的独立重跑已实际完成；收据批文档/来源闭包已验，最后 Q4 来源绑定仍执行严格校验，真实最终 head CI 与保护批准由主 PR 记录。
 - 核心树完整单测、strict validate、13 组合 canonical / 实际 Python 已通过，角色阅读的原失败/修复与仍缺的最终条件分开；文档收据后续增量不外推旧 head 的最终平台批准。
 - 保护 develop 的当前 head 非作者批准、CI、线程、基线和实际合入/复验分别记录，不 bypass，不由 Agent 自检代替。
 - 未答原生窗口持续显示仍缺客户端实证，保留对应延期，不标通过；插件模型/客户端/现实效果不在本批重测范围。
