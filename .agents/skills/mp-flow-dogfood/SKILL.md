@@ -5,7 +5,7 @@ description: "Use for marketplace installation and invocation acceptance / 本�
 
 # mp-flow-dogfood
 
-HTML Learning Artifact site 扩展按[当前合同](../../../docs/spec/[SPEC]_HTML_Learning_Artifact.md)与[任务入口](../../../plans/274-html-learning-artifact/INDEX.md)核对：开发候选五包八公开/五显式/三自然，新增 site 及其包内工具、来源许可和真实 Sites 主流程；guide 原四资源及历史验收保留。下文带 PR3/旧版本的七技能数字仅属其历史范围，当前集合以实际 manifest/严格登记及本次证据为准；十三安装组合与20仓库技能保持。
+HTML Learning Artifact site 扩展按[当前合同](../../../docs/spec/[SPEC]_HTML_Learning_Artifact.md)核对：开发候选五包八公开/五显式/三自然，新增 site 及其包内工具、来源许可和真实 Sites 主流程；guide 原四资源及历史验收保留。下文带 PR3/旧版本的七技能数字仅属其历史范围，当前集合以实际 manifest/严格登记及本次证据为准；十三安装组合与20仓库技能保持。
 
 任务组织或流程变更时先读任务 INDEX/PLAN/REPORT 与[文档框架](../../../docs/rule/[STANDARD]_Documentation_Framework.md)。独立 Agent 模拟管理、产品、开发/运维角色，从实际候选入口完成阅读/交接任务，保存角色/执行身份、判准、版本、实际输入/动作/输出与结论；不要求真人参与模拟，也不替代 Owner 最终接受。逐项检查正本、接受基线、源清单/快照与完整资源闭包；静态通过不足以证明阅读体验。按[执行规范](../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)复用授权，实际窗口条件严格，非核心缺失延期，核心/全计划/最终接受分开。结果追加主 REPORT，失败/恢复保留旧批次，子 PR 与集成候选检查分别绑定。
 

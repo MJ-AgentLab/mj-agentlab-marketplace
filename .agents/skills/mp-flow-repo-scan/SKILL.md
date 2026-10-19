@@ -5,7 +5,7 @@ description: "Use for marketplace repo scan / 事实核查 before implementation
 
 # mp-flow-repo-scan
 
-HTML Learning Artifact site 扩展按[当前合同](../../../docs/spec/[SPEC]_HTML_Learning_Artifact.md)与[任务入口](../../../plans/274-html-learning-artifact/INDEX.md)核对：开发候选五包八公开/五显式/三自然，新增 site 及其包内工具、来源许可和真实 Sites 主流程；guide 原四资源及历史验收保留。下文带 PR3/旧版本的七技能数字仅属其历史范围，当前集合以实际 manifest/严格登记及本次证据为准；十三安装组合与20仓库技能保持。
+HTML Learning Artifact site 扩展按[当前合同](../../../docs/spec/[SPEC]_HTML_Learning_Artifact.md)核对：开发候选五包八公开/五显式/三自然，新增 site 及其包内工具、来源许可和真实 Sites 主流程；guide 原四资源及历史验收保留。下文带 PR3/旧版本的七技能数字仅属其历史范围，当前集合以实际 manifest/严格登记及本次证据为准；十三安装组合与20仓库技能保持。
 
 需求承接先读已选原意和接受基线，再按[INTENT 规范](../../../docs/rule/[STANDARD]_AI_Engineering_Intent.md)核实代码/配置/运行事实与差距；来源意思、项目事实和假设分别标记，不以实现现状推定提出者原意。
 

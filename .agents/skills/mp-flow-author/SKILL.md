@@ -5,7 +5,7 @@ description: "Use for marketplace plugin or skill implementation / 插件技能�
 
 # mp-flow-author
 
-HTML Learning Artifact site 扩展按[当前合同](../../../docs/spec/[SPEC]_HTML_Learning_Artifact.md)与[任务入口](../../../plans/274-html-learning-artifact/INDEX.md)核对：开发候选五包八公开/五显式/三自然，新增 site 及其包内工具、来源许可和真实 Sites 主流程；guide 原四资源及历史验收保留。下文带 PR3/旧版本的七技能数字仅属其历史范围，当前集合以实际 manifest/严格登记及本次证据为准；十三安装组合与20仓库技能保持。
+HTML Learning Artifact site 扩展按[当前合同](../../../docs/spec/[SPEC]_HTML_Learning_Artifact.md)核对：开发候选五包八公开/五显式/三自然，新增 site 及其包内工具、来源许可和真实 Sites 主流程；guide 原四资源及历史验收保留。下文带 PR3/旧版本的七技能数字仅属其历史范围，当前集合以实际 manifest/严格登记及本次证据为准；十三安装组合与20仓库技能保持。
 
 涉及需求实施/修订时按[INTENT 规范](../../../docs/rule/[STANDARD]_AI_Engineering_Intent.md)核对原意正本、完整接受基线及本子 PR 覆盖；新缺口保留原意与实现两侧依据，工程判断不静默改写原意，需决定时只暂停受影响工作。
 
