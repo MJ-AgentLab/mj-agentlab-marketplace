@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-19
 state: active
-version: v1.0
+version: v1.1
 layer: canonical
 supersedes:
   - ../archive/[DEPRECATED]_[STANDARD]_Documentation_Framework_v2.0.md
@@ -51,7 +51,7 @@ Owner 于 2026-10-18 在本会话确认 Q1–Q9：薄入口加主 PLAN、独立 
 - [Develop pre-bump ADR](./[ADR]_Develop_PreBump_Adoption.md)以“不维护 plans”为前提的任务材料位置限制；不改变其预升/版本决定。
 - [HTML ADR](./[ADR]_HTML_Guide_Kit_Addition.md)的“不新增 plans”后续组织限制；原 PR1–PR3 合同、实际顺序、接受、失败和评审封存绑定保持历史范围。
 
-历史 ADR 原路径/正文保持，适用范围由本后继决定明确。冻结 `plan/communication-kit-implementation-plan.md`、provenance、HTML 评审 plan.json 与运行闭包不重新绑定。首批不批量移动历史、不改冻结基线、插件运行与版本。
+历史 ADR 原路径/正文保持，适用范围由本后继决定明确。原首批暂不迁移 Communication 原计划的路径限制，已由[INT-2026-002](../intent/[INTENT]_INT-2026-002_Plans_Path_Unification.md)及[#269](../../plans/269-plans-path-unification/INDEX.md)的 Owner 明确实施决定有限替代：两原件迁至 plans/222-communication-kit 的来源快照并保留原 Git 身份；根 plan/ 及当前兼容撤除。HTML 评审 plan.json、其他历史链和兼容范围、插件运行及版本不变。
 
 ## §3 Consequences
 

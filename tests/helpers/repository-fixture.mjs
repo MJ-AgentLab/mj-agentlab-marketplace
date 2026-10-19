@@ -41,7 +41,7 @@ export const PYTHON_CACHE_ROOTS = Object.freeze([
 ]);
 export const FIXTURE_MANIFEST = Object.freeze({
   schemaVersion: 1,
-  realTrees: Object.freeze(["plugins", ".agents", "plan", "docs/_templates"]),
+  realTrees: Object.freeze(["plugins", ".agents", "docs/_templates"]),
   realFiles: Object.freeze(["VERSION", ".gitattributes", COMPATIBILITY_PATH]),
   syntheticRootDocuments: Object.freeze(["AGENTS.md", "README.md", "CONTRIBUTING.md", "GLOSSARY.md"]),
   syntheticDocuments: SYNTHETIC_DOCUMENTS,

@@ -50,7 +50,7 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/269
 1. 建立本 #269 入口和单活动主 PR，集成分支 codex/plans-unification 指向 develop，初始保持 Draft；补正 INTENT 对当前执行阶段和决定来源的描述，移除误加的七原则展开。
 2. 子 PR A：在独立子分支建立 plans/222-communication-kit；两历史原件按原字节迁到 evidence/sources，新增合规主 PLAN 解释其历史范围，REPORT 引用已存在事实并明确不重做插件验收。同步当前文档/规范和根 AGENTS，有限替代原 plan/ 路径保留规则；同一原子变更更新删除旧目录所必需的 smoke 输入树、fixture 及当前路径断言，避免将已知失败留给下一子 PR。
 3. A 经独立语义阅读、当前文档/来源核验及适用 CI 后由 Agent 合入集成分支；A 的迁移/引用形成 B 的真实基准。
-4. 子 PR B：从合入 A 的集成树派生；删除旧 plan 资源展开豁免，Harness 明确拒绝旧根 plan 普通目录、空目录、文件或链接，并验证旧路径不成为当前依赖；保留固定 Git 历史来源测试，不把历史字符串当兼容。
+4. 子 PR B：从合入 A 的集成树派生；可在 A 已验证候选上先行准备，A 实际合入后须刷新并核对 ancestry/候选。删除旧 plan 资源展开豁免，Harness 明确拒绝旧根 plan 普通目录、空目录、文件或链接，并验证旧路径不成为当前依赖；保留固定 Git 历史来源测试，不把历史字符串当兼容。
 5. B 对实际候选运行相关测试和全部既有工程检查，独立核验后内部合并。最终集成执行 npm test、npm run validate、npm run smoke:codex；13 组合及实际缓存 Python 绑定真实候选，不外推前稿结果。
 6. 独立合成阅读按管理者、产品维护者、开发运维三角色从 INDEX 开始核对：唯一入口/剩余事项；B1 与七原则/未覆盖；原件恢复/旧路径拒绝。记录输入、角色、内容 SHA、方法、输出与限制，模拟不替代 Owner 接受。
 7. 主 PR 准备完整成品和证据后解除 Draft；当前 head 的真实 CI、非作者批准、线程和基线齐备才合 develop，不 bypass。合入后核对真实 SHA/tree 及受影响复验，再按证据处理 #269；缺保护批准时交付可审查成品并请求最小必要参与。

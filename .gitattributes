@@ -23,7 +23,7 @@ plans/257-task-documentation/evidence/pilot-first-whitespace.log whitespace=-bla
 plans/257-task-documentation/evidence/pilot-records-whitespace.log whitespace=-blank-at-eol,cr-at-eol
 # The reviewed legacy inventory has an exact content digest in the document Harness.
 docs/_meta/document-layer-compatibility.json -text
-plan/communication-kit-implementation-plan.md -text whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+plans/222-communication-kit/evidence/sources/communication-kit-implementation-plan.md -text whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # Frozen runtime references retain exactly the bytes covered by the snapshot hashes.
 plugins/communication-kit/skills/communicate/references/* -text
 # Preserve actual evidence bytes for the archived SHA-256 values.
@@ -57,7 +57,7 @@ docs/runbook/evidence/learning-evidence-8-2-0-post-release.json -text whitespace
 docs/runbook/evidence/learning-evidence-8-2-0-auto-release.log -text whitespace=-blank-at-eol,cr-at-eol
 
 # Preserve exact source-provenance EOF and original Node failure indentation.
-plan/communication-kit-plan-provenance.json whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+plans/222-communication-kit/evidence/sources/communication-kit-plan-provenance.json whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
 docs/runbook/evidence/communication-kit-2026-10-12-pr1-01.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/runbook/evidence/communication-kit-2026-10-13-inherited-whitespace-01-raw-pr1-initial.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/runbook/evidence/communication-kit-2026-10-13-inherited-whitespace-01-raw-pr2-conflicts.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
@@ -83,3 +83,9 @@ plans/257-task-documentation/evidence/main-ci-*.log whitespace=-blank-at-eol,cr-
 plans/263-intent-mechanism/evidence/postmerge-264/** -text whitespace=cr-at-eol
 # Git patch context lines contain significant single-space lines.
 plans/263-intent-mechanism/evidence/postmerge-264/closeout-review-r1.patch whitespace=-blank-at-eol,cr-at-eol
+
+# Raw accepted/source records retain their original EOF and CRLF bytes.
+plans/269-plans-path-unification/evidence/sources/accepted-baseline-b1.json whitespace=-blank-at-eof
+plans/269-plans-path-unification/evidence/sources/execution-principles-p1.json whitespace=-blank-at-eof
+plans/269-plans-path-unification/evidence/sources/implementation-authorization.json whitespace=cr-at-eol
+plans/269-plans-path-unification/evidence/a-initial-tests.log whitespace=-blank-at-eol,cr-at-eol

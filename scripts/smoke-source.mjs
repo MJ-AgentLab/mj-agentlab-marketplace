@@ -5,8 +5,8 @@ import crypto from "node:crypto";
 import { measureSync } from "./perf-metrics.mjs";
 import { collectNavigationResources, COMPATIBILITY_PATH } from "./document-harness.mjs";
 
-export const SMOKE_SOURCE_INPUTS = Object.freeze([".agents", "plugins", "AGENTS.md", ".codex", "VERSION", ".gitattributes", "plans", "plan"]);
-const DIRECTORY_INPUTS = new Set([".agents", "plugins", ".codex", "plans", "plan"]);
+export const SMOKE_SOURCE_INPUTS = Object.freeze([".agents", "plugins", "AGENTS.md", ".codex", "VERSION", ".gitattributes", "plans"]);
+const DIRECTORY_INPUTS = new Set([".agents", "plugins", ".codex", "plans"]);
 const PYTHON_ROOTS = new Set(["plugins/learning-evidence-kit/scripts", "plugins/diagram-kit/skills/arch-diagram/scripts"]);
 const RECORD_PATH = "tests/fixtures/learning-evidence/learning-record.json";
 const hash = bytes => crypto.createHash("sha256").update(bytes).digest("hex");

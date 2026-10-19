@@ -84,7 +84,8 @@ test("real projection copies exact source bytes without synthetic documents and 
   assert.ok(Object.isFrozen(snapshot.learningRecord));
   for (const entry of snapshot.entries.filter(entry => entry.kind === "file")) assert.equal(hash(fs.readFileSync(path.join(REPO, entry.path))), entry.sha256, entry.path);
   assert.equal(fs.existsSync(path.join(snapshot.templateRoot, ".git")), false);
-  for (const relative of ["docs/_meta/document-layer-compatibility.json", "plan/communication-kit-implementation-plan.md", "plans/257-task-documentation/INDEX.md"]) assert.equal(fs.existsSync(path.join(snapshot.templateRoot, relative)), true, relative);
+  for (const relative of ["docs/_meta/document-layer-compatibility.json", "plans/222-communication-kit/INDEX.md", "plans/222-communication-kit/[PLAN]_Communication_Kit.md", "plans/222-communication-kit/evidence/sources/communication-kit-implementation-plan.md", "plans/222-communication-kit/evidence/sources/communication-kit-plan-provenance.json", "plans/257-task-documentation/INDEX.md"]) assert.equal(fs.existsSync(path.join(snapshot.templateRoot, relative)), true, relative);
+  assert.equal(fs.existsSync(path.join(snapshot.templateRoot, "plan")), false);
   const docs = validateDocumentation(snapshot.templateRoot);
   assert.equal(docs.ok, true, docs.errors.join("\n"));
   assert.deepEqual(collectNavigationResources(snapshot.templateRoot, ["AGENTS.md"]), collectNavigationResources(REPO, ["AGENTS.md"]));
