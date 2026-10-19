@@ -1,0 +1,70 @@
+# Local Artifact Input Contract
+
+这是本地生成器 v1 的输入合同。它描述可执行格式，不自动证明材料正确、AICS 合规或理解改善。生成器是 Node.js 标准库程序；不在线安装依赖。
+
+从本次实际安装的 `SKILL.md` 所在目录定位 `scripts/render-site.mjs`；脚本自身以 `import.meta.url` 定位包内资源，不使用当前工作目录猜测缓存。调用：
+
+```text
+node <site-skill-directory>/scripts/render-site.mjs --input <material-directory> --output <new-independent-output-directory>
+```
+
+输入目录与输出目录必须独立且不能互相包含；输出目录必须全新，父目录已存在。生成器拒绝覆盖、符号链接、junction、路径越界及插件安装根／`plugins/cache` 内输出。不修改材料或安装缓存。所有配置、Markdown、来源读取与链接检查通过后才创建输出；写入期间的系统故障可能留下不完整新目录，不能据此宣称成功。另取新的输出目录重跑，不覆盖旧失败证据。
+
+## artifact.json
+
+输入目录固定包含 UTF-8 `artifact.json`；重复 JSON 字段拒绝，避免末值覆盖。顶层字段只能是下表；所有字段必需，`terms`、`activities` 可以为空数组，不为简单材料强造术语或练习。版本为材料版本，不是插件版本。
+
+| 字段 | 类型与意义 |
+| --- | --- |
+| `schemaVersion` | 数字 `1` |
+| `title` | 非空制品标题；英文核心名称邻近中文解释由内容作者核对 |
+| `version` | 非空内容版本 |
+| `audience` | 非空读者与相关背景 |
+| `task` | 非空使用情境与任务 |
+| `goals` | 非空、无重复的字符串数组；每项是可观察理解目标 |
+| `markdown` | 输入根内 `.md` 正文路径，例如 `content.md` |
+| `sources` | 至少一项来源，结构见下文 |
+| `terms` | 术语数组，结构见下文 |
+| `activities` | 活动数组，结构见下文 |
+
+每项来源为 `{id,title,locator,path?,url?}`。`id` 唯一、以小写英文字母起始，仅小写字母／数字／连字符；`title` 与 `locator` 为非空文字，定位须说明范围。至少提供本地 `path` 或 HTTP(S) `url`；可以两者并存。URL 不允许用户名／密码，不自动下载。来源是否支持具体主张仍须对照原件核验。
+
+所有本地文件路径采用 `/`，不允许绝对路径、反斜线、冒号、问号、fragment、控制字符、空段、`.` 或 `..`。来源仅接受被动 `.md/.txt/.csv/.json/.pdf` 文件；不会执行它们。大小写冲突、文件／目录冲突以及与 `index.html/theme.css/learning.js/artifact-manifest.json` 的冲突拒绝。仅复制显式 `artifact.json`、正文及 `sources.path` 指定的文件，不打包整个输入目录。
+
+术语为 `{english,chinese,forbidden?:string[]}`，首两项非空，英文名唯一。`forbidden` 是本主题已知不应使用的旧译名／混用词，不包括首选词本身。扫描只能发现已列词在可读输出中的出现，不能判断未知同义词、上下文语义或全文翻译正确性。
+
+v1 活动仅支持独立单选参考核对：
+
+```json
+{
+  "id": "permission-check",
+  "type": "choice",
+  "title": "Permission · 规则许可",
+  "prompt": "给定当前条件，规则是否允许？",
+  "options": [
+    {"label": "允许", "feedback": "按完整条件核对。"},
+    {"label": "不允许", "feedback": "至少一项必要条件不满足。"}
+  ],
+  "correctIndex": 1,
+  "reference": "这里填写材料支持的完整判准与限制。",
+  "sourceId": "example-rules"
+}
+```
+
+活动 ID 使用与来源相同格式并在活动中唯一；至少两个选项。`correctIndex` 为从零开始的有效整数；`sourceId` 必须指向已登记来源。题目、选项、每项反馈和完整参考判准均为必需非空文字。判准不足时不添加机器判定活动，改为正文的有界参考／未知说明。
+
+## Markdown Range
+
+正文支持 UTF-8、段落、ATX 一级至四级标题、`-` 无序单层清单、`1.` 形式的有序单层清单、`---` 分隔线、以 `|` 开头的简单表格、单反引号行内代码、`**粗体**`、`[文字](目标)` 链接、三反引号代码块及常见标点反斜线转义。代码块语言名只用英文字母、数字、`+`、`-`。正文标题在页面降一级，保留顺序／层级并为页面总标题保留唯一 h1；依顺序生成 `section-1`、`section-2` 等锚点，来源用 `source-<id>`。
+
+链接目标只接受实际存在的本页锚点、已显式提供的本地文件路径或无凭据 HTTP(S) URL。链接标签为纯文字，URL 不含空白或括号，不支持链接标题。外部链接只作为来源导航，不自动加载外部脚本／样式／字体。
+
+不支持 YAML frontmatter、嵌套／缩进内容、列表续行缩进、引用、图片、原始 HTML、五／六级或 Setext 标题、任务清单、引用链接、脚注、斜体、删除线、autolink、双空格硬换行、表格单元内 `|` 或跨行内容、其他代码围栏。遇到不支持或未闭合结构时明确报错并不给输出目录。先对保留原文的工作副本做明确转换，不能静默删掉材料；必要时由 Sites 根据正文实现超出本生成器范围的表达，再独立验证。
+
+## Output and Evidence
+
+输出含 `index.html/theme.css/learning.js`、原路径原字节输入文件，以及 `artifact-manifest.json`。manifest 顶层为 `{schemaVersion:1,artifactPath:"artifact.json",sourceSha256,version,files:[{path,sha256,bytes}]}`；`sourceSha256` 是原 `artifact.json` 字节哈希，清单覆盖输出所有实际文件但不包含 manifest 自身。没有原 Site 身份、凭据、旧通过记录或其他输入目录文件。
+
+CSS 与脚本来自同一安装技能资源。页面提供静态正文、术语、参考判断和来源；脚本只增强当前会话核对、改答失效、重试／重置、反思输入、带版本导出、本地下载及真实复制反馈。无选择不是回答，修改后须重新核对；脚本不保存账号或分数、不上传回答。复制失败显式提示并聚焦／选择导出文字供手动复制；按 Escape 或“返回复制按钮”离开并回到复制控件，不声称手动复制成功。修改／重置会收起该返回入口；异步复制完成时不会覆盖已失效记录的状态。
+
+生成成功只表示生成器检查范围内已输出。必须再运行本包静态与渲染检查，并独立核对关键内容／条件／判准和代表性操作；Sites 的保存、发布、访问范围及部署版本单独核对。理解效果保持 `NOT_MEASURED`，除非另有对应真实评价。
