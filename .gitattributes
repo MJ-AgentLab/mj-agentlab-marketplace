@@ -87,6 +87,11 @@ plans/263-intent-mechanism/evidence/postmerge-264/** -text whitespace=cr-at-eol
 # Git patch context lines contain significant single-space lines.
 plans/263-intent-mechanism/evidence/postmerge-264/closeout-review-r1.patch whitespace=-blank-at-eol,cr-at-eol
 
+# Issue 274 copied original evidence retains hard breaks, EOF and CRLF bytes.
+plans/274-html-learning-artifact/evidence/sources/engineering/** whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+plans/274-html-learning-artifact/evidence/sources/review/** whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+plans/274-html-learning-artifact/evidence/sources/consumer/** whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+
 # Raw accepted/source records retain their original EOF and CRLF bytes.
 plans/269-plans-path-unification/evidence/sources/accepted-baseline-b1.json whitespace=-blank-at-eof
 plans/269-plans-path-unification/evidence/sources/execution-principles-p1.json whitespace=-blank-at-eof

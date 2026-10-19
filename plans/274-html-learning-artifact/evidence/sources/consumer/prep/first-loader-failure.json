@@ -1,0 +1,8 @@
+{
+  "kind": "consumer-harness-startup-failure",
+  "source": "functions.exec tool chunk 56bf72 captured stdout; this is a recovery observation, not a byte-original process log",
+  "result": "NOT_RUN",
+  "candidateExecuted": false,
+  "reason": "ERR_UNSUPPORTED_ESM_URL_SCHEME: Windows absolute module path C:/ was parsed as unsupported c: scheme by Node v22.18.0",
+  "correction": "Temporary consumer script imports bundled Playwright with a file:///C:/ URL; no runtime or package changes"
+}

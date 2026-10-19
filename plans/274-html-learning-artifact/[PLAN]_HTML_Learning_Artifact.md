@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-19
 state: active
-version: v1.0
+version: v1.3
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -46,38 +46,38 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 
 | 条目/来源 | 完整基线与范围 | 关系 | 承担范围/依赖 | 验收判准 | 实际结果/差距 |
 |---|---|---|---|---|---|
-| C01 / B1 §1 | 六步材料→可追溯网页 | 实际交付 | 全部子 PR，Sites 依赖 | 完整代表性流程，NOT_MEASURED 分开 | 待证 |
-| C02 / B1 §2 | 原插件新增显式 site，guide 保留 | 实际交付 | 原子接入子 PR | 身份/图标/guide 字节保持，site Read/Write metadata | 待证 |
-| C03 / B1 §3.1 | 首版方法/主题/必要交互/四工具 | 实际交付 | 方法和工具子 PR | 实际用途覆盖，不强制题量/章节/交互 | 待证 |
-| C04 / B1 §3.2 | 本地独立与 locator | 实际交付 | 方法/资源/安装 | 无研究路径、其他缓存、CDN、自动下载依赖 | 待证 |
-| C05 / B1 §3.3 | 唯一 Sites 外部依赖 | 依赖支撑 | 工具发现与真实发布 | 当前 Sites 工作流、缺失保交接包并记未完成 | 待证 |
-| C06 / B1 §4.1–4.2 | 英文核心/中文解释活动 | 实际交付 | 方法、主题、代表材料 | 核心名邻近中文，反馈/操作中文，原标识保留 | 待证 |
-| C07 / B1 §4.3 | 单一术语与三组重要区别 | 实际交付 | 术语表、配置、检查 | 正文/图解/交互/导出一致，不机器推定语义 | 待证 |
-| C08 / B1 §5 Step1 | 目标/范围/问题/判准 | 实际交付 | site 执行规范 | 实际读材料，缺口补齐或收窄 | 待证 |
-| C09 / B1 §5 Step2 | 独立 Markdown、基础/条件/例外 | 实际交付 | 内容与转换工具 | 覆盖目标；KU 数量不代覆盖；不静默丢语法 | 待证 |
-| C10 / B1 §5 Step3 | 信息结构与关系 | 实际交付 | 本地方法/代表制品 | 分类/过程/相关/因果不混，比较同时可见 | 待证 |
-| C11 / B1 §5 Step4 | 用途驱动交互及静态替代 | 实际交付 | 主题/交互工具 | 输入变化反馈异常恢复明确，假设不当事实 | 待证 |
-| C12 / B1 §5 Step5 | Sites 交接/实现/最小检查 | 实际交付 | 真实客户端主流程 | 实际发布与身份/受众核对，按失败回修 | 待证 |
-| C13 / B1 §5 Step6 | 评价/修订/证据边界 | 实际交付 | 结果报告/上线后维护 | 体验工程效果分记，修订受影响复验 | 待证 |
-| C14 / B1 §5 待答 | 本地提问协议及严格窗口 | 实际交付 | site 指令/行为核验 | 复用确认；未答不推进；完整原生窗口另实证 | 待证 |
-| C15 / B1 §6.1 | 样式注入、复制、静态/渲染检查 | 实际交付 | 工具子 PR | 四工具可运行；复制真实状态/焦点；渲染跳过不PASS | 待证 |
-| C16 / B1 §6.2–6.3 | 泛化旧资源、声明 Markdown 范围 | 实际交付 | 生成器与许可 | 移除固定教材/身份/日期/路径，无空 vendor/deferred 工具 | 待证 |
-| C17 / B1 §7 | 暖白陶土、本地字体、可读静态路径 | 实际交付 | 主题/响应式检查 | 指定色系、关系清楚、必要内容可得、减少动效 | 待证 |
-| C18 / B1 §8.1 | 有界制作交接包 | 实际交付 | schema/生成与人工核验 | 目标正文术语来源结构交互版本清单判准未决齐备 | 待证 |
-| C19 / B1 §8.2 | 实际 Sites 保存/部署/回读 | 实际交付 | Sites 认证和当前流程 | 新站私有；身份/版本/状态/受众准确；无凭据 | 待证 |
-| C20 / B1 §8.3 | 自有 Marketplace 实际调用 Sites | 实际交付 | 安装及一个客户端 | 安装后主流程事件；不推定公共目录资格/依赖ID | 待证 |
-| C21 / B1 §9 | 包结构/独立输出/资源来源与许可 | 实际交付 | 资源清单/检查 | 包闭合，缓存不写，上游固定版本/hash/改动/许可齐备 | 待证 |
-| C22 / B1 §10 | P0–P5、原子工程更新与实际版本 | 实际交付 | 单Issue/主PR/子PR | 0.1.36→0.1.37，严格登记安装与A6、文档同步 | 待证 |
-| C23 / B1 §11 | 四最小门槛及阻断分级 | 实际交付 | 独立合成验收 | 四门槛全有证；核心/Sites/权限/凭据/必要门禁失败阻上线 | 待证 |
-| C24 / B1 §12 | 上线后 Owner 体检 | 实际交付 | 发布后真实 Owner 决定 | 三类体检范围明确；问题修复及受影响复验 | 待真实Owner |
-| C25 / B1 §13 | 版本/地址/部署/覆盖/限制报告 | 实际交付 | 唯一 REPORT | 预检、上线、体检分记；效果NOT_MEASURED | 待证 |
-| P01 / U1 §1 | Agent执行/Owner决策 | 依赖支撑 | 全流程 | 不转嫁常规技术操作；成品接受真实Owner | 执行约束 |
-| P02 / U1 §2 | 独立合成验收 | 依赖支撑 | 独立 Agent/隔离环境 | 角色、版本、输入动作输出可复现，不冒充批准 | 待证 |
-| P03 / U1 §3 | 严格窗口/分段交付 | 依赖支撑 | 待答与延期清单 | 无答不默认；非核心延期列责任/恢复，不算PASS | 执行约束 |
-| P04 / U1 §4 | 集中授权/条件复用 | 依赖支撑 | 全流程五边界 | 同范围不重复请批；越界只停依赖 | 执行约束 |
-| P05 / U1 §5 | Harness/证据 | 依赖支撑 | 全部子PR与主PR | 实际head/base/候选树、失败保留、自主修复重跑 | 待证 |
-| P06 / U1 §6 | 权限/不可逆/监控恢复 | 依赖支撑 | GitHub/Sites/发布 | 不bypass；已知良好版本、停止升级与恢复路径 | 待证 |
-| P07 / U1 §7 | 单Issue/主PR/多子PR | 依赖支撑 | #274与集成分支 | 子PR→集成，主PR→develop，内部Harness后代理合并 | 待真实PR |
+| C01 / B1 §1 | 六步材料→可追溯网页 | 实际交付 | 全部子 PR，Sites 依赖 | 完整代表性流程，NOT_MEASURED 分开 | PARTIAL：1a本地/消费者及同包私有Sites已验，最终交付未完；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C02 / B1 §2 | 原插件新增显式 site，guide 保留 | 实际交付 | 原子接入子 PR | 身份/图标/guide 字节保持，site Read/Write metadata | 限定PASS：1a两入口/源缓存/guide字节；后继按差异复验；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C03 / B1 §3.1 | 首版方法/主题/必要交互/四工具 | 实际交付 | 方法和工具子 PR | 实际用途覆盖，不强制题量/章节/交互 | 限定本地PASS；整体仍受最新生命周期P2/A4阻断；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C04 / B1 §3.2 | 本地独立与 locator | 实际交付 | 方法/资源/安装 | 无研究路径、其他缓存、CDN、自动下载依赖 | 限定PASS：独立缓存消费，无研究运行依赖；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C05 / B1 §3.3 | 唯一 Sites 外部依赖 | 依赖支撑 | 工具发现与真实发布 | 当前 Sites 工作流、缺失保交接包并记未完成 | 限定PASS：当前桌面手动安装locator→Sites实证；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C06 / B1 §4.1–4.2 | 英文核心/中文解释活动 | 实际交付 | 方法、主题、代表材料 | 核心名邻近中文，反馈/操作中文，原标识保留 | 限定PASS：代表材料英文核心/中文教学；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C07 / B1 §4.3 | 单一术语与三组重要区别 | 实际交付 | 术语表、配置、检查 | 正文/图解/交互/导出一致，不机器推定语义 | 限定PASS：主题映射及正文/交互/导出核验；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C08 / B1 §5 Step1 | 目标/范围/问题/判准 | 实际交付 | site 执行规范 | 实际读材料，缺口补齐或收窄 | 限定PASS：已给定合成任务；真实澄清窗口未测；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C09 / B1 §5 Step2 | 独立 Markdown、基础/条件/例外 | 实际交付 | 内容与转换工具 | 覆盖目标；KU 数量不代覆盖；不静默丢语法 | 限定PASS：Markdown原件/子集与负例，旧FAIL保留；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C10 / B1 §5 Step3 | 信息结构与关系 | 实际交付 | 本地方法/代表制品 | 分类/过程/相关/因果不混，比较同时可见 | 限定PASS：LIB四组合/分类/日期/完成关系；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C11 / B1 §5 Step4 | 用途驱动交互及静态替代 | 实际交付 | 主题/交互工具 | 输入变化反馈异常恢复明确，假设不当事实 | 限定PASS：本制品浏览器12项，非穷举矩阵；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C12 / B1 §5 Step5 | Sites 交接/实现/最小检查 | 实际交付 | 真实客户端主流程 | 实际发布与身份/受众核对，按失败回修 | 限定PASS：同包私有Sites保存/部署/回读；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C13 / B1 §5 Step6 | 评价/修订/证据边界 | 实际交付 | 结果报告/上线后维护 | 体验工程效果分记，修订受影响复验 | PARTIAL：记录已建，真实Owner体检修订未发生；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C14 / B1 §5 待答 | 本地提问协议及严格窗口 | 实际交付 | site 指令/行为核验 | 复用确认；未答不推进；完整原生窗口另实证 | PARTIAL：规则/网页未选有证，原生窗口延期；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C15 / B1 §6.1 | 样式注入、复制、静态/渲染检查 | 实际交付 | 工具子 PR | 四工具可运行；复制真实状态/焦点；渲染跳过不PASS | 限定本机PASS；P2已固定源独立复测，03092ce新缓存/浏览器通过；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C16 / B1 §6.2–6.3 | 泛化旧资源、声明 Markdown 范围 | 实际交付 | 生成器与许可 | 移除固定教材/身份/日期/路径，无空 vendor/deferred 工具 | 限定PASS：子集/UTF8路径/分类负例；未迁延期工具；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C17 / B1 §7 | 暖白陶土、本地字体、可读静态路径 | 实际交付 | 主题/响应式检查 | 指定色系、关系清楚、必要内容可得、减少动效 | 限定PASS：两初始视图/禁JS；全面视觉无障碍延期；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C18 / B1 §8.1 | 有界制作交接包 | 实际交付 | schema/生成与人工核验 | 目标正文术语来源结构交互版本清单判准未决齐备 | 限定PASS：3输入/7输出与同一Sites交接包；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C19 / B1 §8.2 | 实际 Sites 保存/部署/回读 | 实际交付 | Sites 认证和当前流程 | 新站私有；身份/版本/状态/受众准确；无凭据 | 限定PASS：私有Site版本1/源ffaaa359/部署succeeded；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C20 / B1 §8.3 | 自有 Marketplace 实际调用 Sites | 实际交付 | 安装及一个客户端 | 安装后主流程事件；不推定公共目录资格/依赖ID | 有限定手动实证；桌面原生派发/公共目录资格未测；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C21 / B1 §9 | 包结构/独立输出/资源来源与许可 | 实际交付 | 资源清单/检查 | 包闭合，缓存不写，上游固定版本/hash/改动/许可齐备 | 已实现/部分独立核验；全许可裁决范围不扩张；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C22 / B1 §10 | P0–P5、原子工程更新与实际版本 | 实际交付 | 单Issue/主PR/子PR | 0.1.36→0.1.37，严格登记安装与A6、文档同步 | PARTIAL：主PR275/子PR276建立，最终merge发布未完；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C23 / B1 §11 | 四最小门槛及阻断分级 | 实际交付 | 独立合成验收 | 四门槛全有证；核心/Sites/权限/凭据/必要门禁失败阻上线 | 内部runtime已通过；整体主保护批准/最终merge发布未齐；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C24 / B1 §12 | 上线后 Owner 体检 | 实际交付 | 发布后真实 Owner 决定 | 三类体检范围明确；问题修复及受影响复验 | WAIT_OWNER_AFTER_DELIVERY：无最终接受决定；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C25 / B1 §13 | 版本/地址/部署/覆盖/限制报告 | 实际交付 | 唯一 REPORT | 预检、上线、体检分记；效果NOT_MEASURED | PARTIAL：唯一REPORT/版本URL已记，最终交付接受待补；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| P01 / U1 §1 | Agent执行/Owner决策 | 依赖支撑 | 全流程 | 不转嫁常规技术操作；成品接受真实Owner | 本批按原则执行，不替Owner接受；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| P02 / U1 §2 | 独立合成验收 | 依赖支撑 | 独立 Agent/隔离环境 | 角色、版本、输入动作输出可复现，不冒充批准 | 限定PASS：独立内容/消费/标准评审角色；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| P03 / U1 §3 | 严格窗口/分段交付 | 依赖支撑 | 待答与延期清单 | 无答不默认；非核心延期列责任/恢复，不算PASS | PARTIAL：原生窗口/第二客户端延期不算PASS；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| P04 / U1 §4 | 集中授权/条件复用 | 依赖支撑 | 全流程五边界 | 同范围不重复请批；越界只停依赖 | 已按五边界复用本轮明确授权；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| P05 / U1 §5 | Harness/证据 | 依赖支撑 | 全部子PR与主PR | 实际head/base/候选树、失败保留、自主修复重跑 | 内部runtime PASS：本机642、双系统完整CI/各13安装及276实际同树；最终保护另待；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| P06 / U1 §6 | 权限/不可逆/监控恢复 | 依赖支撑 | GitHub/Sites/发布 | 不bypass；已知良好版本、停止升级与恢复路径 | 部分实证：独立输出/同Site恢复/私有访问，完整恢复演练未测；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| P07 / U1 §7 | 单Issue/主PR/多子PR | 依赖支撑 | #274与集成分支 | 子PR→集成，主PR→develop，内部Harness后代理合并 | 拓扑已建：275→develop、276→集成；最终保护未满足；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
 
 ## Execution, dependencies and batches
 
@@ -107,4 +107,23 @@ P5：形成可审查成品与主 REPORT；最终主 PR 满足受保护 develop �
 | 2026-10-19，Agent事实核查 | 实际HTML0.1.36/市场8.3.2/五包七技能 | 本次运行候选0.1.37、五包八公开/五显式/三自然；事实修正不冒充新Owner决定 | 原计划当时事实 | 新扩展文档；runtime由原子接入子PR承担 |
 | 2026-10-19，Agent工程排程 | 文档bootstrap建主PR；完整运行子PR1，真实验收/修复子PR2 | 防止skills/site未登记或清单先放宽造成半包；不改产品范围或验收，必要后续子PR仍同Issue | 原计划P0–P5及本轮单Issue/主PR/多子PR | 本PLAN与扩展ADR同步实际拓扑 |
 
-此主 PLAN 在子 PR、失败恢复与后续批次持续复用。实际结果出现后创建唯一主 REPORT，独立记录核心交付、全计划完成、发布与 Owner 最终接受，不由文档state、PR合并或Issue关闭代替。
+此主 PLAN 在子 PR、失败恢复与后续批次持续复用。[唯一主REPORT](./[REPORT]_HTML_Learning_Artifact.md)已建立并绑定实际证据，独立记录核心交付、全计划完成、发布与Owner最终接受，不由文档state、PR合并或Issue关闭代替。
+
+## Actual batch and pull requests
+
+2026-10-19，本批文档bootstrap已形成集成6c2f415与唯一主PR[#275](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/275)→develop；原子子PR[#276](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/276)→codex/html-learning-artifact，未另建子Issue。子PR2证据/报告仍由本task与本主PLAN承接，实际新PR编号待创建，不预造链接。
+
+候选1a3ac5f5/tree8c579494的本地641/641、strict、修后13安装、12项独立消费者与同包私有Sites版本1已有实际证据。后续3507d3bb/tree23300ae0只变浏览器生命周期，新缓存/native/本机浏览器/9项PASS分别记录；独立Linux owned-session新进程组漏检P2仍开放，Agent修复中，不以随后CI绿消除反例。主PR真实非作者批准、当前head最终门禁、实际merge复验、Marketplace正式发布及Owner最终接受未齐。逐项结果/原FAIL/责任恢复条件见[REPORT](./[REPORT]_HTML_Learning_Artifact.md)，Issue仍为进度正本。
+
+2026-10-19追加：P2修复源a02e204与整合03092ce checker Git blob及独立快照原字节一致；实现者WSL/Windows运行与standards_review独立原probe复测分开登记，P2在该范围修后PASS，非真实Chrome/最终CI替代。03092ce fresh缓存/native2/全包比对、本机两viewport/cleanup和9项通过；Site子树较1a只变checker，不重复12项不变交互。LinuxCI-r2因fixture缺SPEC有57前置FAIL；补SPEC后本地r3又因四技能本任务INDEX链接有57前置FAIL。root只保四复用技能canonical SPEC指针并补单一合成目标，判准不变，完整r4/新CI待证。全部原日志、Site三回执与角色归属见REPORT；早期无署名探针不猜作者。
+
+2026-10-19最终本机stage：完整r4为642/642 PASS、零skip，strict-r4 PASS。最终候选acafc348/tree99837ab4仅在03092ce之后调整四repo技能canonical-only指针与一个fixture合成SPEC目标，plugins整个Git子树相同，已保存原Git对应回执。原03092ce WindowsCI-r2为585PASS/57fixture前置FAIL/0skip，另存原日志；最新acaf CI run39239107681仍待，276实际merge/最终主保护批准另记。Sites一次部署后原生metadata回读稳定，不是持续监控、浏览器或Owner接受。原FAIL均保，未提前关闭任务或提交。
+
+
+2026-10-19最终LinuxCI：原job118015318754/run39239107681已success，raw独立提取unit641PASS/0FAIL/1 Windows大小写专用skip（总642），真实浏览器case通过；strict/baseline/smoke13/13成功，实际6Diagram+18LEK Python及4site生成/静态调用status0。potential merge20c911/parents6c2+acaf的tree99837ab4与已测head相同，只是候选不冒实际merge。Windows完整job仍待终态，后续保护1当前head非作者批准不由内部规则[]或独立审查替代。证据/提取脚本见REPORT。
+
+
+2026-10-19T10:53:43Z：276已正常合入552b6e0a5d9e3d0a85e284406fe87e9508549028，实际tree99837ab45ddf36bde041efc88bf3784855d6aecb同已测acaf及20c候选。最终Windows原job独立提取642/642零skip、真实browser/strict/baseline及13安装/6Diagram+18LEK+4site生成静态成功；Linux原641/642仅Windows大小写skip1。内部规则[]、threads0、gate/merge原件齐；主275的1current-head非作者批准/最终门禁仍另待，不因内部reviews[]追认。证据原件与派生提取分别保，按授权先提交子PR2文档再正常继承origin集成运行基线复验，由root继续子PR2及授权内部合并。
+
+
+2026-10-19，文档子PR [#277](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/277) 已实际创建，目标为同一集成分支。其7138d343/tree31f7fa21正常继承552b6e0，运行Git对象与552相同，197原来源已从Git blob独立逐hash核验。root实际文档/INTENT/契约116项与完整real-source原字节投影1项均PASS/零skip，见[范围检查回执](./evidence/sources/engineering/acceptance-scope-checks.json)。本次只补真实PR链接与这3份检查原件绑定，未改变运行、原197证据或接受判准；子PR完整平台矩阵与最终主PR检查按各自服务器终态记录，不将未完成项写成通过。内部实际merge和受保护275/发布/Owner接受的后续事实由Issue及PR回读，原FAIL保留。

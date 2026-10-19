@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "role": "Independent content/learning-design and installed-package consumer",
+  "executedAt": "2026-10-19T10:13:22.812Z",
+  "skillLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-site-consumer-install-svimFE\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.37\\skills\\site\\SKILL.md",
+  "skillSha256": "c3c47756b18e7ccd2a2e6491e23909afa0f98bc7742476a9cb017c50fc968773",
+  "cases": [
+    {
+      "id": "installed-resources-read-and-source-snapshot",
+      "status": "PASS",
+      "detail": {
+        "packageVersion": "0.1.37",
+        "referenceCount": 9,
+        "consumerCwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-site-consumer-acceptance-20261019-01\\consumer-cwd",
+        "sourcePaths": [
+          "sources/renewal-rules.md"
+        ]
+      }
+    },
+    {
+      "id": "render-and-actual-installed-python-checkers",
+      "status": "PASS",
+      "detail": {
+        "static": {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        "viewports": [
+          {
+            "viewport": {
+              "width": 1366,
+              "height": 900
+            },
+            "screenshot": "viewport-1366x900.png",
+            "screenshotSha256": "e851cf610e4abcd9d04a77f67b4bc3de874d175d9fdd83ccb13e2a5eb3a6811b"
+          },
+          {
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "screenshot": "viewport-390x844.png",
+            "screenshotSha256": "35d5e2341d313954ea81ebc7da684bf6c31ddececaf4d6733796479b4ef78200"
+          }
+        ],
+        "pythonVersion": "3.12.14"
+      }
+    },
+    {
+      "id": "independent-LIB-rules-date-and-criteria-review",
+      "status": "PASS",
+      "detail": {
+        "sourceSha256": "2a95c4d9b95f3b184fea30aa3fba9daaf34d11624bd888ed4793a0ea7f96af47",
+        "combinations": [
+          [
+            true,
+            true,
+            true
+          ],
+          [
+            true,
+            false,
+            false
+          ],
+          [
+            false,
+            true,
+            false
+          ],
+          [
+            false,
+            false,
+            false
+          ]
+        ],
+        "successDate": "2026-11-05",
+        "failureDate": "2026-10-29",
+        "expected": [
+          {
+            "id": "permission-check",
+            "correctIndex": 1
+          },
+          {
+            "id": "date-check",
+            "correctIndex": 0
+          },
+          {
+            "id": "completion-check",
+            "correctIndex": 1
+          }
+        ],
+        "assessment": "Conditions, exceptions, cross-month date and three local criteria agree with LIB1–LIB4 within this synthetic material; no real library policy or learner improvement inferred."
+      }
+    },
+    {
+      "id": "rendered-content-table-source-and-terminology",
+      "status": "PASS",
+      "detail": {
+        "rows": [
+          "是是允许，但成功仍须按 LIB4 确认",
+          "是否不允许",
+          "否是不允许",
+          "否否不允许"
+        ],
+        "sourceBytesMatch": true,
+        "semanticScope": "LIB synthetic exercise only"
+      }
+    },
+    {
+      "id": "unselected-is-not-an-answer",
+      "status": "PASS",
+      "detail": {
+        "checked": 0,
+        "reviewed": 0
+      }
+    },
+    {
+      "id": "wrong-feedback-change-invalidation-and-correct-recheck",
+      "status": "PASS",
+      "detail": {
+        "q1Attempts": 2,
+        "reviewed": 3
+      }
+    },
+    {
+      "id": "export-version-state-source-locators-and-actual-downloads",
+      "status": "PASS",
+      "detail": {
+        "recordSha256": "3b75b71d833958d4e1b6ac53bb36f3bc14118f9064d1d3ec33e4bc37a71d3030",
+        "recordDownloadSha256": "3b75b71d833958d4e1b6ac53bb36f3bc14118f9064d1d3ec33e4bc37a71d3030",
+        "materialDownloadSha256": "060045ce718168c7f3c2aecd2742518490d5693e3dbdeb28b4ac94ce2885cd50",
+        "sourceLocatorCount": 1
+      }
+    },
+    {
+      "id": "real-native-clipboard-success-and-readback",
+      "status": "FAIL",
+      "detail": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ '# Library Renewal · 续借判断学习制品 — 本次学习记录\\r\\n' +\n+   '\\r\\n' +\n+   '- 材料版本：synthetic-1.0\\r\\n' +\n+   '- 记录时间：2026-10-19T10:13:24.819Z\\r\\n' +\n+   '- Audience：能够读懂基本日期，但尚未区分规则许可、申请提交与完成确认的学习者。\\r\\n' +\n+   '- Task：根据本页自编规则，解释续借是否允许、成功或失败后的日期，以及确认完成所需依据。\\r\\n' +\n+   '- 范围：当前会话的回答与核对；理解效果 NOT_MEASURED。\\r\\n' +\n+   '\\r\\n' +\n+   '## permission-check · Rule Permission · 核对规则许可\\r\\n' +\n+   '\\r\\n' +\n+   '- 题目：一本书尚未逾期，但已有其他读者预约。按 LIB2，本次是否允许续借？\\r\\n' +\n+   '- 当前选择：不允许，因为预约条件不满足。\\r\\n' +\n+   '- 核对次数：2\\r\\n' +\n+   '- 本次判断：与参考匹配\\r\\n' +\n+   '- 对应反馈：两个条件必须同时成立；已有预约使本次不满足完整规则。\\r\\n' +\n+   '- 参考判断：本次不允许。LIB2 要求尚未逾期且没有其他读者预约，两项条件同时成立才规则允许；规则允许仍不等于已成功。\\r\\n' +\n+   '- 来源 ID：renewal-rules\\r\\n' +\n+   '- 页面回查：#source-renewal-rules\\r\\n' +\n+   '\\r\\n' +\n+   '## date-check · Calendar Day · 核对跨月日期\\r\\n' +\n+   '\\r\\n' +\n+   '- 题目：原到期日为 2026-10-29。按 LIB3，续借成功与失败后分别何时归还？\\r\\n' +\n+   '- 当前选择：成功后为 2026-11-05；失败时仍为 2026-10-29。\\r\\n' +\n+   '- 核对次数：1\\r\\n' +\n+   '- 本次判断：与参考匹配\\r\\n' +\n+   '- 对应反馈：成功从原到期日增加七个日历日，跨月仍适用；失败不改原日期。\\r\\n' +\n+   '- 参考判断：成功：2026-11-05；失败：2026-10-29。日期基准是原到期日，不是申请日；增加的是七个日历日。\\r\\n' +\n+   '- 来源 ID：renewal-rules\\r\\n' +\n+   '- 页面回查：#source-renewal-rules\\r\\n' +\n+   '\\r\\n' +\n+   '## completion-check · Completion Confirmation · 核对完成依据\\r\\n' +\n+   '\\r\\n' +\n+   '- 题目：已经点击申请，但尚未看到成功文字与更新后的归还日期。按 LIB4，此时能确认什么？\\r\\n' +\n+   '- 当前选择：已提交，结果尚不能确认；也不能据此断定失败。\\r\\n' +\n+   '- 核对次数：1\\r\\n' +\n+   '- 本次判断：与参考匹配\\r\\n' +\n+   '- 对应反馈：LIB4 把提交与确认成功分开；缺少成功确认不等于已知失败。\\r\\n' +\n+   '- 参考判断：只能确认申请提交。完成确认需同时有续借成功文字和更新后的归还日期；结果未确认时保留未知，不补造失败或后台步骤。\\r\\n' +\n+   '- 来源 ID：renewal-rules\\r\\n' +\n+   '- 页面回查：#source-renewal-rules\\r\\n' +\n+   '\\r\\n' +\n+   '## Sources · 来源\\r\\n' +\n+   '\\r\\n' +\n+   '### renewal-rules · Synthetic Renewal Rules · 自编续借规则\\r\\n' +\n+   '\\r\\n' +\n+   '- 来源 ID：renewal-rules\\r\\n' +\n+   '- 标题：Synthetic Renewal Rules · 自编续借规则\\r\\n' +\n+   '- 定位：LIB1–LIB4；本插件的合成验收材料，不是任何真实图书馆政策。\\r\\n' +\n+   '- 制品内相对路径：sources/renewal-rules.md\\r\\n' +\n+   '\\r\\n' +\n+   '## 应用与意见\\r\\n' +\n+   '\\r\\n' +\n+   '合成消费者核验：提交不等于完成，未知结果保留未知。\\r\\n' +\n+   '\\r\\n' +\n+   '记录未上传、未持久化；保存导出后由你自行保留。\\r\\n'\n- '# Library Renewal · 续借判断学习制品 — 本次学习记录\\n' +\n-   '\\n' +\n-   '- 材料版本：synthetic-1.0\\n' +\n-   '- 记录时间：2026-10-19T10:13:24.819Z\\n' +\n-   '- Audience：能够读懂基本日期，但尚未区分规则许可、申请提交与完成确认的学习者。\\n' +\n-   '- Task：根据本页自编规则，解释续借是否允许、成功或失败后的日期，以及确认完成所需依据。\\n' +\n-   '- 范围：当前会话的回答与核对；理解效果 NOT_MEASURED。\\n' +\n-   '\\n' +\n-   '## permission-check · Rule Permission · 核对规则许可\\n' +\n-   '\\n' +\n-   '- 题目：一本书尚未逾期，但已有其他读者预约。按 LIB2，本次是否允许续借？\\n' +\n-   '- 当前选择：不允许，因为预约条件不满足。\\n' +\n-   '- 核对次数：2\\n' +\n-   '- 本次判断：与参考匹配\\n' +\n-   '- 对应反馈：两个条件必须同时成立；已有预约使本次不满足完整规则。\\n' +\n-   '- 参考判断：本次不允许。LIB2 要求尚未逾期且没有其他读者预约，两项条件同时成立才规则允许；规则允许仍不等于已成功。\\n' +\n-   '- 来源 ID：renewal-rules\\n' +\n-   '- 页面回查：#source-renewal-rules\\n' +\n-   '\\n' +\n-   '## date-check · Calendar Day · 核对跨月日期\\n' +\n-   '\\n' +\n-   '- 题目：原到期日为 2026-10-29。按 LIB3，续借成功与失败后分别何时归还？\\n' +\n-   '- 当前选择：成功后为 2026-11-05；失败时仍为 2026-10-29。\\n' +\n-   '- 核对次数：1\\n' +\n-   '- 本次判断：与参考匹配\\n' +\n-   '- 对应反馈：成功从原到期日增加七个日历日，跨月仍适用；失败不改原日期。\\n' +\n-   '- 参考判断：成功：2026-11-05；失败：2026-10-29。日期基准是原到期日，不是申请日；增加的是七个日历日。\\n' +\n-   '- 来源 ID：renewal-rules\\n' +\n-   '- 页面回查：#source-renewal-rules\\n' +\n-   '\\n' +\n-   '## completion-check · Completion Confirmation · 核对完成依据\\n' +\n-   '\\n' +\n-   '- 题目：已经点击申请，但尚未看到成功文字与更新后的归还日期。按 LIB4，此时能确认什么？\\n' +\n-   '- 当前选择：已提交，结果尚不能确认；也不能据此断定失败。\\n' +\n-   '- 核对次数：1\\n' +\n-   '- 本次判断：与参考匹配\\n' +\n-   '- 对应反馈：LIB4 把提交与确认成功分开；缺少成功确认不等于已知失败。\\n' +\n-   '- 参考判断：只能确认申请提交。完成确认需同时有续借成功文字和更新后的归还日期；结果未确认时保留未知，不补造失败或后台步骤。\\n' +\n-   '- 来源 ID：renewal-rules\\n' +\n-   '- 页面回查：#source-renewal-rules\\n' +\n-   '\\n' +\n-   '## Sources · 来源\\n' +\n-   '\\n' +\n-   '### renewal-rules · Synthetic Renewal Rules · 自编续借规则\\n' +\n-   '\\n' +\n-   '- 来源 ID：renewal-rules\\n' +\n-   '- 标题：Synthetic Renewal Rules · 自编续借规则\\n' +\n-   '- 定位：LIB1–LIB4；本插件的合成验收材料，不是任何真实图书馆政策。\\n' +\n-   '- 制品内相对路径：sources/renewal-rules.md\\n' +\n-   '\\n' +\n-   '## 应用与意见\\n' +\n-   '\\n' +\n-   '合成消费者核验：提交不等于完成，未知结果保留未知。\\n' +\n-   '\\n' +\n-   '记录未上传、未持久化；保存导出后由你自行保留。\\n'\n\n    at file:///C:/Users/Admin/AppData/Local/Temp/html-site-consumer-prep-20261019/consumer-run.mjs:193:12\n    at async step (file:///C:/Users/Admin/AppData/Local/Temp/html-site-consumer-prep-20261019/consumer-run.mjs:26:24)\n    at async file:///C:/Users/Admin/AppData/Local/Temp/html-site-consumer-prep-20261019/consumer-run.mjs:187:3"
+    }
+  ],
+  "limitations": [
+    "Synthetic local browser and engineering checks do not establish Sites publication, protected GitHub approval, Owner final acceptance or understanding effects.",
+    "Clipboard rejection/missing-API paths are explicitly injected faults in a real browser. Successful copy is separately checked through unmodified native Clipboard API and actual readback.",
+    "Initial desktop/mobile screenshots and no-JavaScript static content are bounded checks, not full visual/accessibility or learner-effect evaluation."
+  ],
+  "inputHashes": {
+    "artifact.json": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+    "content.md": "060045ce718168c7f3c2aecd2742518490d5693e3dbdeb28b4ac94ce2885cd50",
+    "sources/renewal-rules.md": "2a95c4d9b95f3b184fea30aa3fba9daaf34d11624bd888ed4793a0ea7f96af47"
+  },
+  "packageVersion": "0.1.37",
+  "generatedManifestSha256": "c4c445947180f77641512dee1de3732fbc7946fb53fce804f33677e6e037c16e",
+  "status": "FAIL",
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ '# Library Renewal · 续借判断学习制品 — 本次学习记录\\r\\n' +\n+   '\\r\\n' +\n+   '- 材料版本：synthetic-1.0\\r\\n' +\n+   '- 记录时间：2026-10-19T10:13:24.819Z\\r\\n' +\n+   '- Audience：能够读懂基本日期，但尚未区分规则许可、申请提交与完成确认的学习者。\\r\\n' +\n+   '- Task：根据本页自编规则，解释续借是否允许、成功或失败后的日期，以及确认完成所需依据。\\r\\n' +\n+   '- 范围：当前会话的回答与核对；理解效果 NOT_MEASURED。\\r\\n' +\n+   '\\r\\n' +\n+   '## permission-check · Rule Permission · 核对规则许可\\r\\n' +\n+   '\\r\\n' +\n+   '- 题目：一本书尚未逾期，但已有其他读者预约。按 LIB2，本次是否允许续借？\\r\\n' +\n+   '- 当前选择：不允许，因为预约条件不满足。\\r\\n' +\n+   '- 核对次数：2\\r\\n' +\n+   '- 本次判断：与参考匹配\\r\\n' +\n+   '- 对应反馈：两个条件必须同时成立；已有预约使本次不满足完整规则。\\r\\n' +\n+   '- 参考判断：本次不允许。LIB2 要求尚未逾期且没有其他读者预约，两项条件同时成立才规则允许；规则允许仍不等于已成功。\\r\\n' +\n+   '- 来源 ID：renewal-rules\\r\\n' +\n+   '- 页面回查：#source-renewal-rules\\r\\n' +\n+   '\\r\\n' +\n+   '## date-check · Calendar Day · 核对跨月日期\\r\\n' +\n+   '\\r\\n' +\n+   '- 题目：原到期日为 2026-10-29。按 LIB3，续借成功与失败后分别何时归还？\\r\\n' +\n+   '- 当前选择：成功后为 2026-11-05；失败时仍为 2026-10-29。\\r\\n' +\n+   '- 核对次数：1\\r\\n' +\n+   '- 本次判断：与参考匹配\\r\\n' +\n+   '- 对应反馈：成功从原到期日增加七个日历日，跨月仍适用；失败不改原日期。\\r\\n' +\n+   '- 参考判断：成功：2026-11-05；失败：2026-10-29。日期基准是原到期日，不是申请日；增加的是七个日历日。\\r\\n' +\n+   '- 来源 ID：renewal-rules\\r\\n' +\n+   '- 页面回查：#source-renewal-rules\\r\\n' +\n+   '\\r\\n' +\n+   '## completion-check · Completion Confirmation · 核对完成依据\\r\\n' +\n+   '\\r\\n' +\n+   '- 题目：已经点击申请，但尚未看到成功文字与更新后的归还日期。按 LIB4，此时能确认什么？\\r\\n' +\n+   '- 当前选择：已提交，结果尚不能确认；也不能据此断定失败。\\r\\n' +\n+   '- 核对次数：1\\r\\n' +\n+   '- 本次判断：与参考匹配\\r\\n' +\n+   '- 对应反馈：LIB4 把提交与确认成功分开；缺少成功确认不等于已知失败。\\r\\n' +\n+   '- 参考判断：只能确认申请提交。完成确认需同时有续借成功文字和更新后的归还日期；结果未确认时保留未知，不补造失败或后台步骤。\\r\\n' +\n+   '- 来源 ID：renewal-rules\\r\\n' +\n+   '- 页面回查：#source-renewal-rules\\r\\n' +\n+   '\\r\\n' +\n+   '## Sources · 来源\\r\\n' +\n+   '\\r\\n' +\n+   '### renewal-rules · Synthetic Renewal Rules · 自编续借规则\\r\\n' +\n+   '\\r\\n' +\n+   '- 来源 ID：renewal-rules\\r\\n' +\n+   '- 标题：Synthetic Renewal Rules · 自编续借规则\\r\\n' +\n+   '- 定位：LIB1–LIB4；本插件的合成验收材料，不是任何真实图书馆政策。\\r\\n' +\n+   '- 制品内相对路径：sources/renewal-rules.md\\r\\n' +\n+   '\\r\\n' +\n+   '## 应用与意见\\r\\n' +\n+   '\\r\\n' +\n+   '合成消费者核验：提交不等于完成，未知结果保留未知。\\r\\n' +\n+   '\\r\\n' +\n+   '记录未上传、未持久化；保存导出后由你自行保留。\\r\\n'\n- '# Library Renewal · 续借判断学习制品 — 本次学习记录\\n' +\n-   '\\n' +\n-   '- 材料版本：synthetic-1.0\\n' +\n-   '- 记录时间：2026-10-19T10:13:24.819Z\\n' +\n-   '- Audience：能够读懂基本日期，但尚未区分规则许可、申请提交与完成确认的学习者。\\n' +\n-   '- Task：根据本页自编规则，解释续借是否允许、成功或失败后的日期，以及确认完成所需依据。\\n' +\n-   '- 范围：当前会话的回答与核对；理解效果 NOT_MEASURED。\\n' +\n-   '\\n' +\n-   '## permission-check · Rule Permission · 核对规则许可\\n' +\n-   '\\n' +\n-   '- 题目：一本书尚未逾期，但已有其他读者预约。按 LIB2，本次是否允许续借？\\n' +\n-   '- 当前选择：不允许，因为预约条件不满足。\\n' +\n-   '- 核对次数：2\\n' +\n-   '- 本次判断：与参考匹配\\n' +\n-   '- 对应反馈：两个条件必须同时成立；已有预约使本次不满足完整规则。\\n' +\n-   '- 参考判断：本次不允许。LIB2 要求尚未逾期且没有其他读者预约，两项条件同时成立才规则允许；规则允许仍不等于已成功。\\n' +\n-   '- 来源 ID：renewal-rules\\n' +\n-   '- 页面回查：#source-renewal-rules\\n' +\n-   '\\n' +\n-   '## date-check · Calendar Day · 核对跨月日期\\n' +\n-   '\\n' +\n-   '- 题目：原到期日为 2026-10-29。按 LIB3，续借成功与失败后分别何时归还？\\n' +\n-   '- 当前选择：成功后为 2026-11-05；失败时仍为 2026-10-29。\\n' +\n-   '- 核对次数：1\\n' +\n-   '- 本次判断：与参考匹配\\n' +\n-   '- 对应反馈：成功从原到期日增加七个日历日，跨月仍适用；失败不改原日期。\\n' +\n-   '- 参考判断：成功：2026-11-05；失败：2026-10-29。日期基准是原到期日，不是申请日；增加的是七个日历日。\\n' +\n-   '- 来源 ID：renewal-rules\\n' +\n-   '- 页面回查：#source-renewal-rules\\n' +\n-   '\\n' +\n-   '## completion-check · Completion Confirmation · 核对完成依据\\n' +\n-   '\\n' +\n-   '- 题目：已经点击申请，但尚未看到成功文字与更新后的归还日期。按 LIB4，此时能确认什么？\\n' +\n-   '- 当前选择：已提交，结果尚不能确认；也不能据此断定失败。\\n' +\n-   '- 核对次数：1\\n' +\n-   '- 本次判断：与参考匹配\\n' +\n-   '- 对应反馈：LIB4 把提交与确认成功分开；缺少成功确认不等于已知失败。\\n' +\n-   '- 参考判断：只能确认申请提交。完成确认需同时有续借成功文字和更新后的归还日期；结果未确认时保留未知，不补造失败或后台步骤。\\n' +\n-   '- 来源 ID：renewal-rules\\n' +\n-   '- 页面回查：#source-renewal-rules\\n' +\n-   '\\n' +\n-   '## Sources · 来源\\n' +\n-   '\\n' +\n-   '### renewal-rules · Synthetic Renewal Rules · 自编续借规则\\n' +\n-   '\\n' +\n-   '- 来源 ID：renewal-rules\\n' +\n-   '- 标题：Synthetic Renewal Rules · 自编续借规则\\n' +\n-   '- 定位：LIB1–LIB4；本插件的合成验收材料，不是任何真实图书馆政策。\\n' +\n-   '- 制品内相对路径：sources/renewal-rules.md\\n' +\n-   '\\n' +\n-   '## 应用与意见\\n' +\n-   '\\n' +\n-   '合成消费者核验：提交不等于完成，未知结果保留未知。\\n' +\n-   '\\n' +\n-   '记录未上传、未持久化；保存导出后由你自行保留。\\n'\n\n    at file:///C:/Users/Admin/AppData/Local/Temp/html-site-consumer-prep-20261019/consumer-run.mjs:193:12\n    at async step (file:///C:/Users/Admin/AppData/Local/Temp/html-site-consumer-prep-20261019/consumer-run.mjs:26:24)\n    at async file:///C:/Users/Admin/AppData/Local/Temp/html-site-consumer-prep-20261019/consumer-run.mjs:187:3",
+  "completedAt": "2026-10-19T10:13:25.105Z"
+}

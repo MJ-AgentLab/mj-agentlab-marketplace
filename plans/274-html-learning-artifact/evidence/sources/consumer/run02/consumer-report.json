@@ -1,0 +1,249 @@
+{
+  "schemaVersion": 1,
+  "role": "Independent content/learning-design and installed-package consumer",
+  "executedAt": "2026-10-19T10:13:54.947Z",
+  "skillLocator": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-site-consumer-install-svimFE\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.37\\skills\\site\\SKILL.md",
+  "skillSha256": "c3c47756b18e7ccd2a2e6491e23909afa0f98bc7742476a9cb017c50fc968773",
+  "cases": [
+    {
+      "id": "installed-resources-read-and-source-snapshot",
+      "status": "PASS",
+      "detail": {
+        "packageVersion": "0.1.37",
+        "referenceCount": 9,
+        "consumerCwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-site-consumer-acceptance-20261019-02\\consumer-cwd",
+        "sourcePaths": [
+          "sources/renewal-rules.md"
+        ]
+      }
+    },
+    {
+      "id": "render-and-actual-installed-python-checkers",
+      "status": "PASS",
+      "detail": {
+        "static": {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        "viewports": [
+          {
+            "viewport": {
+              "width": 1366,
+              "height": 900
+            },
+            "screenshot": "viewport-1366x900.png",
+            "screenshotSha256": "e851cf610e4abcd9d04a77f67b4bc3de874d175d9fdd83ccb13e2a5eb3a6811b"
+          },
+          {
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "screenshot": "viewport-390x844.png",
+            "screenshotSha256": "35d5e2341d313954ea81ebc7da684bf6c31ddececaf4d6733796479b4ef78200"
+          }
+        ],
+        "pythonVersion": "3.12.14"
+      }
+    },
+    {
+      "id": "independent-LIB-rules-date-and-criteria-review",
+      "status": "PASS",
+      "detail": {
+        "sourceSha256": "2a95c4d9b95f3b184fea30aa3fba9daaf34d11624bd888ed4793a0ea7f96af47",
+        "combinations": [
+          [
+            true,
+            true,
+            true
+          ],
+          [
+            true,
+            false,
+            false
+          ],
+          [
+            false,
+            true,
+            false
+          ],
+          [
+            false,
+            false,
+            false
+          ]
+        ],
+        "successDate": "2026-11-05",
+        "failureDate": "2026-10-29",
+        "expected": [
+          {
+            "id": "permission-check",
+            "correctIndex": 1
+          },
+          {
+            "id": "date-check",
+            "correctIndex": 0
+          },
+          {
+            "id": "completion-check",
+            "correctIndex": 1
+          }
+        ],
+        "assessment": "Conditions, exceptions, cross-month date and three local criteria agree with LIB1–LIB4 within this synthetic material; no real library policy or learner improvement inferred."
+      }
+    },
+    {
+      "id": "rendered-content-table-source-and-terminology",
+      "status": "PASS",
+      "detail": {
+        "rows": [
+          "是是允许，但成功仍须按 LIB4 确认",
+          "是否不允许",
+          "否是不允许",
+          "否否不允许"
+        ],
+        "sourceBytesMatch": true,
+        "semanticScope": "LIB synthetic exercise only"
+      }
+    },
+    {
+      "id": "unselected-is-not-an-answer",
+      "status": "PASS",
+      "detail": {
+        "checked": 0,
+        "reviewed": 0
+      }
+    },
+    {
+      "id": "wrong-feedback-change-invalidation-and-correct-recheck",
+      "status": "PASS",
+      "detail": {
+        "q1Attempts": 2,
+        "reviewed": 3
+      }
+    },
+    {
+      "id": "export-version-state-source-locators-and-actual-downloads",
+      "status": "PASS",
+      "detail": {
+        "recordSha256": "994dd06fda5131be44b0502b3b1fcae656097398f345cc9ffda48476ad1b932a",
+        "recordDownloadSha256": "994dd06fda5131be44b0502b3b1fcae656097398f345cc9ffda48476ad1b932a",
+        "materialDownloadSha256": "060045ce718168c7f3c2aecd2742518490d5693e3dbdeb28b4ac94ce2885cd50",
+        "sourceLocatorCount": 1
+      }
+    },
+    {
+      "id": "real-native-clipboard-success-and-readback",
+      "status": "PASS",
+      "detail": {
+        "mechanism": "Unmodified native navigator.clipboard.writeText on local secure origin; actual native readText matches all content after Windows CRLF-to-LF newline normalization only",
+        "rawClipboardSha256": "648da617a9c1f9a54d4fb291f23c828616add5b05b6850d6f2c605d7f0aa3298",
+        "normalizedClipboardSha256": "994dd06fda5131be44b0502b3b1fcae656097398f345cc9ffda48476ad1b932a",
+        "exportSha256": "994dd06fda5131be44b0502b3b1fcae656097398f345cc9ffda48476ad1b932a",
+        "rawBytes": 2878,
+        "exportBytes": 2823,
+        "byteIdentical": false,
+        "crlfCount": 55,
+        "scope": "Actual successful copy and content preservation; not a byte-identical LF clipboard claim. First strict-byte comparison failure remains in run01."
+      }
+    },
+    {
+      "id": "clipboard-rejection-fault-selects-text-and-Escape-returns-focus",
+      "status": "PASS",
+      "detail": {
+        "faultInjection": "writeText rejects with NotAllowedError in real browser; not a success simulation",
+        "selection": {
+          "start": 0,
+          "end": 1372,
+          "length": 1372
+        },
+        "returnedBy": "Escape",
+        "manualCopyCompletion": "UNCONFIRMED"
+      }
+    },
+    {
+      "id": "missing-clipboard-API-fault-selects-text-and-return-button",
+      "status": "PASS",
+      "detail": {
+        "faultInjection": "navigator.clipboard absent in real browser",
+        "returnedBy": "visible return button",
+        "manualCopyCompletion": "UNCONFIRMED"
+      }
+    },
+    {
+      "id": "changed-answer-export-and-reset-remove-stale-checked-state",
+      "status": "PASS",
+      "detail": {
+        "changedSelectionRequiresRecheck": true,
+        "resetCounts": [
+          0,
+          0,
+          0
+        ],
+        "oldFeedbackAbsent": true,
+        "pageErrors": []
+      }
+    },
+    {
+      "id": "JavaScript-disabled-static-reading-and-native-reference-disclosure",
+      "status": "PASS",
+      "detail": {
+        "necessaryContentReadable": true,
+        "conditionRows": 4,
+        "nativeReferenceDisclosures": 3,
+        "javascript": false
+      }
+    }
+  ],
+  "limitations": [
+    "Synthetic local browser and engineering checks do not establish Sites publication, protected GitHub approval, Owner final acceptance or understanding effects.",
+    "Clipboard rejection/missing-API paths are explicitly injected faults in a real browser. Successful copy is separately checked through unmodified native Clipboard API and actual readback.",
+    "Initial desktop/mobile screenshots and no-JavaScript static content are bounded checks, not full visual/accessibility or learner-effect evaluation."
+  ],
+  "inputHashes": {
+    "artifact.json": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+    "content.md": "060045ce718168c7f3c2aecd2742518490d5693e3dbdeb28b4ac94ce2885cd50",
+    "sources/renewal-rules.md": "2a95c4d9b95f3b184fea30aa3fba9daaf34d11624bd888ed4793a0ea7f96af47"
+  },
+  "packageVersion": "0.1.37",
+  "generatedManifestSha256": "c4c445947180f77641512dee1de3732fbc7946fb53fce804f33677e6e037c16e",
+  "browserVersion": "155.0.8059.80",
+  "requestLog": [
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/theme.css",
+      "status": 200
+    },
+    {
+      "path": "/learning.js",
+      "status": 200
+    },
+    {
+      "path": "/favicon.ico",
+      "status": 404
+    },
+    {
+      "path": "/sources/renewal-rules.md",
+      "status": 200
+    },
+    {
+      "path": "/content.md",
+      "status": 200
+    },
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/theme.css",
+      "status": 200
+    }
+  ],
+  "status": "PASS",
+  "completedAt": "2026-10-19T10:13:58.316Z"
+}

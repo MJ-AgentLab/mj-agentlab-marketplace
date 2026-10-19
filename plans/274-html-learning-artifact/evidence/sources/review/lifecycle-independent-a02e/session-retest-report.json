@@ -1,0 +1,92 @@
+{
+  "platform": "linux",
+  "python": "3.12.3 (main, Jul 15 2026, 23:46:41) [GCC 13.3.0]",
+  "results": [
+    {
+      "separateGroup": false,
+      "launcher": 11,
+      "writer": {
+        "pid": 12,
+        "group": 11,
+        "session": 11
+      },
+      "trackedBefore": [
+        12
+      ],
+      "trackedAfter": [],
+      "writerAliveAfterClose": false,
+      "rootRecreatedAfterCleanup": false,
+      "foreignUnaffected": true,
+      "lifecycle": [
+        {
+          "phase": "browser-process-exit",
+          "status": "PASS",
+          "returnCode": 0
+        },
+        {
+          "phase": "owned-browser-session-exit",
+          "status": "PASS",
+          "method": "complete Linux /proc session scan, all owned groups, two consecutive empty scans"
+        },
+        {
+          "phase": "temporary-cleanup",
+          "status": "PASS",
+          "attempts": 1
+        }
+      ]
+    },
+    {
+      "separateGroup": true,
+      "launcher": 13,
+      "writer": {
+        "pid": 14,
+        "group": 14,
+        "session": 13
+      },
+      "trackedBefore": [
+        14
+      ],
+      "trackedAfter": [],
+      "writerAliveAfterClose": false,
+      "rootRecreatedAfterCleanup": false,
+      "foreignUnaffected": true,
+      "lifecycle": [
+        {
+          "phase": "browser-process-exit",
+          "status": "PASS",
+          "returnCode": 0
+        },
+        {
+          "phase": "owned-browser-session-exit",
+          "status": "PASS",
+          "method": "complete Linux /proc session scan, all owned groups, two consecutive empty scans"
+        },
+        {
+          "phase": "temporary-cleanup",
+          "status": "PASS",
+          "attempts": 1
+        }
+      ]
+    }
+  ],
+  "incompleteEnumeration": [
+    {
+      "phase": "directory-list",
+      "status": "FAIL_CLOSED",
+      "reason": "cannot completely inspect the owned Linux session: [Errno 13] independent incomplete /proc inventory"
+    },
+    {
+      "phase": "entry-stat",
+      "status": "FAIL_CLOSED",
+      "reason": "cannot completely inspect the owned Linux session: [Errno 13] independent unreadable process stat"
+    },
+    {
+      "phase": "main-after-completed-viewports",
+      "exit": 2,
+      "status": "NOT_RUN",
+      "reason": "RuntimeError: cannot completely inspect the owned Linux session: [Errno 13] independent incomplete /proc inventory",
+      "completedViewports": 2
+    }
+  ],
+  "scope": "isolated Python launcher/writer; not actual Chrome or GitHub CI"
+}

@@ -1,0 +1,51 @@
+{
+  "executedAt": "2026-10-19T10:12:28.175392+00:00",
+  "tree": "8c579494c5a250344b0018e186810985868fa990",
+  "base": "6c2f41516325ab3929d933efcf54457fb71f644a",
+  "python": "3.12.13 (main, Jun 11 2026, 04:05:29) [MSC v.1944 64 bit (AMD64)]",
+  "sourceIndex": {
+    "exit": 1,
+    "status": "FAIL",
+    "summary": {
+      "checks": 74,
+      "failed": 5,
+      "pages": 1,
+      "files": 6
+    }
+  },
+  "markdownIndex": {
+    "checks": 70,
+    "failed": 5,
+    "pages": 1,
+    "files": 6
+  },
+  "percent": {
+    "status": "PASS",
+    "summary": {
+      "checks": 89,
+      "failed": 0,
+      "pages": 1,
+      "files": 6
+    }
+  },
+  "targetedTests": {
+    "pass": 4,
+    "fail": 0,
+    "log": "targeted-tests-with-python.log"
+  },
+  "earlierTestAttempt": {
+    "pass": 3,
+    "fail": 1,
+    "reason": "No Python interpreter on PATH; checker test failed closed before running. Re-executed with HTML_SITE_PYTHON set to actual existing CPython 3.12. This note records the tool result; it is not a raw transcript."
+  },
+  "scopeJudgment": "URL path encoding, word-boundary consistency and unsupported Markdown rejection are within the original local renderer contract. No weakened checker criterion found. Leading --- with later ---/... is conservatively treated as unsupported frontmatter as now documented.",
+  "notExecuted": [
+    "Full browser/CDP validation",
+    "Real Sites flow",
+    "Unrelated full review"
+  ],
+  "scriptHashes": {
+    "plugins\\html-guide-kit\\skills\\site\\scripts\\check_artifact.py": "7f912c3ede72255588fc6ae33624ce87e39ea7328b34789cdc590e4bbc78d9c2",
+    "plugins\\html-guide-kit\\skills\\site\\scripts\\render-site.mjs": "07e92e688ef751b18bcd9f09ee767c3dbf95632c2c56a11fe6a2133a8cad955e"
+  }
+}

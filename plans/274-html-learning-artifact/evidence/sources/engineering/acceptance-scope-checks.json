@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-10-19T11:03:35.282Z",
+  "sourceSha": "7138d3437ff03e374cf83a77a2f90c0f75d0f61a",
+  "sourceTree": "31f7fa216099e188a7107a1a0f44e2dfe31b4225",
+  "inheritedRuntime": "552b6e0a5d9e3d0a85e284406fe87e9508549028",
+  "actor": "/root",
+  "role": "Integration and document closure verifier",
+  "operations": [
+    {
+      "args": [
+        "node",
+        "--test",
+        "tests/document-harness.test.mjs",
+        "tests/documentation-contract.test.mjs",
+        "tests/intent-harness.test.mjs"
+      ],
+      "observedShellExitCode": 0,
+      "tests": 116,
+      "pass": 116,
+      "fail": 0,
+      "skipped": 0
+    },
+    {
+      "args": [
+        "node",
+        "--test",
+        "--test-name-pattern=real projection copies exact source bytes",
+        "tests/smoke-source.test.mjs"
+      ],
+      "observedShellExitCode": 0,
+      "tests": 1,
+      "pass": 1,
+      "fail": 0,
+      "skipped": 0
+    }
+  ],
+  "copied": [
+    {
+      "from": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-acceptance-doc-tests.log",
+      "path": "evidence/sources/engineering/html-learning-274-acceptance-doc-tests.log",
+      "bytes": 24723,
+      "sha256": "2cab22c8850e76b244b36766a44f3ae685e657ae2143c79e1fa84ab57b8458b2",
+      "tests": 116
+    },
+    {
+      "from": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-acceptance-source-closure.log",
+      "path": "evidence/sources/engineering/html-learning-274-acceptance-source-closure.log",
+      "bytes": 390,
+      "sha256": "523ae067614a7b584645af0fae437c405c52b6ba8faf68325e53b4474931a937",
+      "tests": 1
+    }
+  ],
+  "limits": [
+    "Observed time is receipt creation, not a reconstructed exact test start. These checks ran at source7138 before the subsequent documentation-only PR277 link/receipt update. Runtime, original197 evidence and acceptance criteria remain unchanged.",
+    "No protected approval, Marketplace publication or Owner acceptance is inferred."
+  ]
+}
