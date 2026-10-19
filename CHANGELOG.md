@@ -5,6 +5,10 @@
 
 ## [Unreleased]
 
+### Documentation
+
+- Record actual #278 / v8.3.2 main, tag and Release identities, exact published notes, final two-system candidate CI and fresh real-tag thirteen-install/Python/cleanup evidence. Update the default public installation pointer to v8.3.2 and expose the already-published site entry. Preserve actual Owner bypass, empty reviews, original QA failures, newline representation limits and all deferred/Owner-acceptance boundaries. Keep runtime/plugin versions and published history unchanged; complete main synchronization before the marketplace-only next-patch preparation. Refs #274.
+
 ## [8.3.2] - 2026-10-19
 
 HTML Learning Artifact and engineering-governance update: HTML Guide Kit 0.1.37, with Diagram 0.3.1, Learning Evidence 0.1.0, Explain 0.1.1 and Communication 0.1.0 unchanged. Five packages expose eight skills, including five explicit entries. VERSION was already prepared as 8.3.2; this promotion does not bump it again. Refs #274.

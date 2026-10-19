@@ -1,0 +1,20 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import assert from 'node:assert/strict';
+import {execFileSync} from 'node:child_process';
+const root='C:/Users/Admin/.codex/worktrees/html-learning-artifact/develop',task='plans/274-html-learning-artifact';
+const git=args=>execFileSync('git',args,{cwd:root,encoding:'utf8',maxBuffer:40*1024*1024});
+const hash=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+const checks=[];function check(name,fn){fn();checks.push({name,status:'PASS'});}
+const previous=JSON.parse(git(['show','f906b100:'+task+'/source-bindings.json'])),current=JSON.parse(fs.readFileSync(path.join(root,task,'source-bindings.json'),'utf8'));
+check('All previous236 source identities and bytes retained',()=>{assert.equal(previous.sources.length,236);for(const entry of previous.sources){assert.deepEqual(current.sources.find(e=>e.id===entry.id),entry);assert.equal(hash(path.join(root,task,entry.path)),entry.sha256);}});
+check('All current frozen source bytes match exact bindings',()=>{for(const entry of current.sources)assert.equal(hash(path.join(root,task,entry.path)),entry.sha256,entry.path);});
+check('All package, version, catalog, skill, Harness, test and workflow Git changes absent',()=>assert.equal(git(['diff','--name-only','f906b100','--','plugins','VERSION','.agents/plugins','.agents/skills','scripts','tests','.github','package.json','package-lock.json']).trim(),''));
+const changelog=fs.readFileSync(path.join(root,'CHANGELOG.md'),'utf8').replaceAll('\r\n','\n'),old=git(['show','f906b100:CHANGELOG.md']);
+check('All published8.3.2 and older CHANGELOG Git-source text unchanged',()=>assert.equal(changelog.slice(changelog.indexOf('## [8.3.2]')),old.slice(old.indexOf('## [8.3.2]'))));
+check('Default public install uses actual v8.3.2',()=>assert(fs.readFileSync(path.join(root,'README.md'),'utf8').includes('--ref v8.3.2')));
+check('AGENTS instruction budget respected',()=>assert(fs.statSync(path.join(root,'AGENTS.md')).size<=16384));
+check('Original user plan remains unchanged',()=>assert.equal(hash('D:/workspace/10-software-project/projects/mj-agentlab-marketplace/develop/HTML-Learning-Artifact-Plugin-Implementation-Plan.md'),'dc9d58437778093ae9b51d052908712a3bbb2624f16ff335f5210435ca2f0895'));
+const result={capturedAt:new Date().toISOString(),actor:'/root',base:git(['rev-parse','f906b100']).trim(),stage:'Post-publication record working tree before commit',checks,sourceBindings:current.sources.length,agentsBytes:fs.statSync(path.join(root,'AGENTS.md')).size,limitations:'Scope and byte closure only; not candidate CI, protected approval, maintenance actual merge or Owner acceptance'};
+fs.writeFileSync('C:/Users/Admin/AppData/Local/Temp/html-learning-274-record-scope.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));

@@ -1,0 +1,785 @@
+[
+  {
+    "scenario": [
+      "diagram-kit"
+    ],
+    "skill": "diagram-kit:arch-diagram",
+    "count": 12,
+    "hashes": {
+      "SKILL.md": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b",
+      "agents/openai.yaml": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428",
+      "references/architecture-methodology.md": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f",
+      "references/code-diagram.md": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75",
+      "references/component-diagram.md": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37",
+      "references/container-diagram.md": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3",
+      "references/context-diagram.md": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a",
+      "references/deployment-diagram.md": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d",
+      "references/domain-acquisition.md": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9",
+      "references/sequence-diagram.md": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb",
+      "references/state-machine-diagram.md": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb",
+      "scripts/validate_diagram.py": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33"
+    }
+  },
+  {
+    "scenario": [
+      "learning-evidence-kit"
+    ],
+    "skill": "learning-evidence-kit:learning-record-check",
+    "count": 2,
+    "hashes": {
+      "SKILL.md": "520d1af47e7098246a31565e4322d3d67a55e180cda4d01bb72399ed7ebf1e49",
+      "agents/openai.yaml": "dcac046ed1ddb1b8ebf0ca09ea80544b7be11b733272e1dd6cbec64bfbaa928f"
+    }
+  },
+  {
+    "scenario": [
+      "learning-evidence-kit"
+    ],
+    "skill": "learning-evidence-kit:pop-quiz",
+    "count": 4,
+    "hashes": {
+      "SKILL.md": "72b2c8185234971041ac3f9de989cff93517870d3280b7b020eb305da69d92a6",
+      "agents/openai.yaml": "decebdd57d750e9ef3d88da43ba458f3e8c622acf4e534a19681236bee8aee21",
+      "references/ku-selection.md": "6d78cdd36367eceeba8e3682782acf11f1d1fa124df8879e26960461c4c4aa29",
+      "references/quiz-policy.md": "8d94713293e5dbcaee09aeb4681b6e6d25d3380e182e6d3cdb47a8f365406794"
+    }
+  },
+  {
+    "scenario": [
+      "explain-kit"
+    ],
+    "skill": "explain-kit:concept",
+    "count": 2,
+    "hashes": {
+      "SKILL.md": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+      "agents/openai.yaml": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf"
+    }
+  },
+  {
+    "scenario": [
+      "explain-kit"
+    ],
+    "skill": "explain-kit:glossary",
+    "count": 2,
+    "hashes": {
+      "SKILL.md": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+      "agents/openai.yaml": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "explain-kit"
+    ],
+    "skill": "diagram-kit:arch-diagram",
+    "count": 12,
+    "hashes": {
+      "SKILL.md": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b",
+      "agents/openai.yaml": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428",
+      "references/architecture-methodology.md": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f",
+      "references/code-diagram.md": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75",
+      "references/component-diagram.md": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37",
+      "references/container-diagram.md": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3",
+      "references/context-diagram.md": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a",
+      "references/deployment-diagram.md": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d",
+      "references/domain-acquisition.md": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9",
+      "references/sequence-diagram.md": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb",
+      "references/state-machine-diagram.md": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb",
+      "scripts/validate_diagram.py": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "explain-kit"
+    ],
+    "skill": "explain-kit:concept",
+    "count": 2,
+    "hashes": {
+      "SKILL.md": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+      "agents/openai.yaml": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "explain-kit"
+    ],
+    "skill": "explain-kit:glossary",
+    "count": 2,
+    "hashes": {
+      "SKILL.md": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+      "agents/openai.yaml": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit"
+    ],
+    "skill": "diagram-kit:arch-diagram",
+    "count": 12,
+    "hashes": {
+      "SKILL.md": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b",
+      "agents/openai.yaml": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428",
+      "references/architecture-methodology.md": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f",
+      "references/code-diagram.md": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75",
+      "references/component-diagram.md": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37",
+      "references/container-diagram.md": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3",
+      "references/context-diagram.md": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a",
+      "references/deployment-diagram.md": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d",
+      "references/domain-acquisition.md": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9",
+      "references/sequence-diagram.md": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb",
+      "references/state-machine-diagram.md": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb",
+      "scripts/validate_diagram.py": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit"
+    ],
+    "skill": "explain-kit:concept",
+    "count": 2,
+    "hashes": {
+      "SKILL.md": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+      "agents/openai.yaml": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit"
+    ],
+    "skill": "explain-kit:glossary",
+    "count": 2,
+    "hashes": {
+      "SKILL.md": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+      "agents/openai.yaml": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit"
+    ],
+    "skill": "learning-evidence-kit:learning-record-check",
+    "count": 2,
+    "hashes": {
+      "SKILL.md": "520d1af47e7098246a31565e4322d3d67a55e180cda4d01bb72399ed7ebf1e49",
+      "agents/openai.yaml": "dcac046ed1ddb1b8ebf0ca09ea80544b7be11b733272e1dd6cbec64bfbaa928f"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit"
+    ],
+    "skill": "learning-evidence-kit:pop-quiz",
+    "count": 4,
+    "hashes": {
+      "SKILL.md": "72b2c8185234971041ac3f9de989cff93517870d3280b7b020eb305da69d92a6",
+      "agents/openai.yaml": "decebdd57d750e9ef3d88da43ba458f3e8c622acf4e534a19681236bee8aee21",
+      "references/ku-selection.md": "6d78cdd36367eceeba8e3682782acf11f1d1fa124df8879e26960461c4c4aa29",
+      "references/quiz-policy.md": "8d94713293e5dbcaee09aeb4681b6e6d25d3380e182e6d3cdb47a8f365406794"
+    }
+  },
+  {
+    "scenario": [
+      "communication-kit"
+    ],
+    "skill": "communication-kit:communicate",
+    "count": 6,
+    "hashes": {
+      "SKILL.md": "7a5644c9e2f156acd98286d36ac5b869fd921e23704fa98030d792faadaf630f",
+      "agents/openai.yaml": "c89a7134a1dd2fffa3e99d38bdcedb2bdaf46fb03de9b69ff1b19ad667c01d2d",
+      "references/aics-policy.md": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+      "references/aics-snapshot.json": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332",
+      "references/source-provenance.md": "53272cc56dba8cfe32203543d9f3d6aee8ec55ebc3602f4dc5652be90b9ed725",
+      "references/task-patterns.md": "190c47c125759de5dbdca218417a418b76ba555df44923dc2cf48b86d60d0cff"
+    }
+  },
+  {
+    "scenario": [
+      "communication-kit",
+      "explain-kit"
+    ],
+    "skill": "communication-kit:communicate",
+    "count": 6,
+    "hashes": {
+      "SKILL.md": "7a5644c9e2f156acd98286d36ac5b869fd921e23704fa98030d792faadaf630f",
+      "agents/openai.yaml": "c89a7134a1dd2fffa3e99d38bdcedb2bdaf46fb03de9b69ff1b19ad667c01d2d",
+      "references/aics-policy.md": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+      "references/aics-snapshot.json": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332",
+      "references/source-provenance.md": "53272cc56dba8cfe32203543d9f3d6aee8ec55ebc3602f4dc5652be90b9ed725",
+      "references/task-patterns.md": "190c47c125759de5dbdca218417a418b76ba555df44923dc2cf48b86d60d0cff"
+    }
+  },
+  {
+    "scenario": [
+      "communication-kit",
+      "explain-kit"
+    ],
+    "skill": "explain-kit:concept",
+    "count": 2,
+    "hashes": {
+      "SKILL.md": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+      "agents/openai.yaml": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf"
+    }
+  },
+  {
+    "scenario": [
+      "communication-kit",
+      "explain-kit"
+    ],
+    "skill": "explain-kit:glossary",
+    "count": 2,
+    "hashes": {
+      "SKILL.md": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+      "agents/openai.yaml": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619"
+    }
+  },
+  {
+    "scenario": [
+      "communication-kit",
+      "learning-evidence-kit"
+    ],
+    "skill": "communication-kit:communicate",
+    "count": 6,
+    "hashes": {
+      "SKILL.md": "7a5644c9e2f156acd98286d36ac5b869fd921e23704fa98030d792faadaf630f",
+      "agents/openai.yaml": "c89a7134a1dd2fffa3e99d38bdcedb2bdaf46fb03de9b69ff1b19ad667c01d2d",
+      "references/aics-policy.md": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+      "references/aics-snapshot.json": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332",
+      "references/source-provenance.md": "53272cc56dba8cfe32203543d9f3d6aee8ec55ebc3602f4dc5652be90b9ed725",
+      "references/task-patterns.md": "190c47c125759de5dbdca218417a418b76ba555df44923dc2cf48b86d60d0cff"
+    }
+  },
+  {
+    "scenario": [
+      "communication-kit",
+      "learning-evidence-kit"
+    ],
+    "skill": "learning-evidence-kit:learning-record-check",
+    "count": 2,
+    "hashes": {
+      "SKILL.md": "520d1af47e7098246a31565e4322d3d67a55e180cda4d01bb72399ed7ebf1e49",
+      "agents/openai.yaml": "dcac046ed1ddb1b8ebf0ca09ea80544b7be11b733272e1dd6cbec64bfbaa928f"
+    }
+  },
+  {
+    "scenario": [
+      "communication-kit",
+      "learning-evidence-kit"
+    ],
+    "skill": "learning-evidence-kit:pop-quiz",
+    "count": 4,
+    "hashes": {
+      "SKILL.md": "72b2c8185234971041ac3f9de989cff93517870d3280b7b020eb305da69d92a6",
+      "agents/openai.yaml": "decebdd57d750e9ef3d88da43ba458f3e8c622acf4e534a19681236bee8aee21",
+      "references/ku-selection.md": "6d78cdd36367eceeba8e3682782acf11f1d1fa124df8879e26960461c4c4aa29",
+      "references/quiz-policy.md": "8d94713293e5dbcaee09aeb4681b6e6d25d3380e182e6d3cdb47a8f365406794"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "communication-kit"
+    ],
+    "skill": "communication-kit:communicate",
+    "count": 6,
+    "hashes": {
+      "SKILL.md": "7a5644c9e2f156acd98286d36ac5b869fd921e23704fa98030d792faadaf630f",
+      "agents/openai.yaml": "c89a7134a1dd2fffa3e99d38bdcedb2bdaf46fb03de9b69ff1b19ad667c01d2d",
+      "references/aics-policy.md": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+      "references/aics-snapshot.json": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332",
+      "references/source-provenance.md": "53272cc56dba8cfe32203543d9f3d6aee8ec55ebc3602f4dc5652be90b9ed725",
+      "references/task-patterns.md": "190c47c125759de5dbdca218417a418b76ba555df44923dc2cf48b86d60d0cff"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "communication-kit"
+    ],
+    "skill": "diagram-kit:arch-diagram",
+    "count": 12,
+    "hashes": {
+      "SKILL.md": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b",
+      "agents/openai.yaml": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428",
+      "references/architecture-methodology.md": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f",
+      "references/code-diagram.md": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75",
+      "references/component-diagram.md": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37",
+      "references/container-diagram.md": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3",
+      "references/context-diagram.md": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a",
+      "references/deployment-diagram.md": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d",
+      "references/domain-acquisition.md": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9",
+      "references/sequence-diagram.md": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb",
+      "references/state-machine-diagram.md": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb",
+      "scripts/validate_diagram.py": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "communication-kit"
+    ],
+    "skill": "explain-kit:concept",
+    "count": 2,
+    "hashes": {
+      "SKILL.md": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+      "agents/openai.yaml": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "communication-kit"
+    ],
+    "skill": "explain-kit:glossary",
+    "count": 2,
+    "hashes": {
+      "SKILL.md": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+      "agents/openai.yaml": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "communication-kit"
+    ],
+    "skill": "learning-evidence-kit:learning-record-check",
+    "count": 2,
+    "hashes": {
+      "SKILL.md": "520d1af47e7098246a31565e4322d3d67a55e180cda4d01bb72399ed7ebf1e49",
+      "agents/openai.yaml": "dcac046ed1ddb1b8ebf0ca09ea80544b7be11b733272e1dd6cbec64bfbaa928f"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "communication-kit"
+    ],
+    "skill": "learning-evidence-kit:pop-quiz",
+    "count": 4,
+    "hashes": {
+      "SKILL.md": "72b2c8185234971041ac3f9de989cff93517870d3280b7b020eb305da69d92a6",
+      "agents/openai.yaml": "decebdd57d750e9ef3d88da43ba458f3e8c622acf4e534a19681236bee8aee21",
+      "references/ku-selection.md": "6d78cdd36367eceeba8e3682782acf11f1d1fa124df8879e26960461c4c4aa29",
+      "references/quiz-policy.md": "8d94713293e5dbcaee09aeb4681b6e6d25d3380e182e6d3cdb47a8f365406794"
+    }
+  },
+  {
+    "scenario": [
+      "html-guide-kit"
+    ],
+    "skill": "html-guide-kit:guide",
+    "count": 4,
+    "hashes": {
+      "SKILL.md": "9f2febe6d0d368ab0ea5eb0e570a050a557f3d80983ea70b1138b4e60e0dc58e",
+      "agents/openai.yaml": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+      "references/guide-framework.md": "09db2c2a67d6b61ac0d6500a70c6a01cc858651a4d5b9015472a4021111ac196",
+      "references/interaction-design.md": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a"
+    }
+  },
+  {
+    "scenario": [
+      "html-guide-kit"
+    ],
+    "skill": "html-guide-kit:site",
+    "count": 20,
+    "hashes": {
+      "SKILL.md": "c3c47756b18e7ccd2a2e6491e23909afa0f98bc7742476a9cb017c50fc968773",
+      "agents/openai.yaml": "2051c88954740c96fd41c16d077430c8dfa7db6e9c52401553678f6858e0debe",
+      "assets/warm-paper/learning.js": "1fcc8c6064dd99f00b91103cf76e33d7a4e6dcf50793b4542bd8462f6c91f568",
+      "assets/warm-paper/shell.html": "816fc0257f6cef7443f5a3b5f299b909fedfd1758da7b823ac4514b29fb2d72b",
+      "assets/warm-paper/theme.css": "90ee5261f02c44f3fb7f5b3e17662cb232bde07110dd53a2ccf4f2880ac1345f",
+      "examples/representative/artifact.json": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+      "examples/representative/content.md": "060045ce718168c7f3c2aecd2742518490d5693e3dbdeb28b4ac94ce2885cd50",
+      "examples/representative/sources/renewal-rules.md": "2a95c4d9b95f3b184fea30aa3fba9daaf34d11624bd888ed4793a0ea7f96af47",
+      "references/aics-principles.md": "39849866aa2db08994d5780f00c26b070afa1d158011aa6a2b398a538716afca",
+      "references/checks.md": "7cf232681aa66ae0050ee9c570bbcfa8fb2bd6f54cc210fa01c9872ec12e0de0",
+      "references/evidence-and-evaluation.md": "bba7a0100d9ef6f63151a979692697738f9bfbb0bd72b1510efa7a765b5d8b5e",
+      "references/execution-guide.md": "4c6304dd3d666d874f82db00a494cbee6fffe07615243786ea4d0deaaa324499",
+      "references/input-contract.md": "18eb3f0b000268214d2cd693989c63a64db345533f60e606ff46af1308457aa1",
+      "references/interaction-patterns.md": "ef878b1f8b97024b81076e27b4457e12c5069e5408abafa72d703849d80feaf3",
+      "references/resource-provenance.json": "1847d0b34cff308481ebf4f4f0e2390f7582c9dd40d98c355d67a40dfe095778",
+      "references/sites-handoff.md": "cab83528d728691fb34574fae2dc1b2ca9104e77641061825412e60fca041272",
+      "references/terminology.md": "ccbd0af80ee67b4580a43e3cbf623972c485a87e8eaead0b933c9c9065071ccb",
+      "scripts/check_artifact.py": "7f912c3ede72255588fc6ae33624ce87e39ea7328b34789cdc590e4bbc78d9c2",
+      "scripts/check_renderings.py": "d99dc2ad8a67d557f552280b83a5e519eb5395e18e71775abe7cb3fdbb489ccd",
+      "scripts/render-site.mjs": "07e92e688ef751b18bcd9f09ee767c3dbf95632c2c56a11fe6a2133a8cad955e"
+    }
+  },
+  {
+    "scenario": [
+      "html-guide-kit",
+      "explain-kit"
+    ],
+    "skill": "explain-kit:concept",
+    "count": 2,
+    "hashes": {
+      "SKILL.md": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+      "agents/openai.yaml": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf"
+    }
+  },
+  {
+    "scenario": [
+      "html-guide-kit",
+      "explain-kit"
+    ],
+    "skill": "explain-kit:glossary",
+    "count": 2,
+    "hashes": {
+      "SKILL.md": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+      "agents/openai.yaml": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619"
+    }
+  },
+  {
+    "scenario": [
+      "html-guide-kit",
+      "explain-kit"
+    ],
+    "skill": "html-guide-kit:guide",
+    "count": 4,
+    "hashes": {
+      "SKILL.md": "9f2febe6d0d368ab0ea5eb0e570a050a557f3d80983ea70b1138b4e60e0dc58e",
+      "agents/openai.yaml": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+      "references/guide-framework.md": "09db2c2a67d6b61ac0d6500a70c6a01cc858651a4d5b9015472a4021111ac196",
+      "references/interaction-design.md": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a"
+    }
+  },
+  {
+    "scenario": [
+      "html-guide-kit",
+      "explain-kit"
+    ],
+    "skill": "html-guide-kit:site",
+    "count": 20,
+    "hashes": {
+      "SKILL.md": "c3c47756b18e7ccd2a2e6491e23909afa0f98bc7742476a9cb017c50fc968773",
+      "agents/openai.yaml": "2051c88954740c96fd41c16d077430c8dfa7db6e9c52401553678f6858e0debe",
+      "assets/warm-paper/learning.js": "1fcc8c6064dd99f00b91103cf76e33d7a4e6dcf50793b4542bd8462f6c91f568",
+      "assets/warm-paper/shell.html": "816fc0257f6cef7443f5a3b5f299b909fedfd1758da7b823ac4514b29fb2d72b",
+      "assets/warm-paper/theme.css": "90ee5261f02c44f3fb7f5b3e17662cb232bde07110dd53a2ccf4f2880ac1345f",
+      "examples/representative/artifact.json": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+      "examples/representative/content.md": "060045ce718168c7f3c2aecd2742518490d5693e3dbdeb28b4ac94ce2885cd50",
+      "examples/representative/sources/renewal-rules.md": "2a95c4d9b95f3b184fea30aa3fba9daaf34d11624bd888ed4793a0ea7f96af47",
+      "references/aics-principles.md": "39849866aa2db08994d5780f00c26b070afa1d158011aa6a2b398a538716afca",
+      "references/checks.md": "7cf232681aa66ae0050ee9c570bbcfa8fb2bd6f54cc210fa01c9872ec12e0de0",
+      "references/evidence-and-evaluation.md": "bba7a0100d9ef6f63151a979692697738f9bfbb0bd72b1510efa7a765b5d8b5e",
+      "references/execution-guide.md": "4c6304dd3d666d874f82db00a494cbee6fffe07615243786ea4d0deaaa324499",
+      "references/input-contract.md": "18eb3f0b000268214d2cd693989c63a64db345533f60e606ff46af1308457aa1",
+      "references/interaction-patterns.md": "ef878b1f8b97024b81076e27b4457e12c5069e5408abafa72d703849d80feaf3",
+      "references/resource-provenance.json": "1847d0b34cff308481ebf4f4f0e2390f7582c9dd40d98c355d67a40dfe095778",
+      "references/sites-handoff.md": "cab83528d728691fb34574fae2dc1b2ca9104e77641061825412e60fca041272",
+      "references/terminology.md": "ccbd0af80ee67b4580a43e3cbf623972c485a87e8eaead0b933c9c9065071ccb",
+      "scripts/check_artifact.py": "7f912c3ede72255588fc6ae33624ce87e39ea7328b34789cdc590e4bbc78d9c2",
+      "scripts/check_renderings.py": "d99dc2ad8a67d557f552280b83a5e519eb5395e18e71775abe7cb3fdbb489ccd",
+      "scripts/render-site.mjs": "07e92e688ef751b18bcd9f09ee767c3dbf95632c2c56a11fe6a2133a8cad955e"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "html-guide-kit"
+    ],
+    "skill": "diagram-kit:arch-diagram",
+    "count": 12,
+    "hashes": {
+      "SKILL.md": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b",
+      "agents/openai.yaml": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428",
+      "references/architecture-methodology.md": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f",
+      "references/code-diagram.md": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75",
+      "references/component-diagram.md": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37",
+      "references/container-diagram.md": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3",
+      "references/context-diagram.md": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a",
+      "references/deployment-diagram.md": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d",
+      "references/domain-acquisition.md": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9",
+      "references/sequence-diagram.md": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb",
+      "references/state-machine-diagram.md": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb",
+      "scripts/validate_diagram.py": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "html-guide-kit"
+    ],
+    "skill": "explain-kit:concept",
+    "count": 2,
+    "hashes": {
+      "SKILL.md": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+      "agents/openai.yaml": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "html-guide-kit"
+    ],
+    "skill": "explain-kit:glossary",
+    "count": 2,
+    "hashes": {
+      "SKILL.md": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+      "agents/openai.yaml": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "html-guide-kit"
+    ],
+    "skill": "html-guide-kit:guide",
+    "count": 4,
+    "hashes": {
+      "SKILL.md": "9f2febe6d0d368ab0ea5eb0e570a050a557f3d80983ea70b1138b4e60e0dc58e",
+      "agents/openai.yaml": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+      "references/guide-framework.md": "09db2c2a67d6b61ac0d6500a70c6a01cc858651a4d5b9015472a4021111ac196",
+      "references/interaction-design.md": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "html-guide-kit"
+    ],
+    "skill": "html-guide-kit:site",
+    "count": 20,
+    "hashes": {
+      "SKILL.md": "c3c47756b18e7ccd2a2e6491e23909afa0f98bc7742476a9cb017c50fc968773",
+      "agents/openai.yaml": "2051c88954740c96fd41c16d077430c8dfa7db6e9c52401553678f6858e0debe",
+      "assets/warm-paper/learning.js": "1fcc8c6064dd99f00b91103cf76e33d7a4e6dcf50793b4542bd8462f6c91f568",
+      "assets/warm-paper/shell.html": "816fc0257f6cef7443f5a3b5f299b909fedfd1758da7b823ac4514b29fb2d72b",
+      "assets/warm-paper/theme.css": "90ee5261f02c44f3fb7f5b3e17662cb232bde07110dd53a2ccf4f2880ac1345f",
+      "examples/representative/artifact.json": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+      "examples/representative/content.md": "060045ce718168c7f3c2aecd2742518490d5693e3dbdeb28b4ac94ce2885cd50",
+      "examples/representative/sources/renewal-rules.md": "2a95c4d9b95f3b184fea30aa3fba9daaf34d11624bd888ed4793a0ea7f96af47",
+      "references/aics-principles.md": "39849866aa2db08994d5780f00c26b070afa1d158011aa6a2b398a538716afca",
+      "references/checks.md": "7cf232681aa66ae0050ee9c570bbcfa8fb2bd6f54cc210fa01c9872ec12e0de0",
+      "references/evidence-and-evaluation.md": "bba7a0100d9ef6f63151a979692697738f9bfbb0bd72b1510efa7a765b5d8b5e",
+      "references/execution-guide.md": "4c6304dd3d666d874f82db00a494cbee6fffe07615243786ea4d0deaaa324499",
+      "references/input-contract.md": "18eb3f0b000268214d2cd693989c63a64db345533f60e606ff46af1308457aa1",
+      "references/interaction-patterns.md": "ef878b1f8b97024b81076e27b4457e12c5069e5408abafa72d703849d80feaf3",
+      "references/resource-provenance.json": "1847d0b34cff308481ebf4f4f0e2390f7582c9dd40d98c355d67a40dfe095778",
+      "references/sites-handoff.md": "cab83528d728691fb34574fae2dc1b2ca9104e77641061825412e60fca041272",
+      "references/terminology.md": "ccbd0af80ee67b4580a43e3cbf623972c485a87e8eaead0b933c9c9065071ccb",
+      "scripts/check_artifact.py": "7f912c3ede72255588fc6ae33624ce87e39ea7328b34789cdc590e4bbc78d9c2",
+      "scripts/check_renderings.py": "d99dc2ad8a67d557f552280b83a5e519eb5395e18e71775abe7cb3fdbb489ccd",
+      "scripts/render-site.mjs": "07e92e688ef751b18bcd9f09ee767c3dbf95632c2c56a11fe6a2133a8cad955e"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "html-guide-kit"
+    ],
+    "skill": "learning-evidence-kit:learning-record-check",
+    "count": 2,
+    "hashes": {
+      "SKILL.md": "520d1af47e7098246a31565e4322d3d67a55e180cda4d01bb72399ed7ebf1e49",
+      "agents/openai.yaml": "dcac046ed1ddb1b8ebf0ca09ea80544b7be11b733272e1dd6cbec64bfbaa928f"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "html-guide-kit"
+    ],
+    "skill": "learning-evidence-kit:pop-quiz",
+    "count": 4,
+    "hashes": {
+      "SKILL.md": "72b2c8185234971041ac3f9de989cff93517870d3280b7b020eb305da69d92a6",
+      "agents/openai.yaml": "decebdd57d750e9ef3d88da43ba458f3e8c622acf4e534a19681236bee8aee21",
+      "references/ku-selection.md": "6d78cdd36367eceeba8e3682782acf11f1d1fa124df8879e26960461c4c4aa29",
+      "references/quiz-policy.md": "8d94713293e5dbcaee09aeb4681b6e6d25d3380e182e6d3cdb47a8f365406794"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "communication-kit",
+      "html-guide-kit"
+    ],
+    "skill": "communication-kit:communicate",
+    "count": 6,
+    "hashes": {
+      "SKILL.md": "7a5644c9e2f156acd98286d36ac5b869fd921e23704fa98030d792faadaf630f",
+      "agents/openai.yaml": "c89a7134a1dd2fffa3e99d38bdcedb2bdaf46fb03de9b69ff1b19ad667c01d2d",
+      "references/aics-policy.md": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+      "references/aics-snapshot.json": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332",
+      "references/source-provenance.md": "53272cc56dba8cfe32203543d9f3d6aee8ec55ebc3602f4dc5652be90b9ed725",
+      "references/task-patterns.md": "190c47c125759de5dbdca218417a418b76ba555df44923dc2cf48b86d60d0cff"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "communication-kit",
+      "html-guide-kit"
+    ],
+    "skill": "diagram-kit:arch-diagram",
+    "count": 12,
+    "hashes": {
+      "SKILL.md": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b",
+      "agents/openai.yaml": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428",
+      "references/architecture-methodology.md": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f",
+      "references/code-diagram.md": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75",
+      "references/component-diagram.md": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37",
+      "references/container-diagram.md": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3",
+      "references/context-diagram.md": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a",
+      "references/deployment-diagram.md": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d",
+      "references/domain-acquisition.md": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9",
+      "references/sequence-diagram.md": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb",
+      "references/state-machine-diagram.md": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb",
+      "scripts/validate_diagram.py": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "communication-kit",
+      "html-guide-kit"
+    ],
+    "skill": "explain-kit:concept",
+    "count": 2,
+    "hashes": {
+      "SKILL.md": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+      "agents/openai.yaml": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "communication-kit",
+      "html-guide-kit"
+    ],
+    "skill": "explain-kit:glossary",
+    "count": 2,
+    "hashes": {
+      "SKILL.md": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+      "agents/openai.yaml": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "communication-kit",
+      "html-guide-kit"
+    ],
+    "skill": "html-guide-kit:guide",
+    "count": 4,
+    "hashes": {
+      "SKILL.md": "9f2febe6d0d368ab0ea5eb0e570a050a557f3d80983ea70b1138b4e60e0dc58e",
+      "agents/openai.yaml": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+      "references/guide-framework.md": "09db2c2a67d6b61ac0d6500a70c6a01cc858651a4d5b9015472a4021111ac196",
+      "references/interaction-design.md": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "communication-kit",
+      "html-guide-kit"
+    ],
+    "skill": "html-guide-kit:site",
+    "count": 20,
+    "hashes": {
+      "SKILL.md": "c3c47756b18e7ccd2a2e6491e23909afa0f98bc7742476a9cb017c50fc968773",
+      "agents/openai.yaml": "2051c88954740c96fd41c16d077430c8dfa7db6e9c52401553678f6858e0debe",
+      "assets/warm-paper/learning.js": "1fcc8c6064dd99f00b91103cf76e33d7a4e6dcf50793b4542bd8462f6c91f568",
+      "assets/warm-paper/shell.html": "816fc0257f6cef7443f5a3b5f299b909fedfd1758da7b823ac4514b29fb2d72b",
+      "assets/warm-paper/theme.css": "90ee5261f02c44f3fb7f5b3e17662cb232bde07110dd53a2ccf4f2880ac1345f",
+      "examples/representative/artifact.json": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+      "examples/representative/content.md": "060045ce718168c7f3c2aecd2742518490d5693e3dbdeb28b4ac94ce2885cd50",
+      "examples/representative/sources/renewal-rules.md": "2a95c4d9b95f3b184fea30aa3fba9daaf34d11624bd888ed4793a0ea7f96af47",
+      "references/aics-principles.md": "39849866aa2db08994d5780f00c26b070afa1d158011aa6a2b398a538716afca",
+      "references/checks.md": "7cf232681aa66ae0050ee9c570bbcfa8fb2bd6f54cc210fa01c9872ec12e0de0",
+      "references/evidence-and-evaluation.md": "bba7a0100d9ef6f63151a979692697738f9bfbb0bd72b1510efa7a765b5d8b5e",
+      "references/execution-guide.md": "4c6304dd3d666d874f82db00a494cbee6fffe07615243786ea4d0deaaa324499",
+      "references/input-contract.md": "18eb3f0b000268214d2cd693989c63a64db345533f60e606ff46af1308457aa1",
+      "references/interaction-patterns.md": "ef878b1f8b97024b81076e27b4457e12c5069e5408abafa72d703849d80feaf3",
+      "references/resource-provenance.json": "1847d0b34cff308481ebf4f4f0e2390f7582c9dd40d98c355d67a40dfe095778",
+      "references/sites-handoff.md": "cab83528d728691fb34574fae2dc1b2ca9104e77641061825412e60fca041272",
+      "references/terminology.md": "ccbd0af80ee67b4580a43e3cbf623972c485a87e8eaead0b933c9c9065071ccb",
+      "scripts/check_artifact.py": "7f912c3ede72255588fc6ae33624ce87e39ea7328b34789cdc590e4bbc78d9c2",
+      "scripts/check_renderings.py": "d99dc2ad8a67d557f552280b83a5e519eb5395e18e71775abe7cb3fdbb489ccd",
+      "scripts/render-site.mjs": "07e92e688ef751b18bcd9f09ee767c3dbf95632c2c56a11fe6a2133a8cad955e"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "communication-kit",
+      "html-guide-kit"
+    ],
+    "skill": "learning-evidence-kit:learning-record-check",
+    "count": 2,
+    "hashes": {
+      "SKILL.md": "520d1af47e7098246a31565e4322d3d67a55e180cda4d01bb72399ed7ebf1e49",
+      "agents/openai.yaml": "dcac046ed1ddb1b8ebf0ca09ea80544b7be11b733272e1dd6cbec64bfbaa928f"
+    }
+  },
+  {
+    "scenario": [
+      "diagram-kit",
+      "learning-evidence-kit",
+      "explain-kit",
+      "communication-kit",
+      "html-guide-kit"
+    ],
+    "skill": "learning-evidence-kit:pop-quiz",
+    "count": 4,
+    "hashes": {
+      "SKILL.md": "72b2c8185234971041ac3f9de989cff93517870d3280b7b020eb305da69d92a6",
+      "agents/openai.yaml": "decebdd57d750e9ef3d88da43ba458f3e8c622acf4e534a19681236bee8aee21",
+      "references/ku-selection.md": "6d78cdd36367eceeba8e3682782acf11f1d1fa124df8879e26960461c4c4aa29",
+      "references/quiz-policy.md": "8d94713293e5dbcaee09aeb4681b6e6d25d3380e182e6d3cdb47a8f365406794"
+    }
+  }
+]

@@ -1,0 +1,11 @@
+file:///C:/Users/Admin/AppData/Local/Temp/html-learning-274-release-ci/verify-release-terminal.mjs:6
+if(JSON.stringify(l.installedResources)!==JSON.stringify(w.installedResources))throw new Error('Linux/Windows installed resource hashes differ');
+                                                                                     ^
+
+Error: Linux/Windows installed resource hashes differ
+    at file:///C:/Users/Admin/AppData/Local/Temp/html-learning-274-release-ci/verify-release-terminal.mjs:6:86
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:647:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+
+Node.js v22.18.0

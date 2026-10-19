@@ -1,0 +1,16 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import assert from 'node:assert/strict';
+import {execFileSync} from 'node:child_process';
+const cwd='C:/Users/Admin/.codex/worktrees/html-learning-artifact/develop';
+const git=args=>execFileSync('git',args,{cwd,maxBuffer:20*1024*1024});
+const text=args=>git(args).toString('utf8').trim();
+const head=text(['rev-parse','HEAD']),task='plans/274-html-learning-artifact';
+const bindings=JSON.parse(git(['show',`${head}:${task}/source-bindings.json`]));
+const hashes=bindings.sources.map(entry=>{const actual=crypto.createHash('sha256').update(git(['show',`${head}:${task}/${entry.path}`])).digest('hex');assert.equal(actual,entry.sha256,entry.path);return {path:entry.path,sha256:actual};});
+assert.equal(head,text(['rev-parse','origin/codex/release-html-learning-8-3-2']));
+assert.equal(text(['diff','--name-only','65d756e',head,'--','plugins/html-guide-kit/skills','plugins/html-guide-kit/plugin.json','plugins/diagram-kit','plugins/explain-kit','plugins/learning-evidence-kit','plugins/communication-kit']), '');
+const result={capturedAt:new Date().toISOString(),head,tree:text(['rev-parse',`${head}^{tree}`]),remoteSameHead:true,sourceBindings:hashes.length,hashes,unchangedExecutableAndOtherPluginObjects:true,guideTree:text(['rev-parse',`${head}:plugins/html-guide-kit/skills/guide`]),version:text(['show',`${head}:VERSION`]),limits:'Committed-source closure only; not platform CI, review, merge or public release proof'};
+fs.writeFileSync('C:/Users/Admin/AppData/Local/Temp/html-learning-274-release-head-closure.json',JSON.stringify(result,null,2)+'\n');
+console.log(JSON.stringify({...result,hashes:'236 committed Git blob SHA256 entries in saved receipt'}));

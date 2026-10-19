@@ -2,7 +2,7 @@
 
 ## 项目上下文
 
-Marketplace v8.3.1已由#253/main4e4d4172于2026-10-16自动公开，tag/Release同SHA，五包七技能/四显式，插件版本同8.3.0。发布后十三canonical、6Diagram+18LEK实际Python及15清理通过，CLI0.147.0；Owner bypass/空reviews与旧客户端限制分别保留，见[8.3.1账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
+Marketplacev8.3.2由#278/mainf906b100于2026-10-19公开，tag/Release同SHA，HTML0.1.37新增site，5包8技能/5显式。真实tag新13安装、6Diagram+18LEK/4site生成静态及15根清理通过；CLI0.147.0，空reviews/实际bypass、旧FAIL与延期保留，见[8.3.2账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)。
 
 manifest 的公开示例按[插件契约](docs/spec/[SPEC]_Plugin_Json_Schema.md)保留完整路由，最多三条，各原值不超过 128 个 Unicode scalar values；严格校验防止客户端忽略超长示例而丢失公开入口，不依赖空白归一化。
 
@@ -22,7 +22,7 @@ Communication按[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketpla
 
 #245五阶段已合并、actual6df新492/13安装/Python复验通过并关闭；Owner仅接受该Issue历史批准/bypass例外，非未来豁免，见[账本](docs/runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。
 
-#255实际3f0b7d12完整继承main761，同已测tree，新13安装/Python通过。随后DryRun/Apply预升8.3.2仅改VERSION/badge/A6，未创建发行；当前正式准备见下文274。历史bypass/空批准保留，新PR须真实批准/CI/线程；旧快照见[8.3.1账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
+#255实际3f0b7d12完整继承main761，同已测tree，新13安装/Python通过。随后DryRun/Apply预升8.3.2仅改VERSION/badge/A6，未创建发行；当前公开与收尾见274。历史bypass/空批准保留，新PR须真实批准/CI/线程；旧快照见[8.3.1账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
 
 Communication 任务统一从[入口 #222](plans/222-communication-kit/INDEX.md)读取主 PLAN、交付 REPORT 与固定原件；旧路径已按[整合任务 #269](plans/269-plans-path-unification/INDEX.md)迁入 plans，当前不提供旧路径兼容。历史产品合同、接受/失败和交付版本按原账本保留，后续工作复用真实授权，不因迁移重启插件验收。
 
@@ -70,7 +70,7 @@ Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基
 
 ## HTML Guide Kit 阶段实施
 
-HTML0.1.37/site已由#275合入65d756ef，同已测tree；5包8技能/5显式。空reviews/实际bypass保留，正式8.3.2准备见[账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)与[任务274](plans/274-html-learning-artifact/INDEX.md)；新main门禁、延期、Owner接受分记。
+HTML0.1.37/site已随#278/v8.3.2公开，guide原字节保持；[任务274](plans/274-html-learning-artifact/INDEX.md)承接记录→实际main同步→仅市场8.3.3预升。新PR真实门禁保持；原生/第二客户端延期、Owner接受独立。
 
 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217)授权三阶段/worktree/codex。#221 merge70267a5复验/#218关闭；#226 d106e766同72cdd08树，0.1.0/第二轮A/七安装四Python复验/#219关闭。旧批准缺项保留。#231实际merge71e2同head树、CI全P/reviews空；原批准缺项保留，不bypass或指定审查人。
 
