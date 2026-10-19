@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-19
 state: active
-version: v1.2
+version: v1.3
 layer: working
 task: 269-plans-path-unification
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/269
@@ -54,10 +54,44 @@ Owner 明确要求实施后，Agent 建立 #269 与唯一主 PR #270，实际核
 
 收据批实际 [npm run validate](./evidence/receipt-validate.log) PASS；真实 [source projection 定向运行](./evidence/receipt-projection.log) 1/1 PASS、0 skip（149324.9871ms）。独立 /root/inspect_plan_unification 只读复核本收据工作增量，确认七新来源摘要、612/72 日志、13 组合与实际同树吻合，无阻断或真实凭据；没有运行新测试或冒充平台批准。后续只追加本次 Q4 原始复验、其绑定与阅读状态，最终文档校验和真实 head CI 仍各自执行。B 合入时未结束的重复 Windows job 后续 API 回读为 SUCCESS，原合入时 IN_PROGRESS 快照保留。
 
-## Remaining delivery and acceptance
+## Pre-merge delivery snapshot (af13e63)
+
+以下为合并前真实待办；后来发生的合入、规则绕过与复验见下一节，不将原缺项追改为当时已满足。
 
 - 两内部 PR、旧根/当前链接拒绝及产品 Q4 阶段措辞修复后的独立重跑已实际完成；收据批文档/来源闭包已验，最后 Q4 来源绑定仍执行严格校验，真实最终 head CI 与保护批准由主 PR 记录。
 - 核心树完整单测、strict validate、13 组合 canonical / 实际 Python 已通过，角色阅读的原失败/修复与仍缺的最终条件分开；文档收据后续增量不外推旧 head 的最终平台批准。
 - 保护 develop 的当前 head 非作者批准、CI、线程、基线和实际合入/复验分别记录，不 bypass，不由 Agent 自检代替。
 - 未答原生窗口持续显示仍缺客户端实证，保留对应延期，不标通过；插件模型/客户端/现实效果不在本批重测范围。
 - 核心工程交付、完整计划完成、实际受保护合入及 Owner 最终成品接受分别判断，尚未发生不预写完成；无正式发布。
+
+## Actual develop merge and post-merge verification (#270)
+
+[#270](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/270) 于 2026-10-19T08:17:52Z 由 ranzuozhou 合入 develop，实际 merge 7d6d27dad91b7d02c8cb3841825fab5ba969af43，tree 8d3222a3df1c07b57840a9de76a35000eca49b5d 与最终已测 af13e63 完全相同，父提交为 91f982f7 / af13e63。Owner 后续原话“#270 PR 已合并，继续后续工作”授权继续收尾，未据此推定最终成品接受。
+
+[平台原始观察](./evidence/sources/postmerge-270-platform.json)中的 reviews 全页为空；[规则评估 4595587076](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/rulesets/rule-suites/4595587076)实际为 **bypass**，pull_request 规则因缺少非最后推送者批准而 FAIL，required_status_checks 为 PASS。记录这是实际 Owner 合入，不追认非作者批准，不把本次事实扩展为未来保护例外；Agent 未执行 bypass 或修改保护。
+
+[新合并后收据](./evidence/sources/postmerge-270-verification.json)逐次绑定真实 merge、Node v22.18.0、起止时钟和前后 clean：
+
+| 新运行 | 实际结果 | 可恢复输出 |
+|---|---|---|
+| npm test；08:20:30.299Z–08:23:26.045Z | 612 PASS / 0 FAIL / 0 skip；TAP 175568.5365ms | [完整日志](./evidence/sources/postmerge-270-tests.log) |
+| npm run validate；08:20:30.315Z–08:20:56.809Z | PASS；完整文档/来源身份校验 | [完整日志](./evidence/sources/postmerge-270-validate.log) |
+| npm run smoke:codex；08:20:30.340Z–08:29:18.343Z | 13/13；CLI 0.147.0；6 次 Diagram Python、6 组 Learning（18 次 save/replay/check）均实际成功，所有命令状态 0 | [13 组合与实际命令](./evidence/sources/postmerge-270-canonical.log) |
+
+S1/S3 的唯一 plans 入口与主计划、S2 的拒旧根/旧当前链接、S4 的原件恢复/真实历史均由实际同树、两原件逐字节、完整回归/资源闭包及既有独立阅读支撑。原两来源仍与固定 91f982f7 Git blob 一致；插件树、VERSION/README、53 项其他文档兼容清单相对该范围基线无变更。工程侧目录治理已交付；原意范围的独立阅读保留各轮结果，Owner 最终接受没有新证据。
+
+[独立合并后事实核验](./evidence/sources/postmerge-270-independent.json)由 /root/inspect_plan_unification 完成：同树/两原件、612/validate、13 组合与 6/18 Python、批准缺项、已合并分支祖先/归档和原工作区保持均独立确认。canonical 初读进行中、08:30:34Z 窄回读成功分别保留；没有运行真实恢复，也没有把未读的后续收尾文档或 Owner 接受写入该结论。它指出的两条 PR270 失效分支链接由 Agent 修为固定 merge SHA；本批后续文档仍单独校验。
+
+## Safe task cleanup and remaining obligations
+
+[清理回执](./evidence/sources/postmerge-270-cleanup.json)核对三条旧分支 head/已合并 PR/merge ancestry 与工作区状态后，以 expected-SHA leases 原子删除远端 refs，再用普通 branch -d 删除本地 codex/plans-unification、codex/plans-unification-docs、codex/plans-unification-guards。[应用回读](./evidence/sources/postmerge-270-archives.json)确认两个子 worktree 已归档，可恢复快照保留；额外两日志归档前保存并核对摘要；[原 B 定向日志](./evidence/b-targeted-tests.log)和[原 B validate 字节恢复记录](./evidence/sources/postmerge-270-preserved-guards-validate.json)继续可恢复。依赖/pycache 可重建；主隔离工作树复用为收尾分支，原 D: develop 三项未提交改动保持，未清理其他任务。
+
+本次收尾复用原 INDEX/PLAN/REPORT 和 #269；前一主 PR 已结束，收尾证据 PR 是下一批唯一活动主 PR，不另开需求 Issue。后续文档增量不能冒称与上述 merge 测试同树，其严格文档/来源闭包、实际最终 head CI 与保护条件分别核对。
+
+| 剩余事项 | 状态 / 责任 / 恢复条件 |
+|---|---|
+| 原生未答窗口持续显示 | DEFERRED / NOT_VERIFIED；Agent 取得实际客户端持显及未提交/默认/超时/关闭行为证据后再恢复对应入口；当前无待决范围问题，不以文字 pending 代替窗口实证，不计通过 |
+| 本批收尾证据的保护合入 | Agent 完成本批检查/PR；按实际 develop 规则取得当前 head 非作者批准、CI/线程/基线后合入；#270 的 bypass 不提供新豁免 |
+| Owner 最终成品接受 | 尚未提供；由真实 Owner 决定单独记录，工程/合并/合成核验不替代。#269 保持开放跟踪延期与接受义务 |
+
+无新的插件模型/桌面/现实效果测试，无正式发布；原失败、PARTIAL、未覆盖和后续实证各按当时范围保留。

@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "startedAt": "2026-10-19T08:26:20.254Z",
+  "currentBranch": "codex/plans-unification-closeout",
+  "preflight": [
+    {
+      "branch": "codex/plans-unification",
+      "head": "af13e63e078df096e495d36cd0619763c97dbab8",
+      "pr": 270,
+      "workspace": null,
+      "merged": true,
+      "ancestorOfMerge": true,
+      "workspaceClean": null,
+      "remoteHeadMatches": true
+    },
+    {
+      "branch": "codex/plans-unification-docs",
+      "head": "09e1bd5a010b338b79d212cc0206682305c7a1e0",
+      "pr": 271,
+      "workspace": "C:/Users/Admin/.codex/worktrees/plans-unification-docs/develop",
+      "merged": true,
+      "ancestorOfMerge": true,
+      "workspaceClean": true,
+      "remoteHeadMatches": true
+    },
+    {
+      "branch": "codex/plans-unification-guards",
+      "head": "16984cc55e261d764a37f16892456cc8c3cc3139",
+      "pr": 272,
+      "workspace": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/develop",
+      "merged": true,
+      "ancestorOfMerge": true,
+      "workspaceClean": true,
+      "remoteHeadMatches": true
+    }
+  ],
+  "remote": {
+    "operation": "Atomic deletion of three exact merged refs with expected-SHA leases; no force update of retained history",
+    "args": [
+      "push",
+      "--atomic",
+      "origin",
+      "--force-with-lease=refs/heads/codex/plans-unification:af13e63e078df096e495d36cd0619763c97dbab8",
+      "--force-with-lease=refs/heads/codex/plans-unification-docs:09e1bd5a010b338b79d212cc0206682305c7a1e0",
+      "--force-with-lease=refs/heads/codex/plans-unification-guards:16984cc55e261d764a37f16892456cc8c3cc3139",
+      ":refs/heads/codex/plans-unification",
+      ":refs/heads/codex/plans-unification-docs",
+      ":refs/heads/codex/plans-unification-guards"
+    ],
+    "status": 0,
+    "stdout": "",
+    "stderr": "To https://github.com/MJ-AgentLab/mj-agentlab-marketplace\n - [deleted]         codex/plans-unification\n - [deleted]         codex/plans-unification-docs\n - [deleted]         codex/plans-unification-guards\n"
+  },
+  "local": [
+    {
+      "branch": "codex/plans-unification",
+      "output": "Deleted branch codex/plans-unification (was af13e63)."
+    },
+    {
+      "branch": "codex/plans-unification-docs",
+      "output": "Deleted branch codex/plans-unification-docs (was 09e1bd5)."
+    },
+    {
+      "branch": "codex/plans-unification-guards",
+      "output": "Deleted branch codex/plans-unification-guards (was 16984cc)."
+    }
+  ],
+  "originalWorkspaceStatusUnchanged": true,
+  "completedAt": "2026-10-19T08:26:30.533Z",
+  "currentHead": "7d6d27dad91b7d02c8cb3841825fab5ba969af43",
+  "clean": true,
+  "remoteAbsent": true,
+  "restoration": "All deleted branch commits remain ancestors of protected develop merge 7d6d27d; archived child checkouts retain recoverable app snapshots."
+}
