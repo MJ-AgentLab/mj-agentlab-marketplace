@@ -1,0 +1,513 @@
+{
+  "schemaVersion": 1,
+  "kind": "PR 258 actual merge isolated installation verification",
+  "actor": "OpenAI Codex agent /root/postmerge_smoke",
+  "source": {
+    "head": "1212514f2cd3588fbcef4f407e6f5e7269e4093e",
+    "tree": "fcc8a122ae7d25707e31ab147f6ac9a5d6323ee4",
+    "branch": "codex/task-docs-closeout",
+    "startedAt": "2026-10-18T17:53:14.753Z",
+    "endedAt": "2026-10-18T18:02:17.499Z",
+    "startedClean": true,
+    "endedClean": true,
+    "headUnchanged": true,
+    "treeUnchanged": true
+  },
+  "commands": [
+    {
+      "script": "check:baseline-tools",
+      "argv": [
+        "npm",
+        "run",
+        "check:baseline-tools"
+      ],
+      "cwd": "C:/Users/Admin/.codex/worktrees/task-documentation/develop",
+      "startedAt": "2026-10-18T17:53:15.035Z",
+      "stdout": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-postmerge-check-baseline-tools.stdout.log",
+      "stderr": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-postmerge-check-baseline-tools.stderr.log",
+      "combined": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-postmerge-check-baseline-tools.log",
+      "status": 0,
+      "signal": null,
+      "completedAt": "2026-10-18T17:53:15.459Z",
+      "stdoutSha256": "3fc0424a86101004ace83d91ff21260dd3df9b75d335c7cf1132e9ee9f75fc1b",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "combinedSha256": "3fc0424a86101004ace83d91ff21260dd3df9b75d335c7cf1132e9ee9f75fc1b"
+    },
+    {
+      "script": "validate",
+      "argv": [
+        "npm",
+        "run",
+        "validate"
+      ],
+      "cwd": "C:/Users/Admin/.codex/worktrees/task-documentation/develop",
+      "startedAt": "2026-10-18T17:53:15.467Z",
+      "stdout": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-postmerge-validate.stdout.log",
+      "stderr": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-postmerge-validate.stderr.log",
+      "combined": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-postmerge-validate.log",
+      "status": 0,
+      "signal": null,
+      "completedAt": "2026-10-18T17:53:33.098Z",
+      "stdoutSha256": "0c48e6b1cd323cfef6242f00872cd456afa471a8e0829a496dcdb8878e060976",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "combinedSha256": "0c48e6b1cd323cfef6242f00872cd456afa471a8e0829a496dcdb8878e060976"
+    },
+    {
+      "script": "smoke:codex",
+      "argv": [
+        "npm",
+        "run",
+        "smoke:codex"
+      ],
+      "cwd": "C:/Users/Admin/.codex/worktrees/task-documentation/develop",
+      "startedAt": "2026-10-18T17:53:33.103Z",
+      "stdout": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-postmerge-smoke-codex.stdout.log",
+      "stderr": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-postmerge-smoke-codex.stderr.log",
+      "combined": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-postmerge-smoke-codex.log",
+      "status": 0,
+      "signal": null,
+      "completedAt": "2026-10-18T18:01:38.291Z",
+      "stdoutSha256": "e84ed86fff237028afb8cafc21319c4714d0b3083ce038b6c4c15e42d69be625",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "combinedSha256": "e84ed86fff237028afb8cafc21319c4714d0b3083ce038b6c4c15e42d69be625"
+    }
+  ],
+  "smoke": {
+    "scenarioCount": 13,
+    "loggedOperationCommandCount": 170,
+    "loggedOperationNonzeroCommands": [],
+    "diagramPythonExecutions": 6,
+    "learningEvidencePythonExecutions": 18,
+    "actualInterpreterIdentity": [
+      {
+        "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+        "args": [
+          "--version"
+        ],
+        "status": 0,
+        "stdout": "Python 3.12.13",
+        "checkedAt": "2026-10-18T18:02:40.096Z"
+      }
+    ],
+    "scenarios": [
+      {
+        "index": 1,
+        "installed": [
+          "diagram-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "commandCount": 11,
+        "nonzeroCommands": [],
+        "diagram": {
+          "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-UElzjk/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+          "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-UElzjk\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+          "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+        },
+        "learningEvidence": null
+      },
+      {
+        "index": 2,
+        "installed": [
+          "learning-evidence-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "commandCount": 13,
+        "nonzeroCommands": [],
+        "diagram": null,
+        "learningEvidence": {
+          "entry": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-Wozq8g\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py",
+          "interpreter": "3.12.13 (main, Jun 11 2026, 04:05:29) [MSC v.1944 64 bit (AMD64)]",
+          "resources": [
+            "scripts/lek.py",
+            "scripts/common.py",
+            "scripts/storage.py",
+            "scripts/github_flow.py",
+            "references/record-contract.md",
+            "references/record-template.json",
+            "references/client-entries.json"
+          ],
+          "recordId": "rec-f96537a6b3315a598cc871fdc3fdd9a5",
+          "evidenceId": "ev-24ba6d35d47e55769ea9f3df896fd9b2",
+          "saveStatus": "ok",
+          "replayIdentical": true,
+          "structurallyValid": true
+        }
+      },
+      {
+        "index": 3,
+        "installed": [
+          "explain-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "commandCount": 10,
+        "nonzeroCommands": [],
+        "diagram": null,
+        "learningEvidence": null
+      },
+      {
+        "index": 4,
+        "installed": [
+          "diagram-kit",
+          "explain-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "commandCount": 12,
+        "nonzeroCommands": [],
+        "diagram": {
+          "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-QbRENR/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+          "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-QbRENR\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+          "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+        },
+        "learningEvidence": null
+      },
+      {
+        "index": 5,
+        "installed": [
+          "diagram-kit",
+          "learning-evidence-kit",
+          "explain-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "commandCount": 16,
+        "nonzeroCommands": [],
+        "diagram": {
+          "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-Veh5pS/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+          "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-Veh5pS\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+          "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+        },
+        "learningEvidence": {
+          "entry": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-Veh5pS\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py",
+          "interpreter": "3.12.13 (main, Jun 11 2026, 04:05:29) [MSC v.1944 64 bit (AMD64)]",
+          "resources": [
+            "scripts/lek.py",
+            "scripts/common.py",
+            "scripts/storage.py",
+            "scripts/github_flow.py",
+            "references/record-contract.md",
+            "references/record-template.json",
+            "references/client-entries.json"
+          ],
+          "recordId": "rec-f96537a6b3315a598cc871fdc3fdd9a5",
+          "evidenceId": "ev-24ba6d35d47e55769ea9f3df896fd9b2",
+          "saveStatus": "ok",
+          "replayIdentical": true,
+          "structurallyValid": true
+        }
+      },
+      {
+        "index": 6,
+        "installed": [
+          "communication-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "commandCount": 10,
+        "nonzeroCommands": [],
+        "diagram": null,
+        "learningEvidence": null
+      },
+      {
+        "index": 7,
+        "installed": [
+          "communication-kit",
+          "explain-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "commandCount": 11,
+        "nonzeroCommands": [],
+        "diagram": null,
+        "learningEvidence": null
+      },
+      {
+        "index": 8,
+        "installed": [
+          "communication-kit",
+          "learning-evidence-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "commandCount": 14,
+        "nonzeroCommands": [],
+        "diagram": null,
+        "learningEvidence": {
+          "entry": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-zXcBfp\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py",
+          "interpreter": "3.12.13 (main, Jun 11 2026, 04:05:29) [MSC v.1944 64 bit (AMD64)]",
+          "resources": [
+            "scripts/lek.py",
+            "scripts/common.py",
+            "scripts/storage.py",
+            "scripts/github_flow.py",
+            "references/record-contract.md",
+            "references/record-template.json",
+            "references/client-entries.json"
+          ],
+          "recordId": "rec-f96537a6b3315a598cc871fdc3fdd9a5",
+          "evidenceId": "ev-24ba6d35d47e55769ea9f3df896fd9b2",
+          "saveStatus": "ok",
+          "replayIdentical": true,
+          "structurallyValid": true
+        }
+      },
+      {
+        "index": 9,
+        "installed": [
+          "diagram-kit",
+          "learning-evidence-kit",
+          "explain-kit",
+          "communication-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "commandCount": 17,
+        "nonzeroCommands": [],
+        "diagram": {
+          "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-wOWmLc/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+          "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-wOWmLc\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+          "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+        },
+        "learningEvidence": {
+          "entry": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-wOWmLc\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py",
+          "interpreter": "3.12.13 (main, Jun 11 2026, 04:05:29) [MSC v.1944 64 bit (AMD64)]",
+          "resources": [
+            "scripts/lek.py",
+            "scripts/common.py",
+            "scripts/storage.py",
+            "scripts/github_flow.py",
+            "references/record-contract.md",
+            "references/record-template.json",
+            "references/client-entries.json"
+          ],
+          "recordId": "rec-f96537a6b3315a598cc871fdc3fdd9a5",
+          "evidenceId": "ev-24ba6d35d47e55769ea9f3df896fd9b2",
+          "saveStatus": "ok",
+          "replayIdentical": true,
+          "structurallyValid": true
+        }
+      },
+      {
+        "index": 10,
+        "installed": [
+          "html-guide-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "commandCount": 10,
+        "nonzeroCommands": [],
+        "diagram": null,
+        "learningEvidence": null
+      },
+      {
+        "index": 11,
+        "installed": [
+          "html-guide-kit",
+          "explain-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "commandCount": 11,
+        "nonzeroCommands": [],
+        "diagram": null,
+        "learningEvidence": null
+      },
+      {
+        "index": 12,
+        "installed": [
+          "diagram-kit",
+          "learning-evidence-kit",
+          "explain-kit",
+          "html-guide-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "commandCount": 17,
+        "nonzeroCommands": [],
+        "diagram": {
+          "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-eNo142/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+          "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-eNo142\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+          "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+        },
+        "learningEvidence": {
+          "entry": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-eNo142\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py",
+          "interpreter": "3.12.13 (main, Jun 11 2026, 04:05:29) [MSC v.1944 64 bit (AMD64)]",
+          "resources": [
+            "scripts/lek.py",
+            "scripts/common.py",
+            "scripts/storage.py",
+            "scripts/github_flow.py",
+            "references/record-contract.md",
+            "references/record-template.json",
+            "references/client-entries.json"
+          ],
+          "recordId": "rec-f96537a6b3315a598cc871fdc3fdd9a5",
+          "evidenceId": "ev-24ba6d35d47e55769ea9f3df896fd9b2",
+          "saveStatus": "ok",
+          "replayIdentical": true,
+          "structurallyValid": true
+        }
+      },
+      {
+        "index": 13,
+        "installed": [
+          "diagram-kit",
+          "learning-evidence-kit",
+          "explain-kit",
+          "communication-kit",
+          "html-guide-kit"
+        ],
+        "version": "codex-cli 0.147.0",
+        "ok": true,
+        "commandCount": 18,
+        "nonzeroCommands": [],
+        "diagram": {
+          "skillPath": "C:/Users/Admin/AppData/Local/Temp/marketplace-smoke-JAsGmm/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+          "validatorPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-JAsGmm\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+          "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+        },
+        "learningEvidence": {
+          "entry": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-JAsGmm\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py",
+          "interpreter": "3.12.13 (main, Jun 11 2026, 04:05:29) [MSC v.1944 64 bit (AMD64)]",
+          "resources": [
+            "scripts/lek.py",
+            "scripts/common.py",
+            "scripts/storage.py",
+            "scripts/github_flow.py",
+            "references/record-contract.md",
+            "references/record-template.json",
+            "references/client-entries.json"
+          ],
+          "recordId": "rec-f96537a6b3315a598cc871fdc3fdd9a5",
+          "evidenceId": "ev-24ba6d35d47e55769ea9f3df896fd9b2",
+          "saveStatus": "ok",
+          "replayIdentical": true,
+          "structurallyValid": true
+        }
+      }
+    ],
+    "commandScope": "170 operation records emitted by the existing smoke harness; interpreter-discovery probe statuses are not emitted by that harness, so this is not a trace of every spawned process."
+  },
+  "navigationSubset": {
+    "extractedAt": "2026-10-18T18:04:23.479Z",
+    "method": "Exact bytes reconstructed in owned Temp from tested pre-edit full manifest; current source bytes accepted only on original hash equality, changed files recovered from actual merge Git bytes with original hash verification. This is a subsequent count/scope extraction, not a new installation trial.",
+    "resourcePaths": 3571,
+    "files": 3570,
+    "directories": 1,
+    "bytes": 496418860,
+    "knownIndexes": 110,
+    "cleanupSucceeded": true
+  },
+  "completeMirror": {
+    "files": 3639,
+    "bytes": 497407043,
+    "entries": 4025,
+    "cleanupSucceeded": true
+  },
+  "unchangedBaselinePaths": {
+    "baseline": "a2a57d11cfb2a43ccc19bf0c54c44a242a3cc9cd",
+    "paths": [
+      "plugins",
+      "VERSION",
+      "README.md",
+      "plan",
+      "docs/runbook"
+    ],
+    "changed": ""
+  },
+  "marketplaceVersion": "8.3.2",
+  "pluginVersions": {
+    "communication-kit": "0.1.0",
+    "diagram-kit": "0.3.1",
+    "explain-kit": "0.1.1",
+    "html-guide-kit": "0.1.36",
+    "learning-evidence-kit": "0.1.0"
+  },
+  "originalUserWorktree": {
+    "path": "D:/workspace/10-software-project/projects/mj-agentlab-marketplace/develop",
+    "head": "98068a8bd7060585b9915be9490a02a733fcb1a6",
+    "status": " D .agents/plugins/marketplace.json\n?? .agents/plugins/marketplace.json.disabled.local\n?? HTML-Learning-Artifact-Plugin-Implementation-Plan.md",
+    "headUnchanged": true,
+    "statusUnchanged": true
+  },
+  "artifacts": [
+    {
+      "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-postmerge-smoke-result.json",
+      "bytes": 318341,
+      "sha256": "1b01dd9384636349225d33c68ca248b160816ffe21e2158f5c19e7fe131808e4"
+    },
+    {
+      "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-postmerge-navigation.json",
+      "bytes": 1029855,
+      "sha256": "2c28b188ad9b39808d9e9728a3feee93644cbec09cace41fceed732ef3c4025e"
+    },
+    {
+      "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-postmerge-navigation-subset.json",
+      "bytes": 962025,
+      "sha256": "35ec4c99aa8f3070fa6755adef55a70155f29f02618912f208dc716e2381c2b9"
+    },
+    {
+      "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-postmerge-run-smoke.mjs",
+      "bytes": 6670,
+      "sha256": "8470d389c10ec6300c59644f67fad2448a66ad9b79e4fd8a565bd41ec354f799"
+    },
+    {
+      "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-postmerge-navigation-recover.mjs",
+      "bytes": 4315,
+      "sha256": "9f5f45f0df084fbec0c4db4f99d86c9c8795bbcefc86cba7cca414cf0eb00131"
+    },
+    {
+      "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-postmerge-check-baseline-tools.stdout.log",
+      "bytes": 158,
+      "sha256": "3fc0424a86101004ace83d91ff21260dd3df9b75d335c7cf1132e9ee9f75fc1b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-postmerge-check-baseline-tools.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-postmerge-check-baseline-tools.log",
+      "bytes": 158,
+      "sha256": "3fc0424a86101004ace83d91ff21260dd3df9b75d335c7cf1132e9ee9f75fc1b"
+    },
+    {
+      "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-postmerge-validate.stdout.log",
+      "bytes": 374,
+      "sha256": "0c48e6b1cd323cfef6242f00872cd456afa471a8e0829a496dcdb8878e060976"
+    },
+    {
+      "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-postmerge-validate.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-postmerge-validate.log",
+      "bytes": 374,
+      "sha256": "0c48e6b1cd323cfef6242f00872cd456afa471a8e0829a496dcdb8878e060976"
+    },
+    {
+      "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-postmerge-smoke-codex.stdout.log",
+      "bytes": 318395,
+      "sha256": "e84ed86fff237028afb8cafc21319c4714d0b3083ce038b6c4c15e42d69be625"
+    },
+    {
+      "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-postmerge-smoke-codex.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\task-docs-258-postmerge-smoke-codex.log",
+      "bytes": 318395,
+      "sha256": "e84ed86fff237028afb8cafc21319c4714d0b3083ce038b6c4c15e42d69be625"
+    }
+  ],
+  "limits": [
+    "No model, UI, real effect, public release, independent GitHub approval, or Owner final acceptance is tested.",
+    "Navigation inventory integrity and frozen byte bindings do not rejudge historical result semantics."
+  ],
+  "ok": true
+}

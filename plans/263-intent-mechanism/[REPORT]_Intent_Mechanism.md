@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-19
 state: active
-version: v1.0
+version: v1.1
 layer: working
 task: 263-intent-mechanism
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/263
@@ -81,3 +81,11 @@ Epic remains open while protected merge, explicit deferrals or Owner final accep
 Agent can copy the archived independent scripts to a fresh temporary directory, then run `run-probes.mjs <repository> 1093fe7994493e8d621c2a0de1ecd6f3dad37688` and `strict-cli-matrix.mjs` using the recorded arguments. Scripts recover fixed code and construct their own temporary inputs; do not run them inside the byte-bound original snapshot directory. Role review checks retained inputs, real read outputs and citations against fixed Git bytes; generating a later LLM answer is a new attempt, not a deterministic restoration of the old answer.
 
 An operation cannot pre-record its own future merge SHA in its commit. This REPORT preserves the acceptance child's candidate/evidence and merge conditions; actual acceptance-child and protected-main merge identities/checks/post-merge results are appended to the live Epic/PR receipt. Follow those exact operation records rather than infer a merge from this document's state.
+
+## Latest-base follow-up, 2026-10-19
+
+The later explicit request authorizes rechecking #264 and merging only after real develop protection is satisfied. Fresh inspection found no reviews and a newer actual develop `e3ffecf4414f6ff27039a969b2ef670b1b9dc55e` (#262), while the PR still displayed the previous `1212514` base. The resulting CHANGELOG conflict is an additive collision: both the INTENT entry and #258's actual-closeout entry are retained. Latest develop's complete task receipts, source bindings, bounded Owner acceptance and on-demand rollout decision are preserved; they do not accept this INTENT task.
+
+The integration branch uses an ordinary merge of that exact develop commit, without reset/force or protection changes. Root instruction pointers are shortened within the existing byte budget while retaining both task REPORT links and the strict decision/protection rules. Runtime, versions, CI, compatibility pins and the 149 INTENT source snapshots are unchanged. New candidate checks and the actual current-head approval gate must be collected after this synchronization; earlier successful checks remain scoped to their original tree and do not prove the new candidate.
+
+Acceptance-child #267 actually merged as `ae27cf4d90bcd23b4362e7c6aef01876cdcf3328`, tree `92bf20ad0bea00cefe2759ba142744ddb2f0171c`; its final actual CI and post-integration source recovery are in the [canonical operation receipt](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/264#issuecomment-6254091839). Protected #264 merge remains conditional, not completed by this sync. Native unanswered-window persistence stays DEFERRED, long-term effect stays NOT_RUN, and Owner final acceptance is not supplied by an engineering authorization or the other task's acceptance.

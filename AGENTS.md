@@ -30,9 +30,9 @@ Agent承担授权技术操作，Owner补必要信息、作实质决定/授权及
 
 按[文档框架](docs/rule/[STANDARD]_Documentation_Framework.md)用canonical/working、九字段及稳定任务INDEX/主PLAN/REPORT；公共working声明purpose/owner，旧文件显式兼容。新需求/实质修订先读[INTENT规范](docs/rule/[STANDARD]_AI_Engineering_Intent.md)：分层唯一原意、独立INTENT十字段、完整接受基线、稳定身份/全集合校验、逐项工程覆盖；旧接受保界，缺决定仅停依赖。拆分单Epic/同时一个主PR→受保护develop，多子PR→集成分支，内部Harness后Agent合并，最终保护不bypass；旧合同不追溯套用，冻结来源不动。
 
-Harness验文档/来源与封存闭包；镜像补齐依赖，未覆盖项另记。
+Harness验文档、来源和闭包；#258合入复验、批准缺口及推广决定见[REPORT](plans/257-task-documentation/[REPORT]_Task_Documentation.md)。
 
-INTENT 验收、原失败及交付见[任务 REPORT](plans/263-intent-mechanism/[REPORT]_Intent_Mechanism.md)；窗口、保护批准和 Owner 接受分记。
+INTENT验收与限制见[REPORT](plans/263-intent-mechanism/[REPORT]_Intent_Mechanism.md)。
 
 ## 开发流程
 

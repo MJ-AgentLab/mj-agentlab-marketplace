@@ -7,7 +7,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-19
 state: active
-version: v1.0
+version: v1.1
 task: 217-html-guide-kit
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217
 plan: "./[PLAN]_HTML_Guide_Kit.md"
@@ -27,7 +27,7 @@ canonical:
 - PR1 做成什么、证据与缺口、下一操作和责任：[主 REPORT](./[REPORT]_HTML_Guide_Kit.md)。
 - 长期约定：[ADR](../../docs/adr/[ADR]_HTML_Guide_Kit_Addition.md)、[验收 SPEC](../../docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)；判准、后续 Owner 决定及具体适用版本须结合 REPORT 阅读，不能仅凭 layer 推定全部已通过。
 - 原件与版本：[具名来源](./source-bindings.json)、[历史混合验收账本](../../docs/runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)（PR1 见 §6–7，旧“当前”只指当时）。
-- 本次文档机制与试行的执行进度：[Epic #257](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257)、[实施入口](../257-task-documentation/INDEX.md)，活动主 PR 为 [#258](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/258)。
+- 本次文档机制与试行的执行进度：[Epic #257](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257)、[实施入口](../257-task-documentation/INDEX.md)，已合入 develop 的主 PR 为 [#258](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/258)。
 
 ## 进展快照
 

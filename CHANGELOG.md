@@ -9,6 +9,8 @@
 
 - Add tiered INTENT originals, the intent document type and recoverable acceptance/engineering coverage contracts. Reuse the existing 20 development skills and task PLAN/REPORT layers, preserve the complete accepted chat design and actual authorization, and register the first draft original without claiming its new wording was accepted. Strict Harness and independent synthetic acceptance follow in the child PRs of Epic #263; native-window evidence, protected approval and Owner final acceptance remain separate.
 
+- Record actual #258 develop merge and fresh exact-source verification; retain its observed approval bypass, the Owner-selected on-demand rollout and explicit bounded final acceptance. Reuse task entries and reports without changing runtime or frozen history.
+
 - Add explicit canonical/working layers, reusable task INDEX/PLAN/REPORT and staged Epic delivery governance. Preserve original standards with exact Git-source identities, adapt templates and Agent workflows, and keep legacy documents explicitly compatible without reclassifying frozen sources. Harness adaptation and the bounded HTML PR1 reading trial are tracked separately in Epic #257; plugin runtime and versions remain unchanged.
 
 - Verify actual #254 merge 7615ca58 with a separate thirteen-install/Python batch and prepare a protected sync of its complete main ancestry to develop. Preserve original missing approval and Owner bypass; keep Marketplace 8.3.2 pending the actual sync merge and a fresh dry-run, with plugin versions unchanged.
