@@ -5,6 +5,10 @@
 
 ## [Unreleased]
 
+### Planned extension
+
+- Establish INT-2026-003 and the stable #274 task baseline for an explicit HTML Learning Artifact site entry. Preserve the complete input plan, current execution authorization, existing guide runtime and historical acceptance; implementation, real Sites publication and protected approval remain pending evidence.
+
 ### Documentation
 
 - Unify Communication task planning under plans/222-communication-kit with one current INDEX/PLAN/REPORT and recoverable fixed Git originals. Remove the old root plan/ and migrate current navigation, source inputs and fixtures atomically. Path-reintroduction guards and final delivery gates are tracked by #269; other historical document compatibility and plugin runtime/versions remain unchanged.
