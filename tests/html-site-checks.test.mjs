@@ -171,6 +171,95 @@ test("browser unavailable is NOT_RUN with nonzero exit and a persisted missing-s
   assert.deepEqual(JSON.parse(fs.readFileSync(output)), result.report);
 });
 
+test("browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes", () => {
+  const py = python();
+  const cases = String.raw`
+import errno, importlib.util, json, os, pathlib, shutil, signal, subprocess, sys, tempfile, time
+from unittest.mock import patch
+spec = importlib.util.spec_from_file_location('layout_checker', sys.argv[1])
+qa = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(qa)
+real_rmdir = os.rmdir
+results = []
+for persistent in (False, True):
+    root = pathlib.Path(tempfile.mkdtemp(prefix='html-site-layout-'))
+    (root/'profile').mkdir()
+    (root/'profile'/'cache').write_text('initial browser cache')
+    calls = [0]
+    lifecycle = []
+    def late_write(directory, *args, **kwargs):
+        if pathlib.Path(directory) == root and (persistent or calls[0] == 0):
+            calls[0] += 1
+            (root/'late-cache').write_text('late profile writer')
+        return real_rmdir(directory, *args, **kwargs)
+    try:
+        with patch.object(os, 'rmdir', side_effect=late_write):
+            if persistent:
+                try:
+                    qa.cleanup_workspace(root, lifecycle, attempts=3, delay=0)
+                except OSError as error:
+                    assert error.errno in (errno.ENOTEMPTY, errno.EACCES, errno.EPERM)
+                else:
+                    raise AssertionError('persistent late writes must not report success')
+                assert root.is_dir()
+                assert lifecycle[-1]['status'] == 'FAIL'
+                assert lifecycle[-1]['attempts'] == 3
+            else:
+                qa.cleanup_workspace(root, lifecycle, attempts=3, delay=0)
+                assert not root.exists()
+                assert lifecycle[-1]['status'] == 'PASS'
+                assert lifecycle[-1]['attempts'] == 2
+        results.append({'persistent':persistent,'lateWrites':calls[0],'lifecycle':lifecycle})
+    finally:
+        if root.exists(): shutil.rmtree(root)
+foreign = pathlib.Path(tempfile.mkdtemp(prefix='unowned-browser-'))
+try:
+    (foreign/'keep').write_text('unrelated data')
+    try: qa.cleanup_workspace(foreign, [])
+    except ValueError: pass
+    else: raise AssertionError('unowned directory must never be deleted')
+    assert (foreign/'keep').read_text() == 'unrelated data'
+finally: shutil.rmtree(foreign)
+session_case = {'status':'NOT_APPLICABLE', 'platform':os.name}
+if os.name == 'posix':
+    # Reproduce the CI lifecycle: launcher exits, but its Chrome-like child keeps
+    # writing profile data until the invocation's owned session is stopped.
+    root = pathlib.Path(tempfile.mkdtemp(prefix='html-site-layout-'))
+    marker = root/'child-cache'
+    writer = "import pathlib,sys,time; p=pathlib.Path(sys.argv[1]); exec('while True:\\n p.write_text(str(time.time()))\\n time.sleep(0.01)')"
+    launcher = "import subprocess,sys; subprocess.Popen([sys.executable,'-c',sys.argv[1],sys.argv[2]],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)"
+    owned = subprocess.Popen([sys.executable,'-c',launcher,writer,str(marker)], start_new_session=True)
+    try:
+        owned.wait(timeout=5)
+        deadline = time.monotonic()+3
+        while not marker.exists() and time.monotonic()<deadline: time.sleep(0.01)
+        assert marker.is_file(), 'owned child must actually write after launcher exit'
+        assert qa.live_group_members(owned.pid), 'live descendant must remain after parent exit'
+        lifecycle = []
+        qa.close_browser(owned, None, lifecycle)
+        assert not qa.live_group_members(owned.pid)
+        qa.cleanup_workspace(root, lifecycle)
+        assert not root.exists()
+        assert any(item['phase']=='owned-browser-session-exit' and item['status']=='PASS' for item in lifecycle)
+        session_case = {'status':'PASS', 'lifecycle':lifecycle}
+    finally:
+        try: os.killpg(owned.pid, signal.SIGKILL)
+        except ProcessLookupError: pass
+        if root.exists(): shutil.rmtree(root)
+print(json.dumps({'cleanup':results,'ownedSession':session_case}))
+`;
+  const result = spawnSync(py.command, [...py.args, "-c", cases, path.join(scripts, "check_renderings.py")], {
+    encoding: "utf8", shell: false, timeout: 15000,
+    env: { ...process.env, PYTHONUTF8: "1", PYTHONDONTWRITEBYTECODE: "1" },
+  });
+  assert.equal(result.error, undefined, result.error?.message);
+  assert.equal(result.status, 0, `${result.stdout}\n${result.stderr}`);
+  const reports = JSON.parse(result.stdout);
+  assert.deepEqual(reports.cleanup.map(row => row.lifecycle.at(-1).status), ["PASS", "FAIL"]);
+  assert.deepEqual(reports.cleanup.map(row => row.lateWrites), [1, 3]);
+  assert.equal(reports.ownedSession.status, process.platform === "win32" ? "NOT_APPLICABLE" : "PASS");
+});
+
 function browser() {
   if (process.env.HTML_SITE_BROWSER) return process.env.HTML_SITE_BROWSER;
   for (const base of [process.env.PROGRAMFILES, process.env["PROGRAMFILES(X86)"], process.env.LOCALAPPDATA].filter(Boolean)) {
@@ -200,6 +289,9 @@ test("actual browser measures mobile/desktop viewport sizes and detects overflow
   const good = run("check_renderings.py", ["--input", f.root, "--browser", executable, "--screenshots", goodShots], 45000);
   assert.equal(good.status, 0, good.stdout + good.stderr);
   assert.equal(good.report.status, "PASS");
+  assert.equal(good.report.lifecycle.at(-1).phase, "temporary-cleanup");
+  assert.equal(good.report.lifecycle.at(-1).status, "PASS");
+  assert.ok(good.report.lifecycle.some(item => item.phase === "browser-process-exit" && item.status === "PASS"));
   assert.deepEqual(good.report.viewports.map(v => v.viewport), [{ width: 1366, height: 900 }, { width: 390, height: 844 }]);
   for (const v of good.report.viewports) {
     const pixels = fs.readFileSync(path.join(goodShots, v.screenshot));

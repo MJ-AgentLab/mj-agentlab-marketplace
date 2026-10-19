@@ -8,13 +8,16 @@ from __future__ import annotations
 
 import argparse
 import base64
+from contextlib import contextmanager
 from datetime import datetime, timezone
+import errno
 from hashlib import sha1, sha256
 import json
 import os
 from pathlib import Path
 import re
 import shutil
+import signal
 import socket
 import struct
 import subprocess
@@ -162,14 +165,122 @@ def viewport(value):
     return int(match[1]), int(match[2])
 
 
-def run_checks(root, browser, screenshots, viewports, timeout, results):
+def cleanup_workspace(directory, lifecycle, attempts=6, delay=0.1):
+    """Delete only this checker's exact temporary root; transient writes retry."""
+    directory = Path(directory)
+    expected_parent = Path(tempfile.gettempdir()).resolve()
+    if directory.is_symlink() or directory.parent.resolve() != expected_parent or not directory.name.startswith("html-site-layout-") or directory.resolve().parent != expected_parent:
+        raise ValueError("refusing cleanup outside the owned browser QA temporary root")
+    retryable = {errno.ENOTEMPTY, errno.EBUSY, errno.EACCES, errno.EPERM}
+    for attempt in range(1, attempts + 1):
+        try:
+            if directory.exists():
+                shutil.rmtree(directory)
+            lifecycle.append({"phase": "temporary-cleanup", "status": "PASS", "attempts": attempt})
+            return
+        except OSError as error:
+            if error.errno not in retryable or attempt == attempts:
+                lifecycle.append({"phase": "temporary-cleanup", "status": "FAIL", "attempts": attempt, "errno": error.errno})
+                raise
+            time.sleep(min(delay * attempt, 0.5))
+
+
+@contextmanager
+def owned_workspace(lifecycle):
+    directory = Path(tempfile.mkdtemp(prefix="html-site-layout-"))
+    try:
+        yield directory
+    finally:
+        cleanup_workspace(directory, lifecycle)
+
+
+def live_group_members(identifier):
+    """Linux /proc distinguishes live owned-session writers from dead zombies."""
+    if Path("/proc/self/stat").is_file():
+        members = []
+        for entry in Path("/proc").iterdir():
+            if not entry.name.isdigit():
+                continue
+            try:
+                # comm may itself contain spaces or parentheses.
+                fields = (entry / "stat").read_text().rsplit(")", 1)[1].split()
+                if int(fields[2]) == identifier and int(fields[3]) == identifier and fields[0] not in ("Z", "X"):
+                    members.append(int(entry.name))
+            except (FileNotFoundError, ProcessLookupError):
+                continue
+        return members
+    try:
+        os.killpg(identifier, 0)
+        return [identifier]
+    except ProcessLookupError:
+        return []
+
+
+def close_browser(process, connection, lifecycle):
+    if connection:
+        try:
+            connection.call("Browser.close")
+            lifecycle.append({"phase": "Browser.close", "status": "REQUESTED"})
+        except (OSError, RuntimeError, ValueError):
+            # A closed socket can mean shutdown already happened. Process/tree
+            # exit and actual cleanup below must still succeed before PASS.
+            lifecycle.append({"phase": "Browser.close", "status": "CONNECTION_CLOSED_OR_FAILED"})
+        finally:
+            connection.close()
+    if not process:
+        return
+    try:
+        process.wait(timeout=5)
+    except subprocess.TimeoutExpired:
+        if os.name == "posix":
+            try:
+                os.killpg(process.pid, signal.SIGTERM)
+            except ProcessLookupError:
+                pass
+        else:
+            taskkill = Path(os.environ["SystemRoot"]) / "System32/taskkill.exe"
+            stopped = subprocess.run([str(taskkill), "/PID", str(process.pid), "/T", "/F"], capture_output=True, timeout=5, creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
+            if stopped.returncode and process.poll() is None:
+                raise RuntimeError("owned browser process tree could not be stopped")
+        try:
+            process.wait(timeout=5)
+        except subprocess.TimeoutExpired:
+            if os.name == "posix":
+                try:
+                    os.killpg(process.pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
+            else:
+                process.kill()
+            process.wait(timeout=5)
+    lifecycle.append({"phase": "browser-process-exit", "status": "PASS", "returnCode": process.returncode})
+    if os.name == "posix":
+        # Popen's launcher can exit while Chrome children still own its profile.
+        # The newly created session/group belongs solely to this invocation.
+        for signum in (signal.SIGTERM, signal.SIGKILL):
+            members = live_group_members(process.pid)
+            if not members:
+                break
+            try:
+                os.killpg(process.pid, signum)
+            except ProcessLookupError:
+                break
+            deadline = time.monotonic() + 2
+            while live_group_members(process.pid) and time.monotonic() < deadline:
+                time.sleep(0.05)
+        if live_group_members(process.pid):
+            raise RuntimeError("owned browser session still has running processes")
+        lifecycle.append({"phase": "owned-browser-session-exit", "status": "PASS"})
+
+
+def run_checks(root, browser, screenshots, viewports, timeout, results, lifecycle):
     process = None
     connection = None
     # Copy only the explicitly selected artifact; never alter installation/input.
     for item in root.rglob("*"):
         if item.is_symlink():
             raise ValueError("artifact symbolic links are not supported")
-    with tempfile.TemporaryDirectory(prefix="html-site-layout-") as temporary:
+    with owned_workspace(lifecycle) as temporary:
         temporary = Path(temporary)
         page_root = temporary / "artifact"
         shutil.copytree(root, page_root)
@@ -180,7 +291,7 @@ def run_checks(root, browser, screenshots, viewports, timeout, results):
         if hasattr(os, "geteuid") and os.geteuid() == 0:
             command.insert(1, "--no-sandbox")
         try:
-            process = subprocess.Popen(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
+            process = subprocess.Popen(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0), start_new_session=os.name == "posix")
             port_file = profile / "DevToolsActivePort"
             deadline = time.monotonic() + min(timeout, 15)
             opener = build_opener(ProxyHandler({}))
@@ -235,15 +346,7 @@ def run_checks(root, browser, screenshots, viewports, timeout, results):
                 result.update({"status": "FAIL" if result["issues"] else "PASS", "screenshot": filename, "screenshotSha256": sha256(pixels).hexdigest()})
                 results.append(result)
         finally:
-            if connection:
-                connection.close()
-            if process:
-                process.terminate()
-                try:
-                    process.wait(timeout=5)
-                except subprocess.TimeoutExpired:
-                    process.kill()
-                    process.wait(timeout=5)
+            close_browser(process, connection, lifecycle)
 
 
 def main():
@@ -256,7 +359,7 @@ def main():
     parser.add_argument("--timeout", type=int, default=20, help="Browser operation timeout, 5–60 seconds")
     args = parser.parse_args()
     requested = args.viewport or [(1366, 900), (390, 844)]
-    result = {"schemaVersion": 1, "checker": "artifact-browser-layout", "executedAt": datetime.now(timezone.utc).isoformat(), "pythonVersion": sys.version.split()[0], "status": "NOT_RUN", "requestedViewports": [{"width": w, "height": h} for w, h in requested], "viewports": [], "limitations": ["Bounded geometry heuristics cover document horizontal overflow, overflow:hidden/clip containers with overflowing content, and extreme narrow prose wrapping. They are not a complete visual, responsive or accessibility audit.", "Screenshots show the initial viewport state; visually review them. No copy/export/answer/retry/reset interaction, keyboard/focus, touch, print or learning-effect evaluation was performed.", "Local browser results do not verify deployed Sites identity, access scope, version or remote behavior. Understanding effects remain NOT_MEASURED."]}
+    result = {"schemaVersion": 1, "checker": "artifact-browser-layout", "executedAt": datetime.now(timezone.utc).isoformat(), "pythonVersion": sys.version.split()[0], "status": "NOT_RUN", "requestedViewports": [{"width": w, "height": h} for w, h in requested], "viewports": [], "lifecycle": [], "limitations": ["Bounded geometry heuristics cover document horizontal overflow, overflow:hidden/clip containers with overflowing content, and extreme narrow prose wrapping. They are not a complete visual, responsive or accessibility audit.", "Screenshots show the initial viewport state; visually review them. No copy/export/answer/retry/reset interaction, keyboard/focus, touch, print or learning-effect evaluation was performed.", "Local browser results do not verify deployed Sites identity, access scope, version or remote behavior. Understanding effects remain NOT_MEASURED."]}
     root = args.input.resolve()
     writable_output = False
     try:
@@ -278,9 +381,9 @@ def main():
         result["browser"] = str(browser)
         result["inputHashes"] = {name: sha256((root / name).read_bytes()).hexdigest() for name in ("artifact.json", "artifact-manifest.json", "index.html", "theme.css", "learning.js") if (root / name).is_file() and not (root / name).is_symlink()}
         result["screenshotDirectory"] = str(args.screenshots.resolve())
-        run_checks(root, browser, args.screenshots, requested, args.timeout, result["viewports"])
+        run_checks(root, browser, args.screenshots, requested, args.timeout, result["viewports"], result["lifecycle"])
         result["status"] = "FAIL" if any(v["status"] == "FAIL" for v in result["viewports"]) else "PASS"
-    except (OSError, ValueError, RuntimeError, KeyError, StopIteration) as error:
+    except (OSError, ValueError, RuntimeError, KeyError, StopIteration, subprocess.SubprocessError) as error:
         result["reason"] = f"{type(error).__name__}: {error}"
     rendered = json.dumps(result, ensure_ascii=False, indent=2) + "\n"
     if args.output and writable_output:
