@@ -122,6 +122,43 @@ test("static checker rejects source path escape and invalid answer criteria even
   assert.ok(failed(result.report, "activity:0:answer"));
 });
 
+test("self-consistent material declarations cannot hide generated HTML or scripts from checks", t => {
+  for (const declaration of [
+    { kind: "source", name: "index.html" },
+    { kind: "source", name: "INDEX.HTML" },
+    { kind: "source", name: "learning.js" },
+    { kind: "markdown", name: "index.html" },
+    { kind: "source", name: "artifact-manifest.json" },
+  ]) {
+    const f = fixture(t);
+    if (declaration.kind === "source") f.artifact.sources[0].path = declaration.name;
+    else f.artifact.markdown = declaration.name;
+    fs.writeFileSync(path.join(f.root, "artifact.json"), JSON.stringify(f.artifact));
+    fs.writeFileSync(path.join(f.root, "index.html"), "<p>缺少完整文档结构</p>");
+    fs.writeFileSync(path.join(f.root, "learning.js"), 'import("https://example.invalid/remote.js")');
+    f.manifest();
+    const result = run("check_artifact.py", ["--input", f.root]);
+    assert.equal(result.status, 1, `${declaration.kind}:${declaration.name}: ${result.stdout}`);
+    assert.equal(result.report.status, "FAIL");
+    assert.equal(result.report.summary.pages, 1, "index.html must be inspected despite material declarations");
+    assert.ok(failed(result.report, "index.html:structure"));
+    assert.ok(failed(result.report, "learning.js:import:"));
+    assert.ok(failed(result.report, declaration.kind === "source" ? "source:0:file" : "artifact:markdown-file"));
+    assert.equal(failed(result.report, "manifest:source-hash"), false, "fixture hashes are self-consistent");
+    assert.equal(failed(result.report, "manifest:complete-unique-files"), false, "fixture inventory is complete");
+  }
+});
+
+test("static source URLs reject embedded credentials while passive local source formats remain valid", t => {
+  const f = fixture(t);
+  f.artifact.sources.push({ id: "remote", title: "定位", url: "https://fixture-user:fixture-password@example.invalid/source", locator: "第一节" });
+  fs.writeFileSync(path.join(f.root, "artifact.json"), JSON.stringify(f.artifact));
+  f.manifest();
+  const result = run("check_artifact.py", ["--input", f.root]);
+  assert.equal(result.status, 1);
+  assert.ok(failed(result.report, "source:1:url"));
+});
+
 test("browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record", t => {
   const f = fixture(t);
   const output = path.join(f.temporary, "missing-browser.json");

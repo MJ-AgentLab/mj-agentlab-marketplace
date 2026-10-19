@@ -61,8 +61,15 @@
       const { activity, result } = question, index = selected(question);
       lines.push(`## ${activity.id} · ${activity.title}`, "", `- 题目：${activity.prompt}`, `- 当前选择：${index < 0 ? "未选择" : activity.options[index].label}`, `- 核对次数：${question.attempts}`, `- 本次判断：${result ? result.matched ? "与参考匹配" : "需要复核" : "当前选择尚未核对"}`);
       if (result) lines.push(`- 对应反馈：${activity.options[result.index].feedback}`);
-      lines.push(`- 参考判断：${activity.reference}`, `- 来源：#source-${activity.sourceId}`, "");
+      lines.push(`- 参考判断：${activity.reference}`, `- 来源 ID：${activity.sourceId}`, `- 页面回查：#source-${activity.sourceId}`, "");
     });
+    lines.push("## Sources · 来源", "");
+    for (const source of config.sources || []) {
+      lines.push(`### ${source.id} · ${source.title}`, "", `- 来源 ID：${source.id}`, `- 标题：${source.title}`, `- 定位：${source.locator}`);
+      if (source.path) lines.push(`- 制品内相对路径：${source.path}`);
+      if (source.url) lines.push(`- 来源 URL：${source.url}`);
+      lines.push("");
+    }
     lines.push("## 应用与意见", "", byID("reflection").value.trim() || "尚未填写。", "", "记录未上传、未持久化；保存导出后由你自行保留。", "");
     exportField.value = lines.join("\n"); copy.disabled = false;
     if (typeof Blob !== "undefined" && typeof URL.createObjectURL === "function") { downloadURL = URL.createObjectURL(new Blob([exportField.value], { type: "text/markdown;charset=utf-8" })); download.href = downloadURL; download.hidden = false; }

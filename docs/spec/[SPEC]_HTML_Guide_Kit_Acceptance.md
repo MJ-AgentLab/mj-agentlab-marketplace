@@ -7,13 +7,15 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-19
 state: active
-version: v1.1
+version: v1.2
 related:
   - "../adr/[ADR]_HTML_Guide_Kit_Addition.md"
   - "../runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md"
 ---
 
 # [SPEC] HTML Guide Kit acceptance
+
+本文件仅保留原 guide 与历史矩阵；“唯一入口/Read”描述其原范围。新site及当前包级能力、四项最小门槛以[site SPEC](./[SPEC]_HTML_Learning_Artifact.md)为准，旧失败与未覆盖不追认。
 
 ## §1 Purpose and staged gates
 

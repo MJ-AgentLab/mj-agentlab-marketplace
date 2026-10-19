@@ -16,6 +16,8 @@ from urllib.parse import unquote, urlsplit
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
 IDENTIFIER = re.compile(r"[a-z][a-z0-9-]*\Z")
 HASH = re.compile(r"[0-9a-f]{64}\Z")
+PASSIVE_SUFFIXES = {".md", ".txt", ".csv", ".json", ".pdf"}
+RESERVED_OUTPUTS = {"index.html", "theme.css", "learning.js", "artifact-manifest.json"}
 
 
 def local_path(root: Path, name: str, base: Path | None = None) -> Path:
@@ -31,6 +33,19 @@ def local_path(root: Path, name: str, base: Path | None = None) -> Path:
     target = target.resolve()
     if not target.is_relative_to(root):
         raise ValueError("local path escapes the artifact")
+    return target
+
+
+def material_path(root: Path, name: str, markdown=False) -> Path:
+    """Apply the renderer's passive-input contract before classifying a file."""
+    target = local_path(root, name)
+    if re.search(r"[\\:#?\x00-\x1f]", name) or any(part in ("", ".", "..") for part in name.split("/")):
+        raise ValueError("material must use a normal relative file path")
+    if Path(name).suffix.lower() not in PASSIVE_SUFFIXES or (markdown and not name.endswith(".md")):
+        raise ValueError("Markdown must be .md; sources must be passive .md/.txt/.csv/.json/.pdf files")
+    lowered = name.casefold()
+    if any(lowered == reserved or lowered.startswith(reserved + "/") for reserved in RESERVED_OUTPUTS):
+        raise ValueError("material conflicts with a reserved generated output")
     return target
 
 
@@ -103,11 +118,9 @@ def check_bundle(root: Path) -> dict:
         check("artifact:" + key, isinstance(artifact.get(key), str) and bool(artifact[key].strip()))
     check("artifact:goals", isinstance(artifact.get("goals"), list) and bool(artifact["goals"]) and all(isinstance(g, str) and g.strip() for g in artifact["goals"]))
 
-    materials = set()
     for label, name in [("markdown", artifact.get("markdown"))]:
         try:
-            target = local_path(root, name)
-            materials.add(target.relative_to(root).as_posix())
+            target = material_path(root, name, markdown=True)
             check("artifact:" + label + "-file", target.is_file())
         except (TypeError, ValueError) as error:
             check("artifact:" + label + "-file", False, str(error))
@@ -124,8 +137,7 @@ def check_bundle(root: Path) -> dict:
         check(f"source:{i}:location", bool(source.get("path") or source.get("url")))
         if "path" in source:
             try:
-                target = local_path(root, source["path"])
-                materials.add(target.relative_to(root).as_posix())
+                target = material_path(root, source["path"])
                 check(f"source:{i}:file", target.is_file())
             except (TypeError, ValueError) as error:
                 check(f"source:{i}:file", False, str(error))
@@ -134,7 +146,7 @@ def check_bundle(root: Path) -> dict:
                 parts = urlsplit(source["url"]) if isinstance(source["url"], str) else None
             except ValueError:
                 parts = None
-            check(f"source:{i}:url", bool(parts and parts.scheme in ("http", "https") and parts.netloc))
+            check(f"source:{i}:url", bool(parts and parts.scheme in ("http", "https") and parts.netloc and not parts.username and not parts.password))
     check("source:unique-ids", len(source_ids) == len(set(source_ids)))
 
     terms = artifact.get("terms")
@@ -196,7 +208,9 @@ def check_bundle(root: Path) -> dict:
     check("manifest:complete-unique-files", len(listed) == len(set(listed)) and set(listed) == actual, {"unlisted": sorted(actual - set(listed)), "missing": sorted(set(listed) - actual)})
 
     docs = {}
-    for name in sorted(actual - materials):
+    # Output inspection never depends on the artifact's self-declared materials.
+    # Even an invalid source/Markdown classification cannot hide the entry page.
+    for name in sorted(actual | {"index.html"}):
         if Path(name).suffix.lower() in (".html", ".htm"):
             try:
                 docs[name] = Document(local_path(root, name))
@@ -268,7 +282,7 @@ def check_bundle(root: Path) -> dict:
                     if isinstance(forbidden, str) and forbidden:
                         pattern = (r"(?<![A-Za-z0-9_])" + re.escape(forbidden) + r"(?![A-Za-z0-9_])") if re.fullmatch(r"[A-Za-z0-9_ -]+", forbidden) else re.escape(forbidden)
                         check(f"{name}:term:{i}:known-forbidden", re.search(pattern, text, re.I) is None, forbidden)
-    for name in sorted(actual - materials):
+    for name in sorted(actual):
         if name.endswith(".css"):
             try:
                 css_references(local_path(root, name).read_text(encoding="utf-8"), name, name + ":resource")

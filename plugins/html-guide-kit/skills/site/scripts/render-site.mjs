@@ -11,6 +11,9 @@ const PLUGIN_ROOT = path.resolve(SKILL_ROOT, "../..");
 const RESERVED = ["index.html", "theme.css", "learning.js", "artifact-manifest.json"];
 const ID = /^[a-z][a-z0-9-]*$/;
 const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
+const localURL = value => value.split("/").map(segment => encodeURIComponent(segment).replace(/[!'()*]/g, char => `%${char.charCodeAt(0).toString(16).toUpperCase()}`)).join("/");
+const escapeRegex = value => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const decodeHTMLText = value => value.replace(/&(amp|lt|gt|quot|#39);/g, (_, entity) => ({ amp: "&", lt: "<", gt: ">", quot: '"', "#39": "'" })[entity]);
 const digest = bytes => crypto.createHash("sha256").update(bytes).digest("hex");
 const fail = message => { throw new Error(message); };
 const isWithin = (root, value) => { const relative = path.relative(root, value); return !relative || (!path.isAbsolute(relative) && relative !== ".." && !relative.startsWith(`..${path.sep}`)); };
@@ -134,9 +137,9 @@ export function renderMarkdown(markdown, allowedFiles = new Set()) {
   const links = [], headings = [];
   function linkTarget(value, line) {
     if (value.startsWith("#")) { if (value.length === 1 || /\s/.test(value)) fail(`Markdown line ${line}: invalid anchor`); }
-    else if (/^https?:\/\//.test(value)) remoteURL(value, `Markdown line ${line} link`);
+    else if (/^https?:\/\//i.test(value)) { if (/\s/.test(value)) fail(`Markdown line ${line}: remote URL must not contain whitespace`); remoteURL(value, `Markdown line ${line} link`); }
     else if (!allowedFiles.has(value)) fail(`Markdown line ${line}: link must name an explicitly supplied file or HTTP(S) URL: ${value}`);
-    links.push(value); return escapeHTML(value);
+    links.push(value); return escapeHTML(allowedFiles.has(value) ? localURL(value) : value);
   }
   function inline(value, line) {
     let output = "";
@@ -152,7 +155,7 @@ export function renderMarkdown(markdown, allowedFiles = new Set()) {
         const end = value.indexOf("**", i + 2); if (end < 0 || end === i + 2) fail(`Markdown line ${line}: unclosed strong text`);
         output += `<strong>${inline(value.slice(i + 2, end), line)}</strong>`; i = end + 2;
       } else if (rest[0] === "[") {
-        const match = rest.match(/^\[([^\]\n]+)\]\(([^\s()]+)\)/);
+        const match = rest.match(/^\[([^\]\n]+)\]\(([^()\n]+)\)/);
         if (!match) fail(`Markdown line ${line}: unsupported link syntax`);
         output += `<a href="${linkTarget(match[2], line)}">${escapeHTML(match[1])}</a>`; i += match[0].length;
       } else {
@@ -164,6 +167,11 @@ export function renderMarkdown(markdown, allowedFiles = new Set()) {
     return output;
   }
   const lines = markdown.replace(/\r\n?/g, "\n").split("\n");
+  const first = lines.findIndex(line => line.trim());
+  if (lines[first] === "---") {
+    const close = lines.findIndex((line, index) => index > first && /^(?:---|\.\.\.)$/.test(line));
+    if (close >= 0 || /^[^#\s][^:]*:(?:\s|$)/.test(lines[first + 1] || "")) fail(`Markdown line ${first + 1}: YAML frontmatter is unsupported`);
+  }
   let html = "", paragraph = [], list = null, code = null, codeLines = [];
   const flush = () => {
     if (paragraph.length) { html += `<p>${inline(paragraph.map(item => item.text).join(" "), paragraph[0].line)}</p>\n`; paragraph = []; }
@@ -196,7 +204,10 @@ export function renderMarkdown(markdown, allowedFiles = new Set()) {
     const heading = raw.match(/^(#{1,4})\s+(.+)$/);
     if (heading) { flush(); const id = `section-${headings.length + 1}`, level = heading[1].length + 1; headings.push({ id, text: heading[2] }); html += `<h${level} id="${id}">${inline(heading[2], number)}</h${level}>\n`; continue; }
     if (/^#{1,6}(?:\s|$)/.test(raw) || /^[-*+]\s*$/.test(raw) || /^(?:\*\*\*|___)/.test(raw)) fail(`Markdown line ${number}: unsupported heading or separator`);
-    if (/^-{3,}$/.test(raw)) { flush(); html += "<hr>\n"; continue; }
+    if (/^-{3,}$/.test(raw)) {
+      if (paragraph.length) fail(`Markdown line ${number}: Setext headings are unsupported; a thematic break needs a separating blank line`);
+      flush(); html += "<hr>\n"; continue;
+    }
     const item = raw.match(/^(-|\d+\.)\s+(.+)$/);
     if (item) {
       if (paragraph.length) { html += `<p>${inline(paragraph.map(entry => entry.text).join(" "), paragraph[0].line)}</p>\n`; paragraph = []; }
@@ -220,12 +231,12 @@ function activityHTML(activity) {
 }
 
 function buildHTML(config, markdown) {
-  const sources = config.sources.map(source => `<li id="source-${escapeHTML(source.id)}"><strong>${escapeHTML(source.title)}</strong><p>${escapeHTML(source.locator)}</p>${source.path ? `<a href="${escapeHTML(source.path)}">读取本地材料</a>` : ""}${source.path && source.url ? " · " : ""}${source.url ? `<a href="${escapeHTML(source.url)}">访问来源</a>` : ""}</li>`).join("");
+  const sources = config.sources.map(source => `<li id="source-${escapeHTML(source.id)}"><strong>${escapeHTML(source.title)}</strong><p>${escapeHTML(source.locator)}</p>${source.path ? `<a href="${escapeHTML(localURL(source.path))}">读取本地材料</a>` : ""}${source.path && source.url ? " · " : ""}${source.url ? `<a href="${escapeHTML(source.url)}">访问来源</a>` : ""}</li>`).join("");
   const terms = config.terms.length ? `<section aria-labelledby="terms-heading"><h2 id="terms-heading">Terminology · 术语</h2><dl class="terms">${config.terms.map(term => `<div><dt>${escapeHTML(term.english)}</dt><dd>${escapeHTML(term.chinese)}</dd></div>`).join("")}</dl></section>` : "";
   const activities = config.activities.length ? `<section aria-labelledby="activities-heading"><h2 id="activities-heading">Local Practice · 局部练习</h2><p>先作判断，再核对参考与依据。参考仅适用于本题材料；作答不代表长期掌握或理解改善。</p><div class="practice-controls enhancement"><p id="practice-status" role="status">尚未核对题目。</p><button type="button" data-reset>重新开始</button></div>${config.activities.map(activityHTML).join("")}</section>` : "";
   const reflection = `<section aria-labelledby="reflection-heading"><h2 id="reflection-heading">Reflection · 应用与意见</h2><label for="reflection">写下你的解释、应用判断或待核对问题</label><textarea id="reflection" rows="5"></textarea><p>记录只在当前页面会话中；刷新或关闭后不保留。可复制文字自行保存。</p><div class="enhancement export-controls"><button type="button" data-export>生成记录</button><button type="button" data-copy disabled>复制记录</button><a data-download hidden download="learning-record.md">下载记录</a></div><div class="enhancement export-box"><label for="export-text">本次记录，可手动复制</label><textarea id="export-text" rows="8" readonly aria-describedby="export-status"></textarea><p id="export-status" role="status" aria-live="polite"></p><button type="button" data-copy-return hidden>返回复制按钮</button></div></section>`;
-  const body = `<header class="masthead"><p>Learning Artifact · 学习制品</p><p>Version · ${escapeHTML(config.version)}</p></header><main id="main"><section class="hero"><p class="eyebrow">Read · Explore · Check</p><h1>${escapeHTML(config.title)}</h1><dl><dt>Audience · 目标读者</dt><dd>${escapeHTML(config.audience)}</dd><dt>Task · 使用任务</dt><dd>${escapeHTML(config.task)}</dd></dl><h2>Understanding Goals · 理解目标</h2><ul>${config.goals.map(goal => `<li>${escapeHTML(goal)}</li>`).join("")}</ul><p class="scope">Understanding Effects · NOT_MEASURED。页面、工程检查和本题核对各按实际范围报告，理解效果尚未测量。</p><a href="${escapeHTML(config.markdown)}" download>下载材料 Markdown</a></section><section class="reading" aria-label="学习材料">${markdown.html}</section>${terms}${activities}${reflection}<section aria-labelledby="sources-heading"><h2 id="sources-heading">Sources and Scope · 来源与范围</h2><ol class="sources">${sources}</ol></section></main><footer>材料、练习记录、实际检查与学习效果分别判断。</footer>`;
-  const state = JSON.stringify({ title: config.title, version: config.version, audience: config.audience, task: config.task, activities: config.activities }).replace(/</g, "\\u003c");
+  const body = `<header class="masthead"><p>Learning Artifact · 学习制品</p><p>Version · ${escapeHTML(config.version)}</p></header><main id="main"><section class="hero"><p class="eyebrow">Read · Explore · Check</p><h1>${escapeHTML(config.title)}</h1><dl><dt>Audience · 目标读者</dt><dd>${escapeHTML(config.audience)}</dd><dt>Task · 使用任务</dt><dd>${escapeHTML(config.task)}</dd></dl><h2>Understanding Goals · 理解目标</h2><ul>${config.goals.map(goal => `<li>${escapeHTML(goal)}</li>`).join("")}</ul><p class="scope">Understanding Effects · NOT_MEASURED。页面、工程检查和本题核对各按实际范围报告，理解效果尚未测量。</p><a href="${escapeHTML(localURL(config.markdown))}" download>下载材料 Markdown</a></section><section class="reading" aria-label="学习材料">${markdown.html}</section>${terms}${activities}${reflection}<section aria-labelledby="sources-heading"><h2 id="sources-heading">Sources and Scope · 来源与范围</h2><ol class="sources">${sources}</ol></section></main><footer>材料、练习记录、实际检查与学习效果分别判断。</footer>`;
+  const state = JSON.stringify({ title: config.title, version: config.version, audience: config.audience, task: config.task, activities: config.activities, sources: config.sources }).replace(/</g, "\\u003c");
   const shell = fs.readFileSync(ordinaryPath(path.join(SKILL_ROOT, "assets/warm-paper/shell.html"), "file"), "utf8");
   return shell.replace(/__(TITLE|BODY|STATE)__/g, (_, key) => ({ TITLE: escapeHTML(config.title), BODY: body, STATE: state })[key]);
 }
@@ -255,8 +266,11 @@ export function renderSite({ input, output }) {
   const html = buildHTML(config, markdown);
   const anchors = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]));
   for (const link of markdown.links) if (link.startsWith("#") && !anchors.has(escapeHTML(link.slice(1)))) fail(`Markdown link target does not exist: ${link}`);
-  const visibleText = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "").replace(/<[^>]*>/g, " ");
-  for (const term of config.terms) for (const word of term.forbidden || []) if (visibleText.includes(escapeHTML(word))) fail(`known terminology mismatch: ${word}`);
+  const visibleText = decodeHTMLText(html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "").replace(/<[^>]*>/g, " "));
+  for (const term of config.terms) for (const word of term.forbidden || []) {
+    const pattern = /^[A-Za-z0-9_ -]+$/.test(word) ? `(?<![A-Za-z0-9_])${escapeRegex(word)}(?![A-Za-z0-9_])` : escapeRegex(word);
+    if (new RegExp(pattern, "iu").test(visibleText)) fail(`known terminology mismatch: ${word}`);
+  }
   const files = new Map([
     ["index.html", Buffer.from(html)],
     ["theme.css", fs.readFileSync(ordinaryPath(path.join(SKILL_ROOT, "assets/warm-paper/theme.css"), "file"))],

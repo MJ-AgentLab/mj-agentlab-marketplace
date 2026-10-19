@@ -143,6 +143,50 @@ test("known terminology mismatches and invalid input bytes remain generation fai
   assert.throws(() => renderSite(f), /encoded data/); assert.equal(fs.existsSync(f.output), false);
 });
 
+test("known English terms use case-insensitive word boundaries without rejecting Threshold", t => {
+  const f = fixture(t);
+  changeConfig(f.input, config => { config.terms = [{ english: "Threshold", chinese: "阈值", forbidden: ["old"] }]; });
+  fs.appendFileSync(path.join(f.input, "content.md"), "\n\nThreshold threshold GOLD old_metric gold.\n");
+  const firstOutput = path.join(f.root, "threshold-allowed");
+  assert.equal(renderSite({ input: f.input, output: firstOutput }).status, "GENERATED");
+  fs.appendFileSync(path.join(f.input, "content.md"), "\n\nOLD\n");
+  assert.throws(() => renderSite(f), /known terminology mismatch: old/); assert.equal(fs.existsSync(f.output), false);
+});
+
+test("YAML frontmatter and Setext headings are rejected while separated thematic breaks remain valid", t => {
+  const f = fixture(t);
+  for (const markdown of ["---\ntitle: Core Name\n---\n\n正文", "---\n标题: 核心名称\n...\n\n正文", "---\n---\n\n正文", "---\nplain scalar\n\n---\n\n正文", "Core Name\n---", "Core Name\n==="]) {
+    fs.writeFileSync(path.join(f.input, "content.md"), markdown);
+    assert.throws(() => renderSite(f), /YAML frontmatter|[Ss]etext/); assert.equal(fs.existsSync(f.output), false);
+  }
+  const ordinary = renderMarkdown("# Core Name · 核心名称\n\n正文。\n\n---\n\n另一段。\n\n---");
+  assert.equal([...ordinary.html.matchAll(/<hr>/g)].length, 2);
+  assert.ok(ordinary.html.includes('id="section-1"'));
+  assert.ok(renderMarkdown("---\n\n正文。").html.startsWith("<hr>"));
+});
+
+test("literal percent, Chinese and spaces in local filenames round-trip through browser URLs", t => {
+  const f = fixture(t), markdownPath = "正文 %.md", sourcePath = "sources/renewal%20规则 空格.md";
+  fs.renameSync(path.join(f.input, "content.md"), path.join(f.input, markdownPath));
+  fs.renameSync(path.join(f.input, "sources/renewal-rules.md"), path.join(f.input, sourcePath));
+  changeConfig(f.input, config => { config.markdown = markdownPath; config.sources[0].path = sourcePath; config.sources[0].url = "https://example.invalid/rules"; });
+  const bodyPath = path.join(f.input, markdownPath), body = fs.readFileSync(bodyPath, "utf8").replace("sources/renewal-rules.md", sourcePath);
+  fs.writeFileSync(bodyPath, body); renderSite(f);
+  const html = fs.readFileSync(path.join(f.output, "index.html"), "utf8"), manifest = readJSON(path.join(f.output, "artifact-manifest.json"));
+  assert.ok(manifest.files.some(item => item.path === sourcePath)); assert.ok(manifest.files.some(item => item.path === markdownPath));
+  const links = [...html.matchAll(/href="([^"]+)"/g)].map(match => match[1]);
+  const encodedSource = links.find(link => link.startsWith("sources/"));
+  assert.ok(encodedSource.includes("%2520")); assert.ok(encodedSource.includes("%20"));
+  const resolved = new URL(encodedSource, "https://example.invalid/artifact/");
+  assert.equal(decodeURIComponent(resolved.pathname.slice("/artifact/".length)), sourcePath);
+  const download = links.find(link => link.startsWith("%E6%AD%A3%E6%96%87")); assert.equal(decodeURIComponent(download), markdownPath);
+  assert.deepEqual(fs.readFileSync(path.join(f.output, sourcePath)), fs.readFileSync(path.join(f.input, sourcePath)));
+  assert.deepEqual(fs.readFileSync(path.join(f.output, markdownPath)), fs.readFileSync(path.join(f.input, markdownPath)));
+  const state = JSON.parse(html.match(/<script type="application\/json" id="artifact-state">([\s\S]*?)<\/script>/)[1]);
+  assert.deepEqual(state.sources, readJSON(path.join(f.input, "artifact.json")).sources);
+  assert.equal(state.sources[0].path, sourcePath); assert.equal(state.sources[0].url, "https://example.invalid/rules");
+});
+
 test("empty optional activities and terms still provide a static artifact and export", t => {
   const f = fixture(t); changeConfig(f.input, config => { config.activities = []; config.terms = []; }); renderSite(f);
   const html = fs.readFileSync(path.join(f.output, "index.html"), "utf8");
