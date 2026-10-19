@@ -6,6 +6,7 @@ import { pathToFileURL } from "node:url";
 import { parseDocument } from "yaml";
 import { ICON_FIELDS, validateIconReference, validatePluginIcons } from "./plugin-icons.mjs";
 import { validateBrandAssets } from "./brand-assets.mjs";
+import { validateDocumentation } from "./document-harness.mjs";
 
 export const REPOSITORY_SKILLS = [
   "mp-design-icon",
@@ -21,10 +22,17 @@ export const RUNTIME_PLUGINS = Object.freeze({
   "learning-evidence-kit": Object.freeze(["pop-quiz", "learning-record-check"]),
   "explain-kit": Object.freeze(["glossary", "concept"]),
   "communication-kit": Object.freeze(["communicate"]),
-  "html-guide-kit": Object.freeze(["guide"]),
+  "html-guide-kit": Object.freeze(["guide", "site"]),
 });
 export const PUBLIC_SKILLS = Object.freeze(Object.entries(RUNTIME_PLUGINS).flatMap(([plugin, skills]) => skills.map(skill => `${plugin}:${skill}`)));
-export const EXPLICIT_ONLY_SKILLS = Object.freeze(["learning-evidence-kit:pop-quiz", "learning-evidence-kit:learning-record-check", "communication-kit:communicate", "html-guide-kit:guide"]);
+export const EXPLICIT_ONLY_SKILLS = Object.freeze(["learning-evidence-kit:pop-quiz", "learning-evidence-kit:learning-record-check", "communication-kit:communicate", "html-guide-kit:guide", "html-guide-kit:site"]);
+export const SITE_RESOURCES = Object.freeze([
+  "SKILL.md", "agents/openai.yaml",
+  ...["execution-guide.md", "aics-principles.md", "terminology.md", "interaction-patterns.md", "evidence-and-evaluation.md", "sites-handoff.md", "input-contract.md", "checks.md", "resource-provenance.json"].map(name => `references/${name}`),
+  "scripts/render-site.mjs", "scripts/check_artifact.py", "scripts/check_renderings.py",
+  ...["shell.html", "theme.css", "learning.js"].map(name => `assets/warm-paper/${name}`),
+  "examples/representative/artifact.json", "examples/representative/content.md", "examples/representative/sources/renewal-rules.md",
+]);
 export const COMMUNICATION_REFERENCES = Object.freeze(["references/aics-policy.md", "references/task-patterns.md", "references/source-provenance.md", "references/aics-snapshot.json"]);
 // Conservative package budget following observed native truncation on CLI 0.147.0;
 // this is not a claim about a universal client token/byte limit.
@@ -37,13 +45,14 @@ export const SKILL_RESOURCES = Object.freeze({
   "explain-kit:concept": Object.freeze(["SKILL.md", "agents/openai.yaml"]),
   "communication-kit:communicate": Object.freeze(["SKILL.md", "agents/openai.yaml", ...COMMUNICATION_REFERENCES]),
   "html-guide-kit:guide": Object.freeze(["SKILL.md", "agents/openai.yaml", "references/guide-framework.md", "references/interaction-design.md"]),
+  "html-guide-kit:site": SITE_RESOURCES,
 });
 const PLUGIN_CAPABILITIES = Object.freeze({
   "diagram-kit": Object.freeze(["Read", "Write"]),
   "learning-evidence-kit": Object.freeze(["Read", "Write"]),
   "explain-kit": Object.freeze(["Read"]),
   "communication-kit": Object.freeze(["Read", "Write"]),
-  "html-guide-kit": Object.freeze(["Read"]),
+  "html-guide-kit": Object.freeze(["Read", "Write"]),
 });
 const SEMVER = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/;
 const NAME = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -270,6 +279,26 @@ function ownedResource(root, rel) {
   return file;
 }
 
+/** Validate provenance identity and local targets; hashes do not prove semantic fidelity. */
+export function validateSiteProvenance(skillRoot) {
+  const record = JSON.parse(fs.readFileSync(ownedResource(skillRoot, "references/resource-provenance.json"), "utf8"));
+  if (record.schemaVersion !== 1 || record.status !== "Working Model / AICS Lab Proposal / Informative" || typeof record.capturedAt !== "string" || !Number.isFinite(Date.parse(record.capturedAt)) || !Array.isArray(record.sources) || !record.sources.length) throw new Error("invalid site resource provenance");
+  const ids = new Set();
+  for (const source of record.sources) {
+    if (!source || typeof source.id !== "string" || !source.id || ids.has(source.id) || typeof source.sha256 !== "string" || !/^[a-f0-9]{64}$/.test(source.sha256) || !["local-research", "upstream-reference"].includes(source.kind)) throw new Error("invalid site source identity/hash");
+    ids.add(source.id);
+    for (const field of ["file", "mode", "license"]) if (typeof source[field] !== "string" || !source[field].trim()) throw new Error(`missing site source ${field}`);
+    if (source.kind === "upstream-reference" && (typeof source.commit !== "string" || !/^[a-f0-9]{40}$/.test(source.commit) || typeof source.url !== "string" || !source.url.startsWith("https://github.com/") || !source.url.includes(`/blob/${source.commit}/${source.file}`) || typeof source.licenseSha256 !== "string" || !/^[a-f0-9]{64}$/.test(source.licenseSha256) || typeof source.modifications !== "string" || !source.modifications)) throw new Error("invalid pinned upstream site source");
+    if (source.kind === "local-research" && (typeof source.repositoryHead !== "string" || !/^[a-f0-9]{40}$/.test(source.repositoryHead) || typeof source.gitStatus !== "string" || !source.gitStatus || typeof source.repository !== "string" || !source.repository)) throw new Error("missing actual research source state");
+    if (!Array.isArray(source.localTargets) || !source.localTargets.length || new Set(source.localTargets).size !== source.localTargets.length) throw new Error("invalid site source target list");
+    for (const target of source.localTargets) {
+      if (!SITE_RESOURCES.includes(target)) throw new Error("unregistered site source target");
+      ownedResource(skillRoot, target);
+    }
+  }
+  return record;
+}
+
 /** Match package-owned raw bytes, including references not mentioned by a Markdown link. */
 export function assertInstalledSkillResources(sourceSkillRoot, installedSkillRoot, qualifiedName) {
   const required = SKILL_RESOURCES[qualifiedName];
@@ -282,10 +311,11 @@ export function assertInstalledSkillResources(sourceSkillRoot, installedSkillRoo
     if (qualifiedName === "html-guide-kit:guide") validateGuideEntryBudget(fs.readFileSync(ownedResource(root, "SKILL.md"), "utf8"));
     validateOpenAIConfig(fs.readFileSync(ownedResource(root, "agents/openai.yaml"), "utf8"), plugin, skill);
   }
-  if (qualifiedName === "html-guide-kit:guide") {
+  if (plugin === "html-guide-kit") {
     for (const root of [sourceSkillRoot, installedSkillRoot]) {
       const actual = files(root).map(file => path.relative(root, file).replaceAll("\\", "/")).sort();
-      if (JSON.stringify(actual) !== JSON.stringify([...required].sort())) throw new Error("guide must contain exactly its approved skill resources");
+      if (JSON.stringify(actual) !== JSON.stringify([...required].sort())) throw new Error(`${skill} must contain exactly its approved skill resources`);
+      if (skill === "site") validateSiteProvenance(root);
     }
   }
   return Object.fromEntries(required.map(rel => {
@@ -302,7 +332,7 @@ export function assertInstalledPluginResources(sourcePluginRoot, installedPlugin
   const installed = JSON.parse(fs.readFileSync(ownedResource(installedPluginRoot, "plugin.json"), "utf8"));
   validateManifest(source, expectedName); validateManifest(installed, expectedName);
   if (source.name !== installed.name || source.version !== installed.version) throw new Error("installed plugin identity/version differs");
-  const rootFiles = Object.fromEntries(["plugin.json", "assets/icon.svg", "assets/icon.png"].map(rel => {
+  const rootFiles = Object.fromEntries(["plugin.json", "assets/icon.svg", "assets/icon.png", ...(expectedName === "html-guide-kit" ? ["THIRD_PARTY_NOTICES.md", "licenses/Apache-2.0.txt"] : [])].map(rel => {
     const a = ownedResource(sourcePluginRoot, rel), b = ownedResource(installedPluginRoot, rel), bytes = fs.readFileSync(a);
     if (!bytes.equals(fs.readFileSync(b))) throw new Error(`installed plugin resource differs: ${expectedName}/${rel}`);
     return [rel, { sha256: crypto.createHash("sha256").update(bytes).digest("hex"), source: a, installed: b }];
@@ -390,9 +420,11 @@ export function validateRepository(repoRoot) {
       validateOpenAIConfig(read(skillRoot, "agents/openai.yaml"), plugin, skill);
       for (const rel of SKILL_RESOURCES[`${plugin}:${skill}`]) ownedResource(skillRoot, rel);
       if (plugin === "html-guide-kit") {
+        if (skill === "guide")
         validateGuideEntryBudget(read(skillRoot, "SKILL.md"));
         const actual = files(skillRoot).map(file => path.relative(skillRoot, file).replaceAll("\\", "/")).sort();
-        if (JSON.stringify(actual) !== JSON.stringify([...SKILL_RESOURCES[`${plugin}:${skill}`]].sort())) throw new Error("guide must contain exactly its approved skill resources");
+        if (JSON.stringify(actual) !== JSON.stringify([...SKILL_RESOURCES[`${plugin}:${skill}`]].sort())) throw new Error(`${skill} must contain exactly its approved skill resources`);
+        if (skill === "site") validateSiteProvenance(skillRoot);
       }
     });
   }
@@ -435,13 +467,10 @@ export function validateRepository(repoRoot) {
       if (!entry || typeof entry !== "object" || Object.keys(entry).sort().join(",") !== "id,reason,removal_condition,status" || entry.status !== "deferred" || typeof entry.reason !== "string" || !entry.reason.trim() || typeof entry.removal_condition !== "string" || !entry.removal_condition.trim()) throw new Error("0.1.0 native entries require explicit deferral and removal conditions");
     }
   });
-  for (const file of files(path.join(root, "docs")).filter(p => p.endsWith(".md") && !p.includes(`${path.sep}archive${path.sep}`) && !p.includes(`${path.sep}_templates${path.sep}`))) {
-    check(path.relative(root, file), () => {
-      const { metadata } = parseFrontmatter(fs.readFileSync(file, "utf8"));
-      for (const key of ["type", "scope", "summary", "owner", "created", "updated", "state", "version"]) if (!metadata[key]) throw new Error(`missing document field ${key}`);
-      validateLinks(fs.readFileSync(file, "utf8"), file);
-    });
-  }
+  check("documentation", () => {
+    const result = validateDocumentation(root);
+    if (!result.ok) throw new Error(result.errors.join("; "));
+  });
   for (const rel of ["README.md", "CONTRIBUTING.md", "GLOSSARY.md", "AGENTS.md", ...Object.keys(RUNTIME_PLUGINS).map(n => `plugins/${n}/README.md`), ...REPOSITORY_SKILLS.map(n => `.agents/skills/${n}/SKILL.md`), ...PUBLIC_SKILLS.map(n => { const [plugin, skill] = n.split(":"); return `plugins/${plugin}/skills/${skill}/SKILL.md`; })]) {
     check(`${rel} links`, () => validateLinks(read(root, rel), path.join(root, rel)));
   }

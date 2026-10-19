@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.37] - 2026-10-19
+
+HTML Guide Kit 0.1.37 adds the explicit site workflow. Publication, bounded acceptance and remaining limits are recorded separately under task #274.
+
+- Add explicit site production through the six-step local learning workflow and current Sites process. Include warm-paper assets, a bounded Markdown generator, copy/feedback/export behavior and actual static/browser checkers with source and license records.
+- Advertise Read/Write and both owned entry routes while keeping all four guide runtime resources and the approved icon byte-identical. Real installation, representative Sites delivery, protected merge, publication and Owner inspection are reported separately under #274; learning effects remain NOT_MEASURED.
+
 ## [Unreleased]
 
 ## [0.1.36] - 2026-10-15

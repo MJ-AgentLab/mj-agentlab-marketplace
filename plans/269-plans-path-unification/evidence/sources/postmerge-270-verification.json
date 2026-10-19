@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-19T08:31:26.331Z",
+  "merge": "7d6d27dad91b7d02c8cb3841825fab5ba969af43",
+  "tree": "8d3222a3df1c07b57840a9de76a35000eca49b5d",
+  "premergeFinalHead": "af13e63e078df096e495d36cd0619763c97dbab8",
+  "exactTreeMatch": true,
+  "unit": {
+    "tests": 612,
+    "pass": 612,
+    "fail": 0,
+    "skip": 0,
+    "durationMs": 175568.5365
+  },
+  "canonical": {
+    "ok": true,
+    "cli": "0.147.0",
+    "scenarios": 13,
+    "diagramPythonOperations": 6,
+    "learningPythonScenarios": 6,
+    "learningPythonOperations": 18,
+    "allCommandStatusesZero": true,
+    "installedScenarios": [
+      [
+        "diagram-kit"
+      ],
+      [
+        "learning-evidence-kit"
+      ],
+      [
+        "explain-kit"
+      ],
+      [
+        "diagram-kit",
+        "explain-kit"
+      ],
+      [
+        "diagram-kit",
+        "learning-evidence-kit",
+        "explain-kit"
+      ],
+      [
+        "communication-kit"
+      ],
+      [
+        "communication-kit",
+        "explain-kit"
+      ],
+      [
+        "communication-kit",
+        "learning-evidence-kit"
+      ],
+      [
+        "diagram-kit",
+        "learning-evidence-kit",
+        "explain-kit",
+        "communication-kit"
+      ],
+      [
+        "html-guide-kit"
+      ],
+      [
+        "html-guide-kit",
+        "explain-kit"
+      ],
+      [
+        "diagram-kit",
+        "learning-evidence-kit",
+        "explain-kit",
+        "html-guide-kit"
+      ],
+      [
+        "diagram-kit",
+        "learning-evidence-kit",
+        "explain-kit",
+        "communication-kit",
+        "html-guide-kit"
+      ]
+    ]
+  },
+  "operations": [
+    {
+      "schemaVersion": 1,
+      "operation": "tests",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "startedAt": "2026-10-19T08:20:30.299Z",
+      "completedAt": "2026-10-19T08:23:26.045Z",
+      "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\intent-plans-unification\\develop",
+      "headBefore": "7d6d27dad91b7d02c8cb3841825fab5ba969af43",
+      "headAfter": "7d6d27dad91b7d02c8cb3841825fab5ba969af43",
+      "cleanAfter": true,
+      "node": "v22.18.0",
+      "nodeExecutable": "D:\\Development\\nodejs\\node.exe",
+      "status": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "C:\\Users\\Admin\\AppData\\Local\\Temp\\plans-unification-postmerge-tests-stdout.log",
+      "stderr": "C:\\Users\\Admin\\AppData\\Local\\Temp\\plans-unification-postmerge-tests-stderr.log",
+      "stdoutSource": "evidence/sources/postmerge-270-tests.log",
+      "stdoutSha256": "6d526582f7ab9481b7b6e798cc9a15e5c37aefc55a2020466c3fbaec626560ef",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrBase64": ""
+    },
+    {
+      "schemaVersion": 1,
+      "operation": "validate",
+      "command": [
+        "npm",
+        "run",
+        "validate"
+      ],
+      "startedAt": "2026-10-19T08:20:30.315Z",
+      "completedAt": "2026-10-19T08:20:56.809Z",
+      "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\intent-plans-unification\\develop",
+      "headBefore": "7d6d27dad91b7d02c8cb3841825fab5ba969af43",
+      "headAfter": "7d6d27dad91b7d02c8cb3841825fab5ba969af43",
+      "cleanAfter": true,
+      "node": "v22.18.0",
+      "nodeExecutable": "D:\\Development\\nodejs\\node.exe",
+      "status": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "C:\\Users\\Admin\\AppData\\Local\\Temp\\plans-unification-postmerge-validate-stdout.log",
+      "stderr": "C:\\Users\\Admin\\AppData\\Local\\Temp\\plans-unification-postmerge-validate-stderr.log",
+      "stdoutSource": "evidence/sources/postmerge-270-validate.log",
+      "stdoutSha256": "0c48e6b1cd323cfef6242f00872cd456afa471a8e0829a496dcdb8878e060976",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrBase64": ""
+    },
+    {
+      "schemaVersion": 1,
+      "operation": "canonical",
+      "command": [
+        "npm",
+        "run",
+        "smoke:codex"
+      ],
+      "startedAt": "2026-10-19T08:20:30.340Z",
+      "completedAt": "2026-10-19T08:29:18.343Z",
+      "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\intent-plans-unification\\develop",
+      "headBefore": "7d6d27dad91b7d02c8cb3841825fab5ba969af43",
+      "headAfter": "7d6d27dad91b7d02c8cb3841825fab5ba969af43",
+      "cleanAfter": true,
+      "node": "v22.18.0",
+      "nodeExecutable": "D:\\Development\\nodejs\\node.exe",
+      "status": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "C:\\Users\\Admin\\AppData\\Local\\Temp\\plans-unification-postmerge-canonical-stdout.log",
+      "stderr": "C:\\Users\\Admin\\AppData\\Local\\Temp\\plans-unification-postmerge-canonical-stderr.log",
+      "stdoutSource": "evidence/sources/postmerge-270-canonical.log",
+      "stdoutSha256": "0d3af21497b5f428641d984061fd8bde13bcd6461acb79f940ebb5c4787607a8",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrBase64": ""
+    }
+  ],
+  "scope": {
+    "runtimeVersionAndCompatibilityDiff": [],
+    "version": "8.3.2",
+    "sameTwoHistoricalSources": [
+      {
+        "path": "plans/222-communication-kit/evidence/sources/communication-kit-implementation-plan.md",
+        "sha256": "6d0de62b597ce2807278e165428cb28408fc774b3fba4059298f7a77b88e3fc3",
+        "sourceCommit": "91f982f70552fc0bfdf4015da943e257a22d4c7b",
+        "sourcePath": "plan/communication-kit-implementation-plan.md",
+        "byteExact": true
+      },
+      {
+        "path": "plans/222-communication-kit/evidence/sources/communication-kit-plan-provenance.json",
+        "sha256": "7d38da72b09311e255bdccd8d1ec7bffa6d4be17e3ff56de4115873658be545e",
+        "sourceCommit": "91f982f70552fc0bfdf4015da943e257a22d4c7b",
+        "sourcePath": "plan/communication-kit-plan-provenance.json",
+        "byteExact": true
+      }
+    ],
+    "oldRootAbsent": true
+  },
+  "delivery": {
+    "directoryGovernance": "Engineering S1-S4 verified and actual develop merge complete",
+    "protectedApproval": "Not satisfied: actual rule suite bypass; pull_request rule failed for missing non-last-pusher approval; reviews empty",
+    "ownerFinalAcceptance": "Not provided",
+    "nativeUnansweredWindowPersistence": "DEFERRED / NOT_VERIFIED",
+    "closeoutReceipt": "This follow-up document increment still needs its own final-head checks and protected PR"
+  },
+  "limits": [
+    "Does not rerun plugin model behavior, desktop UI or real-world effects.",
+    "Old failed readings/tests and their original scope remain preserved.",
+    "No release or future protection exception is authorized by this receipt."
+  ]
+}

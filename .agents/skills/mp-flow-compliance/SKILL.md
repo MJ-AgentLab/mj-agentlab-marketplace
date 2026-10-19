@@ -5,6 +5,8 @@ description: "Use after marketplace plugin or skill changes / 合规检查 to va
 
 # mp-flow-compliance
 
+HTML Learning Artifact site 扩展按[当前合同](../../../docs/spec/[SPEC]_HTML_Learning_Artifact.md)核对：开发候选五包八公开/五显式/三自然，新增 site 及其包内工具、来源许可和真实 Sites 主流程；guide 原四资源及历史验收保留。下文带 PR3/旧版本的七技能数字仅属其历史范围，当前集合以实际 manifest/严格登记及本次证据为准；十三安装组合与20仓库技能保持。
+
 运行 npm run validate 检查市场、各 portable manifest、公开和开发技能的 YAML、名称/描述预算、资源路径和当前文档。核对PR3 开发精确五插件、七公开技能、四个显式策略；独立公开候选精确三插件、五技能、两个学习策略和 20 个开发技能；Learning Evidence 共用脚本属于包内，过渡目录不再存在，旧 Understanding 未注册。运行受影响的有行为意义的测试；实际 Python 与安装缓存执行不能用静态扫描代替，保存测试明确隔离库、GitHub 写入使用替身。A6 触发集合以 scripts/check-a6.mjs 为准，更新根 AGENTS.md。按 [验收账本](../../../docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)区分结构、合成角色、客户端和窗口证据；所有启用入口严格待答，原生持续显示缺证据或失败则延期。输出错误、已验证项和限制，修复后重跑受影响检查。
 
 在已有授权范围内由代理执行操作，owner 负责未决事项。需要决定时给出 2–3 个选项、影响及有理由的推荐；必须等待的决定等待答复，推荐不构成批准。详见 [执行与决策规范](../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)。

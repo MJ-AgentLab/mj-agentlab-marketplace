@@ -7,6 +7,7 @@ created: <YYYY-MM-DD>
 updated: <YYYY-MM-DD>
 state: active
 version: v1.0
+layer: canonical
 # domain: governance | release | plugin-dev | plugin-internal | infra   # optional
 # tags:
 #   - <freeform>

@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-16
 updated: 2026-10-16
 state: active
-version: v1.1
+version: v1.2
 last-verified: 2026-10-16
 ---
 
@@ -76,11 +76,21 @@ Owner 已明确授权以下三个 PR 顺序推进；每一步使用其实际已�
 
 | Step | Current state | Required next identity and boundary |
 | --- | --- | --- |
-| 1. main 发布记录 PR | IN_PREPARATION / MERGE_PENDING | 本隔离 `codex/postrelease-8-3-1` 从实际 main4e4 派生；只汇总发布记录与当前入口，经正常门禁合入 main |
-| 2. 实际新 main → develop 同步 PR | NOT_STARTED / DEPENDENT_ON_STEP1 | 第1步实际合入后，使用包含该记录的真实新 main ancestry；正常门禁合入 develop，再对实际 sync merge 新做精确十三安装与缓存 Python |
-| 3. 实际同步后的 8.3.2 pre-bump PR | NOT_STARTED / DEPENDENT_ON_STEP2 | 从已复验的实际 sync 派生，先 dry-run，仅将 Marketplace VERSION/README badge 从 8.3.1 预升 8.3.2，并正常同步 AGENTS/A6；插件版本与运行内容不动，不创建 8.3.2 tag/Release |
+| 1. main 发布记录 PR | MERGED #254 / TECHNICAL_PASS / GOVERNANCE_NOT_MET | actual main761/treeb323 与已测6a4同树；原治理NOT_MET保留，新actual761复验见§3.3 |
+| 2. 实际新 main → develop 同步 PR | SYNC_PREPARATION / MERGE_PENDING | 本次从actual main761建立codex/sync-main-8-3-1、base为develop6df；当前head真实批准/CI/线程与actual sync merge后新精确十三安装/Python分别待验 |
+| 3. 实际同步后的 8.3.2 pre-bump PR | NOT_STARTED / DEPENDENT_ON_ACTUAL_SYNC | 从已复验的实际 sync 派生，先 dry-run，仅将 Marketplace VERSION/README badge 从 8.3.1 预升 8.3.2，并正常同步 AGENTS/A6；插件版本与运行内容不动，不创建 8.3.2 tag/Release |
 
-本记录不预填第1步 merge、第2步同步/复验或第3步 apply/merge。各阶段随后分别记录真实 head/tree、批准、CI、merge 与必要复验；8.3.1 已公开状态及历史资产不改写。
+第1步实际合并和原治理NOT_MET分别记于§3.3；第2步实际develop merge/复验及第3步apply/merge不预填。各阶段继续分别记录真实head/tree、批准、CI、merge及必要复验；8.3.1已公开身份和历史资产不改写。
+
+### §3.3 Actual #254 merge and main-to-develop synchronization
+
+[PR #254](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/254) 已实际合入 main `7615ca58f410876fc7393b0d93017250fe712091`，tree `b323da8a764120c23544ef9b65df479d9ca7a20f` 与已测候选 `6a4dc55dccb8f19085ca36e0cde06c4fd8e67546` 相同；develop 同步基准仍为实际 `6df7e12ec700277fa133c63ddaa89c8b32f7bdf6`。五包、插件版本和登记不变；已公开 v8.3.1 的 tag/Release 仍绑定 #253 的 `4e4d4172`，不随文档 main 前移。
+
+原治理结果继续 **NOT_MET**：rule-suite `4563644321` 为 bypass，reviews=[]，非作者批准未满足。实际合并不产生独立批准，也不改变本次 sync 或后续 pre-bump 的正常门禁；#245 历史例外不外推。
+
+actual main761 的新精确核验：UTC `15:03:12.936–15:04:07.552Z`，wall `54616.4894ms`，十三准确安装全部通过、170 命令零错误、6 Diagram + 18 LEK 实际 Python 调用及六组 Learning 保存/重放/结构核验通过；130 phases 全部成功、15 cleanup、15 个自有临时根经实际 absence 核对。本次实际执行目标为 main761，宿主仍是原 `6a4`；52 项源文件哈希保持，完整实际登记列表 `19→19` 相同；CLI 0.147.0 / Python 3.12.13 属于该本地批次，原 Git `60000ms` 不变，canonical AGENTS read-time bytes 未测。本次未新跑 full、24-sample、模型或 UI。不得将旧 4e4 发布后或 6a4 候选结果记为 actual761 新执行；原治理 NOT_MET 与技术结果分别记录。计数、时间、独立 raw 核对及治理原件哈希由[发布后汇总回执](evidence/marketplace-8-3-1-postrelease.json)的 `recordPRPostMerge` 附录绑定。
+
+本次复用既有隔离工作区建立 `codex/sync-main-8-3-1`，从实际 main761 派生，准备向 develop 提同步 PR；不新增登记 worktree。候选新检查、当前非作者批准/CI/线程、实际 develop merge 及其新精确十三安装/Python 均待各自实证。stage3 当前不 apply，须依赖实际已合入且复验的 sync 身份。所有 §2 客户端/原生/效果及 Owner 接受边界保持。
 
 ## §4 Failure and recovery
 
@@ -90,5 +100,6 @@ Owner 已明确授权以下三个 PR 顺序推进；每一步使用其实际已�
 
 | Version | Date | last-verified | Summary |
 | --- | --- | --- | --- |
+| v1.2 | 2026-10-16 | 2026-10-16 | Record actual #254/main761, source-bound verification and historical governance NOT_MET; prepare ordered main-to-develop sync while leaving stage3 dependent and unapplied. |
 | v1.1 | 2026-10-16 | 2026-10-16 | Record actual #253 publication, fresh post-tag installation, original governance NOT_MET and newly authorized ordered three-PR closeout; retain preparation history and all client limits. |
 | v1.0 | 2026-10-16 | null | Prepare authorized 8.3.1 maintenance release from actual6df with unchanged five packages, inherited limits and separate pending candidate/publication gates. |

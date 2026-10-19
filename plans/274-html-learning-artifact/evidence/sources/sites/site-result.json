@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-19T10:24:31.458Z",
+  "targetClient": "This existing Codex desktop conversation; manual explicit execution from installed site/SKILL.md locator. Native desktop picker dispatch not tested.",
+  "candidateAtHandoff": "1a3ac5f5a9ec72a44f163d5bfaf84fcc75794100",
+  "pluginVersion": "0.1.37",
+  "artifactVersion": "synthetic-1.0",
+  "artifactManifestSha256": "c4c445947180f77641512dee1de3732fbc7946fb53fce804f33677e6e037c16e",
+  "site": {
+    "id": "appgdep_6ad5ef65b5148191aa412670234db65a",
+    "project_id": "appgprj_6ad5ec4ffef08191ab68478e806c7d54",
+    "title": "Library Renewal · 续借判断",
+    "version_id": "appgprj_6ad5ec4ffef08191ab68478e806c7d54~appgver_5ccea8f05c14819198526552c44cae8d",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://html-learning-artifact-274.zuozhouran.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ad5ec4ffef08191ab68478e806c7d54",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-19T10:22:46.507916+00:00"
+  },
+  "source": {
+    "project_id": "appgprj_6ad5ec4ffef08191ab68478e806c7d54",
+    "commit_sha": "ffaaa35965e7525b4f85036aa62e21b3c2095c73",
+    "archivePath": "C:/Users/Admin/.codex/worktrees/html-learning-artifact/site-acceptance-r4.tar.gz",
+    "savedVersionId": "appgprj_6ad5ec4ffef08191ab68478e806c7d54~appgver_5ccea8f05c14819198526552c44cae8d",
+    "versionNumber": 1,
+    "versionSource": {
+      "commit_sha": "ffaaa35965e7525b4f85036aa62e21b3c2095c73"
+    }
+  },
+  "access": {
+    "currentUserRole": "owner",
+    "mode": "custom",
+    "allowedUsers": 1,
+    "groups": 0,
+    "externalVisitors": 0,
+    "enforcedOperation": "save_version_and_deploy_private succeeded; new Site owner-only access preserved"
+  },
+  "attempts": [
+    {
+      "stage": "Source helper package attempt 1",
+      "result": "FAILED",
+      "detail": "Git HTTP 500 / expected flush; same identity and local source retained"
+    },
+    {
+      "stage": "Source helper package attempt 2",
+      "result": "FAILED",
+      "detail": "Pushed exact source; default bash resolved to WSL without /bin/bash. Packaging did not complete."
+    },
+    {
+      "stage": "Source helper package attempt 3",
+      "result": "FAILED",
+      "detail": "Session PATH selected existing Git Bash; GNU tar interpreted Windows drive colon as remote archive."
+    },
+    {
+      "stage": "Source helper package attempt 4",
+      "result": "SUCCEEDED",
+      "detail": "Same Site/source; existing Git Bash in session PATH plus TAR_OPTIONS=--force-local. Verified helper returned exact pushed source/unchanged archive."
+    },
+    {
+      "stage": "save_version_and_deploy_private",
+      "result": "SUCCEEDED",
+      "detail": "Saved version 1 and deployed exact source; native get_site/get_site_version readback agrees."
+    }
+  ],
+  "secrets": "Credentials stayed in functions session memory and hidden stdin; never written to source, args, logs or artifacts",
+  "ownerInspection": "PENDING",
+  "marketplacePublication": "NOT_PUBLISHED",
+  "understandingEffects": "NOT_MEASURED",
+  "limitations": [
+    "No native desktop menu/picker dispatch, second client, full pending-window lifecycle or complete accessibility audit",
+    "This is a synthetic library teaching case, not real library policy; no real renewal or learner outcome measurement",
+    "Deployment success and owner-only access do not replace plugin protected merge, Marketplace release or Owner acceptance"
+  ]
+}

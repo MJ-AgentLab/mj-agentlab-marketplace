@@ -1,0 +1,41 @@
+{
+  "capturedAt": "2026-10-19T13:16:39.154Z",
+  "compiledBy": "/root",
+  "source": "Actual collaboration messages from /root/release_audit and /root/spec_review in this task; message timestamps and IDs unavailable",
+  "kind": "Root compilation, not raw original message bytes",
+  "findings": [
+    {
+      "reviewer": "/root/spec_review",
+      "finding": "Current ledger/Release Operations/INDEX said per-rule details pending after original pull_request failure and required-check PASS had been captured",
+      "resolution": "All current entry wording now uses actual rule details and keeps bypass/reviews=[]/approval NOT_MET"
+    },
+    {
+      "reviewer": "/root/spec_review",
+      "finding": "Four technical gates wording could obscure A4 real approval NOT_MET",
+      "resolution": "Current REPORT explicitly says A1-A3 and A4 technical checks evidenced, A4 approval NOT_MET, not all gates PASS"
+    }
+  ],
+  "finalReadOnlyReview": "No new risk or blocker in two neutral HTML package introductions, evidence-only whitespace attributes, A4 separation or actual65d evidence scope. No new runtime/manifest change or repository task link. Final full test still separately pending at review time.",
+  "localFailures": [
+    {
+      "original": "html-learning-274-release-document-tests-final.log",
+      "result": "143/144 PASS, 1 FAIL",
+      "cause": "Root added HTML README task INDEX link beyond isolated fixture closure",
+      "fix": "Remove unnecessary repository-task dependency, retain package-owned existing references; no fixture/validator relaxation",
+      "rerun": "html-learning-274-release-document-tests-repaired.log:144/144 PASS"
+    },
+    {
+      "original": "html-learning-274-release-full-tests.log",
+      "result": "633/642 PASS, 9 FAIL, 0 skip",
+      "cause": "Root did not pass existing Python interpreter into that test process; nine actual Python preconditions failed",
+      "fix": "Pass existing bundled interpreter in HTML_SITE_PYTHON; no download, product or test change",
+      "targetedRerun": "html-learning-274-release-python-tests.log:9/9 PASS, 0 skip, includes actual browser",
+      "fullRerun": "Pending separate final complete run; no full PASS inferred from targeted result"
+    }
+  ],
+  "limits": {
+    "githubApproval": "Not a GitHub approval; PR275 historical bypass/NOT_MET retained and main current-head approval required",
+    "ownerAcceptance": "NOT_PROVIDED",
+    "effects": "NOT_MEASURED"
+  }
+}

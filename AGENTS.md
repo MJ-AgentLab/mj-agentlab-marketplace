@@ -22,13 +22,17 @@ Communication按[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketpla
 
 #245五阶段已合并、actual6df新492/13安装/Python复验通过并关闭；Owner仅接受该Issue历史批准/bypass例外，非未来豁免，见[账本](docs/runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。
 
-Owner已授权8.3.1发布记录、main→develop同步及Marketplace8.3.2预升，依次正常PR与实际merge复验；插件保持、安装用公开v8.3.1。实际同步后才运行版本工具DryRun/Apply，仅VERSION/badge预升并补根摘要走正常A6，不发8.3.2标签或Release。当前head真实非作者批准/CI/线程/保护门禁保持；状态见[8.3.1账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
+#255实际3f0b7d12完整继承main761，同已测tree，新13安装/Python通过。随后DryRun/Apply预升8.3.2仅改VERSION/badge/A6，未创建发行；当前正式准备见下文274。历史bypass/空批准保留，新PR须真实批准/CI/线程；旧快照见[8.3.1账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
 
-communication-kit 首版按已保存的[完整计划](plan/communication-kit-implementation-plan.md)实施，来源与授权见[捕获记录](plan/communication-kit-plan-provenance.json)，由 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222) 管理 PR1–PR5 与正式上线。产品方向、显式 communicate 单入口、保义改写和文件边界已确认；设计与验收契约见[新增 ADR](docs/adr/[ADR]_Communication_Kit_Addition.md)及[验收 RUNBOOK](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。PR1/PR2 保持现有运行集合，PR3 原子接入新包。Owner 选择 Learning 先发布 8.2.0，Communication 随后独立 minor（预计 8.3.0），PR4 重查实际版本和基线；现实效果测试本次延期，基础通过不代表效果已验证。
+Communication 任务统一从[入口 #222](plans/222-communication-kit/INDEX.md)读取主 PLAN、交付 REPORT 与固定原件；旧路径已按[整合任务 #269](plans/269-plans-path-unification/INDEX.md)迁入 plans，当前不提供旧路径兼容。历史产品合同、接受/失败和交付版本按原账本保留，后续工作复用真实授权，不因迁移重启插件验收。
 
-代理负责在已有授权范围内执行文件修改、环境检查、测试、隔离安装验证、提交、推送及 PR 准备。owner 作出决定后，由代理执行，不要求 owner 复制命令，不重复确认已授权的操作。CI、分支保护、独立审查及外部身份验证按实际约束处理；无法完成时说明具体原因，只请求最小必要参与。
+Agent承担授权技术操作，Owner补必要信息、作实质决定/授权及成品最终接受；五授权边界未变复用。独立合成验收须运行证据，Harness自主修复，严格窗口未答不算答复，延期非通过；核心/全计划/接受分记，权限/不可逆/恢复按[执行规范](docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)。决策给2–3选项及有理由推荐，待答不默认。
 
-需要 owner 决策时，提供 2–3 个明确选项，说明主要影响，标记推荐项及理由。常规实现细节由代理判断；必须由 owner 决定的事项等待答复。已有决定不重复询问，推荐项不视为默认批准。
+按[文档框架](docs/rule/[STANDARD]_Documentation_Framework.md)用canonical/working、九字段及稳定任务INDEX/主PLAN/REPORT；公共working声明purpose/owner，旧文件显式兼容。新需求/实质修订先读[INTENT规范](docs/rule/[STANDARD]_AI_Engineering_Intent.md)：分层唯一原意、独立INTENT十字段、完整接受基线、稳定身份/全集合校验、逐项工程覆盖；旧接受保界，缺决定仅停依赖。拆分单Epic/同时一个主PR→受保护develop，多子PR→集成分支，内部Harness后Agent合并，最终保护不bypass；旧合同不追溯套用，冻结来源不动。
+
+Harness验文档、来源和闭包；#258合入复验、批准缺口及推广决定见[REPORT](plans/257-task-documentation/[REPORT]_Task_Documentation.md)。
+
+INTENT验收与限制见[REPORT](plans/263-intent-mechanism/[REPORT]_Intent_Mechanism.md)。
 
 ## 开发流程
 
@@ -66,6 +70,8 @@ Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基
 
 ## HTML Guide Kit 阶段实施
 
+HTML0.1.37/site已由#275合入65d756ef，同已测tree；5包8技能/5显式。空reviews/实际bypass保留，正式8.3.2准备见[账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)与[任务274](plans/274-html-learning-artifact/INDEX.md)；新main门禁、延期、Owner接受分记。
+
 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217)授权三阶段/worktree/codex。#221 merge70267a5复验/#218关闭；#226 d106e766同72cdd08树，0.1.0/第二轮A/七安装四Python复验/#219关闭。旧批准缺项保留。#231实际merge71e2同head树、CI全P/reviews空；原批准缺项保留，不bypass或指定审查人。
 
 合同见[ADR](docs/adr/[ADR]_HTML_Guide_Kit_Addition.md)及[SPEC](docs/spec/[SPEC]_HTML_Guide_Kit_Acceptance.md)：仅显式$html-guide-kit:guide，Read、中文/原术语、聊天文本新建。实际读材料/明确快照，分原料/核验背景/构造，保原文、定位、冲突/缺口。每次2–3不同读者/任务/问题及推荐理由，明确选择或修改确认才编排；默认/推荐/预选/沉默/超时/无关/消失非确认，未答保同一待确认，不锁宿主。深度随材料；按需演示/模拟/自检含操作、变化、结果、反馈、恢复、理由/误区和重试；无可靠判准给有界参考，不评分/长期掌握。不修订/比较/审查，不输出HTML/代码/文件/制作步骤或越权；仅SKILL及两参考，无Owner路径/研究治理依赖。
@@ -78,9 +84,7 @@ HTML22/71e2合并复验/批准缺项保；开发5包7技能/4显式/3自然/20re
 
 Learning当前收尾：main/tag/published v8.2.0为ebc4bdc3三包五技能；#234同步2c0a831与#235预升3af6837实际合入，各八精确安装/实际Python通过，develop8.2.1仍未发布。#236/98068a8已收敛当前记录，原A6例外失败、正常摘要修复与空reviews保留，不追认批准；immutable配置UNKNOWN、Release immutable=false。详见[8.2.0账本](docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)与[收尾回执](docs/runbook/evidence/learning-evidence-8-2-0-closeout.json)；原生延期、桌面/Side Chat及效果未测、Owner接受仍由#215/Epic独立追踪。
 
-Communication PR3已普通继承PR2 c198f5c及最新#236/develop98068a8的文档收尾，VERSION/badge8.2.1保持；生产包、脚本/测试/注册与cf63337零新差异，仍五包七技能/四显式/普通三/开发20。正式仅D/L/E/Comm四包六技能，HTML留develop；旧失败、CLI PARTIAL及限定UI身份保持，未重跑安装或客户端。当前head批准、CI/线程及保护合并另核对，Refs #222。
-
-Communication PR4普通合入PR3 c6d40a8与最新develop98068a8，仅同步文档/evidence；VERSION/badge8.3.0、根8.3及Comm0.1正式CH保持，不重复bump。当前仍五包七技能/四显式，正式仅四包六技能、HTML另发；生产与48437be零新差异，Comm170fcad除CH外与实际UI源000e803一致。历史失败/PARTIAL与限定客户端身份保留，实际phase merge、批准、正式四包及R未完成，见[8.3账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)，Refs #222。
+Communication PR3/PR4历史普通继承、运行资源身份、8.2.1→8.3.0准备和当时四包/HTML另发边界保留于[验收账本](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)及[8.3账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。旧CLI PARTIAL/有限UI/批准及阶段未完成按原记录，不由后续公开追认，Refs #222。
 
 收尾原日志见[证据](docs/runbook/evidence/communication-kit-2026-10-13-closeout-sync-01.json)；原字节保留，AI审查不替代GitHub批准。
 

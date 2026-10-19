@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Preserve observed failures and recovery references without claiming reconstructed text is a byte-original output file",
+  "observations": [
+    {
+      "id": "renderer-first-joint-check",
+      "source": "Original files copied from first joint run, functions.exec tool chunk f089e7",
+      "executedAt": "2026-10-19T09:54:57.829781+00:00",
+      "originalReport": "initial/static.json",
+      "result": "FAIL",
+      "checks": 89,
+      "failed": 1,
+      "failedCode": "index.html:structure",
+      "cause": "Shell h1 plus input Markdown h1 yielded two document h1 elements",
+      "recovery": "Renderer demotes supported Markdown headings, leaving one page h1; new output checked separately in repaired-static.json",
+      "initialBrowserReport": "initial/browser.json",
+      "initialScreenshots": "initial/screenshots/",
+      "initialVisualObservation": "Desktop title ended with a single Chinese character on its own line; mobile initial viewport was readable",
+      "visualRecovery": "text-wrap:balance added; repaired screenshots actually inspected"
+    },
+    {
+      "id": "windows-devtools-startup-race",
+      "source": "Observation recovered from original stdout in functions.exec tool chunk 5c9e22; stdout was not originally persisted to a separate log and is not presented as a byte-original file",
+      "executedAt": "2026-10-19T09:56:42.316673+00:00",
+      "testResult": {"passed": 5, "failed": 1, "skipped": 0},
+      "checkerResult": "NOT_RUN",
+      "checkerExit": 2,
+      "reasonFromOriginalStdout": "PermissionError: [Errno 13] Permission denied: 'C:\\Users\\Admin\\AppData\\Local\\Temp\\html-site-layout-iem4k4wt\\browser-profile\\DevToolsActivePort'",
+      "cause": "Chromium had created DevToolsActivePort while still holding its write handle; file existence did not prove readability",
+      "recovery": "Wait within existing timeout for actual file readability and a responding loopback DevTools endpoint; no geometry threshold or acceptance rule changed",
+      "repairedRun": "repaired-tests.log"
+    },
+    {
+      "id": "isolated-worktree-dev-dependency",
+      "source": "Original command output file partial-branch-validate.log",
+      "result": "NOT_RUN",
+      "cause": "Fresh worktree did not yet contain the repository yaml development dependency",
+      "recovery": "Executed npm ci --ignore-scripts against existing lockfile; runtime checker still installs no dependencies",
+      "repairedRun": "partial-branch-validate-with-deps.log"
+    }
+  ],
+  "limitations": ["Synthetic engineering evidence is separate from real Sites publication, current-head protected approval, Owner acceptance and understanding-effect measurement."]
+}

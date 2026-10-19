@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "intentId": "INT-2026-002",
+  "baselineId": "B1",
+  "source": {
+    "kind": "current-chat-visible-text",
+    "messageIds": null,
+    "messageTimes": null,
+    "note": "宿主未提供可定位的聊天 URL、原始消息 ID 或准确消息时间；不据捕获时钟补造。questionItemId 为实际答复载荷中的问题定位标识。"
+  },
+  "capturedAt": "2026-10-19T06:49:44Z",
+  "timezone": "Asia/Taipei",
+  "proposer": {
+    "role": "project-owner",
+    "account": null
+  },
+  "originalRequest": "使用项目中的 intent 编写该需求：\n\n1. 在之前任务留下 plan 和 plans 两个文档路径，让本应该进行plan文档管理的目的又产生了新的理解负担，进行统一整合进入 plans 目录中\n2. 不再与历史进行兼容\n\n对于不确定的地方使用 [@Matt Pocock Skills]\\(plugin://mattpocock-skills@openai-curated-remote) grilling询问我，提问给出选项并标记推荐，提出窗口在没有点击选项时，不能消失。",
+  "scopeDecision": {
+    "questionItemId": "[\"request_user_input_async\",\"call_b25c61fab7e04f9fa8b5a7652d4a8aec\",0]",
+    "question": "❓ Q1 — “不再与历史兼容”的范围：你希望本次需求取消到哪一层？\n➡️ 推荐 A：完整消除 plan/ 与 plans/ 双入口，同时把其他文档兼容机制留在本次范围之外，目标和验收边界更清楚。",
+    "answer": "A（推荐）：本次路径整合不留兼容。删除 plan/，迁入 plans/，同步现行引用与校验，不保留旧路径别名、回退或豁免；其他历史文档兼容不在本次范围内。"
+  },
+  "completeAcceptedBaseline": [
+    {
+      "part": "问题与现状",
+      "text": "任务计划原本用于降低理解和交接成本，但 `plan/`、`plans/` 两个入口并存，读者还需理解其历史差异，增加了管理负担。"
+    },
+    {
+      "part": "期望结果",
+      "text": "统一由 `plans/` 承载任务计划管理。旧 `plan/` 内容按现行任务结构整合，读者从唯一任务入口找到主计划、实际结果及必要来源。"
+    },
+    {
+      "part": "成功判断",
+      "text": "当前仓库不再存在 `plan/`；现行导航、规范、脚本、测试和资源定位均使用整合后的路径；不保留旧路径别名、回退、重定向或校验豁免；不得重新形成两套并行维护的主计划。"
+    },
+    {
+      "part": "范围与约束",
+      "text": "本次取消的是 `plan/` 路径兼容，全仓其他历史文档兼容不在范围内。必要历史内容作为 `plans/` 内的证据或固定 Git 来源保存，不再成为现行计划入口；历史接受、失败和捕获事实不得改写。此次工作先编写 INTENT，不直接实施目录迁移。"
+    },
+    {
+      "part": "未决项",
+      "text": "没有剩余的需求范围选择；具体文件安排由实施阶段依据当前规范确定。原生提问窗口未答时持续显示的能力尚未取得实证，不能记为通过；未提交的选择不算答复。"
+    }
+  ],
+  "acceptanceDecision": {
+    "questionItemId": "[\"request_user_input_async\",\"call_e1c38bce6fa849028b91317975731688\",0]",
+    "question": "❓ Q2 — 原意核对与内容接受：上述完整需求基线 B1 是否准确表达你的需求？\n➡️ 推荐 A：范围已根据 Q1 收敛，可以写成项目的正式 INTENT 草稿；这次只写需求，不执行目录迁移。未提交前保持待答，不将预选或超时当作确认。",
+    "answer": "A（推荐）：B1 准确，接受它作为本次需求基线，按项目 INTENT 机制写入文件。",
+    "nature": [
+      "original-meaning-confirmation",
+      "content-acceptance",
+      "authorization-to-write-intent"
+    ],
+    "covers": "completeAcceptedBaseline 的全部五项；限本次路径整合需求的 INTENT 编写。",
+    "notCovered": "目录迁移实施、全仓其他历史文档兼容清理、实际工程结果或最终成品接受。"
+  },
+  "nativeQuestionWindow": {
+    "answers": "Q1/Q2 均收到明确选项提交。",
+    "unansweredPersistence": "未进行未答持续显示的客户端实证；不以文字待答、预选或提交结果推定通过。"
+  }
+}
+

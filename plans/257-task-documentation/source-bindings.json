@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "task": "257-task-documentation",
+  "sources": [
+    {
+      "id": "owner-implementation-authorization",
+      "kind": "snapshot",
+      "path": "evidence/sources/owner-authorization.txt",
+      "original": "conversation:2026-10-18/owner-implementation-request",
+      "sha256": "14dbcaa0108f48ea74d17a4a4218ac4b0f1f400980d06b04455c024630254cf1",
+      "purpose": "真实开始实施授权原文文字捕获；不是GitHub非作者批准",
+      "scope": "仅本聊天已确认的文档组织机制与HTML PR1限定试行，不扩大技术权限/发布范围"
+    },
+    {
+      "id": "accepted-plan-b1",
+      "kind": "git",
+      "path": "plans/257-task-documentation/[PLAN]_Task_Documentation.md",
+      "commit": "a24ddc6eccd6171e2acc3160cc4257f56221139e",
+      "sha256": "e7251564d535bac2075b5ed889b05fc7bb5d5884b2dfb26c04763cd3058cddf6",
+      "purpose": "完整已接受范围/七原则的版本化整理B1，非原始聊天导出",
+      "scope": "Epic#257当前交付，后续修订不得覆盖B1",
+      "snapshot": "evidence/sources/accepted-plan-b1.txt"
+    },
+    {
+      "id": "owner-rollout-decision-q11",
+      "kind": "snapshot",
+      "path": "evidence/sources/owner-rollout-decision-q11.json",
+      "original": "conversation:Q11/owner-explicit-rollout-scope-selection",
+      "sha256": "f30ee4f38e65901983dc05b5d3dae70ee36222264254b14eb60c7e1b7117046c",
+      "purpose": "完整Q11题目及Owner明确选择A的逐字捕获；保留推广决定来源",
+      "scope": "仅试行后的推广/额外历史迁移范围；不是成品最终接受、保护批准豁免或发布授权"
+    },
+    {
+      "id": "owner-final-acceptance-q12",
+      "kind": "snapshot",
+      "path": "evidence/sources/owner-final-acceptance-q12.json",
+      "original": "conversation:Q12/owner-explicit-bounded-final-acceptance",
+      "sha256": "0f2e5261e417cd9f453e903a6631d4e1fbacd8b8c33f300b0a8b45fe66da9d4c",
+      "purpose": "完整Q12题目与Owner明确接受本批成品的逐字捕获，限定历史缺口与实际保护边界",
+      "scope": "仅Epic#257文档机制与HTML PR1有界阅读试行成品，采用Q11按需推广；保留#258历史批准NOT_MET/bypass，不是HTML产品整体验收、发布授权、未来豁免或#262非作者批准"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 <img src="assets/brand/marketplace/logo.svg" width="128" height="128" alt="MJ AgentLab Marketplace — MJ letters with connected modules">
 
-![Version](https://img.shields.io/badge/version-8.3.1-blue)
+![Version](https://img.shields.io/badge/version-8.3.2-blue)
 
 面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场，无需 MCP 服务。[Marketplace v8.3.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.1) 已于 2026-10-16 经 #253 合入 main 并自动公开，main/tag/Release 同为 4e4d4172fb27c812d3be8847f792dae5313daec8，包含完整五插件、七公开技能、四显式入口。该维护补丁保留 v8.3.0 的全部插件运行内容与版本；发布后真实标签的十三安装、6 次 Diagram＋18 次 LEK 实际 Python 和 15 项清理通过，见[发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
 
@@ -39,7 +39,7 @@ codex plugin add learning-evidence-kit@mj-agentlab-marketplace
 codex plugin list --json
 ~~~
 
-已发布 main/tag 仍为 8.3.0；本页 badge 跟随当前分支 VERSION，develop 的 8.3.1 仅表示预计下一补丁，尚无同号 tag/Release。五插件版本保持发布清单。发布后真实 v8.3.0 tag 的十三种 canonical 安装及六次 Diagram、六次 Learning 缓存 Python 检查通过；不代表完整客户端或现实效果通过。身份与限制见[8.3.0 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)；[8.2.0 记录](docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)保留历史。
+历史 v8.3.0 发布后、v8.3.1 发布前快照：已发布 main/tag 仍为 8.3.0；本页 badge 跟随当前分支 VERSION，develop 的 8.3.1 仅表示预计下一补丁，尚无同号 tag/Release。五插件版本保持发布清单。发布后真实 v8.3.0 tag 的十三种 canonical 安装及六次 Diagram、六次 Learning 缓存 Python 检查通过；不代表完整客户端或现实效果通过。身份与限制见[8.3.0 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)；[8.2.0 记录](docs/runbook/[RUNBOOK]_Marketplace_8_2_0_Release_Readiness.md)保留历史。
 
 ### Explain Kit
 
@@ -50,6 +50,8 @@ codex plugin list --json
 安装后显式调用 `$html-guide-kit:guide` 并提供文档或明确对话快照。先获得 2–3 套读者、任务和理解问题选项；明确选择或修改确认后才编排。输出为聊天指南文本，篇幅按材料调整。技能能力 Read，不制作 HTML、代码或文件，不提供具体制作工具操作说明；只新建指南，既有指南修订、方案比较和 HTML 审查另属范围。使用方法见 [指南](docs/guide/[GUIDE]_HTML_Guide_Kit.md)。
 
 上面的 v8.3.0 安装包含 HTML Guide 0.1.36。已知失败与未覆盖客户端结果仍保留，见下方验收边界；开发候选安装与正式发布结果分别记录。
+
+已合入 develop、准备随 Marketplace 8.3.2 发布的 HTML 0.1.37 增加显式 `$html-guide-kit:site`：从材料、读者/任务和理解目标出发，用包内方法、主题和工具制作中文学习网页，再按当前 Sites 流程发布。guide 四份运行资源保持原字节；候选安装、真实 Sites 交付、受保护合并、插件公开和 Owner 体检分别记录，见[使用指南](docs/guide/[GUIDE]_HTML_Learning_Artifact.md)及[任务 #274](plans/274-html-learning-artifact/INDEX.md)。上述公开标签尚不含 site；实际 #275 合入、8.3.2 发布准备及当前保护门禁见[8.3.2 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)。
 
 ### ChatGPT desktop
 
@@ -77,11 +79,11 @@ Communication 0.1.0 已随 v8.3.0 发布。安装后显式调用 `$communication
 
 ### Development
 
-README badge 跟随当前 checkout 的 VERSION；develop 在实际回同步后预升时，它表示预计下一版本，公开安装仍指向真实 v8.3.1。Owner 已授权本次记录 PR、实际 main 回同步与后续仅 Marketplace 8.3.2 预升，均经正常独立 PR 门禁；当前记录提交仍保持 8.3.1，后续实际状态见[8.3.1 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
+README badge 跟随当前 checkout 的 VERSION。8.3.2 已完成预升，当前准备正式发布；公开安装仍固定真实 v8.3.1，待新 tag/Release 实际公开后更新。#274 的 P5 授权覆盖本次正式发布与必要后续操作，当前 main 保护批准、检查、发布和 Owner 接受分开记录于[8.3.2 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)。历史 #254/同步/预升结果见[8.3.1 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
 
 历史 Learning [8.2.0 Release](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.2.0) 于 2026-10-13 发布。#241 已将完整五包作为 v8.3.0 公开，Diagram 0.3.1、Learning Evidence 0.1.0、Explain 0.1.1、Communication 0.1.0、HTML 0.1.36 均保持实际版本。后续同步与未发布补丁预升须经独立 PR 和实际门禁，见[8.3.0 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。共用 Learning 脚本归属安装包，不依赖仓库过渡路径。
 
-20 个开发技能位于 .agents/skills，公开技能为 arch-diagram、pop-quiz、learning-record-check、glossary、concept、guide 和 communicate。pop-quiz、learning-record-check、guide 与 communicate 为显式入口；全量普通发现预期为三个技能，原生清单为七个；Communication 独装普通发现为零、原生清单为一个。十三组合安装、包内资源字节核对、实际 Python 回归与无 MCP 检查的执行结果单独记录。
+20 个开发技能位于 .agents/skills；当前开发候选公开技能为 arch-diagram、pop-quiz、learning-record-check、glossary、concept、guide、site 和 communicate。pop-quiz、learning-record-check、guide、site 与 communicate 为显式入口；全量普通发现预期为三个技能，原生清单为八个；Communication 独装普通发现为零、原生清单为一个。十三组合安装、包内资源字节核对、实际 Python 回归与无 MCP 检查的执行结果单独记录。
 
 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222) 管理 Communication PR1–PR5。PR1–PR4 已交付，原四包 PR5 #237 关闭且未合并，由实际五包发布 #241 替代。发布身份与上线后安装已核实；历史规则审计 bypass 与空 reviews、限定客户端覆盖和后续维护分别记录。项目指令见 [AGENTS.md](AGENTS.md)，规范和历史见 [文档索引](docs/INDEX.md)，贡献见 [CONTRIBUTING.md](CONTRIBUTING.md)。代理运行 npm ci、npm run validate、npm test、npm run check:baseline-tools 和 npm run smoke:codex。后续合并仍要求当前 head 非作者批准、required checks 及已解决审查线程，不补写既有缺项通过。
 

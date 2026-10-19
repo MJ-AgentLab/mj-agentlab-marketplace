@@ -4,9 +4,10 @@ scope: marketplace
 summary: "Explicit communication, writing and meaning-preserving rewrite contract"
 owner: marketplace-maintainers
 created: 2026-10-12
-updated: 2026-10-13
+updated: 2026-10-19
 state: draft
-version: v1.4.1
+version: v1.4.2
+layer: canonical
 ---
 
 # [ADR] Communication Kit addition
@@ -21,7 +22,7 @@ version: v1.4.1
 
 ## §1 Context
 
-Owner 要求按[完整实施计划](../../plan/communication-kit-implementation-plan.md)执行并正式上线；追踪 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。计划原稿最初捕获时保存在原隔离工作树；续跑时原路径缺失，未重建。完整同字节副本与[捕获记录](../../plan/communication-kit-plan-provenance.json)纳入 PR1。
+Owner 当时要求按[已接受的完整原计划](../../plans/222-communication-kit/evidence/sources/communication-kit-implementation-plan.md)执行并正式上线；追踪 [Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)。计划原稿最初捕获时保存在原隔离工作树；续跑时原路径缺失，未重建。完整同字节副本与[捕获原件](../../plans/222-communication-kit/evidence/sources/communication-kit-plan-provenance.json)纳入 PR1。当前维护从[任务入口](../../plans/222-communication-kit/INDEX.md)读取唯一主 PLAN；历史接受仍只覆盖当时原件，不转授给新整理稿。
 
 PR1 实施起始基线为 origin/develop `b2e5a74109f47ecee7471ba741fb4c1348457f3b`，marketplace 8.1.2；main `0c681a8f8b7520134a86a70934fc46288c627d8d` 为已发布 8.1.1。当时运行集合三插件、四公开技能、20 个仓库技能。计划旧基线与 PR1 状态保留为历史，不用于当前转换。
 

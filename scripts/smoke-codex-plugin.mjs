@@ -304,7 +304,27 @@ async function runScenario({ repoRoot, codexCommand, baseEnv, keepRoot, allowVer
       if (!/共扫描\s*1\s*张图/.test(output) || !/FAIL\s+0/.test(output)) throw new Error("installed Python validator did not validate the one-diagram fixture");
       diagramValidation = { skillPath: diagram.file, validatorPath, output: output.trim() };
     }
-    return { ok: true, version, marketplaces: names, installed: plugins, installedPackageMetadata, installedIcons, installedResources, installedPluginResources, outside, repository, nativeOutside: nativeInventories.outside, nativeRepository: nativeInventories.repository, explicitOnly: expectedSkills.filter(name => EXPLICIT_ONLY_SKILLS.includes(name)), skillPaths, publicSkillPaths: skillPaths, ...(diagramValidation ? { skillPath: diagram.file, validatorPath: diagramValidation.validatorPath, diagramValidation } : {}), ...(learningEvidenceValidation ? { learningEvidenceValidation } : {}), ...(keepRoot ? { root, codexHome, repositoryRoot: src, consumerRoot: cwd } : {}), commands };
+    let siteValidation;
+    if (plugins.includes("html-guide-kit")) {
+      const skillRoot = path.dirname(skillPaths["html-guide-kit:site"]);
+      const output = path.join(cwd, "installed learning artifact");
+      const rendered = JSON.parse(await execute(process.execPath, [path.join(skillRoot, "scripts/render-site.mjs"), "--input", path.join(skillRoot, "examples/representative"), "--output", output]));
+      let python;
+      for (const [command, pre] of [["python3", []], ["python", []], ["py", ["-3"]]]) {
+        const result = await runCli(command, [...pre, "--version"], { cwd, env, timeoutMs: 10000 });
+        if (!result.error && result.status === 0) { python = { command, pre }; break; }
+      }
+      if (!python) {
+        const located = await runCli("uv", ["python", "find", "3.12"], { cwd, env: baseEnv, timeoutMs: 10000 });
+        const command = located.stdout.trim();
+        if (!located.error && located.status === 0 && command && fs.existsSync(command)) python = { command, pre: [] };
+      }
+      if (!python) throw new Error("installed site validation requires an existing Python interpreter");
+      const checked = JSON.parse(await execute(python.command, [...python.pre, "-B", path.join(skillRoot, "scripts/check_artifact.py"), "--input", output]));
+      if (checked.status !== "PASS" || checked.summary.failed !== 0) throw new Error("installed site example failed static validation");
+      siteValidation = { skillPath: skillPaths["html-guide-kit:site"], rendered, checked, browserCheck: "NOT_RUN in installation smoke; separate representative browser acceptance required" };
+    }
+    return { ok: true, version, marketplaces: names, installed: plugins, installedPackageMetadata, installedIcons, installedResources, installedPluginResources, outside, repository, nativeOutside: nativeInventories.outside, nativeRepository: nativeInventories.repository, explicitOnly: expectedSkills.filter(name => EXPLICIT_ONLY_SKILLS.includes(name)), skillPaths, publicSkillPaths: skillPaths, ...(diagramValidation ? { skillPath: diagram.file, validatorPath: diagramValidation.validatorPath, diagramValidation } : {}), ...(learningEvidenceValidation ? { learningEvidenceValidation } : {}), ...(siteValidation ? { siteValidation } : {}), ...(keepRoot ? { root, codexHome, repositoryRoot: src, consumerRoot: cwd } : {}), commands };
   }
 }
 

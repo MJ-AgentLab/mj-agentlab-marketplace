@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: static checker executes Python from unrelated cwd and preserves complete source/hash evidence
+ok 1 - static checker executes Python from unrelated cwd and preserves complete source/hash evidence
+  ---
+  duration_ms: 162.3794
+  type: 'test'
+  ...
+# Subtest: static checker detects stale bytes, unknown files and changed schema/version
+ok 2 - static checker detects stale bytes, unknown files and changed schema/version
+  ---
+  duration_ms: 72.1636
+  type: 'test'
+  ...
+# Subtest: static checker rejects missing anchors, decoded traversal, remote resources and known forbidden terms
+ok 3 - static checker rejects missing anchors, decoded traversal, remote resources and known forbidden terms
+  ---
+  duration_ms: 82.8048
+  type: 'test'
+  ...
+# Subtest: static checker rejects source path escape and invalid answer criteria even with consistent hashes
+ok 4 - static checker rejects source path escape and invalid answer criteria even with consistent hashes
+  ---
+  duration_ms: 81.7346
+  type: 'test'
+  ...
+# Subtest: self-consistent material declarations cannot hide generated HTML or scripts from checks
+ok 5 - self-consistent material declarations cannot hide generated HTML or scripts from checks
+  ---
+  duration_ms: 381.5323
+  type: 'test'
+  ...
+# Subtest: static source URLs reject embedded credentials while passive local source formats remain valid
+ok 6 - static source URLs reject embedded credentials while passive local source formats remain valid
+  ---
+  duration_ms: 77.7005
+  type: 'test'
+  ...
+# Subtest: browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record
+ok 7 - browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record
+  ---
+  duration_ms: 97.4117
+  type: 'test'
+  ...
+# Subtest: actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping
+ok 8 - actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping
+  ---
+  duration_ms: 1205.0703
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2215.666

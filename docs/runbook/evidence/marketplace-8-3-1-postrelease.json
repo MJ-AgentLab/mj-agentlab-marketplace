@@ -971,13 +971,16 @@
     "sequence": [
       {
         "stage": "published831-records-to-main",
-        "status": "PREPARING_PROTECTED_PR",
-        "marketplaceVersion": "8.3.1"
+        "status": "ACTUAL_MERGE_VERIFIED_TECHNICAL_PASS_GOVERNANCE_NOT_MET",
+        "marketplaceVersion": "8.3.1",
+        "actualMerge": "7615ca58f410876fc7393b0d93017250fe712091"
       },
       {
         "stage": "actual-main-to-develop",
-        "status": "DEPENDENT_NOT_STARTED",
-        "requires": "actual accepted record PR merge; include that actual latest main ancestry"
+        "status": "PREPARING_PROTECTED_SYNC_PR",
+        "requires": "actual accepted record PR merge; include that actual latest main ancestry",
+        "actualSourceMain": "7615ca58f410876fc7393b0d93017250fe712091",
+        "targetDevelopAtPreparation": "6df7e12ec700277fa133c63ddaa89c8b32f7bdf6"
       },
       {
         "stage": "marketplace-prebump832",
@@ -995,7 +998,789 @@
       }
     ],
     "normalCurrentHeadApprovalAndChecksRemainRequired": true,
-    "priorExceptionsDoNotApply": true
+    "priorExceptionsDoNotApply": true,
+    "continuation": "PR 254 已合并，继续后续工作"
   },
-  "evidenceBoundary": "Embedded compact audit records preserve raw inventories and actual observations; no full source snapshots or command logs are duplicated here. Candidate492 belongs to b830 before publication. Actual4e4 post-publication13 is a separate new execution. Native/model/client/effects limitations and all original FAIL/PARTIAL states remain unchanged."
+  "evidenceBoundary": "Embedded compact audit records preserve raw inventories and actual observations; no full source snapshots or command logs are duplicated here. Candidate492 belongs to b830 before publication. Actual4e4 post-publication13 is a separate new execution. Native/model/client/effects limitations and all original FAIL/PARTIAL states remain unchanged.",
+  "recordPRPostMerge": {
+    "recordedAt": "2026-10-16T15:06:09.713Z",
+    "status": "ACTUAL_PR254_MERGE_TECHNICAL_PASS_GOVERNANCE_NOT_MET",
+    "identityAndGovernance": {
+      "schemaVersion": 1,
+      "at": "2026-10-16T15:03:55.632Z",
+      "mode": "Independent GET-only actual PR254 merge and stage2 governance audit",
+      "status": "ACTUAL_MERGE_IDENTITY_PASS_GOVERNANCE_NOT_MET",
+      "actualMerge": {
+        "pr": 254,
+        "state": "MERGED",
+        "mergedAt": "2026-10-16T15:01:04Z",
+        "mergedBy": "ranzuozhou",
+        "author": "ranzuozhou",
+        "head": "6a4dc55dccb8f19085ca36e0cde06c4fd8e67546",
+        "sha": "7615ca58f410876fc7393b0d93017250fe712091",
+        "tree": "b323da8a764120c23544ef9b65df479d9ca7a20f",
+        "parents": [
+          "4e4d4172fb27c812d3be8847f792dae5313daec8",
+          "6a4dc55dccb8f19085ca36e0cde06c4fd8e67546"
+        ],
+        "headTree": "b323da8a764120c23544ef9b65df479d9ca7a20f",
+        "sameTreeAsTestedHead": true
+      },
+      "checks": {
+        "actualMergeMatchesRESTAndGraphQL": true,
+        "parentsExact": true,
+        "mainMatchesActualMerge": true,
+        "sourceVersionsUnchanged": true,
+        "reviewPagesComplete": true,
+        "threadPageComplete": true,
+        "unresolvedThreads": 0,
+        "actualSuiteIdentityExact": true
+      },
+      "governance": {
+        "reviews": {
+          "totalCount": 0,
+          "nodes": [],
+          "pageInfo": {
+            "hasNextPage": false
+          }
+        },
+        "latestReviews": {
+          "totalCount": 0,
+          "nodes": [],
+          "pageInfo": {
+            "hasNextPage": false
+          }
+        },
+        "reviewDecision": "REVIEW_REQUIRED",
+        "threads": {
+          "totalCount": 0,
+          "nodes": [],
+          "pageInfo": {
+            "hasNextPage": false
+          }
+        },
+        "actualSuite": {
+          "id": 4563644321,
+          "actor_id": 35538471,
+          "actor_name": "ranzuozhou",
+          "before_sha": "4e4d4172fb27c812d3be8847f792dae5313daec8",
+          "after_sha": "7615ca58f410876fc7393b0d93017250fe712091",
+          "ref": "refs/heads/main",
+          "repository_id": 1183002256,
+          "repository_name": "mj-agentlab-marketplace",
+          "pushed_at": "2026-10-16T23:01:04+08:00",
+          "result": "bypass",
+          "rule_evaluations": [
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 14008213,
+                "name": "protect-main"
+              },
+              "enforcement": "active",
+              "result": "fail",
+              "rule_type": "pull_request",
+              "details": "New changes require approval from someone other than the last pusher."
+            },
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 14008213,
+                "name": "protect-main"
+              },
+              "enforcement": "active",
+              "result": "pass",
+              "rule_type": "required_status_checks"
+            },
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 14008213,
+                "name": "protect-main"
+              },
+              "enforcement": "active",
+              "result": "pass",
+              "rule_type": "creation"
+            },
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 14008213,
+                "name": "protect-main"
+              },
+              "enforcement": "active",
+              "result": "pass",
+              "rule_type": "non_fast_forward"
+            },
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 14008213,
+                "name": "protect-main"
+              },
+              "enforcement": "active",
+              "result": "pass",
+              "rule_type": "deletion"
+            }
+          ]
+        },
+        "realCurrentHeadNonAuthorApproval": "NOT_MET",
+        "protectedMerge": "NOT_MET_HISTORICAL_OWNER_BYPASS",
+        "AgentExecutedMergeOrBypass": false,
+        "issue245ExceptionApplies": false,
+        "newExceptionInferred": false
+      },
+      "currentBranches": {
+        "main": {
+          "sha": "7615ca58f410876fc7393b0d93017250fe712091",
+          "version": "8.3.1",
+          "ruleset": {
+            "id": 14008213,
+            "enforcement": "active",
+            "rules": [
+              {
+                "type": "deletion"
+              },
+              {
+                "type": "non_fast_forward"
+              },
+              {
+                "type": "creation"
+              },
+              {
+                "type": "pull_request",
+                "parameters": {
+                  "required_approving_review_count": 1,
+                  "dismiss_stale_reviews_on_push": true,
+                  "required_reviewers": [],
+                  "require_code_owner_review": true,
+                  "dismissal_restriction": {
+                    "enabled": false,
+                    "allowed_actors": []
+                  },
+                  "require_last_push_approval": true,
+                  "required_review_thread_resolution": true,
+                  "require_extra_approval_for_unattributed_changes": true,
+                  "allowed_merge_methods": [
+                    "merge"
+                  ]
+                }
+              },
+              {
+                "type": "required_status_checks",
+                "parameters": {
+                  "strict_required_status_checks_policy": true,
+                  "do_not_enforce_on_create": false,
+                  "required_status_checks": [
+                    {
+                      "context": "Validate Structure"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "develop": {
+          "sha": "6df7e12ec700277fa133c63ddaa89c8b32f7bdf6",
+          "version": "8.3.1",
+          "ruleset": {
+            "id": 14008221,
+            "enforcement": "active",
+            "rules": [
+              {
+                "type": "deletion"
+              },
+              {
+                "type": "pull_request",
+                "parameters": {
+                  "required_approving_review_count": 1,
+                  "dismiss_stale_reviews_on_push": true,
+                  "required_reviewers": [],
+                  "require_code_owner_review": false,
+                  "dismissal_restriction": {
+                    "enabled": false,
+                    "allowed_actors": []
+                  },
+                  "require_last_push_approval": true,
+                  "required_review_thread_resolution": true,
+                  "require_extra_approval_for_unattributed_changes": true,
+                  "allowed_merge_methods": [
+                    "merge"
+                  ]
+                }
+              },
+              {
+                "type": "required_status_checks",
+                "parameters": {
+                  "strict_required_status_checks_policy": true,
+                  "do_not_enforce_on_create": false,
+                  "required_status_checks": [
+                    {
+                      "context": "Validate Structure"
+                    },
+                    {
+                      "context": "A6 / Check"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "non_fast_forward"
+              }
+            ]
+          }
+        }
+      },
+      "publishedReleaseStill": {
+        "id": 415053101,
+        "tag": "v8.3.1",
+        "target": "4e4d4172fb27c812d3be8847f792dae5313daec8",
+        "draft": false,
+        "publishedAt": "2026-10-16T14:28:02Z"
+      },
+      "stage2": {
+        "authorization": "Owner explicitly authorized main-to-develop sync and then marketplace-only8.3.2 pre-bump; no new scope decision required",
+        "state": "PREPARATION_ALLOWED_ACTUAL_SYNC_NOT_YET_PROVED",
+        "source": "7615ca58f410876fc7393b0d93017250fe712091 actual current main",
+        "target": "develop6df7e12ec700277fa133c63ddaa89c8b32f7bdf6 at this read",
+        "requiredChecks": [
+          "Validate Structure",
+          "A6 / Check"
+        ],
+        "otherNormalGates": [
+          "Current-head real non-author required approval and last-push approval",
+          "Latest strict base",
+          "Resolved review threads",
+          "No bypass or inherited Issue245 exception"
+        ],
+        "sequence": "Root actual761 exact13 postmerge verification is separately pending in this audit; prepare normal isolated sync candidate after that result, actual sync merge/verification must precede8.3.2 DryRun/Apply",
+        "newOwnerSubstantiveDecisionRequired": false,
+        "externalIdentityBlockerForFuturePR": "Real current-head non-author approval cannot be supplied by Agent role simulation"
+      },
+      "limits": [
+        "No source/ref/GitHub changes, worktree creation, tests/install, approval, reviewer assignment, merge or bypass by this audit.",
+        "Current identity and rule-suite facts do not claim a new actual761 installation run; root/CI-agent owns that independent batch.",
+        "Prior candidate CI technical PASS remains bound to tested6a4/e603 identities; exact same tree is independently verified but not fabricated as an actual761 rerun.",
+        "Merged state never implies waiver; actual Owner bypass is retained as NOT_MET and not extended to future PRs."
+      ]
+    },
+    "newExactActualMergeInstallation": {
+      "schemaVersion": 1,
+      "at": "2026-10-16T15:04:15.879Z",
+      "mode": "actual_pr254_main_merge_exact_installation",
+      "status": "ACTUAL_PR254_MERGE_EXACT_INSTALL_PASS",
+      "source": {
+        "actualMainMerge": "7615ca58f410876fc7393b0d93017250fe712091",
+        "unchangedHostCandidate": "6a4dc55dccb8f19085ca36e0cde06c4fd8e67546",
+        "tree": "b323da8a764120c23544ef9b65df479d9ca7a20f",
+        "base": "4e4d4172fb27c812d3be8847f792dae5313daec8",
+        "actualParents": [
+          "4e4d4172fb27c812d3be8847f792dae5313daec8",
+          "6a4dc55dccb8f19085ca36e0cde06c4fd8e67546"
+        ],
+        "sourceHashCount": 52,
+        "archivedClosureCount": 51,
+        "archivedClosurePreflightSHA256": "7c458031d998c9b01ea2c11744c96b01726801ea7f74572d98635e47517e8d80",
+        "sourceHashDomain": "Actual main merge761 changes since prior main4e4 plus the archived51-path verification closure: expected same52-path set as candidate6a4; actual working-file bytes from unchanged host6a4, count observed at execution.",
+        "sourceHashesEqual": true,
+        "same52PathSourceClosure": true,
+        "cleanBefore": true,
+        "cleanAfter": true,
+        "verifierSHA256": "1e108876c8d777433ca5bf70d227bfd2189d599c018589f7a8fb358b57e1b572",
+        "runnerSHA256": "390166f4954c2b6e90cd27d1a9e835e3167c0beec0a4e82a2b2357da32c1ad46"
+      },
+      "invocation": {
+        "argv": [
+          "C:/Users/Admin/.codex/worktrees/issue-245-smoke/qa/diagnostic-exact-da40473/verify-exact.mjs",
+          "C:/Users/Admin/.codex/worktrees/postrelease-8-3-1/develop",
+          "7615ca58f410876fc7393b0d93017250fe712091",
+          "C:\\Users\\Admin\\.codex\\worktrees\\postrelease-8-3-1\\qa\\pr254-actual-7615ca58"
+        ],
+        "startedAt": "2026-10-16T15:03:12.936Z",
+        "endedAt": "2026-10-16T15:04:07.552Z",
+        "wallMs": 54616.4894,
+        "exitCode": 0,
+        "tools": {
+          "node": "v22.18.0",
+          "npm": "10.9.3",
+          "python": "Python 3.12.13",
+          "pythonExecutable": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "pwsh": "PowerShell 7.6.5",
+          "codex": "codex-cli 0.147.0",
+          "git": "git version 2.53.0.windows.1"
+        },
+        "originalGitTimeoutMs": 60000
+      },
+      "actualResults": {
+        "installedCli": "codex-cli 0.147.0",
+        "scenarios": 13,
+        "passed": 13,
+        "installedScenarios": [
+          [
+            "diagram-kit"
+          ],
+          [
+            "learning-evidence-kit"
+          ],
+          [
+            "explain-kit"
+          ],
+          [
+            "diagram-kit",
+            "explain-kit"
+          ],
+          [
+            "diagram-kit",
+            "learning-evidence-kit",
+            "explain-kit"
+          ],
+          [
+            "communication-kit"
+          ],
+          [
+            "communication-kit",
+            "explain-kit"
+          ],
+          [
+            "communication-kit",
+            "learning-evidence-kit"
+          ],
+          [
+            "diagram-kit",
+            "learning-evidence-kit",
+            "explain-kit",
+            "communication-kit"
+          ],
+          [
+            "html-guide-kit"
+          ],
+          [
+            "html-guide-kit",
+            "explain-kit"
+          ],
+          [
+            "diagram-kit",
+            "learning-evidence-kit",
+            "explain-kit",
+            "html-guide-kit"
+          ],
+          [
+            "diagram-kit",
+            "learning-evidence-kit",
+            "explain-kit",
+            "communication-kit",
+            "html-guide-kit"
+          ]
+        ],
+        "commands": 170,
+        "commandErrors": 0,
+        "diagramGroups": 6,
+        "diagramPythonCalls": 6,
+        "diagramAllPass": true,
+        "learningGroups": 6,
+        "learningPythonCalls": 18,
+        "learningSaveReplayStructuralAllPass": true,
+        "phaseFiles": 2,
+        "phaseRecords": 130,
+        "phaseErrors": 0,
+        "phaseCounts": {
+          "worktree.create:ok": 1,
+          "validate:ok": 43,
+          "install:ok": 43,
+          "worktree.remove:ok": 1,
+          "cleanup:ok": 15,
+          "copy:ok": 14,
+          "git.init:ok": 13
+        },
+        "cleanupOk": 15,
+        "ownedRoots": [
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\release-install-ix6l69",
+            "existsAtAudit": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-source-3aZsG2",
+            "existsAtAudit": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-enpepH",
+            "existsAtAudit": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-Wn844w",
+            "existsAtAudit": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-z744Rw",
+            "existsAtAudit": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-dM1T4b",
+            "existsAtAudit": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-tn5g6B",
+            "existsAtAudit": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-XAXP7p",
+            "existsAtAudit": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-88hvjX",
+            "existsAtAudit": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-7pTuXk",
+            "existsAtAudit": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-oDTKpD",
+            "existsAtAudit": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BADBx6",
+            "existsAtAudit": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-d1Ibco",
+            "existsAtAudit": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-3x68DJ",
+            "existsAtAudit": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-EJ1Pav",
+            "existsAtAudit": false
+          }
+        ],
+        "copies": {
+          "records": 14,
+          "template": 1,
+          "scenario": 13,
+          "filesEach": [
+            97
+          ],
+          "bytesEach": [
+            1027278
+          ],
+          "totalContentBytes": 14381892,
+          "domain": "actual logical copied content bytes, not physical disk I/O"
+        },
+        "canonicalAgents": {
+          "status": "NOT_MEASURED",
+          "reason": "Existing verifier did not capture canonical AGENTS byte length before removing its worktree; host bytes or line-ending projection are not substituted."
+        }
+      },
+      "worktrees": {
+        "beforeCount": 19,
+        "afterCount": 19,
+        "sameRootSet": true,
+        "fullPorcelainTextEqual": true,
+        "beforeRoots": [
+          "c:/users/admin/.codex/worktrees/communication-contract/develop",
+          "c:/users/admin/.codex/worktrees/communication-foundation/develop",
+          "c:/users/admin/.codex/worktrees/communication-plugin/develop",
+          "c:/users/admin/.codex/worktrees/html-guide-acceptance/develop",
+          "c:/users/admin/.codex/worktrees/html-guide-contract/develop",
+          "c:/users/admin/.codex/worktrees/html-guide-package/develop",
+          "c:/users/admin/.codex/worktrees/issue-245-cancel/develop",
+          "c:/users/admin/.codex/worktrees/issue-245-ci-probe/develop",
+          "c:/users/admin/.codex/worktrees/issue-245-dedup-probe/develop",
+          "c:/users/admin/.codex/worktrees/issue-245-dedup/develop",
+          "c:/users/admin/.codex/worktrees/issue-245-fixtures/develop",
+          "c:/users/admin/.codex/worktrees/issue-245-metrics/develop",
+          "c:/users/admin/.codex/worktrees/issue-245-postmerge/develop",
+          "c:/users/admin/.codex/worktrees/issue-245-smoke/develop",
+          "c:/users/admin/.codex/worktrees/postrelease-8-3-1/develop",
+          "c:/users/admin/.codex/worktrees/release-8-3-1/develop",
+          "c:/users/admin/.codex/worktrees/release-develop-8-3-0/develop",
+          "d:/workspace/10-software-project/projects/mj-agentlab-marketplace/.bare",
+          "d:/workspace/10-software-project/projects/mj-agentlab-marketplace/develop"
+        ],
+        "afterRoots": [
+          "c:/users/admin/.codex/worktrees/communication-contract/develop",
+          "c:/users/admin/.codex/worktrees/communication-foundation/develop",
+          "c:/users/admin/.codex/worktrees/communication-plugin/develop",
+          "c:/users/admin/.codex/worktrees/html-guide-acceptance/develop",
+          "c:/users/admin/.codex/worktrees/html-guide-contract/develop",
+          "c:/users/admin/.codex/worktrees/html-guide-package/develop",
+          "c:/users/admin/.codex/worktrees/issue-245-cancel/develop",
+          "c:/users/admin/.codex/worktrees/issue-245-ci-probe/develop",
+          "c:/users/admin/.codex/worktrees/issue-245-dedup-probe/develop",
+          "c:/users/admin/.codex/worktrees/issue-245-dedup/develop",
+          "c:/users/admin/.codex/worktrees/issue-245-fixtures/develop",
+          "c:/users/admin/.codex/worktrees/issue-245-metrics/develop",
+          "c:/users/admin/.codex/worktrees/issue-245-postmerge/develop",
+          "c:/users/admin/.codex/worktrees/issue-245-smoke/develop",
+          "c:/users/admin/.codex/worktrees/postrelease-8-3-1/develop",
+          "c:/users/admin/.codex/worktrees/release-8-3-1/develop",
+          "c:/users/admin/.codex/worktrees/release-develop-8-3-0/develop",
+          "d:/workspace/10-software-project/projects/mj-agentlab-marketplace/.bare",
+          "d:/workspace/10-software-project/projects/mj-agentlab-marketplace/develop"
+        ]
+      },
+      "checks": {
+        "same52PathSourceClosure": true,
+        "actualMainMergeIdentity": true,
+        "explicitActualMergeArgument": true,
+        "cleanProcess": true,
+        "thirteenScenarios": true,
+        "actualCli147": true,
+        "actualPython": true,
+        "actual170Commands": true,
+        "actual130Phases": true,
+        "cleanupAndAbsence": true,
+        "sourceCleanAndUnchanged": true,
+        "closedSourceHashInventory": true,
+        "registeredRootsUnchanged": true,
+        "originalGitDeadline": true,
+        "stdoutHashBound": true
+      },
+      "originals": [
+        {
+          "file": "pr254-actual-7615ca58/preflight.json",
+          "bytes": 10854,
+          "sha256": "54d112904129c6d2ff82a0c977f734d450739821120c274021ab3876b9404135"
+        },
+        {
+          "file": "pr254-actual-7615ca58/process.json",
+          "bytes": 10417,
+          "sha256": "b0b1471f997b98df2a44446eff3def491977b343aeb6f0644133f21f9d70d487"
+        },
+        {
+          "file": "pr254-actual-7615ca58/stdout.log",
+          "bytes": 315933,
+          "sha256": "cd63372d35621a1809ff0b83ee65d1815cf4a45efaee34773cbd9302614db9c2"
+        },
+        {
+          "file": "pr254-actual-7615ca58/invocation-intent.json",
+          "bytes": 801,
+          "sha256": "774c60490a99bef2c1471b1af6746ccf7ee78e6b2a451704c3688d7aff059e5a"
+        },
+        {
+          "file": "pr254-actual-7615ca58/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "file": "pr254-actual-7615ca58/diagnostic-exact-npm-ci.stdout.log",
+          "bytes": 141,
+          "sha256": "3d3d61cc7c16db3569557f1abdd266fefa0637119ba2bffdb618c193bfe1b8ee"
+        },
+        {
+          "file": "pr254-actual-7615ca58/diagnostic-exact-npm-ci.stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "file": "pr254-actual-7615ca58/diagnostic-exact-npm-smoke.stdout.log",
+          "bytes": 315987,
+          "sha256": "99adbd00e023dc8a86eef61d37a965c9cbbc3b001fdc1b880b2d99742382d6b6"
+        },
+        {
+          "file": "pr254-actual-7615ca58/diagnostic-exact-npm-smoke.stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "file": "pr254-actual-7615ca58/phases/perf-51572-3d012f15-bcf4-410b-ace3-e0941c736405.ndjson",
+          "bytes": 550,
+          "sha256": "f47943064b6ad4ef1dfdd333d12770315d10caa5dfc79d686133a563c6a9b804"
+        },
+        {
+          "file": "pr254-actual-7615ca58/phases/perf-51952-a6ee7f9e-f5da-4197-98a7-99a1c4a2fd91.ndjson",
+          "bytes": 31549,
+          "sha256": "576ff9d2fee03940f34a9e7cfb25837352acf273da818fe6596c2e481597259d"
+        },
+        {
+          "file": "final-candidate-exact-6a4dc55dccb8f19085ca36e0cde06c4fd8e67546/preflight.json",
+          "bytes": 10711,
+          "sha256": "fbc99cf684a0a98545b57ca7e10f4ca9ebdf9d4c7c99b23f33f2ef3ff491a981",
+          "domain": "Candidate source identity only; no old installation results used"
+        }
+      ],
+      "limits": [
+        "This recount binds this fresh actual PR254 main merge761 execution only, separately from unchanged host6a4. Earlier candidate and published-tag installation results are not substituted.",
+        "This audit reads completed QA originals and filesystem absence only; no test, install, Git command, API or cleanup is run by the audit.",
+        "No additional full492, performance24, model or native UI result is claimed. Actual main merge identity is verified here; its GitHub approval/rule-suite history is separate. Subsequent actual main-to-develop sync and8.3.2 apply are separate future gates."
+      ]
+    },
+    "secondIndependentDirectRawAudit": {
+      "schemaVersion": 1,
+      "at": "2026-10-16T15:04:42.859Z",
+      "status": "ACTUAL_PR254_MERGE_EXACT_TECHNICAL_PASS",
+      "method": "Root independently parsed new raw stdout, nested npm smoke, every command and NDJSON phase; did not read the other agent's aggregate totals. Rehashed raw evidence and actual source, compared full worktree lists and observed temporary path absence.",
+      "target": "7615ca58f410876fc7393b0d93017250fe712091",
+      "host": "6a4dc55dccb8f19085ca36e0cde06c4fd8e67546",
+      "tree": "b323da8a764120c23544ef9b65df479d9ca7a20f",
+      "actual": {
+        "scenarios": 13,
+        "commands": 170,
+        "diagramPython": 6,
+        "learningPython": 18,
+        "phases": 130,
+        "phaseCounts": {
+          "cleanup:ok": 15,
+          "copy:ok": 14,
+          "git.init:ok": 13,
+          "install:ok": 43,
+          "validate:ok": 43,
+          "worktree.create:ok": 1,
+          "worktree.remove:ok": 1
+        },
+        "ownedRoots": [
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-3x68DJ",
+            "existsNow": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-7pTuXk",
+            "existsNow": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-88hvjX",
+            "existsNow": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-BADBx6",
+            "existsNow": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-EJ1Pav",
+            "existsNow": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-Wn844w",
+            "existsNow": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-XAXP7p",
+            "existsNow": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-d1Ibco",
+            "existsNow": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-dM1T4b",
+            "existsNow": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-enpepH",
+            "existsNow": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-oDTKpD",
+            "existsNow": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-source-3aZsG2",
+            "existsNow": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-tn5g6B",
+            "existsNow": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-z744Rw",
+            "existsNow": false
+          },
+          {
+            "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\release-install-ix6l69",
+            "existsNow": false
+          }
+        ],
+        "sourceHashCount": 52,
+        "sourceUnchanged": true,
+        "registeredBefore": 19,
+        "registeredAfter": 19,
+        "fullListingEqual": true,
+        "wallMs": 54616.4894,
+        "startedAt": "2026-10-16T15:03:12.936Z",
+        "endedAt": "2026-10-16T15:04:07.552Z"
+      },
+      "rawFiles": [
+        {
+          "file": "pr254-actual-7615ca58/diagnostic-exact-npm-ci.stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "file": "pr254-actual-7615ca58/diagnostic-exact-npm-ci.stdout.log",
+          "bytes": 141,
+          "sha256": "3d3d61cc7c16db3569557f1abdd266fefa0637119ba2bffdb618c193bfe1b8ee"
+        },
+        {
+          "file": "pr254-actual-7615ca58/diagnostic-exact-npm-smoke.stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "file": "pr254-actual-7615ca58/diagnostic-exact-npm-smoke.stdout.log",
+          "bytes": 315987,
+          "sha256": "99adbd00e023dc8a86eef61d37a965c9cbbc3b001fdc1b880b2d99742382d6b6"
+        },
+        {
+          "file": "pr254-actual-7615ca58/invocation-intent.json",
+          "bytes": 801,
+          "sha256": "774c60490a99bef2c1471b1af6746ccf7ee78e6b2a451704c3688d7aff059e5a"
+        },
+        {
+          "file": "pr254-actual-7615ca58/preflight.json",
+          "bytes": 10854,
+          "sha256": "54d112904129c6d2ff82a0c977f734d450739821120c274021ab3876b9404135"
+        },
+        {
+          "file": "pr254-actual-7615ca58/process.json",
+          "bytes": 10417,
+          "sha256": "b0b1471f997b98df2a44446eff3def491977b343aeb6f0644133f21f9d70d487"
+        },
+        {
+          "file": "pr254-actual-7615ca58/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "file": "pr254-actual-7615ca58/stdout.log",
+          "bytes": 315933,
+          "sha256": "cd63372d35621a1809ff0b83ee65d1815cf4a45efaee34773cbd9302614db9c2"
+        },
+        {
+          "file": "pr254-actual-7615ca58/phases/perf-51572-3d012f15-bcf4-410b-ace3-e0941c736405.ndjson",
+          "bytes": 550,
+          "sha256": "f47943064b6ad4ef1dfdd333d12770315d10caa5dfc79d686133a563c6a9b804"
+        },
+        {
+          "file": "pr254-actual-7615ca58/phases/perf-51952-a6ee7f9e-f5da-4197-98a7-99a1c4a2fd91.ndjson",
+          "bytes": 31549,
+          "sha256": "576ff9d2fee03940f34a9e7cfb25837352acf273da818fe6596c2e481597259d"
+        }
+      ],
+      "limits": [
+        "No new model/client/effect/24-sample execution or GitHub approval follows from these technical checks.",
+        "Canonical AGENTS read-time bytes NOT_MEASURED; actual host bytes checked separately."
+      ]
+    },
+    "frozenAuditReferences": [
+      {
+        "file": "pr254-postmerge-independent/receipt.json",
+        "bytes": 8340,
+        "sha256": "87f9f5bc8c318a8472be013a63dc911fc4d9537a4b828de0b0c4741902f98870"
+      },
+      {
+        "file": "pr254-actual-7615ca58-audit/receipt.json",
+        "bytes": 12643,
+        "sha256": "dc90f50ce2abbe8c7263e162ba3e7534d267b454ca56805858632a1294494685"
+      },
+      {
+        "file": "pr254-actual-7615ca58-root-audit.json",
+        "bytes": 5380,
+        "sha256": "3c409a48490aed7490a5fc23bd6d8ae4244263edcf8596b8a242fbd27f9fbc88"
+      }
+    ],
+    "boundary": "Actual target7615 / host6a4 same-tree different-SHA execution; separate from original published4e4 and premerge6a4 batches. No new full492, performance24, model, desktop or effect execution. No missing approval is converted to PASS and no previous governance exception applies."
+  }
 }

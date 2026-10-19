@@ -5,9 +5,38 @@
 
 ## [Unreleased]
 
+## [8.3.2] - 2026-10-19
+
+HTML Learning Artifact and engineering-governance update: HTML Guide Kit 0.1.37, with Diagram 0.3.1, Learning Evidence 0.1.0, Explain 0.1.1 and Communication 0.1.0 unchanged. Five packages expose eight skills, including five explicit entries. VERSION was already prepared as 8.3.2; this promotion does not bump it again. Refs #274.
+
+### Added
+
+- Add the explicit HTML Learning Artifact site entry in HTML Guide Kit 0.1.37: six local production steps, Chinese teaching content with stable English terms, warm-paper assets, a Markdown renderer and actual static/browser checks, plus the current Sites handoff contract. Preserve guide runtime bytes, plugin identity, approved icon and all historical acceptance. INT-2026-003 and #274 retain the complete input, current authorization, staged evidence and remaining publication/Owner acceptance boundaries.
+
 ### Documentation
 
+The following entries preserve their original preparation stages. Tasks #257, #263 and #269 have since merged to develop; current release status and retained gaps are recorded in the 8.3.2 readiness ledger below.
+
+- Unify Communication task planning under plans/222-communication-kit with one current INDEX/PLAN/REPORT and recoverable fixed Git originals. Remove the old root plan/ and migrate current navigation, source inputs and fixtures atomically. Path-reintroduction guards and final delivery gates are tracked by #269; other historical document compatibility and plugin runtime/versions remain unchanged.
+
+- Record actual INTENT #264 develop delivery and fresh 597-test/thirteen-install/source-recovery verification; retain the platform-observed approval bypass and all deferred, untested and Owner-acceptance boundaries. No runtime, version or original accepted-source changes.
+
+- Add tiered INTENT originals, the intent document type and recoverable acceptance/engineering coverage contracts. Reuse the existing 20 development skills and task PLAN/REPORT layers, preserve the complete accepted chat design and actual authorization, and register the first draft original without claiming its new wording was accepted. Strict Harness and independent synthetic acceptance follow in the child PRs of Epic #263; native-window evidence, protected approval and Owner final acceptance remain separate.
+
+- Record actual #258 develop merge and fresh exact-source verification; retain its observed approval bypass, the Owner-selected on-demand rollout and explicit bounded final acceptance. Reuse task entries and reports without changing runtime or frozen history.
+
+- Add explicit canonical/working layers, reusable task INDEX/PLAN/REPORT and staged Epic delivery governance. Preserve original standards with exact Git-source identities, adapt templates and Agent workflows, and keep legacy documents explicitly compatible without reclassifying frozen sources. Harness adaptation and the bounded HTML PR1 reading trial are tracked separately in Epic #257; plugin runtime and versions remain unchanged.
+
+- Verify actual #254 merge 7615ca58 with a separate thirteen-install/Python batch and prepare a protected sync of its complete main ancestry to develop. Preserve original missing approval and Owner bypass; keep Marketplace 8.3.2 pending the actual sync merge and a fresh dry-run, with plugin versions unchanged.
+
 - Record actual #253 / v8.3.1 publication, exact main/tag/Release identities and the new post-publication thirteen-install/Python/cleanup verification. Update current README installation to the real v8.3.1 tag; retain actual Owner bypass, missing independent approval, QA preflight failures and all limited client results. Stage the newly authorized main-to-develop sync and Marketplace-only 8.3.2 pre-bump after their actual prerequisite merges; plugin versions and published history remain unchanged.
+
+### Verification and retained limits
+
+- HTML site has bounded independent local-content, installed-consumer, real browser and private Sites production evidence; guide runtime resources retain their published identity. Actual develop merge 65d756ef has the tested source tree. The new main candidate, public tag and post-publication installation each require their own recorded evidence in the [8.3.2 readiness ledger](docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md).
+- Include the already merged task-documentation, INTENT and plan-path governance plus their Harness/CI support from #257, #263 and #269. Preserve frozen sources and historical results. Other four plugin trees remain identical to main.
+- Preserve actual #275 bypass and empty reviews as approval NOT_MET; it provides no future exception. Main promotion requires current-head non-author approval, current-base checks and resolved threads.
+- Retain HTML #239 FAIL, native-window and second-client deferrals, Learning deferred routes, Communication PARTIAL/limited routes and all Owner-acceptance gaps. Private Site deployment and engineering success do not measure learning effects or constitute final acceptance.
 
 ## [8.3.1] - 2026-10-16
 

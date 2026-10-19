@@ -4,12 +4,30 @@ scope: marketplace
 summary: "当前 ChatGPT/Codex 文档、历史决策与退役资料导航"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-16
+updated: 2026-10-19
 state: active
-version: v2.91.15
+version: v2.100
+layer: canonical
 ---
 
 # 文档索引
+
+## 工程任务与文档分层
+
+- [HTML learning artifact 原意 INT-2026-003](intent/[INTENT]_INT-2026-003_HTML_Learning_Artifact.md)、[#274任务入口](../plans/274-html-learning-artifact/INDEX.md)：同一HTML包新增显式site、包内方法/工具与真实Sites交付；[扩展ADR](adr/[ADR]_HTML_Learning_Artifact_Extension.md)、[site SPEC](spec/[SPEC]_HTML_Learning_Artifact.md)、[使用指南](guide/[GUIDE]_HTML_Learning_Artifact.md)承接本次范围及四项最小门槛。guide原字节/历史合同、旧FAIL和缺证保留；新候选结果、保护批准及Owner最终接受按各自证据判断。
+
+- [计划路径统一原意 INT-2026-002](intent/[INTENT]_INT-2026-002_Plans_Path_Unification.md)：Owner 已接受 B1 并授权实施；[#269 任务入口](../plans/269-plans-path-unification/INDEX.md)承接整合与旧路径兼容撤除，其他历史文档兼容不在范围。
+
+- [INTENT 规范](rule/[STANDARD]_AI_Engineering_Intent.md)、[新增 ADR](adr/[ADR]_Intent_Mechanism_Addition.md)、[正本索引](intent/INDEX.md)与[模板](_templates/TEMPLATE_INTENT.md)：分层唯一原意、完整接受基线、稳定身份及工程覆盖；简单明确任务继续 Issue 原意区。
+- [INTENT 任务入口 #263](../plans/263-intent-mechanism/INDEX.md)：完整来源与实际实施/验收；严格窗口、历史缺证和 Owner 最终接受分别登记，不由文档状态推定通过。
+
+[任务入口 #257](../plans/257-task-documentation/INDEX.md)导航本次规范、模板、技能/Harness 适配与 HTML PR1 有界试行；[Epic #257](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/257)为进度正本。新任务按[分层与交付 ADR](adr/[ADR]_Task_Documentation_Layers_And_Delivery.md)、[文档框架](rule/[STANDARD]_Documentation_Framework.md)和[执行规范](rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)使用 canonical/working 两层、九字段、稳定任务目录与主 PLAN/REPORT。草稿正本和完成过程材料保持各自层次；旧文档仅按[显式兼容范围](_meta/document-layer-compatibility.json)渐进接入，不能推定全量完成。
+
+- [TASK INDEX 模板](_templates/TEMPLATE_TASK_INDEX.md)、[PLAN 模板](_templates/TEMPLATE_PLAN.md)、[REPORT 模板](_templates/TEMPLATE_REPORT.md)
+- [HTML 任务入口 #217](../plans/217-html-guide-kit/INDEX.md)：仅限定 PR1 历史交付链的有界试行，区分原合同、当时证据和当前 #239 交接；不追认历史缺证或恢复产品复测。
+- 历史 [Documentation Framework v2.0](archive/[DEPRECATED]_[STANDARD]_Documentation_Framework_v2.0.md)、[AI Execution v2.1](archive/[DEPRECATED]_[STANDARD]_AI_Engineering_Execution_HITL_Prompt_v2.1.md)与[Git 来源账本](archive/history-sources.json)
+
+下方历史阶段保持原范围和事实；任务完成不触发再次搬迁。
 
 ## 当前性能维护
 
@@ -17,9 +35,13 @@ version: v2.91.15
 
 ## 当前整体发布
 
+Marketplace8.3.2正在准备：#275已实际合入develop65d756ef/tree d7de559f，同已测1a80；HTML0.1.37新增site，五包八公开/五显式/三自然，其他插件保持，并继承已交付文档/INTENT/路径统一治理。版本已预升，不重复bump，无v8.3.2 tag/Release，安装仍v8.3.1。actual65d新十三安装/178命令及6Diagram+18LEK/4site生成+4静态Python通过，自有新根无残留；正式main PR当前head真实保护门禁仍待证；#275 reviews=[]记批准NOT_MET，真实suite4599887231匹配该次合入且result=bypass，pull_request fail（缺最新推送者外批准）、required checks pass、不作未来豁免。范围、实际结果与记录→sync→仅市场8.3.3预升顺序见[8.3.2发布账本](runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)；继续复用[#274任务入口](../plans/274-html-learning-artifact/INDEX.md)的唯一PLAN/REPORT，原FAIL/延期、Owner体检/最终接受与NOT_MEASURED分记。
+
 2026-10-16 #253 已将 Marketplace v8.3.1 公开，main/tag/Release 同为 4e4d4172，五包版本与 8.3.0 相同。新发布后真实 tag 的十三安装、6Diagram+18LEK、15cleanup及独立原件复核通过；实际main规则suite4563052548为Owner bypass、reviews=[]，批准缺项保留NOT_MET，245例外不外推。见[8.3.1发布账本](runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)与[发布后回执](runbook/evidence/marketplace-8-3-1-postrelease.json)。
 
-Owner另授权本次记录PR→实际main回同步develop→实际同步后Marketplace8.3.2预升，均走正常当前head批准/CI/线程门禁；VERSION/badge之外只同步必要根摘要，插件与公开v8.3.1安装ref保持。后两步仍待前序实际合入，不将准备写成完成。下方保留8.3.0首次五包公开的历史基线。
+下段保留2026-10-16准备快照；#255同步与#256预升后来已实际合入，当前8.3.2状态以上述新账本为准。
+
+记录 PR #254 已于 2026-10-16 实际合入 main7615ca58，与已测6a4同树；新十三安装、6Diagram+18LEK、130成功phases/15cleanup、52源哈希和实际19→19登记核验通过。该次suite4563644321为Owner bypass、reviews=[]，批准仍NOT_MET。当前正常同步PR包含完整main761 ancestry，目标develop6df，市场/安装ref仍8.3.1、插件不变；实际sync合入复验后再DryRun/Apply Marketplace8.3.2，仅VERSION/badge与必要根A6。新阶段均保持当前head真实批准/CI/线程；pre-bump未应用。下方保留8.3.0首次五包公开的历史基线。
 
 2026-10-15 #241 已将完整五包七技能/四显式作为 Marketplace v8.3.0 公开，main/tag/Release 同为 ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64。Diagram 0.3.1 / Learning Evidence 0.1.0 / Explain 0.1.1 / Communication 0.1.0 / HTML 0.1.36；原四包 #237 关闭未合并。发布后十三组合 canonical 安装及 6+6 缓存 Python 通过，身份、原始回执和后续维护见[8.3.0 发行账本](runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。自动删分支已关闭、develop原head32e32c5已恢复且规则审计PASS；常规同步/预升仍须受保护PR。R05仅沿用未变资源的有限覆盖；HTML #239 FAIL、完整客户端未覆盖、历史规则审计 bypass、空 reviews 和效果未测均保留，不关闭 #215/#239。
 
@@ -81,7 +103,7 @@ Communication PR4同步验收证据和实际发布基线，见[验收记录§6](
 
 Owner Q3已确认Communication正式发行仅为Learning已公开三包加Communication（四包六技能），HTML保留develop另发；开发集成五包七技能，两个集合各自精确验证。
 
-- [Communication 完整实施计划](../plan/communication-kit-implementation-plan.md)与[原稿捕获](../plan/communication-kit-plan-provenance.json)
+- [Communication 任务入口 #222](../plans/222-communication-kit/INDEX.md)：唯一主 PLAN、主 REPORT 和固定原稿/捕获来源；历史原件只供恢复，不作为并行计划入口。
 - [Communication Kit 新增决定](adr/[ADR]_Communication_Kit_Addition.md)
 - [Communicate 行为契约](spec/[SPEC]_Communication_Communicate.md)
 - [沟通助手使用指南](guide/[GUIDE]_Communication_Communicate.md)

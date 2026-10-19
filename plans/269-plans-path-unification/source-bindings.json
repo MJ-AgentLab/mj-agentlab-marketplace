@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 1,
+  "task": "269-plans-path-unification",
+  "sources": [
+    {
+      "id": "accepted-baseline-b1",
+      "kind": "snapshot",
+      "path": "evidence/sources/accepted-baseline-b1.json",
+      "sha256": "a97431285549ca05ac46deb739dc98efbd48c3c642866d61aecc9e28f294e319",
+      "original": "Current chat visible Owner request / explicit answers / later implementation correction; exact message IDs and times unavailable",
+      "purpose": "Restore actual input, complete accepted scope and implementation authorization",
+      "scope": "INT-2026-002 only; capture time does not replace unknown message time; prior drafts are recovery sources, not current originals"
+    },
+    {
+      "id": "execution-principles-p1",
+      "kind": "snapshot",
+      "path": "evidence/sources/execution-principles-p1.json",
+      "sha256": "5aa097bef9f9dfd5cb2dafd2db47d5bb5733032306826cb44a281c43841f2b62",
+      "original": "Current chat visible Owner request / explicit answers / later implementation correction; exact message IDs and times unavailable",
+      "purpose": "Restore actual input, complete accepted scope and implementation authorization",
+      "scope": "INT-2026-002 only; capture time does not replace unknown message time; prior drafts are recovery sources, not current originals"
+    },
+    {
+      "id": "implementation-authorization",
+      "kind": "snapshot",
+      "path": "evidence/sources/implementation-authorization.json",
+      "sha256": "8c698f33e9795c4fe2fed66240062b638754f7a871affb3ce321ba83fa7e2852",
+      "original": "Current chat visible Owner request / explicit answers / later implementation correction; exact message IDs and times unavailable",
+      "purpose": "Restore actual input, complete accepted scope and implementation authorization",
+      "scope": "INT-2026-002 only; capture time does not replace unknown message time; prior drafts are recovery sources, not current originals"
+    },
+    {
+      "id": "manager-reading-round1",
+      "kind": "snapshot",
+      "path": "evidence/sources/manager-reading-round1.json",
+      "sha256": "26c24d8a31f167e0938736f0d579a04b0396305fb1785663d61b263c3a6c20cf",
+      "original": "Actual independent Agent output / targeted GitHub observation / internal premerge check in this chat; original execution/capture times retained in the file",
+      "purpose": "Recover exact independent reading, failure/retest or observed platform state",
+      "scope": "This candidate and declared role/method only; no Owner acceptance or protected approval inferred"
+    },
+    {
+      "id": "manager-reading-q3-retest",
+      "kind": "snapshot",
+      "path": "evidence/sources/manager-reading-q3-retest.json",
+      "sha256": "9f6c2b28cf9155878542e0bd804b55ed95f975375a39b2cb98065d64a28f1090",
+      "original": "Actual independent Agent output / targeted GitHub observation / internal premerge check in this chat; original execution/capture times retained in the file",
+      "purpose": "Recover exact independent reading, failure/retest or observed platform state",
+      "scope": "This candidate and declared role/method only; no Owner acceptance or protected approval inferred"
+    },
+    {
+      "id": "product-reading-round1",
+      "kind": "snapshot",
+      "path": "evidence/sources/product-reading-round1.json",
+      "sha256": "e3a44829f5784cf19d4ea055739f33787517a804c6d217c9aa23790a5e8c0fd1",
+      "original": "Actual independent Agent output / targeted GitHub observation / internal premerge check in this chat; original execution/capture times retained in the file",
+      "purpose": "Recover exact independent reading, failure/retest or observed platform state",
+      "scope": "This candidate and declared role/method only; no Owner acceptance or protected approval inferred"
+    },
+    {
+      "id": "devops-reading",
+      "kind": "snapshot",
+      "path": "evidence/sources/devops-reading.json",
+      "sha256": "a03b0d03e3e59c836eb981441d9024f48264183a238fdec076632426831adbd6",
+      "original": "Actual independent Agent output / targeted GitHub observation / internal premerge check in this chat; original execution/capture times retained in the file",
+      "purpose": "Recover exact independent reading, failure/retest or observed platform state",
+      "scope": "This candidate and declared role/method only; no Owner acceptance or protected approval inferred"
+    },
+    {
+      "id": "issue222-before",
+      "kind": "snapshot",
+      "path": "evidence/sources/issue222-before.json",
+      "sha256": "cbc17d840761cf70fee8d9030914877ef9c76a3796d86a9281717e3c75832594",
+      "original": "Actual independent Agent output / targeted GitHub observation / internal premerge check in this chat; original execution/capture times retained in the file",
+      "purpose": "Recover exact independent reading, failure/retest or observed platform state",
+      "scope": "This candidate and declared role/method only; no Owner acceptance or protected approval inferred"
+    },
+    {
+      "id": "issue222-after",
+      "kind": "snapshot",
+      "path": "evidence/sources/issue222-after.json",
+      "sha256": "e41c3559fd0b99e45b7698bc8306a8e1fe1be874d1dcc98a5a4afb6144c8e6af",
+      "original": "Actual independent Agent output / targeted GitHub observation / internal premerge check in this chat; original execution/capture times retained in the file",
+      "purpose": "Recover exact independent reading, failure/retest or observed platform state",
+      "scope": "This candidate and declared role/method only; no Owner acceptance or protected approval inferred"
+    },
+    {
+      "id": "b-premerge-checks",
+      "kind": "snapshot",
+      "path": "evidence/sources/b-premerge-checks.json",
+      "sha256": "1629f2da76bd5193b601d3649b6f6d1b3f286acf26d3ebaeaa8a3e40e07aae16",
+      "original": "Actual independent Agent output / targeted GitHub observation / internal premerge check in this chat; original execution/capture times retained in the file",
+      "purpose": "Recover exact independent reading, failure/retest or observed platform state",
+      "scope": "This candidate and declared role/method only; no Owner acceptance or protected approval inferred"
+    },
+    {
+      "id": "product-reading-q4-retest",
+      "kind": "snapshot",
+      "path": "evidence/sources/product-reading-q4-retest.json",
+      "sha256": "0826288fdb23d535d9ad340e8ab81bc8d1ffda7496576136a13cf3ecbcaff0d6",
+      "original": "Actual independent /root/product_acceptance Q4-only retest of committed candidate 5782807e; original clock, file hashes and limitations retained",
+      "purpose": "Recover the separate successful retest without overwriting the first failed reading",
+      "scope": "Q4 phase wording only; no new engineering execution, protected approval, merge or Owner acceptance inferred"
+    },
+    {
+      "id": "postmerge-270-platform",
+      "kind": "snapshot",
+      "path": "evidence/sources/postmerge-270-platform.json",
+      "sha256": "e74b386c90b46fcc86326a93c71b06c011982fa34e6927c7286a3dbac5b868ac",
+      "original": "C:\\Users\\Admin\\AppData\\Local\\Temp\\plans-unification-postmerge-platform.json",
+      "purpose": "Recover paginated reviews/checks, actual rule suite, exact merge/tree and source-byte observations",
+      "scope": "Actual merge 7d6d27d and declared observation/command interval only; not Owner final acceptance or future bypass authorization"
+    },
+    {
+      "id": "postmerge-270-cleanup",
+      "kind": "snapshot",
+      "path": "evidence/sources/postmerge-270-cleanup.json",
+      "sha256": "63fa2877c17dd2dc1e36209887f7b3f4f8bf60ddfbaa51718a9b7521edb9b186",
+      "original": "C:\\Users\\Admin\\AppData\\Local\\Temp\\plans-unification-postmerge-cleanup.json",
+      "purpose": "Recover exact-SHA branch deletion, recoverability and preserved original workspace checks",
+      "scope": "Actual merge 7d6d27d and declared observation/command interval only; not Owner final acceptance or future bypass authorization"
+    },
+    {
+      "id": "postmerge-270-archives",
+      "kind": "snapshot",
+      "path": "evidence/sources/postmerge-270-archives.json",
+      "sha256": "19fcefbf05b72a7c51fe3d6b434d0981b3a009051dead046416148356228645a",
+      "original": "C:\\Users\\Admin\\AppData\\Local\\Temp\\plans-unification-postmerge-archives.json",
+      "purpose": "Recover actual app archived-worktree identities; needed logs were separately preserved before archive",
+      "scope": "Actual merge 7d6d27d and declared observation/command interval only; not Owner final acceptance or future bypass authorization"
+    },
+    {
+      "id": "postmerge-270-tests-stdout",
+      "kind": "snapshot",
+      "path": "evidence/sources/postmerge-270-tests.log",
+      "sha256": "6d526582f7ab9481b7b6e798cc9a15e5c37aefc55a2020466c3fbaec626560ef",
+      "original": "C:\\Users\\Admin\\AppData\\Local\\Temp\\plans-unification-postmerge-tests-stdout.log",
+      "purpose": "Recover exact subprocess stdout, complete verification output and scenario commands",
+      "scope": "Actual merge 7d6d27d and declared observation/command interval only; not Owner final acceptance or future bypass authorization"
+    },
+    {
+      "id": "postmerge-270-validate-stdout",
+      "kind": "snapshot",
+      "path": "evidence/sources/postmerge-270-validate.log",
+      "sha256": "0c48e6b1cd323cfef6242f00872cd456afa471a8e0829a496dcdb8878e060976",
+      "original": "C:\\Users\\Admin\\AppData\\Local\\Temp\\plans-unification-postmerge-validate-stdout.log",
+      "purpose": "Recover exact subprocess stdout, complete verification output and scenario commands",
+      "scope": "Actual merge 7d6d27d and declared observation/command interval only; not Owner final acceptance or future bypass authorization"
+    },
+    {
+      "id": "postmerge-270-canonical-stdout",
+      "kind": "snapshot",
+      "path": "evidence/sources/postmerge-270-canonical.log",
+      "sha256": "0d3af21497b5f428641d984061fd8bde13bcd6461acb79f940ebb5c4787607a8",
+      "original": "C:\\Users\\Admin\\AppData\\Local\\Temp\\plans-unification-postmerge-canonical-stdout.log",
+      "purpose": "Recover exact subprocess stdout, complete verification output and scenario commands",
+      "scope": "Actual merge 7d6d27d and declared observation/command interval only; not Owner final acceptance or future bypass authorization"
+    },
+    {
+      "id": "postmerge-270-verification",
+      "kind": "snapshot",
+      "path": "evidence/sources/postmerge-270-verification.json",
+      "sha256": "da7543b18b1445068c7ecbf63fb24594e86683d46937f0a1e2715bb3e1785194",
+      "original": "C:\\Users\\Admin\\AppData\\Local\\Temp\\plans-unification-postmerge-verification.json",
+      "purpose": "Recover fresh exact-merge command metadata, raw-output bindings, Python counts and separate delivery/approval/acceptance status",
+      "scope": "Actual merge 7d6d27d and declared observation/command interval only; not Owner final acceptance or future bypass authorization"
+    },
+    {
+      "id": "postmerge-270-independent",
+      "kind": "snapshot",
+      "path": "evidence/sources/postmerge-270-independent.json",
+      "sha256": "089d97940684e4b498e9f8b2a7330acaf206cee7f04e5bb1108613179894317e",
+      "original": "C:\\Users\\Admin\\AppData\\Local\\Temp\\plans-unification-postmerge-independent.json",
+      "purpose": "Restore independent Git/source/platform/cleanup facts and narrow canonical follow-up, including actual clocks and limitations",
+      "scope": "Actual merge7d6 observations only; reviewer explicitly did not review later closeout document edits or grant Owner acceptance"
+    },
+    {
+      "id": "postmerge-270-preserved-guards-validate",
+      "kind": "snapshot",
+      "path": "evidence/sources/postmerge-270-preserved-guards-validate.json",
+      "sha256": "00acee717245398a0b49e81cadb15eb1d65e9adfa65c29f3c0d724e8e1e3bc4c",
+      "original": "C:/Users/Admin/.codex/worktrees/plans-unification-guards/guards-validate.log",
+      "purpose": "Recover exact original B-stage validate stdout bytes after child workspace archive without normalizing its line endings",
+      "scope": "Original B-stage validate stdout preserved before app archive; not a new test run or approval"
+    }
+  ]
+}

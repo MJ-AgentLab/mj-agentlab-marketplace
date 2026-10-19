@@ -4,16 +4,18 @@ scope: marketplace
 summary: "Communication acceptance procedures, evidence identity and release gates"
 owner: marketplace-maintainers
 created: 2026-10-12
-updated: 2026-10-13
+updated: 2026-10-19
 state: draft
-version: v1.13.3
+version: v1.13.4
+layer: working
+purpose: "Communication 历史验收与跨版本事实账本；不作为现行主计划，后续批次由任务入口导航"
 ---
 
 # [RUNBOOK] Communication Kit acceptance
 
 ## §1 Preconditions and status
 
-PR3已实现并原子接入完整Communication 0.1.0候选、注册、严格集合、冻结资源、正式D图标与安装预期。修复候选94c170d的278测试/九组合保留；HTML基线同步后工程源通过307/307，固定000e803的十三组canonical与六次缓存Python通过。S01–S12客观范围逐项核对。实际CLI批次C01–C15 PASS，C16–C18文件子路径PARTIAL；补充工具角色另有三项限定功能PASS，身份和覆盖分开。2026-10-13代理亲自完成统一桌面应用内Codex本地和ChatGPT/Work本机两个实际入口的必要基本功能，限定范围PASS，详见§4。原行为FAIL、CLI限制与原生选择窗口NOT RUN保留；R01–R05未执行，Learning8.2已published，但GitHub批准和阶段实际合并未满足，PR3保持draft。[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)保持开放，完整计划与[来源捕获](../../plan/communication-kit-plan-provenance.json)在plan/。
+PR3已实现并原子接入完整Communication 0.1.0候选、注册、严格集合、冻结资源、正式D图标与安装预期。修复候选94c170d的278测试/九组合保留；HTML基线同步后工程源通过307/307，固定000e803的十三组canonical与六次缓存Python通过。S01–S12客观范围逐项核对。实际CLI批次C01–C15 PASS，C16–C18文件子路径PARTIAL；补充工具角色另有三项限定功能PASS，身份和覆盖分开。2026-10-13代理亲自完成统一桌面应用内Codex本地和ChatGPT/Work本机两个实际入口的必要基本功能，限定范围PASS，详见§4。原行为FAIL、CLI限制与原生选择窗口NOT RUN保留；R01–R05未执行，Learning8.2已published，但GitHub批准和阶段实际合并未满足，PR3保持draft。[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)保持开放，原阶段完整计划现从[任务入口](../../plans/222-communication-kit/INDEX.md)导航，[来源捕获原件](../../plans/222-communication-kit/evidence/sources/communication-kit-plan-provenance.json)按固定 Git 身份恢复。
 
 PR1 当时仅定义验收、没有运行包，全部新包用例从 NOT RUN 开始；该历史及失败批次保留，当前状态不覆盖原记录。
 

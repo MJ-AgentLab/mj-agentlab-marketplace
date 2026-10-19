@@ -7,6 +7,7 @@ created: <YYYY-MM-DD>
 updated: <YYYY-MM-DD>
 state: active
 version: v1.0
+layer: canonical
 # domain: governance | release | plugin-dev | plugin-internal | infra   # optional
 # related:
 #   - ./[STANDARD]_<related>.md
@@ -90,7 +91,7 @@ Related documentation updates:
 ## §7 References
 
 - Issue: #<NN>
-- Plan: `~/.claude/plans/<topic>.md`
+- Task entry / main PLAN: <relative path in plans/<stable-task>/, or actual Issue/PR for a small task>
 - Related ADR: `[ADR]_<other>.md`
 - External: <url>
 

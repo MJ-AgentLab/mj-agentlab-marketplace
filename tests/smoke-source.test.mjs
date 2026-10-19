@@ -1,4 +1,4 @@
-import test from "node:test";
+import test, { before, after } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import os from "node:os";
@@ -7,8 +7,24 @@ import crypto from "node:crypto";
 import { prepareSmokeSource, materializeSmokeSource, assertSmokeSource, removeSmokeSource, SMOKE_SOURCE_INPUTS } from "../scripts/smoke-source.mjs";
 import { runSmoke, cleanupIsolatedRoot, INSTALL_SCENARIOS } from "../scripts/smoke-codex-plugin.mjs";
 import { assertInstalledSkillResources as assertProductionSkillResources } from "../scripts/validate-portable.mjs";
+import { validateDocumentation, collectNavigationResources } from "../scripts/document-harness.mjs";
+import { populateRepositoryFixture } from "./helpers/repository-fixture.mjs";
 
 const REPO = fs.realpathSync.native(path.resolve(import.meta.dirname, "..")), hash = bytes => crypto.createHash("sha256").update(bytes).digest("hex");
+let LIFECYCLE_SOURCE;
+before(() => {
+  LIFECYCLE_SOURCE = fs.mkdtempSync(path.join(fs.realpathSync.native(os.tmpdir()), "smoke-lifecycle-source-"));
+  // One small, explicitly synthetic source exercises lifecycle faults. The real
+  // closure test below and actual smoke command retain complete original bytes.
+  populateRepositoryFixture(LIFECYCLE_SOURCE, { sourceRoot: REPO, suite: "smoke-source-lifecycle" });
+  fs.cpSync(path.join(REPO, ".codex"), path.join(LIFECYCLE_SOURCE, ".codex"), { recursive: true });
+  const record = "tests/fixtures/learning-evidence/learning-record.json";
+  fs.mkdirSync(path.dirname(path.join(LIFECYCLE_SOURCE, record)), { recursive: true });
+  fs.copyFileSync(path.join(REPO, record), path.join(LIFECYCLE_SOURCE, record));
+});
+after(() => {
+  if (LIFECYCLE_SOURCE && fs.existsSync(LIFECYCLE_SOURCE)) cleanupIsolatedRoot(LIFECYCLE_SOURCE);
+});
 function temporary(t) {
   const root = fs.mkdtempSync(path.join(fs.realpathSync.native(os.tmpdir()), "smoke-source-test-"));
   t.after(() => { if (fs.existsSync(root)) cleanupIsolatedRoot(root); });
@@ -23,7 +39,7 @@ function observe(t) {
   return { roots, sources, runner: async options => {
     const { context, installed, preparedSource, keepRoot } = options;
     roots.push(context.root); sources.set(preparedSource.root, preparedSource);
-    assert.deepEqual(fs.readdirSync(context.src).sort(), [...SMOKE_SOURCE_INPUTS].sort());
+    assert.deepEqual(fs.readdirSync(context.src).sort(), [...preparedSource.inputRoots].sort());
     assert.equal(fs.existsSync(path.join(preparedSource.templateRoot, ".git")), false);
     assert.equal(fs.existsSync(path.join(context.cwd, "prior-scenario.txt")), false);
     assert.equal(context.env.CODEX_HOME, context.codexHome);
@@ -39,7 +55,7 @@ function observe(t) {
 
 // Boundary probes use an owned real-byte projection, never the original source tree.
 function isolatedSource(t) {
-  const root = temporary(t), snapshot = prepareSmokeSource(REPO);
+  const root = temporary(t), snapshot = prepareSmokeSource(LIFECYCLE_SOURCE);
   try { materializeSmokeSource(snapshot, root, []); }
   finally { removeSmokeSource(snapshot); }
   const record = "tests/fixtures/learning-evidence/learning-record.json";
@@ -56,6 +72,12 @@ function directoryLink(target, link) {
   fs.symlinkSync(target, link, process.platform === "win32" ? "junction" : "dir");
 }
 
+test("source preparation refuses an unlinked legacy plan root rather than omitting it from the projection", t => {
+  const source = isolatedSource(t);
+  fs.mkdirSync(path.join(source, "plan"));
+  assert.throws(() => prepareSmokeSource(source), /legacy plan root is forbidden/);
+});
+
 test("real projection copies exact source bytes without synthetic documents and captures the record once", t => {
   const parent = temporary(t), originalRead = fs.readFileSync;
   const record = path.join(REPO, "tests/fixtures/learning-evidence/learning-record.json");
@@ -67,7 +89,12 @@ test("real projection copies exact source bytes without synthetic documents and 
   assert.equal(reads, 1);
   assert.ok(Object.isFrozen(snapshot.learningRecord));
   for (const entry of snapshot.entries.filter(entry => entry.kind === "file")) assert.equal(hash(fs.readFileSync(path.join(REPO, entry.path))), entry.sha256, entry.path);
-  for (const relative of ["docs", "assets", "tests", "scripts", "plan", "README.md", ".git"]) assert.equal(fs.existsSync(path.join(snapshot.templateRoot, relative)), false, relative);
+  assert.equal(fs.existsSync(path.join(snapshot.templateRoot, ".git")), false);
+  for (const relative of ["docs/_meta/document-layer-compatibility.json", "plans/222-communication-kit/INDEX.md", "plans/222-communication-kit/[PLAN]_Communication_Kit.md", "plans/222-communication-kit/evidence/sources/communication-kit-implementation-plan.md", "plans/222-communication-kit/evidence/sources/communication-kit-plan-provenance.json", "plans/257-task-documentation/INDEX.md"]) assert.equal(fs.existsSync(path.join(snapshot.templateRoot, relative)), true, relative);
+  assert.equal(fs.existsSync(path.join(snapshot.templateRoot, "plan")), false);
+  const docs = validateDocumentation(snapshot.templateRoot);
+  assert.equal(docs.ok, true, docs.errors.join("\n"));
+  assert.deepEqual(collectNavigationResources(snapshot.templateRoot, ["AGENTS.md"]), collectNavigationResources(REPO, ["AGENTS.md"]));
   for (const name of ["first", "second"]) { const root = path.join(parent, name); fs.mkdirSync(root); materializeSmokeSource(snapshot, root, []); assertSmokeSource(snapshot, root); }
   fs.appendFileSync(path.join(parent, "first/AGENTS.md"), "\ndrift\n");
   assert.throws(() => assertSmokeSource(snapshot, path.join(parent, "first")), /differ/);
@@ -78,9 +105,41 @@ test("real projection copies exact source bytes without synthetic documents and 
   assert.deepEqual(fs.readdirSync(third), []);
 });
 
+test("INTENT originals, archived identity and controlled accepted bytes survive real source capture and restoration", t => {
+  const source = isolatedSource(t), current = "docs/intent/[INTENT]_INT-2026-001_Current.md", archive = "docs/archive/[DEPRECATED]_[INTENT]_INT-2026-002_History.md";
+  const fields = id => `type: intent\nlayer: canonical\nscope: fixture\nsummary: Recover the original request\nowner: fixture-maintainer\ncreated: 2026-10-19\nupdated: 2026-10-19\nstate: ${id.endsWith("002") ? "archived" : "draft"}\nversion: v1.0\nintent-id: ${id}\n`;
+  const introduction = ["提出者", "原始来源", "接受责任人", "原意核对记录", "内容接受记录", "当前内容与适用基线", "主跟踪 Issue"].map(label => `| ${label} | 合成角色；未作真实接受 |`).join("\n");
+  const body = `# Original request\n\n| 字段 | 内容 |\n|---|---|\n${introduction}\n\n${["问题与现状", "期望结果", "成功判断", "范围与约束", "未决项"].map(title => `## ${title}\n\n合成运行输入；未知如实保留。\n`).join("\n")}`;
+  const write = (relative, bytes) => { fs.mkdirSync(path.dirname(path.join(source, relative)), { recursive: true }); fs.writeFileSync(path.join(source, relative), bytes); };
+  const accepted = Buffer.from(`---\n${fields("INT-2026-001")}---\n\n${body}`.replaceAll("\n", "\r\n"));
+  write(current, accepted);
+  write(archive, `---\n${fields("INT-2026-002")}---\n\n${body}`);
+  write("docs/intent/INDEX.md", `---\n${fields("INT-2026-001").replace("type: intent", "type: guide").replace("intent-id: INT-2026-001\n", "")}---\n\n# Originals\n\n[Current](./${path.posix.basename(current)})\n[History](../archive/${path.posix.basename(archive)})\n`);
+  const originalSnapshot = "plans/321-fixture/evidence/sources/accepted-intent.md";
+  write(originalSnapshot, accepted);
+  const bindingPath = path.join(source, "plans/321-fixture/source-bindings.json"), bindings = JSON.parse(fs.readFileSync(bindingPath, "utf8"));
+  bindings.sources.push({ id: "accepted-intent", kind: "snapshot", path: "evidence/sources/accepted-intent.md", sha256: hash(accepted), original: "Synthetic complete baseline", purpose: "Recover the previous complete text", scope: "This test only; no real acceptance" });
+  fs.writeFileSync(bindingPath, JSON.stringify(bindings));
+  fs.appendFileSync(path.join(source, current), "\r\nA subsequent revision leaves the accepted source bytes intact.\r\n");
+  const before = validateDocumentation(source); assert.equal(before.ok, true, before.errors.join("\n"));
+  const snapshot = retainSnapshot(t, source), restored = temporary(t);
+  materializeSmokeSource(snapshot, restored, []); assertSmokeSource(snapshot, restored);
+  for (const relative of [current, archive, originalSnapshot, "docs/intent/INDEX.md"]) {
+    assert.deepEqual(fs.readFileSync(path.join(restored, relative)), fs.readFileSync(path.join(source, relative)), relative);
+    assert.ok(snapshot.entries.some(entry => entry.path === relative && entry.sha256 === hash(fs.readFileSync(path.join(source, relative)))), relative);
+  }
+  const result = validateDocumentation(restored);
+  assert.equal(result.ok, true, result.errors.join("\n")); assert.equal(result.intents.documents, 2);
+  assert.deepEqual(fs.readFileSync(path.join(restored, originalSnapshot)), accepted);
+  fs.appendFileSync(path.join(restored, originalSnapshot), "\ntampered\n");
+  assert.throws(() => assertSmokeSource(snapshot, restored), /differ/);
+  assert.match(validateDocumentation(restored).errors.join("\n"), /source snapshot SHA-256 differs|source SHA-256 differs/);
+  fs.writeFileSync(path.join(restored, originalSnapshot), accepted); assertSmokeSource(snapshot, restored);
+});
+
 test("keepRoot retains thirteen independent real source contexts while always removing the template", async t => {
   const seen = observe(t);
-  const result = await runSmoke({ repoRoot: REPO, keepRoot: true, scenarioRunner: seen.runner });
+  const result = await runSmoke({ repoRoot: LIFECYCLE_SOURCE, keepRoot: true, scenarioRunner: seen.runner });
   assert.equal(result.scenarios.length, 13);
   assert.deepEqual(result.scenarios.map(scenario => scenario.installed), INSTALL_SCENARIOS);
   assert.equal(new Set(seen.roots).size, 13);
@@ -91,7 +150,7 @@ test("keepRoot retains thirteen independent real source contexts while always re
 
 test("normal success removes all thirteen scenario contexts and the shared template", async t => {
   const seen = observe(t);
-  const result = await runSmoke({ repoRoot: REPO, scenarioRunner: seen.runner });
+  const result = await runSmoke({ repoRoot: LIFECYCLE_SOURCE, scenarioRunner: seen.runner });
   assert.equal(result.scenarios.length, 13);
   for (const root of seen.roots) assert.equal(fs.existsSync(root), false);
   for (const source of seen.sources.values()) assert.equal(fs.existsSync(source.root), false);
@@ -100,7 +159,7 @@ test("normal success removes all thirteen scenario contexts and the shared templ
 test("a later rejected operation removes previously retained and current roots without replacing its error", async t => {
   const seen = observe(t), original = new Error("synthetic later native/Python operation failure");
   let calls = 0;
-  await assert.rejects(runSmoke({ repoRoot: REPO, keepRoot: true, scenarioRunner: async options => {
+  await assert.rejects(runSmoke({ repoRoot: LIFECYCLE_SOURCE, keepRoot: true, scenarioRunner: async options => {
     const result = await seen.runner(options);
     if (++calls === 3) { await Promise.resolve(); throw original; }
     return result;
@@ -114,7 +173,7 @@ test("an operation and persistent cleanup failure remain visible together", asyn
   const seen = observe(t), original = new Error("original operation failure"), cleanup = new Error("synthetic persistent EACCES");
   const originalRemove = fs.rmSync;
   try {
-    await assert.rejects(runSmoke({ repoRoot: REPO, keepRoot: true, scenarioRunner: async options => {
+    await assert.rejects(runSmoke({ repoRoot: LIFECYCLE_SOURCE, keepRoot: true, scenarioRunner: async options => {
       await seen.runner(options);
       fs.rmSync = (target, ...args) => { if (path.resolve(target) === options.context.root) throw cleanup; return originalRemove(target, ...args); };
       throw original;
@@ -127,7 +186,7 @@ test("an operation and persistent cleanup failure remain visible together", asyn
 test("template cleanup failure fails an otherwise successful keepRoot run and removes all retained scenarios", async t => {
   const seen = observe(t), failure = new Error("synthetic template cleanup failure"), originalRemove = fs.rmSync;
   try {
-    await assert.rejects(runSmoke({ repoRoot: REPO, keepRoot: true, scenarioRunner: async options => {
+    await assert.rejects(runSmoke({ repoRoot: LIFECYCLE_SOURCE, keepRoot: true, scenarioRunner: async options => {
       const result = await seen.runner(options);
       fs.rmSync = (target, ...args) => { if (path.resolve(target) === options.preparedSource.root) throw failure; return originalRemove(target, ...args); };
       return result;
@@ -150,7 +209,7 @@ test("template preparation failure removes its partial root and retains the orig
   let root;
   fs.copyFileSync = () => { throw original; };
   fs.mkdtempSync = (...args) => { const value = originalTemp(...args); if (String(args[0]).includes("marketplace-smoke-source-")) root = value; return value; };
-  try { assert.throws(() => prepareSmokeSource(REPO), error => error === original); }
+  try { assert.throws(() => prepareSmokeSource(LIFECYCLE_SOURCE), error => error === original); }
   finally { fs.copyFileSync = originalCopy; fs.mkdtempSync = originalTemp; }
   assert.ok(root);
   assert.equal(fs.existsSync(root), false);
@@ -246,7 +305,7 @@ for (const stage of ["context-creation", "materialize"]) {
       if (stage === "materialize" && allRoots.length === 2 && path.resolve(target).startsWith(path.join(allRoots[1], "src") + path.sep)) throw original;
       return originalCopy(source, target, ...args);
     };
-    try { await assert.rejects(runSmoke({ repoRoot: REPO, keepRoot: true, scenarioRunner: seen.runner }), error => error === original); }
+    try { await assert.rejects(runSmoke({ repoRoot: LIFECYCLE_SOURCE, keepRoot: true, scenarioRunner: seen.runner }), error => error === original); }
     finally { fs.mkdtempSync = originalTemp; fs.mkdirSync = originalMkdir; fs.copyFileSync = originalCopy; }
     assert.equal(allRoots.length, 2);
     assert.equal(seen.roots.length, 1);
@@ -258,7 +317,7 @@ for (const stage of ["context-creation", "materialize"]) {
 
 test("a second runner returning ok:false fails the run and cleans all retained/current roots and the template", async t => {
   const seen = observe(t);
-  await assert.rejects(runSmoke({ repoRoot: REPO, keepRoot: true, scenarioRunner: async options => {
+  await assert.rejects(runSmoke({ repoRoot: LIFECYCLE_SOURCE, keepRoot: true, scenarioRunner: async options => {
     const result = await seen.runner(options);
     return seen.roots.length === 2 ? { ...result, ok: false } : result;
   } }), error => error instanceof Error && !(error instanceof AggregateError) && error.message === "smoke scenario verification failed");
@@ -271,7 +330,7 @@ for (const failure of ["byte-drift", "read-error"]) {
   test(`post-success source integrity ${failure} cleans retained/current roots and preserves the failure`, async t => {
     const seen = observe(t), originalRead = fs.readFileSync, original = new Error("synthetic post-success integrity read failure");
     try {
-      await assert.rejects(runSmoke({ repoRoot: REPO, keepRoot: true, scenarioRunner: async options => {
+      await assert.rejects(runSmoke({ repoRoot: LIFECYCLE_SOURCE, keepRoot: true, scenarioRunner: async options => {
         const result = await seen.runner(options);
         if (seen.roots.length === 2) {
           const target = path.join(options.context.src, "AGENTS.md");

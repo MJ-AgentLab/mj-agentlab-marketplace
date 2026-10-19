@@ -1,0 +1,522 @@
+{
+  "schemaVersion": 1,
+  "kind": "task-documentation-harness-B-final-local-verification",
+  "generatedAt": "2026-10-18T16:52:21.912Z",
+  "candidate": {
+    "commit": "7431013173c67e4c7fd8a07aea92f9a59bfc8411",
+    "tree": "c4212405c98d5f29a66bb4344bbd7caca0dc1d58",
+    "branch": "codex/task-docs-harness",
+    "worktree": "C:\\Users\\Admin\\.codex\\worktrees\\task-docs-harness\\develop",
+    "worktreeStatus": "",
+    "upstreamCommit": "7431013173c67e4c7fd8a07aea92f9a59bfc8411"
+  },
+  "commands": [
+    {
+      "command": "npm run validate",
+      "exitCode": 0,
+      "evidence": "terminal execution completed at this frozen head; no separate raw file retained"
+    },
+    {
+      "command": "npm run check:baseline-tools",
+      "exitCode": 0,
+      "actualCodexVersion": "codex-cli 0.147.0",
+      "evidence": "terminal execution completed at this frozen head; no separate raw file retained"
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/validate-commits.ps1 145cfe9..HEAD",
+      "exitCode": 0,
+      "checkedNonMergeCommits": 6,
+      "evidence": "terminal execution completed at this frozen head; no separate raw file retained"
+    },
+    {
+      "command": "REQUIRE_PYTHON=1 REQUIRE_PWSH=1 npm test",
+      "shell": "PowerShell environment assignments",
+      "exitCode": 0,
+      "result": {
+        "tests": 528,
+        "suites": 0,
+        "pass": 528,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "duration_ms": 141745.9682
+      },
+      "raw": "C:/Users/Admin/AppData/Local/Temp/task-docs-B-fixed-tests.log"
+    },
+    {
+      "command": "npm run smoke:codex",
+      "exitCode": 0,
+      "ok": true,
+      "codexVersion": "codex-cli 0.147.0",
+      "scenarioCount": 13,
+      "diagramScenarioCount": 6,
+      "learningScenarioCount": 6,
+      "actualPythonProgramInvocations": 24,
+      "raw": "C:/Users/Admin/AppData/Local/Temp/task-docs-B-fixed-smoke.log"
+    }
+  ],
+  "scenarios": [
+    {
+      "number": 1,
+      "plugins": [
+        "diagram-kit"
+      ],
+      "ok": true,
+      "allCommandsSucceeded": true,
+      "diagram": {
+        "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+      },
+      "learning": null,
+      "pythonRuns": [
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-PEh9UJ\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-PEh9UJ\\consumer\\installed context 中文 diagram.md"
+          ],
+          "status": 0
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "plugins": [
+        "learning-evidence-kit"
+      ],
+      "ok": true,
+      "allCommandsSucceeded": true,
+      "diagram": null,
+      "learning": {
+        "saveStatus": "ok",
+        "replayIdentical": true,
+        "structurallyValid": true,
+        "interpreter": "3.12.13 (main, Jun 11 2026, 04:05:29) [MSC v.1944 64 bit (AMD64)]"
+      },
+      "pythonRuns": [
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "-B",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-HHCdXg\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+          ],
+          "status": 0
+        },
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "-B",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-HHCdXg\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+          ],
+          "status": 0
+        },
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "-B",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-HHCdXg\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+          ],
+          "status": 0
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "plugins": [
+        "explain-kit"
+      ],
+      "ok": true,
+      "allCommandsSucceeded": true,
+      "diagram": null,
+      "learning": null,
+      "pythonRuns": []
+    },
+    {
+      "number": 4,
+      "plugins": [
+        "diagram-kit",
+        "explain-kit"
+      ],
+      "ok": true,
+      "allCommandsSucceeded": true,
+      "diagram": {
+        "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+      },
+      "learning": null,
+      "pythonRuns": [
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-0FPNLB\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-0FPNLB\\consumer\\installed context 中文 diagram.md"
+          ],
+          "status": 0
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "plugins": [
+        "diagram-kit",
+        "learning-evidence-kit",
+        "explain-kit"
+      ],
+      "ok": true,
+      "allCommandsSucceeded": true,
+      "diagram": {
+        "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+      },
+      "learning": {
+        "saveStatus": "ok",
+        "replayIdentical": true,
+        "structurallyValid": true,
+        "interpreter": "3.12.13 (main, Jun 11 2026, 04:05:29) [MSC v.1944 64 bit (AMD64)]"
+      },
+      "pythonRuns": [
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "-B",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-YyeR8j\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+          ],
+          "status": 0
+        },
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "-B",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-YyeR8j\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+          ],
+          "status": 0
+        },
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "-B",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-YyeR8j\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+          ],
+          "status": 0
+        },
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-YyeR8j\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-YyeR8j\\consumer\\installed context 中文 diagram.md"
+          ],
+          "status": 0
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "plugins": [
+        "communication-kit"
+      ],
+      "ok": true,
+      "allCommandsSucceeded": true,
+      "diagram": null,
+      "learning": null,
+      "pythonRuns": []
+    },
+    {
+      "number": 7,
+      "plugins": [
+        "communication-kit",
+        "explain-kit"
+      ],
+      "ok": true,
+      "allCommandsSucceeded": true,
+      "diagram": null,
+      "learning": null,
+      "pythonRuns": []
+    },
+    {
+      "number": 8,
+      "plugins": [
+        "communication-kit",
+        "learning-evidence-kit"
+      ],
+      "ok": true,
+      "allCommandsSucceeded": true,
+      "diagram": null,
+      "learning": {
+        "saveStatus": "ok",
+        "replayIdentical": true,
+        "structurallyValid": true,
+        "interpreter": "3.12.13 (main, Jun 11 2026, 04:05:29) [MSC v.1944 64 bit (AMD64)]"
+      },
+      "pythonRuns": [
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "-B",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-GjyzJh\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+          ],
+          "status": 0
+        },
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "-B",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-GjyzJh\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+          ],
+          "status": 0
+        },
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "-B",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-GjyzJh\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+          ],
+          "status": 0
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "plugins": [
+        "diagram-kit",
+        "learning-evidence-kit",
+        "explain-kit",
+        "communication-kit"
+      ],
+      "ok": true,
+      "allCommandsSucceeded": true,
+      "diagram": {
+        "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+      },
+      "learning": {
+        "saveStatus": "ok",
+        "replayIdentical": true,
+        "structurallyValid": true,
+        "interpreter": "3.12.13 (main, Jun 11 2026, 04:05:29) [MSC v.1944 64 bit (AMD64)]"
+      },
+      "pythonRuns": [
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "-B",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-H8WzeT\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+          ],
+          "status": 0
+        },
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "-B",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-H8WzeT\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+          ],
+          "status": 0
+        },
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "-B",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-H8WzeT\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+          ],
+          "status": 0
+        },
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-H8WzeT\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-H8WzeT\\consumer\\installed context 中文 diagram.md"
+          ],
+          "status": 0
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "plugins": [
+        "html-guide-kit"
+      ],
+      "ok": true,
+      "allCommandsSucceeded": true,
+      "diagram": null,
+      "learning": null,
+      "pythonRuns": []
+    },
+    {
+      "number": 11,
+      "plugins": [
+        "html-guide-kit",
+        "explain-kit"
+      ],
+      "ok": true,
+      "allCommandsSucceeded": true,
+      "diagram": null,
+      "learning": null,
+      "pythonRuns": []
+    },
+    {
+      "number": 12,
+      "plugins": [
+        "diagram-kit",
+        "learning-evidence-kit",
+        "explain-kit",
+        "html-guide-kit"
+      ],
+      "ok": true,
+      "allCommandsSucceeded": true,
+      "diagram": {
+        "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+      },
+      "learning": {
+        "saveStatus": "ok",
+        "replayIdentical": true,
+        "structurallyValid": true,
+        "interpreter": "3.12.13 (main, Jun 11 2026, 04:05:29) [MSC v.1944 64 bit (AMD64)]"
+      },
+      "pythonRuns": [
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "-B",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-d6QOzB\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+          ],
+          "status": 0
+        },
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "-B",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-d6QOzB\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+          ],
+          "status": 0
+        },
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "-B",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-d6QOzB\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+          ],
+          "status": 0
+        },
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-d6QOzB\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-d6QOzB\\consumer\\installed context 中文 diagram.md"
+          ],
+          "status": 0
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "plugins": [
+        "diagram-kit",
+        "learning-evidence-kit",
+        "explain-kit",
+        "communication-kit",
+        "html-guide-kit"
+      ],
+      "ok": true,
+      "allCommandsSucceeded": true,
+      "diagram": {
+        "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+      },
+      "learning": {
+        "saveStatus": "ok",
+        "replayIdentical": true,
+        "structurallyValid": true,
+        "interpreter": "3.12.13 (main, Jun 11 2026, 04:05:29) [MSC v.1944 64 bit (AMD64)]"
+      },
+      "pythonRuns": [
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "-B",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-Y9oiqa\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+          ],
+          "status": 0
+        },
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "-B",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-Y9oiqa\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+          ],
+          "status": 0
+        },
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "-B",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-Y9oiqa\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+          ],
+          "status": 0
+        },
+        {
+          "command": "C:\\Users\\Admin\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+          "args": [
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-Y9oiqa\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-Y9oiqa\\consumer\\installed context 中文 diagram.md"
+          ],
+          "status": 0
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "sourceCommit": "7431013173c67e4c7fd8a07aea92f9a59bfc8411",
+    "sourceTree": "c4212405c98d5f29a66bb4344bbd7caca0dc1d58",
+    "navigationEntries": 3446,
+    "ordinaryFiles": 3446,
+    "bytes": 491666152,
+    "aggregateInventoryDigest": "NOT_RECOMPUTED",
+    "historicalSemantics": "NOT_REASSESSED",
+    "externalOriginalPaths": "NOT_READ",
+    "knownIndexCount": 110,
+    "raw": "C:/Users/Admin/AppData/Local/Temp/task-docs-B-fixed-navigation.json"
+  },
+  "preservation": {
+    "pluginAndVersionGitDiffAgainstBaseline": "",
+    "historicalPr2BundleGitDiffAgainstBaseline": ""
+  },
+  "artifacts": [
+    {
+      "path": "C:/Users/Admin/AppData/Local/Temp/task-docs-B-fixed-tests.log",
+      "bytes": 122655,
+      "sha256": "4c44c0f4f6caf6b66d3e3f82ed2ca0594fa913b9f46bd19d755d7cc097f07054"
+    },
+    {
+      "path": "C:/Users/Admin/AppData/Local/Temp/task-docs-B-fixed-smoke.log",
+      "bytes": 324246,
+      "sha256": "76ef7c5e161befe8411d4a88ef3d667c71ad3fdccf6fb66b855fe6a95024ce57"
+    },
+    {
+      "path": "C:/Users/Admin/AppData/Local/Temp/task-docs-B-fixed-navigation.json",
+      "bytes": 44159,
+      "sha256": "6a3a244eae9ce26c7aec902d303b1a09cee6cdb388f15c92a0fc739c151fbff7"
+    },
+    {
+      "path": "C:/Users/Admin/AppData/Local/Temp/task-docs-B-pr2-checkout-restoration.json",
+      "bytes": 11072,
+      "sha256": "97c3c6b11fd4d49cf055648c393bf280276bfc1788724e4f49bcb7a40b3d7b75"
+    },
+    {
+      "path": "C:/Users/Admin/AppData/Local/Temp/task-docs-B-review-fixes.log",
+      "bytes": 7586,
+      "sha256": "117b6b5884afe7c784b29c012ce218aaf9d52ef98197585fdb546703aaeade7f"
+    },
+    {
+      "path": "C:/Users/Admin/AppData/Local/Temp/task-docs-B-scope-lifecycle.log",
+      "bytes": 5997,
+      "sha256": "8131b4c7017949edd8fd69987e99a3c4e01a3e0302965cb48eec5255177fb1ae"
+    },
+    {
+      "path": "C:/Users/Admin/AppData/Local/Temp/task-docs-B-final-tests.log",
+      "bytes": 120521,
+      "sha256": "6cb1afaad98e8ef56879aa5da18eb60ab4fb16c1214381897f26e36d74474f2c"
+    }
+  ],
+  "limitations": [
+    "Known frozen public index schemas and actual declared resources were verified; aggregate sourceInventorySha256 serialization was NOT_RECOMPUTED.",
+    "Historical controller code, grade and archived acceptance semantics were NOT_REASSESSED; originalAbsolutePath/sourceRoot were NOT_READ.",
+    "No new model, desktop UI, host persistent-question-window or real-world effect acceptance was run by this subtask.",
+    "Remote CI, protected develop merge and Owner final acceptance are root-owned separate gates.",
+    "Earlier failed/repaired runs remain as historical evidence and are not substituted for this fixed-head final run."
+  ]
+}

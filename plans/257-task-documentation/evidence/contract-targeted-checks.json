@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-18T16:11:52.211Z",
+  "head": "afb255d2d458b5eb361ed02d5f2f4856d0686529",
+  "tree": "c2d079cfa39922a729dc81eaf8f240864be9f3ae",
+  "base": "de07349ab8cace921fff5cfebf724e518360d23b",
+  "worktree": "C:\\Users\\Admin\\.codex\\worktrees\\task-docs-contract\\develop",
+  "runs": [
+    {
+      "name": "strict-validation",
+      "command": [
+        "D:\\Development\\nodejs\\node.exe",
+        "scripts/validate-portable.mjs"
+      ],
+      "startedAt": "2026-10-18T16:11:49.924Z",
+      "finishedAt": "2026-10-18T16:11:50.485Z",
+      "exitCode": 0,
+      "stdout": "{\n  \"ok\": true,\n  \"errors\": [],\n  \"repositorySkills\": 20,\n  \"publicSkills\": [\n    \"diagram-kit:arch-diagram\",\n    \"learning-evidence-kit:pop-quiz\",\n    \"learning-evidence-kit:learning-record-check\",\n    \"explain-kit:glossary\",\n    \"explain-kit:concept\",\n    \"communication-kit:communicate\",\n    \"html-guide-kit:guide\"\n  ]\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "documentation-contracts",
+      "command": [
+        "D:\\Development\\nodejs\\node.exe",
+        "--test",
+        "tests/documentation-contract.test.mjs"
+      ],
+      "startedAt": "2026-10-18T16:11:50.485Z",
+      "finishedAt": "2026-10-18T16:11:50.640Z",
+      "exitCode": 0,
+      "stdout": "TAP version 13\n# Subtest: parseChangelog: section boundaries, heading-free bodies, fence blindness fixed\nok 1 - parseChangelog: section boundaries, heading-free bodies, fence blindness fixed\n  ---\n  duration_ms: 1.1637\n  type: 'test'\n  ...\n# Subtest: parseChangelog: flags heading lookalikes, leaves ordinary prose alone\nok 2 - parseChangelog: flags heading lookalikes, leaves ordinary prose alone\n  ---\n  duration_ms: 0.1959\n  type: 'test'\n  ...\n# Subtest: no CHANGELOG has a heading that only looks like a section heading\nok 3 - no CHANGELOG has a heading that only looks like a section heading\n  ---\n  duration_ms: 2.1909\n  type: 'test'\n  ...\n# Subtest: every CHANGELOG section heading has the exact shape run-release.mjs greps for\nok 4 - every CHANGELOG section heading has the exact shape run-release.mjs greps for\n  ---\n  duration_ms: 2.3026\n  type: 'test'\n  ...\n# Subtest: the newest shipping CHANGELOG section is substantive and names its own version\nok 5 - the newest shipping CHANGELOG section is substantive and names its own version\n  ---\n  duration_ms: 1.5599\n  type: 'test'\n  ...\n# Subtest: root CHANGELOG permanently carries the NLM-only BREAKING disclosures in one section\nok 6 - root CHANGELOG permanently carries the NLM-only BREAKING disclosures in one section\n  ---\n  duration_ms: 1.1195\n  type: 'test'\n  ...\n# Subtest: learn-kit CHANGELOG permanently marks the 4.0.0 NLM break in one section\nok 7 - learn-kit CHANGELOG permanently marks the 4.0.0 NLM break in one section\n  ---\n  duration_ms: 0.365\n  type: 'test'\n  ...\n# Subtest: diagram-kit CHANGELOG permanently marks the 0.2.0 Codex bump in one section\nok 8 - diagram-kit CHANGELOG permanently marks the 0.2.0 Codex bump in one section\n  ---\n  duration_ms: 0.2057\n  type: 'test'\n  ...\n# Subtest: README covers both clients and every maintained qualified public skill\nok 9 - README covers both clients and every maintained qualified public skill\n  ---\n  duration_ms: 0.4649\n  type: 'test'\n  ...\n# Subtest: upgrade guide preserves old data and explains explicit uninstall\nok 10 - upgrade guide preserves old data and explains explicit uninstall\n  ---\n  duration_ms: 0.3704\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 10\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 110.5966\n",
+      "stderr": ""
+    },
+    {
+      "name": "repository-workflows-and-historical-sources",
+      "command": [
+        "D:\\Development\\nodejs\\node.exe",
+        "--test",
+        "--test-name-pattern=all repository workflows|archive origins",
+        "tests/validate-portable.test.mjs"
+      ],
+      "startedAt": "2026-10-18T16:11:50.640Z",
+      "finishedAt": "2026-10-18T16:11:51.734Z",
+      "exitCode": 0,
+      "stdout": "TAP version 13\n# Subtest: all repository workflows use current authority paths and execution principle\nok 1 - all repository workflows use current authority paths and execution principle\n  ---\n  duration_ms: 11.3118\n  type: 'test'\n  ...\n# Subtest: archive origins are reproducible Git blobs and preserve source versions\nok 2 - archive origins are reproducible Git blobs and preserve source versions\n  ---\n  duration_ms: 934.8807\n  type: 'test'\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 2\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 1050.4604\n",
+      "stderr": ""
+    },
+    {
+      "name": "commit-convention",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "scripts/validate-commits.ps1",
+        "de07349ab8cace921fff5cfebf724e518360d23b..afb255d2d458b5eb361ed02d5f2f4856d0686529"
+      ],
+      "startedAt": "2026-10-18T16:11:51.734Z",
+      "finishedAt": "2026-10-18T16:11:52.099Z",
+      "exitCode": 0,
+      "stdout": "[OK] 1 commit(s) validated in range 'de07349ab8cace921fff5cfebf724e518360d23b..afb255d2d458b5eb361ed02d5f2f4856d0686529'; 0 failures\r\n",
+      "stderr": ""
+    },
+    {
+      "name": "whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "de07349ab8cace921fff5cfebf724e518360d23b...afb255d2d458b5eb361ed02d5f2f4856d0686529"
+      ],
+      "startedAt": "2026-10-18T16:11:52.099Z",
+      "finishedAt": "2026-10-18T16:11:52.149Z",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "a6": {
+    "ok": true,
+    "reason": "agents-md-synced",
+    "triggers": [
+      ".agents/skills/mp-doc-author/SKILL.md",
+      ".agents/skills/mp-doc-validate/SKILL.md",
+      ".agents/skills/mp-flow-author/SKILL.md",
+      ".agents/skills/mp-flow-design-adr/SKILL.md",
+      ".agents/skills/mp-flow-dogfood/SKILL.md",
+      ".agents/skills/mp-flow-intake/SKILL.md",
+      ".agents/skills/mp-flow-plan/SKILL.md",
+      ".agents/skills/mp-flow-post-merge/SKILL.md",
+      ".agents/skills/mp-flow-self-review/SKILL.md",
+      ".agents/skills/mp-git-branch/SKILL.md",
+      ".agents/skills/mp-git-merge-gate/SKILL.md",
+      ".agents/skills/mp-git-pr/SKILL.md",
+      "docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md",
+      "docs/rule/[STANDARD]_Documentation_Framework.md"
+    ]
+  },
+  "agentInstructionBytes": 15776,
+  "compatibilitySha256": "88677eef5e88ed1d3e8592d2f3d0d255d37ee96c64302ca98b509fddf2ba3796",
+  "runtimeVersionBadgeAndFrozenPlanDiff": "",
+  "limits": [
+    "Only targeted contract/source/workflow checks are covered. Broad validate-portable tests previously exposed 8 missing synthetic fixture target failures; Harness implementation owns their adaptation. The baseline full suite is root-owned.",
+    "Initial npm validation/test attempts were blocked by missing yaml; npm ci --ignore-scripts repaired dependencies. Initial budget and compatibility-link failures were corrected before this final run.",
+    "No push, child PR, actual merge, complete resource isolation, HTML reading trial or Owner final acceptance performed by this subtask."
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent synthetic reading and handoff acceptance",
+  "assessedAt": "2026-10-18T17:08:52.097Z",
+  "assessor": "OpenAI Codex /root",
+  "candidate": "601ff07a6840653e57687e93fe856c79475de4a0",
+  "context": {
+    "forkTurns": "none",
+    "start": "plans/217-html-guide-kit/INDEX.md",
+    "answerKeyAndSiblingOutputs": "NOT_SUPPLIED",
+    "roles": "synthetic; no real human UX measurement",
+    "modelVersion": "not exposed; not inferred"
+  },
+  "rubric": {
+    "preparedInParentSessionBeforeDispatch": true,
+    "file": "rubric.json",
+    "persistedAfterDispatch": true,
+    "pass": "Every question must score2 for correct conclusion plus actual source and time/version boundary; no compensating points."
+  },
+  "roles": [
+    {
+      "role": "manager",
+      "agent": "/root/pilot_manager",
+      "scores": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "reason": [
+        "Scope/time and non-goals sourced.",
+        "Historical delivery and current tracking separated.",
+        "Historical evidence, missing approval and current failures bounded.",
+        "Agent/Owner responsibilities and decision entries located."
+      ],
+      "total": 8,
+      "result": "PASS",
+      "input": "manager-input.json",
+      "output": "manager-response.txt"
+    },
+    {
+      "role": "product",
+      "agent": "/root/pilot_product",
+      "scores": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "reason": [
+        "Original product scope and PR1 non-goals sourced.",
+        "Canonical contract vs retrospective PLAN/REPORT distinguished.",
+        "Old runtime and current0.1.36 evidence not conflated.",
+        "Issue239, retained failures and final acceptance located."
+      ],
+      "total": 8,
+      "result": "PASS",
+      "input": "product-input.json",
+      "output": "product-response.txt"
+    },
+    {
+      "role": "devops",
+      "agent": "/root/pilot_devops",
+      "scores": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "reason": [
+        "Exact head/merge and later receipt chain located.",
+        "43 per-resource recovery and raw/CRLF distinction located.",
+        "Maintained contracts and frozen originals distinguished.",
+        "Reuse boundaries, current gaps and next responsibilities sourced."
+      ],
+      "total": 8,
+      "result": "PASS",
+      "input": "devops-input.json",
+      "output": "devops-response.txt"
+    }
+  ],
+  "files": [
+    {
+      "path": "manager-input.json",
+      "bytes": 2041,
+      "sha256": "2c9a22d660dbb14ccfb5954ee085e683aca8c9ec06c7ecbb059af771d8070c5c"
+    },
+    {
+      "path": "manager-response.txt",
+      "bytes": 7138,
+      "sha256": "9114055762e6ed528609cd979d7a91b1fb2950c5c0ead97977d6be4bd83e1a3f"
+    },
+    {
+      "path": "product-input.json",
+      "bytes": 2007,
+      "sha256": "43daea0e2b71e6212a8c176349f862cd319d10b04e7e851f3587520d06aaa2ea"
+    },
+    {
+      "path": "product-response.txt",
+      "bytes": 6260,
+      "sha256": "d2cd2c3dd1d94726820699d8b9043aa51c0c4b3ff58afab2593acf6adb8e355f"
+    },
+    {
+      "path": "devops-input.json",
+      "bytes": 2005,
+      "sha256": "7355df52da38cc2053e913257f2a37b9e93fe0902fd53e33f29945241ff9e6fb"
+    },
+    {
+      "path": "devops-response.txt",
+      "bytes": 8306,
+      "sha256": "90a81ed99546c9e585bcf1eabda69176653c017134d02bd4599c11b5479778a1"
+    },
+    {
+      "path": "rubric.json",
+      "bytes": 2703,
+      "sha256": "88481a062e5edf3ffe79671e5c32e8f2350aad87f8aa9d3f7c68634c0ea50f86"
+    }
+  ],
+  "observedDifficulties": [
+    "Long JSON responses initially truncated; readers used field-targeted reads.",
+    "Original PR1 RUNBOOK ends before later merge section; later receipt must be followed separately.",
+    "Historical issue/ledger contains multiple dated current snapshots; latest scoped decision and capture time must be read."
+  ],
+  "limits": [
+    "Only followed links were read; no claim that every link was semantically inspected.",
+    "Role outputs and prompts were subsequently transcribed by their original agents without a new trial; original chat messages remain in this conversation.",
+    "No historical runtime/model/client/window/effect rerun, GitHub independent approval or Owner final acceptance."
+  ]
+}

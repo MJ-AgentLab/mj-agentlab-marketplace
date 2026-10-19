@@ -1,0 +1,442 @@
+TAP version 13
+# Subtest: current documentation and navigation reject legacy plan root empty-directory
+ok 1 - current documentation and navigation reject legacy plan root empty-directory
+  ---
+  duration_ms: 54.2487
+  type: 'test'
+  ...
+# Subtest: current documentation and navigation reject legacy plan root populated-directory
+ok 2 - current documentation and navigation reject legacy plan root populated-directory
+  ---
+  duration_ms: 32.8686
+  type: 'test'
+  ...
+# Subtest: current documentation and navigation reject legacy plan root file
+ok 3 - current documentation and navigation reject legacy plan root file
+  ---
+  duration_ms: 25.8876
+  type: 'test'
+  ...
+# Subtest: current documentation and navigation reject legacy plan root directory-link
+ok 4 - current documentation and navigation reject legacy plan root directory-link
+  ---
+  duration_ms: 32.7835
+  type: 'test'
+  ...
+# Subtest: current documentation and navigation reject legacy plan root dangling-link
+ok 5 - current documentation and navigation reject legacy plan root dangling-link
+  ---
+  duration_ms: 27.307
+  type: 'test'
+  ...
+# Subtest: current body cannot retain legacy locator ../../plan
+ok 6 - current body cannot retain legacy locator ../../plan
+  ---
+  duration_ms: 16.2364
+  type: 'test'
+  ...
+# Subtest: current metadata cannot retain legacy locator ../../plan
+ok 7 - current metadata cannot retain legacy locator ../../plan
+  ---
+  duration_ms: 16.5633
+  type: 'test'
+  ...
+# Subtest: current body cannot retain legacy locator ../../plan/old.md
+ok 8 - current body cannot retain legacy locator ../../plan/old.md
+  ---
+  duration_ms: 16.126
+  type: 'test'
+  ...
+# Subtest: current metadata cannot retain legacy locator ../../plan/old.md
+ok 9 - current metadata cannot retain legacy locator ../../plan/old.md
+  ---
+  duration_ms: 21.6453
+  type: 'test'
+  ...
+# Subtest: current body cannot retain legacy locator ../../%70lan/old.md
+ok 10 - current body cannot retain legacy locator ../../%70lan/old.md
+  ---
+  duration_ms: 15.5499
+  type: 'test'
+  ...
+# Subtest: current metadata cannot retain legacy locator ../../%70lan/old.md
+ok 11 - current metadata cannot retain legacy locator ../../%70lan/old.md
+  ---
+  duration_ms: 15.6176
+  type: 'test'
+  ...
+# Subtest: current body cannot retain legacy locator ../../plans/../plan/old.md
+ok 12 - current body cannot retain legacy locator ../../plans/../plan/old.md
+  ---
+  duration_ms: 18.6571
+  type: 'test'
+  ...
+# Subtest: current metadata cannot retain legacy locator ../../plans/../plan/old.md
+ok 13 - current metadata cannot retain legacy locator ../../plans/../plan/old.md
+  ---
+  duration_ms: 13.4509
+  type: 'test'
+  ...
+# Subtest: fixed Git provenance and raw source text retain historical plan paths without restoring a current root
+ok 14 - fixed Git provenance and raw source text retain historical plan paths without restoring a current root
+  ---
+  duration_ms: 24.7168
+  type: 'test'
+  ...
+# Subtest: new task documents require explicit layer and preserve draft canonical/completed working distinction
+ok 15 - new task documents require explicit layer and preserve draft canonical/completed working distinction
+  ---
+  duration_ms: 30.3681
+  type: 'test'
+  ...
+# Subtest: rejects invalid metadata layer: other
+ok 16 - rejects invalid metadata layer: other
+  ---
+  duration_ms: 14.878
+  type: 'test'
+  ...
+# Subtest: rejects invalid metadata missing layer
+ok 17 - rejects invalid metadata missing layer
+  ---
+  duration_ms: 13.4331
+  type: 'test'
+  ...
+# Subtest: rejects invalid metadata type: assessment
+ok 18 - rejects invalid metadata type: assessment
+  ---
+  duration_ms: 14.7197
+  type: 'test'
+  ...
+# Subtest: rejects invalid metadata type: guide
+ok 19 - rejects invalid metadata type: guide
+  ---
+  duration_ms: 15.234
+  type: 'test'
+  ...
+# Subtest: rejects invalid metadata state: complete
+ok 20 - rejects invalid metadata state: complete
+  ---
+  duration_ms: 13.5625
+  type: 'test'
+  ...
+# Subtest: rejects invalid metadata created: 2026-02-30
+ok 21 - rejects invalid metadata created: 2026-02-30
+  ---
+  duration_ms: 13.2335
+  type: 'test'
+  ...
+# Subtest: rejects invalid metadata updated: 2026-01-01
+ok 22 - rejects invalid metadata updated: 2026-01-01
+  ---
+  duration_ms: 13.6632
+  type: 'test'
+  ...
+# Subtest: public working records require their maintained purpose and owner
+ok 23 - public working records require their maintained purpose and owner
+  ---
+  duration_ms: 23.0519
+  type: 'test'
+  ...
+# Subtest: canonical domain paths and task nested template/evidence escape attempts are rejected
+ok 24 - canonical domain paths and task nested template/evidence escape attempts are rejected
+  ---
+  duration_ms: 29.6801
+  type: 'test'
+  ...
+# Subtest: task identity and navigation reject [PLAN]_Execution.md task: other
+ok 25 - task identity and navigation reject [PLAN]_Execution.md task: other
+  ---
+  duration_ms: 12.7137
+  type: 'test'
+  ...
+# Subtest: task identity and navigation reject [PLAN]_Execution.md tracking: https://example.com/257
+ok 26 - task identity and navigation reject [PLAN]_Execution.md tracking: https://example.com/257
+  ---
+  duration_ms: 14.0434
+  type: 'test'
+  ...
+# Subtest: task identity and navigation reject INDEX.md plan: ./[REPORT]_Execution.md
+ok 27 - task identity and navigation reject INDEX.md plan: ./[REPORT]_Execution.md
+  ---
+  duration_ms: 14.9237
+  type: 'test'
+  ...
+# Subtest: task identity and navigation reject INDEX.md canonical: []
+ok 28 - task identity and navigation reject INDEX.md canonical: []
+  ---
+  duration_ms: 47.783
+  type: 'test'
+  ...
+# Subtest: task identity and navigation reject INDEX.md type: plan
+ok 29 - task identity and navigation reject INDEX.md type: plan
+  ---
+  duration_ms: 18.0504
+  type: 'test'
+  ...
+# Subtest: required main-document metadata cannot be replaced by body links; initial tasks may omit REPORT
+ok 30 - required main-document metadata cannot be replaced by body links; initial tasks may omit REPORT
+  ---
+  duration_ms: 37.1651
+  type: 'test'
+  ...
+# Subtest: a task without an Issue can use a stable existing conversation identity without forced issue creation
+ok 31 - a task without an Issue can use a stable existing conversation identity without forced issue creation
+  ---
+  duration_ms: 83.7075
+  type: 'test'
+  ...
+# Subtest: local Markdown and metadata paths are checked, including encoded traversal and missing targets
+ok 32 - local Markdown and metadata paths are checked, including encoded traversal and missing targets
+  ---
+  duration_ms: 72.6873
+  type: 'test'
+  ...
+# Subtest: canonical navigation cannot point to arbitrary JSON, working ledgers, archive or undeclared legacy
+ok 33 - canonical navigation cannot point to arbitrary JSON, working ledgers, archive or undeclared legacy
+  ---
+  duration_ms: 80.427
+  type: 'test'
+  ...
+# Subtest: pinned legacy inventory proves original Git bytes, supports deterministic CRLF checkout and denies changed/new bypass
+ok 34 - pinned legacy inventory proves original Git bytes, supports deterministic CRLF checkout and denies changed/new bypass
+  ---
+  duration_ms: 7584.3518
+  type: 'test'
+  ...
+# Subtest: bound snapshot original bytes remain raw; an unbound Markdown file cannot hide in evidence
+ok 35 - bound snapshot original bytes remain raw; an unbound Markdown file cannot hide in evidence
+  ---
+  duration_ms: 28.1171
+  type: 'test'
+  ...
+# Subtest: source bindings read actual contents and reject wrong hashes, lost files, traversal and ambiguous schema
+ok 36 - source bindings read actual contents and reject wrong hashes, lost files, traversal and ambiguous schema
+  ---
+  duration_ms: 77.5983
+  type: 'test'
+  ...
+# Subtest: Git binding reads pinned version and verifies portable snapshot without conflating the current file
+ok 37 - Git binding reads pinned version and verifies portable snapshot without conflating the current file
+  ---
+  duration_ms: 1149.906
+  type: 'test'
+  ...
+# Subtest: source and documentation junctions cannot escape their owned roots
+ok 38 - source and documentation junctions cannot escape their owned roots
+  ---
+  duration_ms: 18.9508
+  type: 'test'
+  ...
+# Subtest: minimal repository fixture preserves real bytes and reports generated and total bytes accurately
+ok 39 - minimal repository fixture preserves real bytes and reports generated and total bytes accurately
+  ---
+  duration_ms: 1724.3439
+  type: 'test'
+  ...
+# Subtest: fixture copies remain independent and ignore historical or unrelated source documents
+ok 40 - fixture copies remain independent and ignore historical or unrelated source documents
+  ---
+  duration_ms: 2524.6973
+  type: 'test'
+  ...
+# Subtest: existing generated caches in known Python roots do not enter fixture copies or byte accounting
+ok 41 - existing generated caches in known Python roots do not enter fixture copies or byte accounting
+  ---
+  duration_ms: 1784.336
+  type: 'test'
+  ...
+# Subtest: a separate process generating caches during copy cannot change the frozen file list or totals
+ok 42 - a separate process generating caches during copy cannot change the frozen file list or totals
+  ---
+  duration_ms: 1809.908
+  type: 'test'
+  ...
+# Subtest: bytecode-looking extras outside known Python roots remain visible and invalidate the exact HTML package
+ok 43 - bytecode-looking extras outside known Python roots remain visible and invalidate the exact HTML package
+  ---
+  duration_ms: 2916.3517
+  type: 'test'
+  ...
+# Subtest: missing real runtime, metadata, version and brand resources fail before writing the destination
+ok 44 - missing real runtime, metadata, version and brand resources fail before writing the destination
+  ---
+  duration_ms: 782.5145
+  type: 'test'
+  ...
+# Subtest: fixture preparation rejects traversal and junction dependencies rather than repairing them
+ok 45 - fixture preparation rejects traversal and junction dependencies rather than repairing them
+  ---
+  duration_ms: 756.5967
+  type: 'test'
+  ...
+# Subtest: synthetic document closure remains strict and is not expanded to mask missing links
+ok 46 - synthetic document closure remains strict and is not expanded to mask missing links
+  ---
+  duration_ms: 1541.9637
+  type: 'test'
+  ...
+# Subtest: destination scope checks preserve existing contents and final totals include local overlays
+ok 47 - destination scope checks preserve existing contents and final totals include local overlays
+  ---
+  duration_ms: 945.0767
+  type: 'test'
+  ...
+# Subtest: source preparation refuses an unlinked legacy plan root rather than omitting it from the projection
+ok 48 - source preparation refuses an unlinked legacy plan root rather than omitting it from the projection
+  ---
+  duration_ms: 882.7589
+  type: 'test'
+  ...
+# Subtest: real projection copies exact source bytes without synthetic documents and captures the record once
+ok 49 - real projection copies exact source bytes without synthetic documents and captures the record once
+  ---
+  duration_ms: 167164.1995
+  type: 'test'
+  ...
+# Subtest: INTENT originals, archived identity and controlled accepted bytes survive real source capture and restoration
+ok 50 - INTENT originals, archived identity and controlled accepted bytes survive real source capture and restoration
+  ---
+  duration_ms: 1646.2015
+  type: 'test'
+  ...
+# Subtest: keepRoot retains thirteen independent real source contexts while always removing the template
+ok 51 - keepRoot retains thirteen independent real source contexts while always removing the template
+  ---
+  duration_ms: 5127.0395
+  type: 'test'
+  ...
+# Subtest: normal success removes all thirteen scenario contexts and the shared template
+ok 52 - normal success removes all thirteen scenario contexts and the shared template
+  ---
+  duration_ms: 5345.4305
+  type: 'test'
+  ...
+# Subtest: a later rejected operation removes previously retained and current roots without replacing its error
+ok 53 - a later rejected operation removes previously retained and current roots without replacing its error
+  ---
+  duration_ms: 1722.8315
+  type: 'test'
+  ...
+# Subtest: an operation and persistent cleanup failure remain visible together
+ok 54 - an operation and persistent cleanup failure remain visible together
+  ---
+  duration_ms: 1056.244
+  type: 'test'
+  ...
+# Subtest: template cleanup failure fails an otherwise successful keepRoot run and removes all retained scenarios
+ok 55 - template cleanup failure fails an otherwise successful keepRoot run and removes all retained scenarios
+  ---
+  duration_ms: 5131.2295
+  type: 'test'
+  ...
+# Subtest: invalid complete source fails before template preparation or scenario execution
+ok 56 - invalid complete source fails before template preparation or scenario execution
+  ---
+  duration_ms: 5.3185
+  type: 'test'
+  ...
+# Subtest: template preparation failure removes its partial root and retains the original failure
+ok 57 - template preparation failure removes its partial root and retains the original failure
+  ---
+  duration_ms: 42.4823
+  type: 'test'
+  ...
+# Subtest: source rejects directory links including a cache junction: .agents
+ok 58 - source rejects directory links including a cache junction: .agents
+  ---
+  duration_ms: 681.6065
+  type: 'test'
+  ...
+# Subtest: source rejects directory links including a cache junction: plugins/learning-evidence-kit/scripts/__pycache__
+ok 59 - source rejects directory links including a cache junction: plugins/learning-evidence-kit/scripts/__pycache__
+  ---
+  duration_ms: 684.8285
+  type: 'test'
+  ...
+# Subtest: source rejects directory links including a cache junction: plugins/diagram-kit/skills/arch-diagram/scripts/__pycache__
+ok 60 - source rejects directory links including a cache junction: plugins/diagram-kit/skills/arch-diagram/scripts/__pycache__
+  ---
+  duration_ms: 719.7282
+  type: 'test'
+  ...
+# Subtest: only the two explicit Python roots exclude generated caches; HTML and nested extras remain visible
+ok 61 - only the two explicit Python roots exclude generated caches; HTML and nested extras remain visible
+  ---
+  duration_ms: 1835.9419
+  type: 'test'
+  ...
+# Subtest: scenario destination rejects unsafe ownership or shape: nonempty
+ok 62 - scenario destination rejects unsafe ownership or shape: nonempty
+  ---
+  duration_ms: 1141.1945
+  type: 'test'
+  ...
+# Subtest: scenario destination rejects unsafe ownership or shape: file
+ok 63 - scenario destination rejects unsafe ownership or shape: file
+  ---
+  duration_ms: 1080.345
+  type: 'test'
+  ...
+# Subtest: scenario destination rejects unsafe ownership or shape: directory-link
+ok 64 - scenario destination rejects unsafe ownership or shape: directory-link
+  ---
+  duration_ms: 1060.838
+  type: 'test'
+  ...
+# Subtest: scenario destination rejects unsafe ownership or shape: template-descendant
+ok 65 - scenario destination rejects unsafe ownership or shape: template-descendant
+  ---
+  duration_ms: 1040.233
+  type: 'test'
+  ...
+# Subtest: scenario destination rejects unsafe ownership or shape: source-descendant
+ok 66 - scenario destination rejects unsafe ownership or shape: source-descendant
+  ---
+  duration_ms: 1038.636
+  type: 'test'
+  ...
+# Subtest: source changing during a template copy fails its frozen inventory and cleans the partial template
+ok 67 - source changing during a template copy fails its frozen inventory and cleans the partial template
+  ---
+  duration_ms: 843.3062
+  type: 'test'
+  ...
+# Subtest: a context-creation failure before the second runner cleans prior/current roots and keeps its original error
+ok 68 - a context-creation failure before the second runner cleans prior/current roots and keeps its original error
+  ---
+  duration_ms: 1053.9289
+  type: 'test'
+  ...
+# Subtest: a materialize failure before the second runner cleans prior/current roots and keeps its original error
+ok 69 - a materialize failure before the second runner cleans prior/current roots and keeps its original error
+  ---
+  duration_ms: 1079.1311
+  type: 'test'
+  ...
+# Subtest: a second runner returning ok:false fails the run and cleans all retained/current roots and the template
+ok 70 - a second runner returning ok:false fails the run and cleans all retained/current roots and the template
+  ---
+  duration_ms: 1350.122
+  type: 'test'
+  ...
+# Subtest: post-success source integrity byte-drift cleans retained/current roots and preserves the failure
+ok 71 - post-success source integrity byte-drift cleans retained/current roots and preserves the failure
+  ---
+  duration_ms: 1405.3124
+  type: 'test'
+  ...
+# Subtest: post-success source integrity read-error cleans retained/current roots and preserves the failure
+ok 72 - post-success source integrity read-error cleans retained/current roots and preserves the failure
+  ---
+  duration_ms: 1313.5248
+  type: 'test'
+  ...
+1..72
+# tests 72
+# suites 0
+# pass 72
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 205770.819

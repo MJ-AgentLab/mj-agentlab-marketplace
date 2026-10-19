@@ -119,12 +119,26 @@ test("actual job wrappers keep every PR and all unproved pushes while cancelled 
   }
   const normalized = source.replace(/\r\n/g, "\n");
   const cancel = normalized.slice(normalized.indexOf("  cancel-superseded:"), normalized.indexOf("  deduplicate-push:"));
-  assert.equal(hash(cancel), "7c55fe2f6fd778ea8db06728efc2d61aa14ce6c18f77964e486ed648c84d6f95");
+  assert.equal(hash(cancel), "d54edfe9fd85f9d2f4a0f8372e467218258c540272871e5038a276bfc5850ada");
   assert.equal(workflow.jobs.validate.needs, undefined);
   assert.equal(job.needs, undefined);
   assert.equal(job["continue-on-error"], undefined);
   assert.doesNotMatch(job.steps[0].with.script, /cancelWorkflowRun|reRunWorkflow|forceCancelWorkflowRun|import\(|checkout|execFile|spawn\(/);
   assert.equal(job.steps[0].with.script.includes("${{"), false);
+});
+
+test("internal integration PRs require the same exact merge source, target and full OS matrix", async () => {
+  const target = "codex/task.documentation/batch-1";
+  const internal = () => {
+    const s = scenario(); s.live.base.ref = target;
+    s.carrier.display_title = s.carrier.display_title.replace("target=develop", `target=${target}`);
+    return s;
+  };
+  const valid = internal(); await valid.execute(); assert.equal(skipped(valid), true);
+  const badMarker = internal(); badMarker.carrier.display_title = badMarker.carrier.display_title.replace("task.documentation", "taskXdocumentation");
+  await badMarker.execute(); assert.equal(skipped(badMarker), false);
+  const missingOS = internal(); missingOS.jobs.pop(); await missingOS.execute(); assert.equal(skipped(missingOS), false);
+  const fork = internal(); fork.live.head.repo.id = 2; await fork.execute(); assert.equal(skipped(fork), false);
 });
 
 test("queued, running and successful exact carriers require both instantiated OS jobs", async () => {

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-19T10:14:48Z",
+  "reviewer": "Independent child agent /root/checks_agent",
+  "roles": ["content and learning-design reviewer", "isolated installed-package consumer"],
+  "candidate": {
+    "sha": "1a3ac5f5a9ec72a44f163d5bfaf84fcc75794100",
+    "treePrefix": "8c579494",
+    "basis": "Parent supplied candidate identity, matched by the preserved installation resource receipt and actual installed file hashes",
+    "installationReceipt": "C:/Users/Admin/AppData/Local/Temp/html-learning-274-consumer-install.json",
+    "pluginVersion": "0.1.37",
+    "skillSha256": "c3c47756b18e7ccd2a2e6491e23909afa0f98bc7742476a9cb017c50fc968773"
+  },
+  "execution": {
+    "nodeVersion": "22.18.0",
+    "pythonVersion": "3.12.14",
+    "chromeVersion": "155.0.8059.80",
+    "script": "consumer-run.mjs",
+    "scriptSha256": "80cfdc78009bef99efb1668f05bc6dc0b3b82996e7973a3f38b66dd9b9db26c9",
+    "commandArguments": [
+      "C:/Users/Admin/AppData/Local/Temp/html-site-consumer-prep-20261019/consumer-run.mjs",
+      "C:/Users/Admin/AppData/Local/Temp/html-site-consumer-install-svimFE/home/.codex/plugins/cache/mj-agentlab-marketplace/html-guide-kit/0.1.37/skills/site/SKILL.md",
+      "C:/Users/Admin/AppData/Local/Temp/html-site-consumer-acceptance-20261019-02"
+    ],
+    "exitCode": 0,
+    "toolOutputChunk": "d2adf7",
+    "machineReport": "consumer-report.json",
+    "boundedCases": 12,
+    "passed": 12
+  },
+  "actualReadReview": {
+    "skillAndReferences": ["SKILL.md", "references/execution-guide.md", "references/aics-principles.md", "references/terminology.md", "references/input-contract.md", "references/interaction-patterns.md", "references/evidence-and-evaluation.md", "references/sites-handoff.md", "references/checks.md", "references/resource-provenance.json"],
+    "judgment": "The installed instructions preserve the explicit site versus read-only guide boundary, six-step task-based work, Chinese explanations and activities with stable English core names, strict unanswered decisions, local resource locators and independent output, actual Sites version/access checks, and separate Owner acceptance and NOT_MEASURED learning effects. Package provenance links are described as traceability rather than runtime inputs.",
+    "sourceAndContent": ["consumer-cwd/representative-input/artifact.json", "consumer-cwd/representative-input/content.md", "consumer-cwd/representative-input/sources/renewal-rules.md"],
+    "contentJudgment": "LIB1 scopes one book and one renewal, with account categories explicitly not a process. LIB2 requires both not overdue and no other reservation: all four displayed combinations agree. LIB3 extends the original due date by seven calendar days only on success; 2026-10-29 plus seven is 2026-11-05, failure preserves 2026-10-29. LIB4 requires success wording and an updated due date together, and does not turn missing confirmation into failure or invent a timeout. Three local correct indices [1,0,1], feedback, references and source locators preserve these conditions. Core names and Chinese explanations are consistent in this bounded material; no real library policy or learner outcome is inferred.",
+    "provenanceLimit": "This consumer read the installed provenance and verified source bytes within the representative package. It did not independently fetch all upstream research or adjudicate licenses; those are separate source/provenance review evidence."
+  },
+  "visualReview": {
+    "actuallyViewed": ["screenshots/viewport-1366x900.png", "screenshots/viewport-390x844.png"],
+    "judgment": "Both initial viewports are readable with the warm-paper and terracotta theme, visible Chinese/English hierarchy, no visible severe cropping or horizontal overflow. Mobile text reflows within the viewport; desktop heading no longer leaves the final single character on its own line. This is a bounded initial-state visual review, not all-page/all-state or full accessibility certification."
+  },
+  "clipboardQualification": {
+    "realSuccess": "Unmodified native Clipboard writeText completed, success UI appeared, and native readText returned the entire expected record. Windows changed 55 LF line endings to CRLF; all other content matches exactly. Raw readback, raw and normalized hashes are preserved. No byte-identical LF claim is made.",
+    "recovery": "Separate real-browser fault injection rejected writeText and then removed the API. Both selected the complete manual text and exposed a visible return path; Escape or the return button restored copy-button focus. Manual-copy completion remained UNCONFIRMED.",
+    "priorFailure": "Run01 consumer-report.json remains FAIL for its initial strict-byte clipboard comparison. The later run changes only the temporary QA comparison to account explicitly for Windows newline representation; runtime bytes and functional acceptance were not changed."
+  },
+  "handoff": {
+    "artifact": "C:/Users/Admin/AppData/Local/Temp/html-site-consumer-acceptance-20261019-02/consumer-cwd/artifact",
+    "manifestSha256": "c4c445947180f77641512dee1de3732fbc7946fb53fce804f33677e6e037c16e",
+    "contents": "Only index.html, local CSS/JS, artifact.json, authored Markdown, the explicitly listed original source, and artifact-manifest.json. Export and QA records remain outside the production artifact."
+  },
+  "notCovered": [
+    "Sites creation, save, deployment, actual URL, identity or access scope; parent owns actual Sites execution.",
+    "Automatic desktop menu hot-loading or native skill dispatch. This evidence is actual installed-resource consumption and browser interaction, not a claim that CLI metadata proves desktop dispatch.",
+    "Second client, full native unanswered-window lifecycle, comprehensive visual/accessibility/keyboard/touch/print audit.",
+    "Protected GitHub approval or merge, formal Marketplace publication, Owner inspection/final acceptance.",
+    "Learner understanding, retention, transfer or other real-world effect: NOT_MEASURED."
+  ],
+  "nonblockingObservation": "Chromium requested an unspecified /favicon.ico and received 404; required HTML/CSS/JS/material resources returned 200 and no page JavaScript errors occurred. No unselected or reset state was reported as answered."
+}

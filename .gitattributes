@@ -1,5 +1,32 @@
 # Preserve the saved owner plan's original bytes for its recorded SHA-256.
-plan/communication-kit-implementation-plan.md -text whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Task source snapshots retain the exact bytes checked by source-bindings.json.
+plans/*/evidence/sources/** -text
+# Frozen #274 source bytes retain Markdown hard breaks and actual CRLF capture.
+plans/274-html-learning-artifact/evidence/sources/HTML-Learning-Artifact-Plugin-Implementation-Plan.md whitespace=-blank-at-eol
+plans/274-html-learning-artifact/evidence/sources/capture-metadata.json whitespace=cr-at-eol
+# Frozen Epic 263 tool transcripts retain their original CRLF bytes and hashes.
+plans/263-intent-mechanism/evidence/sources/engineering/** whitespace=cr-at-eol
+plans/263-intent-mechanism/evidence/sources/independent/** whitespace=cr-at-eol
+plans/*/evidence/*.log -text whitespace=cr-at-eol
+plans/257-task-documentation/evidence/harness-*.json -text whitespace=cr-at-eol
+plans/217-html-guide-kit/source-bindings.json -text
+plans/217-html-guide-kit/evidence/pr1-resource-verification*.json -text
+plans/217-html-guide-kit/evidence/verify-pr1-sources.mjs text eol=lf
+plans/217-html-guide-kit/evidence/reading/** -text whitespace=cr-at-eol
+plans/217-html-guide-kit/evidence/reading/*-response.txt whitespace=-blank-at-eol,cr-at-eol
+plans/217-html-guide-kit/evidence/sources/reading-candidate/parent-INDEX.md whitespace=-blank-at-eof
+plans/257-task-documentation/evidence/pilot-*.json -text
+plans/257-task-documentation/evidence/integration-*.json -text
+plans/257-task-documentation/evidence/pilot-ci-*.log whitespace=-blank-at-eol,cr-at-eol
+plans/257-task-documentation/evidence/final-receipts-whitespace.log whitespace=-blank-at-eol,cr-at-eol
+# These fixed historical originals contain Markdown hard breaks / indented blanks.
+plans/217-html-guide-kit/evidence/sources/pr1-runtime/plugins/diagram-kit/skills/arch-diagram/references/architecture-methodology.md whitespace=-blank-at-eol
+plans/217-html-guide-kit/evidence/sources/pr1-runtime/plugins/understanding-kit/skills/pop-quiz/evals/results/*.md whitespace=-blank-at-eol
+plans/257-task-documentation/evidence/pilot-first-whitespace.log whitespace=-blank-at-eol,cr-at-eol
+plans/257-task-documentation/evidence/pilot-records-whitespace.log whitespace=-blank-at-eol,cr-at-eol
+# The reviewed legacy inventory has an exact content digest in the document Harness.
+docs/_meta/document-layer-compatibility.json -text
+plans/222-communication-kit/evidence/sources/communication-kit-implementation-plan.md -text whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # Frozen runtime references retain exactly the bytes covered by the snapshot hashes.
 plugins/communication-kit/skills/communicate/references/* -text
 # Preserve actual evidence bytes for the archived SHA-256 values.
@@ -33,7 +60,7 @@ docs/runbook/evidence/learning-evidence-8-2-0-post-release.json -text whitespace
 docs/runbook/evidence/learning-evidence-8-2-0-auto-release.log -text whitespace=-blank-at-eol,cr-at-eol
 
 # Preserve exact source-provenance EOF and original Node failure indentation.
-plan/communication-kit-plan-provenance.json whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+plans/222-communication-kit/evidence/sources/communication-kit-plan-provenance.json whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
 docs/runbook/evidence/communication-kit-2026-10-12-pr1-01.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/runbook/evidence/communication-kit-2026-10-13-inherited-whitespace-01-raw-pr1-initial.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/runbook/evidence/communication-kit-2026-10-13-inherited-whitespace-01-raw-pr2-conflicts.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
@@ -47,3 +74,31 @@ docs/runbook/evidence/communication-kit-2026-10-13-pr1-merge-sync-01-raw-pr4-con
 
 # Preserve the original post-publication execution receipts and their hashes.
 docs/runbook/evidence/communication-8-3-0-postrelease-* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve PR2 frozen public packet and identity bytes covered by original digests.
+docs/runbook/evidence/html-guide-kit/pr2-reviewer/** -text
+
+# Preserve exact post-merge API/command receipts and native CI log whitespace.
+plans/257-task-documentation/evidence/main-*.json -text
+plans/257-task-documentation/evidence/main-ci-*.log whitespace=-blank-at-eol,cr-at-eol
+
+# Actual INTENT post-merge receipts preserve their original tool/API bytes.
+plans/263-intent-mechanism/evidence/postmerge-264/** -text whitespace=cr-at-eol
+# Git patch context lines contain significant single-space lines.
+plans/263-intent-mechanism/evidence/postmerge-264/closeout-review-r1.patch whitespace=-blank-at-eol,cr-at-eol
+
+# Issue 274 copied original evidence retains hard breaks, EOF and CRLF bytes.
+plans/274-html-learning-artifact/evidence/sources/engineering/** whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+plans/274-html-learning-artifact/evidence/sources/review/** whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+plans/274-html-learning-artifact/evidence/sources/consumer/** whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+# Post-merge API, CI and canonical-install originals keep their captured bytes.
+plans/274-html-learning-artifact/evidence/sources/postmerge/** whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+
+# Raw accepted/source records retain their original EOF and CRLF bytes.
+plans/269-plans-path-unification/evidence/sources/accepted-baseline-b1.json whitespace=-blank-at-eof
+plans/269-plans-path-unification/evidence/sources/execution-principles-p1.json whitespace=-blank-at-eof
+plans/269-plans-path-unification/evidence/sources/implementation-authorization.json whitespace=cr-at-eol
+plans/269-plans-path-unification/evidence/a-initial-tests.log whitespace=-blank-at-eol,cr-at-eol
+plans/269-plans-path-unification/evidence/sources/b-premerge-checks.json whitespace=cr-at-eol
+plans/269-plans-path-unification/evidence/sources/product-reading-round1.json whitespace=cr-at-eol
+plans/269-plans-path-unification/evidence/sources/product-reading-q4-retest.json whitespace=cr-at-eol
