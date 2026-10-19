@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-19
 state: active
-version: v1.2
+version: v1.3
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -124,3 +124,6 @@ P5：形成可审查成品与主 REPORT；最终主 PR 满足受保护 develop �
 
 
 2026-10-19T10:53:43Z：276已正常合入552b6e0a5d9e3d0a85e284406fe87e9508549028，实际tree99837ab45ddf36bde041efc88bf3784855d6aecb同已测acaf及20c候选。最终Windows原job独立提取642/642零skip、真实browser/strict/baseline及13安装/6Diagram+18LEK+4site生成静态成功；Linux原641/642仅Windows大小写skip1。内部规则[]、threads0、gate/merge原件齐；主275的1current-head非作者批准/最终门禁仍另待，不因内部reviews[]追认。证据原件与派生提取分别保，按授权先提交子PR2文档再正常继承origin集成运行基线复验，由root继续子PR2及授权内部合并。
+
+
+2026-10-19，文档子PR [#277](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/277) 已实际创建，目标为同一集成分支。其7138d343/tree31f7fa21正常继承552b6e0，运行Git对象与552相同，197原来源已从Git blob独立逐hash核验。root实际文档/INTENT/契约116项与完整real-source原字节投影1项均PASS/零skip，见[范围检查回执](./evidence/sources/engineering/acceptance-scope-checks.json)。本次只补真实PR链接与这3份检查原件绑定，未改变运行、原197证据或接受判准；子PR完整平台矩阵与最终主PR检查按各自服务器终态记录，不将未完成项写成通过。内部实际merge和受保护275/发布/Owner接受的后续事实由Issue及PR回读，原FAIL保留。

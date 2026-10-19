@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-19
 state: active
-version: v1.3
+version: v1.4
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -149,3 +149,6 @@ Sites同消费者run02的7文件有界包，manifest SHA256 `c4c445947180f776415
 | 理解效果 | NOT_MEASURED | 未来另定人群/任务/判准与测量；本次不据美观/单次答对宣称改善 |
 
 [source-bindings](./source-bindings.json)逐文件验证原字节，[复制回执](./evidence/sources/engineering/evidence-copy-receipt.json)记原路径/hash/实际复制时钟。固定QA脚本含原绝对临时/工具路径，标为原运行脚本快照，非插件依赖；read-resources.json的完整参考快照不是第二正式正本。核心交付、全计划完成、插件发布、网页部署、Owner体检与最终接受分记。
+
+
+2026-10-19，文档子PR [#277](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/277) 已实际创建，目标为同一集成分支。其7138d343/tree31f7fa21正常继承552b6e0，运行Git对象与552相同，197原来源已从Git blob独立逐hash核验。root实际文档/INTENT/契约116项与完整real-source原字节投影1项均PASS/零skip，见[范围检查回执](./evidence/sources/engineering/acceptance-scope-checks.json)。本次只补真实PR链接与这3份检查原件绑定，未改变运行、原197证据或接受判准；子PR完整平台矩阵与最终主PR检查按各自服务器终态记录，不将未完成项写成通过。内部实际merge和受保护275/发布/Owner接受的后续事实由Issue及PR回读，原FAIL保留。
