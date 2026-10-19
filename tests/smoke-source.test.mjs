@@ -72,6 +72,12 @@ function directoryLink(target, link) {
   fs.symlinkSync(target, link, process.platform === "win32" ? "junction" : "dir");
 }
 
+test("source preparation refuses an unlinked legacy plan root rather than omitting it from the projection", t => {
+  const source = isolatedSource(t);
+  fs.mkdirSync(path.join(source, "plan"));
+  assert.throws(() => prepareSmokeSource(source), /legacy plan root is forbidden/);
+});
+
 test("real projection copies exact source bytes without synthetic documents and captures the record once", t => {
   const parent = temporary(t), originalRead = fs.readFileSync;
   const record = path.join(REPO, "tests/fixtures/learning-evidence/learning-record.json");
