@@ -6,13 +6,15 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-19
 state: active
-version: v2.94
+version: v2.98
 layer: canonical
 ---
 
 # 文档索引
 
 ## 工程任务与文档分层
+
+- [计划路径统一原意 INT-2026-002](intent/[INTENT]_INT-2026-002_Plans_Path_Unification.md)：Owner 已接受 B1 并授权实施；[#269 任务入口](../plans/269-plans-path-unification/INDEX.md)承接整合与旧路径兼容撤除，其他历史文档兼容不在范围。
 
 - [INTENT 规范](rule/[STANDARD]_AI_Engineering_Intent.md)、[新增 ADR](adr/[ADR]_Intent_Mechanism_Addition.md)、[正本索引](intent/INDEX.md)与[模板](_templates/TEMPLATE_INTENT.md)：分层唯一原意、完整接受基线、稳定身份及工程覆盖；简单明确任务继续 Issue 原意区。
 - [INTENT 任务入口 #263](../plans/263-intent-mechanism/INDEX.md)：完整来源与实际实施/验收；严格窗口、历史缺证和 Owner 最终接受分别登记，不由文档状态推定通过。
@@ -95,7 +97,7 @@ Communication PR4同步验收证据和实际发布基线，见[验收记录§6](
 
 Owner Q3已确认Communication正式发行仅为Learning已公开三包加Communication（四包六技能），HTML保留develop另发；开发集成五包七技能，两个集合各自精确验证。
 
-- [Communication 完整实施计划](../plan/communication-kit-implementation-plan.md)与[原稿捕获](../plan/communication-kit-plan-provenance.json)
+- [Communication 任务入口 #222](../plans/222-communication-kit/INDEX.md)：唯一主 PLAN、主 REPORT 和固定原稿/捕获来源；历史原件只供恢复，不作为并行计划入口。
 - [Communication Kit 新增决定](adr/[ADR]_Communication_Kit_Addition.md)
 - [Communicate 行为契约](spec/[SPEC]_Communication_Communicate.md)
 - [沟通助手使用指南](guide/[GUIDE]_Communication_Communicate.md)

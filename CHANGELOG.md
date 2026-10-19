@@ -7,6 +7,8 @@
 
 ### Documentation
 
+- Unify Communication task planning under plans/222-communication-kit with one current INDEX/PLAN/REPORT and recoverable fixed Git originals. Remove the old root plan/ and migrate current navigation, source inputs and fixtures atomically. Path-reintroduction guards and final delivery gates are tracked by #269; other historical document compatibility and plugin runtime/versions remain unchanged.
+
 - Record actual INTENT #264 develop delivery and fresh 597-test/thirteen-install/source-recovery verification; retain the platform-observed approval bypass and all deferred, untested and Owner-acceptance boundaries. No runtime, version or original accepted-source changes.
 
 - Add tiered INTENT originals, the intent document type and recoverable acceptance/engineering coverage contracts. Reuse the existing 20 development skills and task PLAN/REPORT layers, preserve the complete accepted chat design and actual authorization, and register the first draft original without claiming its new wording was accepted. Strict Harness and independent synthetic acceptance follow in the child PRs of Epic #263; native-window evidence, protected approval and Owner final acceptance remain separate.
