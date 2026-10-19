@@ -1,0 +1,15 @@
+import fs from 'node:fs';
+import {execFileSync} from 'node:child_process';
+const cwd='C:/Users/Admin/.codex/worktrees/html-learning-artifact/develop';
+const gh=args=>JSON.parse(execFileSync('gh',args,{cwd,encoding:'utf8',maxBuffer:10*1024*1024}));
+const repo='MJ-AgentLab/mj-agentlab-marketplace';
+const pr=gh(['pr','view','278','--json','number,url,state,isDraft,author,headRefOid,baseRefOid,baseRefName,headRefName,mergeStateStatus,reviewDecision,reviews,statusCheckRollup,potentialMergeCommit']);
+const reviews=gh(['api',`repos/${repo}/pulls/278/reviews`]);
+const threads=gh(['api','graphql','-f','query=query { repository(owner:"MJ-AgentLab",name:"mj-agentlab-marketplace") { pullRequest(number:278) { reviewThreads(first:100) { nodes { id isResolved isOutdated } pageInfo { hasNextPage endCursor } } } } }']);
+const rules=gh(['api',`repos/${repo}/rules/branches/main`]);
+const main=gh(['api',`repos/${repo}/git/ref/heads/main`]);
+const merge=gh(['api',`repos/${repo}/git/commits/${pr.potentialMergeCommit.oid}`]);
+const threadList=threads.data.repository.pullRequest.reviewThreads;
+const result={capturedAt:new Date().toISOString(),pr,reviews,threads:threadList,rules,main,merge,assessment:{expectedHead:pr.headRefOid==='f68c22b563fab661b803576058c8a08619c6738a',expectedBase:pr.baseRefOid==='7615ca58f410876fc7393b0d93017250fe712091'&&main.object.sha===pr.baseRefOid,candidateTreeSameAsHead:merge.tree.sha==='6e4bc9cc31df2d1eac33e8c10907eb3725ca744d',threadPageComplete:!threadList.pageInfo.hasNextPage,unresolvedThreads:threadList.nodes.filter(x=>!x.isResolved).length,approvedReviews:reviews.filter(r=>r.state==='APPROVED').map(r=>({login:r.user.login,commit:r.commit_id})),reviewDecision:pr.reviewDecision,pendingChecks:pr.statusCheckRollup.filter(c=>c.status!=='COMPLETED').map(c=>c.name),failedChecks:pr.statusCheckRollup.filter(c=>c.status==='COMPLETED'&&!['SUCCESS','SKIPPED','NEUTRAL'].includes(c.conclusion)).map(c=>({name:c.name,conclusion:c.conclusion})),agentMergeAuthorizedOnlyAfterAllGates:'No bypass or self-approval; P5 publication authorization does not replace protected real approval'}};
+fs.writeFileSync('C:/Users/Admin/AppData/Local/Temp/html-learning-274-release-gate-current.json',JSON.stringify(result,null,2)+'\n');
+console.log(JSON.stringify({capturedAt:result.capturedAt,...result.assessment}));

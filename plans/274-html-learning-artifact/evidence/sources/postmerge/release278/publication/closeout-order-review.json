@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-19",
+  "scope": "Read-only review of the existing task 274 P5 and current release procedures; no new Issue/PLAN/REPORT or remote mutation",
+  "sources": [
+    {
+      "path": "docs/runbook/[RUNBOOK]_Release_Operations.md",
+      "sections": ["Post-release current 8.3.2 paragraph", "Generic post-release synchronization/pre-bump paragraph"],
+      "requirement": "Save actual publication/new-tag verification, normally synchronize complete main ancestry to develop, then prepare only Marketplace next patch with DryRun first."
+    },
+    {
+      "path": "plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md",
+      "sections": ["Execution P5", "Actual batch and pull requests continuation paragraph"],
+      "requirement": "Reuse the same task PLAN/REPORT, bind actual publication and verification, retain normal protection, separate Owner inspection/acceptance."
+    },
+    {
+      "path": "docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md",
+      "sections": ["Section 3, execution step 7"],
+      "requirement": "Record actual release and verification, synchronize actual main, then DryRun/Apply only Marketplace 8.3.2 to 8.3.3; plugins unchanged and no same-number tag/Release."
+    }
+  ],
+  "minimumInterpretation": {
+    "independentMainRecordPrMandatory": false,
+    "rationale": "The current task says record then synchronize, without requiring a separate main-target record PR before synchronization. The prior 8.3.1 three-PR sequence belongs to that historical explicit Owner authorization and is not automatically a new standing three-PR mandate.",
+    "possibleMinimum": [
+      "Normal sync PR to develop from the real published main, carrying bounded actual-release/tag-verification records and installation navigation updates.",
+      "After that sync actually merges and is verified, a separate normal Marketplace-only 8.3.3 pre-bump PR, DryRun before Apply."
+    ]
+  },
+  "rootTechnicalSchedulingDecision": {
+    "source": "Direct root-agent coordination message in the current task, not a new Owner decision",
+    "chosenSequence": [
+      "Independent normal record PR to main after real-tag checks.",
+      "Sync the complete ancestry of the record PR's actual main merge to develop via normal PR and verify actual sync.",
+      "Only then DryRun/Apply Marketplace-only 8.3.3 pre-bump via normal PR."
+    ],
+    "reason": "The default public main README still installs v8.3.1 and says the site entry is unpublished. Updating that real default entry after v8.3.2 publication is a concrete product-navigation closeout objective.",
+    "authorizationBoundary": "Routine technical scheduling within existing P5 documentation/publication closeout authorization; not an inferred new Owner authorization for three PRs and not retroactive approval of the bypassed release.",
+    "allNewProtectedPrGates": "Actual current-head non-author/latest-push approval, applicable checks/codeowner requirements, latest base and resolved threads; no bypass."
+  }
+}

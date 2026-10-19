@@ -1,0 +1,195 @@
+{
+  "jobId": 118083116207,
+  "file": "linux-job.log",
+  "bytes": 966886,
+  "sha256": "c3a9ba8dfc6d4b344d9d49c0ed388ecd8b59ee8969f40449ea619553def70b04",
+  "tap": {
+    "tests": 642,
+    "suites": 0,
+    "pass": 641,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 1,
+    "todo": 0
+  },
+  "skippedCases": [
+    "Windows equivalent file casing still passes containment"
+  ],
+  "notOkCases": [],
+  "browserCases": [
+    {
+      "name": "browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record",
+      "tapNumber": 326,
+      "status": "ok",
+      "skipped": false,
+      "skipReason": null
+    },
+    {
+      "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+      "tapNumber": 327,
+      "status": "ok",
+      "skipped": false,
+      "skipReason": null
+    },
+    {
+      "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+      "tapNumber": 328,
+      "status": "ok",
+      "skipped": false,
+      "skipReason": null
+    },
+    {
+      "name": "literal percent, Chinese and spaces in local filenames round-trip through browser URLs",
+      "tapNumber": 347,
+      "status": "ok",
+      "skipped": false,
+      "skipReason": null
+    }
+  ],
+  "checkedOutSha": "4269d6632dab28f6d0aaa78dea38ad5b3b66a072",
+  "checkedOutRef": "refs/remotes/pull/278/merge",
+  "checkedOutCommitMetadata": "merge-final.json",
+  "checkedOutMergeShaPresent": true,
+  "smokeOk": true,
+  "smokeScenarios": 13,
+  "allScenarioOk": true,
+  "commands": 178,
+  "executionCounts": {
+    "diagramPython": 6,
+    "lekPython": 18,
+    "siteGeneration": 4,
+    "siteStaticPython": 4
+  },
+  "nonzeroCommands": [],
+  "publicSkills": 8,
+  "siteResources": 20,
+  "allPackageInventory": {
+    "outside": {
+      "publicSkills": 3,
+      "repositorySkills": 0
+    },
+    "repository": {
+      "publicSkills": 3,
+      "repositorySkills": 20
+    },
+    "nativeOutside": {
+      "publicSkills": 8,
+      "repositorySkills": 0
+    },
+    "nativeRepository": {
+      "publicSkills": 8,
+      "repositorySkills": 20
+    },
+    "explicitOnly": [
+      "learning-evidence-kit:pop-quiz",
+      "learning-evidence-kit:learning-record-check",
+      "communication-kit:communicate",
+      "html-guide-kit:guide",
+      "html-guide-kit:site"
+    ]
+  },
+  "siteStaticSummaries": [
+    {
+      "checks": 89,
+      "failed": 0,
+      "pages": 1,
+      "files": 6
+    },
+    {
+      "checks": 89,
+      "failed": 0,
+      "pages": 1,
+      "files": 6
+    },
+    {
+      "checks": 89,
+      "failed": 0,
+      "pages": 1,
+      "files": 6
+    },
+    {
+      "checks": 89,
+      "failed": 0,
+      "pages": 1,
+      "files": 6
+    }
+  ],
+  "siteBrowserScope": [
+    "NOT_RUN in installation smoke; separate representative browser acceptance required",
+    "NOT_RUN in installation smoke; separate representative browser acceptance required",
+    "NOT_RUN in installation smoke; separate representative browser acceptance required",
+    "NOT_RUN in installation smoke; separate representative browser acceptance required"
+  ],
+  "steps": [
+    {
+      "name": "Set up job",
+      "conclusion": "success",
+      "number": 1
+    },
+    {
+      "name": "Run actions/checkout@v4",
+      "conclusion": "success",
+      "number": 2
+    },
+    {
+      "name": "Run actions/setup-node@v4",
+      "conclusion": "success",
+      "number": 3
+    },
+    {
+      "name": "Run actions/setup-python@v5",
+      "conclusion": "success",
+      "number": 4
+    },
+    {
+      "name": "Run npm ci",
+      "conclusion": "success",
+      "number": 5
+    },
+    {
+      "name": "Run npm install -g @openai/codex@0.147.0",
+      "conclusion": "success",
+      "number": 6
+    },
+    {
+      "name": "Unit and real Python execution tests",
+      "conclusion": "success",
+      "number": 7
+    },
+    {
+      "name": "Run npm run validate",
+      "conclusion": "success",
+      "number": 8
+    },
+    {
+      "name": "Run npm run check:baseline-tools",
+      "conclusion": "success",
+      "number": 9
+    },
+    {
+      "name": "Run npm run smoke:codex",
+      "conclusion": "success",
+      "number": 10
+    },
+    {
+      "name": "Post Run actions/setup-python@v5",
+      "conclusion": "success",
+      "number": 18
+    },
+    {
+      "name": "Post Run actions/setup-node@v4",
+      "conclusion": "success",
+      "number": 19
+    },
+    {
+      "name": "Post Run actions/checkout@v4",
+      "conclusion": "success",
+      "number": 20
+    },
+    {
+      "name": "Complete job",
+      "conclusion": "success",
+      "number": 21
+    }
+  ]
+}

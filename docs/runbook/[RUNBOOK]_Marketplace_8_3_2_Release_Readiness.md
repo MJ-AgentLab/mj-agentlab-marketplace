@@ -1,18 +1,41 @@
 ---
 type: runbook
 scope: marketplace
-summary: "Prepare 8.3.2 with HTML site delivery and retain actual approval gaps"
+summary: "Record actual 8.3.2 publication, fresh real-tag verification and retained approval gaps"
 owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-19
 state: active
-version: v1.0
+version: v1.1
 layer: working
 purpose: "Maintain source-bound 8.3.2 release identities, gates, retained limits and ordered recovery/closeout for task 274"
-last-verified: null
+last-verified: 2026-10-19
 ---
 
 # [RUNBOOK] Marketplace 8.3.2 release readiness
+
+## Actual publication and current continuation
+
+[PR #278](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/278) 于 `2026-10-19T14:28:06Z` 实际合入 main `f906b1001a86d7b5415451bd973bea26e6cc3a1d`，tree `6e4bc9cc31df2d1eac33e8c10907eb3725ca744d` 与发布源 head `f68c22b563fab661b803576058c8a08619c6738a` 及已测 merge-ref `4269d6632dab28f6d0aaa78dea38ad5b3b66a072` 相同。五包版本为 Diagram0.3.1 / Learning Evidence0.1.0 / Explain0.1.1 / HTML Guide0.1.37 / Communication0.1.0，八公开技能、五显式/三自然、20仓库技能；沿用同一 #274 的唯一 PLAN/REPORT，不创建第二份计划或报告。
+
+**实际公开与保护批准分别记录。** [main规则suite4601606831原件](../../plans/274-html-learning-artifact/evidence/sources/postmerge/release278/publication/pr278-rule-suite.json)匹配 before `7615ca58f410876fc7393b0d93017250fe712091` / after `f906b100`，actor为ranzuozhou，result=bypass；pull_request evaluation fail，原因为缺少最新推送者之外的批准，required_status_checks pass。[PR278 reviews=[]](../../plans/274-html-learning-artifact/evidence/sources/postmerge/release278/publication/pr278-reviews.json)，独立批准仍 **NOT_MET**。本次实际Owner bypass不追认为批准通过，也不构成记录、同步或预升PR的未来豁免；#275原批准缺口同样保留。
+
+[自动发布 run39269211915](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39269211915) attempt1于 `14:30:24Z` completed/success，job118116772603于14:30:23Z成功；[Release417390526 / v8.3.2](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.2) 于 `14:30:16Z` published。[真实tag](../../plans/274-html-learning-artifact/evidence/sources/postmerge/release278/publication/tag-ref-final.json)为直接commit ref，tag与[Release原件](../../plans/274-html-learning-artifact/evidence/sources/postmerge/release278/publication/release-final.json)target_commitish均为main `f906b1001a86d7b5415451bd973bea26e6cc3a1d`；draft=false、prerelease=false、assets=[]、latest=true、Release immutable=false，仓库immutable配置未提供，保持 **UNKNOWN**。[独立发布回执](../../plans/274-html-learning-artifact/evidence/sources/postmerge/release278/publication/publication-summary.json)于14:33:03.351Z核19项实际身份/正文/发布/规则观察均真；正文只在CRLF→LF后trim的明确范围内与实际main CHANGELOG的8.3.2节相同，不冒称原始字节全同。原API/日志、[方法](../../plans/274-html-learning-artifact/evidence/sources/postmerge/release278/publication/methods.json)及[哈希清单](../../plans/274-html-learning-artifact/evidence/sources/postmerge/release278/publication/evidence-manifest.json)保留；自动工作流成功不补造逐十三安装或缓存Python原始日志。
+
+PR278最终head的[双系统CI run39259489009](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39259489009)已取得终态：实际checkout为上述merge-ref/tree；Linux job118083116207于13:25:23Z成功，642总/641 PASS/0 FAIL/1 Windows等价大小写专用skip；Windows job118083116225于13:35:06Z成功，642/642 PASS、零skip。两端strict/baseline及各13场景、178命令均成功，实际各6 Diagram+18 LEK Python、4site生成+4静态Python（各89项零失败）；真实浏览器单元项未skip，安装smoke的browserCheck仍NOT_RUN，不冒充新消费者、桌面派发、Sites或效果测试。[CI summary](../../plans/274-html-learning-artifact/evidence/sources/postmerge/release278/ci/summary.json)、[terminal receipt](../../plans/274-html-learning-artifact/evidence/sources/postmerge/release278/ci/terminal-receipt.json)及[最终冻结回执](../../plans/274-html-learning-artifact/evidence/sources/postmerge/release278/ci/final-freeze-receipt.json)分别绑定其raw job及实际统计。
+
+额外跨平台物理字节QA[首次断言FAIL](../../plans/274-html-learning-artifact/evidence/sources/postmerge/release278/ci/terminal-first-failure.log)保留，不改称全部插件跨平台原字节一致。随后按精确Git blob[独立复现全部24份既有文本差异](../../plans/274-html-learning-artifact/evidence/sources/postmerge/release278/ci/cross-platform-newline-details.json)，仅LF与CRLF可逆转换后的哈希吻合，不做一般空白归一化；HTML guide/site资源跨平台哈希一致，每个平台内源/缓存字节一致。首次digest在重定向提取日志尚未写完时捕获空文件的观察也保留，终态流程退出后另存完整哈希清单，不覆盖原记录。
+
+| 后续项 | 当前状态 | 依赖与边界 |
+| --- | --- | --- |
+| 实际main/tag/Release公开 | PUBLISHED / SAME_TREE；APPROVAL_NOT_MET | 独立发布回执19项观察有证；上述实际身份、正文核验范围、规则缺口与发布终态分别保留 |
+| 真实公开tag的新十三安装/缓存Python | PASS / BOUNDED | 独立新验14:31:11.601–14:41:25.926Z已PASS：13/13场景、178命令全exit0、6Diagram+18LEK Python、4site生成/4静态各89/89，公开8/仓库20/显式5/自然3、site20/guide4资源摘要一致；15精确自有根均不存在、canonical无注册残留；[raw/summary](../../plans/274-html-learning-artifact/evidence/sources/postmerge/release278/posttag/summary.json)与[终态](../../plans/274-html-learning-artifact/evidence/sources/postmerge/release278/posttag/terminal-receipt.json)为本轮新原件，开始晚于公开55.601秒，未运行model/desktop/browser，不沿用65d/CI计数 |
+| 本轮发布记录PR | PREPARING | 保存真实公开及新tag结果；新tag新验通过后，修复README默认公开安装ref为真实v8.3.2并展示已公开site。当前分支codex/record-html-learning-8-3-2，继续同一任务的来源/REPORT，不预造PR号；这是本轮导航修复的P5技术安排，不将历史8.3.1三PR固定为最低前置 |
+| 完整actualmain同步回develop | NOT_STARTED / DEPENDENT | 先正常main记录PR实际合入，再正常PR同步包含该记录merge的完整实际main ancestry，核actualmerge并新复验；真实批准/CI/线程不bypass |
+| 仅Marketplace8.3.3预升 | NOT_STARTED / DEPENDENT | 仅在实际同步与复验后先DryRun再Apply，正常同步VERSION/badge/根AGENTS与A6；插件不变，不建同号发行 |
+| Owner体检/最终接受与延期 | NOT_PROVIDED / OPEN | 真实Owner决定另记；原生窗口/第二客户端等未因此通过，理解效果保持NOT_MEASURED |
+
+以下§1–3保留本次发布前的授权、范围、准备状态及预定顺序快照；其中“尚未创建”“未公开”“PENDING”等只代表当时观察，当前实际状态以上述新节和唯一主REPORT为准。当前last-verified日期仅覆盖实际公开身份和真实tag新复验，不表示原保护批准、后续记录/sync/prebump或Owner接受已通过；原准备快照中的null只属于当时。
 
 ## §1 Authorization, task and actual source
 
@@ -48,7 +71,9 @@ last-verified: null
 - **Communication**：保留[验收](./[RUNBOOK]_Communication_Kit_Acceptance.md) CLI 15 PASS/3 PARTIAL、同一桌面应用两个本机入口的限定结果；不冒充两个独立客户端、完整 Office 或所有窗口生命周期通过。
 - **治理与批准**：各历史任务、#253/#254 的已证实治理缺口与 #245 仅限本 Issue 的历史例外保持；#275 空 reviews/批准 NOT_MET及匹配规则suite实际bypass分别披露，pull_request fail（缺最新推送者外批准）、required checks pass。任何历史接受、技术 PASS、实际合入或私有 Site 发布均不替代本次 main 当前 head 的真实保护批准。
 
-## §3 Current gate ledger and execution order
+## §3 Historical preparation gate ledger and intended execution order
+
+本表为v1.0发布准备快照，保留当时各项状态；PR278实际合入/公开及已完成的真实tag新核验由本文件开头Actual publication新节接续。
 
 | Item | Current preparation state | Required evidence / next action |
 | --- | --- | --- |
@@ -85,4 +110,5 @@ last-verified: null
 
 | Version | Date | Scope |
 | --- | --- | --- |
+| v1.1 | 2026-10-19 | Append actual PR278/main/tag/Release publication, final source-bound dual-platform CI and retained byte-QA failure; keep actual Owner bypass/approval NOT_MET, fresh real-tag verification PASS, and dependent record→sync→8.3.3 preparation distinct. |
 | v1.0 | 2026-10-19 | Prepare authorized full 8.3.2 from actual #275 merge; preserve exact package/governance scope, empty reviews and source-matched bypass observation with original per-rule failure/check facts, fresh actual65d checks, pending final candidate/main gates/publication, and ordered recovery/closeout. |

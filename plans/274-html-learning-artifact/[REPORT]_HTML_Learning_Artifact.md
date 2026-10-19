@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-19
 state: active
-version: v1.5
+version: v1.6
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -17,6 +17,20 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 [任务入口](./INDEX.md) · [主 PLAN/接受来源](./[PLAN]_HTML_Learning_Artifact.md) · [Issue #274](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274) · [INTENT](../../docs/intent/[INTENT]_INT-2026-003_HTML_Learning_Artifact.md)
 
 ## Current conclusion and remaining gaps
+
+Marketplace [v8.3.2](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.2)已于2026-10-19T14:30:16Z正式公开，HTML0.1.37/site随五包八公开/五显式/三自然交付，20仓库技能保持。主发布PR278于14:28:06Z实际合入main `f906b1001a86d7b5415451bd973bea26e6cc3a1d`，direct tag/Release target同SHA；tree `6e4bc9cc31df2d1eac33e8c10907eb3725ca744d` 与source f68c及实际CI checkout4269d663相同。[出版原件与19项核对](./evidence/sources/postmerge/release278/publication/publication-summary.json)记Release417390526、workflow39269211915 attempt1 SUCCESS、正文精确对应actual main的8.3.2节、assets=[]、immutable=false；仓库immutability配置未返回，UNKNOWN。
+
+PR278实际终态新CI为Linux641/642（唯一Windows专用skip）、Windows642/642零skip，各13安装/178命令及6Diagram+18LEK/4site生成4静态（各89/89），真实browser相关case均未skip；[完整原log/方法/summary](./evidence/sources/postmerge/release278/ci/summary.json)保持。额外QA首次跨平台物理字节断言失败原件保留，24旧文本逐Git blob/hash核实仅可逆LF/CRLF，长度声明为匹配hash的Git重构值；HTML guide/site hash同，各平台内部source/cache核对原样通过，不重写失败或补造远端原字节取回。
+
+**治理与技术分记。** [真实main规则suite4601606831](./evidence/sources/postmerge/release278/publication/pr278-rule-suite.json)为Owner bypass，pull_request fail（缺最新推送者之外的批准）、required checks pass；reviews=[]，原A4保护批准仍NOT_MET。正式公开不追认275/278或旧任务批准，不构成任何以后豁免。
+
+独立新验14:31:11.601–14:41:25.926Z已PASS：13/13场景、178命令全exit0、6Diagram+18LEK Python、4site生成/4静态各89/89，公开8/仓库20/显式5/自然3、site20/guide4资源摘要一致；15精确自有根均不存在、canonical无注册残留。[本轮raw/metadata](./evidence/sources/postmerge/release278/posttag/summary.json)及[独立终态/20原件摘要](./evidence/sources/postmerge/release278/posttag/terminal-receipt.json)保留真实公开前404等待观察，非候选FAIL。开始晚于公开55.601秒；自动发布概括、65d及CI旧结果均未沿用。本批未运行model/desktop/browser验收。本记录已据新验更新公开main安装指引，通过正常PR交付；再同步包含该实际main记录合入的完整ancestry，实际同步复验后才DryRun/Apply仅市场8.3.3预升，无同号发行、插件不变。
+
+[14:39:28UTC原生回读](./evidence/sources/postmerge/release278/continuation/site-postpublication.json)确认私有代表Site仍active/原版本1/同ffaaa源码，owner/custom/users1/groups0/external0；这是一次只读metadata核对，非新browser或持续监控。私有代表Site仍为原版本1，原生窗口/第二客户端等延期不算PASS，Owner体检/最终接受未提供，理解效果NOT_MEASURED；#274继续开放。实现/技术验收、正式公开、全计划完成及Owner接受各自判断，A4批准缺项保留。
+
+本轮记录工作树本机[全测](./evidence/sources/postmerge/release278/record/html-learning-274-record-full-tests.log)642/642、零失败/跳过，随后仅修当轮状态措辞及接受表；修后[严格校验](./evidence/sources/postmerge/release278/record/html-learning-274-record-validate.log)、[CLI基线](./evidence/sources/postmerge/release278/record/html-learning-274-record-baseline.log)和[范围/原字节7项](./evidence/sources/postmerge/release278/record/html-learning-274-record-scope.json)通过。[独立语义复核](./evidence/sources/postmerge/release278/record/html-learning-274-record-review.json)的P2状态漂移已修、无剩余阻断；其364来源/旧236条未变结论只绑定该观察时点，本次再追加8份方法/日志/审查原件，不将其计为该次已审数量。冻结后重做strict并从Git blob核原件；新记录PR的最终head平台检查/批准/线程按真实PR与Issue终态回读，不借本机或PR278旧结果，不追认Owner接受。
+
+## Historical post275 preparation snapshot
 
 2026-10-19，Owner 续办“#275 PR 已合并，继续后续工作”。[#275](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/275) 实际于 `12:56:35Z` 合入 develop `65d756efd3024ac10d1d0e6ea189055fbe6f1545`；tree `d7de559f6563d8208098952f92495c1b7acca9cb` 与已测主 PR head `1a80bab5c85ae9b216f49a5d9c114770117ab2dd` 相同。子 PR276、277及主 PR275均已实际合入，开发目标已交付；[实际 Git/API 原件](./evidence/sources/postmerge/pr275-actual-git.json)与[合入回读](./evidence/sources/postmerge/pr275-merge-api.json)保留真实身份。独立 /root/post_merge_verify 的 [实际65d新验回执](./evidence/sources/postmerge/canonical65d/summary.json)已于13:00:06.401–13:10:12.179Z实际完成：13/13场景、178命令全status0，6 Diagram+18 LEK Python、4次site生成+4次静态Python（各89项零错），源/缓存47资源组及4份site各20资源核对，普通3/原生8/仓库20/显式5符合；自有新临时根无残留、worktree清单完整复原。默认keepRoot=false，宿主未切换到canonical；本次安装未运行browser/model/desktop，不改原消费者/Sites证据身份。
 
@@ -45,11 +59,11 @@ root在当前Codex桌面聊天中从同一安装locator手动显式执行Sites�
 
 ## Original meaning outcome
 
-统一接受/操作基线为[主PLAN授权记录](./[PLAN]_HTML_Learning_Artifact.md#accepted-baseline-and-authorization)与B1/U1完整快照；本表引用其稳定条目，不另造需求。限定PASS只覆盖明示版本、材料和方法。
+统一接受/操作基线为[主PLAN授权记录](./[PLAN]_HTML_Learning_Artifact.md#accepted-baseline-and-authorization)与B1/U1完整快照；本表引用其稳定条目，不另造需求，当前状态已接续实际275/278合入和v8.3.2公开。限定PASS只覆盖明示版本、材料和方法；历史快照和原始失败保留原时点。
 
 | 条目 | 实际工程证据及结果 | 原意达成/差距与处置 |
 |---|---|---|
-| C01 | 六步本地方法、3输入/7输出、12项消费及同包私有Sites | PARTIAL：1a限定流程已验，最终保护交付/发布/Owner仍未完成 |
+| C01 | 六步本地方法、3输入/7输出、12项消费及同包私有Sites；275/278已实际合入、v8.3.2已公开并新验 | PARTIAL：有界核心已交付；原保护批准NOT_MET、非核心延期和Owner最终接受独立未完成 |
 | C02 | [安装回执](./evidence/sources/engineering/html-learning-274-consumer-install.json)、guide固定四hash/源缓存比对 | 限定PASS：同包两入口/0.1.37/ReadWrite；最新head按差异复验 |
 | C03 | 四工具/主题及[消费者12项](./evidence/sources/consumer/run02/consumer-report.json) | 已实现并限定验证；不强制章节/题量，整体A4仍阻断 |
 | C04 | 真实安装locator读9参考、独立cwd与明确3输入 | 限定PASS；冻结QA原路径不是消费运行依赖 |
@@ -70,17 +84,17 @@ root在当前Codex桌面聊天中从同一安装locator手动显式执行Sites�
 | C19 | [Site回执](./evidence/sources/sites/site-result.json)：版本1/精确源/部署身份/URL/私有受众 | 限定PASS；不等于插件公开或Owner接受 |
 | C20 | CLI native两入口/真实缓存消费；桌面手动加载安装locator后调用Sites | 有限定路径实证；桌面原生菜单派发未测，公共目录资格未验证 |
 | C21 | 包资源/来源metadata/固定上游hash与许可声明、严格校验 | 已实现/部分独立核验；consumer未裁决全部上游许可，范围见role-review |
-| C22 | P0主PR275；原子子PR276已正常合入552，同已测tree；0.1.37/旧市场和其他包保持 | PARTIAL；子PR2记录及最终主保护merge/发布未完 |
-| C23 | A1–A3及内部runtime A4检查/CI/实际merge已取；最终主保护门禁未齐 | NOT_MET于整体最终交付；不把内部通过当275批准/发布 |
+| C22 | 主PR275/子PR276/277及发布PR278已实际合入，v8.3.2交付HTML0.1.37；其他包版本/guide保持 | 开发拓扑及公开已执行；275/278实际Owner bypass及reviews=[]保留，记录/sync/prebump依真实前序推进 |
+| C23 | A1–A3及A4工程、双系统CI、实际merge/公开和新tag13安装已有证据 | A4整体仍NOT_MET：275/278保护批准缺项，四门槛未全通过；公开不追认批准或延期 |
 | C24 | Owner上线后体检/最终接受无真实决定 | WAIT_OWNER_AFTER_DELIVERY；接受须真实范围/决定 |
-| C25 | 本REPORT保存版本/地址/状态/检查/限制 | PARTIAL；最终merge/发布和成品接受待补 |
+| C25 | 本REPORT已接回实际main/tag/Release、双系统CI/真实tag新验与Site原生只读状态 | 有界交付报告已更新；后续维护实际合入、成品体检/最终接受及延期另待证 |
 | P01 | Agent执行构建/检查/修复/安装/PR/Sites | 按原则执行；不冒充Owner成品接受 |
 | P02 | 独立`/root/checks_agent`内容/消费者；早期独立标准探针无代理署名；Linux P2由`/root/standards_review` | 限定PASS于实际范围；未知身份不补造，不等同GitHub批准 |
 | P03 | 未选网页状态有实测，严格待答规则保持 | PARTIAL；原生窗口/第二客户端延期不算PASS |
 | P04 | 同目标/插件/现有环境权限风险内复用授权 | 已复用；越界只停依赖，推荐不造答复 |
-| P05 | 原FAIL、641全测/strict、03092ce新缓存/9项与独立P2复测分别保留 | PARTIAL；最终CI/保护门禁与实际merge仍待 |
-| P06 | 独立输出/原件只读；Site同身份重试/私有回读，恢复计划保留 | 部分实证；无新Marketplace发布或完整恢复演练可认定 |
-| P07 | 275→develop、276→集成并已552正常merge；实际规则[]/threads0及完整CI已保存 | 内部拓扑/执行已实现；276 reviews[]不替主保护1个当前head非作者批准 |
+| P05 | 原FAIL/修后检查、最终双系统CI、275/278实际合入和公开后新13安装分别留证 | 工程有据；保护批准NOT_MET及Owner接受/延期独立，公开不抵消缺口 |
+| P06 | 独立输出/原件只读；Site同身份/私有受众回读、v8.3.2真实公开及恢复计划留证 | 有界实证；完整恢复演练与持续监控未执行，不覆盖已公开历史或扩大受众 |
+| P07 | 275→develop、276/277→集成均已合入，278→main发布及实际规则/CI留证 | 单Issue/主子PR拓扑已执行；内部reviews[]与实际275/278 bypass不替当前保护批准，后续正常门禁保持 |
 
 ## Implementation and verification ledger
 

@@ -4,7 +4,9 @@
 
 ![Version](https://img.shields.io/badge/version-8.3.2-blue)
 
-面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场，无需 MCP 服务。[Marketplace v8.3.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.1) 已于 2026-10-16 经 #253 合入 main 并自动公开，main/tag/Release 同为 4e4d4172fb27c812d3be8847f792dae5313daec8，包含完整五插件、七公开技能、四显式入口。该维护补丁保留 v8.3.0 的全部插件运行内容与版本；发布后真实标签的十三安装、6 次 Diagram＋18 次 LEK 实际 Python 和 15 项清理通过，见[发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
+面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场，无需 MCP 服务。[Marketplace v8.3.2](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.2) 已于2026-10-19经#278合入main并自动公开，main/tag/Release同为f906b1001a86d7b5415451bd973bea26e6cc3a1d；HTML Guide Kit0.1.37新增显式site，五包八公开技能/五显式。发布后从真实标签新执行的十三安装、6Diagram+18LEK Python、4site生成/静态与15根清理通过；原FAIL/延期、实际批准缺口及Owner最终接受分记，见[8.3.2发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)。
+
+历史[Marketplace v8.3.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.1) 已于 2026-10-16 经 #253 合入 main 并自动公开，main/tag/Release 同为 4e4d4172fb27c812d3be8847f792dae5313daec8，包含完整五插件、七公开技能、四显式入口。该维护补丁保留 v8.3.0 的全部插件运行内容与版本；发布后真实标签的十三安装、6 次 Diagram＋18 次 LEK 实际 Python 和 15 项清理通过，见[发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
 
 五包首次整体公开于 v8.3.0 / #241，实际发布源 ae2754dbae2a9acaedf6965ecc4a7b3df7dadd64；既有功能验收与限制保持其原始身份，不由维护补丁升级为新客户端或效果结果。
 
@@ -13,7 +15,7 @@
 | **diagram-kit / arch-diagram** | 从源码事实生成七类 Mermaid 架构/UML 图，节点与边追溯到文件行号，实际运行 Python 校验器 | 0.3.1，已随市场 v8.1.1 发布 |
 | **explain-kit / glossary、concept** | 陌生术语速解与机制、反例、边界深讲，遵从受众、语言和长度要求 | 0.1.1，已随市场 v8.1.1 发布 |
 | **learning-evidence-kit / pop-quiz、learning-record-check** | 显式诊断并移交完整记录，保留本机原件；分开核验指定记录有效性与任务应用，按授权共享 | 0.1.0，已随市场 v8.2.0 发布 |
-| **html-guide-kit / guide** | 确认读者、任务和理解问题后，新建可复制的交互教材绘制指南文本 | 0.1.36，已随市场 v8.3.0 发布；已知限制见下文 |
+| **html-guide-kit / guide、site** | guide新建聊天指南；site制作中文学习网页并按Sites流程发布 | 0.1.37，已随市场v8.3.2发布；guide运行字节和已知限制保留 |
 | **communication-kit / communicate** | 显式调用，沟通、编写与保义改写；关键缺口先问并等待，交付成稿和关键提示 | 0.1.0，已随市场 v8.3.0 发布 |
 
 历史 [Marketplace v8.1.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.1.1) 于 2026-10-10 随 #205 合入 main 自动发布，该历史版本包含 Understanding Kit 0.1.2 / pop-quiz，采用 A 仓库主标和 D 插件图标。该次发布后的四种隔离安装、图标内容比较与实际 Python 校验通过；Owner 截图、两端完整客户端记录缺项及未提供的 GitHub 独立批准见 [8.1.1 发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_1_1_Release_Readiness.md)。这些历史结果不证明新候选的客户端或窗口通过。
@@ -21,7 +23,7 @@
 ### Codex
 
 ~~~text
-codex plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace --ref v8.3.1
+codex plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace --ref v8.3.2
 codex plugin add diagram-kit@mj-agentlab-marketplace
 codex plugin add learning-evidence-kit@mj-agentlab-marketplace
 codex plugin add explain-kit@mj-agentlab-marketplace
@@ -49,13 +51,13 @@ codex plugin list --json
 
 安装后显式调用 `$html-guide-kit:guide` 并提供文档或明确对话快照。先获得 2–3 套读者、任务和理解问题选项；明确选择或修改确认后才编排。输出为聊天指南文本，篇幅按材料调整。技能能力 Read，不制作 HTML、代码或文件，不提供具体制作工具操作说明；只新建指南，既有指南修订、方案比较和 HTML 审查另属范围。使用方法见 [指南](docs/guide/[GUIDE]_HTML_Guide_Kit.md)。
 
-上面的 v8.3.0 安装包含 HTML Guide 0.1.36。已知失败与未覆盖客户端结果仍保留，见下方验收边界；开发候选安装与正式发布结果分别记录。
+上面的v8.3.2安装包含HTML Guide Kit0.1.37。guide四份运行资源保持0.1.36原字节，已知失败与未覆盖客户端结果仍保留，见下方验收边界；正式公开和真实入口资格分别记录。
 
-已合入 develop、准备随 Marketplace 8.3.2 发布的 HTML 0.1.37 增加显式 `$html-guide-kit:site`：从材料、读者/任务和理解目标出发，用包内方法、主题和工具制作中文学习网页，再按当前 Sites 流程发布。guide 四份运行资源保持原字节；候选安装、真实 Sites 交付、受保护合并、插件公开和 Owner 体检分别记录，见[使用指南](docs/guide/[GUIDE]_HTML_Learning_Artifact.md)及[任务 #274](plans/274-html-learning-artifact/INDEX.md)。上述公开标签尚不含 site；实际 #275 合入、8.3.2 发布准备及当前保护门禁见[8.3.2 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)。
+HTML0.1.37已随Marketplace8.3.2公开，增加显式 `$html-guide-kit:site`：从材料、读者/任务和理解目标出发，用包内方法、主题和工具制作中文学习网页，再按当前 Sites 流程发布。guide 四份运行资源保持原字节；候选安装、真实 Sites 交付、受保护合并、插件公开和 Owner 体检分别记录，见[使用指南](docs/guide/[GUIDE]_HTML_Learning_Artifact.md)及[任务 #274](plans/274-html-learning-artifact/INDEX.md)。该公开标签包含site；实际合入、公开与发布后验证见[8.3.2 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)。
 
 ### ChatGPT desktop
 
-在 repo marketplace 中核对标签 v8.3.0 与插件版本；索引包含上列五包。既有桌面端安装、发现和实际调用证据按其原来源和客户端身份登记，没有执行新的发布后界面验收。代理执行可用自动化；能力限制和延期入口据实记录，CLI 发现不替代桌面或窗口证据。
+在repo marketplace中核对实际标签v8.3.2与插件版本；索引包含上列五包。既有桌面端安装、发现和实际调用证据按其原来源和客户端身份登记，没有执行新的发布后界面验收。代理执行可用自动化；能力限制和延期入口据实记录，CLI 发现不替代桌面或窗口证据。
 
 ### Learning Evidence Kit
 
@@ -79,7 +81,7 @@ Communication 0.1.0 已随 v8.3.0 发布。安装后显式调用 `$communication
 
 ### Development
 
-README badge 跟随当前 checkout 的 VERSION。8.3.2 已完成预升，当前准备正式发布；公开安装仍固定真实 v8.3.1，待新 tag/Release 实际公开后更新。#274 的 P5 授权覆盖本次正式发布与必要后续操作，当前 main 保护批准、检查、发布和 Owner 接受分开记录于[8.3.2 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)。历史 #254/同步/预升结果见[8.3.1 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
+README badge跟随当前checkout的VERSION，公开安装固定真实v8.3.2。当前记录分支保持8.3.2；包含本记录实际merge的完整main同步并复验后，才准备仅市场8.3.3预升，不创建同号发行。P5授权、当前保护门禁、公开、Owner接受与延期分记于[8.3.2账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)；历史#254/同步/预升见[8.3.1账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
 
 历史 Learning [8.2.0 Release](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.2.0) 于 2026-10-13 发布。#241 已将完整五包作为 v8.3.0 公开，Diagram 0.3.1、Learning Evidence 0.1.0、Explain 0.1.1、Communication 0.1.0、HTML 0.1.36 均保持实际版本。后续同步与未发布补丁预升须经独立 PR 和实际门禁，见[8.3.0 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。共用 Learning 脚本归属安装包，不依赖仓库过渡路径。
 

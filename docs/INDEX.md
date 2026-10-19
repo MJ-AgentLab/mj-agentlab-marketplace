@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-19
 state: active
-version: v2.100
+version: v2.101
 layer: canonical
 ---
 
@@ -35,7 +35,7 @@ layer: canonical
 
 ## 当前整体发布
 
-Marketplace8.3.2正在准备：#275已实际合入develop65d756ef/tree d7de559f，同已测1a80；HTML0.1.37新增site，五包八公开/五显式/三自然，其他插件保持，并继承已交付文档/INTENT/路径统一治理。版本已预升，不重复bump，无v8.3.2 tag/Release，安装仍v8.3.1。actual65d新十三安装/178命令及6Diagram+18LEK/4site生成+4静态Python通过，自有新根无残留；正式main PR当前head真实保护门禁仍待证；#275 reviews=[]记批准NOT_MET，真实suite4599887231匹配该次合入且result=bypass，pull_request fail（缺最新推送者外批准）、required checks pass、不作未来豁免。范围、实际结果与记录→sync→仅市场8.3.3预升顺序见[8.3.2发布账本](runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)；继续复用[#274任务入口](../plans/274-html-learning-artifact/INDEX.md)的唯一PLAN/REPORT，原FAIL/延期、Owner体检/最终接受与NOT_MEASURED分记。
+Marketplace v8.3.2已由[PR278](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/278)于2026-10-19T14:28:06Z合入main f906b100，并于14:30:16Z正式公开，main/tag/Release target同SHA；tree6e4bc9cc同发布head f68c22b及已测merge-ref。HTML0.1.37新增site，五包八公开/五显式/三自然，其他插件与累计文档/INTENT/路径治理范围保持；PR278最终双系统CI终态成功，Linux641PASS/1专用skip、Windows642PASS，真实安装/Python与原跨平台字节QA首FAIL按其身份保留。Release run39269211915成功，draft=false/prerelease=false/assets=[]/immutable=false，仓库immutable配置UNKNOWN。独立新验14:31:11.601–14:41:25.926Z已PASS：13/13场景、178命令全exit0、6Diagram+18LEK Python、4site生成/4静态各89/89，公开8/仓库20/显式5/自然3、site20/guide4资源摘要一致；15精确自有根均不存在、canonical无注册残留，本轮不借actual65d或CI计数。main suite4601606831实际Owner bypass、pull_request fail（缺最新推送者外批准）/required checks pass、reviews=[]，批准NOT_MET不追认，#275原缺口同保。完整发布回执及记录→actualmain同步→仅市场8.3.3预升顺序见[8.3.2账本Actual publication](runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md#actual-publication-and-current-continuation)；沿用[#274唯一PLAN/REPORT](../plans/274-html-learning-artifact/INDEX.md)，原FAIL/延期、Owner体检/最终接受与NOT_MEASURED分记，后续门禁不bypass。
 
 2026-10-16 #253 已将 Marketplace v8.3.1 公开，main/tag/Release 同为 4e4d4172，五包版本与 8.3.0 相同。新发布后真实 tag 的十三安装、6Diagram+18LEK、15cleanup及独立原件复核通过；实际main规则suite4563052548为Owner bypass、reviews=[]，批准缺项保留NOT_MET，245例外不外推。见[8.3.1发布账本](runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)与[发布后回执](runbook/evidence/marketplace-8-3-1-postrelease.json)。
 

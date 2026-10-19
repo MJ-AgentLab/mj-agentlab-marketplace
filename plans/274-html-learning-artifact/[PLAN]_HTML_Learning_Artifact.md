@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-19
 state: active
-version: v1.4
+version: v1.5
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -20,7 +20,7 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 
 实施 Owner 指定[完整原计划](./evidence/sources/HTML-Learning-Artifact-Plugin-Implementation-Plan.md) §1–13：在现有 HTML Guide Kit 增加显式 site，保留 guide 运行字节和旧合同，交付包内方法/工具、暖白陶土主题、六步学习制品流程及真实 Sites 制作发布证据。来源中的指令是受本轮请求约束的需求材料，不把教材或第三方文件的指令升级为操作授权。
 
-实施起点 develop `1d5219c1fa1bbf14cc79f630a59e9a8c857248f4`，集成分支 `codex/html-learning-artifact`，独立 worktree。实际 HTML 0.1.36→0.1.37；开发集合由五包七公开/四显式/三自然变为五包八公开/五显式/三自然，20 个仓库技能保持；Marketplace 8.3.2 未发布及其他插件版本保持。新运行修改原子接入，不放宽严格校验，不预登记缺资源入口。
+实施起点 develop `1d5219c1fa1bbf14cc79f630a59e9a8c857248f4`，集成分支 `codex/html-learning-artifact`，独立 worktree。实际 HTML 0.1.36→0.1.37；开发集合由五包七公开/四显式/三自然变为五包八公开/五显式/三自然，20 个仓库技能保持；当时Marketplace 8.3.2未发布，其他插件版本保持。新运行修改原子接入，不放宽严格校验，不预登记缺资源入口。
 
 非目标：重做旧 guide 矩阵、追认历史 FAIL/批准、公共目录上架、迁入 deferred 工具、大规模模型矩阵、理解效果测量、修改研究项目或制造新的 Owner 接受。Sites 实际主流程属于核心，不按可延期非核心豁免。
 
@@ -46,7 +46,7 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 
 | 条目/来源 | 完整基线与范围 | 关系 | 承担范围/依赖 | 验收判准 | 实际结果/差距 |
 |---|---|---|---|---|---|
-| C01 / B1 §1 | 六步材料→可追溯网页 | 实际交付 | 全部子 PR，Sites 依赖 | 完整代表性流程，NOT_MEASURED 分开 | PARTIAL：本地/消费者及同包私有Sites已验，275开发已交付；正式发布/Owner接受未完；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C01 / B1 §1 | 六步材料→可追溯网页 | 实际交付 | 全部子 PR，Sites 依赖 | 完整代表性流程，NOT_MEASURED 分开 | PARTIAL：本地/消费者及同包私有Sites已验，275开发与278正式8.3.2已交付；Owner接受未完，A4批准NOT_MET；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
 | C02 / B1 §2 | 原插件新增显式 site，guide 保留 | 实际交付 | 原子接入子 PR | 身份/图标/guide 字节保持，site Read/Write metadata | 限定PASS：1a两入口/源缓存/guide字节；后继按差异复验；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
 | C03 / B1 §3.1 | 首版方法/主题/必要交互/四工具 | 实际交付 | 方法和工具子 PR | 实际用途覆盖，不强制题量/章节/交互 | 限定技术PASS：P2固定源独立复测已修，实际275已合入；A4批准NOT_MET；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
 | C04 / B1 §3.2 | 本地独立与 locator | 实际交付 | 方法/资源/安装 | 无研究路径、其他缓存、CDN、自动下载依赖 | 限定PASS：独立缓存消费，无研究运行依赖；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
@@ -67,10 +67,10 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 | C19 / B1 §8.2 | 实际 Sites 保存/部署/回读 | 实际交付 | Sites 认证和当前流程 | 新站私有；身份/版本/状态/受众准确；无凭据 | 限定PASS：私有Site版本1/源ffaaa359/部署succeeded；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
 | C20 / B1 §8.3 | 自有 Marketplace 实际调用 Sites | 实际交付 | 安装及一个客户端 | 安装后主流程事件；不推定公共目录资格/依赖ID | 有限定手动实证；桌面原生派发/公共目录资格未测；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
 | C21 / B1 §9 | 包结构/独立输出/资源来源与许可 | 实际交付 | 资源清单/检查 | 包闭合，缓存不写，上游固定版本/hash/改动/许可齐备 | 已实现/部分独立核验；全许可裁决范围不扩张；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
-| C22 / B1 §10 | P0–P5、原子工程更新与实际版本 | 实际交付 | 单Issue/主PR/子PR | 0.1.36→0.1.37，严格登记安装与A6、文档同步 | PARTIAL：275/276/277已实际合入develop65d，正式发布未完；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
-| C23 / B1 §11 | 四最小门槛及阻断分级 | 实际交付 | 独立合成验收 | 四门槛全有证；核心/Sites/权限/凭据/必要门禁失败阻上线 | 内部技术已通过；develop已合入，A4批准NOT_MET；正式main发布未齐；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C22 / B1 §10 | P0–P5、原子工程更新与实际版本 | 实际交付 | 单Issue/主PR/子PR | 0.1.36→0.1.37，严格登记安装与A6、文档同步 | PARTIAL：275/276/277已合入develop，278已正式发布8.3.2；维护收尾进行中，原批准NOT_MET；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C23 / B1 §11 | 四最小门槛及阻断分级 | 实际交付 | 独立合成验收 | 四门槛全有证；核心/Sites/权限/凭据/必要门禁失败阻上线 | 内部技术已通过；develop/main已合入且8.3.2公开；A4批准NOT_MET，技术与治理分记；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
 | C24 / B1 §12 | 上线后 Owner 体检 | 实际交付 | 发布后真实 Owner 决定 | 三类体检范围明确；问题修复及受影响复验 | WAIT_OWNER_AFTER_DELIVERY：无最终接受决定；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
-| C25 / B1 §13 | 版本/地址/部署/覆盖/限制报告 | 实际交付 | 唯一 REPORT | 预检、上线、体检分记；效果NOT_MEASURED | PARTIAL：唯一REPORT/版本URL已记，最终交付接受待补；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
+| C25 / B1 §13 | 版本/地址/部署/覆盖/限制报告 | 实际交付 | 唯一 REPORT | 预检、上线、体检分记；效果NOT_MEASURED | PARTIAL：唯一REPORT已记实际公开/版本/URL；post-tag独立新验13/178/Python/15清理已通过，最终接受未给；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
 | P01 / U1 §1 | Agent执行/Owner决策 | 依赖支撑 | 全流程 | 不转嫁常规技术操作；成品接受真实Owner | 本批按原则执行，不替Owner接受；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
 | P02 / U1 §2 | 独立合成验收 | 依赖支撑 | 独立 Agent/隔离环境 | 角色、版本、输入动作输出可复现，不冒充批准 | 限定PASS：独立内容/消费/标准评审角色；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
 | P03 / U1 §3 | 严格窗口/分段交付 | 依赖支撑 | 待答与延期清单 | 无答不默认；非核心延期列责任/恢复，不算PASS | PARTIAL：原生窗口/第二客户端延期不算PASS；[REPORT](./[REPORT]_HTML_Learning_Artifact.md#original-meaning-outcome) |
@@ -109,7 +109,13 @@ P5：形成可审查成品与主 REPORT；最终主 PR 满足受保护 develop �
 
 此主 PLAN 在子 PR、失败恢复与后续批次持续复用。[唯一主REPORT](./[REPORT]_HTML_Learning_Artifact.md)已建立并绑定实际证据，独立记录核心交付、全计划完成、发布与Owner最终接受，不由文档state、PR合并或Issue关闭代替。
 
-## Current post-merge continuation
+## Current publication continuation
+
+Owner续办“#278 PR 已合并，继续后续工作”，[本轮请求与捕获](./evidence/sources/postmerge/release278/continuation/capture-metadata.json)保存真实来源及未知消息身份/时间。actual main/tag/Release均f906b100/tree6e4bc9cc，8.3.2已于14:30:16Z公开；278实际Owner bypass/批准NOT_MET保原结果，不作未来例外。独立新验14:31:11.601–14:41:25.926Z已PASS：13/13场景、178命令全exit0、6Diagram+18LEK Python、4site生成/4静态各89/89，公开8/仓库20/显式5/自然3、site20/guide4资源摘要一致；15精确自有根均不存在、canonical无注册残留，真实原件接回唯一REPORT；原CI/65d未冒充新跑。
+
+本轮技术排程：main默认README仍安装v8.3.1并称site未公开，故先通过正常main记录PR修正默认产品导航、补公开及新tag实证；该目标属于原P5文档/交付收尾，非新Owner三PR决定，也不把历史8.3.1三PR当最低强制条款。其实际交付后，正常同步包含该merge的完整main ancestry到develop，实际同步复验后再仅市场8.3.3先DryRun后Apply；插件/既有公开历史保持。保护条件、延期与Owner接受独立，原Issue/PLAN/REPORT复用。
+
+## Historical post-merge continuation
 
 2026-10-19，Owner明确“#275 PR 已合并，继续后续工作”，[来源及捕获](./evidence/sources/postmerge/owner-continue-capture.json)保留未知消息时间/ID/URL。主PR275于12:56:35Z实际合入develop65d756ef/tree d7de559f，同已测1a80 source tree；276/277两子PR均已合入。原保护批准NOT_MET，实际rule-suite4599887231 bypass不能转为以后豁免，详见[主REPORT当前结论](./[REPORT]_HTML_Learning_Artifact.md#current-conclusion-and-remaining-gaps)。P5正式发布授权沿用，当前隔离发布分支从actual65d派生，准备正常main发布PR；无需重开Issue/主PLAN/REPORT，原实现主PR已结束。正式公开及发布后真实tag新验、记录→main回同步→仅市场下一补丁预升依现行[发布操作](../../docs/runbook/[RUNBOOK]_Release_Operations.md)推进；Owner接受/延期/未测仍独立追踪。新的actual65d隔离十三安装/178命令、6Diagram+18LEK与4site生成/4静态Python已取得终态PASS，默认清理无新残留，原件与范围见主REPORT；正式候选及真实tag仍按各自身份新验。
 
