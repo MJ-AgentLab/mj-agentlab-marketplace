@@ -1,0 +1,254 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-19T15:22:10.958Z",
+  "checks": {
+    "actualPrMerge": true,
+    "exactPrHeadBase": true,
+    "actualMain": true,
+    "exactParents": true,
+    "sameSourceTree": true,
+    "sameTestedPotentialTree": true,
+    "exactDevelop": true,
+    "developFullAncestry": true,
+    "publishedMainFullAncestry": true,
+    "exactMatchedSuite": true,
+    "bypassActuallyObserved": true,
+    "approvalFailureActuallyObserved": true,
+    "requiredStatusActuallyPassed": true,
+    "reviewsActuallyEmpty": true,
+    "publishedTagUnchanged": true,
+    "releaseIdentityUnchanged": true,
+    "publishedVersions": true,
+    "publishedBodyMatches": true,
+    "publishedSectionPreservedInNewMain": true,
+    "actualPublishedState": true,
+    "actualAssetsEmpty": true,
+    "developRulesActual": true
+  },
+  "actual": {
+    "pr": 279,
+    "merge": "e3dc40f734fc972e05956da3e908091e09963675",
+    "mergedAt": "2026-10-19T15:17:09Z",
+    "tree": "ae121f6b256d1a44ea05a06061ba025b605655d9",
+    "source": "315b5942a3a61c6bf7ab17513b8263496bd7a48a",
+    "testedPotentialMerge": "687b70abd58a8556ee566c74c340dd66480fe407",
+    "testedPotentialTree": "ae121f6b256d1a44ea05a06061ba025b605655d9",
+    "parents": [
+      "f906b1001a86d7b5415451bd973bea26e6cc3a1d",
+      "315b5942a3a61c6bf7ab17513b8263496bd7a48a"
+    ],
+    "main": "e3dc40f734fc972e05956da3e908091e09963675",
+    "develop": "65d756efd3024ac10d1d0e6ea189055fbe6f1545",
+    "localOriginRefsMatch": true
+  },
+  "ancestry": {
+    "develop": {
+      "status": "ahead",
+      "ahead": 4,
+      "behind": 0,
+      "mergeBase": "65d756efd3024ac10d1d0e6ea189055fbe6f1545"
+    },
+    "publishedMain": {
+      "status": "ahead",
+      "ahead": 2,
+      "behind": 0,
+      "mergeBase": "f906b1001a86d7b5415451bd973bea26e6cc3a1d"
+    }
+  },
+  "governance": {
+    "status": "NOT_MET_BYPASS_OBSERVED",
+    "suite": 4602541728,
+    "before": "f906b1001a86d7b5415451bd973bea26e6cc3a1d",
+    "after": "e3dc40f734fc972e05956da3e908091e09963675",
+    "ref": "refs/heads/main",
+    "result": "bypass",
+    "actor": "ranzuozhou",
+    "pushedAt": "2026-10-19T23:17:09+08:00",
+    "reviews": [],
+    "evaluations": [
+      {
+        "type": "pull_request",
+        "result": "fail",
+        "details": "New changes require approval from someone other than the last pusher.",
+        "source": {
+          "type": "ruleset",
+          "id": 14008213,
+          "name": "protect-main"
+        }
+      },
+      {
+        "type": "required_status_checks",
+        "result": "pass",
+        "source": {
+          "type": "ruleset",
+          "id": 14008213,
+          "name": "protect-main"
+        }
+      },
+      {
+        "type": "creation",
+        "result": "pass",
+        "source": {
+          "type": "ruleset",
+          "id": 14008213,
+          "name": "protect-main"
+        }
+      },
+      {
+        "type": "non_fast_forward",
+        "result": "pass",
+        "source": {
+          "type": "ruleset",
+          "id": 14008213,
+          "name": "protect-main"
+        }
+      },
+      {
+        "type": "deletion",
+        "result": "pass",
+        "source": {
+          "type": "ruleset",
+          "id": 14008213,
+          "name": "protect-main"
+        }
+      }
+    ]
+  },
+  "activeRules": {
+    "main": [
+      {
+        "type": "deletion",
+        "ruleset_source_type": "Repository",
+        "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+        "ruleset_id": 14008213
+      },
+      {
+        "type": "non_fast_forward",
+        "ruleset_source_type": "Repository",
+        "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+        "ruleset_id": 14008213
+      },
+      {
+        "type": "creation",
+        "ruleset_source_type": "Repository",
+        "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+        "ruleset_id": 14008213
+      },
+      {
+        "type": "pull_request",
+        "parameters": {
+          "required_approving_review_count": 1,
+          "dismiss_stale_reviews_on_push": true,
+          "required_reviewers": [],
+          "require_code_owner_review": true,
+          "dismissal_restriction": {
+            "enabled": false,
+            "allowed_actors": []
+          },
+          "require_last_push_approval": true,
+          "required_review_thread_resolution": true,
+          "require_extra_approval_for_unattributed_changes": true,
+          "allowed_merge_methods": [
+            "merge"
+          ]
+        },
+        "ruleset_source_type": "Repository",
+        "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+        "ruleset_id": 14008213
+      },
+      {
+        "type": "required_status_checks",
+        "parameters": {
+          "strict_required_status_checks_policy": true,
+          "do_not_enforce_on_create": false,
+          "required_status_checks": [
+            {
+              "context": "Validate Structure"
+            }
+          ]
+        },
+        "ruleset_source_type": "Repository",
+        "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+        "ruleset_id": 14008213
+      }
+    ],
+    "develop": [
+      {
+        "type": "deletion",
+        "ruleset_source_type": "Repository",
+        "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+        "ruleset_id": 14008221
+      },
+      {
+        "type": "pull_request",
+        "parameters": {
+          "required_approving_review_count": 1,
+          "dismiss_stale_reviews_on_push": true,
+          "required_reviewers": [],
+          "require_code_owner_review": false,
+          "dismissal_restriction": {
+            "enabled": false,
+            "allowed_actors": []
+          },
+          "require_last_push_approval": true,
+          "required_review_thread_resolution": true,
+          "require_extra_approval_for_unattributed_changes": true,
+          "allowed_merge_methods": [
+            "merge"
+          ]
+        },
+        "ruleset_source_type": "Repository",
+        "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+        "ruleset_id": 14008221
+      },
+      {
+        "type": "required_status_checks",
+        "parameters": {
+          "strict_required_status_checks_policy": true,
+          "do_not_enforce_on_create": false,
+          "required_status_checks": [
+            {
+              "context": "Validate Structure"
+            },
+            {
+              "context": "A6 / Check"
+            }
+          ]
+        },
+        "ruleset_source_type": "Repository",
+        "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+        "ruleset_id": 14008221
+      },
+      {
+        "type": "non_fast_forward",
+        "ruleset_source_type": "Repository",
+        "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+        "ruleset_id": 14008221
+      }
+    ]
+  },
+  "release": {
+    "id": 417390526,
+    "tag": "v8.3.2",
+    "target": "f906b1001a86d7b5415451bd973bea26e6cc3a1d",
+    "directTag": "f906b1001a86d7b5415451bd973bea26e6cc3a1d",
+    "publishedAt": "2026-10-19T14:30:16Z",
+    "updatedAt": "2026-10-19T14:30:16Z",
+    "draft": false,
+    "prerelease": false,
+    "assets": [],
+    "immutable": false,
+    "immutableConfiguration": "UNKNOWN",
+    "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.2",
+    "version": "8.3.2",
+    "currentMainVersion": "8.3.2",
+    "publishedBodyHashNormalized": "c86f0d612d462c66b60e493bd405e6afc0126407567f77edcde01f2f63801aad",
+    "observedBodyHashNormalized": "c86f0d612d462c66b60e493bd405e6afc0126407567f77edcde01f2f63801aad",
+    "currentMainSectionHashNormalized": "c86f0d612d462c66b60e493bd405e6afc0126407567f77edcde01f2f63801aad",
+    "normalization": "CRLF-to-LF then trim"
+  },
+  "exclusions": [
+    "No fresh actual-e3dc canonical installation, Python execution, full test suite, browser run or Owner acceptance performed in this audit.",
+    "Prior candidate 315/687 checks are not renamed as actual-merge runs."
+  ]
+}

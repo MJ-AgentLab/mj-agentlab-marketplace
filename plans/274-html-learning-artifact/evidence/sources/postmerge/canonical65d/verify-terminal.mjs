@@ -1,0 +1,35 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+const root=path.resolve(process.argv[2]);
+const read=f=>JSON.parse(fs.readFileSync(path.join(root,f),'utf8'));
+const raw=read('raw-result.json'),meta=read('execution-metadata.json'),summary=read('summary.json');
+const files=fs.readdirSync(path.join(root,'perf')).filter(f=>f.endsWith('.ndjson'));
+if(files.length!==1)throw new Error('Expected exactly one perf rawfile');
+const perf=fs.readFileSync(path.join(root,'perf',files[0]),'utf8').trim().split('\n').map(l=>JSON.parse(l));
+const scenarios=raw.scenarios;
+const commands=scenarios.flatMap(s=>s.commands);
+const actual={scenarios:scenarios.length,commands:commands.length,diagram:commands.filter(c=>c.args.some(a=>String(a).endsWith('/scripts/validate_diagram.py')||String(a).endsWith('\\scripts\\validate_diagram.py'))).length,lek:commands.filter(c=>c.args.some(a=>String(a).endsWith('/scripts/lek.py')||String(a).endsWith('\\scripts\\lek.py'))).length,render:commands.filter(c=>c.args.some(a=>String(a).endsWith('render-site.mjs'))).length,static:commands.filter(c=>c.args.some(a=>String(a).endsWith('check_artifact.py'))).length};
+if(JSON.stringify(Object.values(actual))!==JSON.stringify([13,178,6,18,4,4]))throw new Error('Actual counts mismatch');
+if(scenarios.some(s=>!s.ok||s.version!=='codex-cli 0.147.0')||commands.some(c=>c.status!==0))throw new Error('Unsuccessful scenario/command');
+const resources=new Map();
+for(const s of scenarios)for(const [skill,files]of Object.entries(s.installedResources)){
+ const bytes=JSON.stringify(files);
+ if(resources.has(skill)&&resources.get(skill)!==bytes)throw new Error(`Resource hash differs between scenarios: ${skill}`);
+ resources.set(skill,bytes);
+}
+const siteResources=JSON.parse(resources.get('html-guide-kit:site'));
+if(Object.keys(siteResources).length!==20)throw new Error('Site must have 20 resources');
+const scenarioCopies=perf.filter(p=>p.phase==='copy'&&p.details.stage==='scenario');
+const scenarioRoots=scenarioCopies.map(p=>path.dirname(p.details.destinationRoot));
+const firstCopy=perf.find(p=>p.phase==='copy'&&p.details.stage==='template');
+const canonicalRoot=path.dirname(firstCopy.details.sourceRoot),templateRoot=path.dirname(firstCopy.details.destinationRoot);
+const cleanupRoots=[...scenarioRoots,canonicalRoot,templateRoot].map(p=>({path:p,exists:fs.existsSync(p)}));
+if(cleanupRoots.length!==15||cleanupRoots.some(r=>r.exists))throw new Error('Task-owned roots incomplete cleanup');
+const cleanupEvents=perf.filter(p=>p.phase==='cleanup');
+if(cleanupEvents.length!==15||cleanupEvents.some(p=>p.status!=='ok')||perf.some(p=>p.status!=='ok'))throw new Error('Unsuccessful cleanup/phase');
+const srcFiles=['execution-metadata.json','execution.log','raw-result.json','resource-hashes.json','summary.json','verify-canonical.mjs',`perf/${files[0]}`];
+const receipts=srcFiles.map(f=>{const b=fs.readFileSync(path.join(root,f));return{file:f,bytes:b.length,sha256:crypto.createHash('sha256').update(b).digest('hex')};});
+const receipt={schema:1,status:'PASS',verifiedAt:new Date().toISOString(),canonicalSha:meta.canonicalSha,canonicalTree:meta.canonicalTree,actualCounts:actual,allCommandStatuses:[...new Set(commands.map(c=>c.status))],publicSkillCount:resources.size,siteResources:Object.keys(siteResources).length,resourceHashesStableAcrossAllScenarios:true,cleanup:{events:cleanupEvents.length,successful:cleanupEvents.every(p=>p.status==='ok'),all15TaskRootsRemoved:true,roots:cleanupRoots},rawEvidence:receipts,limits:summary.limits};
+fs.writeFileSync(path.join(root,'terminal-receipt.json'),JSON.stringify(receipt,null,2)+'\n');
+console.log(JSON.stringify(receipt,null,2));

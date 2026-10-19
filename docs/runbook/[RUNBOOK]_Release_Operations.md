@@ -4,14 +4,27 @@ scope: marketplace
 summary: "Draft-first Git/tag release with install verification and immutable history"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-16
+updated: 2026-10-19
 state: active
-version: v2.9.10
+version: v2.10.2
+layer: canonical
 ---
 
 # [RUNBOOK] Release operations
 
 ## Preparation
+
+当前同步准备（2026-10-19）：[记录PR279](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/279)已于15:17:09Z实际合入main e3dc40f734fc972e05956da3e908091e09963675/tree ae121f6b，与已测315b5942及merge-ref687b70ab同树，parents f906+315b；完整ancestry已含develop65d。Marketplace公开tag/Release仍为v8.3.2/f906，不把新记录main当新tag。PR279双系统CI39272665913终态成功：Linux641PASS/平台专用skip1（总642）、Windows642PASS/零skip，各13场景/178命令、实际6Diagram+18LEK Python及4生成+4静态各89/89，4browser case未skip；16清理名TAP不等于逐根absence，push39272636618仅列success。实际suite4602541728匹配f906→e3dc为Owner bypass，pull_request FAIL缺latest-pusher外批准、其余4规则PASS，reviews=[]，批准仍NOT_MET。独立actualmain e3dc新验15:18:57.732–15:29:31.902Z已PASS：13场景/178命令全exit0、6Diagram18LEK Python、4site生成4静态各89/89，site20/guide4资源一致，15精确自有根absence且完整worktree清单及hostHEAD复原，新原件另存，不借CI/tag计数。当前codex/sync-main-8-3-2从完整e3dc派生，向受保护develop65d准备正常PR，尚无编号；当前head真实1非作者/last-push批准、Validate Structure+A6、线程和latestbase须满足，Agent不bypass。只有actualsync真实合入及新复验后才8.3.3 DryRun/Apply，插件不变、无同号发行；当前证据及恢复见[8.3.2账本当前节](./[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md#current-record-merge-and-synchronization)与[#274唯一REPORT](../../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#current-record-merge-and-synchronization)，Owner接受/延期/效果NOT_MEASURED分记。
+
+下段“当前续办”为PR279实际合入前的v2.10.1记录准备快照；其中记录分支与后续依赖只代表当时状态，当前actualmain新验和同步准备以上段为准。
+
+当前续办（2026-10-19）：[PR278](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/278)已于14:28:06Z实际合入main f906b100/tree6e4bc9cc，与发布head f68c22b及双系统CI的merge-ref4269d663同树。v8.3.2已于14:30:16Z正式公开，tag/Release target同f906，自动发布run39269211915于14:30:24Z成功；Release draft=false/prerelease=false/assets=[]/latest=true/immutable=false，仓库immutable配置UNKNOWN。独立发布回执19项实际观察均有证，正文在CRLF→LF后trim范围内与actualmain CHANGELOG对应节相同。原main suite4601606831为实际Owner bypass，pull_request fail（缺latest-pusher外批准）/required checks pass、reviews=[]，批准仍NOT_MET，不追认批准或未来豁免。独立新验14:31:11.601–14:41:25.926Z已PASS：13/13场景、178命令全exit0、6Diagram+18LEK Python、4site生成/4静态各89/89，公开8/仓库20/显式5/自然3、site20/guide4资源摘要一致；15精确自有根均不存在、canonical无注册残留；未沿用准备候选或CI计数，新tag原件与边界见本账本。当前codex/record-html-learning-8-3-2记录真实公开及复验，后继正常main→develop同步与仅市场8.3.3预升严格依真实前序，均不得提前记PASS。完整身份、发布/PR278终态CI回执、原失败及恢复见[8.3.2账本Actual publication](./[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md#actual-publication-and-current-continuation)和同一[#274任务](../../plans/274-html-learning-artifact/INDEX.md)；Owner体检/最终接受、非核心延期与NOT_MEASURED继续独立。
+
+下段“当前任务”为8.3.2发布前准备原快照，保留其当时未创建PR/未公开状态；后续真实PR278及公开事实以上段和新账本为准。
+
+当前任务（2026-10-19）：#275 已于12:56:35Z实际合入develop65d756ef，tree d7de559f与已测1a80相同，HTML0.1.37新增site；完整候选为五包八公开/五显式/三自然，其他插件版本与运行保持。正式发布沿用[#274主PLAN](../../plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md)P5授权，隔离分支codex/release-html-learning-8-3-2向main7615ca58准备正常release PR；编号尚未创建，不预造。Marketplace8.3.2已由#255同步后#256预升，不重复bump，无新版tag/Release，安装仍v8.3.1。actual65d已于13:00:06–13:10:12Z新13安装/178命令、6Diagram+18LEK及4site生成/静态Python通过，自有新根无残留；不借旧候选计数。#275 reviews=[]、批准NOT_MET；匹配before1d5219/after65d的真实suite4599887231为bypass，pull_request fail（缺最新推送者外批准）、required checks pass，不构成后续例外。main当前head的真实非作者/最新推送批准、适用code-owner要求、Validate Structure及其他required checks、最新base和线程必须满足后才普通合并，再draft-first公开并从真实tag新十三安装/实际Python。完整范围、历史限制、停止恢复及发布后记录→sync→仅市场8.3.3预升顺序见[8.3.2账本](./[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)；Owner体检/最终接受和理解效果另记，不为常规构建重复求批准。
+
+以下2026-10-16同步准备文字保留为当时快照；后继#255/#256已完成的实际同步/8.3.2预升以上述当前任务与根AGENTS记录为准，不将历史PENDING当作现状。
 
 当前同步任务（2026-10-16）：第1步发布记录 #254 已合入 actual main7615ca58/treeb323（同已测6a4），治理仍为suite4563644321 bypass/reviews=[]/批准NOT_MET；actual761 的新精确十三安装与实际缓存 Python 已通过。第2步复用既有隔离工作区，以 codex/sync-main-8-3-1 从真实 main761 派生，准备向 develop6df 提正常同步 PR；新候选 CI/真实批准/线程及实际 sync 后精确十三安装均待完成。第3步仅在 actual sync 交付并复验后，才准备 Marketplace 8.3.1→8.3.2 VERSION/badge 与 AGENTS 正常A6；当前 NOT_STARTED/DEPENDENT，不 apply、不改插件、不创建8.3.2 tag/Release。原8.3.1 tag/Release仍4e4，#245例外不外推。来源、实际结果与顺序见 [8.3.1账本](./[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
 
@@ -33,6 +46,18 @@ scripts/run-release.mjs 从指定 SHA 读取 VERSION 与 CHANGELOG，要求 SHA 
 
 ## Post-release
 
+当前阶段：记录PR279已实际交付到main e3dc，公开tag仍f906；独立actualmain e3dc新验15:18:57.732–15:29:31.902Z已PASS：13场景/178命令全exit0、6Diagram18LEK Python、4site生成4静态各89/89，site20/guide4资源一致，15精确自有根absence且完整worktree清单及hostHEAD复原。同步分支已继承记录merge的完整main ancestry，当前准备受保护develop PR，不能将“已派生分支”当actualsync交付。后续真实同步merge取得新复验后，才先DryRun再Apply仅市场8.3.3预升，VERSION/badge/根AGENTS正常A6同步、插件不变，不创建v8.3.3 tag/Release；真实批准/CI/线程/latestbase逐PR满足，Agent不bypass。actualmain新验PASS及同步PR后续终态的原件由同一[REPORT当前节](../../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#current-record-merge-and-synchronization)接续。
+
+下段为PR279合入前的发布后导航修复安排快照，记录PR已由实际279交付；其未执行部分按上段实际同步及复验条件继续，不将旧待办重启为新任务。
+
+Marketplace v8.3.2已实际公开，独立发布审计和真实tag新13安装/178命令、实际Python及15根清理均已PASS。本轮main记录PR保存公开/复验原件，将README默认公开安装ref从v8.3.1改为真实v8.3.2，并展示已公开site。这是当前产品导航修复，不把历史8.3.1的三个PR编号或当时准备状态作为本轮完成条件。记录PR正常实际合入后，再将包含该merge的完整actualmain ancestry通过正常PR同步回develop并复验，最后才从实际同步结果DryRun/Apply仅Marketplace8.3.2→8.3.3预升，插件版本保持、无v8.3.3 tag/Release。后续当前head真实批准、CI、最新base与线程均须满足；本轮实际bypass不授权代理再次bypass。具体身份与未完成项见[8.3.2账本](./[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md#actual-publication-and-current-continuation)。
+
+下段为本次发布前快照，原“尚未公开”不代表当前事实；其预定顺序继续适用，完成情况只以上段和新账本实际证据判断。
+
+本轮8.3.2尚未公开，以下旧发布记录保持各自历史时点。当前发布完成后才按[8.3.2账本](./[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)先保存真实公开/新tag核验，再正常同步完整main回develop，最后DryRun/Apply仅市场8.3.3预升；三步不提前记完成、插件不变、无同号新发行。
+
+下段为#254合入后的历史同步准备快照；#255实际同步及#256实际8.3.2预升已接续，不改写当时尚待执行的原记录。
+
 发布记录 #254 已实际合入 main7615ca58f410876fc7393b0d93017250fe712091/treeb323da8a764120c23544ef9b65df479d9ca7a20f，与已测6a4同树。actual761 新核验：UTC15:03:12.936–15:04:07.552Z、wall54616.4894ms，十三安装/170命令零错、6Diagram+18LEK、130phases全ok/15cleanup及15自有根absence；52源哈希保持、实际19→19完整列表相同，canonical AGENTS未测，无新full/24/model/UI。宿主保持原6a4，目标为不同的actual761；计数不得借自候选/4e4旧批次。原suite4563644321 bypass、reviews=[]、批准NOT_MET保留；actual merge与技术结果不追认批准，后续sync/pre-bump继续正常门禁。当前第二步同步准备中、实际develop merge及其精确复验待完成，第三步依赖actualsync且未apply；原#253公开身份与限定客户端证据均保持。详见 [8.3.1账本§3.3](./[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)与[汇总回执 recordPRPostMerge 附录](evidence/marketplace-8-3-1-postrelease.json)。
 
 Marketplace v8.3.1 已通过 #253 于 2026-10-16T14:27:14Z 合入 main4e4d4172，tree9824218 与已测 b830 相同；direct tag/Release target 同4e4，bot于14:28:02Z公开，workflow38915888301 attempt1 SUCCESS。发布后14:30:44–14:31:40Z新tag批次十三安装/170命令、6 Diagram+18 LEK Python、130成功phases/15cleanup及15自有根absence通过，51源哈希与实际18→18登记列表保持；宿主b830未切，canonical AGENTS未测。内部发布工作流不补造逐十三/Python raw。原suite4563052548为bypass/approval fail、reviews=[]，治理NOT_MET不因技术PASS改写；HTML FAIL、Learning延期、Communication PARTIAL及所有客户端/效果限制保持。完整原件、独立核验与新授权三PR收尾顺序见 [8.3.1 账本](./[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)及[发布后汇总回执](evidence/marketplace-8-3-1-postrelease.json)。
@@ -52,6 +77,12 @@ v8.0.0 的标签、自动发布及合并后安装复查已记录在 [发布记�
 历史带 wheel/checksum 的 v7.x 发布保留原资产。本次无资产状态机若被手工指向这类历史版本会拒绝重跑，不尝试修复、删除或覆盖资产；验证/noop 只适用于本次及后续无资产版本。
 
 ## Current closeout revision
+
+v2.10.2 (2026-10-19): Record actual PR279/main record merge separately from unchanged v8.3.2 tag f906; retain source-bound matrix results and approval NOT_MET/Owner bypass, fresh actualmain checks PASS, and protected develop sync preparation before any 8.3.3 DryRun/Apply.
+
+v2.10.1 (2026-10-19): Record actual PR278/main/tag/Release 8.3.2 publication and preserve Owner bypass/approval NOT_MET; record fresh real-tag verification PASS; the record PR, actual main sync and Marketplace-only 8.3.3 preparation remain dependent under ordinary protected gates. Preserve the prior preparation text as dated history.
+
+v2.10.0 (2026-10-19): Prepare authorized 8.3.2 from actual #275 with new HTML site and inherited governance; retain empty reviews and matched rule-suite bypass without invented rule details, pending main protection/publication and fresh checks, and preserve old synchronization snapshots as history.
 
 v2.9.5 (2026-10-15): Append actual five-package publication and fresh post-publication installation receipts, retain limited R05 and missing independent reviews; distinguish resumed maintenance from the prior release task stop boundary.
 

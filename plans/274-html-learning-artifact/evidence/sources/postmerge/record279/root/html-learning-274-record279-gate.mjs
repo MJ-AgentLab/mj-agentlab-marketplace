@@ -1,0 +1,17 @@
+import fs from 'node:fs';
+import {execFileSync} from 'node:child_process';
+import assert from 'node:assert/strict';
+const cwd='C:/Users/Admin/.codex/worktrees/html-learning-artifact/develop',repo='MJ-AgentLab/mj-agentlab-marketplace';
+const gh=args=>JSON.parse(execFileSync('gh',args,{cwd,encoding:'utf8',maxBuffer:8*1024*1024}));
+const pr=gh(['pr','view','279','--json','number,url,state,isDraft,author,headRefOid,baseRefOid,baseRefName,headRefName,mergeStateStatus,reviewDecision,reviews,statusCheckRollup,potentialMergeCommit']);
+const reviews=gh(['api',`repos/${repo}/pulls/279/reviews`]);
+const threads=gh(['api','graphql','-f','query=query { repository(owner:"MJ-AgentLab",name:"mj-agentlab-marketplace") { pullRequest(number:279) { reviewThreads(first:100) { nodes { id isResolved isOutdated } pageInfo { hasNextPage endCursor } } } } }']);
+const rules=gh(['api',`repos/${repo}/rules/branches/main`]);
+const main=gh(['api',`repos/${repo}/git/ref/heads/main`]);
+const merge=pr.potentialMergeCommit?gh(['api',`repos/${repo}/git/commits/${pr.potentialMergeCommit.oid}`]):null;
+const threadList=threads.data.repository.pullRequest.reviewThreads;
+const expectedHead='315b5942a3a61c6bf7ab17513b8263496bd7a48a',expectedBase='f906b1001a86d7b5415451bd973bea26e6cc3a1d',expectedTree='ae121f6b256d1a44ea05a06061ba025b605655d9';
+const assessment={expectedHead:pr.headRefOid===expectedHead,expectedBase:pr.baseRefOid===expectedBase&&main.object.sha===pr.baseRefOid,candidateTreeSameAsHead:merge?.tree.sha===expectedTree,threadPageComplete:!threadList.pageInfo.hasNextPage,unresolvedThreads:threadList.nodes.filter(t=>!t.isResolved).length,approvedReviews:reviews.filter(r=>r.state==='APPROVED').map(r=>({login:r.user.login,commit:r.commit_id,submittedAt:r.submitted_at})),reviewDecision:pr.reviewDecision,pendingChecks:pr.statusCheckRollup.filter(c=>c.status!=='COMPLETED').map(c=>c.name),failedChecks:pr.statusCheckRollup.filter(c=>c.status==='COMPLETED'&&!['SUCCESS','SKIPPED','NEUTRAL'].includes(c.conclusion)).map(c=>({name:c.name,conclusion:c.conclusion})),agentPolicy:'Ordinary merge only after all current protected gates; no bypass, no self-approval, historical Owner bypass and P5 authorization do not replace current non-author approval'};
+assert(assessment.expectedHead);assert(assessment.expectedBase);assert(assessment.candidateTreeSameAsHead);
+const result={capturedAt:new Date().toISOString(),pr,reviews,threads:threadList,rules,main,merge,assessment};
+fs.writeFileSync('C:/Users/Admin/AppData/Local/Temp/html-learning-274-record279-gate-current.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({capturedAt:result.capturedAt,...assessment,rules:rules.map(r=>({type:r.type,parameters:r.parameters}))}));

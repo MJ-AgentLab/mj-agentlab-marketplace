@@ -1,0 +1,134 @@
+{
+  "baseRefOid": "7615ca58f410876fc7393b0d93017250fe712091",
+  "body": "main 的公开版本尚无 site 入口。本 PR 将已由 #275 交付到 develop 的 HTML Guide Kit 0.1.37 与累计工程治理推广为 Marketplace 8.3.2，保留旧 guide 运行字节和其他四插件版本。沿用 #274 主 PLAN 的 P5 发布授权；VERSION 已预升，本次不重复 bump。\n\n### Highlights\n\n- 显式 `$html-guide-kit:site`：六步本地制作方法、暖白主题、Markdown 渲染、真实静态/浏览器检查及当前 Sites 交接合同。\n- 完整发行范围还包含已合入的 #257 文档分层、#263 INTENT、#269 计划路径统一，以及对应 Harness/CI；冻结来源、原 FAIL 和各任务接受边界保留。\n- 五包版本：Diagram 0.3.1 / Learning Evidence 0.1.0 / Explain 0.1.1 / HTML Guide 0.1.37 / Communication 0.1.0。八公开技能、五显式/三自然、20 仓库技能。\n\n### 来源与验证\n\nFrom v8.3.1 → v8.3.2；main基础`7615ca58f410876fc7393b0d93017250fe712091`；发布head`f68c22b563fab661b803576058c8a08619c6738a` / tree`6e4bc9cc31df2d1eac33e8c10907eb3725ca744d`，完整继承actualdevelop`65d756efd3024ac10d1d0e6ea189055fbe6f1545`。\n\nactual65d 独立新验（13:00:06.401–13:10:12.179 UTC）：13/13安装、178命令全成功；实际6 Diagram+18 LEK Python、4site生成和4静态Python（各89/89）。15自有临时根全部移除，资源摘要跨场景一致。完整原输出、方法、资源哈希及终态清理回执在原任务的 `evidence/sources/postmerge/canonical65d/`。\n\n此前主PR275已测同树的双系统CI：Windows642/642零skip；Linux641/642，仅Windows大小写专用skip1；两端各十三安装及实际Python。新的发布候选服务端完整矩阵仍按当前head的实际终态判断，不借旧CI充当新跑。\n\n发布准备本机完整重跑 **642/642 PASS、零skip/cancel**，144项文档/INTENT/发布相关与9项site定向修后全部通过；strict通过，236份来源原字节闭包通过，Codex0.147.0精确匹配，52条累计提交约定通过。完整重跑使用已有Python解释器，没有产品/fixture/门禁改动；新head服务CI终态另据事实。\n\n独立Agent审查发现的过时规则状态和A4表述已修正；本轮新增包说明任务链接曾造成隔离用例1 FAIL，已删除仓库任务依赖，原失败和修后结果分别保存。既有历史失败不追认通过。\n\n### 审核要点\n\n- [x] `[Unreleased]` 已整理为正式8.3.2节；8.3.1及更早已发布正文原字节保持。\n- [x] VERSION与badge为8.3.2；五包索引、严格清单和安装预期一致；无重复版本更新。\n- [x] 插件根manifest版本与CHANGELOG一致；发行准备提交相对actual65d仅整理HTML README/CHANGELOG表述，技能/工具/guide/图标未改；完整main差异包含上述site扩展。\n- [x] 实际入口证据、源身份和延期清单已绑定原REPORT；没有宣称完整双客户端或原生窗口通过。\n- [ ] 当前head required checks、真实非作者/最新推送批准、最新base及线程门禁全部满足。由平台终态回读；Agent不代批或bypass。\n- [x] #274 P5已授权正式发布，监控、停止条件、已知良好v8.3.1与私有Sites版本1恢复路径已具体登记。\n- [x] Communication运行未变，既有8.2→8.3依赖及R01–R05历史保留；Refs #222，不新增其验收或效果结论。\n- [x] 无调试缓存、凭据或非预期材料；原用户计划和原200份冻结来源保持。\n- [x] 无未处理核心技术阻断；真实保护批准仍是本PR合入的必要条件。\n\n### 风险、发布与接受边界\n\n#275 实际rule-suite4599887231为Owner bypass，pull_request fail、required checks pass，reviews=[]，批准NOT_MET。该历史结果不提供本PR例外。main当前要求1个真实非作者批准、最新推送/适用code-owner批准、Validate Structure、最新base和已解决线程；全部满足后才普通合并。\n\nVERSION合入main触发既有draft-first发布：核实际main/tag/Release同SHA、正文、published/assets/immutability，再从真实tag新做十三安装及实际缓存Python，随后记录→完整main回同步develop→仅市场下一补丁8.3.3先DryRun再Apply正常PR。公开历史不覆盖，异常停止新增发布并前向修复；私有站受众保持。\n\n代表站：[Library Renewal · 续借判断](https://html-learning-artifact-274.zuozhouran.chatgpt.site)，版本1，合成材料，owner-only。保留HTML #239 FAIL、原生持续窗口/桌面原生派发/第二客户端/全面可访问性延期、Learning延期、Communication PARTIAL及所有Owner接受缺项。理解效果NOT_MEASURED；#274保持开放，插件发布与网页部署、完整计划及Owner最终接受分记。\n\n### 可复现本地验证与AI判断\n\n上列本地结果、完整运行原件和当前来源闭包支持本次技术准备；最终候选平台矩阵与保护批准另据事实。AI判断：范围与既有P5授权一致，可进入正常main审查；这不是GitHub批准或Owner产品接受。\n\n详见 [8.3.2发布账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)、[唯一主REPORT](plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md)和[CHANGELOG](CHANGELOG.md)。\n\nRefs #274, #257, #263, #269, #222.\n\n\n<!-- RELEASE278_FINAL_GATE -->\n### 冻结head后的平台终态与当前保护门禁\n\nrun [39259489009](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39259489009) 整体SUCCESS；实际checkout为合并候选4269d663，parents7615/f68c，tree6e4bc9cc与冻结head相同。\n\n| 平台 | 完整测试 | 实际安装与Python |\n|---|---|---|\n| [Linux原job](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39259489009/job/118083116207) | 641/642 PASS，唯一skip为Windows大小写专用项 | 13组合/178命令全成功；6Diagram+18LEK+4site生成+4静态，各静态89/89 |\n| [Windows原job](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39259489009/job/118083116225) | 642/642 PASS，零skip | 13组合/178命令全成功；6Diagram+18LEK+4site生成+4静态，各静态89/89 |\n\n四个浏览器相关用例在两端均未跳过；安装smoke中的browserCheck仍为NOT_RUN，不将其冒称代表性消费者/桌面原生窗口或效果测试。独立提取方法、完整原日志、metadata与终态摘要已保存；Linux log SHA256为c3a9ba8dfc6d4b344d9d49c0ed388ecd8b59ee8969f40449ea619553def70b04，Windows为d6dae54ce2da739b5d6455e4223f15ed6cf33f645678194d881a065c374240bb。57原件最终清单SHA256为cb4e65e558d3fb610b81f6d0c6621fe6a50f59c6ba0394f440cbbd37e64ba0d0。\n\n额外QA首次“全部资源跨平台物理字节一致”断言失败原件保留。24个旧文本hash已逐文件对应实际Git blob的可逆LF/CRLF表示，仅转换0A/0D0A，无其他空白归一化；长度注明为匹配hash的Git重构值。HTML guide/site跨平台hash一致，各平台内部source/cache原字节校验原样通过，原CI本身未失败。\n\n2026-10-19T13:38:49.964Z门禁回读：Structure/A6/两个完整矩阵均成功，无pending/failed checks，未解决线程0，head/base/候选tree保持；reviews=[]、REVIEW_REQUIRED，**main非作者批准仍NOT_MET**，不能普通合并或进入发布。2026-10-19T13:38:44.422Z回读v8.3.2 tag/Release均不存在。P5发布授权保持，保护批准不能由AI自检替代。\n\n13:30 UTC一次原生站点回读保持同一active Site/版本1/源码ffaaa359及owner-only受众（users1/groups0/external0）；不是新浏览器或持续监控。该提交内账本/REPORT为创建PR前准备快照，冻结head后的平台事实先由本PR/Issue承接，后续实际合入/公开回执接回同一主REPORT。\n<!-- END_RELEASE278_FINAL_GATE -->\n",
+  "headRefOid": "f68c22b563fab661b803576058c8a08619c6738a",
+  "isDraft": false,
+  "mergeStateStatus": "BLOCKED",
+  "number": 278,
+  "reviewDecision": "REVIEW_REQUIRED",
+  "reviews": [],
+  "state": "OPEN",
+  "statusCheckRollup": [
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-19T13:21:37Z",
+      "conclusion": "SKIPPED",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39259474602/job/118083066332",
+      "name": "Cancel proved superseded PR runs (best effort)",
+      "startedAt": "2026-10-19T13:21:37Z",
+      "status": "COMPLETED",
+      "workflowName": "CI — Validate Plugin Structure"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-19T13:21:55Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39259488908/job/118083114034",
+      "name": "A6 / Check",
+      "startedAt": "2026-10-19T13:21:46Z",
+      "status": "COMPLETED",
+      "workflowName": "A6 — AGENTS.md Sync Allowlist"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-19T13:30:02Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39260641062/job/118087062605",
+      "name": "A6 / Check",
+      "startedAt": "2026-10-19T13:29:50Z",
+      "status": "COMPLETED",
+      "workflowName": "A6 — AGENTS.md Sync Allowlist"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-19T13:40:54Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39262184248/job/118092415948",
+      "name": "A6 / Check",
+      "startedAt": "2026-10-19T13:40:44Z",
+      "status": "COMPLETED",
+      "workflowName": "A6 — AGENTS.md Sync Allowlist"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-19T13:21:53Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39259489009/job/118083115800",
+      "name": "Cancel proved superseded PR runs (best effort)",
+      "startedAt": "2026-10-19T13:21:46Z",
+      "status": "COMPLETED",
+      "workflowName": "CI — Validate Plugin Structure"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-19T13:21:43Z",
+      "conclusion": "SKIPPED",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39259489009/job/118083118028",
+      "name": "Prove equivalent PR matrix for this push (read only)",
+      "startedAt": "2026-10-19T13:21:44Z",
+      "status": "COMPLETED",
+      "workflowName": "CI — Validate Plugin Structure"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-19T13:21:50Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39259474602/job/118083064758",
+      "name": "Prove equivalent PR matrix for this push (read only)",
+      "startedAt": "2026-10-19T13:21:40Z",
+      "status": "COMPLETED",
+      "workflowName": "CI — Validate Plugin Structure"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-19T13:22:02Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39259489009/job/118083115873",
+      "name": "Validate Structure",
+      "startedAt": "2026-10-19T13:21:46Z",
+      "status": "COMPLETED",
+      "workflowName": "CI — Validate Plugin Structure"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-19T13:21:55Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39259474602/job/118083064267",
+      "name": "Validate Structure",
+      "startedAt": "2026-10-19T13:21:40Z",
+      "status": "COMPLETED",
+      "workflowName": "CI — Validate Plugin Structure"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-19T13:21:50Z",
+      "conclusion": "SKIPPED",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39259474602/job/118083176243",
+      "name": "Baseline compat (${{ matrix.os }})",
+      "startedAt": "2026-10-19T13:21:51Z",
+      "status": "COMPLETED",
+      "workflowName": "CI — Validate Plugin Structure"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-19T13:25:23Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39259489009/job/118083116207",
+      "name": "Baseline compat (ubuntu-latest)",
+      "startedAt": "2026-10-19T13:21:46Z",
+      "status": "COMPLETED",
+      "workflowName": "CI — Validate Plugin Structure"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-19T13:35:06Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39259489009/job/118083116225",
+      "name": "Baseline compat (windows-latest)",
+      "startedAt": "2026-10-19T13:21:46Z",
+      "status": "COMPLETED",
+      "workflowName": "CI — Validate Plugin Structure"
+    }
+  ],
+  "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/278"
+}

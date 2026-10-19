@@ -1,0 +1,367 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "verifiedAt": "2026-10-19T13:37:16.536Z",
+  "run": 39259489009,
+  "pr": 278,
+  "head": "f68c22b563fab661b803576058c8a08619c6738a",
+  "base": "7615ca58f410876fc7393b0d93017250fe712091",
+  "actualCheckedOutSha": "4269d6632dab28f6d0aaa78dea38ad5b3b66a072",
+  "actualCheckedOutTree": "6e4bc9cc31df2d1eac33e8c10907eb3725ca744d",
+  "parents": [
+    "7615ca58f410876fc7393b0d93017250fe712091",
+    "f68c22b563fab661b803576058c8a08619c6738a"
+  ],
+  "headAndMergeTreesEqual": true,
+  "linux": {
+    "job": 118083116207,
+    "tap": {
+      "tests": 642,
+      "suites": 0,
+      "pass": 641,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 1,
+      "todo": 0
+    },
+    "commands": 178,
+    "executionCounts": {
+      "diagramPython": 6,
+      "lekPython": 18,
+      "siteGeneration": 4,
+      "siteStaticPython": 4
+    },
+    "rawLogSha256": "c3a9ba8dfc6d4b344d9d49c0ed388ecd8b59ee8969f40449ea619553def70b04"
+  },
+  "windows": {
+    "job": 118083116225,
+    "tap": {
+      "tests": 642,
+      "suites": 0,
+      "pass": 642,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "commands": 178,
+    "executionCounts": {
+      "diagramPython": 6,
+      "lekPython": 18,
+      "siteGeneration": 4,
+      "siteStaticPython": 4
+    },
+    "rawLogSha256": "d6dae54ce2da739b5d6455e4223f15ed6cf33f645678194d881a065c374240bb"
+  },
+  "sourceToCacheByteIdentityPassedOnEachPlatform": true,
+  "crossPlatformPhysicalByteIdentity": {
+    "allPlugins": false,
+    "legacy24DifferencesProvenAsLFCRLFOnly": true,
+    "htmlGuideAndSite": true,
+    "details": "cross-platform-newline-verification.json"
+  },
+  "inventory": {
+    "public": 8,
+    "repository": 20,
+    "natural": 3,
+    "explicit": 5,
+    "siteResources": 20
+  },
+  "browserUnitCasesPassedWithoutSkip": true,
+  "instrumentationObservations": [
+    {
+      "firstTerminalCheck": "terminal-first-failure.log",
+      "script": "verify-release-terminal.mjs",
+      "explanation": "The extra all-plugin cross-platform physical-byte equality assertion failed. All 24 differences were independently reproduced from the exact Git blobs by LF/CRLF conversion; this is not a CI/source-to-cache verification failure. Original failed check and script preserved."
+    },
+    {
+      "priorManifest": "evidence-digests.json",
+      "mismatches": [
+        {
+          "file": "extraction.log",
+          "previousBytes": 0,
+          "actualBytes": 12474,
+          "previousSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "actualSha256": "21400ea8453b7f02a51d9f40a37a11183d3a307b8961e27ff361e6bd627871b7"
+        }
+      ],
+      "explanation": "The first digest manifest was produced before redirected extraction.log finished writing; preserve it unchanged. This terminal receipt hashes final bytes after process exit. Raw GitHub job logs and metadata were unchanged."
+    }
+  ],
+  "files": [
+    {
+      "file": "capture-metadata.mjs",
+      "bytes": 1563,
+      "sha256": "5326d68f7b323eed1e146ae6d027681a56c3551f31597253daa72d77b4ab85af"
+    },
+    {
+      "file": "cross-platform-newline-verification.json",
+      "bytes": 10956,
+      "sha256": "188205a296d18d0e7d80764a69b8baf3b560aa903281ddf465e901031eefb7e9"
+    },
+    {
+      "file": "download-job.mjs",
+      "bytes": 1283,
+      "sha256": "03990963e31f6412e36513c1b39042eeea4166251c3447a593a3f3aaffafe9f0"
+    },
+    {
+      "file": "evidence-digests.json",
+      "bytes": 7868,
+      "sha256": "8e8565c7e0fb6ad1dbafd4f72d5d6e97c6e5badc5095d50236fd0c8b6ddaf414"
+    },
+    {
+      "file": "extract-linux-preview.py",
+      "bytes": 524,
+      "sha256": "1218f53eca889b87a1af4817da5df5331702bad1abb04e2e76c7d7e0676eb368"
+    },
+    {
+      "file": "extract-release-ci.py",
+      "bytes": 8653,
+      "sha256": "90844ca180d864f4e352bc0871f3871cadc0ef5efac8e2e643e09aff1e154c57"
+    },
+    {
+      "file": "extraction.log",
+      "bytes": 12474,
+      "sha256": "21400ea8453b7f02a51d9f40a37a11183d3a307b8961e27ff361e6bd627871b7"
+    },
+    {
+      "file": "head-final.json",
+      "bytes": 1509,
+      "sha256": "3fe64b3fb5f8191cda91fba4d8bad54aaff451ce65ef7afbf81839b5e4a52b17"
+    },
+    {
+      "file": "head-initial.json",
+      "bytes": 1509,
+      "sha256": "3fe64b3fb5f8191cda91fba4d8bad54aaff451ce65ef7afbf81839b5e4a52b17"
+    },
+    {
+      "file": "linux-job-completed.json",
+      "bytes": 3507,
+      "sha256": "cfebb6c76d0132b343e0f5c067828dadfd4fa8741f5d21768b67510577acc2df"
+    },
+    {
+      "file": "linux-job-final.json",
+      "bytes": 3507,
+      "sha256": "cfebb6c76d0132b343e0f5c067828dadfd4fa8741f5d21768b67510577acc2df"
+    },
+    {
+      "file": "linux-job-initial.json",
+      "bytes": 3053,
+      "sha256": "6f59af4955ecd882e3195930b949ceb74538e3d92ce9b79a86e479ff0aba7863"
+    },
+    {
+      "file": "linux-job.log",
+      "bytes": 966886,
+      "sha256": "c3a9ba8dfc6d4b344d9d49c0ed388ecd8b59ee8969f40449ea619553def70b04"
+    },
+    {
+      "file": "linux-log-receipt.json",
+      "bytes": 343,
+      "sha256": "e2a7df1e480bd75a474958b8c13d4afd4d0e1951c8d0f9f4ccf1f2830a8367d7"
+    },
+    {
+      "file": "linux-smoke.json",
+      "bytes": 427238,
+      "sha256": "fe43442c06a72e7a4dd5b0519f878b370f4f43b94b4e95e5da68d13b56389214"
+    },
+    {
+      "file": "linux-summary.json",
+      "bytes": 4808,
+      "sha256": "865c95b533ab992e95f0e2c195cb279a5060edcaee797a7801e62a0060abee3f"
+    },
+    {
+      "file": "merge-final.json",
+      "bytes": 2776,
+      "sha256": "00c8c2da36e71c844ebfdf841a054e1ff595f5b752960ecc1f696983da6b9257"
+    },
+    {
+      "file": "merge-initial.json",
+      "bytes": 2776,
+      "sha256": "00c8c2da36e71c844ebfdf841a054e1ff595f5b752960ecc1f696983da6b9257"
+    },
+    {
+      "file": "pr-final.json",
+      "bytes": 359,
+      "sha256": "aa12ca918903e1d8b4138b30d864dbfac9cd3df407980901449eef91c05a5016"
+    },
+    {
+      "file": "pr-initial.json",
+      "bytes": 359,
+      "sha256": "aa12ca918903e1d8b4138b30d864dbfac9cd3df407980901449eef91c05a5016"
+    },
+    {
+      "file": "pr-progress-01.json",
+      "bytes": 359,
+      "sha256": "aa12ca918903e1d8b4138b30d864dbfac9cd3df407980901449eef91c05a5016"
+    },
+    {
+      "file": "pr-progress-02.json",
+      "bytes": 359,
+      "sha256": "aa12ca918903e1d8b4138b30d864dbfac9cd3df407980901449eef91c05a5016"
+    },
+    {
+      "file": "pr-progress-03.json",
+      "bytes": 359,
+      "sha256": "aa12ca918903e1d8b4138b30d864dbfac9cd3df407980901449eef91c05a5016"
+    },
+    {
+      "file": "pr-progress-04.json",
+      "bytes": 359,
+      "sha256": "aa12ca918903e1d8b4138b30d864dbfac9cd3df407980901449eef91c05a5016"
+    },
+    {
+      "file": "pr-progress-05.json",
+      "bytes": 359,
+      "sha256": "aa12ca918903e1d8b4138b30d864dbfac9cd3df407980901449eef91c05a5016"
+    },
+    {
+      "file": "pr-progress-06.json",
+      "bytes": 359,
+      "sha256": "aa12ca918903e1d8b4138b30d864dbfac9cd3df407980901449eef91c05a5016"
+    },
+    {
+      "file": "pr-progress-07.json",
+      "bytes": 359,
+      "sha256": "aa12ca918903e1d8b4138b30d864dbfac9cd3df407980901449eef91c05a5016"
+    },
+    {
+      "file": "pr-progress-08.json",
+      "bytes": 359,
+      "sha256": "aa12ca918903e1d8b4138b30d864dbfac9cd3df407980901449eef91c05a5016"
+    },
+    {
+      "file": "pr-progress-09.json",
+      "bytes": 359,
+      "sha256": "aa12ca918903e1d8b4138b30d864dbfac9cd3df407980901449eef91c05a5016"
+    },
+    {
+      "file": "pr-progress-10.json",
+      "bytes": 359,
+      "sha256": "aa12ca918903e1d8b4138b30d864dbfac9cd3df407980901449eef91c05a5016"
+    },
+    {
+      "file": "pr-progress-11.json",
+      "bytes": 359,
+      "sha256": "aa12ca918903e1d8b4138b30d864dbfac9cd3df407980901449eef91c05a5016"
+    },
+    {
+      "file": "run-final.json",
+      "bytes": 8579,
+      "sha256": "c1411378891f0501a795acc7c83a49ca150ee9be5b8704a0840d6e96c14ac2a4"
+    },
+    {
+      "file": "run-initial.json",
+      "bytes": 8142,
+      "sha256": "a2e40ff9aa7112d17706234494de3b88aea72788169a5f22a0856ea711950757"
+    },
+    {
+      "file": "run-progress-01.json",
+      "bytes": 8169,
+      "sha256": "dc2d6a06ac0e7bf9c30de25ec7b9ee0c1dcdd96560cadaaeaf3551561e49c08d"
+    },
+    {
+      "file": "run-progress-02.json",
+      "bytes": 8169,
+      "sha256": "dc2d6a06ac0e7bf9c30de25ec7b9ee0c1dcdd96560cadaaeaf3551561e49c08d"
+    },
+    {
+      "file": "run-progress-03.json",
+      "bytes": 8358,
+      "sha256": "2146936e9b0c7a0e3531a20e81165621ad971b049f4e0a693a7ffc5d39ff6514"
+    },
+    {
+      "file": "run-progress-04.json",
+      "bytes": 8358,
+      "sha256": "2146936e9b0c7a0e3531a20e81165621ad971b049f4e0a693a7ffc5d39ff6514"
+    },
+    {
+      "file": "run-progress-05.json",
+      "bytes": 8385,
+      "sha256": "a5e4eb2b00b2989cbc6fe6aca54a23d81bf3e0d26cb08ab3f54a70a9c6f869d9"
+    },
+    {
+      "file": "run-progress-06.json",
+      "bytes": 8385,
+      "sha256": "a5e4eb2b00b2989cbc6fe6aca54a23d81bf3e0d26cb08ab3f54a70a9c6f869d9"
+    },
+    {
+      "file": "run-progress-07.json",
+      "bytes": 8385,
+      "sha256": "a5e4eb2b00b2989cbc6fe6aca54a23d81bf3e0d26cb08ab3f54a70a9c6f869d9"
+    },
+    {
+      "file": "run-progress-08.json",
+      "bytes": 8385,
+      "sha256": "a5e4eb2b00b2989cbc6fe6aca54a23d81bf3e0d26cb08ab3f54a70a9c6f869d9"
+    },
+    {
+      "file": "run-progress-09.json",
+      "bytes": 8385,
+      "sha256": "a5e4eb2b00b2989cbc6fe6aca54a23d81bf3e0d26cb08ab3f54a70a9c6f869d9"
+    },
+    {
+      "file": "run-progress-10.json",
+      "bytes": 8385,
+      "sha256": "a5e4eb2b00b2989cbc6fe6aca54a23d81bf3e0d26cb08ab3f54a70a9c6f869d9"
+    },
+    {
+      "file": "run-progress-11.json",
+      "bytes": 8579,
+      "sha256": "c1411378891f0501a795acc7c83a49ca150ee9be5b8704a0840d6e96c14ac2a4"
+    },
+    {
+      "file": "summary.json",
+      "bytes": 12474,
+      "sha256": "21400ea8453b7f02a51d9f40a37a11183d3a307b8961e27ff361e6bd627871b7"
+    },
+    {
+      "file": "terminal-first-failure.log",
+      "bytes": 767,
+      "sha256": "54a87fb5d95f8ea645b974261f58da1b5ac9c79338955fd1624d828c21b6d9dd"
+    },
+    {
+      "file": "verify-release-terminal-v2.mjs",
+      "bytes": 5557,
+      "sha256": "4e50274c65d05930affd17a89fe879e1f3026dd39d90b30669e8bf7f40619195"
+    },
+    {
+      "file": "verify-release-terminal.mjs",
+      "bytes": 3139,
+      "sha256": "3e0535e695ec34606021e715a5e5726f7afd881944a979e81c2cd38e94ca1589"
+    },
+    {
+      "file": "windows-job-completed.json",
+      "bytes": 3509,
+      "sha256": "f5591bb392e39760e7183c1476e42332579e9b4d5af5b8a2774b9a140830c9b5"
+    },
+    {
+      "file": "windows-job-final.json",
+      "bytes": 3509,
+      "sha256": "f5591bb392e39760e7183c1476e42332579e9b4d5af5b8a2774b9a140830c9b5"
+    },
+    {
+      "file": "windows-job-initial.json",
+      "bytes": 3055,
+      "sha256": "351aef84692b85c8e9b4d37e22b17d0d5d3a6b8b1fa50bca776f36dfd27cae05"
+    },
+    {
+      "file": "windows-job.log",
+      "bytes": 1036412,
+      "sha256": "d6dae54ce2da739b5d6455e4223f15ed6cf33f645678194d881a065c374240bb"
+    },
+    {
+      "file": "windows-log-receipt.json",
+      "bytes": 346,
+      "sha256": "ed919b9770738918cad48e270a92485f9c1e3f86989dbafc19cc95a59fff6c4c"
+    },
+    {
+      "file": "windows-smoke.json",
+      "bytes": 481054,
+      "sha256": "6a4dbc81937a5139647f9a07f16903ebf6e62d83a62fddfd23f338b5b3afd51a"
+    }
+  ],
+  "limits": [
+    "The matrix does not replace protected current-head non-author approval, thread resolution, actual merge, publication, or Owner acceptance.",
+    "The actual browser unit case exercises desktop/mobile layout and induced overflow/clipping/wrapping. Installation smoke browserCheck remains NOT_RUN; no representative consumer, desktop menu, Sites access-scope or learning-effect test is inferred from this matrix."
+  ]
+}

@@ -5,11 +5,23 @@
 
 ## [Unreleased]
 
+### Documentation
+
+- Synchronize complete actual main e3dc40f7, including merged publication-record PR279, back into develop. Preserve v8.3.2 runtime/plugin identities and public tag f906, freeze exact record-candidate CI and actual-merge audit evidence, and keep actual synchronization verification and marketplace-only 8.3.3 preparation dependent. Retain approval NOT_MET, original failures, deferred entries and Owner-acceptance boundaries. Refs #274.
+
+- Record actual #278 / v8.3.2 main, tag and Release identities, exact published notes, final two-system candidate CI and fresh real-tag thirteen-install/Python/cleanup evidence. Update the default public installation pointer to v8.3.2 and expose the already-published site entry. Preserve actual Owner bypass, empty reviews, original QA failures, newline representation limits and all deferred/Owner-acceptance boundaries. Keep runtime/plugin versions and published history unchanged; complete main synchronization before the marketplace-only next-patch preparation. Refs #274.
+
+## [8.3.2] - 2026-10-19
+
+HTML Learning Artifact and engineering-governance update: HTML Guide Kit 0.1.37, with Diagram 0.3.1, Learning Evidence 0.1.0, Explain 0.1.1 and Communication 0.1.0 unchanged. Five packages expose eight skills, including five explicit entries. VERSION was already prepared as 8.3.2; this promotion does not bump it again. Refs #274.
+
 ### Added
 
 - Add the explicit HTML Learning Artifact site entry in HTML Guide Kit 0.1.37: six local production steps, Chinese teaching content with stable English terms, warm-paper assets, a Markdown renderer and actual static/browser checks, plus the current Sites handoff contract. Preserve guide runtime bytes, plugin identity, approved icon and all historical acceptance. INT-2026-003 and #274 retain the complete input, current authorization, staged evidence and remaining publication/Owner acceptance boundaries.
 
 ### Documentation
+
+The following entries preserve their original preparation stages. Tasks #257, #263 and #269 have since merged to develop; current release status and retained gaps are recorded in the 8.3.2 readiness ledger below.
 
 - Unify Communication task planning under plans/222-communication-kit with one current INDEX/PLAN/REPORT and recoverable fixed Git originals. Remove the old root plan/ and migrate current navigation, source inputs and fixtures atomically. Path-reintroduction guards and final delivery gates are tracked by #269; other historical document compatibility and plugin runtime/versions remain unchanged.
 
@@ -24,6 +36,13 @@
 - Verify actual #254 merge 7615ca58 with a separate thirteen-install/Python batch and prepare a protected sync of its complete main ancestry to develop. Preserve original missing approval and Owner bypass; keep Marketplace 8.3.2 pending the actual sync merge and a fresh dry-run, with plugin versions unchanged.
 
 - Record actual #253 / v8.3.1 publication, exact main/tag/Release identities and the new post-publication thirteen-install/Python/cleanup verification. Update current README installation to the real v8.3.1 tag; retain actual Owner bypass, missing independent approval, QA preflight failures and all limited client results. Stage the newly authorized main-to-develop sync and Marketplace-only 8.3.2 pre-bump after their actual prerequisite merges; plugin versions and published history remain unchanged.
+
+### Verification and retained limits
+
+- HTML site has bounded independent local-content, installed-consumer, real browser and private Sites production evidence; guide runtime resources retain their published identity. Actual develop merge 65d756ef has the tested source tree. The new main candidate, public tag and post-publication installation each require their own recorded evidence in the [8.3.2 readiness ledger](docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md).
+- Include the already merged task-documentation, INTENT and plan-path governance plus their Harness/CI support from #257, #263 and #269. Preserve frozen sources and historical results. Other four plugin trees remain identical to main.
+- Preserve actual #275 bypass and empty reviews as approval NOT_MET; it provides no future exception. Main promotion requires current-head non-author approval, current-base checks and resolved threads.
+- Retain HTML #239 FAIL, native-window and second-client deferrals, Learning deferred routes, Communication PARTIAL/limited routes and all Owner-acceptance gaps. Private Site deployment and engineering success do not measure learning effects or constitute final acceptance.
 
 ## [8.3.1] - 2026-10-16
 

@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-10-19T15:22:10.957Z",
+  "responseFileCaptureMtimeRangeUtc": {
+    "start": "2026-10-19T15:18:48.086Z",
+    "end": "2026-10-19T15:22:10.956Z",
+    "limitation": "Response-file write times delimit local capture, not exact server-response or Owner-message time."
+  },
+  "scope": "Read-only actual PR 279 merge/rules/publication/ancestry audit; no repository editing, fetch, push, PR creation/merge, release mutation, bypass, or messages to other people.",
+  "authentication": "Existing gh authentication only; no credential requested, printed, or saved.",
+  "calls": [
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/pulls/279",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/pulls/279/reviews",
+    "gh api 'repos/MJ-AgentLab/mj-agentlab-marketplace/rulesets/rule-suites?ref=refs/heads/main&per_page=30'",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/rulesets/rule-suites/4602541728",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/branches/main",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/rules/branches/main",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/branches/develop",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/rules/branches/develop",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/e3dc40f734fc972e05956da3e908091e09963675",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/315b5942a3a61c6bf7ab17513b8263496bd7a48a",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/687b70abd58a8556ee566c74c340dd66480fe407",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/compare/65d756efd3024ac10d1d0e6ea189055fbe6f1545...e3dc40f734fc972e05956da3e908091e09963675",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/compare/f906b1001a86d7b5415451bd973bea26e6cc3a1d...e3dc40f734fc972e05956da3e908091e09963675",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/git/ref/tags/v8.3.2",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/releases/tags/v8.3.2",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace",
+    "gh api 'repos/MJ-AgentLab/mj-agentlab-marketplace/contents/VERSION?ref=f906b1001a86d7b5415451bd973bea26e6cc3a1d'",
+    "gh api 'repos/MJ-AgentLab/mj-agentlab-marketplace/contents/CHANGELOG.md?ref=f906b1001a86d7b5415451bd973bea26e6cc3a1d'",
+    "gh api 'repos/MJ-AgentLab/mj-agentlab-marketplace/contents/VERSION?ref=e3dc40f734fc972e05956da3e908091e09963675'",
+    "gh api 'repos/MJ-AgentLab/mj-agentlab-marketplace/contents/CHANGELOG.md?ref=e3dc40f734fc972e05956da3e908091e09963675'",
+    "git rev-parse origin/main origin/develop (read-only local snapshot)"
+  ],
+  "retainedError": {
+    "files": [
+      "source-prefix-probe.json",
+      "source-prefix-probe.stderr.txt"
+    ],
+    "cause": "An exploratory source request used an incorrect unresolved abbreviated prefix 315d2ce and returned 404. It is not used for any conclusion. The exact source was then taken from PR279 head and fetched successfully as 315b5942a3a61c6bf7ab17513b8263496bd7a48a."
+  },
+  "comparisons": "Git ancestry is independently established by REST compare status/ahead/behind/merge_base identities; actual merge/source trees and parents are direct Git commit API fields. VERSION/CHANGELOG bytes are decoded from base64 contents responses. Release body is compared after CRLF-to-LF and trim to the published f906 version section and the same section in e3dc.",
+  "governance": "Source-match exact ref/before/after rule-suite, then read each rule result directly. Empty reviews are retained separately and never prove a bypass by themselves.",
+  "immutability": "Release immutable:false is the actual release observation. The repository response does not return immutable_releases, so configured immutability is UNKNOWN.",
+  "priorCiReference": {
+    "path": "C:/Users/Admin/.codex/worktrees/html-learning-artifact/record-evidence-279-315b594/ci/final-manifest.json",
+    "sha256": "9267bd2b89fd549f1a0088e2e012510cf0f9d50b7c17d582d76d0d9003e9fc2b",
+    "expectedRootSuppliedSha256": "9267bd2b89fd549f1a0088e2e012510cf0f9d50b7c17d582d76d0d9003e9fc2b",
+    "scope": "Prior 315/687 CI evidence reference and manifest-byte observation only, not rerunning those checks or representing any test as a new e3dc execution."
+  },
+  "exclusions": [
+    "No fresh actual-e3dc canonical installation, Python execution, full test suite, browser run or Owner acceptance performed in this audit.",
+    "Prior candidate 315/687 checks are not renamed as actual-merge runs."
+  ]
+}

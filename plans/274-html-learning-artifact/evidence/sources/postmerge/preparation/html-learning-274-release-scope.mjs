@@ -1,0 +1,28 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import assert from 'node:assert/strict';
+import {execFileSync} from 'node:child_process';
+import {pathToFileURL} from 'node:url';
+const root='C:/Users/Admin/.codex/worktrees/html-learning-artifact/develop';
+const task='plans/274-html-learning-artifact';
+const git=args=>execFileSync('git',args,{cwd:root,encoding:'utf8',maxBuffer:40*1024*1024}).trim();
+const hash=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+const normalize=s=>s.replaceAll('\r\n','\n');
+const checks=[];function check(name,fn){fn();checks.push({name,status:'PASS'});}
+const changelog=normalize(fs.readFileSync(path.join(root,'CHANGELOG.md'),'utf8'));
+const old=normalize(git(['show','65d756e:CHANGELOG.md']));
+const {extractChangelogSection}=await import(pathToFileURL(path.join(root,'scripts/run-release.mjs')));
+check('Published CHANGELOG 8.3.1 and older unchanged',()=>assert.equal(changelog.slice(changelog.indexOf('## [8.3.1]')).trimEnd(),old.slice(old.indexOf('## [8.3.1]')).trimEnd()));
+check('Release 8.3.2 notes extractable and nonempty; no second version bump',()=>{assert.equal(fs.readFileSync(path.join(root,'VERSION'),'utf8').trim(),'8.3.2');assert(extractChangelogSection(changelog,'8.3.2').trim().length>100);assert.equal(extractChangelogSection(changelog,'Unreleased').trim(),'');});
+const parentBindings=JSON.parse(git(['show',`65d756e:${task}/source-bindings.json`]));
+const current=JSON.parse(fs.readFileSync(path.join(root,task,'source-bindings.json'),'utf8'));
+check('All 200 previously frozen entries and bytes preserved',()=>{assert.equal(parentBindings.sources.length,200);for(const entry of parentBindings.sources){assert.deepEqual(current.sources.find(s=>s.id===entry.id),entry);assert.equal(hash(path.join(root,task,entry.path)),entry.sha256);}});
+check('All new source bindings have exact bytes',()=>{for(const entry of current.sources){assert.equal(hash(path.join(root,task,entry.path)),entry.sha256);}});
+check('Only HTML README and CHANGELOG changed in packages since actual65d',()=>assert.deepEqual(git(['diff','--name-only','65d756e','--','plugins']).split('\n'),['plugins/html-guide-kit/CHANGELOG.md','plugins/html-guide-kit/README.md']));
+check('guide subtree and all other plugin trees untouched',()=>assert.equal(git(['diff','--name-only','65d756e','--','plugins/html-guide-kit/skills/guide','plugins/diagram-kit','plugins/explain-kit','plugins/learning-evidence-kit','plugins/communication-kit']),''));
+check('Root AGENTS within 16384 byte instruction budget',()=>assert(fs.statSync(path.join(root,'AGENTS.md')).size<=16384));
+check('Original user plan untouched',()=>assert.equal(hash('D:/workspace/10-software-project/projects/mj-agentlab-marketplace/develop/HTML-Learning-Artifact-Plugin-Implementation-Plan.md'),'dc9d58437778093ae9b51d052908712a3bbb2624f16ff335f5210435ca2f0895'));
+const result={capturedAt:new Date().toISOString(),actor:'/root',scope:'Release preparation working tree based on actual65d; engineering/recovery scope proof, not GitHub approval or publication',actualBase:git(['rev-parse','65d756e']),checks,sourceBindings:current.sources.length,version:'8.3.2',agentsBytes:fs.statSync(path.join(root,'AGENTS.md')).size};
+fs.writeFileSync('C:/Users/Admin/AppData/Local/Temp/html-learning-274-release-scope.json',JSON.stringify(result,null,2)+'\n');
+console.log(JSON.stringify(result));
