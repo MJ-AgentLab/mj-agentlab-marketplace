@@ -42,6 +42,10 @@ function relativePath(value) {
   if (!nonempty(value) || path.isAbsolute(value) || /[\\:\0]/.test(value) || value.split("/").some(part => !part || part === "." || part === "..")) throw new Error(`invalid owned path: ${value}`);
   return value;
 }
+function rejectLegacyPlanRoot(root) {
+  // Reject every entity, including empty directories and dangling links.
+  if (fs.lstatSync(path.join(root, "plan"), { throwIfNoEntry: false })) throw new Error("legacy plan root is forbidden; task documents must use plans/");
+}
 export function documentResource(root, relative, { allowDirectory = false } = {}) {
   relativePath(relative);
   if (fs.lstatSync(root).isSymbolicLink()) throw new Error("document root must not be a symlink or junction");
@@ -96,6 +100,7 @@ function localTarget(root, relative, target) {
   try { pathname = decodeURIComponent(target.split("#")[0]); } catch { throw new Error(`invalid document locator encoding: ${target}`); }
   if (!pathname) return null;
   const result = path.posix.normalize(path.posix.join(path.posix.dirname(relative), pathname)).replace(/\/$/, "");
+  if (result === "plan" || result.startsWith("plan/")) throw new Error(`legacy plan locator is forbidden: ${target}`);
   documentResource(root, result, { allowDirectory: true });
   return result;
 }
@@ -123,6 +128,7 @@ function gitBytes(root, commit, relative) {
 
 /** Real-byte closure for Agent reading in isolated smoke sources. */
 export function collectNavigationResources(root, seeds, { onEvidence = () => {} } = {}) {
+  rejectLegacyPlanRoot(root);
   const pending = [...seeds], collected = new Set();
   // An isolated projection must retain the whole formal identity collection,
   // including an unlinked deprecated original, not just the visible index links.
@@ -141,7 +147,7 @@ export function collectNavigationResources(root, seeds, { onEvidence = () => {} 
       continue;
     }
     const archivedIntent = relative.startsWith("docs/archive/") && declaresIntent(relative, fs.readFileSync(file, "utf8"));
-    if (/^docs\/_templates\//.test(relative) || relative.startsWith("docs/archive/") && !archivedIntent || /^\.github\/(?:PULL_REQUEST_TEMPLATE|ISSUE_TEMPLATE)\//.test(relative) || /^plans\/[^/]+\/evidence\/sources\//.test(relative) || relative.startsWith("plan/") || path.posix.basename(relative) === "CHANGELOG.md") continue;
+    if (/^docs\/_templates\//.test(relative) || relative.startsWith("docs/archive/") && !archivedIntent || /^\.github\/(?:PULL_REQUEST_TEMPLATE|ISSUE_TEMPLATE)\//.test(relative) || /^plans\/[^/]+\/evidence\/sources\//.test(relative) || path.posix.basename(relative) === "CHANGELOG.md") continue;
     if (relative.endsWith(".md")) {
       const text = fs.readFileSync(file, "utf8"), parsed = text.startsWith("---") ? parse(text) : { metadata: {}, body: text };
       for (const target of [...proseLinks(parsed.body), ...locatorValues(parsed.metadata)]) {
@@ -247,6 +253,7 @@ export function validateDocumentation(root, { file } = {}) {
   root = path.resolve(root);
   const errors = [], documents = new Map(), tasks = [];
   const check = (label, run) => { try { return run(); } catch (error) { errors.push(`${label}: ${error.message}`); } };
+  check("task document root", () => rejectLegacyPlanRoot(root));
   const compatibility = check(COMPATIBILITY_PATH, () => validateCompatibility(root));
   const entries = compatibility?.entries ?? new Map();
   const inventory = check("documentation inventory", () => { documentResource(root, "docs", { allowDirectory: true }); return [...walk(root, "docs"), ...walk(root, "plans")]; });

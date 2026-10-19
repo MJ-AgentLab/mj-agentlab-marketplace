@@ -5,7 +5,7 @@ import os from "node:os";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { stringify } from "yaml";
-import { COMPATIBILITY_PATH, COMPATIBILITY_SOURCE, validateDocumentation, validateCompatibility, verifyCompatibilityGitSource, validateSourceBindings, sha256 } from "../scripts/document-harness.mjs";
+import { COMPATIBILITY_PATH, COMPATIBILITY_SOURCE, validateDocumentation, validateCompatibility, verifyCompatibilityGitSource, validateSourceBindings, collectNavigationResources, sha256 } from "../scripts/document-harness.mjs";
 
 const REPO = path.resolve(import.meta.dirname, ".."), TASK = "plans/321-document-test";
 function temporary(t) {
@@ -41,6 +41,46 @@ function replace(root, relative, from, to) {
   fs.writeFileSync(file, text.replace(from, to));
 }
 const bad = (root, pattern) => { const result = validateDocumentation(root); assert.equal(result.ok, false); assert.match(result.errors.join("\n"), pattern); };
+
+for (const kind of ["empty-directory", "populated-directory", "file", "directory-link", "dangling-link"]) {
+  test(`current documentation and navigation reject legacy plan root ${kind}`, t => {
+    const root = fixture(t), legacy = path.join(root, "plan"), expected = /legacy plan root is forbidden/;
+    if (kind === "file") fs.writeFileSync(legacy, "legacy root file\n");
+    else if (kind.endsWith("link")) {
+      const target = kind === "dangling-link" ? path.join(root, "missing-link-target") : temporary(t);
+      fs.symlinkSync(target, legacy, process.platform === "win32" ? "junction" : "dir");
+    } else {
+      fs.mkdirSync(legacy);
+      if (kind === "populated-directory") fs.writeFileSync(path.join(legacy, "old-plan.md"), "legacy plan\n");
+    }
+    bad(root, expected);
+    assert.equal(validateDocumentation(root, { file: `${TASK}/INDEX.md` }).ok, false);
+    assert.throws(() => collectNavigationResources(root, [`${TASK}/INDEX.md`]), expected);
+    if (fs.lstatSync(legacy).isDirectory()) fs.rmSync(legacy, { recursive: true });
+    else fs.unlinkSync(legacy);
+    assert.equal(validateDocumentation(root).ok, true);
+    assert.ok(collectNavigationResources(root, [`${TASK}/INDEX.md`]).includes(`${TASK}/[PLAN]_Execution.md`));
+  });
+}
+
+for (const target of ["../../plan", "../../plan/old.md", "../../%70lan/old.md", "../../plans/../plan/old.md"]) {
+  for (const source of ["body", "metadata"]) test(`current ${source} cannot retain legacy locator ${target}`, t => {
+    const root = fixture(t), relative = "docs/spec/[SPEC]_Old_Link.md", expected = /legacy plan locator is forbidden/;
+    write(root, relative, document("spec", source === "metadata" ? { related: target } : {}, source === "body" ? `[Old plan](${target})` : "# Old locator\n"));
+    bad(root, expected);
+    assert.throws(() => collectNavigationResources(root, [relative]), expected);
+  });
+}
+
+test("fixed Git provenance and raw source text retain historical plan paths without restoring a current root", t => {
+  const root = fixture(t), relative = "docs/spec/[SPEC]_History.md";
+  write(root, relative, document("spec", { related: `https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/${COMPATIBILITY_SOURCE}/plan/communication-kit-implementation-plan.md` }, "Historical locator: `plan/communication-kit-implementation-plan.md`.\n"));
+  const source = snapshot(root), bytes = Buffer.from("[Original historical path](../../plan/communication-kit-implementation-plan.md)\r\n");
+  write(root, `${TASK}/${source.path}`, bytes);
+  source.sha256 = sha256(bytes); binding(root, [source]);
+  assert.equal(validateDocumentation(root).ok, true);
+  assert.ok(collectNavigationResources(root, [relative, `${TASK}/INDEX.md`]).includes(`${TASK}/${source.path}`));
+});
 
 test("new task documents require explicit layer and preserve draft canonical/completed working distinction", t => {
   const root = fixture(t);
