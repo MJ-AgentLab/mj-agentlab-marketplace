@@ -194,26 +194,65 @@ def owned_workspace(lifecycle):
         cleanup_workspace(directory, lifecycle)
 
 
-def live_group_members(identifier):
-    """Linux /proc distinguishes live owned-session writers from dead zombies."""
-    if Path("/proc/self/stat").is_file():
-        members = []
-        for entry in Path("/proc").iterdir():
+def live_session_groups(identifier):
+    """Read every Linux process entry; group changes do not escape ownership."""
+    if sys.platform != "linux" or not Path("/proc/self/stat").is_file():
+        raise RuntimeError("complete owned-session inspection requires readable Linux /proc; this POSIX platform is unsupported")
+    groups = {}
+    try:
+        entries = list(Path("/proc").iterdir())
+        for entry in entries:
             if not entry.name.isdigit():
                 continue
             try:
-                # comm may itself contain spaces or parentheses.
-                fields = (entry / "stat").read_text().rsplit(")", 1)[1].split()
-                if int(fields[2]) == identifier and int(fields[3]) == identifier and fields[0] not in ("Z", "X"):
-                    members.append(int(entry.name))
+                # comm may itself contain spaces, parentheses or non-UTF8 bytes.
+                fields = (entry / "stat").read_text(encoding="utf-8", errors="replace").rsplit(")", 1)[1].split()
+                group, session = int(fields[2]), int(fields[3])
+                if session == identifier and fields[0] not in ("Z", "X"):
+                    groups.setdefault(group, []).append(int(entry.name))
             except (FileNotFoundError, ProcessLookupError):
+                # A process which disappeared during this scan cannot write.
                 continue
-        return members
-    try:
-        os.killpg(identifier, 0)
-        return [identifier]
-    except ProcessLookupError:
-        return []
+    except (OSError, ValueError, IndexError) as error:
+        raise RuntimeError("cannot completely inspect the owned Linux session: " + str(error)) from error
+    return groups
+
+
+def live_group_members(identifier):
+    """All live members of the owned session, including separate process groups."""
+    return [pid for members in live_session_groups(identifier).values() for pid in members]
+
+
+def signal_owned_session(identifier, signum):
+    groups = live_session_groups(identifier)
+    for group, members in groups.items():
+        # A group cannot span POSIX sessions. Recheck a current member before
+        # signalling that group; never signal a group only because its ID was
+        # observed in an earlier snapshot or because it resembles the launcher.
+        verified = False
+        for member in members:
+            try:
+                if os.getsid(member) == identifier and os.getpgid(member) == group:
+                    verified = True
+                    break
+            except ProcessLookupError:
+                continue
+        if verified:
+            try:
+                os.killpg(group, signum)
+            except ProcessLookupError:
+                pass
+
+
+def wait_session_exit(identifier, seconds):
+    deadline = time.monotonic() + seconds
+    empty_scans = 0
+    while time.monotonic() < deadline:
+        empty_scans = empty_scans + 1 if not live_session_groups(identifier) else 0
+        if empty_scans >= 2:
+            return True
+        time.sleep(0.05)
+    return False
 
 
 def close_browser(process, connection, lifecycle):
@@ -233,10 +272,7 @@ def close_browser(process, connection, lifecycle):
         process.wait(timeout=5)
     except subprocess.TimeoutExpired:
         if os.name == "posix":
-            try:
-                os.killpg(process.pid, signal.SIGTERM)
-            except ProcessLookupError:
-                pass
+            signal_owned_session(process.pid, signal.SIGTERM)
         else:
             taskkill = Path(os.environ["SystemRoot"]) / "System32/taskkill.exe"
             stopped = subprocess.run([str(taskkill), "/PID", str(process.pid), "/T", "/F"], capture_output=True, timeout=5, creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
@@ -246,31 +282,23 @@ def close_browser(process, connection, lifecycle):
             process.wait(timeout=5)
         except subprocess.TimeoutExpired:
             if os.name == "posix":
-                try:
-                    os.killpg(process.pid, signal.SIGKILL)
-                except ProcessLookupError:
-                    pass
+                signal_owned_session(process.pid, signal.SIGKILL)
             else:
                 process.kill()
             process.wait(timeout=5)
     lifecycle.append({"phase": "browser-process-exit", "status": "PASS", "returnCode": process.returncode})
     if os.name == "posix":
-        # Popen's launcher can exit while Chrome children still own its profile.
-        # The newly created session/group belongs solely to this invocation.
+        # The launcher can exit while writers remain, and descendants may form
+        # additional groups inside the same owned session. Inspect all groups.
+        exited = False
         for signum in (signal.SIGTERM, signal.SIGKILL):
-            members = live_group_members(process.pid)
-            if not members:
+            signal_owned_session(process.pid, signum)
+            if wait_session_exit(process.pid, 2):
+                exited = True
                 break
-            try:
-                os.killpg(process.pid, signum)
-            except ProcessLookupError:
-                break
-            deadline = time.monotonic() + 2
-            while live_group_members(process.pid) and time.monotonic() < deadline:
-                time.sleep(0.05)
-        if live_group_members(process.pid):
+        if not exited:
             raise RuntimeError("owned browser session still has running processes")
-        lifecycle.append({"phase": "owned-browser-session-exit", "status": "PASS"})
+        lifecycle.append({"phase": "owned-browser-session-exit", "status": "PASS", "method": "complete Linux /proc session scan, all owned groups, two consecutive empty scans"})
 
 
 def run_checks(root, browser, screenshots, viewports, timeout, results, lifecycle):

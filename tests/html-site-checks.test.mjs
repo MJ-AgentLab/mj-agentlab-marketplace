@@ -221,31 +221,66 @@ try:
     assert (foreign/'keep').read_text() == 'unrelated data'
 finally: shutil.rmtree(foreign)
 session_case = {'status':'NOT_APPLICABLE', 'platform':os.name}
-if os.name == 'posix':
-    # Reproduce the CI lifecycle: launcher exits, but its Chrome-like child keeps
-    # writing profile data until the invocation's owned session is stopped.
-    root = pathlib.Path(tempfile.mkdtemp(prefix='html-site-layout-'))
-    marker = root/'child-cache'
-    writer = "import pathlib,sys,time; p=pathlib.Path(sys.argv[1]); exec('while True:\\n p.write_text(str(time.time()))\\n time.sleep(0.01)')"
-    launcher = "import subprocess,sys; subprocess.Popen([sys.executable,'-c',sys.argv[1],sys.argv[2]],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)"
-    owned = subprocess.Popen([sys.executable,'-c',launcher,writer,str(marker)], start_new_session=True)
+with patch.object(qa.sys, 'platform', 'darwin'):
     try:
-        owned.wait(timeout=5)
-        deadline = time.monotonic()+3
-        while not marker.exists() and time.monotonic()<deadline: time.sleep(0.01)
-        assert marker.is_file(), 'owned child must actually write after launcher exit'
-        assert qa.live_group_members(owned.pid), 'live descendant must remain after parent exit'
-        lifecycle = []
-        qa.close_browser(owned, None, lifecycle)
-        assert not qa.live_group_members(owned.pid)
-        qa.cleanup_workspace(root, lifecycle)
-        assert not root.exists()
-        assert any(item['phase']=='owned-browser-session-exit' and item['status']=='PASS' for item in lifecycle)
-        session_case = {'status':'PASS', 'lifecycle':lifecycle}
+        qa.live_group_members(1)
+    except RuntimeError: pass
+    else: raise AssertionError('unsupported POSIX inspection must not report an empty session')
+if sys.platform == 'linux':
+    with patch.object(qa.Path, 'iterdir', side_effect=PermissionError(errno.EACCES, 'injected incomplete /proc scan')):
+        try: qa.live_group_members(1)
+        except RuntimeError: pass
+        else: raise AssertionError('incomplete process inventory must fail closed')
+    foreign_process = subprocess.Popen([sys.executable,'-c','import time;time.sleep(30)'], start_new_session=True)
+    session_results = []
+    try:
+        for separate_group in (False, True):
+            # A child can change pgrp while retaining the owned sid. Its writer
+            # recreates the root if cleanup incorrectly precedes process exit.
+            root = pathlib.Path(tempfile.mkdtemp(prefix='html-site-layout-'))
+            marker = root/'child-cache'
+            writer = "import json,os,pathlib,sys,time\np=pathlib.Path(sys.argv[1])\nif sys.argv[2]=='True': os.setpgid(0,0)\nwhile True:\n p.parent.mkdir(exist_ok=True)\n p.write_text(json.dumps({'pid':os.getpid(),'group':os.getpgrp(),'session':os.getsid(0)}))\n time.sleep(0.01)"
+            launcher = "import subprocess,sys; subprocess.Popen([sys.executable,'-c',sys.argv[1],sys.argv[2],sys.argv[3]],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)"
+            owned = subprocess.Popen([sys.executable,'-c',launcher,writer,str(marker),str(separate_group)], start_new_session=True)
+            child_pid = None
+            try:
+                owned.wait(timeout=5)
+                deadline = time.monotonic()+3
+                data = None
+                while time.monotonic()<deadline:
+                    try:
+                        data = json.loads(marker.read_text())
+                        break
+                    except (FileNotFoundError, json.JSONDecodeError): time.sleep(0.01)
+                assert data, 'child must actually write after launcher exit'
+                child_pid = data['pid']
+                assert data['session'] == owned.pid
+                assert (data['group'] != owned.pid) == separate_group
+                assert child_pid in qa.live_group_members(owned.pid)
+                lifecycle = []
+                qa.close_browser(owned, None, lifecycle)
+                assert not qa.live_group_members(owned.pid)
+                child_stat = pathlib.Path('/proc')/str(child_pid)/'stat'
+                try: child_state = child_stat.read_text().rsplit(')',1)[1].split()[0]
+                except FileNotFoundError: child_state = None
+                assert child_state in (None,'Z','X')
+                assert foreign_process.poll() is None, 'foreign session must not be signalled'
+                qa.cleanup_workspace(root, lifecycle)
+                time.sleep(0.1)
+                assert not root.exists(), 'no writer may recreate the cleaned root'
+                assert any(item['phase']=='owned-browser-session-exit' and item['status']=='PASS' for item in lifecycle)
+                session_results.append({'separateGroup':separate_group,'writer':data,'foreignUnaffected':True,'rootRecreated':False,'lifecycle':lifecycle})
+            finally:
+                if child_pid:
+                    try: os.kill(child_pid, signal.SIGKILL)
+                    except ProcessLookupError: pass
+                try: os.killpg(owned.pid, signal.SIGKILL)
+                except ProcessLookupError: pass
+                if root.exists(): shutil.rmtree(root)
+        session_case = {'status':'PASS', 'variants':session_results}
     finally:
-        try: os.killpg(owned.pid, signal.SIGKILL)
-        except ProcessLookupError: pass
-        if root.exists(): shutil.rmtree(root)
+        foreign_process.terminate()
+        foreign_process.wait(timeout=5)
 print(json.dumps({'cleanup':results,'ownedSession':session_case}))
 `;
   const result = spawnSync(py.command, [...py.args, "-c", cases, path.join(scripts, "check_renderings.py")], {
@@ -257,7 +292,7 @@ print(json.dumps({'cleanup':results,'ownedSession':session_case}))
   const reports = JSON.parse(result.stdout);
   assert.deepEqual(reports.cleanup.map(row => row.lifecycle.at(-1).status), ["PASS", "FAIL"]);
   assert.deepEqual(reports.cleanup.map(row => row.lateWrites), [1, 3]);
-  assert.equal(reports.ownedSession.status, process.platform === "win32" ? "NOT_APPLICABLE" : "PASS");
+  assert.equal(reports.ownedSession.status, process.platform === "linux" ? "PASS" : "NOT_APPLICABLE");
 });
 
 function browser() {
