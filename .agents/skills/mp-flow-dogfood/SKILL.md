@@ -5,6 +5,8 @@ description: "Use for marketplace installation and invocation acceptance / 本�
 
 # mp-flow-dogfood
 
+HTML Learning Artifact site 扩展按[当前合同](../../../docs/spec/[SPEC]_HTML_Learning_Artifact.md)与[任务入口](../../../plans/274-html-learning-artifact/INDEX.md)核对：开发候选五包八公开/五显式/三自然，新增 site 及其包内工具、来源许可和真实 Sites 主流程；guide 原四资源及历史验收保留。下文带 PR3/旧版本的七技能数字仅属其历史范围，当前集合以实际 manifest/严格登记及本次证据为准；十三安装组合与20仓库技能保持。
+
 任务组织或流程变更时先读任务 INDEX/PLAN/REPORT 与[文档框架](../../../docs/rule/[STANDARD]_Documentation_Framework.md)。独立 Agent 模拟管理、产品、开发/运维角色，从实际候选入口完成阅读/交接任务，保存角色/执行身份、判准、版本、实际输入/动作/输出与结论；不要求真人参与模拟，也不替代 Owner 最终接受。逐项检查正本、接受基线、源清单/快照与完整资源闭包；静态通过不足以证明阅读体验。按[执行规范](../../../docs/rule/[STANDARD]_AI_Engineering_Execution_HITL_Prompt.md)复用授权，实际窗口条件严格，非核心缺失延期，核心/全计划/最终接受分开。结果追加主 REPORT，失败/恢复保留旧批次，子 PR 与集成候选检查分别绑定。
 
 运行 npm run check:baseline-tools 和 npm run smoke:codex。冒烟使用隔离 HOME / CODEX_HOME / cache、库和市场镜像，检查 Diagram / Learning Evidence / Explain / HTML / Communication 五个开发插件及七技能；独立 8.2.0 公开候选保持原三插件/五技能。普通 prompt 含 arch-diagram、glossary、concept，pop-quiz、learning-record-check、guide 与 communicate 四显式入口另查 app-server 元数据和实际调用；开发技能只在仓库作用域发现。候选来源为待测 branch/SHA，公开 v8.1.1 不含新包。实际执行安装缓存的 Python 图表与共用脚本，验证资源归属和无仓库过渡依赖。保存测试隔离库、GitHub 写入使用替身；独立合成角色覆盖诊断、移交保存、有效性与应用两阶段、共享及恢复。按 [新验收账本](../../../docs/runbook/[RUNBOOK]_Learning_Evidence_Kit_Acceptance.md)记录两客户端的安装、调用和实际入口；所有启用提问入口严格待答，原生窗口持续显示须独立证据，文本 pending 或重述不能代替。不可达/失败入口延期，不写通过；结构、发现、模型、窗口、独立批准与 Owner 接受分开登记。
