@@ -1,0 +1,824 @@
+{
+  "source": "actual current attempt2 Windows smoke JSON",
+  "scenarios": [
+    {
+      "scenario": 1,
+      "installed": [
+        "diagram-kit"
+      ],
+      "ok": true,
+      "commands": 11,
+      "nonzero_commands": 0,
+      "resource_skill_sets": 1,
+      "site_resources": 0,
+      "outside": {
+        "publicSkills": 1,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 1,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 1,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 1,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [],
+      "source_cache_compared_file_facts": 15,
+      "resource_sha256_facts": {
+        "diagram-kit/plugin.json": "8c51243d90e61764724bdb56256e603bdcf4414723111986685d5b70255097ed",
+        "diagram-kit/assets/icon.svg": "3b77a72c2012f934397e4b32b483f7cb4b0d87375a8de5a3f65fc231da147a5e",
+        "diagram-kit/assets/icon.png": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f",
+        "diagram-kit/skills/arch-diagram/SKILL.md": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b",
+        "diagram-kit/skills/arch-diagram/agents/openai.yaml": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428",
+        "diagram-kit/skills/arch-diagram/scripts/validate_diagram.py": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33",
+        "diagram-kit/skills/arch-diagram/references/architecture-methodology.md": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f",
+        "diagram-kit/skills/arch-diagram/references/domain-acquisition.md": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9",
+        "diagram-kit/skills/arch-diagram/references/context-diagram.md": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a",
+        "diagram-kit/skills/arch-diagram/references/container-diagram.md": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3",
+        "diagram-kit/skills/arch-diagram/references/component-diagram.md": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37",
+        "diagram-kit/skills/arch-diagram/references/code-diagram.md": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75",
+        "diagram-kit/skills/arch-diagram/references/sequence-diagram.md": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb",
+        "diagram-kit/skills/arch-diagram/references/state-machine-diagram.md": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb",
+        "diagram-kit/skills/arch-diagram/references/deployment-diagram.md": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d"
+      }
+    },
+    {
+      "scenario": 2,
+      "installed": [
+        "learning-evidence-kit"
+      ],
+      "ok": true,
+      "commands": 13,
+      "nonzero_commands": 0,
+      "resource_skill_sets": 2,
+      "site_resources": 0,
+      "outside": {
+        "publicSkills": 0,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 0,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 2,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 2,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [
+        "learning-evidence-kit:pop-quiz",
+        "learning-evidence-kit:learning-record-check"
+      ],
+      "source_cache_compared_file_facts": 9,
+      "resource_sha256_facts": {
+        "learning-evidence-kit/plugin.json": "c3b49b6428d25c6598bc6b9f2ce41339c78e32e538e905ecbd6ced483836ed46",
+        "learning-evidence-kit/assets/icon.svg": "fbd451eb605921ebb03c700777a359358e2e7fa20c5ecb4034595d4a90263b08",
+        "learning-evidence-kit/assets/icon.png": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad",
+        "learning-evidence-kit/skills/pop-quiz/SKILL.md": "72b2c8185234971041ac3f9de989cff93517870d3280b7b020eb305da69d92a6",
+        "learning-evidence-kit/skills/pop-quiz/agents/openai.yaml": "decebdd57d750e9ef3d88da43ba458f3e8c622acf4e534a19681236bee8aee21",
+        "learning-evidence-kit/skills/pop-quiz/references/ku-selection.md": "6d78cdd36367eceeba8e3682782acf11f1d1fa124df8879e26960461c4c4aa29",
+        "learning-evidence-kit/skills/pop-quiz/references/quiz-policy.md": "8d94713293e5dbcaee09aeb4681b6e6d25d3380e182e6d3cdb47a8f365406794",
+        "learning-evidence-kit/skills/learning-record-check/SKILL.md": "520d1af47e7098246a31565e4322d3d67a55e180cda4d01bb72399ed7ebf1e49",
+        "learning-evidence-kit/skills/learning-record-check/agents/openai.yaml": "dcac046ed1ddb1b8ebf0ca09ea80544b7be11b733272e1dd6cbec64bfbaa928f"
+      }
+    },
+    {
+      "scenario": 3,
+      "installed": [
+        "explain-kit"
+      ],
+      "ok": true,
+      "commands": 10,
+      "nonzero_commands": 0,
+      "resource_skill_sets": 2,
+      "site_resources": 0,
+      "outside": {
+        "publicSkills": 2,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 2,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 2,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 2,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [],
+      "source_cache_compared_file_facts": 7,
+      "resource_sha256_facts": {
+        "explain-kit/plugin.json": "62c24bc96f812e707f5f425dbea2e06433880707678cb591929586255e5c5b91",
+        "explain-kit/assets/icon.svg": "8d5cf6c5a1eb48f273378da8715a16d276da0b95ff28c79a142080ee715b5874",
+        "explain-kit/assets/icon.png": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95",
+        "explain-kit/skills/glossary/SKILL.md": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+        "explain-kit/skills/glossary/agents/openai.yaml": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619",
+        "explain-kit/skills/concept/SKILL.md": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+        "explain-kit/skills/concept/agents/openai.yaml": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf"
+      }
+    },
+    {
+      "scenario": 4,
+      "installed": [
+        "diagram-kit",
+        "explain-kit"
+      ],
+      "ok": true,
+      "commands": 12,
+      "nonzero_commands": 0,
+      "resource_skill_sets": 3,
+      "site_resources": 0,
+      "outside": {
+        "publicSkills": 3,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 3,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 3,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 3,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [],
+      "source_cache_compared_file_facts": 22,
+      "resource_sha256_facts": {
+        "diagram-kit/plugin.json": "8c51243d90e61764724bdb56256e603bdcf4414723111986685d5b70255097ed",
+        "diagram-kit/assets/icon.svg": "3b77a72c2012f934397e4b32b483f7cb4b0d87375a8de5a3f65fc231da147a5e",
+        "diagram-kit/assets/icon.png": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f",
+        "diagram-kit/skills/arch-diagram/SKILL.md": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b",
+        "diagram-kit/skills/arch-diagram/agents/openai.yaml": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428",
+        "diagram-kit/skills/arch-diagram/scripts/validate_diagram.py": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33",
+        "diagram-kit/skills/arch-diagram/references/architecture-methodology.md": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f",
+        "diagram-kit/skills/arch-diagram/references/domain-acquisition.md": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9",
+        "diagram-kit/skills/arch-diagram/references/context-diagram.md": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a",
+        "diagram-kit/skills/arch-diagram/references/container-diagram.md": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3",
+        "diagram-kit/skills/arch-diagram/references/component-diagram.md": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37",
+        "diagram-kit/skills/arch-diagram/references/code-diagram.md": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75",
+        "diagram-kit/skills/arch-diagram/references/sequence-diagram.md": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb",
+        "diagram-kit/skills/arch-diagram/references/state-machine-diagram.md": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb",
+        "diagram-kit/skills/arch-diagram/references/deployment-diagram.md": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d",
+        "explain-kit/plugin.json": "62c24bc96f812e707f5f425dbea2e06433880707678cb591929586255e5c5b91",
+        "explain-kit/assets/icon.svg": "8d5cf6c5a1eb48f273378da8715a16d276da0b95ff28c79a142080ee715b5874",
+        "explain-kit/assets/icon.png": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95",
+        "explain-kit/skills/glossary/SKILL.md": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+        "explain-kit/skills/glossary/agents/openai.yaml": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619",
+        "explain-kit/skills/concept/SKILL.md": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+        "explain-kit/skills/concept/agents/openai.yaml": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf"
+      }
+    },
+    {
+      "scenario": 5,
+      "installed": [
+        "diagram-kit",
+        "learning-evidence-kit",
+        "explain-kit"
+      ],
+      "ok": true,
+      "commands": 16,
+      "nonzero_commands": 0,
+      "resource_skill_sets": 5,
+      "site_resources": 0,
+      "outside": {
+        "publicSkills": 3,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 3,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 5,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 5,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [
+        "learning-evidence-kit:pop-quiz",
+        "learning-evidence-kit:learning-record-check"
+      ],
+      "source_cache_compared_file_facts": 31,
+      "resource_sha256_facts": {
+        "diagram-kit/plugin.json": "8c51243d90e61764724bdb56256e603bdcf4414723111986685d5b70255097ed",
+        "diagram-kit/assets/icon.svg": "3b77a72c2012f934397e4b32b483f7cb4b0d87375a8de5a3f65fc231da147a5e",
+        "diagram-kit/assets/icon.png": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f",
+        "diagram-kit/skills/arch-diagram/SKILL.md": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b",
+        "diagram-kit/skills/arch-diagram/agents/openai.yaml": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428",
+        "diagram-kit/skills/arch-diagram/scripts/validate_diagram.py": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33",
+        "diagram-kit/skills/arch-diagram/references/architecture-methodology.md": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f",
+        "diagram-kit/skills/arch-diagram/references/domain-acquisition.md": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9",
+        "diagram-kit/skills/arch-diagram/references/context-diagram.md": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a",
+        "diagram-kit/skills/arch-diagram/references/container-diagram.md": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3",
+        "diagram-kit/skills/arch-diagram/references/component-diagram.md": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37",
+        "diagram-kit/skills/arch-diagram/references/code-diagram.md": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75",
+        "diagram-kit/skills/arch-diagram/references/sequence-diagram.md": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb",
+        "diagram-kit/skills/arch-diagram/references/state-machine-diagram.md": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb",
+        "diagram-kit/skills/arch-diagram/references/deployment-diagram.md": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d",
+        "learning-evidence-kit/plugin.json": "c3b49b6428d25c6598bc6b9f2ce41339c78e32e538e905ecbd6ced483836ed46",
+        "learning-evidence-kit/assets/icon.svg": "fbd451eb605921ebb03c700777a359358e2e7fa20c5ecb4034595d4a90263b08",
+        "learning-evidence-kit/assets/icon.png": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad",
+        "learning-evidence-kit/skills/pop-quiz/SKILL.md": "72b2c8185234971041ac3f9de989cff93517870d3280b7b020eb305da69d92a6",
+        "learning-evidence-kit/skills/pop-quiz/agents/openai.yaml": "decebdd57d750e9ef3d88da43ba458f3e8c622acf4e534a19681236bee8aee21",
+        "learning-evidence-kit/skills/pop-quiz/references/ku-selection.md": "6d78cdd36367eceeba8e3682782acf11f1d1fa124df8879e26960461c4c4aa29",
+        "learning-evidence-kit/skills/pop-quiz/references/quiz-policy.md": "8d94713293e5dbcaee09aeb4681b6e6d25d3380e182e6d3cdb47a8f365406794",
+        "learning-evidence-kit/skills/learning-record-check/SKILL.md": "520d1af47e7098246a31565e4322d3d67a55e180cda4d01bb72399ed7ebf1e49",
+        "learning-evidence-kit/skills/learning-record-check/agents/openai.yaml": "dcac046ed1ddb1b8ebf0ca09ea80544b7be11b733272e1dd6cbec64bfbaa928f",
+        "explain-kit/plugin.json": "62c24bc96f812e707f5f425dbea2e06433880707678cb591929586255e5c5b91",
+        "explain-kit/assets/icon.svg": "8d5cf6c5a1eb48f273378da8715a16d276da0b95ff28c79a142080ee715b5874",
+        "explain-kit/assets/icon.png": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95",
+        "explain-kit/skills/glossary/SKILL.md": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+        "explain-kit/skills/glossary/agents/openai.yaml": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619",
+        "explain-kit/skills/concept/SKILL.md": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+        "explain-kit/skills/concept/agents/openai.yaml": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf"
+      }
+    },
+    {
+      "scenario": 6,
+      "installed": [
+        "communication-kit"
+      ],
+      "ok": true,
+      "commands": 10,
+      "nonzero_commands": 0,
+      "resource_skill_sets": 1,
+      "site_resources": 0,
+      "outside": {
+        "publicSkills": 0,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 0,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 1,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 1,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [
+        "communication-kit:communicate"
+      ],
+      "source_cache_compared_file_facts": 9,
+      "resource_sha256_facts": {
+        "communication-kit/plugin.json": "7eead6be18358eb3925f283a9d2b2a149adeae2cfcb8e42bda6d859bf78e28c8",
+        "communication-kit/assets/icon.svg": "7a0a594df6ff9b622e5900771731fe63f97ebfb873e3874881e3a1a1764ec5ea",
+        "communication-kit/assets/icon.png": "07f8a9ad4d04f20bc0551f3e72ed8c9e1b14368a743b392d4feee3aaec314ddf",
+        "communication-kit/skills/communicate/SKILL.md": "7a5644c9e2f156acd98286d36ac5b869fd921e23704fa98030d792faadaf630f",
+        "communication-kit/skills/communicate/agents/openai.yaml": "c89a7134a1dd2fffa3e99d38bdcedb2bdaf46fb03de9b69ff1b19ad667c01d2d",
+        "communication-kit/skills/communicate/references/aics-policy.md": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+        "communication-kit/skills/communicate/references/task-patterns.md": "190c47c125759de5dbdca218417a418b76ba555df44923dc2cf48b86d60d0cff",
+        "communication-kit/skills/communicate/references/source-provenance.md": "53272cc56dba8cfe32203543d9f3d6aee8ec55ebc3602f4dc5652be90b9ed725",
+        "communication-kit/skills/communicate/references/aics-snapshot.json": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332"
+      }
+    },
+    {
+      "scenario": 7,
+      "installed": [
+        "communication-kit",
+        "explain-kit"
+      ],
+      "ok": true,
+      "commands": 11,
+      "nonzero_commands": 0,
+      "resource_skill_sets": 3,
+      "site_resources": 0,
+      "outside": {
+        "publicSkills": 2,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 2,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 3,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 3,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [
+        "communication-kit:communicate"
+      ],
+      "source_cache_compared_file_facts": 16,
+      "resource_sha256_facts": {
+        "communication-kit/plugin.json": "7eead6be18358eb3925f283a9d2b2a149adeae2cfcb8e42bda6d859bf78e28c8",
+        "communication-kit/assets/icon.svg": "7a0a594df6ff9b622e5900771731fe63f97ebfb873e3874881e3a1a1764ec5ea",
+        "communication-kit/assets/icon.png": "07f8a9ad4d04f20bc0551f3e72ed8c9e1b14368a743b392d4feee3aaec314ddf",
+        "communication-kit/skills/communicate/SKILL.md": "7a5644c9e2f156acd98286d36ac5b869fd921e23704fa98030d792faadaf630f",
+        "communication-kit/skills/communicate/agents/openai.yaml": "c89a7134a1dd2fffa3e99d38bdcedb2bdaf46fb03de9b69ff1b19ad667c01d2d",
+        "communication-kit/skills/communicate/references/aics-policy.md": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+        "communication-kit/skills/communicate/references/task-patterns.md": "190c47c125759de5dbdca218417a418b76ba555df44923dc2cf48b86d60d0cff",
+        "communication-kit/skills/communicate/references/source-provenance.md": "53272cc56dba8cfe32203543d9f3d6aee8ec55ebc3602f4dc5652be90b9ed725",
+        "communication-kit/skills/communicate/references/aics-snapshot.json": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332",
+        "explain-kit/plugin.json": "62c24bc96f812e707f5f425dbea2e06433880707678cb591929586255e5c5b91",
+        "explain-kit/assets/icon.svg": "8d5cf6c5a1eb48f273378da8715a16d276da0b95ff28c79a142080ee715b5874",
+        "explain-kit/assets/icon.png": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95",
+        "explain-kit/skills/glossary/SKILL.md": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+        "explain-kit/skills/glossary/agents/openai.yaml": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619",
+        "explain-kit/skills/concept/SKILL.md": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+        "explain-kit/skills/concept/agents/openai.yaml": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf"
+      }
+    },
+    {
+      "scenario": 8,
+      "installed": [
+        "communication-kit",
+        "learning-evidence-kit"
+      ],
+      "ok": true,
+      "commands": 14,
+      "nonzero_commands": 0,
+      "resource_skill_sets": 3,
+      "site_resources": 0,
+      "outside": {
+        "publicSkills": 0,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 0,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 3,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 3,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [
+        "communication-kit:communicate",
+        "learning-evidence-kit:pop-quiz",
+        "learning-evidence-kit:learning-record-check"
+      ],
+      "source_cache_compared_file_facts": 18,
+      "resource_sha256_facts": {
+        "communication-kit/plugin.json": "7eead6be18358eb3925f283a9d2b2a149adeae2cfcb8e42bda6d859bf78e28c8",
+        "communication-kit/assets/icon.svg": "7a0a594df6ff9b622e5900771731fe63f97ebfb873e3874881e3a1a1764ec5ea",
+        "communication-kit/assets/icon.png": "07f8a9ad4d04f20bc0551f3e72ed8c9e1b14368a743b392d4feee3aaec314ddf",
+        "communication-kit/skills/communicate/SKILL.md": "7a5644c9e2f156acd98286d36ac5b869fd921e23704fa98030d792faadaf630f",
+        "communication-kit/skills/communicate/agents/openai.yaml": "c89a7134a1dd2fffa3e99d38bdcedb2bdaf46fb03de9b69ff1b19ad667c01d2d",
+        "communication-kit/skills/communicate/references/aics-policy.md": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+        "communication-kit/skills/communicate/references/task-patterns.md": "190c47c125759de5dbdca218417a418b76ba555df44923dc2cf48b86d60d0cff",
+        "communication-kit/skills/communicate/references/source-provenance.md": "53272cc56dba8cfe32203543d9f3d6aee8ec55ebc3602f4dc5652be90b9ed725",
+        "communication-kit/skills/communicate/references/aics-snapshot.json": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332",
+        "learning-evidence-kit/plugin.json": "c3b49b6428d25c6598bc6b9f2ce41339c78e32e538e905ecbd6ced483836ed46",
+        "learning-evidence-kit/assets/icon.svg": "fbd451eb605921ebb03c700777a359358e2e7fa20c5ecb4034595d4a90263b08",
+        "learning-evidence-kit/assets/icon.png": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad",
+        "learning-evidence-kit/skills/pop-quiz/SKILL.md": "72b2c8185234971041ac3f9de989cff93517870d3280b7b020eb305da69d92a6",
+        "learning-evidence-kit/skills/pop-quiz/agents/openai.yaml": "decebdd57d750e9ef3d88da43ba458f3e8c622acf4e534a19681236bee8aee21",
+        "learning-evidence-kit/skills/pop-quiz/references/ku-selection.md": "6d78cdd36367eceeba8e3682782acf11f1d1fa124df8879e26960461c4c4aa29",
+        "learning-evidence-kit/skills/pop-quiz/references/quiz-policy.md": "8d94713293e5dbcaee09aeb4681b6e6d25d3380e182e6d3cdb47a8f365406794",
+        "learning-evidence-kit/skills/learning-record-check/SKILL.md": "520d1af47e7098246a31565e4322d3d67a55e180cda4d01bb72399ed7ebf1e49",
+        "learning-evidence-kit/skills/learning-record-check/agents/openai.yaml": "dcac046ed1ddb1b8ebf0ca09ea80544b7be11b733272e1dd6cbec64bfbaa928f"
+      }
+    },
+    {
+      "scenario": 9,
+      "installed": [
+        "diagram-kit",
+        "learning-evidence-kit",
+        "explain-kit",
+        "communication-kit"
+      ],
+      "ok": true,
+      "commands": 17,
+      "nonzero_commands": 0,
+      "resource_skill_sets": 6,
+      "site_resources": 0,
+      "outside": {
+        "publicSkills": 3,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 3,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 6,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 6,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [
+        "learning-evidence-kit:pop-quiz",
+        "learning-evidence-kit:learning-record-check",
+        "communication-kit:communicate"
+      ],
+      "source_cache_compared_file_facts": 40,
+      "resource_sha256_facts": {
+        "diagram-kit/plugin.json": "8c51243d90e61764724bdb56256e603bdcf4414723111986685d5b70255097ed",
+        "diagram-kit/assets/icon.svg": "3b77a72c2012f934397e4b32b483f7cb4b0d87375a8de5a3f65fc231da147a5e",
+        "diagram-kit/assets/icon.png": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f",
+        "diagram-kit/skills/arch-diagram/SKILL.md": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b",
+        "diagram-kit/skills/arch-diagram/agents/openai.yaml": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428",
+        "diagram-kit/skills/arch-diagram/scripts/validate_diagram.py": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33",
+        "diagram-kit/skills/arch-diagram/references/architecture-methodology.md": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f",
+        "diagram-kit/skills/arch-diagram/references/domain-acquisition.md": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9",
+        "diagram-kit/skills/arch-diagram/references/context-diagram.md": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a",
+        "diagram-kit/skills/arch-diagram/references/container-diagram.md": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3",
+        "diagram-kit/skills/arch-diagram/references/component-diagram.md": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37",
+        "diagram-kit/skills/arch-diagram/references/code-diagram.md": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75",
+        "diagram-kit/skills/arch-diagram/references/sequence-diagram.md": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb",
+        "diagram-kit/skills/arch-diagram/references/state-machine-diagram.md": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb",
+        "diagram-kit/skills/arch-diagram/references/deployment-diagram.md": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d",
+        "learning-evidence-kit/plugin.json": "c3b49b6428d25c6598bc6b9f2ce41339c78e32e538e905ecbd6ced483836ed46",
+        "learning-evidence-kit/assets/icon.svg": "fbd451eb605921ebb03c700777a359358e2e7fa20c5ecb4034595d4a90263b08",
+        "learning-evidence-kit/assets/icon.png": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad",
+        "learning-evidence-kit/skills/pop-quiz/SKILL.md": "72b2c8185234971041ac3f9de989cff93517870d3280b7b020eb305da69d92a6",
+        "learning-evidence-kit/skills/pop-quiz/agents/openai.yaml": "decebdd57d750e9ef3d88da43ba458f3e8c622acf4e534a19681236bee8aee21",
+        "learning-evidence-kit/skills/pop-quiz/references/ku-selection.md": "6d78cdd36367eceeba8e3682782acf11f1d1fa124df8879e26960461c4c4aa29",
+        "learning-evidence-kit/skills/pop-quiz/references/quiz-policy.md": "8d94713293e5dbcaee09aeb4681b6e6d25d3380e182e6d3cdb47a8f365406794",
+        "learning-evidence-kit/skills/learning-record-check/SKILL.md": "520d1af47e7098246a31565e4322d3d67a55e180cda4d01bb72399ed7ebf1e49",
+        "learning-evidence-kit/skills/learning-record-check/agents/openai.yaml": "dcac046ed1ddb1b8ebf0ca09ea80544b7be11b733272e1dd6cbec64bfbaa928f",
+        "explain-kit/plugin.json": "62c24bc96f812e707f5f425dbea2e06433880707678cb591929586255e5c5b91",
+        "explain-kit/assets/icon.svg": "8d5cf6c5a1eb48f273378da8715a16d276da0b95ff28c79a142080ee715b5874",
+        "explain-kit/assets/icon.png": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95",
+        "explain-kit/skills/glossary/SKILL.md": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+        "explain-kit/skills/glossary/agents/openai.yaml": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619",
+        "explain-kit/skills/concept/SKILL.md": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+        "explain-kit/skills/concept/agents/openai.yaml": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf",
+        "communication-kit/plugin.json": "7eead6be18358eb3925f283a9d2b2a149adeae2cfcb8e42bda6d859bf78e28c8",
+        "communication-kit/assets/icon.svg": "7a0a594df6ff9b622e5900771731fe63f97ebfb873e3874881e3a1a1764ec5ea",
+        "communication-kit/assets/icon.png": "07f8a9ad4d04f20bc0551f3e72ed8c9e1b14368a743b392d4feee3aaec314ddf",
+        "communication-kit/skills/communicate/SKILL.md": "7a5644c9e2f156acd98286d36ac5b869fd921e23704fa98030d792faadaf630f",
+        "communication-kit/skills/communicate/agents/openai.yaml": "c89a7134a1dd2fffa3e99d38bdcedb2bdaf46fb03de9b69ff1b19ad667c01d2d",
+        "communication-kit/skills/communicate/references/aics-policy.md": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+        "communication-kit/skills/communicate/references/task-patterns.md": "190c47c125759de5dbdca218417a418b76ba555df44923dc2cf48b86d60d0cff",
+        "communication-kit/skills/communicate/references/source-provenance.md": "53272cc56dba8cfe32203543d9f3d6aee8ec55ebc3602f4dc5652be90b9ed725",
+        "communication-kit/skills/communicate/references/aics-snapshot.json": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332"
+      }
+    },
+    {
+      "scenario": 10,
+      "installed": [
+        "html-guide-kit"
+      ],
+      "ok": true,
+      "commands": 12,
+      "nonzero_commands": 0,
+      "resource_skill_sets": 2,
+      "site_resources": 20,
+      "outside": {
+        "publicSkills": 0,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 0,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 2,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 2,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [
+        "html-guide-kit:guide",
+        "html-guide-kit:site"
+      ],
+      "source_cache_compared_file_facts": 29,
+      "resource_sha256_facts": {
+        "html-guide-kit/plugin.json": "735476d42f085da285bec03c4e8918ec1cfc6842bc24d3b8506697b603ebf72f",
+        "html-guide-kit/assets/icon.svg": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+        "html-guide-kit/assets/icon.png": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+        "html-guide-kit/THIRD_PARTY_NOTICES.md": "bd032c0a0dff30b91f9aa94d178283fd7c03b0fbeffb91b138fbb58428558b4d",
+        "html-guide-kit/licenses/Apache-2.0.txt": "30deeaa611125310673e7c14b4892fb102fb56697ecfab3b49b77ca0190de7e1",
+        "html-guide-kit/skills/guide/SKILL.md": "9f2febe6d0d368ab0ea5eb0e570a050a557f3d80983ea70b1138b4e60e0dc58e",
+        "html-guide-kit/skills/guide/agents/openai.yaml": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+        "html-guide-kit/skills/guide/references/guide-framework.md": "09db2c2a67d6b61ac0d6500a70c6a01cc858651a4d5b9015472a4021111ac196",
+        "html-guide-kit/skills/guide/references/interaction-design.md": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+        "html-guide-kit/skills/site/SKILL.md": "c3c47756b18e7ccd2a2e6491e23909afa0f98bc7742476a9cb017c50fc968773",
+        "html-guide-kit/skills/site/agents/openai.yaml": "2051c88954740c96fd41c16d077430c8dfa7db6e9c52401553678f6858e0debe",
+        "html-guide-kit/skills/site/references/execution-guide.md": "4c6304dd3d666d874f82db00a494cbee6fffe07615243786ea4d0deaaa324499",
+        "html-guide-kit/skills/site/references/aics-principles.md": "39849866aa2db08994d5780f00c26b070afa1d158011aa6a2b398a538716afca",
+        "html-guide-kit/skills/site/references/terminology.md": "ccbd0af80ee67b4580a43e3cbf623972c485a87e8eaead0b933c9c9065071ccb",
+        "html-guide-kit/skills/site/references/interaction-patterns.md": "ef878b1f8b97024b81076e27b4457e12c5069e5408abafa72d703849d80feaf3",
+        "html-guide-kit/skills/site/references/evidence-and-evaluation.md": "bba7a0100d9ef6f63151a979692697738f9bfbb0bd72b1510efa7a765b5d8b5e",
+        "html-guide-kit/skills/site/references/sites-handoff.md": "cab83528d728691fb34574fae2dc1b2ca9104e77641061825412e60fca041272",
+        "html-guide-kit/skills/site/references/input-contract.md": "18eb3f0b000268214d2cd693989c63a64db345533f60e606ff46af1308457aa1",
+        "html-guide-kit/skills/site/references/checks.md": "7cf232681aa66ae0050ee9c570bbcfa8fb2bd6f54cc210fa01c9872ec12e0de0",
+        "html-guide-kit/skills/site/references/resource-provenance.json": "1847d0b34cff308481ebf4f4f0e2390f7582c9dd40d98c355d67a40dfe095778",
+        "html-guide-kit/skills/site/scripts/render-site.mjs": "07e92e688ef751b18bcd9f09ee767c3dbf95632c2c56a11fe6a2133a8cad955e",
+        "html-guide-kit/skills/site/scripts/check_artifact.py": "7f912c3ede72255588fc6ae33624ce87e39ea7328b34789cdc590e4bbc78d9c2",
+        "html-guide-kit/skills/site/scripts/check_renderings.py": "d99dc2ad8a67d557f552280b83a5e519eb5395e18e71775abe7cb3fdbb489ccd",
+        "html-guide-kit/skills/site/assets/warm-paper/shell.html": "816fc0257f6cef7443f5a3b5f299b909fedfd1758da7b823ac4514b29fb2d72b",
+        "html-guide-kit/skills/site/assets/warm-paper/theme.css": "90ee5261f02c44f3fb7f5b3e17662cb232bde07110dd53a2ccf4f2880ac1345f",
+        "html-guide-kit/skills/site/assets/warm-paper/learning.js": "1fcc8c6064dd99f00b91103cf76e33d7a4e6dcf50793b4542bd8462f6c91f568",
+        "html-guide-kit/skills/site/examples/representative/artifact.json": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+        "html-guide-kit/skills/site/examples/representative/content.md": "060045ce718168c7f3c2aecd2742518490d5693e3dbdeb28b4ac94ce2885cd50",
+        "html-guide-kit/skills/site/examples/representative/sources/renewal-rules.md": "2a95c4d9b95f3b184fea30aa3fba9daaf34d11624bd888ed4793a0ea7f96af47"
+      }
+    },
+    {
+      "scenario": 11,
+      "installed": [
+        "html-guide-kit",
+        "explain-kit"
+      ],
+      "ok": true,
+      "commands": 13,
+      "nonzero_commands": 0,
+      "resource_skill_sets": 4,
+      "site_resources": 20,
+      "outside": {
+        "publicSkills": 2,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 2,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 4,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 4,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [
+        "html-guide-kit:guide",
+        "html-guide-kit:site"
+      ],
+      "source_cache_compared_file_facts": 36,
+      "resource_sha256_facts": {
+        "html-guide-kit/plugin.json": "735476d42f085da285bec03c4e8918ec1cfc6842bc24d3b8506697b603ebf72f",
+        "html-guide-kit/assets/icon.svg": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+        "html-guide-kit/assets/icon.png": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+        "html-guide-kit/THIRD_PARTY_NOTICES.md": "bd032c0a0dff30b91f9aa94d178283fd7c03b0fbeffb91b138fbb58428558b4d",
+        "html-guide-kit/licenses/Apache-2.0.txt": "30deeaa611125310673e7c14b4892fb102fb56697ecfab3b49b77ca0190de7e1",
+        "html-guide-kit/skills/guide/SKILL.md": "9f2febe6d0d368ab0ea5eb0e570a050a557f3d80983ea70b1138b4e60e0dc58e",
+        "html-guide-kit/skills/guide/agents/openai.yaml": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+        "html-guide-kit/skills/guide/references/guide-framework.md": "09db2c2a67d6b61ac0d6500a70c6a01cc858651a4d5b9015472a4021111ac196",
+        "html-guide-kit/skills/guide/references/interaction-design.md": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+        "html-guide-kit/skills/site/SKILL.md": "c3c47756b18e7ccd2a2e6491e23909afa0f98bc7742476a9cb017c50fc968773",
+        "html-guide-kit/skills/site/agents/openai.yaml": "2051c88954740c96fd41c16d077430c8dfa7db6e9c52401553678f6858e0debe",
+        "html-guide-kit/skills/site/references/execution-guide.md": "4c6304dd3d666d874f82db00a494cbee6fffe07615243786ea4d0deaaa324499",
+        "html-guide-kit/skills/site/references/aics-principles.md": "39849866aa2db08994d5780f00c26b070afa1d158011aa6a2b398a538716afca",
+        "html-guide-kit/skills/site/references/terminology.md": "ccbd0af80ee67b4580a43e3cbf623972c485a87e8eaead0b933c9c9065071ccb",
+        "html-guide-kit/skills/site/references/interaction-patterns.md": "ef878b1f8b97024b81076e27b4457e12c5069e5408abafa72d703849d80feaf3",
+        "html-guide-kit/skills/site/references/evidence-and-evaluation.md": "bba7a0100d9ef6f63151a979692697738f9bfbb0bd72b1510efa7a765b5d8b5e",
+        "html-guide-kit/skills/site/references/sites-handoff.md": "cab83528d728691fb34574fae2dc1b2ca9104e77641061825412e60fca041272",
+        "html-guide-kit/skills/site/references/input-contract.md": "18eb3f0b000268214d2cd693989c63a64db345533f60e606ff46af1308457aa1",
+        "html-guide-kit/skills/site/references/checks.md": "7cf232681aa66ae0050ee9c570bbcfa8fb2bd6f54cc210fa01c9872ec12e0de0",
+        "html-guide-kit/skills/site/references/resource-provenance.json": "1847d0b34cff308481ebf4f4f0e2390f7582c9dd40d98c355d67a40dfe095778",
+        "html-guide-kit/skills/site/scripts/render-site.mjs": "07e92e688ef751b18bcd9f09ee767c3dbf95632c2c56a11fe6a2133a8cad955e",
+        "html-guide-kit/skills/site/scripts/check_artifact.py": "7f912c3ede72255588fc6ae33624ce87e39ea7328b34789cdc590e4bbc78d9c2",
+        "html-guide-kit/skills/site/scripts/check_renderings.py": "d99dc2ad8a67d557f552280b83a5e519eb5395e18e71775abe7cb3fdbb489ccd",
+        "html-guide-kit/skills/site/assets/warm-paper/shell.html": "816fc0257f6cef7443f5a3b5f299b909fedfd1758da7b823ac4514b29fb2d72b",
+        "html-guide-kit/skills/site/assets/warm-paper/theme.css": "90ee5261f02c44f3fb7f5b3e17662cb232bde07110dd53a2ccf4f2880ac1345f",
+        "html-guide-kit/skills/site/assets/warm-paper/learning.js": "1fcc8c6064dd99f00b91103cf76e33d7a4e6dcf50793b4542bd8462f6c91f568",
+        "html-guide-kit/skills/site/examples/representative/artifact.json": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+        "html-guide-kit/skills/site/examples/representative/content.md": "060045ce718168c7f3c2aecd2742518490d5693e3dbdeb28b4ac94ce2885cd50",
+        "html-guide-kit/skills/site/examples/representative/sources/renewal-rules.md": "2a95c4d9b95f3b184fea30aa3fba9daaf34d11624bd888ed4793a0ea7f96af47",
+        "explain-kit/plugin.json": "62c24bc96f812e707f5f425dbea2e06433880707678cb591929586255e5c5b91",
+        "explain-kit/assets/icon.svg": "8d5cf6c5a1eb48f273378da8715a16d276da0b95ff28c79a142080ee715b5874",
+        "explain-kit/assets/icon.png": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95",
+        "explain-kit/skills/glossary/SKILL.md": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+        "explain-kit/skills/glossary/agents/openai.yaml": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619",
+        "explain-kit/skills/concept/SKILL.md": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+        "explain-kit/skills/concept/agents/openai.yaml": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf"
+      }
+    },
+    {
+      "scenario": 12,
+      "installed": [
+        "diagram-kit",
+        "learning-evidence-kit",
+        "explain-kit",
+        "html-guide-kit"
+      ],
+      "ok": true,
+      "commands": 19,
+      "nonzero_commands": 0,
+      "resource_skill_sets": 7,
+      "site_resources": 20,
+      "outside": {
+        "publicSkills": 3,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 3,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 7,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 7,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [
+        "learning-evidence-kit:pop-quiz",
+        "learning-evidence-kit:learning-record-check",
+        "html-guide-kit:guide",
+        "html-guide-kit:site"
+      ],
+      "source_cache_compared_file_facts": 60,
+      "resource_sha256_facts": {
+        "diagram-kit/plugin.json": "8c51243d90e61764724bdb56256e603bdcf4414723111986685d5b70255097ed",
+        "diagram-kit/assets/icon.svg": "3b77a72c2012f934397e4b32b483f7cb4b0d87375a8de5a3f65fc231da147a5e",
+        "diagram-kit/assets/icon.png": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f",
+        "diagram-kit/skills/arch-diagram/SKILL.md": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b",
+        "diagram-kit/skills/arch-diagram/agents/openai.yaml": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428",
+        "diagram-kit/skills/arch-diagram/scripts/validate_diagram.py": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33",
+        "diagram-kit/skills/arch-diagram/references/architecture-methodology.md": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f",
+        "diagram-kit/skills/arch-diagram/references/domain-acquisition.md": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9",
+        "diagram-kit/skills/arch-diagram/references/context-diagram.md": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a",
+        "diagram-kit/skills/arch-diagram/references/container-diagram.md": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3",
+        "diagram-kit/skills/arch-diagram/references/component-diagram.md": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37",
+        "diagram-kit/skills/arch-diagram/references/code-diagram.md": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75",
+        "diagram-kit/skills/arch-diagram/references/sequence-diagram.md": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb",
+        "diagram-kit/skills/arch-diagram/references/state-machine-diagram.md": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb",
+        "diagram-kit/skills/arch-diagram/references/deployment-diagram.md": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d",
+        "learning-evidence-kit/plugin.json": "c3b49b6428d25c6598bc6b9f2ce41339c78e32e538e905ecbd6ced483836ed46",
+        "learning-evidence-kit/assets/icon.svg": "fbd451eb605921ebb03c700777a359358e2e7fa20c5ecb4034595d4a90263b08",
+        "learning-evidence-kit/assets/icon.png": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad",
+        "learning-evidence-kit/skills/pop-quiz/SKILL.md": "72b2c8185234971041ac3f9de989cff93517870d3280b7b020eb305da69d92a6",
+        "learning-evidence-kit/skills/pop-quiz/agents/openai.yaml": "decebdd57d750e9ef3d88da43ba458f3e8c622acf4e534a19681236bee8aee21",
+        "learning-evidence-kit/skills/pop-quiz/references/ku-selection.md": "6d78cdd36367eceeba8e3682782acf11f1d1fa124df8879e26960461c4c4aa29",
+        "learning-evidence-kit/skills/pop-quiz/references/quiz-policy.md": "8d94713293e5dbcaee09aeb4681b6e6d25d3380e182e6d3cdb47a8f365406794",
+        "learning-evidence-kit/skills/learning-record-check/SKILL.md": "520d1af47e7098246a31565e4322d3d67a55e180cda4d01bb72399ed7ebf1e49",
+        "learning-evidence-kit/skills/learning-record-check/agents/openai.yaml": "dcac046ed1ddb1b8ebf0ca09ea80544b7be11b733272e1dd6cbec64bfbaa928f",
+        "explain-kit/plugin.json": "62c24bc96f812e707f5f425dbea2e06433880707678cb591929586255e5c5b91",
+        "explain-kit/assets/icon.svg": "8d5cf6c5a1eb48f273378da8715a16d276da0b95ff28c79a142080ee715b5874",
+        "explain-kit/assets/icon.png": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95",
+        "explain-kit/skills/glossary/SKILL.md": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+        "explain-kit/skills/glossary/agents/openai.yaml": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619",
+        "explain-kit/skills/concept/SKILL.md": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+        "explain-kit/skills/concept/agents/openai.yaml": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf",
+        "html-guide-kit/plugin.json": "735476d42f085da285bec03c4e8918ec1cfc6842bc24d3b8506697b603ebf72f",
+        "html-guide-kit/assets/icon.svg": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+        "html-guide-kit/assets/icon.png": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+        "html-guide-kit/THIRD_PARTY_NOTICES.md": "bd032c0a0dff30b91f9aa94d178283fd7c03b0fbeffb91b138fbb58428558b4d",
+        "html-guide-kit/licenses/Apache-2.0.txt": "30deeaa611125310673e7c14b4892fb102fb56697ecfab3b49b77ca0190de7e1",
+        "html-guide-kit/skills/guide/SKILL.md": "9f2febe6d0d368ab0ea5eb0e570a050a557f3d80983ea70b1138b4e60e0dc58e",
+        "html-guide-kit/skills/guide/agents/openai.yaml": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+        "html-guide-kit/skills/guide/references/guide-framework.md": "09db2c2a67d6b61ac0d6500a70c6a01cc858651a4d5b9015472a4021111ac196",
+        "html-guide-kit/skills/guide/references/interaction-design.md": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+        "html-guide-kit/skills/site/SKILL.md": "c3c47756b18e7ccd2a2e6491e23909afa0f98bc7742476a9cb017c50fc968773",
+        "html-guide-kit/skills/site/agents/openai.yaml": "2051c88954740c96fd41c16d077430c8dfa7db6e9c52401553678f6858e0debe",
+        "html-guide-kit/skills/site/references/execution-guide.md": "4c6304dd3d666d874f82db00a494cbee6fffe07615243786ea4d0deaaa324499",
+        "html-guide-kit/skills/site/references/aics-principles.md": "39849866aa2db08994d5780f00c26b070afa1d158011aa6a2b398a538716afca",
+        "html-guide-kit/skills/site/references/terminology.md": "ccbd0af80ee67b4580a43e3cbf623972c485a87e8eaead0b933c9c9065071ccb",
+        "html-guide-kit/skills/site/references/interaction-patterns.md": "ef878b1f8b97024b81076e27b4457e12c5069e5408abafa72d703849d80feaf3",
+        "html-guide-kit/skills/site/references/evidence-and-evaluation.md": "bba7a0100d9ef6f63151a979692697738f9bfbb0bd72b1510efa7a765b5d8b5e",
+        "html-guide-kit/skills/site/references/sites-handoff.md": "cab83528d728691fb34574fae2dc1b2ca9104e77641061825412e60fca041272",
+        "html-guide-kit/skills/site/references/input-contract.md": "18eb3f0b000268214d2cd693989c63a64db345533f60e606ff46af1308457aa1",
+        "html-guide-kit/skills/site/references/checks.md": "7cf232681aa66ae0050ee9c570bbcfa8fb2bd6f54cc210fa01c9872ec12e0de0",
+        "html-guide-kit/skills/site/references/resource-provenance.json": "1847d0b34cff308481ebf4f4f0e2390f7582c9dd40d98c355d67a40dfe095778",
+        "html-guide-kit/skills/site/scripts/render-site.mjs": "07e92e688ef751b18bcd9f09ee767c3dbf95632c2c56a11fe6a2133a8cad955e",
+        "html-guide-kit/skills/site/scripts/check_artifact.py": "7f912c3ede72255588fc6ae33624ce87e39ea7328b34789cdc590e4bbc78d9c2",
+        "html-guide-kit/skills/site/scripts/check_renderings.py": "d99dc2ad8a67d557f552280b83a5e519eb5395e18e71775abe7cb3fdbb489ccd",
+        "html-guide-kit/skills/site/assets/warm-paper/shell.html": "816fc0257f6cef7443f5a3b5f299b909fedfd1758da7b823ac4514b29fb2d72b",
+        "html-guide-kit/skills/site/assets/warm-paper/theme.css": "90ee5261f02c44f3fb7f5b3e17662cb232bde07110dd53a2ccf4f2880ac1345f",
+        "html-guide-kit/skills/site/assets/warm-paper/learning.js": "1fcc8c6064dd99f00b91103cf76e33d7a4e6dcf50793b4542bd8462f6c91f568",
+        "html-guide-kit/skills/site/examples/representative/artifact.json": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+        "html-guide-kit/skills/site/examples/representative/content.md": "060045ce718168c7f3c2aecd2742518490d5693e3dbdeb28b4ac94ce2885cd50",
+        "html-guide-kit/skills/site/examples/representative/sources/renewal-rules.md": "2a95c4d9b95f3b184fea30aa3fba9daaf34d11624bd888ed4793a0ea7f96af47"
+      }
+    },
+    {
+      "scenario": 13,
+      "installed": [
+        "diagram-kit",
+        "learning-evidence-kit",
+        "explain-kit",
+        "communication-kit",
+        "html-guide-kit"
+      ],
+      "ok": true,
+      "commands": 20,
+      "nonzero_commands": 0,
+      "resource_skill_sets": 8,
+      "site_resources": 20,
+      "outside": {
+        "publicSkills": 3,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 3,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 8,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 8,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [
+        "learning-evidence-kit:pop-quiz",
+        "learning-evidence-kit:learning-record-check",
+        "communication-kit:communicate",
+        "html-guide-kit:guide",
+        "html-guide-kit:site"
+      ],
+      "source_cache_compared_file_facts": 69,
+      "resource_sha256_facts": {
+        "diagram-kit/plugin.json": "8c51243d90e61764724bdb56256e603bdcf4414723111986685d5b70255097ed",
+        "diagram-kit/assets/icon.svg": "3b77a72c2012f934397e4b32b483f7cb4b0d87375a8de5a3f65fc231da147a5e",
+        "diagram-kit/assets/icon.png": "d73fb00ec6ddb424ea2bf565bc94c58f9c91d783aaf984456505dc5a2ea9a20f",
+        "diagram-kit/skills/arch-diagram/SKILL.md": "c9ca0c9fed6c6d9298c543a59a7327268a64a831562dea6094f1ebd47a05e55b",
+        "diagram-kit/skills/arch-diagram/agents/openai.yaml": "dd3f6eaa14e8f124a5a4d495b3d838b66b8acf53a973e73aa73e8f7d23773428",
+        "diagram-kit/skills/arch-diagram/scripts/validate_diagram.py": "ec069cc4fd37ebf461d7e1f2f798ca78fa5d9bcc757b1d71f45659d8fc8d2d33",
+        "diagram-kit/skills/arch-diagram/references/architecture-methodology.md": "9bf0cf005fea00b52e1480b3cd318d3d4b37e7d26776cd99cd60852d9a959c6f",
+        "diagram-kit/skills/arch-diagram/references/domain-acquisition.md": "69d58628a742636729cd06eb19c17eed00bdd4fec707630aafd4b992ee5dada9",
+        "diagram-kit/skills/arch-diagram/references/context-diagram.md": "27ada51ed7885b344d7c5765704c5c5e23e9dac3825b071a4de494d5ddad606a",
+        "diagram-kit/skills/arch-diagram/references/container-diagram.md": "066ff965001cdf43b571529be799d237b91f0fada5e1b558c92c28ba70a286d3",
+        "diagram-kit/skills/arch-diagram/references/component-diagram.md": "b68e1426c0a5f88ce3fad7d4f555de6d4e886b939f5fdfd1f6dab0d304edbb37",
+        "diagram-kit/skills/arch-diagram/references/code-diagram.md": "e2bfb03f51c1a54bbf885c96a69ee4c6c71522fde5a41f1516485c31f1af0d75",
+        "diagram-kit/skills/arch-diagram/references/sequence-diagram.md": "e77df1237df104d9666f541dfe4dedd1df8cc42aba275affda3aa4df6f7399cb",
+        "diagram-kit/skills/arch-diagram/references/state-machine-diagram.md": "b4071608fc247610e7429c7b44b118955346f861dcb0b53d4d697c1eb318b7fb",
+        "diagram-kit/skills/arch-diagram/references/deployment-diagram.md": "aa27fee23277e98b6a647ef3930c262ccfb9398a6037b2a7d2ec992beb69b03d",
+        "learning-evidence-kit/plugin.json": "c3b49b6428d25c6598bc6b9f2ce41339c78e32e538e905ecbd6ced483836ed46",
+        "learning-evidence-kit/assets/icon.svg": "fbd451eb605921ebb03c700777a359358e2e7fa20c5ecb4034595d4a90263b08",
+        "learning-evidence-kit/assets/icon.png": "c12cae5f085873331bdfbdf44beca609372da430bc0a66ae032e61df657e18ad",
+        "learning-evidence-kit/skills/pop-quiz/SKILL.md": "72b2c8185234971041ac3f9de989cff93517870d3280b7b020eb305da69d92a6",
+        "learning-evidence-kit/skills/pop-quiz/agents/openai.yaml": "decebdd57d750e9ef3d88da43ba458f3e8c622acf4e534a19681236bee8aee21",
+        "learning-evidence-kit/skills/pop-quiz/references/ku-selection.md": "6d78cdd36367eceeba8e3682782acf11f1d1fa124df8879e26960461c4c4aa29",
+        "learning-evidence-kit/skills/pop-quiz/references/quiz-policy.md": "8d94713293e5dbcaee09aeb4681b6e6d25d3380e182e6d3cdb47a8f365406794",
+        "learning-evidence-kit/skills/learning-record-check/SKILL.md": "520d1af47e7098246a31565e4322d3d67a55e180cda4d01bb72399ed7ebf1e49",
+        "learning-evidence-kit/skills/learning-record-check/agents/openai.yaml": "dcac046ed1ddb1b8ebf0ca09ea80544b7be11b733272e1dd6cbec64bfbaa928f",
+        "explain-kit/plugin.json": "62c24bc96f812e707f5f425dbea2e06433880707678cb591929586255e5c5b91",
+        "explain-kit/assets/icon.svg": "8d5cf6c5a1eb48f273378da8715a16d276da0b95ff28c79a142080ee715b5874",
+        "explain-kit/assets/icon.png": "6acab42884b53d936fe48cec7d52dc93f03f676fe7e6f6b3969a6ab93cabbd95",
+        "explain-kit/skills/glossary/SKILL.md": "9cc917384798bacc55d97beeaacdc998aa8986ca03ddf4f1ae5f7a4d2d0aed74",
+        "explain-kit/skills/glossary/agents/openai.yaml": "1253baccd633d81c471c93dc3f576988bfa9c4c1027c54dbc4060e93bffb9619",
+        "explain-kit/skills/concept/SKILL.md": "c96b95e66cb61ea3cdf193e92c2826650b5526afe34ae63b59a5d624dab7e715",
+        "explain-kit/skills/concept/agents/openai.yaml": "fbfdc7526034a2868e8c8d80e64daaa3cc8988b9336cb0f87f2448e2ffb75adf",
+        "communication-kit/plugin.json": "7eead6be18358eb3925f283a9d2b2a149adeae2cfcb8e42bda6d859bf78e28c8",
+        "communication-kit/assets/icon.svg": "7a0a594df6ff9b622e5900771731fe63f97ebfb873e3874881e3a1a1764ec5ea",
+        "communication-kit/assets/icon.png": "07f8a9ad4d04f20bc0551f3e72ed8c9e1b14368a743b392d4feee3aaec314ddf",
+        "communication-kit/skills/communicate/SKILL.md": "7a5644c9e2f156acd98286d36ac5b869fd921e23704fa98030d792faadaf630f",
+        "communication-kit/skills/communicate/agents/openai.yaml": "c89a7134a1dd2fffa3e99d38bdcedb2bdaf46fb03de9b69ff1b19ad667c01d2d",
+        "communication-kit/skills/communicate/references/aics-policy.md": "7ae5d5c47c0f7218f2dafbb9a930a57f1a3f7aaef71b051878c3edf582c415ae",
+        "communication-kit/skills/communicate/references/task-patterns.md": "190c47c125759de5dbdca218417a418b76ba555df44923dc2cf48b86d60d0cff",
+        "communication-kit/skills/communicate/references/source-provenance.md": "53272cc56dba8cfe32203543d9f3d6aee8ec55ebc3602f4dc5652be90b9ed725",
+        "communication-kit/skills/communicate/references/aics-snapshot.json": "1f9fd1745966180596827e3386cd75f1f16bfffb990740fcac6b82204ad82332",
+        "html-guide-kit/plugin.json": "735476d42f085da285bec03c4e8918ec1cfc6842bc24d3b8506697b603ebf72f",
+        "html-guide-kit/assets/icon.svg": "65960cc348569a27b757444df0c1e7e1a9a153b55f99532bd841e1d28eb72a68",
+        "html-guide-kit/assets/icon.png": "f1fc4d0b6dcdf004ed9f1b6aec9d231a46666184ddd4aef470fa817da0afd5b6",
+        "html-guide-kit/THIRD_PARTY_NOTICES.md": "bd032c0a0dff30b91f9aa94d178283fd7c03b0fbeffb91b138fbb58428558b4d",
+        "html-guide-kit/licenses/Apache-2.0.txt": "30deeaa611125310673e7c14b4892fb102fb56697ecfab3b49b77ca0190de7e1",
+        "html-guide-kit/skills/guide/SKILL.md": "9f2febe6d0d368ab0ea5eb0e570a050a557f3d80983ea70b1138b4e60e0dc58e",
+        "html-guide-kit/skills/guide/agents/openai.yaml": "7833a8c8dc5d72f4494d1e8f563b21562326d8e71e2fefc00a8fe12a1c809f14",
+        "html-guide-kit/skills/guide/references/guide-framework.md": "09db2c2a67d6b61ac0d6500a70c6a01cc858651a4d5b9015472a4021111ac196",
+        "html-guide-kit/skills/guide/references/interaction-design.md": "b3089e878ff2ab424dbb4e189445bc3718df4991f428ba56494f454b891e8c2a",
+        "html-guide-kit/skills/site/SKILL.md": "c3c47756b18e7ccd2a2e6491e23909afa0f98bc7742476a9cb017c50fc968773",
+        "html-guide-kit/skills/site/agents/openai.yaml": "2051c88954740c96fd41c16d077430c8dfa7db6e9c52401553678f6858e0debe",
+        "html-guide-kit/skills/site/references/execution-guide.md": "4c6304dd3d666d874f82db00a494cbee6fffe07615243786ea4d0deaaa324499",
+        "html-guide-kit/skills/site/references/aics-principles.md": "39849866aa2db08994d5780f00c26b070afa1d158011aa6a2b398a538716afca",
+        "html-guide-kit/skills/site/references/terminology.md": "ccbd0af80ee67b4580a43e3cbf623972c485a87e8eaead0b933c9c9065071ccb",
+        "html-guide-kit/skills/site/references/interaction-patterns.md": "ef878b1f8b97024b81076e27b4457e12c5069e5408abafa72d703849d80feaf3",
+        "html-guide-kit/skills/site/references/evidence-and-evaluation.md": "bba7a0100d9ef6f63151a979692697738f9bfbb0bd72b1510efa7a765b5d8b5e",
+        "html-guide-kit/skills/site/references/sites-handoff.md": "cab83528d728691fb34574fae2dc1b2ca9104e77641061825412e60fca041272",
+        "html-guide-kit/skills/site/references/input-contract.md": "18eb3f0b000268214d2cd693989c63a64db345533f60e606ff46af1308457aa1",
+        "html-guide-kit/skills/site/references/checks.md": "7cf232681aa66ae0050ee9c570bbcfa8fb2bd6f54cc210fa01c9872ec12e0de0",
+        "html-guide-kit/skills/site/references/resource-provenance.json": "1847d0b34cff308481ebf4f4f0e2390f7582c9dd40d98c355d67a40dfe095778",
+        "html-guide-kit/skills/site/scripts/render-site.mjs": "07e92e688ef751b18bcd9f09ee767c3dbf95632c2c56a11fe6a2133a8cad955e",
+        "html-guide-kit/skills/site/scripts/check_artifact.py": "7f912c3ede72255588fc6ae33624ce87e39ea7328b34789cdc590e4bbc78d9c2",
+        "html-guide-kit/skills/site/scripts/check_renderings.py": "d99dc2ad8a67d557f552280b83a5e519eb5395e18e71775abe7cb3fdbb489ccd",
+        "html-guide-kit/skills/site/assets/warm-paper/shell.html": "816fc0257f6cef7443f5a3b5f299b909fedfd1758da7b823ac4514b29fb2d72b",
+        "html-guide-kit/skills/site/assets/warm-paper/theme.css": "90ee5261f02c44f3fb7f5b3e17662cb232bde07110dd53a2ccf4f2880ac1345f",
+        "html-guide-kit/skills/site/assets/warm-paper/learning.js": "1fcc8c6064dd99f00b91103cf76e33d7a4e6dcf50793b4542bd8462f6c91f568",
+        "html-guide-kit/skills/site/examples/representative/artifact.json": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+        "html-guide-kit/skills/site/examples/representative/content.md": "060045ce718168c7f3c2aecd2742518490d5693e3dbdeb28b4ac94ce2885cd50",
+        "html-guide-kit/skills/site/examples/representative/sources/renewal-rules.md": "2a95c4d9b95f3b184fea30aa3fba9daaf34d11624bd888ed4793a0ea7f96af47"
+      }
+    }
+  ],
+  "cross_scenario_unique_file_facts": 69,
+  "cross_scenario_total_file_fact_occurrences": 361,
+  "mismatches": [],
+  "limitations": "Runtime equality assertions and emitted SHA256 facts; remote runner files not independently re-read. LEK shared resources are byte-compared by runtime but its shared seven-resource loop prints no individual SHA256 facts. Browser in installation smoke NOT_RUN; individual cleanup-root absence NOT_RECORDED."
+}

@@ -1,0 +1,236 @@
+{
+  "schema": 1,
+  "stage": "pre-diagnostic-stage",
+  "capturedAt": "2026-10-19T17:29:58.023Z",
+  "scope": "Frozen original PR attempt1, original push attempt1 failures, independent provider raw push attempt2 Linux, and current protection observations; excludes active child attempt2-push directory.",
+  "head": "1d8b6849ec7e398d65a949d204abe38bc64a4e0b",
+  "base": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+  "potentialMerge": "4e49503345f814175d0af39ab1ea8e02eb6a6adf",
+  "tree": "eefcaa0f1bd4201a38f9d46ff668c28b7d662e8c",
+  "originalPr": {
+    "id": 39292125277,
+    "status": "completed",
+    "conclusion": "failure",
+    "attempt": 1
+  },
+  "platforms": {
+    "linux": {
+      "jobId": 118195195093,
+      "conclusion": "failure",
+      "tap": {
+        "tests": 642,
+        "suites": 0,
+        "pass": 640,
+        "fail": 1,
+        "cancelled": 0,
+        "skipped": 1,
+        "todo": 0
+      },
+      "smoke": {
+        "status": "NOT_RUN",
+        "actualScenarios": null,
+        "actualCommands": null,
+        "actualPythonAndSiteCounts": null
+      },
+      "logSha256": "386ae4e4b82f5fc281ae93bf0811cf1ab8ec54df822db9c295bdb4e265738355"
+    },
+    "windows": {
+      "jobId": 118195194932,
+      "conclusion": "success",
+      "tap": {
+        "tests": 642,
+        "suites": 0,
+        "pass": 642,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      },
+      "smoke": {
+        "status": "PASS",
+        "actualScenarios": 13,
+        "actualCommands": 178,
+        "actualPythonAndSiteCounts": {
+          "diagram": 6,
+          "lek": 18,
+          "siteGeneration": 4,
+          "siteStatic": 4
+        },
+        "cliVersions": [
+          "codex-cli 0.147.0"
+        ],
+        "nonzeroCommands": [],
+        "siteStaticSummaries": [
+          {
+            "checks": 89,
+            "failed": 0,
+            "pages": 1,
+            "files": 6
+          },
+          {
+            "checks": 89,
+            "failed": 0,
+            "pages": 1,
+            "files": 6
+          },
+          {
+            "checks": 89,
+            "failed": 0,
+            "pages": 1,
+            "files": 6
+          },
+          {
+            "checks": 89,
+            "failed": 0,
+            "pages": 1,
+            "files": 6
+          }
+        ],
+        "sourceCacheIdentity": "Passed each platform checkout against its own installed cache; no cross-platform physical-byte equality asserted."
+      },
+      "logSha256": "b5e440cd7b0a6bd1f225ed3ff0e26b0b693c0d076bdc8fac79a694059efe7401"
+    }
+  },
+  "originalPush": {
+    "id": 39292085653,
+    "status": "completed",
+    "conclusion": "failure",
+    "attempt": 1,
+    "countedAsIndependentAcceptance": false
+  },
+  "pushAttempt2AsOfStage": {
+    "id": 39292085653,
+    "status": "in_progress",
+    "conclusion": "",
+    "jobs": [
+      {
+        "id": 118198894761,
+        "name": "Baseline compat (ubuntu-latest)",
+        "status": "completed",
+        "conclusion": "failure"
+      },
+      {
+        "id": 118198895238,
+        "name": "Baseline compat (windows-latest)",
+        "status": "in_progress",
+        "conclusion": ""
+      },
+      {
+        "id": 118198896354,
+        "name": "Cancel proved superseded PR runs (best effort)",
+        "status": "completed",
+        "conclusion": "skipped"
+      },
+      {
+        "id": 118198896900,
+        "name": "Prove equivalent PR matrix for this push (read only)",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 118198960000,
+        "name": "Validate Structure",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "protection": {
+    "schema": 1,
+    "phase": "final",
+    "capturedAt": "2026-10-19T17:29:23.783Z",
+    "pr": 281,
+    "head": "1d8b6849ec7e398d65a949d204abe38bc64a4e0b",
+    "base": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+    "potentialMerge": "4e49503345f814175d0af39ab1ea8e02eb6a6adf",
+    "state": "OPEN",
+    "isDraft": false,
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "mergeable": "MERGEABLE",
+    "reviewCount": 0,
+    "observedCurrentHeadNonAuthorApprovals": [],
+    "reviewThreads": {
+      "total": 0,
+      "pages": 1,
+      "unresolved": 0,
+      "outdated": 0
+    },
+    "actualPullRequestRule": {
+      "type": "pull_request",
+      "parameters": {
+        "required_approving_review_count": 1,
+        "dismiss_stale_reviews_on_push": true,
+        "required_reviewers": [],
+        "require_code_owner_review": false,
+        "dismissal_restriction": {
+          "enabled": false,
+          "allowed_actors": []
+        },
+        "require_last_push_approval": true,
+        "required_review_thread_resolution": true,
+        "require_extra_approval_for_unattributed_changes": true,
+        "allowed_merge_methods": [
+          "merge"
+        ]
+      },
+      "ruleset_source_type": "Repository",
+      "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+      "ruleset_id": 14008221
+    },
+    "actualStatusRule": {
+      "type": "required_status_checks",
+      "parameters": {
+        "strict_required_status_checks_policy": true,
+        "do_not_enforce_on_create": false,
+        "required_status_checks": [
+          {
+            "context": "Validate Structure"
+          },
+          {
+            "context": "A6 / Check"
+          }
+        ]
+      },
+      "ruleset_source_type": "Repository",
+      "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+      "ruleset_id": 14008221
+    },
+    "a6": {
+      "id": 39292125256,
+      "head": "1d8b6849ec7e398d65a949d204abe38bc64a4e0b",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "protectionPassClaimed": false,
+    "observations": [
+      "API observations only; no approve, reviewer request, comment, resolution, merge, bypass, rerun or cancel action.",
+      "Observed approval rows do not override GitHub reviewDecision or all current protected-branch requirements."
+    ]
+  },
+  "diagnosticChangesIncluded": false,
+  "rawCaptureCorrection": {
+    "attempt2PushLinuxJobId": 118198894761,
+    "actualProviderRaw": {
+      "path": "independent-push-attempt2-linux/job.log",
+      "bytes": 285810,
+      "sha256": "678653e89014745f57750f8e9b9672874fa65d69ed23a1db382063aa94509427"
+    },
+    "initialTextCopy": {
+      "bytes": 290031,
+      "sha256": "d883f896f29eea9fc06c9070826715ad01cf16afd727d79d496c7b67aaaa716f",
+      "status": "LOST_OVERWRITTEN",
+      "observedBy": "delegated attempt2 collector",
+      "reason": "Initial PowerShell text pipeline changed byte representation. The collector overwrote that copy with actual provider Buffer raw before parent instruction to preserve both. This copy is not claimed to exist and is not reconstructed."
+    },
+    "independentVerification": "Parent subagent re-downloaded provider response with Node execFileSync Buffer and independently matched corrected actual bytes/hash."
+  },
+  "limits": [
+    "Original PR Linux failure remains FAIL; its smoke did not execute. Windows success cannot replace Linux failure.",
+    "Original push attempt1 failure remains FAIL; push attempt2 is in progress and Linux is failed. Duplicate push matrix is not counted as independent acceptance.",
+    "NOT_RUN browser diagnostic is not product success or proof of infrastructure cause. Root cause remains UNKNOWN.",
+    "Only current checked-out platform versus its own installed cache byte checks; no cross-platform physical-byte equality asserted.",
+    "CI individual-root absence cleanup NOT_RECORDED. No separate local roots evidence borrowed.",
+    "No GitHub approve, comment, request review, merge, bypass, cancel or rerun by this agent."
+  ]
+}

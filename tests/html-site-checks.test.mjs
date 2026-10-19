@@ -6,6 +6,7 @@ import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
+import { captureBrowserStderr } from "./helpers/capture-browser-stderr.mjs";
 
 const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const scripts = path.join(repo, "plugins/html-guide-kit/skills/site/scripts");
@@ -320,9 +321,12 @@ test("actual browser measures mobile/desktop viewport sizes and detects overflow
   }
   const f = fixture(t);
   const goodShots = path.join(f.temporary, "good-shots");
+  const captured = process.platform === "linux"
+    ? captureBrowserStderr({ directory: f.temporary, executable, pythonCommand: python().command, pythonArgs: python().args })
+    : { executable, diagnostics: () => ({ instrumented: false, reason: "Linux startup capture only; original browser path retained" }) };
   const before = hash(fs.readFileSync(path.join(f.root, "index.html")));
-  const good = run("check_renderings.py", ["--input", f.root, "--browser", executable, "--screenshots", goodShots], 45000);
-  assert.equal(good.status, 0, good.stdout + good.stderr);
+  const good = run("check_renderings.py", ["--input", f.root, "--browser", captured.executable, "--screenshots", goodShots], 45000);
+  assert.equal(good.status, 0, good.stdout + good.stderr + (good.status === 0 ? "" : "\nStartup stderr diagnostics: " + JSON.stringify(captured.diagnostics())));
   assert.equal(good.report.status, "PASS");
   assert.equal(good.report.lifecycle.at(-1).phase, "temporary-cleanup");
   assert.equal(good.report.lifecycle.at(-1).status, "PASS");
@@ -338,8 +342,8 @@ test("actual browser measures mobile/desktop viewport sizes and detects overflow
   assert.equal(hash(fs.readFileSync(path.join(f.root, "index.html"))), before, "browser checks must leave original bytes intact");
   fs.appendFileSync(path.join(f.root, "theme.css"), ".wide{width:1800px}.clip{overflow:hidden;width:120px;height:16px}.clip span{display:block;width:500px;height:100px}.wrap{width:12px;word-break:break-all}");
   fs.writeFileSync(path.join(f.root, "index.html"), fs.readFileSync(path.join(f.root, "index.html"), "utf8").replace("</body>", '<div class="wide">横向溢出</div><div class="clip"><span>裁切</span></div><p class="wrap">这是用于检测极端异常换行的长句内容</p></body>'));
-  const bad = run("check_renderings.py", ["--input", f.root, "--browser", executable, "--screenshots", path.join(f.temporary, "bad-shots"), "--viewport", "390x844"], 45000);
-  assert.equal(bad.status, 1, bad.stdout + bad.stderr);
+  const bad = run("check_renderings.py", ["--input", f.root, "--browser", captured.executable, "--screenshots", path.join(f.temporary, "bad-shots"), "--viewport", "390x844"], 45000);
+  assert.equal(bad.status, 1, bad.stdout + bad.stderr + (bad.status === 1 ? "" : "\nStartup stderr diagnostics: " + JSON.stringify(captured.diagnostics())));
   const codes = bad.report.viewports.flatMap(v => v.issues.map(issue => issue.code));
   for (const code of ["horizontal-overflow", "severe-horizontal-clipping", "severe-vertical-clipping", "extreme-text-wrapping"]) assert.ok(codes.includes(code), `${code}: ${bad.stdout}`);
 });

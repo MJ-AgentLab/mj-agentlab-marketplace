@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "kind": "Retrospective method notes, not an original execution transcript",
+  "createdAt": "2026-10-19T17:47:57.765Z",
+  "actor": "/root/spec_review",
+  "scope": "Independent read-only diagnostic review; TEMP artifacts only, no repository changes or full test execution.",
+  "originalProbe": {
+    "raw": "html-learning-274-browser-stderr-independent-timeout-probe.json",
+    "testedHelperSha256": "37378aa6f912f7fe4487c9af52c59d96baf1e9bd8eb0dde6d7f78e23f945b62a",
+    "method": "Windows Node passed exact helper bytes to isolated WSL Python over stdin. Python wrote a temporary helper and fake browser. Fake normal invocation exited23; --version ignored SIGTERM and slept60 seconds. Node ran original command then diagnostics. Outer Python started Node in a new session, waited7 seconds, killed only that session with SIGKILL after timeout, and checked that a separate foreign session survived.",
+    "actualObservation": "Original status23 printed; diagnostics did not return within7 seconds; total measured7.010097193997353 seconds; foreign fixture survived.",
+    "limitation": "The original first driver was executed inline via tool call and was not saved as a standalone local source file. No reconstructed driver is presented as an original. The original raw result and tested helper hash are preserved; exact failing helper bytes were later recovered and verified."
+  },
+  "helperRecovery": {
+    "artifact": "html-learning-274-browser-stderr-independent-original-helper.mjs",
+    "origin": "/tmp/html-learning-274-browser-stderr-source-f4vro8zg/tests/helpers/capture-browser-stderr.mjs",
+    "method": "Read bytes from the retained author exact-byte WSL projection, base64 transport to TEMP, verify SHA256 equals the independently executed initial probe hash before writing.",
+    "bytes": 7189,
+    "sha256": "37378aa6f912f7fe4487c9af52c59d96baf1e9bd8eb0dde6d7f78e23f945b62a",
+    "limitation": "Recovered from an already retained exact-byte projection; not recreated from memory, paraphrase or reconstructed source."
+  },
+  "fixedRetest": {
+    "raw": "html-learning-274-browser-stderr-independent-timeout-retest.json",
+    "actualDriver": "html-learning-274-browser-stderr-independent-timeout-retest.py",
+    "helper": "html-learning-274-browser-stderr-independent-fixed-helper.mjs",
+    "method": "Saved Python driver text was executed unchanged via WSL /usr/bin/python3 -c, with stdin JSON containing base64 helper bytes and SHA256. The generated fake retained the original TERM-ignoring --version counterexample and additionally wrote a marker if that branch ran. Outer wait remained7 seconds.",
+    "observed": "Original status23 retained; diagnostics returned in1ms, isolated driver measured0.0922834980301559 seconds, version marker absent, diagnostic NOT_RUN retained, foreign fixture survived.",
+    "reproduction": "Read the saved driver text and pass it as one literal -c argument to WSL Python. Send one stdin JSON object {helper:<base64 exact fixed helper bytes>,sha:<its SHA256>}. It uses the previously installed /tmp/html-browser-stderr-node-22.18.0/node-v22.18.0-linux-x64/bin/node; that optional environment input must already exist. It never installs or downloads dependencies.",
+    "limitations": [
+      "The saved driver is an actual method artifact from the fixed retest; it is not retroactively substituted for the unsaved first driver.",
+      "WSL/Node runtime is an environment prerequisite, not bundled review evidence.",
+      "No real Chromium startup, source-root-cause fix, CI approval, model or desktop claim."
+    ]
+  },
+  "firstReviewInventory": "First review JSON source inventory was captured during concurrent root repair and already shows fixed helper8391f1fb. The failure execution is explicitly bound to original helper37378aa6 in the raw probe; final review describes this limitation.",
+  "otherInputs": "Pre-repair author targeted summary/logs were read as external author evidence, not relabeled independent or fixed-source execution. Root archives author evidence separately."
+}

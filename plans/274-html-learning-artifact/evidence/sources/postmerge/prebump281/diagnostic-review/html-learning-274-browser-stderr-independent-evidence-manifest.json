@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "role": "Independent reviewer TEMP evidence closure /root/spec_review",
+  "createdAt": "2026-10-19T17:47:57.773Z",
+  "status": "CLOSED_LISTED_REVIEW_ARTIFACTS_WITH_EXPLICIT_METHOD_LIMITATIONS",
+  "filesCount": 8,
+  "files": [
+    {
+      "file": "html-learning-274-browser-stderr-independent-review-final.json",
+      "bytes": 7061,
+      "sha256": "746d543bf3f0933c8a961b60b9d0a1f0f5c5ec6354c6939ad32c05fa54c85150"
+    },
+    {
+      "file": "html-learning-274-browser-stderr-independent-review.json",
+      "bytes": 5395,
+      "sha256": "1130547be21dbac390118b3d19902d82dc98bd171736a8de88b30032d61b0f56"
+    },
+    {
+      "file": "html-learning-274-browser-stderr-independent-timeout-probe.json",
+      "bytes": 1566,
+      "sha256": "2254330f5d46391bc16216c395098faac04b6c4dad5b6a1ff3b3ff091c4e409e"
+    },
+    {
+      "file": "html-learning-274-browser-stderr-independent-timeout-retest.json",
+      "bytes": 2011,
+      "sha256": "47dcebcaaa3e0fc75dd64a18a8582d3ef0882e828d1d5898b9585f3cee08d54a"
+    },
+    {
+      "file": "html-learning-274-browser-stderr-independent-timeout-retest.py",
+      "bytes": 2451,
+      "sha256": "ad5b9680db535e0a0c5e0c5112ba5d809bb4d70b38ce26e8b3ca7270b49eaaad"
+    },
+    {
+      "file": "html-learning-274-browser-stderr-independent-original-helper.mjs",
+      "bytes": 7189,
+      "sha256": "37378aa6f912f7fe4487c9af52c59d96baf1e9bd8eb0dde6d7f78e23f945b62a"
+    },
+    {
+      "file": "html-learning-274-browser-stderr-independent-fixed-helper.mjs",
+      "bytes": 6267,
+      "sha256": "8391f1fbf3d97cc7e92906df02544ffa29fc16b0e7b57f5653e17ec771434f16"
+    },
+    {
+      "file": "html-learning-274-browser-stderr-independent-methods.json",
+      "bytes": 4063,
+      "sha256": "87547c79dc74317f6ea42fa265c760fb2d27aec2979c4eb20291cbdae0515b14"
+    }
+  ],
+  "excludes": "This manifest itself is excluded from its file inventory.",
+  "preservation": "All seven pre-existing artifacts were read only; only retrospective method notes and this manifest were newly created. No original result or recovered helper bytes were modified.",
+  "methodLimitations": [
+    "Initial seven-second probe driver was not saved as a standalone original; only actual raw output, inline conversation method and exact tested helper bytes/hash are available. No reconstruction is labeled an original.",
+    "Fixed retest driver is the actual saved code executed in that retest; initial and fixed identities remain separate.",
+    "Author targeted evidence and root full-suite/CI results are separately owned evidence, outside this eight-file review-output closure.",
+    "Original Chromium startup root cause remains UNKNOWN."
+  ],
+  "initialReviewSha256": "1130547be21dbac390118b3d19902d82dc98bd171736a8de88b30032d61b0f56",
+  "finalReviewSha256": "746d543bf3f0933c8a961b60b9d0a1f0f5c5ec6354c6939ad32c05fa54c85150"
+}

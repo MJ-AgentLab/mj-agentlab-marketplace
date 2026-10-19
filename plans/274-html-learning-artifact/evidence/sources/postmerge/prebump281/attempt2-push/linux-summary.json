@@ -1,0 +1,363 @@
+{
+  "job_id": 118198894761,
+  "name": "Baseline compat (ubuntu-latest)",
+  "status": "completed",
+  "conclusion": "failure",
+  "started_at": "2026-10-19T17:20:02Z",
+  "completed_at": "2026-10-19T17:22:05Z",
+  "raw_log": "job-118198894761-linux.raw.log",
+  "raw_bytes": 285810,
+  "raw_sha256": "678653e89014745f57750f8e9b9672874fa65d69ed23a1db382063aa94509427",
+  "actual_checkout_from_git_log_next_line": [
+    {
+      "command_line": 191,
+      "sha_line": 192,
+      "sha": "1d8b6849ec7e398d65a949d204abe38bc64a4e0b",
+      "git_metadata_tree": "eefcaa0f1bd4201a38f9d46ff668c28b7d662e8c"
+    }
+  ],
+  "steps": [
+    {
+      "name": "Set up job",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 1,
+      "started_at": "2026-10-19T17:20:03Z",
+      "completed_at": "2026-10-19T17:20:05Z"
+    },
+    {
+      "name": "Run actions/checkout@v4",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 2,
+      "started_at": "2026-10-19T17:20:05Z",
+      "completed_at": "2026-10-19T17:20:09Z"
+    },
+    {
+      "name": "Run actions/setup-node@v4",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 3,
+      "started_at": "2026-10-19T17:20:09Z",
+      "completed_at": "2026-10-19T17:20:13Z"
+    },
+    {
+      "name": "Run actions/setup-python@v5",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 4,
+      "started_at": "2026-10-19T17:20:13Z",
+      "completed_at": "2026-10-19T17:20:13Z"
+    },
+    {
+      "name": "Run npm ci",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 5,
+      "started_at": "2026-10-19T17:20:13Z",
+      "completed_at": "2026-10-19T17:20:16Z"
+    },
+    {
+      "name": "Run npm install -g @openai/codex@0.147.0",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 6,
+      "started_at": "2026-10-19T17:20:16Z",
+      "completed_at": "2026-10-19T17:20:19Z"
+    },
+    {
+      "name": "Unit and real Python execution tests",
+      "status": "completed",
+      "conclusion": "failure",
+      "number": 7,
+      "started_at": "2026-10-19T17:20:19Z",
+      "completed_at": "2026-10-19T17:22:01Z"
+    },
+    {
+      "name": "Run npm run validate",
+      "status": "completed",
+      "conclusion": "skipped",
+      "number": 8,
+      "started_at": "2026-10-19T17:22:01Z",
+      "completed_at": "2026-10-19T17:22:01Z"
+    },
+    {
+      "name": "Run npm run check:baseline-tools",
+      "status": "completed",
+      "conclusion": "skipped",
+      "number": 9,
+      "started_at": "2026-10-19T17:22:01Z",
+      "completed_at": "2026-10-19T17:22:01Z"
+    },
+    {
+      "name": "Run npm run smoke:codex",
+      "status": "completed",
+      "conclusion": "skipped",
+      "number": 10,
+      "started_at": "2026-10-19T17:22:01Z",
+      "completed_at": "2026-10-19T17:22:01Z"
+    },
+    {
+      "name": "Post Run actions/setup-python@v5",
+      "status": "completed",
+      "conclusion": "skipped",
+      "number": 18,
+      "started_at": "2026-10-19T17:22:01Z",
+      "completed_at": "2026-10-19T17:22:01Z"
+    },
+    {
+      "name": "Post Run actions/setup-node@v4",
+      "status": "completed",
+      "conclusion": "skipped",
+      "number": 19,
+      "started_at": "2026-10-19T17:22:01Z",
+      "completed_at": "2026-10-19T17:22:01Z"
+    },
+    {
+      "name": "Post Run actions/checkout@v4",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 20,
+      "started_at": "2026-10-19T17:22:01Z",
+      "completed_at": "2026-10-19T17:22:01Z"
+    },
+    {
+      "name": "Complete job",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 21,
+      "started_at": "2026-10-19T17:22:01Z",
+      "completed_at": "2026-10-19T17:22:01Z"
+    }
+  ],
+  "tap_totals": {
+    "tests": [
+      642
+    ],
+    "suites": [
+      0
+    ],
+    "pass": [
+      640
+    ],
+    "fail": [
+      1
+    ],
+    "cancelled": [
+      0
+    ],
+    "skipped": [
+      1
+    ],
+    "todo": [
+      0
+    ]
+  },
+  "tap_result_count": 642,
+  "tap_result_ids_unique": true,
+  "not_ok": [
+    {
+      "line": 2234,
+      "status": "not ok",
+      "id": 328,
+      "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+      "skip": false
+    }
+  ],
+  "skipped_tests": [
+    {
+      "line": 3705,
+      "status": "ok",
+      "id": 561,
+      "name": "Windows equivalent file casing still passes containment # SKIP",
+      "skip": true
+    }
+  ],
+  "error_annotation_lines": [
+    {
+      "line": 4205,
+      "text": "##[error]Process completed with exit code 1."
+    }
+  ],
+  "browser_named_tap_results": [
+    {
+      "line": 2222,
+      "status": "ok",
+      "id": 326,
+      "name": "browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record",
+      "skip": false
+    },
+    {
+      "line": 2228,
+      "status": "ok",
+      "id": 327,
+      "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+      "skip": false
+    },
+    {
+      "line": 2234,
+      "status": "not ok",
+      "id": 328,
+      "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+      "skip": false
+    },
+    {
+      "line": 2418,
+      "status": "ok",
+      "id": 347,
+      "name": "literal percent, Chinese and spaces in local filenames round-trip through browser URLs",
+      "skip": false
+    }
+  ],
+  "python_named_tap_results": [
+    {
+      "line": 2186,
+      "status": "ok",
+      "id": 320,
+      "name": "static checker executes Python from unrelated cwd and preserves complete source/hash evidence",
+      "skip": false
+    },
+    {
+      "line": 2886,
+      "status": "ok",
+      "id": 425,
+      "name": "actual Python publishes complete JSON and Markdown, records account/visibility, and replays without duplicate writes",
+      "skip": false
+    },
+    {
+      "line": 2892,
+      "status": "ok",
+      "id": 426,
+      "name": "GitHub acceptance actually uses an exact Python 3.12 interpreter",
+      "skip": false
+    },
+    {
+      "line": 3031,
+      "status": "ok",
+      "id": 449,
+      "name": "Learning evidence storage: actual Python 3.12 isolated recovery/import/attribution cases",
+      "skip": false
+    }
+  ],
+  "actual_browser_checker_payloads": [
+    {
+      "json_start_line": 2241,
+      "payload": {
+        "schemaVersion": 1,
+        "checker": "artifact-browser-layout",
+        "executedAt": "2026-10-19T17:20:40.019071+00:00",
+        "pythonVersion": "3.12.15",
+        "status": "NOT_RUN",
+        "requestedViewports": [
+          {
+            "width": 1366,
+            "height": 900
+          },
+          {
+            "width": 390,
+            "height": 844
+          }
+        ],
+        "viewports": [],
+        "lifecycle": [
+          {
+            "phase": "browser-process-exit",
+            "status": "PASS",
+            "returnCode": -15
+          },
+          {
+            "phase": "owned-browser-session-exit",
+            "status": "PASS",
+            "method": "complete Linux /proc session scan, all owned groups, two consecutive empty scans"
+          },
+          {
+            "phase": "temporary-cleanup",
+            "status": "PASS",
+            "attempts": 1
+          }
+        ],
+        "limitations": [
+          "Bounded geometry heuristics cover document horizontal overflow, overflow:hidden/clip containers with overflowing content, and extreme narrow prose wrapping. They are not a complete visual, responsive or accessibility audit.",
+          "Screenshots show the initial viewport state; visually review them. No copy/export/answer/retry/reset interaction, keyboard/focus, touch, print or learning-effect evaluation was performed.",
+          "Local browser results do not verify deployed Sites identity, access scope, version or remote behavior. Understanding effects remain NOT_MEASURED."
+        ],
+        "browser": "/opt/google/chrome/google-chrome",
+        "inputHashes": {
+          "artifact.json": "1f5251d7d05d986c1b43ba094a2e50c077df7394de86552565a634fb89ff55bc",
+          "artifact-manifest.json": "ddfdfc520eb8dcb0fbffee068361c94fb627663c2c463129fe702a3f951b296a",
+          "index.html": "52db4c8691f8c37ae937cf9237ac3ed6515713c3c5192953e710d492f9c4f427",
+          "theme.css": "b45189186baebef1dcd6fb600d1a4b45613b972930a20ceedbbfabb5d2ed1432",
+          "learning.js": "5ecf2f4d83e6260dabd6ec48e76d8ddebccf956563f34072221bf960d3b8c255"
+        },
+        "screenshotDirectory": "/tmp/html-checks-YzuI4C/good-shots",
+        "reason": "RuntimeError: browser did not provide a readable local DevTools endpoint: [Errno 2] No such file or directory: '/tmp/html-site-layout-s5hyfhdp/browser-profile/DevToolsActivePort'"
+      }
+    }
+  ],
+  "downstream": {
+    "Run npm run validate": {
+      "api_steps": [
+        {
+          "name": "Run npm run validate",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-10-19T17:22:01Z",
+          "completed_at": "2026-10-19T17:22:01Z"
+        }
+      ],
+      "interpretation": "NOT_RUN"
+    },
+    "Run npm run check:baseline-tools": {
+      "api_steps": [
+        {
+          "name": "Run npm run check:baseline-tools",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-10-19T17:22:01Z",
+          "completed_at": "2026-10-19T17:22:01Z"
+        }
+      ],
+      "interpretation": "NOT_RUN"
+    },
+    "Run npm run smoke:codex": {
+      "api_steps": [
+        {
+          "name": "Run npm run smoke:codex",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2026-10-19T17:22:01Z",
+          "completed_at": "2026-10-19T17:22:01Z"
+        }
+      ],
+      "interpretation": "NOT_RUN"
+    }
+  },
+  "smoke_execution_metrics": {
+    "status": "NOT_RUN",
+    "scenarios": null,
+    "commands": null,
+    "diagram_python": null,
+    "learning_evidence_python": null,
+    "site_generated": null,
+    "site_static": null,
+    "source_cache_comparison": null,
+    "cli_version_actual": null,
+    "source_cache_digest": null,
+    "note": "Do not infer executed smoke metrics from unit-test fixture names or install command."
+  },
+  "cli_install_step": [
+    {
+      "name": "Run npm install -g @openai/codex@0.147.0",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 6,
+      "started_at": "2026-10-19T17:20:16Z",
+      "completed_at": "2026-10-19T17:20:19Z"
+    }
+  ],
+  "per_root_absence": "NOT_RECORDED",
+  "root_cause": "UNKNOWN"
+}

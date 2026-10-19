@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.3
+version: v1.4
 layer: working
 purpose: "Maintain source-bound 8.3.2 release identities, gates, retained limits and ordered recovery/closeout for task 274"
 last-verified: 2026-10-20
@@ -15,6 +15,10 @@ last-verified: 2026-10-20
 # [RUNBOOK] Marketplace 8.3.2 release readiness
 
 ## Current sync merge and marketplace prebump
+
+当前后继CI（本地2026-10-20）：[预升PR281](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/281)已创建，原head1d8b6849/treeeefcaa与潜在merge4e495同树；尚未实际合入。原PR Linux640P/1F/1平台skip，真实Chrome未取得可读DevTools端点、NOT_RUN/exit2，smoke未执行；原Windows642/642及新13/178/6/18/4/4实际通过。原push两端各有启动FAIL，一次有界复验Linux仍FAIL，根因UNKNOWN，不能用本地/Windows通过覆盖。诊断前124原件及捕获中间文本副本已覆盖的限制由唯一REPORT冻结；当前仅补测试层Linux有界stderr，不改checker/flags/15秒判据/非零NOT_RUN、插件或workflow，不把诊断当修复或通过。新诊断检查/后继headCI和真实批准/线程/latestbase各待真实证据，Agent不bypass；8.3.3仍未发布、公开8.3.2保持，Owner接受/延期独立。
+
+当前来源见[唯一REPORT](../../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#current-sync-merge-and-marketplace-prebump)。以下为原1d8b建PR前预升与检查快照，其PR未创建/后继待证只表示当时状态，当前以上段和Issue为准。
 
 本轮客户端日期为Asia/Taipei `2026-10-20`；下列平台事件另保UTC原日期。[同步PR280](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/280)于 `2026-10-19T16:37:27Z`（本地20日00:37:27）实际合入develop `4d10a0677c745eccb2775f7ae6176f8e2b1d2387`，tree `db49629fe767d3584f6ce772ef7bf5cdb52094e1` 与已测head `ef85a2de6e39b1981d94d9d4cbc004fbdc71acee`、merge-ref535的tree相同；parents为develop65d与ef85，完整main e3dc已是actualdevelop祖先。同步交付与后续新验、保护批准、预升分别判断；同一[REPORT当前同步合入与预升节](../../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#current-sync-merge-and-marketplace-prebump)绑定原件与覆盖。
 
@@ -138,6 +142,7 @@ PR278最终head的[双系统CI run39259489009](https://github.com/MJ-AgentLab/mj
 
 | Version | Date | Scope |
 | --- | --- | --- |
+| v1.4 | 2026-10-20 | Preserve initial PR281 Linux/startup failures and bounded push recheck failure separately from Windows PASS; prepare test-only bounded stderr diagnostics without changed product/checker/gates. New diagnosis checks and protected delivery remain pending. |
 | v1.3 | 2026-10-20 | Record actual PR280/develop4d10 sync, source-bound final CI and fresh actualdevelop checks PASS; preserve approval NOT_MET/bypass, UTC19 raw events and queued/UNKNOWN/timestamp limits. Record subsequent zero-write DryRun and bounded Apply to unpublished Marketplace8.3.3; local642/642 and independent8.3.3 installs passed; PR protection and merge remain pending. |
 | v1.2 | 2026-10-19 | Record actual PR279/main e3dc with source-matched CI and Owner bypass/approval NOT_MET; retain published tag f906, record fresh actualmain checks PASS and protected develop sync PREPARING before any 8.3.3 preparation. |
 | v1.1 | 2026-10-19 | Append actual PR278/main/tag/Release publication, final source-bound dual-platform CI and retained byte-QA failure; keep actual Owner bypass/approval NOT_MET, fresh real-tag verification PASS, and dependent record→sync→8.3.3 preparation distinct. |

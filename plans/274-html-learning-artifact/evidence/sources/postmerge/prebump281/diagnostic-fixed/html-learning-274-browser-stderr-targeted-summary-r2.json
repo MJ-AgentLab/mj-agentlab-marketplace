@@ -1,0 +1,55 @@
+{
+  "role": "implementation author targeted retest after optional version probe removal; not independent acceptance or GitHub approval",
+  "startedAt": "2026-10-19T17:40:31.205Z",
+  "completedAt": "2026-10-19T17:40:32.237Z",
+  "repository": "C:/Users/Admin/.codex/worktrees/html-learning-artifact/develop",
+  "sources": [
+    {
+      "file": "tests/helpers/capture-browser-stderr.mjs",
+      "bytes": 6267,
+      "sha256": "8391f1fbf3d97cc7e92906df02544ffa29fc16b0e7b57f5653e17ec771434f16"
+    },
+    {
+      "file": "tests/browser-stderr.test.mjs",
+      "bytes": 8290,
+      "sha256": "ea3a63b344b9fd54dec7e063d8cf93d6576a48751e369b71a3a5a43c287e1818"
+    },
+    {
+      "file": "plugins/html-guide-kit/skills/site/scripts/check_renderings.py",
+      "bytes": 23725,
+      "sha256": "d99dc2ad8a67d557f552280b83a5e519eb5395e18e71775abe7cb3fdbb489ccd"
+    }
+  ],
+  "windows": {
+    "status": 0,
+    "error": null,
+    "node": "v22.18.0",
+    "log": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-browser-stderr-windows-tests-r3.log"
+  },
+  "linux": {
+    "driverStatus": 0,
+    "error": null,
+    "snapshotRoot": "/tmp/html-learning-274-browser-stderr-source-l3senuyh",
+    "sourceUnchanged": true,
+    "status": 0,
+    "noVersionProbe": {
+      "status": 0,
+      "stdout": "{\"status\":\"PASS\",\"guardSeconds\":7,\"elapsedMs\":0.159142000000001,\"browserLaunched\":false,\"versionCommandExecuted\":false,\"attempts\":1,\"fixtureCleanup\":true,\"role\":\"implementation-author regression probe; not independent acceptance\"}\n",
+      "stderr": ""
+    },
+    "node": {
+      "url": "https://nodejs.org/dist/v22.18.0/node-v22.18.0-linux-x64.tar.xz",
+      "sha256": "c1bfeecf1d7404fa74728f9db72e697decbd8119ccc6f5a294d795756dfcfca7",
+      "expectedSha256": "c1bfeecf1d7404fa74728f9db72e697decbd8119ccc6f5a294d795756dfcfca7",
+      "shasumsURL": "https://nodejs.org/dist/v22.18.0/SHASUMS256.txt",
+      "version": "v22.18.0"
+    },
+    "python": {
+      "executable": "/usr/bin/python3",
+      "version": "3.12.3 (main, Jul 15 2026, 23:46:41) [GCC 13.3.0]"
+    },
+    "platform": "linux"
+  },
+  "originalSourceUnchanged": true,
+  "limitation": "Linux runs exact-byte temporary source projection because the isolated WSL distro has Windows automount disabled; fake browser exercises original checker NOT_RUN, not actual Chromium readiness. External no-version probe plants an existing attempt and confirms diagnostics never launches a TERM-ignoring executable; 7s parent guard kills the whole probe session on regression."
+}

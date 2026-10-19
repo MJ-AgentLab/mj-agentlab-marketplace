@@ -1,0 +1,200 @@
+{
+  "jobId": 118195195093,
+  "jobConclusion": "failure",
+  "logBytes": 288346,
+  "logSha256": "386ae4e4b82f5fc281ae93bf0811cf1ab8ec54df822db9c295bdb4e265738355",
+  "actualCheckout": "4e49503345f814175d0af39ab1ea8e02eb6a6adf",
+  "checkoutRef": "refs/remotes/pull/281/merge",
+  "tapComplete": true,
+  "tap": {
+    "tests": 642,
+    "suites": 0,
+    "pass": 640,
+    "fail": 1,
+    "cancelled": 0,
+    "skipped": 1,
+    "todo": 0
+  },
+  "observedCompletedTapCases": 642,
+  "failedCases": [
+    {
+      "status": "not ok",
+      "number": 328,
+      "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+      "skipped": false
+    }
+  ],
+  "skippedCases": [
+    {
+      "status": "ok",
+      "number": 561,
+      "name": "Windows equivalent file casing still passes containment # SKIP",
+      "skipped": true
+    }
+  ],
+  "browserRelatedCases": [
+    {
+      "status": "ok",
+      "number": 326,
+      "name": "browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 327,
+      "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+      "skipped": false
+    },
+    {
+      "status": "not ok",
+      "number": 328,
+      "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 347,
+      "name": "literal percent, Chinese and spaces in local filenames round-trip through browser URLs",
+      "skipped": false
+    }
+  ],
+  "browserDiagnostics": [
+    {
+      "schemaVersion": 1,
+      "checker": "artifact-browser-layout",
+      "executedAt": "2026-10-19T17:13:29.859859+00:00",
+      "pythonVersion": "3.12.15",
+      "status": "NOT_RUN",
+      "requestedViewports": [
+        {
+          "width": 1366,
+          "height": 900
+        },
+        {
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "viewports": [],
+      "lifecycle": [
+        {
+          "phase": "browser-process-exit",
+          "status": "PASS",
+          "returnCode": 0
+        },
+        {
+          "phase": "owned-browser-session-exit",
+          "status": "PASS",
+          "method": "complete Linux /proc session scan, all owned groups, two consecutive empty scans"
+        },
+        {
+          "phase": "temporary-cleanup",
+          "status": "PASS",
+          "attempts": 1
+        }
+      ],
+      "limitations": [
+        "Bounded geometry heuristics cover document horizontal overflow, overflow:hidden/clip containers with overflowing content, and extreme narrow prose wrapping. They are not a complete visual, responsive or accessibility audit.",
+        "Screenshots show the initial viewport state; visually review them. No copy/export/answer/retry/reset interaction, keyboard/focus, touch, print or learning-effect evaluation was performed.",
+        "Local browser results do not verify deployed Sites identity, access scope, version or remote behavior. Understanding effects remain NOT_MEASURED."
+      ],
+      "browser": "/opt/google/chrome/google-chrome",
+      "inputHashes": {
+        "artifact.json": "1f5251d7d05d986c1b43ba094a2e50c077df7394de86552565a634fb89ff55bc",
+        "artifact-manifest.json": "ddfdfc520eb8dcb0fbffee068361c94fb627663c2c463129fe702a3f951b296a",
+        "index.html": "52db4c8691f8c37ae937cf9237ac3ed6515713c3c5192953e710d492f9c4f427",
+        "theme.css": "b45189186baebef1dcd6fb600d1a4b45613b972930a20ceedbbfabb5d2ed1432",
+        "learning.js": "5ecf2f4d83e6260dabd6ec48e76d8ddebccf956563f34072221bf960d3b8c255"
+      },
+      "screenshotDirectory": "/tmp/html-checks-txa1E5/good-shots",
+      "reason": "RuntimeError: browser did not provide a readable local DevTools endpoint: timed out"
+    }
+  ],
+  "steps": [
+    {
+      "name": "Set up job",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/checkout@v4",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-node@v4",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-python@v5",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm ci",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm install -g @openai/codex@0.147.0",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Unit and real Python execution tests",
+      "status": "completed",
+      "conclusion": "failure"
+    },
+    {
+      "name": "Run npm run validate",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "Run npm run check:baseline-tools",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "Run npm run smoke:codex",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "Post Run actions/setup-python@v5",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "Post Run actions/setup-node@v4",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "Post Run actions/checkout@v4",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Complete job",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "smokeStep": {
+    "name": "Run npm run smoke:codex",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 10,
+    "started_at": "2026-10-19T17:15:03Z",
+    "completed_at": "2026-10-19T17:15:03Z"
+  },
+  "smoke": {
+    "status": "NOT_RUN",
+    "actualScenarios": null,
+    "actualCommands": null,
+    "actualPythonAndSiteCounts": null
+  },
+  "cleanupScope": "CI job logs do not provide individual-root absence records. Never borrow a different batch fifteen/fourteen-root result."
+}

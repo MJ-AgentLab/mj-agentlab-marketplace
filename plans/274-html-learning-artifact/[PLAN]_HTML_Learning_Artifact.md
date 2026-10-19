@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.7
+version: v1.8
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -110,6 +110,10 @@ P5：形成可审查成品与主 REPORT；最终主 PR 满足受保护 develop �
 此主 PLAN 在子 PR、失败恢复与后续批次持续复用。[唯一主REPORT](./[REPORT]_HTML_Learning_Artifact.md)已建立并绑定实际证据，独立记录核心交付、全计划完成、发布与Owner最终接受，不由文档state、PR合并或Issue关闭代替。
 
 ## Current sync merge and marketplace prebump
+
+PR281原1d8b的真实Linux CI及一次有界push复验启动FAIL已确认，根因UNKNOWN，原Windows完整PASS不能覆盖。依既有P04支持义务，仅追加测试层Linux有界stderr诊断，不改原checker/flags/超时/NOT_RUN、产品/插件版本、workflow或发布历史，不新增Owner实质决定；原失败及当前保护缺项保留，后继新head须全门禁。完整证据与限界由唯一REPORT当前节承接。
+
+以下为原PR前预升准备快照。
 
 2026-10-20（Asia/Taipei），Owner明确续办“#280 PR 已合并，继续后续工作”，[原话/捕获](./evidence/sources/postmerge/sync280/continuation/capture-metadata.json)沿用原P5授权。实际同步于本地00:37:27（UTC19日16:37:27Z）交付develop4d10a0677c745eccb2775f7ae6176f8e2b1d2387/treedb49629f，同ef85/535，parents65d+ef85，完整maine3dc已祖先。真实suite4603805882 bypass/批准FAIL、requiredchecks等PASS和reviews[]分记，不作以后豁免。公开8.3.2仍tag/Release f906；当前新预升分支基于HEAD4d10，实际新验后仅市场8.3.3本地DryRun/Apply已通过。
 

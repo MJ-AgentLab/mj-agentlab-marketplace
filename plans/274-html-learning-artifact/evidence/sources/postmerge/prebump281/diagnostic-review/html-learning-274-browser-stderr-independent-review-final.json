@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "role": "Independent read-only code reviewer /root/spec_review",
+  "reviewedAt": "2026-10-19T17:41:15.883Z",
+  "repository": "C:\\Users\\Admin\\.codex\\worktrees\\html-learning-artifact\\develop",
+  "status": "NO_CURRENT_BLOCKING_FINDINGS_WITHIN_REVIEWED_SCOPE",
+  "sources": [
+    {
+      "file": "tests/helpers/capture-browser-stderr.mjs",
+      "bytes": 6267,
+      "sha256": "8391f1fbf3d97cc7e92906df02544ffa29fc16b0e7b57f5653e17ec771434f16"
+    },
+    {
+      "file": "tests/browser-stderr.test.mjs",
+      "bytes": 8290,
+      "sha256": "ea3a63b344b9fd54dec7e063d8cf93d6576a48751e369b71a3a5a43c287e1818"
+    },
+    {
+      "file": "tests/html-site-checks.test.mjs",
+      "bytes": 21932,
+      "sha256": "88ddd8c990a1208d6bbe8994f009829f05ddaa631299e2b27bc2dc2e65544eb0"
+    },
+    {
+      "file": "plugins/html-guide-kit/skills/site/scripts/check_renderings.py",
+      "bytes": 23725,
+      "sha256": "d99dc2ad8a67d557f552280b83a5e519eb5395e18e71775abe7cb3fdbb489ccd"
+    }
+  ],
+  "sourceBindingRecordCheck": {
+    "currentCount": 956,
+    "headCount": 740,
+    "headSourceRecordsUnchanged": true,
+    "scope": "Source-binding record identity only; not a replacement for original-byte/source-closure validation."
+  },
+  "originalFinding": {
+    "priority": 2,
+    "file": "tests/helpers/capture-browser-stderr.mjs",
+    "originalLine": 112,
+    "testedHelperSha256": "37378aa6f912f7fe4487c9af52c59d96baf1e9bd8eb0dde6d7f78e23f945b62a",
+    "description": "Failure-only spawnSync --version timeout sent default SIGTERM; ignoring TERM prevented diagnostics returning within seven seconds after original status23.",
+    "status": "RESOLVED_BY_REMOVING_VERSION_SUBPROCESS",
+    "preservation": "Original failure probe and first review JSON remain byte-for-byte unchanged. Original helper recovered from the exact-byte author WSL projection and verified against the independently executed probe hash.",
+    "firstReviewInventoryCaveat": "The first review JSON file inventory was captured during the concurrent root repair and already showed fixed helper SHA8391f1fb. Its actual failing execution remains explicitly bound to original helper SHA37378aa6 in the raw probe; these identities are not conflated."
+  },
+  "repairReview": {
+    "removed": [
+      "node:child_process import",
+      "browserVersion function and --version subprocess",
+      "diagnostics executableVersion invocation",
+      "fake --version test branch and version-specific assertions"
+    ],
+    "fixedHelperSha256": "8391f1fbf3d97cc7e92906df02544ffa29fc16b0e7b57f5653e17ec771434f16",
+    "boundary": "diagnostics() now only inspects local bounded diagnostic files; it does not spawn identity or rendering processes."
+  },
+  "independentRetest": {
+    "raw": "html-learning-274-browser-stderr-independent-timeout-retest.json",
+    "result": {
+      "probe": "original seven-second version-timeout counterexample, fixed helper retest",
+      "helperSha256": "8391f1fbf3d97cc7e92906df02544ffa29fc16b0e7b57f5653e17ec771434f16",
+      "diagnosticDidNotReturnWithin7Seconds": false,
+      "wallSeconds": 0.0922834980301559,
+      "stdout": "{\"stage\":\"original-returned\",\"status\":23}\n{\"stage\":\"diagnostics-returned\",\"wall\":1,\"attempts\":1,\"acceptanceStatus\":\"NOT_RUN\",\"versionFieldPresent\":false}\n",
+      "stderr": "",
+      "unexpectedVersionCommandExecuted": false,
+      "foreignSurvivedOwnedProbeCleanup": true,
+      "scope": "Synthetic timeout boundary only; no actual Chrome, CI or root-cause diagnosis"
+    },
+    "passed": true,
+    "claims": [
+      "Original fake browser status23 remains unchanged.",
+      "diagnostics returned in 1ms; complete isolated driver measured about0.092s.",
+      "No --version command ran, diagnostic metadata remained NOT_RUN, and separately owned foreign fixture survived."
+    ]
+  },
+  "reviewedAreas": [
+    {
+      "area": "shell quoting / arguments / SID",
+      "conclusion": "Quoted executable and Python arguments plus exec \"$@\" preserve argument boundaries and original main PID/SID; no eval, retries, Linux skips, browser flag changes or relaxed startup deadline introduced."
+    },
+    {
+      "area": "bounded ring / draining",
+      "conclusion": "At most65536 tail bytes retained while input continues to drain; metadata is diagnostic only. Captured output is limited to four recent attempts and bounded metadata/tail reads."
+    },
+    {
+      "area": "cleanup isolation",
+      "conclusion": "Logger inherits the original browser-owned session; the unchanged checker inspects all owned groups. Author pre-repair fake-browser evidence was reviewed; this independent counterexample retest did not rerun full checker lifecycle coverage."
+    },
+    {
+      "area": "failure propagation",
+      "conclusion": "Original good/bad statuses remain asserted as0/1; diagnostic reads return error metadata rather than replacing the failure. Earlier run() timeout/JSON exceptions remain outside this status-assertion instrumentation."
+    },
+    {
+      "area": "total deadlines",
+      "conclusion": "The newly introduced uninterruptible version subprocess was removed rather than given a larger timeout. Original checker startup/operation/outer test limits are unchanged."
+    }
+  ],
+  "evidence": [
+    {
+      "file": "html-learning-274-browser-stderr-independent-review.json",
+      "bytes": 5395,
+      "sha256": "1130547be21dbac390118b3d19902d82dc98bd171736a8de88b30032d61b0f56"
+    },
+    {
+      "file": "html-learning-274-browser-stderr-independent-timeout-probe.json",
+      "bytes": 1566,
+      "sha256": "2254330f5d46391bc16216c395098faac04b6c4dad5b6a1ff3b3ff091c4e409e"
+    },
+    {
+      "file": "html-learning-274-browser-stderr-independent-timeout-retest.json",
+      "bytes": 2011,
+      "sha256": "47dcebcaaa3e0fc75dd64a18a8582d3ef0882e828d1d5898b9585f3cee08d54a"
+    },
+    {
+      "file": "html-learning-274-browser-stderr-independent-timeout-retest.py",
+      "bytes": 2451,
+      "sha256": "ad5b9680db535e0a0c5e0c5112ba5d809bb4d70b38ce26e8b3ca7270b49eaaad"
+    },
+    {
+      "file": "html-learning-274-browser-stderr-independent-original-helper.mjs",
+      "bytes": 7189,
+      "sha256": "37378aa6f912f7fe4487c9af52c59d96baf1e9bd8eb0dde6d7f78e23f945b62a"
+    },
+    {
+      "file": "html-learning-274-browser-stderr-independent-fixed-helper.mjs",
+      "bytes": 6267,
+      "sha256": "8391f1fbf3d97cc7e92906df02544ffa29fc16b0e7b57f5653e17ec771434f16"
+    }
+  ],
+  "limitations": [
+    "No repository changes, full npm test, CI trigger, actual Chrome, model or desktop exercise performed by this reviewer.",
+    "Author pre-repair targeted Windows1PASS/1LinuxSKIP and WSL2PASS/0SKIP evidence is not relabeled as fixed-source execution. Root full tests and author fixed-source targeted reruns are separate pending evidence.",
+    "The original real Chromium startup NOT_RUN/exit2 root cause remains UNKNOWN. This closes only the diagnostic deadline defect, not that unknown failure.",
+    "No claim of general browser readiness, release approval or Owner acceptance."
+  ]
+}

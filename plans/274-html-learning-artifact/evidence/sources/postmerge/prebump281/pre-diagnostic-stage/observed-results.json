@@ -1,0 +1,574 @@
+{
+  "schema": 1,
+  "status": "FAIL",
+  "extractionStatus": "COMPLETE",
+  "extractedAt": "2026-10-19T17:29:28.477449+00:00",
+  "pr": 281,
+  "batchHead": "1d8b6849ec7e398d65a949d204abe38bc64a4e0b",
+  "batchBase": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+  "testedPotentialMerge": "4e49503345f814175d0af39ab1ea8e02eb6a6adf",
+  "testedTree": "eefcaa0f1bd4201a38f9d46ff668c28b7d662e8c",
+  "potentialMergeIsNotActualMerge": true,
+  "run": {
+    "id": 39292125277,
+    "status": "completed",
+    "conclusion": "failure",
+    "attempt": 1
+  },
+  "push": {
+    "id": 39292085653,
+    "status": "completed",
+    "conclusion": "failure",
+    "attempt": 1,
+    "countedAsIndependentAcceptance": false
+  },
+  "sourceVersions": {
+    "head": "1d8b6849ec7e398d65a949d204abe38bc64a4e0b",
+    "marketplace": "8.3.3",
+    "plugins": {
+      "diagram-kit": "0.3.1",
+      "learning-evidence-kit": "0.1.0",
+      "explain-kit": "0.1.1",
+      "html-guide-kit": "0.1.37",
+      "communication-kit": "0.1.0"
+    },
+    "capturedAt": "2026-10-19T17:13:47.493Z"
+  },
+  "currentPrAtFinal": {
+    "baseRefName": "develop",
+    "baseRefOid": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+    "headRefName": "codex/prebump-marketplace-8-3-3",
+    "headRefOid": "1d8b6849ec7e398d65a949d204abe38bc64a4e0b",
+    "number": 281,
+    "potentialMergeCommit": {
+      "oid": "4e49503345f814175d0af39ab1ea8e02eb6a6adf"
+    },
+    "state": "OPEN",
+    "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/281"
+  },
+  "supersededAsOfFinal": false,
+  "platforms": {
+    "linux": {
+      "jobId": 118195195093,
+      "jobConclusion": "failure",
+      "logBytes": 288346,
+      "logSha256": "386ae4e4b82f5fc281ae93bf0811cf1ab8ec54df822db9c295bdb4e265738355",
+      "actualCheckout": "4e49503345f814175d0af39ab1ea8e02eb6a6adf",
+      "checkoutRef": "refs/remotes/pull/281/merge",
+      "tapComplete": true,
+      "tap": {
+        "tests": 642,
+        "suites": 0,
+        "pass": 640,
+        "fail": 1,
+        "cancelled": 0,
+        "skipped": 1,
+        "todo": 0
+      },
+      "observedCompletedTapCases": 642,
+      "failedCases": [
+        {
+          "status": "not ok",
+          "number": 328,
+          "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+          "skipped": false
+        }
+      ],
+      "skippedCases": [
+        {
+          "status": "ok",
+          "number": 561,
+          "name": "Windows equivalent file casing still passes containment # SKIP",
+          "skipped": true
+        }
+      ],
+      "browserRelatedCases": [
+        {
+          "status": "ok",
+          "number": 326,
+          "name": "browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record",
+          "skipped": false
+        },
+        {
+          "status": "ok",
+          "number": 327,
+          "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+          "skipped": false
+        },
+        {
+          "status": "not ok",
+          "number": 328,
+          "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+          "skipped": false
+        },
+        {
+          "status": "ok",
+          "number": 347,
+          "name": "literal percent, Chinese and spaces in local filenames round-trip through browser URLs",
+          "skipped": false
+        }
+      ],
+      "browserDiagnostics": [
+        {
+          "schemaVersion": 1,
+          "checker": "artifact-browser-layout",
+          "executedAt": "2026-10-19T17:13:29.859859+00:00",
+          "pythonVersion": "3.12.15",
+          "status": "NOT_RUN",
+          "requestedViewports": [
+            {
+              "width": 1366,
+              "height": 900
+            },
+            {
+              "width": 390,
+              "height": 844
+            }
+          ],
+          "viewports": [],
+          "lifecycle": [
+            {
+              "phase": "browser-process-exit",
+              "status": "PASS",
+              "returnCode": 0
+            },
+            {
+              "phase": "owned-browser-session-exit",
+              "status": "PASS",
+              "method": "complete Linux /proc session scan, all owned groups, two consecutive empty scans"
+            },
+            {
+              "phase": "temporary-cleanup",
+              "status": "PASS",
+              "attempts": 1
+            }
+          ],
+          "limitations": [
+            "Bounded geometry heuristics cover document horizontal overflow, overflow:hidden/clip containers with overflowing content, and extreme narrow prose wrapping. They are not a complete visual, responsive or accessibility audit.",
+            "Screenshots show the initial viewport state; visually review them. No copy/export/answer/retry/reset interaction, keyboard/focus, touch, print or learning-effect evaluation was performed.",
+            "Local browser results do not verify deployed Sites identity, access scope, version or remote behavior. Understanding effects remain NOT_MEASURED."
+          ],
+          "browser": "/opt/google/chrome/google-chrome",
+          "inputHashes": {
+            "artifact.json": "1f5251d7d05d986c1b43ba094a2e50c077df7394de86552565a634fb89ff55bc",
+            "artifact-manifest.json": "ddfdfc520eb8dcb0fbffee068361c94fb627663c2c463129fe702a3f951b296a",
+            "index.html": "52db4c8691f8c37ae937cf9237ac3ed6515713c3c5192953e710d492f9c4f427",
+            "theme.css": "b45189186baebef1dcd6fb600d1a4b45613b972930a20ceedbbfabb5d2ed1432",
+            "learning.js": "5ecf2f4d83e6260dabd6ec48e76d8ddebccf956563f34072221bf960d3b8c255"
+          },
+          "screenshotDirectory": "/tmp/html-checks-txa1E5/good-shots",
+          "reason": "RuntimeError: browser did not provide a readable local DevTools endpoint: timed out"
+        }
+      ],
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm install -g @openai/codex@0.147.0",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Unit and real Python execution tests",
+          "status": "completed",
+          "conclusion": "failure"
+        },
+        {
+          "name": "Run npm run validate",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Run npm run check:baseline-tools",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Run npm run smoke:codex",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "smokeStep": {
+        "name": "Run npm run smoke:codex",
+        "status": "completed",
+        "conclusion": "skipped",
+        "number": 10,
+        "started_at": "2026-10-19T17:15:03Z",
+        "completed_at": "2026-10-19T17:15:03Z"
+      },
+      "smoke": {
+        "status": "NOT_RUN",
+        "actualScenarios": null,
+        "actualCommands": null,
+        "actualPythonAndSiteCounts": null
+      },
+      "cleanupScope": "CI job logs do not provide individual-root absence records. Never borrow a different batch fifteen/fourteen-root result."
+    },
+    "windows": {
+      "jobId": 118195194932,
+      "jobConclusion": "success",
+      "logBytes": 1036870,
+      "logSha256": "b5e440cd7b0a6bd1f225ed3ff0e26b0b693c0d076bdc8fac79a694059efe7401",
+      "actualCheckout": "4e49503345f814175d0af39ab1ea8e02eb6a6adf",
+      "checkoutRef": "refs/remotes/pull/281/merge",
+      "tapComplete": true,
+      "tap": {
+        "tests": 642,
+        "suites": 0,
+        "pass": 642,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      },
+      "observedCompletedTapCases": 642,
+      "failedCases": [],
+      "skippedCases": [],
+      "browserRelatedCases": [
+        {
+          "status": "ok",
+          "number": 326,
+          "name": "browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record",
+          "skipped": false
+        },
+        {
+          "status": "ok",
+          "number": 327,
+          "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+          "skipped": false
+        },
+        {
+          "status": "ok",
+          "number": 328,
+          "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+          "skipped": false
+        },
+        {
+          "status": "ok",
+          "number": 347,
+          "name": "literal percent, Chinese and spaces in local filenames round-trip through browser URLs",
+          "skipped": false
+        }
+      ],
+      "browserDiagnostics": [],
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm install -g @openai/codex@0.147.0",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Unit and real Python execution tests",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run validate",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run check:baseline-tools",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run smoke:codex",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "smokeStep": {
+        "name": "Run npm run smoke:codex",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 10,
+        "started_at": "2026-10-19T17:19:44Z",
+        "completed_at": "2026-10-19T17:26:58Z"
+      },
+      "smoke": {
+        "status": "PASS",
+        "actualScenarios": 13,
+        "actualCommands": 178,
+        "actualPythonAndSiteCounts": {
+          "diagram": 6,
+          "lek": 18,
+          "siteGeneration": 4,
+          "siteStatic": 4
+        },
+        "cliVersions": [
+          "codex-cli 0.147.0"
+        ],
+        "nonzeroCommands": [],
+        "siteStaticSummaries": [
+          {
+            "checks": 89,
+            "failed": 0,
+            "pages": 1,
+            "files": 6
+          },
+          {
+            "checks": 89,
+            "failed": 0,
+            "pages": 1,
+            "files": 6
+          },
+          {
+            "checks": 89,
+            "failed": 0,
+            "pages": 1,
+            "files": 6
+          },
+          {
+            "checks": 89,
+            "failed": 0,
+            "pages": 1,
+            "files": 6
+          }
+        ],
+        "sourceCacheIdentity": "Passed each platform checkout against its own installed cache; no cross-platform physical-byte equality asserted."
+      },
+      "cleanupScope": "CI job logs do not provide individual-root absence records. Never borrow a different batch fifteen/fourteen-root result."
+    }
+  },
+  "initialGate": {
+    "schema": 1,
+    "phase": "initial",
+    "capturedAt": "2026-10-19T17:14:39.605Z",
+    "pr": 281,
+    "head": "1d8b6849ec7e398d65a949d204abe38bc64a4e0b",
+    "base": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+    "potentialMerge": "4e49503345f814175d0af39ab1ea8e02eb6a6adf",
+    "state": "OPEN",
+    "isDraft": false,
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "mergeable": "MERGEABLE",
+    "reviewCount": 0,
+    "observedCurrentHeadNonAuthorApprovals": [],
+    "reviewThreads": {
+      "total": 0,
+      "pages": 1,
+      "unresolved": 0,
+      "outdated": 0
+    },
+    "actualPullRequestRule": {
+      "type": "pull_request",
+      "parameters": {
+        "required_approving_review_count": 1,
+        "dismiss_stale_reviews_on_push": true,
+        "required_reviewers": [],
+        "require_code_owner_review": false,
+        "dismissal_restriction": {
+          "enabled": false,
+          "allowed_actors": []
+        },
+        "require_last_push_approval": true,
+        "required_review_thread_resolution": true,
+        "require_extra_approval_for_unattributed_changes": true,
+        "allowed_merge_methods": [
+          "merge"
+        ]
+      },
+      "ruleset_source_type": "Repository",
+      "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+      "ruleset_id": 14008221
+    },
+    "actualStatusRule": {
+      "type": "required_status_checks",
+      "parameters": {
+        "strict_required_status_checks_policy": true,
+        "do_not_enforce_on_create": false,
+        "required_status_checks": [
+          {
+            "context": "Validate Structure"
+          },
+          {
+            "context": "A6 / Check"
+          }
+        ]
+      },
+      "ruleset_source_type": "Repository",
+      "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+      "ruleset_id": 14008221
+    },
+    "a6": {
+      "id": 39292125256,
+      "head": "1d8b6849ec7e398d65a949d204abe38bc64a4e0b",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "protectionPassClaimed": false,
+    "observations": [
+      "API observations only; no approve, reviewer request, comment, resolution, merge, bypass, rerun or cancel action.",
+      "Observed approval rows do not override GitHub reviewDecision or all current protected-branch requirements."
+    ]
+  },
+  "currentGateAtFinal": {
+    "schema": 1,
+    "phase": "final",
+    "capturedAt": "2026-10-19T17:29:23.783Z",
+    "pr": 281,
+    "head": "1d8b6849ec7e398d65a949d204abe38bc64a4e0b",
+    "base": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+    "potentialMerge": "4e49503345f814175d0af39ab1ea8e02eb6a6adf",
+    "state": "OPEN",
+    "isDraft": false,
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "mergeable": "MERGEABLE",
+    "reviewCount": 0,
+    "observedCurrentHeadNonAuthorApprovals": [],
+    "reviewThreads": {
+      "total": 0,
+      "pages": 1,
+      "unresolved": 0,
+      "outdated": 0
+    },
+    "actualPullRequestRule": {
+      "type": "pull_request",
+      "parameters": {
+        "required_approving_review_count": 1,
+        "dismiss_stale_reviews_on_push": true,
+        "required_reviewers": [],
+        "require_code_owner_review": false,
+        "dismissal_restriction": {
+          "enabled": false,
+          "allowed_actors": []
+        },
+        "require_last_push_approval": true,
+        "required_review_thread_resolution": true,
+        "require_extra_approval_for_unattributed_changes": true,
+        "allowed_merge_methods": [
+          "merge"
+        ]
+      },
+      "ruleset_source_type": "Repository",
+      "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+      "ruleset_id": 14008221
+    },
+    "actualStatusRule": {
+      "type": "required_status_checks",
+      "parameters": {
+        "strict_required_status_checks_policy": true,
+        "do_not_enforce_on_create": false,
+        "required_status_checks": [
+          {
+            "context": "Validate Structure"
+          },
+          {
+            "context": "A6 / Check"
+          }
+        ]
+      },
+      "ruleset_source_type": "Repository",
+      "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+      "ruleset_id": 14008221
+    },
+    "a6": {
+      "id": 39292125256,
+      "head": "1d8b6849ec7e398d65a949d204abe38bc64a4e0b",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "protectionPassClaimed": false,
+    "observations": [
+      "API observations only; no approve, reviewer request, comment, resolution, merge, bypass, rerun or cancel action.",
+      "Observed approval rows do not override GitHub reviewDecision or all current protected-branch requirements."
+    ]
+  },
+  "limits": [
+    "Failures remain failures. Local R2/4d10/previous working-tree results cannot replace this failed server batch.",
+    "No approve, comment, reviewer request, merge, bypass, rerun or cancellation performed by this agent.",
+    "No individual-root cleanup absence evidence is inferred from CI logs."
+  ]
+}

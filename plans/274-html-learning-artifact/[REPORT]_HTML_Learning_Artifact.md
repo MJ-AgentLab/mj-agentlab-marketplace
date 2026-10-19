@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.8
+version: v1.9
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -19,6 +19,18 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 ## Current conclusion and remaining gaps
 
 ### Current sync merge and marketplace prebump
+
+本轮后继真实CI：预升[PR281](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/281)已创建，原head1d8b6849ec7e398d65a949d204abe38bc64a4e0b/潜在merge4e495033同tree eefcaa0f；不是实际受保护merge。原PR attempt1整体FAIL：Linux640P/1F/1 Windows专用skip，case328真实Chrome启动未取得可读DevTools端点、NOT_RUN/exit2，后继安装未执行；Windows642/642零skip及新13/178/6Diagram18LEK4生成4静态各89/89实际通过。原push两端也有各自启动FAIL，push一次有界复验Linux再次FAIL；不能以本地/Windows通过覆盖Linux。根因UNKNOWN，未称修复。[诊断前124原件](./evidence/sources/postmerge/prebump281/pre-diagnostic-stage/final-manifest.json)分别绑定run/attempt/job/checkout、原日志及方法，首次PowerShell文本中间副本被覆盖的缺口如实登记，GitHub实际raw已独立Buffer重取核同；在途push复验Windows不在该终态范围。
+
+这是原P04必要工程诊断：仅在测试层为Linux实际Chrome建立临时exec stderr采集，保持原checker/flags/15秒就绪算法/主测非零NOT_RUN和几何判据、主PID/session及完整自有清理；连续排空日志、最多64KiB，失败断言附原启动信息，不自动重试、不skip原真实browsercase、不代替验收。插件/运行/公开版本、workflow及发布历史不变。新诊断测试、本机完整检查/独立审查与后继headCI按真实新证据接续，当前尚未证明真实Chrome的Linux CI通过；真实非作者/lastpush批准、Structure+A6、线程/latestbase保持，Agent不bypass。
+
+[新诊断作者单项实跑](./evidence/sources/postmerge/prebump281/diagnostic-local/html-learning-274-browser-stderr-targeted-summary-r1.json)：Windows实际Python大流量drain 1PASS/1Linux专属不适用，WSL Linux 2/2 PASS、零skip，原args/exit23/NOT_RUN2、自有SID/logger清理、foreign存活及input/checker原字节保持均核；隔离WSL使用三源文件逐sha相同的临时投影和官方SHASUM校验Node22.18，非全仓Linux复验、非真实Chromium修复证明。首次Windows缺Python环境FAIL保留。原push复验Windows后来642/642和新13/178等实际PASS，Linux仍FAIL，原run整体FAIL；[终态原件](./evidence/sources/postmerge/prebump281/attempt2-push/finalmanifest.json)与[原PR Windows补提取](./evidence/sources/postmerge/prebump281/attempt1-windows-supplement/final-manifest.json)分别保存，不追认原失败。
+
+修后诊断已完成[作者两端单项](./evidence/sources/postmerge/prebump281/diagnostic-fixed/html-learning-274-browser-stderr-targeted-summary-r2.json)、[独立修后审查](./evidence/sources/postmerge/prebump281/diagnostic-review/html-learning-274-browser-stderr-independent-review-final.json)及[固定源完整本机测试](./evidence/sources/postmerge/prebump281/diagnostic-final/html-learning-274-prebump-diagnostic-local-receipt.json)：644总/643PASS/1新增Linux机制在Windows不适用，0FAIL/取消，原实际browsercase仍执行；CLI0.147.0精确通过。独审实际发现可选版本probe忽略TERM使诊断7秒不返，root完全删除该子进程及对应附加断言，修后原反例约0.092秒完成、diagnostics约1ms，原status23/NOT_RUN/foreign隔离保持；不把未知Chrome启动根因称修复。旧helper精确字节和原反例保留，首次内联driver未保存及并发首审inventory与实际失败执行hash不同的范围如实列明。版本probe移除前启动的早次644总全测单列，未改名为修后全测。以上完整测试后仅追加原件与终态说明，再做strict及最终来源/暂存Gitblob核验；后继新head双端CI、真实保护批准仍另待。
+
+终态strict已PASS；最终979来源全部逐工作树与暂存Gitblob摘要核验，原740绑定/原字节保持。后继CI与真实批准由Issue274/PR281继续记录，以下仍为历史准备快照。
+
+以下为原1d8b创建PR前已完成预升及本机检查快照；后继CI失败/诊断以上段为准，原PASS只限原批次。
 
 本轮客户端日期2026-10-20（Asia/Taipei）。Owner续办“#280 PR 已合并，继续后续工作”，[原话/捕获](./evidence/sources/postmerge/sync280/continuation/capture-metadata.json)复用同一#274/P5五边界授权，不视为最终接受、新bypass或新正式发行授权。同步PR [#280](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/280)已于本地10月20日00:37:27（UTC2026-10-19T16:37:27Z）实际合入develop4d10a0677c745eccb2775f7ae6176f8e2b1d2387，tree db49629fe767d3584f6ce772ef7bf5cdb52094e1与source ef85a2de及CI merge535315f0相同，parents65d+ef85。main e3dc的完整ancestry已继承；当前main e3dc、actualdevelop4d10与公开v8.3.2 tag/Release f906分别记录，历史正式正文不变。
 

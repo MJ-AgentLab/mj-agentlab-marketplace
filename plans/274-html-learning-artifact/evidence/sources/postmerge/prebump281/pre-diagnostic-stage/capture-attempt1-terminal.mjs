@@ -1,0 +1,3 @@
+import fs from 'node:fs';import path from 'node:path';import {execFileSync} from 'node:child_process';
+const root='C:/Users/Admin/AppData/Local/Temp/html-learning-274-prebump-pr281-ci',repo='MJ-AgentLab/mj-agentlab-marketplace';
+for(const [name,url]of[['attempt1-pr-run-terminal-rest.json',`repos/${repo}/actions/runs/39292125277/attempts/1`],['attempt1-pr-jobs-terminal-rest.json',`repos/${repo}/actions/runs/39292125277/attempts/1/jobs?per_page=100`]]){const raw=execFileSync('gh',['api',url],{windowsHide:true,maxBuffer:20*1024*1024});fs.writeFileSync(path.join(root,name),raw);const value=JSON.parse(raw);console.log(JSON.stringify({name,capturedAt:new Date().toISOString(),status:value.status,conclusion:value.conclusion,attempt:value.run_attempt}));}

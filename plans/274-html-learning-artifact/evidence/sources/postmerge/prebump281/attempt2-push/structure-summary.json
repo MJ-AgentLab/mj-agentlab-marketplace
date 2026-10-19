@@ -1,0 +1,100 @@
+{
+  "job_id": 118198960000,
+  "name": "Validate Structure",
+  "status": "completed",
+  "conclusion": "success",
+  "started_at": "2026-10-19T17:12:18Z",
+  "completed_at": "2026-10-19T17:12:39Z",
+  "raw_log": "job-118198960000-structure.raw.log",
+  "raw_bytes": 23379,
+  "raw_sha256": "206a6bae10d91c298c9afd1cc9f79b249668de84da33f9723fb7acf68e9b0760",
+  "actual_checkout_from_git_log_next_line": [
+    {
+      "command_line": 205,
+      "sha_line": 206,
+      "sha": "1d8b6849ec7e398d65a949d204abe38bc64a4e0b"
+    }
+  ],
+  "steps": [
+    {
+      "name": "Set up job",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 1,
+      "started_at": "2026-10-19T17:12:19Z",
+      "completed_at": "2026-10-19T17:12:20Z"
+    },
+    {
+      "name": "Run actions/checkout@v4",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 2,
+      "started_at": "2026-10-19T17:12:20Z",
+      "completed_at": "2026-10-19T17:12:25Z"
+    },
+    {
+      "name": "Validate commit message format",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 3,
+      "started_at": "2026-10-19T17:12:25Z",
+      "completed_at": "2026-10-19T17:12:26Z"
+    },
+    {
+      "name": "Upload commit validation output (for PR comment bot)",
+      "status": "completed",
+      "conclusion": "skipped",
+      "number": 4,
+      "started_at": "2026-10-19T17:12:26Z",
+      "completed_at": "2026-10-19T17:12:26Z"
+    },
+    {
+      "name": "Run actions/setup-node@v4",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 5,
+      "started_at": "2026-10-19T17:12:26Z",
+      "completed_at": "2026-10-19T17:12:29Z"
+    },
+    {
+      "name": "Run npm ci",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 6,
+      "started_at": "2026-10-19T17:12:29Z",
+      "completed_at": "2026-10-19T17:12:32Z"
+    },
+    {
+      "name": "Portable marketplace, manifests, skills and document contracts",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 7,
+      "started_at": "2026-10-19T17:12:32Z",
+      "completed_at": "2026-10-19T17:12:36Z"
+    },
+    {
+      "name": "Post Run actions/setup-node@v4",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 13,
+      "started_at": "2026-10-19T17:12:36Z",
+      "completed_at": "2026-10-19T17:12:36Z"
+    },
+    {
+      "name": "Post Run actions/checkout@v4",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 14,
+      "started_at": "2026-10-19T17:12:36Z",
+      "completed_at": "2026-10-19T17:12:37Z"
+    },
+    {
+      "name": "Complete job",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 15,
+      "started_at": "2026-10-19T17:12:37Z",
+      "completed_at": "2026-10-19T17:12:37Z"
+    }
+  ]
+}
