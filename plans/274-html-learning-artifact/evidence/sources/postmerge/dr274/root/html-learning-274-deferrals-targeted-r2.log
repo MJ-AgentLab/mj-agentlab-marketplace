@@ -1,0 +1,148 @@
+TAP version 13
+# Subtest: site installation accounts for every registered resource and checks its actual bytes
+ok 1 - site installation accounts for every registered resource and checks its actual bytes
+  ---
+  duration_ms: 1566.4277
+  type: 'test'
+  ...
+# Subtest: matching source and cache cannot legitimize an unregistered site resource or implicit policy
+ok 2 - matching source and cache cannot legitimize an unregistered site resource or implicit policy
+  ---
+  duration_ms: 64.4616
+  type: 'test'
+  ...
+# Subtest: site native metadata rejects borrowed routes and every non-boolean or implicit policy
+ok 3 - site native metadata rejects borrowed routes and every non-boolean or implicit policy
+  ---
+  duration_ms: 1.6318
+  type: 'test'
+  ...
+# Subtest: site provenance rejects malformed source identities, hashes, targets and pinning
+ok 4 - site provenance rejects malformed source identities, hashes, targets and pinning
+  ---
+  duration_ms: 300.9516
+  type: 'test'
+  ...
+# Subtest: site resources cannot be borrowed through a directory junction
+ok 5 - site resources cannot be borrowed through a directory junction
+  ---
+  duration_ms: 48.5908
+  type: 'test'
+  ...
+# Subtest: site extension preserves the four guide resources from fixed develop baseline without rewriting bytes
+ok 6 - site extension preserves the four guide resources from fixed develop baseline without rewriting bytes
+  ---
+  duration_ms: 0.6552
+  type: 'test'
+  ...
+# Subtest: complete HTML package checks both entries and detects a missing site script
+ok 7 - complete HTML package checks both entries and detects a missing site script
+  ---
+  duration_ms: 527.2839
+  type: 'test'
+  ...
+# Subtest: installed renderer carries asset rights without relicensing learning materials
+ok 8 - installed renderer carries asset rights without relicensing learning materials
+  ---
+  duration_ms: 363.3946
+  type: 'test'
+  ...
+# Subtest: missing installed license or notice fails before any output is created
+ok 9 - missing installed license or notice fails before any output is created
+  ---
+  duration_ms: 70.7066
+  type: 'test'
+  ...
+# Subtest: license output names reject case aliases and nested material collisions before writes
+ok 10 - license output names reject case aliases and nested material collisions before writes
+  ---
+  duration_ms: 56.6324
+  type: 'test'
+  ...
+# Subtest: representative generation preserves selected inputs and independently verifiable hashes
+ok 11 - representative generation preserves selected inputs and independently verifiable hashes
+  ---
+  duration_ms: 38.8613
+  type: 'test'
+  ...
+# Subtest: installed renderer locates its own assets from an unrelated consumer directory
+ok 12 - installed renderer locates its own assets from an unrelated consumer directory
+  ---
+  duration_ms: 112.8881
+  type: 'test'
+  ...
+# Subtest: bounded Markdown retains paragraphs, relations, code, links and heading hierarchy
+ok 13 - bounded Markdown retains paragraphs, relations, code, links and heading hierarchy
+  ---
+  duration_ms: 0.5403
+  type: 'test'
+  ...
+# Subtest: unsupported Markdown and broken links fail before creating output
+ok 14 - unsupported Markdown and broken links fail before creating output
+  ---
+  duration_ms: 38.1589
+  type: 'test'
+  ...
+# Subtest: configuration errors cannot silently produce a different activity or source
+ok 15 - configuration errors cannot silently produce a different activity or source
+  ---
+  duration_ms: 5.7738
+  type: 'test'
+  ...
+# Subtest: literal replacement markers and HTML in config remain inert and complete
+ok 16 - literal replacement markers and HTML in config remain inert and complete
+  ---
+  duration_ms: 22.6141
+  type: 'test'
+  ...
+# Subtest: traversal, resource collisions and existing output fail without changing inputs
+ok 17 - traversal, resource collisions and existing output fail without changing inputs
+  ---
+  duration_ms: 17.9146
+  type: 'test'
+  ...
+# Subtest: plugin caches and borrowed input or output ancestors cannot be written
+ok 18 - plugin caches and borrowed input or output ancestors cannot be written
+  ---
+  duration_ms: 10.281
+  type: 'test'
+  ...
+# Subtest: known terminology mismatches and invalid input bytes remain generation failures
+ok 19 - known terminology mismatches and invalid input bytes remain generation failures
+  ---
+  duration_ms: 8.991
+  type: 'test'
+  ...
+# Subtest: known English terms use case-insensitive word boundaries without rejecting Threshold
+ok 20 - known English terms use case-insensitive word boundaries without rejecting Threshold
+  ---
+  duration_ms: 16.5793
+  type: 'test'
+  ...
+# Subtest: YAML frontmatter and Setext headings are rejected while separated thematic breaks remain valid
+ok 21 - YAML frontmatter and Setext headings are rejected while separated thematic breaks remain valid
+  ---
+  duration_ms: 17.0254
+  type: 'test'
+  ...
+# Subtest: literal percent, Chinese and spaces in local filenames round-trip through browser URLs
+ok 22 - literal percent, Chinese and spaces in local filenames round-trip through browser URLs
+  ---
+  duration_ms: 23.8265
+  type: 'test'
+  ...
+# Subtest: empty optional activities and terms still provide a static artifact and export
+ok 23 - empty optional activities and terms still provide a static artifact and export
+  ---
+  duration_ms: 12.6159
+  type: 'test'
+  ...
+1..23
+# tests 23
+# suites 0
+# pass 23
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2626.7346

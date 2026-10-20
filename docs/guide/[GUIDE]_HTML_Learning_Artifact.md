@@ -4,9 +4,9 @@ scope: html-guide-kit
 summary: "Use the explicit site workflow to make a sourced Chinese learning website"
 owner: marketplace-maintainers
 created: 2026-10-19
-updated: 2026-10-19
+updated: 2026-10-20
 state: active
-version: v1.0
+version: v1.1
 layer: canonical
 ---
 
@@ -48,3 +48,7 @@ Sites交接包只包括本任务已确认目标、Markdown/术语/必要来源�
 完整第二客户端、视觉/可访问性/扩展场景及窗口生命周期可以后移，逐项说明影响、责任与恢复条件；关键内容、核心Sites、身份/受众、凭据和必要工程门禁问题仍阻上线。Owner体检重点是真实制作体验、阅读/操作和异常恢复，记录实际检查范围、接受与剩余问题；修订后复验受影响部分。
 
 使用结果报告应提供实际插件/源码版本、Sites地址/保存版本/部署状态、已执行检查及未覆盖范围。工程通过、页面美观或单次答对不证明理解改善；未测理解效果保持NOT_MEASURED。完整边界见[site SPEC](../spec/[SPEC]_HTML_Learning_Artifact.md)，工程与原意覆盖见[主PLAN](../../plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md)。
+
+## Generated asset notices
+
+0.1.38修复候选会随生成资产携带LICENSE、licenses/Apache-2.0.txt及带范围说明的THIRD_PARTY_NOTICES.md，纳入输出manifest；学习正文和输入材料保留各自权利。不要把静态清单通过当作许可真实性或材料授权证明。当前公开0.1.37与候选状态见任务入口。

@@ -1,0 +1,5 @@
+# Selected independent evidence context
+
+This directory is a selected evidence copy, not the complete runnable QA directory. `selected-manifest.json` lists its 70 original payload files exactly. `REPORT.md` and other original reports preserve paths relative to their original external roots; the complete frozen root and its hash are declared in `selected-manifest.json.fullExternalEvidence`. The parent selection-map.json maps each copied file to its exact original path and SHA-256. Reconstruct the plugin from this PR Git tree; its predecessor is 908d29537a19ceca166e8f3c7cddef4d419781a4. Dependencies/native binaries and repeated installation/fault fixtures were deliberately omitted. The root methods/reports identify their actual fixed source snapshots; later preparation-only CHANGELOG format correction does not alter tested runtime or artifacts.
+
+Original full external evidence remains immutable. Do not resolve original `installation/`, `replay/` or full manifest locators as promises that those files are present in this selected directory. No new browser run is claimed by moving evidence.

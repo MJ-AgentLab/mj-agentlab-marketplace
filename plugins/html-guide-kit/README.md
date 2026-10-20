@@ -1,6 +1,6 @@
 # HTML Guide Kit
 
-0.1.37 提供两个显式入口：
+0.1.38 为未发布修复候选（当前公开0.1.37），提供两个显式入口：
 
 | 入口 | 交付 |
 |---|---|
@@ -26,3 +26,5 @@ guide 入口为 **$html-guide-kit:guide**，保持 Read 聊天边界，仅显式
 公开方法保存在 [guide](skills/guide/SKILL.md)、[指南框架](skills/guide/references/guide-framework.md) 和 [交互设计](skills/guide/references/interaction-design.md)，均随包分发，相对实际安装的技能定位，无个人路径或其他项目依赖。
 
 指南交付证明本次文本已完成；实际教材操作、可访问性和现实理解效果需要对应证据。本任务按 Owner 决定将现实场景效果留待单独测试。
+
+生成器输出保留模板/运行资产的MIT LICENSE、Apache原文及带范围说明的THIRD_PARTY_NOTICES；材料、学习正文和来源原件保留各自权利，不因生成网页改授权。许可输出与全部生成文件纳入manifest。

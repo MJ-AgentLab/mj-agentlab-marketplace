@@ -1,0 +1,64 @@
+{
+  "startedAt": "2026-10-20T01:44:14.807Z",
+  "purpose": "Targeted correction of the test locator plus focused contrast/screenshot evidence; original r0/r1 methods and results remain unchanged.",
+  "cases": [
+    {
+      "id": "A04-keyboard-radio-submit-change-invalidates",
+      "status": "PASS",
+      "tabsToFirstRadio": 6,
+      "matchedFeedback": "你的选择：不允许，因为预约条件不满足。\n\n与本题参考判断匹配。\n\n两个条件必须同时成立；已有预约使本次不满足完整规则。\n\n参考判断：本次不允许。LIB2 要求尚未逾期且没有其他读者预约，两项条件同时成立才规则允许；规则允许仍不等于已成功。\n\n查看依据\n\n本题核对 1 次；记录只对应本题。",
+      "changedFeedback": "回答已修改，请重新核对。",
+      "summary": "当前已核对 0 / 3 题；修改后需重新核对。",
+      "selectorCorrection": "Specific value0 native radio, replacing the ambiguous two-element locator; no product change."
+    },
+    {
+      "id": "A16-empty-editable-textarea-boundary-contrast",
+      "status": "FAIL",
+      "sample": {
+        "id": "reflection",
+        "editable": true,
+        "value": "",
+        "border": "rgb(171, 164, 146)",
+        "borderWidth": "1px",
+        "inside": "rgb(255, 255, 255)",
+        "outside": "rgba(0, 0, 0, 0)",
+        "body": "rgb(250, 249, 245)"
+      },
+      "ratios": {
+        "borderAgainstInside": 2.483198873838037,
+        "borderAgainstOutside": 2.3570979971820427,
+        "surfaceAgainstOutside": 1.053498359765589
+      },
+      "criterion": {
+        "url": "https://www.w3.org/TR/WCAG22/#non-text-contrast",
+        "interpretation": "Necessary author-defined visual boundary of the empty editable Reflection textarea, compared to adjacent warm-paper exterior; focus and text contrast are separate.",
+        "threshold": 3
+      },
+      "proposedColorOnlyAnalysis": {
+        "color": "#767676",
+        "againstInside": 4.542224959605253,
+        "againstOutside": 4.311563390203977,
+        "applied": false
+      }
+    }
+  ],
+  "limits": [
+    "All interactions in a new isolated headless browser against exact copied published seven-file bytes.",
+    "No OS clipboard or ambient8765 access.",
+    "Sampled control contrast check only; not a complete WCAG assessment."
+  ],
+  "origin": "http://127.0.0.1:58509",
+  "actualTextResize": {
+    "bodyFont": "32px",
+    "noDocumentOverflow": true,
+    "scope": "Synthetic text resizing at683 CSSpx only, not browser UI zoom."
+  },
+  "completedAt": "2026-10-20T01:44:17.148Z",
+  "artifactHashesUnchanged": true,
+  "cleanup": {
+    "serverClosed": true,
+    "browserClosed": true,
+    "osClipboardUntouched": true
+  },
+  "status": "FAIL"
+}

@@ -66,7 +66,7 @@ test("HTML Guide Kit has two explicit entries and exact Read/Write package capab
  assert.deepEqual(EXPLICIT_ONLY_SKILLS,["learning-evidence-kit:pop-quiz","learning-evidence-kit:learning-record-check","communication-kit:communicate",SKILL,SITE]);
  assert.deepEqual(PUBLIC_SKILLS.filter(name=>!EXPLICIT_ONLY_SKILLS.includes(name)),["diagram-kit:arch-diagram","explain-kit:glossary","explain-kit:concept"]);
  assert.equal(REPOSITORY_SKILLS.length,20);assert.ok(!REPOSITORY_SKILLS.includes("guide"));
- const m=manifest();assert.equal(m.name,PLUGIN);assert.equal(m.version,"0.1.37");assert.deepEqual(ui(m).capabilities,["Read","Write"]);validateManifest(m,PLUGIN);
+ const m=manifest();assert.equal(m.name,PLUGIN);assert.equal(m.version,"0.1.38");assert.deepEqual(ui(m).capabilities,["Read","Write"]);validateManifest(m,PLUGIN);
 });
 
 test("HTML Guide Kit manifest rejects wrong identity, root versions, capabilities and routes",()=>{
@@ -157,7 +157,7 @@ test("installed guide byte equality cannot legitimize a resource junction or ext
 
 for(const plugin of ["diagram-kit","learning-evidence-kit","explain-kit","communication-kit",PLUGIN])test("complete installed plugin preserves manifest, icons and approved skill resources: "+plugin,t=>{
  const f=installedFixture(t,plugin),result=assertInstalledPluginResources(f.source,f.installed,plugin);
- const rootFiles=["plugin.json","assets/icon.svg","assets/icon.png",...(plugin===PLUGIN?["THIRD_PARTY_NOTICES.md","licenses/Apache-2.0.txt"]:[])];
+ const rootFiles=["plugin.json","assets/icon.svg","assets/icon.png",...(plugin===PLUGIN?["LICENSE","THIRD_PARTY_NOTICES.md","licenses/Apache-2.0.txt"]:[])];
  assert.equal(result.name,plugin);assert.deepEqual(Object.keys(result.rootFiles).sort(),rootFiles.sort());
  assert.deepEqual(Object.keys(result.skills).sort(),[...RUNTIME_PLUGINS[plugin]].sort());
  const hash=bytes=>crypto.createHash("sha256").update(bytes).digest("hex");

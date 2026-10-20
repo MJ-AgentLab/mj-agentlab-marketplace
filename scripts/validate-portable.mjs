@@ -332,7 +332,7 @@ export function assertInstalledPluginResources(sourcePluginRoot, installedPlugin
   const installed = JSON.parse(fs.readFileSync(ownedResource(installedPluginRoot, "plugin.json"), "utf8"));
   validateManifest(source, expectedName); validateManifest(installed, expectedName);
   if (source.name !== installed.name || source.version !== installed.version) throw new Error("installed plugin identity/version differs");
-  const rootFiles = Object.fromEntries(["plugin.json", "assets/icon.svg", "assets/icon.png", ...(expectedName === "html-guide-kit" ? ["THIRD_PARTY_NOTICES.md", "licenses/Apache-2.0.txt"] : [])].map(rel => {
+  const rootFiles = Object.fromEntries(["plugin.json", "assets/icon.svg", "assets/icon.png", ...(expectedName === "html-guide-kit" ? ["LICENSE", "THIRD_PARTY_NOTICES.md", "licenses/Apache-2.0.txt"] : [])].map(rel => {
     const a = ownedResource(sourcePluginRoot, rel), b = ownedResource(installedPluginRoot, rel), bytes = fs.readFileSync(a);
     if (!bytes.equals(fs.readFileSync(b))) throw new Error(`installed plugin resource differs: ${expectedName}/${rel}`);
     return [rel, { sha256: crypto.createHash("sha256").update(bytes).digest("hex"), source: a, installed: b }];

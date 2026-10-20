@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "actor": "/root/deferral_fixed_check",
+  "startedAt": "2026-10-20T02:00:43.668Z",
+  "sourceKind": "uncommitted working candidate; not actual HEAD bytes",
+  "baseCommit": "908d29537a19ceca166e8f3c7cddef4d419781a4",
+  "branch": "codex/html-learning-deferral-fixes",
+  "cases": [
+    {
+      "id": "F01-complete-installed-package-and-ten-file-output",
+      "status": "PASS",
+      "detail": {
+        "installedPluginFiles": 32,
+        "outputFiles": 10,
+        "renderer": {
+          "status": "GENERATED",
+          "output": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-deferrals-fixed-review-r2\\artifact",
+          "version": "synthetic-1.0",
+          "files": 9,
+          "sourceSha256": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+          "understandingEffects": "NOT_MEASURED"
+        },
+        "checkerSummary": {
+          "checks": 95,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        }
+      }
+    },
+    {
+      "id": "F02-license-bytes-notice-scope-materials-and-manifest",
+      "status": "PASS",
+      "detail": {
+        "mitAndApacheOriginalBytes": true,
+        "completeNoticeOriginalTail": true,
+        "noticePrefixBytes": 756,
+        "originalNoticeBytes": 1188,
+        "materialBytesRetained": true,
+        "manifestEntries": 9
+      }
+    },
+    {
+      "id": "F03-missing-installed-license-assets-zero-write",
+      "status": "PASS",
+      "detail": [
+        {
+          "missing": "LICENSE",
+          "outputExists": false,
+          "error": "ENOENT: no such file or directory, lstat 'C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-deferrals-fixed-review-r2\\installation\\plugins\\html-guide-kit\\LICENSE'"
+        },
+        {
+          "missing": "THIRD_PARTY_NOTICES.md",
+          "outputExists": false,
+          "error": "ENOENT: no such file or directory, lstat 'C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-deferrals-fixed-review-r2\\installation\\plugins\\html-guide-kit\\THIRD_PARTY_NOTICES.md'"
+        },
+        {
+          "missing": "licenses/Apache-2.0.txt",
+          "outputExists": false,
+          "error": "ENOENT: no such file or directory, lstat 'C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-deferrals-fixed-review-r2\\installation\\plugins\\html-guide-kit\\licenses\\Apache-2.0.txt'"
+        }
+      ]
+    },
+    {
+      "id": "F04-casefold-and-nested-collisions-renderer-and-checker",
+      "status": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: [{\"code\":\"artifact.json:json\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"artifact-manifest.json:json\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"required:index.html\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"required:theme.css\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"required:learning.js\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"artifact:schema-version\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"artifact:title\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"artifact:version\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"artifact:audience\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"artifact:task\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"artifact:markdown\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"artifact:goals\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"artifact:markdown-file\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"artifact:sources\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"source:0:metadata\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"source:0:id\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"source:0:location\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"source:0:file\",\"status\":\"FAIL\",\"detail\":\"material conflicts with a reserved generated output\"},{\"code\":\"source:unique-ids\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"artifact:terms\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"term:0:mapping\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"term:0:forbidden-list\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"term:1:mapping\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"term:1:forbidden-list\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"term:2:mapping\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"term:2:forbidden-list\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"term:3:mapping\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"term:3:forbidden-list\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"term:unique-english\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"artifact:activities\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"activity:0:metadata\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"activity:0:type-id-source\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"activity:0:options\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"activity:0:answer\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"activity:1:metadata\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"activity:1:type-id-source\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"activity:1:options\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"activity:1:answer\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"activity:2:metadata\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"activity:2:type-id-source\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"activity:2:options\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"activity:2:answer\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"activity:unique-ids\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"manifest:schema-version\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"manifest:version\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"manifest:artifact-path\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"manifest:source-hash\",\"status\":\"FAIL\",\"detail\":\"\"},{\"code\":\"manifest:files\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"manifest:0:metadata\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"manifest:0:bytes\",\"status\":\"FAIL\",\"detail\":\"artifact.json\"},{\"code\":\"manifest:1:metadata\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"manifest:1:bytes\",\"status\":\"PASS\",\"detail\":\"content.md\"},{\"code\":\"manifest:2:metadata\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"manifest:2:bytes\",\"status\":\"PASS\",\"detail\":\"index.html\"},{\"code\":\"manifest:3:metadata\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"manifest:3:bytes\",\"status\":\"PASS\",\"detail\":\"learning.js\"},{\"code\":\"manifest:4:metadata\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"manifest:4:bytes\",\"status\":\"PASS\",\"detail\":\"LICENSE\"},{\"code\":\"manifest:5:metadata\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"manifest:5:bytes\",\"status\":\"PASS\",\"detail\":\"licenses/Apache-2.0.txt\"},{\"code\":\"manifest:6:metadata\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"manifest:6:bytes\",\"status\":\"PASS\",\"detail\":\"sources/renewal-rules.md\"},{\"code\":\"manifest:7:metadata\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"manifest:7:bytes\",\"status\":\"PASS\",\"detail\":\"theme.css\"},{\"code\":\"manifest:8:metadata\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"manifest:8:bytes\",\"status\":\"PASS\",\"detail\":\"THIRD_PARTY_NOTICES.md\"},{\"code\":\"manifest:complete-unique-files\",\"status\":\"PASS\",\"detail\":{\"unlisted\":[],\"missing\":[]}},{\"code\":\"index.html:structure\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"index.html:language\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"index.html:viewport\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"index.html:charset\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"index.html:unique-ids\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"index.html:static-text\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"index.html:no-base\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"index.html:link:6:href:file\",\"status\":\"PASS\",\"detail\":\"theme.css\"},{\"code\":\"index.html:script:7:src:file\",\"status\":\"PASS\",\"detail\":\"learning.js\"},{\"code\":\"index.html:a:9:href:file\",\"status\":\"PASS\",\"detail\":\"#main\"},{\"code\":\"index.html:a:9:href:anchor\",\"status\":\"PASS\",\"detail\":\"#main\"},{\"code\":\"index.html:a:29:href:file\",\"status\":\"PASS\",\"detail\":\"content.md\"},{\"code\":\"index.html:a:41:href:file\",\"status\":\"PASS\",\"detail\":\"sources/renewal-rules.md\"},{\"code\":\"index.html:radio:109:no-default-answer\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"index.html:radio:112:no-default-answer\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"index.html:a:120:href:file\",\"status\":\"PASS\",\"detail\":\"#source-renewal-rules\"},{\"code\":\"index.html:a:120:href:anchor\",\"status\":\"PASS\",\"detail\":\"#source-renewal-rules\"},{\"code\":\"index.html:radio:128:no-default-answer\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"index.html:radio:131:no-default-answer\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"index.html:a:139:href:file\",\"status\":\"PASS\",\"detail\":\"#source-renewal-rules\"},{\"code\":\"index.html:a:139:href:anchor\",\"status\":\"PASS\",\"detail\":\"#source-renewal-rules\"},{\"code\":\"index.html:radio:147:no-default-answer\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"index.html:radio:150:no-default-answer\",\"status\":\"PASS\",\"detail\":\"\"},{\"code\":\"index.html:a:158:href:file\",\"status\":\"PASS\",\"detail\":\"#source-renewal-rules\"},{\"code\":\"index.html:a:158:href:anchor\",\"status\":\"PASS\",\"detail\":\"#source-renewal-rules\"},{\"code\":\"index.html:a:179:href:file\",\"status\":\"PASS\",\"detail\":\"sources/renewal-rules.md\"},{\"code\":\"index.html:term:0:known-forbidden\",\"status\":\"PASS\",\"detail\":\"规则批准\"},{\"code\":\"index.html:term:3:known-forbidden\",\"status\":\"PASS\",\"detail\":\"工作天\"}]\n    at file:///C:/Users/Admin/AppData/Local/Temp/html-learning-274-deferrals-fixed-review-r2/verify-fixed.mjs:36:1313\n    at async step (file:///C:/Users/Admin/AppData/Local/Temp/html-learning-274-deferrals-fixed-review-r2/verify-fixed.mjs:17:44)\n    at async file:///C:/Users/Admin/AppData/Local/Temp/html-learning-274-deferrals-fixed-review-r2/verify-fixed.mjs:36:1"
+    },
+    {
+      "id": "F05-output-license-missing-or-tampered-checker-rejection",
+      "status": "PASS",
+      "detail": [
+        {
+          "file": "LICENSE",
+          "fault": "missing",
+          "status": "FAIL",
+          "failed": 2
+        },
+        {
+          "file": "LICENSE",
+          "fault": "tampered",
+          "status": "FAIL",
+          "failed": 1
+        },
+        {
+          "file": "THIRD_PARTY_NOTICES.md",
+          "fault": "missing",
+          "status": "FAIL",
+          "failed": 2
+        },
+        {
+          "file": "THIRD_PARTY_NOTICES.md",
+          "fault": "tampered",
+          "status": "FAIL",
+          "failed": 1
+        },
+        {
+          "file": "licenses/Apache-2.0.txt",
+          "fault": "missing",
+          "status": "FAIL",
+          "failed": 2
+        },
+        {
+          "file": "licenses/Apache-2.0.txt",
+          "fault": "tampered",
+          "status": "FAIL",
+          "failed": 1
+        }
+      ]
+    },
+    {
+      "id": "F06-installer-root-license-missing-or-tampered",
+      "status": "PASS",
+      "detail": [
+        {
+          "fault": "missing",
+          "error": "ENOENT: no such file or directory, lstat 'C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-deferrals-fixed-review-r2\\installation\\plugins\\html-guide-kit\\LICENSE'"
+        },
+        {
+          "fault": "tampered",
+          "error": "installed plugin resource differs: html-guide-kit/LICENSE"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "No repository, remote, Site or existing browser writes. TEMP fixtures and evidence only.",
+    "No model or desktop tests; native unanswered dialogs, second client, real UI zoom, assistive technology and real learning effects remain deferred.",
+    "License scope and byte consistency tests are engineering checks, not a legal determination."
+  ],
+  "sourceBytesUnchanged": true,
+  "primaryStatusBefore": "?? HTML-Learning-Artifact-Plugin-Implementation-Plan.md",
+  "primaryStatusAfter": "?? HTML-Learning-Artifact-Plugin-Implementation-Plan.md",
+  "primaryUnchanged": true,
+  "oldPublishedSevenFiles": [
+    {
+      "file": "artifact-manifest.json",
+      "bytes": 1081,
+      "sha256": "c4c445947180f77641512dee1de3732fbc7946fb53fce804f33677e6e037c16e"
+    },
+    {
+      "file": "artifact.json",
+      "bytes": 3759,
+      "sha256": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557"
+    },
+    {
+      "file": "content.md",
+      "bytes": 2751,
+      "sha256": "060045ce718168c7f3c2aecd2742518490d5693e3dbdeb28b4ac94ce2885cd50"
+    },
+    {
+      "file": "index.html",
+      "bytes": 13298,
+      "sha256": "12101458fb0d6d58bf902b8497feb73b742d3cec4e3409255fd07c7984de3785"
+    },
+    {
+      "file": "learning.js",
+      "bytes": 7378,
+      "sha256": "1fcc8c6064dd99f00b91103cf76e33d7a4e6dcf50793b4542bd8462f6c91f568"
+    },
+    {
+      "file": "sources/renewal-rules.md",
+      "bytes": 1011,
+      "sha256": "2a95c4d9b95f3b184fea30aa3fba9daaf34d11624bd888ed4793a0ea7f96af47"
+    },
+    {
+      "file": "theme.css",
+      "bytes": 6045,
+      "sha256": "90ee5261f02c44f3fb7f5b3e17662cb232bde07110dd53a2ccf4f2880ac1345f"
+    }
+  ],
+  "oldPublishedCount": 7,
+  "status": "FAIL",
+  "completedAt": "2026-10-20T02:00:47.527Z"
+}

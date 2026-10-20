@@ -1,0 +1,74 @@
+{
+  "startedAt": "2026-10-20T02:01:13.144Z",
+  "purpose": "Correct the verification result selector from name/id to code; original Harness FAIL and logs retained unchanged.",
+  "cases": [
+    {
+      "name": "LICENSE/source.md",
+      "status": "PASS",
+      "rendererError": "input file paths conflict with another input or generated output",
+      "outputExists": false,
+      "checkerReservedFailure": {
+        "code": "source:0:file",
+        "status": "FAIL",
+        "detail": "material conflicts with a reserved generated output"
+      }
+    },
+    {
+      "name": "license/source.md",
+      "status": "PASS",
+      "rendererError": "input file paths conflict with another input or generated output",
+      "outputExists": false,
+      "checkerReservedFailure": {
+        "code": "source:0:file",
+        "status": "FAIL",
+        "detail": "material conflicts with a reserved generated output"
+      }
+    },
+    {
+      "name": "THIRD_PARTY_NOTICES.MD",
+      "status": "PASS",
+      "rendererError": "input file paths conflict with another input or generated output",
+      "outputExists": false,
+      "checkerReservedFailure": {
+        "code": "source:0:file",
+        "status": "FAIL",
+        "detail": "material conflicts with a reserved generated output"
+      }
+    },
+    {
+      "name": "third_party_notices.md",
+      "status": "PASS",
+      "rendererError": "input file paths conflict with another input or generated output",
+      "outputExists": false,
+      "checkerReservedFailure": {
+        "code": "source:0:file",
+        "status": "FAIL",
+        "detail": "material conflicts with a reserved generated output"
+      }
+    },
+    {
+      "name": "LICENSES/own.txt",
+      "status": "PASS",
+      "rendererError": "input file paths conflict with another input or generated output",
+      "outputExists": false,
+      "checkerReservedFailure": {
+        "code": "source:0:file",
+        "status": "FAIL",
+        "detail": "material conflicts with a reserved generated output"
+      }
+    },
+    {
+      "name": "licenses/own.txt",
+      "status": "PASS",
+      "rendererError": "input file paths conflict with another input or generated output",
+      "outputExists": false,
+      "checkerReservedFailure": {
+        "code": "source:0:file",
+        "status": "FAIL",
+        "detail": "material conflicts with a reserved generated output"
+      }
+    }
+  ],
+  "status": "PASS",
+  "completedAt": "2026-10-20T02:01:13.797Z"
+}

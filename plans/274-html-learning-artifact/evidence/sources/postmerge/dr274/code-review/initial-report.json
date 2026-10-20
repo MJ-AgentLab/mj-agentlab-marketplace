@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "executedAt": "2026-10-20T02:03:39.705Z",
+  "reviewedBase": "908d29537a19ceca166e8f3c7cddef4d419781a4",
+  "reviewedHead": "908d29537a19ceca166e8f3c7cddef4d419781a4",
+  "sourceHashesUnchanged": true,
+  "status": "CHANGES_REQUESTED",
+  "standards": {
+    "hardFindings": [],
+    "judgmentSmells": []
+  },
+  "spec": {
+    "findings": [
+      {
+        "id": "R2-F01",
+        "priority": "P2",
+        "title": "Renderer and checker accept different Unicode aliases for new reserved license paths",
+        "locations": [
+          {
+            "path": "plugins/html-guide-kit/skills/site/scripts/render-site.mjs",
+            "line": 11
+          },
+          {
+            "path": "plugins/html-guide-kit/skills/site/scripts/check_artifact.py",
+            "line": 20
+          }
+        ],
+        "requirement": "SPEC §4 local resources/tool contract and input contract: generated output name collisions are rejected before first write; generated output is checked by actual Python.",
+        "reproduction": "Keep the representative source, append a second source with path Licenſes/own.txt (U+017F). Renderer returns GENERATED and writes its output; actual checker fails source:1:file because Python casefold maps long s to s while JS toLowerCase does not.",
+        "evidence": "collision-r2-results.json results[0]; exact generated output retained at collision-r2/output-0",
+        "impact": "An accepted input produces an artifact rejected by the mandatory next step. The new reserved license namespace is not interpreted consistently."
+      },
+      {
+        "id": "R2-F02",
+        "priority": "P2",
+        "title": "Windows trailing-dot components bypass new reserved output checks",
+        "locations": [
+          {
+            "path": "plugins/html-guide-kit/skills/site/scripts/render-site.mjs",
+            "line": 11
+          }
+        ],
+        "requirement": "Input contract: reject file/directory output conflicts; source paths/bytes remain verifiable; SPEC §4 Windows/path support.",
+        "reproduction": "Append source path licenses./Apache-2.0.txt or LICENSE./source.md to otherwise-valid representative input on Windows. Renderer reports GENERATED and writes output, but actual checker fails path/manifest checks after Windows path normalization.",
+        "evidence": "collision-r2-results.json results[3..5]; exact generated outputs retained",
+        "impact": "Input names aliasing new generated file/directory names reach writes and cannot be reliably reopened/verified by the mandatory checker."
+      }
+    ],
+    "observations": [
+      {
+        "id": "R2-O01",
+        "title": "The checker only proves declared license-file manifest consistency",
+        "location": {
+          "path": "plugins/html-guide-kit/skills/site/scripts/check_artifact.py",
+          "line": 114
+        },
+        "reproduction": "Delete LICENSE, THIRD_PARTY_NOTICES.md and licenses/Apache-2.0.txt from a generated bundle, and remove corresponding manifest entries. Actual checker returns PASS/0.",
+        "evidence": "execution-r2/probes.json probes.strippedWithConsistentManifest; exact stripped-output retained",
+        "classification": "Assurance gap pending scope decision: static checker currently requires only index/theme/js. To claim mandatory license completeness, require these three files and add the self-consistent-manifest negative case."
+      }
+    ]
+  },
+  "verified": {
+    "normalGeneration": "PASS, 10 actual files / 9 manifest entries",
+    "rawLicenseBytes": "MIT and Apache byte-equal to isolated installed package",
+    "notice": "Original package notice appears as one unmodified tail, with scoped prefix",
+    "firstWrite": "All tracked content/license/asset read calls precede first mkdir/write in normal renderer run",
+    "missingInstalled": "All 3 missing assets throw before creating output",
+    "inputAndCache": "Input and installed bytes unchanged on normal run",
+    "asciiReserved": "6 case/nested collisions rejected before output"
+  },
+  "regressionTestAssessment": "The new tests exercise actual installed copies, raw notice/license/source bytes, real Python, missing installed assets before first write, manifest hashes, and ASCII collisions. They are necessary for real package-boundary failures; the missing Unicode/Windows and self-consistent-manifest cases explain the observed gaps.",
+  "pending": "Root agent implementing fixes; a new immutable follow-up report will bind its exact changed hashes."
+}

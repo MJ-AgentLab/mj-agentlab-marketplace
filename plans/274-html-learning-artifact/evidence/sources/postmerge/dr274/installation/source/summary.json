@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "role": "Independent installed-package acceptance agent /root/contract_scan",
+  "startedAt": "2026-10-20T02:09:27.099Z",
+  "completedAt": "2026-10-20T02:22:46.410Z",
+  "durationMs": 799308.9885,
+  "status": "FAIL",
+  "source": {
+    "baseHEAD": "908d29537a19ceca166e8f3c7cddef4d419781a4",
+    "branch": "codex/html-learning-deferral-fixes",
+    "candidatePluginVersion": "0.1.38",
+    "marketplaceVersion": "8.3.3",
+    "pluginSnapshot": "plugins-snapshot",
+    "runtimeBeforeAfterUnchanged": true,
+    "harnessBeforeAfterUnchanged": true,
+    "distributedReadmeChangelogMayChange": "Only non-runtime README/CHANGELOG are excluded from runtime equivalence; full before/after manifests preserved."
+  },
+  "baseline": {
+    "codex": "0.147.0 exact check",
+    "status": 0,
+    "node": "v22.18.0",
+    "python": "C:/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe"
+  },
+  "counts": {
+    "scenarios": 13,
+    "commands": 178,
+    "nonzeroCommands": 0,
+    "diagramPython": 6,
+    "learningEvidencePython": 18,
+    "siteGeneration": 4,
+    "siteStaticPython": 4,
+    "siteStaticChecks": [
+      {
+        "checks": 95,
+        "failed": 0,
+        "pages": 1,
+        "files": 9
+      },
+      {
+        "checks": 95,
+        "failed": 0,
+        "pages": 1,
+        "files": 9
+      },
+      {
+        "checks": 95,
+        "failed": 0,
+        "pages": 1,
+        "files": 9
+      },
+      {
+        "checks": 95,
+        "failed": 0,
+        "pages": 1,
+        "files": 9
+      }
+    ],
+    "generatedFiles": [
+      10,
+      10,
+      10,
+      10
+    ],
+    "observedOwnedRoots": 14,
+    "strictAbsence": true
+  },
+  "host": {
+    "headUnchanged": false,
+    "branchUnchanged": true,
+    "primaryHeadUnchanged": true,
+    "fullWorktreesUnchanged": false,
+    "statusBefore": " M AGENTS.md\n M CHANGELOG.md\n M docs/INDEX.md\n M docs/guide/[GUIDE]_HTML_Learning_Artifact.md\n M docs/spec/[SPEC]_HTML_Learning_Artifact.md\n M plans/274-html-learning-artifact/INDEX.md\n M plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md\n M plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md\n M plugins/html-guide-kit/CHANGELOG.md\n M plugins/html-guide-kit/README.md\n M plugins/html-guide-kit/plugin.json\n M plugins/html-guide-kit/skills/site/assets/warm-paper/theme.css\n M plugins/html-guide-kit/skills/site/references/input-contract.md\n M plugins/html-guide-kit/skills/site/scripts/check_artifact.py\n M plugins/html-guide-kit/skills/site/scripts/render-site.mjs\n M scripts/validate-portable.mjs\n M tests/html-guide-kit.test.mjs\n M tests/html-site-integration.test.mjs\n M tests/html-site-render.test.mjs\n?? tests/html-site-licenses.test.mjs\n",
+    "statusAfter": " D plans/274-html-learning-artifact/evidence/sources/postmerge/deferral-recovery-20261020/baseline-visual/run01/published-installation/plugins/html-guide-kit/skills/site/examples/representative/sources/renewal-rules.md\n"
+  },
+  "scope": "Fresh 13 combinations with isolated HOME/CODEX_HOME/cache and actual installed resources/Python. No model/desktop/Sites/browser run; native metadata skills/list is not GUI dispatch.",
+  "limitations": [
+    "Installation smoke browserCheck remains NOT_RUN; no actual viewport/customer/client/Owner acceptance inferred",
+    "The historical14/15 root counts are not borrowed: cleanup count is derived solely from this run's actual contexts and copy profiles",
+    "Repository documentation/evidence updates by root may occur; runtime/harness source stability is separately checked",
+    "No protected approval, public release or new Owner decision is claimed"
+  ]
+}

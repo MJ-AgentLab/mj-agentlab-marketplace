@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-20
 state: active
-version: v2.105
+version: v2.106
 layer: canonical
 ---
 
@@ -34,6 +34,8 @@ layer: canonical
 [#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)五阶段#246/#247/#248/#249/#251均已合入develop。四性能门槛/完整24样本通过、保留default；最终actual6df新492/492、13安装、6Diagram+18LEK及15清理通过并独立复核。Owner明确仅对245接受历史批准/bypass缺项后，Issue于2026-10-16T13:09:52Z以Completed关闭；原NOT_MET、历史失败和调度限制保留，例外不外推。见[账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)与[最终收尾回执](runbook/evidence/ci-performance-245-final-closeout.json)。
 
 ## 当前整体发布
+
+2026-10-20：#282已合入develop908d2953；Owner已明确接受当前交付核心并保留全部延期/历史缺口（ACCEPTED_LIMITED），完整计划仍OPEN。本轮按同一五边界自主恢复可执行工程项，新发现边界对比度与输出许可缺件，准备HTML0.1.38修复候选；公开仍v8.3.2/HTML0.1.37，市场8.3.3未发布。原生窗口/原生派发/第二客户端仍延期，历史FAIL/UNKNOWN/bypass及批准NOT_MET不追认。 余项/恢复条件见同一[任务REPORT](../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#deferral-recovery-results)。下方为之前各轮的原日期记录。
 
 2026-10-20当前：[PR281](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/281)已于00:00:09Z（本地08:00:09）合入develop62945150，与已测候选同tree6659；仅市场8.3.3预升已交付、仍未发布，插件及公开v8.3.2/f906保持。候选CI与actual629新验分记，actual本机/strict/CLI通过，新13/实际Python/15精确根清理通过；实际bypass/批准NOT_MET、旧FAIL/根因UNKNOWN、延期与Owner接受独立，进度以Issue274为准。见[唯一REPORT](../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#current-sync-merge-and-marketplace-prebump)。
 
