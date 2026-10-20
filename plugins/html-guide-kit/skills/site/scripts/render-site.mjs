@@ -25,6 +25,23 @@ implemented ideas or supplied content as Apache-licensed derivative works.
 ---
 
 `;
+// A bounded built-in alternative: no caller-supplied CSS or additional resources.
+// Appending only for neutral keeps omitted/explicit warm-paper stylesheet bytes intact.
+const NEUTRAL_THEME_CSS = `
+/* Built-in neutral theme */
+:root {
+  --paper: #fafafa;
+  --ink: #222222;
+  --body: #3d3d3d;
+  --clay: #595959;
+  --deep-clay: #404040;
+  --wash: #f0f0f0;
+  --line: #767676;
+  --serif: var(--sans);
+}
+a:hover { color: #262626; }
+button:hover { background: #262626; }
+`;
 const ID = /^[a-z][a-z0-9-]*$/;
 const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
 const localURL = value => value.split("/").map(segment => encodeURIComponent(segment).replace(/[!'()*]/g, char => `%${char.charCodeAt(0).toString(16).toUpperCase()}`)).join("/");
@@ -101,8 +118,9 @@ function parseMetadata(json) {
 }
 
 export function validateArtifact(config) {
-  keys(config, ["schemaVersion", "title", "version", "audience", "task", "goals", "markdown", "sources", "terms", "activities"], "artifact");
+  keys(config, ["schemaVersion", "title", "version", "audience", "task", "goals", "markdown", "sources", "terms", "activities", "theme"], "artifact");
   if (config.schemaVersion !== 1) fail("artifact.schemaVersion must be 1");
+  if (Object.hasOwn(config, "theme") && !["warm-paper", "neutral"].includes(config.theme)) fail("artifact.theme must be warm-paper or neutral when supplied");
   for (const key of ["title", "version", "audience", "task"]) text(config[key], `artifact.${key}`);
   stringArray(config.goals, "artifact.goals");
   relativeFile(config.markdown, "artifact.markdown");
@@ -288,9 +306,10 @@ export function renderSite({ input, output }) {
     const pattern = /^[A-Za-z0-9_ -]+$/.test(word) ? `(?<![A-Za-z0-9_])${escapeRegex(word)}(?![A-Za-z0-9_])` : escapeRegex(word);
     if (new RegExp(pattern, "iu").test(visibleText)) fail(`known terminology mismatch: ${word}`);
   }
+  const theme = fs.readFileSync(ordinaryPath(path.join(SKILL_ROOT, "assets/warm-paper/theme.css"), "file"));
   const files = new Map([
     ["index.html", Buffer.from(html)],
-    ["theme.css", fs.readFileSync(ordinaryPath(path.join(SKILL_ROOT, "assets/warm-paper/theme.css"), "file"))],
+    ["theme.css", config.theme === "neutral" ? Buffer.concat([theme, Buffer.from(NEUTRAL_THEME_CSS)]) : theme],
     ["learning.js", fs.readFileSync(ordinaryPath(path.join(SKILL_ROOT, "assets/warm-paper/learning.js"), "file"))],
     ["LICENSE", fs.readFileSync(ordinaryPath(path.join(PLUGIN_ROOT, "LICENSE"), "file"))],
     ["THIRD_PARTY_NOTICES.md", Buffer.concat([Buffer.from(GENERATED_NOTICE_SCOPE), fs.readFileSync(ordinaryPath(path.join(PLUGIN_ROOT, "THIRD_PARTY_NOTICES.md"), "file"))])],

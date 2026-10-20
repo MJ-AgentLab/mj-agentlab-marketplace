@@ -5,6 +5,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Prepare HTML Guide Kit 0.1.39 selective alignment under #274: conditional Matt grilling and design agreement, optional themes, existing-material protection and explicitly agreed local delivery. Retain the local generator/checks, deferred native-window persistence and all prior acceptance boundaries; public Marketplace remains v8.3.2.
+
 ### Fixed
 
 - Prepare HTML Guide Kit 0.1.38 with generated asset notices, portable output-name checks and a visible reflection input boundary; public Marketplace remains v8.3.2.
