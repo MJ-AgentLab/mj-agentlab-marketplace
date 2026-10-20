@@ -114,6 +114,7 @@ def check_bundle(root: Path) -> dict:
     for name in ("index.html", "theme.css", "learning.js"):
         check("required:" + name, (root / name).is_file())
     check("artifact:schema-version", type(artifact.get("schemaVersion")) is int and artifact.get("schemaVersion") == 1)
+    check("artifact:theme", "theme" not in artifact or isinstance(artifact["theme"], str) and artifact["theme"] in ("warm-paper", "neutral"))
     for key in ("title", "version", "audience", "task", "markdown"):
         check("artifact:" + key, isinstance(artifact.get(key), str) and bool(artifact[key].strip()))
     check("artifact:goals", isinstance(artifact.get("goals"), list) and bool(artifact["goals"]) and all(isinstance(g, str) and g.strip() for g in artifact["goals"]))

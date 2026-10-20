@@ -5,9 +5,20 @@
 
 ## [Unreleased]
 
-### Documentation
+## [8.3.4] - 2026-10-20
 
-- Point default installation and current delivery notes at the verified v8.3.3 / HTML0.1.38 release; preserve real-tag checks, initial checkout failure and actual missing approval/bypass separately. Queue complete main synchronization with the existing0.1.39 batch before any8.3.4 preparation. Refs #274.
+Marketplace8.3.4 delivers HTML Guide Kit0.1.39 selective alignment under #274, with Diagram0.3.1, Learning Evidence0.1.0, Explain0.1.1 and Communication0.1.0 unchanged. Retain five packages, eight public skills and five explicit entries. Marketplace VERSION was prepared by PR290; this promotion does not bump versions again.
+
+### Changed
+
+- Use the complete production method as the baseline while retaining the local generator and engineering checks. Read Matt grilling only for material unresolved design decisions, confirm the resulting design agreement before dependent implementation, and reuse settled decisions.
+- Protect existing materials while allowing independent working copies and outputs. Distinguish explicitly agreed complete local delivery from default private Sites publication; missing Sites does not silently switch the agreed mode.
+- Add optional warm-paper/neutral theme selection with compatible default behavior; keep content, feedback and actual checks independent of the selected appearance.
+
+### Verification and retained limits
+
+- Bind actual-develop checks, isolated installation, real Python/static checks and bounded browser evidence to their exact sources. Reuse earlier interaction actions only for the unchanged HTML/JS and same inputs; inherited evidence is not a new execution.
+- Keep native-window persistence, other deferred client/expanded cases, earlier failures/UNKNOWN and historical missing approval/bypass explicit. Effects remain NOT_MEASURED and the full plan remains open. Original limited core acceptance does not extend to0.1.39; protected merge, publication, real-tag verification and Owner acceptance are recorded separately.
 
 ## [8.3.3] - 2026-10-20
 

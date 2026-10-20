@@ -6,13 +6,45 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.13
+version: v1.17
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 ---
 
 # [PLAN] HTML learning artifact implementation
+
+## Actual PR290 verification and HTML0.1.39 release preparation
+
+2026-10-20：#290已于14:16:36Z实际合入develop **7c23f347c0725bdfa57ee1e0f5e9075a8d90babf/tree5743c7974880ff5fa87c9294313ec9adc6abac40**，parents f3e8＋720540，完整main f18 ancestry保持。市场8.3.4预升已交付，HTML0.1.39及其他插件版本保持；公开仍v8.3.3/HTML0.1.38。实际7c23本机652总/651PASS/0FAIL/1平台skip、strict/CLI0.147及新13/178、实际Python/15精确根清理通过。
+
+实际suite4621294286为bypass、reviews=[]/批准NOT_MET，Agent未执行该保护合并。旧FAIL/UNKNOWN/历史批准缺口保留；D01持续窗口等延期非PASS、效果NOT_MEASURED、完整计划OPEN，原核心ACCEPTED_LIMITED仅0.1.37，不扩至0.1.38/Site v2/0.1.39。本轮未新跑模型/Matt/桌面/第二客户端/原生窗口/Sites或更新受众，无新增Owner产品决定。
+
+下一步推荐：完成本轮发行候选来源/文档/A6及独立复核，向受保护main提交唯一8.3.4发行PR；当前head CI、真实非作者且非latest-pusher批准、线程及最新base满足后才正常合入，核actualmain再按既有draft-first流程公开与真实tag新十三安装。理由是实际develop已完成市场预升和新验，HTML0.1.39的新增/继承/延期边界可分别恢复；正式公开与Owner接受不可由候选通过替代。
+
+以下旧current/待办为各自原时点快照；当前以Issue274及本节为准。
+
+## Actual PR289 develop verification and marketplace pre-bump
+
+2026-10-20：#289已于13:09:38Z合入develop **f3e8ba322109e2a43dcdcd68fdd2f0c655c78240/tree6daad5a9e9f9d749e48e38b148657195c3ed2fa5**，parents a4892f51＋6de4be7d，完整继承main f18aa09；HTML0.1.39选择性统一已进入develop、尚未发布。实际develop新本机652总/651PASS/0FAIL/1平台skip、strict/CLI0.147.0及新13/178、实际Python和15精确根清理通过。其后在隔离候选DryRun零写→Apply仅VERSION+badge预升未发布8.3.4（尚待新保护PR合入），实际develop市场仍8.3.3；HTML0.1.39及其他插件保持；默认公开安装仍v8.3.3/HTML0.1.38。
+
+suite4620018712实际bypass、reviews=[]/批准NOT_MET，Agent未执行该保护合并；旧Linux启动FAIL/UNKNOWN与一次同条件有界复验成功分记，成功不等于根因修复。D01持续窗口等延期非PASS、效果NOT_MEASURED、完整计划OPEN，原核心ACCEPTED_LIMITED不扩至0.1.38/Site v2/0.1.39；无新模型/桌面/第二客户端/原生/Sites测试或受众变更，无新增Owner实质决定。
+
+下一步推荐：完成本轮预升候选的来源/文档/A6及独立复核，提交唯一新主PR→protected develop，并核对当前head CI、真实非作者且非latest-pusher批准、线程和最新base；理由是实际同步复验已具备预升前提，而预升不等于正式发行。自身PR/CI/实际合入结果接Issue274与外部冻结回执，无新实质差异不递归纯证据PR。
+
+以下旧current/待办段均为各自原时点快照；本轮进度以Issue274与本节为准。
+
+## Selective alignment integration candidate
+
+本节为同步子候选提交前固定快照；自身后继commit/子PR/唯一develop主PR、CI/实际合并和固定提交安装结果以Issue274及外部不可变回执为准，不以本快照替代实际交付。
+
+2026-10-20：PR287已于11:42:47Z实际合入main **f18aa09be0cc4a96b5005157566f7f4fd4947c95/tree6f921a482ba927b82e4c5d8d13ab9e1c8559edd6**，与预解输入树相同；完整actualmain已在隔离同步子候选中正常merge；本快照不声明后继集成或protected develop已交付。公开仍v8.3.3/HTML0.1.38，0.1.39仍未发布候选，市场VERSION8.3.3保持。内部285/286的按需Matt/设计共识、可选主题、本地交付及原材料保护保持。
+
+下一步推荐：先完成本轮新候选工程检查、全来源逐字节核验及独立复核，通过内部子PR门禁后正常合入既有集成分支；随后以唯一主PR→protected develop交付完整main ancestry及0.1.39。理由是以真实同步候选检查支持交付，保留已公开历史和当前保护要求。实际develop合入并复验后才可DryRun→Apply仅市场8.3.4预升；当前未执行。无新增Owner实质决定。
+
+原核心ACCEPTED_LIMITED不扩至0.1.38/Site v2/0.1.39，完整计划OPEN、效果NOT_MEASURED、D01持续窗口及其他延期非PASS。实际suite4618651818为bypass、reviews=[]、批准NOT_MET；Agent未执行此次保护合并或bypass，后继保护批准不得复用为豁免。当前head新CI/真实独立批准/线程/latestbase及actualdevelop同步复验各自待证。
+
+以下为两条分支各自时点的历史快照；其中未发布/活动PR/待检查等状态保留原时点，不作为当前状态。
 
 [任务入口](./INDEX.md) · [唯一 Issue #274](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274) · [INTENT](../../docs/intent/[INTENT]_INT-2026-003_HTML_Learning_Artifact.md) · [扩展 ADR](../../docs/adr/[ADR]_HTML_Learning_Artifact_Extension.md) · [SPEC](../../docs/spec/[SPEC]_HTML_Learning_Artifact.md)
 
@@ -35,6 +67,28 @@ Owner本轮明确“#284 PR 已合并，继续后续工作，并在阶段信息�
 
 后继正常合并保完整actualmain ancestry，不以cherry-pick内容代同步；保已发布root/plugin CHANGELOG整节、旧来源、32行及A01–A08。共享1890条之外，先保发布账本全部既有前缀，再按原ID/hash/顺序追加选择性统一增量；不同分支完整账本分别固定Git恢复，不声称两个分叉全集都同时保为合并前缀。原生能力和Owner接受/效果仍按原边界，不重启限制矩阵。
 
+
+
+## Selective alignment baseline
+
+本节是2026-10-20选择性统一的决定正本。Owner原话：“按方案1选择性统一，以完整制作提示词为基准，保留本地生成器和工程检查。‘不修改文件’指保护现有材料，允许在独立目录生成产物。补齐按需 Matt grilling、设计共识确认、可选主题和本地交付规则；窗口持续显示继续延期，不视为通过。沿用 #274 推进。”原消息标点由[原话快照](./evidence/sources/align274/owner-decision.txt)恢复；准确消息时间/ID/聊天URL未提供，实际捕获与来源限制见[元数据](./evidence/sources/align274/baseline.json)。这是内容选择和同范围实施授权，不是新成品接受。
+
+B2为Slack文件F0C98A3LV5M《理解型 HTML 网站制作提示词｜仓库链接修订版｜2026-10-16》的完整API文本捕获；U2为本次Owner原话。完整B2保留在元数据指明的本机独立证据目录，记录实际UTF-8字节/hash和可恢复位置；API文本不冒充Slack上传原文件字节。原文再分发权利未核实，不公开完整研究正文，消费端无Slack或该本机目录运行依赖。公开原始链接供有权者回读，不能用可变URL替代固定捕获。B1/U1、32行旧基线及原接受均保持；旧INTENT/规范完整内容可从Git a4892f51f4163fb5bd4457d99229eaf1a4683e8f恢复，本次只增量覆盖下表。
+
+| 条目/来源 | 本次接受范围与工程关系 | 实施及依赖 | 验收判准与未覆盖 |
+|---|---|---|---|
+| A01 / B2六步、U2 | 实际交付：完整制作方法为基准，保留本地生成器和工程检查 | site/本地方法及现行门禁 | 六步、语言、来源/判准、恢复、工程/效果边界保持；不是重做旧guide |
+| A02 / B2澄清、U2 | 实际交付：仅关键未决设计按需读取并使用Matt grilling | 实际安装grilling locator；缺失只阻依赖阶段 | 按依赖分轮、编号、选项/推荐/理由；事实由Agent查；已确认决定不重问，不把包内问答冒称Matt |
+| A03 / B2设计共识、U2 | 实际交付：关键问题解决后简述设计共识并取得确认 | 只暂停依赖这些决定的实现；可继续独立核查 | 未提交/默认/推荐/关闭均不算确认；无新关键未决时复用既有共识 |
+| A04 / B2视觉、U2 | 实际交付：主题按内容和已有偏好选择，暖白陶土为候选 | 兼容默认warm-paper，新增neutral；其他方向由Sites实现后独立验证 | 实际输出CSS有差异且判准/静态内容不变；不强造每次主题选择 |
+| A05 / B2范围、U2 | 实际交付：默认新建私有Sites，支持明确约定的本地交付 | 新建/已有/本地分别判断，不可用不自动降级 | 本地HTML/独立内容源/来源版本/恢复说明/实际检查齐备可按约定交付；不报已发布、不追认旧Sites门槛 |
+| A06 / U2 | 实际交付：现有材料/原件只读，产物和工作副本写独立目录 | 保留拒覆盖/越界/缓存写入与许可规则 | 输入字节前后相同；新目录生成、实际Python/浏览器检查；更新已选Site可按授权更新独立源码 |
+| A07 / B2窗口、U2 | 依赖支撑：严格待答保持，持续显示仍延期非PASS | D01实际原生事件/客户端条件具备才恢复 | 本轮不重启原生模型/桌面矩阵，文字pending/网页活动/模拟不替窗口实证 |
+| A08 / B2完成、U2 | 依赖支撑：原接受/发布/全计划分记 | 同一INTENT/PLAN/REPORT/Issue274，版本独立推进 | 原核心ACCEPTED_LIMITED不扩大；本批结果按实际证据，效果NOT_MEASURED、历史缺口保留 |
+
+有序执行：①冻结B2/U2及旧基线，修订适用INTENT/ADR/SPEC/GUIDE；②隔离子分支实施skill/按需grilling/共识确认/主题和本地规则；③独立角色从实际入口完成受限合成场景，实际生成/两Python检查/原件保护、完整工程和十三安装；④按实际head/base/规则提交推送，内部Harness后合并，最终保护门禁另验。HTML0.1.38→0.1.39仅准备本批候选，不改变市场VERSION及其他包/guide字节，不宣称正式公开。
+
+调度基准为develop a4892f51。现有#284→main发布0.1.38仍OPEN且待真实保护批准；其冻结候选保持，本批先推进独立集成/内部子PR，不并开第二活动主PR。#284结束且基线刷新后，再按唯一主PR→protected develop承接本批；若主分支回同步带来冲突，由Agent正常合并并重验。Agent不要求Owner处理常规排程、不自行批准或bypass，也不因本批授权更新现有私有代表Site。实际PR身份和结果回唯一REPORT/Issue。
 
 ## Deferral recovery batch
 

@@ -1,0 +1,73 @@
+{
+  "at": "2026-10-20T13:31:34.636047+00:00",
+  "actualDevelop": "f3e8ba322109e2a43dcdcd68fdd2f0c655c78240",
+  "prerequisites": "Actual develop local full Harness/strict/CLI and independent canonical13 PASS_LIMITED before DryRun",
+  "beforeVersions": {
+    "marketplace": "8.3.3",
+    "plugins": {
+      "communication-kit": "0.1.0",
+      "diagram-kit": "0.3.1",
+      "explain-kit": "0.1.1",
+      "html-guide-kit": "0.1.39",
+      "learning-evidence-kit": "0.1.0"
+    }
+  },
+  "afterVersions": {
+    "marketplace": "8.3.4",
+    "plugins": {
+      "communication-kit": "0.1.0",
+      "diagram-kit": "0.3.1",
+      "explain-kit": "0.1.1",
+      "html-guide-kit": "0.1.39",
+      "learning-evidence-kit": "0.1.0"
+    }
+  },
+  "trackedFileCount": 9158,
+  "dryRunZeroWrite": true,
+  "applyChangedExactly": [
+    "README.md",
+    "VERSION"
+  ],
+  "readmeExactBadgeReplacement": true,
+  "pluginVersionsAndRuntimeUnchanged": true,
+  "noReleaseTagOrSiteOperationInExecutedCommandPath": true,
+  "noUntrackedOrBackupResidue": true,
+  "dryRun": {
+    "args": [
+      "C:\\Users\\Admin\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.EXE",
+      "-NoProfile",
+      "-File",
+      "C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\scripts\\bump-version.ps1",
+      "-From",
+      "8.3.3",
+      "-To",
+      "8.3.4",
+      "-Scope",
+      "marketplace",
+      "-DryRun"
+    ],
+    "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop",
+    "startedAt": "2026-10-20T13:31:31.992494+00:00",
+    "finishedAt": "2026-10-20T13:31:32.355145+00:00",
+    "exitCode": 0
+  },
+  "apply": {
+    "args": [
+      "C:\\Users\\Admin\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.EXE",
+      "-NoProfile",
+      "-File",
+      "C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\scripts\\bump-version.ps1",
+      "-From",
+      "8.3.3",
+      "-To",
+      "8.3.4",
+      "-Scope",
+      "marketplace"
+    ],
+    "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop",
+    "startedAt": "2026-10-20T13:31:33.355460+00:00",
+    "finishedAt": "2026-10-20T13:31:33.640959+00:00",
+    "exitCode": 0
+  },
+  "scope": "Unpublished marketplace-only pre-bump; subsequent documentation/A6 changes are separate operations; published object actual readback audited separately"
+}

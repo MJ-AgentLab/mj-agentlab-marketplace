@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.1.39] - 2026-10-20
+
+HTML Guide Kit 0.1.39 prepares selective alignment under #274; publication and Owner artifact acceptance remain separate.
+
+### Changed
+
+- Use the full production prompt as the method baseline while retaining the local generator and engineering checks. Read Matt grilling only for material unresolved design decisions; confirm the resulting design agreement before dependent implementation and reuse existing decisions.
+- Protect existing materials while allowing independent working copies and outputs. Distinguish explicitly agreed local delivery from default private Sites publication; missing Sites does not silently change the delivery mode.
+- Make warm-paper a candidate theme, add an optional neutral preset, and allow separately implemented and verified visual directions. Keep native window persistence deferred and learning effects NOT_MEASURED.
+
 ## [0.1.38] - 2026-10-20
 
 HTML Guide Kit 0.1.38 fixes generated asset notices, portable input paths and reflection control boundaries. Publication and bounded acceptance are recorded separately under task #274.

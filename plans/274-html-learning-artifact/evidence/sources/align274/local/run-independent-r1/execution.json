@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "reader": "/root/alignment_independent_review",
+  "startedAt": "2026-10-20T06:23:54.972Z",
+  "endedAt": "2026-10-20T06:23:56.024Z",
+  "expectedHead": "b5b8300ae58e967e1d0013e66dc4f1208ac860ef",
+  "head": {
+    "args": [
+      "rev-parse",
+      "HEAD"
+    ],
+    "exitCode": 0,
+    "stdout": "b5b8300ae58e967e1d0013e66dc4f1208ac860ef\n",
+    "stderr": ""
+  },
+  "afterHead": {
+    "args": [
+      "rev-parse",
+      "HEAD"
+    ],
+    "exitCode": 0,
+    "stdout": "b5b8300ae58e967e1d0013e66dc4f1208ac860ef\n",
+    "stderr": ""
+  },
+  "gitStatus": {
+    "args": [
+      "status",
+      "--short"
+    ],
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "python": "C:/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+  "node": "D:\\Development\\nodejs\\node.exe",
+  "run": "C:\\Users\\Admin\\.codex\\worktrees\\html-prompt-alignment\\alignment-evidence\\local-delivery\\run-independent-r1",
+  "sourceBefore": [
+    {
+      "path": "artifact.json",
+      "bytes": 3759,
+      "sha256": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557"
+    },
+    {
+      "path": "content.md",
+      "bytes": 2751,
+      "sha256": "060045ce718168c7f3c2aecd2742518490d5693e3dbdeb28b4ac94ce2885cd50"
+    },
+    {
+      "path": "sources/renewal-rules.md",
+      "bytes": 1011,
+      "sha256": "2a95c4d9b95f3b184fea30aa3fba9daaf34d11624bd888ed4793a0ea7f96af47"
+    }
+  ],
+  "sourceAfter": [
+    {
+      "path": "artifact.json",
+      "bytes": 3759,
+      "sha256": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557"
+    },
+    {
+      "path": "content.md",
+      "bytes": 2751,
+      "sha256": "060045ce718168c7f3c2aecd2742518490d5693e3dbdeb28b4ac94ce2885cd50"
+    },
+    {
+      "path": "sources/renewal-rules.md",
+      "bytes": 1011,
+      "sha256": "2a95c4d9b95f3b184fea30aa3fba9daaf34d11624bd888ed4793a0ea7f96af47"
+    }
+  ],
+  "originalSourceUnchanged": true,
+  "installedSkillUnchanged": true,
+  "commands": [
+    {
+      "id": "01-generate",
+      "executable": "D:\\Development\\nodejs\\node.exe",
+      "args": [
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-prompt-alignment\\develop\\plugins\\html-guide-kit\\skills\\site\\scripts\\render-site.mjs",
+        "--input",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-prompt-alignment\\alignment-evidence\\local-delivery\\run-independent-r1\\input",
+        "--output",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-prompt-alignment\\alignment-evidence\\local-delivery\\run-independent-r1\\site"
+      ],
+      "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\html-prompt-alignment\\alignment-evidence\\local-delivery\\run-independent-r1",
+      "startedAt": "2026-10-20T06:23:54.998Z",
+      "endedAt": "2026-10-20T06:23:55.065Z",
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "01-generate.stdout.txt",
+      "stderr": "01-generate.stderr.txt"
+    },
+    {
+      "id": "02-static",
+      "executable": "C:/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+      "args": [
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-prompt-alignment\\develop\\plugins\\html-guide-kit\\skills\\site\\scripts\\check_artifact.py",
+        "--input",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-prompt-alignment\\alignment-evidence\\local-delivery\\run-independent-r1\\site",
+        "--output",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-prompt-alignment\\alignment-evidence\\local-delivery\\run-independent-r1\\static-report.json"
+      ],
+      "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\html-prompt-alignment\\alignment-evidence\\local-delivery\\run-independent-r1",
+      "startedAt": "2026-10-20T06:23:55.066Z",
+      "endedAt": "2026-10-20T06:23:55.148Z",
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "02-static.stdout.txt",
+      "stderr": "02-static.stderr.txt"
+    },
+    {
+      "id": "03-renderings",
+      "executable": "C:/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+      "args": [
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-prompt-alignment\\develop\\plugins\\html-guide-kit\\skills\\site\\scripts\\check_renderings.py",
+        "--input",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-prompt-alignment\\alignment-evidence\\local-delivery\\run-independent-r1\\site",
+        "--screenshots",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-prompt-alignment\\alignment-evidence\\local-delivery\\run-independent-r1\\screenshots",
+        "--output",
+        "C:\\Users\\Admin\\.codex\\worktrees\\html-prompt-alignment\\alignment-evidence\\local-delivery\\run-independent-r1\\browser-report.json"
+      ],
+      "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\html-prompt-alignment\\alignment-evidence\\local-delivery\\run-independent-r1",
+      "startedAt": "2026-10-20T06:23:55.148Z",
+      "endedAt": "2026-10-20T06:23:55.956Z",
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "03-renderings.stdout.txt",
+      "stderr": "03-renderings.stderr.txt"
+    }
+  ],
+  "limitations": [
+    "No actual Matt interview or native question",
+    "No Sites, CLI model or desktop matrix",
+    "Browser checker is bounded layout only; screenshot review separately recorded",
+    "No answer/copy/export/reset/keyboard/touch operations performed by this script",
+    "Effects NOT_MEASURED; protected approval/Owner acceptance independent"
+  ]
+}

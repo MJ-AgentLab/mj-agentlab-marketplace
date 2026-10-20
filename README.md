@@ -2,7 +2,7 @@
 
 <img src="assets/brand/marketplace/logo.svg" width="128" height="128" alt="MJ AgentLab Marketplace — MJ letters with connected modules">
 
-![Version](https://img.shields.io/badge/version-8.3.3-blue)
+![Version](https://img.shields.io/badge/version-8.3.4-blue)
 
 面向 ChatGPT 桌面端与 Codex 本地环境（CLI 验收基线 0.147.0）的插件市场，无需 MCP 服务。[Marketplace v8.3.3](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.3) 已于2026-10-20经#284合入main并自动公开，main/tag/Release同为fdede3cf5578dee8a41aef4310a9387d695c56bd；HTML Guide Kit0.1.38交付生成许可、路径边界和反思控件修复，五包八技能/五显式保持。真实tag新13安装、实际Python及精确根清理通过；批准NOT_MET/实际bypass、旧FAIL/延期与Owner接受分别保留，见[8.3.3发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md)。
 
@@ -81,7 +81,7 @@ Communication 0.1.0 已随 v8.3.0 发布。安装后显式调用 `$communication
 
 ### Development
 
-README badge跟随当前checkout的VERSION，默认公开安装固定真实v8.3.3/fdede。当前导航/记录PR只更新实际交付指引；后继完整main→develop同步可与内部0.1.39选择性统一在一个受保护主PR交付。实际同步合入并复验后，才仅市场8.3.4 DryRun/Apply预升；当前未执行。P5授权、当前保护门禁、Owner接受与延期分记于[8.3.3账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md)；历史8.3.2及此前同步预升见[原账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)。
+README badge跟随当前checkout的VERSION。#290已将市场8.3.4预升合入develop，HTML0.1.39及其他插件版本保持；实际develop新验通过后准备8.3.4发行PR→main。默认公开安装仍固定真实v8.3.3/fdede与HTML0.1.38，只有正式公开及真实tag新验后更新指引。当前保护批准、发布/恢复及延期/接受边界见[8.3.4账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_4_Release_Readiness.md)。
 
 历史 Learning [8.2.0 Release](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.2.0) 于 2026-10-13 发布。#241 已将完整五包作为 v8.3.0 公开，Diagram 0.3.1、Learning Evidence 0.1.0、Explain 0.1.1、Communication 0.1.0、HTML 0.1.36 均保持实际版本。后续同步与未发布补丁预升须经独立 PR 和实际门禁，见[8.3.0 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。共用 Learning 脚本归属安装包，不依赖仓库过渡路径。
 

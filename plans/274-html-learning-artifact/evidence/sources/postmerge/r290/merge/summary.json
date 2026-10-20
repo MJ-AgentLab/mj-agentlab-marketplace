@@ -1,0 +1,346 @@
+{
+  "auditedAt": "2026-10-20T14:20:21.422559+00:00",
+  "status": "PASS_LIMITED_MERGE_GOVERNANCE_PUBLICATION_FACT_AUDIT",
+  "checkCount": 21,
+  "checks": [
+    {
+      "name": "PR290 actual merged identity time",
+      "passed": true,
+      "observed": {
+        "mergedAt": "2026-10-20T14:16:36Z",
+        "merge": "7c23f347c0725bdfa57ee1e0f5e9075a8d90babf"
+      }
+    },
+    {
+      "name": "actual commit REST GraphQL and develop same known tree",
+      "passed": true,
+      "observed": {
+        "oid": "7c23f347c0725bdfa57ee1e0f5e9075a8d90babf",
+        "tree": {
+          "oid": "5743c7974880ff5fa87c9294313ec9adc6abac40"
+        }
+      }
+    },
+    {
+      "name": "actual parents exact prior develop and PRhead",
+      "passed": true,
+      "observed": [
+        "f3e8ba322109e2a43dcdcd68fdd2f0c655c78240",
+        "720540d6e79098df18b81a016ac5c662fc530698"
+      ]
+    },
+    {
+      "name": "complete currentmainf18 ancestry retained",
+      "passed": true,
+      "observed": {
+        "main": "f18aa09be0cc4a96b5005157566f7f4fd4947c95",
+        "compareStatus": "ahead",
+        "mergeBase": "f18aa09be0cc4a96b5005157566f7f4fd4947c95"
+      }
+    },
+    {
+      "name": "all actual reviews fully read empty approvalrequired",
+      "passed": true,
+      "observed": {
+        "reviews": {
+          "nodes": [],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": null
+          }
+        },
+        "reviewDecision": "REVIEW_REQUIRED"
+      }
+    },
+    {
+      "name": "allactualthreads fully read none",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "actualrule suite exactbeforeafterref",
+      "passed": true,
+      "observed": {
+        "suite": 4621294286,
+        "before": "f3e8ba322109e2a43dcdcd68fdd2f0c655c78240",
+        "after": "7c23f347c0725bdfa57ee1e0f5e9075a8d90babf"
+      }
+    },
+    {
+      "name": "realbypass retained separatelyfrom technicalpass",
+      "passed": true,
+      "observed": "bypass"
+    },
+    {
+      "name": "realrequiredapprovalfail notrewritten",
+      "passed": true,
+      "observed": [
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008221,
+            "name": "protect-develop"
+          },
+          "enforcement": "active",
+          "result": "fail",
+          "rule_type": "pull_request",
+          "details": "New changes require approval from someone other than the last pusher."
+        }
+      ]
+    },
+    {
+      "name": "actual status/nonFF/deletion allpass observed",
+      "passed": true,
+      "observed": [
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008221,
+            "name": "protect-develop"
+          },
+          "enforcement": "active",
+          "result": "fail",
+          "rule_type": "pull_request",
+          "details": "New changes require approval from someone other than the last pusher."
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008221,
+            "name": "protect-develop"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "non_fast_forward"
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008221,
+            "name": "protect-develop"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "required_status_checks"
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008221,
+            "name": "protect-develop"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "deletion"
+        }
+      ]
+    },
+    {
+      "name": "currentdevelop strictprotection retained",
+      "passed": true,
+      "observed": [
+        {
+          "type": "deletion",
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+          "ruleset_id": 14008221
+        },
+        {
+          "type": "pull_request",
+          "parameters": {
+            "required_approving_review_count": 1,
+            "dismiss_stale_reviews_on_push": true,
+            "required_reviewers": [],
+            "require_code_owner_review": false,
+            "dismissal_restriction": {
+              "enabled": false,
+              "allowed_actors": []
+            },
+            "require_last_push_approval": true,
+            "required_review_thread_resolution": true,
+            "require_extra_approval_for_unattributed_changes": true,
+            "allowed_merge_methods": [
+              "merge"
+            ]
+          },
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+          "ruleset_id": 14008221
+        },
+        {
+          "type": "required_status_checks",
+          "parameters": {
+            "strict_required_status_checks_policy": true,
+            "do_not_enforce_on_create": false,
+            "required_status_checks": [
+              {
+                "context": "Validate Structure"
+              },
+              {
+                "context": "A6 / Check"
+              }
+            ]
+          },
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+          "ruleset_id": 14008221
+        },
+        {
+          "type": "non_fast_forward",
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+          "ruleset_id": 14008221
+        }
+      ]
+    },
+    {
+      "name": "actualdevelopmarket834HTML39 publicHTML38",
+      "passed": true,
+      "observed": {
+        "actualDevelopMarketplace": "8.3.4",
+        "actualDevelopHTML": "0.1.39",
+        "publicHTML": "0.1.38"
+      }
+    },
+    {
+      "name": "tagrelease latest remain833fdede",
+      "passed": true,
+      "observed": {
+        "latest": "v8.3.3",
+        "release": 418243144,
+        "target": "fdede3cf5578dee8a41aef4310a9387d695c56bd"
+      }
+    },
+    {
+      "name": "publicReleasebody2507hash exactunchanged",
+      "passed": true,
+      "observed": {
+        "bytes": 2507,
+        "sha256": "11fc9f4c0231ba5aebda7a7d3add60ed8f506a943e2ff516d5c2c8b27c5b069c"
+      }
+    },
+    {
+      "name": "Releasepublishedflagsassets preserved",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "834tagrelease absent currentlyobserved",
+      "passed": true,
+      "observed": {
+        "tag": {
+          "message": "Not Found",
+          "documentation_url": "https://docs.github.com/rest/git/refs#get-a-reference",
+          "status": "404"
+        },
+        "release": {
+          "message": "Not Found",
+          "documentation_url": "https://docs.github.com/rest/releases/releases#get-a-release-by-tag-name",
+          "status": "404"
+        }
+      }
+    },
+    {
+      "name": "primarya489 andOwner25994B originalprotected",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "oldpost289successful879manifest identity preserved",
+      "passed": true,
+      "observed": {
+        "files": 879,
+        "manifestSha256": "919da9418bd811edbf575699c6ee8590712a8eeee7e58460cef82d00bc2e1672"
+      }
+    },
+    {
+      "name": "all879oldartifactbyteshashes preserved",
+      "passed": true,
+      "observed": {
+        "checkedFiles": 879,
+        "failed": []
+      }
+    },
+    {
+      "name": "oldfrozenroot membership complete unchanged",
+      "passed": true,
+      "observed": {
+        "manifestPlusSelf": 880,
+        "currentLive": 880,
+        "added": [],
+        "missing": []
+      }
+    },
+    {
+      "name": "prior noreleasewording explicitly scopedto priorrun",
+      "passed": true,
+      "observed": {
+        "priorState": "PR290_PREBUMP_READY_WAITING_REAL_PROTECTED_APPROVAL",
+        "priorHead": "720540d6e79098df18b81a016ac5c662fc530698",
+        "literalContext": "下一步推荐：合格独立审查人满足当前head真实保护批准后，正常合入#290；再核实际develop SHA/tree、按变化范围复验，更新Issue与独立回执，无新实质差异不递归纯证据PR。本轮不正式发布8.3.4，不重启已延期模型/桌面/原生测试，无新增Owner产品决定。越出五边界才重新授权。"
+      }
+    }
+  ],
+  "actualDevelop": {
+    "merge": "7c23f347c0725bdfa57ee1e0f5e9075a8d90babf",
+    "tree": "5743c7974880ff5fa87c9294313ec9adc6abac40",
+    "parents": [
+      "f3e8ba322109e2a43dcdcd68fdd2f0c655c78240",
+      "720540d6e79098df18b81a016ac5c662fc530698"
+    ],
+    "mergedAt": "2026-10-20T14:16:36Z",
+    "marketplace": "8.3.4",
+    "html": "0.1.39",
+    "completeMainAncestor": "f18aa09be0cc4a96b5005157566f7f4fd4947c95"
+  },
+  "governance": {
+    "actualSuite": 4621294286,
+    "actualResult": "bypass",
+    "approvals": "NOT_MET",
+    "reviews": [],
+    "failedControl": "New changes require approval from someone other than the last pusher.",
+    "statusChecks": "PASS",
+    "nonFastForward": "PASS",
+    "deletion": "PASS",
+    "futureException": false
+  },
+  "publication": {
+    "latest": "v8.3.3",
+    "target": "fdede3cf5578dee8a41aef4310a9387d695c56bd",
+    "html": "0.1.38",
+    "bodyBytes": 2507,
+    "bodyUnchanged": true,
+    "834tagRelease": "NOT_FOUND_AT_THIS_SNAPSHOT",
+    "releaseImmutable": false,
+    "repositoryImmutableSetting": "UNKNOWN"
+  },
+  "legacyStageBoundaryReview": {
+    "sourceCopies": [
+      "prior-stage-CURRENT-r2.json",
+      "prior-stage-HANDOFF.md"
+    ],
+    "literalPriorStage": "#289 actualdevelop verification + marketplace8.3.4 preparation, before PR290 actual merge",
+    "literalQualifier": "本轮不正式发布8.3.4",
+    "interpretationType": "LIMITED_TEXTUAL_INFERENCE",
+    "interpretation": "This is a boundary for the prior engineering stage/turn, not an unqualified permanent Owner ban on future formal releases. CURRENT is a dated waiting-PR290 snapshot.",
+    "futureReleaseAuthorization": "NOT_DETERMINED_BY_THIS_AUDIT; separate current authorization/release-control review owns the next action. No permission to publish is inferred solely from this wording."
+  },
+  "oldPost289": {
+    "finalManifestSha256": "919da9418bd811edbf575699c6ee8590712a8eeee7e58460cef82d00bc2e1672",
+    "originalFiles": 879,
+    "allOriginalBytesPreserved": true,
+    "membershipUnchanged": true
+  },
+  "worktreeInventory": {
+    "sameDuringAudit": true,
+    "note": "This auditor only read Git inventory; root separately prepares a source worktree. Any authorized concurrent addition is not an action by this auditor.",
+    "beforeSnapshot": "before-snapshot.json",
+    "afterSnapshot": "after-snapshot.json"
+  },
+  "freshActualdevelopRuntime": "NOT_EXECUTED_BY_THIS_AUDITOR; root prepares new exact-source batch",
+  "nextRecommendation": "Bind new actualdevelop verification to7c23/tree5743, preserve governanceNOT_MET and public833; after current verification, use separate current authorization/release review for HTML0.1.39 continuation. Do not treat the prior-stage no-release statement as a permanent prohibition or as new publish authorization.",
+  "limits": [
+    "No tests,installation,CIrerun,browser/model/native/desktop/Sites or publication operations were performed by this auditor.",
+    "Technical/merge fact PASS is not required approval PASS or Owner acceptance; oldFAIL/UNKNOWN/D01DEFERRED/effectsNOT_MEASURED remain independent."
+  ]
+}

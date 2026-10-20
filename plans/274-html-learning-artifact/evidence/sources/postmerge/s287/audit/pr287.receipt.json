@@ -1,0 +1,17 @@
+{
+  "command": [
+    "gh",
+    "api",
+    "graphql",
+    "-f",
+    "query=query { repository(owner:\"MJ-AgentLab\", name:\"mj-agentlab-marketplace\") { pullRequest(number:287) { number url state merged mergedAt isDraft headRefName headRefOid baseRefName baseRefOid author { login } mergedBy { login } mergeCommit { oid tree { oid } parents(first:10) { nodes { oid } } } reviews(first:100) { nodes { author { login } state submittedAt commit { oid } } pageInfo { hasNextPage endCursor } } reviewThreads(first:100) { totalCount nodes { isResolved isOutdated } pageInfo { hasNextPage endCursor } } commits(last:1) { nodes { commit { oid pushedDate } } } } main:ref(qualifiedName:\"refs/heads/main\") { target { ... on Commit { oid tree { oid } } } } develop:ref(qualifiedName:\"refs/heads/develop\") { target { ... on Commit { oid tree { oid } } } } alignment:ref(qualifiedName:\"refs/heads/codex/html-prompt-alignment\") { target { ... on Commit { oid tree { oid } } } } } }"
+  ],
+  "cwd": "D:/workspace/10-software-project/projects/mj-agentlab-marketplace/develop",
+  "startedAt": "2026-10-20T11:44:59.916607+00:00",
+  "completedAt": "2026-10-20T11:45:01.102383+00:00",
+  "exitCode": 0,
+  "stdoutBytes": 1360,
+  "stdoutSha256": "da9a37fa1669b13de61835e8bef73634b50fac490bca930ad8cae903142f309e",
+  "stderrBytes": 0,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

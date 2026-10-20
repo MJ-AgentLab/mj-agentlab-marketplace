@@ -6,13 +6,31 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-20
 state: active
-version: v2.10.8
+version: v2.10.10
 layer: canonical
 ---
 
 # [RUNBOOK] Release operations
 
 ## Preparation
+
+2026-10-20：#290已于14:16:36Z实际合入develop **7c23f347c0725bdfa57ee1e0f5e9075a8d90babf/tree5743c7974880ff5fa87c9294313ec9adc6abac40**，parents f3e8＋720540，完整main f18 ancestry保持。市场8.3.4预升已交付，HTML0.1.39及其他插件版本保持；公开仍v8.3.3/HTML0.1.38。实际7c23本机652总/651PASS/0FAIL/1平台skip、strict/CLI0.147及新13/178、实际Python/15精确根清理通过。
+
+本轮沿既有P5/五边界授权准备8.3.4/HTML0.1.39发行，完整actualdevelop→main，版本不再bump；[当前账本](./[RUNBOOK]_Marketplace_8_3_4_Release_Readiness.md)与唯一REPORT承接。上轮“仅预升/不正式发布”是上轮工程窗口，非永久Owner禁令；新真实保护批准及draft-first/恢复/tag新验不豁免。
+
+下一步推荐：完成本轮发行候选来源/文档/A6及独立复核，向受保护main提交唯一8.3.4发行PR；当前head CI、真实非作者且非latest-pusher批准、线程及最新base满足后才正常合入，核actualmain再按既有draft-first流程公开与真实tag新十三安装。理由是实际develop已完成市场预升和新验，HTML0.1.39的新增/继承/延期边界可分别恢复；正式公开与Owner接受不可由候选通过替代。
+
+以下旧current/待办为各自原时点快照；当前以Issue274及本节为准。
+
+
+2026-10-20：#289已于13:09:38Z合入develop **f3e8ba322109e2a43dcdcd68fdd2f0c655c78240/tree6daad5a9e9f9d749e48e38b148657195c3ed2fa5**，parents a4892f51＋6de4be7d，完整继承main f18aa09；HTML0.1.39选择性统一已进入develop、尚未发布。实际develop新本机652总/651PASS/0FAIL/1平台skip、strict/CLI0.147.0及新13/178、实际Python和15精确根清理通过。其后在隔离候选DryRun零写→Apply仅VERSION+badge预升未发布8.3.4（尚待新保护PR合入），实际develop市场仍8.3.3；HTML0.1.39及其他插件保持；默认公开安装仍v8.3.3/HTML0.1.38。
+
+suite4620018712实际bypass、reviews=[]/批准NOT_MET，Agent未执行该保护合并；旧Linux启动FAIL/UNKNOWN与一次同条件有界复验成功分记，成功不等于根因修复。D01持续窗口等延期非PASS、效果NOT_MEASURED、完整计划OPEN，原核心ACCEPTED_LIMITED不扩至0.1.38/Site v2/0.1.39；无新模型/桌面/第二客户端/原生/Sites测试或受众变更，无新增Owner实质决定。
+
+下一步推荐：完成本轮预升候选的来源/文档/A6及独立复核，提交唯一新主PR→protected develop，并核对当前head CI、真实非作者且非latest-pusher批准、线程和最新base；理由是实际同步复验已具备预升前提，而预升不等于正式发行。自身PR/CI/实际合入结果接Issue274与外部冻结回执，无新实质差异不递归纯证据PR。
+
+以下旧current/待办段均为各自原时点快照；本轮进度以Issue274与本节为准。
+
 
 2026-10-20当前：#284已合main fdede，v8.3.3/HTML0.1.38已真实公开；新actualmain工程和真实tag13/178/Python/精确清理通过，批准NOT_MET/实际bypass、原失败和UNKNOWN不追认。当前main默认README仍指旧版本，故在同Issue274准备一份有界导航/记录PR；其自身后继CI/merge仅回Issue和外部回执，无新实质问题不递归建纯证据PR。该PR实际合入后，可将完整actualmain ancestry与已授权0.1.39在后继唯一protected develop主PR同步交付，不要求机械独立纯同步PR。只有actualdevelop同步合入与复验完成后，才仅市场8.3.4先DryRun后Apply。详见[唯一REPORT](../../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#actual-pr284-publication-and-next-delivery)。Owner最终接受/延期/效果独立；无新增周期自动化。以下原“当前”段按各自日期保留。
 

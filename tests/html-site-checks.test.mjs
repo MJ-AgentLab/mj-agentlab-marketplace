@@ -7,6 +7,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
 import { captureBrowserStderr } from "./helpers/capture-browser-stderr.mjs";
+import { renderSite } from "../plugins/html-guide-kit/skills/site/scripts/render-site.mjs";
 
 const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const scripts = path.join(repo, "plugins/html-guide-kit/skills/site/scripts");
@@ -63,6 +64,39 @@ function fixture(t, body = '<h1>Understanding Needs 理解需求</h1><p>Evidence
 function failed(report, prefix) {
   return report.checks.some(item => item.status === "FAIL" && item.code.startsWith(prefix));
 }
+
+test("both built-in themes and omitted default pass real Python static checks with original material bytes", t => {
+  for (const theme of [undefined, "warm-paper", "neutral"]) {
+    const f = fixture(t);
+    if (theme !== undefined) f.artifact.theme = theme;
+    fs.writeFileSync(path.join(f.root, "artifact.json"), JSON.stringify(f.artifact));
+    const originals = new Map(["artifact.json", "material.md", "source.md"].map(name => [name, fs.readFileSync(path.join(f.root, name))]));
+    const output = path.join(f.temporary, "generated");
+    renderSite({ input: f.root, output });
+    const result = run("check_artifact.py", ["--input", output]);
+    assert.equal(result.status, 0, `${theme ?? "omitted"}: ${result.stdout}\n${result.stderr}`);
+    assert.equal(result.report.status, "PASS");
+    assert.equal(result.report.checks.find(item => item.code === "artifact:theme").status, "PASS");
+    for (const [name, bytes] of originals) {
+      assert.deepEqual(fs.readFileSync(path.join(f.root, name)), bytes);
+      assert.deepEqual(fs.readFileSync(path.join(output, name)), bytes);
+    }
+  }
+});
+
+test("Python checker rejects unknown theme values and types even when bundle hashes agree", t => {
+  for (const theme of ["", "dark", "Neutral", "../theme.css", null, true, 1, [], {}]) {
+    const f = fixture(t); f.artifact.theme = theme;
+    fs.writeFileSync(path.join(f.root, "artifact.json"), JSON.stringify(f.artifact));
+    f.manifest();
+    const result = run("check_artifact.py", ["--input", f.root]);
+    assert.equal(result.status, 1, JSON.stringify(theme));
+    assert.equal(result.report.status, "FAIL");
+    assert.ok(failed(result.report, "artifact:theme"));
+    assert.equal(failed(result.report, "manifest:source-hash"), false);
+    assert.equal(failed(result.report, "manifest:complete-unique-files"), false);
+  }
+});
 
 test("static checker executes Python from unrelated cwd and preserves complete source/hash evidence", t => {
   const f = fixture(t);
@@ -312,6 +346,36 @@ function browser() {
   }
   return null;
 }
+
+test("actual browser renders distinct warm-paper and neutral themes at desktop and mobile sizes", { timeout: 100000 }, t => {
+  const executable = browser();
+  if (!executable) {
+    t.skip("Local Chromium unavailable: theme appearance and layout NOT_RUN; static and zero-write cases execute separately.");
+    return;
+  }
+  const f = fixture(t), hashes = [];
+  const captured = process.platform === "linux"
+    ? captureBrowserStderr({ directory: f.temporary, executable, pythonCommand: python().command, pythonArgs: python().args })
+    : { executable, diagnostics: () => ({ instrumented: false, reason: "Linux startup capture only; original browser path retained" }) };
+  for (const theme of ["warm-paper", "neutral"]) {
+    f.artifact.theme = theme;
+    fs.writeFileSync(path.join(f.root, "artifact.json"), JSON.stringify(f.artifact));
+    const output = path.join(f.temporary, theme), screenshots = path.join(f.temporary, `${theme}-shots`);
+    renderSite({ input: f.root, output });
+    const result = run("check_renderings.py", ["--input", output, "--browser", captured.executable, "--screenshots", screenshots], 45000);
+    assert.equal(result.status, 0, `${theme}: ${result.stdout}\n${result.stderr}\n${JSON.stringify(captured.diagnostics())}`);
+    assert.equal(result.report.status, "PASS");
+    assert.deepEqual(result.report.viewports.map(v => v.viewport), [{ width: 1366, height: 900 }, { width: 390, height: 844 }]);
+    assert.equal(result.report.lifecycle.at(-1).status, "PASS");
+    hashes.push(result.report.viewports.map(v => {
+      const bytes = fs.readFileSync(path.join(screenshots, v.screenshot));
+      assert.equal(hash(bytes), v.screenshotSha256);
+      return v.screenshotSha256;
+    }));
+  }
+  assert.deepEqual(fs.readFileSync(path.join(f.temporary, "warm-paper/index.html")), fs.readFileSync(path.join(f.temporary, "neutral/index.html")), "theme selection must not rewrite learning content");
+  for (let i = 0; i < hashes[0].length; i++) assert.notEqual(hashes[0][i], hashes[1][i], "actual viewport pixels must show a visual theme change");
+});
 
 test("actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping", { timeout: 100000 }, t => {
   const executable = browser();

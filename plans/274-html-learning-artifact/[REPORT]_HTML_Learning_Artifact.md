@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.14
+version: v1.18
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -14,8 +14,71 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 
 # [REPORT] HTML learning artifact
 
+## Actual PR290 verification and HTML0.1.39 release preparation
+
+Owner[本轮直接续办](./evidence/sources/postmerge/r290/continuation/owner-request.txt)与[捕获](./evidence/sources/postmerge/r290/continuation/capture.json)请求实际develop复验及HTML0.1.39后续。同一INT-2026-003 v1.2/32项完整基线/A01–A08继续；无新原意、范围选择或Owner接受。2026-10-20：#290已于14:16:36Z实际合入develop **7c23f347c0725bdfa57ee1e0f5e9075a8d90babf/tree5743c7974880ff5fa87c9294313ec9adc6abac40**，parents f3e8＋720540，完整main f18 ancestry保持。市场8.3.4预升已交付，HTML0.1.39及其他插件版本保持；公开仍v8.3.3/HTML0.1.38。实际7c23本机652总/651PASS/0FAIL/1平台skip、strict/CLI0.147及新13/178、实际Python/15精确根清理通过。
+
+[实际合并独立审计](./evidence/sources/postmerge/r290/merge/summary.json)核suite4621294286精确f3→7c23为bypass，pull_request FAIL缺latest-pusher外批准，requiredchecks/nonFF/deletion PASS，reviews=[]；不因Owner通知merged补造保护批准。原post289完整879条冻结原件保持，final-manifest-r2 SHA919da9418bd811edbf575699c6ee8590712a8eeee7e58460cef82d00bc2e1672恢复旧全量与首次收尾排序误报、补充审查库存归因；不把失败快照当最终冻结。
+
+新[本机原始批次](./evidence/sources/postmerge/r290/local/batch.json)于2026-10-20T14:20:05.671+00:00–2026-10-20T14:24:22.541+00:00执行：652/651PASS/0FAIL/1平台专用skip，strict、CLI0.147.0、实际Python3.12.14及限定浏览器运行通过；HEAD/9259跟踪文件保护通过。独占Node编译cache初次未自动删除，原absence=false及99项库存/原生受控清理双absence回执保留，不能当测试自动清理或canonical15根。源码入口预读的一次未引号PowerShell HEAD^{tree}解析错误仅保方法转述，原stderr未单存，不算产品测试或新增运行。
+
+实际源[新十三安装](./evidence/sources/postmerge/r290/smoke/run-result.json)于2026-10-20T14:20:04.581Z–2026-10-20T14:33:23.521Z运行，13/178全exit0，6Diagram18LEK实际Python、4site生成/4静态各96/96，15自有根精确边界/双absence及8外层guards通过；outer/child共专有短TEMP、empty外容器仅最终非递归rmdir，无手动补清理15根。Node22.18.0/CLI0.147/Python3.12.14为本机身份，安装browser未运行，不代客户端或模型行为；不借上轮CI/actualf3计数。
+
+[独立发行范围与继承审阅](./evidence/sources/postmerge/r290/scope/summary.json)由U1完整实施授权、B1 P5上线步骤、现PLAN五边界/P4P5正式发布控制及U2已选.39增量复用。本轮请求明确继续.39后续；上一“本轮仅预升/不正式发布”是已完成工程窗口，不是永久Owner禁止，也不是单独的新发布授权。实际新验通过后可自治准备8.3.4→main发行PR；合入main的VERSION会触发已有draft-first工作流，真实head批准/CI/线程/latestbase与恢复控制不可省。
+
+A3沿用明确资源闭包：新local/neutral制品与原consumer/run02制品的artifact.json唯一差异为theme，三activities/sources相同，index.html字节相同，learning.js旧制品/新local/当前包一致。复制/导出/反馈等仅在该未变HTML+JS和同输入上继承原12项中的第5–12项交互动作，不能称.39新执行；旧布局/主题不随该闭包继承；neutral样式另有当时新双视口限定检查。资源路径/hash及原始结果恢复指针见scope选证。Matt按需读取/设计共识在关键未决时执行，当前已定决定复用，不为形式重启访谈/模型；继承不能充当持续原生窗口、第二客户端或学习效果通过。
+
+本候选只将未发布CHANGELOG整理为8.3.4节，补发行账本、阶段中性安装说明、A6与同任务文档/选证；另将HTML包README时点表述中性化；VERSION、插件版本与运行资源、INTENT及工作流保持，所有已公开CHANGELOG整尾节字节保持。候选文档首轮115/116：根CHANGELOG正文未列自身8.3.4版本，已窄补版本文字，测试与判准未改；原始stdout/stderr及receipt保于本轮外部证据根candidate-document-tests，后继复验另记。完整2699对象前缀后追加本轮选证，自身PR/CI/实际main合入/正式发布/真实tag新验只回Issue及外部冻结回执，无新实质差异不递归纯证据PR。实际suite4621294286为bypass、reviews=[]/批准NOT_MET，Agent未执行该保护合并。旧FAIL/UNKNOWN/历史批准缺口保留；D01持续窗口等延期非PASS、效果NOT_MEASURED、完整计划OPEN，原核心ACCEPTED_LIMITED仅0.1.37，不扩至0.1.38/Site v2/0.1.39。本轮未新跑模型/Matt/桌面/第二客户端/原生窗口/Sites或更新受众，无新增Owner产品决定。
+
+下一步推荐：完成本轮发行候选来源/文档/A6及独立复核，向受保护main提交唯一8.3.4发行PR；当前head CI、真实非作者且非latest-pusher批准、线程及最新base满足后才正常合入，核actualmain再按既有draft-first流程公开与真实tag新十三安装。理由是实际develop已完成市场预升和新验，HTML0.1.39的新增/继承/延期边界可分别恢复；正式公开与Owner接受不可由候选通过替代。
+
+## Actual PR289 develop verification and marketplace pre-bump
+
+Owner[直接续办](./evidence/sources/postmerge/d289/continuation/owner-request.txt)和[捕获元数据](./evidence/sources/postmerge/d289/continuation/capture.json)授权实际develop复验及仅市场8.3.4预升；未知消息ID/时间/URL不编造。无业务原意变化，复用INT-2026-003 v1.2、完整旧32项和A01–A08，不新增INTENT或第二主PLAN/REPORT。
+
+2026-10-20：#289已于13:09:38Z合入develop **f3e8ba322109e2a43dcdcd68fdd2f0c655c78240/tree6daad5a9e9f9d749e48e38b148657195c3ed2fa5**，parents a4892f51＋6de4be7d，完整继承main f18aa09；HTML0.1.39选择性统一已进入develop、尚未发布。实际develop新本机652总/651PASS/0FAIL/1平台skip、strict/CLI0.147.0及新13/178、实际Python和15精确根清理通过。其后在隔离候选DryRun零写→Apply仅VERSION+badge预升未发布8.3.4（尚待新保护PR合入），实际develop市场仍8.3.3；HTML0.1.39及其他插件保持；默认公开安装仍v8.3.3/HTML0.1.38。
+
+[独立19项合并事实审计](./evidence/sources/postmerge/d289/merge/independent-summary.json)分别核actualSHA/tree/parents、完整main ancestry、tag/Release及保护实况；suite4620018712的pull_request规则FAIL（缺latest-pusher以外批准），requiredchecks/nonFF/deletion PASS，reviews=[]。事实审计通过不等于保护批准通过；原#289 pushLinux首次启动FAIL及一次同源有界复验成功的完整原件在前轮冻结根C:/Users/Admin/.codex/task-evidence/html-learning-274-post287-20261020/，其自身final-manifest可恢复1475文件。原失败/NOT_RUN/UNKNOWN及继承Windows非新运行均保留。
+
+本轮新[本机批次](./evidence/sources/postmerge/d289/local/batch.json)始于2026-10-20T13:14:54.976+00:00，结束2026-10-20T13:19:03.071+00:00，652总/651PASS/0FAIL/1仅Linux专用平台skip；[完整TAP](./evidence/sources/postmerge/d289/local/npm-test.log)、strict与CLI0.147.0分别保原件，实际bundled Python3.12.14执行，双主题/default及限定desktop/mobile浏览器通过。不是旧候选或CI复用；跟踪文件和HEAD前后guards通过。原[launch](./evidence/sources/postmerge/d289/local/launch.json)的TEMP初次absence=false仍保留：仅独占node-compile-cache残留，Agent另记99项库存/字节/hash、原生PowerShell核绝对边界/无reparse后受控清理并二次absence通过，见[回执](./evidence/sources/postmerge/d289/local/temp-cleanup-receipt.json)；不是测试自动清理，也不计入canonical15根。
+
+实际develop固定源[新十三安装](./evidence/sources/postmerge/d289/smoke/run-result.json)于2026-10-20T13:15:10.865Z–2026-10-20T13:28:43.516Z新执行：13/13场景、178命令全exit0，6Diagram＋18LEK及4site生成/4静态各96/96实际Python通过。Node22.18.0、CLI0.147.0、Python3.12.14单列本机身份，不冒充CI解释器或模型调用。[独立驱动核验](./evidence/sources/postmerge/d289/smoke/independent-audit.json)和[逐根absence](./evidence/sources/postmerge/d289/smoke/owned-roots-absence.json)核1canonical＋1template＋13scenario均在同一专有短TEMP边界并由shipped Harness清理，二次/最终不存在；8外层guards均真，hostHEAD/tree、primary和原25994B材料、完整worktree清单保持。外层/子进程TEMP一致，empty外容器仅在PASS后非递归rmdir；未手动补清理15根，未重跑本轮安装。
+
+随后[版本工具回执](./evidence/sources/postmerge/d289/prebump/summary.json)证明从实际develop8.3.3执行marketplace范围DryRun零文件改动，再Apply精确只改VERSION和README badge为8.3.4；权威五插件版本、运行资源/guide、已公开CHANGELOG各节保持。完整前/后map及原件可从[选证映射](./evidence/sources/postmerge/d289/selection.json)的独立证据根恢复。后续A6/任务文档/未发布CHANGELOG更新属于单独记录动作，不混入工具的两文件写入声明。公开仍tag/Release fdede/v8.3.3，正文2507B/SHA25611fc9f4c0231ba5aebda7a7d3add60ed8f506a943e2ff516d5c2c8b27c5b069c未变；8.3.4tag和Release当次只读观察404，不创建发行。
+
+suite4620018712实际bypass、reviews=[]/批准NOT_MET，Agent未执行该保护合并；旧Linux启动FAIL/UNKNOWN与一次同条件有界复验成功分记，成功不等于根因修复。D01持续窗口等延期非PASS、效果NOT_MEASURED、完整计划OPEN，原核心ACCEPTED_LIMITED不扩至0.1.38/Site v2/0.1.39；无新模型/桌面/第二客户端/原生/Sites测试或受众变更，无新增Owner实质决定。
+
+本节是预升PR创建前候选快照，不能证明其自身head CI/独立保护批准/actualmerge；本批追加来源仅在2598条完整原对象前缀后追加，实际最终数量及当前head门禁接Issue274与外部冻结交接。下一步推荐：完成本轮预升候选的来源/文档/A6及独立复核，提交唯一新主PR→protected develop，并核对当前head CI、真实非作者且非latest-pusher批准、线程和最新base；理由是实际同步复验已具备预升前提，而预升不等于正式发行。自身PR/CI/实际合入结果接Issue274与外部冻结回执，无新实质差异不递归纯证据PR。
+
+
+## Selective alignment integration candidate
+
+本节为同步子候选提交前固定快照；自身后继commit/子PR/唯一develop主PR、CI/实际合并和固定提交安装结果以Issue274及外部不可变回执为准，不以本快照替代实际交付。
+
+2026-10-20：PR287已于11:42:47Z实际合入main **f18aa09be0cc4a96b5005157566f7f4fd4947c95/tree6f921a482ba927b82e4c5d8d13ab9e1c8559edd6**，与预解输入树相同；完整actualmain已在隔离同步子候选中正常merge；本快照不声明后继集成或protected develop已交付。公开仍v8.3.3/HTML0.1.38，0.1.39仍未发布候选，市场VERSION8.3.3保持。内部285/286的按需Matt/设计共识、可选主题、本地交付及原材料保护保持。
+
+下一步推荐：先完成本轮新候选工程检查、全来源逐字节核验及独立复核，通过内部子PR门禁后正常合入既有集成分支；随后以唯一主PR→protected develop交付完整main ancestry及0.1.39。理由是以真实同步候选检查支持交付，保留已公开历史和当前保护要求。实际develop合入并复验后才可DryRun→Apply仅市场8.3.4预升；当前未执行。无新增Owner实质决定。
+
+原核心ACCEPTED_LIMITED不扩至0.1.38/Site v2/0.1.39，完整计划OPEN、效果NOT_MEASURED、D01持续窗口及其他延期非PASS。实际suite4618651818为bypass、reviews=[]、批准NOT_MET；Agent未执行此次保护合并或bypass，后继保护批准不得复用为豁免。当前head新CI/真实独立批准/线程/latestbase及actualdevelop同步复验各自待证。
+
+以下为两条分支各自时点的历史快照；其中未发布/活动PR/待检查等状态保留原时点，不作为当前状态。
+
 [任务入口](./INDEX.md) · [主 PLAN/接受来源](./[PLAN]_HTML_Learning_Artifact.md) · [Issue #274](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274) · [INTENT](../../docs/intent/[INTENT]_INT-2026-003_HTML_Learning_Artifact.md)
 
+
+## Actual PR287 and full main synchronization
+
+Owner[本次续办原话](./evidence/sources/postmerge/s287/continuation/owner-request.txt)与[捕获元数据](./evidence/sources/postmerge/s287/continuation/capture.json)复用原五边界，仅补实际工程状态，不构成新产品选择、接受或bypass授权。PR287实际parents为fdede3cf5578dee8a41aef4310a9387d695c56bd＋da32ba24d5947043b6ed0398c59c760e8fd9790f；[独立19项事实核查](./evidence/sources/postmerge/s287/audit/independent-summary.json)保actualtree、reviews=[]及suite4618651818的bypass/批准NOT_MET。其pull_request规则FAIL（缺latest-pusher以外批准），其余四规则PASS；不把事实核验PASS误作保护批准PASS。公开tag/Release仍fdede，HTML0.1.38；Release正文与原成功捕获相等，immutable=false/仓库immutable配置UNKNOWN。没有修改公开对象或新增发布。
+
+隔离子分支codex/html-alignment-sync从fe295a005e1659ea210a9768bbcce88d72ed64f4出发，正常merge完整actualmain f18aa09。[原merge输出](./evidence/sources/postmerge/s287/normal-merge-original-output.txt)保10个真实文本冲突；[source/blob guards与解后暂存树](./evidence/sources/postmerge/s287/normal-merge-resolution.json)核68冻结文件、11路径双方Gitblob/字节/hash，解后暂存树986e0与原预解相同；那是当前phase刷新前的实际write-tree，不作已提交merge或develop交付证据。插件CHANGELOG即使自动合并也取actualmain已发布0.1.38及全部历史原节，避免重新标为候选。其他自动合并结果保留，非cherry-pick内容同步。
+
+来源合并保持actualmain2400完整对象前缀，追加原alignment分叉154条，形成2554，再追加本轮选证；不声称两个分叉全集都同时保持为合并前缀。32行旧基线前五列及A01–A08全集、唯一INT-2026-003和既有接受边界保持；INTENT本轮仅将过时#284/公开版本等工程时点窄修，不增业务决定，旧v1.1可从fe295恢复。选证清单保具体原位置/原字节，外部完整audit与旧冻结目录保持，不公开B2研究全文。
+
+本次首次Harness因新worktree未装lock依赖实际FAIL：218总/192PASS/25FAIL/1平台skip，25项分别缺cross-spawn/yaml/pngjs，validate/baseline亦缺依赖；[原批次](./evidence/sources/postmerge/h287/local-checks/batch.json)、[原全测](./evidence/sources/postmerge/h287/local-checks/npm-test.log)和[逐项诊断](./evidence/sources/postmerge/h287/local-checks/first-attempt-diagnosis.json)保留。npm ci按lock补10包、exit0，没有产品或判准修改。单独[恢复批次](./evidence/sources/postmerge/h287/local-checks-r2/recovery-summary.json)于11:53:04–11:57:39Z完成：652总/651PASS/0FAIL/1仅Windows上Linux专用skip，strict通过、CLI实际0.147.0；实际Python3.12.14、双主题/default静态及限定desktop/mobile真实浏览器均运行通过。r1/r2脚本逐字节相同，两次9114跟踪文件候选相同，前后文件/HEAD guards全真。恢复通过不覆盖首次失败，也不是独立十三安装。
+
+[LF/CRLF实际strict](./evidence/sources/postmerge/h287/dual-strict/summary.json)分别16204B/16297B、exit0，原16384阈值保持；finally恢复原LF，index/HEAD未改。独立Agent[48项复核](./evidence/sources/postmerge/h287/contract-review/review-summary.json)核2575来源逐hash、2554旧Gitblob、发布历史、旧32项/A全集、INTENT业务、运行资源和原件；其首helper只识PLAN行式误报REPORT行数，原FAIL保留，第二读取regex修正后48/48，无候选改动。简短[语义报告](./evidence/sources/postmerge/h287/contract-review/REVIEW.md)及准确完整外部报告位置/SHA均保留，不能把紧凑选包冒充完整逐项原件。根准备helper一次docsINDEX标题ValueError只中断最后两文档更新，已在[上下文](./evidence/sources/postmerge/h287/prepared-current.json)如实记缺独立raw，另脚本补全，未重播捕获。
+
+以上为运行时点2575绑定/提交前内容的实际验证；本轮选证追加后再执行最终文档/全部来源闭包检查，自身PR/CI/固定提交安装与actualmerge结果接Issue274及外部回执。固定新提交后的独立十三安装/实际Python/精确根清理及双平台CI仍须各自实际结果，不把旧候选或PR287的647计数当本轮运行。旧Linux启动FAIL/UNKNOWN、旧版本预期FAIL、TEMP长路径FAIL/缺根证明及helper guard FAIL均保持，未恢复模型/桌面/第二客户端/Sites/原生窗口。下一步推荐：先完成本轮新候选工程检查、全来源逐字节核验及独立复核，通过内部子PR门禁后正常合入既有集成分支；随后以唯一主PR→protected develop交付完整main ancestry及0.1.39。理由是以真实同步候选检查支持交付，保留已公开历史和当前保护要求。实际develop合入并复验后才可DryRun→Apply仅市场8.3.4预升；当前未执行。无新增Owner实质决定。
 
 ## Actual PR284 publication and next delivery
 
@@ -56,6 +119,32 @@ Site helper压缩输入16381B/b957cad3…、11payload仅10制品+原hosting元�
 新增选证由[恢复上下文](./evidence/sources/postmerge/a283/README.md)、[逐项映射](./evidence/sources/postmerge/a283/selection-map.json)及同一source-bindings逐字节绑定；旧1890项与原件保持。首次root GraphQL只读连接中断后REST成功，原root运输错误未单独落盘，独审REST原件有效；不制造该缺失raw。原Owner接受仅绑定当时已交付核心，仍 **ACCEPTED_LIMITED**；不推定0.1.38或Site v2已获新接受。完整计划OPEN、完整最终接受NOT_PROVIDED、效果NOT_MEASURED；D01–D07恢复条件沿用下节，没有立即需要Owner实质决定。独立GitHub批准是门禁，由合资格非作者/非最新推送者提供，不能用合成验收或Owner本次续办替代。
 
 以下Deferral recovery是283合入前批次快照，原“候选/未部署”等语句保留各自原时点；当前actual283/Sitev2及发布准备以上节、8.3.3账本与Issue为准。
+
+
+## Selective alignment results
+
+2026-10-20，本批据[选择性统一决定](./[PLAN]_HTML_Learning_Artifact.md#selective-alignment-baseline)从actualdevelop a4892f51隔离实施，候选HTML0.1.39；当前公开仍v8.3.2/HTML0.1.37。这是新产品合同修订，不是纯证据递归。保留0.1.38修复和原guide四资源/其他插件/市场版本；现有#284发行候选冻结，本批在同Issue内部推进，后继唯一主PR→develop须等待该活动PR结束及刷新基线。
+
+已按完整制作提示词修订按需Matt grilling、关键设计共识确认、可选主题、原材料保护及约定本地交付。B2完整API文本保留在独立私有证据目录，[捕获元数据](./evidence/sources/align274/baseline.json)记录准确hash/恢复位置与未知消息时间；不公开权利未核实的全文，不把API捕获冒充原上传字节。U2[Owner原话](./evidence/sources/align274/owner-decision.txt)为本批接受范围与实施授权，不是新成品最终接受。
+
+实现产品候选为b5b8300ae58e967e1d0013e66dc4f1208ac860ef/tree8ce86dbd47bc0187e0cae41a3d144479d4b41819；42a8eb6439ece6d386e5e5897b5d33862315885a仅同步一处旧测试版本预期，产品资源/文档与b5相同。内部[实现子PR285](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/285)以codex/html-prompt-alignment为base；该分支实际规则为空，不触碰main/develop保护。其完整平台CI、实际内部合并及后继证据子PR按实际终态接Issue，不把创建前快照写成已合入。
+
+| 增量条目 | 实际执行身份、方法与证据 | 结论及限制 |
+|---|---|---|
+| A01/A06 | /root/alignment_independent_review实际读取完整合成LIB1–LIB4与正文/配置，独立核AND四组合、跨月七日、失败不改日期、提交/成功双依据及三题；原材料/技能前后hash一致 | 限定语义与原件保护PASS；合成馆规，不扩大真实政策或一般模型正确性 |
+| A02/A03 | 同一独立Agent从真实入口前向核三场景：已定本地、关键未答、已定Sites但缺能力；43资源hash、7项来源/范围检查 | [独立阅读](./evidence/sources/align274/review/final-review.json)限定通过，非真实Matt用户访谈、待答窗口或泛化模型运行；初发现及修正分别保留 |
+| A04 | /root/alignment_theme_implementation实际27/27定向、三组Python静态各96/96、两主题各1366x900/390x844的真实Chrome155；省略主题的全部输出/manifest与0.1.38前态字节相等 | [主题证据](./evidence/sources/align274/theme/verification-summary.json)限定PASS；root实看四截图，灰色/无衬线实际生效，非全面WCAG/托管页或学习效果 |
+| A05/A06 | 独立Agent复用已给定目标/判准与明确neutral/local决定，实际制作独立本地HTML/Markdown/来源/版本/恢复说明，静态96/96、两视口渲染通过，十文件另目录再生全同 | [本地交付](./evidence/sources/align274/local/run-independent-r1/final-result.json)限定PASS；没有Sites动作/真实Matt访谈，不把生成器/浏览器替代全部作答/复制/导出主流程 |
+| A07 | 指令保持明确提交/同一待答，未提交/默认/推荐/关闭等均非答复 | 持续显示/空返回/超时/关闭D01仍DEFERRED，非PASS；本轮未恢复原生/桌面/模型矩阵 |
+| A08 | 首轮本机652总/650PASS/1FAIL/1平台skip，唯一FAIL是旧测试期望0.1.38；42a8修后该文件23/23。strict与CLI0.147.0通过 | [首轮原FAIL](./evidence/sources/align274/harness/full-tests.log)、[修后23项](./evidence/sources/align274/harness/version-repair-tests.log)、[42a8严格检查](./evidence/sources/align274/harness/final-strict.log)分别保留；不把分项复验拼成一次全绿全套 |
+
+新增中性主题由生成器可选theme字段实际生成，未知值/类型在首写前拒绝，Python在hash自洽的坏配置仍拒绝；默认样式源与learning.js字节不变。可选skill-creator Python quick_validate首次因未装PyYAML而未运行，保持NOT_RUN；现行仓库portable/YAML/元数据严格检查已通过，不为辅助工具放宽门禁。一次裸python环境探测缺解释器原失败保在独立method-failure；实际检查使用真实捆绑Python3.12.14。
+
+证据采用[选择映射](./evidence/sources/align274/selection.json)：原主题/本地输入输出、脚本/命令、stdout/stderr、截图及角色记录保持原字节和原外部根；完整私有B2与独立阅读43资源快照留在元数据明示的原根/固定Git，不宣称公开选证包包含它们。初始1890来源与32项旧基线保持，新增来源仅追加。平台完整CI仍待终态；本节是证据子PR创建前的实际快照，之后该PR自身CI/实际merge只回Issue274和外部回执，不递归提交自证证据。
+
+独立 /root/alignment_contract_audit 在冻结b5于06:18:17.397–06:30:31.121Z实际运行完整smoke：13/13安装、178/178命令全status0，精确CLI0.147.0；真实6 Diagram+18 LEK+4site Python（3.12.14）共28条，4次site生成/静态各96/96，site20/guide4源缓存一致，普通3/原生8/显式5/仓库20。14实际观测自有根（1模板/13场景）逐根边界/absence全通过、无手工删除；源HEAD/tree/clean前后保持。完整worktree清单不相同，唯一新增是root授权修正WT，实际末态HEAD42a8/证据分支；[独立审计](./evidence/sources/align274/smoke/independent-audit.json)保真实差异，不把新增工作树当残留或称清单相同。[原执行回执](./evidence/sources/align274/smoke/run-result.json)和原stdout/方法/perf均已绑定；安装smoke的browser为NOT_RUN，不代原生、真实Matt或Sites验收。
+
+原生窗口持续显示/空返回/超时/关闭继续D01 **DEFERRED**，不重启原生模型/桌面矩阵；第二客户端/完整视觉可访问性/效果与历史批准缺口保留。原核心 **ACCEPTED_LIMITED** 只覆盖原交付，完整计划仍OPEN，本批最终接受未提供，理解效果 **NOT_MEASURED**。没有新的Owner实质决定待答，Agent继续已授权技术工作。
 
 ## Deferral recovery results
 
