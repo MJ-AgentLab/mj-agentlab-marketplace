@@ -1,0 +1,89 @@
+{
+  "phase": "progress03",
+  "startedAt": "2026-10-19T17:59:50.951Z",
+  "capturedAt": "2026-10-19T17:59:55.337Z",
+  "batch": {
+    "head": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+    "base": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+    "potentialMerge": "c41dee3c7a14da2c1a94e84643c736d578d9c9fa",
+    "run": 39298251581,
+    "attempt": 1,
+    "status": "in_progress",
+    "conclusion": null
+  },
+  "livePr": {
+    "head": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+    "base": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+    "potentialMerge": "c41dee3c7a14da2c1a94e84643c736d578d9c9fa",
+    "bodySha256": "fab4435d310a26a804a9af2339b924da35ce51eb50a955b5c5c9b62dc9a65d97",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED"
+  },
+  "a6": [
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-19T17:55:46Z",
+      "databaseId": 39298279721,
+      "event": "pull_request",
+      "headSha": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+      "name": "A6 — AGENTS.md Sync Allowlist",
+      "status": "completed",
+      "updatedAt": "2026-10-19T17:56:11Z",
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39298279721",
+      "workflowName": "A6 — AGENTS.md Sync Allowlist"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-19T17:55:34Z",
+      "databaseId": 39298251724,
+      "event": "pull_request",
+      "headSha": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+      "name": "A6 — AGENTS.md Sync Allowlist",
+      "status": "completed",
+      "updatedAt": "2026-10-19T17:55:52Z",
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39298251724",
+      "workflowName": "A6 — AGENTS.md Sync Allowlist"
+    }
+  ],
+  "jobs": [
+    {
+      "id": 118216307741,
+      "name": "Validate Structure",
+      "status": "completed",
+      "conclusion": "success",
+      "activeSteps": []
+    },
+    {
+      "id": 118216307909,
+      "name": "Cancel proved superseded PR runs (best effort)",
+      "status": "completed",
+      "conclusion": "success",
+      "activeSteps": []
+    },
+    {
+      "id": 118216308604,
+      "name": "Baseline compat (ubuntu-latest)",
+      "status": "in_progress",
+      "conclusion": null,
+      "activeSteps": [
+        "Run npm run smoke:codex"
+      ]
+    },
+    {
+      "id": 118216308644,
+      "name": "Baseline compat (windows-latest)",
+      "status": "in_progress",
+      "conclusion": null,
+      "activeSteps": [
+        "Unit and real Python execution tests"
+      ]
+    },
+    {
+      "id": 118216310374,
+      "name": "Prove equivalent PR matrix for this push (read only)",
+      "status": "completed",
+      "conclusion": "skipped",
+      "activeSteps": []
+    }
+  ]
+}

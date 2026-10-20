@@ -1,0 +1,178 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-20T00:01:53.524Z",
+  "pr": {
+    "number": 281,
+    "state": "MERGED",
+    "merge": "62945150df984e2747684d1ea46b8772b56db2d9",
+    "mergedAt": "2026-10-20T00:00:09Z",
+    "mergedBy": "ranzuozhou",
+    "source": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+    "baseBefore": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387"
+  },
+  "actualDevelop": "62945150df984e2747684d1ea46b8772b56db2d9",
+  "merge": {
+    "sha": "62945150df984e2747684d1ea46b8772b56db2d9",
+    "tree": "6659fadd62bc03aa3ab4eee61e63804fc25b914b",
+    "parents": [
+      "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+      "6ef5eabd52934144daf7b60ddb4011686c0657c4"
+    ]
+  },
+  "source": {
+    "sha": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+    "tree": "6659fadd62bc03aa3ab4eee61e63804fc25b914b"
+  },
+  "priorPotential": {
+    "sha": "c41dee3c7a14da2c1a94e84643c736d578d9c9fa",
+    "tree": "6659fadd62bc03aa3ab4eee61e63804fc25b914b",
+    "parents": [
+      "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+      "6ef5eabd52934144daf7b60ddb4011686c0657c4"
+    ]
+  },
+  "sameTree": true,
+  "identityVerified": true,
+  "ruleSuiteSearch": {
+    "scanned": 8,
+    "exactBefore": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+    "exactAfter": "62945150df984e2747684d1ea46b8772b56db2d9",
+    "found": true
+  },
+  "ruleSuite": {
+    "id": 4610354048,
+    "actor_id": 35538471,
+    "actor_name": "ranzuozhou",
+    "before_sha": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+    "after_sha": "62945150df984e2747684d1ea46b8772b56db2d9",
+    "ref": "refs/heads/develop",
+    "repository_id": 1183002256,
+    "repository_name": "mj-agentlab-marketplace",
+    "pushed_at": "2026-10-20T08:00:09+08:00",
+    "result": "bypass"
+  },
+  "ruleSuiteDetail": {
+    "id": 4610354048,
+    "actor_id": 35538471,
+    "actor_name": "ranzuozhou",
+    "before_sha": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+    "after_sha": "62945150df984e2747684d1ea46b8772b56db2d9",
+    "ref": "refs/heads/develop",
+    "repository_id": 1183002256,
+    "repository_name": "mj-agentlab-marketplace",
+    "pushed_at": "2026-10-20T08:00:09+08:00",
+    "result": "bypass",
+    "rule_evaluations": [
+      {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008221,
+          "name": "protect-develop"
+        },
+        "enforcement": "active",
+        "result": "fail",
+        "rule_type": "pull_request",
+        "details": "New changes require approval from someone other than the last pusher."
+      },
+      {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008221,
+          "name": "protect-develop"
+        },
+        "enforcement": "active",
+        "result": "pass",
+        "rule_type": "non_fast_forward"
+      },
+      {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008221,
+          "name": "protect-develop"
+        },
+        "enforcement": "active",
+        "result": "pass",
+        "rule_type": "required_status_checks"
+      },
+      {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008221,
+          "name": "protect-develop"
+        },
+        "enforcement": "active",
+        "result": "pass",
+        "rule_type": "deletion"
+      }
+    ]
+  },
+  "reviewCount": 0,
+  "observedCurrentHeadNonAuthorApprovals": [],
+  "reviewDecision": "REVIEW_REQUIRED",
+  "reviewThreads": {
+    "total": 0,
+    "pages": 1,
+    "unresolved": 0,
+    "outdated": 0
+  },
+  "actualAppliedRules": [
+    {
+      "type": "deletion",
+      "ruleset_source_type": "Repository",
+      "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+      "ruleset_id": 14008221
+    },
+    {
+      "type": "pull_request",
+      "parameters": {
+        "required_approving_review_count": 1,
+        "dismiss_stale_reviews_on_push": true,
+        "required_reviewers": [],
+        "require_code_owner_review": false,
+        "dismissal_restriction": {
+          "enabled": false,
+          "allowed_actors": []
+        },
+        "require_last_push_approval": true,
+        "required_review_thread_resolution": true,
+        "require_extra_approval_for_unattributed_changes": true,
+        "allowed_merge_methods": [
+          "merge"
+        ]
+      },
+      "ruleset_source_type": "Repository",
+      "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+      "ruleset_id": 14008221
+    },
+    {
+      "type": "required_status_checks",
+      "parameters": {
+        "strict_required_status_checks_policy": true,
+        "do_not_enforce_on_create": false,
+        "required_status_checks": [
+          {
+            "context": "Validate Structure"
+          },
+          {
+            "context": "A6 / Check"
+          }
+        ]
+      },
+      "ruleset_source_type": "Repository",
+      "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+      "ruleset_id": 14008221
+    },
+    {
+      "type": "non_fast_forward",
+      "ruleset_source_type": "Repository",
+      "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+      "ruleset_id": 14008221
+    }
+  ],
+  "protectedApprovalPassClaimed": false,
+  "limits": [
+    "Actual merge does not retroactively satisfy missing approval. Bypass and CI are separate observations.",
+    "Original premerge failures/UNKNOWN cause, deferred entries and Owner acceptance remain separately recorded.",
+    "No repository, PR, approval, comment, rerun, cancellation or merge mutation by this audit agent."
+  ]
+}

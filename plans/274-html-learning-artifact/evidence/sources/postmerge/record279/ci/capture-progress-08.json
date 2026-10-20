@@ -1,0 +1,66 @@
+{
+  "phase": "progress-08",
+  "capturedAt": "2026-10-19T15:01:50.668Z",
+  "pr": 279,
+  "head": "315b5942a3a61c6bf7ab17513b8263496bd7a48a",
+  "base": "f906b1001a86d7b5415451bd973bea26e6cc3a1d",
+  "merge": "687b70abd58a8556ee566c74c340dd66480fe407",
+  "run": 39272665913,
+  "status": "in_progress",
+  "conclusion": "",
+  "jobs": [
+    {
+      "id": 118128777137,
+      "name": "Baseline compat (windows-latest)",
+      "status": "in_progress",
+      "conclusion": "",
+      "activeSteps": [
+        "Run npm run smoke:codex"
+      ]
+    },
+    {
+      "id": 118128777317,
+      "name": "Baseline compat (ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "activeSteps": []
+    }
+  ],
+  "push": {
+    "id": 39272636618,
+    "status": "in_progress",
+    "conclusion": "",
+    "jobs": [
+      {
+        "id": 118128675603,
+        "name": "Validate Structure",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 118128676571,
+        "name": "Prove equivalent PR matrix for this push (read only)",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 118128678197,
+        "name": "Cancel proved superseded PR runs (best effort)",
+        "status": "completed",
+        "conclusion": "skipped"
+      },
+      {
+        "id": 118128746929,
+        "name": "Baseline compat (ubuntu-latest)",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 118128747278,
+        "name": "Baseline compat (windows-latest)",
+        "status": "in_progress",
+        "conclusion": ""
+      }
+    ]
+  }
+}

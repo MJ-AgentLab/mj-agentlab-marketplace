@@ -1,0 +1,64 @@
+{
+  "phase": "progress09",
+  "capturedAt": "2026-10-19T17:28:36.061Z",
+  "pr": 281,
+  "head": "1d8b6849ec7e398d65a949d204abe38bc64a4e0b",
+  "base": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+  "merge": "4e49503345f814175d0af39ab1ea8e02eb6a6adf",
+  "run": 39292125277,
+  "status": "completed",
+  "conclusion": "failure",
+  "jobs": [
+    {
+      "id": 118195194932,
+      "name": "Baseline compat (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "activeSteps": []
+    },
+    {
+      "id": 118195195093,
+      "name": "Baseline compat (ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "failure",
+      "activeSteps": []
+    }
+  ],
+  "push": {
+    "id": 39292085653,
+    "status": "in_progress",
+    "conclusion": "",
+    "jobs": [
+      {
+        "id": 118198894761,
+        "name": "Baseline compat (ubuntu-latest)",
+        "status": "completed",
+        "conclusion": "failure"
+      },
+      {
+        "id": 118198895238,
+        "name": "Baseline compat (windows-latest)",
+        "status": "in_progress",
+        "conclusion": ""
+      },
+      {
+        "id": 118198896354,
+        "name": "Cancel proved superseded PR runs (best effort)",
+        "status": "completed",
+        "conclusion": "skipped"
+      },
+      {
+        "id": 118198896900,
+        "name": "Prove equivalent PR matrix for this push (read only)",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 118198960000,
+        "name": "Validate Structure",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+import {spawn} from 'node:child_process';
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+const root=path.dirname(new URL(import.meta.url).pathname.replace(/^\/(\w:)/,'$1'));
+const phase=process.argv[2]||'initial', dir=path.join(root,'downloads');fs.mkdirSync(dir,{recursive:true});
+const repo='MJ-AgentLab/mj-agentlab-marketplace', head='318db5a5660920f4fcd95f0f96c352d012514815';
+const jobs=['39363773472','39363773424','39363755336'].flatMap(id=>JSON.parse(fs.readFileSync(path.join(root,phase,`jobs-${id}.stdout.raw`))).jobs);
+const requests=jobs.filter(j=>j.status==='completed'&&j.conclusion!=='skipped').map(j=>[`job-${j.id}`,`repos/${repo}/actions/jobs/${j.id}/logs`,[]]);
+requests.push(['workflow-ci',`repos/${repo}/contents/.github/workflows/ci.yml?ref=${head}`,['--header','Accept: application/vnd.github.raw+json']],['workflow-a6',`repos/${repo}/contents/.github/workflows/a6.yml?ref=${head}`,['--header','Accept: application/vnd.github.raw+json']]);
+requests.push(['package',`repos/${repo}/contents/package.json?ref=${head}`,['--header','Accept: application/vnd.github.raw+json']]);
+requests.push(['smoke-source',`repos/${repo}/contents/scripts/smoke-codex-plugin.mjs?ref=${head}`,['--header','Accept: application/vnd.github.raw+json']]);
+requests.push(['smoke-source-helper',`repos/${repo}/contents/scripts/smoke-source.mjs?ref=${head}`,['--header','Accept: application/vnd.github.raw+json']]);
+requests.push(['perf-metrics',`repos/${repo}/contents/scripts/perf-metrics.mjs?ref=${head}`,['--header','Accept: application/vnd.github.raw+json']]);
+const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+const results=await Promise.all(requests.map(async([name,endpoint,extra])=>{
+ const existing=path.join(dir,`${name}.transport.json`);if(fs.existsSync(existing)&&JSON.parse(fs.readFileSync(existing)).code===0)return {name,cached:true};
+ const startedAt=new Date().toISOString(),args=['api','--method','GET',endpoint,...extra];
+ const child=spawn('gh',args,{shell:false}),out=[],err=[];child.stdout.on('data',b=>out.push(b));child.stderr.on('data',b=>err.push(b));
+ let timedOut=false;const timer=setTimeout(()=>{timedOut=true;child.kill()},60000);
+ const result=await new Promise(resolve=>{child.on('error',e=>resolve({code:null,error:String(e)}));child.on('close',(code,signal)=>resolve({code,signal}))});clearTimeout(timer);
+ const stdout=Buffer.concat(out),stderr=Buffer.concat(err);fs.writeFileSync(path.join(dir,`${name}.stdout.raw`),stdout);fs.writeFileSync(path.join(dir,`${name}.stderr.raw`),stderr);
+ const row={name,command:'gh',args,startedAt,endedAt:new Date().toISOString(),...result,timedOut,stdout:{bytes:stdout.length,sha256:hash(stdout)},stderr:{bytes:stderr.length,sha256:hash(stderr)}};fs.writeFileSync(existing,JSON.stringify(row,null,2)+'\n');return row;
+}));console.log(JSON.stringify(results,null,2));

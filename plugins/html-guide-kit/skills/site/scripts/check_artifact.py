@@ -17,7 +17,7 @@ VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "met
 IDENTIFIER = re.compile(r"[a-z][a-z0-9-]*\Z")
 HASH = re.compile(r"[0-9a-f]{64}\Z")
 PASSIVE_SUFFIXES = {".md", ".txt", ".csv", ".json", ".pdf"}
-RESERVED_OUTPUTS = {"index.html", "theme.css", "learning.js", "artifact-manifest.json"}
+RESERVED_OUTPUTS = {"index.html", "theme.css", "learning.js", "artifact-manifest.json", "license", "third_party_notices.md", "licenses"}
 
 
 def local_path(root: Path, name: str, base: Path | None = None) -> Path:
@@ -39,11 +39,11 @@ def local_path(root: Path, name: str, base: Path | None = None) -> Path:
 def material_path(root: Path, name: str, markdown=False) -> Path:
     """Apply the renderer's passive-input contract before classifying a file."""
     target = local_path(root, name)
-    if re.search(r"[\\:#?\x00-\x1f]", name) or any(part in ("", ".", "..") for part in name.split("/")):
+    if re.search(r"[\\:#?\x00-\x1f]", name) or any(not part or part.endswith((".", " ")) for part in name.split("/")):
         raise ValueError("material must use a normal relative file path")
     if Path(name).suffix.lower() not in PASSIVE_SUFFIXES or (markdown and not name.endswith(".md")):
         raise ValueError("Markdown must be .md; sources must be passive .md/.txt/.csv/.json/.pdf files")
-    lowered = name.casefold()
+    lowered = name.upper().lower()
     if any(lowered == reserved or lowered.startswith(reserved + "/") for reserved in RESERVED_OUTPUTS):
         raise ValueError("material conflicts with a reserved generated output")
     return target

@@ -1,0 +1,291 @@
+{
+  "executedAt": "2026-10-20T02:24:04.280Z",
+  "head": "470970b5a8d40c25b8edefc6992377624f7f45d6",
+  "base": "908d29537a19ceca166e8f3c7cddef4d419781a4",
+  "jobs": [
+    {
+      "id": "118418497208",
+      "run": 39358395215,
+      "event": "pull_request",
+      "runHeadSha": "470970b5a8d40c25b8edefc6992377624f7f45d6",
+      "jobHeadSha": "470970b5a8d40c25b8edefc6992377624f7f45d6",
+      "status": "completed",
+      "conclusion": "failure",
+      "runner": {
+        "name": "GitHub Actions 1000011150",
+        "labels": [
+          "windows-latest"
+        ],
+        "group": "GitHub Actions"
+      },
+      "failedSteps": [
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 2,
+          "started_at": "2026-10-20T02:20:47Z",
+          "completed_at": "2026-10-20T02:21:01Z"
+        }
+      ],
+      "skippedSteps": [
+        {
+          "number": 3,
+          "name": "Run actions/setup-node@v4"
+        },
+        {
+          "number": 4,
+          "name": "Run actions/setup-python@v5"
+        },
+        {
+          "number": 5,
+          "name": "Run npm ci"
+        },
+        {
+          "number": 6,
+          "name": "Run npm install -g @openai/codex@0.147.0"
+        },
+        {
+          "number": 7,
+          "name": "Unit and real Python execution tests"
+        },
+        {
+          "number": 8,
+          "name": "Run npm run validate"
+        },
+        {
+          "number": 9,
+          "name": "Run npm run check:baseline-tools"
+        },
+        {
+          "number": 10,
+          "name": "Run npm run smoke:codex"
+        }
+      ],
+      "logError": {
+        "line": 209,
+        "text": "2026-10-20T02:21:01.4983816Z ##[error]fatal: cannot create directory at 'plans/274-html-learning-artifact/evidence/sources/postmerge/deferral-recovery-20261020/baseline-visual/run01/published-installation/plugins/html-guide-kit/skills/site/examples/representative/sources': Filename too long",
+        "nextLine": "2026-10-20T02:21:01.5171764Z ##[error]The process 'C:\\Program Files\\Git\\bin\\git.exe' failed with exit code 128"
+      },
+      "workspace": "D:\\a\\mj-agentlab-marketplace\\mj-agentlab-marketplace",
+      "errorRelative": "plans/274-html-learning-artifact/evidence/sources/postmerge/deferral-recovery-20261020/baseline-visual/run01/published-installation/plugins/html-guide-kit/skills/site/examples/representative/sources",
+      "errorRelativeChars": 198,
+      "errorAbsolute": "D:\\a\\mj-agentlab-marketplace\\mj-agentlab-marketplace\\plans\\274-html-learning-artifact\\evidence\\sources\\postmerge\\deferral-recovery-20261020\\baseline-visual\\run01\\published-installation\\plugins\\html-guide-kit\\skills\\site\\examples\\representative\\sources",
+      "errorAbsoluteChars": 251
+    },
+    {
+      "id": "118418376987",
+      "run": 39358343154,
+      "event": "push",
+      "runHeadSha": "470970b5a8d40c25b8edefc6992377624f7f45d6",
+      "jobHeadSha": "470970b5a8d40c25b8edefc6992377624f7f45d6",
+      "status": "completed",
+      "conclusion": "failure",
+      "runner": {
+        "name": "GitHub Actions 1000011145",
+        "labels": [
+          "windows-latest"
+        ],
+        "group": "GitHub Actions"
+      },
+      "failedSteps": [
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 2,
+          "started_at": "2026-10-20T02:20:22Z",
+          "completed_at": "2026-10-20T02:20:35Z"
+        }
+      ],
+      "skippedSteps": [
+        {
+          "number": 3,
+          "name": "Run actions/setup-node@v4"
+        },
+        {
+          "number": 4,
+          "name": "Run actions/setup-python@v5"
+        },
+        {
+          "number": 5,
+          "name": "Run npm ci"
+        },
+        {
+          "number": 6,
+          "name": "Run npm install -g @openai/codex@0.147.0"
+        },
+        {
+          "number": 7,
+          "name": "Unit and real Python execution tests"
+        },
+        {
+          "number": 8,
+          "name": "Run npm run validate"
+        },
+        {
+          "number": 9,
+          "name": "Run npm run check:baseline-tools"
+        },
+        {
+          "number": 10,
+          "name": "Run npm run smoke:codex"
+        }
+      ],
+      "logError": {
+        "line": 209,
+        "text": "2026-10-20T02:20:35.1982124Z ##[error]fatal: cannot create directory at 'plans/274-html-learning-artifact/evidence/sources/postmerge/deferral-recovery-20261020/baseline-visual/run01/published-installation/plugins/html-guide-kit/skills/site/examples/representative/sources': Filename too long",
+        "nextLine": "2026-10-20T02:20:35.2135479Z ##[error]The process 'C:\\Program Files\\Git\\bin\\git.exe' failed with exit code 128"
+      },
+      "workspace": "D:\\a\\mj-agentlab-marketplace\\mj-agentlab-marketplace",
+      "errorRelative": "plans/274-html-learning-artifact/evidence/sources/postmerge/deferral-recovery-20261020/baseline-visual/run01/published-installation/plugins/html-guide-kit/skills/site/examples/representative/sources",
+      "errorRelativeChars": 198,
+      "errorAbsolute": "D:\\a\\mj-agentlab-marketplace\\mj-agentlab-marketplace\\plans\\274-html-learning-artifact\\evidence\\sources\\postmerge\\deferral-recovery-20261020\\baseline-visual\\run01\\published-installation\\plugins\\html-guide-kit\\skills\\site\\examples\\representative\\sources",
+      "errorAbsoluteChars": 251
+    }
+  ],
+  "tree": {
+    "exitCode": null,
+    "files": 6521,
+    "maxAbsoluteChars": 234,
+    "maxRelativeChars": 181,
+    "over260": 0,
+    "newOver260": 0,
+    "longest": [
+      {
+        "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-21/provenance/source20-runtime/plugins/html-guide-kit/skills/guide/references/interaction-design.md.snapshot.txt",
+        "mode": "100644",
+        "type": "blob",
+        "gitBlob": "378d573bc0c88d314489947ce4aa519f69ad6832",
+        "bytes": 9247,
+        "newInDiff": false,
+        "relativeChars": 181,
+        "absoluteChars": 234
+      },
+      {
+        "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-21/provenance/source20-runtime/plugins/html-guide-kit/skills/guide/references/guide-framework.md.snapshot.txt",
+        "mode": "100644",
+        "type": "blob",
+        "gitBlob": "cb7f506dfce4d9935991f66563a602dd5edad071",
+        "bytes": 9122,
+        "newInDiff": false,
+        "relativeChars": 178,
+        "absoluteChars": 231
+      },
+      {
+        "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-11/precommit-snapshot/plugins/html-guide-kit/skills/guide/references/interaction-design.data.snapshot.txt",
+        "mode": "100644",
+        "type": "blob",
+        "gitBlob": "094b38fd902b9d63f81e6abd7842feefca227423",
+        "bytes": 17967,
+        "newInDiff": false,
+        "relativeChars": 174,
+        "absoluteChars": 227
+      },
+      {
+        "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-12/precommit-snapshot/plugins/html-guide-kit/skills/guide/references/interaction-design.data.snapshot.txt",
+        "mode": "100644",
+        "type": "blob",
+        "gitBlob": "c33dc6f737aaeaff24a4824a0948b2093e5a5613",
+        "bytes": 18602,
+        "newInDiff": false,
+        "relativeChars": 174,
+        "absoluteChars": 227
+      },
+      {
+        "path": "plans/274-html-learning-artifact/evidence/sources/postmerge/deferral-recovery-20261020/baseline-visual/published-site-runtime/examples/representative/sources/renewal-rules.md",
+        "mode": "100644",
+        "type": "blob",
+        "gitBlob": "4d29ba6bdda373a719519d6a271e242ec78fa992",
+        "bytes": 1011,
+        "newInDiff": true,
+        "relativeChars": 174,
+        "absoluteChars": 227
+      },
+      {
+        "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-11/precommit-snapshot/plugins/html-guide-kit/skills/guide/references/guide-framework.data.snapshot.txt",
+        "mode": "100644",
+        "type": "blob",
+        "gitBlob": "bfb09c652b8feb932bd8c3ad15a7897cd33c510b",
+        "bytes": 17087,
+        "newInDiff": false,
+        "relativeChars": 171,
+        "absoluteChars": 224
+      },
+      {
+        "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-12/precommit-snapshot/plugins/html-guide-kit/skills/guide/references/guide-framework.data.snapshot.txt",
+        "mode": "100644",
+        "type": "blob",
+        "gitBlob": "3f092633fe9c846b87fd2747abe44ef6c4a8f472",
+        "bytes": 17722,
+        "newInDiff": false,
+        "relativeChars": 171,
+        "absoluteChars": 224
+      },
+      {
+        "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-13/static-snapshot-behavior-a/proposed-draft-0-1-13/references/interaction-design.data.snapshot.txt",
+        "mode": "100644",
+        "type": "blob",
+        "gitBlob": "d64761f3570fa52881f971d1ccd4d6ac617583bc",
+        "bytes": 20673,
+        "newInDiff": false,
+        "relativeChars": 168,
+        "absoluteChars": 221
+      },
+      {
+        "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/20261012-d106e766-canonical-ready/controller-bd30984fcf0855a4d6ef60b7d4856910b813bff79677215dd55840cec056e0ef.mjs",
+        "mode": "100644",
+        "type": "blob",
+        "gitBlob": "a16a214c20d5de333e9bcc5be796a4b9daf3d777",
+        "bytes": 14419,
+        "newInDiff": false,
+        "relativeChars": 165,
+        "absoluteChars": 218
+      },
+      {
+        "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-13/static-snapshot-behavior-a/old-working-0-1-12/references/interaction-design.data.snapshot.txt",
+        "mode": "100644",
+        "type": "blob",
+        "gitBlob": "c33dc6f737aaeaff24a4824a0948b2093e5a5613",
+        "bytes": 18602,
+        "newInDiff": false,
+        "relativeChars": 165,
+        "absoluteChars": 218
+      },
+      {
+        "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-13/static-snapshot-behavior-a/proposed-draft-0-1-13/references/guide-framework.data.snapshot.txt",
+        "mode": "100644",
+        "type": "blob",
+        "gitBlob": "cece5a5004df7e6455e90408434ce77af2cfce56",
+        "bytes": 19793,
+        "newInDiff": false,
+        "relativeChars": 165,
+        "absoluteChars": 218
+      },
+      {
+        "path": "docs/runbook/evidence/html-guide-kit/pr3-post-merge/patch-checks-0-1-11/precommit-snapshot/docs/guide/[GUIDE]_Plugin_Development_Testing_Workflow.data.snapshot.txt",
+        "mode": "100644",
+        "type": "blob",
+        "gitBlob": "97b8be63f48a27a77e840cdf69cd5c140f1d6d31",
+        "bytes": 6045,
+        "newInDiff": false,
+        "relativeChars": 163,
+        "absoluteChars": 216
+      }
+    ],
+    "exactErrorChildren": []
+  },
+  "recommendation": {
+    "minimal": "Shorten only newly imported evidence destination prefixes and retain a reversible original-path→repo-path map with exact SHA/bytes. Keep raw log/JSON/PNG/plugin fixture bytes unchanged.",
+    "exampleFrom": "plans/274-html-learning-artifact/evidence/sources/postmerge/deferral-recovery-20261020/baseline-visual/run01/published-installation",
+    "exampleTo": "plans/274-html-learning-artifact/evidence/d20/bv/r1/pkg",
+    "newErrorChildPath": [],
+    "doNotChange": [
+      "workflow",
+      "Windows runner",
+      "checkout gates",
+      "test criteria",
+      "raw captured evidence bytes"
+    ]
+  }
+}

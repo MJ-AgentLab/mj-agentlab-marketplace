@@ -1,0 +1,41 @@
+{
+  "executedAt": "2026-10-20T02:07:16.838Z",
+  "modulePath": "C:/Users/Admin/.codex/worktrees/html-learning-artifact/develop/scripts/validate-portable.mjs",
+  "moduleSha256Before": "3dbcc01427a712fe9849538437341e2517c6f413618c788975411387a3c97807",
+  "moduleSha256After": "3dbcc01427a712fe9849538437341e2517c6f413618c788975411387a3c97807",
+  "baseline": {
+    "name": "html-guide-kit",
+    "version": "0.1.38",
+    "rootFiles": [
+      "plugin.json",
+      "assets/icon.svg",
+      "assets/icon.png",
+      "LICENSE",
+      "THIRD_PARTY_NOTICES.md",
+      "licenses/Apache-2.0.txt"
+    ]
+  },
+  "results": [
+    {
+      "path": "LICENSE",
+      "missingRejected": true,
+      "missingError": "ENOENT: no such file or directory, lstat 'C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-deferrals-code-review-r2\\fixed-validator-install\\LICENSE'",
+      "driftRejected": true,
+      "driftError": "installed plugin resource differs: html-guide-kit/LICENSE"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "missingRejected": true,
+      "missingError": "ENOENT: no such file or directory, lstat 'C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-deferrals-code-review-r2\\fixed-validator-install\\THIRD_PARTY_NOTICES.md'",
+      "driftRejected": true,
+      "driftError": "installed plugin resource differs: html-guide-kit/THIRD_PARTY_NOTICES.md"
+    },
+    {
+      "path": "licenses/Apache-2.0.txt",
+      "missingRejected": true,
+      "missingError": "ENOENT: no such file or directory, lstat 'C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-deferrals-code-review-r2\\fixed-validator-install\\licenses\\Apache-2.0.txt'",
+      "driftRejected": true,
+      "driftError": "installed plugin resource differs: html-guide-kit/licenses/Apache-2.0.txt"
+    }
+  ]
+}

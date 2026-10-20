@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-20T02:26:38.131Z",
+  "role": "Independent installation acceptance /root/contract_scan",
+  "sourceDirectory": "C:/Users/Admin/AppData/Local/Temp/html-learning-274-deferrals-installation-r1",
+  "scope": "Only actual installed-package subchecks and cleanup. This selection does not relabel the original overall result.",
+  "status": "BOUNDED_SUBCHECKS_PASS_RAW_METADATA_GUARD_FAIL",
+  "execution": {
+    "startedAt": "2026-10-20T02:09:27.099Z",
+    "completedAt": "2026-10-20T02:22:46.410Z",
+    "durationMs": 799308.9885,
+    "rawDriverStatus": "FAIL",
+    "rawDriverExit": 1,
+    "smokeReturnedOk": true,
+    "originalSummaryUnmodified": true,
+    "baseline": "Codex0.147.0 exact; bundled Python on PATH"
+  },
+  "testedSource": {
+    "baseHEAD": "908d29537a19ceca166e8f3c7cddef4d419781a4",
+    "branch": "codex/html-learning-deferral-fixes",
+    "plugin": "0.1.38 working-tree candidate captured before root's commit",
+    "marketplace": "8.3.3 preparation, unpublished",
+    "notFreshActual470Run": true,
+    "allPluginFileInventoryCount": 94,
+    "allPluginFileInventoriesExact": true,
+    "harnessFileCount": 8,
+    "harnessInventoriesExact": true
+  },
+  "subchecks": {
+    "scenarios": 13,
+    "commands": 178,
+    "allCommandExitZero": true,
+    "diagramPythonCalls": 6,
+    "learningEvidencePythonCalls": 18,
+    "siteGenerationCalls": 4,
+    "siteStaticPythonCalls": 4,
+    "siteStaticResults": [
+      {
+        "installed": [
+          "html-guide-kit"
+        ],
+        "status": "PASS",
+        "summary": {
+          "checks": 95,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        },
+        "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+      },
+      {
+        "installed": [
+          "html-guide-kit",
+          "explain-kit"
+        ],
+        "status": "PASS",
+        "summary": {
+          "checks": 95,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        },
+        "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+      },
+      {
+        "installed": [
+          "diagram-kit",
+          "learning-evidence-kit",
+          "explain-kit",
+          "html-guide-kit"
+        ],
+        "status": "PASS",
+        "summary": {
+          "checks": 95,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        },
+        "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+      },
+      {
+        "installed": [
+          "diagram-kit",
+          "learning-evidence-kit",
+          "explain-kit",
+          "communication-kit",
+          "html-guide-kit"
+        ],
+        "status": "PASS",
+        "summary": {
+          "checks": 95,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        },
+        "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+      }
+    ],
+    "htmlInstalls": [
+      {
+        "scenario": 10,
+        "version": "0.1.38",
+        "generatedFiles": 10,
+        "manifestPayloadFiles": 9,
+        "licenseSha256": "cfd483b2cc03452033bbc34d6ceabcc46d9917539070f6721d671705926a2a8d",
+        "checks": {
+          "licenseOriginal": true,
+          "apacheOriginal": true,
+          "noticeOriginalTail": true,
+          "noticeHasScopedPrefix": true,
+          "allManifestEntries": true,
+          "exactManifestSet": true,
+          "siteResources": true,
+          "guideResources": true
+        }
+      },
+      {
+        "scenario": 11,
+        "version": "0.1.38",
+        "generatedFiles": 10,
+        "manifestPayloadFiles": 9,
+        "licenseSha256": "cfd483b2cc03452033bbc34d6ceabcc46d9917539070f6721d671705926a2a8d",
+        "checks": {
+          "licenseOriginal": true,
+          "apacheOriginal": true,
+          "noticeOriginalTail": true,
+          "noticeHasScopedPrefix": true,
+          "allManifestEntries": true,
+          "exactManifestSet": true,
+          "siteResources": true,
+          "guideResources": true
+        }
+      },
+      {
+        "scenario": 12,
+        "version": "0.1.38",
+        "generatedFiles": 10,
+        "manifestPayloadFiles": 9,
+        "licenseSha256": "cfd483b2cc03452033bbc34d6ceabcc46d9917539070f6721d671705926a2a8d",
+        "checks": {
+          "licenseOriginal": true,
+          "apacheOriginal": true,
+          "noticeOriginalTail": true,
+          "noticeHasScopedPrefix": true,
+          "allManifestEntries": true,
+          "exactManifestSet": true,
+          "siteResources": true,
+          "guideResources": true
+        }
+      },
+      {
+        "scenario": 13,
+        "version": "0.1.38",
+        "generatedFiles": 10,
+        "manifestPayloadFiles": 9,
+        "licenseSha256": "cfd483b2cc03452033bbc34d6ceabcc46d9917539070f6721d671705926a2a8d",
+        "checks": {
+          "licenseOriginal": true,
+          "apacheOriginal": true,
+          "noticeOriginalTail": true,
+          "noticeHasScopedPrefix": true,
+          "allManifestEntries": true,
+          "exactManifestSet": true,
+          "siteResources": true,
+          "guideResources": true
+        }
+      }
+    ],
+    "observedOwnedRoots": 14,
+    "scenarioRoots": 13,
+    "sourceTemplateRoots": 1,
+    "allExactRootsAbsent": true
+  },
+  "host": {
+    "beforeHEAD": "908d29537a19ceca166e8f3c7cddef4d419781a4",
+    "afterHEAD": "470970b5a8d40c25b8edefc6992377624f7f45d6",
+    "authorizedHostAdvance": true,
+    "worktreeCount": 15,
+    "onlyCurrentWorktreeHEADChanged": true,
+    "primaryBefore": "908d29537a19ceca166e8f3c7cddef4d419781a4",
+    "primaryAfter": "908d29537a19ceca166e8f3c7cddef4d419781a4",
+    "notClaimingCleanEndStatus": true,
+    "longPathObservation": {
+      "path": "plans/274-html-learning-artifact/evidence/sources/postmerge/deferral-recovery-20261020/baseline-visual/run01/published-installation/plugins/html-guide-kit/skills/site/examples/representative/sources/renewal-rules.md",
+      "absoluteLength": 278,
+      "originalPathExistsAtPostprocessing": false,
+      "observedCurrentPath": "plans/274-html-learning-artifact/evidence/sources/postmerge/dr274/baseline-visual/run01/published-installation/plugins/html-guide-kit/skills/site/examples/representative/sources/renewal-rules.md",
+      "workingBytes": 1011,
+      "workingSha256": "2a95c4d9b95f3b184fea30aa3fba9daaf34d11624bd888ed4793a0ea7f96af47",
+      "gitBlobBytes": 1011,
+      "gitBlobSha256": "2a95c4d9b95f3b184fea30aa3fba9daaf34d11624bd888ed4793a0ea7f96af47",
+      "exactBytesEqual": true,
+      "capturedAt": "2026-10-20T02:25:39.282Z",
+      "rootCoordination": "Root separately attributed the raw D observation to Windows longpath stat and is relocating only this evidence root to dr274. This agent did not directly read the original long path before root relocated it.",
+      "scope": "Read-only verification of the current relocated evidence file against the original470 Git blob. No checkout, restore, reset, configuration write or file repair. The later path move is not installation runtime input."
+    }
+  },
+  "independentSecondRead": {
+    "role": "/root/contract_scan/release_record_standards",
+    "basis": "Internal agent's completed read-only re-extraction of original JSON, inventories, cleanup Test-Path and worktree identities",
+    "result": "No installation product blocker; independently derived13/178/6/18/4/4,95static each,94plugin+8harness exact,14absence,15worktrees only currentHEAD changed",
+    "notGitHubApproval": true
+  },
+  "limitations": [
+    "Raw summary FAIL and process exit1 are retained; bounded actual subchecks and cleanup pass separately",
+    "This is the02:09 working-tree candidate run based908, not an actual470 fresh run or the later shortened-evidence-path CI run",
+    "Original after.status reports D for a long evidence path; do not claim clean end worktree. Current relocated file bytes exactly match original470 blob; old-path existence was not independently checked before root relocation",
+    "No browser/model/desktop/native dispatch/Sites run; smoke browserCheck NOT_RUN",
+    "No public release, new Owner acceptance, full-plan completion, effect measurement or GitHub approval",
+    "Reserved-path/alias negative regressions are outside these13 positive install scenarios",
+    "Complete plugin snapshot and generated copies remain in local sourceDirectory; selected evidence excludes all full plugin/cache copies",
+    "Two postprocessing failures are retained and are not hidden reruns of installation"
+  ]
+}

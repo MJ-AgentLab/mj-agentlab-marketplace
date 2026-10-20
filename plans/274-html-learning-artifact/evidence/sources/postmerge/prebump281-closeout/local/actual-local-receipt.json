@@ -1,0 +1,66 @@
+{
+  "capturedAt": "2026-10-20T00:15:22.442Z",
+  "actor": "/root",
+  "source": {
+    "head": "62945150df984e2747684d1ea46b8772b56db2d9",
+    "tree": "6659fadd62bc03aa3ab4eee61e63804fc25b914b",
+    "cleanAndFixedDuringExecution": true
+  },
+  "full": {
+    "tests": 644,
+    "pass": 643,
+    "fail": 0,
+    "cancelled": 0,
+    "skip": 1,
+    "skipReason": "New Linux exec capture mechanism explicitly inapplicable on Windows; original actual layout case330 executed",
+    "durationMs": 252225.8375,
+    "exit": 0,
+    "exitProvenance": "Actual functions.exec exec_command session29021 completion reported exit_code0; raw TAP file contains counters, not a fabricated exit field"
+  },
+  "strict": {
+    "ok": true,
+    "exit": 0
+  },
+  "baseline": {
+    "actual": "0.147.0",
+    "exit": 0
+  },
+  "logs": [
+    {
+      "file": "html-learning-274-prebump281-actual-full-test.log",
+      "bytes": 149080,
+      "sha256": "4776e06b82c62a8b7389edd8b507c982d204c7e85df7cb4a333489d50cbb7d89"
+    },
+    {
+      "file": "html-learning-274-prebump281-actual-validate.log",
+      "bytes": 420,
+      "sha256": "2f7833ff457ebf70648e4b2322858c5052f238c8dcbcdf352a748917393b6b76"
+    },
+    {
+      "file": "html-learning-274-prebump281-actual-baseline.log",
+      "bytes": 165,
+      "sha256": "68ad909418d8afbe4cffa1f080ea0ab54359beecfa396b562e10c2ff0ad79704"
+    }
+  ],
+  "fresh13": {
+    "manifestSha256": "c551b4396974676bc2fdfe835adbbc895542a7a8cc0909c5922a4abe97cb6ea4",
+    "startedAt": "2026-10-20T00:01:58.847Z",
+    "completedAt": "2026-10-20T00:13:24.756Z",
+    "counts": {
+      "scenarios": 13,
+      "commands": 178,
+      "diagram": 6,
+      "lek": 18,
+      "render": 4,
+      "static": 4
+    },
+    "all15TaskRootsAbsent": true,
+    "completeWorktreeListEqualsBefore": true
+  },
+  "limits": [
+    "Root executed actual629 checks; separate Agent reviewed raw results and methods.",
+    "This fresh installation batch did not run model/desktop/Sites/browser; full npm test actual layout is separate.",
+    "Actual push workflow only checked version state, and candidate6ef/c41 CI is historical same-tree evidence.",
+    "Owner acceptance NOT_PROVIDED, effect NOT_MEASURED; original failure root cause UNKNOWN and protected approval NOT_MET retained."
+  ]
+}

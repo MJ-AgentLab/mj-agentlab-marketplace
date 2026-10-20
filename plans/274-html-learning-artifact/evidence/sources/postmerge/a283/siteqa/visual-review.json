@@ -1,0 +1,39 @@
+{
+  "capturedAt": "2026-10-20T03:07:40.403Z",
+  "reviewer": "/root/deferral_code_review",
+  "inspection": "All five PNG files were actually opened with view_image after generation.",
+  "images": [
+    {
+      "path": "evidence/screenshots/viewport-320x844.png",
+      "sha256": "959cc83038bb0709e6e9fb874e39552d87f44a26175fefe7271b279ad97f5569"
+    },
+    {
+      "path": "evidence/screenshots/viewport-390x844.png",
+      "sha256": "35d5e2341d313954ea81ebc7da684bf6c31ddececaf4d6733796479b4ef78200"
+    },
+    {
+      "path": "evidence/screenshots/viewport-1366x900.png",
+      "sha256": "e851cf610e4abcd9d04a77f67b4bc3de874d175d9fdd83ccb13e2a5eb3a6811b"
+    },
+    {
+      "path": "evidence/control-320x844.png",
+      "sha256": "626b74035b55e508cce2d5c634f0655974a3ff1349a67b6f67434b25956d1a58"
+    },
+    {
+      "path": "evidence/control-1366x900.png",
+      "sha256": "ad0fdff5f2aa6d26f665174c5932f4070f4a031d031735835e419d138972cf3f"
+    }
+  ],
+  "result": "PASS_LIMITED",
+  "observations": [
+    "At320 and390 initial views, title, Audience, Task and Understanding Goals remain readable; masthead/heading wrap naturally and no horizontal clipping is visible.",
+    "At1366 initial view, the central reading column, heading hierarchy, scope notice and material-download link remain visible without overlap.",
+    "The blank unfocused reflection textarea is visibly bounded at320 and1366; the full control lies within each viewport. The nearby export textarea boundary is also visible.",
+    "Control screenshots intentionally show a scrolled viewport with surrounding sections partly outside the capture; this is not claimed as full-page visual coverage."
+  ],
+  "limits": [
+    "Initial screenshots plus two targeted scrolled states only.",
+    "No real keyboard/copy-failure/focus test in this run; unchanged index/JS byte identity supports only explicit reuse of earlier bounded interaction evidence.",
+    "No native client, assistive technology, touch, browser UI zoom, full WCAG certification, hosted-site behavior or learning-effect measurement."
+  ]
+}

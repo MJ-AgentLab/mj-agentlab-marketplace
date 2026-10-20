@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "status": "PARTIAL_WITH_CONFIRMED_LOCAL_FINDING",
+  "reviewer": "/root/spec_review",
+  "completedAt": "2026-10-20T01:46:17.055Z",
+  "runtime": {
+    "published": "f906b1001a86d7b5415451bd973bea26e6cc3a1d",
+    "comparedActual": "908d29537a19ceca166e8f3c7cddef4d419781a4",
+    "siteFiles": 20,
+    "publishedAndActualSiteByteIdentical": true,
+    "oldRepresentativeSevenAndFreshPublishedRegenerationByteIdentical": true,
+    "browser": "155.0.8059.80",
+    "staticReport": "run01/static.json"
+  },
+  "counts": {
+    "boundedCases": 16,
+    "pass": 14,
+    "fail": 1,
+    "notRun": 1
+  },
+  "matrix": [
+    {
+      "id": "A01-published-runtime-seven-file-static-identity",
+      "status": "PASS",
+      "basis": "run01/report.json",
+      "rawR1Status": "PASS",
+      "note": null
+    },
+    {
+      "id": "A02-keyboard-skip-link-and-visible-focus",
+      "status": "PASS",
+      "basis": "run01/report.json",
+      "rawR1Status": "PASS",
+      "note": null
+    },
+    {
+      "id": "A03-keyboard-empty-answer-focus-and-live-state",
+      "status": "PASS",
+      "basis": "run01/report.json",
+      "rawR1Status": "PASS",
+      "note": null
+    },
+    {
+      "id": "A04-keyboard-radio-submit-change-invalidates",
+      "status": "PASS",
+      "basis": "run02/report.json",
+      "rawR1Status": "FAIL",
+      "note": "Original r1 FAIL was the test strict selector before keyboard operations; exact target rerun retained separately."
+    },
+    {
+      "id": "A05-keyboard-details-enter-space-and-return",
+      "status": "PASS",
+      "basis": "run01/report.json",
+      "rawR1Status": "PASS",
+      "note": null
+    },
+    {
+      "id": "A06-keyboard-reset-clears-state-and-keeps-focus",
+      "status": "PASS",
+      "basis": "run01/report.json",
+      "rawR1Status": "本次练习已重置。记录只在当前页面会话中。",
+      "note": "Assertions completed without exception; original harness returned a page-status string in detail.status and used it as the raw case.status. This is transparent final adjudication, not a rewritten run."
+    },
+    {
+      "id": "A07-copy-rejection-Escape-focus-recovery",
+      "status": "PASS",
+      "basis": "run01/report.json",
+      "rawR1Status": "PASS",
+      "note": null
+    },
+    {
+      "id": "A08-missing-clipboard-Tab-button-recovery",
+      "status": "PASS",
+      "basis": "run01/report.json",
+      "rawR1Status": "已返回复制按钮；手动复制是否完成未作确认。",
+      "note": "Assertions completed without exception; original harness returned a page-status string in detail.status and used it as the raw case.status. This is transparent final adjudication, not a rewritten run."
+    },
+    {
+      "id": "A09-stale-copy-resolution-does-not-confirm-new-state",
+      "status": "PASS",
+      "basis": "run01/report.json",
+      "rawR1Status": "回答或核对记录已改变，请重新生成记录。",
+      "note": "Assertions completed without exception; original harness returned a page-status string in detail.status and used it as the raw case.status. This is transparent final adjudication, not a rewritten run."
+    },
+    {
+      "id": "A10-keyboard-download-current-state",
+      "status": "PASS",
+      "basis": "run01/report.json",
+      "rawR1Status": "PASS",
+      "note": null
+    },
+    {
+      "id": "A11-responsive-expanded-and-export-state",
+      "status": "PASS",
+      "basis": "run01/report.json",
+      "rawR1Status": "PASS",
+      "note": null
+    },
+    {
+      "id": "A12-reduced-motion-computed-state",
+      "status": "PASS",
+      "basis": "run01/report.json",
+      "rawR1Status": "PASS",
+      "note": null
+    },
+    {
+      "id": "A13-browser-UI-zoom-capability-probe",
+      "status": "NOT_RUN",
+      "basis": "run01/report.json",
+      "rawR1Status": "NOT_RUN",
+      "note": null
+    },
+    {
+      "id": "A14-renderer-visual-scale-two-not-native-zoom",
+      "status": "PASS",
+      "basis": "run01/report.json",
+      "rawR1Status": "PASS",
+      "note": null
+    },
+    {
+      "id": "A15-two-hundred-percent-text-resize-reflow",
+      "status": "PASS",
+      "basis": "run01/report.json",
+      "rawR1Status": "PASS",
+      "note": null
+    },
+    {
+      "id": "A16-semantic-accessibility-tree-and-local-contrast",
+      "status": "FAIL",
+      "basis": "run02/report.json",
+      "rawR1Status": "RISK",
+      "note": "r1 RISK followed by explicit narrow boundary criterion evaluation; original record unchanged."
+    }
+  ],
+  "finding": {
+    "id": "A16",
+    "priority": "P2 / non-core accessibility defect",
+    "source": "plugins/html-guide-kit/skills/site/assets/warm-paper/theme.css:70",
+    "affected": "#reflection empty editable textarea; same style also used by export-text",
+    "state": "Unfocused, empty and editable",
+    "border": "#aba492",
+    "inside": "#ffffff",
+    "outside": "#faf9f5",
+    "measured": {
+      "borderAgainstInside": 2.483198873838037,
+      "borderAgainstOutside": 2.3570979971820427,
+      "surfaceAgainstOutside": 1.053498359765589
+    },
+    "criterion": "https://www.w3.org/TR/WCAG22/#non-text-contrast",
+    "interpretation": "The empty editable field requires the authored boundary to identify its input area; neither its border nor its near-white surface reaches3:1 against the exterior. This is a scoped SC1.4.11 finding, not a full-page conformance verdict.",
+    "suggestion": "In a separate protected branch, darken the textarea border to an appropriate existing/new token. Pure calculation for#767676 gives4.31156:1 against paper and4.54222:1 against white; no patch has been applied.",
+    "evidence": [
+      "run02/report.json",
+      "run02/screenshots/blank-reflection-boundary-desktop.png",
+      "run02/screenshots/blank-reflection-boundary-320.png"
+    ]
+  },
+  "preservedHarnessFailures": [
+    {
+      "phase": "r0 preparation",
+      "result": "renderer exit1; no browser started",
+      "reason": "The initial extracted runtime omitted the installation directory hierarchy, so the generator safety boundary rejected the output location. Fixed fixture layout in r1 only.",
+      "files": [
+        "accessibility-run.mjs",
+        "renderer.stderr.log",
+        "renderer.command.json",
+        "execution.stderr.log"
+      ]
+    },
+    {
+      "phase": "r1 A04",
+      "result": "strict Playwright selector failed before radio operations",
+      "reason": "Ambiguous two-radio locator; corrected to exact value0 in targeted r2. Original r1 FAIL remains.",
+      "files": [
+        "accessibility-run-r1.mjs",
+        "run01/report.json",
+        "targeted-r2.mjs",
+        "run02/report.json"
+      ]
+    }
+  ],
+  "harnessStatusCaveat": "r1 A06/A08/A09 stored successful page status text as the raw verdict because the harness used detail.status. Their actual assertions completed; final adjudication explicitly maps these three records to PASS without altering them.",
+  "zoomBoundary": {
+    "nativeBrowserUI": "NOT_RUN; Control++ twice left width/height/DPR/visualScale/font metrics unchanged",
+    "rendererVisualScale": "PASS only for CDP visualViewport.scale2 (pinch-style rendering)",
+    "textResizing": "PASS for synthetic root font32px at683CSSpx, no document horizontal overflow",
+    "notEstablished": "Real browser UI200%/400% zoom, all reflow conditions or complete WCAG1.4.4/1.4.10"
+  },
+  "restoredBoundedEngineeringEvidence": [
+    "Keyboard skip/Tab/ShiftTab/radio arrows/Enter/Space and focus recovery",
+    "Empty-answer state/live-region DOM association; actual AT announcement not tested",
+    "Copy rejection/absentAPI/manual return and stale-response invalidation using explicit injected faults",
+    "Keyboard export/download exact text and state/version",
+    "Five viewport geometries with expanded feedback/export at320/390/768/1366/1920",
+    "Computed reduced-motion path and sampled text contrast/accessibility-tree metadata"
+  ],
+  "stillOpen": [
+    "Current textarea boundary defect",
+    "Real browser UI zoom",
+    "Actual assistive-technology reading and announcements",
+    "Desktop native dispatch/full pending-window lifecycle and second client",
+    "Full visual/accessibility/state/device coverage and understanding effects"
+  ],
+  "noScopeExpansion": {
+    "repositoryWrites": false,
+    "pluginCacheWrites": false,
+    "remoteSiteOrAudienceChanges": false,
+    "modelOrDesktopRuns": false,
+    "ambient8765Access": false,
+    "osClipboardWrites": false,
+    "fixtureRuntimeModification": false
+  },
+  "cleanup": {
+    "run01": {
+      "browserClosed": true,
+      "serverClosed": true,
+      "artifactFilesUntouched": true,
+      "ambient8765Untouched": true,
+      "osClipboardUntouched": true
+    },
+    "run02": {
+      "serverClosed": true,
+      "browserClosed": true,
+      "osClipboardUntouched": true
+    },
+    "run02ArtifactBytesUnchanged": true
+  },
+  "acceptanceBoundary": "Existing limited Owner core acceptance remains its own decision; this new finite engineering result neither marks the full original plan complete nor accepts the new finding or remaining deferrals."
+}

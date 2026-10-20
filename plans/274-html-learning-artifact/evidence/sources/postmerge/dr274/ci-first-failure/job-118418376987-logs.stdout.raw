@@ -1,0 +1,226 @@
+﻿2026-10-20T02:20:21.8041848Z Current runner version: '2.337.0'
+2026-10-20T02:20:21.8066748Z ##[group]Runner Image Provisioner
+2026-10-20T02:20:21.8067543Z Hosted Compute Agent
+2026-10-20T02:20:21.8068161Z Version: 20261002.596
+2026-10-20T02:20:21.8068778Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-20T02:20:21.8069468Z Build Date: 2026-10-02T22:28:27Z
+2026-10-20T02:20:21.8070139Z Worker ID: {4451ada5-6799-40c8-a596-430b306c3d67}
+2026-10-20T02:20:21.8070814Z Region: westcentralus
+2026-10-20T02:20:21.8071353Z Cloud: Azure
+2026-10-20T02:20:21.8071855Z ##[endgroup]
+2026-10-20T02:20:21.8073580Z ##[group]Operating System
+2026-10-20T02:20:21.8074276Z Microsoft Windows Server 2025
+2026-10-20T02:20:21.8075077Z 10.0.26100
+2026-10-20T02:20:21.8075631Z Datacenter
+2026-10-20T02:20:21.8076114Z ##[endgroup]
+2026-10-20T02:20:21.8076608Z ##[group]Runner Image
+2026-10-20T02:20:21.8077190Z Image: windows-2025-vs2026
+2026-10-20T02:20:21.8077757Z Version: 20261007.264.1
+2026-10-20T02:20:21.8079186Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261007.264/images/windows/Windows2025-VS2026-Readme.md
+2026-10-20T02:20:21.8080752Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261007.264
+2026-10-20T02:20:21.8081731Z ##[endgroup]
+2026-10-20T02:20:21.8082837Z ##[group]GITHUB_TOKEN Permissions
+2026-10-20T02:20:21.8084860Z Contents: read
+2026-10-20T02:20:21.8085436Z Metadata: read
+2026-10-20T02:20:21.8086024Z Packages: read
+2026-10-20T02:20:21.8086550Z ##[endgroup]
+2026-10-20T02:20:21.8088536Z Secret source: Actions
+2026-10-20T02:20:21.8089475Z Cache mode: write
+2026-10-20T02:20:21.8090283Z Prepare workflow directory
+2026-10-20T02:20:21.8496627Z Prepare all required actions
+2026-10-20T02:20:21.8563533Z Getting action download info
+2026-10-20T02:20:22.1598088Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-20T02:20:22.3049292Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-10-20T02:20:22.4826157Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-20T02:20:22.7732492Z Complete job name: Baseline compat (windows-latest)
+2026-10-20T02:20:22.9182691Z ##[group]Run actions/checkout@v4
+2026-10-20T02:20:22.9183741Z with:
+2026-10-20T02:20:22.9184186Z   fetch-depth: 0
+2026-10-20T02:20:22.9184715Z   repository: MJ-AgentLab/mj-agentlab-marketplace
+2026-10-20T02:20:22.9188538Z   token: ***
+2026-10-20T02:20:22.9188970Z   ssh-strict: true
+2026-10-20T02:20:22.9189415Z   ssh-user: git
+2026-10-20T02:20:22.9189860Z   persist-credentials: true
+2026-10-20T02:20:22.9190346Z   clean: true
+2026-10-20T02:20:22.9190794Z   sparse-checkout-cone-mode: true
+2026-10-20T02:20:22.9191306Z   fetch-tags: false
+2026-10-20T02:20:22.9191746Z   show-progress: true
+2026-10-20T02:20:22.9192190Z   lfs: false
+2026-10-20T02:20:22.9192612Z   submodules: false
+2026-10-20T02:20:22.9193076Z   set-safe-directory: true
+2026-10-20T02:20:22.9193607Z   allow-unsafe-pr-checkout: false
+2026-10-20T02:20:22.9194344Z ##[endgroup]
+2026-10-20T02:20:23.0607197Z Syncing repository: MJ-AgentLab/mj-agentlab-marketplace
+2026-10-20T02:20:23.0609118Z ##[group]Getting Git version info
+2026-10-20T02:20:23.0609898Z Working directory is 'D:\a\mj-agentlab-marketplace\mj-agentlab-marketplace'
+2026-10-20T02:20:23.1513856Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-10-20T02:20:23.5120052Z git version 2.56.0.windows.2
+2026-10-20T02:20:23.5170146Z ##[endgroup]
+2026-10-20T02:20:23.5190658Z Temporarily overriding HOME='D:\a\_temp\fc85b082-4b19-4842-b72f-26c77a098f99' before making global git config changes
+2026-10-20T02:20:23.5192479Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-20T02:20:23.5201807Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\mj-agentlab-marketplace\mj-agentlab-marketplace
+2026-10-20T02:20:23.5920403Z Deleting the contents of 'D:\a\mj-agentlab-marketplace\mj-agentlab-marketplace'
+2026-10-20T02:20:23.5926621Z ##[group]Initializing the repository
+2026-10-20T02:20:23.5934928Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\mj-agentlab-marketplace\mj-agentlab-marketplace
+2026-10-20T02:20:23.6972967Z Initialized empty Git repository in D:/a/mj-agentlab-marketplace/mj-agentlab-marketplace/.git/
+2026-10-20T02:20:23.7013129Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/MJ-AgentLab/mj-agentlab-marketplace
+2026-10-20T02:20:23.7717190Z ##[endgroup]
+2026-10-20T02:20:23.7719443Z ##[group]Disabling automatic garbage collection
+2026-10-20T02:20:23.7737258Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-10-20T02:20:23.8122592Z ##[endgroup]
+2026-10-20T02:20:23.8124117Z ##[group]Setting up auth
+2026-10-20T02:20:23.8134813Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-20T02:20:23.8584804Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-20T02:20:25.5741901Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-20T02:20:25.6108811Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-20T02:20:26.1377099Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-20T02:20:26.1753033Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-20T02:20:26.6880461Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-10-20T02:20:26.7263583Z ##[endgroup]
+2026-10-20T02:20:26.7264528Z ##[group]Fetching the repository
+2026-10-20T02:20:26.7279880Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-10-20T02:20:31.9342385Z From https://github.com/MJ-AgentLab/mj-agentlab-marketplace
+2026-10-20T02:20:31.9343534Z  * [new branch]      codex/communication-release -> origin/codex/communication-release
+2026-10-20T02:20:31.9345065Z  * [new branch]      codex/communication-release-preparation -> origin/codex/communication-release-preparation
+2026-10-20T02:20:31.9346315Z  * [new branch]      codex/html-learning-acceptance -> origin/codex/html-learning-acceptance
+2026-10-20T02:20:31.9347387Z  * [new branch]      codex/html-learning-artifact -> origin/codex/html-learning-artifact
+2026-10-20T02:20:31.9348461Z  * [new branch]      codex/html-learning-deferral-fixes -> origin/codex/html-learning-deferral-fixes
+2026-10-20T02:20:31.9349434Z  * [new branch]      codex/html-learning-release-closeout -> origin/codex/html-learning-release-closeout
+2026-10-20T02:20:31.9350089Z  * [new branch]      codex/html-learning-site -> origin/codex/html-learning-site
+2026-10-20T02:20:31.9350623Z  * [new branch]      codex/issue-245-cancel-probe -> origin/codex/issue-245-cancel-probe
+2026-10-20T02:20:31.9351389Z  * [new branch]      codex/issue-245-dedup-probe -> origin/codex/issue-245-dedup-probe
+2026-10-20T02:20:31.9353085Z  * [new branch]      codex/learning-evidence-acceptance-history-20261013 -> origin/codex/learning-evidence-acceptance-history-20261013
+2026-10-20T02:20:31.9353981Z  * [new branch]      codex/learning-evidence-contract -> origin/codex/learning-evidence-contract
+2026-10-20T02:20:31.9354783Z  * [new branch]      codex/learning-evidence-github-history-20261013 -> origin/codex/learning-evidence-github-history-20261013
+2026-10-20T02:20:31.9356519Z  * [new branch]      codex/learning-evidence-switch-history-20261013 -> origin/codex/learning-evidence-switch-history-20261013
+2026-10-20T02:20:31.9357255Z  * [new branch]      codex/post-8-3-0-docs   -> origin/codex/post-8-3-0-docs
+2026-10-20T02:20:31.9357703Z  * [new branch]      codex/prebump-8-3-1     -> origin/codex/prebump-8-3-1
+2026-10-20T02:20:31.9358251Z  * [new branch]      codex/prebump-marketplace-8-3-3 -> origin/codex/prebump-marketplace-8-3-3
+2026-10-20T02:20:31.9358882Z  * [new branch]      codex/record-html-learning-8-3-2 -> origin/codex/record-html-learning-8-3-2
+2026-10-20T02:20:31.9359521Z  * [new branch]      codex/release-html-learning-8-3-2 -> origin/codex/release-html-learning-8-3-2
+2026-10-20T02:20:31.9360065Z  * [new branch]      codex/sync-main-8-3-0   -> origin/codex/sync-main-8-3-0
+2026-10-20T02:20:31.9360501Z  * [new branch]      codex/sync-main-8-3-2   -> origin/codex/sync-main-8-3-2
+2026-10-20T02:20:31.9360989Z  * [new branch]      codex/task-docs-closeout -> origin/codex/task-docs-closeout
+2026-10-20T02:20:31.9361524Z  * [new branch]      codex/task-docs-contract -> origin/codex/task-docs-contract
+2026-10-20T02:20:31.9362003Z  * [new branch]      codex/task-docs-harness -> origin/codex/task-docs-harness
+2026-10-20T02:20:31.9362487Z  * [new branch]      codex/task-docs-html-pilot -> origin/codex/task-docs-html-pilot
+2026-10-20T02:20:31.9362976Z  * [new branch]      codex/task-documentation -> origin/codex/task-documentation
+2026-10-20T02:20:31.9363399Z  * [new branch]      develop                 -> origin/develop
+2026-10-20T02:20:31.9363736Z  * [new branch]      main                    -> origin/main
+2026-10-20T02:20:31.9364223Z  * [new tag]         v1.0.0                  -> v1.0.0
+2026-10-20T02:20:31.9365066Z  * [new tag]         v1.1.0                  -> v1.1.0
+2026-10-20T02:20:31.9365572Z  * [new tag]         v1.1.1                  -> v1.1.1
+2026-10-20T02:20:31.9366066Z  * [new tag]         v1.1.2                  -> v1.1.2
+2026-10-20T02:20:31.9366551Z  * [new tag]         v1.1.3                  -> v1.1.3
+2026-10-20T02:20:31.9367041Z  * [new tag]         v1.1.4                  -> v1.1.4
+2026-10-20T02:20:31.9367545Z  * [new tag]         v1.1.5                  -> v1.1.5
+2026-10-20T02:20:31.9368912Z  * [new tag]         v1.2.0                  -> v1.2.0
+2026-10-20T02:20:31.9369480Z  * [new tag]         v1.2.1                  -> v1.2.1
+2026-10-20T02:20:31.9369974Z  * [new tag]         v1.2.2                  -> v1.2.2
+2026-10-20T02:20:31.9370472Z  * [new tag]         v1.2.3                  -> v1.2.3
+2026-10-20T02:20:31.9370965Z  * [new tag]         v1.2.4                  -> v1.2.4
+2026-10-20T02:20:31.9371455Z  * [new tag]         v1.2.5                  -> v1.2.5
+2026-10-20T02:20:31.9371991Z  * [new tag]         v1.2.6                  -> v1.2.6
+2026-10-20T02:20:31.9372506Z  * [new tag]         v1.3.0                  -> v1.3.0
+2026-10-20T02:20:31.9373002Z  * [new tag]         v1.3.1                  -> v1.3.1
+2026-10-20T02:20:31.9373557Z  * [new tag]         v1.3.2                  -> v1.3.2
+2026-10-20T02:20:31.9374083Z  * [new tag]         v2.0.0                  -> v2.0.0
+2026-10-20T02:20:31.9374619Z  * [new tag]         v2.1.0                  -> v2.1.0
+2026-10-20T02:20:31.9375150Z  * [new tag]         v2.1.1                  -> v2.1.1
+2026-10-20T02:20:31.9375692Z  * [new tag]         v3.0.0                  -> v3.0.0
+2026-10-20T02:20:31.9376180Z  * [new tag]         v3.1.0                  -> v3.1.0
+2026-10-20T02:20:31.9376671Z  * [new tag]         v3.2.0                  -> v3.2.0
+2026-10-20T02:20:31.9377164Z  * [new tag]         v3.2.1                  -> v3.2.1
+2026-10-20T02:20:31.9377649Z  * [new tag]         v4.4.10                 -> v4.4.10
+2026-10-20T02:20:31.9378127Z  * [new tag]         v4.4.11                 -> v4.4.11
+2026-10-20T02:20:31.9378617Z  * [new tag]         v4.4.8                  -> v4.4.8
+2026-10-20T02:20:31.9379098Z  * [new tag]         v4.5.0                  -> v4.5.0
+2026-10-20T02:20:31.9379853Z  * [new tag]         v4.6.0                  -> v4.6.0
+2026-10-20T02:20:31.9380338Z  * [new tag]         v4.6.1                  -> v4.6.1
+2026-10-20T02:20:31.9380827Z  * [new tag]         v4.6.2                  -> v4.6.2
+2026-10-20T02:20:31.9381310Z  * [new tag]         v5.0.0                  -> v5.0.0
+2026-10-20T02:20:31.9381782Z  * [new tag]         v5.0.1                  -> v5.0.1
+2026-10-20T02:20:31.9382245Z  * [new tag]         v6.0.0                  -> v6.0.0
+2026-10-20T02:20:31.9382715Z  * [new tag]         v6.1.0                  -> v6.1.0
+2026-10-20T02:20:31.9383188Z  * [new tag]         v6.2.0                  -> v6.2.0
+2026-10-20T02:20:31.9383650Z  * [new tag]         v6.3.0                  -> v6.3.0
+2026-10-20T02:20:31.9384139Z  * [new tag]         v6.3.1                  -> v6.3.1
+2026-10-20T02:20:31.9384617Z  * [new tag]         v7.0.0                  -> v7.0.0
+2026-10-20T02:20:31.9385473Z  * [new tag]         v7.0.1                  -> v7.0.1
+2026-10-20T02:20:31.9385996Z  * [new tag]         v8.0.0                  -> v8.0.0
+2026-10-20T02:20:31.9386538Z  * [new tag]         v8.1.0                  -> v8.1.0
+2026-10-20T02:20:31.9387039Z  * [new tag]         v8.1.1                  -> v8.1.1
+2026-10-20T02:20:31.9387557Z  * [new tag]         v8.2.0                  -> v8.2.0
+2026-10-20T02:20:31.9388053Z  * [new tag]         v8.3.0                  -> v8.3.0
+2026-10-20T02:20:31.9388584Z  * [new tag]         v8.3.1                  -> v8.3.1
+2026-10-20T02:20:31.9389092Z  * [new tag]         v8.3.2                  -> v8.3.2
+2026-10-20T02:20:31.9401830Z [command]"C:\Program Files\Git\bin\git.exe" branch --list --remote origin/codex/html-learning-deferral-fixes
+2026-10-20T02:20:31.9865397Z   origin/codex/html-learning-deferral-fixes
+2026-10-20T02:20:31.9904367Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse refs/remotes/origin/codex/html-learning-deferral-fixes
+2026-10-20T02:20:32.0311077Z 470970b5a8d40c25b8edefc6992377624f7f45d6
+2026-10-20T02:20:32.0339762Z ##[endgroup]
+2026-10-20T02:20:32.0340464Z ##[group]Determining the checkout info
+2026-10-20T02:20:32.0341447Z ##[endgroup]
+2026-10-20T02:20:32.0350457Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-10-20T02:20:32.0878475Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-10-20T02:20:32.1255983Z ##[group]Checking out the ref
+2026-10-20T02:20:32.1264611Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B codex/html-learning-deferral-fixes refs/remotes/origin/codex/html-learning-deferral-fixes
+2026-10-20T02:20:33.2678593Z Updating files:  38% (3193/8400)
+2026-10-20T02:20:33.2870570Z Updating files:  39% (3276/8400)
+2026-10-20T02:20:33.3072531Z Updating files:  40% (3360/8400)
+2026-10-20T02:20:33.3270874Z Updating files:  41% (3444/8400)
+2026-10-20T02:20:33.3499116Z Updating files:  42% (3528/8400)
+2026-10-20T02:20:33.3767256Z Updating files:  43% (3612/8400)
+2026-10-20T02:20:33.4152294Z Updating files:  44% (3696/8400)
+2026-10-20T02:20:33.4401053Z Updating files:  45% (3780/8400)
+2026-10-20T02:20:33.4720875Z Updating files:  46% (3864/8400)
+2026-10-20T02:20:33.4961025Z Updating files:  47% (3948/8400)
+2026-10-20T02:20:33.5197791Z Updating files:  48% (4032/8400)
+2026-10-20T02:20:33.5435599Z Updating files:  49% (4116/8400)
+2026-10-20T02:20:33.5675129Z Updating files:  50% (4200/8400)
+2026-10-20T02:20:33.5902910Z Updating files:  51% (4284/8400)
+2026-10-20T02:20:33.6135612Z Updating files:  52% (4368/8400)
+2026-10-20T02:20:33.6357995Z Updating files:  53% (4452/8400)
+2026-10-20T02:20:33.6597947Z Updating files:  54% (4536/8400)
+2026-10-20T02:20:33.6852372Z Updating files:  55% (4620/8400)
+2026-10-20T02:20:33.7115320Z Updating files:  56% (4704/8400)
+2026-10-20T02:20:33.7358694Z Updating files:  57% (4788/8400)
+2026-10-20T02:20:33.7590979Z Updating files:  58% (4872/8400)
+2026-10-20T02:20:33.7811634Z Updating files:  59% (4956/8400)
+2026-10-20T02:20:33.8074688Z Updating files:  60% (5040/8400)
+2026-10-20T02:20:33.8280865Z Updating files:  61% (5124/8400)
+2026-10-20T02:20:33.8525702Z Updating files:  62% (5208/8400)
+2026-10-20T02:20:33.8800597Z Updating files:  63% (5292/8400)
+2026-10-20T02:20:33.9060255Z Updating files:  64% (5376/8400)
+2026-10-20T02:20:33.9354127Z Updating files:  65% (5460/8400)
+2026-10-20T02:20:34.1460790Z Updating files:  66% (5544/8400)
+2026-10-20T02:20:34.1995766Z Updating files:  67% (5628/8400)
+2026-10-20T02:20:34.3696298Z Updating files:  67% (5648/8400)
+2026-10-20T02:20:34.5883355Z Updating files:  68% (5712/8400)
+2026-10-20T02:20:34.7591621Z Updating files:  69% (5796/8400)
+2026-10-20T02:20:34.9475721Z Updating files:  70% (5880/8400)
+2026-10-20T02:20:34.9969218Z Updating files:  71% (5964/8400)
+2026-10-20T02:20:35.0401471Z Updating files:  72% (6048/8400)
+2026-10-20T02:20:35.0687644Z Updating files:  73% (6132/8400)
+2026-10-20T02:20:35.1012778Z Updating files:  74% (6216/8400)
+2026-10-20T02:20:35.1242220Z Updating files:  75% (6300/8400)
+2026-10-20T02:20:35.1676787Z Updating files:  76% (6384/8400)
+2026-10-20T02:20:35.1957446Z Updating files:  77% (6468/8400)
+2026-10-20T02:20:35.1982124Z ##[error]fatal: cannot create directory at 'plans/274-html-learning-artifact/evidence/sources/postmerge/deferral-recovery-20261020/baseline-visual/run01/published-installation/plugins/html-guide-kit/skills/site/examples/representative/sources': Filename too long
+2026-10-20T02:20:35.2135479Z ##[error]The process 'C:\Program Files\Git\bin\git.exe' failed with exit code 128
+2026-10-20T02:20:35.2586126Z Post job cleanup.
+2026-10-20T02:20:35.4556465Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-10-20T02:20:35.4903437Z git version 2.56.0.windows.2
+2026-10-20T02:20:35.4972574Z Temporarily overriding HOME='D:\a\_temp\9edd090e-dfea-400e-afcf-04b31b2c4772' before making global git config changes
+2026-10-20T02:20:35.4973828Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-20T02:20:35.4983833Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\mj-agentlab-marketplace\mj-agentlab-marketplace
+2026-10-20T02:20:35.5356432Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-20T02:20:35.5725397Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-20T02:20:36.1813980Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-20T02:20:36.2164283Z http.https://github.com/.extraheader
+2026-10-20T02:20:36.2212105Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2026-10-20T02:20:36.2595258Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-20T02:20:36.8298152Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-20T02:20:36.8663522Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-20T02:20:37.4366803Z Cleaning up orphan processes
+2026-10-20T02:20:37.4398784Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

@@ -1,0 +1,114 @@
+{
+  "id": "CI283-WIN-CHECKOUT-PATH",
+  "priority": "P1",
+  "status": "ROOT_CAUSE_CONFIRMED; relocation bounds/byte review passes; fresh CI pending",
+  "trigger": "Checkout PR283 merge ref or push470 on actual GitHub windows-latest workspace",
+  "observed": [
+    {
+      "run": 39358395215,
+      "job": "118418497208",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "failure",
+      "rawLog": "job-118418497208-logs.stdout.raw",
+      "rawLogSha256": "68399a493c1c417bca93bec31498f7b2b3735da3a60edd68d852aec7c847854d",
+      "line": 209,
+      "message": "2026-10-20T02:21:01.4983816Z ##[error]fatal: cannot create directory at 'plans/274-html-learning-artifact/evidence/sources/postmerge/deferral-recovery-20261020/baseline-visual/run01/published-installation/plugins/html-guide-kit/skills/site/examples/representative/sources': Filename too long",
+      "nextLine": "2026-10-20T02:21:01.5171764Z ##[error]The process 'C:\\Program Files\\Git\\bin\\git.exe' failed with exit code 128",
+      "skippedSteps": [
+        {
+          "number": 3,
+          "name": "Run actions/setup-node@v4"
+        },
+        {
+          "number": 4,
+          "name": "Run actions/setup-python@v5"
+        },
+        {
+          "number": 5,
+          "name": "Run npm ci"
+        },
+        {
+          "number": 6,
+          "name": "Run npm install -g @openai/codex@0.147.0"
+        },
+        {
+          "number": 7,
+          "name": "Unit and real Python execution tests"
+        },
+        {
+          "number": 8,
+          "name": "Run npm run validate"
+        },
+        {
+          "number": 9,
+          "name": "Run npm run check:baseline-tools"
+        },
+        {
+          "number": 10,
+          "name": "Run npm run smoke:codex"
+        }
+      ]
+    },
+    {
+      "run": 39358343154,
+      "job": "118418376987",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "failure",
+      "rawLog": "job-118418376987-logs.stdout.raw",
+      "rawLogSha256": "b5e75d7cc5f620b4dd06eedfd591e2f6823a037f9f50aa78fc8e9ea636379a47",
+      "line": 209,
+      "message": "2026-10-20T02:20:35.1982124Z ##[error]fatal: cannot create directory at 'plans/274-html-learning-artifact/evidence/sources/postmerge/deferral-recovery-20261020/baseline-visual/run01/published-installation/plugins/html-guide-kit/skills/site/examples/representative/sources': Filename too long",
+      "nextLine": "2026-10-20T02:20:35.2135479Z ##[error]The process 'C:\\Program Files\\Git\\bin\\git.exe' failed with exit code 128",
+      "skippedSteps": [
+        {
+          "number": 3,
+          "name": "Run actions/setup-node@v4"
+        },
+        {
+          "number": 4,
+          "name": "Run actions/setup-python@v5"
+        },
+        {
+          "number": 5,
+          "name": "Run npm ci"
+        },
+        {
+          "number": 6,
+          "name": "Run npm install -g @openai/codex@0.147.0"
+        },
+        {
+          "number": 7,
+          "name": "Unit and real Python execution tests"
+        },
+        {
+          "number": 8,
+          "name": "Run npm run validate"
+        },
+        {
+          "number": 9,
+          "name": "Run npm run check:baseline-tools"
+        },
+        {
+          "number": 10,
+          "name": "Run npm run smoke:codex"
+        }
+      ]
+    }
+  ],
+  "source": "plans/274-html-learning-artifact/evidence/sources/postmerge/deferral-recovery-20261020/baseline-visual/run01/published-installation/plugins/html-guide-kit/skills/site/examples/representative/sources",
+  "repair": {
+    "change": "Only evidence-root component deferral-recovery-20261020 to dr274; retain inner structure and an explicit old/new Git-path relocation map.",
+    "files": 424,
+    "allGitBlobAndBytesIdentical": true,
+    "oldRootAbsent": true,
+    "newRootPresent": true,
+    "original1417BindingsUnchanged": true,
+    "existing1841BindingsOnlyExpectedPathRewrite": true,
+    "reportOldLinks": 0,
+    "reportNewLinks": 15,
+    "runtimeWorkflowDiffBytes": 0,
+    "additionalNewRelocationBindings": 2
+  }
+}

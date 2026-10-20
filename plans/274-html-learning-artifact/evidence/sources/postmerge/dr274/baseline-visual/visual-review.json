@@ -1,0 +1,48 @@
+{
+  "reviewer": "/root/spec_review",
+  "reviewedAt": "2026-10-20T01:46:17.052Z",
+  "actuallyViewed": [
+    {
+      "file": "run01/screenshots/keyboard-skip-focus.png",
+      "sha256": "2a7cf928c98d4a6336c50fdd1e24834ead45201cc14879909d70da6895d30794"
+    },
+    {
+      "file": "run01/screenshots/viewport-320x740-full.png",
+      "sha256": "7350b81dceee78efe9d26343bab97458632194448e0a3b0f1b2437c6b6430e65"
+    },
+    {
+      "file": "run01/screenshots/text-200-percent-683-full.png",
+      "sha256": "5222b604c87ec6f5a9b60e5fedc7d3e03ce5657e1554abba44c191700123314b"
+    },
+    {
+      "file": "run01/screenshots/copy-denied-focus.png",
+      "sha256": "365783848420293d51a617faff0b2bdb24bcbeb9f74ef9d55acbc980bb494bbe"
+    },
+    {
+      "file": "run02/screenshots/blank-reflection-boundary-desktop.png",
+      "sha256": "d8ad078bb420fa5e242d26fae32c8f63f1a3839c6c59a431e8c5fb7233e01445"
+    },
+    {
+      "file": "run02/screenshots/blank-reflection-boundary-320.png",
+      "sha256": "9adc93c80602d910ed7cd7d79e6aa8ebec5e43590e748ed2b444e6d383112753"
+    },
+    {
+      "file": "run02/screenshots/text200-reflection-viewport.png",
+      "sha256": "c3b6b67d5d9b720f1a7946365bb6b65bed92a452025f30ad96d1fe01226675ef"
+    },
+    {
+      "file": "run02/screenshots/keyboard-changed-answer-focus.png",
+      "sha256": "d5746f30a946a34b09ddc379f653417701e381f9564a96c715fb58dc625e2fa6"
+    }
+  ],
+  "judgments": [
+    "Visible keyboard focus on skip link and selected native radio is clear in inspected desktop captures.",
+    "320px structure and 200% text-size sampled viewport retain readable controls and vertical flow; very tall full-page captures are not evidence of every glyph/state reviewed.",
+    "Manual-copy fallback selects the export text, shows a distinct failure message and exposes an explicit return control; the actual screenshots support the focus/result record.",
+    "Empty editable Reflection boundary is subtly differentiated from paper and has measured below3:1 contrast; this is the reported local finding."
+  ],
+  "limits": [
+    "Eight listed images were actually inspected; other generated screenshots support measured geometry but are not claimed exhaustively visually reviewed.",
+    "No real screen-reader utterance, native desktop UI, touch user session, second client or complete visual/accessibility matrix."
+  ]
+}

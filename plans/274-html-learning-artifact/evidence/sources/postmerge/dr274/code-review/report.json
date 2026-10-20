@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "executedAt": "2026-10-20T02:08:26.137Z",
+  "reviewer": "/root/deferral_code_review",
+  "role": "Independent code reviewer",
+  "status": "PASS_LIMITED",
+  "base": "908d29537a19ceca166e8f3c7cddef4d419781a4",
+  "head": "908d29537a19ceca166e8f3c7cddef4d419781a4",
+  "versions": {
+    "htmlCandidate": "0.1.38 unreleased",
+    "marketplace": "8.3.3 unreleased",
+    "publicMarketplace": "8.3.2",
+    "publicHTML": "0.1.37"
+  },
+  "standards": {
+    "openFindings": [],
+    "judgmentSmells": [],
+    "result": "No unresolved documented-standard breach found in the reviewed diff. Read/write isolation and first-write sequencing were independently exercised."
+  },
+  "spec": {
+    "openFindings": [],
+    "resolved": [
+      {
+        "id": "R2-F01",
+        "original": "Renderer lower-case key differed from checker casefold for Licenſes/... input.",
+        "repair": "Both now use upper-then-lower reserved keys.",
+        "retest": "Long-s and dotless-i paths reject before output; original evidence retained."
+      },
+      {
+        "id": "R2-F02",
+        "original": "Windows trailing-dot material components reached generation and produced checker/path inconsistencies.",
+        "repair": "Both paths reject every component ending in a dot or ASCII space.",
+        "retest": "Five trailing-dot/space paths reject before output; original evidence retained."
+      }
+    ],
+    "closedObservation": {
+      "id": "R2-O01",
+      "result": "Generic checker scope is explicitly documented and regression tested. A consistently edited manifest can still PASS; the result is not source/license authenticity. Renderer and installer byte preservation are independently verified."
+    }
+  },
+  "verification": {
+    "normal": {
+      "status": "PASS",
+      "files": 10,
+      "manifestEntries": 9,
+      "allReadsBeforeFirstWrite": true,
+      "sourceInputUnchanged": true,
+      "installedUnchanged": true,
+      "mitBytesEqual": true,
+      "apacheBytesEqual": true,
+      "noticeTailEqual": true
+    },
+    "installedMissingAssets": [
+      {
+        "path": "LICENSE",
+        "rejected": true,
+        "outputAbsent": true
+      },
+      {
+        "path": "THIRD_PARTY_NOTICES.md",
+        "rejected": true,
+        "outputAbsent": true
+      },
+      {
+        "path": "licenses/Apache-2.0.txt",
+        "rejected": true,
+        "outputAbsent": true
+      }
+    ],
+    "fixedOriginalAndExtendedAliases": {
+      "cases": 9,
+      "allRejectedBeforeOutput": true
+    },
+    "targetedCurrentTests": {
+      "exitCode": 0,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "log": "fixed-targeted-test.stdout.log"
+    },
+    "installer": {
+      "missingAndDriftCases": 6,
+      "allRejected": true,
+      "validatorHashUnchanged": true
+    },
+    "initialEvidenceUnchanged": true,
+    "fixedSourceHashUnchangedDuringProbes": true,
+    "currentSourceChangesSinceFixedCapture": []
+  },
+  "documentation": "Current top-level scope/version/acceptance/deferral claims reviewed; exact excerpts and hashes in doc-top-review.json. No unresolved claim conflict found in this review scope.",
+  "testEngineering": "Tests protect real full-package/asset-delivery boundaries using installed copies, raw bytes, real Python, negative first-write checks and portable path cases. They do not claim a legal ruling or independent provenance authentication.",
+  "limits": [
+    "Review is bound to exact source file hashes and working diff, not a newly committed or merged SHA.",
+    "No broad npm suite, real canonical Marketplace installation, browser, native window or second-client run by this reviewer. Other agents retain their own evidence.",
+    "No general legal applicability ruling; independent-ideas status and research redistribution license UNKNOWN remain as recorded.",
+    "No understanding-effect measurement, Owner final/full-plan acceptance, or GitHub non-author approval is supplied by this review."
+  ]
+}

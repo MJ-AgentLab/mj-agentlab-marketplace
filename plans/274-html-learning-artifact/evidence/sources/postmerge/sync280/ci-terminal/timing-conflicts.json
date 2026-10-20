@@ -1,0 +1,99 @@
+{
+  "status": "CONFLICT_RECORDED",
+  "priorQueuedSnapshot": {
+    "capturedAt": "2026-10-19T15:42:29.786Z",
+    "frozenAt": "2026-10-19T15:43:03.918Z",
+    "runStatus": "queued",
+    "pushStatus": "queued",
+    "sources": [
+      "prior-queue-handoff.json",
+      "prior-capture-queue-handoff.json",
+      "prior-run-queue-handoff.json",
+      "prior-push-queue-handoff.json",
+      "prior-queue-manifest.json"
+    ]
+  },
+  "currentTerminalCapture": "capture-final-receipt.json",
+  "conflicts": [
+    {
+      "source": "PR",
+      "jobId": 118149991193,
+      "name": "Cancel proved superseded PR runs (best effort)",
+      "kind": "completedAt earlier than prior observed queued API snapshot",
+      "priorObservedQueuedAt": "2026-10-19T15:42:29.786Z",
+      "nowReturnedStartedAt": "2026-10-19T15:35:10Z",
+      "nowReturnedCompletedAt": "2026-10-19T15:37:09Z"
+    },
+    {
+      "source": "PR",
+      "jobId": 118149991325,
+      "name": "Baseline compat (ubuntu-latest)",
+      "kind": "completedAt earlier than prior observed queued API snapshot",
+      "priorObservedQueuedAt": "2026-10-19T15:42:29.786Z",
+      "nowReturnedStartedAt": "2026-10-19T15:35:05Z",
+      "nowReturnedCompletedAt": "2026-10-19T15:39:23Z"
+    },
+    {
+      "source": "PR",
+      "jobId": 118149991487,
+      "name": "Validate Structure",
+      "kind": "completedAt earlier than prior observed queued API snapshot",
+      "priorObservedQueuedAt": "2026-10-19T15:42:29.786Z",
+      "nowReturnedStartedAt": "2026-10-19T15:35:05Z",
+      "nowReturnedCompletedAt": "2026-10-19T15:36:57Z"
+    },
+    {
+      "source": "PR",
+      "jobId": 118157986307,
+      "name": "Prove equivalent PR matrix for this push (read only)",
+      "kind": "completedAt earlier than prior observed queued API snapshot",
+      "priorObservedQueuedAt": "2026-10-19T15:42:29.786Z",
+      "nowReturnedStartedAt": "2026-10-19T15:59:21Z",
+      "nowReturnedCompletedAt": "2026-10-19T15:35:02Z"
+    },
+    {
+      "source": "PR",
+      "jobId": 118157986307,
+      "name": "Prove equivalent PR matrix for this push (read only)",
+      "kind": "completedAt earlier than startedAt in current API fields",
+      "nowReturnedStartedAt": "2026-10-19T15:59:21Z",
+      "nowReturnedCompletedAt": "2026-10-19T15:35:02Z"
+    },
+    {
+      "source": "push",
+      "jobId": 118149826763,
+      "name": "Validate Structure",
+      "kind": "completedAt earlier than prior observed queued API snapshot",
+      "priorObservedQueuedAt": "2026-10-19T15:42:29.786Z",
+      "nowReturnedStartedAt": "2026-10-19T15:34:31Z",
+      "nowReturnedCompletedAt": "2026-10-19T15:34:57Z"
+    },
+    {
+      "source": "push",
+      "jobId": 118149827282,
+      "name": "Prove equivalent PR matrix for this push (read only)",
+      "kind": "completedAt earlier than prior observed queued API snapshot",
+      "priorObservedQueuedAt": "2026-10-19T15:42:29.786Z",
+      "nowReturnedStartedAt": "2026-10-19T15:34:32Z",
+      "nowReturnedCompletedAt": "2026-10-19T15:34:36Z"
+    },
+    {
+      "source": "push",
+      "jobId": 118157509731,
+      "name": "Cancel proved superseded PR runs (best effort)",
+      "kind": "completedAt earlier than prior observed queued API snapshot",
+      "priorObservedQueuedAt": "2026-10-19T15:42:29.786Z",
+      "nowReturnedStartedAt": "2026-10-19T15:57:53Z",
+      "nowReturnedCompletedAt": "2026-10-19T15:34:28Z"
+    },
+    {
+      "source": "push",
+      "jobId": 118157509731,
+      "name": "Cancel proved superseded PR runs (best effort)",
+      "kind": "completedAt earlier than startedAt in current API fields",
+      "nowReturnedStartedAt": "2026-10-19T15:57:53Z",
+      "nowReturnedCompletedAt": "2026-10-19T15:34:28Z"
+    }
+  ],
+  "interpretation": "Prior queued observations and their frozen queue diagnosis are preserved unchanged. Current API backfilled job times conflict with those actual earlier observations; at least one skipped helper also has completedAt before startedAt. These fields cannot reliably establish queue duration or actual start chronology. Cause UNDETERMINED; do not erase prior queue diagnosis or infer a trustworthy schedule from the backfill. Completed raw logs support the bounded execution counts, not a reconstructed queue history."
+}

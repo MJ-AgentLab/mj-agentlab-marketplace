@@ -1,0 +1,57 @@
+{
+  "generatedAtUtc": "2026-10-19T16:41:34.461Z",
+  "generatedAtTaipei": "2026-10-20 00:41:34 GMT+8",
+  "userDate": "2026-10-20",
+  "userTimezone": "Asia/Taipei",
+  "captureRangeFromResponseFileMtimeUtc": {
+    "start": "2026-10-19T16:39:03.634Z",
+    "end": "2026-10-19T16:40:31.903Z",
+    "limitation": "Local response-file write times, not exact Owner-message or server-response times."
+  },
+  "scope": "Independent read-only actual PR280 merge, ancestry, protection, publication and temporal-field audit. No Git writes/fetch/push, remote mutation, PR/release creation or merge, bypass or messages to other people.",
+  "calls": [
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/pulls/280",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/pulls/280/reviews",
+    "gh api 'repos/MJ-AgentLab/mj-agentlab-marketplace/rulesets/rule-suites?ref=refs/heads/develop&per_page=30'",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/rulesets/rule-suites/4603805882",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/branches/main",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/branches/develop",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/rules/branches/develop",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/ef85a2de6e39b1981d94d9d4cbc004fbdc71acee",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/535315f035a5b7a8082a263fedaf9a07aa67e9d7",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/compare/e3dc40f734fc972e05956da3e908091e09963675...4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/git/ref/tags/v8.3.2",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/releases/tags/v8.3.2",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/git/ref/tags/v8.3.3",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace/releases/tags/v8.3.3",
+    "gh api 'repos/MJ-AgentLab/mj-agentlab-marketplace/releases?per_page=30'",
+    "gh api repos/MJ-AgentLab/mj-agentlab-marketplace",
+    "gh pr view 280 --repo MJ-AgentLab/mj-agentlab-marketplace --json number,state,mergedAt,mergeCommit,headRefOid,baseRefOid,statusCheckRollup,reviews,reviewDecision",
+    "gh api 'repos/MJ-AgentLab/mj-agentlab-marketplace/commits/ef85a2de6e39b1981d94d9d4cbc004fbdc71acee/check-runs?per_page=100'",
+    "gh api 'repos/MJ-AgentLab/mj-agentlab-marketplace/contents/VERSION?ref=4d10a0677c745eccb2775f7ae6176f8e2b1d2387'",
+    "gh api 'repos/MJ-AgentLab/mj-agentlab-marketplace/contents/VERSION?ref=f906b1001a86d7b5415451bd973bea26e6cc3a1d'",
+    "gh api 'repos/MJ-AgentLab/mj-agentlab-marketplace/contents/CHANGELOG.md?ref=f906b1001a86d7b5415451bd973bea26e6cc3a1d'"
+  ],
+  "authentication": "Existing gh authentication only; no credentials requested, printed or saved.",
+  "governance": "Match exact develop ref/before/after rule-suite, then read original individual rule results; reviews[] is separate and is never a reason to invent a bypass. Actual merge and technical success do not supply the failed latest-push approval.",
+  "versionAbsence": "Expected read-only 404 tag/release lookup outputs and exit codes are saved separately, and the authenticated releases list also has no v8.3.3 entry. This is a visibility/time-bound observation, not a promise about future state. No next-version object was created.",
+  "timeAnomalies": "Two skipped helpers have completedAt earlier than startedAt in both GraphQL rollup and REST check-runs. Preserve original fields; do not turn them into a negative duration, execution proof, queue explanation, clock repair, or a retroactive change to earlier queued observations.",
+  "priorQueueReference": {
+    "manifestPath": "C:/Users/Admin/AppData/Local/Temp/html-learning-274-sync280-queue-audit/evidence-manifest.json",
+    "manifestSha256": "880b79df51aba31dc7140b8eb60656a74ccc1341ab2706c1f1ae5a9eb2ab425c",
+    "summaryPath": "C:/Users/Admin/AppData/Local/Temp/html-learning-274-sync280-queue-audit/summary.json",
+    "summarySha256": "368dda7987d44efe63e5a2c6a945ba1e86b11f1345a4d730de6a3a1df6440ba8",
+    "result": "OBSERVATION_ONLY_PENDING",
+    "cause": "UNKNOWN",
+    "capture": {
+      "start": "2026-10-19T15:39:20.629Z",
+      "end": "2026-10-19T15:41:39.635Z"
+    }
+  },
+  "limitations": [
+    "No fresh actual4d10 installation, Python operation, full test or client run performed by this audit.",
+    "Same-tree linkage to tested source/potential merge is not renamed as a new actual-merge execution.",
+    "Owner acceptance/understanding effect and future protected PR approval remain separate."
+  ]
+}

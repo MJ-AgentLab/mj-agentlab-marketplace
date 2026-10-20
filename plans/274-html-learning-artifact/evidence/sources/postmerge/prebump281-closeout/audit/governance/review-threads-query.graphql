@@ -1,0 +1,1 @@
+query($owner:String!,$name:String!,$number:Int!,$cursor:String){repository(owner:$owner,name:$name){pullRequest(number:$number){headRefOid baseRefOid reviewThreads(first:100,after:$cursor){totalCount nodes{id isResolved isOutdated path line} pageInfo{hasNextPage endCursor}}}}}

@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "reviewer": "/root/post_merge_verify",
+  "baselineCanonicalSha": "908d29537a19ceca166e8f3c7cddef4d419781a4",
+  "status": "DESIGN_COMPATIBLE_PENDING_IMPLEMENTATION",
+  "scope": "Engineering review of root's exact proposed three-file propagation; not a legal opinion or implemented-fix acceptance.",
+  "proposal": [
+    {"source": "plugins/html-guide-kit/LICENSE", "output": "LICENSE", "condition": "Preserve complete original bytes; apply to included original template/runtime contributions, not automatically to supplied learning materials."},
+    {"source": "plugins/html-guide-kit/licenses/Apache-2.0.txt", "output": "licenses/Apache-2.0.txt", "condition": "Preserve complete original bytes and upstream rights; no derivative-work legal classification inferred."},
+    {"source": "plugins/html-guide-kit/THIRD_PARTY_NOTICES.md", "output": "THIRD_PARTY_NOTICES.md", "condition": "Generated-scope prefix plus complete original notice as an exact recoverable byte tail. Prefix explains original plugin locators and separate material rights. Entire augmented output is hashed by manifest."}
+  ],
+  "necessaryEngineeringChecks": [
+    "All three generated output paths covered by manifest bytes/hash and strict resource checks.",
+    "Augmented notice endsWith complete original Buffer; do not claim whole output notice byte-equals original.",
+    "Reserved output collisions compare normalized lowercase paths, including case aliases and descendants.",
+    "Missing, modified and conflicting notice files fail closed; existing output remains unmodified.",
+    "New physical output is ten files for the representative input; historical seven-file artifacts remain seven and unchanged."
+  ],
+  "preservedBoundaries": [
+    "MIT copyright and permission condition is present at source LICENSE lines12–13.",
+    "Apache4(a)-(d) clauses are retained conservatively; actual derivative applicability is not decided here.",
+    "Fixed upstream repositories have no separately discovered NOTICE at their captured complete trees; no fictional upstream NOTICE is invented.",
+    "Research-rights and organization distribution authority remain UNKNOWN; propagation does not relabel them MIT/Apache.",
+    "Existing accepted private Site and historical generation/recovery originals are not changed by this design review."
+  ]
+}

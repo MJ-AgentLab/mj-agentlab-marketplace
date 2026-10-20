@@ -1,0 +1,905 @@
+{
+  "schemaVersion": 1,
+  "actor": "/root/spec_review",
+  "startedAt": "2026-10-20T01:41:52.217Z",
+  "runtimeCommit": "f906b1001a86d7b5415451bd973bea26e6cc3a1d",
+  "comparedActual": "908d29537a19ceca166e8f3c7cddef4d419781a4",
+  "cases": [
+    {
+      "id": "A01-published-runtime-seven-file-static-identity",
+      "status": "PASS",
+      "startedAt": "2026-10-20T01:41:54.292Z",
+      "completedAt": "2026-10-20T01:41:54.292Z",
+      "detail": {
+        "runtimeFiles": 20,
+        "allPublishedCurrentEqual": true,
+        "sevenGeneratedByteIdentical": true,
+        "static": {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        }
+      }
+    },
+    {
+      "id": "A02-keyboard-skip-link-and-visible-focus",
+      "status": "PASS",
+      "startedAt": "2026-10-20T01:41:54.293Z",
+      "completedAt": "2026-10-20T01:41:54.917Z",
+      "detail": {
+        "first": {
+          "tag": "A",
+          "id": "",
+          "type": "",
+          "name": null,
+          "text": "跳到正文",
+          "href": "#main",
+          "outlineStyle": "solid",
+          "outlineWidth": "3px",
+          "outlineColor": "rgb(147, 68, 44)",
+          "focusVisible": true,
+          "rect": {
+            "x": 16,
+            "y": 16,
+            "width": 96,
+            "height": 51.96875
+          },
+          "viewport": {
+            "width": 1366,
+            "height": 900
+          }
+        },
+        "afterSkipAndTab": {
+          "tag": "A",
+          "id": "",
+          "type": "",
+          "name": null,
+          "text": "下载材料 Markdown",
+          "href": "content.md",
+          "outlineStyle": "solid",
+          "outlineWidth": "3px",
+          "outlineColor": "rgb(147, 68, 44)",
+          "focusVisible": true,
+          "rect": {
+            "x": 241,
+            "y": 697.75,
+            "width": 143.828125,
+            "height": 21
+          },
+          "viewport": {
+            "width": 1366,
+            "height": 900
+          }
+        }
+      }
+    },
+    {
+      "id": "A03-keyboard-empty-answer-focus-and-live-state",
+      "status": "PASS",
+      "startedAt": "2026-10-20T01:41:54.917Z",
+      "completedAt": "2026-10-20T01:41:55.533Z",
+      "detail": {
+        "focus": {
+          "tag": "INPUT",
+          "id": "",
+          "type": "radio",
+          "name": "permission-check",
+          "text": "",
+          "href": null,
+          "outlineStyle": "solid",
+          "outlineWidth": "3px",
+          "outlineColor": "rgb(147, 68, 44)",
+          "focusVisible": true,
+          "rect": {
+            "x": 279.796875,
+            "y": 684.328125,
+            "width": 13,
+            "height": 13
+          },
+          "viewport": {
+            "width": 1366,
+            "height": 900
+          }
+        },
+        "feedback": "请先选择一个判断。未选择不算回答。",
+        "association": "feedback-permission-check",
+        "live": "polite",
+        "screenReaderOutput": "NOT_RUN"
+      }
+    },
+    {
+      "id": "A04-keyboard-radio-submit-change-invalidates",
+      "status": "FAIL",
+      "startedAt": "2026-10-20T01:41:55.533Z",
+      "completedAt": "2026-10-20T01:41:56.086Z",
+      "error": "locator.evaluate: Error: strict mode violation: locator('input[name=\"permission-check\"]') resolved to 2 elements:\n    1) <input value=\"0\" type=\"radio\" name=\"permission-check\" aria-describedby=\"feedback-permission-check\"/> aka getByRole('radio', { name: '允许，因为尚未逾期。' })\n    2) <input value=\"1\" type=\"radio\" name=\"permission-check\" aria-describedby=\"feedback-permission-check\"/> aka getByRole('radio', { name: '不允许，因为预约条件不满足。' })\n\nCall log:\n\u001b[2m  - waiting for locator('input[name=\"permission-check\"]')\u001b[22m\n\n    at tabUntil (C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-deferrals-accessibility\\accessibility-run-r1.mjs:50:98)\n    at C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-deferrals-accessibility\\accessibility-run-r1.mjs:55:89\n    at async step (C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-deferrals-accessibility\\accessibility-run-r1.mjs:22:78)\n    at async file:///C:/Users/Admin/AppData/Local/Temp/html-learning-274-deferrals-accessibility/accessibility-run-r1.mjs:55:2"
+    },
+    {
+      "id": "A05-keyboard-details-enter-space-and-return",
+      "status": "PASS",
+      "startedAt": "2026-10-20T01:41:56.087Z",
+      "completedAt": "2026-10-20T01:41:56.697Z",
+      "detail": {
+        "sourceLink": {
+          "tag": "A",
+          "id": "",
+          "type": "",
+          "name": null,
+          "text": "查看依据",
+          "href": "#source-renewal-rules",
+          "outlineStyle": "solid",
+          "outlineWidth": "3px",
+          "outlineColor": "rgb(147, 68, 44)",
+          "focusVisible": true,
+          "rect": {
+            "x": 283,
+            "y": 451.265625,
+            "width": 64,
+            "height": 21
+          },
+          "viewport": {
+            "width": 1366,
+            "height": 900
+          }
+        },
+        "returnFocus": {
+          "tag": "SUMMARY",
+          "id": "",
+          "type": null,
+          "name": null,
+          "text": "Reference Judgment · 查看参考判断",
+          "href": null,
+          "outlineStyle": "solid",
+          "outlineWidth": "3px",
+          "outlineColor": "rgb(147, 68, 44)",
+          "focusVisible": true,
+          "rect": {
+            "x": 283,
+            "y": 276.109375,
+            "width": 800,
+            "height": 42.375
+          },
+          "viewport": {
+            "width": 1366,
+            "height": 900
+          }
+        }
+      }
+    },
+    {
+      "id": "A06-keyboard-reset-clears-state-and-keeps-focus",
+      "status": "本次练习已重置。记录只在当前页面会话中。",
+      "startedAt": "2026-10-20T01:41:56.698Z",
+      "completedAt": "2026-10-20T01:41:57.378Z",
+      "detail": {
+        "focus": {
+          "tag": "BUTTON",
+          "id": "",
+          "type": "button",
+          "name": null,
+          "text": "重新开始",
+          "href": null,
+          "outlineStyle": "solid",
+          "outlineWidth": "3px",
+          "outlineColor": "rgb(147, 68, 44)",
+          "focusVisible": true,
+          "rect": {
+            "x": 550.8125,
+            "y": 438.21875,
+            "width": 98,
+            "height": 47.59375
+          },
+          "viewport": {
+            "width": 1366,
+            "height": 900
+          }
+        },
+        "summary": "当前已核对 0 / 3 题；修改后需重新核对。",
+        "status": "本次练习已重置。记录只在当前页面会话中。"
+      }
+    },
+    {
+      "id": "A07-copy-rejection-Escape-focus-recovery",
+      "status": "PASS",
+      "startedAt": "2026-10-20T01:41:57.378Z",
+      "completedAt": "2026-10-20T01:41:58.050Z",
+      "detail": {
+        "injection": "navigator.clipboard.writeText rejects NotAllowedError; OS clipboard untouched",
+        "selected": {
+          "start": 0,
+          "end": 1192,
+          "length": 1192
+        },
+        "error": "自动复制未成功。已选中导出文字，请手动复制；完成或取消后可按 Escape，或用返回复制按钮离开。",
+        "recovered": "已返回复制按钮；手动复制是否完成未作确认。",
+        "focus": {
+          "tag": "BUTTON",
+          "id": "",
+          "type": "button",
+          "name": null,
+          "text": "复制记录",
+          "href": null,
+          "outlineStyle": "solid",
+          "outlineWidth": "3px",
+          "outlineColor": "rgb(147, 68, 44)",
+          "focusVisible": true,
+          "rect": {
+            "x": 351.796875,
+            "y": 437.875,
+            "width": 98,
+            "height": 47.59375
+          },
+          "viewport": {
+            "width": 1366,
+            "height": 900
+          }
+        }
+      }
+    },
+    {
+      "id": "A08-missing-clipboard-Tab-button-recovery",
+      "status": "已返回复制按钮；手动复制是否完成未作确认。",
+      "startedAt": "2026-10-20T01:41:58.050Z",
+      "completedAt": "2026-10-20T01:41:58.663Z",
+      "detail": {
+        "injection": "API absent; no OS clipboard access",
+        "status": "已返回复制按钮；手动复制是否完成未作确认。",
+        "focus": {
+          "tag": "BUTTON",
+          "id": "",
+          "type": "button",
+          "name": null,
+          "text": "复制记录",
+          "href": null,
+          "outlineStyle": "solid",
+          "outlineWidth": "3px",
+          "outlineColor": "rgb(147, 68, 44)",
+          "focusVisible": true,
+          "rect": {
+            "x": 351.796875,
+            "y": 437.875,
+            "width": 98,
+            "height": 47.59375
+          },
+          "viewport": {
+            "width": 1366,
+            "height": 900
+          }
+        }
+      }
+    },
+    {
+      "id": "A09-stale-copy-resolution-does-not-confirm-new-state",
+      "status": "回答或核对记录已改变，请重新生成记录。",
+      "startedAt": "2026-10-20T01:41:58.663Z",
+      "completedAt": "2026-10-20T01:41:59.353Z",
+      "detail": {
+        "injection": "Deferred resolution under controlled browser API; no real clipboard write",
+        "status": "回答或核对记录已改变，请重新生成记录。"
+      }
+    },
+    {
+      "id": "A10-keyboard-download-current-state",
+      "status": "PASS",
+      "startedAt": "2026-10-20T01:41:59.353Z",
+      "completedAt": "2026-10-20T01:42:00.014Z",
+      "detail": {
+        "file": "learning-record.md",
+        "bytes": 2388,
+        "focus": {
+          "tag": "A",
+          "id": "",
+          "type": "",
+          "name": null,
+          "text": "下载记录",
+          "href": "blob:http://127.0.0.1:51586/f28b79d6-2810-409b-b794-8295c1eb4469",
+          "outlineStyle": "solid",
+          "outlineWidth": "3px",
+          "outlineColor": "rgb(147, 68, 44)",
+          "focusVisible": true,
+          "rect": {
+            "x": 462.59375,
+            "y": 679.875,
+            "width": 64,
+            "height": 29.59375
+          },
+          "viewport": {
+            "width": 1366,
+            "height": 900
+          }
+        }
+      }
+    },
+    {
+      "id": "A11-responsive-expanded-and-export-state",
+      "status": "PASS",
+      "startedAt": "2026-10-20T01:42:00.015Z",
+      "completedAt": "2026-10-20T01:42:01.303Z",
+      "detail": [
+        {
+          "viewport": {
+            "width": 320,
+            "height": 740
+          },
+          "geometry": {
+            "innerWidth": 320,
+            "innerHeight": 740,
+            "scrollWidth": 320,
+            "clientWidth": 320,
+            "horizontalOverflow": false,
+            "severeClipCandidates": []
+          },
+          "keyboardFocus": {
+            "tag": "BUTTON",
+            "id": "",
+            "type": "submit",
+            "name": null,
+            "text": "核对判断",
+            "href": null,
+            "outlineStyle": "none",
+            "outlineWidth": "3px",
+            "outlineColor": "rgb(255, 255, 255)",
+            "focusVisible": false,
+            "rect": {
+              "x": 36.1875,
+              "y": 358.359375,
+              "width": 98,
+              "height": 47.59375
+            },
+            "viewport": {
+              "width": 320,
+              "height": 740
+            }
+          }
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "geometry": {
+            "innerWidth": 390,
+            "innerHeight": 844,
+            "scrollWidth": 390,
+            "clientWidth": 390,
+            "horizontalOverflow": false,
+            "severeClipCandidates": []
+          },
+          "keyboardFocus": {
+            "tag": "BUTTON",
+            "id": "",
+            "type": "submit",
+            "name": null,
+            "text": "核对判断",
+            "href": null,
+            "outlineStyle": "none",
+            "outlineWidth": "3px",
+            "outlineColor": "rgb(255, 255, 255)",
+            "focusVisible": false,
+            "rect": {
+              "x": 36.1875,
+              "y": -1030.953125,
+              "width": 98,
+              "height": 47.59375
+            },
+            "viewport": {
+              "width": 390,
+              "height": 844
+            }
+          }
+        },
+        {
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "geometry": {
+            "innerWidth": 768,
+            "innerHeight": 1024,
+            "scrollWidth": 768,
+            "clientWidth": 768,
+            "horizontalOverflow": false,
+            "severeClipCandidates": []
+          },
+          "keyboardFocus": {
+            "tag": "BUTTON",
+            "id": "",
+            "type": "submit",
+            "name": null,
+            "text": "核对判断",
+            "href": null,
+            "outlineStyle": "none",
+            "outlineWidth": "3px",
+            "outlineColor": "rgb(255, 255, 255)",
+            "focusVisible": false,
+            "rect": {
+              "x": 73,
+              "y": -691.890625,
+              "width": 98,
+              "height": 47.59375
+            },
+            "viewport": {
+              "width": 768,
+              "height": 1024
+            }
+          }
+        },
+        {
+          "viewport": {
+            "width": 1366,
+            "height": 900
+          },
+          "geometry": {
+            "innerWidth": 1366,
+            "innerHeight": 900,
+            "scrollWidth": 1366,
+            "clientWidth": 1366,
+            "horizontalOverflow": false,
+            "severeClipCandidates": []
+          },
+          "keyboardFocus": {
+            "tag": "BUTTON",
+            "id": "",
+            "type": "submit",
+            "name": null,
+            "text": "核对判断",
+            "href": null,
+            "outlineStyle": "none",
+            "outlineWidth": "3px",
+            "outlineColor": "rgb(255, 255, 255)",
+            "focusVisible": false,
+            "rect": {
+              "x": 266,
+              "y": -644.140625,
+              "width": 98,
+              "height": 47.59375
+            },
+            "viewport": {
+              "width": 1366,
+              "height": 900
+            }
+          }
+        },
+        {
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "geometry": {
+            "innerWidth": 1920,
+            "innerHeight": 1080,
+            "scrollWidth": 1920,
+            "clientWidth": 1920,
+            "horizontalOverflow": false,
+            "severeClipCandidates": []
+          },
+          "keyboardFocus": {
+            "tag": "BUTTON",
+            "id": "",
+            "type": "submit",
+            "name": null,
+            "text": "核对判断",
+            "href": null,
+            "outlineStyle": "none",
+            "outlineWidth": "3px",
+            "outlineColor": "rgb(255, 255, 255)",
+            "focusVisible": false,
+            "rect": {
+              "x": 543,
+              "y": -636.140625,
+              "width": 98,
+              "height": 47.59375
+            },
+            "viewport": {
+              "width": 1920,
+              "height": 1080
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "A12-reduced-motion-computed-state",
+      "status": "PASS",
+      "startedAt": "2026-10-20T01:42:01.303Z",
+      "completedAt": "2026-10-20T01:42:01.879Z",
+      "detail": {
+        "requested": true,
+        "elements": [],
+        "scope": "Computed reduced-motion path only; template has no meaningful ongoing animation to compare."
+      }
+    },
+    {
+      "id": "A13-browser-UI-zoom-capability-probe",
+      "status": "NOT_RUN",
+      "startedAt": "2026-10-20T01:42:01.879Z",
+      "completedAt": "2026-10-20T01:42:02.425Z",
+      "detail": {
+        "status": "NOT_RUN",
+        "before": {
+          "width": 1366,
+          "height": 900,
+          "dpr": 1,
+          "visualScale": 1,
+          "font": "16px"
+        },
+        "after": {
+          "width": 1366,
+          "height": 900,
+          "dpr": 1,
+          "visualScale": 1,
+          "font": "16px"
+        },
+        "limit": "Browser UI accelerators may not operate in headless. No native browser zoom PASS inferred from unchanged metrics."
+      }
+    },
+    {
+      "id": "A14-renderer-visual-scale-two-not-native-zoom",
+      "status": "PASS",
+      "startedAt": "2026-10-20T01:42:02.425Z",
+      "completedAt": "2026-10-20T01:42:03.002Z",
+      "detail": {
+        "scale": 2,
+        "width": 683,
+        "layoutWidth": 1366,
+        "scope": "Actual renderer visual-viewport scaling, equivalent to pinch-style magnification; does not certify browser UI200% zoom/reflow."
+      }
+    },
+    {
+      "id": "A15-two-hundred-percent-text-resize-reflow",
+      "status": "PASS",
+      "startedAt": "2026-10-20T01:42:03.002Z",
+      "completedAt": "2026-10-20T01:42:03.909Z",
+      "detail": {
+        "bodyFontSize": "32px",
+        "geometry": {
+          "innerWidth": 683,
+          "innerHeight": 900,
+          "scrollWidth": 683,
+          "clientWidth": 683,
+          "horizontalOverflow": false,
+          "severeClipCandidates": []
+        },
+        "scope": "Synthetic root text-size200% at683CSSpx; named separately from browser UI zoom."
+      }
+    },
+    {
+      "id": "A16-semantic-accessibility-tree-and-local-contrast",
+      "status": "RISK",
+      "startedAt": "2026-10-20T01:42:03.909Z",
+      "completedAt": "2026-10-20T01:42:04.476Z",
+      "detail": {
+        "status": "RISK",
+        "axNodes": 410,
+        "controlNames": [
+          {
+            "role": "button",
+            "name": "重新开始"
+          },
+          {
+            "role": "textbox",
+            "name": "写下你的解释、应用判断或待核对问题"
+          },
+          {
+            "role": "button",
+            "name": "生成记录"
+          },
+          {
+            "role": "button",
+            "name": "复制记录"
+          },
+          {
+            "role": "textbox",
+            "name": "本次记录，可手动复制"
+          },
+          {
+            "role": "button",
+            "name": "核对判断"
+          },
+          {
+            "role": "button",
+            "name": "核对判断"
+          },
+          {
+            "role": "button",
+            "name": "核对判断"
+          },
+          {
+            "role": "radio",
+            "name": "允许，因为尚未逾期。"
+          },
+          {
+            "role": "radio",
+            "name": "不允许，因为预约条件不满足。"
+          },
+          {
+            "role": "radio",
+            "name": "成功后为 2026-11-05；失败时仍为 2026-10-29。"
+          },
+          {
+            "role": "radio",
+            "name": "成功和失败后都为 2026-11-05。"
+          },
+          {
+            "role": "radio",
+            "name": "已完成，因为已点击申请。"
+          },
+          {
+            "role": "radio",
+            "name": "已提交，结果尚不能确认；也不能据此断定失败。"
+          }
+        ],
+        "contrast": [
+          {
+            "selector": "body",
+            "color": "rgb(66, 66, 60)",
+            "background": "rgb(250, 249, 245)",
+            "borderColor": "rgb(66, 66, 60)",
+            "outlineColor": "rgb(66, 66, 60)",
+            "fontSize": "16px",
+            "textContrast": 9.601064895607356,
+            "borderContrast": 9.601064895607356
+          },
+          {
+            "selector": "a",
+            "color": "rgb(147, 68, 44)",
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(147, 68, 44)",
+            "outlineColor": "rgb(147, 68, 44)",
+            "fontSize": "16px",
+            "textContrast": 6.765839914738466,
+            "borderContrast": 6.765839914738466
+          },
+          {
+            "selector": ".eyebrow",
+            "color": "rgb(147, 68, 44)",
+            "background": "rgb(250, 249, 245)",
+            "borderColor": "rgb(147, 68, 44)",
+            "outlineColor": "rgb(147, 68, 44)",
+            "fontSize": "12.8px",
+            "textContrast": 6.422259562173323,
+            "borderContrast": 6.422259562173323
+          },
+          {
+            "selector": "button",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgb(147, 68, 44)",
+            "borderColor": "rgb(147, 68, 44)",
+            "outlineColor": "rgb(255, 255, 255)",
+            "fontSize": "16px",
+            "textContrast": 6.765839914738466,
+            "borderContrast": 1
+          },
+          {
+            "selector": "textarea",
+            "color": "rgb(37, 37, 33)",
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(171, 164, 146)",
+            "outlineColor": "rgb(37, 37, 33)",
+            "fontSize": "16px",
+            "textContrast": 15.381784916125373,
+            "borderContrast": 2.483198873838037
+          },
+          {
+            "selector": ".option",
+            "color": "rgb(66, 66, 60)",
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(214, 209, 197)",
+            "outlineColor": "rgb(66, 66, 60)",
+            "fontSize": "16px",
+            "textContrast": 10.114706119525326,
+            "borderContrast": 1.5233223357165897
+          }
+        ],
+        "possibleIssue": "Inactive textarea boundary is below3:1 against white; sampled non-text UI contrast risk, not a complete WCAG determination."
+      }
+    }
+  ],
+  "limitations": [
+    "Headless local Chromium engineering evidence only; no model, native desktop question window, second client, real assistive-technology session, public-site change or full WCAG claim.",
+    "Fresh isolated browser only, loopback random port; ambient8765 and existing browser pages are never contacted.",
+    "Clipboard recovery fault injection never writes the OS clipboard. Native successful copy evidence from the old frozen consumer is not relabeled a new run.",
+    "Zoom UI accelerator capability, renderer visual scaling and synthetic 200% text resizing are reported separately.",
+    "Understanding effects remain NOT_MEASURED; bounded core Owner acceptance does not accept these deferred checks automatically."
+  ],
+  "origin": "http://127.0.0.1:51586",
+  "portSelection": "OS assigned ephemeral port; server binds loopback only",
+  "browserVersion": "155.0.8059.80",
+  "browserExecutable": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+  "nodeVersion": "v22.18.0",
+  "pageErrors": [],
+  "consoleErrors": [],
+  "externalRequests": [],
+  "requests": [
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/theme.css",
+      "status": 200
+    },
+    {
+      "path": "/learning.js",
+      "status": 200
+    },
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/theme.css",
+      "status": 200
+    },
+    {
+      "path": "/learning.js",
+      "status": 200
+    },
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/theme.css",
+      "status": 200
+    },
+    {
+      "path": "/learning.js",
+      "status": 200
+    },
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/theme.css",
+      "status": 200
+    },
+    {
+      "path": "/learning.js",
+      "status": 200
+    },
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/theme.css",
+      "status": 200
+    },
+    {
+      "path": "/learning.js",
+      "status": 200
+    },
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/theme.css",
+      "status": 200
+    },
+    {
+      "path": "/learning.js",
+      "status": 200
+    },
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/theme.css",
+      "status": 200
+    },
+    {
+      "path": "/learning.js",
+      "status": 200
+    },
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/theme.css",
+      "status": 200
+    },
+    {
+      "path": "/learning.js",
+      "status": 200
+    },
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/theme.css",
+      "status": 200
+    },
+    {
+      "path": "/learning.js",
+      "status": 200
+    },
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/theme.css",
+      "status": 200
+    },
+    {
+      "path": "/learning.js",
+      "status": 200
+    },
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/theme.css",
+      "status": 200
+    },
+    {
+      "path": "/learning.js",
+      "status": 200
+    },
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/theme.css",
+      "status": 200
+    },
+    {
+      "path": "/learning.js",
+      "status": 200
+    },
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/theme.css",
+      "status": 200
+    },
+    {
+      "path": "/learning.js",
+      "status": 200
+    },
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/theme.css",
+      "status": 200
+    },
+    {
+      "path": "/learning.js",
+      "status": 200
+    },
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/theme.css",
+      "status": 200
+    },
+    {
+      "path": "/learning.js",
+      "status": 200
+    }
+  ],
+  "completedAt": "2026-10-20T01:42:04.476Z",
+  "status": "FAIL",
+  "cleanup": {
+    "browserClosed": true,
+    "serverClosed": true,
+    "artifactFilesUntouched": true,
+    "ambient8765Untouched": true,
+    "osClipboardUntouched": true
+  }
+}

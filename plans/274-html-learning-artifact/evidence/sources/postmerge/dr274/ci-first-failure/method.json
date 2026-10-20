@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "executedAt": "2026-10-20T02:26:28.695Z",
+  "scope": "Read-only first Windows CI failure diagnosis and minimal evidence-root relocation review",
+  "commands": [
+    "gh api --method GET repos/MJ-AgentLab/mj-agentlab-marketplace/actions/jobs/JOB",
+    "gh api --method GET repos/MJ-AgentLab/mj-agentlab-marketplace/actions/jobs/JOB/logs",
+    "gh api --method GET repos/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/RUN",
+    "gh api --method GET repos/MJ-AgentLab/mj-agentlab-marketplace/pulls/283",
+    "git ls-tree -r -z --long 470970b5a8d40c25b8edefc6992377624f7f45d6 (r2 maxBuffer32MiB, exit0)",
+    "git show 470970b5a8d40c25b8edefc6992377624f7f45d6:plans/274-html-learning-artifact/source-bindings.json",
+    "git diff HEAD -- .github plugins scripts tests"
+  ],
+  "rawCapture": "Node child_process buffers saved without decoding/re-encoding. Separate stdout/stderr files and download timestamps/exit codes/hashes in downloads.json. GitHub-masked credential values were not unmasked or requested.",
+  "diagnosis": "Exact failed step and error line from both actual jobs; succeeded fetch/progress and skipped setup/test steps distinguish checkout-path failure from runtime or browser failure.",
+  "lengthReview": "Complete immutable470 tree paths measured under actual logged CI workspace and current local worktree; proposed prefix rewrite applied in memory only.",
+  "relocationByteReview": "For all424 old committed payloads, compute Git blob SHA1 over the moved file bytes and compare original470 tree OID plus byte length. No source content rewritten by this reviewer.",
+  "bindingReview": "First1417 records identical; all existing1841 records identical after only expected path-prefix rewrite; current REPORT has0 old-prefix links and15 new-prefix links.",
+  "skill": "diagnosing-bugs; task restricts read-only diagnosis, so server logs are the deterministic failure evidence and local reproduction/fix/retry phases are intentionally omitted.",
+  "preliminaryFailures": "First local tree process hit Node default maxBuffer and was retained; analysis.json tree section is invalid. analyze-r2.mjs/relocation-length-analysis.json is the successful complete measurement.",
+  "mutations": {
+    "repository": false,
+    "workflow": false,
+    "ciCancel": false,
+    "ciRetry": false,
+    "remoteWrites": false
+  },
+  "downloadRecordSha256": "9c2815fdcfc78ddaa000c9c4ccdc52bed37dabfe368cf1103b3ab1cf33d450c3"
+}

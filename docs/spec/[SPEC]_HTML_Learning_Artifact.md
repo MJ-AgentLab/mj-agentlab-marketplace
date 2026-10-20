@@ -4,9 +4,9 @@ scope: html-guide-kit
 summary: "Explicit site workflow, local resource contract and minimum prelaunch acceptance"
 owner: marketplace-maintainers
 created: 2026-10-19
-updated: 2026-10-19
+updated: 2026-10-20
 state: active
-version: v1.0
+version: v1.2
 layer: canonical
 ---
 
@@ -16,7 +16,7 @@ layer: canonical
 
 本合同仅覆盖新显式 `$html-guide-kit:site` 与直接受影响的包级资源/能力。guide 保留已批准图标、运行字节和原只读聊天合同；旧[guide SPEC](./[SPEC]_HTML_Guide_Kit_Acceptance.md)、[历史验收](../runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)保持原范围。依据为[扩展 ADR](../adr/[ADR]_HTML_Learning_Artifact_Extension.md)及[INTENT](../intent/[INTENT]_INT-2026-003_HTML_Learning_Artifact.md)，完整接受/操作来源见[主PLAN](../../plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md#accepted-baseline-and-authorization)。
 
-site为显式调用，原生行为配置布尔false；插件Read/Write不等于技能权限隔离。manifest提示覆盖guide/site，只引用本包真实路由，最多3条，每条原值不超过128 Unicode scalar values。新增技能与全部必需资源/脚本/主题/来源及安装比较原子接入，候选HTML0.1.37；五包八公开/五显式/三自然，仓库技能20保持。
+site为显式调用，原生行为配置布尔false；插件Read/Write不等于技能权限隔离。manifest提示覆盖guide/site，只引用本包真实路由，最多3条，每条原值不超过128 Unicode scalar values。新增技能与全部必需资源/脚本/主题/来源及安装比较原子接入，原子首版HTML0.1.37，0.1.38承接许可传递与输入边界修复；实际发布状态见[8.3.3账本](../runbook/[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md)；五包八公开/五显式/三自然，仓库技能20保持。
 
 ## §2 Six-step behavior and language
 
@@ -54,9 +54,9 @@ site为显式调用，原生行为配置布尔false；插件Read/Write不等于�
 | 静态检查 | 结构、链接/来源定位、资源、配置、术语映射及版本；负例失败非零；已知映射检查不宣称语义已证 |
 | 通用渲染检查 | 实际浏览器覆盖横向溢出、严重裁切、异常换行和必要截图；中文/Windows/路径适配；浏览器缺失或跳过逐项UNVERIFIED/NOT_RUN，不写PASS |
 
-主题默认`#faf9f5`底、`#252521`主文字、`#42423c`正文、`#b45a3b`强调、`#93442c`链接/深强调、`#f0ece2`辅底；衬线标题与系统无衬线正文、本地字体。检查实际背景对比度、舒适行宽/留白/层级、邻近说明、响应式，动效有解释用途且考虑减少动效。
+主题默认`#faf9f5`底、`#252521`主文字、`#42423c`正文、`#b45a3b`强调、`#93442c`链接/深强调、`#f0ece2`辅底；衬线标题与系统无衬线正文、本地字体。可编辑控件必要边界也须可辨，检查实际背景对比度、舒适行宽/留白/层级、邻近说明、响应式，动效有解释用途且考虑减少动效。
 
-来源清单逐项记录名称/地址/固定版本、上游路径与SHA256、本地落点、复制/修改/独立适配、改动及许可。实际第三方内容建立THIRD_PARTY_NOTICES，保留许可；不得把派生资料冒充原始规范或自动转MIT。原计划延期HTML Plan pack/runtime、Birch eval/vision/GEPA不迁入，不建空vendor。
+来源清单逐项记录名称/地址/固定版本、上游路径与SHA256、本地落点、复制/修改/独立适配、改动及许可。实际第三方内容建立THIRD_PARTY_NOTICES，保留许可；生成的模板/运行资产携带包MIT LICENSE、Apache原文及带范围/原安装定位说明的完整notice尾部，全部入manifest，不重授权输入材料。安装器核根LICENSE原字节；生成前缺件或保留名/跨平台路径冲突均零写失败。通用checker只核声明清单自洽，不认证许可/原件真实性；不得把派生资料冒充原始规范或自动转MIT。原计划延期HTML Plan pack/runtime、Birch eval/vision/GEPA不迁入，不建空vendor。
 
 ## §5 Sites handoff and execution
 

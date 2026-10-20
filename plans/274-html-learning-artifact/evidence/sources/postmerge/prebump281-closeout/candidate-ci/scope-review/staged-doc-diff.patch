@@ -1,0 +1,195 @@
+diff --git a/AGENTS.md b/AGENTS.md
+index cf13069..ec6a015 100644
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -70,7 +70,7 @@ Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基
+ 
+ ## HTML Guide Kit 阶段实施
+ 
+-HTML0.1.37/site随#278/v8.3.2公开，guide保持。#280实际develop4d10完整继承maine3dc，新13安装/Python/15清理通过；[任务274](plans/274-html-learning-artifact/INDEX.md)已DryRun零写/Apply仅市场8.3.3未发布预升，插件不变、安装仍v8.3.2。历史批准NOT_MET/bypass保留，新PR真实门禁保持；延期/Owner接受独立。
++HTML0.1.37/site随#278/v8.3.2公开，guide保持。#280实际develop4d10完整继承maine3dc，新13安装/Python/15清理通过；[任务274](plans/274-html-learning-artifact/INDEX.md)已DryRun零写/Apply仅市场8.3.3未发布预升，插件不变、安装仍v8.3.2。历史批准NOT_MET/bypass保留，PR281原Linux启动FAIL仅补测试诊断，真实门禁保持；延期/Owner接受独立。
+ 
+ [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217)授权三阶段/worktree/codex。#221 merge70267a5复验/#218关闭；#226 d106e766同72cdd08树，0.1.0/第二轮A/七安装四Python复验/#219关闭。旧批准缺项保留。#231实际merge71e2同head树、CI全P/reviews空；原批准缺项保留，不bypass或指定审查人。
+ 
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index ba7da37..7868e8d 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -7,6 +7,8 @@
+ 
+ ### Documentation
+ 
++- Preserve PR281 startup failures and add bounded Linux test-only browser stderr evidence without changing the shipped checker, measurement gates, plugin versions or published history. Refs #274.
++
+ - Record actual synchronization PR280/develop4d10, separately preserve the original queued observations and later terminal/API chronology limits, and bind fresh actual-sync verification before preparing the unreleased marketplace-only 8.3.3 patch. Preserve plugin/runtime versions, public v8.3.2 identity, original failures, protected approval NOT_MET and Owner/deferred boundaries. Refs #274.
+ 
+ - Synchronize complete actual main e3dc40f7, including merged publication-record PR279, back into develop. Preserve v8.3.2 runtime/plugin identities and public tag f906, freeze exact record-candidate CI and actual-merge audit evidence, and keep actual synchronization verification and marketplace-only 8.3.3 preparation dependent. Retain approval NOT_MET, original failures, deferred entries and Owner-acceptance boundaries. Refs #274.
+diff --git a/docs/INDEX.md b/docs/INDEX.md
+index d36e8f7..436f2d4 100644
+--- a/docs/INDEX.md
++++ b/docs/INDEX.md
+@@ -6,7 +6,7 @@ owner: marketplace-maintainers
+ created: 2026-10-09
+ updated: 2026-10-20
+ state: active
+-version: v2.103
++version: v2.104
+ layer: canonical
+ ---
+ 
+@@ -35,6 +35,10 @@ layer: canonical
+ 
+ ## 当前整体发布
+ 
++当前后继CI（本地2026-10-20）：[预升PR281](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/281)已创建，原head1d8b6849/treeeefcaa与潜在merge4e495同树；尚未实际合入。原PR Linux640P/1F/1平台skip，真实Chrome未取得可读DevTools端点、NOT_RUN/exit2，smoke未执行；原Windows642/642及新13/178/6/18/4/4实际通过。原push两端各有启动FAIL，一次有界复验Linux仍FAIL，根因UNKNOWN，不能用本地/Windows通过覆盖。诊断前124原件及捕获中间文本副本已覆盖的限制由唯一REPORT冻结；当前仅补测试层Linux有界stderr，不改checker/flags/15秒判据/非零NOT_RUN、插件或workflow，不把诊断当修复或通过。新诊断检查/后继headCI和真实批准/线程/latestbase各待真实证据，Agent不bypass；8.3.3仍未发布、公开8.3.2保持，Owner接受/延期独立。见[唯一REPORT](../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#current-sync-merge-and-marketplace-prebump)。
++
++下列原预升准备为PR281创建前快照，其未创建/后继待证只属于当时状态，当前以上段和Issue为准。
++
+ 当前（Asia/Taipei2026-10-20）：[同步PR280](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/280)于UTC19日16:37:27Z合入develop4d10a067/tree db49629f，同ef85/535 tree并完整继承main e3dc；公开8.3.2 tag/Release仍f906、正文未变。实际suite4603805882为Owner bypass，pull_request FAIL缺latest-pusher外批准、其余3规则PASS/reviews=[]，批准NOT_MET不追认。CI39279114820已独立解析Linux641/642唯一平台skip、Windows642/642，每端新13/178及6/18/4/4静态89/89；旧queued/UNKNOWN与9项时序冲突原值保留。actual4d10新验UTC16:39:19.139–16:50:02.166Z已PASS：13/178全exit0、6Diagram18LEK4生成4静态各89/89、15精确根不存在且hostHEAD/worktree清单复原，不借CI/旧tag计数。之后UTC16:52:31.265Z DryRun→16:52:32.762Z Apply预升未发布8.3.3，7252文件map证零写/仅VERSION+README badge，插件/运行/guide未变、无新发行。预升PR尚未创建，本地642/642及独立8.3.3新安装已通过；受保护develop4d10当前head真实非作者/lastpush批准、Structure+A6、线程/latestbase和实际合入待证，Agent不bypass。见[账本当前节](runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md#current-sync-merge-and-marketplace-prebump)与[#274唯一REPORT](../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#current-sync-merge-and-marketplace-prebump)，Owner接受/延期/NOT_MEASURED独立。
+ 
+ 下段为PR280合入前的记录main与同步准备快照，其中sync PREPARING/尚无编号保持当时语义；当前同步已由4d10交付，后续状态以上段为准。
+diff --git a/docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md b/docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md
+index 5e2c5dc..c60df67 100644
+--- a/docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md
++++ b/docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md
+@@ -6,7 +6,7 @@ owner: marketplace-maintainers
+ created: 2026-10-19
+ updated: 2026-10-20
+ state: active
+-version: v1.3
++version: v1.4
+ layer: working
+ purpose: "Maintain source-bound 8.3.2 release identities, gates, retained limits and ordered recovery/closeout for task 274"
+ last-verified: 2026-10-20
+@@ -16,6 +16,10 @@ last-verified: 2026-10-20
+ 
+ ## Current sync merge and marketplace prebump
+ 
++当前后继CI（本地2026-10-20）：[预升PR281](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/281)已创建，原head1d8b6849/treeeefcaa与潜在merge4e495同树；尚未实际合入。原PR Linux640P/1F/1平台skip，真实Chrome未取得可读DevTools端点、NOT_RUN/exit2，smoke未执行；原Windows642/642及新13/178/6/18/4/4实际通过。原push两端各有启动FAIL，一次有界复验Linux仍FAIL，根因UNKNOWN，不能用本地/Windows通过覆盖。诊断前124原件及捕获中间文本副本已覆盖的限制由唯一REPORT冻结；当前仅补测试层Linux有界stderr，不改checker/flags/15秒判据/非零NOT_RUN、插件或workflow，不把诊断当修复或通过。新诊断检查/后继headCI和真实批准/线程/latestbase各待真实证据，Agent不bypass；8.3.3仍未发布、公开8.3.2保持，Owner接受/延期独立。
++
++当前来源见[唯一REPORT](../../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#current-sync-merge-and-marketplace-prebump)。以下为原1d8b建PR前预升与检查快照，其PR未创建/后继待证只表示当时状态，当前以上段和Issue为准。
++
+ 本轮客户端日期为Asia/Taipei `2026-10-20`；下列平台事件另保UTC原日期。[同步PR280](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/280)于 `2026-10-19T16:37:27Z`（本地20日00:37:27）实际合入develop `4d10a0677c745eccb2775f7ae6176f8e2b1d2387`，tree `db49629fe767d3584f6ce772ef7bf5cdb52094e1` 与已测head `ef85a2de6e39b1981d94d9d4cbc004fbdc71acee`、merge-ref535的tree相同；parents为develop65d与ef85，完整main e3dc已是actualdevelop祖先。同步交付与后续新验、保护批准、预升分别判断；同一[REPORT当前同步合入与预升节](../../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#current-sync-merge-and-marketplace-prebump)绑定原件与覆盖。
+ 
+ 实际develop规则suite `4603805882`匹配before65d→after4d10，result=bypass；pull_request FAIL，缺少latest-pusher之外的批准，required_status_checks、non_fast_forward与deletion PASS。PR280 reviews=[]，批准仍 **NOT_MET**，不以实际Owner bypass、同tree或技术结果追认批准，不形成未来豁免。PR280原queued快照及当时UNKNOWN保留；CI run39279114820的最终raw已独立解析：Linux642总/641 PASS/0 FAIL/唯一Windows平台专用skip，Windows642/642 PASS、零skip，每端新13安装/178命令、实际6 Diagram+18 LEK Python及4site生成+4静态Python（各89/89）。这些计数绑定该次CI原身份，不改称actual4d10的新执行。9项时序冲突的原字段保留，部分helper记录completedAt早于startedAt；不据此推断因果、执行顺序或耗时，也不改写旧queued/UNKNOWN结果，详细原件与范围由REPORT接续。
+@@ -138,6 +142,7 @@ PR278最终head的[双系统CI run39259489009](https://github.com/MJ-AgentLab/mj
+ 
+ | Version | Date | Scope |
+ | --- | --- | --- |
++| v1.4 | 2026-10-20 | Preserve initial PR281 Linux/startup failures and bounded push recheck failure separately from Windows PASS; prepare test-only bounded stderr diagnostics without changed product/checker/gates. New diagnosis checks and protected delivery remain pending. |
+ | v1.3 | 2026-10-20 | Record actual PR280/develop4d10 sync, source-bound final CI and fresh actualdevelop checks PASS; preserve approval NOT_MET/bypass, UTC19 raw events and queued/UNKNOWN/timestamp limits. Record subsequent zero-write DryRun and bounded Apply to unpublished Marketplace8.3.3; local642/642 and independent8.3.3 installs passed; PR protection and merge remain pending. |
+ | v1.2 | 2026-10-19 | Record actual PR279/main e3dc with source-matched CI and Owner bypass/approval NOT_MET; retain published tag f906, record fresh actualmain checks PASS and protected develop sync PREPARING before any 8.3.3 preparation. |
+ | v1.1 | 2026-10-19 | Append actual PR278/main/tag/Release publication, final source-bound dual-platform CI and retained byte-QA failure; keep actual Owner bypass/approval NOT_MET, fresh real-tag verification PASS, and dependent record→sync→8.3.3 preparation distinct. |
+diff --git a/docs/runbook/[RUNBOOK]_Release_Operations.md b/docs/runbook/[RUNBOOK]_Release_Operations.md
+index 867facc..f1afa82 100644
+--- a/docs/runbook/[RUNBOOK]_Release_Operations.md
++++ b/docs/runbook/[RUNBOOK]_Release_Operations.md
+@@ -6,7 +6,7 @@ owner: marketplace-maintainers
+ created: 2026-10-09
+ updated: 2026-10-20
+ state: active
+-version: v2.10.3
++version: v2.10.4
+ layer: canonical
+ ---
+ 
+@@ -14,6 +14,10 @@ layer: canonical
+ 
+ ## Preparation
+ 
++当前后继CI（本地2026-10-20）：[预升PR281](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/281)已创建，原head1d8b6849/treeeefcaa与潜在merge4e495同树；尚未实际合入。原PR Linux640P/1F/1平台skip，真实Chrome未取得可读DevTools端点、NOT_RUN/exit2，smoke未执行；原Windows642/642及新13/178/6/18/4/4实际通过。原push两端各有启动FAIL，一次有界复验Linux仍FAIL，根因UNKNOWN，不能用本地/Windows通过覆盖。诊断前124原件及捕获中间文本副本已覆盖的限制由唯一REPORT冻结；当前仅补测试层Linux有界stderr，不改checker/flags/15秒判据/非零NOT_RUN、插件或workflow，不把诊断当修复或通过。新诊断检查/后继headCI和真实批准/线程/latestbase各待真实证据，Agent不bypass；8.3.3仍未发布、公开8.3.2保持，Owner接受/延期独立。
++
++[同一任务当前证据](../../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#current-sync-merge-and-marketplace-prebump)继续承接。下列原市场预升准备为PR281创建前快照，当前后继失败/诊断以上段为准。
++
+ 当前市场预升准备（本地2026-10-20，Asia/Taipei）：[同步PR280](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/280)于UTC19日16:37:27Z（本地20日00:37:27）实际合入develop4d10a067/tree db49629f，同已测ef85/535 tree，parents65d+ef85并完整继承main e3dc。suite4603805882匹配65d→4d10为实际Owner bypass，pull_request FAIL缺latest-pusher外批准，required checks/non-fast-forward/deletion PASS，reviews=[]，批准仍NOT_MET。CI39279114820最终raw已独立解析：Linux641/642、唯一平台skip，Windows642/642零skip，每端13/178、6Diagram+18LEK/4生成+4静态各89/89；原queued/UNKNOWN及9项时序冲突原值保留，不据异常helper时间解释因果、顺序或耗时。actual4d10新验UTC16:39:19.139–16:50:02.166Z已PASS：13/178全exit0、6Diagram18LEK4生成4静态各89/89，15精确根不存在、hostHEAD/worktree清单复原。随后UTC16:52:31.265Z DryRun→16:52:32.762Z Apply仅市场8.3.2→未发布8.3.3；7252文件map证DryRun零写、Apply仅VERSION+README badge，插件/运行/guide未变，无新发行。隔离分支codex/prebump-marketplace-8-3-3向受保护develop4d10准备新PR，尚无编号；本地642/642及独立8.3.3新安装检查已通过；当前head真实1非作者/lastpush批准、Validate Structure+A6、线程/latestbase仍待满足，Agent不bypass。8.3.2 tag/Release仍f906、正文未变，未创建8.3.3tag/Release；此前两404仅为当次观察。当前事实及原件见[8.3.2账本当前节](./[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md#current-sync-merge-and-marketplace-prebump)和同一[REPORT当前节](../../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#current-sync-merge-and-marketplace-prebump)，Owner接受/延期/效果NOT_MEASURED分记。
+ 
+ 下段为v2.10.2在PR280实际同步前的准备快照；其中sync准备中/尚无编号保留原时点。当前actualsync与新验已交付、未发布8.3.3已Apply，本地完整测试及新安装已通过，待办为新PR真实保护门禁。
+@@ -86,6 +90,8 @@ v8.0.0 的标签、自动发布及合并后安装复查已记录在 [发布记
+ 
+ ## Current closeout revision
+ 
++v2.10.4 (2026-10-20, Asia/Taipei): Preserve PR281 initial failed Linux and bounded push recheck failure, distinct Windows PASS and current strict protected gates; prepare test-only bounded browser stderr diagnostics, no changed shipped checker, plugin versions or workflow.
++
+ v2.10.3 (2026-10-20, Asia/Taipei): Record actual PR280 synchronization, independently parsed final CI and fresh actualdevelop checks PASS, followed by zero-write DryRun and bounded Apply to unpublished Marketplace8.3.3. Preserve tag f906, approval NOT_MET/bypass, queued/UNKNOWN and timestamp limits; local642/642 and independent8.3.3 installs passed; protected PR and actual merge remain pending.
+ 
+ v2.10.2 (2026-10-19): Record actual PR279/main record merge separately from unchanged v8.3.2 tag f906; retain source-bound matrix results and approval NOT_MET/Owner bypass, fresh actualmain checks PASS, and protected develop sync preparation before any 8.3.3 DryRun/Apply.
+diff --git a/plans/274-html-learning-artifact/INDEX.md b/plans/274-html-learning-artifact/INDEX.md
+index 69eff7d..7f7e4cb 100644
+--- a/plans/274-html-learning-artifact/INDEX.md
++++ b/plans/274-html-learning-artifact/INDEX.md
+@@ -6,7 +6,7 @@ owner: marketplace-maintainers
+ created: 2026-10-19
+ updated: 2026-10-20
+ state: active
+-version: v1.6
++version: v1.7
+ layer: working
+ task: 274-html-learning-artifact
+ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
+@@ -29,6 +29,10 @@ sources: ./source-bindings.json
+ - [来源清单](./source-bindings.json)：原计划完整字节、本轮请求及捕获元数据。冻结来源只用于恢复，不作第二主计划。
+ - [唯一主 REPORT](./[REPORT]_HTML_Learning_Artifact.md)：版本化工程/独立消费者/私有Sites与失败恢复；[主PR275](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/275)、[原子子PR276](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/276)、[验收子PR277](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/277)承接本批，进度仍以Issue为准。
+ 
++2026-10-20当前：预升PR281原1d8b的Linux启动CI及一次有界push复验FAIL，Windows原PR完整PASS；根因UNKNOWN，诊断前124原件已冻结。当前仅加测试层Linux有界stderr采集，保持原checker/阈值/真实测量门禁及插件/公开版本；修后本机完整644总/643PASS/1新增Linux机制在Windows不适用、strict及独立反例复验已通过，后继新head双端CI待真实结果，保护批准NOT_MET、延期/Owner接受独立。同一REPORT/Issue274接续。
++
++以下为原PR创建前准备快照。
++
+ 2026-10-20（Asia/Taipei）：#280已于00:37:27合入develop4d10/treedb496，同ef85/535，完整maine3dc ancestry已交付；公开tag/Release仍f906/8.3.2。actual4d10新13/178/实际Python及15根清理已PASS，随后市场8.3.3DryRun零写/Apply精确VERSION+badge已通过；当前仅未发布预升候选，新保护PR另待。批准NOT_MET/Owner bypass、旧queued原观察和时间字段差异保留，Owner接受/延期/NOT_MEASURED独立；唯一REPORT接续实际结果，进度以Issue274为准。
+ 
+ 下段为#280合入前准备快照，当前以上段为准。
+diff --git a/plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md b/plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md
+index 5503fd8..bf398ec 100644
+--- a/plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md
++++ b/plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md
+@@ -6,7 +6,7 @@ owner: marketplace-maintainers
+ created: 2026-10-19
+ updated: 2026-10-20
+ state: active
+-version: v1.7
++version: v1.8
+ layer: working
+ task: 274-html-learning-artifact
+ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
+@@ -111,6 +111,10 @@ P5：形成可审查成品与主 REPORT；最终主 PR 满足受保护 develop 
+ 
+ ## Current sync merge and marketplace prebump
+ 
++PR281原1d8b的真实Linux CI及一次有界push复验启动FAIL已确认，根因UNKNOWN，原Windows完整PASS不能覆盖。依既有P04支持义务，仅追加测试层Linux有界stderr诊断，不改原checker/flags/超时/NOT_RUN、产品/插件版本、workflow或发布历史，不新增Owner实质决定；原失败及当前保护缺项保留，后继新head须全门禁。完整证据与限界由唯一REPORT当前节承接。
++
++以下为原PR前预升准备快照。
++
+ 2026-10-20（Asia/Taipei），Owner明确续办“#280 PR 已合并，继续后续工作”，[原话/捕获](./evidence/sources/postmerge/sync280/continuation/capture-metadata.json)沿用原P5授权。实际同步于本地00:37:27（UTC19日16:37:27Z）交付develop4d10a0677c745eccb2775f7ae6176f8e2b1d2387/treedb49629f，同ef85/535，parents65d+ef85，完整maine3dc已祖先。真实suite4603805882 bypass/批准FAIL、requiredchecks等PASS和reviews[]分记，不作以后豁免。公开8.3.2仍tag/Release f906；当前新预升分支基于HEAD4d10，实际新验后仅市场8.3.3本地DryRun/Apply已通过。
+ 
+ actual4d10独立新13于UTC16:39:19.139Z–16:50:02.166Z终态PASS：13/178全exit0，6Diagram18LEK4生成4静态、15精确根清理与host/worktree复原均实证。随后UTC16:52:31.265Z先DryRun零写入、16:52:32.762Z完成Apply，仅市场8.3.3 VERSION/badge，7252文件三哈希map证明精确两文件，其后正常更新根AGENTS/A6及任务账本。插件/运行/公开ref保持、无同号tag/Release。新PR→受保护develop，currenthead真实非作者/lastpush、Structure+A6、线程/latestbase保持，Agent不bypass；最终公开与Owner接受不由版本预升代替，延期及NOT_MEASURED独立。这是既有技术排程，不新增Owner三PR强制决定。
+diff --git a/plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md b/plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md
+index 1037844..182de60 100644
+--- a/plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md
++++ b/plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md
+@@ -6,7 +6,7 @@ owner: marketplace-maintainers
+ created: 2026-10-19
+ updated: 2026-10-20
+ state: active
+-version: v1.8
++version: v1.9
+ layer: working
+ task: 274-html-learning-artifact
+ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
+@@ -20,6 +20,18 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
+ 
+ ### Current sync merge and marketplace prebump
+ 
++本轮后继真实CI：预升[PR281](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/281)已创建，原head1d8b6849ec7e398d65a949d204abe38bc64a4e0b/潜在merge4e495033同tree eefcaa0f；不是实际受保护merge。原PR attempt1整体FAIL：Linux640P/1F/1 Windows专用skip，case328真实Chrome启动未取得可读DevTools端点、NOT_RUN/exit2，后继安装未执行；Windows642/642零skip及新13/178/6Diagram18LEK4生成4静态各89/89实际通过。原push两端也有各自启动FAIL，push一次有界复验Linux再次FAIL；不能以本地/Windows通过覆盖Linux。根因UNKNOWN，未称修复。[诊断前124原件](./evidence/sources/postmerge/prebump281/pre-diagnostic-stage/final-manifest.json)分别绑定run/attempt/job/checkout、原日志及方法，首次PowerShell文本中间副本被覆盖的缺口如实登记，GitHub实际raw已独立Buffer重取核同；在途push复验Windows不在该终态范围。
++
++这是原P04必要工程诊断：仅在测试层为Linux实际Chrome建立临时exec stderr采集，保持原checker/flags/15秒就绪算法/主测非零NOT_RUN和几何判据、主PID/session及完整自有清理；连续排空日志、最多64KiB，失败断言附原启动信息，不自动重试、不skip原真实browsercase、不代替验收。插件/运行/公开版本、workflow及发布历史不变。新诊断测试、本机完整检查/独立审查与后继headCI按真实新证据接续，当前尚未证明真实Chrome的Linux CI通过；真实非作者/lastpush批准、Structure+A6、线程/latestbase保持，Agent不bypass。
++
++[新诊断作者单项实跑](./evidence/sources/postmerge/prebump281/diagnostic-local/html-learning-274-browser-stderr-targeted-summary-r1.json)：Windows实际Python大流量drain 1PASS/1Linux专属不适用，WSL Linux 2/2 PASS、零skip，原args/exit23/NOT_RUN2、自有SID/logger清理、foreign存活及input/checker原字节保持均核；隔离WSL使用三源文件逐sha相同的临时投影和官方SHASUM校验Node22.18，非全仓Linux复验、非真实Chromium修复证明。首次Windows缺Python环境FAIL保留。原push复验Windows后来642/642和新13/178等实际PASS，Linux仍FAIL，原run整体FAIL；[终态原件](./evidence/sources/postmerge/prebump281/attempt2-push/finalmanifest.json)与[原PR Windows补提取](./evidence/sources/postmerge/prebump281/attempt1-windows-supplement/final-manifest.json)分别保存，不追认原失败。
++
++修后诊断已完成[作者两端单项](./evidence/sources/postmerge/prebump281/diagnostic-fixed/html-learning-274-browser-stderr-targeted-summary-r2.json)、[独立修后审查](./evidence/sources/postmerge/prebump281/diagnostic-review/html-learning-274-browser-stderr-independent-review-final.json)及[固定源完整本机测试](./evidence/sources/postmerge/prebump281/diagnostic-final/html-learning-274-prebump-diagnostic-local-receipt.json)：644总/643PASS/1新增Linux机制在Windows不适用，0FAIL/取消，原实际browsercase仍执行；CLI0.147.0精确通过。独审实际发现可选版本probe忽略TERM使诊断7秒不返，root完全删除该子进程及对应附加断言，修后原反例约0.092秒完成、diagnostics约1ms，原status23/NOT_RUN/foreign隔离保持；不把未知Chrome启动根因称修复。旧helper精确字节和原反例保留，首次内联driver未保存及并发首审inventory与实际失败执行hash不同的范围如实列明。版本probe移除前启动的早次644总全测单列，未改名为修后全测。以上完整测试后仅追加原件与终态说明，再做strict及最终来源/暂存Gitblob核验；后继新head双端CI、真实保护批准仍另待。
++
++终态strict已PASS；最终979来源全部逐工作树与暂存Gitblob摘要核验，原740绑定/原字节保持。后继CI与真实批准由Issue274/PR281继续记录，以下仍为历史准备快照。
++
++以下为原1d8b创建PR前已完成预升及本机检查快照；后继CI失败/诊断以上段为准，原PASS只限原批次。
++
+ 本轮客户端日期2026-10-20（Asia/Taipei）。Owner续办“#280 PR 已合并，继续后续工作”，[原话/捕获](./evidence/sources/postmerge/sync280/continuation/capture-metadata.json)复用同一#274/P5五边界授权，不视为最终接受、新bypass或新正式发行授权。同步PR [#280](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/280)已于本地10月20日00:37:27（UTC2026-10-19T16:37:27Z）实际合入develop4d10a0677c745eccb2775f7ae6176f8e2b1d2387，tree db49629fe767d3584f6ce772ef7bf5cdb52094e1与source ef85a2de及CI merge535315f0相同，parents65d+ef85。main e3dc的完整ancestry已继承；当前main e3dc、actualdevelop4d10与公开v8.3.2 tag/Release f906分别记录，历史正式正文不变。
+ 
+ [实际合入审计](./evidence/sources/postmerge/sync280/audit/summary.json)绑定真实develop suite4603805882，before65d/after4d10，result=bypass；pull_request FAIL缺最新推送者外批准，required_status_checks/non_fast_forward/deletion PASS，reviews=[]。保护批准仍NOT_MET，历史275/278/279/280实际合入不追认批准或以后例外，新预升PR继续严格Structure+A6/真实非作者及lastpush批准/线程/latestbase、Agent不bypass。

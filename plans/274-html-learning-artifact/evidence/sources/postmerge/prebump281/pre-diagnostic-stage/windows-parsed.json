@@ -1,0 +1,171 @@
+{
+  "jobId": 118195194932,
+  "jobConclusion": "success",
+  "logBytes": 1036870,
+  "logSha256": "b5e440cd7b0a6bd1f225ed3ff0e26b0b693c0d076bdc8fac79a694059efe7401",
+  "actualCheckout": "4e49503345f814175d0af39ab1ea8e02eb6a6adf",
+  "checkoutRef": "refs/remotes/pull/281/merge",
+  "tapComplete": true,
+  "tap": {
+    "tests": 642,
+    "suites": 0,
+    "pass": 642,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "observedCompletedTapCases": 642,
+  "failedCases": [],
+  "skippedCases": [],
+  "browserRelatedCases": [
+    {
+      "status": "ok",
+      "number": 326,
+      "name": "browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 327,
+      "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 328,
+      "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 347,
+      "name": "literal percent, Chinese and spaces in local filenames round-trip through browser URLs",
+      "skipped": false
+    }
+  ],
+  "browserDiagnostics": [],
+  "steps": [
+    {
+      "name": "Set up job",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/checkout@v4",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-node@v4",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-python@v5",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm ci",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm install -g @openai/codex@0.147.0",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Unit and real Python execution tests",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm run validate",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm run check:baseline-tools",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm run smoke:codex",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/setup-python@v5",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/setup-node@v4",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/checkout@v4",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Complete job",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "smokeStep": {
+    "name": "Run npm run smoke:codex",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 10,
+    "started_at": "2026-10-19T17:19:44Z",
+    "completed_at": "2026-10-19T17:26:58Z"
+  },
+  "smoke": {
+    "status": "PASS",
+    "actualScenarios": 13,
+    "actualCommands": 178,
+    "actualPythonAndSiteCounts": {
+      "diagram": 6,
+      "lek": 18,
+      "siteGeneration": 4,
+      "siteStatic": 4
+    },
+    "cliVersions": [
+      "codex-cli 0.147.0"
+    ],
+    "nonzeroCommands": [],
+    "siteStaticSummaries": [
+      {
+        "checks": 89,
+        "failed": 0,
+        "pages": 1,
+        "files": 6
+      },
+      {
+        "checks": 89,
+        "failed": 0,
+        "pages": 1,
+        "files": 6
+      },
+      {
+        "checks": 89,
+        "failed": 0,
+        "pages": 1,
+        "files": 6
+      },
+      {
+        "checks": 89,
+        "failed": 0,
+        "pages": 1,
+        "files": 6
+      }
+    ],
+    "sourceCacheIdentity": "Passed each platform checkout against its own installed cache; no cross-platform physical-byte equality asserted."
+  },
+  "cleanupScope": "CI job logs do not provide individual-root absence records. Never borrow a different batch fifteen/fourteen-root result."
+}

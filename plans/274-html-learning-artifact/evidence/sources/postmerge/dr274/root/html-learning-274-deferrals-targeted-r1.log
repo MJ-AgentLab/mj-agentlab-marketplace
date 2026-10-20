@@ -1,0 +1,189 @@
+TAP version 13
+# Subtest: site installation accounts for every registered resource and checks its actual bytes
+ok 1 - site installation accounts for every registered resource and checks its actual bytes
+  ---
+  duration_ms: 1555.2737
+  type: 'test'
+  ...
+# Subtest: matching source and cache cannot legitimize an unregistered site resource or implicit policy
+ok 2 - matching source and cache cannot legitimize an unregistered site resource or implicit policy
+  ---
+  duration_ms: 75.0563
+  type: 'test'
+  ...
+# Subtest: site native metadata rejects borrowed routes and every non-boolean or implicit policy
+ok 3 - site native metadata rejects borrowed routes and every non-boolean or implicit policy
+  ---
+  duration_ms: 1.4624
+  type: 'test'
+  ...
+# Subtest: site provenance rejects malformed source identities, hashes, targets and pinning
+ok 4 - site provenance rejects malformed source identities, hashes, targets and pinning
+  ---
+  duration_ms: 331.0955
+  type: 'test'
+  ...
+# Subtest: site resources cannot be borrowed through a directory junction
+ok 5 - site resources cannot be borrowed through a directory junction
+  ---
+  duration_ms: 40.0701
+  type: 'test'
+  ...
+# Subtest: site extension preserves the four guide resources from fixed develop baseline without rewriting bytes
+ok 6 - site extension preserves the four guide resources from fixed develop baseline without rewriting bytes
+  ---
+  duration_ms: 0.6794
+  type: 'test'
+  ...
+# Subtest: complete HTML package checks both entries and detects a missing site script
+not ok 7 - complete HTML package checks both entries and detects a missing site script
+  ---
+  duration_ms: 391.4033
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-learning-artifact\\develop\\tests\\html-site-integration.test.mjs:117:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    '0.1.37' !== '0.1.38'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: '0.1.38'
+  actual: '0.1.37'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Admin/.codex/worktrees/html-learning-artifact/develop/tests/html-site-integration.test.mjs:122:9)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: installed renderer carries asset rights without relicensing learning materials
+ok 8 - installed renderer carries asset rights without relicensing learning materials
+  ---
+  duration_ms: 351.9567
+  type: 'test'
+  ...
+# Subtest: missing installed license or notice fails before any output is created
+ok 9 - missing installed license or notice fails before any output is created
+  ---
+  duration_ms: 51.9121
+  type: 'test'
+  ...
+# Subtest: license output names reject case aliases and nested material collisions before writes
+ok 10 - license output names reject case aliases and nested material collisions before writes
+  ---
+  duration_ms: 49.3953
+  type: 'test'
+  ...
+# Subtest: representative generation preserves selected inputs and independently verifiable hashes
+ok 11 - representative generation preserves selected inputs and independently verifiable hashes
+  ---
+  duration_ms: 40.4494
+  type: 'test'
+  ...
+# Subtest: installed renderer locates its own assets from an unrelated consumer directory
+not ok 12 - installed renderer locates its own assets from an unrelated consumer directory
+  ---
+  duration_ms: 81.3114
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-learning-artifact\\develop\\tests\\html-site-render.test.mjs:62:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Generation failed: ENOENT: no such file or directory, lstat 'C:\Users\Admin\AppData\Local\Temp\html-site-render-PIYnD3\installed\html-guide-kit\LICENSE'
+    
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Admin/.codex/worktrees/html-learning-artifact/develop/tests/html-site-render.test.mjs:67:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: bounded Markdown retains paragraphs, relations, code, links and heading hierarchy
+ok 13 - bounded Markdown retains paragraphs, relations, code, links and heading hierarchy
+  ---
+  duration_ms: 0.3807
+  type: 'test'
+  ...
+# Subtest: unsupported Markdown and broken links fail before creating output
+ok 14 - unsupported Markdown and broken links fail before creating output
+  ---
+  duration_ms: 58.1051
+  type: 'test'
+  ...
+# Subtest: configuration errors cannot silently produce a different activity or source
+ok 15 - configuration errors cannot silently produce a different activity or source
+  ---
+  duration_ms: 12.7269
+  type: 'test'
+  ...
+# Subtest: literal replacement markers and HTML in config remain inert and complete
+ok 16 - literal replacement markers and HTML in config remain inert and complete
+  ---
+  duration_ms: 25.3766
+  type: 'test'
+  ...
+# Subtest: traversal, resource collisions and existing output fail without changing inputs
+ok 17 - traversal, resource collisions and existing output fail without changing inputs
+  ---
+  duration_ms: 48.3115
+  type: 'test'
+  ...
+# Subtest: plugin caches and borrowed input or output ancestors cannot be written
+ok 18 - plugin caches and borrowed input or output ancestors cannot be written
+  ---
+  duration_ms: 15.6523
+  type: 'test'
+  ...
+# Subtest: known terminology mismatches and invalid input bytes remain generation failures
+ok 19 - known terminology mismatches and invalid input bytes remain generation failures
+  ---
+  duration_ms: 12.6996
+  type: 'test'
+  ...
+# Subtest: known English terms use case-insensitive word boundaries without rejecting Threshold
+ok 20 - known English terms use case-insensitive word boundaries without rejecting Threshold
+  ---
+  duration_ms: 23.2293
+  type: 'test'
+  ...
+# Subtest: YAML frontmatter and Setext headings are rejected while separated thematic breaks remain valid
+ok 21 - YAML frontmatter and Setext headings are rejected while separated thematic breaks remain valid
+  ---
+  duration_ms: 42.1579
+  type: 'test'
+  ...
+# Subtest: literal percent, Chinese and spaces in local filenames round-trip through browser URLs
+ok 22 - literal percent, Chinese and spaces in local filenames round-trip through browser URLs
+  ---
+  duration_ms: 21.7245
+  type: 'test'
+  ...
+# Subtest: empty optional activities and terms still provide a static artifact and export
+ok 23 - empty optional activities and terms still provide a static artifact and export
+  ---
+  duration_ms: 29.8223
+  type: 'test'
+  ...
+1..23
+# tests 23
+# suites 0
+# pass 21
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2508.6685

@@ -1,0 +1,26 @@
+2026-10-20T03:25:41.4717110Z # Subtest: five approved portable plugins, eight public skills and all 20 repository skills satisfy contracts
+2026-10-20T03:25:41.4718449Z not ok 621 - five approved portable plugins, eight public skills and all 20 repository skills satisfy contracts
+2026-10-20T03:25:41.4719377Z   ---
+2026-10-20T03:25:41.4719602Z   duration_ms: 24919.6153
+2026-10-20T03:25:41.4719845Z   type: 'test'
+2026-10-20T03:25:41.4720473Z   location: 'D:\\a\\mj-agentlab-marketplace\\mj-agentlab-marketplace\\tests\\validate-portable.test.mjs:28:1'
+2026-10-20T03:25:41.4721046Z   failureType: 'testCodeFailure'
+2026-10-20T03:25:41.4721615Z   error: |-
+2026-10-20T03:25:41.4722003Z     project instruction budget: AGENTS.md exceeds configured instruction budget
+2026-10-20T03:25:41.4722420Z     
+2026-10-20T03:25:41.4722622Z     false !== true
+2026-10-20T03:25:41.4722835Z     
+2026-10-20T03:25:41.4723035Z   code: 'ERR_ASSERTION'
+2026-10-20T03:25:41.4723284Z   name: 'AssertionError'
+2026-10-20T03:25:41.4723526Z   expected: true
+2026-10-20T03:25:41.4723754Z   actual: false
+2026-10-20T03:25:41.4724003Z   operator: 'strictEqual'
+2026-10-20T03:25:41.4724233Z   stack: |-
+2026-10-20T03:25:41.4724797Z     TestContext.<anonymous> (file:///D:/a/mj-agentlab-marketplace/mj-agentlab-marketplace/tests/validate-portable.test.mjs:29:42)
+2026-10-20T03:25:41.4725448Z     Test.runInAsyncScope (node:async_hooks:214:14)
+2026-10-20T03:25:41.4725839Z     Test.run (node:internal/test_runner/test:1047:25)
+2026-10-20T03:25:41.4726573Z     Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+2026-10-20T03:25:41.4727066Z     Test.postRun (node:internal/test_runner/test:1173:19)
+2026-10-20T03:25:41.4727466Z     Test.run (node:internal/test_runner/test:1101:12)
+2026-10-20T03:25:41.4727958Z     async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+2026-10-20T03:25:41.4728358Z   ...

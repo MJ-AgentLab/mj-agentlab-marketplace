@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.1.38] - 2026-10-20
+
+HTML Guide Kit 0.1.38 fixes generated asset notices, portable input paths and reflection control boundaries. Publication and bounded acceptance are recorded separately under task #274.
+
+### Fixed
+
+- Carry asset license texts and scoped notices into generated artifacts without relicensing supplied materials; reject reserved-name and Windows path aliases before writing.
+- Make the blank reflection control boundary distinguishable against both paper and white surfaces.
+- Require the installed HTML package LICENSE and verify exact cache bytes.
+
 ## [0.1.37] - 2026-10-19
 
 HTML Guide Kit 0.1.37 adds the explicit site workflow. Publication, bounded acceptance and remaining limits are recorded separately under task #274.

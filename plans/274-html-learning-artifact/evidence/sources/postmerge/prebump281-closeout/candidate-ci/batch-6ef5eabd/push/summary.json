@@ -1,0 +1,345 @@
+{
+  "schemaVersion": 1,
+  "captured_at": "2026-10-19T17:57:40.381100+00:00",
+  "run_id": 39298245127,
+  "run_attempt": 1,
+  "event": "push",
+  "status": "completed",
+  "conclusion": "success",
+  "run_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39298245127",
+  "head_sha": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+  "tree": "6659fadd62bc03aa3ab4eee61e63804fc25b914b",
+  "actual_checkout": [
+    {
+      "command_line": 208,
+      "sha_line": 209,
+      "sha": "6ef5eabd52934144daf7b60ddb4011686c0657c4"
+    }
+  ],
+  "head_git_metadata": "head-git-commit.json",
+  "jobs": [
+    {
+      "id": 118216290960,
+      "run_id": 39298245127,
+      "workflow_name": "ci-v1|event=push|pr=0|repo=1183002256|headrepo=1183002256|head=6ef5eabd52934144daf7b60ddb4011686c0657c4|baserepo=1183002256|base=6ef5eabd52934144daf7b60ddb4011686c0657c4|target=-",
+      "head_branch": "codex/prebump-marketplace-8-3-3",
+      "run_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39298245127",
+      "run_attempt": 1,
+      "node_id": "CR_kwDORoMukM8AAAAbhj1ykA",
+      "head_sha": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+      "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/actions/jobs/118216290960",
+      "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39298245127/job/118216290960",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-19T17:55:33Z",
+      "started_at": "2026-10-19T17:55:36Z",
+      "completed_at": "2026-10-19T17:55:45Z",
+      "name": "Prove equivalent PR matrix for this push (read only)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-19T17:55:36Z",
+          "completed_at": "2026-10-19T17:55:37Z"
+        },
+        {
+          "name": "Run actions/github-script@v7",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-19T17:55:37Z",
+          "completed_at": "2026-10-19T17:55:43Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-19T17:55:43Z",
+          "completed_at": "2026-10-19T17:55:43Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/118216290960",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000011120,
+      "runner_name": "GitHub Actions 1000011120",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 118216291322,
+      "run_id": 39298245127,
+      "workflow_name": "ci-v1|event=push|pr=0|repo=1183002256|headrepo=1183002256|head=6ef5eabd52934144daf7b60ddb4011686c0657c4|baserepo=1183002256|base=6ef5eabd52934144daf7b60ddb4011686c0657c4|target=-",
+      "head_branch": "codex/prebump-marketplace-8-3-3",
+      "run_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39298245127",
+      "run_attempt": 1,
+      "node_id": "CR_kwDORoMukM8AAAAbhj1z-g",
+      "head_sha": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+      "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/actions/jobs/118216291322",
+      "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39298245127/job/118216291322",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-19T17:55:33Z",
+      "started_at": "2026-10-19T17:55:36Z",
+      "completed_at": "2026-10-19T17:55:56Z",
+      "name": "Validate Structure",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-19T17:55:37Z",
+          "completed_at": "2026-10-19T17:55:38Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-19T17:55:38Z",
+          "completed_at": "2026-10-19T17:55:45Z"
+        },
+        {
+          "name": "Validate commit message format",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-19T17:55:45Z",
+          "completed_at": "2026-10-19T17:55:45Z"
+        },
+        {
+          "name": "Upload commit validation output (for PR comment bot)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4,
+          "started_at": "2026-10-19T17:55:45Z",
+          "completed_at": "2026-10-19T17:55:45Z"
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-19T17:55:45Z",
+          "completed_at": "2026-10-19T17:55:46Z"
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-19T17:55:46Z",
+          "completed_at": "2026-10-19T17:55:48Z"
+        },
+        {
+          "name": "Portable marketplace, manifests, skills and document contracts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-19T17:55:48Z",
+          "completed_at": "2026-10-19T17:55:52Z"
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-19T17:55:52Z",
+          "completed_at": "2026-10-19T17:55:52Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-19T17:55:52Z",
+          "completed_at": "2026-10-19T17:55:53Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-19T17:55:53Z",
+          "completed_at": "2026-10-19T17:55:53Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/118216291322",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000011121,
+      "runner_name": "GitHub Actions 1000011121",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 118216294457,
+      "run_id": 39298245127,
+      "workflow_name": "ci-v1|event=push|pr=0|repo=1183002256|headrepo=1183002256|head=6ef5eabd52934144daf7b60ddb4011686c0657c4|baserepo=1183002256|base=6ef5eabd52934144daf7b60ddb4011686c0657c4|target=-",
+      "head_branch": "codex/prebump-marketplace-8-3-3",
+      "run_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39298245127",
+      "run_attempt": 1,
+      "node_id": "CR_kwDORoMukM8AAAAbhj2AOQ",
+      "head_sha": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+      "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/actions/jobs/118216294457",
+      "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39298245127/job/118216294457",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-10-19T17:55:34Z",
+      "started_at": "2026-10-19T17:55:34Z",
+      "completed_at": "2026-10-19T17:55:33Z",
+      "name": "Cancel proved superseded PR runs (best effort)",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/118216294457",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 118216394852,
+      "run_id": 39298245127,
+      "workflow_name": "ci-v1|event=push|pr=0|repo=1183002256|headrepo=1183002256|head=6ef5eabd52934144daf7b60ddb4011686c0657c4|baserepo=1183002256|base=6ef5eabd52934144daf7b60ddb4011686c0657c4|target=-",
+      "head_branch": "codex/prebump-marketplace-8-3-3",
+      "run_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39298245127",
+      "run_attempt": 1,
+      "node_id": "CR_kwDORoMukM8AAAAbhj8IZA",
+      "head_sha": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+      "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/actions/jobs/118216394852",
+      "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39298245127/job/118216394852",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-10-19T17:55:45Z",
+      "started_at": "2026-10-19T17:55:45Z",
+      "completed_at": "2026-10-19T17:55:45Z",
+      "name": "Baseline compat (${{ matrix.os }})",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/118216394852",
+      "labels": [],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    }
+  ],
+  "downloaded_raw_logs": [
+    {
+      "job_id": 118216290960,
+      "label": "proof",
+      "endpoint": "repos/MJ-AgentLab/mj-agentlab-marketplace/actions/jobs/118216290960/logs",
+      "file": "job-118216290960-proof.raw.log",
+      "started_at": "2026-10-19T17:56:49.066743+00:00",
+      "completed_at": "2026-10-19T17:56:52.412080+00:00",
+      "bytes": 20291,
+      "sha256": "71896abf550a35c3312bbd1a5417a25194226ce1519261d1fc9155f8d85ba9b1",
+      "method": "stdout byte buffer, complete write then reread/hash",
+      "actual_checkout": [],
+      "error_annotations": []
+    },
+    {
+      "job_id": 118216291322,
+      "label": "structure",
+      "endpoint": "repos/MJ-AgentLab/mj-agentlab-marketplace/actions/jobs/118216291322/logs",
+      "file": "job-118216291322-structure.raw.log",
+      "started_at": "2026-10-19T17:56:52.413490+00:00",
+      "completed_at": "2026-10-19T17:56:54.874323+00:00",
+      "bytes": 23572,
+      "sha256": "62dfd3c95a93567299eb472390003c316b61134ac0b31386a0f553eba6ecfd2f",
+      "method": "stdout byte buffer, complete write then reread/hash",
+      "actual_checkout": [
+        {
+          "command_line": 208,
+          "sha_line": 209,
+          "sha": "6ef5eabd52934144daf7b60ddb4011686c0657c4"
+        }
+      ],
+      "error_annotations": []
+    }
+  ],
+  "proof": {
+    "skipPush": true,
+    "reason": "decision_time_exact_pr_carrier",
+    "carrier": {
+      "id": 39298251581,
+      "attempt": 1,
+      "status": "in_progress",
+      "conclusion": null
+    },
+    "base": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+    "head": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+    "sourceProofs": [
+      {
+        "role": "executed_push",
+        "ref": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+        "blobSha": "9304c2d03d27e54bf71b585eb675d4c0ed5a5e99",
+        "bytes": 36673
+      },
+      {
+        "role": "pr_head",
+        "ref": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+        "blobSha": "9304c2d03d27e54bf71b585eb675d4c0ed5a5e99",
+        "bytes": 36673
+      },
+      {
+        "role": "pr_merge",
+        "ref": "c41dee3c7a14da2c1a94e84643c736d578d9c9fa",
+        "blobSha": "9304c2d03d27e54bf71b585eb675d4c0ed5a5e99",
+        "bytes": 36673
+      }
+    ],
+    "pr": 281,
+    "runId": 39298251581,
+    "attempt": 1
+  },
+  "proof_interpretation": "Decision-time equivalent current PR carrier proof only; carrier was in_progress with conclusion null at decision. This push does not claim that PR matrix completed or passed.",
+  "structure_validation": {
+    "ok": true,
+    "errors": [],
+    "repositorySkills": 20,
+    "publicSkills": [
+      "diagram-kit:arch-diagram",
+      "learning-evidence-kit:pop-quiz",
+      "learning-evidence-kit:learning-record-check",
+      "explain-kit:glossary",
+      "explain-kit:concept",
+      "communication-kit:communicate",
+      "html-guide-kit:guide",
+      "html-guide-kit:site"
+    ]
+  },
+  "matrix_execution": {
+    "status": "NOT_RUN",
+    "api_job_id": 118216394852,
+    "api_job_name": "Baseline compat (${{ matrix.os }})",
+    "api_conclusion": "skipped",
+    "platform_jobs_executed": 0,
+    "tap644": "NOT_RUN",
+    "unit_actual_browser_case": "NOT_RUN",
+    "startup_stderr_diagnostics": "NOT_RUN",
+    "matrix_validate": "NOT_RUN",
+    "baseline_tools": "NOT_RUN",
+    "installation_smoke": "NOT_RUN",
+    "scenarios13_commands178": "NOT_RUN",
+    "diagram6_lek18_site4_static4": "NOT_RUN",
+    "resource_internal_comparisons": "NOT_RUN"
+  },
+  "individual_cleanup_root_absence": "NOT_RECORDED",
+  "api_job_timing_anomalies": [
+    {
+      "job_id": 118216294457,
+      "created_at": "2026-10-19T17:55:34Z",
+      "started_at": "2026-10-19T17:55:34Z",
+      "completed_at": "2026-10-19T17:55:33Z"
+    }
+  ],
+  "limitations": "No old attempt/local result substituted. No new PR matrix results read by this agent. No startup failure/root cause inferred from skipped matrix. No model/desktop/Sites/native UI acceptance."
+}

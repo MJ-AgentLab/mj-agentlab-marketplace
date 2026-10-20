@@ -1,0 +1,75 @@
+2026-10-19T17:13:58.2484051Z not ok 328 - actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping
+2026-10-19T17:13:58.2484159Z   ---
+2026-10-19T17:13:58.2484281Z   duration_ms: 22543.071196
+2026-10-19T17:13:58.2484404Z   type: 'test'
+2026-10-19T17:13:58.2484956Z   location: '/home/runner/work/mj-agentlab-marketplace/mj-agentlab-marketplace/tests/html-site-checks.test.mjs:315:1'
+2026-10-19T17:13:58.2485097Z   failureType: 'testCodeFailure'
+2026-10-19T17:13:58.2485211Z   error: |-
+2026-10-19T17:13:58.2485314Z     {
+2026-10-19T17:13:58.2485427Z       "schemaVersion": 1,
+2026-10-19T17:13:58.2485619Z       "checker": "artifact-browser-layout",
+2026-10-19T17:13:58.2485818Z       "executedAt": "2026-10-19T17:13:29.859859+00:00",
+2026-10-19T17:13:58.2486145Z       "pythonVersion": "3.12.15",
+2026-10-19T17:13:58.2486261Z       "status": "NOT_RUN",
+2026-10-19T17:13:58.2486379Z       "requestedViewports": [
+2026-10-19T17:13:58.2486478Z         {
+2026-10-19T17:13:58.2486587Z           "width": 1366,
+2026-10-19T17:13:58.2486688Z           "height": 900
+2026-10-19T17:13:58.2486787Z         },
+2026-10-19T17:13:58.2486881Z         {
+2026-10-19T17:13:58.2486982Z           "width": 390,
+2026-10-19T17:13:58.2487084Z           "height": 844
+2026-10-19T17:13:58.2487180Z         }
+2026-10-19T17:13:58.2487266Z       ],
+2026-10-19T17:13:58.2487372Z       "viewports": [],
+2026-10-19T17:13:58.2487467Z       "lifecycle": [
+2026-10-19T17:13:58.2487561Z         {
+2026-10-19T17:13:58.2487730Z           "phase": "browser-process-exit",
+2026-10-19T17:13:58.2487847Z           "status": "PASS",
+2026-10-19T17:13:58.2487971Z           "returnCode": 0
+2026-10-19T17:13:58.2488071Z         },
+2026-10-19T17:13:58.2488158Z         {
+2026-10-19T17:13:58.2488354Z           "phase": "owned-browser-session-exit",
+2026-10-19T17:13:58.2488473Z           "status": "PASS",
+2026-10-19T17:13:58.2488897Z           "method": "complete Linux /proc session scan, all owned groups, two consecutive empty scans"
+2026-10-19T17:13:58.2489010Z         },
+2026-10-19T17:13:58.2489111Z         {
+2026-10-19T17:13:58.2489293Z           "phase": "temporary-cleanup",
+2026-10-19T17:13:58.2489416Z           "status": "PASS",
+2026-10-19T17:13:58.2489529Z           "attempts": 1
+2026-10-19T17:13:58.2489641Z         }
+2026-10-19T17:13:58.2489751Z       ],
+2026-10-19T17:13:58.2489868Z       "limitations": [
+2026-10-19T17:13:58.2491166Z         "Bounded geometry heuristics cover document horizontal overflow, overflow:hidden/clip containers with overflowing content, and extreme narrow prose wrapping. They are not a complete visual, responsive or accessibility audit.",
+2026-10-19T17:13:58.2492248Z         "Screenshots show the initial viewport state; visually review them. No copy/export/answer/retry/reset interaction, keyboard/focus, touch, print or learning-effect evaluation was performed.",
+2026-10-19T17:13:58.2492854Z         "Local browser results do not verify deployed Sites identity, access scope, version or remote behavior. Understanding effects remain NOT_MEASURED."
+2026-10-19T17:13:58.2492971Z       ],
+2026-10-19T17:13:58.2493189Z       "browser": "/opt/google/chrome/google-chrome",
+2026-10-19T17:13:58.2493305Z       "inputHashes": {
+2026-10-19T17:13:58.2493698Z         "artifact.json": "1f5251d7d05d986c1b43ba094a2e50c077df7394de86552565a634fb89ff55bc",
+2026-10-19T17:13:58.2494163Z         "artifact-manifest.json": "ddfdfc520eb8dcb0fbffee068361c94fb627663c2c463129fe702a3f951b296a",
+2026-10-19T17:13:58.2494525Z         "index.html": "52db4c8691f8c37ae937cf9237ac3ed6515713c3c5192953e710d492f9c4f427",
+2026-10-19T17:13:58.2494907Z         "theme.css": "b45189186baebef1dcd6fb600d1a4b45613b972930a20ceedbbfabb5d2ed1432",
+2026-10-19T17:13:58.2495290Z         "learning.js": "5ecf2f4d83e6260dabd6ec48e76d8ddebccf956563f34072221bf960d3b8c255"
+2026-10-19T17:13:58.2495401Z       },
+2026-10-19T17:13:58.2495689Z       "screenshotDirectory": "/tmp/html-checks-txa1E5/good-shots",
+2026-10-19T17:13:58.2496126Z       "reason": "RuntimeError: browser did not provide a readable local DevTools endpoint: timed out"
+2026-10-19T17:13:58.2496232Z     }
+2026-10-19T17:13:58.2496340Z     
+2026-10-19T17:13:58.2496444Z     
+2026-10-19T17:13:58.2496550Z     2 !== 0
+2026-10-19T17:13:58.2496654Z     
+2026-10-19T17:13:58.2496772Z   code: 'ERR_ASSERTION'
+2026-10-19T17:13:58.2496902Z   name: 'AssertionError'
+2026-10-19T17:13:58.2497021Z   expected: 0
+2026-10-19T17:13:58.2497128Z   actual: 2
+2026-10-19T17:13:58.2497263Z   operator: 'strictEqual'
+2026-10-19T17:13:58.2497389Z   stack: |-
+2026-10-19T17:13:58.2498101Z     TestContext.<anonymous> (file:///home/runner/work/mj-agentlab-marketplace/mj-agentlab-marketplace/tests/html-site-checks.test.mjs:325:10)
+2026-10-19T17:13:58.2498328Z     Test.runInAsyncScope (node:async_hooks:214:14)
+2026-10-19T17:13:58.2498731Z     Test.run (node:internal/test_runner/test:1047:25)
+2026-10-19T17:13:58.2499045Z     Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+2026-10-19T17:13:58.2499279Z     Test.postRun (node:internal/test_runner/test:1173:19)
+2026-10-19T17:13:58.2499489Z     Test.run (node:internal/test_runner/test:1101:12)
+2026-10-19T17:13:58.2499814Z     async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+2026-10-19T17:13:58.2499924Z   ...

@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-19T17:10:31.772Z",
+  "clientDate": "2026-10-20",
+  "clientTimezone": "Asia/Taipei",
+  "actor": "/root/contract_scan",
+  "role": "Independent final delta source/scope and document/evidence reviewer",
+  "reviewPoint": {
+    "currentSources": 738,
+    "priorReviewSources": 719,
+    "added": 19,
+    "baselineSources": 529,
+    "base": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387"
+  },
+  "status": "NO_REMAINING_BLOCKERS_WITHIN_REVIEW_SCOPE",
+  "checks": {
+    "all738Hashes": true,
+    "old719ObjectsUnchanged": true,
+    "old529ObjectsUnchanged": true,
+    "old529GitBytesUnchanged": true,
+    "snapshotsFullyBound": true,
+    "uniqueIds": true,
+    "uniquePaths": true,
+    "smokeManifestCorrect": true,
+    "smokeCounts": true,
+    "smokeSourceFreeze": true,
+    "smokeCleanup": true,
+    "r1Retained": true,
+    "r2Complete": true,
+    "strictAndBaselineSeparate": true,
+    "scopePreserved": true,
+    "preciseCurrentDocs": true
+  },
+  "sourceClosure": {
+    "sourceErrors": [],
+    "old719ReconstructedManifestSha256": "fbbb5a5d92a7a7ff4e6647fdfa90c9d12c7261ef0b622213ef01cc3a08aa1e31",
+    "old719ExpectedManifestSha256": "fbbb5a5d92a7a7ff4e6647fdfa90c9d12c7261ef0b622213ef01cc3a08aa1e31",
+    "old529ObjectChanges": [],
+    "old529ByteChanges": [],
+    "unboundSnapshots": [],
+    "bindingsSha256": "1949d0b74cbc65ab2f6d241229e709692ad00cffe40b6a7ab92f0ac6e99f5ccd",
+    "ordinaryCurrentSourcesChecked": 738,
+    "baselineGitBlobsChecked": 529
+  },
+  "smoke": {
+    "kind": "Independent current working-tree 8.3.3 installation smoke; not canonical merged 4d10 verification",
+    "version": "8.3.3",
+    "startedAt": "2026-10-19T16:57:11.416Z",
+    "completedAt": "2026-10-19T17:07:18.416Z",
+    "rawAllOk": true,
+    "scenarios": 13,
+    "commands": 178,
+    "statuses": [
+      0
+    ],
+    "calls": {
+      "validate_diagram.py": 6,
+      "lek.py": 18,
+      "render-site.mjs": 4,
+      "check_artifact.py": 4
+    },
+    "staticSummaries": [
+      {
+        "checks": 89,
+        "failed": 0,
+        "pages": 1,
+        "files": 6
+      },
+      {
+        "checks": 89,
+        "failed": 0,
+        "pages": 1,
+        "files": 6
+      },
+      {
+        "checks": 89,
+        "failed": 0,
+        "pages": 1,
+        "files": 6
+      },
+      {
+        "checks": 89,
+        "failed": 0,
+        "pages": 1,
+        "files": 6
+      }
+    ],
+    "manifestSha256": "a5f0cbac8fb555fdd723e275d6c201142a44a9641c5018fcdc71a5f9901c5603",
+    "manifestListed": 11,
+    "physicalFiles": 12,
+    "manifestErrors": [],
+    "sourceFiles": 7035,
+    "startEndBytesIdentical": true,
+    "compactSourceHash": "f26a6b6a663fd7c747889f6261d3d4d73de5a609df4824fd7961ba1e255f310d",
+    "terminalCompactSourceHash": "f26a6b6a663fd7c747889f6261d3d4d73de5a609df4824fd7961ba1e255f310d",
+    "metadataSourceFileCount": 7035,
+    "headAtStart": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+    "headAtEnd": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+    "ownRoots": 14,
+    "allRootsAbsent": true,
+    "completeWorktreeListRestored": true,
+    "metadataListMatches": true,
+    "noCanonicalWorktreeCreated": true,
+    "limits": {
+      "priorActual4d10ResultsReused": false,
+      "formalPublication": "8.3.3 NOT_PUBLISHED; public installation remains existing release",
+      "model": "NOT_RUN",
+      "desktop": "NOT_RUN",
+      "browser": "NOT_RUN in this smoke batch",
+      "privateSite": "NOT_TOUCHED",
+      "ownerFinalAcceptance": "NOT_EVALUATED"
+    }
+  },
+  "localEvidence": {
+    "r1": {
+      "tests": 642,
+      "pass": 641,
+      "fail": 1,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 107343.3382
+    },
+    "r2": {
+      "tests": 642,
+      "pass": 642,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 199910.0554
+    },
+    "r1ExitFromExecutionReceipt": 1,
+    "r2ExitFromExecutionReceipt": 0,
+    "strictLogSha256": "2f7833ff457ebf70648e4b2322858c5052f238c8dcbcdf352a748917393b6b76",
+    "baselineLogSha256": "68ad909418d8afbe4cffa1f080ea0ab54359beecfa396b562e10c2ff0ad79704",
+    "r1Cause": "Raw failure is source projection digest mismatch in case591; concurrency attribution belongs to root execution receipt, not a causal finding inferred from GitHub timestamps."
+  },
+  "scope": {
+    "head": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+    "branch": "codex/prebump-marketplace-8-3-3",
+    "version": "8.3.3",
+    "changedFiles": [
+      "AGENTS.md",
+      "CHANGELOG.md",
+      "README.md",
+      "VERSION",
+      "docs/INDEX.md",
+      "docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md",
+      "docs/runbook/[RUNBOOK]_Release_Operations.md",
+      "plans/274-html-learning-artifact/INDEX.md",
+      "plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md",
+      "plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md",
+      "plans/274-html-learning-artifact/source-bindings.json"
+    ],
+    "runtimeScriptsTestsWorkflowSkillsUnchanged": true,
+    "agentsBytes": 16224,
+    "publicRefStill832": true,
+    "reportSha256": "5e6d01b8251f432c152b2a92e4109be0e8554f82f0802014a74e74d06558378b",
+    "reportHasPreciseSmokeTime": true,
+    "reportHasExactManifest": true,
+    "reportPreparationSnapshotExplicit": true
+  },
+  "postSmokePrimary": {
+    "head": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+    "originalUserPlanSha256": "dc9d58437778093ae9b51d052908712a3bbb2624f16ff335f5210435ca2f0895",
+    "note": "Root notified a normal primary checkout fast-forward after smoke terminal capture; archived equal before/after lists remain observations of the completed smoke, not current-global-list claims."
+  },
+  "semanticReview": {
+    "unpublished833WorkingSmokeDistinctFromActual4d10AndOldCI": true,
+    "prior719ReviewPointNotRelabeled738": true,
+    "originalR1FailureRetainedSeparatelyFromR2": true,
+    "queuedUnknownNineTimestampConflictsAndApprovalNotMetPreserved": true,
+    "ownerAcceptanceDeferredRoutesAndNotMeasuredNotUpgraded": true,
+    "protectedPrStillPreparationSnapshotWithNoInventedNumber": true
+  },
+  "fixedStaticFindings": {
+    "count": 4,
+    "severity": "P2",
+    "status": "FIXED; earlier719 review and archived wrapper retained unchanged"
+  },
+  "limits": [
+    "No repository edits or commits, no wrapper execution and no large tests rerun by reviewer.",
+    "This review covers738 current source entries; adding this review and final strict log creates740 and requires the root final whole-set/index-Git-blob audit.",
+    "Local full test and working8.3.3 smoke establish their recorded local scope, not current-head hosted CI, non-author/latest-push approval, protected PR merge, new release or Owner acceptance.",
+    "Post-smoke primary checkout synchronization does not rewrite the smoke-time before/after worktree observation."
+  ]
+}

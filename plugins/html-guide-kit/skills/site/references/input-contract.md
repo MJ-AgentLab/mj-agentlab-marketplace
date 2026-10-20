@@ -63,8 +63,10 @@ v1 活动仅支持独立单选参考核对：
 
 ## Output and Evidence
 
-输出含 `index.html/theme.css/learning.js`、原路径原字节输入文件，以及 `artifact-manifest.json`。manifest 顶层为 `{schemaVersion:1,artifactPath:"artifact.json",sourceSha256,version,files:[{path,sha256,bytes}]}`；`sourceSha256` 是原 `artifact.json` 字节哈希，清单覆盖输出所有实际文件但不包含 manifest 自身。没有原 Site 身份、凭据、旧通过记录或其他输入目录文件。
+输出含 `index.html/theme.css/learning.js`、原路径原字节输入文件、资产许可 `LICENSE` 与 `licenses/Apache-2.0.txt`、带资产/材料范围说明及完整包notice字节尾部的 `THIRD_PARTY_NOTICES.md`，以及 `artifact-manifest.json`。输入材料和学习正文保留原权利，不因生成网页改授权。上述生成名（含licenses目录）按统一upper/lower键保留，材料文件不允许大小写/Unicode别名或嵌套冲突，任一路径组件不得以点/空格结尾；缺安装许可或路径冲突在首写前失败。manifest 顶层为 `{schemaVersion:1,artifactPath:"artifact.json",sourceSha256,version,files:[{path,sha256,bytes}]}`；`sourceSha256` 是原 `artifact.json` 字节哈希，清单覆盖输出所有实际文件但不包含 manifest 自身。没有原 Site 身份、凭据、旧通过记录或其他输入目录文件。
 
 CSS 与脚本来自同一安装技能资源。页面提供静态正文、术语、参考判断和来源；脚本只增强当前会话核对、改答失效、重试／重置、反思输入、带版本导出、本地下载及真实复制反馈。导出含已知来源 ID、标题、定位、制品内相对路径和来源 URL，离开网页也能识别依据，不加入宿主绝对路径或账号身份。无选择不是回答，修改后须重新核对；脚本不保存账号或分数、不上传回答。复制失败显式提示并聚焦／选择导出文字供手动复制；按 Escape 或“返回复制按钮”离开并回到复制控件，不声称手动复制成功。修改／重置会收起该返回入口；异步复制完成时不会覆盖已失效记录的状态。
+
+通用静态checker核验声明的文件/manifest自洽；同步删改清单仍可能通过，不独立认证材料来源或许可真实性。安装器和生成器的许可传递另核原包字节。
 
 生成成功只表示生成器检查范围内已输出。必须再运行本包静态与渲染检查，并独立核对关键内容／条件／判准和代表性操作；Sites 的保存、发布、访问范围及部署版本单独核对。理解效果保持 `NOT_MEASURED`，除非另有对应真实评价。

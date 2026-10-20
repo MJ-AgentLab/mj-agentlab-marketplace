@@ -1,0 +1,356 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-19T16:57:36.355Z",
+  "clientDate": "2026-10-20",
+  "clientTimezone": "Asia/Taipei",
+  "actor": "/root/contract_scan",
+  "role": "Independent read-only source/scope/evidence and final document semantic reviewer; not implementer of this version change",
+  "base": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+  "status": "NO_REMAINING_BLOCKERS_WITHIN_REVIEW_SCOPE",
+  "sourceClosure": {
+    "current": 719,
+    "old": 529,
+    "new": 190,
+    "currentWorkingByteChecks": 719,
+    "baselineGitBlobChecks": 529,
+    "sourceErrors": [],
+    "oldBindingChanges": [],
+    "oldOriginalByteChanges": [],
+    "unboundSnapshots": [],
+    "uniquePaths": true,
+    "uniqueIds": true,
+    "idsWithSlash": 1,
+    "idContract": "Nonempty and unique string; no slash restriction in scripts/document-harness.mjs:231 or Documentation Framework:62. Snapshot path containment remains separately enforced.",
+    "bindingsSha256": "fbbb5a5d92a7a7ff4e6647fdfa90c9d12c7261ef0b622213ef01cc3a08aa1e31"
+  },
+  "manifests": [
+    {
+      "path": "plans/274-html-learning-artifact/evidence/sources/postmerge/sync280/postdevelop/final-manifest.json",
+      "status": "PASS",
+      "listed": 15,
+      "expectedListed": 15,
+      "physical": 16,
+      "hash": "93601736e301a05082e7653d41f3f7d576f30a7058ce9462d5b6d4947cf3f117",
+      "errors": [],
+      "complete": true
+    },
+    {
+      "path": "plans/274-html-learning-artifact/evidence/sources/postmerge/sync280/ci-terminal/final-manifest.json",
+      "status": "PASS",
+      "listed": 33,
+      "expectedListed": 33,
+      "physical": 34,
+      "hash": "3631ddfdf2fba8406e5ef81be926c3182ea23af1ceed20a92955fd6529fb4eeb",
+      "errors": [],
+      "complete": true
+    }
+  ],
+  "versionTool": {
+    "receipt": {
+      "capturedAt": "2026-10-19T16:52:33.524Z",
+      "actor": "/root",
+      "clientDate": "2026-10-20",
+      "clientTimezone": "Asia/Taipei",
+      "sourceActualSync": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+      "sourceActualSyncFreshSummarySha256": "1c437736dd3137bcf3cc5ec3ea62a2b93f77ee20c77645478cf90e50358d6720",
+      "freshManifestSha256": "93601736e301a05082e7653d41f3f7d576f30a7058ce9462d5b6d4947cf3f117",
+      "sourceActualSyncCompletedAt": "2026-10-19T16:50:02.166Z",
+      "from": "8.3.2",
+      "to": "8.3.3",
+      "scope": "marketplace",
+      "dryStartedAt": "2026-10-19T16:52:31.265Z",
+      "dry": {
+        "command": [
+          "pwsh",
+          "-NoProfile",
+          "-File",
+          "C:\\Users\\Admin\\.codex\\worktrees\\html-learning-artifact\\develop\\scripts\\bump-version.ps1",
+          "-From",
+          "8.3.2",
+          "-To",
+          "8.3.3",
+          "-Scope",
+          "marketplace",
+          "-DryRun"
+        ],
+        "status": 0,
+        "completedAt": "2026-10-19T16:52:31.625Z"
+      },
+      "zeroDryRunWrites": true,
+      "filesChecked": 7252,
+      "applyStartedAt": "2026-10-19T16:52:32.427Z",
+      "applied": {
+        "command": [
+          "pwsh",
+          "-NoProfile",
+          "-File",
+          "C:\\Users\\Admin\\.codex\\worktrees\\html-learning-artifact\\develop\\scripts\\bump-version.ps1",
+          "-From",
+          "8.3.2",
+          "-To",
+          "8.3.3",
+          "-Scope",
+          "marketplace"
+        ],
+        "status": 0,
+        "completedAt": "2026-10-19T16:52:32.762Z"
+      },
+      "changedPaths": [
+        "README.md",
+        "VERSION"
+      ],
+      "hashes": [
+        {
+          "path": "README.md",
+          "before": "c54a48727b354ed09b5679fcd82192a811e714e08d50874563f9bfe8c12af98c",
+          "after": "fbb212ffbbc8a24e709f440275b0a031e7734166feb3432875fbe15a9036c956"
+        },
+        {
+          "path": "VERSION",
+          "before": "07dd3cfa027b66864559eb8c35e4003b46d3c3169ab75e567d4047c81c7151e6",
+          "after": "edeec5ff4fbe8e0c198abda9eed2cc6537c764b875495b3a88d3073d0c395b73"
+        }
+      ],
+      "badgeOnlyReadmeReplacement": true,
+      "noBackupResidues": true,
+      "otherRepositoryBytesUnchanged": true,
+      "fileHashEvidence": [
+        {
+          "phase": "before",
+          "file": "html-learning-274-prebump-files-before.json",
+          "sha256": "a0583d017db2ba2bb35fbfc53eaaa8787c03b7d5d417c5da4bc88e6e00d31f8d"
+        },
+        {
+          "phase": "after-dryrun",
+          "file": "html-learning-274-prebump-files-after-dryrun.json",
+          "sha256": "a0583d017db2ba2bb35fbfc53eaaa8787c03b7d5d417c5da4bc88e6e00d31f8d"
+        },
+        {
+          "phase": "after-apply",
+          "file": "html-learning-274-prebump-files-after-apply.json",
+          "sha256": "6137b21d2ca2c48d2a797982fa4b5a0a054a5c5a43981ab40745b97e337a889b"
+        }
+      ],
+      "limits": "Local version-tool preparation only after actualsync freshPASS; additional normalA6/task records handled separately, not actualprotectedPR merge or officialrelease. Plugins/tag/Release untouched."
+    },
+    "maps": {
+      "before": 7252,
+      "dryrun": 7252,
+      "after": 7252,
+      "allSetsEqual": true,
+      "dryrunZeroWrites": true,
+      "changedPaths": [
+        "README.md",
+        "VERSION"
+      ],
+      "receiptHashesMatch": true,
+      "receiptManifestMatches": true,
+      "versionCurrent": "8.3.3",
+      "versionAfterHashMatches": true,
+      "noBackupResidues": true
+    },
+    "archivedWrapperSha256": "a873068210b450e1222b85341aaa56b96ee0accc2dddffb374b08f80781db654",
+    "staticFindings": [
+      {
+        "severity": "P2",
+        "issue": "Manifest closure omitted required frozen inputs",
+        "status": "FIXED_STATIC_REVIEW"
+      },
+      {
+        "severity": "P2",
+        "issue": "Exact isolated branch not pinned",
+        "status": "FIXED_STATIC_REVIEW"
+      },
+      {
+        "severity": "P2",
+        "issue": "Preexisting recovery backups not rejected",
+        "status": "FIXED_STATIC_REVIEW"
+      },
+      {
+        "severity": "P2",
+        "issue": "Windows realpath cross-drive containment",
+        "status": "FIXED_STATIC_REVIEW"
+      }
+    ]
+  },
+  "scope": {
+    "changedFiles": [
+      "AGENTS.md",
+      "CHANGELOG.md",
+      "README.md",
+      "VERSION",
+      "docs/INDEX.md",
+      "docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md",
+      "docs/runbook/[RUNBOOK]_Release_Operations.md",
+      "plans/274-html-learning-artifact/INDEX.md",
+      "plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md",
+      "plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md",
+      "plans/274-html-learning-artifact/source-bindings.json"
+    ],
+    "unexpectedTrackedPaths": [],
+    "runtimeScriptsTestsWorkflowSkillsUnchanged": true,
+    "formalChangelogGitTextUnchanged": true,
+    "publicInstallStill832": true,
+    "agentsBytes": 16224,
+    "agentsBudget": 16384,
+    "agentsWithinBudget": true,
+    "normalA6Update": true,
+    "head": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+    "branch": "codex/prebump-marketplace-8-3-3"
+  },
+  "rawRuns": [
+    {
+      "file": "postdevelop/raw-result.json",
+      "version": "codex-cli 0.147.0",
+      "ok": true,
+      "scenarios": 13,
+      "commands": 178,
+      "statuses": [
+        0
+      ],
+      "calls": {
+        "validate_diagram.py": 6,
+        "lek.py": 18,
+        "render-site.mjs": 4,
+        "check_artifact.py": 4
+      },
+      "staticSummaries": [
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        }
+      ]
+    },
+    {
+      "file": "ci-terminal/linux-smoke.json",
+      "version": "codex-cli 0.147.0",
+      "ok": true,
+      "scenarios": 13,
+      "commands": 178,
+      "statuses": [
+        0
+      ],
+      "calls": {
+        "validate_diagram.py": 6,
+        "lek.py": 18,
+        "render-site.mjs": 4,
+        "check_artifact.py": 4
+      },
+      "staticSummaries": [
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        }
+      ]
+    },
+    {
+      "file": "ci-terminal/windows-smoke.json",
+      "version": "codex-cli 0.147.0",
+      "ok": true,
+      "scenarios": 13,
+      "commands": 178,
+      "statuses": [
+        0
+      ],
+      "calls": {
+        "validate_diagram.py": 6,
+        "lek.py": 18,
+        "render-site.mjs": 4,
+        "check_artifact.py": 4
+      },
+      "staticSummaries": [
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        }
+      ]
+    }
+  ],
+  "freshActualSync": {
+    "canonicalSha": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+    "canonicalTree": "db49629fe767d3584f6ce772ef7bf5cdb52094e1",
+    "startedAt": "2026-10-19T16:39:19.139Z",
+    "completedAt": "2026-10-19T16:50:02.166Z",
+    "status": "PASS",
+    "exactRoots": 15,
+    "allRootsAbsent": true,
+    "worktreeListRestored": true,
+    "hostHeadRestored": true
+  },
+  "semanticReview": {
+    "status": "NO_REMAINING_BLOCKERS",
+    "uniqueTaskPlanReport": true,
+    "currentMainDevelopPublishedTagSeparated": true,
+    "actualBypassIsNotApproval": true,
+    "queuedUnknownAndNineChronologyConflictsPreservedWithoutCausalInference": true,
+    "localPrebumpApplyIsNotProtectedDeliveryOrRelease": true,
+    "originalFailuresDeferredRoutesOwnerAcceptanceAndNotMeasuredRetained": true,
+    "readmeAgentsUnreleasedFinalEditsReviewed": true
+  },
+  "limits": [
+    "No repository files edited, no commits, no version wrapper executed by this reviewer, and no large tests rerun.",
+    "Raw run evidence above belongs to actual4d10 or its original8.3.2 CI candidate, not to the local8.3.3 full test currently running.",
+    "This is a719-source review point; later evidence additions require separately identified closure verification.",
+    "Local final test, new PR current-head CI/approval/threads, actual protected merge, release and Owner acceptance are separate and not established by this review."
+  ]
+}

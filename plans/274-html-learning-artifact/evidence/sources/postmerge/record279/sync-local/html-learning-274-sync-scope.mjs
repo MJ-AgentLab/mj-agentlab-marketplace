@@ -1,0 +1,20 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import assert from 'node:assert/strict';
+import {execFileSync} from 'node:child_process';
+const root='C:/Users/Admin/.codex/worktrees/html-learning-artifact/develop',task='plans/274-html-learning-artifact',base='e3dc40f734fc972e05956da3e908091e09963675',develop='65d756efd3024ac10d1d0e6ea189055fbe6f1545';
+const git=args=>execFileSync('git',args,{cwd:root,maxBuffer:40*1024*1024}),text=args=>git(args).toString('utf8').trim(),hash=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+const checks=[];function check(name,fn){fn();checks.push({name,status:'PASS'});}
+const b=JSON.parse(fs.readFileSync(path.join(root,task,'source-bindings.json'),'utf8')),old=JSON.parse(git(['show',base+':'+task+'/source-bindings.json']));
+check('All old372 binding identities and original bytes retained',()=>{assert.equal(old.sources.length,372);for(const e of old.sources){assert.deepEqual(b.sources.find(x=>x.id===e.id),e);assert.equal(hash(path.join(root,task,e.path)),e.sha256);}});
+check('All current source bytes match bindings without duplicate identities or paths',()=>{assert.equal(new Set(b.sources.map(e=>e.id)).size,b.sources.length);assert.equal(new Set(b.sources.map(e=>e.path)).size,b.sources.length);for(const e of b.sources)assert.equal(hash(path.join(root,task,e.path)),e.sha256,e.path);});
+check('Exact actualmain HEAD and complete actualdevelop ancestry retained',()=>{assert.equal(text(['rev-parse','HEAD']),base);git(['merge-base','--is-ancestor',base,'HEAD']);git(['merge-base','--is-ancestor',develop,'HEAD']);});
+check('Runtime, VERSION, catalog, repo skills, scripts, tests, workflow and dependencies unchanged from actualmain',()=>assert.equal(text(['diff','--name-only',base,'--','plugins','VERSION','.agents/plugins','.agents/skills','scripts','tests','.github','package.json','package-lock.json']),''));
+check('Sync inherits only published neutral HTML README/CHANGELOG package differences from develop',()=>{const p=text(['diff','--name-only',develop,'--','plugins']).split('\n').filter(Boolean);assert.deepEqual(p.sort(),['plugins/html-guide-kit/CHANGELOG.md','plugins/html-guide-kit/README.md']);});
+check('Formal8.3.2 and older released notes unchanged',()=>{const p=fs.readFileSync(path.join(root,'CHANGELOG.md'),'utf8').replaceAll('\r\n','\n'),q=git(['show',base+':CHANGELOG.md']).toString('utf8');assert.equal(p.slice(p.indexOf('## [8.3.2]')),q.slice(q.indexOf('## [8.3.2]')));});
+check('Market and default public install remain8.3.2, next-version preparation not applied',()=>{assert.equal(fs.readFileSync(path.join(root,'VERSION'),'utf8').trim(),'8.3.2');const r=fs.readFileSync(path.join(root,'README.md'),'utf8');assert(r.includes('--ref v8.3.2'));assert(r.includes('version-8.3.2-blue'));});
+check('Root AGENTS instruction budget respected',()=>assert(fs.statSync(path.join(root,'AGENTS.md')).size<=16384));
+check('Original untracked user plan unchanged',()=>assert.equal(hash('D:/workspace/10-software-project/projects/mj-agentlab-marketplace/develop/HTML-Learning-Artifact-Plugin-Implementation-Plan.md'),'dc9d58437778093ae9b51d052908712a3bbb2624f16ff335f5210435ca2f0895'));
+const result={capturedAt:new Date().toISOString(),actor:'/root',base,baseTree:text(['rev-parse',base+'^{tree}']),develop,branch:text(['branch','--show-current']),stage:'Sync working tree before commit; exact observation at capturedAt only',checks,sourceBindings:b.sources.length,oldBindingsUnchanged:old.sources.length,agentsBytes:fs.statSync(path.join(root,'AGENTS.md')).size,limitations:'Source/scope proof only; no new actualsync merge or Owner acceptance, no protected approval substitution; source count explicitly this observation, later frozen originals require final independent check'};
+fs.writeFileSync('C:/Users/Admin/AppData/Local/Temp/html-learning-274-sync-scope.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));

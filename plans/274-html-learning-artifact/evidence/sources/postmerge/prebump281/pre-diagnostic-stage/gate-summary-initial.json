@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "phase": "initial",
+  "capturedAt": "2026-10-19T17:14:39.605Z",
+  "pr": 281,
+  "head": "1d8b6849ec7e398d65a949d204abe38bc64a4e0b",
+  "base": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+  "potentialMerge": "4e49503345f814175d0af39ab1ea8e02eb6a6adf",
+  "state": "OPEN",
+  "isDraft": false,
+  "reviewDecision": "REVIEW_REQUIRED",
+  "mergeStateStatus": "BLOCKED",
+  "mergeable": "MERGEABLE",
+  "reviewCount": 0,
+  "observedCurrentHeadNonAuthorApprovals": [],
+  "reviewThreads": {
+    "total": 0,
+    "pages": 1,
+    "unresolved": 0,
+    "outdated": 0
+  },
+  "actualPullRequestRule": {
+    "type": "pull_request",
+    "parameters": {
+      "required_approving_review_count": 1,
+      "dismiss_stale_reviews_on_push": true,
+      "required_reviewers": [],
+      "require_code_owner_review": false,
+      "dismissal_restriction": {
+        "enabled": false,
+        "allowed_actors": []
+      },
+      "require_last_push_approval": true,
+      "required_review_thread_resolution": true,
+      "require_extra_approval_for_unattributed_changes": true,
+      "allowed_merge_methods": [
+        "merge"
+      ]
+    },
+    "ruleset_source_type": "Repository",
+    "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+    "ruleset_id": 14008221
+  },
+  "actualStatusRule": {
+    "type": "required_status_checks",
+    "parameters": {
+      "strict_required_status_checks_policy": true,
+      "do_not_enforce_on_create": false,
+      "required_status_checks": [
+        {
+          "context": "Validate Structure"
+        },
+        {
+          "context": "A6 / Check"
+        }
+      ]
+    },
+    "ruleset_source_type": "Repository",
+    "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+    "ruleset_id": 14008221
+  },
+  "a6": {
+    "id": 39292125256,
+    "head": "1d8b6849ec7e398d65a949d204abe38bc64a4e0b",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "protectionPassClaimed": false,
+  "observations": [
+    "API observations only; no approve, reviewer request, comment, resolution, merge, bypass, rerun or cancel action.",
+    "Observed approval rows do not override GitHub reviewDecision or all current protected-branch requirements."
+  ]
+}

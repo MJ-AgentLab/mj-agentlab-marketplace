@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "test:concurrency-1": "node --test --test-concurrency=1 tests/*.test.mjs",
+    "test:concurrency-2": "node --test --test-concurrency=2 tests/*.test.mjs",
+    "validate": "node scripts/validate-portable.mjs",
+    "check:baseline-tools": "node scripts/check-tool-versions.mjs --codex 0.147.0",
+    "report:tool-versions": "node scripts/check-tool-versions.mjs --report-only",
+    "smoke:codex": "node scripts/smoke-codex-plugin.mjs",
+    "icons:export": "node scripts/export-icons.mjs",
+    "icons:preview": "node scripts/render-brand-previews.mjs",
+    "check": "npm run check:baseline-tools --",
+    "smoke": "npm run smoke:codex --"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "2.6.2",
+    "cross-spawn": "7.0.6",
+    "pngjs": "7.0.0",
+    "yaml": "2.9.0"
+  }
+}
