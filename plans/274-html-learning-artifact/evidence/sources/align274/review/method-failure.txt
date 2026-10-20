@@ -1,0 +1,7 @@
+First evidence-serialization command used a Python stdin script, through bare `python -` with PowerShell login=false.
+Observed output:
+python:
+The term 'python' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+
+This was evidence-writing infrastructure only; the Python script did not execute, so it created no evidence directory/files and no candidate changes. It was not a scenario/renderer/checker test. Exact wall clock for this failed command was not separately captured. Bundled runtime paths were subsequently read from load_workspace_dependencies; available system Node is used for the successful capture.

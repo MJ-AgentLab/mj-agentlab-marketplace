@@ -94,6 +94,10 @@ plans/274-html-learning-artifact/evidence/sources/consumer/** whitespace=-blank-
 # Post-merge API, CI and canonical-install originals keep their captured bytes.
 plans/274-html-learning-artifact/evidence/sources/postmerge/** whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
 plans/274-html-learning-artifact/evidence/sources/align274/** whitespace=cr-at-eol
+# Preserve the significant blank-space lines in the captured first-failure TAP.
+plans/274-html-learning-artifact/evidence/sources/align274/harness/full-tests.log whitespace=-blank-at-eol,cr-at-eol
+plans/274-html-learning-artifact/evidence/sources/align274/smoke/before-worktrees.txt whitespace=-blank-at-eof,cr-at-eol
+plans/274-html-learning-artifact/evidence/sources/align274/smoke/after-worktrees.txt whitespace=-blank-at-eof,cr-at-eol
 
 # Raw accepted/source records retain their original EOF and CRLF bytes.
 plans/269-plans-path-unification/evidence/sources/accepted-baseline-b1.json whitespace=-blank-at-eof

@@ -1,0 +1,39 @@
+{
+  "requestedAt": "2026-10-20T06:23:54.972Z",
+  "role": "/root/alignment_independent_review",
+  "mode": "Agent synthetic confirmed local delivery exercise",
+  "source": "C:\\Users\\Admin\\.codex\\worktrees\\html-prompt-alignment\\develop\\plugins\\html-guide-kit\\skills\\site\\examples\\representative",
+  "theme": "neutral",
+  "delivery": "local-only",
+  "originals": "read-only; independent working copy only",
+  "reused": {
+    "audience": "能够读懂基本日期，但尚未区分规则许可、申请提交与完成确认的学习者。",
+    "task": "根据本页自编规则，解释续借是否允许、成功或失败后的日期，以及确认完成所需依据。",
+    "goals": [
+      "用两个必要条件的组合解释规则许可，不把且改为或。",
+      "从原到期日计算成功后的七个日历日，失败时保留原日期。",
+      "区分提交、成功确认与未知结果，并指出确认所需的两项依据。"
+    ],
+    "activities": [
+      {
+        "id": "permission-check",
+        "correctIndex": 1,
+        "reference": "本次不允许。LIB2 要求尚未逾期且没有其他读者预约，两项条件同时成立才规则允许；规则允许仍不等于已成功。"
+      },
+      {
+        "id": "date-check",
+        "correctIndex": 0,
+        "reference": "成功：2026-11-05；失败：2026-10-29。日期基准是原到期日，不是申请日；增加的是七个日历日。"
+      },
+      {
+        "id": "completion-check",
+        "correctIndex": 1,
+        "reference": "只能确认申请提交。完成确认需同时有续借成功文字和更新后的归还日期；结果未确认时保留未知，不补造失败或后台步骤。"
+      }
+    ]
+  },
+  "onlyConfigSemanticChange": "theme=neutral",
+  "priorChoicesReused": true,
+  "mattRequired": false,
+  "sitesUsed": false
+}

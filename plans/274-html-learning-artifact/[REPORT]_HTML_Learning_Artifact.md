@@ -23,7 +23,22 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 
 已按完整制作提示词修订按需Matt grilling、关键设计共识确认、可选主题、原材料保护及约定本地交付。B2完整API文本保留在独立私有证据目录，[捕获元数据](./evidence/sources/align274/baseline.json)记录准确hash/恢复位置与未知消息时间；不公开权利未核实的全文，不把API捕获冒充原上传字节。U2[Owner原话](./evidence/sources/align274/owner-decision.txt)为本批接受范围与实施授权，不是新成品最终接受。
 
-本地生成器保留，新增可选warm-paper/neutral；默认样式/输出兼容性、原件保护、两Python与有界浏览器由实际候选验证后在本节接续。独立Agent阅读/决策核验只算合成角色，非原生窗口或泛化模型验收。完整工程/十三安装、当前PR CI/内部合并与最终保护交付尚待各自终态证据，不借旧测试冒充新跑。
+实现产品候选为b5b8300ae58e967e1d0013e66dc4f1208ac860ef/tree8ce86dbd47bc0187e0cae41a3d144479d4b41819；42a8eb6439ece6d386e5e5897b5d33862315885a仅同步一处旧测试版本预期，产品资源/文档与b5相同。内部[实现子PR285](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/285)以codex/html-prompt-alignment为base；该分支实际规则为空，不触碰main/develop保护。其完整平台CI、实际内部合并及后继证据子PR按实际终态接Issue，不把创建前快照写成已合入。
+
+| 增量条目 | 实际执行身份、方法与证据 | 结论及限制 |
+|---|---|---|
+| A01/A06 | /root/alignment_independent_review实际读取完整合成LIB1–LIB4与正文/配置，独立核AND四组合、跨月七日、失败不改日期、提交/成功双依据及三题；原材料/技能前后hash一致 | 限定语义与原件保护PASS；合成馆规，不扩大真实政策或一般模型正确性 |
+| A02/A03 | 同一独立Agent从真实入口前向核三场景：已定本地、关键未答、已定Sites但缺能力；43资源hash、7项来源/范围检查 | [独立阅读](./evidence/sources/align274/review/final-review.json)限定通过，非真实Matt用户访谈、待答窗口或泛化模型运行；初发现及修正分别保留 |
+| A04 | /root/alignment_theme_implementation实际27/27定向、三组Python静态各96/96、两主题各1366x900/390x844的真实Chrome155；省略主题的全部输出/manifest与0.1.38前态字节相等 | [主题证据](./evidence/sources/align274/theme/verification-summary.json)限定PASS；root实看四截图，灰色/无衬线实际生效，非全面WCAG/托管页或学习效果 |
+| A05/A06 | 独立Agent复用已给定目标/判准与明确neutral/local决定，实际制作独立本地HTML/Markdown/来源/版本/恢复说明，静态96/96、两视口渲染通过，十文件另目录再生全同 | [本地交付](./evidence/sources/align274/local/run-independent-r1/final-result.json)限定PASS；没有Sites动作/真实Matt访谈，不把生成器/浏览器替代全部作答/复制/导出主流程 |
+| A07 | 指令保持明确提交/同一待答，未提交/默认/推荐/关闭等均非答复 | 持续显示/空返回/超时/关闭D01仍DEFERRED，非PASS；本轮未恢复原生/桌面/模型矩阵 |
+| A08 | 首轮本机652总/650PASS/1FAIL/1平台skip，唯一FAIL是旧测试期望0.1.38；42a8修后该文件23/23。strict与CLI0.147.0通过 | [首轮原FAIL](./evidence/sources/align274/harness/full-tests.log)、[修后23项](./evidence/sources/align274/harness/version-repair-tests.log)、[42a8严格检查](./evidence/sources/align274/harness/final-strict.log)分别保留；不把分项复验拼成一次全绿全套 |
+
+新增中性主题由生成器可选theme字段实际生成，未知值/类型在首写前拒绝，Python在hash自洽的坏配置仍拒绝；默认样式源与learning.js字节不变。可选skill-creator Python quick_validate首次因未装PyYAML而未运行，保持NOT_RUN；现行仓库portable/YAML/元数据严格检查已通过，不为辅助工具放宽门禁。一次裸python环境探测缺解释器原失败保在独立method-failure；实际检查使用真实捆绑Python3.12.14。
+
+证据采用[选择映射](./evidence/sources/align274/selection.json)：原主题/本地输入输出、脚本/命令、stdout/stderr、截图及角色记录保持原字节和原外部根；完整私有B2与独立阅读43资源快照留在元数据明示的原根/固定Git，不宣称公开选证包包含它们。初始1890来源与32项旧基线保持，新增来源仅追加。平台完整CI仍待终态；本节是证据子PR创建前的实际快照，之后该PR自身CI/实际merge只回Issue274和外部回执，不递归提交自证证据。
+
+独立 /root/alignment_contract_audit 在冻结b5于06:18:17.397–06:30:31.121Z实际运行完整smoke：13/13安装、178/178命令全status0，精确CLI0.147.0；真实6 Diagram+18 LEK+4site Python（3.12.14）共28条，4次site生成/静态各96/96，site20/guide4源缓存一致，普通3/原生8/显式5/仓库20。14实际观测自有根（1模板/13场景）逐根边界/absence全通过、无手工删除；源HEAD/tree/clean前后保持。完整worktree清单不相同，唯一新增是root授权修正WT，实际末态HEAD42a8/证据分支；[独立审计](./evidence/sources/align274/smoke/independent-audit.json)保真实差异，不把新增工作树当残留或称清单相同。[原执行回执](./evidence/sources/align274/smoke/run-result.json)和原stdout/方法/perf均已绑定；安装smoke的browser为NOT_RUN，不代原生、真实Matt或Sites验收。
 
 原生窗口持续显示/空返回/超时/关闭继续D01 **DEFERRED**，不重启原生模型/桌面矩阵；第二客户端/完整视觉可访问性/效果与历史批准缺口保留。原核心 **ACCEPTED_LIMITED** 只覆盖原交付，完整计划仍OPEN，本批最终接受未提供，理解效果 **NOT_MEASURED**。没有新的Owner实质决定待答，Agent继续已授权技术工作。
 
