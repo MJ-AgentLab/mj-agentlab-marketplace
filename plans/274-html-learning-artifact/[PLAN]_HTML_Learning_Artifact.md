@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.11
+version: v1.12
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -18,6 +18,8 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 
 
 ## Actual283 continuation and conditional release
+
+首发行head318的实际CI出现Windows CRLF指令预算与独立Linux启动FAIL；保留全部原件，仅压缩A6相关摘要并实际验证LF/CRLF两表示，后继新head重新执行必要CI。未改产品范围/判据，不重开授权或以重跑覆盖原失败；见[当前REPORT](./[REPORT]_HTML_Learning_Artifact.md#actual283-and-repair-release-continuation)。
 
 Owner续办“#283 PR 已合并，继续后续工作”，本次[捕获](./evidence/sources/postmerge/a283/request.json)不冒充准确消息时钟。actuala489已交付修复，原单主PR→develop阶段结束；冻结窗口actual全测/strict/CLI及新13已完成，事实见[唯一REPORT](./[REPORT]_HTML_Learning_Artifact.md#actual283-and-repair-release-continuation)。同private Site v2已在同身份/受众下修复部署，无新目标/权限或受众决定。
 

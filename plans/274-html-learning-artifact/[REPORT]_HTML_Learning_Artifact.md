@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.12
+version: v1.13
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -18,6 +18,11 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 
 
 ## Actual283 and repair release continuation
+
+首发行候选318db5a/tree44893ef4的[原CI](./evidence/sources/postmerge/a283/r1/phase1-summary.json)已真实FAIL：PR Ubuntu647总/646P/1平台skip并完成新13/178/6Diagram18LEK/4生成4静态各95；PR和push两个Windows均TAP621因AGENTS指令预算FAIL，push Ubuntu另TAP330真实浏览器NOT_RUN2/无DevTools端点FAIL、955B启动stderr保留，DBus日志不证明根因，仍UNKNOWN。三FAIL不由单Ubuntu成功覆盖，A6/Structure通过也不替完整工程门禁。
+
+Windows根因明确：Git LF16317B＋93个换行在完整CRLF checkout成为16410B，超过既有16384B；本机/独立预算前检只看LF，遗漏Windows表示。仅压缩A6的当前HTML摘要为同任务入口指针，完整事实/缺口仍在既有主文档，不变更阈值、workflow、checker、15秒或非零NOT_RUN。[真实双表示严格执行](./evidence/sources/postmerge/a283/budget/budget-repair.json)分别LF15903/CRLF15996均exit0，最后恢复LF；前三轮更保守margin长度预检在任何写入前中止，原方法/限制见[恢复上下文](./evidence/sources/postmerge/a283/budget/repair-context.json)。当前是修后工作树的双表示strict；后继新head将执行必要CI，未调用同head重跑API。完整204payload原CI＋manifest原布局/字节接回，原2079来源前缀保持；后继新head CI/真实保护批准另待，不能宣称Linux启动已修或稳定。
+
 
 2026-10-20：Owner直接续办“#283 PR 已合并，继续后续工作”，准确消息ID/时间未知，[本次捕获](./evidence/sources/postmerge/a283/request.json)与实际平台事件时间分开。实际283于UTC02:51:03Z合入develop **a4892f51f4163fb5bd4457d99229eaf1a4683e8f / tree196daab879d38b649333a01c4c0d0194c7b107c7**，parents908d+395bafe，与已测395候选同树。[独立实际审计](./evidence/sources/postmerge/a283/audit/summary.json)保存suite4612130198的bypass、reviews=[]、批准NOT_MET；actual merge没有新的完整Actions/checks，不借395候选计数，也不把缺触发称CI失败。Agent未执行bypass，新发布PR须真实保护批准。
 

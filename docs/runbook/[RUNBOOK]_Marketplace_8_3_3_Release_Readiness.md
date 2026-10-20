@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-20
 updated: 2026-10-20
 state: active
-version: v1.0
+version: v1.1
 layer: working
 purpose: "Maintain task274 source-bound 8.3.3 release identities, verification, protected gates, private Site observations and recovery"
 last-verified: null
@@ -15,6 +15,8 @@ last-verified: null
 # [RUNBOOK] Marketplace 8.3.3 release readiness
 
 ## Current preparation
+
+发行[PR284](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/284)已创建→protected main e3dc，首head318/tree448的PR/push原CI均FAIL，不能以单PR Ubuntu通过称发行就绪。Windows16317LF→16410CRLF超限已明确修正文档摘要，实际LF15903/CRLF15996严格校验通过；push Ubuntu真实browser NOT_RUN2/955B日志原FAIL/根因UNKNOWN保留。后继head/CI及真实批准未先通过。完整[phase1原件](../../plans/274-html-learning-artifact/evidence/sources/postmerge/a283/r1/phase1-summary.json)与[本机修复](../../plans/274-html-learning-artifact/evidence/sources/postmerge/a283/budget/budget-repair.json)由REPORT接续。下列尚无PR/head等语句是首候选准备前快照，当前以本段及Issue为准。
 
 2026-10-20：本账本准备一次已授权的Marketplace8.3.3修复发行。HTML Guide Kit0.1.38已由[PR283](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/283)实际合入develop并取得新本机/安装复验；同一私有Site的version2前向修复已原生部署成功。当前市场公开仍为v8.3.2，8.3.3尚未公开；正式发行PR、当前head保护门禁、实际main merge和真实tag新验均须各自补证。last-verified保留null，不把已列局部核验当作完整发行闭包完成。
 

@@ -6,13 +6,15 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-20
 state: active
-version: v2.10.6
+version: v2.10.7
 layer: canonical
 ---
 
 # [RUNBOOK] Release operations
 
 ## Preparation
+
+当前发行PR284首head318的Windows CRLF预算已修/双表示strict通过；原Linux启动FAIL/UNKNOWN保留，后继当前head CI/真实批准继续独立，详见下述8.3.3账本。
 
 当前有界修复发行：#283已合developa4892f51/HTML0.1.38，实际全测/strict/CLI及新13通过，同private Site v2已部署且受众不变。沿原B1/P5五边界授权准备一次Marketplace8.3.3→受保护main修复发行，不再bump；真实head CI/外部批准/线程/latestbase、actualmain、draft-first、tag/Release及真实tag安装分别取证。公开及默认安装仍v8.3.2；完整计划/效果/历史批准缺口不追认。当前见[8.3.3账本](./[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md)及[同一REPORT](../../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#actual283-and-repair-release-continuation)。
 

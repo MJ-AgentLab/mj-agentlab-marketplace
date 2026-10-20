@@ -23,6 +23,7 @@ HTML Guide Kit 0.1.38 repair release, with Diagram 0.3.1, Learning Evidence 0.1.
 
 - Carry existing v8.3.2 publication records, complete main synchronization, marketplace-only version preparation and source-bound maintenance/recovery evidence through Issue274. These inherited records do not represent additional plugin runtime changes.
 - Record actual PR283 source identity, fresh installation/Python checks and the same private Site's version2 repair separately from Marketplace publication. Preserve limited core acceptance, deferred coverage and historical approval NOT_MET.
+- Keep the instruction summary within the existing byte budget for both LF and Windows CRLF checkouts; retain first-candidate budget/startup failures and their separate repair/verification identities.
 
 ### Verification and retained limits
 

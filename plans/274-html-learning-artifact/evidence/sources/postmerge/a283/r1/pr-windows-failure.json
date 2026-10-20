@@ -1,0 +1,42 @@
+{
+  "head": "318db5a5660920f4fcd95f0f96c352d012514815",
+  "runId": 39363773472,
+  "jobId": 118435749210,
+  "jobName": "Baseline compat (windows-latest)",
+  "failedStep": "Unit and real Python execution tests",
+  "stepNumber": 7,
+  "raw": {
+    "path": "downloads/job-118435749210.stdout.raw",
+    "bytes": 292651,
+    "sha256": "563e71fe4dccd1d8cf63a42b2b73de79624489d94b031cc7d36ad0ea8967a8c4"
+  },
+  "failedCase": {
+    "number": 621,
+    "name": "five approved portable plugins, eight public skills and all 20 repository skills satisfy contracts",
+    "location": "tests/validate-portable.test.mjs:28:1",
+    "assertion": "tests/validate-portable.test.mjs:29:42",
+    "actual": false,
+    "expected": true,
+    "error": "project instruction budget: AGENTS.md exceeds configured instruction budget"
+  },
+  "totals": {
+    "tests": 647,
+    "suites": 0,
+    "pass": 645,
+    "fail": 1,
+    "cancelled": 0,
+    "skipped": 1,
+    "todo": 0
+  },
+  "subsequentSteps": "validate, baseline-tools and smoke skipped in this job",
+  "causality": "Actual deterministic contract rejection reported by validator. Platform byte conversion or configured-byte threshold details require source/runner evidence; this record does not infer missing values.",
+  "remoteMutations": [],
+  "checkout": [
+    {
+      "commandLine": 246,
+      "shaLine": 247,
+      "sha": "ac34c52c0eab22368e5e2737ee59241f5aad2912"
+    }
+  ],
+  "independentVerification": "Original PR Windows log independently matches TAP621 AGENTS instruction-budget failure; no reuse of push conclusion"
+}

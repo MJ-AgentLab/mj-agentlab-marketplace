@@ -70,7 +70,7 @@ Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基
 
 ## HTML Guide Kit 阶段实施
 
-HTML0.1.37/site随#278/v8.3.2公开；#283合developa489交付0.1.38修复，市场8.3.3未发布。[任务274](plans/274-html-learning-artifact/INDEX.md)actual647/646P/1skip、strict/CLI及新13/178/实际Python/14根清理通过；同private Site v2已部署、受众不变。沿原P5准备一次修复发行，真实保护批准/CI/tag另证，见[8.3.3账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md)。旧FAIL/UNKNOWN/bypass/批准NOT_MET及延期保持，核心ACCEPTED_LIMITED、完整计划OPEN/效果NOT_MEASURED。
+HTML0.1.38/#283已合，8.3.3未发布。同私有Sitev2及证据/缺口见[任务274](plans/274-html-learning-artifact/INDEX.md)。
 
 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217)授权三阶段/worktree/codex。#221 merge70267a5复验/#218关闭；#226 d106e766同72cdd08树，0.1.0/第二轮A/七安装四Python复验/#219关闭。旧批准缺项保留。#231实际merge71e2同head树、CI全P/reviews空；原批准缺项保留，不bypass或指定审查人。
 

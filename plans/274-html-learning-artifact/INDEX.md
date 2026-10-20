@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.10
+version: v1.11
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -23,6 +23,10 @@ sources: ./source-bindings.json
 # HTML learning artifact task entry
 
 [#274](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274) 是进度正本。
+
+2026-10-20最新：发行[PR284](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/284)→main，首head318的CI真实FAIL已保留；Windows CRLF指令预算已作有界摘要修正及双表示严格复验，Linux原启动FAIL/UNKNOWN不变，后继新headCI/真实独立批准待证。Site v2已部署，Marketplace8.3.3未公开，未扩大Owner接受；详见当前REPORT/发行账本。
+
+以下为首次发行候选前快照。
 
 2026-10-20当前：#283已合developa4892f51，actual本机647总/646P/1平台skip、strict/CLI及新13/178/实际Python/14自有根清理通过；同私有Site v2已部署，受众保持仅Owner。一次HTML0.1.38修复发行正按保护main门禁准备，市场8.3.3未发布，安装仍v8.3.2；真实批准、tag/Release和真实tag新验另待。[当前REPORT](./[REPORT]_HTML_Learning_Artifact.md#actual283-and-repair-release-continuation)与[8.3.3账本](../../docs/runbook/[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md)接续。核心ACCEPTED_LIMITED/完整计划OPEN/旧FAIL和批准NOT_MET、D01–D07均保留，无新增Owner实质决定。
 
