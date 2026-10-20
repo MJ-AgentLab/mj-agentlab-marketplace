@@ -1,0 +1,35 @@
+TAP version 13
+# Subtest: actual Python drains a large stderr stream into a bounded exact tail and byte counters
+not ok 1 - actual Python drains a large stderr stream into a bounded exact tail and byte counters
+  ---
+  duration_ms: 7.733
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-learning-artifact\\develop\\tests\\browser-stderr.test.mjs:33:1'
+  failureType: 'testCodeFailure'
+  error: 'stderr capture tests require actual Python >=3.10'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  operator: 'fail'
+  stack: |-
+    python (file:///C:/Users/Admin/.codex/worktrees/html-learning-artifact/develop/tests/browser-stderr.test.mjs:25:10)
+    TestContext.<anonymous> (file:///C:/Users/Admin/.codex/worktrees/html-learning-artifact/develop/tests/browser-stderr.test.mjs:34:40)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: Linux exec capture preserves original checker args, failure, owned-session cleanup and foreign isolation
+ok 2 - Linux exec capture preserves original checker args, failure, owned-session cleanup and foreign isolation # SKIP
+  ---
+  duration_ms: 0.0762
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 0
+# fail 1
+# cancelled 0
+# skipped 1
+# todo 0
+# duration_ms 57.3576

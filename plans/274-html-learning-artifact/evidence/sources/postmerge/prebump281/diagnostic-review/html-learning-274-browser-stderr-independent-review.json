@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "role": "Independent read-only code reviewer /root/spec_review",
+  "reviewedAt": "2026-10-19T17:39:37.892Z",
+  "repository": "C:\\Users\\Admin\\.codex\\worktrees\\html-learning-artifact\\develop",
+  "status": "BLOCKED_DIAGNOSTIC_PATCH",
+  "sources": [
+    {
+      "file": "tests/helpers/capture-browser-stderr.mjs",
+      "bytes": 6267,
+      "sha256": "8391f1fbf3d97cc7e92906df02544ffa29fc16b0e7b57f5653e17ec771434f16"
+    },
+    {
+      "file": "tests/browser-stderr.test.mjs",
+      "bytes": 8290,
+      "sha256": "ea3a63b344b9fd54dec7e063d8cf93d6576a48751e369b71a3a5a43c287e1818"
+    },
+    {
+      "file": "tests/html-site-checks.test.mjs",
+      "bytes": 21932,
+      "sha256": "88ddd8c990a1208d6bbe8994f009829f05ddaa631299e2b27bc2dc2e65544eb0"
+    },
+    {
+      "file": "plugins/html-guide-kit/skills/site/scripts/check_renderings.py",
+      "bytes": 23725,
+      "sha256": "d99dc2ad8a67d557f552280b83a5e519eb5395e18e71775abe7cb3fdbb489ccd"
+    }
+  ],
+  "authorEvidenceReviewed": {
+    "summary": "html-learning-274-browser-stderr-targeted-summary-r1.json",
+    "windows": "1 PASS, 1 Linux-only SKIP",
+    "wslLinux": "2 PASS, 0 SKIP",
+    "executionAttribution": "Author targeted results inspected, not represented as this reviewer rerunning those tests",
+    "scope": "Exact-byte three-file WSL projection, fake browser; actual Chromium readiness and original startup failure root cause remain UNKNOWN"
+  },
+  "independentExecution": {
+    "method": "Exact-byte helper projection into an isolated WSL temporary directory. Original synthetic browser exits 23; failure-only --version ignores SIGTERM and sleeps. Outer driver waits 7 seconds, kills only its own detached probe session, and verifies a separately owned foreign process survived.",
+    "rawEvidence": "html-learning-274-browser-stderr-independent-timeout-probe.json",
+    "rawEvidenceSha256": "2254330f5d46391bc16216c395098faac04b6c4dad5b6a1ff3b3ff091c4e409e",
+    "result": {
+      "probe": "failure-only version probe ignores SIGTERM",
+      "helperSha256": "37378aa6f912f7fe4487c9af52c59d96baf1e9bd8eb0dde6d7f78e23f945b62a",
+      "diagnosticDidNotReturnWithin7Seconds": true,
+      "wallSeconds": 7.010097193997353,
+      "stdout": "{\"stage\":\"original-returned\",\"status\":23}\n",
+      "stderr": "",
+      "foreignSurvivedOwnedProbeCleanup": true,
+      "cleanup": "SIGKILL only the independently owned probe session, then terminate separately owned foreign fixture",
+      "scope": "Synthetic timeout boundary only; no actual Chrome, CI or root-cause diagnosis"
+    }
+  },
+  "blockingFindings": [
+    {
+      "priority": 2,
+      "file": "tests/helpers/capture-browser-stderr.mjs",
+      "line": 112,
+      "title": "Version diagnostic can indefinitely block the original failure",
+      "contract": "Diagnostics must remain bounded and must not replace or prevent the original checker failure; outer test deadline must remain effective.",
+      "reproduction": "Original synthetic browser exits 23. Its --version process ignores SIGTERM. spawnSync timeout=5000 sends default SIGTERM and continues waiting; diagnostics had not returned after 7 seconds. Node synchronous wait also prevents its test timeout from interrupting this path.",
+      "impact": "A diagnostic-only assertion message can stall the CI test instead of promptly surfacing the original NOT_RUN/exit2 or other mismatch.",
+      "recommendation": "Remove the version subprocess (record the executable path/hash), or use a separately owned process with enforced termination and descendant/stdio cleanup. Increasing the timeout does not establish a hard bound."
+    }
+  ],
+  "otherReviewedBoundaries": [
+    {
+      "area": "Shell quoting and argument preservation",
+      "conclusion": "Single-quote escaping is correct; real executable is resolved, exec receives quoted \"$@\". Main flags and PID/SID remain unchanged by construction and the author fake-browser evidence."
+    },
+    {
+      "area": "Ring and drain",
+      "conclusion": "Logger keeps at most 65536 tail bytes and continues reading after truncation. Metadata remains diagnostic NOT_RUN; exceptions do not mark acceptance PASS. Synchronous per-block file persistence can add I/O overhead but no intentional size-limit backpressure was found."
+    },
+    {
+      "area": "Session cleanup and foreign isolation",
+      "conclusion": "Logger inherits the original browser-owned session, and the unchanged checker scans/kills all owned session groups. Author fake-browser test verifies no live owned groups and foreign survival. This review does not claim a new actual-Chrome lifecycle acceptance."
+    },
+    {
+      "area": "Failure status and retry/skip thresholds",
+      "conclusion": "Original browser-case assertions still require statuses 0/1. No main-case retry, new Linux skip, deadline increase, plugin/workflow or release mutation was found. Diagnostics only occur after a mismatched status; run() exceptions before return remain outside this newly instrumented status path."
+    }
+  ],
+  "limitations": [
+    "No repository writes, full test run, CI trigger, actual Chrome reproduction or model/desktop test performed.",
+    "No claim that this diagnostic change fixes the original Chrome startup NOT_RUN; its root cause remains UNKNOWN.",
+    "The 7-second probe was forcibly cleaned as a synthetic deadline test, not an acceptance PASS."
+  ]
+}

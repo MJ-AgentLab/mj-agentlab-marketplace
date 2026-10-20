@@ -1,0 +1,815 @@
+{
+  "schemaVersion": 1,
+  "runId": 39279114820,
+  "pr": 280,
+  "expectedHead": "ef85a2de6e39b1981d94d9d4cbc004fbdc71acee",
+  "expectedBase": "65d756efd3024ac10d1d0e6ea189055fbe6f1545",
+  "potentialMerge": "535315f035a5b7a8082a263fedaf9a07aa67e9d7",
+  "expectedTree": "db49629fe767d3584f6ce772ef7bf5cdb52094e1",
+  "platforms": {
+    "linux": {
+      "jobId": 118149991325,
+      "file": "linux-job.log",
+      "bytes": 968593,
+      "sha256": "DEFERRED_TO_FINAL_MANIFEST_AFTER_PROCESS_EXIT",
+      "tap": {
+        "tests": 642,
+        "suites": 0,
+        "pass": 641,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 1,
+        "todo": 0
+      },
+      "skippedCases": [
+        "Windows equivalent file casing still passes containment"
+      ],
+      "notOkCases": [],
+      "browserCases": [
+        {
+          "name": "browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record",
+          "tapNumber": 326,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        },
+        {
+          "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+          "tapNumber": 327,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        },
+        {
+          "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+          "tapNumber": 328,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        },
+        {
+          "name": "literal percent, Chinese and spaces in local filenames round-trip through browser URLs",
+          "tapNumber": 347,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        }
+      ],
+      "cleanupCases": [
+        {
+          "name": "all complete core groups remain unmeasured with incomplete cleanup",
+          "tapNumber": 21,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "backup cleanup failure does not undo a committed bump",
+          "tapNumber": 44,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "profile evidence preserves intentional rejection errors but rejects partial records and failed cleanup",
+          "tapNumber": 233,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+          "tapNumber": 327,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "release cleanup recovers from a transient canonical-directory lock and preserves the Git failure",
+          "tapNumber": 469,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "release cleanup bounds retries and reports a persistent verification-directory lock",
+          "tapNumber": 470,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "release cleanup reports unrelated cleanup errors without retrying",
+          "tapNumber": 471,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "failed installation cleans up the canonical worktree and fails closed",
+          "tapNumber": 475,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "an operation and persistent cleanup failure remain visible together",
+          "tapNumber": 596,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "template cleanup failure fails an otherwise successful keepRoot run and removes all retained scenarios",
+          "tapNumber": 597,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "source changing during a template copy fails its frozen inventory and cleans the partial template",
+          "tapNumber": 609,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "a context-creation failure before the second runner cleans prior/current roots and keeps its original error",
+          "tapNumber": 610,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "a materialize failure before the second runner cleans prior/current roots and keeps its original error",
+          "tapNumber": 611,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "a second runner returning ok:false fails the run and cleans all retained/current roots and the template",
+          "tapNumber": 612,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "post-success source integrity byte-drift cleans retained/current roots and preserves the failure",
+          "tapNumber": 613,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "post-success source integrity read-error cleans retained/current roots and preserves the failure",
+          "tapNumber": 614,
+          "status": "ok",
+          "skipped": false
+        }
+      ],
+      "cleanupScope": {
+        "invocationWithoutKeepRootFlag": "Run npm run smoke:codex / node scripts/smoke-codex-plugin.mjs without --keep-root in this log",
+        "successfulSmokeReturn": true,
+        "regressionCleanupCases": 16,
+        "individualRootAbsenceRecords": "NOT_RECORDED",
+        "limit": "Regression cleanup cases and successful smoke return do not establish a per-root filesystem-absence inventory. No old fifteen-root count reused."
+      },
+      "sourceToInstalledCacheByteChecks": "PASS within each actual platform checkout; no cross-platform physical byte-equality assertion",
+      "checkedOutSha": "535315f035a5b7a8082a263fedaf9a07aa67e9d7",
+      "checkedOutRef": "refs/remotes/pull/280/merge",
+      "checkedOutCommitMetadata": "ci-merge-final.json",
+      "checkedOutMergeShaPresent": true,
+      "smokeOk": true,
+      "smokeScenarios": 13,
+      "allScenarioOk": true,
+      "commands": 178,
+      "cliVersions": [
+        "codex-cli 0.147.0"
+      ],
+      "executionCounts": {
+        "diagramPython": 6,
+        "lekPython": 18,
+        "siteGeneration": 4,
+        "siteStaticPython": 4
+      },
+      "nonzeroCommands": [],
+      "publicSkills": 8,
+      "siteResources": 20,
+      "allPackageInventory": {
+        "outside": {
+          "publicSkills": 3,
+          "repositorySkills": 0
+        },
+        "repository": {
+          "publicSkills": 3,
+          "repositorySkills": 20
+        },
+        "nativeOutside": {
+          "publicSkills": 8,
+          "repositorySkills": 0
+        },
+        "nativeRepository": {
+          "publicSkills": 8,
+          "repositorySkills": 20
+        },
+        "explicitOnly": [
+          "learning-evidence-kit:pop-quiz",
+          "learning-evidence-kit:learning-record-check",
+          "communication-kit:communicate",
+          "html-guide-kit:guide",
+          "html-guide-kit:site"
+        ]
+      },
+      "siteStaticSummaries": [
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        }
+      ],
+      "siteBrowserScope": [
+        "NOT_RUN in installation smoke; separate representative browser acceptance required",
+        "NOT_RUN in installation smoke; separate representative browser acceptance required",
+        "NOT_RUN in installation smoke; separate representative browser acceptance required",
+        "NOT_RUN in installation smoke; separate representative browser acceptance required"
+      ],
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run npm ci",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run npm install -g @openai/codex@0.147.0",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Unit and real Python execution tests",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run npm run validate",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Run npm run check:baseline-tools",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Run npm run smoke:codex",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "conclusion": "success",
+          "number": 18
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "conclusion": "success",
+          "number": 19
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success",
+          "number": 20
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success",
+          "number": 21
+        }
+      ],
+      "strictValidation": {
+        "ok": true,
+        "errors": [],
+        "repositorySkills": 20,
+        "publicSkills": [
+          "diagram-kit:arch-diagram",
+          "learning-evidence-kit:pop-quiz",
+          "learning-evidence-kit:learning-record-check",
+          "explain-kit:glossary",
+          "explain-kit:concept",
+          "communication-kit:communicate",
+          "html-guide-kit:guide",
+          "html-guide-kit:site"
+        ]
+      },
+      "conclusion": "success",
+      "completedAt": "2026-10-19T15:39:23Z",
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39279114820/job/118149991325"
+    },
+    "windows": {
+      "jobId": 118149991324,
+      "file": "windows-job.log",
+      "bytes": 1035317,
+      "sha256": "DEFERRED_TO_FINAL_MANIFEST_AFTER_PROCESS_EXIT",
+      "tap": {
+        "tests": 642,
+        "suites": 0,
+        "pass": 642,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      },
+      "skippedCases": [],
+      "notOkCases": [],
+      "browserCases": [
+        {
+          "name": "browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record",
+          "tapNumber": 326,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        },
+        {
+          "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+          "tapNumber": 327,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        },
+        {
+          "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+          "tapNumber": 328,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        },
+        {
+          "name": "literal percent, Chinese and spaces in local filenames round-trip through browser URLs",
+          "tapNumber": 347,
+          "status": "ok",
+          "skipped": false,
+          "skipReason": null
+        }
+      ],
+      "cleanupCases": [
+        {
+          "name": "all complete core groups remain unmeasured with incomplete cleanup",
+          "tapNumber": 21,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "backup cleanup failure does not undo a committed bump",
+          "tapNumber": 44,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "profile evidence preserves intentional rejection errors but rejects partial records and failed cleanup",
+          "tapNumber": 233,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+          "tapNumber": 327,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "release cleanup recovers from a transient canonical-directory lock and preserves the Git failure",
+          "tapNumber": 469,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "release cleanup bounds retries and reports a persistent verification-directory lock",
+          "tapNumber": 470,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "release cleanup reports unrelated cleanup errors without retrying",
+          "tapNumber": 471,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "failed installation cleans up the canonical worktree and fails closed",
+          "tapNumber": 475,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "an operation and persistent cleanup failure remain visible together",
+          "tapNumber": 596,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "template cleanup failure fails an otherwise successful keepRoot run and removes all retained scenarios",
+          "tapNumber": 597,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "source changing during a template copy fails its frozen inventory and cleans the partial template",
+          "tapNumber": 609,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "a context-creation failure before the second runner cleans prior/current roots and keeps its original error",
+          "tapNumber": 610,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "a materialize failure before the second runner cleans prior/current roots and keeps its original error",
+          "tapNumber": 611,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "a second runner returning ok:false fails the run and cleans all retained/current roots and the template",
+          "tapNumber": 612,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "post-success source integrity byte-drift cleans retained/current roots and preserves the failure",
+          "tapNumber": 613,
+          "status": "ok",
+          "skipped": false
+        },
+        {
+          "name": "post-success source integrity read-error cleans retained/current roots and preserves the failure",
+          "tapNumber": 614,
+          "status": "ok",
+          "skipped": false
+        }
+      ],
+      "cleanupScope": {
+        "invocationWithoutKeepRootFlag": "Run npm run smoke:codex / node scripts/smoke-codex-plugin.mjs without --keep-root in this log",
+        "successfulSmokeReturn": true,
+        "regressionCleanupCases": 16,
+        "individualRootAbsenceRecords": "NOT_RECORDED",
+        "limit": "Regression cleanup cases and successful smoke return do not establish a per-root filesystem-absence inventory. No old fifteen-root count reused."
+      },
+      "sourceToInstalledCacheByteChecks": "PASS within each actual platform checkout; no cross-platform physical byte-equality assertion",
+      "checkedOutSha": "535315f035a5b7a8082a263fedaf9a07aa67e9d7",
+      "checkedOutRef": "refs/remotes/pull/280/merge",
+      "checkedOutCommitMetadata": "ci-merge-final.json",
+      "checkedOutMergeShaPresent": true,
+      "smokeOk": true,
+      "smokeScenarios": 13,
+      "allScenarioOk": true,
+      "commands": 178,
+      "cliVersions": [
+        "codex-cli 0.147.0"
+      ],
+      "executionCounts": {
+        "diagramPython": 6,
+        "lekPython": 18,
+        "siteGeneration": 4,
+        "siteStaticPython": 4
+      },
+      "nonzeroCommands": [],
+      "publicSkills": 8,
+      "siteResources": 20,
+      "allPackageInventory": {
+        "outside": {
+          "publicSkills": 3,
+          "repositorySkills": 0
+        },
+        "repository": {
+          "publicSkills": 3,
+          "repositorySkills": 20
+        },
+        "nativeOutside": {
+          "publicSkills": 8,
+          "repositorySkills": 0
+        },
+        "nativeRepository": {
+          "publicSkills": 8,
+          "repositorySkills": 20
+        },
+        "explicitOnly": [
+          "learning-evidence-kit:pop-quiz",
+          "learning-evidence-kit:learning-record-check",
+          "communication-kit:communicate",
+          "html-guide-kit:guide",
+          "html-guide-kit:site"
+        ]
+      },
+      "siteStaticSummaries": [
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        },
+        {
+          "checks": 89,
+          "failed": 0,
+          "pages": 1,
+          "files": 6
+        }
+      ],
+      "siteBrowserScope": [
+        "NOT_RUN in installation smoke; separate representative browser acceptance required",
+        "NOT_RUN in installation smoke; separate representative browser acceptance required",
+        "NOT_RUN in installation smoke; separate representative browser acceptance required",
+        "NOT_RUN in installation smoke; separate representative browser acceptance required"
+      ],
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run npm ci",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run npm install -g @openai/codex@0.147.0",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Unit and real Python execution tests",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run npm run validate",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Run npm run check:baseline-tools",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Run npm run smoke:codex",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "conclusion": "success",
+          "number": 18
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "conclusion": "success",
+          "number": 19
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success",
+          "number": 20
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success",
+          "number": 21
+        }
+      ],
+      "strictValidation": {
+        "ok": true,
+        "errors": [],
+        "repositorySkills": 20,
+        "publicSkills": [
+          "diagram-kit:arch-diagram",
+          "learning-evidence-kit:pop-quiz",
+          "learning-evidence-kit:learning-record-check",
+          "explain-kit:glossary",
+          "explain-kit:concept",
+          "communication-kit:communicate",
+          "html-guide-kit:guide",
+          "html-guide-kit:site"
+        ]
+      },
+      "conclusion": "success",
+      "completedAt": "2026-10-19T15:44:22Z",
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39279114820/job/118149991324"
+    }
+  },
+  "status": "PASS",
+  "extractedAt": "2026-10-19T16:43:01.249309+00:00",
+  "headAndPRBaseUnchanged": true,
+  "ciMergeTreeEqualsHeadAndActualMergeTree": true,
+  "actualMergeSha": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+  "actualMergeAt": "2026-10-19T16:37:27Z",
+  "actualMergeEvidenceScope": "PR REST merged state and immutable actual merge metadata; the PR matrix checked out the distinct CI merge SHA, not the later actual merge SHA.",
+  "runConclusion": "success",
+  "timing": {
+    "status": "CONFLICT_RECORDED",
+    "priorQueuedSnapshot": {
+      "capturedAt": "2026-10-19T15:42:29.786Z",
+      "frozenAt": "2026-10-19T15:43:03.918Z",
+      "runStatus": "queued",
+      "pushStatus": "queued",
+      "sources": [
+        "prior-queue-handoff.json",
+        "prior-capture-queue-handoff.json",
+        "prior-run-queue-handoff.json",
+        "prior-push-queue-handoff.json",
+        "prior-queue-manifest.json"
+      ]
+    },
+    "currentTerminalCapture": "capture-final-receipt.json",
+    "conflicts": [
+      {
+        "source": "PR",
+        "jobId": 118149991193,
+        "name": "Cancel proved superseded PR runs (best effort)",
+        "kind": "completedAt earlier than prior observed queued API snapshot",
+        "priorObservedQueuedAt": "2026-10-19T15:42:29.786Z",
+        "nowReturnedStartedAt": "2026-10-19T15:35:10Z",
+        "nowReturnedCompletedAt": "2026-10-19T15:37:09Z"
+      },
+      {
+        "source": "PR",
+        "jobId": 118149991325,
+        "name": "Baseline compat (ubuntu-latest)",
+        "kind": "completedAt earlier than prior observed queued API snapshot",
+        "priorObservedQueuedAt": "2026-10-19T15:42:29.786Z",
+        "nowReturnedStartedAt": "2026-10-19T15:35:05Z",
+        "nowReturnedCompletedAt": "2026-10-19T15:39:23Z"
+      },
+      {
+        "source": "PR",
+        "jobId": 118149991487,
+        "name": "Validate Structure",
+        "kind": "completedAt earlier than prior observed queued API snapshot",
+        "priorObservedQueuedAt": "2026-10-19T15:42:29.786Z",
+        "nowReturnedStartedAt": "2026-10-19T15:35:05Z",
+        "nowReturnedCompletedAt": "2026-10-19T15:36:57Z"
+      },
+      {
+        "source": "PR",
+        "jobId": 118157986307,
+        "name": "Prove equivalent PR matrix for this push (read only)",
+        "kind": "completedAt earlier than prior observed queued API snapshot",
+        "priorObservedQueuedAt": "2026-10-19T15:42:29.786Z",
+        "nowReturnedStartedAt": "2026-10-19T15:59:21Z",
+        "nowReturnedCompletedAt": "2026-10-19T15:35:02Z"
+      },
+      {
+        "source": "PR",
+        "jobId": 118157986307,
+        "name": "Prove equivalent PR matrix for this push (read only)",
+        "kind": "completedAt earlier than startedAt in current API fields",
+        "nowReturnedStartedAt": "2026-10-19T15:59:21Z",
+        "nowReturnedCompletedAt": "2026-10-19T15:35:02Z"
+      },
+      {
+        "source": "push",
+        "jobId": 118149826763,
+        "name": "Validate Structure",
+        "kind": "completedAt earlier than prior observed queued API snapshot",
+        "priorObservedQueuedAt": "2026-10-19T15:42:29.786Z",
+        "nowReturnedStartedAt": "2026-10-19T15:34:31Z",
+        "nowReturnedCompletedAt": "2026-10-19T15:34:57Z"
+      },
+      {
+        "source": "push",
+        "jobId": 118149827282,
+        "name": "Prove equivalent PR matrix for this push (read only)",
+        "kind": "completedAt earlier than prior observed queued API snapshot",
+        "priorObservedQueuedAt": "2026-10-19T15:42:29.786Z",
+        "nowReturnedStartedAt": "2026-10-19T15:34:32Z",
+        "nowReturnedCompletedAt": "2026-10-19T15:34:36Z"
+      },
+      {
+        "source": "push",
+        "jobId": 118157509731,
+        "name": "Cancel proved superseded PR runs (best effort)",
+        "kind": "completedAt earlier than prior observed queued API snapshot",
+        "priorObservedQueuedAt": "2026-10-19T15:42:29.786Z",
+        "nowReturnedStartedAt": "2026-10-19T15:57:53Z",
+        "nowReturnedCompletedAt": "2026-10-19T15:34:28Z"
+      },
+      {
+        "source": "push",
+        "jobId": 118157509731,
+        "name": "Cancel proved superseded PR runs (best effort)",
+        "kind": "completedAt earlier than startedAt in current API fields",
+        "nowReturnedStartedAt": "2026-10-19T15:57:53Z",
+        "nowReturnedCompletedAt": "2026-10-19T15:34:28Z"
+      }
+    ],
+    "interpretation": "Prior queued observations and their frozen queue diagnosis are preserved unchanged. Current API backfilled job times conflict with those actual earlier observations; at least one skipped helper also has completedAt before startedAt. These fields cannot reliably establish queue duration or actual start chronology. Cause UNDETERMINED; do not erase prior queue diagnosis or infer a trustworthy schedule from the backfill. Completed raw logs support the bounded execution counts, not a reconstructed queue history."
+  },
+  "push": {
+    "id": 39279043416,
+    "status": "completed",
+    "conclusion": "success",
+    "event": "push",
+    "head": "ef85a2de6e39b1981d94d9d4cbc004fbdc71acee",
+    "countedAsAdditionalAcceptance": false,
+    "jobs": [
+      {
+        "id": 118149826763,
+        "name": "Validate Structure",
+        "status": "completed",
+        "conclusion": "success",
+        "startedAt": "2026-10-19T15:34:31Z",
+        "completedAt": "2026-10-19T15:34:57Z"
+      },
+      {
+        "id": 118149827282,
+        "name": "Prove equivalent PR matrix for this push (read only)",
+        "status": "completed",
+        "conclusion": "success",
+        "startedAt": "2026-10-19T15:34:32Z",
+        "completedAt": "2026-10-19T15:34:36Z"
+      },
+      {
+        "id": 118149865348,
+        "name": "Baseline compat (windows-latest)",
+        "status": "completed",
+        "conclusion": "success",
+        "startedAt": "2026-10-19T15:34:39Z",
+        "completedAt": "2026-10-19T15:48:04Z"
+      },
+      {
+        "id": 118149865384,
+        "name": "Baseline compat (ubuntu-latest)",
+        "status": "completed",
+        "conclusion": "success",
+        "startedAt": "2026-10-19T15:34:39Z",
+        "completedAt": "2026-10-19T15:43:24Z"
+      },
+      {
+        "id": 118157509731,
+        "name": "Cancel proved superseded PR runs (best effort)",
+        "status": "completed",
+        "conclusion": "skipped",
+        "startedAt": "2026-10-19T15:57:53Z",
+        "completedAt": "2026-10-19T15:34:28Z"
+      }
+    ]
+  },
+  "limitations": [
+    "This extraction does not prove current-head non-author approval, thread resolution, publish authorization, Marketplace publication, Owner acceptance or learning effects. Actual merge is separately read from immutable GitHub metadata; no approval, merge or bypass was performed here.",
+    "Installation smoke browserCheck remains NOT_RUN; current-run browser unit cases are separately recorded and do not imply new representative consumer, desktop menu or Sites tests.",
+    "CI did not record individual-root absence: NOT_RECORDED. No old-batch fifteen-root count, physical cross-platform byte equality or reliable queue/start chronology is inferred."
+  ]
+}

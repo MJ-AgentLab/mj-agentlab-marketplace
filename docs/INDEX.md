@@ -4,9 +4,9 @@ scope: marketplace
 summary: "当前 ChatGPT/Codex 文档、历史决策与退役资料导航"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-19
+updated: 2026-10-20
 state: active
-version: v2.102
+version: v2.104
 layer: canonical
 ---
 
@@ -34,6 +34,14 @@ layer: canonical
 [#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)五阶段#246/#247/#248/#249/#251均已合入develop。四性能门槛/完整24样本通过、保留default；最终actual6df新492/492、13安装、6Diagram+18LEK及15清理通过并独立复核。Owner明确仅对245接受历史批准/bypass缺项后，Issue于2026-10-16T13:09:52Z以Completed关闭；原NOT_MET、历史失败和调度限制保留，例外不外推。见[账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)与[最终收尾回执](runbook/evidence/ci-performance-245-final-closeout.json)。
 
 ## 当前整体发布
+
+当前后继CI（本地2026-10-20）：[预升PR281](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/281)已创建，原head1d8b6849/treeeefcaa与潜在merge4e495同树；尚未实际合入。原PR Linux640P/1F/1平台skip，真实Chrome未取得可读DevTools端点、NOT_RUN/exit2，smoke未执行；原Windows642/642及新13/178/6/18/4/4实际通过。原push两端各有启动FAIL，一次有界复验Linux仍FAIL，根因UNKNOWN，不能用本地/Windows通过覆盖。诊断前124原件及捕获中间文本副本已覆盖的限制由唯一REPORT冻结；当前仅补测试层Linux有界stderr，不改checker/flags/15秒判据/非零NOT_RUN、插件或workflow，不把诊断当修复或通过。新诊断检查/后继headCI和真实批准/线程/latestbase各待真实证据，Agent不bypass；8.3.3仍未发布、公开8.3.2保持，Owner接受/延期独立。见[唯一REPORT](../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#current-sync-merge-and-marketplace-prebump)。
+
+下列原预升准备为PR281创建前快照，其未创建/后继待证只属于当时状态，当前以上段和Issue为准。
+
+当前（Asia/Taipei2026-10-20）：[同步PR280](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/280)于UTC19日16:37:27Z合入develop4d10a067/tree db49629f，同ef85/535 tree并完整继承main e3dc；公开8.3.2 tag/Release仍f906、正文未变。实际suite4603805882为Owner bypass，pull_request FAIL缺latest-pusher外批准、其余3规则PASS/reviews=[]，批准NOT_MET不追认。CI39279114820已独立解析Linux641/642唯一平台skip、Windows642/642，每端新13/178及6/18/4/4静态89/89；旧queued/UNKNOWN与9项时序冲突原值保留。actual4d10新验UTC16:39:19.139–16:50:02.166Z已PASS：13/178全exit0、6Diagram18LEK4生成4静态各89/89、15精确根不存在且hostHEAD/worktree清单复原，不借CI/旧tag计数。之后UTC16:52:31.265Z DryRun→16:52:32.762Z Apply预升未发布8.3.3，7252文件map证零写/仅VERSION+README badge，插件/运行/guide未变、无新发行。预升PR尚未创建，本地642/642及独立8.3.3新安装已通过；受保护develop4d10当前head真实非作者/lastpush批准、Structure+A6、线程/latestbase和实际合入待证，Agent不bypass。见[账本当前节](runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md#current-sync-merge-and-marketplace-prebump)与[#274唯一REPORT](../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#current-sync-merge-and-marketplace-prebump)，Owner接受/延期/NOT_MEASURED独立。
+
+下段为PR280合入前的记录main与同步准备快照，其中sync PREPARING/尚无编号保持当时语义；当前同步已由4d10交付，后续状态以上段为准。
 
 [记录PR279](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/279)已于2026-10-19T15:17:09Z合入main e3dc40f7/tree ae121f6b，同已测315b5942及merge-ref687b70ab，完整继承develop65d；公开v8.3.2 tag/Release仍为f906b100，不因记录main变化产生新发行。PR279双系统CI39272665913为Linux641PASS/平台专用skip1、Windows642PASS/零skip，各13安装/178命令及实际6Diagram+18LEK/4生成+4静态89/89，4browser case未skip；16清理名TAP不替代逐根absence，push39272636618只列success。实际suite4602541728为Owner bypass，pull_request FAIL缺latest-pusher外批准、其余4规则PASS/reviews=[]，批准NOT_MET不追认。独立actualmain e3dc新验15:18:57.732–15:29:31.902Z已PASS：13场景/178命令全exit0、6Diagram18LEK Python、4site生成4静态各89/89，site20/guide4资源一致，15精确自有根absence且完整worktree清单及hostHEAD复原，不借CI/tag计数；codex/sync-main-8-3-2继承完整e3dc向受保护develop65d准备正常PR，尚无编号，真实当前head非作者/lastpush批准、Validate Structure+A6、线程及latestbase保持，Agent不bypass。仅actualsync交付并新复验后才8.3.3 DryRun/Apply，插件不变、无新发行；见[账本当前节](runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md#current-record-merge-and-synchronization)及[#274唯一REPORT](../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#current-record-merge-and-synchronization)。Owner接受/延期/NOT_MEASURED独立。
 

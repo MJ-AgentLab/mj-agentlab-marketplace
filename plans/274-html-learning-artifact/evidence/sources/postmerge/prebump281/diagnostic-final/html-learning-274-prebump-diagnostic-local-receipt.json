@@ -1,0 +1,52 @@
+{
+  "capturedAt": "2026-10-19T17:49:41.786Z",
+  "actor": "/root",
+  "clientDate": "2026-10-20",
+  "baseHead": "1d8b6849ec7e398d65a949d204abe38bc64a4e0b",
+  "purpose": "Final local engineering after removing optional unbounded identity subprocess",
+  "sources": [
+    {
+      "file": "tests/helpers/capture-browser-stderr.mjs",
+      "sha256": "8391f1fbf3d97cc7e92906df02544ffa29fc16b0e7b57f5653e17ec771434f16"
+    },
+    {
+      "file": "tests/browser-stderr.test.mjs",
+      "sha256": "ea3a63b344b9fd54dec7e063d8cf93d6576a48751e369b71a3a5a43c287e1818"
+    },
+    {
+      "file": "tests/html-site-checks.test.mjs",
+      "sha256": "88ddd8c990a1208d6bbe8994f009829f05ddaa631299e2b27bc2dc2e65544eb0"
+    },
+    {
+      "file": "plugins/html-guide-kit/skills/site/scripts/check_renderings.py",
+      "sha256": "d99dc2ad8a67d557f552280b83a5e519eb5395e18e71775abe7cb3fdbb489ccd"
+    }
+  ],
+  "fixedFull": {
+    "tests": 644,
+    "pass": 643,
+    "fail": 0,
+    "cancelled": 0,
+    "skip": 1,
+    "skipReason": "New Linux exec/SID mechanism test explicitly inapplicable on Windows; original actual browser test not skipped",
+    "durationMs": 212489.5882,
+    "exit": 0
+  },
+  "baseline": {
+    "actual": "0.147.0",
+    "exit": 0
+  },
+  "earlierFull": {
+    "tests": 644,
+    "pass": 643,
+    "skip": 1,
+    "exit": 0,
+    "scope": "Started before optional versionprobe removal; retained without relabeling as fixed-source run"
+  },
+  "independentReview": "Resolved actual sevensecond blocking diagnostic counterexample by deleting optional identity subprocess, no current code blockers within reviewed scope",
+  "limits": [
+    "ExactWSL threefile projection targeted tests are not whole-repository Linux or realChrome acceptance.",
+    "Original1d8 CI startup failures remain, root causeUNKNOWN; newhead GitHub Linux and Windows still need fresh actual checks.",
+    "Subsequent edits add terminal evidence/status only; final strict and complete source/staged Gitblob verification are separate."
+  ]
+}

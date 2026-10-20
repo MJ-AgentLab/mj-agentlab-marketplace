@@ -1,0 +1,2485 @@
+{
+  "job_id": 118198895238,
+  "name": "Baseline compat (windows-latest)",
+  "status": "completed",
+  "conclusion": "success",
+  "started_at": "2026-10-19T17:20:03Z",
+  "completed_at": "2026-10-19T17:33:58Z",
+  "raw_log": "job-118198895238-windows.raw.log",
+  "raw_bytes": 1035337,
+  "raw_sha256": "0f0df13bd06cbe56047787b4970c1ed31fe7853c0c143435ce665a38defcf311",
+  "actual_checkout_from_git_log_next_line": [
+    {
+      "command_line": 233,
+      "sha_line": 234,
+      "sha": "1d8b6849ec7e398d65a949d204abe38bc64a4e0b",
+      "git_metadata_tree": "eefcaa0f1bd4201a38f9d46ff668c28b7d662e8c"
+    }
+  ],
+  "steps": [
+    {
+      "name": "Set up job",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 1,
+      "started_at": "2026-10-19T17:20:03Z",
+      "completed_at": "2026-10-19T17:20:04Z"
+    },
+    {
+      "name": "Run actions/checkout@v4",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 2,
+      "started_at": "2026-10-19T17:20:04Z",
+      "completed_at": "2026-10-19T17:20:16Z"
+    },
+    {
+      "name": "Run actions/setup-node@v4",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 3,
+      "started_at": "2026-10-19T17:20:16Z",
+      "completed_at": "2026-10-19T17:20:21Z"
+    },
+    {
+      "name": "Run actions/setup-python@v5",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 4,
+      "started_at": "2026-10-19T17:20:21Z",
+      "completed_at": "2026-10-19T17:20:21Z"
+    },
+    {
+      "name": "Run npm ci",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 5,
+      "started_at": "2026-10-19T17:20:21Z",
+      "completed_at": "2026-10-19T17:20:25Z"
+    },
+    {
+      "name": "Run npm install -g @openai/codex@0.147.0",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 6,
+      "started_at": "2026-10-19T17:20:25Z",
+      "completed_at": "2026-10-19T17:20:34Z"
+    },
+    {
+      "name": "Unit and real Python execution tests",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 7,
+      "started_at": "2026-10-19T17:20:34Z",
+      "completed_at": "2026-10-19T17:26:26Z"
+    },
+    {
+      "name": "Run npm run validate",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 8,
+      "started_at": "2026-10-19T17:26:26Z",
+      "completed_at": "2026-10-19T17:26:49Z"
+    },
+    {
+      "name": "Run npm run check:baseline-tools",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 9,
+      "started_at": "2026-10-19T17:26:49Z",
+      "completed_at": "2026-10-19T17:26:51Z"
+    },
+    {
+      "name": "Run npm run smoke:codex",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 10,
+      "started_at": "2026-10-19T17:26:51Z",
+      "completed_at": "2026-10-19T17:33:53Z"
+    },
+    {
+      "name": "Post Run actions/setup-python@v5",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 18,
+      "started_at": "2026-10-19T17:33:53Z",
+      "completed_at": "2026-10-19T17:33:53Z"
+    },
+    {
+      "name": "Post Run actions/setup-node@v4",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 19,
+      "started_at": "2026-10-19T17:33:53Z",
+      "completed_at": "2026-10-19T17:33:54Z"
+    },
+    {
+      "name": "Post Run actions/checkout@v4",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 20,
+      "started_at": "2026-10-19T17:33:54Z",
+      "completed_at": "2026-10-19T17:33:56Z"
+    },
+    {
+      "name": "Complete job",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 21,
+      "started_at": "2026-10-19T17:33:56Z",
+      "completed_at": "2026-10-19T17:33:57Z"
+    }
+  ],
+  "tap_totals": {
+    "tests": [
+      642
+    ],
+    "suites": [
+      0
+    ],
+    "pass": [
+      642
+    ],
+    "fail": [
+      0
+    ],
+    "cancelled": [
+      0
+    ],
+    "skipped": [
+      0
+    ],
+    "todo": [
+      0
+    ]
+  },
+  "tap_result_count": 642,
+  "tap_result_ids_unique": true,
+  "not_ok": [],
+  "skipped_tests": [],
+  "error_annotation_lines": [],
+  "browser_named_tap_results": [
+    {
+      "line": 2261,
+      "status": "ok",
+      "id": 326,
+      "name": "browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record",
+      "skip": false
+    },
+    {
+      "line": 2267,
+      "status": "ok",
+      "id": 327,
+      "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+      "skip": false
+    },
+    {
+      "line": 2273,
+      "status": "ok",
+      "id": 328,
+      "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+      "skip": false
+    },
+    {
+      "line": 2387,
+      "status": "ok",
+      "id": 347,
+      "name": "literal percent, Chinese and spaces in local filenames round-trip through browser URLs",
+      "skip": false
+    }
+  ],
+  "python_named_tap_results": [
+    {
+      "line": 2225,
+      "status": "ok",
+      "id": 320,
+      "name": "static checker executes Python from unrelated cwd and preserves complete source/hash evidence",
+      "skip": false
+    },
+    {
+      "line": 2855,
+      "status": "ok",
+      "id": 425,
+      "name": "actual Python publishes complete JSON and Markdown, records account/visibility, and replays without duplicate writes",
+      "skip": false
+    },
+    {
+      "line": 2861,
+      "status": "ok",
+      "id": 426,
+      "name": "GitHub acceptance actually uses an exact Python 3.12 interpreter",
+      "skip": false
+    },
+    {
+      "line": 3000,
+      "status": "ok",
+      "id": 449,
+      "name": "Learning evidence storage: actual Python 3.12 isolated recovery/import/attribution cases",
+      "skip": false
+    }
+  ],
+  "actual_browser_checker_payloads": [],
+  "downstream": {
+    "Run npm run validate": {
+      "api_steps": [
+        {
+          "name": "Run npm run validate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-19T17:26:26Z",
+          "completed_at": "2026-10-19T17:26:49Z"
+        }
+      ],
+      "interpretation": "PASS"
+    },
+    "Run npm run check:baseline-tools": {
+      "api_steps": [
+        {
+          "name": "Run npm run check:baseline-tools",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-19T17:26:49Z",
+          "completed_at": "2026-10-19T17:26:51Z"
+        }
+      ],
+      "interpretation": "PASS"
+    },
+    "Run npm run smoke:codex": {
+      "api_steps": [
+        {
+          "name": "Run npm run smoke:codex",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-19T17:26:51Z",
+          "completed_at": "2026-10-19T17:33:53Z"
+        }
+      ],
+      "interpretation": "PASS"
+    }
+  },
+  "smoke_execution_metrics": {
+    "status": "PASS",
+    "actual_smoke_json": "windows-actual-smoke-result.json",
+    "scenarios": 13,
+    "scenario_ok_count": 13,
+    "commands": 178,
+    "commands_nonzero": [],
+    "diagram_python": 6,
+    "diagram_validation": [
+      {
+        "skillPath": "C:/Users/runneradmin/AppData/Local/Temp/marketplace-smoke-sI6I4L/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+        "validatorPath": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-sI6I4L\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+        "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+      },
+      {
+        "skillPath": "C:/Users/runneradmin/AppData/Local/Temp/marketplace-smoke-ugGZov/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+        "validatorPath": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-ugGZov\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+        "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+      },
+      {
+        "skillPath": "C:/Users/runneradmin/AppData/Local/Temp/marketplace-smoke-RiSZQA/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+        "validatorPath": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-RiSZQA\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+        "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+      },
+      {
+        "skillPath": "C:/Users/runneradmin/AppData/Local/Temp/marketplace-smoke-20msS4/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+        "validatorPath": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-20msS4\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+        "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+      },
+      {
+        "skillPath": "C:/Users/runneradmin/AppData/Local/Temp/marketplace-smoke-vNVpdn/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+        "validatorPath": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-vNVpdn\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+        "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+      },
+      {
+        "skillPath": "C:/Users/runneradmin/AppData/Local/Temp/marketplace-smoke-dlXGRl/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/SKILL.md",
+        "validatorPath": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-dlXGRl\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+        "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---"
+      }
+    ],
+    "learning_evidence_python": 18,
+    "learning_evidence_scenarios": 6,
+    "learning_evidence_results": [
+      {
+        "entry": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-W8FkA9\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py",
+        "interpreter": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+        "resources": [
+          "scripts/lek.py",
+          "scripts/common.py",
+          "scripts/storage.py",
+          "scripts/github_flow.py",
+          "references/record-contract.md",
+          "references/record-template.json",
+          "references/client-entries.json"
+        ],
+        "recordId": "rec-f96537a6b3315a598cc871fdc3fdd9a5",
+        "evidenceId": "ev-24ba6d35d47e55769ea9f3df896fd9b2",
+        "saveStatus": "ok",
+        "replayIdentical": true,
+        "structurallyValid": true
+      },
+      {
+        "entry": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-RiSZQA\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py",
+        "interpreter": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+        "resources": [
+          "scripts/lek.py",
+          "scripts/common.py",
+          "scripts/storage.py",
+          "scripts/github_flow.py",
+          "references/record-contract.md",
+          "references/record-template.json",
+          "references/client-entries.json"
+        ],
+        "recordId": "rec-f96537a6b3315a598cc871fdc3fdd9a5",
+        "evidenceId": "ev-24ba6d35d47e55769ea9f3df896fd9b2",
+        "saveStatus": "ok",
+        "replayIdentical": true,
+        "structurallyValid": true
+      },
+      {
+        "entry": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-DwR8W8\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py",
+        "interpreter": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+        "resources": [
+          "scripts/lek.py",
+          "scripts/common.py",
+          "scripts/storage.py",
+          "scripts/github_flow.py",
+          "references/record-contract.md",
+          "references/record-template.json",
+          "references/client-entries.json"
+        ],
+        "recordId": "rec-f96537a6b3315a598cc871fdc3fdd9a5",
+        "evidenceId": "ev-24ba6d35d47e55769ea9f3df896fd9b2",
+        "saveStatus": "ok",
+        "replayIdentical": true,
+        "structurallyValid": true
+      },
+      {
+        "entry": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-20msS4\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py",
+        "interpreter": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+        "resources": [
+          "scripts/lek.py",
+          "scripts/common.py",
+          "scripts/storage.py",
+          "scripts/github_flow.py",
+          "references/record-contract.md",
+          "references/record-template.json",
+          "references/client-entries.json"
+        ],
+        "recordId": "rec-f96537a6b3315a598cc871fdc3fdd9a5",
+        "evidenceId": "ev-24ba6d35d47e55769ea9f3df896fd9b2",
+        "saveStatus": "ok",
+        "replayIdentical": true,
+        "structurallyValid": true
+      },
+      {
+        "entry": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-vNVpdn\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py",
+        "interpreter": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+        "resources": [
+          "scripts/lek.py",
+          "scripts/common.py",
+          "scripts/storage.py",
+          "scripts/github_flow.py",
+          "references/record-contract.md",
+          "references/record-template.json",
+          "references/client-entries.json"
+        ],
+        "recordId": "rec-f96537a6b3315a598cc871fdc3fdd9a5",
+        "evidenceId": "ev-24ba6d35d47e55769ea9f3df896fd9b2",
+        "saveStatus": "ok",
+        "replayIdentical": true,
+        "structurallyValid": true
+      },
+      {
+        "entry": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-dlXGRl\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py",
+        "interpreter": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+        "resources": [
+          "scripts/lek.py",
+          "scripts/common.py",
+          "scripts/storage.py",
+          "scripts/github_flow.py",
+          "references/record-contract.md",
+          "references/record-template.json",
+          "references/client-entries.json"
+        ],
+        "recordId": "rec-f96537a6b3315a598cc871fdc3fdd9a5",
+        "evidenceId": "ev-24ba6d35d47e55769ea9f3df896fd9b2",
+        "saveStatus": "ok",
+        "replayIdentical": true,
+        "structurallyValid": true
+      }
+    ],
+    "site_generated": 4,
+    "site_static": 4,
+    "site_results": [
+      {
+        "skillPath": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-sY1zKo\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.37\\skills\\site\\SKILL.md",
+        "rendered": {
+          "status": "GENERATED",
+          "output": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-sY1zKo\\consumer\\installed learning artifact",
+          "version": "synthetic-1.0",
+          "files": 6,
+          "sourceSha256": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+          "understandingEffects": "NOT_MEASURED"
+        },
+        "checked": {
+          "schemaVersion": 1,
+          "checker": "artifact-static",
+          "status": "PASS",
+          "executedAt": "2026-10-19T17:32:16.488058+00:00",
+          "pythonVersion": "3.12.10",
+          "inputHashes": {
+            "artifact.json": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+            "artifact-manifest.json": "c4c445947180f77641512dee1de3732fbc7946fb53fce804f33677e6e037c16e",
+            "index.html": "12101458fb0d6d58bf902b8497feb73b742d3cec4e3409255fd07c7984de3785"
+          },
+          "summary": {
+            "checks": 89,
+            "failed": 0,
+            "pages": 1,
+            "files": 6
+          },
+          "checks": [
+            {
+              "code": "artifact.json:json",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact-manifest.json:json",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "required:index.html",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "required:theme.css",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "required:learning.js",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:schema-version",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:title",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:version",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:audience",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:task",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:markdown",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:goals",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:markdown-file",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:sources",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "source:0:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "source:0:id",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "source:0:location",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "source:0:file",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "source:unique-ids",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:terms",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:0:mapping",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:0:forbidden-list",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:1:mapping",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:1:forbidden-list",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:2:mapping",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:2:forbidden-list",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:3:mapping",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:3:forbidden-list",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:unique-english",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:activities",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:0:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:0:type-id-source",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:0:options",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:0:answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:1:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:1:type-id-source",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:1:options",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:1:answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:2:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:2:type-id-source",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:2:options",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:2:answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:unique-ids",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:schema-version",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:version",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:artifact-path",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:source-hash",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:files",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:0:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:0:bytes",
+              "status": "PASS",
+              "detail": "artifact.json"
+            },
+            {
+              "code": "manifest:1:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:1:bytes",
+              "status": "PASS",
+              "detail": "content.md"
+            },
+            {
+              "code": "manifest:2:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:2:bytes",
+              "status": "PASS",
+              "detail": "index.html"
+            },
+            {
+              "code": "manifest:3:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:3:bytes",
+              "status": "PASS",
+              "detail": "learning.js"
+            },
+            {
+              "code": "manifest:4:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:4:bytes",
+              "status": "PASS",
+              "detail": "sources/renewal-rules.md"
+            },
+            {
+              "code": "manifest:5:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:5:bytes",
+              "status": "PASS",
+              "detail": "theme.css"
+            },
+            {
+              "code": "manifest:complete-unique-files",
+              "status": "PASS",
+              "detail": {
+                "unlisted": [],
+                "missing": []
+              }
+            },
+            {
+              "code": "index.html:structure",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:language",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:viewport",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:charset",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:unique-ids",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:static-text",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:no-base",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:link:6:href:file",
+              "status": "PASS",
+              "detail": "theme.css"
+            },
+            {
+              "code": "index.html:script:7:src:file",
+              "status": "PASS",
+              "detail": "learning.js"
+            },
+            {
+              "code": "index.html:a:9:href:file",
+              "status": "PASS",
+              "detail": "#main"
+            },
+            {
+              "code": "index.html:a:9:href:anchor",
+              "status": "PASS",
+              "detail": "#main"
+            },
+            {
+              "code": "index.html:a:29:href:file",
+              "status": "PASS",
+              "detail": "content.md"
+            },
+            {
+              "code": "index.html:a:41:href:file",
+              "status": "PASS",
+              "detail": "sources/renewal-rules.md"
+            },
+            {
+              "code": "index.html:radio:109:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:radio:112:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:a:120:href:file",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:a:120:href:anchor",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:radio:128:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:radio:131:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:a:139:href:file",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:a:139:href:anchor",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:radio:147:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:radio:150:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:a:158:href:file",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:a:158:href:anchor",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:a:179:href:file",
+              "status": "PASS",
+              "detail": "sources/renewal-rules.md"
+            },
+            {
+              "code": "index.html:term:0:known-forbidden",
+              "status": "PASS",
+              "detail": "规则批准"
+            },
+            {
+              "code": "index.html:term:3:known-forbidden",
+              "status": "PASS",
+              "detail": "工作天"
+            }
+          ],
+          "limitations": [
+            "Known structural, file/hash, local link/anchor, explicit resource URL and forbidden-term checks only; not a full HTML/CSS/JavaScript security or conformance audit.",
+            "Manifest consistency does not independently authenticate original materials. Review source fidelity, terminology meaning, conditions, exceptions and answer criteria against the actual originals.",
+            "No browser interaction, visual/accessibility audit, external URL/deployment/access-scope check or learning-effect measurement. Understanding effects remain NOT_MEASURED."
+          ]
+        },
+        "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+      },
+      {
+        "skillPath": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-qScC3v\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.37\\skills\\site\\SKILL.md",
+        "rendered": {
+          "status": "GENERATED",
+          "output": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-qScC3v\\consumer\\installed learning artifact",
+          "version": "synthetic-1.0",
+          "files": 6,
+          "sourceSha256": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+          "understandingEffects": "NOT_MEASURED"
+        },
+        "checked": {
+          "schemaVersion": 1,
+          "checker": "artifact-static",
+          "status": "PASS",
+          "executedAt": "2026-10-19T17:32:41.494062+00:00",
+          "pythonVersion": "3.12.10",
+          "inputHashes": {
+            "artifact.json": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+            "artifact-manifest.json": "c4c445947180f77641512dee1de3732fbc7946fb53fce804f33677e6e037c16e",
+            "index.html": "12101458fb0d6d58bf902b8497feb73b742d3cec4e3409255fd07c7984de3785"
+          },
+          "summary": {
+            "checks": 89,
+            "failed": 0,
+            "pages": 1,
+            "files": 6
+          },
+          "checks": [
+            {
+              "code": "artifact.json:json",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact-manifest.json:json",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "required:index.html",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "required:theme.css",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "required:learning.js",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:schema-version",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:title",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:version",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:audience",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:task",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:markdown",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:goals",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:markdown-file",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:sources",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "source:0:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "source:0:id",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "source:0:location",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "source:0:file",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "source:unique-ids",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:terms",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:0:mapping",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:0:forbidden-list",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:1:mapping",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:1:forbidden-list",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:2:mapping",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:2:forbidden-list",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:3:mapping",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:3:forbidden-list",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:unique-english",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:activities",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:0:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:0:type-id-source",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:0:options",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:0:answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:1:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:1:type-id-source",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:1:options",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:1:answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:2:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:2:type-id-source",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:2:options",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:2:answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:unique-ids",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:schema-version",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:version",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:artifact-path",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:source-hash",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:files",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:0:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:0:bytes",
+              "status": "PASS",
+              "detail": "artifact.json"
+            },
+            {
+              "code": "manifest:1:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:1:bytes",
+              "status": "PASS",
+              "detail": "content.md"
+            },
+            {
+              "code": "manifest:2:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:2:bytes",
+              "status": "PASS",
+              "detail": "index.html"
+            },
+            {
+              "code": "manifest:3:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:3:bytes",
+              "status": "PASS",
+              "detail": "learning.js"
+            },
+            {
+              "code": "manifest:4:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:4:bytes",
+              "status": "PASS",
+              "detail": "sources/renewal-rules.md"
+            },
+            {
+              "code": "manifest:5:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:5:bytes",
+              "status": "PASS",
+              "detail": "theme.css"
+            },
+            {
+              "code": "manifest:complete-unique-files",
+              "status": "PASS",
+              "detail": {
+                "unlisted": [],
+                "missing": []
+              }
+            },
+            {
+              "code": "index.html:structure",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:language",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:viewport",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:charset",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:unique-ids",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:static-text",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:no-base",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:link:6:href:file",
+              "status": "PASS",
+              "detail": "theme.css"
+            },
+            {
+              "code": "index.html:script:7:src:file",
+              "status": "PASS",
+              "detail": "learning.js"
+            },
+            {
+              "code": "index.html:a:9:href:file",
+              "status": "PASS",
+              "detail": "#main"
+            },
+            {
+              "code": "index.html:a:9:href:anchor",
+              "status": "PASS",
+              "detail": "#main"
+            },
+            {
+              "code": "index.html:a:29:href:file",
+              "status": "PASS",
+              "detail": "content.md"
+            },
+            {
+              "code": "index.html:a:41:href:file",
+              "status": "PASS",
+              "detail": "sources/renewal-rules.md"
+            },
+            {
+              "code": "index.html:radio:109:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:radio:112:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:a:120:href:file",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:a:120:href:anchor",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:radio:128:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:radio:131:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:a:139:href:file",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:a:139:href:anchor",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:radio:147:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:radio:150:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:a:158:href:file",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:a:158:href:anchor",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:a:179:href:file",
+              "status": "PASS",
+              "detail": "sources/renewal-rules.md"
+            },
+            {
+              "code": "index.html:term:0:known-forbidden",
+              "status": "PASS",
+              "detail": "规则批准"
+            },
+            {
+              "code": "index.html:term:3:known-forbidden",
+              "status": "PASS",
+              "detail": "工作天"
+            }
+          ],
+          "limitations": [
+            "Known structural, file/hash, local link/anchor, explicit resource URL and forbidden-term checks only; not a full HTML/CSS/JavaScript security or conformance audit.",
+            "Manifest consistency does not independently authenticate original materials. Review source fidelity, terminology meaning, conditions, exceptions and answer criteria against the actual originals.",
+            "No browser interaction, visual/accessibility audit, external URL/deployment/access-scope check or learning-effect measurement. Understanding effects remain NOT_MEASURED."
+          ]
+        },
+        "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+      },
+      {
+        "skillPath": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-vNVpdn\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.37\\skills\\site\\SKILL.md",
+        "rendered": {
+          "status": "GENERATED",
+          "output": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-vNVpdn\\consumer\\installed learning artifact",
+          "version": "synthetic-1.0",
+          "files": 6,
+          "sourceSha256": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+          "understandingEffects": "NOT_MEASURED"
+        },
+        "checked": {
+          "schemaVersion": 1,
+          "checker": "artifact-static",
+          "status": "PASS",
+          "executedAt": "2026-10-19T17:33:14.651145+00:00",
+          "pythonVersion": "3.12.10",
+          "inputHashes": {
+            "artifact.json": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+            "artifact-manifest.json": "c4c445947180f77641512dee1de3732fbc7946fb53fce804f33677e6e037c16e",
+            "index.html": "12101458fb0d6d58bf902b8497feb73b742d3cec4e3409255fd07c7984de3785"
+          },
+          "summary": {
+            "checks": 89,
+            "failed": 0,
+            "pages": 1,
+            "files": 6
+          },
+          "checks": [
+            {
+              "code": "artifact.json:json",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact-manifest.json:json",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "required:index.html",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "required:theme.css",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "required:learning.js",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:schema-version",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:title",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:version",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:audience",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:task",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:markdown",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:goals",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:markdown-file",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:sources",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "source:0:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "source:0:id",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "source:0:location",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "source:0:file",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "source:unique-ids",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:terms",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:0:mapping",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:0:forbidden-list",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:1:mapping",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:1:forbidden-list",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:2:mapping",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:2:forbidden-list",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:3:mapping",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:3:forbidden-list",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:unique-english",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:activities",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:0:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:0:type-id-source",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:0:options",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:0:answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:1:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:1:type-id-source",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:1:options",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:1:answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:2:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:2:type-id-source",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:2:options",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:2:answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:unique-ids",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:schema-version",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:version",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:artifact-path",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:source-hash",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:files",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:0:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:0:bytes",
+              "status": "PASS",
+              "detail": "artifact.json"
+            },
+            {
+              "code": "manifest:1:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:1:bytes",
+              "status": "PASS",
+              "detail": "content.md"
+            },
+            {
+              "code": "manifest:2:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:2:bytes",
+              "status": "PASS",
+              "detail": "index.html"
+            },
+            {
+              "code": "manifest:3:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:3:bytes",
+              "status": "PASS",
+              "detail": "learning.js"
+            },
+            {
+              "code": "manifest:4:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:4:bytes",
+              "status": "PASS",
+              "detail": "sources/renewal-rules.md"
+            },
+            {
+              "code": "manifest:5:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:5:bytes",
+              "status": "PASS",
+              "detail": "theme.css"
+            },
+            {
+              "code": "manifest:complete-unique-files",
+              "status": "PASS",
+              "detail": {
+                "unlisted": [],
+                "missing": []
+              }
+            },
+            {
+              "code": "index.html:structure",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:language",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:viewport",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:charset",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:unique-ids",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:static-text",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:no-base",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:link:6:href:file",
+              "status": "PASS",
+              "detail": "theme.css"
+            },
+            {
+              "code": "index.html:script:7:src:file",
+              "status": "PASS",
+              "detail": "learning.js"
+            },
+            {
+              "code": "index.html:a:9:href:file",
+              "status": "PASS",
+              "detail": "#main"
+            },
+            {
+              "code": "index.html:a:9:href:anchor",
+              "status": "PASS",
+              "detail": "#main"
+            },
+            {
+              "code": "index.html:a:29:href:file",
+              "status": "PASS",
+              "detail": "content.md"
+            },
+            {
+              "code": "index.html:a:41:href:file",
+              "status": "PASS",
+              "detail": "sources/renewal-rules.md"
+            },
+            {
+              "code": "index.html:radio:109:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:radio:112:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:a:120:href:file",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:a:120:href:anchor",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:radio:128:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:radio:131:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:a:139:href:file",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:a:139:href:anchor",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:radio:147:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:radio:150:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:a:158:href:file",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:a:158:href:anchor",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:a:179:href:file",
+              "status": "PASS",
+              "detail": "sources/renewal-rules.md"
+            },
+            {
+              "code": "index.html:term:0:known-forbidden",
+              "status": "PASS",
+              "detail": "规则批准"
+            },
+            {
+              "code": "index.html:term:3:known-forbidden",
+              "status": "PASS",
+              "detail": "工作天"
+            }
+          ],
+          "limitations": [
+            "Known structural, file/hash, local link/anchor, explicit resource URL and forbidden-term checks only; not a full HTML/CSS/JavaScript security or conformance audit.",
+            "Manifest consistency does not independently authenticate original materials. Review source fidelity, terminology meaning, conditions, exceptions and answer criteria against the actual originals.",
+            "No browser interaction, visual/accessibility audit, external URL/deployment/access-scope check or learning-effect measurement. Understanding effects remain NOT_MEASURED."
+          ]
+        },
+        "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+      },
+      {
+        "skillPath": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-dlXGRl\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.37\\skills\\site\\SKILL.md",
+        "rendered": {
+          "status": "GENERATED",
+          "output": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-dlXGRl\\consumer\\installed learning artifact",
+          "version": "synthetic-1.0",
+          "files": 6,
+          "sourceSha256": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+          "understandingEffects": "NOT_MEASURED"
+        },
+        "checked": {
+          "schemaVersion": 1,
+          "checker": "artifact-static",
+          "status": "PASS",
+          "executedAt": "2026-10-19T17:33:40.656325+00:00",
+          "pythonVersion": "3.12.10",
+          "inputHashes": {
+            "artifact.json": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+            "artifact-manifest.json": "c4c445947180f77641512dee1de3732fbc7946fb53fce804f33677e6e037c16e",
+            "index.html": "12101458fb0d6d58bf902b8497feb73b742d3cec4e3409255fd07c7984de3785"
+          },
+          "summary": {
+            "checks": 89,
+            "failed": 0,
+            "pages": 1,
+            "files": 6
+          },
+          "checks": [
+            {
+              "code": "artifact.json:json",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact-manifest.json:json",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "required:index.html",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "required:theme.css",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "required:learning.js",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:schema-version",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:title",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:version",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:audience",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:task",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:markdown",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:goals",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:markdown-file",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:sources",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "source:0:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "source:0:id",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "source:0:location",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "source:0:file",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "source:unique-ids",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:terms",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:0:mapping",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:0:forbidden-list",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:1:mapping",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:1:forbidden-list",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:2:mapping",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:2:forbidden-list",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:3:mapping",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:3:forbidden-list",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "term:unique-english",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "artifact:activities",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:0:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:0:type-id-source",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:0:options",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:0:answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:1:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:1:type-id-source",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:1:options",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:1:answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:2:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:2:type-id-source",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:2:options",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:2:answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "activity:unique-ids",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:schema-version",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:version",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:artifact-path",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:source-hash",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:files",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:0:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:0:bytes",
+              "status": "PASS",
+              "detail": "artifact.json"
+            },
+            {
+              "code": "manifest:1:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:1:bytes",
+              "status": "PASS",
+              "detail": "content.md"
+            },
+            {
+              "code": "manifest:2:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:2:bytes",
+              "status": "PASS",
+              "detail": "index.html"
+            },
+            {
+              "code": "manifest:3:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:3:bytes",
+              "status": "PASS",
+              "detail": "learning.js"
+            },
+            {
+              "code": "manifest:4:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:4:bytes",
+              "status": "PASS",
+              "detail": "sources/renewal-rules.md"
+            },
+            {
+              "code": "manifest:5:metadata",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "manifest:5:bytes",
+              "status": "PASS",
+              "detail": "theme.css"
+            },
+            {
+              "code": "manifest:complete-unique-files",
+              "status": "PASS",
+              "detail": {
+                "unlisted": [],
+                "missing": []
+              }
+            },
+            {
+              "code": "index.html:structure",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:language",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:viewport",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:charset",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:unique-ids",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:static-text",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:no-base",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:link:6:href:file",
+              "status": "PASS",
+              "detail": "theme.css"
+            },
+            {
+              "code": "index.html:script:7:src:file",
+              "status": "PASS",
+              "detail": "learning.js"
+            },
+            {
+              "code": "index.html:a:9:href:file",
+              "status": "PASS",
+              "detail": "#main"
+            },
+            {
+              "code": "index.html:a:9:href:anchor",
+              "status": "PASS",
+              "detail": "#main"
+            },
+            {
+              "code": "index.html:a:29:href:file",
+              "status": "PASS",
+              "detail": "content.md"
+            },
+            {
+              "code": "index.html:a:41:href:file",
+              "status": "PASS",
+              "detail": "sources/renewal-rules.md"
+            },
+            {
+              "code": "index.html:radio:109:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:radio:112:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:a:120:href:file",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:a:120:href:anchor",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:radio:128:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:radio:131:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:a:139:href:file",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:a:139:href:anchor",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:radio:147:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:radio:150:no-default-answer",
+              "status": "PASS",
+              "detail": ""
+            },
+            {
+              "code": "index.html:a:158:href:file",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:a:158:href:anchor",
+              "status": "PASS",
+              "detail": "#source-renewal-rules"
+            },
+            {
+              "code": "index.html:a:179:href:file",
+              "status": "PASS",
+              "detail": "sources/renewal-rules.md"
+            },
+            {
+              "code": "index.html:term:0:known-forbidden",
+              "status": "PASS",
+              "detail": "规则批准"
+            },
+            {
+              "code": "index.html:term:3:known-forbidden",
+              "status": "PASS",
+              "detail": "工作天"
+            }
+          ],
+          "limitations": [
+            "Known structural, file/hash, local link/anchor, explicit resource URL and forbidden-term checks only; not a full HTML/CSS/JavaScript security or conformance audit.",
+            "Manifest consistency does not independently authenticate original materials. Review source fidelity, terminology meaning, conditions, exceptions and answer criteria against the actual originals.",
+            "No browser interaction, visual/accessibility audit, external URL/deployment/access-scope check or learning-effect measurement. Understanding effects remain NOT_MEASURED."
+          ]
+        },
+        "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+      }
+    ],
+    "cli_versions_actual": [
+      "codex-cli 0.147.0"
+    ],
+    "source_cache_comparison": {
+      "combined_files": 69,
+      "unique_paths": 69,
+      "runtime_compared_files": 69,
+      "facts_file": "windows-source-cache-comparison-facts.json"
+    },
+    "source_cache_digest": "b11d222ababbca4aef7dfd4d8d40cc1851359fc19f8e620b7f8bb529cce501ac",
+    "installed_plugin_versions": {
+      "diagram-kit": "0.3.1",
+      "learning-evidence-kit": "0.1.0",
+      "explain-kit": "0.1.1",
+      "communication-kit": "0.1.0",
+      "html-guide-kit": "0.1.37"
+    },
+    "browser_check_in_install_smoke": [
+      "NOT_RUN in installation smoke; separate representative browser acceptance required"
+    ],
+    "per_root_absence": "NOT_RECORDED",
+    "static_individual_results": [
+      {
+        "status": "PASS",
+        "declared_checks": 89,
+        "failed": 0,
+        "actual_check_results": 89,
+        "actual_pass_count": 89,
+        "rendered_status": "GENERATED"
+      },
+      {
+        "status": "PASS",
+        "declared_checks": 89,
+        "failed": 0,
+        "actual_check_results": 89,
+        "actual_pass_count": 89,
+        "rendered_status": "GENERATED"
+      },
+      {
+        "status": "PASS",
+        "declared_checks": 89,
+        "failed": 0,
+        "actual_check_results": 89,
+        "actual_pass_count": 89,
+        "rendered_status": "GENERATED"
+      },
+      {
+        "status": "PASS",
+        "declared_checks": 89,
+        "failed": 0,
+        "actual_check_results": 89,
+        "actual_pass_count": 89,
+        "rendered_status": "GENERATED"
+      }
+    ],
+    "combined_discovery": {
+      "natural_outside": {
+        "publicSkills": 3,
+        "repositorySkills": 0
+      },
+      "natural_repository": {
+        "publicSkills": 3,
+        "repositorySkills": 20
+      },
+      "native_outside": {
+        "publicSkills": 8,
+        "repositorySkills": 0
+      },
+      "native_repository": {
+        "publicSkills": 8,
+        "repositorySkills": 20
+      },
+      "explicit_only": [
+        "learning-evidence-kit:pop-quiz",
+        "learning-evidence-kit:learning-record-check",
+        "communication-kit:communicate",
+        "html-guide-kit:guide",
+        "html-guide-kit:site"
+      ],
+      "explicit_count": 5,
+      "resource_skill_sets": 8,
+      "site_resources": 20,
+      "site_resource_hashes": {
+        "SKILL.md": "c3c47756b18e7ccd2a2e6491e23909afa0f98bc7742476a9cb017c50fc968773",
+        "agents/openai.yaml": "2051c88954740c96fd41c16d077430c8dfa7db6e9c52401553678f6858e0debe",
+        "assets/warm-paper/learning.js": "1fcc8c6064dd99f00b91103cf76e33d7a4e6dcf50793b4542bd8462f6c91f568",
+        "assets/warm-paper/shell.html": "816fc0257f6cef7443f5a3b5f299b909fedfd1758da7b823ac4514b29fb2d72b",
+        "assets/warm-paper/theme.css": "90ee5261f02c44f3fb7f5b3e17662cb232bde07110dd53a2ccf4f2880ac1345f",
+        "examples/representative/artifact.json": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+        "examples/representative/content.md": "060045ce718168c7f3c2aecd2742518490d5693e3dbdeb28b4ac94ce2885cd50",
+        "examples/representative/sources/renewal-rules.md": "2a95c4d9b95f3b184fea30aa3fba9daaf34d11624bd888ed4793a0ea7f96af47",
+        "references/aics-principles.md": "39849866aa2db08994d5780f00c26b070afa1d158011aa6a2b398a538716afca",
+        "references/checks.md": "7cf232681aa66ae0050ee9c570bbcfa8fb2bd6f54cc210fa01c9872ec12e0de0",
+        "references/evidence-and-evaluation.md": "bba7a0100d9ef6f63151a979692697738f9bfbb0bd72b1510efa7a765b5d8b5e",
+        "references/execution-guide.md": "4c6304dd3d666d874f82db00a494cbee6fffe07615243786ea4d0deaaa324499",
+        "references/input-contract.md": "18eb3f0b000268214d2cd693989c63a64db345533f60e606ff46af1308457aa1",
+        "references/interaction-patterns.md": "ef878b1f8b97024b81076e27b4457e12c5069e5408abafa72d703849d80feaf3",
+        "references/resource-provenance.json": "1847d0b34cff308481ebf4f4f0e2390f7582c9dd40d98c355d67a40dfe095778",
+        "references/sites-handoff.md": "cab83528d728691fb34574fae2dc1b2ca9104e77641061825412e60fca041272",
+        "references/terminology.md": "ccbd0af80ee67b4580a43e3cbf623972c485a87e8eaead0b933c9c9065071ccb",
+        "scripts/check_artifact.py": "7f912c3ede72255588fc6ae33624ce87e39ea7328b34789cdc590e4bbc78d9c2",
+        "scripts/check_renderings.py": "d99dc2ad8a67d557f552280b83a5e519eb5395e18e71775abe7cb3fdbb489ccd",
+        "scripts/render-site.mjs": "07e92e688ef751b18bcd9f09ee767c3dbf95632c2c56a11fe6a2133a8cad955e"
+      }
+    },
+    "cross_scenario_summary": "windows-cross-scenario-summary.json"
+  },
+  "cli_install_step": [
+    {
+      "name": "Run npm install -g @openai/codex@0.147.0",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 6,
+      "started_at": "2026-10-19T17:20:25Z",
+      "completed_at": "2026-10-19T17:20:34Z"
+    }
+  ],
+  "per_root_absence": "NOT_RECORDED",
+  "root_cause": "UNKNOWN",
+  "baseline_actual_version_lines": [
+    {
+      "line": 4217,
+      "text": "OK   codex   == 0.147.0   actual=0.147.0  (exact-match)"
+    }
+  ],
+  "browser_acceptance_limit": "TAP unit 328 PASS is limited automated checker evidence; not native UI, desktop, deployed Sites or Owner acceptance. Installation smoke browserCheck remains NOT_RUN."
+}

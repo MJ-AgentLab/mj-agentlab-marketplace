@@ -1,0 +1,50 @@
+{
+  "role": "implementation author targeted test; not independent acceptance or GitHub approval",
+  "startedAt": "2026-10-19T17:35:35.577Z",
+  "completedAt": "2026-10-19T17:35:37.582Z",
+  "repository": "C:/Users/Admin/.codex/worktrees/html-learning-artifact/develop",
+  "sources": [
+    {
+      "file": "tests/helpers/capture-browser-stderr.mjs",
+      "bytes": 7189,
+      "sha256": "37378aa6f912f7fe4487c9af52c59d96baf1e9bd8eb0dde6d7f78e23f945b62a"
+    },
+    {
+      "file": "tests/browser-stderr.test.mjs",
+      "bytes": 8608,
+      "sha256": "2767f2b237ef753708cfe04b217fb7ce80755ed1b81fe50f7b2c8b8f03295f5b"
+    },
+    {
+      "file": "plugins/html-guide-kit/skills/site/scripts/check_renderings.py",
+      "bytes": 23725,
+      "sha256": "d99dc2ad8a67d557f552280b83a5e519eb5395e18e71775abe7cb3fdbb489ccd"
+    }
+  ],
+  "windows": {
+    "status": 0,
+    "error": null,
+    "node": "v22.18.0",
+    "log": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-browser-stderr-windows-tests-r2.log"
+  },
+  "linux": {
+    "driverStatus": 0,
+    "error": null,
+    "snapshotRoot": "/tmp/html-learning-274-browser-stderr-source-f4vro8zg",
+    "sourceUnchanged": true,
+    "status": 0,
+    "node": {
+      "url": "https://nodejs.org/dist/v22.18.0/node-v22.18.0-linux-x64.tar.xz",
+      "sha256": "c1bfeecf1d7404fa74728f9db72e697decbd8119ccc6f5a294d795756dfcfca7",
+      "expectedSha256": "c1bfeecf1d7404fa74728f9db72e697decbd8119ccc6f5a294d795756dfcfca7",
+      "shasumsURL": "https://nodejs.org/dist/v22.18.0/SHASUMS256.txt",
+      "version": "v22.18.0"
+    },
+    "python": {
+      "executable": "/usr/bin/python3",
+      "version": "3.12.3 (main, Jul 15 2026, 23:46:41) [GCC 13.3.0]"
+    },
+    "platform": "linux"
+  },
+  "originalSourceUnchanged": true,
+  "limitation": "Linux runs exact-byte temporary source projection because the isolated WSL distro has Windows automount disabled; fake browser exercises original checker NOT_RUN, not actual Chromium readiness."
+}

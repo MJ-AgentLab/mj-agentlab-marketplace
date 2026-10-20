@@ -1,0 +1,309 @@
+{
+  "run_id": 39292085653,
+  "run_attempt": 2,
+  "status": "completed",
+  "conclusion": "failure",
+  "checkout": "1d8b6849ec7e398d65a949d204abe38bc64a4e0b",
+  "tree": "eefcaa0f1bd4201a38f9d46ff668c28b7d662e8c",
+  "root_cause": "UNKNOWN",
+  "per_root_absence": "NOT_RECORDED",
+  "jobs": [
+    {
+      "job_id": 118198894761,
+      "name": "Baseline compat (ubuntu-latest)",
+      "conclusion": "failure",
+      "raw_log": "job-118198894761-linux.raw.log",
+      "raw_bytes": 285810,
+      "raw_sha256": "678653e89014745f57750f8e9b9672874fa65d69ed23a1db382063aa94509427",
+      "tap": {
+        "tests": [
+          642
+        ],
+        "suites": [
+          0
+        ],
+        "pass": [
+          640
+        ],
+        "fail": [
+          1
+        ],
+        "cancelled": [
+          0
+        ],
+        "skipped": [
+          1
+        ],
+        "todo": [
+          0
+        ]
+      },
+      "not_ok": [
+        {
+          "line": 2234,
+          "status": "not ok",
+          "id": 328,
+          "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+          "skip": false
+        }
+      ],
+      "error_annotation_lines": [
+        {
+          "line": 4205,
+          "text": "##[error]Process completed with exit code 1."
+        }
+      ],
+      "steps": {
+        "Run npm run validate": {
+          "api_steps": [
+            {
+              "name": "Run npm run validate",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 8,
+              "started_at": "2026-10-19T17:22:01Z",
+              "completed_at": "2026-10-19T17:22:01Z"
+            }
+          ],
+          "interpretation": "NOT_RUN"
+        },
+        "Run npm run check:baseline-tools": {
+          "api_steps": [
+            {
+              "name": "Run npm run check:baseline-tools",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 9,
+              "started_at": "2026-10-19T17:22:01Z",
+              "completed_at": "2026-10-19T17:22:01Z"
+            }
+          ],
+          "interpretation": "NOT_RUN"
+        },
+        "Run npm run smoke:codex": {
+          "api_steps": [
+            {
+              "name": "Run npm run smoke:codex",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 10,
+              "started_at": "2026-10-19T17:22:01Z",
+              "completed_at": "2026-10-19T17:22:01Z"
+            }
+          ],
+          "interpretation": "NOT_RUN"
+        }
+      },
+      "actual_checkout": [
+        {
+          "command_line": 191,
+          "sha_line": 192,
+          "sha": "1d8b6849ec7e398d65a949d204abe38bc64a4e0b",
+          "git_metadata_tree": "eefcaa0f1bd4201a38f9d46ff668c28b7d662e8c"
+        }
+      ],
+      "smoke_status": "NOT_RUN"
+    },
+    {
+      "job_id": 118198895238,
+      "name": "Baseline compat (windows-latest)",
+      "conclusion": "success",
+      "raw_log": "job-118198895238-windows.raw.log",
+      "raw_bytes": 1035337,
+      "raw_sha256": "0f0df13bd06cbe56047787b4970c1ed31fe7853c0c143435ce665a38defcf311",
+      "tap": {
+        "tests": [
+          642
+        ],
+        "suites": [
+          0
+        ],
+        "pass": [
+          642
+        ],
+        "fail": [
+          0
+        ],
+        "cancelled": [
+          0
+        ],
+        "skipped": [
+          0
+        ],
+        "todo": [
+          0
+        ]
+      },
+      "not_ok": [],
+      "error_annotation_lines": [],
+      "steps": {
+        "Run npm run validate": {
+          "api_steps": [
+            {
+              "name": "Run npm run validate",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8,
+              "started_at": "2026-10-19T17:26:26Z",
+              "completed_at": "2026-10-19T17:26:49Z"
+            }
+          ],
+          "interpretation": "PASS"
+        },
+        "Run npm run check:baseline-tools": {
+          "api_steps": [
+            {
+              "name": "Run npm run check:baseline-tools",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9,
+              "started_at": "2026-10-19T17:26:49Z",
+              "completed_at": "2026-10-19T17:26:51Z"
+            }
+          ],
+          "interpretation": "PASS"
+        },
+        "Run npm run smoke:codex": {
+          "api_steps": [
+            {
+              "name": "Run npm run smoke:codex",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10,
+              "started_at": "2026-10-19T17:26:51Z",
+              "completed_at": "2026-10-19T17:33:53Z"
+            }
+          ],
+          "interpretation": "PASS"
+        }
+      },
+      "actual_checkout": [
+        {
+          "command_line": 233,
+          "sha_line": 234,
+          "sha": "1d8b6849ec7e398d65a949d204abe38bc64a4e0b",
+          "git_metadata_tree": "eefcaa0f1bd4201a38f9d46ff668c28b7d662e8c"
+        }
+      ],
+      "smoke_status": "PASS",
+      "smoke": {
+        "scenarios": 13,
+        "scenario_ok_count": 13,
+        "commands": 178,
+        "commands_nonzero": [],
+        "diagram_python": 6,
+        "learning_evidence_python": 18,
+        "site_generated": 4,
+        "site_static": 4,
+        "static_individual_results": [
+          {
+            "status": "PASS",
+            "declared_checks": 89,
+            "failed": 0,
+            "actual_check_results": 89,
+            "actual_pass_count": 89,
+            "rendered_status": "GENERATED"
+          },
+          {
+            "status": "PASS",
+            "declared_checks": 89,
+            "failed": 0,
+            "actual_check_results": 89,
+            "actual_pass_count": 89,
+            "rendered_status": "GENERATED"
+          },
+          {
+            "status": "PASS",
+            "declared_checks": 89,
+            "failed": 0,
+            "actual_check_results": 89,
+            "actual_pass_count": 89,
+            "rendered_status": "GENERATED"
+          },
+          {
+            "status": "PASS",
+            "declared_checks": 89,
+            "failed": 0,
+            "actual_check_results": 89,
+            "actual_pass_count": 89,
+            "rendered_status": "GENERATED"
+          }
+        ],
+        "cli_versions_actual": [
+          "codex-cli 0.147.0"
+        ],
+        "combined_discovery": {
+          "natural_outside": {
+            "publicSkills": 3,
+            "repositorySkills": 0
+          },
+          "natural_repository": {
+            "publicSkills": 3,
+            "repositorySkills": 20
+          },
+          "native_outside": {
+            "publicSkills": 8,
+            "repositorySkills": 0
+          },
+          "native_repository": {
+            "publicSkills": 8,
+            "repositorySkills": 20
+          },
+          "explicit_only": [
+            "learning-evidence-kit:pop-quiz",
+            "learning-evidence-kit:learning-record-check",
+            "communication-kit:communicate",
+            "html-guide-kit:guide",
+            "html-guide-kit:site"
+          ],
+          "explicit_count": 5,
+          "resource_skill_sets": 8,
+          "site_resources": 20,
+          "site_resource_hashes": {
+            "SKILL.md": "c3c47756b18e7ccd2a2e6491e23909afa0f98bc7742476a9cb017c50fc968773",
+            "agents/openai.yaml": "2051c88954740c96fd41c16d077430c8dfa7db6e9c52401553678f6858e0debe",
+            "assets/warm-paper/learning.js": "1fcc8c6064dd99f00b91103cf76e33d7a4e6dcf50793b4542bd8462f6c91f568",
+            "assets/warm-paper/shell.html": "816fc0257f6cef7443f5a3b5f299b909fedfd1758da7b823ac4514b29fb2d72b",
+            "assets/warm-paper/theme.css": "90ee5261f02c44f3fb7f5b3e17662cb232bde07110dd53a2ccf4f2880ac1345f",
+            "examples/representative/artifact.json": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+            "examples/representative/content.md": "060045ce718168c7f3c2aecd2742518490d5693e3dbdeb28b4ac94ce2885cd50",
+            "examples/representative/sources/renewal-rules.md": "2a95c4d9b95f3b184fea30aa3fba9daaf34d11624bd888ed4793a0ea7f96af47",
+            "references/aics-principles.md": "39849866aa2db08994d5780f00c26b070afa1d158011aa6a2b398a538716afca",
+            "references/checks.md": "7cf232681aa66ae0050ee9c570bbcfa8fb2bd6f54cc210fa01c9872ec12e0de0",
+            "references/evidence-and-evaluation.md": "bba7a0100d9ef6f63151a979692697738f9bfbb0bd72b1510efa7a765b5d8b5e",
+            "references/execution-guide.md": "4c6304dd3d666d874f82db00a494cbee6fffe07615243786ea4d0deaaa324499",
+            "references/input-contract.md": "18eb3f0b000268214d2cd693989c63a64db345533f60e606ff46af1308457aa1",
+            "references/interaction-patterns.md": "ef878b1f8b97024b81076e27b4457e12c5069e5408abafa72d703849d80feaf3",
+            "references/resource-provenance.json": "1847d0b34cff308481ebf4f4f0e2390f7582c9dd40d98c355d67a40dfe095778",
+            "references/sites-handoff.md": "cab83528d728691fb34574fae2dc1b2ca9104e77641061825412e60fca041272",
+            "references/terminology.md": "ccbd0af80ee67b4580a43e3cbf623972c485a87e8eaead0b933c9c9065071ccb",
+            "scripts/check_artifact.py": "7f912c3ede72255588fc6ae33624ce87e39ea7328b34789cdc590e4bbc78d9c2",
+            "scripts/check_renderings.py": "d99dc2ad8a67d557f552280b83a5e519eb5395e18e71775abe7cb3fdbb489ccd",
+            "scripts/render-site.mjs": "07e92e688ef751b18bcd9f09ee767c3dbf95632c2c56a11fe6a2133a8cad955e"
+          }
+        },
+        "source_cache_digest": "b11d222ababbca4aef7dfd4d8d40cc1851359fc19f8e620b7f8bb529cce501ac",
+        "cross_scenario_summary": "windows-cross-scenario-summary.json",
+        "browser_check_in_install_smoke": [
+          "NOT_RUN in installation smoke; separate representative browser acceptance required"
+        ]
+      }
+    },
+    {
+      "job_id": 118198896900,
+      "name": "Prove equivalent PR matrix for this push (read only)",
+      "conclusion": "success",
+      "raw_log": "job-118198896900-proof.raw.log",
+      "raw_bytes": 19713,
+      "raw_sha256": "ed54996c867919022cfe6d6cc48ef0cf4017a75ddc1a20cbe64eda8bec86df3e"
+    },
+    {
+      "job_id": 118198960000,
+      "name": "Validate Structure",
+      "conclusion": "success",
+      "raw_log": "job-118198960000-structure.raw.log",
+      "raw_bytes": 23379,
+      "raw_sha256": "206a6bae10d91c298c9afd1cc9f79b249668de84da33f9723fb7acf68e9b0760"
+    }
+  ]
+}

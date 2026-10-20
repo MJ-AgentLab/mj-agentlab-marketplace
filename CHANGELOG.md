@@ -7,6 +7,10 @@
 
 ### Documentation
 
+- Preserve PR281 startup failures and add bounded Linux test-only browser stderr evidence without changing the shipped checker, measurement gates, plugin versions or published history. Refs #274.
+
+- Record actual synchronization PR280/develop4d10, separately preserve the original queued observations and later terminal/API chronology limits, and bind fresh actual-sync verification before preparing the unreleased marketplace-only 8.3.3 patch. Preserve plugin/runtime versions, public v8.3.2 identity, original failures, protected approval NOT_MET and Owner/deferred boundaries. Refs #274.
+
 - Synchronize complete actual main e3dc40f7, including merged publication-record PR279, back into develop. Preserve v8.3.2 runtime/plugin identities and public tag f906, freeze exact record-candidate CI and actual-merge audit evidence, and keep actual synchronization verification and marketplace-only 8.3.3 preparation dependent. Retain approval NOT_MET, original failures, deferred entries and Owner-acceptance boundaries. Refs #274.
 
 - Record actual #278 / v8.3.2 main, tag and Release identities, exact published notes, final two-system candidate CI and fresh real-tag thirteen-install/Python/cleanup evidence. Update the default public installation pointer to v8.3.2 and expose the already-published site entry. Preserve actual Owner bypass, empty reviews, original QA failures, newline representation limits and all deferred/Owner-acceptance boundaries. Keep runtime/plugin versions and published history unchanged; complete main synchronization before the marketplace-only next-patch preparation. Refs #274.

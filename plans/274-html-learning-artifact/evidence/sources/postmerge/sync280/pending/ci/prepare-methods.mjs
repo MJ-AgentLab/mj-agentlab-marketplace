@@ -1,0 +1,5 @@
+import fs from'node:fs';import path from'node:path';
+const root=path.resolve(process.argv[2]),previous=path.resolve(process.argv[3]);
+const map=[['315b5942a3a61c6bf7ab17513b8263496bd7a48a','ef85a2de6e39b1981d94d9d4cbc004fbdc71acee'],['f906b1001a86d7b5415451bd973bea26e6cc3a1d','65d756efd3024ac10d1d0e6ea189055fbe6f1545'],['687b70abd58a8556ee566c74c340dd66480fe407','535315f035a5b7a8082a263fedaf9a07aa67e9d7'],['ae121f6b256d1a44ea05a06061ba025b605655d9','db49629fe767d3584f6ce772ef7bf5cdb52094e1'],['39272665913','39279114820'],['39272636618','39279043416'],['118128777317','118149991325'],['118128777137','118149991324']];
+for(const file of['capture-metadata.mjs','download-job.mjs','extract-ci.py','freeze-evidence.mjs']){let text=fs.readFileSync(path.join(previous,file),'utf8');for(const[from,to]of map)text=text.replaceAll(from,to);text=text.replace(/\b279\b/g,'280');fs.writeFileSync(path.join(root,file),text);}
+console.log('Prepared methods only for new #280; no previous API/raw/count result used.');
