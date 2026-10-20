@@ -1,0 +1,1948 @@
+
+> test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# node:internal/modules/package_json_reader:255
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'cross-spawn' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\benchmark-ci-performance.test.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+#     at packageResolve (node:internal/modules/esm/resolve:767:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.18.0
+# Subtest: tests\\benchmark-ci-performance.test.mjs
+not ok 1 - tests\\benchmark-ci-performance.test.mjs
+  ---
+  duration_ms: 176.0825
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\benchmark-ci-performance.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: actual Python drains a large stderr stream into a bounded exact tail and byte counters
+ok 2 - actual Python drains a large stderr stream into a bounded exact tail and byte counters
+  ---
+  duration_ms: 346.7872
+  type: 'test'
+  ...
+# Subtest: Linux exec capture preserves original checker args, failure, owned-session cleanup and foreign isolation
+ok 3 - Linux exec capture preserves original checker args, failure, owned-session cleanup and foreign isolation # SKIP
+  ---
+  duration_ms: 0.0916
+  type: 'test'
+  ...
+# node:internal/modules/package_json_reader:255
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'cross-spawn' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\scripts\\run-cli.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+#     at packageResolve (node:internal/modules/esm/resolve:767:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.18.0
+# Subtest: tests\\bump-version.test.mjs
+not ok 3 - tests\\bump-version.test.mjs
+  ---
+  duration_ms: 173.7947
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\bump-version.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: isA6Trigger matches every §2.7 allowlist category
+ok 5 - isA6Trigger matches every §2.7 allowlist category
+  ---
+  duration_ms: 1.4654
+  type: 'test'
+  ...
+# Subtest: isA6Trigger matches the Codex dual-native additions
+ok 6 - isA6Trigger matches the Codex dual-native additions
+  ---
+  duration_ms: 0.307
+  type: 'test'
+  ...
+# Subtest: isA6Trigger ignores non-allowlist paths
+ok 7 - isA6Trigger ignores non-allowlist paths
+  ---
+  duration_ms: 0.089
+  type: 'test'
+  ...
+# Subtest: a trigger path containing a newline is still a trigger
+ok 8 - a trigger path containing a newline is still a trigger
+  ---
+  duration_ms: 0.0843
+  type: 'test'
+  ...
+# Subtest: trigger patterns anchor to end of input, not to a trailing newline
+ok 9 - trigger patterns anchor to end of input, not to a trailing newline
+  ---
+  duration_ms: 0.0751
+  type: 'test'
+  ...
+# Subtest: isA6Trigger is anchored — near-miss paths do not match
+ok 10 - isA6Trigger is anchored — near-miss paths do not match
+  ---
+  duration_ms: 0.0828
+  type: 'test'
+  ...
+# Subtest: passes when the diff touches no trigger file
+ok 11 - passes when the diff touches no trigger file
+  ---
+  duration_ms: 0.557
+  type: 'test'
+  ...
+# Subtest: passes when a trigger file is accompanied by a modified AGENTS.md
+ok 12 - passes when a trigger file is accompanied by a modified AGENTS.md
+  ---
+  duration_ms: 0.192
+  type: 'test'
+  ...
+# Subtest: passes when AGENTS.md is newly added alongside a trigger
+ok 13 - passes when AGENTS.md is newly added alongside a trigger
+  ---
+  duration_ms: 0.2136
+  type: 'test'
+  ...
+# Subtest: reports every triggered path, not just the first
+ok 14 - reports every triggered path, not just the first
+  ---
+  duration_ms: 0.2655
+  type: 'test'
+  ...
+# Subtest: blocks when a trigger file is touched and AGENTS.md is absent
+ok 15 - blocks when a trigger file is touched and AGENTS.md is absent
+  ---
+  duration_ms: 0.1357
+  type: 'test'
+  ...
+# Subtest: deleting root AGENTS.md does NOT count as syncing it
+ok 16 - deleting root AGENTS.md does NOT count as syncing it
+  ---
+  duration_ms: 0.079
+  type: 'test'
+  ...
+# Subtest: a AGENTS.md typechange does not count as syncing it
+ok 17 - a AGENTS.md typechange does not count as syncing it
+  ---
+  duration_ms: 0.0628
+  type: 'test'
+  ...
+# Subtest: only ROOT AGENTS.md counts — a plugin AGENTS.md does not
+ok 18 - only ROOT AGENTS.md counts — a plugin AGENTS.md does not
+  ---
+  duration_ms: 0.0541
+  type: 'test'
+  ...
+# Subtest: REGRESSION: [skip a6] alone does not bypass the gate
+ok 19 - REGRESSION: [skip a6] alone does not bypass the gate
+  ---
+  duration_ms: 0.1191
+  type: 'test'
+  ...
+# Subtest: [skip a6] plus a valid reviewer sign-off bypasses the gate
+ok 20 - [skip a6] plus a valid reviewer sign-off bypasses the gate
+  ---
+  duration_ms: 0.0995
+  type: 'test'
+  ...
+# Subtest: the skip token must be the literal string
+ok 21 - the skip token must be the literal string
+  ---
+  duration_ms: 0.0818
+  type: 'test'
+  ...
+# Subtest: a sign-off without the skip token does not bypass the gate
+ok 22 - a sign-off without the skip token does not bypass the gate
+  ---
+  duration_ms: 0.0558
+  type: 'test'
+  ...
+# Subtest: the PR author cannot sign off on their own PR
+ok 23 - the PR author cannot sign off on their own PR
+  ---
+  duration_ms: 0.0628
+  type: 'test'
+  ...
+# Subtest: author self-signoff is rejected case-insensitively
+ok 24 - author self-signoff is rejected case-insensitively
+  ---
+  duration_ms: 0.0558
+  type: 'test'
+  ...
+# Subtest: only OWNER / MEMBER / COLLABORATOR may sign off
+ok 25 - only OWNER / MEMBER / COLLABORATOR may sign off
+  ---
+  duration_ms: 0.142
+  type: 'test'
+  ...
+# Subtest: a sign-off against a stale head SHA does not count
+ok 26 - a sign-off against a stale head SHA does not count
+  ---
+  duration_ms: 0.0518
+  type: 'test'
+  ...
+# Subtest: the review must be an APPROVAL, not a comment
+ok 27 - the review must be an APPROVAL, not a comment
+  ---
+  duration_ms: 0.0555
+  type: 'test'
+  ...
+# Subtest: the review body must equal the sign-off phrase exactly
+ok 28 - the review body must equal the sign-off phrase exactly
+  ---
+  duration_ms: 0.069
+  type: 'test'
+  ...
+# Subtest: surrounding whitespace and CRLF in the sign-off body are tolerated
+ok 29 - surrounding whitespace and CRLF in the sign-off body are tolerated
+  ---
+  duration_ms: 0.0491
+  type: 'test'
+  ...
+# Subtest: a later CHANGES_REQUESTED from the same reviewer revokes their sign-off
+ok 30 - a later CHANGES_REQUESTED from the same reviewer revokes their sign-off
+  ---
+  duration_ms: 0.0929
+  type: 'test'
+  ...
+# Subtest: a re-approval after CHANGES_REQUESTED restores the sign-off
+ok 31 - a re-approval after CHANGES_REQUESTED restores the sign-off
+  ---
+  duration_ms: 0.5015
+  type: 'test'
+  ...
+# Subtest: review recency follows submitted_at, not array position or id
+ok 32 - review recency follows submitted_at, not array position or id
+  ---
+  duration_ms: 0.0669
+  type: 'test'
+  ...
+# Subtest: review recency falls back to id when submitted_at ties
+ok 33 - review recency falls back to id when submitted_at ties
+  ---
+  duration_ms: 0.044
+  type: 'test'
+  ...
+# Subtest: one reviewer's CHANGES_REQUESTED does not void another's valid sign-off
+ok 34 - one reviewer's CHANGES_REQUESTED does not void another's valid sign-off
+  ---
+  duration_ms: 0.0442
+  type: 'test'
+  ...
+# Subtest: a reviewer with no login is ignored rather than crashing
+ok 35 - a reviewer with no login is ignored rather than crashing
+  ---
+  duration_ms: 0.0409
+  type: 'test'
+  ...
+# Subtest: evaluateA6 rejects malformed input rather than guessing
+ok 36 - evaluateA6 rejects malformed input rather than guessing
+  ---
+  duration_ms: 0.3
+  type: 'test'
+  ...
+# Subtest: flattenReviews accepts both a plain array and --paginate --slurp nesting
+ok 37 - flattenReviews accepts both a plain array and --paginate --slurp nesting
+  ---
+  duration_ms: 0.1981
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ parses git's STATUS\\0PATH\\0 records
+ok 38 - parseNameStatusZ parses git's STATUS\\0PATH\\0 records
+  ---
+  duration_ms: 0.1376
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ handles an empty diff
+ok 39 - parseNameStatusZ handles an empty diff
+  ---
+  duration_ms: 0.0447
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ keeps newlines inside a path intact
+ok 40 - parseNameStatusZ keeps newlines inside a path intact
+  ---
+  duration_ms: 0.0452
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ strips similarity scores from status codes
+ok 41 - parseNameStatusZ strips similarity scores from status codes
+  ---
+  duration_ms: 0.0368
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ rejects a rename record instead of misreading it
+ok 42 - parseNameStatusZ rejects a rename record instead of misreading it
+  ---
+  duration_ms: 0.0499
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ rejects a trailing status with no path
+ok 43 - parseNameStatusZ rejects a trailing status with no path
+  ---
+  duration_ms: 0.1094
+  type: 'test'
+  ...
+# Subtest: CLI exits 2 when a required environment variable is missing
+ok 44 - CLI exits 2 when a required environment variable is missing
+  ---
+  duration_ms: 377.4491
+  type: 'test'
+  ...
+# Subtest: CLI exits 2 on an unreadable reviews file
+ok 45 - CLI exits 2 on an unreadable reviews file
+  ---
+  duration_ms: 294.6772
+  type: 'test'
+  ...
+# Subtest: CLI exits 2 on malformed reviews JSON
+ok 46 - CLI exits 2 on malformed reviews JSON
+  ---
+  duration_ms: 276.2337
+  type: 'test'
+  ...
+# Subtest: CLI exits 2 on an unresolvable SHA rather than treating the diff as empty
+ok 47 - CLI exits 2 on an unresolvable SHA rather than treating the diff as empty
+  ---
+  duration_ms: 285.327
+  type: 'test'
+  ...
+# Subtest: CLI exits 1 and names the triggers when the gate blocks
+ok 48 - CLI exits 1 and names the triggers when the gate blocks
+  ---
+  duration_ms: 387.8168
+  type: 'test'
+  ...
+# Subtest: CLI exits 0 when AGENTS.md is synced alongside the trigger
+ok 49 - CLI exits 0 when AGENTS.md is synced alongside the trigger
+  ---
+  duration_ms: 388.1888
+  type: 'test'
+  ...
+# Subtest: CLI exits 0 when the PR touches nothing on the allowlist
+ok 50 - CLI exits 0 when the PR touches nothing on the allowlist
+  ---
+  duration_ms: 379.4132
+  type: 'test'
+  ...
+# Subtest: CLI exits 1 for [skip a6] with no sign-off
+ok 51 - CLI exits 1 for [skip a6] with no sign-off
+  ---
+  duration_ms: 421.836
+  type: 'test'
+  ...
+# Subtest: CLI exits 0 for [skip a6] with a valid sign-off
+ok 52 - CLI exits 0 for [skip a6] with a valid sign-off
+  ---
+  duration_ms: 392.209
+  type: 'test'
+  ...
+# Subtest: CLI exits 1 when deleting root AGENTS.md is the only 'sync'
+ok 53 - CLI exits 1 when deleting root AGENTS.md is the only 'sync'
+  ---
+  duration_ms: 413.1765
+  type: 'test'
+  ...
+# Subtest: CLI uses a three-dot range: a base-branch AGENTS.md edit cannot satisfy the PR
+ok 54 - CLI uses a three-dot range: a base-branch AGENTS.md edit cannot satisfy the PR
+  ---
+  duration_ms: 595.1041
+  type: 'test'
+  ...
+# Subtest: CLI sees a renamed trigger file rather than a rename record
+ok 55 - CLI sees a renamed trigger file rather than a rename record
+  ---
+  duration_ms: 404.3004
+  type: 'test'
+  ...
+# Subtest: CLI treats a shell-metacharacter PR title as inert data
+ok 56 - CLI treats a shell-metacharacter PR title as inert data
+  ---
+  duration_ms: 431.549
+  type: 'test'
+  ...
+# Subtest: CLI handles a PR title that is exactly the skip token with odd spacing
+ok 57 - CLI handles a PR title that is exactly the skip token with odd spacing
+  ---
+  duration_ms: 402.7419
+  type: 'test'
+  ...
+# Subtest: portable manifest and migrated repository skills trigger A6
+ok 58 - portable manifest and migrated repository skills trigger A6
+  ---
+  duration_ms: 0.1126
+  type: 'test'
+  ...
+# Subtest: legacy CLAUDE.md alone cannot satisfy the new sync target
+ok 59 - legacy CLAUDE.md alone cannot satisfy the new sync target
+  ---
+  duration_ms: 0.0568
+  type: 'test'
+  ...
+# Subtest: parseVersion accepts a plain X.Y.Z
+ok 60 - parseVersion accepts a plain X.Y.Z
+  ---
+  duration_ms: 1.1248
+  type: 'test'
+  ...
+# Subtest: parseVersion rejects anything that is not exactly X.Y.Z
+ok 61 - parseVersion rejects anything that is not exactly X.Y.Z
+  ---
+  duration_ms: 0.1174
+  type: 'test'
+  ...
+# Subtest: parseVersion rejects leading zeros
+ok 62 - parseVersion rejects leading zeros
+  ---
+  duration_ms: 0.0688
+  type: 'test'
+  ...
+# Subtest: compareVersions orders numerically, not lexically
+ok 63 - compareVersions orders numerically, not lexically
+  ---
+  duration_ms: 0.1287
+  type: 'test'
+  ...
+# Subtest: develop ahead of main is prebumped, in either mode
+ok 64 - develop ahead of main is prebumped, in either mode
+  ---
+  duration_ms: 0.1827
+  type: 'test'
+  ...
+# Subtest: a numerically-ahead develop is prebumped even when lexically behind
+ok 65 - a numerically-ahead develop is prebumped even when lexically behind
+  ---
+  duration_ms: 0.0707
+  type: 'test'
+  ...
+# Subtest: develop equal to main inside the grace window is ok, in either mode
+ok 66 - develop equal to main inside the grace window is ok, in either mode
+  ---
+  duration_ms: 0.1412
+  type: 'test'
+  ...
+# Subtest: the grace window is exclusive at its upper bound
+ok 67 - the grace window is exclusive at its upper bound
+  ---
+  duration_ms: 0.077
+  type: 'test'
+  ...
+# Subtest: develop equal to main past the grace window is overdue
+ok 68 - develop equal to main past the grace window is overdue
+  ---
+  duration_ms: 0.1645
+  type: 'test'
+  ...
+# Subtest: overdue blocks only in enforce mode
+ok 69 - overdue blocks only in enforce mode
+  ---
+  duration_ms: 0.2361
+  type: 'test'
+  ...
+# Subtest: develop behind main is inverted, and blocks only in enforce mode
+ok 70 - develop behind main is inverted, and blocks only in enforce mode
+  ---
+  duration_ms: 0.1816
+  type: 'test'
+  ...
+# Subtest: inverted is independent of the grace window
+ok 71 - inverted is independent of the grace window
+  ---
+  duration_ms: 0.055
+  type: 'test'
+  ...
+# Subtest: ageSeconds reports the real elapsed time and zero is allowed
+ok 72 - ageSeconds reports the real elapsed time and zero is allowed
+  ---
+  duration_ms: 0.0435
+  type: 'test'
+  ...
+# Subtest: every result carries a non-empty reason
+ok 73 - every result carries a non-empty reason
+  ---
+  duration_ms: 0.082
+  type: 'test'
+  ...
+# Subtest: evaluatePrebump rejects an unknown mode
+ok 74 - evaluatePrebump rejects an unknown mode
+  ---
+  duration_ms: 0.2825
+  type: 'test'
+  ...
+# Subtest: evaluatePrebump rejects a malformed version on either side
+ok 75 - evaluatePrebump rejects a malformed version on either side
+  ---
+  duration_ms: 0.0904
+  type: 'test'
+  ...
+# Subtest: evaluatePrebump rejects a non-integer or negative epoch
+ok 76 - evaluatePrebump rejects a non-integer or negative epoch
+  ---
+  duration_ms: 0.2563
+  type: 'test'
+  ...
+# Subtest: evaluatePrebump rejects a clock that runs backwards
+ok 77 - evaluatePrebump rejects a clock that runs backwards
+  ---
+  duration_ms: 0.0608
+  type: 'test'
+  ...
+# Subtest: evaluatePrebump rejects a nonsensical grace window
+ok 78 - evaluatePrebump rejects a nonsensical grace window
+  ---
+  duration_ms: 0.1084
+  type: 'test'
+  ...
+# Subtest: a zero-hour grace window is legal and makes equality immediately overdue
+ok 79 - a zero-hour grace window is legal and makes equality immediately overdue
+  ---
+  duration_ms: 0.0434
+  type: 'test'
+  ...
+# Subtest: CLI prints exactly one line of stable JSON and exits 0 when prebumped
+ok 80 - CLI prints exactly one line of stable JSON and exits 0 when prebumped
+  ---
+  duration_ms: 39.7376
+  type: 'test'
+  ...
+# Subtest: CLI exits 1 for overdue under enforce
+ok 81 - CLI exits 1 for overdue under enforce
+  ---
+  duration_ms: 43.8567
+  type: 'test'
+  ...
+# Subtest: CLI exits 0 for overdue under push, and says so on stderr
+ok 82 - CLI exits 0 for overdue under push, and says so on stderr
+  ---
+  duration_ms: 57.5175
+  type: 'test'
+  ...
+# Subtest: CLI exits 1 for inverted under enforce and 0 under push
+ok 83 - CLI exits 1 for inverted under enforce and 0 under push
+  ---
+  duration_ms: 95.4935
+  type: 'test'
+  ...
+# Subtest: CLI exits 2 on bad arguments rather than guessing
+ok 84 - CLI exits 2 on bad arguments rather than guessing
+  ---
+  duration_ms: 283.0308
+  type: 'test'
+  ...
+# Subtest: CLI exits 2 on a backwards clock
+ok 85 - CLI exits 2 on a backwards clock
+  ---
+  duration_ms: 36.1253
+  type: 'test'
+  ...
+# Subtest: CLI writes nothing to stdout on an argument error
+ok 86 - CLI writes nothing to stdout on an argument error
+  ---
+  duration_ms: 35.5255
+  type: 'test'
+  ...
+# Subtest: CLI defaults the grace window to the ADR's 72h when not given
+ok 87 - CLI defaults the grace window to the ADR's 72h when not given
+  ---
+  duration_ms: 71.3051
+  type: 'test'
+  ...
+# Subtest: evaluatePrebump refuses to assume a grace window
+ok 88 - evaluatePrebump refuses to assume a grace window
+  ---
+  duration_ms: 0.1481
+  type: 'test'
+  ...
+# node:internal/modules/package_json_reader:255
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\ci-cancel-superseded.test.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+#     at packageResolve (node:internal/modules/esm/resolve:767:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.18.0
+# Subtest: tests\\ci-cancel-superseded.test.mjs
+not ok 6 - tests\\ci-cancel-superseded.test.mjs
+  ---
+  duration_ms: 166.4094
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\ci-cancel-superseded.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/package_json_reader:255
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\ci-deduplicate-push.test.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+#     at packageResolve (node:internal/modules/esm/resolve:767:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.18.0
+# Subtest: tests\\ci-deduplicate-push.test.mjs
+not ok 7 - tests\\ci-deduplicate-push.test.mjs
+  ---
+  duration_ms: 170.2554
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\ci-deduplicate-push.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/package_json_reader:255
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'cross-spawn' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\scripts\\run-cli.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+#     at packageResolve (node:internal/modules/esm/resolve:767:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.18.0
+# Subtest: tests\\commit-convention.test.mjs
+not ok 8 - tests\\commit-convention.test.mjs
+  ---
+  duration_ms: 166.8164
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\commit-convention.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/package_json_reader:255
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'cross-spawn' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\scripts\\run-cli.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+#     at packageResolve (node:internal/modules/esm/resolve:767:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.18.0
+# Subtest: tests\\communication-foundation.test.mjs
+not ok 9 - tests\\communication-foundation.test.mjs
+  ---
+  duration_ms: 170.3586
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\communication-foundation.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/package_json_reader:255
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'cross-spawn' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\scripts\\benchmark-ci-performance.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+#     at packageResolve (node:internal/modules/esm/resolve:767:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.18.0
+# Subtest: tests\\diagnose-ci-git.test.mjs
+not ok 10 - tests\\diagnose-ci-git.test.mjs
+  ---
+  duration_ms: 173.4382
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\diagnose-ci-git.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: static: arch-diagram body has no ${CLAUDE_PLUGIN_ROOT} host coupling
+ok 94 - static: arch-diagram body has no ${CLAUDE_PLUGIN_ROOT} host coupling
+  ---
+  duration_ms: 1.1408
+  type: 'test'
+  ...
+# Subtest: static: validator is resolved from the SKILL.md locator, not cwd
+ok 95 - static: validator is resolved from the SKILL.md locator, not cwd
+  ---
+  duration_ms: 0.3501
+  type: 'test'
+  ...
+# Subtest: static: the bundled validator exists and is pure-stdlib python
+ok 96 - static: the bundled validator exists and is pure-stdlib python
+  ---
+  duration_ms: 0.3021
+  type: 'test'
+  ...
+# Subtest: execution: validator accepts a .md path with spaces / Chinese / single-quote (shell:false)
+ok 97 - execution: validator accepts a .md path with spaces / Chinese / single-quote (shell:false)
+  ---
+  duration_ms: 72.086
+  type: 'test'
+  ...
+# node:internal/modules/package_json_reader:255
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\document-harness.test.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+#     at packageResolve (node:internal/modules/esm/resolve:767:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.18.0
+# Subtest: tests\\document-harness.test.mjs
+not ok 12 - tests\\document-harness.test.mjs
+  ---
+  duration_ms: 172.0884
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\document-harness.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/package_json_reader:255
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\scripts\\validate-portable.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+#     at packageResolve (node:internal/modules/esm/resolve:767:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.18.0
+# Subtest: tests\\documentation-contract.test.mjs
+not ok 13 - tests\\documentation-contract.test.mjs
+  ---
+  duration_ms: 167.5427
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\documentation-contract.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/package_json_reader:255
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\scripts\\document-harness.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+#     at packageResolve (node:internal/modules/esm/resolve:767:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.18.0
+# Subtest: tests\\frozen-evidence-resources.test.mjs
+not ok 14 - tests\\frozen-evidence-resources.test.mjs
+  ---
+  duration_ms: 160.3653
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\frozen-evidence-resources.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/package_json_reader:255
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\html-guide-kit.test.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+#     at packageResolve (node:internal/modules/esm/resolve:767:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.18.0
+# Subtest: tests\\html-guide-kit.test.mjs
+not ok 15 - tests\\html-guide-kit.test.mjs
+  ---
+  duration_ms: 153.7179
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\html-guide-kit.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: both built-in themes and omitted default pass real Python static checks with original material bytes
+ok 102 - both built-in themes and omitted default pass real Python static checks with original material bytes
+  ---
+  duration_ms: 420.9274
+  type: 'test'
+  ...
+# Subtest: Python checker rejects unknown theme values and types even when bundle hashes agree
+ok 103 - Python checker rejects unknown theme values and types even when bundle hashes agree
+  ---
+  duration_ms: 770.25
+  type: 'test'
+  ...
+# Subtest: static checker executes Python from unrelated cwd and preserves complete source/hash evidence
+ok 104 - static checker executes Python from unrelated cwd and preserves complete source/hash evidence
+  ---
+  duration_ms: 139.1277
+  type: 'test'
+  ...
+# Subtest: static checker detects stale bytes, unknown files and changed schema/version
+ok 105 - static checker detects stale bytes, unknown files and changed schema/version
+  ---
+  duration_ms: 74.3989
+  type: 'test'
+  ...
+# Subtest: static checker rejects missing anchors, decoded traversal, remote resources and known forbidden terms
+ok 106 - static checker rejects missing anchors, decoded traversal, remote resources and known forbidden terms
+  ---
+  duration_ms: 85.0873
+  type: 'test'
+  ...
+# Subtest: static checker rejects source path escape and invalid answer criteria even with consistent hashes
+ok 107 - static checker rejects source path escape and invalid answer criteria even with consistent hashes
+  ---
+  duration_ms: 76.6622
+  type: 'test'
+  ...
+# Subtest: self-consistent material declarations cannot hide generated HTML or scripts from checks
+ok 108 - self-consistent material declarations cannot hide generated HTML or scripts from checks
+  ---
+  duration_ms: 378.5799
+  type: 'test'
+  ...
+# Subtest: static source URLs reject embedded credentials while passive local source formats remain valid
+ok 109 - static source URLs reject embedded credentials while passive local source formats remain valid
+  ---
+  duration_ms: 77.3206
+  type: 'test'
+  ...
+# Subtest: browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record
+ok 110 - browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record
+  ---
+  duration_ms: 97.3673
+  type: 'test'
+  ...
+# Subtest: browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes
+ok 111 - browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes
+  ---
+  duration_ms: 206.8548
+  type: 'test'
+  ...
+# Subtest: actual browser renders distinct warm-paper and neutral themes at desktop and mobile sizes
+ok 112 - actual browser renders distinct warm-paper and neutral themes at desktop and mobile sizes
+  ---
+  duration_ms: 1538.9716
+  type: 'test'
+  ...
+# Subtest: actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping
+ok 113 - actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping
+  ---
+  duration_ms: 1307.1554
+  type: 'test'
+  ...
+# node:internal/modules/package_json_reader:255
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\scripts\\validate-portable.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+#     at packageResolve (node:internal/modules/esm/resolve:767:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.18.0
+# Subtest: tests\\html-site-integration.test.mjs
+not ok 17 - tests\\html-site-integration.test.mjs
+  ---
+  duration_ms: 143.478
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\html-site-integration.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: installed renderer carries asset rights without relicensing learning materials
+ok 115 - installed renderer carries asset rights without relicensing learning materials
+  ---
+  duration_ms: 567.506
+  type: 'test'
+  ...
+# Subtest: missing installed license or notice fails before any output is created
+ok 116 - missing installed license or notice fails before any output is created
+  ---
+  duration_ms: 57.0957
+  type: 'test'
+  ...
+# Subtest: license output names reject case aliases and nested material collisions before writes
+ok 117 - license output names reject case aliases and nested material collisions before writes
+  ---
+  duration_ms: 104.9356
+  type: 'test'
+  ...
+# Subtest: omitted and explicit warm-paper preserve default assets while neutral changes only the stylesheet
+ok 118 - omitted and explicit warm-paper preserve default assets while neutral changes only the stylesheet
+  ---
+  duration_ms: 118.8373
+  type: 'test'
+  ...
+# Subtest: unknown theme values and types fail before any output is created
+ok 119 - unknown theme values and types fail before any output is created
+  ---
+  duration_ms: 94.1706
+  type: 'test'
+  ...
+# Subtest: representative generation preserves selected inputs and independently verifiable hashes
+ok 120 - representative generation preserves selected inputs and independently verifiable hashes
+  ---
+  duration_ms: 28.0251
+  type: 'test'
+  ...
+# Subtest: installed renderer locates its own assets from an unrelated consumer directory
+ok 121 - installed renderer locates its own assets from an unrelated consumer directory
+  ---
+  duration_ms: 133.2641
+  type: 'test'
+  ...
+# Subtest: bounded Markdown retains paragraphs, relations, code, links and heading hierarchy
+ok 122 - bounded Markdown retains paragraphs, relations, code, links and heading hierarchy
+  ---
+  duration_ms: 0.4599
+  type: 'test'
+  ...
+# Subtest: unsupported Markdown and broken links fail before creating output
+ok 123 - unsupported Markdown and broken links fail before creating output
+  ---
+  duration_ms: 75.1799
+  type: 'test'
+  ...
+# Subtest: configuration errors cannot silently produce a different activity or source
+ok 124 - configuration errors cannot silently produce a different activity or source
+  ---
+  duration_ms: 13.595
+  type: 'test'
+  ...
+# Subtest: literal replacement markers and HTML in config remain inert and complete
+ok 125 - literal replacement markers and HTML in config remain inert and complete
+  ---
+  duration_ms: 27.1372
+  type: 'test'
+  ...
+# Subtest: traversal, resource collisions and existing output fail without changing inputs
+ok 126 - traversal, resource collisions and existing output fail without changing inputs
+  ---
+  duration_ms: 50.111
+  type: 'test'
+  ...
+# Subtest: plugin caches and borrowed input or output ancestors cannot be written
+ok 127 - plugin caches and borrowed input or output ancestors cannot be written
+  ---
+  duration_ms: 15.2182
+  type: 'test'
+  ...
+# Subtest: known terminology mismatches and invalid input bytes remain generation failures
+ok 128 - known terminology mismatches and invalid input bytes remain generation failures
+  ---
+  duration_ms: 15.3125
+  type: 'test'
+  ...
+# Subtest: known English terms use case-insensitive word boundaries without rejecting Threshold
+ok 129 - known English terms use case-insensitive word boundaries without rejecting Threshold
+  ---
+  duration_ms: 26.6921
+  type: 'test'
+  ...
+# Subtest: YAML frontmatter and Setext headings are rejected while separated thematic breaks remain valid
+ok 130 - YAML frontmatter and Setext headings are rejected while separated thematic breaks remain valid
+  ---
+  duration_ms: 37.837
+  type: 'test'
+  ...
+# Subtest: literal percent, Chinese and spaces in local filenames round-trip through browser URLs
+ok 131 - literal percent, Chinese and spaces in local filenames round-trip through browser URLs
+  ---
+  duration_ms: 29.0528
+  type: 'test'
+  ...
+# Subtest: empty optional activities and terms still provide a static artifact and export
+ok 132 - empty optional activities and terms still provide a static artifact and export
+  ---
+  duration_ms: 19.77
+  type: 'test'
+  ...
+# node:internal/modules/package_json_reader:255
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\intent-harness.test.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+#     at packageResolve (node:internal/modules/esm/resolve:767:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.18.0
+# Subtest: tests\\intent-harness.test.mjs
+not ok 20 - tests\\intent-harness.test.mjs
+  ---
+  duration_ms: 127.516
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\intent-harness.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/package_json_reader:255
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\internal-pr-workflow.test.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+#     at packageResolve (node:internal/modules/esm/resolve:767:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.18.0
+# Subtest: tests\\internal-pr-workflow.test.mjs
+not ok 21 - tests\\internal-pr-workflow.test.mjs
+  ---
+  duration_ms: 119.8085
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\internal-pr-workflow.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: collection person scope excludes remote body bytes before any persistent write
+ok 135 - collection person scope excludes remote body bytes before any persistent write
+  ---
+  duration_ms: 763.3884
+  type: 'test'
+  ...
+# Subtest: collection task scope excludes remote body bytes before any persistent write
+ok 136 - collection task scope excludes remote body bytes before any persistent write
+  ---
+  duration_ms: 616.1627
+  type: 'test'
+  ...
+# Subtest: collection occurrence time scope excludes remote body bytes before any persistent write
+ok 137 - collection occurrence time scope excludes remote body bytes before any persistent write
+  ---
+  duration_ms: 595.5576
+  type: 'test'
+  ...
+# Subtest: filtered paging failure retains confirmed allowed snapshots; recovery never persists excluded bodies
+ok 138 - filtered paging failure retains confirmed allowed snapshots; recovery never persists excluded bodies
+  ---
+  duration_ms: 1194.6962
+  type: 'test'
+  ...
+# Subtest: partial segmented sources need a verified record before filtered persistence; whole scope retains recoverable raw parts
+ok 139 - partial segmented sources need a verified record before filtered persistence; whole scope retains recoverable raw parts
+  ---
+  duration_ms: 2039.8875
+  type: 'test'
+  ...
+# Subtest: a moved-page comment is recovered by consecutive stable inventory scans before advancing the cursor
+ok 140 - a moved-page comment is recovered by consecutive stable inventory scans before advancing the cursor
+  ---
+  duration_ms: 1029.7298
+  type: 'test'
+  ...
+# Subtest: continuous pagination churn is partial and holds the cursor while retaining only confirmed in-scope snapshots
+ok 141 - continuous pagination churn is partial and holds the cursor while retaining only confirmed in-scope snapshots
+  ---
+  duration_ms: 727.4561
+  type: 'test'
+  ...
+# Subtest: actual Python publishes complete JSON and Markdown, records account/visibility, and replays without duplicate writes
+ok 142 - actual Python publishes complete JSON and Markdown, records account/visibility, and replays without duplicate writes
+  ---
+  duration_ms: 1589.5119
+  type: 'test'
+  ...
+# Subtest: GitHub acceptance actually uses an exact Python 3.12 interpreter
+ok 143 - GitHub acceptance actually uses an exact Python 3.12 interpreter
+  ---
+  duration_ms: 0.1618
+  type: 'test'
+  ...
+# Python 3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]; executable=C:\\Users\\Admin\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe
+# Subtest: unknown POST success is read back; unknown reconciliation failure stays partial and a retry reads before writing
+ok 144 - unknown POST success is read back; unknown reconciliation failure stays partial and a retry reads before writing
+  ---
+  duration_ms: 1130.6382
+  type: 'test'
+  ...
+# Subtest: unknown successful POST with a readable response reconciles to one complete comment
+ok 145 - unknown successful POST with a readable response reconciles to one complete comment
+  ---
+  duration_ms: 767.8773
+  type: 'test'
+  ...
+# Subtest: segmented failure preserves partial state and resumes only missing parts; every body stays below its budget
+ok 146 - segmented failure preserves partial state and resumes only missing parts; every body stays below its budget
+  ---
+  duration_ms: 3552.018
+  type: 'test'
+  ...
+# Subtest: same request ID with changed input and remote conflicting same-set content fail closed
+ok 147 - same request ID with changed input and remote conflicting same-set content fail closed
+  ---
+  duration_ms: 1063.6723
+  type: 'test'
+  ...
+# Subtest: publication checks all comment pages, including a preexisting part on a later page
+ok 148 - publication checks all comment pages, including a preexisting part on a later page
+  ---
+  duration_ms: 1414.0385
+  type: 'test'
+  ...
+# Subtest: collection includes open, closed and merged PRs; copied learning retains one evidence identity and source bodies stay data
+ok 149 - collection includes open, closed and merged PRs; copied learning retains one evidence identity and source bodies stay data
+  ---
+  duration_ms: 2715.6615
+  type: 'test'
+  ...
+# Subtest: collection uses updated-ascending pagination and five-minute overlap, deduplicates repeated windows and retains edits
+ok 150 - collection uses updated-ascending pagination and five-minute overlap, deduplicates repeated windows and retains edits
+  ---
+  duration_ms: 2146.1734
+  type: 'test'
+  ...
+# Subtest: one malformed formal comment preserves other records and snapshots while preventing cursor advancement
+ok 151 - one malformed formal comment preserves other records and snapshots while preventing cursor advancement
+  ---
+  duration_ms: 1033.0894
+  type: 'test'
+  ...
+# Subtest: page failure retains acquired snapshots and preceding cursor; retry recovers the missing page
+ok 152 - page failure retains acquired snapshots and preceding cursor; retry recovers the missing page
+  ---
+  duration_ms: 1569.1609
+  type: 'test'
+  ...
+# Subtest: inaccessible old source is a gap, not an asserted deletion; complete progress and history remain
+ok 153 - inaccessible old source is a gap, not an asserted deletion; complete progress and history remain
+  ---
+  duration_ms: 1371.6078
+  type: 'test'
+  ...
+# Subtest: authorization and repository scope reject missing or different targets before any remote action
+ok 154 - authorization and repository scope reject missing or different targets before any remote action
+  ---
+  duration_ms: 336.6787
+  type: 'test'
+  ...
+# Subtest: request IDs are shared with local mutations and cannot be reused for another operation
+ok 155 - request IDs are shared with local mutations and cannot be reused for another operation
+  ---
+  duration_ms: 1010.4467
+  type: 'test'
+  ...
+# Subtest: record filters apply explicitly; selected-record export/import preserves flow dependencies without another person body
+ok 156 - record filters apply explicitly; selected-record export/import preserves flow dependencies without another person body
+  ---
+  duration_ms: 3643.8096
+  type: 'test'
+  ...
+# Subtest: a rewritten immutable record ID preserves source versions, reports conflict and holds the completed cursor
+ok 157 - a rewritten immutable record ID preserves source versions, reports conflict and holds the completed cursor
+  ---
+  duration_ms: 1496.1344
+  type: 'test'
+  ...
+# Subtest: a source metadata permission failure retains raw evidence and unsupported scope fields cannot be silently ignored
+ok 158 - a source metadata permission failure retains raw evidence and unsupported scope fields cannot be silently ignored
+  ---
+  duration_ms: 1033.2591
+  type: 'test'
+  ...
+# Subtest: the direct JSON entry rejects duplicate keys and scalar inputs with one failure envelope before any gh request
+ok 159 - the direct JSON entry rejects duplicate keys and scalar inputs with one failure envelope before any gh request
+  ---
+  duration_ms: 255.2815
+  type: 'test'
+  ...
+# Subtest: explicit person, task and time authorization restrictions cannot be broadened by collection inputs
+ok 160 - explicit person, task and time authorization restrictions cannot be broadened by collection inputs
+  ---
+  duration_ms: 618.1834
+  type: 'test'
+  ...
+# Subtest: restored publication plans are verified against complete content and this authorized target before posting
+ok 161 - restored publication plans are verified against complete content and this authorized target before posting
+  ---
+  duration_ms: 1012.4827
+  type: 'test'
+  ...
+# Subtest: a concurrent duplicate after POST returns a conflict while preserving the actual POST result and observed bodies
+ok 162 - a concurrent duplicate after POST returns a conflict while preserving the actual POST result and observed bodies
+  ---
+  duration_ms: 646.7626
+  type: 'test'
+  ...
+# Subtest: filters and source times require complete second-level RFC3339 UTC; invalid source bytes remain in a snapshot
+ok 163 - filters and source times require complete second-level RFC3339 UTC; invalid source bytes remain in a snapshot
+  ---
+  duration_ms: 1252.965
+  type: 'test'
+  ...
+# Subtest: UTF-8 gh JSON transport remains exact when the Python console encoding is Windows cp1252
+ok 164 - UTF-8 gh JSON transport remains exact when the Python console encoding is Windows cp1252
+  ---
+  duration_ms: 1031.6426
+  type: 'test'
+  ...
+# Subtest: repeated IDs across pages cannot establish full coverage even when bodies are unchanged; stable retry deduplicates retained snapshots
+ok 165 - repeated IDs across pages cannot establish full coverage even when bodies are unchanged; stable retry deduplicates retained snapshots
+  ---
+  duration_ms: 1461.3174
+  type: 'test'
+  ...
+# Subtest: Learning evidence storage: actual Python 3.12 isolated recovery/import/attribution cases
+ok 166 - Learning evidence storage: actual Python 3.12 isolated recovery/import/attribution cases
+  ---
+  duration_ms: 19103.9785
+  type: 'test'
+  ...
+# Interpreter: 3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]
+# test_application_requires_actual_explanation_and_existing_materials (__main__.StoreCases.test_application_requires_actual_explanation_and_existing_materials) ... ok\\r\\ntest_application_version_mismatch_or_unknown_head_cannot_be_supported (__main__.StoreCases.test_application_version_mismatch_or_unknown_head_cannot_be_supported) ... ok\\r\\ntest_archive_retains_history_and_full_export_import (__main__.StoreCases.test_archive_retains_history_and_full_export_import) ... ok\\r\\ntest_check_record_applicability_is_separate_from_learning_verdict (__main__.StoreCases.test_check_record_applicability_is_separate_from_learning_verdict) ... ok\\r\\ntest_complete_save_replay_and_identity_separation (__main__.StoreCases.test_complete_save_replay_and_identity_separation) ... ok\\r\\ntest_concurrent_mutation_lock_and_automatic_release (__main__.StoreCases.test_concurrent_mutation_lock_and_automatic_release) ... ok\\r\\ntest_correction_retest_and_cross_pr_reuse_are_one_learning (__main__.StoreCases.test_correction_retest_and_cross_pr_reuse_are_one_learning) ... ok\\r\\ntest_explicit_ids_and_immutable_conflict (__main__.StoreCases.test_explicit_ids_and_immutable_conflict) ... ok\\r\\ntest_export_related_history_and_malicious_types_with_matching_digest (__main__.StoreCases.test_export_related_history_and_malicious_types_with_matching_digest) ... ok\\r\\ntest_global_request_key_conflicts_across_local_and_remote_operations (__main__.StoreCases.test_global_request_key_conflicts_across_local_and_remote_operations) ... ok\\r\\ntest_identity_confirmation_reuse_and_conflict (__main__.StoreCases.test_identity_confirmation_reuse_and_conflict) ... ok\\r\\ntest_import_rejects_save_receipt_digest_even_with_valid_zip_member_digest (__main__.StoreCases.test_import_rejects_save_receipt_digest_even_with_valid_zip_member_digest) ... ok\\r\\ntest_import_rejects_second_original_learning_root_from_another_library (__main__.StoreCases.test_import_rejects_second_original_learning_root_from_another_library) ... ok\\r\\ntest_import_rejects_traversal_symlink_digest_schema_and_conflict_before_writes (__main__.StoreCases.test_import_rejects_traversal_symlink_digest_schema_and_conflict_before_writes) ... ok\\r\\ntest_misplaced_input_library_root_cannot_write_default_or_requested_library (__main__.StoreCases.test_misplaced_input_library_root_cannot_write_default_or_requested_library) ... ok\\r\\ntest_missing_or_changed_mutation_key_fails_closed (__main__.StoreCases.test_missing_or_changed_mutation_key_fails_closed) ... ok\\r\\ntest_no_relabeling_other_respondents_or_synthetic_as_real (__main__.StoreCases.test_no_relabeling_other_respondents_or_synthetic_as_real) ... ok\\r\\ntest_one_json_contract_duplicate_keys_and_unavailable_github (__main__.StoreCases.test_one_json_contract_duplicate_keys_and_unavailable_github) ... ok\\r\\ntest_pending_and_question_limits_do_not_manufacture_completion (__main__.StoreCases.test_pending_and_question_limits_do_not_manufacture_completion) ... ok\\r\\ntest_process_interruption_recovers_same_allocated_ids (__main__.StoreCases.test_process_interruption_recovers_same_allocated_ids) ... ok\\r\\ntest_record_export_includes_flow_dependencies_without_other_scope_records (__main__.StoreCases.test_record_export_includes_flow_dependencies_without_other_scope_records) ... ok\\r\\ntest_recover_regenerates_only_derived_files_and_receipts (__main__.StoreCases.test_recover_regenerates_only_derived_files_and_receipts) ... ok\\r\\ntest_recovery_dry_run_preflights_changed_prepared_targets_without_writing (__main__.StoreCases.test_recovery_dry_run_preflights_changed_prepared_targets_without_writing) ... ok\\r\\ntest_recovery_dry_run_rejects_damaged_prepared_plan_without_writing (__main__.StoreCases.test_recovery_dry_run_rejects_damaged_prepared_plan_without_writing) ... ok\\r\\ntest_recovery_reports_corruption_without_rewriting_original (__main__.StoreCases.test_recovery_reports_corruption_without_rewriting_original) ... ok\\r\\ntest_repeated_question_text_counts_new_ids_but_supported_repeat_reuses_id (__main__.StoreCases.test_repeated_question_text_counts_new_ids_but_supported_repeat_reuses_id) ... ok\\r\\ntest_reusing_learning_event_cannot_create_another_original (__main__.StoreCases.test_reusing_learning_event_cannot_create_another_original) ... ok\\r\\ntest_second_ku_requires_explicit_continue (__main__.StoreCases.test_second_ku_requires_explicit_continue) ... ok\\r\\ntest_selected_record_export_restores_without_leaking_other_record_or_batch_receipt (__main__.StoreCases.test_selected_record_export_restores_without_leaking_other_record_or_batch_receipt) ... ok\\r\\ntest_structural_types_unknown_schema_and_incomplete_baseline_fail (__main__.StoreCases.test_structural_types_unknown_schema_and_incomplete_baseline_fail) ... ok\\r\\ntest_tracked_or_unexpected_manifest_and_relative_paths_are_rejected (__main__.StoreCases.test_tracked_or_unexpected_manifest_and_relative_paths_are_rejected) ... ok\\r\\ntest_unknown_operation_or_envelope_fields_cannot_imply_authorization (__main__.StoreCases.test_unknown_operation_or_envelope_fields_cannot_imply_authorization) ... ok\\r\\ntest_worktree_only_contains_references_and_restores_after_removal (__main__.StoreCases.test_worktree_only_contains_references_and_restores_after_removal) ... ok\\r\\n\\r\\n----------------------------------------------------------------------\\r\\nRan 33 tests in 18.893s\\r\\n\\r\\nOK
+# Subtest: disabled profiling preserves sync and awaited async outcomes without creating output
+ok 167 - disabled profiling preserves sync and awaited async outcomes without creating output
+  ---
+  duration_ms: 135.7139
+  type: 'test'
+  ...
+# Subtest: enabled profiling records successful and exceptional operations without changing output
+ok 168 - enabled profiling records successful and exceptional operations without changing output
+  ---
+  duration_ms: 82.891
+  type: 'test'
+  ...
+# Subtest: separate processes write separate reports in the same profiling directory
+ok 169 - separate processes write separate reports in the same profiling directory
+  ---
+  duration_ms: 87.536
+  type: 'test'
+  ...
+# Subtest: profiling write failure is visible and invalidates the run without replacing operation outcomes
+ok 170 - profiling write failure is visible and invalidates the run without replacing operation outcomes
+  ---
+  duration_ms: 61.5221
+  type: 'test'
+  ...
+# Subtest: a later profile failure removes partial output and preserves the original thrown object
+ok 171 - a later profile failure removes partial output and preserves the original thrown object
+  ---
+  duration_ms: 45.3298
+  type: 'test'
+  ...
+# node:internal/modules/package_json_reader:255
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'pngjs' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\plugin-icons.test.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+#     at packageResolve (node:internal/modules/esm/resolve:767:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.18.0
+# Subtest: tests\\plugin-icons.test.mjs
+not ok 25 - tests\\plugin-icons.test.mjs
+  ---
+  duration_ms: 94.1923
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\plugin-icons.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: release cleanup recovers from a transient canonical-directory lock and preserves the Git failure
+not ok 173 - release cleanup recovers from a transient canonical-directory lock and preserves the Git failure
+  ---
+  duration_ms: 129.1473
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\release-cleanup.test.mjs:12:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    node:internal/modules/package_json_reader:255
+      throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+            ^
+    
+    Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'cross-spawn' imported from C:\Users\Admin\.codex\worktrees\html-alignment-sync\develop\scripts\run-cli.mjs
+        at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+        at packageResolve (node:internal/modules/esm/resolve:767:81)
+        at moduleResolve (node:internal/modules/esm/resolve:853:18)
+        at defaultResolve (node:internal/modules/esm/resolve:983:11)
+        at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+        at #cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+        at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+        at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+        at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+      code: 'ERR_MODULE_NOT_FOUND'
+    }
+    
+    Node.js v22.18.0
+    
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+    packageResolve (node:internal/modules/esm/resolve:767:81)
+    moduleResolve (node:internal/modules/esm/resolve:853:18)
+    defaultResolve (node:internal/modules/esm/resolve:983:11)
+    ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+    #cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+    ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+    ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+    ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+    TestContext.<anonymous> (file:///C:/Users/Admin/.codex/worktrees/html-alignment-sync/develop/tests/release-cleanup.test.mjs:14:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: release cleanup bounds retries and reports a persistent verification-directory lock
+not ok 174 - release cleanup bounds retries and reports a persistent verification-directory lock
+  ---
+  duration_ms: 109.9552
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\release-cleanup.test.mjs:12:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    node:internal/modules/package_json_reader:255
+      throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+            ^
+    
+    Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'cross-spawn' imported from C:\Users\Admin\.codex\worktrees\html-alignment-sync\develop\scripts\run-cli.mjs
+        at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+        at packageResolve (node:internal/modules/esm/resolve:767:81)
+        at moduleResolve (node:internal/modules/esm/resolve:853:18)
+        at defaultResolve (node:internal/modules/esm/resolve:983:11)
+        at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+        at #cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+        at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+        at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+        at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+      code: 'ERR_MODULE_NOT_FOUND'
+    }
+    
+    Node.js v22.18.0
+    
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+    packageResolve (node:internal/modules/esm/resolve:767:81)
+    moduleResolve (node:internal/modules/esm/resolve:853:18)
+    defaultResolve (node:internal/modules/esm/resolve:983:11)
+    ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+    #cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+    ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+    ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+    ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+    TestContext.<anonymous> (file:///C:/Users/Admin/.codex/worktrees/html-alignment-sync/develop/tests/release-cleanup.test.mjs:14:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: release cleanup reports unrelated cleanup errors without retrying
+not ok 175 - release cleanup reports unrelated cleanup errors without retrying
+  ---
+  duration_ms: 112.539
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\release-cleanup.test.mjs:12:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    node:internal/modules/package_json_reader:255
+      throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+            ^
+    
+    Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'cross-spawn' imported from C:\Users\Admin\.codex\worktrees\html-alignment-sync\develop\scripts\run-cli.mjs
+        at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+        at packageResolve (node:internal/modules/esm/resolve:767:81)
+        at moduleResolve (node:internal/modules/esm/resolve:853:18)
+        at defaultResolve (node:internal/modules/esm/resolve:983:11)
+        at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+        at #cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+        at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+        at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+        at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+      code: 'ERR_MODULE_NOT_FOUND'
+    }
+    
+    Node.js v22.18.0
+    
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+    packageResolve (node:internal/modules/esm/resolve:767:81)
+    moduleResolve (node:internal/modules/esm/resolve:853:18)
+    defaultResolve (node:internal/modules/esm/resolve:983:11)
+    ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+    #cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+    ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+    ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+    ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+    TestContext.<anonymous> (file:///C:/Users/Admin/.codex/worktrees/html-alignment-sync/develop/tests/release-cleanup.test.mjs:14:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# node:internal/modules/package_json_reader:255
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\scripts\\validate-portable.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+#     at packageResolve (node:internal/modules/esm/resolve:767:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.18.0
+# Subtest: tests\\release-verify-install.test.mjs
+not ok 27 - tests\\release-verify-install.test.mjs
+  ---
+  duration_ms: 84.7351
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\release-verify-install.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/package_json_reader:255
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\scripts\\validate-portable.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+#     at packageResolve (node:internal/modules/esm/resolve:767:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.18.0
+# Subtest: tests\\repository-fixture.test.mjs
+not ok 28 - tests\\repository-fixture.test.mjs
+  ---
+  duration_ms: 73.8987
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\repository-fixture.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: resolveReleaseState classifies all four shapes
+ok 178 - resolveReleaseState classifies all four shapes
+  ---
+  duration_ms: 1.0081
+  type: 'test'
+  ...
+# Subtest: resolveReleaseState does not pre-judge release-only
+ok 179 - resolveReleaseState does not pre-judge release-only
+  ---
+  duration_ms: 0.2668
+  type: 'test'
+  ...
+# Subtest: resolveReleaseState demands real booleans
+ok 180 - resolveReleaseState demands real booleans
+  ---
+  duration_ms: 0.5295
+  type: 'test'
+  ...
+# Subtest: normalizeNotes folds CRLF and trims the outside only
+ok 181 - normalizeNotes folds CRLF and trims the outside only
+  ---
+  duration_ms: 0.2482
+  type: 'test'
+  ...
+# Subtest: identity returns the canonical triple and phase=initial with no release
+ok 182 - identity returns the canonical triple and phase=initial with no release
+  ---
+  duration_ms: 1.0596
+  type: 'test'
+  ...
+# Subtest: identity reports draft and published phases
+ok 183 - identity reports draft and published phases
+  ---
+  duration_ms: 0.7522
+  type: 'test'
+  ...
+# Subtest: identity rejects a commit that is not on main
+ok 184 - identity rejects a commit that is not on main
+  ---
+  duration_ms: 0.2237
+  type: 'test'
+  ...
+# Subtest: identity rejects a VERSION that disagrees with the release
+ok 185 - identity rejects a VERSION that disagrees with the release
+  ---
+  duration_ms: 0.1566
+  type: 'test'
+  ...
+# Subtest: identity rejects empty release notes
+ok 186 - identity rejects empty release notes
+  ---
+  duration_ms: 0.3657
+  type: 'test'
+  ...
+# Subtest: identity rejects a tag pointing at an older ancestor
+ok 187 - identity rejects a tag pointing at an older ancestor
+  ---
+  duration_ms: 0.529
+  type: 'test'
+  ...
+# Subtest: identity accepts a tag that peels to the canonical commit
+ok 188 - identity accepts a tag that peels to the canonical commit
+  ---
+  duration_ms: 0.2258
+  type: 'test'
+  ...
+# Subtest: identity rejects a release aimed at another commit
+ok 189 - identity rejects a release aimed at another commit
+  ---
+  duration_ms: 0.2328
+  type: 'test'
+  ...
+# Subtest: identity validates its input shape
+ok 190 - identity validates its input shape
+  ---
+  duration_ms: 0.2394
+  type: 'test'
+  ...
+# Subtest: integrity re-derives identity and demands the caller's expectation match
+ok 191 - integrity re-derives identity and demands the caller's expectation match
+  ---
+  duration_ms: 0.318
+  type: 'test'
+  ...
+# Subtest: integrity fails when the canonical commit moved under the run
+ok 192 - integrity fails when the canonical commit moved under the run
+  ---
+  duration_ms: 0.1576
+  type: 'test'
+  ...
+# Subtest: integrity fails when the release notes drift
+ok 193 - integrity fails when the release notes drift
+  ---
+  duration_ms: 0.135
+  type: 'test'
+  ...
+# Subtest: integrity compares notes after normalisation, so CRLF alone is not drift
+ok 194 - integrity compares notes after normalisation, so CRLF alone is not drift
+  ---
+  duration_ms: 0.1677
+  type: 'test'
+  ...
+# Subtest: phase may stay put or advance one step
+ok 195 - phase may stay put or advance one step
+  ---
+  duration_ms: 0.2435
+  type: 'test'
+  ...
+# Subtest: phase must not go backwards
+ok 196 - phase must not go backwards
+  ---
+  duration_ms: 0.1764
+  type: 'test'
+  ...
+# Subtest: phase must not skip initial -> published
+ok 197 - phase must not skip initial -> published
+  ---
+  duration_ms: 0.1376
+  type: 'test'
+  ...
+# Subtest: integrity rejects an unknown priorPhase
+ok 198 - integrity rejects an unknown priorPhase
+  ---
+  duration_ms: 0.1078
+  type: 'test'
+  ...
+# Subtest: none + releaseSha at main's tip creates an empty draft
+ok 199 - none + releaseSha at main's tip creates an empty draft
+  ---
+  duration_ms: 0.0914
+  type: 'test'
+  ...
+# Subtest: none but releaseSha behind main's tip refuses to start
+ok 200 - none but releaseSha behind main's tip refuses to start
+  ---
+  duration_ms: 0.1088
+  type: 'test'
+  ...
+# Subtest: a correct tag-only state recovers by creating the draft
+ok 201 - a correct tag-only state recovers by creating the draft
+  ---
+  duration_ms: 0.1143
+  type: 'test'
+  ...
+# Subtest: an empty canonical draft publishes without attachments
+ok 202 - an empty canonical draft publishes without attachments
+  ---
+  duration_ms: 0.1128
+  type: 'test'
+  ...
+# Subtest: a canonical published Git/tag release is a noop
+ok 203 - a canonical published Git/tag release is a noop
+  ---
+  duration_ms: 0.0944
+  type: 'test'
+  ...
+# Subtest: foreign draft metadata and missing SHA bindings are refused
+ok 204 - foreign draft metadata and missing SHA bindings are refused
+  ---
+  duration_ms: 0.1977
+  type: 'test'
+  ...
+# Subtest: published releases need a canonical tag and exact metadata
+ok 205 - published releases need a canonical tag and exact metadata
+  ---
+  duration_ms: 0.181
+  type: 'test'
+  ...
+# Subtest: existing attachments fail closed and are never repaired
+ok 206 - existing attachments fail closed and are never repaired
+  ---
+  duration_ms: 0.1373
+  type: 'test'
+  ...
+# Subtest: CLI boolean mode prints only the classification
+ok 207 - CLI boolean mode prints only the classification
+  ---
+  duration_ms: 45.5328
+  type: 'test'
+  ...
+# Subtest: CLI identity mode prints one line of JSON
+ok 208 - CLI identity mode prints one line of JSON
+  ---
+  duration_ms: 42.8328
+  type: 'test'
+  ...
+# Subtest: CLI integrity mode prints one line of JSON
+ok 209 - CLI integrity mode prints one line of JSON
+  ---
+  duration_ms: 44.1681
+  type: 'test'
+  ...
+# Subtest: CLI exits 1 for a policy violation and 2 for bad input
+ok 210 - CLI exits 1 for a policy violation and 2 for bad input
+  ---
+  duration_ms: 272.365
+  type: 'test'
+  ...
+# Subtest: CLI refuses more than one mode at once
+ok 211 - CLI refuses more than one mode at once
+  ---
+  duration_ms: 71.9187
+  type: 'test'
+  ...
+# Subtest: CLI writes nothing to stdout when it fails
+ok 212 - CLI writes nothing to stdout when it fails
+  ---
+  duration_ms: 48.3309
+  type: 'test'
+  ...
+# Subtest: CLI exits 2 on malformed JSON
+ok 213 - CLI exits 2 on malformed JSON
+  ---
+  duration_ms: 40.1641
+  type: 'test'
+  ...
+# node:internal/modules/package_json_reader:255
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'cross-spawn' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\scripts\\run-cli.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+#     at packageResolve (node:internal/modules/esm/resolve:767:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.18.0
+# Subtest: tests\\run-cli.test.mjs
+not ok 30 - tests\\run-cli.test.mjs
+  ---
+  duration_ms: 57.7223
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\run-cli.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/package_json_reader:255
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'cross-spawn' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\scripts\\run-cli.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+#     at packageResolve (node:internal/modules/esm/resolve:767:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.18.0
+# Subtest: tests\\run-release.test.mjs
+not ok 31 - tests\\run-release.test.mjs
+  ---
+  duration_ms: 78.6957
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\run-release.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/package_json_reader:255
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\scripts\\validate-portable.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+#     at packageResolve (node:internal/modules/esm/resolve:767:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.18.0
+# Subtest: tests\\smoke-codex-plugin.test.mjs
+not ok 32 - tests\\smoke-codex-plugin.test.mjs
+  ---
+  duration_ms: 76.4027
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\smoke-codex-plugin.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/package_json_reader:255
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\scripts\\validate-portable.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+#     at packageResolve (node:internal/modules/esm/resolve:767:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.18.0
+# Subtest: tests\\smoke-source.test.mjs
+not ok 33 - tests\\smoke-source.test.mjs
+  ---
+  duration_ms: 74.6978
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\smoke-source.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/package_json_reader:255
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\scripts\\validate-portable.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:255:9)
+#     at packageResolve (node:internal/modules/esm/resolve:767:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:783:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:707:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:690:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:307:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:183:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.18.0
+# Subtest: tests\\validate-portable.test.mjs
+not ok 34 - tests\\validate-portable.test.mjs
+  ---
+  duration_ms: 69.9014
+  type: 'test'
+  location: 'C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\tests\\validate-portable.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..218
+# tests 218
+# suites 0
+# pass 192
+# fail 25
+# cancelled 0
+# skipped 1
+# todo 0
+# duration_ms 39389.5927

@@ -1,0 +1,16 @@
+import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';
+const root=path.dirname(new URL(import.meta.url).pathname.replace(/^\/(\w:)/,'$1'));
+const raw=fs.readFileSync(path.join(root,'downloads/job-118435731208.stdout.raw'));
+const all=raw.toString('utf8').split(/\r?\n/),lines=all.map(l=>l.replace(/^\d{4}-\d\d-\d\dT\S+Z /,''));
+const start=lines.findIndex(l=>l.startsWith('not ok 330 ')),end=lines.findIndex((l,i)=>i>start&&l.startsWith('# Subtest:'));
+fs.writeFileSync(path.join(root,'first-failure-excerpt.txt'),all.slice(start-1,end).join('\n')+'\n');
+const diagLine=lines.find(l=>l.includes('Startup stderr diagnostics: {'));
+const diag=JSON.parse(diagLine.slice(diagLine.indexOf('Startup stderr diagnostics: ')+'Startup stderr diagnostics: '.length));
+fs.writeFileSync(path.join(root,'first-failure-startup-diagnostics.json'),JSON.stringify(diag,null,2)+'\n');
+const stderr=Buffer.from(diag.attempts[0].stderr.tail,'utf8');fs.writeFileSync(path.join(root,'first-failure-browser-stderr.recovered.raw'),stderr);
+const h=b=>crypto.createHash('sha256').update(b).digest('hex');
+if(stderr.length!==diag.attempts[0].stderr.bytes||h(stderr)!==diag.attempts[0].stderr.sha256)throw new Error('Recovered embedded stderr differs from captured byte metadata');
+const totals=Object.fromEntries(lines.filter(l=>/^# (tests|suites|pass|fail|cancelled|skipped|todo) \d+$/.test(l)).map(l=>{const [,k,v]=l.match(/^# (\S+) (\d+)$/);return[k,Number(v)]}));
+const gitLogs=lines.map((text,i)=>({line:i+1,text})).filter(l=>/git log -1 --format=%H|318db5a5660920f4fcd95f0f96c352d012514815|ac34c52c0eab22368e5e2737ee59241f5aad2912/.test(l.text));
+const finding={head:'318db5a5660920f4fcd95f0f96c352d012514815',runId:39363755336,jobId:118435731208,jobName:'Baseline compat (ubuntu-latest)',failedStep:'Unit and real Python execution tests',stepNumber:7,raw:{path:'downloads/job-118435731208.stdout.raw',bytes:raw.length,sha256:h(raw)},failedCase:{number:330,name:'actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping',location:'tests/html-site-checks.test.mjs:316:1',assertion:'tests/html-site-checks.test.mjs:329:10',actualCheckerExit:2,expectedCheckerExit:0,checkerStatus:'NOT_RUN',viewports:[],reason:"browser did not provide a readable local DevTools endpoint; browser-profile/DevToolsActivePort absent",browserProcessExit:-9,ownedSessionCleanup:'PASS; two consecutive empty Linux /proc session scans',temporaryCleanup:'PASS; one attempt'},startupDiagnostics:{...diag,recoveredRaw:'first-failure-browser-stderr.recovered.raw',recoveredRawBytes:stderr.length,recoveredRawSha256:h(stderr),recoveryMatchesFullCapturedStderr:true},totals,checkoutLines:gitLogs,causality:'Actual missing DevTools endpoint within existing startup deadline. Five DBus Unknown address type stderr lines are observed; no causal attribution is established. Root cause UNKNOWN. This failure remains despite any other same-source PASS.',subsequentSteps:'validate, baseline-tools and smoke skipped in this job',remoteMutations:[]};
+fs.writeFileSync(path.join(root,'first-failure.json'),JSON.stringify(finding,null,2)+'\n');console.log(JSON.stringify({totals,stderrBytes:stderr.length,stderrSha256:h(stderr),checkoutLines:gitLogs},null,2));

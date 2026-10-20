@@ -1,0 +1,16 @@
+import fs from "node:fs";
+import path from "node:path";
+import {fileURLToPath} from "node:url";
+const root=path.dirname(fileURLToPath(import.meta.url));
+const origin="C:/Users/Admin/AppData/Local/Temp/html-learning-274-deferrals-installation-r1/method.mjs";
+let text=fs.readFileSync(origin,"utf8");
+const replace=(from,to)=>{if(!text.includes(from))throw Error("Method adaptation marker missing");text=text.replace(from,to);};
+replace('const before={capturedAt:', 'const originalPlan=path.join(primary,"HTML-Learning-Artifact-Plugin-Implementation-Plan.md");\nconst originalIdentity=()=>{const bytes=fs.readFileSync(originalPlan);return{path:originalPlan,bytes:bytes.length,sha256:sha(bytes)};};\nconst before={ownerOriginal:originalIdentity(),capturedAt:');
+replace('if(before.hostHEAD!=="908d29537a19ceca166e8f3c7cddef4d419781a4"||before.hostBranch!=="codex/html-learning-deferral-fixes")throw Error("Unexpected candidate base");','if(before.hostHEAD!=="a4892f51f4163fb5bd4457d99229eaf1a4683e8f"||before.hostBranch!==""||before.hostStatus!=="")throw Error("Unexpected actual merge/detached/clean source");\nif(fs.readFileSync(path.join(repository,"VERSION"),"utf8").trim()!=="8.3.3"||JSON.parse(fs.readFileSync(path.join(repository,"plugins/html-guide-kit/plugin.json"),"utf8")).version!=="0.1.38")throw Error("Unexpected actual versions");');
+replace('const after={capturedAt:','const after={ownerOriginal:originalIdentity(),capturedAt:');
+replace('&&before.worktrees===after.worktrees;', '&&before.worktrees===after.worktrees&&JSON.stringify(packageBefore)===JSON.stringify(packageAfter)&&JSON.stringify(before.ownerOriginal)===JSON.stringify(after.ownerOriginal)&&after.hostStatus==="";');
+replace('branch:before.hostBranch,candidatePluginVersion:', 'branch:before.hostBranch,detached:before.hostBranch==="",identity:"Fresh actual PR283 merge; independent of395 candidate and prior908 working-tree run",candidatePluginVersion:');
+replace('fullWorktreesUnchanged:before.worktrees===after.worktrees,', 'fullWorktreesUnchanged:before.worktrees===after.worktrees,allPluginFilesBeforeAfterUnchanged:JSON.stringify(packageBefore)===JSON.stringify(packageAfter),ownerOriginalUnchanged:JSON.stringify(before.ownerOriginal)===JSON.stringify(after.ownerOriginal),');
+replace('"Repository documentation/evidence updates by root may occur; runtime/harness source stability is separately checked"','"Actual source remains fixed throughout run; complete plugin inventories, harness, host/detached/worktrees and originalOwner plan identities are compared"');
+fs.writeFileSync(path.join(root,"method.mjs"),text,{flag:"wx"});
+console.log("Prepared unmodified runSmoke driver for fixed actuala489/detached clean source; original mature method preserved.");

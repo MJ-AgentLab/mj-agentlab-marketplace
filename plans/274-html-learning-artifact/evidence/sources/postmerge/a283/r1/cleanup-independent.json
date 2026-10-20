@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-20T03:29:17.6732037Z",
+  "reviewer": "independent cleanup scope reviewer",
+  "head": "318db5a5660920f4fcd95f0f96c352d012514815",
+  "scope": "Read-only source audit; no repository or remote mutations; no CI polling or test execution",
+  "sources": [
+    {
+      "name": "workflow-ci",
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-release833-ci-terminal\\downloads\\workflow-ci.stdout.raw",
+      "bytes": 36673,
+      "sha256": "dae3e8707bd5e27dc998fea4bb20337e7d69065c894c5fa163f0a0064af445d1",
+      "fetchedCommand": "gh",
+      "fetchedArgs": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/contents/.github/workflows/ci.yml?ref=318db5a5660920f4fcd95f0f96c352d012514815",
+        "--header",
+        "Accept: application/vnd.github.raw+json"
+      ],
+      "transportCode": 0
+    },
+    {
+      "name": "package",
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-release833-ci-terminal\\downloads\\package.stdout.raw",
+      "bytes": 854,
+      "sha256": "01d1c88166123ca18af935295e5e0dae6d132574d165f8d4cce814bc4d03f290",
+      "fetchedCommand": "gh",
+      "fetchedArgs": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/contents/package.json?ref=318db5a5660920f4fcd95f0f96c352d012514815",
+        "--header",
+        "Accept: application/vnd.github.raw+json"
+      ],
+      "transportCode": 0
+    },
+    {
+      "name": "smoke-source",
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-release833-ci-terminal\\downloads\\smoke-source.stdout.raw",
+      "bytes": 28318,
+      "sha256": "d0a8953f9a414c9bf1856447f9ecd02368da1acb7c4a12ba57de928c280f43cb",
+      "fetchedCommand": "gh",
+      "fetchedArgs": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/contents/scripts/smoke-codex-plugin.mjs?ref=318db5a5660920f4fcd95f0f96c352d012514815",
+        "--header",
+        "Accept: application/vnd.github.raw+json"
+      ],
+      "transportCode": 0
+    },
+    {
+      "name": "smoke-source-helper",
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-release833-ci-terminal\\downloads\\smoke-source-helper.stdout.raw",
+      "bytes": 9991,
+      "sha256": "e45e5634ad603b031ff97346715d050ce0f47a99e1980f4919ae3d0e9eef228a",
+      "fetchedCommand": "gh",
+      "fetchedArgs": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/contents/scripts/smoke-source.mjs?ref=318db5a5660920f4fcd95f0f96c352d012514815",
+        "--header",
+        "Accept: application/vnd.github.raw+json"
+      ],
+      "transportCode": 0
+    },
+    {
+      "name": "perf-metrics",
+      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-release833-ci-terminal\\downloads\\perf-metrics.stdout.raw",
+      "bytes": 1900,
+      "sha256": "46a8c222ac0534e0471a394e37dccd01f195b89f3550a46e4c63fec7b939ad1a",
+      "fetchedCommand": "gh",
+      "fetchedArgs": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/contents/scripts/perf-metrics.mjs?ref=318db5a5660920f4fcd95f0f96c352d012514815",
+        "--header",
+        "Accept: application/vnd.github.raw+json"
+      ],
+      "transportCode": 0
+    }
+  ],
+  "defaultInvocation": {
+    "workflow": "workflow-ci.stdout.raw:424: npm run smoke:codex",
+    "package": "package.stdout.raw:10: node scripts/smoke-codex-plugin.mjs",
+    "keepRoot": "smoke-source.stdout.raw:332 and 368-371: false by default; true only with explicit --keep-root",
+    "observed": "No --keep-root in workflow invocation or npm script"
+  },
+  "sourceCleanup": {
+    "scenarioCount": 13,
+    "context": "smoke-source.stdout.raw:16-23 defines 13 scenarios; 188-194 creates one mkdtemp root per scenario and records it before child-directory creation",
+    "scenarioSuccess": "smoke-source.stdout.raw:341-348: after scenario ok and source-integrity assertion, cleanupIsolatedRoot(context.root) runs when !keepRoot",
+    "scenarioDelete": "smoke-source.stdout.raw:180-185: realpath containment in OS temp, then fs.rmSync(root,{recursive:true,force:true}) through measureSync",
+    "template": "smoke-source-helper.stdout.raw:127-136 creates one marketplace-smoke-source-* parent with template child and attempts removal if preparation fails",
+    "templateDelete": "smoke-source-helper.stdout.raw:111-116: ordinary directory, canonical temp containment, non-empty relative path and prefix guard, then fs.rmSync(root,{recursive:true,force:true}) through measureSync",
+    "normalFinalization": "smoke-source.stdout.raw:350-365 always attempts removeSmokeSource after scenario loop/catch, before successful return; template removed even for successful --keep-root",
+    "exceptionHandling": "smoke-source.stdout.raw:351-364: save failure, collect template cleanup errors, retry each still-existing recorded scenario root if primary failure or template cleanup error; throw primary or AggregateError instead of successful result",
+    "preparationException": "smoke-source-helper.stdout.raw:135-137: attempt template removal then rethrow original, AggregateError if removal also fails",
+    "conditional": "Resolved by perf-metrics.stdout.raw:30-42: when MJ_PERF_DIR is unset return operation(); when set catch rethrows operation error; finally records timing without replacing original operation outcome. Deletion exceptions propagate."
+  },
+  "explicitPhysicalAbsenceAssertions": {
+    "source": false,
+    "reason": "No post-rmSync existsSync/lstat/readdir assertion for either scenario root or template parent. existsSync at smoke-source.stdout.raw:357 is an exception-path pre-delete filter, not a post-delete assertion."
+  },
+  "runtime": {
+    "status": "FINAL_TERMINAL_MATRIX_RAW_REVIEWED",
+    "reviewedMatrixLogs": [
+      {
+        "jobId": "118435731208",
+        "event": "push (as assigned by main reviewer; raw job identity independently inspected)",
+        "platform": "ubuntu-latest",
+        "bytes": 291976,
+        "sha256": "24e34f0ac6e06ba6638d1221e0e16094eb1618d9b64e720e2e7a8461adc5bb4c",
+        "rawPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-release833-ci-terminal\\downloads\\job-118435731208.stdout.raw",
+        "npmTest": {
+          "total": 647,
+          "pass": 645,
+          "fail": 1,
+          "skip": 1,
+          "lines": "4256-4265"
+        },
+        "smoke": "NOT_RUN after npm test exit 1",
+        "explicitSmokeStepLineCount": 0,
+        "smokeRootCleanup": "NOT_ESTABLISHED by this job",
+        "separateBrowserFailureCleanup": {
+          "scope": "artifact-browser-layout failure test, not smoke roots",
+          "lines": "2299-2314",
+          "browserProcessExit": "PASS returnCode -9",
+          "ownedBrowserSessionExit": "PASS complete Linux /proc session scan, all owned groups, two consecutive empty scans",
+          "temporaryCleanup": "PASS attempts 1",
+          "acceptanceStatus": "NOT_RUN"
+        }
+      },
+      {
+        "jobId": "118435731121",
+        "event": "push (event assignment from main reviewer)",
+        "platform": "windows-latest",
+        "rawPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-release833-ci-terminal\\downloads\\job-118435731121.stdout.raw",
+        "bytes": 289440,
+        "sha256": "72235e60a5172e092283d95e5a3917686c8e0a4877a2809f7aac6d5f70e7154f",
+        "npmTest": {
+          "total": 647,
+          "pass": 645,
+          "fail": 1,
+          "skip": 1,
+          "lines": "4194-4202",
+          "failure": "621 AGENTS.md instruction budget"
+        },
+        "explicitSmokeStepLineCount": 0,
+        "smoke": "NOT_RUN after npm test exit 1",
+        "smokeRootCleanup": "NOT_ESTABLISHED by this job"
+      },
+      {
+        "jobId": "118435749210",
+        "event": "pull_request (event assignment from main reviewer)",
+        "platform": "windows-latest",
+        "rawPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-release833-ci-terminal\\downloads\\job-118435749210.stdout.raw",
+        "bytes": 292651,
+        "sha256": "563e71fe4dccd1d8cf63a42b2b73de79624489d94b031cc7d36ad0ea8967a8c4",
+        "npmTest": {
+          "total": 647,
+          "pass": 645,
+          "fail": 1,
+          "skip": 1,
+          "lines": "4229-4237",
+          "failure": "621 AGENTS.md instruction budget"
+        },
+        "explicitSmokeStepLineCount": 0,
+        "smoke": "NOT_RUN after npm test exit 1",
+        "smokeRootCleanup": "NOT_ESTABLISHED by this job"
+      },
+      {
+        "jobId": "118435749154",
+        "event": "pull_request (event assignment from main reviewer)",
+        "platform": "ubuntu-latest",
+        "rawPath": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-release833-ci-terminal\\downloads\\job-118435749154.stdout.raw",
+        "bytes": 983107,
+        "sha256": "f53839a9f049f62c095c04827326f28070615d79055e6ab2d1dc2f39d564b564",
+        "npmTest": {
+          "total": 647,
+          "pass": 646,
+          "fail": 0,
+          "skip": 1,
+          "lines": "4199-4206",
+          "failure": ""
+        },
+        "explicitSmokeStepLineCount": 1,
+        "smoke": "PASS: raw lines 4255-4268 default invocation and 4270-13506 success result",
+        "smokeRootCleanup": "Bounded default cleanup completed without reported error, inferred from fixed-head synchronous cleanup control flow before successful result; no explicit post-delete absence assertions"
+      }
+    ],
+    "explicitPhysicalAbsenceAssertion": "NOT_ESTABLISHED",
+    "warnings": "Only pull_request Ubuntu ran smoke. Push Ubuntu and both Windows jobs failed npm test and never entered smoke. Browser failure lifecycle cleanup remains separately scoped.",
+    "successfulSmoke": {
+      "jobId": "118435749154",
+      "version": "codex-cli 0.147.0",
+      "allScenariosOk": true,
+      "scenarioCount": 13,
+      "commands": 178,
+      "nonzeroCommandCount": 0,
+      "diagramExecutions": 6,
+      "learningEvidenceScenarios": 6,
+      "learningEvidenceEntryMatchedCommands": 18,
+      "siteGenerations": 4,
+      "siteStaticChecks": [
+        {
+          "checks": 95,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        },
+        {
+          "checks": 95,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        },
+        {
+          "checks": 95,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        },
+        {
+          "checks": 95,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        }
+      ],
+      "derivedDistinctScenarioRoots": 13,
+      "explicitRootFields": 0,
+      "preparedSourceParentPathLogged": false,
+      "postDeleteRootAbsenceAssertions": false,
+      "extraction": {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-release833-ci-terminal\\job-118435749154.smoke.json",
+        "bytes": 424056,
+        "sha256": "46d9386ec690733ebe0cfcec84cc3f4bad121f6c559b94366550269a16af5b8f",
+        "independentlyParsedRawLines": "4270-13506",
+        "semanticEqualityToRaw": true
+      }
+    }
+  },
+  "permittedClaim": "Only the pull_request Ubuntu smoke completed all 13 scenarios with 178 zero-status commands. Fixed-head default control flow and successful return support completion of the 13 scenario-root and one prepared-source-parent cleanup operations without reported deletion errors. Neither the code nor raw smoke result includes a post-delete physical-absence assertion or an all-OS cleanup inventory.",
+  "prohibitedClaims": [
+    "Explicit post-delete physical absence assertions passed",
+    "All OS temporary directories, runner artifacts, global caches or unrelated workspaces were cleared",
+    "Abnormal process termination, forced cancellation or runner shutdown executed JavaScript cleanup",
+    "Successful run exercised all exception cleanup branches"
+  ],
+  "limitations": [
+    "Source evidence is fixed to this head only",
+    "No broad tests, remote mutation or CI polling performed",
+    "No all-OS inventory or post-delete absence evidence present in inspected sources"
+  ]
+}

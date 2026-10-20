@@ -1,0 +1,380 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-20T02:55:37.647Z",
+  "reviewer": "/root/deferral_code_review",
+  "status": "MERGED_SAME_TESTED_TREE_WITH_APPROVAL_NOT_MET",
+  "pullRequest": 283,
+  "actual": {
+    "merge": "a4892f51f4163fb5bd4457d99229eaf1a4683e8f",
+    "tree": "196daab879d38b649333a01c4c0d0194c7b107c7",
+    "mergedAt": "2026-10-20T02:51:03Z",
+    "commitTime": "2026-10-20T02:51:02Z",
+    "base": "908d29537a19ceca166e8f3c7cddef4d419781a4",
+    "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+    "parents": [
+      "908d29537a19ceca166e8f3c7cddef4d419781a4",
+      "395bafe51d79374f6ef57fdfd772a6d1121f7ef0"
+    ],
+    "mergedBy": "ranzuozhou",
+    "prState": "closed",
+    "draft": false,
+    "sameTested395Tree": true
+  },
+  "branches": {
+    "develop": "a4892f51f4163fb5bd4457d99229eaf1a4683e8f",
+    "main": "e3dc40f734fc972e05956da3e908091e09963675",
+    "versions": {
+      "develop": {
+        "marketplace": "8.3.3",
+        "html": "0.1.38"
+      },
+      "main": {
+        "marketplace": "8.3.2",
+        "html": "0.1.37"
+      }
+    }
+  },
+  "publication": {
+    "tag": "v8.3.2",
+    "tagSha": "f906b1001a86d7b5415451bd973bea26e6cc3a1d",
+    "latestReleaseId": 417390526,
+    "latestTag": "v8.3.2",
+    "releaseTarget": "f906b1001a86d7b5415451bd973bea26e6cc3a1d",
+    "publishedAt": "2026-10-19T14:30:16Z",
+    "draft": false,
+    "prerelease": false,
+    "immutable": false,
+    "v833TagHttpStatus": "404",
+    "v833ReleaseHttpStatus": "404"
+  },
+  "protection": {
+    "suite": 4612130198,
+    "before": "908d29537a19ceca166e8f3c7cddef4d419781a4",
+    "after": "a4892f51f4163fb5bd4457d99229eaf1a4683e8f",
+    "ref": "refs/heads/develop",
+    "actor": "ranzuozhou",
+    "result": "bypass",
+    "evaluations": [
+      {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008221,
+          "name": "protect-develop"
+        },
+        "enforcement": "active",
+        "result": "fail",
+        "rule_type": "pull_request",
+        "details": "New changes require approval from someone other than the last pusher."
+      },
+      {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008221,
+          "name": "protect-develop"
+        },
+        "enforcement": "active",
+        "result": "pass",
+        "rule_type": "non_fast_forward"
+      },
+      {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008221,
+          "name": "protect-develop"
+        },
+        "enforcement": "active",
+        "result": "pass",
+        "rule_type": "required_status_checks"
+      },
+      {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008221,
+          "name": "protect-develop"
+        },
+        "enforcement": "active",
+        "result": "pass",
+        "rule_type": "deletion"
+      }
+    ],
+    "reviewCount": 0,
+    "reviewDecision": "REVIEW_REQUIRED",
+    "threads": 0,
+    "threadsHasNextPage": false,
+    "approval": "NOT_MET: empty actual reviews plus pull_request evaluation FAIL; merge notification/mergedBy does not substitute approval.",
+    "futureBypassException": false
+  },
+  "actions": {
+    "actualMergeRuns": 0,
+    "actualMergeChecks": 0,
+    "reason": "Decoded actual CI workflow only enables push on codex/**, feature/*, bugfix/*, documentation/*, maintain/*, hotfix/*; develop push is not a trigger. Empty actual-merge Actions/checks are retained, not called a new CI PASS.",
+    "candidateHead": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+    "currentCandidateChecks": [
+      {
+        "id": 118426531686,
+        "name": "A6 / Check",
+        "status": "completed",
+        "conclusion": "success",
+        "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39360881759/job/118426531686"
+      },
+      {
+        "id": 118421659821,
+        "name": "A6 / Check",
+        "status": "completed",
+        "conclusion": "success",
+        "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39359377512/job/118421659821"
+      },
+      {
+        "id": 118421369268,
+        "name": "Baseline compat (${{ matrix.os }})",
+        "status": "completed",
+        "conclusion": "skipped",
+        "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39359256807/job/118421369268"
+      },
+      {
+        "id": 118421304564,
+        "name": "Prove equivalent PR matrix for this push (read only)",
+        "status": "completed",
+        "conclusion": "skipped",
+        "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39359262844/job/118421304564"
+      },
+      {
+        "id": 118421303879,
+        "name": "Baseline compat (windows-latest)",
+        "status": "completed",
+        "conclusion": "success",
+        "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39359262844/job/118421303879"
+      },
+      {
+        "id": 118421303787,
+        "name": "Baseline compat (ubuntu-latest)",
+        "status": "completed",
+        "conclusion": "success",
+        "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39359262844/job/118421303787"
+      },
+      {
+        "id": 118421303721,
+        "name": "Validate Structure",
+        "status": "completed",
+        "conclusion": "success",
+        "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39359262844/job/118421303721"
+      },
+      {
+        "id": 118421303413,
+        "name": "Cancel proved superseded PR runs (best effort)",
+        "status": "completed",
+        "conclusion": "success",
+        "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39359262844/job/118421303413"
+      },
+      {
+        "id": 118421303335,
+        "name": "Prove equivalent PR matrix for this push (read only)",
+        "status": "completed",
+        "conclusion": "success",
+        "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39359256807/job/118421303335"
+      },
+      {
+        "id": 118421303229,
+        "name": "A6 / Check",
+        "status": "completed",
+        "conclusion": "success",
+        "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39359262920/job/118421303229"
+      },
+      {
+        "id": 118421284727,
+        "name": "Cancel proved superseded PR runs (best effort)",
+        "status": "completed",
+        "conclusion": "skipped",
+        "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39359256807/job/118421284727"
+      },
+      {
+        "id": 118421282894,
+        "name": "Validate Structure",
+        "status": "completed",
+        "conclusion": "success",
+        "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39359256807/job/118421282894"
+      }
+    ],
+    "latestA6": {
+      "job": 118426531686,
+      "run": 39360881759,
+      "status": "completed",
+      "conclusion": "success",
+      "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0"
+    },
+    "priorCandidateMatrix": [
+      {
+        "name": "Baseline compat (ubuntu-latest)",
+        "job": "118421303787",
+        "tests": 647,
+        "pass": 646,
+        "fail": 0,
+        "skipped": 1,
+        "scenarios": 13,
+        "commands": 178,
+        "diagram": 6,
+        "learningEvidence": 18,
+        "generation": 4,
+        "static": 4,
+        "staticResults": [
+          {
+            "installed": [
+              "html-guide-kit"
+            ],
+            "status": "PASS",
+            "checks": 95,
+            "failed": 0
+          },
+          {
+            "installed": [
+              "html-guide-kit",
+              "explain-kit"
+            ],
+            "status": "PASS",
+            "checks": 95,
+            "failed": 0
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "html-guide-kit"
+            ],
+            "status": "PASS",
+            "checks": 95,
+            "failed": 0
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "communication-kit",
+              "html-guide-kit"
+            ],
+            "status": "PASS",
+            "checks": 95,
+            "failed": 0
+          }
+        ]
+      },
+      {
+        "name": "Baseline compat (windows-latest)",
+        "job": "118421303879",
+        "tests": 647,
+        "pass": 646,
+        "fail": 0,
+        "skipped": 1,
+        "scenarios": 13,
+        "commands": 178,
+        "diagram": 6,
+        "learningEvidence": 18,
+        "generation": 4,
+        "static": 4,
+        "staticResults": [
+          {
+            "installed": [
+              "html-guide-kit"
+            ],
+            "status": "PASS",
+            "checks": 95,
+            "failed": 0
+          },
+          {
+            "installed": [
+              "html-guide-kit",
+              "explain-kit"
+            ],
+            "status": "PASS",
+            "checks": 95,
+            "failed": 0
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "html-guide-kit"
+            ],
+            "status": "PASS",
+            "checks": 95,
+            "failed": 0
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "communication-kit",
+              "html-guide-kit"
+            ],
+            "status": "PASS",
+            "checks": 95,
+            "failed": 0
+          }
+        ]
+      }
+    ],
+    "candidateEvidenceMeaning": "Prior complete raw logs copied unchanged and labeled prior395 candidate tests; same source tree does not relabel them as newly executed actual-merge tests."
+  },
+  "transport": {
+    "initialOwnGets": [
+      {
+        "name": "pr283",
+        "exitCode": 0,
+        "stderrBytes": 0
+      },
+      {
+        "name": "develop",
+        "exitCode": 0,
+        "stderrBytes": 0
+      },
+      {
+        "name": "main",
+        "exitCode": 0,
+        "stderrBytes": 0
+      },
+      {
+        "name": "tag-8-3-2",
+        "exitCode": 0,
+        "stderrBytes": 0
+      },
+      {
+        "name": "release-latest",
+        "exitCode": 0,
+        "stderrBytes": 0
+      }
+    ],
+    "ownTransportFailureObserved": false,
+    "negativeLookups": "v8.3.3 tag and release return actual HTTP404 and are retained as absence evidence, not transport failure.",
+    "otherAgentFailure": "Root reported a separately observed closed-connection gh pr view failure; it is not reproduced or claimed as this auditor transport evidence."
+  },
+  "remainingGates": [
+    "Historical PR283 approval NOT_MET and actual bypass remain; no retroactive approval is supplied by this audit.",
+    "Actual-merge fresh installation/Python/local verification is performed by separate follow-up roles and is not certified by this GitHub-state audit.",
+    "HTML0.1.38/Marketplace8.3.3 are develop/unreleased; any release preparation and protected-main PR must independently satisfy current applicable CI/real non-author approval/threads/publish authorization.",
+    "Tag/Release binding and real-tag fresh checks must follow any actual new publication; current v8.3.2 is unchanged.",
+    "Native window/second client/learning-effect/whole-plan acceptance limitations are not closed by the merge or these Actions."
+  ],
+  "evidence": {
+    "raw": "*.stdout.raw / *.stderr.raw",
+    "suite": "rule-suite-4612130198.stdout.raw",
+    "gate": "review-gate-graphql.stdout.raw",
+    "versions": "*-VERSION.decoded and *-html-manifest.decoded",
+    "priorCandidate": "prior-candidate-ci-copy-map.json",
+    "freshA6": "latest-A6-logs.stdout.raw"
+  }
+}

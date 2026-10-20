@@ -1,0 +1,975 @@
+{
+  "phase": "initial",
+  "completedAt": "2026-10-20T03:21:34.193Z",
+  "results": [
+    {
+      "name": "pr284",
+      "command": "gh",
+      "args": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/pulls/284"
+      ],
+      "startedAt": "2026-10-20T03:21:31.578Z",
+      "endedAt": "2026-10-20T03:21:34.193Z",
+      "code": 0,
+      "signal": null,
+      "timedOut": false,
+      "stdout": {
+        "bytes": 22959,
+        "sha256": "43b344e0c0ab29bfad6cec5c32e7d8a25ddeb51282931dd23111461f46f80cc2"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "snapshot": {
+        "draft": true,
+        "state": "open",
+        "mergeable": true,
+        "mergeable_state": "blocked",
+        "head": "318db5a5660920f4fcd95f0f96c352d012514815",
+        "base": "e3dc40f734fc972e05956da3e908091e09963675",
+        "merge_commit_sha": "ac34c52c0eab22368e5e2737ee59241f5aad2912"
+      }
+    },
+    {
+      "name": "run-39363773472",
+      "command": "gh",
+      "args": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39363773472"
+      ],
+      "startedAt": "2026-10-20T03:21:31.584Z",
+      "endedAt": "2026-10-20T03:21:32.411Z",
+      "code": 0,
+      "signal": null,
+      "timedOut": false,
+      "stdout": {
+        "bytes": 14811,
+        "sha256": "42cdd9179f9c666ccaa0e1938f36fb5e3e8ecb6b78da091d44320c80271ba47e"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "snapshot": {
+        "id": 39363773472,
+        "name": "ci-v1|event=pull_request|pr=284|repo=1183002256|headrepo=1183002256|head=318db5a5660920f4fcd95f0f96c352d012514815|baserepo=1183002256|base=e3dc40f734fc972e05956da3e908091e09963675|target=main",
+        "path": ".github/workflows/ci.yml",
+        "event": "pull_request",
+        "status": "in_progress",
+        "conclusion": null,
+        "head_sha": "318db5a5660920f4fcd95f0f96c352d012514815",
+        "created_at": "2026-10-20T03:20:29Z",
+        "updated_at": "2026-10-20T03:20:35Z",
+        "run_attempt": 1
+      }
+    },
+    {
+      "name": "jobs-39363773472",
+      "command": "gh",
+      "args": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39363773472/jobs?per_page=100"
+      ],
+      "startedAt": "2026-10-20T03:21:31.588Z",
+      "endedAt": "2026-10-20T03:21:32.683Z",
+      "code": 0,
+      "signal": null,
+      "timedOut": false,
+      "stdout": {
+        "bytes": 11833,
+        "sha256": "e7050b57862375ef0a4ff7513d4f24961e707e59af75dc6a6fe27323708984ff"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "snapshot": [
+        {
+          "id": 118435748609,
+          "name": "Validate Structure",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-20T03:20:32Z",
+          "completed_at": "2026-10-20T03:20:51Z",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Validate commit message format",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Upload commit validation output (for PR comment bot)",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run npm ci",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Portable marketplace, manifests, skills and document contracts",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15
+            }
+          ]
+        },
+        {
+          "id": 118435748899,
+          "name": "Cancel proved superseded PR runs (best effort)",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-20T03:20:34Z",
+          "completed_at": "2026-10-20T03:20:44Z",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/github-script@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            }
+          ]
+        },
+        {
+          "id": 118435749154,
+          "name": "Baseline compat (ubuntu-latest)",
+          "status": "in_progress",
+          "conclusion": null,
+          "started_at": "2026-10-20T03:20:32Z",
+          "completed_at": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Run npm ci",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run npm install -g @openai/codex@0.147.0",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Unit and real Python execution tests",
+              "status": "in_progress",
+              "conclusion": null,
+              "number": 7
+            },
+            {
+              "name": "Run npm run validate",
+              "status": "pending",
+              "conclusion": null,
+              "number": 8
+            },
+            {
+              "name": "Run npm run check:baseline-tools",
+              "status": "pending",
+              "conclusion": null,
+              "number": 9
+            },
+            {
+              "name": "Run npm run smoke:codex",
+              "status": "pending",
+              "conclusion": null,
+              "number": 10
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "status": "pending",
+              "conclusion": null,
+              "number": 18
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "status": "pending",
+              "conclusion": null,
+              "number": 19
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "pending",
+              "conclusion": null,
+              "number": 20
+            }
+          ]
+        },
+        {
+          "id": 118435749210,
+          "name": "Baseline compat (windows-latest)",
+          "status": "in_progress",
+          "conclusion": null,
+          "started_at": "2026-10-20T03:20:33Z",
+          "completed_at": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Run npm ci",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run npm install -g @openai/codex@0.147.0",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Unit and real Python execution tests",
+              "status": "in_progress",
+              "conclusion": null,
+              "number": 7
+            },
+            {
+              "name": "Run npm run validate",
+              "status": "pending",
+              "conclusion": null,
+              "number": 8
+            },
+            {
+              "name": "Run npm run check:baseline-tools",
+              "status": "pending",
+              "conclusion": null,
+              "number": 9
+            },
+            {
+              "name": "Run npm run smoke:codex",
+              "status": "pending",
+              "conclusion": null,
+              "number": 10
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "status": "pending",
+              "conclusion": null,
+              "number": 18
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "status": "pending",
+              "conclusion": null,
+              "number": 19
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "pending",
+              "conclusion": null,
+              "number": 20
+            }
+          ]
+        },
+        {
+          "id": 118435749891,
+          "name": "Prove equivalent PR matrix for this push (read only)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "started_at": "2026-10-20T03:20:30Z",
+          "completed_at": "2026-10-20T03:20:29Z",
+          "steps": []
+        }
+      ]
+    },
+    {
+      "name": "run-39363773424",
+      "command": "gh",
+      "args": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39363773424"
+      ],
+      "startedAt": "2026-10-20T03:21:31.593Z",
+      "endedAt": "2026-10-20T03:21:32.763Z",
+      "code": 0,
+      "signal": null,
+      "timedOut": false,
+      "stdout": {
+        "bytes": 14515,
+        "sha256": "3209612e16c6940d77f0239ca52125e9751e7c6dbffb751d41b8bffe32a08679"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "snapshot": {
+        "id": 39363773424,
+        "name": "A6 — AGENTS.md Sync Allowlist",
+        "path": ".github/workflows/a6.yml",
+        "event": "pull_request",
+        "status": "completed",
+        "conclusion": "success",
+        "head_sha": "318db5a5660920f4fcd95f0f96c352d012514815",
+        "created_at": "2026-10-20T03:20:29Z",
+        "updated_at": "2026-10-20T03:20:45Z",
+        "run_attempt": 1
+      }
+    },
+    {
+      "name": "jobs-39363773424",
+      "command": "gh",
+      "args": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39363773424/jobs?per_page=100"
+      ],
+      "startedAt": "2026-10-20T03:21:31.597Z",
+      "endedAt": "2026-10-20T03:21:32.455Z",
+      "code": 0,
+      "signal": null,
+      "timedOut": false,
+      "stdout": {
+        "bytes": 2813,
+        "sha256": "cb3febb8b3a75dc51a95634c84063a216593c68134e8f67f2a5339bfbfdb44e6"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "snapshot": [
+        {
+          "id": 118435748208,
+          "name": "A6 / Check",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-20T03:20:32Z",
+          "completed_at": "2026-10-20T03:20:45Z",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Fetch the PR head object (read-only)",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Resolve the checker",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Fetch PR reviews",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Evaluate A6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Evaluate A6 (bootstrap)",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 8
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 16
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "run-39363755336",
+      "command": "gh",
+      "args": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39363755336"
+      ],
+      "startedAt": "2026-10-20T03:21:31.602Z",
+      "endedAt": "2026-10-20T03:21:32.515Z",
+      "code": 0,
+      "signal": null,
+      "timedOut": false,
+      "stdout": {
+        "bytes": 14777,
+        "sha256": "8405eaae6e94de6db4a487eb8a194b294f2611445160c9e8765538891a21b828"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "snapshot": {
+        "id": 39363755336,
+        "name": "ci-v1|event=push|pr=0|repo=1183002256|headrepo=1183002256|head=318db5a5660920f4fcd95f0f96c352d012514815|baserepo=1183002256|base=318db5a5660920f4fcd95f0f96c352d012514815|target=-",
+        "path": ".github/workflows/ci.yml",
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "head_sha": "318db5a5660920f4fcd95f0f96c352d012514815",
+        "created_at": "2026-10-20T03:20:18Z",
+        "updated_at": "2026-10-20T03:20:29Z",
+        "run_attempt": 1
+      }
+    },
+    {
+      "name": "jobs-39363755336",
+      "command": "gh",
+      "args": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39363755336/jobs?per_page=100"
+      ],
+      "startedAt": "2026-10-20T03:21:31.606Z",
+      "endedAt": "2026-10-20T03:21:32.516Z",
+      "code": 0,
+      "signal": null,
+      "timedOut": false,
+      "stdout": {
+        "bytes": 11768,
+        "sha256": "de5131ba8bd4e8525189bf114eb7eb16c1880688aead80d8dabe4bd9f695bde8"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "snapshot": [
+        {
+          "id": 118435692766,
+          "name": "Prove equivalent PR matrix for this push (read only)",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-20T03:20:21Z",
+          "completed_at": "2026-10-20T03:20:26Z",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/github-script@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            }
+          ]
+        },
+        {
+          "id": 118435693124,
+          "name": "Validate Structure",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-20T03:20:21Z",
+          "completed_at": "2026-10-20T03:20:37Z",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Validate commit message format",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Upload commit validation output (for PR comment bot)",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 4
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run npm ci",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Portable marketplace, manifests, skills and document contracts",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15
+            }
+          ]
+        },
+        {
+          "id": 118435694127,
+          "name": "Cancel proved superseded PR runs (best effort)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "started_at": "2026-10-20T03:20:19Z",
+          "completed_at": "2026-10-20T03:20:18Z",
+          "steps": []
+        },
+        {
+          "id": 118435731121,
+          "name": "Baseline compat (windows-latest)",
+          "status": "in_progress",
+          "conclusion": null,
+          "started_at": "2026-10-20T03:20:29Z",
+          "completed_at": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Run npm ci",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run npm install -g @openai/codex@0.147.0",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Unit and real Python execution tests",
+              "status": "in_progress",
+              "conclusion": null,
+              "number": 7
+            },
+            {
+              "name": "Run npm run validate",
+              "status": "pending",
+              "conclusion": null,
+              "number": 8
+            },
+            {
+              "name": "Run npm run check:baseline-tools",
+              "status": "pending",
+              "conclusion": null,
+              "number": 9
+            },
+            {
+              "name": "Run npm run smoke:codex",
+              "status": "pending",
+              "conclusion": null,
+              "number": 10
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "status": "pending",
+              "conclusion": null,
+              "number": 18
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "status": "pending",
+              "conclusion": null,
+              "number": 19
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "pending",
+              "conclusion": null,
+              "number": 20
+            }
+          ]
+        },
+        {
+          "id": 118435731208,
+          "name": "Baseline compat (ubuntu-latest)",
+          "status": "in_progress",
+          "conclusion": null,
+          "started_at": "2026-10-20T03:20:29Z",
+          "completed_at": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Run npm ci",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run npm install -g @openai/codex@0.147.0",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Unit and real Python execution tests",
+              "status": "in_progress",
+              "conclusion": null,
+              "number": 7
+            },
+            {
+              "name": "Run npm run validate",
+              "status": "pending",
+              "conclusion": null,
+              "number": 8
+            },
+            {
+              "name": "Run npm run check:baseline-tools",
+              "status": "pending",
+              "conclusion": null,
+              "number": 9
+            },
+            {
+              "name": "Run npm run smoke:codex",
+              "status": "pending",
+              "conclusion": null,
+              "number": 10
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "status": "pending",
+              "conclusion": null,
+              "number": 18
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "status": "pending",
+              "conclusion": null,
+              "number": 19
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "pending",
+              "conclusion": null,
+              "number": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "git-head",
+      "command": "gh",
+      "args": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/318db5a5660920f4fcd95f0f96c352d012514815"
+      ],
+      "startedAt": "2026-10-20T03:21:31.610Z",
+      "endedAt": "2026-10-20T03:21:32.336Z",
+      "code": 0,
+      "signal": null,
+      "timedOut": false,
+      "stdout": {
+        "bytes": 1503,
+        "sha256": "70da7941b75f51548dd623a903bf7c1520b3bbc2e2fe79e762a93d6f39d3a7d2"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "snapshot": {
+        "sha": "318db5a5660920f4fcd95f0f96c352d012514815",
+        "tree": "44893ef4e8dcdc437d8bbeafb3b67960ef8baa29",
+        "parents": [
+          "a4892f51f4163fb5bd4457d99229eaf1a4683e8f"
+        ]
+      }
+    },
+    {
+      "name": "git-base",
+      "command": "gh",
+      "args": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/e3dc40f734fc972e05956da3e908091e09963675"
+      ],
+      "startedAt": "2026-10-20T03:21:31.615Z",
+      "endedAt": "2026-10-20T03:21:32.414Z",
+      "code": 0,
+      "signal": null,
+      "timedOut": false,
+      "stdout": {
+        "bytes": 2844,
+        "sha256": "cccdf3157d41e6e3712272c5f6d150484eb001b021dca30ca000e97874426c85"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "snapshot": {
+        "sha": "e3dc40f734fc972e05956da3e908091e09963675",
+        "tree": "ae121f6b256d1a44ea05a06061ba025b605655d9",
+        "parents": [
+          "f906b1001a86d7b5415451bd973bea26e6cc3a1d",
+          "315b5942a3a61c6bf7ab17513b8263496bd7a48a"
+        ]
+      }
+    },
+    {
+      "name": "git-merge",
+      "command": "gh",
+      "args": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/ac34c52c0eab22368e5e2737ee59241f5aad2912"
+      ],
+      "startedAt": "2026-10-20T03:21:31.620Z",
+      "endedAt": "2026-10-20T03:21:32.443Z",
+      "code": 0,
+      "signal": null,
+      "timedOut": false,
+      "stdout": {
+        "bytes": 2776,
+        "sha256": "718643f55df768bd1c2ef04677589ef39cafd30092ee7909723d41f8beaebc10"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "snapshot": {
+        "sha": "ac34c52c0eab22368e5e2737ee59241f5aad2912",
+        "tree": "44893ef4e8dcdc437d8bbeafb3b67960ef8baa29",
+        "parents": [
+          "e3dc40f734fc972e05956da3e908091e09963675",
+          "318db5a5660920f4fcd95f0f96c352d012514815"
+        ]
+      }
+    },
+    {
+      "name": "checks-head",
+      "command": "gh",
+      "args": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/commits/318db5a5660920f4fcd95f0f96c352d012514815/check-runs?per_page=100"
+      ],
+      "startedAt": "2026-10-20T03:21:31.624Z",
+      "endedAt": "2026-10-20T03:21:32.635Z",
+      "code": 0,
+      "signal": null,
+      "timedOut": false,
+      "stdout": {
+        "bytes": 40544,
+        "sha256": "e9c3791a4f504f122b1c2ea74a605629ec202398f7c0afcfc2686af487f53537"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ]
+}

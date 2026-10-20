@@ -1,0 +1,100 @@
+{
+  "verdict": "PASS",
+  "batch": "batch.json",
+  "counts": {
+    "tests": 652,
+    "pass": 651,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 1,
+    "todo": 0
+  },
+  "sameRunnerBytesAsFirstBatch": true,
+  "runnerSha256": "ca1096af6339eb5e669f185eb2bb58e441d7d0b23647c41988bb176aa97d12c0",
+  "sameTrackedCandidateBytesAsFirstBatch": true,
+  "trackedFileCount": 9114,
+  "head": "fe295a005e1659ea210a9768bbcce88d72ed64f4",
+  "trackedFilesByteIdenticalBeforeAfter": true,
+  "headIdenticalBeforeAfter": true,
+  "skipRows": [
+    {
+      "line": 193,
+      "raw": "ok 32 - Linux exec capture preserves original checker args, failure, owned-session cleanup and foreign isolation # SKIP"
+    }
+  ],
+  "failedRows": [],
+  "actualRuntimeEvidence": [
+    {
+      "line": 1446,
+      "raw": "# Subtest: execution: validator accepts a .md path with spaces / Chinese / single-quote (shell:false)"
+    },
+    {
+      "line": 1447,
+      "raw": "ok 241 - execution: validator accepts a .md path with spaces / Chinese / single-quote (shell:false)"
+    },
+    {
+      "line": 1932,
+      "raw": "# Subtest: both built-in themes and omitted default pass real Python static checks with original material bytes"
+    },
+    {
+      "line": 1933,
+      "raw": "ok 322 - both built-in themes and omitted default pass real Python static checks with original material bytes"
+    },
+    {
+      "line": 1938,
+      "raw": "# Subtest: Python checker rejects unknown theme values and types even when bundle hashes agree"
+    },
+    {
+      "line": 1939,
+      "raw": "ok 323 - Python checker rejects unknown theme values and types even when bundle hashes agree"
+    },
+    {
+      "line": 1944,
+      "raw": "# Subtest: static checker executes Python from unrelated cwd and preserves complete source/hash evidence"
+    },
+    {
+      "line": 1945,
+      "raw": "ok 324 - static checker executes Python from unrelated cwd and preserves complete source/hash evidence"
+    },
+    {
+      "line": 1992,
+      "raw": "# Subtest: actual browser renders distinct warm-paper and neutral themes at desktop and mobile sizes"
+    },
+    {
+      "line": 1993,
+      "raw": "ok 332 - actual browser renders distinct warm-paper and neutral themes at desktop and mobile sizes"
+    },
+    {
+      "line": 1998,
+      "raw": "# Subtest: actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping"
+    },
+    {
+      "line": 1999,
+      "raw": "ok 333 - actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping"
+    },
+    {
+      "line": 2616,
+      "raw": "# Subtest: GitHub acceptance actually uses an exact Python 3.12 interpreter"
+    },
+    {
+      "line": 2617,
+      "raw": "ok 436 - GitHub acceptance actually uses an exact Python 3.12 interpreter"
+    },
+    {
+      "line": 2622,
+      "raw": "# Python 3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]; executable=C:\\\\Users\\\\Admin\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\python\\\\python.exe"
+    },
+    {
+      "line": 2755,
+      "raw": "# Subtest: Learning evidence storage: actual Python 3.12 isolated recovery/import/attribution cases"
+    },
+    {
+      "line": 2756,
+      "raw": "ok 459 - Learning evidence storage: actual Python 3.12 isolated recovery/import/attribution cases"
+    }
+  ],
+  "baselineOutput": "\n> check:baseline-tools\n> node scripts/check-tool-versions.mjs --codex 0.147.0\n\nOK   codex   == 0.147.0   actual=0.147.0  (exact-match)\n\n0 of 1 pin(s) failed\n",
+  "validateOutput": "\n> validate\n> node scripts/validate-portable.mjs\n\n{\n  \"ok\": true,\n  \"errors\": [],\n  \"repositorySkills\": 20,\n  \"publicSkills\": [\n    \"diagram-kit:arch-diagram\",\n    \"learning-evidence-kit:pop-quiz\",\n    \"learning-evidence-kit:learning-record-check\",\n    \"explain-kit:glossary\",\n    \"explain-kit:concept\",\n    \"communication-kit:communicate\",\n    \"html-guide-kit:guide\",\n    \"html-guide-kit:site\"\n  ]\n}\n",
+  "scope": "Full local Harness only. The previous missing-dependency failure is retained. No standalone13installation smoke, model/native/desktop/second-client/Sites invocation was run by this agent. Node test browser checks are bounded local executable tests.",
+  "recommendation": "Use a fixed committed candidate for the separate installation smoke and preserve the current protected-branch approval boundary."
+}

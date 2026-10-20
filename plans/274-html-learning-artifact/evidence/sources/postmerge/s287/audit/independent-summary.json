@@ -1,0 +1,255 @@
+{
+  "createdAt": "2026-10-20T11:46:37.296883+00:00",
+  "role": "independent read-only post287 fact audit",
+  "overall": "PASS",
+  "checks": [
+    {
+      "name": "actual PR287 merged identity",
+      "passed": true,
+      "observed": {
+        "state": "MERGED",
+        "merge": "f18aa09be0cc4a96b5005157566f7f4fd4947c95",
+        "mergedAt": "2026-10-20T11:42:47Z"
+      }
+    },
+    {
+      "name": "independent REST and GraphQL merge tree",
+      "passed": true,
+      "observed": "6f921a482ba927b82e4c5d8d13ab9e1c8559edd6"
+    },
+    {
+      "name": "actual two ordered parents",
+      "passed": true,
+      "observed": [
+        "fdede3cf5578dee8a41aef4310a9387d695c56bd",
+        "da32ba24d5947043b6ed0398c59c760e8fd9790f"
+      ]
+    },
+    {
+      "name": "current main exact merge",
+      "passed": true,
+      "observed": {
+        "oid": "f18aa09be0cc4a96b5005157566f7f4fd4947c95",
+        "tree": {
+          "oid": "6f921a482ba927b82e4c5d8d13ab9e1c8559edd6"
+        }
+      }
+    },
+    {
+      "name": "preview fixed alignment identity",
+      "passed": true,
+      "observed": {
+        "oid": "fe295a005e1659ea210a9768bbcce88d72ed64f4",
+        "tree": {
+          "oid": "7fb5e41523fba5e5971a47e59f84190d676bf7d4"
+        }
+      }
+    },
+    {
+      "name": "actual develop unchanged at scan",
+      "passed": true,
+      "observed": {
+        "oid": "a4892f51f4163fb5bd4457d99229eaf1a4683e8f",
+        "tree": {
+          "oid": "196daab879d38b649333a01c4c0d0194c7b107c7"
+        }
+      }
+    },
+    {
+      "name": "all reviews fully read and none",
+      "passed": true,
+      "observed": {
+        "nodes": [],
+        "pageInfo": {
+          "hasNextPage": false,
+          "endCursor": null
+        }
+      }
+    },
+    {
+      "name": "all review threads fully read and none",
+      "passed": true,
+      "observed": {
+        "totalCount": 0,
+        "nodes": [],
+        "pageInfo": {
+          "hasNextPage": false,
+          "endCursor": null
+        }
+      }
+    },
+    {
+      "name": "rule suite exact before and after",
+      "passed": true,
+      "observed": {
+        "id": 4618651818,
+        "before": "fdede3cf5578dee8a41aef4310a9387d695c56bd",
+        "after": "f18aa09be0cc4a96b5005157566f7f4fd4947c95"
+      }
+    },
+    {
+      "name": "actual bypass retained",
+      "passed": true,
+      "observed": "bypass"
+    },
+    {
+      "name": "required approval NOT_MET retained",
+      "passed": true,
+      "observed": [
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008213,
+            "name": "protect-main"
+          },
+          "enforcement": "active",
+          "result": "fail",
+          "rule_type": "pull_request",
+          "details": "New changes require approval from someone other than the last pusher."
+        }
+      ]
+    },
+    {
+      "name": "actual required status checks pass",
+      "passed": true,
+      "observed": [
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008213,
+            "name": "protect-main"
+          },
+          "enforcement": "active",
+          "result": "fail",
+          "rule_type": "pull_request",
+          "details": "New changes require approval from someone other than the last pusher."
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008213,
+            "name": "protect-main"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "required_status_checks"
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008213,
+            "name": "protect-main"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "creation"
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008213,
+            "name": "protect-main"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "non_fast_forward"
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 14008213,
+            "name": "protect-main"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "deletion"
+        }
+      ]
+    },
+    {
+      "name": "public tag unchanged at released SHA",
+      "passed": true,
+      "observed": {
+        "sha": "fdede3cf5578dee8a41aef4310a9387d695c56bd",
+        "type": "commit",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/fdede3cf5578dee8a41aef4310a9387d695c56bd"
+      }
+    },
+    {
+      "name": "public Release identity unchanged",
+      "passed": true,
+      "observed": {
+        "id": 418243144,
+        "tag": "v8.3.3",
+        "target": "fdede3cf5578dee8a41aef4310a9387d695c56bd"
+      }
+    },
+    {
+      "name": "Release body exact decoded string unchanged",
+      "passed": true,
+      "observed": {
+        "utf8Bytes": 2507,
+        "sha256": "11fc9f4c0231ba5aebda7a7d3add60ed8f506a943e2ff516d5c2c8b27c5b069c"
+      }
+    },
+    {
+      "name": "Release published flags preserved",
+      "passed": true,
+      "observed": {
+        "draft": false,
+        "prerelease": false,
+        "publishedAt": "2026-10-20T09:53:51Z",
+        "assets": [],
+        "immutable": false
+      }
+    },
+    {
+      "name": "latest public Release still8.3.3",
+      "passed": true,
+      "observed": {
+        "id": 418243144,
+        "tag": "v8.3.3"
+      }
+    },
+    {
+      "name": "public tag HTML still0.1.38",
+      "passed": true,
+      "observed": "0.1.38"
+    },
+    {
+      "name": "no new v8.3.4 publication in observed first100",
+      "passed": true,
+      "observed": {
+        "observedReleases": 46,
+        "first100Only": true
+      }
+    }
+  ],
+  "previewApplicability": "FIXED_INPUT_IDENTITIES_MATCH; root must still verify exact input blobs and actual merge head after applying preview",
+  "governance": {
+    "actualSuite": 4618651818,
+    "actualResult": "bypass",
+    "approvals": "NOT_MET",
+    "reviews": [],
+    "missing": "New changes require approval from someone other than the last pusher.",
+    "laterPRException": false
+  },
+  "publication": {
+    "latest": "v8.3.3",
+    "html": "0.1.38",
+    "tagReleaseTarget": "fdede3cf5578dee8a41aef4310a9387d695c56bd",
+    "mainNow": "f18aa09be0cc4a96b5005157566f7f4fd4947c95",
+    "releaseBodyUnchanged": true,
+    "html0.1.39Status": "INTEGRATION_CANDIDATE_NOT_LATEST_PUBLIC_RELEASE",
+    "repositoryImmutableSetting": "UNKNOWN",
+    "releaseImmutable": false
+  },
+  "limitations": [
+    "No new tests/install/browser/native/model/Sites or effects were executed by this audit.",
+    "Current rules branch endpoint is authoritative; legacy branch-protection endpoint404 does not mean rulesets are absent.",
+    "API list first100 is an observed bounded list; do not generalize to every historical release.",
+    "A details helper initially imported capture.py and repeated the first capture set, replacing its as-yet-unfrozen files. Retained API receipts are the second complete observation; preliminary tool output and parent early note retain earlier observations. No old frozen evidence changed.",
+    "Initial summary helper selected an older pre-publication404 capture, raising KeyError id before any summary was written; reproduced v1 failure retained separately. Corrected baseline uses frozen gate287/final/release833.stdout successful publication observation."
+  ],
+  "nextRecommendation": "Use normal full actualmain ancestry merge in isolated child branch, reuse preview only after fixed input verification, and run currenthead Harness/independent review/serverCI before sole protecteddevelop mainPR. Only after actualdevelopsync and checks may marketplace8.3.4 preparation occur."
+}

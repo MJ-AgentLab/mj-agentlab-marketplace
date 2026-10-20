@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.11
+version: v1.15
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -14,7 +14,39 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 
 # [PLAN] HTML learning artifact implementation
 
+## Selective alignment integration candidate
+
+本节为同步子候选提交前固定快照；自身后继commit/子PR/唯一develop主PR、CI/实际合并和固定提交安装结果以Issue274及外部不可变回执为准，不以本快照替代实际交付。
+
+2026-10-20：PR287已于11:42:47Z实际合入main **f18aa09be0cc4a96b5005157566f7f4fd4947c95/tree6f921a482ba927b82e4c5d8d13ab9e1c8559edd6**，与预解输入树相同；完整actualmain已在隔离同步子候选中正常merge；本快照不声明后继集成或protected develop已交付。公开仍v8.3.3/HTML0.1.38，0.1.39仍未发布候选，市场VERSION8.3.3保持。内部285/286的按需Matt/设计共识、可选主题、本地交付及原材料保护保持。
+
+下一步推荐：先完成本轮新候选工程检查、全来源逐字节核验及独立复核，通过内部子PR门禁后正常合入既有集成分支；随后以唯一主PR→protected develop交付完整main ancestry及0.1.39。理由是以真实同步候选检查支持交付，保留已公开历史和当前保护要求。实际develop合入并复验后才可DryRun→Apply仅市场8.3.4预升；当前未执行。无新增Owner实质决定。
+
+原核心ACCEPTED_LIMITED不扩至0.1.38/Site v2/0.1.39，完整计划OPEN、效果NOT_MEASURED、D01持续窗口及其他延期非PASS。实际suite4618651818为bypass、reviews=[]、批准NOT_MET；Agent未执行此次保护合并或bypass，后继保护批准不得复用为豁免。当前head新CI/真实独立批准/线程/latestbase及actualdevelop同步复验各自待证。
+
+以下为两条分支各自时点的历史快照；其中未发布/活动PR/待检查等状态保留原时点，不作为当前状态。
+
 [任务入口](./INDEX.md) · [唯一 Issue #274](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274) · [INTENT](../../docs/intent/[INTENT]_INT-2026-003_HTML_Learning_Artifact.md) · [扩展 ADR](../../docs/adr/[ADR]_HTML_Learning_Artifact_Extension.md) · [SPEC](../../docs/spec/[SPEC]_HTML_Learning_Artifact.md)
+
+
+## Actual283 continuation and conditional release
+
+首发行head318的实际CI出现Windows CRLF指令预算与独立Linux启动FAIL；保留全部原件，仅压缩A6相关摘要并实际验证LF/CRLF两表示，后继新head重新执行必要CI。未改产品范围/判据，不重开授权或以重跑覆盖原失败；见[当前REPORT](./[REPORT]_HTML_Learning_Artifact.md#actual283-and-repair-release-continuation)。
+
+Owner续办“#283 PR 已合并，继续后续工作”，本次[捕获](./evidence/sources/postmerge/a283/request.json)不冒充准确消息时钟。actuala489已交付修复，原单主PR→develop阶段结束；冻结窗口actual全测/strict/CLI及新13已完成，事实见[唯一REPORT](./[REPORT]_HTML_Learning_Artifact.md#actual283-and-repair-release-continuation)。同private Site v2已在同身份/受众下修复部署，无新目标/权限或受众决定。
+
+由原B1/P5上线后修订与原则4五边界复用推进一次0.1.38修复发行；[独立授权复核](./evidence/sources/postmerge/a283/scope/assessment.md)区分Owner决定与Agent上一库存批“不正式发布”的工程边界。市场预升不是授权，真实验收/保护批准/发布控制不可省。下一步从完整actualdevelop ancestry准备一个发行PR→受保护main（按ReleaseOps既有发行拓扑），同Issue/同主文档，不复用已合入283的批准状态、不开第二活动实现主PR；其他包/guide/workflow不变、不再版本预升。
+
+顺序：①实际源新验和同Site有界修复完成；②同步发行正文、stage-neutral用户说明、当前账本与来源；③候选文档/来源/冻结资源及CI、真实当前head非作者且非latest-pusher批准、线程/latestbase；④保护main普通合入后核actualSHA/tree，再draft-first及tag/Release身份/正文/资产核对；⑤真实发布tag独立13安装/Python/精确清理；⑥按实际需要记录/同步/预升，未出现实质差异不递归纯证据PR。公开前安装ref保v8.3.2，后续状态见[8.3.3账本](../../docs/runbook/[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md)。无新模型/桌面/第二客户端或周期监控，原延期/效果和Owner核心有限接受不变。
+
+## Post284 publication and synchronization continuation
+
+Owner本轮明确“#284 PR 已合并，继续后续工作，并在阶段信息中附上下一步推荐。”[实际捕获](./evidence/sources/postmerge/r284/continuation/capture.json)只记本次可观察来源，不编消息时间/ID/URL；沿用既有P5五边界，不新增接受、产品范围或bypass权限。阶段信息均附下一步推荐及理由。实际main/tag/Release/新验由[唯一REPORT](./[REPORT]_HTML_Learning_Artifact.md#actual-pr284-publication-and-next-delivery)和[8.3.3账本](../../docs/runbook/[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md#actual-publication-and-current-continuation)承接。
+
+本轮发现README默认安装仍v8.3.2/HTML0.1.37并称8.3.3未公开，故准备一份有界main导航/记录PR；这是当前产品指引修正，不是为了提交其自身审计而递归建纯证据PR。固定actualmain fdede、市场8.3.3/HTML0.1.38及已公开CHANGELOG原节，不改运行或已公开对象。下一步推荐：先正常合入本轮main导航/记录PR，随后将包含该merge的完整actualmain普通合入既有0.1.39集成分支，用后继唯一主PR→protected develop同时承接main同步及已授权选择性统一。实际develop同步合入并复验后，才可DryRun→Apply仅市场8.3.4预升；当前未执行。理由是先让默认安装抵达真实修复版本，再交付新方法，避免无产品差异的机械纯同步PR。当前无新增Owner实质决定。
+
+后继正常合并保完整actualmain ancestry，不以cherry-pick内容代同步；保已发布root/plugin CHANGELOG整节、旧来源、32行及A01–A08。共享1890条之外，先保发布账本全部既有前缀，再按原ID/hash/顺序追加选择性统一增量；不同分支完整账本分别固定Git恢复，不声称两个分叉全集都同时保为合并前缀。原生能力和Owner接受/效果仍按原边界，不重启限制矩阵。
+
 
 
 ## Selective alignment baseline

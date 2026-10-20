@@ -1,0 +1,165 @@
+{
+  "startedAt": "2026-10-20T11:53:06.284317+00:00",
+  "completedAt": "2026-10-20T11:53:16.193912+00:00",
+  "reviewer": "/root/alignment_sync_contract_review",
+  "scope": "Read-only independent candidate semantics, frozen source bytes, preservation and ownership boundaries; uncommitted normal merge",
+  "priorHelperFinding": {
+    "report": "candidate-review-20261020T115224Z.json",
+    "script": "audit-candidate.py",
+    "falseCheck": "REPORT32 rows",
+    "diagnosis": "Original helper matched slash-style PLAN row IDs only. REPORT uses bare ID followed by table separator. All three REPORT inputs yielded zero rows; fix accepts both existing formats and does not change candidate or acceptance criteria."
+  },
+  "head": "fe295a005e1659ea210a9768bbcce88d72ed64f4",
+  "mergeHead": "f18aa09be0cc4a96b5005157566f7f4fd4947c95",
+  "allChecksTrue": true,
+  "checkCount": 48,
+  "checks": {
+    "candidateHeadIsFrozenAlignment": true,
+    "normalMergeHeadIsActualMain": true,
+    "actualMainTreeMatchesPreview": true,
+    "mergeHasNoUnmergedEntries": true,
+    "sourceCount2575": true,
+    "main2400CompleteObjectPrefix": true,
+    "preview2554CompleteObjectPrefix": true,
+    "alignment154DeltaExactOriginalOrder": true,
+    "new21SourceRows": true,
+    "sourceIdsUnique": true,
+    "sourcePathsUnique": true,
+    "all2575SourceBytesRehashedAndMatch": true,
+    "all2554OriginalSourceGitBlobsPreserved": true,
+    "[PLAN]_HTML_Learning_Artifact.md:32OldRowsFirstFiveCellsExactBothBranches": true,
+    "[PLAN]_HTML_Learning_Artifact.md:A01A08OriginalRowsExactAndComplete": true,
+    "[REPORT]_HTML_Learning_Artifact.md:32OldRowsFirstFiveCellsExactBothBranches": true,
+    "[REPORT]_HTML_Learning_Artifact.md:A01A08OriginalRowsExactAndComplete": true,
+    "soleDecisionBaselineSectionExactAlignment": true,
+    "rootPublished833AndAllHistoryExactMain": true,
+    "pluginPublished038AndAllHistoryExactMain": true,
+    "plugin039CandidateEntryExactAlignment": true,
+    "marketplaceVersion833Unchanged": true,
+    "htmlCandidateManifest039": true,
+    "defaultInstallReadmeExactPublishedMain": true,
+    "preservedRuntime:plugins/diagram-kit/": true,
+    "preservedRuntime:plugins/learning-evidence-kit/": true,
+    "preservedRuntime:plugins/explain-kit/": true,
+    "preservedRuntime:plugins/communication-kit/": true,
+    "preservedRuntime:plugins/html-guide-kit/skills/guide/": true,
+    "preservedRuntime:scripts/": true,
+    "preservedRuntime:tests/": true,
+    "preservedRuntime:.github/workflows/": true,
+    "allHtmlRuntimeExceptReadmeChangelogExactAlignment": true,
+    "intentAllBusinessItemsExceptEngineeringR2Exact": true,
+    "intentR2BusinessClausesExact": true,
+    "intentMetadataTenFieldsStableIdentityDraftV12": true,
+    "intentOldV11RestoreAndAcceptanceBoundary": true,
+    "intentCurrentEngineeringFactsRefreshed": true,
+    "intent003UniqueInCurrentCanonicalSet": true,
+    "agentsBudgetBothRepresentations": true,
+    "privateB2FullCaptureNotAmongPublicSources": true,
+    "newSourcesNoFullPromptFilename": true,
+    "INDEX.md:CurrentPhaseAndNextRecommendation": true,
+    "[PLAN]_HTML_Learning_Artifact.md:CurrentPhaseAndNextRecommendation": true,
+    "[REPORT]_HTML_Learning_Artifact.md:CurrentPhaseAndNextRecommendation": true,
+    "ownerOriginalProtectedBytes": true,
+    "sourceOriginalReadOnlyIndexUnchangedByAudit": true,
+    "candidateWorktreeStatusUnchangedByAudit": true
+  },
+  "details": {
+    "all2575SourceBytesRehashedAndMatch": {
+      "count": 2575,
+      "failures": []
+    },
+    "all2554OriginalSourceGitBlobsPreserved": {
+      "count": 2554
+    },
+    "[PLAN]_HTML_Learning_Artifact.md:A01A08OriginalRowsExactAndComplete": {
+      "physicalRows": 8,
+      "idCount": 8
+    },
+    "[REPORT]_HTML_Learning_Artifact.md:A01A08OriginalRowsExactAndComplete": {
+      "physicalRows": 6,
+      "idCount": 8
+    },
+    "preservedRuntime:plugins/diagram-kit/": {
+      "count": 18
+    },
+    "preservedRuntime:plugins/learning-evidence-kit/": {
+      "count": 19
+    },
+    "preservedRuntime:plugins/explain-kit/": {
+      "count": 10
+    },
+    "preservedRuntime:plugins/communication-kit/": {
+      "count": 12
+    },
+    "preservedRuntime:plugins/html-guide-kit/skills/guide/": {
+      "count": 4
+    },
+    "preservedRuntime:scripts/": {
+      "count": 26
+    },
+    "preservedRuntime:tests/": {
+      "count": 48
+    },
+    "preservedRuntime:.github/workflows/": {
+      "count": 8
+    },
+    "allHtmlRuntimeExceptReadmeChangelogExactAlignment": {
+      "count": 30
+    },
+    "intentAllBusinessItemsExceptEngineeringR2Exact": [
+      "O1",
+      "O2",
+      "O3",
+      "O4",
+      "O5",
+      "O6",
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "R1",
+      "R3",
+      "R4",
+      "R5"
+    ],
+    "agentsBudgetBothRepresentations": {
+      "LF": 16204,
+      "CRLF": 16297,
+      "limit": 16384
+    }
+  },
+  "sourceCount": 2575,
+  "sourceBindingsSha256": "09985285d6819caafb3481cb6ed3a7625f4ad71f1149592057cc958272682fae",
+  "statusSha256": "a597344041d41e399a69d555e73406488d726c0fb80e8674723f2f4f55d83864",
+  "indexSha256": "c4e27a1b83452161b63874914bcc414a21ba8a667b178a886140e94caa21bbff",
+  "newOwnerSubstantiveDecisions": [],
+  "notRun": [
+    "No repository or old frozen directory writes",
+    "No Git mutation/fetch/commit",
+    "No tests/smoke/browser/model/native/desktop/Sites or publish actions",
+    "No protected branch approval supplied by this audit"
+  ],
+  "remainingGates": [
+    "Complete actual new-head engineering checks",
+    "Fixed commit and current GitHub CI/base/threads",
+    "Protecteddevelop qualified nonauthor/latest-pusher approval",
+    "Actualdevelop postmerge verification before marketplace8.3.4 preparation",
+    "Final Owner acceptance remains separate; D01 deferred and effects not measured"
+  ],
+  "fullByteChecks": {
+    "count": 2575,
+    "actualHashesAllMatch": true,
+    "externalCompleteReport": "C:\\Users\\Admin\\.codex\\task-evidence\\html-learning-274-post287-20261020\\contract-review\\candidate-review-20261020T115316Z.json",
+    "bytes": 982348,
+    "sha256": "f20749db2eb12cc24a8933fdb9720fa3ecc94a2cc155121b0be0d23fbbca2ab5"
+  },
+  "roleAssessment": {
+    "engineeringSemantics": "PASS_LIMITED",
+    "businessIntentChanged": false,
+    "originalAcceptanceExpanded": false,
+    "newOwnerSubstantiveDecisions": [],
+    "deferredNativePersistentWindow": "DEFERRED_NOT_PASS",
+    "marketplace834": "NOT_PREPARED_WAIT_ACTUALDEVELOP_SYNC_AND_VERIFY"
+  }
+}

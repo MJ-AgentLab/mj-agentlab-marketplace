@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-20T02:55:37.649Z",
+  "role": "Independent read-only postmerge audit",
+  "skill": "mp-flow-post-merge",
+  "sourceBoundary": "Owner says PR283 merged/continue is the operation trigger only; real GitHub metadata is authoritative for merge/reviews/protection/publication.",
+  "commands": [
+    "gh api --method GET repos/MJ-AgentLab/mj-agentlab-marketplace/pulls/283",
+    "gh api --method GET repos/MJ-AgentLab/mj-agentlab-marketplace/git/ref/{heads/develop,heads/main,tags/v8.3.2,tags/v8.3.3}",
+    "gh api --method GET repos/MJ-AgentLab/mj-agentlab-marketplace/git/commits/ACTUAL",
+    "gh api --method GET repos/MJ-AgentLab/mj-agentlab-marketplace/rulesets/rule-suites?...",
+    "gh api --method GET repos/MJ-AgentLab/mj-agentlab-marketplace/rulesets/rule-suites/4612130198",
+    "gh api --method GET repos/MJ-AgentLab/mj-agentlab-marketplace/rules/branches/develop",
+    "gh api graphql (read-only query for PR283 reviewDecision/reviews/reviewThreads)",
+    "gh api --method GET repos/MJ-AgentLab/mj-agentlab-marketplace/actions/runs?head_sha=ACTUAL",
+    "gh api --method GET repos/MJ-AgentLab/mj-agentlab-marketplace/commits/{ACTUAL,HEAD}/check-runs",
+    "gh api --method GET repos/MJ-AgentLab/mj-agentlab-marketplace/contents/{VERSION,plugins/html-guide-kit/plugin.json,.github/workflows/ci.yml}?ref=PINNED_SHA",
+    "gh api --method GET repos/MJ-AgentLab/mj-agentlab-marketplace/actions/jobs/118426531686[/logs]"
+  ],
+  "capture": "Node child-process byte buffers saved unchanged with separate stderr, exact args, timestamps, exit status, SHA256 and byte length in initial-downloads/detail-downloads/gate-downloads JSON.",
+  "comparison": "Compare actual API tree and exact parents with immutable previously tested395 candidate tree; retain separate prior raw CI byte hashes/copy map.",
+  "transport": "All this auditor substantive reads succeeded on first attempt; expected v8.3.3 missing endpoints return404. Root-reported transport failure is not falsely attributed to this audit.",
+  "limits": "No local/runtime re-test, repository changes, remote mutations, release, retry/cancel, review request or approval claim.",
+  "mutations": {
+    "repository": false,
+    "remoteWrites": false,
+    "publish": false,
+    "reviewRequest": false,
+    "ciCancel": false,
+    "ciRetry": false
+  },
+  "sourceScripts": [
+    "initial-download.mjs",
+    "detail-download.mjs",
+    "gate-download.mjs",
+    "finalize.mjs"
+  ]
+}

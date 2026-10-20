@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.12
+version: v1.16
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -14,7 +14,74 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 
 # [REPORT] HTML learning artifact
 
+## Selective alignment integration candidate
+
+本节为同步子候选提交前固定快照；自身后继commit/子PR/唯一develop主PR、CI/实际合并和固定提交安装结果以Issue274及外部不可变回执为准，不以本快照替代实际交付。
+
+2026-10-20：PR287已于11:42:47Z实际合入main **f18aa09be0cc4a96b5005157566f7f4fd4947c95/tree6f921a482ba927b82e4c5d8d13ab9e1c8559edd6**，与预解输入树相同；完整actualmain已在隔离同步子候选中正常merge；本快照不声明后继集成或protected develop已交付。公开仍v8.3.3/HTML0.1.38，0.1.39仍未发布候选，市场VERSION8.3.3保持。内部285/286的按需Matt/设计共识、可选主题、本地交付及原材料保护保持。
+
+下一步推荐：先完成本轮新候选工程检查、全来源逐字节核验及独立复核，通过内部子PR门禁后正常合入既有集成分支；随后以唯一主PR→protected develop交付完整main ancestry及0.1.39。理由是以真实同步候选检查支持交付，保留已公开历史和当前保护要求。实际develop合入并复验后才可DryRun→Apply仅市场8.3.4预升；当前未执行。无新增Owner实质决定。
+
+原核心ACCEPTED_LIMITED不扩至0.1.38/Site v2/0.1.39，完整计划OPEN、效果NOT_MEASURED、D01持续窗口及其他延期非PASS。实际suite4618651818为bypass、reviews=[]、批准NOT_MET；Agent未执行此次保护合并或bypass，后继保护批准不得复用为豁免。当前head新CI/真实独立批准/线程/latestbase及actualdevelop同步复验各自待证。
+
+以下为两条分支各自时点的历史快照；其中未发布/活动PR/待检查等状态保留原时点，不作为当前状态。
+
 [任务入口](./INDEX.md) · [主 PLAN/接受来源](./[PLAN]_HTML_Learning_Artifact.md) · [Issue #274](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274) · [INTENT](../../docs/intent/[INTENT]_INT-2026-003_HTML_Learning_Artifact.md)
+
+
+## Actual PR287 and full main synchronization
+
+Owner[本次续办原话](./evidence/sources/postmerge/s287/continuation/owner-request.txt)与[捕获元数据](./evidence/sources/postmerge/s287/continuation/capture.json)复用原五边界，仅补实际工程状态，不构成新产品选择、接受或bypass授权。PR287实际parents为fdede3cf5578dee8a41aef4310a9387d695c56bd＋da32ba24d5947043b6ed0398c59c760e8fd9790f；[独立19项事实核查](./evidence/sources/postmerge/s287/audit/independent-summary.json)保actualtree、reviews=[]及suite4618651818的bypass/批准NOT_MET。其pull_request规则FAIL（缺latest-pusher以外批准），其余四规则PASS；不把事实核验PASS误作保护批准PASS。公开tag/Release仍fdede，HTML0.1.38；Release正文与原成功捕获相等，immutable=false/仓库immutable配置UNKNOWN。没有修改公开对象或新增发布。
+
+隔离子分支codex/html-alignment-sync从fe295a005e1659ea210a9768bbcce88d72ed64f4出发，正常merge完整actualmain f18aa09。[原merge输出](./evidence/sources/postmerge/s287/normal-merge-original-output.txt)保10个真实文本冲突；[source/blob guards与解后暂存树](./evidence/sources/postmerge/s287/normal-merge-resolution.json)核68冻结文件、11路径双方Gitblob/字节/hash，解后暂存树986e0与原预解相同；那是当前phase刷新前的实际write-tree，不作已提交merge或develop交付证据。插件CHANGELOG即使自动合并也取actualmain已发布0.1.38及全部历史原节，避免重新标为候选。其他自动合并结果保留，非cherry-pick内容同步。
+
+来源合并保持actualmain2400完整对象前缀，追加原alignment分叉154条，形成2554，再追加本轮选证；不声称两个分叉全集都同时保持为合并前缀。32行旧基线前五列及A01–A08全集、唯一INT-2026-003和既有接受边界保持；INTENT本轮仅将过时#284/公开版本等工程时点窄修，不增业务决定，旧v1.1可从fe295恢复。选证清单保具体原位置/原字节，外部完整audit与旧冻结目录保持，不公开B2研究全文。
+
+本次首次Harness因新worktree未装lock依赖实际FAIL：218总/192PASS/25FAIL/1平台skip，25项分别缺cross-spawn/yaml/pngjs，validate/baseline亦缺依赖；[原批次](./evidence/sources/postmerge/h287/local-checks/batch.json)、[原全测](./evidence/sources/postmerge/h287/local-checks/npm-test.log)和[逐项诊断](./evidence/sources/postmerge/h287/local-checks/first-attempt-diagnosis.json)保留。npm ci按lock补10包、exit0，没有产品或判准修改。单独[恢复批次](./evidence/sources/postmerge/h287/local-checks-r2/recovery-summary.json)于11:53:04–11:57:39Z完成：652总/651PASS/0FAIL/1仅Windows上Linux专用skip，strict通过、CLI实际0.147.0；实际Python3.12.14、双主题/default静态及限定desktop/mobile真实浏览器均运行通过。r1/r2脚本逐字节相同，两次9114跟踪文件候选相同，前后文件/HEAD guards全真。恢复通过不覆盖首次失败，也不是独立十三安装。
+
+[LF/CRLF实际strict](./evidence/sources/postmerge/h287/dual-strict/summary.json)分别16204B/16297B、exit0，原16384阈值保持；finally恢复原LF，index/HEAD未改。独立Agent[48项复核](./evidence/sources/postmerge/h287/contract-review/review-summary.json)核2575来源逐hash、2554旧Gitblob、发布历史、旧32项/A全集、INTENT业务、运行资源和原件；其首helper只识PLAN行式误报REPORT行数，原FAIL保留，第二读取regex修正后48/48，无候选改动。简短[语义报告](./evidence/sources/postmerge/h287/contract-review/REVIEW.md)及准确完整外部报告位置/SHA均保留，不能把紧凑选包冒充完整逐项原件。根准备helper一次docsINDEX标题ValueError只中断最后两文档更新，已在[上下文](./evidence/sources/postmerge/h287/prepared-current.json)如实记缺独立raw，另脚本补全，未重播捕获。
+
+以上为运行时点2575绑定/提交前内容的实际验证；本轮选证追加后再执行最终文档/全部来源闭包检查，自身PR/CI/固定提交安装与actualmerge结果接Issue274及外部回执。固定新提交后的独立十三安装/实际Python/精确根清理及双平台CI仍须各自实际结果，不把旧候选或PR287的647计数当本轮运行。旧Linux启动FAIL/UNKNOWN、旧版本预期FAIL、TEMP长路径FAIL/缺根证明及helper guard FAIL均保持，未恢复模型/桌面/第二客户端/Sites/原生窗口。下一步推荐：先完成本轮新候选工程检查、全来源逐字节核验及独立复核，通过内部子PR门禁后正常合入既有集成分支；随后以唯一主PR→protected develop交付完整main ancestry及0.1.39。理由是以真实同步候选检查支持交付，保留已公开历史和当前保护要求。实际develop合入并复验后才可DryRun→Apply仅市场8.3.4预升；当前未执行。无新增Owner实质决定。
+
+## Actual PR284 publication and next delivery
+
+PR284于2026-10-20T09:50:50Z实际合入main **fdede3cf5578dee8a41aef4310a9387d695c56bd/treef71963c1d5640933e80fccfec3383681fb15333b**，parents e3dc40f7＋cfbeb1bb；完整树与已测cfb及9a候选相同。v8.3.3于09:53:51Z正式公开，轻量tag/Release target同fdede，Release418243144为draft=false/prerelease=false/assets=[]/latest，immutable=false；仓库immutable配置字段未提供，仍UNKNOWN。自动Release39403662285 attempt1于09:53:57Z成功；原始日志支持draft-first创建/可见性等待/核验/公开，没有独立原生draft API快照。 [独立20项观察](./evidence/sources/postmerge/r284/release-audit/publication-summary-v1.json)限定全通过；公开正文2507B/SHA25611fc9f4c0231ba5aebda7a7d3add60ed8f506a943e2ff516d5c2c8b27c5b069c，与actualmain CHANGELOG8.3.3节在CRLF→LF后trim范围相等，不声称原提取2509B与正文原字节同一。
+
+实际suite4617090917精确匹配e3dc→fdede，actor ranzuozhou、result=bypass；pull_request规则FAIL（缺最新推送者以外批准），其余四规则PASS，reviews=[]/批准NOT_MET。Agent未执行此次合并或bypass，不把公开成功追认为独立批准或未来豁免。
+
+actualmain固定源完整本机647总/646PASS/0FAIL/1平台专用skip、strict与精确CLI0.147.0已新执行通过；独立真实v8.3.3/fdede批次于09:56:21.473–10:08:43.971Z执行，13/13场景、178/178命令全0，实际6Diagram＋18LEK＋4site Python，4生成/4静态各95/95；site20/guide4资源、15实际根（1canonical＋1template＋13scenario）逐根absence及host/primary/Owner原件/完整worktree清单保持。原driver exit0且没有overall字段，但allBoundariesVerified=false：外层helper误用宿主默认TEMP，未按命令记录的子进程D:/t274a核边界；原false保留不覆盖。另以实际子进程目录/原始copy metrics作独立23项核验，15根安全边界及两次absence均有证。结论为PASS_LIMITED_WITH_RAW_HELPER_GUARD_FAIL，只接受有证功能/恢复子项，不称原完整run无缺口PASS；安装browser仍NOT_RUN，未额外跑模型/桌面或窗口。这批实际tag结果不借候选或actual283计数。首批默认TEMP在canonical checkout因Windows路径过长失败，0场景/0安装；原stderr/命令/perf保持，finally清理metric仅ok且完整worktree清单复原，但失败canonical具体TEMP根未留存，逐根absence不可核，原空集合allAbsent不作PASS证据。新短TEMP批次仅改进程临时路径，源码、时限及判准不变，实际根清理只绑定自身证据。裸Python不可用时实际使用捆绑Python3.12.14；不伪称裸Python可用。
+
+原cfb CI39365093169首Linux启动FAIL/NOT_RUN2及根因UNKNOWN保留；仅一次同判准完整Linux debug重跑SUCCESS（647总/646PASS/0FAIL/1平台skip），Windows原执行同计数成功；attempt2的Windows代理仍沿用原时间，不算新Windows矩阵。push39365089131仅精确PR去重载体。旧318三FAIL及WindowsCRLF预算修复仍按原证据分记；原15秒/workflow/checker/阈值不变。
+
+公开交付仍为HTML0.1.38，其他四包/guide保持；本轮仅修正README默认真实v8.3.3安装、当前公开版本和维护状态，接必要发布记录及[选证恢复映射](./evidence/sources/postmerge/r284/selection.json)，不重复bump、不改已发布8.3.3 CHANGELOG整节/标签/Release正文或资产。原2295来源完整前缀和32行旧接受基线保留；完整外部根/固定Git按映射恢复，不声称选证包包含全部独立目录。新主PR自身CI/实际merge仅回Issue274和外部不可变回执，不递归开纯自证记录PR。
+
+HTML0.1.39选择性统一已由内部285/286正常合入集成fe295a00，证据与唯一原意修订保存在[该固定Git的PLAN](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/fe295a005e1659ea210a9768bbcce88d72ed64f4/plans/274-html-learning-artifact/%5BPLAN%5D_HTML_Learning_Artifact.md#selective-alignment-baseline)及既有独立task-evidence；本轮main不带该未发布产品。下一步推荐：先正常合入本轮main导航/记录PR，随后将包含该merge的完整actualmain普通合入既有0.1.39集成分支，用后继唯一主PR→protected develop同时承接main同步及已授权选择性统一。实际develop同步合入并复验后，才可DryRun→Apply仅市场8.3.4预升；当前未执行。理由是先让默认安装抵达真实修复版本，再交付新方法，避免无产品差异的机械纯同步PR。当前无新增Owner实质决定。
+
+原核心ACCEPTED_LIMITED仅覆盖原已交付核心，不覆盖本次0.1.38/Site v2/0.1.39或完整计划；完整计划OPEN、最终接受NOT_PROVIDED、效果NOT_MEASURED。D01原生持续窗口/空返回/超时/关闭及其余延期非PASS；本轮无新增模型/桌面/第二客户端/Sites动作。旧FAIL/UNKNOWN、历史及本次bypass/批准NOT_MET保持，后续当前head真实独立批准/required checks/线程/latestbase不得由本轮结果替代。
+
+以下各节为各自时点原观察；创建前快照中的PENDING/未公开不作为当前状态。
+
+
+## Actual283 and repair release continuation
+
+首发行候选318db5a/tree44893ef4的[原CI](./evidence/sources/postmerge/a283/r1/phase1-summary.json)已真实FAIL：PR Ubuntu647总/646P/1平台skip并完成新13/178/6Diagram18LEK/4生成4静态各95；PR和push两个Windows均TAP621因AGENTS指令预算FAIL，push Ubuntu另TAP330真实浏览器NOT_RUN2/无DevTools端点FAIL、955B启动stderr保留，DBus日志不证明根因，仍UNKNOWN。三FAIL不由单Ubuntu成功覆盖，A6/Structure通过也不替完整工程门禁。
+
+Windows根因明确：Git LF16317B＋93个换行在完整CRLF checkout成为16410B，超过既有16384B；本机/独立预算前检只看LF，遗漏Windows表示。仅压缩A6的当前HTML摘要为同任务入口指针，完整事实/缺口仍在既有主文档，不变更阈值、workflow、checker、15秒或非零NOT_RUN。[真实双表示严格执行](./evidence/sources/postmerge/a283/budget/budget-repair.json)分别LF15903/CRLF15996均exit0，最后恢复LF；前三轮更保守margin长度预检在任何写入前中止，原方法/限制见[恢复上下文](./evidence/sources/postmerge/a283/budget/repair-context.json)。当前是修后工作树的双表示strict；后继新head将执行必要CI，未调用同head重跑API。完整204payload原CI＋manifest原布局/字节接回，原2079来源前缀保持；后继新head CI/真实保护批准另待，不能宣称Linux启动已修或稳定。
+
+
+2026-10-20：Owner直接续办“#283 PR 已合并，继续后续工作”，准确消息ID/时间未知，[本次捕获](./evidence/sources/postmerge/a283/request.json)与实际平台事件时间分开。实际283于UTC02:51:03Z合入develop **a4892f51f4163fb5bd4457d99229eaf1a4683e8f / tree196daab879d38b649333a01c4c0d0194c7b107c7**，parents908d+395bafe，与已测395候选同树。[独立实际审计](./evidence/sources/postmerge/a283/audit/summary.json)保存suite4612130198的bypass、reviews=[]、批准NOT_MET；actual merge没有新的完整Actions/checks，不借395候选计数，也不把缺触发称CI失败。Agent未执行bypass，新发布PR须真实保护批准。
+
+实际合入源的完整本机测试647总/646PASS/0FAIL/1项Linux机制在Windows不适用，duration324686.71ms；[原全测](./evidence/sources/postmerge/a283/local/full-test.log)、[strict](./evidence/sources/postmerge/a283/local/validate.log)及[CLI0.147.0](./evidence/sources/postmerge/a283/local/cli.log)均通过。另一个冻结窗口内的新安装批于UTC **02:56:38.655–03:09:46.916Z** 原始PASS/driver0：[13场景/178命令](./evidence/sources/postmerge/a283/install/summary.json)全exit0，6Diagram+18LEK实际Python、4site生成/4静态各95/95，四产物各10物理文件（9payload+manifest），20site/4guide及安装根LICENSE原字节一致，94包文件/8Harness前后保持。14实际唯一自有根（13场景+1template）均absence，detacheda489/clean、primary908、完整15登记worktree及Owner原件25994B/dc9d摘要保持。此批终态后才建发布分支；[选证指针](./evidence/sources/postmerge/a283/install-selection/selected-manifest.json)覆盖28原件、638992B，外部170payload完整运行不冒充全部接回。原908运行guardFAIL/exit1、首Windows checkoutFAIL与旧Chrome根因UNKNOWN均保持原身份。
+
+同一私有Site已前向更新为 **v2**。源 **3d3082ff8cfa99576bbda816a3ecc3b0b787636d**，project appgprj_6ad5ec4ffef08191ab68478e806c7d54，保存版本 appgprj_6ad5ec4ffef08191ab68478e806c7d54~appgver_248c305315948191b5b8656427218f4d，部署 appgdep_6ad6db98ebd08191b4e623ba462c8d23 于 **03:10:30.278974+00:00 succeeded**。[原生回执](./evidence/sources/postmerge/a283/site/native-final.json)回读v2/source、active/owner、custom revision1、1位owner/0组/0外部/0automation，地址仍为[现有私有成品](https://html-learning-artifact-274.zuozhouran.chatgpt.site)。独立本地QA为[PASS_LIMITED](./evidence/sources/postmerge/a283/siteqa/summary.json)：old7/new10，材料/index/JS保持ffaaa Git原字节，仅CSS一处边界、manifest及3项许可；静态89→95零失败，明确Chrome155三视口320/390/1366与空白控件截图实看通过。没有重跑键盘/复制，按未变index/JS限定继承旧交互；无新托管完整交互或原生/第二客户端/效果主张。
+
+Site helper压缩输入16381B/b957cad3…、11payload仅10制品+原hosting元数据；原生保存回读11files/61440B/a8509332…，本地gunzip61952B/929e6c84…也与其不同。原生保存归档未下载，不能宣称这三者字节等同或推造转换原因；源身份/部署/文件数/受众分别已有证。首次autocrlf工作副本对LF输出的原字节断言FAIL发生在任何Site写入前，保留[原错误](./evidence/sources/postmerge/a283/site/first-method-error.json)，改用固定ffaaa Git原字节导出后通过；不改全局Git配置。通用python不在PATH的预览启动失败亦保留，明确bundled Python随后HTTP200；仅关闭自有65044预览，未触用户8765。open_in_codex为queued，不证明Owner访站。v1及其原源/部署保留，未演练生产回滚。
+
+授权[独立复核](./evidence/sources/postmerge/a283/scope/assessment.md)确认原B1/P5“上线后修订/受影响复验”、本轮七原则及PLAN五边界可覆盖 **一次HTML0.1.38修复发行与同一private Site前向修复**。dr274库存批的“不正式发布”是当时Agent工程边界，不是Owner永久撤销授权；市场8.3.3预升本身也不构成授权。没有实质越界，不重复请批。当前从actuala489完整ancestry准备codex/release-html-learning-8-3-3→受保护main e3dc；不再bump，四包/guide/workflow不变，旧8.3.2正文/资产保持，默认安装继续真实v8.3.2。新[8.3.3账本](../../docs/runbook/[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md)登记headCI/真实外部批准/线程/latestbase、实际main、draft-first发布/tag及真实tag新验的待办，均未先PASS。无新需求/INTENT/Issue/主PLAN或REPORT。
+
+新增选证由[恢复上下文](./evidence/sources/postmerge/a283/README.md)、[逐项映射](./evidence/sources/postmerge/a283/selection-map.json)及同一source-bindings逐字节绑定；旧1890项与原件保持。首次root GraphQL只读连接中断后REST成功，原root运输错误未单独落盘，独审REST原件有效；不制造该缺失raw。原Owner接受仅绑定当时已交付核心，仍 **ACCEPTED_LIMITED**；不推定0.1.38或Site v2已获新接受。完整计划OPEN、完整最终接受NOT_PROVIDED、效果NOT_MEASURED；D01–D07恢复条件沿用下节，没有立即需要Owner实质决定。独立GitHub批准是门禁，由合资格非作者/非最新推送者提供，不能用合成验收或Owner本次续办替代。
+
+以下Deferral recovery是283合入前批次快照，原“候选/未部署”等语句保留各自原时点；当前actual283/Sitev2及发布准备以上节、8.3.3账本与Issue为准。
 
 
 ## Selective alignment results

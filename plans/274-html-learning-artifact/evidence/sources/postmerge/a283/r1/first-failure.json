@@ -1,0 +1,91 @@
+{
+  "head": "318db5a5660920f4fcd95f0f96c352d012514815",
+  "runId": 39363755336,
+  "jobId": 118435731208,
+  "jobName": "Baseline compat (ubuntu-latest)",
+  "failedStep": "Unit and real Python execution tests",
+  "stepNumber": 7,
+  "raw": {
+    "path": "downloads/job-118435731208.stdout.raw",
+    "bytes": 291976,
+    "sha256": "24e34f0ac6e06ba6638d1221e0e16094eb1618d9b64e720e2e7a8461adc5bb4c"
+  },
+  "failedCase": {
+    "number": 330,
+    "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+    "location": "tests/html-site-checks.test.mjs:316:1",
+    "assertion": "tests/html-site-checks.test.mjs:329:10",
+    "actualCheckerExit": 2,
+    "expectedCheckerExit": 0,
+    "checkerStatus": "NOT_RUN",
+    "viewports": [],
+    "reason": "browser did not provide a readable local DevTools endpoint; browser-profile/DevToolsActivePort absent",
+    "browserProcessExit": -9,
+    "ownedSessionCleanup": "PASS; two consecutive empty Linux /proc session scans",
+    "temporaryCleanup": "PASS; one attempt"
+  },
+  "startupDiagnostics": {
+    "instrumented": true,
+    "acceptanceStatus": "NOT_RUN",
+    "scope": "stderr capture only; checker arguments, logic and deadlines are unchanged; no independent acceptance substitute",
+    "realExecutable": "/opt/google/chrome/google-chrome",
+    "captureRoot": "/tmp/html-checks-oDiEay/browser-stderr-u3SZcj",
+    "limitBytes": 65536,
+    "shimSha256": "c62fa18daf92d549e68f0368c0588c5d08e1f96f48a1060ef324a5ce3ced853d",
+    "loggerSha256": "57681c7a9ec349694ea8d6a9a589109ac29ad557163261f767d47adce3f31500",
+    "attempts": [
+      {
+        "name": "attempt-rF3zNH",
+        "metadata": {
+          "instrumented": true,
+          "acceptanceStatus": "NOT_RUN",
+          "pid": 4598,
+          "browserPid": 4596,
+          "sessionId": 4596,
+          "totalBytes": 955,
+          "storedBytes": 955,
+          "limitBytes": 65536,
+          "truncated": false,
+          "complete": false,
+          "reason": "owned-session termination before EOF"
+        },
+        "stderr": {
+          "bytes": 955,
+          "sha256": "6ccf9276f944623522253dc610987ac99728ae12af648cf07cb51db1e29e7f2c",
+          "tail": "[4596:5779:1020/032134.408106:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[4596:5779:1020/032139.039240:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[4596:5779:1020/032139.039265:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[4596:5779:1020/032139.828792:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[4596:5779:1020/032141.040026:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n"
+        }
+      }
+    ],
+    "omittedAttempts": 0,
+    "recoveredRaw": "first-failure-browser-stderr.recovered.raw",
+    "recoveredRawBytes": 955,
+    "recoveredRawSha256": "6ccf9276f944623522253dc610987ac99728ae12af648cf07cb51db1e29e7f2c",
+    "recoveryMatchesFullCapturedStderr": true
+  },
+  "totals": {
+    "tests": 647,
+    "suites": 0,
+    "pass": 645,
+    "fail": 1,
+    "cancelled": 0,
+    "skipped": 1,
+    "todo": 0
+  },
+  "checkoutLines": [
+    {
+      "line": 174,
+      "text": "318db5a5660920f4fcd95f0f96c352d012514815"
+    },
+    {
+      "line": 220,
+      "text": "[command]/usr/bin/git log -1 --format=%H"
+    },
+    {
+      "line": 221,
+      "text": "318db5a5660920f4fcd95f0f96c352d012514815"
+    }
+  ],
+  "causality": "Actual missing DevTools endpoint within existing startup deadline. Five DBus Unknown address type stderr lines are observed; no causal attribution is established. Root cause UNKNOWN. This failure remains despite any other same-source PASS.",
+  "subsequentSteps": "validate, baseline-tools and smoke skipped in this job",
+  "remoteMutations": []
+}
