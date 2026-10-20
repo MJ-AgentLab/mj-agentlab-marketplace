@@ -1,0 +1,116 @@
+{
+  "capturedAt": "2026-10-19T18:12:43.736Z",
+  "file": "batch-6ef5eabd/independent-parser-audit/finalmanifest.json",
+  "sha256": "cafaa16714e3299f7a61bf85e59238c8df58d0e531793ebb3029935bd642aed0",
+  "scope": "Independent dual-platform raw parsing and core-summary agreement; v1 classification correction retained.",
+  "independentSummary": {
+    "schemaVersion": 1,
+    "finalized_at": "2026-10-19T18:12:13.588217+00:00",
+    "status": "PASS",
+    "platforms": {
+      "linux": {
+        "receipt": "linux-receipt.json",
+        "tap": {
+          "tests": 644,
+          "pass": 643,
+          "fail": 0,
+          "skipped": 1
+        },
+        "browser_related_case_numbers": [
+          328,
+          329,
+          330,
+          349
+        ],
+        "actual_layout_case": 330,
+        "all_four_browser_related_cases_not_skipped": true,
+        "smoke_counts": {
+          "scenarios": 13,
+          "commands": 178,
+          "execution_counts": {
+            "diagram": 6,
+            "lek": 18,
+            "siteGeneration": 4,
+            "siteStatic": 4
+          },
+          "cli_versions": [
+            "codex-cli 0.147.0"
+          ],
+          "public_resource_trees": 8,
+          "site_resources": 20
+        },
+        "resource_hash_audit": {
+          "unique_public_resource_files": 52,
+          "cross_scenario_file_occurrences": 266,
+          "differences": [],
+          "scope": "Only current Linux raw runtime source/cache evidence; no physical cross-platform byte claim."
+        },
+        "verification_issues": []
+      },
+      "windows": {
+        "receipt": "windows-receipt.json",
+        "tap": {
+          "tests": 644,
+          "pass": 643,
+          "fail": 0,
+          "skipped": 1
+        },
+        "browser_related_case_numbers": [
+          328,
+          329,
+          330,
+          349
+        ],
+        "actual_layout_case": 330,
+        "all_four_browser_related_cases_not_skipped": true,
+        "smoke_counts": {
+          "scenarios": 13,
+          "commands": 178,
+          "execution_counts": {
+            "diagram": 6,
+            "lek": 18,
+            "siteGeneration": 4,
+            "siteStatic": 4
+          },
+          "cli_versions": [
+            "codex-cli 0.147.0"
+          ],
+          "public_resource_trees": 8,
+          "site_resources": 20
+        },
+        "resource_hash_audit": {
+          "unique_public_resource_files": 52,
+          "cross_scenario_file_occurrences": 266,
+          "differences": [],
+          "scope": "Only current Windows raw runtime source/cache evidence; no physical cross-platform byte claim."
+        },
+        "verification_issues": []
+      }
+    },
+    "classification_v1_finding": "classification-finding.json",
+    "classification_v2_resolution": "linux-parent-v2-classification-check.json",
+    "classification_is_product_fail": false,
+    "raw_inputs": [
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-prebump-pr281-diagnostic-ci\\batch-6ef5eabd\\pr\\linux-job.raw.log",
+        "file": "linux-job.raw.log",
+        "bytes": 969927,
+        "sha256": "9bbac38a7208c0c77bfec06e03893a1e5a05e6f4d2e4a0fc8d6741b68b01eff7"
+      },
+      {
+        "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-prebump-pr281-diagnostic-ci\\batch-6ef5eabd\\pr\\windows-job.raw.log",
+        "file": "windows-job.raw.log",
+        "bytes": 1038566,
+        "sha256": "655916f0d2cf6b207e6f7a6c6656a2a2042c9bda9fdf28bc3275e529246dd956"
+      }
+    ],
+    "no_test_rerun": true,
+    "no_api_calls": true,
+    "no_parent_file_changes": true,
+    "limits": {
+      "installation_browser": "NOT_RUN",
+      "individual_root_absence": "NOT_RECORDED",
+      "consumer_UI_or_effect_acceptance": "not inferred"
+    }
+  }
+}

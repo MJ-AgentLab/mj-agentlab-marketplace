@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-19T17:54:35.420Z",
+  "head": "1d8b6849ec7e398d65a949d204abe38bc64a4e0b",
+  "indexStageListingSha256": "fec2eee4d2973bb9bf2f736497768cc46ab0dca3d4106ba03d5b606f82f863e9",
+  "indexStableDuringCapture": true,
+  "stagedPaths": 251,
+  "stagedTests": [
+    {
+      "path": "tests/browser-stderr.test.mjs",
+      "bytes": 8290,
+      "sha256": "ea3a63b344b9fd54dec7e063d8cf93d6576a48751e369b71a3a5a43c287e1818",
+      "gitBlob": "254bc2e3207c162d9a36c6e857324cedd03336dd"
+    },
+    {
+      "path": "tests/helpers/capture-browser-stderr.mjs",
+      "bytes": 6267,
+      "sha256": "8391f1fbf3d97cc7e92906df02544ffa29fc16b0e7b57f5653e17ec771434f16",
+      "gitBlob": "96fcb586d852f5261cef027d0a2735060d0db4c5"
+    },
+    {
+      "path": "tests/html-site-checks.test.mjs",
+      "bytes": 21583,
+      "sha256": "587f681a1fa2468c845b0a9146022d035eb5b8426a75b75b5075d297d3a2c8fa",
+      "gitBlob": "da0e6092c6cde7ce5aa3d0f5704cd18825b29fcd"
+    }
+  ],
+  "stagedDocs": [
+    "AGENTS.md",
+    "CHANGELOG.md",
+    "docs/INDEX.md",
+    "docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md",
+    "docs/runbook/[RUNBOOK]_Release_Operations.md",
+    "plans/274-html-learning-artifact/INDEX.md",
+    "plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md",
+    "plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md"
+  ],
+  "forbiddenAdditionalRuntimeDiff": null,
+  "unstagedDiff": null,
+  "staticReview": {
+    "blockingFindings": [],
+    "measurementGates": "Original actual-browser good status=0 and induced-bad status=1 plus geometry issue assertions remain; original 45000ms run timeout retained. No automatic retry, new skip on original browser case, or relaxed NOT_RUN result.",
+    "instrumentation": "Linux-only exec shim captures stderr via separately draining bounded tail. Browser arguments and owned PID/session are preserved by exec. Diagnostics reads fail safe; optional version-probe child absent. Non-Linux actual browser path is retained.",
+    "newUnitTests": "Actual Python large-stream bounded-tail counter test plus Linux-only fake-browser arguments/failure/owned-session/foreign-isolation/unchanged-input/checker test. No runtime results claimed by this static review.",
+    "documentation": "Old 1d8 CI failures and Windows passes separated, original cause UNKNOWN retained; evidence-copy loss stated; new head CI/protection/Owner acceptance remain pending; published8.3.2/unpublished8.3.3 boundaries retained."
+  },
+  "limits": [
+    "Read-only source/scope review only. Parent and independent reviewer actual test results are separate evidence.",
+    "Source979/old740 byte closure is independently handled in sibling source-audit.",
+    "No rerun, cancellation, comment, approval, merge, bypass or repository write."
+  ]
+}

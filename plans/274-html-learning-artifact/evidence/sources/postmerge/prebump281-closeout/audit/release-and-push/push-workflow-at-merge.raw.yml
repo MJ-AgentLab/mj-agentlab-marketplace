@@ -1,0 +1,148 @@
+name: Verify Develop Pre-bumped
+
+# Warn-only check that develop has been pre-bumped past main after each release.
+# Per [ADR]_Develop_PreBump_Adoption + [RUNBOOK]_Release_Operations §3.7.
+#
+# The truth table lives in scripts/check-prebump.mjs and is unit-tested
+# (tests/check-prebump.test.mjs). This file only gathers facts and renders the summary —
+# the previous inline `sort -V` comparison was untested and duplicated policy in shell.
+#
+# MODE BY TRIGGER, and why that honours the ADR (see its v1.2 clarification):
+#   push     -> mode=push, always exit 0. A developer pushing to develop must never be
+#               nagged into a red X for a pre-bump that is not yet due.
+#   schedule -> mode=enforce, may exit 1. The ADR's "永不 exit 1 / 永不阻塞" scopes to MERGE
+#   dispatch    blocking; a nightly hygiene sweep failing blocks nothing, and this workflow is
+#               not in any ruleset's required status checks. A warning nobody is looking at
+#               is not a check, which is what the nightly run fixes.
+
+on:
+  push:
+    branches: [develop]
+    paths:
+      - 'VERSION'
+      - 'scripts/check-prebump.mjs'
+      - '.github/workflows/verify-develop-prebumped.yml'
+  schedule:
+    # Nightly sweep: a forgotten pre-bump surfaces on its own rather than waiting for the
+    # next VERSION push, which by definition never comes while it is forgotten.
+    - cron: '17 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  verify:
+    name: Verify develop pre-bumped past main
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Explicit: on a schedule run GITHUB_REF is the default branch, which is not
+          # necessarily develop. This check is about develop by definition.
+          ref: develop
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Fetch main
+        # fetch-depth:0 already brings the branches down, but name the one this check
+        # compares against rather than depending on that side effect.
+        run: git fetch --no-tags --quiet origin main:refs/remotes/origin/main || git fetch --no-tags --quiet origin main
+
+      - name: Gather facts
+        id: facts
+        run: |
+          set -euo pipefail
+
+          DEV=$(tr -d '[:space:]' < VERSION)
+          MAIN=$(git show origin/main:VERSION | tr -d '[:space:]')
+
+          # Age is measured from when main's VERSION last moved — i.e. the release — not from
+          # main's last commit of any kind. A docs fix landing on main must not silently
+          # restart the grace window.
+          MAIN_EPOCH=$(git log -1 --format=%ct origin/main -- VERSION)
+          if [ -z "$MAIN_EPOCH" ]; then
+            echo "::error::could not resolve the last commit touching VERSION on origin/main"
+            exit 1
+          fi
+
+          {
+            echo "develop=$DEV"
+            echo "main=$MAIN"
+            echo "main_epoch=$MAIN_EPOCH"
+            echo "now_epoch=$(date +%s)"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Evaluate pre-bump policy
+        id: check
+        run: |
+          set -uo pipefail
+          RESULT=$(node scripts/check-prebump.mjs \
+            --develop-version "${{ steps.facts.outputs.develop }}" \
+            --main-version "${{ steps.facts.outputs.main }}" \
+            --main-version-epoch "${{ steps.facts.outputs.main_epoch }}" \
+            --now-epoch "${{ steps.facts.outputs.now_epoch }}" \
+            --mode "${{ github.event_name == 'push' && 'push' || 'enforce' }}" \
+            --grace-hours 72)
+          STATUS=$?
+          echo "$RESULT"
+          echo "result=$RESULT" >> "$GITHUB_OUTPUT"
+          exit $STATUS
+
+      - name: Render summary
+        if: always() && steps.check.outputs.result != ''
+        env:
+          RESULT: ${{ steps.check.outputs.result }}
+          DEV: ${{ steps.facts.outputs.develop }}
+          MAIN: ${{ steps.facts.outputs.main }}
+        run: |
+          STATE=$(echo "$RESULT" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>process.stdout.write(JSON.parse(s).state))")
+          REASON=$(echo "$RESULT" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>process.stdout.write(JSON.parse(s).reason))")
+
+          case "$STATE" in
+            prebumped) HEADING='## ✓ OK — develop pre-bumped' ;;
+            grace)     HEADING='## ✓ OK — within the post-release grace window' ;;
+            overdue)   HEADING='## ⚠ WARN — pre-bump overdue' ;;
+            inverted)  HEADING='## ⚠ WARN — inverted state' ;;
+            *)         HEADING="## ? — $STATE" ;;
+          esac
+
+          {
+            echo "# Develop Pre-bump Status"
+            echo ""
+            echo "| Branch | VERSION |"
+            echo "|--------|---------|"
+            echo "| develop | \`$DEV\` |"
+            echo "| main | \`$MAIN\` |"
+            echo ""
+            echo "$HEADING"
+            echo ""
+            echo "$REASON"
+            echo ""
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "$STATE" = "overdue" ]; then
+            {
+              echo "**Action** — on develop:"
+              echo ""
+              echo '```powershell'
+              echo "pwsh ./scripts/bump-version.ps1 -From $DEV -To <next-patch>"
+              echo "git commit -m 'infra(release): pre-bump develop $DEV -> <next-patch> (post-v$MAIN)'"
+              echo "git push origin develop"
+              echo '```'
+              echo ""
+              echo "See [RUNBOOK §3.7](../blob/develop/docs/runbook/%5BRUNBOOK%5D_Release_Operations.md) + [ADR](../blob/develop/docs/adr/%5BADR%5D_Develop_PreBump_Adoption.md)."
+            } >> "$GITHUB_STEP_SUMMARY"
+          elif [ "$STATE" = "inverted" ]; then
+            {
+              echo "develop's VERSION is **behind** main's. Possible causes:"
+              echo ""
+              echo "- main took a hotfix that was never synced back to develop"
+              echo "- develop was reset below the last release"
+              echo "- VERSION was hand-edited"
+              echo ""
+              echo "Investigate before the next release."
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi

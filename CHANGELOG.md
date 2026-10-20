@@ -7,7 +7,7 @@
 
 ### Documentation
 
-- Preserve PR281 startup failures and add bounded Linux test-only browser stderr evidence without changing the shipped checker, measurement gates, plugin versions or published history. Refs #274.
+- Record merged PR281/develop62945150 and the unpublished Marketplace-only 8.3.3 preparation. Distinguish final candidate CI from actual-merge local checks and fresh thirteen-install evidence (PASS, with fifteen owned roots removed); retain startup failures, actual bypass/approval NOT_MET and Owner/deferred limits. Preserve plugin/runtime versions, public v8.3.2 and published history. Refs #274.
 
 - Record actual synchronization PR280/develop4d10, separately preserve the original queued observations and later terminal/API chronology limits, and bind fresh actual-sync verification before preparing the unreleased marketplace-only 8.3.3 patch. Preserve plugin/runtime versions, public v8.3.2 identity, original failures, protected approval NOT_MET and Owner/deferred boundaries. Refs #274.
 

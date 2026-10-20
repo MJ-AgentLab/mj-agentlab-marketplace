@@ -1,0 +1,36 @@
+{
+  "captured_at": "2026-10-19T18:07:02.035628+00:00",
+  "command": [
+    "git",
+    "grep",
+    "-n",
+    "-F",
+    "-e",
+    "CLI exits 0 for overdue under push, and says so on stderr",
+    "-e",
+    "runCli captures stderr",
+    "1d8b6849ec7e398d65a949d204abe38bc64a4e0b",
+    "--",
+    "tests"
+  ],
+  "read_only": true,
+  "old_head": "1d8b6849ec7e398d65a949d204abe38bc64a4e0b",
+  "old_source_locations": [
+    {
+      "path": "tests/check-prebump.test.mjs",
+      "line": 214,
+      "name": "CLI exits 0 for overdue under push, and says so on stderr",
+      "current_tap_case": 147
+    },
+    {
+      "path": "tests/run-cli.test.mjs",
+      "line": 20,
+      "name": "runCli captures stderr",
+      "current_tap_case": 528
+    }
+  ],
+  "original_summary_snapshot": "linux-summary-at-audit.json",
+  "finding": "newDiagnosticTestCases in parent summary v1 includes two existing stderr test names; field overbroad, not new product failure",
+  "parent_resolution": "Parent accepted naming correction, will preserve v1 summary/parser and use diagnosticRelatedTestCases for all related tests, newDiagnosticTestCases only two new names. Raw unchanged.",
+  "raw_location_output_sha256": "cf892ac1fab7857eaf6095fb2df8885b9b12f43c5e0c9526ea980bedecdddd49"
+}

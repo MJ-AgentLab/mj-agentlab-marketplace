@@ -1,0 +1,51 @@
+{
+  "captured_at": "2026-10-19T18:12:13.585223+00:00",
+  "original_v1_snapshot": "linux-summary-at-audit.json",
+  "corrected_v2_snapshot": "linux-summary-v2-at-freeze.json",
+  "v2_bytes": 11556,
+  "v2_sha256": "1ea16da2b46c4b97eac1e47075b4668c72fae663c49ef0ccaba9c56e58914cdd",
+  "changed_fields": [],
+  "only_expected_classification_and_parse_time_changed": true,
+  "v2_new_diagnostic_cases": [
+    {
+      "status": "ok",
+      "number": 31,
+      "name": "actual Python drains a large stderr stream into a bounded exact tail and byte counters",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 32,
+      "name": "Linux exec capture preserves original checker args, failure, owned-session cleanup and foreign isolation",
+      "skipped": false
+    }
+  ],
+  "v2_related_diagnostic_cases": [
+    {
+      "status": "ok",
+      "number": 31,
+      "name": "actual Python drains a large stderr stream into a bounded exact tail and byte counters",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 32,
+      "name": "Linux exec capture preserves original checker args, failure, owned-session cleanup and foreign isolation",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 147,
+      "name": "CLI exits 0 for overdue under push, and says so on stderr",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 528,
+      "name": "runCli captures stderr",
+      "skipped": false
+    }
+  ],
+  "new_case_numbers_exact": true,
+  "related_case_numbers_exact": true
+}

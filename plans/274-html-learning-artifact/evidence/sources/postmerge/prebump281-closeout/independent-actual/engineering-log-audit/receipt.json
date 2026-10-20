@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "verified_at": "2026-10-20T00:09:23.644307+00:00",
+  "status": "PASS",
+  "status_scope": "Independent content audit of three closed engineering log byte snapshots, not new test execution.",
+  "actual_merge_association": {
+    "sha": "62945150df984e2747684d1ea46b8772b56db2d9",
+    "provenance": "Root supplied exact actual629 host/run association through trusted parent task; raw logs do not themselves embed candidate SHA.",
+    "sha_literal_in_fulltest_log": false
+  },
+  "process_exit_codes": {
+    "fulltest": 0,
+    "validate": 0,
+    "baseline": 0,
+    "provenance": "Root explicitly confirmed each completed with exit0 through parent task; these are external process observations, not manufactured raw log markers."
+  },
+  "sources": [
+    {
+      "kind": "fulltest",
+      "source": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-prebump281-actual-full-test.log",
+      "snapshot": "fulltest.raw.log",
+      "captured_at": "2026-10-20T00:08:30.576501+00:00",
+      "bytes": 149080,
+      "sha256": "4776e06b82c62a8b7389edd8b507c982d204c7e85df7cb4a333489d50cbb7d89",
+      "stable_during_capture": true,
+      "exit_code": 0,
+      "exit_code_provenance": "Root reported all three closed/exit0 through trusted parent; no inference that raw embeds process exit code."
+    },
+    {
+      "kind": "validate",
+      "source": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-prebump281-actual-validate.log",
+      "snapshot": "validate.raw.log",
+      "captured_at": "2026-10-20T00:08:30.576501+00:00",
+      "bytes": 420,
+      "sha256": "2f7833ff457ebf70648e4b2322858c5052f238c8dcbcdf352a748917393b6b76",
+      "stable_during_capture": true,
+      "exit_code": 0,
+      "exit_code_provenance": "Root reported all three closed/exit0 through trusted parent; no inference that raw embeds process exit code."
+    },
+    {
+      "kind": "baseline",
+      "source": "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-prebump281-actual-baseline.log",
+      "snapshot": "baseline.raw.log",
+      "captured_at": "2026-10-20T00:08:30.577491+00:00",
+      "bytes": 165,
+      "sha256": "68ad909418d8afbe4cffa1f080ea0ab54359beecfa396b562e10c2ff0ad79704",
+      "stable_during_capture": true,
+      "exit_code": 0,
+      "exit_code_provenance": "Root reported all three closed/exit0 through trusted parent; no inference that raw embeds process exit code."
+    }
+  ],
+  "tap": {
+    "independent_record_counts": {
+      "tests": 644,
+      "pass": 643,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 1
+    },
+    "trailer": {
+      "tests": 644,
+      "suites": 0,
+      "pass": 643,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 1,
+      "todo": 0
+    },
+    "plan": [
+      644
+    ],
+    "all_case_file": "tap-cases.json",
+    "skips": [
+      {
+        "line": 193,
+        "number": 32,
+        "status": "ok",
+        "name": "Linux exec capture preserves original checker args, failure, owned-session cleanup and foreign isolation # SKIP",
+        "skip": true
+      }
+    ],
+    "browser_related_cases": [
+      {
+        "line": 1969,
+        "number": 328,
+        "status": "ok",
+        "name": "browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record",
+        "skip": false
+      },
+      {
+        "line": 1975,
+        "number": 329,
+        "status": "ok",
+        "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+        "skip": false
+      },
+      {
+        "line": 1981,
+        "number": 330,
+        "status": "ok",
+        "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+        "skip": false
+      },
+      {
+        "line": 2095,
+        "number": 349,
+        "status": "ok",
+        "name": "literal percent, Chinese and spaces in local filenames round-trip through browser URLs",
+        "skip": false
+      }
+    ],
+    "new_diagnostic_cases": [
+      {
+        "line": 187,
+        "number": 31,
+        "status": "ok",
+        "name": "actual Python drains a large stderr stream into a bounded exact tail and byte counters",
+        "skip": false
+      },
+      {
+        "line": 193,
+        "number": 32,
+        "status": "ok",
+        "name": "Linux exec capture preserves original checker args, failure, owned-session cleanup and foreign isolation # SKIP",
+        "skip": true
+      }
+    ],
+    "actual_layout_case": 330,
+    "browser_scope": "Four browser-related engineering cases; includes unavailable/cleanup; not four consumer UI/layout acceptance sessions."
+  },
+  "strict": {
+    "ok": true,
+    "errors": [],
+    "repositorySkills": 20,
+    "publicSkills": [
+      "diagram-kit:arch-diagram",
+      "learning-evidence-kit:pop-quiz",
+      "learning-evidence-kit:learning-record-check",
+      "explain-kit:glossary",
+      "explain-kit:concept",
+      "communication-kit:communicate",
+      "html-guide-kit:guide",
+      "html-guide-kit:site"
+    ]
+  },
+  "baseline": {
+    "actual_version_lines": [
+      {
+        "line": 5,
+        "text": "OK   codex   == 0.147.0   actual=0.147.0  (exact-match)"
+      }
+    ],
+    "pin_failures": 0
+  },
+  "checks": [
+    {
+      "claim": "exact 644 TAP ids",
+      "pass": true
+    },
+    {
+      "claim": "count/summary 644 643P 0F 0cancel 1skip",
+      "pass": true
+    },
+    {
+      "claim": "one 644 plan",
+      "pass": true
+    },
+    {
+      "claim": "no not-ok records",
+      "pass": true
+    },
+    {
+      "claim": "one new Linux-only mechanism skip",
+      "pass": true
+    },
+    {
+      "claim": "all four related browser engineering cases non-skip PASS",
+      "pass": true
+    },
+    {
+      "claim": "two exact new diagnostics",
+      "pass": true
+    },
+    {
+      "claim": "strict full JSON passes",
+      "pass": true
+    },
+    {
+      "claim": "actual CLI exact0.147 in log",
+      "pass": true
+    },
+    {
+      "claim": "source remains closed/stable fulltest",
+      "pass": true
+    },
+    {
+      "claim": "source remains closed/stable validate",
+      "pass": true
+    },
+    {
+      "claim": "source remains closed/stable baseline",
+      "pass": true
+    }
+  ],
+  "verification_issues": [],
+  "limits": {
+    "fresh_canonical13_status": "NOT_EVALUATED; running canonical result/perf not read",
+    "prior_CI_counts_borrowed": false,
+    "process_exit0_embedded_claim": false,
+    "model_desktop_Sites_approval_acceptance": "NOT_EVALUATED"
+  }
+}

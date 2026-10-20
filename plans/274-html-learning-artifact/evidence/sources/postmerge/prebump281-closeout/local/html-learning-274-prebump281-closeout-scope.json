@@ -1,0 +1,226 @@
+{
+  "status": "FINAL_READ_ONLY_SCOPE_RECOMMENDATION",
+  "writtenAtUtc": "2026-10-20T00:06:57.494Z",
+  "actor": "/root/spec_review",
+  "task": 274,
+  "method": {
+    "mode": "只读仓库/既有证据；仅输出TEMP；无网络发布、无源码改动、无测试启动",
+    "inputs": [
+      "mp-flow-post-merge/SKILL.md",
+      "唯一PLAN/REPORT/INDEX",
+      "Release Operations/P5",
+      "Documentation Framework",
+      "两个工作区Git状态",
+      "既有committed source-bindings及稳定external handoff"
+    ],
+    "noClaim": "本审查不证明actual629的新13或完整测试终态；parent正在运行，只有其真实终态可入当前结论。"
+  },
+  "finalObservedState": {
+    "isolatedRepo": "C:/Users/Admin/.codex/worktrees/html-learning-artifact/develop",
+    "primaryRepo": "D:/workspace/10-software-project/projects/mj-agentlab-marketplace/develop",
+    "isolatedHead": "62945150df984e2747684d1ea46b8772b56db2d9",
+    "primaryHead": "62945150df984e2747684d1ea46b8772b56db2d9",
+    "actualTree": "6659fadd62bc03aa3ab4eee61e63804fc25b914b",
+    "sourceHead": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+    "sourceAndActualTreesEqual": true,
+    "parents": [
+      "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+      "6ef5eabd52934144daf7b60ddb4011686c0657c4"
+    ],
+    "mainHead": "e3dc40f734fc972e05956da3e908091e09963675",
+    "publishedTagAndRelease": "v8.3.2 / f906b1001a86d7b5415451bd973bea26e6cc3a1d",
+    "developVersion": "8.3.3，预升、未发布",
+    "isolatedTrackedStatus": "clean",
+    "primaryTrackedStatus": "clean",
+    "primaryUntrackedOwnerFileToPreserve": "HTML-Learning-Artifact-Plugin-Implementation-Plan.md",
+    "sourceCaveat": "Git ref曾在只读审查期间由parent续办推进；此处为最后回读，不把早期工作区head快照改写成629。"
+  },
+  "evidenceIntegrity": {
+    "committedSources": 979,
+    "committedSourceHashesChecked": 979,
+    "committedSourceHashMismatches": [],
+    "previous1d8Bindings": 740,
+    "previous740RecordPrefixUnchanged": true,
+    "externalRoot": "C:/Users/Admin/.codex/worktrees/html-learning-artifact/prebump281-handoff",
+    "externalManifestSha256": "e1cf0908a6298be406c4a4e80b3ba041518291261e352263867cd2fa475d0569",
+    "externalFilesChecked": 302,
+    "externalHashOrSizeMismatches": [],
+    "externalGroups": {
+      "ciPayloadInFinalManifest": 221,
+      "ciDirectoryIncludingFinalManifest": 222,
+      "root": 79,
+      "metadata": 1
+    },
+    "externalCiManifestSha256": "2e371d20b67188fc32dd978a363bd5f299401214226bc7c2a71b8aad6c56ed7e",
+    "rule": "committed979、原740与external302身份各保留；若将CI冻结到任务来源，整ci树为222，不写成221。不要改旧manifest/count来伪装当时已包含后继数据。"
+  },
+  "conclusion": {
+    "newDocumentationPrStrictlyRequiredByContractAfterEveryMerge": false,
+    "recommendedNow": "接受parent选择：最多一个有界当前状态文档修正PR，基于actual629，目标受保护develop。",
+    "reason": "当前开头/覆盖表仍把1d8原PR失败和预升PR尚待合入作为现状；已实际629的事实值得同步。P5/文档框架要求真实复验、唯一REPORT与Issue承接，没有要求每次证据追加都再造一个文档PR。REPORT31/51及外部metadata已明示后继CI/批准/merge由同Issue继续记录。",
+    "severity": "文档维护缺陷，阻止宣称本轮当前账本已闭环；不是已证runtime缺陷，也不使原1d8 Chrome未知根因变成已修。",
+    "stopRule": "本次有界文档PR真实合入后，其merge身份、文档范围/来源闭包复核只回Issue274及不可变外部回执。无新的实质差异不再新增纯证据PR。"
+  },
+  "boundedEditScope": {
+    "allowed": [
+      "plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md：新增/替换当前结论，原1d8诊断及旧快照显式历史化",
+      "plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md：仅当前进度/六项覆盖状态/变化记录",
+      "plans/274-html-learning-artifact/INDEX.md：薄入口与当前head/REPORT导航",
+      "docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md：当前维护终态/真实身份/保护结果",
+      "docs/runbook/[RUNBOOK]_Release_Operations.md：当前阶段和post-release维护终态",
+      "根AGENTS.md/A6、docs/INDEX.md：必要摘要和入口同步",
+      "CHANGELOG.md的Unreleased：只记有界维护事实；不改已发表8.3.2段",
+      "任务evidence/sources：实际候选CI闭包及actual629必要原件；对应source-bindings追加、保旧记录"
+    ],
+    "excluded": [
+      "INTENT/产品SPEC/ADR合同修改、新Epic或新验收机制",
+      "VERSION/README版本badge、插件manifest/运行/guide/workflow变更",
+      "新8.3.3 tag/Release，或将未发布develop833合入main以记录文档",
+      "重启模型、桌面、Sites或扩大公开受众",
+      "因文档收尾追认任何历史批准、接受或效果"
+    ],
+    "minimumFrozenInputs": [
+      "最终source6ef候选CI221个payload及final-manifest（整个ci树222文件），或其可恢复且自洽的明确较小引用闭包；复制须保持原字节和来源映射",
+      "actual629 merge/目标分支/API、parents/tree/与6ef同树/祖先；真实rulesuite/reviews/threads/mergeactor",
+      "actual629新13/178、Python/site/清理及完整测试的真实终态、日志/方法/manifest；已在跑就等待，不再另造同范围测试",
+      "公开v8.3.2/f906、预升8.3.3但无发行的当次读回；原有发布审计可按未变范围复用",
+      "本次strict/source闭包与变更范围复核回执"
+    ],
+    "preserveExternal": "不为凑数复制external root79+metadata1；必要时按实际引用闭包选取。external302整体manifest及旧来源不修改，保留稳定外部位置供Issue引用。"
+  },
+  "minimumCurrentStateCorrections": [
+    {
+      "id": "C01",
+      "planLine": 49,
+      "reportLine": 122,
+      "correction": "补281→develop actual629，核心技术交付/维护预升已合入；整体仍PARTIAL，A4历史保护批准NOT_MET、非核心延期、Owner最终接受未完成。",
+      "doNot": "不把预升维护合入当完整原计划/Owner接受。"
+    },
+    {
+      "id": "C22",
+      "planLine": 70,
+      "reportLine": 143,
+      "correction": "删除当前态‘预升保护PR另待’，改281已实际合入、develop准备8.3.3未发布；公开仍8.3.2/f906。原DryRun/Apply和280历史不改。",
+      "doNot": "不写8.3.3已发布，不重做bump。"
+    },
+    {
+      "id": "C23",
+      "planLine": 71,
+      "reportLine": 144,
+      "correction": "分列6ef最终真实CI、629实际merge与新验；新验仅按真实终态填写。实际281保护结果据新audit，不从merge或同树推断批准；历史275/278/279/280 NOT_MET原样。",
+      "doNot": "不把新CI绿色改写为原1d8通过，不宣称四门槛全P。"
+    },
+    {
+      "id": "C25",
+      "planLine": 73,
+      "reportLine": 146,
+      "correction": "记录公开832/f906、记录main e3dc、预升develop629/833三身份；将‘预升实际PR合入待证’改actual281；新验终态/来源按批，Owner体检/最终接受与延期仍未给。",
+      "doNot": "不删除原版本/部署/限制、NOT_MEASURED。"
+    },
+    {
+      "id": "P05",
+      "planLine": 78,
+      "reportLine": 151,
+      "correction": "补source6ef/tree6659、actual629同树、最终CI及actual新验；committed979/旧740/externalCI/新增实际证据分别标识。修后诊断检查通过只证明有界stderr机制，原Chrome根因仍UNKNOWN。",
+      "doNot": "不以新CI消除原FAIL、前版本probe阻断或早次运行点边界。"
+    },
+    {
+      "id": "P07",
+      "planLine": 80,
+      "reportLine": 153,
+      "correction": "补281预升→develop实际合入；最多一个同Issue有界收尾文档PR→develop，正常当前head批准/CI/线程/latestbase。其合入后只在Issue+外部回执记录范围复核。",
+      "doNot": "不重启三PR发布循环，不因缺历史批准而让Agent bypass，不新增纯证据递归PR。"
+    }
+  ],
+  "currentTextNeedingHistoricalBoundary": [
+    {
+      "file": "plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md",
+      "lines": [
+        21,
+        31,
+        51
+      ],
+      "action": "在当前节补实际281/新候选CI/真实新验；原1d8失败、诊断、当时待门禁保留为明确旧快照。"
+    },
+    {
+      "file": "plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md",
+      "lines": [
+        112,
+        120
+      ],
+      "action": "将原1d8/PR准备当前段降为历史，在既有当前锚承接实际629；不改P5原要求。"
+    },
+    {
+      "file": "docs/runbook/[RUNBOOK]_Release_Operations.md",
+      "lines": [
+        17,
+        19,
+        57
+      ],
+      "action": "纠正‘尚未实际合入/预升PR未创建/后继headCI待证’现状；旧段保当时语义。"
+    }
+  ],
+  "remainingAuthorizedSteps": [
+    "接收正在运行的actual629新13和完整测试真实终态；若失败，仅处理实际失败，不继承candidate PASS。",
+    "回读实际281保护/merge及公开版本状态，保留真实治理缺口；整理上述必要来源。",
+    "一次有界文档修正、strict/来源闭包/A6及适用范围检查；当前保护PR正常批准/CI/线程/latestbase满足后才合入，Agent不bypass。",
+    "文档PR合入只做actual身份、diff范围/资源不变和文档/source闭包复核；Issue274+不可变外部最终回执记录，不以纯记录产生新PR。",
+    "确认保留证据和Owner文件后才清理自有clean且已合入工作树/分支；external handoff与主develop不误删；Owner/延期仍由同Issue单独追踪。"
+  ],
+  "governanceAndAcceptanceBoundary": {
+    "historicApproval": "既有NOT_MET/bypass/reviews[]全部按原批保留；新PR即便正常批准也不追认旧结果。",
+    "actual281": "只按actual629新rulesuite/reviews/audit记录，不由merge、同树或premerge候选推断。",
+    "ownerAcceptance": "NOT_PROVIDED，工程维护闭环不等于Owner最终接受。",
+    "effects": "NOT_MEASURED",
+    "deferred": "原生严格待答/第二客户端/桌面等原延期与未覆盖身份独立，不重启。",
+    "issue274": "可标本轮授权工程维护完成；保留整体PARTIAL和Owner/延期未决，不以纯文档收尾自动关闭。"
+  },
+  "pendingAtReportTime": [
+    "actual629新13终态",
+    "actual629完整测试终态",
+    "actual281实际保护audit终态",
+    "有界文档PR自身当前保护门禁与实际merge"
+  ],
+  "references": [
+    {
+      "file": "plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md",
+      "line": 90,
+      "purpose": "P5实际merge复验、保护批准、Owner独立及同Issue"
+    },
+    {
+      "file": "plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md",
+      "line": 31,
+      "purpose": "后继CI/批准由Issue274/PR281续记"
+    },
+    {
+      "file": "plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md",
+      "line": 51,
+      "purpose": "后继最终门禁/actualmerge同Issue承接"
+    },
+    {
+      "file": "docs/rule/[STANDARD]_Documentation_Framework.md",
+      "line": 46,
+      "purpose": "任务INDEX薄入口/Issue当前事实/完成不移动删除"
+    },
+    {
+      "file": "docs/rule/[STANDARD]_Documentation_Framework.md",
+      "line": 54,
+      "purpose": "同一主PLAN/REPORT追加"
+    },
+    {
+      "file": "docs/rule/[STANDARD]_Documentation_Framework.md",
+      "line": 58,
+      "purpose": "真实方法/恢复来源/负面保留"
+    },
+    {
+      "file": "docs/rule/[STANDARD]_Documentation_Framework.md",
+      "line": 62,
+      "purpose": "formal source snapshots位于任务evidence/sources"
+    },
+    {
+      "file": "docs/runbook/[RUNBOOK]_Release_Operations.md",
+      "line": 43,
+      "purpose": "VERSION合入main可触发发布，收尾不能误发833"
+    }
+  ]
+}

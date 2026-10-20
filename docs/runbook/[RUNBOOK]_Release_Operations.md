@@ -6,13 +6,19 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-20
 state: active
-version: v2.10.4
+version: v2.10.5
 layer: canonical
 ---
 
 # [RUNBOOK] Release operations
 
 ## Preparation
+
+当前发布后技术链：#281于2026-10-20T00:00:09Z实际合入develop62945150/tree6659，同已测6ef/c41；市场8.3.3预升已交付但仍未发布，公开v8.3.2/f906及插件保持。候选CI、actual629新验与真实bypass/批准NOT_MET分别绑定；当前结果和原始证据见[唯一REPORT](../../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#current-sync-merge-and-marketplace-prebump)。
+
+本轮沿用原P5五边界授权，由Agent作工程排程，最多准备一份有界文档修正，不新增Owner决定。该记录自身实际合入后的审计/范围复验只回Issue274并保存外部不可变回执；没有新的实质差异时不递归创建纯证据PR。
+
+以下为281合入前历史快照，旧FAIL及根因UNKNOWN保持原轮；当前以上述REPORT与Issue274为准。
 
 当前后继CI（本地2026-10-20）：[预升PR281](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/281)已创建，原head1d8b6849/treeeefcaa与潜在merge4e495同树；尚未实际合入。原PR Linux640P/1F/1平台skip，真实Chrome未取得可读DevTools端点、NOT_RUN/exit2，smoke未执行；原Windows642/642及新13/178/6/18/4/4实际通过。原push两端各有启动FAIL，一次有界复验Linux仍FAIL，根因UNKNOWN，不能用本地/Windows通过覆盖。诊断前124原件及捕获中间文本副本已覆盖的限制由唯一REPORT冻结；当前仅补测试层Linux有界stderr，不改checker/flags/15秒判据/非零NOT_RUN、插件或workflow，不把诊断当修复或通过。新诊断检查/后继headCI和真实批准/线程/latestbase各待真实证据，Agent不bypass；8.3.3仍未发布、公开8.3.2保持，Owner接受/延期独立。
 
@@ -53,6 +59,10 @@ scripts/run-release.mjs 从指定 SHA 读取 VERSION 与 CHANGELOG，要求 SHA 
 创建空 draft → 有界等待可见 → 验证 canonical Git tree 的安装/发现 → 紧邻 publish 再取远端身份/状态 → publish → 复查 published/immutability。新发布无附加资产；unexpected assets fail closed，既有公开资产不会上传、覆盖或删除。已发布版本只能验证并 noop；故障通过新修复版本处理。
 
 ## Post-release
+
+当前阶段（本地2026-10-20）：#279记录、#280完整main同步及#281未发布市场8.3.3预升均已实际合入；actual629本机644总/643PASS/1Linux机制不适用、strict/CLI已通过，新13/实际Python/15精确根清理通过，与候选CI/旧批次分记。公开安装仍v8.3.2/f906，插件保持；实际bypass/批准NOT_MET及Owner/延期边界不变。本轮沿用原P5五边界授权，由Agent作工程排程，最多准备一份有界文档修正，不新增Owner决定或机械三PR条件。该记录自身实际合入后的审计/复验只回Issue274并保存外部不可变回执；没有新的实质差异时不递归创建纯证据PR。详见[#274唯一REPORT](../../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#current-sync-merge-and-marketplace-prebump)。
+
+以下为PR281合入前的发布后准备快照，不重启其中已由实际合入取代的待办。
 
 当前阶段（本地2026-10-20）：记录PR279及同步PR280均已实际合入，actualdevelop4d10的新十三安装/缓存Python与15精确根清理已取得独立限定PASS。其后先DryRun再Apply已将市场预升为未发布8.3.3，版本工具只改VERSION/README badge，正常根AGENTS/A6及阶段文档另行同步；插件不变、无v8.3.3发行，公开tag仍v8.3.2/f906。预升PR尚未创建，本地642/642及独立8.3.3新安装已通过；受保护develop4d10当前head真实批准、Structure+A6、线程/latestbase与实际合入继续待证，Agent不bypass。旧治理缺口、queued/UNKNOWN与9项时间字段限制不因后续success追认；当前证据继续由[#274唯一REPORT新节](../../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#current-sync-merge-and-marketplace-prebump)接续。
 

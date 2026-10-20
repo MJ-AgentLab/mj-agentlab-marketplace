@@ -1,0 +1,517 @@
+{
+  "schema": 1,
+  "finalizedAt": "2026-10-19T18:12:43.776Z",
+  "ciEvidenceStatus": "PASS",
+  "head": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+  "base": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+  "potentialMerge": "c41dee3c7a14da2c1a94e84643c736d578d9c9fa",
+  "tree": "6659fadd62bc03aa3ab4eee61e63804fc25b914b",
+  "potentialMergeIsNotActualMerge": true,
+  "bodySha256": "fab4435d310a26a804a9af2339b924da35ce51eb50a955b5c5c9b62dc9a65d97",
+  "run": {
+    "id": 39298251581,
+    "attempt": 1,
+    "event": "pull_request",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "platforms": {
+    "linux": {
+      "jobId": 118216308604,
+      "conclusion": "success",
+      "verifiedStatus": "PASS",
+      "raw": {
+        "file": "linux-job.raw.log",
+        "bytes": 969927,
+        "sha256": "9bbac38a7208c0c77bfec06e03893a1e5a05e6f4d2e4a0fc8d6741b68b01eff7"
+      },
+      "tap": {
+        "tests": 644,
+        "suites": 0,
+        "pass": 643,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 1,
+        "todo": 0
+      },
+      "skippedCases": [
+        {
+          "status": "ok",
+          "number": 563,
+          "name": "Windows equivalent file casing still passes containment # SKIP",
+          "skipped": true
+        }
+      ],
+      "browserEngineeringCases": [
+        {
+          "status": "ok",
+          "number": 328,
+          "name": "browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record",
+          "skipped": false
+        },
+        {
+          "status": "ok",
+          "number": 329,
+          "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+          "skipped": false
+        },
+        {
+          "status": "ok",
+          "number": 330,
+          "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+          "skipped": false
+        },
+        {
+          "status": "ok",
+          "number": 349,
+          "name": "literal percent, Chinese and spaces in local filenames round-trip through browser URLs",
+          "skipped": false
+        }
+      ],
+      "actualLayoutCase": {
+        "status": "ok",
+        "number": 330,
+        "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+        "skipped": false
+      },
+      "smoke": {
+        "status": "PASS",
+        "scenarios": 13,
+        "allScenariosOk": true,
+        "commands": 178,
+        "nonzeroCommands": [],
+        "executionCounts": {
+          "diagram": 6,
+          "lek": 18,
+          "siteGeneration": 4,
+          "siteStatic": 4
+        },
+        "cliVersions": [
+          "codex-cli 0.147.0"
+        ],
+        "publicResourceTrees": 8,
+        "siteResources": 20,
+        "resourceHashCrossScenarioDifferences": [],
+        "sourceToCacheIdentity": "Completed Harness checks actual platform checkout versus its own installed cache; no cross-platform physical byte equality assertion.",
+        "inventory": {
+          "outside": {
+            "publicSkills": 3,
+            "repositorySkills": 0
+          },
+          "repository": {
+            "publicSkills": 3,
+            "repositorySkills": 20
+          },
+          "nativeOutside": {
+            "publicSkills": 8,
+            "repositorySkills": 0
+          },
+          "nativeRepository": {
+            "publicSkills": 8,
+            "repositorySkills": 20
+          },
+          "explicitOnly": [
+            "learning-evidence-kit:pop-quiz",
+            "learning-evidence-kit:learning-record-check",
+            "communication-kit:communicate",
+            "html-guide-kit:guide",
+            "html-guide-kit:site"
+          ]
+        },
+        "siteStaticSummaries": [
+          {
+            "checks": 89,
+            "failed": 0,
+            "pages": 1,
+            "files": 6
+          },
+          {
+            "checks": 89,
+            "failed": 0,
+            "pages": 1,
+            "files": 6
+          },
+          {
+            "checks": 89,
+            "failed": 0,
+            "pages": 1,
+            "files": 6
+          },
+          {
+            "checks": 89,
+            "failed": 0,
+            "pages": 1,
+            "files": 6
+          }
+        ],
+        "siteBrowserChecks": [
+          "NOT_RUN in installation smoke; separate representative browser acceptance required",
+          "NOT_RUN in installation smoke; separate representative browser acceptance required",
+          "NOT_RUN in installation smoke; separate representative browser acceptance required",
+          "NOT_RUN in installation smoke; separate representative browser acceptance required"
+        ],
+        "cleanupReturn": {
+          "defaultKeepRoot": false,
+          "successfulReturnAfterCleanup": true,
+          "individualRootAbsence": "NOT_RECORDED"
+        }
+      },
+      "verificationIssues": []
+    },
+    "windows": {
+      "jobId": 118216308644,
+      "conclusion": "success",
+      "verifiedStatus": "PASS",
+      "raw": {
+        "file": "windows-job.raw.log",
+        "bytes": 1038566,
+        "sha256": "655916f0d2cf6b207e6f7a6c6656a2a2042c9bda9fdf28bc3275e529246dd956"
+      },
+      "tap": {
+        "tests": 644,
+        "suites": 0,
+        "pass": 643,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 1,
+        "todo": 0
+      },
+      "skippedCases": [
+        {
+          "status": "ok",
+          "number": 32,
+          "name": "Linux exec capture preserves original checker args, failure, owned-session cleanup and foreign isolation # SKIP",
+          "skipped": true
+        }
+      ],
+      "browserEngineeringCases": [
+        {
+          "status": "ok",
+          "number": 328,
+          "name": "browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record",
+          "skipped": false
+        },
+        {
+          "status": "ok",
+          "number": 329,
+          "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+          "skipped": false
+        },
+        {
+          "status": "ok",
+          "number": 330,
+          "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+          "skipped": false
+        },
+        {
+          "status": "ok",
+          "number": 349,
+          "name": "literal percent, Chinese and spaces in local filenames round-trip through browser URLs",
+          "skipped": false
+        }
+      ],
+      "actualLayoutCase": {
+        "status": "ok",
+        "number": 330,
+        "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+        "skipped": false
+      },
+      "smoke": {
+        "status": "PASS",
+        "scenarios": 13,
+        "allScenariosOk": true,
+        "commands": 178,
+        "nonzeroCommands": [],
+        "executionCounts": {
+          "diagram": 6,
+          "lek": 18,
+          "siteGeneration": 4,
+          "siteStatic": 4
+        },
+        "cliVersions": [
+          "codex-cli 0.147.0"
+        ],
+        "publicResourceTrees": 8,
+        "siteResources": 20,
+        "resourceHashCrossScenarioDifferences": [],
+        "sourceToCacheIdentity": "Completed Harness checks actual platform checkout versus its own installed cache; no cross-platform physical byte equality assertion.",
+        "inventory": {
+          "outside": {
+            "publicSkills": 3,
+            "repositorySkills": 0
+          },
+          "repository": {
+            "publicSkills": 3,
+            "repositorySkills": 20
+          },
+          "nativeOutside": {
+            "publicSkills": 8,
+            "repositorySkills": 0
+          },
+          "nativeRepository": {
+            "publicSkills": 8,
+            "repositorySkills": 20
+          },
+          "explicitOnly": [
+            "learning-evidence-kit:pop-quiz",
+            "learning-evidence-kit:learning-record-check",
+            "communication-kit:communicate",
+            "html-guide-kit:guide",
+            "html-guide-kit:site"
+          ]
+        },
+        "siteStaticSummaries": [
+          {
+            "checks": 89,
+            "failed": 0,
+            "pages": 1,
+            "files": 6
+          },
+          {
+            "checks": 89,
+            "failed": 0,
+            "pages": 1,
+            "files": 6
+          },
+          {
+            "checks": 89,
+            "failed": 0,
+            "pages": 1,
+            "files": 6
+          },
+          {
+            "checks": 89,
+            "failed": 0,
+            "pages": 1,
+            "files": 6
+          }
+        ],
+        "siteBrowserChecks": [
+          "NOT_RUN in installation smoke; separate representative browser acceptance required",
+          "NOT_RUN in installation smoke; separate representative browser acceptance required",
+          "NOT_RUN in installation smoke; separate representative browser acceptance required",
+          "NOT_RUN in installation smoke; separate representative browser acceptance required"
+        ],
+        "cleanupReturn": {
+          "defaultKeepRoot": false,
+          "successfulReturnAfterCleanup": true,
+          "individualRootAbsence": "NOT_RECORDED"
+        }
+      },
+      "verificationIssues": []
+    }
+  },
+  "structureJob": [
+    {
+      "id": 118216307741,
+      "conclusion": "success"
+    }
+  ],
+  "push": {
+    "id": 39298245127,
+    "status": "completed",
+    "conclusion": "success",
+    "matrixExecution": {
+      "status": "NOT_RUN",
+      "api_job_id": 118216394852,
+      "api_job_name": "Baseline compat (${{ matrix.os }})",
+      "api_conclusion": "skipped",
+      "platform_jobs_executed": 0,
+      "tap644": "NOT_RUN",
+      "unit_actual_browser_case": "NOT_RUN",
+      "startup_stderr_diagnostics": "NOT_RUN",
+      "matrix_validate": "NOT_RUN",
+      "baseline_tools": "NOT_RUN",
+      "installation_smoke": "NOT_RUN",
+      "scenarios13_commands178": "NOT_RUN",
+      "diagram6_lek18_site4_static4": "NOT_RUN",
+      "resource_internal_comparisons": "NOT_RUN"
+    },
+    "proofInterpretation": "Decision-time equivalent current PR carrier proof only; carrier was in_progress with conclusion null at decision. This push does not claim that PR matrix completed or passed.",
+    "countedAsSecondMatrix": false
+  },
+  "a6": {
+    "latest": {
+      "conclusion": "success",
+      "createdAt": "2026-10-19T17:55:46Z",
+      "databaseId": 39298279721,
+      "event": "pull_request",
+      "headSha": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+      "name": "A6 — AGENTS.md Sync Allowlist",
+      "status": "completed",
+      "updatedAt": "2026-10-19T17:56:11Z",
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39298279721",
+      "workflowName": "A6 — AGENTS.md Sync Allowlist"
+    },
+    "older": [
+      {
+        "conclusion": "cancelled",
+        "createdAt": "2026-10-19T17:55:34Z",
+        "databaseId": 39298251724,
+        "event": "pull_request",
+        "headSha": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+        "name": "A6 — AGENTS.md Sync Allowlist",
+        "status": "completed",
+        "updatedAt": "2026-10-19T17:55:52Z",
+        "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39298251724",
+        "workflowName": "A6 — AGENTS.md Sync Allowlist"
+      }
+    ],
+    "originalEvidence": "batch-6ef5eabd/a6/summary.json",
+    "cancellation": "Old cancellation is preserved. No agent rerun/cancel action was performed. Specific API cancellation cause/actor UNKNOWN; workflow configuration/time correlation is inference only."
+  },
+  "protection": {
+    "claim": "NOT_MET unless actual GitHub current-head protection explicitly satisfied",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "mergeStateStatus": "BLOCKED",
+    "reviewCount": 0,
+    "observedApprovals": [],
+    "threads": {
+      "total": 0,
+      "pages": 1,
+      "unresolved": 0,
+      "outdated": 0
+    },
+    "actualPullRule": {
+      "type": "pull_request",
+      "parameters": {
+        "required_approving_review_count": 1,
+        "dismiss_stale_reviews_on_push": true,
+        "required_reviewers": [],
+        "require_code_owner_review": false,
+        "dismissal_restriction": {
+          "enabled": false,
+          "allowed_actors": []
+        },
+        "require_last_push_approval": true,
+        "required_review_thread_resolution": true,
+        "require_extra_approval_for_unattributed_changes": true,
+        "allowed_merge_methods": [
+          "merge"
+        ]
+      },
+      "ruleset_source_type": "Repository",
+      "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+      "ruleset_id": 14008221
+    },
+    "actualStatusRule": {
+      "type": "required_status_checks",
+      "parameters": {
+        "strict_required_status_checks_policy": true,
+        "do_not_enforce_on_create": false,
+        "required_status_checks": [
+          {
+            "context": "Validate Structure"
+          },
+          {
+            "context": "A6 / Check"
+          }
+        ]
+      },
+      "ruleset_source_type": "Repository",
+      "ruleset_source": "MJ-AgentLab/mj-agentlab-marketplace",
+      "ruleset_id": 14008221
+    },
+    "protectionPassClaimed": false
+  },
+  "sourceAudit": {
+    "sources": 979,
+    "oldPrefix": 740,
+    "allAuditedIndexEntriesBoundToActualCommit": 7537,
+    "sourceReport": "source-audit/source-audit-result.json",
+    "scopeReport": "scope-review/scope-review.json",
+    "committedBinding": "batch-6ef5eabd/pr/audited-index-to-actual-commit-binding.json",
+    "versions": {
+      "capturedAt": "2026-10-19T18:00:26.807Z",
+      "head": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+      "tree": "6659fadd62bc03aa3ab4eee61e63804fc25b914b",
+      "parents": [
+        "1d8b6849ec7e398d65a949d204abe38bc64a4e0b"
+      ],
+      "marketplace": "8.3.3",
+      "plugins": {
+        "diagram-kit": "0.3.1",
+        "learning-evidence-kit": "0.1.0",
+        "explain-kit": "0.1.1",
+        "html-guide-kit": "0.1.37",
+        "communication-kit": "0.1.0"
+      },
+      "sourceBindingsCount": 979,
+      "threeCodeFilesEqualAuditedStagedBytes": true,
+      "entries": [
+        {
+          "path": "VERSION",
+          "bytes": 6,
+          "sha256": "f464c5a4612e78b0efcd96f0ccb9dbc1c8bdbeb7f8965c392e2cb3cd06fe8d2b",
+          "gitBlob": "d127a0ff9f199f05b8c074da7c00698f7324117e"
+        },
+        {
+          "path": "plugins/diagram-kit/plugin.json",
+          "bytes": 1246,
+          "sha256": "73187e59a99b5a292efd23cf288cecbe5d67110c767044c01f8e76ecbc5162c1",
+          "gitBlob": "4a7b56fd85d83d1f30e81f36ad57f87d8ae5594e"
+        },
+        {
+          "path": "plugins/learning-evidence-kit/plugin.json",
+          "bytes": 1663,
+          "sha256": "0f79acfcbdd38d4abe8a6f2d30b426e0bf9616321b3ba3d774a2e484a25fcef8",
+          "gitBlob": "6b03ce3e5d698bfbce386e5f9cdadb7a2d005775"
+        },
+        {
+          "path": "plugins/explain-kit/plugin.json",
+          "bytes": 1412,
+          "sha256": "a946b7c7fe8c2fe69c87c0cd41884b7a3276d60986db1beb6ec6b60a9f212433",
+          "gitBlob": "910ff5886cfffba0356c5529b88b35607d567a7d"
+        },
+        {
+          "path": "plugins/html-guide-kit/plugin.json",
+          "bytes": 1689,
+          "sha256": "735476d42f085da285bec03c4e8918ec1cfc6842bc24d3b8506697b603ebf72f",
+          "gitBlob": "d521b4123bf764c1e3eed757376cfd4e9034d263"
+        },
+        {
+          "path": "plugins/communication-kit/plugin.json",
+          "bytes": 1401,
+          "sha256": "fe255f7ef47f1f7627445ee10b4967412c71b9e2ff1a5b2449bcf6caa2c9fe13",
+          "gitBlob": "c43bc6bbff0f9cc6cfcccadf4a07d98017c84791"
+        },
+        {
+          "path": "plans/274-html-learning-artifact/source-bindings.json",
+          "bytes": 740282,
+          "sha256": "49c2962ba504689a62c6f67da45f4f33dfd0b5610fb466b3e5ae9da092cee202",
+          "gitBlob": "1b9164bf03443652216ec5feab2a735347e919d1"
+        },
+        {
+          "path": "tests/browser-stderr.test.mjs",
+          "bytes": 8290,
+          "sha256": "ea3a63b344b9fd54dec7e063d8cf93d6576a48751e369b71a3a5a43c287e1818",
+          "gitBlob": "254bc2e3207c162d9a36c6e857324cedd03336dd"
+        },
+        {
+          "path": "tests/helpers/capture-browser-stderr.mjs",
+          "bytes": 6267,
+          "sha256": "8391f1fbf3d97cc7e92906df02544ffa29fc16b0e7b57f5653e17ec771434f16",
+          "gitBlob": "96fcb586d852f5261cef027d0a2735060d0db4c5"
+        },
+        {
+          "path": "tests/html-site-checks.test.mjs",
+          "bytes": 21583,
+          "sha256": "587f681a1fa2468c845b0a9146022d035eb5b8426a75b75b5075d297d3a2c8fa",
+          "gitBlob": "da0e6092c6cde7ce5aa3d0f5704cd18825b29fcd"
+        }
+      ],
+      "hostHeadObserved": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+      "hostStatusObserved": "",
+      "scopeAuditSha256": "2aaa9ecd7fbfbe9f8a449c77e3ec26eaba26830a2a91d1907026ba960fcbd04a"
+    }
+  },
+  "limits": [
+    "Original1d8 PR/push failures, unsuccessful rerun request, bounded push failure and original UNKNOWN root cause remain preserved in separate prior frozen evidence; new pass does not prove prior cause fixed.",
+    "Four browser-related engineering TAP cases include unavailable/cleanup/actual-layout/URL cases. They do not mean four real layout acceptance sessions.",
+    "Actual installation smoke browser remains NOT_RUN. CI per-root absence is NOT_RECORDED; no prior14/15 root result is borrowed.",
+    "Source/cache bytes are checked within each actual platform; no cross-platform physical-byte equality is asserted.",
+    "No new model/desktop/consumer/Sites access-scope/learning-effect/Owner final acceptance is claimed.",
+    "No approve/comment/reviewer request/thread resolution/merge/bypass/rerun/cancel/repository modification by this agent.",
+    "VERSION8.3.3 is a source version. This CI bundle does not claim8.3.3tag/Release publication."
+  ]
+}

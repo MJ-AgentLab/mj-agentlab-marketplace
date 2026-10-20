@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-20T00:07:52.999Z",
+  "status": "PASS",
+  "scope": "Supplemental in-flight audit of3 transitive local modules omitted from original8 importedHashes; does not rewrite root start metadata.",
+  "head": "62945150df984e2747684d1ea46b8772b56db2d9",
+  "hostStatus": "",
+  "additionalModules": [
+    {
+      "file": "scripts/brand-assets.mjs",
+      "workingBytes": 3499,
+      "workingSha256": "38d935c5e24166e9d21dfbb7a5da9727863fe656af0eb594bbb56c32df7b0256",
+      "canonicalBytes": 3457,
+      "canonicalSha256": "359693829bf0421e957153dc8cb0ffba8d8cc9d4cd05e9bf5343e52742396bd0",
+      "crlfPairsRemoved": 42,
+      "normalizedByteEqual": true
+    },
+    {
+      "file": "scripts/frozen-evidence-resources.mjs",
+      "workingBytes": 6944,
+      "workingSha256": "cc47bebce0669891ed90c84bfa5d659c57417ceac3db917d2f112f2a29d69f6c",
+      "canonicalBytes": 6861,
+      "canonicalSha256": "d853e5f42cedee496999abf73dc00fbcf6b5deaf04cf98aaa67f1644b4de672c",
+      "crlfPairsRemoved": 83,
+      "normalizedByteEqual": true
+    },
+    {
+      "file": "scripts/intent-harness.mjs",
+      "workingBytes": 8879,
+      "workingSha256": "8214fcea709d2bc4c4228c4886710676450cacef5d863362e44e6110b0be0778",
+      "canonicalBytes": 8752,
+      "canonicalSha256": "8d54f762256df9eff2187ca70ca99f78f8547b7f6d853d505d30f94a370ea9b5",
+      "crlfPairsRemoved": 127,
+      "normalizedByteEqual": true
+    }
+  ],
+  "observedStaticLocalModuleGraph": {
+    "scripts/release-verify-install.mjs": [
+      "scripts/run-cli.mjs",
+      "scripts/validate-portable.mjs",
+      "scripts/smoke-codex-plugin.mjs",
+      "scripts/perf-metrics.mjs"
+    ],
+    "scripts/run-cli.mjs": [],
+    "scripts/validate-portable.mjs": [
+      "scripts/plugin-icons.mjs",
+      "scripts/brand-assets.mjs",
+      "scripts/document-harness.mjs"
+    ],
+    "scripts/plugin-icons.mjs": [],
+    "scripts/brand-assets.mjs": [
+      "scripts/plugin-icons.mjs"
+    ],
+    "scripts/document-harness.mjs": [
+      "scripts/frozen-evidence-resources.mjs",
+      "scripts/intent-harness.mjs"
+    ],
+    "scripts/frozen-evidence-resources.mjs": [],
+    "scripts/intent-harness.mjs": [],
+    "scripts/smoke-codex-plugin.mjs": [
+      "scripts/run-cli.mjs",
+      "scripts/plugin-icons.mjs",
+      "scripts/perf-metrics.mjs",
+      "scripts/smoke-source.mjs",
+      "scripts/validate-portable.mjs"
+    ],
+    "scripts/perf-metrics.mjs": [],
+    "scripts/smoke-source.mjs": [
+      "scripts/perf-metrics.mjs",
+      "scripts/document-harness.mjs"
+    ]
+  },
+  "staticLocalModuleCount": 11,
+  "notes": [
+    "All3 exact working bytes reduce to canonical629 bytes only by CRLF representation.",
+    "The original8 were audited and frozen separately; combined observed local JS module closure is11.",
+    "These3 hashes are observed at this capture time, not falsely stated as measured at original00:01:58 start. Root confirms source was kept fixed during execution.",
+    "No tests, source edits or in-flight result assumptions."
+  ]
+}

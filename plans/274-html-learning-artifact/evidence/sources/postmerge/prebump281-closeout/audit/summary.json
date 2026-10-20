@@ -1,0 +1,439 @@
+{
+  "schema": 1,
+  "completedAt": "2026-10-20T00:04:35.873Z",
+  "auditCompleteness": "COMPLETE",
+  "scope": "Independent read-only actual PR281 postmerge identity, real protection audit, publication preservation and actual-merge push version workflow. Not a new installation/model/browser acceptance batch.",
+  "actualMerge": {
+    "sha": "62945150df984e2747684d1ea46b8772b56db2d9",
+    "tree": "6659fadd62bc03aa3ab4eee61e63804fc25b914b",
+    "parents": [
+      "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+      "6ef5eabd52934144daf7b60ddb4011686c0657c4"
+    ]
+  },
+  "mergedAt": "2026-10-20T00:00:09Z",
+  "mergedBy": "ranzuozhou",
+  "actualDevelopAtCapture": "62945150df984e2747684d1ea46b8772b56db2d9",
+  "sourceHead": {
+    "sha": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+    "tree": "6659fadd62bc03aa3ab4eee61e63804fc25b914b"
+  },
+  "priorPotentialMerge": {
+    "sha": "c41dee3c7a14da2c1a94e84643c736d578d9c9fa",
+    "tree": "6659fadd62bc03aa3ab4eee61e63804fc25b914b",
+    "parents": [
+      "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+      "6ef5eabd52934144daf7b60ddb4011686c0657c4"
+    ]
+  },
+  "sameTree": true,
+  "governance": {
+    "suiteId": 4610354048,
+    "before": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+    "after": "62945150df984e2747684d1ea46b8772b56db2d9",
+    "overallResult": "bypass",
+    "ruleEvaluations": [
+      {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008221,
+          "name": "protect-develop"
+        },
+        "enforcement": "active",
+        "result": "fail",
+        "rule_type": "pull_request",
+        "details": "New changes require approval from someone other than the last pusher."
+      },
+      {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008221,
+          "name": "protect-develop"
+        },
+        "enforcement": "active",
+        "result": "pass",
+        "rule_type": "non_fast_forward"
+      },
+      {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008221,
+          "name": "protect-develop"
+        },
+        "enforcement": "active",
+        "result": "pass",
+        "rule_type": "required_status_checks"
+      },
+      {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008221,
+          "name": "protect-develop"
+        },
+        "enforcement": "active",
+        "result": "pass",
+        "rule_type": "deletion"
+      }
+    ],
+    "approval": "NOT_MET",
+    "reviewCount": 0,
+    "reviewDecision": "REVIEW_REQUIRED",
+    "reviewThreads": {
+      "total": 0,
+      "pages": 1,
+      "unresolved": 0,
+      "outdated": 0
+    },
+    "protectedApprovalPassClaimed": false
+  },
+  "publicationAndActualPush": {
+    "schemaVersion": 1,
+    "finalized_at": "2026-10-20T00:03:52.366429+00:00",
+    "status": "PASS",
+    "actual_merge": {
+      "sha": "62945150df984e2747684d1ea46b8772b56db2d9",
+      "tree": "6659fadd62bc03aa3ab4eee61e63804fc25b914b",
+      "parents": [
+        "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+        "6ef5eabd52934144daf7b60ddb4011686c0657c4"
+      ]
+    },
+    "publication": {
+      "v8.3.2_tag_peeled_commit": "f906b1001a86d7b5415451bd973bea26e6cc3a1d",
+      "v8.3.2_tag_kind": "commit",
+      "release": {
+        "id": 417390526,
+        "tag_name": "v8.3.2",
+        "target_commitish": "f906b1001a86d7b5415451bd973bea26e6cc3a1d",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-19T14:30:16Z",
+        "immutable": false,
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.2"
+      },
+      "release_body": {
+        "current_bytes": 4983,
+        "current_sha256": "c86f0d612d462c66b60e493bd405e6afc0126407567f77edcde01f2f63801aad",
+        "frozen_bytes": 4983,
+        "frozen_sha256": "c86f0d612d462c66b60e493bd405e6afc0126407567f77edcde01f2f63801aad",
+        "exact_bytes_equal": true,
+        "frozen_source_commit": "62945150df984e2747684d1ea46b8772b56db2d9",
+        "frozen_source_path": "plans/274-html-learning-artifact/evidence/sources/postmerge/release278/publication/release-final.json",
+        "frozen_git_blob_sha": "ff18e7fe656073876762fb2bd27b132484433b7c",
+        "frozen_release_id": 417390526
+      },
+      "v8.3.3_tag_endpoint": {
+        "message": "Not Found",
+        "documentation_url": "https://docs.github.com/rest/git/refs#get-a-reference",
+        "status": "404"
+      },
+      "v8.3.3_release_endpoint": {
+        "message": "Not Found",
+        "documentation_url": "https://docs.github.com/rest/releases/releases#get-a-release-by-tag-name",
+        "status": "404"
+      },
+      "complete_releases": {
+        "count": 45,
+        "draft_count": 0,
+        "published_count": 45,
+        "pages": [
+          {
+            "page": 1,
+            "count": 45,
+            "file": "releases-page-001.json"
+          },
+          {
+            "page": 2,
+            "count": 0,
+            "file": "releases-page-002.json"
+          }
+        ],
+        "matching_v8.3.3": []
+      },
+      "complete_tags": {
+        "count": 47,
+        "pages": [
+          {
+            "page": 1,
+            "count": 47,
+            "file": "tags-page-001.json"
+          },
+          {
+            "page": 2,
+            "count": 0,
+            "file": "tags-page-002.json"
+          }
+        ],
+        "matching_v8.3.3": []
+      },
+      "scope": "Current authenticated REST snapshot only; no future publication absence or broader immutable-policy claim."
+    },
+    "postmerge_push": {
+      "run_id": 39344994194,
+      "run_attempt": 1,
+      "name": "Verify Develop Pre-bumped",
+      "event": "push",
+      "head_sha": "62945150df984e2747684d1ea46b8772b56db2d9",
+      "status": "completed",
+      "conclusion": "success",
+      "job_id": 118375345914,
+      "jobs_and_steps": [
+        {
+          "id": 118375345914,
+          "run_id": 39344994194,
+          "workflow_name": "Verify Develop Pre-bumped",
+          "head_branch": "develop",
+          "run_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39344994194",
+          "run_attempt": 1,
+          "node_id": "CR_kwDORoMukM8AAAAbj7hu-g",
+          "head_sha": "62945150df984e2747684d1ea46b8772b56db2d9",
+          "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/actions/jobs/118375345914",
+          "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39344994194/job/118375345914",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-20T00:00:13Z",
+          "started_at": "2026-10-20T00:00:15Z",
+          "completed_at": "2026-10-20T00:00:26Z",
+          "name": "Verify develop pre-bumped past main",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-20T00:00:16Z",
+              "completed_at": "2026-10-20T00:00:17Z"
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-20T00:00:17Z",
+              "completed_at": "2026-10-20T00:00:22Z"
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-20T00:00:22Z",
+              "completed_at": "2026-10-20T00:00:22Z"
+            },
+            {
+              "name": "Fetch main",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-20T00:00:22Z",
+              "completed_at": "2026-10-20T00:00:22Z"
+            },
+            {
+              "name": "Gather facts",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-20T00:00:23Z",
+              "completed_at": "2026-10-20T00:00:23Z"
+            },
+            {
+              "name": "Evaluate pre-bump policy",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-20T00:00:23Z",
+              "completed_at": "2026-10-20T00:00:23Z"
+            },
+            {
+              "name": "Render summary",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-20T00:00:23Z",
+              "completed_at": "2026-10-20T00:00:23Z"
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13,
+              "started_at": "2026-10-20T00:00:23Z",
+              "completed_at": "2026-10-20T00:00:23Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14,
+              "started_at": "2026-10-20T00:00:23Z",
+              "completed_at": "2026-10-20T00:00:23Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15,
+              "started_at": "2026-10-20T00:00:23Z",
+              "completed_at": "2026-10-20T00:00:23Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/118375345914",
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "runner_id": 1000011130,
+          "runner_name": "GitHub Actions 1000011130",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        }
+      ],
+      "checkout_next_lines": [
+        {
+          "command_line": 185,
+          "sha_line": 186,
+          "sha": "62945150df984e2747684d1ea46b8772b56db2d9"
+        }
+      ],
+      "tree": "6659fadd62bc03aa3ab4eee61e63804fc25b914b",
+      "raw_log": {
+        "endpoint": "repos/MJ-AgentLab/mj-agentlab-marketplace/actions/jobs/118375345914/logs",
+        "file": "push-job-118375345914.raw.log",
+        "started_at": "2026-10-20T00:02:38.888179+00:00",
+        "completed_at": "2026-10-20T00:02:41.740049+00:00",
+        "exit_code": 0,
+        "bytes": 25958,
+        "sha256": "f614336e4f1a966b643ea67b58d4c739351f1eadc278fd6fc0d3a2381772310d",
+        "method": "gh api stdout byte buffer; close write before hash"
+      },
+      "workflow": {
+        "path": ".github/workflows/verify-develop-prebumped.yml",
+        "source_ref": "62945150df984e2747684d1ea46b8772b56db2d9",
+        "git_blob_sha": "a863ed5a9821d96371fdd6da18715ee1078f7c2f",
+        "bytes": 6196,
+        "sha256": "1690ea87f0e55a357fd3d800f39bbd85ae3560e1d018e454b6a14473655b6533"
+      },
+      "actual_result_json": [
+        {
+          "line": 244,
+          "result": {
+            "state": "prebumped",
+            "ok": true,
+            "ageSeconds": 289919,
+            "reason": "develop 8.3.3 is ahead of main 8.3.2"
+          }
+        }
+      ],
+      "actual_error_annotations": [],
+      "scope": "Verify Develop Pre-bumped only: checkout629, setup-node, runner fetch origin/main, read develop/main VERSION plus main VERSION epoch, execute check-prebump.mjs, publish job summary.",
+      "not_executed_by_this_run": {
+        "tap644": "NOT_RUN",
+        "npm_validate": "NOT_RUN",
+        "canonical13_installations": "NOT_RUN",
+        "commands178": "NOT_RUN",
+        "Diagram6_LEK18_site4_static4": "NOT_RUN",
+        "model_desktop_native_UI_Sites": "NOT_RUN"
+      },
+      "prior_6ef_results_borrowed": false
+    },
+    "checks": [
+      {
+        "claim": "v8.3.2 tag peel remains f906",
+        "pass": true
+      },
+      {
+        "claim": "Release417390526 remains published v8.3.2 at f906",
+        "pass": true
+      },
+      {
+        "claim": "frozen release identity",
+        "pass": true
+      },
+      {
+        "claim": "release body exact committed frozen bytes",
+        "pass": true
+      },
+      {
+        "claim": "full releases end at empty page",
+        "pass": true
+      },
+      {
+        "claim": "full tags end at empty page",
+        "pass": true
+      },
+      {
+        "claim": "no v8.3.3 release draft or published rows",
+        "pass": true
+      },
+      {
+        "claim": "no v8.3.3 tag rows",
+        "pass": true
+      },
+      {
+        "claim": "tag-v8.3.3-response.json actual404",
+        "pass": true
+      },
+      {
+        "claim": "release-v8.3.3-response.json actual404",
+        "pass": true
+      },
+      {
+        "claim": "tag list current v8.3.2 matches exact ref",
+        "pass": true
+      },
+      {
+        "claim": "release list current v8.3.2 body matches exact release endpoint",
+        "pass": true
+      },
+      {
+        "claim": "actual postmerge push exact identity and success",
+        "pass": true
+      },
+      {
+        "claim": "actual job completed/success",
+        "pass": true
+      },
+      {
+        "claim": "actual checkout next-line matches merge",
+        "pass": true
+      },
+      {
+        "claim": "actual merge tree bound to Git metadata",
+        "pass": true
+      },
+      {
+        "claim": "one actual prebump JSON output",
+        "pass": true
+      },
+      {
+        "claim": "actual prebump state/pass",
+        "pass": true
+      },
+      {
+        "claim": "no actual error annotations",
+        "pass": true
+      },
+      {
+        "claim": "no test/install Harness step named",
+        "pass": true
+      }
+    ],
+    "verification_issues": []
+  },
+  "actualSourceVersion": "8.3.3",
+  "releaseAndPushFrozenManifest": {
+    "file": "release-and-push/finalmanifest.json",
+    "sha256": "62719dc3a648f82e20548c0e2fba4ba5cfcd7981b7838d723810856e880cc7ae"
+  },
+  "previousEvidenceBoundary": {
+    "old221ManifestSha256": "2e371d20b67188fc32dd978a363bd5f299401214226bc7c2a71b8aad6c56ed7e",
+    "stableHandoff302": "Not opened or modified by this agent"
+  },
+  "limits": [
+    "Actual bypass merge is recorded as bypass; required approval failure remains NOT_MET, no retrospective approval or future exception.",
+    "The actual629 push run39344994194 only verifies version pre-bump; old6ef644/13/178/Python counts are not relabeled as new actual629 executions.",
+    "This audit did not run a fresh canonical install, model, desktop, browser acceptance or Sites operation. Separate actual-merge acceptance remains separately evidenced.",
+    "Original1d8 failures, original UNKNOWN cause, deferred entry status and Owner final acceptance boundaries remain unchanged.",
+    "Publication absence is the current authenticated API snapshot of exact404 and complete visible lists, not a claim about future state.",
+    "No repository/PR edits, reviewer request, approval, comment, merge, bypass, rerun or cancellation by this audit agent."
+  ]
+}
