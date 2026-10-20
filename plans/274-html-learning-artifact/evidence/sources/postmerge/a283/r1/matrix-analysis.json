@@ -1,0 +1,974 @@
+{
+  "phase": "poll-06",
+  "analyzedAt": "2026-10-20T03:28:15.558Z",
+  "results": [
+    {
+      "id": 118435749154,
+      "runId": 39363773472,
+      "name": "Baseline compat (ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-20T03:20:32Z",
+      "completed_at": "2026-10-20T03:25:30Z",
+      "raw": {
+        "path": "downloads/job-118435749154.stdout.raw",
+        "bytes": 983107,
+        "sha256": "f53839a9f049f62c095c04827326f28070615d79055e6ab2d1dc2f39d564b564"
+      },
+      "totals": {
+        "tests": 647,
+        "suites": 0,
+        "pass": 646,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 1,
+        "todo": 0
+      },
+      "skipped": [
+        {
+          "line": 3707,
+          "text": "ok 566 - Windows equivalent file casing still passes containment # SKIP"
+        }
+      ],
+      "failed": [],
+      "checkout": [
+        {
+          "commandLine": 233,
+          "shaLine": 234,
+          "sha": "ac34c52c0eab22368e5e2737ee59241f5aad2912"
+        }
+      ],
+      "steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 2,
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 3,
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 4,
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 5,
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 6,
+          "name": "Run npm install -g @openai/codex@0.147.0",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 7,
+          "name": "Unit and real Python execution tests",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 8,
+          "name": "Run npm run validate",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 9,
+          "name": "Run npm run check:baseline-tools",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 10,
+          "name": "Run npm run smoke:codex",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 18,
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 19,
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 20,
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 21,
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "smoke": {
+        "ok": true,
+        "version": "codex-cli 0.147.0",
+        "scenarios": 13,
+        "allScenariosOk": true,
+        "commands": 178,
+        "allCommandStatusZero": true,
+        "nonzeroCommands": [],
+        "diagramActualExecutions": 6,
+        "diagram": [
+          {
+            "installed": [
+              "diagram-kit"
+            ],
+            "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+            "commands": [
+              {
+                "command": "python3",
+                "args": [
+                  "/tmp/marketplace-smoke-BZqaNE/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/scripts/validate_diagram.py",
+                  "/tmp/marketplace-smoke-BZqaNE/consumer/installed context 中文 diagram.md"
+                ],
+                "status": 0
+              }
+            ]
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "explain-kit"
+            ],
+            "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+            "commands": [
+              {
+                "command": "python3",
+                "args": [
+                  "/tmp/marketplace-smoke-rBMmZQ/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/scripts/validate_diagram.py",
+                  "/tmp/marketplace-smoke-rBMmZQ/consumer/installed context 中文 diagram.md"
+                ],
+                "status": 0
+              }
+            ]
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit"
+            ],
+            "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+            "commands": [
+              {
+                "command": "python3",
+                "args": [
+                  "/tmp/marketplace-smoke-UjvpUK/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/scripts/validate_diagram.py",
+                  "/tmp/marketplace-smoke-UjvpUK/consumer/installed context 中文 diagram.md"
+                ],
+                "status": 0
+              }
+            ]
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "communication-kit"
+            ],
+            "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+            "commands": [
+              {
+                "command": "python3",
+                "args": [
+                  "/tmp/marketplace-smoke-Lc5kc4/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/scripts/validate_diagram.py",
+                  "/tmp/marketplace-smoke-Lc5kc4/consumer/installed context 中文 diagram.md"
+                ],
+                "status": 0
+              }
+            ]
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "html-guide-kit"
+            ],
+            "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+            "commands": [
+              {
+                "command": "python3",
+                "args": [
+                  "/tmp/marketplace-smoke-x0PVrR/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/scripts/validate_diagram.py",
+                  "/tmp/marketplace-smoke-x0PVrR/consumer/installed context 中文 diagram.md"
+                ],
+                "status": 0
+              }
+            ]
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "communication-kit",
+              "html-guide-kit"
+            ],
+            "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+            "commands": [
+              {
+                "command": "python3",
+                "args": [
+                  "/tmp/marketplace-smoke-0pEN2w/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/scripts/validate_diagram.py",
+                  "/tmp/marketplace-smoke-0pEN2w/consumer/installed context 中文 diagram.md"
+                ],
+                "status": 0
+              }
+            ]
+          }
+        ],
+        "learningScenarioCount": 6,
+        "learningActualExecutions": 18,
+        "learning": [
+          {
+            "installed": [
+              "learning-evidence-kit"
+            ],
+            "interpreter": "3.12.15 (main, Oct  1 2026, 02:35:59) [GCC 13.3.0]",
+            "saveStatus": "ok",
+            "replayIdentical": true,
+            "structurallyValid": true,
+            "commands": [
+              {
+                "command": "python3.12",
+                "args": [
+                  "-B",
+                  "/tmp/marketplace-smoke-ggByGN/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3.12",
+                "args": [
+                  "-B",
+                  "/tmp/marketplace-smoke-ggByGN/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3.12",
+                "args": [
+                  "-B",
+                  "/tmp/marketplace-smoke-ggByGN/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+                ],
+                "status": 0
+              }
+            ]
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit"
+            ],
+            "interpreter": "3.12.15 (main, Oct  1 2026, 02:35:59) [GCC 13.3.0]",
+            "saveStatus": "ok",
+            "replayIdentical": true,
+            "structurallyValid": true,
+            "commands": [
+              {
+                "command": "python3.12",
+                "args": [
+                  "-B",
+                  "/tmp/marketplace-smoke-UjvpUK/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3.12",
+                "args": [
+                  "-B",
+                  "/tmp/marketplace-smoke-UjvpUK/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3.12",
+                "args": [
+                  "-B",
+                  "/tmp/marketplace-smoke-UjvpUK/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+                ],
+                "status": 0
+              }
+            ]
+          },
+          {
+            "installed": [
+              "communication-kit",
+              "learning-evidence-kit"
+            ],
+            "interpreter": "3.12.15 (main, Oct  1 2026, 02:35:59) [GCC 13.3.0]",
+            "saveStatus": "ok",
+            "replayIdentical": true,
+            "structurallyValid": true,
+            "commands": [
+              {
+                "command": "python3.12",
+                "args": [
+                  "-B",
+                  "/tmp/marketplace-smoke-VQUfuy/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3.12",
+                "args": [
+                  "-B",
+                  "/tmp/marketplace-smoke-VQUfuy/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3.12",
+                "args": [
+                  "-B",
+                  "/tmp/marketplace-smoke-VQUfuy/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+                ],
+                "status": 0
+              }
+            ]
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "communication-kit"
+            ],
+            "interpreter": "3.12.15 (main, Oct  1 2026, 02:35:59) [GCC 13.3.0]",
+            "saveStatus": "ok",
+            "replayIdentical": true,
+            "structurallyValid": true,
+            "commands": [
+              {
+                "command": "python3.12",
+                "args": [
+                  "-B",
+                  "/tmp/marketplace-smoke-Lc5kc4/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3.12",
+                "args": [
+                  "-B",
+                  "/tmp/marketplace-smoke-Lc5kc4/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3.12",
+                "args": [
+                  "-B",
+                  "/tmp/marketplace-smoke-Lc5kc4/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+                ],
+                "status": 0
+              }
+            ]
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "html-guide-kit"
+            ],
+            "interpreter": "3.12.15 (main, Oct  1 2026, 02:35:59) [GCC 13.3.0]",
+            "saveStatus": "ok",
+            "replayIdentical": true,
+            "structurallyValid": true,
+            "commands": [
+              {
+                "command": "python3.12",
+                "args": [
+                  "-B",
+                  "/tmp/marketplace-smoke-x0PVrR/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3.12",
+                "args": [
+                  "-B",
+                  "/tmp/marketplace-smoke-x0PVrR/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3.12",
+                "args": [
+                  "-B",
+                  "/tmp/marketplace-smoke-x0PVrR/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+                ],
+                "status": 0
+              }
+            ]
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "communication-kit",
+              "html-guide-kit"
+            ],
+            "interpreter": "3.12.15 (main, Oct  1 2026, 02:35:59) [GCC 13.3.0]",
+            "saveStatus": "ok",
+            "replayIdentical": true,
+            "structurallyValid": true,
+            "commands": [
+              {
+                "command": "python3.12",
+                "args": [
+                  "-B",
+                  "/tmp/marketplace-smoke-0pEN2w/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3.12",
+                "args": [
+                  "-B",
+                  "/tmp/marketplace-smoke-0pEN2w/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3.12",
+                "args": [
+                  "-B",
+                  "/tmp/marketplace-smoke-0pEN2w/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+                ],
+                "status": 0
+              }
+            ]
+          }
+        ],
+        "siteGenerationExecutions": 4,
+        "siteStaticExecutions": 4,
+        "site": [
+          {
+            "index": 0,
+            "installed": [
+              "html-guide-kit"
+            ],
+            "rendered": {
+              "status": "GENERATED",
+              "output": "/tmp/marketplace-smoke-n5pENP/consumer/installed learning artifact",
+              "version": "synthetic-1.0",
+              "files": 9,
+              "sourceSha256": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+              "understandingEffects": "NOT_MEASURED"
+            },
+            "staticSummary": {
+              "checks": 95,
+              "failed": 0,
+              "pages": 1,
+              "files": 9
+            },
+            "staticStatus": "PASS",
+            "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+          },
+          {
+            "index": 1,
+            "installed": [
+              "html-guide-kit",
+              "explain-kit"
+            ],
+            "rendered": {
+              "status": "GENERATED",
+              "output": "/tmp/marketplace-smoke-kF44VA/consumer/installed learning artifact",
+              "version": "synthetic-1.0",
+              "files": 9,
+              "sourceSha256": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+              "understandingEffects": "NOT_MEASURED"
+            },
+            "staticSummary": {
+              "checks": 95,
+              "failed": 0,
+              "pages": 1,
+              "files": 9
+            },
+            "staticStatus": "PASS",
+            "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+          },
+          {
+            "index": 2,
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "html-guide-kit"
+            ],
+            "rendered": {
+              "status": "GENERATED",
+              "output": "/tmp/marketplace-smoke-x0PVrR/consumer/installed learning artifact",
+              "version": "synthetic-1.0",
+              "files": 9,
+              "sourceSha256": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+              "understandingEffects": "NOT_MEASURED"
+            },
+            "staticSummary": {
+              "checks": 95,
+              "failed": 0,
+              "pages": 1,
+              "files": 9
+            },
+            "staticStatus": "PASS",
+            "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+          },
+          {
+            "index": 3,
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "communication-kit",
+              "html-guide-kit"
+            ],
+            "rendered": {
+              "status": "GENERATED",
+              "output": "/tmp/marketplace-smoke-0pEN2w/consumer/installed learning artifact",
+              "version": "synthetic-1.0",
+              "files": 9,
+              "sourceSha256": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+              "understandingEffects": "NOT_MEASURED"
+            },
+            "staticSummary": {
+              "checks": 95,
+              "failed": 0,
+              "pages": 1,
+              "files": 9
+            },
+            "staticStatus": "PASS",
+            "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+          }
+        ],
+        "source": "Full emitted scenarios JSON, scenarios counted once; repeated top-level final scenario excluded",
+        "location": {
+          "firstLine": 4270,
+          "lastLine": 13506
+        },
+        "cleanupEvidence": "See cleanup-independent: default smoke successful code path removes 13 scenario roots and one prepared template. Log has no explicit per-root post-removal absence receipt; do not claim OS-wide cleanup or a new physical absence audit."
+      },
+      "parseErrors": []
+    },
+    {
+      "id": 118435749210,
+      "runId": 39363773472,
+      "name": "Baseline compat (windows-latest)",
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-20T03:20:33Z",
+      "completed_at": "2026-10-20T03:27:06Z",
+      "raw": {
+        "path": "downloads/job-118435749210.stdout.raw",
+        "bytes": 292651,
+        "sha256": "563e71fe4dccd1d8cf63a42b2b73de79624489d94b031cc7d36ad0ea8967a8c4"
+      },
+      "totals": {
+        "tests": 647,
+        "suites": 0,
+        "pass": 645,
+        "fail": 1,
+        "cancelled": 0,
+        "skipped": 1,
+        "todo": 0
+      },
+      "skipped": [
+        {
+          "line": 510,
+          "text": "ok 32 - Linux exec capture preserves original checker args, failure, owned-session cleanup and foreign isolation # SKIP"
+        }
+      ],
+      "failed": [
+        {
+          "line": 4047,
+          "text": "not ok 621 - five approved portable plugins, eight public skills and all 20 repository skills satisfy contracts"
+        }
+      ],
+      "checkout": [
+        {
+          "commandLine": 246,
+          "shaLine": 247,
+          "sha": "ac34c52c0eab22368e5e2737ee59241f5aad2912"
+        }
+      ],
+      "steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 2,
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 3,
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 4,
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 5,
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 6,
+          "name": "Run npm install -g @openai/codex@0.147.0",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 7,
+          "name": "Unit and real Python execution tests",
+          "status": "completed",
+          "conclusion": "failure"
+        },
+        {
+          "number": 8,
+          "name": "Run npm run validate",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "number": 9,
+          "name": "Run npm run check:baseline-tools",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "number": 10,
+          "name": "Run npm run smoke:codex",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "number": 18,
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "number": 19,
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "number": 20,
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 21,
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "smoke": null,
+      "parseErrors": []
+    },
+    {
+      "id": 118435731121,
+      "runId": 39363755336,
+      "name": "Baseline compat (windows-latest)",
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-20T03:20:29Z",
+      "completed_at": "2026-10-20T03:25:45Z",
+      "raw": {
+        "path": "downloads/job-118435731121.stdout.raw",
+        "bytes": 289440,
+        "sha256": "72235e60a5172e092283d95e5a3917686c8e0a4877a2809f7aac6d5f70e7154f"
+      },
+      "totals": {
+        "tests": 647,
+        "suites": 0,
+        "pass": 645,
+        "fail": 1,
+        "cancelled": 0,
+        "skipped": 1,
+        "todo": 0
+      },
+      "skipped": [
+        {
+          "line": 475,
+          "text": "ok 32 - Linux exec capture preserves original checker args, failure, owned-session cleanup and foreign isolation # SKIP"
+        }
+      ],
+      "failed": [
+        {
+          "line": 4012,
+          "text": "not ok 621 - five approved portable plugins, eight public skills and all 20 repository skills satisfy contracts"
+        }
+      ],
+      "checkout": [
+        {
+          "commandLine": 211,
+          "shaLine": 212,
+          "sha": "318db5a5660920f4fcd95f0f96c352d012514815"
+        }
+      ],
+      "steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 2,
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 3,
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 4,
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 5,
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 6,
+          "name": "Run npm install -g @openai/codex@0.147.0",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 7,
+          "name": "Unit and real Python execution tests",
+          "status": "completed",
+          "conclusion": "failure"
+        },
+        {
+          "number": 8,
+          "name": "Run npm run validate",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "number": 9,
+          "name": "Run npm run check:baseline-tools",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "number": 10,
+          "name": "Run npm run smoke:codex",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "number": 18,
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "number": 19,
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "number": 20,
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 21,
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "smoke": null,
+      "parseErrors": []
+    },
+    {
+      "id": 118435731208,
+      "runId": 39363755336,
+      "name": "Baseline compat (ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-20T03:20:29Z",
+      "completed_at": "2026-10-20T03:23:18Z",
+      "raw": {
+        "path": "downloads/job-118435731208.stdout.raw",
+        "bytes": 291976,
+        "sha256": "24e34f0ac6e06ba6638d1221e0e16094eb1618d9b64e720e2e7a8461adc5bb4c"
+      },
+      "totals": {
+        "tests": 647,
+        "suites": 0,
+        "pass": 645,
+        "fail": 1,
+        "cancelled": 0,
+        "skipped": 1,
+        "todo": 0
+      },
+      "skipped": [
+        {
+          "line": 3765,
+          "text": "ok 566 - Windows equivalent file casing still passes containment # SKIP"
+        }
+      ],
+      "failed": [
+        {
+          "line": 2275,
+          "text": "not ok 330 - actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping"
+        }
+      ],
+      "checkout": [
+        {
+          "commandLine": 220,
+          "shaLine": 221,
+          "sha": "318db5a5660920f4fcd95f0f96c352d012514815"
+        }
+      ],
+      "steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 2,
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 3,
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 4,
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 5,
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 6,
+          "name": "Run npm install -g @openai/codex@0.147.0",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 7,
+          "name": "Unit and real Python execution tests",
+          "status": "completed",
+          "conclusion": "failure"
+        },
+        {
+          "number": 8,
+          "name": "Run npm run validate",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "number": 9,
+          "name": "Run npm run check:baseline-tools",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "number": 10,
+          "name": "Run npm run smoke:codex",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "number": 18,
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "number": 19,
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "number": 20,
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 21,
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "smoke": null,
+      "parseErrors": []
+    }
+  ]
+}

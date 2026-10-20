@@ -12,7 +12,7 @@ node <site-skill-directory>/scripts/render-site.mjs --input <material-directory>
 
 ## artifact.json
 
-输入目录固定包含 UTF-8 `artifact.json`；重复 JSON 字段拒绝，避免末值覆盖。顶层字段只能是下表；所有字段必需，`terms`、`activities` 可以为空数组，不为简单材料强造术语或练习。版本为材料版本，不是插件版本。
+输入目录固定包含 UTF-8 `artifact.json`；重复 JSON 字段拒绝，避免末值覆盖。顶层字段只能是下表；除可选 `theme` 外所有字段必需，`terms`、`activities` 可以为空数组，不为简单材料强造术语或练习。版本为材料版本，不是插件版本。
 
 | 字段 | 类型与意义 |
 | --- | --- |
@@ -26,6 +26,9 @@ node <site-skill-directory>/scripts/render-site.mjs --input <material-directory>
 | `sources` | 至少一项来源，结构见下文 |
 | `terms` | 术语数组，结构见下文 |
 | `activities` | 活动数组，结构见下文 |
+| `theme` | 可选字符串 `warm-paper` 或 `neutral`；省略兼容暖白陶土。按主题/已确认偏好选择，不为已有决定重复提问；其他值/类型首写前拒绝 |
+
+`warm-paper` 使用包内暖白纸面、衬线标题和陶土色；`neutral` 使用中性浅底、无衬线标题与深灰强调。它们是可用预设，不是“Claude风格”的完整等价保证，也不限制主题必须二选一：超出预设的已确认视觉方向，可在独立 Sites 源码按设计实现，再核静态/浏览器/语义及必要对比度，不能修改安装资源或原材料来定制。生成器不读取任意CSS路径或在线主题。
 
 每项来源为 `{id,title,locator,path?,url?}`。`id` 唯一、以小写英文字母起始，仅小写字母／数字／连字符；`title` 与 `locator` 为非空文字，定位须说明范围。至少提供本地 `path` 或 HTTP(S) `url`；可以两者并存。URL 不允许用户名／密码，不自动下载。来源是否支持具体主张仍须对照原件核验。
 

@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.9
+version: v1.14
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -22,7 +22,34 @@ sources: ./source-bindings.json
 
 # HTML learning artifact task entry
 
+## Selective alignment integration candidate
+
+本节为同步子候选提交前固定快照；自身后继commit/子PR/唯一develop主PR、CI/实际合并和固定提交安装结果以Issue274及外部不可变回执为准，不以本快照替代实际交付。
+
+2026-10-20：PR287已于11:42:47Z实际合入main **f18aa09be0cc4a96b5005157566f7f4fd4947c95/tree6f921a482ba927b82e4c5d8d13ab9e1c8559edd6**，与预解输入树相同；完整actualmain已在隔离同步子候选中正常merge；本快照不声明后继集成或protected develop已交付。公开仍v8.3.3/HTML0.1.38，0.1.39仍未发布候选，市场VERSION8.3.3保持。内部285/286的按需Matt/设计共识、可选主题、本地交付及原材料保护保持。
+
+下一步推荐：先完成本轮新候选工程检查、全来源逐字节核验及独立复核，通过内部子PR门禁后正常合入既有集成分支；随后以唯一主PR→protected develop交付完整main ancestry及0.1.39。理由是以真实同步候选检查支持交付，保留已公开历史和当前保护要求。实际develop合入并复验后才可DryRun→Apply仅市场8.3.4预升；当前未执行。无新增Owner实质决定。
+
+原核心ACCEPTED_LIMITED不扩至0.1.38/Site v2/0.1.39，完整计划OPEN、效果NOT_MEASURED、D01持续窗口及其他延期非PASS。实际suite4618651818为bypass、reviews=[]、批准NOT_MET；Agent未执行此次保护合并或bypass，后继保护批准不得复用为豁免。当前head新CI/真实独立批准/线程/latestbase及actualdevelop同步复验各自待证。
+
+以下为两条分支各自时点的历史快照；其中未发布/活动PR/待检查等状态保留原时点，不作为当前状态。
+
 [#274](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274) 是进度正本。
+
+2026-10-20当前：v8.3.3/HTML0.1.38已由PR284实际main/tag fdede公开；actualmain本机647/646P/1平台skip及真实tag新13/178、实际Python/资源/精确清理通过，首次TEMP长路径checkout失败与bypass/批准NOT_MET保持。当前修正main默认安装导航，.39仍内部候选；下一步推荐：先正常合入本轮main导航/记录PR，随后将包含该merge的完整actualmain普通合入既有0.1.39集成分支，用后继唯一主PR→protected develop同时承接main同步及已授权选择性统一。实际develop同步合入并复验后，才可DryRun→Apply仅市场8.3.4预升；当前未执行。理由是先让默认安装抵达真实修复版本，再交付新方法，避免无产品差异的机械纯同步PR。当前无新增Owner实质决定。 详情见[REPORT](./[REPORT]_HTML_Learning_Artifact.md#actual-pr284-publication-and-next-delivery)，延期/接受/效果独立。
+
+以下为原发行准备快照。
+
+2026-10-20最新：发行[PR284](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/284)→main，首head318的CI真实FAIL已保留；Windows CRLF指令预算已作有界摘要修正及双表示严格复验，Linux原启动FAIL/UNKNOWN不变，后继新headCI/真实独立批准待证。Site v2已部署，Marketplace8.3.3未公开，未扩大Owner接受；详见当前REPORT/发行账本。
+
+以下为首次发行候选前快照。
+
+2026-10-20当前：#283已合developa4892f51，actual本机647总/646P/1平台skip、strict/CLI及新13/178/实际Python/14自有根清理通过；同私有Site v2已部署，受众保持仅Owner。一次HTML0.1.38修复发行正按保护main门禁准备，市场8.3.3未发布，安装仍v8.3.2；真实批准、tag/Release和真实tag新验另待。[当前REPORT](./[REPORT]_HTML_Learning_Artifact.md#actual283-and-repair-release-continuation)与[8.3.3账本](../../docs/runbook/[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md)接续。核心ACCEPTED_LIMITED/完整计划OPEN/旧FAIL和批准NOT_MET、D01–D07均保留，无新增Owner实质决定。
+
+以下为283合入前快照。
+
+
+2026-10-20：Owner已选择以完整制作提示词作选择性统一基准，保护原材料、允许独立产物；同一[PLAN决定正本](./[PLAN]_HTML_Learning_Artifact.md#selective-alignment-baseline)承接按需Matt/共识确认、可选主题和本地交付，准备0.1.39，保本地生成与工程检查。[REPORT](./[REPORT]_HTML_Learning_Artifact.md#selective-alignment-results)分记新证据。#284→main的0.1.38发行候选保持冻结，本批内部推进，结束后衔接唯一主PR→develop。窗口持续显示仍延期，核心既有接受不扩大，下方记录按历史批次读取。
 
 2026-10-20：#282已合入develop908d2953；Owner已明确接受当前交付核心并保留全部延期/历史缺口（ACCEPTED_LIMITED），完整计划仍OPEN。本轮按同一五边界自主恢复可执行工程项，新发现边界对比度与输出许可缺件，准备HTML0.1.38修复候选；公开仍v8.3.2/HTML0.1.37，市场8.3.3未发布。原生窗口/原生派发/第二客户端仍延期，历史FAIL/UNKNOWN/bypass及批准NOT_MET不追认。 可自治检查、各延期恢复条件及真实新修复由同一[PLAN](./[PLAN]_HTML_Learning_Artifact.md#deferral-recovery-batch)和[REPORT](./[REPORT]_HTML_Learning_Artifact.md#deferral-recovery-results)接续；下方维护段按其历史日期读取。
 

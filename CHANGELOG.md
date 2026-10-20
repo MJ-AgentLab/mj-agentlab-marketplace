@@ -5,23 +5,38 @@
 
 ## [Unreleased]
 
-### Fixed
+### Changed
 
-- Prepare HTML Guide Kit 0.1.38 with generated asset notices, portable output-name checks and a visible reflection input boundary; public Marketplace remains v8.3.2.
-
-### Maintenance
-
-- Resume Issue274 bounded accessibility, material-negative and offline recovery checks; record accepted core separately from deferred native/client coverage and historical approval gaps.
+- Prepare HTML Guide Kit 0.1.39 selective alignment under #274: conditional Matt grilling and design agreement, optional themes, existing-material protection and explicitly agreed local delivery. Retain the local generator/checks, deferred native-window persistence and all prior acceptance boundaries; public Marketplace remains v8.3.3 / HTML0.1.38.
 
 ### Documentation
 
-- Record merged PR281/develop62945150 and the unpublished Marketplace-only 8.3.3 preparation. Distinguish final candidate CI from actual-merge local checks and fresh thirteen-install evidence (PASS, with fifteen owned roots removed); retain startup failures, actual bypass/approval NOT_MET and Owner/deferred limits. Preserve plugin/runtime versions, public v8.3.2 and published history. Refs #274.
+- Point default installation and current delivery notes at the verified v8.3.3 / HTML0.1.38 release; preserve real-tag checks, initial checkout failure and actual missing approval/bypass separately. Queue complete main synchronization with the existing0.1.39 batch before any8.3.4 preparation. Refs #274.
 
-- Record actual synchronization PR280/develop4d10, separately preserve the original queued observations and later terminal/API chronology limits, and bind fresh actual-sync verification before preparing the unreleased marketplace-only 8.3.3 patch. Preserve plugin/runtime versions, public v8.3.2 identity, original failures, protected approval NOT_MET and Owner/deferred boundaries. Refs #274.
+## [8.3.3] - 2026-10-20
 
-- Synchronize complete actual main e3dc40f7, including merged publication-record PR279, back into develop. Preserve v8.3.2 runtime/plugin identities and public tag f906, freeze exact record-candidate CI and actual-merge audit evidence, and keep actual synchronization verification and marketplace-only 8.3.3 preparation dependent. Retain approval NOT_MET, original failures, deferred entries and Owner-acceptance boundaries. Refs #274.
+HTML Guide Kit 0.1.38 repair release, with Diagram 0.3.1, Learning Evidence 0.1.0, Explain 0.1.1 and Communication 0.1.0 unchanged. Five packages, eight public skills and five explicit entries are retained. VERSION was already prepared as 8.3.3; this promotion does not bump it again. Refs #274.
 
-- Record actual #278 / v8.3.2 main, tag and Release identities, exact published notes, final two-system candidate CI and fresh real-tag thirteen-install/Python/cleanup evidence. Update the default public installation pointer to v8.3.2 and expose the already-published site entry. Preserve actual Owner bypass, empty reviews, original QA failures, newline representation limits and all deferred/Owner-acceptance boundaries. Keep runtime/plugin versions and published history unchanged; complete main synchronization before the marketplace-only next-patch preparation. Refs #274.
+### Fixed
+
+- Carry the original asset LICENSE and Apache text, plus scoped notices, into generated artifacts without relicensing supplied materials. Reject reserved output names, case/Unicode aliases and trailing dots/spaces before writing; require exact installed HTML LICENSE bytes.
+- Make the blank reflection input boundary distinguishable against both paper and white surfaces.
+
+### Maintenance
+
+- Add bounded Linux Chromium startup stderr diagnostics and regression coverage in the test harness. Preserve checker arguments, deadlines and nonzero NOT_RUN behavior; retain earlier startup failures and their UNKNOWN root cause.
+- Resume bounded visual/material-negative and offline recovery checks under Issue274. Keep their actual failures, repairs, cleanup and limited results separate from native/client and learning-effect coverage.
+
+### Documentation
+
+- Carry existing v8.3.2 publication records, complete main synchronization, marketplace-only version preparation and source-bound maintenance/recovery evidence through Issue274. These inherited records do not represent additional plugin runtime changes.
+- Record actual PR283 source identity, fresh installation/Python checks and the same private Site's version2 repair separately from Marketplace publication. Preserve limited core acceptance, deferred coverage and historical approval NOT_MET.
+- Keep the instruction summary within the existing byte budget for both LF and Windows CRLF checkouts; retain first-candidate budget/startup failures and their separate repair/verification identities.
+
+### Verification and retained limits
+
+- Candidate CI, actual-merge installation, the new release candidate, real publication/tag and post-publication installation retain separate identities and evidence in the [8.3.3 readiness ledger](docs/runbook/[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md). Installation does not establish browser, native dispatch, Sites deployment, protection approval or Owner final acceptance.
+- Guide and the other four plugin trees retain their identities. Private Site updates retain the same identity/audience and have separate deployment evidence. Full-plan acceptance and unmeasured learning effects are not inferred.
 
 ## [8.3.2] - 2026-10-19
 

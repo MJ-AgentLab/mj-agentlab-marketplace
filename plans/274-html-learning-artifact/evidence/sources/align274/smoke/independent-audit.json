@@ -1,0 +1,231 @@
+{
+  "auditedAt": "2026-10-20T06:32:03.885Z",
+  "sourceCandidate": {
+    "head": "b5b8300ae58e967e1d0013e66dc4f1208ac860ef",
+    "tree": "8ce86dbd47bc0187e0cae41a3d144479d4b41819",
+    "afterHead": "b5b8300ae58e967e1d0013e66dc4f1208ac860ef",
+    "afterTree": "8ce86dbd47bc0187e0cae41a3d144479d4b41819",
+    "cleanBefore": true,
+    "cleanAfter": true,
+    "unchanged": true
+  },
+  "scope": "Full npm run smoke:codex, default keepRoot=false, exact CLI 0.147.0; isolated installation/discovery/resource-byte comparison and actual installed scripts only. No model, desktop, Sites deployment, or browser-rendering acceptance.",
+  "worktreeInventory": {
+    "exactlySame": false,
+    "added": [
+      {
+        "path": "C:/Users/Admin/.codex/worktrees/html-alignment-final/develop",
+        "head": "42a8eb6439ece6d386e5e5897b5d33862315885a",
+        "branch": "refs/heads/codex/html-prompt-alignment-evidence",
+        "raw": "worktree C:/Users/Admin/.codex/worktrees/html-alignment-final/develop\nHEAD 42a8eb6439ece6d386e5e5897b5d33862315885a\nbranch refs/heads/codex/html-prompt-alignment-evidence"
+      }
+    ],
+    "removed": [],
+    "changed": [],
+    "authorizedAddedPath": "C:/Users/Admin/.codex/worktrees/html-alignment-final/develop",
+    "onlyAuthorizedAddition": true,
+    "explanation": "Root agent explicitly authorized a separate final worktree while this smoke source stayed frozen; it is preserved and is not smoke residue. Root announced initial final-worktree HEAD 42a8eb6439ece6d386e5e5897b5d33862315885a; the actual end snapshot above governs."
+  },
+  "observations": {
+    "scenarioCount": 13,
+    "passedScenarios": 13,
+    "commandCount": 178,
+    "zeroStatusCommands": 178,
+    "actualPythonCommands": 28,
+    "pythonCommandNames": {
+      "python": 28
+    },
+    "htmlScenarios": [
+      {
+        "installed": [
+          "html-guide-kit"
+        ],
+        "siteSkill": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-B9baRL\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.39\\skills\\site\\SKILL.md",
+        "siteResourceFiles": 20,
+        "guideResourceFiles": 4,
+        "staticStatus": "PASS",
+        "staticSummary": {
+          "checks": 96,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        },
+        "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+      },
+      {
+        "installed": [
+          "html-guide-kit",
+          "explain-kit"
+        ],
+        "siteSkill": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-xQKHmV\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.39\\skills\\site\\SKILL.md",
+        "siteResourceFiles": 20,
+        "guideResourceFiles": 4,
+        "staticStatus": "PASS",
+        "staticSummary": {
+          "checks": 96,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        },
+        "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+      },
+      {
+        "installed": [
+          "diagram-kit",
+          "learning-evidence-kit",
+          "explain-kit",
+          "html-guide-kit"
+        ],
+        "siteSkill": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-mZ3ifc\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.39\\skills\\site\\SKILL.md",
+        "siteResourceFiles": 20,
+        "guideResourceFiles": 4,
+        "staticStatus": "PASS",
+        "staticSummary": {
+          "checks": 96,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        },
+        "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+      },
+      {
+        "installed": [
+          "diagram-kit",
+          "learning-evidence-kit",
+          "explain-kit",
+          "communication-kit",
+          "html-guide-kit"
+        ],
+        "siteSkill": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-WSwLOD\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\html-guide-kit\\0.1.39\\skills\\site\\SKILL.md",
+        "siteResourceFiles": 20,
+        "guideResourceFiles": 4,
+        "staticStatus": "PASS",
+        "staticSummary": {
+          "checks": 96,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        },
+        "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+      }
+    ],
+    "finalFivePackageDiscovery": {
+      "ordinaryOutside": {
+        "publicSkills": 3,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 3,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 8,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 8,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [
+        "learning-evidence-kit:pop-quiz",
+        "learning-evidence-kit:learning-record-check",
+        "communication-kit:communicate",
+        "html-guide-kit:guide",
+        "html-guide-kit:site"
+      ]
+    },
+    "rootAbsenceRecheck": [
+      {
+        "root": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-source-KhwZEu",
+        "kind": "template",
+        "boundaryVerified": true,
+        "existsAtAudit": false
+      },
+      {
+        "root": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-RCU5Q1",
+        "kind": "scenario",
+        "boundaryVerified": true,
+        "existsAtAudit": false
+      },
+      {
+        "root": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-KCrUgL",
+        "kind": "scenario",
+        "boundaryVerified": true,
+        "existsAtAudit": false
+      },
+      {
+        "root": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-vTwCJZ",
+        "kind": "scenario",
+        "boundaryVerified": true,
+        "existsAtAudit": false
+      },
+      {
+        "root": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-krH1OG",
+        "kind": "scenario",
+        "boundaryVerified": true,
+        "existsAtAudit": false
+      },
+      {
+        "root": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-QRKaRw",
+        "kind": "scenario",
+        "boundaryVerified": true,
+        "existsAtAudit": false
+      },
+      {
+        "root": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-unVt7Q",
+        "kind": "scenario",
+        "boundaryVerified": true,
+        "existsAtAudit": false
+      },
+      {
+        "root": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-M8DFBq",
+        "kind": "scenario",
+        "boundaryVerified": true,
+        "existsAtAudit": false
+      },
+      {
+        "root": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-HsKrSo",
+        "kind": "scenario",
+        "boundaryVerified": true,
+        "existsAtAudit": false
+      },
+      {
+        "root": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-w5mSxZ",
+        "kind": "scenario",
+        "boundaryVerified": true,
+        "existsAtAudit": false
+      },
+      {
+        "root": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-B9baRL",
+        "kind": "scenario",
+        "boundaryVerified": true,
+        "existsAtAudit": false
+      },
+      {
+        "root": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-xQKHmV",
+        "kind": "scenario",
+        "boundaryVerified": true,
+        "existsAtAudit": false
+      },
+      {
+        "root": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-mZ3ifc",
+        "kind": "scenario",
+        "boundaryVerified": true,
+        "existsAtAudit": false
+      },
+      {
+        "root": "C:\\Users\\Admin\\AppData\\Local\\Temp\\marketplace-smoke-WSwLOD",
+        "kind": "scenario",
+        "boundaryVerified": true,
+        "existsAtAudit": false
+      }
+    ],
+    "noManualCleanup": true,
+    "rawStdoutStderrPreserved": true
+  },
+  "limitations": [
+    "The smoke output belongs to frozen b5b8300ae58e967e1d0013e66dc4f1208ac860ef/tree8ce86dbd47bc0187e0cae41a3d144479d4b41819, not subsequent test-only commits.",
+    "Four site checks use the installed representative fixture and static checker. Browser rendering is NOT_RUN in smoke.",
+    "No new grilling behavior, native question-window lifecycle, second desktop client, learning-effect result, protected approval, or Owner acceptance is inferred."
+  ]
+}

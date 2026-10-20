@@ -39,6 +39,65 @@ function changeConfig(input, change) {
 function inventory(root) {
   return fs.readdirSync(root, { withFileTypes: true }).flatMap(entry => entry.isDirectory() ? inventory(path.join(root, entry.name)).map(name => `${entry.name}/${name}`) : [entry.name]).sort();
 }
+function contrast(first, second) {
+  const luminance = hex => hex.slice(1).match(/../g).map(value => Number.parseInt(value, 16) / 255).map(value => value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4).reduce((sum, value, index) => sum + value * [.2126, .7152, .0722][index], 0);
+  const values = [luminance(first), luminance(second)].sort((a, b) => b - a);
+  return (values[0] + .05) / (values[1] + .05);
+}
+
+test("omitted and explicit warm-paper preserve default assets while neutral changes only the stylesheet", t => {
+  const f = fixture(t), installedCSS = fs.readFileSync(path.join(SKILL, "assets/warm-paper/theme.css"));
+  const sourceAssets = new Map(["theme.css", "learning.js", "shell.html"].map(name => [name, fs.readFileSync(path.join(SKILL, "assets/warm-paper", name))]));
+  renderSite(f);
+  const defaultFiles = inventory(f.output);
+  assert.deepEqual(fs.readFileSync(path.join(f.output, "theme.css")), installedCSS);
+  assert.equal(Object.hasOwn(readJSON(path.join(f.output, "artifact.json")), "theme"), false, "omission must not rewrite original metadata");
+  for (const theme of ["warm-paper", "neutral"]) {
+    changeConfig(f.input, config => { config.theme = theme; });
+    const originals = new Map(inventory(f.input).map(relative => [relative, fs.readFileSync(path.join(f.input, relative))]));
+    const output = path.join(f.root, theme);
+    assert.equal(renderSite({ input: f.input, output }).status, "GENERATED");
+    assert.deepEqual(inventory(output), defaultFiles, "themes must share the same resource closure");
+    for (const [relative, bytes] of originals) {
+      assert.deepEqual(fs.readFileSync(path.join(f.input, relative)), bytes, "selected input remains intact");
+      assert.deepEqual(fs.readFileSync(path.join(output, relative)), bytes, "selected input is copied without rewriting");
+    }
+    for (const relative of defaultFiles.filter(name => !["theme.css", "artifact.json", "artifact-manifest.json"].includes(name))) assert.deepEqual(fs.readFileSync(path.join(output, relative)), fs.readFileSync(path.join(f.output, relative)), relative);
+    const css = fs.readFileSync(path.join(output, "theme.css"));
+    if (theme === "warm-paper") assert.deepEqual(css, installedCSS);
+    else {
+      assert.notDeepEqual(css, installedCSS);
+      assert.deepEqual(css.subarray(0, installedCSS.length), installedCSS, "neutral must append its bounded override to the installed stylesheet");
+      const variables = Object.fromEntries([...css.toString().matchAll(/(--[a-z-]+):\s*([^;]+);/g)].map(match => [match[1], match[2]]));
+      assert.notEqual(variables["--paper"], "#faf9f5");
+      assert.equal(variables["--serif"], "var(--sans)", "neutral headings use the existing local sans stack");
+      for (const background of [variables["--paper"], variables["--wash"], "#ffffff"]) {
+        for (const color of ["--ink", "--body", "--deep-clay"]) assert.ok(contrast(variables[color], background) >= 4.5, `${color} must support normal text against ${background}`);
+        for (const color of ["--line", "--clay", "--deep-clay"]) assert.ok(contrast(variables[color], background) >= 3, `${color} must retain a distinguishable control/selection/focus boundary against ${background}`);
+      }
+      assert.ok(contrast("#ffffff", variables["--deep-clay"]) >= 4.5, "normal button text remains readable");
+    }
+    const manifest = readJSON(path.join(output, "artifact-manifest.json"));
+    const declaredCSS = manifest.files.find(item => item.path === "theme.css");
+    assert.equal(declaredCSS.sha256, hash(css)); assert.equal(declaredCSS.bytes, css.length);
+    assert.equal(manifest.sourceSha256, hash(originals.get("artifact.json")));
+  }
+  for (const [name, bytes] of sourceAssets) assert.deepEqual(fs.readFileSync(path.join(SKILL, "assets/warm-paper", name)), bytes, "theme rendering must not alter installed assets");
+});
+
+test("unknown theme values and types fail before any output is created", t => {
+  const f = fixture(t);
+  for (const [index, theme] of ["", "dark", "Neutral", "../theme.css", "#fff", null, true, 1, [], {}].entries()) {
+    changeConfig(f.input, config => { config.theme = theme; });
+    const originals = new Map(inventory(f.input).map(relative => [relative, fs.readFileSync(path.join(f.input, relative))]));
+    const output = path.join(f.root, `rejected-theme-${index}`);
+    assert.throws(() => renderSite({ input: f.input, output }), /artifact\.theme/);
+    assert.equal(fs.existsSync(output), false);
+    for (const [relative, bytes] of originals) assert.deepEqual(fs.readFileSync(path.join(f.input, relative)), bytes);
+  }
+  const invalid = readJSON(path.join(f.input, "artifact.json")); invalid.theme = undefined;
+  assert.throws(() => validateArtifact(invalid), /artifact\.theme/);
+});
 
 test("representative generation preserves selected inputs and independently verifiable hashes", t => {
   const f = fixture(t), inputs = new Map(inventory(f.input).map(relative => [relative, fs.readFileSync(path.join(f.input, relative))]));

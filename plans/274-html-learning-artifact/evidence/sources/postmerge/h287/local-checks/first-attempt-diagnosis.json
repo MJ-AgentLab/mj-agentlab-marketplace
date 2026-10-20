@@ -1,0 +1,259 @@
+{
+  "verdict": "FAIL_DEPENDENCY_SETUP_MISSING",
+  "batch": "batch.json",
+  "npmTest": {
+    "total": 218,
+    "pass": 192,
+    "fail": 25,
+    "skipped": 1,
+    "failedRows": [
+      {
+        "line": 23,
+        "raw": "not ok 1 - tests\\\\benchmark-ci-performance.test.mjs"
+      },
+      {
+        "line": 63,
+        "raw": "not ok 3 - tests\\\\bump-version.test.mjs"
+      },
+      {
+        "line": 595,
+        "raw": "not ok 6 - tests\\\\ci-cancel-superseded.test.mjs"
+      },
+      {
+        "line": 623,
+        "raw": "not ok 7 - tests\\\\ci-deduplicate-push.test.mjs"
+      },
+      {
+        "line": 651,
+        "raw": "not ok 8 - tests\\\\commit-convention.test.mjs"
+      },
+      {
+        "line": 679,
+        "raw": "not ok 9 - tests\\\\communication-foundation.test.mjs"
+      },
+      {
+        "line": 707,
+        "raw": "not ok 10 - tests\\\\diagnose-ci-git.test.mjs"
+      },
+      {
+        "line": 759,
+        "raw": "not ok 12 - tests\\\\document-harness.test.mjs"
+      },
+      {
+        "line": 787,
+        "raw": "not ok 13 - tests\\\\documentation-contract.test.mjs"
+      },
+      {
+        "line": 815,
+        "raw": "not ok 14 - tests\\\\frozen-evidence-resources.test.mjs"
+      },
+      {
+        "line": 843,
+        "raw": "not ok 15 - tests\\\\html-guide-kit.test.mjs"
+      },
+      {
+        "line": 943,
+        "raw": "not ok 17 - tests\\\\html-site-integration.test.mjs"
+      },
+      {
+        "line": 1079,
+        "raw": "not ok 20 - tests\\\\intent-harness.test.mjs"
+      },
+      {
+        "line": 1107,
+        "raw": "not ok 21 - tests\\\\internal-pr-workflow.test.mjs"
+      },
+      {
+        "line": 1360,
+        "raw": "not ok 25 - tests\\\\plugin-icons.test.mjs"
+      },
+      {
+        "line": 1372,
+        "raw": "not ok 173 - release cleanup recovers from a transient canonical-directory lock and preserves the Git failure"
+      },
+      {
+        "line": 1423,
+        "raw": "not ok 174 - release cleanup bounds retries and reports a persistent verification-directory lock"
+      },
+      {
+        "line": 1476,
+        "raw": "not ok 175 - release cleanup reports unrelated cleanup errors without retrying"
+      },
+      {
+        "line": 1545,
+        "raw": "not ok 27 - tests\\\\release-verify-install.test.mjs"
+      },
+      {
+        "line": 1573,
+        "raw": "not ok 28 - tests\\\\repository-fixture.test.mjs"
+      },
+      {
+        "line": 1817,
+        "raw": "not ok 30 - tests\\\\run-cli.test.mjs"
+      },
+      {
+        "line": 1845,
+        "raw": "not ok 31 - tests\\\\run-release.test.mjs"
+      },
+      {
+        "line": 1873,
+        "raw": "not ok 32 - tests\\\\smoke-codex-plugin.test.mjs"
+      },
+      {
+        "line": 1901,
+        "raw": "not ok 33 - tests\\\\smoke-source.test.mjs"
+      },
+      {
+        "line": 1929,
+        "raw": "not ok 34 - tests\\\\validate-portable.test.mjs"
+      }
+    ],
+    "cause": "New worktree has no installed lockfile dependencies; imports fail for cross-spawn, yaml and pngjs. All original failures are retained.",
+    "missingPackageRows": [
+      {
+        "line": 9,
+        "raw": "# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'cross-spawn' imported from C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-alignment-sync\\\\develop\\\\tests\\\\benchmark-ci-performance.test.mjs"
+      },
+      {
+        "line": 49,
+        "raw": "# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'cross-spawn' imported from C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-alignment-sync\\\\develop\\\\scripts\\\\run-cli.mjs"
+      },
+      {
+        "line": 581,
+        "raw": "# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-alignment-sync\\\\develop\\\\tests\\\\ci-cancel-superseded.test.mjs"
+      },
+      {
+        "line": 609,
+        "raw": "# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-alignment-sync\\\\develop\\\\tests\\\\ci-deduplicate-push.test.mjs"
+      },
+      {
+        "line": 637,
+        "raw": "# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'cross-spawn' imported from C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-alignment-sync\\\\develop\\\\scripts\\\\run-cli.mjs"
+      },
+      {
+        "line": 665,
+        "raw": "# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'cross-spawn' imported from C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-alignment-sync\\\\develop\\\\scripts\\\\run-cli.mjs"
+      },
+      {
+        "line": 693,
+        "raw": "# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'cross-spawn' imported from C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-alignment-sync\\\\develop\\\\scripts\\\\benchmark-ci-performance.mjs"
+      },
+      {
+        "line": 745,
+        "raw": "# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-alignment-sync\\\\develop\\\\tests\\\\document-harness.test.mjs"
+      },
+      {
+        "line": 773,
+        "raw": "# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-alignment-sync\\\\develop\\\\scripts\\\\validate-portable.mjs"
+      },
+      {
+        "line": 801,
+        "raw": "# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-alignment-sync\\\\develop\\\\scripts\\\\document-harness.mjs"
+      },
+      {
+        "line": 829,
+        "raw": "# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-alignment-sync\\\\develop\\\\tests\\\\html-guide-kit.test.mjs"
+      },
+      {
+        "line": 929,
+        "raw": "# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-alignment-sync\\\\develop\\\\scripts\\\\validate-portable.mjs"
+      },
+      {
+        "line": 1065,
+        "raw": "# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-alignment-sync\\\\develop\\\\tests\\\\intent-harness.test.mjs"
+      },
+      {
+        "line": 1093,
+        "raw": "# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-alignment-sync\\\\develop\\\\tests\\\\internal-pr-workflow.test.mjs"
+      },
+      {
+        "line": 1346,
+        "raw": "# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'pngjs' imported from C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-alignment-sync\\\\develop\\\\tests\\\\plugin-icons.test.mjs"
+      },
+      {
+        "line": 1383,
+        "raw": "    Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'cross-spawn' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\scripts\\run-cli.mjs"
+      },
+      {
+        "line": 1434,
+        "raw": "    Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'cross-spawn' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\scripts\\run-cli.mjs"
+      },
+      {
+        "line": 1487,
+        "raw": "    Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'cross-spawn' imported from C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop\\scripts\\run-cli.mjs"
+      },
+      {
+        "line": 1531,
+        "raw": "# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-alignment-sync\\\\develop\\\\scripts\\\\validate-portable.mjs"
+      },
+      {
+        "line": 1559,
+        "raw": "# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-alignment-sync\\\\develop\\\\scripts\\\\validate-portable.mjs"
+      },
+      {
+        "line": 1803,
+        "raw": "# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'cross-spawn' imported from C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-alignment-sync\\\\develop\\\\scripts\\\\run-cli.mjs"
+      },
+      {
+        "line": 1831,
+        "raw": "# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'cross-spawn' imported from C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-alignment-sync\\\\develop\\\\scripts\\\\run-cli.mjs"
+      },
+      {
+        "line": 1859,
+        "raw": "# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-alignment-sync\\\\develop\\\\scripts\\\\validate-portable.mjs"
+      },
+      {
+        "line": 1887,
+        "raw": "# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-alignment-sync\\\\develop\\\\scripts\\\\validate-portable.mjs"
+      },
+      {
+        "line": 1915,
+        "raw": "# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'yaml' imported from C:\\\\Users\\\\Admin\\\\.codex\\\\worktrees\\\\html-alignment-sync\\\\develop\\\\scripts\\\\validate-portable.mjs"
+      }
+    ],
+    "skip": {
+      "line": 41,
+      "name": "Linux exec capture preserves original checker args, failure, owned-session cleanup and foreign isolation",
+      "reason": "Linux-only case on Windows"
+    }
+  },
+  "validate": {
+    "exitCode": 1,
+    "cause": "ERR_MODULE_NOT_FOUND: yaml",
+    "log": "npm-validate.log"
+  },
+  "baseline": {
+    "exitCode": 1,
+    "cause": "ERR_MODULE_NOT_FOUND: cross-spawn; actual CLI probe NOT_RUN in this command",
+    "log": "baseline-tools.log"
+  },
+  "actualPythonEvidenceWithinFailedBatch": [
+    {
+      "line": 737,
+      "case": "Diagram validator from unrelated cwd with tricky paths",
+      "result": "PASS"
+    },
+    {
+      "line": 855,
+      "case": "Both themes and omitted default through actual Python static checker",
+      "result": "PASS"
+    },
+    {
+      "line": 867,
+      "case": "HTML static checker actual Python from unrelated cwd",
+      "result": "PASS"
+    },
+    {
+      "line": 1172,
+      "case": "Learning Evidence GitHub flow actual Python identity",
+      "result": "Python3.12.14 bundled executable"
+    },
+    {
+      "line": 1306,
+      "case": "Learning Evidence isolated storage recovery/import/attribution",
+      "result": "PASS"
+    }
+  ],
+  "scope": "Partial passing cases do not make this batch pass. No standalone installation smoke or model/native/client acceptance was executed.",
+  "recommendation": "Install exact lockfile dependencies with npm ci, retain this failed batch, then run a new explicitly identified batch against the same tracked candidate."
+}

@@ -1,0 +1,11 @@
+# Actual283 continuation evidence
+
+Selected originals for actual a489 post-merge verification, same owner-private Site v2 repair and one 8.3.3 repair-release preparation. The existing Issue274/PLAN/REPORT and all older source bindings remain authoritative.
+
+selection-map.json restores each original location and exact bytes. Installation selected-manifest contains pointers to 28 originals in the external 170-payload local run; install/ holds the chosen originals at the same relative path, install-selection/ holds pointer/selection metadata. Complete caches, source-template copies, binaries, unknown-rights research raw and credentials are excluded. Local paths inside original reports remain original context, not repository-relative dependencies. siteqa/ preserves its complete 44-payload local review closure plus manifest, with artifact/ being the canonical ten-file candidate. site/site-v2.tar is the helper input archive, not a downloaded native saved archive.
+
+The first Site identity assertion failed because a Windows autocrlf working checkout was compared with generated LF output. Preserve that original method/error; canonical Git ffaaa exports then verified unchanged materials/index/JS. No Site write occurred before corrected validation. Generic python was unavailable; explicit bundled Python served the owned preview, later stopped. open_in_codex returned queued, not proof of an Owner visit.
+
+Native Site save/deploy succeeded and returned v2/source3d308, eleven files, unchanged owner-only revision1. Native archive size/hash differ from both gzip input and local decompressed tar. Native archive was not downloaded and no byte-equality/normalization-cause assertion is made. Local payload comparison and native source/version/deployment/audience readback have distinct scopes. Hosted full interaction/zoom/AT matrix remains unverified.
+
+A first root GraphQL PR read had a transport close and was retried via REST; independent audit REST originals succeeded. No mutation happened on that failed read. The raw root transport output was not saved separately. Earlier guard FAIL, Windows checkout FAIL, startup root-cause UNKNOWN, historical bypass/reviews-empty, deferred native/client work and effects NOT_MEASURED are retained.

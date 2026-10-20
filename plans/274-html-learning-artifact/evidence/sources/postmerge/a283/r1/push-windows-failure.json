@@ -1,0 +1,34 @@
+{
+  "head": "318db5a5660920f4fcd95f0f96c352d012514815",
+  "runId": 39363755336,
+  "jobId": 118435731121,
+  "jobName": "Baseline compat (windows-latest)",
+  "failedStep": "Unit and real Python execution tests",
+  "stepNumber": 7,
+  "raw": {
+    "path": "downloads/job-118435731121.stdout.raw",
+    "bytes": 289440,
+    "sha256": "72235e60a5172e092283d95e5a3917686c8e0a4877a2809f7aac6d5f70e7154f"
+  },
+  "failedCase": {
+    "number": 621,
+    "name": "five approved portable plugins, eight public skills and all 20 repository skills satisfy contracts",
+    "location": "tests/validate-portable.test.mjs:28:1",
+    "assertion": "tests/validate-portable.test.mjs:29:42",
+    "actual": false,
+    "expected": true,
+    "error": "project instruction budget: AGENTS.md exceeds configured instruction budget"
+  },
+  "totals": {
+    "tests": 647,
+    "suites": 0,
+    "pass": 645,
+    "fail": 1,
+    "cancelled": 0,
+    "skipped": 1,
+    "todo": 0
+  },
+  "subsequentSteps": "validate, baseline-tools and smoke skipped in this job",
+  "causality": "Actual deterministic contract rejection reported by validator. Platform byte conversion or configured-byte threshold details require source/runner evidence; this record does not infer missing values.",
+  "remoteMutations": []
+}
