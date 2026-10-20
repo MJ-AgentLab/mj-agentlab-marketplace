@@ -1,0 +1,10 @@
+{
+  "capturedAt": "2026-10-19T18:06:24.014Z",
+  "type": "Derived-summary classification correction; no raw log or candidate modification",
+  "oldSummary": "linux-summary-v1.json",
+  "oldSummarySha256": "fb4099cd865d338f0d14d1ecf2329f0e245a6ecb89dee721117bc6da9a4ee0c6",
+  "finding": "The original newDiagnosticTestCases name selected every stderr-related TAP case, including two preexisting cases147/528. Their execution and total counts were correctly observed; labeling all four as new was too broad.",
+  "correction": "Keep all four under diagnosticRelatedTestCases; newDiagnosticTestCases only the two actual new browser-stderr.test.mjs cases31/32. Parser v1 and original derived summary are preserved.",
+  "independentFinding": "Sibling independent-parser-audit compared old1d8 tests/check-prebump.test.mjs:214 and tests/run-cli.test.mjs:20; no product failure or changed644 totals.",
+  "rawIdentityUnchanged": "9bbac38a7208c0c77bfec06e03893a1e5a05e6f4d2e4a0fc8d6741b68b01eff7"
+}

@@ -1,0 +1,385 @@
+{
+  "schema": 1,
+  "parsedAt": "2026-10-19T18:10:42.628791+00:00",
+  "platform": "windows",
+  "runId": 39298251581,
+  "attempt": 1,
+  "jobId": 118216308644,
+  "jobConclusion": "success",
+  "batchHead": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+  "batchBase": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+  "actualCheckout": "c41dee3c7a14da2c1a94e84643c736d578d9c9fa",
+  "actualCheckoutRef": "refs/remotes/pull/281/merge",
+  "checkoutTree": "6659fadd62bc03aa3ab4eee61e63804fc25b914b",
+  "potentialMergeIsNotActualMerge": true,
+  "raw": {
+    "file": "windows-job.raw.log",
+    "bytes": 1038566,
+    "sha256": "655916f0d2cf6b207e6f7a6c6656a2a2042c9bda9fdf28bc3275e529246dd956"
+  },
+  "tap": {
+    "tests": 644,
+    "suites": 0,
+    "pass": 643,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 1,
+    "todo": 0
+  },
+  "tapCaseCount": 644,
+  "failedCases": [],
+  "skippedCases": [
+    {
+      "status": "ok",
+      "number": 32,
+      "name": "Linux exec capture preserves original checker args, failure, owned-session cleanup and foreign isolation # SKIP",
+      "skipped": true
+    }
+  ],
+  "browserCases": [
+    {
+      "status": "ok",
+      "number": 328,
+      "name": "browser unavailable is NOT_RUN with nonzero exit and a persisted missing-scope record",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 329,
+      "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 330,
+      "name": "actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 349,
+      "name": "literal percent, Chinese and spaces in local filenames round-trip through browser URLs",
+      "skipped": false
+    }
+  ],
+  "diagnosticRelatedTestCases": [
+    {
+      "status": "ok",
+      "number": 31,
+      "name": "actual Python drains a large stderr stream into a bounded exact tail and byte counters",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 32,
+      "name": "Linux exec capture preserves original checker args, failure, owned-session cleanup and foreign isolation # SKIP",
+      "skipped": true
+    },
+    {
+      "status": "ok",
+      "number": 147,
+      "name": "CLI exits 0 for overdue under push, and says so on stderr",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 528,
+      "name": "runCli captures stderr",
+      "skipped": false
+    }
+  ],
+  "newDiagnosticTestCases": [
+    {
+      "status": "ok",
+      "number": 31,
+      "name": "actual Python drains a large stderr stream into a bounded exact tail and byte counters",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 32,
+      "name": "Linux exec capture preserves original checker args, failure, owned-session cleanup and foreign isolation # SKIP",
+      "skipped": true
+    }
+  ],
+  "browserDiagnostics": [],
+  "startupStderrDiagnostics": [],
+  "steps": {
+    "Set up job": {
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-19T17:55:40Z",
+      "completedAt": "2026-10-19T17:55:41Z"
+    },
+    "Run actions/checkout@v4": {
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-19T17:55:41Z",
+      "completedAt": "2026-10-19T17:55:56Z"
+    },
+    "Run actions/setup-node@v4": {
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-19T17:55:56Z",
+      "completedAt": "2026-10-19T17:56:03Z"
+    },
+    "Run actions/setup-python@v5": {
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-19T17:56:03Z",
+      "completedAt": "2026-10-19T17:56:03Z"
+    },
+    "Run npm ci": {
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-19T17:56:03Z",
+      "completedAt": "2026-10-19T17:56:09Z"
+    },
+    "Run npm install -g @openai/codex@0.147.0": {
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-19T17:56:09Z",
+      "completedAt": "2026-10-19T17:56:15Z"
+    },
+    "Unit and real Python execution tests": {
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-19T17:56:15Z",
+      "completedAt": "2026-10-19T18:01:51Z"
+    },
+    "Run npm run validate": {
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-19T18:01:51Z",
+      "completedAt": "2026-10-19T18:02:14Z"
+    },
+    "Run npm run check:baseline-tools": {
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-19T18:02:14Z",
+      "completedAt": "2026-10-19T18:02:15Z"
+    },
+    "Run npm run smoke:codex": {
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-19T18:02:15Z",
+      "completedAt": "2026-10-19T18:09:57Z"
+    },
+    "Post Run actions/setup-python@v5": {
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-19T18:09:57Z",
+      "completedAt": "2026-10-19T18:09:57Z"
+    },
+    "Post Run actions/setup-node@v4": {
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-19T18:09:57Z",
+      "completedAt": "2026-10-19T18:09:57Z"
+    },
+    "Post Run actions/checkout@v4": {
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-19T18:09:57Z",
+      "completedAt": "2026-10-19T18:09:59Z"
+    },
+    "Complete job": {
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-19T18:09:59Z",
+      "completedAt": "2026-10-19T18:10:00Z"
+    }
+  },
+  "cleanupCases": [
+    {
+      "status": "ok",
+      "number": 21,
+      "name": "all complete core groups remain unmeasured with incomplete cleanup",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 32,
+      "name": "Linux exec capture preserves original checker args, failure, owned-session cleanup and foreign isolation # SKIP",
+      "skipped": true
+    },
+    {
+      "status": "ok",
+      "number": 46,
+      "name": "backup cleanup failure does not undo a committed bump",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 235,
+      "name": "profile evidence preserves intentional rejection errors but rejects partial records and failed cleanup",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 329,
+      "name": "browser workspace cleanup retries actual late-file ENOTEMPTY and fails closed on persistent writes",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 471,
+      "name": "release cleanup recovers from a transient canonical-directory lock and preserves the Git failure",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 472,
+      "name": "release cleanup bounds retries and reports a persistent verification-directory lock",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 473,
+      "name": "release cleanup reports unrelated cleanup errors without retrying",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 477,
+      "name": "failed installation cleans up the canonical worktree and fails closed",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 598,
+      "name": "an operation and persistent cleanup failure remain visible together",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 599,
+      "name": "template cleanup failure fails an otherwise successful keepRoot run and removes all retained scenarios",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 611,
+      "name": "source changing during a template copy fails its frozen inventory and cleans the partial template",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 612,
+      "name": "a context-creation failure before the second runner cleans prior/current roots and keeps its original error",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 613,
+      "name": "a materialize failure before the second runner cleans prior/current roots and keeps its original error",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 614,
+      "name": "a second runner returning ok:false fails the run and cleans all retained/current roots and the template",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 615,
+      "name": "post-success source integrity byte-drift cleans retained/current roots and preserves the failure",
+      "skipped": false
+    },
+    {
+      "status": "ok",
+      "number": 616,
+      "name": "post-success source integrity read-error cleans retained/current roots and preserves the failure",
+      "skipped": false
+    }
+  ],
+  "cleanupScope": {
+    "individualRootAbsence": "NOT_RECORDED",
+    "otherBatchRootCountsBorrowed": false
+  },
+  "smoke": {
+    "status": "PASS",
+    "scenarios": 13,
+    "allScenariosOk": true,
+    "commands": 178,
+    "nonzeroCommands": [],
+    "executionCounts": {
+      "diagram": 6,
+      "lek": 18,
+      "siteGeneration": 4,
+      "siteStatic": 4
+    },
+    "cliVersions": [
+      "codex-cli 0.147.0"
+    ],
+    "publicResourceTrees": 8,
+    "siteResources": 20,
+    "resourceHashCrossScenarioDifferences": [],
+    "sourceToCacheIdentity": "Completed Harness checks actual platform checkout versus its own installed cache; no cross-platform physical byte equality assertion.",
+    "inventory": {
+      "outside": {
+        "publicSkills": 3,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 3,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 8,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 8,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [
+        "learning-evidence-kit:pop-quiz",
+        "learning-evidence-kit:learning-record-check",
+        "communication-kit:communicate",
+        "html-guide-kit:guide",
+        "html-guide-kit:site"
+      ]
+    },
+    "siteStaticSummaries": [
+      {
+        "checks": 89,
+        "failed": 0,
+        "pages": 1,
+        "files": 6
+      },
+      {
+        "checks": 89,
+        "failed": 0,
+        "pages": 1,
+        "files": 6
+      },
+      {
+        "checks": 89,
+        "failed": 0,
+        "pages": 1,
+        "files": 6
+      },
+      {
+        "checks": 89,
+        "failed": 0,
+        "pages": 1,
+        "files": 6
+      }
+    ],
+    "siteBrowserChecks": [
+      "NOT_RUN in installation smoke; separate representative browser acceptance required",
+      "NOT_RUN in installation smoke; separate representative browser acceptance required",
+      "NOT_RUN in installation smoke; separate representative browser acceptance required",
+      "NOT_RUN in installation smoke; separate representative browser acceptance required"
+    ],
+    "cleanupReturn": {
+      "defaultKeepRoot": false,
+      "successfulReturnAfterCleanup": true,
+      "individualRootAbsence": "NOT_RECORDED"
+    }
+  },
+  "verificationIssues": [],
+  "status": "PASS"
+}

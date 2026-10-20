@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.7
+version: v1.8
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -29,7 +29,7 @@ sources: ./source-bindings.json
 - [来源清单](./source-bindings.json)：原计划完整字节、本轮请求及捕获元数据。冻结来源只用于恢复，不作第二主计划。
 - [唯一主 REPORT](./[REPORT]_HTML_Learning_Artifact.md)：版本化工程/独立消费者/私有Sites与失败恢复；[主PR275](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/275)、[原子子PR276](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/276)、[验收子PR277](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/277)承接本批，进度仍以Issue为准。
 
-2026-10-20当前：预升PR281原1d8b的Linux启动CI及一次有界push复验FAIL，Windows原PR完整PASS；根因UNKNOWN，诊断前124原件已冻结。当前仅加测试层Linux有界stderr采集，保持原checker/阈值/真实测量门禁及插件/公开版本；修后本机完整644总/643PASS/1新增Linux机制在Windows不适用、strict及独立反例复验已通过，后继新head双端CI待真实结果，保护批准NOT_MET、延期/Owner接受独立。同一REPORT/Issue274接续。
+2026-10-20当前：[PR281](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/281)已于00:00:09Z（本地08:00:09）合入develop62945150，与已测候选同tree6659；仅市场8.3.3预升已交付、仍未发布，插件及公开v8.3.2/f906保持。候选CI与actual629新验分记，actual本机/strict/CLI通过，新13/实际Python/15精确根清理通过；实际bypass/批准NOT_MET、旧FAIL/根因UNKNOWN、延期与Owner接受独立，进度以Issue274为准。
 
 以下为原PR创建前准备快照。
 

@@ -1,0 +1,1036 @@
+TAP version 13
+# Subtest: isA6Trigger matches every §2.7 allowlist category
+ok 1 - isA6Trigger matches every §2.7 allowlist category
+  ---
+  duration_ms: 1.2689
+  type: 'test'
+  ...
+# Subtest: isA6Trigger matches the Codex dual-native additions
+ok 2 - isA6Trigger matches the Codex dual-native additions
+  ---
+  duration_ms: 0.2732
+  type: 'test'
+  ...
+# Subtest: isA6Trigger ignores non-allowlist paths
+ok 3 - isA6Trigger ignores non-allowlist paths
+  ---
+  duration_ms: 0.0841
+  type: 'test'
+  ...
+# Subtest: a trigger path containing a newline is still a trigger
+ok 4 - a trigger path containing a newline is still a trigger
+  ---
+  duration_ms: 0.0636
+  type: 'test'
+  ...
+# Subtest: trigger patterns anchor to end of input, not to a trailing newline
+ok 5 - trigger patterns anchor to end of input, not to a trailing newline
+  ---
+  duration_ms: 0.0561
+  type: 'test'
+  ...
+# Subtest: isA6Trigger is anchored — near-miss paths do not match
+ok 6 - isA6Trigger is anchored — near-miss paths do not match
+  ---
+  duration_ms: 0.0604
+  type: 'test'
+  ...
+# Subtest: passes when the diff touches no trigger file
+ok 7 - passes when the diff touches no trigger file
+  ---
+  duration_ms: 0.4789
+  type: 'test'
+  ...
+# Subtest: passes when a trigger file is accompanied by a modified AGENTS.md
+ok 8 - passes when a trigger file is accompanied by a modified AGENTS.md
+  ---
+  duration_ms: 0.1747
+  type: 'test'
+  ...
+# Subtest: passes when AGENTS.md is newly added alongside a trigger
+ok 9 - passes when AGENTS.md is newly added alongside a trigger
+  ---
+  duration_ms: 0.202
+  type: 'test'
+  ...
+# Subtest: reports every triggered path, not just the first
+ok 10 - reports every triggered path, not just the first
+  ---
+  duration_ms: 0.2293
+  type: 'test'
+  ...
+# Subtest: blocks when a trigger file is touched and AGENTS.md is absent
+ok 11 - blocks when a trigger file is touched and AGENTS.md is absent
+  ---
+  duration_ms: 0.1031
+  type: 'test'
+  ...
+# Subtest: deleting root AGENTS.md does NOT count as syncing it
+ok 12 - deleting root AGENTS.md does NOT count as syncing it
+  ---
+  duration_ms: 0.0556
+  type: 'test'
+  ...
+# Subtest: a AGENTS.md typechange does not count as syncing it
+ok 13 - a AGENTS.md typechange does not count as syncing it
+  ---
+  duration_ms: 0.0464
+  type: 'test'
+  ...
+# Subtest: only ROOT AGENTS.md counts — a plugin AGENTS.md does not
+ok 14 - only ROOT AGENTS.md counts — a plugin AGENTS.md does not
+  ---
+  duration_ms: 0.0434
+  type: 'test'
+  ...
+# Subtest: REGRESSION: [skip a6] alone does not bypass the gate
+ok 15 - REGRESSION: [skip a6] alone does not bypass the gate
+  ---
+  duration_ms: 0.0991
+  type: 'test'
+  ...
+# Subtest: [skip a6] plus a valid reviewer sign-off bypasses the gate
+ok 16 - [skip a6] plus a valid reviewer sign-off bypasses the gate
+  ---
+  duration_ms: 0.0846
+  type: 'test'
+  ...
+# Subtest: the skip token must be the literal string
+ok 17 - the skip token must be the literal string
+  ---
+  duration_ms: 0.0632
+  type: 'test'
+  ...
+# Subtest: a sign-off without the skip token does not bypass the gate
+ok 18 - a sign-off without the skip token does not bypass the gate
+  ---
+  duration_ms: 0.0342
+  type: 'test'
+  ...
+# Subtest: the PR author cannot sign off on their own PR
+ok 19 - the PR author cannot sign off on their own PR
+  ---
+  duration_ms: 0.0418
+  type: 'test'
+  ...
+# Subtest: author self-signoff is rejected case-insensitively
+ok 20 - author self-signoff is rejected case-insensitively
+  ---
+  duration_ms: 0.0348
+  type: 'test'
+  ...
+# Subtest: only OWNER / MEMBER / COLLABORATOR may sign off
+ok 21 - only OWNER / MEMBER / COLLABORATOR may sign off
+  ---
+  duration_ms: 0.117
+  type: 'test'
+  ...
+# Subtest: a sign-off against a stale head SHA does not count
+ok 22 - a sign-off against a stale head SHA does not count
+  ---
+  duration_ms: 0.0645
+  type: 'test'
+  ...
+# Subtest: the review must be an APPROVAL, not a comment
+ok 23 - the review must be an APPROVAL, not a comment
+  ---
+  duration_ms: 0.0625
+  type: 'test'
+  ...
+# Subtest: the review body must equal the sign-off phrase exactly
+ok 24 - the review body must equal the sign-off phrase exactly
+  ---
+  duration_ms: 0.0645
+  type: 'test'
+  ...
+# Subtest: surrounding whitespace and CRLF in the sign-off body are tolerated
+ok 25 - surrounding whitespace and CRLF in the sign-off body are tolerated
+  ---
+  duration_ms: 0.0441
+  type: 'test'
+  ...
+# Subtest: a later CHANGES_REQUESTED from the same reviewer revokes their sign-off
+ok 26 - a later CHANGES_REQUESTED from the same reviewer revokes their sign-off
+  ---
+  duration_ms: 0.084
+  type: 'test'
+  ...
+# Subtest: a re-approval after CHANGES_REQUESTED restores the sign-off
+ok 27 - a re-approval after CHANGES_REQUESTED restores the sign-off
+  ---
+  duration_ms: 0.0507
+  type: 'test'
+  ...
+# Subtest: review recency follows submitted_at, not array position or id
+ok 28 - review recency follows submitted_at, not array position or id
+  ---
+  duration_ms: 0.3474
+  type: 'test'
+  ...
+# Subtest: review recency falls back to id when submitted_at ties
+ok 29 - review recency falls back to id when submitted_at ties
+  ---
+  duration_ms: 0.0509
+  type: 'test'
+  ...
+# Subtest: one reviewer's CHANGES_REQUESTED does not void another's valid sign-off
+ok 30 - one reviewer's CHANGES_REQUESTED does not void another's valid sign-off
+  ---
+  duration_ms: 0.0446
+  type: 'test'
+  ...
+# Subtest: a reviewer with no login is ignored rather than crashing
+ok 31 - a reviewer with no login is ignored rather than crashing
+  ---
+  duration_ms: 0.0398
+  type: 'test'
+  ...
+# Subtest: evaluateA6 rejects malformed input rather than guessing
+ok 32 - evaluateA6 rejects malformed input rather than guessing
+  ---
+  duration_ms: 0.2815
+  type: 'test'
+  ...
+# Subtest: flattenReviews accepts both a plain array and --paginate --slurp nesting
+ok 33 - flattenReviews accepts both a plain array and --paginate --slurp nesting
+  ---
+  duration_ms: 0.1859
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ parses git's STATUS\\0PATH\\0 records
+ok 34 - parseNameStatusZ parses git's STATUS\\0PATH\\0 records
+  ---
+  duration_ms: 0.1372
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ handles an empty diff
+ok 35 - parseNameStatusZ handles an empty diff
+  ---
+  duration_ms: 0.0424
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ keeps newlines inside a path intact
+ok 36 - parseNameStatusZ keeps newlines inside a path intact
+  ---
+  duration_ms: 0.0416
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ strips similarity scores from status codes
+ok 37 - parseNameStatusZ strips similarity scores from status codes
+  ---
+  duration_ms: 0.0345
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ rejects a rename record instead of misreading it
+ok 38 - parseNameStatusZ rejects a rename record instead of misreading it
+  ---
+  duration_ms: 0.0476
+  type: 'test'
+  ...
+# Subtest: parseNameStatusZ rejects a trailing status with no path
+ok 39 - parseNameStatusZ rejects a trailing status with no path
+  ---
+  duration_ms: 0.1066
+  type: 'test'
+  ...
+# Subtest: CLI exits 2 when a required environment variable is missing
+ok 40 - CLI exits 2 when a required environment variable is missing
+  ---
+  duration_ms: 281.8702
+  type: 'test'
+  ...
+# Subtest: CLI exits 2 on an unreadable reviews file
+ok 41 - CLI exits 2 on an unreadable reviews file
+  ---
+  duration_ms: 253.6372
+  type: 'test'
+  ...
+# Subtest: CLI exits 2 on malformed reviews JSON
+ok 42 - CLI exits 2 on malformed reviews JSON
+  ---
+  duration_ms: 285.9285
+  type: 'test'
+  ...
+# Subtest: CLI exits 2 on an unresolvable SHA rather than treating the diff as empty
+ok 43 - CLI exits 2 on an unresolvable SHA rather than treating the diff as empty
+  ---
+  duration_ms: 264.1916
+  type: 'test'
+  ...
+# Subtest: CLI exits 1 and names the triggers when the gate blocks
+ok 44 - CLI exits 1 and names the triggers when the gate blocks
+  ---
+  duration_ms: 372.1114
+  type: 'test'
+  ...
+# Subtest: CLI exits 0 when AGENTS.md is synced alongside the trigger
+ok 45 - CLI exits 0 when AGENTS.md is synced alongside the trigger
+  ---
+  duration_ms: 397.1886
+  type: 'test'
+  ...
+# Subtest: CLI exits 0 when the PR touches nothing on the allowlist
+ok 46 - CLI exits 0 when the PR touches nothing on the allowlist
+  ---
+  duration_ms: 369.0044
+  type: 'test'
+  ...
+# Subtest: CLI exits 1 for [skip a6] with no sign-off
+ok 47 - CLI exits 1 for [skip a6] with no sign-off
+  ---
+  duration_ms: 374.0304
+  type: 'test'
+  ...
+# Subtest: CLI exits 0 for [skip a6] with a valid sign-off
+ok 48 - CLI exits 0 for [skip a6] with a valid sign-off
+  ---
+  duration_ms: 383.582
+  type: 'test'
+  ...
+# Subtest: CLI exits 1 when deleting root AGENTS.md is the only 'sync'
+ok 49 - CLI exits 1 when deleting root AGENTS.md is the only 'sync'
+  ---
+  duration_ms: 370.9402
+  type: 'test'
+  ...
+# Subtest: CLI uses a three-dot range: a base-branch AGENTS.md edit cannot satisfy the PR
+ok 50 - CLI uses a three-dot range: a base-branch AGENTS.md edit cannot satisfy the PR
+  ---
+  duration_ms: 555.7066
+  type: 'test'
+  ...
+# Subtest: CLI sees a renamed trigger file rather than a rename record
+ok 51 - CLI sees a renamed trigger file rather than a rename record
+  ---
+  duration_ms: 358.1937
+  type: 'test'
+  ...
+# Subtest: CLI treats a shell-metacharacter PR title as inert data
+ok 52 - CLI treats a shell-metacharacter PR title as inert data
+  ---
+  duration_ms: 364.5732
+  type: 'test'
+  ...
+# Subtest: CLI handles a PR title that is exactly the skip token with odd spacing
+ok 53 - CLI handles a PR title that is exactly the skip token with odd spacing
+  ---
+  duration_ms: 384.9083
+  type: 'test'
+  ...
+# Subtest: portable manifest and migrated repository skills trigger A6
+ok 54 - portable manifest and migrated repository skills trigger A6
+  ---
+  duration_ms: 0.1084
+  type: 'test'
+  ...
+# Subtest: legacy CLAUDE.md alone cannot satisfy the new sync target
+ok 55 - legacy CLAUDE.md alone cannot satisfy the new sync target
+  ---
+  duration_ms: 0.0553
+  type: 'test'
+  ...
+# Subtest: current documentation and navigation reject legacy plan root empty-directory
+ok 56 - current documentation and navigation reject legacy plan root empty-directory
+  ---
+  duration_ms: 52.5364
+  type: 'test'
+  ...
+# Subtest: current documentation and navigation reject legacy plan root populated-directory
+ok 57 - current documentation and navigation reject legacy plan root populated-directory
+  ---
+  duration_ms: 36.0342
+  type: 'test'
+  ...
+# Subtest: current documentation and navigation reject legacy plan root file
+ok 58 - current documentation and navigation reject legacy plan root file
+  ---
+  duration_ms: 27.5526
+  type: 'test'
+  ...
+# Subtest: current documentation and navigation reject legacy plan root directory-link
+ok 59 - current documentation and navigation reject legacy plan root directory-link
+  ---
+  duration_ms: 29.5337
+  type: 'test'
+  ...
+# Subtest: current documentation and navigation reject legacy plan root dangling-link
+ok 60 - current documentation and navigation reject legacy plan root dangling-link
+  ---
+  duration_ms: 28.1581
+  type: 'test'
+  ...
+# Subtest: current body cannot retain legacy locator ../../plan
+ok 61 - current body cannot retain legacy locator ../../plan
+  ---
+  duration_ms: 15.5708
+  type: 'test'
+  ...
+# Subtest: current metadata cannot retain legacy locator ../../plan
+ok 62 - current metadata cannot retain legacy locator ../../plan
+  ---
+  duration_ms: 15.2392
+  type: 'test'
+  ...
+# Subtest: current body cannot retain legacy locator ../../plan/old.md
+ok 63 - current body cannot retain legacy locator ../../plan/old.md
+  ---
+  duration_ms: 16.5908
+  type: 'test'
+  ...
+# Subtest: current metadata cannot retain legacy locator ../../plan/old.md
+ok 64 - current metadata cannot retain legacy locator ../../plan/old.md
+  ---
+  duration_ms: 16.8735
+  type: 'test'
+  ...
+# Subtest: current body cannot retain legacy locator ../../%70lan/old.md
+ok 65 - current body cannot retain legacy locator ../../%70lan/old.md
+  ---
+  duration_ms: 14.4514
+  type: 'test'
+  ...
+# Subtest: current metadata cannot retain legacy locator ../../%70lan/old.md
+ok 66 - current metadata cannot retain legacy locator ../../%70lan/old.md
+  ---
+  duration_ms: 13.4263
+  type: 'test'
+  ...
+# Subtest: current body cannot retain legacy locator ../../plans/../plan/old.md
+ok 67 - current body cannot retain legacy locator ../../plans/../plan/old.md
+  ---
+  duration_ms: 14.2216
+  type: 'test'
+  ...
+# Subtest: current metadata cannot retain legacy locator ../../plans/../plan/old.md
+ok 68 - current metadata cannot retain legacy locator ../../plans/../plan/old.md
+  ---
+  duration_ms: 13.0264
+  type: 'test'
+  ...
+# Subtest: fixed Git provenance and raw source text retain historical plan paths without restoring a current root
+ok 69 - fixed Git provenance and raw source text retain historical plan paths without restoring a current root
+  ---
+  duration_ms: 19.1349
+  type: 'test'
+  ...
+# Subtest: new task documents require explicit layer and preserve draft canonical/completed working distinction
+ok 70 - new task documents require explicit layer and preserve draft canonical/completed working distinction
+  ---
+  duration_ms: 32.1491
+  type: 'test'
+  ...
+# Subtest: rejects invalid metadata layer: other
+ok 71 - rejects invalid metadata layer: other
+  ---
+  duration_ms: 12.9184
+  type: 'test'
+  ...
+# Subtest: rejects invalid metadata missing layer
+ok 72 - rejects invalid metadata missing layer
+  ---
+  duration_ms: 13.7189
+  type: 'test'
+  ...
+# Subtest: rejects invalid metadata type: assessment
+ok 73 - rejects invalid metadata type: assessment
+  ---
+  duration_ms: 13.7049
+  type: 'test'
+  ...
+# Subtest: rejects invalid metadata type: guide
+ok 74 - rejects invalid metadata type: guide
+  ---
+  duration_ms: 14.7575
+  type: 'test'
+  ...
+# Subtest: rejects invalid metadata state: complete
+ok 75 - rejects invalid metadata state: complete
+  ---
+  duration_ms: 10.6362
+  type: 'test'
+  ...
+# Subtest: rejects invalid metadata created: 2026-02-30
+ok 76 - rejects invalid metadata created: 2026-02-30
+  ---
+  duration_ms: 13.8926
+  type: 'test'
+  ...
+# Subtest: rejects invalid metadata updated: 2026-01-01
+ok 77 - rejects invalid metadata updated: 2026-01-01
+  ---
+  duration_ms: 12.7676
+  type: 'test'
+  ...
+# Subtest: public working records require their maintained purpose and owner
+ok 78 - public working records require their maintained purpose and owner
+  ---
+  duration_ms: 22.1716
+  type: 'test'
+  ...
+# Subtest: canonical domain paths and task nested template/evidence escape attempts are rejected
+ok 79 - canonical domain paths and task nested template/evidence escape attempts are rejected
+  ---
+  duration_ms: 30.9204
+  type: 'test'
+  ...
+# Subtest: task identity and navigation reject [PLAN]_Execution.md task: other
+ok 80 - task identity and navigation reject [PLAN]_Execution.md task: other
+  ---
+  duration_ms: 13.1972
+  type: 'test'
+  ...
+# Subtest: task identity and navigation reject [PLAN]_Execution.md tracking: https://example.com/257
+ok 81 - task identity and navigation reject [PLAN]_Execution.md tracking: https://example.com/257
+  ---
+  duration_ms: 13.7826
+  type: 'test'
+  ...
+# Subtest: task identity and navigation reject INDEX.md plan: ./[REPORT]_Execution.md
+ok 82 - task identity and navigation reject INDEX.md plan: ./[REPORT]_Execution.md
+  ---
+  duration_ms: 13.2791
+  type: 'test'
+  ...
+# Subtest: task identity and navigation reject INDEX.md canonical: []
+ok 83 - task identity and navigation reject INDEX.md canonical: []
+  ---
+  duration_ms: 13.6069
+  type: 'test'
+  ...
+# Subtest: task identity and navigation reject INDEX.md type: plan
+ok 84 - task identity and navigation reject INDEX.md type: plan
+  ---
+  duration_ms: 13.0477
+  type: 'test'
+  ...
+# Subtest: required main-document metadata cannot be replaced by body links; initial tasks may omit REPORT
+ok 85 - required main-document metadata cannot be replaced by body links; initial tasks may omit REPORT
+  ---
+  duration_ms: 47.7782
+  type: 'test'
+  ...
+# Subtest: a task without an Issue can use a stable existing conversation identity without forced issue creation
+ok 86 - a task without an Issue can use a stable existing conversation identity without forced issue creation
+  ---
+  duration_ms: 81.703
+  type: 'test'
+  ...
+# Subtest: local Markdown and metadata paths are checked, including encoded traversal and missing targets
+ok 87 - local Markdown and metadata paths are checked, including encoded traversal and missing targets
+  ---
+  duration_ms: 71.1866
+  type: 'test'
+  ...
+# Subtest: canonical navigation cannot point to arbitrary JSON, working ledgers, archive or undeclared legacy
+ok 88 - canonical navigation cannot point to arbitrary JSON, working ledgers, archive or undeclared legacy
+  ---
+  duration_ms: 67.7069
+  type: 'test'
+  ...
+# Subtest: pinned legacy inventory proves original Git bytes, supports deterministic CRLF checkout and denies changed/new bypass
+ok 89 - pinned legacy inventory proves original Git bytes, supports deterministic CRLF checkout and denies changed/new bypass
+  ---
+  duration_ms: 5313.8111
+  type: 'test'
+  ...
+# Subtest: bound snapshot original bytes remain raw; an unbound Markdown file cannot hide in evidence
+ok 90 - bound snapshot original bytes remain raw; an unbound Markdown file cannot hide in evidence
+  ---
+  duration_ms: 34.443
+  type: 'test'
+  ...
+# Subtest: source bindings read actual contents and reject wrong hashes, lost files, traversal and ambiguous schema
+ok 91 - source bindings read actual contents and reject wrong hashes, lost files, traversal and ambiguous schema
+  ---
+  duration_ms: 89.1744
+  type: 'test'
+  ...
+# Subtest: Git binding reads pinned version and verifies portable snapshot without conflating the current file
+ok 92 - Git binding reads pinned version and verifies portable snapshot without conflating the current file
+  ---
+  duration_ms: 850.208
+  type: 'test'
+  ...
+# Subtest: source and documentation junctions cannot escape their owned roots
+ok 93 - source and documentation junctions cannot escape their owned roots
+  ---
+  duration_ms: 10.6798
+  type: 'test'
+  ...
+# Subtest: parseChangelog: section boundaries, heading-free bodies, fence blindness fixed
+ok 94 - parseChangelog: section boundaries, heading-free bodies, fence blindness fixed
+  ---
+  duration_ms: 1.3631
+  type: 'test'
+  ...
+# Subtest: parseChangelog: flags heading lookalikes, leaves ordinary prose alone
+ok 95 - parseChangelog: flags heading lookalikes, leaves ordinary prose alone
+  ---
+  duration_ms: 0.7781
+  type: 'test'
+  ...
+# Subtest: no CHANGELOG has a heading that only looks like a section heading
+ok 96 - no CHANGELOG has a heading that only looks like a section heading
+  ---
+  duration_ms: 2.1808
+  type: 'test'
+  ...
+# Subtest: every CHANGELOG section heading has the exact shape run-release.mjs greps for
+ok 97 - every CHANGELOG section heading has the exact shape run-release.mjs greps for
+  ---
+  duration_ms: 2.5174
+  type: 'test'
+  ...
+# Subtest: the newest shipping CHANGELOG section is substantive and names its own version
+ok 98 - the newest shipping CHANGELOG section is substantive and names its own version
+  ---
+  duration_ms: 2.0232
+  type: 'test'
+  ...
+# Subtest: root CHANGELOG permanently carries the NLM-only BREAKING disclosures in one section
+ok 99 - root CHANGELOG permanently carries the NLM-only BREAKING disclosures in one section
+  ---
+  duration_ms: 1.1798
+  type: 'test'
+  ...
+# Subtest: learn-kit CHANGELOG permanently marks the 4.0.0 NLM break in one section
+ok 100 - learn-kit CHANGELOG permanently marks the 4.0.0 NLM break in one section
+  ---
+  duration_ms: 0.3855
+  type: 'test'
+  ...
+# Subtest: diagram-kit CHANGELOG permanently marks the 0.2.0 Codex bump in one section
+ok 101 - diagram-kit CHANGELOG permanently marks the 0.2.0 Codex bump in one section
+  ---
+  duration_ms: 0.2678
+  type: 'test'
+  ...
+# Subtest: README covers both clients and every maintained qualified public skill
+ok 102 - README covers both clients and every maintained qualified public skill
+  ---
+  duration_ms: 0.6099
+  type: 'test'
+  ...
+# Subtest: upgrade guide preserves old data and explains explicit uninstall
+ok 103 - upgrade guide preserves old data and explains explicit uninstall
+  ---
+  duration_ms: 0.4752
+  type: 'test'
+  ...
+# Subtest: tiered originals and canonical navigation work without manufacturing acceptance or an independent file for a small Issue
+ok 104 - tiered originals and canonical navigation work without manufacturing acceptance or an independent file for a small Issue
+  ---
+  duration_ms: 31.351
+  type: 'test'
+  ...
+# Subtest: INTENT requires its explicit scalar field type
+ok 105 - INTENT requires its explicit scalar field type
+  ---
+  duration_ms: 19.6405
+  type: 'test'
+  ...
+# Subtest: INTENT requires its explicit scalar field scope
+ok 106 - INTENT requires its explicit scalar field scope
+  ---
+  duration_ms: 17.4924
+  type: 'test'
+  ...
+# Subtest: INTENT requires its explicit scalar field summary
+ok 107 - INTENT requires its explicit scalar field summary
+  ---
+  duration_ms: 15.1147
+  type: 'test'
+  ...
+# Subtest: INTENT requires its explicit scalar field owner
+ok 108 - INTENT requires its explicit scalar field owner
+  ---
+  duration_ms: 15.3895
+  type: 'test'
+  ...
+# Subtest: INTENT requires its explicit scalar field created
+ok 109 - INTENT requires its explicit scalar field created
+  ---
+  duration_ms: 16.4049
+  type: 'test'
+  ...
+# Subtest: INTENT requires its explicit scalar field updated
+ok 110 - INTENT requires its explicit scalar field updated
+  ---
+  duration_ms: 13.1964
+  type: 'test'
+  ...
+# Subtest: INTENT requires its explicit scalar field state
+ok 111 - INTENT requires its explicit scalar field state
+  ---
+  duration_ms: 14.5494
+  type: 'test'
+  ...
+# Subtest: INTENT requires its explicit scalar field version
+ok 112 - INTENT requires its explicit scalar field version
+  ---
+  duration_ms: 10.5413
+  type: 'test'
+  ...
+# Subtest: INTENT requires its explicit scalar field layer
+ok 113 - INTENT requires its explicit scalar field layer
+  ---
+  duration_ms: 13.2174
+  type: 'test'
+  ...
+# Subtest: INTENT requires its explicit scalar field intent-id
+ok 114 - INTENT requires its explicit scalar field intent-id
+  ---
+  duration_ms: 12.2341
+  type: 'test'
+  ...
+# Subtest: identity and lifecycle fail closed: {"type":"spec"}
+ok 115 - identity and lifecycle fail closed: {"type":"spec"}
+  ---
+  duration_ms: 12.176
+  type: 'test'
+  ...
+# Subtest: identity and lifecycle fail closed: {"layer":"working"}
+ok 116 - identity and lifecycle fail closed: {"layer":"working"}
+  ---
+  duration_ms: 15.2656
+  type: 'test'
+  ...
+# Subtest: identity and lifecycle fail closed: {"intent-id":"INT-2026-000"}
+ok 117 - identity and lifecycle fail closed: {"intent-id":"INT-2026-000"}
+  ---
+  duration_ms: 13.8154
+  type: 'test'
+  ...
+# Subtest: identity and lifecycle fail closed: {"intent-id":"INT-2026-1000"}
+ok 118 - identity and lifecycle fail closed: {"intent-id":"INT-2026-1000"}
+  ---
+  duration_ms: 12.7161
+  type: 'test'
+  ...
+# Subtest: identity and lifecycle fail closed: {"intent-id":"INT-2026-002"}
+ok 119 - identity and lifecycle fail closed: {"intent-id":"INT-2026-002"}
+  ---
+  duration_ms: 11.1853
+  type: 'test'
+  ...
+# Subtest: identity and lifecycle fail closed: {"state":"accepted"}
+ok 120 - identity and lifecycle fail closed: {"state":"accepted"}
+  ---
+  duration_ms: 10.5172
+  type: 'test'
+  ...
+# Subtest: identity and lifecycle fail closed: {"created":"2026-02-30"}
+ok 121 - identity and lifecycle fail closed: {"created":"2026-02-30"}
+  ---
+  duration_ms: 13.2692
+  type: 'test'
+  ...
+# Subtest: identity and lifecycle fail closed: {"updated":"2026-10-18"}
+ok 122 - identity and lifecycle fail closed: {"updated":"2026-10-18"}
+  ---
+  duration_ms: 13.1702
+  type: 'test'
+  ...
+# Subtest: identity and lifecycle fail closed: {"created":"2025-10-19"}
+ok 123 - identity and lifecycle fail closed: {"created":"2025-10-19"}
+  ---
+  duration_ms: 11.9468
+  type: 'test'
+  ...
+# Subtest: changing title/version or updating in a later year preserves its first-allocation identity
+ok 124 - changing title/version or updating in a later year preserves its first-allocation identity
+  ---
+  duration_ms: 13.0308
+  type: 'test'
+  ...
+# Subtest: type and prefix declaration cannot escape at docs/archive/unmarked.md
+ok 125 - type and prefix declaration cannot escape at docs/archive/unmarked.md
+  ---
+  duration_ms: 13.8776
+  type: 'test'
+  ...
+# Subtest: type and prefix declaration cannot escape at docs/archive/unclosed.md
+ok 126 - type and prefix declaration cannot escape at docs/archive/unclosed.md
+  ---
+  duration_ms: 14.8745
+  type: 'test'
+  ...
+# Subtest: type and prefix declaration cannot escape at docs/archive/identity-only.md
+ok 127 - type and prefix declaration cannot escape at docs/archive/identity-only.md
+  ---
+  duration_ms: 14.8061
+  type: 'test'
+  ...
+# Subtest: type and prefix declaration cannot escape at docs/archive/unclosed-identity.md
+ok 128 - type and prefix declaration cannot escape at docs/archive/unclosed-identity.md
+  ---
+  duration_ms: 12.8943
+  type: 'test'
+  ...
+# Subtest: type and prefix declaration cannot escape at docs/archive/unclosed-alias.md
+ok 129 - type and prefix declaration cannot escape at docs/archive/unclosed-alias.md
+  ---
+  duration_ms: 14.0065
+  type: 'test'
+  ...
+# Subtest: type and prefix declaration cannot escape at docs/archive/unclosed-merge.md
+ok 130 - type and prefix declaration cannot escape at docs/archive/unclosed-merge.md
+  ---
+  duration_ms: 14.177
+  type: 'test'
+  ...
+# Subtest: type and prefix declaration cannot escape at docs/archive/[INTENT]_malformed.md
+ok 131 - type and prefix declaration cannot escape at docs/archive/[INTENT]_malformed.md
+  ---
+  duration_ms: 12.4437
+  type: 'test'
+  ...
+# Subtest: type and prefix declaration cannot escape at docs/guide/[GUIDE]_Hidden.md
+ok 132 - type and prefix declaration cannot escape at docs/guide/[GUIDE]_Hidden.md
+  ---
+  duration_ms: 11.3182
+  type: 'test'
+  ...
+# Subtest: type and prefix declaration cannot escape at docs/guide/[INTENT]_INT-2026-002_Hidden.md
+ok 133 - type and prefix declaration cannot escape at docs/guide/[INTENT]_INT-2026-002_Hidden.md
+  ---
+  duration_ms: 14.9733
+  type: 'test'
+  ...
+# Subtest: type and prefix declaration cannot escape at docs/intent/nested/[INTENT]_INT-2026-002_Hidden.md
+ok 134 - type and prefix declaration cannot escape at docs/intent/nested/[INTENT]_INT-2026-002_Hidden.md
+  ---
+  duration_ms: 13.0634
+  type: 'test'
+  ...
+# Subtest: type and prefix declaration cannot escape at docs/_templates/OTHER_INTENT.md
+ok 135 - type and prefix declaration cannot escape at docs/_templates/OTHER_INTENT.md
+  ---
+  duration_ms: 13.2144
+  type: 'test'
+  ...
+# Subtest: type and prefix declaration cannot escape at docs/archive/unmarked.txt
+ok 136 - type and prefix declaration cannot escape at docs/archive/unmarked.txt
+  ---
+  duration_ms: 12.7297
+  type: 'test'
+  ...
+# Subtest: type and prefix declaration cannot escape at docs/archive/unmarked.MD
+ok 137 - type and prefix declaration cannot escape at docs/archive/unmarked.MD
+  ---
+  duration_ms: 13.3159
+  type: 'test'
+  ...
+# Subtest: type and prefix declaration cannot escape at docs/archive/unmarked.bin
+ok 138 - type and prefix declaration cannot escape at docs/archive/unmarked.bin
+  ---
+  duration_ms: 12.3647
+  type: 'test'
+  ...
+# Subtest: type and prefix declaration cannot escape at docs/archive/[INTENT]_unmarked.bin
+ok 139 - type and prefix declaration cannot escape at docs/archive/[INTENT]_unmarked.bin
+  ---
+  duration_ms: 10.7756
+  type: 'test'
+  ...
+# Subtest: type and prefix declaration cannot escape at docs/intent/[GUIDE]_Unregistered.md
+ok 140 - type and prefix declaration cannot escape at docs/intent/[GUIDE]_Unregistered.md
+  ---
+  duration_ms: 13.9773
+  type: 'test'
+  ...
+# Subtest: aliases, merged type declarations and duplicate keys cannot smuggle an archived original past recognition
+ok 141 - aliases, merged type declarations and duplicate keys cannot smuggle an archived original past recognition
+  ---
+  duration_ms: 31.2406
+  type: 'test'
+  ...
+# Subtest: all lifecycle states reserve identity: draft
+ok 142 - all lifecycle states reserve identity: draft
+  ---
+  duration_ms: 10.5539
+  type: 'test'
+  ...
+# Subtest: all lifecycle states reserve identity: active
+ok 143 - all lifecycle states reserve identity: active
+  ---
+  duration_ms: 12.5756
+  type: 'test'
+  ...
+# Subtest: all lifecycle states reserve identity: deprecated
+ok 144 - all lifecycle states reserve identity: deprecated
+  ---
+  duration_ms: 13.4205
+  type: 'test'
+  ...
+# Subtest: all lifecycle states reserve identity: archived
+ok 145 - all lifecycle states reserve identity: archived
+  ---
+  duration_ms: 11.2013
+  type: 'test'
+  ...
+# Subtest: a flat deprecated archive remains the only original and reserves its ID against later reuse
+ok 146 - a flat deprecated archive remains the only original and reserves its ID against later reuse
+  ---
+  duration_ms: 16.1392
+  type: 'test'
+  ...
+# Subtest: only the exact official template exempts placeholder identity and dates
+ok 147 - only the exact official template exempts placeholder identity and dates
+  ---
+  duration_ms: 17.8378
+  type: 'test'
+  ...
+# Subtest: intent INDEX is only guide/canonical navigation: {"type":"intent","intent-id":"INT-2026-001"}
+ok 148 - intent INDEX is only guide/canonical navigation: {"type":"intent","intent-id":"INT-2026-001"}
+  ---
+  duration_ms: 13.2697
+  type: 'test'
+  ...
+# Subtest: intent INDEX is only guide/canonical navigation: {"layer":"working"}
+ok 149 - intent INDEX is only guide/canonical navigation: {"layer":"working"}
+  ---
+  duration_ms: 12.0821
+  type: 'test'
+  ...
+# Subtest: intent INDEX is only guide/canonical navigation: {"intent-id":"INT-2026-001"}
+ok 150 - intent INDEX is only guide/canonical navigation: {"intent-id":"INT-2026-001"}
+  ---
+  duration_ms: 13.3183
+  type: 'test'
+  ...
+# Subtest: the maintained structure requires 问题与现状 outside code examples
+ok 151 - the maintained structure requires 问题与现状 outside code examples
+  ---
+  duration_ms: 12.1217
+  type: 'test'
+  ...
+# Subtest: the maintained structure requires 期望结果 outside code examples
+ok 152 - the maintained structure requires 期望结果 outside code examples
+  ---
+  duration_ms: 12.2671
+  type: 'test'
+  ...
+# Subtest: the maintained structure requires 成功判断 outside code examples
+ok 153 - the maintained structure requires 成功判断 outside code examples
+  ---
+  duration_ms: 11.5159
+  type: 'test'
+  ...
+# Subtest: the maintained structure requires 范围与约束 outside code examples
+ok 154 - the maintained structure requires 范围与约束 outside code examples
+  ---
+  duration_ms: 12.0204
+  type: 'test'
+  ...
+# Subtest: the maintained structure requires 未决项 outside code examples
+ok 155 - the maintained structure requires 未决项 outside code examples
+  ---
+  duration_ms: 12.1684
+  type: 'test'
+  ...
+# Subtest: the maintained structure requires 提出者 outside code examples
+ok 156 - the maintained structure requires 提出者 outside code examples
+  ---
+  duration_ms: 12.2073
+  type: 'test'
+  ...
+# Subtest: the maintained structure requires 原始来源 outside code examples
+ok 157 - the maintained structure requires 原始来源 outside code examples
+  ---
+  duration_ms: 11.9959
+  type: 'test'
+  ...
+# Subtest: the maintained structure requires 接受责任人 outside code examples
+ok 158 - the maintained structure requires 接受责任人 outside code examples
+  ---
+  duration_ms: 10.8644
+  type: 'test'
+  ...
+# Subtest: the maintained structure requires 原意核对记录 outside code examples
+ok 159 - the maintained structure requires 原意核对记录 outside code examples
+  ---
+  duration_ms: 13.8795
+  type: 'test'
+  ...
+# Subtest: the maintained structure requires 内容接受记录 outside code examples
+ok 160 - the maintained structure requires 内容接受记录 outside code examples
+  ---
+  duration_ms: 12.2191
+  type: 'test'
+  ...
+# Subtest: the maintained structure requires 当前内容与适用基线 outside code examples
+ok 161 - the maintained structure requires 当前内容与适用基线 outside code examples
+  ---
+  duration_ms: 12.4963
+  type: 'test'
+  ...
+# Subtest: the maintained structure requires 主跟踪 Issue outside code examples
+ok 162 - the maintained structure requires 主跟踪 Issue outside code examples
+  ---
+  duration_ms: 12.286
+  type: 'test'
+  ...
+# Subtest: bound complete snapshots retain the old bytes without becoming a second original; tampering and unbound evidence fail
+ok 163 - bound complete snapshots retain the old bytes without becoming a second original; tampering and unbound evidence fail
+  ---
+  duration_ms: 44.4167
+  type: 'test'
+  ...
+# Subtest: incomplete read cannot report identity uniqueness
+ok 164 - incomplete read cannot report identity uniqueness
+  ---
+  duration_ms: 14.2001
+  type: 'test'
+  ...
+# Subtest: incomplete scan cannot report identity uniqueness
+ok 165 - incomplete scan cannot report identity uniqueness
+  ---
+  duration_ms: 11.5912
+  type: 'test'
+  ...
+# Subtest: incomplete junction cannot report identity uniqueness
+ok 166 - incomplete junction cannot report identity uniqueness
+  ---
+  duration_ms: 12.1617
+  type: 'test'
+  ...
+# Subtest: single-file validation remains read-only and checks the whole formal collection; CLI uses structured nonzero failure
+ok 167 - single-file validation remains read-only and checks the whole formal collection; CLI uses structured nonzero failure
+  ---
+  duration_ms: 112.8353
+  type: 'test'
+  ...
+# Subtest: portable validation and its existing CLI fail on the actual INTENT error
+ok 168 - portable validation and its existing CLI fail on the actual INTENT error
+  ---
+  duration_ms: 2170.1247
+  type: 'test'
+  ...
+# Subtest: real-byte navigation retains the entire identity collection including an unlinked archived original
+ok 169 - real-byte navigation retains the entire identity collection including an unlinked archived original
+  ---
+  duration_ms: 23.9799
+  type: 'test'
+  ...
+# Subtest: official INDEX is required only when formal originals exist and registers each exactly once
+ok 170 - official INDEX is required only when formal originals exist and registers each exactly once
+  ---
+  duration_ms: 31.2028
+  type: 'test'
+  ...
+# Subtest: formal archived INTENT local sources are validated and retained in the portable closure; legacy archive exemption remains
+ok 171 - formal archived INTENT local sources are validated and retained in the portable closure; legacy archive exemption remains
+  ---
+  duration_ms: 40.2496
+  type: 'test'
+  ...
+1..171
+# tests 171
+# suites 0
+# pass 171
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 7233.7808

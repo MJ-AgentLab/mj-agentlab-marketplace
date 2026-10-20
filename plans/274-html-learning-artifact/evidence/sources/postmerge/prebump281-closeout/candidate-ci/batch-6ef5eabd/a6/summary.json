@@ -1,0 +1,435 @@
+{
+  "schemaVersion": 1,
+  "finalized_at": "2026-10-19T18:00:37.063695+00:00",
+  "pr": {
+    "number": 281,
+    "title": "infra(marketplace): prepare 8.3.3 and capture CI startup diagnostics",
+    "head_sha": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+    "base_sha": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+    "merge_commit_sha": "c41dee3c7a14da2c1a94e84643c736d578d9c9fa",
+    "updated_at": "2026-10-19T17:55:43Z",
+    "body_utf8_bytes": 3088,
+    "body_sha256": "fab4435d310a26a804a9af2339b924da35ce51eb50a955b5c5c9b62dc9a65d97",
+    "expected_fixed_body_sha256": "fab4435d310a26a804a9af2339b924da35ce51eb50a955b5c5c9b62dc9a65d97",
+    "body_matches_fixed": true
+  },
+  "current_head_workflow_runs": [
+    {
+      "id": 39298279721,
+      "head_sha": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+      "created_at": "2026-10-19T17:55:46Z",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 39298251724,
+      "head_sha": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+      "created_at": "2026-10-19T17:55:34Z",
+      "status": "completed",
+      "conclusion": "cancelled"
+    }
+  ],
+  "latest_a6": {
+    "run_id": 39298279721,
+    "run_attempt": 1,
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+    "run_created_at": "2026-10-19T17:55:46Z",
+    "run_started_at": "2026-10-19T17:55:46Z",
+    "updated_at": "2026-10-19T17:56:11Z",
+    "jobs": [
+      {
+        "id": 118216448009,
+        "run_id": 39298279721,
+        "workflow_name": "A6 — AGENTS.md Sync Allowlist",
+        "head_branch": "codex/prebump-marketplace-8-3-3",
+        "run_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39298279721",
+        "run_attempt": 1,
+        "node_id": "CR_kwDORoMukM8AAAAbhj_YCQ",
+        "head_sha": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/actions/jobs/118216448009",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39298279721/job/118216448009",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-10-19T17:55:52Z",
+        "started_at": "2026-10-19T17:55:55Z",
+        "completed_at": "2026-10-19T17:56:10Z",
+        "name": "A6 / Check",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-10-19T17:55:56Z",
+            "completed_at": "2026-10-19T17:55:57Z"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-10-19T17:55:57Z",
+            "completed_at": "2026-10-19T17:56:04Z"
+          },
+          {
+            "name": "Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-10-19T17:56:04Z",
+            "completed_at": "2026-10-19T17:56:05Z"
+          },
+          {
+            "name": "Fetch the PR head object (read-only)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4,
+            "started_at": "2026-10-19T17:56:05Z",
+            "completed_at": "2026-10-19T17:56:05Z"
+          },
+          {
+            "name": "Resolve the checker",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5,
+            "started_at": "2026-10-19T17:56:05Z",
+            "completed_at": "2026-10-19T17:56:05Z"
+          },
+          {
+            "name": "Fetch PR reviews",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6,
+            "started_at": "2026-10-19T17:56:05Z",
+            "completed_at": "2026-10-19T17:56:06Z"
+          },
+          {
+            "name": "Evaluate A6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7,
+            "started_at": "2026-10-19T17:56:06Z",
+            "completed_at": "2026-10-19T17:56:06Z"
+          },
+          {
+            "name": "Evaluate A6 (bootstrap)",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 8,
+            "started_at": "2026-10-19T17:56:06Z",
+            "completed_at": "2026-10-19T17:56:06Z"
+          },
+          {
+            "name": "Post Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 15,
+            "started_at": "2026-10-19T17:56:06Z",
+            "completed_at": "2026-10-19T17:56:06Z"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 16,
+            "started_at": "2026-10-19T17:56:06Z",
+            "completed_at": "2026-10-19T17:56:06Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 17,
+            "started_at": "2026-10-19T17:56:06Z",
+            "completed_at": "2026-10-19T17:56:06Z"
+          }
+        ],
+        "check_run_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/118216448009",
+        "labels": [
+          "ubuntu-latest"
+        ],
+        "runner_id": 1000011127,
+        "runner_name": "GitHub Actions 1000011127",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+      }
+    ],
+    "actual_raw_result": "A6 OK — trigger files present and root AGENTS.md is updated.",
+    "interpretation": "Current-head latest A6 is PASS; current PR title/head and fixed body hash are independently verified."
+  },
+  "historical_a6": {
+    "run_id": 39298251724,
+    "run_attempt": 1,
+    "status": "completed",
+    "conclusion": "cancelled",
+    "head_sha": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+    "run_created_at": "2026-10-19T17:55:34Z",
+    "run_started_at": "2026-10-19T17:55:34Z",
+    "updated_at": "2026-10-19T17:55:52Z",
+    "jobs": [
+      {
+        "id": 118216307755,
+        "run_id": 39298251724,
+        "workflow_name": "A6 — AGENTS.md Sync Allowlist",
+        "head_branch": "codex/prebump-marketplace-8-3-3",
+        "run_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39298251724",
+        "run_attempt": 1,
+        "node_id": "CR_kwDORoMukM8AAAAbhj20Kw",
+        "head_sha": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/actions/jobs/118216307755",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39298251724/job/118216307755",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "created_at": "2026-10-19T17:55:35Z",
+        "started_at": "2026-10-19T17:55:38Z",
+        "completed_at": "2026-10-19T17:55:51Z",
+        "name": "A6 / Check",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-10-19T17:55:39Z",
+            "completed_at": "2026-10-19T17:55:40Z"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-10-19T17:55:40Z",
+            "completed_at": "2026-10-19T17:55:45Z"
+          },
+          {
+            "name": "Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-10-19T17:55:45Z",
+            "completed_at": "2026-10-19T17:55:46Z"
+          },
+          {
+            "name": "Fetch the PR head object (read-only)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4,
+            "started_at": "2026-10-19T17:55:46Z",
+            "completed_at": "2026-10-19T17:55:46Z"
+          },
+          {
+            "name": "Resolve the checker",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5,
+            "started_at": "2026-10-19T17:55:46Z",
+            "completed_at": "2026-10-19T17:55:46Z"
+          },
+          {
+            "name": "Fetch PR reviews",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6,
+            "started_at": "2026-10-19T17:55:46Z",
+            "completed_at": "2026-10-19T17:55:47Z"
+          },
+          {
+            "name": "Evaluate A6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7,
+            "started_at": "2026-10-19T17:55:47Z",
+            "completed_at": "2026-10-19T17:55:47Z"
+          },
+          {
+            "name": "Evaluate A6 (bootstrap)",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 8,
+            "started_at": "2026-10-19T17:55:47Z",
+            "completed_at": "2026-10-19T17:55:47Z"
+          },
+          {
+            "name": "Post Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 15,
+            "started_at": "2026-10-19T17:55:47Z",
+            "completed_at": "2026-10-19T17:55:47Z"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 16,
+            "started_at": "2026-10-19T17:55:47Z",
+            "completed_at": "2026-10-19T17:55:47Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 17,
+            "started_at": "2026-10-19T17:55:47Z",
+            "completed_at": "2026-10-19T17:55:47Z"
+          }
+        ],
+        "check_run_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/118216307755",
+        "labels": [
+          "ubuntu-latest"
+        ],
+        "runner_id": 1000011124,
+        "runner_name": "GitHub Actions 1000011124",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+      }
+    ],
+    "interpretation": "Retained historical cancelled run. Does not change latest A6 success to failure."
+  },
+  "logs": [
+    {
+      "job_id": 118216448009,
+      "label": "latest",
+      "endpoint": "repos/MJ-AgentLab/mj-agentlab-marketplace/actions/jobs/118216448009/logs",
+      "file": "latest-job-118216448009.raw.log",
+      "started_at": "2026-10-19T17:59:07.034735+00:00",
+      "completed_at": "2026-10-19T17:59:09.327090+00:00",
+      "bytes": 27313,
+      "sha256": "fb61c9bd32c11f371bbe4913dd5a8019b8cd583a76da767e8dc4b04358a5765b",
+      "method": "stdout byte buffer, complete write then hash",
+      "checkout_next_line": [
+        {
+          "command_line": 216,
+          "sha_line": 217,
+          "sha": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387"
+        }
+      ],
+      "error_annotations": [],
+      "a6_ok_lines": [
+        {
+          "line": 311,
+          "text": "A6 OK — trigger files present and root AGENTS.md is updated."
+        }
+      ],
+      "a6_head_env_lines": [
+        {
+          "line": 289,
+          "text": "  A6_HEAD_SHA: 6ef5eabd52934144daf7b60ddb4011686c0657c4"
+        },
+        {
+          "line": 306,
+          "text": "  A6_HEAD_SHA: 6ef5eabd52934144daf7b60ddb4011686c0657c4"
+        }
+      ],
+      "a6_title_env_lines": [
+        {
+          "line": 307,
+          "text": "  A6_PR_TITLE: infra(marketplace): prepare 8.3.3 and capture CI startup diagnostics"
+        }
+      ]
+    },
+    {
+      "job_id": 118216307755,
+      "label": "old",
+      "endpoint": "repos/MJ-AgentLab/mj-agentlab-marketplace/actions/jobs/118216307755/logs",
+      "file": "old-job-118216307755.raw.log",
+      "started_at": "2026-10-19T17:59:09.330683+00:00",
+      "completed_at": "2026-10-19T17:59:11.439028+00:00",
+      "bytes": 27173,
+      "sha256": "7ce81cc32ed05e5fdd92e809bb15f5ac385d5b3718912e66b348def4a63f47b2",
+      "method": "stdout byte buffer, complete write then hash",
+      "checkout_next_line": [
+        {
+          "command_line": 214,
+          "sha_line": 215,
+          "sha": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387"
+        }
+      ],
+      "error_annotations": [],
+      "a6_ok_lines": [
+        {
+          "line": 309,
+          "text": "A6 OK — trigger files present and root AGENTS.md is updated."
+        }
+      ],
+      "a6_head_env_lines": [
+        {
+          "line": 287,
+          "text": "  A6_HEAD_SHA: 6ef5eabd52934144daf7b60ddb4011686c0657c4"
+        },
+        {
+          "line": 304,
+          "text": "  A6_HEAD_SHA: 6ef5eabd52934144daf7b60ddb4011686c0657c4"
+        }
+      ],
+      "a6_title_env_lines": [
+        {
+          "line": 305,
+          "text": "  A6_PR_TITLE: infra(marketplace): prepare unpublished 8.3.3 patch"
+        }
+      ]
+    }
+  ],
+  "workflow": {
+    "path": ".github/workflows/a6.yml",
+    "commit_ref": "6ef5eabd52934144daf7b60ddb4011686c0657c4",
+    "git_blob_sha": "d59cd08c5cc8171abb8d9de1db4c5969c4d0c1cd",
+    "bytes": 9158,
+    "sha256": "0432a8988e97874dbac8adb518ffce7b883787d5bbbfc91ce2571711304a7e42"
+  },
+  "workflow_binding_base_head_merge_identical": true,
+  "workflow_bindings": [
+    {
+      "role": "base",
+      "ref": "4d10a0677c745eccb2775f7ae6176f8e2b1d2387",
+      "git_blob_sha": "d59cd08c5cc8171abb8d9de1db4c5969c4d0c1cd",
+      "bytes": 9158,
+      "sha256": "0432a8988e97874dbac8adb518ffce7b883787d5bbbfc91ce2571711304a7e42"
+    },
+    {
+      "role": "merge",
+      "ref": "c41dee3c7a14da2c1a94e84643c736d578d9c9fa",
+      "git_blob_sha": "d59cd08c5cc8171abb8d9de1db4c5969c4d0c1cd",
+      "bytes": 9158,
+      "sha256": "0432a8988e97874dbac8adb518ffce7b883787d5bbbfc91ce2571711304a7e42"
+    }
+  ],
+  "workflow_trigger_and_concurrency_lines": [
+    {
+      "line": 27,
+      "text": "    types: [opened, synchronize, reopened, edited]"
+    },
+    {
+      "line": 29,
+      "text": "    types: [submitted, edited, dismissed]"
+    },
+    {
+      "line": 35,
+      "text": "concurrency:"
+    },
+    {
+      "line": 36,
+      "text": "  group: a6-${{ github.event.pull_request.number }}"
+    },
+    {
+      "line": 37,
+      "text": "  cancel-in-progress: true"
+    }
+  ],
+  "cancellation": {
+    "collector_cancel_actions": 0,
+    "parent_cancel_actions": "No cancellations, explicitly reported in trusted parent task",
+    "observed_old_run_conclusion": "cancelled",
+    "specific_actor": "UNKNOWN",
+    "specific_cause": "UNKNOWN",
+    "candidate_explanation": "INFERENCE only: the unchanged A6 workflow triggers on pull_request edited and uses a6-PR-number concurrency with cancel-in-progress true; root reports a fixed body edit triggered the successor. The collected API/log records do not independently identify the exact cancel action or actor."
+  },
+  "limitations": [
+    "Current PR body bytes are verified by live REST snapshot; A6 raw does not print a consumed body hash. Workflow evaluates title/head and root AGENTS.md, while body editing can trigger a new run.",
+    "Actual A6 checkout next-lines are the base commit 4d10, as configured for trusted checker execution. A6_HEAD_SHA env identifies evaluated PR head6ef5eabd; checkout is not relabeled as head.",
+    "Raw metadata/job timing values are retained verbatim; no inferred chronology replaces them.",
+    "No prior push/source-audit directory was changed; no CI matrix/model/desktop/Sites acceptance is inferred."
+  ]
+}

@@ -1,0 +1,314 @@
+diff --git a/tests/browser-stderr.test.mjs b/tests/browser-stderr.test.mjs
+new file mode 100644
+index 0000000..254bc2e
+--- /dev/null
++++ b/tests/browser-stderr.test.mjs
+@@ -0,0 +1,133 @@
++import assert from "node:assert/strict";
++import { spawn, spawnSync } from "node:child_process";
++import { createHash } from "node:crypto";
++import { once } from "node:events";
++import fs from "node:fs";
++import os from "node:os";
++import path from "node:path";
++import { fileURLToPath } from "node:url";
++import test from "node:test";
++import { captureBrowserStderr, STDERR_LIMIT, STDERR_LOGGER_SOURCE } from "./helpers/capture-browser-stderr.mjs";
++
++const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
++const checker = path.join(repo, "plugins/html-guide-kit/skills/site/scripts/check_renderings.py");
++const hash = bytes => createHash("sha256").update(bytes).digest("hex");
++let interpreter;
++function python() {
++  if (interpreter) return interpreter;
++  const candidates = [];
++  if (process.env.HTML_SITE_PYTHON || process.env.PYTHON) candidates.push([process.env.HTML_SITE_PYTHON || process.env.PYTHON, []]);
++  candidates.push(["python3", []], ["python", []], ["py", ["-3"]]);
++  for (const [command, args] of candidates) {
++    const result = spawnSync(command, [...args, "-c", "import sys; assert sys.version_info >= (3,10)"], { encoding: "utf8", shell: false, timeout: 10000 });
++    if (!result.error && result.status === 0) return interpreter = { command, args };
++  }
++  assert.fail("stderr capture tests require actual Python >=3.10");
++}
++function temporary(t) {
++  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "browser-stderr-test-"));
++  t.after(() => fs.rmSync(directory, { recursive: true, force: true, maxRetries: 5, retryDelay: 50 }));
++  return directory;
++}
++
++test("actual Python drains a large stderr stream into a bounded exact tail and byte counters", { timeout: 20000 }, t => {
++  const directory = temporary(t), py = python();
++  const attempt = path.join(directory, "capture ' quoted directory");
++  fs.mkdirSync(attempt);
++  const bytes = Buffer.concat([Buffer.alloc(2 * 1024 * 1024, 0x61), Buffer.from("LAST stderr bytes\n")]);
++  const result = spawnSync(py.command, [...py.args, "-c", STDERR_LOGGER_SOURCE, attempt, String(process.pid)], {
++    input: bytes, encoding: "utf8", shell: false, timeout: 15000,
++    env: { ...process.env, PYTHONUTF8: "1", PYTHONDONTWRITEBYTECODE: "1" },
++  });
++  assert.equal(result.error, undefined, result.error?.message);
++  assert.equal(result.status, 0, result.stdout + result.stderr);
++  const tail = fs.readFileSync(path.join(attempt, "stderr.tail"));
++  const metadata = JSON.parse(fs.readFileSync(path.join(attempt, "metadata.json"), "utf8"));
++  assert.equal(tail.length, STDERR_LIMIT);
++  assert.deepEqual(tail, bytes.subarray(-STDERR_LIMIT));
++  assert.equal(metadata.totalBytes, bytes.length);
++  assert.equal(metadata.storedBytes, STDERR_LIMIT);
++  assert.equal(metadata.truncated, true);
++  assert.equal(metadata.complete, true);
++  assert.equal(metadata.acceptanceStatus, "NOT_RUN");
++});
++
++test("Linux exec capture preserves original checker args, failure, owned-session cleanup and foreign isolation", { skip: process.platform !== "linux", timeout: 30000 }, async t => {
++  const directory = temporary(t), py = python();
++  const root = path.join(directory, "artifact ' original");
++  fs.mkdirSync(root);
++  for (const [name, content] of Object.entries({
++    "index.html": "<!doctype html><html><head><meta charset=\"utf-8\"></head><body>unchanged</body></html>",
++    "theme.css": "body{color:black}",
++    "learning.js": "\"use strict\";",
++  })) fs.writeFileSync(path.join(root, name), content);
++  const original = Object.fromEntries(fs.readdirSync(root).map(name => [name, hash(fs.readFileSync(path.join(root, name)))]));
++  const checkerBefore = hash(fs.readFileSync(checker));
++  const recordPath = path.join(directory, "fake args.json");
++  const fake = path.join(directory, "fake browser ' ; no shell evaluation");
++  const fakeSource = [
++    "#!/usr/bin/env python3",
++    "import json, os, sys",
++    "with open(os.environ['CAPTURE_BROWSER_RECORD'], 'w') as output:",
++    "    json.dump({'pid': os.getpid(), 'sid': os.getsid(0), 'argv': sys.argv[1:]}, output)",
++    "data = b'x' * (2 * 1024 * 1024) + b'FAKE BROWSER EXIT 23\\n'",
++    "while data:",
++    "    written = os.write(2, data)",
++    "    data = data[written:]",
++    "raise SystemExit(23)",
++    "",
++  ].join("\n");
++  fs.writeFileSync(fake, fakeSource, { mode: 0o700 });
++  const capture = captureBrowserStderr({ directory, executable: fake, pythonCommand: py.command, pythonArgs: py.args });
++  assert.deepEqual(capture.diagnostics().attempts, [], "missing diagnostic files must be safe before launch");
++  const foreign = spawn(py.command, [...py.args, "-c", "import time; time.sleep(60)"], { detached: true, stdio: "ignore" });
++  await once(foreign, "spawn");
++  t.after(async () => {
++    if (foreign.exitCode === null && foreign.signalCode === null) {
++      const exited = once(foreign, "exit");
++      foreign.kill("SIGTERM");
++      await exited;
++    }
++  });
++  const result = spawnSync(py.command, [...py.args, checker, "--input", root, "--browser", capture.executable, "--screenshots", path.join(directory, "shots")], {
++    encoding: "utf8", shell: false, timeout: 20000, maxBuffer: 4 * 1024 * 1024,
++    env: { ...process.env, PYTHONUTF8: "1", PYTHONDONTWRITEBYTECODE: "1", CAPTURE_BROWSER_RECORD: recordPath },
++  });
++  assert.equal(result.error, undefined, result.error?.message);
++  assert.equal(result.status, 2, result.stdout + result.stderr);
++  const report = JSON.parse(result.stdout);
++  assert.equal(report.status, "NOT_RUN");
++  assert.deepEqual(report.viewports, []);
++  assert.ok(report.lifecycle.some(row => row.phase === "browser-process-exit" && row.returnCode === 23 && row.status === "PASS"));
++  assert.ok(report.lifecycle.some(row => row.phase === "owned-browser-session-exit" && row.status === "PASS"));
++  assert.equal(report.lifecycle.at(-1).phase, "temporary-cleanup");
++  assert.equal(report.lifecycle.at(-1).status, "PASS");
++  const recorded = JSON.parse(fs.readFileSync(recordPath, "utf8"));
++  const profile = recorded.argv.find(value => value.startsWith("--user-data-dir=")).slice("--user-data-dir=".length);
++  const expected = ["--headless=new", "--disable-gpu", "--no-first-run", "--no-default-browser-check", "--remote-debugging-address=127.0.0.1", "--remote-debugging-port=0", "--user-data-dir=" + profile, "--allow-file-access-from-files", "about:blank"];
++  if (process.getuid() === 0) expected.unshift("--no-sandbox");
++  assert.deepEqual(recorded.argv, expected);
++  assert.equal(recorded.pid, recorded.sid, "exec must preserve the launcher's owned session identity");
++  assert.equal(fs.existsSync(path.dirname(profile)), false, "original checker must clean its own QA root");
++  const diagnostics = capture.diagnostics();
++  assert.equal(diagnostics.instrumented, true);
++  assert.equal(diagnostics.acceptanceStatus, "NOT_RUN");
++  assert.equal(diagnostics.attempts.length, 1);
++  const observed = diagnostics.attempts[0];
++  assert.equal(observed.metadata.browserPid, recorded.pid);
++  assert.equal(observed.metadata.sessionId, recorded.sid);
++  assert.equal(observed.metadata.truncated, true);
++  assert.equal(observed.metadata.totalBytes, 2 * 1024 * 1024 + Buffer.byteLength("FAKE BROWSER EXIT 23\n"));
++  assert.equal(observed.stderr.bytes, STDERR_LIMIT);
++  assert.ok(observed.stderr.tail.endsWith("FAKE BROWSER EXIT 23\n"));
++  const inspection = spawnSync(py.command, [...py.args, "-c", "import importlib.util,json,sys; s=importlib.util.spec_from_file_location('qa',sys.argv[1]); q=importlib.util.module_from_spec(s); s.loader.exec_module(q); print(json.dumps(q.live_session_groups(int(sys.argv[2]))))", checker, String(recorded.sid)], {
++    encoding: "utf8", shell: false, timeout: 10000, env: { ...process.env, PYTHONDONTWRITEBYTECODE: "1" },
++  });
++  assert.equal(inspection.status, 0, inspection.stderr);
++  assert.deepEqual(JSON.parse(inspection.stdout), {});
++  assert.doesNotThrow(() => process.kill(foreign.pid, 0), "foreign process must survive owned-session cleanup");
++  for (const [name, digest] of Object.entries(original)) assert.equal(hash(fs.readFileSync(path.join(root, name))), digest);
++  assert.equal(hash(fs.readFileSync(checker)), checkerBefore);
++  fs.rmSync(diagnostics.captureRoot, { recursive: true, force: true });
++  assert.doesNotThrow(() => capture.diagnostics(), "missing files must not cover the original failure");
++});
+diff --git a/tests/helpers/capture-browser-stderr.mjs b/tests/helpers/capture-browser-stderr.mjs
+new file mode 100644
+index 0000000..96fcb58
+--- /dev/null
++++ b/tests/helpers/capture-browser-stderr.mjs
+@@ -0,0 +1,131 @@
++import crypto from "node:crypto";
++import fs from "node:fs";
++import path from "node:path";
++
++export const STDERR_LIMIT = 64 * 1024;
++
++// This collector drains after reaching the limit; a full pipe must never stall Chromium.
++export const STDERR_LOGGER_SOURCE = [
++  "import json, os, select, signal, sys, time",
++  "directory, browser_pid = sys.argv[1], int(sys.argv[2])",
++  "limit, total, tail, stopping = 65536, 0, b'', None",
++  "tail_path = os.path.join(directory, 'stderr.tail')",
++  "metadata_path = os.path.join(directory, 'metadata.json')",
++  "def stop(signum, frame):",
++  "    global stopping",
++  "    stopping = time.monotonic() + 0.25",
++  "if os.name == 'posix':",
++  "    signal.signal(signal.SIGTERM, stop)",
++  "def persist(complete=False, reason=None):",
++  "    with open(tail_path, 'wb', buffering=0) as output:",
++  "        output.write(tail)",
++  "    record = {'instrumented': True, 'acceptanceStatus': 'NOT_RUN',",
++  "              'pid': os.getpid(), 'browserPid': browser_pid,",
++  "              'sessionId': os.getsid(0) if hasattr(os, 'getsid') else None,",
++  "              'totalBytes': total, 'storedBytes': len(tail), 'limitBytes': limit,",
++  "              'truncated': total > limit, 'complete': complete, 'reason': reason}",
++  "    pending = metadata_path + '.pending'",
++  "    with open(pending, 'w', encoding='utf-8') as output:",
++  "        json.dump(record, output)",
++  "        output.write('\\n')",
++  "    os.replace(pending, metadata_path)",
++  "persist()",
++  "try:",
++  "    while True:",
++  "        if stopping is not None and time.monotonic() >= stopping:",
++  "            persist(reason='owned-session termination before EOF')",
++  "            break",
++  "        if os.name == 'posix' and not select.select([0], [], [], 0.05)[0]:",
++  "            continue",
++  "        block = os.read(0, 8192)",
++  "        if not block:",
++  "            persist(complete=True)",
++  "            break",
++  "        total += len(block)",
++  "        tail = (tail + block)[-limit:]",
++  "        persist()",
++  "except Exception as error:",
++  "    persist(reason=type(error).__name__ + ': ' + str(error)[:200])",
++  "    raise",
++  "",
++].join("\n");
++
++const hash = bytes => crypto.createHash("sha256").update(bytes).digest("hex");
++const argument = value => {
++  if (typeof value !== "string" || value.includes("\0")) throw new Error("capture arguments must be strings without NUL");
++  return "'" + value.replaceAll("'", "'\\''") + "'";
++};
++
++function boundedFile(file, limit) {
++  const stat = fs.lstatSync(file);
++  if (!stat.isFile() || stat.isSymbolicLink()) throw new Error("diagnostic must be an ordinary file");
++  const descriptor = fs.openSync(file, "r");
++  try {
++    const bytes = Buffer.alloc(Math.min(stat.size, limit));
++    const length = fs.readSync(descriptor, bytes, 0, bytes.length, Math.max(0, stat.size - bytes.length));
++    return bytes.subarray(0, length);
++  } finally {
++    fs.closeSync(descriptor);
++  }
++}
++
++export function captureBrowserStderr({ directory, executable, pythonCommand, pythonArgs = [] }) {
++  if (process.platform !== "linux") throw new Error("browser stderr exec capture is Linux-only");
++  if (!path.isAbsolute(directory) || !path.isAbsolute(executable)) throw new Error("capture directory and executable must be absolute");
++  const stat = fs.lstatSync(directory);
++  if (!stat.isDirectory() || stat.isSymbolicLink()) throw new Error("capture directory must be an ordinary directory");
++  if (!Array.isArray(pythonArgs)) throw new Error("pythonArgs must be an array");
++  for (const value of [executable, pythonCommand, ...pythonArgs]) argument(value);
++  const realExecutable = fs.realpathSync(executable);
++  if (!fs.statSync(realExecutable).isFile()) throw new Error("browser executable must be a file");
++  fs.accessSync(realExecutable, fs.constants.X_OK);
++  const captureRoot = fs.mkdtempSync(path.join(fs.realpathSync(directory), "browser-stderr-"));
++  const logger = path.join(captureRoot, "drain.py");
++  const shim = path.join(captureRoot, "browser");
++  fs.writeFileSync(logger, STDERR_LOGGER_SOURCE, { flag: "wx", mode: 0o600 });
++  const loggerCommand = [pythonCommand, ...pythonArgs, "-u", logger].map(argument).join(" ");
++  const shimSource = [
++    "#!/usr/bin/env bash",
++    "set -e",
++    "attempt=$(mktemp -d -- " + argument(path.join(captureRoot, "attempt-XXXXXX")) + ")",
++    "browser_pid=$$",
++    "exec " + argument(realExecutable) + ' "$@" 2> >(' + loggerCommand + ' "$attempt" "$browser_pid")',
++    "",
++  ].join("\n");
++  fs.writeFileSync(shim, shimSource, { flag: "wx", mode: 0o700 });
++  const identity = {
++    instrumented: true,
++    acceptanceStatus: "NOT_RUN",
++    scope: "stderr capture only; checker arguments, logic and deadlines are unchanged; no independent acceptance substitute",
++    realExecutable,
++    captureRoot,
++    limitBytes: STDERR_LIMIT,
++    shimSha256: hash(Buffer.from(shimSource)),
++    loggerSha256: hash(Buffer.from(STDERR_LOGGER_SOURCE)),
++  };
++  return {
++    executable: shim,
++    diagnostics() {
++      // Diagnostics must never replace the original checker failure with a read error.
++      try {
++        const entries = fs.readdirSync(captureRoot, { withFileTypes: true })
++          .filter(entry => entry.isDirectory() && entry.name.startsWith("attempt-"))
++          .map(entry => ({ name: entry.name, modified: fs.statSync(path.join(captureRoot, entry.name)).mtimeMs }))
++          .sort((a, b) => a.modified - b.modified);
++        const attempts = entries.slice(-4).map(({ name }) => {
++          const result = { name };
++          try { result.metadata = JSON.parse(boundedFile(path.join(captureRoot, name, "metadata.json"), 16384)); }
++          catch (error) { result.metadataError = error.message.slice(0, 300); }
++          try {
++            const bytes = boundedFile(path.join(captureRoot, name, "stderr.tail"), STDERR_LIMIT);
++            result.stderr = { bytes: bytes.length, sha256: hash(bytes), tail: bytes.toString("utf8") };
++          } catch (error) { result.stderrError = error.message.slice(0, 300); }
++          return result;
++        });
++        return { ...identity, attempts, omittedAttempts: Math.max(0, entries.length - attempts.length) };
++      } catch (error) {
++        return { ...identity, attempts: [], diagnosticError: error.message.slice(0, 300) };
++      }
++    },
++  };
++}
+diff --git a/tests/html-site-checks.test.mjs b/tests/html-site-checks.test.mjs
+index 08e55e1..da0e609 100644
+--- a/tests/html-site-checks.test.mjs
++++ b/tests/html-site-checks.test.mjs
+@@ -6,6 +6,7 @@ import os from "node:os";
+ import path from "node:path";
+ import { fileURLToPath } from "node:url";
+ import test from "node:test";
++import { captureBrowserStderr } from "./helpers/capture-browser-stderr.mjs";
+ 
+ const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+ const scripts = path.join(repo, "plugins/html-guide-kit/skills/site/scripts");
+@@ -320,9 +321,12 @@ test("actual browser measures mobile/desktop viewport sizes and detects overflow
+   }
+   const f = fixture(t);
+   const goodShots = path.join(f.temporary, "good-shots");
++  const captured = process.platform === "linux"
++    ? captureBrowserStderr({ directory: f.temporary, executable, pythonCommand: python().command, pythonArgs: python().args })
++    : { executable, diagnostics: () => ({ instrumented: false, reason: "Linux startup capture only; original browser path retained" }) };
+   const before = hash(fs.readFileSync(path.join(f.root, "index.html")));
+-  const good = run("check_renderings.py", ["--input", f.root, "--browser", executable, "--screenshots", goodShots], 45000);
+-  assert.equal(good.status, 0, good.stdout + good.stderr);
++  const good = run("check_renderings.py", ["--input", f.root, "--browser", captured.executable, "--screenshots", goodShots], 45000);
++  assert.equal(good.status, 0, good.stdout + good.stderr + (good.status === 0 ? "" : "\nStartup stderr diagnostics: " + JSON.stringify(captured.diagnostics())));
+   assert.equal(good.report.status, "PASS");
+   assert.equal(good.report.lifecycle.at(-1).phase, "temporary-cleanup");
+   assert.equal(good.report.lifecycle.at(-1).status, "PASS");
+@@ -338,8 +342,8 @@ test("actual browser measures mobile/desktop viewport sizes and detects overflow
+   assert.equal(hash(fs.readFileSync(path.join(f.root, "index.html"))), before, "browser checks must leave original bytes intact");
+   fs.appendFileSync(path.join(f.root, "theme.css"), ".wide{width:1800px}.clip{overflow:hidden;width:120px;height:16px}.clip span{display:block;width:500px;height:100px}.wrap{width:12px;word-break:break-all}");
+   fs.writeFileSync(path.join(f.root, "index.html"), fs.readFileSync(path.join(f.root, "index.html"), "utf8").replace("</body>", '<div class="wide">横向溢出</div><div class="clip"><span>裁切</span></div><p class="wrap">这是用于检测极端异常换行的长句内容</p></body>'));
+-  const bad = run("check_renderings.py", ["--input", f.root, "--browser", executable, "--screenshots", path.join(f.temporary, "bad-shots"), "--viewport", "390x844"], 45000);
+-  assert.equal(bad.status, 1, bad.stdout + bad.stderr);
++  const bad = run("check_renderings.py", ["--input", f.root, "--browser", captured.executable, "--screenshots", path.join(f.temporary, "bad-shots"), "--viewport", "390x844"], 45000);
++  assert.equal(bad.status, 1, bad.stdout + bad.stderr + (bad.status === 1 ? "" : "\nStartup stderr diagnostics: " + JSON.stringify(captured.diagnostics())));
+   const codes = bad.report.viewports.flatMap(v => v.issues.map(issue => issue.code));
+   for (const code of ["horizontal-overflow", "severe-horizontal-clipping", "severe-vertical-clipping", "extreme-text-wrapping"]) assert.ok(codes.includes(code), `${code}: ${bad.stdout}`);
+ });

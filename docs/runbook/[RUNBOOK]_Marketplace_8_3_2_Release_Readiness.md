@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.4
+version: v1.5
 layer: working
 purpose: "Maintain source-bound 8.3.2 release identities, gates, retained limits and ordered recovery/closeout for task 274"
 last-verified: 2026-10-20
@@ -15,6 +15,16 @@ last-verified: 2026-10-20
 # [RUNBOOK] Marketplace 8.3.2 release readiness
 
 ## Current sync merge and marketplace prebump
+
+PR281于2026-10-20T00:00:09Z（Asia/Taipei08:00:09）实际合入develop62945150df984e2747684d1ea46b8772b56db2d9，parents4d10+6ef，tree6659与已测6ef/c41候选相同。仅Marketplace8.3.3未发布预升已交付；插件、运行、workflow及公开v8.3.2/f906与正式Release正文保持。
+
+最终候选CI run39298251581两端均为644总/643PASS/1平台专用skip，原真实layout case330执行；每端13安装/178命令、6Diagram+18LEK实际Python、4site生成+4静态各89/89通过。这些结果绑定候选checkout，不改称actual629新跑。actual629自动push run39344994194仅prebumped版本检查PASS，不是完整测试/安装矩阵。
+
+actual629合入后的固定源完整本机测试已PASS：644总/643PASS/0FAIL/1新增Linux机制在Windows不适用，duration252225.8375ms；strict及CLI0.147.0精确基线亦PASS，原件由本轮local/actual-local-receipt.json承接。root在actual629于UTC2026-10-20T00:01:58.847Z–2026-10-20T00:13:24.756Z新验PASS：13场景/178命令全exit0、6Diagram+18LEK实际Python、4site生成4静态各89/89，site20/guide4源缓存一致；15精确自有根不存在，hostHEAD629与完整worktree列表复原。manifest SHA256 c551b4396974676bc2fdfe835adbbc895542a7a8cc0909c5922a4abe97cb6ea4。该安装批不含新model/desktop/Sites/browser，原始执行与独立复核分记，不借候选CI计数。
+
+实际suite4610354048为bypass：pull_request FAIL缺latest-pusher之外的批准，其余3项PASS，reviews=[]，保护批准仍NOT_MET。实际合入/技术PASS不追认批准，不授权Agent以后bypass；旧1d原FAIL、Chrome启动根因UNKNOWN及提取勘误保持。原生窗口/第二客户端等延期非PASS，效果NOT_MEASURED，Owner最终接受NOT_PROVIDED，Issue274 OPEN。
+
+以下为PR281实际合入前的失败/诊断与预升准备快照；当前actual629及未发布身份以上段和唯一REPORT为准，原FAIL不改写。
 
 当前后继CI（本地2026-10-20）：[预升PR281](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/281)已创建，原head1d8b6849/treeeefcaa与潜在merge4e495同树；尚未实际合入。原PR Linux640P/1F/1平台skip，真实Chrome未取得可读DevTools端点、NOT_RUN/exit2，smoke未执行；原Windows642/642及新13/178/6/18/4/4实际通过。原push两端各有启动FAIL，一次有界复验Linux仍FAIL，根因UNKNOWN，不能用本地/Windows通过覆盖。诊断前124原件及捕获中间文本副本已覆盖的限制由唯一REPORT冻结；当前仅补测试层Linux有界stderr，不改checker/flags/15秒判据/非零NOT_RUN、插件或workflow，不把诊断当修复或通过。新诊断检查/后继headCI和真实批准/线程/latestbase各待真实证据，Agent不bypass；8.3.3仍未发布、公开8.3.2保持，Owner接受/延期独立。
 
@@ -44,7 +54,7 @@ PR279的[双系统CI run39272665913](https://github.com/MJ-AgentLab/mj-agentlab-
 
 ## Actual publication and current continuation
 
-本节公开与真实tag复验事实均绑定f906；main已由记录PR279推进到e3dc，develop已由同步PR280推进到4d10，当前预升状态以本文件开头新节和下表为准。PR278及公开时点的原事实保持，不将不同分支和时点混为同一SHA。
+本节公开与真实tag复验事实均绑定f906；后继记录main为e3dc、完整同步develop为4d10、预升合入actualdevelop为62945150，当前以上方新节和下表为准。PR278公开时点及各旧批次身份保持。
 
 [PR #278](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/278) 于 `2026-10-19T14:28:06Z` 实际合入 main `f906b1001a86d7b5415451bd973bea26e6cc3a1d`，tree `6e4bc9cc31df2d1eac33e8c10907eb3725ca744d` 与发布源 head `f68c22b563fab661b803576058c8a08619c6738a` 及已测 merge-ref `4269d6632dab28f6d0aaa78dea38ad5b3b66a072` 相同。五包版本为 Diagram0.3.1 / Learning Evidence0.1.0 / Explain0.1.1 / HTML Guide0.1.37 / Communication0.1.0，八公开技能、五显式/三自然、20仓库技能；沿用同一 #274 的唯一 PLAN/REPORT，不创建第二份计划或报告。
 
@@ -64,10 +74,10 @@ PR278最终head的[双系统CI run39259489009](https://github.com/MJ-AgentLab/mj
 | 记录merge actualmain e3dc新验 | PASS / BOUNDED | 独立actualmain e3dc新验15:18:57.732–15:29:31.902Z已PASS：13场景/178命令全exit0、6Diagram18LEK Python、4site生成4静态各89/89，site20/guide4资源一致，15精确自有根absence且完整worktree清单及hostHEAD复原；本轮新原件见上节，不借CI或公开tag计数，不升级保护批准/Owner接受 |
 | 完整actualmain同步回develop PR280 | MERGED / SAME_TREE；APPROVAL_NOT_MET | UTC19日16:37:27Z实际合入develop4d10，同ef85/535 tree且完整继承main e3dc；suite4603805882实际bypass/批准FAIL与reviews=[]缺口保持，旧queued/UNKNOWN不改 |
 | actualdevelop4d10新十三安装/缓存Python | PASS / BOUNDED | UTC19日16:39:19.139–16:50:02.166Z新13/178全exit0、6Diagram+18LEK及4生成/4静态各89/89；15精确根absence、hostHEAD/worktree清单复原，原件及manifest见当前节，不借CI/旧main/tag证据 |
-| 仅Marketplace8.3.3预升 | DRYRUN/APPLY_EXECUTED / UNPUBLISHED；PR_NOT_CREATED | 真实新验PASS后于UTC16:52:31.265/16:52:32.762Z先DryRun再Apply，7252文件map证零写/仅VERSION+README badge；插件不变，无新发行。本地642/642及独立8.3.3新安装已通过；新PR当前head真实批准/Structure+A6/线程/latestbase待证 |
+| 仅Marketplace8.3.3预升 | MERGED / UNPUBLISHED；APPROVAL_NOT_MET | 281于2026-10-20T00:00:09Z实际合入develop62945150，同已测6ef/c41 tree6659；前置DryRun零写/Apply仅VERSION+badge原件保持。候选CI最终通过，actual629本机/strict/CLI通过、新13/实际Python/15精确根清理通过；suite4610354048实际bypass/批准FAIL、reviews=[]不追认，公开仍8.3.2/f906 |
 | Owner体检/最终接受与延期 | NOT_PROVIDED / OPEN | 真实Owner决定另记；原生窗口/第二客户端等未因此通过，理解效果保持NOT_MEASURED |
 
-以下§1–3保留本次发布前的授权、范围、准备状态及预定顺序快照；其中“尚未创建”“未公开”“PENDING”等只代表当时观察，当前实际状态以上述新节和唯一主REPORT为准。last-verified的本地2026-10-20仅覆盖已有公开/真实tag、actualmain及本轮actualdevelop新验、版本工具写入范围及本地642/642与独立8.3.3新安装核验；不表示预升PR保护批准/CI/线程、实际合入、正式发布或Owner接受已通过。原准备快照中的null只属于当时。
+以下§1–3保留发布前授权、范围及预定顺序快照，其中未创建/未公开/PENDING只表示当时观察。last-verified的本地2026-10-20覆盖已绑定的公开、旧批次、版本写入范围、281合入/候选CI及actual629本机/strict/CLI；actual629新13、实际Python及15精确根清理通过，只据终态原件补范围。保护批准仍NOT_MET，Owner接受和延期不由技术结果完成。
 
 ## §1 Authorization, task and actual source
 

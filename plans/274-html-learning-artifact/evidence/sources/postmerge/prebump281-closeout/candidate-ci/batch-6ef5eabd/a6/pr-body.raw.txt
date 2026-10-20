@@ -1,0 +1,28 @@
+## 变更摘要
+
+完成 #280 实际 develop4d10 的新十三安装与实际 Python 复验后，将 Marketplace 预升为**未发布8.3.3**。版本工具 DryRun 零写入、Apply 只改 VERSION/README badge；插件及公开安装 v8.3.2 保持，未创建8.3.3 tag/Release。Refs #274。
+
+原1d8b候选在 CI 中重复发生真实 Chrome 启动失败，checker 返回 NOT_RUN/exit2、没有 viewport 测量。增加仅测试层的 Linux 有界 stderr 采集，以取得失败诊断；原 checker、启动参数、15秒启动窗口、测量断言、清理规则和 workflow 均保持。当前没有足够证据确定 Chrome 根因或宣称修复。
+
+## 影响评估
+
+只影响市场预升、阶段账本及三份测试文件。Linux 临时 exec shim 持续排空 stderr，仅保留64KiB尾部和计数，沿用原自有 session 清理；Windows 原浏览器路径保持。独立反例曾发现可选版本子进程不受限，已完全删除该子进程，原失败与修后反例分别保存。
+
+原生窗口、第二客户端等延期仍非通过，现实效果 NOT_MEASURED、Owner最终接受 NOT_PROVIDED。Issue274保持开放。同一私有Site/版本1/受众不变。原 #280 的 bypass/reviews空与批准NOT_MET保留，不构成新PR豁免。
+
+## 审核要点
+
+- 可复现本地验证：修后完整测试644项，643PASS、0FAIL、1新增Linux机制在Windows不适用；原真实浏览器测试实际执行。strict与CLI0.147.0精确基线通过。作者Linux精确三源临时投影2/2、Windows1PASS/1Linux skip，独立原阻断反例修后约0.092秒完成；投影不代替完整Linux或真实Chrome验收。
+- 原预升候选本机新十三安装/178命令、实际6Diagram/18LEK/4生成/4静态均通过，14精确根清理；actual4d10独立新验与15根清理分开保存。未将这些旧候选检查当作新head CI。
+- 原PR run39292125277：Linux640P/1F/1平台skip，Windows642/642及13/178实际安装通过。原push run39292085653 attempt1两端FAIL，唯一有界同head attempt2仍LinuxFAIL、Windows完整PASS。一次PR job重跑请求被拒绝，未执行。原日志、真实方法、未知原因与文本副本覆盖缺口保留，不借清理PASS替代浏览器启动。
+- AI判断：979来源工作树与暂存Gitblob全符，原740绑定/原字节保持，正式发布正文不变；独立审查不替代GitHub真实批准。当前新head的Linux/Windows全矩阵及13安装须取得新结果，跟踪于本PR与Issue274。
+- 门禁与恢复：受保护develop仍需当前head非作者/最新推送批准、Structure+A6、最新base和已解决线程，Agent不bypass。市场预升可由后续正常修正PR恢复，公开v8.3.2保持。
+
+## 自检结果
+
+- [x] 配置与文档严格校验通过
+- [x] CI/CD workflow与已发布运行资源保持，正常根A6同步
+- [x] 无新增硬编码敏感信息
+- [x] infra/test提交符合现行提交规范；维护模板的旧类型提示未扩展现行白名单
+- [x] CHANGELOG仅更新Unreleased，正式发布正文保持
+- [x] 唯一INTENT/PLAN/REPORT、完整来源与延期/接受边界同步

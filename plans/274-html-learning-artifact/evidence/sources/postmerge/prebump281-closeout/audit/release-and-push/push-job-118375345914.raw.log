@@ -1,0 +1,318 @@
+﻿2026-10-20T00:00:16.4319323Z Current runner version: '2.337.0'
+2026-10-20T00:00:16.4336515Z ##[group]Runner Image Provisioner
+2026-10-20T00:00:16.4337124Z Hosted Compute Agent
+2026-10-20T00:00:16.4337464Z Version: 20261012.601
+2026-10-20T00:00:16.4338064Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+2026-10-20T00:00:16.4338509Z Build Date: 2026-10-12T17:48:21Z
+2026-10-20T00:00:16.4338890Z Worker ID: {d900d3c1-01ab-43c4-99ee-6c673de15c3b}
+2026-10-20T00:00:16.4339366Z Region: centralus
+2026-10-20T00:00:16.4339685Z Cloud: Azure
+2026-10-20T00:00:16.4340021Z ##[endgroup]
+2026-10-20T00:00:16.4340743Z ##[group]Operating System
+2026-10-20T00:00:16.4341083Z Ubuntu
+2026-10-20T00:00:16.4341679Z 24.04.5
+2026-10-20T00:00:16.4341996Z LTS
+2026-10-20T00:00:16.4342282Z ##[endgroup]
+2026-10-20T00:00:16.4342644Z ##[group]Runner Image
+2026-10-20T00:00:16.4343027Z Image: ubuntu-24.04
+2026-10-20T00:00:16.4343448Z Version: 20261012.334.1
+2026-10-20T00:00:16.4344450Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-20T00:00:16.4345589Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+2026-10-20T00:00:16.4346114Z ##[endgroup]
+2026-10-20T00:00:16.4346784Z ##[group]GITHUB_TOKEN Permissions
+2026-10-20T00:00:16.4348141Z Contents: read
+2026-10-20T00:00:16.4348603Z Metadata: read
+2026-10-20T00:00:16.4349032Z ##[endgroup]
+2026-10-20T00:00:16.4350499Z Secret source: Actions
+2026-10-20T00:00:16.4351096Z Cache mode: write
+2026-10-20T00:00:16.4351572Z Prepare workflow directory
+2026-10-20T00:00:16.4601987Z Prepare all required actions
+2026-10-20T00:00:16.4633728Z Getting action download info
+2026-10-20T00:00:16.6960803Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-20T00:00:17.0912236Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-10-20T00:00:17.5006447Z Complete job name: Verify develop pre-bumped past main
+2026-10-20T00:00:17.5504373Z ##[group]Run actions/checkout@v4
+2026-10-20T00:00:17.5504835Z with:
+2026-10-20T00:00:17.5505077Z   ref: develop
+2026-10-20T00:00:17.5505333Z   fetch-depth: 0
+2026-10-20T00:00:17.5505623Z   repository: MJ-AgentLab/mj-agentlab-marketplace
+2026-10-20T00:00:17.5507717Z   token: ***
+2026-10-20T00:00:17.5507962Z   ssh-strict: true
+2026-10-20T00:00:17.5508218Z   ssh-user: git
+2026-10-20T00:00:17.5508475Z   persist-credentials: true
+2026-10-20T00:00:17.5508757Z   clean: true
+2026-10-20T00:00:17.5509020Z   sparse-checkout-cone-mode: true
+2026-10-20T00:00:17.5509325Z   fetch-tags: false
+2026-10-20T00:00:17.5509583Z   show-progress: true
+2026-10-20T00:00:17.5509848Z   lfs: false
+2026-10-20T00:00:17.5510092Z   submodules: false
+2026-10-20T00:00:17.5510350Z   set-safe-directory: true
+2026-10-20T00:00:17.5510642Z   allow-unsafe-pr-checkout: false
+2026-10-20T00:00:17.5511022Z ##[endgroup]
+2026-10-20T00:00:17.6213349Z Syncing repository: MJ-AgentLab/mj-agentlab-marketplace
+2026-10-20T00:00:17.6215031Z ##[group]Getting Git version info
+2026-10-20T00:00:17.6215842Z Working directory is '/home/runner/work/mj-agentlab-marketplace/mj-agentlab-marketplace'
+2026-10-20T00:00:17.6216926Z [command]/usr/bin/git version
+2026-10-20T00:00:17.6313802Z git version 2.55.0
+2026-10-20T00:00:17.6330870Z ##[endgroup]
+2026-10-20T00:00:17.6335845Z Temporarily overriding HOME='/home/runner/work/_temp/21abb299-f0e9-439d-9d87-467cdfe93827' before making global git config changes
+2026-10-20T00:00:17.6337235Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-20T00:00:17.6338900Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mj-agentlab-marketplace/mj-agentlab-marketplace
+2026-10-20T00:00:17.6644792Z Deleting the contents of '/home/runner/work/mj-agentlab-marketplace/mj-agentlab-marketplace'
+2026-10-20T00:00:17.6650742Z ##[group]Initializing the repository
+2026-10-20T00:00:17.6654600Z [command]/usr/bin/git init /home/runner/work/mj-agentlab-marketplace/mj-agentlab-marketplace
+2026-10-20T00:00:17.6840058Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-20T00:00:17.6841051Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-20T00:00:17.6841749Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-20T00:00:17.6842159Z hint: call:
+2026-10-20T00:00:17.6842448Z hint:
+2026-10-20T00:00:17.6842872Z hint: 	git config --global init.defaultBranch <name>
+2026-10-20T00:00:17.6843313Z hint:
+2026-10-20T00:00:17.6843705Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-20T00:00:17.6844217Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-20T00:00:17.6844624Z hint:
+2026-10-20T00:00:17.6844858Z hint: 	git branch -m <name>
+2026-10-20T00:00:17.6845122Z hint:
+2026-10-20T00:00:17.6845468Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-20T00:00:17.6849597Z Initialized empty Git repository in /home/runner/work/mj-agentlab-marketplace/mj-agentlab-marketplace/.git/
+2026-10-20T00:00:17.6855521Z [command]/usr/bin/git remote add origin https://github.com/MJ-AgentLab/mj-agentlab-marketplace
+2026-10-20T00:00:17.7123307Z ##[endgroup]
+2026-10-20T00:00:17.7124257Z ##[group]Disabling automatic garbage collection
+2026-10-20T00:00:17.7125813Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-20T00:00:17.7437308Z ##[endgroup]
+2026-10-20T00:00:17.7437722Z ##[group]Setting up auth
+2026-10-20T00:00:17.7441568Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-20T00:00:17.7467426Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-20T00:00:17.7755291Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-20T00:00:17.7782196Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-20T00:00:17.7952306Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-20T00:00:17.7978390Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-20T00:00:17.8150423Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-20T00:00:17.8837311Z ##[endgroup]
+2026-10-20T00:00:17.8846654Z ##[group]Fetching the repository
+2026-10-20T00:00:17.8848603Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-10-20T00:00:21.0824687Z From https://github.com/MJ-AgentLab/mj-agentlab-marketplace
+2026-10-20T00:00:21.0825229Z  * [new branch]      codex/communication-release -> origin/codex/communication-release
+2026-10-20T00:00:21.0825675Z  * [new branch]      codex/communication-release-preparation -> origin/codex/communication-release-preparation
+2026-10-20T00:00:21.0826113Z  * [new branch]      codex/html-learning-acceptance -> origin/codex/html-learning-acceptance
+2026-10-20T00:00:21.0826467Z  * [new branch]      codex/html-learning-artifact -> origin/codex/html-learning-artifact
+2026-10-20T00:00:21.0826805Z  * [new branch]      codex/html-learning-site -> origin/codex/html-learning-site
+2026-10-20T00:00:21.0827154Z  * [new branch]      codex/issue-245-cancel-probe -> origin/codex/issue-245-cancel-probe
+2026-10-20T00:00:21.0827494Z  * [new branch]      codex/issue-245-dedup-probe -> origin/codex/issue-245-dedup-probe
+2026-10-20T00:00:21.0827944Z  * [new branch]      codex/learning-evidence-acceptance-history-20261013 -> origin/codex/learning-evidence-acceptance-history-20261013
+2026-10-20T00:00:21.0828422Z  * [new branch]      codex/learning-evidence-contract -> origin/codex/learning-evidence-contract
+2026-10-20T00:00:21.0829115Z  * [new branch]      codex/learning-evidence-github-history-20261013 -> origin/codex/learning-evidence-github-history-20261013
+2026-10-20T00:00:21.0829686Z  * [new branch]      codex/learning-evidence-switch-history-20261013 -> origin/codex/learning-evidence-switch-history-20261013
+2026-10-20T00:00:21.0830091Z  * [new branch]      codex/post-8-3-0-docs   -> origin/codex/post-8-3-0-docs
+2026-10-20T00:00:21.0830407Z  * [new branch]      codex/prebump-8-3-1     -> origin/codex/prebump-8-3-1
+2026-10-20T00:00:21.0830801Z  * [new branch]      codex/prebump-marketplace-8-3-3 -> origin/codex/prebump-marketplace-8-3-3
+2026-10-20T00:00:21.0831223Z  * [new branch]      codex/record-html-learning-8-3-2 -> origin/codex/record-html-learning-8-3-2
+2026-10-20T00:00:21.0831872Z  * [new branch]      codex/release-html-learning-8-3-2 -> origin/codex/release-html-learning-8-3-2
+2026-10-20T00:00:21.0832435Z  * [new branch]      codex/sync-main-8-3-0   -> origin/codex/sync-main-8-3-0
+2026-10-20T00:00:21.0832839Z  * [new branch]      codex/sync-main-8-3-2   -> origin/codex/sync-main-8-3-2
+2026-10-20T00:00:21.0833148Z  * [new branch]      codex/task-docs-closeout -> origin/codex/task-docs-closeout
+2026-10-20T00:00:21.0833473Z  * [new branch]      codex/task-docs-contract -> origin/codex/task-docs-contract
+2026-10-20T00:00:21.0833804Z  * [new branch]      codex/task-docs-harness -> origin/codex/task-docs-harness
+2026-10-20T00:00:21.0834263Z  * [new branch]      codex/task-docs-html-pilot -> origin/codex/task-docs-html-pilot
+2026-10-20T00:00:21.0834748Z  * [new branch]      codex/task-documentation -> origin/codex/task-documentation
+2026-10-20T00:00:21.0835126Z  * [new branch]      develop                 -> origin/develop
+2026-10-20T00:00:21.0835364Z  * [new branch]      main                    -> origin/main
+2026-10-20T00:00:21.0835646Z  * [new tag]         v1.0.0                  -> v1.0.0
+2026-10-20T00:00:21.0836030Z  * [new tag]         v1.1.0                  -> v1.1.0
+2026-10-20T00:00:21.0836301Z  * [new tag]         v1.1.1                  -> v1.1.1
+2026-10-20T00:00:21.0836588Z  * [new tag]         v1.1.2                  -> v1.1.2
+2026-10-20T00:00:21.0836848Z  * [new tag]         v1.1.3                  -> v1.1.3
+2026-10-20T00:00:21.0837084Z  * [new tag]         v1.1.4                  -> v1.1.4
+2026-10-20T00:00:21.0837288Z  * [new tag]         v1.1.5                  -> v1.1.5
+2026-10-20T00:00:21.0837489Z  * [new tag]         v1.2.0                  -> v1.2.0
+2026-10-20T00:00:21.0837690Z  * [new tag]         v1.2.1                  -> v1.2.1
+2026-10-20T00:00:21.0837895Z  * [new tag]         v1.2.2                  -> v1.2.2
+2026-10-20T00:00:21.0838095Z  * [new tag]         v1.2.3                  -> v1.2.3
+2026-10-20T00:00:21.0838297Z  * [new tag]         v1.2.4                  -> v1.2.4
+2026-10-20T00:00:21.0838497Z  * [new tag]         v1.2.5                  -> v1.2.5
+2026-10-20T00:00:21.0838700Z  * [new tag]         v1.2.6                  -> v1.2.6
+2026-10-20T00:00:21.0838907Z  * [new tag]         v1.3.0                  -> v1.3.0
+2026-10-20T00:00:21.0839133Z  * [new tag]         v1.3.1                  -> v1.3.1
+2026-10-20T00:00:21.0839334Z  * [new tag]         v1.3.2                  -> v1.3.2
+2026-10-20T00:00:21.0839534Z  * [new tag]         v2.0.0                  -> v2.0.0
+2026-10-20T00:00:21.0839738Z  * [new tag]         v2.1.0                  -> v2.1.0
+2026-10-20T00:00:21.0839940Z  * [new tag]         v2.1.1                  -> v2.1.1
+2026-10-20T00:00:21.0840141Z  * [new tag]         v3.0.0                  -> v3.0.0
+2026-10-20T00:00:21.0840342Z  * [new tag]         v3.1.0                  -> v3.1.0
+2026-10-20T00:00:21.0840545Z  * [new tag]         v3.2.0                  -> v3.2.0
+2026-10-20T00:00:21.0840745Z  * [new tag]         v3.2.1                  -> v3.2.1
+2026-10-20T00:00:21.0840951Z  * [new tag]         v4.4.10                 -> v4.4.10
+2026-10-20T00:00:21.0841156Z  * [new tag]         v4.4.11                 -> v4.4.11
+2026-10-20T00:00:21.0841553Z  * [new tag]         v4.4.8                  -> v4.4.8
+2026-10-20T00:00:21.0841894Z  * [new tag]         v4.5.0                  -> v4.5.0
+2026-10-20T00:00:21.0842156Z  * [new tag]         v4.6.0                  -> v4.6.0
+2026-10-20T00:00:21.0842391Z  * [new tag]         v4.6.1                  -> v4.6.1
+2026-10-20T00:00:21.0842590Z  * [new tag]         v4.6.2                  -> v4.6.2
+2026-10-20T00:00:21.0842790Z  * [new tag]         v5.0.0                  -> v5.0.0
+2026-10-20T00:00:21.0842991Z  * [new tag]         v5.0.1                  -> v5.0.1
+2026-10-20T00:00:21.0843192Z  * [new tag]         v6.0.0                  -> v6.0.0
+2026-10-20T00:00:21.0843391Z  * [new tag]         v6.1.0                  -> v6.1.0
+2026-10-20T00:00:21.0843596Z  * [new tag]         v6.2.0                  -> v6.2.0
+2026-10-20T00:00:21.0843803Z  * [new tag]         v6.3.0                  -> v6.3.0
+2026-10-20T00:00:21.0844006Z  * [new tag]         v6.3.1                  -> v6.3.1
+2026-10-20T00:00:21.0844213Z  * [new tag]         v7.0.0                  -> v7.0.0
+2026-10-20T00:00:21.0844434Z  * [new tag]         v7.0.1                  -> v7.0.1
+2026-10-20T00:00:21.0844673Z  * [new tag]         v8.0.0                  -> v8.0.0
+2026-10-20T00:00:21.0844878Z  * [new tag]         v8.1.0                  -> v8.1.0
+2026-10-20T00:00:21.0845085Z  * [new tag]         v8.1.1                  -> v8.1.1
+2026-10-20T00:00:21.0845288Z  * [new tag]         v8.2.0                  -> v8.2.0
+2026-10-20T00:00:21.0845495Z  * [new tag]         v8.3.0                  -> v8.3.0
+2026-10-20T00:00:21.0845698Z  * [new tag]         v8.3.1                  -> v8.3.1
+2026-10-20T00:00:21.0845901Z  * [new tag]         v8.3.2                  -> v8.3.2
+2026-10-20T00:00:21.0846828Z ##[endgroup]
+2026-10-20T00:00:21.0847090Z ##[group]Determining the checkout info
+2026-10-20T00:00:21.0847330Z [command]/usr/bin/git branch --list --remote origin/develop
+2026-10-20T00:00:21.0863663Z   origin/develop
+2026-10-20T00:00:21.0867588Z ##[endgroup]
+2026-10-20T00:00:21.0870971Z [command]/usr/bin/git sparse-checkout disable
+2026-10-20T00:00:21.0919189Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-20T00:00:21.0942773Z ##[group]Checking out the ref
+2026-10-20T00:00:21.0945399Z [command]/usr/bin/git checkout --progress --force -B develop refs/remotes/origin/develop
+2026-10-20T00:00:22.1133641Z Updating files:  96% (7250/7537)
+2026-10-20T00:00:22.1174645Z Updating files:  97% (7311/7537)
+2026-10-20T00:00:22.1233571Z Updating files:  98% (7387/7537)
+2026-10-20T00:00:22.1283067Z Updating files:  99% (7462/7537)
+2026-10-20T00:00:22.1283405Z Updating files: 100% (7537/7537)
+2026-10-20T00:00:22.1283665Z Updating files: 100% (7537/7537), done.
+2026-10-20T00:00:22.2541175Z Switched to a new branch 'develop'
+2026-10-20T00:00:22.2545153Z branch 'develop' set up to track 'origin/develop'.
+2026-10-20T00:00:22.2625495Z ##[endgroup]
+2026-10-20T00:00:22.2665763Z [command]/usr/bin/git log -1 --format=%H
+2026-10-20T00:00:22.2688170Z 62945150df984e2747684d1ea46b8772b56db2d9
+2026-10-20T00:00:22.2923626Z ##[group]Run actions/setup-node@v4
+2026-10-20T00:00:22.2923785Z with:
+2026-10-20T00:00:22.2923911Z   node-version: 22
+2026-10-20T00:00:22.2924026Z   always-auth: false
+2026-10-20T00:00:22.2924143Z   check-latest: false
+2026-10-20T00:00:22.2925368Z   token: ***
+2026-10-20T00:00:22.2925480Z ##[endgroup]
+2026-10-20T00:00:22.3812360Z Found in cache @ /opt/hostedtoolcache/node/22.23.3/x64
+2026-10-20T00:00:22.3815506Z (node:2077) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-20T00:00:22.3816013Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-20T00:00:22.3816902Z ##[group]Environment details
+2026-10-20T00:00:22.6933789Z node: v22.23.3
+2026-10-20T00:00:22.6934037Z npm: 10.9.9
+2026-10-20T00:00:22.6934185Z yarn: 1.22.22
+2026-10-20T00:00:22.6935179Z ##[endgroup]
+2026-10-20T00:00:22.7042002Z ##[group]Run git fetch --no-tags --quiet origin main:refs/remotes/origin/main || git fetch --no-tags --quiet origin main
+2026-10-20T00:00:22.7042630Z [36;1mgit fetch --no-tags --quiet origin main:refs/remotes/origin/main || git fetch --no-tags --quiet origin main[0m
+2026-10-20T00:00:22.7262378Z shell: /usr/bin/bash -e {0}
+2026-10-20T00:00:22.7262539Z ##[endgroup]
+2026-10-20T00:00:23.0036252Z ##[group]Run set -euo pipefail
+2026-10-20T00:00:23.0037971Z [36;1mset -euo pipefail[0m
+2026-10-20T00:00:23.0038107Z [36;1m[0m
+2026-10-20T00:00:23.0038226Z [36;1mDEV=$(tr -d '[:space:]' < VERSION)[0m
+2026-10-20T00:00:23.0038416Z [36;1mMAIN=$(git show origin/main:VERSION | tr -d '[:space:]')[0m
+2026-10-20T00:00:23.0038601Z [36;1m[0m
+2026-10-20T00:00:23.0038803Z [36;1m# Age is measured from when main's VERSION last moved — i.e. the release — not from[0m
+2026-10-20T00:00:23.0039097Z [36;1m# main's last commit of any kind. A docs fix landing on main must not silently[0m
+2026-10-20T00:00:23.0040837Z [36;1m# restart the grace window.[0m
+2026-10-20T00:00:23.0041026Z [36;1mMAIN_EPOCH=$(git log -1 --format=%ct origin/main -- VERSION)[0m
+2026-10-20T00:00:23.0041358Z [36;1mif [ -z "$MAIN_EPOCH" ]; then[0m
+2026-10-20T00:00:23.0041578Z [36;1m  echo "::error::could not resolve the last commit touching VERSION on origin/main"[0m
+2026-10-20T00:00:23.0041814Z [36;1m  exit 1[0m
+2026-10-20T00:00:23.0041920Z [36;1mfi[0m
+2026-10-20T00:00:23.0042021Z [36;1m[0m
+2026-10-20T00:00:23.0042119Z [36;1m{[0m
+2026-10-20T00:00:23.0042230Z [36;1m  echo "develop=$DEV"[0m
+2026-10-20T00:00:23.0043744Z [36;1m  echo "main=$MAIN"[0m
+2026-10-20T00:00:23.0043877Z [36;1m  echo "main_epoch=$MAIN_EPOCH"[0m
+2026-10-20T00:00:23.0044025Z [36;1m  echo "now_epoch=$(date +%s)"[0m
+2026-10-20T00:00:23.0044173Z [36;1m} >> "$GITHUB_OUTPUT"[0m
+2026-10-20T00:00:23.0128819Z shell: /usr/bin/bash -e {0}
+2026-10-20T00:00:23.0128965Z ##[endgroup]
+2026-10-20T00:00:23.0312726Z ##[group]Run set -uo pipefail
+2026-10-20T00:00:23.0312893Z [36;1mset -uo pipefail[0m
+2026-10-20T00:00:23.0313046Z [36;1mRESULT=$(node scripts/check-prebump.mjs \[0m
+2026-10-20T00:00:23.0313237Z [36;1m  --develop-version "8.3.3" \[0m
+2026-10-20T00:00:23.0313386Z [36;1m  --main-version "8.3.2" \[0m
+2026-10-20T00:00:23.0313537Z [36;1m  --main-version-epoch "1792164504" \[0m
+2026-10-20T00:00:23.0313696Z [36;1m  --now-epoch "1792454423" \[0m
+2026-10-20T00:00:23.0313839Z [36;1m  --mode "push" \[0m
+2026-10-20T00:00:23.0313968Z [36;1m  --grace-hours 72)[0m
+2026-10-20T00:00:23.0314093Z [36;1mSTATUS=$?[0m
+2026-10-20T00:00:23.0314211Z [36;1mecho "$RESULT"[0m
+2026-10-20T00:00:23.0314355Z [36;1mecho "result=$RESULT" >> "$GITHUB_OUTPUT"[0m
+2026-10-20T00:00:23.0314509Z [36;1mexit $STATUS[0m
+2026-10-20T00:00:23.0362653Z shell: /usr/bin/bash -e {0}
+2026-10-20T00:00:23.0362791Z ##[endgroup]
+2026-10-20T00:00:23.0646679Z {"state":"prebumped","ok":true,"ageSeconds":289919,"reason":"develop 8.3.3 is ahead of main 8.3.2"}
+2026-10-20T00:00:23.0677785Z ##[group]Run STATE=$(echo "$RESULT" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>process.stdout.write(JSON.parse(s).state))")
+2026-10-20T00:00:23.0678311Z [36;1mSTATE=$(echo "$RESULT" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>process.stdout.write(JSON.parse(s).state))")[0m
+2026-10-20T00:00:23.0678756Z [36;1mREASON=$(echo "$RESULT" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>process.stdout.write(JSON.parse(s).reason))")[0m
+2026-10-20T00:00:23.0679046Z [36;1m[0m
+2026-10-20T00:00:23.0679159Z [36;1mcase "$STATE" in[0m
+2026-10-20T00:00:23.0679338Z [36;1m  prebumped) HEADING='## ✓ OK — develop pre-bumped' ;;[0m
+2026-10-20T00:00:23.0679591Z [36;1m  grace)     HEADING='## ✓ OK — within the post-release grace window' ;;[0m
+2026-10-20T00:00:23.0679843Z [36;1m  overdue)   HEADING='## ⚠ WARN — pre-bump overdue' ;;[0m
+2026-10-20T00:00:23.0680057Z [36;1m  inverted)  HEADING='## ⚠ WARN — inverted state' ;;[0m
+2026-10-20T00:00:23.0680273Z [36;1m  *)         HEADING="## ? — $STATE" ;;[0m
+2026-10-20T00:00:23.0680427Z [36;1mesac[0m
+2026-10-20T00:00:23.0680535Z [36;1m[0m
+2026-10-20T00:00:23.0680761Z [36;1m{[0m
+2026-10-20T00:00:23.0680883Z [36;1m  echo "# Develop Pre-bump Status"[0m
+2026-10-20T00:00:23.0681035Z [36;1m  echo ""[0m
+2026-10-20T00:00:23.0681161Z [36;1m  echo "| Branch | VERSION |"[0m
+2026-10-20T00:00:23.0681503Z [36;1m  echo "|--------|---------|"[0m
+2026-10-20T00:00:23.0681658Z [36;1m  echo "| develop | \`$DEV\` |"[0m
+2026-10-20T00:00:23.0681809Z [36;1m  echo "| main | \`$MAIN\` |"[0m
+2026-10-20T00:00:23.0681949Z [36;1m  echo ""[0m
+2026-10-20T00:00:23.0682073Z [36;1m  echo "$HEADING"[0m
+2026-10-20T00:00:23.0682199Z [36;1m  echo ""[0m
+2026-10-20T00:00:23.0682316Z [36;1m  echo "$REASON"[0m
+2026-10-20T00:00:23.0682440Z [36;1m  echo ""[0m
+2026-10-20T00:00:23.0682561Z [36;1m} >> "$GITHUB_STEP_SUMMARY"[0m
+2026-10-20T00:00:23.0682695Z [36;1m[0m
+2026-10-20T00:00:23.0682813Z [36;1mif [ "$STATE" = "overdue" ]; then[0m
+2026-10-20T00:00:23.0682956Z [36;1m  {[0m
+2026-10-20T00:00:23.0683082Z [36;1m    echo "**Action** — on develop:"[0m
+2026-10-20T00:00:23.0683241Z [36;1m    echo ""[0m
+2026-10-20T00:00:23.0683368Z [36;1m    echo '```powershell'[0m
+2026-10-20T00:00:23.0683578Z [36;1m    echo "pwsh ./scripts/bump-version.ps1 -From $DEV -To <next-patch>"[0m
+2026-10-20T00:00:23.0683889Z [36;1m    echo "git commit -m 'infra(release): pre-bump develop $DEV -> <next-patch> (post-v$MAIN)'"[0m
+2026-10-20T00:00:23.0684146Z [36;1m    echo "git push origin develop"[0m
+2026-10-20T00:00:23.0684298Z [36;1m    echo '```'[0m
+2026-10-20T00:00:23.0684420Z [36;1m    echo ""[0m
+2026-10-20T00:00:23.0684791Z [36;1m    echo "See [RUNBOOK §3.7](../blob/develop/docs/runbook/%5BRUNBOOK%5D_Release_Operations.md) + [ADR](../blob/develop/docs/adr/%5BADR%5D_Develop_PreBump_Adoption.md)."[0m
+2026-10-20T00:00:23.0685159Z [36;1m  } >> "$GITHUB_STEP_SUMMARY"[0m
+2026-10-20T00:00:23.0685322Z [36;1melif [ "$STATE" = "inverted" ]; then[0m
+2026-10-20T00:00:23.0685473Z [36;1m  {[0m
+2026-10-20T00:00:23.0685636Z [36;1m    echo "develop's VERSION is **behind** main's. Possible causes:"[0m
+2026-10-20T00:00:23.0685838Z [36;1m    echo ""[0m
+2026-10-20T00:00:23.0686012Z [36;1m    echo "- main took a hotfix that was never synced back to develop"[0m
+2026-10-20T00:00:23.0686246Z [36;1m    echo "- develop was reset below the last release"[0m
+2026-10-20T00:00:23.0686438Z [36;1m    echo "- VERSION was hand-edited"[0m
+2026-10-20T00:00:23.0686590Z [36;1m    echo ""[0m
+2026-10-20T00:00:23.0686735Z [36;1m    echo "Investigate before the next release."[0m
+2026-10-20T00:00:23.0686908Z [36;1m  } >> "$GITHUB_STEP_SUMMARY"[0m
+2026-10-20T00:00:23.0687046Z [36;1mfi[0m
+2026-10-20T00:00:23.0737024Z shell: /usr/bin/bash -e {0}
+2026-10-20T00:00:23.0737163Z env:
+2026-10-20T00:00:23.0737386Z   RESULT: {"state":"prebumped","ok":true,"ageSeconds":289919,"reason":"develop 8.3.3 is ahead of main 8.3.2"}
+2026-10-20T00:00:23.0737761Z   DEV: 8.3.3
+2026-10-20T00:00:23.0737873Z   MAIN: 8.3.2
+2026-10-20T00:00:23.0737989Z ##[endgroup]
+2026-10-20T00:00:23.1281180Z Post job cleanup.
+2026-10-20T00:00:23.2043543Z (node:2150) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-20T00:00:23.2044240Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-20T00:00:23.2186230Z Post job cleanup.
+2026-10-20T00:00:23.2713990Z [command]/usr/bin/git version
+2026-10-20T00:00:23.2744649Z git version 2.55.0
+2026-10-20T00:00:23.2774570Z Temporarily overriding HOME='/home/runner/work/_temp/07a8b4bf-d14f-446c-92ea-f242c4319478' before making global git config changes
+2026-10-20T00:00:23.2775365Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-20T00:00:23.2776123Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mj-agentlab-marketplace/mj-agentlab-marketplace
+2026-10-20T00:00:23.2805113Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-20T00:00:23.2834816Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-20T00:00:23.3030033Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-20T00:00:23.3073318Z http.https://github.com/.extraheader
+2026-10-20T00:00:23.3075426Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-20T00:00:23.3105380Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-20T00:00:23.3296121Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-20T00:00:23.3324876Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-20T00:00:23.3610901Z Cleaning up orphan processes
+2026-10-20T00:00:23.3800867Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
