@@ -1,0 +1,8 @@
+{
+  "firstCollectorExit": 1,
+  "cause": "Initial helper incorrectly required exactly one applicable main-push CI run; actual ci.yml excludes push main. AssertionError candidates=[] was a read-only collector assumption error, not a CI/test failure. Original API stdout/stderr/receipt and unmodified collector source are retained.",
+  "stderrPreservation": "Initial Python top-level traceback appeared in tool transcript and was not separately captured as an original file; no claim of original stderr file.",
+  "noProductOrWorkflowStarted": true,
+  "actualCommandTransportExit": 0,
+  "correction": "Read exact workflow and exact ci workflow-run listing; classify NOT_TRIGGERED_ON_MAIN rather than claim CI pass or rerun."
+}

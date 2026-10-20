@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-20
 state: active
-version: v2.112
+version: v2.113
 layer: canonical
 ---
 
@@ -34,6 +34,12 @@ layer: canonical
 [#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)五阶段#246/#247/#248/#249/#251均已合入develop。四性能门槛/完整24样本通过、保留default；最终actual6df新492/492、13安装、6Diagram+18LEK及15清理通过并独立复核。Owner明确仅对245接受历史批准/bypass缺项后，Issue于2026-10-16T13:09:52Z以Completed关闭；原NOT_MET、历史失败和调度限制保留，例外不外推。见[账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)与[最终收尾回执](runbook/evidence/ci-performance-245-final-closeout.json)。
 
 ## 当前整体发布
+
+v8.3.4/HTML0.1.39已由#291实际main5898公开，新actualmain及真实tag十三安装通过；[当前账本](runbook/[RUNBOOK]_Marketplace_8_3_4_Release_Readiness.md)与[#274唯一REPORT](../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#actual-pr291-publication-and-post-publication-checks)区分原件、批准NOT_MET、延期和旧接受。本轮默认导航更新到真实834，版本/运行不变。
+
+下一步推荐：先正常合入本轮有界main安装导航/记录PR，再以包含该实际merge的完整main ancestry向protected develop同步；同步实际合入并新验后，才DryRun→Apply仅市场下一补丁预升。理由是默认安装应先抵达已验证公开版本，随后保持main/develop历史与版本准备有序。当前head真实批准/CI/A6/线程/latestbase保持门禁，无新增Owner产品决定。
+
+以下旧current/待办为各自原时点快照。
 
 8.3.4/HTML0.1.39发行准备见[当前账本](runbook/[RUNBOOK]_Marketplace_8_3_4_Release_Readiness.md)与[#274唯一REPORT](../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#actual-pr290-verification-and-html0139-release-preparation)：actual290新验通过，公开仍v8.3.3，保护合入/公开/tag新验/接受各待真实结果。
 

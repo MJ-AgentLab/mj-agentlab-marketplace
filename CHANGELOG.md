@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+Update the default installation reference to the verified v8.3.4 release and HTML Guide Kit0.1.39. Record actual main/tag/Release identity and independent post-publication checks under Issue274 without changing package versions, runtime resources or published release notes. Preserve earlier failures, missing protected approval, deferred native/client coverage and original limited Owner acceptance. This maintenance entry does not publish another version. Refs #274.
+
 ## [8.3.4] - 2026-10-20
 
 Marketplace8.3.4 delivers HTML Guide Kit0.1.39 selective alignment under #274, with Diagram0.3.1, Learning Evidence0.1.0, Explain0.1.1 and Communication0.1.0 unchanged. Retain five packages, eight public skills and five explicit entries. Marketplace VERSION was prepared by PR290; this promotion does not bump versions again.
