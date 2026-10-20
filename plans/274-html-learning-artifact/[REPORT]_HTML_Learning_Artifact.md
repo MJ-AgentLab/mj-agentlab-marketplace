@@ -6,13 +6,31 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.17
+version: v1.18
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 ---
 
 # [REPORT] HTML learning artifact
+
+## Actual PR290 verification and HTML0.1.39 release preparation
+
+Owner[本轮直接续办](./evidence/sources/postmerge/r290/continuation/owner-request.txt)与[捕获](./evidence/sources/postmerge/r290/continuation/capture.json)请求实际develop复验及HTML0.1.39后续。同一INT-2026-003 v1.2/32项完整基线/A01–A08继续；无新原意、范围选择或Owner接受。2026-10-20：#290已于14:16:36Z实际合入develop **7c23f347c0725bdfa57ee1e0f5e9075a8d90babf/tree5743c7974880ff5fa87c9294313ec9adc6abac40**，parents f3e8＋720540，完整main f18 ancestry保持。市场8.3.4预升已交付，HTML0.1.39及其他插件版本保持；公开仍v8.3.3/HTML0.1.38。实际7c23本机652总/651PASS/0FAIL/1平台skip、strict/CLI0.147及新13/178、实际Python/15精确根清理通过。
+
+[实际合并独立审计](./evidence/sources/postmerge/r290/merge/summary.json)核suite4621294286精确f3→7c23为bypass，pull_request FAIL缺latest-pusher外批准，requiredchecks/nonFF/deletion PASS，reviews=[]；不因Owner通知merged补造保护批准。原post289完整879条冻结原件保持，final-manifest-r2 SHA919da9418bd811edbf575699c6ee8590712a8eeee7e58460cef82d00bc2e1672恢复旧全量与首次收尾排序误报、补充审查库存归因；不把失败快照当最终冻结。
+
+新[本机原始批次](./evidence/sources/postmerge/r290/local/batch.json)于2026-10-20T14:20:05.671+00:00–2026-10-20T14:24:22.541+00:00执行：652/651PASS/0FAIL/1平台专用skip，strict、CLI0.147.0、实际Python3.12.14及限定浏览器运行通过；HEAD/9259跟踪文件保护通过。独占Node编译cache初次未自动删除，原absence=false及99项库存/原生受控清理双absence回执保留，不能当测试自动清理或canonical15根。源码入口预读的一次未引号PowerShell HEAD^{tree}解析错误仅保方法转述，原stderr未单存，不算产品测试或新增运行。
+
+实际源[新十三安装](./evidence/sources/postmerge/r290/smoke/run-result.json)于2026-10-20T14:20:04.581Z–2026-10-20T14:33:23.521Z运行，13/178全exit0，6Diagram18LEK实际Python、4site生成/4静态各96/96，15自有根精确边界/双absence及8外层guards通过；outer/child共专有短TEMP、empty外容器仅最终非递归rmdir，无手动补清理15根。Node22.18.0/CLI0.147/Python3.12.14为本机身份，安装browser未运行，不代客户端或模型行为；不借上轮CI/actualf3计数。
+
+[独立发行范围与继承审阅](./evidence/sources/postmerge/r290/scope/summary.json)由U1完整实施授权、B1 P5上线步骤、现PLAN五边界/P4P5正式发布控制及U2已选.39增量复用。本轮请求明确继续.39后续；上一“本轮仅预升/不正式发布”是已完成工程窗口，不是永久Owner禁止，也不是单独的新发布授权。实际新验通过后可自治准备8.3.4→main发行PR；合入main的VERSION会触发已有draft-first工作流，真实head批准/CI/线程/latestbase与恢复控制不可省。
+
+A3沿用明确资源闭包：新local/neutral制品与原consumer/run02制品的artifact.json唯一差异为theme，三activities/sources相同，index.html字节相同，learning.js旧制品/新local/当前包一致。复制/导出/反馈等仅在该未变HTML+JS和同输入上继承原12项中的第5–12项交互动作，不能称.39新执行；旧布局/主题不随该闭包继承；neutral样式另有当时新双视口限定检查。资源路径/hash及原始结果恢复指针见scope选证。Matt按需读取/设计共识在关键未决时执行，当前已定决定复用，不为形式重启访谈/模型；继承不能充当持续原生窗口、第二客户端或学习效果通过。
+
+本候选只将未发布CHANGELOG整理为8.3.4节，补发行账本、阶段中性安装说明、A6与同任务文档/选证；另将HTML包README时点表述中性化；VERSION、插件版本与运行资源、INTENT及工作流保持，所有已公开CHANGELOG整尾节字节保持。候选文档首轮115/116：根CHANGELOG正文未列自身8.3.4版本，已窄补版本文字，测试与判准未改；原始stdout/stderr及receipt保于本轮外部证据根candidate-document-tests，后继复验另记。完整2699对象前缀后追加本轮选证，自身PR/CI/实际main合入/正式发布/真实tag新验只回Issue及外部冻结回执，无新实质差异不递归纯证据PR。实际suite4621294286为bypass、reviews=[]/批准NOT_MET，Agent未执行该保护合并。旧FAIL/UNKNOWN/历史批准缺口保留；D01持续窗口等延期非PASS、效果NOT_MEASURED、完整计划OPEN，原核心ACCEPTED_LIMITED仅0.1.37，不扩至0.1.38/Site v2/0.1.39。本轮未新跑模型/Matt/桌面/第二客户端/原生窗口/Sites或更新受众，无新增Owner产品决定。
+
+下一步推荐：完成本轮发行候选来源/文档/A6及独立复核，向受保护main提交唯一8.3.4发行PR；当前head CI、真实非作者且非latest-pusher批准、线程及最新base满足后才正常合入，核actualmain再按既有draft-first流程公开与真实tag新十三安装。理由是实际develop已完成市场预升和新验，HTML0.1.39的新增/继承/延期边界可分别恢复；正式公开与Owner接受不可由候选通过替代。
 
 ## Actual PR289 develop verification and marketplace pre-bump
 

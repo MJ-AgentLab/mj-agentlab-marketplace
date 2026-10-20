@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.15
+version: v1.16
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -21,6 +21,14 @@ sources: ./source-bindings.json
 ---
 
 # HTML learning artifact task entry
+
+## Actual PR290 verification and HTML0.1.39 release preparation
+
+#290实际develop7c23已交付未发布8.3.4/HTML0.1.39，新验通过；本轮准备发行PR→main，公开仍v8.3.3。批准缺口/延期/效果/原接受保界，见[唯一REPORT](./[REPORT]_HTML_Learning_Artifact.md#actual-pr290-verification-and-html0139-release-preparation)与[8.3.4账本](../../docs/runbook/[RUNBOOK]_Marketplace_8_3_4_Release_Readiness.md)。
+
+下一步推荐：完成本轮发行候选来源/文档/A6及独立复核，向受保护main提交唯一8.3.4发行PR；当前head CI、真实非作者且非latest-pusher批准、线程及最新base满足后才正常合入，核actualmain再按既有draft-first流程公开与真实tag新十三安装。理由是实际develop已完成市场预升和新验，HTML0.1.39的新增/继承/延期边界可分别恢复；正式公开与Owner接受不可由候选通过替代。
+
+以下旧current/待办为各自原时点快照；当前以Issue274及本节为准。
 
 ## Actual PR289 develop verification and marketplace pre-bump
 

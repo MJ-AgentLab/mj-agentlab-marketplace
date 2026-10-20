@@ -81,7 +81,7 @@ Communication 0.1.0 已随 v8.3.0 发布。安装后显式调用 `$communication
 
 ### Development
 
-README badge跟随当前checkout的VERSION。#289已将完整main同步和HTML0.1.39带入develop；实际develop新验通过后，在隔离分支仅市场预升未发布8.3.4（待新保护PR合入），HTML0.1.39及其他插件版本保持。默认公开安装仍固定真实v8.3.3/fdede与HTML0.1.38；新预升PR的当前保护门禁、旧失败/延期及Owner接受分别记录，详见[任务274](plans/274-html-learning-artifact/INDEX.md)。
+README badge跟随当前checkout的VERSION。#290已将市场8.3.4预升合入develop，HTML0.1.39及其他插件版本保持；实际develop新验通过后准备8.3.4发行PR→main。默认公开安装仍固定真实v8.3.3/fdede与HTML0.1.38，只有正式公开及真实tag新验后更新指引。当前保护批准、发布/恢复及延期/接受边界见[8.3.4账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_4_Release_Readiness.md)。
 
 历史 Learning [8.2.0 Release](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.2.0) 于 2026-10-13 发布。#241 已将完整五包作为 v8.3.0 公开，Diagram 0.3.1、Learning Evidence 0.1.0、Explain 0.1.1、Communication 0.1.0、HTML 0.1.36 均保持实际版本。后续同步与未发布补丁预升须经独立 PR 和实际门禁，见[8.3.0 账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_0_Release_Readiness.md)。共用 Learning 脚本归属安装包，不依赖仓库过渡路径。
 
