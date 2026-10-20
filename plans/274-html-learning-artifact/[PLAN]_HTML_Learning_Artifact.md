@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.10
+version: v1.11
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -16,6 +16,27 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 
 [任务入口](./INDEX.md) · [唯一 Issue #274](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274) · [INTENT](../../docs/intent/[INTENT]_INT-2026-003_HTML_Learning_Artifact.md) · [扩展 ADR](../../docs/adr/[ADR]_HTML_Learning_Artifact_Extension.md) · [SPEC](../../docs/spec/[SPEC]_HTML_Learning_Artifact.md)
 
+
+## Selective alignment baseline
+
+本节是2026-10-20选择性统一的决定正本。Owner原话：“按方案1选择性统一，以完整制作提示词为基准，保留本地生成器和工程检查。‘不修改文件’指保护现有材料，允许在独立目录生成产物。补齐按需 Matt grilling、设计共识确认、可选主题和本地交付规则；窗口持续显示继续延期，不视为通过。沿用 #274 推进。”原消息标点由[原话快照](./evidence/sources/align274/owner-decision.txt)恢复；准确消息时间/ID/聊天URL未提供，实际捕获与来源限制见[元数据](./evidence/sources/align274/baseline.json)。这是内容选择和同范围实施授权，不是新成品接受。
+
+B2为Slack文件F0C98A3LV5M《理解型 HTML 网站制作提示词｜仓库链接修订版｜2026-10-16》的完整API文本捕获；U2为本次Owner原话。完整B2保留在元数据指明的本机独立证据目录，记录实际UTF-8字节/hash和可恢复位置；API文本不冒充Slack上传原文件字节。原文再分发权利未核实，不公开完整研究正文，消费端无Slack或该本机目录运行依赖。公开原始链接供有权者回读，不能用可变URL替代固定捕获。B1/U1、32行旧基线及原接受均保持；旧INTENT/规范完整内容可从Git a4892f51f4163fb5bd4457d99229eaf1a4683e8f恢复，本次只增量覆盖下表。
+
+| 条目/来源 | 本次接受范围与工程关系 | 实施及依赖 | 验收判准与未覆盖 |
+|---|---|---|---|
+| A01 / B2六步、U2 | 实际交付：完整制作方法为基准，保留本地生成器和工程检查 | site/本地方法及现行门禁 | 六步、语言、来源/判准、恢复、工程/效果边界保持；不是重做旧guide |
+| A02 / B2澄清、U2 | 实际交付：仅关键未决设计按需读取并使用Matt grilling | 实际安装grilling locator；缺失只阻依赖阶段 | 按依赖分轮、编号、选项/推荐/理由；事实由Agent查；已确认决定不重问，不把包内问答冒称Matt |
+| A03 / B2设计共识、U2 | 实际交付：关键问题解决后简述设计共识并取得确认 | 只暂停依赖这些决定的实现；可继续独立核查 | 未提交/默认/推荐/关闭均不算确认；无新关键未决时复用既有共识 |
+| A04 / B2视觉、U2 | 实际交付：主题按内容和已有偏好选择，暖白陶土为候选 | 兼容默认warm-paper，新增neutral；其他方向由Sites实现后独立验证 | 实际输出CSS有差异且判准/静态内容不变；不强造每次主题选择 |
+| A05 / B2范围、U2 | 实际交付：默认新建私有Sites，支持明确约定的本地交付 | 新建/已有/本地分别判断，不可用不自动降级 | 本地HTML/独立内容源/来源版本/恢复说明/实际检查齐备可按约定交付；不报已发布、不追认旧Sites门槛 |
+| A06 / U2 | 实际交付：现有材料/原件只读，产物和工作副本写独立目录 | 保留拒覆盖/越界/缓存写入与许可规则 | 输入字节前后相同；新目录生成、实际Python/浏览器检查；更新已选Site可按授权更新独立源码 |
+| A07 / B2窗口、U2 | 依赖支撑：严格待答保持，持续显示仍延期非PASS | D01实际原生事件/客户端条件具备才恢复 | 本轮不重启原生模型/桌面矩阵，文字pending/网页活动/模拟不替窗口实证 |
+| A08 / B2完成、U2 | 依赖支撑：原接受/发布/全计划分记 | 同一INTENT/PLAN/REPORT/Issue274，版本独立推进 | 原核心ACCEPTED_LIMITED不扩大；本批结果按实际证据，效果NOT_MEASURED、历史缺口保留 |
+
+有序执行：①冻结B2/U2及旧基线，修订适用INTENT/ADR/SPEC/GUIDE；②隔离子分支实施skill/按需grilling/共识确认/主题和本地规则；③独立角色从实际入口完成受限合成场景，实际生成/两Python检查/原件保护、完整工程和十三安装；④按实际head/base/规则提交推送，内部Harness后合并，最终保护门禁另验。HTML0.1.38→0.1.39仅准备本批候选，不改变市场VERSION及其他包/guide字节，不宣称正式公开。
+
+调度基准为develop a4892f51。现有#284→main发布0.1.38仍OPEN且待真实保护批准；其冻结候选保持，本批先推进独立集成/内部子PR，不并开第二活动主PR。#284结束且基线刷新后，再按唯一主PR→protected develop承接本批；若主分支回同步带来冲突，由Agent正常合并并重验。Agent不要求Owner处理常规排程、不自行批准或bypass，也不因本批授权更新现有私有代表Site。实际PR身份和结果回唯一REPORT/Issue。
 
 ## Deferral recovery batch
 

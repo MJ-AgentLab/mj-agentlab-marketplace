@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.9
+version: v1.10
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -23,6 +23,8 @@ sources: ./source-bindings.json
 # HTML learning artifact task entry
 
 [#274](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274) 是进度正本。
+
+2026-10-20：Owner已选择以完整制作提示词作选择性统一基准，保护原材料、允许独立产物；同一[PLAN决定正本](./[PLAN]_HTML_Learning_Artifact.md#selective-alignment-baseline)承接按需Matt/共识确认、可选主题和本地交付，准备0.1.39，保本地生成与工程检查。[REPORT](./[REPORT]_HTML_Learning_Artifact.md#selective-alignment-results)分记新证据。#284→main的0.1.38发行候选保持冻结，本批内部推进，结束后衔接唯一主PR→develop。窗口持续显示仍延期，核心既有接受不扩大，下方记录按历史批次读取。
 
 2026-10-20：#282已合入develop908d2953；Owner已明确接受当前交付核心并保留全部延期/历史缺口（ACCEPTED_LIMITED），完整计划仍OPEN。本轮按同一五边界自主恢复可执行工程项，新发现边界对比度与输出许可缺件，准备HTML0.1.38修复候选；公开仍v8.3.2/HTML0.1.37，市场8.3.3未发布。原生窗口/原生派发/第二客户端仍延期，历史FAIL/UNKNOWN/bypass及批准NOT_MET不追认。 可自治检查、各延期恢复条件及真实新修复由同一[PLAN](./[PLAN]_HTML_Learning_Artifact.md#deferral-recovery-batch)和[REPORT](./[REPORT]_HTML_Learning_Artifact.md#deferral-recovery-results)接续；下方维护段按其历史日期读取。
 

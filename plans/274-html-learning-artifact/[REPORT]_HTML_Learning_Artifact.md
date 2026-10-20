@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.11
+version: v1.12
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -16,6 +16,16 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 
 [任务入口](./INDEX.md) · [主 PLAN/接受来源](./[PLAN]_HTML_Learning_Artifact.md) · [Issue #274](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274) · [INTENT](../../docs/intent/[INTENT]_INT-2026-003_HTML_Learning_Artifact.md)
 
+
+## Selective alignment results
+
+2026-10-20，本批据[选择性统一决定](./[PLAN]_HTML_Learning_Artifact.md#selective-alignment-baseline)从actualdevelop a4892f51隔离实施，候选HTML0.1.39；当前公开仍v8.3.2/HTML0.1.37。这是新产品合同修订，不是纯证据递归。保留0.1.38修复和原guide四资源/其他插件/市场版本；现有#284发行候选冻结，本批在同Issue内部推进，后继唯一主PR→develop须等待该活动PR结束及刷新基线。
+
+已按完整制作提示词修订按需Matt grilling、关键设计共识确认、可选主题、原材料保护及约定本地交付。B2完整API文本保留在独立私有证据目录，[捕获元数据](./evidence/sources/align274/baseline.json)记录准确hash/恢复位置与未知消息时间；不公开权利未核实的全文，不把API捕获冒充原上传字节。U2[Owner原话](./evidence/sources/align274/owner-decision.txt)为本批接受范围与实施授权，不是新成品最终接受。
+
+本地生成器保留，新增可选warm-paper/neutral；默认样式/输出兼容性、原件保护、两Python与有界浏览器由实际候选验证后在本节接续。独立Agent阅读/决策核验只算合成角色，非原生窗口或泛化模型验收。完整工程/十三安装、当前PR CI/内部合并与最终保护交付尚待各自终态证据，不借旧测试冒充新跑。
+
+原生窗口持续显示/空返回/超时/关闭继续D01 **DEFERRED**，不重启原生模型/桌面矩阵；第二客户端/完整视觉可访问性/效果与历史批准缺口保留。原核心 **ACCEPTED_LIMITED** 只覆盖原交付，完整计划仍OPEN，本批最终接受未提供，理解效果 **NOT_MEASURED**。没有新的Owner实质决定待答，Agent继续已授权技术工作。
 
 ## Deferral recovery results
 
