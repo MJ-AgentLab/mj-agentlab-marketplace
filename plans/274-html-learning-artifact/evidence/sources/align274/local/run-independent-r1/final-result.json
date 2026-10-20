@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "/root/alignment_independent_review",
+  "recordedAt": "2026-10-20T06:25:31.804Z",
+  "role": "Independent Agent actually completing one synthetic already-confirmed local-delivery scene",
+  "candidate": "b5b8300ae58e967e1d0013e66dc4f1208ac860ef",
+  "contentVersion": "synthetic-1.0",
+  "mode": "local-only",
+  "theme": "neutral",
+  "delivery": {
+    "html": "site/index.html",
+    "independentInput": "input/",
+    "standaloneContent": "site/content.md",
+    "fullSource": "site/sources/renewal-rules.md",
+    "metadata": "site/artifact.json",
+    "outputFileManifest": "site/artifact-manifest.json",
+    "instructions": "DELIVERY.md",
+    "replay": "../replay.mjs"
+  },
+  "actualResults": {
+    "generateExit": 0,
+    "staticExit": 0,
+    "staticChecks": {
+      "checks": 96,
+      "failed": 0,
+      "pages": 1,
+      "files": 9
+    },
+    "browserExit": 0,
+    "browserStatus": "PASS",
+    "viewports": [
+      {
+        "viewport": {
+          "width": 1366,
+          "height": 900
+        },
+        "status": "PASS"
+      },
+      {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "status": "PASS"
+      }
+    ],
+    "screenshotReview": "Both actual run PNGs viewed",
+    "sourceAndSkillUnchanged": true,
+    "semanticReview": "PASS_BOUNDED_SEMANTIC_REVIEW",
+    "exactRecovery": "PASS_EXACT_REGENERATION"
+  },
+  "result": "PASS_BOUNDED_CONFIRMED_LOCAL_DELIVERY",
+  "completionBoundary": "Requested local artifact, independent content/source/version, actual limited checks and regeneration instructions delivered. This is not full plugin release acceptance or exhaustive artifact interaction acceptance.",
+  "notExecuted": [
+    "Actual Matt interview or unanswered-question behavior",
+    "Native window persistence/close/timeout",
+    "Sites creation/save/deploy or remote access check",
+    "CLI model/desktop/second client",
+    "This Agent answer/copy/export/reset/keyboard operations",
+    "Full npm/13-install matrix",
+    "Understanding effects"
+  ],
+  "nativeWindow": "DEFERRED",
+  "understandingEffects": "NOT_MEASURED",
+  "ownerAcceptance": "NOT_PROVIDED; no synthetic role substitute"
+}

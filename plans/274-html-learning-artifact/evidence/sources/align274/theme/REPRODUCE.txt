@@ -1,0 +1,47 @@
+Source worktree:
+  C:/Users/Admin/.codex/worktrees/html-prompt-alignment/develop
+Python actually executed:
+  C:/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe
+
+The retained command-receipts.json records exit codes. Targeted test logs retain
+the original combined stdout/stderr because PowerShell redirected 2>&1 at execution.
+The verification script separately retains each Python checker's original stdout
+(*-static.json, *-browser.json) and stderr (*.stderr.log). A successful verification
+script requires every Python subprocess exit code to be exactly 0.
+
+Targeted tests, from the source worktree (PowerShell; process-local variables):
+  $env:HTML_SITE_PYTHON = 'C:/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe'
+  $env:PYTHONUTF8 = '1'
+  $env:PYTHONDONTWRITEBYTECODE = '1'
+  node --test tests/html-site-render.test.mjs tests/html-site-checks.test.mjs
+
+The first targeted-tests.log is the 26-test run before adding the dedicated
+two-theme browser regression test; the final targeted-tests-with-browser.log
+is the 27-test run with that test. Both returned 0, with no skipped tests.
+
+Original final reproducible evidence invocation:
+  node 'C:/Users/Admin/.codex/worktrees/html-prompt-alignment/alignment-evidence/theme/verify-themes.mjs'
+
+To replay without overwriting retained evidence, create a fresh sibling directory,
+copy verify-themes.mjs and browser-palette-probe.py into it, and copy the retained
+default-before directory there without altering its bytes. Invoke that copied
+verify-themes.mjs. The script derives its evidence output from its own directory,
+refuses existing output directories/files and uses the source worktree above.
+
+verify-themes.mjs contains the exact Python subprocess arguments and assertions.
+browser-palette-probe.py reuses the package's local Chromium geometry/lifecycle
+checker and adds computed-style observations after selecting the first radio.
+The package checker source is not modified by this evidence probe.
+
+Coverage:
+  - All output bytes, including artifact-manifest.json, equal default-before.
+  - Omitted, explicit warm-paper and neutral each pass actual Python static checks.
+  - Unknown theme values/types are rejected by renderer and Python checker tests;
+    self-consistent manifest hashes cannot hide the invalid theme.
+  - Warm-paper and neutral each have actual 1366x900 and 390x844 Chrome geometry,
+    screenshot, selected-radio computed-style and cleanup evidence.
+  - Neutral normal text/link contrast >=4.5 and functional boundaries >=3
+    against applicable paper, wash and white backgrounds; button text >=4.5.
+
+Only bounded local browser evidence is claimed. No native question-window, Sites
+deployment, second-client, comprehensive WCAG or learning-effect verification.

@@ -1,0 +1,121 @@
+{
+  "recordedAt": "2026-10-20T06:14:15.191Z",
+  "source": "Completed functions.exec exec_command results and retained verification assertions; recorded after execution.",
+  "commands": [
+    {
+      "command": "node",
+      "args": [
+        "--test",
+        "tests/html-site-render.test.mjs",
+        "tests/html-site-checks.test.mjs"
+      ],
+      "cwd": "C:/Users/Admin/.codex/worktrees/html-prompt-alignment/develop",
+      "environment": {
+        "HTML_SITE_PYTHON": "C:/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "PYTHONUTF8": "1",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "runs": [
+        {
+          "exitCode": 0,
+          "tests": 26,
+          "pass": 26,
+          "fail": 0,
+          "skip": 0,
+          "stdoutAndStderr": "targeted-tests.log"
+        },
+        {
+          "exitCode": 0,
+          "tests": 27,
+          "pass": 27,
+          "fail": 0,
+          "skip": 0,
+          "stdoutAndStderr": "targeted-tests-with-browser.log"
+        }
+      ]
+    },
+    {
+      "command": "node",
+      "args": [
+        "C:/Users/Admin/.codex/worktrees/html-prompt-alignment/alignment-evidence/theme/verify-themes.mjs"
+      ],
+      "cwd": "C:/Users/Admin/.codex/worktrees/html-prompt-alignment/develop",
+      "exitCode": 0,
+      "stdoutAndStderr": "verification.log"
+    },
+    {
+      "command": "C:/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+      "args": [
+        "C:/Users/Admin/.codex/worktrees/html-prompt-alignment/develop/plugins/html-guide-kit/skills/site/scripts/check_artifact.py",
+        "--input",
+        "C:/Users/Admin/.codex/worktrees/html-prompt-alignment/alignment-evidence/theme/default-after"
+      ],
+      "exitCode": 0,
+      "exitEvidence": "verify-themes.mjs retained assert.equal(run.status,0) completed with parent exit 0",
+      "stdout": "default-static.json",
+      "stderr": "default-static.json.stderr.log",
+      "executedAt": "2026-10-20T06:12:28.730027+00:00"
+    },
+    {
+      "command": "C:/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+      "args": [
+        "C:/Users/Admin/.codex/worktrees/html-prompt-alignment/develop/plugins/html-guide-kit/skills/site/scripts/check_artifact.py",
+        "--input",
+        "C:/Users/Admin/.codex/worktrees/html-prompt-alignment/alignment-evidence/theme/warm-paper-output"
+      ],
+      "exitCode": 0,
+      "exitEvidence": "verify-themes.mjs retained assert.equal(run.status,0) completed with parent exit 0",
+      "stdout": "warm-paper-static.json",
+      "stderr": "warm-paper-static.json.stderr.log",
+      "executedAt": "2026-10-20T06:12:28.818684+00:00"
+    },
+    {
+      "command": "C:/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+      "args": [
+        "C:/Users/Admin/.codex/worktrees/html-prompt-alignment/develop/plugins/html-guide-kit/skills/site/scripts/check_artifact.py",
+        "--input",
+        "C:/Users/Admin/.codex/worktrees/html-prompt-alignment/alignment-evidence/theme/neutral-output"
+      ],
+      "exitCode": 0,
+      "exitEvidence": "verify-themes.mjs retained assert.equal(run.status,0) completed with parent exit 0",
+      "stdout": "neutral-static.json",
+      "stderr": "neutral-static.json.stderr.log",
+      "executedAt": "2026-10-20T06:12:29.718724+00:00"
+    },
+    {
+      "command": "C:/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+      "args": [
+        "C:/Users/Admin/.codex/worktrees/html-prompt-alignment/alignment-evidence/theme/browser-palette-probe.py",
+        "C:/Users/Admin/.codex/worktrees/html-prompt-alignment/develop",
+        "--input",
+        "C:/Users/Admin/.codex/worktrees/html-prompt-alignment/alignment-evidence/theme/warm-paper-output",
+        "--screenshots",
+        "C:/Users/Admin/.codex/worktrees/html-prompt-alignment/alignment-evidence/theme/warm-paper-screenshots"
+      ],
+      "exitCode": 0,
+      "exitEvidence": "verify-themes.mjs retained assert.equal(run.status,0) completed with parent exit 0",
+      "stdout": "warm-paper-browser.json",
+      "stderr": "warm-paper-browser.json.stderr.log",
+      "executedAt": "2026-10-20T06:12:28.909112+00:00"
+    },
+    {
+      "command": "C:/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+      "args": [
+        "C:/Users/Admin/.codex/worktrees/html-prompt-alignment/alignment-evidence/theme/browser-palette-probe.py",
+        "C:/Users/Admin/.codex/worktrees/html-prompt-alignment/develop",
+        "--input",
+        "C:/Users/Admin/.codex/worktrees/html-prompt-alignment/alignment-evidence/theme/neutral-output",
+        "--screenshots",
+        "C:/Users/Admin/.codex/worktrees/html-prompt-alignment/alignment-evidence/theme/neutral-screenshots"
+      ],
+      "exitCode": 0,
+      "exitEvidence": "verify-themes.mjs retained assert.equal(run.status,0) completed with parent exit 0",
+      "stdout": "neutral-browser.json",
+      "stderr": "neutral-browser.json.stderr.log",
+      "executedAt": "2026-10-20T06:12:29.806386+00:00"
+    }
+  ],
+  "limitations": [
+    "Original test and top-level verification output was captured with 2>&1 and remains combined; individual Python checker stdout/stderr is retained separately."
+  ]
+}
