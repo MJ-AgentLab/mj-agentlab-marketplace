@@ -6,13 +6,15 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-20
 state: active
-version: v2.10.7
+version: v2.10.8
 layer: canonical
 ---
 
 # [RUNBOOK] Release operations
 
 ## Preparation
+
+2026-10-20当前：#284已合main fdede，v8.3.3/HTML0.1.38已真实公开；新actualmain工程和真实tag13/178/Python/精确清理通过，批准NOT_MET/实际bypass、原失败和UNKNOWN不追认。当前main默认README仍指旧版本，故在同Issue274准备一份有界导航/记录PR；其自身后继CI/merge仅回Issue和外部回执，无新实质问题不递归建纯证据PR。该PR实际合入后，可将完整actualmain ancestry与已授权0.1.39在后继唯一protected develop主PR同步交付，不要求机械独立纯同步PR。只有actualdevelop同步合入与复验完成后，才仅市场8.3.4先DryRun后Apply。详见[唯一REPORT](../../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#actual-pr284-publication-and-next-delivery)。Owner最终接受/延期/效果独立；无新增周期自动化。以下原“当前”段按各自日期保留。
 
 当前发行PR284首head318的Windows CRLF预算已修/双表示strict通过；原Linux启动FAIL/UNKNOWN保留，后继当前head CI/真实批准继续独立，详见下述8.3.3账本。
 
@@ -65,6 +67,8 @@ scripts/run-release.mjs 从指定 SHA 读取 VERSION 与 CHANGELOG，要求 SHA 
 创建空 draft → 有界等待可见 → 验证 canonical Git tree 的安装/发现 → 紧邻 publish 再取远端身份/状态 → publish → 复查 published/immutability。新发布无附加资产；unexpected assets fail closed，既有公开资产不会上传、覆盖或删除。已发布版本只能验证并 noop；故障通过新修复版本处理。
 
 ## Post-release
+
+2026-10-20当前：#284已合main fdede，v8.3.3/HTML0.1.38已真实公开；新actualmain工程和真实tag13/178/Python/精确清理通过，批准NOT_MET/实际bypass、原失败和UNKNOWN不追认。当前main默认README仍指旧版本，故在同Issue274准备一份有界导航/记录PR；其自身后继CI/merge仅回Issue和外部回执，无新实质问题不递归建纯证据PR。该PR实际合入后，可将完整actualmain ancestry与已授权0.1.39在后继唯一protected develop主PR同步交付，不要求机械独立纯同步PR。只有actualdevelop同步合入与复验完成后，才仅市场8.3.4先DryRun后Apply。详见[唯一REPORT](../../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#actual-pr284-publication-and-next-delivery)。Owner最终接受/延期/效果独立；无新增周期自动化。以下原“当前”段按各自日期保留。
 
 当前阶段（本地2026-10-20）：#279记录、#280完整main同步及#281未发布市场8.3.3预升均已实际合入；actual629本机644总/643PASS/1Linux机制不适用、strict/CLI已通过，新13/实际Python/15精确根清理通过，与候选CI/旧批次分记。公开安装仍v8.3.2/f906，插件保持；实际bypass/批准NOT_MET及Owner/延期边界不变。本轮沿用原P5五边界授权，由Agent作工程排程，最多准备一份有界文档修正，不新增Owner决定或机械三PR条件。该记录自身实际合入后的审计/复验只回Issue274并保存外部不可变回执；没有新的实质差异时不递归创建纯证据PR。详见[#274唯一REPORT](../../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#current-sync-merge-and-marketplace-prebump)。
 

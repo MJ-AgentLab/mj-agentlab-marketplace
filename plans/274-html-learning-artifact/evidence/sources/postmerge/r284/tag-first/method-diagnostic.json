@@ -1,0 +1,33 @@
+{
+  "recordedAt": "2026-10-20T09:59:01.203706+00:00",
+  "status": "METHOD_FAIL_BEFORE_INSTALL",
+  "attempt": "tag-smoke default Windows TEMP",
+  "startedAt": "2026-10-20T09:55:29.320Z",
+  "finishedAt": "2026-10-20T09:55:34.409Z",
+  "exitCode": 1,
+  "observedFailure": "git worktree add --detach canonical fdede checkout returned Filename too long for an unchanged deeply nested historical evidence file",
+  "failedPath": "plans/274-html-learning-artifact/evidence/sources/postmerge/dr274/baseline-visual/run01/published-installation/plugins/html-guide-kit/skills/site/examples/representative/sources/renewal-rules.md",
+  "scenariosExecuted": 0,
+  "installationCommandsExecuted": 0,
+  "staticPythonCommandsExecuted": 0,
+  "stdoutBytes": 0,
+  "stderrBytes": 3478,
+  "stderrSha256": "36d1c746a6a053a8d2783ac864d8b14e4f4e6b56088b0690e0d311882ece6efa",
+  "sourceChanged": false,
+  "gatesChanged": false,
+  "globalGitChanged": false,
+  "cleanup": {
+    "finallyMetric": "status ok",
+    "worktreeInventoryRestored": true,
+    "exactCanonicalPath": "NOT_RECORDED",
+    "exactRootAbsence": "NOT_PROVED",
+    "warning": "run-result cleanup roots=0/checked=false; its vacuous allAbsent=true is not root absence evidence"
+  },
+  "guards": {
+    "hostHeadPreserved": true,
+    "hostStatusPreserved": true,
+    "primaryPreserved": true,
+    "ownerOriginalPreserved": true
+  },
+  "recovery": "one new batch in tag-smoke-short-temp-r1, process-only TEMP/TMP=D:/t274a; same canonical fdede and shipped scripts, exact CLI/strict/Python/source criteria. Original files frozen and retained."
+}

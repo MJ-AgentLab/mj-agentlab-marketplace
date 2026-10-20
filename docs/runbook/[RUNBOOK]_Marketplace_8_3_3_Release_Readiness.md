@@ -1,18 +1,38 @@
 ---
 type: runbook
 scope: marketplace
-summary: "Prepare the 8.3.3 repair release with exact identities, gates and retained limits"
+summary: "Record actual 8.3.3 publication, real-tag checks and preserved approval gaps"
 owner: marketplace-maintainers
 created: 2026-10-20
 updated: 2026-10-20
 state: active
-version: v1.1
+version: v1.2
 layer: working
 purpose: "Maintain task274 source-bound 8.3.3 release identities, verification, protected gates, private Site observations and recovery"
 last-verified: null
 ---
 
 # [RUNBOOK] Marketplace 8.3.3 release readiness
+
+## Actual publication and current continuation
+
+PR284于2026-10-20T09:50:50Z实际合入main **fdede3cf5578dee8a41aef4310a9387d695c56bd/treef71963c1d5640933e80fccfec3383681fb15333b**，parents e3dc40f7＋cfbeb1bb；完整树与已测cfb及9a候选相同。v8.3.3于09:53:51Z正式公开，轻量tag/Release target同fdede，Release418243144为draft=false/prerelease=false/assets=[]/latest，immutable=false；仓库immutable配置字段未提供，仍UNKNOWN。自动Release39403662285 attempt1于09:53:57Z成功；原始日志支持draft-first创建/可见性等待/核验/公开，没有独立原生draft API快照。 [独立20项观察](../../plans/274-html-learning-artifact/evidence/sources/postmerge/r284/release-audit/publication-summary-v1.json)限定全通过；公开正文2507B/SHA25611fc9f4c0231ba5aebda7a7d3add60ed8f506a943e2ff516d5c2c8b27c5b069c，与actualmain CHANGELOG8.3.3节在CRLF→LF后trim范围相等，不声称原提取2509B与正文原字节同一。
+
+实际suite4617090917精确匹配e3dc→fdede，actor ranzuozhou、result=bypass；pull_request规则FAIL（缺最新推送者以外批准），其余四规则PASS，reviews=[]/批准NOT_MET。Agent未执行此次合并或bypass，不把公开成功追认为独立批准或未来豁免。
+
+actualmain固定源完整本机647总/646PASS/0FAIL/1平台专用skip、strict与精确CLI0.147.0已新执行通过；独立真实v8.3.3/fdede批次于09:56:21.473–10:08:43.971Z执行，13/13场景、178/178命令全0，实际6Diagram＋18LEK＋4site Python，4生成/4静态各95/95；site20/guide4资源、15实际根（1canonical＋1template＋13scenario）逐根absence及host/primary/Owner原件/完整worktree清单保持。原driver exit0且没有overall字段，但allBoundariesVerified=false：外层helper误用宿主默认TEMP，未按命令记录的子进程D:/t274a核边界；原false保留不覆盖。另以实际子进程目录/原始copy metrics作独立23项核验，15根安全边界及两次absence均有证。结论为PASS_LIMITED_WITH_RAW_HELPER_GUARD_FAIL，只接受有证功能/恢复子项，不称原完整run无缺口PASS；安装browser仍NOT_RUN，未额外跑模型/桌面或窗口。这批实际tag结果不借候选或actual283计数。首批默认TEMP在canonical checkout因Windows路径过长失败，0场景/0安装；原stderr/命令/perf保持，finally清理metric仅ok且完整worktree清单复原，但失败canonical具体TEMP根未留存，逐根absence不可核，原空集合allAbsent不作PASS证据。新短TEMP批次仅改进程临时路径，源码、时限及判准不变，实际根清理只绑定自身证据。裸Python不可用时实际使用捆绑Python3.12.14；不伪称裸Python可用。
+
+原cfb CI39365093169首Linux启动FAIL/NOT_RUN2及根因UNKNOWN保留；仅一次同判准完整Linux debug重跑SUCCESS（647总/646PASS/0FAIL/1平台skip），Windows原执行同计数成功；attempt2的Windows代理仍沿用原时间，不算新Windows矩阵。push39365089131仅精确PR去重载体。旧318三FAIL及WindowsCRLF预算修复仍按原证据分记；原15秒/workflow/checker/阈值不变。
+
+公开交付仍为HTML0.1.38，其他四包/guide保持；本轮仅修正README默认真实v8.3.3安装、当前公开版本和维护状态，接必要发布记录及[选证恢复映射](../../plans/274-html-learning-artifact/evidence/sources/postmerge/r284/selection.json)，不重复bump、不改已发布8.3.3 CHANGELOG整节/标签/Release正文或资产。原2295来源完整前缀和32行旧接受基线保留；完整外部根/固定Git按映射恢复，不声称选证包包含全部独立目录。新主PR自身CI/实际merge仅回Issue274和外部不可变回执，不递归开纯自证记录PR。
+
+HTML0.1.39选择性统一已由内部285/286正常合入集成fe295a00，证据与唯一原意修订保存在[该固定Git的PLAN](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/blob/fe295a005e1659ea210a9768bbcce88d72ed64f4/plans/274-html-learning-artifact/%5BPLAN%5D_HTML_Learning_Artifact.md#selective-alignment-baseline)及既有独立task-evidence；本轮main不带该未发布产品。下一步推荐：先正常合入本轮main导航/记录PR，随后将包含该merge的完整actualmain普通合入既有0.1.39集成分支，用后继唯一主PR→protected develop同时承接main同步及已授权选择性统一。实际develop同步合入并复验后，才可DryRun→Apply仅市场8.3.4预升；当前未执行。理由是先让默认安装抵达真实修复版本，再交付新方法，避免无产品差异的机械纯同步PR。当前无新增Owner实质决定。
+
+原核心ACCEPTED_LIMITED仅覆盖原已交付核心，不覆盖本次0.1.38/Site v2/0.1.39或完整计划；完整计划OPEN、最终接受NOT_PROVIDED、效果NOT_MEASURED。D01原生持续窗口/空返回/超时/关闭及其余延期非PASS；本轮无新增模型/桌面/第二客户端/Sites动作。旧FAIL/UNKNOWN、历史及本次bypass/批准NOT_MET保持，后续当前head真实独立批准/required checks/线程/latestbase不得由本轮结果替代。
+
+以下各节为各自时点原观察；创建前快照中的PENDING/未公开不作为当前状态。
+
+last-verified继续null：这不是完整保护批准/全计划验收PASS；本节只绑定实际发布和明确范围的工程观察。
 
 ## Current preparation
 
