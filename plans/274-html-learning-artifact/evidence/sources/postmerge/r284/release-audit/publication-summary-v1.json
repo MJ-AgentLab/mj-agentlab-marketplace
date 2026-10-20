@@ -1,0 +1,170 @@
+{
+  "auditedAt": "2026-10-20T09:57:46.643987+00:00",
+  "status": "PASS_LIMITED_PUBLICATION_OBSERVATION",
+  "checks": {
+    "actualPrMerged": true,
+    "actualMergeParents": true,
+    "actualMergeTreeMatchesCandidate": true,
+    "currentMainMatchesMerge": true,
+    "lightweightTagTargetsActualMerge": true,
+    "releaseTargetMatchesActualMerge": true,
+    "releaseNameAndTag": true,
+    "releasePublished": true,
+    "releaseNotPrerelease": true,
+    "releaseAssetsEmpty": true,
+    "releaseAuthorActionsBot": true,
+    "actualVersion": true,
+    "releaseNotesMatchCanonicalSectionUnderCrLfTrim": true,
+    "workflowHeadMatchesActualMerge": true,
+    "workflowCompletedSuccess": true,
+    "workflowJobsCompletedSuccess": true,
+    "latestReleaseIsCurrent": true,
+    "releaseImmutableObservedFalse": true,
+    "protectionSuiteExactBeforeAfter": true,
+    "actualBypassAndMissingApprovalPreserved": true
+  },
+  "checkCount": 20,
+  "allObservedChecksTrue": true,
+  "actualMerge": {
+    "pr": 284,
+    "mergedAt": "2026-10-20T09:50:50Z",
+    "mergedBy": "ranzuozhou",
+    "sha": "fdede3cf5578dee8a41aef4310a9387d695c56bd",
+    "tree": "f71963c1d5640933e80fccfec3383681fb15333b",
+    "parents": [
+      "e3dc40f734fc972e05956da3e908091e09963675",
+      "cfbeb1bbf3e254ea3b33f5abe9c3eb5207c605a7"
+    ]
+  },
+  "publication": {
+    "id": 418243144,
+    "name": "v8.3.3",
+    "tag_name": "v8.3.3",
+    "target_commitish": "fdede3cf5578dee8a41aef4310a9387d695c56bd",
+    "draft": false,
+    "prerelease": false,
+    "immutable": false,
+    "published_at": "2026-10-20T09:53:51Z",
+    "created_at": "2026-10-20T09:50:50Z",
+    "updated_at": "2026-10-20T09:53:51Z",
+    "assets": [],
+    "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.3"
+  },
+  "notes": {
+    "normalization": "CRLF to LF then trim on both; no content normalization",
+    "releaseBodyUtf8Bytes": 2507,
+    "releaseBodySha256": "11fc9f4c0231ba5aebda7a7d3add60ed8f506a943e2ff516d5c2c8b27c5b069c",
+    "extractedRawUtf8Bytes": 2509,
+    "extractedRawSha256": "a3a0b0e0b97184a66fc9f5b58d3ef687f7270d0e8ef6f64553bb24b1074c17a3",
+    "normalizedUtf8Bytes": 2507,
+    "normalizedSha256": "11fc9f4c0231ba5aebda7a7d3add60ed8f506a943e2ff516d5c2c8b27c5b069c",
+    "matches": true
+  },
+  "workflow": {
+    "id": 39403662285,
+    "status": "completed",
+    "conclusion": "success",
+    "attempt": 1,
+    "headSha": "fdede3cf5578dee8a41aef4310a9387d695c56bd",
+    "createdAt": "2026-10-20T09:50:53Z",
+    "updatedAt": "2026-10-20T09:53:57Z",
+    "jobs": [
+      {
+        "id": 118564259389,
+        "name": "Create Release",
+        "startedAt": "2026-10-20T09:50:56Z",
+        "completedAt": "2026-10-20T09:53:56Z",
+        "conclusion": "success"
+      }
+    ],
+    "draftFirstEvidence": "actual raw workflow logs show action=create-draft, created empty draft09:51:16.5163772Z, one visibility wait, canonical install verification succeeded, published09:53:52.0983556Z; no independent native draft API snapshot captured",
+    "logZipSha256": "866222048e201079c3856bbafe16a841b4d50696e47586c5f4f08b6348a4f6b8"
+  },
+  "protection": {
+    "suiteId": 4617090917,
+    "result": "bypass",
+    "actor": "ranzuozhou",
+    "reviews": [],
+    "reviewDecision": "REVIEW_REQUIRED",
+    "approval": "NOT_MET",
+    "evaluations": [
+      {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008213,
+          "name": "protect-main"
+        },
+        "enforcement": "active",
+        "result": "fail",
+        "rule_type": "pull_request",
+        "details": "New changes require approval from someone other than the last pusher."
+      },
+      {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008213,
+          "name": "protect-main"
+        },
+        "enforcement": "active",
+        "result": "pass",
+        "rule_type": "required_status_checks"
+      },
+      {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008213,
+          "name": "protect-main"
+        },
+        "enforcement": "active",
+        "result": "pass",
+        "rule_type": "creation"
+      },
+      {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008213,
+          "name": "protect-main"
+        },
+        "enforcement": "active",
+        "result": "pass",
+        "rule_type": "non_fast_forward"
+      },
+      {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008213,
+          "name": "protect-main"
+        },
+        "enforcement": "active",
+        "result": "pass",
+        "rule_type": "deletion"
+      }
+    ],
+    "agentBypassExecuted": false,
+    "futureException": false
+  },
+  "immutability": {
+    "releaseImmutable": false,
+    "repositoryFieldPresent": false,
+    "repositorySetting": "UNKNOWN",
+    "workflowDiagnostic": "not enabled / not claiming immutable; code defaults absent probe to false, so this diagnostic does not establish repository setting"
+  },
+  "earlyObservations": "Earlier tag/release-by-tag404 snapshots are retained as time-specific observations; they did not prove no draft existed. Draft creation is independently visible later in workflow logs.",
+  "freshRealTagInstallation": "RUNNING_IN_SEPARATE_TAG_SMOKE_SHORT_TEMP_R1; first default-TEMP canonical checkout method FAIL before any scenario preserved separately",
+  "limits": [
+    "Public HTML version0.1.38, not selective-alignment0.1.39.",
+    "No model, desktop, native-window, second-client, Site deployment, general accessibility or learning-effect result was run or inferred.",
+    "Owner original-core ACCEPTED_LIMITED does not accept this new0.1.38/Site v2/full plan.",
+    "Publication success does not repair historical or actual PR284 missing protected approval; actual bypass is retained."
+  ],
+  "snapshot": "C:\\Users\\Admin\\.codex\\task-evidence\\html-learning-274-post284-20261020\\release-audit\\snapshot-20261020T095503186652Z",
+  "rawSources": [
+    "pr284.json",
+    "actual-main-commit.json",
+    "suite4617090917.json",
+    "main-active-rules.json",
+    "release-run39403662285-logs.zip",
+    "release-workflow-logs/",
+    "snapshot-20261020T095503186652Z/"
+  ]
+}

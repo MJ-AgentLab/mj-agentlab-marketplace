@@ -1,0 +1,68 @@
+name: Release
+
+# Git/tag-only draft-first release. Existing public versions and assets remain untouched.
+on:
+  push:
+    branches: [main]
+    paths: ['VERSION']
+  workflow_dispatch:
+    inputs:
+      release_sha:
+        description: 'Full 40-char commit SHA to release (must be an ancestor of main). Defaults to the checked-out main tip.'
+        required: false
+        type: string
+
+# One release at a time; never cancel a release in flight (a cancelled publish is far worse than a
+# queued one).
+concurrency:
+  group: release-main
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          fetch-depth: 0 # full history: the orchestrator reads VERSION/CHANGELOG at the canonical SHA and checks ancestry
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+
+      - name: Install portable verification dependencies and exact Codex baseline
+        run: |
+          npm ci
+          npm install -g @openai/codex@0.147.0
+
+      - name: Resolve release SHA
+        id: rel
+        # A dispatch input is attacker-adjacent text: validate it here and carry it only via env.
+        env:
+          INPUT_SHA: ${{ inputs.release_sha }}
+          DEFAULT_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          SHA="${INPUT_SHA:-$DEFAULT_SHA}"
+          # Whole-string bash regex, not a per-line grep: a multiline value with one 40-hex line
+          # would pass `grep -qE '^...$'` and then inject extra key=value pairs into GITHUB_OUTPUT.
+          if [[ ! "$SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::release_sha must be a single 40-char lowercase hex SHA (got '${SHA}')"; exit 1
+          fi
+          echo "sha=$SHA" >> "$GITHUB_OUTPUT"
+
+      - name: Run draft-first release
+        env:
+          RELEASE_SHA: ${{ steps.rel.outputs.sha }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GH_TOKEN: ${{ github.token }}
+          RUNNER_TEMP: ${{ runner.temp }}
+        run: node scripts/run-release.mjs

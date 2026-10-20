@@ -2,7 +2,7 @@
 
 ## 项目上下文
 
-Marketplacev8.3.2由#278/mainf906b100于2026-10-19公开，tag/Release同SHA，HTML0.1.37新增site，5包8技能/5显式。真实tag新13安装、6Diagram+18LEK/4site生成静态及15根清理通过；CLI0.147.0，空reviews/实际bypass、旧FAIL与延期保留，见[8.3.2账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_2_Release_Readiness.md)。
+Marketplacev8.3.3由#284/mainfdede3cf于2026-10-20公开，tag/Release同SHA，HTML0.1.38修复许可/路径/控件，5包8技能/5显式。真实tag新13/178、实际Python/4site静态及精确根清理通过；CLI0.147.0，实际bypass/空reviews/批准NOT_MET、首TEMP路径FAIL与旧UNKNOWN/延期保留，见[8.3.3账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md)。
 
 manifest 的公开示例按[插件契约](docs/spec/[SPEC]_Plugin_Json_Schema.md)保留完整路由，最多三条，各原值不超过 128 个 Unicode scalar values；严格校验防止客户端忽略超长示例而丢失公开入口，不依赖空白归一化。
 
@@ -70,7 +70,7 @@ Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基
 
 ## HTML Guide Kit 阶段实施
 
-HTML0.1.38/#283已合，8.3.3未发布。同私有Sitev2及证据/缺口见[任务274](plans/274-html-learning-artifact/INDEX.md)。
+HTML0.1.38随v8.3.3公开；0.1.39内部285/286候选，待完整main同步/唯一develop主PR，actualsync复验后才预升8.3.4，未执行；延期/接受与Sitev2见[任务274](plans/274-html-learning-artifact/INDEX.md)。
 
 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217)授权三阶段/worktree/codex。#221 merge70267a5复验/#218关闭；#226 d106e766同72cdd08树，0.1.0/第二轮A/七安装四Python复验/#219关闭。旧批准缺项保留。#231实际merge71e2同head树、CI全P/reviews空；原批准缺项保留，不bypass或指定审查人。
 

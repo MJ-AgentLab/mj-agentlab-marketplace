@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-20
 state: active
-version: v2.107
+version: v2.108
 layer: canonical
 ---
 
@@ -34,6 +34,10 @@ layer: canonical
 [#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)五阶段#246/#247/#248/#249/#251均已合入develop。四性能门槛/完整24样本通过、保留default；最终actual6df新492/492、13安装、6Diagram+18LEK及15清理通过并独立复核。Owner明确仅对245接受历史批准/bypass缺项后，Issue于2026-10-16T13:09:52Z以Completed关闭；原NOT_MET、历史失败和调度限制保留，例外不外推。见[账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)与[最终收尾回执](runbook/evidence/ci-performance-245-final-closeout.json)。
 
 ## 当前整体发布
+
+2026-10-20：v8.3.3/HTML0.1.38已由PR284实际main/tag fdede公开，独立发布观察、actualmain工程及真实tag新验通过；真实bypass/批准NOT_MET、首次TEMP checkout失败与旧FAIL/UNKNOWN保持。当前修正main默认安装导航，之后完整main同步与已授权0.1.39在唯一develop主PR承接；8.3.4仅actualsync复验后。详见[8.3.3账本](runbook/[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md#actual-publication-and-current-continuation)，Owner接受/延期/效果独立。
+
+下列日期条目是各自历史快照。
 
 2026-10-20：#283已合入develop a4892f51，同已测tree196daab8，actual新本机/13安装及精确清理通过；同一私有Site version2前向修复已部署。当前准备Marketplace8.3.3/HTML0.1.38发行，公开仍v8.3.2。范围、来源和新main发行待办见[8.3.3账本](runbook/[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md)；Owner核心ACCEPTED_LIMITED与完整计划OPEN、延期/NOT_MEASURED及历史批准NOT_MET分别保留，Agent不bypass。下方旧日期记录保持原范围。
 

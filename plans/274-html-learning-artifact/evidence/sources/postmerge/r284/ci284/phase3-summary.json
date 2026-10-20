@@ -1,0 +1,1652 @@
+{
+  "schemaVersion": 1,
+  "phase": "phase3-single-debug-Ubuntu-attempt2",
+  "frozenAt": "2026-10-20T04:04:09.798Z",
+  "head": "cfbeb1bbf3e254ea3b33f5abe9c3eb5207c605a7",
+  "pr": {
+    "draft": true,
+    "state": "open",
+    "head": "cfbeb1bbf3e254ea3b33f5abe9c3eb5207c605a7",
+    "base": "e3dc40f734fc972e05956da3e908091e09963675",
+    "merge": "9a011489e7e1f3aa15505ab32671313132e2d591",
+    "mergeable": true,
+    "mergeable_state": "blocked"
+  },
+  "gitObjects": [
+    {
+      "sha": "cfbeb1bbf3e254ea3b33f5abe9c3eb5207c605a7",
+      "tree": "f71963c1d5640933e80fccfec3383681fb15333b",
+      "parents": [
+        "318db5a5660920f4fcd95f0f96c352d012514815"
+      ]
+    },
+    {
+      "sha": "e3dc40f734fc972e05956da3e908091e09963675",
+      "tree": "ae121f6b256d1a44ea05a06061ba025b605655d9",
+      "parents": [
+        "f906b1001a86d7b5415451bd973bea26e6cc3a1d",
+        "315b5942a3a61c6bf7ab17513b8263496bd7a48a"
+      ]
+    },
+    {
+      "sha": "9a011489e7e1f3aa15505ab32671313132e2d591",
+      "tree": "f71963c1d5640933e80fccfec3383681fb15333b",
+      "parents": [
+        "e3dc40f734fc972e05956da3e908091e09963675",
+        "cfbeb1bbf3e254ea3b33f5abe9c3eb5207c605a7"
+      ]
+    }
+  ],
+  "currentCIRun": {
+    "id": 39365093169,
+    "event": "pull_request",
+    "path": ".github/workflows/ci.yml",
+    "head_sha": "cfbeb1bbf3e254ea3b33f5abe9c3eb5207c605a7",
+    "status": "completed",
+    "conclusion": "success",
+    "run_attempt": 2,
+    "created_at": "2026-10-20T03:35:24Z",
+    "updated_at": "2026-10-20T04:00:04Z"
+  },
+  "newExecution": {
+    "runId": 39365093169,
+    "attempt": 2,
+    "jobId": 118445089707,
+    "id": 118445089707,
+    "name": "Baseline compat (ubuntu-latest)",
+    "status": "completed",
+    "conclusion": "success",
+    "started_at": "2026-10-20T03:54:11Z",
+    "completed_at": "2026-10-20T04:00:03Z",
+    "raw": {
+      "path": "downloads/job-118445089707.stdout.raw",
+      "bytes": 1014882,
+      "sha256": "6f611445c802ee92ee84e687072b1af943a90f2a2ccc719b876bf61cfc391fba"
+    },
+    "totals": {
+      "tests": 647,
+      "suites": 0,
+      "pass": 646,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 1,
+      "todo": 0
+    },
+    "skipped": [
+      {
+        "line": 4004,
+        "text": "ok 566 - Windows equivalent file casing still passes containment # SKIP"
+      }
+    ],
+    "failed": [],
+    "checkout": [
+      {
+        "commandLine": 369,
+        "shaLine": 370,
+        "sha": "9a011489e7e1f3aa15505ab32671313132e2d591"
+      }
+    ],
+    "steps": [
+      {
+        "number": 1,
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 2,
+        "name": "Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 3,
+        "name": "Run actions/setup-node@v4",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 4,
+        "name": "Run actions/setup-python@v5",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 5,
+        "name": "Run npm ci",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 6,
+        "name": "Run npm install -g @openai/codex@0.147.0",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 7,
+        "name": "Unit and real Python execution tests",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 8,
+        "name": "Run npm run validate",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 9,
+        "name": "Run npm run check:baseline-tools",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 10,
+        "name": "Run npm run smoke:codex",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 18,
+        "name": "Post Run actions/setup-python@v5",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 19,
+        "name": "Post Run actions/setup-node@v4",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 20,
+        "name": "Post Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 21,
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ],
+    "smoke": {
+      "ok": true,
+      "version": "codex-cli 0.147.0",
+      "scenarios": 13,
+      "allScenariosOk": true,
+      "commands": 178,
+      "allCommandStatusZero": true,
+      "nonzeroCommands": [],
+      "diagramActualExecutions": 6,
+      "diagram": [
+        {
+          "installed": [
+            "diagram-kit"
+          ],
+          "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+          "commands": [
+            {
+              "command": "python3",
+              "args": [
+                "/tmp/marketplace-smoke-DPmwsE/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/scripts/validate_diagram.py",
+                "/tmp/marketplace-smoke-DPmwsE/consumer/installed context 中文 diagram.md"
+              ],
+              "status": 0
+            }
+          ]
+        },
+        {
+          "installed": [
+            "diagram-kit",
+            "explain-kit"
+          ],
+          "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+          "commands": [
+            {
+              "command": "python3",
+              "args": [
+                "/tmp/marketplace-smoke-UUVQlZ/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/scripts/validate_diagram.py",
+                "/tmp/marketplace-smoke-UUVQlZ/consumer/installed context 中文 diagram.md"
+              ],
+              "status": 0
+            }
+          ]
+        },
+        {
+          "installed": [
+            "diagram-kit",
+            "learning-evidence-kit",
+            "explain-kit"
+          ],
+          "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+          "commands": [
+            {
+              "command": "python3",
+              "args": [
+                "/tmp/marketplace-smoke-uWHxaj/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/scripts/validate_diagram.py",
+                "/tmp/marketplace-smoke-uWHxaj/consumer/installed context 中文 diagram.md"
+              ],
+              "status": 0
+            }
+          ]
+        },
+        {
+          "installed": [
+            "diagram-kit",
+            "learning-evidence-kit",
+            "explain-kit",
+            "communication-kit"
+          ],
+          "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+          "commands": [
+            {
+              "command": "python3",
+              "args": [
+                "/tmp/marketplace-smoke-XVRc18/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/scripts/validate_diagram.py",
+                "/tmp/marketplace-smoke-XVRc18/consumer/installed context 中文 diagram.md"
+              ],
+              "status": 0
+            }
+          ]
+        },
+        {
+          "installed": [
+            "diagram-kit",
+            "learning-evidence-kit",
+            "explain-kit",
+            "html-guide-kit"
+          ],
+          "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+          "commands": [
+            {
+              "command": "python3",
+              "args": [
+                "/tmp/marketplace-smoke-kKu2wK/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/scripts/validate_diagram.py",
+                "/tmp/marketplace-smoke-kKu2wK/consumer/installed context 中文 diagram.md"
+              ],
+              "status": 0
+            }
+          ]
+        },
+        {
+          "installed": [
+            "diagram-kit",
+            "learning-evidence-kit",
+            "explain-kit",
+            "communication-kit",
+            "html-guide-kit"
+          ],
+          "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+          "commands": [
+            {
+              "command": "python3",
+              "args": [
+                "/tmp/marketplace-smoke-Sjm2Qu/home/.codex/plugins/cache/mj-agentlab-marketplace/diagram-kit/0.3.1/skills/arch-diagram/scripts/validate_diagram.py",
+                "/tmp/marketplace-smoke-Sjm2Qu/consumer/installed context 中文 diagram.md"
+              ],
+              "status": 0
+            }
+          ]
+        }
+      ],
+      "learningScenarioCount": 6,
+      "learningActualExecutions": 18,
+      "learning": [
+        {
+          "installed": [
+            "learning-evidence-kit"
+          ],
+          "interpreter": "3.12.15 (main, Oct  1 2026, 02:35:59) [GCC 13.3.0]",
+          "saveStatus": "ok",
+          "replayIdentical": true,
+          "structurallyValid": true,
+          "commands": [
+            {
+              "command": "python3.12",
+              "args": [
+                "-B",
+                "/tmp/marketplace-smoke-jXsCe2/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+              ],
+              "status": 0
+            },
+            {
+              "command": "python3.12",
+              "args": [
+                "-B",
+                "/tmp/marketplace-smoke-jXsCe2/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+              ],
+              "status": 0
+            },
+            {
+              "command": "python3.12",
+              "args": [
+                "-B",
+                "/tmp/marketplace-smoke-jXsCe2/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+              ],
+              "status": 0
+            }
+          ]
+        },
+        {
+          "installed": [
+            "diagram-kit",
+            "learning-evidence-kit",
+            "explain-kit"
+          ],
+          "interpreter": "3.12.15 (main, Oct  1 2026, 02:35:59) [GCC 13.3.0]",
+          "saveStatus": "ok",
+          "replayIdentical": true,
+          "structurallyValid": true,
+          "commands": [
+            {
+              "command": "python3.12",
+              "args": [
+                "-B",
+                "/tmp/marketplace-smoke-uWHxaj/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+              ],
+              "status": 0
+            },
+            {
+              "command": "python3.12",
+              "args": [
+                "-B",
+                "/tmp/marketplace-smoke-uWHxaj/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+              ],
+              "status": 0
+            },
+            {
+              "command": "python3.12",
+              "args": [
+                "-B",
+                "/tmp/marketplace-smoke-uWHxaj/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+              ],
+              "status": 0
+            }
+          ]
+        },
+        {
+          "installed": [
+            "communication-kit",
+            "learning-evidence-kit"
+          ],
+          "interpreter": "3.12.15 (main, Oct  1 2026, 02:35:59) [GCC 13.3.0]",
+          "saveStatus": "ok",
+          "replayIdentical": true,
+          "structurallyValid": true,
+          "commands": [
+            {
+              "command": "python3.12",
+              "args": [
+                "-B",
+                "/tmp/marketplace-smoke-0vXv3P/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+              ],
+              "status": 0
+            },
+            {
+              "command": "python3.12",
+              "args": [
+                "-B",
+                "/tmp/marketplace-smoke-0vXv3P/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+              ],
+              "status": 0
+            },
+            {
+              "command": "python3.12",
+              "args": [
+                "-B",
+                "/tmp/marketplace-smoke-0vXv3P/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+              ],
+              "status": 0
+            }
+          ]
+        },
+        {
+          "installed": [
+            "diagram-kit",
+            "learning-evidence-kit",
+            "explain-kit",
+            "communication-kit"
+          ],
+          "interpreter": "3.12.15 (main, Oct  1 2026, 02:35:59) [GCC 13.3.0]",
+          "saveStatus": "ok",
+          "replayIdentical": true,
+          "structurallyValid": true,
+          "commands": [
+            {
+              "command": "python3.12",
+              "args": [
+                "-B",
+                "/tmp/marketplace-smoke-XVRc18/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+              ],
+              "status": 0
+            },
+            {
+              "command": "python3.12",
+              "args": [
+                "-B",
+                "/tmp/marketplace-smoke-XVRc18/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+              ],
+              "status": 0
+            },
+            {
+              "command": "python3.12",
+              "args": [
+                "-B",
+                "/tmp/marketplace-smoke-XVRc18/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+              ],
+              "status": 0
+            }
+          ]
+        },
+        {
+          "installed": [
+            "diagram-kit",
+            "learning-evidence-kit",
+            "explain-kit",
+            "html-guide-kit"
+          ],
+          "interpreter": "3.12.15 (main, Oct  1 2026, 02:35:59) [GCC 13.3.0]",
+          "saveStatus": "ok",
+          "replayIdentical": true,
+          "structurallyValid": true,
+          "commands": [
+            {
+              "command": "python3.12",
+              "args": [
+                "-B",
+                "/tmp/marketplace-smoke-kKu2wK/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+              ],
+              "status": 0
+            },
+            {
+              "command": "python3.12",
+              "args": [
+                "-B",
+                "/tmp/marketplace-smoke-kKu2wK/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+              ],
+              "status": 0
+            },
+            {
+              "command": "python3.12",
+              "args": [
+                "-B",
+                "/tmp/marketplace-smoke-kKu2wK/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+              ],
+              "status": 0
+            }
+          ]
+        },
+        {
+          "installed": [
+            "diagram-kit",
+            "learning-evidence-kit",
+            "explain-kit",
+            "communication-kit",
+            "html-guide-kit"
+          ],
+          "interpreter": "3.12.15 (main, Oct  1 2026, 02:35:59) [GCC 13.3.0]",
+          "saveStatus": "ok",
+          "replayIdentical": true,
+          "structurallyValid": true,
+          "commands": [
+            {
+              "command": "python3.12",
+              "args": [
+                "-B",
+                "/tmp/marketplace-smoke-Sjm2Qu/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+              ],
+              "status": 0
+            },
+            {
+              "command": "python3.12",
+              "args": [
+                "-B",
+                "/tmp/marketplace-smoke-Sjm2Qu/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+              ],
+              "status": 0
+            },
+            {
+              "command": "python3.12",
+              "args": [
+                "-B",
+                "/tmp/marketplace-smoke-Sjm2Qu/home/.codex/plugins/cache/mj-agentlab-marketplace/learning-evidence-kit/0.1.0/scripts/lek.py"
+              ],
+              "status": 0
+            }
+          ]
+        }
+      ],
+      "siteGenerationExecutions": 4,
+      "siteStaticExecutions": 4,
+      "site": [
+        {
+          "index": 0,
+          "installed": [
+            "html-guide-kit"
+          ],
+          "rendered": {
+            "status": "GENERATED",
+            "output": "/tmp/marketplace-smoke-Z0w69L/consumer/installed learning artifact",
+            "version": "synthetic-1.0",
+            "files": 9,
+            "sourceSha256": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+            "understandingEffects": "NOT_MEASURED"
+          },
+          "staticSummary": {
+            "checks": 95,
+            "failed": 0,
+            "pages": 1,
+            "files": 9
+          },
+          "staticStatus": "PASS",
+          "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+        },
+        {
+          "index": 1,
+          "installed": [
+            "html-guide-kit",
+            "explain-kit"
+          ],
+          "rendered": {
+            "status": "GENERATED",
+            "output": "/tmp/marketplace-smoke-40jsMP/consumer/installed learning artifact",
+            "version": "synthetic-1.0",
+            "files": 9,
+            "sourceSha256": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+            "understandingEffects": "NOT_MEASURED"
+          },
+          "staticSummary": {
+            "checks": 95,
+            "failed": 0,
+            "pages": 1,
+            "files": 9
+          },
+          "staticStatus": "PASS",
+          "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+        },
+        {
+          "index": 2,
+          "installed": [
+            "diagram-kit",
+            "learning-evidence-kit",
+            "explain-kit",
+            "html-guide-kit"
+          ],
+          "rendered": {
+            "status": "GENERATED",
+            "output": "/tmp/marketplace-smoke-kKu2wK/consumer/installed learning artifact",
+            "version": "synthetic-1.0",
+            "files": 9,
+            "sourceSha256": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+            "understandingEffects": "NOT_MEASURED"
+          },
+          "staticSummary": {
+            "checks": 95,
+            "failed": 0,
+            "pages": 1,
+            "files": 9
+          },
+          "staticStatus": "PASS",
+          "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+        },
+        {
+          "index": 3,
+          "installed": [
+            "diagram-kit",
+            "learning-evidence-kit",
+            "explain-kit",
+            "communication-kit",
+            "html-guide-kit"
+          ],
+          "rendered": {
+            "status": "GENERATED",
+            "output": "/tmp/marketplace-smoke-Sjm2Qu/consumer/installed learning artifact",
+            "version": "synthetic-1.0",
+            "files": 9,
+            "sourceSha256": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+            "understandingEffects": "NOT_MEASURED"
+          },
+          "staticSummary": {
+            "checks": 95,
+            "failed": 0,
+            "pages": 1,
+            "files": 9
+          },
+          "staticStatus": "PASS",
+          "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+        }
+      ],
+      "source": "Full emitted scenarios JSON, scenarios counted once; repeated top-level final scenario excluded",
+      "location": {
+        "firstLine": 4597,
+        "lastLine": 13833
+      },
+      "cleanupEvidence": "See cleanup-independent: default smoke successful code path removes 13 scenario roots and one prepared template. Log has no explicit per-root post-removal absence receipt; do not claim OS-wide cleanup or a new physical absence audit."
+    },
+    "parseErrors": []
+  },
+  "preservedWindowsExecution": {
+    "runId": 39365093169,
+    "actualAttempt": 1,
+    "actualJobId": 118439996188,
+    "original": {
+      "id": 118439996188,
+      "runId": 39365093169,
+      "name": "Baseline compat (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-20T03:35:28Z",
+      "completed_at": "2026-10-20T03:51:45Z",
+      "raw": {
+        "path": "downloads/job-118439996188.stdout.raw",
+        "bytes": 1051547,
+        "sha256": "26261657289c7af0201e3ae04dd03e59415624af9f95cb23228887f7dcff6dc3"
+      },
+      "totals": {
+        "tests": 647,
+        "suites": 0,
+        "pass": 646,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 1,
+        "todo": 0
+      },
+      "skipped": [
+        {
+          "line": 518,
+          "text": "ok 32 - Linux exec capture preserves original checker args, failure, owned-session cleanup and foreign isolation # SKIP"
+        }
+      ],
+      "failed": [],
+      "checkout": [
+        {
+          "commandLine": 254,
+          "shaLine": 255,
+          "sha": "9a011489e7e1f3aa15505ab32671313132e2d591"
+        }
+      ],
+      "steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 2,
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 3,
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 4,
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 5,
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 6,
+          "name": "Run npm install -g @openai/codex@0.147.0",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 7,
+          "name": "Unit and real Python execution tests",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 8,
+          "name": "Run npm run validate",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 9,
+          "name": "Run npm run check:baseline-tools",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 10,
+          "name": "Run npm run smoke:codex",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 18,
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 19,
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 20,
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "number": 21,
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "smoke": {
+        "ok": true,
+        "version": "codex-cli 0.147.0",
+        "scenarios": 13,
+        "allScenariosOk": true,
+        "commands": 178,
+        "allCommandStatusZero": true,
+        "nonzeroCommands": [],
+        "diagramActualExecutions": 6,
+        "diagram": [
+          {
+            "installed": [
+              "diagram-kit"
+            ],
+            "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+            "commands": [
+              {
+                "command": "python3",
+                "args": [
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-93XpzO\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-93XpzO\\consumer\\installed context 中文 diagram.md"
+                ],
+                "status": 0
+              }
+            ]
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "explain-kit"
+            ],
+            "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+            "commands": [
+              {
+                "command": "python3",
+                "args": [
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-HLjqFg\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-HLjqFg\\consumer\\installed context 中文 diagram.md"
+                ],
+                "status": 0
+              }
+            ]
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit"
+            ],
+            "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+            "commands": [
+              {
+                "command": "python3",
+                "args": [
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-bUePsD\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-bUePsD\\consumer\\installed context 中文 diagram.md"
+                ],
+                "status": 0
+              }
+            ]
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "communication-kit"
+            ],
+            "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+            "commands": [
+              {
+                "command": "python3",
+                "args": [
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-2YaG66\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-2YaG66\\consumer\\installed context 中文 diagram.md"
+                ],
+                "status": 0
+              }
+            ]
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "html-guide-kit"
+            ],
+            "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+            "commands": [
+              {
+                "command": "python3",
+                "args": [
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-1hpeW8\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-1hpeW8\\consumer\\installed context 中文 diagram.md"
+                ],
+                "status": 0
+              }
+            ]
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "communication-kit",
+              "html-guide-kit"
+            ],
+            "output": "--- 共扫描 1 张图 · FAIL 0 · WARN 0 ---",
+            "commands": [
+              {
+                "command": "python3",
+                "args": [
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-SOpoZX\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\diagram-kit\\0.3.1\\skills\\arch-diagram\\scripts\\validate_diagram.py",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-SOpoZX\\consumer\\installed context 中文 diagram.md"
+                ],
+                "status": 0
+              }
+            ]
+          }
+        ],
+        "learningScenarioCount": 6,
+        "learningActualExecutions": 18,
+        "learning": [
+          {
+            "installed": [
+              "learning-evidence-kit"
+            ],
+            "interpreter": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+            "saveStatus": "ok",
+            "replayIdentical": true,
+            "structurallyValid": true,
+            "commands": [
+              {
+                "command": "python3",
+                "args": [
+                  "-B",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-hkoG1e\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3",
+                "args": [
+                  "-B",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-hkoG1e\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3",
+                "args": [
+                  "-B",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-hkoG1e\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+                ],
+                "status": 0
+              }
+            ]
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit"
+            ],
+            "interpreter": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+            "saveStatus": "ok",
+            "replayIdentical": true,
+            "structurallyValid": true,
+            "commands": [
+              {
+                "command": "python3",
+                "args": [
+                  "-B",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-bUePsD\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3",
+                "args": [
+                  "-B",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-bUePsD\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3",
+                "args": [
+                  "-B",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-bUePsD\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+                ],
+                "status": 0
+              }
+            ]
+          },
+          {
+            "installed": [
+              "communication-kit",
+              "learning-evidence-kit"
+            ],
+            "interpreter": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+            "saveStatus": "ok",
+            "replayIdentical": true,
+            "structurallyValid": true,
+            "commands": [
+              {
+                "command": "python3",
+                "args": [
+                  "-B",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-OCuODr\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3",
+                "args": [
+                  "-B",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-OCuODr\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3",
+                "args": [
+                  "-B",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-OCuODr\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+                ],
+                "status": 0
+              }
+            ]
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "communication-kit"
+            ],
+            "interpreter": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+            "saveStatus": "ok",
+            "replayIdentical": true,
+            "structurallyValid": true,
+            "commands": [
+              {
+                "command": "python3",
+                "args": [
+                  "-B",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-2YaG66\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3",
+                "args": [
+                  "-B",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-2YaG66\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3",
+                "args": [
+                  "-B",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-2YaG66\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+                ],
+                "status": 0
+              }
+            ]
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "html-guide-kit"
+            ],
+            "interpreter": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+            "saveStatus": "ok",
+            "replayIdentical": true,
+            "structurallyValid": true,
+            "commands": [
+              {
+                "command": "python3",
+                "args": [
+                  "-B",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-1hpeW8\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3",
+                "args": [
+                  "-B",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-1hpeW8\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3",
+                "args": [
+                  "-B",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-1hpeW8\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+                ],
+                "status": 0
+              }
+            ]
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "communication-kit",
+              "html-guide-kit"
+            ],
+            "interpreter": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+            "saveStatus": "ok",
+            "replayIdentical": true,
+            "structurallyValid": true,
+            "commands": [
+              {
+                "command": "python3",
+                "args": [
+                  "-B",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-SOpoZX\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3",
+                "args": [
+                  "-B",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-SOpoZX\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+                ],
+                "status": 0
+              },
+              {
+                "command": "python3",
+                "args": [
+                  "-B",
+                  "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-SOpoZX\\home\\.codex\\plugins\\cache\\mj-agentlab-marketplace\\learning-evidence-kit\\0.1.0\\scripts\\lek.py"
+                ],
+                "status": 0
+              }
+            ]
+          }
+        ],
+        "siteGenerationExecutions": 4,
+        "siteStaticExecutions": 4,
+        "site": [
+          {
+            "index": 0,
+            "installed": [
+              "html-guide-kit"
+            ],
+            "rendered": {
+              "status": "GENERATED",
+              "output": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-7LQAKt\\consumer\\installed learning artifact",
+              "version": "synthetic-1.0",
+              "files": 9,
+              "sourceSha256": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+              "understandingEffects": "NOT_MEASURED"
+            },
+            "staticSummary": {
+              "checks": 95,
+              "failed": 0,
+              "pages": 1,
+              "files": 9
+            },
+            "staticStatus": "PASS",
+            "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+          },
+          {
+            "index": 1,
+            "installed": [
+              "html-guide-kit",
+              "explain-kit"
+            ],
+            "rendered": {
+              "status": "GENERATED",
+              "output": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-iF1Sd2\\consumer\\installed learning artifact",
+              "version": "synthetic-1.0",
+              "files": 9,
+              "sourceSha256": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+              "understandingEffects": "NOT_MEASURED"
+            },
+            "staticSummary": {
+              "checks": 95,
+              "failed": 0,
+              "pages": 1,
+              "files": 9
+            },
+            "staticStatus": "PASS",
+            "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+          },
+          {
+            "index": 2,
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "html-guide-kit"
+            ],
+            "rendered": {
+              "status": "GENERATED",
+              "output": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-1hpeW8\\consumer\\installed learning artifact",
+              "version": "synthetic-1.0",
+              "files": 9,
+              "sourceSha256": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+              "understandingEffects": "NOT_MEASURED"
+            },
+            "staticSummary": {
+              "checks": 95,
+              "failed": 0,
+              "pages": 1,
+              "files": 9
+            },
+            "staticStatus": "PASS",
+            "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+          },
+          {
+            "index": 3,
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "communication-kit",
+              "html-guide-kit"
+            ],
+            "rendered": {
+              "status": "GENERATED",
+              "output": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\marketplace-smoke-SOpoZX\\consumer\\installed learning artifact",
+              "version": "synthetic-1.0",
+              "files": 9,
+              "sourceSha256": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+              "understandingEffects": "NOT_MEASURED"
+            },
+            "staticSummary": {
+              "checks": 95,
+              "failed": 0,
+              "pages": 1,
+              "files": 9
+            },
+            "staticStatus": "PASS",
+            "browserCheck": "NOT_RUN in installation smoke; separate representative browser acceptance required"
+          }
+        ],
+        "source": "Full emitted scenarios JSON, scenarios counted once; repeated top-level final scenario excluded",
+        "location": {
+          "firstLine": 4285,
+          "lastLine": 13521
+        },
+        "cleanupEvidence": "See cleanup-independent: default smoke successful code path removes 13 scenario roots and one prepared template. Log has no explicit per-root post-removal absence receipt; do not claim OS-wide cleanup or a new physical absence audit."
+      },
+      "parseErrors": []
+    },
+    "relativeEvidenceBase": "../phase2/",
+    "notFreshAttempt2": true
+  },
+  "carriedAttempt2APIRecords": [
+    {
+      "id": 118445090671,
+      "name": "Validate Structure",
+      "started_at": "2026-10-20T03:35:27Z",
+      "completed_at": "2026-10-20T03:35:46Z",
+      "conclusion": "success",
+      "originalJobId": 118439995570,
+      "interpretation": "API record carries original successful/skipped execution timestamps; not counted as fresh attempt2 execution."
+    },
+    {
+      "id": 118445090689,
+      "name": "Prove equivalent PR matrix for this push (read only)",
+      "started_at": "2026-10-20T03:54:08Z",
+      "completed_at": "2026-10-20T03:35:25Z",
+      "conclusion": "skipped",
+      "interpretation": "API record carries original successful/skipped execution timestamps; not counted as fresh attempt2 execution."
+    },
+    {
+      "id": 118445090992,
+      "name": "Baseline compat (windows-latest)",
+      "started_at": "2026-10-20T03:35:28Z",
+      "completed_at": "2026-10-20T03:51:45Z",
+      "conclusion": "success",
+      "originalJobId": 118439996188,
+      "interpretation": "API record carries original successful/skipped execution timestamps; not counted as fresh attempt2 execution."
+    },
+    {
+      "id": 118445131503,
+      "name": "Cancel proved superseded PR runs (best effort)",
+      "started_at": "2026-10-20T03:35:27Z",
+      "completed_at": "2026-10-20T03:35:31Z",
+      "conclusion": "success",
+      "interpretation": "API record carries original successful/skipped execution timestamps; not counted as fresh attempt2 execution."
+    }
+  ],
+  "runs": [
+    {
+      "id": 39365094398,
+      "event": "pull_request",
+      "path": ".github/workflows/a6.yml",
+      "head_sha": "cfbeb1bbf3e254ea3b33f5abe9c3eb5207c605a7",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "created_at": "2026-10-20T03:35:25Z",
+      "updated_at": "2026-10-20T03:35:43Z"
+    },
+    {
+      "id": 39365093153,
+      "event": "pull_request",
+      "path": ".github/workflows/a6.yml",
+      "head_sha": "cfbeb1bbf3e254ea3b33f5abe9c3eb5207c605a7",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "run_attempt": 1,
+      "created_at": "2026-10-20T03:35:24Z",
+      "updated_at": "2026-10-20T03:35:26Z"
+    },
+    {
+      "id": 39365093169,
+      "event": "pull_request",
+      "path": ".github/workflows/ci.yml",
+      "head_sha": "cfbeb1bbf3e254ea3b33f5abe9c3eb5207c605a7",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 2,
+      "created_at": "2026-10-20T03:35:24Z",
+      "updated_at": "2026-10-20T04:00:04Z"
+    },
+    {
+      "id": 39365089131,
+      "event": "push",
+      "path": ".github/workflows/ci.yml",
+      "head_sha": "cfbeb1bbf3e254ea3b33f5abe9c3eb5207c605a7",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "created_at": "2026-10-20T03:35:21Z",
+      "updated_at": "2026-10-20T03:35:44Z"
+    }
+  ],
+  "debug": {
+    "actualDebugMarkerLines": 428,
+    "firstMarkerLine": 1,
+    "lastMarkerLine": 13986,
+    "fullLogRetained": true,
+    "attemptArchive": {
+      "archive": "downloads/attempt2-logs.stdout.raw",
+      "archiveBytes": 358240,
+      "archiveSha256": "2afefd1e5aa1e172de9c7fff4e5fd1e8dc8f5e067a9b1157aaa6493d2435f76d",
+      "entries": [
+        {
+          "name": "0_Baseline compat (ubuntu-latest).txt",
+          "bytes": 1014882,
+          "compressedBytes": 161024,
+          "sha256": "6f611445c802ee92ee84e687072b1af943a90f2a2ccc719b876bf61cfc391fba",
+          "runnerDiagnosticCandidate": false
+        },
+        {
+          "name": "runner-diagnostic-logs/118445089707-Baseline compat (ubuntu-latest).zip",
+          "bytes": 29346,
+          "compressedBytes": 28950,
+          "sha256": "2cecf84da88fe588bca66bb2ca580e2605710851207b7b7172b78ddb3160a42d",
+          "runnerDiagnosticCandidate": true,
+          "nestedEntries": [
+            {
+              "name": "Worker_20261020-035411-utc.log",
+              "bytes": 340081,
+              "sha256": "b4f7b7122e71515e62c6fd046b6f670bec689b2734bc1cb5c9d46c9059308d3e"
+            },
+            {
+              "name": "Runner_20261020-035409-utc.log",
+              "bytes": 14201,
+              "sha256": "16397a1eba0a0a52d5dce93f8a590b372d9e0d35e4a5ff02f054bc693ee30ff8"
+            }
+          ]
+        },
+        {
+          "name": "Baseline compat (ubuntu-latest)/system.txt",
+          "bytes": 925,
+          "compressedBytes": 399,
+          "sha256": "7d7d8a47cfa501d090a54eea19803d1129afe4ab570256abb66dabdc23c2d7d4",
+          "runnerDiagnosticCandidate": false
+        },
+        {
+          "name": "Baseline compat (ubuntu-latest)/1_Set up job.txt",
+          "bytes": 6357,
+          "compressedBytes": 1801,
+          "sha256": "afcace788ef1627b692103506cce34f7ca0d7bdbaf83d52b0bfb776b81e7ce26",
+          "runnerDiagnosticCandidate": false
+        },
+        {
+          "name": "Baseline compat (ubuntu-latest)/2_Run actions_checkout@v4.txt",
+          "bytes": 24561,
+          "compressedBytes": 5226,
+          "sha256": "8e7d9c1fd2ff6f67af863dc85d6d6d2ec431914dc2f5ebd6d364cee38c6ffb16",
+          "runnerDiagnosticCandidate": false
+        },
+        {
+          "name": "Baseline compat (ubuntu-latest)/3_Run actions_setup-node@v4.txt",
+          "bytes": 4728,
+          "compressedBytes": 1285,
+          "sha256": "6344e60f1fae06e1c30e340782af02ee44362ca369185ccac4eb8608cade7ce6",
+          "runnerDiagnosticCandidate": false
+        },
+        {
+          "name": "Baseline compat (ubuntu-latest)/4_Run actions_setup-python@v5.txt",
+          "bytes": 5563,
+          "compressedBytes": 1455,
+          "sha256": "f998549bb888eab77d600be2292593a5bd658309706c3c2043844dffabbdfbb6",
+          "runnerDiagnosticCandidate": false
+        },
+        {
+          "name": "Baseline compat (ubuntu-latest)/5_Run npm ci.txt",
+          "bytes": 1758,
+          "compressedBytes": 616,
+          "sha256": "2640ba67dba033aa4fd6a1a45e47a294e918b2990453d24a6db52606056972fa",
+          "runnerDiagnosticCandidate": false
+        },
+        {
+          "name": "Baseline compat (ubuntu-latest)/6_Run npm install -g @openai_codex@0.147.0.txt",
+          "bytes": 1649,
+          "compressedBytes": 547,
+          "sha256": "ff62e0ff1b0c5de30b5fb04fe536afabb1354c1d6bfdad094ce5d76aa4abcbd0",
+          "runnerDiagnosticCandidate": false
+        },
+        {
+          "name": "Baseline compat (ubuntu-latest)/7_Unit and real Python execution tests.txt",
+          "bytes": 261577,
+          "compressedBytes": 49763,
+          "sha256": "0f29d1fbfcbbeec2fde50efef488101d85fd6aa45783f55c06c51d410f78ec83",
+          "runnerDiagnosticCandidate": false
+        },
+        {
+          "name": "Baseline compat (ubuntu-latest)/8_Run npm run validate.txt",
+          "bytes": 2419,
+          "compressedBytes": 775,
+          "sha256": "0cd66f987f4d2f77343d9ba0fb62945b1d82952f626060b3845a631b4fd5d286",
+          "runnerDiagnosticCandidate": false
+        },
+        {
+          "name": "Baseline compat (ubuntu-latest)/9_Run npm run checkbaseline-tools.txt",
+          "bytes": 1888,
+          "compressedBytes": 636,
+          "sha256": "074141fe4e65480e489b07f1d0b5081174441df8b65edb9feec3b9ff8148ea07",
+          "runnerDiagnosticCandidate": false
+        },
+        {
+          "name": "Baseline compat (ubuntu-latest)/10_Run npm run smokecodex.txt",
+          "bytes": 693581,
+          "compressedBytes": 99059,
+          "sha256": "e3bce6b19bd055042985257a23ec1e6e7feacfa8a87244b8587e021e02c5cb6e",
+          "runnerDiagnosticCandidate": false
+        },
+        {
+          "name": "Baseline compat (ubuntu-latest)/18_Post Run actions_setup-python@v5.txt",
+          "bytes": 2428,
+          "compressedBytes": 701,
+          "sha256": "754f2595ae1d1b8786ba76953f07a67bdf56abdd75c6b00caa403723c68df5d1",
+          "runnerDiagnosticCandidate": false
+        },
+        {
+          "name": "Baseline compat (ubuntu-latest)/19_Post Run actions_setup-node@v4.txt",
+          "bytes": 2492,
+          "compressedBytes": 728,
+          "sha256": "8ca3534e694a46e046ca7d86008a1a32ece3f9941a7972615f9e3b44eda0b13b",
+          "runnerDiagnosticCandidate": false
+        },
+        {
+          "name": "Baseline compat (ubuntu-latest)/20_Post Run actions_checkout@v4.txt",
+          "bytes": 4446,
+          "compressedBytes": 1149,
+          "sha256": "0f62b31dbda1a65a9b16915934f3f772f479a3341d3f677367c942e1b1e4189d",
+          "runnerDiagnosticCandidate": false
+        },
+        {
+          "name": "Baseline compat (ubuntu-latest)/21_Complete job.txt",
+          "bytes": 1222,
+          "compressedBytes": 474,
+          "sha256": "3223882b06b761e7cd50224b2fb91d69b90545575afac0e8676a94b4876934c6",
+          "runnerDiagnosticCandidate": false
+        }
+      ],
+      "entryCount": 17,
+      "uncompressedBytes": 2059822,
+      "runnerDiagnosticEntries": [
+        {
+          "name": "runner-diagnostic-logs/118445089707-Baseline compat (ubuntu-latest).zip",
+          "bytes": 29346,
+          "compressedBytes": 28950,
+          "sha256": "2cecf84da88fe588bca66bb2ca580e2605710851207b7b7172b78ddb3160a42d",
+          "runnerDiagnosticCandidate": true,
+          "nestedEntries": [
+            {
+              "name": "Worker_20261020-035411-utc.log",
+              "bytes": 340081,
+              "sha256": "b4f7b7122e71515e62c6fd046b6f670bec689b2734bc1cb5c9d46c9059308d3e"
+            },
+            {
+              "name": "Runner_20261020-035409-utc.log",
+              "bytes": 14201,
+              "sha256": "16397a1eba0a0a52d5dce93f8a590b372d9e0d35e4a5ff02f054bc693ee30ff8"
+            }
+          ]
+        }
+      ],
+      "method": "Every ZIP member fully read in memory and SHA256 hashed; no payload extraction or repeated full snapshot. Classification uses actual member names only. Complete original ZIP retained."
+    },
+    "credentialScan": {
+      "schemaVersion": 1,
+      "scope": "New phase3 complete job raw text plus every textual outer/nested ZIP member, read without extracting repeated payload snapshots",
+      "patterns": [
+        "github_token_prefix",
+        "openai_key_prefix",
+        "aws_access_key_prefix",
+        "gcp_api_key_prefix",
+        "slack_token_prefix",
+        "npm_token_prefix",
+        "private_key_block",
+        "jwt_shape",
+        "azure_blob_signed_url"
+      ],
+      "sources": [
+        {
+          "source": "downloads/job-118445089707.stdout.raw",
+          "bytes": 1014882,
+          "textScanned": true,
+          "lines": 13986
+        },
+        {
+          "source": "downloads/attempt2-logs.stdout.raw!0_Baseline compat (ubuntu-latest).txt",
+          "bytes": 1014882,
+          "textScanned": true,
+          "lines": 13986
+        },
+        {
+          "source": "downloads/attempt2-logs.stdout.raw!runner-diagnostic-logs/118445089707-Baseline compat (ubuntu-latest).zip!Worker_20261020-035411-utc.log",
+          "bytes": 340081,
+          "textScanned": true,
+          "lines": 7536
+        },
+        {
+          "source": "downloads/attempt2-logs.stdout.raw!runner-diagnostic-logs/118445089707-Baseline compat (ubuntu-latest).zip!Runner_20261020-035409-utc.log",
+          "bytes": 14201,
+          "textScanned": true,
+          "lines": 161
+        },
+        {
+          "source": "downloads/attempt2-logs.stdout.raw!Baseline compat (ubuntu-latest)/system.txt",
+          "bytes": 925,
+          "textScanned": true,
+          "lines": 9
+        },
+        {
+          "source": "downloads/attempt2-logs.stdout.raw!Baseline compat (ubuntu-latest)/1_Set up job.txt",
+          "bytes": 6357,
+          "textScanned": true,
+          "lines": 67
+        },
+        {
+          "source": "downloads/attempt2-logs.stdout.raw!Baseline compat (ubuntu-latest)/2_Run actions_checkout@v4.txt",
+          "bytes": 24561,
+          "textScanned": true,
+          "lines": 314
+        },
+        {
+          "source": "downloads/attempt2-logs.stdout.raw!Baseline compat (ubuntu-latest)/3_Run actions_setup-node@v4.txt",
+          "bytes": 4728,
+          "textScanned": true,
+          "lines": 68
+        },
+        {
+          "source": "downloads/attempt2-logs.stdout.raw!Baseline compat (ubuntu-latest)/4_Run actions_setup-python@v5.txt",
+          "bytes": 5563,
+          "textScanned": true,
+          "lines": 80
+        },
+        {
+          "source": "downloads/attempt2-logs.stdout.raw!Baseline compat (ubuntu-latest)/5_Run npm ci.txt",
+          "bytes": 1758,
+          "textScanned": true,
+          "lines": 28
+        },
+        {
+          "source": "downloads/attempt2-logs.stdout.raw!Baseline compat (ubuntu-latest)/6_Run npm install -g @openai_codex@0.147.0.txt",
+          "bytes": 1649,
+          "textScanned": true,
+          "lines": 23
+        },
+        {
+          "source": "downloads/attempt2-logs.stdout.raw!Baseline compat (ubuntu-latest)/7_Unit and real Python execution tests.txt",
+          "bytes": 261577,
+          "textScanned": true,
+          "lines": 3922
+        },
+        {
+          "source": "downloads/attempt2-logs.stdout.raw!Baseline compat (ubuntu-latest)/8_Run npm run validate.txt",
+          "bytes": 2419,
+          "textScanned": true,
+          "lines": 40
+        },
+        {
+          "source": "downloads/attempt2-logs.stdout.raw!Baseline compat (ubuntu-latest)/9_Run npm run checkbaseline-tools.txt",
+          "bytes": 1888,
+          "textScanned": true,
+          "lines": 28
+        },
+        {
+          "source": "downloads/attempt2-logs.stdout.raw!Baseline compat (ubuntu-latest)/10_Run npm run smokecodex.txt",
+          "bytes": 693581,
+          "textScanned": true,
+          "lines": 9262
+        },
+        {
+          "source": "downloads/attempt2-logs.stdout.raw!Baseline compat (ubuntu-latest)/18_Post Run actions_setup-python@v5.txt",
+          "bytes": 2428,
+          "textScanned": true,
+          "lines": 36
+        },
+        {
+          "source": "downloads/attempt2-logs.stdout.raw!Baseline compat (ubuntu-latest)/19_Post Run actions_setup-node@v4.txt",
+          "bytes": 2492,
+          "textScanned": true,
+          "lines": 37
+        },
+        {
+          "source": "downloads/attempt2-logs.stdout.raw!Baseline compat (ubuntu-latest)/20_Post Run actions_checkout@v4.txt",
+          "bytes": 4446,
+          "textScanned": true,
+          "lines": 64
+        },
+        {
+          "source": "downloads/attempt2-logs.stdout.raw!Baseline compat (ubuntu-latest)/21_Complete job.txt",
+          "bytes": 1222,
+          "textScanned": true,
+          "lines": 14
+        }
+      ],
+      "highConfidencePatternCandidateCount": 0,
+      "findings": [],
+      "valuesPrinted": false,
+      "countsByPattern": {},
+      "exclusion": "GCM wrong_secret literal and masked *** values do not match these credential-prefix/key-block/JWT/signed-URL patterns. No network credential validation attempted.",
+      "limitation": "A bounded high-confidence pattern scan cannot establish universal absence of all credential forms; any hit requires context review before being called a real credential."
+    }
+  },
+  "priorEvidencePreservation": [
+    {
+      "phase": "phase1",
+      "files": 204,
+      "manifestSha256": "38835bec8d31c95a3991a282e1512d3db95de8aec4394b3cbee306cd6d344e02",
+      "mismatches": 0
+    },
+    {
+      "phase": "phase2",
+      "files": 323,
+      "manifestSha256": "2e350f3694a55f6b12c4a32ff9be322e79ba24e917fdbd7d84e8f2ad52409bb8",
+      "mismatches": 0
+    }
+  ],
+  "cadence": [
+    {
+      "phase": "initial",
+      "firstRequest": "2026-10-20T03:54:41.522Z",
+      "secondsAfterPreviousLast": null
+    },
+    {
+      "phase": "poll-02",
+      "firstRequest": "2026-10-20T03:55:50.984Z",
+      "secondsAfterPreviousLast": 67.123
+    },
+    {
+      "phase": "poll-03",
+      "firstRequest": "2026-10-20T03:57:17.599Z",
+      "secondsAfterPreviousLast": 84.147
+    },
+    {
+      "phase": "poll-04",
+      "firstRequest": "2026-10-20T03:58:49.198Z",
+      "secondsAfterPreviousLast": 89.403
+    },
+    {
+      "phase": "poll-05",
+      "firstRequest": "2026-10-20T04:00:12.211Z",
+      "secondsAfterPreviousLast": 80.601
+    }
+  ],
+  "historicalFailureRule": "All phase1 failures and phase2 Ubuntu NOT_RUN remain frozen. A successful single complete re-execution does not establish repaired startup cause or stable reliability. Original cause remains UNKNOWN.",
+  "cleanupScope": "Same exact Git head/source closure as phase2; see independent cleanup notes. Only actual successful smoke supports bounded13 scenario+1 prepared parent cleanup without reported errors; no post-delete physical absence audit or OS-wide claim.",
+  "approvalBoundary": "No review, approval, reviewer request or other remote mutation performed by this auditor. Real GitHub independent approval remains a separate gate.",
+  "remainingProductLimits": [
+    "Original native-window/second-client/assistive/full-visual/learning-effect deferrals remain.",
+    "No new hosted full-byte or native-client test follows from CI."
+  ],
+  "remoteMutations": []
+}
