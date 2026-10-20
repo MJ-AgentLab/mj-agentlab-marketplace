@@ -1,0 +1,35 @@
+{
+  "status": "NOT_TRIGGERED_ON_MAIN",
+  "observedAt": "2026-10-20T15:29:27.810440+00:00",
+  "actualMain": "5898a8192740b39f41263129a5f99efeba96a6cc",
+  "tree": "3a68976af95bb5948de17a6fccaabf892becaaca",
+  "ciWorkflowAtExactCommit": {
+    "pushBranches": [
+      "codex/**",
+      "feature/*",
+      "bugfix/*",
+      "documentation/*",
+      "maintain/*",
+      "hotfix/*"
+    ],
+    "rawPath": "absence-rule/exact-ci-workflow.stdout",
+    "sha256": "dae3e8707bd5e27dc998fea4bb20337e7d69065c894c5fa163f0a0064af445d1"
+  },
+  "exactCiWorkflowRunCount": 0,
+  "observedHeadPushRuns": [
+    {
+      "id": 39446432726,
+      "path": ".github/workflows/release.yml",
+      "head_sha": "5898a8192740b39f41263129a5f99efeba96a6cc",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "newMatrixExecutions": 0,
+  "inheritedMatrixExecutions": 0,
+  "ciAcceptance": "NOT_RUN_NOT_PASSED",
+  "releaseRun": "Listed only to establish head-run inventory. Release39446432726 already independently audited; not downloaded or retested here.",
+  "methodNote": "initial-method-note.json",
+  "scope": "Read-only API observation and exact workflow trigger inspection only. No workflow dispatch, rerun, cancellation or product test. No PR291 head/potential evidence relabeled as actual-main CI.",
+  "nextRecommendation": "Use fresh actual-main local/canonical evidence and separate published real-tag installation batch for postmerge checks; retain absence of main-push CI as current workflow scope."
+}

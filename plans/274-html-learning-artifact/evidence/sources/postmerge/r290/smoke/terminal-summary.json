@@ -1,0 +1,366 @@
+{
+  "schema": "html274-post290-actual-develop-canonical-v1",
+  "frozenAtUtc": "2026-10-20T14:33:43.410+00:00",
+  "status": "PASS_LIMITED",
+  "sourceSha": "7c23f347c0725bdfa57ee1e0f5e9075a8d90babf",
+  "sourceTree": "5743c7974880ff5fa87c9294313ec9adc6abac40",
+  "hostSha": "7c23f347c0725bdfa57ee1e0f5e9075a8d90babf",
+  "startedAtUtc": "2026-10-20T14:20:04.581Z",
+  "endedAtUtc": "2026-10-20T14:33:23.521Z",
+  "actualCounts": {
+    "scenarios": 13,
+    "commands": 178,
+    "diagramPython": 6,
+    "lekPython": 18,
+    "siteGeneration": 4,
+    "siteStaticPython": 4
+  },
+  "scenariosPass": 13,
+  "commandsZero": 178,
+  "guards": {
+    "hostHeadTreePreserved": true,
+    "hostCleanPreserved": true,
+    "primaryPreserved": true,
+    "ownerOriginalPreserved": true,
+    "fullWorktreeInventoryPreserved": true,
+    "outerAndChildSameTemporaryRoot": true,
+    "shortTempEmpty": true,
+    "exactFifteenRootsAndAbsence": true
+  },
+  "checkCount": 11,
+  "checks": [
+    {
+      "name": "exact actual develop canonical and host identity",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "single full smoke first attempt exit0",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "exact eight complete guards true",
+      "passed": true,
+      "observed": {
+        "hostHeadTreePreserved": true,
+        "hostCleanPreserved": true,
+        "primaryPreserved": true,
+        "ownerOriginalPreserved": true,
+        "fullWorktreeInventoryPreserved": true,
+        "outerAndChildSameTemporaryRoot": true,
+        "shortTempEmpty": true,
+        "exactFifteenRootsAndAbsence": true
+      }
+    },
+    {
+      "name": "independent driver audit all23 checks pass",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "actual13/178 and6Diagram18LEK4site",
+      "passed": true,
+      "observed": {
+        "scenarios": 13,
+        "commands": 178,
+        "diagramPython": 6,
+        "lekPython": 18,
+        "siteGeneration": 4,
+        "siteStaticPython": 4
+      }
+    },
+    {
+      "name": "four static96 reports all zero fail",
+      "passed": true,
+      "observed": [
+        {
+          "checks": 96,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        },
+        {
+          "checks": 96,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        },
+        {
+          "checks": 96,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        },
+        {
+          "checks": 96,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        }
+      ]
+    },
+    {
+      "name": "actual CLI01470 Python31214 Node2218",
+      "passed": true,
+      "observed": {
+        "node": "D:\\Development\\nodejs\\node.exe",
+        "nodeVersion": "v22.18.0",
+        "cli": {
+          "status": 0,
+          "stdout": "codex-cli 0.147.0\n",
+          "stderr": ""
+        },
+        "python": {
+          "status": 0,
+          "stdout": "{\"executable\": \"C:\\\\Users\\\\Admin\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\python\\\\python.exe\", \"version\": \"3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]\"}\r\n",
+          "stderr": ""
+        },
+        "pathPython": {
+          "status": 0,
+          "stdout": "C:\\Users\\Admin\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe\r\n",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "name": "15 own roots double absent no manual cleanup",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "separate own canonical short container removed nonrecursively",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "original child stdout hash matches recorded",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "original child stderr hash matches recorded",
+      "passed": true,
+      "observed": null
+    }
+  ],
+  "sourceAudit": "independent-audit.json",
+  "tools": {
+    "node": "D:\\Development\\nodejs\\node.exe",
+    "nodeVersion": "v22.18.0",
+    "cli": {
+      "status": 0,
+      "stdout": "codex-cli 0.147.0\n",
+      "stderr": ""
+    },
+    "python": {
+      "status": 0,
+      "stdout": "{\"executable\": \"C:\\\\Users\\\\Admin\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\python\\\\python.exe\", \"version\": \"3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]\"}\r\n",
+      "stderr": ""
+    },
+    "pathPython": {
+      "status": 0,
+      "stdout": "C:\\Users\\Admin\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe\r\n",
+      "stderr": ""
+    }
+  },
+  "ownedRoots": [
+    {
+      "root": "D:\\t274e\\release-install-CilNj9",
+      "kind": "canonical",
+      "observedFrom": "template copy original sourceRoot/canonical",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T14:33:23.772Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T14:33:23.848724+00:00"
+    },
+    {
+      "root": "D:\\t274e\\marketplace-smoke-03j5Y1",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T14:33:23.774Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T14:33:23.848724+00:00"
+    },
+    {
+      "root": "D:\\t274e\\marketplace-smoke-1Dnh77",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T14:33:23.773Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T14:33:23.848724+00:00"
+    },
+    {
+      "root": "D:\\t274e\\marketplace-smoke-5G9qax",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T14:33:23.772Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T14:33:23.850238+00:00"
+    },
+    {
+      "root": "D:\\t274e\\marketplace-smoke-EKLexO",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T14:33:23.773Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T14:33:23.850238+00:00"
+    },
+    {
+      "root": "D:\\t274e\\marketplace-smoke-g5c1YH",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T14:33:23.773Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T14:33:23.850238+00:00"
+    },
+    {
+      "root": "D:\\t274e\\marketplace-smoke-g8ByEp",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T14:33:23.773Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T14:33:23.850238+00:00"
+    },
+    {
+      "root": "D:\\t274e\\marketplace-smoke-GKDwvf",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T14:33:23.774Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T14:33:23.850238+00:00"
+    },
+    {
+      "root": "D:\\t274e\\marketplace-smoke-gN59Wj",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T14:33:23.774Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T14:33:23.850238+00:00"
+    },
+    {
+      "root": "D:\\t274e\\marketplace-smoke-jMIpmC",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T14:33:23.773Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T14:33:23.850238+00:00"
+    },
+    {
+      "root": "D:\\t274e\\marketplace-smoke-ojnJnC",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T14:33:23.773Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T14:33:23.850238+00:00"
+    },
+    {
+      "root": "D:\\t274e\\marketplace-smoke-R4SnDZ",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T14:33:23.773Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T14:33:23.850238+00:00"
+    },
+    {
+      "root": "D:\\t274e\\marketplace-smoke-uf7o5E",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T14:33:23.774Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T14:33:23.851245+00:00"
+    },
+    {
+      "root": "D:\\t274e\\marketplace-smoke-zTiAe3",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T14:33:23.773Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T14:33:23.851245+00:00"
+    },
+    {
+      "root": "D:\\t274e\\marketplace-smoke-source-K1uLHa",
+      "kind": "template",
+      "observedFrom": "copy destinationRoot/template",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T14:33:23.772Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T14:33:23.851245+00:00"
+    }
+  ],
+  "shortTempContainer": {
+    "checkedAt": "2026-10-20T14:33:23.859372+00:00",
+    "path": "D:\\t274e",
+    "ordinaryDirectory": true,
+    "remainingChildren": [],
+    "removed": true,
+    "method": "nonrecursive rmdir only after independent PASS and empty direct-owned container",
+    "existsAfter": false
+  },
+  "localHarnessContribution": 0,
+  "limits": [
+    "This is a new actual-develop fixed-commit canonical installation/discovery/static execution; no CI count or earlier installation result is borrowed.",
+    "Browser checks in canonical installation remain NOT_RUN. No model/GUI/native persistent window/second client/Sites or effects execution was performed.",
+    "Local full npm test/strict/baseline is separately isolated and not counted among these15 canonical roots.",
+    "An unpublished marketplace8.3.4/HTML0.1.39 install does not publish a tag/Release, supply protected approval, cure historical failure/UNKNOWN or replace Owner acceptance."
+  ],
+  "nextRecommendation": "Combine this canonical packet with the separate actual-develop local Harness and fresh independent evidence review, then advance only the authorized release-candidate documentation and real protected PR gates."
+}

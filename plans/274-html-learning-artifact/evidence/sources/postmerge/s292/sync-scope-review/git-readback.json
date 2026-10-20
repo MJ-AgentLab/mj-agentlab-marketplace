@@ -1,0 +1,45 @@
+{
+  "capturedAt": "2026-10-20T16:30:56.548067+00:00",
+  "commands": [
+    {
+      "args": [
+        "git",
+        "rev-parse",
+        "HEAD",
+        "HEAD^{tree}",
+        "origin/main",
+        "origin/develop"
+      ],
+      "exitCode": 0,
+      "stdout": "931e1214377357e9f94b6c5ca10029330c6ec0d6\n3b310156c5d56a4bf533c1cfebdeb1e5ef4d71ca\n931e1214377357e9f94b6c5ca10029330c6ec0d6\n7c23f347c0725bdfa57ee1e0f5e9075a8d90babf\n",
+      "stderr": "",
+      "stdoutSha256": "ad7df0e3c8d2df2dbce7e30ec95254f24f99db18dffdea5491c60b38b29099f1",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "args": [
+        "git",
+        "merge-base",
+        "7c23f347c0725bdfa57ee1e0f5e9075a8d90babf",
+        "931e1214377357e9f94b6c5ca10029330c6ec0d6"
+      ],
+      "exitCode": 0,
+      "stdout": "7c23f347c0725bdfa57ee1e0f5e9075a8d90babf\n",
+      "stderr": "",
+      "stdoutSha256": "c3f9d12b21aa25c6d59d3bdf3fdea3d30836e15042084a9548258d3ebe2d2ec7",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "args": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}
