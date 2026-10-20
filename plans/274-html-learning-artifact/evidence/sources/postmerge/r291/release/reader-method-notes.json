@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-20T15:21:19.039842+00:00",
+  "notes": [
+    {
+      "kind": "READ_PATH_METHOD_ERROR",
+      "detail": "An independent read-only rg command included nonexistent scripts/lib alongside existing scripts/run-release.mjs. rg printed path not found; the real source file read succeeded. This is not a product check or publication failure. Original stderr was not separately captured; the tool transcript retains its returned text. Later exact actual-SHA source API reads were used.",
+      "toolReturnedLine": "rg: C:/Users/Admin/.codex/worktrees/html-alignment-sync/develop/scripts/lib: The system cannot find the file specified. (os error 2)"
+    },
+    {
+      "kind": "EXPECTED_PENDING_OBSERVATION",
+      "detail": "Initial new tag/Release HTTP404 and release run in_progress were retained. Second query after84.429794seconds observed actual publication; no workflow rerun or mutation by reviewer."
+    }
+  ]
+}

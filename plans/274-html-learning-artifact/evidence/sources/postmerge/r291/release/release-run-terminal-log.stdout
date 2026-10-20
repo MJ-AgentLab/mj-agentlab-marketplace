@@ -1,0 +1,346 @@
+Create Release	Set up job	﻿2026-10-20T15:13:37.5672835Z Current runner version: '2.337.0'
+Create Release	Set up job	2026-10-20T15:13:37.5698995Z ##[group]Runner Image Provisioner
+Create Release	Set up job	2026-10-20T15:13:37.5700054Z Hosted Compute Agent
+Create Release	Set up job	2026-10-20T15:13:37.5700672Z Version: 20261012.601
+Create Release	Set up job	2026-10-20T15:13:37.5701412Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+Create Release	Set up job	2026-10-20T15:13:37.5702154Z Build Date: 2026-10-12T17:48:21Z
+Create Release	Set up job	2026-10-20T15:13:37.5702883Z Worker ID: {2972b59e-8f37-4956-b586-ae31c19e49c7}
+Create Release	Set up job	2026-10-20T15:13:37.5703707Z Region: westcentralus
+Create Release	Set up job	2026-10-20T15:13:37.5704298Z Cloud: Azure
+Create Release	Set up job	2026-10-20T15:13:37.5704875Z ##[endgroup]
+Create Release	Set up job	2026-10-20T15:13:37.5707284Z ##[group]Operating System
+Create Release	Set up job	2026-10-20T15:13:37.5708016Z Ubuntu
+Create Release	Set up job	2026-10-20T15:13:37.5708651Z 24.04.5
+Create Release	Set up job	2026-10-20T15:13:37.5709181Z LTS
+Create Release	Set up job	2026-10-20T15:13:37.5709789Z ##[endgroup]
+Create Release	Set up job	2026-10-20T15:13:37.5710368Z ##[group]Runner Image
+Create Release	Set up job	2026-10-20T15:13:37.5711010Z Image: ubuntu-24.04
+Create Release	Set up job	2026-10-20T15:13:37.5711639Z Version: 20261012.334.1
+Create Release	Set up job	2026-10-20T15:13:37.5712711Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+Create Release	Set up job	2026-10-20T15:13:37.5714574Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+Create Release	Set up job	2026-10-20T15:13:37.5715614Z ##[endgroup]
+Create Release	Set up job	2026-10-20T15:13:37.5717050Z ##[group]GITHUB_TOKEN Permissions
+Create Release	Set up job	2026-10-20T15:13:37.5719066Z Contents: write
+Create Release	Set up job	2026-10-20T15:13:37.5719799Z Metadata: read
+Create Release	Set up job	2026-10-20T15:13:37.5720371Z ##[endgroup]
+Create Release	Set up job	2026-10-20T15:13:37.5722494Z Secret source: Actions
+Create Release	Set up job	2026-10-20T15:13:37.5723622Z Cache mode: write
+Create Release	Set up job	2026-10-20T15:13:37.5724333Z Prepare workflow directory
+Create Release	Set up job	2026-10-20T15:13:37.6118502Z Prepare all required actions
+Create Release	Set up job	2026-10-20T15:13:37.6169792Z Getting action download info
+Create Release	Set up job	2026-10-20T15:13:37.9184405Z Download action repository 'actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+Create Release	Set up job	2026-10-20T15:13:38.0178520Z Download action repository 'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+Create Release	Set up job	2026-10-20T15:13:38.1079482Z Download action repository 'actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+Create Release	Set up job	2026-10-20T15:13:38.2912458Z Complete job name: Create Release
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	﻿2026-10-20T15:13:38.3692007Z ##[group]Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.3693113Z with:
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.3693552Z   fetch-depth: 0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.3694088Z   repository: MJ-AgentLab/mj-agentlab-marketplace
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.3698097Z   token: ***
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.3698551Z   ssh-strict: true
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.3699000Z   ssh-user: git
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.3699454Z   persist-credentials: true
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.3699949Z   clean: true
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.3700403Z   sparse-checkout-cone-mode: true
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.3700930Z   fetch-tags: false
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.3701385Z   show-progress: true
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.3701841Z   lfs: false
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.3702251Z   submodules: false
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.3702705Z   set-safe-directory: true
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.3703496Z ##[endgroup]
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.4715373Z Syncing repository: MJ-AgentLab/mj-agentlab-marketplace
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.4718037Z ##[group]Getting Git version info
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.4719450Z Working directory is '/home/runner/work/mj-agentlab-marketplace/mj-agentlab-marketplace'
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.4721096Z [command]/usr/bin/git version
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.4822883Z git version 2.55.0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.4859113Z ##[endgroup]
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.4869963Z Temporarily overriding HOME='/home/runner/work/_temp/dcc390ff-08ba-4fd3-81cd-cea3de10c17b' before making global git config changes
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.4872899Z Adding repository directory to the temporary git global config as a safe directory
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.4875275Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mj-agentlab-marketplace/mj-agentlab-marketplace
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.4942095Z Deleting the contents of '/home/runner/work/mj-agentlab-marketplace/mj-agentlab-marketplace'
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.4946850Z ##[group]Initializing the repository
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.4952514Z [command]/usr/bin/git init /home/runner/work/mj-agentlab-marketplace/mj-agentlab-marketplace
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5076892Z hint: Using 'master' as the name for the initial branch. This default branch name
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5078664Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5080390Z hint: to use in all of your new repositories, which will suppress this warning,
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5081756Z hint: call:
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5082470Z hint:
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5083302Z hint: 	git config --global init.defaultBranch <name>
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5084317Z hint:
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5085272Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5087048Z hint: 'development'. The just-created branch can be renamed via this command:
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5087905Z hint:
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5088389Z hint: 	git branch -m <name>
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5088923Z hint:
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5089628Z hint: Disable this message with "git config set advice.defaultBranchName false"
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5090881Z Initialized empty Git repository in /home/runner/work/mj-agentlab-marketplace/mj-agentlab-marketplace/.git/
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5094329Z [command]/usr/bin/git remote add origin https://github.com/MJ-AgentLab/mj-agentlab-marketplace
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5143658Z ##[endgroup]
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5144496Z ##[group]Disabling automatic garbage collection
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5148592Z [command]/usr/bin/git config --local gc.auto 0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5201124Z ##[endgroup]
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5203031Z ##[group]Setting up auth
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5204505Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5236688Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5669141Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5708641Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5936922Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.5974814Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.6219773Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.6267859Z ##[endgroup]
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.6268976Z ##[group]Fetching the repository
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:38.6282325Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7309782Z From https://github.com/MJ-AgentLab/mj-agentlab-marketplace
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7312348Z  * [new branch]      codex/communication-release -> origin/codex/communication-release
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7314851Z  * [new branch]      codex/communication-release-preparation -> origin/codex/communication-release-preparation
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7317869Z  * [new branch]      codex/html-alignment-sync -> origin/codex/html-alignment-sync
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7320318Z  * [new branch]      codex/html-learning-acceptance -> origin/codex/html-learning-acceptance
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7322686Z  * [new branch]      codex/html-learning-artifact -> origin/codex/html-learning-artifact
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7325195Z  * [new branch]      codex/html-learning-deferral-fixes -> origin/codex/html-learning-deferral-fixes
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7328374Z  * [new branch]      codex/html-learning-release-closeout -> origin/codex/html-learning-release-closeout
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7330761Z  * [new branch]      codex/html-learning-site -> origin/codex/html-learning-site
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7332997Z  * [new branch]      codex/html-prompt-alignment -> origin/codex/html-prompt-alignment
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7335147Z  * [new branch]      codex/html-prompt-alignment-evidence -> origin/codex/html-prompt-alignment-evidence
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7338011Z  * [new branch]      codex/html-prompt-alignment-final -> origin/codex/html-prompt-alignment-final
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7339593Z  * [new branch]      codex/issue-245-cancel-probe -> origin/codex/issue-245-cancel-probe
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7340722Z  * [new branch]      codex/issue-245-dedup-probe -> origin/codex/issue-245-dedup-probe
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7342206Z  * [new branch]      codex/learning-evidence-acceptance-history-20261013 -> origin/codex/learning-evidence-acceptance-history-20261013
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7343827Z  * [new branch]      codex/learning-evidence-contract -> origin/codex/learning-evidence-contract
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7345285Z  * [new branch]      codex/learning-evidence-github-history-20261013 -> origin/codex/learning-evidence-github-history-20261013
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7347320Z  * [new branch]      codex/learning-evidence-switch-history-20261013 -> origin/codex/learning-evidence-switch-history-20261013
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7348636Z  * [new branch]      codex/post-8-3-0-docs   -> origin/codex/post-8-3-0-docs
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7350062Z  * [new branch]      codex/prebump-8-3-1     -> origin/codex/prebump-8-3-1
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7351949Z  * [new branch]      codex/prebump-marketplace-8-3-3 -> origin/codex/prebump-marketplace-8-3-3
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7353252Z  * [new branch]      codex/prepare-marketplace-8-3-4 -> origin/codex/prepare-marketplace-8-3-4
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7354488Z  * [new branch]      codex/record-html-learning-8-3-2 -> origin/codex/record-html-learning-8-3-2
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7355696Z  * [new branch]      codex/record-html-learning-8-3-3 -> origin/codex/record-html-learning-8-3-3
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7357279Z  * [new branch]      codex/release-html-learning-8-3-2 -> origin/codex/release-html-learning-8-3-2
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7358577Z  * [new branch]      codex/release-html-learning-8-3-3 -> origin/codex/release-html-learning-8-3-3
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7359812Z  * [new branch]      codex/release-html-learning-8-3-4 -> origin/codex/release-html-learning-8-3-4
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7361144Z  * [new branch]      codex/sync-main-8-3-0   -> origin/codex/sync-main-8-3-0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7362125Z  * [new branch]      codex/sync-main-8-3-2   -> origin/codex/sync-main-8-3-2
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7363190Z  * [new branch]      codex/task-docs-closeout -> origin/codex/task-docs-closeout
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7364416Z  * [new branch]      codex/task-docs-contract -> origin/codex/task-docs-contract
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7365413Z  * [new branch]      codex/task-docs-harness -> origin/codex/task-docs-harness
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7366832Z  * [new branch]      codex/task-docs-html-pilot -> origin/codex/task-docs-html-pilot
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7367915Z  * [new branch]      codex/task-documentation -> origin/codex/task-documentation
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7368847Z  * [new branch]      develop                 -> origin/develop
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7369623Z  * [new branch]      main                    -> origin/main
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7370360Z  * [new tag]         v1.0.0                  -> v1.0.0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7371079Z  * [new tag]         v1.1.0                  -> v1.1.0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7371771Z  * [new tag]         v1.1.1                  -> v1.1.1
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7372466Z  * [new tag]         v1.1.2                  -> v1.1.2
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7373150Z  * [new tag]         v1.1.3                  -> v1.1.3
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7373829Z  * [new tag]         v1.1.4                  -> v1.1.4
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7374507Z  * [new tag]         v1.1.5                  -> v1.1.5
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7375201Z  * [new tag]         v1.2.0                  -> v1.2.0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7376278Z  * [new tag]         v1.2.1                  -> v1.2.1
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7377739Z  * [new tag]         v1.2.2                  -> v1.2.2
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7379380Z  * [new tag]         v1.2.3                  -> v1.2.3
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7380632Z  * [new tag]         v1.2.4                  -> v1.2.4
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7381924Z  * [new tag]         v1.2.5                  -> v1.2.5
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7383209Z  * [new tag]         v1.2.6                  -> v1.2.6
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7384470Z  * [new tag]         v1.3.0                  -> v1.3.0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7385989Z  * [new tag]         v1.3.1                  -> v1.3.1
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7387228Z  * [new tag]         v1.3.2                  -> v1.3.2
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7388393Z  * [new tag]         v2.0.0                  -> v2.0.0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7389626Z  * [new tag]         v2.1.0                  -> v2.1.0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7390991Z  * [new tag]         v2.1.1                  -> v2.1.1
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7392202Z  * [new tag]         v3.0.0                  -> v3.0.0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7393573Z  * [new tag]         v3.1.0                  -> v3.1.0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7394860Z  * [new tag]         v3.2.0                  -> v3.2.0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7396191Z  * [new tag]         v3.2.1                  -> v3.2.1
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7397255Z  * [new tag]         v4.4.10                 -> v4.4.10
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7398324Z  * [new tag]         v4.4.11                 -> v4.4.11
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7399333Z  * [new tag]         v4.4.8                  -> v4.4.8
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7400423Z  * [new tag]         v4.5.0                  -> v4.5.0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7401586Z  * [new tag]         v4.6.0                  -> v4.6.0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7403019Z  * [new tag]         v4.6.1                  -> v4.6.1
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7404667Z  * [new tag]         v4.6.2                  -> v4.6.2
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7406367Z  * [new tag]         v5.0.0                  -> v5.0.0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7407272Z  * [new tag]         v5.0.1                  -> v5.0.1
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7407940Z  * [new tag]         v6.0.0                  -> v6.0.0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7408602Z  * [new tag]         v6.1.0                  -> v6.1.0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7409235Z  * [new tag]         v6.2.0                  -> v6.2.0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7409866Z  * [new tag]         v6.3.0                  -> v6.3.0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7410751Z  * [new tag]         v6.3.1                  -> v6.3.1
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7411391Z  * [new tag]         v7.0.0                  -> v7.0.0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7412015Z  * [new tag]         v7.0.1                  -> v7.0.1
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7412675Z  * [new tag]         v8.0.0                  -> v8.0.0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7413298Z  * [new tag]         v8.1.0                  -> v8.1.0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7413918Z  * [new tag]         v8.1.1                  -> v8.1.1
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7414550Z  * [new tag]         v8.2.0                  -> v8.2.0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7415603Z  * [new tag]         v8.3.0                  -> v8.3.0
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7417061Z  * [new tag]         v8.3.1                  -> v8.3.1
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7417832Z  * [new tag]         v8.3.2                  -> v8.3.2
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7418477Z  * [new tag]         v8.3.3                  -> v8.3.3
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7420000Z [command]/usr/bin/git branch --list --remote origin/main
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7420702Z   origin/main
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7506858Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7508450Z 5898a8192740b39f41263129a5f99efeba96a6cc
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7511017Z ##[endgroup]
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7512221Z ##[group]Determining the checkout info
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7513561Z ##[endgroup]
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7514343Z [command]/usr/bin/git sparse-checkout disable
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7529923Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7542853Z ##[group]Checking out the ref
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:43.7547460Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:44.8864864Z Updating files:  62% (5825/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:44.9828022Z Updating files:  63% (5901/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.0021443Z Updating files:  64% (5995/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.0189465Z Updating files:  65% (6088/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.0351777Z Updating files:  66% (6182/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.0409222Z Updating files:  67% (6276/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.0516276Z Updating files:  68% (6369/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.0598856Z Updating files:  69% (6463/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.0787007Z Updating files:  70% (6557/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.0920276Z Updating files:  71% (6650/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.1029452Z Updating files:  72% (6744/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.1065629Z Updating files:  73% (6838/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.1137371Z Updating files:  74% (6931/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.1232429Z Updating files:  75% (7025/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.1310480Z Updating files:  76% (7119/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.1552288Z Updating files:  77% (7212/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.1619016Z Updating files:  78% (7306/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.1686532Z Updating files:  79% (7400/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.1748272Z Updating files:  80% (7493/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.1850664Z Updating files:  81% (7587/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.1941849Z Updating files:  82% (7681/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.2047533Z Updating files:  83% (7774/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.2225679Z Updating files:  84% (7868/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.2295191Z Updating files:  85% (7962/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.2362455Z Updating files:  86% (8055/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.2453810Z Updating files:  87% (8149/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.2564697Z Updating files:  88% (8243/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.2669613Z Updating files:  89% (8336/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.2734438Z Updating files:  90% (8430/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.2895889Z Updating files:  91% (8524/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.2965078Z Updating files:  92% (8617/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.3085245Z Updating files:  93% (8711/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.3170786Z Updating files:  94% (8805/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.3259802Z Updating files:  95% (8898/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.3507794Z Updating files:  96% (8992/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.3574581Z Updating files:  97% (9086/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.3701523Z Updating files:  98% (9179/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.3789808Z Updating files:  99% (9273/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.3791034Z Updating files: 100% (9366/9366)
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.3791617Z Updating files: 100% (9366/9366), done.
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.3910735Z Switched to a new branch 'main'
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.3917062Z branch 'main' set up to track 'origin/main'.
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.4013237Z ##[endgroup]
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.4070501Z [command]/usr/bin/git log -1 --format=%H
+Create Release	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:13:45.4099226Z 5898a8192740b39f41263129a5f99efeba96a6cc
+Create Release	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	﻿2026-10-20T15:13:45.4360387Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+Create Release	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T15:13:45.4360803Z with:
+Create Release	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T15:13:45.4360995Z   node-version: 22
+Create Release	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T15:13:45.4361207Z   always-auth: false
+Create Release	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T15:13:45.4361427Z   check-latest: false
+Create Release	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T15:13:45.4363612Z   token: ***
+Create Release	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T15:13:45.4363812Z ##[endgroup]
+Create Release	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T15:13:45.5781175Z Found in cache @ /opt/hostedtoolcache/node/22.23.3/x64
+Create Release	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T15:13:45.5786029Z (node:2536) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+Create Release	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T15:13:45.5787162Z (Use `node --trace-deprecation ...` to show where the warning was created)
+Create Release	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T15:13:45.5789201Z ##[group]Environment details
+Create Release	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T15:13:46.0277759Z node: v22.23.3
+Create Release	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T15:13:46.0278288Z npm: 10.9.9
+Create Release	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T15:13:46.0278733Z yarn: 1.22.22
+Create Release	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T15:13:46.0280578Z ##[endgroup]
+Create Release	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	﻿2026-10-20T15:13:46.0467303Z ##[group]Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+Create Release	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-20T15:13:46.0467718Z with:
+Create Release	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-20T15:13:46.0467917Z   python-version: 3.12
+Create Release	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-20T15:13:46.0468148Z   check-latest: false
+Create Release	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-20T15:13:46.0470347Z   token: ***
+Create Release	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-20T15:13:46.0470562Z   update-environment: true
+Create Release	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-20T15:13:46.0470811Z   allow-prereleases: false
+Create Release	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-20T15:13:46.0471040Z   freethreaded: false
+Create Release	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-20T15:13:46.0471441Z ##[endgroup]
+Create Release	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-20T15:13:46.1839984Z ##[group]Installed versions
+Create Release	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-20T15:13:46.1952830Z (node:2567) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+Create Release	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-20T15:13:46.1954337Z (Use `node --trace-deprecation ...` to show where the warning was created)
+Create Release	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-20T15:13:46.1955198Z Successfully set up CPython (3.12.15)
+Create Release	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-20T15:13:46.1956270Z ##[endgroup]
+Create Release	Install portable verification dependencies and exact Codex baseline	﻿2026-10-20T15:13:46.2166960Z ##[group]Run npm ci
+Create Release	Install portable verification dependencies and exact Codex baseline	2026-10-20T15:13:46.2167289Z [36;1mnpm ci[0m
+Create Release	Install portable verification dependencies and exact Codex baseline	2026-10-20T15:13:46.2167541Z [36;1mnpm install -g @openai/codex@0.147.0[0m
+Create Release	Install portable verification dependencies and exact Codex baseline	2026-10-20T15:13:46.2515070Z shell: /usr/bin/bash -e {0}
+Create Release	Install portable verification dependencies and exact Codex baseline	2026-10-20T15:13:46.2515459Z env:
+Create Release	Install portable verification dependencies and exact Codex baseline	2026-10-20T15:13:46.2516046Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+Create Release	Install portable verification dependencies and exact Codex baseline	2026-10-20T15:13:46.2516708Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+Create Release	Install portable verification dependencies and exact Codex baseline	2026-10-20T15:13:46.2517329Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+Create Release	Install portable verification dependencies and exact Codex baseline	2026-10-20T15:13:46.2517894Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+Create Release	Install portable verification dependencies and exact Codex baseline	2026-10-20T15:13:46.2518457Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+Create Release	Install portable verification dependencies and exact Codex baseline	2026-10-20T15:13:46.2518928Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+Create Release	Install portable verification dependencies and exact Codex baseline	2026-10-20T15:13:46.2519318Z ##[endgroup]
+Create Release	Install portable verification dependencies and exact Codex baseline	2026-10-20T15:13:47.4410954Z 
+Create Release	Install portable verification dependencies and exact Codex baseline	2026-10-20T15:13:47.4411739Z added 11 packages, and audited 12 packages in 1s
+Create Release	Install portable verification dependencies and exact Codex baseline	2026-10-20T15:13:47.4412190Z 
+Create Release	Install portable verification dependencies and exact Codex baseline	2026-10-20T15:13:47.4412474Z 1 package is looking for funding
+Create Release	Install portable verification dependencies and exact Codex baseline	2026-10-20T15:13:47.4413054Z   run `npm fund` for details
+Create Release	Install portable verification dependencies and exact Codex baseline	2026-10-20T15:13:47.4420645Z 
+Create Release	Install portable verification dependencies and exact Codex baseline	2026-10-20T15:13:47.4420963Z found 0 vulnerabilities
+Create Release	Install portable verification dependencies and exact Codex baseline	2026-10-20T15:13:52.2792260Z 
+Create Release	Install portable verification dependencies and exact Codex baseline	2026-10-20T15:13:52.2797220Z added 2 packages in 5s
+Create Release	Resolve release SHA	﻿2026-10-20T15:13:52.3118923Z ##[group]Run set -euo pipefail
+Create Release	Resolve release SHA	2026-10-20T15:13:52.3119437Z [36;1mset -euo pipefail[0m
+Create Release	Resolve release SHA	2026-10-20T15:13:52.3119863Z [36;1mSHA="${INPUT_SHA:-$DEFAULT_SHA}"[0m
+Create Release	Resolve release SHA	2026-10-20T15:13:52.3120645Z [36;1m# Whole-string bash regex, not a per-line grep: a multiline value with one 40-hex line[0m
+Create Release	Resolve release SHA	2026-10-20T15:13:52.3121743Z [36;1m# would pass `grep -qE '^...$'` and then inject extra key=value pairs into GITHUB_OUTPUT.[0m
+Create Release	Resolve release SHA	2026-10-20T15:13:52.3122527Z [36;1mif [[ ! "$SHA" =~ ^[0-9a-f]{40}$ ]]; then[0m
+Create Release	Resolve release SHA	2026-10-20T15:13:52.3123321Z [36;1m  echo "::error::release_sha must be a single 40-char lowercase hex SHA (got '${SHA}')"; exit 1[0m
+Create Release	Resolve release SHA	2026-10-20T15:13:52.3124071Z [36;1mfi[0m
+Create Release	Resolve release SHA	2026-10-20T15:13:52.3124415Z [36;1mecho "sha=$SHA" >> "$GITHUB_OUTPUT"[0m
+Create Release	Resolve release SHA	2026-10-20T15:13:52.3212924Z shell: /usr/bin/bash -e {0}
+Create Release	Resolve release SHA	2026-10-20T15:13:52.3213328Z env:
+Create Release	Resolve release SHA	2026-10-20T15:13:52.3213752Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+Create Release	Resolve release SHA	2026-10-20T15:13:52.3214514Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+Create Release	Resolve release SHA	2026-10-20T15:13:52.3215296Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+Create Release	Resolve release SHA	2026-10-20T15:13:52.3216152Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+Create Release	Resolve release SHA	2026-10-20T15:13:52.3216811Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+Create Release	Resolve release SHA	2026-10-20T15:13:52.3217480Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+Create Release	Resolve release SHA	2026-10-20T15:13:52.3218023Z   INPUT_SHA: 
+Create Release	Resolve release SHA	2026-10-20T15:13:52.3218413Z   DEFAULT_SHA: 5898a8192740b39f41263129a5f99efeba96a6cc
+Create Release	Resolve release SHA	2026-10-20T15:13:52.3218901Z ##[endgroup]
+Create Release	Run draft-first release	﻿2026-10-20T15:13:52.3368189Z ##[group]Run node scripts/run-release.mjs
+Create Release	Run draft-first release	2026-10-20T15:13:52.3368523Z [36;1mnode scripts/run-release.mjs[0m
+Create Release	Run draft-first release	2026-10-20T15:13:52.3429634Z shell: /usr/bin/bash -e {0}
+Create Release	Run draft-first release	2026-10-20T15:13:52.3429894Z env:
+Create Release	Run draft-first release	2026-10-20T15:13:52.3430158Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+Create Release	Run draft-first release	2026-10-20T15:13:52.3430608Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+Create Release	Run draft-first release	2026-10-20T15:13:52.3431060Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+Create Release	Run draft-first release	2026-10-20T15:13:52.3431457Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+Create Release	Run draft-first release	2026-10-20T15:13:52.3431853Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+Create Release	Run draft-first release	2026-10-20T15:13:52.3432261Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+Create Release	Run draft-first release	2026-10-20T15:13:52.3432864Z   RELEASE_SHA: 5898a8192740b39f41263129a5f99efeba96a6cc
+Create Release	Run draft-first release	2026-10-20T15:13:52.3433248Z   GITHUB_REPOSITORY: MJ-AgentLab/mj-agentlab-marketplace
+Create Release	Run draft-first release	2026-10-20T15:13:52.3435957Z   GH_TOKEN: ***
+Create Release	Run draft-first release	2026-10-20T15:13:52.3436211Z   RUNNER_TEMP: /home/runner/work/_temp
+Create Release	Run draft-first release	2026-10-20T15:13:52.3436524Z ##[endgroup]
+Create Release	Run draft-first release	2026-10-20T15:13:54.7850155Z release: canonical: v8.3.4@5898a8192740  phase=initial
+Create Release	Run draft-first release	2026-10-20T15:13:54.7853757Z release: action=create-draft
+Create Release	Run draft-first release	2026-10-20T15:13:55.7638957Z release: created empty draft.
+Create Release	Run draft-first release	2026-10-20T15:16:34.5805384Z release: canonical Git tree installation verified.
+Create Release	Run draft-first release	2026-10-20T15:16:38.4204184Z release: published v8.3.4.
+Create Release	Run draft-first release	2026-10-20T15:16:40.1049718Z release: immutable releases not enabled on this repo — not claiming immutability.
+Create Release	Run draft-first release	2026-10-20T15:16:42.1748239Z {"ok":true,"result":"published","canonical":{"sha":"5898a8192740b39f41263129a5f99efeba96a6cc","version":"8.3.4","notes":"Marketplace8.3.4 delivers HTML Guide Kit0.1.39 selective alignment under #274, with Diagram0.3.1, Learning Evidence0.1.0, Explain0.1.1 and Communication0.1.0 unchanged. Retain five packages, eight public skills and five explicit entries. Marketplace VERSION was prepared by PR290; this promotion does not bump versions again.\n\n### Changed\n\n- Use the complete production method as the baseline while retaining the local generator and engineering checks. Read Matt grilling only for material unresolved design decisions, confirm the resulting design agreement before dependent implementation, and reuse settled decisions.\n- Protect existing materials while allowing independent working copies and outputs. Distinguish explicitly agreed complete local delivery from default private Sites publication; missing Sites does not silently switch the agreed mode.\n- Add optional warm-paper/neutral theme selection with compatible default behavior; keep content, feedback and actual checks independent of the selected appearance.\n\n### Verification and retained limits\n\n- Bind actual-develop checks, isolated installation, real Python/static checks and bounded browser evidence to their exact sources. Reuse earlier interaction actions only for the unchanged HTML/JS and same inputs; inherited evidence is not a new execution.\n- Keep native-window persistence, other deferred client/expanded cases, earlier failures/UNKNOWN and historical missing approval/bypass explicit. Effects remain NOT_MEASURED and the full plan remains open. Original limited core acceptance does not extend to0.1.39; protected merge, publication, real-tag verification and Owner acceptance are recorded separately."}}
+Create Release	Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	﻿2026-10-20T15:16:42.2186398Z Post job cleanup.
+Create Release	Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-20T15:16:42.3453944Z (node:8244) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+Create Release	Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-20T15:16:42.3456335Z (Use `node --trace-deprecation ...` to show where the warning was created)
+Create Release	Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	﻿2026-10-20T15:16:42.3637970Z Post job cleanup.
+Create Release	Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T15:16:42.5089836Z (node:8253) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+Create Release	Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T15:16:42.5091614Z (Use `node --trace-deprecation ...` to show where the warning was created)
+Create Release	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	﻿2026-10-20T15:16:42.5277157Z Post job cleanup.
+Create Release	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:16:42.6174684Z [command]/usr/bin/git version
+Create Release	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:16:42.6217934Z git version 2.55.0
+Create Release	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:16:42.6258134Z Temporarily overriding HOME='/home/runner/work/_temp/28a5a822-47ed-4172-8d0d-e90519573841' before making global git config changes
+Create Release	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:16:42.6259619Z Adding repository directory to the temporary git global config as a safe directory
+Create Release	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:16:42.6263725Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mj-agentlab-marketplace/mj-agentlab-marketplace
+Create Release	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:16:42.6308377Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Create Release	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:16:42.6344417Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Create Release	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:16:42.6623946Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Create Release	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:16:42.6650562Z http.https://github.com/.extraheader
+Create Release	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:16:42.6662925Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+Create Release	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:16:42.6699471Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Create Release	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:16:42.6987309Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Create Release	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-10-20T15:16:42.7028769Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Create Release	Complete job	﻿2026-10-20T15:16:42.7498444Z Cleaning up orphan processes
+Create Release	Complete job	2026-10-20T15:16:42.7846062Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5, actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

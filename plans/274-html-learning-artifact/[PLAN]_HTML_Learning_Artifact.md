@@ -4,15 +4,49 @@ scope: html-guide-kit
 summary: "Implement the explicit site workflow with local tools and minimum Sites evidence"
 owner: marketplace-maintainers
 created: 2026-10-19
-updated: 2026-10-20
+updated: 2026-10-21
 state: active
-version: v1.16
+version: v1.19
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 ---
 
 # [PLAN] HTML learning artifact implementation
+
+## Actual PR292 main verification and full synchronization
+
+2026-10-21（Asia/Taipei）：#292于2026-10-20T16:25:37Z（台北2026-10-21T00:25:37+08:00）实际合入main **931e1214377357e9f94b6c5ca10029330c6ec0d6/tree3b310156c5d56a4bf533c1cfebdeb1e5ef4d71ca**，parents5898＋010e，树同已测维护候选。该main完整包含develop7c23；普通完整同步保留全部main ancestry，版本仍Marketplace8.3.4/HTML0.1.39。公开tag/Release仍5898a819，正文/旧833保持；维护合入未触发通用CI或Release、未新增tag，不将PR矩阵改名为actualmain新验。
+
+本轮actualmain新canonical于2026-10-20T16:28:57.619Z–2026-10-20T16:42:59.351Z运行，13/178全exit0、6Diagram＋18LEK实际Python、4site生成/4静态各96/96、15精确自有根双absence及8guards通过。随后独占本机套件于2026-10-20T16:43:37.228+00:00–2026-10-20T16:48:02.041+00:00执行652总/651PASS/0FAIL/1平台skip，strict20repo/8public、CLI0.147.0、真实Python3.12.14和限定浏览器通过；两批各新核9616跟踪文件完整字节图、index/primary/Owner原件/完整worktree库存，终态均原件冻结后才释放写窗口。运行时钟按原UTC保存，不借候选、旧tag或发布run计数。
+
+实际#292 suite4623862443为bypass，pull_request规则FAIL缺latest-pusher以外批准、reviews=[]、批准NOT_MET；Agent未执行该保护合入。独立审计首次repo URL尾斜杠HTTP404及后续cached URL guard退出保留原件/方法说明，均非产品或CI失败，不宣称全部方法首跑成功。旧FAIL/UNKNOWN与历史批准缺口保留。D01持续窗口/其他客户端入口DEFERRED、效果NOT_MEASURED、完整计划OPEN；Owner原ACCEPTED_LIMITED仅0.1.37，不扩大至0.1.38/Site v2/0.1.39。
+
+下一步推荐：完成本轮完整同步候选的来源/文档/A6、适用工程检查和独立审查后，提交唯一主PR→protected develop；当前head真实非作者且非latest-pusher批准、CI/Structure、项目A6、线程及最新base满足后才正常合入。理由是actualmain新验已支持完整同步，而保护批准不能由旧bypass或合成审查替代。实际同步合入并新验后，才在后继独立范围DryRun→Apply仅市场下一补丁；本轮不预升8.3.5、不发布。
+
+以下旧current/待办为各自原时点快照，当前以本节和Issue274为准。
+
+## Actual PR291 publication and post-publication checks
+
+2026-10-20：#291于15:13:30Z实际合入main **5898a8192740b39f41263129a5f99efeba96a6cc/tree3a68976af95bb5948de17a6fccaabf892becaaca**，parents f18＋f344，树同已审发行候选。v8.3.4于15:16:38Z正式公开，tag/Release target均为该actualmain；Release418543870、draft=false/prerelease=false/assets=[]、正文1677B/SHA25693f4459e8718b06eae19dc6aa82397eacce723470f8fd6e33214fb489d542d38，actual CHANGELOG8.3.4节按CRLF→LF/trim相同。Release run39446432726 exact5898/push/attempt1自然成功；immutable=false，仓库配置缺字段仍UNKNOWN。五包八公开/五显式/三自然/20repo skills；HTML0.1.39，其他四包版本保持。
+
+新actualmain本机652总/651PASS/0FAIL/1平台skip、strict/CLI0.147.0/实际Python及限定浏览器通过；actualmain新十三安装与真实tag解析SHA后的独立新十三安装各13/178全exit0，6Diagram＋18LEK实际Python、4site生成/4静态各96/96，15精确自有根双absence/外层guards通过。actualmain两批各新核完整9366文件字节图及索引/primary/库存，tag批核HEAD/tree/clean/index/primary/完整库存守卫；各自前后核验，按顺序执行，不过滤其他工作树或复用候选/发布run计数。
+
+实际suite4622448549为bypass、reviews=[]、批准NOT_MET；Agent未执行该保护合并。旧FAIL/UNKNOWN和历史批准缺口保留。D01持续原生窗口、其他延期客户端/扩展入口非PASS，效果NOT_MEASURED、完整计划OPEN；Owner原ACCEPTED_LIMITED仅0.1.37，不扩至0.1.38/Site v2/0.1.39。 详细方法/原件见[唯一REPORT](./[REPORT]_HTML_Learning_Artifact.md#actual-pr291-publication-and-post-publication-checks)与[8.3.4账本](../../docs/runbook/[RUNBOOK]_Marketplace_8_3_4_Release_Readiness.md)。
+
+下一步推荐：先正常合入本轮有界main安装导航/记录PR，再以包含该实际merge的完整main ancestry向protected develop同步；同步实际合入并新验后，才DryRun→Apply仅市场下一补丁预升。理由是默认安装应先抵达已验证公开版本，随后保持main/develop历史与版本准备有序。当前head真实批准/CI/A6/线程/latestbase保持门禁，无新增Owner产品决定。
+
+以下旧current/待办为各自原时点快照，当前以上节为准。
+
+## Actual PR290 verification and HTML0.1.39 release preparation
+
+2026-10-20：#290已于14:16:36Z实际合入develop **7c23f347c0725bdfa57ee1e0f5e9075a8d90babf/tree5743c7974880ff5fa87c9294313ec9adc6abac40**，parents f3e8＋720540，完整main f18 ancestry保持。市场8.3.4预升已交付，HTML0.1.39及其他插件版本保持；公开仍v8.3.3/HTML0.1.38。实际7c23本机652总/651PASS/0FAIL/1平台skip、strict/CLI0.147及新13/178、实际Python/15精确根清理通过。
+
+实际suite4621294286为bypass、reviews=[]/批准NOT_MET，Agent未执行该保护合并。旧FAIL/UNKNOWN/历史批准缺口保留；D01持续窗口等延期非PASS、效果NOT_MEASURED、完整计划OPEN，原核心ACCEPTED_LIMITED仅0.1.37，不扩至0.1.38/Site v2/0.1.39。本轮未新跑模型/Matt/桌面/第二客户端/原生窗口/Sites或更新受众，无新增Owner产品决定。
+
+下一步推荐：完成本轮发行候选来源/文档/A6及独立复核，向受保护main提交唯一8.3.4发行PR；当前head CI、真实非作者且非latest-pusher批准、线程及最新base满足后才正常合入，核actualmain再按既有draft-first流程公开与真实tag新十三安装。理由是实际develop已完成市场预升和新验，HTML0.1.39的新增/继承/延期边界可分别恢复；正式公开与Owner接受不可由候选通过替代。
+
+以下旧current/待办为各自原时点快照；当前以Issue274及本节为准。
 
 ## Actual PR289 develop verification and marketplace pre-bump
 

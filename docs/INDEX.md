@@ -4,9 +4,9 @@ scope: marketplace
 summary: "当前 ChatGPT/Codex 文档、历史决策与退役资料导航"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-20
+updated: 2026-10-21
 state: active
-version: v2.111
+version: v2.114
 layer: canonical
 ---
 
@@ -34,6 +34,25 @@ layer: canonical
 [#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)五阶段#246/#247/#248/#249/#251均已合入develop。四性能门槛/完整24样本通过、保留default；最终actual6df新492/492、13安装、6Diagram+18LEK及15清理通过并独立复核。Owner明确仅对245接受历史批准/bypass缺项后，Issue于2026-10-16T13:09:52Z以Completed关闭；原NOT_MET、历史失败和调度限制保留，例外不外推。见[账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)与[最终收尾回执](runbook/evidence/ci-performance-245-final-closeout.json)。
 
 ## 当前整体发布
+
+2026-10-21台北：#292实际main931e已完成新的13安装与独占本机复验，当前完整main同步develop候选，未称已合入；公开仍8.3.4/HTML0.1.39 tag5898。原件与权限缺口见[#274唯一REPORT](../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#actual-pr292-main-verification-and-full-synchronization)，原接受/延期/效果分别保留。
+
+下一步推荐：完成本轮完整同步候选的来源/文档/A6、适用工程检查和独立审查后，提交唯一主PR→protected develop；当前head真实非作者且非latest-pusher批准、CI/Structure、项目A6、线程及最新base满足后才正常合入。理由是actualmain新验已支持完整同步，而保护批准不能由旧bypass或合成审查替代。实际同步合入并新验后，才在后继独立范围DryRun→Apply仅市场下一补丁；本轮不预升8.3.5、不发布。
+
+以下旧current为各自原时点快照。
+
+v8.3.4/HTML0.1.39已由#291实际main5898公开，新actualmain及真实tag十三安装通过；[当前账本](runbook/[RUNBOOK]_Marketplace_8_3_4_Release_Readiness.md)与[#274唯一REPORT](../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#actual-pr291-publication-and-post-publication-checks)区分原件、批准NOT_MET、延期和旧接受。本轮默认导航更新到真实834，版本/运行不变。
+
+下一步推荐：先正常合入本轮有界main安装导航/记录PR，再以包含该实际merge的完整main ancestry向protected develop同步；同步实际合入并新验后，才DryRun→Apply仅市场下一补丁预升。理由是默认安装应先抵达已验证公开版本，随后保持main/develop历史与版本准备有序。当前head真实批准/CI/A6/线程/latestbase保持门禁，无新增Owner产品决定。
+
+以下旧current/待办为各自原时点快照。
+
+8.3.4/HTML0.1.39发行准备见[当前账本](runbook/[RUNBOOK]_Marketplace_8_3_4_Release_Readiness.md)与[#274唯一REPORT](../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#actual-pr290-verification-and-html0139-release-preparation)：actual290新验通过，公开仍v8.3.3，保护合入/公开/tag新验/接受各待真实结果。
+
+下一步推荐：完成本轮发行候选来源/文档/A6及独立复核，向受保护main提交唯一8.3.4发行PR；当前head CI、真实非作者且非latest-pusher批准、线程及最新base满足后才正常合入，核actualmain再按既有draft-first流程公开与真实tag新十三安装。理由是实际develop已完成市场预升和新验，HTML0.1.39的新增/继承/延期边界可分别恢复；正式公开与Owner接受不可由候选通过替代。
+
+以下旧current/待办为各自原时点快照；当前以Issue274及本节为准。
+
 
 2026-10-20：#289已于13:09:38Z合入develop **f3e8ba322109e2a43dcdcd68fdd2f0c655c78240/tree6daad5a9e9f9d749e48e38b148657195c3ed2fa5**，parents a4892f51＋6de4be7d，完整继承main f18aa09；HTML0.1.39选择性统一已进入develop、尚未发布。实际develop新本机652总/651PASS/0FAIL/1平台skip、strict/CLI0.147.0及新13/178、实际Python和15精确根清理通过。其后在隔离候选DryRun零写→Apply仅VERSION+badge预升未发布8.3.4（尚待新保护PR合入），实际develop市场仍8.3.3；HTML0.1.39及其他插件保持；默认公开安装仍v8.3.3/HTML0.1.38。
 

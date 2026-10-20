@@ -1,0 +1,5 @@
+完整main同步在现有U1/P5及本轮明确要求范围内，无新Owner实质决定。真实merge-base为develop7c23，故main931e已包含完整develop；单普通merge提交与唯一protecteddevelop同步PR足够，不机械新增子PR。当前两批执行未终态，scope仅核授权与边界，不称运行通过。
+
+最小文档范围为8既有路径及有限选证；所有3055来源完整对象前缀、唯一INTENTv1.2/32+A、版本与运行、已公开834完整历史保持。AGENTS只窄修当前摘要并核双EOL均<16384。用户明确完整同步优先于mp-git-sync默认仅治理移植；保留技能其他保护与冲突核验要求。
+
+下一步推荐：等待实际main两包和独立审计freeze/STOP，绑定原件hash解锁后由root普通完整merge再更新必要当前记录，实际候选门禁通过后提交唯一protecteddevelop PR；本轮不预升835，不改变原Owner接受或延期。

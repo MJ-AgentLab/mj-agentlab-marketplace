@@ -1,0 +1,409 @@
+{
+  "schema": "html274-post292-actual-main-canonical-v1",
+  "frozenAtUtc": "2026-10-20T16:43:08.703+00:00",
+  "status": "PASS_LIMITED",
+  "sourceSha": "931e1214377357e9f94b6c5ca10029330c6ec0d6",
+  "sourceTree": "3b310156c5d56a4bf533c1cfebdeb1e5ef4d71ca",
+  "hostSha": "931e1214377357e9f94b6c5ca10029330c6ec0d6",
+  "startedAtUtc": "2026-10-20T16:28:57.619Z",
+  "endedAtUtc": "2026-10-20T16:42:59.351Z",
+  "actualCounts": {
+    "scenarios": 13,
+    "commands": 178,
+    "diagramPython": 6,
+    "lekPython": 18,
+    "siteGeneration": 4,
+    "siteStaticPython": 4
+  },
+  "scenariosPass": 13,
+  "commandsZero": 178,
+  "guards": {
+    "hostHeadTreePreserved": true,
+    "hostCleanPreserved": true,
+    "primaryPreserved": true,
+    "ownerOriginalPreserved": true,
+    "fullWorktreeInventoryPreserved": true,
+    "outerAndChildSameTemporaryRoot": true,
+    "shortTempEmpty": true,
+    "exactFifteenRootsAndAbsence": true
+  },
+  "checkCount": 12,
+  "checks": [
+    {
+      "name": "exact actual main canonical and host identity",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "single full smoke first attempt exit0",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "exact eight complete guards true",
+      "passed": true,
+      "observed": {
+        "hostHeadTreePreserved": true,
+        "hostCleanPreserved": true,
+        "primaryPreserved": true,
+        "ownerOriginalPreserved": true,
+        "fullWorktreeInventoryPreserved": true,
+        "outerAndChildSameTemporaryRoot": true,
+        "shortTempEmpty": true,
+        "exactFifteenRootsAndAbsence": true
+      }
+    },
+    {
+      "name": "independent driver audit all23 checks pass",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "actual13/178 and6Diagram18LEK4site",
+      "passed": true,
+      "observed": {
+        "scenarios": 13,
+        "commands": 178,
+        "diagramPython": 6,
+        "lekPython": 18,
+        "siteGeneration": 4,
+        "siteStaticPython": 4
+      }
+    },
+    {
+      "name": "four static96 reports all zero fail",
+      "passed": true,
+      "observed": [
+        {
+          "checks": 96,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        },
+        {
+          "checks": 96,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        },
+        {
+          "checks": 96,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        },
+        {
+          "checks": 96,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        }
+      ]
+    },
+    {
+      "name": "actual CLI01470 Python31214 Node2218",
+      "passed": true,
+      "observed": {
+        "node": "D:\\Development\\nodejs\\node.exe",
+        "nodeVersion": "v22.18.0",
+        "cli": {
+          "status": 0,
+          "stdout": "codex-cli 0.147.0\n",
+          "stderr": ""
+        },
+        "python": {
+          "status": 0,
+          "stdout": "{\"executable\": \"C:\\\\Users\\\\Admin\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\python\\\\python.exe\", \"version\": \"3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]\"}\r\n",
+          "stderr": ""
+        },
+        "pathPython": {
+          "status": 0,
+          "stdout": "C:\\Users\\Admin\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe\r\n",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "name": "15 own roots double absent no manual cleanup",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "separate own canonical short container removed nonrecursively",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "original child stdout hash matches recorded",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "original child stderr hash matches recorded",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "complete live source-map/index/primary/worktree guard unchanged",
+      "passed": true,
+      "observed": {
+        "checkedAtUtc": "2026-10-20T16:43:01.372+00:00",
+        "status": "PASS",
+        "guards": {
+          "exactMainHeadTreeAndBranch": true,
+          "allTrackedFileMapsByteIdentical": true,
+          "actualFileCountUnchanged": true,
+          "candidateCleanBeforeAfter": true,
+          "completeIndexByteIdentical": true,
+          "primaryIdentityStatusUnchanged": true,
+          "ownerOriginalHashUnchanged": true,
+          "completeWorktreeInventoryByteIdentical": true
+        },
+        "head": "931e1214377357e9f94b6c5ca10029330c6ec0d6",
+        "tree": "3b310156c5d56a4bf533c1cfebdeb1e5ef4d71ca",
+        "actualTrackedFileCount": 9616,
+        "before": "full-source-before.json",
+        "after": "full-source-after.json"
+      }
+    }
+  ],
+  "sourceAudit": "independent-audit.json",
+  "tools": {
+    "node": "D:\\Development\\nodejs\\node.exe",
+    "nodeVersion": "v22.18.0",
+    "cli": {
+      "status": 0,
+      "stdout": "codex-cli 0.147.0\n",
+      "stderr": ""
+    },
+    "python": {
+      "status": 0,
+      "stdout": "{\"executable\": \"C:\\\\Users\\\\Admin\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\python\\\\python.exe\", \"version\": \"3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]\"}\r\n",
+      "stderr": ""
+    },
+    "pathPython": {
+      "status": 0,
+      "stdout": "C:\\Users\\Admin\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe\r\n",
+      "stderr": ""
+    }
+  },
+  "ownedRoots": [
+    {
+      "root": "D:\\t292m\\release-install-Hc0BiX",
+      "kind": "canonical",
+      "observedFrom": "template copy original sourceRoot/canonical",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T16:42:59.599Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T16:42:59.684388+00:00"
+    },
+    {
+      "root": "D:\\t292m\\marketplace-smoke-8GS6go",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T16:42:59.600Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T16:42:59.684904+00:00"
+    },
+    {
+      "root": "D:\\t292m\\marketplace-smoke-BNlU9h",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T16:42:59.601Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T16:42:59.684904+00:00"
+    },
+    {
+      "root": "D:\\t292m\\marketplace-smoke-CA69Ur",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T16:42:59.601Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T16:42:59.684904+00:00"
+    },
+    {
+      "root": "D:\\t292m\\marketplace-smoke-dWTdcf",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T16:42:59.600Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T16:42:59.684904+00:00"
+    },
+    {
+      "root": "D:\\t292m\\marketplace-smoke-HGChg6",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T16:42:59.600Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T16:42:59.684904+00:00"
+    },
+    {
+      "root": "D:\\t292m\\marketplace-smoke-KSZkDZ",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T16:42:59.600Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T16:42:59.685420+00:00"
+    },
+    {
+      "root": "D:\\t292m\\marketplace-smoke-lxHVl3",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T16:42:59.599Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T16:42:59.685420+00:00"
+    },
+    {
+      "root": "D:\\t292m\\marketplace-smoke-Ottcq7",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T16:42:59.601Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T16:42:59.685420+00:00"
+    },
+    {
+      "root": "D:\\t292m\\marketplace-smoke-Pb6TpD",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T16:42:59.601Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T16:42:59.685420+00:00"
+    },
+    {
+      "root": "D:\\t292m\\marketplace-smoke-qzs5uD",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T16:42:59.600Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T16:42:59.685420+00:00"
+    },
+    {
+      "root": "D:\\t292m\\marketplace-smoke-RWCcr9",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T16:42:59.601Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T16:42:59.685939+00:00"
+    },
+    {
+      "root": "D:\\t292m\\marketplace-smoke-uQ02Ob",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T16:42:59.601Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T16:42:59.685939+00:00"
+    },
+    {
+      "root": "D:\\t292m\\marketplace-smoke-wjT0DR",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T16:42:59.600Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T16:42:59.685939+00:00"
+    },
+    {
+      "root": "D:\\t292m\\marketplace-smoke-source-PWiM2B",
+      "kind": "template",
+      "observedFrom": "copy destinationRoot/template",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T16:42:59.599Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T16:42:59.685939+00:00"
+    }
+  ],
+  "shortTempContainer": {
+    "checkedAt": "2026-10-20T16:42:59.693225+00:00",
+    "path": "D:\\t292m",
+    "ordinaryDirectory": true,
+    "remainingChildren": [],
+    "removed": true,
+    "method": "nonrecursive rmdir only after independent PASS and empty direct-owned container",
+    "existsAfter": false
+  },
+  "localHarnessContribution": 0,
+  "limits": [
+    "This is a new actual-main fixed-commit canonical installation/discovery/static execution; no CI count or earlier installation result is borrowed.",
+    "Browser checks in canonical installation remain NOT_RUN. No model/GUI/native persistent window/second client/Sites or effects execution was performed.",
+    "Local full npm test/strict/baseline is separately isolated and not counted among these15 canonical roots.",
+    "This actual-main installation evidence does not attest publication state, supply protected approval, cure historical failure/UNKNOWN or replace Owner acceptance; publication status belongs to independent API evidence."
+  ],
+  "nextRecommendation": "Combine this canonical packet with the separate actual-main local Harness and fresh independent evidence review, then advance only the authorized release-candidate documentation and real protected PR gates.",
+  "fullSourceGuard": {
+    "checkedAtUtc": "2026-10-20T16:43:01.372+00:00",
+    "status": "PASS",
+    "guards": {
+      "exactMainHeadTreeAndBranch": true,
+      "allTrackedFileMapsByteIdentical": true,
+      "actualFileCountUnchanged": true,
+      "candidateCleanBeforeAfter": true,
+      "completeIndexByteIdentical": true,
+      "primaryIdentityStatusUnchanged": true,
+      "ownerOriginalHashUnchanged": true,
+      "completeWorktreeInventoryByteIdentical": true
+    },
+    "head": "931e1214377357e9f94b6c5ca10029330c6ec0d6",
+    "tree": "3b310156c5d56a4bf533c1cfebdeb1e5ef4d71ca",
+    "actualTrackedFileCount": 9616,
+    "before": "full-source-before.json",
+    "after": "full-source-after.json"
+  },
+  "fullSourceGuardSnapshotCapture": "Fresh complete actual file maps and index/status/primary/inventory before and after this batch; count derived from each live snapshot, not inherited."
+}

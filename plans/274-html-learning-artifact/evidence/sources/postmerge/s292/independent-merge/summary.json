@@ -1,0 +1,233 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_LIMITED_WITH_ACTUAL_PROTECTED_APPROVAL_GAP",
+  "reviewedAt": "2026-10-20T16:32:21.841551+00:00",
+  "checkCount": 27,
+  "allReadbackChecksTrue": true,
+  "checks": [
+    {
+      "name": "actualPR292 merged exact time and SHA",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "actualmain and source candidate complete tree identical",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "actual normal merge parents",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "current main and develop exact",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "review and thread pagination complete",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "complete actual matched rule suite",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "all5 public versions unchanged",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "README published default834 actualmain landed",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "maintenance runtime and versions unchanged",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "maintenance exact260 documentation/evidence paths",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "published834 and all old Git changelog preserved",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "public834 tag body target preserved",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "public833 tag body target preserved",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "latest834 ID immutablefalse repository configUNKNOWN",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "no tag targets maintenance merge and no835 tag",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "complete exact maintenance head run inventory",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "ordinary CI main push not configured",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "no CI or release triggered for actual maintenance head",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "release pushmain VERSION-only trigger unchanged",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "3055 source identities complete and unique",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "all3055 raw snapshot bytes match bindings and actualGit blobs",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "historical FAIL approval gaps and .37 limited acceptance retained",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "develop is full main ancestor no develop-only commits",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "sync keeps all runtime and VERSION with only pluginREADME doc difference",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "source host remains exact main clean branch",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "primary Owner original preserved",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "second main develop and public bindings preserved",
+      "passed": true,
+      "observed": null
+    }
+  ],
+  "actualMerge": {
+    "sha": "931e1214377357e9f94b6c5ca10029330c6ec0d6",
+    "tree": "3b310156c5d56a4bf533c1cfebdeb1e5ef4d71ca",
+    "parents": [
+      "5898a8192740b39f41263129a5f99efeba96a6cc",
+      "010e704a192b657761c19fcf4fb6df87098218c1"
+    ],
+    "mergedAt": "2026-10-20T16:25:37Z",
+    "mergedBy": "ranzuozhou",
+    "reviews": [],
+    "ruleSuite": 4623862443,
+    "ruleResult": "bypass",
+    "protectedApproval": "NOT_MET",
+    "pullRequestRuleResult": [
+      {
+        "result": "fail",
+        "details": "New changes require approval from someone other than the last pusher."
+      }
+    ]
+  },
+  "protection": {
+    "currentRules": "main-rules.stdout",
+    "matchedActualSuite": "matched-rule-suite-1.stdout",
+    "approvalNotInferredFromMerge": true
+  },
+  "published834": {
+    "tag": "v8.3.4",
+    "tagTarget": "5898a8192740b39f41263129a5f99efeba96a6cc",
+    "releaseId": 418543870,
+    "bodyBytes": 1677,
+    "bodySha256": "93f4459e8718b06eae19dc6aa82397eacce723470f8fd6e33214fb489d542d38",
+    "immutable": false,
+    "repositoryImmutableConfiguration": "UNKNOWN",
+    "latest": true
+  },
+  "old833": {
+    "tagTarget": "fdede3cf5578dee8a41aef4310a9387d695c56bd",
+    "bodyBytes": 2507,
+    "bodySha256": "11fc9f4c0231ba5aebda7a7d3add60ed8f506a943e2ff516d5c2c8b27c5b069c",
+    "preserved": true
+  },
+  "versions": {
+    "marketplace": "8.3.4",
+    "diagram-kit": "0.3.1",
+    "learning-evidence-kit": "0.1.0",
+    "explain-kit": "0.1.1",
+    "communication-kit": "0.1.0",
+    "html-guide-kit": "0.1.39"
+  },
+  "maintenanceScope": {
+    "actualPaths": 260,
+    "runtimeVersionChanges": [],
+    "readmeDefault": "v8.3.4",
+    "sameCandidateTree": true,
+    "noNewTagOrReleaseObserved": true,
+    "automaticMainCI": "NOT_TRIGGERED_ON_MAIN",
+    "headRuns": []
+  },
+  "sourceClosure": {
+    "sourceCount": 3055,
+    "allSha256AndGitBlobIdentitiesVerified": true,
+    "manifest": "source-closure.json",
+    "manifestSha256": "ac1651f6d8ba82d38f644214fdfd0dd228a67e286bf3fadc4c1b25ca1268bb63"
+  },
+  "synchronization": {
+    "develop": "7c23f347c0725bdfa57ee1e0f5e9075a8d90babf",
+    "main": "931e1214377357e9f94b6c5ca10029330c6ec0d6",
+    "developIsMainAncestor": true,
+    "mergeBase": "7c23f347c0725bdfa57ee1e0f5e9075a8d90babf",
+    "developOnlyCommits": 0,
+    "mainOnlyCommits": 4,
+    "changedPaths": 367,
+    "runtimeVersionWorkflowChanges": [],
+    "pluginDocChanges": [
+      "plugins/html-guide-kit/README.md"
+    ],
+    "method": "Read-only merge-base/rev-list/log/diff. No merge-tree, object/ref write or worktree mutation.",
+    "risk": "Ancestor relationship means a complete ordinary merge can preserve all main ancestry without a divergent-content conflict. Actual merge must still occur only after active source guards stop; verify result tree and current protecteddevelop CI/approval/threads/latestbase. Large immutable evidence/docs and A6/INDEX navigation comprise the bulk; no runtime or marketplace version change is proposed."
+  },
+  "productTestsRun": false,
+  "sourceMutationsByReviewer": false,
+  "requiredOwnerProductDecisions": [],
+  "retainedLimits": [
+    "Actual missing protected approval and bypass, if observed, remain historical facts and no future waiver.",
+    "All old FAIL/UNKNOWN, D01 native persistent waiting-window DEFERRED and other client deferrals remain; effects NOT_MEASURED/full plan OPEN.",
+    "Owner ACCEPTED_LIMITED remains original0.1.37 only, not expanded to0.1.38/Site v2/0.1.39.",
+    "Current actualmain canonical/local executions are separate pending workers; this identity/source audit does not preclaim those results."
+  ],
+  "nextRecommendation": "Wait for both exact actualmain batches to reach independent terminal freeze and explicit source-window STOP. Then perform authorized complete main→develop ordinary merge in the isolated branch, preserve main ancestry and exact source tree, run required candidate checks and use fresh real protecteddevelop gate; only later prepare authorized marketplace-only next patch."
+}
