@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-20
 state: active
-version: v2.106
+version: v2.107
 layer: canonical
 ---
 
@@ -14,7 +14,7 @@ layer: canonical
 
 ## 工程任务与文档分层
 
-- [HTML learning artifact 原意 INT-2026-003](intent/[INTENT]_INT-2026-003_HTML_Learning_Artifact.md)、[#274任务入口](../plans/274-html-learning-artifact/INDEX.md)：同一HTML包新增显式site、包内方法/工具与真实Sites交付；[扩展ADR](adr/[ADR]_HTML_Learning_Artifact_Extension.md)、[site SPEC](spec/[SPEC]_HTML_Learning_Artifact.md)、[使用指南](guide/[GUIDE]_HTML_Learning_Artifact.md)承接本次范围及四项最小门槛。guide原字节/历史合同、旧FAIL和缺证保留；新候选结果、保护批准及Owner最终接受按各自证据判断。
+- [HTML learning artifact 原意 INT-2026-003](intent/[INTENT]_INT-2026-003_HTML_Learning_Artifact.md)、[#274任务入口](../plans/274-html-learning-artifact/INDEX.md)：同一HTML包显式site、包内方法/生成器/检查及约定Sites或本地交付；[扩展ADR](adr/[ADR]_HTML_Learning_Artifact_Extension.md)、[site SPEC](spec/[SPEC]_HTML_Learning_Artifact.md)、[使用指南](guide/[GUIDE]_HTML_Learning_Artifact.md)承接[本次B2/U2选择性统一](../plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md#selective-alignment-baseline)：关键未决按需Matt grilling/设计共识、可选主题、保护既有材料及独立目录产物。guide原字节、旧完整合同/核心ACCEPTED_LIMITED、历史FAIL/缺证和窗口DEFERRED保留；新增验收尚未完成，保护批准及Owner最终接受分别判断。
 
 - [计划路径统一原意 INT-2026-002](intent/[INTENT]_INT-2026-002_Plans_Path_Unification.md)：Owner 已接受 B1 并授权实施；[#269 任务入口](../plans/269-plans-path-unification/INDEX.md)承接整合与旧路径兼容撤除，其他历史文档兼容不在范围。
 
@@ -34,6 +34,10 @@ layer: canonical
 [#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)五阶段#246/#247/#248/#249/#251均已合入develop。四性能门槛/完整24样本通过、保留default；最终actual6df新492/492、13安装、6Diagram+18LEK及15清理通过并独立复核。Owner明确仅对245接受历史批准/bypass缺项后，Issue于2026-10-16T13:09:52Z以Completed关闭；原NOT_MET、历史失败和调度限制保留，例外不外推。见[账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)与[最终收尾回执](runbook/evidence/ci-performance-245-final-closeout.json)。
 
 ## 当前整体发布
+
+2026-10-20选择性统一准备：0.1.38仍为修复候选，#284保持open且冻结；本批同Issue274排队准备0.1.39，不开第二活动主PR，Marketplace8.3.3仍未发布且版本不动，公开仍v8.3.2/HTML0.1.37。本批新增设计、主题及本地交付验收未完成，旧核心接受不扩张；原生窗口/第二客户端延期非PASS、效果NOT_MEASURED、历史保护批准NOT_MET和FAIL/UNKNOWN保留。唯一决定正本及完整来源定位见[主PLAN本次基线](../plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md#selective-alignment-baseline)，实际结果仍由同一REPORT报告。
+
+下段为此前恢复批次记录，候选及排队状态以上段和Issue为准。
 
 2026-10-20：#282已合入develop908d2953；Owner已明确接受当前交付核心并保留全部延期/历史缺口（ACCEPTED_LIMITED），完整计划仍OPEN。本轮按同一五边界自主恢复可执行工程项，新发现边界对比度与输出许可缺件，准备HTML0.1.38修复候选；公开仍v8.3.2/HTML0.1.37，市场8.3.3未发布。原生窗口/原生派发/第二客户端仍延期，历史FAIL/UNKNOWN/bypass及批准NOT_MET不追认。 余项/恢复条件见同一[任务REPORT](../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#deferral-recovery-results)。下方为之前各轮的原日期记录。
 
