@@ -6,13 +6,33 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.18
+version: v1.19
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 ---
 
 # [REPORT] HTML learning artifact
+
+## Actual PR291 publication and post-publication checks
+
+Owner[本轮直接续办](./evidence/sources/postmerge/r291/continuation/owner-request.txt)和[捕获](./evidence/sources/postmerge/r291/continuation/capture.json)请求actualmain、发布身份及真实tag新十三安装；未知消息ID/时间/URL不编造。沿唯一INT-2026-003 v1.2、完整旧32项和A01–A08、同PLAN/REPORT与五边界P5授权，没有新产品原意或接受。
+
+2026-10-20：#291于15:13:30Z实际合入main **5898a8192740b39f41263129a5f99efeba96a6cc/tree3a68976af95bb5948de17a6fccaabf892becaaca**，parents f18＋f344，树同已审发行候选。v8.3.4于15:16:38Z正式公开，tag/Release target均为该actualmain；Release418543870、draft=false/prerelease=false/assets=[]、正文1677B/SHA25693f4459e8718b06eae19dc6aa82397eacce723470f8fd6e33214fb489d542d38，actual CHANGELOG8.3.4节按CRLF→LF/trim相同。Release run39446432726 exact5898/push/attempt1自然成功；immutable=false，仓库配置缺字段仍UNKNOWN。五包八公开/五显式/三自然/20repo skills；HTML0.1.39，其他四包版本保持。
+
+[独立发布30项](./evidence/sources/postmerge/r291/release/summary.json)保存匹配suite、旧833 tag/body2507B原hash、发布run完整日志/ZIP恢复、来源许可边界。初读tag/Release404和run进行中是PENDING，随后fresh实际公开，不当初读失败或新重跑。私有完整制作提示词不再分发、仅metadata/hash恢复；与已审候选同树不扩许可范围。实际suite4622448549为bypass、reviews=[]、批准NOT_MET；Agent未执行该保护合并。旧FAIL/UNKNOWN和历史批准缺口保留。D01持续原生窗口、其他延期客户端/扩展入口非PASS，效果NOT_MEASURED、完整计划OPEN；Owner原ACCEPTED_LIMITED仅0.1.37，不扩至0.1.38/Site v2/0.1.39。
+
+新actualmain本机652总/651PASS/0FAIL/1平台skip、strict/CLI0.147.0/实际Python及限定浏览器通过；actualmain新十三安装与真实tag解析SHA后的独立新十三安装各13/178全exit0，6Diagram＋18LEK实际Python、4site生成/4静态各96/96，15精确自有根双absence/外层guards通过。actualmain两批各新核完整9366文件字节图及索引/primary/库存，tag批核HEAD/tree/clean/index/primary/完整库存守卫；各自前后核验，按顺序执行，不过滤其他工作树或复用候选/发布run计数。
+
+实际5898的通用CI配置不监听main push，fresh查询仅Release工作流，故为NOT_TRIGGERED_ON_MAIN，不把PR291矩阵改名为actualmain新执行，也不新增trigger/dispatch。只读collector最初误设恰一CI而断言退出，原查询、helper及工具trace的来源限制保留；这不是产品或CI运行失败。
+
+真实tag批次先后各回读remote URL、refs/tags/v8.3.4、tag对象/peeled commit/tree与Release正文，将解析SHA交给无ref参数既有Harness；安装metadata/资源hash保留，不能声称每个CLI直接--ref v8.3.4。原发布run的自动canonical只算该run自身；本轮两次canonical为独立新执行。 实际命令/始终时间/工具版本、源/缓存资源、清理和原始失败按各批原件记录，完整大map由[逐项恢复映射](./evidence/sources/postmerge/r291/selection.json)定位外部冻结；选证包不冒充完整全量。本机独占Node compile cache初次absence=false保留；原生受控清理仅作用于精确自有cache/空父目录，边界/ownership/无reparse和双absence有证。这不是测试自动清理，也不计canonical15根。 原13安装无浏览器/模型/真实客户端新验，本机套件限定browser按自身结果分记。
+
+实际main README默认ref/公开段/HTML表仍指833/38，故本轮只更新默认安装到经新验834/39及必要导航、A6、账本/同任务记录。不是为重复检查再开纯证据PR。VERSION、五包manifest/运行资源、INTENT、workflow与已公开root/plugin CHANGELOG整尾保持，旧2805来源对象完整前缀后追加选证。本轮维护自身commit/PR/CI/实际main结果只回Issue274和后继外部冻结回执，不递归记录PR。来源守卫中的方法失败与受控清理如有发生，按SOURCE_WRITE_UNLOCK及原批次明示，不冒充首跑全成功或自动清理。
+
+下一步推荐：先正常合入本轮有界main安装导航/记录PR，再以包含该实际merge的完整main ancestry向protected develop同步；同步实际合入并新验后，才DryRun→Apply仅市场下一补丁预升。理由是默认安装应先抵达已验证公开版本，随后保持main/develop历史与版本准备有序。当前head真实批准/CI/A6/线程/latestbase保持门禁，无新增Owner产品决定。
+
+以下旧current/待办为各自原时点快照，当前以本节与Issue274为准。
 
 ## Actual PR290 verification and HTML0.1.39 release preparation
 
