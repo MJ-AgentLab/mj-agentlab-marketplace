@@ -6,13 +6,17 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-20
 state: active
-version: v2.10.5
+version: v2.10.6
 layer: canonical
 ---
 
 # [RUNBOOK] Release operations
 
 ## Preparation
+
+当前有界修复发行：#283已合developa4892f51/HTML0.1.38，实际全测/strict/CLI及新13通过，同private Site v2已部署且受众不变。沿原B1/P5五边界授权准备一次Marketplace8.3.3→受保护main修复发行，不再bump；真实head CI/外部批准/线程/latestbase、actualmain、draft-first、tag/Release及真实tag安装分别取证。公开及默认安装仍v8.3.2；完整计划/效果/历史批准缺口不追认。当前见[8.3.3账本](./[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md)及[同一REPORT](../../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#actual283-and-repair-release-continuation)。
+
+下列281记录为上一维护批次快照，不构成本次修复发行的永久禁止；其无实质差异不递归纯证据PR原则继续有效。
 
 当前发布后技术链：#281于2026-10-20T00:00:09Z实际合入develop62945150/tree6659，同已测6ef/c41；市场8.3.3预升已交付但仍未发布，公开v8.3.2/f906及插件保持。候选CI、actual629新验与真实bypass/批准NOT_MET分别绑定；当前结果和原始证据见[唯一REPORT](../../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#current-sync-merge-and-marketplace-prebump)。
 

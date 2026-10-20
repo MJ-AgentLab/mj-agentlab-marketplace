@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.9
+version: v1.10
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -23,6 +23,10 @@ sources: ./source-bindings.json
 # HTML learning artifact task entry
 
 [#274](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274) 是进度正本。
+
+2026-10-20当前：#283已合developa4892f51，actual本机647总/646P/1平台skip、strict/CLI及新13/178/实际Python/14自有根清理通过；同私有Site v2已部署，受众保持仅Owner。一次HTML0.1.38修复发行正按保护main门禁准备，市场8.3.3未发布，安装仍v8.3.2；真实批准、tag/Release和真实tag新验另待。[当前REPORT](./[REPORT]_HTML_Learning_Artifact.md#actual283-and-repair-release-continuation)与[8.3.3账本](../../docs/runbook/[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md)接续。核心ACCEPTED_LIMITED/完整计划OPEN/旧FAIL和批准NOT_MET、D01–D07均保留，无新增Owner实质决定。
+
+以下为283合入前快照。
 
 2026-10-20：#282已合入develop908d2953；Owner已明确接受当前交付核心并保留全部延期/历史缺口（ACCEPTED_LIMITED），完整计划仍OPEN。本轮按同一五边界自主恢复可执行工程项，新发现边界对比度与输出许可缺件，准备HTML0.1.38修复候选；公开仍v8.3.2/HTML0.1.37，市场8.3.3未发布。原生窗口/原生派发/第二客户端仍延期，历史FAIL/UNKNOWN/bypass及批准NOT_MET不追认。 可自治检查、各延期恢复条件及真实新修复由同一[PLAN](./[PLAN]_HTML_Learning_Artifact.md#deferral-recovery-batch)和[REPORT](./[REPORT]_HTML_Learning_Artifact.md#deferral-recovery-results)接续；下方维护段按其历史日期读取。
 

@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.1
+version: v1.2
 layer: canonical
 ---
 
@@ -16,7 +16,7 @@ layer: canonical
 
 本合同仅覆盖新显式 `$html-guide-kit:site` 与直接受影响的包级资源/能力。guide 保留已批准图标、运行字节和原只读聊天合同；旧[guide SPEC](./[SPEC]_HTML_Guide_Kit_Acceptance.md)、[历史验收](../runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)保持原范围。依据为[扩展 ADR](../adr/[ADR]_HTML_Learning_Artifact_Extension.md)及[INTENT](../intent/[INTENT]_INT-2026-003_HTML_Learning_Artifact.md)，完整接受/操作来源见[主PLAN](../../plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md#accepted-baseline-and-authorization)。
 
-site为显式调用，原生行为配置布尔false；插件Read/Write不等于技能权限隔离。manifest提示覆盖guide/site，只引用本包真实路由，最多3条，每条原值不超过128 Unicode scalar values。新增技能与全部必需资源/脚本/主题/来源及安装比较原子接入，原子首版HTML0.1.37；后续0.1.38修复候选未公开；五包八公开/五显式/三自然，仓库技能20保持。
+site为显式调用，原生行为配置布尔false；插件Read/Write不等于技能权限隔离。manifest提示覆盖guide/site，只引用本包真实路由，最多3条，每条原值不超过128 Unicode scalar values。新增技能与全部必需资源/脚本/主题/来源及安装比较原子接入，原子首版HTML0.1.37，0.1.38承接许可传递与输入边界修复；实际发布状态见[8.3.3账本](../runbook/[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md)；五包八公开/五显式/三自然，仓库技能20保持。
 
 ## §2 Six-step behavior and language
 

@@ -6,13 +6,13 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.1
+version: v1.2
 layer: canonical
 ---
 
 # [GUIDE] HTML learning artifact
 
-HTML Guide Kit 的 `$html-guide-kit:guide` 保留聊天指南职责；本次候选新增显式 `$html-guide-kit:site`，用于从材料制作学习网页并通过 Sites 发布。候选是否已安装、可用或已公开，按[#274任务入口](../../plans/274-html-learning-artifact/INDEX.md)和实际发布记录核对，本指南本身不代表上线通过。
+HTML Guide Kit 的 `$html-guide-kit:guide` 保留聊天指南职责；另有显式 `$html-guide-kit:site`，用于从材料制作学习网页并通过 Sites 发布。具体版本的安装、可用与公开状态，按[#274任务入口](../../plans/274-html-learning-artifact/INDEX.md)和实际发布记录核对，本指南本身不代表上线通过。
 
 ## Prepare materials
 
@@ -51,4 +51,4 @@ Sites交接包只包括本任务已确认目标、Markdown/术语/必要来源�
 
 ## Generated asset notices
 
-0.1.38修复候选会随生成资产携带LICENSE、licenses/Apache-2.0.txt及带范围说明的THIRD_PARTY_NOTICES.md，纳入输出manifest；学习正文和输入材料保留各自权利。不要把静态清单通过当作许可真实性或材料授权证明。当前公开0.1.37与候选状态见任务入口。
+从0.1.38起，生成资产携带LICENSE、licenses/Apache-2.0.txt及带范围说明的THIRD_PARTY_NOTICES.md，纳入输出manifest；学习正文和输入材料保留各自权利。不要把静态清单通过当作许可真实性或材料授权证明。具体发布身份和未覆盖范围见[8.3.3账本](../runbook/[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md)。

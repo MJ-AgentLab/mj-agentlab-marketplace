@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.10
+version: v1.11
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -16,6 +16,14 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 
 [任务入口](./INDEX.md) · [唯一 Issue #274](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274) · [INTENT](../../docs/intent/[INTENT]_INT-2026-003_HTML_Learning_Artifact.md) · [扩展 ADR](../../docs/adr/[ADR]_HTML_Learning_Artifact_Extension.md) · [SPEC](../../docs/spec/[SPEC]_HTML_Learning_Artifact.md)
 
+
+## Actual283 continuation and conditional release
+
+Owner续办“#283 PR 已合并，继续后续工作”，本次[捕获](./evidence/sources/postmerge/a283/request.json)不冒充准确消息时钟。actuala489已交付修复，原单主PR→develop阶段结束；冻结窗口actual全测/strict/CLI及新13已完成，事实见[唯一REPORT](./[REPORT]_HTML_Learning_Artifact.md#actual283-and-repair-release-continuation)。同private Site v2已在同身份/受众下修复部署，无新目标/权限或受众决定。
+
+由原B1/P5上线后修订与原则4五边界复用推进一次0.1.38修复发行；[独立授权复核](./evidence/sources/postmerge/a283/scope/assessment.md)区分Owner决定与Agent上一库存批“不正式发布”的工程边界。市场预升不是授权，真实验收/保护批准/发布控制不可省。下一步从完整actualdevelop ancestry准备一个发行PR→受保护main（按ReleaseOps既有发行拓扑），同Issue/同主文档，不复用已合入283的批准状态、不开第二活动实现主PR；其他包/guide/workflow不变、不再版本预升。
+
+顺序：①实际源新验和同Site有界修复完成；②同步发行正文、stage-neutral用户说明、当前账本与来源；③候选文档/来源/冻结资源及CI、真实当前head非作者且非latest-pusher批准、线程/latestbase；④保护main普通合入后核actualSHA/tree，再draft-first及tag/Release身份/正文/资产核对；⑤真实发布tag独立13安装/Python/精确清理；⑥按实际需要记录/同步/预升，未出现实质差异不递归纯证据PR。公开前安装ref保v8.3.2，后续状态见[8.3.3账本](../../docs/runbook/[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md)。无新模型/桌面/第二客户端或周期监控，原延期/效果和Owner核心有限接受不变。
 
 ## Deferral recovery batch
 

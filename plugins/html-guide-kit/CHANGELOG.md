@@ -2,7 +2,7 @@
 
 ## [0.1.38] - 2026-10-20
 
-HTML Guide Kit 0.1.38 is a prepared fix candidate; publication remains separate from this dated preparation record.
+HTML Guide Kit 0.1.38 fixes generated asset notices, portable input paths and reflection control boundaries. Publication and bounded acceptance are recorded separately under task #274.
 
 ### Fixed
 

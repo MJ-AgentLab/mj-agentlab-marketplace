@@ -1,0 +1,63 @@
+{
+  "executedAt": "2026-10-20T03:04:09.559Z",
+  "runs": [
+    {
+      "name": "old-static",
+      "command": "C:/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+      "args": [
+        "-B",
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-postmerge283-site\\installation\\plugins\\html-guide-kit\\skills\\site\\scripts\\check_artifact.py",
+        "--input",
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-postmerge283-site\\canonical-v1\\dist",
+        "--output",
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-postmerge283-site-review\\old-static.json"
+      ],
+      "start": "2026-10-20T03:04:08.499Z",
+      "end": "2026-10-20T03:04:08.576Z",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "name": "new-static",
+      "command": "C:/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+      "args": [
+        "-B",
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-postmerge283-site\\installation\\plugins\\html-guide-kit\\skills\\site\\scripts\\check_artifact.py",
+        "--input",
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-postmerge283-site-review\\artifact",
+        "--output",
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-postmerge283-site-review\\new-static.json"
+      ],
+      "start": "2026-10-20T03:04:08.577Z",
+      "end": "2026-10-20T03:04:08.648Z",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "name": "browser",
+      "command": "C:/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+      "args": [
+        "-B",
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-postmerge283-site\\installation\\plugins\\html-guide-kit\\skills\\site\\scripts\\check_renderings.py",
+        "--input",
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-postmerge283-site-review\\artifact",
+        "--browser",
+        "C:/Program Files/Google/Chrome/Application/chrome.exe",
+        "--viewport",
+        "320x844",
+        "--viewport",
+        "390x844",
+        "--viewport",
+        "1366x900",
+        "--screenshots",
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-postmerge283-site-review\\evidence\\screenshots",
+        "--output",
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\html-learning-274-postmerge283-site-review\\browser.json"
+      ],
+      "start": "2026-10-20T03:04:08.648Z",
+      "end": "2026-10-20T03:04:09.559Z",
+      "exitCode": 0,
+      "signal": null
+    }
+  ]
+}

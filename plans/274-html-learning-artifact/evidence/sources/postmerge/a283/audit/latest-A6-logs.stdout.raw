@@ -1,0 +1,340 @@
+﻿2026-10-20T02:48:16.3700496Z Current runner version: '2.337.0'
+2026-10-20T02:48:16.3741572Z ##[group]Runner Image Provisioner
+2026-10-20T02:48:16.3742269Z Hosted Compute Agent
+2026-10-20T02:48:16.3742845Z Version: 20261012.601
+2026-10-20T02:48:16.3743372Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+2026-10-20T02:48:16.3744002Z Build Date: 2026-10-12T17:48:21Z
+2026-10-20T02:48:16.3744617Z Worker ID: {d82a6ff6-bc1f-49d5-895e-dd8335fced51}
+2026-10-20T02:48:16.3745347Z Region: westcentralus
+2026-10-20T02:48:16.3745868Z Cloud: Azure
+2026-10-20T02:48:16.3746356Z ##[endgroup]
+2026-10-20T02:48:16.3747520Z ##[group]Operating System
+2026-10-20T02:48:16.3748080Z Ubuntu
+2026-10-20T02:48:16.3748541Z 24.04.5
+2026-10-20T02:48:16.3749005Z LTS
+2026-10-20T02:48:16.3749433Z ##[endgroup]
+2026-10-20T02:48:16.3749863Z ##[group]Runner Image
+2026-10-20T02:48:16.3750438Z Image: ubuntu-24.04
+2026-10-20T02:48:16.3750930Z Version: 20261012.334.1
+2026-10-20T02:48:16.3751998Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-20T02:48:16.3753210Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+2026-10-20T02:48:16.3754071Z ##[endgroup]
+2026-10-20T02:48:16.3755284Z ##[group]GITHUB_TOKEN Permissions
+2026-10-20T02:48:16.3757166Z Contents: read
+2026-10-20T02:48:16.3757691Z Metadata: read
+2026-10-20T02:48:16.3758246Z PullRequests: read
+2026-10-20T02:48:16.3758744Z ##[endgroup]
+2026-10-20T02:48:16.3760419Z Secret source: Actions
+2026-10-20T02:48:16.3761247Z Cache mode: write
+2026-10-20T02:48:16.3761865Z Prepare workflow directory
+2026-10-20T02:48:16.4025492Z Prepare all required actions
+2026-10-20T02:48:16.4065273Z Getting action download info
+2026-10-20T02:48:16.7001024Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-20T02:48:16.9299155Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-10-20T02:48:17.5626730Z Complete job name: A6 / Check
+2026-10-20T02:48:17.6366291Z ##[group]Run actions/checkout@v4
+2026-10-20T02:48:17.6367014Z with:
+2026-10-20T02:48:17.6367430Z   ref: 908d29537a19ceca166e8f3c7cddef4d419781a4
+2026-10-20T02:48:17.6367947Z   fetch-depth: 0
+2026-10-20T02:48:17.6368344Z   persist-credentials: false
+2026-10-20T02:48:17.6368854Z   repository: MJ-AgentLab/mj-agentlab-marketplace
+2026-10-20T02:48:17.6372152Z   token: ***
+2026-10-20T02:48:17.6372528Z   ssh-strict: true
+2026-10-20T02:48:17.6372922Z   ssh-user: git
+2026-10-20T02:48:17.6373283Z   clean: true
+2026-10-20T02:48:17.6373664Z   sparse-checkout-cone-mode: true
+2026-10-20T02:48:17.6374106Z   fetch-tags: false
+2026-10-20T02:48:17.6374486Z   show-progress: true
+2026-10-20T02:48:17.6374885Z   lfs: false
+2026-10-20T02:48:17.6375602Z   submodules: false
+2026-10-20T02:48:17.6376199Z   set-safe-directory: true
+2026-10-20T02:48:17.6376899Z   allow-unsafe-pr-checkout: false
+2026-10-20T02:48:17.6378036Z ##[endgroup]
+2026-10-20T02:48:17.7249787Z Syncing repository: MJ-AgentLab/mj-agentlab-marketplace
+2026-10-20T02:48:17.7251922Z ##[group]Getting Git version info
+2026-10-20T02:48:17.7252724Z Working directory is '/home/runner/work/mj-agentlab-marketplace/mj-agentlab-marketplace'
+2026-10-20T02:48:17.7253777Z [command]/usr/bin/git version
+2026-10-20T02:48:17.7290188Z git version 2.55.0
+2026-10-20T02:48:17.7307846Z ##[endgroup]
+2026-10-20T02:48:17.7322295Z Temporarily overriding HOME='/home/runner/work/_temp/b0828284-2af9-4c5b-8062-988ebd516436' before making global git config changes
+2026-10-20T02:48:17.7324405Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-20T02:48:17.7327551Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mj-agentlab-marketplace/mj-agentlab-marketplace
+2026-10-20T02:48:17.7371609Z Deleting the contents of '/home/runner/work/mj-agentlab-marketplace/mj-agentlab-marketplace'
+2026-10-20T02:48:17.7379092Z ##[group]Initializing the repository
+2026-10-20T02:48:17.7380453Z [command]/usr/bin/git init /home/runner/work/mj-agentlab-marketplace/mj-agentlab-marketplace
+2026-10-20T02:48:17.7454285Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-20T02:48:17.7457329Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-20T02:48:17.7458655Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-20T02:48:17.7459691Z hint: call:
+2026-10-20T02:48:17.7460253Z hint:
+2026-10-20T02:48:17.7460987Z hint: 	git config --global init.defaultBranch <name>
+2026-10-20T02:48:17.7461833Z hint:
+2026-10-20T02:48:17.7462632Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-20T02:48:17.7463937Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-20T02:48:17.7465123Z hint:
+2026-10-20T02:48:17.7465706Z hint: 	git branch -m <name>
+2026-10-20T02:48:17.7466355Z hint:
+2026-10-20T02:48:17.7467211Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-20T02:48:17.7468983Z Initialized empty Git repository in /home/runner/work/mj-agentlab-marketplace/mj-agentlab-marketplace/.git/
+2026-10-20T02:48:17.7470977Z [command]/usr/bin/git remote add origin https://github.com/MJ-AgentLab/mj-agentlab-marketplace
+2026-10-20T02:48:17.7509380Z ##[endgroup]
+2026-10-20T02:48:17.7510468Z ##[group]Disabling automatic garbage collection
+2026-10-20T02:48:17.7512468Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-20T02:48:17.7541853Z ##[endgroup]
+2026-10-20T02:48:17.7542876Z ##[group]Setting up auth
+2026-10-20T02:48:17.7547195Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-20T02:48:17.7582019Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-20T02:48:17.7891061Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-20T02:48:17.7924562Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-20T02:48:17.8131154Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-20T02:48:17.8163201Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-20T02:48:17.8357799Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-20T02:48:17.8394453Z ##[endgroup]
+2026-10-20T02:48:17.8395626Z ##[group]Fetching the repository
+2026-10-20T02:48:17.8403057Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-10-20T02:48:22.5081839Z From https://github.com/MJ-AgentLab/mj-agentlab-marketplace
+2026-10-20T02:48:22.5087827Z  * [new branch]      codex/communication-release -> origin/codex/communication-release
+2026-10-20T02:48:22.5088893Z  * [new branch]      codex/communication-release-preparation -> origin/codex/communication-release-preparation
+2026-10-20T02:48:22.5089960Z  * [new branch]      codex/html-learning-acceptance -> origin/codex/html-learning-acceptance
+2026-10-20T02:48:22.5090836Z  * [new branch]      codex/html-learning-artifact -> origin/codex/html-learning-artifact
+2026-10-20T02:48:22.5091615Z  * [new branch]      codex/html-learning-deferral-fixes -> origin/codex/html-learning-deferral-fixes
+2026-10-20T02:48:22.5092246Z  * [new branch]      codex/html-learning-release-closeout -> origin/codex/html-learning-release-closeout
+2026-10-20T02:48:22.5092818Z  * [new branch]      codex/html-learning-site -> origin/codex/html-learning-site
+2026-10-20T02:48:22.5093438Z  * [new branch]      codex/issue-245-cancel-probe -> origin/codex/issue-245-cancel-probe
+2026-10-20T02:48:22.5094313Z  * [new branch]      codex/issue-245-dedup-probe -> origin/codex/issue-245-dedup-probe
+2026-10-20T02:48:22.5095674Z  * [new branch]      codex/learning-evidence-acceptance-history-20261013 -> origin/codex/learning-evidence-acceptance-history-20261013
+2026-10-20T02:48:22.5096408Z  * [new branch]      codex/learning-evidence-contract -> origin/codex/learning-evidence-contract
+2026-10-20T02:48:22.5097100Z  * [new branch]      codex/learning-evidence-github-history-20261013 -> origin/codex/learning-evidence-github-history-20261013
+2026-10-20T02:48:22.5097869Z  * [new branch]      codex/learning-evidence-switch-history-20261013 -> origin/codex/learning-evidence-switch-history-20261013
+2026-10-20T02:48:22.5098541Z  * [new branch]      codex/post-8-3-0-docs   -> origin/codex/post-8-3-0-docs
+2026-10-20T02:48:22.5099010Z  * [new branch]      codex/prebump-8-3-1     -> origin/codex/prebump-8-3-1
+2026-10-20T02:48:22.5099499Z  * [new branch]      codex/prebump-marketplace-8-3-3 -> origin/codex/prebump-marketplace-8-3-3
+2026-10-20T02:48:22.5100083Z  * [new branch]      codex/record-html-learning-8-3-2 -> origin/codex/record-html-learning-8-3-2
+2026-10-20T02:48:22.5100753Z  * [new branch]      codex/release-html-learning-8-3-2 -> origin/codex/release-html-learning-8-3-2
+2026-10-20T02:48:22.5101321Z  * [new branch]      codex/sync-main-8-3-0   -> origin/codex/sync-main-8-3-0
+2026-10-20T02:48:22.5101841Z  * [new branch]      codex/sync-main-8-3-2   -> origin/codex/sync-main-8-3-2
+2026-10-20T02:48:22.5102267Z  * [new branch]      codex/task-docs-closeout -> origin/codex/task-docs-closeout
+2026-10-20T02:48:22.5102722Z  * [new branch]      codex/task-docs-contract -> origin/codex/task-docs-contract
+2026-10-20T02:48:22.5103152Z  * [new branch]      codex/task-docs-harness -> origin/codex/task-docs-harness
+2026-10-20T02:48:22.5103603Z  * [new branch]      codex/task-docs-html-pilot -> origin/codex/task-docs-html-pilot
+2026-10-20T02:48:22.5104060Z  * [new branch]      codex/task-documentation -> origin/codex/task-documentation
+2026-10-20T02:48:22.5104637Z  * [new branch]      develop                 -> origin/develop
+2026-10-20T02:48:22.5105223Z  * [new branch]      main                    -> origin/main
+2026-10-20T02:48:22.5105588Z  * [new tag]         v1.0.0                  -> v1.0.0
+2026-10-20T02:48:22.5106015Z  * [new tag]         v1.1.0                  -> v1.1.0
+2026-10-20T02:48:22.5106367Z  * [new tag]         v1.1.1                  -> v1.1.1
+2026-10-20T02:48:22.5106663Z  * [new tag]         v1.1.2                  -> v1.1.2
+2026-10-20T02:48:22.5106950Z  * [new tag]         v1.1.3                  -> v1.1.3
+2026-10-20T02:48:22.5107227Z  * [new tag]         v1.1.4                  -> v1.1.4
+2026-10-20T02:48:22.5107506Z  * [new tag]         v1.1.5                  -> v1.1.5
+2026-10-20T02:48:22.5107790Z  * [new tag]         v1.2.0                  -> v1.2.0
+2026-10-20T02:48:22.5108080Z  * [new tag]         v1.2.1                  -> v1.2.1
+2026-10-20T02:48:22.5108363Z  * [new tag]         v1.2.2                  -> v1.2.2
+2026-10-20T02:48:22.5108653Z  * [new tag]         v1.2.3                  -> v1.2.3
+2026-10-20T02:48:22.5108961Z  * [new tag]         v1.2.4                  -> v1.2.4
+2026-10-20T02:48:22.5109244Z  * [new tag]         v1.2.5                  -> v1.2.5
+2026-10-20T02:48:22.5109522Z  * [new tag]         v1.2.6                  -> v1.2.6
+2026-10-20T02:48:22.5109805Z  * [new tag]         v1.3.0                  -> v1.3.0
+2026-10-20T02:48:22.5110104Z  * [new tag]         v1.3.1                  -> v1.3.1
+2026-10-20T02:48:22.5110390Z  * [new tag]         v1.3.2                  -> v1.3.2
+2026-10-20T02:48:22.5110682Z  * [new tag]         v2.0.0                  -> v2.0.0
+2026-10-20T02:48:22.5110964Z  * [new tag]         v2.1.0                  -> v2.1.0
+2026-10-20T02:48:22.5111260Z  * [new tag]         v2.1.1                  -> v2.1.1
+2026-10-20T02:48:22.5111544Z  * [new tag]         v3.0.0                  -> v3.0.0
+2026-10-20T02:48:22.5111825Z  * [new tag]         v3.1.0                  -> v3.1.0
+2026-10-20T02:48:22.5112329Z  * [new tag]         v3.2.0                  -> v3.2.0
+2026-10-20T02:48:22.5119058Z  * [new tag]         v3.2.1                  -> v3.2.1
+2026-10-20T02:48:22.5119385Z  * [new tag]         v4.4.10                 -> v4.4.10
+2026-10-20T02:48:22.5119698Z  * [new tag]         v4.4.11                 -> v4.4.11
+2026-10-20T02:48:22.5119996Z  * [new tag]         v4.4.8                  -> v4.4.8
+2026-10-20T02:48:22.5120291Z  * [new tag]         v4.5.0                  -> v4.5.0
+2026-10-20T02:48:22.5120579Z  * [new tag]         v4.6.0                  -> v4.6.0
+2026-10-20T02:48:22.5120868Z  * [new tag]         v4.6.1                  -> v4.6.1
+2026-10-20T02:48:22.5121157Z  * [new tag]         v4.6.2                  -> v4.6.2
+2026-10-20T02:48:22.5121448Z  * [new tag]         v5.0.0                  -> v5.0.0
+2026-10-20T02:48:22.5121746Z  * [new tag]         v5.0.1                  -> v5.0.1
+2026-10-20T02:48:22.5122042Z  * [new tag]         v6.0.0                  -> v6.0.0
+2026-10-20T02:48:22.5122373Z  * [new tag]         v6.1.0                  -> v6.1.0
+2026-10-20T02:48:22.5122689Z  * [new tag]         v6.2.0                  -> v6.2.0
+2026-10-20T02:48:22.5122986Z  * [new tag]         v6.3.0                  -> v6.3.0
+2026-10-20T02:48:22.5123297Z  * [new tag]         v6.3.1                  -> v6.3.1
+2026-10-20T02:48:22.5123650Z  * [new tag]         v7.0.0                  -> v7.0.0
+2026-10-20T02:48:22.5124126Z  * [new tag]         v7.0.1                  -> v7.0.1
+2026-10-20T02:48:22.5124447Z  * [new tag]         v8.0.0                  -> v8.0.0
+2026-10-20T02:48:22.5124760Z  * [new tag]         v8.1.0                  -> v8.1.0
+2026-10-20T02:48:22.5125145Z  * [new tag]         v8.1.1                  -> v8.1.1
+2026-10-20T02:48:22.5125447Z  * [new tag]         v8.2.0                  -> v8.2.0
+2026-10-20T02:48:22.5125758Z  * [new tag]         v8.3.0                  -> v8.3.0
+2026-10-20T02:48:22.5126070Z  * [new tag]         v8.3.1                  -> v8.3.1
+2026-10-20T02:48:22.5126369Z  * [new tag]         v8.3.2                  -> v8.3.2
+2026-10-20T02:48:22.5127814Z [command]/usr/bin/git rev-parse --verify --quiet 908d29537a19ceca166e8f3c7cddef4d419781a4^{object}
+2026-10-20T02:48:22.5147763Z 908d29537a19ceca166e8f3c7cddef4d419781a4
+2026-10-20T02:48:22.5150478Z ##[endgroup]
+2026-10-20T02:48:22.5212621Z ##[group]Determining the checkout info
+2026-10-20T02:48:22.5214123Z ##[endgroup]
+2026-10-20T02:48:22.5214826Z [command]/usr/bin/git sparse-checkout disable
+2026-10-20T02:48:22.5216526Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-20T02:48:22.5227910Z ##[group]Checking out the ref
+2026-10-20T02:48:22.5231098Z [command]/usr/bin/git checkout --progress --force 908d29537a19ceca166e8f3c7cddef4d419781a4
+2026-10-20T02:48:23.5413379Z Updating files:  74% (5962/7975)
+2026-10-20T02:48:23.5513971Z Updating files:  75% (5982/7975)
+2026-10-20T02:48:23.5681875Z Updating files:  76% (6061/7975)
+2026-10-20T02:48:23.5778214Z Updating files:  77% (6141/7975)
+2026-10-20T02:48:23.5873100Z Updating files:  78% (6221/7975)
+2026-10-20T02:48:23.5926491Z Updating files:  79% (6301/7975)
+2026-10-20T02:48:23.6094044Z Updating files:  80% (6380/7975)
+2026-10-20T02:48:23.6182606Z Updating files:  81% (6460/7975)
+2026-10-20T02:48:23.6250033Z Updating files:  82% (6540/7975)
+2026-10-20T02:48:23.6334908Z Updating files:  83% (6620/7975)
+2026-10-20T02:48:23.6409974Z Updating files:  84% (6699/7975)
+2026-10-20T02:48:23.6525144Z Updating files:  85% (6779/7975)
+2026-10-20T02:48:23.6570492Z Updating files:  86% (6859/7975)
+2026-10-20T02:48:23.6616894Z Updating files:  87% (6939/7975)
+2026-10-20T02:48:23.6674583Z Updating files:  88% (7018/7975)
+2026-10-20T02:48:23.6761895Z Updating files:  89% (7098/7975)
+2026-10-20T02:48:23.6889498Z Updating files:  90% (7178/7975)
+2026-10-20T02:48:23.6936779Z Updating files:  91% (7258/7975)
+2026-10-20T02:48:23.7008164Z Updating files:  92% (7337/7975)
+2026-10-20T02:48:23.7086872Z Updating files:  93% (7417/7975)
+2026-10-20T02:48:23.7162354Z Updating files:  94% (7497/7975)
+2026-10-20T02:48:23.7199937Z Updating files:  95% (7577/7975)
+2026-10-20T02:48:23.7410933Z Updating files:  96% (7656/7975)
+2026-10-20T02:48:23.7460344Z Updating files:  97% (7736/7975)
+2026-10-20T02:48:23.7526449Z Updating files:  98% (7816/7975)
+2026-10-20T02:48:23.7582379Z Updating files:  99% (7896/7975)
+2026-10-20T02:48:23.7582763Z Updating files: 100% (7975/7975)
+2026-10-20T02:48:23.7583103Z Updating files: 100% (7975/7975), done.
+2026-10-20T02:48:23.7744351Z Note: switching to '908d29537a19ceca166e8f3c7cddef4d419781a4'.
+2026-10-20T02:48:23.7744894Z 
+2026-10-20T02:48:23.7745306Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-20T02:48:23.7745899Z changes and commit them, and you can discard any commits you make in this
+2026-10-20T02:48:23.7746489Z state without impacting any branches by switching back to a branch.
+2026-10-20T02:48:23.7746842Z 
+2026-10-20T02:48:23.7747069Z If you want to create a new branch to retain commits you create, you may
+2026-10-20T02:48:23.7747652Z do so (now or later) by using -c with the switch command. Example:
+2026-10-20T02:48:23.7747991Z 
+2026-10-20T02:48:23.7748125Z   git switch -c <new-branch-name>
+2026-10-20T02:48:23.7748348Z 
+2026-10-20T02:48:23.7748478Z Or undo this operation with:
+2026-10-20T02:48:23.7748670Z 
+2026-10-20T02:48:23.7748784Z   git switch -
+2026-10-20T02:48:23.7748916Z 
+2026-10-20T02:48:23.7749157Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-20T02:48:23.7749546Z 
+2026-10-20T02:48:23.7749923Z HEAD is now at 908d295 Merge pull request #282 from MJ-AgentLab/codex/html-learning-release-closeout
+2026-10-20T02:48:23.7833258Z ##[endgroup]
+2026-10-20T02:48:23.7901114Z [command]/usr/bin/git log -1 --format=%H
+2026-10-20T02:48:23.7924676Z 908d29537a19ceca166e8f3c7cddef4d419781a4
+2026-10-20T02:48:23.7938940Z ##[group]Removing auth
+2026-10-20T02:48:23.7940759Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-20T02:48:23.7970053Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-20T02:48:23.8193604Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-20T02:48:23.8219876Z http.https://github.com/.extraheader
+2026-10-20T02:48:23.8236065Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-20T02:48:23.8311101Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-20T02:48:23.8521001Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-20T02:48:23.8552142Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-20T02:48:23.8768731Z ##[endgroup]
+2026-10-20T02:48:23.9032082Z ##[group]Run actions/setup-node@v4
+2026-10-20T02:48:23.9032333Z with:
+2026-10-20T02:48:23.9032511Z   node-version: 22
+2026-10-20T02:48:23.9032685Z   always-auth: false
+2026-10-20T02:48:23.9032862Z   check-latest: false
+2026-10-20T02:48:23.9035097Z   token: ***
+2026-10-20T02:48:23.9035275Z ##[endgroup]
+2026-10-20T02:48:24.0196295Z Found in cache @ /opt/hostedtoolcache/node/22.23.3/x64
+2026-10-20T02:48:24.0199793Z (node:2226) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-20T02:48:24.0200350Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-20T02:48:24.0202495Z ##[group]Environment details
+2026-10-20T02:48:24.8213407Z node: v22.23.3
+2026-10-20T02:48:24.8213722Z npm: 10.9.9
+2026-10-20T02:48:24.8213940Z yarn: 1.22.22
+2026-10-20T02:48:24.8214524Z ##[endgroup]
+2026-10-20T02:48:24.8721214Z ##[group]Run git fetch --no-tags --quiet origin "refs/pull/${PR_NUMBER}/head"
+2026-10-20T02:48:24.8721710Z [36;1mgit fetch --no-tags --quiet origin "refs/pull/${PR_NUMBER}/head"[0m
+2026-10-20T02:48:24.9531853Z shell: /usr/bin/bash -e {0}
+2026-10-20T02:48:24.9532120Z env:
+2026-10-20T02:48:24.9532303Z   PR_NUMBER: 283
+2026-10-20T02:48:24.9532484Z ##[endgroup]
+2026-10-20T02:48:25.2868521Z ##[group]Run set -euo pipefail
+2026-10-20T02:48:25.2868838Z [36;1mset -euo pipefail[0m
+2026-10-20T02:48:25.2869065Z [36;1mDEST="${RUNNER_TEMP}/check-a6.mjs"[0m
+2026-10-20T02:48:25.2869295Z [36;1m[0m
+2026-10-20T02:48:25.2869549Z [36;1m# Normal path: the base tree already carries the checker. Judge with that.[0m
+2026-10-20T02:48:25.2869953Z [36;1mif git cat-file -e "${A6_BASE_SHA}:scripts/check-a6.mjs" 2>/dev/null; then[0m
+2026-10-20T02:48:25.2870299Z [36;1m  git show "${A6_BASE_SHA}:scripts/check-a6.mjs" > "$DEST"[0m
+2026-10-20T02:48:25.2870590Z [36;1m  echo "mode=base" >> "$GITHUB_OUTPUT"[0m
+2026-10-20T02:48:25.2870880Z [36;1m  echo "Judging with the checker from base ${A6_BASE_SHA}."[0m
+2026-10-20T02:48:25.2871151Z [36;1m  exit 0[0m
+2026-10-20T02:48:25.2871329Z [36;1mfi[0m
+2026-10-20T02:48:25.2871486Z [36;1m[0m
+2026-10-20T02:48:25.2871758Z [36;1m# First release/* -> main: main has no checker yet, but develop does. Use develop's[0m
+2026-10-20T02:48:25.2872240Z [36;1m# blob only if it is genuinely the same code this PR carries and already in its[0m
+2026-10-20T02:48:25.2872663Z [36;1m# history — otherwise the PR would still be choosing its own judge.[0m
+2026-10-20T02:48:25.2873083Z [36;1mif [ "$BASE_REF" = "main" ] && git fetch --no-tags --quiet origin main develop \[0m
+2026-10-20T02:48:25.2873494Z [36;1m   && git cat-file -e "origin/develop:scripts/check-a6.mjs" 2>/dev/null; then[0m
+2026-10-20T02:48:25.2873910Z [36;1m  CHECKER_COMMIT=$(git log -1 --format=%H origin/develop -- scripts/check-a6.mjs)[0m
+2026-10-20T02:48:25.2874288Z [36;1m  git show "origin/develop:scripts/check-a6.mjs" > "$DEST"[0m
+2026-10-20T02:48:25.2874546Z [36;1m[0m
+2026-10-20T02:48:25.2874793Z [36;1m  if ! git merge-base --is-ancestor "$CHECKER_COMMIT" "$A6_HEAD_SHA"; then[0m
+2026-10-20T02:48:25.2875430Z [36;1m    echo "::error::develop's checker commit ${CHECKER_COMMIT} is not an ancestor of ${A6_HEAD_SHA}"[0m
+2026-10-20T02:48:25.2875798Z [36;1m    exit 1[0m
+2026-10-20T02:48:25.2875972Z [36;1m  fi[0m
+2026-10-20T02:48:25.2876257Z [36;1m  if ! git show "${A6_HEAD_SHA}:scripts/check-a6.mjs" | cmp -s - "$DEST"; then[0m
+2026-10-20T02:48:25.2876731Z [36;1m    echo "::error::the checker on this release head differs from develop's — refusing to judge with either"[0m
+2026-10-20T02:48:25.2877125Z [36;1m    exit 1[0m
+2026-10-20T02:48:25.2877294Z [36;1m  fi[0m
+2026-10-20T02:48:25.2877477Z [36;1m  echo "mode=base" >> "$GITHUB_OUTPUT"[0m
+2026-10-20T02:48:25.2877890Z [36;1m  echo "Judging with develop's checker ${CHECKER_COMMIT} (byte-identical to this head, and an ancestor of it)."[0m
+2026-10-20T02:48:25.2878277Z [36;1m  exit 0[0m
+2026-10-20T02:48:25.2878437Z [36;1mfi[0m
+2026-10-20T02:48:25.2878590Z [36;1m[0m
+2026-10-20T02:48:25.2878863Z [36;1m# Bootstrap: the commit that introduces the checker. Nothing on base can judge it,[0m
+2026-10-20T02:48:25.2879256Z [36;1m# so fall back to a fixed check pinned in THIS file.[0m
+2026-10-20T02:48:25.2879556Z [36;1mecho "mode=bootstrap" >> "$GITHUB_OUTPUT"[0m
+2026-10-20T02:48:25.2879858Z [36;1mecho "No checker on base ${BASE_REF} — bootstrap mode."[0m
+2026-10-20T02:48:25.2938788Z shell: /usr/bin/bash -e {0}
+2026-10-20T02:48:25.2939009Z env:
+2026-10-20T02:48:25.2939227Z   A6_BASE_SHA: 908d29537a19ceca166e8f3c7cddef4d419781a4
+2026-10-20T02:48:25.2939521Z   A6_HEAD_SHA: 395bafe51d79374f6ef57fdfd772a6d1121f7ef0
+2026-10-20T02:48:25.2939762Z   BASE_REF: develop
+2026-10-20T02:48:25.2939940Z ##[endgroup]
+2026-10-20T02:48:25.4027913Z Judging with the checker from base 908d29537a19ceca166e8f3c7cddef4d419781a4.
+2026-10-20T02:48:25.4948424Z ##[group]Run gh api --paginate --slurp "repos/$REPO/pulls/$PR_NUMBER/reviews" > "$RUNNER_TEMP/a6-reviews.json"
+2026-10-20T02:48:25.4949042Z [36;1mgh api --paginate --slurp "repos/$REPO/pulls/$PR_NUMBER/reviews" > "$RUNNER_TEMP/a6-reviews.json"[0m
+2026-10-20T02:48:25.5010330Z shell: /usr/bin/bash -e {0}
+2026-10-20T02:48:25.5010546Z env:
+2026-10-20T02:48:25.5012711Z   GH_TOKEN: ***
+2026-10-20T02:48:25.5012928Z   REPO: MJ-AgentLab/mj-agentlab-marketplace
+2026-10-20T02:48:25.5013167Z   PR_NUMBER: 283
+2026-10-20T02:48:25.5013340Z ##[endgroup]
+2026-10-20T02:48:26.3515301Z ##[group]Run node "${RUNNER_TEMP}/check-a6.mjs"
+2026-10-20T02:48:26.3515626Z [36;1mnode "${RUNNER_TEMP}/check-a6.mjs"[0m
+2026-10-20T02:48:26.3571796Z shell: /usr/bin/bash -e {0}
+2026-10-20T02:48:26.3572008Z env:
+2026-10-20T02:48:26.3572214Z   A6_BASE_SHA: 908d29537a19ceca166e8f3c7cddef4d419781a4
+2026-10-20T02:48:26.3572507Z   A6_HEAD_SHA: 395bafe51d79374f6ef57fdfd772a6d1121f7ef0
+2026-10-20T02:48:26.3572849Z   A6_PR_TITLE: fix(html-guide-kit): retain asset notices and improve input boundaries
+2026-10-20T02:48:26.3573190Z   A6_PR_AUTHOR: ranzuozhou
+2026-10-20T02:48:26.3573434Z   A6_REVIEWS_FILE: /home/runner/work/_temp/a6-reviews.json
+2026-10-20T02:48:26.3573704Z ##[endgroup]
+2026-10-20T02:48:26.5677498Z A6 OK — trigger files present and root AGENTS.md is updated.
+2026-10-20T02:48:26.5677955Z Triggered files:
+2026-10-20T02:48:26.5678306Z   - plugins/html-guide-kit/plugin.json
+2026-10-20T02:48:26.5832668Z Post job cleanup.
+2026-10-20T02:48:26.6822024Z (node:2283) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-20T02:48:26.6822683Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-20T02:48:26.7882249Z Post job cleanup.
+2026-10-20T02:48:26.8613507Z [command]/usr/bin/git version
+2026-10-20T02:48:26.8639280Z git version 2.55.0
+2026-10-20T02:48:26.8669716Z Temporarily overriding HOME='/home/runner/work/_temp/a19b5d72-c395-4155-8657-a9bce312f793' before making global git config changes
+2026-10-20T02:48:26.8671253Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-20T02:48:26.8674629Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mj-agentlab-marketplace/mj-agentlab-marketplace
+2026-10-20T02:48:26.8926174Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-20T02:48:26.8987995Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-20T02:48:26.9217351Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-20T02:48:26.9282251Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-20T02:48:26.9520015Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-20T02:48:26.9557011Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-20T02:48:26.9939372Z Cleaning up orphan processes
+2026-10-20T02:48:27.0229981Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

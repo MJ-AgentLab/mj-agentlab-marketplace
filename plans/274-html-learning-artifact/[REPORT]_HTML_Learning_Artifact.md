@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.11
+version: v1.12
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -16,6 +16,22 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 
 [任务入口](./INDEX.md) · [主 PLAN/接受来源](./[PLAN]_HTML_Learning_Artifact.md) · [Issue #274](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274) · [INTENT](../../docs/intent/[INTENT]_INT-2026-003_HTML_Learning_Artifact.md)
 
+
+## Actual283 and repair release continuation
+
+2026-10-20：Owner直接续办“#283 PR 已合并，继续后续工作”，准确消息ID/时间未知，[本次捕获](./evidence/sources/postmerge/a283/request.json)与实际平台事件时间分开。实际283于UTC02:51:03Z合入develop **a4892f51f4163fb5bd4457d99229eaf1a4683e8f / tree196daab879d38b649333a01c4c0d0194c7b107c7**，parents908d+395bafe，与已测395候选同树。[独立实际审计](./evidence/sources/postmerge/a283/audit/summary.json)保存suite4612130198的bypass、reviews=[]、批准NOT_MET；actual merge没有新的完整Actions/checks，不借395候选计数，也不把缺触发称CI失败。Agent未执行bypass，新发布PR须真实保护批准。
+
+实际合入源的完整本机测试647总/646PASS/0FAIL/1项Linux机制在Windows不适用，duration324686.71ms；[原全测](./evidence/sources/postmerge/a283/local/full-test.log)、[strict](./evidence/sources/postmerge/a283/local/validate.log)及[CLI0.147.0](./evidence/sources/postmerge/a283/local/cli.log)均通过。另一个冻结窗口内的新安装批于UTC **02:56:38.655–03:09:46.916Z** 原始PASS/driver0：[13场景/178命令](./evidence/sources/postmerge/a283/install/summary.json)全exit0，6Diagram+18LEK实际Python、4site生成/4静态各95/95，四产物各10物理文件（9payload+manifest），20site/4guide及安装根LICENSE原字节一致，94包文件/8Harness前后保持。14实际唯一自有根（13场景+1template）均absence，detacheda489/clean、primary908、完整15登记worktree及Owner原件25994B/dc9d摘要保持。此批终态后才建发布分支；[选证指针](./evidence/sources/postmerge/a283/install-selection/selected-manifest.json)覆盖28原件、638992B，外部170payload完整运行不冒充全部接回。原908运行guardFAIL/exit1、首Windows checkoutFAIL与旧Chrome根因UNKNOWN均保持原身份。
+
+同一私有Site已前向更新为 **v2**。源 **3d3082ff8cfa99576bbda816a3ecc3b0b787636d**，project appgprj_6ad5ec4ffef08191ab68478e806c7d54，保存版本 appgprj_6ad5ec4ffef08191ab68478e806c7d54~appgver_248c305315948191b5b8656427218f4d，部署 appgdep_6ad6db98ebd08191b4e623ba462c8d23 于 **03:10:30.278974+00:00 succeeded**。[原生回执](./evidence/sources/postmerge/a283/site/native-final.json)回读v2/source、active/owner、custom revision1、1位owner/0组/0外部/0automation，地址仍为[现有私有成品](https://html-learning-artifact-274.zuozhouran.chatgpt.site)。独立本地QA为[PASS_LIMITED](./evidence/sources/postmerge/a283/siteqa/summary.json)：old7/new10，材料/index/JS保持ffaaa Git原字节，仅CSS一处边界、manifest及3项许可；静态89→95零失败，明确Chrome155三视口320/390/1366与空白控件截图实看通过。没有重跑键盘/复制，按未变index/JS限定继承旧交互；无新托管完整交互或原生/第二客户端/效果主张。
+
+Site helper压缩输入16381B/b957cad3…、11payload仅10制品+原hosting元数据；原生保存回读11files/61440B/a8509332…，本地gunzip61952B/929e6c84…也与其不同。原生保存归档未下载，不能宣称这三者字节等同或推造转换原因；源身份/部署/文件数/受众分别已有证。首次autocrlf工作副本对LF输出的原字节断言FAIL发生在任何Site写入前，保留[原错误](./evidence/sources/postmerge/a283/site/first-method-error.json)，改用固定ffaaa Git原字节导出后通过；不改全局Git配置。通用python不在PATH的预览启动失败亦保留，明确bundled Python随后HTTP200；仅关闭自有65044预览，未触用户8765。open_in_codex为queued，不证明Owner访站。v1及其原源/部署保留，未演练生产回滚。
+
+授权[独立复核](./evidence/sources/postmerge/a283/scope/assessment.md)确认原B1/P5“上线后修订/受影响复验”、本轮七原则及PLAN五边界可覆盖 **一次HTML0.1.38修复发行与同一private Site前向修复**。dr274库存批的“不正式发布”是当时Agent工程边界，不是Owner永久撤销授权；市场8.3.3预升本身也不构成授权。没有实质越界，不重复请批。当前从actuala489完整ancestry准备codex/release-html-learning-8-3-3→受保护main e3dc；不再bump，四包/guide/workflow不变，旧8.3.2正文/资产保持，默认安装继续真实v8.3.2。新[8.3.3账本](../../docs/runbook/[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md)登记headCI/真实外部批准/线程/latestbase、实际main、draft-first发布/tag及真实tag新验的待办，均未先PASS。无新需求/INTENT/Issue/主PLAN或REPORT。
+
+新增选证由[恢复上下文](./evidence/sources/postmerge/a283/README.md)、[逐项映射](./evidence/sources/postmerge/a283/selection-map.json)及同一source-bindings逐字节绑定；旧1890项与原件保持。首次root GraphQL只读连接中断后REST成功，原root运输错误未单独落盘，独审REST原件有效；不制造该缺失raw。原Owner接受仅绑定当时已交付核心，仍 **ACCEPTED_LIMITED**；不推定0.1.38或Site v2已获新接受。完整计划OPEN、完整最终接受NOT_PROVIDED、效果NOT_MEASURED；D01–D07恢复条件沿用下节，没有立即需要Owner实质决定。独立GitHub批准是门禁，由合资格非作者/非最新推送者提供，不能用合成验收或Owner本次续办替代。
+
+以下Deferral recovery是283合入前批次快照，原“候选/未部署”等语句保留各自原时点；当前actual283/Sitev2及发布准备以上节、8.3.3账本与Issue为准。
 
 ## Deferral recovery results
 

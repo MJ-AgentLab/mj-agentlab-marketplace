@@ -1,0 +1,158 @@
+{
+  "capturedAt": "2026-10-20T02:54:36.902Z",
+  "results": [
+    {
+      "name": "rule-suite-4612130198",
+      "args": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/rulesets/rule-suites/4612130198"
+      ],
+      "start": "2026-10-20T02:54:34.483Z",
+      "end": "2026-10-20T02:54:35.252Z",
+      "exitCode": 0,
+      "signal": null,
+      "stdoutBytes": 1003,
+      "stderrBytes": 0,
+      "stdoutSha256": "1b8399b0d5f62f9274d052de74990daf67eb2435b693cab3c2c0794734b0dc00",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "review-gate-graphql",
+      "args": [
+        "api",
+        "graphql",
+        "-f",
+        "query=query { repository(owner: \"MJ-AgentLab\", name: \"mj-agentlab-marketplace\") { pullRequest(number: 283) { number state merged mergedAt mergeCommit { oid } reviewDecision mergeStateStatus reviewThreads(first: 100) { pageInfo { hasNextPage endCursor } nodes { id isResolved isOutdated } } reviews(first: 100) { totalCount pageInfo { hasNextPage endCursor } nodes { author { login } state submittedAt commit { oid } } } } } }"
+      ],
+      "start": "2026-10-20T02:54:34.494Z",
+      "end": "2026-10-20T02:54:35.414Z",
+      "exitCode": 0,
+      "signal": null,
+      "stdoutBytes": 415,
+      "stderrBytes": 0,
+      "stdoutSha256": "6447a6912677acb82f1d0abfbc73fad0751eb01164a35d24551fd24e76545630",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "actual-ci-workflow",
+      "args": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/contents/.github/workflows/ci.yml?ref=a4892f51f4163fb5bd4457d99229eaf1a4683e8f"
+      ],
+      "start": "2026-10-20T02:54:34.498Z",
+      "end": "2026-10-20T02:54:35.329Z",
+      "exitCode": 0,
+      "signal": null,
+      "stdoutBytes": 51685,
+      "stderrBytes": 0,
+      "stdoutSha256": "7c7fff70eecf032466690e5c63607f23b3d36366ad5825344e53460dac3bc384",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "develop-VERSION",
+      "args": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/contents/VERSION?ref=a4892f51f4163fb5bd4457d99229eaf1a4683e8f"
+      ],
+      "start": "2026-10-20T02:54:34.502Z",
+      "end": "2026-10-20T02:54:35.309Z",
+      "exitCode": 0,
+      "signal": null,
+      "stdoutBytes": 1060,
+      "stderrBytes": 0,
+      "stdoutSha256": "b91649883b69a7fe46bd406b8e626a5a924a605fedebb7015ffa35ad0fa2aabd",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "develop-html-manifest",
+      "args": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/contents/plugins/html-guide-kit/plugin.json?ref=a4892f51f4163fb5bd4457d99229eaf1a4683e8f"
+      ],
+      "start": "2026-10-20T02:54:34.506Z",
+      "end": "2026-10-20T02:54:35.237Z",
+      "exitCode": 0,
+      "signal": null,
+      "stdoutBytes": 3547,
+      "stderrBytes": 0,
+      "stdoutSha256": "fe8f04be415cbf05af2a9c89c3527398f26d0923669b27a62a7c56fe196d5513",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "main-VERSION",
+      "args": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/contents/VERSION?ref=e3dc40f734fc972e05956da3e908091e09963675"
+      ],
+      "start": "2026-10-20T02:54:34.511Z",
+      "end": "2026-10-20T02:54:35.252Z",
+      "exitCode": 0,
+      "signal": null,
+      "stdoutBytes": 1060,
+      "stderrBytes": 0,
+      "stdoutSha256": "4376be5955c9958baff0e8094cf7058b2ddbf75d9b5e4faec56d69fcec4db363",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "main-html-manifest",
+      "args": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/contents/plugins/html-guide-kit/plugin.json?ref=e3dc40f734fc972e05956da3e908091e09963675"
+      ],
+      "start": "2026-10-20T02:54:34.515Z",
+      "end": "2026-10-20T02:54:35.293Z",
+      "exitCode": 0,
+      "signal": null,
+      "stdoutBytes": 3547,
+      "stderrBytes": 0,
+      "stdoutSha256": "a15ef8d6fbc68cd59a2fbba973187672b9f46dea994d8a02c1f4a9936bb59ea3",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "latest-A6-job",
+      "args": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/actions/jobs/118426531686"
+      ],
+      "start": "2026-10-20T02:54:34.521Z",
+      "end": "2026-10-20T02:54:35.375Z",
+      "exitCode": 0,
+      "signal": null,
+      "stdoutBytes": 2787,
+      "stderrBytes": 0,
+      "stdoutSha256": "c0d4a4355870bce4bd60443642f7107323b1eb4c10b566f46a06c95dcf50f72b",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "latest-A6-logs",
+      "args": [
+        "api",
+        "--method",
+        "GET",
+        "repos/MJ-AgentLab/mj-agentlab-marketplace/actions/jobs/118426531686/logs"
+      ],
+      "start": "2026-10-20T02:54:34.527Z",
+      "end": "2026-10-20T02:54:36.901Z",
+      "exitCode": 0,
+      "signal": null,
+      "stdoutBytes": 28124,
+      "stderrBytes": 0,
+      "stdoutSha256": "84379f4ee0a67e41878d97aec21039f991bd01c30e6960d5d21d89e1af7f3562",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}
