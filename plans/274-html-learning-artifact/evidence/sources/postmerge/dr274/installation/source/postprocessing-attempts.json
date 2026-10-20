@@ -1,0 +1,19 @@
+{
+  "role": "Independent installation acceptance /root/contract_scan",
+  "scope": "Post-run evidence extraction only; installation is not rerun and no repo mutation occurs",
+  "attempts": [
+    {
+      "method": "finalize-r1.mjs",
+      "result": "FAIL before any adjudication outputs: ENOENT reading old evidence path after root relocated deferral-recovery-20261020 to dr274",
+      "originalStandardError": "finalization-r1.stderr.log",
+      "originalStandardOutput": "finalization-r1.stdout.log"
+    },
+    {
+      "method": "finalize-r2.mjs",
+      "result": "FAIL before adjudication outputs: git show returned128 and Filename too long while interpreting the historical commit:path without core.longpaths",
+      "observedCommand": "git show 470970b5a8d40c25b8edefc6992377624f7f45d6:plans/274-html-learning-artifact/evidence/sources/postmerge/deferral-recovery-20261020/baseline-visual/run01/published-installation/plugins/html-guide-kit/skills/site/examples/representative/sources/renewal-rules.md",
+      "capture": "Original tool execution output retained in this agent conversation; this entry is a factual extraction rather than a replacement raw log"
+    }
+  ],
+  "finalMethod": "finalize.mjs uses read-only git -c core.longpaths=true show for the original blob and reads current dr274 file; no git config is written"
+}
