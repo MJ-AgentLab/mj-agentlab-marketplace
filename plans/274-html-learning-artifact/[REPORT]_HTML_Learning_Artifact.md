@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.10
+version: v1.11
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -15,6 +15,29 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 # [REPORT] HTML learning artifact
 
 [任务入口](./INDEX.md) · [主 PLAN/接受来源](./[PLAN]_HTML_Learning_Artifact.md) · [Issue #274](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274) · [INTENT](../../docs/intent/[INTENT]_INT-2026-003_HTML_Learning_Artifact.md)
+
+
+## Deferral recovery results
+
+2026-10-20：#282已合入develop908d2953；Owner已明确接受当前交付核心并保留全部延期/历史缺口（ACCEPTED_LIMITED），完整计划仍OPEN。本轮按同一五边界自主恢复可执行工程项，新发现边界对比度与输出许可缺件，准备HTML0.1.38修复候选；公开仍v8.3.2/HTML0.1.37，市场8.3.3未发布。原生窗口/原生派发/第二客户端仍延期，历史FAIL/UNKNOWN/bypass及批准NOT_MET不追认。
+
+本轮为实际新缺陷修复，非补历史批准或递归纯证据PR。候选工作树与actual908/公开f906身份分别记录；以下新测试不冒称已在公开0.1.37或真实托管Site执行。既有1417来源前缀/原件及32项基线前五列保持；新证据选择性接回，不公开权利未知研究原件。
+
+- **D04发现与修复**：独立隔离浏览器16例为14PASS/1FAIL/1NOT_RUN。原空白反思输入框边界#aba492对纸背景2.3570979971820427:1、对白2.483198873838037:1，未达适用控件可辨边界3:1。候选仅该边界改#767676，独立Chrome155.0.8059.80在320/390/1366截图像素及computed style核实，对纸4.311563390203977:1、对白4.542224959605253:1；真实键盘选择/核对/改答失效/输入聚焦及复制拒绝Escape回焦通过。截图逐张实看，初次口头147版本勘误保留，以raw155为准。真实浏览器UI缩放尝试未生效，记NOT_RUN；没有宣称完整WCAG/辅助技术/真实触控或全托管页通过。依据[WCAG22 SC1.4.11](https://www.w3.org/TR/WCAG22/#non-text-contrast)。
+- **C21发现与修复**：登记研究与固定上游版本/哈希及Apache原文一致；研究资料再分发权利未识别，保持UNKNOWN，不据MIT包推定许可。原生成器复制CSS/JS却遗漏许可输出，已证FAIL。候选新增LICENSE及licenses/Apache-2.0.txt原字节，THIRD_PARTY_NOTICES.md以明确资产/材料范围和安装包定位前缀接完整原notice字节尾部，均纳入manifest；不把输入材料或独立想法重授权。独立实际安装生成10文件/manifest9，三安装许可缺件在首写前失败、输出篡改/缺件按原manifest失败、installer根LICENSE缺件/篡改失败。通用checker只证明声明清单自洽，同步删改清单仍可能PASS，不充当独立许可真实性或法律裁决。
+- **路径修正**：独立代码审查发现long-s与Windows尾点材料路径被生成器接受但checker拒绝，原反例保留。候选统一upper/lower保留名判定并拒绝任一材料路径组件尾点/尾空格；新增Unicode/别名零写负例，修后结果另接真实复验。
+- **D05有界扩展**：长中英/表格/中文空格%文件名生成+实际Python静态通过；不支持图片语法、重复JSON键、缺来源文件、禁词四负例非零/无输出，5例通过。首轮测试材料含声明不支持的underscore语法，被正确拒绝，原Harness失败保留，改为子集内合法输入另批执行；未作模型语义/冲突推理新验。
+- **D06恢复与观测**：冻结公开已知良好7文件，在隔离目录实际完成再生字节同一、损坏JS静态失败、拒覆盖已有损坏目录、备份恢复后89/89、坏输入零输出5步，原Harness取字段/文件数误差及观测快照缺口保留。只读原生Sites回读仍同私有Site版本1/源码ffaaa359、部署succeeded/owner audience；无新版本/ACL/发布，生产回滚及周期监控NOT_RUN。
+
+D01原生持续窗口/空返回/超时/关闭、D02桌面菜单热加载派发、D03第二真实客户端仍缺可观测目标能力，并保留不重启模型/桌面测试限制，均DEFERRED非PASS。D04/D05/D06只完成上述限定子集，剩余完整视觉/托管/真实设备/模型语义/生产恢复范围不被消除。D07完整计划最终接受仍NOT_PROVIDED；Owner核心接受已存在，不重问。历史保护批准NOT_MET/bypass、旧FAIL/UNKNOWN永久保留。
+
+候选工程状态：46项定向检查已PASS；修后独立别名9例/许可回归3例/installer六负例均通过，无未解决代码发现。首轮完整647项为644PASS/2文档FAIL/1平台skip；两FAIL是新增插件CHANGELOG的Unreleased日期格式及缺自身版本说明，已按既有格式修正并明确“准备候选、非已发布”，原失败保留。strict与CLI0.147.0已PASS；新完整复验647总/646PASS/0FAIL/1平台skip，255948.2688ms，绑定该轮实际候选；之后仅修选证/恢复上下文文档并复核来源。13安装及CI终态随后接入。本轮新PR真实批准/受保护合入/正式发布未完成，不把本地修复称交付。本轮无必须立即提交Owner的实质决定；只有改变原生测试限制、提前修改完整完成范围或新增真实学习效果目标时才触发集中决定。
+
+证据入口：[本轮请求与边界](./evidence/sources/postmerge/deferral-recovery-20261020/request.json)、[延期/32项只读盘点](./evidence/sources/postmerge/deferral-recovery-20261020/inventory/assessment.md)、[Owner真实核心接受](./evidence/sources/postmerge/deferral-recovery-20261020/owner-core-acceptance282/owner-decision.json)、[原视觉FAIL/未测](./evidence/sources/postmerge/deferral-recovery-20261020/baseline-visual/final-summary.json)、[修后独立复验及截图](./evidence/sources/postmerge/deferral-recovery-20261020/fixed/REPORT.md)、[路径首次发现及修后审查](./evidence/sources/postmerge/deferral-recovery-20261020/code-review/report.json)、[材料扩展](./evidence/sources/postmerge/deferral-recovery-20261020/extensions-r2/summary.json)、[恢复原动作/输出](./evidence/sources/postmerge/deferral-recovery-20261020/recovery/recovery/summary.json)、[许可审计限制](./evidence/sources/postmerge/deferral-recovery-20261020/license-audit/summary.json)、[只读托管观察](./evidence/sources/postmerge/deferral-recovery-20261020/hosting/native-metadata.json)、[首轮完整失败](./evidence/sources/postmerge/deferral-recovery-20261020/root/initial-full-test.log)。[选择证据恢复映射](./evidence/sources/postmerge/deferral-recovery-20261020/selection-map.json)逐项保存原根/相对落点/字节摘要；不声称接回未选择的完整外部运行目录、系统二进制或研究原件，重放代码可由候选Git与原始patch恢复。修后浏览器pre/post-alias产物10文件完全相同，只按未变CSS/JS沿用该浏览器证据，不重复冒称新浏览器运行。
+
+选证独审另发现两审计JSON嵌29处研究逐字片段，原copy/strict未检出；已在首次提交/推送前移除这两份公开副本/绑定，只留哈希/计数/外部定位，完整原审计不动。原始选证方法/勘误保留，[选择修正](./evidence/sources/postmerge/deferral-recovery-20261020/selection-correction.json)与[恢复上下文](./evidence/sources/postmerge/deferral-recovery-20261020/README.md)解释各组选证中原报告相对路径的原根；未选择研究内容不得据此公开。
+
+以下“Current sync”是上一维护批次截至281的历史叙述，actual282及Owner核心接受以本节/Issue外部回执为准，不追改原观察。
 
 ## Current conclusion and remaining gaps
 

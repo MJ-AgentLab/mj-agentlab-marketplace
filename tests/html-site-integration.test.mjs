@@ -119,7 +119,15 @@ test("complete HTML package checks both entries and detects a missing site scrip
  fs.cpSync(PACKAGE,source,{recursive:true});fs.cpSync(source,installed,{recursive:true});
  const facts=assertInstalledPluginResources(source,installed,PLUGIN);
  assert.deepEqual(Object.keys(facts.skills).sort(),["guide","site"]);
- assert.equal(facts.version,"0.1.37");
+ assert.equal(facts.version,"0.1.38");
+ for(const relative of ["LICENSE","THIRD_PARTY_NOTICES.md","licenses/Apache-2.0.txt"]){
+  const file=path.join(installed,relative),bytes=fs.readFileSync(file);
+  assert(facts.rootFiles[relative]);
+  fs.unlinkSync(file);assert.throws(()=>assertInstalledPluginResources(source,installed,PLUGIN));
+  fs.writeFileSync(file,bytes);fs.appendFileSync(file,"drift");
+  assert.throws(()=>assertInstalledPluginResources(source,installed,PLUGIN),/differs/);
+  fs.writeFileSync(file,bytes);
+ }
  fs.unlinkSync(path.join(installed,"skills/site/scripts/render-site.mjs"));
  assert.throws(()=>assertInstalledPluginResources(source,installed,PLUGIN));
 });

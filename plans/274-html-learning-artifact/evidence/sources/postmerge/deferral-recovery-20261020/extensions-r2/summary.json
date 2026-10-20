@@ -1,0 +1,90 @@
+{
+  "completedAt": "2026-10-20T01:56:19.178Z",
+  "role": "Agent engineering extension/negative-input verification",
+  "source": "0.1.38 working candidate on base908; not published or actual908 runtime",
+  "results": [
+    {
+      "id": "long-unicode-material",
+      "expected": "generate+static PASS",
+      "actualExit": 0,
+      "outputCreated": true,
+      "configSha256": "c3b40885dcc65f232d0883d597cc6efd47237240ebb37f6daa8b023a4fbe922d",
+      "status": "PASS",
+      "static": {
+        "checks": 95,
+        "failed": 0,
+        "pages": 1,
+        "files": 9
+      },
+      "manifestFiles": 9,
+      "browser": "NOT_RUN for this extended material; not a semantic or visual PASS"
+    },
+    {
+      "id": "unsupported-structure",
+      "expected": "reject before output",
+      "actualExit": 1,
+      "outputCreated": false,
+      "configSha256": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+      "status": "PASS"
+    },
+    {
+      "id": "duplicate-config",
+      "expected": "reject before output",
+      "actualExit": 1,
+      "outputCreated": false,
+      "configSha256": "02e802d78d64795af2d850097b4a1bfa75d95fc3668239f65059e6b3bc776873",
+      "status": "PASS"
+    },
+    {
+      "id": "missing-source",
+      "expected": "reject before output",
+      "actualExit": 1,
+      "outputCreated": false,
+      "configSha256": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+      "status": "PASS"
+    },
+    {
+      "id": "known-terminology-conflict",
+      "expected": "reject before output",
+      "actualExit": 1,
+      "outputCreated": false,
+      "configSha256": "93db215554f32ad826b23a6c802db7ab8780439d9e14cc579910bb1c80ce2557",
+      "status": "PASS"
+    }
+  ],
+  "runtime": [
+    {
+      "file": "plugin.json",
+      "sha256": "d3c5b28280efe59bb302c4fcd67e28cf6ace8e68b353f62bf585bc863edbdc96"
+    },
+    {
+      "file": "LICENSE",
+      "sha256": "cfd483b2cc03452033bbc34d6ceabcc46d9917539070f6721d671705926a2a8d"
+    },
+    {
+      "file": "THIRD_PARTY_NOTICES.md",
+      "sha256": "bd032c0a0dff30b91f9aa94d178283fd7c03b0fbeffb91b138fbb58428558b4d"
+    },
+    {
+      "file": "licenses/Apache-2.0.txt",
+      "sha256": "30deeaa611125310673e7c14b4892fb102fb56697ecfab3b49b77ca0190de7e1"
+    },
+    {
+      "file": "skills/site/scripts/render-site.mjs",
+      "sha256": "c84ae7f210eb660ab989c6a46d6178c98f782544275c6fa1b2045505e1cd6bf6"
+    },
+    {
+      "file": "skills/site/scripts/check_artifact.py",
+      "sha256": "f4d28f6bcb239426d5f18a88da023eaf283aed94d6dd921b9f21a2bafeb6b4ac"
+    },
+    {
+      "file": "skills/site/assets/warm-paper/theme.css",
+      "sha256": "a049356d5b6681ca584ca4afb227ec233609279e3b7a06ff3355355eef54b1b9"
+    },
+    {
+      "file": "skills/site/assets/warm-paper/learning.js",
+      "sha256": "1fcc8c6064dd99f00b91103cf76e33d7a4e6dcf50793b4542bd8462f6c91f568"
+    }
+  ],
+  "scope": "Five bounded renderer/static cases only; source semantic fidelity, new model/desktop, native windows, second client, whole accessibility and learning effects not claimed"
+}

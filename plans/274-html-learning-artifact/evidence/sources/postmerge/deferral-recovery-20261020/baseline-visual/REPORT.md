@@ -1,0 +1,9 @@
+# Bounded accessibility and visual engineering check
+
+Published f906 site runtime and actual908 are byte-identical; the old seven-file representative package is exactly reproduced by the published renderer. Static checker PASS. New isolated Chrome155.0.8059.80 headless evidence covers16 bounded checks:14 PASS,1 local FAIL,1 NOT_RUN. No repo/cache/Site/audience/model/desktop/ambient8765 or OS clipboard changes.
+
+Confirmed non-core finding: theme.css:70 gives the empty editable Reflection textarea border#aba492 on#faf9f5 only2.3570979971820427:1 (inside white2.483198873838037:1); its surface alone is1.0535:1. The necessary input boundary is below the3:1 condition in [W3C SC1.4.11](https://www.w3.org/TR/WCAG22/#non-text-contrast); [official boundary guidance](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html) supports this local evaluation. This is not a complete WCAG conformity assessment. Suggested darker border#767676 is calculated only, not applied. Screenshots and computed values are in run02.
+
+Keyboard/focus, fault-injected copy recovery, changed-answer invalidation, reset, keyboard export/download, reduced-motion computed styles and five viewport samples are bounded evidence. Browser UI zoom is NOT_RUN: headless accelerators did not change metrics. Renderer visual scale2 and synthetic200% text resizing are separate observations, not browser UI zoom PASS.
+
+The initial generation refusal, r1 ambiguous-selector failure and r1 page-status/verdict naming collision are preserved with actual methods/logs; targeted r2 fixes only the test selector. Final-summary.json explicitly adjudicates each case. Eight named screenshots were actually inspected; no full visual/accessibility/client/learning-effect claim is made. Browser and own ephemeral servers were closed.

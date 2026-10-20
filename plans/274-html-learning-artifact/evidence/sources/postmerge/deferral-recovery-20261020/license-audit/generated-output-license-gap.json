@@ -1,0 +1,59 @@
+{
+  "status": "CONFIRMED_NOTICE_PROPAGATION_GAP",
+  "scope": "Static inspection of current renderer and templates only; no generator/test/browser/Sites execution in this audit.",
+  "copiedWholePackageAssets": [
+    "skills/site/assets/warm-paper/theme.css",
+    "skills/site/assets/warm-paper/learning.js"
+  ],
+  "generatedFromPackageTemplate": "skills/site/assets/warm-paper/shell.html",
+  "outputFixed": [
+    "index.html",
+    "theme.css",
+    "learning.js",
+    "artifact-manifest.json"
+  ],
+  "outputInputs": "artifact.json + configured markdown + sources.path passive files, with original bytes",
+  "notAutomaticallyPropagated": [
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "licenses/Apache-2.0.txt"
+  ],
+  "templateLicenseBannersPresent": false,
+  "sourceLines": [
+    {
+      "line": 11,
+      "text": "const RESERVED = [\"index.html\", \"theme.css\", \"learning.js\", \"artifact-manifest.json\"];"
+    },
+    {
+      "line": 255,
+      "text": "  const relatives = [...new Set([\"artifact.json\", config.markdown, ...config.sources.filter(source => source.path).map(source => source.path)])];"
+    },
+    {
+      "line": 274,
+      "text": "  const files = new Map(["
+    },
+    {
+      "line": 275,
+      "text": "    [\"index.html\", Buffer.from(html)],"
+    },
+    {
+      "line": 276,
+      "text": "    [\"theme.css\", fs.readFileSync(ordinaryPath(path.join(SKILL_ROOT, \"assets/warm-paper/theme.css\"), \"file\"))],"
+    },
+    {
+      "line": 277,
+      "text": "    [\"learning.js\", fs.readFileSync(ordinaryPath(path.join(SKILL_ROOT, \"assets/warm-paper/learning.js\"), \"file\"))],"
+    },
+    {
+      "line": 278,
+      "text": "    ...originals,"
+    },
+    {
+      "line": 284,
+      "text": "  fs.writeFileSync(path.join(target, \"artifact-manifest.json\"), `${JSON.stringify(manifest, null, 2)}\\n`, { flag: \"wx\" });"
+    }
+  ],
+  "mitConditionLocation": "plugins/html-guide-kit/LICENSE lines 12-13 (copyright and permission notice inclusion)",
+  "minimumReviewableEngineeringRemedy": "Copy the package LICENSE and the existing THIRD_PARTY_NOTICES.md + licenses/Apache-2.0.txt with unchanged bytes into the fresh artifact output, include all in artifact-manifest and reserved-path/closure checks; update output contract and targeted positive/negative verification. Keep exact upstream provenance/independent-implementation assertions and research rights UNKNOWN. No legal derivative-work finding is made.",
+  "userMaterialsBoundary": "The input schema does not establish or grant rights to user-provided source materials, whether local files or linked URLs. Each actual distribution needs source-specific rights; generator output and hashes cannot grant them."
+}

@@ -8,7 +8,23 @@ import { fileURLToPath } from "node:url";
 const SCRIPT = fileURLToPath(import.meta.url);
 const SKILL_ROOT = path.resolve(path.dirname(SCRIPT), "..");
 const PLUGIN_ROOT = path.resolve(SKILL_ROOT, "../..");
-const RESERVED = ["index.html", "theme.css", "learning.js", "artifact-manifest.json"];
+const RESERVED = ["index.html", "theme.css", "learning.js", "artifact-manifest.json", "license", "third_party_notices.md", "licenses"];
+const GENERATED_NOTICE_SCOPE = `# Generated artifact asset notices
+
+The package LICENSE covers MJ-AgentLab's original template and runtime contributions,
+including the scaffold portions of index.html, theme.css and learning.js. These
+notices do not relicense supplied materials, learning content or source documents;
+those retain their respective rights and permissions.
+
+The complete package notices below retain their original bytes. Paths such as
+skills/site/references/resource-provenance.json refer to the original installed plugin,
+not to files promised inside this generated artifact. The accompanying Apache text
+preserves the package's upstream-reference notice and does not classify independently
+implemented ideas or supplied content as Apache-licensed derivative works.
+
+---
+
+`;
 const ID = /^[a-z][a-z0-9-]*$/;
 const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
 const localURL = value => value.split("/").map(segment => encodeURIComponent(segment).replace(/[!'()*]/g, char => `%${char.charCodeAt(0).toString(16).toUpperCase()}`)).join("/");
@@ -32,7 +48,7 @@ function ordinaryPath(value, kind) {
 }
 
 function relativeFile(value, label) {
-  if (typeof value !== "string" || !value || /[\\:#?\x00-\x1f]/.test(value) || value.startsWith("/") || value.split("/").some(part => !part || part === "." || part === "..")) fail(`${label} must be a normal relative file path without traversal`);
+  if (typeof value !== "string" || !value || /[\\:#?\x00-\x1f]/.test(value) || value.startsWith("/") || value.split("/").some(part => !part || /[. ]$/.test(part))) fail(`${label} must be a normal relative file path without traversal or trailing dots/spaces`);
   if (!/\.(?:md|txt|csv|json|pdf)$/i.test(value)) fail(`${label} must be a passive .md, .txt, .csv, .json or .pdf source`);
   return value;
 }
@@ -253,7 +269,8 @@ export function renderSite({ input, output }) {
   let config; try { config = parseMetadata(new TextDecoder("utf-8", { fatal: true }).decode(configBytes)); } catch (error) { fail(`artifact.json must contain valid UTF-8 JSON without duplicate keys: ${error.message}`); }
   validateArtifact(config);
   const relatives = [...new Set(["artifact.json", config.markdown, ...config.sources.filter(source => source.path).map(source => source.path)])];
-  const lower = relatives.map(file => file.toLowerCase());
+  // Match Python's upper().lower() for reserved names, including long-s/dotless-i aliases.
+  const lower = relatives.map(file => file.toUpperCase().toLowerCase());
   if (new Set(lower).size !== lower.length || lower.some(file => RESERVED.some(reserved => file === reserved || file.startsWith(`${reserved}/`)))) fail("input file paths conflict with another input or generated output");
   for (let i = 0; i < lower.length; i++) for (let j = i + 1; j < lower.length; j++) if (lower[i].startsWith(`${lower[j]}/`) || lower[j].startsWith(`${lower[i]}/`)) fail("input file and directory paths conflict");
   const originals = new Map(relatives.map(relative => {
@@ -275,6 +292,9 @@ export function renderSite({ input, output }) {
     ["index.html", Buffer.from(html)],
     ["theme.css", fs.readFileSync(ordinaryPath(path.join(SKILL_ROOT, "assets/warm-paper/theme.css"), "file"))],
     ["learning.js", fs.readFileSync(ordinaryPath(path.join(SKILL_ROOT, "assets/warm-paper/learning.js"), "file"))],
+    ["LICENSE", fs.readFileSync(ordinaryPath(path.join(PLUGIN_ROOT, "LICENSE"), "file"))],
+    ["THIRD_PARTY_NOTICES.md", Buffer.concat([Buffer.from(GENERATED_NOTICE_SCOPE), fs.readFileSync(ordinaryPath(path.join(PLUGIN_ROOT, "THIRD_PARTY_NOTICES.md"), "file"))])],
+    ["licenses/Apache-2.0.txt", fs.readFileSync(ordinaryPath(path.join(PLUGIN_ROOT, "licenses/Apache-2.0.txt"), "file"))],
     ...originals,
   ]);
   const manifest = { schemaVersion: 1, artifactPath: "artifact.json", sourceSha256: digest(configBytes), version: config.version, files: [...files].map(([relative, bytes]) => ({ path: relative, sha256: digest(bytes), bytes: bytes.length })).sort((a, b) => a.path.localeCompare(b.path)) };

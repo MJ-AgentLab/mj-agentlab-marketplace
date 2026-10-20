@@ -61,7 +61,7 @@ test("representative generation preserves selected inputs and independently veri
 
 test("installed renderer locates its own assets from an unrelated consumer directory", t => {
   const f = fixture(t), installed = path.join(f.root, "installed", "html-guide-kit", "skills", "site"), consumer = path.join(f.root, "consumer");
-  fs.cpSync(SKILL, installed, { recursive: true }); fs.mkdirSync(consumer);
+  fs.cpSync(path.join(REPO, "plugins/html-guide-kit"), path.resolve(installed, "../.."), { recursive: true }); fs.mkdirSync(consumer);
   fs.appendFileSync(path.join(installed, "assets/warm-paper/theme.css"), "\n/* isolated installed stylesheet */\n");
   const run = spawnSync(process.execPath, [path.join(installed, "scripts/render-site.mjs"), "--input", f.input, "--output", f.output], { cwd: consumer, encoding: "utf8" });
   assert.equal(run.status, 0, run.stderr); assert.equal(JSON.parse(run.stdout).status, "GENERATED");

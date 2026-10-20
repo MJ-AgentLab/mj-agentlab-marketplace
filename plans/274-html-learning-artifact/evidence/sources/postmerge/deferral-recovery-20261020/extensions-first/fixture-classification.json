@@ -1,0 +1,9 @@
+{
+  "status": "EXPECTED_PRODUCT_REJECTION_OF_UNSUPPORTED_QA_FIXTURE",
+  "firstPlannedPositiveRunExit": 1,
+  "rawStderr": "long-unicode-material-render.stderr.log",
+  "cause": "The QA long-identifier string repeated raw underscores. The explicitly bounded Markdown dialect rejects emphasis; the intended positive fixture accidentally used unsupported markup.",
+  "correction": "A new r2 folder uses a long plain identifier without underscores; first method/input/stdout/stderr and candidate bytes remain preserved.",
+  "productChangedForThisCorrection": false,
+  "remainingFirstRunCases": "NOT_EXECUTED after the QA assertion stopped; not reported as PASS"
+}

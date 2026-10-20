@@ -5,6 +5,14 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Prepare HTML Guide Kit 0.1.38 with generated asset notices, portable output-name checks and a visible reflection input boundary; public Marketplace remains v8.3.2.
+
+### Maintenance
+
+- Resume Issue274 bounded accessibility, material-negative and offline recovery checks; record accepted core separately from deferred native/client coverage and historical approval gaps.
+
 ### Documentation
 
 - Record merged PR281/develop62945150 and the unpublished Marketplace-only 8.3.3 preparation. Distinguish final candidate CI from actual-merge local checks and fresh thirteen-install evidence (PASS, with fifteen owned roots removed); retain startup failures, actual bypass/approval NOT_MET and Owner/deferred limits. Preserve plugin/runtime versions, public v8.3.2 and published history. Refs #274.

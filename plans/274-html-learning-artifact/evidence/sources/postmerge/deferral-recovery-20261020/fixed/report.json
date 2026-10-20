@@ -1,0 +1,83 @@
+{
+  "startedAt": "2026-10-20T02:06:55.830Z",
+  "status": "PASS_BOUNDED_FINAL_WORKING_CANDIDATE",
+  "cases": [
+    {
+      "id": "FINAL-normal-generation-static-identity",
+      "status": "PASS",
+      "tenFiles": true,
+      "actualPythonSummary": {
+        "checks": 95,
+        "failed": 0,
+        "pages": 1,
+        "files": 9
+      },
+      "allTenFileBytesIdenticalToBrowserTestedArtifact": true
+    },
+    {
+      "id": "FINAL-five-new-aliases",
+      "status": "PASS",
+      "detail": [
+        {
+          "name": "Licenſes/own.txt",
+          "rendererError": "input file paths conflict with another input or generated output",
+          "outputExists": false,
+          "checkerFailure": {
+            "code": "source:0:file",
+            "status": "FAIL",
+            "detail": "material conflicts with a reserved generated output"
+          }
+        },
+        {
+          "name": "lıcenses/own.txt",
+          "rendererError": "input file paths conflict with another input or generated output",
+          "outputExists": false,
+          "checkerFailure": {
+            "code": "source:0:file",
+            "status": "FAIL",
+            "detail": "material conflicts with a reserved generated output"
+          }
+        },
+        {
+          "name": "licenses./own.txt",
+          "rendererError": "sources[0].path must be a normal relative file path without traversal or trailing dots/spaces",
+          "outputExists": false,
+          "checkerFailure": {
+            "code": "source:0:file",
+            "status": "FAIL",
+            "detail": "material must use a normal relative file path"
+          }
+        },
+        {
+          "name": "LICENSE./source.md",
+          "rendererError": "sources[0].path must be a normal relative file path without traversal or trailing dots/spaces",
+          "outputExists": false,
+          "checkerFailure": {
+            "code": "source:0:file",
+            "status": "FAIL",
+            "detail": "material must use a normal relative file path"
+          }
+        },
+        {
+          "name": "licenses /own.txt",
+          "rendererError": "sources[0].path must be a normal relative file path without traversal or trailing dots/spaces",
+          "outputExists": false,
+          "checkerFailure": {
+            "code": "source:0:file",
+            "status": "FAIL",
+            "detail": "local path escapes the artifact"
+          }
+        }
+      ]
+    }
+  ],
+  "finalSourceFingerprintUnchanged": true,
+  "runtimeMatchesPostAliasReviewed": true,
+  "browserEvidence": {
+    "path": "previous-review/browser/report.json",
+    "version": "155.0.8059.80",
+    "method": "No new browser run; all ten final output files are byte-identical to the artifact in the previous isolated headless test, and CSS/JS unchanged.",
+    "screenshotsActuallyViewed": 6
+  },
+  "completedAt": "2026-10-20T02:06:56.573Z"
+}

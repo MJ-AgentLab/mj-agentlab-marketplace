@@ -1,0 +1,32 @@
+{
+  "startedAt": "2026-10-20T02:04:30.564Z",
+  "cases": [
+    {
+      "id": "A01-normal-ten-file-generate-and-actual-python-static",
+      "status": "PASS",
+      "detail": {
+        "files": 10,
+        "static": {
+          "checks": 95,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        },
+        "allTenFilesIdenticalToPreviouslyBrowserTestedArtifact": true
+      }
+    },
+    {
+      "id": "A02-alias-renderer-and-checker-rejections",
+      "status": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /reserved generated output|normal relative file path/. Input:\n\n'local path escapes the artifact'\n\n    at file:///C:/Users/Admin/AppData/Local/Temp/html-learning-274-deferrals-fixed-review-r2/alias-current.mjs:6:1210\n    at async step (file:///C:/Users/Admin/AppData/Local/Temp/html-learning-274-deferrals-fixed-review-r2/alias-current.mjs:4:441)\n    at async file:///C:/Users/Admin/AppData/Local/Temp/html-learning-274-deferrals-fixed-review-r2/alias-current.mjs:6:1"
+    }
+  ],
+  "sourceKind": "working snapshot after alias fix; not actual HEAD bytes",
+  "limits": [
+    "No repeat browser run: all ten representative output files compared byte-identically to the already tested pre-alias artifact.",
+    "No model or desktop tests. Existing native, second-client, UI-zoom and effects deferrals retained."
+  ],
+  "pluginMatchesLiveAtEnd": true,
+  "status": "FAIL",
+  "completedAt": "2026-10-20T02:04:31.376Z"
+}

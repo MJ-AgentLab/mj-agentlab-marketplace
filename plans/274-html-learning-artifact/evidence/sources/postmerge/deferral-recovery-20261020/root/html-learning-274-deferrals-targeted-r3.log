@@ -1,0 +1,286 @@
+TAP version 13
+# Subtest: guide entry budget counts UTF-8 bytes at the exact boundary
+ok 1 - guide entry budget counts UTF-8 bytes at the exact boundary
+  ---
+  duration_ms: 0.9995
+  type: 'test'
+  ...
+# Subtest: repository and byte-identical installation reject an oversized guide entry
+ok 2 - repository and byte-identical installation reject an oversized guide entry
+  ---
+  duration_ms: 1603.775
+  type: 'test'
+  ...
+# Subtest: HTML Guide Kit has two explicit entries and exact Read/Write package capabilities without changing repository skill count
+ok 3 - HTML Guide Kit has two explicit entries and exact Read/Write package capabilities without changing repository skill count
+  ---
+  duration_ms: 0.6954
+  type: 'test'
+  ...
+# Subtest: HTML Guide Kit manifest rejects wrong identity, root versions, capabilities and routes
+ok 4 - HTML Guide Kit manifest rejects wrong identity, root versions, capabilities and routes
+  ---
+  duration_ms: 1.069
+  type: 'test'
+  ...
+# Subtest: HTML Guide Kit marketplace default prompts remain discoverable within the runtime length limit
+ok 5 - HTML Guide Kit marketplace default prompts remain discoverable within the runtime length limit
+  ---
+  duration_ms: 0.3502
+  type: 'test'
+  ...
+# Subtest: HTML Guide Kit marketplace default prompts accept 128 characters and reject any oversized entry
+ok 6 - HTML Guide Kit marketplace default prompts accept 128 characters and reject any oversized entry
+  ---
+  duration_ms: 0.3419
+  type: 'test'
+  ...
+# Subtest: guide native metadata requires its own route and a boolean false invocation policy
+ok 7 - guide native metadata requires its own route and a boolean false invocation policy
+  ---
+  duration_ms: 1.6295
+  type: 'test'
+  ...
+# Subtest: guide has exactly its four approved package-owned runtime resources
+ok 8 - guide has exactly its four approved package-owned runtime resources
+  ---
+  duration_ms: 0.5125
+  type: 'test'
+  ...
+# Subtest: repository refuses missing mandatory guide reference even without a Markdown pointer: references/guide-framework.md
+ok 9 - repository refuses missing mandatory guide reference even without a Markdown pointer: references/guide-framework.md
+  ---
+  duration_ms: 1331.7354
+  type: 'test'
+  ...
+# Subtest: repository refuses missing mandatory guide reference even without a Markdown pointer: references/interaction-design.md
+ok 10 - repository refuses missing mandatory guide reference even without a Markdown pointer: references/interaction-design.md
+  ---
+  duration_ms: 1311.482
+  type: 'test'
+  ...
+# Subtest: repository rejects an extra guide runtime file
+ok 11 - repository rejects an extra guide runtime file
+  ---
+  duration_ms: 1256.8391
+  type: 'test'
+  ...
+# Subtest: guide references cannot borrow another directory through a junction
+ok 12 - guide references cannot borrow another directory through a junction
+  ---
+  duration_ms: 1254.013
+  type: 'test'
+  ...
+# Subtest: installed guide compares actual bytes and rejects missing or drifted resource: SKILL.md
+ok 13 - installed guide compares actual bytes and rejects missing or drifted resource: SKILL.md
+  ---
+  duration_ms: 88.3096
+  type: 'test'
+  ...
+# Subtest: installed guide compares actual bytes and rejects missing or drifted resource: agents/openai.yaml
+ok 14 - installed guide compares actual bytes and rejects missing or drifted resource: agents/openai.yaml
+  ---
+  duration_ms: 83.8384
+  type: 'test'
+  ...
+# Subtest: installed guide compares actual bytes and rejects missing or drifted resource: references/guide-framework.md
+ok 15 - installed guide compares actual bytes and rejects missing or drifted resource: references/guide-framework.md
+  ---
+  duration_ms: 77.7108
+  type: 'test'
+  ...
+# Subtest: installed guide compares actual bytes and rejects missing or drifted resource: references/interaction-design.md
+ok 16 - installed guide compares actual bytes and rejects missing or drifted resource: references/interaction-design.md
+  ---
+  duration_ms: 75.0726
+  type: 'test'
+  ...
+# Subtest: installed guide byte equality cannot legitimize a resource junction or extra file
+ok 17 - installed guide byte equality cannot legitimize a resource junction or extra file
+  ---
+  duration_ms: 57.1495
+  type: 'test'
+  ...
+# Subtest: complete installed plugin preserves manifest, icons and approved skill resources: diagram-kit
+ok 18 - complete installed plugin preserves manifest, icons and approved skill resources: diagram-kit
+  ---
+  duration_ms: 251.1279
+  type: 'test'
+  ...
+# Subtest: complete installed plugin preserves manifest, icons and approved skill resources: learning-evidence-kit
+ok 19 - complete installed plugin preserves manifest, icons and approved skill resources: learning-evidence-kit
+  ---
+  duration_ms: 161.4772
+  type: 'test'
+  ...
+# Subtest: complete installed plugin preserves manifest, icons and approved skill resources: explain-kit
+ok 20 - complete installed plugin preserves manifest, icons and approved skill resources: explain-kit
+  ---
+  duration_ms: 138.9551
+  type: 'test'
+  ...
+# Subtest: complete installed plugin preserves manifest, icons and approved skill resources: communication-kit
+ok 21 - complete installed plugin preserves manifest, icons and approved skill resources: communication-kit
+  ---
+  duration_ms: 143.4843
+  type: 'test'
+  ...
+# Subtest: complete installed plugin preserves manifest, icons and approved skill resources: html-guide-kit
+ok 22 - complete installed plugin preserves manifest, icons and approved skill resources: html-guide-kit
+  ---
+  duration_ms: 341.5645
+  type: 'test'
+  ...
+# Subtest: installed HTML Guide Kit rejects capability drift and SVG source byte drift
+ok 23 - installed HTML Guide Kit rejects capability drift and SVG source byte drift
+  ---
+  duration_ms: 58.8
+  type: 'test'
+  ...
+# Subtest: site installation accounts for every registered resource and checks its actual bytes
+ok 24 - site installation accounts for every registered resource and checks its actual bytes
+  ---
+  duration_ms: 1633.1836
+  type: 'test'
+  ...
+# Subtest: matching source and cache cannot legitimize an unregistered site resource or implicit policy
+ok 25 - matching source and cache cannot legitimize an unregistered site resource or implicit policy
+  ---
+  duration_ms: 73.5964
+  type: 'test'
+  ...
+# Subtest: site native metadata rejects borrowed routes and every non-boolean or implicit policy
+ok 26 - site native metadata rejects borrowed routes and every non-boolean or implicit policy
+  ---
+  duration_ms: 1.6692
+  type: 'test'
+  ...
+# Subtest: site provenance rejects malformed source identities, hashes, targets and pinning
+ok 27 - site provenance rejects malformed source identities, hashes, targets and pinning
+  ---
+  duration_ms: 276.1836
+  type: 'test'
+  ...
+# Subtest: site resources cannot be borrowed through a directory junction
+ok 28 - site resources cannot be borrowed through a directory junction
+  ---
+  duration_ms: 47.8051
+  type: 'test'
+  ...
+# Subtest: site extension preserves the four guide resources from fixed develop baseline without rewriting bytes
+ok 29 - site extension preserves the four guide resources from fixed develop baseline without rewriting bytes
+  ---
+  duration_ms: 0.6455
+  type: 'test'
+  ...
+# Subtest: complete HTML package checks both entries and detects a missing site script
+ok 30 - complete HTML package checks both entries and detects a missing site script
+  ---
+  duration_ms: 531.6374
+  type: 'test'
+  ...
+# Subtest: installed renderer carries asset rights without relicensing learning materials
+ok 31 - installed renderer carries asset rights without relicensing learning materials
+  ---
+  duration_ms: 373.4058
+  type: 'test'
+  ...
+# Subtest: missing installed license or notice fails before any output is created
+ok 32 - missing installed license or notice fails before any output is created
+  ---
+  duration_ms: 49.5472
+  type: 'test'
+  ...
+# Subtest: license output names reject case aliases and nested material collisions before writes
+ok 33 - license output names reject case aliases and nested material collisions before writes
+  ---
+  duration_ms: 53.6089
+  type: 'test'
+  ...
+# Subtest: representative generation preserves selected inputs and independently verifiable hashes
+ok 34 - representative generation preserves selected inputs and independently verifiable hashes
+  ---
+  duration_ms: 38.4492
+  type: 'test'
+  ...
+# Subtest: installed renderer locates its own assets from an unrelated consumer directory
+ok 35 - installed renderer locates its own assets from an unrelated consumer directory
+  ---
+  duration_ms: 117.9666
+  type: 'test'
+  ...
+# Subtest: bounded Markdown retains paragraphs, relations, code, links and heading hierarchy
+ok 36 - bounded Markdown retains paragraphs, relations, code, links and heading hierarchy
+  ---
+  duration_ms: 0.4767
+  type: 'test'
+  ...
+# Subtest: unsupported Markdown and broken links fail before creating output
+ok 37 - unsupported Markdown and broken links fail before creating output
+  ---
+  duration_ms: 36.4476
+  type: 'test'
+  ...
+# Subtest: configuration errors cannot silently produce a different activity or source
+ok 38 - configuration errors cannot silently produce a different activity or source
+  ---
+  duration_ms: 5.7688
+  type: 'test'
+  ...
+# Subtest: literal replacement markers and HTML in config remain inert and complete
+ok 39 - literal replacement markers and HTML in config remain inert and complete
+  ---
+  duration_ms: 19.7314
+  type: 'test'
+  ...
+# Subtest: traversal, resource collisions and existing output fail without changing inputs
+ok 40 - traversal, resource collisions and existing output fail without changing inputs
+  ---
+  duration_ms: 18.4388
+  type: 'test'
+  ...
+# Subtest: plugin caches and borrowed input or output ancestors cannot be written
+ok 41 - plugin caches and borrowed input or output ancestors cannot be written
+  ---
+  duration_ms: 9.7715
+  type: 'test'
+  ...
+# Subtest: known terminology mismatches and invalid input bytes remain generation failures
+ok 42 - known terminology mismatches and invalid input bytes remain generation failures
+  ---
+  duration_ms: 8.9677
+  type: 'test'
+  ...
+# Subtest: known English terms use case-insensitive word boundaries without rejecting Threshold
+ok 43 - known English terms use case-insensitive word boundaries without rejecting Threshold
+  ---
+  duration_ms: 15.7437
+  type: 'test'
+  ...
+# Subtest: YAML frontmatter and Setext headings are rejected while separated thematic breaks remain valid
+ok 44 - YAML frontmatter and Setext headings are rejected while separated thematic breaks remain valid
+  ---
+  duration_ms: 17.3619
+  type: 'test'
+  ...
+# Subtest: literal percent, Chinese and spaces in local filenames round-trip through browser URLs
+ok 45 - literal percent, Chinese and spaces in local filenames round-trip through browser URLs
+  ---
+  duration_ms: 24.4703
+  type: 'test'
+  ...
+# Subtest: empty optional activities and terms still provide a static artifact and export
+ok 46 - empty optional activities and terms still provide a static artifact and export
+  ---
+  duration_ms: 11.6823
+  type: 'test'
+  ...
+1..46
+# tests 46
+# suites 0
+# pass 46
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 8361.3016

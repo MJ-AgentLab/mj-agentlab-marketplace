@@ -1,0 +1,147 @@
+diff --git a/plugins/html-guide-kit/plugin.json b/plugins/html-guide-kit/plugin.json
+index d521b41..3bc4b2e 100644
+--- a/plugins/html-guide-kit/plugin.json
++++ b/plugins/html-guide-kit/plugin.json
+@@ -1,7 +1,7 @@
+ {
+   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+   "name": "html-guide-kit",
+-  "version": "0.1.37",
++  "version": "0.1.38",
+   "description": "Explicitly create a teaching guide in chat, or build a sourced Chinese learning website through Sites with local materials and checks.",
+   "author": {
+     "name": "MJ-AgentLab",
+diff --git a/plugins/html-guide-kit/skills/site/assets/warm-paper/theme.css b/plugins/html-guide-kit/skills/site/assets/warm-paper/theme.css
+index 857c7e5..38aa769 100644
+--- a/plugins/html-guide-kit/skills/site/assets/warm-paper/theme.css
++++ b/plugins/html-guide-kit/skills/site/assets/warm-paper/theme.css
+@@ -67,7 +67,7 @@ legend { font-weight: 650; color: var(--ink); margin-bottom: .5rem; }
+ details { margin-top: 1rem; padding: .5rem 1rem 1rem; border: 1px solid var(--line); border-radius: .4rem; }
+ summary { color: var(--deep-clay); padding: .4rem 0; cursor: pointer; }
+ details[open] > summary { margin-bottom: .5rem; }
+-textarea { display: block; width: 100%; max-width: 100%; min-height: 8rem; margin: .6rem 0 1rem; padding: .8rem; border: 1px solid #aba492; border-radius: .4rem; resize: vertical; background: #fff; color: var(--ink); }
++textarea { display: block; width: 100%; max-width: 100%; min-height: 8rem; margin: .6rem 0 1rem; padding: .8rem; border: 1px solid #767676; border-radius: .4rem; resize: vertical; background: #fff; color: var(--ink); }
+ .enhancement { display: none; }
+ .js button.enhancement, .js .enhancement { display: block; }
+ .js .practice-controls, .js .export-controls { display: flex; align-items: center; flex-wrap: wrap; gap: .8rem; }
+diff --git a/plugins/html-guide-kit/skills/site/scripts/check_artifact.py b/plugins/html-guide-kit/skills/site/scripts/check_artifact.py
+index 7e3dbe2..3ef7fc0 100644
+--- a/plugins/html-guide-kit/skills/site/scripts/check_artifact.py
++++ b/plugins/html-guide-kit/skills/site/scripts/check_artifact.py
+@@ -17,7 +17,7 @@ VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "met
+ IDENTIFIER = re.compile(r"[a-z][a-z0-9-]*\Z")
+ HASH = re.compile(r"[0-9a-f]{64}\Z")
+ PASSIVE_SUFFIXES = {".md", ".txt", ".csv", ".json", ".pdf"}
+-RESERVED_OUTPUTS = {"index.html", "theme.css", "learning.js", "artifact-manifest.json"}
++RESERVED_OUTPUTS = {"index.html", "theme.css", "learning.js", "artifact-manifest.json", "license", "third_party_notices.md", "licenses"}
+ 
+ 
+ def local_path(root: Path, name: str, base: Path | None = None) -> Path:
+diff --git a/plugins/html-guide-kit/skills/site/scripts/render-site.mjs b/plugins/html-guide-kit/skills/site/scripts/render-site.mjs
+index fdbedb8..b218d0e 100644
+--- a/plugins/html-guide-kit/skills/site/scripts/render-site.mjs
++++ b/plugins/html-guide-kit/skills/site/scripts/render-site.mjs
+@@ -8,7 +8,23 @@ import { fileURLToPath } from "node:url";
+ const SCRIPT = fileURLToPath(import.meta.url);
+ const SKILL_ROOT = path.resolve(path.dirname(SCRIPT), "..");
+ const PLUGIN_ROOT = path.resolve(SKILL_ROOT, "../..");
+-const RESERVED = ["index.html", "theme.css", "learning.js", "artifact-manifest.json"];
++const RESERVED = ["index.html", "theme.css", "learning.js", "artifact-manifest.json", "license", "third_party_notices.md", "licenses"];
++const GENERATED_NOTICE_SCOPE = `# Generated artifact asset notices
++
++The package LICENSE covers MJ-AgentLab's original template and runtime contributions,
++including the scaffold portions of index.html, theme.css and learning.js. These
++notices do not relicense supplied materials, learning content or source documents;
++those retain their respective rights and permissions.
++
++The complete package notices below retain their original bytes. Paths such as
++skills/site/references/resource-provenance.json refer to the original installed plugin,
++not to files promised inside this generated artifact. The accompanying Apache text
++preserves the package's upstream-reference notice and does not classify independently
++implemented ideas or supplied content as Apache-licensed derivative works.
++
++---
++
++`;
+ const ID = /^[a-z][a-z0-9-]*$/;
+ const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
+ const localURL = value => value.split("/").map(segment => encodeURIComponent(segment).replace(/[!'()*]/g, char => `%${char.charCodeAt(0).toString(16).toUpperCase()}`)).join("/");
+@@ -275,6 +291,9 @@ export function renderSite({ input, output }) {
+     ["index.html", Buffer.from(html)],
+     ["theme.css", fs.readFileSync(ordinaryPath(path.join(SKILL_ROOT, "assets/warm-paper/theme.css"), "file"))],
+     ["learning.js", fs.readFileSync(ordinaryPath(path.join(SKILL_ROOT, "assets/warm-paper/learning.js"), "file"))],
++    ["LICENSE", fs.readFileSync(ordinaryPath(path.join(PLUGIN_ROOT, "LICENSE"), "file"))],
++    ["THIRD_PARTY_NOTICES.md", Buffer.concat([Buffer.from(GENERATED_NOTICE_SCOPE), fs.readFileSync(ordinaryPath(path.join(PLUGIN_ROOT, "THIRD_PARTY_NOTICES.md"), "file"))])],
++    ["licenses/Apache-2.0.txt", fs.readFileSync(ordinaryPath(path.join(PLUGIN_ROOT, "licenses/Apache-2.0.txt"), "file"))],
+     ...originals,
+   ]);
+   const manifest = { schemaVersion: 1, artifactPath: "artifact.json", sourceSha256: digest(configBytes), version: config.version, files: [...files].map(([relative, bytes]) => ({ path: relative, sha256: digest(bytes), bytes: bytes.length })).sort((a, b) => a.path.localeCompare(b.path)) };
+diff --git a/scripts/validate-portable.mjs b/scripts/validate-portable.mjs
+index 8fbc4a5..c5e7722 100644
+--- a/scripts/validate-portable.mjs
++++ b/scripts/validate-portable.mjs
+@@ -332,7 +332,7 @@ export function assertInstalledPluginResources(sourcePluginRoot, installedPlugin
+   const installed = JSON.parse(fs.readFileSync(ownedResource(installedPluginRoot, "plugin.json"), "utf8"));
+   validateManifest(source, expectedName); validateManifest(installed, expectedName);
+   if (source.name !== installed.name || source.version !== installed.version) throw new Error("installed plugin identity/version differs");
+-  const rootFiles = Object.fromEntries(["plugin.json", "assets/icon.svg", "assets/icon.png", ...(expectedName === "html-guide-kit" ? ["THIRD_PARTY_NOTICES.md", "licenses/Apache-2.0.txt"] : [])].map(rel => {
++  const rootFiles = Object.fromEntries(["plugin.json", "assets/icon.svg", "assets/icon.png", ...(expectedName === "html-guide-kit" ? ["LICENSE", "THIRD_PARTY_NOTICES.md", "licenses/Apache-2.0.txt"] : [])].map(rel => {
+     const a = ownedResource(sourcePluginRoot, rel), b = ownedResource(installedPluginRoot, rel), bytes = fs.readFileSync(a);
+     if (!bytes.equals(fs.readFileSync(b))) throw new Error(`installed plugin resource differs: ${expectedName}/${rel}`);
+     return [rel, { sha256: crypto.createHash("sha256").update(bytes).digest("hex"), source: a, installed: b }];
+diff --git a/tests/html-guide-kit.test.mjs b/tests/html-guide-kit.test.mjs
+index e23ec8b..36d7764 100644
+--- a/tests/html-guide-kit.test.mjs
++++ b/tests/html-guide-kit.test.mjs
+@@ -66,7 +66,7 @@ test("HTML Guide Kit has two explicit entries and exact Read/Write package capab
+  assert.deepEqual(EXPLICIT_ONLY_SKILLS,["learning-evidence-kit:pop-quiz","learning-evidence-kit:learning-record-check","communication-kit:communicate",SKILL,SITE]);
+  assert.deepEqual(PUBLIC_SKILLS.filter(name=>!EXPLICIT_ONLY_SKILLS.includes(name)),["diagram-kit:arch-diagram","explain-kit:glossary","explain-kit:concept"]);
+  assert.equal(REPOSITORY_SKILLS.length,20);assert.ok(!REPOSITORY_SKILLS.includes("guide"));
+- const m=manifest();assert.equal(m.name,PLUGIN);assert.equal(m.version,"0.1.37");assert.deepEqual(ui(m).capabilities,["Read","Write"]);validateManifest(m,PLUGIN);
++ const m=manifest();assert.equal(m.name,PLUGIN);assert.equal(m.version,"0.1.38");assert.deepEqual(ui(m).capabilities,["Read","Write"]);validateManifest(m,PLUGIN);
+ });
+ 
+ test("HTML Guide Kit manifest rejects wrong identity, root versions, capabilities and routes",()=>{
+@@ -157,7 +157,7 @@ test("installed guide byte equality cannot legitimize a resource junction or ext
+ 
+ for(const plugin of ["diagram-kit","learning-evidence-kit","explain-kit","communication-kit",PLUGIN])test("complete installed plugin preserves manifest, icons and approved skill resources: "+plugin,t=>{
+  const f=installedFixture(t,plugin),result=assertInstalledPluginResources(f.source,f.installed,plugin);
+- const rootFiles=["plugin.json","assets/icon.svg","assets/icon.png",...(plugin===PLUGIN?["THIRD_PARTY_NOTICES.md","licenses/Apache-2.0.txt"]:[])];
++ const rootFiles=["plugin.json","assets/icon.svg","assets/icon.png",...(plugin===PLUGIN?["LICENSE","THIRD_PARTY_NOTICES.md","licenses/Apache-2.0.txt"]:[])];
+  assert.equal(result.name,plugin);assert.deepEqual(Object.keys(result.rootFiles).sort(),rootFiles.sort());
+  assert.deepEqual(Object.keys(result.skills).sort(),[...RUNTIME_PLUGINS[plugin]].sort());
+  const hash=bytes=>crypto.createHash("sha256").update(bytes).digest("hex");
+diff --git a/tests/html-site-integration.test.mjs b/tests/html-site-integration.test.mjs
+index 7e48fd0..0d172f9 100644
+--- a/tests/html-site-integration.test.mjs
++++ b/tests/html-site-integration.test.mjs
+@@ -119,7 +119,15 @@ test("complete HTML package checks both entries and detects a missing site scrip
+  fs.cpSync(PACKAGE,source,{recursive:true});fs.cpSync(source,installed,{recursive:true});
+  const facts=assertInstalledPluginResources(source,installed,PLUGIN);
+  assert.deepEqual(Object.keys(facts.skills).sort(),["guide","site"]);
+- assert.equal(facts.version,"0.1.37");
++ assert.equal(facts.version,"0.1.38");
++ for(const relative of ["LICENSE","THIRD_PARTY_NOTICES.md","licenses/Apache-2.0.txt"]){
++  const file=path.join(installed,relative),bytes=fs.readFileSync(file);
++  assert(facts.rootFiles[relative]);
++  fs.unlinkSync(file);assert.throws(()=>assertInstalledPluginResources(source,installed,PLUGIN));
++  fs.writeFileSync(file,bytes);fs.appendFileSync(file,"drift");
++  assert.throws(()=>assertInstalledPluginResources(source,installed,PLUGIN),/differs/);
++  fs.writeFileSync(file,bytes);
++ }
+  fs.unlinkSync(path.join(installed,"skills/site/scripts/render-site.mjs"));
+  assert.throws(()=>assertInstalledPluginResources(source,installed,PLUGIN));
+ });
+diff --git a/tests/html-site-render.test.mjs b/tests/html-site-render.test.mjs
+index 9fbde93..43edf10 100644
+--- a/tests/html-site-render.test.mjs
++++ b/tests/html-site-render.test.mjs
+@@ -61,7 +61,7 @@ test("representative generation preserves selected inputs and independently veri
+ 
+ test("installed renderer locates its own assets from an unrelated consumer directory", t => {
+   const f = fixture(t), installed = path.join(f.root, "installed", "html-guide-kit", "skills", "site"), consumer = path.join(f.root, "consumer");
+-  fs.cpSync(SKILL, installed, { recursive: true }); fs.mkdirSync(consumer);
++  fs.cpSync(path.join(REPO, "plugins/html-guide-kit"), path.resolve(installed, "../.."), { recursive: true }); fs.mkdirSync(consumer);
+   fs.appendFileSync(path.join(installed, "assets/warm-paper/theme.css"), "\n/* isolated installed stylesheet */\n");
+   const run = spawnSync(process.execPath, [path.join(installed, "scripts/render-site.mjs"), "--input", f.input, "--output", f.output], { cwd: consumer, encoding: "utf8" });
+   assert.equal(run.status, 0, run.stderr); assert.equal(JSON.parse(run.stdout).status, "GENERATED");

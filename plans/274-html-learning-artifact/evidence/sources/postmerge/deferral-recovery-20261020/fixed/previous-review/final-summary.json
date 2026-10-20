@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_BOUNDED_PRE_ALIAS_AND_POST_ALIAS_SNAPSHOTS",
+  "frozenAt": "2026-10-20T02:05:47.452Z",
+  "sourceKind": "uncommitted working snapshots above 908d29537a19ceca166e8f3c7cddef4d419781a4; not actual HEAD bytes",
+  "versions": {
+    "html": "0.1.38",
+    "market": "8.3.3",
+    "publication": "Unpublished candidate; public 8.3.2/HTML0.1.37 unchanged"
+  },
+  "preAliasWorkingFingerprintSha256": "0478d83bcf4d493b7239565805c6604ec47b8281988eeacf9d7484d4fb364ada",
+  "postAliasPluginFingerprintSha256": "99865ca28a94acf0d808731c1c7bf03b0fbda7dddd1d5757a7360a917e7b18de",
+  "preAliasContract": {
+    "passed": [
+      "F01",
+      "F02",
+      "F03",
+      "F05",
+      "F06"
+    ],
+    "sixCollisionVariants": "PASS"
+  },
+  "postAliasMinimal": {
+    "normalTenFileGeneration": "PASS",
+    "pythonStaticChecks": 95,
+    "aliasVariants": 5,
+    "aliasStatus": "PASS",
+    "allTenOutputBytesIdenticalToBrowserTestedArtifact": true
+  },
+  "browser": {
+    "version": "155.0.8059.80",
+    "status": "PASS",
+    "cases": [
+      {
+        "id": "B-boundary-320",
+        "status": "PASS"
+      },
+      {
+        "id": "B-boundary-390",
+        "status": "PASS"
+      },
+      {
+        "id": "B-boundary-1366",
+        "status": "PASS"
+      },
+      {
+        "id": "B-keyboard-focus-and-change-invalidates",
+        "status": "PASS"
+      },
+      {
+        "id": "B-reflection-export-copy-denial-keyboard-return",
+        "status": "PASS"
+      }
+    ],
+    "origin": "http://127.0.0.1:55567",
+    "serverAndBrowserClosed": true
+  },
+  "preservedHarnessFailures": [
+    "contract-report.json F04 used name/id; checker emits code. Original product rejection was correct; six-case corrected batch preserved.",
+    "alias-current/report.json expected reserved/normal error only; trailing-space alias rejected earlier by Windows path canonicalization as local path escapes. Corrected r2 accepts the documented safe rejection.",
+    "First freeze expected empty primary status; subsequent freeze expected unchanged live source while root applied the alias fix. Both stops preserved through scripts and records; no false final-source claim."
+  ],
+  "primary": {
+    "initialView": "?? HTML-Learning-Artifact-Plugin-Implementation-Plan.md",
+    "finalView": "?? HTML-Learning-Artifact-Plugin-Implementation-Plan.md",
+    "ownerOriginal": {
+      "file": "HTML-Learning-Artifact-Plugin-Implementation-Plan.md",
+      "bytes": 25994,
+      "sha256": "dc9d58437778093ae9b51d052908712a3bbb2624f16ff335f5210435ca2f0895"
+    },
+    "attribution": "Root identifies plan as pre-existing Owner original. Empty initial view and later untracked view differ; cause UNKNOWN. Verifier wrote only TEMP and did not touch this file."
+  },
+  "oldPublishedSevenFilesUnchanged": true,
+  "liveSourceChangedFromPreAlias": [
+    "plugins/html-guide-kit/CHANGELOG.md",
+    "plugins/html-guide-kit/README.md",
+    "plugins/html-guide-kit/skills/site/references/input-contract.md",
+    "plugins/html-guide-kit/skills/site/scripts/check_artifact.py",
+    "plugins/html-guide-kit/skills/site/scripts/render-site.mjs",
+    "tests/html-site-licenses.test.mjs"
+  ],
+  "limits": [
+    "Complete isolated installation and synthetic learning material only. No research checkouts or credentials in payload.",
+    "Browser evidence was run once on exact pre-alias output and applies to post-alias representative artifact because all ten output files are byte-identical.",
+    "No model, native desktop question window, second client, true browser-UI zoom, assistive-technology session or learning-effect test. Those deferrals remain.",
+    "Local tests do not replace GitHub approval, protected merge, release authorization or Owner final acceptance."
+  ]
+}

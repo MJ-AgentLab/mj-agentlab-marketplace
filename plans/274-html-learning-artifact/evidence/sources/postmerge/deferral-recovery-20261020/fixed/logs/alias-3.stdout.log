@@ -1,0 +1,503 @@
+{
+  "schemaVersion": 1,
+  "checker": "artifact-static",
+  "status": "FAIL",
+  "executedAt": "2026-10-20T02:06:56.441872+00:00",
+  "pythonVersion": "3.12.14",
+  "inputHashes": {
+    "artifact.json": "9a757c2c608e6325a4e0971b298dbd6a321a2199decbc0e843ff1188430003dd",
+    "artifact-manifest.json": "3de84eb6f3104c49c766d9e1c2b6da42840e3a3cdea97bd2b7ebd2be2d6c4479",
+    "index.html": "12101458fb0d6d58bf902b8497feb73b742d3cec4e3409255fd07c7984de3785"
+  },
+  "summary": {
+    "checks": 95,
+    "failed": 3,
+    "pages": 1,
+    "files": 9
+  },
+  "checks": [
+    {
+      "code": "artifact.json:json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "artifact-manifest.json:json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "required:index.html",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "required:theme.css",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "required:learning.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "artifact:schema-version",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "artifact:title",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "artifact:version",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "artifact:audience",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "artifact:task",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "artifact:markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "artifact:goals",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "artifact:markdown-file",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "artifact:sources",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "source:0:metadata",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "source:0:id",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "source:0:location",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "source:0:file",
+      "status": "FAIL",
+      "detail": "material must use a normal relative file path"
+    },
+    {
+      "code": "source:unique-ids",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "artifact:terms",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "term:0:mapping",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "term:0:forbidden-list",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "term:1:mapping",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "term:1:forbidden-list",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "term:2:mapping",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "term:2:forbidden-list",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "term:3:mapping",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "term:3:forbidden-list",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "term:unique-english",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "artifact:activities",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "activity:0:metadata",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "activity:0:type-id-source",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "activity:0:options",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "activity:0:answer",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "activity:1:metadata",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "activity:1:type-id-source",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "activity:1:options",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "activity:1:answer",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "activity:2:metadata",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "activity:2:type-id-source",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "activity:2:options",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "activity:2:answer",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "activity:unique-ids",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "manifest:schema-version",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "manifest:version",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "manifest:artifact-path",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "manifest:source-hash",
+      "status": "FAIL",
+      "detail": ""
+    },
+    {
+      "code": "manifest:files",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "manifest:0:metadata",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "manifest:0:bytes",
+      "status": "FAIL",
+      "detail": "artifact.json"
+    },
+    {
+      "code": "manifest:1:metadata",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "manifest:1:bytes",
+      "status": "PASS",
+      "detail": "content.md"
+    },
+    {
+      "code": "manifest:2:metadata",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "manifest:2:bytes",
+      "status": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "code": "manifest:3:metadata",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "manifest:3:bytes",
+      "status": "PASS",
+      "detail": "learning.js"
+    },
+    {
+      "code": "manifest:4:metadata",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "manifest:4:bytes",
+      "status": "PASS",
+      "detail": "LICENSE"
+    },
+    {
+      "code": "manifest:5:metadata",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "manifest:5:bytes",
+      "status": "PASS",
+      "detail": "licenses/Apache-2.0.txt"
+    },
+    {
+      "code": "manifest:6:metadata",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "manifest:6:bytes",
+      "status": "PASS",
+      "detail": "sources/renewal-rules.md"
+    },
+    {
+      "code": "manifest:7:metadata",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "manifest:7:bytes",
+      "status": "PASS",
+      "detail": "theme.css"
+    },
+    {
+      "code": "manifest:8:metadata",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "manifest:8:bytes",
+      "status": "PASS",
+      "detail": "THIRD_PARTY_NOTICES.md"
+    },
+    {
+      "code": "manifest:complete-unique-files",
+      "status": "PASS",
+      "detail": {
+        "unlisted": [],
+        "missing": []
+      }
+    },
+    {
+      "code": "index.html:structure",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "index.html:language",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "index.html:viewport",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "index.html:charset",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "index.html:unique-ids",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "index.html:static-text",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "index.html:no-base",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "index.html:link:6:href:file",
+      "status": "PASS",
+      "detail": "theme.css"
+    },
+    {
+      "code": "index.html:script:7:src:file",
+      "status": "PASS",
+      "detail": "learning.js"
+    },
+    {
+      "code": "index.html:a:9:href:file",
+      "status": "PASS",
+      "detail": "#main"
+    },
+    {
+      "code": "index.html:a:9:href:anchor",
+      "status": "PASS",
+      "detail": "#main"
+    },
+    {
+      "code": "index.html:a:29:href:file",
+      "status": "PASS",
+      "detail": "content.md"
+    },
+    {
+      "code": "index.html:a:41:href:file",
+      "status": "PASS",
+      "detail": "sources/renewal-rules.md"
+    },
+    {
+      "code": "index.html:radio:109:no-default-answer",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "index.html:radio:112:no-default-answer",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "index.html:a:120:href:file",
+      "status": "PASS",
+      "detail": "#source-renewal-rules"
+    },
+    {
+      "code": "index.html:a:120:href:anchor",
+      "status": "PASS",
+      "detail": "#source-renewal-rules"
+    },
+    {
+      "code": "index.html:radio:128:no-default-answer",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "index.html:radio:131:no-default-answer",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "index.html:a:139:href:file",
+      "status": "PASS",
+      "detail": "#source-renewal-rules"
+    },
+    {
+      "code": "index.html:a:139:href:anchor",
+      "status": "PASS",
+      "detail": "#source-renewal-rules"
+    },
+    {
+      "code": "index.html:radio:147:no-default-answer",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "index.html:radio:150:no-default-answer",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "code": "index.html:a:158:href:file",
+      "status": "PASS",
+      "detail": "#source-renewal-rules"
+    },
+    {
+      "code": "index.html:a:158:href:anchor",
+      "status": "PASS",
+      "detail": "#source-renewal-rules"
+    },
+    {
+      "code": "index.html:a:179:href:file",
+      "status": "PASS",
+      "detail": "sources/renewal-rules.md"
+    },
+    {
+      "code": "index.html:term:0:known-forbidden",
+      "status": "PASS",
+      "detail": "规则批准"
+    },
+    {
+      "code": "index.html:term:3:known-forbidden",
+      "status": "PASS",
+      "detail": "工作天"
+    }
+  ],
+  "limitations": [
+    "Known structural, file/hash, local link/anchor, explicit resource URL and forbidden-term checks only; not a full HTML/CSS/JavaScript security or conformance audit.",
+    "Manifest consistency does not independently authenticate original materials. Review source fidelity, terminology meaning, conditions, exceptions and answer criteria against the actual originals.",
+    "No browser interaction, visual/accessibility audit, external URL/deployment/access-scope check or learning-effect measurement. Understanding effects remain NOT_MEASURED."
+  ]
+}
