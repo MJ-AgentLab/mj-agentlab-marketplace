@@ -11,6 +11,8 @@
 
 ### Documentation
 
+- Prepare unpublished Marketplace8.3.4 only after PR289 actual develop verification; retain HTML0.1.39 and other plugin versions, current publicv8.3.3 installation, historical failures/approval gaps and all deferrals. Refs #274.
+
 - Point default installation and current delivery notes at the verified v8.3.3 / HTML0.1.38 release; preserve real-tag checks, initial checkout failure and actual missing approval/bypass separately. Queue complete main synchronization with the existing0.1.39 batch before any8.3.4 preparation. Refs #274.
 
 ## [8.3.3] - 2026-10-20

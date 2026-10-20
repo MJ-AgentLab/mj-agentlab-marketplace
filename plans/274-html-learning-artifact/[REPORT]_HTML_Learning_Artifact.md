@@ -6,13 +6,32 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.16
+version: v1.17
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 ---
 
 # [REPORT] HTML learning artifact
+
+## Actual PR289 develop verification and marketplace pre-bump
+
+Owner[直接续办](./evidence/sources/postmerge/d289/continuation/owner-request.txt)和[捕获元数据](./evidence/sources/postmerge/d289/continuation/capture.json)授权实际develop复验及仅市场8.3.4预升；未知消息ID/时间/URL不编造。无业务原意变化，复用INT-2026-003 v1.2、完整旧32项和A01–A08，不新增INTENT或第二主PLAN/REPORT。
+
+2026-10-20：#289已于13:09:38Z合入develop **f3e8ba322109e2a43dcdcd68fdd2f0c655c78240/tree6daad5a9e9f9d749e48e38b148657195c3ed2fa5**，parents a4892f51＋6de4be7d，完整继承main f18aa09；HTML0.1.39选择性统一已进入develop、尚未发布。实际develop新本机652总/651PASS/0FAIL/1平台skip、strict/CLI0.147.0及新13/178、实际Python和15精确根清理通过。其后在隔离候选DryRun零写→Apply仅VERSION+badge预升未发布8.3.4（尚待新保护PR合入），实际develop市场仍8.3.3；HTML0.1.39及其他插件保持；默认公开安装仍v8.3.3/HTML0.1.38。
+
+[独立19项合并事实审计](./evidence/sources/postmerge/d289/merge/independent-summary.json)分别核actualSHA/tree/parents、完整main ancestry、tag/Release及保护实况；suite4620018712的pull_request规则FAIL（缺latest-pusher以外批准），requiredchecks/nonFF/deletion PASS，reviews=[]。事实审计通过不等于保护批准通过；原#289 pushLinux首次启动FAIL及一次同源有界复验成功的完整原件在前轮冻结根C:/Users/Admin/.codex/task-evidence/html-learning-274-post287-20261020/，其自身final-manifest可恢复1475文件。原失败/NOT_RUN/UNKNOWN及继承Windows非新运行均保留。
+
+本轮新[本机批次](./evidence/sources/postmerge/d289/local/batch.json)始于2026-10-20T13:14:54.976+00:00，结束2026-10-20T13:19:03.071+00:00，652总/651PASS/0FAIL/1仅Linux专用平台skip；[完整TAP](./evidence/sources/postmerge/d289/local/npm-test.log)、strict与CLI0.147.0分别保原件，实际bundled Python3.12.14执行，双主题/default及限定desktop/mobile浏览器通过。不是旧候选或CI复用；跟踪文件和HEAD前后guards通过。原[launch](./evidence/sources/postmerge/d289/local/launch.json)的TEMP初次absence=false仍保留：仅独占node-compile-cache残留，Agent另记99项库存/字节/hash、原生PowerShell核绝对边界/无reparse后受控清理并二次absence通过，见[回执](./evidence/sources/postmerge/d289/local/temp-cleanup-receipt.json)；不是测试自动清理，也不计入canonical15根。
+
+实际develop固定源[新十三安装](./evidence/sources/postmerge/d289/smoke/run-result.json)于2026-10-20T13:15:10.865Z–2026-10-20T13:28:43.516Z新执行：13/13场景、178命令全exit0，6Diagram＋18LEK及4site生成/4静态各96/96实际Python通过。Node22.18.0、CLI0.147.0、Python3.12.14单列本机身份，不冒充CI解释器或模型调用。[独立驱动核验](./evidence/sources/postmerge/d289/smoke/independent-audit.json)和[逐根absence](./evidence/sources/postmerge/d289/smoke/owned-roots-absence.json)核1canonical＋1template＋13scenario均在同一专有短TEMP边界并由shipped Harness清理，二次/最终不存在；8外层guards均真，hostHEAD/tree、primary和原25994B材料、完整worktree清单保持。外层/子进程TEMP一致，empty外容器仅在PASS后非递归rmdir；未手动补清理15根，未重跑本轮安装。
+
+随后[版本工具回执](./evidence/sources/postmerge/d289/prebump/summary.json)证明从实际develop8.3.3执行marketplace范围DryRun零文件改动，再Apply精确只改VERSION和README badge为8.3.4；权威五插件版本、运行资源/guide、已公开CHANGELOG各节保持。完整前/后map及原件可从[选证映射](./evidence/sources/postmerge/d289/selection.json)的独立证据根恢复。后续A6/任务文档/未发布CHANGELOG更新属于单独记录动作，不混入工具的两文件写入声明。公开仍tag/Release fdede/v8.3.3，正文2507B/SHA25611fc9f4c0231ba5aebda7a7d3add60ed8f506a943e2ff516d5c2c8b27c5b069c未变；8.3.4tag和Release当次只读观察404，不创建发行。
+
+suite4620018712实际bypass、reviews=[]/批准NOT_MET，Agent未执行该保护合并；旧Linux启动FAIL/UNKNOWN与一次同条件有界复验成功分记，成功不等于根因修复。D01持续窗口等延期非PASS、效果NOT_MEASURED、完整计划OPEN，原核心ACCEPTED_LIMITED不扩至0.1.38/Site v2/0.1.39；无新模型/桌面/第二客户端/原生/Sites测试或受众变更，无新增Owner实质决定。
+
+本节是预升PR创建前候选快照，不能证明其自身head CI/独立保护批准/actualmerge；本批追加来源仅在2598条完整原对象前缀后追加，实际最终数量及当前head门禁接Issue274与外部冻结交接。下一步推荐：完成本轮预升候选的来源/文档/A6及独立复核，提交唯一新主PR→protected develop，并核对当前head CI、真实非作者且非latest-pusher批准、线程和最新base；理由是实际同步复验已具备预升前提，而预升不等于正式发行。自身PR/CI/实际合入结果接Issue274与外部冻结回执，无新实质差异不递归纯证据PR。
+
 
 ## Selective alignment integration candidate
 
