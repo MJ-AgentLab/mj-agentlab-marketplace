@@ -1,0 +1,77 @@
+2026-10-20T03:22:06.2633651Z # Subtest: actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping
+2026-10-20T03:22:06.2634482Z not ok 330 - actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping
+2026-10-20T03:22:06.2634610Z   ---
+2026-10-20T03:22:06.2634758Z   duration_ms: 25260.515505
+2026-10-20T03:22:06.2634892Z   type: 'test'
+2026-10-20T03:22:06.2635628Z   location: '/home/runner/work/mj-agentlab-marketplace/mj-agentlab-marketplace/tests/html-site-checks.test.mjs:316:1'
+2026-10-20T03:22:06.2635990Z   failureType: 'testCodeFailure'
+2026-10-20T03:22:06.2636135Z   error: |-
+2026-10-20T03:22:06.2636263Z     {
+2026-10-20T03:22:06.2636416Z       "schemaVersion": 1,
+2026-10-20T03:22:06.2636646Z       "checker": "artifact-browser-layout",
+2026-10-20T03:22:06.2636905Z       "executedAt": "2026-10-20T03:21:22.242421+00:00",
+2026-10-20T03:22:06.2637104Z       "pythonVersion": "3.12.15",
+2026-10-20T03:22:06.2637253Z       "status": "NOT_RUN",
+2026-10-20T03:22:06.2637410Z       "requestedViewports": [
+2026-10-20T03:22:06.2637539Z         {
+2026-10-20T03:22:06.2637684Z           "width": 1366,
+2026-10-20T03:22:06.2637823Z           "height": 900
+2026-10-20T03:22:06.2637956Z         },
+2026-10-20T03:22:06.2638082Z         {
+2026-10-20T03:22:06.2638218Z           "width": 390,
+2026-10-20T03:22:06.2638359Z           "height": 844
+2026-10-20T03:22:06.2638481Z         }
+2026-10-20T03:22:06.2638610Z       ],
+2026-10-20T03:22:06.2638755Z       "viewports": [],
+2026-10-20T03:22:06.2638893Z       "lifecycle": [
+2026-10-20T03:22:06.2639027Z         {
+2026-10-20T03:22:06.2639255Z           "phase": "browser-process-exit",
+2026-10-20T03:22:06.2639401Z           "status": "PASS",
+2026-10-20T03:22:06.2639553Z           "returnCode": -9
+2026-10-20T03:22:06.2639676Z         },
+2026-10-20T03:22:06.2639803Z         {
+2026-10-20T03:22:06.2640202Z           "phase": "owned-browser-session-exit",
+2026-10-20T03:22:06.2640355Z           "status": "PASS",
+2026-10-20T03:22:06.2640909Z           "method": "complete Linux /proc session scan, all owned groups, two consecutive empty scans"
+2026-10-20T03:22:06.2641037Z         },
+2026-10-20T03:22:06.2641157Z         {
+2026-10-20T03:22:06.2641368Z           "phase": "temporary-cleanup",
+2026-10-20T03:22:06.2641517Z           "status": "PASS",
+2026-10-20T03:22:06.2641657Z           "attempts": 1
+2026-10-20T03:22:06.2641784Z         }
+2026-10-20T03:22:06.2641906Z       ],
+2026-10-20T03:22:06.2642054Z       "limitations": [
+2026-10-20T03:22:06.2643737Z         "Bounded geometry heuristics cover document horizontal overflow, overflow:hidden/clip containers with overflowing content, and extreme narrow prose wrapping. They are not a complete visual, responsive or accessibility audit.",
+2026-10-20T03:22:06.2645006Z         "Screenshots show the initial viewport state; visually review them. No copy/export/answer/retry/reset interaction, keyboard/focus, touch, print or learning-effect evaluation was performed.",
+2026-10-20T03:22:06.2645922Z         "Local browser results do not verify deployed Sites identity, access scope, version or remote behavior. Understanding effects remain NOT_MEASURED."
+2026-10-20T03:22:06.2646051Z       ],
+2026-10-20T03:22:06.2646435Z       "browser": "/tmp/html-checks-oDiEay/browser-stderr-u3SZcj/browser",
+2026-10-20T03:22:06.2646576Z       "inputHashes": {
+2026-10-20T03:22:06.2647078Z         "artifact.json": "1f5251d7d05d986c1b43ba094a2e50c077df7394de86552565a634fb89ff55bc",
+2026-10-20T03:22:06.2647669Z         "artifact-manifest.json": "ddfdfc520eb8dcb0fbffee068361c94fb627663c2c463129fe702a3f951b296a",
+2026-10-20T03:22:06.2648140Z         "index.html": "52db4c8691f8c37ae937cf9237ac3ed6515713c3c5192953e710d492f9c4f427",
+2026-10-20T03:22:06.2648615Z         "theme.css": "b45189186baebef1dcd6fb600d1a4b45613b972930a20ceedbbfabb5d2ed1432",
+2026-10-20T03:22:06.2649100Z         "learning.js": "5ecf2f4d83e6260dabd6ec48e76d8ddebccf956563f34072221bf960d3b8c255"
+2026-10-20T03:22:06.2649222Z       },
+2026-10-20T03:22:06.2649575Z       "screenshotDirectory": "/tmp/html-checks-oDiEay/good-shots",
+2026-10-20T03:22:06.2650778Z       "reason": "RuntimeError: browser did not provide a readable local DevTools endpoint: [Errno 2] No such file or directory: '/tmp/html-site-layout-fld1jh98/browser-profile/DevToolsActivePort'"
+2026-10-20T03:22:06.2650901Z     }
+2026-10-20T03:22:06.2651025Z     
+2026-10-20T03:22:06.2663861Z     Startup stderr diagnostics: {"instrumented":true,"acceptanceStatus":"NOT_RUN","scope":"stderr capture only; checker arguments, logic and deadlines are unchanged; no independent acceptance substitute","realExecutable":"/opt/google/chrome/google-chrome","captureRoot":"/tmp/html-checks-oDiEay/browser-stderr-u3SZcj","limitBytes":65536,"shimSha256":"c62fa18daf92d549e68f0368c0588c5d08e1f96f48a1060ef324a5ce3ced853d","loggerSha256":"57681c7a9ec349694ea8d6a9a589109ac29ad557163261f767d47adce3f31500","attempts":[{"name":"attempt-rF3zNH","metadata":{"instrumented":true,"acceptanceStatus":"NOT_RUN","pid":4598,"browserPid":4596,"sessionId":4596,"totalBytes":955,"storedBytes":955,"limitBytes":65536,"truncated":false,"complete":false,"reason":"owned-session termination before EOF"},"stderr":{"bytes":955,"sha256":"6ccf9276f944623522253dc610987ac99728ae12af648cf07cb51db1e29e7f2c","tail":"[4596:5779:1020/032134.408106:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[4596:5779:1020/032139.039240:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[4596:5779:1020/032139.039265:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[4596:5779:1020/032139.828792:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[4596:5779:1020/032141.040026:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n"}}],"omittedAttempts":0}
+2026-10-20T03:22:06.2664149Z     
+2026-10-20T03:22:06.2664277Z     2 !== 0
+2026-10-20T03:22:06.2664399Z     
+2026-10-20T03:22:06.2664542Z   code: 'ERR_ASSERTION'
+2026-10-20T03:22:06.2664696Z   name: 'AssertionError'
+2026-10-20T03:22:06.2664834Z   expected: 0
+2026-10-20T03:22:06.2664959Z   actual: 2
+2026-10-20T03:22:06.2665121Z   operator: 'strictEqual'
+2026-10-20T03:22:06.2665252Z   stack: |-
+2026-10-20T03:22:06.2666151Z     TestContext.<anonymous> (file:///home/runner/work/mj-agentlab-marketplace/mj-agentlab-marketplace/tests/html-site-checks.test.mjs:329:10)
+2026-10-20T03:22:06.2666424Z     Test.runInAsyncScope (node:async_hooks:214:14)
+2026-10-20T03:22:06.2666697Z     Test.run (node:internal/test_runner/test:1047:25)
+2026-10-20T03:22:06.2667091Z     Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+2026-10-20T03:22:06.2667384Z     Test.postRun (node:internal/test_runner/test:1173:19)
+2026-10-20T03:22:06.2667645Z     Test.run (node:internal/test_runner/test:1101:12)
+2026-10-20T03:22:06.2668070Z     async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+2026-10-20T03:22:06.2668198Z   ...

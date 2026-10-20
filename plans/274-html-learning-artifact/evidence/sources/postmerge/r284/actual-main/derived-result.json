@@ -1,0 +1,45 @@
+{
+  "scope": "Actual post-merge main source; Windows local engineering checks only",
+  "head": "fdede3cf5578dee8a41aef4310a9387d695c56bd",
+  "tree": "f71963c1d5640933e80fccfec3383681fb15333b",
+  "status": "PASS",
+  "startedAt": "2026-10-20T09:55:33.413595+00:00",
+  "completedAt": "2026-10-20T10:00:26.019643+00:00",
+  "versions": {
+    "node-version": "v22.18.0",
+    "npm-version": "10.9.3",
+    "python-version": "Python 3.12.14",
+    "git-version": "git version 2.53.0.windows.1"
+  },
+  "testCounts": {
+    "tests": 647,
+    "pass": 646,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 1,
+    "todo": 0
+  },
+  "platformSkips": [
+    "ok 32 - Linux exec capture preserves original checker args, failure, owned-session cleanup and foreign isolation # SKIP"
+  ],
+  "strict": {
+    "ok": true,
+    "repositorySkills": 20,
+    "publicSkillCount": 8
+  },
+  "baseline": "Codex 0.147.0 exact-match",
+  "checksRunOnce": [
+    "npm ci",
+    "npm test",
+    "npm run validate",
+    "npm run check:baseline-tools"
+  ],
+  "sourceUnchanged": true,
+  "limitations": [
+    "Standalone tag installation/smoke evidence is produced independently by another agent. No duplicate standalone smoke command was run here.",
+    "No new model, desktop/Side Chat, actual Matt interview, native persistent-window or real-world learning-effect acceptance was run.",
+    "Windows skips the Linux-only exec-capture test. No zero-skip or cross-platform local-run claim.",
+    "Historical failures, root-cause UNKNOWN, review gaps and deferred entrances are not superseded by these source checks."
+  ],
+  "methodObservation": "Initial PowerShell tree argument parse error preserved in tooling-observation.md; no product retry."
+}

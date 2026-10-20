@@ -1,0 +1,8 @@
+{
+  "previousBatch": "../local-checks/batch.json",
+  "previousDiagnosis": "../local-checks/first-attempt-diagnosis.json",
+  "trigger": "Root explicitly requested a new batch after npm ci --no-audit --no-fund exited zero, restoring missing lockfile dependencies.",
+  "criteria": "Same commands, same script bytes, same Python3.12.14 overrides and REQUIRE_PYTHON=1. No threshold changes and no silent retry.",
+  "previousResultRetained": "FAIL: npm test218 total/192pass/25fail/1platformskip; validate and baseline dependency import failures",
+  "allowedChange": "Ignored node_modules installed from package-lock; no tracked candidate changes requested"
+}

@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: draft
-version: v1.1
+version: v1.2
 layer: canonical
 intent-id: INT-2026-003
 ---
@@ -18,9 +18,9 @@ intent-id: INT-2026-003
 | 提出者 | 当前聊天的项目 Owner；准确账号未由来源提供 |
 | 原始来源 | B1为[原计划完整字节快照](../../plans/274-html-learning-artifact/evidence/sources/HTML-Learning-Artifact-Plugin-Implementation-Plan.md)，U1为[原实施请求](../../plans/274-html-learning-artifact/evidence/sources/owner-request.txt)。本次B2为Slack文件F0C98A3LV5M的API完整正文，U2为Owner本次选择性统一原话；外部完整快照、定位及捕获限制见[本次基线](../../plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md#selective-alignment-baseline)，不公开研究全文。来源中的历史批准自述不单独证明真实决定；未知消息身份/时间保持未知 |
 | 接受责任人 | 项目 Owner；合成角色及工程代理不代作最终接受 |
-| 原意核对记录 | 本文由Agent据来源整理，尚无Owner对本v1.1整理稿的单独核对或逐字接受。已有明确选择与实施授权继续有效，来源自述不补证历史核对 |
+| 原意核对记录 | 本文由Agent据来源整理，尚无Owner对本v1.2整理稿的单独核对或逐字接受。已有明确选择与实施授权继续有效，来源自述不补证历史核对 |
 | 内容接受记录 | 旧完整计划及七原则的[授权记录](../../plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md#accepted-baseline-and-authorization)保留。Owner本次以Slack完整提示词为基准，保留本地生成器和工程检查，保护既有材料并允许独立目录产物，补按需grilling、设计共识、可选主题及本地交付；唯一决定正本为[本次基线](../../plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md#selective-alignment-baseline)。旧核心ACCEPTED_LIMITED不扩张为本稿逐字接受、新增能力通过或全计划接受 |
-| 当前内容与适用基线 | v1.1承接B2/U2的选择性统一；修订前v1.0及旧完整合同可从固定Git提交a4892f51f4163fb5bd4457d99229eaf1a4683e8f恢复，完整定位/覆盖见主PLAN。B1/U1与旧结果保留，新增范围另验；来源清单及外部快照负责恢复，捕获时间不冒充消息或决定时间 |
+| 当前内容与适用基线 | v1.2仅刷新工程时点，B2/U2的选择性统一业务原意保持v1.1；旧v1.1可从固定Git fe295a005e1659ea210a9768bbcce88d72ed64f4恢复。修订前v1.0及旧完整合同可从固定Git提交a4892f51f4163fb5bd4457d99229eaf1a4683e8f恢复，完整定位/覆盖见主PLAN。B1/U1与旧结果保留，新增范围另验；来源清单及外部快照负责恢复，捕获时间不冒充消息或决定时间 |
 | 主跟踪 Issue | [#274](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274)；[任务入口](../../plans/274-html-learning-artifact/INDEX.md)导航主 PLAN/后续实际 REPORT；工程进度留 Issue |
 
 ## 1．问题与现状
@@ -29,7 +29,7 @@ O1．原计划期望提供“从学习材料到 HTML 学习制品的完整能力
 
 项目事实另记：实施前基线为 develop `1d5219c1fa1bbf14cc79f630a59e9a8c857248f4`；`html-guide-kit` 实际为 0.1.36、Read、唯一显式 `guide`，Marketplace 为未发布 8.3.2，开发集合五包七公开技能。原计划的 0.1.0 与较旧 HEAD 仅描述当时事实，不作为本次版本依据。
 
-本次修订针对完整制作提示词与已实现site合同的差异。当前公开HTML0.1.37；0.1.38仍为修复候选，0.1.39为本批准备目标，均不由本文认定正式公开或验证完成。既有核心接受、延期、历史FAIL/UNKNOWN与保护批准缺项按原范围保留。
+本次修订针对完整制作提示词与已实现site合同的差异。当前公开v8.3.3/HTML0.1.38；0.1.39仍为本批未发布候选，实际工程身份/检查由同一主PLAN和REPORT报告，不由本文推定验证完成。既有核心接受、延期、历史FAIL/UNKNOWN与保护批准缺项按原范围保留。
 
 ## 2．期望结果
 
@@ -59,7 +59,7 @@ S5．约定制品交付、上线前最小检查、插件上线、Sites网页发�
 
 R1．唯一原意为本文，完整实施覆盖映射见[主 PLAN](../../plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md#original-meaning-and-engineering-coverage)，行为判准见[site SPEC](../spec/[SPEC]_HTML_Learning_Artifact.md)。来源计划不是第二主 PLAN。新[扩展 ADR](../adr/[ADR]_HTML_Learning_Artifact_Extension.md)只承接本次 site 与包级能力/分发边界；旧 HTML 合同及验收不重写、不追认。
 
-R2．六步、语言和AICS原则以B2全文为本次基准，按U2保留本地工具/工程检查并增量调整受影响合同；不因未读完整AICS文本而宣称全部AICS检查通过。B1/U1旧接受与完整基线保留。本任务复用单Issue、同时一个活动主PR、多子PR及当前plans机制；#284保持open且冻结，本批同Issue排队，不开第二活动主PR。Marketplace与其他插件不随本次修改自动升版。
+R2．六步、语言和AICS原则以B2全文为本次基准，按U2保留本地工具/工程检查并增量调整受影响合同；不因未读完整AICS文本而宣称全部AICS检查通过。B1/U1旧接受与完整基线保留。本任务复用单Issue、同时一个活动主PR、多子PR及当前plans机制；#284/#287已实际结束，后继完整main同步及0.1.39沿同Issue、唯一protected develop主PR推进；具体阶段由任务入口定位。Marketplace与其他插件不随本次修改自动升版。
 
 R3．七原则约束实施：Agent 技术执行与独立合成验收，Owner 实质决定和成品接受；严格待答、分段交付、五边界内授权复用、Harness 证据、风险隔离/恢复及受保护最终合并。完整原话由[本轮请求](../../plans/274-html-learning-artifact/evidence/sources/owner-request.txt)恢复，不在原意正文复制工程进度。
 
@@ -71,7 +71,7 @@ R5．既有材料、研究原件和安装缓存保持，允许在独立输出目
 
 | 项目 | 实际状态、责任及依赖 |
 |---|---|
-| 原意整理稿 | 尚无Owner对本v1.1稿的单独核对/逐字接受；继续本次已授权范围，不用draft抵消实施授权，不扩大旧核心接受 |
+| 原意整理稿 | 尚无Owner对本v1.2稿的单独核对/逐字接受；继续本次已授权范围，不用draft抵消实施授权，不扩大旧核心接受 |
 | 必要产品选择 | B2/U2已决定本次统一范围；具体制作复用已确认设计，仅关键未决才触发grilling与依赖确认，不制造重复访谈 |
-| 实际工具与发布条件 | 本批0.1.39准备及新增验收未完成；核实所选模式、安装后主流程、工具/材料保护、内部规则及最终保护批准；#284保持冻结，本批排队，缺证不报通过 |
+| 实际工具与发布条件 | 本批0.1.39准备及新增验收未完成；核实所选模式、安装后主流程、工具/材料保护、内部规则及最终保护批准；完整main同步及唯一protected develop主PR由同任务报告实际阶段，缺证不报通过 |
 | 非核心及最终接受 | 原生窗口完整体验、第二客户端和完整扩展场景按影响/责任/恢复条件延期；Owner 体检与最终接受等真实决定，理解效果未测保持 NOT_MEASURED |

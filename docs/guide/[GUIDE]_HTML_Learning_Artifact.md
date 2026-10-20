@@ -6,13 +6,13 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.2
+version: v1.3
 layer: canonical
 ---
 
 # [GUIDE] HTML learning artifact
 
-HTML Guide Kit的`$html-guide-kit:guide`保留聊天指南职责；显式`$html-guide-kit:site`从材料制作学习网页，默认新建并私有发布Sites，也支持已约定的已有Site或仅本地HTML。当前公开HTML0.1.37，0.1.38仍为修复候选，本批准备0.1.39且新增验证未完成；按[#274任务入口](../../plans/274-html-learning-artifact/INDEX.md)和实际发布记录核对，不由本指南推定上线通过。
+HTML Guide Kit的`$html-guide-kit:guide`保留聊天指南职责；显式`$html-guide-kit:site`从材料制作学习网页，默认新建并私有发布Sites，也支持已约定的已有Site或仅本地HTML。当前公开HTML0.1.38随v8.3.3交付，本批0.1.39仍为未发布候选；按[#274任务入口](../../plans/274-html-learning-artifact/INDEX.md)和[8.3.3账本](../runbook/[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md)核对，不由本指南推定上线或完整验收通过。
 
 本次选择性统一以[主PLAN基线](../../plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md#selective-alignment-baseline)为唯一决定正本。旧核心ACCEPTED_LIMITED、完整旧合同及历史失败/延期保持原范围，不扩张为本轮新增能力或完整计划接受。
 
@@ -49,7 +49,7 @@ Sites交接包只包括本任务已确认目标、Markdown/术语/必要来源�
 
 ## Check and inspect
 
-按四项最小门槛核安装/资源与本地独立、核心内容与设计、一个目标客户端的约定交付主流程、工程/合并/发布边界。Sites模式核真实地址、保存版本、部署状态与访问范围；本地模式核可读HTML/内容源/来源/版本、必要操作和恢复、原材料保持及真实输出位置。文件存在不替代语义与操作检查，网页发布不替代插件公开。本批新增验收尚未完成，旧结果只覆盖原版本/范围。
+按四项最小门槛核安装/资源与本地独立、核心内容与设计、一个目标客户端的约定交付主流程、工程/合并/发布边界。Sites模式核真实地址、保存版本、部署状态与访问范围；本地模式核可读HTML/内容源/来源/版本、必要操作和恢复、原材料保持及真实输出位置。文件存在不替代语义与操作检查，网页发布不替代插件公开。本批有限合成/主题/本地检查及其未覆盖按同一REPORT逐项判断，尚未运行入口或完整矩阵不视为通过；旧结果只覆盖原版本/范围。
 
 完整第二客户端、视觉/可访问性/扩展场景及窗口生命周期可以后移，逐项说明影响、责任与恢复条件；窗口仍DEFERRED，非PASS。关键内容、约定核心交付、原材料被覆盖、Sites模式身份/受众、凭据和必要工程门禁问题仍阻相应交付/上线。Owner体检重点是真实制作体验、阅读/操作和异常恢复，记录实际检查范围、接受与剩余问题；修订后复验受影响部分，不由本次修订重启旧模型/桌面矩阵。
 
@@ -57,4 +57,4 @@ Sites交接包只包括本任务已确认目标、Markdown/术语/必要来源�
 
 ## Generated asset notices
 
-保留0.1.38修复候选的生成资产许可规则：输出携带LICENSE、licenses/Apache-2.0.txt及带范围说明的THIRD_PARTY_NOTICES.md，纳入manifest；本批0.1.39准备也受此约束。学习正文和输入材料保留各自权利，静态清单通过不证明许可真实性或材料授权。可选外部代码只在决定采用后读取必要文件，核固定版本、完整路径、许可及适用范围；本次不自动迁入延期HTML Plan/Birch运行组件。当前公开与候选状态见任务入口。
+继承0.1.38起的生成资产许可规则：输出携带LICENSE、licenses/Apache-2.0.txt及带范围说明的THIRD_PARTY_NOTICES.md，纳入manifest；本批0.1.39也受此约束。学习正文和输入材料保留各自权利，静态清单通过不证明许可真实性或材料授权。可选外部代码只在决定采用后读取必要文件，核固定版本、完整路径、许可及适用范围；本次不自动迁入延期HTML Plan/Birch运行组件。具体发布身份和未覆盖范围见[8.3.3账本](../runbook/[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md)。

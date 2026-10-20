@@ -1,0 +1,394 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-20T02:47:32.836Z",
+  "reviewer": "/root/deferral_code_review",
+  "status": "PASS_LIMITED",
+  "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+  "base": "908d29537a19ceca166e8f3c7cddef4d419781a4",
+  "tree": "196daab879d38b649333a01c4c0d0194c7b107c7",
+  "mergeCandidate": "e1a35320d510539af6f78624065f2315600c7dae",
+  "mergeSameTree": true,
+  "prDraft": true,
+  "finalSnapshot": "snapshots/2026-10-20T02-46-59-968Z/snapshot.json",
+  "runs": [
+    {
+      "id": 39359377512,
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "path": ".github/workflows/a6.yml",
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39359377512"
+    },
+    {
+      "id": 39359262920,
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "path": ".github/workflows/a6.yml",
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39359262920"
+    },
+    {
+      "id": 39359262844,
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "path": ".github/workflows/ci.yml",
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39359262844"
+    },
+    {
+      "id": 39359256807,
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "path": ".github/workflows/ci.yml",
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39359256807"
+    }
+  ],
+  "platforms": [
+    {
+      "job": "118421303787",
+      "name": "Baseline compat (ubuntu-latest)",
+      "exactHead": true,
+      "conclusion": "success",
+      "tests": 647,
+      "pass": 646,
+      "fail": 0,
+      "skipped": 1,
+      "cancelled": 0,
+      "todo": 0,
+      "countsSum": true,
+      "skipCases": [
+        {
+          "line": 3705,
+          "text": "ok 566 - Windows equivalent file casing still passes containment # SKIP"
+        }
+      ],
+      "smoke": {
+        "scenarios": 13,
+        "allScenariosOk": true,
+        "commands": 178,
+        "allCommandStatus0": true,
+        "diagram": 6,
+        "learningEvidence": 18,
+        "generation": 4,
+        "static": 4,
+        "versions": [
+          "codex-cli 0.147.0"
+        ],
+        "pythonVersions": [
+          "3.12.15"
+        ],
+        "staticResults": [
+          {
+            "installed": [
+              "html-guide-kit"
+            ],
+            "status": "PASS",
+            "checks": 95,
+            "failed": 0
+          },
+          {
+            "installed": [
+              "html-guide-kit",
+              "explain-kit"
+            ],
+            "status": "PASS",
+            "checks": 95,
+            "failed": 0
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "html-guide-kit"
+            ],
+            "status": "PASS",
+            "checks": 95,
+            "failed": 0
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "communication-kit",
+              "html-guide-kit"
+            ],
+            "status": "PASS",
+            "checks": 95,
+            "failed": 0
+          }
+        ],
+        "browser": [
+          "NOT_RUN in installation smoke; separate representative browser acceptance required",
+          "NOT_RUN in installation smoke; separate representative browser acceptance required",
+          "NOT_RUN in installation smoke; separate representative browser acceptance required",
+          "NOT_RUN in installation smoke; separate representative browser acceptance required"
+        ]
+      },
+      "rawLog": {
+        "path": "jobs/job-118421303787-logs.stdout.raw",
+        "bytes": 982910,
+        "sha256": "00bc1700fd89f0ec40e611fc716709fa8247bc4464858581ec8e23f06e2f20c7"
+      },
+      "parsed": "jobs/job-118421303787-parsed.json"
+    },
+    {
+      "job": "118421303879",
+      "name": "Baseline compat (windows-latest)",
+      "exactHead": true,
+      "conclusion": "success",
+      "tests": 647,
+      "pass": 646,
+      "fail": 0,
+      "skipped": 1,
+      "cancelled": 0,
+      "todo": 0,
+      "countsSum": true,
+      "skipCases": [
+        {
+          "line": 513,
+          "text": "ok 32 - Linux exec capture preserves original checker args, failure, owned-session cleanup and foreign isolation # SKIP"
+        }
+      ],
+      "smoke": {
+        "scenarios": 13,
+        "allScenariosOk": true,
+        "commands": 178,
+        "allCommandStatus0": true,
+        "diagram": 6,
+        "learningEvidence": 18,
+        "generation": 4,
+        "static": 4,
+        "versions": [
+          "codex-cli 0.147.0"
+        ],
+        "pythonVersions": [
+          "3.12.10"
+        ],
+        "staticResults": [
+          {
+            "installed": [
+              "html-guide-kit"
+            ],
+            "status": "PASS",
+            "checks": 95,
+            "failed": 0
+          },
+          {
+            "installed": [
+              "html-guide-kit",
+              "explain-kit"
+            ],
+            "status": "PASS",
+            "checks": 95,
+            "failed": 0
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "html-guide-kit"
+            ],
+            "status": "PASS",
+            "checks": 95,
+            "failed": 0
+          },
+          {
+            "installed": [
+              "diagram-kit",
+              "learning-evidence-kit",
+              "explain-kit",
+              "communication-kit",
+              "html-guide-kit"
+            ],
+            "status": "PASS",
+            "checks": 95,
+            "failed": 0
+          }
+        ],
+        "browser": [
+          "NOT_RUN in installation smoke; separate representative browser acceptance required",
+          "NOT_RUN in installation smoke; separate representative browser acceptance required",
+          "NOT_RUN in installation smoke; separate representative browser acceptance required",
+          "NOT_RUN in installation smoke; separate representative browser acceptance required"
+        ]
+      },
+      "rawLog": {
+        "path": "jobs/job-118421303879-logs.stdout.raw",
+        "bytes": 1051159,
+        "sha256": "082907aa50d581b06ac4e9f27bac48c13deea476515ec9fd9b156c40a9cfa89a"
+      },
+      "parsed": "jobs/job-118421303879-parsed.json"
+    }
+  ],
+  "structureAndA6": [
+    {
+      "id": 118421659821,
+      "name": "A6 / Check",
+      "status": "completed",
+      "conclusion": "success",
+      "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39359377512/job/118421659821"
+    },
+    {
+      "id": 118421303721,
+      "name": "Validate Structure",
+      "status": "completed",
+      "conclusion": "success",
+      "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39359262844/job/118421303721"
+    },
+    {
+      "id": 118421303229,
+      "name": "A6 / Check",
+      "status": "completed",
+      "conclusion": "success",
+      "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39359262920/job/118421303229"
+    },
+    {
+      "id": 118421282894,
+      "name": "Validate Structure",
+      "status": "completed",
+      "conclusion": "success",
+      "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+      "url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39359256807/job/118421282894"
+    }
+  ],
+  "pushDedup": {
+    "run": 39359256807,
+    "proofJob": 118421303335,
+    "rawLog": "jobs/job-118421303335-logs.stdout.raw",
+    "actualProofLine": 213,
+    "proof": {
+      "skipPush": true,
+      "reason": "decision_time_exact_pr_carrier",
+      "carrier": {
+        "id": 39359262844,
+        "attempt": 1,
+        "status": "in_progress",
+        "conclusion": null
+      },
+      "base": "908d29537a19ceca166e8f3c7cddef4d419781a4",
+      "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+      "sourceProofs": [
+        {
+          "role": "executed_push",
+          "ref": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+          "blobSha": "9304c2d03d27e54bf71b585eb675d4c0ed5a5e99",
+          "bytes": 36673
+        },
+        {
+          "role": "pr_head",
+          "ref": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+          "blobSha": "9304c2d03d27e54bf71b585eb675d4c0ed5a5e99",
+          "bytes": 36673
+        },
+        {
+          "role": "pr_merge",
+          "ref": "e1a35320d510539af6f78624065f2315600c7dae",
+          "blobSha": "9304c2d03d27e54bf71b585eb675d4c0ed5a5e99",
+          "bytes": 36673
+        }
+      ],
+      "pr": 283,
+      "runId": 39359262844,
+      "attempt": 1
+    },
+    "meaning": "Push baseline matrix was SKIPPED by exact-PR-carrier proof, not a second independent platform execution. The referenced current-head PR matrix was independently checked to terminal status and actual counts."
+  },
+  "completeExecutedJobLogs": [
+    {
+      "job": 118421282894,
+      "run": 39359256807,
+      "name": "Validate Structure",
+      "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+      "conclusion": "success",
+      "path": "jobs/job-118421282894-logs.stdout.raw",
+      "bytes": 24360,
+      "sha256": "0dfbfdc37b5157a360b2b95a6e3904466afce5b3222eb7ea908016a10923330c"
+    },
+    {
+      "job": 118421303229,
+      "run": 39359262920,
+      "name": "A6 / Check",
+      "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+      "conclusion": "success",
+      "path": "jobs/job-118421303229-logs.stdout.raw",
+      "bytes": 28242,
+      "sha256": "d510f6d5e22428a3393dc8f265c8eb5e8e961a2f20c39eac62ca6460aec6c6a6"
+    },
+    {
+      "job": 118421303335,
+      "run": 39359256807,
+      "name": "Prove equivalent PR matrix for this push (read only)",
+      "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+      "conclusion": "success",
+      "path": "jobs/job-118421303335-logs.stdout.raw",
+      "bytes": 20299,
+      "sha256": "e178763a499ebc159c2d99701005c4fcaceaa5254963350dda002a55cf98bf78"
+    },
+    {
+      "job": 118421303413,
+      "run": 39359262844,
+      "name": "Cancel proved superseded PR runs (best effort)",
+      "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+      "conclusion": "success",
+      "path": "jobs/job-118421303413-logs.stdout.raw",
+      "bytes": 14632,
+      "sha256": "4c04b840e6a12a4abc5450dfc0d71fe9f16bcb58758d74377e2ea47bf446cb2b"
+    },
+    {
+      "job": 118421303721,
+      "run": 39359262844,
+      "name": "Validate Structure",
+      "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+      "conclusion": "success",
+      "path": "jobs/job-118421303721-logs.stdout.raw",
+      "bytes": 27425,
+      "sha256": "7244bba3b42471724585b243055ed71bdb9e0e59ec05bbdad1c0f54258c7431a"
+    },
+    {
+      "job": 118421303787,
+      "run": 39359262844,
+      "name": "Baseline compat (ubuntu-latest)",
+      "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+      "conclusion": "success",
+      "path": "jobs/job-118421303787-logs.stdout.raw",
+      "bytes": 982910,
+      "sha256": "00bc1700fd89f0ec40e611fc716709fa8247bc4464858581ec8e23f06e2f20c7"
+    },
+    {
+      "job": 118421303879,
+      "run": 39359262844,
+      "name": "Baseline compat (windows-latest)",
+      "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+      "conclusion": "success",
+      "path": "jobs/job-118421303879-logs.stdout.raw",
+      "bytes": 1051159,
+      "sha256": "082907aa50d581b06ac4e9f27bac48c13deea476515ec9fd9b156c40a9cfa89a"
+    },
+    {
+      "job": 118421659821,
+      "run": 39359377512,
+      "name": "A6 / Check",
+      "head": "395bafe51d79374f6ef57fdfd772a6d1121f7ef0",
+      "conclusion": "success",
+      "path": "jobs/job-118421659821-logs.stdout.raw",
+      "bytes": 27126,
+      "sha256": "ea666846ffc865d19adbeb14511fb43c3a98a5d2822435dd6f73444545e67d0d"
+    }
+  ],
+  "limitations": [
+    "This audit is exact395 head/current candidate tree, not actual merge or release verification.",
+    "Old470 failed run39358395215/39358343154 evidence is retained elsewhere and contributes no PASS here.",
+    "Windows/Linux actual tests and smoke commands are parsed from complete raw job logs; validation job success alone is not used as test-count evidence.",
+    "Skipped workflow jobs have no executed job logs; their terminal skipped metadata is retained in run-job snapshots.",
+    "Installation smoke explicitly reports browserCheck NOT_RUN; it does not prove current browser/native/second-client behavior or learning effects.",
+    "No GitHub reviewer request, non-author approval, Owner acceptance, merge, cancellation or CI retry was performed or inferred.",
+    "All CI evidence stays outside the repository; this audit does not create an evidence-only commit."
+  ]
+}

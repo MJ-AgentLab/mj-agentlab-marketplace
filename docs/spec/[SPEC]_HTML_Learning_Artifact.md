@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.2
+version: v1.3
 layer: canonical
 ---
 
@@ -16,7 +16,7 @@ layer: canonical
 
 本合同仅覆盖显式 `$html-guide-kit:site` 与直接受影响的包级资源/能力。guide保留已批准图标、运行字节和原只读聊天合同；旧[guide SPEC](./[SPEC]_HTML_Guide_Kit_Acceptance.md)、[历史验收](../runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)保持原范围。依据为[扩展ADR](../adr/[ADR]_HTML_Learning_Artifact_Extension.md)及[INTENT](../intent/[INTENT]_INT-2026-003_HTML_Learning_Artifact.md)。本次B2 Slack完整API正文及U2 Owner选择的唯一决定正本见[选择性统一基线](../../plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md#selective-alignment-baseline)；B1/U1的[旧授权](../../plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md#accepted-baseline-and-authorization)、固定Git a4892f51f4163fb5bd4457d99229eaf1a4683e8f中的修订前完整合同及原结果保留。旧核心ACCEPTED_LIMITED不扩张为新增能力通过或完整计划接受。
 
-site为显式调用，原生行为配置布尔false；插件Read/Write不等于技能权限隔离。manifest提示覆盖guide/site，只引用本包真实路由，最多3条，每条原值不超过128 Unicode scalar values。全部必需资源/脚本/主题/来源及安装比较原子接入，公开首版HTML0.1.37；0.1.38仍为修复候选，本批准备0.1.39，新增验证尚未完成，不代表正式公开。五包八公开/五显式/三自然、仓库技能20保持；Marketplace与其他插件版本不动。#284保持open且冻结，本批同Issue排队，不开第二活动主PR。
+site为显式调用，原生行为配置布尔false；插件Read/Write不等于技能权限隔离。manifest提示覆盖guide/site，只引用本包真实路由，最多3条，每条原值不超过128 Unicode scalar values。全部必需资源/脚本/主题/来源及安装比较原子接入，公开首版HTML0.1.37，0.1.38承接许可传递与输入边界修复；当前公开为v8.3.3/HTML0.1.38，具体身份见[8.3.3账本](../runbook/[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md)。本批0.1.39仍为未发布候选，五包八公开/五显式/三自然、仓库技能20保持；市场VERSION8.3.3和其他插件版本不动。完整actualmain同步、唯一protected develop主PR的新headCI/真实批准及actualsync复验分别待证，不把内部集成当交付。
 
 ## §2 Six-step behavior and language
 
@@ -78,7 +78,7 @@ Sites模式不可用时保留本地交接包，记该模式制作/发布未完�
 |---|---|
 | A1 安装与本地独立 | 完整canonical严格安装；两显式入口发现/调用；逐文件源/缓存字节相符；脱离研究目录和其他缓存完成方法/工具主流程；guide字节保持 |
 | A2 核心内容与设计 | 独立合成内容/学习设计角色对代表材料关键结论、条件、例外、关系、练习判准与来源逐项核对；语言/术语一致；已有确认直接复用，关键未决时有按需grilling及设计共识确认，缺Matt/答案只停依赖；实际输入/动作/输出及结论可恢复 |
-| A3 约定交付主流程 | 一个目标客户端实际材料→六步→所选模式。Sites模式核安装locator、会话/事件、可访问地址、保存版本、部署状态与正确受众；已约定本地模式核独立HTML/内容源/来源/版本、必要静态读取/操作/恢复及输出位置，明确未发布Sites。两模式均按制品范围检查关键阅读/反馈/复制/导出等，并核既有材料未被覆盖、主题与已确认设计一致；本批新增判准尚待实际验证 |
+| A3 约定交付主流程 | 一个目标客户端实际材料→六步→所选模式。Sites模式核安装locator、会话/事件、可访问地址、保存版本、部署状态与正确受众；已约定本地模式核独立HTML/内容源/来源/版本、必要静态读取/操作/恢复及输出位置，明确未发布Sites。两模式均按制品范围检查关键阅读/反馈/复制/导出等，并核既有材料未被覆盖、主题与已确认设计一致；按真实制品与已执行范围逐项取证，有限结果不覆盖未运行入口或完整矩阵 |
 | A4 工程与发布边界 | 当前npm检查/严格校验/十三隔离安装/实际缓存Python、必要CI/非作者批准/线程，精确候选及实际merge核对，许可/无凭据或非预期材料，发布监控恢复安排 |
 
 命令使用`npm test`、`npm run validate`、`npm run check`、`npm run smoke`，记录check/smoke别名实际入口；Python图表必须实际执行，不以环境存在替代。新检查围绕真实能力和高影响错误，不以固定文案匹配充当验收。独立Agent可同时核产品/工程，但不假扮Owner或GitHub批准者；真实客户端/窗口不由模拟替代。
@@ -89,6 +89,6 @@ Sites模式不可用时保留本地交接包，记该模式制作/发布未完�
 
 唯一任务REPORT绑定完整候选/实际merge SHA/tree、各包版本、资源逐文件hash、实际缓存与工具/客户端版本、输入/动作/输出/截图/返回码、时间与未覆盖。失败/拒绝/超时/中断/修复重跑分别保留；安装不代行为，文件检查不代资源闭包，合成验收不代保护批准或Owner接受。
 
-约定制品交付、上线前检查通过、插件已上线、Sites网页已发布、Owner体检完成各用自身证据；核心交付、全计划完成、正式发布和Owner最终接受分开。报告交付模式、真实本地位置或Sites地址/保存版本/部署状态、实际插件/源码版本、执行结果与限制；理解效果未测保持NOT_MEASURED。本批0.1.39准备、设计/主题/本地新增验收尚未完成，不借0.1.38候选或旧核心接受报通过。
+约定制品交付、上线前检查通过、插件已上线、Sites网页已发布、Owner体检完成各用自身证据；核心交付、全计划完成、正式发布和Owner最终接受分开。报告交付模式、真实本地位置或Sites地址/保存版本/部署状态、实际插件/源码版本、执行结果与限制；理解效果未测保持NOT_MEASURED。本批0.1.39仍为未发布候选，设计/主题/本地有限运行结果及其限制由同一REPORT逐项报告；不借公开0.1.38或旧核心接受补写未执行入口、完整计划或Owner接受通过。
 
 Owner体检覆盖真实制作体验、页面阅读操作与扩展/异常；真实反馈后按影响修复复验，不默认重跑完整旧矩阵。已发布版本观测关键内容、访问与部署/资源异常；停止新增发布并升级责任Agent/Owner，先回读状态，选已知良好保存版本或前向修复，插件用新受保护PR恢复，历史与资产保留。原始范围及逐条覆盖见[主PLAN](../../plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md#original-meaning-and-engineering-coverage)。
