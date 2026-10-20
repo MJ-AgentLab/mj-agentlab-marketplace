@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-20
 state: active
-version: v1.14
+version: v1.15
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -21,6 +21,14 @@ sources: ./source-bindings.json
 ---
 
 # HTML learning artifact task entry
+
+## Actual PR289 develop verification and marketplace pre-bump
+
+#289实际develop新验通过，隔离市场8.3.4预升候选待新保护PR合入；公开仍v8.3.3/HTML0.1.38，HTML0.1.39在develop。实际批准NOT_MET、延期/效果/原接受保界，详见[唯一REPORT](./[REPORT]_HTML_Learning_Artifact.md#actual-pr289-develop-verification-and-marketplace-pre-bump)。
+
+下一步推荐：完成本轮预升候选的来源/文档/A6及独立复核，提交唯一新主PR→protected develop，并核对当前head CI、真实非作者且非latest-pusher批准、线程和最新base；理由是实际同步复验已具备预升前提，而预升不等于正式发行。自身PR/CI/实际合入结果接Issue274与外部冻结回执，无新实质差异不递归纯证据PR。
+
+以下旧current/待办段均为各自原时点快照；本轮进度以Issue274与本节为准。
 
 ## Selective alignment integration candidate
 

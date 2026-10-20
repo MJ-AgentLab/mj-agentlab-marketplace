@@ -1,0 +1,80 @@
+{
+  "startedAtUtc": "2026-10-20T13:14:54.976+00:00",
+  "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop",
+  "platform": "nt",
+  "scope": "npm test; npm run validate; npm run check:baseline-tools; no standalone installation smoke",
+  "environmentOverrides": {
+    "HTML_SITE_PYTHON": "C:/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+    "LEK_PYTHON": "C:/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+    "PYTHON": "C:/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+    "REQUIRE_PYTHON": "1",
+    "PYTHONUTF8": "1",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "pathPrepended": "C:\\Users\\Admin\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python",
+  "commands": [
+    {
+      "name": "npm-test",
+      "displayCommand": "npm test",
+      "argv": [
+        "D:/Development/nodejs/node.exe",
+        "D:/Development/nodejs/node_modules/npm/bin/npm-cli.js",
+        "test"
+      ],
+      "startedAtUtc": "2026-10-20T13:14:54.976+00:00",
+      "pid": 33284,
+      "exitCode": 0,
+      "endedAtUtc": "2026-10-20T13:18:46.039+00:00",
+      "elapsedSeconds": 231.063,
+      "combinedOutput": {
+        "path": "npm-test.log",
+        "bytes": 147110,
+        "sha256": "86690ca3ac58c504b6e3cdf77850381fe83d378200849f676fab2ce850d7cf41"
+      }
+    },
+    {
+      "name": "npm-validate",
+      "displayCommand": "npm run validate",
+      "argv": [
+        "D:/Development/nodejs/node.exe",
+        "D:/Development/nodejs/node_modules/npm/bin/npm-cli.js",
+        "run",
+        "validate"
+      ],
+      "startedAtUtc": "2026-10-20T13:18:46.046+00:00",
+      "pid": 40700,
+      "exitCode": 0,
+      "endedAtUtc": "2026-10-20T13:19:01.515+00:00",
+      "elapsedSeconds": 15.469,
+      "combinedOutput": {
+        "path": "npm-validate.log",
+        "bytes": 401,
+        "sha256": "14bb367ac1fa4124f2d581b329d417111357919bc98c5aff736540b757e0b9ce"
+      }
+    },
+    {
+      "name": "baseline-tools",
+      "displayCommand": "npm run check:baseline-tools",
+      "argv": [
+        "D:/Development/nodejs/node.exe",
+        "D:/Development/nodejs/node_modules/npm/bin/npm-cli.js",
+        "run",
+        "check:baseline-tools"
+      ],
+      "startedAtUtc": "2026-10-20T13:19:01.517+00:00",
+      "pid": 39316,
+      "exitCode": 0,
+      "endedAtUtc": "2026-10-20T13:19:01.766+00:00",
+      "elapsedSeconds": 0.25,
+      "combinedOutput": {
+        "path": "baseline-tools.log",
+        "bytes": 158,
+        "sha256": "3fc0424a86101004ace83d91ff21260dd3df9b75d335c7cf1132e9ee9f75fc1b"
+      }
+    }
+  ],
+  "endedAtUtc": "2026-10-20T13:19:03.071+00:00",
+  "trackedFilesByteIdenticalBeforeAfter": true,
+  "headIdenticalBeforeAfter": true,
+  "allCommandExitCodesZero": true
+}

@@ -1,0 +1,355 @@
+{
+  "auditedAt": "2026-10-20T13:28:43.841192+00:00",
+  "status": "PASS_LIMITED",
+  "checks": [
+    {
+      "name": "fixed source SHA and tree",
+      "passed": true,
+      "observed": {
+        "sha": "f3e8ba322109e2a43dcdcd68fdd2f0c655c78240",
+        "tree": "6daad5a9e9f9d749e48e38b148657195c3ed2fa5"
+      }
+    },
+    {
+      "name": "host identity and clean unchanged",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "primary identity status and source unchanged",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "all complete worktree records byte identical",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "process-only TEMP same for outer and child",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "actual Codex CLI exact baseline",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "actual Python is bundled interpreter",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "canonical verifier default strict version and cleanup",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "smoke zero exit and outer guards",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "13 fresh scenarios all pass",
+      "passed": true,
+      "observed": 13
+    },
+    {
+      "name": "178 actual commands all zero",
+      "passed": true,
+      "observed": {
+        "actual": 178,
+        "zero": 178
+      }
+    },
+    {
+      "name": "6 actual Diagram Python calls",
+      "passed": true,
+      "observed": 6
+    },
+    {
+      "name": "18 actual LEK Python calls",
+      "passed": true,
+      "observed": 18
+    },
+    {
+      "name": "4 actual site generations and Python checks",
+      "passed": true,
+      "observed": {
+        "site": 4,
+        "generation": 4,
+        "python": 4
+      }
+    },
+    {
+      "name": "4 static reports96 checks zero fail",
+      "passed": true,
+      "observed": [
+        {
+          "checks": 96,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        },
+        {
+          "checks": 96,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        },
+        {
+          "checks": 96,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        },
+        {
+          "checks": 96,
+          "failed": 0,
+          "pages": 1,
+          "files": 9
+        }
+      ]
+    },
+    {
+      "name": "HTML0.1.39 installed from own cache",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "site20 guide4 full installed resources",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "ordinary3 native8 explicit5 repo20",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "15 exact observed owned roots",
+      "passed": true,
+      "observed": 15
+    },
+    {
+      "name": "each root boundary and double absence",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "no manual root cleanup",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "dedicated TEMP empty at independent audit",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "installation browser NOT_RUN preserved",
+      "passed": true,
+      "observed": null
+    }
+  ],
+  "checkCount": 23,
+  "sourceSha": "f3e8ba322109e2a43dcdcd68fdd2f0c655c78240",
+  "sourceTree": "6daad5a9e9f9d749e48e38b148657195c3ed2fa5",
+  "hostSha": "f3e8ba322109e2a43dcdcd68fdd2f0c655c78240",
+  "actualCounts": {
+    "scenarios": 13,
+    "commands": 178,
+    "diagramPython": 6,
+    "lekPython": 18,
+    "siteGeneration": 4,
+    "siteStaticPython": 4
+  },
+  "roots": [
+    {
+      "root": "D:\\t274d\\release-install-wYXD2x",
+      "kind": "canonical",
+      "observedFrom": "template copy original sourceRoot/canonical",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T13:28:43.763Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T13:28:43.838188+00:00"
+    },
+    {
+      "root": "D:\\t274d\\marketplace-smoke-1BOiH1",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T13:28:43.765Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T13:28:43.838188+00:00"
+    },
+    {
+      "root": "D:\\t274d\\marketplace-smoke-55dvDO",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T13:28:43.764Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T13:28:43.838188+00:00"
+    },
+    {
+      "root": "D:\\t274d\\marketplace-smoke-aBl9zo",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T13:28:43.764Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T13:28:43.839192+00:00"
+    },
+    {
+      "root": "D:\\t274d\\marketplace-smoke-GVAW58",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T13:28:43.764Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T13:28:43.839192+00:00"
+    },
+    {
+      "root": "D:\\t274d\\marketplace-smoke-H76hp1",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T13:28:43.765Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T13:28:43.839192+00:00"
+    },
+    {
+      "root": "D:\\t274d\\marketplace-smoke-j0TPHr",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T13:28:43.764Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T13:28:43.839192+00:00"
+    },
+    {
+      "root": "D:\\t274d\\marketplace-smoke-jaulAc",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T13:28:43.765Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T13:28:43.839192+00:00"
+    },
+    {
+      "root": "D:\\t274d\\marketplace-smoke-KMZL8C",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T13:28:43.765Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T13:28:43.839192+00:00"
+    },
+    {
+      "root": "D:\\t274d\\marketplace-smoke-q93gzf",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T13:28:43.764Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T13:28:43.839192+00:00"
+    },
+    {
+      "root": "D:\\t274d\\marketplace-smoke-r3ovRC",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T13:28:43.764Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T13:28:43.839192+00:00"
+    },
+    {
+      "root": "D:\\t274d\\marketplace-smoke-WKZtYK",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T13:28:43.763Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T13:28:43.839192+00:00"
+    },
+    {
+      "root": "D:\\t274d\\marketplace-smoke-WTfV8H",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T13:28:43.764Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T13:28:43.840193+00:00"
+    },
+    {
+      "root": "D:\\t274d\\marketplace-smoke-WwZFHq",
+      "kind": "scenario",
+      "observedFrom": "scenario copy destinationRoot/src",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T13:28:43.765Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T13:28:43.840193+00:00"
+    },
+    {
+      "root": "D:\\t274d\\marketplace-smoke-source-lYFV7J",
+      "kind": "template",
+      "observedFrom": "copy destinationRoot/template",
+      "metricStatus": "ok",
+      "boundaryVerified": true,
+      "existsAfter": false,
+      "checkedAt": "2026-10-20T13:28:43.763Z",
+      "existsAtIndependentAudit": false,
+      "boundaryAtIndependentAudit": true,
+      "secondCheckedAt": "2026-10-20T13:28:43.840193+00:00"
+    }
+  ],
+  "limits": [
+    "Fixedcommit installation/discovery/static evidence only; no real browser/GUI, model behavior, Matt interview, desktop/native waiting-window, second-client, Sites or effects were run.",
+    "Actual public tag/Release unchanged; this candidate install is not publication or Owner acceptance.",
+    "Historical failures/rootUNKNOWN and protected approvalNOT_MET remain independent."
+  ]
+}
