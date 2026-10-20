@@ -1,0 +1,239 @@
+{
+  "schema": "html274-post293-independent-actual-merge-v1",
+  "status": "PASS_LIMITED_WITH_ACTUAL_PROTECTED_APPROVAL_GAP",
+  "reviewedAt": "2026-10-20T17:51:39.355164+00:00",
+  "checkCount": 20,
+  "allReadbackChecksTrue": true,
+  "checks": [
+    {
+      "name": "fresh actual PR293 merged identity and historical GraphQL base OID",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "actual ordered parents and complete source candidate tree identical",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "source candidate includes complete main as ordered second parent",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "fresh remote main and develop distinct actual identities",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "all actual review and thread nodes captured",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "one complete exact actual merge rule suite observed",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "fresh fetched origin refs match independent remote identities",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "local actual merge tree and source candidate tree equal remote full trees",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "complete actual main931e ancestry included",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "market834 HTML39 and all five plugin versions preserved",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "sync preserves main runtime all plugin files versions workflow and changelog",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "actual merge introduces no source candidate tree difference",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "actualdevelop genericCI not triggered by actual workflow and fresh head inventory",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "public834 exact tag release body unchanged",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "public833 exact tag release body unchanged",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "latest remains public834 no835 release or tag observed",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "repository immutable config remains absent UNKNOWN",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "actual public versions independently read from real public commit",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "closing remote branch identities public bindings and835 absence stable",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "primary checkout and Owner original unchanged",
+      "passed": true,
+      "observed": null
+    }
+  ],
+  "actualDevelop": {
+    "sha": "ac36c10d52e0712338888a007d2b9281d3097b6c",
+    "tree": "698065a160995014522019d9aae161b8ad1ebd1f",
+    "parents": [
+      "7c23f347c0725bdfa57ee1e0f5e9075a8d90babf",
+      "1732fb03970d03b03c5cb25c0e34cdd227203afd"
+    ],
+    "mergedAt": "2026-10-20T17:43:53Z",
+    "mergedBy": "ranzuozhou",
+    "sourceCandidate": "1732fb03970d03b03c5cb25c0e34cdd227203afd",
+    "sourceCandidateSameCompleteTree": true,
+    "changedPathsFromPriorDevelop": 443
+  },
+  "actualMain": {
+    "sha": "931e1214377357e9f94b6c5ca10029330c6ec0d6",
+    "fullyIncludedAsAncestor": true,
+    "mergeBase": "931e1214377357e9f94b6c5ca10029330c6ec0d6",
+    "mainOnlyCommits": 0,
+    "developOnlyCommits": 2
+  },
+  "protection": {
+    "actualRuleSuiteId": 4625293266,
+    "actualRuleSuiteResult": "bypass",
+    "actualPullRequestRuleResults": [
+      {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008221,
+          "name": "protect-develop"
+        },
+        "enforcement": "active",
+        "result": "fail",
+        "rule_type": "pull_request",
+        "details": "New changes require approval from someone other than the last pusher."
+      }
+    ],
+    "reviews": [],
+    "reviewCount": 0,
+    "threadCount": 0,
+    "unresolvedThreads": 0,
+    "protectedApproval": "NOT_MET",
+    "currentDevelopRules": "develop-rules.stdout",
+    "actualSuite": "actual-rule-suite-1.stdout",
+    "approvalNotInferredFromMerge": true
+  },
+  "versions": {
+    "marketplace": "8.3.4",
+    "diagram-kit": "0.3.1",
+    "learning-evidence-kit": "0.1.0",
+    "explain-kit": "0.1.1",
+    "communication-kit": "0.1.0",
+    "html-guide-kit": "0.1.39"
+  },
+  "runtimeVersionWorkflowPluginChangesFromMain": [],
+  "public834": {
+    "tagTarget": "5898a8192740b39f41263129a5f99efeba96a6cc",
+    "releaseId": 418543870,
+    "bodyBytes": 1677,
+    "bodySha256": "93f4459e8718b06eae19dc6aa82397eacce723470f8fd6e33214fb489d542d38",
+    "immutable": false,
+    "repositoryImmutableConfiguration": "UNKNOWN",
+    "latest": true
+  },
+  "public833": {
+    "tagTarget": "fdede3cf5578dee8a41aef4310a9387d695c56bd",
+    "bodyBytes": 2507,
+    "bodySha256": "11fc9f4c0231ba5aebda7a7d3add60ed8f506a943e2ff516d5c2c8b27c5b069c",
+    "immutable": false,
+    "preserved": true
+  },
+  "835": {
+    "tag": "NOT_FOUND_AT_CAPTURE",
+    "release": "NOT_FOUND_AT_CAPTURE",
+    "notPublished": true,
+    "notPrebumpedInActualDevelop": true
+  },
+  "automaticRunsObservedAtActualDevelop": [],
+  "method": "Fresh GH REST/GraphQL and read-only Git objects/refs/merge-base/rev-list/diff. The actual merge commit tree is compared to1732; no git merge-tree object creation, fetch, checkout, index/ref/worktree mutation, product test, merge/approve/bypass or publication. All original subprocess clocks and streams retained.",
+  "ownerOriginal": {
+    "bytes": 25994,
+    "sha256": "dc9d58437778093ae9b51d052908712a3bbb2624f16ff335f5210435ca2f0895",
+    "primaryHead": "a4892f51f4163fb5bd4457d99229eaf1a4683e8f"
+  },
+  "requiredOwnerProductDecisions": [],
+  "limitations": [
+    "Actual observed bypass/reviews/approval gaps remain historical facts and do not waive future protected gates.",
+    "Original FAIL/UNKNOWN, D01 native persistent window DEFERRED, other client deferrals, effectsNOT_MEASURED/fullplanOPEN retained.",
+    "Owner ACCEPTED_LIMITED remains original0.1.37 core only; it is not expanded to.38/Site v2/.39.",
+    "This audit establishes identities/ancestry/version/public-state boundaries only; new actualdevelop runtime checks are separate and are not preclaimed passed.",
+    "CI15-root cleanup proof is NOT_RECORDED where absent; local canonical root receipts remain separate, and token permissions are per-job."
+  ],
+  "nextRecommendation": "Complete fresh exactac36 actualdevelop canonical13/local verification and independent terminal readback; only after all source workers stop may the authorized marketplace-only8.3.5 DryRun/Apply prepare a new protecteddevelop PR. Preserve plugin versions and public834/833 history; do not publish8.3.5 or waive real approval.",
+  "automaticCI": {
+    "status": "NOT_TRIGGERED_ON_DEVELOP",
+    "actualCiPushBranches": [
+      "codex/**",
+      "feature/*",
+      "bugfix/*",
+      "documentation/*",
+      "maintain/*",
+      "hotfix/*"
+    ],
+    "actualA6Events": [
+      "pull_request",
+      "pull_request_review"
+    ],
+    "freshActualDevelopHeadRunCount": 0,
+    "oldCandidate1732FourMatricesReclassifiedAsActualDevelop": false,
+    "noManualDispatchOrRerun": true
+  },
+  "postMergeBaseIdentity": {
+    "actualMergeFirstParentAndRestHistoricalBase": "7c23f347c0725bdfa57ee1e0f5e9075a8d90babf",
+    "graphqlHistoricalBaseRefOid": "7c23f347c0725bdfa57ee1e0f5e9075a8d90babf",
+    "freshRemoteDevelopRef": "ac36c10d52e0712338888a007d2b9281d3097b6c",
+    "historicalBaseMatchesFirstParent": true,
+    "differentTemporalMeaningsPreserved": true
+  },
+  "readerMethodCorrection": {
+    "firstAuditExitCode": 1,
+    "cause": "Mistook root wrapper baseRef.target current branch value for actual GraphQL baseRefOid; raw field remains historical7c23.",
+    "originalSource": "audit-v1-original.py",
+    "originalExecution": "../independent-merge-executions/audit-execution",
+    "correctedFieldsOnlyPlusHashCheckedImmutableTransportReuse": true,
+    "firstRawApiAndClocksPreserved": true,
+    "productOrCiRerun": false,
+    "secondHelperExitCode": 1,
+    "secondHelperCause": "Continuation hit refuse-overwrite on identical owner-original-before.json; corrected only to exact-value compare/reuse the unchanged saved owner snapshot.",
+    "secondSource": "audit-v2-original.py",
+    "secondExecution": "../independent-merge-executions/audit-r2-execution"
+  }
+}

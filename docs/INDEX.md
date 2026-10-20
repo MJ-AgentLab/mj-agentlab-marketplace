@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-21
 state: active
-version: v2.114
+version: v2.115
 layer: canonical
 ---
 
@@ -34,6 +34,12 @@ layer: canonical
 [#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)五阶段#246/#247/#248/#249/#251均已合入develop。四性能门槛/完整24样本通过、保留default；最终actual6df新492/492、13安装、6Diagram+18LEK及15清理通过并独立复核。Owner明确仅对245接受历史批准/bypass缺项后，Issue于2026-10-16T13:09:52Z以Completed关闭；原NOT_MET、历史失败和调度限制保留，例外不外推。见[账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)与[最终收尾回执](runbook/evidence/ci-performance-245-final-closeout.json)。
 
 ## 当前整体发布
+
+2026-10-21台北：#293实际developac36完整继承main931e，新13/178及本机/Python独立复验后，本轮仅市场8.3.5预升候选未合入/未发布；默认安装保持真实8.3.4/HTML0.1.39，批准/延期/原接受边界见[#274唯一REPORT](../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#actual-pr293-develop-verification-and-marketplace835-pre-bump)。
+
+下一步推荐：完成本轮预升候选的来源/文档/A6、适用工程检查及独审后，提交Issue274唯一主PR→protecteddevelop；新head真实非作者且非latest-pusher批准、实际requiredchecks（包括适用A6）、线程及最新base满足后才正常合入。理由是实际完整同步与新复验已支持市场预升，预升不等于正式发行或新能力接受。候选自身PR/CI/实际merge只回Issue和外部冻结回执，无新实质差异不递归纯证据PR。
+
+以下旧current为各自原时点。
 
 2026-10-21台北：#292实际main931e已完成新的13安装与独占本机复验，当前完整main同步develop候选，未称已合入；公开仍8.3.4/HTML0.1.39 tag5898。原件与权限缺口见[#274唯一REPORT](../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#actual-pr292-main-verification-and-full-synchronization)，原接受/延期/效果分别保留。
 

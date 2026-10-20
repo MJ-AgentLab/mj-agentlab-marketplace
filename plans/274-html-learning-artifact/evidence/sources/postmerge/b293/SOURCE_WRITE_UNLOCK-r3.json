@@ -1,0 +1,157 @@
+{
+  "schema": "html274-post293-marketplace-prebump-source-unlock-r3-v1",
+  "createdAtUtc": "2026-10-20T18:35:40.707828+00:00",
+  "producerSha256": "7d36ed947ba0d020cdad19384dd84d7d7de0eb2f71dc24a564e6a18601bb1a60",
+  "actualDevelop": "ac36c10d52e0712338888a007d2b9281d3097b6c",
+  "actualTree": "698065a160995014522019d9aae161b8ad1ebd1f",
+  "actualMain": "931e1214377357e9f94b6c5ca10029330c6ec0d6",
+  "transition": {
+    "scope": "marketplace",
+    "from": "8.3.4",
+    "to": "8.3.5"
+  },
+  "sourceFreezes": [
+    {
+      "path": "actual-develop-smoke-freeze.json",
+      "sha256": "b2faad35b3e064409454c41414d918739f88d9ae0d36cbb0ffa0c1ed7c03f37a",
+      "root": "actual-develop-smoke",
+      "files": 38
+    },
+    {
+      "path": "actual-develop-local-freeze.json",
+      "sha256": "1160acdbfee0b67995085c1ad6d4d017438924f0d5b468d3a5a53de8a80e51fa",
+      "root": "actual-develop-local",
+      "files": 26
+    },
+    {
+      "path": "independent-merge-freeze.json",
+      "sha256": "86505e2414ce9c492bc462fe57ce31ac2a78222f1f8a6fb42fe0b99e72a71e5a",
+      "root": "independent-merge",
+      "files": 169
+    },
+    {
+      "path": "prebump-scope-review-freeze.json",
+      "sha256": "a7baf39eb3d14fd4ab609d219ae15112bc78da965e4e246fc369486257b36435",
+      "root": "prebump-scope-review",
+      "files": 32
+    }
+  ],
+  "terminalReceipts": {
+    "canonical": {
+      "path": "actual-develop-smoke/terminal-summary.json",
+      "sha256": "e1df6d16afb2ffe665f5e44b60744c83353b4f76d85836241b2357138ef48423",
+      "schema": "html274-post293-actual-develop-canonical-v1",
+      "freezePath": "actual-develop-smoke-freeze.json",
+      "freezeSha256": "b2faad35b3e064409454c41414d918739f88d9ae0d36cbb0ffa0c1ed7c03f37a"
+    },
+    "local": {
+      "path": "actual-develop-local/terminal-summary.json",
+      "sha256": "9dca0526d8404069c57cb497ba751abfc3989114723ff5a840b6ded0cbc331eb",
+      "schema": "html274-post293-actual-develop-local-v1",
+      "freezePath": "actual-develop-local-freeze.json",
+      "freezeSha256": "1160acdbfee0b67995085c1ad6d4d017438924f0d5b468d3a5a53de8a80e51fa"
+    },
+    "independentMerge": {
+      "path": "independent-merge/summary.json",
+      "sha256": "37d9e600314a55bd529a923e914186fe507b95b7ea76f6d7c13b75148b2ed23c",
+      "freezePath": "independent-merge-freeze.json",
+      "freezeSha256": "86505e2414ce9c492bc462fe57ce31ac2a78222f1f8a6fb42fe0b99e72a71e5a"
+    }
+  },
+  "stopReceipt": {
+    "path": "source-executors-stopped.json",
+    "sha256": "6fa8211d6aa563ec803506f2734733c421d2771449c6810daaf65d1088f0acec",
+    "runtimePhases": [
+      "canonical",
+      "local"
+    ],
+    "sameActualRuntimeExecutor": true,
+    "independentAuditAgent": "/root/post287_audit"
+  },
+  "independentReadback": {
+    "path": "develop-batches-readback.json",
+    "sha256": "ceb572f996f5049a902fb7e385fa5a382d3358bb22de112ff51b3e0cb9a49cba",
+    "schema": "html274-post293-root-independent-develop-readback-v1"
+  },
+  "fullTrackedFileCount": 9692,
+  "oldSourceCount": 3131,
+  "requiredOwnerDecisions": [],
+  "onlyAuthorizedSourceChange": "Versiontool2targets, then7necessary docs/source-registration, total9 existing; no publication/Owner acceptance.",
+  "versionToolIdentity": {
+    "path": "scripts/bump-version.ps1",
+    "logicalGit": {
+      "path": "scripts/bump-version.ps1",
+      "bytes": 10990,
+      "sha256": "80719139215421075bd315f2fa7f223c8e0706feb40b94f1057e79869ac669ef",
+      "gitBlob": "4e3f56eee8c7764fb6123fca95adf2832ced0d04"
+    },
+    "livePhysical": {
+      "path": "scripts/bump-version.ps1",
+      "bytes": 11196,
+      "sha256": "e904f48addf0d6e2b8cf821a760d66444666dd7cf66e71abdf1799b10fdc4ea8"
+    },
+    "runtimeMaps": [
+      {
+        "path": "actual-develop-smoke/full-source-before.json",
+        "bytes": 4301820,
+        "sha256": "83d51f1fb602368532d233da5a3ec8419784291f8cafc09ff62131f5f24effb0",
+        "freezeSha256": "b2faad35b3e064409454c41414d918739f88d9ae0d36cbb0ffa0c1ed7c03f37a",
+        "toolRow": {
+          "path": "scripts/bump-version.ps1",
+          "bytes": 11196,
+          "sha256": "e904f48addf0d6e2b8cf821a760d66444666dd7cf66e71abdf1799b10fdc4ea8"
+        }
+      },
+      {
+        "path": "actual-develop-smoke/full-source-after.json",
+        "bytes": 4301820,
+        "sha256": "521608818d43f2e742fc0f973660c9ff7c437d35385e8a407e012fe0f870dfa8",
+        "freezeSha256": "b2faad35b3e064409454c41414d918739f88d9ae0d36cbb0ffa0c1ed7c03f37a",
+        "toolRow": {
+          "path": "scripts/bump-version.ps1",
+          "bytes": 11196,
+          "sha256": "e904f48addf0d6e2b8cf821a760d66444666dd7cf66e71abdf1799b10fdc4ea8"
+        }
+      },
+      {
+        "path": "actual-develop-local/full-source-before.json",
+        "bytes": 4301820,
+        "sha256": "b63f27f20ea1833c34ce4db23dc67bbf508b9030e52d4d322e8eab39b768e80b",
+        "freezeSha256": "1160acdbfee0b67995085c1ad6d4d017438924f0d5b468d3a5a53de8a80e51fa",
+        "toolRow": {
+          "path": "scripts/bump-version.ps1",
+          "bytes": 11196,
+          "sha256": "e904f48addf0d6e2b8cf821a760d66444666dd7cf66e71abdf1799b10fdc4ea8"
+        }
+      },
+      {
+        "path": "actual-develop-local/full-source-after.json",
+        "bytes": 4301820,
+        "sha256": "ed45ab9b8f3ac1f426e2b3c43f95d9e72e23b65ce0df659a2e928ca034799e38",
+        "freezeSha256": "1160acdbfee0b67995085c1ad6d4d017438924f0d5b468d3a5a53de8a80e51fa",
+        "toolRow": {
+          "path": "scripts/bump-version.ps1",
+          "bytes": 11196,
+          "sha256": "e904f48addf0d6e2b8cf821a760d66444666dd7cf66e71abdf1799b10fdc4ea8"
+        }
+      }
+    ],
+    "acceptance": "Git logical bytes equal the frozen Git fact; executable physical bytes independently equal all four measured runtime maps. No LF normalization substitutes for physical equality."
+  },
+  "prewriteRecovery": {
+    "firstEntryReceipt": "prepare-marketplace835/receipt.json",
+    "firstEntryReceiptSha256": "761d5a732ddab332829b291b20274acf666f7c710767f3fca6e1ee44a195bd84",
+    "oldProducerSha256": "1009934e9b51bb1c189867c621d6f77ff4583efeb704d1fccdbb45d074b55909",
+    "oldUnlockSha256": "d099f2f1a97980775f8a2343e6f7c9a3bf57041cd793f0c2167b3f5e6dd38313",
+    "independentDiagnosticFreeze": {
+      "path": "prebump-tool-identity-diagnostic-freeze.json",
+      "sha256": "428d1eee13229ce5fa6d266c367f507c7d35713bf4aa45d79c600c603afb9da1",
+      "root": "prebump-tool-identity-diagnostic",
+      "files": 20
+    },
+    "rootDiagnosticSha256": "2b67367830cb5e191d9ce312e40c7c5cb3c059f771381aefc04910e9f1a3f5f3",
+    "returnVerificationReceiptSha256": "79dcd92ab191e878b28054234f22bc1dd90cb1f81a4c04ca194b196935ec3140",
+    "recoveryDesignSha256": "06dacc1e895abcc53aa0b4e9452f4d61960e51567e7b8a484353516e4311c78c",
+    "rootCause": "Old prewrite identity check compared measured CRLF physical bytes to LF Git-fact hash. First entry failed before preflight/versiontool/source writes; separate strong identity layers and new unlock chain preserve original failures and byte guards."
+  }
+}

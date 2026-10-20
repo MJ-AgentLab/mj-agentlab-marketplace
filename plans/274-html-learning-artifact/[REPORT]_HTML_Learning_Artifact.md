@@ -6,13 +6,35 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-21
 state: active
-version: v1.20
+version: v1.21
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 ---
 
 # [REPORT] HTML learning artifact
+
+## Actual PR293 develop verification and marketplace8.3.5 pre-bump
+
+Owner[本轮原话](./evidence/sources/postmerge/b293/continuation/owner-request.txt)和[捕获](./evidence/sources/postmerge/b293/continuation/capture.json)明确actualdevelop新验、完整main祖先及市场8.3.5预升；未知原消息身份/时间不编造。复用U1/P5、唯一INTENTv1.2和32+A基线，无新增Owner产品决定。
+
+2026-10-21（Asia/Taipei）：#293于2026-10-20T17:43:53Z（台北2026-10-21T01:43:53+08:00）实际合入develop **ac36c10d52e0712338888a007d2b9281d3097b6c/tree698065a160995014522019d9aae161b8ad1ebd1f**，parents7c23＋1732，完整树同已测同步候选；main **931e1214377357e9f94b6c5ca10029330c6ec0d6** 完整祖先已独立核对。Git commit clock为2026-10-20T17:43:52Z，与PR mergedAt分属字段，不混作同一时钟。公开仍Marketplace8.3.4/HTML0.1.39，tag/Release5898；835仅本轮隔离预升候选，尚未合入、未公开。
+
+本轮actualdevelop新canonical于2026-10-20T17:54:28.528Z–2026-10-20T18:08:34.370Z执行，13/178全exit0、6Diagram＋18LEK真实Python、4site生成/4静态各96/96、15自有根双absence/8guards通过；随后本机于2026-10-20T18:09:21.098+00:00–2026-10-20T18:13:51.742+00:00执行652总/651PASS/0FAIL/1平台skip、strict20repo/8public、CLI0.147.0/Python3.12.14和限定browser通过。两批各核9692完整跟踪文件图、index/primary/Owner原件与全worktree库存，分别冻结STOP后独立回读解锁；旧293CI和tag运行不改名为actualdevelop。 本机Node compile cache原初absence=false及残留库存保留；另行精确自有cache/空父目录的原生受控清理与双absence有证，非测试自动清理、不计canonical15根。
+
+实际#293 suite4625293266为bypass，pull_request规则FAIL缺latest-pusher以外批准，reviews=[]、批准NOT_MET；Agent未执行该保护合入，不构成未来豁免。actualdevelop通用CI未触发，不dispatch或重跑、不把旧四矩阵改名。独立reader的历史base字段误解及已存快照写保护两次exit1保留原件；scope的INTENT初筛/插件字典键方法修正另见选证，不是产品或CI失败。旧FAIL/UNKNOWN保留；D01持续窗口/其他客户端DEFERRED、效果NOT_MEASURED、完整计划OPEN；Owner原ACCEPTED_LIMITED仅0.1.37，不扩大至.38/Site v2/.39。
+
+现有版本工具先DryRun（2026-10-20T18:35:54.924814+00:00–2026-10-20T18:35:55.205939+00:00）恰VERSION/README两锚点且9692源图零写，再Apply（2026-10-20T18:35:58.160251+00:00–2026-10-20T18:35:58.452513+00:00）只改VERSION与badge为未发布8.3.5。README六个真实v8.3.4公开安装锚点保持；后继七项文档/来源登记维护单独计数，不冒称版本工具改完整包。全部插件/运行/.agents/scripts/workflow/INTENT、公开root/plugin CHANGELOG整字节及834账本保持，无新tag/Release。
+
+首预升执行入口于2026-10-20T18:18:13.822302Z–18:18:18.659793Z在prewrite守卫exit1；未达preflight/run_tool、未建prebump-execution、未改源码，不是版本工具或产品运行FAIL。根因已知：把实测CRLF物理11196B/e904f48a与Git LF10990B/80719139当同一哈希比较。旧1009934脚本/旧d099解锁/首stderr保持；新r3独立文件与SOURCE_WRITE_UNLOCK-r3链把Git字节对scope fact/gitOID、物理字节对四份真实runtime地图分别强绑定，不改ps1/facts/全局配置、不以归一化替代物理核验。根普通切回verify/建立新链后再普通切回已建apply分支，完整源/索引/库存守卫未放宽。后续两个版本工具命令仍为各自首次真实调用，不把入口修正说成产品根因修复、也不追认历史UNKNOWN。恢复原件见[首失败回执](./evidence/sources/postmerge/b293/recovery/first-prewrite-failure/receipt.json)与[独立诊断](./evidence/sources/postmerge/b293/recovery/independent-diagnostic-summary.json)。
+
+[独立合并审计](./evidence/sources/postmerge/b293/independent-merge/summary.json)、[预升范围](./evidence/sources/postmerge/b293/prebump-scope-review/summary.json)、[独立运行回读](./evidence/sources/postmerge/b293/develop-batches-readback.json)及[选证恢复](./evidence/sources/postmerge/b293/selection.json)绑定原件；3131旧完整对象前缀保持，新选证不冒充全量大map/日志归档。私有B2全文不复制。独立merge审计未声称新3131物理闭包；本轮producer在实际全源map及每个既有来源原hash上另直接校验。未重启模型/Matt/原生/桌面/第二客户端/Sites或受众，未扩大接受。
+
+本节为提交前工程快照：835仅工作候选，尚无自身commit/PR/新CI/实际protecteddevelop交付；后继事实只接Issue及外部不可变回执。
+
+下一步推荐：完成本轮预升候选的来源/文档/A6、适用工程检查及独审后，提交Issue274唯一主PR→protecteddevelop；新head真实非作者且非latest-pusher批准、实际requiredchecks（包括适用A6）、线程及最新base满足后才正常合入。理由是实际完整同步与新复验已支持市场预升，预升不等于正式发行或新能力接受。候选自身PR/CI/实际merge只回Issue和外部冻结回执，无新实质差异不递归纯证据PR。
+
+以下旧current/待办保留原时点。
 
 ## Actual PR292 main verification and full synchronization
 

@@ -1,0 +1,13 @@
+{
+  "schema": "html274-post293-reader-field-correction-v1",
+  "originalFieldAssertionFailure": "audit-v1-original.py expected GraphQL baseRefOid=ac36, incorrectly using the separate wrapper's current baseRef.target value.",
+  "actualRawField": "pr293-graphql.stdout records baseRefOid=7c23f347c0725bdfa57ee1e0f5e9075a8d90babf, equal to REST historical base and actual merge first parent; fresh develop ref is ac36c10d52e0712338888a007d2b9281d3097b6c.",
+  "firstExecution": "../independent-merge-executions/audit-execution/receipt.json",
+  "firstExitCode": 1,
+  "firstExecutionUtc": "2026-10-20T17:49:25.985782+00:00 through 2026-10-20T17:49:36.260748+00:00",
+  "preservedOriginals": ["audit-v1-original.py", "reader-method-notes-before-field-correction.json", "reader-method-notes.json", "pr293-graphql.stdout", "all original API stdout/stderr/receipt files"],
+  "correction": "Only correct the historical base assertion/summary and introduce exact argv/cwd/stream bytes/hash checked reuse of already successful immutable API/Git captures. Additional uncaptured Git and closing public/branch reads execute fresh once. Do not change or overwrite original captures.",
+  "readerMethodNotesWarning": "The earlier preparation note's assertion that GraphQL baseRefOid is current ac36 is itself part of this erroneous interpretation; keep that note as history, use the actual raw field recorded here.",
+  "notProductFailureOrRerun": true,
+  "noRepositoryMutation": true
+}

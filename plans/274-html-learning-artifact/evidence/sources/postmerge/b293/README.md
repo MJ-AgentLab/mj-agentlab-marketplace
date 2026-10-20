@@ -1,0 +1,3 @@
+# Post293 marketplace-only pre-bump evidence
+
+Actual develop ac36/tree6980 includes complete main931e ancestry. Selection.json binds copied originals and omitted frozen members. New actualdevelop canonical/local results are distinct from old293 CI and public834 tag checks. VERSION/badge835 is unpublished preparation, not a tag/Release, protected approval, native/client pass, full-plan completion or Owner acceptance. Localcache residual/controlled cleanup and canonical15 roots stay separate. Full maps and original method failures stay recoverable in named immutable external packets. Future own PR/CI/actual merge results belong to Issue274 and external receipts; no recursive pure-evidence PR.
