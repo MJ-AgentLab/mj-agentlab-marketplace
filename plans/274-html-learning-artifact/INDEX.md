@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-21
 state: active
-version: v1.22
+version: v1.23
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -21,6 +21,12 @@ sources: ./source-bindings.json
 ---
 
 # HTML learning artifact task entry
+
+## Actual PR303 publication and continuation
+
+2026-10-21（Asia/Taipei）：#303已合入main，Marketplace8.3.5/HTML0.1.40/Communication0.1.1已公开；actualmain与已验候选等树，独立实际main/tag闭包已取得PASS_LIMITED_IDENTITY_AND_REUSED_ACCEPTANCE。实际公开、批准NOT_MET和复用边界见[主REPORT](./[REPORT]_HTML_Learning_Artifact.md#actual-pr303-publication-and-continuation)、[后继顺序](./[PLAN]_HTML_Learning_Artifact.md#actual-pr303-publication-and-continuation)及[835账本](../../docs/runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md#actual-pr303-publication-and-continuation)。原接受/延期/效果和完整计划OPEN保持，进度正本仍为[#274](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274)。
+
+下一步推荐：依据已确认公开闭包，正常交付main默认安装导航/有界记录；其实际merge后完整同步main→develop，核actualdevelop新增闭包后才仅市场下一补丁DryRun→Apply。自身后继CI/merge只回Issue及外部回执，不递归证据PR。以下为各自原时点快照。
 
 ## Current combined8.3.5 release preparation
 

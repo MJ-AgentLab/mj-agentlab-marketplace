@@ -6,12 +6,31 @@ owner: marketplace-maintainers
 created: 2026-10-21
 updated: 2026-10-21
 state: active
-version: v1.1
+version: v1.2
 layer: working
 purpose: "Maintain the Issue274 repair-release boundary, exact identities, pending gates and recovery"
 ---
 
 # [RUNBOOK] Marketplace8.3.5 release readiness
+
+## Actual PR303 publication and continuation
+
+PR303实际于 `2026-10-21T08:38:24Z`（Asia/Taipei16:38:24）合入main `8e90f560839eefd733ff47a9c7bb807c55b9387d/tree812f3e571dcc4f20c444c00bec724f6821f0649b`，parents有序为 `931e1214377357e9f94b6c5ca10029330c6ec0d6`＋`e991c84c74bc54c5aa53dd529cadaec4cdb5ee14`。完整tree同已验e991；市场8.3.5/HTML0.1.40/Communication0.1.1，其余三包版本保持。Owner要求在新session续办，现行combined范围和已验未变内容复用决定继续，不重启旧排除299/旧新跑要求。
+
+Release `419327118`已于 `2026-10-21T08:41:31Z`（台北16:41:31）published，fresh connector观察真实v8.3.5 tag/main/Release target同8e90；draft=false、prerelease=false、assets=[]、immutable=false，仓库配置字段缺失仍UNKNOWN。既有Release run `39570799699`为attempt1/push/exact8e90、success；新session未重复创建tag/Release。旧交接08:40:28Z的404只是当时快照。
+
+| 本轮分项 | 当前实际证据与边界 |
+|---|---|
+| Actualmain来源 | SHA/tree/有序parents已核，完整tree同已验e991；不是重新执行本机或安装 |
+| 实际303治理 | reviews=[]；gh rule suite4637288454匹配931e→8e90、result=bypass，批准NOT_MET；Agent未执行保护合并或发布，非后继豁免 |
+| 公开身份 | PASS_LIMITED_IDENTITY_AND_REUSED_ACCEPTANCE：9786完整Git记录同tree812f3e；正文2318B与actual CHANGELOG835节LF/trim相同，完整祖先/五包八技能及Communication三资源等同7f06既有安装源；不是新行为或安装运行 |
+| 证据复用 | 未变内容按精确身份复用，不机械手工重复suite/十三/Python/安装/模型/桌面/原生；必需CI/既有发布workflow照常，不改门禁、不将复用称新执行 |
+| 后继导航与同步 | 当前准备有界main默认安装导航/记录PR；其实际merge后普通完整main→develop，actualdevelop新增闭包核验后才仅市场下一补丁DryRun→Apply |
+| 接受与延期 | 原HTML.37 ACCEPTED_LIMITED不扩大，D01/其他客户端DEFERRED、效果NOT_MEASURED、完整计划OPEN；公开不等同Owner最终接受或关闭全部Epic |
+
+新证据根 `C:/Users/Admin/.codex/task-evidence/marketplace-835-post303-20261021` 与旧E4 STOP根分开，身份审计子包已FROZEN_STOP（121文件/20496881B）；`identity-audit/summary.json` SHA256 `b0eef7883fdaf61138f666c9602646b30c6cc12954087c2b8cc36d9676ad8af2`，`identity-audit/final-manifest.json` SHA256 `fd51cff18dc229d34891c855fff59bf6032e982132e3c9a307a5f0cc2db6d00a`。旧TLS门禁INCOMPLETE、Communication raw捕获限制及历史FAIL/UNKNOWN/NOT_CAPTURED/bypass/批准缺口各保原件；不修补旧gate、不执行或写旧冻结helpers。详细事实见[唯一REPORT](../../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#actual-pr303-publication-and-continuation)，后继事实回Issue274及外部固定回执，不递归证据PR。
+
+下一步推荐：完成有界导航候选检查并提交protected main；每个当前head真实批准/CI/Structure/A6/线程/latestbase保持，不bypass。异常停推广并前向修复，不移动公开tag或改写旧Release/资产，无新增周期自动化。以下各准备段只属原时点；旧“公开仍834”“尚未公开”和要求重复新13不覆盖现行Owner复用决定。
 
 ## Current combined release scope
 

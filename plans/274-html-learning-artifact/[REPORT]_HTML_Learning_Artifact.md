@@ -6,13 +6,27 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-21
 state: active
-version: v1.23
+version: v1.24
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 ---
 
 # [REPORT] HTML learning artifact
+
+## Actual PR303 publication and continuation
+
+2026-10-21（Asia/Taipei）：#303于 `2026-10-21T08:38:24Z`（台北16:38:24）实际合入main `8e90f560839eefd733ff47a9c7bb807c55b9387d/tree812f3e571dcc4f20c444c00bec724f6821f0649b`，有序parents为main `931e1214377357e9f94b6c5ca10029330c6ec0d6`＋候选 `e991c84c74bc54c5aa53dd529cadaec4cdb5ee14`；完整tree与已验e991相同。Owner随后明确要求转新session继续，复用唯一PLAN/REPORT与原授权。交接时08:40:28Z的835 tag/Release404保留为当时快照，不作为当前状态。
+
+新session先观察既有exact-main发布流程，未重复创建tag/Release。fresh connector回读确认Release `419327118`于 `2026-10-21T08:41:31Z`（台北16:41:31）published；真实v8.3.5 tag、Release target与actualmain同为8e90，draft=false、prerelease=false、assets=[]、immutable=false；仓库immutable配置缺字段仍UNKNOWN。Release run `39570799699`为attempt1/push/exact8e90，终态success。市场8.3.5、HTML0.1.40、Communication0.1.1，Diagram0.3.1/Learning Evidence0.1.0/Explain0.1.1保持。
+
+真实303 reviews=[]；本机gh读取的rule suite `4637288454`匹配931e→8e90、result=bypass，批准NOT_MET。Agent未执行该保护合并或发布；技术身份/公开不追认独立批准，旧head gate的TLS失败INCOMPLETE和未执行后半段保留，不重跑或修补旧gate。候选CI仅按原metadata范围复用，不补造未捕成功logs/TAP/十三计数。
+
+本轮独立闭包结论为PASS_LIMITED_IDENTITY_AND_REUSED_ACCEPTANCE：candidate/actualmain/真实tag的9786完整Git记录及tree完全相同，150356/b242/4248/7f06祖先全部成立；五包/八公开/五显式/三自然/20repo技能确认。相对b242的运行闭包仅Communication manifest/SKILL/yaml三资源变化，全部等同7f06真实安装源，因此复用既有验收，不是新的行为或安装运行。Release正文2318B/SHA256 `7f3f39b94d57638e8fe22e60cf8a866b1e30cf3399bb4736d0751e77a6296d91` 与actual CHANGELOG8.3.5节按LF/trim相同；原E4封存802文件/19222147B全部原字节保持。发行日志独立回读08:38:44create-draft→08:41:29canonical Git tree installation verified→08:41:31published，这是既有发布workflow实际动作，不冒称本轮手工十三安装。审计导入快照/日志与该审计fresh三项身份锚点、rule-suite详情分别标记，未将导入材料称全部新读取。无新增身份/资源/公开不匹配阻断导航维护，治理NOT_MET保持。未变资源按现行Owner授权复用，未手工重复suite/十三/Python/安装/模型/UI/原生；Communication.1.1原CLI/RPC/外层启动等捕获限制、旧FAIL/UNKNOWN/NOT_CAPTURED和whole-turn primary FAIL继续保留。新外部证据根为 `C:/Users/Admin/.codex/task-evidence/marketplace-835-post303-20261021`，身份审计子包已FROZEN_STOP（121文件/20496881B），固定入口 `identity-audit/summary.json` SHA256 `b0eef7883fdaf61138f666c9602646b30c6cc12954087c2b8cc36d9676ad8af2`、`identity-audit/final-manifest.json` SHA256 `fd51cff18dc229d34891c855fff59bf6032e982132e3c9a307a5f0cc2db6d00a`；旧E4和更早STOP根保持只读。
+
+当前准备有界main默认安装导航/记录PR，实际合入后完整main→develop；核actualdevelop新增闭包后才仅市场下一补丁DryRun→Apply。每个保护PR保持当前head真实非作者/非latest-pusher及适用CODEOWNER批准、CI/Structure/A6、线程/latestbase，不bypass；本记录自身未来CI/merge回Issue274和外部固定回执，无新实质差异不递归纯证据PR。原HTML.37接受不扩至后继版本，D01/其他客户端DEFERRED、效果NOT_MEASURED、完整计划OPEN和Owner最终接受独立，公开不关闭全部Epic。
+
+下一步推荐：完成有界导航候选检查并提交protected main；理由是实际公开及资源闭包已确认，默认安装推广应通过当前head真实保护门禁。以下为各自原时点快照。
 
 ## Combined8.3.5 release scope and evidence reuse
 
