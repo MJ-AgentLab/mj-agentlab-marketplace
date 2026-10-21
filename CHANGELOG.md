@@ -5,18 +5,23 @@
 
 ## [Unreleased]
 
+## [8.3.5] - 2026-10-21
+
+Marketplace8.3.5 delivers HTML Guide Kit0.1.40 Windows owned-browser lifecycle repair and Communication Kit0.1.1 public display metadata under #274/#298. Diagram0.3.1, Learning Evidence0.1.0 and Explain0.1.1 remain unchanged, with five packages/eight public skills/five explicit entries. VERSION8.3.5 was already prepared; this promotion does not bump it again.
+
 ### Changed
 
-- Rename the Communication plugin and skill display to **Communication Kit** and use “Draft clear messages and documents while preserving meaning.” as their shared English summary. Keep `communication-kit`, `$communication-kit:communicate`, explicit invocation, behavior, icons and package versions unchanged. This display-only maintenance is not a release. Refs #298, #222.
+- Use **Communication Kit** as the plugin and skill display name and “Draft clear messages and documents while preserving meaning.” as their shared English summary. Communication0.1.1 gives the metadata its own installation/cache identity; `communication-kit`, `$communication-kit:communicate`, explicit invocation, prompts, behavior and icons remain. Owner explicitly authorized inclusion in this release after PR299's naming maintenance; that earlier maintenance did not itself publish a release.
 
-### Fixed — candidate, not published
+### Fixed
 
-- Implement HTML Guide Kit0.1.40 candidate to isolate Windows browser processes in a private Job before execution and require complete owned-process exit before directory cleanup. Preserve original browser flags, deadlines and failure criteria; retain the failed directory when complete exit cannot be established.
-- Stop the unmerged maintenance-release attempt295 after the newly proven recovery gap. Marketplace remains pre-bumped8.3.5. Source-pinned targeted Windows checks and limited independent review completed; the complete new-candidate Harness, fresh installations, protected develop delivery and rebuilt publication remain pending. Keep the first browser FAIL, startup causeUNKNOWN, deferred/native/client/effects coverage and original HTML0.1.37-only Owner acceptance. Refs #274.
+- Establish Windows browser ownership in a private Job before execution and verify Job liveness even when the launcher exits. Require complete owned-process exit before removing the check directory; keep the directory and original failure when exit cannot be established. Preserve browser flags, startup/operation deadlines, geometry criteria and POSIX behavior.
+- Preserve the original startup/relaunch failures and UNKNOWN causes; fixing lifecycle cleanup does not establish those causes. Controlled incident recovery, source-bound repair verification and actual publication remain separate.
 
-### Earlier installation-navigation maintenance
+### Maintenance and retained limits
 
-Update the default installation reference to the verified v8.3.4 release and HTML Guide Kit0.1.39. Record actual main/tag/Release identity and independent post-publication checks under Issue274 without changing package versions, runtime resources or published release notes. Preserve earlier failures, missing protected approval, deferred native/client coverage and original limited Owner acceptance. This maintenance entry does not publish another version. Refs #274.
+- Retain full main ancestry and include full actual develop150356/PR299 plus the minimal Communication0.1.1 version branch under the Owner's subsequent combined-release decision. Reuse source-bound acceptance for unchanged resources; validate metadata/version and integration deltas, with mandatory current-head CI and protected approval. Keep the v8.3.4 default installation references until actual8.3.5 publication and tag identity verification.
+- Preserve historical missing protected approval/bypass, earlier FAIL/UNKNOWN/NOT_CAPTURED, deferred native/client coverage, effects NOT_MEASURED and full-plan OPEN. Original limited HTML0.1.37 core acceptance does not extend to0.1.40. Current protected approval, publication, true-tag verification and Owner acceptance require their own evidence.
 
 ## [8.3.4] - 2026-10-20
 

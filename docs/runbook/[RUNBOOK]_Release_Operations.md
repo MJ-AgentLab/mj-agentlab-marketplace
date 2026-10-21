@@ -6,13 +6,29 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-21
 state: active
-version: v2.10.14
+version: v2.10.17
 layer: canonical
 ---
 
 # [RUNBOOK] Release operations
 
+## Actual PR303 publication and continuation
+
+2026-10-21（Asia/Taipei）：#303已于08:38:24Z合入actualmain8e90/tree812f3e，与已验e991完整等树；Marketplace8.3.5/HTML0.1.40/Communication0.1.1已由既有exact-main Release workflow于08:41:31Z公开。真实tag/main/Release target同8e90，draft/prerelease=false、assets=[]、immutable=false，仓库immutable配置缺字段仍UNKNOWN；真实303 reviews=[]/rule suite4637288454bypass、批准NOT_MET，Agent未执行保护合并或发布。详细身份及独立闭包PASS_LIMITED_IDENTITY_AND_REUSED_ACCEPTANCE的边界见[835账本](./[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md#actual-pr303-publication-and-continuation)。
+
+先查询已有exact-main发布流程及真实结果，已公开版本只验证，不重复创建/移动tag或重写Release/资产。按Owner已验未变内容无需重验的真实决定，actualmain/tag只补身份、资源闭包和新增差异；本轮未手工重复suite/十三/Python/安装/模型/桌面/原生，必需CI及既有发布workflow照常，不把复用称新执行。旧阶段新跑要求、缺陷/FAIL/UNKNOWN/捕获限制及保护批准缺口保其各自来源。
+
+实际公开闭包确认后，先正常交付一份有界main默认安装导航/记录PR；其实际merge后把完整actualmain ancestry普通同步develop，不以子集cherry-pick冒称完整同步。actualdevelop实际合入并核新增闭包后才从实际版本DryRun→Apply仅市场下一补丁，版本工具只改VERSION/README badge，插件独立版本保持、无预升号tag/Release。各保护PR需当前head真实非作者/非latest-pusher及适用CODEOWNER批准、CI/Structure/A6、线程/latestbase；旧bypass不授权新bypass。自身未来CI/merge回Issue274与外部固定回执，无新实质差异不递归纯证据PR。
+
+下一步推荐：将默认公开安装导航通过当前head门禁的正常main PR指向已核835；理由是公开和资源闭包已确认，默认推广还须通过本轮导航PR的真实保护门禁。原.37限定接受、D01/客户端延期、NOT_MEASURED/完整计划OPEN及Owner最终接受独立，无新增周期自动化。以下Preparation和历史Post-release段均按各自时点/范围读取。
+
 ## Preparation
+
+当前835范围已由Owner后续原始选择扩大：Communication0.1.1命名/英文简介与HTML0.1.40修复同用#303→protected main，完整包含actualdevelop150356；此前“不吸收299”只属旧阶段。未变验收按固定资源身份复用，不机械重复全suite/十三/Python/客户端安装；新增元数据/版本/合并文档闭包、实际最终head必需CI/真实批准及actualmain/tag/Release身份仍逐项核定，见[835账本当前范围](./[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md#current-combined-release-scope)。公开834及六默认安装锚点保持，历史缺陷/FAIL/UNKNOWN/批准缺口/延期不追认。
+
+下一步推荐：完成combined候选独审后更新同一draft#303，满足当前head真实保护门禁再正常合入及已授权draft-first公开；仅对新增/不匹配项补验。以下原段按各自时点读取。
+
+2026-10-21：#302已交付HTML0.1.40 Windows owned-browser修复；835发行以[本轮账本](./[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md)和Issue274承接，旧295纯维护尝试关闭未合入。实际302新验、新发行候选、保护main、actualmain、draft-first公开和真实tag新验分别绑定，不借旧候选/CI计数。保持完整latest-main ancestry和302明确发布切点，不自动吸收Issue299；公开834供安装、异常停推广并前向修复，不改旧tag/Release/资产。实际develop新验已通过；下一步推荐完成本轮发行候选检查及独立复核，提交唯一835→protectedmain，当前head真实批准/CI/线程/latestbase满足后正常合入。下列段落保留各自时点。
 
 2026-10-21（Asia/Taipei）：同#274的835发行尝试#295因新证实Windows owned-browser回收缺陷关闭未合入，无835tag/Release。#294实际develop6b已预升市场8.3.5且完整含main931e，公开仍834/HTML0.1.39；默认六834安装锚点与公开历史保持。事故恢复r2已于03:15:47–03:16:22Z受控Browser.close一次、原8退出/无fallback/双空/handles关闭，文件保留。HTML0.1.40仅manifest已Apply，private Job/退出屏障已实现，末轮固定source的14内核case/4真实Chrome Job定向验及有限独审完成；完整Harness、新13/实际Python/CI/保护develop及重建发行均PENDING。
 
