@@ -5,6 +5,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Rename the Communication plugin and skill display to **Communication Kit** and use “Draft clear messages and documents while preserving meaning.” as their shared English summary. Keep `communication-kit`, `$communication-kit:communicate`, explicit invocation, behavior, icons and package versions unchanged. This display-only maintenance is not a release. Refs #298, #222.
+
 ### Fixed — candidate, not published
 
 - Implement HTML Guide Kit0.1.40 candidate to isolate Windows browser processes in a private Job before execution and require complete owned-process exit before directory cleanup. Preserve original browser flags, deadlines and failure criteria; retain the failed directory when complete exit cannot be established.

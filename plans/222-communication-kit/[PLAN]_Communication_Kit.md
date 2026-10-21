@@ -4,9 +4,9 @@ scope: communication-kit
 summary: "Current Communication task plan and historical accepted-source boundaries"
 owner: marketplace-maintainers
 created: 2026-10-19
-updated: 2026-10-19
+updated: 2026-10-21
 state: active
-version: v1.0
+version: v1.1
 layer: working
 task: 222-communication-kit
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222
@@ -35,3 +35,17 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222
 目录整合验收由 #269 对实际候选执行：唯一入口/主 PLAN、旧当前路径撤除、两原件逐字节与哈希匹配、隔离阅读和恢复。插件历史 CLI、客户端、批准及现实效果范围沿用当时记录，不因本次工程检查变成通过。
 
 缺原件/路径错误/并行计划时停止依赖操作并修复；保留原失败与接受。普通 Git revert 或后继修复恢复整合，不覆盖原件、不改发布资产；Owner 最终接受与技术检查分开。
+
+## 2026-10-21 English display-name maintenance — #298
+
+本批进度与唯一轻量原意正本为 [Issue #298](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/298)；#222 保持原交付身份，本目录继续复用。Owner 在当前 Codex 会话明确选择：“采用 Communication Kit，按你的建议修改显示名称和英文简介，同步相关文档，内部标识和调用入口保持不变。”实际消息时分/消息 ID 不可得；捕获日期为 2026-10-21（Asia/Taipei）。这是文案选择和技术执行授权，成品最终接受尚未发生。
+
+完整接受文案为显示名称 `Communication Kit`、英文简介 `Draft clear messages and documents while preserving meaning.`，同时应用于插件 manifest 和 communicate 原生界面。此段与固定基线 `6b4612b4968f5172944f61b180c032df913037f1` 可恢复本批选择；Issue 仅链接本段接受快照，后续实现不扩大该选择。内部 `communication-kit`、`communicate`、`$communication-kit:communicate`、默认提示、显式策略、能力、图标及行为保持；只调整技能标题及界面称呼，不重写写作流程。市场/插件版本和公开资产保持，正式发布不在本批。
+
+| 原意条目 | 实际交付与验收 | 顺序/依赖 |
+|---|---|---|
+| 显示名称及英文简介 | manifest 与 agents/openai.yaml 精确匹配上述完整文案；接口字段与固定基线比较 | 子 PR 1 → `codex/communication-english-name` |
+| 相关现行文档 | 包说明、技能标题、指南、ADR/SPEC、术语及导航同步；历史与冻结来源不改写 | 子 PR 2 在子 PR 1 实际合入后 → 同集成分支 |
+| 工程质量和授权边界 | npm test / validate / smoke:codex、实际缓存 Python 图表校验、A6、来源完整性及合成角色复核；失败和未查分别记录 | 两个子 PR Harness 后内部正常合并；唯一主 PR → protected develop |
+
+使用短路径独立 worktree；原 develop 未跟踪计划文件保留。应用创建 worktree 首次因 Windows 长路径失败，改用短路径完整检出，不放宽验证。回退用普通后继 PR 恢复界面及现行文档，不覆盖历史发布。最终主 PR 须当前 head 非作者/非最后推送者批准、required checks、最新 base 和已解决线程；不 bypass。实际客户端显示尚未执行，不用 CLI 元数据或旧截图冒充新 GUI；旧窗口/效果延期及 Owner 最终接受独立保留。

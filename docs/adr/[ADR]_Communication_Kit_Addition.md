@@ -4,9 +4,9 @@ scope: marketplace
 summary: "Explicit communication, writing and meaning-preserving rewrite contract"
 owner: marketplace-maintainers
 created: 2026-10-12
-updated: 2026-10-19
+updated: 2026-10-21
 state: draft
-version: v1.4.2
+version: v1.5
 layer: canonical
 ---
 
@@ -31,6 +31,10 @@ PR3已实现完整Communication0.1.0候选并原子接入插件、注册、严�
 Owner通过grilling Q3明确正式公开仅为Learning已公开三包加Communication（四包六技能、三显式），HTML留develop另发。PR4/5各自核实集合与实际From/To，不从开发全量推断公开范围；现有单入口与行为契约不变。
 
 ## §2 Decision
+
+2026-10-21，Owner 在 [#298](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/298) 所记录的当前会话明确采用 **Communication Kit** 与英文简介 “Draft clear messages and documents while preserving meaning.”，统一插件及原生技能的显示文案，与其他 Kit 系列一致。内部标识、唯一入口及以下行为决定保持；这是未发布的文案维护，不扩展原验收或发布授权。完整接受基线及实际结果由[任务入口](../../plans/222-communication-kit/INDEX.md)抵达。
+
+以下为初始决定与旧阶段适用范围，旧中文名称及当时状态保留作历史。
 
 新增独立 `communication-kit`，唯一公开技能 `$communication-kit:communicate`，界面“沟通助手”。显式调用后处理当前任务及其连续修改；无关任务、明确停止与新会话不沿用激活状态。
 
@@ -78,6 +82,7 @@ Owner 明确将九例真实场景、三稿对照、读者效果反馈、采用�
 
 | 日期 | 依据 | 状态 |
 |---|---|---|
+| 2026-10-21 | Owner 采用 Communication Kit 及已推荐英文简介，Refs #298 | 仅统一显示文案和现行文档，内部标识/入口和行为保持；未发布，最终成品接受另记 |
 | 2026-10-13 | Learning原子迁移434d053及Owner答复grilling Q3 | 开发五包七技能、正式四包六技能；HTML保留开发另发，旧来源和行为证据保留 |
 | 2026-10-12 | Owner 要求完整实施与正式上线，保留已确认产品契约与缩减效果测试范围 | PR1 时接受产品方向和执行授权；当时尚未实现 |
 | 2026-10-12 | Owner 答复版本顺序 grilling Q1 | Learning 先 8.2.0；Communication 随后独立 minor，PR4 重查版本和基线 |
@@ -86,6 +91,7 @@ Owner 明确将九例真实场景、三稿对照、读者效果反馈、采用�
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.5 | 2026-10-21 | 追加英文显示名称决定与完整简介；旧产品决定、来源与验收范围保持 |
 | v1.4 | 2026-10-13 | 校正原路径可用性与实际本机客户端证据，记录Learning已发布/Communication8.3准备，保留门禁和限制 |
 | v1.3 | 2026-10-13 | 合并PR1范围澄清与已实现候选事实，区分开发/正式集合，保留历史与未解除门禁 |
 | v1.2 | 2026-10-12 | 记录通用缺陷修复、CLI新批与独立工具补充；独立批准/双客户端/发布仍未完成 |

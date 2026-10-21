@@ -18,6 +18,8 @@ Explain初始0.1.0速解/深讲、中文/原术语、深度/格式适应见[ADR]
 
 Communication按[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)交付；PR1–4已合并，四包#237关闭未合并，由完整五包#241发布。显式单入口与保义/等待/文件合同见[包说明](plugins/communication-kit/README.md)及[communicate](plugins/communication-kit/skills/communicate/SKILL.md)，AICS仍Lab Proposal / Informative。旧失败、CLI C16–C18 PARTIAL、同一26.1007.2314.0桌面应用两个本机入口的限定实证及未覆盖项见[验收§4](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。R05只对应未变资源，无新GUI；基础通过不证明现实效果。
 
+Communication Kit显示名/英文简介维护见[#298](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/298)；标识/入口不变，未发布。
+
 ## 执行与决策
 
 #245五阶段已合并、actual6df新492/13安装/Python复验通过并关闭；Owner仅接受该Issue历史批准/bypass例外，非未来豁免，见[账本](docs/runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)。
