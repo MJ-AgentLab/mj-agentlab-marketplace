@@ -6,13 +6,52 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-21
 state: active
-version: v1.21
+version: v1.22
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 ---
 
 # [REPORT] HTML learning artifact
+
+## Windows owned-browser recovery and HTML0.1.40 repair candidate
+
+2026-10-21（Asia/Taipei）：已授权发布尝试#295在新故障证据后关闭且未合入，未创建835tag/Release。旧候选head123ade0971a81c5f0279ef11c35c4ec021bd40ce/tree5fa6a79a2dfea46c40c91782aea6968ea9cdf32b的首本机批次自然exit1：652总/650PASS/1FAIL/1平台skip；npm validate与CLI0.147.0基线命令各exit0。首FAIL为332双主题实际渲染：暖纸于02:30:43Z返回NOT_RUN/空viewports，DevToolsActivePort未可读，原launcher记录exit0；neutral未执行。后续333限定browser PASS不能抵消332。首Chrome binary hash/version未捕，后取当前版本不得追溯填首轮。
+
+旧候选严格13/178、实际Python与PR/push四矩阵通过保持其各自source；CI15根逐根absence仍NOT_RECORDED。它们不证明新Windows回收修复、首332双主题或本.40通过。首9799文件before/after图、HEAD/清洁状态保持，完整外层守卫/失败冻结各见原件。
+
+精确owned profile D:/r835u-pd1qdioc/html-site-layout-cvqspk4s/browser-profile下实际8个liveChrome（主47084/父26704、创建02:30:44Z）与旧close_browser仅Windows wait原Popen超时才taskkill、早退exit0即PASS/完整session扫只在POSIX的代码，共同证明Windows生命周期回收验证缺陷。启动relaunch/端点缺失起因仍UNKNOWN，不混同已证cleanup gap。读取首.tmp的PermissionError/诊断exit1、非sole cache/不完整库存原件保留，不推锁与Chrome同因。
+
+独立初评在尚无liveowned新证据时曾有条件支持一次fresh r2；新证据后已追加结论并停止unchanged重跑。事故恢复r1独审的Split-Path参数集、JSON日期子秒精度、endpoint元信息、未知可归属后代四项阻断和未执行worker保留；C#仅独立编译/惰性探针。r2静审后经Root明确GO，于03:15:47.1337201–03:16:22.6079036Z实际exit0：验证同listener/portfile/元信息后仅一次Browser.close，原8精确native身份对象退出，无native fallback，双空/原handles signaled及handles关闭，未删除文件。后续首TEMP806文件三次稳定hash只支持纠正后的限定库存；首筛选method无效、其纠正及原异常均保留。该事故恢复和目录后续受控处理各自报告，不等于产品清理修复。
+
+本批候选基于actualdevelop6b4612b4968f5172944f61b180c032df913037f1/tree418e1493f4092d547860dc7fa0199a1e5b4f48cf；完整含main931e1214377357e9f94b6c5ca10029330c6ec0d6，市场8.3.5已预升未发布、公开834/HTML0.1.39/tag5898a8192740b39f41263129a5f99efeba96a6cc保持。版本工具DryRun→Apply仅HTML manifest0.1.40，默认README六834锚点、其他插件/INTENT及原意32＋A01–A08未改。
+
+Windows实现已固定在7路径：private unnamed non-inheritable kill-on-close Job、suspended→assign→resume、真实Job存活探测、完整可扩容PID清单与ActiveProcesses双空屏障。正常/超时/异常均回收，不确定保目录；transport.close异常仍实际drain/release并保原/teardown错误。原flags/15秒startup/几何判准及POSIX路径保持，不按名或未知PID回收。runtime SHA256为ac82f8fd8ed4ad07e07142c0d35b4b08fc29657f2a665f020c9b5d502854abf8；helper为9c68da32128dcbcc768d2cd75768d1d1c8f19abd700fd703928ccad8abc752fe。范围是内核Job与普通继承子孙，不保证external broker/WMI或全OS进程；定时观察不等于未来无新进程。
+
+最终source-pinned定向证据：03:18:57–03:19:17Z Node1测试/14实际内核case（早退launcher、owned子孙、失败不resume、权限/查询/终止错误、扩容、双错、transport失败、控制器退出、nested Job等），foreign canary均存活；03:19:50–03:19:53Z真实Chrome Node2测试/4Job，暖纸/neutral/健康几何3PASS＋人工几何缺陷1预期FAIL，四Job均双空/独立根退出；03:21:05Z延后71.845秒，四精确profile0匹配/4根不存在。三批均7source前后相同，独立审查完整163成员、现7路径和原回执后无阻断finding（PASS_LIMITED_NO_BLOCKING_FINDINGS_READY_FOR_PARENT_FULL_HARNESS）。这不是完整产品/发布验收。
+
+早批native探针/native cases/Chrome原runtime/helper前后hash NOT_CAPTURED，transport改动前30合同＋2清理测试保原source身份，不回填或重标末轮结果。完整新候选npm test/validate、新13/178安装、实际Python与Linux闭包、CI/A6/保护批准/actualdevelop复验及重建发行仍PENDING；独审未运行这些项目，恢复成功与旧CI均不能替代。未来本批PR/CI/merge仅回Issue及外部冻结回执，不再开纯证据递归PR。
+
+外部原件入口如下；旧E整体1034成员/26包/76384550B与新实现/独审各自封存，仅引用path/hash，不复制大日志、旧原件或私有B2。所有PASS按其原source/运行范围读取。
+
+| 固定外部入口 | SHA256 | 范围 |
+|---|---|---|
+| `C:/Users/Admin/.codex/task-evidence/html-learning-274-release835-20261021/final-manifest.json` | `7815c727e5cedbd339567107c180435ed8327905b83f79af845def6290f70ad7` | 旧发行尝试整体冻结：1034成员/26子包/76384550B；首FAIL、原审查和完整原日志仅属各自旧source。 |
+| `C:/Users/Admin/.codex/task-evidence/html-learning-274-release835-20261021/local-failure-independent/summary-amended-known-owned-process-gap.json` | `f26bb46c4bb9a033f6ba9ed836ef86eab0619ec914fc202f45ab817a821d326e` | 已知Windows owned回收缺陷的独立追加判断；保留此前有条件重验初评。 |
+| `C:/Users/Admin/.codex/task-evidence/html-learning-274-release835-20261021/owned-browser-recovery-execution-r2/result.json` | `a232c20818d57bda3c954e9412486cc5a9f7f1202ee931f5f766d54f15bf2b35` | 03:15:47–03:16:22Z精确事故恢复结果；文件保留，非产品修复验收。 |
+| `C:/Users/Admin/.codex/task-evidence/html-learning-274-release835-20261021/owned-browser-recovery-execution-r2/graceful-attempt.json` | `1030818dfecdbfdc1f81958ccf156f5b7b9bb440a76a72e5aeeba2d91bfc8492` | 仅一次Browser.close，原8退出；无native fallback。 |
+| `C:/Users/Admin/.codex/task-evidence/html-learning-274-win-browser-recovery-20261021/implementation/final-manifest.json` | `8070b272304f48cfd81062f9ef864dfd4c07125ccb976cdc927fc2264729e544` | 新实现163成员/3527011B；末轮定向运行对应7路径固定source，早批缺hash不回填。 |
+| `C:/Users/Admin/.codex/task-evidence/html-learning-274-win-browser-recovery-20261021/implementation/summary.json` | `1f91dceb93be3079f8b90c2dec7ff937d808be8809e23126313e82ba1616da85` | 版本工具仅manifest.40已Apply；末轮14内核case/4真实Chrome Job定向证据，不代完整Harness。 |
+| `C:/Users/Admin/.codex/task-evidence/html-learning-274-win-browser-recovery-20261021/independent-code-review/final-manifest.json` | `d669b3f471cb99766785ab85839296b0df6acdab3a79f6273f91b5684c8e120f` | 独立静审6成员；无阻断finding，未运行完整Harness/新13/CI。 |
+| `C:/Users/Admin/.codex/task-evidence/html-learning-274-win-browser-recovery-20261021/independent-code-review/summary.json` | `695e46d589a1484f948ba1dffdcd607ebe014f5eb5f4667011cebee6eda52ebf` | 固定代码及原回执有限审定；普通Job后代边界，不保证external broker或全OS。 |
+
+真实保护批准不能由合成评审/旧bypass替代；D01/延期客户端DEFERRED、效果NOT_MEASURED、完整计划OPEN、Owner仅原.37 ACCEPTED_LIMITED保持，不扩至.38/Site v2/.39/.40。未重启模型/Matt/桌面/第二客户端/Sites或扩大受众。已公开834有故障先停止推广/前向修复，不改tag/Release/资产或建立自动监控。
+
+下一步推荐：独立审本批代码/文档后，执行固定新候选完整Harness、新13安装及独立回读，再按多子PR→同集成分支、唯一主PR→protected develop正常交付/actual复验并重建835发行。原因是已知bug已有实现和有限定向证据，正式完整门禁仍须新运行。
+
+本节为这次源码提交前工程快照。后继完整本机/十三安装、子PR/CI、实际merge及保护门禁仅接Issue274与新E2冻结回执；不因得到后继结果递归提交新证据、改写本快照或改变其实际受测source。
+
+以下保留历史正文，旧候选/当前/待办只对应原时点。
 
 ## Actual PR293 develop verification and marketplace8.3.5 pre-bump
 
