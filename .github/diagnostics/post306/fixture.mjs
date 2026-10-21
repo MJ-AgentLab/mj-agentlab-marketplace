@@ -15,7 +15,17 @@ const generated=path.join(f.temporary,"warm-paper");renderSite({input:f.root,out
 const inputHashes=Object.fromEntries(["artifact.json","artifact-manifest.json","index.html","theme.css","learning.js"].map(n=>[n,hash(fs.readFileSync(path.join(generated,n)))]));
 const expected={"artifact.json":"259ea5338e46657ebf0a4e1ebeb303e7f9538b24762718e70e533bf4536f2ca8","artifact-manifest.json":"fe352d6303bd48da5a1ce8b6dbafe9184b22953e4507c23195d4a3f042411fd3","index.html":"ad989e052033b186938db3e672d4382e0dc3a2501c42e3a6666c5b80cef6624c","theme.css":"a049356d5b6681ca584ca4afb227ec233609279e3b7a06ff3355355eef54b1b9","learning.js":"1fcc8c6064dd99f00b91103cf76e33d7a4e6dcf50793b4542bd8462f6c91f568"};
 if(JSON.stringify(inputHashes)!==JSON.stringify(expected))throw new Error("failed CI input bytes differ");
-fs.cpSync(f.root,path.join(out,"fixture-source"),{recursive:true,errorOnExist:true});
-fs.cpSync(generated,path.join(out,"fixture-generated"),{recursive:true,errorOnExist:true});
+function preserve(from,to){
+  fs.mkdirSync(to);
+  for(const entry of fs.readdirSync(from,{withFileTypes:true})){
+    const input=path.join(from,entry.name),output=path.join(to,entry.name);
+    if(entry.isSymbolicLink())throw new Error("diagnostic fixture must contain ordinary files");
+    if(entry.isDirectory())preserve(input,output);
+    else if(entry.isFile())fs.writeFileSync(output,fs.readFileSync(input),{flag:"wx"});
+    else throw new Error("unsupported fixture entry");
+  }
+}
+preserve(f.root,path.join(out,"fixture-source"));
+preserve(generated,path.join(out,"fixture-generated"));
 fs.writeFileSync(path.join(out,"fixture-record.json"),JSON.stringify({scope:"only failed warm-paper input, exact five CI hashes; diagnostic only",generated,inputHashes,testSha256:hash(Buffer.from(test)),fixtureFunctionSha256:hash(Buffer.from(source))},null,2));
 console.log(JSON.stringify({fixture:generated,inputHashes}));

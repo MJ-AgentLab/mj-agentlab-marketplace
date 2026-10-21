@@ -24,7 +24,7 @@ jobs:
           New-Item -ItemType Directory -Path $diagnosticRoot -ErrorAction Stop | Out-Null
           git rev-parse HEAD | Set-Content (Join-Path $diagnosticRoot 'commit.txt')
           Get-Date -Format o | Set-Content (Join-Path $diagnosticRoot 'runner-clock.txt')
-          node .github/diagnostics/post306/fixture.mjs $diagnosticRoot
+          python .github/diagnostics/post306/prepare.py $diagnosticRoot
       - name: Single original warm-paper path with owned startup signals
         shell: pwsh
         env:
