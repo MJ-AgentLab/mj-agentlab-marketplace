@@ -27,8 +27,8 @@
 - **explain-kit**：独立解释插件，初始 0.1.0；公开 glossary 与 concept。
 - **glossary / concept**：术语速解 / 深入机制、反例和边界解释；本文件是市场术语表，不是 glossary 的运行技能。
 
-- **communication-kit**：PR3 原子接入的未发布 0.1.0 候选插件，沟通、编写与保义改写共用[单入口](plugins/communication-kit/skills/communicate/SKILL.md)。main / v8.1.1 尚不包含本包。
-- **communicate**：显式调用的“沟通助手”；关键缺口先问并等待，交付成稿＋关键提示，明确要求后才保存或编辑 Markdown/TXT 并回读。
+- **communication-kit**：界面名称为 **Communication Kit** 的沟通插件内部标识，沟通、编写与保义改写共用[单入口](plugins/communication-kit/skills/communicate/SKILL.md)。名称维护不改变包名或发布历史，结果见[任务 REPORT](plans/222-communication-kit/[REPORT]_Communication_Kit.md)。
+- **communicate**：Communication Kit 的唯一显式技能，入口保持 `$communication-kit:communicate`；关键缺口先问并等待，交付成稿＋关键提示，明确要求后才保存或编辑 Markdown/TXT 并回读。
 - **保义改写**：调整表达、结构和详略，同时保留事实、立场、条件、例外、责任、义务强度和真实承诺。
 - **AICS 冻结摘要**：包内精选原创运行资料，保留 Lab Proposal / Informative；源字节哈希和 Git 脏状态用于追溯，三份摘要哈希用于完整性检查，来源目录不是运行依赖。
 - **基础可用性**：结构、安装、合成功能、语义保真、操作边界和必要客户端交互的实测范围；通过不证明现实沟通效果、采用度或效率收益。

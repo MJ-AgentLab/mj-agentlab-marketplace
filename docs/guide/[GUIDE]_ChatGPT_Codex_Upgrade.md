@@ -4,9 +4,10 @@ scope: marketplace
 summary: "Upgrade, retirement and uninstall steps for existing users"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-13
+updated: 2026-10-21
 state: active
-version: v1.10
+version: v1.11
+layer: canonical
 ---
 
 # [GUIDE] ChatGPT / Codex upgrade
@@ -51,7 +52,7 @@ Communication 仅从隔离候选来源验证，不从 main / v8.2.0 安装。候
 
 将准确已发布标签或待测SHA的.agents/plugins/marketplace.json作为repo marketplace，刷新后核对来源与版本。v8.2.0为Diagram/Learning Evidence/Explain；开发候选另含HTML/Communication。桌面安装、composer发现、实际调用和原生窗口条件独立验收，本指南不提供通过证据；不合格入口明确延期，旧包在核对身份后独立卸载。
 
-Communication 候选另查“沟通助手”详情图标与版本、显式入口、沟通/编写/改写、关键澄清等待、聊天交付和明确请求才写文件。Owner 选定的 D“地球＋清晰文字”是原创 MJ 图标；资源校验、旧截图或 CLI 元数据不能替代此次实际显示与交互。现实效果测试本轮延期，基础客户端通过不证明收益。
+核验本次文案维护候选时，插件详情与技能入口应显示 **Communication Kit**，英文简介为 “Draft clear messages and documents while preserving meaning.”；内部仍用 `$communication-kit:communicate`。本批尚未发布，已安装旧版可保留旧名“沟通助手”，无内部标识迁移或自动更新声明。沿用原验收边界核对图标与版本、沟通/编写/改写、关键澄清等待、聊天交付及明确请求才写文件；新 GUI 显示须另有实证。Owner 选定的 D“地球＋清晰文字”图标保持，旧截图或 CLI 元数据不替代新客户端证据。文案维护结果见[任务 REPORT](../../plans/222-communication-kit/[REPORT]_Communication_Kit.md)，原实际结果及效果延期见[验收账本](../runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。
 
 历史版本和资产继续保留；旧工作流仅通过固定标签复现。[决策与回退](../adr/[ADR]_ChatGPT_Codex_Portable_Migration_And_LearnKit_Retirement.md)。
 
