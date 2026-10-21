@@ -66,7 +66,7 @@ test("HTML Guide Kit has two explicit entries and exact Read/Write package capab
  assert.deepEqual(EXPLICIT_ONLY_SKILLS,["learning-evidence-kit:pop-quiz","learning-evidence-kit:learning-record-check","communication-kit:communicate",SKILL,SITE]);
  assert.deepEqual(PUBLIC_SKILLS.filter(name=>!EXPLICIT_ONLY_SKILLS.includes(name)),["diagram-kit:arch-diagram","explain-kit:glossary","explain-kit:concept"]);
  assert.equal(REPOSITORY_SKILLS.length,20);assert.ok(!REPOSITORY_SKILLS.includes("guide"));
- const m=manifest();assert.equal(m.name,PLUGIN);assert.equal(m.version,"0.1.39");assert.deepEqual(ui(m).capabilities,["Read","Write"]);validateManifest(m,PLUGIN);
+ const m=manifest();assert.equal(m.name,PLUGIN);assert.equal(m.version,"0.1.40");assert.deepEqual(ui(m).capabilities,["Read","Write"]);validateManifest(m,PLUGIN);
 });
 
 test("HTML Guide Kit manifest rejects wrong identity, root versions, capabilities and routes",()=>{
