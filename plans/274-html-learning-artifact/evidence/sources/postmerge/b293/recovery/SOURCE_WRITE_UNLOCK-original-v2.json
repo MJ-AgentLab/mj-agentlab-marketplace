@@ -1,0 +1,80 @@
+{
+  "schema": "html274-post293-marketplace-prebump-source-unlock-v1",
+  "createdAtUtc": "2026-10-20T18:17:57.505780+00:00",
+  "producerSha256": "1009934e9b51bb1c189867c621d6f77ff4583efeb704d1fccdbb45d074b55909",
+  "actualDevelop": "ac36c10d52e0712338888a007d2b9281d3097b6c",
+  "actualTree": "698065a160995014522019d9aae161b8ad1ebd1f",
+  "actualMain": "931e1214377357e9f94b6c5ca10029330c6ec0d6",
+  "transition": {
+    "scope": "marketplace",
+    "from": "8.3.4",
+    "to": "8.3.5"
+  },
+  "sourceFreezes": [
+    {
+      "path": "actual-develop-smoke-freeze.json",
+      "sha256": "b2faad35b3e064409454c41414d918739f88d9ae0d36cbb0ffa0c1ed7c03f37a",
+      "root": "actual-develop-smoke",
+      "files": 38
+    },
+    {
+      "path": "actual-develop-local-freeze.json",
+      "sha256": "1160acdbfee0b67995085c1ad6d4d017438924f0d5b468d3a5a53de8a80e51fa",
+      "root": "actual-develop-local",
+      "files": 26
+    },
+    {
+      "path": "independent-merge-freeze.json",
+      "sha256": "86505e2414ce9c492bc462fe57ce31ac2a78222f1f8a6fb42fe0b99e72a71e5a",
+      "root": "independent-merge",
+      "files": 169
+    },
+    {
+      "path": "prebump-scope-review-freeze.json",
+      "sha256": "a7baf39eb3d14fd4ab609d219ae15112bc78da965e4e246fc369486257b36435",
+      "root": "prebump-scope-review",
+      "files": 32
+    }
+  ],
+  "terminalReceipts": {
+    "canonical": {
+      "path": "actual-develop-smoke/terminal-summary.json",
+      "sha256": "e1df6d16afb2ffe665f5e44b60744c83353b4f76d85836241b2357138ef48423",
+      "schema": "html274-post293-actual-develop-canonical-v1",
+      "freezePath": "actual-develop-smoke-freeze.json",
+      "freezeSha256": "b2faad35b3e064409454c41414d918739f88d9ae0d36cbb0ffa0c1ed7c03f37a"
+    },
+    "local": {
+      "path": "actual-develop-local/terminal-summary.json",
+      "sha256": "9dca0526d8404069c57cb497ba751abfc3989114723ff5a840b6ded0cbc331eb",
+      "schema": "html274-post293-actual-develop-local-v1",
+      "freezePath": "actual-develop-local-freeze.json",
+      "freezeSha256": "1160acdbfee0b67995085c1ad6d4d017438924f0d5b468d3a5a53de8a80e51fa"
+    },
+    "independentMerge": {
+      "path": "independent-merge/summary.json",
+      "sha256": "37d9e600314a55bd529a923e914186fe507b95b7ea76f6d7c13b75148b2ed23c",
+      "freezePath": "independent-merge-freeze.json",
+      "freezeSha256": "86505e2414ce9c492bc462fe57ce31ac2a78222f1f8a6fb42fe0b99e72a71e5a"
+    }
+  },
+  "stopReceipt": {
+    "path": "source-executors-stopped.json",
+    "sha256": "6fa8211d6aa563ec803506f2734733c421d2771449c6810daaf65d1088f0acec",
+    "runtimePhases": [
+      "canonical",
+      "local"
+    ],
+    "sameActualRuntimeExecutor": true,
+    "independentAuditAgent": "/root/post287_audit"
+  },
+  "independentReadback": {
+    "path": "develop-batches-readback.json",
+    "sha256": "ceb572f996f5049a902fb7e385fa5a382d3358bb22de112ff51b3e0cb9a49cba",
+    "schema": "html274-post293-root-independent-develop-readback-v1"
+  },
+  "fullTrackedFileCount": 9692,
+  "oldSourceCount": 3131,
+  "requiredOwnerDecisions": [],
+  "onlyAuthorizedSourceChange": "Versiontool2targets, then7necessary docs/source-registration, total9 existing; no publication/Owner acceptance."
+}

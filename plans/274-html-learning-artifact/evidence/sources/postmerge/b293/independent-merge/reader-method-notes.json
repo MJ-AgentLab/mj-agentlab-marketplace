@@ -1,0 +1,15 @@
+{
+  "schema": "html274-readonly-exploratory-method-note-v1",
+  "scope": "Preparation only; the actual audit collector had not yet executed.",
+  "exploratoryReadError": {
+    "command": "Get-Content -LiteralPath NEW/initial-pr293-state/summary.json -Raw",
+    "originalDiagnosticFromToolTranscript": "Cannot find path 'C:/Users/Admin/.codex/task-evidence/html-learning-274-post293-20261021/initial-pr293-state/summary.json' because it does not exist.",
+    "originalShellProcessExitCode": 0,
+    "originalExactWallClock": "Not separately recorded; tool transcript is the source, no invented timestamp.",
+    "correction": "The wrapper directory holds stdout/stderr/receipt.json. Read its existing stdout; the underlying raw package summary is NEW/initial-pr293/summary.json. No artifact was changed and no API or product rerun occurred."
+  },
+  "postMergeBaseInterpretation": "Preparation read of the existing raw GraphQL observation showed baseRefOid follows the current develop ref after merge. The fresh REST historical base and actual first parent remain7c23; current GraphQL base isac36. Collector assertions distinguish these meanings before first execution.",
+  "oldFrozenRootsWritten": false,
+  "productFailure": false,
+  "methodErrorsAreNotProductPassEvidence": true
+}
