@@ -71,4 +71,8 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222
 
 本次正式发布依据[主 PLAN 的后续原话与决定](./[PLAN]_Communication_Kit.md#2026-10-21-publication-continuation--298--303)。现有 #303 原 head `ae77ab98f4b1916f736814ec2082501a1860838f` 以 b242947 为产品源、明确排除 #299；Owner 选择并入 8.3.5 后由既有发行会话整合 #299 与本补丁。独立 worktree `D:/worktrees/comm-release` 从实际1503563创建；版本工具 DryRun 和 Apply 均只匹配 manifest L4，Communication `0.1.0 → 0.1.1`，市场 `8.3.5`/HTML `0.1.40`/其他版本不变。包说明/CHANGELOG及任务入口/PLAN/REPORT同步本候选；中央发行文档、市场 CHANGELOG、根 AGENTS 和835账本由既有发行会话单写，避免并行冲突。
 
-新增候选检查与安装结果随后按真实来源追加。当前这是版本准备，尚未宣称 #303 完成整合、受保护 main 合入或公开；最终发布身份、治理门禁和 Owner 接受由 #303/发行账本分别登记。独立合成产品读者/发行维护者复用已有文案判定，新增只核对版本/来源/接口闭包，不冒充新的模型或 GUI 验收。
+新增实际候选为 `7f06eddd9eafa7df6d20024248ecd6d8ae962dbf` / tree `5651a72ba8accebaa89d0e7d45de101c0d809993`。六文件 diff 只含包 manifest/README/CHANGELOG 和222任务 INDEX/PLAN/REPORT；[版本/未变资源比对](./evidence/release303/version-scope.json)恢复 version 后 manifest 与实际150深度相等，除 manifest 和两个说明文件外的九个包资源 Git 对象保持，市场注册/VERSION/根README/脚本/测试/冻结来源无 diff。产品读者角色核对完整文案与接口，发行维护者角色核对版本、来源、复用闭包和回退；执行者为同一 OpenAI Codex 的独立检查步骤，不声称另一 Agent 审查或 GitHub 批准。
+
+[新版本隔离安装回执](./evidence/release303/version-install.json)绑定该候选，实际 Codex0.147.0 完成4个CLI命令及原生 skills/list：安装缓存为 `communication-kit/0.1.1`，插件/技能 displayName 和完整 shortDescription 精确匹配，默认提示/完整包资源一致，普通发现不含 communicate，allow_implicit_invocation=false；隔离根核对已删除。未运行新的模型/GUI/窗口或不变插件/Python/十三组合；原已验内容按 Owner 决定复用。
+
+版本工具单锚点、结构化边界与提交规范 PASS。新增文档第一次 strict validate 因 PLAN 内普通 `codex://` 链接不支持 FAIL；改为纯会话来源标识后复跑 PASS，未放宽规则，原失败留 `D:/worktrees/comm-checks/release-version-validate-initial-fail.log`。最终文档追加后的校验结果在提交/PR回执中记录。当前是版本准备，尚未宣称 #303 完成整合、受保护 main 合入或公开；最终发布身份、治理门禁和 Owner 接受由 #303/发行账本分别登记。
