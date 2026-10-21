@@ -6,13 +6,17 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-21
 state: active
-version: v2.10.15
+version: v2.10.16
 layer: canonical
 ---
 
 # [RUNBOOK] Release operations
 
 ## Preparation
+
+当前835范围已由Owner后续原始选择扩大：Communication0.1.1命名/英文简介与HTML0.1.40修复同用#303→protected main，完整包含actualdevelop150356；此前“不吸收299”只属旧阶段。未变验收按固定资源身份复用，不机械重复全suite/十三/Python/客户端安装；新增元数据/版本/合并文档闭包、实际最终head必需CI/真实批准及actualmain/tag/Release身份仍逐项核定，见[835账本当前范围](./[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md#current-combined-release-scope)。公开834及六默认安装锚点保持，历史缺陷/FAIL/UNKNOWN/批准缺口/延期不追认。
+
+下一步推荐：完成combined候选独审后更新同一draft#303，满足当前head真实保护门禁再正常合入及已授权draft-first公开；仅对新增/不匹配项补验。以下原段按各自时点读取。
 
 2026-10-21：#302已交付HTML0.1.40 Windows owned-browser修复；835发行以[本轮账本](./[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md)和Issue274承接，旧295纯维护尝试关闭未合入。实际302新验、新发行候选、保护main、actualmain、draft-first公开和真实tag新验分别绑定，不借旧候选/CI计数。保持完整latest-main ancestry和302明确发布切点，不自动吸收Issue299；公开834供安装、异常停推广并前向修复，不改旧tag/Release/资产。实际develop新验已通过；下一步推荐完成本轮发行候选检查及独立复核，提交唯一835→protectedmain，当前head真实批准/CI/线程/latestbase满足后正常合入。下列段落保留各自时点。
 

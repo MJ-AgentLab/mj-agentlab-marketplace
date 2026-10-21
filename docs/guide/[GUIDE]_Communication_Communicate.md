@@ -4,14 +4,23 @@ scope: marketplace
 summary: "Explicit communication, writing and rewrite usage with clear boundaries"
 owner: marketplace-maintainers
 created: 2026-10-12
-updated: 2026-10-13
+updated: 2026-10-21
 state: draft
-version: v1.2.1
+version: v1.4
+layer: canonical
 ---
 
-# [GUIDE] 沟通助手
+# [GUIDE] Communication Kit
 
-## §1 当前状态
+当前后续发布决定：Owner已另行明确授权Communication0.1.1随市场8.3.5/#303公开，见[222唯一PLAN](../../plans/222-communication-kit/[PLAN]_Communication_Kit.md)及[835账本](../runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md#current-combined-release-scope)。下文“未发布文案维护/不扩展发布授权”描述#299原阶段；不阻断本次新增真实授权，也不等同已公开或最终接受。内部入口/行为和原验收限制保持。
+
+## §1 名称与适用范围
+
+插件和技能界面统一使用 **Communication Kit**，英文简介为 “Draft clear messages and documents while preserving meaning.”。内部标识 `communication-kit`、技能 `communicate` 和入口 `$communication-kit:communicate` 保持不变；名称调整不改变默认中文、显式启动、保义写作、关键澄清或文件操作边界。[本次维护 #298](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/298) 仅调整显示文案和现行文档，尚未发布；已安装旧版仍可能显示旧名称。当前维护结果见[主 REPORT](../../plans/222-communication-kit/[REPORT]_Communication_Kit.md)，公开历史见[验收账本](../runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。
+
+### 原 PR3/PR4 阶段快照
+
+以下两段保留当时的候选、版本与验收范围，不作为当前公开状态。
 
 PR3 已有完整 Communication 0.1.0 候选，包、单入口、冻结摘要、已选正式 D 图标及原子集成已实现，九组合 canonical 安装检查已实际执行。候选[包说明](../../plugins/communication-kit/README.md)与[communicate](../../plugins/communication-kit/skills/communicate/SKILL.md)可定位；main / 最新 Release 8.1.1尚不包含本包，当前市场仍为未发布8.1.2。[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)追踪正式上线。
 
@@ -63,6 +72,7 @@ $communication-kit:communicate
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.3 | 2026-10-21 | 统一 Communication Kit 名称及英文简介，标明旧候选快照范围；内部入口和使用合同不变，Refs #298 |
 | v1.2 | 2026-10-12 | 对齐修复候选的新CLI与补充工具结果；真实客户端及发布仍未验收 |
 | v1.1 | 2026-10-12 | 可定位的0.1.0未发布候选与已执行工程范围，保留实际调用未验收状态 |
 | v1.0 | 2026-10-12 | 三类计划使用示例与聊天/文件操作边界 |

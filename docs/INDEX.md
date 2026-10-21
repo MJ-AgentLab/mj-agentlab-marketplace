@@ -6,11 +6,13 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-21
 state: active
-version: v2.117
+version: v2.118
 layer: canonical
 ---
 
 # 文档索引
+
+当前8.3.5/#303沿Owner后续授权合并HTML0.1.40修复及Communication0.1.1新名称/英文简介；完整actualdevelop150356及补丁4248纳入，未变验收复用，新增元数据/版本/闭包与最终head保护门禁独立。见[835当前账本](runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md#current-combined-release-scope)与[274唯一任务](../plans/274-html-learning-artifact/INDEX.md#current-combined835-release-preparation)。公开仍834，旧缺口/延期和原.37限定接受保留。下一步推荐完成新增检查/独审后更新同一#303，再核真实批准与发布身份。以下为原时点记录。
 
 ## 工程任务与文档分层
 
@@ -184,7 +186,7 @@ Owner Q3已确认Communication正式发行仅为Learning已公开三包加Commun
 - [Communication 任务入口 #222](../plans/222-communication-kit/INDEX.md)：唯一主 PLAN、主 REPORT 和固定原稿/捕获来源；历史原件只供恢复，不作为并行计划入口。
 - [Communication Kit 新增决定](adr/[ADR]_Communication_Kit_Addition.md)
 - [Communicate 行为契约](spec/[SPEC]_Communication_Communicate.md)
-- [沟通助手使用指南](guide/[GUIDE]_Communication_Communicate.md)
+- [Communication Kit 使用指南](guide/[GUIDE]_Communication_Communicate.md)
 - [Communication 基础验收与发布检查](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)
 
 - [项目说明](../README.md)
@@ -231,7 +233,7 @@ Owner Q3已确认Communication正式发行仅为Learning已公开三包加Commun
 - [[RUNBOOK]_Release_Operations.md](runbook/[RUNBOOK]_Release_Operations.md)
 
 - [Communicate 行为契约](spec/[SPEC]_Communication_Communicate.md)
-- [沟通助手使用指南](guide/[GUIDE]_Communication_Communicate.md)
+- [Communication Kit 使用指南](guide/[GUIDE]_Communication_Communicate.md)
 - [Communication 基础验收与发布检查](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)
 
 - [迁移实际验收记录](runbook/[RUNBOOK]_ChatGPT_Codex_Migration_Acceptance.md)

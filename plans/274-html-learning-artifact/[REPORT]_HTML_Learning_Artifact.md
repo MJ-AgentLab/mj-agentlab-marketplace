@@ -6,13 +6,33 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-21
 state: active
-version: v1.22
+version: v1.23
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 ---
 
 # [REPORT] HTML learning artifact
+
+## Combined8.3.5 release scope and evidence reuse
+
+2026-10-21：Owner在“同步最新 develop 分支”会话明确要求将Communication Kit新名称/英文简介正式公开，并选择“并入8.3.5，并允许你联系该发布会话协调更新#303和重验”，实际回复“2；对于已经验过的内容，无需重验”。Root独立读取原human message `01a15d5e-c44a-7d33-991a-c26bc9884c8b`（会话`01a15ca1-4adb-7e60-8df8-bb541c6e6043`），见[Owner原始选择](./evidence/sources/release835/communication-scope-authority.json)；这是当前发布范围/协调授权，非成品最终接受。HTML INT-2026-003 v1.2/32项＋A01–A08不扩展；Communication显示名/简介完整基线及后续发布决定见[222唯一PLAN](../222-communication-kit/[PLAN]_Communication_Kit.md)。
+
+同一发行主PR [#303](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/303)→protected main已在07:35UTC退回draft；正常整合完整actualdevelop`1503563f7733c1dbbddcbafcfd5cba2a359b8096`及Communication最小补丁`4248fb70ab60bacc707da3d5d542a5ddcb7a98b1/treec4907ee5377d67a47b09a5bcced7acc7b2b9addf`，保完整main`931e1214377357e9f94b6c5ca10029330c6ec0d6`祖先。市场8.3.5/HTML0.1.40保持，Communication0.1.0→0.1.1；其他三包版本、路由/提示/显式策略/行为/图标不变。此前ae77排除299的范围只属旧候选，现行范围由本次真实Owner决定替代。
+
+下一步推荐：完成固定combined候选元数据/版本/资源身份与文档闭包及独立复核，更新同一#303；最终head正常CI、真实非作者且非latest-pusher批准、线程/latestbase满足后普通合入，核actualmain与draft-first/tag/Release身份，再核真实tag闭包。未变内容只复用已验资源证据，不机械重复全suite/十三/Python/客户端安装，也不把复用称新执行；身份或新增运行资源不匹配时只停依赖项并诊断。GitHub必需检查正常执行，不改门禁。
+
+公开仍834/HTML.39/Communication.1.0，tag5898；默认安装六834锚点保持。原HTML.37 ACCEPTED_LIMITED、D01/其他客户端DEFERRED、效果NOT_MEASURED、全计划OPEN及旧FAIL/UNKNOWN/bypass/批准缺口均保留。发布后异常停推广并前向修复，不改公开tag/Release/资产，无新增周期监控。
+
+旧actual302独立新验已完成：b242/tree18ac的本机653总/652PASS/0FAIL/1平台skip、strict/CLI0.147/Python3.12.14，以及13/178全exit0、6Diagram＋18LEK Python、4site生成/静态各96零失败、15精确根双absence。原本机及canonical各自12项窗口守卫PASS；后续07:16额外whole-turn primary不变守卫实际FAIL，因为共享primary前进到150356，Owner原件25994B/hashdc9d…不变，私有b242/ae77保持。该FAIL及local actor UNKNOWN不追认；后续自有窗口PASS不抵消它。
+
+旧ae77发行候选自然PR/push四矩阵及A6均PASS，精确source与原记录保持，不冒称新combined head通过。E3全根1503文件/107410671B已STOP封存：`C:/Users/Admin/.codex/task-evidence/html-learning-274-post302-20261021.freeze.json` SHA256 `6eaab1e6bdd07d880c2c525b795a33d0a10a28908f8d6429382910c59c145f9b`；后继只在外部`C:/Users/Admin/.codex/task-evidence/marketplace-835-combined-20261021`。旧本机/十三/CI原件hash见[835账本](../../docs/runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md)，不复制大日志或递归证据PR。
+
+Communication新增0.1.1安装实际source为`7f06eddd9eafa7df6d20024248ecd6d8ae962dbf`，后续4248只补记录；已有[version-install](../222-communication-kit/evidence/release303/version-install.json)/[version-scope](../222-communication-kit/evidence/release303/version-scope.json)记录4CLI退出0、真实native skills/list接口摘取/断言、0.1.1 cache与9资源hash。**捕获限制**：未保存4CLI stdout/stderr及完整RPC原文，外层工具exit0仅会话摘要，无独立外层原回执；因此复用实际脚本断言/状态/接口摘取/资源哈希级证据，不声称完整原文独立回读。该限制由执行方确认，禁止重构或补造raw，也不重复安装。新增整合闭包及最终候选CI/保护/发布仍各待其自身证据。
+
+新增文档Harness首125项为123PASS/2FAIL：Communication.1.1 CHANGELOG正文未写自身版本、README新相对任务链接在隔离夹具不可达。仅修两说明文档（补版本、改固定4248外部链接），两个失败检查定向复跑2/2PASS；不改测试/门禁或运行资源、不重复已过全量。首次原日志保留在E4/combined-checks；strict与最终闭包另核。
+
+原#299/#302实际bypass/reviews空及批准NOT_MET保持；当前真实保护批准不能由AI独审或旧例外替代。本节是新scope提交前快照，后继commit/CI/actualmain/tag/publication仅回Issue274与外部固定回执。以下旧章节的PENDING/通过只属各自原时点。
 
 ## Windows owned-browser recovery and HTML0.1.40 repair candidate
 

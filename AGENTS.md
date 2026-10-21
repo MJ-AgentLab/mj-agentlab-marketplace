@@ -2,7 +2,7 @@
 
 ## 项目上下文
 
-公开834/HTML0.1.39仍tag5898；#302已交付.40修复，835尚未公开。同[274](plans/274-html-learning-artifact/INDEX.md)准备[835发行](docs/runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md)，actualdevelop新验及保护/发布各自取证；旧FAIL/UNKNOWN/批准缺口保留。
+公开834仍tag5898；#302交付HTML.40。Owner授权Communication.1.1随同[274](plans/274-html-learning-artifact/INDEX.md)的[835发行](docs/runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md)，复用未变验收、核新增闭包；当前headCI/真实批准与发布另取证，旧缺口保留。
 
 manifest 的公开示例按[插件契约](docs/spec/[SPEC]_Plugin_Json_Schema.md)保留完整路由，最多三条，各原值不超过 128 个 Unicode scalar values；严格校验防止客户端忽略超长示例而丢失公开入口，不依赖空白归一化。
 
@@ -17,6 +17,8 @@ Learning Evidence Kit 的 Pop Quiz 诊断只读，明确移交后结束诊断，
 Explain初始0.1.0速解/深讲、中文/原术语、深度/格式适应见[ADR](docs/adr/[ADR]_Explain_Kit_Addition.md)及[验收](docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md)，不改测验策略。
 
 Communication按[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)交付；PR1–4已合并，四包#237关闭未合并，由完整五包#241发布。显式单入口与保义/等待/文件合同见[包说明](plugins/communication-kit/README.md)及[communicate](plugins/communication-kit/skills/communicate/SKILL.md)，AICS仍Lab Proposal / Informative。旧失败、CLI C16–C18 PARTIAL、同一26.1007.2314.0桌面应用两个本机入口的限定实证及未覆盖项见[验收§4](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。R05只对应未变资源，无新GUI；基础通过不证明现实效果。
+
+Communication Kit命名见[#298](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/298)，.1.1随835准备，标识/入口不变；后续授权见[PLAN](plans/222-communication-kit/[PLAN]_Communication_Kit.md)。
 
 ## 执行与决策
 

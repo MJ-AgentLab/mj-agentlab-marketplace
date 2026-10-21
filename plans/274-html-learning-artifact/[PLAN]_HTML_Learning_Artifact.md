@@ -6,13 +6,25 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-21
 state: active
-version: v1.21
+version: v1.22
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 ---
 
 # [PLAN] HTML learning artifact implementation
+
+## Combined8.3.5 release scope and evidence reuse
+
+2026-10-21：Owner在“同步最新 develop 分支”会话明确要求将Communication Kit新名称/英文简介正式公开，并选择“并入8.3.5，并允许你联系该发布会话协调更新#303和重验”，实际回复“2；对于已经验过的内容，无需重验”。Root独立读取原human message `01a15d5e-c44a-7d33-991a-c26bc9884c8b`（会话`01a15ca1-4adb-7e60-8df8-bb541c6e6043`），见[Owner原始选择](./evidence/sources/release835/communication-scope-authority.json)；这是当前发布范围/协调授权，非成品最终接受。HTML INT-2026-003 v1.2/32项＋A01–A08不扩展；Communication显示名/简介完整基线及后续发布决定见[222唯一PLAN](../222-communication-kit/[PLAN]_Communication_Kit.md)。
+
+同一发行主PR [#303](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/303)→protected main已在07:35UTC退回draft；正常整合完整actualdevelop`1503563f7733c1dbbddcbafcfd5cba2a359b8096`及Communication最小补丁`4248fb70ab60bacc707da3d5d542a5ddcb7a98b1/treec4907ee5377d67a47b09a5bcced7acc7b2b9addf`，保完整main`931e1214377357e9f94b6c5ca10029330c6ec0d6`祖先。市场8.3.5/HTML0.1.40保持，Communication0.1.0→0.1.1；其他三包版本、路由/提示/显式策略/行为/图标不变。此前ae77排除299的范围只属旧候选，现行范围由本次真实Owner决定替代。
+
+下一步推荐：完成固定combined候选元数据/版本/资源身份与文档闭包及独立复核，更新同一#303；最终head正常CI、真实非作者且非latest-pusher批准、线程/latestbase满足后普通合入，核actualmain与draft-first/tag/Release身份，再核真实tag闭包。未变内容只复用已验资源证据，不机械重复全suite/十三/Python/客户端安装，也不把复用称新执行；身份或新增运行资源不匹配时只停依赖项并诊断。GitHub必需检查正常执行，不改门禁。
+
+公开仍834/HTML.39/Communication.1.0，tag5898；默认安装六834锚点保持。原HTML.37 ACCEPTED_LIMITED、D01/其他客户端DEFERRED、效果NOT_MEASURED、全计划OPEN及旧FAIL/UNKNOWN/bypass/批准缺口均保留。发布后异常停推广并前向修复，不改公开tag/Release/资产，无新增周期监控。
+
+以下旧章节按原时点/原范围读取；曾要求新运行的旧阶段不覆盖本次Owner对未变内容的复用决定。
 
 ## Windows owned-browser recovery and HTML0.1.40 repair candidate
 

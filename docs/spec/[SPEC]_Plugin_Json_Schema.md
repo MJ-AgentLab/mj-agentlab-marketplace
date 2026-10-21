@@ -4,9 +4,9 @@ scope: marketplace
 summary: "Maintained portable manifest and OpenAI presentation contract"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-19
+updated: 2026-10-21
 state: active
-version: v2.9
+version: v2.10
 layer: canonical
 ---
 
@@ -26,7 +26,9 @@ defaultPrompt 必须为 1–3 条有效字符串，各原始字符串最多 128 
 
 plugins/explain-kit/plugin.json 使用相同 portable 格式，独立初始版本 0.1.0，capabilities 为 Read。defaultPrompt 覆盖 $explain-kit:glossary 与 $explain-kit:concept，且不得路由到其他插件；各技能的 agents/openai.yaml 准确调用自身入口，short_description 为 25–64 字符，allow_implicit_invocation 为 true。
 
-## Communication candidate
+## Communication presentation and original candidate
+
+当前显示文案按 [#298](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/298) 统一为 **Communication Kit**；manifest 的 `shortDescription` 与原生 `short_description` 均为 “Draft clear messages and documents while preserving meaning.”（60 Unicode scalars）。两处名称分别由 `displayName` / `display_name` 承载；内部 identity/技能名/默认提示/能力/显式策略不变。本批不改插件版本、不发布。以下旧名称、候选版本及七技能/四显式集合均为初始候选时点，当前集合以本文件顶部扩展合同与实际 manifest 为准。
 
 Communication 的根 identity 为 communication-kit，唯一技能 communicate，展示“沟通助手”，候选根 version 为0.1.0。capabilities 精确为 Read/Write；manifest 的 defaultPrompt 与技能 agents/openai.yaml 只调用 $communication-kit:communicate，short_description 为25–64字符，allow_implicit_invocation 为布尔 false。pop-quiz、learning-record-check、guide 与 communicate 是四个显式入口；当前全量普通发现为三个技能，原生清单为七个，Communication 独装普通发现为零、原生清单为一个。
 

@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-10-21
+
+### Changed
+
+- Use **Communication Kit** as the plugin and skill display name, with the shared English summary “Draft clear messages and documents while preserving meaning.”.
+- Advance the package version for installation-cache identification of the display update. Preserve `communication-kit`, `$communication-kit:communicate`, default prompts, explicit invocation, behavior, icons and frozen references.
+
+Communication Kit 0.1.1 is prepared for Marketplace 8.3.5 in PR #303; publication and actual release identity are recorded separately. Reuse already verified unchanged content from #299. Historical failures, limited client evidence, deferred windows and unmeasured effects remain under #222/#298.
+
 ## [0.1.0] - 2026-10-13
 
 ### Added

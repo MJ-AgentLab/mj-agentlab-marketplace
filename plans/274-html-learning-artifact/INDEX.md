@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-21
 state: active
-version: v1.21
+version: v1.22
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -21,6 +21,12 @@ sources: ./source-bindings.json
 ---
 
 # HTML learning artifact task entry
+
+## Current combined8.3.5 release preparation
+
+Owner已明确把Communication0.1.1命名随同HTML0.1.40并入市场8.3.5/#303，未变内容无需重验。完整actualdevelop150356及最小补丁4248正常整合，当前发布范围/原human选择/来源与复用边界见[唯一PLAN](./[PLAN]_HTML_Learning_Artifact.md#combined835-release-scope-and-evidence-reuse)、[REPORT](./[REPORT]_HTML_Learning_Artifact.md#combined835-release-scope-and-evidence-reuse)与[835账本](../../docs/runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md)。公开仍834；真实批准/发布/Owner接受独立，旧故障/缺口/延期保留。
+
+下一步推荐：完成新增版本/文档及资源闭包，更新同一draft#303后核最终head正常CI和真实保护批准，满足再普通合入及按已授权流程公开；只复用未变验收，不重跑已验全量内容。以下为原时点快照。
 
 ## Marketplace8.3.5 repair release preparation
 

@@ -1,17 +1,42 @@
 ---
 type: runbook
 scope: marketplace
-summary: "Prepare8.3.5 with HTML0.1.40 owned-browser repair and protected, source-bound publication"
+summary: "Prepare8.3.5 with HTML0.1.40 repair, Communication0.1.1 metadata and source-bound protected release"
 owner: marketplace-maintainers
 created: 2026-10-21
 updated: 2026-10-21
 state: active
-version: v1.0
+version: v1.1
 layer: working
 purpose: "Maintain the Issue274 repair-release boundary, exact identities, pending gates and recovery"
 ---
 
 # [RUNBOOK] Marketplace8.3.5 release readiness
+
+## Current combined release scope
+
+Owner subsequently authorized Communication0.1.1 in this same8.3.5 release/#303 and said already-tested content needs no retest. The exact human reply and current unique plan/report are recoverable through the [274 entry](../../plans/274-html-learning-artifact/INDEX.md#current-combined835-release-preparation), [authority snapshot](../../plans/274-html-learning-artifact/evidence/sources/release835/communication-scope-authority.json) and [222 release decision](../../plans/222-communication-kit/[PLAN]_Communication_Kit.md). This supersedes the earlier299 exclusion below, not its historical evidence. It does not expand HTML requirements or Owner acceptance.
+
+Normally include full actualdevelop1503563f7733c1dbbddcbafcfd5cba2a359b8096 plus Communication branch4248fb70ab60bacc707da3d5d542a5ddcb7a98b1/treec4907ee5377d67a47b09a5bcced7acc7b2b9addf, keeping full latest-main ancestry. Versions: marketplace8.3.5, HTML0.1.40, Communication0.1.1; Diagram0.3.1/Learning Evidence0.1.0/Explain0.1.1 unchanged. Communication plugin/skill share “Communication Kit” / “Draft clear messages and documents while preserving meaning.”; IDs/routes/prompts/explicit policy/behavior/icons remain. PR303 is draft while the combined candidate is prepared; its previous ae77 checks are evidence for that source, not current-head statuses.
+
+| Current gate | Evidence/reuse rule |
+|---|---|
+| Unchanged runtime/installation | Reuse pinned actual302 full-local/canonical and old candidate CI only where exact resources/inputs match; no manual repeated broad suite/thirteen/Python/unchanged-client runs. Reuse is not a new execution. |
+| Communication metadata/version | New0.1.1 actual installation at7f06 is recorded in222 version-install/version-scope;4248 adds records. FourCLI status0/native skills-list interface excerpt/assertions/cache and9 hashes are recorded. Full CLI stdout/stderr/RPC raw and separate outer launcher receipt were not saved; retain this capture limit, do not fabricate or claim full raw independent readback. |
+| Combined source | Verify full150356/main ancestry, exact metadata/version delta, merged runtime/resource identity and changed docs; independent review PENDING at this precommit snapshot. |
+| Protected main | Actual final-head normal requiredCI/A6/Structure, genuine nonauthor/nonlatestpusher approval, resolved threads/latestbase, ordinary merge only; PENDING. Owner reuse instruction does not waive protection. |
+| Actualmain/tag/publication | Verify exact final merge/tree/resources, VERSION/CHANGELOG, draft-first body/assets/target and actual tag/Release readback. Reuse unchanged tested resources by closure rather than mechanically rerunning the same thirteen matrix. Identity mismatch/new resource blocks dependent promotion and receives scoped diagnosis. PENDING; not a newly executed install claim. |
+| Acceptance | OriginalHTML.37 limited acceptance only; D01/native/other clients DEFERRED, effects NOT_MEASURED, full plan OPEN; no later artifact acceptance inferred. |
+
+E3 whole-root STOP:1503files/107410671B, external seal `C:/Users/Admin/.codex/task-evidence/html-learning-274-post302-20261021.freeze.json` SHA256 `6eaab1e6bdd07d880c2c525b795a33d0a10a28908f8d6429382910c59c145f9b`. Successor evidence root is `C:/Users/Admin/.codex/task-evidence/marketplace-835-combined-20261021`. Old302 window guards pass at their times; the later whole-turn primary invariance FAIL/actorUNKNOWN is separately preserved because sharedprimary advanced6b→150356. Owner material and private source stayed intact. Historical299/302bypass/reviews[]/approvalNOT_MET, old failures/UNKNOWN/capture limits remain.
+
+Public remains834/tag5898/HTML.39/Communication.1.0. Keep six default834 installation anchors until real835 publication/tag identity closure;834 contains the known Windows cleanup defect and is an immutable historical fallback, not a claim that it is defect-free. Observe bounded CI/protection/publication identity, stop promotion on actual mismatch/failure and fix forward; do not move public tags, rewrite old assets/history or create recurring monitors.
+
+下一步推荐：完成新增元数据/版本/文档与合并闭包独审，更新同一#303；最终head正常CI和真实批准满足后普通合入，再核actualmain/draft-first/tag/Release。Agent执行已授权技术后继，无新增Owner产品决定。
+
+## Prior HTML-only preparation snapshot
+
+The following dated scope and new-run requirements belong to the earlier candidate. Current combined scope and Owner-directed evidence reuse above take precedence; original results and limitations remain unchanged.
 
 ## Release input and authorization
 
