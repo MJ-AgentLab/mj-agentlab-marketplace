@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-21
 state: active
-version: v1.1
+version: v1.2
 layer: working
 task: 222-communication-kit
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222
@@ -62,3 +62,13 @@ tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222
 完整运行摘要、原始日志哈希/本机位置、每个安装组合及执行版本见 [candidate-checks.json](./evidence/naming298/candidate-checks.json)，首轮失败与全量重跑摘要见 [test-run-summaries.txt](./evidence/naming298/test-run-summaries.txt)，候选结构化比对见 [candidate-naming.json](./evidence/naming298/candidate-naming.json)。远端原失败及准确 job 来源见 [ci-browser-failure.json](./evidence/naming298/ci-browser-failure.json)；完整本机原日志保留在摘要列出的隔离检查目录，已提交摘要与固定候选/命令支持复现。
 
 本地工程验收和现行名称一致性已通过本批范围；正式发布未执行，市场/插件版本未改，受保护 develop 合入、当前 head 真实批准及 Owner 最终成品接受仍分别待实际证据。内部子 PR 按实际相关 Harness、A6、最新 base 与线程门禁正常合入；远端其他场景失败/运行中保持各自状态，最终主 PR 不 bypass。恢复用后继 PR 撤回展示及现行文档文案，不覆盖公开历史。
+
+## 2026-10-21 Actual merge and publication preparation
+
+#299 实际于 `2026-10-21T07:06:01Z` 合入 develop `1503563f7733c1dbbddcbafcfd5cba2a359b8096`，tree `363e2c90625faaaa1e8a50fba1f37110ea62cb7e` 与已验冲突同步源 `e7600415cd2e7b8d125e243c056f1c59a82f7aaa` 相同。同步后的实际全量为 653 total / 652 PASS / 0 FAIL / 1 Linux-only SKIP，13 安装 / 178 命令及实际 Python Diagram6 / Learning6 / site4 通过；实际 merge 又执行 strict validate 和全新隔离 Communication 安装、原生 skills/list，名称/完整英文简介精确一致，4 CLI 命令及显式策略/资源检查通过、隔离根清理。原始日志及回执保留在 `D:/worktrees/comm-checks/`，固定 Git 源与执行范围在 #299/#298 的合并后回执中可追溯。上述为原批次结果，本次不重跑不变内容。
+
+#299 checks 全通过，但 reviews=[]；实际规则 suite `4635853564` 为 bypass，pull_request 因缺非最后推送者批准 FAIL。实际合并由现有账号执行，Agent 未执行该保护合并；技术通过、Issue 工程交付关闭和实际 merge 不补造保护批准或 Owner 最终接受，也不授权后继 bypass。
+
+本次正式发布依据[主 PLAN 的后续原话与决定](./[PLAN]_Communication_Kit.md#2026-10-21-publication-continuation--298--303)。现有 #303 原 head `ae77ab98f4b1916f736814ec2082501a1860838f` 以 b242947 为产品源、明确排除 #299；Owner 选择并入 8.3.5 后由既有发行会话整合 #299 与本补丁。独立 worktree `D:/worktrees/comm-release` 从实际1503563创建；版本工具 DryRun 和 Apply 均只匹配 manifest L4，Communication `0.1.0 → 0.1.1`，市场 `8.3.5`/HTML `0.1.40`/其他版本不变。包说明/CHANGELOG及任务入口/PLAN/REPORT同步本候选；中央发行文档、市场 CHANGELOG、根 AGENTS 和835账本由既有发行会话单写，避免并行冲突。
+
+新增候选检查与安装结果随后按真实来源追加。当前这是版本准备，尚未宣称 #303 完成整合、受保护 main 合入或公开；最终发布身份、治理门禁和 Owner 接受由 #303/发行账本分别登记。独立合成产品读者/发行维护者复用已有文案判定，新增只核对版本/来源/接口闭包，不冒充新的模型或 GUI 验收。
