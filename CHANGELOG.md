@@ -5,6 +5,13 @@
 
 ## [Unreleased]
 
+### Fixed — candidate, not published
+
+- Implement HTML Guide Kit0.1.40 candidate to isolate Windows browser processes in a private Job before execution and require complete owned-process exit before directory cleanup. Preserve original browser flags, deadlines and failure criteria; retain the failed directory when complete exit cannot be established.
+- Stop the unmerged maintenance-release attempt295 after the newly proven recovery gap. Marketplace remains pre-bumped8.3.5. Source-pinned targeted Windows checks and limited independent review completed; the complete new-candidate Harness, fresh installations, protected develop delivery and rebuilt publication remain pending. Keep the first browser FAIL, startup causeUNKNOWN, deferred/native/client/effects coverage and original HTML0.1.37-only Owner acceptance. Refs #274.
+
+### Earlier installation-navigation maintenance
+
 Update the default installation reference to the verified v8.3.4 release and HTML Guide Kit0.1.39. Record actual main/tag/Release identity and independent post-publication checks under Issue274 without changing package versions, runtime resources or published release notes. Preserve earlier failures, missing protected approval, deferred native/client coverage and original limited Owner acceptance. This maintenance entry does not publish another version. Refs #274.
 
 ## [8.3.4] - 2026-10-20

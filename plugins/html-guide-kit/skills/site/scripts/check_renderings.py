@@ -186,12 +186,17 @@ def cleanup_workspace(directory, lifecycle, attempts=6, delay=0.1):
 
 
 @contextmanager
-def owned_workspace(lifecycle):
+def owned_workspace(lifecycle, cleanup_allowed=None):
     directory = Path(tempfile.mkdtemp(prefix="html-site-layout-"))
     try:
         yield directory
     finally:
-        cleanup_workspace(directory, lifecycle)
+        if cleanup_allowed is not None and not cleanup_allowed():
+            lifecycle.append({"phase": "temporary-cleanup", "status": "BLOCKED", "reason": "owned Windows job emptiness was not established", "preservedRoot": str(directory)})
+            if sys.exc_info()[0] is None:
+                raise RuntimeError("refusing workspace cleanup before owned Windows job exit")
+        else:
+            cleanup_workspace(directory, lifecycle)
 
 
 def live_session_groups(identifier):
@@ -255,7 +260,266 @@ def wait_session_exit(identifier, seconds):
     return False
 
 
+class _WindowsJobAPI:
+    """Bound Win32 functions; no browser discovery or global process signalling."""
+    def __init__(self):
+        import ctypes
+        from ctypes import wintypes as w
+        self.ctypes, self.w = ctypes, w
+        ptr = ctypes.c_size_t
+        class Limits(ctypes.Structure):
+            _fields_ = [("user", ctypes.c_longlong), ("job", ctypes.c_longlong), ("flags", w.DWORD),
+                        ("minimum", ptr), ("maximum", ptr), ("active", w.DWORD), ("affinity", ptr),
+                        ("priority", w.DWORD), ("scheduling", w.DWORD)]
+        class IO(ctypes.Structure):
+            _fields_ = [(name, ctypes.c_ulonglong) for name in ("read", "write", "other", "readBytes", "writeBytes", "otherBytes")]
+        class Extended(ctypes.Structure):
+            _fields_ = [("basic", Limits), ("io", IO), ("processMemory", ptr), ("jobMemory", ptr), ("peakProcess", ptr), ("peakJob", ptr)]
+        class Accounting(ctypes.Structure):
+            _fields_ = [(name, ctypes.c_longlong) for name in ("user", "kernel", "periodUser", "periodKernel")] + [(name, w.DWORD) for name in ("faults", "total", "active", "terminated")]
+        class Startup(ctypes.Structure):
+            _fields_ = [("cb", w.DWORD), ("reserved", w.LPWSTR), ("desktop", w.LPWSTR), ("title", w.LPWSTR)] + [(name, w.DWORD) for name in ("x", "y", "xSize", "ySize", "xChars", "yChars", "fill", "flags")] + [("show", w.WORD), ("reservedBytes", w.WORD), ("reservedPointer", ctypes.POINTER(ctypes.c_byte)), ("stdin", w.HANDLE), ("stdout", w.HANDLE), ("stderr", w.HANDLE)]
+        class StartupEx(ctypes.Structure):
+            _fields_ = [("startup", Startup), ("attributes", ctypes.c_void_p)]
+        class Process(ctypes.Structure):
+            _fields_ = [("process", w.HANDLE), ("thread", w.HANDLE), ("pid", w.DWORD), ("tid", w.DWORD)]
+        class Security(ctypes.Structure):
+            _fields_ = [("length", w.DWORD), ("descriptor", ctypes.c_void_p), ("inherit", w.BOOL)]
+        self.Extended, self.Accounting, self.StartupEx, self.Process, self.Security = Extended, Accounting, StartupEx, Process, Security
+        kernel = ctypes.WinDLL("kernel32", use_last_error=True)
+        signatures = {
+            "CreateJobObjectW": (w.HANDLE, [ctypes.c_void_p, w.LPCWSTR]),
+            "SetInformationJobObject": (w.BOOL, [w.HANDLE, ctypes.c_int, ctypes.c_void_p, w.DWORD]),
+            "QueryInformationJobObject": (w.BOOL, [w.HANDLE, ctypes.c_int, ctypes.c_void_p, w.DWORD, ctypes.POINTER(w.DWORD)]),
+            "CreateFileW": (w.HANDLE, [w.LPCWSTR, w.DWORD, w.DWORD, ctypes.c_void_p, w.DWORD, w.DWORD, w.HANDLE]),
+            "InitializeProcThreadAttributeList": (w.BOOL, [ctypes.c_void_p, w.DWORD, w.DWORD, ctypes.POINTER(ptr)]),
+            "UpdateProcThreadAttribute": (w.BOOL, [ctypes.c_void_p, w.DWORD, ptr, ctypes.c_void_p, ptr, ctypes.c_void_p, ctypes.c_void_p]),
+            "DeleteProcThreadAttributeList": (None, [ctypes.c_void_p]),
+            "CreateProcessW": (w.BOOL, [w.LPCWSTR, w.LPWSTR, ctypes.c_void_p, ctypes.c_void_p, w.BOOL, w.DWORD, ctypes.c_void_p, w.LPCWSTR, ctypes.c_void_p, ctypes.POINTER(Process)]),
+            "AssignProcessToJobObject": (w.BOOL, [w.HANDLE, w.HANDLE]),
+            "ResumeThread": (w.DWORD, [w.HANDLE]),
+            "WaitForSingleObject": (w.DWORD, [w.HANDLE, w.DWORD]),
+            "GetExitCodeProcess": (w.BOOL, [w.HANDLE, ctypes.POINTER(w.DWORD)]),
+            "TerminateProcess": (w.BOOL, [w.HANDLE, w.UINT]),
+            "TerminateJobObject": (w.BOOL, [w.HANDLE, w.UINT]),
+            "CloseHandle": (w.BOOL, [w.HANDLE]),
+        }
+        for name, (result, args) in signatures.items():
+            function = getattr(kernel, name)
+            function.restype, function.argtypes = result, args
+            setattr(self, name, function)
+
+    def error(self, operation):
+        code = self.ctypes.get_last_error()
+        return OSError(code, operation + ": " + self.ctypes.FormatError(code))
+
+
+class WindowsBrowserScope:
+    """Own the browser from suspended birth, even after its launcher exits.
+
+    Only this private job is terminated. KILL_ON_JOB_CLOSE contains controller
+    crashes; normal cleanup still requires observable empty membership.
+    """
+    def __init__(self, lifecycle, api=None):
+        self.api = api or _WindowsJobAPI()
+        self.lifecycle = lifecycle
+        self.job = self.process = None
+        self.pid = None
+        self.returncode = None
+        self.assigned = False
+        self.cleanup_permitted = True
+        self._pid_capacity = 16
+
+    def start(self, command):
+        api, c, w = self.api, self.api.ctypes, self.api.w
+        self.command = command
+        self.job = api.CreateJobObjectW(None, None)
+        if not self.job:
+            raise api.error("CreateJobObjectW")
+        limits = api.Extended()
+        limits.basic.flags = 0x2000  # KILL_ON_JOB_CLOSE, neither breakaway flag.
+        if not api.SetInformationJobObject(self.job, 9, c.byref(limits), c.sizeof(limits)):
+            raise api.error("SetInformationJobObject")
+        security = api.Security(c.sizeof(api.Security), None, True)
+        null = api.CreateFileW("NUL", 0xC0000000, 3, c.byref(security), 3, 0x80, None)
+        if null in (None, c.c_void_p(-1).value):
+            raise api.error("CreateFileW(NUL)")
+        attributes = None
+        thread = None
+        try:
+            size = c.c_size_t()
+            sized = api.InitializeProcThreadAttributeList(None, 1, 0, c.byref(size))
+            if sized or c.get_last_error() != 122 or not size.value:
+                raise api.error("InitializeProcThreadAttributeList(size)")
+            attributes = c.create_string_buffer(size.value)
+            if not api.InitializeProcThreadAttributeList(attributes, 1, 0, c.byref(size)):
+                attributes = None
+                raise api.error("InitializeProcThreadAttributeList")
+            handles = (w.HANDLE * 1)(null)
+            if not api.UpdateProcThreadAttribute(attributes, 0, 0x20002, handles, c.sizeof(handles), None, None):
+                raise api.error("UpdateProcThreadAttribute(handle list)")
+            startup, info = api.StartupEx(), api.Process()
+            startup.startup.cb = c.sizeof(startup)
+            startup.startup.flags = 0x101  # USESTDHANDLES | USESHOWWINDOW (hidden).
+            startup.startup.stdin = startup.startup.stdout = startup.startup.stderr = null
+            startup.attributes = c.cast(attributes, c.c_void_p)
+            # Same list2cmdline quoting as Popen on Windows, no shell/search.
+            line = c.create_unicode_buffer(subprocess.list2cmdline(command))
+            flags = 0x4 | 0x80000 | 0x8000000  # SUSPENDED | EXTENDED_STARTUPINFO | NO_WINDOW.
+            if not api.CreateProcessW(command[0], line, None, None, True, flags, None, None, c.byref(startup), c.byref(info)):
+                raise api.error("CreateProcessW")
+            self.process, thread, self.pid = info.process, info.thread, info.pid
+            self.cleanup_permitted = False
+            if not api.AssignProcessToJobObject(self.job, self.process):
+                raise api.error("AssignProcessToJobObject")
+            self.assigned = True
+            if api.ResumeThread(thread) != 1:
+                raise api.error("ResumeThread")
+            self.lifecycle.append({"phase": "owned-windows-job-start", "status": "PASS", "launcherPid": self.pid,
+                                   "suspendedBeforeAssignment": True, "killOnClose": True, "breakaway": False,
+                                   "profile": next((arg.split("=", 1)[1] for arg in command if arg.startswith("--user-data-dir=")), None)})
+        finally:
+            original_error = sys.exc_info()[1]
+            close_errors = []
+            if thread and not api.CloseHandle(thread):
+                close_errors.append(str(api.error("CloseHandle(thread)")))
+            if attributes is not None:
+                api.DeleteProcThreadAttributeList(attributes)
+            if not api.CloseHandle(null):
+                close_errors.append(str(api.error("CloseHandle(NUL)")))
+            if close_errors:
+                raise RuntimeError("; ".join(([str(original_error)] if original_error else []) + close_errors)) from original_error
+
+    def poll(self):
+        if not self.process or self.returncode is not None:
+            return self.returncode
+        status = self.api.WaitForSingleObject(self.process, 0)
+        if status == 258:
+            return None
+        if status != 0:
+            raise self.api.error("WaitForSingleObject(process)")
+        code = self.api.w.DWORD()
+        if not self.api.GetExitCodeProcess(self.process, self.api.ctypes.byref(code)):
+            raise self.api.error("GetExitCodeProcess")
+        self.returncode = code.value
+        return self.returncode
+
+    def members(self):
+        api, c, w = self.api, self.api.ctypes, self.api.w
+        accounting = api.Accounting()
+        if not api.QueryInformationJobObject(self.job, 1, c.byref(accounting), c.sizeof(accounting), None):
+            raise api.error("QueryInformationJobObject(accounting)")
+        capacity = self._pid_capacity
+        while capacity <= 65536:
+            data = c.create_string_buffer(8 + capacity * c.sizeof(c.c_size_t))
+            okay = api.QueryInformationJobObject(self.job, 3, data, len(data), None)
+            error = c.get_last_error() if not okay else 0
+            assigned, returned = (w.DWORD * 2).from_buffer(data)
+            if not okay and error != 234:
+                raise api.error("QueryInformationJobObject(PID list)")
+            if okay and returned <= capacity and returned == assigned:
+                pids = list((c.c_size_t * returned).from_buffer(data, 8))
+                return {"active": accounting.active, "pids": pids}
+            capacity = max(capacity * 2, assigned)
+        raise RuntimeError("owned job PID inventory exceeded its bounded buffer")
+
+    def has_live_members(self):
+        state = self.members()
+        return bool(state["active"] or state["pids"])
+
+    def stop_and_confirm_empty(self, graceful_seconds=5, kill_seconds=5):
+        if not self.process:
+            return
+        if not self.assigned:
+            # It never ran: CreateProcess was suspended and assignment failed.
+            if not self.api.TerminateProcess(self.process, 1):
+                raise self.api.error("TerminateProcess(unresumed owned launcher)")
+            if self.api.WaitForSingleObject(self.process, 5000) != 0:
+                raise RuntimeError("unresumed owned launcher did not terminate")
+        deadline = time.monotonic() + graceful_seconds
+        while self.has_live_members() and time.monotonic() < deadline:
+            time.sleep(0.05)
+        if self.has_live_members() and not self.api.TerminateJobObject(self.job, 1):
+            raise self.api.error("TerminateJobObject")
+        deadline, empty = time.monotonic() + kill_seconds, 0
+        observations = []
+        while time.monotonic() < deadline:
+            state = self.members()
+            observations.append(state)
+            empty = empty + 1 if state == {"active": 0, "pids": []} else 0
+            if empty >= 2:
+                self.poll()
+                self.cleanup_permitted = True
+                self.lifecycle.append({"phase": "browser-process-exit", "status": "PASS", "returnCode": self.returncode})
+                self.lifecycle.append({"phase": "owned-windows-job-exit", "status": "PASS", "launcherPid": self.pid,
+                                       "emptyObservations": observations[-2:], "method": "complete Job PID list and ActiveProcesses, two empty observations"})
+                return
+            time.sleep(0.05)
+        raise RuntimeError("owned Windows browser job still has running processes")
+
+    def release_handles(self):
+        errors = []
+        for name in ("job", "process"):
+            handle = getattr(self, name)
+            if handle:
+                if not self.api.CloseHandle(handle):
+                    errors.append(str(self.api.error("CloseHandle(" + name + ")")))
+                setattr(self, name, None)
+        if errors:
+            raise RuntimeError("; ".join(errors))
+
+
+def wait_browser_endpoint(process, profile, timeout):
+    """Use the owned Windows scope, not an exited relauncher, for liveness."""
+    port_file = profile / "DevToolsActivePort"
+    deadline = time.monotonic() + min(timeout, 15)
+    opener = build_opener(ProxyHandler({}))
+    targets = []
+    last_error = "endpoint not yet available"
+    # File readability and a responding endpoint establish startup completion.
+    while (process.has_live_members() if isinstance(process, WindowsBrowserScope) else process.poll() is None) and time.monotonic() < deadline:
+        try:
+            port = int(port_file.read_text(encoding="utf-8").splitlines()[0])
+            with opener.open(f"http://127.0.0.1:{port}/json/list", timeout=min(timeout, 2)) as response:
+                targets = json.load(response)
+            if any(entry.get("type") == "page" for entry in targets):
+                break
+        except (OSError, ValueError, IndexError) as error:
+            last_error = str(error)
+        time.sleep(0.05)
+    if not targets:
+        raise RuntimeError("browser did not provide a readable local DevTools endpoint: " + last_error)
+    return targets
+
+
 def close_browser(process, connection, lifecycle):
+    if isinstance(process, WindowsBrowserScope):
+        errors = []
+        if connection:
+            try:
+                connection.call("Browser.close")
+                lifecycle.append({"phase": "Browser.close", "status": "REQUESTED"})
+            except (OSError, RuntimeError, ValueError):
+                lifecycle.append({"phase": "Browser.close", "status": "CONNECTION_CLOSED_OR_FAILED"})
+            finally:
+                try:
+                    connection.close()
+                except (OSError, RuntimeError, ValueError) as error:
+                    lifecycle.append({"phase": "DevTools.close", "status": "FAIL", "reason": str(error)})
+                    errors.append("DevTools transport close failed: " + str(error))
+        try:
+            process.stop_and_confirm_empty()
+        except (OSError, RuntimeError) as error:
+            lifecycle.append({"phase": "owned-windows-job-exit", "status": "FAIL", "reason": str(error)})
+            errors.append(str(error))
+        finally:
+            try:
+                process.release_handles()
+            except (OSError, RuntimeError) as error:
+                errors.append(str(error))
+        if errors:
+            raise RuntimeError("; ".join(errors))
+        return
     if connection:
         try:
             connection.call("Browser.close")
@@ -308,7 +572,7 @@ def run_checks(root, browser, screenshots, viewports, timeout, results, lifecycl
     for item in root.rglob("*"):
         if item.is_symlink():
             raise ValueError("artifact symbolic links are not supported")
-    with owned_workspace(lifecycle) as temporary:
+    with owned_workspace(lifecycle, lambda: not isinstance(process, WindowsBrowserScope) or process.cleanup_permitted) as temporary:
         temporary = Path(temporary)
         page_root = temporary / "artifact"
         shutil.copytree(root, page_root)
@@ -319,27 +583,12 @@ def run_checks(root, browser, screenshots, viewports, timeout, results, lifecycl
         if hasattr(os, "geteuid") and os.geteuid() == 0:
             command.insert(1, "--no-sandbox")
         try:
-            process = subprocess.Popen(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0), start_new_session=os.name == "posix")
-            port_file = profile / "DevToolsActivePort"
-            deadline = time.monotonic() + min(timeout, 15)
-            opener = build_opener(ProxyHandler({}))
-            targets = []
-            last_error = "endpoint not yet available"
-            # Windows can observe DevToolsActivePort while Chromium still holds
-            # its write handle. Readability and a responding endpoint, rather
-            # than file existence alone, establish startup completion.
-            while process.poll() is None and time.monotonic() < deadline:
-                try:
-                    port = int(port_file.read_text(encoding="utf-8").splitlines()[0])
-                    with opener.open(f"http://127.0.0.1:{port}/json/list", timeout=min(timeout, 2)) as response:
-                        targets = json.load(response)
-                    if any(entry.get("type") == "page" for entry in targets):
-                        break
-                except (OSError, ValueError, IndexError) as error:
-                    last_error = str(error)
-                time.sleep(0.05)
-            if not targets:
-                raise RuntimeError("browser did not provide a readable local DevTools endpoint: " + last_error)
+            if os.name == "nt":
+                process = WindowsBrowserScope(lifecycle)
+                process.start(command)
+            else:
+                process = subprocess.Popen(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
+            targets = wait_browser_endpoint(process, profile, timeout)
             target = next((entry for entry in targets if entry.get("type") == "page"), None)
             if not target:
                 raise RuntimeError("browser has no inspectable page target")
@@ -374,7 +623,13 @@ def run_checks(root, browser, screenshots, viewports, timeout, results, lifecycl
                 result.update({"status": "FAIL" if result["issues"] else "PASS", "screenshot": filename, "screenshotSha256": sha256(pixels).hexdigest()})
                 results.append(result)
         finally:
-            close_browser(process, connection, lifecycle)
+            original_error = sys.exc_info()[1]
+            try:
+                close_browser(process, connection, lifecycle)
+            except (OSError, RuntimeError, ValueError, subprocess.SubprocessError) as error:
+                if original_error:
+                    raise RuntimeError(str(original_error) + "; browser cleanup failed: " + str(error)) from original_error
+                raise
 
 
 def main():
