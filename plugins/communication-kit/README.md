@@ -1,6 +1,6 @@
 # Communication Kit
 
-面向 ChatGPT 桌面端与 Codex 本地环境的沟通插件。唯一公开入口为 `$communication-kit:communicate`，界面名称“沟通助手”；候选包版本为 0.1.0。
+面向 ChatGPT 桌面端与 Codex 本地环境的沟通插件。唯一公开入口为 `$communication-kit:communicate`，界面名称为 **Communication Kit**，英文简介为 “Draft clear messages and documents while preserving meaning.”。包版本为 0.1.0；本次仅维护显示文案，尚未发布该变更。
 
 显式调用后，可处理当前任务的日常沟通、文档编写和保义改写，以及这些稿件的连续修改。改写保留事实、立场、条件、例外、责任和真实承诺。关键缺口先给出明确选项、推荐及理由，等待选择；非关键缺口使用明确假设或占位。
 
