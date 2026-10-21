@@ -4,14 +4,19 @@ scope: marketplace
 summary: "Communicate routing, fidelity, clarification, source and write boundaries"
 owner: marketplace-maintainers
 created: 2026-10-12
-updated: 2026-10-13
+updated: 2026-10-21
 state: draft
-version: v1.5.1
+version: v1.6
+layer: canonical
 ---
 
 # [SPEC] Communication Communicate
 
 ## §1 Purpose and identity
+
+2026-10-21 [#298](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/298) 的现行显示文案为 **Communication Kit** / “Draft clear messages and documents while preserving meaning.”，manifest 与原生技能界面使用同一名称和简介。内部 `communication-kit / communicate`、`$communication-kit:communicate`、默认提示、能力与显式策略不变。旧名“沟通助手”属于下文初版阶段与历史客户端记录；本次不改写那些证据，也不声明已发布或新 GUI 验收通过。
+
+### Initial implementation snapshot
 
 本契约指导 `communication-kit / communicate` 首版。PR1 当时只建立契约、保持三插件四技能；PR3 已实现完整0.1.0候选并原子接入插件、注册、严格集合、冻结资源、图标及安装预期，同步 Learning 替代与 HTML 开发基线后的候选五插件七技能、20开发技能。唯一入口 `$communication-kit:communicate`，原生展示“沟通助手”，`allow_implicit_invocation: false`，manifest 能力准确为 `["Read", "Write"]`，manifest 与原生默认提示仅调用本入口。实际文件见[manifest](../../plugins/communication-kit/plugin.json)、[主技能](../../plugins/communication-kit/skills/communicate/SKILL.md)及[原生配置](../../plugins/communication-kit/skills/communicate/agents/openai.yaml)。
 
@@ -74,6 +79,7 @@ Owner Q3已确认正式发行仅在Learning已公开三包上加入Communication
 
 | Version | Date | Summary |
 |---|---|---|
+| v1.6 | 2026-10-21 | 增补当前英文显示文案及历史适用范围；原路由和行为合同保持，Refs #298 |
 | v1.5 | 2026-10-13 | 同步实际已公开Learning基线与Communication8.3.0准备状态，行为契约不变 |
 | v1.4 | 2026-10-13 | 合并PR1范围澄清、Learning开发集合与已执行本机入口限定状态，原行为合同不变 |
 | v1.3 | 2026-10-13 | 保留产品与行为合同，更新HTML基线后的实际集合并明确既有行为证据限制 |

@@ -4,9 +4,9 @@ scope: communication-kit
 summary: "Communication task entry with one current plan and recoverable accepted sources"
 owner: marketplace-maintainers
 created: 2026-10-19
-updated: 2026-10-19
+updated: 2026-10-21
 state: active
-version: v1.0
+version: v1.1
 layer: working
 task: 222-communication-kit
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222
@@ -19,6 +19,8 @@ canonical:
 ---
 
 # Communication Kit
+
+2026-10-21 文案维护批次由 [#298](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/298) 跟踪，唯一主 PR 为 [#299](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/299)；沿用本目录 PLAN/REPORT。仅统一 Communication Kit 显示名及英文简介，内部标识/入口不变，未发布；实际检查、待满足保护门禁和最终接受分别由 REPORT 与该 Issue 记录。
 
 [Issue #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222) 是原任务进度正本；本入口统一计划、事实和恢复路径，完成或续跑仍复用。
 

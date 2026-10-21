@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-21
 state: active
-version: v2.115
+version: v2.116
 layer: canonical
 ---
 
@@ -176,7 +176,7 @@ Owner Q3已确认Communication正式发行仅为Learning已公开三包加Commun
 - [Communication 任务入口 #222](../plans/222-communication-kit/INDEX.md)：唯一主 PLAN、主 REPORT 和固定原稿/捕获来源；历史原件只供恢复，不作为并行计划入口。
 - [Communication Kit 新增决定](adr/[ADR]_Communication_Kit_Addition.md)
 - [Communicate 行为契约](spec/[SPEC]_Communication_Communicate.md)
-- [沟通助手使用指南](guide/[GUIDE]_Communication_Communicate.md)
+- [Communication Kit 使用指南](guide/[GUIDE]_Communication_Communicate.md)
 - [Communication 基础验收与发布检查](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)
 
 - [项目说明](../README.md)
@@ -223,7 +223,7 @@ Owner Q3已确认Communication正式发行仅为Learning已公开三包加Commun
 - [[RUNBOOK]_Release_Operations.md](runbook/[RUNBOOK]_Release_Operations.md)
 
 - [Communicate 行为契约](spec/[SPEC]_Communication_Communicate.md)
-- [沟通助手使用指南](guide/[GUIDE]_Communication_Communicate.md)
+- [Communication Kit 使用指南](guide/[GUIDE]_Communication_Communicate.md)
 - [Communication 基础验收与发布检查](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)
 
 - [迁移实际验收记录](runbook/[RUNBOOK]_ChatGPT_Codex_Migration_Acceptance.md)
