@@ -1,4 +1,4 @@
-name: One Windows startup diagnostic for PR306
+name: One Windows original NUL startup check for PR306
 on:
   push:
     branches: ['diagnostics/html-startup-306']
@@ -30,6 +30,7 @@ jobs:
         env:
           PYTHONUTF8: '1'
           PYTHONDONTWRITEBYTECODE: '1'
+          DIAGNOSTIC_STDIO_MODE: 'original-nul'
         run: |
           $diagnosticRoot = Join-Path $env:RUNNER_TEMP 'post306-startup-one'
           python .github/diagnostics/post306/supervise.py $diagnosticRoot

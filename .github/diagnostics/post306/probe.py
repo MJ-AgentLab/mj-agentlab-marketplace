@@ -1,11 +1,13 @@
 """One diagnostic launch. Original checker bytes, argv, private Job and limits stay fixed.
-Only inherited NUL stdio sink is redirected to an owned diagnostic file.
+Optional capture redirects the inherited NUL sink; original-nul mode retains it.
 This is instrumented evidence, never an acceptance replacement or automatic retry."""
 import contextlib, hashlib, importlib.util, io, json, os, pathlib, sys, time
 from datetime import datetime,timezone
 out=pathlib.Path(sys.argv[1]).resolve()
 assert os.name=="nt"
-record={"scope":"single failed warm-paper startup diagnostic; no acceptance replacement","startedUtc":datetime.now(timezone.utc).isoformat(),"instrumentationLimits":["The single inherited NUL handle is redirected for stdin/stdout/stderr to a new owned file; argument list, flags, private Job ownership and checker deadlines are unchanged.","Single diagnostic outcome does not explain or overwrite the original two CI failures."]}
+mode=os.environ.get("DIAGNOSTIC_STDIO_MODE","capture-file")
+assert mode in ("capture-file","original-nul")
+record={"scope":"single observed warm-paper startup; no acceptance replacement","startedUtc":datetime.now(timezone.utc).isoformat(),"stdioMode":mode,"instrumentationLimits":[("Original inherited NUL stdin/stdout/stderr remain unchanged; startup state sampling is still diagnostic instrumentation." if mode=="original-nul" else "The single inherited NUL handle is redirected for stdin/stdout/stderr to a new owned file."),"Argument list, flags, private Job ownership and checker deadlines remain unchanged; a single diagnostic outcome does not explain or overwrite the original two CI failures."]}
 source=pathlib.Path("plugins/html-guide-kit/skills/site/scripts/check_renderings.py").resolve()
 raw=source.read_bytes()
 assert hashlib.sha256(raw).hexdigest()=="ac82f8fd8ed4ad07e07142c0d35b4b08fc29657f2a665f020c9b5d502854abf8"
@@ -19,7 +21,7 @@ def init(api):
     def redirected(name,*args):
         return create(str(sink) if name=="NUL" else name,*args)
     api.CreateFileW=redirected
-m._WindowsJobAPI.__init__=init
+if mode=="capture-file":m._WindowsJobAPI.__init__=init
 old_members=m.WindowsBrowserScope.members
 samples=[]
 def members(scope):
@@ -83,7 +85,7 @@ finally:
             for chunk in iter(lambda:f.read(65536),b""):h.update(chunk)
             f.seek(max(0,size-65536));tail=f.read(65536)
         (out/"browser-stdio.tail").write_bytes(tail)
-        record["stdio"]={"totalBytes":size,"storedTailBytes":len(tail),"tailLimit":65536,"truncated":size>65536,"rawSha256":h.hexdigest(),"tailSha256":hashlib.sha256(tail).hexdigest()}
+        record["stdio"]=({"captured":False,"reason":"Original NUL sink retained; browser stdout/stderr content UNKNOWN."} if mode=="original-nul" else {"captured":True,"totalBytes":size,"storedTailBytes":len(tail),"tailLimit":65536,"truncated":size>65536,"rawSha256":h.hexdigest(),"tailSha256":hashlib.sha256(tail).hexdigest()})
     except Exception as error:errors.append({"phase":"collect-stdio","error":repr(error)})
     try:record["browserBinarySha256AfterLaunch"]=hashlib.sha256(browser.read_bytes()).hexdigest()
     except Exception as error:errors.append({"phase":"browser-identity-after-launch","error":repr(error)})
