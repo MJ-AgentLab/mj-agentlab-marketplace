@@ -2,7 +2,7 @@
 
 ## [0.1.40] - 2026-10-21
 
-HTML Guide Kit 0.1.40 is a repair candidate under #274; manifest version applied, source-pinned targeted Windows checks and limited independent review completed. Complete Harness, fresh installations, protected delivery and publication remain pending.
+HTML Guide Kit 0.1.40 fixes Windows owned-browser lifecycle control under #274: establish private Job ownership before execution and verify complete owned-process exit before directory cleanup. Preserve the existing flags, deadlines and failure criteria. Protected delivery, publication and Owner acceptance are recorded separately.
 
 ### Fixed
 

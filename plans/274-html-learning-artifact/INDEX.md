@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-21
 state: active
-version: v1.20
+version: v1.23
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -21,6 +21,22 @@ sources: ./source-bindings.json
 ---
 
 # HTML learning artifact task entry
+
+## Actual PR303 publication and continuation
+
+2026-10-21（Asia/Taipei）：#303已合入main，Marketplace8.3.5/HTML0.1.40/Communication0.1.1已公开；actualmain与已验候选等树，独立实际main/tag闭包已取得PASS_LIMITED_IDENTITY_AND_REUSED_ACCEPTANCE。实际公开、批准NOT_MET和复用边界见[主REPORT](./[REPORT]_HTML_Learning_Artifact.md#actual-pr303-publication-and-continuation)、[后继顺序](./[PLAN]_HTML_Learning_Artifact.md#actual-pr303-publication-and-continuation)及[835账本](../../docs/runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md#actual-pr303-publication-and-continuation)。原接受/延期/效果和完整计划OPEN保持，进度正本仍为[#274](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274)。
+
+下一步推荐：依据已确认公开闭包，正常交付main默认安装导航/有界记录；其实际merge后完整同步main→develop，核actualdevelop新增闭包后才仅市场下一补丁DryRun→Apply。自身后继CI/merge只回Issue及外部回执，不递归证据PR。以下为各自原时点快照。
+
+## Current combined8.3.5 release preparation
+
+Owner已明确把Communication0.1.1命名随同HTML0.1.40并入市场8.3.5/#303，未变内容无需重验。完整actualdevelop150356及最小补丁4248正常整合，当前发布范围/原human选择/来源与复用边界见[唯一PLAN](./[PLAN]_HTML_Learning_Artifact.md#combined835-release-scope-and-evidence-reuse)、[REPORT](./[REPORT]_HTML_Learning_Artifact.md#combined835-release-scope-and-evidence-reuse)与[835账本](../../docs/runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md)。公开仍834；真实批准/发布/Owner接受独立，旧故障/缺口/延期保留。
+
+下一步推荐：完成新增版本/文档及资源闭包，更新同一draft#303后核最终head正常CI和真实保护批准，满足再普通合入及按已授权流程公开；只复用未变验收，不重跑已验全量内容。以下为原时点快照。
+
+## Marketplace8.3.5 repair release preparation
+
+#302已交付HTML0.1.40修复；[835账本](../../docs/runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md)承接本轮实际302、新发行候选与protected-main/draft-first/tag门禁。沿用[唯一PLAN](./[PLAN]_HTML_Learning_Artifact.md#windows-owned-browser-recovery-and-html0140-repair-candidate)与[REPORT](./[REPORT]_HTML_Learning_Artifact.md#windows-owned-browser-recovery-and-html0140-repair-candidate)；旧时点PENDING与FAIL不重写。实际develop新验已通过；下一步推荐完成本轮发行候选检查及独立复核，提交唯一835→protectedmain，当前head真实批准/CI/线程/latestbase满足后正常合入。进度正本为Issue274，后继回执仅外部封存。
 
 ## Windows owned-browser recovery and HTML0.1.40 repair candidate
 

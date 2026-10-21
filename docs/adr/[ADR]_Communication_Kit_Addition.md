@@ -6,11 +6,13 @@ owner: marketplace-maintainers
 created: 2026-10-12
 updated: 2026-10-21
 state: draft
-version: v1.5
+version: v1.6
 layer: canonical
 ---
 
 # [ADR] Communication Kit addition
+
+当前后续发布决定：Owner已另行明确授权Communication0.1.1随市场8.3.5/#303公开，见[222唯一PLAN](../../plans/222-communication-kit/[PLAN]_Communication_Kit.md)及[835账本](../runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md#current-combined-release-scope)。下文“未发布文案维护/不扩展发布授权”描述#299原阶段；不阻断本次新增真实授权，也不等同已公开或最终接受。内部入口/行为和原验收限制保持。
 
 | Field | Value |
 |---|---|
