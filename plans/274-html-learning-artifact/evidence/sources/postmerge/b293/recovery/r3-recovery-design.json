@@ -1,0 +1,26 @@
+{
+  "schema": "html274-post293-prebump-r3-recovery-design-v1",
+  "status": "PREPARED_ONLY_R3_NOT_EXECUTED",
+  "createdAtUtc": "2026-10-20T18:26:38.646719+00:00",
+  "preservedV2": "prepare-prebump.py SHA1009934e9b51bb1c189867c621d6f77ff4583efeb704d1fccdbb45d074b55909",
+  "preservedOldUnlock": "SOURCE_WRITE_UNLOCK.json SHAd099f2f1a97980775f8a2343e6f7c9a3bf57041cd793f0c2167b3f5e6dd38313",
+  "newProducer": "prepare-prebump-r3.py",
+  "newUnlock": "SOURCE_WRITE_UNLOCK-r3.json",
+  "firstPrewriteEntry": "prepare-marketplace835/receipt.json and original stdout/stderr, exit1 before versiontool/no source writes",
+  "logicalGit": {
+    "bytes": 10990,
+    "sha256": "80719139215421075bd315f2fa7f223c8e0706feb40b94f1057e79869ac669ef",
+    "gitBlob": "4e3f56eee8c7764fb6123fca95adf2832ced0d04",
+    "LF": 206,
+    "CRLF": 0
+  },
+  "physicalMeasured": {
+    "bytes": 11196,
+    "sha256": "e904f48addf0d6e2b8cf821a760d66444666dd7cf66e71abdf1799b10fdc4ea8",
+    "CRLF": 206,
+    "fourBeforeAfterRuntimeMaps": "each exact physical row separately verified against its full frozen map membership; no LF normalization used for acceptance"
+  },
+  "independentDiagnostic": "prebump-tool-identity-diagnostic-freeze.json SHA428d1eee13229ce5fa6d266c367f507c7d35713bf4aa45d79c600c603afb9da1,20files",
+  "scope": "Only identity guard/new unlock chain/first-method-failure recovery selected evidence. No product/runtime/strict/window threshold change, no plugin/version/history/source/material modification by this preparation. Nine existing paths/3131prefix/INTENT32+A retain original guards.",
+  "nextRecommendation": "Independent fixedr3 review; root creates new unlock on verifybranch, normally switches existing applybranch, then explicitly executes r3 once. No runtime rerun or newOwner decision."
+}

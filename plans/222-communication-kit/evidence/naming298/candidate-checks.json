@@ -1,0 +1,555 @@
+{
+  "schemaVersion": 1,
+  "executedAt": "2026-10-21T04:48:36.753Z",
+  "executor": "OpenAI Codex",
+  "candidate": "5a28eba5af4691cb31bba9b41ef5b9ab08ba1cdf",
+  "tree": "c2ac01a4962af4e8ba417538cc12b66687295ba2",
+  "base": "6b4612b4968f5172944f61b180c032df913037f1",
+  "commands": {
+    "npm run check:baseline-tools": {
+      "exit": 0,
+      "codex": "0.147.0"
+    },
+    "npm run validate": {
+      "exit": 0,
+      "ok": true,
+      "errors": [],
+      "repositorySkills": 20,
+      "publicSkills": [
+        "diagram-kit:arch-diagram",
+        "learning-evidence-kit:pop-quiz",
+        "learning-evidence-kit:learning-record-check",
+        "explain-kit:glossary",
+        "explain-kit:concept",
+        "communication-kit:communicate",
+        "html-guide-kit:guide",
+        "html-guide-kit:site"
+      ]
+    },
+    "npm test first run": {
+      "exit": 1,
+      "tests": 652,
+      "pass": 637,
+      "fail": 14,
+      "skipped": 1,
+      "cancelled": 0,
+      "cause": "14 tests could not discover actual Python; original failures retained; no test or application code changed"
+    },
+    "npm test with actual Python configured": {
+      "exit": 0,
+      "tests": 652,
+      "pass": 651,
+      "fail": 0,
+      "skipped": 1,
+      "cancelled": 0,
+      "python": "Python 3.12.13",
+      "pythonEnvironment": [
+        "PYTHON",
+        "HTML_SITE_PYTHON"
+      ],
+      "skippedScope": "Linux-only exec capture on Windows"
+    },
+    "npm run smoke:codex": {
+      "exit": 0,
+      "scenarios": 13,
+      "commandCount": 178,
+      "actualDiagramPython": 6,
+      "actualLearningEvidencePython": 6,
+      "actualSitePython": 4,
+      "isolatedScenarioRootsVerifiedRemoved": 13
+    }
+  },
+  "scenarios": [
+    {
+      "installed": [
+        "diagram-kit"
+      ],
+      "ok": true,
+      "version": "codex-cli 0.147.0",
+      "commands": 11,
+      "outside": {
+        "publicSkills": 1,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 1,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 1,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 1,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [],
+      "diagramPython": true,
+      "learningEvidencePython": false,
+      "sitePython": false
+    },
+    {
+      "installed": [
+        "learning-evidence-kit"
+      ],
+      "ok": true,
+      "version": "codex-cli 0.147.0",
+      "commands": 13,
+      "outside": {
+        "publicSkills": 0,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 0,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 2,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 2,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [
+        "learning-evidence-kit:pop-quiz",
+        "learning-evidence-kit:learning-record-check"
+      ],
+      "diagramPython": false,
+      "learningEvidencePython": true,
+      "sitePython": false
+    },
+    {
+      "installed": [
+        "explain-kit"
+      ],
+      "ok": true,
+      "version": "codex-cli 0.147.0",
+      "commands": 10,
+      "outside": {
+        "publicSkills": 2,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 2,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 2,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 2,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [],
+      "diagramPython": false,
+      "learningEvidencePython": false,
+      "sitePython": false
+    },
+    {
+      "installed": [
+        "diagram-kit",
+        "explain-kit"
+      ],
+      "ok": true,
+      "version": "codex-cli 0.147.0",
+      "commands": 12,
+      "outside": {
+        "publicSkills": 3,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 3,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 3,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 3,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [],
+      "diagramPython": true,
+      "learningEvidencePython": false,
+      "sitePython": false
+    },
+    {
+      "installed": [
+        "diagram-kit",
+        "learning-evidence-kit",
+        "explain-kit"
+      ],
+      "ok": true,
+      "version": "codex-cli 0.147.0",
+      "commands": 16,
+      "outside": {
+        "publicSkills": 3,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 3,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 5,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 5,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [
+        "learning-evidence-kit:pop-quiz",
+        "learning-evidence-kit:learning-record-check"
+      ],
+      "diagramPython": true,
+      "learningEvidencePython": true,
+      "sitePython": false
+    },
+    {
+      "installed": [
+        "communication-kit"
+      ],
+      "ok": true,
+      "version": "codex-cli 0.147.0",
+      "commands": 10,
+      "outside": {
+        "publicSkills": 0,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 0,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 1,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 1,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [
+        "communication-kit:communicate"
+      ],
+      "communicationMetadata": {
+        "plugin.json": {
+          "bytes": 1452,
+          "sha256": "6ffcde03f2a4d3bcef03175f6eb4069c4a4e5eb218350ca4960650bc9b54cfa4"
+        },
+        "assets/icon.svg": {
+          "bytes": 1168,
+          "sha256": "7a0a594df6ff9b622e5900771731fe63f97ebfb873e3874881e3a1a1764ec5ea"
+        }
+      },
+      "diagramPython": false,
+      "learningEvidencePython": false,
+      "sitePython": false
+    },
+    {
+      "installed": [
+        "communication-kit",
+        "explain-kit"
+      ],
+      "ok": true,
+      "version": "codex-cli 0.147.0",
+      "commands": 11,
+      "outside": {
+        "publicSkills": 2,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 2,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 3,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 3,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [
+        "communication-kit:communicate"
+      ],
+      "communicationMetadata": {
+        "plugin.json": {
+          "bytes": 1452,
+          "sha256": "6ffcde03f2a4d3bcef03175f6eb4069c4a4e5eb218350ca4960650bc9b54cfa4"
+        },
+        "assets/icon.svg": {
+          "bytes": 1168,
+          "sha256": "7a0a594df6ff9b622e5900771731fe63f97ebfb873e3874881e3a1a1764ec5ea"
+        }
+      },
+      "diagramPython": false,
+      "learningEvidencePython": false,
+      "sitePython": false
+    },
+    {
+      "installed": [
+        "communication-kit",
+        "learning-evidence-kit"
+      ],
+      "ok": true,
+      "version": "codex-cli 0.147.0",
+      "commands": 14,
+      "outside": {
+        "publicSkills": 0,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 0,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 3,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 3,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [
+        "communication-kit:communicate",
+        "learning-evidence-kit:pop-quiz",
+        "learning-evidence-kit:learning-record-check"
+      ],
+      "communicationMetadata": {
+        "plugin.json": {
+          "bytes": 1452,
+          "sha256": "6ffcde03f2a4d3bcef03175f6eb4069c4a4e5eb218350ca4960650bc9b54cfa4"
+        },
+        "assets/icon.svg": {
+          "bytes": 1168,
+          "sha256": "7a0a594df6ff9b622e5900771731fe63f97ebfb873e3874881e3a1a1764ec5ea"
+        }
+      },
+      "diagramPython": false,
+      "learningEvidencePython": true,
+      "sitePython": false
+    },
+    {
+      "installed": [
+        "diagram-kit",
+        "learning-evidence-kit",
+        "explain-kit",
+        "communication-kit"
+      ],
+      "ok": true,
+      "version": "codex-cli 0.147.0",
+      "commands": 17,
+      "outside": {
+        "publicSkills": 3,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 3,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 6,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 6,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [
+        "learning-evidence-kit:pop-quiz",
+        "learning-evidence-kit:learning-record-check",
+        "communication-kit:communicate"
+      ],
+      "communicationMetadata": {
+        "plugin.json": {
+          "bytes": 1452,
+          "sha256": "6ffcde03f2a4d3bcef03175f6eb4069c4a4e5eb218350ca4960650bc9b54cfa4"
+        },
+        "assets/icon.svg": {
+          "bytes": 1168,
+          "sha256": "7a0a594df6ff9b622e5900771731fe63f97ebfb873e3874881e3a1a1764ec5ea"
+        }
+      },
+      "diagramPython": true,
+      "learningEvidencePython": true,
+      "sitePython": false
+    },
+    {
+      "installed": [
+        "html-guide-kit"
+      ],
+      "ok": true,
+      "version": "codex-cli 0.147.0",
+      "commands": 12,
+      "outside": {
+        "publicSkills": 0,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 0,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 2,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 2,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [
+        "html-guide-kit:guide",
+        "html-guide-kit:site"
+      ],
+      "diagramPython": false,
+      "learningEvidencePython": false,
+      "sitePython": true
+    },
+    {
+      "installed": [
+        "html-guide-kit",
+        "explain-kit"
+      ],
+      "ok": true,
+      "version": "codex-cli 0.147.0",
+      "commands": 13,
+      "outside": {
+        "publicSkills": 2,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 2,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 4,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 4,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [
+        "html-guide-kit:guide",
+        "html-guide-kit:site"
+      ],
+      "diagramPython": false,
+      "learningEvidencePython": false,
+      "sitePython": true
+    },
+    {
+      "installed": [
+        "diagram-kit",
+        "learning-evidence-kit",
+        "explain-kit",
+        "html-guide-kit"
+      ],
+      "ok": true,
+      "version": "codex-cli 0.147.0",
+      "commands": 19,
+      "outside": {
+        "publicSkills": 3,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 3,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 7,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 7,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [
+        "learning-evidence-kit:pop-quiz",
+        "learning-evidence-kit:learning-record-check",
+        "html-guide-kit:guide",
+        "html-guide-kit:site"
+      ],
+      "diagramPython": true,
+      "learningEvidencePython": true,
+      "sitePython": true
+    },
+    {
+      "installed": [
+        "diagram-kit",
+        "learning-evidence-kit",
+        "explain-kit",
+        "communication-kit",
+        "html-guide-kit"
+      ],
+      "ok": true,
+      "version": "codex-cli 0.147.0",
+      "commands": 20,
+      "outside": {
+        "publicSkills": 3,
+        "repositorySkills": 0
+      },
+      "repository": {
+        "publicSkills": 3,
+        "repositorySkills": 20
+      },
+      "nativeOutside": {
+        "publicSkills": 8,
+        "repositorySkills": 0
+      },
+      "nativeRepository": {
+        "publicSkills": 8,
+        "repositorySkills": 20
+      },
+      "explicitOnly": [
+        "learning-evidence-kit:pop-quiz",
+        "learning-evidence-kit:learning-record-check",
+        "communication-kit:communicate",
+        "html-guide-kit:guide",
+        "html-guide-kit:site"
+      ],
+      "communicationMetadata": {
+        "plugin.json": {
+          "bytes": 1452,
+          "sha256": "6ffcde03f2a4d3bcef03175f6eb4069c4a4e5eb218350ca4960650bc9b54cfa4"
+        },
+        "assets/icon.svg": {
+          "bytes": 1168,
+          "sha256": "7a0a594df6ff9b622e5900771731fe63f97ebfb873e3874881e3a1a1764ec5ea"
+        }
+      },
+      "diagramPython": true,
+      "learningEvidencePython": true,
+      "sitePython": true
+    }
+  ],
+  "rawLogs": {
+    "full-tests.log": {
+      "sha256": "8cf3c66e6a3960e60816e532988847715dc8bf8bd35a8498df7775b9de90dc66",
+      "localPath": "D:\\worktrees\\comm-checks\\full-tests.log",
+      "purpose": "Local original command output; this summary and exact candidate/commands support reproduction"
+    },
+    "full-tests-r2.log": {
+      "sha256": "0a8a885a4eed0a15dabb4c5882007053a46b7c3cbfe49d05cfe63280918bdd6d",
+      "localPath": "D:\\worktrees\\comm-checks\\full-tests-r2.log",
+      "purpose": "Local original command output; this summary and exact candidate/commands support reproduction"
+    },
+    "full-validate.log": {
+      "sha256": "2f7833ff457ebf70648e4b2322858c5052f238c8dcbcdf352a748917393b6b76",
+      "localPath": "D:\\worktrees\\comm-checks\\full-validate.log",
+      "purpose": "Local original command output; this summary and exact candidate/commands support reproduction"
+    },
+    "full-smoke.log": {
+      "sha256": "dd0646bd527df4925deac2a4f2cd8d64e2e7615f0f849b1cc290714161eca4f8",
+      "localPath": "D:\\worktrees\\comm-checks\\full-smoke.log",
+      "purpose": "Local original command output; this summary and exact candidate/commands support reproduction"
+    }
+  },
+  "limits": [
+    "No new plugin GUI display or native unanswered-window test",
+    "No release, version bump, protected GitHub approval or final Owner acceptance"
+  ]
+}

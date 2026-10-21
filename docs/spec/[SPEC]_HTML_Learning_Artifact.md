@@ -4,9 +4,9 @@ scope: html-guide-kit
 summary: "Explicit site workflow, confirmed design and mode-specific Sites or local acceptance"
 owner: marketplace-maintainers
 created: 2026-10-19
-updated: 2026-10-20
+updated: 2026-10-21
 state: active
-version: v1.3
+version: v1.4
 layer: canonical
 ---
 
@@ -16,7 +16,7 @@ layer: canonical
 
 本合同仅覆盖显式 `$html-guide-kit:site` 与直接受影响的包级资源/能力。guide保留已批准图标、运行字节和原只读聊天合同；旧[guide SPEC](./[SPEC]_HTML_Guide_Kit_Acceptance.md)、[历史验收](../runbook/[RUNBOOK]_HTML_Guide_Kit_Acceptance.md)保持原范围。依据为[扩展ADR](../adr/[ADR]_HTML_Learning_Artifact_Extension.md)及[INTENT](../intent/[INTENT]_INT-2026-003_HTML_Learning_Artifact.md)。本次B2 Slack完整API正文及U2 Owner选择的唯一决定正本见[选择性统一基线](../../plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md#selective-alignment-baseline)；B1/U1的[旧授权](../../plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md#accepted-baseline-and-authorization)、固定Git a4892f51f4163fb5bd4457d99229eaf1a4683e8f中的修订前完整合同及原结果保留。旧核心ACCEPTED_LIMITED不扩张为新增能力通过或完整计划接受。
 
-site为显式调用，原生行为配置布尔false；插件Read/Write不等于技能权限隔离。manifest提示覆盖guide/site，只引用本包真实路由，最多3条，每条原值不超过128 Unicode scalar values。全部必需资源/脚本/主题/来源及安装比较原子接入，公开首版HTML0.1.37，0.1.38承接许可传递与输入边界修复；当前公开为v8.3.3/HTML0.1.38，具体身份见[8.3.3账本](../runbook/[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md)。本批0.1.39仍为未发布候选，五包八公开/五显式/三自然、仓库技能20保持；市场VERSION8.3.3和其他插件版本不动。完整actualmain同步、唯一protected develop主PR的新headCI/真实批准及actualsync复验分别待证，不把内部集成当交付。
+site为显式调用，原生行为配置布尔false；插件Read/Write不等于技能权限隔离。manifest提示覆盖guide/site，只引用本包真实路由，最多3条，每条原值不超过128 Unicode scalar values。全部必需资源/脚本/主题/来源及安装比较原子接入，公开首版HTML0.1.37，0.1.38承接许可/输入边界、0.1.39承接选择性统一；当前公开v8.3.4/HTML0.1.39，身份见[8.3.4账本](../runbook/[RUNBOOK]_Marketplace_8_3_4_Release_Readiness.md)。本批0.1.40为Windows owned-browser回收修复候选，实际实现/版本应用和验收由[274主PLAN/REPORT](../../plans/274-html-learning-artifact/INDEX.md)逐项记录；市场8.3.5已预升未发布，其他插件及五包八公开/五显式/三自然/20仓库技能保持。新head保护develop/actual复验及后续发行待自身证据，旧295关闭未合入。
 
 ## §2 Six-step behavior and language
 
@@ -60,6 +60,10 @@ Matt为按需能力，不是运行时自动安装依赖。仅在关键澄清已�
 
 来源清单逐项记录名称/地址/固定版本、上游路径与SHA256、本地落点、复制/修改/独立适配、改动及许可。实际第三方内容建立THIRD_PARTY_NOTICES，保留许可；生成的模板/运行资产携带包MIT LICENSE、Apache原文及带范围/原安装定位说明的完整notice尾部，全部入manifest，不重授权输入材料。安装器核根LICENSE原字节；生成前缺件或保留名/跨平台路径冲突均零写失败。通用checker只核声明清单自洽，不认证许可/原件真实性；不得把派生资料冒充原始规范或自动转MIT。可选外部代码只有决定采用时才核对固定版本、完整文件路径、许可、环境及用途，读取适配必要文件，不下载整个仓库。原计划延期HTML Plan pack/runtime、Birch eval/vision/GEPA不因本次统一自动迁入，不建空vendor。
 
+### Windows owned-browser lifecycle requirement
+
+Windows浏览器检查使用private Job隔离 owned进程：浏览器先以suspended创建，成功assign到Job后才resume；创建/归属/恢复失败须失败关闭，不启用裸Popen或按名/未知PID回收。保留原启动flags、15秒startup上限与既有操作deadline。launcher退出/return0不能证明后代结束；按真实Job live probe核所有owned对象，退出/回收屏障满足后才允许删除独立检查目录。无法证明完全退出时保留原FAIL/NOT_RUN和诊断目录，禁止以目录已删/后续别例成功补记PASS。POSIX现有完整session边界保持。该边界仅覆盖实际内核Job及普通继承子孙，不保证external broker/WMI或全OS进程。当前候选已有固定实现及限定Windows定向运行/独审，完整Harness/新安装/保护交付仍待自身证据，不追认旧生命周期PASS。
+
 ## §5 Delivery choice, handoff and execution
 
 默认新建并私有发布Sites；用户也可指定已有Site或仅本地制作，复用已明确的交付选择，不重复询问。交付模式写入范围和最小验收。Sites不可用不能自动改为本地完成，明确约定本地也不要求额外部署才能交付。
@@ -89,6 +93,6 @@ Sites模式不可用时保留本地交接包，记该模式制作/发布未完�
 
 唯一任务REPORT绑定完整候选/实际merge SHA/tree、各包版本、资源逐文件hash、实际缓存与工具/客户端版本、输入/动作/输出/截图/返回码、时间与未覆盖。失败/拒绝/超时/中断/修复重跑分别保留；安装不代行为，文件检查不代资源闭包，合成验收不代保护批准或Owner接受。
 
-约定制品交付、上线前检查通过、插件已上线、Sites网页已发布、Owner体检完成各用自身证据；核心交付、全计划完成、正式发布和Owner最终接受分开。报告交付模式、真实本地位置或Sites地址/保存版本/部署状态、实际插件/源码版本、执行结果与限制；理解效果未测保持NOT_MEASURED。本批0.1.39仍为未发布候选，设计/主题/本地有限运行结果及其限制由同一REPORT逐项报告；不借公开0.1.38或旧核心接受补写未执行入口、完整计划或Owner接受通过。
+约定制品交付、上线前检查通过、插件已上线、Sites网页已发布、Owner体检完成各用自身证据；核心交付、全计划完成、正式发布和Owner最终接受分开。报告交付模式、真实本地位置或Sites地址/保存版本/部署状态、实际插件/源码版本、执行结果与限制；理解效果未测保持NOT_MEASURED。当前公开0.1.39，本批0.1.40回收修复候选的设计/主题/本地和生命周期结果须由同一REPORT逐项报告；首FAIL/启动根因UNKNOWN、延期及原.37限定接受保留，不以旧CI/恢复成功补写新source、完整计划或Owner接受通过。
 
 Owner体检覆盖真实制作体验、页面阅读操作与扩展/异常；真实反馈后按影响修复复验，不默认重跑完整旧矩阵。已发布版本观测关键内容、访问与部署/资源异常；停止新增发布并升级责任Agent/Owner，先回读状态，选已知良好保存版本或前向修复，插件用新受保护PR恢复，历史与资产保留。原始范围及逐条覆盖见[主PLAN](../../plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md#original-meaning-and-engineering-coverage)。

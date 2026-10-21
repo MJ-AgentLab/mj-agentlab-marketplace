@@ -2,7 +2,7 @@
 
 ## 项目上下文
 
-Marketplacev8.3.3由#284/mainfdede3cf于2026-10-20公开，tag/Release同SHA，HTML0.1.38修复许可/路径/控件，5包8技能/5显式。真实tag新13/178、实际Python/4site静态及精确根清理通过；CLI0.147.0，实际bypass/空reviews/批准NOT_MET、首TEMP路径FAIL与旧UNKNOWN/延期保留，见[8.3.3账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_3_Release_Readiness.md)。
+公开834仍tag5898；#302交付HTML.40。Owner授权Communication.1.1随同[274](plans/274-html-learning-artifact/INDEX.md)的[835发行](docs/runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md)，复用未变验收、核新增闭包；当前headCI/真实批准与发布另取证，旧缺口保留。
 
 manifest 的公开示例按[插件契约](docs/spec/[SPEC]_Plugin_Json_Schema.md)保留完整路由，最多三条，各原值不超过 128 个 Unicode scalar values；严格校验防止客户端忽略超长示例而丢失公开入口，不依赖空白归一化。
 
@@ -17,6 +17,8 @@ Learning Evidence Kit 的 Pop Quiz 诊断只读，明确移交后结束诊断，
 Explain初始0.1.0速解/深讲、中文/原术语、深度/格式适应见[ADR](docs/adr/[ADR]_Explain_Kit_Addition.md)及[验收](docs/runbook/[RUNBOOK]_Explain_Kit_Acceptance.md)，不改测验策略。
 
 Communication按[Epic #222](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222)交付；PR1–4已合并，四包#237关闭未合并，由完整五包#241发布。显式单入口与保义/等待/文件合同见[包说明](plugins/communication-kit/README.md)及[communicate](plugins/communication-kit/skills/communicate/SKILL.md)，AICS仍Lab Proposal / Informative。旧失败、CLI C16–C18 PARTIAL、同一26.1007.2314.0桌面应用两个本机入口的限定实证及未覆盖项见[验收§4](docs/runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)。R05只对应未变资源，无新GUI；基础通过不证明现实效果。
+
+Communication Kit命名见[#298](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/298)，.1.1随835准备，标识/入口不变；后续授权见[PLAN](plans/222-communication-kit/[PLAN]_Communication_Kit.md)。
 
 ## 执行与决策
 
@@ -70,7 +72,7 @@ Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基
 
 ## HTML Guide Kit 阶段实施
 
-HTML0.1.39随#291/v8.3.4于2026-10-20公开，main/tag/Release5898a819。[274](plans/274-html-learning-artifact/INDEX.md)actualmain新本机及main/tag各13安装/Python/15根清理通过；真实bypass/批准NOT_MET、旧FAIL/UNKNOWN、窗口延期/效果未测/原.37接受保界。当前安装指引转834，运行/版本不变；后继保护不bypass。
+HTML.40用private Job先归属再启动、完整owned退出屏障及失败保目录，原15s/判准/POSIX保持。同274分别核actual302、新发行候选、actualmain及真实tag；D01延期/效果未测/计划OPEN、Owner仅原.37接受。后继回执归Issue/外部封存，不递归证据PR。
 
 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217)授权三阶段/worktree/codex。#221 merge70267a5复验/#218关闭；#226 d106e766同72cdd08树，0.1.0/第二轮A/七安装四Python复验/#219关闭。旧批准缺项保留。#231实际merge71e2同head树、CI全P/reviews空；原批准缺项保留，不bypass或指定审查人。
 

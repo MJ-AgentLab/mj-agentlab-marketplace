@@ -2,9 +2,9 @@
 
 <img src="assets/brand/marketplace/logo.svg" width="128" height="128" alt="MJ AgentLab Marketplace — MJ letters with connected modules">
 
-![Version](https://img.shields.io/badge/version-8.3.4-blue)
+![Version](https://img.shields.io/badge/version-8.3.5-blue)
 
-面向 ChatGPT 桌面端与 Codex 本地环境（CLI验收基线0.147.0）的插件市场，无需MCP服务。[Marketplace v8.3.4](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.4)已于2026-10-20经#291合入main并自动公开，main/tag/Release同为5898a8192740b39f41263129a5f99efeba96a6cc；HTML Guide Kit0.1.39补齐按需Matt grilling、设计共识、可选主题和独立目录本地交付，保留生成器与工程检查。五包八技能/五显式保持，实际main与真实tag新十三安装、实际Python及精确清理通过；实际bypass/批准NOT_MET、历史FAIL、延期与Owner接受分别保留，见[8.3.4发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_3_4_Release_Readiness.md)。
+面向 ChatGPT 桌面端与 Codex 本地环境（CLI验收基线0.147.0）的插件市场，无需MCP服务。[Marketplace v8.3.4](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.4)已于2026-10-20经#291合入main并自动公开，发行时main/tag/Release同为5898a8192740b39f41263129a5f99efeba96a6cc（维护#292实际main为931e1214，公开tag与Release保持原SHA）；HTML Guide Kit0.1.39补齐按需Matt grilling、设计共识、可选主题和独立目录本地交付，保留生成器与工程检查。五包八技能/五显式保持，实际main与真实tag新十三安装、实际Python及精确清理通过；实际bypass/批准NOT_MET、历史FAIL、延期与Owner接受分别保留，见[8.3.4发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_3_4_Release_Readiness.md)。
 
 历史[Marketplace v8.3.1](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.1) 已于 2026-10-16 经 #253 合入 main 并自动公开，main/tag/Release 同为 4e4d4172fb27c812d3be8847f792dae5313daec8，包含完整五插件、七公开技能、四显式入口。该维护补丁保留 v8.3.0 的全部插件运行内容与版本；发布后真实标签的十三安装、6 次 Diagram＋18 次 LEK 实际 Python 和 15 项清理通过，见[发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_3_1_Release_Readiness.md)。
 

@@ -1,0 +1,24 @@
+{
+  "args": [
+    "gh",
+    "api",
+    "graphql",
+    "-f",
+    "query=query { repository(owner:\"MJ-AgentLab\",name:\"mj-agentlab-marketplace\") { pullRequest(number:292) { number state merged mergedAt mergedBy { login } headRefOid baseRefOid baseRefName mergeCommit { oid tree { oid } parents(first:10) { nodes { oid } } } reviews(first:100) { totalCount nodes { state submittedAt commit { oid } author { login } } pageInfo { hasNextPage } } reviewThreads(first:100) { totalCount nodes { isResolved } pageInfo { hasNextPage } } } } }"
+  ],
+  "cwd": "C:\\Users\\Admin\\.codex\\worktrees\\html-alignment-sync\\develop",
+  "startedAt": "2026-10-20T16:30:54.803584+00:00",
+  "finishedAt": "2026-10-20T16:30:55.789466+00:00",
+  "exitCode": 0,
+  "acceptedExitCodes": [
+    0
+  ],
+  "stdout": {
+    "bytes": 681,
+    "sha256": "68f38b25bcbcc99af0098f8cf8648512605d2e4c251fc63ca8f8e9a522d67f36"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

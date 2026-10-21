@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\Admin\.codex\task-evidence\html-learning-274-post293-20261021\prepare-prebump.py", line 407, in <module>
+    else:apply(args.pwsh)
+         ^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\.codex\task-evidence\html-learning-274-post293-20261021\prepare-prebump.py", line 367, in apply
+    assert sha((R/'scripts/bump-version.ps1').read_bytes())==next(x['sha256'] for x in load(E/'prebump-scope-review/facts-r2.json')['sourceIdentities'] if x['path']=='scripts/bump-version.ps1')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-21T04:31:05.232Z",
+  "executor": "OpenAI Codex",
+  "base": "6b4612b4968f5172944f61b180c032df913037f1",
+  "head": "ca63004d998d3825b0925e6b9251400b4ca8d466",
+  "worktreeHasChanges": false,
+  "displayName": "Communication Kit",
+  "shortDescription": "Draft clear messages and documents while preserving meaning.",
+  "summaryScalars": 60,
+  "manifestOnlyDisplayFieldsChanged": true,
+  "nativeOnlyDisplayFieldsChanged": true,
+  "skillOnlyHeadingChanged": true,
+  "identityPromptPolicyCapabilitiesVersionIconsFrozenReferencesUnchanged": true,
+  "a6": {
+    "ok": true,
+    "reason": "agents-md-synced",
+    "triggers": [
+      "plugins/communication-kit/plugin.json",
+      "plugins/communication-kit/skills/communicate/SKILL.md",
+      "plugins/communication-kit/skills/communicate/agents/openai.yaml"
+    ]
+  },
+  "roles": [
+    {
+      "role": "product reader",
+      "action": "Read manifest, native interface and package README against selected complete wording",
+      "result": "PASS"
+    },
+    {
+      "role": "integration maintainer",
+      "action": "Compare structured manifests and full skill body against fixed baseline; verify version, registered routes, frozen references, icon bytes and historical runbook diff",
+      "result": "PASS"
+    }
+  ],
+  "limits": [
+    "Real GUI display not exercised",
+    "AI review is not protected GitHub approval or final Owner acceptance"
+  ]
+}

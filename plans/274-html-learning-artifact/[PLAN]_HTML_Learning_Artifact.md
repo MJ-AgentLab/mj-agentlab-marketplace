@@ -4,15 +4,75 @@ scope: html-guide-kit
 summary: "Implement the explicit site workflow with local tools and minimum Sites evidence"
 owner: marketplace-maintainers
 created: 2026-10-19
-updated: 2026-10-20
+updated: 2026-10-21
 state: active
-version: v1.18
+version: v1.22
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 ---
 
 # [PLAN] HTML learning artifact implementation
+
+## Combined8.3.5 release scope and evidence reuse
+
+2026-10-21：Owner在“同步最新 develop 分支”会话明确要求将Communication Kit新名称/英文简介正式公开，并选择“并入8.3.5，并允许你联系该发布会话协调更新#303和重验”，实际回复“2；对于已经验过的内容，无需重验”。Root独立读取原human message `01a15d5e-c44a-7d33-991a-c26bc9884c8b`（会话`01a15ca1-4adb-7e60-8df8-bb541c6e6043`），见[Owner原始选择](./evidence/sources/release835/communication-scope-authority.json)；这是当前发布范围/协调授权，非成品最终接受。HTML INT-2026-003 v1.2/32项＋A01–A08不扩展；Communication显示名/简介完整基线及后续发布决定见[222唯一PLAN](../222-communication-kit/[PLAN]_Communication_Kit.md)。
+
+同一发行主PR [#303](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/303)→protected main已在07:35UTC退回draft；正常整合完整actualdevelop`1503563f7733c1dbbddcbafcfd5cba2a359b8096`及Communication最小补丁`4248fb70ab60bacc707da3d5d542a5ddcb7a98b1/treec4907ee5377d67a47b09a5bcced7acc7b2b9addf`，保完整main`931e1214377357e9f94b6c5ca10029330c6ec0d6`祖先。市场8.3.5/HTML0.1.40保持，Communication0.1.0→0.1.1；其他三包版本、路由/提示/显式策略/行为/图标不变。此前ae77排除299的范围只属旧候选，现行范围由本次真实Owner决定替代。
+
+下一步推荐：完成固定combined候选元数据/版本/资源身份与文档闭包及独立复核，更新同一#303；最终head正常CI、真实非作者且非latest-pusher批准、线程/latestbase满足后普通合入，核actualmain与draft-first/tag/Release身份，再核真实tag闭包。未变内容只复用已验资源证据，不机械重复全suite/十三/Python/客户端安装，也不把复用称新执行；身份或新增运行资源不匹配时只停依赖项并诊断。GitHub必需检查正常执行，不改门禁。
+
+公开仍834/HTML.39/Communication.1.0，tag5898；默认安装六834锚点保持。原HTML.37 ACCEPTED_LIMITED、D01/其他客户端DEFERRED、效果NOT_MEASURED、全计划OPEN及旧FAIL/UNKNOWN/bypass/批准缺口均保留。发布后异常停推广并前向修复，不改公开tag/Release/资产，无新增周期监控。
+
+以下旧章节按原时点/原范围读取；曾要求新运行的旧阶段不覆盖本次Owner对未变内容的复用决定。
+
+## Windows owned-browser recovery and HTML0.1.40 repair candidate
+
+2026-10-21（Asia/Taipei）：Owner已明确“执行发布”，既有同五边界授权继续覆盖必要工程诊断/修复；本批沿Issue274、INT-2026-003 v1.2、原32项＋A01–A08，不新增INTENT。原维护发行[PR295](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/295)已关闭且未合入；835无tag/Release。当前actualdevelop6b4612b4968f5172944f61b180c032df913037f1已交付市场8.3.5预升并完整含main931e1214377357e9f94b6c5ca10029330c6ec0d6，公开仍834/tag5898a8192740b39f41263129a5f99efeba96a6cc与HTML0.1.39。现隔离候选HTML0.1.40已用版本工具DryRun→Apply，仅plugin manifest升版；市场8.3.5、README默认公开安装834及其他插件保持。
+
+首暖纸NOT_RUN/neutral未执行和启动relaunch根因UNKNOWN保留；代码＋精确owned profile实际残留已证Windows回收验证缺陷，unchanged local-r2已停止。旧candidate严格十三安装与PR/push四矩阵通过仅属旧source，不计本修复通过。
+
+有序执行与当前解锁状态：
+
+1. **事故恢复（RECOVERED_EXACT_PROCESS_GROUP_ONLY；文件保留）**：新静审与Root明确GO后的r2于03:15:47–03:16:22Z实际exit0；同listener/portfile/元信息绑定的Browser.close仅一次，原8个native创建身份/精确profile对象退出，无native fallback，双次空集合/原handle signaled及handles关闭均留证。未杀其他用户浏览器、未知PID或删除文件。首TEMP 806文件的三次稳定hash只支持纠正后的限定库存范围；首次筛选method无效与原PermissionError各保原件，后续删除须另走受控核验，不能先称已删。事故恢复不等于产品修复验收。
+2. **Windows进程封装修复（IMPLEMENTED；末轮定向PASS，完整门禁PENDING）**：已在private unnamed non-inheritable Job设置kill-on-close且禁breakaway；CreateProcessW先suspended、成功assign后才resume。Job创建/分配/恢复或权限不足失败关闭，无裸Popen或按名杀回退；启动探测真实Job完整owned对象存活，不以launcher return0作全树退出。原flags、min(timeout,15)启动上限及既有操作deadline保持。此边界覆盖实际Job及普通继承子孙，不保证external broker/WMI或全OS进程归属。
+3. **退出/目录屏障（IMPLEMENTED；末轮定向PASS，完整门禁PENDING）**：完整可扩容Job PID清单与ActiveProcesses双次空观察满足后才清理目录；正常、启动失败、超时及异常路径都检查。Windows transport.close异常仍drain/release Job，保原始错误与teardown双错；回收不确定保目录并维持NON_PASS/NOT_RUN。POSIX现有session路径、browser argv及判准保持。
+4. **独立工程验收（LIMITED_TARGETED_PASS；完整门禁PENDING）**：最终7路径source前后固定的14实际内核case、真实Chrome 2测试/4Job已运行（暖纸/neutral/健康几何3PASS＋人工几何缺陷1预期FAIL，四Job均双空/独立根退出）；延后71.845秒精确profile观察0匹配/4根不存在。固定实现独审无阻断finding。早批native/Chrome source hash NOT_CAPTURED、transport修正前30合同＋2清理结果保原身份，不冒作末轮重跑。完整npm test/validate、新13/178安装、实际Python闭包/Linux/CI及独立回读仍PENDING；不重启无关模型/桌面/Sites/受众验收。
+5. **交付与发布（PENDING）**：按Issue274唯一主PR→protected develop、多子PR→同集成分支，内部依实际Harness正常合并；代码/测试/A6/changelog与canonical/计划结果可分子PR审阅。新head真实非作者且非latest-pusher批准、CI/A6/线程/latestbase满足后才正常保护合入，不bypass。actualdevelop新复验后重建单一835发行候选→main，继续draft-first/actualmain/tag/真实tag新验；候选、公开与Owner接受各有自身证据。未来本批PR/CI/merge回Issue及外部冻结回执，不递归纯证据PR。
+
+来源仅引用REPORT外部固定path/hash，不复制大日志或私有B2。旧Eold整体1034成员/26包/76384550B已封存；本批E2实现163成员和独审6成员各自冻结，详见同REPORT来源表；此文档记录有限定向验，不把完整Harness/交付/公开PENDING写成PASS。
+
+已知良好公开834保持供安装，异常先停止推广并前向修复，保公开tag/Release/资产，不创建自动监控。D01持续窗口/延期客户端仍DEFERRED、效果NOT_MEASURED、全计划OPEN；原Owner ACCEPTED_LIMITED仅0.1.37，不扩至.38/Site v2/.39/.40。旧FAIL/UNKNOWN/bypass/批准NOT_MET不追认。
+
+下一步推荐：审阅本批固定实现和文档，执行新候选完整Harness、新13安装及独立回读，正常protected develop交付后再重建发行。原因是定向证据仅支持进入完整门禁。本批无新增产品决定，常规工程由Agent执行；超五边界才集中提请Owner决定。
+
+以下为原时点快照，旧当前/待办按当时范围读取。
+
+## Actual PR293 develop verification and marketplace8.3.5 pre-bump
+
+2026-10-21（Asia/Taipei）：#293于2026-10-20T17:43:53Z（台北2026-10-21T01:43:53+08:00）实际合入develop **ac36c10d52e0712338888a007d2b9281d3097b6c/tree698065a160995014522019d9aae161b8ad1ebd1f**，parents7c23＋1732，完整树同已测同步候选；main **931e1214377357e9f94b6c5ca10029330c6ec0d6** 完整祖先已独立核对。Git commit clock为2026-10-20T17:43:52Z，与PR mergedAt分属字段，不混作同一时钟。公开仍Marketplace8.3.4/HTML0.1.39，tag/Release5898；835仅本轮隔离预升候选，尚未合入、未公开。
+
+本轮actualdevelop新canonical于2026-10-20T17:54:28.528Z–2026-10-20T18:08:34.370Z执行，13/178全exit0、6Diagram＋18LEK真实Python、4site生成/4静态各96/96、15自有根双absence/8guards通过；随后本机于2026-10-20T18:09:21.098+00:00–2026-10-20T18:13:51.742+00:00执行652总/651PASS/0FAIL/1平台skip、strict20repo/8public、CLI0.147.0/Python3.12.14和限定browser通过。两批各核9692完整跟踪文件图、index/primary/Owner原件与全worktree库存，分别冻结STOP后独立回读解锁；旧293CI和tag运行不改名为actualdevelop。
+
+实际#293 suite4625293266为bypass，pull_request规则FAIL缺latest-pusher以外批准，reviews=[]、批准NOT_MET；Agent未执行该保护合入，不构成未来豁免。actualdevelop通用CI未触发，不dispatch或重跑、不把旧四矩阵改名。独立reader的历史base字段误解及已存快照写保护两次exit1保留原件；scope的INTENT初筛/插件字典键方法修正另见选证，不是产品或CI失败。旧FAIL/UNKNOWN保留；D01持续窗口/其他客户端DEFERRED、效果NOT_MEASURED、完整计划OPEN；Owner原ACCEPTED_LIMITED仅0.1.37，不扩大至.38/Site v2/.39。
+
+现有版本工具先DryRun（2026-10-20T18:35:54.924814+00:00–2026-10-20T18:35:55.205939+00:00）恰VERSION/README两锚点且9692源图零写，再Apply（2026-10-20T18:35:58.160251+00:00–2026-10-20T18:35:58.452513+00:00）只改VERSION与badge为未发布8.3.5。README六个真实v8.3.4公开安装锚点保持；后继七项文档/来源登记维护单独计数，不冒称版本工具改完整包。全部插件/运行/.agents/scripts/workflow/INTENT、公开root/plugin CHANGELOG整字节及834账本保持，无新tag/Release。
+
+下一步推荐：完成本轮预升候选的来源/文档/A6、适用工程检查及独审后，提交Issue274唯一主PR→protecteddevelop；新head真实非作者且非latest-pusher批准、实际requiredchecks（包括适用A6）、线程及最新base满足后才正常合入。理由是实际完整同步与新复验已支持市场预升，预升不等于正式发行或新能力接受。候选自身PR/CI/实际merge只回Issue和外部冻结回执，无新实质差异不递归纯证据PR。
+
+以下旧current/待办为各自原时点快照，当前以本节和Issue274为准。
+
+## Actual PR292 main verification and full synchronization
+
+2026-10-21（Asia/Taipei）：#292于2026-10-20T16:25:37Z（台北2026-10-21T00:25:37+08:00）实际合入main **931e1214377357e9f94b6c5ca10029330c6ec0d6/tree3b310156c5d56a4bf533c1cfebdeb1e5ef4d71ca**，parents5898＋010e，树同已测维护候选。该main完整包含develop7c23；普通完整同步保留全部main ancestry，版本仍Marketplace8.3.4/HTML0.1.39。公开tag/Release仍5898a819，正文/旧833保持；维护合入未触发通用CI或Release、未新增tag，不将PR矩阵改名为actualmain新验。
+
+本轮actualmain新canonical于2026-10-20T16:28:57.619Z–2026-10-20T16:42:59.351Z运行，13/178全exit0、6Diagram＋18LEK实际Python、4site生成/4静态各96/96、15精确自有根双absence及8guards通过。随后独占本机套件于2026-10-20T16:43:37.228+00:00–2026-10-20T16:48:02.041+00:00执行652总/651PASS/0FAIL/1平台skip，strict20repo/8public、CLI0.147.0、真实Python3.12.14和限定浏览器通过；两批各新核9616跟踪文件完整字节图、index/primary/Owner原件/完整worktree库存，终态均原件冻结后才释放写窗口。运行时钟按原UTC保存，不借候选、旧tag或发布run计数。
+
+实际#292 suite4623862443为bypass，pull_request规则FAIL缺latest-pusher以外批准、reviews=[]、批准NOT_MET；Agent未执行该保护合入。独立审计首次repo URL尾斜杠HTTP404及后续cached URL guard退出保留原件/方法说明，均非产品或CI失败，不宣称全部方法首跑成功。旧FAIL/UNKNOWN与历史批准缺口保留。D01持续窗口/其他客户端入口DEFERRED、效果NOT_MEASURED、完整计划OPEN；Owner原ACCEPTED_LIMITED仅0.1.37，不扩大至0.1.38/Site v2/0.1.39。
+
+下一步推荐：完成本轮完整同步候选的来源/文档/A6、适用工程检查和独立审查后，提交唯一主PR→protected develop；当前head真实非作者且非latest-pusher批准、CI/Structure、项目A6、线程及最新base满足后才正常合入。理由是actualmain新验已支持完整同步，而保护批准不能由旧bypass或合成审查替代。实际同步合入并新验后，才在后继独立范围DryRun→Apply仅市场下一补丁；本轮不预升8.3.5、不发布。
+
+以下旧current/待办为各自原时点快照，当前以本节和Issue274为准。
 
 ## Actual PR291 publication and post-publication checks
 

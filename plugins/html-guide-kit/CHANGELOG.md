@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.1.40] - 2026-10-21
+
+HTML Guide Kit 0.1.40 fixes Windows owned-browser lifecycle control under #274: establish private Job ownership before execution and verify complete owned-process exit before directory cleanup. Preserve the existing flags, deadlines and failure criteria. Protected delivery, publication and Owner acceptance are recorded separately.
+
+### Fixed
+
+- Require Windows browser ownership through a private Job: create suspended, assign before resume, and verify the live Job before considering all owned descendants exited. Keep existing flags, startup and operation deadlines.
+- Retain the check directory and original FAIL/NOT_RUN when complete process exit cannot be established. Do not infer descendant cleanup from launcher exit0; preserve POSIX behavior and avoid name-wide or unknown-PID termination.
+- Preserve the original failed theme run, unknown startup/relaunch cause and deferred/native/client/effects boundaries. Incident-specific process recovery does not prove this product repair or broaden Owner acceptance.
+
 ## [0.1.39] - 2026-10-20
 
 HTML Guide Kit 0.1.39 prepares selective alignment under #274; publication and Owner artifact acceptance remain separate.

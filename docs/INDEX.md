@@ -4,15 +4,19 @@ scope: marketplace
 summary: "当前 ChatGPT/Codex 文档、历史决策与退役资料导航"
 owner: marketplace-maintainers
 created: 2026-10-09
-updated: 2026-10-20
+updated: 2026-10-21
 state: active
-version: v2.113
+version: v2.118
 layer: canonical
 ---
 
 # 文档索引
 
+当前8.3.5/#303沿Owner后续授权合并HTML0.1.40修复及Communication0.1.1新名称/英文简介；完整actualdevelop150356及补丁4248纳入，未变验收复用，新增元数据/版本/闭包与最终head保护门禁独立。见[835当前账本](runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md#current-combined-release-scope)与[274唯一任务](../plans/274-html-learning-artifact/INDEX.md#current-combined835-release-preparation)。公开仍834，旧缺口/延期和原.37限定接受保留。下一步推荐完成新增检查/独审后更新同一#303，再核真实批准与发布身份。以下为原时点记录。
+
 ## 工程任务与文档分层
+
+- [835修复发行准备](runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md)：同#274以实际302/.40修复为发布来源，保完整main ancestry与Issue299范围隔离。公开834、835候选/保护/公开/真实tag各分项；旧FAIL/UNKNOWN、批准缺口、D01延期与原.37限定接受保留。实际develop新验已通过；下一步推荐完成本轮发行候选检查及独立复核，提交唯一835→protectedmain，当前head真实批准/CI/线程/latestbase满足后正常合入。后继进度以Issue274及外部冻结回执为准。
 
 - [HTML learning artifact 原意 INT-2026-003](intent/[INTENT]_INT-2026-003_HTML_Learning_Artifact.md)、[#274任务入口](../plans/274-html-learning-artifact/INDEX.md)：同一HTML包显式site、包内方法/生成器/检查及约定Sites或本地交付；[扩展ADR](adr/[ADR]_HTML_Learning_Artifact_Extension.md)、[site SPEC](spec/[SPEC]_HTML_Learning_Artifact.md)、[使用指南](guide/[GUIDE]_HTML_Learning_Artifact.md)承接[本次B2/U2选择性统一](../plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md#selective-alignment-baseline)：关键未决按需Matt grilling/设计共识、可选主题、保护既有材料及独立目录产物。guide原字节、旧完整合同/核心ACCEPTED_LIMITED、历史FAIL/缺证和窗口DEFERRED保留；新增有限核验及未覆盖见同一REPORT，保护批准及Owner最终接受分别判断。
 
@@ -34,6 +38,24 @@ layer: canonical
 [#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)五阶段#246/#247/#248/#249/#251均已合入develop。四性能门槛/完整24样本通过、保留default；最终actual6df新492/492、13安装、6Diagram+18LEK及15清理通过并独立复核。Owner明确仅对245接受历史批准/bypass缺项后，Issue于2026-10-16T13:09:52Z以Completed关闭；原NOT_MET、历史失败和调度限制保留，例外不外推。见[账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)与[最终收尾回执](runbook/evidence/ci-performance-245-final-closeout.json)。
 
 ## 当前整体发布
+
+2026-10-21台北：#294已实际合入develop6b并预升市场8.3.5、完整含main931e，尚未发布；公开仍834/HTML0.1.39。#295因Windows owned-browser回收缺陷关闭未合入；本批HTML0.1.40 manifest已应用、实现及末轮定向验/有限独审完成，完整Harness/新13/CI/保护交付和重建发行仍待证。见[#274唯一REPORT](../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#windows-owned-browser-recovery-and-html0140-repair-candidate)，延期/历史缺口及原.37限定接受保留。
+
+下一步推荐：独立审代码/文档并完成固定新候选完整门禁，正常protected develop交付/actual复验后重建835发行；原因是有限定向运行及精确事故恢复不能替代完整候选验收。未来本批PR/CI/合并仅回Issue及外部证据，无新实质差异不递归纯证据PR。
+
+以下旧current为各自原时点快照。
+
+2026-10-21台北：#293实际developac36完整继承main931e，新13/178及本机/Python独立复验后，本轮仅市场8.3.5预升候选未合入/未发布；默认安装保持真实8.3.4/HTML0.1.39，批准/延期/原接受边界见[#274唯一REPORT](../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#actual-pr293-develop-verification-and-marketplace835-pre-bump)。
+
+下一步推荐：完成本轮预升候选的来源/文档/A6、适用工程检查及独审后，提交Issue274唯一主PR→protecteddevelop；新head真实非作者且非latest-pusher批准、实际requiredchecks（包括适用A6）、线程及最新base满足后才正常合入。理由是实际完整同步与新复验已支持市场预升，预升不等于正式发行或新能力接受。候选自身PR/CI/实际merge只回Issue和外部冻结回执，无新实质差异不递归纯证据PR。
+
+以下旧current为各自原时点。
+
+2026-10-21台北：#292实际main931e已完成新的13安装与独占本机复验，当前完整main同步develop候选，未称已合入；公开仍8.3.4/HTML0.1.39 tag5898。原件与权限缺口见[#274唯一REPORT](../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#actual-pr292-main-verification-and-full-synchronization)，原接受/延期/效果分别保留。
+
+下一步推荐：完成本轮完整同步候选的来源/文档/A6、适用工程检查和独立审查后，提交唯一主PR→protected develop；当前head真实非作者且非latest-pusher批准、CI/Structure、项目A6、线程及最新base满足后才正常合入。理由是actualmain新验已支持完整同步，而保护批准不能由旧bypass或合成审查替代。实际同步合入并新验后，才在后继独立范围DryRun→Apply仅市场下一补丁；本轮不预升8.3.5、不发布。
+
+以下旧current为各自原时点快照。
 
 v8.3.4/HTML0.1.39已由#291实际main5898公开，新actualmain及真实tag十三安装通过；[当前账本](runbook/[RUNBOOK]_Marketplace_8_3_4_Release_Readiness.md)与[#274唯一REPORT](../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#actual-pr291-publication-and-post-publication-checks)区分原件、批准NOT_MET、延期和旧接受。本轮默认导航更新到真实834，版本/运行不变。
 
@@ -164,7 +186,7 @@ Owner Q3已确认Communication正式发行仅为Learning已公开三包加Commun
 - [Communication 任务入口 #222](../plans/222-communication-kit/INDEX.md)：唯一主 PLAN、主 REPORT 和固定原稿/捕获来源；历史原件只供恢复，不作为并行计划入口。
 - [Communication Kit 新增决定](adr/[ADR]_Communication_Kit_Addition.md)
 - [Communicate 行为契约](spec/[SPEC]_Communication_Communicate.md)
-- [沟通助手使用指南](guide/[GUIDE]_Communication_Communicate.md)
+- [Communication Kit 使用指南](guide/[GUIDE]_Communication_Communicate.md)
 - [Communication 基础验收与发布检查](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)
 
 - [项目说明](../README.md)
@@ -211,7 +233,7 @@ Owner Q3已确认Communication正式发行仅为Learning已公开三包加Commun
 - [[RUNBOOK]_Release_Operations.md](runbook/[RUNBOOK]_Release_Operations.md)
 
 - [Communicate 行为契约](spec/[SPEC]_Communication_Communicate.md)
-- [沟通助手使用指南](guide/[GUIDE]_Communication_Communicate.md)
+- [Communication Kit 使用指南](guide/[GUIDE]_Communication_Communicate.md)
 - [Communication 基础验收与发布检查](runbook/[RUNBOOK]_Communication_Kit_Acceptance.md)
 
 - [迁移实际验收记录](runbook/[RUNBOOK]_ChatGPT_Codex_Migration_Acceptance.md)
