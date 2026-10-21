@@ -6,13 +6,15 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-21
 state: active
-version: v2.10.14
+version: v2.10.15
 layer: canonical
 ---
 
 # [RUNBOOK] Release operations
 
 ## Preparation
+
+2026-10-21：#302已交付HTML0.1.40 Windows owned-browser修复；835发行以[本轮账本](./[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md)和Issue274承接，旧295纯维护尝试关闭未合入。实际302新验、新发行候选、保护main、actualmain、draft-first公开和真实tag新验分别绑定，不借旧候选/CI计数。保持完整latest-main ancestry和302明确发布切点，不自动吸收Issue299；公开834供安装、异常停推广并前向修复，不改旧tag/Release/资产。实际develop新验已通过；下一步推荐完成本轮发行候选检查及独立复核，提交唯一835→protectedmain，当前head真实批准/CI/线程/latestbase满足后正常合入。下列段落保留各自时点。
 
 2026-10-21（Asia/Taipei）：同#274的835发行尝试#295因新证实Windows owned-browser回收缺陷关闭未合入，无835tag/Release。#294实际develop6b已预升市场8.3.5且完整含main931e，公开仍834/HTML0.1.39；默认六834安装锚点与公开历史保持。事故恢复r2已于03:15:47–03:16:22Z受控Browser.close一次、原8退出/无fallback/双空/handles关闭，文件保留。HTML0.1.40仅manifest已Apply，private Job/退出屏障已实现，末轮固定source的14内核case/4真实Chrome Job定向验及有限独审完成；完整Harness、新13/实际Python/CI/保护develop及重建发行均PENDING。
 

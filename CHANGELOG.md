@@ -5,14 +5,19 @@
 
 ## [Unreleased]
 
-### Fixed — candidate, not published
+## [8.3.5] - 2026-10-21
 
-- Implement HTML Guide Kit0.1.40 candidate to isolate Windows browser processes in a private Job before execution and require complete owned-process exit before directory cleanup. Preserve original browser flags, deadlines and failure criteria; retain the failed directory when complete exit cannot be established.
-- Stop the unmerged maintenance-release attempt295 after the newly proven recovery gap. Marketplace remains pre-bumped8.3.5. Source-pinned targeted Windows checks and limited independent review completed; the complete new-candidate Harness, fresh installations, protected develop delivery and rebuilt publication remain pending. Keep the first browser FAIL, startup causeUNKNOWN, deferred/native/client/effects coverage and original HTML0.1.37-only Owner acceptance. Refs #274.
+Marketplace8.3.5 delivers HTML Guide Kit0.1.40 Windows owned-browser lifecycle repair under #274. Diagram0.3.1, Learning Evidence0.1.0, Explain0.1.1 and Communication0.1.0 remain unchanged, with five packages/eight public skills/five explicit entries. VERSION8.3.5 was already prepared; this promotion does not bump it again.
 
-### Earlier installation-navigation maintenance
+### Fixed
 
-Update the default installation reference to the verified v8.3.4 release and HTML Guide Kit0.1.39. Record actual main/tag/Release identity and independent post-publication checks under Issue274 without changing package versions, runtime resources or published release notes. Preserve earlier failures, missing protected approval, deferred native/client coverage and original limited Owner acceptance. This maintenance entry does not publish another version. Refs #274.
+- Establish Windows browser ownership in a private Job before execution and verify Job liveness even when the launcher exits. Require complete owned-process exit before removing the check directory; keep the directory and original failure when exit cannot be established. Preserve browser flags, startup/operation deadlines, geometry criteria and POSIX behavior.
+- Preserve the original startup/relaunch failures and UNKNOWN causes; fixing lifecycle cleanup does not establish those causes. Controlled incident recovery, source-bound repair verification and actual publication remain separate.
+
+### Maintenance and retained limits
+
+- Retain full main ancestry and promote the verified #274 actual-develop release cut without incorporating unrelated Issue299 work. Keep the known-good v8.3.4 default installation references until true8.3.5 publication and tag verification.
+- Preserve historical missing protected approval/bypass, earlier FAIL/UNKNOWN/NOT_CAPTURED, deferred native/client coverage, effects NOT_MEASURED and full-plan OPEN. Original limited HTML0.1.37 core acceptance does not extend to0.1.40. Current protected approval, publication, true-tag verification and Owner acceptance require their own evidence.
 
 ## [8.3.4] - 2026-10-20
 

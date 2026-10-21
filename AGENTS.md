@@ -2,7 +2,7 @@
 
 ## 项目上下文
 
-公开834/HTML0.1.39仍tag5898；#294实际develop6b预升835并含main931e。#295因Windows回收缺陷关闭未合入；835未公开。同[274](plans/274-html-learning-artifact/INDEX.md)的.40实现/定向验及独审完成，完整门禁待证；旧FAIL/UNKNOWN/批准NOT_MET保。
+公开834/HTML0.1.39仍tag5898；#302已交付.40修复，835尚未公开。同[274](plans/274-html-learning-artifact/INDEX.md)准备[835发行](docs/runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md)，actualdevelop新验及保护/发布各自取证；旧FAIL/UNKNOWN/批准缺口保留。
 
 manifest 的公开示例按[插件契约](docs/spec/[SPEC]_Plugin_Json_Schema.md)保留完整路由，最多三条，各原值不超过 128 个 Unicode scalar values；严格校验防止客户端忽略超长示例而丢失公开入口，不依赖空白归一化。
 
@@ -70,7 +70,7 @@ Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基
 
 ## HTML Guide Kit 阶段实施
 
-HTML.40按[274](plans/274-html-learning-artifact/INDEX.md)用private Job先归属再启动、双空回收及失败保目录，原15s/判准/Linux保持。原8owned已受控退出、文件保留；14case/4Chrome Job定向验，完整Harness/新13/CI/保护/发布待证。D01延期/效果未测/计划OPEN、Owner仅原.37接受。
+HTML.40用private Job先归属再启动、完整owned退出屏障及失败保目录，原15s/判准/POSIX保持。同274分别核actual302、新发行候选、actualmain及真实tag；D01延期/效果未测/计划OPEN、Owner仅原.37接受。后继回执归Issue/外部封存，不递归证据PR。
 
 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217)授权三阶段/worktree/codex。#221 merge70267a5复验/#218关闭；#226 d106e766同72cdd08树，0.1.0/第二轮A/七安装四Python复验/#219关闭。旧批准缺项保留。#231实际merge71e2同head树、CI全P/reviews空；原批准缺项保留，不bypass或指定审查人。
 

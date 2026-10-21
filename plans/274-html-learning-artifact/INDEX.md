@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-21
 state: active
-version: v1.20
+version: v1.21
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -21,6 +21,10 @@ sources: ./source-bindings.json
 ---
 
 # HTML learning artifact task entry
+
+## Marketplace8.3.5 repair release preparation
+
+#302已交付HTML0.1.40修复；[835账本](../../docs/runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md)承接本轮实际302、新发行候选与protected-main/draft-first/tag门禁。沿用[唯一PLAN](./[PLAN]_HTML_Learning_Artifact.md#windows-owned-browser-recovery-and-html0140-repair-candidate)与[REPORT](./[REPORT]_HTML_Learning_Artifact.md#windows-owned-browser-recovery-and-html0140-repair-candidate)；旧时点PENDING与FAIL不重写。实际develop新验已通过；下一步推荐完成本轮发行候选检查及独立复核，提交唯一835→protectedmain，当前head真实批准/CI/线程/latestbase满足后正常合入。进度正本为Issue274，后继回执仅外部封存。
 
 ## Windows owned-browser recovery and HTML0.1.40 repair candidate
 
