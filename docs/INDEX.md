@@ -35,6 +35,12 @@ layer: canonical
 
 ## 当前整体发布
 
+2026-10-21台北：#294已实际合入develop6b并预升市场8.3.5、完整含main931e，尚未发布；公开仍834/HTML0.1.39。#295因Windows owned-browser回收缺陷关闭未合入；本批HTML0.1.40 manifest已应用、实现及末轮定向验/有限独审完成，完整Harness/新13/CI/保护交付和重建发行仍待证。见[#274唯一REPORT](../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#windows-owned-browser-recovery-and-html0140-repair-candidate)，延期/历史缺口及原.37限定接受保留。
+
+下一步推荐：独立审代码/文档并完成固定新候选完整门禁，正常protected develop交付/actual复验后重建835发行；原因是有限定向运行及精确事故恢复不能替代完整候选验收。未来本批PR/CI/合并仅回Issue及外部证据，无新实质差异不递归纯证据PR。
+
+以下旧current为各自原时点快照。
+
 2026-10-21台北：#293实际developac36完整继承main931e，新13/178及本机/Python独立复验后，本轮仅市场8.3.5预升候选未合入/未发布；默认安装保持真实8.3.4/HTML0.1.39，批准/延期/原接受边界见[#274唯一REPORT](../plans/274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#actual-pr293-develop-verification-and-marketplace835-pre-bump)。
 
 下一步推荐：完成本轮预升候选的来源/文档/A6、适用工程检查及独审后，提交Issue274唯一主PR→protecteddevelop；新head真实非作者且非latest-pusher批准、实际requiredchecks（包括适用A6）、线程及最新base满足后才正常合入。理由是实际完整同步与新复验已支持市场预升，预升不等于正式发行或新能力接受。候选自身PR/CI/实际merge只回Issue和外部冻结回执，无新实质差异不递归纯证据PR。

@@ -347,6 +347,17 @@ function browser() {
   return null;
 }
 
+function assertWindowsOwnedExit(report) {
+  if (process.platform !== "win32") return;
+  const start = report.lifecycle.find(item => item.phase === "owned-windows-job-start");
+  const end = report.lifecycle.find(item => item.phase === "owned-windows-job-exit");
+  assert.equal(start?.status, "PASS", "actual Windows browser must be owned before resume");
+  assert.equal(end?.status, "PASS", "launcher exit alone must not prove job termination");
+  assert.deepEqual(end.emptyObservations, [{ active: 0, pids: [] }, { active: 0, pids: [] }]);
+  assert.equal(fs.existsSync(path.dirname(start.profile)), false, "the exact owned profile root must be absent");
+  console.log(JSON.stringify({ evidence: "actual-windows-owned-browser", start, end, profileRootAbsent: true }));
+}
+
 test("actual browser renders distinct warm-paper and neutral themes at desktop and mobile sizes", { timeout: 100000 }, t => {
   const executable = browser();
   if (!executable) {
@@ -367,6 +378,7 @@ test("actual browser renders distinct warm-paper and neutral themes at desktop a
     assert.equal(result.report.status, "PASS");
     assert.deepEqual(result.report.viewports.map(v => v.viewport), [{ width: 1366, height: 900 }, { width: 390, height: 844 }]);
     assert.equal(result.report.lifecycle.at(-1).status, "PASS");
+    assertWindowsOwnedExit(result.report);
     hashes.push(result.report.viewports.map(v => {
       const bytes = fs.readFileSync(path.join(screenshots, v.screenshot));
       assert.equal(hash(bytes), v.screenshotSha256);
@@ -395,6 +407,7 @@ test("actual browser measures mobile/desktop viewport sizes and detects overflow
   assert.equal(good.report.lifecycle.at(-1).phase, "temporary-cleanup");
   assert.equal(good.report.lifecycle.at(-1).status, "PASS");
   assert.ok(good.report.lifecycle.some(item => item.phase === "browser-process-exit" && item.status === "PASS"));
+  assertWindowsOwnedExit(good.report);
   assert.deepEqual(good.report.viewports.map(v => v.viewport), [{ width: 1366, height: 900 }, { width: 390, height: 844 }]);
   for (const v of good.report.viewports) {
     const pixels = fs.readFileSync(path.join(goodShots, v.screenshot));
@@ -408,6 +421,7 @@ test("actual browser measures mobile/desktop viewport sizes and detects overflow
   fs.writeFileSync(path.join(f.root, "index.html"), fs.readFileSync(path.join(f.root, "index.html"), "utf8").replace("</body>", '<div class="wide">横向溢出</div><div class="clip"><span>裁切</span></div><p class="wrap">这是用于检测极端异常换行的长句内容</p></body>'));
   const bad = run("check_renderings.py", ["--input", f.root, "--browser", captured.executable, "--screenshots", path.join(f.temporary, "bad-shots"), "--viewport", "390x844"], 45000);
   assert.equal(bad.status, 1, bad.stdout + bad.stderr + (bad.status === 1 ? "" : "\nStartup stderr diagnostics: " + JSON.stringify(captured.diagnostics())));
+  assertWindowsOwnedExit(bad.report);
   const codes = bad.report.viewports.flatMap(v => v.issues.map(issue => issue.code));
   for (const code of ["horizontal-overflow", "severe-horizontal-clipping", "severe-vertical-clipping", "extreme-text-wrapping"]) assert.ok(codes.includes(code), `${code}: ${bad.stdout}`);
 });
