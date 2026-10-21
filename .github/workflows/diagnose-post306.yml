@@ -1,0 +1,48 @@
+name: One Windows startup diagnostic for PR306
+on:
+  push:
+    branches: ['diagnostics/html-startup-306']
+    paths: ['.github/diagnostics/post306/**', '.github/workflows/diagnose-post306.yml']
+permissions:
+  contents: read
+jobs:
+  failed-warm-paper-only:
+    runs-on: windows-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Record fixed source and runner
+        shell: pwsh
+        run: |
+          $diagnosticRoot = Join-Path $env:RUNNER_TEMP 'post306-startup-one'
+          New-Item -ItemType Directory -Path $diagnosticRoot -ErrorAction Stop | Out-Null
+          git rev-parse HEAD | Set-Content (Join-Path $diagnosticRoot 'commit.txt')
+          Get-Date -Format o | Set-Content (Join-Path $diagnosticRoot 'runner-clock.txt')
+          node .github/diagnostics/post306/fixture.mjs $diagnosticRoot
+      - name: Single original warm-paper path with owned startup signals
+        shell: pwsh
+        env:
+          PYTHONUTF8: '1'
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          $diagnosticRoot = Join-Path $env:RUNNER_TEMP 'post306-startup-one'
+          python .github/diagnostics/post306/supervise.py $diagnosticRoot
+      - name: Record browser identity after the single probe
+        if: always()
+        shell: pwsh
+        run: |
+          $diagnosticRoot = Join-Path $env:RUNNER_TEMP 'post306-startup-one'
+          (Get-Item -LiteralPath 'C:/Program Files/Google/Chrome/Application/chrome.exe').VersionInfo | Format-List * | Out-File (Join-Path $diagnosticRoot 'browser-version.txt')
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: post306-single-startup
+          path: ${{ runner.temp }}/post306-startup-one
+          if-no-files-found: error
+          retention-days: 7
