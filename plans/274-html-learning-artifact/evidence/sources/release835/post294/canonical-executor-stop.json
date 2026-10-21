@@ -1,0 +1,18 @@
+{
+  "schema": "html274-post294-canonical-executor-stop-v1",
+  "phase": "canonical",
+  "sourceSha": "6b4612b4968f5172944f61b180c032df913037f1",
+  "sourceTree": "418e1493f4092d547860dc7fa0199a1e5b4f48cf",
+  "freezeSha256": "e297d0c67b5c7bbb12c8181781a72ec43dd0c8d0fd9564b551afe3f458bd680e",
+  "allProcessesExited": true,
+  "noFurtherWrites": true,
+  "statement": "真实 canonical FROZEN_STOP：本批产品、launch、guarded-run及finalizer进程均已退出，所有输出句柄已关闭；actual-develop-smoke38文件及对应freeze绝不再写，无live写入，未启动local。typed terminal E/actual-develop-smoke/terminal-summary.json SHA9316a71f77a65811f9eeb34002f6cb1393a28ac4a3efaa2027812cce61f94149；sibling actual-develop-smoke-freeze.json SHAe297d0c67b5c7bbb12c8181781a72ec43dd0c8d0fd9564b551afe3f458bd680e。完整relativePOSIX库存/bytes/hash二次独立读回通过，12/12 typed检查；13/178全0、6Diagram/18LEK/4site+4×96，实际Python3.12.14/Node22.18/CLI147，15根两次absence、原8guards及9771完整fullguardPASS。原产品UTC00:25:07.103–00:39:21.528，finalizer receipt结束00:39:37.560Z，exit0。包外执行原件 E/runtime-execution/canonical/ 与 canonical-finalizer/，固定receipt E/finalizer-execution/smoke/receipt.json。STOP。下一步推荐：Root捕获真实 canonical-executor-stop.json并明确GOlocal后，启动首次独占本机Harness；当前继续source锁。\n",
+  "rootCapturedAtUtc": "2026-10-21T00:40:22.829526+00:00",
+  "trustedExecutor": "/root/post287_candidate_checks",
+  "trustedMessage": "trusted-canonical-stop-message.txt",
+  "trustedMessageSha256": "d371908fd67cdc326d9a14ca217b3b4f7abfcf32e441e1b99fb727135538d88c",
+  "originalMessageId": null,
+  "originalMessageTimestamp": null,
+  "clockMeaning": "Actual Root record-creation clock after receipt of trusted executor explicit STOP and finalizer completion; no invented original message clock.",
+  "independentFullInventoryAndEveryByteHashReadback": true
+}

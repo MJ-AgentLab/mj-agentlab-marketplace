@@ -6,13 +6,33 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-21
 state: active
-version: v1.20
+version: v1.21
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 ---
 
 # [PLAN] HTML learning artifact implementation
+
+## Marketplace8.3.5 maintenance publication preparation
+
+2026-10-21（Asia/Taipei）：Owner[本轮原话](./evidence/sources/release835/continuation/owner-request.txt)明确“执行发布”，[捕获](./evidence/sources/release835/continuation/capture.json)仅使用实际捕获时钟，原消息ID/时间/URL未知为null。沿用Issue274、INT-2026-003 v1.2、原32项＋A01–A08、U1/P5与同五边界；本轮是已预升市场8.3.5的纯维护发行，不增加功能或重启原意/产品决定。HTML0.1.39和其余四包、plugins/scripts/.agents/workflow/package与公开834相同；完整main931e祖先已在actualdevelop6b中，市场VERSION不再次提升。
+
+顺序与解锁条件：
+
+1. 从actualdevelop6b4612b4968f5172944f61b180c032df913037f1准备最小发行说明、账本/索引/A6和必要来源；默认安装六锚点仍v8.3.4，旧来源不改。独立核对范围后对新候选运行适用工程检查，历史13/178、本机/Python通过不代替这一步。
+2. 以包含完整main ancestry的唯一发行PR→protected main，保留现行真实非作者且非最新推送者批准、CODEOWNER/required checks（含Validate Structure）、线程和latestbase要求；Agent仅在全部实际满足后正常merge，不自审批或bypass。
+3. 核对实际main SHA/tree及应交付内容，再按既有draft-first验证当前main/version/CHANGELOG/tag/draft/正文/资产身份；紧邻公开前重新核验。任何门槛缺失仅停依赖步骤，不把Owner发布授权当保护豁免。
+4. 正式公开后独立核Release/tag/实际main身份，再从真实tag解析SHA启动新十三安装/真实Python和精确自有根清理，分别保留candidate/main/workflow/tag证据，不复用计数。真实tag新验通过后才更新默认安装导航。
+5. 完整main→develop同步及下一市场预升依赖实际后继证据，按既有流程推进；不机械追加无实质差异的证据PR。自身新PR/CI/merge/tag身份只回Issue及外部不可变回执。
+
+观察/恢复以[835账本](../../docs/runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md#observation-stop-and-recovery)为准：已知良好v8.3.4/tag5898a8192740b39f41263129a5f99efeba96a6cc，停止异常推广、保留失败和公开历史、通过保护流程前向修复，不改已公开tag/Release/资产，也不创建周期监控。
+
+D01原生持续窗口及其他延期客户端/扩展入口仍DEFERRED，效果NOT_MEASURED、完整计划OPEN；Owner原ACCEPTED_LIMITED仅0.1.37，不扩至.38/Site v2/.39。旧FAIL/UNKNOWN、actual294 bypass/批准NOT_MET分别保留，授权不构成既往追认。
+
+下一步推荐：作者范围固定后执行独立审查和新候选检查，通过才提交唯一835发行PR→main；原因是技术预升与actual6b新验已具备，而新文档候选、保护合入和公开尚无自身证据。无新增Owner产品决定。
+
+以下为各批历史快照；旧“当前/未合入/待办”按其原时点读取。
 
 ## Actual PR293 develop verification and marketplace8.3.5 pre-bump
 

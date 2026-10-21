@@ -2,7 +2,7 @@
 
 ## 项目上下文
 
-Marketplacev8.3.4/HTML0.1.39由#291公开，tag/Release5898。#293实际developac36完整含main931e，新13/178与本机/Python复验；市场8.3.5仅预升候选。5包8技能/5显式、CLI0.147；旧FAIL/UNKNOWN/bypass/批准NOT_MET见[274](plans/274-html-learning-artifact/INDEX.md)。
+公开v8.3.4/HTML0.1.39仍tag5898。#294实际develop6b已预升8.3.5、完整含main931e，新13/178及本机/Python通过；Owner明确执行维护发行，当前未公开835。保护/延期/旧FAIL见[835账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md)。
 
 manifest 的公开示例按[插件契约](docs/spec/[SPEC]_Plugin_Json_Schema.md)保留完整路由，最多三条，各原值不超过 128 个 Unicode scalar values；严格校验防止客户端忽略超长示例而丢失公开入口，不依赖空白归一化。
 
@@ -70,7 +70,7 @@ Epic #222 PR2仅准备Communication提交/版本scope和图标工具；实际基
 
 ## HTML Guide Kit 阶段实施
 
-HTML0.1.39/v8.3.4已公开；#293实际developac36完整继承main931e并新验，市场8.3.5仅预升候选未合入。运行/插件版本/INTENT/3131旧来源与公开历史保持。真实批准不由旧bypass替代；D01延期、效果未测/计划OPEN、Owner仅原.37接受，见[274](plans/274-html-learning-artifact/INDEX.md)。
+HTML0.1.39已随834公开；835仅维护发行准备，插件/运行/INTENT保持，默认安装仍834。当前head真批准/CI/线程/latestbase满足才正常合main；D01延期、效果未测/计划OPEN、Owner仅原.37接受，见[274](plans/274-html-learning-artifact/INDEX.md)。
 
 [Epic #217](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/217)授权三阶段/worktree/codex。#221 merge70267a5复验/#218关闭；#226 d106e766同72cdd08树，0.1.0/第二轮A/七安装四Python复验/#219关闭。旧批准缺项保留。#231实际merge71e2同head树、CI全P/reviews空；原批准缺项保留，不bypass或指定审查人。
 

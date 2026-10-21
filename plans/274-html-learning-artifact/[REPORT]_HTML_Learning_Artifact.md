@@ -6,13 +6,39 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-21
 state: active
-version: v1.21
+version: v1.22
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 ---
 
 # [REPORT] HTML learning artifact
+
+## Marketplace8.3.5 maintenance publication preparation
+
+Owner[本轮原话](./evidence/sources/release835/continuation/owner-request.txt)为“执行发布”；[捕获](./evidence/sources/release835/continuation/capture.json)绑定实际捕获时钟，原消息ID/时间/URL未知为null。本轮沿同Issue274/唯一PLAN/INT-2026-003 v1.2及32＋A基线准备市场8.3.5纯维护发行，不新增HTML能力、不再次bump。所有新候选/保护main/公开/真实tag运行状态仍待各自实际证据，不将本节写作未来PASS。
+
+### Actual PR294 develop identity and bounded prior evidence
+
+#294于2026-10-21T00:10:03Z（台北08:10:03）实际合入develop **6b4612b4968f5172944f61b180c032df913037f1/tree418e1493f4092d547860dc7fa0199a1e5b4f48cf**，parents ac36c10d52e0712338888a007d2b9281d3097b6c＋404b65949c0aa4d7f9b202d4adefc7c392719ff5，树同预升源404b。市场8.3.5预升已实际交付，完整main **931e1214377357e9f94b6c5ca10029330c6ec0d6** 为祖先、main…develop为0/4；当时公开仍v8.3.4/HTML0.1.39，835 tag/Release实测404。
+
+该actual6b的新canonical于2026-10-21T00:25:07.103Z–00:39:21.528Z执行：13场景/178命令全exit0、6Diagram＋18LEK真实Python、4site生成/4静态各96/96、15精确自有根双absence。canonical实际结束并冻结STOP/根回读后，本机于00:40:51.041Z–00:45:24.022Z执行652总/651PASS/0FAIL/1平台专用skip，strict20repo/8public、CLI0.147.0/实际Python3.12.14和限定browser通过。两批各核9771完整physical/index/primary/Owner及完整worktree库存；独立运行回读13/13通过。canonical browser为NOT_RUN，本机限定browser另记。原初本机temp absence=false与仅node compile cache残留保留，后续一次受控自有根清理不算测试自动清理、也不计canonical15根。
+
+实际suite4631204035为bypass，pull_request规则FAIL缺最新推送者以外批准，reviews=[]、保护批准NOT_MET；Agent未执行该合并/bypass，不作未来豁免。通用ci.yml未触发develop；专用verify-develop-prebumped实际run39519647626自然成功、policy为prebumped/ok=true，属于warn-only检查，不直接验证最新tag、不代替通用CI或13/178。原候选404b四矩阵保持原身份。
+
+以上只对应先前actual6b。封存包[完整manifest](./evidence/sources/release835/post294/final-manifest.json)固定SHA256 **dda1e2de2cf4721e261521fc37fee0931749d5f75ae7765a926b83e3bea811af**；本轮作者已只读逐一核完整629成员/71,581,464B及库存，再[选择必要原件](./evidence/sources/release835/selection.json)。[独立合并审计](./evidence/sources/release835/post294/independent-merge/summary.json)、[canonical汇总](./evidence/sources/release835/post294/actual-develop-smoke/terminal-summary.json)、[本机汇总](./evidence/sources/release835/post294/actual-develop-local/terminal-summary.json)和[独立运行回读](./evidence/sources/release835/post294/runtime-independent-readback/summary.json)均保原字节；大physical/index地图、完整raw log/API页未归档到本任务新选证，外部原路径/每成员hash和恢复边界见[README](./evidence/sources/release835/README.md)与selection。3210旧来源对象保持，新27项只追加；不声称本节已重新运行旧629成员中产品或旧来源闭包。
+
+旧方法失败分记：driver静态selector首次65/66后仅修reader判定；fresh-state首次路径碰撞在API调用前exit1，保留[原回执](./evidence/sources/release835/post294/fresh-closeout-state-first-attempt/receipt.json)/stderr及受控恢复，不是产品失败或测试重跑。旧Linux启动FAIL/根因UNKNOWN、其他历史FAIL/缺证继续保留。
+
+### New maintenance candidate and pending gates
+
+本轮最小改动仅发行说明、835账本、任务/公共索引、主PLAN/REPORT、A6与有界来源；HTML0.1.39、其他包和plugins/scripts/.agents/workflow/package相对公开834零运行差异。VERSION8.3.5与README badge沿actual6b，六个默认安装锚点仍真实v8.3.4。候选自身head/检查/独审、PR号、main真实批准/required checks/线程/latestbase、actualmain与draft/tag/Release、真实tag新十三安装均未在本作者快照中宣称通过；后继事实回Issue274及外部封存证据。
+
+没有新模型/Matt/原生/桌面/第二客户端/Sites或受众操作。D01等延期非PASS、效果NOT_MEASURED、完整计划OPEN；原Owner ACCEPTED_LIMITED仅0.1.37，不扩至.38/Site v2/.39。发布授权与Owner成品接受分别登记，历史bypass/空reviews不追认。
+
+下一步推荐：完成独立范围/文档复核，固定新候选后执行工程检查，通过才建立唯一835发行PR→protected main；当前head真批准及全部实际门禁满足后正常合入，再做actualmain/draft-first/真实tag新验。理由是835预升和历史actual6b已具证，而新候选和公开须自己的可复现证据。
+
+以下为先前批次原时点快照，旧未合入/未公开/下一步按各批时点读取。
 
 ## Actual PR293 develop verification and marketplace8.3.5 pre-bump
 

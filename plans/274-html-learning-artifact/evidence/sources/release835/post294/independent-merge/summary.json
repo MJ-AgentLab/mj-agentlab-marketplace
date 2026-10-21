@@ -1,0 +1,548 @@
+{
+  "schema": "html274-post294-independent-actual-merge-v1",
+  "status": "PASS_LIMITED_WITH_ACTUAL_PROTECTED_APPROVAL_GAP",
+  "reviewedAtUtc": "2026-10-21T00:17:58.377228+00:00",
+  "checkCount": 19,
+  "checks": [
+    {
+      "name": "actual fresh PR294 merged identity and historicalbase retained",
+      "passed": true
+    },
+    {
+      "name": "actual merge ordered parents same full tree as source404b",
+      "passed": true
+    },
+    {
+      "name": "fresh latest develop points actualmerge and actualmain identity",
+      "passed": true
+    },
+    {
+      "name": "immutable Git objects match freshAPI exactmerge/source trees",
+      "passed": true
+    },
+    {
+      "name": "latestactualmain is complete ancestor with zero main-only commits",
+      "passed": true
+    },
+    {
+      "name": "all actualmerge suite objects have exactref before/after identity",
+      "passed": true
+    },
+    {
+      "name": "reviews threads checks and runpages completely captured",
+      "passed": true
+    },
+    {
+      "name": "actual missingapproval retained and never inferred from merged",
+      "passed": true
+    },
+    {
+      "name": "actual835 marketplace HTML39 allfive versions exact",
+      "passed": true
+    },
+    {
+      "name": "README835 badge retains real834 install references",
+      "passed": true
+    },
+    {
+      "name": "actual3210 source registrations and9771 tree identity retained",
+      "passed": true
+    },
+    {
+      "name": "genericCI actual workflow excludes develop/main and no actualgeneric run observed",
+      "passed": true
+    },
+    {
+      "name": "actualspecific prebump workflow run/job/log policy and aggregateZIP identity proved",
+      "passed": true
+    },
+    {
+      "name": "candidatehead runs are originalH events not actualmerge results",
+      "passed": true
+    },
+    {
+      "name": "public834tag release wholebody and latest remain5898",
+      "passed": true
+    },
+    {
+      "name": "old833 tag release wholebody remain unchanged",
+      "passed": true
+    },
+    {
+      "name": "835tag and release remain fresh404 despite actualversion835",
+      "passed": true
+    },
+    {
+      "name": "primary and Owneroriginal unchanged",
+      "passed": true
+    },
+    {
+      "name": "closing raw merge/reviews/threads main/develop public identity stable",
+      "passed": true
+    }
+  ],
+  "allReadbackChecksTrue": true,
+  "actualDevelop": {
+    "sha": "6b4612b4968f5172944f61b180c032df913037f1",
+    "tree": "418e1493f4092d547860dc7fa0199a1e5b4f48cf",
+    "parents": [
+      "ac36c10d52e0712338888a007d2b9281d3097b6c",
+      "404b65949c0aa4d7f9b202d4adefc7c392719ff5"
+    ],
+    "mergedAt": "2026-10-21T00:10:03Z",
+    "mergedBy": "ranzuozhou",
+    "sourceCandidate": "404b65949c0aa4d7f9b202d4adefc7c392719ff5",
+    "sourceCandidateSameCompleteTree": true,
+    "trackedFileCount": 9771,
+    "sourceRegistrationCount": 3210,
+    "newPhysicalClosureClaimed": false
+  },
+  "actualMain": {
+    "sha": "931e1214377357e9f94b6c5ca10029330c6ec0d6",
+    "fullyIncludedAsAncestor": true,
+    "mergeBase": "931e1214377357e9f94b6c5ca10029330c6ec0d6",
+    "mainOnlyCommits": 0,
+    "developOnlyCommits": 4
+  },
+  "postMergeBaseIdentity": {
+    "actualMergeFirstParentAndHistoricalBase": "ac36c10d52e0712338888a007d2b9281d3097b6c",
+    "graphqlHistoricalBaseRefOid": "ac36c10d52e0712338888a007d2b9281d3097b6c",
+    "freshRemoteDevelopRef": "6b4612b4968f5172944f61b180c032df913037f1",
+    "restBaseObjectObservedSha": "ac36c10d52e0712338888a007d2b9281d3097b6c",
+    "differentTemporalMeaningsPreserved": true
+  },
+  "protection": {
+    "actualRuleSuiteIds": [
+      4631204035
+    ],
+    "actualRuleSuiteResults": [
+      "bypass"
+    ],
+    "actualSuites": [
+      {
+        "id": 4631204035,
+        "actor_id": 35538471,
+        "actor_name": "ranzuozhou",
+        "before_sha": "ac36c10d52e0712338888a007d2b9281d3097b6c",
+        "after_sha": "6b4612b4968f5172944f61b180c032df913037f1",
+        "ref": "refs/heads/develop",
+        "repository_id": 1183002256,
+        "repository_name": "mj-agentlab-marketplace",
+        "pushed_at": "2026-10-21T08:10:02+08:00",
+        "result": "bypass",
+        "rule_evaluations": [
+          {
+            "rule_source": {
+              "type": "ruleset",
+              "id": 14008221,
+              "name": "protect-develop"
+            },
+            "enforcement": "active",
+            "result": "fail",
+            "rule_type": "pull_request",
+            "details": "New changes require approval from someone other than the last pusher."
+          },
+          {
+            "rule_source": {
+              "type": "ruleset",
+              "id": 14008221,
+              "name": "protect-develop"
+            },
+            "enforcement": "active",
+            "result": "pass",
+            "rule_type": "non_fast_forward"
+          },
+          {
+            "rule_source": {
+              "type": "ruleset",
+              "id": 14008221,
+              "name": "protect-develop"
+            },
+            "enforcement": "active",
+            "result": "pass",
+            "rule_type": "required_status_checks"
+          },
+          {
+            "rule_source": {
+              "type": "ruleset",
+              "id": 14008221,
+              "name": "protect-develop"
+            },
+            "enforcement": "active",
+            "result": "pass",
+            "rule_type": "deletion"
+          }
+        ]
+      }
+    ],
+    "actualPullRequestRuleResults": [
+      {
+        "rule_source": {
+          "type": "ruleset",
+          "id": 14008221,
+          "name": "protect-develop"
+        },
+        "enforcement": "active",
+        "result": "fail",
+        "rule_type": "pull_request",
+        "details": "New changes require approval from someone other than the last pusher."
+      }
+    ],
+    "reviews": [],
+    "reviewCount": 0,
+    "currentReviewDecision": "REVIEW_REQUIRED",
+    "threadCount": 0,
+    "unresolvedThreads": 0,
+    "protectedApproval": "NOT_MET",
+    "actualSuiteNotInferredFromMerged": true,
+    "reviewCaptureComplete": true,
+    "ruleSuitePaginationComplete": true
+  },
+  "versions": {
+    "marketplace": "8.3.5",
+    "diagram-kit": "0.3.1",
+    "learning-evidence-kit": "0.1.0",
+    "explain-kit": "0.1.1",
+    "communication-kit": "0.1.0",
+    "html-guide-kit": "0.1.39"
+  },
+  "readme": {
+    "badge": "8.3.5",
+    "installReferences": "v8.3.4",
+    "observed834Lines": [
+      "面向 ChatGPT 桌面端与 Codex 本地环境（CLI验收基线0.147.0）的插件市场，无需MCP服务。[Marketplace v8.3.4](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.4)已于2026-10-20经#291合入main并自动公开，发行时main/tag/Release同为5898a8192740b39f41263129a5f99efeba96a6cc（维护#292实际main为931e1214，公开tag与Release保持原SHA）；HTML Guide Kit0.1.39补齐按需Matt grilling、设计共识、可选主题和独立目录本地交付，保留生成器与工程检查。五包八技能/五显式保持，实际main与真实tag新十三安装、实际Python及精确清理通过；实际bypass/批准NOT_MET、历史FAIL、延期与Owner接受分别保留，见[8.3.4发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_3_4_Release_Readiness.md)。",
+      "| **html-guide-kit / guide、site** | guide新建聊天指南；site按设计共识制作学习网页，按约定本地交付或Sites发布 | 0.1.39，已随市场v8.3.4发布；guide运行字节和已知限制保留 |",
+      "codex plugin marketplace add MJ-AgentLab/mj-agentlab-marketplace --ref v8.3.4",
+      "上面的v8.3.4安装包含HTML Guide Kit0.1.39。guide四份运行资源保持0.1.36原字节，已知失败与未覆盖客户端结果仍保留，见下方验收边界；正式公开和真实入口资格分别记录。",
+      "在repo marketplace中核对实际标签v8.3.4与插件版本；索引包含上列五包。既有桌面端安装、发现和实际调用证据按其原来源和客户端身份登记，没有执行新的发布后界面验收。代理执行可用自动化；能力限制和延期入口据实记录，CLI 发现不替代桌面或窗口证据。",
+      "README badge跟随当前checkout的VERSION。v8.3.4/HTML0.1.39已真实公开，本页默认安装固定该已验证标签；实际main、tag和Release身份及新安装结果见[8.3.4账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_4_Release_Readiness.md)。后续以完整实际main同步develop，再按实际合入和新验结果准备下一市场补丁；插件版本独立推进。保护批准、旧FAIL、延期和Owner接受分别保留。"
+    ]
+  },
+  "public834": {
+    "tagTarget": "5898a8192740b39f41263129a5f99efeba96a6cc",
+    "releaseId": 418543870,
+    "bodyBytes": 1677,
+    "bodySha256": "93f4459e8718b06eae19dc6aa82397eacce723470f8fd6e33214fb489d542d38",
+    "immutable": false,
+    "repositoryImmutableConfiguration": "UNKNOWN",
+    "latest": true
+  },
+  "public833": {
+    "tagTarget": "fdede3cf5578dee8a41aef4310a9387d695c56bd",
+    "bodyBytes": 2507,
+    "bodySha256": "11fc9f4c0231ba5aebda7a7d3add60ed8f506a943e2ff516d5c2c8b27c5b069c",
+    "immutable": false,
+    "preserved": true
+  },
+  "835": {
+    "prebumpedInActualDevelop": true,
+    "tag": "NOT_FOUND_AT_CAPTURE",
+    "release": "NOT_FOUND_AT_CAPTURE",
+    "notPublished": true
+  },
+  "automaticCI": {
+    "status": "NOT_TRIGGERED_ON_DEVELOP",
+    "actualWorkflowPushBranches": [
+      "codex/**",
+      "feature/*",
+      "bugfix/*",
+      "documentation/*",
+      "maintain/*",
+      "hotfix/*"
+    ],
+    "freshActualDevelopHeadRunCount": 1,
+    "freshActualDevelopGenericCIRunCount": 0,
+    "actualSpecificPrebumpWorkflow": [
+      {
+        "runId": 39519647626,
+        "head": "6b4612b4968f5172944f61b180c032df913037f1",
+        "event": "push",
+        "attempt": 1,
+        "conclusion": "success",
+        "workflowPath": ".github/workflows/verify-develop-prebumped.yml",
+        "workflowBytes": 6196,
+        "workflowSha256": "1690ea87f0e55a357fd3d800f39bbd85ae3560e1d018e454b6a14473655b6533",
+        "policySourceBytes": 7858,
+        "policySourceSha256": "0ea135a64afa6e1888852f4c8d27f9b0f14bc2d9d5cab8a51dca79f980326cf1",
+        "jobs": [
+          {
+            "jobId": 118960072892,
+            "name": "Verify develop pre-bumped past main",
+            "rawLog": "prebump-job-118960072892-log.stdout",
+            "logBytes": 29288,
+            "logSha256": "b59c52f9193bd9db4775d0bc006e2a70628d37bc412a3b80e79f54af9f2575eb",
+            "policyObjects": [
+              {
+                "state": "prebumped",
+                "ok": true,
+                "ageSeconds": 38006,
+                "reason": "develop 8.3.5 is ahead of main 8.3.4"
+              },
+              {
+                "state": "prebumped",
+                "ok": true,
+                "ageSeconds": 38006,
+                "reason": "develop 8.3.5 is ahead of main 8.3.4"
+              }
+            ],
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-10-21T00:10:10Z",
+                "completed_at": "2026-10-21T00:10:11Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-10-21T00:10:11Z",
+                "completed_at": "2026-10-21T00:10:16Z"
+              },
+              {
+                "name": "Run actions/setup-node@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-10-21T00:10:16Z",
+                "completed_at": "2026-10-21T00:10:17Z"
+              },
+              {
+                "name": "Fetch main",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-10-21T00:10:17Z",
+                "completed_at": "2026-10-21T00:10:17Z"
+              },
+              {
+                "name": "Gather facts",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-10-21T00:10:17Z",
+                "completed_at": "2026-10-21T00:10:17Z"
+              },
+              {
+                "name": "Evaluate pre-bump policy",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-10-21T00:10:17Z",
+                "completed_at": "2026-10-21T00:10:17Z"
+              },
+              {
+                "name": "Render summary",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-10-21T00:10:17Z",
+                "completed_at": "2026-10-21T00:10:17Z"
+              },
+              {
+                "name": "Post Run actions/setup-node@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 13,
+                "started_at": "2026-10-21T00:10:17Z",
+                "completed_at": "2026-10-21T00:10:17Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 14,
+                "started_at": "2026-10-21T00:10:17Z",
+                "completed_at": "2026-10-21T00:10:17Z"
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 15,
+                "started_at": "2026-10-21T00:10:17Z",
+                "completed_at": "2026-10-21T00:10:17Z"
+              }
+            ]
+          }
+        ],
+        "archive": {
+          "raw": "prebump-run-39519647626-archive.stdout",
+          "bytes": 17650,
+          "sha256": "18182e4eecf243110b1ddb88f69c919a39ab11865197944b514fdd68b2350e98",
+          "memberCount": 12,
+          "allCRCAndMemberHashesVerified": true
+        },
+        "meaning": "Specific warn-only push hygiene workflow compared actual develop835 to main834 and rawpolicy state is prebumped. Workflow does not directly validate latesttag; tag/Release identity is independently captured. This is not genericCI or fresh13/178 acceptance."
+      }
+    ],
+    "oldCandidate404bRunsReclassifiedAsActualDevelop": false,
+    "actualHeadChecks": [
+      {
+        "id": 118960072892,
+        "name": "Verify develop pre-bumped past main",
+        "node_id": "CR_kwDORoMukM8AAAAbspKovA",
+        "head_sha": "6b4612b4968f5172944f61b180c032df913037f1",
+        "external_id": "c4ee0c9a-96d1-5127-8130-b73634a16278",
+        "url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/118960072892",
+        "html_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39519647626/job/118960072892",
+        "details_url": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39519647626/job/118960072892",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-21T00:10:09Z",
+        "completed_at": "2026-10-21T00:10:22Z",
+        "output": {
+          "title": null,
+          "summary": null,
+          "text": null,
+          "annotations_count": 2,
+          "annotations_url": "https://api.github.com/repos/MJ-AgentLab/mj-agentlab-marketplace/check-runs/118960072892/annotations"
+        },
+        "check_suite": {
+          "id": 107097390184
+        },
+        "app": {
+          "id": 15368,
+          "client_id": "Iv1.05c79e9ad1f6bdfa",
+          "slug": "github-actions",
+          "node_id": "MDM6QXBwMTUzNjg=",
+          "owner": {
+            "login": "github",
+            "id": 9919,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjk5MTk=",
+            "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/github",
+            "html_url": "https://github.com/github",
+            "followers_url": "https://api.github.com/users/github/followers",
+            "following_url": "https://api.github.com/users/github/following{/other_user}",
+            "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+            "organizations_url": "https://api.github.com/users/github/orgs",
+            "repos_url": "https://api.github.com/users/github/repos",
+            "events_url": "https://api.github.com/users/github/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/github/received_events",
+            "type": "Organization",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "name": "GitHub Actions",
+          "description": "Automate your workflow from idea to production",
+          "external_url": "https://help.github.com/en/actions",
+          "html_url": "https://github.com/apps/github-actions",
+          "created_at": "2018-07-30T09:30:17Z",
+          "updated_at": "2026-06-18T16:17:48Z",
+          "permissions": {
+            "actions": "write",
+            "administration": "read",
+            "artifact_metadata": "write",
+            "attestations": "write",
+            "checks": "write",
+            "code_quality": "write",
+            "contents": "write",
+            "copilot_requests": "write",
+            "deployments": "write",
+            "discussions": "write",
+            "drives": "write",
+            "issues": "write",
+            "merge_queues": "write",
+            "metadata": "read",
+            "models": "read",
+            "packages": "write",
+            "pages": "write",
+            "pull_requests": "write",
+            "repository_hooks": "write",
+            "repository_projects": "write",
+            "security_events": "write",
+            "statuses": "write",
+            "vulnerability_alerts": "read"
+          },
+          "events": [
+            "branch_protection_rule",
+            "check_run",
+            "check_suite",
+            "create",
+            "delete",
+            "deployment",
+            "deployment_status",
+            "discussion",
+            "discussion_comment",
+            "fork",
+            "gollum",
+            "issues",
+            "issue_comment",
+            "label",
+            "merge_group",
+            "milestone",
+            "page_build",
+            "public",
+            "pull_request",
+            "pull_request_review",
+            "pull_request_review_comment",
+            "push",
+            "registry_package",
+            "release",
+            "repository",
+            "repository_dispatch",
+            "status",
+            "watch",
+            "workflow_dispatch",
+            "workflow_run"
+          ]
+        },
+        "pull_requests": []
+      }
+    ],
+    "sourceCandidateRuns": [
+      {
+        "id": 39477162466,
+        "head": "404b65949c0aa4d7f9b202d4adefc7c392719ff5",
+        "event": "pull_request",
+        "attempt": 1,
+        "path": ".github/workflows/a6.yml",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 39477162312,
+        "head": "404b65949c0aa4d7f9b202d4adefc7c392719ff5",
+        "event": "pull_request",
+        "attempt": 1,
+        "path": ".github/workflows/ci.yml",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 39477136947,
+        "head": "404b65949c0aa4d7f9b202d4adefc7c392719ff5",
+        "event": "push",
+        "attempt": 1,
+        "path": ".github/workflows/ci.yml",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "method": "Fresh complete paginated REST and GraphQL raw capture plus immutable Git objects/refs/merge-base/fulltree. No fetch/checkout/merge-tree/ref/index/source/API writes, product execution, approval, merge, bypass, release or reviewer contact.",
+  "ownerOriginal": {
+    "bytes": 25994,
+    "sha256": "dc9d58437778093ae9b51d052908712a3bbb2624f16ff335f5210435ca2f0895",
+    "primaryHead": "a4892f51f4163fb5bd4457d99229eaf1a4683e8f"
+  },
+  "requiredOwnerProductDecisions": [],
+  "limitations": [
+    "Actual protection suite/reviews and approval gaps are retained; merged is not proof of qualified approval or a future exemption.",
+    "This identity/ancestry/public audit does not preclaim new actualdevelop runtime PASS or complete3210 physicalclosure; fresh runtime evidence is separate.",
+    "D01 nativepersistent window and other clients DEFERRED; effectsNOT_MEASURED/fullplanOPEN. Owner ACCEPTED_LIMITED remains original0.1.37 core only.",
+    "Old FAIL/UNKNOWN and original method failures remain. CI15roots doubleabsence NOT_RECORDED where absent; actuallocal canonical cleanup and perjob tokens remain separate."
+  ],
+  "nextRecommendation": "Complete fresh exact actual6b4612 develop canonical13 and local checks with immutable evidence and independent readback. Confirm market835 remains only prepared and full main ancestry stays included; retain public834/tag5898 and old833. Do not relabel old404b CI or infer historical approval.",
+  "readerMethodCorrections": [
+    "reader-method-correction-r2.json",
+    "reader-method-correction-r3.json"
+  ]
+}

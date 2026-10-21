@@ -6,13 +6,15 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-21
 state: active
-version: v2.115
+version: v2.116
 layer: canonical
 ---
 
 # 文档索引
 
 ## 工程任务与文档分层
+
+- [Marketplace8.3.5维护发行账本](runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md)：Owner2026-10-21明确执行发布；actual294/develop6b已预升835并完整含main931e，公开仍834/HTML0.1.39。同[#274唯一PLAN/REPORT](../plans/274-html-learning-artifact/INDEX.md)承接纯维护候选、新保护门禁与发布/tag新验；旧FAIL/批准NOT_MET、延期、效果及原.37接受保界。下一步推荐：候选独审和新工程检查通过后提交唯一PR→main，原因是历史actualdevelop通过不替代新候选及公开。
 
 - [HTML learning artifact 原意 INT-2026-003](intent/[INTENT]_INT-2026-003_HTML_Learning_Artifact.md)、[#274任务入口](../plans/274-html-learning-artifact/INDEX.md)：同一HTML包显式site、包内方法/生成器/检查及约定Sites或本地交付；[扩展ADR](adr/[ADR]_HTML_Learning_Artifact_Extension.md)、[site SPEC](spec/[SPEC]_HTML_Learning_Artifact.md)、[使用指南](guide/[GUIDE]_HTML_Learning_Artifact.md)承接[本次B2/U2选择性统一](../plans/274-html-learning-artifact/[PLAN]_HTML_Learning_Artifact.md#selective-alignment-baseline)：关键未决按需Matt grilling/设计共识、可选主题、保护既有材料及独立目录产物。guide原字节、旧完整合同/核心ACCEPTED_LIMITED、历史FAIL/缺证和窗口DEFERRED保留；新增有限核验及未覆盖见同一REPORT，保护批准及Owner最终接受分别判断。
 

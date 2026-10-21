@@ -1,0 +1,416 @@
+{
+  "schema": "html274-post294-actual-develop-local-v1",
+  "frozenAtUtc": "2026-10-21T00:46:07.756+00:00",
+  "status": "PASS_LIMITED",
+  "candidate": {
+    "head": "6b4612b4968f5172944f61b180c032df913037f1",
+    "tree": "418e1493f4092d547860dc7fa0199a1e5b4f48cf",
+    "trackedFileCount": 9771,
+    "trackedFilesByteIdenticalBeforeAfter": true,
+    "headIdenticalBeforeAfter": true,
+    "trackedWorktreeCleanBeforeAfter": true
+  },
+  "counts": {
+    "tests": 652,
+    "pass": 651,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 1,
+    "todo": 0
+  },
+  "skips": [
+    {
+      "line": 193,
+      "raw": "ok 32 - Linux exec capture preserves original checker args, failure, owned-session cleanup and foreign isolation # SKIP"
+    }
+  ],
+  "checks": [
+    {
+      "name": "single full batch terminal and exits zero",
+      "passed": true,
+      "observed": [
+        {
+          "name": "npm-test",
+          "exitCode": 0
+        },
+        {
+          "name": "npm-validate",
+          "exitCode": 0
+        },
+        {
+          "name": "baseline-tools",
+          "exitCode": 0
+        }
+      ]
+    },
+    {
+      "name": "actual652 and one intentional platform skip",
+      "passed": true,
+      "observed": {
+        "tests": 652,
+        "pass": 651,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 1,
+        "todo": 0
+      }
+    },
+    {
+      "name": "actual protected develop identity",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "tracked files and HEAD byte-identical",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "clean complete tracked source before and after",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "original frozen harness exact byte copy",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "strict portable validator actual20repo8public",
+      "passed": true,
+      "observed": {
+        "ok": true,
+        "errors": [],
+        "repositorySkills": 20,
+        "publicSkills": [
+          "diagram-kit:arch-diagram",
+          "learning-evidence-kit:pop-quiz",
+          "learning-evidence-kit:learning-record-check",
+          "explain-kit:glossary",
+          "explain-kit:concept",
+          "communication-kit:communicate",
+          "html-guide-kit:guide",
+          "html-guide-kit:site"
+        ]
+      }
+    },
+    {
+      "name": "actual CLI exact0.147.0",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "real bundled Python3.12.14 executed",
+      "passed": true,
+      "observed": [
+        {
+          "line": 1446,
+          "raw": "# Subtest: execution: validator accepts a .md path with spaces / Chinese / single-quote (shell:false)"
+        },
+        {
+          "line": 1447,
+          "raw": "ok 241 - execution: validator accepts a .md path with spaces / Chinese / single-quote (shell:false)"
+        },
+        {
+          "line": 1932,
+          "raw": "# Subtest: both built-in themes and omitted default pass real Python static checks with original material bytes"
+        },
+        {
+          "line": 1933,
+          "raw": "ok 322 - both built-in themes and omitted default pass real Python static checks with original material bytes"
+        },
+        {
+          "line": 1944,
+          "raw": "# Subtest: static checker executes Python from unrelated cwd and preserves complete source/hash evidence"
+        },
+        {
+          "line": 1945,
+          "raw": "ok 324 - static checker executes Python from unrelated cwd and preserves complete source/hash evidence"
+        },
+        {
+          "line": 1992,
+          "raw": "# Subtest: actual browser renders distinct warm-paper and neutral themes at desktop and mobile sizes"
+        },
+        {
+          "line": 1993,
+          "raw": "ok 332 - actual browser renders distinct warm-paper and neutral themes at desktop and mobile sizes"
+        },
+        {
+          "line": 1998,
+          "raw": "# Subtest: actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping"
+        },
+        {
+          "line": 1999,
+          "raw": "ok 333 - actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping"
+        },
+        {
+          "line": 2616,
+          "raw": "# Subtest: GitHub acceptance actually uses an exact Python 3.12 interpreter"
+        },
+        {
+          "line": 2617,
+          "raw": "ok 436 - GitHub acceptance actually uses an exact Python 3.12 interpreter"
+        },
+        {
+          "line": 2622,
+          "raw": "# Python 3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]; executable=C:\\\\Users\\\\Admin\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\python\\\\python.exe"
+        },
+        {
+          "line": 2755,
+          "raw": "# Subtest: Learning evidence storage: actual Python 3.12 isolated recovery/import/attribution cases"
+        },
+        {
+          "line": 2756,
+          "raw": "ok 459 - Learning evidence storage: actual Python 3.12 isolated recovery/import/attribution cases"
+        }
+      ]
+    },
+    {
+      "name": "separate bounded native cleanup",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "cleanup ownership and boundary verified",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "complete live source-map/index/primary/worktree guard unchanged",
+      "passed": true,
+      "observed": {
+        "checkedAtUtc": "2026-10-21T00:45:25.351+00:00",
+        "status": "PASS",
+        "guards": {
+          "exactDevelopHeadTreeAndBranch": true,
+          "allTrackedFileMapsByteIdentical": true,
+          "actualFileCountUnchanged": true,
+          "candidateCleanBeforeAfter": true,
+          "completeIndexByteIdentical": true,
+          "primaryIdentityStatusUnchanged": true,
+          "ownerOriginalHashUnchanged": true,
+          "completeWorktreeInventoryByteIdentical": true
+        },
+        "head": "6b4612b4968f5172944f61b180c032df913037f1",
+        "tree": "418e1493f4092d547860dc7fa0199a1e5b4f48cf",
+        "actualTrackedFileCount": 9771,
+        "before": "full-source-before.json",
+        "after": "full-source-after.json"
+      }
+    }
+  ],
+  "commands": [
+    {
+      "name": "npm-test",
+      "displayCommand": "npm test",
+      "argv": [
+        "D:/Development/nodejs/node.exe",
+        "D:/Development/nodejs/node_modules/npm/bin/npm-cli.js",
+        "test"
+      ],
+      "startedAtUtc": "2026-10-21T00:40:51.042+00:00",
+      "pid": 56020,
+      "exitCode": 0,
+      "endedAtUtc": "2026-10-21T00:45:06.481+00:00",
+      "elapsedSeconds": 255.437,
+      "combinedOutput": {
+        "path": "npm-test.log",
+        "bytes": 147129,
+        "sha256": "2c8c76c81dae50e8cd2ee26b1fdab799c2fda42e219f046bd1724e68f7ab5b50"
+      }
+    },
+    {
+      "name": "npm-validate",
+      "displayCommand": "npm run validate",
+      "argv": [
+        "D:/Development/nodejs/node.exe",
+        "D:/Development/nodejs/node_modules/npm/bin/npm-cli.js",
+        "run",
+        "validate"
+      ],
+      "startedAtUtc": "2026-10-21T00:45:06.488+00:00",
+      "pid": 13884,
+      "exitCode": 0,
+      "endedAtUtc": "2026-10-21T00:45:22.417+00:00",
+      "elapsedSeconds": 15.938,
+      "combinedOutput": {
+        "path": "npm-validate.log",
+        "bytes": 401,
+        "sha256": "14bb367ac1fa4124f2d581b329d417111357919bc98c5aff736540b757e0b9ce"
+      }
+    },
+    {
+      "name": "baseline-tools",
+      "displayCommand": "npm run check:baseline-tools",
+      "argv": [
+        "D:/Development/nodejs/node.exe",
+        "D:/Development/nodejs/node_modules/npm/bin/npm-cli.js",
+        "run",
+        "check:baseline-tools"
+      ],
+      "startedAtUtc": "2026-10-21T00:45:22.419+00:00",
+      "pid": 77224,
+      "exitCode": 0,
+      "endedAtUtc": "2026-10-21T00:45:22.695+00:00",
+      "elapsedSeconds": 0.281,
+      "combinedOutput": {
+        "path": "baseline-tools.log",
+        "bytes": 158,
+        "sha256": "3fc0424a86101004ace83d91ff21260dd3df9b75d335c7cf1132e9ee9f75fc1b"
+      }
+    }
+  ],
+  "startedAtUtc": "2026-10-21T00:40:51.041+00:00",
+  "endedAtUtc": "2026-10-21T00:45:24.022+00:00",
+  "actualRuntimeEvidence": [
+    {
+      "line": 1446,
+      "raw": "# Subtest: execution: validator accepts a .md path with spaces / Chinese / single-quote (shell:false)"
+    },
+    {
+      "line": 1447,
+      "raw": "ok 241 - execution: validator accepts a .md path with spaces / Chinese / single-quote (shell:false)"
+    },
+    {
+      "line": 1932,
+      "raw": "# Subtest: both built-in themes and omitted default pass real Python static checks with original material bytes"
+    },
+    {
+      "line": 1933,
+      "raw": "ok 322 - both built-in themes and omitted default pass real Python static checks with original material bytes"
+    },
+    {
+      "line": 1944,
+      "raw": "# Subtest: static checker executes Python from unrelated cwd and preserves complete source/hash evidence"
+    },
+    {
+      "line": 1945,
+      "raw": "ok 324 - static checker executes Python from unrelated cwd and preserves complete source/hash evidence"
+    },
+    {
+      "line": 1992,
+      "raw": "# Subtest: actual browser renders distinct warm-paper and neutral themes at desktop and mobile sizes"
+    },
+    {
+      "line": 1993,
+      "raw": "ok 332 - actual browser renders distinct warm-paper and neutral themes at desktop and mobile sizes"
+    },
+    {
+      "line": 1998,
+      "raw": "# Subtest: actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping"
+    },
+    {
+      "line": 1999,
+      "raw": "ok 333 - actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping"
+    },
+    {
+      "line": 2616,
+      "raw": "# Subtest: GitHub acceptance actually uses an exact Python 3.12 interpreter"
+    },
+    {
+      "line": 2617,
+      "raw": "ok 436 - GitHub acceptance actually uses an exact Python 3.12 interpreter"
+    },
+    {
+      "line": 2622,
+      "raw": "# Python 3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]; executable=C:\\\\Users\\\\Admin\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\python\\\\python.exe"
+    },
+    {
+      "line": 2755,
+      "raw": "# Subtest: Learning evidence storage: actual Python 3.12 isolated recovery/import/attribution cases"
+    },
+    {
+      "line": 2756,
+      "raw": "ok 459 - Learning evidence storage: actual Python 3.12 isolated recovery/import/attribution cases"
+    }
+  ],
+  "harnessProvenance": {
+    "originalFrozenSource": "C:\\Users\\Admin\\.codex\\task-evidence\\html-learning-274-post294-20261021\\driver-sources\\run-local-harness.py",
+    "copySha256": "ca1096af6339eb5e669f185eb2bb58e441d7d0b23647c41988bb176aa97d12c0",
+    "byteIdentical": true,
+    "dependencies": [
+      {
+        "path": "node_modules/yaml/package.json",
+        "name": "yaml",
+        "version": "2.9.0",
+        "bytes": 3254,
+        "sha256": "20b8b197cbd10dad245d45e463dfe58e4c8c25a47e24bc4256ad9ab58bf35683"
+      },
+      {
+        "path": "node_modules/cross-spawn/package.json",
+        "name": "cross-spawn",
+        "version": "7.0.6",
+        "bytes": 1655,
+        "sha256": "2e106cd9b4ae4e34ead35218371a0d4e172da72515a4f8f97d69a2e1fe3dee82"
+      },
+      {
+        "path": "node_modules/pngjs/package.json",
+        "name": "pngjs",
+        "version": "7.0.0",
+        "bytes": 1812,
+        "sha256": "85b17f2f852aece03e71edb4ed4d9fddf6a0a8f0b69ac75d7f00b6592d62d37c"
+      },
+      {
+        "path": "node_modules/@resvg/resvg-js/package.json",
+        "name": "@resvg/resvg-js",
+        "version": "2.6.2",
+        "bytes": 4786,
+        "sha256": "2669617af27d91b0dfc0828cc2190ba87b8d8ea6e4cf08619a23784a2f1d8c95"
+      }
+    ]
+  },
+  "temporaryRoot": {
+    "path": "D:\\t294u-uef7kvba",
+    "initialLaunchAbsence": false,
+    "canonicalRootContribution": 0,
+    "testAutomaticCleanupClaim": false,
+    "initialResidual": [
+      "node-compile-cache"
+    ],
+    "inventoryEntries": 99,
+    "inventoryFiles": 97,
+    "cleanup": {
+      "startedAtUtc": "2026-10-21T00:45:54.2924528Z",
+      "shell": "PowerShell native cmdlets only",
+      "root": "D:\\t294u-uef7kvba",
+      "target": "D:\\t294u-uef7kvba\\node-compile-cache",
+      "initialLaunchAbsenceFalsePreserved": true,
+      "recursiveTargetVerifiedInsideOwnedRoot": true,
+      "outcome": "PASS_CONTROLLED_AGENT_CLEANUP",
+      "countsAsCanonicalRoot": false,
+      "countsAsTestAutomaticCleanup": false,
+      "cacheAbsentAfterRemoval": true,
+      "rootAbsentAfterRemoval": true,
+      "rootAbsentSecondObservation": true,
+      "completedAtUtc": "2026-10-21T00:45:54.3046238Z"
+    },
+    "limitation": "Original launch absence=false is preserved. Agent separately inventoried and removed only the exact owned compile cache using native PowerShell, then removed its empty parent. This is not automatic test cleanup and does not count among canonical15 roots."
+  },
+  "limitations": [
+    "New actual-develop local Harness evidence only; no CI result or canonical installation count borrowed.",
+    "One intentional Linux-only skip on Windows; no zero-skip claim.",
+    "Bounded local browser/Python tests do not establish native persistent window, model quality, desktop/second-client, Sites or real-world effects.",
+    "Historical failure/UNKNOWN, original limited Owner acceptance and protected approval gaps remain separately recorded."
+  ],
+  "nextRecommendation": "下一步推荐：将本actual-develop本机首次终态与已冻结canonical13包独立复核，全部source执行者STOP并释放写窗口后，再按当前实际授权推进后续维护；本轮不自动预升下一市场版本；真实保护批准与Owner接受仍独立。",
+  "fullSourceGuard": {
+    "checkedAtUtc": "2026-10-21T00:45:25.351+00:00",
+    "status": "PASS",
+    "guards": {
+      "exactDevelopHeadTreeAndBranch": true,
+      "allTrackedFileMapsByteIdentical": true,
+      "actualFileCountUnchanged": true,
+      "candidateCleanBeforeAfter": true,
+      "completeIndexByteIdentical": true,
+      "primaryIdentityStatusUnchanged": true,
+      "ownerOriginalHashUnchanged": true,
+      "completeWorktreeInventoryByteIdentical": true
+    },
+    "head": "6b4612b4968f5172944f61b180c032df913037f1",
+    "tree": "418e1493f4092d547860dc7fa0199a1e5b4f48cf",
+    "actualTrackedFileCount": 9771,
+    "before": "full-source-before.json",
+    "after": "full-source-after.json"
+  },
+  "fullSourceGuardSnapshotCapture": "Fresh complete actual file maps and index/status/primary/inventory before and after this batch; count derived from each live snapshot, not inherited."
+}

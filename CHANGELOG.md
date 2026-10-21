@@ -5,7 +5,14 @@
 
 ## [Unreleased]
 
-Update the default installation reference to the verified v8.3.4 release and HTML Guide Kit0.1.39. Record actual main/tag/Release identity and independent post-publication checks under Issue274 without changing package versions, runtime resources or published release notes. Preserve earlier failures, missing protected approval, deferred native/client coverage and original limited Owner acceptance. This maintenance entry does not publish another version. Refs #274.
+## [8.3.5] - 2026-10-21
+
+Maintenance release under Issue274. Promote the already prepared Marketplace8.3.5 with full main ancestry and source-bound release records. HTML Guide Kit0.1.39, Diagram0.3.1, Learning Evidence0.1.0, Explain0.1.1 and Communication0.1.0 remain unchanged; no new plugin capability is introduced.
+
+### Maintenance and retained limits
+
+- Carry the verified v8.3.4 default installation references and record actual PR294 develop verification separately from new release-candidate, protected-main and real-tag checks. Publication remains subject to its actual protected gates and draft-first verification.
+- Preserve prior failures/UNKNOWN, missing protected approval/bypass and deferred native-window/client coverage. Effects remain NOT_MEASURED and the full plan remains open; original limited HTML0.1.37 core acceptance does not extend to0.1.39.
 
 ## [8.3.4] - 2026-10-20
 

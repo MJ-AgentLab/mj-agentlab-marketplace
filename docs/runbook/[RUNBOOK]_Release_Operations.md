@@ -6,13 +6,19 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-21
 state: active
-version: v2.10.13
+version: v2.10.14
 layer: canonical
 ---
 
 # [RUNBOOK] Release operations
 
 ## Preparation
+
+2026-10-21（Asia/Taipei）：Owner明确“执行发布”；#294实际develop6b4612b4已交付未发布8.3.5预升、完整包含main931e，公开仍834/HTML0.1.39。按[835账本](./[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md)和[#274唯一PLAN/REPORT](../../plans/274-html-learning-artifact/INDEX.md)准备纯维护发行；插件/运行/INTENT不变，VERSION不再bump，默认安装六锚点仍834。候选新验、保护main真实非作者且非latest-pusher批准/CODEOWNER/required checks/线程/latestbase、actualmain/draft-first和真实tag新验分别待实际结果；Agent不bypass。原.37限定接受、延期/NOT_MEASURED/计划OPEN及历史失败/批准NOT_MET保持。
+
+下一步推荐：新候选独审及工程检查通过后提交唯一835发行PR→main，保护门槛满足才正常合入，再核actualmain/公开/tag新验；理由是既有预升和actual6b证据支持准备，不能替代新的发布身份。已知良好834/tag5898供恢复，异常时停止推广并前向修复，保tag/旧Release/资产，不新增周期监控。
+
+以下为各批原时点准备快照。
 
 2026-10-21（Asia/Taipei）：#293于2026-10-20T17:43:53Z（台北2026-10-21T01:43:53+08:00）实际合入develop **ac36c10d52e0712338888a007d2b9281d3097b6c/tree698065a160995014522019d9aae161b8ad1ebd1f**，parents7c23＋1732，完整树同已测同步候选；main **931e1214377357e9f94b6c5ca10029330c6ec0d6** 完整祖先已独立核对。Git commit clock为2026-10-20T17:43:52Z，与PR mergedAt分属字段，不混作同一时钟。公开仍Marketplace8.3.4/HTML0.1.39，tag/Release5898；835仅本轮隔离预升候选，尚未合入、未公开。
 

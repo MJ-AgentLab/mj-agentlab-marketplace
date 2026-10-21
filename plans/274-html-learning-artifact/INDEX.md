@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-21
 state: active
-version: v1.19
+version: v1.20
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -21,6 +21,14 @@ sources: ./source-bindings.json
 ---
 
 # HTML learning artifact task entry
+
+## Marketplace8.3.5 maintenance publication preparation
+
+2026-10-21（Asia/Taipei）：Owner明确“执行发布”；#294实际develop **6b4612b4** 已交付市场8.3.5预升，完整main931e祖先已核，公开仍834/HTML0.1.39。按同一Issue274准备纯维护发行，插件/运行/唯一原意与接受基线保持；新候选、保护main合入、公开和真实tag新验均待各自证据。原.37限定接受、延期/效果/历史批准缺口保留，详见[唯一REPORT](./[REPORT]_HTML_Learning_Artifact.md#marketplace835-maintenance-publication-preparation)与[835账本](../../docs/runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md)。
+
+下一步推荐：完成本轮候选独审和工程门禁，再提交唯一发行PR→main；当前head真实批准/required checks/线程/latestbase满足才正常合入。理由是835已预升，但历史6b通过不替代新候选与发布证据。
+
+以下为各自历史时点快照，进度正本仍为[#274](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274)。
 
 ## Actual PR293 develop verification and marketplace8.3.5 pre-bump
 

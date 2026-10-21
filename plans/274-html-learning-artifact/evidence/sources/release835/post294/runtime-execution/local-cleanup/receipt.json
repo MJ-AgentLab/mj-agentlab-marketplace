@@ -1,0 +1,79 @@
+{
+  "startedAtUtc": "2026-10-21T00:45:53.725781+00:00",
+  "endedAtUtc": "2026-10-21T00:45:54.351348+00:00",
+  "steps": [
+    {
+      "name": "pwsh-contract",
+      "argv": [
+        "C:\\Users\\Admin\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoLogo",
+        "-NoProfile",
+        "-NonInteractive",
+        "-Command",
+        "$ErrorActionPreference='Stop'; if ($PSVersionTable.PSVersion.ToString() -ne '7.6.5') { throw 'Unexpected bundled PowerShell version' }; Get-Command Get-FileHash -ErrorAction Stop | Select-Object Name,Source | ConvertTo-Json -Compress"
+      ],
+      "startedAtUtc": "2026-10-21T00:45:53.725781+00:00",
+      "endedAtUtc": "2026-10-21T00:45:53.957239+00:00",
+      "exitCode": 0,
+      "stdout": {
+        "bytes": 65,
+        "sha256": "f47fd847e3a6c712b9bd2c7841e9f17649b4da16c936fc49d6ef2f97fe40804f",
+        "path": "pwsh-contract.stdout"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "path": "pwsh-contract.stderr"
+      }
+    },
+    {
+      "name": "prepare",
+      "argv": [
+        "C:\\Users\\Admin\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "C:\\Users\\Admin\\.codex\\task-evidence\\html-learning-274-post294-20261021\\prepare-local-cleanup.py"
+      ],
+      "startedAtUtc": "2026-10-21T00:45:53.977167+00:00",
+      "endedAtUtc": "2026-10-21T00:45:54.022891+00:00",
+      "exitCode": 0,
+      "stdout": {
+        "bytes": 226,
+        "sha256": "74d8eea688adfb52cc66e66478103d112ffcedeb4466bdc844bfb9cc6a16ef3a",
+        "path": "prepare.stdout"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "path": "prepare.stderr"
+      }
+    },
+    {
+      "name": "cleanup",
+      "argv": [
+        "C:\\Users\\Admin\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoLogo",
+        "-NoProfile",
+        "-NonInteractive",
+        "-File",
+        "C:\\Users\\Admin\\.codex\\task-evidence\\html-learning-274-post294-20261021\\actual-develop-local\\cleanup-owned-temp.ps1"
+      ],
+      "startedAtUtc": "2026-10-21T00:45:54.029650+00:00",
+      "endedAtUtc": "2026-10-21T00:45:54.349831+00:00",
+      "exitCode": 0,
+      "stdout": {
+        "bytes": 243,
+        "sha256": "b408d7e9dbaabaca88f26631977f0438a946008677e8fdbaae5022d78b8256c4",
+        "path": "cleanup.stdout"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "path": "cleanup.stderr"
+      }
+    }
+  ],
+  "exitCode": 0,
+  "preservedInitialLaunchAbsenceFalse": true,
+  "canonicalContribution": 0,
+  "automaticTestCleanup": false,
+  "noRetry": true
+}
