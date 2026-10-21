@@ -2,7 +2,7 @@
 
 ## [0.1.40] - 2026-10-21
 
-Repair candidate under #274; manifest version applied, source-pinned targeted Windows checks and limited independent review completed. Complete Harness, fresh installations, protected delivery and publication remain pending.
+HTML Guide Kit 0.1.40 is a repair candidate under #274; manifest version applied, source-pinned targeted Windows checks and limited independent review completed. Complete Harness, fresh installations, protected delivery and publication remain pending.
 
 ### Fixed
 
