@@ -6,7 +6,7 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-21
 state: active
-version: v1.19
+version: v1.20
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
@@ -21,6 +21,14 @@ sources: ./source-bindings.json
 ---
 
 # HTML learning artifact task entry
+
+## Windows owned-browser recovery and HTML0.1.40 repair candidate
+
+2026-10-21（Asia/Taipei）：#295发行尝试因Windows回收缺陷关闭且未合入，835无tag/Release。#294实际develop6b已预升市场8.3.5并完整含main931e；公开仍834/HTML0.1.39。精确事故恢复r2已使原8owned进程退出、文件保留；HTML0.1.40版本已应用，实现和末轮source-pinned定向检查/独审已完成。完整Harness、新13安装、CI、保护develop及重建发行均PENDING，旧CI只属旧候选，见[唯一PLAN](./[PLAN]_HTML_Learning_Artifact.md#windows-owned-browser-recovery-and-html0140-repair-candidate)与[REPORT](./[REPORT]_HTML_Learning_Artifact.md#windows-owned-browser-recovery-and-html0140-repair-candidate)。
+
+下一步推荐：独立审阅本批代码/文档后，对固定新候选执行完整Harness、新13安装与独立回读，通过正常protected develop交付/actual复验后再重建835发行。原因是有限定向验已支持进入完整门禁，不能以旧四CI或事故恢复替代新source验收。D01延期、效果未测、全计划OPEN及原.37限定接受保持。
+
+以下为各自原时点快照；进度正本仍为[#274](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274)。
 
 ## Actual PR293 develop verification and marketplace8.3.5 pre-bump
 

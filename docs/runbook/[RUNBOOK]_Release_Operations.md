@@ -6,13 +6,21 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-21
 state: active
-version: v2.10.13
+version: v2.10.14
 layer: canonical
 ---
 
 # [RUNBOOK] Release operations
 
 ## Preparation
+
+2026-10-21（Asia/Taipei）：同#274的835发行尝试#295因新证实Windows owned-browser回收缺陷关闭未合入，无835tag/Release。#294实际develop6b已预升市场8.3.5且完整含main931e，公开仍834/HTML0.1.39；默认六834安装锚点与公开历史保持。事故恢复r2已于03:15:47–03:16:22Z受控Browser.close一次、原8退出/无fallback/双空/handles关闭，文件保留。HTML0.1.40仅manifest已Apply，private Job/退出屏障已实现，末轮固定source的14内核case/4真实Chrome Job定向验及有限独审完成；完整Harness、新13/实际Python/CI/保护develop及重建发行均PENDING。
+
+工程顺序与固定外部证据由[274唯一PLAN/REPORT](../../plans/274-html-learning-artifact/INDEX.md#windows-owned-browser-recovery-and-html0140-repair-candidate)承接。首652/650P/1F/1skip、neutral未执行、relaunch原因UNKNOWN、已证cleanup gap、首库存/筛选方法限制分别保留；早批NOT_CAPTURED不回填，旧四CI不替新source。原.37限定接受、D01/客户端延期、NOT_MEASURED/计划OPEN、旧bypass/批准NOT_MET不追认；新保护当前head真非作者且非latest-pusher批准、CI/A6/线程/latestbase满足才正常合入。
+
+下一步推荐：独立审代码/文档后，完成固定新候选完整Harness、新13安装与独立回读，按多子PR→同集成分支/唯一主PR→protected develop正常交付并actual复验，再重建835→main发行。理由是定向修复证据支持进入完整门禁，恢复与有限独审不证明正式交付。已知良好834/tag5898继续供安装，异常停止推广/前向修复，不改公开tag/Release/资产或创建自动监控。本批无新增Owner产品决定，超五边界才集中决定。
+
+下列旧准备快照按各自时点读取。
 
 2026-10-21（Asia/Taipei）：#293于2026-10-20T17:43:53Z（台北2026-10-21T01:43:53+08:00）实际合入develop **ac36c10d52e0712338888a007d2b9281d3097b6c/tree698065a160995014522019d9aae161b8ad1ebd1f**，parents7c23＋1732，完整树同已测同步候选；main **931e1214377357e9f94b6c5ca10029330c6ec0d6** 完整祖先已独立核对。Git commit clock为2026-10-20T17:43:52Z，与PR mergedAt分属字段，不混作同一时钟。公开仍Marketplace8.3.4/HTML0.1.39，tag/Release5898；835仅本轮隔离预升候选，尚未合入、未公开。
 

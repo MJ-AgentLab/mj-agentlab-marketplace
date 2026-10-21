@@ -6,13 +6,35 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-21
 state: active
-version: v1.20
+version: v1.21
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 ---
 
 # [PLAN] HTML learning artifact implementation
+
+## Windows owned-browser recovery and HTML0.1.40 repair candidate
+
+2026-10-21（Asia/Taipei）：Owner已明确“执行发布”，既有同五边界授权继续覆盖必要工程诊断/修复；本批沿Issue274、INT-2026-003 v1.2、原32项＋A01–A08，不新增INTENT。原维护发行[PR295](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/295)已关闭且未合入；835无tag/Release。当前actualdevelop6b4612b4968f5172944f61b180c032df913037f1已交付市场8.3.5预升并完整含main931e1214377357e9f94b6c5ca10029330c6ec0d6，公开仍834/tag5898a8192740b39f41263129a5f99efeba96a6cc与HTML0.1.39。现隔离候选HTML0.1.40已用版本工具DryRun→Apply，仅plugin manifest升版；市场8.3.5、README默认公开安装834及其他插件保持。
+
+首暖纸NOT_RUN/neutral未执行和启动relaunch根因UNKNOWN保留；代码＋精确owned profile实际残留已证Windows回收验证缺陷，unchanged local-r2已停止。旧candidate严格十三安装与PR/push四矩阵通过仅属旧source，不计本修复通过。
+
+有序执行与当前解锁状态：
+
+1. **事故恢复（RECOVERED_EXACT_PROCESS_GROUP_ONLY；文件保留）**：新静审与Root明确GO后的r2于03:15:47–03:16:22Z实际exit0；同listener/portfile/元信息绑定的Browser.close仅一次，原8个native创建身份/精确profile对象退出，无native fallback，双次空集合/原handle signaled及handles关闭均留证。未杀其他用户浏览器、未知PID或删除文件。首TEMP 806文件的三次稳定hash只支持纠正后的限定库存范围；首次筛选method无效与原PermissionError各保原件，后续删除须另走受控核验，不能先称已删。事故恢复不等于产品修复验收。
+2. **Windows进程封装修复（IMPLEMENTED；末轮定向PASS，完整门禁PENDING）**：已在private unnamed non-inheritable Job设置kill-on-close且禁breakaway；CreateProcessW先suspended、成功assign后才resume。Job创建/分配/恢复或权限不足失败关闭，无裸Popen或按名杀回退；启动探测真实Job完整owned对象存活，不以launcher return0作全树退出。原flags、min(timeout,15)启动上限及既有操作deadline保持。此边界覆盖实际Job及普通继承子孙，不保证external broker/WMI或全OS进程归属。
+3. **退出/目录屏障（IMPLEMENTED；末轮定向PASS，完整门禁PENDING）**：完整可扩容Job PID清单与ActiveProcesses双次空观察满足后才清理目录；正常、启动失败、超时及异常路径都检查。Windows transport.close异常仍drain/release Job，保原始错误与teardown双错；回收不确定保目录并维持NON_PASS/NOT_RUN。POSIX现有session路径、browser argv及判准保持。
+4. **独立工程验收（LIMITED_TARGETED_PASS；完整门禁PENDING）**：最终7路径source前后固定的14实际内核case、真实Chrome 2测试/4Job已运行（暖纸/neutral/健康几何3PASS＋人工几何缺陷1预期FAIL，四Job均双空/独立根退出）；延后71.845秒精确profile观察0匹配/4根不存在。固定实现独审无阻断finding。早批native/Chrome source hash NOT_CAPTURED、transport修正前30合同＋2清理结果保原身份，不冒作末轮重跑。完整npm test/validate、新13/178安装、实际Python闭包/Linux/CI及独立回读仍PENDING；不重启无关模型/桌面/Sites/受众验收。
+5. **交付与发布（PENDING）**：按Issue274唯一主PR→protected develop、多子PR→同集成分支，内部依实际Harness正常合并；代码/测试/A6/changelog与canonical/计划结果可分子PR审阅。新head真实非作者且非latest-pusher批准、CI/A6/线程/latestbase满足后才正常保护合入，不bypass。actualdevelop新复验后重建单一835发行候选→main，继续draft-first/actualmain/tag/真实tag新验；候选、公开与Owner接受各有自身证据。未来本批PR/CI/merge回Issue及外部冻结回执，不递归纯证据PR。
+
+来源仅引用REPORT外部固定path/hash，不复制大日志或私有B2。旧Eold整体1034成员/26包/76384550B已封存；本批E2实现163成员和独审6成员各自冻结，详见同REPORT来源表；此文档记录有限定向验，不把完整Harness/交付/公开PENDING写成PASS。
+
+已知良好公开834保持供安装，异常先停止推广并前向修复，保公开tag/Release/资产，不创建自动监控。D01持续窗口/延期客户端仍DEFERRED、效果NOT_MEASURED、全计划OPEN；原Owner ACCEPTED_LIMITED仅0.1.37，不扩至.38/Site v2/.39/.40。旧FAIL/UNKNOWN/bypass/批准NOT_MET不追认。
+
+下一步推荐：审阅本批固定实现和文档，执行新候选完整Harness、新13安装及独立回读，正常protected develop交付后再重建发行。原因是定向证据仅支持进入完整门禁。本批无新增产品决定，常规工程由Agent执行；超五边界才集中提请Owner决定。
+
+以下为原时点快照，旧当前/待办按当时范围读取。
 
 ## Actual PR293 develop verification and marketplace8.3.5 pre-bump
 
