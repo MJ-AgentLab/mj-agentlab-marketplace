@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-21T04:48:37.027Z",
+  "source": "https://github.com/MJ-AgentLab/mj-agentlab-marketplace/actions/runs/39544704050/job/119040158198",
+  "candidate": "5a28eba5af4691cb31bba9b41ef5b9ab08ba1cdf",
+  "result": "FAIL",
+  "failedTests": [
+    "2026-10-21T04:35:15.2551451Z not ok 332 - actual browser renders distinct warm-paper and neutral themes at desktop and mobile sizes",
+    "2026-10-21T04:35:15.2630739Z not ok 333 - actual browser measures mobile/desktop viewport sizes and detects overflow, clipping and extreme wrapping"
+  ],
+  "reasons": [
+    "2026-10-21T04:35:15.2589610Z       \"reason\": \"RuntimeError: browser did not provide a readable local DevTools endpoint: [Errno 2] No such file or directory: '/tmp/html-site-layout-idtw1t3y/browser-profile/DevToolsActivePort'\"",
+    "2026-10-21T04:35:15.2667246Z       \"reason\": \"RuntimeError: browser did not provide a readable local DevTools endpoint: timed out\""
+  ],
+  "scope": "Existing HTML browser startup checks; HTML runtime and test bytes unchanged in this task",
+  "rerunAttempt": {
+    "result": "403",
+    "reason": "Workflow containing job still running; no retry reported successful"
+  },
+  "limits": [
+    "Failure retained independently from local Python discovery recovery and later CI runs"
+  ]
+}
