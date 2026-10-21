@@ -6,13 +6,23 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-21
 state: active
-version: v1.2
+version: v1.3
 layer: working
 task: 222-communication-kit
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/222
 ---
 
 # [REPORT] Communication Kit
+
+## Actual8.3.5 publication via PR303
+
+2026-10-21（Asia/Taipei）：Owner已授权的Communication0.1.1新名称/完整英文简介与HTML0.1.40一起随Marketplace8.3.5公开。#303于08:38:24Z（台北16:38:24）合入main `8e90f560839eefd733ff47a9c7bb807c55b9387d/tree812f3e571dcc4f20c444c00bec724f6821f0649b`，与已验e991完整等树；Release `419327118`于08:41:31Z（台北16:41:31）published，真实v8.3.5 tag/main/Release target同8e90，draft/prerelease=false、assets=[]、immutable=false。既有exact-main Release run39570799699 attempt1/push为success，Agent未重复创建发行。完整公开身份与已限定通过（PASS_LIMITED_IDENTITY_AND_REUSED_ACCEPTANCE）的actualmain/tag资源闭包见[835账本](../../docs/runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md#actual-pr303-publication-and-continuation)及[274主REPORT](../274-html-learning-artifact/[REPORT]_HTML_Learning_Artifact.md#actual-pr303-publication-and-continuation)。
+
+插件/技能共用“Communication Kit”与“Draft clear messages and documents while preserving meaning.”；版本0.1.1，ID/路由/默认提示/显式策略/行为/图标保持。按Owner决定复用已有安装/资源证据，本轮未手工重复安装/CLI/Python/模型/GUI/窗口；先前完整CLI stdout/stderr/RPC、外层启动/运行时helperSHA及完整当时guard的捕获限制保留，不重构raw，不把资源复用称新执行。实际303 reviews=[]/匹配rule suite4637288454为bypass，批准NOT_MET；Agent未执行该保护合并或发布，不追认批准或后继豁免。
+
+旧CLI PARTIAL、有限客户端与窗口延期、现实效果未测和Owner最终接受继续独立；公开不自动关闭原Epic或扩大原接受。后继中央导航维护、完整main→develop及实际develop新增闭包后仅市场下一补丁预升由同一Issue274执行，保护PR当前head真实批准/CI/A6/线程/latestbase保持，不bypass；自身后继事实回Issue及新外部固定回执，不递归纯证据PR。
+
+下一步推荐：由274发布后续依据已确认actualmain/tag闭包，完成main默认导航/有界记录候选并通过正常保护PR交付；本Communication范围只承接真实公开身份，不重启已验行为。以下各段为各自原时点的交付/候选快照。
 
 [任务入口](./INDEX.md) · [主 PLAN](./[PLAN]_Communication_Kit.md)
 

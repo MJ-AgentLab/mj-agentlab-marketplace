@@ -6,11 +6,21 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-21
 state: active
-version: v2.10.16
+version: v2.10.17
 layer: canonical
 ---
 
 # [RUNBOOK] Release operations
+
+## Actual PR303 publication and continuation
+
+2026-10-21（Asia/Taipei）：#303已于08:38:24Z合入actualmain8e90/tree812f3e，与已验e991完整等树；Marketplace8.3.5/HTML0.1.40/Communication0.1.1已由既有exact-main Release workflow于08:41:31Z公开。真实tag/main/Release target同8e90，draft/prerelease=false、assets=[]、immutable=false，仓库immutable配置缺字段仍UNKNOWN；真实303 reviews=[]/rule suite4637288454bypass、批准NOT_MET，Agent未执行保护合并或发布。详细身份及独立闭包PASS_LIMITED_IDENTITY_AND_REUSED_ACCEPTANCE的边界见[835账本](./[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md#actual-pr303-publication-and-continuation)。
+
+先查询已有exact-main发布流程及真实结果，已公开版本只验证，不重复创建/移动tag或重写Release/资产。按Owner已验未变内容无需重验的真实决定，actualmain/tag只补身份、资源闭包和新增差异；本轮未手工重复suite/十三/Python/安装/模型/桌面/原生，必需CI及既有发布workflow照常，不把复用称新执行。旧阶段新跑要求、缺陷/FAIL/UNKNOWN/捕获限制及保护批准缺口保其各自来源。
+
+实际公开闭包确认后，先正常交付一份有界main默认安装导航/记录PR；其实际merge后把完整actualmain ancestry普通同步develop，不以子集cherry-pick冒称完整同步。actualdevelop实际合入并核新增闭包后才从实际版本DryRun→Apply仅市场下一补丁，版本工具只改VERSION/README badge，插件独立版本保持、无预升号tag/Release。各保护PR需当前head真实非作者/非latest-pusher及适用CODEOWNER批准、CI/Structure/A6、线程/latestbase；旧bypass不授权新bypass。自身未来CI/merge回Issue274与外部固定回执，无新实质差异不递归纯证据PR。
+
+下一步推荐：将默认公开安装导航通过当前head门禁的正常main PR指向已核835；理由是公开和资源闭包已确认，默认推广还须通过本轮导航PR的真实保护门禁。原.37限定接受、D01/客户端延期、NOT_MEASURED/完整计划OPEN及Owner最终接受独立，无新增周期自动化。以下Preparation和历史Post-release段均按各自时点/范围读取。
 
 ## Preparation
 

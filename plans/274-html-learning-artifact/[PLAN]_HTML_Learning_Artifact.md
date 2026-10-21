@@ -6,13 +6,25 @@ owner: marketplace-maintainers
 created: 2026-10-19
 updated: 2026-10-21
 state: active
-version: v1.22
+version: v1.23
 layer: working
 task: 274-html-learning-artifact
 tracking: https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/274
 ---
 
 # [PLAN] HTML learning artifact implementation
+
+## Actual PR303 publication and continuation
+
+2026-10-21（Asia/Taipei）：Owner要求“#303 PR已经合并，后续任务转至新session中继续执行”，沿用本PLAN、Issue274及既有五边界/正式发布授权，不重新规划。#303已于08:38:24Z（台北16:38:24）合入actualmain `8e90f560839eefd733ff47a9c7bb807c55b9387d/tree812f3e571dcc4f20c444c00bec724f6821f0649b`，与已验e991候选完整等树；8.3.5已于08:41:31Z（台北16:41:31）真实公开。身份与实际治理见[主REPORT](./[REPORT]_HTML_Learning_Artifact.md#actual-pr303-publication-and-continuation)及[835账本](../../docs/runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md#actual-pr303-publication-and-continuation)。
+
+未变验收依Owner真实“对于已经验过的内容，无需重验”决定复用，只核新增差异、实际merge/tag/Release身份与资源闭包；本轮独立actualmain/tag闭包结论为PASS_LIMITED_IDENTITY_AND_REUSED_ACCEPTANCE，不称已新跑suite/十三/Python/安装/模型/桌面/原生。既有发布workflow正常完成与必需CI按真实来源登记，不改变门禁。实际303 reviews=[]、匹配rule suite为bypass，批准NOT_MET；Agent未执行该保护合并或发布，不构成后继豁免。
+
+后继依赖保持有序：实际公开闭包成立后，先通过一份有界main默认安装导航/记录PR；其实际合入后，将包含该merge的完整actualmain ancestry普通同步到develop，不用子集cherry-pick冒称完整同步。actualdevelop合入并核新增闭包后，才以实际版本先DryRun→Apply仅市场下一补丁，插件独立版本保持，不创建该预升号tag/Release。各保护PR需当前head真实非作者/非latest-pusher及适用CODEOWNER批准、requiredCI/Structure/A6、已解线程和latestbase；Agent不bypass。本批自身未来CI/merge/复验回Issue274和新外部固定回执，无新实质差异不递归纯证据PR。
+
+原HTML0.1.37核心ACCEPTED_LIMITED不扩大至.38/Site v2/.39/.40；D01持续窗口/其他延期客户端DEFERRED、效果NOT_MEASURED、完整计划OPEN，Owner最终接受独立，不因公开关闭原Epic。新证据位于 `C:/Users/Admin/.codex/task-evidence/marketplace-835-post303-20261021`；旧E4及更早STOP根只读，不执行或写旧helper。异常停推广并前向修复，不移动/改写公开tag/Release/资产，无新增周期自动化。
+
+下一步推荐：完成本轮有界导航候选检查，再向protected main提交导航/记录PR；理由是公开及资源身份已确认，默认安装应通过正常保护PR指向真实835。以下旧阶段按各自原时点读取，不重启已验内容。
 
 ## Combined8.3.5 release scope and evidence reuse
 

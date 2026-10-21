@@ -6,11 +6,19 @@ owner: marketplace-maintainers
 created: 2026-10-09
 updated: 2026-10-21
 state: active
-version: v2.118
+version: v2.119
 layer: canonical
 ---
 
 # 文档索引
+
+## Current8.3.5 publication and continuation
+
+2026-10-21（Asia/Taipei）：[#303](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/pull/303)已合入main，Marketplace8.3.5/HTML0.1.40/Communication0.1.1已真实公开；实际身份、资源复用与批准NOT_MET见[835账本当前结果](runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md#actual-pr303-publication-and-continuation)及[274唯一任务](../plans/274-html-learning-artifact/INDEX.md#actual-pr303-publication-and-continuation)。独立actualmain/tag闭包已取得PASS_LIMITED_IDENTITY_AND_REUSED_ACCEPTANCE（资源身份与既有验收复用），原.37限定接受、延期、NOT_MEASURED和完整计划OPEN保持。
+
+下一步推荐：依据已确认公开闭包，通过有界main导航/记录PR使默认安装指向835，再完整同步actualmain→develop；actualdevelop新增闭包核验后才仅市场下一补丁DryRun→Apply。每个保护PR保持当前head真实批准/CI/A6/线程/latestbase，不bypass；自身后继事实回Issue274和外部回执，不递归证据PR。
+
+以下为#303合入前的准备及历史导航快照；其中“当前”“公开仍834”“尚未发布”和旧排除299只对应各自原时点，现行公开状态以上节及835账本为准。
 
 当前8.3.5/#303沿Owner后续授权合并HTML0.1.40修复及Communication0.1.1新名称/英文简介；完整actualdevelop150356及补丁4248纳入，未变验收复用，新增元数据/版本/闭包与最终head保护门禁独立。见[835当前账本](runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md#current-combined-release-scope)与[274唯一任务](../plans/274-html-learning-artifact/INDEX.md#current-combined835-release-preparation)。公开仍834，旧缺口/延期和原.37限定接受保留。下一步推荐完成新增检查/独审后更新同一#303，再核真实批准与发布身份。以下为原时点记录。
 
@@ -36,6 +44,8 @@ layer: canonical
 ## 当前性能维护
 
 [#245](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/issues/245)五阶段#246/#247/#248/#249/#251均已合入develop。四性能门槛/完整24样本通过、保留default；最终actual6df新492/492、13安装、6Diagram+18LEK及15清理通过并独立复核。Owner明确仅对245接受历史批准/bypass缺项后，Issue于2026-10-16T13:09:52Z以Completed关闭；原NOT_MET、历史失败和调度限制保留，例外不外推。见[账本](runbook/[RUNBOOK]_Windows_CI_Performance_Acceptance.md)与[最终收尾回执](runbook/evidence/ci-performance-245-final-closeout.json)。
+
+> 以下整体发布段为#303合入前历史阶段快照；不将其中旧待办重启为本轮要求。
 
 ## 当前整体发布
 
