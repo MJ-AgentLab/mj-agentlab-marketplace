@@ -5,6 +5,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Rename the Communication plugin and skill display to **Communication Kit** and use “Draft clear messages and documents while preserving meaning.” as their shared English summary. Keep `communication-kit`, `$communication-kit:communicate`, explicit invocation, behavior, icons and package versions unchanged. This display-only maintenance is not a release. Refs #298, #222.
+
 Update the default installation reference to the verified v8.3.4 release and HTML Guide Kit0.1.39. Record actual main/tag/Release identity and independent post-publication checks under Issue274 without changing package versions, runtime resources or published release notes. Preserve earlier failures, missing protected approval, deferred native/client coverage and original limited Owner acceptance. This maintenance entry does not publish another version. Refs #274.
 
 ## [8.3.4] - 2026-10-20

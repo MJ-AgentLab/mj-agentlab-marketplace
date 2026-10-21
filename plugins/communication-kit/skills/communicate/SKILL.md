@@ -3,7 +3,7 @@ name: communicate
 description: "Draft everyday messages or documents and faithfully rewrite supplied material on explicit request. Deliver a usable draft and key notes; preserve facts, positions, conditions and commitments. Start only when the user invokes this skill or explicitly requests the communication assistant."
 ---
 
-# 沟通助手
+# Communication Kit
 
 通过唯一入口 `$communication-kit:communicate` 处理日常沟通、文档编写和保义改写，审校内置。默认中文，保留引文、专有名词和技术标识原文；用户的语言、长度、语气和格式优先。
 
