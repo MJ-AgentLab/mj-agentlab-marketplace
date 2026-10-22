@@ -2,7 +2,7 @@
 
 <img src="assets/brand/marketplace/logo.svg" width="128" height="128" alt="MJ AgentLab Marketplace — MJ letters with connected modules">
 
-![Version](https://img.shields.io/badge/version-8.3.5-blue)
+![Version](https://img.shields.io/badge/version-8.3.6-blue)
 
 面向 ChatGPT 桌面端与 Codex 本地环境（CLI验收基线0.147.0）的插件市场，无需MCP服务。[Marketplace v8.3.5](https://github.com/MJ-AgentLab/mj-agentlab-marketplace/releases/tag/v8.3.5)已于2026-10-21经#303合入main并自动公开，发行时main/tag/Release同为8e90f560839eefd733ff47a9c7bb807c55b9387d。HTML Guide Kit0.1.40修复Windows自有浏览器进程回收；Communication Kit0.1.1正式发布新显示名和英文简介，标识与显式入口保持。五包八技能/五显式保持，实际main与真实tag资源树同已验候选，按Owner授权复用未变验收；发布身份核验与既有安装/Python运行分开记录。实际bypass/批准NOT_MET、历史FAIL、延期与Owner接受分别保留，见[8.3.5发布记录](docs/runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md)。
 

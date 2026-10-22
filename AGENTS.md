@@ -2,7 +2,7 @@
 
 ## 项目上下文
 
-#303实际main/tag8e90已公开835/HTML.40/Communication.1.1，树同e991，未变验收复用；bypass/批准NOT_MET保。按[274](plans/274-html-learning-artifact/INDEX.md)/[835账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md)先导航、完整main同步、actualdevelop核验后仅市场预升；延期/接受保界。
+#305实际develop22c899已完整同步main8a0b，树同已验；本候选市场8.3.6预升未发布，插件不变。公开835/HTML.40/Communication.1.1仍tag8e90；未变验收复用，bypass/批准NOT_MET保。见[274](plans/274-html-learning-artifact/INDEX.md)/[835账本](docs/runbook/[RUNBOOK]_Marketplace_8_3_5_Release_Readiness.md)；延期/接受保界。
 
 manifest 的公开示例按[插件契约](docs/spec/[SPEC]_Plugin_Json_Schema.md)保留完整路由，最多三条，各原值不超过 128 个 Unicode scalar values；严格校验防止客户端忽略超长示例而丢失公开入口，不依赖空白归一化。
 
